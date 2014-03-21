@@ -1,0 +1,44 @@
+From 3d1a27f97906dace0ef8ab33cf7642109088926a Mon Sep 17 00:00:00 2001
+From: Benjamin Girault <benjamin.girault@gmail.com>
+Date: Sat, 19 Oct 2013 23:07:18 +0200
+Subject: [PATCH] Panorama: bugfix lastpage
+
+Thanks to Pulfer for the bug report and "ROSA & OpenMandriva" for the patch is one is based on.
+
+CCBUG: 324239
+---
+ extra/kipi-plugins/panorama/importwizard/lastpage.cpp | 11 ++++++-----
+ 1 file changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/extra/kipi-plugins/panorama/importwizard/lastpage.cpp b/panorama/importwizard/lastpage.cpp
+index 4c9bd6d..59c6e73 100644
+--- a/extra/kipi-plugins/panorama/importwizard/lastpage.cpp
++++ b/extra/kipi-plugins/panorama/importwizard/lastpage.cpp
+@@ -91,11 +91,7 @@ LastPage::LastPage(Manager* const mngr, KAssistantDialog* const dlg)
+ 
+     QLabel *fileTemplateLabel = new QLabel(i18n("File name template:"), d->saveSettingsGroupBox);
+     formatVBox->addWidget(fileTemplateLabel);
+-    QString first = d->mngr->itemsList().front().fileName();
+-    QString last = d->mngr->itemsList().back().fileName();
+-//     QString file = "panorama";
+-    QString file = QString("%1-%2").arg(first.left(first.lastIndexOf('.'))).arg(last.left(last.lastIndexOf('.')));
+-    d->fileTemplateKLineEdit  = new KLineEdit(file, d->saveSettingsGroupBox);
++    d->fileTemplateKLineEdit  = new KLineEdit("panorama", d->saveSettingsGroupBox);
+     d->fileTemplateKLineEdit->setToolTip(i18n("Name of the panorama file (without its extension)."));
+     d->fileTemplateKLineEdit->setWhatsThis(i18n("<b>File name template</b>: Set here the base name of the files that "
+                                                 "will be saved. For example, if your template is <i>panorama</i> and if "
+@@ -146,6 +142,11 @@ LastPage::~LastPage()
+ 
+ void LastPage::resetTitle()
+ {
++    QString first = d->mngr->itemsList().front().fileName();
++    QString last = d->mngr->itemsList().back().fileName();
++    QString file = QString("%1-%2").arg(first.left(first.lastIndexOf('.'))).arg(last.left(last.lastIndexOf('.')));
++    d->fileTemplateKLineEdit->setText(file);
++
+     slotTemplateChanged(d->fileTemplateKLineEdit->text());
+     checkFiles();
+ }
+-- 
+1.9.0
+
