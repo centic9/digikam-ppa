@@ -4,7 +4,7 @@
  *
  * Date        : 02.02.2012
  *
- * Copyright (C) 2012-13 by Marcel Wiesweg <marcel dot wiesweg at uk-essen dot de>
+ * Copyright (C) 2012-2013 by Marcel Wiesweg <marcel dot wiesweg at uk-essen dot de>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,7 +30,6 @@
 // Local includes
 
 #include "identity.h"
-#include "unitfacemodel.h"
 
 namespace KFaceIface
 {
@@ -46,23 +45,18 @@ public:
     ~TrainingDB();
 
     void setSetting(const QString& keyword, const QString& value);
-    QString setting(const QString& keyword);
+    QString setting(const QString& keyword) const;
 
-    int addIdentity();
+    int  addIdentity() const;
     void updateIdentity(const Identity& p);
     void deleteIdentity(int id);
-    QList<Identity> identities();
-    QList<int> identityIds();
-
-    /// OpenTLD
-
-    void addTLDFaceModel(int identity, const UnitFaceModel& model);
-    QList<UnitFaceModel> tldFaceModels(int identity);
+    QList<Identity> identities()  const;
+    QList<int>      identityIds() const;
 
     /// OpenCV LBPH
 
     void updateLBPHFaceModel(LBPHFaceModel& model);
-    LBPHFaceModel lbphFaceModel();
+    LBPHFaceModel lbphFaceModel() const;
     void clearLBPHTraining(const QString& context = QString());
     void clearLBPHTraining(const QList<int>& identities, const QString& context = QString());
 

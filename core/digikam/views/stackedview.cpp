@@ -107,14 +107,16 @@ StackedView::StackedView(QWidget* parent)
     d->thumbBarDock     = new ThumbBarDock();
     d->thumbBar         = new ImageThumbnailBar(d->thumbBarDock);
     d->thumbBar->setModelsFiltered(d->imageIconView->imageModel(), d->imageIconView->imageFilterModel());
-    d->thumbBar->installRatingOverlay();
+    d->thumbBar->installOverlays();
     d->thumbBarDock->setWidget(d->thumbBar);
     d->thumbBarDock->setObjectName("mainwindow_thumbbar");
 
     d->welcomePageView = new WelcomePageView(this);
     d->mediaPlayerView = new MediaPlayerView(this);
     d->mapWidgetView   = new MapWidgetView(d->imageIconView->getSelectionModel(),
-                                           d->imageIconView->imageFilterModel(), this);
+                                           d->imageIconView->imageFilterModel(), this,
+                                           MapWidgetView::ApplicationDigikam
+                                          );
     d->mapWidgetView->setObjectName("mainwindow_mapwidgetview");
     d->tableView       = new TableView(
             d->imageIconView->getSelectionModel(),

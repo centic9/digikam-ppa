@@ -45,6 +45,7 @@
 #include <kstandarddirs.h>
 #include <kaction.h>
 #include <ktoolbar.h>
+#include <kdialog.h>
 #include <kmainwindow.h>
 #include <kmultitabbar.h>
 #include <kactionmenu.h>
@@ -110,6 +111,8 @@ public:
     KAction*         tagProperties;
     KAction*         addAction;
     KAction*         delAction;
+    /** Options unavailable for root tag **/
+    QList<KAction*>  rootDisabledOptions;
 
     TagList*         listView;
     TagPropWidget*   tagPropWidget;
@@ -228,7 +231,20 @@ void TagsManager::slotOpenProperties()
 
 void TagsManager::slotSelectionChanged()
 {
-    d->tagPropWidget->slotSelectionChanged(d->tagMngrView->selectedTags());
+    QList<Album*> selectedTags = d->tagMngrView->selectedTags();
+
+    if(selectedTags.isEmpty() || (selectedTags.size() == 1 && selectedTags.at(0)->isRoot()))
+    {
+        enableRootTagActions(false);
+        d->listView->enableAddButton(false);
+    }
+    else
+    {
+        enableRootTagActions(true);
+        d->listView->enableAddButton(true);
+    }
+
+    d->tagPropWidget->slotSelectionChanged(selectedTags);
 }
 
 void TagsManager::slotItemChanged()
@@ -251,13 +267,16 @@ void TagsManager::slotAddAction()
     TagEditDlg::showtagsListCreationError(kapp->activeWindow(), errMap);
 }
 
-namespace {
+namespace
+{
+
 QString JoinTagNamesToList(const QStringList& stringList)
 {
     const QString joinedStringList = stringList.join(QString("', '"));
     return QChar('\'') + joinedStringList + QChar('\'');
 }
-}
+
+} // namespace
 
 void TagsManager::slotDeleteAction()
 {
@@ -312,6 +331,7 @@ void TagsManager::slotDeleteAction()
          */
         Album* parent = t;
         int depth = 0;
+
         while (!parent->isRoot())
         {
             parent = parent->parent();
@@ -348,6 +368,7 @@ void TagsManager::slotDeleteAction()
     }
 
     QString message;
+
     if (!tagsWithImages.isEmpty())
     {
         message = i18ncp(
@@ -405,6 +426,7 @@ void TagsManager::slotResetTagIcon()
 
     const QList<Album*> selected = d->tagMngrView->selectedTags();
     const QString icon = QString("tag");
+
     for (QList<Album*>::const_iterator it = selected.constBegin(); it != selected.constEnd(); ++it )
     {
         TAlbum* const tag = dynamic_cast<TAlbum*>(*it);
@@ -478,6 +500,21 @@ void TagsManager::slotInvertSel()
 void TagsManager::slotWriteToImg()
 {
     int result = KMessageBox::warningContinueCancel(
+            this,
+            i18n(
+                    "digiKam will clean up tag metadata before setting "
+                    "tags from database.<br> You may <b>lose tags</b> if you did not "
+                    "read tags before (by calling Read Tags from Image).<br> "
+                    "Do you want to continue?"
+                )
+        );
+
+    if (result != KMessageBox::Continue)
+    {
+        return;
+    }
+
+    result = KMessageBox::warningContinueCancel(
             this,
             i18n(
                     "This operation can take long time "
@@ -582,9 +619,9 @@ void TagsManager::slotWipeAll()
 }
 
 void TagsManager::slotRemoveTagsFromImgs()
-{    
+{
     const QModelIndexList selList = d->tagMngrView->selectionModel()->selectedIndexes();
-    
+
     const int result = KMessageBox::warningContinueCancel(
             this,
             i18np(
@@ -593,6 +630,7 @@ void TagsManager::slotRemoveTagsFromImgs()
                     selList.count()
                 )
         );
+
     if (result != KMessageBox::Continue)
     {
         return;
@@ -624,6 +662,7 @@ void TagsManager::closeEvent(QCloseEvent* event)
 void TagsManager::setupActions()
 {
     d->mainToolbar = new KToolBar(d->treeWindow, true);
+    d->mainToolbar->layout()->setContentsMargins(KDialog::marginHint(), KDialog::marginHint(), KDialog::marginHint(), KDialog::marginHint());
 
     QWidgetAction* const pixMapAction = new QWidgetAction(this);
     pixMapAction->setDefaultWidget(d->tagPixmap);
@@ -645,21 +684,21 @@ void TagsManager::setupActions()
                                              i18n("Organize"),this);
     d->organizeAction->setDelayed(false);
 
-    KAction* resetIcon     = new KAction(KIcon("view-refresh"),
+    KAction* const resetIcon     = new KAction(KIcon("view-refresh"),
                                          i18n("Reset tag Icon"), this);
 
-    KAction* createTagAddr = new KAction(KIcon("tag-addressbook"),
+    KAction* const createTagAddr = new KAction(KIcon("tag-addressbook"),
                                          i18n("Create Tag from Address Book"),
                                          this);
-    KAction* invSel        = new KAction(KIcon("tag-reset"),
+    KAction* const invSel        = new KAction(KIcon("tag-reset"),
                                          i18n("Invert Selection"), this);
 
-    KAction* expandTree    = new KAction(KIcon("format-indent-more"),
+    KAction* const expandTree    = new KAction(KIcon("format-indent-more"),
                                          i18n("Expand Tag Tree"), this);
 
-    KAction* expandSel     = new KAction(KIcon("format-indent-more"),
+    KAction* const expandSel     = new KAction(KIcon("format-indent-more"),
                                          i18n("Expand Selected Nodes"), this);
-    KAction* delTagFromImg = new KAction(KIcon("tag-delete"),
+    KAction* const delTagFromImg = new KAction(KIcon("tag-delete"),
                                          i18n("Remove Tag from Images"), this);
 
     /** Tool tips  **/
@@ -732,8 +771,6 @@ void TagsManager::setupActions()
     wipeAll->setHelpText(i18n("Delete all tags from database only. Will not sync with files. "
                              "Proceed with caution."));
 
-    /** BUG: Disabled temporary, will cause all tags from images to be lost **/
-    //wipeAll->setEnabled(false);
 
     connect(wrDbImg, SIGNAL(triggered()),
             this, SLOT(slotWriteToImg()));
@@ -789,8 +826,23 @@ void TagsManager::setupActions()
 
     connect(d->rightToolBar->tab(0),SIGNAL(clicked()),
             this, SLOT(slotOpenProperties()));
+
+    d->rootDisabledOptions.append(d->delAction);
+    d->rootDisabledOptions.append(resetIcon);
+    d->rootDisabledOptions.append(delTagFromImg);
 }
 
+
+void TagsManager::enableRootTagActions(bool value)
+{
+    Q_FOREACH(KAction* const action, d->rootDisabledOptions)
+    {
+        if(value)
+            action->setEnabled(true);
+        else
+            action->setEnabled(false);
+    }
+}
 
 // Nepomuk is deprecated, marked to be deleted
 

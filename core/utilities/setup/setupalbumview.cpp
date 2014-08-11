@@ -7,7 +7,7 @@
  * Description : album view configuration setup tab
  *
  * Copyright (C) 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -43,6 +43,7 @@
 
 // Local includes
 
+#include "thumbnailsize.h"
 #include "albumsettings.h"
 #include "dfontselect.h"
 #include "fullscreensettings.h"
@@ -56,6 +57,8 @@ class SetupAlbumView::Private
 public:
 
     Private() :
+        useLargeThumbsAsChanged(false),
+        useLargeThumbsOrg(false),
         iconTreeThumbLabel(0),
         iconShowNameBox(0),
         iconShowSizeBox(0),
@@ -69,9 +72,11 @@ public:
         iconShowOverlaysBox(0),
         iconShowRatingBox(0),
         iconShowFormatBox(0),
+        iconShowCoordinatesBox(0),
         previewLoadFullImageSize(0),
         previewShowIcons(0),
         showFolderTreeViewItemsCount(0),
+        largeThumbsBox(0),
         iconTreeThumbSize(0),
         leftClickActionComboBox(0),
         iconViewFontSelect(0),
@@ -79,6 +84,9 @@ public:
         fullScreenSettings(0)
     {
     }
+
+    bool                useLargeThumbsAsChanged;
+    bool                useLargeThumbsOrg;
 
     QLabel*             iconTreeThumbLabel;
 
@@ -94,9 +102,11 @@ public:
     QCheckBox*          iconShowOverlaysBox;
     QCheckBox*          iconShowRatingBox;
     QCheckBox*          iconShowFormatBox;
+    QCheckBox*          iconShowCoordinatesBox;
     QCheckBox*          previewLoadFullImageSize;
     QCheckBox*          previewShowIcons;
     QCheckBox*          showFolderTreeViewItemsCount;
+    QCheckBox*          largeThumbsBox;
 
     KComboBox*          iconTreeThumbSize;
     KComboBox*          leftClickActionComboBox;
@@ -143,28 +153,31 @@ SetupAlbumView::SetupAlbumView(QWidget* const parent)
     d->iconShowAspectRatioBox->setWhatsThis(i18n("Set this option to show the image aspect ratio "
                                                 "below the image thumbnail."));
 
-    d->iconShowFormatBox     = new QCheckBox(i18n("Show image Format"), iconViewGroup);
+    d->iconShowFormatBox      = new QCheckBox(i18n("Show image Format"), iconViewGroup);
     d->iconShowFormatBox->setWhatsThis(i18n("Set this option to show image format over image thumbnail."));
 
-    d->iconShowTitleBox      = new QCheckBox(i18n("Show digiKam tit&le"), iconViewGroup);
+    d->iconShowTitleBox       = new QCheckBox(i18n("Show digiKam tit&le"), iconViewGroup);
     d->iconShowTitleBox->setWhatsThis(i18n("Set this option to show the digiKam title "
                                            "below the image thumbnail."));
 
-    d->iconShowCommentsBox   = new QCheckBox(i18n("Show digiKam &captions"), iconViewGroup);
+    d->iconShowCommentsBox    = new QCheckBox(i18n("Show digiKam &captions"), iconViewGroup);
     d->iconShowCommentsBox->setWhatsThis(i18n("Set this option to show the digiKam captions "
                                               "below the image thumbnail."));
 
-    d->iconShowTagsBox       = new QCheckBox(i18n("Show digiKam &tags"), iconViewGroup);
+    d->iconShowTagsBox        = new QCheckBox(i18n("Show digiKam &tags"), iconViewGroup);
     d->iconShowTagsBox->setWhatsThis(i18n("Set this option to show the digiKam tags "
                                           "below the image thumbnail."));
 
-    d->iconShowRatingBox     = new QCheckBox(i18n("Show digiKam &rating"), iconViewGroup);
+    d->iconShowRatingBox      = new QCheckBox(i18n("Show digiKam &rating"), iconViewGroup);
     d->iconShowRatingBox->setWhatsThis(i18n("Set this option to show the digiKam rating "
                                             "below the image thumbnail."));
 
-    d->iconShowOverlaysBox   = new QCheckBox(i18n("Show rotation overlay buttons"), iconViewGroup);
+    d->iconShowOverlaysBox    = new QCheckBox(i18n("Show rotation overlay buttons"), iconViewGroup);
     d->iconShowOverlaysBox->setWhatsThis(i18n("Set this option to show overlay buttons on "
                                               "the image thumbnail for image rotation."));
+
+    d->iconShowCoordinatesBox = new QCheckBox(i18n("Show Geolocation Indicator"), iconViewGroup);
+    d->iconShowCoordinatesBox->setWhatsThis(i18n("Set this option to indicate if image has geolocation information."));
 
     QLabel* leftClickLabel     = new QLabel(i18n("Thumbnail click action:"), iconViewGroup);
     d->leftClickActionComboBox = new KComboBox(iconViewGroup);
@@ -174,6 +187,14 @@ SetupAlbumView::SetupAlbumView(QWidget* const parent)
 
     d->iconViewFontSelect = new DFontSelect(i18n("Icon View font:"), panel);
     d->iconViewFontSelect->setToolTip(i18n("Select here the font used to display text in Icon Views."));
+
+    d->largeThumbsBox = new QCheckBox(i18n("Use large thumbnail size for high screen resolution"), iconViewGroup);
+    d->largeThumbsBox->setWhatsThis(i18n("Set this option to render icon-view with large thumbnail size, for example in case of 4K monitor is used.\n"
+                                         "By default this option is turned off and the maximum thumbnail size is limited to 256x256 pixels. "
+                                         "When this option is enabled, thumbnail size can be extended to 512x512 pixels.\n"
+                                         "This option will store more data in thumbnail database and will use more system memory. "
+                                         "digiKam needs to be restarted to take effect, and Rebuild Thumbnails option from Maintenance tool "
+                                         "needs to be processed over whole collections."));
 
     grid->addWidget(d->iconShowNameBox,          0, 0, 1, 1);
     grid->addWidget(d->iconShowSizeBox,          1, 0, 1, 1);
@@ -188,10 +209,12 @@ SetupAlbumView::SetupAlbumView(QWidget* const parent)
     grid->addWidget(d->iconShowTagsBox,          2, 1, 1, 1);
     grid->addWidget(d->iconShowRatingBox,        3, 1, 1, 1);
     grid->addWidget(d->iconShowOverlaysBox,      4, 1, 1, 1);
+    grid->addWidget(d->iconShowCoordinatesBox,   5, 1, 1, 1);
 
     grid->addWidget(leftClickLabel,              7, 0, 1, 1);
     grid->addWidget(d->leftClickActionComboBox,  7, 1, 1, 1);
     grid->addWidget(d->iconViewFontSelect,       8, 0, 1, 2);
+    grid->addWidget(d->largeThumbsBox,           9, 0, 1, 2);
     grid->setSpacing(KDialog::spacingHint());
     grid->setMargin(KDialog::spacingHint());
 
@@ -235,7 +258,7 @@ SetupAlbumView::SetupAlbumView(QWidget* const parent)
                                                    "is used instead of the embedded JPEG preview.</p>"));
 
     d->previewShowIcons              = new QCheckBox(i18n("Show icons and text over preview"), interfaceOptionsGroup);
-    d->previewShowIcons->setWhatsThis(i18n("Uncheck this if you don't want to see icons and text in the image preview."));
+    d->previewShowIcons->setWhatsThis(i18n("Uncheck this if you do not want to see icons and text in the image preview."));
 
     grid3->setMargin(KDialog::spacingHint());
     grid3->setSpacing(KDialog::spacingHint());
@@ -263,6 +286,11 @@ SetupAlbumView::SetupAlbumView(QWidget* const parent)
 
     // --------------------------------------------------------
 
+    connect(d->largeThumbsBox, SIGNAL(toggled(bool)),
+            this, SLOT(slotUseLargeThumbsToggled(bool)));
+
+    // --------------------------------------------------------
+
     setAutoFillBackground(false);
     viewport()->setAutoFillBackground(false);
     panel->setAutoFillBackground(false);
@@ -275,7 +303,7 @@ SetupAlbumView::~SetupAlbumView()
 
 void SetupAlbumView::applySettings()
 {
-    AlbumSettings* settings = AlbumSettings::instance();
+    AlbumSettings* const settings = AlbumSettings::instance();
 
     if (!settings)
     {
@@ -294,6 +322,7 @@ void SetupAlbumView::applySettings()
     settings->setIconShowTitle(d->iconShowTitleBox->isChecked());
     settings->setIconShowComments(d->iconShowCommentsBox->isChecked());
     settings->setIconShowOverlays(d->iconShowOverlaysBox->isChecked());
+    settings->setIconShowCoordinates(d->iconShowCoordinatesBox->isChecked());
     settings->setIconShowRating(d->iconShowRatingBox->isChecked());
     settings->setIconShowImageFormat(d->iconShowFormatBox->isChecked());
     settings->setIconViewFont(d->iconViewFontSelect->font());
@@ -308,11 +337,15 @@ void SetupAlbumView::applySettings()
 
     KConfigGroup group = settings->generalConfigGroup();
     d->fullScreenSettings->saveSettings(group);
+
+    // Method ThumbnailSize::setUseLargeThumbs() is not called here to prevent dysfunction between Thumbs DB and icon if
+    // thumb size is over 256 and when large thumbs size support is disabled. digiKam need to be restarted to take effect.
+    ThumbnailSize::saveSettings(group, d->largeThumbsBox->isChecked());
 }
 
 void SetupAlbumView::readSettings()
 {
-    AlbumSettings* settings = AlbumSettings::instance();
+    AlbumSettings* const settings = AlbumSettings::instance();
 
     if (!settings)
     {
@@ -347,6 +380,7 @@ void SetupAlbumView::readSettings()
     d->iconShowTitleBox->setChecked(settings->getIconShowTitle());
     d->iconShowCommentsBox->setChecked(settings->getIconShowComments());
     d->iconShowOverlaysBox->setChecked(settings->getIconShowOverlays());
+    d->iconShowCoordinatesBox->setChecked(settings->getIconShowCoordinates());
     d->iconShowRatingBox->setChecked(settings->getIconShowRating());
     d->iconShowFormatBox->setChecked(settings->getIconShowImageFormat());
     d->iconViewFontSelect->setFont(settings->getIconViewFont());
@@ -359,6 +393,27 @@ void SetupAlbumView::readSettings()
 
     KConfigGroup group = settings->generalConfigGroup();
     d->fullScreenSettings->readSettings(group);
+
+    ThumbnailSize::readSettings(group);
+    d->useLargeThumbsOrg = ThumbnailSize::getUseLargeThumbs();
+    d->largeThumbsBox->setChecked(d->useLargeThumbsOrg);
+}
+
+bool SetupAlbumView::useLargeThumbsAsChanged() const
+{
+    return d->useLargeThumbsAsChanged;
+}
+
+void SetupAlbumView::slotUseLargeThumbsToggled(bool b)
+{
+    if (b != d->useLargeThumbsOrg)
+    {
+        d->useLargeThumbsAsChanged = true;
+    }
+    else
+    {
+        d->useLargeThumbsAsChanged = false;
+    }
 }
 
 }  // namespace Digikam

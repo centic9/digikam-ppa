@@ -7,7 +7,7 @@
 * Description : Import tool interface
 *
 * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
-* Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+* Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
 * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
 * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
 * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
@@ -101,6 +101,7 @@
 #include "albumselectdialog.h"
 #include "cameracontroller.h"
 #include "camerafolderdialog.h"
+#include "cameramessagebox.h"
 #include "camerainfodialog.h"
 #include "cameralist.h"
 #include "cameranamehelper.h"
@@ -163,9 +164,9 @@ ImportUI::ImportUI(QWidget* const parent, const QString& cameraTitle,
     d->cameraTitle = (title.isEmpty()) ? cameraTitle : title;
     setCaption(d->cameraTitle);
 
+    setupCameraController(model, port, path);
     setupUserArea();
     setInitialSorting();
-    setupCameraController(model, port, path);
     setupActions();
     setupStatusBar();
     setupAccelerators();
@@ -229,16 +230,17 @@ ImportUI* ImportUI::instance()
 
 void ImportUI::setupUserArea()
 {
-    ImportThumbnailModel* model = new ImportThumbnailModel(this);
-    ImportFilterModel* filterModel = new ImportFilterModel(this);
+    ImportThumbnailModel* const model    = new ImportThumbnailModel(this);
+    ImportFilterModel* const filterModel = new ImportFilterModel(this);
 
     filterModel->setSourceImportModel(model);
     filterModel->sort(0); // an initial sorting is necessary
-    
+
     KHBox* const widget = new KHBox(this);
     d->splitter         = new SidebarSplitter(widget);
     KVBox* const vbox   = new KVBox(d->splitter);
     d->view             = new ImportView(this, model, filterModel, vbox);
+    d->view->importFilterModel()->setCameraThumbsController(d->camThumbsCtrl);
     d->historyView      = new DHistoryView(vbox);
     d->rightSideBar     = new ImagePropertiesSideBarCamGui(widget, d->splitter, KMultiTabBar::Right, true);
     d->rightSideBar->setObjectName("CameraGui Sidebar Right");
@@ -257,7 +259,7 @@ void ImportUI::setupUserArea()
     d->errorWidget->setMessageType(KMessageWidget::Error);
     d->errorWidget->setCloseButtonVisible(false);
     d->errorWidget->hide();
-    
+
     // -------------------------------------------------------------------------
 
     d->advBox = new RExpanderBox(d->rightSideBar);
@@ -313,17 +315,17 @@ void ImportUI::setupActions()
     connect(d->cameraInfoAction, SIGNAL(triggered()), this, SLOT(slotInformation()));
     actionCollection()->addAction("importui_info", d->cameraInfoAction);
     d->cameraActions->addAction(d->cameraInfoAction);
-    
+
     // -----------------------------------------------------------------
 
     d->cameraCaptureAction = new KAction(KIcon("webcamreceive"), i18nc("@action Capture photo from camera", "Capture"), this);
     connect(d->cameraCaptureAction, SIGNAL(triggered()), this, SLOT(slotCapture()));
     actionCollection()->addAction("importui_capture", d->cameraCaptureAction);
     d->cameraActions->addAction(d->cameraCaptureAction);
-    
+
     // -----------------------------------------------------------------
 
-    KAction* closeAction = KStandardAction::close(this, SLOT(close()), this);
+    KAction* const closeAction = KStandardAction::close(this, SLOT(close()), this);
     actionCollection()->addAction("importui_close", closeAction);
 
     // -- Edit menu ----------------------------------------------------
@@ -607,12 +609,11 @@ void ImportUI::setupActions()
 
     // -- Standard 'Configure' menu actions ----------------------------------------
 
-    d->showMenuBarAction = KStandardAction::showMenubar(this, SLOT(slotShowMenuBar()), actionCollection());
-
-    KStandardAction::keyBindings(this,            SLOT(slotEditKeys()),          actionCollection());
-    KStandardAction::configureToolbars(this,      SLOT(slotConfToolbars()),      actionCollection());
-    KStandardAction::configureNotifications(this, SLOT(slotConfNotifications()), actionCollection());
-    d->showPreferencesAction = KStandardAction::preferences(this, SLOT(slotSetup()), actionCollection());
+    d->showMenuBarAction = KStandardAction::showMenubar(this,     SLOT(slotShowMenuBar()),       actionCollection());
+    KStandardAction::keyBindings(this,                            SLOT(slotEditKeys()),          actionCollection());
+    KStandardAction::configureToolbars(this,                      SLOT(slotConfToolbars()),      actionCollection());
+    KStandardAction::configureNotifications(this,                 SLOT(slotConfNotifications()), actionCollection());
+    d->showPreferencesAction = KStandardAction::preferences(this, SLOT(slotSetup()),             actionCollection());
 
     // ---------------------------------------------------------------------------------
 
@@ -639,11 +640,11 @@ void ImportUI::setupActions()
 
     d->connectAction = new KAction(KIcon("view-refresh"), i18nc("@action Connection failed, try again?", "Retry"), this);
     connect(d->connectAction, SIGNAL(triggered()), d->controller, SLOT(slotConnect()));
-    
+
     createGUI(xmlFile());
 
     d->showMenuBarAction->setChecked(!menuBar()->isHidden());  // NOTE: workaround for B.K.O #171080
-    
+
     // hide the unsupported actions
     d->uploadAction->setVisible(d->controller->cameraUploadSupport());
 
@@ -799,10 +800,11 @@ void ImportUI::setupCameraController(const QString& model, const QString& port, 
     connect(d->controller, SIGNAL(signalUploaded(CamItemInfo)),
             this, SLOT(slotUploaded(CamItemInfo)));
 
-    // TODO make this nicer...
-    d->view->importFilterModel()->setCameraController(d->controller);
-
     d->controller->start();
+
+    // Setup Thumbnails controller -------------------------------------------------------
+
+    d->camThumbsCtrl = new CameraThumbsCtrl(d->controller, this);
 }
 
 CameraController* ImportUI::getCameraController() const
@@ -812,34 +814,34 @@ CameraController* ImportUI::getCameraController() const
 
 void ImportUI::setupAccelerators()
 {
-    KAction* escapeAction = new KAction(i18nc("@action", "Exit Preview Mode"), this);
+    KAction* const escapeAction = new KAction(i18nc("@action", "Exit Preview Mode"), this);
     actionCollection()->addAction("exit_preview_mode", escapeAction);
     escapeAction->setShortcut( KShortcut(Qt::Key_Escape) );
     connect(escapeAction, SIGNAL(triggered()), this, SIGNAL(signalEscapePressed()));
 
-    KAction* nextImageAction = new KAction(i18nc("@action","Next Image"), this);
+    KAction* const nextImageAction = new KAction(i18nc("@action","Next Image"), this);
     nextImageAction->setIcon(SmallIcon("go-next"));
     actionCollection()->addAction("next_image", nextImageAction);
     nextImageAction->setShortcut(KShortcut(Qt::Key_Space));
     connect(nextImageAction, SIGNAL(triggered()), d->view, SLOT(slotNextItem()));
 
-    KAction* previousImageAction = new KAction(i18nc("@action", "Previous Image"), this);
+    KAction* const previousImageAction = new KAction(i18nc("@action", "Previous Image"), this);
     previousImageAction->setIcon(SmallIcon("go-previous"));
     actionCollection()->addAction("previous_image", previousImageAction);
     previousImageAction->setShortcut(KShortcut(Qt::Key_Backspace));
     connect(previousImageAction, SIGNAL(triggered()), d->view, SLOT(slotPrevItem()));
 
-    KAction* altpreviousImageAction = new KAction(i18nc("@action", "Previous Image"), this);
+    KAction* const altpreviousImageAction = new KAction(i18nc("@action", "Previous Image"), this);
     actionCollection()->addAction("alt_previous_image_shift_space", altpreviousImageAction);
     altpreviousImageAction->setShortcut( KShortcut(Qt::SHIFT+Qt::Key_Space) );
     connect(altpreviousImageAction, SIGNAL(triggered()), d->view, SLOT(slotPrevItem()));
 
-    KAction* firstImageAction = new KAction(i18nc("@action Go to first image", "First Image"), this);
+    KAction* const firstImageAction = new KAction(i18nc("@action Go to first image", "First Image"), this);
     actionCollection()->addAction("first_image", firstImageAction);
     firstImageAction->setShortcut(KShortcut(Qt::Key_Home) );
     connect(firstImageAction, SIGNAL(triggered()), d->view, SLOT(slotFirstItem()));
 
-    KAction* lastImageAction = new KAction(i18nc("@action Go to last image", "Last Image"), this);
+    KAction* const lastImageAction = new KAction(i18nc("@action Go to last image", "Last Image"), this);
     actionCollection()->addAction("last_image", lastImageAction);
     lastImageAction->setShortcut(KShortcut(Qt::Key_End) );
     connect(lastImageAction, SIGNAL(triggered()), d->view, SLOT(slotLastItem()));
@@ -1020,7 +1022,7 @@ void ImportUI::finishDialog()
 
     if (d->view->downloadedCamItemInfos() > 0)
     {
-        CameraList* clist = CameraList::defaultList();
+        CameraList* const clist = CameraList::defaultList();
 
         if (clist)
         {
@@ -1028,7 +1030,8 @@ void ImportUI::finishDialog()
         }
     }
 
-    if (!d->foldersToScan.isEmpty()) {
+    if (!d->foldersToScan.isEmpty())
+    {
         // TODO is this note valid anymore with new progress handling?
         // When a directory is created, a watch is put on it to spot new files
         // but it can occur that the file is copied there before the watch is
@@ -1038,7 +1041,7 @@ void ImportUI::finishDialog()
         d->statusProgressBar->progressBarMode(StatusProgressBar::TextMode,
                                           i18nc("@info:status", "Scanning for new files, please wait..."));
 
-        NewItemsFinder* tool = new NewItemsFinder(NewItemsFinder::ScheduleCollectionScan, d->foldersToScan.toList());
+        NewItemsFinder* const tool = new NewItemsFinder(NewItemsFinder::ScheduleCollectionScan, d->foldersToScan.toList());
         tool->start();
 
         d->foldersToScan.clear();
@@ -1095,7 +1098,7 @@ void ImportUI::slotBusy(bool val)
 
         d->busy = true;
         d->cameraActions->setEnabled(false);
-        
+
         // TODO see if this can be enabled too, except while downloading..
         d->advBox->setEnabled(false);
     }
@@ -1216,7 +1219,7 @@ void ImportUI::slotCapture()
         return;
     }
 
-    CaptureDlg* captureDlg = new CaptureDlg(this, d->controller, d->cameraTitle);
+    CaptureDlg* const captureDlg = new CaptureDlg(this, d->controller, d->cameraTitle);
     captureDlg->show();
 }
 
@@ -1232,7 +1235,7 @@ void ImportUI::slotInformation()
 
 void ImportUI::slotCameraInformation(const QString& summary, const QString& manual, const QString& about)
 {
-    CameraInfoDialog* infoDlg = new CameraInfoDialog(this, summary, manual, about);
+    CameraInfoDialog* const infoDlg = new CameraInfoDialog(this, summary, manual, about);
     infoDlg->show();
 }
 
@@ -1347,7 +1350,7 @@ void ImportUI::slotUploadItems(const KUrl::List& urls)
 
         CamItemInfo uploadInfo;
         uploadInfo.folder = cameraFolder;
-        uploadInfo.name = name + ext;
+        uploadInfo.name   = name + ext;
 
         while (d->view->hasImage(uploadInfo))
         {
@@ -1413,7 +1416,7 @@ void ImportUI::slotDownloadAndDeleteAll()
 void ImportUI::slotDownload(bool onlySelected, bool deleteAfter, Album* album)
 {
     if (d->albumCustomizer->folderDateFormat() == AlbumCustomizer::CustomDateFormat &&
-            !d->albumCustomizer->customDateFormatIsValid())
+        !d->albumCustomizer->customDateFormatIsValid())
     {
         KMessageBox::information(this, i18nc("@info", "Your custom target album date format is not valid. Please check your settings..."));
         return;
@@ -1436,7 +1439,7 @@ void ImportUI::slotDownload(bool onlySelected, bool deleteAfter, Album* album)
 
     if (!album)
     {
-        AlbumManager* man = AlbumManager::instance();
+        AlbumManager* const man   = AlbumManager::instance();
 
         // Check if default target album option is enabled.
 
@@ -1446,7 +1449,7 @@ void ImportUI::slotDownload(bool onlySelected, bool deleteAfter, Album* album)
 
         if (useDefaultTarget)
         {
-            PAlbum* pa = man->findPAlbum(group.readEntry(d->configDefaultTargetAlbumId, 0));
+            PAlbum* const pa = man->findPAlbum(group.readEntry(d->configDefaultTargetAlbumId, 0));
 
             if (pa)
             {
@@ -1472,8 +1475,9 @@ void ImportUI::slotDownload(bool onlySelected, bool deleteAfter, Album* album)
         }
         else
         {
-            int albumId = group.readEntry(d->configLastTargetAlbum, man->currentAlbums().first()->globalID());
-            album = man->findAlbum(albumId);
+            AlbumList list = man->currentAlbums();
+            int albumId    = group.readEntry(d->configLastTargetAlbum, !list.isEmpty() ? list.first()->globalID() : 0);
+            album          = man->findAlbum(albumId);
 
             if (album && album->type() != Album::PHYSICAL)
             {
@@ -1483,7 +1487,7 @@ void ImportUI::slotDownload(bool onlySelected, bool deleteAfter, Album* album)
             QString header(i18nc("@info", "<p>Please select the destination album from the digiKam library to "
                                 "import the camera pictures into.</p>"));
 
-            album = AlbumSelectDialog::selectAlbum(this, (PAlbum*)album, header);
+            album = AlbumSelectDialog::selectAlbum(this, dynamic_cast<PAlbum*>(album), header);
 
             if (!album)
             {
@@ -1884,7 +1888,7 @@ void ImportUI::deleteItems(bool onlySelected, bool onlyDownloaded)
         QString infoMsg(i18nc("@info", "The items listed below are locked by camera (read-only). "
                              "These items will not be deleted. If you really want to delete these items, "
                              "please unlock them and try again."));
-        //CameraMessageBox::informationList(this, infoMsg, lockedList, i18n("Information"));
+        CameraMessageBox::informationList(d->camThumbsCtrl, this, infoMsg, lockedList, i18n("Information"));
     }
 
     if (folders.isEmpty())
@@ -1900,30 +1904,31 @@ void ImportUI::deleteItems(bool onlySelected, bool onlyDownloaded)
                           "Are you sure?",
                           deleteList.count()));
 
-    //    if (CameraMessageBox::warningContinueCancelList(this,
-    //                                                    warnMsg,
-    //                                                    deleteList,
-    //                                                    i18n("Warning"),
-    //                                                    KGuiItem(i18n("Delete")),
-    //                                                    KStandardGuiItem::cancel(),
-    //                                                    QString("DontAskAgainToDeleteItemsFromCamera"))
-    //        ==  KMessageBox::Continue)
-    //    {
-    QStringList::const_iterator itFolder = folders.constBegin();
-    QStringList::const_iterator itFile   = files.constBegin();
-
-    d->statusProgressBar->setProgressValue(0);
-    d->statusProgressBar->setProgressTotalSteps(deleteList.count());
-    d->statusProgressBar->progressBarMode(StatusProgressBar::ProgressBarMode);
-
-    for (; itFolder != folders.constEnd(); ++itFolder, ++itFile)
+    if (CameraMessageBox::warningContinueCancelList(d->camThumbsCtrl, 
+                                                    this,
+                                                    warnMsg,
+                                                    deleteList,
+                                                    i18n("Warning"),
+                                                    KGuiItem(i18n("Delete")),
+                                                    KStandardGuiItem::cancel(),
+                                                    QString("DontAskAgainToDeleteItemsFromCamera"))
+        ==  KMessageBox::Continue)
     {
-        d->controller->deleteFile(*itFolder, *itFile);
-        // the currentlyDeleting list is used to prevent loading items which
-        // will immanently be deleted into the sidebar and wasting time
-        d->currentlyDeleting.append(*itFolder + *itFile);
+        QStringList::const_iterator itFolder = folders.constBegin();
+        QStringList::const_iterator itFile   = files.constBegin();
+
+        d->statusProgressBar->setProgressValue(0);
+        d->statusProgressBar->setProgressTotalSteps(deleteList.count());
+        d->statusProgressBar->progressBarMode(StatusProgressBar::ProgressBarMode);
+
+        for (; itFolder != folders.constEnd(); ++itFolder, ++itFile)
+        {
+            d->controller->deleteFile(*itFolder, *itFile);
+            // the currentlyDeleting list is used to prevent loading items which
+            // will immanently be deleted into the sidebar and wasting time
+            d->currentlyDeleting.append(*itFolder + *itFile);
+        }
     }
-    //    }
 }
 
 bool ImportUI::checkDiskSpace(PAlbum *pAlbum)
@@ -1933,28 +1938,27 @@ bool ImportUI::checkDiskSpace(PAlbum *pAlbum)
         return false;
     }
 
-    unsigned long fSize = 0;
-    unsigned long dSize = 0;
+    unsigned long fSize   = 0;
+    unsigned long dSize   = 0;
     itemsSelectionSizeInfo(fSize, dSize);
     QString albumRootPath = pAlbum->albumRootPath();
     unsigned long kBAvail = d->albumLibraryFreeSpace->kBAvail(albumRootPath);
 
     if (dSize >= kBAvail)
     {
-        KGuiItem cont = KStandardGuiItem::cont();
+        KGuiItem cont   = KStandardGuiItem::cont();
         cont.setText(i18nc("@action:button Not enough disk-space warning", "Try Anyway"));
         KGuiItem cancel = KStandardGuiItem::cancel();
         cancel.setText(i18nc("@action:button Not enough disk-space warning", "Cancel Download"));
-        int result =
-                KMessageBox::warningYesNo(this,
-                                          i18nc("@info", "There is not enough free space on the disk of the album you selected "
-                                               "to download and process the selected pictures from the camera.\n\n"
-                                               "Estimated space required: %1\n"
-                                               "Available free space: %2",
-                                               KIO::convertSizeFromKiB(dSize),
-                                               KIO::convertSizeFromKiB(kBAvail)),
-                                          i18nc("@title:window", "Insufficient Disk Space"),
-                                          cont, cancel);
+        int result     = KMessageBox::warningYesNo(this,
+                                                   i18nc("@info", "There is not enough free space on the disk of the album you selected "
+                                                         "to download and process the selected pictures from the camera.\n\n"
+                                                         "Estimated space required: %1\n"
+                                                         "Available free space: %2",
+                                                         KIO::convertSizeFromKiB(dSize),
+                                                         KIO::convertSizeFromKiB(kBAvail)),
+                                                  i18nc("@title:window", "Insufficient Disk Space"),
+                                                  cont, cancel);
 
         if (result == KMessageBox::No)
         {
@@ -2093,6 +2097,7 @@ bool ImportUI::downloadCameraItems(PAlbum* pAlbum, bool onlySelected, bool delet
 bool ImportUI::createSubAlbums(KUrl& downloadUrl, const CamItemInfo& info)
 {
     bool success = true;
+ 
     if (d->albumCustomizer->autoAlbumDateEnabled())
     {
         success &= createDateBasedSubAlbum(downloadUrl, info);
@@ -2101,6 +2106,7 @@ bool ImportUI::createSubAlbums(KUrl& downloadUrl, const CamItemInfo& info)
     {
         success &= createExtBasedSubAlbum(downloadUrl, info);
     }
+
     return success;
 }
 

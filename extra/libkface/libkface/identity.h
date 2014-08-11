@@ -5,7 +5,7 @@
  * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
  * @date  2013-05-18
- * @brief Wrapper class for face recongition
+ * @brief Wrapper class for face recognition
  *
  * @author Copyright (C) 2013 by Marcel Wiesweg
  *         <a href="mailto:marcel dot wiesweg at gmx dot de">marcel dot wiesweg at gmx dot de</a>
@@ -40,6 +40,7 @@ namespace KFaceIface
 
 class KFACE_EXPORT Identity
 {
+
 public:
 
     /**
@@ -57,8 +58,9 @@ public:
      * Attributes can be used to map an identity to other fields and services where
      * natural persons play a role.
      */
-
     Identity();
+    ~Identity();
+
     bool isNull() const;
     bool operator==(const Identity& other) const;
 

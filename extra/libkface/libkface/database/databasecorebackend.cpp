@@ -63,6 +63,8 @@ DatabaseLocking::DatabaseLocking()
 {
 }
 
+// -----------------------------------------------------------------------------------------
+
 // For whatever reason, these methods are "static protected"
 class sotoSleep : public QThread
 {
@@ -72,15 +74,33 @@ public:
     {
         QThread::sleep(secs);
     }
+
     static void msleep(unsigned long msecs)
     {
         QThread::msleep(msecs);
     }
+
     static void usleep(unsigned long usecs)
     {
         QThread::usleep(usecs);
     }
 };
+
+// -----------------------------------------------------------------------------------------
+
+DatabaseCoreBackendPrivate::BusyWaiter::BusyWaiter(DatabaseCoreBackendPrivate* const d)
+    : AbstractWaitingUnlocker(d, &d->busyWaitMutex, &d->busyWaitCondVar)
+{
+}
+
+// -----------------------------------------------------------------------------------------
+
+DatabaseCoreBackendPrivate::ErrorLocker::ErrorLocker(DatabaseCoreBackendPrivate* const d)
+    : AbstractWaitingUnlocker(d, &d->errorLockMutex, &d->errorLockCondVar)
+{
+}
+
+// -----------------------------------------------------------------------------------------
 
 DatabaseCoreBackendPrivate::DatabaseCoreBackendPrivate(DatabaseCoreBackend* const backend)
     : q(backend)
@@ -320,6 +340,7 @@ bool DatabaseCoreBackendPrivate::needToHandleWithErrorHandler(const SqlQuery& qu
 bool DatabaseCoreBackendPrivate::checkRetrySQLiteLockError(int retries)
 {
     kDebug() << "Database is locked. Waited" << retries*10;
+
     const int uiMaxRetries = 50;
     const int maxRetries   = 1000;
 
@@ -353,96 +374,11 @@ void DatabaseCoreBackendPrivate::debugOutputFailedTransaction(const QSqlError& e
              << error.number() << error.type();
 }
 
-DatabaseCoreBackendPrivate::AbstractUnlocker::AbstractUnlocker(DatabaseCoreBackendPrivate* const d)
-    : count(0), d(d)
-{
-    // Why two mutexes? The main mutex is recursive and won't work with a condvar.
-
-    // acquire lock
-    d->lock->mutex.lock();
-    // store lock count
-    count = d->lock->lockCount;
-    // set lock count to 0
-    d->lock->lockCount = 0;
-
-    // unlock
-    for (int i=0; i<count; ++i)
-    {
-        d->lock->mutex.unlock();
-    }
-}
-
-void DatabaseCoreBackendPrivate::AbstractUnlocker::finishAcquire()
-{
-    // drop lock acquired in first line. Main mutex is now free.
-    // We maintain lock order (first main mutex, second error lock mutex)
-    // but we drop main mutex lock for waiting on the cond var.
-    d->lock->mutex.unlock();
-}
-
-DatabaseCoreBackendPrivate::AbstractUnlocker::~AbstractUnlocker()
-{
-    // lock main mutex as often as it was locked before
-    for (int i=0; i<count; ++i)
-    {
-        d->lock->mutex.lock();
-    }
-
-    // update lock count
-    d->lock->lockCount += count;
-}
-
-DatabaseCoreBackendPrivate::AbstractWaitingUnlocker::AbstractWaitingUnlocker(DatabaseCoreBackendPrivate* const d,
-        QMutex* const mutex, QWaitCondition* const condVar)
-    : AbstractUnlocker(d), mutex(mutex), condVar(condVar)
-{
-    // Why two mutexes? The main mutex is recursive and won't work with a condvar.
-    // lock condvar mutex (lock only if main mutex is locked)
-    mutex->lock();
-
-    finishAcquire();
-}
-
-DatabaseCoreBackendPrivate::AbstractWaitingUnlocker::~AbstractWaitingUnlocker()
-{
-    // unlock condvar mutex. Both mutexes are now free.
-    mutex->unlock();
-    // now base class destructor is executed, reallocating main mutex
-}
-
-bool DatabaseCoreBackendPrivate::AbstractWaitingUnlocker::wait(unsigned long time)
-{
-    return condVar->wait(mutex, time);
-}
-
-DatabaseCoreBackendPrivate::BusyWaiter::BusyWaiter(DatabaseCoreBackendPrivate* const d)
-    : AbstractWaitingUnlocker(d, &d->busyWaitMutex, &d->busyWaitCondVar)
-{
-}
-
 void DatabaseCoreBackendPrivate::transactionFinished()
 {
     // wakes up any BusyWaiter waiting on the busyWaitCondVar.
     // Possibly called under d->lock->mutex lock, so we do not lock the busyWaitMutex
     busyWaitCondVar.wakeOne();
-}
-
-DatabaseCoreBackendPrivate::ErrorLocker::ErrorLocker(DatabaseCoreBackendPrivate* const d)
-    : AbstractWaitingUnlocker(d, &d->errorLockMutex, &d->errorLockCondVar)
-{
-}
-
-/** This suspends the current thread if the query status as
- *  set by setFlag() is Wait and until the thread is woken with wakeAll().
- *  The DatabaseAccess mutex will be unlocked while waiting.
- */
-void DatabaseCoreBackendPrivate::ErrorLocker::wait()
-{
-    // we use a copy of the flag under lock of the errorLockMutex to be able to check it here
-    while (d->errorLockOperationStatus == DatabaseCoreBackend::Wait)
-    {
-        wait();
-    }
 }
 
 /** Set the wait flag to queryStatus. Typically, call this with Wait. */
@@ -542,7 +478,6 @@ bool DatabaseCoreBackendPrivate::handleWithErrorHandler(const SqlQuery* const qu
         // But for now, close only the database in the hope, that the next
         // access will be successful.
         closeDatabaseForThread();
-
     }
 
     return false;
@@ -562,7 +497,88 @@ void DatabaseCoreBackendPrivate::connectionErrorAbortQueries()
     queryOperationWakeAll(DatabaseCoreBackend::AbortQueries);
 }
 
-// --------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------
+
+DatabaseCoreBackendPrivate::AbstractUnlocker::AbstractUnlocker(DatabaseCoreBackendPrivate* const d)
+    : count(0), d(d)
+{
+    // Why two mutexes? The main mutex is recursive and won't work with a condvar.
+
+    // acquire lock
+    d->lock->mutex.lock();
+    // store lock count
+    count = d->lock->lockCount;
+    // set lock count to 0
+    d->lock->lockCount = 0;
+
+    // unlock
+    for (int i=0; i<count; ++i)
+    {
+        d->lock->mutex.unlock();
+    }
+}
+
+void DatabaseCoreBackendPrivate::AbstractUnlocker::finishAcquire()
+{
+    // drop lock acquired in first line. Main mutex is now free.
+    // We maintain lock order (first main mutex, second error lock mutex)
+    // but we drop main mutex lock for waiting on the cond var.
+    d->lock->mutex.unlock();
+}
+
+DatabaseCoreBackendPrivate::AbstractUnlocker::~AbstractUnlocker()
+{
+    // lock main mutex as often as it was locked before
+    for (int i=0; i<count; ++i)
+    {
+        d->lock->mutex.lock();
+    }
+
+    // update lock count
+    d->lock->lockCount += count;
+}
+
+// -----------------------------------------------------------------------------------------
+
+DatabaseCoreBackendPrivate::AbstractWaitingUnlocker::AbstractWaitingUnlocker(DatabaseCoreBackendPrivate* const d,
+        QMutex* const mutex, QWaitCondition* const condVar)
+    : AbstractUnlocker(d), mutex(mutex), condVar(condVar)
+{
+    // Why two mutexes? The main mutex is recursive and won't work with a condvar.
+    // lock condvar mutex (lock only if main mutex is locked)
+    mutex->lock();
+
+    finishAcquire();
+}
+
+DatabaseCoreBackendPrivate::AbstractWaitingUnlocker::~AbstractWaitingUnlocker()
+{
+    // unlock condvar mutex. Both mutexes are now free.
+    mutex->unlock();
+    // now base class destructor is executed, reallocating main mutex
+}
+
+bool DatabaseCoreBackendPrivate::AbstractWaitingUnlocker::wait(unsigned long time)
+{
+    return condVar->wait(mutex, time);
+}
+
+// -----------------------------------------------------------------------------------------
+
+/** This suspends the current thread if the query status as
+ *  set by setFlag() is Wait and until the thread is woken with wakeAll().
+ *  The DatabaseAccess mutex will be unlocked while waiting.
+ */
+void DatabaseCoreBackendPrivate::ErrorLocker::wait()
+{
+    // we use a copy of the flag under lock of the errorLockMutex to be able to check it here
+    while (d->errorLockOperationStatus == DatabaseCoreBackend::Wait)
+    {
+        wait();
+    }
+}
+
+// -----------------------------------------------------------------------------------------
 
 DatabaseCoreBackend::DatabaseCoreBackend(const QString& backendName, DatabaseLocking* const locking)
     : d_ptr(new DatabaseCoreBackendPrivate(this))
@@ -662,12 +678,12 @@ DatabaseCoreBackend::QueryState DatabaseCoreBackend::execDBAction(const Database
             kDebug() << "Error while executing DBAction ["<<  action.name  <<"] Statement ["<<actionElement.statement<<"]";
             returnResult = result;
 
-            /*
+/*
             if (wrapInTransaction && !db.rollback())
             {
                 kDebug() << "Error while rollback changes of previous DBAction.";
             }
-            */
+*/
 
             break;
         }
@@ -678,12 +694,12 @@ DatabaseCoreBackend::QueryState DatabaseCoreBackend::execDBAction(const Database
         commitTransaction();
     }
 
-    /*
+/*
     if (returnResult==DatabaseCoreBackend::NoErrors && wrapInTransaction && !db.commit())
     {
         kDebug() << "Error while committing changes of previous DBAction.";
     }
-    */
+*/
 
     return returnResult;
 }
@@ -1387,7 +1403,7 @@ DatabaseCoreBackend::QueryState DatabaseCoreBackend::execDirectSql(const QString
             }
         }
     }
-    
+
     return DatabaseCoreBackend::NoErrors;
 }
 
@@ -1461,11 +1477,10 @@ bool DatabaseCoreBackend::execBatch(SqlQuery& query)
     return true;
 }
 
-
 SqlQuery DatabaseCoreBackend::prepareQuery(const QString& sql)
 {
     int retries = 0;
-    
+
     forever
     {
         SqlQuery query = getQuery();

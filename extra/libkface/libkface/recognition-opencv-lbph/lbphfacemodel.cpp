@@ -4,8 +4,8 @@
  * This file is a part of digiKam project
  * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
- * @date    2010-03-03
- * @brief   openTLD interface.
+ * @date   2010-03-03
+ * @brief  LBPH interface.
  *
  * @author Copyright (C) 2012-2013 by Mahesh Hegde
  *         <a href="mailto:maheshmhegade at gmail dot com">maheshmhegade at gmail dot com</a>
@@ -40,23 +40,52 @@
 // local includes
 
 #include "databaseaccess.h"
-#include "libopencv.h"
 
 namespace KFaceIface
 {
 
 LBPHistogramMetadata::LBPHistogramMetadata()
-    : databaseId(0), identity(0), storageStatus(Created)
+    : databaseId(0), 
+      identity(0), 
+      storageStatus(Created)
 {
 }
 
+LBPHistogramMetadata::~LBPHistogramMetadata()
+{
+}
+
+// ------------------------------------------------------------------------------------
+
 LBPHFaceModel::LBPHFaceModel()
-    //: cv::Ptr<cv::FaceRecognizer>(cv::createLBPHFaceRecognizer()),
-      : cv::Ptr<LBPHFaceRecognizer>(LBPHFaceRecognizer::create()),
+    : cv::Ptr<LBPHFaceRecognizer>(LBPHFaceRecognizer::create()),
       databaseId(0)
 {
-    //ptr()->set("statistic", LBPHFaceRecognizer::MostNearestNeighbors);
-    ptr()->set("threshold", 100);
+    ptr()->set("threshold", 100.0);
+}
+
+LBPHFaceModel::~LBPHFaceModel()
+{
+}
+
+LBPHFaceRecognizer* LBPHFaceModel::ptr()
+{
+    LBPHFaceRecognizer* const ptr = cv::Ptr<LBPHFaceRecognizer>::operator KFaceIface::LBPHFaceRecognizer*();
+
+    if (!ptr) 
+        kWarning() << "LBPHFaceRecognizer pointer is null";
+
+    return ptr;
+}
+
+const LBPHFaceRecognizer* LBPHFaceModel::ptr() const
+{
+    const LBPHFaceRecognizer* const ptr = cv::Ptr<LBPHFaceRecognizer>::operator const KFaceIface::LBPHFaceRecognizer*();
+
+    if (!ptr) 
+        kWarning() << "LBPHFaceRecognizer pointer is null";
+
+    return ptr;
 }
 
 int LBPHFaceModel::radius() const
@@ -125,24 +154,26 @@ void LBPHFaceModel::setHistograms(const QList<OpenCVMatData>& histograms, const 
     cv::Mat newLabels;
     newHistograms.reserve(histograms.size());
     newLabels.reserve(histogramMetadata.size());
+
     foreach (const OpenCVMatData& histogram, histograms)
     {
         newHistograms.push_back(histogram.toMat());
     }
+
     foreach (const LBPHistogramMetadata& metadata, histogramMetadata)
     {
         newLabels.push_back(metadata.identity);
     }
 
     std::vector<cv::Mat> currentHistograms = ptr()->get<std::vector<cv::Mat> >("histograms");
-    cv::Mat currentLabels = ptr()->get<cv::Mat>("labels");
+    cv::Mat currentLabels                  = ptr()->get<cv::Mat>("labels");
     currentHistograms.insert(currentHistograms.end(), newHistograms.begin(), newHistograms.end());
     currentLabels.push_back(newLabels);
     ptr()->set("histograms", currentHistograms);
     ptr()->set("labels", currentLabels);
 
-    /*
-     * Most cumbersome and inefficient way through a file storage which we were forced to use if we used standard OpenCV
+/*
+    //Most cumbersome and inefficient way through a file storage which we were forced to use if we used standard OpenCV
     cv::FileStorage store(".yml", cv::FileStorage::WRITE + cv::FileStorage::MEMORY);
     // store current parameters to preserve them
     store << "radius"     << radius();
@@ -151,24 +182,28 @@ void LBPHFaceModel::setHistograms(const QList<OpenCVMatData>& histograms, const 
     store << "grid_y"     << gridY();
     // Write histogram data
     store << "histograms" << "[";
+
     foreach (const OpenCVMatData& histogram, histograms)
     {
         store << histogram.toMat();
     }
+
     store << "]";
     // write matching labels
     cv::Mat labels;
+
     foreach (const LBPHistogramMetadata& metadata, histogramMetadata)
     {
         labels.push_back(metadata.identity);
     }
+
     store << "labels" << labels;
     // harvest
     cv::String yaml = store.releaseAndGetString();
 
     cv::FileStorage read(yaml, cv::FileStorage::READ + cv::FileStorage::MEMORY);
     ptr()->load(read);
-    */
+*/
 }
 
 void LBPHFaceModel::update(const std::vector<cv::Mat>& images, const std::vector<int>& labels, const QString& context)
@@ -179,7 +214,7 @@ void LBPHFaceModel::update(const std::vector<cv::Mat>& images, const std::vector
     // We assume new labels are simply appended
     cv::Mat currentLabels = ptr()->get<cv::Mat>("labels");
 
-    for (int i=m_histogramMetadata.size(); i<currentLabels.rows; i++)
+    for (int i = m_histogramMetadata.size() ; i < currentLabels.rows ; i++)
     {
         LBPHistogramMetadata metadata;
         metadata.storageStatus = LBPHistogramMetadata::Created;

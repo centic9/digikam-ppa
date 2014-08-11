@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-05-11 01:40+0000\n"
+"POT-Creation-Date: 2014-06-25 01:42+0000\n"
 "PO-Revision-Date: 2014-04-21 14:59+0200\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -537,13 +537,13 @@ msgstr ""
 msgid "No such tag"
 msgstr "Böyle bir etiket yok"
 
-#: digikam/album/albummodificationhelper.cpp:222
+#: digikam/album/albummodificationhelper.cpp:225
 #: digikam/utils/searchmodificationhelper.cpp:143
 #, kde-format
 msgid "Rename Album (%1)"
 msgstr "(%1) Albümünü Sil"
 
-#: digikam/album/albummodificationhelper.cpp:223
+#: digikam/album/albummodificationhelper.cpp:226
 #: digikam/utils/searchmodificationhelper.cpp:144
 msgid "Enter new album name:"
 msgstr "Yeni albüm adını girin:"
@@ -1161,11 +1161,11 @@ msgstr "Katkıda Bulun..."
 msgid "Process Items"
 msgstr "Ögeyi kaldır"
 
-#: digikam/fileaction/fileworkeriface.cpp:72
+#: digikam/fileaction/fileworkeriface.cpp:73
 msgid "Failed to revise Exif orientation these files:"
 msgstr "Bu dosyalar için Exif yönlendirmesi gözden geçirilemedi:"
 
-#: digikam/fileaction/fileworkeriface.cpp:265
+#: digikam/fileaction/fileworkeriface.cpp:275
 #, fuzzy
 #| msgid "Failed to revise Exif orientation these files:"
 msgid "Failed to transform these files:"
@@ -1582,7 +1582,7 @@ msgstr "Tümünü temizle"
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: digikam/items/digikamimageview.cpp:334 digikam/views/tableview.cpp:228
+#: digikam/items/digikamimageview.cpp:338 digikam/views/tableview.cpp:228
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "Önizleme"
@@ -1658,9 +1658,18 @@ msgctxt "Month String - Year String"
 msgid "%1 %2"
 msgstr "%1 %2"
 
+#: digikam/items/imagecoordinatesoverlay.cpp:104
+#: showfoto/thumbbar/showfotocoordinatesoverlay.cpp:105
+#: utilities/importui/items/importoverlays.cpp:106
+#, fuzzy
+#| msgid "Edit album properties and collection information."
+msgctxt "@info:tooltip"
+msgid "This item has geolocation information."
+msgstr "Albüm özelliklerini ve koleksiyon bilgilerini düzenle."
+
 #: digikam/items/imagerotationoverlay.cpp:68
 #: digikam/views/imagepreviewview.cpp:164
-#: utilities/importui/items/importoverlays.cpp:371
+#: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
@@ -1668,7 +1677,7 @@ msgstr "Sola Döndür"
 
 #: digikam/items/imagerotationoverlay.cpp:72
 #: digikam/views/imagepreviewview.cpp:165
-#: utilities/importui/items/importoverlays.cpp:375
+#: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
@@ -1873,6 +1882,7 @@ msgid "Browse Tags..."
 msgstr "Yeni Etiket..."
 
 #: digikam/main/digikamapp.cpp:819 digikam/views/leftsidebarwidgets.cpp:195
+#: libs/imageproperties/imagedescedittab.cpp:294
 #, fuzzy
 #| msgid "Open in File Manager"
 msgid "Open Tag Manager"
@@ -1885,9 +1895,10 @@ msgstr "&Yeni..."
 
 #: digikam/main/digikamapp.cpp:836 digikam/tags/tagmodificationhelper.cpp:273
 #: digikam/tags/tagmodificationhelper.cpp:378
-#: digikam/tags/tagsmanager/tagsmanager.cpp:378
+#: digikam/tags/tagsmanager/tagsmanager.cpp:399
 #: digikam/utils/editablesearchtreeview.cpp:70
 #: digikam/utils/searchmodificationhelper.cpp:82
+#: utilities/importui/main/importui.cpp:1912
 #: utilities/queuemanager/views/workflowlist.cpp:294
 msgid "Delete"
 msgstr "Sil"
@@ -1902,7 +1913,7 @@ msgstr "Etiket Tanımla"
 msgid "Views"
 msgstr "Görünümler"
 
-#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:474
+#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:476
 msgctxt "@action Go to thumbnails (icon) view"
 msgid "Thumbnails"
 msgstr "Küçük Resimler"
@@ -1912,7 +1923,7 @@ msgctxt "View the selected image"
 msgid "Preview Image"
 msgstr "Resmi Önizle"
 
-#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:486
+#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:488
 msgctxt "@action Switch to map view"
 msgid "Map"
 msgstr "Harita"
@@ -2028,7 +2039,7 @@ msgstr "Yeniden İsimlendir..."
 msgid "Change the filename of the currently selected item."
 msgstr "Seçili ögenin dosya adını değiştir."
 
-#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:506
+#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:510
 #: utilities/imageeditor/editor/editorwindow.cpp:419
 #: utilities/lighttable/lighttablewindow.cpp:507
 msgctxt "Non-pluralized"
@@ -2175,8 +2186,8 @@ msgid "Select None"
 msgstr "Hiçbirisini Seçme"
 
 #: digikam/main/digikamapp.cpp:1147
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:134
-#: digikam/tags/tagsmanager/tagsmanager.cpp:655
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:149
+#: digikam/tags/tagsmanager/tagsmanager.cpp:679
 #: digikam/utils/contextmenuhelper.cpp:850
 msgid "Invert Selection"
 msgstr "Seçimi Tersine Çevir"
@@ -2410,7 +2421,7 @@ msgstr "Kipi Eklentileri"
 msgid "Loading themes..."
 msgstr "Temalar yükleniyor"
 
-#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:425
+#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:429
 msgid "&Themes"
 msgstr "&Temalar"
 
@@ -2443,7 +2454,7 @@ msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Normal"
 
-#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2492
+#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2497
 msgid "Flipped Horizontally"
 msgstr "Yatay Çevrilmiş"
 
@@ -2451,7 +2462,7 @@ msgstr "Yatay Çevrilmiş"
 msgid "Rotated Upside Down"
 msgstr "Yukarıdan Aşağıya Çevrik"
 
-#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2496
+#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2501
 msgid "Flipped Vertically"
 msgstr "Dikey çevrilmiş"
 
@@ -2459,7 +2470,7 @@ msgstr "Dikey çevrilmiş"
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Sağa Dönük / Yatay Çevrik"
 
-#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2504
+#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2509
 msgid "Rotated Right"
 msgstr "Sağa Döndürüldü"
 
@@ -2467,7 +2478,7 @@ msgstr "Sağa Döndürüldü"
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Sağa Dönük / Dikey Çevrik"
 
-#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2500
+#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2505
 msgid "Rotated Left"
 msgstr "Sola Döndürüldü"
 
@@ -2783,8 +2794,8 @@ msgid "Reset Tag Icon"
 msgstr "Etiket ikonunu sıfırla"
 
 #: digikam/tags/tagfolderview.cpp:114
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:140
-#: digikam/tags/tagsmanager/tagsmanager.cpp:661
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:155
+#: digikam/tags/tagsmanager/tagsmanager.cpp:685
 #, fuzzy
 #| msgid "Select None"
 msgid "Expand Selected Nodes"
@@ -2887,18 +2898,17 @@ msgid "Assign Tag \"%1\""
 msgstr "Etiket Tanımla"
 
 #: digikam/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:111
 #: digikam/utils/contextmenuhelper.cpp:828
 msgid "All Tags"
 msgstr "Tüm Etiketler"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:270
+#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:266
 #, fuzzy
 #| msgid "Quick access"
 msgid "Quick Access List"
 msgstr "Hızlı erişim"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:143
+#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:148
 #, fuzzy
 #| msgid "Delete Selected"
 msgid "Delete Selected from List"
@@ -2914,22 +2924,29 @@ msgstr "Işık Tablosuna Ekle"
 msgid "Add selected tags to Quick Access List"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:131
-#: digikam/tags/tagsmanager/tagsmanager.cpp:649
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:139
+#: digikam/utils/contextmenuhelper.cpp:429
+#, fuzzy
+#| msgid "Delete Tag"
+msgid "Delete Tags"
+msgstr "Etiketi Sil"
+
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:146
+#: digikam/tags/tagsmanager/tagsmanager.cpp:673
 #, fuzzy
 #| msgid "Reset Tag Icon"
 msgid "Reset tag Icon"
 msgstr "Etiket ikonunu sıfırla"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:137
-#: digikam/tags/tagsmanager/tagsmanager.cpp:658
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:152
+#: digikam/tags/tagsmanager/tagsmanager.cpp:682
 #, fuzzy
 #| msgid "Include Tag Sub-Tree"
 msgid "Expand Tag Tree"
 msgstr "Etiket Alt-Ağacını dahil et"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:143
-#: digikam/tags/tagsmanager/tagsmanager.cpp:663
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:158
+#: digikam/tags/tagsmanager/tagsmanager.cpp:687
 #, fuzzy
 #| msgid "Reread Metadata From Images"
 msgid "Remove Tag from Images"
@@ -2951,14 +2968,14 @@ msgstr ""
 msgid "Previous tags were changed. Save changes? "
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:166
+#: digikam/tags/tagsmanager/tagsmanager.cpp:169
 #: libs/widgets/mainview/daboutdata.cpp:177
 #, fuzzy
 #| msgid "Rights Management"
 msgid "Tags Manager"
 msgstr "Hak Yönetimi"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:331
+#: digikam/tags/tagsmanager/tagsmanager.cpp:351
 #, fuzzy, kde-format
 #| msgid ""
 #| "Tag '%2' has one subtag. Deleting this will also delete the subtag. Do "
@@ -2980,7 +2997,7 @@ msgstr[1] ""
 "'%2' etiketinin %1 alt etiketi var. Bu etiketi silmekle alt etiketi de "
 "silmiş olacaksınız. Devam etmek istiyor musunuz?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:355
+#: digikam/tags/tagsmanager/tagsmanager.cpp:376
 #, fuzzy, kde-format
 #| msgid "Tag '%2' is assigned to one item. Do you want to continue?"
 #| msgid_plural "Tag '%2' is assigned to %1 items. Do you want to continue?"
@@ -2991,7 +3008,7 @@ msgid_plural ""
 msgstr[0] "'%2' %1 ögeye atanmış. Devam etmek istiyor muzunuz?"
 msgstr[1] "'%2' %1 ögeye atanmış. Devam etmek istiyor muzunuz?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:367
+#: digikam/tags/tagsmanager/tagsmanager.cpp:388
 #, fuzzy, kde-format
 #| msgid "Delete Tag"
 msgctxt "%2 is a comma separated list of tags to be deleted."
@@ -3000,7 +3017,7 @@ msgid_plural "Delete tags %2?"
 msgstr[0] "Etiketi Sil"
 msgstr[1] "Etiketi Sil"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:377
+#: digikam/tags/tagsmanager/tagsmanager.cpp:398
 #, fuzzy
 #| msgid "Delete Tag"
 msgid "Delete tag"
@@ -3008,8 +3025,8 @@ msgid_plural "Delete tags"
 msgstr[0] "Etiketi Sil"
 msgstr[1] "Etiketi Sil"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:483
 #: digikam/tags/tagsmanager/tagsmanager.cpp:505
+#: digikam/tags/tagsmanager/tagsmanager.cpp:527
 #, fuzzy
 #| msgid ""
 #| "Performing this operation will reduce image color quality. Do you want to "
@@ -3021,14 +3038,14 @@ msgstr ""
 "Bu işlemin gerçekleştirilmesi resmin renk kalitesini düşürecektir. Devam "
 "etmek istiyor musunuz?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:528
+#: digikam/tags/tagsmanager/tagsmanager.cpp:550
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
 "Do you want to continue?"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:591
+#: digikam/tags/tagsmanager/tagsmanager.cpp:613
 #, fuzzy
 #| msgid ""
 #| "Do you want to remove the collection \"%1\" from your list of collections?"
@@ -3039,111 +3056,111 @@ msgstr[0] ""
 msgstr[1] ""
 "\"%1\" koleksiyonunu, koleksiyon listenizden kaldırmak istiyor musunuz?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:645
+#: digikam/tags/tagsmanager/tagsmanager.cpp:669
 msgid "Organize"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:652
+#: digikam/tags/tagsmanager/tagsmanager.cpp:676
 #, fuzzy
 #| msgid "Create Tag From Address Book"
 msgid "Create Tag from Address Book"
 msgstr "Adres Defterinden Etiket Oluştur"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:666
+#: digikam/tags/tagsmanager/tagsmanager.cpp:690
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:669
+#: digikam/tags/tagsmanager/tagsmanager.cpp:693
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:673
+#: digikam/tags/tagsmanager/tagsmanager.cpp:697
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:676
+#: digikam/tags/tagsmanager/tagsmanager.cpp:700
 msgid "Invert selection. Only visible items will be selected"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:679
+#: digikam/tags/tagsmanager/tagsmanager.cpp:703
 msgid "Expand tag tree by one level"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:681
+#: digikam/tags/tagsmanager/tagsmanager.cpp:705
 msgid "Selected items will be expanded"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:683
+#: digikam/tags/tagsmanager/tagsmanager.cpp:707
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:713
+#: digikam/tags/tagsmanager/tagsmanager.cpp:737
 #, fuzzy
 #| msgid "&Export"
 msgid "Sync &Export"
 msgstr "A&ktar"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:717
+#: digikam/tags/tagsmanager/tagsmanager.cpp:741
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags from Database to Image"
 msgstr "Resme Üstveri Yaz"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:721
+#: digikam/tags/tagsmanager/tagsmanager.cpp:745
 #, fuzzy
 #| msgid "Reread Metadata From Image"
 #| msgid_plural "Reread Metadata From Selected Images"
 msgid "Read Tags from Image"
 msgstr "Resimden Üstveri Oku"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:724
+#: digikam/tags/tagsmanager/tagsmanager.cpp:748
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Wipe all tags from Database only"
 msgstr "Resme Üstveri Yaz"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:727
+#: digikam/tags/tagsmanager/tagsmanager.cpp:751
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags Metadata to Image."
 msgstr "Resme Üstveri Yaz"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:729
+#: digikam/tags/tagsmanager/tagsmanager.cpp:753
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:732
+#: digikam/tags/tagsmanager/tagsmanager.cpp:756
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:753
+#: digikam/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync Database with Nepomuk"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:757
+#: digikam/tags/tagsmanager/tagsmanager.cpp:779
 #, fuzzy
 #| msgid "Synchronizing images Metadata with database. Please wait..."
 msgid "Sync Nepomuk to Database"
 msgstr "Görüntü meta verileri veritabanı ile eşitleniyor. Lütfen bekleyin..."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:758
+#: digikam/tags/tagsmanager/tagsmanager.cpp:780
 msgid ""
 "Export all tags from Database to Nepomuk. digiKam with Nepomuk support is "
 "required."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:761
+#: digikam/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Import tags from Nepomuk. digiKam with Nepomuk support is required."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:787
+#: digikam/tags/tagsmanager/tagsmanager.cpp:809
 #, fuzzy
 #| msgid "Properties"
 msgid "Tag Properties"
@@ -3182,35 +3199,35 @@ msgstr "Bu Etiketi Kaldır"
 msgid "Go to this Tag"
 msgstr "Bu etikete git"
 
-#: digikam/utils/albumsettings.cpp:456
+#: digikam/utils/albumsettings.cpp:463
 msgid "Category"
 msgstr "Kategori"
 
-#: digikam/utils/albumsettings.cpp:457
+#: digikam/utils/albumsettings.cpp:464
 msgid "Travel"
 msgstr "Gezi"
 
-#: digikam/utils/albumsettings.cpp:458
+#: digikam/utils/albumsettings.cpp:465
 msgid "Holidays"
 msgstr "Tatil"
 
-#: digikam/utils/albumsettings.cpp:459
+#: digikam/utils/albumsettings.cpp:466
 msgid "Friends"
 msgstr "Arkadaş"
 
-#: digikam/utils/albumsettings.cpp:460
+#: digikam/utils/albumsettings.cpp:467
 msgid "Nature"
 msgstr "Doğa"
 
-#: digikam/utils/albumsettings.cpp:461
+#: digikam/utils/albumsettings.cpp:468
 msgid "Party"
 msgstr "Parti"
 
-#: digikam/utils/albumsettings.cpp:462
+#: digikam/utils/albumsettings.cpp:469
 msgid "Todo"
 msgstr "Yapılacak"
 
-#: digikam/utils/albumsettings.cpp:463 showfoto/setup/setup.cpp:154
+#: digikam/utils/albumsettings.cpp:470 showfoto/setup/setup.cpp:154
 #: utilities/setup/setup.cpp:334
 msgid "Miscellaneous"
 msgstr "Diğer"
@@ -3253,12 +3270,6 @@ msgstr "Birlikte Aç..."
 #: digikam/utils/contextmenuhelper.cpp:411
 msgid "New Tag..."
 msgstr "Yeni Etiket..."
-
-#: digikam/utils/contextmenuhelper.cpp:429
-#, fuzzy
-#| msgid "Delete Tag"
-msgid "Delete Tags"
-msgstr "Etiketi Sil"
 
 #: digikam/utils/contextmenuhelper.cpp:438
 msgctxt "Edit Tag Properties"
@@ -4159,7 +4170,7 @@ msgstr "Renk kipi: "
 #: libs/template/templatelist.cpp:83
 #: utilities/queuemanager/views/workflowlist.cpp:97
 #: utilities/searchwindow/searchfields.cpp:536
-#: utilities/setup/setupcamera.cpp:283
+#: utilities/setup/setupcamera.cpp:285
 msgid "Title"
 msgstr "Başlık"
 
@@ -4262,7 +4273,7 @@ msgstr "Dosya adı"
 
 #: digikam/views/tableview_column_file.cpp:67
 #: digikam/views/tableview_column_file.cpp:97
-#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:286
+#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:288
 #: utilities/setup/setupcollectionview.cpp:936
 msgid "Path"
 msgstr "Yol"
@@ -4381,7 +4392,7 @@ msgstr "Renk kipi: "
 
 #: digikam/views/tableview_column_item.cpp:104
 #: digikam/views/tableview_column_item.cpp:139
-#: libs/widgets/common/databasewidget.cpp:102
+#: libs/widgets/common/databasewidget.cpp:103
 msgid "Type"
 msgstr "Tür"
 
@@ -4534,8 +4545,8 @@ msgstr "Mikronezya"
 msgid "Unit"
 msgstr ""
 
-#: digikam/views/tableview_column_thumbnail.cpp:88
-#: digikam/views/tableview_column_thumbnail.cpp:98
+#: digikam/views/tableview_column_thumbnail.cpp:85
+#: digikam/views/tableview_column_thumbnail.cpp:95
 #: utilities/queuemanager/views/queuelist.cpp:308
 msgid "Thumbnail"
 msgstr "Küçük resim"
@@ -6023,7 +6034,7 @@ msgstr "Yumuşatma Maskesi"
 
 #: imageplugins/enhance/sharpentool.cpp:292
 #: libs/dimg/filters/sharp/refocusfilter.h:58
-#: libs/dimg/filters/sharp/sharpsettings.cpp:147
+#: libs/dimg/filters/sharp/sharpsettings.cpp:148
 msgid "Refocus"
 msgstr "Yeniden Odakla"
 
@@ -6823,7 +6834,7 @@ msgstr "Otomatik Ayarlama"
 
 #: imageplugins/transform/freerotationtool.cpp:223
 #: libs/widgets/metadata/metadatawidget.cpp:146
-#: utilities/importui/main/importui.cpp:291
+#: utilities/importui/main/importui.cpp:293
 msgid "Settings"
 msgstr "Ayarlar"
 
@@ -7295,30 +7306,30 @@ msgstr ""
 "<b>Not:</b> bir görüntüyü çok büyük boyutlara ölçeklemek için Bakım Kipini "
 "kullanın. Bu işlem biraz zaman alabilir."
 
-#: imageplugins/transform/resizetool.cpp:556
+#: imageplugins/transform/resizetool.cpp:552
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:353
 #: utilities/queuemanager/basetools/transform/resize.cpp:126
 msgid "Resize"
 msgstr "Yeniden Boyutlandır"
 
-#: imageplugins/transform/resizetool.cpp:587
+#: imageplugins/transform/resizetool.cpp:583
 msgid "Photograph Resizing Settings File to Load"
 msgstr "Yüklenecek Fotoğraf Boyutlandırma Ayarları"
 
-#: imageplugins/transform/resizetool.cpp:601
+#: imageplugins/transform/resizetool.cpp:597
 #, kde-format
 msgid "\"%1\" is not a Photograph Resizing settings text file."
 msgstr "\"%1\" bir Fotoğraf Boyutlandırma Ayar dosyası değil"
 
-#: imageplugins/transform/resizetool.cpp:610
+#: imageplugins/transform/resizetool.cpp:606
 msgid "Cannot load settings from the Photograph Resizing text file."
 msgstr "Fotoğraf Boyutlandırma dosyasından ayarlar yüklenemiyor."
 
-#: imageplugins/transform/resizetool.cpp:620
+#: imageplugins/transform/resizetool.cpp:616
 msgid "Photograph Resizing Settings File to Save"
 msgstr "Kaydedilecek Fotoğraf Boyutlandırma Ayar Dosyası"
 
-#: imageplugins/transform/resizetool.cpp:635
+#: imageplugins/transform/resizetool.cpp:631
 msgid "Cannot save settings to the Photograph Resizing text file."
 msgstr "Fotoğraf Boyutlandırma dosyasına ayarlar kaydedilemiyor."
 
@@ -8391,7 +8402,7 @@ msgstr "Bileşen"
 msgid "Info"
 msgstr "Bilgiler"
 
-#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2506
+#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2511
 #: libs/imageproperties/imagepropertiessidebar.cpp:245
 #: libs/imageproperties/imagepropertiessidebardb.cpp:538
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:367
@@ -8485,47 +8496,47 @@ msgstr[0] ""
 "sürümü %3<br/>listede %1 model var</p>"
 msgstr[1] ""
 
-#: libs/dimg/dimg.cpp:3178
+#: libs/dimg/dimg.cpp:3177
 msgctxt "Color Model: RGB"
 msgid "RGB"
 msgstr "RGB"
 
-#: libs/dimg/dimg.cpp:3181
+#: libs/dimg/dimg.cpp:3180
 msgctxt "Color Model: Grayscale"
 msgid "Grayscale"
 msgstr "Gri ölçek"
 
-#: libs/dimg/dimg.cpp:3184
+#: libs/dimg/dimg.cpp:3183
 msgctxt "Color Model: Monochrome"
 msgid "Monochrome"
 msgstr "Tek renkli"
 
-#: libs/dimg/dimg.cpp:3187
+#: libs/dimg/dimg.cpp:3186
 msgctxt "Color Model: Indexed"
 msgid "Indexed"
 msgstr "Dizinli"
 
-#: libs/dimg/dimg.cpp:3190
+#: libs/dimg/dimg.cpp:3189
 msgctxt "Color Model: YCbCr"
 msgid "YCbCr"
 msgstr "YCbCr Color Model: YCbCr"
 
-#: libs/dimg/dimg.cpp:3193
+#: libs/dimg/dimg.cpp:3192
 msgctxt "Color Model: CMYK"
 msgid "CMYK"
 msgstr "CMYK Color Model: CMYK "
 
-#: libs/dimg/dimg.cpp:3196
+#: libs/dimg/dimg.cpp:3195
 msgctxt "Color Model: CIE L*a*b*"
 msgid "CIE L*a*b*"
 msgstr "CIE L*a*b* Color Model: CIE L*a*b*"
 
-#: libs/dimg/dimg.cpp:3199
+#: libs/dimg/dimg.cpp:3198
 msgctxt "Color Model: Uncalibrated (RAW)"
 msgid "Uncalibrated (RAW)"
 msgstr "Ayarlanmamış (RAW) Color Model: Uncalibrated (RAW)"
 
-#: libs/dimg/dimg.cpp:3203
+#: libs/dimg/dimg.cpp:3202
 msgctxt "Color Model: Unknown"
 msgid "Unknown"
 msgstr "Bilinmeyen Color Model: Unknown"
@@ -10193,7 +10204,7 @@ msgstr ""
 "görebilirsiniz."
 
 #: libs/dimg/filters/lens/antivignettingsettings.cpp:127
-#: libs/dimg/filters/sharp/sharpsettings.cpp:195
+#: libs/dimg/filters/sharp/sharpsettings.cpp:198
 msgid "Amount:"
 msgstr "Miktar:"
 
@@ -10697,7 +10708,7 @@ msgstr ""
 #: libs/dimg/filters/nr/nrsettings.cpp:138
 #: libs/dimg/filters/nr/nrsettings.cpp:165
 #: libs/dimg/filters/nr/nrsettings.cpp:192
-#: libs/dimg/filters/sharp/sharpsettings.cpp:203
+#: libs/dimg/filters/sharp/sharpsettings.cpp:206
 #: utilities/fuzzysearch/fuzzysearchview.cpp:295
 msgid "Threshold:"
 msgstr "Eşik:"
@@ -10763,15 +10774,15 @@ msgstr "Basit keskinlik"
 msgid "Unsharp mask"
 msgstr "Yumuşatma maskesi"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:149
+#: libs/dimg/filters/sharp/sharpsettings.cpp:151
 msgid "Select the sharpening method to apply to the image."
 msgstr "Buradan görüntüye uygulanacak keskinlik yöntemini seçin."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:166
+#: libs/dimg/filters/sharp/sharpsettings.cpp:168
 msgid "Sharpness:"
 msgstr "Keskinlik:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:171
+#: libs/dimg/filters/sharp/sharpsettings.cpp:173
 msgid ""
 "A sharpness of 0 has no effect, 1 and above determine the sharpen matrix "
 "radius that determines how much to sharpen the image."
@@ -10779,11 +10790,11 @@ msgstr ""
 "Keskinlik olarak 0 etkisizdir. 1 ve üzeri, resmin ne kadar "
 "keskinleştirileceğini belirleyen keskinlik matris yarıçapını belirler."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:188
+#: libs/dimg/filters/sharp/sharpsettings.cpp:190
 msgid "Radius:"
 msgstr "Yarıçap:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:192
+#: libs/dimg/filters/sharp/sharpsettings.cpp:195
 msgid ""
 "Radius value is the Gaussian blur matrix radius value used to determines how "
 "much to blur the image."
@@ -10791,14 +10802,14 @@ msgstr ""
 "Yarıçap değeri görüntünün ne kadar bulanıklaştırılacağını belirten Gaussian "
 "bulanık matrisinin yarıçap değeridir."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:200
+#: libs/dimg/filters/sharp/sharpsettings.cpp:203
 msgid ""
 "The value of the difference between the original and the blur image that is "
 "added back into the original."
 msgstr ""
 "Özgün ve bulanık görüntü arasındaki değer farkı özgün olana geri eklendi."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:208
+#: libs/dimg/filters/sharp/sharpsettings.cpp:211
 msgid ""
 "The threshold, as a fraction of the maximum luminosity value, needed to "
 "apply the difference amount."
@@ -10806,11 +10817,11 @@ msgstr ""
 "Parçalanmış en yüksek aydınlık değeri olarak; eşik, fark miktarını "
 "uygulamalı."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:230
+#: libs/dimg/filters/sharp/sharpsettings.cpp:233
 msgid "Circular sharpness:"
 msgstr "Çembersel keskinlik:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:235
+#: libs/dimg/filters/sharp/sharpsettings.cpp:238
 msgid ""
 "This is the radius of the circular convolution. It is the most important "
 "parameter for using this plugin. For most images the default value of 1.0 "
@@ -10821,11 +10832,11 @@ msgstr ""
 "parametredir. Bir çok görüntüde öntanımlı değer 1.0 iyi sonuçlar vermelidir. "
 "Görüntünüz çok bulanıksa daha yüksek değerler seçin."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:239
+#: libs/dimg/filters/sharp/sharpsettings.cpp:242
 msgid "Correlation:"
 msgstr "Karşılıklı İlişki:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:244
+#: libs/dimg/filters/sharp/sharpsettings.cpp:247
 msgid ""
 "Increasing the correlation may help to reduce artifacts. The correlation can "
 "range from 0-1. Useful values are 0.5 and values close to 1, e.g. 0.95 and "
@@ -10837,11 +10848,11 @@ msgstr ""
 "0.5 ve 1 e yakın değerlerdir. Örnek: 0.95 ve 0.99. Karşılıklı ilişki için "
 "yüksek bir değer kullanmak, eklentinin keskinlik etkisini azaltacaktır."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:249
+#: libs/dimg/filters/sharp/sharpsettings.cpp:252
 msgid "Noise filter:"
 msgstr "Gürültü filtresi:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:254
+#: libs/dimg/filters/sharp/sharpsettings.cpp:257
 msgid ""
 "Increasing the noise filter parameter may help to reduce artifacts. The "
 "noise filter can range from 0-1 but values higher than 0.1 are rarely "
@@ -10856,11 +10867,11 @@ msgstr ""
 "değer olarak 0.01 tercih edilebilir. Gürültü filtresi için yüksek bir değer "
 "kullanmak eklentinin keskinlik etkisini azaltacaktır."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:260
+#: libs/dimg/filters/sharp/sharpsettings.cpp:263
 msgid "Gaussian sharpness:"
 msgstr "Gaussian keskinliği:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:265
+#: libs/dimg/filters/sharp/sharpsettings.cpp:268
 msgid ""
 "This is the sharpness for the Gaussian convolution. Use this parameter when "
 "your blurring is of a Gaussian type. In most cases you should set this "
@@ -10874,11 +10885,11 @@ msgstr ""
 "bozulmalara neden olabilir. Ayrıca büklüm ve/veya gürültü filtre "
 "parametrelerini muhtemelen artırmak zorunda kalacaksınız."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:270
+#: libs/dimg/filters/sharp/sharpsettings.cpp:273
 msgid "Matrix size:"
 msgstr "Matris boyutu:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:275
+#: libs/dimg/filters/sharp/sharpsettings.cpp:278
 msgid ""
 "This parameter determines the size of the transformation matrix. Increasing "
 "the matrix width may give better results, especially when you have chosen "
@@ -10888,24 +10899,24 @@ msgstr ""
 "daha iyi sonuçlar verebilir, özellikle dairesel veya Gaussian keskinliği "
 "için geniş değerler seçildiğinde."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:487
+#: libs/dimg/filters/sharp/sharpsettings.cpp:490
 msgid "Photograph Refocus Settings File to Load"
 msgstr "Yüklenecek Fotoğraf Tekrar Odaklama Ayarları Dosyası"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:503
+#: libs/dimg/filters/sharp/sharpsettings.cpp:506
 #, kde-format
 msgid "\"%1\" is not a Photograph Refocus settings text file."
 msgstr "\"%1\" bir Fotoğraf Tekrar Odaklama ayarları yazı dosyası değil."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:521
+#: libs/dimg/filters/sharp/sharpsettings.cpp:524
 msgid "Cannot load settings from the Photograph Refocus text file."
 msgstr "Fotoğraf Tekrar Odaklama ayarları yazı dosyasından yüklenemiyor."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:531
+#: libs/dimg/filters/sharp/sharpsettings.cpp:534
 msgid "Photograph Refocus Settings File to Save"
 msgstr "Kaydedilecek Fotoğraf Tekrar Odaklama Ayarları Dosyası"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:554
+#: libs/dimg/filters/sharp/sharpsettings.cpp:557
 msgid "Cannot save settings to the Photograph Refocus text file."
 msgstr "Fotoğraf Tekrar Odaklama ayarları yazı dosyasına kaydedilemiyor."
 
@@ -11419,64 +11430,64 @@ msgstr ""
 "p><p>Dosyayı kaydetmek için kayıpsız bir dosya biçimi (Deflate) "
 "kullanılmaktadır.</p>"
 
-#: libs/dmetadata/dmetadata.cpp:2488
+#: libs/dmetadata/dmetadata.cpp:2493
 msgid "Unspecified"
 msgstr "Belirlenmemiş"
 
-#: libs/dmetadata/dmetadata.cpp:2490
+#: libs/dmetadata/dmetadata.cpp:2495
 msgctxt "Rotation of an unrotated image"
 msgid "Normal"
 msgstr "Normal"
 
-#: libs/dmetadata/dmetadata.cpp:2494
+#: libs/dmetadata/dmetadata.cpp:2499
 msgid "Rotated by 180 Degrees"
 msgstr "180 Derece Döndürüldü"
 
-#: libs/dmetadata/dmetadata.cpp:2498
+#: libs/dmetadata/dmetadata.cpp:2503
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "Yatay olarak döndürülmüş ve sola çevrilmiş"
 
-#: libs/dmetadata/dmetadata.cpp:2502
+#: libs/dmetadata/dmetadata.cpp:2507
 msgid "Flipped Vertically and Rotated Left"
 msgstr "Dikey olarak çevrilmiş ve sola döndürülmüş"
 
-#: libs/dmetadata/dmetadata.cpp:2542
+#: libs/dmetadata/dmetadata.cpp:2547
 #, kde-format
 msgctxt "Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "West"
 msgstr "Batı"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "East"
 msgstr "Doğu"
 
-#: libs/dmetadata/dmetadata.cpp:2595 libs/dmetadata/dmetadata.cpp:2608
+#: libs/dmetadata/dmetadata.cpp:2600 libs/dmetadata/dmetadata.cpp:2613
 msgctxt "For use in latitude coordinate"
 msgid "North"
 msgstr "Kuzey"
 
-#: libs/dmetadata/dmetadata.cpp:2595
+#: libs/dmetadata/dmetadata.cpp:2600
 msgctxt "For use in latitude coordinate"
 msgid "South"
 msgstr "Güney"
 
-#: libs/dmetadata/dmetadata.cpp:2617
+#: libs/dmetadata/dmetadata.cpp:2622
 #, no-c-format
 msgctxt "Height in meters"
 msgid "%L1m"
 msgstr "%L1m"
 
-#: libs/dmetadata/dmetadata.cpp:2759
+#: libs/dmetadata/dmetadata.cpp:2764
 msgid "Flash has been fired"
 msgstr "Flaş kullanılmış"
 
-#: libs/dmetadata/dmetadata.cpp:2760
+#: libs/dmetadata/dmetadata.cpp:2765
 msgid "Flash with red-eye reduction mode"
 msgstr "Kırmızı göz düzeltmesi açılmış flaş"
 
@@ -11727,12 +11738,6 @@ msgstr "Daha fazla"
 msgid "Description"
 msgstr "Açıklama"
 
-#: libs/imageproperties/imagedescedittab.cpp:294
-#, fuzzy
-#| msgid "Open in File Manager"
-msgid "Open Tag Manger"
-msgstr "Dosya Yöneticisinde Aç"
-
 #: libs/imageproperties/imagedescedittab.cpp:302
 msgid "Enter new tag here..."
 msgstr "Yeni etiketi buraya girin..."
@@ -11749,6 +11754,7 @@ msgstr "Yeni Etiketler"
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:135
 #: utilities/advancedrename/common/tooltipdialog.cpp:57
 #: utilities/importui/dialogs/cameramessagebox.cpp:216
+#: utilities/importui/main/importui.cpp:1891
 msgid "Information"
 msgstr "Bilgi"
 
@@ -12749,19 +12755,19 @@ msgstr "Kullanımlar:"
 msgid "Sublocation:"
 msgstr "Alt konum:"
 
-#: libs/threadimageio/thumbnailcreator.cpp:217
+#: libs/threadimageio/thumbnailcreator.cpp:218
 msgid "No or invalid size specified"
 msgstr "Belirtilmiş bir boyut yok ya da geçersiz"
 
-#: libs/threadimageio/thumbnailcreator.cpp:285
+#: libs/threadimageio/thumbnailcreator.cpp:286
 msgid "Thumbnail is null"
 msgstr "Önizleme yok"
 
-#: libs/threadimageio/thumbnailcreator.cpp:435
+#: libs/threadimageio/thumbnailcreator.cpp:436
 msgid "File does not exist"
 msgstr "Dosya mevcut değil"
 
-#: libs/threadimageio/thumbnailcreator.cpp:540
+#: libs/threadimageio/thumbnailcreator.cpp:541
 #, kde-format
 msgid "Cannot create thumbnail for %1"
 msgstr "%1 için küçük resim oluşturulamadı"
@@ -12783,11 +12789,11 @@ msgstr "Etiket, veritabanına eklenemedi"
 msgid "Color Label: %1"
 msgstr "Renk kipi: "
 
-#: libs/widgets/common/databasewidget.cpp:90
+#: libs/widgets/common/databasewidget.cpp:91
 msgid "Database File Path"
 msgstr "Veritabanı Dosya Yolu"
 
-#: libs/widgets/common/databasewidget.cpp:92
+#: libs/widgets/common/databasewidget.cpp:93
 #, fuzzy
 #| msgid ""
 #| "The location where the database file will be stored on your system. There "
@@ -12804,56 +12810,56 @@ msgstr ""
 "Bu dizin için yazma izni gerekmektedir ve NFS ile bağlanmış dosya sistemi "
 "gibi bir uzak yol kullanmayınız."
 
-#: libs/widgets/common/databasewidget.cpp:104
+#: libs/widgets/common/databasewidget.cpp:105
 msgid "Internal Server"
 msgstr "Dahili Sunucu"
 
-#: libs/widgets/common/databasewidget.cpp:106
+#: libs/widgets/common/databasewidget.cpp:107
 #, fuzzy
 #| msgid "Camera Name"
 msgid "Schema Name"
 msgstr "Kamera İsmi"
 
-#: libs/widgets/common/databasewidget.cpp:108
+#: libs/widgets/common/databasewidget.cpp:109
 #, fuzzy
 #| msgid "Camera Name"
 msgid "Thumbnails<br>Schema Name"
 msgstr "Kamera İsmi"
 
-#: libs/widgets/common/databasewidget.cpp:110
+#: libs/widgets/common/databasewidget.cpp:111
 msgid "Host Name"
 msgstr "Makine Adı"
 
-#: libs/widgets/common/databasewidget.cpp:112
-#: utilities/setup/setupcamera.cpp:285
+#: libs/widgets/common/databasewidget.cpp:113
+#: utilities/setup/setupcamera.cpp:287
 msgid "Port"
 msgstr "Port"
 
-#: libs/widgets/common/databasewidget.cpp:116
+#: libs/widgets/common/databasewidget.cpp:117
 msgid "Database<br>Connection<br>Options"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:119
+#: libs/widgets/common/databasewidget.cpp:120
 msgid "User"
 msgstr "Kullanıcı"
 
-#: libs/widgets/common/databasewidget.cpp:122
+#: libs/widgets/common/databasewidget.cpp:123
 msgid "Password"
 msgstr "Parola"
 
-#: libs/widgets/common/databasewidget.cpp:126
+#: libs/widgets/common/databasewidget.cpp:127
 msgid "Check DB Connection"
 msgstr "DB Bağlantısını Denetle"
 
-#: libs/widgets/common/databasewidget.cpp:164
+#: libs/widgets/common/databasewidget.cpp:165
 msgid "SQLite"
 msgstr "SQLite"
 
-#: libs/widgets/common/databasewidget.cpp:165
+#: libs/widgets/common/databasewidget.cpp:166
 msgid "MySQL (experimental)"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:166
+#: libs/widgets/common/databasewidget.cpp:167
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small and medium collection sizes (less "
@@ -12863,7 +12869,7 @@ msgid ""
 "Be careful: this one it is still in experimental stage.</p>"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:218
+#: libs/widgets/common/databasewidget.cpp:219
 msgid ""
 "You do not seem to have write access to this database folder.\n"
 "Without this access, the caption and tag features will not work."
@@ -12871,16 +12877,16 @@ msgstr ""
 "Bu veritabanı dizinine yazma hakkınız yok.\n"
 "Bu izin olmadan, açıklamalar ve etiket özellikleri çalışmayacaktır."
 
-#: libs/widgets/common/databasewidget.cpp:297
+#: libs/widgets/common/databasewidget.cpp:305
 msgid "Database connection test successful."
 msgstr "Veri tabanı bağlantı testi başarılı."
 
-#: libs/widgets/common/databasewidget.cpp:297
-#: libs/widgets/common/databasewidget.cpp:302
+#: libs/widgets/common/databasewidget.cpp:305
+#: libs/widgets/common/databasewidget.cpp:310
 msgid "Database connection test"
 msgstr "Veri tabanı bağlantı testi"
 
-#: libs/widgets/common/databasewidget.cpp:301
+#: libs/widgets/common/databasewidget.cpp:309
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr ""
@@ -13110,7 +13116,7 @@ msgid "Raw information about the ICC profile manufacturer"
 msgstr "ICC profili üreticisi hakkında ham bilgi"
 
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:139
-#: utilities/setup/setupcamera.cpp:284
+#: utilities/setup/setupcamera.cpp:286
 msgid "Model"
 msgstr "Model"
 
@@ -13336,8 +13342,8 @@ msgid "modified: %1"
 msgstr "değiştirildi: %1"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:369
-#: showfoto/main/showfoto.cpp:614
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:308
+#: showfoto/main/showfoto.cpp:625
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:320
 #: utilities/importui/items/itemviewimportdelegate.cpp:364
 #, kde-format
 msgctxt "%1 width, %2 height, %3 mpixels"
@@ -13345,14 +13351,14 @@ msgid "%1x%2 (%3Mpx)"
 msgstr "%1x%2 (%3Mpx)"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:373
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:421
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:313
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:423
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:325
 #: utilities/importui/items/itemviewimportdelegate.cpp:368
 msgctxt "unknown image resolution"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:416
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:418
 #, fuzzy, kde-format
 #| msgid "%1x%2 (%3Mpx)"
 msgctxt "%1 width : %2 height (%3 Aspect Ratio)"
@@ -13962,6 +13968,16 @@ msgstr "Hak Yönetimi"
 msgid "Paged-Text"
 msgstr "Sayfalanmış-Yazı"
 
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:160
+msgid "Metadata Working Group Regions"
+msgstr ""
+
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:164
+#, fuzzy
+#| msgid "Dublin Core"
+msgid "Darwin Core"
+msgstr "Dublin Core"
+
 #: libs/widgets/metadata/metadatalistview.cpp:140
 #, kde-format
 msgid ""
@@ -14079,7 +14095,7 @@ msgstr "showFoto"
 msgid "File(s) or folder(s) to open"
 msgstr "Açılacak dosya(lar) ya da dizin(ler)"
 
-#: showfoto/main/showfoto.cpp:290
+#: showfoto/main/showfoto.cpp:292
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
 "now, select \"Yes\", otherwise select \"No\". In this case, \"Color "
@@ -14090,31 +14106,31 @@ msgstr ""
 "seçerseniz \"Renk Yönetimi\" desteği siz bunu çözene kadar etkisiz hale "
 "gelecektir</p>"
 
-#: showfoto/main/showfoto.cpp:433
+#: showfoto/main/showfoto.cpp:437
 msgid "Open folder"
 msgstr "Dizin aç"
 
-#: showfoto/main/showfoto.cpp:511
+#: showfoto/main/showfoto.cpp:515
 msgid "Delete File"
 msgstr "Dosyayı Sil"
 
-#: showfoto/main/showfoto.cpp:613
+#: showfoto/main/showfoto.cpp:624
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
-#: showfoto/main/showfoto.cpp:694
+#: showfoto/main/showfoto.cpp:705
 #: utilities/imageeditor/main/imagewindow.cpp:887
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
 msgid "%1 (%2 of %3)"
 msgstr "%1 (%2 of %3)"
 
-#: showfoto/main/showfoto.cpp:732
+#: showfoto/main/showfoto.cpp:743
 msgid "Open Images From Folder"
 msgstr "Dizindeki Resimleri Aç"
 
-#: showfoto/main/showfoto.cpp:878
+#: showfoto/main/showfoto.cpp:889
 #: utilities/imageeditor/main/imagewindow.cpp:967
 #: utilities/imageeditor/main/imagewindow.cpp:1065
 #, fuzzy
@@ -14122,7 +14138,7 @@ msgstr "Dizindeki Resimleri Aç"
 msgid "Image saved successfully"
 msgstr "Öge başarılı şekilde işlendi..."
 
-#: showfoto/main/showfoto.cpp:959
+#: showfoto/main/showfoto.cpp:970
 #, kde-format
 msgid ""
 "About to delete file \"%1\"\n"
@@ -14131,13 +14147,14 @@ msgstr ""
 "\"%1\" Dosyası Silinmek Üzere\n"
 "Emin misiniz?"
 
-#: showfoto/main/showfoto.cpp:964
+#: showfoto/main/showfoto.cpp:975
 #: utilities/imageeditor/editor/editorwindow.cpp:1218
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
+#: utilities/importui/main/importui.cpp:1911
 msgid "Warning"
 msgstr "Uyarı"
 
-#: showfoto/main/showfoto.cpp:1037
+#: showfoto/main/showfoto.cpp:1048
 #: utilities/imageeditor/main/imagewindow.cpp:1356
 #: utilities/lighttable/lighttablewindow.cpp:1399
 msgid "Preparing slideshow. Please wait..."
@@ -14305,76 +14322,99 @@ msgstr ""
 "Extensible_Metadata_Platform'>XMP</a></b> - IPTC'nin yerini alması için "
 "hizmete sunulmuş dijital fotoğrafçılıkta kullanılan yeni bir standart."
 
-#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:101
+#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:103
 #: utilities/queuemanager/views/queuesettingsview.cpp:237
-#: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:511
+#: utilities/setup/setupcamera.cpp:354 utilities/setup/setupicc.cpp:511
 msgid "Behavior"
 msgstr "Davranış"
 
-#: showfoto/setup/setupmisc.cpp:104
+#: showfoto/setup/setupmisc.cpp:106
 msgid "&Deleted items should go to the trash"
 msgstr "&Silinen ögeler çöp kutusuna taşınsın"
 
-#: showfoto/setup/setupmisc.cpp:105 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/setupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
 msgid "&Show splash screen at startup"
 msgstr "&Başlangıç ekranını göster"
 
-#: showfoto/setup/setupmisc.cpp:106
-msgid "&Show Mime Type Over Image"
-msgstr ""
+#: showfoto/setup/setupmisc.cpp:108
+#, fuzzy
+#| msgid "Show image rating"
+msgid "&Show image Format"
+msgstr "Resim beğenisini göster"
 
-#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupcamera.cpp:443
+#, fuzzy
+#| msgid "Set this option to show the file name below the image thumbnail."
+msgid "Set this option to show image format over image thumbnail."
+msgstr ""
+"Dosya isminin küçük resmin altında görünmesi için bu seçeneği ayarlayın."
+
+#: showfoto/setup/setupmisc.cpp:110
+#, fuzzy
+#| msgid "Green Filter"
+msgid "&Show Geolocation Indicator"
+msgstr "Yeşil Filtreleme"
+
+#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupcamera.cpp:446
+#, fuzzy
+#| msgid "Set this option to display the image captions."
+msgid "Set this option to indicate if image has geolocation information."
+msgstr "Resim başlıklarını göstermek için bu seçeneği ayarlayın."
+
+#: showfoto/setup/setupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
 msgid "Sidebar tab title:"
 msgstr "Kenar çubuğu başlığı:"
 
-#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
 msgid "Only For Active Tab"
 msgstr "Sadece Etkin Sekme İçin"
 
-#: showfoto/setup/setupmisc.cpp:112 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/setupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
 msgid "For All Tabs"
 msgstr "Tüm Sekmeler İçin"
 
-#: showfoto/setup/setupmisc.cpp:113
+#: showfoto/setup/setupmisc.cpp:118
 #, fuzzy
 #| msgid "Set this option to display the image file size."
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr "Resim dosya boyutunu göstermek için bu seçeneği ayarlayın"
 
-#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/setupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
 msgid "Widget style:"
 msgstr "Parçacık biçimi:"
 
-#: showfoto/setup/setupmisc.cpp:118 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/setupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
 #, fuzzy
 #| msgid "Set this option to display the album collection."
 msgid "Set this option to choose the default window decoration and looks."
 msgstr "Albüm koleksiyonunu görüntülemek için bu seçeneği ayarlayın."
 
-#: showfoto/setup/setupmisc.cpp:133
+#: showfoto/setup/setupmisc.cpp:140
 msgid "Sort order for images"
 msgstr "Resimler için sıralama düzeni"
 
-#: showfoto/setup/setupmisc.cpp:137
+#: showfoto/setup/setupmisc.cpp:144
 msgid "Sort images by:"
 msgstr "Resimleri sırala:"
 
-#: showfoto/setup/setupmisc.cpp:139
+#: showfoto/setup/setupmisc.cpp:146
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "Tarih"
 
-#: showfoto/setup/setupmisc.cpp:140
+#: showfoto/setup/setupmisc.cpp:147
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "İsim"
 
-#: showfoto/setup/setupmisc.cpp:141
+#: showfoto/setup/setupmisc.cpp:148
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "Dosya Boyutu"
 
-#: showfoto/setup/setupmisc.cpp:142
+#: showfoto/setup/setupmisc.cpp:149
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -14382,11 +14422,11 @@ msgstr ""
 "Yeni yüklenen dosyaların neye göre listeleneceğini seçin: dosya tarihi, "
 "dosya adı ya da dosya boyutu."
 
-#: showfoto/setup/setupmisc.cpp:145
+#: showfoto/setup/setupmisc.cpp:152
 msgid "Reverse ordering"
 msgstr "Sıralamayı tersine çevir"
 
-#: showfoto/setup/setupmisc.cpp:146
+#: showfoto/setup/setupmisc.cpp:153
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -16262,7 +16302,7 @@ msgstr "Onayla"
 msgid "Who is this?"
 msgstr ""
 
-#: utilities/facemanagement/facepipeline.cpp:1234
+#: utilities/facemanagement/facepipeline.cpp:1240
 #, fuzzy
 #| msgid "Apply changes?"
 msgid "Applying face changes"
@@ -16300,7 +16340,7 @@ msgstr "Hiçbirisini Seçme"
 
 #: utilities/facemanagement/facescandialog.cpp:309
 msgctxt "@option:radio"
-msgid "Detect and recognize faces"
+msgid "Detect and recognize faces (experimental)"
 msgstr ""
 
 #: utilities/facemanagement/facescandialog.cpp:313
@@ -16334,7 +16374,7 @@ msgstr ""
 
 #: utilities/facemanagement/facescandialog.cpp:335
 msgctxt "@option:radio"
-msgid "Recognize faces"
+msgid "Recognize faces (experimental)"
 msgstr ""
 
 #: utilities/facemanagement/facescandialog.cpp:338
@@ -18461,7 +18501,7 @@ msgid ""
 "Failed to toggle lock file <filename>%1</filename>. Do you want to continue?"
 msgstr "'%2' %1 ögeye atanmış. Devam etmek istiyor muzunuz?"
 
-#: utilities/importui/backend/gpcamera.cpp:1360
+#: utilities/importui/backend/gpcamera.cpp:1364
 #, fuzzy, kde-format
 #| msgid ""
 #| "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>"
@@ -18474,7 +18514,7 @@ msgstr ""
 "Başlık: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Konum: <b>%4</"
 "b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1370
+#: utilities/importui/backend/gpcamera.cpp:1374
 #, fuzzy, kde-format
 #| msgid ""
 #| "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>"
@@ -18490,12 +18530,12 @@ msgstr ""
 "%3</b><br/>Öğeleri gönder: <b>%4</b><br/>Klasörleri oluştur: <b>%5</b><br/"
 ">Klasörleri sil: <b>%6</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -18505,12 +18545,12 @@ msgstr ""
 msgid "yes"
 msgstr "evet"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -18674,448 +18714,445 @@ msgstr "Yakala"
 msgid "Unknown Format"
 msgstr "Bilinmeyen"
 
-#: utilities/importui/items/importoverlays.cpp:104
+#: utilities/importui/items/importoverlays.cpp:175
 #, fuzzy
 #| msgid "This is the list of items that are about to be deleted."
 msgctxt "@info:tooltip"
 msgid "This item is locked."
 msgstr "Bu silinmek üzere olan ögelerin bir listesidir."
 
-#: utilities/importui/items/importoverlays.cpp:110
+#: utilities/importui/items/importoverlays.cpp:244
 #, fuzzy
 #| msgid "This is the list of items that are about to be deleted."
 msgctxt "@info:tooltip"
-msgid "This item is not locked."
+msgid "This item has an unknown download status"
 msgstr "Bu silinmek üzere olan ögelerin bir listesidir."
 
-#: utilities/importui/items/importoverlays.cpp:177
+#: utilities/importui/items/importoverlays.cpp:250
+#, fuzzy
+#| msgid "This is the list of items that are about to be deleted."
 msgctxt "@info:tooltip"
-msgid "This item download status is unknown"
+msgid "This item has never been downloaded"
+msgstr "Bu silinmek üzere olan ögelerin bir listesidir."
+
+#: utilities/importui/items/importoverlays.cpp:256
+msgctxt "@info:tooltip"
+msgid "This item has already been downloaded"
 msgstr ""
 
-#: utilities/importui/items/importoverlays.cpp:183
-msgctxt "@info:tooltip"
-msgid "This item download status is new"
-msgstr ""
-
-#: utilities/importui/items/importoverlays.cpp:189
-msgctxt "@info:tooltip"
-msgid "This item download status is downloaded"
-msgstr ""
-
-#: utilities/importui/main/importui.cpp:267
+#: utilities/importui/main/importui.cpp:269
 msgid "Set how digiKam will rename files as they are downloaded."
 msgstr ""
 "Resimler indirildiğinde digiKam'in resim dosyası adlarını nasıl "
 "adlandıracağını ayarlayın."
 
-#: utilities/importui/main/importui.cpp:269
+#: utilities/importui/main/importui.cpp:271
 msgid "File Renaming Options"
 msgstr "Yeniden Adlandırma Seçenekleri"
 
-#: utilities/importui/main/importui.cpp:275
+#: utilities/importui/main/importui.cpp:277
 msgid "Auto-creation of Albums"
 msgstr "Albümlerin otomatik oluşturulması"
 
-#: utilities/importui/main/importui.cpp:281
+#: utilities/importui/main/importui.cpp:283
 msgid "On the Fly Operations (JPEG only)"
 msgstr "Havadaki İşlemler (sadece JPEG)"
 
-#: utilities/importui/main/importui.cpp:287
+#: utilities/importui/main/importui.cpp:289
 #, fuzzy
 #| msgid "Smoothing:"
 msgid "Scripting"
 msgstr "Yumuşatma:"
 
-#: utilities/importui/main/importui.cpp:304
+#: utilities/importui/main/importui.cpp:306
 #, fuzzy
 #| msgid "Cancel"
 msgctxt "@action Cancel process"
 msgid "Cancel"
 msgstr "İptal"
 
-#: utilities/importui/main/importui.cpp:312
+#: utilities/importui/main/importui.cpp:314
 #, fuzzy
 #| msgid "Information"
 msgctxt "@action Information about camera"
 msgid "Information"
 msgstr "Bilgi"
 
-#: utilities/importui/main/importui.cpp:319
+#: utilities/importui/main/importui.cpp:321
 #, fuzzy
 #| msgid "Capture"
 msgctxt "@action Capture photo from camera"
 msgid "Capture"
 msgstr "Yakala"
 
-#: utilities/importui/main/importui.cpp:331
+#: utilities/importui/main/importui.cpp:333
 #, fuzzy
 #| msgid "Select All"
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Tümünü Seç"
 
-#: utilities/importui/main/importui.cpp:339
+#: utilities/importui/main/importui.cpp:341
 #, fuzzy
 #| msgid "Select None"
 msgctxt "@action:inmenu"
 msgid "Select None"
 msgstr "Hiçbirisini Seçme"
 
-#: utilities/importui/main/importui.cpp:347
+#: utilities/importui/main/importui.cpp:349
 #, fuzzy
 #| msgid "Invert Selection"
 msgctxt "@action:inmenu"
 msgid "Invert Selection"
 msgstr "Seçimi Tersine Çevir"
 
-#: utilities/importui/main/importui.cpp:355
+#: utilities/importui/main/importui.cpp:357
 #, fuzzy
 #| msgid "Select New Items"
 msgctxt "@action:inmenu"
 msgid "Select New Items"
 msgstr "Yeni Ögeler Seç"
 
-#: utilities/importui/main/importui.cpp:362
+#: utilities/importui/main/importui.cpp:364
 #, fuzzy
 #| msgid "Select Locked Items"
 msgctxt "@action:inmenu"
 msgid "Select Locked Items"
 msgstr "Kilitli Öğeleri Seç"
 
-#: utilities/importui/main/importui.cpp:370
+#: utilities/importui/main/importui.cpp:372
 #, fuzzy
 #| msgid "Download"
 msgctxt "@title:menu"
 msgid "Download"
 msgstr "İndir"
 
-#: utilities/importui/main/importui.cpp:375
+#: utilities/importui/main/importui.cpp:377
 #, fuzzy
 #| msgid "Download"
 msgctxt "@action"
 msgid "Download New"
 msgstr "İndir"
 
-#: utilities/importui/main/importui.cpp:382
+#: utilities/importui/main/importui.cpp:384
 #, fuzzy
 #| msgid "Download Selected"
 msgctxt "@action"
 msgid "Download Selected"
 msgstr "Seçilenleri İndir"
 
-#: utilities/importui/main/importui.cpp:389
+#: utilities/importui/main/importui.cpp:391
 #, fuzzy
 #| msgid "Download All"
 msgctxt "@action"
 msgid "Download All"
 msgstr "Tümünü İndir"
 
-#: utilities/importui/main/importui.cpp:397
+#: utilities/importui/main/importui.cpp:399
 #, fuzzy
 #| msgid "Download/Delete All"
 msgctxt "@action"
 msgid "Download && Delete New"
 msgstr "Tümünü İndir/Sil"
 
-#: utilities/importui/main/importui.cpp:405
+#: utilities/importui/main/importui.cpp:407
 #, fuzzy
 #| msgid "Download/Delete Selected"
 msgctxt "@action"
 msgid "Download && Delete Selected"
 msgstr "Seçilenleri İndir/Sil"
 
-#: utilities/importui/main/importui.cpp:413
+#: utilities/importui/main/importui.cpp:415
 #, fuzzy
 #| msgid "Download/Delete All"
 msgctxt "@action"
 msgid "Download && Delete All"
 msgstr "Tümünü İndir/Sil"
 
-#: utilities/importui/main/importui.cpp:420
+#: utilities/importui/main/importui.cpp:422
 #, fuzzy
 #| msgid "Upload..."
 msgctxt "@action"
 msgid "Upload..."
 msgstr "Yükle..."
 
-#: utilities/importui/main/importui.cpp:428
+#: utilities/importui/main/importui.cpp:430
 #, fuzzy
 #| msgid "Toggle Lock"
 msgctxt "@action"
 msgid "Toggle Lock"
 msgstr "Kilitle"
 
-#: utilities/importui/main/importui.cpp:436
+#: utilities/importui/main/importui.cpp:438
 #, fuzzy
 #| msgid "Downloaded: "
 msgctxt "@action"
 msgid "Mark as downloaded"
 msgstr "İndirildi: "
 
-#: utilities/importui/main/importui.cpp:443
+#: utilities/importui/main/importui.cpp:445
 #, fuzzy
 #| msgid "Delete"
 msgctxt "@title:menu"
 msgid "Delete"
 msgstr "Sil"
 
-#: utilities/importui/main/importui.cpp:448
+#: utilities/importui/main/importui.cpp:450
 #, fuzzy
 #| msgid "Delete Selected"
 msgctxt "@action"
 msgid "Delete Selected"
 msgstr "Seçilenleri Sİl"
 
-#: utilities/importui/main/importui.cpp:456
+#: utilities/importui/main/importui.cpp:458
 #, fuzzy
 #| msgid "Delete All"
 msgctxt "@action"
 msgid "Delete All"
 msgstr "Tümünü Sil"
 
-#: utilities/importui/main/importui.cpp:462
+#: utilities/importui/main/importui.cpp:464
 #, fuzzy
 #| msgid "Delete File"
 msgctxt "@action"
 msgid "Delete New"
 msgstr "Dosyayı Sil"
 
-#: utilities/importui/main/importui.cpp:470
+#: utilities/importui/main/importui.cpp:472
 #, fuzzy
 #| msgid "Views"
 msgctxt "@title:group"
 msgid "Views"
 msgstr "Görünümler"
 
-#: utilities/importui/main/importui.cpp:479
+#: utilities/importui/main/importui.cpp:481
 #, fuzzy
 #| msgid "Previous Image"
 msgctxt "@action View the selected image"
 msgid "Preview Item"
 msgstr "Önceki Resim"
 
-#: utilities/importui/main/importui.cpp:495
+#: utilities/importui/main/importui.cpp:497
 #, fuzzy
 #| msgid "&Sort Items"
 msgctxt "@title:menu"
 msgid "&Sort Items"
 msgstr "&Ögeleri Sırala"
 
-#: utilities/importui/main/importui.cpp:496
+#: utilities/importui/main/importui.cpp:498
 msgctxt "@info:whatsthis"
 msgid "The value by which the items are sorted in the thumbnail view"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:502
+#: utilities/importui/main/importui.cpp:504
 #, fuzzy
 #| msgid "By Name"
 msgctxt "item:inmenu Sort by"
 msgid "By Name"
 msgstr "İsme Göre"
 
-#: utilities/importui/main/importui.cpp:503
+#: utilities/importui/main/importui.cpp:505
 #, fuzzy
 #| msgid "By Path"
 msgctxt "item:inmenu Sort by"
 msgid "By Path"
 msgstr "Yola Göre"
 
-#: utilities/importui/main/importui.cpp:504
+#: utilities/importui/main/importui.cpp:506
 #, fuzzy
 #| msgid "By Date"
 msgctxt "item:inmenu Sort by"
 msgid "By Date"
 msgstr "Tarihe Göre"
 
-#: utilities/importui/main/importui.cpp:505
+#: utilities/importui/main/importui.cpp:507
 #, fuzzy
 #| msgid "By Size"
 msgctxt "item:inmenu Sort by"
 msgid "By Size"
 msgstr "Boyuta Göre"
 
-#: utilities/importui/main/importui.cpp:506
+#: utilities/importui/main/importui.cpp:508
 #, fuzzy
 #| msgid "By Rating"
 msgctxt "item:inmenu Sort by"
 msgid "By Rating"
 msgstr "Puana Göre"
 
-#: utilities/importui/main/importui.cpp:507
+#: utilities/importui/main/importui.cpp:509
 #, fuzzy
 #| msgid "Download Selected"
 msgctxt "item:inmenu Sort by"
 msgid "By Download State"
 msgstr "Seçilenleri İndir"
 
-#: utilities/importui/main/importui.cpp:527
+#: utilities/importui/main/importui.cpp:529
 #, fuzzy
 #| msgid "Image Settings"
 msgctxt "@title:inmenu"
 msgid "Item Sorting &Order"
 msgstr "Resim Ayarları"
 
-#: utilities/importui/main/importui.cpp:528
+#: utilities/importui/main/importui.cpp:530
 msgctxt "@info:whatsthis"
 msgid "Defines whether items are sorted in ascending or descending manner."
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:533
+#: utilities/importui/main/importui.cpp:535
 #, fuzzy
 #| msgid "Raw Decoding"
 msgctxt "@item:inmenu Sorting Order"
 msgid "Ascending"
 msgstr "Raw Deşifreleme"
 
-#: utilities/importui/main/importui.cpp:534
+#: utilities/importui/main/importui.cpp:536
 #, fuzzy
 #| msgid "Raw Decoding"
 msgctxt "@item:inmenu Sorting Order"
 msgid "Descending"
 msgstr "Raw Deşifreleme"
 
-#: utilities/importui/main/importui.cpp:546
+#: utilities/importui/main/importui.cpp:548
 #, fuzzy
 #| msgid "&Group Images"
 msgctxt "@title:menu"
 msgid "&Group Items"
 msgstr "Resimleri &Gruplandır"
 
-#: utilities/importui/main/importui.cpp:547
+#: utilities/importui/main/importui.cpp:549
 msgctxt "@info:whatsthis"
 msgid "The categories in which the items in the thumbnail view are displayed"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:553
+#: utilities/importui/main/importui.cpp:555
 #, fuzzy
 #| msgid "Flat List"
 msgctxt "@item:inmenu Group Items"
 msgid "Flat List"
 msgstr "Düz Liste"
 
-#: utilities/importui/main/importui.cpp:554
+#: utilities/importui/main/importui.cpp:556
 #, fuzzy
 #| msgid "By Folder"
 msgctxt "@item:inmenu Group Items"
 msgid "By Folder"
 msgstr "Dizine göre"
 
-#: utilities/importui/main/importui.cpp:555
+#: utilities/importui/main/importui.cpp:557
 #, fuzzy
 #| msgid "By Format"
 msgctxt "@item:inmenu Group Items"
 msgid "By Format"
 msgstr "Biçime Göre"
 
-#: utilities/importui/main/importui.cpp:583
+#: utilities/importui/main/importui.cpp:585
 #, fuzzy
 #| msgid "Fit to &Window"
 msgctxt "@action:inmenu"
 msgid "Fit to &Window"
 msgstr "&Pencereye Sığdır"
 
-#: utilities/importui/main/importui.cpp:588
+#: utilities/importui/main/importui.cpp:590
 #, fuzzy
 #| msgid "Zoom to 100%"
 msgctxt "@action:inmenu"
 msgid "Zoom to 100%"
 msgstr "100% Büyüt"
 
-#: utilities/importui/main/importui.cpp:597
+#: utilities/importui/main/importui.cpp:599
 #, fuzzy
 #| msgid "Show History"
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Geçmişi Göster"
 
-#: utilities/importui/main/importui.cpp:602
+#: utilities/importui/main/importui.cpp:604
 #, fuzzy
 #| msgid "Show Thumbbar"
 msgctxt "@option:check"
 msgid "Show Thumbbar"
 msgstr "Küçük Resim Çubuğunu Göster"
 
-#: utilities/importui/main/importui.cpp:633
-#: utilities/importui/main/importui.cpp:826
-#: utilities/importui/main/importui.cpp:832
+#: utilities/importui/main/importui.cpp:634
+#: utilities/importui/main/importui.cpp:828
+#: utilities/importui/main/importui.cpp:834
 #, fuzzy
 #| msgid "Previous Image"
 msgctxt "@action"
 msgid "Previous Image"
 msgstr "Önceki Resim"
 
-#: utilities/importui/main/importui.cpp:640
+#: utilities/importui/main/importui.cpp:641
 #, fuzzy
 #| msgid "Retry"
 msgctxt "@action Connection failed, try again?"
 msgid "Retry"
 msgstr "Yeniden dene"
 
-#: utilities/importui/main/importui.cpp:815
+#: utilities/importui/main/importui.cpp:817
 #, fuzzy
 #| msgid "Exit Preview Mode"
 msgctxt "@action"
 msgid "Exit Preview Mode"
 msgstr "Önizleme Kipinden Çık"
 
-#: utilities/importui/main/importui.cpp:820
+#: utilities/importui/main/importui.cpp:822
 #, fuzzy
 #| msgid "Next Image"
 msgctxt "@action"
 msgid "Next Image"
 msgstr "Sonraki Resim"
 
-#: utilities/importui/main/importui.cpp:837
+#: utilities/importui/main/importui.cpp:839
 #, fuzzy
 #| msgid "First Image"
 msgctxt "@action Go to first image"
 msgid "First Image"
 msgstr "İlk Resim"
 
-#: utilities/importui/main/importui.cpp:842
+#: utilities/importui/main/importui.cpp:844
 #, fuzzy
 #| msgid "Last Image"
 msgctxt "@action Go to last image"
 msgid "Last Image"
 msgstr "Son Resim"
 
-#: utilities/importui/main/importui.cpp:934
+#: utilities/importui/main/importui.cpp:936
 #, fuzzy
 #| msgid "Canceling current operation, please wait..."
 msgctxt "@info:status"
 msgid "Canceling current operation, please wait..."
 msgstr "Geçerli işlem iptal ediliyor, lütfen bekleyin..."
 
-#: utilities/importui/main/importui.cpp:989
+#: utilities/importui/main/importui.cpp:991
 #, fuzzy
 #| msgid "Do you want to close the dialog and cancel the current operation?"
 msgctxt "@info"
 msgid "Do you want to close the dialog and cancel the current operation?"
 msgstr "Pencereyi kapatmak ve şu anki işlemi iptal etmek istiyor musunuz?"
 
-#: utilities/importui/main/importui.cpp:998
+#: utilities/importui/main/importui.cpp:1000
 #, fuzzy
 #| msgid "Disconnecting from camera, please wait..."
 msgctxt "@info:status"
 msgid "Disconnecting from camera, please wait..."
 msgstr "Kamera bağlantısı kesiliyor, lütfen bekleyin..."
 
-#: utilities/importui/main/importui.cpp:1039
+#: utilities/importui/main/importui.cpp:1042
 #, fuzzy
 #| msgid "Scanning for new files, please wait..."
 msgctxt "@info:status"
 msgid "Scanning for new files, please wait..."
 msgstr "Yeni dosyalar için tarama yapılıyor, lütfen bekleyin..."
 
-#: utilities/importui/main/importui.cpp:1076
+#: utilities/importui/main/importui.cpp:1079
 #, fuzzy
 #| msgid "Ready"
 msgctxt "@info:status"
 msgid "Ready"
 msgstr "Hazır"
 
-#: utilities/importui/main/importui.cpp:1147
+#: utilities/importui/main/importui.cpp:1150
 #, fuzzy
 #| msgid ""
 #| "Failed to connect to the camera. Please make sure it is connected "
@@ -19128,14 +19165,14 @@ msgstr ""
 "Kameraya bağlanılamadı. Doğru bağlandığından ve açık olduğundan emin olun. "
 "Yeniden denemek istiyor musunuz?"
 
-#: utilities/importui/main/importui.cpp:1267
+#: utilities/importui/main/importui.cpp:1270
 #, fuzzy
 #| msgid "Select Image to Upload"
 msgctxt "@title:window"
 msgid "Select Image to Upload"
 msgstr "Yüklemek için Resim Seçin"
 
-#: utilities/importui/main/importui.cpp:1300
+#: utilities/importui/main/importui.cpp:1303
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is no enough free space on Camera Media to upload pictures.\n"
@@ -19154,7 +19191,7 @@ msgstr ""
 "Gerekli alan: %1\n"
 "Kullanılabilir alan: %2"
 
-#: utilities/importui/main/importui.cpp:1354
+#: utilities/importui/main/importui.cpp:1357
 #, fuzzy, kde-format
 #| msgid ""
 #| "Camera Folder <b>%1</b> already contains item <b>%2</b><br/>Please enter "
@@ -19167,21 +19204,21 @@ msgstr ""
 "Kamera Klasörü <b>%1</b> zaten şu ögeyi içeriyor <b>%2</b><br/>Lütfen yeni "
 "dosya ismini girin (uzantı olmadan):"
 
-#: utilities/importui/main/importui.cpp:1357
+#: utilities/importui/main/importui.cpp:1360
 #, fuzzy
 #| msgid "File already exists"
 msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Dosya zaten mevcut"
 
-#: utilities/importui/main/importui.cpp:1418
+#: utilities/importui/main/importui.cpp:1421
 msgctxt "@info"
 msgid ""
 "Your custom target album date format is not valid. Please check your "
 "settings..."
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1457
+#: utilities/importui/main/importui.cpp:1460
 msgctxt "@info"
 msgid ""
 "Collection which host your default target album set to process download from "
@@ -19189,14 +19226,14 @@ msgid ""
 "configuration dialog."
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1465
+#: utilities/importui/main/importui.cpp:1468
 msgctxt "@info"
 msgid ""
 "Your default target album set to process download from camera device is not "
 "available. Please select another one from camera configuration dialog."
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1483
+#: utilities/importui/main/importui.cpp:1487
 #, fuzzy
 #| msgid ""
 #| "<p>Please select the destination album from the digiKam library to import "
@@ -19209,21 +19246,21 @@ msgstr ""
 "<p>Lütfen digiKam kitaplığından kamera resimlerini içeriye aktarmak için "
 "hedef albümü seçin.</p>"
 
-#: utilities/importui/main/importui.cpp:1577
+#: utilities/importui/main/importui.cpp:1581
 msgctxt "@info Popup notification"
 msgid ""
 "Images download finished, you can now detach your camera while the images "
 "will be auto-rotated"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1581
+#: utilities/importui/main/importui.cpp:1585
 #, fuzzy
 #| msgid "Downloaded: "
 msgctxt "@info Popup notification"
 msgid "Images download finished"
 msgstr "İndirildi: "
 
-#: utilities/importui/main/importui.cpp:1884
+#: utilities/importui/main/importui.cpp:1888
 #, fuzzy
 #| msgid ""
 #| "The items listed below are locked by camera (read-only). These items will "
@@ -19239,7 +19276,7 @@ msgstr ""
 "kilitlenmiş. Bu ögeler silinemez. Silmek istiyorsanız lütfen kilidi kaldırın "
 "ve yeniden deneyin."
 
-#: utilities/importui/main/importui.cpp:1895
+#: utilities/importui/main/importui.cpp:1899
 #, fuzzy, kde-format
 #| msgid ""
 #| "About to delete this image. Deleted file is unrecoverable. Are you sure?"
@@ -19258,21 +19295,21 @@ msgstr[0] ""
 msgstr[1] ""
 "%1 resmi silmek üzeresiniz. Silinen dosyalar geri alınamaz. Emin misiniz?"
 
-#: utilities/importui/main/importui.cpp:1945
+#: utilities/importui/main/importui.cpp:1950
 #, fuzzy
 #| msgid "Try Anyway"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Yinede Dene"
 
-#: utilities/importui/main/importui.cpp:1947
+#: utilities/importui/main/importui.cpp:1952
 #, fuzzy
 #| msgid "Cancel Download"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "İndirmeyi İptal Et"
 
-#: utilities/importui/main/importui.cpp:1950
+#: utilities/importui/main/importui.cpp:1954
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is not enough free space on the disk of the album you selected to "
@@ -19294,15 +19331,15 @@ msgstr ""
 "Tahmini gerekli boş alan: %1\n"
 "Kullanılabilir boş alan: %2"
 
-#: utilities/importui/main/importui.cpp:1956
+#: utilities/importui/main/importui.cpp:1960
 #, fuzzy
 #| msgid "Insufficient Disk Space"
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Yetersiz Disk Alanı"
 
-#: utilities/importui/main/importui.cpp:2299
-#: utilities/importui/main/importui.cpp:2325
+#: utilities/importui/main/importui.cpp:2305
+#: utilities/importui/main/importui.cpp:2331
 #, fuzzy, kde-format
 #| msgid "No item selected"
 msgctxt "@info:status"
@@ -19311,13 +19348,13 @@ msgid_plural "No item selected (%1 items)"
 msgstr[0] "Hiçbir öge seçilmedi"
 msgstr[1] ""
 
-#: utilities/importui/main/importui.cpp:2318
+#: utilities/importui/main/importui.cpp:2324
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:2334
+#: utilities/importui/main/importui.cpp:2340
 #, fuzzy, kde-format
 #| msgid "%2/%1 item selected"
 #| msgid_plural "%2/%1 items selected"
@@ -19327,7 +19364,7 @@ msgid_plural "%2/%1 items selected"
 msgstr[0] "%2/%1 öge seçildi"
 msgstr[1] "%2/%1 öge seçildi"
 
-#: utilities/importui/main/importui.cpp:2421
+#: utilities/importui/main/importui.cpp:2427
 #, fuzzy, kde-format
 #| msgid "A file with same name (%1) exists in folder %2"
 msgctxt "@info"
@@ -19336,14 +19373,14 @@ msgid ""
 "<resource>%2</resource>."
 msgstr "Aynı isimde bir (%1) Albumü %2 albümü içerisinde mevcut"
 
-#: utilities/importui/main/importui.cpp:2433
+#: utilities/importui/main/importui.cpp:2439
 #, fuzzy, kde-format
 #| msgid "Failed to find Album for path '%1'"
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "'%1' yolu için albüm bulunamadı"
 
-#: utilities/importui/main/importui.cpp:2444
+#: utilities/importui/main/importui.cpp:2450
 #, fuzzy
 #| msgid "General"
 msgctxt "@title"
@@ -19999,7 +20036,7 @@ msgid "Clear unconfirmed results and rescan"
 msgstr ""
 
 #: utilities/maintenance/maintenancedlg.cpp:233
-msgid "Detect and recognize Faces"
+msgid "Detect and recognize Faces (experimental)"
 msgstr ""
 
 #: utilities/maintenance/maintenancedlg.cpp:240
@@ -22034,6 +22071,15 @@ msgstr ""
 "özelleştirin</i></qt>"
 
 #: utilities/setup/setup.cpp:552
+msgid ""
+"The maximum thumbnail size has been changed.\n"
+"You need to restart digiKam to see this option to take effect.\n"
+"\n"
+"Note: after restarting digiKam, it is recommended to rebuild all album "
+"items' thumbnails, using the \"Tools-Maintenance\" menu."
+msgstr ""
+
+#: utilities/setup/setup.cpp:561
 #, fuzzy
 #| msgid ""
 #| "The Exif auto-rotate thumbnails option has been changed.\n"
@@ -22046,7 +22092,7 @@ msgid ""
 "Do you want to rebuild all albums' items' thumbnails now?\n"
 "\n"
 "Note: thumbnail processing can take a while. You can start this job later "
-"from the \"Tools\" menu."
+"from the \"Tools-Maintenance\" menu."
 msgstr ""
 "Exif küçük resim otomatik döndürme seçeneği değiştirildi.\n"
 "Tüm albüm ögeleri küçük resimlerini şimdi yeniden inşa etmek istiyor "
@@ -22055,70 +22101,70 @@ msgstr ""
 "Not: Küçük resim oluşturma işlemi biraz zaman alabilir! \"Araçlar\" menüsünü "
 "kullanarak daha sonra bu işlemi başlatabilirsiniz."
 
-#: utilities/setup/setupalbumview.cpp:121 utilities/setup/setupcamera.cpp:421
+#: utilities/setup/setupalbumview.cpp:131 utilities/setup/setupcamera.cpp:423
 msgid "Icon-View Options"
 msgstr "Simge Görünümü Seçenekleri"
 
-#: utilities/setup/setupalbumview.cpp:124 utilities/setup/setupcamera.cpp:424
+#: utilities/setup/setupalbumview.cpp:134 utilities/setup/setupcamera.cpp:426
 msgid "Show file&name"
 msgstr "&Dosya adını göster"
 
-#: utilities/setup/setupalbumview.cpp:125 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:135 utilities/setup/setupcamera.cpp:427
 #, fuzzy
 #| msgid "Set this option to show the file name below the image thumbnail."
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr ""
 "Dosya isminin küçük resmin altında görünmesi için bu seçeneği ayarlayın."
 
-#: utilities/setup/setupalbumview.cpp:127 utilities/setup/setupcamera.cpp:427
+#: utilities/setup/setupalbumview.cpp:137 utilities/setup/setupcamera.cpp:429
 msgid "Show file si&ze"
 msgstr "Dosya &boyutunu göster"
 
-#: utilities/setup/setupalbumview.cpp:128 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:430
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr ""
 "Dosya boyutunun küçük resmin altında görünmesi için bu seçeneği işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:130 utilities/setup/setupcamera.cpp:430
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:432
 msgid "Show camera creation &date"
 msgstr "Kamera oluştur&ma zamanını göster"
 
-#: utilities/setup/setupalbumview.cpp:131
+#: utilities/setup/setupalbumview.cpp:141
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr ""
 "Kamera oluşturma tarihini küçük resimlerin altında görünmesi için bu "
 "seçeneği işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:134
+#: utilities/setup/setupalbumview.cpp:144
 msgid "Show file &modification date"
 msgstr "Dosya &değiştirilme tarihini göster"
 
-#: utilities/setup/setupalbumview.cpp:135
+#: utilities/setup/setupalbumview.cpp:145
 msgid ""
 "Set this option to show the file modification date below the image thumbnail."
 msgstr ""
 "Dosya düzenleme tarihini küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:138
+#: utilities/setup/setupalbumview.cpp:148
 msgid "Show ima&ge dimensions"
 msgstr "&Resim boyutlarını göster"
 
-#: utilities/setup/setupalbumview.cpp:139
+#: utilities/setup/setupalbumview.cpp:149
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr ""
 "Piksel olarak resim boyutunun küçük resmin altında görünmesi için bu "
 "seçeneği ayarlayın."
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setuptooltip.cpp:213
+#: utilities/setup/setupalbumview.cpp:152 utilities/setup/setuptooltip.cpp:213
 #, fuzzy
 #| msgid "Preserve Aspect Ratio"
 msgid "Show image aspect ratio"
 msgstr "En-boy Oranını Koru"
 
-#: utilities/setup/setupalbumview.cpp:143
+#: utilities/setup/setupalbumview.cpp:153
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
@@ -22128,26 +22174,19 @@ msgstr ""
 "digiKam beğenisinin küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:440
+#: utilities/setup/setupalbumview.cpp:156 utilities/setup/setupcamera.cpp:442
 #, fuzzy
 #| msgid "Show image rating"
 msgid "Show image Format"
 msgstr "Resim beğenisini göster"
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:441
-#, fuzzy
-#| msgid "Set this option to show the file name below the image thumbnail."
-msgid "Set this option to show image format over image thumbnail."
-msgstr ""
-"Dosya isminin küçük resmin altında görünmesi için bu seçeneği ayarlayın."
-
-#: utilities/setup/setupalbumview.cpp:149
+#: utilities/setup/setupalbumview.cpp:159
 #, fuzzy
 #| msgid "Show digiKam &rating"
 msgid "Show digiKam tit&le"
 msgstr "digiKam beğenisini göster"
 
-#: utilities/setup/setupalbumview.cpp:150
+#: utilities/setup/setupalbumview.cpp:160
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
@@ -22156,41 +22195,41 @@ msgstr ""
 "digiKam beğenisinin küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:153
+#: utilities/setup/setupalbumview.cpp:163
 msgid "Show digiKam &captions"
 msgstr "digiKam &başlıklarını göster"
 
-#: utilities/setup/setupalbumview.cpp:154
+#: utilities/setup/setupalbumview.cpp:164
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr ""
 "digiKam başlıklarını küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:157 utilities/setup/setupcamera.cpp:443
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:448
 msgid "Show digiKam &tags"
 msgstr "digiKam &etiketlerini göster"
 
-#: utilities/setup/setupalbumview.cpp:158 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:168 utilities/setup/setupcamera.cpp:449
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr ""
 "digiKam etiketlerini küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:171
 msgid "Show digiKam &rating"
 msgstr "digiKam beğenisini göster"
 
-#: utilities/setup/setupalbumview.cpp:162
+#: utilities/setup/setupalbumview.cpp:172
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr ""
 "digiKam beğenisinin küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:451
+#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:456
 msgid "Show rotation overlay buttons"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:457
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam captions below the image thumbnail."
@@ -22201,47 +22240,70 @@ msgstr ""
 "digiKam başlıklarını küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupalbumview.cpp:169 utilities/setup/setupcamera.cpp:455
+#: utilities/setup/setupalbumview.cpp:179 utilities/setup/setupcamera.cpp:445
+#, fuzzy
+#| msgid "Green Filter"
+msgid "Show Geolocation Indicator"
+msgstr "Yeşil Filtreleme"
+
+#: utilities/setup/setupalbumview.cpp:182 utilities/setup/setupcamera.cpp:460
 msgid "Thumbnail click action:"
 msgstr "Küçük Resim tıklama olayı:"
 
-#: utilities/setup/setupalbumview.cpp:171 utilities/setup/setupcamera.cpp:457
+#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:462
 msgid "Show embedded preview"
 msgstr "Gömülü önizlemeyi göster"
 
-#: utilities/setup/setupalbumview.cpp:172 utilities/setup/setupcamera.cpp:458
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:463
 msgid "Start image editor"
 msgstr "Resim düzenleyiciyi başlat"
 
-#: utilities/setup/setupalbumview.cpp:173 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:464
 #, fuzzy
 #| msgid "Here, choose what should happen when you click on a thumbnail."
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr "Küçük resme tıklandığında ne olacağını seçin."
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:461
+#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:466
 #, fuzzy
 #| msgid "Icon-view font:"
 msgid "Icon View font:"
 msgstr "Simge görünümü yazı tipi:"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:189 utilities/setup/setupcamera.cpp:467
 #, fuzzy
 #| msgid "Select here the font used to display text in all icon-view."
 msgid "Select here the font used to display text in Icon Views."
 msgstr "Tüm simge görünümlerinde kullanılacak yazı tipini seçin."
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:191
+msgid "Use large thumbnail size for high screen resolution"
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:192
+msgid ""
+"Set this option to render icon-view with large thumbnail size, for example "
+"in case of 4K monitor is used.\n"
+"By default this option is turned off and the maximum thumbnail size is "
+"limited to 256x256 pixels. When this option is enabled, thumbnail size can "
+"be extended to 512x512 pixels.\n"
+"This option will store more data in thumbnail database and will use more "
+"system memory. digiKam needs to be restarted to take effect, and Rebuild "
+"Thumbnails option from Maintenance tool needs to be processed over whole "
+"collections."
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:223
 msgid "Folder View Options"
 msgstr "Dizin Görünümü Seçenekleri"
 
-#: utilities/setup/setupalbumview.cpp:203
+#: utilities/setup/setupalbumview.cpp:226
 #, fuzzy
 #| msgid "Tree-view thumbnail size:"
 msgid "Tree View thumbnail size:"
 msgstr "Ağaç Görünümlü Küçük Resim boyutu:"
 
-#: utilities/setup/setupalbumview.cpp:209
+#: utilities/setup/setupalbumview.cpp:232
 #, fuzzy
 #| msgid ""
 #| "Set this option to configure the size in pixels of the tree-view "
@@ -22253,37 +22315,37 @@ msgstr ""
 "Ağaç görünümlü küçük resimlerin digiKam kenar çubuğunda piksel olarak "
 "boyutunu ayarlayın."
 
-#: utilities/setup/setupalbumview.cpp:212
+#: utilities/setup/setupalbumview.cpp:235
 #, fuzzy
 #| msgid "Tree-view font:"
 msgid "Tree View font:"
 msgstr "Ağaç görünümü yazı tipi:"
 
-#: utilities/setup/setupalbumview.cpp:213
+#: utilities/setup/setupalbumview.cpp:236
 #, fuzzy
 #| msgid "Select here the font used to display text in all tree-view."
 msgid "Select here the font used to display text in Tree Views."
 msgstr "Tüm ağaç görünümlerindeki yazı tipini buradan seçin."
 
-#: utilities/setup/setupalbumview.cpp:215
+#: utilities/setup/setupalbumview.cpp:238
 #, fuzzy
 #| msgid "Show count of items in all tree-view"
 msgid "Show a count of items in Tree Views"
 msgstr "Tüm ağaç görünümlerde öge sayısını göster"
 
-#: utilities/setup/setupalbumview.cpp:226 utilities/setup/setupcamera.cpp:481
+#: utilities/setup/setupalbumview.cpp:249 utilities/setup/setupcamera.cpp:487
 #, fuzzy
 #| msgid "Folder View Options"
 msgid "Preview Options"
 msgstr "Dizin Görünümü Seçenekleri"
 
-#: utilities/setup/setupalbumview.cpp:229 utilities/setup/setupcamera.cpp:484
+#: utilities/setup/setupalbumview.cpp:252 utilities/setup/setupcamera.cpp:490
 #, fuzzy
 #| msgid "Embedded preview loads full image size"
 msgid "Embedded preview loads full-sized images"
 msgstr "Gömülü önizleme tam resim boyutunu yükler"
 
-#: utilities/setup/setupalbumview.cpp:230 utilities/setup/setupcamera.cpp:485
+#: utilities/setup/setupalbumview.cpp:253 utilities/setup/setupcamera.cpp:491
 #: utilities/setup/setuplighttable.cpp:108
 #, fuzzy
 #| msgid ""
@@ -22302,16 +22364,16 @@ msgstr ""
 "bulundurarak hızlı bir bilgisayara sahipseniz kullanmanız gerektiğini "
 "unutmayın."
 
-#: utilities/setup/setupalbumview.cpp:237 utilities/setup/setupcamera.cpp:495
+#: utilities/setup/setupalbumview.cpp:260 utilities/setup/setupcamera.cpp:501
 msgid "Show icons and text over preview"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:238 utilities/setup/setupcamera.cpp:496
+#: utilities/setup/setupalbumview.cpp:261
 msgid ""
-"Uncheck this if you don't want to see icons and text in the image preview."
+"Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:279
+#: utilities/setup/setupcamera.cpp:281
 msgid ""
 "Here you can see the digital camera list used by digiKam via the Gphoto "
 "interface."
@@ -22319,70 +22381,70 @@ msgstr ""
 "Burada Gphoto arabirimi ile digiKam tarafından kullanılan sayısal kamera "
 "listesini görebilirsiniz."
 
-#: utilities/setup/setupcamera.cpp:300 utilities/setup/setupcamera.cpp:393
+#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
 #: utilities/setup/setupcategory.cpp:100 utilities/setup/setuptemplate.cpp:124
 msgid "&Add..."
 msgstr "&Ekle..."
 
-#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
+#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
 #: utilities/setup/setupcategory.cpp:101 utilities/setup/setuptemplate.cpp:126
 msgid "&Remove"
 msgstr "&Kaldır"
 
-#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
+#: utilities/setup/setupcamera.cpp:306 utilities/setup/setupcamera.cpp:399
 msgid "&Edit..."
 msgstr "&Düzenle..."
 
-#: utilities/setup/setupcamera.cpp:306
+#: utilities/setup/setupcamera.cpp:308
 msgid "Auto-&Detect"
 msgstr "Otomatik-&Algıla"
 
-#: utilities/setup/setupcamera.cpp:318
+#: utilities/setup/setupcamera.cpp:320
 msgid "Visit Gphoto project website"
 msgstr "Gphoto projesi internet sitesini ziyaret edin."
 
-#: utilities/setup/setupcamera.cpp:339
+#: utilities/setup/setupcamera.cpp:341
 msgid "Devices"
 msgstr "Aygıtlar"
 
-#: utilities/setup/setupcamera.cpp:347
+#: utilities/setup/setupcamera.cpp:349
 msgid "Use file metadata (makes connection slower)"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:348
+#: utilities/setup/setupcamera.cpp:350
 msgid "Turn on high quality thumbnail loading (slower loading)"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:349
+#: utilities/setup/setupcamera.cpp:351
 msgid "Use a default target album to download from camera"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:371
+#: utilities/setup/setupcamera.cpp:373
 msgid ""
 "Here you can see filters that can be used to filter files in import dialog."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:390
+#: utilities/setup/setupcamera.cpp:392
 msgid "Always ignore"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:391
+#: utilities/setup/setupcamera.cpp:393
 #, fuzzy
 #| msgid "Show file name"
 msgid "Ignored file names:"
 msgstr "Dosya ismini göster"
 
-#: utilities/setup/setupcamera.cpp:392
+#: utilities/setup/setupcamera.cpp:394
 #, fuzzy
 #| msgid "File Renaming Options"
 msgid "Ignored file extensions:"
 msgstr "Yeniden Adlandırma Seçenekleri"
 
-#: utilities/setup/setupcamera.cpp:412
+#: utilities/setup/setupcamera.cpp:414
 msgid "Import Filters"
 msgstr "Filtreleri İçeri Aktar"
 
-#: utilities/setup/setupcamera.cpp:431
+#: utilities/setup/setupcamera.cpp:433
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the camera creation date below the image "
@@ -22393,13 +22455,13 @@ msgstr ""
 "Kamera oluşturma tarihini küçük resimlerin altında görünmesi için bu "
 "seçeneği işaretleyin."
 
-#: utilities/setup/setupcamera.cpp:447
+#: utilities/setup/setupcamera.cpp:452
 #, fuzzy
 #| msgid "Show digiKam &rating"
 msgid "Show item &rating"
 msgstr "digiKam beğenisini göster"
 
-#: utilities/setup/setupcamera.cpp:448
+#: utilities/setup/setupcamera.cpp:453
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
@@ -22408,35 +22470,40 @@ msgstr ""
 "digiKam beğenisinin küçük resmin altında görünmesi için bu seçeneği "
 "işaretleyin."
 
-#: utilities/setup/setupcamera.cpp:492
+#: utilities/setup/setupcamera.cpp:498
 msgid "Preview each item while downloading it"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:493
+#: utilities/setup/setupcamera.cpp:499
 #, fuzzy
 #| msgid "Set this option to display the image file date."
 msgid "<p>Set this option to preview each item while downloading.</p>"
 msgstr "Resim dosya tarihini göstermek için bu seçeneği ayarlayın"
 
-#: utilities/setup/setupcamera.cpp:515
+#: utilities/setup/setupcamera.cpp:502
+msgid ""
+"Uncheck this if you don't want to see icons and text in the image preview."
+msgstr ""
+
+#: utilities/setup/setupcamera.cpp:521
 #, fuzzy
 #| msgid "Importing"
 msgid "Import Window"
 msgstr "İçeri aktarılıyor"
 
-#: utilities/setup/setupcamera.cpp:765
+#: utilities/setup/setupcamera.cpp:773
 msgid ""
 "No default target album have been selected to process download from camera "
 "device. Please select one."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:858
+#: utilities/setup/setupcamera.cpp:866
 #, fuzzy
 #| msgid "Disconnecting from camera, please wait..."
 msgid "Device detection under progress, please wait..."
 msgstr "Kamera bağlantısı kesiliyor, lütfen bekleyin..."
 
-#: utilities/setup/setupcamera.cpp:869
+#: utilities/setup/setupcamera.cpp:877
 msgid ""
 "Failed to auto-detect camera.\n"
 "Please check if your camera is turned on and retry or try setting it "
@@ -22445,26 +22512,26 @@ msgstr ""
 "Kamera otomatik algılanamadı.\n"
 "Lütfen kamerayı açın ve tekrar deneyin ya da elle ayarlamayı deneyin."
 
-#: utilities/setup/setupcamera.cpp:883
+#: utilities/setup/setupcamera.cpp:891
 #, kde-format
 msgid "Camera '%1' (%2) is already in list."
 msgstr "Kamera '%1' (%2) listede mevcut."
 
-#: utilities/setup/setupcamera.cpp:887
+#: utilities/setup/setupcamera.cpp:895
 #, kde-format
 msgid "Found camera '%1' (%2) and added it to the list."
 msgstr "Kamera '%1' (%2) bulundu ve listeye eklendi."
 
-#: utilities/setup/setupcamera.cpp:903
+#: utilities/setup/setupcamera.cpp:911
 msgid "Untitled"
 msgstr "Başlıksız"
 
-#: utilities/setup/setupcamera.cpp:945
+#: utilities/setup/setupcamera.cpp:953
 msgid ""
 "In order to enable this feature, the full-sized preview will be disabled."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:955
+#: utilities/setup/setupcamera.cpp:963
 msgid ""
 "If the full-sized preview is enabled it will affect the speed of previewing "
 "each item while download."
@@ -23087,7 +23154,25 @@ msgctxt "none of the paths"
 msgid "none"
 msgstr "hiçbiri"
 
-#: utilities/setup/setupicc.cpp:904
+#: utilities/setup/setupicc.cpp:906
+#, kde-format
+msgid ""
+"On Windows, the default search paths include <ul><li>%1/Windows/Spool/"
+"Drivers/Color/</li><li>%2/Windows/Color/</li></ul>On your system, currently "
+"these paths exist and are scanned:<ul><li>%3</li></ul>"
+msgstr ""
+
+#: utilities/setup/setupicc.cpp:920
+#, kde-format
+msgid ""
+"On Mac OS X, the default search paths include <ul><li>/System/Library/"
+"ColorSync/Profiles</li><li>/Library/ColorSync/Profiles</li><li>~/Library/"
+"ColorSync/Profiles</li><li>/opt/local/share/color/icc</li><li>~/.local/share/"
+"color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On "
+"your system, currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgstr ""
+
+#: utilities/setup/setupicc.cpp:936
 #, kde-format
 msgid ""
 "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
@@ -24671,6 +24756,11 @@ msgctxt ""
 "is active"
 msgid "Giving a presentation"
 msgstr "Sunum vermek"
+
+#, fuzzy
+#~| msgid "Open in File Manager"
+#~ msgid "Open Tag Manger"
+#~ msgstr "Dosya Yöneticisinde Aç"
 
 #, fuzzy
 #~| msgid "Connection failed."

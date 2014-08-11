@@ -7,8 +7,10 @@
  * @date   2010-03-26
  * @brief  A widget to configure the GPS correlation
  *
- * @author Copyright (C) 2010 by Michael G. Hansen
+ * @author Copyright (C) 2010, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
+ * @author Copyright (C) 2014 by Justus Schwartz
+ *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -35,7 +37,7 @@
 
 // local includes
 
-#include "gpsdataparser.h"
+#include "track_correlator.h"
 
 class KConfigGroup;
 
@@ -51,12 +53,14 @@ class GPSCorrelatorWidget : public QWidget
 
 public:
 
-    GPSCorrelatorWidget(QWidget* const parent, KipiImageModel* const imageModel, const int marginHint, const int spacingHint);
+    GPSCorrelatorWidget(QWidget* const parent, KipiImageModel* const imageModel, KGeoMap::TrackManager* const trackManager, const int marginHint, const int spacingHint);
     ~GPSCorrelatorWidget();
 
     void setUIEnabledExternal(const bool state);
     void saveSettingsToGroup(KConfigGroup* const group);
     void readSettingsFromGroup(const KConfigGroup* const group);
+    QList<KGeoMap::GeoCoordinates::List> getTrackCoordinates() const;
+    bool getShowTracksOnMap() const;
 
 protected:
 
@@ -69,6 +73,7 @@ Q_SIGNALS:
     void signalProgressSetup(const int maxProgress, const QString& progressText);
     void signalProgressChanged(const int currentProgress);
     void signalUndoCommand(GPSUndoCommand* undoCommand);
+    void signalAllTrackFilesReady();
 
 public Q_SLOTS:
 
@@ -77,18 +82,18 @@ public Q_SLOTS:
 private Q_SLOTS:
 
     void updateUIState();
-    void slotLoadGPXFiles();
-    void slotGPXFilesReadyAt(int beginIndex, int endIndex);
-    void slotAllGPXFilesReady();
+    void slotLoadTrackFiles();
+    void slotAllTrackFilesReady();
     void slotCorrelate();
-    void slotItemsCorrelated(const KIPIGPSSyncPlugin::GPSDataParser::GPXCorrelation::List& correlatedItems);
+    void slotItemsCorrelated(const KIPIGPSSyncPlugin::TrackCorrelator::Correlation::List& correlatedItems);
     void slotAllItemsCorrelated();
     void slotCorrelationCanceled();
+    void slotShowTracksStateChanged(int state);
 
 private:
 
     class Private;
-    Private* const d;
+    const QScopedPointer<Private> d;
 };
 
 } /* namespace KIPIGPSSyncPlugin */

@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-05-11 01:40+0000\n"
-"PO-Revision-Date: 2014-05-10 16:54+0200\n"
+"POT-Creation-Date: 2014-06-25 01:42+0000\n"
+"PO-Revision-Date: 2014-06-07 16:15+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
@@ -494,13 +494,13 @@ msgstr ""
 msgid "No such tag"
 msgstr "Intet sådant mærke"
 
-#: digikam/album/albummodificationhelper.cpp:222
+#: digikam/album/albummodificationhelper.cpp:225
 #: digikam/utils/searchmodificationhelper.cpp:143
 #, kde-format
 msgid "Rename Album (%1)"
 msgstr "Omdøb album (%1)"
 
-#: digikam/album/albummodificationhelper.cpp:223
+#: digikam/album/albummodificationhelper.cpp:226
 #: digikam/utils/searchmodificationhelper.cpp:144
 msgid "Enter new album name:"
 msgstr "Angiv nyt albumnavn:"
@@ -1058,11 +1058,11 @@ msgstr "Kopierer attributter"
 msgid "Process Items"
 msgstr "Behandl elementer"
 
-#: digikam/fileaction/fileworkeriface.cpp:72
+#: digikam/fileaction/fileworkeriface.cpp:73
 msgid "Failed to revise Exif orientation these files:"
 msgstr "Mislykkedes at revidere EXIF-orientering for disse filer:"
 
-#: digikam/fileaction/fileworkeriface.cpp:265
+#: digikam/fileaction/fileworkeriface.cpp:275
 msgid "Failed to transform these files:"
 msgstr "Kunne ikke transformere disse filer:"
 
@@ -1403,7 +1403,7 @@ msgstr "Ryd alt"
 msgid "Select All"
 msgstr "Vælg alle"
 
-#: digikam/items/digikamimageview.cpp:334 digikam/views/tableview.cpp:228
+#: digikam/items/digikamimageview.cpp:338 digikam/views/tableview.cpp:228
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "Forhåndsvisning"
@@ -1477,9 +1477,16 @@ msgctxt "Month String - Year String"
 msgid "%1 %2"
 msgstr "%1 %2"
 
+#: digikam/items/imagecoordinatesoverlay.cpp:104
+#: showfoto/thumbbar/showfotocoordinatesoverlay.cpp:105
+#: utilities/importui/items/importoverlays.cpp:106
+msgctxt "@info:tooltip"
+msgid "This item has geolocation information."
+msgstr "Dette element har geo-lokaliseringsinformation."
+
 #: digikam/items/imagerotationoverlay.cpp:68
 #: digikam/views/imagepreviewview.cpp:164
-#: utilities/importui/items/importoverlays.cpp:371
+#: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
@@ -1487,7 +1494,7 @@ msgstr "Rotér mod venstre"
 
 #: digikam/items/imagerotationoverlay.cpp:72
 #: digikam/views/imagepreviewview.cpp:165
-#: utilities/importui/items/importoverlays.cpp:375
+#: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
@@ -1671,6 +1678,7 @@ msgid "Browse Tags..."
 msgstr "Gennemse mærker..."
 
 #: digikam/main/digikamapp.cpp:819 digikam/views/leftsidebarwidgets.cpp:195
+#: libs/imageproperties/imagedescedittab.cpp:294
 msgid "Open Tag Manager"
 msgstr "Åbn mærkehåndtering"
 
@@ -1681,9 +1689,10 @@ msgstr "N&yt..."
 
 #: digikam/main/digikamapp.cpp:836 digikam/tags/tagmodificationhelper.cpp:273
 #: digikam/tags/tagmodificationhelper.cpp:378
-#: digikam/tags/tagsmanager/tagsmanager.cpp:378
+#: digikam/tags/tagsmanager/tagsmanager.cpp:399
 #: digikam/utils/editablesearchtreeview.cpp:70
 #: digikam/utils/searchmodificationhelper.cpp:82
+#: utilities/importui/main/importui.cpp:1912
 #: utilities/queuemanager/views/workflowlist.cpp:294
 msgid "Delete"
 msgstr "Slet"
@@ -1698,7 +1707,7 @@ msgstr "Tildel mærke"
 msgid "Views"
 msgstr "Visninger"
 
-#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:474
+#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:476
 msgctxt "@action Go to thumbnails (icon) view"
 msgid "Thumbnails"
 msgstr "Miniaturer"
@@ -1708,7 +1717,7 @@ msgctxt "View the selected image"
 msgid "Preview Image"
 msgstr "Forhåndsvis billede"
 
-#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:486
+#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:488
 msgctxt "@action Switch to map view"
 msgid "Map"
 msgstr "Kort"
@@ -1816,7 +1825,7 @@ msgstr "Omdøb..."
 msgid "Change the filename of the currently selected item."
 msgstr "Ændr filnavnet på det valgte element."
 
-#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:506
+#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:510
 #: utilities/imageeditor/editor/editorwindow.cpp:419
 #: utilities/lighttable/lighttablewindow.cpp:507
 msgctxt "Non-pluralized"
@@ -1957,8 +1966,8 @@ msgid "Select None"
 msgstr "Vælg ingen"
 
 #: digikam/main/digikamapp.cpp:1147
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:134
-#: digikam/tags/tagsmanager/tagsmanager.cpp:655
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:149
+#: digikam/tags/tagsmanager/tagsmanager.cpp:679
 #: digikam/utils/contextmenuhelper.cpp:850
 msgid "Invert Selection"
 msgstr "Invertér markering"
@@ -2183,7 +2192,7 @@ msgstr "KIPI-plugin"
 msgid "Loading themes..."
 msgstr "Indlæser temaer..."
 
-#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:425
+#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:429
 msgid "&Themes"
 msgstr "&Temaer"
 
@@ -2214,7 +2223,7 @@ msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Normal"
 
-#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2492
+#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2497
 msgid "Flipped Horizontally"
 msgstr "Vendt vandret"
 
@@ -2222,7 +2231,7 @@ msgstr "Vendt vandret"
 msgid "Rotated Upside Down"
 msgstr "Roteret op og ned"
 
-#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2496
+#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2501
 msgid "Flipped Vertically"
 msgstr "Vendt lodret "
 
@@ -2230,7 +2239,7 @@ msgstr "Vendt lodret "
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Roteret til højre / vendt vandret"
 
-#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2504
+#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2509
 msgid "Rotated Right"
 msgstr "Højreroteret"
 
@@ -2238,7 +2247,7 @@ msgstr "Højreroteret"
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Roteret til højre / vendt lodret"
 
-#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2500
+#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2505
 msgid "Rotated Left"
 msgstr "Venstreroteret"
 
@@ -2546,8 +2555,8 @@ msgid "Reset Tag Icon"
 msgstr "Nulstil mærke-ikon"
 
 #: digikam/tags/tagfolderview.cpp:114
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:140
-#: digikam/tags/tagsmanager/tagsmanager.cpp:661
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:155
+#: digikam/tags/tagsmanager/tagsmanager.cpp:685
 msgid "Expand Selected Nodes"
 msgstr "Fold de valgte knuder ud"
 
@@ -2633,16 +2642,15 @@ msgid "Assign Tag \"%1\""
 msgstr "Tildel mærke \"%1\""
 
 #: digikam/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:111
 #: digikam/utils/contextmenuhelper.cpp:828
 msgid "All Tags"
 msgstr "Alle mærker"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:270
+#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:266
 msgid "Quick Access List"
 msgstr "Kvikadgangsliste"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:143
+#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:148
 msgid "Delete Selected from List"
 msgstr "Slet markerede fra listen"
 
@@ -2654,18 +2662,23 @@ msgstr "Føj til listen"
 msgid "Add selected tags to Quick Access List"
 msgstr "Føj de valgte mærker til kvikadgangslisten"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:131
-#: digikam/tags/tagsmanager/tagsmanager.cpp:649
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:139
+#: digikam/utils/contextmenuhelper.cpp:429
+msgid "Delete Tags"
+msgstr "Slet mærker"
+
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:146
+#: digikam/tags/tagsmanager/tagsmanager.cpp:673
 msgid "Reset tag Icon"
 msgstr "Nulstil mærke-ikon"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:137
-#: digikam/tags/tagsmanager/tagsmanager.cpp:658
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:152
+#: digikam/tags/tagsmanager/tagsmanager.cpp:682
 msgid "Expand Tag Tree"
 msgstr "Fold mærketræ ud"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:143
-#: digikam/tags/tagsmanager/tagsmanager.cpp:663
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:158
+#: digikam/tags/tagsmanager/tagsmanager.cpp:687
 msgid "Remove Tag from Images"
 msgstr "Fjern mærker fra billeder"
 
@@ -2685,12 +2698,12 @@ msgstr ""
 msgid "Previous tags were changed. Save changes? "
 msgstr "Tidligere mærker blev ændret. Vil du gemme ændringer? "
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:166
+#: digikam/tags/tagsmanager/tagsmanager.cpp:169
 #: libs/widgets/mainview/daboutdata.cpp:177
 msgid "Tags Manager"
 msgstr "Mærkehåndtering"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:331
+#: digikam/tags/tagsmanager/tagsmanager.cpp:351
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid ""
@@ -2706,7 +2719,7 @@ msgstr[1] ""
 "Mærkerne %2 har et eller flere undermærker. At slette dem vil også slette "
 "undermærker. Vil du fortsætte?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:355
+#: digikam/tags/tagsmanager/tagsmanager.cpp:376
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Tag %2 is assigned to one or more items. Do you want to delete it?"
@@ -2717,7 +2730,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Mærkerne %2 er tildelt til et eller flere elementer. Vil du slette dem?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:367
+#: digikam/tags/tagsmanager/tagsmanager.cpp:388
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Delete tag %2?"
@@ -2725,14 +2738,14 @@ msgid_plural "Delete tags %2?"
 msgstr[0] "Slet mærket %2?"
 msgstr[1] "Slet mærkerne %2?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:377
+#: digikam/tags/tagsmanager/tagsmanager.cpp:398
 msgid "Delete tag"
 msgid_plural "Delete tags"
 msgstr[0] "Slet mærke"
 msgstr[1] "Slet mærker"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:483
 #: digikam/tags/tagsmanager/tagsmanager.cpp:505
+#: digikam/tags/tagsmanager/tagsmanager.cpp:527
 msgid ""
 "This operation can take long time depending on collection size.\n"
 "Do you want to continue?"
@@ -2740,7 +2753,7 @@ msgstr ""
 "Denne handling kan tage lang tid afhængigt af samlingens størrelse.\n"
 "Vil du fortsætte?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:528
+#: digikam/tags/tagsmanager/tagsmanager.cpp:550
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
@@ -2751,27 +2764,27 @@ msgstr ""
 "senere.\n"
 "Vil du fortsætte?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:591
+#: digikam/tags/tagsmanager/tagsmanager.cpp:613
 msgid "Do you really want to remove the selected tag from all images?"
 msgid_plural "Do you really want to remove the selected tags from all images?"
 msgstr[0] "Vil du virkelig fjerne det valgte mærke fra alle billeder?"
 msgstr[1] "Vil du virkelig fjerne de valgte mærker fra alle billeder?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:645
+#: digikam/tags/tagsmanager/tagsmanager.cpp:669
 msgid "Organize"
 msgstr "Organisér"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:652
+#: digikam/tags/tagsmanager/tagsmanager.cpp:676
 msgid "Create Tag from Address Book"
 msgstr "Opret mærke ud fra adressebog"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:666
+#: digikam/tags/tagsmanager/tagsmanager.cpp:690
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 "Føj nyt mærke til det aktuelle mærke. Det aktuelle mærke er det du senest "
 "har klikket på."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:669
+#: digikam/tags/tagsmanager/tagsmanager.cpp:693
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
@@ -2779,53 +2792,53 @@ msgstr ""
 "Slet valgte elementer. Virker også med flere elementer, men vil ikke slette "
 "rod-mærket."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:673
+#: digikam/tags/tagsmanager/tagsmanager.cpp:697
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr "Nulstil ikonet til valgte mærker. Virker med flere markeringer."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:676
+#: digikam/tags/tagsmanager/tagsmanager.cpp:700
 msgid "Invert selection. Only visible items will be selected"
 msgstr "Invertér markering. Kun synlige elementer vil blive markeret"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:679
+#: digikam/tags/tagsmanager/tagsmanager.cpp:703
 msgid "Expand tag tree by one level"
 msgstr "Fold mærketræet ud med ét niveau"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:681
+#: digikam/tags/tagsmanager/tagsmanager.cpp:705
 msgid "Selected items will be expanded"
 msgstr "Valgte elementer vil blive foldet ud"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:683
+#: digikam/tags/tagsmanager/tagsmanager.cpp:707
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr "Slet valgt mærker fra billeder. Virker med flere markeringer."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:713
+#: digikam/tags/tagsmanager/tagsmanager.cpp:737
 msgid "Sync &Export"
 msgstr "&Eksport af synkronisering"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:717
+#: digikam/tags/tagsmanager/tagsmanager.cpp:741
 msgid "Write Tags from Database to Image"
 msgstr "Skriv mærker fra database til billede"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:721
+#: digikam/tags/tagsmanager/tagsmanager.cpp:745
 msgid "Read Tags from Image"
 msgstr "Læs mærker fra billede"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:724
+#: digikam/tags/tagsmanager/tagsmanager.cpp:748
 msgid "Wipe all tags from Database only"
 msgstr "Slet alle mærker kun fra databasen"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:727
+#: digikam/tags/tagsmanager/tagsmanager.cpp:751
 msgid "Write Tags Metadata to Image."
 msgstr "Skriv mærke-metadata til billede."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:729
+#: digikam/tags/tagsmanager/tagsmanager.cpp:753
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 "Læs mærker fra billeder ind i databasen. Eksisterende mærker vil ikke blive "
 "påvirket"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:732
+#: digikam/tags/tagsmanager/tagsmanager.cpp:756
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
@@ -2833,15 +2846,15 @@ msgstr ""
 "Slet alle mærker kun fra databasen. Vil ikke synkronisere med filer. Vær "
 "forsigtig."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:753
+#: digikam/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync Database with Nepomuk"
 msgstr "Synkronisér database med Nepomuk"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:757
+#: digikam/tags/tagsmanager/tagsmanager.cpp:779
 msgid "Sync Nepomuk to Database"
 msgstr "Synkronisér Nepomuk til databasen"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:758
+#: digikam/tags/tagsmanager/tagsmanager.cpp:780
 msgid ""
 "Export all tags from Database to Nepomuk. digiKam with Nepomuk support is "
 "required."
@@ -2849,12 +2862,12 @@ msgstr ""
 "Eksportér alle mærker fra databasen til Nepomuk. Der kræves digiKam med "
 "Nepomuk-understøttelse."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:761
+#: digikam/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Import tags from Nepomuk. digiKam with Nepomuk support is required."
 msgstr ""
 "Importér mærker fra Nepomuk. Der kræves digiKam med Nepomuk-understøttelse."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:787
+#: digikam/tags/tagsmanager/tagsmanager.cpp:809
 msgid "Tag Properties"
 msgstr "Mærke-egenskaber"
 
@@ -2887,35 +2900,35 @@ msgstr "Fjern dette mærke"
 msgid "Go to this Tag"
 msgstr "Gå til dette mærke"
 
-#: digikam/utils/albumsettings.cpp:456
+#: digikam/utils/albumsettings.cpp:463
 msgid "Category"
 msgstr "Kategori"
 
-#: digikam/utils/albumsettings.cpp:457
+#: digikam/utils/albumsettings.cpp:464
 msgid "Travel"
 msgstr "Rejse"
 
-#: digikam/utils/albumsettings.cpp:458
+#: digikam/utils/albumsettings.cpp:465
 msgid "Holidays"
 msgstr "Ferier"
 
-#: digikam/utils/albumsettings.cpp:459
+#: digikam/utils/albumsettings.cpp:466
 msgid "Friends"
 msgstr "Venner"
 
-#: digikam/utils/albumsettings.cpp:460
+#: digikam/utils/albumsettings.cpp:467
 msgid "Nature"
 msgstr "Natur"
 
-#: digikam/utils/albumsettings.cpp:461
+#: digikam/utils/albumsettings.cpp:468
 msgid "Party"
 msgstr "Fest"
 
-#: digikam/utils/albumsettings.cpp:462
+#: digikam/utils/albumsettings.cpp:469
 msgid "Todo"
 msgstr "Gøremål"
 
-#: digikam/utils/albumsettings.cpp:463 showfoto/setup/setup.cpp:154
+#: digikam/utils/albumsettings.cpp:470 showfoto/setup/setup.cpp:154
 #: utilities/setup/setup.cpp:334
 msgid "Miscellaneous"
 msgstr "Diverse"
@@ -2956,10 +2969,6 @@ msgstr "Åbn med..."
 #: digikam/utils/contextmenuhelper.cpp:411
 msgid "New Tag..."
 msgstr "Nyt mærke..."
-
-#: digikam/utils/contextmenuhelper.cpp:429
-msgid "Delete Tags"
-msgstr "Slet mærker"
 
 #: digikam/utils/contextmenuhelper.cpp:438
 msgctxt "Edit Tag Properties"
@@ -3747,7 +3756,7 @@ msgstr "Farveetiket"
 #: libs/template/templatelist.cpp:83
 #: utilities/queuemanager/views/workflowlist.cpp:97
 #: utilities/searchwindow/searchfields.cpp:536
-#: utilities/setup/setupcamera.cpp:283
+#: utilities/setup/setupcamera.cpp:285
 msgid "Title"
 msgstr "Titel"
 
@@ -3848,7 +3857,7 @@ msgstr "Filnavn"
 
 #: digikam/views/tableview_column_file.cpp:67
 #: digikam/views/tableview_column_file.cpp:97
-#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:286
+#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:288
 #: utilities/setup/setupcollectionview.cpp:936
 msgid "Path"
 msgstr "Sti"
@@ -3943,7 +3952,7 @@ msgstr "Farvetilstand"
 
 #: digikam/views/tableview_column_item.cpp:104
 #: digikam/views/tableview_column_item.cpp:139
-#: libs/widgets/common/databasewidget.cpp:102
+#: libs/widgets/common/databasewidget.cpp:103
 msgid "Type"
 msgstr "Type"
 
@@ -4069,8 +4078,8 @@ msgstr "Mikrosekunder"
 msgid "Unit"
 msgstr "Enhed"
 
-#: digikam/views/tableview_column_thumbnail.cpp:88
-#: digikam/views/tableview_column_thumbnail.cpp:98
+#: digikam/views/tableview_column_thumbnail.cpp:85
+#: digikam/views/tableview_column_thumbnail.cpp:95
 #: utilities/queuemanager/views/queuelist.cpp:308
 msgid "Thumbnail"
 msgstr "Miniature"
@@ -5450,7 +5459,7 @@ msgstr "Uskarphedsmaske"
 
 #: imageplugins/enhance/sharpentool.cpp:292
 #: libs/dimg/filters/sharp/refocusfilter.h:58
-#: libs/dimg/filters/sharp/sharpsettings.cpp:147
+#: libs/dimg/filters/sharp/sharpsettings.cpp:148
 msgid "Refocus"
 msgstr "Omfokusér"
 
@@ -6242,7 +6251,7 @@ msgstr "Automatisk justering"
 
 #: imageplugins/transform/freerotationtool.cpp:223
 #: libs/widgets/metadata/metadatawidget.cpp:146
-#: utilities/importui/main/importui.cpp:291
+#: utilities/importui/main/importui.cpp:293
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -6685,33 +6694,33 @@ msgstr ""
 "<b>Bemærk:</b> Brug tilstanden \"Restauration\" for at opskalere et billede "
 "til en enorm størrelse. Denne proces kan tage noget tid."
 
-#: imageplugins/transform/resizetool.cpp:556
+#: imageplugins/transform/resizetool.cpp:552
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:353
 #: utilities/queuemanager/basetools/transform/resize.cpp:126
 msgid "Resize"
 msgstr "Ændr størrelse"
 
-#: imageplugins/transform/resizetool.cpp:587
+#: imageplugins/transform/resizetool.cpp:583
 msgid "Photograph Resizing Settings File to Load"
 msgstr "Indstillingsfil til størrelsesændring af fotos der skal indlæses"
 
-#: imageplugins/transform/resizetool.cpp:601
+#: imageplugins/transform/resizetool.cpp:597
 #, kde-format
 msgid "\"%1\" is not a Photograph Resizing settings text file."
 msgstr ""
 "\"%1\" er ikke en tekstfil med indstillinger til størrelsesændring af fotos."
 
-#: imageplugins/transform/resizetool.cpp:610
+#: imageplugins/transform/resizetool.cpp:606
 msgid "Cannot load settings from the Photograph Resizing text file."
 msgstr ""
 "Kan ikke indlæse indstillinger fra tekstfilen for størrelsesændring af "
 "fotografier."
 
-#: imageplugins/transform/resizetool.cpp:620
+#: imageplugins/transform/resizetool.cpp:616
 msgid "Photograph Resizing Settings File to Save"
 msgstr "Indstillingsfil til størrelsesændring af fotos der skal gemmes"
 
-#: imageplugins/transform/resizetool.cpp:635
+#: imageplugins/transform/resizetool.cpp:631
 msgid "Cannot save settings to the Photograph Resizing text file."
 msgstr ""
 "Kan ikke gemme indstillinger i tekstfilen for størrelsesændring af "
@@ -7711,7 +7720,7 @@ msgstr "Komponent"
 msgid "Info"
 msgstr "Info"
 
-#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2506
+#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2511
 #: libs/imageproperties/imagepropertiessidebar.cpp:245
 #: libs/imageproperties/imagepropertiessidebardb.cpp:538
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:367
@@ -7791,47 +7800,47 @@ msgstr[1] ""
 "<p>Med KDcraw biblioteksversion %2<br/>Med LibRaw-version %3<br/>%1 modeller "
 "på listen (fandt: %4)</p>"
 
-#: libs/dimg/dimg.cpp:3178
+#: libs/dimg/dimg.cpp:3177
 msgctxt "Color Model: RGB"
 msgid "RGB"
 msgstr "RGB"
 
-#: libs/dimg/dimg.cpp:3181
+#: libs/dimg/dimg.cpp:3180
 msgctxt "Color Model: Grayscale"
 msgid "Grayscale"
 msgstr "Gråskala"
 
-#: libs/dimg/dimg.cpp:3184
+#: libs/dimg/dimg.cpp:3183
 msgctxt "Color Model: Monochrome"
 msgid "Monochrome"
 msgstr "Monokrom"
 
-#: libs/dimg/dimg.cpp:3187
+#: libs/dimg/dimg.cpp:3186
 msgctxt "Color Model: Indexed"
 msgid "Indexed"
 msgstr "Indekseret"
 
-#: libs/dimg/dimg.cpp:3190
+#: libs/dimg/dimg.cpp:3189
 msgctxt "Color Model: YCbCr"
 msgid "YCbCr"
 msgstr "YCbCr"
 
-#: libs/dimg/dimg.cpp:3193
+#: libs/dimg/dimg.cpp:3192
 msgctxt "Color Model: CMYK"
 msgid "CMYK"
 msgstr "CMYK"
 
-#: libs/dimg/dimg.cpp:3196
+#: libs/dimg/dimg.cpp:3195
 msgctxt "Color Model: CIE L*a*b*"
 msgid "CIE L*a*b*"
 msgstr "CIE L*a*b*"
 
-#: libs/dimg/dimg.cpp:3199
+#: libs/dimg/dimg.cpp:3198
 msgctxt "Color Model: Uncalibrated (RAW)"
 msgid "Uncalibrated (RAW)"
 msgstr "Ikke-kalibreret (RAW)"
 
-#: libs/dimg/dimg.cpp:3203
+#: libs/dimg/dimg.cpp:3202
 msgctxt "Color Model: Unknown"
 msgid "Unknown"
 msgstr "Ukendt"
@@ -9311,7 +9320,7 @@ msgstr ""
 "anvendt på billedet."
 
 #: libs/dimg/filters/lens/antivignettingsettings.cpp:127
-#: libs/dimg/filters/sharp/sharpsettings.cpp:195
+#: libs/dimg/filters/sharp/sharpsettings.cpp:198
 msgid "Amount:"
 msgstr "Mængde:"
 
@@ -9792,7 +9801,7 @@ msgstr ""
 #: libs/dimg/filters/nr/nrsettings.cpp:138
 #: libs/dimg/filters/nr/nrsettings.cpp:165
 #: libs/dimg/filters/nr/nrsettings.cpp:192
-#: libs/dimg/filters/sharp/sharpsettings.cpp:203
+#: libs/dimg/filters/sharp/sharpsettings.cpp:206
 #: utilities/fuzzysearch/fuzzysearchview.cpp:295
 msgid "Threshold:"
 msgstr "Tærskel:"
@@ -9854,15 +9863,15 @@ msgstr "Simpel skærpning"
 msgid "Unsharp mask"
 msgstr "Uskarphedsmaske"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:149
+#: libs/dimg/filters/sharp/sharpsettings.cpp:151
 msgid "Select the sharpening method to apply to the image."
 msgstr "Vælg den skærpningsmetode der skal anvendes på billedet."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:166
+#: libs/dimg/filters/sharp/sharpsettings.cpp:168
 msgid "Sharpness:"
 msgstr "Skarphed:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:171
+#: libs/dimg/filters/sharp/sharpsettings.cpp:173
 msgid ""
 "A sharpness of 0 has no effect, 1 and above determine the sharpen matrix "
 "radius that determines how much to sharpen the image."
@@ -9870,11 +9879,11 @@ msgstr ""
 "En skarphed på 0 har ingen effekt. 1 og derover bestemmer radius "
 "påskærpningsmatrix der afgør hvor meget billedet skal skærpes."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:188
+#: libs/dimg/filters/sharp/sharpsettings.cpp:190
 msgid "Radius:"
 msgstr "Radius:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:192
+#: libs/dimg/filters/sharp/sharpsettings.cpp:195
 msgid ""
 "Radius value is the Gaussian blur matrix radius value used to determines how "
 "much to blur the image."
@@ -9882,7 +9891,7 @@ msgstr ""
 "Radiusværdi er værdien for den Gaussiske slørings-matrix' radius som bruges "
 "til at bestemme hvor meget billedet skal sløres."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:200
+#: libs/dimg/filters/sharp/sharpsettings.cpp:203
 msgid ""
 "The value of the difference between the original and the blur image that is "
 "added back into the original."
@@ -9890,7 +9899,7 @@ msgstr ""
 "Værdien af forskellen mellem originalen og det slørede billede, der "
 "tilbageføres i originalen."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:208
+#: libs/dimg/filters/sharp/sharpsettings.cpp:211
 msgid ""
 "The threshold, as a fraction of the maximum luminosity value, needed to "
 "apply the difference amount."
@@ -9898,11 +9907,11 @@ msgstr ""
 "Tærsklen, som en del af værdien for maksimale lysstyrke, skal bruges for at "
 "anvende mængden af forskelle."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:230
+#: libs/dimg/filters/sharp/sharpsettings.cpp:233
 msgid "Circular sharpness:"
 msgstr "Cirkulær skarphed:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:235
+#: libs/dimg/filters/sharp/sharpsettings.cpp:238
 msgid ""
 "This is the radius of the circular convolution. It is the most important "
 "parameter for using this plugin. For most images the default value of 1.0 "
@@ -9914,11 +9923,11 @@ msgstr ""
 "resultat for de fleste billeder. Vælg en højere værdi hvis billedet er meget "
 "sløret."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:239
+#: libs/dimg/filters/sharp/sharpsettings.cpp:242
 msgid "Correlation:"
 msgstr "Korrelation:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:244
+#: libs/dimg/filters/sharp/sharpsettings.cpp:247
 msgid ""
 "Increasing the correlation may help to reduce artifacts. The correlation can "
 "range from 0-1. Useful values are 0.5 and values close to 1, e.g. 0.95 and "
@@ -9930,11 +9939,11 @@ msgstr ""
 "som f.eks. 0,95 og 0,99. At bruge en høj værdi for korrelationen vil "
 "reducere pluginnets skærpningseffekt."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:249
+#: libs/dimg/filters/sharp/sharpsettings.cpp:252
 msgid "Noise filter:"
 msgstr "Støjfilter:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:254
+#: libs/dimg/filters/sharp/sharpsettings.cpp:257
 msgid ""
 "Increasing the noise filter parameter may help to reduce artifacts. The "
 "noise filter can range from 0-1 but values higher than 0.1 are rarely "
@@ -9948,11 +9957,11 @@ msgstr ""
 "meget dårlig. En nyttigt værdi er 0,01. At bruge en høj værdi for "
 "støjfiltret vil reducere pluginnets skærpningseffekt."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:260
+#: libs/dimg/filters/sharp/sharpsettings.cpp:263
 msgid "Gaussian sharpness:"
 msgstr "Gaussisk skarphed:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:265
+#: libs/dimg/filters/sharp/sharpsettings.cpp:268
 msgid ""
 "This is the sharpness for the Gaussian convolution. Use this parameter when "
 "your blurring is of a Gaussian type. In most cases you should set this "
@@ -9966,11 +9975,11 @@ msgstr ""
 "værdier end nul, skal du sikkert også øge parametrene for korrelation og/"
 "eller støjfilter."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:270
+#: libs/dimg/filters/sharp/sharpsettings.cpp:273
 msgid "Matrix size:"
 msgstr "Matrixstørrelse:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:275
+#: libs/dimg/filters/sharp/sharpsettings.cpp:278
 msgid ""
 "This parameter determines the size of the transformation matrix. Increasing "
 "the matrix width may give better results, especially when you have chosen "
@@ -9980,26 +9989,26 @@ msgstr ""
 "matrixbredden kan give bedre resultater, især hvis du har valgt store "
 "værdier for cirkulær eller Gaussisk skarphed."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:487
+#: libs/dimg/filters/sharp/sharpsettings.cpp:490
 msgid "Photograph Refocus Settings File to Load"
 msgstr "Indstillingsfil til refokusering af fotos der skal indlæses"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:503
+#: libs/dimg/filters/sharp/sharpsettings.cpp:506
 #, kde-format
 msgid "\"%1\" is not a Photograph Refocus settings text file."
 msgstr ""
 "\"%1\" er ikke en tekstfil med indstillinger til refokusering af fotos."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:521
+#: libs/dimg/filters/sharp/sharpsettings.cpp:524
 msgid "Cannot load settings from the Photograph Refocus text file."
 msgstr ""
 "Kan ikke indlæse indstillinger fra tekstfilen til refokusering af fotos."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:531
+#: libs/dimg/filters/sharp/sharpsettings.cpp:534
 msgid "Photograph Refocus Settings File to Save"
 msgstr "Indstillingsfil til refokusering af fotos der skal gemmes"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:554
+#: libs/dimg/filters/sharp/sharpsettings.cpp:557
 msgid "Cannot save settings to the Photograph Refocus text file."
 msgstr "Kan ikke gemme indstillinger fra tekstfilen til refokusering af fotos."
 
@@ -10471,64 +10480,64 @@ msgstr ""
 "aktiveres kan du reducere den endelige filstørrelse af TIFF-billedet.</"
 "p><p>Et tabsfrit komprimeringsformat (Deflate) bruges til at gemme filen</p>"
 
-#: libs/dmetadata/dmetadata.cpp:2488
+#: libs/dmetadata/dmetadata.cpp:2493
 msgid "Unspecified"
 msgstr "Ikke angivet"
 
-#: libs/dmetadata/dmetadata.cpp:2490
+#: libs/dmetadata/dmetadata.cpp:2495
 msgctxt "Rotation of an unrotated image"
 msgid "Normal"
 msgstr "Normal"
 
-#: libs/dmetadata/dmetadata.cpp:2494
+#: libs/dmetadata/dmetadata.cpp:2499
 msgid "Rotated by 180 Degrees"
 msgstr "Roteret 180 grader"
 
-#: libs/dmetadata/dmetadata.cpp:2498
+#: libs/dmetadata/dmetadata.cpp:2503
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "Vendt vandret  og venstreroteret"
 
-#: libs/dmetadata/dmetadata.cpp:2502
+#: libs/dmetadata/dmetadata.cpp:2507
 msgid "Flipped Vertically and Rotated Left"
 msgstr "Vendt lodret og venstreroteret"
 
-#: libs/dmetadata/dmetadata.cpp:2542
+#: libs/dmetadata/dmetadata.cpp:2547
 #, kde-format
 msgctxt "Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "West"
 msgstr "Vest"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "East"
 msgstr "Øst"
 
-#: libs/dmetadata/dmetadata.cpp:2595 libs/dmetadata/dmetadata.cpp:2608
+#: libs/dmetadata/dmetadata.cpp:2600 libs/dmetadata/dmetadata.cpp:2613
 msgctxt "For use in latitude coordinate"
 msgid "North"
 msgstr "Nord"
 
-#: libs/dmetadata/dmetadata.cpp:2595
+#: libs/dmetadata/dmetadata.cpp:2600
 msgctxt "For use in latitude coordinate"
 msgid "South"
 msgstr "Syd"
 
-#: libs/dmetadata/dmetadata.cpp:2617
+#: libs/dmetadata/dmetadata.cpp:2622
 #, no-c-format
 msgctxt "Height in meters"
 msgid "%L1m"
 msgstr "%L1m"
 
-#: libs/dmetadata/dmetadata.cpp:2759
+#: libs/dmetadata/dmetadata.cpp:2764
 msgid "Flash has been fired"
 msgstr "Blitz er affyret"
 
-#: libs/dmetadata/dmetadata.cpp:2760
+#: libs/dmetadata/dmetadata.cpp:2765
 msgid "Flash with red-eye reduction mode"
 msgstr "Blitz med røde øjne-reducering"
 
@@ -10763,10 +10772,6 @@ msgstr "Mere"
 msgid "Description"
 msgstr "Beskrivelse"
 
-#: libs/imageproperties/imagedescedittab.cpp:294
-msgid "Open Tag Manger"
-msgstr "Åbn mærkehåndtering"
-
 #: libs/imageproperties/imagedescedittab.cpp:302
 msgid "Enter new tag here..."
 msgstr "Angiv nyt mærke her..."
@@ -10783,6 +10788,7 @@ msgstr "Nylige mærker"
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:135
 #: utilities/advancedrename/common/tooltipdialog.cpp:57
 #: utilities/importui/dialogs/cameramessagebox.cpp:216
+#: utilities/importui/main/importui.cpp:1891
 msgid "Information"
 msgstr "Information"
 
@@ -11665,19 +11671,19 @@ msgstr "Brug:"
 msgid "Sublocation:"
 msgstr "Underlokalitet:"
 
-#: libs/threadimageio/thumbnailcreator.cpp:217
+#: libs/threadimageio/thumbnailcreator.cpp:218
 msgid "No or invalid size specified"
 msgstr "Ingen eller ugyldig størrelse angivet"
 
-#: libs/threadimageio/thumbnailcreator.cpp:285
+#: libs/threadimageio/thumbnailcreator.cpp:286
 msgid "Thumbnail is null"
 msgstr "Miniature er null"
 
-#: libs/threadimageio/thumbnailcreator.cpp:435
+#: libs/threadimageio/thumbnailcreator.cpp:436
 msgid "File does not exist"
 msgstr "Filen eksisterer ikke"
 
-#: libs/threadimageio/thumbnailcreator.cpp:540
+#: libs/threadimageio/thumbnailcreator.cpp:541
 #, kde-format
 msgid "Cannot create thumbnail for %1"
 msgstr "Kan ikke oprette miniature for %1"
@@ -11696,11 +11702,11 @@ msgstr "Kunne ikke initialisere miniature-database."
 msgid "Color Label: %1"
 msgstr "Farveetiket: %1"
 
-#: libs/widgets/common/databasewidget.cpp:90
+#: libs/widgets/common/databasewidget.cpp:91
 msgid "Database File Path"
 msgstr "Sti til databasefil"
 
-#: libs/widgets/common/databasewidget.cpp:92
+#: libs/widgets/common/databasewidget.cpp:93
 msgid ""
 "<p>The location where the database file will be stored on your system. There "
 "is one common database file for all root albums.<br/>Write access is "
@@ -11712,52 +11718,52 @@ msgstr ""
 "redigere billeders egenskaber.</p><p>Bemærk: Et eksternt filsystem som f."
 "eks. NFS kan ikke bruges her.</p><p></p>"
 
-#: libs/widgets/common/databasewidget.cpp:104
+#: libs/widgets/common/databasewidget.cpp:105
 msgid "Internal Server"
 msgstr "Intern server"
 
-#: libs/widgets/common/databasewidget.cpp:106
+#: libs/widgets/common/databasewidget.cpp:107
 msgid "Schema Name"
 msgstr "Skemanavn"
 
-#: libs/widgets/common/databasewidget.cpp:108
+#: libs/widgets/common/databasewidget.cpp:109
 msgid "Thumbnails<br>Schema Name"
 msgstr "Miniaturer<br>Skemanavn"
 
-#: libs/widgets/common/databasewidget.cpp:110
+#: libs/widgets/common/databasewidget.cpp:111
 msgid "Host Name"
 msgstr "Værtsnavn"
 
-#: libs/widgets/common/databasewidget.cpp:112
-#: utilities/setup/setupcamera.cpp:285
+#: libs/widgets/common/databasewidget.cpp:113
+#: utilities/setup/setupcamera.cpp:287
 msgid "Port"
 msgstr "Port"
 
-#: libs/widgets/common/databasewidget.cpp:116
+#: libs/widgets/common/databasewidget.cpp:117
 msgid "Database<br>Connection<br>Options"
 msgstr "Database<br>Forbindelse<br>Indstillinger"
 
-#: libs/widgets/common/databasewidget.cpp:119
+#: libs/widgets/common/databasewidget.cpp:120
 msgid "User"
 msgstr "Bruger"
 
-#: libs/widgets/common/databasewidget.cpp:122
+#: libs/widgets/common/databasewidget.cpp:123
 msgid "Password"
 msgstr "Adgangskode"
 
-#: libs/widgets/common/databasewidget.cpp:126
+#: libs/widgets/common/databasewidget.cpp:127
 msgid "Check DB Connection"
 msgstr "Tjek DB-forbindelse"
 
-#: libs/widgets/common/databasewidget.cpp:164
+#: libs/widgets/common/databasewidget.cpp:165
 msgid "SQLite"
 msgstr "SQLite"
 
-#: libs/widgets/common/databasewidget.cpp:165
+#: libs/widgets/common/databasewidget.cpp:166
 msgid "MySQL (experimental)"
 msgstr "MySQL (eksperimentelt)"
 
-#: libs/widgets/common/databasewidget.cpp:166
+#: libs/widgets/common/databasewidget.cpp:167
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small and medium collection sizes (less "
@@ -11773,7 +11779,7 @@ msgstr ""
 "Den er også mere effektiv til at håndtere enorme samlinger. Vær forsigtig: "
 "denne motor er stadig på et eksperimentelt stadie.</p>"
 
-#: libs/widgets/common/databasewidget.cpp:218
+#: libs/widgets/common/databasewidget.cpp:219
 msgid ""
 "You do not seem to have write access to this database folder.\n"
 "Without this access, the caption and tag features will not work."
@@ -11781,16 +11787,16 @@ msgstr ""
 "Du har tilsyneladende ikke skriveadgang til denne databasemappe.\n"
 "Uden denne adgang virker mærke- og billedtekst-funktionerne ikke."
 
-#: libs/widgets/common/databasewidget.cpp:297
+#: libs/widgets/common/databasewidget.cpp:305
 msgid "Database connection test successful."
 msgstr "Test af databaseforbindelse gennemført."
 
-#: libs/widgets/common/databasewidget.cpp:297
-#: libs/widgets/common/databasewidget.cpp:302
+#: libs/widgets/common/databasewidget.cpp:305
+#: libs/widgets/common/databasewidget.cpp:310
 msgid "Database connection test"
 msgstr "Test af databaseforbindelse"
 
-#: libs/widgets/common/databasewidget.cpp:301
+#: libs/widgets/common/databasewidget.cpp:309
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr ""
@@ -11974,7 +11980,7 @@ msgid "Raw information about the ICC profile manufacturer"
 msgstr "Ubehandlet information om ICC-profilens producent"
 
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:139
-#: utilities/setup/setupcamera.cpp:284
+#: utilities/setup/setupcamera.cpp:286
 msgid "Model"
 msgstr "Model"
 
@@ -12201,8 +12207,8 @@ msgid "modified: %1"
 msgstr "ændret: %1"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:369
-#: showfoto/main/showfoto.cpp:614
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:308
+#: showfoto/main/showfoto.cpp:625
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:320
 #: utilities/importui/items/itemviewimportdelegate.cpp:364
 #, kde-format
 msgctxt "%1 width, %2 height, %3 mpixels"
@@ -12210,14 +12216,14 @@ msgid "%1x%2 (%3Mpx)"
 msgstr "%1x%2 (%3Mpx)"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:373
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:421
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:313
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:423
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:325
 #: utilities/importui/items/itemviewimportdelegate.cpp:368
 msgctxt "unknown image resolution"
 msgid "Unknown"
 msgstr "Ukendt"
 
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:416
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:418
 #, kde-format
 msgctxt "%1 width : %2 height (%3 Aspect Ratio)"
 msgid "%1:%2 (%3)"
@@ -12796,6 +12802,16 @@ msgstr "Håndtering af rettigheder"
 msgid "Paged-Text"
 msgstr "Pagineret tekst"
 
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:160
+msgid "Metadata Working Group Regions"
+msgstr ""
+
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:164
+#, fuzzy
+#| msgid "Dublin Core"
+msgid "Darwin Core"
+msgstr "Dublin Core"
+
 #: libs/widgets/metadata/metadatalistview.cpp:140
 #, kde-format
 msgid ""
@@ -12899,7 +12915,7 @@ msgstr "showFoto"
 msgid "File(s) or folder(s) to open"
 msgstr "Filer eller mapper at åbne"
 
-#: showfoto/main/showfoto.cpp:290
+#: showfoto/main/showfoto.cpp:292
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
 "now, select \"Yes\", otherwise select \"No\". In this case, \"Color "
@@ -12909,37 +12925,37 @@ msgstr ""
 "indstille den nu, vælg \"Ja\", vælg ellers \"Nej\". I dette tilfælde bliver "
 "funktionen, \"Farvehåndtering\" deaktiveret indtil problemet er løst.</p>"
 
-#: showfoto/main/showfoto.cpp:433
+#: showfoto/main/showfoto.cpp:437
 msgid "Open folder"
 msgstr "Åbn mappe"
 
-#: showfoto/main/showfoto.cpp:511
+#: showfoto/main/showfoto.cpp:515
 msgid "Delete File"
 msgstr "Slet fil"
 
-#: showfoto/main/showfoto.cpp:613
+#: showfoto/main/showfoto.cpp:624
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "Ukendt"
 
-#: showfoto/main/showfoto.cpp:694
+#: showfoto/main/showfoto.cpp:705
 #: utilities/imageeditor/main/imagewindow.cpp:887
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
 msgid "%1 (%2 of %3)"
 msgstr "%1 (%2 af %3)"
 
-#: showfoto/main/showfoto.cpp:732
+#: showfoto/main/showfoto.cpp:743
 msgid "Open Images From Folder"
 msgstr "Åbn billeder fra mappe"
 
-#: showfoto/main/showfoto.cpp:878
+#: showfoto/main/showfoto.cpp:889
 #: utilities/imageeditor/main/imagewindow.cpp:967
 #: utilities/imageeditor/main/imagewindow.cpp:1065
 msgid "Image saved successfully"
 msgstr "Billedet blev gemt"
 
-#: showfoto/main/showfoto.cpp:959
+#: showfoto/main/showfoto.cpp:970
 #, kde-format
 msgid ""
 "About to delete file \"%1\"\n"
@@ -12948,13 +12964,14 @@ msgstr ""
 "Du er ved at slette filen \"%1\"\n"
 "Er du sikker på du vil slette?"
 
-#: showfoto/main/showfoto.cpp:964
+#: showfoto/main/showfoto.cpp:975
 #: utilities/imageeditor/editor/editorwindow.cpp:1218
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
+#: utilities/importui/main/importui.cpp:1911
 msgid "Warning"
 msgstr "Advarsel"
 
-#: showfoto/main/showfoto.cpp:1037
+#: showfoto/main/showfoto.cpp:1048
 #: utilities/imageeditor/main/imagewindow.cpp:1356
 #: utilities/lighttable/lighttablewindow.cpp:1399
 msgid "Preparing slideshow. Please wait..."
@@ -13100,76 +13117,93 @@ msgstr ""
 "a> - en ny standard brugt i digital fotografering, beregnet til at erstatte "
 "IPTC.</p>"
 
-#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:101
+#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:103
 #: utilities/queuemanager/views/queuesettingsview.cpp:237
-#: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:511
+#: utilities/setup/setupcamera.cpp:354 utilities/setup/setupicc.cpp:511
 msgid "Behavior"
 msgstr "Opførsel"
 
-#: showfoto/setup/setupmisc.cpp:104
+#: showfoto/setup/setupmisc.cpp:106
 msgid "&Deleted items should go to the trash"
 msgstr "&Slettede elementer skal føres til affald"
 
-#: showfoto/setup/setupmisc.cpp:105 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/setupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
 msgid "&Show splash screen at startup"
 msgstr "&Vis opstartskærm ved opstart"
 
-#: showfoto/setup/setupmisc.cpp:106
-msgid "&Show Mime Type Over Image"
-msgstr "&Vis MIME-type over billede"
+#: showfoto/setup/setupmisc.cpp:108
+msgid "&Show image Format"
+msgstr "&Vis billedformat"
 
-#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupcamera.cpp:443
+msgid "Set this option to show image format over image thumbnail."
+msgstr ""
+"Aktivér denne indstilling for at vise billedformatet over miniaturebilledet."
+
+#: showfoto/setup/setupmisc.cpp:110
+msgid "&Show Geolocation Indicator"
+msgstr "&Vis geo-lokaliseringsindikator"
+
+#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupcamera.cpp:446
+msgid "Set this option to indicate if image has geolocation information."
+msgstr ""
+"Aktivér denne indstilling for at vise om billedet har geo-"
+"lokaliseringsinformation."
+
+#: showfoto/setup/setupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
 msgid "Sidebar tab title:"
 msgstr "Titel på faneblad i sidepanel:"
 
-#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
 msgid "Only For Active Tab"
 msgstr "Kun for aktivt faneblad"
 
-#: showfoto/setup/setupmisc.cpp:112 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/setupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
 msgid "For All Tabs"
 msgstr "For alle faneblade"
 
-#: showfoto/setup/setupmisc.cpp:113
+#: showfoto/setup/setupmisc.cpp:118
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr ""
 "Brug denne indstilling til at vælge hvordan titler på faneblade i "
 "sidepaneler vises."
 
-#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/setupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
 msgid "Widget style:"
 msgstr "Kontrolstil:"
 
-#: showfoto/setup/setupmisc.cpp:118 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/setupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
 msgid "Set this option to choose the default window decoration and looks."
 msgstr ""
 "Aktivér denne indstilling for at vælge standard vinduesdekoration og "
 "udseende."
 
-#: showfoto/setup/setupmisc.cpp:133
+#: showfoto/setup/setupmisc.cpp:140
 msgid "Sort order for images"
 msgstr "Sorteringsrækkefølge for billeder"
 
-#: showfoto/setup/setupmisc.cpp:137
+#: showfoto/setup/setupmisc.cpp:144
 msgid "Sort images by:"
 msgstr "Sortér billeder efter:"
 
-#: showfoto/setup/setupmisc.cpp:139
+#: showfoto/setup/setupmisc.cpp:146
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "Dato"
 
-#: showfoto/setup/setupmisc.cpp:140
+#: showfoto/setup/setupmisc.cpp:147
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "Navn"
 
-#: showfoto/setup/setupmisc.cpp:141
+#: showfoto/setup/setupmisc.cpp:148
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "Filstørrelse"
 
-#: showfoto/setup/setupmisc.cpp:142
+#: showfoto/setup/setupmisc.cpp:149
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -13177,11 +13211,11 @@ msgstr ""
 "Her kan du vælge om nyindlæste billeder sorteres efter deres dato, navn "
 "eller størrelsen på disken."
 
-#: showfoto/setup/setupmisc.cpp:145
+#: showfoto/setup/setupmisc.cpp:152
 msgid "Reverse ordering"
 msgstr "Omvendt rækkefølge"
 
-#: showfoto/setup/setupmisc.cpp:146
+#: showfoto/setup/setupmisc.cpp:153
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -14707,7 +14741,7 @@ msgstr "Bekræft"
 msgid "Who is this?"
 msgstr "Hvem er dette?"
 
-#: utilities/facemanagement/facepipeline.cpp:1234
+#: utilities/facemanagement/facepipeline.cpp:1240
 msgid "Applying face changes"
 msgstr "Anvendelse af ansigtsændringer"
 
@@ -14743,8 +14777,11 @@ msgid "Detect faces"
 msgstr "Detektér ansigter"
 
 #: utilities/facemanagement/facescandialog.cpp:309
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Detect and recognize faces"
 msgctxt "@option:radio"
-msgid "Detect and recognize faces"
+msgid "Detect and recognize faces (experimental)"
 msgstr "Find og genkend ansigter"
 
 #: utilities/facemanagement/facescandialog.cpp:313
@@ -14777,8 +14814,11 @@ msgid "Clear unconfirmed results and rescan"
 msgstr "Ryd ubekræftede resultater og scan igen"
 
 #: utilities/facemanagement/facescandialog.cpp:335
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Recognize faces"
 msgctxt "@option:radio"
-msgid "Recognize faces"
+msgid "Recognize faces (experimental)"
 msgstr "Genkend ansigter"
 
 #: utilities/facemanagement/facescandialog.cpp:338
@@ -16709,7 +16749,7 @@ msgid ""
 msgstr ""
 "Kunne ikke slå låsefilen <filename>%1</filename> til/fra. Vil du fortsætte?"
 
-#: utilities/importui/backend/gpcamera.cpp:1360
+#: utilities/importui/backend/gpcamera.cpp:1364
 #, kde-format
 msgctxt "@info List of device properties"
 msgid ""
@@ -16719,7 +16759,7 @@ msgstr ""
 "Titel: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Sti: <b>%4</"
 "b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1370
+#: utilities/importui/backend/gpcamera.cpp:1374
 #, kde-format
 msgctxt "@info List of supported device operations"
 msgid ""
@@ -16731,12 +16771,12 @@ msgstr ""
 "%3</b><br/>Upload elementer: <b>%4</b><br/>Opret mapper: <b>%5</b><br/>Slet "
 "mapper: <b>%6</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -16746,12 +16786,12 @@ msgstr ""
 msgid "yes"
 msgstr "ja"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -16891,335 +16931,330 @@ msgstr "Optag"
 msgid "Unknown Format"
 msgstr "Ukendt format"
 
-#: utilities/importui/items/importoverlays.cpp:104
+#: utilities/importui/items/importoverlays.cpp:175
 msgctxt "@info:tooltip"
 msgid "This item is locked."
 msgstr "Dette element er låst."
 
-#: utilities/importui/items/importoverlays.cpp:110
+#: utilities/importui/items/importoverlays.cpp:244
 msgctxt "@info:tooltip"
-msgid "This item is not locked."
-msgstr "Dette element er ikke låst."
+msgid "This item has an unknown download status"
+msgstr "Dette element har ukendt downloadstatus"
 
-#: utilities/importui/items/importoverlays.cpp:177
+#: utilities/importui/items/importoverlays.cpp:250
 msgctxt "@info:tooltip"
-msgid "This item download status is unknown"
-msgstr "Dette elements downloadstatus er ukendt"
+msgid "This item has never been downloaded"
+msgstr "Dette element er aldrig blevet downloadet"
 
-#: utilities/importui/items/importoverlays.cpp:183
+#: utilities/importui/items/importoverlays.cpp:256
 msgctxt "@info:tooltip"
-msgid "This item download status is new"
-msgstr "Dette elements downloadstatus er ny"
+msgid "This item has already been downloaded"
+msgstr "Dette element er allerede blevet downloadet"
 
-#: utilities/importui/items/importoverlays.cpp:189
-msgctxt "@info:tooltip"
-msgid "This item download status is downloaded"
-msgstr "Dette elements downloadstatus er downloadet"
-
-#: utilities/importui/main/importui.cpp:267
+#: utilities/importui/main/importui.cpp:269
 msgid "Set how digiKam will rename files as they are downloaded."
 msgstr ""
 "Indstil hvordan digiKam skal ændre filnavne efterhånden som de downloades."
 
-#: utilities/importui/main/importui.cpp:269
+#: utilities/importui/main/importui.cpp:271
 msgid "File Renaming Options"
 msgstr "Muligheder for filomdøbning"
 
-#: utilities/importui/main/importui.cpp:275
+#: utilities/importui/main/importui.cpp:277
 msgid "Auto-creation of Albums"
 msgstr "Autooprettelse af albummer"
 
-#: utilities/importui/main/importui.cpp:281
+#: utilities/importui/main/importui.cpp:283
 msgid "On the Fly Operations (JPEG only)"
 msgstr "Umiddelbare handlinger (kun jpeg)"
 
-#: utilities/importui/main/importui.cpp:287
+#: utilities/importui/main/importui.cpp:289
 msgid "Scripting"
 msgstr "Scripting"
 
-#: utilities/importui/main/importui.cpp:304
+#: utilities/importui/main/importui.cpp:306
 msgctxt "@action Cancel process"
 msgid "Cancel"
 msgstr "Annullér"
 
-#: utilities/importui/main/importui.cpp:312
+#: utilities/importui/main/importui.cpp:314
 msgctxt "@action Information about camera"
 msgid "Information"
 msgstr "Information"
 
-#: utilities/importui/main/importui.cpp:319
+#: utilities/importui/main/importui.cpp:321
 msgctxt "@action Capture photo from camera"
 msgid "Capture"
 msgstr "Optag"
 
-#: utilities/importui/main/importui.cpp:331
+#: utilities/importui/main/importui.cpp:333
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Markér alle"
 
-#: utilities/importui/main/importui.cpp:339
+#: utilities/importui/main/importui.cpp:341
 msgctxt "@action:inmenu"
 msgid "Select None"
 msgstr "Markér ingen"
 
-#: utilities/importui/main/importui.cpp:347
+#: utilities/importui/main/importui.cpp:349
 msgctxt "@action:inmenu"
 msgid "Invert Selection"
 msgstr "Invertér markering"
 
-#: utilities/importui/main/importui.cpp:355
+#: utilities/importui/main/importui.cpp:357
 msgctxt "@action:inmenu"
 msgid "Select New Items"
 msgstr "Markér nye elementer"
 
-#: utilities/importui/main/importui.cpp:362
+#: utilities/importui/main/importui.cpp:364
 msgctxt "@action:inmenu"
 msgid "Select Locked Items"
 msgstr "Markér låste elementer"
 
-#: utilities/importui/main/importui.cpp:370
+#: utilities/importui/main/importui.cpp:372
 msgctxt "@title:menu"
 msgid "Download"
 msgstr "Download"
 
-#: utilities/importui/main/importui.cpp:375
+#: utilities/importui/main/importui.cpp:377
 msgctxt "@action"
 msgid "Download New"
 msgstr "Download ny"
 
-#: utilities/importui/main/importui.cpp:382
+#: utilities/importui/main/importui.cpp:384
 msgctxt "@action"
 msgid "Download Selected"
 msgstr "Download markerede"
 
-#: utilities/importui/main/importui.cpp:389
+#: utilities/importui/main/importui.cpp:391
 msgctxt "@action"
 msgid "Download All"
 msgstr "Download alle"
 
-#: utilities/importui/main/importui.cpp:397
+#: utilities/importui/main/importui.cpp:399
 msgctxt "@action"
 msgid "Download && Delete New"
 msgstr "Download og slet nye"
 
-#: utilities/importui/main/importui.cpp:405
+#: utilities/importui/main/importui.cpp:407
 msgctxt "@action"
 msgid "Download && Delete Selected"
 msgstr "Download og slet markerede"
 
-#: utilities/importui/main/importui.cpp:413
+#: utilities/importui/main/importui.cpp:415
 msgctxt "@action"
 msgid "Download && Delete All"
 msgstr "Download og slet alle"
 
-#: utilities/importui/main/importui.cpp:420
+#: utilities/importui/main/importui.cpp:422
 msgctxt "@action"
 msgid "Upload..."
 msgstr "Upload..."
 
-#: utilities/importui/main/importui.cpp:428
+#: utilities/importui/main/importui.cpp:430
 msgctxt "@action"
 msgid "Toggle Lock"
 msgstr "Slå låsning til/fra"
 
-#: utilities/importui/main/importui.cpp:436
+#: utilities/importui/main/importui.cpp:438
 msgctxt "@action"
 msgid "Mark as downloaded"
 msgstr "Markér som downloadet"
 
-#: utilities/importui/main/importui.cpp:443
+#: utilities/importui/main/importui.cpp:445
 msgctxt "@title:menu"
 msgid "Delete"
 msgstr "Slet"
 
-#: utilities/importui/main/importui.cpp:448
+#: utilities/importui/main/importui.cpp:450
 msgctxt "@action"
 msgid "Delete Selected"
 msgstr "Slet markerede"
 
-#: utilities/importui/main/importui.cpp:456
+#: utilities/importui/main/importui.cpp:458
 msgctxt "@action"
 msgid "Delete All"
 msgstr "Slet alle"
 
-#: utilities/importui/main/importui.cpp:462
+#: utilities/importui/main/importui.cpp:464
 msgctxt "@action"
 msgid "Delete New"
 msgstr "Slet nye"
 
-#: utilities/importui/main/importui.cpp:470
+#: utilities/importui/main/importui.cpp:472
 msgctxt "@title:group"
 msgid "Views"
 msgstr "Visninger"
 
-#: utilities/importui/main/importui.cpp:479
+#: utilities/importui/main/importui.cpp:481
 msgctxt "@action View the selected image"
 msgid "Preview Item"
 msgstr "Forhåndsvis element"
 
-#: utilities/importui/main/importui.cpp:495
+#: utilities/importui/main/importui.cpp:497
 msgctxt "@title:menu"
 msgid "&Sort Items"
 msgstr "&Sortér elementer"
 
-#: utilities/importui/main/importui.cpp:496
+#: utilities/importui/main/importui.cpp:498
 msgctxt "@info:whatsthis"
 msgid "The value by which the items are sorted in the thumbnail view"
 msgstr "Værdien som elementerne sorteres efter i miniaturevisningen"
 
-#: utilities/importui/main/importui.cpp:502
+#: utilities/importui/main/importui.cpp:504
 msgctxt "item:inmenu Sort by"
 msgid "By Name"
 msgstr "Efter navn"
 
-#: utilities/importui/main/importui.cpp:503
+#: utilities/importui/main/importui.cpp:505
 msgctxt "item:inmenu Sort by"
 msgid "By Path"
 msgstr "Efter sti"
 
-#: utilities/importui/main/importui.cpp:504
+#: utilities/importui/main/importui.cpp:506
 msgctxt "item:inmenu Sort by"
 msgid "By Date"
 msgstr "Efter dato"
 
-#: utilities/importui/main/importui.cpp:505
+#: utilities/importui/main/importui.cpp:507
 msgctxt "item:inmenu Sort by"
 msgid "By Size"
 msgstr "Efter størrelse"
 
-#: utilities/importui/main/importui.cpp:506
+#: utilities/importui/main/importui.cpp:508
 msgctxt "item:inmenu Sort by"
 msgid "By Rating"
 msgstr "Efter karakterer"
 
-#: utilities/importui/main/importui.cpp:507
+#: utilities/importui/main/importui.cpp:509
 msgctxt "item:inmenu Sort by"
 msgid "By Download State"
 msgstr "Efter downloadstatus"
 
-#: utilities/importui/main/importui.cpp:527
+#: utilities/importui/main/importui.cpp:529
 msgctxt "@title:inmenu"
 msgid "Item Sorting &Order"
 msgstr "Sorterings&rækkefølge for elementer"
 
-#: utilities/importui/main/importui.cpp:528
+#: utilities/importui/main/importui.cpp:530
 msgctxt "@info:whatsthis"
 msgid "Defines whether items are sorted in ascending or descending manner."
 msgstr "Angiver hvorvidt elementer sorteres stigende eller faldende."
 
-#: utilities/importui/main/importui.cpp:533
+#: utilities/importui/main/importui.cpp:535
 msgctxt "@item:inmenu Sorting Order"
 msgid "Ascending"
 msgstr "Stigende"
 
-#: utilities/importui/main/importui.cpp:534
+#: utilities/importui/main/importui.cpp:536
 msgctxt "@item:inmenu Sorting Order"
 msgid "Descending"
 msgstr "Faldende"
 
-#: utilities/importui/main/importui.cpp:546
+#: utilities/importui/main/importui.cpp:548
 msgctxt "@title:menu"
 msgid "&Group Items"
 msgstr "&Gruppér elementer"
 
-#: utilities/importui/main/importui.cpp:547
+#: utilities/importui/main/importui.cpp:549
 msgctxt "@info:whatsthis"
 msgid "The categories in which the items in the thumbnail view are displayed"
 msgstr "Kategorierne som elementerne i miniaturevisningen vises i"
 
-#: utilities/importui/main/importui.cpp:553
+#: utilities/importui/main/importui.cpp:555
 msgctxt "@item:inmenu Group Items"
 msgid "Flat List"
 msgstr "Flad liste"
 
-#: utilities/importui/main/importui.cpp:554
+#: utilities/importui/main/importui.cpp:556
 msgctxt "@item:inmenu Group Items"
 msgid "By Folder"
 msgstr "Efter mappenavn"
 
-#: utilities/importui/main/importui.cpp:555
+#: utilities/importui/main/importui.cpp:557
 msgctxt "@item:inmenu Group Items"
 msgid "By Format"
 msgstr "Efter format"
 
-#: utilities/importui/main/importui.cpp:583
+#: utilities/importui/main/importui.cpp:585
 msgctxt "@action:inmenu"
 msgid "Fit to &Window"
 msgstr "Tilpas til &vindue"
 
-#: utilities/importui/main/importui.cpp:588
+#: utilities/importui/main/importui.cpp:590
 msgctxt "@action:inmenu"
 msgid "Zoom to 100%"
 msgstr "Zoom til 100%"
 
-#: utilities/importui/main/importui.cpp:597
+#: utilities/importui/main/importui.cpp:599
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Vis historik"
 
-#: utilities/importui/main/importui.cpp:602
+#: utilities/importui/main/importui.cpp:604
 msgctxt "@option:check"
 msgid "Show Thumbbar"
 msgstr "Vis miniaturelinje"
 
-#: utilities/importui/main/importui.cpp:633
-#: utilities/importui/main/importui.cpp:826
-#: utilities/importui/main/importui.cpp:832
+#: utilities/importui/main/importui.cpp:634
+#: utilities/importui/main/importui.cpp:828
+#: utilities/importui/main/importui.cpp:834
 msgctxt "@action"
 msgid "Previous Image"
 msgstr "Forrige billede"
 
-#: utilities/importui/main/importui.cpp:640
+#: utilities/importui/main/importui.cpp:641
 msgctxt "@action Connection failed, try again?"
 msgid "Retry"
 msgstr "Prøv igen"
 
-#: utilities/importui/main/importui.cpp:815
+#: utilities/importui/main/importui.cpp:817
 msgctxt "@action"
 msgid "Exit Preview Mode"
 msgstr "Afslut forhåndsvisningstilstand"
 
-#: utilities/importui/main/importui.cpp:820
+#: utilities/importui/main/importui.cpp:822
 msgctxt "@action"
 msgid "Next Image"
 msgstr "Næste billede"
 
-#: utilities/importui/main/importui.cpp:837
+#: utilities/importui/main/importui.cpp:839
 msgctxt "@action Go to first image"
 msgid "First Image"
 msgstr "Første billede"
 
-#: utilities/importui/main/importui.cpp:842
+#: utilities/importui/main/importui.cpp:844
 msgctxt "@action Go to last image"
 msgid "Last Image"
 msgstr "Sidste billede"
 
-#: utilities/importui/main/importui.cpp:934
+#: utilities/importui/main/importui.cpp:936
 msgctxt "@info:status"
 msgid "Canceling current operation, please wait..."
 msgstr "Annullerer nuværende handling. Vent venligst..."
 
-#: utilities/importui/main/importui.cpp:989
+#: utilities/importui/main/importui.cpp:991
 msgctxt "@info"
 msgid "Do you want to close the dialog and cancel the current operation?"
 msgstr "Vil du lukke dialogen og annullere nuværende handling?"
 
-#: utilities/importui/main/importui.cpp:998
+#: utilities/importui/main/importui.cpp:1000
 msgctxt "@info:status"
 msgid "Disconnecting from camera, please wait..."
 msgstr "Afbryder forbindelse til kameraet. Vent venligst..."
 
-#: utilities/importui/main/importui.cpp:1039
+#: utilities/importui/main/importui.cpp:1042
 msgctxt "@info:status"
 msgid "Scanning for new files, please wait..."
 msgstr "Scanner efter nye filer. Vent venligst..."
 
-#: utilities/importui/main/importui.cpp:1076
+#: utilities/importui/main/importui.cpp:1079
 msgctxt "@info:status"
 msgid "Ready"
 msgstr "Klar"
 
-#: utilities/importui/main/importui.cpp:1147
+#: utilities/importui/main/importui.cpp:1150
 msgctxt "@info"
 msgid ""
 "Failed to connect to the camera. Please make sure it is connected properly "
@@ -17228,12 +17263,12 @@ msgstr ""
 "Mislykkedes at forbinde til kameraet. Sørg for at kameraet er tændt og "
 "korrekt forbundet."
 
-#: utilities/importui/main/importui.cpp:1267
+#: utilities/importui/main/importui.cpp:1270
 msgctxt "@title:window"
 msgid "Select Image to Upload"
 msgstr "Markér billede til upload"
 
-#: utilities/importui/main/importui.cpp:1300
+#: utilities/importui/main/importui.cpp:1303
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17247,7 +17282,7 @@ msgstr ""
 "Krævet plads: %1\n"
 "Ledig plads: %2"
 
-#: utilities/importui/main/importui.cpp:1354
+#: utilities/importui/main/importui.cpp:1357
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17257,12 +17292,12 @@ msgstr ""
 "Kameramappen <resource>%1</resource> indeholder allerede elementet <resource>"
 "%2</resource>.<nl>Angiv et nyt filnavn (uden filendelse):"
 
-#: utilities/importui/main/importui.cpp:1357
+#: utilities/importui/main/importui.cpp:1360
 msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Filen findes allerede"
 
-#: utilities/importui/main/importui.cpp:1418
+#: utilities/importui/main/importui.cpp:1421
 msgctxt "@info"
 msgid ""
 "Your custom target album date format is not valid. Please check your "
@@ -17271,7 +17306,7 @@ msgstr ""
 "Datoformatet for dit brugerdefinerede målalbum er ikke gyldigt. Tjek dine "
 "indstillinger..."
 
-#: utilities/importui/main/importui.cpp:1457
+#: utilities/importui/main/importui.cpp:1460
 msgctxt "@info"
 msgid ""
 "Collection which host your default target album set to process download from "
@@ -17282,7 +17317,7 @@ msgstr ""
 "fra kameraenheden, er ikke tilgængelig. Vælg en anden fra "
 "konfigurationsdialogen for kamera."
 
-#: utilities/importui/main/importui.cpp:1465
+#: utilities/importui/main/importui.cpp:1468
 msgctxt "@info"
 msgid ""
 "Your default target album set to process download from camera device is not "
@@ -17291,7 +17326,7 @@ msgstr ""
 "Dit standard målalbum til behandling af download fra kameraenheden, er ikke "
 "tilgængeligt. Vælg et andet fra konfigurationsdialogen for kamera."
 
-#: utilities/importui/main/importui.cpp:1483
+#: utilities/importui/main/importui.cpp:1487
 msgctxt "@info"
 msgid ""
 "<p>Please select the destination album from the digiKam library to import "
@@ -17299,7 +17334,7 @@ msgid ""
 msgstr ""
 "<p>Vælg venligst det rigtige album at importere billeder fra kameraet i.</p>"
 
-#: utilities/importui/main/importui.cpp:1577
+#: utilities/importui/main/importui.cpp:1581
 msgctxt "@info Popup notification"
 msgid ""
 "Images download finished, you can now detach your camera while the images "
@@ -17308,12 +17343,12 @@ msgstr ""
 "Download af billeder gennemført. Du kan nu frakoble dit kamera mens "
 "billederne bliver autoroteret"
 
-#: utilities/importui/main/importui.cpp:1581
+#: utilities/importui/main/importui.cpp:1585
 msgctxt "@info Popup notification"
 msgid "Images download finished"
 msgstr "Download af billeder gennemført"
 
-#: utilities/importui/main/importui.cpp:1884
+#: utilities/importui/main/importui.cpp:1888
 msgctxt "@info"
 msgid ""
 "The items listed below are locked by camera (read-only). These items will "
@@ -17324,7 +17359,7 @@ msgstr ""
 "billeder bliver ikke slettet. Lås dem op og forsøg igen, hvis du virkelig "
 "vil slette disse elementer."
 
-#: utilities/importui/main/importui.cpp:1895
+#: utilities/importui/main/importui.cpp:1899
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17340,17 +17375,17 @@ msgstr[1] ""
 "Du er ved at slette disse %1 billeder. <warning>Slettede filer kan ikke "
 "genskabes.</warning> Er du sikker?"
 
-#: utilities/importui/main/importui.cpp:1945
+#: utilities/importui/main/importui.cpp:1950
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Forsøg alligevel"
 
-#: utilities/importui/main/importui.cpp:1947
+#: utilities/importui/main/importui.cpp:1952
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "Annullér download"
 
-#: utilities/importui/main/importui.cpp:1950
+#: utilities/importui/main/importui.cpp:1954
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17366,13 +17401,13 @@ msgstr ""
 "Estimeret pladskrav: %1\n"
 "Ledig plads: %2"
 
-#: utilities/importui/main/importui.cpp:1956
+#: utilities/importui/main/importui.cpp:1960
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Utilstrækkelig diskplads"
 
-#: utilities/importui/main/importui.cpp:2299
-#: utilities/importui/main/importui.cpp:2325
+#: utilities/importui/main/importui.cpp:2305
+#: utilities/importui/main/importui.cpp:2331
 #, kde-format
 msgctxt "@info:status"
 msgid "No item selected (%1 item)"
@@ -17380,13 +17415,13 @@ msgid_plural "No item selected (%1 items)"
 msgstr[0] "Intet element valgt (%1 element)"
 msgstr[1] "Ingen elementer valgt (%1 elementer)"
 
-#: utilities/importui/main/importui.cpp:2318
+#: utilities/importui/main/importui.cpp:2324
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr "<filename>%1</filename> (%2 ud af %3)"
 
-#: utilities/importui/main/importui.cpp:2334
+#: utilities/importui/main/importui.cpp:2340
 #, kde-format
 msgctxt "@info:status"
 msgid "%2/%1 item selected"
@@ -17394,7 +17429,7 @@ msgid_plural "%2/%1 items selected"
 msgstr[0] "%2/%1 element valgt"
 msgstr[1] "%2/%1 elementer valgt"
 
-#: utilities/importui/main/importui.cpp:2421
+#: utilities/importui/main/importui.cpp:2427
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17404,13 +17439,13 @@ msgstr ""
 "En fil med samme navn (<filename>%1</filename>) findes allerede i mappen "
 "<resource>%2</resource>."
 
-#: utilities/importui/main/importui.cpp:2433
+#: utilities/importui/main/importui.cpp:2439
 #, kde-format
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "Kunne ikke finde album for stien <filename>%1\"</filename>."
 
-#: utilities/importui/main/importui.cpp:2444
+#: utilities/importui/main/importui.cpp:2450
 msgctxt "@title"
 msgid "General"
 msgstr "Generelt"
@@ -17988,7 +18023,9 @@ msgid "Clear unconfirmed results and rescan"
 msgstr "Ryd ubekræftede resultater og scan igen"
 
 #: utilities/maintenance/maintenancedlg.cpp:233
-msgid "Detect and recognize Faces"
+#, fuzzy
+#| msgid "Detect and recognize Faces"
+msgid "Detect and recognize Faces (experimental)"
 msgstr "Find og genkend ansigter"
 
 #: utilities/maintenance/maintenancedlg.cpp:240
@@ -19772,136 +19809,145 @@ msgstr ""
 
 #: utilities/setup/setup.cpp:552
 msgid ""
+"The maximum thumbnail size has been changed.\n"
+"You need to restart digiKam to see this option to take effect.\n"
+"\n"
+"Note: after restarting digiKam, it is recommended to rebuild all album "
+"items' thumbnails, using the \"Tools-Maintenance\" menu."
+msgstr ""
+"Den maksimale miniaturestørrelse er blevet ændret.\n"
+"Du skal genstarte digiKam før denne indstilling får virkning.\n"
+"\n"
+"Bemærk: Efter genstart af digiKam anbefales det, at genopbygge alle "
+"albumelementers miniaturer fra menuen \"Værktøjer-vedligeholdelse\"."
+
+#: utilities/setup/setup.cpp:561
+msgid ""
 "The Exif auto-rotate thumbnails option has been changed.\n"
 "Do you want to rebuild all albums' items' thumbnails now?\n"
 "\n"
 "Note: thumbnail processing can take a while. You can start this job later "
-"from the \"Tools\" menu."
+"from the \"Tools-Maintenance\" menu."
 msgstr ""
 "EXIF-indstillingen for autorotering af miniaturer er blevet ændret.\n"
 "Vil du gendanne alle albumminiaturer nu?\n"
 "\n"
 "Bemærk: Behandlingen af miniaturer kan tage noget tid. Du kan starte dette "
-"job senere fra menuen \"Værktøjer\"."
+"job senere fra menuen \"Værktøjer-vedligeholdelse\"."
 
-#: utilities/setup/setupalbumview.cpp:121 utilities/setup/setupcamera.cpp:421
+#: utilities/setup/setupalbumview.cpp:131 utilities/setup/setupcamera.cpp:423
 msgid "Icon-View Options"
 msgstr "Indstillinger for ikonvisning"
 
-#: utilities/setup/setupalbumview.cpp:124 utilities/setup/setupcamera.cpp:424
+#: utilities/setup/setupalbumview.cpp:134 utilities/setup/setupcamera.cpp:426
 msgid "Show file&name"
 msgstr "Vis fil&navn"
 
-#: utilities/setup/setupalbumview.cpp:125 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:135 utilities/setup/setupcamera.cpp:427
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise filnavnet under miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:127 utilities/setup/setupcamera.cpp:427
+#: utilities/setup/setupalbumview.cpp:137 utilities/setup/setupcamera.cpp:429
 msgid "Show file si&ze"
 msgstr "Vis fils&tørrelse"
 
-#: utilities/setup/setupalbumview.cpp:128 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:430
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise filstørrelsen under miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:130 utilities/setup/setupcamera.cpp:430
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:432
 msgid "Show camera creation &date"
 msgstr "Vis kameraets oprettelses&dato"
 
-#: utilities/setup/setupalbumview.cpp:131
+#: utilities/setup/setupalbumview.cpp:141
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise kameraets oprettelsesdato under "
 "miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:134
+#: utilities/setup/setupalbumview.cpp:144
 msgid "Show file &modification date"
 msgstr "Vis æ&ndringsdato"
 
-#: utilities/setup/setupalbumview.cpp:135
+#: utilities/setup/setupalbumview.cpp:145
 msgid ""
 "Set this option to show the file modification date below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise filens ændringsdato under "
 "miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:138
+#: utilities/setup/setupalbumview.cpp:148
 msgid "Show ima&ge dimensions"
 msgstr "Vis billed&dimensioner"
 
-#: utilities/setup/setupalbumview.cpp:139
+#: utilities/setup/setupalbumview.cpp:149
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise billedstørrelsen i pixels under "
 "miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setuptooltip.cpp:213
+#: utilities/setup/setupalbumview.cpp:152 utilities/setup/setuptooltip.cpp:213
 msgid "Show image aspect ratio"
 msgstr "Vis billedets aspektforhold"
 
-#: utilities/setup/setupalbumview.cpp:143
+#: utilities/setup/setupalbumview.cpp:153
 msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise billedets aspektforhold under "
 "miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:440
+#: utilities/setup/setupalbumview.cpp:156 utilities/setup/setupcamera.cpp:442
 msgid "Show image Format"
 msgstr "Vis billedformat"
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:441
-msgid "Set this option to show image format over image thumbnail."
-msgstr ""
-"Aktivér denne indstilling for at vise billedformatet over miniaturebilledet."
-
-#: utilities/setup/setupalbumview.cpp:149
+#: utilities/setup/setupalbumview.cpp:159
 msgid "Show digiKam tit&le"
 msgstr "Vis digiKam-tite&l"
 
-#: utilities/setup/setupalbumview.cpp:150
+#: utilities/setup/setupalbumview.cpp:160
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise digiKam-titlen under miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:153
+#: utilities/setup/setupalbumview.cpp:163
 msgid "Show digiKam &captions"
 msgstr "Vis digiKam-&billedtekster"
 
-#: utilities/setup/setupalbumview.cpp:154
+#: utilities/setup/setupalbumview.cpp:164
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise digiKam-billedtekster under "
 "miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:157 utilities/setup/setupcamera.cpp:443
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:448
 msgid "Show digiKam &tags"
 msgstr "Vis digiKam-&mærker"
 
-#: utilities/setup/setupalbumview.cpp:158 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:168 utilities/setup/setupcamera.cpp:449
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise digiKam-mærker under miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:171
 msgid "Show digiKam &rating"
 msgstr "Vis digiKam-&karakter"
 
-#: utilities/setup/setupalbumview.cpp:162
+#: utilities/setup/setupalbumview.cpp:172
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise digiKam-karakteren under "
 "miniaturebilledet."
 
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:451
+#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:456
 msgid "Show rotation overlay buttons"
 msgstr "Vis overhængende rotationsknapper"
 
-#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:457
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
@@ -19909,39 +19955,69 @@ msgstr ""
 "Aktivér denne indstilling for at vise overhængende knapper på "
 "miniaturebilledet  til billedrotation."
 
-#: utilities/setup/setupalbumview.cpp:169 utilities/setup/setupcamera.cpp:455
+#: utilities/setup/setupalbumview.cpp:179 utilities/setup/setupcamera.cpp:445
+msgid "Show Geolocation Indicator"
+msgstr "Vis geo-lokaliseringsindikator"
+
+#: utilities/setup/setupalbumview.cpp:182 utilities/setup/setupcamera.cpp:460
 msgid "Thumbnail click action:"
 msgstr "Handling ved miniature-klik:"
 
-#: utilities/setup/setupalbumview.cpp:171 utilities/setup/setupcamera.cpp:457
+#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:462
 msgid "Show embedded preview"
 msgstr "Vis indlejret forhåndsvisning"
 
-#: utilities/setup/setupalbumview.cpp:172 utilities/setup/setupcamera.cpp:458
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:463
 msgid "Start image editor"
 msgstr "Start billededitor"
 
-#: utilities/setup/setupalbumview.cpp:173 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:464
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr "Vælg hvad der skal ske når du klikker på en miniature her."
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:461
+#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:466
 msgid "Icon View font:"
 msgstr "Skrifttype til ikonvisning:"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:189 utilities/setup/setupcamera.cpp:467
 msgid "Select here the font used to display text in Icon Views."
 msgstr "Vælg skrifttype til visning af tekst i ikonvisninger her."
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:191
+msgid "Use large thumbnail size for high screen resolution"
+msgstr "Brug stor miniaturestørrelse til skærme med høj opløsning"
+
+#: utilities/setup/setupalbumview.cpp:192
+msgid ""
+"Set this option to render icon-view with large thumbnail size, for example "
+"in case of 4K monitor is used.\n"
+"By default this option is turned off and the maximum thumbnail size is "
+"limited to 256x256 pixels. When this option is enabled, thumbnail size can "
+"be extended to 512x512 pixels.\n"
+"This option will store more data in thumbnail database and will use more "
+"system memory. digiKam needs to be restarted to take effect, and Rebuild "
+"Thumbnails option from Maintenance tool needs to be processed over whole "
+"collections."
+msgstr ""
+"Aktivér denne indstilling for at rendere ikonvisning med stor "
+"miniaturestørrelse, f.eks. hvis der bruges en 4K-skærm.\n"
+"Som standard er denne indstilling slået fra og den maksimale "
+"miniaturestørrelse er begrænset til 256x256 pixel. Når denne indstilling er "
+"aktiveret, kan miniaturestørrelsen udvides til 512x512 pixel.\n"
+"Denne indstilling vil lagre flere data i miniaturedatabasen og vil bruge "
+"mere systemhukommelse. digiKam skal genstartes før det får virkning og "
+"funktionen Gendan miniaturer fra vedligeholdelsesværktøjet skal køres over "
+"hele samlinger."
+
+#: utilities/setup/setupalbumview.cpp:223
 msgid "Folder View Options"
 msgstr "Indstillinger for mappevisning"
 
-#: utilities/setup/setupalbumview.cpp:203
+#: utilities/setup/setupalbumview.cpp:226
 msgid "Tree View thumbnail size:"
 msgstr "Størrelse på miniaturer i trævisning:"
 
-#: utilities/setup/setupalbumview.cpp:209
+#: utilities/setup/setupalbumview.cpp:232
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
@@ -19949,27 +20025,27 @@ msgstr ""
 "Brug denne indstilling til at vælge størrelsen i pixels på miniaturerne i "
 "trævisningen i digiKams sidepaneler."
 
-#: utilities/setup/setupalbumview.cpp:212
+#: utilities/setup/setupalbumview.cpp:235
 msgid "Tree View font:"
 msgstr "Skrifttype til trævisning:"
 
-#: utilities/setup/setupalbumview.cpp:213
+#: utilities/setup/setupalbumview.cpp:236
 msgid "Select here the font used to display text in Tree Views."
 msgstr "Vælg skrifttype til tekst i trævisninger her."
 
-#: utilities/setup/setupalbumview.cpp:215
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Show a count of items in Tree Views"
 msgstr "Vis antal elementer i alle trævisninger"
 
-#: utilities/setup/setupalbumview.cpp:226 utilities/setup/setupcamera.cpp:481
+#: utilities/setup/setupalbumview.cpp:249 utilities/setup/setupcamera.cpp:487
 msgid "Preview Options"
 msgstr "Indstillinger for forhåndsvisning"
 
-#: utilities/setup/setupalbumview.cpp:229 utilities/setup/setupcamera.cpp:484
+#: utilities/setup/setupalbumview.cpp:252 utilities/setup/setupcamera.cpp:490
 msgid "Embedded preview loads full-sized images"
 msgstr "Indlejret forhåndsvisning indlæser fuld billedstørrelse"
 
-#: utilities/setup/setupalbumview.cpp:230 utilities/setup/setupcamera.cpp:485
+#: utilities/setup/setupalbumview.cpp:253 utilities/setup/setupcamera.cpp:491
 #: utilities/setup/setuplighttable.cpp:108
 msgid ""
 "<p>Set this option to load images at their full size for preview, rather "
@@ -19984,18 +20060,18 @@ msgstr ""
 "billeder.</p><p><b>Bemærk:</b> For Raw-billeder bruges en version af Raw-"
 "data i halv størrelse i stedet for indlejret JPEG-forhåndsvisning.</p>"
 
-#: utilities/setup/setupalbumview.cpp:237 utilities/setup/setupcamera.cpp:495
+#: utilities/setup/setupalbumview.cpp:260 utilities/setup/setupcamera.cpp:501
 msgid "Show icons and text over preview"
 msgstr "Vis ikoner og tekst over forhåndsvisning"
 
-#: utilities/setup/setupalbumview.cpp:238 utilities/setup/setupcamera.cpp:496
+#: utilities/setup/setupalbumview.cpp:261
 msgid ""
-"Uncheck this if you don't want to see icons and text in the image preview."
+"Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 "Afmarkér dette hvis du ikke vil se ikoner og tekst i forhåndsvisningen af "
 "billedet."
 
-#: utilities/setup/setupcamera.cpp:279
+#: utilities/setup/setupcamera.cpp:281
 msgid ""
 "Here you can see the digital camera list used by digiKam via the Gphoto "
 "interface."
@@ -20003,99 +20079,106 @@ msgstr ""
 "Her kan du se listen over digitalkameraer der bruges af digiKam med gPhoto-"
 "grænsefladen."
 
-#: utilities/setup/setupcamera.cpp:300 utilities/setup/setupcamera.cpp:393
+#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
 #: utilities/setup/setupcategory.cpp:100 utilities/setup/setuptemplate.cpp:124
 msgid "&Add..."
 msgstr "&Tilføj..."
 
-#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
+#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
 #: utilities/setup/setupcategory.cpp:101 utilities/setup/setuptemplate.cpp:126
 msgid "&Remove"
 msgstr "&Fjern"
 
-#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
+#: utilities/setup/setupcamera.cpp:306 utilities/setup/setupcamera.cpp:399
 msgid "&Edit..."
 msgstr "&Redigér..."
 
-#: utilities/setup/setupcamera.cpp:306
+#: utilities/setup/setupcamera.cpp:308
 msgid "Auto-&Detect"
 msgstr "Auto&detektér"
 
-#: utilities/setup/setupcamera.cpp:318
+#: utilities/setup/setupcamera.cpp:320
 msgid "Visit Gphoto project website"
 msgstr "Besøg Gphoto-projektets hjemmeside"
 
-#: utilities/setup/setupcamera.cpp:339
+#: utilities/setup/setupcamera.cpp:341
 msgid "Devices"
 msgstr "Enheder"
 
-#: utilities/setup/setupcamera.cpp:347
+#: utilities/setup/setupcamera.cpp:349
 msgid "Use file metadata (makes connection slower)"
 msgstr "Brug filmetadata (gør forbindelsen langsommere)"
 
-#: utilities/setup/setupcamera.cpp:348
+#: utilities/setup/setupcamera.cpp:350
 msgid "Turn on high quality thumbnail loading (slower loading)"
 msgstr ""
 "Aktivér indlæsning af miniaturer i høj kvalitet (langsommere indlæsning)"
 
-#: utilities/setup/setupcamera.cpp:349
+#: utilities/setup/setupcamera.cpp:351
 msgid "Use a default target album to download from camera"
 msgstr "Brug et standard målalbum til at downloade fra kameraet"
 
-#: utilities/setup/setupcamera.cpp:371
+#: utilities/setup/setupcamera.cpp:373
 msgid ""
 "Here you can see filters that can be used to filter files in import dialog."
 msgstr ""
 "Her kan du se filtre som kan bruges til at filtrere filer i importdialogen."
 
-#: utilities/setup/setupcamera.cpp:390
+#: utilities/setup/setupcamera.cpp:392
 msgid "Always ignore"
 msgstr "Ignorér altid"
 
-#: utilities/setup/setupcamera.cpp:391
+#: utilities/setup/setupcamera.cpp:393
 msgid "Ignored file names:"
 msgstr "Ignorerede filnavne:"
 
-#: utilities/setup/setupcamera.cpp:392
+#: utilities/setup/setupcamera.cpp:394
 msgid "Ignored file extensions:"
 msgstr "Ignorerede filendelser:"
 
-#: utilities/setup/setupcamera.cpp:412
+#: utilities/setup/setupcamera.cpp:414
 msgid "Import Filters"
 msgstr "Importfiltre"
 
-#: utilities/setup/setupcamera.cpp:431
+#: utilities/setup/setupcamera.cpp:433
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail"
 msgstr ""
 "Aktivér denne indstilling for at vise kameraets oprettelsesdato under "
 "miniaturebilledet"
 
-#: utilities/setup/setupcamera.cpp:447
+#: utilities/setup/setupcamera.cpp:452
 msgid "Show item &rating"
 msgstr "Vis elementets &karakter"
 
-#: utilities/setup/setupcamera.cpp:448
+#: utilities/setup/setupcamera.cpp:453
 msgid "Set this option to show the item rating below the image thumbnail."
 msgstr ""
 "Aktivér denne indstilling for at vise elementets karakter under "
 "miniaturebilledet."
 
-#: utilities/setup/setupcamera.cpp:492
+#: utilities/setup/setupcamera.cpp:498
 msgid "Preview each item while downloading it"
 msgstr "Forhåndsvis hvert element under download"
 
-#: utilities/setup/setupcamera.cpp:493
+#: utilities/setup/setupcamera.cpp:499
 msgid "<p>Set this option to preview each item while downloading.</p>"
 msgstr ""
 "<p>Aktivér denne indstilling for at forhåndsvise hvert element under "
 "download.</p>"
 
-#: utilities/setup/setupcamera.cpp:515
+#: utilities/setup/setupcamera.cpp:502
+msgid ""
+"Uncheck this if you don't want to see icons and text in the image preview."
+msgstr ""
+"Afmarkér dette hvis du ikke vil se ikoner og tekst i forhåndsvisningen af "
+"billedet."
+
+#: utilities/setup/setupcamera.cpp:521
 msgid "Import Window"
 msgstr "Importér vindue"
 
-#: utilities/setup/setupcamera.cpp:765
+#: utilities/setup/setupcamera.cpp:773
 msgid ""
 "No default target album have been selected to process download from camera "
 "device. Please select one."
@@ -20103,11 +20186,11 @@ msgstr ""
 "Intet standard målalbum er blevet valgt til at behandle download fra "
 "kameraenhed. Vælg venligst et."
 
-#: utilities/setup/setupcamera.cpp:858
+#: utilities/setup/setupcamera.cpp:866
 msgid "Device detection under progress, please wait..."
 msgstr "Enhedsdetektion i gang. Vent venligst..."
 
-#: utilities/setup/setupcamera.cpp:869
+#: utilities/setup/setupcamera.cpp:877
 msgid ""
 "Failed to auto-detect camera.\n"
 "Please check if your camera is turned on and retry or try setting it "
@@ -20116,28 +20199,28 @@ msgstr ""
 "Mislykkedes at autodetektere kamera.\n"
 "Se efter om dit kamera er tændt, forsøg igen eller indstil det manuelt."
 
-#: utilities/setup/setupcamera.cpp:883
+#: utilities/setup/setupcamera.cpp:891
 #, kde-format
 msgid "Camera '%1' (%2) is already in list."
 msgstr "Kameraet \"%1\" (%2) er allerede på listen."
 
-#: utilities/setup/setupcamera.cpp:887
+#: utilities/setup/setupcamera.cpp:895
 #, kde-format
 msgid "Found camera '%1' (%2) and added it to the list."
 msgstr "Fandt kameraet \"%1\" (%2) og tilføjede det til listen."
 
-#: utilities/setup/setupcamera.cpp:903
+#: utilities/setup/setupcamera.cpp:911
 msgid "Untitled"
 msgstr "Unavngivet"
 
-#: utilities/setup/setupcamera.cpp:945
+#: utilities/setup/setupcamera.cpp:953
 msgid ""
 "In order to enable this feature, the full-sized preview will be disabled."
 msgstr ""
 "For at aktivere denne funktion, vil forhåndsvisning af fuld størrelse blive "
 "deaktiveret."
 
-#: utilities/setup/setupcamera.cpp:955
+#: utilities/setup/setupcamera.cpp:963
 msgid ""
 "If the full-sized preview is enabled it will affect the speed of previewing "
 "each item while download."
@@ -20738,7 +20821,43 @@ msgctxt "none of the paths"
 msgid "none"
 msgstr "ingen"
 
-#: utilities/setup/setupicc.cpp:904
+#: utilities/setup/setupicc.cpp:906
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Windows, the default search paths include <ul><li>%1/Windows/Spool/"
+"Drivers/Color/</li><li>%2/Windows/Color/</li></ul>On your system, currently "
+"these paths exist and are scanned:<ul><li>%3</li></ul>"
+msgstr ""
+"På Linux, omfatter standard søgestier <ul><li>/usr/share/color/icc</li><li>/"
+"usr/local/share/color/icc</li><li>~/.local/share/color/icc/</li><li>~/.local/"
+"share/icc/</li><li>~/.color/icc/</li></ul>På dit system findes og scannes i "
+"øjeblikket disse stier:<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:920
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Mac OS X, the default search paths include <ul><li>/System/Library/"
+"ColorSync/Profiles</li><li>/Library/ColorSync/Profiles</li><li>~/Library/"
+"ColorSync/Profiles</li><li>/opt/local/share/color/icc</li><li>~/.local/share/"
+"color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On "
+"your system, currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgstr ""
+"På Linux, omfatter standard søgestier <ul><li>/usr/share/color/icc</li><li>/"
+"usr/local/share/color/icc</li><li>~/.local/share/color/icc/</li><li>~/.local/"
+"share/icc/</li><li>~/.color/icc/</li></ul>På dit system findes og scannes i "
+"øjeblikket disse stier:<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:936
 #, kde-format
 msgid ""
 "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
@@ -22186,6 +22305,20 @@ msgctxt ""
 "is active"
 msgid "Giving a presentation"
 msgstr "Giver en præsentation"
+
+#~ msgid "Open Tag Manger"
+#~ msgstr "Åbn mærkehåndtering"
+
+#~ msgid "&Show Mime Type Over Image"
+#~ msgstr "&Vis MIME-type over billede"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item is not locked."
+#~ msgstr "Dette element er ikke låst."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item download status is unknown"
+#~ msgstr "Dette elements downloadstatus er ukendt"
 
 #~ msgctxt "@title:window"
 #~ msgid "Connection Failed"

@@ -291,7 +291,7 @@ ImageDescEditTab::ImageDescEditTab(QWidget* const parent)
     d->tagCheckView = new TagCheckView(tagsArea, d->tagModel);
     d->tagCheckView->setCheckNewTags(true);
 
-    d->openTagMngr = new KPushButton( i18n("Open Tag Manger"));
+    d->openTagMngr = new KPushButton( i18n("Open Tag Manager"));
     connect(d->openTagMngr,SIGNAL(clicked()),this, SLOT(slotOpenTagsManager()));
 
     d->newTagEdit   = new AddTagsLineEdit(tagsArea);
@@ -1444,6 +1444,7 @@ void ImageDescEditTab::setFocusToTagsView()
 {
     d->lastSelectedWidget = qobject_cast<QWidget*>(d->tagCheckView);
     d->tagCheckView->setFocus();
+    d->tabWidget->setCurrentIndex(Private::TAGS);
 }
 
 void ImageDescEditTab::slotApplyChangesToAllVersions()

@@ -6,7 +6,7 @@
 # @date   2006-09-15
 # @brief  Exiv2 library interface for KDE
 #
-# @author Copyright (C) 2006-2012 by Gilles Caulier
+# @author Copyright (C) 2006-2014 by Gilles Caulier
 #         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
 #
 # This program is free software; you can redistribute it
@@ -31,7 +31,7 @@ IF( WIN32 )
     ADD_DEFINITIONS( -DEXV_HAVE_DLL )
 ENDIF( WIN32 )
 
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/version.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/version.h)
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/version.h.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/version.h)
 
 # This was used to enable catching of exceptions thrown by libexiv2.
 # We use now #pragma GCC visibility push(default) around the headers

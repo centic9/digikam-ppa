@@ -7,10 +7,12 @@
  * @date   2009-12-01
  * @brief  world map widget library
  *
- * @author Copyright (C) 2009-2011 by Michael G. Hansen
+ * @author Copyright (C) 2009-2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
  * @author Copyright (C) 2010-2013 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
+ * @author Copyright (C) 2014 by Justus Schwartz
+ *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -73,6 +75,7 @@
 #include "kgeomap_common.h"
 #include "dragdrophandler.h"
 #include "modelhelper.h"
+#include "tracks.h"
 #include "placeholderwidget.h"
 #include "tilegrouper.h"
 #include "version.h"
@@ -2269,6 +2272,18 @@ void KGeoMapWidget::setMouseMode(const MouseModes mouseMode)
     }
 
     slotUpdateActionsEnabled();
+}
+
+void KGeoMapWidget::setTrackManager(TrackManager* const trackManager)
+{
+    s->trackManager = trackManager;
+    
+    // Some backends track the track manager activity even when not active
+    // therefore they have to be notified.
+    Q_FOREACH(MapBackend* const backend, d->loadedBackends)
+    {
+        backend->slotTrackManagerChanged();
+    }
 }
 
 } /* namespace KGeoMap */

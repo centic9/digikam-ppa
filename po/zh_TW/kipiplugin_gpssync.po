@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"POT-Creation-Date: 2014-06-12 01:33+0000\n"
 "PO-Revision-Date: 2014-04-23 11:22+0800\n"
 "Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
 "Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
@@ -31,23 +31,15 @@ msgid "1 image snapped to '%2'"
 msgid_plural "%1 images snapped to '%2'"
 msgstr[0] "%1 張影像貼齊到 '%2'"
 
-#: gpscorrelatorwidget.cpp:169
+#: gpscorrelatorwidget.cpp:175
 msgid "Load GPX files..."
 msgstr "載入 GPX 檔..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
-msgid "Filename"
-msgstr "檔案名稱"
-
-#: gpscorrelatorwidget.cpp:174
-msgid "#points"
-msgstr "點數"
-
-#: gpscorrelatorwidget.cpp:178
+#: gpscorrelatorwidget.cpp:183
 msgid "Max. time gap (sec.):"
 msgstr "最大時間間隔 (秒)："
 
-#: gpscorrelatorwidget.cpp:180
+#: gpscorrelatorwidget.cpp:185
 msgid ""
 "Sets the maximum difference in seconds from a GPS track point to the image "
 "time to be matched. If the time difference exceeds this setting, no match "
@@ -56,34 +48,34 @@ msgstr ""
 "設定從 GPS 軌跡點到比對影像時間的最大時差 (秒)。如果時間差超過這項設定值，就"
 "不會嘗試任何比對。"
 
-#: gpscorrelatorwidget.cpp:184
+#: gpscorrelatorwidget.cpp:189
 msgid "Camera time zone:"
 msgstr "相機時區："
 
-#: gpscorrelatorwidget.cpp:185
+#: gpscorrelatorwidget.cpp:190
 msgid "Same as system"
 msgstr "與系統相同"
 
-#: gpscorrelatorwidget.cpp:187
+#: gpscorrelatorwidget.cpp:192
 msgid ""
 "Use this option if the timezone of the camera is the same as the timezone of "
 "this system. The conversion to GMT will be done automatically."
 msgstr ""
 "如果相機的時區與系統的時區相同，請使用這個選項。轉換成 GMT 會自動完成。"
 
-#: gpscorrelatorwidget.cpp:190
+#: gpscorrelatorwidget.cpp:195
 msgctxt "manual time zone selection for gps syncing"
 msgid "Manual:"
 msgstr "手動："
 
-#: gpscorrelatorwidget.cpp:192
+#: gpscorrelatorwidget.cpp:197
 msgid ""
 "Use this option if the timezone of the camera is different from this system "
 "and you have to specify the difference to GMT manually."
 msgstr ""
 "如果相機的時區與系統不同而且您必須手動指定 GMT 的時差，請使用這個選項。"
 
-#: gpscorrelatorwidget.cpp:244
+#: gpscorrelatorwidget.cpp:249
 msgid ""
 "<p>Sets the time zone the camera was set to during photo shooting, so that "
 "the time stamps of the images can be converted to GMT to match the GPS time "
@@ -93,11 +85,11 @@ msgstr ""
 "<p>設定照片拍攝期間的相機時區，所以影像的時間戳可轉換成 GMT 來符合 GPS 時間偏"
 "好設定。</p><p>備註：正偏移從經度零向東開始算起 (GMT)，它們是「提早」。</p>"
 
-#: gpscorrelatorwidget.cpp:251
+#: gpscorrelatorwidget.cpp:256
 msgid "Fine offset (mm:ss):"
 msgstr "精細偏移 (mm:ss)："
 
-#: gpscorrelatorwidget.cpp:253
+#: gpscorrelatorwidget.cpp:258
 msgid ""
 "Sets an additional offset in minutes and seconds that is used to correlate "
 "the photos to the GPS track. This can be used for fine tuning to adjust a "
@@ -106,87 +98,95 @@ msgstr ""
 "設定額外的偏移 (分鐘與秒) 用於關聯照片到 GPS 軌跡。這可以用來微調錯誤的相機時"
 "鐘。"
 
-#: gpscorrelatorwidget.cpp:263
+#: gpscorrelatorwidget.cpp:268
 msgid "Set whether the camera offset is negative or positive."
 msgstr "設定相機偏移為負值或正值。"
 
-#: gpscorrelatorwidget.cpp:267
+#: gpscorrelatorwidget.cpp:272
 msgid "Minutes to fine tune camera offset."
 msgstr "以分鐘單位微調相機偏移。"
 
-#: gpscorrelatorwidget.cpp:270
+#: gpscorrelatorwidget.cpp:275
 msgid "Seconds to fine tune camera offset."
 msgstr "以秒數單位微調相機偏移。"
 
-#: gpscorrelatorwidget.cpp:280
+#: gpscorrelatorwidget.cpp:285
 msgid "Interpolate"
 msgstr "插入"
 
-#: gpscorrelatorwidget.cpp:281
+#: gpscorrelatorwidget.cpp:286
 msgid ""
 "Set this option to interpolate GPS track points which are not closely "
 "matched to the GPX data file."
 msgstr "設定這個選項來插入 GPS 軌跡點，這些軌跡點不精確地比對 GPX 資料檔。"
 
-#: gpscorrelatorwidget.cpp:287
+#: gpscorrelatorwidget.cpp:292
+msgid "Show tracks on Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:293
+msgid "Set this option to show tracks on the Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:298
 msgid "Difference in min.:"
 msgstr "時差 (分鐘)："
 
-#: gpscorrelatorwidget.cpp:289
+#: gpscorrelatorwidget.cpp:300
 msgid ""
 "Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
 "file points to image time data."
 msgstr ""
 "設定最大時差其單位為分鐘 (240 最大值) 以插入 GPX 檔軌跡點到影像時間資料。"
 
-#: gpscorrelatorwidget.cpp:292
+#: gpscorrelatorwidget.cpp:303
 msgid "Correlate"
 msgstr "關聯"
 
-#: gpscorrelatorwidget.cpp:349
+#: gpscorrelatorwidget.cpp:362
 #, kde-format
 msgid "%1|GPS Exchange Format"
 msgstr "%1|GPS 交換格式"
 
-#: gpscorrelatorwidget.cpp:350
+#: gpscorrelatorwidget.cpp:363
 msgid "Select GPX File to Load"
 msgstr "選擇要載入的 GPX 檔"
 
-#: gpscorrelatorwidget.cpp:396
+#: gpscorrelatorwidget.cpp:392
 #, kde-format
 msgid "The following GPX file could not be loaded:"
 msgid_plural "The following %1 GPX files could not be loaded:"
 msgstr[0] "以下 %1 個 GPX 檔無法被載入："
 
-#: gpscorrelatorwidget.cpp:402
+#: gpscorrelatorwidget.cpp:398
 msgid "Error loading GPX file"
 msgid_plural "Error loading GPX files"
 msgstr[0] "載入 GPX 檔時發生錯誤"
 
-#: gpscorrelatorwidget.cpp:520
+#: gpscorrelatorwidget.cpp:509
 msgid "Correlating images - %p%"
 msgstr "建立影像關聯中 - %p%"
 
-#: gpscorrelatorwidget.cpp:590
+#: gpscorrelatorwidget.cpp:579
 msgid ""
 "Could not correlate any image - please make sure the timezone and gap "
 "settings are correct."
 msgstr "無法建立任何影像之相互關聯 - 請確定時區與間隔設定正確。"
 
-#: gpscorrelatorwidget.cpp:591
+#: gpscorrelatorwidget.cpp:580
 msgid "Correlation failed"
 msgstr "建立關聯失敗"
 
-#: gpscorrelatorwidget.cpp:596
+#: gpscorrelatorwidget.cpp:585
 msgid ""
 "All images have been correlated. You can now check their position on the map."
 msgstr "所有影像之關聯已建立。您現在可以在地圖上查看它們的位置。"
 
-#: gpscorrelatorwidget.cpp:597
+#: gpscorrelatorwidget.cpp:586
 msgid "Correlation succeeded"
 msgstr "建立關聯成功"
 
-#: gpscorrelatorwidget.cpp:603
+#: gpscorrelatorwidget.cpp:592
 #, kde-format
 msgid ""
 "%1 out of %2 images have been correlated. Please check the timezone and gap "
@@ -195,37 +195,15 @@ msgstr ""
 "%2 張影像中的 %1 張已建立關聯。若是您覺得應該有更多影像需要建立關聯，請先檢查"
 "您的時區與間隔設定。"
 
-#: gpscorrelatorwidget.cpp:604
+#: gpscorrelatorwidget.cpp:593
 msgid "Correlation finished"
 msgstr "建立關聯已完成"
 
-#: gpscorrelatorwidget.cpp:613
+#: gpscorrelatorwidget.cpp:602
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"
 msgstr[0] "已建立 %1 張影像的關聯"
-
-#: gpsdataparser.cpp:677
-#, kde-format
-msgid "Could not open: %1"
-msgstr "無法開啟：%1 "
-
-#: gpsdataparser.cpp:683
-msgid "File is empty."
-msgstr "檔案是空的。"
-
-#: gpsdataparser.cpp:699
-#, kde-format
-msgid "Parsing error: %1"
-msgstr "剖析錯誤：%1"
-
-#: gpsdataparser.cpp:709
-msgid "No GPX element found - probably not a GPX file."
-msgstr "找不到 GPX 元素 - 這可能不是 GPX 檔。"
-
-#: gpsdataparser.cpp:713
-msgid "File is a GPX file, but no datapoints were found."
-msgstr "檔案是 GPX 檔，但是找不到資料點。"
 
 #: gpsimagedetails.cpp:127
 msgid "Coordinates"
@@ -308,7 +286,7 @@ msgid "Bookmarks"
 msgstr "書籤"
 
 #: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
-#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:443
 msgid "GPS Sync"
 msgstr "GPS 同步"
 
@@ -687,120 +665,128 @@ msgstr "丟棄標籤"
 msgid "Continue"
 msgstr "繼續"
 
-#: gpssyncdialog.cpp:275
+#: gpssyncdialog.cpp:281
 msgid "Geolocation"
 msgstr "地理定位"
 
-#: gpssyncdialog.cpp:302
+#: gpssyncdialog.cpp:309
 msgid "Display bookmarked positions on the map."
 msgstr "在地圖上顯示已存入書籤的位置。"
 
-#: gpssyncdialog.cpp:362
+#: gpssyncdialog.cpp:369
 msgid "Sorting"
 msgstr "排序"
 
-#: gpssyncdialog.cpp:369
+#: gpssyncdialog.cpp:376
 msgid "Show oldest first"
 msgstr "最舊的先顯示"
 
-#: gpssyncdialog.cpp:373
+#: gpssyncdialog.cpp:380
 msgid "Show youngest first"
 msgstr "最新的先顯示"
 
-#: gpssyncdialog.cpp:412
+#: gpssyncdialog.cpp:419
 msgid "Details"
 msgstr "詳細資料"
 
-#: gpssyncdialog.cpp:413
+#: gpssyncdialog.cpp:420
 msgid "GPS Correlator"
 msgstr "GPS 相關器"
 
-#: gpssyncdialog.cpp:414
+#: gpssyncdialog.cpp:421
 msgid "Undo/Redo"
 msgstr "復原/重做"
 
-#: gpssyncdialog.cpp:415
+#: gpssyncdialog.cpp:422
 msgid "Reverse Geocoding"
 msgstr "反向地理定位"
 
-#: gpssyncdialog.cpp:416
+#: gpssyncdialog.cpp:423
 msgid "Search"
 msgstr "搜尋"
 
-#: gpssyncdialog.cpp:439
+#: gpssyncdialog.cpp:446
 msgid "A Plugin to synchronize pictures' metadata with a GPS device"
 msgstr "用 GPS 裝置同步圖片的中繼資料"
 
-#: gpssyncdialog.cpp:440
+#: gpssyncdialog.cpp:447
 msgid "(c) 2006-2013, Gilles Caulier"
 msgstr "(c) 2006-2013, Gilles Caulier"
 
-#: gpssyncdialog.cpp:442
+#: gpssyncdialog.cpp:449
 msgid "Michael G. Hansen"
 msgstr "Michael G. Hansen"
 
-#: gpssyncdialog.cpp:443
+#: gpssyncdialog.cpp:450
 msgid "Developer and maintainer"
 msgstr "開發者和維護者"
 
-#: gpssyncdialog.cpp:446
+#: gpssyncdialog.cpp:453
 msgid "Gabriel Voicu"
 msgstr "Gabriel Voicu"
 
-#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+#: gpssyncdialog.cpp:454 gpssyncdialog.cpp:458
 msgid "Developer"
 msgstr "開發者"
 
-#: gpssyncdialog.cpp:450
+#: gpssyncdialog.cpp:457
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: gpssyncdialog.cpp:626
+#: gpssyncdialog.cpp:461
+msgid "Justus Schwartz"
+msgstr ""
+
+#: gpssyncdialog.cpp:462
+msgid "Patch for displaying tracks on the map."
+msgstr ""
+
+#: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
 msgstr "載入中繼資料中 - %p%"
 
-#: gpssyncdialog.cpp:807
+#: gpssyncdialog.cpp:818
 #, kde-format
 msgid "You have 1 modified image."
 msgid_plural "You have %1 modified images."
 msgstr[0] "您有 %1 個已變更的影像。"
 
-#: gpssyncdialog.cpp:813
+#: gpssyncdialog.cpp:824
 #, kde-format
 msgid "%1 Would you like to save the changes you made to them?"
 msgstr "%1 您要儲存您所做的變更嗎？"
 
-#: gpssyncdialog.cpp:814
+#: gpssyncdialog.cpp:825
 msgid "Unsaved changes"
 msgstr "未儲存的變更"
 
-#: gpssyncdialog.cpp:815
+#: gpssyncdialog.cpp:826
 msgid "Save changes"
 msgstr "儲存變更"
 
-#: gpssyncdialog.cpp:816
+#: gpssyncdialog.cpp:827
 msgid "Close and discard changes"
 msgstr "關閉並丟棄所做的變更"
 
-#: gpssyncdialog.cpp:1040
+#: gpssyncdialog.cpp:1051
 #, kde-format
 msgid "1 image moved"
 msgid_plural "%1 images moved"
 msgstr[0] "已移動 %1 張影像"
 
-#: gpssyncdialog.cpp:1074
+#: gpssyncdialog.cpp:1085
 msgid "Saving changes - %p%"
 msgstr "儲存變更中 - %p% "
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Failed to save some information:"
 msgstr "儲存某些資訊時失敗："
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Error"
 msgstr "錯誤"
 
-#: gpssyncdialog.cpp:1147
+#: gpssyncdialog.cpp:1158
 msgid "GPS sync"
 msgstr "GPS 同步"
 
@@ -835,6 +821,10 @@ msgstr "已變更"
 #: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "縮圖"
+
+#: kipiimageitem.cpp:530 track_listmodel.cpp:212
+msgid "Filename"
+msgstr "檔案名稱"
 
 #: kipiimageitem.cpp:531
 msgid "Date and time"
@@ -1015,6 +1005,29 @@ msgstr "兩張地圖 - 垂直"
 #: setup_general.cpp:68
 msgid "Layout:"
 msgstr "佈局："
+
+#: track_listmodel.cpp:210
+msgid "Color"
+msgstr ""
+
+#: track_listmodel.cpp:214
+msgid "#points"
+msgstr "點數"
+
+#~ msgid "Could not open: %1"
+#~ msgstr "無法開啟：%1 "
+
+#~ msgid "File is empty."
+#~ msgstr "檔案是空的。"
+
+#~ msgid "Parsing error: %1"
+#~ msgstr "剖析錯誤：%1"
+
+#~ msgid "No GPX element found - probably not a GPX file."
+#~ msgstr "找不到 GPX 元素 - 這可能不是 GPX 檔。"
+
+#~ msgid "File is a GPX file, but no datapoints were found."
+#~ msgstr "檔案是 GPX 檔，但是找不到資料點。"
 
 #~ msgid "Bookmark location"
 #~ msgstr "定位書籤"

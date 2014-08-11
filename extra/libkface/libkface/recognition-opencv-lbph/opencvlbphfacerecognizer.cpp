@@ -4,8 +4,8 @@
  * This file is a part of digiKam project
  * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
- * @date    2010-03-03
- * @brief   openTLD interface.
+ * @date   2010-03-03
+ * @brief  LBPH Recognizer
  *
  * @author Copyright (C) 2012-2013 by Mahesh Hegde
  *         <a href="mailto:maheshmhegade at gmail dot com">maheshmhegade at gmail dot com</a>
@@ -136,7 +136,7 @@ cv::Mat OpenCVLBPHFaceRecognizer::prepareForRecognition(const QImage& inputImage
             cvtColor(cvImageWrapper, cvImage, CV_RGBA2GRAY);
             break;
         default:
-            image = image.convertToFormat(QImage::Format_RGB888);
+            image          = image.convertToFormat(QImage::Format_RGB888);
             cvImageWrapper = cv::Mat(image.height(), image.width(), CV_8UC3, image.scanLine(0), image.bytesPerLine());
             cvtColor(cvImageWrapper, cvImage, CV_RGB2GRAY);
             break;

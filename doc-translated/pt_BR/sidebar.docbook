@@ -106,9 +106,15 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
            <para
 >Os metadados são os dados sobre as imagens ou os arquivos, como os dados técnicos da configuração da máquina durante a tirada da fotografia, a informação do autor, os direitos de cópia, palavras-chave, títulos e coordenadas do local.</para>
            <para
->A barra de metadados é composta por quatro subpáginas: <guilabel
->EXIF, Notas do Fabricante, IPTC e GPS</guilabel
->. Do lado esquerdo, estão dois botões que lhe permitem mudar entre a visualização completa e simplificada dos dados. Ao lado dela existe um ícone para imprimir e outro para copiar: o primeiro imprime os dados com a janela do &kprinter; e o outro copia os metadados da página para a área de transferência. Na área da janela principal, irá encontrar um botão de navegação com o nome do arquivo no topo das páginas. </para>
+>A barra de metadados é composta por quatro subabas: <guilabel
+>EXIF</guilabel
+>, <guilabel
+>Notas do Fabricante</guilabel
+>, <guilabel
+>IPTC</guilabel
+> e <guilabel
+>XMP</guilabel
+>. Do lado esquerdo, estão dois botões que lhe permitem mudar entre a visualização completa e simplificada dos dados. No meio, você encontrará um ícone em forma de disquete para salvar os metadados no disco. Ao lado dela existe um ícone para imprimir e outro para copiar os metadados da aba para a área de transferência. </para>
            <para
 >Uma funcionalidade realmente boa é o campo de pesquisa na parte inferior das páginas de metadados. À medida que vai escrevendo uma palavra-chave, os metadados no topo serão filtrados sucessivamente até que os reduza ao que está à procura. É uma forma rápida de acessar informações específicas.</para>
 
@@ -169,9 +175,9 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 >O que é o EXIF?</title>
 
                     <para
->O EXIF significa <ulink url="http://www.exif.org"
->EXtended Interchange Format</ulink
->. Foi desenhado especificamente para as máquinas fotográficas digitais. Ele permite guardar uma grande quantidade de informação sobre a fotografia a guardar. Esta informação descreve a câmera que tirou a fotografia, bem como a sua configuração (incluindo a data e hora) usada no momento da foto. Poderá ser incluída uma miniatura incorporada. </para>
+>EXIF significa <ulink url="https://pt.wikipedia.org/wiki/Exif"
+>Exchangeable image file format</ulink
+> (em tradução livre, formato de arquivo de imagem intercambiável). Ele foi projetado especificamente para câmeras digitais e permite armazenar uma grande quantidade de informações sobre a fotografia. Essas informações descrevem a câmera que tirou a fotografia, bem como a sua configuração (incluindo a data e hora) usada no momento da foto. Poderá ser incluída uma miniatura incorporada. </para>
 
                     <para
 >O formato EXIF contém um conjunto de seções de marcação chamadas de <emphasis
@@ -220,24 +226,28 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 >Você poderá rever a informação do EXIF incorporada para a imagem selecionada, na primeira página da barra lateral. O Visualizador de EXIF é meramente informativo: nada do que fizer aqui irá provocar qualquer alteração nas seções do EXIF. Se existirem mais itens do que espaço disponível, basta rolar com a roda do mouse. </para>
 
                     <para
->Você poderá usar dois níveis diferentes para mostrar as seções de marcação do EXIF: <itemizedlist
-> <listitem
+>Poderá usar dois níveis diferentes para mostrar as seções de marcação EXIF: <itemizedlist>
+
+                        <listitem
 ><para
-> <guilabel
+><guilabel
 >Simples</guilabel
->: mostra apenas os marcadores de EXIF mais importantes para a fotografia.</para
-></listitem
-> <listitem
+>: Mostra apenas as marcações EXIF mais importantes para as fotografias. </para
+></listitem>
+
+                        <listitem
 ><para
-> <guilabel
->Completo</guilabel
->: mostrar todos os marcadores de EXIF. </para
-></listitem
-> </itemizedlist
-> Para os dados apresentados, o Visualizador de EXIF oferece uma ajuda de contexto. Selecione um item com o &RMB; para que a ajuda correspondente possa ser apresentada com a opção "O Que é Isto?" da janela. </para>
+><guilabel
+>Completa</guilabel
+>: Mostra todas as marcações EXIF. </para
+></listitem>
+
+                    </itemizedlist>
+
+                    </para>
 
                     <para
->Alguns fabricantes adicionam seções extra do EXIF, como a Canon, a Fujifilm, a Nikon, a Minolta e a Sigma. Estas seções contêm as notas específicas do fabricante e do modelo. Estas serão apresentadas na seção das<guilabel
+>Alguns fabricantes adicionam seções EXIF extras, como a Canon, a Fujifilm, a Nikon, a Minolta e a Sigma. Essas seções contêm as notas específicas do fabricante e do modelo e serão apresentadas na aba <guilabel
 >Notas do Fabricante</guilabel
 >. </para>
 
@@ -254,7 +264,7 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 >O Que São as Notas do Fabricante?</title>
 
                     <para
->A norma EXIF define uma marca de Notas do Fabricante, que permite aos fabricantes das máquinas colocarem quaisquer metadados personalizados no arquivo. Isto vai sendo cada vez mais usado pelos fabricantes das máquinas, por forma a guardar uma grande quantidade de configurações da máquina que não constam da norma EXIF, como os modos de disparo, a configuração do pós-processamento, o número de série, os modos de focagem, &etc; Este formato de marcas é proprietário e específico do fabricante. </para>
+>A norma EXIF define uma marca de Notas do Fabricante, que permite aos fabricantes das máquinas colocarem quaisquer metadados personalizados no arquivo. Isto vai sendo cada vez mais usado pelos fabricantes das máquinas, por forma a guardar uma grande quantidade de configurações da máquina que não constam da norma EXIF, como os modos de disparo, a configuração do pós-processamento, o número de série, os modos de focagem, &etc;, mas esse formato de etiquetas é proprietário e específico do fabricante. </para>
 
                 </sect4>
 
@@ -263,7 +273,7 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 >Como Usar o Visualizador de Notas do Fabricante</title>
 
                     <para
->Você poderá rever as informações incorporadas das Notas do Fabricante para a imagem selecionada, a partir da primeira página da barra lateral. O Visualizador de Notas do Fabricante é meramente informativo: nada do que fizer com ele irá provocar qualquer alteração nas seções de Notas do Fabricante. </para>
+>Você poderá rever as informações incorporadas das Notas do Fabricante para a imagem selecionada, nesta aba da barra lateral. O Visualizador de Notas do Fabricante é meramente informativo: nada do que fizer com ele irá provocar qualquer alteração nas seções de Notas do Fabricante. </para>
 
                     <para
 ><inlinemediaobject
@@ -306,7 +316,7 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 >Como Usar o Visualizador do IPTC</title>
 
                     <para
->Você poderá rever as informações incorporadas do IPTC para a imagem selecionada, a partir da primeira página da barra lateral. O Visualizador do IPTC é meramente informativo: nada do que fizer com ele irá provocar qualquer alteração nas seções do IPTC. </para>
+>Você poderá rever as informações incorporadas do IPTC para a imagem selecionada, nesta aba da barra lateral. O Visualizador do IPTC é meramente informativo: nada do que fizer com ele irá provocar qualquer alteração nas seções do IPTC. </para>
 
                     <para
 ><inlinemediaobject
@@ -379,8 +389,8 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
                     <listitem
 ><para
 ><guilabel
->Intensidade</guilabel
->: mostra a distribuição dos valores de brilho. </para
+>Luminosidade</guilabel
+>: Mostra a distribuição dos valores de brilho. </para
 ></listitem>
 
                     <listitem
@@ -405,30 +415,19 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 ><para
 ><guilabel
 >Cores</guilabel
->: mostra os histogramas do <guilabel
+>: Mostra os histogramas do <guilabel
 >Vermelho</guilabel
 >, <guilabel
 >Verde</guilabel
 > e <guilabel
 >Azul</guilabel
-> sobrepostos, para que possa ver a informação da distribuição de todas as cores numa única vista. Neste modo, a cor principal do histograma poderá ser escolhida com a opção <guilabel
->Cor</guilabel
->. </para
+> sobrepostos, para que possa ver a informação da distribuição de todas as cores em um único modo de exibição. </para
 ></listitem>
                             
                 </itemizedlist>
             
                 </para>
             
-                <para
->Com a opção de <guilabel
->Representação</guilabel
->, você poderá determinar se o histograma será apresentado com os dados da <guilabel
->Imagem Completa</guilabel
-> ou apenas com a <guilabel
->Seleção da Imagem</guilabel
-> atual. Esta opção só poderá ser ativada se tiver selecionado previamente uma região da imagem com o Editor de Imagens. </para>
-
                 <para
 >Com a opção <guilabel
 >Escala</guilabel
@@ -461,37 +460,61 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 > 
             
                 <para
->As estatísticas apresentadas no fundo do Visualizador do Histograma descrevem a distribuição dos valores dos canais, restringidas ao intervalo selecionado. Estas são: <itemizedlist
-> <listitem
+>As estatísticas apresentadas na parte inferior da janela do Visualizador do Histograma descrevem a distribuição dos valores dos canais, restrita ao intervalo selecionado. São elas: <itemizedlist>
+            
+                    <listitem
 ><para
-> A média. </para
-></listitem
-> <listitem
+>O número de pixels da imagem. </para
+></listitem>
+
+                    <listitem
 ><para
-> O desvio padrão. </para
-></listitem
-> <listitem
+>O número de pixels cujos valores encontram-se no intervalo selecionado. </para
+></listitem>
+
+                    <listitem
 ><para
-> A mediana da parte selecionada do histograma. </para
-></listitem
-> <listitem
+>A média. </para
+></listitem>
+
+                    <listitem
 ><para
-> O número de pixels na imagem. </para
-></listitem
-> <listitem
+>O desvio padrão. </para
+></listitem>
+            
+                    <listitem
 ><para
-> O número de valores que caem no intervalo selecionado. </para
-></listitem
-> <listitem
+>A mediana da parte selecionada no histograma. </para
+></listitem>
+
+                    <listitem
 ><para
-> A percentagem dos valores que caem dentro do intervalo selecionado. </para
+>O percentual dos valores encontram-se no intervalo selecionado. </para
 ></listitem
-> </itemizedlist
-> No modo do canal <guilabel
->Cores</guilabel
->, as estatísticas são atualizadas com a cor principal selecionada na opção <guilabel
->Cor</guilabel
->. </para>
+>      
+                                                      
+                    <listitem
+><para
+>A profundidade de cor da imagem. </para
+></listitem>
+
+                    <listitem
+><para
+>O canal alfa da imagem. </para
+></listitem>
+
+                    <listitem
+><para
+>A origem do histograma, que pode ser <guilabel
+>Imagem completa</guilabel
+> ou <guilabel
+>Região da imagem</guilabel
+>, caso tenha selecionado uma área da imagem no Editor. </para
+></listitem>
+
+                </itemizedlist>
+
+                </para>
         
             </sect3>
 
@@ -529,43 +552,43 @@ Clicar sucessivamente na mesma página, fará com que a barra lateral apareça o
 > A distribuição do gráfico, onde estão representados os picos e os baixos-relevos, indica se a imagem é demasiado escura, clara ou bem balanceada. </para>
         
                 <para
->Com uma fotografia subexposta, o histograma terá uma distribuição de brilho que tende a estar mais à esquerda no gráfico.<example
+>Com uma fotografia subexposta, o histograma terá uma distribuição de brilho que tende a estar mais à esquerda no gráfico. <example
 > <title
->Uma Fotografia Subexposta</title
+>Uma fotografia subexposta</title
 > <screenshot
 ><screeninfo
->Uma Fotografia Subexposta</screeninfo
+>Uma fotografia subexposta</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorhistogramsample1.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example
+> Com uma fotografia sobre-exposta, o histograma terá uma distribuição de brilho, principalmente à direita do gráfico. <example
+> <title
+>Uma fotografia sobre-exposta</title
+> <screenshot
+><screeninfo
+>Uma fotografia sobre-exposta</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;editorhistogramsample3.png" format="PNG"/> </imageobject
 ></mediaobject
 ></screenshot
 > </example
-> Com uma fotografia exposta corretamente, o histograma irá ter uma distribuição de brilho que será mais proeminente perto do centro do gráfico. <example
-> <title
->Uma Fotografia Exposta Corretamente</title
-> <screenshot
+> Com uma fotografia exposta corretamente, o histograma terá uma distribuição de brilho mais ao centro do gráfico. <example
+>   <title
+>Uma fotografia exposta corretamente</title>
+                    <screenshot
 ><screeninfo
->Uma Fotografia Exposta Corretamente</screeninfo
+>Uma fotografia exposta corretamente</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;editorhistogramsample2.png" format="PNG"/> </imageobject
 ></mediaobject
-></screenshot
-> </example
-> Com uma fotografia sobre-exposta, o histograma terá o relevo a mostrar o brilho distribuído mais à direita no gráfico. <example
->    <title
->Uma Fotografia Subexposta</title>
-                    <screenshot
-><screeninfo
->Uma Fotografia Subexposta</screeninfo
-><mediaobject
-><imageobject
-><imagedata fileref="&path;editorhistogramsample1.png" format="PNG"/> </imageobject
-></mediaobject
 ></screenshot>
                 </example>
-
+                
                 </para>
 
                 <para

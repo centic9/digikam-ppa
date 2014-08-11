@@ -1,14 +1,13 @@
-digikam (4:4.0.0-0ubuntu1~ubuntu14.04~ppa2) trusty; urgency=medium
+digikam (4:4.2.0-0ubuntu1) utopic; urgency=medium
 
-  * No-change rebuild against libmarblewidget19 
+  * New upstream release
+  * Add build-dep on libkqoauth-dev.  Kipi-plugins cmake requires it.
+  * Fix FTBFS with opencv .4.9: debian/patches/upstream_bug338037.diff
+    See KDE bug 338037.
+  * debian/control: digikam-doc: add khelpcenter from KF5 as alternative
+    to khelpcenter4.
 
- -- Philip Muškovac <yofel@kubuntu.org>  Tue, 12 Aug 2014 21:07:42 +0200
-
-digikam (4:4.0.0-0ubuntu1~ubuntu14.04~ppa1) trusty; urgency=medium
-
-  * Trusty backport 
-
- -- Philip Muškovac <yofel@kubuntu.org>  Mon, 26 May 2014 14:22:36 +0200
+ -- Achim Bohnet <ach@mpe.mpg.de>  Mon, 11 Aug 2014 22:51:58 +0200
 
 digikam (4:4.0.0-0ubuntu1) utopic; urgency=medium
 

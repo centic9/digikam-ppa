@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-05-11 01:40+0000\n"
+"POT-Creation-Date: 2014-06-25 01:42+0000\n"
 "PO-Revision-Date: 2013-10-23 16:54+0400\n"
 "Last-Translator: Julia Dronova <juliette.tux@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -512,13 +512,13 @@ msgstr ""
 msgid "No such tag"
 msgstr "Метка не найдена"
 
-#: digikam/album/albummodificationhelper.cpp:222
+#: digikam/album/albummodificationhelper.cpp:225
 #: digikam/utils/searchmodificationhelper.cpp:143
 #, kde-format
 msgid "Rename Album (%1)"
 msgstr "Переименование альбома (%1)"
 
-#: digikam/album/albummodificationhelper.cpp:223
+#: digikam/album/albummodificationhelper.cpp:226
 #: digikam/utils/searchmodificationhelper.cpp:144
 msgid "Enter new album name:"
 msgstr "Введите новое название альбома:"
@@ -1085,11 +1085,11 @@ msgstr "Копирование атрибутов"
 msgid "Process Items"
 msgstr "Обработка элементов"
 
-#: digikam/fileaction/fileworkeriface.cpp:72
+#: digikam/fileaction/fileworkeriface.cpp:73
 msgid "Failed to revise Exif orientation these files:"
 msgstr "Не удалось исправить данные EXIF ориентации следующих снимков:"
 
-#: digikam/fileaction/fileworkeriface.cpp:265
+#: digikam/fileaction/fileworkeriface.cpp:275
 msgid "Failed to transform these files:"
 msgstr "Не удалось преобразовать следующие файлы:"
 
@@ -1449,7 +1449,7 @@ msgstr "Убрать всё"
 msgid "Select All"
 msgstr "Выделить все"
 
-#: digikam/items/digikamimageview.cpp:334 digikam/views/tableview.cpp:228
+#: digikam/items/digikamimageview.cpp:338 digikam/views/tableview.cpp:228
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "Предварительный просмотр"
@@ -1537,9 +1537,18 @@ msgctxt "Month String - Year String"
 msgid "%1 %2"
 msgstr "%1 %2"
 
+#: digikam/items/imagecoordinatesoverlay.cpp:104
+#: showfoto/thumbbar/showfotocoordinatesoverlay.cpp:105
+#: utilities/importui/items/importoverlays.cpp:106
+#, fuzzy
+#| msgid "New filter based on Aspect-Ratio information;"
+msgctxt "@info:tooltip"
+msgid "This item has geolocation information."
+msgstr "Новый режим фильтрации по соотношению сторон;"
+
 #: digikam/items/imagerotationoverlay.cpp:68
 #: digikam/views/imagepreviewview.cpp:164
-#: utilities/importui/items/importoverlays.cpp:371
+#: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
@@ -1547,7 +1556,7 @@ msgstr "Повернуть влево"
 
 #: digikam/items/imagerotationoverlay.cpp:72
 #: digikam/views/imagepreviewview.cpp:165
-#: utilities/importui/items/importoverlays.cpp:375
+#: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
@@ -1734,6 +1743,7 @@ msgid "Browse Tags..."
 msgstr "Обзор меток..."
 
 #: digikam/main/digikamapp.cpp:819 digikam/views/leftsidebarwidgets.cpp:195
+#: libs/imageproperties/imagedescedittab.cpp:294
 msgid "Open Tag Manager"
 msgstr "Открыть менеджер меток"
 
@@ -1744,9 +1754,10 @@ msgstr "С&оздать метку..."
 
 #: digikam/main/digikamapp.cpp:836 digikam/tags/tagmodificationhelper.cpp:273
 #: digikam/tags/tagmodificationhelper.cpp:378
-#: digikam/tags/tagsmanager/tagsmanager.cpp:378
+#: digikam/tags/tagsmanager/tagsmanager.cpp:399
 #: digikam/utils/editablesearchtreeview.cpp:70
 #: digikam/utils/searchmodificationhelper.cpp:82
+#: utilities/importui/main/importui.cpp:1912
 #: utilities/queuemanager/views/workflowlist.cpp:294
 msgid "Delete"
 msgstr "Удалить"
@@ -1761,7 +1772,7 @@ msgstr "Связать с меткой"
 msgid "Views"
 msgstr "Режимы просмотра"
 
-#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:474
+#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:476
 msgctxt "@action Go to thumbnails (icon) view"
 msgid "Thumbnails"
 msgstr "Миниатюры"
@@ -1771,7 +1782,7 @@ msgctxt "View the selected image"
 msgid "Preview Image"
 msgstr "Предварительный просмотр изображения"
 
-#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:486
+#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:488
 msgctxt "@action Switch to map view"
 msgid "Map"
 msgstr "Карта"
@@ -1880,7 +1891,7 @@ msgstr "Переименовать..."
 msgid "Change the filename of the currently selected item."
 msgstr "Переименовать файл выбранного снимка."
 
-#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:506
+#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:510
 #: utilities/imageeditor/editor/editorwindow.cpp:419
 #: utilities/lighttable/lighttablewindow.cpp:507
 msgctxt "Non-pluralized"
@@ -2021,8 +2032,8 @@ msgid "Select None"
 msgstr "Снять выделение"
 
 #: digikam/main/digikamapp.cpp:1147
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:134
-#: digikam/tags/tagsmanager/tagsmanager.cpp:655
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:149
+#: digikam/tags/tagsmanager/tagsmanager.cpp:679
 #: digikam/utils/contextmenuhelper.cpp:850
 msgid "Invert Selection"
 msgstr "Обратить выделение"
@@ -2256,7 +2267,7 @@ msgstr "Программные модули KIPI"
 msgid "Loading themes..."
 msgstr "Загрузка стилей оформления..."
 
-#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:425
+#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:429
 msgid "&Themes"
 msgstr "С&тили оформления"
 
@@ -2287,7 +2298,7 @@ msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Нормальная ориентация"
 
-#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2492
+#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2497
 msgid "Flipped Horizontally"
 msgstr "Отражённое по горизонтали"
 
@@ -2295,7 +2306,7 @@ msgstr "Отражённое по горизонтали"
 msgid "Rotated Upside Down"
 msgstr "Повёрнутое вверх ногами"
 
-#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2496
+#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2501
 msgid "Flipped Vertically"
 msgstr "Отражённое по вертикали"
 
@@ -2303,7 +2314,7 @@ msgstr "Отражённое по вертикали"
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Повёрнутое вправо / Отражённое по горизонтали"
 
-#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2504
+#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2509
 msgid "Rotated Right"
 msgstr "Повёрнутое вправо"
 
@@ -2311,7 +2322,7 @@ msgstr "Повёрнутое вправо"
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Повёрнутое вправо / Отражённое по вертикали"
 
-#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2500
+#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2505
 msgid "Rotated Left"
 msgstr "Повёрнутое влево"
 
@@ -2621,8 +2632,8 @@ msgid "Reset Tag Icon"
 msgstr "Сбросить значок метки"
 
 #: digikam/tags/tagfolderview.cpp:114
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:140
-#: digikam/tags/tagsmanager/tagsmanager.cpp:661
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:155
+#: digikam/tags/tagsmanager/tagsmanager.cpp:685
 msgid "Expand Selected Nodes"
 msgstr "Расширить выбранные узлы"
 
@@ -2720,18 +2731,17 @@ msgid "Assign Tag \"%1\""
 msgstr "Назначить метку «%1»"
 
 #: digikam/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:111
 #: digikam/utils/contextmenuhelper.cpp:828
 msgid "All Tags"
 msgstr "Все метки"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:270
+#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:266
 #, fuzzy
 #| msgid "Quick Search"
 msgid "Quick Access List"
 msgstr "Быстрый поиск"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:143
+#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:148
 #, fuzzy
 #| msgid "Delete Selected"
 msgid "Delete Selected from List"
@@ -2745,18 +2755,23 @@ msgstr "Добавить в список"
 msgid "Add selected tags to Quick Access List"
 msgstr "Добавить выбранные метки в список быстрого доступа"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:131
-#: digikam/tags/tagsmanager/tagsmanager.cpp:649
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:139
+#: digikam/utils/contextmenuhelper.cpp:429
+msgid "Delete Tags"
+msgstr "Удалить метки"
+
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:146
+#: digikam/tags/tagsmanager/tagsmanager.cpp:673
 msgid "Reset tag Icon"
 msgstr "Сбросить значок метки"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:137
-#: digikam/tags/tagsmanager/tagsmanager.cpp:658
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:152
+#: digikam/tags/tagsmanager/tagsmanager.cpp:682
 msgid "Expand Tag Tree"
 msgstr "Расширить дерево меток"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:143
-#: digikam/tags/tagsmanager/tagsmanager.cpp:663
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:158
+#: digikam/tags/tagsmanager/tagsmanager.cpp:687
 msgid "Remove Tag from Images"
 msgstr "Удалить метку с изображений"
 
@@ -2782,12 +2797,12 @@ msgstr ""
 msgid "Previous tags were changed. Save changes? "
 msgstr "Предыдущие метки были изменены. Сохранить изменения?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:166
+#: digikam/tags/tagsmanager/tagsmanager.cpp:169
 #: libs/widgets/mainview/daboutdata.cpp:177
 msgid "Tags Manager"
 msgstr "Управление метками"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:331
+#: digikam/tags/tagsmanager/tagsmanager.cpp:351
 #, fuzzy, kde-format
 #| msgid ""
 #| "Tags '%1' has one or more subtags. Deleting this will also delete the "
@@ -2812,7 +2827,7 @@ msgstr[3] ""
 "У меток «%1» если одна или более вложенных меток. Удаление этой метки также "
 "удалит вложенную метку. Продолжить?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:355
+#: digikam/tags/tagsmanager/tagsmanager.cpp:376
 #, fuzzy, kde-format
 #| msgid ""
 #| "Tags '%1' are assigned to one or more items. Do you want to continue?"
@@ -2825,7 +2840,7 @@ msgstr[1] "Метка «%1» связана с одним или несколь�
 msgstr[2] "Метка «%1» связана с одним или нескольким элементами. Продолжить?"
 msgstr[3] "Метка «%1» связана с одним или нескольким элементами. Продолжить?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:367
+#: digikam/tags/tagsmanager/tagsmanager.cpp:388
 #, fuzzy, kde-format
 #| msgid "Delete Tag"
 msgctxt "%2 is a comma separated list of tags to be deleted."
@@ -2836,7 +2851,7 @@ msgstr[1] "Удалить метку"
 msgstr[2] "Удалить метку"
 msgstr[3] "Удалить метку"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:377
+#: digikam/tags/tagsmanager/tagsmanager.cpp:398
 #, fuzzy
 #| msgid "Delete Tag"
 msgid "Delete tag"
@@ -2846,8 +2861,8 @@ msgstr[1] "Удалить метку"
 msgstr[2] "Удалить метку"
 msgstr[3] "Удалить метку"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:483
 #: digikam/tags/tagsmanager/tagsmanager.cpp:505
+#: digikam/tags/tagsmanager/tagsmanager.cpp:527
 msgid ""
 "This operation can take long time depending on collection size.\n"
 "Do you want to continue?"
@@ -2856,7 +2871,7 @@ msgstr ""
 "коллекции.\n"
 "Продолжить?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:528
+#: digikam/tags/tagsmanager/tagsmanager.cpp:550
 #, fuzzy
 #| msgid ""
 #| "This operation will wipe all tags from database and will write changes to "
@@ -2871,7 +2886,7 @@ msgstr ""
 "метаданные изображения.\n"
 "Продолжить?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:591
+#: digikam/tags/tagsmanager/tagsmanager.cpp:613
 #, fuzzy
 #| msgid ""
 #| "Do you want to remove the collection \"%1\" from your list of collections?"
@@ -2882,21 +2897,21 @@ msgstr[1] "Удалить коллекцию «%1» из списка колле
 msgstr[2] "Удалить коллекцию «%1» из списка коллекций?"
 msgstr[3] "Удалить коллекцию «%1» из списка коллекций?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:645
+#: digikam/tags/tagsmanager/tagsmanager.cpp:669
 msgid "Organize"
 msgstr "Систематизировать"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:652
+#: digikam/tags/tagsmanager/tagsmanager.cpp:676
 msgid "Create Tag from Address Book"
 msgstr "Создать метку из адресной книги"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:666
+#: digikam/tags/tagsmanager/tagsmanager.cpp:690
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 "Добавить новую метку к текущей. Текущей меткой является та, по которой был "
 "произведён последний щелчок."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:669
+#: digikam/tags/tagsmanager/tagsmanager.cpp:693
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
@@ -2904,58 +2919,58 @@ msgstr ""
 "Удалить выбранные элементы. Работает также с несколькими метками, но "
 "корневая метка удалена не будет."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:673
+#: digikam/tags/tagsmanager/tagsmanager.cpp:697
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr ""
 "Сбросить значок у выбранных меток. Работает и с множественными выделениями"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:676
+#: digikam/tags/tagsmanager/tagsmanager.cpp:700
 msgid "Invert selection. Only visible items will be selected"
 msgstr "Инвертировать выбор. Будут выбраны только видимые элементы."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:679
+#: digikam/tags/tagsmanager/tagsmanager.cpp:703
 msgid "Expand tag tree by one level"
 msgstr "Расширить дерево меток на один уровень"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:681
+#: digikam/tags/tagsmanager/tagsmanager.cpp:705
 msgid "Selected items will be expanded"
 msgstr "Выбранные элементы будут расширены"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:683
+#: digikam/tags/tagsmanager/tagsmanager.cpp:707
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr ""
 "Удалить выбранную метку(и) из изображений. Работает и с несколькими "
 "выбранными элементами."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:713
+#: digikam/tags/tagsmanager/tagsmanager.cpp:737
 msgid "Sync &Export"
 msgstr "Синхронизация &экспорт"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:717
+#: digikam/tags/tagsmanager/tagsmanager.cpp:741
 msgid "Write Tags from Database to Image"
 msgstr "Записать метки из базы данных в изображение"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:721
+#: digikam/tags/tagsmanager/tagsmanager.cpp:745
 msgid "Read Tags from Image"
 msgstr "Считать метки с изображения"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:724
+#: digikam/tags/tagsmanager/tagsmanager.cpp:748
 #, fuzzy
 #| msgid "Wipe all tags from Database and read from images"
 msgid "Wipe all tags from Database only"
 msgstr "Удалить все метки из базы данных и считать их с изображений"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:727
+#: digikam/tags/tagsmanager/tagsmanager.cpp:751
 msgid "Write Tags Metadata to Image."
 msgstr "Записать метаданные меток в изображение"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:729
+#: digikam/tags/tagsmanager/tagsmanager.cpp:753
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 "Передать метки изображений в базу данных. Существующие метки не будут "
 "затронуты."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:732
+#: digikam/tags/tagsmanager/tagsmanager.cpp:756
 #, fuzzy
 #| msgid "Delete all tags from database. Proceed with caution."
 msgid ""
@@ -2963,15 +2978,15 @@ msgid ""
 "caution."
 msgstr "Удалить все метки из базы данных. Продолжайте осторожно."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:753
+#: digikam/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync Database with Nepomuk"
 msgstr "Синхронизировать базу данных с Nepomuk"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:757
+#: digikam/tags/tagsmanager/tagsmanager.cpp:779
 msgid "Sync Nepomuk to Database"
 msgstr "Синхронизировать Nepomuk с базой данных"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:758
+#: digikam/tags/tagsmanager/tagsmanager.cpp:780
 msgid ""
 "Export all tags from Database to Nepomuk. digiKam with Nepomuk support is "
 "required."
@@ -2979,11 +2994,11 @@ msgstr ""
 "Экспортировать все метки из базы данных в Nepomuk. Необходима digiKam с "
 "поддержкой Nepomuk"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:761
+#: digikam/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Import tags from Nepomuk. digiKam with Nepomuk support is required."
 msgstr "Импорт меток из Nepomuk. Необходима digiKam с поддержкой Nepomuk"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:787
+#: digikam/tags/tagsmanager/tagsmanager.cpp:809
 msgid "Tag Properties"
 msgstr "Свойства метки"
 
@@ -3016,35 +3031,35 @@ msgstr "Удалить эту метку"
 msgid "Go to this Tag"
 msgstr "Перейти к этой метки"
 
-#: digikam/utils/albumsettings.cpp:456
+#: digikam/utils/albumsettings.cpp:463
 msgid "Category"
 msgstr "Рубрика"
 
-#: digikam/utils/albumsettings.cpp:457
+#: digikam/utils/albumsettings.cpp:464
 msgid "Travel"
 msgstr "Путешествие"
 
-#: digikam/utils/albumsettings.cpp:458
+#: digikam/utils/albumsettings.cpp:465
 msgid "Holidays"
 msgstr "Праздники"
 
-#: digikam/utils/albumsettings.cpp:459
+#: digikam/utils/albumsettings.cpp:466
 msgid "Friends"
 msgstr "Друзья"
 
-#: digikam/utils/albumsettings.cpp:460
+#: digikam/utils/albumsettings.cpp:467
 msgid "Nature"
 msgstr "Природа"
 
-#: digikam/utils/albumsettings.cpp:461
+#: digikam/utils/albumsettings.cpp:468
 msgid "Party"
 msgstr "Развлечения"
 
-#: digikam/utils/albumsettings.cpp:462
+#: digikam/utils/albumsettings.cpp:469
 msgid "Todo"
 msgstr "На обработку и сортировку"
 
-#: digikam/utils/albumsettings.cpp:463 showfoto/setup/setup.cpp:154
+#: digikam/utils/albumsettings.cpp:470 showfoto/setup/setup.cpp:154
 #: utilities/setup/setup.cpp:334
 msgid "Miscellaneous"
 msgstr "Прочее"
@@ -3085,10 +3100,6 @@ msgstr "Открыть в..."
 #: digikam/utils/contextmenuhelper.cpp:411
 msgid "New Tag..."
 msgstr "Создать метку..."
-
-#: digikam/utils/contextmenuhelper.cpp:429
-msgid "Delete Tags"
-msgstr "Удалить метки"
 
 #: digikam/utils/contextmenuhelper.cpp:438
 msgctxt "Edit Tag Properties"
@@ -3881,7 +3892,7 @@ msgstr "Цветовой ярлык"
 #: libs/template/templatelist.cpp:83
 #: utilities/queuemanager/views/workflowlist.cpp:97
 #: utilities/searchwindow/searchfields.cpp:536
-#: utilities/setup/setupcamera.cpp:283
+#: utilities/setup/setupcamera.cpp:285
 msgid "Title"
 msgstr "Заголовок"
 
@@ -3982,7 +3993,7 @@ msgstr "Имя файла"
 
 #: digikam/views/tableview_column_file.cpp:67
 #: digikam/views/tableview_column_file.cpp:97
-#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:286
+#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:288
 #: utilities/setup/setupcollectionview.cpp:936
 msgid "Path"
 msgstr "Путь"
@@ -4077,7 +4088,7 @@ msgstr "Цветовая модель"
 
 #: digikam/views/tableview_column_item.cpp:104
 #: digikam/views/tableview_column_item.cpp:139
-#: libs/widgets/common/databasewidget.cpp:102
+#: libs/widgets/common/databasewidget.cpp:103
 msgid "Type"
 msgstr "Тип"
 
@@ -4203,8 +4214,8 @@ msgstr "Микросекунд"
 msgid "Unit"
 msgstr "Единица"
 
-#: digikam/views/tableview_column_thumbnail.cpp:88
-#: digikam/views/tableview_column_thumbnail.cpp:98
+#: digikam/views/tableview_column_thumbnail.cpp:85
+#: digikam/views/tableview_column_thumbnail.cpp:95
 #: utilities/queuemanager/views/queuelist.cpp:308
 msgid "Thumbnail"
 msgstr "Миниатюра"
@@ -5600,7 +5611,7 @@ msgstr "Нерезкая маска"
 
 #: imageplugins/enhance/sharpentool.cpp:292
 #: libs/dimg/filters/sharp/refocusfilter.h:58
-#: libs/dimg/filters/sharp/sharpsettings.cpp:147
+#: libs/dimg/filters/sharp/sharpsettings.cpp:148
 msgid "Refocus"
 msgstr "Рефокусировка"
 
@@ -6398,7 +6409,7 @@ msgstr "Автоматическая коррекция положения"
 
 #: imageplugins/transform/freerotationtool.cpp:223
 #: libs/widgets/metadata/metadatawidget.cpp:146
-#: utilities/importui/main/importui.cpp:291
+#: utilities/importui/main/importui.cpp:293
 msgid "Settings"
 msgstr "Настройки"
 
@@ -6842,33 +6853,33 @@ msgstr ""
 "изображения до очень большого размера. Этот процесс может занять много "
 "времени."
 
-#: imageplugins/transform/resizetool.cpp:556
+#: imageplugins/transform/resizetool.cpp:552
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:353
 #: utilities/queuemanager/basetools/transform/resize.cpp:126
 msgid "Resize"
 msgstr "Изменить размер"
 
-#: imageplugins/transform/resizetool.cpp:587
+#: imageplugins/transform/resizetool.cpp:583
 msgid "Photograph Resizing Settings File to Load"
 msgstr "Загрузить файл с настройками изменения размера фотографии"
 
-#: imageplugins/transform/resizetool.cpp:601
+#: imageplugins/transform/resizetool.cpp:597
 #, kde-format
 msgid "\"%1\" is not a Photograph Resizing settings text file."
 msgstr ""
 "«%1» не является текстовым файлом настроек изменения размера фотографии."
 
-#: imageplugins/transform/resizetool.cpp:610
+#: imageplugins/transform/resizetool.cpp:606
 msgid "Cannot load settings from the Photograph Resizing text file."
 msgstr ""
 "Невозможно загрузить настройки из текстового файла настроек увеличения "
 "фотографии."
 
-#: imageplugins/transform/resizetool.cpp:620
+#: imageplugins/transform/resizetool.cpp:616
 msgid "Photograph Resizing Settings File to Save"
 msgstr "Сохранить настройки изменения размера фотографии в файл"
 
-#: imageplugins/transform/resizetool.cpp:635
+#: imageplugins/transform/resizetool.cpp:631
 msgid "Cannot save settings to the Photograph Resizing text file."
 msgstr ""
 "Невозможно сохранить настройки в текстовый файл настроек изменения размера "
@@ -7878,7 +7889,7 @@ msgstr "Компонент"
 msgid "Info"
 msgstr "Сведения"
 
-#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2506
+#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2511
 #: libs/imageproperties/imagepropertiessidebar.cpp:245
 #: libs/imageproperties/imagepropertiessidebardb.cpp:538
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:367
@@ -7970,47 +7981,47 @@ msgstr[3] ""
 "<p>Используется библиотека KDcraw версии %2<br/>Используется LibRaw версии "
 "%3<br/>1 модель в списке (найдено: %4)</p>"
 
-#: libs/dimg/dimg.cpp:3178
+#: libs/dimg/dimg.cpp:3177
 msgctxt "Color Model: RGB"
 msgid "RGB"
 msgstr "RGB"
 
-#: libs/dimg/dimg.cpp:3181
+#: libs/dimg/dimg.cpp:3180
 msgctxt "Color Model: Grayscale"
 msgid "Grayscale"
 msgstr "Оттенки серого"
 
-#: libs/dimg/dimg.cpp:3184
+#: libs/dimg/dimg.cpp:3183
 msgctxt "Color Model: Monochrome"
 msgid "Monochrome"
 msgstr "Монохромный режим"
 
-#: libs/dimg/dimg.cpp:3187
+#: libs/dimg/dimg.cpp:3186
 msgctxt "Color Model: Indexed"
 msgid "Indexed"
 msgstr "Индексированный цвет"
 
-#: libs/dimg/dimg.cpp:3190
+#: libs/dimg/dimg.cpp:3189
 msgctxt "Color Model: YCbCr"
 msgid "YCbCr"
 msgstr "YCbCr"
 
-#: libs/dimg/dimg.cpp:3193
+#: libs/dimg/dimg.cpp:3192
 msgctxt "Color Model: CMYK"
 msgid "CMYK"
 msgstr "CMYK"
 
-#: libs/dimg/dimg.cpp:3196
+#: libs/dimg/dimg.cpp:3195
 msgctxt "Color Model: CIE L*a*b*"
 msgid "CIE L*a*b*"
 msgstr "CIE L*a*b*"
 
-#: libs/dimg/dimg.cpp:3199
+#: libs/dimg/dimg.cpp:3198
 msgctxt "Color Model: Uncalibrated (RAW)"
 msgid "Uncalibrated (RAW)"
 msgstr "Без калибровки (RAW)"
 
-#: libs/dimg/dimg.cpp:3203
+#: libs/dimg/dimg.cpp:3202
 msgctxt "Color Model: Unknown"
 msgid "Unknown"
 msgstr "Неизв."
@@ -9523,7 +9534,7 @@ msgstr ""
 "Предварительный просмотр результата применения маски антивиньетирования."
 
 #: libs/dimg/filters/lens/antivignettingsettings.cpp:127
-#: libs/dimg/filters/sharp/sharpsettings.cpp:195
+#: libs/dimg/filters/sharp/sharpsettings.cpp:198
 msgid "Amount:"
 msgstr "Величина:"
 
@@ -10007,7 +10018,7 @@ msgstr ""
 #: libs/dimg/filters/nr/nrsettings.cpp:138
 #: libs/dimg/filters/nr/nrsettings.cpp:165
 #: libs/dimg/filters/nr/nrsettings.cpp:192
-#: libs/dimg/filters/sharp/sharpsettings.cpp:203
+#: libs/dimg/filters/sharp/sharpsettings.cpp:206
 #: utilities/fuzzysearch/fuzzysearchview.cpp:295
 msgid "Threshold:"
 msgstr "Порог:"
@@ -10067,15 +10078,15 @@ msgstr "Простое"
 msgid "Unsharp mask"
 msgstr "Нерезкое маскирование"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:149
+#: libs/dimg/filters/sharp/sharpsettings.cpp:151
 msgid "Select the sharpening method to apply to the image."
 msgstr "Выбор метода повышения резкости изображения."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:166
+#: libs/dimg/filters/sharp/sharpsettings.cpp:168
 msgid "Sharpness:"
 msgstr "Резкость:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:171
+#: libs/dimg/filters/sharp/sharpsettings.cpp:173
 msgid ""
 "A sharpness of 0 has no effect, 1 and above determine the sharpen matrix "
 "radius that determines how much to sharpen the image."
@@ -10083,11 +10094,11 @@ msgstr ""
 "Резкость 0 не оказывает никакого эффекта, 1 и более указывают размерность "
 "матрицы, которая определяет степень увеличения резкости изображения."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:188
+#: libs/dimg/filters/sharp/sharpsettings.cpp:190
 msgid "Radius:"
 msgstr "Радиус:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:192
+#: libs/dimg/filters/sharp/sharpsettings.cpp:195
 msgid ""
 "Radius value is the Gaussian blur matrix radius value used to determines how "
 "much to blur the image."
@@ -10095,7 +10106,7 @@ msgstr ""
 "Радиус — величина радиуса матрицы гауссового размывания, которая определяет "
 "степень размывания изображения."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:200
+#: libs/dimg/filters/sharp/sharpsettings.cpp:203
 msgid ""
 "The value of the difference between the original and the blur image that is "
 "added back into the original."
@@ -10103,7 +10114,7 @@ msgstr ""
 "Величина разницы между исходным и размытым изображениями, которая затем "
 "снова добавляется к оригиналу."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:208
+#: libs/dimg/filters/sharp/sharpsettings.cpp:211
 msgid ""
 "The threshold, as a fraction of the maximum luminosity value, needed to "
 "apply the difference amount."
@@ -10111,11 +10122,11 @@ msgstr ""
 "Порог — доля от максимальной величины яркости, необходимая для применения "
 "величины разницы."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:230
+#: libs/dimg/filters/sharp/sharpsettings.cpp:233
 msgid "Circular sharpness:"
 msgstr "Круговая резкость:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:235
+#: libs/dimg/filters/sharp/sharpsettings.cpp:238
 msgid ""
 "This is the radius of the circular convolution. It is the most important "
 "parameter for using this plugin. For most images the default value of 1.0 "
@@ -10126,11 +10137,11 @@ msgstr ""
 "изображений значение 1,0 должно привести к хорошим результатам. Если "
 "изображение сильно смазано, следует выбрать большие величины."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:239
+#: libs/dimg/filters/sharp/sharpsettings.cpp:242
 msgid "Correlation:"
 msgstr "Корреляция:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:244
+#: libs/dimg/filters/sharp/sharpsettings.cpp:247
 msgid ""
 "Increasing the correlation may help to reduce artifacts. The correlation can "
 "range from 0-1. Useful values are 0.5 and values close to 1, e.g. 0.95 and "
@@ -10141,11 +10152,11 @@ msgstr ""
 "лежат в пределе от 0 до 1. Наиболее полезные значения: 0.5 и близкие к 1 "
 "(например 0.95 и 0.99). Большие значения уменьшают степень усиления резкости."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:249
+#: libs/dimg/filters/sharp/sharpsettings.cpp:252
 msgid "Noise filter:"
 msgstr "Подавление шумов:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:254
+#: libs/dimg/filters/sharp/sharpsettings.cpp:257
 msgid ""
 "Increasing the noise filter parameter may help to reduce artifacts. The "
 "noise filter can range from 0-1 but values higher than 0.1 are rarely "
@@ -10158,11 +10169,11 @@ msgstr ""
 "улучшают качества, так же как и 0. Наилучшее качество обычно достигается при "
 "значении 0,01. Большие значения уменьшают степень усиления резкости."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:260
+#: libs/dimg/filters/sharp/sharpsettings.cpp:263
 msgid "Gaussian sharpness:"
 msgstr "Гауссово повышение резкости:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:265
+#: libs/dimg/filters/sharp/sharpsettings.cpp:268
 msgid ""
 "This is the sharpness for the Gaussian convolution. Use this parameter when "
 "your blurring is of a Gaussian type. In most cases you should set this "
@@ -10175,11 +10186,11 @@ msgstr ""
 "возможно появление артефактов. Если указано отличное от нуля значение, то "
 "рекомендуется также увеличить параметр корреляции и/или подавления шумов."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:270
+#: libs/dimg/filters/sharp/sharpsettings.cpp:273
 msgid "Matrix size:"
 msgstr "Размер матрицы:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:275
+#: libs/dimg/filters/sharp/sharpsettings.cpp:278
 msgid ""
 "This parameter determines the size of the transformation matrix. Increasing "
 "the matrix width may give better results, especially when you have chosen "
@@ -10189,24 +10200,24 @@ msgstr ""
 "лучшие результаты, особенно если установлены большие значения для круговой "
 "или гауссовой резкости."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:487
+#: libs/dimg/filters/sharp/sharpsettings.cpp:490
 msgid "Photograph Refocus Settings File to Load"
 msgstr "Сохранить файл с настройками рефокусировки."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:503
+#: libs/dimg/filters/sharp/sharpsettings.cpp:506
 #, kde-format
 msgid "\"%1\" is not a Photograph Refocus settings text file."
 msgstr "«%1» не является текстовым файлом настроек рефокусировки."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:521
+#: libs/dimg/filters/sharp/sharpsettings.cpp:524
 msgid "Cannot load settings from the Photograph Refocus text file."
 msgstr "Невозможно загрузить текстовый файл с настройками рефокусировки."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:531
+#: libs/dimg/filters/sharp/sharpsettings.cpp:534
 msgid "Photograph Refocus Settings File to Save"
 msgstr "Сохраняемый файл с настройками рефокусировки"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:554
+#: libs/dimg/filters/sharp/sharpsettings.cpp:557
 msgid "Cannot save settings to the Photograph Refocus text file."
 msgstr ""
 "Невозможно сохранить настройки в текстовый файл параметров рефокусировки."
@@ -10680,64 +10691,64 @@ msgstr ""
 "конечный размер изображения TIFF.</p><p>Для сохранения файлов используется "
 "формат сжатия без потерь (Deflate).</p>"
 
-#: libs/dmetadata/dmetadata.cpp:2488
+#: libs/dmetadata/dmetadata.cpp:2493
 msgid "Unspecified"
 msgstr "Не определено"
 
-#: libs/dmetadata/dmetadata.cpp:2490
+#: libs/dmetadata/dmetadata.cpp:2495
 msgctxt "Rotation of an unrotated image"
 msgid "Normal"
 msgstr "Нормальная ориентация"
 
-#: libs/dmetadata/dmetadata.cpp:2494
+#: libs/dmetadata/dmetadata.cpp:2499
 msgid "Rotated by 180 Degrees"
 msgstr "Повёрнутое на 180 градусов"
 
-#: libs/dmetadata/dmetadata.cpp:2498
+#: libs/dmetadata/dmetadata.cpp:2503
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "Отражённое по горизонтали и повёрнутое влево"
 
-#: libs/dmetadata/dmetadata.cpp:2502
+#: libs/dmetadata/dmetadata.cpp:2507
 msgid "Flipped Vertically and Rotated Left"
 msgstr "Отражённое по вертикали и повёрнутое влево"
 
-#: libs/dmetadata/dmetadata.cpp:2542
+#: libs/dmetadata/dmetadata.cpp:2547
 #, kde-format
 msgctxt "Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "West"
 msgstr "Запад"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "East"
 msgstr "Восток"
 
-#: libs/dmetadata/dmetadata.cpp:2595 libs/dmetadata/dmetadata.cpp:2608
+#: libs/dmetadata/dmetadata.cpp:2600 libs/dmetadata/dmetadata.cpp:2613
 msgctxt "For use in latitude coordinate"
 msgid "North"
 msgstr "Север"
 
-#: libs/dmetadata/dmetadata.cpp:2595
+#: libs/dmetadata/dmetadata.cpp:2600
 msgctxt "For use in latitude coordinate"
 msgid "South"
 msgstr "Юг"
 
-#: libs/dmetadata/dmetadata.cpp:2617
+#: libs/dmetadata/dmetadata.cpp:2622
 #, no-c-format
 msgctxt "Height in meters"
 msgid "%L1m"
 msgstr "%L1m"
 
-#: libs/dmetadata/dmetadata.cpp:2759
+#: libs/dmetadata/dmetadata.cpp:2764
 msgid "Flash has been fired"
 msgstr "Снято со вспышкой"
 
-#: libs/dmetadata/dmetadata.cpp:2760
+#: libs/dmetadata/dmetadata.cpp:2765
 msgid "Flash with red-eye reduction mode"
 msgstr "Снято со вспышкой в режиме подавления «красных глаз»"
 
@@ -10972,10 +10983,6 @@ msgstr "Дополнительно"
 msgid "Description"
 msgstr "Описание"
 
-#: libs/imageproperties/imagedescedittab.cpp:294
-msgid "Open Tag Manger"
-msgstr "Открыть менеджер меток"
-
 #: libs/imageproperties/imagedescedittab.cpp:302
 msgid "Enter new tag here..."
 msgstr "Введите новое название метки:"
@@ -10992,6 +10999,7 @@ msgstr "Недавние метки"
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:135
 #: utilities/advancedrename/common/tooltipdialog.cpp:57
 #: utilities/importui/dialogs/cameramessagebox.cpp:216
+#: utilities/importui/main/importui.cpp:1891
 msgid "Information"
 msgstr "Сведения"
 
@@ -11897,19 +11905,19 @@ msgstr "Применение:"
 msgid "Sublocation:"
 msgstr "Точное местоположение:"
 
-#: libs/threadimageio/thumbnailcreator.cpp:217
+#: libs/threadimageio/thumbnailcreator.cpp:218
 msgid "No or invalid size specified"
 msgstr "Указан неправильный размер"
 
-#: libs/threadimageio/thumbnailcreator.cpp:285
+#: libs/threadimageio/thumbnailcreator.cpp:286
 msgid "Thumbnail is null"
 msgstr "Миниатюра пустая"
 
-#: libs/threadimageio/thumbnailcreator.cpp:435
+#: libs/threadimageio/thumbnailcreator.cpp:436
 msgid "File does not exist"
 msgstr "Файл не существует"
 
-#: libs/threadimageio/thumbnailcreator.cpp:540
+#: libs/threadimageio/thumbnailcreator.cpp:541
 #, kde-format
 msgid "Cannot create thumbnail for %1"
 msgstr "Не удалось создать миниатюру для %1"
@@ -11928,11 +11936,11 @@ msgstr "Не удалось инициализировать базу данны
 msgid "Color Label: %1"
 msgstr "Цветовой ярлык: %1 "
 
-#: libs/widgets/common/databasewidget.cpp:90
+#: libs/widgets/common/databasewidget.cpp:91
 msgid "Database File Path"
 msgstr "Путь к базе данных"
 
-#: libs/widgets/common/databasewidget.cpp:92
+#: libs/widgets/common/databasewidget.cpp:93
 msgid ""
 "<p>The location where the database file will be stored on your system. There "
 "is one common database file for all root albums.<br/>Write access is "
@@ -11945,52 +11953,52 @@ msgstr ""
 "изображений.</p><p>Примечание: здесь нельзя использовать распределённые "
 "файловые системы, такие как NFS.</p><p></p>"
 
-#: libs/widgets/common/databasewidget.cpp:104
+#: libs/widgets/common/databasewidget.cpp:105
 msgid "Internal Server"
 msgstr "Локальный сервер:"
 
-#: libs/widgets/common/databasewidget.cpp:106
+#: libs/widgets/common/databasewidget.cpp:107
 msgid "Schema Name"
 msgstr "Имя схемы:"
 
-#: libs/widgets/common/databasewidget.cpp:108
+#: libs/widgets/common/databasewidget.cpp:109
 msgid "Thumbnails<br>Schema Name"
 msgstr "Имя схемы<br>миниатюр:"
 
-#: libs/widgets/common/databasewidget.cpp:110
+#: libs/widgets/common/databasewidget.cpp:111
 msgid "Host Name"
 msgstr "Имя хоста:"
 
-#: libs/widgets/common/databasewidget.cpp:112
-#: utilities/setup/setupcamera.cpp:285
+#: libs/widgets/common/databasewidget.cpp:113
+#: utilities/setup/setupcamera.cpp:287
 msgid "Port"
 msgstr "Порт:"
 
-#: libs/widgets/common/databasewidget.cpp:116
+#: libs/widgets/common/databasewidget.cpp:117
 msgid "Database<br>Connection<br>Options"
 msgstr "Параметры<br>подключения<br>к базе данных"
 
-#: libs/widgets/common/databasewidget.cpp:119
+#: libs/widgets/common/databasewidget.cpp:120
 msgid "User"
 msgstr "Пользователь:"
 
-#: libs/widgets/common/databasewidget.cpp:122
+#: libs/widgets/common/databasewidget.cpp:123
 msgid "Password"
 msgstr "Пароль:"
 
-#: libs/widgets/common/databasewidget.cpp:126
+#: libs/widgets/common/databasewidget.cpp:127
 msgid "Check DB Connection"
 msgstr "Проверить соединение"
 
-#: libs/widgets/common/databasewidget.cpp:164
+#: libs/widgets/common/databasewidget.cpp:165
 msgid "SQLite"
 msgstr "SQLite"
 
-#: libs/widgets/common/databasewidget.cpp:165
+#: libs/widgets/common/databasewidget.cpp:166
 msgid "MySQL (experimental)"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:166
+#: libs/widgets/common/databasewidget.cpp:167
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small and medium collection sizes (less "
@@ -12000,7 +12008,7 @@ msgid ""
 "Be careful: this one it is still in experimental stage.</p>"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:218
+#: libs/widgets/common/databasewidget.cpp:219
 msgid ""
 "You do not seem to have write access to this database folder.\n"
 "Without this access, the caption and tag features will not work."
@@ -12009,16 +12017,16 @@ msgstr ""
 "Без такого доступа функции, связанные с заголовками и метками, работать не "
 "будут."
 
-#: libs/widgets/common/databasewidget.cpp:297
+#: libs/widgets/common/databasewidget.cpp:305
 msgid "Database connection test successful."
 msgstr "Проверка подключения к базе данных успешно завершена."
 
-#: libs/widgets/common/databasewidget.cpp:297
-#: libs/widgets/common/databasewidget.cpp:302
+#: libs/widgets/common/databasewidget.cpp:305
+#: libs/widgets/common/databasewidget.cpp:310
 msgid "Database connection test"
 msgstr "Проверка подключения к базе данных"
 
-#: libs/widgets/common/databasewidget.cpp:301
+#: libs/widgets/common/databasewidget.cpp:309
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr ""
@@ -12199,7 +12207,7 @@ msgid "Raw information about the ICC profile manufacturer"
 msgstr "Исходная информация о производителе ICC-профиля"
 
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:139
-#: utilities/setup/setupcamera.cpp:284
+#: utilities/setup/setupcamera.cpp:286
 msgid "Model"
 msgstr "Модель"
 
@@ -12432,8 +12440,8 @@ msgid "modified: %1"
 msgstr "изменено: %1"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:369
-#: showfoto/main/showfoto.cpp:614
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:308
+#: showfoto/main/showfoto.cpp:625
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:320
 #: utilities/importui/items/itemviewimportdelegate.cpp:364
 #, kde-format
 msgctxt "%1 width, %2 height, %3 mpixels"
@@ -12441,14 +12449,14 @@ msgid "%1x%2 (%3Mpx)"
 msgstr "%1x%2 (%3Mpx)"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:373
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:421
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:313
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:423
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:325
 #: utilities/importui/items/itemviewimportdelegate.cpp:368
 msgctxt "unknown image resolution"
 msgid "Unknown"
 msgstr "Неизв."
 
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:416
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:418
 #, kde-format
 msgctxt "%1 width : %2 height (%3 Aspect Ratio)"
 msgid "%1:%2 (%3)"
@@ -13054,6 +13062,16 @@ msgstr "Управление правами"
 msgid "Paged-Text"
 msgstr "Текст, разбитый на страницы"
 
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:160
+msgid "Metadata Working Group Regions"
+msgstr ""
+
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:164
+#, fuzzy
+#| msgid "Dublin Core"
+msgid "Darwin Core"
+msgstr "Дублинское ядро"
+
 #: libs/widgets/metadata/metadatalistview.cpp:140
 #, kde-format
 msgid ""
@@ -13173,7 +13191,7 @@ msgstr "showFoto"
 msgid "File(s) or folder(s) to open"
 msgstr "Открыть файл(ы) или каталог(и)"
 
-#: showfoto/main/showfoto.cpp:290
+#: showfoto/main/showfoto.cpp:292
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
 "now, select \"Yes\", otherwise select \"No\". In this case, \"Color "
@@ -13184,37 +13202,37 @@ msgstr ""
 "«Нет» (это приведёт к тому, что управление цветом будет отключено до тех "
 "пор, пока эта проблема не будет решена</p>"
 
-#: showfoto/main/showfoto.cpp:433
+#: showfoto/main/showfoto.cpp:437
 msgid "Open folder"
 msgstr "Открыть каталог"
 
-#: showfoto/main/showfoto.cpp:511
+#: showfoto/main/showfoto.cpp:515
 msgid "Delete File"
 msgstr "Удалить файл"
 
-#: showfoto/main/showfoto.cpp:613
+#: showfoto/main/showfoto.cpp:624
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: showfoto/main/showfoto.cpp:694
+#: showfoto/main/showfoto.cpp:705
 #: utilities/imageeditor/main/imagewindow.cpp:887
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
 msgid "%1 (%2 of %3)"
 msgstr "%1 (%2 из %3)"
 
-#: showfoto/main/showfoto.cpp:732
+#: showfoto/main/showfoto.cpp:743
 msgid "Open Images From Folder"
 msgstr "Открыть изображения из каталога"
 
-#: showfoto/main/showfoto.cpp:878
+#: showfoto/main/showfoto.cpp:889
 #: utilities/imageeditor/main/imagewindow.cpp:967
 #: utilities/imageeditor/main/imagewindow.cpp:1065
 msgid "Image saved successfully"
 msgstr "Изображение успешно сохранено"
 
-#: showfoto/main/showfoto.cpp:959
+#: showfoto/main/showfoto.cpp:970
 #, kde-format
 msgid ""
 "About to delete file \"%1\"\n"
@@ -13223,13 +13241,14 @@ msgstr ""
 "Удаление файла «%1»\n"
 "Действительно удалить?"
 
-#: showfoto/main/showfoto.cpp:964
+#: showfoto/main/showfoto.cpp:975
 #: utilities/imageeditor/editor/editorwindow.cpp:1218
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
+#: utilities/importui/main/importui.cpp:1911
 msgid "Warning"
 msgstr "Внимание"
 
-#: showfoto/main/showfoto.cpp:1037
+#: showfoto/main/showfoto.cpp:1048
 #: utilities/imageeditor/main/imagewindow.cpp:1356
 #: utilities/lighttable/lighttablewindow.cpp:1399
 msgid "Preparing slideshow. Please wait..."
@@ -13373,72 +13392,92 @@ msgstr ""
 "a> — новый стандарт, используемый в цифровой фотографии и призванный "
 "заменить IPTC.</p>"
 
-#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:101
+#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:103
 #: utilities/queuemanager/views/queuesettingsview.cpp:237
-#: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:511
+#: utilities/setup/setupcamera.cpp:354 utilities/setup/setupicc.cpp:511
 msgid "Behavior"
 msgstr "Поведение"
 
-#: showfoto/setup/setupmisc.cpp:104
+#: showfoto/setup/setupmisc.cpp:106
 msgid "&Deleted items should go to the trash"
 msgstr "Перемещать файлы в корзину при их &удалении"
 
-#: showfoto/setup/setupmisc.cpp:105 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/setupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
 msgid "&Show splash screen at startup"
 msgstr "&Показывать заставку при запуске"
 
-#: showfoto/setup/setupmisc.cpp:106
-msgid "&Show Mime Type Over Image"
-msgstr ""
+#: showfoto/setup/setupmisc.cpp:108
+#, fuzzy
+#| msgid "Show image Format"
+msgid "&Show image Format"
+msgstr "Показывать формат снимка"
 
-#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupcamera.cpp:443
+msgid "Set this option to show image format over image thumbnail."
+msgstr "Показывать формат файла изображения будет показан под его миниатюрой."
+
+#: showfoto/setup/setupmisc.cpp:110
+#, fuzzy
+#| msgid "Geolocation Filter"
+msgid "&Show Geolocation Indicator"
+msgstr "Фильтр по местоположению"
+
+#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupcamera.cpp:446
+#, fuzzy
+#| msgid "Set this option to display the image aspect ratio."
+msgid "Set this option to indicate if image has geolocation information."
+msgstr "Включите для показа соотношения сторон изображений"
+
+#: showfoto/setup/setupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
 msgid "Sidebar tab title:"
 msgstr "Заголовок вкладки в боковых панелях:"
 
-#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
 msgid "Only For Active Tab"
 msgstr "Только для активной вкладки"
 
-#: showfoto/setup/setupmisc.cpp:112 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/setupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
 msgid "For All Tabs"
 msgstr "Для всех вкладок"
 
-#: showfoto/setup/setupmisc.cpp:113
+#: showfoto/setup/setupmisc.cpp:118
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr "Настройка отображения заголовков вкладок в боковых панелях."
 
-#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/setupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
 msgid "Widget style:"
 msgstr "Стиль виджета:"
 
-#: showfoto/setup/setupmisc.cpp:118 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/setupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
 msgid "Set this option to choose the default window decoration and looks."
 msgstr "Выбрать внешний вид и оформление окна по умолчанию."
 
-#: showfoto/setup/setupmisc.cpp:133
+#: showfoto/setup/setupmisc.cpp:140
 msgid "Sort order for images"
 msgstr "Порядок &сортировки изображений"
 
-#: showfoto/setup/setupmisc.cpp:137
+#: showfoto/setup/setupmisc.cpp:144
 msgid "Sort images by:"
 msgstr "Сортировать изображения по:"
 
-#: showfoto/setup/setupmisc.cpp:139
+#: showfoto/setup/setupmisc.cpp:146
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "Дата"
 
-#: showfoto/setup/setupmisc.cpp:140
+#: showfoto/setup/setupmisc.cpp:147
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "Имя"
 
-#: showfoto/setup/setupmisc.cpp:141
+#: showfoto/setup/setupmisc.cpp:148
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "Размер файла"
 
-#: showfoto/setup/setupmisc.cpp:142
+#: showfoto/setup/setupmisc.cpp:149
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -13446,11 +13485,11 @@ msgstr ""
 "Сортировка вновь загруженных изображений: по дате, имени или размеру на "
 "диске."
 
-#: showfoto/setup/setupmisc.cpp:145
+#: showfoto/setup/setupmisc.cpp:152
 msgid "Reverse ordering"
 msgstr "Обратный порядок"
 
-#: showfoto/setup/setupmisc.cpp:146
+#: showfoto/setup/setupmisc.cpp:153
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -14983,7 +15022,7 @@ msgstr "Подтвердить"
 msgid "Who is this?"
 msgstr "Кто это?"
 
-#: utilities/facemanagement/facepipeline.cpp:1234
+#: utilities/facemanagement/facepipeline.cpp:1240
 msgid "Applying face changes"
 msgstr "Применение изменений в изображении лиц"
 
@@ -15019,8 +15058,11 @@ msgid "Detect faces"
 msgstr "Определение лиц"
 
 #: utilities/facemanagement/facescandialog.cpp:309
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Detect and recognize faces"
 msgctxt "@option:radio"
-msgid "Detect and recognize faces"
+msgid "Detect and recognize faces (experimental)"
 msgstr "Поиск и распознавание лиц"
 
 #: utilities/facemanagement/facescandialog.cpp:313
@@ -15051,8 +15093,11 @@ msgid "Clear unconfirmed results and rescan"
 msgstr "Удалить неподтвержденные результаты и обработать заново"
 
 #: utilities/facemanagement/facescandialog.cpp:335
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Recognize faces"
 msgctxt "@option:radio"
-msgid "Recognize faces"
+msgid "Recognize faces (experimental)"
 msgstr "Распознавание лиц"
 
 #: utilities/facemanagement/facescandialog.cpp:338
@@ -17020,7 +17065,7 @@ msgid ""
 "Failed to toggle lock file <filename>%1</filename>. Do you want to continue?"
 msgstr "Метка «%1» связана с одним или нескольким элементами. Продолжить?"
 
-#: utilities/importui/backend/gpcamera.cpp:1360
+#: utilities/importui/backend/gpcamera.cpp:1364
 #, fuzzy, kde-format
 #| msgid ""
 #| "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>"
@@ -17033,7 +17078,7 @@ msgstr ""
 "Название: <b>%1</b><br/>Модель: <b>%2</b><br/>Порт: <b>%3</b><br/>Путь: <b>"
 "%4</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1370
+#: utilities/importui/backend/gpcamera.cpp:1374
 #, fuzzy, kde-format
 #| msgid ""
 #| "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>"
@@ -17049,12 +17094,12 @@ msgstr ""
 "объекты: <b>%3</b> <br/>Загруженные объекты: <b>%4</b> <br/>Созданные "
 "каталоги: <b>%5</b> <br/>Удалённые каталоги: <b>%6</b> <br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -17064,12 +17109,12 @@ msgstr ""
 msgid "yes"
 msgstr "Доступно"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -17232,213 +17277,217 @@ msgstr "Загрузить"
 msgid "Unknown Format"
 msgstr "Неизвестный формат"
 
-#: utilities/importui/items/importoverlays.cpp:104
+#: utilities/importui/items/importoverlays.cpp:175
 msgctxt "@info:tooltip"
 msgid "This item is locked."
 msgstr "Эти объекты заблокированы."
 
-#: utilities/importui/items/importoverlays.cpp:110
+#: utilities/importui/items/importoverlays.cpp:244
+#, fuzzy
+#| msgctxt "@info:tooltip"
+#| msgid "This item download status is new"
 msgctxt "@info:tooltip"
-msgid "This item is not locked."
-msgstr "Эти объекты не заблокированы"
-
-#: utilities/importui/items/importoverlays.cpp:177
-msgctxt "@info:tooltip"
-msgid "This item download status is unknown"
-msgstr "Статус загрузки этого объекта неизвестен"
-
-#: utilities/importui/items/importoverlays.cpp:183
-msgctxt "@info:tooltip"
-msgid "This item download status is new"
+msgid "This item has an unknown download status"
 msgstr "Статус загрузки этого объекта — новый"
 
-#: utilities/importui/items/importoverlays.cpp:189
+#: utilities/importui/items/importoverlays.cpp:250
+#, fuzzy
+#| msgctxt "@info:tooltip"
+#| msgid "This item download status is downloaded"
 msgctxt "@info:tooltip"
-msgid "This item download status is downloaded"
+msgid "This item has never been downloaded"
 msgstr "Статус загрузки этого объекта — загружен"
 
-#: utilities/importui/main/importui.cpp:267
+#: utilities/importui/items/importoverlays.cpp:256
+#, fuzzy
+#| msgctxt "@info:tooltip"
+#| msgid "This item download status is downloaded"
+msgctxt "@info:tooltip"
+msgid "This item has already been downloaded"
+msgstr "Статус загрузки этого объекта — загружен"
+
+#: utilities/importui/main/importui.cpp:269
 msgid "Set how digiKam will rename files as they are downloaded."
 msgstr "Укажите, как переименовывать фотографии после загрузки."
 
-#: utilities/importui/main/importui.cpp:269
+#: utilities/importui/main/importui.cpp:271
 msgid "File Renaming Options"
 msgstr "Параметры переименования"
 
-#: utilities/importui/main/importui.cpp:275
+#: utilities/importui/main/importui.cpp:277
 msgid "Auto-creation of Albums"
 msgstr "Автоматическое создание альбомов"
 
-#: utilities/importui/main/importui.cpp:281
+#: utilities/importui/main/importui.cpp:283
 msgid "On the Fly Operations (JPEG only)"
 msgstr "Действия «на лету» (только для JPEG)"
 
-#: utilities/importui/main/importui.cpp:287
+#: utilities/importui/main/importui.cpp:289
 msgid "Scripting"
 msgstr "Сценарии"
 
-#: utilities/importui/main/importui.cpp:304
+#: utilities/importui/main/importui.cpp:306
 #, fuzzy
 #| msgid "Cancel"
 msgctxt "@action Cancel process"
 msgid "Cancel"
 msgstr "Отмена"
 
-#: utilities/importui/main/importui.cpp:312
+#: utilities/importui/main/importui.cpp:314
 #, fuzzy
 #| msgid "Information"
 msgctxt "@action Information about camera"
 msgid "Information"
 msgstr "Сведения"
 
-#: utilities/importui/main/importui.cpp:319
+#: utilities/importui/main/importui.cpp:321
 #, fuzzy
 #| msgid "Capture"
 msgctxt "@action Capture photo from camera"
 msgid "Capture"
 msgstr "Загрузить"
 
-#: utilities/importui/main/importui.cpp:331
+#: utilities/importui/main/importui.cpp:333
 #, fuzzy
 #| msgid "Select All"
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Выделить все"
 
-#: utilities/importui/main/importui.cpp:339
+#: utilities/importui/main/importui.cpp:341
 #, fuzzy
 #| msgid "Select None"
 msgctxt "@action:inmenu"
 msgid "Select None"
 msgstr "Снять выделение"
 
-#: utilities/importui/main/importui.cpp:347
+#: utilities/importui/main/importui.cpp:349
 #, fuzzy
 #| msgid "Invert Selection"
 msgctxt "@action:inmenu"
 msgid "Invert Selection"
 msgstr "Обратить выделение"
 
-#: utilities/importui/main/importui.cpp:355
+#: utilities/importui/main/importui.cpp:357
 #, fuzzy
 #| msgid "Select New Items"
 msgctxt "@action:inmenu"
 msgid "Select New Items"
 msgstr "Выделить новые элементы"
 
-#: utilities/importui/main/importui.cpp:362
+#: utilities/importui/main/importui.cpp:364
 #, fuzzy
 #| msgid "Select Locked Items"
 msgctxt "@action:inmenu"
 msgid "Select Locked Items"
 msgstr "Выделить заблокированные элементы"
 
-#: utilities/importui/main/importui.cpp:370
+#: utilities/importui/main/importui.cpp:372
 #, fuzzy
 #| msgid "Download"
 msgctxt "@title:menu"
 msgid "Download"
 msgstr "Загрузить"
 
-#: utilities/importui/main/importui.cpp:375
+#: utilities/importui/main/importui.cpp:377
 #, fuzzy
 #| msgid "Download New"
 msgctxt "@action"
 msgid "Download New"
 msgstr "Загрузить новые"
 
-#: utilities/importui/main/importui.cpp:382
+#: utilities/importui/main/importui.cpp:384
 #, fuzzy
 #| msgid "Download Selected"
 msgctxt "@action"
 msgid "Download Selected"
 msgstr "Загрузить выделенные"
 
-#: utilities/importui/main/importui.cpp:389
+#: utilities/importui/main/importui.cpp:391
 #, fuzzy
 #| msgid "Download All"
 msgctxt "@action"
 msgid "Download All"
 msgstr "Загрузить все"
 
-#: utilities/importui/main/importui.cpp:397
+#: utilities/importui/main/importui.cpp:399
 #, fuzzy
 #| msgid "Download/Delete New"
 msgctxt "@action"
 msgid "Download && Delete New"
 msgstr "Загрузить/Удалить новые"
 
-#: utilities/importui/main/importui.cpp:405
+#: utilities/importui/main/importui.cpp:407
 #, fuzzy
 #| msgid "Download/Delete Selected"
 msgctxt "@action"
 msgid "Download && Delete Selected"
 msgstr "Загрузить/Удалить выделенные"
 
-#: utilities/importui/main/importui.cpp:413
+#: utilities/importui/main/importui.cpp:415
 #, fuzzy
 #| msgid "Download/Delete All"
 msgctxt "@action"
 msgid "Download && Delete All"
 msgstr "Загрузить/Удалить все"
 
-#: utilities/importui/main/importui.cpp:420
+#: utilities/importui/main/importui.cpp:422
 #, fuzzy
 #| msgid "Upload..."
 msgctxt "@action"
 msgid "Upload..."
 msgstr "Загрузка в камеру..."
 
-#: utilities/importui/main/importui.cpp:428
+#: utilities/importui/main/importui.cpp:430
 #, fuzzy
 #| msgid "Toggle Lock"
 msgctxt "@action"
 msgid "Toggle Lock"
 msgstr "Защитить от стирания"
 
-#: utilities/importui/main/importui.cpp:436
+#: utilities/importui/main/importui.cpp:438
 #, fuzzy
 #| msgid "Mark as downloaded"
 msgctxt "@action"
 msgid "Mark as downloaded"
 msgstr "Отметить как загруженные"
 
-#: utilities/importui/main/importui.cpp:443
+#: utilities/importui/main/importui.cpp:445
 #, fuzzy
 #| msgid "Delete"
 msgctxt "@title:menu"
 msgid "Delete"
 msgstr "Удалить"
 
-#: utilities/importui/main/importui.cpp:448
+#: utilities/importui/main/importui.cpp:450
 #, fuzzy
 #| msgid "Delete Selected"
 msgctxt "@action"
 msgid "Delete Selected"
 msgstr "Удалить выделенные"
 
-#: utilities/importui/main/importui.cpp:456
+#: utilities/importui/main/importui.cpp:458
 #, fuzzy
 #| msgid "Delete All"
 msgctxt "@action"
 msgid "Delete All"
 msgstr "Удалить всё"
 
-#: utilities/importui/main/importui.cpp:462
+#: utilities/importui/main/importui.cpp:464
 #, fuzzy
 #| msgid "Delete New"
 msgctxt "@action"
 msgid "Delete New"
 msgstr "Удалить новые"
 
-#: utilities/importui/main/importui.cpp:470
+#: utilities/importui/main/importui.cpp:472
 #, fuzzy
 #| msgid "Views"
 msgctxt "@title:group"
 msgid "Views"
 msgstr "Режимы просмотра"
 
-#: utilities/importui/main/importui.cpp:479
+#: utilities/importui/main/importui.cpp:481
 #, fuzzy
 #| msgctxt "View the selected image"
 #| msgid "Preview Item"
@@ -17446,14 +17495,14 @@ msgctxt "@action View the selected image"
 msgid "Preview Item"
 msgstr "Предыдущий объект"
 
-#: utilities/importui/main/importui.cpp:495
+#: utilities/importui/main/importui.cpp:497
 #, fuzzy
 #| msgid "&Sort Items"
 msgctxt "@title:menu"
 msgid "&Sort Items"
 msgstr "&Сортировать объекты"
 
-#: utilities/importui/main/importui.cpp:496
+#: utilities/importui/main/importui.cpp:498
 #, fuzzy
 #| msgid "The value by which the items are sorted in the thumbnail view"
 msgctxt "@info:whatsthis"
@@ -17462,84 +17511,84 @@ msgstr ""
 "Значение, по которому будут отсортированы изображения, в режиме отображения "
 "миниатюр"
 
-#: utilities/importui/main/importui.cpp:502
+#: utilities/importui/main/importui.cpp:504
 #, fuzzy
 #| msgid "By Name"
 msgctxt "item:inmenu Sort by"
 msgid "By Name"
 msgstr "По имени"
 
-#: utilities/importui/main/importui.cpp:503
+#: utilities/importui/main/importui.cpp:505
 #, fuzzy
 #| msgid "By Path"
 msgctxt "item:inmenu Sort by"
 msgid "By Path"
 msgstr "По пути"
 
-#: utilities/importui/main/importui.cpp:504
+#: utilities/importui/main/importui.cpp:506
 #, fuzzy
 #| msgid "By Date"
 msgctxt "item:inmenu Sort by"
 msgid "By Date"
 msgstr "По дате"
 
-#: utilities/importui/main/importui.cpp:505
+#: utilities/importui/main/importui.cpp:507
 #, fuzzy
 #| msgid "By Size"
 msgctxt "item:inmenu Sort by"
 msgid "By Size"
 msgstr "По размеру файла"
 
-#: utilities/importui/main/importui.cpp:506
+#: utilities/importui/main/importui.cpp:508
 #, fuzzy
 #| msgid "By Rating"
 msgctxt "item:inmenu Sort by"
 msgid "By Rating"
 msgstr "По оценке"
 
-#: utilities/importui/main/importui.cpp:507
+#: utilities/importui/main/importui.cpp:509
 #, fuzzy
 #| msgid "By Download State"
 msgctxt "item:inmenu Sort by"
 msgid "By Download State"
 msgstr "По состоянию загрузки"
 
-#: utilities/importui/main/importui.cpp:527
+#: utilities/importui/main/importui.cpp:529
 #, fuzzy
 #| msgid "Item Sorting &Order"
 msgctxt "@title:inmenu"
 msgid "Item Sorting &Order"
 msgstr "&Порядок сортировки объектов"
 
-#: utilities/importui/main/importui.cpp:528
+#: utilities/importui/main/importui.cpp:530
 #, fuzzy
 #| msgid "Defines whether items are sorted in ascending or descending manner."
 msgctxt "@info:whatsthis"
 msgid "Defines whether items are sorted in ascending or descending manner."
 msgstr "Сортировка объектов по возрастанию или убыванию."
 
-#: utilities/importui/main/importui.cpp:533
+#: utilities/importui/main/importui.cpp:535
 #, fuzzy
 #| msgid "Ascending"
 msgctxt "@item:inmenu Sorting Order"
 msgid "Ascending"
 msgstr "В порядке возрастания"
 
-#: utilities/importui/main/importui.cpp:534
+#: utilities/importui/main/importui.cpp:536
 #, fuzzy
 #| msgid "Descending"
 msgctxt "@item:inmenu Sorting Order"
 msgid "Descending"
 msgstr "В порядке убывания"
 
-#: utilities/importui/main/importui.cpp:546
+#: utilities/importui/main/importui.cpp:548
 #, fuzzy
 #| msgid "&Group Items"
 msgctxt "@title:menu"
 msgid "&Group Items"
 msgstr "&Группировать объекты"
 
-#: utilities/importui/main/importui.cpp:547
+#: utilities/importui/main/importui.cpp:549
 #, fuzzy
 #| msgid ""
 #| "The categories in which the items in the thumbnail view are displayed"
@@ -17547,135 +17596,135 @@ msgctxt "@info:whatsthis"
 msgid "The categories in which the items in the thumbnail view are displayed"
 msgstr "Категории, по которым отображаются объекты в режиме просмотра миниатюр"
 
-#: utilities/importui/main/importui.cpp:553
+#: utilities/importui/main/importui.cpp:555
 #, fuzzy
 #| msgid "Flat List"
 msgctxt "@item:inmenu Group Items"
 msgid "Flat List"
 msgstr "Не группировать"
 
-#: utilities/importui/main/importui.cpp:554
+#: utilities/importui/main/importui.cpp:556
 #, fuzzy
 #| msgid "By Folder"
 msgctxt "@item:inmenu Group Items"
 msgid "By Folder"
 msgstr "По каталогам"
 
-#: utilities/importui/main/importui.cpp:555
+#: utilities/importui/main/importui.cpp:557
 #, fuzzy
 #| msgid "By Format"
 msgctxt "@item:inmenu Group Items"
 msgid "By Format"
 msgstr "По формату"
 
-#: utilities/importui/main/importui.cpp:583
+#: utilities/importui/main/importui.cpp:585
 #, fuzzy
 #| msgid "Fit to &Window"
 msgctxt "@action:inmenu"
 msgid "Fit to &Window"
 msgstr "У&местить в окне"
 
-#: utilities/importui/main/importui.cpp:588
+#: utilities/importui/main/importui.cpp:590
 #, fuzzy
 #| msgid "Zoom to 100%"
 msgctxt "@action:inmenu"
 msgid "Zoom to 100%"
 msgstr "Увеличить до 100%"
 
-#: utilities/importui/main/importui.cpp:597
+#: utilities/importui/main/importui.cpp:599
 #, fuzzy
 #| msgid "Show History"
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Показать журнал"
 
-#: utilities/importui/main/importui.cpp:602
+#: utilities/importui/main/importui.cpp:604
 #, fuzzy
 #| msgid "Show Thumbbar"
 msgctxt "@option:check"
 msgid "Show Thumbbar"
 msgstr "Показывать ленту миниатюр"
 
-#: utilities/importui/main/importui.cpp:633
-#: utilities/importui/main/importui.cpp:826
-#: utilities/importui/main/importui.cpp:832
+#: utilities/importui/main/importui.cpp:634
+#: utilities/importui/main/importui.cpp:828
+#: utilities/importui/main/importui.cpp:834
 #, fuzzy
 #| msgid "Previous Image"
 msgctxt "@action"
 msgid "Previous Image"
 msgstr "Предыдущее изображение"
 
-#: utilities/importui/main/importui.cpp:640
+#: utilities/importui/main/importui.cpp:641
 #, fuzzy
 #| msgid "Retry"
 msgctxt "@action Connection failed, try again?"
 msgid "Retry"
 msgstr "Повторить"
 
-#: utilities/importui/main/importui.cpp:815
+#: utilities/importui/main/importui.cpp:817
 #, fuzzy
 #| msgid "Exit Preview Mode"
 msgctxt "@action"
 msgid "Exit Preview Mode"
 msgstr "Выйти из режима предпросмотра"
 
-#: utilities/importui/main/importui.cpp:820
+#: utilities/importui/main/importui.cpp:822
 #, fuzzy
 #| msgid "Next Image"
 msgctxt "@action"
 msgid "Next Image"
 msgstr "Следующий снимок"
 
-#: utilities/importui/main/importui.cpp:837
+#: utilities/importui/main/importui.cpp:839
 #, fuzzy
 #| msgid "First Image"
 msgctxt "@action Go to first image"
 msgid "First Image"
 msgstr "Первый снимок"
 
-#: utilities/importui/main/importui.cpp:842
+#: utilities/importui/main/importui.cpp:844
 #, fuzzy
 #| msgid "Last Image"
 msgctxt "@action Go to last image"
 msgid "Last Image"
 msgstr "Последний снимок"
 
-#: utilities/importui/main/importui.cpp:934
+#: utilities/importui/main/importui.cpp:936
 #, fuzzy
 #| msgid "Canceling current operation, please wait..."
 msgctxt "@info:status"
 msgid "Canceling current operation, please wait..."
 msgstr "Производится отмена текущей операции. Ждите..."
 
-#: utilities/importui/main/importui.cpp:989
+#: utilities/importui/main/importui.cpp:991
 #, fuzzy
 #| msgid "Do you want to close the dialog and cancel the current operation?"
 msgctxt "@info"
 msgid "Do you want to close the dialog and cancel the current operation?"
 msgstr "Закрыть диалог и отменить выполняемую операцию?"
 
-#: utilities/importui/main/importui.cpp:998
+#: utilities/importui/main/importui.cpp:1000
 #, fuzzy
 #| msgid "Disconnecting from camera, please wait..."
 msgctxt "@info:status"
 msgid "Disconnecting from camera, please wait..."
 msgstr "Камера отсоединяется, подождите..."
 
-#: utilities/importui/main/importui.cpp:1039
+#: utilities/importui/main/importui.cpp:1042
 #, fuzzy
 #| msgid "Scanning for new files, please wait..."
 msgctxt "@info:status"
 msgid "Scanning for new files, please wait..."
 msgstr "Идёт поиск новых файлов, ждите..."
 
-#: utilities/importui/main/importui.cpp:1076
+#: utilities/importui/main/importui.cpp:1079
 #, fuzzy
 #| msgid "Ready"
 msgctxt "@info:status"
 msgid "Ready"
 msgstr "Готово"
 
-#: utilities/importui/main/importui.cpp:1147
+#: utilities/importui/main/importui.cpp:1150
 #, fuzzy
 #| msgid ""
 #| "Failed to connect to the camera. Please make sure it is connected "
@@ -17688,14 +17737,14 @@ msgstr ""
 "Не удалось подключиться к камере. Проверьте, что камера подключена к "
 "компьютеру правильно. Произвести ещё одну попытку?"
 
-#: utilities/importui/main/importui.cpp:1267
+#: utilities/importui/main/importui.cpp:1270
 #, fuzzy
 #| msgid "Select Image to Upload"
 msgctxt "@title:window"
 msgid "Select Image to Upload"
 msgstr "Выбрать изображения для загрузки в камеру"
 
-#: utilities/importui/main/importui.cpp:1300
+#: utilities/importui/main/importui.cpp:1303
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is not enough free space on the Camera Medium to upload pictures.\n"
@@ -17714,7 +17763,7 @@ msgstr ""
 "Требуется места: %1\n"
 "Доступно свободного места: %2"
 
-#: utilities/importui/main/importui.cpp:1354
+#: utilities/importui/main/importui.cpp:1357
 #, fuzzy, kde-format
 #| msgid ""
 #| "Camera Folder <b>%1</b> already contains the item <b>%2</b>.<br/>Please "
@@ -17727,14 +17776,14 @@ msgstr ""
 "В каталоге камеры <b>%1</b> уже содержится файл <b>%2</b> <br/>Введите "
 "другое имя для файла (без расширения):"
 
-#: utilities/importui/main/importui.cpp:1357
+#: utilities/importui/main/importui.cpp:1360
 #, fuzzy
 #| msgid "File already exists"
 msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Такой файл уже существует"
 
-#: utilities/importui/main/importui.cpp:1418
+#: utilities/importui/main/importui.cpp:1421
 #, fuzzy
 #| msgid ""
 #| "Your custom target album date format is not valid. Please check your "
@@ -17747,7 +17796,7 @@ msgstr ""
 "Некорректный формат даты конечного альбома пользователя. Проверьте "
 "настройки..."
 
-#: utilities/importui/main/importui.cpp:1457
+#: utilities/importui/main/importui.cpp:1460
 #, fuzzy
 #| msgid ""
 #| "Collection which host your default target album set to process download "
@@ -17763,7 +17812,7 @@ msgstr ""
 "камеры, недоступна. Укажите другой альбом с помощью диалогового окна "
 "настройки камеры."
 
-#: utilities/importui/main/importui.cpp:1465
+#: utilities/importui/main/importui.cpp:1468
 #, fuzzy
 #| msgid ""
 #| "Your default target album set to process download from camera device is "
@@ -17776,7 +17825,7 @@ msgstr ""
 "Конечный альбом для загрузок фотографий с камеры недоступен. Укажите другой "
 "альбом с помощью диалогового окна настройки камеры."
 
-#: utilities/importui/main/importui.cpp:1483
+#: utilities/importui/main/importui.cpp:1487
 #, fuzzy
 #| msgid ""
 #| "<p>Please select the destination album from the digiKam library to import "
@@ -17787,7 +17836,7 @@ msgid ""
 "the camera pictures into.</p>"
 msgstr "<p>Выберите альбом, в который будут помещены фотографии из камеры.</p>"
 
-#: utilities/importui/main/importui.cpp:1577
+#: utilities/importui/main/importui.cpp:1581
 #, fuzzy
 #| msgid ""
 #| "Images download finished, you can now detach your camera while the images "
@@ -17798,14 +17847,14 @@ msgid ""
 "will be auto-rotated"
 msgstr "Загрузка снимков закончена, теперь можно отсоединить камеру"
 
-#: utilities/importui/main/importui.cpp:1581
+#: utilities/importui/main/importui.cpp:1585
 #, fuzzy
 #| msgid "Images download finished"
 msgctxt "@info Popup notification"
 msgid "Images download finished"
 msgstr "Загрузка изображений завершена"
 
-#: utilities/importui/main/importui.cpp:1884
+#: utilities/importui/main/importui.cpp:1888
 #, fuzzy
 #| msgid ""
 #| "The items listed below are locked by camera (read-only). These items will "
@@ -17821,7 +17870,7 @@ msgstr ""
 "чтение). Эти объекты нельзя удалить. Если вы действительно хотите удалить "
 "эти объекты, необходимо сперва снять защиту."
 
-#: utilities/importui/main/importui.cpp:1895
+#: utilities/importui/main/importui.cpp:1899
 #, fuzzy, kde-format
 #| msgid ""
 #| "About to delete this image. Deleted file is unrecoverable. Are you sure?"
@@ -17841,21 +17890,21 @@ msgstr[2] "Запрошено удаление %1 изображений. Дей
 msgstr[3] ""
 "Запрошено удаление этого изображения. Действие необратимо. Продолжить?"
 
-#: utilities/importui/main/importui.cpp:1945
+#: utilities/importui/main/importui.cpp:1950
 #, fuzzy
 #| msgid "Try Anyway"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Применить всё равно"
 
-#: utilities/importui/main/importui.cpp:1947
+#: utilities/importui/main/importui.cpp:1952
 #, fuzzy
 #| msgid "Cancel Download"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "Отмена загрузки"
 
-#: utilities/importui/main/importui.cpp:1950
+#: utilities/importui/main/importui.cpp:1954
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is not enough free space on the disk of the album you selected to "
@@ -17877,15 +17926,15 @@ msgstr ""
 "Примерный размер необходимого пространства: %1\n"
 "Размер имеющегося свободного пространства: %2"
 
-#: utilities/importui/main/importui.cpp:1956
+#: utilities/importui/main/importui.cpp:1960
 #, fuzzy
 #| msgid "Insufficient Disk Space"
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Недостаточно места на диске"
 
-#: utilities/importui/main/importui.cpp:2299
-#: utilities/importui/main/importui.cpp:2325
+#: utilities/importui/main/importui.cpp:2305
+#: utilities/importui/main/importui.cpp:2331
 #, fuzzy, kde-format
 #| msgid "No item selected (%1 item)"
 #| msgid_plural "No item selected (%1 items)"
@@ -17897,13 +17946,13 @@ msgstr[1] "Ничего не выбрано (%1 элемента)"
 msgstr[2] "Ничего не выбрано (%1 элементов)"
 msgstr[3] "Ничего не выбрано (один элемент)"
 
-#: utilities/importui/main/importui.cpp:2318
+#: utilities/importui/main/importui.cpp:2324
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:2334
+#: utilities/importui/main/importui.cpp:2340
 #, fuzzy, kde-format
 #| msgid "%2/%1 item selected"
 #| msgid_plural "%2/%1 items selected"
@@ -17915,7 +17964,7 @@ msgstr[1] "%2 элемента выбрано из %1"
 msgstr[2] "%2 элементов выбрано из %1"
 msgstr[3] "один элемент выбран из %1"
 
-#: utilities/importui/main/importui.cpp:2421
+#: utilities/importui/main/importui.cpp:2427
 #, fuzzy, kde-format
 #| msgid "A file with the same name (%1) already exists in folder %2."
 msgctxt "@info"
@@ -17924,14 +17973,14 @@ msgid ""
 "<resource>%2</resource>."
 msgstr "Файл с таким именем (%1) уже существует в каталоге %2"
 
-#: utilities/importui/main/importui.cpp:2433
+#: utilities/importui/main/importui.cpp:2439
 #, fuzzy, kde-format
 #| msgid "Failed to find Album for path '%1'."
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "Не удалось найти альбом по пути «%1»"
 
-#: utilities/importui/main/importui.cpp:2444
+#: utilities/importui/main/importui.cpp:2450
 #, fuzzy
 #| msgid "General"
 msgctxt "@title"
@@ -18579,7 +18628,9 @@ msgid "Clear unconfirmed results and rescan"
 msgstr "Удалить неподтвержденные результаты и обработать заново"
 
 #: utilities/maintenance/maintenancedlg.cpp:233
-msgid "Detect and recognize Faces"
+#, fuzzy
+#| msgid "Detect and recognize Faces"
+msgid "Detect and recognize Faces (experimental)"
 msgstr "Поиск и распознавание лиц"
 
 #: utilities/maintenance/maintenancedlg.cpp:240
@@ -20378,11 +20429,27 @@ msgstr ""
 
 #: utilities/setup/setup.cpp:552
 msgid ""
+"The maximum thumbnail size has been changed.\n"
+"You need to restart digiKam to see this option to take effect.\n"
+"\n"
+"Note: after restarting digiKam, it is recommended to rebuild all album "
+"items' thumbnails, using the \"Tools-Maintenance\" menu."
+msgstr ""
+
+#: utilities/setup/setup.cpp:561
+#, fuzzy
+#| msgid ""
+#| "The Exif auto-rotate thumbnails option has been changed.\n"
+#| "Do you want to rebuild all albums' items' thumbnails now?\n"
+#| "\n"
+#| "Note: thumbnail processing can take a while. You can start this job later "
+#| "from the \"Tools\" menu."
+msgid ""
 "The Exif auto-rotate thumbnails option has been changed.\n"
 "Do you want to rebuild all albums' items' thumbnails now?\n"
 "\n"
 "Note: thumbnail processing can take a while. You can start this job later "
-"from the \"Tools\" menu."
+"from the \"Tools-Maintenance\" menu."
 msgstr ""
 "Была изменена опция автоматического вращения миниатюр на основе метаданных "
 "EXIF.\n"
@@ -20392,173 +20459,192 @@ msgstr ""
 "ВНИМАНИЕ: создание миниатюр может занять длительное время! Вы можете "
 "запустить этот процесс позже из пункта меню «Сервис» главного меню."
 
-#: utilities/setup/setupalbumview.cpp:121 utilities/setup/setupcamera.cpp:421
+#: utilities/setup/setupalbumview.cpp:131 utilities/setup/setupcamera.cpp:423
 msgid "Icon-View Options"
 msgstr "Параметры окна миниатюр"
 
-#: utilities/setup/setupalbumview.cpp:124 utilities/setup/setupcamera.cpp:424
+#: utilities/setup/setupalbumview.cpp:134 utilities/setup/setupcamera.cpp:426
 msgid "Show file&name"
 msgstr "Показывать &имя файла"
 
-#: utilities/setup/setupalbumview.cpp:125 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:135 utilities/setup/setupcamera.cpp:427
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr "Показывать имена файлов под миниатюрами изображений."
 
-#: utilities/setup/setupalbumview.cpp:127 utilities/setup/setupcamera.cpp:427
+#: utilities/setup/setupalbumview.cpp:137 utilities/setup/setupcamera.cpp:429
 msgid "Show file si&ze"
 msgstr "Показывать &размер файла"
 
-#: utilities/setup/setupalbumview.cpp:128 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:430
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr "Показывать размер файла под эскизами изображений."
 
-#: utilities/setup/setupalbumview.cpp:130 utilities/setup/setupcamera.cpp:430
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:432
 msgid "Show camera creation &date"
 msgstr "Показывать дату &создания снимка"
 
-#: utilities/setup/setupalbumview.cpp:131
+#: utilities/setup/setupalbumview.cpp:141
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr "Показывать дату создания файла в камере под миниатюрами изображений."
 
-#: utilities/setup/setupalbumview.cpp:134
+#: utilities/setup/setupalbumview.cpp:144
 msgid "Show file &modification date"
 msgstr "Показывать дату из&менения файла"
 
-#: utilities/setup/setupalbumview.cpp:135
+#: utilities/setup/setupalbumview.cpp:145
 msgid ""
 "Set this option to show the file modification date below the image thumbnail."
 msgstr "Показывать дату изменения файла под эскизами изображений."
 
-#: utilities/setup/setupalbumview.cpp:138
+#: utilities/setup/setupalbumview.cpp:148
 msgid "Show ima&ge dimensions"
 msgstr "Показывать размеры изо&бражения"
 
-#: utilities/setup/setupalbumview.cpp:139
+#: utilities/setup/setupalbumview.cpp:149
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr "Показывать размеры изображения (в пикселах) под его эскизом."
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setuptooltip.cpp:213
+#: utilities/setup/setupalbumview.cpp:152 utilities/setup/setuptooltip.cpp:213
 msgid "Show image aspect ratio"
 msgstr "Показывать соотношение сторон изображения"
 
-#: utilities/setup/setupalbumview.cpp:143
+#: utilities/setup/setupalbumview.cpp:153
 msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr "Показывать соотношение сторон изображения под его эскизом."
 
-#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:440
+#: utilities/setup/setupalbumview.cpp:156 utilities/setup/setupcamera.cpp:442
 msgid "Show image Format"
 msgstr "Показывать формат снимка"
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:441
-msgid "Set this option to show image format over image thumbnail."
-msgstr "Показывать формат файла изображения будет показан под его миниатюрой."
-
-#: utilities/setup/setupalbumview.cpp:149
+#: utilities/setup/setupalbumview.cpp:159
 msgid "Show digiKam tit&le"
 msgstr "Показывать заголовки"
 
-#: utilities/setup/setupalbumview.cpp:150
+#: utilities/setup/setupalbumview.cpp:160
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr "Показывать названия digiKam под миниатюрами изображений. "
 
-#: utilities/setup/setupalbumview.cpp:153
+#: utilities/setup/setupalbumview.cpp:163
 msgid "Show digiKam &captions"
 msgstr "Показывать &описания"
 
-#: utilities/setup/setupalbumview.cpp:154
+#: utilities/setup/setupalbumview.cpp:164
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr "Показывать заголовки из базы данных digiKam под эскизами изображений."
 
-#: utilities/setup/setupalbumview.cpp:157 utilities/setup/setupcamera.cpp:443
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:448
 msgid "Show digiKam &tags"
 msgstr "Показывать &метки digiKam"
 
-#: utilities/setup/setupalbumview.cpp:158 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:168 utilities/setup/setupcamera.cpp:449
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr "Показывать метки из базы данных digiKam под эскизом изображения."
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:171
 msgid "Show digiKam &rating"
 msgstr "Показывать &оценку digiKam"
 
-#: utilities/setup/setupalbumview.cpp:162
+#: utilities/setup/setupalbumview.cpp:172
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr "Показывать оценку из базы данных digiKam под эскизом изображения."
 
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:451
+#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:456
 msgid "Show rotation overlay buttons"
 msgstr "Показывать кнопки для поворота изображения"
 
-#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:457
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
 msgstr "Показывать кнопки вращения над миниатюрами снимков"
 
-#: utilities/setup/setupalbumview.cpp:169 utilities/setup/setupcamera.cpp:455
+#: utilities/setup/setupalbumview.cpp:179 utilities/setup/setupcamera.cpp:445
+#, fuzzy
+#| msgid "Geolocation Filter"
+msgid "Show Geolocation Indicator"
+msgstr "Фильтр по местоположению"
+
+#: utilities/setup/setupalbumview.cpp:182 utilities/setup/setupcamera.cpp:460
 msgid "Thumbnail click action:"
 msgstr "Действие по щелчку:"
 
-#: utilities/setup/setupalbumview.cpp:171 utilities/setup/setupcamera.cpp:457
+#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:462
 msgid "Show embedded preview"
 msgstr "Использовать встроенный предпросмотр"
 
-#: utilities/setup/setupalbumview.cpp:172 utilities/setup/setupcamera.cpp:458
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:463
 msgid "Start image editor"
 msgstr "Открыть в редакторе изображений"
 
-#: utilities/setup/setupalbumview.cpp:173 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:464
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr ""
 "Выберите действие, которое будет происходить по щелчку левой кнопкой мыши по "
 "миниатюре"
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:461
+#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:466
 msgid "Icon View font:"
 msgstr "Шрифт:"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:189 utilities/setup/setupcamera.cpp:467
 msgid "Select here the font used to display text in Icon Views."
 msgstr "Выбор шрифта для текста рядом с иконками."
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:191
+msgid "Use large thumbnail size for high screen resolution"
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:192
+msgid ""
+"Set this option to render icon-view with large thumbnail size, for example "
+"in case of 4K monitor is used.\n"
+"By default this option is turned off and the maximum thumbnail size is "
+"limited to 256x256 pixels. When this option is enabled, thumbnail size can "
+"be extended to 512x512 pixels.\n"
+"This option will store more data in thumbnail database and will use more "
+"system memory. digiKam needs to be restarted to take effect, and Rebuild "
+"Thumbnails option from Maintenance tool needs to be processed over whole "
+"collections."
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:223
 msgid "Folder View Options"
 msgstr "Параметры окна папок"
 
-#: utilities/setup/setupalbumview.cpp:203
+#: utilities/setup/setupalbumview.cpp:226
 msgid "Tree View thumbnail size:"
 msgstr "Размер миниатюр в дереве альбомов:"
 
-#: utilities/setup/setupalbumview.cpp:209
+#: utilities/setup/setupalbumview.cpp:232
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
 msgstr "Указывать размер (в пикселях) миниатюр на боковых панелях digiKam."
 
-#: utilities/setup/setupalbumview.cpp:212
+#: utilities/setup/setupalbumview.cpp:235
 msgid "Tree View font:"
 msgstr "Шрифт в дереве альбомов:"
 
-#: utilities/setup/setupalbumview.cpp:213
+#: utilities/setup/setupalbumview.cpp:236
 msgid "Select here the font used to display text in Tree Views."
 msgstr "Выбор шрифта для текста в древовидном режиме просмотра"
 
-#: utilities/setup/setupalbumview.cpp:215
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Show a count of items in Tree Views"
 msgstr "Показывать количество элементов в древовидном режиме просмотра"
 
-#: utilities/setup/setupalbumview.cpp:226 utilities/setup/setupcamera.cpp:481
+#: utilities/setup/setupalbumview.cpp:249 utilities/setup/setupcamera.cpp:487
 msgid "Preview Options"
 msgstr "Параметры окна предпросмотра"
 
-#: utilities/setup/setupalbumview.cpp:229 utilities/setup/setupcamera.cpp:484
+#: utilities/setup/setupalbumview.cpp:252 utilities/setup/setupcamera.cpp:490
 msgid "Embedded preview loads full-sized images"
 msgstr "Загружать полноразмерные изображния в окне предпросмотра"
 
-#: utilities/setup/setupalbumview.cpp:230 utilities/setup/setupcamera.cpp:485
+#: utilities/setup/setupalbumview.cpp:253 utilities/setup/setupcamera.cpp:491
 #: utilities/setup/setuplighttable.cpp:108
 msgid ""
 "<p>Set this option to load images at their full size for preview, rather "
@@ -20573,18 +20659,21 @@ msgstr ""
 "вместо предварительного просмотра в формате JPEG используется 1/2 размера "
 "RAW.</p>"
 
-#: utilities/setup/setupalbumview.cpp:237 utilities/setup/setupcamera.cpp:495
+#: utilities/setup/setupalbumview.cpp:260 utilities/setup/setupcamera.cpp:501
 msgid "Show icons and text over preview"
 msgstr "Показывать иконки и текст поверх изображения в окне предпросмотра"
 
-#: utilities/setup/setupalbumview.cpp:238 utilities/setup/setupcamera.cpp:496
+#: utilities/setup/setupalbumview.cpp:261
+#, fuzzy
+#| msgid ""
+#| "Uncheck this if you don't want to see icons and text in the image preview."
 msgid ""
-"Uncheck this if you don't want to see icons and text in the image preview."
+"Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 "Отменить эту опцию, если не нужны иконки и текст в предварительном просмотре "
 "изображения."
 
-#: utilities/setup/setupcamera.cpp:279
+#: utilities/setup/setupcamera.cpp:281
 msgid ""
 "Here you can see the digital camera list used by digiKam via the Gphoto "
 "interface."
@@ -20592,95 +20681,102 @@ msgstr ""
 "Здесь вы можете увидеть список цифровых камер, используемых digiKam через "
 "интерфейс Gphoto."
 
-#: utilities/setup/setupcamera.cpp:300 utilities/setup/setupcamera.cpp:393
+#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
 #: utilities/setup/setupcategory.cpp:100 utilities/setup/setuptemplate.cpp:124
 msgid "&Add..."
 msgstr "&Добавить..."
 
-#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
+#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
 #: utilities/setup/setupcategory.cpp:101 utilities/setup/setuptemplate.cpp:126
 msgid "&Remove"
 msgstr "&Удалить"
 
-#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
+#: utilities/setup/setupcamera.cpp:306 utilities/setup/setupcamera.cpp:399
 msgid "&Edit..."
 msgstr "&Изменить..."
 
-#: utilities/setup/setupcamera.cpp:306
+#: utilities/setup/setupcamera.cpp:308
 msgid "Auto-&Detect"
 msgstr "Авто&пределение"
 
-#: utilities/setup/setupcamera.cpp:318
+#: utilities/setup/setupcamera.cpp:320
 msgid "Visit Gphoto project website"
 msgstr "Посетить сайт gphoto"
 
-#: utilities/setup/setupcamera.cpp:339
+#: utilities/setup/setupcamera.cpp:341
 msgid "Devices"
 msgstr "Устройства"
 
-#: utilities/setup/setupcamera.cpp:347
+#: utilities/setup/setupcamera.cpp:349
 msgid "Use file metadata (makes connection slower)"
 msgstr "Использовать метаданные файла (замедляет скорость соединения)"
 
-#: utilities/setup/setupcamera.cpp:348
+#: utilities/setup/setupcamera.cpp:350
 msgid "Turn on high quality thumbnail loading (slower loading)"
 msgstr "Включить высокое качество миниатюр загрузки (медленная загрузка)"
 
-#: utilities/setup/setupcamera.cpp:349
+#: utilities/setup/setupcamera.cpp:351
 msgid "Use a default target album to download from camera"
 msgstr ""
 "Для загружаемых с камеры изображений использовать конечный альбом по "
 "умолчанию"
 
-#: utilities/setup/setupcamera.cpp:371
+#: utilities/setup/setupcamera.cpp:373
 msgid ""
 "Here you can see filters that can be used to filter files in import dialog."
 msgstr "Здесь можно просмотреть фильтры, используемые в диалоге импорта."
 
-#: utilities/setup/setupcamera.cpp:390
+#: utilities/setup/setupcamera.cpp:392
 msgid "Always ignore"
 msgstr "Всегда игнорировать"
 
-#: utilities/setup/setupcamera.cpp:391
+#: utilities/setup/setupcamera.cpp:393
 msgid "Ignored file names:"
 msgstr "Игнорируемые имена файлов:"
 
-#: utilities/setup/setupcamera.cpp:392
+#: utilities/setup/setupcamera.cpp:394
 msgid "Ignored file extensions:"
 msgstr "Игнорируемые расширения файлов:"
 
-#: utilities/setup/setupcamera.cpp:412
+#: utilities/setup/setupcamera.cpp:414
 msgid "Import Filters"
 msgstr "Импортировать фильтры"
 
-#: utilities/setup/setupcamera.cpp:431
+#: utilities/setup/setupcamera.cpp:433
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail"
 msgstr "Показывать дату создания файла в камере под миниатюрами изображений"
 
-#: utilities/setup/setupcamera.cpp:447
+#: utilities/setup/setupcamera.cpp:452
 msgid "Show item &rating"
 msgstr "Показывать оценку"
 
-#: utilities/setup/setupcamera.cpp:448
+#: utilities/setup/setupcamera.cpp:453
 msgid "Set this option to show the item rating below the image thumbnail."
 msgstr "Показывать рейтинг изображения под его эскизом."
 
-#: utilities/setup/setupcamera.cpp:492
+#: utilities/setup/setupcamera.cpp:498
 msgid "Preview each item while downloading it"
 msgstr "Делать предпросмотр каждого элемента во время его загрузки"
 
-#: utilities/setup/setupcamera.cpp:493
+#: utilities/setup/setupcamera.cpp:499
 msgid "<p>Set this option to preview each item while downloading.</p>"
 msgstr ""
 "<p>Разрешить предварительный просмотр каждого элемента по мере его загрузки."
 "</p>"
 
-#: utilities/setup/setupcamera.cpp:515
+#: utilities/setup/setupcamera.cpp:502
+msgid ""
+"Uncheck this if you don't want to see icons and text in the image preview."
+msgstr ""
+"Отменить эту опцию, если не нужны иконки и текст в предварительном просмотре "
+"изображения."
+
+#: utilities/setup/setupcamera.cpp:521
 msgid "Import Window"
 msgstr "Окно импорта"
 
-#: utilities/setup/setupcamera.cpp:765
+#: utilities/setup/setupcamera.cpp:773
 msgid ""
 "No default target album have been selected to process download from camera "
 "device. Please select one."
@@ -20688,11 +20784,11 @@ msgstr ""
 "Для процедуры загрузки изображений с камеры не был указан конечный альбом по "
 "умолчанию. Укажите альбом."
 
-#: utilities/setup/setupcamera.cpp:858
+#: utilities/setup/setupcamera.cpp:866
 msgid "Device detection under progress, please wait..."
 msgstr "Выполняется определение устройств, подождите немного..."
 
-#: utilities/setup/setupcamera.cpp:869
+#: utilities/setup/setupcamera.cpp:877
 msgid ""
 "Failed to auto-detect camera.\n"
 "Please check if your camera is turned on and retry or try setting it "
@@ -20701,28 +20797,28 @@ msgstr ""
 "Не удалось автоматически определить камеру.\n"
 "Проверьте что камера включена, попробуйте снова или настройте вручную."
 
-#: utilities/setup/setupcamera.cpp:883
+#: utilities/setup/setupcamera.cpp:891
 #, kde-format
 msgid "Camera '%1' (%2) is already in list."
 msgstr "Камера «%1» (%2) уже находится в списке."
 
-#: utilities/setup/setupcamera.cpp:887
+#: utilities/setup/setupcamera.cpp:895
 #, kde-format
 msgid "Found camera '%1' (%2) and added it to the list."
 msgstr "Найдена камера «%1» (%2) и добавлена в список."
 
-#: utilities/setup/setupcamera.cpp:903
+#: utilities/setup/setupcamera.cpp:911
 msgid "Untitled"
 msgstr "Безымянный"
 
-#: utilities/setup/setupcamera.cpp:945
+#: utilities/setup/setupcamera.cpp:953
 msgid ""
 "In order to enable this feature, the full-sized preview will be disabled."
 msgstr ""
 "Для включения этой функции будет отключён полноразмерный предварительный "
 "просмотр."
 
-#: utilities/setup/setupcamera.cpp:955
+#: utilities/setup/setupcamera.cpp:963
 msgid ""
 "If the full-sized preview is enabled it will affect the speed of previewing "
 "each item while download."
@@ -21329,7 +21425,43 @@ msgctxt "none of the paths"
 msgid "none"
 msgstr "ничего"
 
-#: utilities/setup/setupicc.cpp:904
+#: utilities/setup/setupicc.cpp:906
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Windows, the default search paths include <ul><li>%1/Windows/Spool/"
+"Drivers/Color/</li><li>%2/Windows/Color/</li></ul>On your system, currently "
+"these paths exist and are scanned:<ul><li>%3</li></ul>"
+msgstr ""
+"В Linux путями поиска файлов по умолчанию являются <ul><li>/usr/share/color/"
+"icc</li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+"li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>В вашей системе на "
+"данный момент существуют и проверены следующие пути:<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:920
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Mac OS X, the default search paths include <ul><li>/System/Library/"
+"ColorSync/Profiles</li><li>/Library/ColorSync/Profiles</li><li>~/Library/"
+"ColorSync/Profiles</li><li>/opt/local/share/color/icc</li><li>~/.local/share/"
+"color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On "
+"your system, currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgstr ""
+"В Linux путями поиска файлов по умолчанию являются <ul><li>/usr/share/color/"
+"icc</li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+"li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>В вашей системе на "
+"данный момент существуют и проверены следующие пути:<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:936
 #, kde-format
 msgid ""
 "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
@@ -22800,6 +22932,17 @@ msgctxt ""
 "is active"
 msgid "Giving a presentation"
 msgstr "Режим презентации"
+
+#~ msgid "Open Tag Manger"
+#~ msgstr "Открыть менеджер меток"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item is not locked."
+#~ msgstr "Эти объекты не заблокированы"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item download status is unknown"
+#~ msgstr "Статус загрузки этого объекта неизвестен"
 
 #, fuzzy
 #~| msgid "Connection failed."

@@ -6,7 +6,7 @@
 # @date   2006-12-09
 # @brief  a tread-safe libraw C++ program interface for KDE
 #
-# @author Copyright (C) 2006-2013 by Gilles Caulier
+# @author Copyright (C) 2006-2014 by Gilles Caulier
 #         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
 #
 # This program is free software; you can redistribute it
@@ -40,12 +40,11 @@ INCLUDE(FindPackageHandleStandardArgs)
 FIND_PACKAGE(LibRaw 0.15)
 SET_PACKAGE_PROPERTIES(LibRaw PROPERTIES DESCRIPTION "library that provides image Raw file demosaicing" URL "http://www.libraw.org" TYPE REQUIRED PURPOSE "Required to build libkdcraw")
 IF(NOT LIBRAW_FOUND)
-  FEATURE_SUMMARY(
-    WHAT ALL
-    INCLUDE_QUIET_PACKAGES
-    FATAL_ON_MISSING_REQUIRED_PACKAGES
-  )
-  RETURN()
+    FEATURE_SUMMARY(WHAT ALL
+                    INCLUDE_QUIET_PACKAGES
+                    FATAL_ON_MISSING_REQUIRED_PACKAGES
+                   )
+    RETURN()
 ENDIF()
 
 # Check LibRaw config header.
@@ -132,18 +131,20 @@ SET(DCRAW_LIB_SO_VERSION_STRING "${DCRAW_LIB_SO_CUR_VERSION}.${DCRAW_LIB_SO_REV_
 # ==================================================================================================
 
 ADD_SUBDIRECTORY(libkdcraw)
-ADD_SUBDIRECTORY(test)
 ADD_SUBDIRECTORY(icons)
 ADD_SUBDIRECTORY(profiles)
 
+IF(KDE4_BUILD_TESTS)
+    MACRO_OPTIONAL_ADD_SUBDIRECTORY(tests)
+ENDIF(KDE4_BUILD_TESTS)
+  
 IF(NOT WIN32)
-    CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/libkdcraw.pc.cmake  ${CMAKE_CURRENT_BINARY_DIR}/libkdcraw.pc)
-    CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/libkdcraw.lsm.cmake ${CMAKE_CURRENT_BINARY_DIR}/libkdcraw.lsm)
+    CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/cmake/templates/libkdcraw.pc.cmake.in  ${CMAKE_CURRENT_BINARY_DIR}/libkdcraw.pc)
+    CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/cmake/templates/libkdcraw.lsm.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libkdcraw.lsm)
     INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/libkdcraw.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 ENDIF(NOT WIN32)
 
-FEATURE_SUMMARY(
-  WHAT ALL
-  INCLUDE_QUIET_PACKAGES
-  FATAL_ON_MISSING_REQUIRED_PACKAGES
-)
+FEATURE_SUMMARY(WHAT ALL
+                INCLUDE_QUIET_PACKAGES
+                FATAL_ON_MISSING_REQUIRED_PACKAGES
+               )

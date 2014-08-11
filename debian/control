@@ -10,6 +10,7 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libmarble-dev (>= 4:4.10),
  libkipi-dev (>= 4:4.10), libkexiv2-dev (>= 4:4.10), libkdcraw-dev (>= 4:4.10), libksane-dev (>= 4:4.10),
  libqt4-dev, libqt4-opengl-dev [!armhf], libgl1-mesa-dev [!armhf], libglu1-mesa-dev [!armhf],
+ libkqoauth-dev,
  libqtwebkit-dev, libqtgstreamer-dev,
  libmagickcore-dev, imagemagick,
  libhupnp-dev,
@@ -31,7 +32,7 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libsqlite0-dev,
  libpgf-dev,
  flex, bison, libeigen3-dev (>= 3.1.2),
- libboost-graph1.54-dev,
+ libboost-graph1.55-dev,
  libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev,
 # for libksane:
  libsane-dev,
@@ -145,7 +146,7 @@ Description: digiKam architecture-independant data
 
 Package: digikam-doc
 Architecture: all
-Depends: ${misc:Depends}, khelpcenter4
+Depends: ${misc:Depends}, khelpcenter4 | khelpcenter
 Recommends: digikam
 Section: doc
 Description: handbook for digiKam 

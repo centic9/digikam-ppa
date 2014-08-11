@@ -7,14 +7,19 @@
  ; Description : Null Soft windows installer based for digiKam
  ;
  ; Copyright (C) 2010      by Julien Narboux <julien at narboux dot fr>
- ; Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
- ; Copyright (C) 2011-2012 by Ananta Palani <anantapalani at gmail dot com>
+ ; Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ ; Copyright (C) 2011-2014 by Ananta Palani <anantapalani at gmail dot com>
  ;
  ; Script arguments:
  ; VERSION  : the digiKam version string.
  ; KDE4PATH : the path where whole KDE4 + digiKam & co is installed.
  ;
- ; Example: makensis.exe -DVERSION=1.6.0 -DKDE4PATH=D:\kde4 digikam.nsi
+ ; Example: C:\NSIS\makensis.exe /DVERSION=4.1.0 /DKDE4PATH=C:\KDE digikam.nsi
+ ;
+ ; Extra NSIS plugins to install in order to run this script :
+ ;
+ ; Registry   : http://nsis.sourceforge.net/Registry_plug-in
+ ; LockedList : http://nsis.sourceforge.net/LockedList_plug-in
  ;
  ; NSIS script reference can be found at this url:
  ; http://nsis.sourceforge.net/Docs/Chapter4.html
@@ -52,6 +57,10 @@ SetCompressorDictSize 96
   !define OUTFILE "${MY_PRODUCT}-installer-${VERSION}-win32.exe"
   !define MSVCRuntimePath "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\redist\x86\Microsoft.VC100.CRT"
   !define MSVCOpenMPPath "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\redist\x86\Microsoft.VC100.OPENMP"
+  ;The libraries in the system folder are often outdated. It is better to use the
+  ;   the latest redistributable instead
+  ;!define MSVCRuntimePath "C:\Windows\System32"
+  ;!define MSVCOpenMPPath "C:\Windows\System32"
 
 ;-------------------------------------------------------------------------------
 ;General
@@ -61,7 +70,7 @@ SetCompressorDictSize 96
   Icon "digikam-installer.ico"
   UninstallIcon "digikam-uninstaller.ico"
   OutFile "${OUTFILE}"
-  
+
   ;Request application privileges for Windows Vista
   RequestExecutionLevel admin
 
@@ -70,13 +79,13 @@ SetCompressorDictSize 96
 
   ;Get installation folder from registry if available
   InstallDirRegKey HKLM "Software\${MY_PRODUCT}" ""
-  
+
   !include "LogicLib.nsh"
   !include "StrFunc.nsh"
   ${StrRep}
   ${StrStr}
   ${StrStrAdv}
-  
+
   ;Requires Registry plugin :
   ;http://nsis.sourceforge.net/Registry_plug-in
   !include "Registry.nsh"
@@ -91,54 +100,54 @@ SetCompressorDictSize 96
       Quit
     ${EndIf}
     Pop $0
-    
+
     Push $R0
     Push $R1
     Push $R2
-    
+
     checkUninstallRequired:
       ReadRegStr $R0 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MY_PRODUCT}" "UninstallString"
       ${StrRep} $R0 $R0 '"' "" ; Remove double-quotes so Delete and RMDir work properly and we can extract the path
       StrCmp $R0 "" done
-      
+
       ${IfNot} ${FileExists} $R0
         DeleteRegKey HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MY_PRODUCT}"
         Goto checkUninstallRequired
       ${EndIf}
-      
+
       ;Get path
       ${StrStrAdv} $R1 $R0 "\" "<" "<" "0" "0" "0"
-      
+
       ReadRegStr $R2 HKLM "Software\Microsoft\Windows\CurrentVersion\Uninstall\${MY_PRODUCT}" "DisplayName" ; DisplayName contains version
-      
+
       #TODO: need to internationalize string (see VLC / clementine / etc)
       MessageBox MB_YESNO|MB_ICONEXCLAMATION|MB_TOPMOST|MB_SETFOREGROUND "$R2 is currently installed but only a single instance of ${MY_PRODUCT} can be installed at any time.$\r$\n$\r$\n\
         Do you want to uninstall the current instance of ${MY_PRODUCT} and continue installing ${MY_PRODUCT} ${VERSION}?" /SD IDYES IDNO noInstall
-    
+
     ;Run the uninstaller
     ;uninst:
       ClearErrors
-      
+
       IfSilent 0 notSilent
         ExecWait '"$R0" /S _?=$R1' ; Do not copy the uninstaller to a temp file
         Goto uninstDone
       notSilent:
         ExecWait '"$R0" _?=$R1' ; Do not copy the uninstaller to a temp file
-        
+
       uninstDone:
         IfErrors checkUninstallRequired
         Delete "$R0" ; If uninstall successfule, remove uninstaller
         RMDir "$R1" ; remove previous install directory
         Goto checkUninstallRequired
-    
+
     noInstall:
       Abort
-    
+
     done:
       Pop $R2
       Pop $R1
       Pop $R0
-    
+
     FunctionEnd
 
 ;-------------------------------------------------------------------------------
@@ -158,7 +167,7 @@ SetCompressorDictSize 96
 
 ;-------------------------------------------------------------------------------
 ;Functions and Macros
-  
+
   ; Sets up a variable to indicate to LockedListShow that it was arrived at from the previous page rather than the next
   !macro LeavePageBeforeLockedListShow un
     Function ${un}LeavePageBeforeLockedListShow
@@ -167,7 +176,7 @@ SetCompressorDictSize 96
   !macroend
   !insertmacro LeavePageBeforeLockedListShow ""
   !insertmacro LeavePageBeforeLockedListShow "un."
-  
+
   ;Requires LockedList plugin :
   ;http://nsis.sourceforge.net/LockedList_plug-in
   #TODO: internationalize MUI_HEADER_TEXT and possibly columns (see LameXP)
@@ -188,16 +197,16 @@ SetCompressorDictSize 96
   !macroend
   !insertmacro LockedListShow ""
   !insertmacro LockedListShow "un."
-  
+
   Function DirectoryLeave
     Call NotifyIfRebootRequired
     Call LeavePageBeforeLockedListShow
   FunctionEnd
-  
+
   Function NotifyIfRebootRequired
     Call IsRebootRequired
     Exch $0
-    
+
     ${If} $0 == 1
       #TODO: consider adding a RunOnce entry for the installer to HKCU instead of telling the user they need to run the installer themselves (can't add to HKLM because basic user wouldn't have access, only admins do) - this would require using the UAC plugin to handle elevation by starting as a normal user, elevating, and then dropping back to normal when writing to HKCU
       #TODO: need to internationalize string (see VLC / clementine / etc)
@@ -208,10 +217,10 @@ SetCompressorDictSize 96
     ${Else}
       Goto done
     ${EndIf}
-    
+
     noInstall:
       Abort
-    
+
     done:
       Pop $0
   FunctionEnd
@@ -221,10 +230,10 @@ SetCompressorDictSize 96
     Push $1
     Push $2
     Push $3
-    
+
     ${registry::Read} "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Session Manager" "PendingFileRenameOperations" $0 $1
     ${registry::Unload}
-    
+
     ${If} $0 != ""
       StrLen $2 "$INSTDIR"
       ${StrStr} $1 "$0" "$INSTDIR"
@@ -234,7 +243,7 @@ SetCompressorDictSize 96
     ${Else}
       StrCpy $0 0
     ${EndIf}
-    
+
     Pop $3
     Pop $2
     Pop $1
@@ -264,7 +273,7 @@ SetCompressorDictSize 96
   !insertmacro MUI_UNPAGE_CONFIRM
   UninstPage Custom un.LockedListShow
   !insertmacro MUI_UNPAGE_INSTFILES
-  
+
 ;-------------------------------------------------------------------------------
 ;Languages
 
@@ -331,7 +340,7 @@ SetCompressorDictSize 96
 Section "digiKam" SecDigiKam
 
   #No longer killing running processes prior to install since we are using LockedList to let the user have control over this
-  
+
   SetOutPath "$INSTDIR"
 
   File "RELEASENOTES.txt"
@@ -343,12 +352,17 @@ Section "digiKam" SecDigiKam
   ;The \*.* is required for File /r because without it, NSIS would add every 
   ;  folder with the name 'bin' in all subdirectories of ${KDE4PATH}
   SetOutPath "$INSTDIR\bin"
+  ;Microsoft does not allow debug libraries to be redistributed, so compile
+  ;  using one of the release modes to ensure the *d.dll are not required
   File "${MSVCRuntimePath}\msvcp100.dll"
   File "${MSVCRuntimePath}\msvcr100.dll"
   File "${MSVCOpenMPPath}\vcomp100.dll"
+  ;File "${MSVCRuntimePath}\msvcp100d.dll"
+  ;File "${MSVCRuntimePath}\msvcr100d.dll"
+  ;File "${MSVCOpenMPPath}\vcomp100d.dll"
   File /r "${KDE4PATH}\bin\*.*"
-  SetOutPath "$INSTDIR\certs"
-  File /r "${KDE4PATH}\certs\*.*"
+  ;SetOutPath "$INSTDIR\certs"
+  ;File /r "${KDE4PATH}\certs\*.*"
   ;SetOutPath "$INSTDIR\data"
   ;File /r "${KDE4PATH}\data\*.*"
   ;SetOutPath "$INSTDIR\database"
@@ -357,10 +371,10 @@ Section "digiKam" SecDigiKam
   ;File /r "${KDE4PATH}\doc\*.*"
   SetOutPath "$INSTDIR\etc"
   File /r /x kdesettings.bat /x portage "${KDE4PATH}\etc\*.*"
-  SetOutPath "$INSTDIR\hosting"
-  File /r "${KDE4PATH}\hosting\*.*"
-  SetOutPath "$INSTDIR\imports"
-  File /r "${KDE4PATH}\imports\*.*"
+  ;SetOutPath "$INSTDIR\hosting"
+  ;File /r "${KDE4PATH}\hosting\*.*"
+  ;SetOutPath "$INSTDIR\imports"
+  ;File /r "${KDE4PATH}\imports\*.*"
   SetOutPath "$INSTDIR\include"
   File /r "${KDE4PATH}\include\*.*"
   SetOutPath "$INSTDIR\lib"
@@ -381,8 +395,8 @@ Section "digiKam" SecDigiKam
   ;File /r "${KDE4PATH}\vad\*.*"
   ;SetOutPath "$INSTDIR\vsp"
   ;File /r "${KDE4PATH}\vsp\*.*"
-  SetOutPath "$INSTDIR\xdg"
-  File /r "${KDE4PATH}\xdg\*.*"
+  ;SetOutPath "$INSTDIR\xdg"
+  ;File /r "${KDE4PATH}\xdg\*.*"
 
   ;Store installation folder
   WriteRegStr HKLM "Software\${MY_PRODUCT}" "" $INSTDIR
@@ -417,7 +431,7 @@ Section "digiKam" SecDigiKam
   ;Add start menu items to All Users
   SetShellVarContext all
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
-    
+
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
     SetOutPath "$INSTDIR"
@@ -441,7 +455,7 @@ SectionEnd
 
 Section "Uninstall"
 
-  #No longer adding /REBOOTOK to Delete and RMDir since using LockedList and also potentially uninstalling from the installer
+  ;No longer adding /REBOOTOK to Delete and RMDir since using LockedList and also potentially uninstalling from the installer
 
   Delete "$INSTDIR\Uninstall.exe"
   Delete "$INSTDIR\RELEASENOTES.txt"

@@ -4,14 +4,14 @@
  * This file is a part of digiKam project
  * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
- * @date   2010-06-16
- * @brief  The RecognitionDatabase class wraps the libface database
+ * @date  2010-06-16
+ * @brief Wrapper class for face recognition database
  *
  * @author Copyright (C) 2010 by Marcel Wiesweg
  *         <a href="mailto:marcel dot wiesweg at gmx dot de">marcel dot wiesweg at gmx dot de</a>
  * @author Copyright (C) 2010 by Aditya Bhatt
  *         <a href="mailto:adityabhatt1991 at gmail dot com">adityabhatt1991 at gmail dot com</a>
- * @author Copyright (C) 2010-2013 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -28,11 +28,8 @@
  * ============================================================ */
 
 // OpenCV includes need to show up before Qt includes
-#include "recognition-opentld/opentldfacerecognizer.h"
-#include "recognition-opencv-lbph/opencvlbphfacerecognizer.h"
-#include "preprocessing-tantriggs/tantriggspreprocessor.h"
-
-#include "recognitiondatabase.h"
+#include "opencvlbphfacerecognizer.h"
+#include "funnelreal.h"
 
 // Qt includes
 
@@ -49,32 +46,51 @@
 
 // Local includes
 
+#include "recognitiondatabase.h"
 #include "databaseaccess.h"
 #include "databaseoperationgroup.h"
 #include "databaseparameters.h"
 #include "dataproviders.h"
-#include "funnelreal.h"
 #include "trainingdb.h"
 #include "version.h"
 
 namespace KFaceIface
 {
 
-
-Identity::Identity()
-    : id(-1)
+/** Simple QImage training data container used by RecognitionDatabase::train(Identity, QImage, QString)
+ */
+class SimpleTrainingDataProvider : public TrainingDataProvider
 {
-}
+public:
 
-bool Identity::isNull() const
-{
-    return id == -1;
-}
+    SimpleTrainingDataProvider(const Identity& identity, const QList<QImage>& newImages)
+        : identity(identity), toTrain(newImages)
+    {
+    }
 
-bool Identity::operator==(const Identity& other) const
-{
-    return id == other.id;
-}
+    ImageListProvider* newImages(const Identity& id)
+    {
+        if (identity == id)
+        {
+            toTrain.reset();
+            return &toTrain;
+        }
+        return &empty;
+    }
+
+    ImageListProvider* images(const Identity&)
+    {
+        return &empty;
+    }
+
+public:
+
+    Identity               identity;
+    QListImageListProvider toTrain;
+    QListImageListProvider empty;
+};
+
+// -----------------------------------------------------------------------------------------------
 
 /**
  * The RecognitionDatabaseStaticPriv holds a hash to all exising RecognitionDatabase data,
@@ -110,7 +126,7 @@ public:
 
 K_GLOBAL_STATIC(RecognitionDatabaseStaticPriv, static_d)
 
-// -------------------------------------------------------------------------------------------------
+// -----------------------------------------------------------------------------------------------
 
 class RecognitionDatabase::Private : public QSharedData
 {
@@ -143,27 +159,21 @@ public:
     // Change these three lines to change CurrentRecognizer
     typedef OpenCVLBPHFaceRecognizer CurrentRecognizer;
     CurrentRecognizer* recognizer()             { return getObjectOrCreate(opencvlbph); }
-    CurrentRecognizer* recognizerConst() const  { return opencvlbph;                    }
-
-    OpenTLDFaceRecognizer* openTLD()            { return getObjectOrCreate(opentld);    }
-    OpenTLDFaceRecognizer* openTLDConst() const { return opentld;                       }
+    CurrentRecognizer* recognizerConst()  const { return opencvlbph;                    }
 
     OpenCVLBPHFaceRecognizer* lbph()            { return getObjectOrCreate(opencvlbph); }
     OpenCVLBPHFaceRecognizer* lbphConst() const { return opencvlbph;                    }
 
     typedef FunnelReal CurrentAligner;
-    CurrentAligner* aligner();
-    CurrentAligner* alignerConst()              { return funnel;                        }
+    CurrentAligner*    aligner();
+    CurrentAligner*    alignerConst()     const { return funnel;                        }
 
     void applyParameters();
 
 public:
 
-    void train(OpenTLDFaceRecognizer* const r, const QList<Identity>& identitiesToBeTrained,
-               TrainingDataProvider* const data, const QString& trainingContext);
     void train(OpenCVLBPHFaceRecognizer* const r, const QList<Identity>& identitiesToBeTrained,
                TrainingDataProvider* const data, const QString& trainingContext);
-    void clear(OpenTLDFaceRecognizer* const, const QList<int>&, const QString&);
     void clear(OpenCVLBPHFaceRecognizer* const, const QList<int>& idsToClear, const QString& trainingContext);
 
     cv::Mat preprocessingChain(const QImage& image);
@@ -182,7 +192,6 @@ private:
 
 private:
 
-    OpenTLDFaceRecognizer*    opentld;
     OpenCVLBPHFaceRecognizer* opencvlbph;
     FunnelReal*               funnel;
 };
@@ -202,12 +211,14 @@ QExplicitlySharedDataPointer<RecognitionDatabase::Private> RecognitionDatabaseSt
          * So we only can use this cached data if its reference count is non-zero.
          * Atomically to testing, we increase the reference count to reserve it for our usage.
          */
+
         if (it.value()->ref.fetchAndAddOrdered(1) != 0)
         {
             QExplicitlySharedDataPointer<RecognitionDatabase::Private> p(it.value());
             it.value()->ref.deref(); // We incremented above
             return p;
         }
+
         /* if the original value is 0, it is currently being deleted, but it must be
          * safe to access it, because the destructor has not yet completed - otherwise it'd not be in the hash.
          */
@@ -231,7 +242,6 @@ RecognitionDatabase::Private::Private(const QString& configPath)
     : configPath(configPath),
       mutex(QMutex::Recursive),
       db(DatabaseAccess::create()),
-      opentld(0),
       opencvlbph(0),
       funnel(0)
 {
@@ -251,7 +261,6 @@ RecognitionDatabase::Private::Private(const QString& configPath)
 RecognitionDatabase::Private::~Private()
 {
     delete opencvlbph;
-    delete opentld;
     delete funnel;
 
     static_d->removeDatabase(configPath);
@@ -264,6 +273,7 @@ RecognitionDatabase::Private::CurrentAligner* RecognitionDatabase::Private::alig
     {
         funnel = new FunnelReal;
     }
+
     return funnel;
 }
 
@@ -293,7 +303,7 @@ RecognitionDatabase& RecognitionDatabase::operator=(const KFaceIface::Recognitio
 
 RecognitionDatabase::~RecognitionDatabase()
 {
-    // saveConfig() called from KFace::Database Priv destructor
+    // saveConfig() called from Private destructor
 }
 
 RecognitionDatabase RecognitionDatabase::addDatabase(const QString& configurationPath)
@@ -313,16 +323,20 @@ QList<Identity> RecognitionDatabase::allIdentities() const
         return QList<Identity>();
 
     QMutexLocker lock(&d->mutex);
-    return d->identityCache.values();
+
+    return (d->identityCache.values());
 }
 
 Identity RecognitionDatabase::identity(int id) const
 {
     if (!d || !d->dbAvailable)
+    {
         return Identity();
+    }
 
     QMutexLocker lock(&d->mutex);
-    return d->identityCache.value(id);
+
+    return (d->identityCache.value(id));
 }
 
 // Takes care that there may be multiple values of attribute in identity's attributes
@@ -369,22 +383,28 @@ Identity RecognitionDatabase::Private::findByAttributes(const QString& attribute
             }
         }
     }
+
     return Identity();
 }
 
 Identity RecognitionDatabase::findIdentity(const QString& attribute, const QString& value) const
 {
     if (!d || !d->dbAvailable || attribute.isEmpty())
+    {
         return Identity();
+    }
 
     QMutexLocker lock(&d->mutex);
-    return d->findByAttribute(attribute, value);
+
+    return (d->findByAttribute(attribute, value));
 }
 
 Identity RecognitionDatabase::findIdentity(const QMap<QString, QString>& attributes) const
 {
     if (!d || !d->dbAvailable || attributes.isEmpty())
+    {
         return Identity();
+    }
 
     QMutexLocker lock(&d->mutex);
 
@@ -444,18 +464,23 @@ Identity RecognitionDatabase::findIdentity(const QMap<QString, QString>& attribu
 Identity RecognitionDatabase::addIdentity(const QMap<QString, QString>& attributes)
 {
     if (!d || !d->dbAvailable)
+    {
         return Identity();
+    }
 
     QMutexLocker lock(&d->mutex);
 
     if (attributes.contains("uuid"))
     {
         Identity matchByUuid = findIdentity("uuid", attributes.value("uuid"));
+
         if (!matchByUuid.isNull())
         {
             // This situation is not well defined.
+
             kDebug() << "Called addIdentity with a given UUID, and there is such a UUID already in the database."
                      << "The existing identity is returned without adjusting properties!";
+
             return matchByUuid;
         }
     }
@@ -471,13 +496,16 @@ Identity RecognitionDatabase::addIdentity(const QMap<QString, QString>& attribut
     }
 
     d->identityCache[identity.id] = identity;
+
     return identity;
 }
 
 void RecognitionDatabase::addIdentityAttributes(int id, const QMap<QString, QString>& attributes)
 {
     if (!d || !d->dbAvailable)
+    {
         return;
+    }
 
     QMutexLocker lock(&d->mutex);
 
@@ -493,7 +521,9 @@ void RecognitionDatabase::addIdentityAttributes(int id, const QMap<QString, QStr
 void RecognitionDatabase::addIdentityAttribute(int id, const QString& attribute, const QString& value)
 {
     if (!d || !d->dbAvailable)
+    {
         return;
+    }
 
     QMutexLocker lock(&d->mutex);
     QHash<int, Identity>::iterator it = d->identityCache.find(id);
@@ -507,8 +537,10 @@ void RecognitionDatabase::addIdentityAttribute(int id, const QString& attribute,
 
 void RecognitionDatabase::setIdentityAttributes(int id, const QMap<QString, QString>& attributes)
 {
-   if (!d || !d->dbAvailable)
-        return;
+    if (!d || !d->dbAvailable)
+    {
+            return;
+    }
 
     QMutexLocker lock(&d->mutex);
     QHash<int, Identity>::iterator it = d->identityCache.find(id);
@@ -522,7 +554,7 @@ void RecognitionDatabase::setIdentityAttributes(int id, const QMap<QString, QStr
 
 QString RecognitionDatabase::backendIdentifier() const
 {
-    return "opentld";
+    return QString("opencvlbph");
 }
 
 void RecognitionDatabase::Private::applyParameters()
@@ -541,8 +573,10 @@ void RecognitionDatabase::Private::applyParameters()
 
 void RecognitionDatabase::setParameter(const QString& parameter, const QVariant& value)
 {
-   if (!d || !d->dbAvailable)
-        return;
+    if (!d || !d->dbAvailable)
+    {
+            return;
+    }
 
     QMutexLocker lock(&d->mutex);
 
@@ -552,8 +586,10 @@ void RecognitionDatabase::setParameter(const QString& parameter, const QVariant&
 
 void RecognitionDatabase::setParameters(const QVariantMap& parameters)
 {
-   if (!d || !d->dbAvailable)
+    if (!d || !d->dbAvailable)
+    {
         return;
+    }
 
     QMutexLocker lock(&d->mutex);
 
@@ -568,7 +604,9 @@ void RecognitionDatabase::setParameters(const QVariantMap& parameters)
 QVariantMap RecognitionDatabase::parameters() const
 {
     if (!d || !d->dbAvailable)
+    {
         return QVariantMap();
+    }
 
     QMutexLocker lock(&d->mutex);
 
@@ -579,34 +617,55 @@ int RecognitionDatabase::recommendedImageSize(const QSize& availableSize) const
 {
     // hardcoded for now, change when we know better.
     Q_UNUSED(availableSize)
+
     return 256;
 }
 
 Identity RecognitionDatabase::recognizeFace(const QImage& image)
 {
     QList<Identity> result = recognizeFaces(QList<QImage>() << image);
+
+    if (result.isEmpty())
+        return Identity();
+
     return result.first();
 }
 
 QList<Identity> RecognitionDatabase::recognizeFaces(const QList<QImage>& images)
 {
     QListImageListProvider provider(images);
+
     return recognizeFaces(&provider);
 }
 
 cv::Mat RecognitionDatabase::Private::preprocessingChain(const QImage& image)
 {
-    cv::Mat cvImage = recognizer()->prepareForRecognition(image);
-    //cvImage         = aligner()->align(cvImage);
-    //TanTriggsPreprocessor preprocessor;
-    //cvImage         = preprocessor.preprocess(cvImage);
-    return cvImage;
+    try
+    {
+        cv::Mat cvImage = recognizer()->prepareForRecognition(image);
+        //cvImage         = aligner()->align(cvImage);
+        //TanTriggsPreprocessor preprocessor;
+        //cvImage         = preprocessor.preprocess(cvImage);
+        return cvImage;
+    }
+    catch (cv::Exception& e)
+    {
+        kError() << "cv::Exception:" << e.what();
+        return cv::Mat();
+    }
+    catch(...)
+    {
+        kError() << "Default exception from OpenCV";
+        return cv::Mat();
+    }
 }
 
 QList<Identity> RecognitionDatabase::recognizeFaces(ImageListProvider* const images)
 {
-   if (!d || !d->dbAvailable)
+    if (!d || !d->dbAvailable)
+    {
         return QList<Identity>();
+    }
 
     QMutexLocker lock(&d->mutex);
 
@@ -615,6 +674,7 @@ QList<Identity> RecognitionDatabase::recognizeFaces(ImageListProvider* const ima
     for (; !images->atEnd(); images->proceed())
     {
         int id = -1;
+
         try
         {
             id = d->recognizer()->recognize(d->preprocessingChain(images->image()));
@@ -622,6 +682,10 @@ QList<Identity> RecognitionDatabase::recognizeFaces(ImageListProvider* const ima
         catch (cv::Exception& e)
         {
             kError() << "cv::Exception:" << e.what();
+        }
+        catch(...)
+        {
+            kError() << "Default exception from OpenCV";
         }
 
         if (id == -1)
@@ -655,6 +719,8 @@ static void trainSingle(Recognizer* const r, const Identity& identity, TrainingD
 {
     ImageListProvider* const images = data->newImages(identity);
 
+    kDebug() << "Training " << images->size() << " images for identity " << identity.id;
+
     for (; !images->atEnd(); images->proceed())
     {
         try
@@ -664,6 +730,10 @@ static void trainSingle(Recognizer* const r, const Identity& identity, TrainingD
         catch (cv::Exception& e)
         {
             kError() << "cv::Exception:" << e.what();
+        }
+        catch(...)
+        {
+            kError() << "Default exception from OpenCV";
         }
     }
 }
@@ -677,7 +747,7 @@ static void trainIdentityBatch(Recognizer* const r, const QList<Identity>& ident
 {
     foreach (const Identity& identity, identitiesToBeTrained)
     {
-        std::vector<int> labels;
+        std::vector<int>     labels;
         std::vector<cv::Mat> images;
 
         ImageListProvider* const imageList = data->newImages(identity);
@@ -696,28 +766,26 @@ static void trainIdentityBatch(Recognizer* const r, const QList<Identity>& ident
             {
                 kError() << "cv::Exception preparing image for LBPH:" << e.what();
             }
+            catch(...)
+            {
+                kError() << "Default exception from OpenCV";
+            }
         }
+
+        kDebug() << "Training " << images.size() << " images for identity " << identity.id;
 
         try
         {
-            kDebug() << "Training" << images.size() << "images for identity" << identity.id;
             r->train(images, labels, trainingContext);
         }
         catch (cv::Exception& e)
         {
             kError() << "cv::Exception training LBPH:" << e.what();
         }
-    }
-}
-
-// Specializations for available backends
-void RecognitionDatabase::Private::train(OpenTLDFaceRecognizer* const r, const QList<Identity>& identitiesToBeTrained,
-                                         TrainingDataProvider* const data, const QString& trainingContext)
-{
-    foreach (const Identity& identity, identitiesToBeTrained)
-    {
-        //OpenTLD
-        trainSingle(r, identity, data, trainingContext, this);
+        catch(...)
+        {
+            kError() << "Default exception from OpenCV";
+        }
     }
 }
 
@@ -730,18 +798,34 @@ void RecognitionDatabase::Private::train(OpenCVLBPHFaceRecognizer* const r, cons
 void RecognitionDatabase::train(const QList<Identity>& identitiesToBeTrained, TrainingDataProvider* const data,
                                 const QString& trainingContext)
 {
-   if (!d || !d->dbAvailable)
-        return;
+    if (!d || !d->dbAvailable)
+    {
+            return;
+    }
 
-   QMutexLocker lock(&d->mutex);
+    QMutexLocker lock(&d->mutex);
 
-   d->train(d->recognizer(), identitiesToBeTrained, data, trainingContext);
+    d->train(d->recognizer(), identitiesToBeTrained, data, trainingContext);
 }
 
-// Specializations for available backends
-void RecognitionDatabase::Private::clear(OpenTLDFaceRecognizer* const, const QList<int>&, const QString&)
+
+void RecognitionDatabase::train(const Identity& identityToBeTrained, const QImage& image,
+                                const QString& trainingContext)
 {
-    // unimplemented
+    SimpleTrainingDataProvider* const  data = new SimpleTrainingDataProvider(
+        identityToBeTrained,
+        QList<QImage>() << image
+    );
+    train(identityToBeTrained, data, trainingContext);
+    delete data;
+}
+
+void RecognitionDatabase::train(const Identity& identityToBeTrained, const QList<QImage>& images,
+                                const QString& trainingContext)
+{
+    SimpleTrainingDataProvider* const  data = new SimpleTrainingDataProvider(identityToBeTrained, images);
+    train(identityToBeTrained, data, trainingContext);
+    delete data;
 }
 
 void RecognitionDatabase::Private::clear(OpenCVLBPHFaceRecognizer* const, const QList<int>& idsToClear, const QString& trainingContext)
@@ -763,7 +847,9 @@ void RecognitionDatabase::Private::clear(OpenCVLBPHFaceRecognizer* const, const 
 void RecognitionDatabase::clearAllTraining(const QString& trainingContext)
 {
     if (!d || !d->dbAvailable)
+    {
         return;
+    }
 
     QMutexLocker lock(&d->mutex);
     d->clear(d->recognizer(), QList<int>(), trainingContext);
@@ -772,10 +858,12 @@ void RecognitionDatabase::clearAllTraining(const QString& trainingContext)
 void RecognitionDatabase::clearTraining(const QList<Identity>& identitiesToClean, const QString& trainingContext)
 {
     if (!d || !d->dbAvailable || identitiesToClean.isEmpty())
+    {
         return;
+    }
 
     QMutexLocker lock(&d->mutex);
-    QList<int> ids;
+    QList<int>   ids;
 
     foreach (const Identity& id, identitiesToClean)
     {
@@ -785,7 +873,20 @@ void RecognitionDatabase::clearTraining(const QList<Identity>& identitiesToClean
     d->clear(d->recognizer(), ids, trainingContext);
 }
 
-// --- Runtime version info static methods (declared in version.h)
+void RecognitionDatabase::deleteIdentity(const Identity& identityToBeDeleted)
+{
+    if (!d || !d->dbAvailable || identityToBeDeleted.isNull())
+    {
+        return;
+    }
+
+    QMutexLocker lock(&d->mutex);
+
+    DatabaseAccess(d->db).db()->deleteIdentity(identityToBeDeleted.id);
+    d->identityCache.remove(identityToBeDeleted.id);
+}
+
+// --- Runtime version info static methods --------------------------------------------------
 
 QString LibOpenCVVersion()
 {

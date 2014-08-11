@@ -329,8 +329,15 @@ void SlideShow::loadPrevImage()
     if (d->fileIndex >= 0 && d->fileIndex < num)
     {
         d->currentImage = d->settings.fileList[d->fileIndex];
-        d->previewThread->load(d->currentImage.toLocalFile(),
-                               qMax(d->deskWidth, d->deskHeight));
+        if (d->settings.useFullSizePreviews)
+        {
+            d->previewThread->loadHighQuality(d->currentImage.toLocalFile());
+        }
+        else
+        {
+            d->previewThread->load(d->currentImage.toLocalFile(),
+                                   qMax(d->deskWidth, d->deskHeight));
+        }
     }
     else
     {
@@ -380,26 +387,62 @@ void SlideShow::preloadNextImage()
 
     if (index < num)
     {
-        d->previewPreloadThread->load(d->settings.fileList[index].toLocalFile(),
-                                      qMax(d->deskWidth, d->deskHeight));
+        if (d->settings.useFullSizePreviews)
+        {
+            d->previewPreloadThread->loadHighQuality(d->settings.fileList[index].toLocalFile());
+        }
+        else
+        {
+            d->previewPreloadThread->load(d->settings.fileList[index].toLocalFile(),
+                                          qMax(d->deskWidth, d->deskHeight));
+        }
     }
 }
 
 void SlideShow::updatePixmap()
 {
-    d->pixmap = QPixmap(size());
-    d->pixmap.fill(Qt::black);
-    QPainter p(&(d->pixmap));
-
     if (!d->currentImage.toLocalFile().isEmpty())
     {
+    
         if (!d->preview.isNull())
         {
             // Preview extraction is complete... Draw the image.
 
-            QPixmap pix(d->preview.smoothScale(width(), height(), Qt::KeepAspectRatio).convertToPixmap());
-            p.drawPixmap((width() - pix.width()) / 2,
-                         (height() - pix.height()) / 2, pix,
+            /* For high resolution ("retina") displays, Mac OS X / Qt
+               report only half of the physical resolution in terms of
+               pixels, i.e. every logical pixels corresponds to 2x2
+               physical pixels. However, UI elements and fonts are
+               nevertheless rendered at full resolution, and pixmaps
+               as well, provided their resolution is high enough (that
+               is, higher than the reported, logical resolution).
+
+               To work around this, we render the photos not a logical
+               resolution, but with the photo's full resolution, but
+               at the screen's aspect ratio. When we later draw this
+               high resolution bitmap, it is up to Qt to scale the
+               photo to the true physical resolution.  The ratio
+               computed below is the ratio between the photo and
+               screen resolutions, or equivalently the factor by which
+               we need to increase the pixel size of the rendered
+               pixmap.
+            */
+            double xratio = double(d->preview.width()) / width();
+            double yratio = double(d->preview.height()) / height();
+            double ratio = qMax(qMin(xratio, yratio), 1.0);
+
+            QSize fullSize = QSizeF(ratio*width(), ratio*height()).toSize();
+            d->pixmap = QPixmap(fullSize);
+            d->pixmap.fill(Qt::black);
+            QPainter p(&(d->pixmap));
+
+            // scale font for the pixmap
+            QFont fn(font());
+            fn.setPointSize(int(ratio*fn.pointSize()));
+            p.setFont(fn);
+
+            QPixmap pix(d->preview.smoothScale(d->pixmap.width(), d->pixmap.height(), Qt::KeepAspectRatio).convertToPixmap());
+            p.drawPixmap((d->pixmap.width() - pix.width()) / 2,
+                         (d->pixmap.height() - pix.height()) / 2, pix,
                          0, 0, pix.width(), pix.height());
 
             QString str;
@@ -423,6 +466,9 @@ void SlideShow::updatePixmap()
                 d->labelsBox->move(10, height() - offset - d->clWidget->minimumHeight());
                 offset += d->clWidget->minimumHeight();
             }
+
+            // convert offset to pixmap units
+            offset = int(ratio*offset);
 
             // Display Titles.
 
@@ -575,6 +621,10 @@ void SlideShow::updatePixmap()
         {
             // ...or preview extraction is failed.
 
+            d->pixmap = QPixmap(size());
+            d->pixmap.fill(Qt::black);
+            QPainter p(&(d->pixmap));
+
             p.setPen(Qt::white);
             p.drawText(0, 0, d->pixmap.width(), d->pixmap.height(),
                        Qt::AlignCenter | Qt::TextWordWrap,
@@ -585,6 +635,10 @@ void SlideShow::updatePixmap()
     else
     {
         // End of Slide Show.
+
+        d->pixmap = QPixmap(size());
+        d->pixmap.fill(Qt::black);
+        QPainter p(&(d->pixmap));
 
         QPixmap logo;
 
@@ -620,17 +674,17 @@ void SlideShow::printInfoText(QPainter& p, int& offset, const QString& str)
 {
     if (!str.isEmpty())
     {
-        offset += 20;
+        offset += QFontMetrics(p.font()).lineSpacing();
         p.setPen(Qt::black);
 
         for (int x = 19; x <= 21; ++x)
             for (int y = offset + 1; y >= offset - 1; --y)
             {
-                p.drawText(x, height() - y, str);
+                p.drawText(x, p.window().height() - y, str);
             }
 
         p.setPen(Qt::white);
-        p.drawText(20, height() - offset, str);
+        p.drawText(20, p.window().height() - offset, str);
     }
 }
 
@@ -706,7 +760,7 @@ void SlideShow::printComments(QPainter& p, int& offset, const QString& comments)
 void SlideShow::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
-    p.drawPixmap(0, 0, d->pixmap,
+    p.drawPixmap(0, 0, width(), height(), d->pixmap,
                  0, 0, d->pixmap.width(), d->pixmap.height());
     p.end();
 }

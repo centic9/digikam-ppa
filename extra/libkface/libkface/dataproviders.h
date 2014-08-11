@@ -5,7 +5,7 @@
  * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
  * @date  2013-05-18
- * @brief Wrapper class for face recongition
+ * @brief Wrapper class for face recognition
  *
  * @author Copyright (C) 2013 by Marcel Wiesweg
  *         <a href="mailto:marcel dot wiesweg at gmx dot de">marcel dot wiesweg at gmx dot de</a>
@@ -39,15 +39,18 @@
 namespace KFaceIface
 {
 
+/**
+ * This class provides access to a list of unspecified entities,
+ * where for each entry a QImage can be provided.
+ * Only forward iteration is required.
+ */
 class KFACE_EXPORT ImageListProvider
 {
 public:
-    /**
-     * This class provides access to a list of unspecified entities,
-     * where for each entry a QImage can be provided.
-     * Only forward iteration is required.
-     */
-    virtual ~ImageListProvider() {}
+
+    virtual ~ImageListProvider()
+    {
+    }
 
     virtual int  size() const           = 0;
     virtual bool atEnd() const          = 0;
@@ -55,11 +58,15 @@ public:
     virtual QImage image()              = 0;
 };
 
-/// A wrapper implementation for ImageListProvider if you have a QList of QImages
+// ----------------------------------------------------------------------------------------
 
+/**
+ * A wrapper implementation for ImageListProvider if you have a QList of QImages
+ */
 class KFACE_EXPORT QListImageListProvider : public ImageListProvider
 {
 public:
+
     QListImageListProvider(const QList<QImage>& lst)
         : list(lst),
           it(list.constBegin())
@@ -71,13 +78,13 @@ public:
     {
     }
 
-    virtual int  size() const                   { return list.size(); }
+    virtual int  size()  const                  { return list.size();           }
     virtual bool atEnd() const                  { return it == list.constEnd(); }
-    virtual void proceed(int steps = 1)         { it += steps; }
+    virtual void proceed(int steps = 1)         { it += steps;                  }
 
-    void reset()                                { it = list.constBegin(); }
+    void reset()                                { it = list.constBegin();       }
 
-    virtual QImage image()                      { return *it; }
+    virtual QImage image()                      { return *it;                   }
 
 public:
 
@@ -85,30 +92,33 @@ public:
     QList<QImage>::const_iterator it;
 };
 
+// ----------------------------------------------------------------------------------------
+
 class KFACE_EXPORT EmptyImageListProvider : public ImageListProvider
 {
 public:
 
-    virtual int  size() const           { return 0;    }
-    virtual bool atEnd() const          { return true; }
+    virtual int  size()  const          { return 0;        }
+    virtual bool atEnd() const          { return true;     }
     virtual void proceed(int steps = 1) { Q_UNUSED(steps)  }
     virtual QImage image()              { return QImage(); }
 };
 
 // ----------------------------------------------------------------------------------------
 
+/**
+ * A TrainingDataProvider provides a call-back interface
+ * for the training process to retrieve the necessary information.
+ * It is not specified, but depends on the backend which of the methods
+ * in which order and for which identities will be called.
+ */
 class KFACE_EXPORT TrainingDataProvider
 {
 public:
 
-    /**
-     * A TrainingDataProvider provides a call-back interface
-     * for the training process to retrieve the necessary information.
-     * It is not specified, but depends on the backend which of the methods
-     * in which order and for which identities will be called.
-     */
-
-    virtual ~TrainingDataProvider() {}
+    virtual ~TrainingDataProvider()
+    {
+    }
 
     /**
      * Provides those images for the given identity that have not yet been

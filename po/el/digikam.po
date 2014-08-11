@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-05-11 01:40+0000\n"
+"POT-Creation-Date: 2014-06-25 01:42+0000\n"
 "PO-Revision-Date: 2013-05-03 11:46+0100\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -515,13 +515,13 @@ msgstr ""
 msgid "No such tag"
 msgstr "Δεν υπάρχει τέτοια ετικέτα"
 
-#: digikam/album/albummodificationhelper.cpp:222
+#: digikam/album/albummodificationhelper.cpp:225
 #: digikam/utils/searchmodificationhelper.cpp:143
 #, kde-format
 msgid "Rename Album (%1)"
 msgstr "Μετονομασία λευκώματος (%1)"
 
-#: digikam/album/albummodificationhelper.cpp:223
+#: digikam/album/albummodificationhelper.cpp:226
 #: digikam/utils/searchmodificationhelper.cpp:144
 msgid "Enter new album name:"
 msgstr "Εισαγωγή νέου ονόματος για λεύκωμα:"
@@ -1093,11 +1093,11 @@ msgstr "Αντιγραφή ιδιοτήτων"
 msgid "Process Items"
 msgstr "Επεξεργασία αντικειμένων"
 
-#: digikam/fileaction/fileworkeriface.cpp:72
+#: digikam/fileaction/fileworkeriface.cpp:73
 msgid "Failed to revise Exif orientation these files:"
 msgstr "Αποτυχία διόρθωσης του προσανατολισμού Exif στα αρχεία:"
 
-#: digikam/fileaction/fileworkeriface.cpp:265
+#: digikam/fileaction/fileworkeriface.cpp:275
 msgid "Failed to transform these files:"
 msgstr "Αποτυχία στο μετασχηματισμό αυτών των αρχείων:"
 
@@ -1457,7 +1457,7 @@ msgstr "Καθάρισμα όλων"
 msgid "Select All"
 msgstr "Επιλογή όλων"
 
-#: digikam/items/digikamimageview.cpp:334 digikam/views/tableview.cpp:228
+#: digikam/items/digikamimageview.cpp:338 digikam/views/tableview.cpp:228
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "Προεπισκόπηση"
@@ -1531,9 +1531,18 @@ msgctxt "Month String - Year String"
 msgid "%1 %2"
 msgstr "%1 %2"
 
+#: digikam/items/imagecoordinatesoverlay.cpp:104
+#: showfoto/thumbbar/showfotocoordinatesoverlay.cpp:105
+#: utilities/importui/items/importoverlays.cpp:106
+#, fuzzy
+#| msgid "New filter based on Aspect-Ratio information;"
+msgctxt "@info:tooltip"
+msgid "This item has geolocation information."
+msgstr "Νέο φίλτρο με βάση την πληροφορία τη νέα αναλογία διαστάσεων·"
+
 #: digikam/items/imagerotationoverlay.cpp:68
 #: digikam/views/imagepreviewview.cpp:164
-#: utilities/importui/items/importoverlays.cpp:371
+#: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
@@ -1541,7 +1550,7 @@ msgstr "Περιστροφή αριστερά"
 
 #: digikam/items/imagerotationoverlay.cpp:72
 #: digikam/views/imagepreviewview.cpp:165
-#: utilities/importui/items/importoverlays.cpp:375
+#: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
@@ -1728,6 +1737,7 @@ msgid "Browse Tags..."
 msgstr "Εμφάνιση ετικετών..."
 
 #: digikam/main/digikamapp.cpp:819 digikam/views/leftsidebarwidgets.cpp:195
+#: libs/imageproperties/imagedescedittab.cpp:294
 #, fuzzy
 #| msgid "Open in File Manager"
 msgid "Open Tag Manager"
@@ -1740,9 +1750,10 @@ msgstr "Νέ&ο..."
 
 #: digikam/main/digikamapp.cpp:836 digikam/tags/tagmodificationhelper.cpp:273
 #: digikam/tags/tagmodificationhelper.cpp:378
-#: digikam/tags/tagsmanager/tagsmanager.cpp:378
+#: digikam/tags/tagsmanager/tagsmanager.cpp:399
 #: digikam/utils/editablesearchtreeview.cpp:70
 #: digikam/utils/searchmodificationhelper.cpp:82
+#: utilities/importui/main/importui.cpp:1912
 #: utilities/queuemanager/views/workflowlist.cpp:294
 msgid "Delete"
 msgstr "Διαγραφή"
@@ -1757,7 +1768,7 @@ msgstr "Ορισμός ετικέτας"
 msgid "Views"
 msgstr "Προβολές"
 
-#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:474
+#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:476
 msgctxt "@action Go to thumbnails (icon) view"
 msgid "Thumbnails"
 msgstr "Εικόνες επισκόπησης"
@@ -1767,7 +1778,7 @@ msgctxt "View the selected image"
 msgid "Preview Image"
 msgstr "Προεπισκόπηση εικόνας"
 
-#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:486
+#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:488
 msgctxt "@action Switch to map view"
 msgid "Map"
 msgstr "Χάρτης"
@@ -1886,7 +1897,7 @@ msgid "Change the filename of the currently selected item."
 msgstr ""
 "Τροποποίηση ονόματος του αρχείου του τρέχοντος επιλεγμένου αντικειμένου."
 
-#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:506
+#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:510
 #: utilities/imageeditor/editor/editorwindow.cpp:419
 #: utilities/lighttable/lighttablewindow.cpp:507
 msgctxt "Non-pluralized"
@@ -2031,8 +2042,8 @@ msgid "Select None"
 msgstr "Χωρίς επιλογή"
 
 #: digikam/main/digikamapp.cpp:1147
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:134
-#: digikam/tags/tagsmanager/tagsmanager.cpp:655
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:149
+#: digikam/tags/tagsmanager/tagsmanager.cpp:679
 #: digikam/utils/contextmenuhelper.cpp:850
 msgid "Invert Selection"
 msgstr "Αντιστροφή επιλογής"
@@ -2257,7 +2268,7 @@ msgstr "Πρόσθετα KIPI"
 msgid "Loading themes..."
 msgstr "Φόρτωση θεμάτων..."
 
-#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:425
+#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:429
 msgid "&Themes"
 msgstr "&Θέματα"
 
@@ -2290,7 +2301,7 @@ msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Κανονικό"
 
-#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2492
+#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2497
 msgid "Flipped Horizontally"
 msgstr "Αναστροφή οριζόντια"
 
@@ -2298,7 +2309,7 @@ msgstr "Αναστροφή οριζόντια"
 msgid "Rotated Upside Down"
 msgstr "Κατακόρυφη περιστροφή"
 
-#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2496
+#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2501
 msgid "Flipped Vertically"
 msgstr "Αναστροφή κατακόρυφα"
 
@@ -2306,7 +2317,7 @@ msgstr "Αναστροφή κατακόρυφα"
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Περιστροφή δεξιά / οριζ. αναστροφή"
 
-#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2504
+#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2509
 msgid "Rotated Right"
 msgstr "Περιστροφή δεξιά"
 
@@ -2314,7 +2325,7 @@ msgstr "Περιστροφή δεξιά"
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Περιστροφή δεξιά / κατακ. αναστροφή"
 
-#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2500
+#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2505
 msgid "Rotated Left"
 msgstr "Περιστροφή αριστερά"
 
@@ -2626,8 +2637,8 @@ msgid "Reset Tag Icon"
 msgstr "Επαναφορά εικονιδίου ετικέτας"
 
 #: digikam/tags/tagfolderview.cpp:114
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:140
-#: digikam/tags/tagsmanager/tagsmanager.cpp:661
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:155
+#: digikam/tags/tagsmanager/tagsmanager.cpp:685
 #, fuzzy
 #| msgid "Select None"
 msgid "Expand Selected Nodes"
@@ -2730,16 +2741,15 @@ msgid "Assign Tag \"%1\""
 msgstr "Ορισμός ετικέτας \"%1\""
 
 #: digikam/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:111
 #: digikam/utils/contextmenuhelper.cpp:828
 msgid "All Tags"
 msgstr "Όλες οι ετικέτες"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:270
+#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:266
 msgid "Quick Access List"
 msgstr ""
 
-#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:143
+#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:148
 #, fuzzy
 #| msgid "Delete Selected"
 msgid "Delete Selected from List"
@@ -2755,22 +2765,29 @@ msgstr "Εισαγωγή στον φωτεινό πίνακα"
 msgid "Add selected tags to Quick Access List"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:131
-#: digikam/tags/tagsmanager/tagsmanager.cpp:649
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:139
+#: digikam/utils/contextmenuhelper.cpp:429
+#, fuzzy
+#| msgid "Delete Tag"
+msgid "Delete Tags"
+msgstr "Διαγραφή ετικέτας"
+
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:146
+#: digikam/tags/tagsmanager/tagsmanager.cpp:673
 #, fuzzy
 #| msgid "Reset Tag Icon"
 msgid "Reset tag Icon"
 msgstr "Επαναφορά εικονιδίου ετικέτας"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:137
-#: digikam/tags/tagsmanager/tagsmanager.cpp:658
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:152
+#: digikam/tags/tagsmanager/tagsmanager.cpp:682
 #, fuzzy
 #| msgid "Include Tag Sub-Tree"
 msgid "Expand Tag Tree"
 msgstr "Συμπερίληψη υποδέντρου ετικέτας"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:143
-#: digikam/tags/tagsmanager/tagsmanager.cpp:663
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:158
+#: digikam/tags/tagsmanager/tagsmanager.cpp:687
 #, fuzzy
 #| msgid "Reread Metadata From Images"
 msgid "Remove Tag from Images"
@@ -2798,14 +2815,14 @@ msgstr ""
 msgid "Previous tags were changed. Save changes? "
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:166
+#: digikam/tags/tagsmanager/tagsmanager.cpp:169
 #: libs/widgets/mainview/daboutdata.cpp:177
 #, fuzzy
 #| msgid "Rights Management"
 msgid "Tags Manager"
 msgstr "Διαχείριση δικαιωμάτων"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:331
+#: digikam/tags/tagsmanager/tagsmanager.cpp:351
 #, fuzzy, kde-format
 #| msgid ""
 #| "Tag '%2' has one subtag. Deleting this will also delete the subtag. Do "
@@ -2827,7 +2844,7 @@ msgstr[1] ""
 "Η ετικέτα '%2' έχει μία υποετικέτα. Διαγράφοντάς την θα διαγραφεί και η "
 "υποετικέτα. Επιθυμείτε να συνεχίσετε;"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:355
+#: digikam/tags/tagsmanager/tagsmanager.cpp:376
 #, fuzzy, kde-format
 #| msgid "Tag '%2' is assigned to one item. Do you want to continue?"
 #| msgid_plural "Tag '%2' is assigned to %1 items. Do you want to continue?"
@@ -2840,7 +2857,7 @@ msgstr[0] ""
 msgstr[1] ""
 "Η ετικέτα '%2' έχει οριστεί σε ένα αντικείμενο. Θέλετε να συνεχίσετε;"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:367
+#: digikam/tags/tagsmanager/tagsmanager.cpp:388
 #, fuzzy, kde-format
 #| msgid "Delete Tag"
 msgctxt "%2 is a comma separated list of tags to be deleted."
@@ -2849,7 +2866,7 @@ msgid_plural "Delete tags %2?"
 msgstr[0] "Διαγραφή ετικέτας"
 msgstr[1] "Διαγραφή ετικέτας"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:377
+#: digikam/tags/tagsmanager/tagsmanager.cpp:398
 #, fuzzy
 #| msgid "Delete Tag"
 msgid "Delete tag"
@@ -2857,8 +2874,8 @@ msgid_plural "Delete tags"
 msgstr[0] "Διαγραφή ετικέτας"
 msgstr[1] "Διαγραφή ετικέτας"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:483
 #: digikam/tags/tagsmanager/tagsmanager.cpp:505
+#: digikam/tags/tagsmanager/tagsmanager.cpp:527
 #, fuzzy
 #| msgid ""
 #| "Performing this operation will reduce image color quality. Do you want to "
@@ -2870,14 +2887,14 @@ msgstr ""
 "Με την εκτέλεση αυτής της λειτουργίας θα μειωθεί η ποιότητα χρώματος της "
 "εικόνας. Θέλετε να συνεχίσετε;"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:528
+#: digikam/tags/tagsmanager/tagsmanager.cpp:550
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
 "Do you want to continue?"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:591
+#: digikam/tags/tagsmanager/tagsmanager.cpp:613
 #, fuzzy
 #| msgid ""
 #| "Do you want to remove the collection \"%1\" from your list of collections?"
@@ -2888,111 +2905,111 @@ msgstr[0] ""
 msgstr[1] ""
 "Επιθυμείτε την αφαίρεση της συλλογής \"%1\" από τη λίστα των συλλογών σας;"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:645
+#: digikam/tags/tagsmanager/tagsmanager.cpp:669
 msgid "Organize"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:652
+#: digikam/tags/tagsmanager/tagsmanager.cpp:676
 #, fuzzy
 #| msgid "Create Tag From Address Book"
 msgid "Create Tag from Address Book"
 msgstr "Δημιουργία ετικέτας από βιβλίο διευθύνσεων"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:666
+#: digikam/tags/tagsmanager/tagsmanager.cpp:690
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:669
+#: digikam/tags/tagsmanager/tagsmanager.cpp:693
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:673
+#: digikam/tags/tagsmanager/tagsmanager.cpp:697
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:676
+#: digikam/tags/tagsmanager/tagsmanager.cpp:700
 msgid "Invert selection. Only visible items will be selected"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:679
+#: digikam/tags/tagsmanager/tagsmanager.cpp:703
 msgid "Expand tag tree by one level"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:681
+#: digikam/tags/tagsmanager/tagsmanager.cpp:705
 msgid "Selected items will be expanded"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:683
+#: digikam/tags/tagsmanager/tagsmanager.cpp:707
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:713
+#: digikam/tags/tagsmanager/tagsmanager.cpp:737
 #, fuzzy
 #| msgid "&Export"
 msgid "Sync &Export"
 msgstr "&Εξαγωγή"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:717
+#: digikam/tags/tagsmanager/tagsmanager.cpp:741
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags from Database to Image"
 msgstr "Εγγραφή μεταδεδομένων σε εικόνα"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:721
+#: digikam/tags/tagsmanager/tagsmanager.cpp:745
 #, fuzzy
 #| msgid "Reread Metadata From Image"
 #| msgid_plural "Reread Metadata From Selected Images"
 msgid "Read Tags from Image"
 msgstr "Δεύτερη ανάγνωση μεταδεδομένων από εικόνα"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:724
+#: digikam/tags/tagsmanager/tagsmanager.cpp:748
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Wipe all tags from Database only"
 msgstr "Εγγραφή μεταδεδομένων σε εικόνα"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:727
+#: digikam/tags/tagsmanager/tagsmanager.cpp:751
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags Metadata to Image."
 msgstr "Εγγραφή μεταδεδομένων σε εικόνα"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:729
+#: digikam/tags/tagsmanager/tagsmanager.cpp:753
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:732
+#: digikam/tags/tagsmanager/tagsmanager.cpp:756
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:753
+#: digikam/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync Database with Nepomuk"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:757
+#: digikam/tags/tagsmanager/tagsmanager.cpp:779
 #, fuzzy
 #| msgid "Sync image metadata with Database"
 msgid "Sync Nepomuk to Database"
 msgstr "Συγχρονισμός μεταδεδομένων εικόνων με τη βάση δεδομένων"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:758
+#: digikam/tags/tagsmanager/tagsmanager.cpp:780
 msgid ""
 "Export all tags from Database to Nepomuk. digiKam with Nepomuk support is "
 "required."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:761
+#: digikam/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Import tags from Nepomuk. digiKam with Nepomuk support is required."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:787
+#: digikam/tags/tagsmanager/tagsmanager.cpp:809
 #, fuzzy
 #| msgid "Properties"
 msgid "Tag Properties"
@@ -3027,35 +3044,35 @@ msgstr "Αφαίρεση αυτής της ετικέτας"
 msgid "Go to this Tag"
 msgstr "Μετάβαση σε αυτήν την ετικέτα"
 
-#: digikam/utils/albumsettings.cpp:456
+#: digikam/utils/albumsettings.cpp:463
 msgid "Category"
 msgstr "Κατηγορία"
 
-#: digikam/utils/albumsettings.cpp:457
+#: digikam/utils/albumsettings.cpp:464
 msgid "Travel"
 msgstr "Ταξίδι"
 
-#: digikam/utils/albumsettings.cpp:458
+#: digikam/utils/albumsettings.cpp:465
 msgid "Holidays"
 msgstr "Διακοπές"
 
-#: digikam/utils/albumsettings.cpp:459
+#: digikam/utils/albumsettings.cpp:466
 msgid "Friends"
 msgstr "Φίλοι"
 
-#: digikam/utils/albumsettings.cpp:460
+#: digikam/utils/albumsettings.cpp:467
 msgid "Nature"
 msgstr "Φύση"
 
-#: digikam/utils/albumsettings.cpp:461
+#: digikam/utils/albumsettings.cpp:468
 msgid "Party"
 msgstr "Πάρτι"
 
-#: digikam/utils/albumsettings.cpp:462
+#: digikam/utils/albumsettings.cpp:469
 msgid "Todo"
 msgstr "Προς υλοποίηση"
 
-#: digikam/utils/albumsettings.cpp:463 showfoto/setup/setup.cpp:154
+#: digikam/utils/albumsettings.cpp:470 showfoto/setup/setup.cpp:154
 #: utilities/setup/setup.cpp:334
 msgid "Miscellaneous"
 msgstr "Διάφορα"
@@ -3096,12 +3113,6 @@ msgstr "Άνοιγμα με..."
 #: digikam/utils/contextmenuhelper.cpp:411
 msgid "New Tag..."
 msgstr "Νέα ετικέτα..."
-
-#: digikam/utils/contextmenuhelper.cpp:429
-#, fuzzy
-#| msgid "Delete Tag"
-msgid "Delete Tags"
-msgstr "Διαγραφή ετικέτας"
 
 #: digikam/utils/contextmenuhelper.cpp:438
 msgctxt "Edit Tag Properties"
@@ -3908,7 +3919,7 @@ msgstr "Επιγραφή χρώματος"
 #: libs/template/templatelist.cpp:83
 #: utilities/queuemanager/views/workflowlist.cpp:97
 #: utilities/searchwindow/searchfields.cpp:536
-#: utilities/setup/setupcamera.cpp:283
+#: utilities/setup/setupcamera.cpp:285
 msgid "Title"
 msgstr "Τίτλος"
 
@@ -4009,7 +4020,7 @@ msgstr "Όνομα αρχείου"
 
 #: digikam/views/tableview_column_file.cpp:67
 #: digikam/views/tableview_column_file.cpp:97
-#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:286
+#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:288
 #: utilities/setup/setupcollectionview.cpp:936
 msgid "Path"
 msgstr "Διαδρομή"
@@ -4104,7 +4115,7 @@ msgstr "Λειτουργία χρώματος"
 
 #: digikam/views/tableview_column_item.cpp:104
 #: digikam/views/tableview_column_item.cpp:139
-#: libs/widgets/common/databasewidget.cpp:102
+#: libs/widgets/common/databasewidget.cpp:103
 msgid "Type"
 msgstr "Τύπος"
 
@@ -4230,8 +4241,8 @@ msgstr "Μικροδευτερόλεπτα"
 msgid "Unit"
 msgstr "Μονάδα"
 
-#: digikam/views/tableview_column_thumbnail.cpp:88
-#: digikam/views/tableview_column_thumbnail.cpp:98
+#: digikam/views/tableview_column_thumbnail.cpp:85
+#: digikam/views/tableview_column_thumbnail.cpp:95
 #: utilities/queuemanager/views/queuelist.cpp:308
 msgid "Thumbnail"
 msgstr "Εικόνα επισκόπησης"
@@ -5661,7 +5672,7 @@ msgstr "Μάσκα αναίρεσης όξυνσης"
 
 #: imageplugins/enhance/sharpentool.cpp:292
 #: libs/dimg/filters/sharp/refocusfilter.h:58
-#: libs/dimg/filters/sharp/sharpsettings.cpp:147
+#: libs/dimg/filters/sharp/sharpsettings.cpp:148
 msgid "Refocus"
 msgstr "Επανεστίαση"
 
@@ -6472,7 +6483,7 @@ msgstr "Αυτόματη προσαρμογή"
 
 #: imageplugins/transform/freerotationtool.cpp:223
 #: libs/widgets/metadata/metadatawidget.cpp:146
-#: utilities/importui/main/importui.cpp:291
+#: utilities/importui/main/importui.cpp:293
 msgid "Settings"
 msgstr "Ρυθμίσεις"
 
@@ -6946,34 +6957,34 @@ msgstr ""
 "μιας εικόνας σε πολύ μεγάλο μέγεθος. Η διεργασία αυτή μπορεί να διαρκέσει "
 "αρκετά."
 
-#: imageplugins/transform/resizetool.cpp:556
+#: imageplugins/transform/resizetool.cpp:552
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:353
 #: utilities/queuemanager/basetools/transform/resize.cpp:126
 msgid "Resize"
 msgstr "Αλλαγή μεγέθους"
 
-#: imageplugins/transform/resizetool.cpp:587
+#: imageplugins/transform/resizetool.cpp:583
 msgid "Photograph Resizing Settings File to Load"
 msgstr "Αρχείο ρυθμίσεων αλλαγής μεγέθους φωτογραφίας για φόρτωση"
 
-#: imageplugins/transform/resizetool.cpp:601
+#: imageplugins/transform/resizetool.cpp:597
 #, kde-format
 msgid "\"%1\" is not a Photograph Resizing settings text file."
 msgstr ""
 "Το \"%1\" δεν είναι ένα αρχείο κειμένου ρυθμίσεων αλλαγής μεγέθους "
 "φωτογραφίας."
 
-#: imageplugins/transform/resizetool.cpp:610
+#: imageplugins/transform/resizetool.cpp:606
 msgid "Cannot load settings from the Photograph Resizing text file."
 msgstr ""
 "Αδυναμία φόρτωσης των ρυθμίσεων από το αρχείο κειμένου αλλαγής μεγέθους "
 "φωτογραφίας."
 
-#: imageplugins/transform/resizetool.cpp:620
+#: imageplugins/transform/resizetool.cpp:616
 msgid "Photograph Resizing Settings File to Save"
 msgstr "Αρχείο ρυθμίσεων αλλαγής μεγέθους φωτογραφίας για αποθήκευση"
 
-#: imageplugins/transform/resizetool.cpp:635
+#: imageplugins/transform/resizetool.cpp:631
 msgid "Cannot save settings to the Photograph Resizing text file."
 msgstr ""
 "Αδυναμία αποθήκευσης των ρυθμίσεων στο αρχείο κειμένου αλλαγής μεγέθους "
@@ -7989,7 +8000,7 @@ msgstr "Συστατικό"
 msgid "Info"
 msgstr "Πληροφορίες"
 
-#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2506
+#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2511
 #: libs/imageproperties/imagepropertiessidebar.cpp:245
 #: libs/imageproperties/imagepropertiessidebardb.cpp:538
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:367
@@ -8069,47 +8080,47 @@ msgstr[1] ""
 "<p>Χρήση της βιβλιοθήκης KDcraw έκδοση %2<br/>Χρήση LibRaw έκδοση %3<br/>%1 "
 "μοντέλο στη λίστα (βρέθηκαν: %4)</p>"
 
-#: libs/dimg/dimg.cpp:3178
+#: libs/dimg/dimg.cpp:3177
 msgctxt "Color Model: RGB"
 msgid "RGB"
 msgstr "RGB"
 
-#: libs/dimg/dimg.cpp:3181
+#: libs/dimg/dimg.cpp:3180
 msgctxt "Color Model: Grayscale"
 msgid "Grayscale"
 msgstr "Κλίμακα του γκρι"
 
-#: libs/dimg/dimg.cpp:3184
+#: libs/dimg/dimg.cpp:3183
 msgctxt "Color Model: Monochrome"
 msgid "Monochrome"
 msgstr "Μονοχρωματικό"
 
-#: libs/dimg/dimg.cpp:3187
+#: libs/dimg/dimg.cpp:3186
 msgctxt "Color Model: Indexed"
 msgid "Indexed"
 msgstr "Δεικτοδοτημένο"
 
-#: libs/dimg/dimg.cpp:3190
+#: libs/dimg/dimg.cpp:3189
 msgctxt "Color Model: YCbCr"
 msgid "YCbCr"
 msgstr "YCbCr"
 
-#: libs/dimg/dimg.cpp:3193
+#: libs/dimg/dimg.cpp:3192
 msgctxt "Color Model: CMYK"
 msgid "CMYK"
 msgstr "CMYK"
 
-#: libs/dimg/dimg.cpp:3196
+#: libs/dimg/dimg.cpp:3195
 msgctxt "Color Model: CIE L*a*b*"
 msgid "CIE L*a*b*"
 msgstr "CIE L*a*b*"
 
-#: libs/dimg/dimg.cpp:3199
+#: libs/dimg/dimg.cpp:3198
 msgctxt "Color Model: Uncalibrated (RAW)"
 msgid "Uncalibrated (RAW)"
 msgstr "Αβαθμονόμητο (RAW)"
 
-#: libs/dimg/dimg.cpp:3203
+#: libs/dimg/dimg.cpp:3202
 msgctxt "Color Model: Unknown"
 msgid "Unknown"
 msgstr "Άγνωστο"
@@ -9637,7 +9648,7 @@ msgstr ""
 "εφαρμοσμένη στην εικόνα."
 
 #: libs/dimg/filters/lens/antivignettingsettings.cpp:127
-#: libs/dimg/filters/sharp/sharpsettings.cpp:195
+#: libs/dimg/filters/sharp/sharpsettings.cpp:198
 msgid "Amount:"
 msgstr "Ποσότητα:"
 
@@ -10122,7 +10133,7 @@ msgstr ""
 #: libs/dimg/filters/nr/nrsettings.cpp:138
 #: libs/dimg/filters/nr/nrsettings.cpp:165
 #: libs/dimg/filters/nr/nrsettings.cpp:192
-#: libs/dimg/filters/sharp/sharpsettings.cpp:203
+#: libs/dimg/filters/sharp/sharpsettings.cpp:206
 #: utilities/fuzzysearch/fuzzysearchview.cpp:295
 msgid "Threshold:"
 msgstr "Κατώφλι:"
@@ -10183,15 +10194,15 @@ msgstr "Απλή όξυνση"
 msgid "Unsharp mask"
 msgstr "Μάσκα αναίρεσης όξυνσης"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:149
+#: libs/dimg/filters/sharp/sharpsettings.cpp:151
 msgid "Select the sharpening method to apply to the image."
 msgstr "Επιλέξτε εδώ τη μέθοδο όξυνσης που θα εφαρμοστεί στην εικόνα."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:166
+#: libs/dimg/filters/sharp/sharpsettings.cpp:168
 msgid "Sharpness:"
 msgstr "Οξύτητα:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:171
+#: libs/dimg/filters/sharp/sharpsettings.cpp:173
 msgid ""
 "A sharpness of 0 has no effect, 1 and above determine the sharpen matrix "
 "radius that determines how much to sharpen the image."
@@ -10199,11 +10210,11 @@ msgstr ""
 "Οξύτητα ίση με 0 δεν έχει αποτέλεσμα, ενώ 1 και πάνω ορίζει την ακτίνα της "
 "μήτρας όξυνσης που καθορίζει το βαθμό όξυνσης της εικόνας."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:188
+#: libs/dimg/filters/sharp/sharpsettings.cpp:190
 msgid "Radius:"
 msgstr "Ακτίνα:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:192
+#: libs/dimg/filters/sharp/sharpsettings.cpp:195
 msgid ""
 "Radius value is the Gaussian blur matrix radius value used to determines how "
 "much to blur the image."
@@ -10211,7 +10222,7 @@ msgstr ""
 "Η τιμή ακτίνας είναι η τιμή της ακτίνας της μήτρας του Gaussian θαμπώματος "
 "που χρησιμοποιείται για τον καθορισμό του βαθμού θαμπώματος της εικόνας."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:200
+#: libs/dimg/filters/sharp/sharpsettings.cpp:203
 msgid ""
 "The value of the difference between the original and the blur image that is "
 "added back into the original."
@@ -10219,7 +10230,7 @@ msgstr ""
 "Η τιμή διαφοράς μεταξύ αρχικής και θαμπωμένης εικόνας που προστίθεται πάνω "
 "στην αρχική."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:208
+#: libs/dimg/filters/sharp/sharpsettings.cpp:211
 msgid ""
 "The threshold, as a fraction of the maximum luminosity value, needed to "
 "apply the difference amount."
@@ -10227,11 +10238,11 @@ msgstr ""
 "Το κατώφλι ως κλάσμα της μέγιστης τιμής φωτεινότητας, που θα εφαρμοστεί στη "
 "ποσότητα διαφοράς."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:230
+#: libs/dimg/filters/sharp/sharpsettings.cpp:233
 msgid "Circular sharpness:"
 msgstr "Κυκλική οξύτητα:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:235
+#: libs/dimg/filters/sharp/sharpsettings.cpp:238
 msgid ""
 "This is the radius of the circular convolution. It is the most important "
 "parameter for using this plugin. For most images the default value of 1.0 "
@@ -10243,11 +10254,11 @@ msgstr ""
 "1.0 θα δώσει καλά αποτελέσματα. Επιλέξτε μια μεγαλύτερη τιμή όταν η εικόνα "
 "σας είναι πολύ θαμπωμένη."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:239
+#: libs/dimg/filters/sharp/sharpsettings.cpp:242
 msgid "Correlation:"
 msgstr "Συσχέτιση:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:244
+#: libs/dimg/filters/sharp/sharpsettings.cpp:247
 msgid ""
 "Increasing the correlation may help to reduce artifacts. The correlation can "
 "range from 0-1. Useful values are 0.5 and values close to 1, e.g. 0.95 and "
@@ -10259,11 +10270,11 @@ msgstr ""
 "στο 1, π.χ. 0.95 και 0.99. Χρησιμοποιώντας μια υψηλή τιμή για τη συσχέτιση "
 "θα μειώσει το εφέ όξυνσης του πρόσθετου."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:249
+#: libs/dimg/filters/sharp/sharpsettings.cpp:252
 msgid "Noise filter:"
 msgstr "Φίλτρο θορύβου:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:254
+#: libs/dimg/filters/sharp/sharpsettings.cpp:257
 msgid ""
 "Increasing the noise filter parameter may help to reduce artifacts. The "
 "noise filter can range from 0-1 but values higher than 0.1 are rarely "
@@ -10278,11 +10289,11 @@ msgstr ""
 "0.01. Χρησιμοποιώντας μια ψηλή τιμή για το φίλτρο θορύβου θα μειώσει το εφέ "
 "όξυνσης του πρόσθετου."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:260
+#: libs/dimg/filters/sharp/sharpsettings.cpp:263
 msgid "Gaussian sharpness:"
 msgstr "Gaussian οξύτητα:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:265
+#: libs/dimg/filters/sharp/sharpsettings.cpp:268
 msgid ""
 "This is the sharpness for the Gaussian convolution. Use this parameter when "
 "your blurring is of a Gaussian type. In most cases you should set this "
@@ -10296,11 +10307,11 @@ msgstr ""
 "τεχνουργήματα. Όταν χρησιμοποιείτε μη μηδενικές τιμές πιθανότατα θα πρέπει "
 "να αυξήσετε τις παραμέτρους συσχέτισης ή/και φίλτρου θορύβου."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:270
+#: libs/dimg/filters/sharp/sharpsettings.cpp:273
 msgid "Matrix size:"
 msgstr "Μέγεθος μήτρας:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:275
+#: libs/dimg/filters/sharp/sharpsettings.cpp:278
 msgid ""
 "This parameter determines the size of the transformation matrix. Increasing "
 "the matrix width may give better results, especially when you have chosen "
@@ -10310,24 +10321,24 @@ msgstr ""
 "το πλάτος της μήτρας μπορεί να δώσει καλύτερα αποτελέσματα, ειδικά αν έχετε "
 "επιλέξει μεγάλες τιμές για κυκλική ή Gaussian όξυνση."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:487
+#: libs/dimg/filters/sharp/sharpsettings.cpp:490
 msgid "Photograph Refocus Settings File to Load"
 msgstr "Αρχείο ρυθμίσεων επανεστίασης φωτογραφίας για φόρτωση"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:503
+#: libs/dimg/filters/sharp/sharpsettings.cpp:506
 #, kde-format
 msgid "\"%1\" is not a Photograph Refocus settings text file."
 msgstr "Το \"%1\" δεν είναι αρχείο ρυθμίσεων επανεστίασης."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:521
+#: libs/dimg/filters/sharp/sharpsettings.cpp:524
 msgid "Cannot load settings from the Photograph Refocus text file."
 msgstr "Αδυναμία φόρτωσης ρυθμίσεων από το αρχείο επανεστίασης φωτογραφίας."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:531
+#: libs/dimg/filters/sharp/sharpsettings.cpp:534
 msgid "Photograph Refocus Settings File to Save"
 msgstr "Αρχείο ρυθμίσεων επανεστίασης φωτογραφίας για αποθήκευση"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:554
+#: libs/dimg/filters/sharp/sharpsettings.cpp:557
 msgid "Cannot save settings to the Photograph Refocus text file."
 msgstr "Αδυναμία αποθήκευσης ρυθμίσεων στο αρχείο επανεστίασης φωτογραφίας."
 
@@ -10807,64 +10818,64 @@ msgstr ""
 "</p><p>Ένας τύπος συμπίεσης χωρίς απώλειες (Deflate) χρησιμοποιείται για την "
 "αποθήκευση του αρχείου.</p>"
 
-#: libs/dmetadata/dmetadata.cpp:2488
+#: libs/dmetadata/dmetadata.cpp:2493
 msgid "Unspecified"
 msgstr "Μη ορισμένο"
 
-#: libs/dmetadata/dmetadata.cpp:2490
+#: libs/dmetadata/dmetadata.cpp:2495
 msgctxt "Rotation of an unrotated image"
 msgid "Normal"
 msgstr "Κανονική"
 
-#: libs/dmetadata/dmetadata.cpp:2494
+#: libs/dmetadata/dmetadata.cpp:2499
 msgid "Rotated by 180 Degrees"
 msgstr "Περιστροφή 180 μοίρες"
 
-#: libs/dmetadata/dmetadata.cpp:2498
+#: libs/dmetadata/dmetadata.cpp:2503
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "Αναστροφή οριζόντια και περιστροφή αριστερά"
 
-#: libs/dmetadata/dmetadata.cpp:2502
+#: libs/dmetadata/dmetadata.cpp:2507
 msgid "Flipped Vertically and Rotated Left"
 msgstr "Αναστροφή κατακόρυφα και περιστροφή αριστερά"
 
-#: libs/dmetadata/dmetadata.cpp:2542
+#: libs/dmetadata/dmetadata.cpp:2547
 #, kde-format
 msgctxt "Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "West"
 msgstr "Δυτικά"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "East"
 msgstr "Ανατολικά"
 
-#: libs/dmetadata/dmetadata.cpp:2595 libs/dmetadata/dmetadata.cpp:2608
+#: libs/dmetadata/dmetadata.cpp:2600 libs/dmetadata/dmetadata.cpp:2613
 msgctxt "For use in latitude coordinate"
 msgid "North"
 msgstr "Βόρεια"
 
-#: libs/dmetadata/dmetadata.cpp:2595
+#: libs/dmetadata/dmetadata.cpp:2600
 msgctxt "For use in latitude coordinate"
 msgid "South"
 msgstr "Νότια"
 
-#: libs/dmetadata/dmetadata.cpp:2617
+#: libs/dmetadata/dmetadata.cpp:2622
 #, no-c-format
 msgctxt "Height in meters"
 msgid "%L1m"
 msgstr "%L1m"
 
-#: libs/dmetadata/dmetadata.cpp:2759
+#: libs/dmetadata/dmetadata.cpp:2764
 msgid "Flash has been fired"
 msgstr "Χρήση φλας"
 
-#: libs/dmetadata/dmetadata.cpp:2760
+#: libs/dmetadata/dmetadata.cpp:2765
 msgid "Flash with red-eye reduction mode"
 msgstr "Φλας σε λειτουργία μείωσης κόκκινων ματιών"
 
@@ -11099,12 +11110,6 @@ msgstr "Περισσότερα"
 msgid "Description"
 msgstr "Περιγραφή"
 
-#: libs/imageproperties/imagedescedittab.cpp:294
-#, fuzzy
-#| msgid "Open in File Manager"
-msgid "Open Tag Manger"
-msgstr "Άνοιγμα στο διαχειριστή αρχείων"
-
 #: libs/imageproperties/imagedescedittab.cpp:302
 msgid "Enter new tag here..."
 msgstr "Εισαγάγετε εδώ νέα ετικέτα..."
@@ -11121,6 +11126,7 @@ msgstr "Πρόσφατες ετικέτες"
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:135
 #: utilities/advancedrename/common/tooltipdialog.cpp:57
 #: utilities/importui/dialogs/cameramessagebox.cpp:216
+#: utilities/importui/main/importui.cpp:1891
 msgid "Information"
 msgstr "Πληροφορίες"
 
@@ -12035,19 +12041,19 @@ msgstr "Χρήσεις:"
 msgid "Sublocation:"
 msgstr "Δημοτικό διαμέρισμα:"
 
-#: libs/threadimageio/thumbnailcreator.cpp:217
+#: libs/threadimageio/thumbnailcreator.cpp:218
 msgid "No or invalid size specified"
 msgstr "Δεν ορίσθηκε μέγεθος ή ορίσθηκε μη έγκυρο μέγεθος"
 
-#: libs/threadimageio/thumbnailcreator.cpp:285
+#: libs/threadimageio/thumbnailcreator.cpp:286
 msgid "Thumbnail is null"
 msgstr "Η εικόνα επισκόπησης είναι κενή"
 
-#: libs/threadimageio/thumbnailcreator.cpp:435
+#: libs/threadimageio/thumbnailcreator.cpp:436
 msgid "File does not exist"
 msgstr "Το αρχείο δεν υπάρχει"
 
-#: libs/threadimageio/thumbnailcreator.cpp:540
+#: libs/threadimageio/thumbnailcreator.cpp:541
 #, kde-format
 msgid "Cannot create thumbnail for %1"
 msgstr "Αδυναμία δημιουργίας εικόνας επισκόπησης για το %1"
@@ -12066,11 +12072,11 @@ msgstr "Αποτυχία απόδοσης αρχικών τιμών στη βά�
 msgid "Color Label: %1"
 msgstr "Επιγραφή χρώματος: %1"
 
-#: libs/widgets/common/databasewidget.cpp:90
+#: libs/widgets/common/databasewidget.cpp:91
 msgid "Database File Path"
 msgstr "Διαδρομή αρχείου βάσης δεδομένων"
 
-#: libs/widgets/common/databasewidget.cpp:92
+#: libs/widgets/common/databasewidget.cpp:93
 msgid ""
 "<p>The location where the database file will be stored on your system. There "
 "is one common database file for all root albums.<br/>Write access is "
@@ -12083,52 +12089,52 @@ msgstr ""
 "των εικόνων.</p><p>Σημείωση: απομακρυσμένα συστήματα αρχείων, όπως το NFS, "
 "δεν γίνεται να χρησιμοποιηθούν εδώ.</p><p></p>"
 
-#: libs/widgets/common/databasewidget.cpp:104
+#: libs/widgets/common/databasewidget.cpp:105
 msgid "Internal Server"
 msgstr "Εσωτερικός εξυπηρετητής"
 
-#: libs/widgets/common/databasewidget.cpp:106
+#: libs/widgets/common/databasewidget.cpp:107
 msgid "Schema Name"
 msgstr "Όνομα σχήματος"
 
-#: libs/widgets/common/databasewidget.cpp:108
+#: libs/widgets/common/databasewidget.cpp:109
 msgid "Thumbnails<br>Schema Name"
 msgstr "Όνομα σχήματος<br>εικόνων επισκόπησης"
 
-#: libs/widgets/common/databasewidget.cpp:110
+#: libs/widgets/common/databasewidget.cpp:111
 msgid "Host Name"
 msgstr "Όνομα υπολογιστή"
 
-#: libs/widgets/common/databasewidget.cpp:112
-#: utilities/setup/setupcamera.cpp:285
+#: libs/widgets/common/databasewidget.cpp:113
+#: utilities/setup/setupcamera.cpp:287
 msgid "Port"
 msgstr "Θύρα"
 
-#: libs/widgets/common/databasewidget.cpp:116
+#: libs/widgets/common/databasewidget.cpp:117
 msgid "Database<br>Connection<br>Options"
 msgstr "Επιλογές<br>σύνδεσης<br>βάσης δεδομένων"
 
-#: libs/widgets/common/databasewidget.cpp:119
+#: libs/widgets/common/databasewidget.cpp:120
 msgid "User"
 msgstr "Χρήστης"
 
-#: libs/widgets/common/databasewidget.cpp:122
+#: libs/widgets/common/databasewidget.cpp:123
 msgid "Password"
 msgstr "Κωδικός"
 
-#: libs/widgets/common/databasewidget.cpp:126
+#: libs/widgets/common/databasewidget.cpp:127
 msgid "Check DB Connection"
 msgstr "Επιλογή σύνδεσης με βάση"
 
-#: libs/widgets/common/databasewidget.cpp:164
+#: libs/widgets/common/databasewidget.cpp:165
 msgid "SQLite"
 msgstr "SQLite"
 
-#: libs/widgets/common/databasewidget.cpp:165
+#: libs/widgets/common/databasewidget.cpp:166
 msgid "MySQL (experimental)"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:166
+#: libs/widgets/common/databasewidget.cpp:167
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small and medium collection sizes (less "
@@ -12138,7 +12144,7 @@ msgid ""
 "Be careful: this one it is still in experimental stage.</p>"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:218
+#: libs/widgets/common/databasewidget.cpp:219
 msgid ""
 "You do not seem to have write access to this database folder.\n"
 "Without this access, the caption and tag features will not work."
@@ -12147,16 +12153,16 @@ msgstr ""
 "Χωρίς πρόσβαση για εγγραφή, τα χαρακτηριστικά τίτλου και ετικετών δεν θα "
 "λειτουργούν."
 
-#: libs/widgets/common/databasewidget.cpp:297
+#: libs/widgets/common/databasewidget.cpp:305
 msgid "Database connection test successful."
 msgstr "Επιτυχής δοκιμή σύνδεσης με βάση δεδομένων."
 
-#: libs/widgets/common/databasewidget.cpp:297
-#: libs/widgets/common/databasewidget.cpp:302
+#: libs/widgets/common/databasewidget.cpp:305
+#: libs/widgets/common/databasewidget.cpp:310
 msgid "Database connection test"
 msgstr "Δοκιμή σύνδεσης με βάση δεδομένων"
 
-#: libs/widgets/common/databasewidget.cpp:301
+#: libs/widgets/common/databasewidget.cpp:309
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr ""
@@ -12355,7 +12361,7 @@ msgid "Raw information about the ICC profile manufacturer"
 msgstr "Ακατέργαστες πληροφορίες σχετικά με τον κατασκευαστή προφίλ ICC"
 
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:139
-#: utilities/setup/setupcamera.cpp:284
+#: utilities/setup/setupcamera.cpp:286
 msgid "Model"
 msgstr "Μοντέλο"
 
@@ -12585,8 +12591,8 @@ msgid "modified: %1"
 msgstr "τροποποιήθηκε: %1"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:369
-#: showfoto/main/showfoto.cpp:614
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:308
+#: showfoto/main/showfoto.cpp:625
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:320
 #: utilities/importui/items/itemviewimportdelegate.cpp:364
 #, kde-format
 msgctxt "%1 width, %2 height, %3 mpixels"
@@ -12594,14 +12600,14 @@ msgid "%1x%2 (%3Mpx)"
 msgstr "%1x%2 (%3Mpx)"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:373
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:421
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:313
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:423
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:325
 #: utilities/importui/items/itemviewimportdelegate.cpp:368
 msgctxt "unknown image resolution"
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:416
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:418
 #, kde-format
 msgctxt "%1 width : %2 height (%3 Aspect Ratio)"
 msgid "%1:%2 (%3)"
@@ -13211,6 +13217,16 @@ msgstr "Διαχείριση δικαιωμάτων"
 msgid "Paged-Text"
 msgstr "Κείμενο σελίδα"
 
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:160
+msgid "Metadata Working Group Regions"
+msgstr ""
+
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:164
+#, fuzzy
+#| msgid "Dublin Core"
+msgid "Darwin Core"
+msgstr "Dublin Core"
+
 #: libs/widgets/metadata/metadatalistview.cpp:140
 #, kde-format
 msgid ""
@@ -13329,7 +13345,7 @@ msgstr "showFoto"
 msgid "File(s) or folder(s) to open"
 msgstr "Αρχεία ή κατάλογοι για άνοιγμα"
 
-#: showfoto/main/showfoto.cpp:290
+#: showfoto/main/showfoto.cpp:292
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
 "now, select \"Yes\", otherwise select \"No\". In this case, \"Color "
@@ -13340,37 +13356,37 @@ msgstr ""
 "χαρακτηριστικό \"Διαχείριση χρωμάτων\" θα απενεργοποιηθεί μέχρι να "
 "διορθώσετε το πρόβλημα</p>"
 
-#: showfoto/main/showfoto.cpp:433
+#: showfoto/main/showfoto.cpp:437
 msgid "Open folder"
 msgstr "Άνοιγμα φακέλου"
 
-#: showfoto/main/showfoto.cpp:511
+#: showfoto/main/showfoto.cpp:515
 msgid "Delete File"
 msgstr "Διαγραφή αρχείου"
 
-#: showfoto/main/showfoto.cpp:613
+#: showfoto/main/showfoto.cpp:624
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "Άγνωστο"
 
-#: showfoto/main/showfoto.cpp:694
+#: showfoto/main/showfoto.cpp:705
 #: utilities/imageeditor/main/imagewindow.cpp:887
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
 msgid "%1 (%2 of %3)"
 msgstr "%1 (%2 από %3)"
 
-#: showfoto/main/showfoto.cpp:732
+#: showfoto/main/showfoto.cpp:743
 msgid "Open Images From Folder"
 msgstr "Άνοιγμα εικόνων από τον κατάλογο"
 
-#: showfoto/main/showfoto.cpp:878
+#: showfoto/main/showfoto.cpp:889
 #: utilities/imageeditor/main/imagewindow.cpp:967
 #: utilities/imageeditor/main/imagewindow.cpp:1065
 msgid "Image saved successfully"
 msgstr "Επιτυχής αποθήκευση εικόνας"
 
-#: showfoto/main/showfoto.cpp:959
+#: showfoto/main/showfoto.cpp:970
 #, kde-format
 msgid ""
 "About to delete file \"%1\"\n"
@@ -13379,13 +13395,14 @@ msgstr ""
 "Πρόκειται να διαγράψετε το αρχείο \"%1\"\n"
 "Είστε σίγουροι;"
 
-#: showfoto/main/showfoto.cpp:964
+#: showfoto/main/showfoto.cpp:975
 #: utilities/imageeditor/editor/editorwindow.cpp:1218
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
+#: utilities/importui/main/importui.cpp:1911
 msgid "Warning"
 msgstr "Προειδοποίηση"
 
-#: showfoto/main/showfoto.cpp:1037
+#: showfoto/main/showfoto.cpp:1048
 #: utilities/imageeditor/main/imagewindow.cpp:1356
 #: utilities/lighttable/lighttablewindow.cpp:1399
 msgid "Preparing slideshow. Please wait..."
@@ -13537,76 +13554,99 @@ msgstr ""
 "a> - ένα νέο πρότυπο ψηφιακής φωτογραφίας, σχεδιασμένο να αντικαταστήσει το "
 "IPTC.</p>"
 
-#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:101
+#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:103
 #: utilities/queuemanager/views/queuesettingsview.cpp:237
-#: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:511
+#: utilities/setup/setupcamera.cpp:354 utilities/setup/setupicc.cpp:511
 msgid "Behavior"
 msgstr "Συμπεριφορά"
 
-#: showfoto/setup/setupmisc.cpp:104
+#: showfoto/setup/setupmisc.cpp:106
 msgid "&Deleted items should go to the trash"
 msgstr "Τα &διαγραμμένα αντικείμενα μετακινούνται στα απορρίμματα"
 
-#: showfoto/setup/setupmisc.cpp:105 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/setupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
 msgid "&Show splash screen at startup"
 msgstr "Εμ&φάνιση αρχικής οθόνης κατά την εκκίνηση"
 
-#: showfoto/setup/setupmisc.cpp:106
-msgid "&Show Mime Type Over Image"
-msgstr ""
+#: showfoto/setup/setupmisc.cpp:108
+#, fuzzy
+#| msgid "Show image Format"
+msgid "&Show image Format"
+msgstr "Εμφάνιση τύπου αρχειοθέτησης εικόνας"
 
-#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupcamera.cpp:443
+msgid "Set this option to show image format over image thumbnail."
+msgstr ""
+"Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται ο τύπος αρχειοθέτησης πάνω "
+"από την εικόνα επισκόπησης."
+
+#: showfoto/setup/setupmisc.cpp:110
+#, fuzzy
+#| msgid "Geolocation Filter"
+msgid "&Show Geolocation Indicator"
+msgstr "Φίλτρο γεωτοποθέτησης"
+
+#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupcamera.cpp:446
+#, fuzzy
+#| msgid "Set this option to display the image aspect ratio."
+msgid "Set this option to indicate if image has geolocation information."
+msgstr ""
+"Ενεργοποιήστε αυτήν την επιλογή για να εμφανίζεται η αναλογία διαστάσεων."
+
+#: showfoto/setup/setupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
 msgid "Sidebar tab title:"
 msgstr "Τίτλος πλευρικής καρτέλας:"
 
-#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
 msgid "Only For Active Tab"
 msgstr "Μόνο για ενεργή καρτέλα"
 
-#: showfoto/setup/setupmisc.cpp:112 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/setupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
 msgid "For All Tabs"
 msgstr "Για όλες τις καρτέλες"
 
-#: showfoto/setup/setupmisc.cpp:113
+#: showfoto/setup/setupmisc.cpp:118
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή για τη ρύθμιση εμφάνισης τίτλων στις "
 "πλευρικές καρτέλες."
 
-#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/setupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
 msgid "Widget style:"
 msgstr "Στιλ γραφικού συστατικού:"
 
-#: showfoto/setup/setupmisc.cpp:118 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/setupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
 msgid "Set this option to choose the default window decoration and looks."
 msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή για την προκαθορισμένη διακόσμηση και όψη "
 "παραθύρου."
 
-#: showfoto/setup/setupmisc.cpp:133
+#: showfoto/setup/setupmisc.cpp:140
 msgid "Sort order for images"
 msgstr "Σειρά ταξινόμησης εικόνων"
 
-#: showfoto/setup/setupmisc.cpp:137
+#: showfoto/setup/setupmisc.cpp:144
 msgid "Sort images by:"
 msgstr "Ταξινόμηση εικόνων κατά:"
 
-#: showfoto/setup/setupmisc.cpp:139
+#: showfoto/setup/setupmisc.cpp:146
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: showfoto/setup/setupmisc.cpp:140
+#: showfoto/setup/setupmisc.cpp:147
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "Όνομα"
 
-#: showfoto/setup/setupmisc.cpp:141
+#: showfoto/setup/setupmisc.cpp:148
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "Μέγεθος αρχείου"
 
-#: showfoto/setup/setupmisc.cpp:142
+#: showfoto/setup/setupmisc.cpp:149
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -13614,11 +13654,11 @@ msgstr ""
 "Εδώ επιλέγετε τη μέθοδο ταξινόμησης των νέων φορτωμένων εικόνων κατά "
 "ημερομηνία, όνομα, ή μέγεθος στο δίσκο."
 
-#: showfoto/setup/setupmisc.cpp:145
+#: showfoto/setup/setupmisc.cpp:152
 msgid "Reverse ordering"
 msgstr "Αντίστροφη σειρά"
 
-#: showfoto/setup/setupmisc.cpp:146
+#: showfoto/setup/setupmisc.cpp:153
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -15236,7 +15276,7 @@ msgstr "Επιβεβαίωση"
 msgid "Who is this?"
 msgstr "Ποιος είναι αυτός;"
 
-#: utilities/facemanagement/facepipeline.cpp:1234
+#: utilities/facemanagement/facepipeline.cpp:1240
 msgid "Applying face changes"
 msgstr "Εφαρμογή αλλαγών προσώπου"
 
@@ -15274,8 +15314,11 @@ msgid "Detect faces"
 msgstr "Χωρίς επιλογή"
 
 #: utilities/facemanagement/facescandialog.cpp:309
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Detect and recognize faces"
 msgctxt "@option:radio"
-msgid "Detect and recognize faces"
+msgid "Detect and recognize faces (experimental)"
 msgstr "Ανίχνευση και αναγνώριση προσώπων"
 
 #: utilities/facemanagement/facescandialog.cpp:313
@@ -15308,8 +15351,11 @@ msgid "Clear unconfirmed results and rescan"
 msgstr "Καθαρισμός ανεπιβεβαίωτων αποτελεσμάτων και επανάληψη σάρωσης"
 
 #: utilities/facemanagement/facescandialog.cpp:335
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Recognize faces"
 msgctxt "@option:radio"
-msgid "Recognize faces"
+msgid "Recognize faces (experimental)"
 msgstr "Αναγνώριση προσώπων"
 
 #: utilities/facemanagement/facescandialog.cpp:338
@@ -17342,7 +17388,7 @@ msgid ""
 "Failed to toggle lock file <filename>%1</filename>. Do you want to continue?"
 msgstr "Η ετικέτα '%2' έχει οριστεί σε ένα αντικείμενο. Θέλετε να συνεχίσετε;"
 
-#: utilities/importui/backend/gpcamera.cpp:1360
+#: utilities/importui/backend/gpcamera.cpp:1364
 #, fuzzy, kde-format
 #| msgid ""
 #| "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>"
@@ -17355,7 +17401,7 @@ msgstr ""
 "Τίτλος: <b>%1</b><br/>Μοντέλο: <b>%2</b><br/>Θύρα: <b>%3</b><br/>Διαδρομή: "
 "<b>%4</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1370
+#: utilities/importui/backend/gpcamera.cpp:1374
 #, fuzzy, kde-format
 #| msgid ""
 #| "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>"
@@ -17371,12 +17417,12 @@ msgstr ""
 "αντικειμένων: <b>%3</b><br/>Αποστολή αντικειμένων: <b>%4</b><br/>Δημιουργία "
 "καταλόγων: <b>%5</b><br/>Διαγραφή καταλόγων: <b>%6</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -17386,12 +17432,12 @@ msgstr ""
 msgid "yes"
 msgstr "ναι"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -17554,215 +17600,219 @@ msgstr "Σύλληψη"
 msgid "Unknown Format"
 msgstr "Άγνωστος τύπος αποθήκευσης"
 
-#: utilities/importui/items/importoverlays.cpp:104
+#: utilities/importui/items/importoverlays.cpp:175
 msgctxt "@info:tooltip"
 msgid "This item is locked."
 msgstr "Αυτό το αντικείμενο είναι κλειδωμένο."
 
-#: utilities/importui/items/importoverlays.cpp:110
+#: utilities/importui/items/importoverlays.cpp:244
+#, fuzzy
+#| msgctxt "@info:tooltip"
+#| msgid "This item download status is new"
 msgctxt "@info:tooltip"
-msgid "This item is not locked."
-msgstr "Αυτό το αντικείμενο δεν είναι κλειδωμένο."
-
-#: utilities/importui/items/importoverlays.cpp:177
-msgctxt "@info:tooltip"
-msgid "This item download status is unknown"
-msgstr "Αυτό το αντικείμενο κατάστασης λήψης είναι άγνωστο"
-
-#: utilities/importui/items/importoverlays.cpp:183
-msgctxt "@info:tooltip"
-msgid "This item download status is new"
+msgid "This item has an unknown download status"
 msgstr "Αυτό το αντικείμενο κατάστασης λήψης είναι νέο"
 
-#: utilities/importui/items/importoverlays.cpp:189
+#: utilities/importui/items/importoverlays.cpp:250
+#, fuzzy
+#| msgctxt "@info:tooltip"
+#| msgid "This item download status is downloaded"
 msgctxt "@info:tooltip"
-msgid "This item download status is downloaded"
+msgid "This item has never been downloaded"
 msgstr "Αυτό το αντικείμενο κατάστασης λήψης έχει ληφθεί"
 
-#: utilities/importui/main/importui.cpp:267
+#: utilities/importui/items/importoverlays.cpp:256
+#, fuzzy
+#| msgctxt "@info:tooltip"
+#| msgid "This item download status is downloaded"
+msgctxt "@info:tooltip"
+msgid "This item has already been downloaded"
+msgstr "Αυτό το αντικείμενο κατάστασης λήψης έχει ληφθεί"
+
+#: utilities/importui/main/importui.cpp:269
 msgid "Set how digiKam will rename files as they are downloaded."
 msgstr ""
 "Καθορίστε εδώ όλες τις επιλογές μετονομασίας αρχείων εικόνων του digiKam "
 "κατά τη λήψη τους."
 
-#: utilities/importui/main/importui.cpp:269
+#: utilities/importui/main/importui.cpp:271
 msgid "File Renaming Options"
 msgstr "Επιλογές μετονομασίας αρχείων"
 
-#: utilities/importui/main/importui.cpp:275
+#: utilities/importui/main/importui.cpp:277
 msgid "Auto-creation of Albums"
 msgstr "Αυτόματη δημιουργία λευκωμάτων"
 
-#: utilities/importui/main/importui.cpp:281
+#: utilities/importui/main/importui.cpp:283
 msgid "On the Fly Operations (JPEG only)"
 msgstr "Άμεσες λειτουργίες (μόνο JPEG)"
 
-#: utilities/importui/main/importui.cpp:287
+#: utilities/importui/main/importui.cpp:289
 msgid "Scripting"
 msgstr "Γραφή σεναρίου"
 
-#: utilities/importui/main/importui.cpp:304
+#: utilities/importui/main/importui.cpp:306
 #, fuzzy
 #| msgid "Cancel"
 msgctxt "@action Cancel process"
 msgid "Cancel"
 msgstr "Ακύρωση"
 
-#: utilities/importui/main/importui.cpp:312
+#: utilities/importui/main/importui.cpp:314
 #, fuzzy
 #| msgid "Information"
 msgctxt "@action Information about camera"
 msgid "Information"
 msgstr "Πληροφορίες"
 
-#: utilities/importui/main/importui.cpp:319
+#: utilities/importui/main/importui.cpp:321
 #, fuzzy
 #| msgid "Capture"
 msgctxt "@action Capture photo from camera"
 msgid "Capture"
 msgstr "Σύλληψη"
 
-#: utilities/importui/main/importui.cpp:331
+#: utilities/importui/main/importui.cpp:333
 #, fuzzy
 #| msgid "Select All"
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Επιλογή όλων"
 
-#: utilities/importui/main/importui.cpp:339
+#: utilities/importui/main/importui.cpp:341
 #, fuzzy
 #| msgid "Select None"
 msgctxt "@action:inmenu"
 msgid "Select None"
 msgstr "Χωρίς επιλογή"
 
-#: utilities/importui/main/importui.cpp:347
+#: utilities/importui/main/importui.cpp:349
 #, fuzzy
 #| msgid "Invert Selection"
 msgctxt "@action:inmenu"
 msgid "Invert Selection"
 msgstr "Αντιστροφή επιλογής"
 
-#: utilities/importui/main/importui.cpp:355
+#: utilities/importui/main/importui.cpp:357
 #, fuzzy
 #| msgid "Select New Items"
 msgctxt "@action:inmenu"
 msgid "Select New Items"
 msgstr "Επιλογή νέων αντικειμένων"
 
-#: utilities/importui/main/importui.cpp:362
+#: utilities/importui/main/importui.cpp:364
 #, fuzzy
 #| msgid "Select Locked Items"
 msgctxt "@action:inmenu"
 msgid "Select Locked Items"
 msgstr "Επιλογή κλειδωμένων αντικειμένων"
 
-#: utilities/importui/main/importui.cpp:370
+#: utilities/importui/main/importui.cpp:372
 #, fuzzy
 #| msgid "Download"
 msgctxt "@title:menu"
 msgid "Download"
 msgstr "Λήψη"
 
-#: utilities/importui/main/importui.cpp:375
+#: utilities/importui/main/importui.cpp:377
 #, fuzzy
 #| msgid "Download New"
 msgctxt "@action"
 msgid "Download New"
 msgstr "Λήψη νέου"
 
-#: utilities/importui/main/importui.cpp:382
+#: utilities/importui/main/importui.cpp:384
 #, fuzzy
 #| msgid "Download Selected"
 msgctxt "@action"
 msgid "Download Selected"
 msgstr "Λήψη επιλεγμένων"
 
-#: utilities/importui/main/importui.cpp:389
+#: utilities/importui/main/importui.cpp:391
 #, fuzzy
 #| msgid "Download All"
 msgctxt "@action"
 msgid "Download All"
 msgstr "Λήψη όλων"
 
-#: utilities/importui/main/importui.cpp:397
+#: utilities/importui/main/importui.cpp:399
 #, fuzzy
 #| msgid "Download/Delete New"
 msgctxt "@action"
 msgid "Download && Delete New"
 msgstr "Λήψη/διαγραφή νέου"
 
-#: utilities/importui/main/importui.cpp:405
+#: utilities/importui/main/importui.cpp:407
 #, fuzzy
 #| msgid "Download/Delete Selected"
 msgctxt "@action"
 msgid "Download && Delete Selected"
 msgstr "Λήψη/διαγραφή επιλεγμένων"
 
-#: utilities/importui/main/importui.cpp:413
+#: utilities/importui/main/importui.cpp:415
 #, fuzzy
 #| msgid "Download/Delete All"
 msgctxt "@action"
 msgid "Download && Delete All"
 msgstr "Λήψη/διαγραφή όλων"
 
-#: utilities/importui/main/importui.cpp:420
+#: utilities/importui/main/importui.cpp:422
 #, fuzzy
 #| msgid "Upload..."
 msgctxt "@action"
 msgid "Upload..."
 msgstr "Αποστολή..."
 
-#: utilities/importui/main/importui.cpp:428
+#: utilities/importui/main/importui.cpp:430
 #, fuzzy
 #| msgid "Toggle Lock"
 msgctxt "@action"
 msgid "Toggle Lock"
 msgstr "Εναλλαγή κλειδώματος"
 
-#: utilities/importui/main/importui.cpp:436
+#: utilities/importui/main/importui.cpp:438
 #, fuzzy
 #| msgid "Mark as downloaded"
 msgctxt "@action"
 msgid "Mark as downloaded"
 msgstr "Σημειωμένο ως ληφθέν"
 
-#: utilities/importui/main/importui.cpp:443
+#: utilities/importui/main/importui.cpp:445
 #, fuzzy
 #| msgid "Delete"
 msgctxt "@title:menu"
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: utilities/importui/main/importui.cpp:448
+#: utilities/importui/main/importui.cpp:450
 #, fuzzy
 #| msgid "Delete Selected"
 msgctxt "@action"
 msgid "Delete Selected"
 msgstr "Διαγραφή επιλεγμένων"
 
-#: utilities/importui/main/importui.cpp:456
+#: utilities/importui/main/importui.cpp:458
 #, fuzzy
 #| msgid "Delete All"
 msgctxt "@action"
 msgid "Delete All"
 msgstr "Διαγραφή όλων"
 
-#: utilities/importui/main/importui.cpp:462
+#: utilities/importui/main/importui.cpp:464
 #, fuzzy
 #| msgid "Delete New"
 msgctxt "@action"
 msgid "Delete New"
 msgstr "Διαγραφή νέου"
 
-#: utilities/importui/main/importui.cpp:470
+#: utilities/importui/main/importui.cpp:472
 #, fuzzy
 #| msgid "Views"
 msgctxt "@title:group"
 msgid "Views"
 msgstr "Προβολές"
 
-#: utilities/importui/main/importui.cpp:479
+#: utilities/importui/main/importui.cpp:481
 #, fuzzy
 #| msgctxt "View the selected image"
 #| msgid "Preview Item"
@@ -17770,14 +17820,14 @@ msgctxt "@action View the selected image"
 msgid "Preview Item"
 msgstr "Προεπισκόπηση αντικειμένου"
 
-#: utilities/importui/main/importui.cpp:495
+#: utilities/importui/main/importui.cpp:497
 #, fuzzy
 #| msgid "&Sort Items"
 msgctxt "@title:menu"
 msgid "&Sort Items"
 msgstr "&Ταξινόμηση αντικειμένων"
 
-#: utilities/importui/main/importui.cpp:496
+#: utilities/importui/main/importui.cpp:498
 #, fuzzy
 #| msgid "The value by which the items are sorted in the thumbnail view"
 msgctxt "@info:whatsthis"
@@ -17786,56 +17836,56 @@ msgstr ""
 "Η τιμή με την οποία τα αντικείμενα ταξινομούνται στην προβολή εικόνων "
 "επισκόπησης"
 
-#: utilities/importui/main/importui.cpp:502
+#: utilities/importui/main/importui.cpp:504
 #, fuzzy
 #| msgid "By Name"
 msgctxt "item:inmenu Sort by"
 msgid "By Name"
 msgstr "Με όνομα"
 
-#: utilities/importui/main/importui.cpp:503
+#: utilities/importui/main/importui.cpp:505
 #, fuzzy
 #| msgid "By Path"
 msgctxt "item:inmenu Sort by"
 msgid "By Path"
 msgstr "Με διαδρομή"
 
-#: utilities/importui/main/importui.cpp:504
+#: utilities/importui/main/importui.cpp:506
 #, fuzzy
 #| msgid "By Date"
 msgctxt "item:inmenu Sort by"
 msgid "By Date"
 msgstr "Κατά ημερομηνία"
 
-#: utilities/importui/main/importui.cpp:505
+#: utilities/importui/main/importui.cpp:507
 #, fuzzy
 #| msgid "By Size"
 msgctxt "item:inmenu Sort by"
 msgid "By Size"
 msgstr "Κατά μέγεθος"
 
-#: utilities/importui/main/importui.cpp:506
+#: utilities/importui/main/importui.cpp:508
 #, fuzzy
 #| msgid "By Rating"
 msgctxt "item:inmenu Sort by"
 msgid "By Rating"
 msgstr "Με αξιολόγηση"
 
-#: utilities/importui/main/importui.cpp:507
+#: utilities/importui/main/importui.cpp:509
 #, fuzzy
 #| msgid "By Download State"
 msgctxt "item:inmenu Sort by"
 msgid "By Download State"
 msgstr "Κατά κατάσταση λήψης"
 
-#: utilities/importui/main/importui.cpp:527
+#: utilities/importui/main/importui.cpp:529
 #, fuzzy
 #| msgid "Item Sorting &Order"
 msgctxt "@title:inmenu"
 msgid "Item Sorting &Order"
 msgstr "Τάξη μεγέθους &ταξινόμησης αντικειμένου"
 
-#: utilities/importui/main/importui.cpp:528
+#: utilities/importui/main/importui.cpp:530
 #, fuzzy
 #| msgid "Defines whether items are sorted in ascending or descending manner."
 msgctxt "@info:whatsthis"
@@ -17844,28 +17894,28 @@ msgstr ""
 "Καθορίζει αν η τάξη μεγέθους ταξινόμησης των αντικειμένων θα είναι αύξουσα ή "
 "φθίνουσα."
 
-#: utilities/importui/main/importui.cpp:533
+#: utilities/importui/main/importui.cpp:535
 #, fuzzy
 #| msgid "Ascending"
 msgctxt "@item:inmenu Sorting Order"
 msgid "Ascending"
 msgstr "Αύξουσα"
 
-#: utilities/importui/main/importui.cpp:534
+#: utilities/importui/main/importui.cpp:536
 #, fuzzy
 #| msgid "Descending"
 msgctxt "@item:inmenu Sorting Order"
 msgid "Descending"
 msgstr "Φθίνουσα"
 
-#: utilities/importui/main/importui.cpp:546
+#: utilities/importui/main/importui.cpp:548
 #, fuzzy
 #| msgid "&Group Items"
 msgctxt "@title:menu"
 msgid "&Group Items"
 msgstr "Ομα&δοποίηση αντικειμένων"
 
-#: utilities/importui/main/importui.cpp:547
+#: utilities/importui/main/importui.cpp:549
 #, fuzzy
 #| msgid ""
 #| "The categories in which the items in the thumbnail view are displayed"
@@ -17875,107 +17925,107 @@ msgstr ""
 "Οι κατηγορίες κάτω από τις οποίες εμφανίζονται τα αντικείμενα στην προβολή "
 "εικόνων επισκόπησης"
 
-#: utilities/importui/main/importui.cpp:553
+#: utilities/importui/main/importui.cpp:555
 #, fuzzy
 #| msgid "Flat List"
 msgctxt "@item:inmenu Group Items"
 msgid "Flat List"
 msgstr "Επίπεδη λίστα"
 
-#: utilities/importui/main/importui.cpp:554
+#: utilities/importui/main/importui.cpp:556
 #, fuzzy
 #| msgid "By Folder"
 msgctxt "@item:inmenu Group Items"
 msgid "By Folder"
 msgstr "Κατά φάκελο"
 
-#: utilities/importui/main/importui.cpp:555
+#: utilities/importui/main/importui.cpp:557
 #, fuzzy
 #| msgid "By Format"
 msgctxt "@item:inmenu Group Items"
 msgid "By Format"
 msgstr "Ανά τύπο αρχειοθέτησης"
 
-#: utilities/importui/main/importui.cpp:583
+#: utilities/importui/main/importui.cpp:585
 #, fuzzy
 #| msgid "Fit to &Window"
 msgctxt "@action:inmenu"
 msgid "Fit to &Window"
 msgstr "Προσαρμογή στο &παράθυρο"
 
-#: utilities/importui/main/importui.cpp:588
+#: utilities/importui/main/importui.cpp:590
 #, fuzzy
 #| msgid "Zoom to 100%"
 msgctxt "@action:inmenu"
 msgid "Zoom to 100%"
 msgstr "Εστίαση στο 100%"
 
-#: utilities/importui/main/importui.cpp:597
+#: utilities/importui/main/importui.cpp:599
 #, fuzzy
 #| msgid "Show History"
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Εμφάνιση ιστορικού"
 
-#: utilities/importui/main/importui.cpp:602
+#: utilities/importui/main/importui.cpp:604
 #, fuzzy
 #| msgid "Show Thumbbar"
 msgctxt "@option:check"
 msgid "Show Thumbbar"
 msgstr "Εμφάνιση γραμμής επισκόπησης"
 
-#: utilities/importui/main/importui.cpp:633
-#: utilities/importui/main/importui.cpp:826
-#: utilities/importui/main/importui.cpp:832
+#: utilities/importui/main/importui.cpp:634
+#: utilities/importui/main/importui.cpp:828
+#: utilities/importui/main/importui.cpp:834
 #, fuzzy
 #| msgid "Previous Image"
 msgctxt "@action"
 msgid "Previous Image"
 msgstr "Προηγούμενη εικόνα"
 
-#: utilities/importui/main/importui.cpp:640
+#: utilities/importui/main/importui.cpp:641
 #, fuzzy
 #| msgid "Retry"
 msgctxt "@action Connection failed, try again?"
 msgid "Retry"
 msgstr "Ξαναπροσπάθησε"
 
-#: utilities/importui/main/importui.cpp:815
+#: utilities/importui/main/importui.cpp:817
 #, fuzzy
 #| msgid "Exit Preview Mode"
 msgctxt "@action"
 msgid "Exit Preview Mode"
 msgstr "Έξοδος από λειτουργία προεπισκόπησης"
 
-#: utilities/importui/main/importui.cpp:820
+#: utilities/importui/main/importui.cpp:822
 #, fuzzy
 #| msgid "Next Image"
 msgctxt "@action"
 msgid "Next Image"
 msgstr "Επόμενη εικόνα"
 
-#: utilities/importui/main/importui.cpp:837
+#: utilities/importui/main/importui.cpp:839
 #, fuzzy
 #| msgid "First Image"
 msgctxt "@action Go to first image"
 msgid "First Image"
 msgstr "Πρώτη εικόνα"
 
-#: utilities/importui/main/importui.cpp:842
+#: utilities/importui/main/importui.cpp:844
 #, fuzzy
 #| msgid "Last Image"
 msgctxt "@action Go to last image"
 msgid "Last Image"
 msgstr "Τελευταία εικόνα"
 
-#: utilities/importui/main/importui.cpp:934
+#: utilities/importui/main/importui.cpp:936
 #, fuzzy
 #| msgid "Canceling current operation, please wait..."
 msgctxt "@info:status"
 msgid "Canceling current operation, please wait..."
 msgstr "Ακύρωση της τρέχουσας λειτουργίας, παρακαλώ περιμένετε..."
 
-#: utilities/importui/main/importui.cpp:989
+#: utilities/importui/main/importui.cpp:991
 #, fuzzy
 #| msgid "Do you want to close the dialog and cancel the current operation?"
 msgctxt "@info"
@@ -17983,28 +18033,28 @@ msgid "Do you want to close the dialog and cancel the current operation?"
 msgstr ""
 "Θέλετε να κλείσετε το διάλογο και να ακυρώσετε την τρέχουσα λειτουργία;"
 
-#: utilities/importui/main/importui.cpp:998
+#: utilities/importui/main/importui.cpp:1000
 #, fuzzy
 #| msgid "Disconnecting from camera, please wait..."
 msgctxt "@info:status"
 msgid "Disconnecting from camera, please wait..."
 msgstr "Αποσύνδεση από τη φωτογραφική, παρακαλώ περιμένετε..."
 
-#: utilities/importui/main/importui.cpp:1039
+#: utilities/importui/main/importui.cpp:1042
 #, fuzzy
 #| msgid "Scanning for new files, please wait..."
 msgctxt "@info:status"
 msgid "Scanning for new files, please wait..."
 msgstr "Σάρωση νέων αρχείων, παρακαλώ περιμένετε..."
 
-#: utilities/importui/main/importui.cpp:1076
+#: utilities/importui/main/importui.cpp:1079
 #, fuzzy
 #| msgid "Ready"
 msgctxt "@info:status"
 msgid "Ready"
 msgstr "Έτοιμο"
 
-#: utilities/importui/main/importui.cpp:1147
+#: utilities/importui/main/importui.cpp:1150
 #, fuzzy
 #| msgid ""
 #| "Failed to connect to the camera. Please make sure it is connected "
@@ -18017,14 +18067,14 @@ msgstr ""
 "Αποτυχία σύνδεσης με τη φωτογραφική μηχανή. Παρακαλώ σιγουρευτείτε ότι είναι "
 "συνδεδεμένη κανονικά και ανοικτή. Θέλετε να ξαναπροσπαθήσετε;"
 
-#: utilities/importui/main/importui.cpp:1267
+#: utilities/importui/main/importui.cpp:1270
 #, fuzzy
 #| msgid "Select Image to Upload"
 msgctxt "@title:window"
 msgid "Select Image to Upload"
 msgstr "Επιλογή εικόνας για αποστολή"
 
-#: utilities/importui/main/importui.cpp:1300
+#: utilities/importui/main/importui.cpp:1303
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is not enough free space on the Camera Medium to upload pictures.\n"
@@ -18044,7 +18094,7 @@ msgstr ""
 "Απαιτούμενος χώρος: %1\n"
 "Διαθέσιμος ελεύθερος χώρος: %2"
 
-#: utilities/importui/main/importui.cpp:1354
+#: utilities/importui/main/importui.cpp:1357
 #, fuzzy, kde-format
 #| msgid ""
 #| "Camera Folder <b>%1</b> already contains the item <b>%2</b>.<br/>Please "
@@ -18057,14 +18107,14 @@ msgstr ""
 "Ο φάκελος φωτογραφικής <b>%1</b> περιέχει ήδη το αντικείμενο <b>%2</b><br/> "
 "Παρακαλώ, εισάγετε ένα νέο όνομα (χωρίς επέκταση):"
 
-#: utilities/importui/main/importui.cpp:1357
+#: utilities/importui/main/importui.cpp:1360
 #, fuzzy
 #| msgid "File already exists"
 msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Το αρχείο υπάρχει ήδη"
 
-#: utilities/importui/main/importui.cpp:1418
+#: utilities/importui/main/importui.cpp:1421
 #, fuzzy
 #| msgid ""
 #| "Your custom target album date format is not valid. Please check your "
@@ -18077,7 +18127,7 @@ msgstr ""
 "Η μορφή ημερομηνίας του προσαρμοσμένου λευκώματος δεν είναι έγκυρη. Ελέγξτε "
 "τις ρυθμίσεις σας..."
 
-#: utilities/importui/main/importui.cpp:1457
+#: utilities/importui/main/importui.cpp:1460
 #, fuzzy
 #| msgid ""
 #| "Collection which host your default target album set to process download "
@@ -18093,7 +18143,7 @@ msgstr ""
 "από τη φωτογραφική μηχανή δεν είναι διαθέσιμη. Επιλέξτε κάποια άλλη από το "
 "διάλογο διαμόρφωσης της φωτογραφικής μηχανής."
 
-#: utilities/importui/main/importui.cpp:1465
+#: utilities/importui/main/importui.cpp:1468
 #, fuzzy
 #| msgid ""
 #| "Your default target album set to process download from camera device is "
@@ -18107,7 +18157,7 @@ msgstr ""
 "μηχανή δεν είναι διαθέσιμο. Επιλέξτε ένα άλλο από το διάλογο διαμόρφωσης της "
 "φωτογραφικής μηχανής."
 
-#: utilities/importui/main/importui.cpp:1483
+#: utilities/importui/main/importui.cpp:1487
 #, fuzzy
 #| msgid ""
 #| "<p>Please select the destination album from the digiKam library to import "
@@ -18120,7 +18170,7 @@ msgstr ""
 "<p>Παρακαλώ, επιλέξτε το λεύκωμα προορισμού από τη βιβλιοθήκη digiKam για "
 "την εισαγωγή σε αυτό φωτογραφιών από τη φωτογραφική μηχανή.</p>"
 
-#: utilities/importui/main/importui.cpp:1577
+#: utilities/importui/main/importui.cpp:1581
 #, fuzzy
 #| msgid ""
 #| "Images download finished, you can now detach your camera while the images "
@@ -18133,14 +18183,14 @@ msgstr ""
 "Η λήψη εικόνων ολοκληρώθηκε, τώρα μπορείτε να αποσυνδέσετε την κάμερα καθώς "
 "θα πραγματοποιείται η αυτόματη περιστροφή των εικόνων"
 
-#: utilities/importui/main/importui.cpp:1581
+#: utilities/importui/main/importui.cpp:1585
 #, fuzzy
 #| msgid "Images download finished"
 msgctxt "@info Popup notification"
 msgid "Images download finished"
 msgstr "Η λήψη εικόνων ολοκληρώθηκε"
 
-#: utilities/importui/main/importui.cpp:1884
+#: utilities/importui/main/importui.cpp:1888
 #, fuzzy
 #| msgid ""
 #| "The items listed below are locked by camera (read-only). These items will "
@@ -18157,7 +18207,7 @@ msgstr ""
 "επιθυμείτε πραγματικά τη διαγραφή τους, παρακαλώ ξεκλειδώστε τα πρώτα και "
 "ξαναπροσπαθήστε."
 
-#: utilities/importui/main/importui.cpp:1895
+#: utilities/importui/main/importui.cpp:1899
 #, fuzzy, kde-format
 #| msgid ""
 #| "About to delete this image. Deleted file is unrecoverable. Are you sure?"
@@ -18178,21 +18228,21 @@ msgstr[1] ""
 "Αυτές οι %1 εικόνες πρόκειται να διαγραφούν. Η διαγραφή αρχείων είναι "
 "οριστική. Είστε σίγουροι;"
 
-#: utilities/importui/main/importui.cpp:1945
+#: utilities/importui/main/importui.cpp:1950
 #, fuzzy
 #| msgid "Try Anyway"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Προσπάθεια"
 
-#: utilities/importui/main/importui.cpp:1947
+#: utilities/importui/main/importui.cpp:1952
 #, fuzzy
 #| msgid "Cancel Download"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "Ακύρωση λήψης"
 
-#: utilities/importui/main/importui.cpp:1950
+#: utilities/importui/main/importui.cpp:1954
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is not enough free space on the disk of the album you selected to "
@@ -18214,15 +18264,15 @@ msgstr ""
 "Εκτιμώμενος απαιτούμενος χώρος: %1\n"
 "Διαθέσιμος ελεύθερος χώρος: %2"
 
-#: utilities/importui/main/importui.cpp:1956
+#: utilities/importui/main/importui.cpp:1960
 #, fuzzy
 #| msgid "Insufficient Disk Space"
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Μη επαρκής χώρος στο δίσκο"
 
-#: utilities/importui/main/importui.cpp:2299
-#: utilities/importui/main/importui.cpp:2325
+#: utilities/importui/main/importui.cpp:2305
+#: utilities/importui/main/importui.cpp:2331
 #, fuzzy, kde-format
 #| msgid "No item selected (%1 item)"
 #| msgid_plural "No item selected (%1 items)"
@@ -18232,13 +18282,13 @@ msgid_plural "No item selected (%1 items)"
 msgstr[0] "Κανένα επιλεγμένο αντικείμενο (%1 αντικείμενο)"
 msgstr[1] "Κανένα επιλεγμένο αντικείμενο (%1 αντικείμενα)"
 
-#: utilities/importui/main/importui.cpp:2318
+#: utilities/importui/main/importui.cpp:2324
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:2334
+#: utilities/importui/main/importui.cpp:2340
 #, fuzzy, kde-format
 #| msgid "%2/%1 item selected"
 #| msgid_plural "%2/%1 items selected"
@@ -18248,7 +18298,7 @@ msgid_plural "%2/%1 items selected"
 msgstr[0] "%2/1 αντικείμενο επιλεγμένο"
 msgstr[1] "%2/%1 αντικείμενα επιλεγμένα"
 
-#: utilities/importui/main/importui.cpp:2421
+#: utilities/importui/main/importui.cpp:2427
 #, fuzzy, kde-format
 #| msgid "A file with the same name (%1) already exists in folder %2."
 msgctxt "@info"
@@ -18257,14 +18307,14 @@ msgid ""
 "<resource>%2</resource>."
 msgstr "Ένα αρχείο με το ίδιο όνομα (%1) υπάρχει ήδη στο φάκελο %2."
 
-#: utilities/importui/main/importui.cpp:2433
+#: utilities/importui/main/importui.cpp:2439
 #, fuzzy, kde-format
 #| msgid "Failed to find Album for path '%1'."
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "Αποτυχία εύρεσης λευκώματος για τη διαδρομή '%1'."
 
-#: utilities/importui/main/importui.cpp:2444
+#: utilities/importui/main/importui.cpp:2450
 #, fuzzy
 #| msgid "General"
 msgctxt "@title"
@@ -18919,7 +18969,7 @@ msgstr "Καθαρισμός ανεπιβεβαίωτων αποτελεσμάτ
 #, fuzzy
 #| msgctxt "@option:radio"
 #| msgid "Detect and recognize faces"
-msgid "Detect and recognize Faces"
+msgid "Detect and recognize Faces (experimental)"
 msgstr "Ανίχνευση και αναγνώριση προσώπων"
 
 #: utilities/maintenance/maintenancedlg.cpp:240
@@ -20770,11 +20820,27 @@ msgstr ""
 
 #: utilities/setup/setup.cpp:552
 msgid ""
+"The maximum thumbnail size has been changed.\n"
+"You need to restart digiKam to see this option to take effect.\n"
+"\n"
+"Note: after restarting digiKam, it is recommended to rebuild all album "
+"items' thumbnails, using the \"Tools-Maintenance\" menu."
+msgstr ""
+
+#: utilities/setup/setup.cpp:561
+#, fuzzy
+#| msgid ""
+#| "The Exif auto-rotate thumbnails option has been changed.\n"
+#| "Do you want to rebuild all albums' items' thumbnails now?\n"
+#| "\n"
+#| "Note: thumbnail processing can take a while. You can start this job later "
+#| "from the \"Tools\" menu."
+msgid ""
 "The Exif auto-rotate thumbnails option has been changed.\n"
 "Do you want to rebuild all albums' items' thumbnails now?\n"
 "\n"
 "Note: thumbnail processing can take a while. You can start this job later "
-"from the \"Tools\" menu."
+"from the \"Tools-Maintenance\" menu."
 msgstr ""
 "Η επιλογή Exif αυτόματης περιστροφής εικόνων επισκόπησης τροποποιήθηκε.\n"
 "Επιθυμείτε την ανακατασκευή όλων των εικόνων επισκόπησης των λευκωμάτων;\n"
@@ -20783,129 +20849,123 @@ msgstr ""
 "Μπορείτε να εκκινήσετε τη λειτουργία αυτή κάποια άλλη στιγμή από το μενού "
 "\"Εργαλεία\"."
 
-#: utilities/setup/setupalbumview.cpp:121 utilities/setup/setupcamera.cpp:421
+#: utilities/setup/setupalbumview.cpp:131 utilities/setup/setupcamera.cpp:423
 msgid "Icon-View Options"
 msgstr "Επιλογές προβολής εικονιδίων"
 
-#: utilities/setup/setupalbumview.cpp:124 utilities/setup/setupcamera.cpp:424
+#: utilities/setup/setupalbumview.cpp:134 utilities/setup/setupcamera.cpp:426
 msgid "Show file&name"
 msgstr "Εμφάνιση ο&νόματος αρχείου"
 
-#: utilities/setup/setupalbumview.cpp:125 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:135 utilities/setup/setupcamera.cpp:427
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται το όνομα του αρχείου κάτω "
 "από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:127 utilities/setup/setupcamera.cpp:427
+#: utilities/setup/setupalbumview.cpp:137 utilities/setup/setupcamera.cpp:429
 msgid "Show file si&ze"
 msgstr "Εμφάνιση με&γέθους αρχείου"
 
-#: utilities/setup/setupalbumview.cpp:128 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:430
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται το μέγεθος του αρχείου "
 "κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:130 utilities/setup/setupcamera.cpp:430
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:432
 msgid "Show camera creation &date"
 msgstr "Εμφάνιση &ημερομηνίας δημιουργίας φωτογραφικής"
 
-#: utilities/setup/setupalbumview.cpp:131
+#: utilities/setup/setupalbumview.cpp:141
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται η ημερομηνία δημιουργίας "
 "της φωτογραφικής κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:134
+#: utilities/setup/setupalbumview.cpp:144
 msgid "Show file &modification date"
 msgstr "Εμφάνιση η&μερομηνίας τροποποίησης"
 
-#: utilities/setup/setupalbumview.cpp:135
+#: utilities/setup/setupalbumview.cpp:145
 msgid ""
 "Set this option to show the file modification date below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται η ημερομηνία τροποποίησης "
 "του αρχείου κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:138
+#: utilities/setup/setupalbumview.cpp:148
 msgid "Show ima&ge dimensions"
 msgstr "Εμφάνιση διαστάσεων ει&κόνας"
 
-#: utilities/setup/setupalbumview.cpp:139
+#: utilities/setup/setupalbumview.cpp:149
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται το μέγεθος εικόνας σε "
 "εικονοστοιχεία κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setuptooltip.cpp:213
+#: utilities/setup/setupalbumview.cpp:152 utilities/setup/setuptooltip.cpp:213
 msgid "Show image aspect ratio"
 msgstr "Εμφάνιση αναλογίας διαστάσεων εικόνας"
 
-#: utilities/setup/setupalbumview.cpp:143
+#: utilities/setup/setupalbumview.cpp:153
 msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή για να εμφανίζεται η αναλογία διαστάσεων "
 "κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:440
+#: utilities/setup/setupalbumview.cpp:156 utilities/setup/setupcamera.cpp:442
 msgid "Show image Format"
 msgstr "Εμφάνιση τύπου αρχειοθέτησης εικόνας"
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:441
-msgid "Set this option to show image format over image thumbnail."
-msgstr ""
-"Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται ο τύπος αρχειοθέτησης πάνω "
-"από την εικόνα επισκόπησης."
-
-#: utilities/setup/setupalbumview.cpp:149
+#: utilities/setup/setupalbumview.cpp:159
 msgid "Show digiKam tit&le"
 msgstr "Εμφάνιση τίτ&λου του digiKam"
 
-#: utilities/setup/setupalbumview.cpp:150
+#: utilities/setup/setupalbumview.cpp:160
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται ο τίτλος του digiKam κάτω "
 "από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:153
+#: utilities/setup/setupalbumview.cpp:163
 msgid "Show digiKam &captions"
 msgstr "Εμφάνιση επι&γραφών του digiKam"
 
-#: utilities/setup/setupalbumview.cpp:154
+#: utilities/setup/setupalbumview.cpp:164
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζονται οι επιγραφές digiKam κάτω "
 "από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:157 utilities/setup/setupcamera.cpp:443
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:448
 msgid "Show digiKam &tags"
 msgstr "Εμφάνιση ετικετών &digiKam"
 
-#: utilities/setup/setupalbumview.cpp:158 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:168 utilities/setup/setupcamera.cpp:449
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζονται οι ετικέτες του digiKam "
 "κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:171
 msgid "Show digiKam &rating"
 msgstr "Εμφάνιση &αξιολόγησης του digiKam"
 
-#: utilities/setup/setupalbumview.cpp:162
+#: utilities/setup/setupalbumview.cpp:172
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται η αξιολόγηση του digiKam "
 "κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:451
+#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:456
 msgid "Show rotation overlay buttons"
 msgstr "Εμφάνιση κουμπιών επικάλυψης περιστροφής"
 
-#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:457
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
@@ -20913,43 +20973,66 @@ msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζονται τα κουμπιά επικάλυψης "
 "στην εικόνα επισκόπησης για την περιστροφή εικόνας."
 
-#: utilities/setup/setupalbumview.cpp:169 utilities/setup/setupcamera.cpp:455
+#: utilities/setup/setupalbumview.cpp:179 utilities/setup/setupcamera.cpp:445
+#, fuzzy
+#| msgid "Geolocation Filter"
+msgid "Show Geolocation Indicator"
+msgstr "Φίλτρο γεωτοποθέτησης"
+
+#: utilities/setup/setupalbumview.cpp:182 utilities/setup/setupcamera.cpp:460
 msgid "Thumbnail click action:"
 msgstr "Ενέργεια του κλικ στην εικόνα επισκόπησης:"
 
-#: utilities/setup/setupalbumview.cpp:171 utilities/setup/setupcamera.cpp:457
+#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:462
 msgid "Show embedded preview"
 msgstr "Εμφάνιση ενσωματωμένης επισκόπησης"
 
-#: utilities/setup/setupalbumview.cpp:172 utilities/setup/setupcamera.cpp:458
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:463
 msgid "Start image editor"
 msgstr "Εκκίνηση επεξεργαστή εικόνας"
 
-#: utilities/setup/setupalbumview.cpp:173 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:464
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr ""
 "Επιλέξτε την ενέργεια που θα εκτελείται όταν κάνετε κλικ πάνω στην εικόνα "
 "επισκόπησης."
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:461
+#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:466
 msgid "Icon View font:"
 msgstr "Γραμματοσειρά προβολής εικονιδίων:"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:189 utilities/setup/setupcamera.cpp:467
 msgid "Select here the font used to display text in Icon Views."
 msgstr ""
 "Επιλέξτε εδώ τη γραμματοσειρά που θα χρησιμοποιηθεί για την εμφάνιση του "
 "κειμένου στην προβολή εικονιδίων."
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:191
+msgid "Use large thumbnail size for high screen resolution"
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:192
+msgid ""
+"Set this option to render icon-view with large thumbnail size, for example "
+"in case of 4K monitor is used.\n"
+"By default this option is turned off and the maximum thumbnail size is "
+"limited to 256x256 pixels. When this option is enabled, thumbnail size can "
+"be extended to 512x512 pixels.\n"
+"This option will store more data in thumbnail database and will use more "
+"system memory. digiKam needs to be restarted to take effect, and Rebuild "
+"Thumbnails option from Maintenance tool needs to be processed over whole "
+"collections."
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:223
 msgid "Folder View Options"
 msgstr "Επιλογές προβολής φακέλου"
 
-#: utilities/setup/setupalbumview.cpp:203
+#: utilities/setup/setupalbumview.cpp:226
 msgid "Tree View thumbnail size:"
 msgstr "Μέγεθος επισκόπησης προβολής δέντρου:"
 
-#: utilities/setup/setupalbumview.cpp:209
+#: utilities/setup/setupalbumview.cpp:232
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
@@ -20957,29 +21040,29 @@ msgstr ""
 "Εδώ μπορείτε να καθορίσετε το μέγεθος των εικόνων επισκόπησης στις πλευρικές "
 "μπάρες του digiKam."
 
-#: utilities/setup/setupalbumview.cpp:212
+#: utilities/setup/setupalbumview.cpp:235
 msgid "Tree View font:"
 msgstr "Γραμματοσειρά προβολής δέντρου:"
 
-#: utilities/setup/setupalbumview.cpp:213
+#: utilities/setup/setupalbumview.cpp:236
 msgid "Select here the font used to display text in Tree Views."
 msgstr ""
 "Επιλέξτε εδώ την γραμματοσειρά που θα χρησιμοποιηθεί για την εμφάνιση του "
 "κειμένου στην προβολή δέντρου."
 
-#: utilities/setup/setupalbumview.cpp:215
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Show a count of items in Tree Views"
 msgstr "Εμφάνιση αριθμού αντικειμένων στη προβολή δένδρου"
 
-#: utilities/setup/setupalbumview.cpp:226 utilities/setup/setupcamera.cpp:481
+#: utilities/setup/setupalbumview.cpp:249 utilities/setup/setupcamera.cpp:487
 msgid "Preview Options"
 msgstr "Επιλογές προεπισκόπησης"
 
-#: utilities/setup/setupalbumview.cpp:229 utilities/setup/setupcamera.cpp:484
+#: utilities/setup/setupalbumview.cpp:252 utilities/setup/setupcamera.cpp:490
 msgid "Embedded preview loads full-sized images"
 msgstr "Η ενσωματωμένη προεπισκόπηση φορτώνει το πλήρες μέγεθος των εικόνων"
 
-#: utilities/setup/setupalbumview.cpp:230 utilities/setup/setupcamera.cpp:485
+#: utilities/setup/setupalbumview.cpp:253 utilities/setup/setupcamera.cpp:491
 #: utilities/setup/setuplighttable.cpp:108
 msgid ""
 "<p>Set this option to load images at their full size for preview, rather "
@@ -20995,18 +21078,21 @@ msgstr ""
 "μια έκδοση σε μισό μέγεθος των δεδομένων Raw data χρησιμοποιείται αντί της "
 "ενσωματωμένης JPEG προεπισκόπησης.</p>"
 
-#: utilities/setup/setupalbumview.cpp:237 utilities/setup/setupcamera.cpp:495
+#: utilities/setup/setupalbumview.cpp:260 utilities/setup/setupcamera.cpp:501
 msgid "Show icons and text over preview"
 msgstr "Εμφάνιση εικονιδίων και κειμένου πάνω από την προεπισκόπηση"
 
-#: utilities/setup/setupalbumview.cpp:238 utilities/setup/setupcamera.cpp:496
+#: utilities/setup/setupalbumview.cpp:261
+#, fuzzy
+#| msgid ""
+#| "Uncheck this if you don't want to see icons and text in the image preview."
 msgid ""
-"Uncheck this if you don't want to see icons and text in the image preview."
+"Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 "Αναιρέστε την επιλογή αυτή αν δεν θέλετε να βλέπετε εικονίδια και κείμενο "
 "στην προεπισκόπηση εικόνας."
 
-#: utilities/setup/setupcamera.cpp:279
+#: utilities/setup/setupcamera.cpp:281
 msgid ""
 "Here you can see the digital camera list used by digiKam via the Gphoto "
 "interface."
@@ -21014,33 +21100,33 @@ msgstr ""
 "Μπορείτε να δείτε εδώ τη λίστα ψηφιακών φωτογραφικών μηχανών που "
 "χρησιμοποιούνται από το digiKam μέσω του περιβάλλοντος Gphoto."
 
-#: utilities/setup/setupcamera.cpp:300 utilities/setup/setupcamera.cpp:393
+#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
 #: utilities/setup/setupcategory.cpp:100 utilities/setup/setuptemplate.cpp:124
 msgid "&Add..."
 msgstr "&Προσθήκη..."
 
-#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
+#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
 #: utilities/setup/setupcategory.cpp:101 utilities/setup/setuptemplate.cpp:126
 msgid "&Remove"
 msgstr "Α&φαίρεση"
 
-#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
+#: utilities/setup/setupcamera.cpp:306 utilities/setup/setupcamera.cpp:399
 msgid "&Edit..."
 msgstr "&Επεξεργασία..."
 
-#: utilities/setup/setupcamera.cpp:306
+#: utilities/setup/setupcamera.cpp:308
 msgid "Auto-&Detect"
 msgstr "Αυτόματη α&νίχνευση"
 
-#: utilities/setup/setupcamera.cpp:318
+#: utilities/setup/setupcamera.cpp:320
 msgid "Visit Gphoto project website"
 msgstr "Επισκεφτείτε τον ιστότοπο του Gphoto"
 
-#: utilities/setup/setupcamera.cpp:339
+#: utilities/setup/setupcamera.cpp:341
 msgid "Devices"
 msgstr "Συσκευές"
 
-#: utilities/setup/setupcamera.cpp:347
+#: utilities/setup/setupcamera.cpp:349
 #, fuzzy
 #| msgid ""
 #| "Use date from metadata to sort items instead file-system date (makes "
@@ -21050,40 +21136,40 @@ msgstr ""
 "Χρησιμοποιήστε ημερομηνία από τα μεταδεδομένα για ταξινόμηση αντικειμένων "
 "αντί για την ημερομηνία του συστήματος (κάνει τη σύνδεση πιο αργή)"
 
-#: utilities/setup/setupcamera.cpp:348
+#: utilities/setup/setupcamera.cpp:350
 msgid "Turn on high quality thumbnail loading (slower loading)"
 msgstr ""
 "Ενεργοποιήστε τη φόρτωση εικόνων προεπισκόπησης υψηλής ποιότητας (πιο αργή "
 "φόρτωση)"
 
-#: utilities/setup/setupcamera.cpp:349
+#: utilities/setup/setupcamera.cpp:351
 msgid "Use a default target album to download from camera"
 msgstr "Χρήση προκαθορισμένου λευκώματος για λήψη από φωτογραφική μηχανή"
 
-#: utilities/setup/setupcamera.cpp:371
+#: utilities/setup/setupcamera.cpp:373
 msgid ""
 "Here you can see filters that can be used to filter files in import dialog."
 msgstr ""
 "Εδώ μπορείτε να δείτε φίλτρα που μπορούν να χρησιμοποιηθούν για φιλτράρισμα "
 "αρχείων σε διάλογο εισαγωγής."
 
-#: utilities/setup/setupcamera.cpp:390
+#: utilities/setup/setupcamera.cpp:392
 msgid "Always ignore"
 msgstr "Πάντα να αγνοείται"
 
-#: utilities/setup/setupcamera.cpp:391
+#: utilities/setup/setupcamera.cpp:393
 msgid "Ignored file names:"
 msgstr "Αγνοηθέντα ονόματα αρχείων:"
 
-#: utilities/setup/setupcamera.cpp:392
+#: utilities/setup/setupcamera.cpp:394
 msgid "Ignored file extensions:"
 msgstr "Αγνοηθείσες επεκτάσεις αρχείων:"
 
-#: utilities/setup/setupcamera.cpp:412
+#: utilities/setup/setupcamera.cpp:414
 msgid "Import Filters"
 msgstr "Φίλτρα εισαγωγής"
 
-#: utilities/setup/setupcamera.cpp:431
+#: utilities/setup/setupcamera.cpp:433
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the camera creation date below the image "
@@ -21094,33 +21180,40 @@ msgstr ""
 "Ενεργοποιήστε αυτή την επιλογή για να εμφανίζεται η ημερομηνία δημιουργίας "
 "της φωτογραφικής κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupcamera.cpp:447
+#: utilities/setup/setupcamera.cpp:452
 msgid "Show item &rating"
 msgstr "Εμφάνιση &αξιολόγησης αντικειμένων"
 
-#: utilities/setup/setupcamera.cpp:448
+#: utilities/setup/setupcamera.cpp:453
 msgid "Set this option to show the item rating below the image thumbnail."
 msgstr ""
 "Ενεργοποιήστε αυτήν την επιλογή για να εμφανίζεται η αξιολόγηση αντικειμένων "
 "κάτω από την εικόνα επισκόπησης."
 
-#: utilities/setup/setupcamera.cpp:492
+#: utilities/setup/setupcamera.cpp:498
 msgid "Preview each item while downloading it"
 msgstr "Προεπισκόπηση κάθε αντικειμένου κατά τη λήψη"
 
-#: utilities/setup/setupcamera.cpp:493
+#: utilities/setup/setupcamera.cpp:499
 msgid "<p>Set this option to preview each item while downloading.</p>"
 msgstr ""
 "<p>Ενεργοποιήστε αυτήν την επιλογή για την προεπισκόπηση κάθε αντικειμένου "
 "κατά τη λήψη.</p>"
 
-#: utilities/setup/setupcamera.cpp:515
+#: utilities/setup/setupcamera.cpp:502
+msgid ""
+"Uncheck this if you don't want to see icons and text in the image preview."
+msgstr ""
+"Αναιρέστε την επιλογή αυτή αν δεν θέλετε να βλέπετε εικονίδια και κείμενο "
+"στην προεπισκόπηση εικόνας."
+
+#: utilities/setup/setupcamera.cpp:521
 #, fuzzy
 #| msgid "Importing"
 msgid "Import Window"
 msgstr "Γίνεται εισαγωγή"
 
-#: utilities/setup/setupcamera.cpp:765
+#: utilities/setup/setupcamera.cpp:773
 msgid ""
 "No default target album have been selected to process download from camera "
 "device. Please select one."
@@ -21128,11 +21221,11 @@ msgstr ""
 "Δεν έχει επιλεγεί προκαθορισμένο λεύκωμα για την επεξεργασία λήψης από "
 "φωτογραφική μηχανή. Επιλέξτε ένα."
 
-#: utilities/setup/setupcamera.cpp:858
+#: utilities/setup/setupcamera.cpp:866
 msgid "Device detection under progress, please wait..."
 msgstr "Ανίχνευση συσκευής σε εξέλιξη, παρακαλώ περιμένετε..."
 
-#: utilities/setup/setupcamera.cpp:869
+#: utilities/setup/setupcamera.cpp:877
 msgid ""
 "Failed to auto-detect camera.\n"
 "Please check if your camera is turned on and retry or try setting it "
@@ -21142,28 +21235,28 @@ msgstr ""
 "Παρακαλώ ελέγξτε αν η φωτογραφική μηχανή σας είναι ανοικτή και "
 "ξαναπροσπαθήστε ή προσπαθήστε να την εγκαταστήσετε χειροκίνητα."
 
-#: utilities/setup/setupcamera.cpp:883
+#: utilities/setup/setupcamera.cpp:891
 #, kde-format
 msgid "Camera '%1' (%2) is already in list."
 msgstr "Η φωτογραφική μηχανή '%1' (%2) βρίσκεται ήδη στη λίστα."
 
-#: utilities/setup/setupcamera.cpp:887
+#: utilities/setup/setupcamera.cpp:895
 #, kde-format
 msgid "Found camera '%1' (%2) and added it to the list."
 msgstr "Βρέθηκε η φωτογραφική μηχανή '%1' (%2) και προστέθηκε στη λίστα."
 
-#: utilities/setup/setupcamera.cpp:903
+#: utilities/setup/setupcamera.cpp:911
 msgid "Untitled"
 msgstr "Χωρίς τίτλο"
 
-#: utilities/setup/setupcamera.cpp:945
+#: utilities/setup/setupcamera.cpp:953
 msgid ""
 "In order to enable this feature, the full-sized preview will be disabled."
 msgstr ""
 "Για να ενεργοποιήσετε αυτήν τη λειτουργία, η προεπισκόπηση πλήρους μεγέθους "
 "θα απενεργοποιηθεί."
 
-#: utilities/setup/setupcamera.cpp:955
+#: utilities/setup/setupcamera.cpp:963
 msgid ""
 "If the full-sized preview is enabled it will affect the speed of previewing "
 "each item while download."
@@ -21784,7 +21877,45 @@ msgctxt "none of the paths"
 msgid "none"
 msgstr "Καμία"
 
-#: utilities/setup/setupicc.cpp:904
+#: utilities/setup/setupicc.cpp:906
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Windows, the default search paths include <ul><li>%1/Windows/Spool/"
+"Drivers/Color/</li><li>%2/Windows/Color/</li></ul>On your system, currently "
+"these paths exist and are scanned:<ul><li>%3</li></ul>"
+msgstr ""
+"Στο Linux, οι προκαθορισμένες διαδρομές αναζήτησης περιλαμβάνουν <ul><li>/"
+"usr/share/color/icc</li><li>/usr/local/share/color/icc</li><li>~/.local/"
+"share/color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></"
+"ul>Στο σύστημά σας, τώρα υπάρχουν αυτές οι διαδρομές και σαρώνονται:<ul><li>"
+"%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:920
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Mac OS X, the default search paths include <ul><li>/System/Library/"
+"ColorSync/Profiles</li><li>/Library/ColorSync/Profiles</li><li>~/Library/"
+"ColorSync/Profiles</li><li>/opt/local/share/color/icc</li><li>~/.local/share/"
+"color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On "
+"your system, currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgstr ""
+"Στο Linux, οι προκαθορισμένες διαδρομές αναζήτησης περιλαμβάνουν <ul><li>/"
+"usr/share/color/icc</li><li>/usr/local/share/color/icc</li><li>~/.local/"
+"share/color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></"
+"ul>Στο σύστημά σας, τώρα υπάρχουν αυτές οι διαδρομές και σαρώνονται:<ul><li>"
+"%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:936
 #, kde-format
 msgid ""
 "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
@@ -23319,6 +23450,19 @@ msgctxt ""
 "is active"
 msgid "Giving a presentation"
 msgstr "Γίνεται παρουσίαση"
+
+#, fuzzy
+#~| msgid "Open in File Manager"
+#~ msgid "Open Tag Manger"
+#~ msgstr "Άνοιγμα στο διαχειριστή αρχείων"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item is not locked."
+#~ msgstr "Αυτό το αντικείμενο δεν είναι κλειδωμένο."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item download status is unknown"
+#~ msgstr "Αυτό το αντικείμενο κατάστασης λήψης είναι άγνωστο"
 
 #, fuzzy
 #~| msgid "Connection failed."

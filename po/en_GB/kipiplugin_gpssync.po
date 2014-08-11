@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"POT-Creation-Date: 2014-06-12 01:33+0000\n"
 "PO-Revision-Date: 2011-05-01 12:59+0100\n"
 "Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
 "Language-Team: British English <kde-i18n-doc@kde.org>\n"
@@ -32,23 +32,15 @@ msgid_plural "%1 images snapped to '%2'"
 msgstr[0] "1 image snapped to '%2'"
 msgstr[1] "%1 images snapped to '%2'"
 
-#: gpscorrelatorwidget.cpp:169
+#: gpscorrelatorwidget.cpp:175
 msgid "Load GPX files..."
 msgstr "Load GPX files..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
-msgid "Filename"
-msgstr "Filename"
-
-#: gpscorrelatorwidget.cpp:174
-msgid "#points"
-msgstr "#points"
-
-#: gpscorrelatorwidget.cpp:178
+#: gpscorrelatorwidget.cpp:183
 msgid "Max. time gap (sec.):"
 msgstr "Max. time gap (sec.):"
 
-#: gpscorrelatorwidget.cpp:180
+#: gpscorrelatorwidget.cpp:185
 msgid ""
 "Sets the maximum difference in seconds from a GPS track point to the image "
 "time to be matched. If the time difference exceeds this setting, no match "
@@ -58,15 +50,15 @@ msgstr ""
 "time to be matched. If the time difference exceeds this setting, no match "
 "will be attempted."
 
-#: gpscorrelatorwidget.cpp:184
+#: gpscorrelatorwidget.cpp:189
 msgid "Camera time zone:"
 msgstr "Camera time zone:"
 
-#: gpscorrelatorwidget.cpp:185
+#: gpscorrelatorwidget.cpp:190
 msgid "Same as system"
 msgstr "Same as system"
 
-#: gpscorrelatorwidget.cpp:187
+#: gpscorrelatorwidget.cpp:192
 msgid ""
 "Use this option if the timezone of the camera is the same as the timezone of "
 "this system. The conversion to GMT will be done automatically."
@@ -74,12 +66,12 @@ msgstr ""
 "Use this option if the timezone of the camera is the same as the timezone of "
 "this system. The conversion to GMT will be done automatically."
 
-#: gpscorrelatorwidget.cpp:190
+#: gpscorrelatorwidget.cpp:195
 msgctxt "manual time zone selection for gps syncing"
 msgid "Manual:"
 msgstr "Manual:"
 
-#: gpscorrelatorwidget.cpp:192
+#: gpscorrelatorwidget.cpp:197
 msgid ""
 "Use this option if the timezone of the camera is different from this system "
 "and you have to specify the difference to GMT manually."
@@ -87,7 +79,7 @@ msgstr ""
 "Use this option if the timezone of the camera is different from this system "
 "and you have to specify the difference to GMT manually."
 
-#: gpscorrelatorwidget.cpp:244
+#: gpscorrelatorwidget.cpp:249
 msgid ""
 "<p>Sets the time zone the camera was set to during photo shooting, so that "
 "the time stamps of the images can be converted to GMT to match the GPS time "
@@ -99,11 +91,11 @@ msgstr ""
 "reference.</p><p>Note: positive offsets count eastwards from zero longitude "
 "(GMT), they are 'ahead of time'.</p>"
 
-#: gpscorrelatorwidget.cpp:251
+#: gpscorrelatorwidget.cpp:256
 msgid "Fine offset (mm:ss):"
 msgstr "Fine offset (mm:ss):"
 
-#: gpscorrelatorwidget.cpp:253
+#: gpscorrelatorwidget.cpp:258
 msgid ""
 "Sets an additional offset in minutes and seconds that is used to correlate "
 "the photos to the GPS track. This can be used for fine tuning to adjust a "
@@ -113,23 +105,23 @@ msgstr ""
 "the photos to the GPS track. This can be used for fine tuning to adjust a "
 "wrong camera clock."
 
-#: gpscorrelatorwidget.cpp:263
+#: gpscorrelatorwidget.cpp:268
 msgid "Set whether the camera offset is negative or positive."
 msgstr "Set whether the camera offset is negative or positive."
 
-#: gpscorrelatorwidget.cpp:267
+#: gpscorrelatorwidget.cpp:272
 msgid "Minutes to fine tune camera offset."
 msgstr "Minutes to fine tune camera offset."
 
-#: gpscorrelatorwidget.cpp:270
+#: gpscorrelatorwidget.cpp:275
 msgid "Seconds to fine tune camera offset."
 msgstr "Seconds to fine tune camera offset."
 
-#: gpscorrelatorwidget.cpp:280
+#: gpscorrelatorwidget.cpp:285
 msgid "Interpolate"
 msgstr "Interpolate"
 
-#: gpscorrelatorwidget.cpp:281
+#: gpscorrelatorwidget.cpp:286
 msgid ""
 "Set this option to interpolate GPS track points which are not closely "
 "matched to the GPX data file."
@@ -137,11 +129,19 @@ msgstr ""
 "Set this option to interpolate GPS track points which are not closely "
 "matched to the GPX data file."
 
-#: gpscorrelatorwidget.cpp:287
+#: gpscorrelatorwidget.cpp:292
+msgid "Show tracks on Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:293
+msgid "Set this option to show tracks on the Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:298
 msgid "Difference in min.:"
 msgstr "Difference in min.:"
 
-#: gpscorrelatorwidget.cpp:289
+#: gpscorrelatorwidget.cpp:300
 msgid ""
 "Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
 "file points to image time data."
@@ -149,37 +149,37 @@ msgstr ""
 "Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
 "file points to image time data."
 
-#: gpscorrelatorwidget.cpp:292
+#: gpscorrelatorwidget.cpp:303
 msgid "Correlate"
 msgstr "Correlate"
 
-#: gpscorrelatorwidget.cpp:349
+#: gpscorrelatorwidget.cpp:362
 #, kde-format
 msgid "%1|GPS Exchange Format"
 msgstr "%1|GPS Exchange Format"
 
-#: gpscorrelatorwidget.cpp:350
+#: gpscorrelatorwidget.cpp:363
 msgid "Select GPX File to Load"
 msgstr "Select GPX File to Load"
 
-#: gpscorrelatorwidget.cpp:396
+#: gpscorrelatorwidget.cpp:392
 #, kde-format
 msgid "The following GPX file could not be loaded:"
 msgid_plural "The following %1 GPX files could not be loaded:"
 msgstr[0] "The following GPX file could not be loaded:"
 msgstr[1] "The following %1 GPX files could not be loaded:"
 
-#: gpscorrelatorwidget.cpp:402
+#: gpscorrelatorwidget.cpp:398
 msgid "Error loading GPX file"
 msgid_plural "Error loading GPX files"
 msgstr[0] "Error loading GPX file"
 msgstr[1] "Error loading GPX files"
 
-#: gpscorrelatorwidget.cpp:520
+#: gpscorrelatorwidget.cpp:509
 msgid "Correlating images - %p%"
 msgstr "Correlating images - %p%"
 
-#: gpscorrelatorwidget.cpp:590
+#: gpscorrelatorwidget.cpp:579
 msgid ""
 "Could not correlate any image - please make sure the timezone and gap "
 "settings are correct."
@@ -187,21 +187,21 @@ msgstr ""
 "Could not correlate any image - please make sure the timezone and gap "
 "settings are correct."
 
-#: gpscorrelatorwidget.cpp:591
+#: gpscorrelatorwidget.cpp:580
 msgid "Correlation failed"
 msgstr "Correlation failed"
 
-#: gpscorrelatorwidget.cpp:596
+#: gpscorrelatorwidget.cpp:585
 msgid ""
 "All images have been correlated. You can now check their position on the map."
 msgstr ""
 "All images have been correlated. You can now check their position on the map."
 
-#: gpscorrelatorwidget.cpp:597
+#: gpscorrelatorwidget.cpp:586
 msgid "Correlation succeeded"
 msgstr "Correlation succeeded"
 
-#: gpscorrelatorwidget.cpp:603
+#: gpscorrelatorwidget.cpp:592
 #, kde-format
 msgid ""
 "%1 out of %2 images have been correlated. Please check the timezone and gap "
@@ -210,39 +210,16 @@ msgstr ""
 "%1 out of %2 images have been correlated. Please check the timezone and gap "
 "settings if you think that more images should have been correlated."
 
-#: gpscorrelatorwidget.cpp:604
+#: gpscorrelatorwidget.cpp:593
 msgid "Correlation finished"
 msgstr "Correlation finished"
 
-#: gpscorrelatorwidget.cpp:613
+#: gpscorrelatorwidget.cpp:602
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"
 msgstr[0] "1 image correlated"
 msgstr[1] "%1 images correlated"
-
-#: gpsdataparser.cpp:677
-#, kde-format
-msgid "Could not open: %1"
-msgstr "Could not open: %1"
-
-#: gpsdataparser.cpp:683
-msgid "File is empty."
-msgstr ""
-
-#: gpsdataparser.cpp:699
-#, kde-format
-msgid "Parsing error: %1"
-msgstr "Parsing error: %1"
-
-#: gpsdataparser.cpp:709
-#, fuzzy
-msgid "No GPX element found - probably not a GPX file."
-msgstr "No GPX element found - probably not a GPX file!"
-
-#: gpsdataparser.cpp:713
-msgid "File is a GPX file, but no datapoints were found."
-msgstr ""
 
 #: gpsimagedetails.cpp:127
 msgid "Coordinates"
@@ -325,7 +302,7 @@ msgid "Bookmarks"
 msgstr "Bookmarks"
 
 #: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
-#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:443
 msgid "GPS Sync"
 msgstr "GPS Sync"
 
@@ -708,124 +685,132 @@ msgstr "Discard tags"
 msgid "Continue"
 msgstr "Continue"
 
-#: gpssyncdialog.cpp:275
+#: gpssyncdialog.cpp:281
 msgid "Geolocation"
 msgstr "Geolocation"
 
-#: gpssyncdialog.cpp:302
+#: gpssyncdialog.cpp:309
 msgid "Display bookmarked positions on the map."
 msgstr "Display bookmarked positions on the map."
 
-#: gpssyncdialog.cpp:362
+#: gpssyncdialog.cpp:369
 msgid "Sorting"
 msgstr "Sorting"
 
-#: gpssyncdialog.cpp:369
+#: gpssyncdialog.cpp:376
 msgid "Show oldest first"
 msgstr "Show oldest first"
 
-#: gpssyncdialog.cpp:373
+#: gpssyncdialog.cpp:380
 msgid "Show youngest first"
 msgstr "Show youngest first"
 
-#: gpssyncdialog.cpp:412
+#: gpssyncdialog.cpp:419
 msgid "Details"
 msgstr "Details"
 
-#: gpssyncdialog.cpp:413
+#: gpssyncdialog.cpp:420
 msgid "GPS Correlator"
 msgstr "GPS Correlator"
 
-#: gpssyncdialog.cpp:414
+#: gpssyncdialog.cpp:421
 msgid "Undo/Redo"
 msgstr "Undo/Redo"
 
-#: gpssyncdialog.cpp:415
+#: gpssyncdialog.cpp:422
 msgid "Reverse Geocoding"
 msgstr "Reverse Geocoding"
 
-#: gpssyncdialog.cpp:416
+#: gpssyncdialog.cpp:423
 msgid "Search"
 msgstr "Search"
 
-#: gpssyncdialog.cpp:439
+#: gpssyncdialog.cpp:446
 msgid "A Plugin to synchronize pictures' metadata with a GPS device"
 msgstr "A Plugin to synchronise pictures' metadata with a GPS device"
 
-#: gpssyncdialog.cpp:440
+#: gpssyncdialog.cpp:447
 #, fuzzy
 #| msgid "(c) 2006-2010, Gilles Caulier"
 msgid "(c) 2006-2013, Gilles Caulier"
 msgstr "(c) 2006-2010, Gilles Caulier"
 
-#: gpssyncdialog.cpp:442
+#: gpssyncdialog.cpp:449
 msgid "Michael G. Hansen"
 msgstr "Michael G. Hansen"
 
-#: gpssyncdialog.cpp:443
+#: gpssyncdialog.cpp:450
 msgid "Developer and maintainer"
 msgstr "Developer and maintainer"
 
-#: gpssyncdialog.cpp:446
+#: gpssyncdialog.cpp:453
 msgid "Gabriel Voicu"
 msgstr "Gabriel Voicu"
 
-#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+#: gpssyncdialog.cpp:454 gpssyncdialog.cpp:458
 msgid "Developer"
 msgstr "Developer"
 
-#: gpssyncdialog.cpp:450
+#: gpssyncdialog.cpp:457
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: gpssyncdialog.cpp:626
+#: gpssyncdialog.cpp:461
+msgid "Justus Schwartz"
+msgstr ""
+
+#: gpssyncdialog.cpp:462
+msgid "Patch for displaying tracks on the map."
+msgstr ""
+
+#: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
 msgstr "Loading metadata - %p%"
 
-#: gpssyncdialog.cpp:807
+#: gpssyncdialog.cpp:818
 #, kde-format
 msgid "You have 1 modified image."
 msgid_plural "You have %1 modified images."
 msgstr[0] "You have 1 modified image."
 msgstr[1] "You have %1 modified images."
 
-#: gpssyncdialog.cpp:813
+#: gpssyncdialog.cpp:824
 #, kde-format
 msgid "%1 Would you like to save the changes you made to them?"
 msgstr "%1 Would you like to save the changes you made to them?"
 
-#: gpssyncdialog.cpp:814
+#: gpssyncdialog.cpp:825
 msgid "Unsaved changes"
 msgstr "Unsaved changes"
 
-#: gpssyncdialog.cpp:815
+#: gpssyncdialog.cpp:826
 msgid "Save changes"
 msgstr "Save changes"
 
-#: gpssyncdialog.cpp:816
+#: gpssyncdialog.cpp:827
 msgid "Close and discard changes"
 msgstr "Close and discard changes"
 
-#: gpssyncdialog.cpp:1040
+#: gpssyncdialog.cpp:1051
 #, kde-format
 msgid "1 image moved"
 msgid_plural "%1 images moved"
 msgstr[0] "1 image moved"
 msgstr[1] "%1 images moved"
 
-#: gpssyncdialog.cpp:1074
+#: gpssyncdialog.cpp:1085
 msgid "Saving changes - %p%"
 msgstr "Saving changes - %p%"
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Failed to save some information:"
 msgstr "Failed to save some information:"
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Error"
 msgstr "Error"
 
-#: gpssyncdialog.cpp:1147
+#: gpssyncdialog.cpp:1158
 #, fuzzy
 #| msgid "GPS Sync"
 msgid "GPS sync"
@@ -862,6 +847,10 @@ msgstr "Modified"
 #: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "Thumbnail"
+
+#: kipiimageitem.cpp:530 track_listmodel.cpp:212
+msgid "Filename"
+msgstr "Filename"
 
 #: kipiimageitem.cpp:531
 msgid "Date and time"
@@ -1040,6 +1029,24 @@ msgstr "Two maps - vertical"
 #: setup_general.cpp:68
 msgid "Layout:"
 msgstr "Layout:"
+
+#: track_listmodel.cpp:210
+msgid "Color"
+msgstr ""
+
+#: track_listmodel.cpp:214
+msgid "#points"
+msgstr "#points"
+
+#~ msgid "Could not open: %1"
+#~ msgstr "Could not open: %1"
+
+#~ msgid "Parsing error: %1"
+#~ msgstr "Parsing error: %1"
+
+#, fuzzy
+#~ msgid "No GPX element found - probably not a GPX file."
+#~ msgstr "No GPX element found - probably not a GPX file!"
 
 #~ msgid "Bookmark location"
 #~ msgstr "Bookmark location"
