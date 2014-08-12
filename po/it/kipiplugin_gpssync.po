@@ -1,13 +1,13 @@
 # translation of kipiplugin_gpssync.po to Italian
 #
 # Federico Zenith <federico.zenith@member.fsf.org>, 2006, 2007, 2008, 2009, 2010, 2011.
-# Federico Zenith <federico.zenith@member.fsf.org>, 2008, 2012, 2013.
+# Federico Zenith <federico.zenith@member.fsf.org>, 2008, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-05-07 02:57+0200\n"
-"PO-Revision-Date: 2013-03-02 11:01+0100\n"
+"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"PO-Revision-Date: 2014-02-16 11:44+0100\n"
 "Last-Translator: Federico Zenith <federico.zenith@member.fsf.org>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -36,7 +36,7 @@ msgstr[1] "%1 immagini agganciate a «%2»"
 msgid "Load GPX files..."
 msgstr "Carica file GPX..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
 msgid "Filename"
 msgstr "Nome del file:"
 
@@ -251,27 +251,27 @@ msgstr "Il file è un file GPX, ma non sono stati trovati dati."
 msgid "Coordinates"
 msgstr "Coordinate"
 
-#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:532
 msgid "Latitude"
 msgstr "Latitudine"
 
-#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:533
 msgid "Longitude"
 msgstr "Longitudine"
 
-#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:534
 msgid "Altitude"
 msgstr "Altitudine"
 
-#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:539
 msgid "Speed"
 msgstr "Velocità"
 
-#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:538
 msgid "# satellites"
 msgstr "№ satelliti"
 
-#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:537
 msgid "Fix type"
 msgstr "Correggi tipo"
 
@@ -285,7 +285,7 @@ msgstr "3-d"
 
 # «Dilution of precision», vedi articolo Wikipedia:
 # http://en.wikipedia.org/wiki/Dilution_of_precision_%28GPS%29
-#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:536
 msgid "DOP"
 msgstr "DOP"
 
@@ -317,7 +317,7 @@ msgstr "Rimuovi altitudine"
 msgid "Remove uncertainty"
 msgstr "Rimuovi incertezza"
 
-#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:643
 msgid "Remove speed"
 msgstr "Rimuovi velocità"
 
@@ -329,47 +329,47 @@ msgstr "Recupera valori di altitudine mancanti"
 msgid "Bookmarks"
 msgstr "Segnalibri"
 
-#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
-#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
 msgid "GPS Sync"
 msgstr "Sincronizzazione GPS"
 
-#: gpslistviewcontextmenu.cpp:420
+#: gpslistviewcontextmenu.cpp:419
 msgid ""
 "Found more than one point on the clipboard - can only assign one point at a "
 "time."
 msgstr ""
 "Trovato più di un punto negli appunti, ma posso assegnarne uno alla volta."
 
-#: gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:477
 msgid "Could not find any coordinates on the clipboard."
 msgstr "Non ho trovato delle coordinate negli appunti."
 
-#: gpslistviewcontextmenu.cpp:483
+#: gpslistviewcontextmenu.cpp:481
 msgid "Coordinates pasted"
 msgstr "Coordinate incollate"
 
-#: gpslistviewcontextmenu.cpp:514
+#: gpslistviewcontextmenu.cpp:512
 msgid "Bookmark selected"
 msgstr "Segnalibro selezionato"
 
-#: gpslistviewcontextmenu.cpp:624
+#: gpslistviewcontextmenu.cpp:622
 msgid "Remove coordinates information"
 msgstr "Rimuovi le informazioni sulle coordinate"
 
-#: gpslistviewcontextmenu.cpp:629
+#: gpslistviewcontextmenu.cpp:627
 msgid "Remove altitude information"
 msgstr "Rimuovi le informazioni sull'altitudine"
 
-#: gpslistviewcontextmenu.cpp:635
+#: gpslistviewcontextmenu.cpp:633
 msgid "Remove uncertainty information"
 msgstr "Rimuovi le informazioni sull'incertezza"
 
-#: gpslistviewcontextmenu.cpp:697
+#: gpslistviewcontextmenu.cpp:695
 msgid "Looking up altitudes"
 msgstr "Recupero delle altitudini"
 
-#: gpslistviewcontextmenu.cpp:748
+#: gpslistviewcontextmenu.cpp:746
 #, kde-format
 msgid ""
 "Altitude lookup failed:\n"
@@ -378,7 +378,7 @@ msgstr ""
 "Recupero dell'altitudine non riuscito:\n"
 "%1"
 
-#: gpslistviewcontextmenu.cpp:755
+#: gpslistviewcontextmenu.cpp:753
 msgid "Altitude looked up"
 msgstr "Altitudine recuperata"
 
@@ -831,74 +831,74 @@ msgstr "Errore"
 msgid "GPS sync"
 msgstr "Sincronizzazione GPS"
 
-#: kipiimageitem.cpp:363
+#: kipiimageitem.cpp:369
 msgid "Not available"
 msgstr "Non disponibile"
 
 # «Dilution of precision», vedi articolo Wikipedia:
 # http://en.wikipedia.org/wiki/Dilution_of_precision_%28GPS%29
-#: kipiimageitem.cpp:396
+#: kipiimageitem.cpp:402
 #, kde-format
 msgid "DOP: %1"
 msgstr "DOP: %1"
 
 # «Fix» è un termine tecnico del GPS per il posizionamento sulla mappa.
-#: kipiimageitem.cpp:401
+#: kipiimageitem.cpp:407
 #, c-format, kde-format
 msgid "Fix: %1d"
 msgstr "Fix: %1d"
 
-#: kipiimageitem.cpp:406
+#: kipiimageitem.cpp:412
 #, kde-format
 msgid "#Sat: %1"
 msgstr "№ sat: %1"
 
-#: kipiimageitem.cpp:441
+#: kipiimageitem.cpp:447
 #, c-format, kde-format
 msgid "%1d"
 msgstr "%1d"
 
-#: kipiimageitem.cpp:461
+#: kipiimageitem.cpp:467
 msgid "Modified"
 msgstr "Modificato"
 
-#: kipiimageitem.cpp:523
+#: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: kipiimageitem.cpp:525
+#: kipiimageitem.cpp:531
 msgid "Date and time"
 msgstr "Data e ora"
 
-#: kipiimageitem.cpp:529
+#: kipiimageitem.cpp:535
 msgid "Accuracy"
 msgstr "Accuratezza"
 
-#: kipiimageitem.cpp:534
+#: kipiimageitem.cpp:540
 msgid "Status"
 msgstr "Stato"
 
-#: kipiimageitem.cpp:535
+#: kipiimageitem.cpp:541
 msgid "Tags"
 msgstr "Etichette"
 
-#: kipiimageitem.cpp:722
+#: kipiimageitem.cpp:728
 msgid "Failed to open file."
 msgstr "Apertura del file non riuscita."
 
-#: kipiimageitem.cpp:783
+#: kipiimageitem.cpp:789
 msgid "Failed to add GPS info to image."
 msgstr "Aggiunta di informazioni GPS all'immagine non riuscita."
 
-#: kipiimageitem.cpp:793
+#: kipiimageitem.cpp:799
 msgid "Failed to remove GPS info from image"
 msgstr "Rimozione di informazioni GPS dall'immagine non riuscita."
 
-#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+#: kipiimageitem.cpp:826 kipiimageitem.cpp:833
 msgid "Failed to save tags to file."
 msgstr "Salvataggio di etichette nel file non riuscito."
 
-#: kipiimageitem.cpp:838
+#: kipiimageitem.cpp:844
 msgid "Unable to save changes to file"
 msgstr "Impossibile salvare le modifiche al file"
 
@@ -912,9 +912,28 @@ msgstr "&Immagine"
 msgid "Main Toolbar"
 msgstr "Barra principale"
 
-#: plugin_gpssync.cpp:99
+#: plugin_gpssync.cpp:100
 msgid "Geo-location"
 msgstr "Geolocalizzazione"
+
+#: plugin_gpssync.cpp:120
+msgid ""
+"You have enabled writing to sidecar files for metadata storage in the host "
+"application, but not for reading. This means that any metadata stored in the "
+"sidecar files will be overwritten here.\n"
+"Please enable reading of sidecar files in the host application or continue "
+"at your own risk."
+msgstr ""
+"Hai abilitato la scrittura su file ausiliari per la memorizzazione dei dati "
+"aggiuntivi dell'applicazione ospite, ma non la lettura. Questo vuol dire che "
+"tutti i dati aggiuntivi memorizzati nei file ausiliari verranno "
+"sovrascritti.\n"
+"Abilita la lettura dei file ausiliari nell'applicazione ospite o continua a "
+"tuo rischio e pericolo."
+
+#: plugin_gpssync.cpp:125
+msgid "Warning: Sidecar settings"
+msgstr "Avviso: impostazioni dei file ausiliari"
 
 #: rgtagmodel.cpp:95
 msgid "{Country}"

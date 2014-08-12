@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Serdar Soytetir <tulliana@gmail.com>, 2008, 2009.
-# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-08-31 01:29+0000\n"
-"PO-Revision-Date: 2013-07-07 21:24+0200\n"
+"PO-Revision-Date: 2014-04-21 14:52+0200\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,11 +20,11 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Serdar Soytetir"
+msgstr "Serdar Soytetir, Volkan Gezer"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "tulliana@gmail.com"
+msgstr "tulliana@gmail.com, volkangezer@gmail.com"
 
 #: exif/exifadjust.cpp:94
 msgid "Brightness (APEX):"
@@ -43,39 +43,29 @@ msgid "Gain Control:"
 msgstr "Kazanç Kontrolü:"
 
 #: exif/exifadjust.cpp:106
-#, fuzzy
-#| msgid "None"
 msgctxt "gain control"
 msgid "None"
 msgstr "Hiçbiri"
 
 #: exif/exifadjust.cpp:107
-#, fuzzy
-#| msgid "Low gain up"
 msgctxt "gain control"
 msgid "Low gain up"
-msgstr "Düşük kazanç"
+msgstr "Yukarı düşük kazanç"
 
 #: exif/exifadjust.cpp:108
-#, fuzzy
-#| msgid "High gain up"
 msgctxt "gain control"
 msgid "High gain up"
-msgstr "Yüksek kazanç"
+msgstr "Yukarı yüksek kazanç"
 
 #: exif/exifadjust.cpp:109
-#, fuzzy
-#| msgid "Low gain down"
 msgctxt "gain control"
 msgid "Low gain down"
-msgstr "Düşük kazanç"
+msgstr "Aşağı düşük kazanç"
 
 #: exif/exifadjust.cpp:110
-#, fuzzy
-#| msgid "High gain down"
 msgctxt "gain control"
 msgid "High gain down"
-msgstr "Yüksek kazanç"
+msgstr "Aşağı yüksek kazanç"
 
 #: exif/exifadjust.cpp:111
 msgid ""
@@ -90,22 +80,16 @@ msgid "Contrast:"
 msgstr "Karşıtlık:"
 
 #: exif/exifadjust.cpp:118
-#, fuzzy
-#| msgid "Normal"
 msgctxt "contrast mode"
 msgid "Normal"
 msgstr "Normal"
 
 #: exif/exifadjust.cpp:119
-#, fuzzy
-#| msgid "Soft"
 msgctxt "contrast mode"
 msgid "Soft"
 msgstr "Yumuşak"
 
 #: exif/exifadjust.cpp:120
-#, fuzzy
-#| msgid "Hard"
 msgctxt "contrast mode"
 msgid "Hard"
 msgstr "Sert"
@@ -123,22 +107,16 @@ msgid "Saturation:"
 msgstr "Doygunluk:"
 
 #: exif/exifadjust.cpp:128
-#, fuzzy
-#| msgid "Normal"
 msgctxt "saturation mode"
 msgid "Normal"
 msgstr "Normal"
 
 #: exif/exifadjust.cpp:129
-#, fuzzy
-#| msgid "Low"
 msgctxt "saturation mode"
 msgid "Low"
 msgstr "Düşük"
 
 #: exif/exifadjust.cpp:130
-#, fuzzy
-#| msgid "High"
 msgctxt "saturation mode"
 msgid "High"
 msgstr "Yüksek"
@@ -156,22 +134,16 @@ msgid "Sharpness:"
 msgstr "Keskinlik:"
 
 #: exif/exifadjust.cpp:138
-#, fuzzy
-#| msgid "Normal"
 msgctxt "sharpness mode"
 msgid "Normal"
 msgstr "Normal"
 
 #: exif/exifadjust.cpp:139
-#, fuzzy
-#| msgid "Soft"
 msgctxt "sharpness mode"
 msgid "Soft"
 msgstr "Yumuşak"
 
 #: exif/exifadjust.cpp:140
-#, fuzzy
-#| msgid "Hard"
 msgctxt "sharpness mode"
 msgid "Hard"
 msgstr "Sert"
@@ -205,8 +177,6 @@ msgstr ""
 "kullanımını buradan belirleyin."
 
 #: exif/exifcaption.cpp:103
-#, fuzzy
-#| msgid "Name (*):"
 msgctxt "name of the document this image has been scanned from"
 msgid "Name (*):"
 msgstr "İsim (*):"
@@ -220,17 +190,13 @@ msgstr ""
 "sınırlıdır."
 
 #: exif/exifcaption.cpp:113
-#, fuzzy
-#| msgid "Destination:"
 msgctxt "image description"
 msgid "Description (*):"
-msgstr "Hedef:"
+msgstr "Açıklama (*):"
 
 #: exif/exifcaption.cpp:117
-#, fuzzy
-#| msgid "Enter the image title. This field is limited to ASCII characters."
 msgid "Enter the image description. This field is limited to ASCII characters."
-msgstr "Resim başlığını girin. Bu alan ASCII karakterlerle sınırlıdır."
+msgstr "Resim açıklamasını girin. Bu alan ASCII karakterlerle sınırlıdır."
 
 #: exif/exifcaption.cpp:122
 msgid "Artist (*):"
@@ -253,8 +219,6 @@ msgstr ""
 "Resmin telif hakkı sahibini girin. Bu alan ASCII karakterlerle sınırlıdır."
 
 #: exif/exifcaption.cpp:140
-#, fuzzy
-#| msgid "Caption:"
 msgctxt "image caption"
 msgid "Caption:"
 msgstr "Başlık:"
@@ -301,10 +265,8 @@ msgid "Creation date and time"
 msgstr "Oluşturulma tarihi ve saati"
 
 #: exif/exifdatetime.cpp:111
-#, fuzzy
-#| msgid "Creation sub-second"
 msgid "Creation sub-second"
-msgstr "Yaratılma alt-saniyesi"
+msgstr "Oluşturma alt saniyesi"
 
 #: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
 #, kde-format
@@ -342,10 +304,8 @@ msgid "Original date and time"
 msgstr "Özgün tarih ve saat"
 
 #: exif/exifdatetime.cpp:137
-#, fuzzy
-#| msgid "Original sub-second"
 msgid "Original sub-second"
-msgstr "Özgün alt-saniye"
+msgstr "Özgün alt saniye"
 
 #: exif/exifdatetime.cpp:143
 msgid "Set original date to today"
@@ -372,10 +332,8 @@ msgid "Digitization date and time"
 msgstr "Sayısallaştırma tarihi ve saati"
 
 #: exif/exifdatetime.cpp:156
-#, fuzzy
-#| msgid "Digitization sub-second"
 msgid "Digitization sub-second"
-msgstr "Sayısallaştırma alt-saniyesi"
+msgstr "Sayısallaştırma alt saniyesi"
 
 #: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
 msgid "Set digitization date to today"
@@ -427,7 +385,7 @@ msgstr ""
 
 #: exif/exifdevice.cpp:148
 msgid "Device type:"
-msgstr "Aygıt tipi:"
+msgstr "Aygıt türü:"
 
 #: exif/exifdevice.cpp:150
 msgid "Film scanner"
@@ -471,64 +429,46 @@ msgid "Exposure program:"
 msgstr "Pozlandırma uygulaması:"
 
 #: exif/exifdevice.cpp:180
-#, fuzzy
-#| msgid "Not defined"
 msgctxt "exposure program"
 msgid "Not defined"
 msgstr "Tanımlanmamış"
 
 #: exif/exifdevice.cpp:181
-#, fuzzy
-#| msgid "Manual"
 msgctxt "exposure program"
 msgid "Manual"
-msgstr "El ile"
+msgstr "Elle"
 
 #: exif/exifdevice.cpp:182
-#, fuzzy
-#| msgid "Auto"
 msgctxt "exposure program"
 msgid "Auto"
 msgstr "Otomatik"
 
 #: exif/exifdevice.cpp:183
-#, fuzzy
-#| msgid "Aperture priority"
 msgctxt "exposure program"
 msgid "Aperture priority"
 msgstr "Diyafram açıklığı önceliği"
 
 #: exif/exifdevice.cpp:184
-#, fuzzy
-#| msgid "Shutter priority"
 msgctxt "exposure program"
 msgid "Shutter priority"
 msgstr "Deklanşör önceliği"
 
 #: exif/exifdevice.cpp:185
-#, fuzzy
-#| msgid "Creative program"
 msgctxt "exposure program"
 msgid "Creative program"
 msgstr "Oluşturucu uygulama"
 
 #: exif/exifdevice.cpp:186
-#, fuzzy
-#| msgid "Action program"
 msgctxt "exposure program"
 msgid "Action program"
 msgstr "Eylem uygulaması"
 
 #: exif/exifdevice.cpp:187
-#, fuzzy
-#| msgid "Portrait mode"
 msgctxt "exposure program"
 msgid "Portrait mode"
 msgstr "Dikey kip"
 
 #: exif/exifdevice.cpp:188
-#, fuzzy
-#| msgid "Landscape mode"
 msgctxt "exposure program"
 msgid "Landscape mode"
 msgstr "Yatay kip"
@@ -546,22 +486,16 @@ msgid "Exposure mode:"
 msgstr "Pozlandırma kipi:"
 
 #: exif/exifdevice.cpp:196
-#, fuzzy
-#| msgid "Auto"
 msgctxt "exposure mode"
 msgid "Auto"
 msgstr "Otomatik"
 
 #: exif/exifdevice.cpp:197
-#, fuzzy
-#| msgid "Manual"
 msgctxt "exposure mode"
 msgid "Manual"
-msgstr "El ile"
+msgstr "Elle"
 
 #: exif/exifdevice.cpp:198
-#, fuzzy
-#| msgid "Auto bracket"
 msgctxt "exposure mode"
 msgid "Auto bracket"
 msgstr "Otomatik ayraç"
@@ -593,57 +527,41 @@ msgid "Metering mode:"
 msgstr "Ölçme kipi:"
 
 #: exif/exifdevice.cpp:221
-#, fuzzy
-#| msgid "Unknown"
 msgctxt "metering mode"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
 #: exif/exifdevice.cpp:222
-#, fuzzy
-#| msgid "Average"
 msgctxt "metering mode"
 msgid "Average"
 msgstr "Ortalama"
 
 #: exif/exifdevice.cpp:223
-#, fuzzy
-#| msgid "Center weighted average"
 msgctxt "metering mode"
 msgid "Center weighted average"
 msgstr "Merkez ağırlıklı ortalama"
 
 #: exif/exifdevice.cpp:224
-#, fuzzy
-#| msgid "Spot"
 msgctxt "metering mode"
 msgid "Spot"
 msgstr "Nokta"
 
 #: exif/exifdevice.cpp:225
-#, fuzzy
-#| msgid "Multi-spot"
 msgctxt "metering mode"
 msgid "Multi-spot"
 msgstr "Çoklu-nokta"
 
 #: exif/exifdevice.cpp:226
-#, fuzzy
-#| msgid "Multi-segment"
 msgctxt "metering mode"
 msgid "Multi-segment"
 msgstr "Çoklu-bölüm"
 
 #: exif/exifdevice.cpp:227
-#, fuzzy
-#| msgid "Partial"
 msgctxt "metering mode"
 msgid "Partial"
 msgstr "Kısmi"
 
 #: exif/exifdevice.cpp:228
-#, fuzzy
-#| msgid "Other"
 msgctxt "metering mode"
 msgid "Other"
 msgstr "Diğer"
@@ -705,7 +623,7 @@ msgstr ""
 
 #: exif/exifdevice.cpp:291
 msgid "Scene capture type:"
-msgstr "Ekran yakalama tipi:"
+msgstr "Ekran yakalama türü:"
 
 #: exif/exifdevice.cpp:293
 msgid "Standard"
@@ -755,8 +673,6 @@ msgid ""
 msgstr "Nesne ve resim giriş donanımı arasındaki mesafe türünü buradan seçin."
 
 #: exif/exifeditwidget.cpp:125
-#, fuzzy
-#| msgid "Caption"
 msgctxt "image caption"
 msgid "Caption"
 msgstr "Başlık"
@@ -955,148 +871,106 @@ msgid "Light source:"
 msgstr "Işık kaynağı:"
 
 #: exif/exiflight.cpp:136
-#, fuzzy
-#| msgid "Unknown"
 msgctxt "light source"
 msgid "Unknown"
 msgstr "Bilinmeyen"
 
 #: exif/exiflight.cpp:137
-#, fuzzy
-#| msgid "Daylight"
 msgctxt "light source"
 msgid "Daylight"
 msgstr "Gün ışığı"
 
 #: exif/exiflight.cpp:138
-#, fuzzy
-#| msgid "Fluorescent"
 msgctxt "light source"
 msgid "Fluorescent"
 msgstr "Florasan"
 
 #: exif/exiflight.cpp:139
-#, fuzzy
-#| msgid "Tungsten (incandescent light)"
 msgctxt "light source"
 msgid "Tungsten (incandescent light)"
-msgstr "Tungusten (parlak ışık)"
+msgstr "Tungsten (parlak ışık)"
 
 #: exif/exiflight.cpp:140
-#, fuzzy
-#| msgid "Flash"
 msgctxt "light source"
 msgid "Flash"
 msgstr "Flaş"
 
 #: exif/exiflight.cpp:141
-#, fuzzy
-#| msgid "Fine weather"
 msgctxt "light source"
 msgid "Fine weather"
 msgstr "Açık hava"
 
 #: exif/exiflight.cpp:142
-#, fuzzy
-#| msgid "Cloudy weather"
 msgctxt "light source"
 msgid "Cloudy weather"
 msgstr "Bulutlu hava"
 
 #: exif/exiflight.cpp:143
-#, fuzzy
-#| msgid "Shade"
 msgctxt "light source"
 msgid "Shade"
 msgstr "Gölge"
 
 #: exif/exiflight.cpp:144
-#, fuzzy
-#| msgid "Daylight fluorescent (D 5700 - 7100K)"
 msgctxt "light source"
 msgid "Daylight fluorescent (D 5700 - 7100K)"
 msgstr "Gün ışığı floresanı (D 5700 - 7100K)"
 
 #: exif/exiflight.cpp:145
-#, fuzzy
-#| msgid "Day white fluorescent (N 4600 - 5400K)"
 msgctxt "light source"
 msgid "Day white fluorescent (N 4600 - 5400K)"
 msgstr "Gündüz beyaz floresan (N 4600 - 5400K)"
 
 #: exif/exiflight.cpp:146
-#, fuzzy
-#| msgid "Cool white fluorescent (W 3900 - 4500K)"
 msgctxt "light source"
 msgid "Cool white fluorescent (W 3900 - 4500K)"
 msgstr "Soğuk beyaz floresan (' 3900 - 4500K)"
 
 #: exif/exiflight.cpp:147
-#, fuzzy
-#| msgid "White fluorescent (WW 3200 - 3700K)"
 msgctxt "light source"
 msgid "White fluorescent (WW 3200 - 3700K)"
 msgstr "Beyaz floresan (WW 3200 - 3700K)"
 
 #: exif/exiflight.cpp:148
-#, fuzzy
-#| msgid "Standard light A"
 msgctxt "light source"
 msgid "Standard light A"
 msgstr "Standart ışık A"
 
 #: exif/exiflight.cpp:149
-#, fuzzy
-#| msgid "Standard light B"
 msgctxt "light source"
 msgid "Standard light B"
 msgstr "Standart ışık B"
 
 #: exif/exiflight.cpp:150
-#, fuzzy
-#| msgid "Standard light C"
 msgctxt "light source"
 msgid "Standard light C"
 msgstr "Standart ışık C"
 
 #: exif/exiflight.cpp:151
-#, fuzzy
-#| msgid "D55"
 msgctxt "light source"
 msgid "D55"
 msgstr "D55"
 
 #: exif/exiflight.cpp:152
-#, fuzzy
-#| msgid "D65"
 msgctxt "light source"
 msgid "D65"
 msgstr "D65"
 
 #: exif/exiflight.cpp:153
-#, fuzzy
-#| msgid "D75"
 msgctxt "light source"
 msgid "D75"
 msgstr "D75"
 
 #: exif/exiflight.cpp:154
-#, fuzzy
-#| msgid "D50"
 msgctxt "light source"
 msgid "D50"
 msgstr "D50"
 
 #: exif/exiflight.cpp:155
-#, fuzzy
-#| msgid "ISO studio tungsten"
 msgctxt "light source"
 msgid "ISO studio tungsten"
 msgstr "ISO stüdyo tungsten"
 
 #: exif/exiflight.cpp:156
-#, fuzzy
-#| msgid "Other light source"
 msgctxt "light source"
 msgid "Other light source"
 msgstr "Diğer ışık kaynağı"
@@ -1119,12 +993,6 @@ msgid "Flash energy (BCPS):"
 msgstr "Flash gücü (BCPS):"
 
 #: exif/exiflight.cpp:179
-#, fuzzy
-#| msgid ""
-#| "Set here the flash energy used to take the picture in BCPS units.  Beam "
-#| "Candle Power Seconds is the measure of effective intensity of a light "
-#| "source when it is focused into a beam by a reflector or lens. This value "
-#| "is the effective intensity for a period of one second."
 msgid ""
 "Set here the flash energy used to take the picture in BCPS units. Beam "
 "Candle Power Seconds is the measure of effective intensity of a light source "
@@ -1200,12 +1068,6 @@ msgstr "&Değiştir"
 #: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:229
 #: iptc/iptcproperties.cpp:238 iptc/iptcstatus.cpp:129
 #: iptc/iptcsubjects.cpp:92
-#, fuzzy
-#| msgid ""
-#| "<b>Note: <b><a href='http://en.wikipedia.org/wiki/IPTC'>IPTC</a></b> text "
-#| "tags only support the printable <b><a href='http://en.wikipedia.org/wiki/"
-#| "Ascii'>ASCII</a></b> characters and limit string sizes. Use contextual "
-#| "help for details.</b>"
 msgid ""
 "<b>Note: <b><a href='http://en.wikipedia.org/wiki/"
 "IPTC_Information_Interchange_Model'>IPTC</a></b> text tags only support the "
@@ -1228,8 +1090,6 @@ msgid ""
 msgstr "İçerik özetini buradan girin. Bu alan 256 karakterler sınırlıdır."
 
 #: iptc/iptccontent.cpp:103 xmp/xmpcontent.cpp:96
-#, fuzzy
-#| msgid "Caption:"
 msgctxt "content description"
 msgid "Caption:"
 msgstr "Başlık:"
@@ -1297,8 +1157,6 @@ msgstr ""
 "sınırlıdır."
 
 #: iptc/iptccredits.cpp:128 xmp/xmpcredits.cpp:189
-#, fuzzy
-#| msgid "Source:"
 msgctxt "original owner of content"
 msgid "Source:"
 msgstr "Kaynak:"
@@ -1641,40 +1499,30 @@ msgid "Priority:"
 msgstr "Öncelik:"
 
 #: iptc/iptcenvelope.cpp:222
-#, fuzzy
-#| msgid "0: None"
 msgctxt "priority for the envelope"
 msgid "0: None"
 msgstr "0: Hiçbiri"
 
 #: iptc/iptcenvelope.cpp:223
-#, fuzzy
-#| msgid "1: High"
 msgctxt "priority for the envelope"
 msgid "1: High"
 msgstr "1: Yüksek"
 
 #: iptc/iptcenvelope.cpp:227
-#, fuzzy
-#| msgid "5: Normal"
 msgctxt "priority for the envelope"
 msgid "5: Normal"
 msgstr "5: Normal"
 
 #: iptc/iptcenvelope.cpp:230
-#, fuzzy
-#| msgid "8: Low"
 msgctxt "priority for the envelope"
 msgid "8: Low"
 msgstr "8: Düşük"
 
 #: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
 #: xmp/xmpproperties.cpp:194
-#, fuzzy
-#| msgid "Not defined"
 msgctxt "editorial urgency of content"
 msgid "9: User-defined"
-msgstr "Tanımlanmamış"
+msgstr "9: Kullanıcı Tanımlı"
 
 #: iptc/iptcenvelope.cpp:232
 msgid "Select here the envelope priority."
@@ -1861,29 +1709,21 @@ msgid "Select here the language of content."
 msgstr "İçeriğin dilini buradan seçin."
 
 #: iptc/iptcproperties.cpp:186 xmp/xmpproperties.cpp:185
-#, fuzzy
-#| msgid "0: None"
 msgctxt "editorial urgency of content"
 msgid "0: None"
 msgstr "0: Hiçbiri"
 
 #: iptc/iptcproperties.cpp:187 xmp/xmpproperties.cpp:186
-#, fuzzy
-#| msgid "1: High"
 msgctxt "editorial urgency of content"
 msgid "1: High"
 msgstr "1: Yüksek"
 
 #: iptc/iptcproperties.cpp:191 xmp/xmpproperties.cpp:190
-#, fuzzy
-#| msgid "5: Normal"
 msgctxt "editorial urgency of content"
 msgid "5: Normal"
 msgstr "5: Normal"
 
 #: iptc/iptcproperties.cpp:194 xmp/xmpproperties.cpp:193
-#, fuzzy
-#| msgid "8: Low"
 msgctxt "editorial urgency of content"
 msgid "8: Low"
 msgstr "8: Düşük"
@@ -1914,7 +1754,7 @@ msgstr "İçeriğin yayıncıya ait dolaşımını buradan seçin."
 
 #: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
 msgid "Type:"
-msgstr "Tip:"
+msgstr "Tüp:"
 
 #: iptc/iptcproperties.cpp:215 xmp/xmpproperties.cpp:114
 msgid "News"
@@ -1953,8 +1793,6 @@ msgstr ""
 "karakterle sınırlıdır."
 
 #: iptc/iptcstatus.cpp:88
-#, fuzzy
-#| msgid "Title:"
 msgctxt "image title"
 msgid "Title:"
 msgstr "Başlık:"
@@ -2068,34 +1906,28 @@ msgstr ""
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_metadataeditui.rc:6
 msgid "&Image"
-msgstr ""
+msgstr "&Resim"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_metadataeditui.rc:12
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Ana Araç Çubuğu"
 
 #: plugin/metadataedit.cpp:97
 msgid "Metadata edit dialog"
-msgstr ""
+msgstr "Üstveri düzenleme penceresi"
 
 #: plugin/metadataedit.cpp:102
-#, fuzzy
-#| msgid "Edit EXIF..."
 msgid "Edit EXIF"
-msgstr "EXIF Bilgilerini Düzenle..."
+msgstr "EXIF Bilgilerini Düzenle"
 
 #: plugin/metadataedit.cpp:103
-#, fuzzy
-#| msgid "Edit IPTC..."
 msgid "Edit IPTC"
-msgstr "IPTC Bilgilerini Düzenle..."
+msgstr "IPTC Bilgilerini Düzenle"
 
 #: plugin/metadataedit.cpp:104
-#, fuzzy
-#| msgid "Edit XMP..."
 msgid "Edit XMP"
-msgstr "XMP Bilgilerini Düzenle..."
+msgstr "XMP Bilgilerini Düzenle"
 
 #: plugin/metadataedit.cpp:112
 msgid "Next"
@@ -2114,10 +1946,8 @@ msgid "A Plugin to edit pictures' metadata."
 msgstr "Resim üst verilerini düzenlemek için bir eklenti."
 
 #: plugin/metadataedit.cpp:159
-#, fuzzy
-#| msgid "(c) 2006-2009, Gilles Caulier"
 msgid "(c) 2006-2013, Gilles Caulier"
-msgstr "(c) 2006-2009, Gilles Caulier"
+msgstr "(c) 2006-2013, Gilles Caulier"
 
 #: plugin/metadataedit.cpp:161
 msgid "Gilles Caulier"
@@ -2129,19 +1959,16 @@ msgstr "Yazar ve Projeyi Yürüten"
 
 #: plugin/metadataedit.cpp:164
 msgid "Victor Dodon"
-msgstr ""
+msgstr "Victor Dodon"
 
 #: plugin/metadataedit.cpp:164
-#, fuzzy
-#| msgid "Envelope"
 msgid "Developer"
-msgstr "Zarf"
+msgstr "Geliştirici"
 
 #: plugin/metadataedit.cpp:268
-#, fuzzy, kde-format
-#| msgid "Edit Metadata"
+#, kde-format
 msgid "%1 (%2/%3) - Edit Metadata"
-msgstr "Üstveriyi Düzenle"
+msgstr "%1 (%2/%3) - Üst Veriyi Düzenle"
 
 #: plugin/multistringsedit.cpp:90 plugin/multivaluesedit.cpp:94
 #: plugin/objectattributesedit.cpp:104
@@ -2182,71 +2009,51 @@ msgid "Select here the editorial attribute of content."
 msgstr "İçeriğin yayıncıya ait özniteliğini buradan belirleyin."
 
 #: plugin/objectattributesedit.cpp:119
-#, fuzzy
-#| msgid "Current"
 msgctxt "Content type"
 msgid "Current"
 msgstr "Geçerli"
 
 #: plugin/objectattributesedit.cpp:120
-#, fuzzy
-#| msgid "Analysis"
 msgctxt "Content type"
 msgid "Analysis"
 msgstr "Analiz"
 
 #: plugin/objectattributesedit.cpp:121
-#, fuzzy
-#| msgid "Archive material"
 msgctxt "Content type"
 msgid "Archive material"
 msgstr "Arşiv malzemesi"
 
 #: plugin/objectattributesedit.cpp:122
-#, fuzzy
-#| msgid "Background"
 msgctxt "Content type"
 msgid "Background"
 msgstr "Arkaplan"
 
 #: plugin/objectattributesedit.cpp:123
-#, fuzzy
-#| msgid "Feature"
 msgctxt "Content type"
 msgid "Feature"
 msgstr "Özellik"
 
 #: plugin/objectattributesedit.cpp:124
-#, fuzzy
-#| msgid "Forecast"
 msgctxt "Content type"
 msgid "Forecast"
 msgstr "Hava Durumu"
 
 #: plugin/objectattributesedit.cpp:125
-#, fuzzy
-#| msgid "History"
 msgctxt "Content type"
 msgid "History"
 msgstr "Geçmiş"
 
 #: plugin/objectattributesedit.cpp:126
-#, fuzzy
-#| msgid "Obituary"
 msgctxt "Content type"
 msgid "Obituary"
 msgstr "Anma yazısı"
 
 #: plugin/objectattributesedit.cpp:127
-#, fuzzy
-#| msgid "Opinion"
 msgctxt "Content type"
 msgid "Opinion"
 msgstr "Düşünce"
 
 #: plugin/objectattributesedit.cpp:128
-#, fuzzy
-#| msgid "Polls & Surveys"
 msgctxt "Content type"
 msgid "Polls & Surveys"
 msgstr "Anket ve Araştırmalar"
@@ -2257,78 +2064,56 @@ msgid "Profile"
 msgstr "Profil"
 
 #: plugin/objectattributesedit.cpp:130
-#, fuzzy
-#| msgid "Results Listings & Table"
 msgctxt "Content type"
 msgid "Results Listings & Table"
-msgstr "Sonuç Listelemeleri & Tablo"
+msgstr "Sonuç Listelemeleri ve Tablo"
 
 #: plugin/objectattributesedit.cpp:131
-#, fuzzy
-#| msgid "Side bar & Supporting information"
 msgctxt "Content type"
 msgid "Side bar & Supporting information"
-msgstr "Kenar çubuğu & Destekleyici bilgi"
+msgstr "Kenar çubuğu ve Destekleyici bilgi"
 
 #: plugin/objectattributesedit.cpp:132
-#, fuzzy
-#| msgid "Summary"
 msgctxt "Content type"
 msgid "Summary"
 msgstr "Özet"
 
 #: plugin/objectattributesedit.cpp:133
-#, fuzzy
-#| msgid "Transcript & Verbatim"
 msgctxt "Content type"
 msgid "Transcript & Verbatim"
-msgstr "Kopya & Kelimesi Kelimesine"
+msgstr "Kopya ve Kelimesi Kelimesine"
 
 #: plugin/objectattributesedit.cpp:134
-#, fuzzy
-#| msgid "Interview"
 msgctxt "Content type"
 msgid "Interview"
 msgstr "Görüşme"
 
 #: plugin/objectattributesedit.cpp:135
-#, fuzzy
-#| msgid "From the Scene"
 msgctxt "Content type"
 msgid "From the Scene"
 msgstr "Sahneden"
 
 #: plugin/objectattributesedit.cpp:136
-#, fuzzy
-#| msgid "Retrospective"
 msgctxt "Content type"
 msgid "Retrospective"
 msgstr "Geriye dönük"
 
 #: plugin/objectattributesedit.cpp:137
-#, fuzzy
-#| msgid "Statistics"
 msgctxt "Content type"
 msgid "Statistics"
 msgstr "İstatistikler"
 
 #: plugin/objectattributesedit.cpp:138
-#, fuzzy
-#| msgid "Update"
 msgctxt "Content type"
 msgid "Update"
 msgstr "Güncelle"
 
 #: plugin/objectattributesedit.cpp:139
-#, fuzzy
-#| msgid "Wrap-up"
 msgctxt "Content type"
 msgid "Wrap-up"
 msgstr "Özet"
 
 #: plugin/objectattributesedit.cpp:140
-#, fuzzy
-#| msgid "Press Release"
 msgctxt "Content type"
 msgid "Press Release"
 msgstr "Basın Bildirisi"
@@ -2342,16 +2127,12 @@ msgstr ""
 "ASCII karakterle sınırlıdır."
 
 #: plugin/plugin_metadataedit.cpp:130
-#, fuzzy
-#| msgid "Metadata"
 msgid "&Metadata"
-msgstr "Metadata"
+msgstr "&Üstveri"
 
 #: plugin/plugin_metadataedit.cpp:138
-#, fuzzy
-#| msgid "Edit Metadata"
 msgid "Edit &All Metadata..."
-msgstr "Üstveriyi Düzenle"
+msgstr "&Tüm Üstveriyi Düzenle"
 
 #: plugin/plugin_metadataedit.cpp:150
 msgid "Import EXIF..."
@@ -2489,8 +2270,6 @@ msgid "Contact"
 msgstr "İletişim:"
 
 #: xmp/xmpcredits.cpp:127
-#, fuzzy
-#| msgid "E-mail:"
 msgctxt "contact email address"
 msgid "E-mail:"
 msgstr "E-posta:"
@@ -2598,8 +2377,6 @@ msgid "Two"
 msgstr "İki"
 
 #: xmp/xmpproperties.cpp:90
-#, fuzzy
-#| msgid "Group"
 msgctxt "group of people"
 msgid "Group"
 msgstr "Grup"
@@ -2669,8 +2446,6 @@ msgid "Catalog"
 msgstr "Katalog"
 
 #: xmp/xmpproperties.cpp:111
-#, fuzzy
-#| msgid "Document"
 msgctxt "type is a document"
 msgid "Document"
 msgstr "Belge"
@@ -2724,156 +2499,111 @@ msgid "Select here the editorial attribute of the content."
 msgstr "İçeriğin yayıncıya ait özniteliğini buradan belirleyin."
 
 #: xmp/xmpproperties.cpp:230
-#, fuzzy
-#| msgid "Current"
 msgctxt "editorial content attribute"
 msgid "Current"
 msgstr "Geçerli"
 
 #: xmp/xmpproperties.cpp:231
-#, fuzzy
-#| msgid "Analysis"
 msgctxt "editorial content attribute"
 msgid "Analysis"
 msgstr "Analiz"
 
 #: xmp/xmpproperties.cpp:232
-#, fuzzy
-#| msgid "Archive material"
 msgctxt "editorial content attribute"
 msgid "Archive material"
 msgstr "Arşiv malzemesi"
 
 #: xmp/xmpproperties.cpp:233
-#, fuzzy
-#| msgid "Background"
 msgctxt "editorial content attribute"
 msgid "Background"
 msgstr "Arkaplan"
 
 #: xmp/xmpproperties.cpp:234
-#, fuzzy
-#| msgid "Feature"
 msgctxt "editorial content attribute"
 msgid "Feature"
 msgstr "Özellik"
 
 #: xmp/xmpproperties.cpp:235
-#, fuzzy
-#| msgid "Forecast"
 msgctxt "editorial content attribute"
 msgid "Forecast"
 msgstr "Hava Durumu"
 
 #: xmp/xmpproperties.cpp:236
-#, fuzzy
-#| msgid "History"
 msgctxt "editorial content attribute"
 msgid "History"
 msgstr "Geçmiş"
 
 #: xmp/xmpproperties.cpp:237
-#, fuzzy
-#| msgid "Obituary"
 msgctxt "editorial content attribute"
 msgid "Obituary"
 msgstr "Anma yazısı"
 
 #: xmp/xmpproperties.cpp:238
-#, fuzzy
-#| msgid "Opinion"
 msgctxt "editorial content attribute"
 msgid "Opinion"
 msgstr "Düşünce"
 
 #: xmp/xmpproperties.cpp:239
-#, fuzzy
-#| msgid "Polls & Surveys"
 msgctxt "editorial content attribute"
 msgid "Polls & Surveys"
 msgstr "Anket ve Araştırmalar"
 
 #: xmp/xmpproperties.cpp:240
-#, fuzzy
-#| msgctxt "Content type"
-#| msgid "Profile"
 msgctxt "editorial content attribute"
 msgid "Profile"
 msgstr "Profil"
 
 #: xmp/xmpproperties.cpp:241
-#, fuzzy
-#| msgid "Results Listings & Table"
 msgctxt "editorial content attribute"
 msgid "Results Listings & Table"
-msgstr "Sonuç Listelemeleri & Tablo"
+msgstr "Sonuç Listelemeleri ve Tablo"
 
 #: xmp/xmpproperties.cpp:242
-#, fuzzy
-#| msgid "Side bar & Supporting information"
 msgctxt "editorial content attribute"
 msgid "Side bar & Supporting information"
-msgstr "Kenar çubuğu & Destekleyici bilgi"
+msgstr "Kenar çubuğu ve Destekleyici bilgi"
 
 #: xmp/xmpproperties.cpp:243
-#, fuzzy
-#| msgid "Summary"
 msgctxt "editorial content attribute"
 msgid "Summary"
 msgstr "Özet"
 
 #: xmp/xmpproperties.cpp:244
-#, fuzzy
-#| msgid "Transcript & Verbatim"
 msgctxt "editorial content attribute"
 msgid "Transcript & Verbatim"
 msgstr "Kopya & Kelimesi Kelimesine"
 
 #: xmp/xmpproperties.cpp:245
-#, fuzzy
-#| msgid "Interview"
 msgctxt "editorial content attribute"
 msgid "Interview"
 msgstr "Görüşme"
 
 #: xmp/xmpproperties.cpp:246
-#, fuzzy
-#| msgid "From the Scene"
 msgctxt "editorial content attribute"
 msgid "From the Scene"
 msgstr "Sahneden"
 
 #: xmp/xmpproperties.cpp:247
-#, fuzzy
-#| msgid "Retrospective"
 msgctxt "editorial content attribute"
 msgid "Retrospective"
 msgstr "Geriye dönük"
 
 #: xmp/xmpproperties.cpp:248
-#, fuzzy
-#| msgid "Statistics"
 msgctxt "editorial content attribute"
 msgid "Statistics"
 msgstr "İstatistikler"
 
 #: xmp/xmpproperties.cpp:249
-#, fuzzy
-#| msgid "Update"
 msgctxt "editorial content attribute"
 msgid "Update"
 msgstr "Güncelle"
 
 #: xmp/xmpproperties.cpp:250
-#, fuzzy
-#| msgid "Wrap-up"
 msgctxt "editorial content attribute"
 msgid "Wrap-up"
 msgstr "Özet"
 
 #: xmp/xmpproperties.cpp:251
-#, fuzzy
-#| msgid "Press Release"
 msgctxt "editorial content attribute"
 msgid "Press Release"
 msgstr "Basın Bildirisi"
@@ -2883,8 +2613,6 @@ msgid "Set here the original content transmission reference."
 msgstr "Özgün içerik iletme referansını buradan belirleyin."
 
 #: xmp/xmpstatus.cpp:85
-#, fuzzy
-#| msgid "Title:"
 msgctxt "short title for the content"
 msgid "Title:"
 msgstr "Başlık:"

@@ -98,7 +98,6 @@ Q_SIGNALS:
     void signalNewSelection(bool);
 
 public Q_SLOTS:
-
     void slotDownload(bool onlySelected, bool deleteAfter, Album* pAlbum = 0);
     void slotUploadItems(const KUrl::List&); // public to be used in drag'n'drop
 
@@ -148,6 +147,7 @@ private:
     bool thumbbarVisibility() const;
     void customizedFullScreenMode(bool set);
     void toogleShowBar();
+    void setInitialSorting();
 
 private Q_SLOTS:
 
@@ -216,7 +216,7 @@ private Q_SLOTS:
 
     void slotMetadata(const QString& folder, const QString& file, const DMetadata& meta);
 
-    void slotFilterChanged();
+    void setFilter(Filter *);
 
     void slotEditKeys();
     void slotToggleShowBar();

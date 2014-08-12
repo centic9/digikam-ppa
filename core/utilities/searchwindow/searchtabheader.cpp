@@ -33,6 +33,7 @@
 #include <QTimer>
 #include <QToolButton>
 #include <QVBoxLayout>
+#include <QColorGroup>
 
 // KDE includes
 
@@ -102,7 +103,7 @@ public:
         if (adv)
         {
             QPalette p = palette();
-            p.setColor(QColorGroup::Text, p.color(QPalette::Disabled, QColorGroup::Text));
+            p.setColor(QPalette::Text, p.color(QPalette::Disabled, QPalette::Text));
             setPalette(p);
 
             setText(i18n("(Advanced Search)"));
@@ -504,7 +505,7 @@ void SearchTabHeader::saveSearch()
 
     SAlbum* newAlbum = AlbumManager::instance()->createSAlbum(name, d->currentAlbum->searchType(),
                                                               d->currentAlbum->query());
-    emit searchShallBeSelected(newAlbum);
+    emit searchShallBeSelected(QList<Album*>() << newAlbum);
 }
 
 void SearchTabHeader::storedKeywordChanged()
@@ -523,7 +524,7 @@ void SearchTabHeader::storedKeywordChanged()
     if (d->currentAlbum)
     {
         AlbumManager::instance()->updateSAlbum(d->currentAlbum, queryFromKeywords(keywords));
-        emit searchShallBeSelected(d->currentAlbum);
+        emit searchShallBeSelected(QList<Album*>() << d->currentAlbum);
     }
 }
 
@@ -558,7 +559,7 @@ void SearchTabHeader::advancedSearchEdited(int id, const QString& query)
         if (album)
         {
             AlbumManager::instance()->updateSAlbum(album, query, album->title(), type);
-            emit searchShallBeSelected(album);
+            emit searchShallBeSelected(QList<Album*>() << album);
         }
     }
 }
@@ -581,7 +582,7 @@ void SearchTabHeader::setCurrentSearch(DatabaseSearch::Type type, const QString&
 
     if (selectCurrentAlbum)
     {
-        emit searchShallBeSelected(album);
+        emit searchShallBeSelected(QList<Album*>() << album);
     }
 }
 

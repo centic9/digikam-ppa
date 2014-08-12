@@ -3,20 +3,20 @@
 # Copyright (C) 2008, 2010 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2010, 2011, 2012.
+# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2010, 2011, 2012, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-08-31 01:29+0000\n"
-"PO-Revision-Date: 2012-01-23 08:46+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"PO-Revision-Date: 2014-05-06 17:06+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
 "\n"
 "\n"
@@ -203,18 +203,14 @@ msgstr ""
 "reitur takmarkast við notkun ASCII stafatöflunnar."
 
 #: exif/exifcaption.cpp:113
-#, fuzzy
-#| msgid "Destination:"
 msgctxt "image description"
 msgid "Description (*):"
-msgstr "Áfangastaður:"
+msgstr "Lýsing (*):"
 
 #: exif/exifcaption.cpp:117
-#, fuzzy
-#| msgid "Enter the image title. This field is limited to ASCII characters."
 msgid "Enter the image description. This field is limited to ASCII characters."
 msgstr ""
-"Settu hér inn titil myndarinnar. Þessi reitur takmarkast við notkun ASCII "
+"Settu hér inn lýsingu á myndinni. Þessi reitur takmarkast við notkun ASCII "
 "stafatöflunnar."
 
 #: exif/exifcaption.cpp:122
@@ -241,9 +237,6 @@ msgstr ""
 "takmarkast við notkun ASCII stafatöflunnar."
 
 #: exif/exifcaption.cpp:140
-#, fuzzy
-#| msgctxt "image cpation"
-#| msgid "Caption:"
 msgctxt "image caption"
 msgid "Caption:"
 msgstr "Skýringatexti:"
@@ -289,10 +282,8 @@ msgid "Creation date and time"
 msgstr "Upprunaleg dags- og tímasetning myndatöku"
 
 #: exif/exifdatetime.cpp:111
-#, fuzzy
-#| msgid "Creation second"
 msgid "Creation sub-second"
-msgstr "Tökusekúnda"
+msgstr "Tökuskúndubrot"
 
 #: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
 #, kde-format
@@ -316,21 +307,21 @@ msgid ""
 "Set here the date and time of image creation. In this standard it is the "
 "date and time the file was changed."
 msgstr ""
+"p>Settu hér inn dagsetningu og tíma þegar myndin var búin til. Í þessu "
+"samhengi er það þegar skránni var síðast breytt."
 
 #: exif/exifdatetime.cpp:129
 msgid ""
 "Set here the fractions of seconds for the date and time of image creation."
-msgstr ""
+msgstr "Settu hér sekúndubrot tímans þegar myndin var gerð."
 
 #: exif/exifdatetime.cpp:136
 msgid "Original date and time"
 msgstr "Upphafleg dags- og tímasetning"
 
 #: exif/exifdatetime.cpp:137
-#, fuzzy
-#| msgid "Original second"
 msgid "Original sub-second"
-msgstr "Upphafleg sekúnda"
+msgstr "Upphaflegt skúndubrot"
 
 #: exif/exifdatetime.cpp:143
 msgid "Set original date to today"
@@ -341,22 +332,22 @@ msgid ""
 "Set here the date and time when the original image data was generated. For a "
 "digital still camera the date and time the picture was taken are recorded."
 msgstr ""
+"Settu hér inn dagsetningu og tíma þegar upphaflegu myndgögnin voru búin til. "
+"Í þessu samhengi er það þegar myndin var tekin (á myndavél)."
 
 #: exif/exifdatetime.cpp:148
 msgid ""
 "Set here the fractions of seconds for the date and time when the original "
 "image data was generated."
-msgstr ""
+msgstr "Settu hér sekúndubrot tímans þegar upprunalegu myndgögnin voru gerð."
 
 #: exif/exifdatetime.cpp:155
 msgid "Digitization date and time"
 msgstr "Vistunar dags- og tímasetning"
 
 #: exif/exifdatetime.cpp:156
-#, fuzzy
-#| msgid "Digitization second"
 msgid "Digitization sub-second"
-msgstr "Vistunarsekúnda"
+msgstr "Vistunarskúndubrot"
 
 #: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
 msgid "Set digitization date to today"
@@ -369,12 +360,18 @@ msgid ""
 "time the file was recorded, then Original and Digitization date and time "
 "will have the same contents."
 msgstr ""
+"p>Settu hér inn dagsetningu og tíma þegar myndgögnin voru sett á stafrænt "
+"form. Í þessu samhengi er það þegar myndin var vistuð á minniskort; "
+"venjulega eru upphaflegu- og stafrænu- dagsetningarnar þær sömu hafi myndin "
+"verið tekin með stafrænni (kyrr-)myndavél."
 
 #: exif/exifdatetime.cpp:169
 msgid ""
 "Set here the fractions of seconds for the date and time when the image was "
 "stored as digital data."
 msgstr ""
+"Settu hér sekúndubrot tímans þegar upprunalegu myndgögnin voru sett á "
+"stafrænt form."
 
 #: exif/exifdevice.cpp:130
 msgid "Device manufacturer (*):"
@@ -522,6 +519,9 @@ msgid ""
 "taken. In auto-bracketing mode, the camera shoots a series of frames of the "
 "same scene at different exposure settings."
 msgstr ""
+"p>Settu hér hvaða lýsingarham (exposure mode) myndavélin var stillt á við "
+"töku myndarinnar. Í sjálfvirkum mislýsingarham (auto bracket) tekur myndavél "
+"nokkra ramma í röð, en með mismunandi lýsingarstillingum."
 
 #: exif/exifdevice.cpp:207
 msgid "Exposure bias (APEX):"
@@ -1009,6 +1009,10 @@ msgid ""
 "when it is focused into a beam by a reflector or lens. This value is the "
 "effective intensity for a period of one second."
 msgstr ""
+"p>Stilltu hér á hvaða styrk flassið var stillt á við töku myndarinnar, í "
+"BCPS einingum. Beam Candle Power Seconds (BCPS) er aðferð til að mæla styrk "
+"ljósgjafa þegar ljósinu frá honum er safnað í geisla með spegli eða linsu. "
+"Þetta gildi samsvarar virku ljósmagni í eina sekúndu."
 
 #: exif/exiflight.cpp:187
 msgid "White balance:"
@@ -1094,6 +1098,8 @@ msgid ""
 "Enter here the content synopsis. This field is limited to 256 ASCII "
 "characters."
 msgstr ""
+"Settu hér heiti á samantekt. Þessi reitur er takmarkaður við 256 stafi úr "
+"ASCII stafasettinu."
 
 #: iptc/iptccontent.cpp:103 xmp/xmpcontent.cpp:96
 msgctxt "content description"
@@ -1114,6 +1120,8 @@ msgid ""
 "Enter the content description. This field is limited to 2000 ASCII "
 "characters."
 msgstr ""
+"Settu hér innihaldslýsingu. Þessi reitur er takmarkaður við ASCII 2000 "
+"stafasettið."
 
 #: iptc/iptccontent.cpp:118 xmp/xmpcontent.cpp:116
 msgid "Caption Writer:"
@@ -1121,7 +1129,7 @@ msgstr "Höfundur skýringatexta:"
 
 #: iptc/iptccontent.cpp:119 xmp/xmpcontent.cpp:119
 msgid "Enter the name of the caption author."
-msgstr ""
+msgstr "Settu hér nafn höfundar skýringartexta."
 
 #: iptc/iptccredits.cpp:96 xmp/xmpcontent.cpp:121
 msgid "Copyright:"
@@ -1132,6 +1140,8 @@ msgid ""
 "Set here the necessary copyright notice. This field is limited to 128 ASCII "
 "characters."
 msgstr ""
+"Settu hér nauðsynlegar höfundarréttartilkynningar. Þessi reitur er "
+"takmarkaður við 128 stafi úr ASCII stafasettinu."
 
 #: iptc/iptccredits.cpp:106 xmp/xmpcredits.cpp:111
 msgid "Byline:"
@@ -1139,7 +1149,7 @@ msgstr "Nafn í aukalínu:"
 
 #: iptc/iptccredits.cpp:107 xmp/xmpcredits.cpp:112
 msgid "Set here the name of content creator."
-msgstr ""
+msgstr "Settu hér nafn á höfundi efnis."
 
 #: iptc/iptccredits.cpp:112 xmp/xmpcredits.cpp:117
 msgid "Byline Title:"
@@ -1147,7 +1157,7 @@ msgstr "Titill í aukalínu:"
 
 #: iptc/iptccredits.cpp:113 xmp/xmpcredits.cpp:120
 msgid "Set here the title of content creator."
-msgstr ""
+msgstr "Settu hér titil á höfundi efnis."
 
 #: iptc/iptccredits.cpp:118 xmp/xmpcredits.cpp:182
 msgid "Credit:"
@@ -1157,6 +1167,8 @@ msgstr "Framlög:"
 msgid ""
 "Set here the content provider. This field is limited to 32 ASCII characters."
 msgstr ""
+"Settu hér nöfn á heimildarmönnum efnis. Þessi reitur er takmarkaður við 32 "
+"stafi úr ASCII stafasettinu."
 
 #: iptc/iptccredits.cpp:128 xmp/xmpcredits.cpp:189
 msgctxt "original owner of content"
@@ -1168,6 +1180,8 @@ msgid ""
 "Set here the original owner of content. This field is limited to 32 ASCII "
 "characters."
 msgstr ""
+"Settu hér heiti á upprunalegum eiganda efnis. Þessi reitur er takmarkaður "
+"við 32 stafi úr ASCII stafasettinu."
 
 #: iptc/iptccredits.cpp:138
 msgid "Contact:"
@@ -1175,7 +1189,7 @@ msgstr "Tengiliður:"
 
 #: iptc/iptccredits.cpp:139
 msgid "Set here the person or organisation to contact."
-msgstr ""
+msgstr "Settu hér nöfn á persónum eða hópum sem hafa má samband við."
 
 #: iptc/iptceditwidget.cpp:132 xmp/xmpeditwidget.cpp:132
 msgid "Content"
@@ -1186,6 +1200,8 @@ msgid ""
 "<qt>Content Information<br/><i>Use this panel to describe the visual content "
 "of the image</i></qt>"
 msgstr ""
+"<qt>Innihaldslýsing<br/><i>Notaðu þetta til að lýsa myndrænu innihaldi "
+"myndarinnar</i></qt>"
 
 #: iptc/iptceditwidget.cpp:138 xmp/xmpeditwidget.cpp:138
 msgid "Origin"
@@ -1438,13 +1454,15 @@ msgstr ""
 
 #: iptc/iptcenvelope.cpp:180
 msgid "U.N.O ID:"
-msgstr ""
+msgstr "U.N.O ID:"
 
 #: iptc/iptcenvelope.cpp:185
 msgid ""
 "Set here the Unique Name of Object identifier. This field is limited to 80 "
 "ASCII characters."
 msgstr ""
+"Settu hér UNO-auðkenni (Unique Name of Object). Þessi reitur er takmarkaður "
+"við 80 stafi úr ASCII stafasettinu."
 
 #: iptc/iptcenvelope.cpp:190
 msgid "Product ID:"
@@ -1503,11 +1521,9 @@ msgstr "8: Lágur"
 
 #: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
 #: xmp/xmpproperties.cpp:194
-#, fuzzy
-#| msgid "Not defined"
 msgctxt "editorial urgency of content"
 msgid "9: User-defined"
-msgstr "Ekki skilgreint"
+msgstr "9: Skilgreint af notanda"
 
 #: iptc/iptcenvelope.cpp:232
 msgid "Select here the envelope priority."
@@ -1531,7 +1547,7 @@ msgstr "Sendingartími:"
 
 #: iptc/iptcenvelope.cpp:259
 msgid "Set envelope sent date to today"
-msgstr ""
+msgstr "Setja sendingardagsetninguna í dag"
 
 #: iptc/iptcenvelope.cpp:261
 msgid "Set here the date when the service sent the material."
@@ -1548,6 +1564,7 @@ msgstr "Nota auðkennisorð til upplýsingaleitar:"
 #: iptc/iptckeywords.cpp:94
 msgid "Enter here a new keyword. This field is limited to 64 ASCII characters."
 msgstr ""
+"Settu hér nýtt auðkennisorð. Þessi reitur takmarkast við 64 ASCII stafi."
 
 #: iptc/iptcorigin.cpp:138 xmp/xmporigin.cpp:118
 msgid "Digitization date"
@@ -1579,11 +1596,11 @@ msgstr "Samstilla EXIF upprunadagsetningu"
 
 #: iptc/iptcorigin.cpp:169 xmp/xmporigin.cpp:143
 msgid "Set here the creation date of intellectual content."
-msgstr ""
+msgstr "Settu hér upprunadagsetningu fyrir hugverkið."
 
 #: iptc/iptcorigin.cpp:171
 msgid "Set here the creation time of intellectual content."
-msgstr ""
+msgstr "Settu hér upprunatímasetningu fyrir hugverkið."
 
 #: iptc/iptcorigin.cpp:178
 msgid "Location:"
@@ -1591,7 +1608,7 @@ msgstr "Staðsetning:"
 
 #: iptc/iptcorigin.cpp:179
 msgid "Set here the full country name referenced by the content."
-msgstr ""
+msgstr "Settu hér fullt nafn lands sem umfjöllunarefnið varðar."
 
 #: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:152 xmp/xmporigin.cpp:150
 msgid "City:"
@@ -1602,6 +1619,8 @@ msgid ""
 "Set here the city of content origin. This field is limited to 32 ASCII "
 "characters."
 msgstr ""
+"Settu hér nafn borgar sem efnið kemur frá. Þessi reitur takmarkast við 32 "
+"ASCII stafi."
 
 #: iptc/iptcorigin.cpp:193 xmp/xmporigin.cpp:157
 msgid "Sublocation:"
@@ -1612,6 +1631,8 @@ msgid ""
 "Set here the content location within city. This field is limited to 32 ASCII "
 "characters."
 msgstr ""
+"Settu hér stað innan borgar sem efnið kemur frá. Þessi reitur takmarkast við "
+"32 ASCII stafi."
 
 #: iptc/iptcorigin.cpp:203 xmp/xmporigin.cpp:164
 msgid "State/Province:"
@@ -1622,6 +1643,8 @@ msgid ""
 "Set here the Province or State of content origin. This field is limited to "
 "32 ASCII characters."
 msgstr ""
+"Settu hér fylki eða ríki sem efnið kemur frá. Þessi reitur takmarkast við 32 "
+"ASCII stafi."
 
 #: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:157 xmp/xmporigin.cpp:171
 msgid "Country:"
@@ -1629,7 +1652,7 @@ msgstr "Land:"
 
 #: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:173
 msgid "Select here country name of content origin."
-msgstr ""
+msgstr "Veldu hér landið sem efnið er upprunalega frá."
 
 #: iptc/iptcproperties.cpp:132
 msgid "Release date"
@@ -1645,11 +1668,11 @@ msgstr "Setja útgáfudagsetninguna í dag"
 
 #: iptc/iptcproperties.cpp:141
 msgid "Set here the earliest intended usable date of intellectual content."
-msgstr ""
+msgstr "Settu hér fyrstu áætluðu notkunardagsetningu fyrir hugverkið."
 
 #: iptc/iptcproperties.cpp:143
 msgid "Set here the earliest intended usable time of intellectual content."
-msgstr ""
+msgstr "Settu hér fyrstu áætluðu notkunartímasetningu fyrir hugverkið."
 
 #: iptc/iptcproperties.cpp:149
 msgid "Expiration date"
@@ -1665,11 +1688,11 @@ msgstr "Setja lokadagsetninguna í dag"
 
 #: iptc/iptcproperties.cpp:158
 msgid "Set here the latest intended usable date of intellectual content."
-msgstr ""
+msgstr "Settu hér síðustu áætluðu notkunardagsetningu fyrir hugverkið."
 
 #: iptc/iptcproperties.cpp:160
 msgid "Set here the latest intended usable time of intellectual content."
-msgstr ""
+msgstr "Settu hér síðustu áætluðu notkunartímasetningu fyrir hugverkið."
 
 #: iptc/iptcproperties.cpp:167 xmp/xmpproperties.cpp:171
 msgid "Language:"
@@ -1701,11 +1724,11 @@ msgstr "8: Lágur"
 
 #: iptc/iptcproperties.cpp:196 xmp/xmpproperties.cpp:195
 msgid "Select here the editorial urgency of content."
-msgstr ""
+msgstr "Veldu hér ritstjórnarlega forgangsröðun efnis."
 
 #: iptc/iptcproperties.cpp:200
 msgid "Cycle:"
-msgstr ""
+msgstr "Vinnsla:"
 
 #: iptc/iptcproperties.cpp:202
 msgid "Morning"
@@ -1721,7 +1744,7 @@ msgstr "Kvöld"
 
 #: iptc/iptcproperties.cpp:205
 msgid "Select here the editorial cycle of content."
-msgstr ""
+msgstr "Veldu hér ritstjórnarlega notkun efnis."
 
 #: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
 msgid "Type:"
@@ -1741,13 +1764,15 @@ msgstr "Ráðgjöf"
 
 #: iptc/iptcproperties.cpp:218
 msgid "Select here the editorial type of content."
-msgstr ""
+msgstr "Veldu hér ritstjórnarlega tegund fyrir efnið."
 
 #: iptc/iptcproperties.cpp:219
 msgid ""
 "Set here the editorial type description of content. This field is limited to "
 "64 ASCII characters."
 msgstr ""
+"Settu hér ritstjórnarlega lýsingu á eiginleikum efnisins. Þessi reitur "
+"takmarkast við 64 ASCII stafi."
 
 #: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:255
 msgid "Reference:"
@@ -1758,6 +1783,8 @@ msgid ""
 "Set here the original content transmission reference. This field is limited "
 "to 32 ASCII characters."
 msgstr ""
+"Settu hér staðsetningu upprunalegrar útsendingar efnisins Þessi reitur "
+"takmarkast við 32 ASCII stafi."
 
 #: iptc/iptcstatus.cpp:88
 msgctxt "image title"
@@ -1874,16 +1901,16 @@ msgstr ""
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_metadataeditui.rc:6
 msgid "&Image"
-msgstr ""
+msgstr "&Mynd"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_metadataeditui.rc:12
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Aðaláhaldaslá"
 
 #: plugin/metadataedit.cpp:97
 msgid "Metadata edit dialog"
-msgstr ""
+msgstr "Breytingagluggi lýsigagna"
 
 #: plugin/metadataedit.cpp:102
 msgid "Edit EXIF"
@@ -1914,10 +1941,8 @@ msgid "A Plugin to edit pictures' metadata."
 msgstr "Íforrit til að breyta lýsigögnum mynda."
 
 #: plugin/metadataedit.cpp:159
-#, fuzzy
-#| msgid "(c) 2006-2011, Gilles Caulier"
 msgid "(c) 2006-2013, Gilles Caulier"
-msgstr "(c) 2006-2011, Gilles Caulier"
+msgstr "(c) 2006-2013, Gilles Caulier"
 
 #: plugin/metadataedit.cpp:161
 msgid "Gilles Caulier"
@@ -2097,10 +2122,8 @@ msgstr ""
 "takmarkast við 64 ASCII stafi."
 
 #: plugin/plugin_metadataedit.cpp:130
-#, fuzzy
-#| msgid "Metadata"
 msgid "&Metadata"
-msgstr "Lýsigögn"
+msgstr "&Lýsigögn"
 
 #: plugin/plugin_metadataedit.cpp:138
 msgid "Edit &All Metadata..."

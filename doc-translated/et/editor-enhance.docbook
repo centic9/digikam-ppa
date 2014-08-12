@@ -1,0 +1,1739 @@
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+--><sect2 id="editor-correct-tools">
+  <title
+>Pildi parandamine</title>
+  <sect3 id="sharpening">
+    <sect3info>
+      <title
+>Pildi teravustamine</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam; pakub teravdamiseks kolme erinevat tööriista, millel kõigil on teatud valdkonnas oma <link linkend="comparison-refocus"
+>voorused</link
+>. <itemizedlist>
+            <listitem>
+              <para
+><link linkend="using-adjustsharpness"
+>Teravustamine</link
+> on tavapärane kiire ja lihtne teravustamistööriist, mis võib siiski tekitada teralisust, eriti tumedamatel aladel. </para>
+            </listitem>
+            <listitem>
+              <para
+><link linkend="using-unsharp"
+>Teravustamismask</link
+> parandab servakontrasti, mis jätab pildist teravama mulje, kuid ei teravda seda tegelikult, vaid mõjub rohkem psühhovisuaalselt. Selle abil saab eemaldada atmosfäärihägu ning selles osas on tööriist tõepoolest hea. Algoritm on laenatud GIMP-ilt, selle autoriõigus kuulub Winston Changile. </para>
+            </listitem>
+            <listitem>
+              <para
+><link linkend="refocus"
+>Fookuse muutmise</link
+> tööriist on kolmest arvatavasti parim, sest parandab teravust ka tegelikult. See nõuab ka rohkem vaeva, sest selle juures saab üsna mitme asjaga mängida. </para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Fookuse muutmine</keyword>
+        <keyword
+>Teravustamismask</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Sissejuhatus</title>
+    <para
+>Vigase fookusega fotod, samuti enamik digipilte, vajavad teravuse korrigeerimist. Selle põhjuseks on digitaliseerimine ise, mille korral värviruum hakitakse veidi erineva värviga punktideks ning elemendid, mis on õhemad kui diskreetimissagedus, koondatakse ühte värvi. Nii muutuvad teravad servad renderdamisel veidi häguseks. Sama võib täheldada näiteks värvipunktide trükkimisel paberile. Tavalistest kaameratest veel enam vajavad teravustamist peegelkaamerad. </para>
+    <para
+>Kui JPEG-piltide puhul rakendatakse alati teatud kaamerasisest teravustamist, siis toorvormingus pildid vajavad alati lisateravustamist. </para>
+    <para
+>Mõned skännerid rakendavad skaneerimise ajal teravustamisfiltrit. See oleks mõistlik välja lülitada, et kogu kontroll pildi üle jääks ikka sinu enda kätte. </para>
+    <sect4 id="using-adjustsharpness">
+      <title
+>Teravuse kohendamine</title>
+      <anchor id="sharpentool.anchor"/>
+    </sect4>
+      <sect4>
+        <title
+>Hägu eemaldamine fotolt</title>
+        <para
+>Kui kaamera fookus pole täpselt rihitud või kaamera pildistamise ajal liigub, tekib fotole hägu. Kui hägusus on suur, siis ei aita tõenäoliselt enam miski. Kui see on aga mõõdukas, võib olla võimalik pilti parandada. Paljud paremad peegelkaamerad kasutavad märksa vähem pilditöötlust kui lihtsamad kaamerad (mis kipuvad kontrasti tehislikult võimendama, et pilt teravam välja näeks), Niisugust kergemat hägusust saab tööriistade abil hõlpsasti parandada. </para>
+        <para
+>Mõnel juhul annab hea tulemuse foto teravustamine vastava tööriistaga, mille leiab menüüst <menuchoice
+> <guimenu
+>Parandus</guimenu
+> <guimenuitem
+>Teravustamine</guimenuitem
+> </menuchoice
+>. </para>
+        <example>
+          <title
+>Teravustamistööriist tegevuses</title>
+          <screenshot>
+            <screeninfo
+>Teravustamistööriist tegevuses</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="editorsharpenplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+        <para
+>Sellega tuleb siiski olla ettevaatlik või tulemus ei pruugi paista kuigi loomulik: teravustamine tugevdab foto servade näilist teravust, aga samal ajal võimendab ka müra. Üldiselt on kõige kasulikum pruukida hägusa foto teravustamiseks fookuse muutmise tööriista. Selle saab avada menüükäsuga <menuchoice
+> <guimenu
+>Parandus</guimenu
+> <guimenuitem
+>Fookuse muutmine</guimenuitem
+> </menuchoice
+>. Täpsemalt kõneleb sellest ning esitab võrdluse teiste teravustamisviisidega <link linkend="refocus"
+>fookuse muutmisest kõnelev osa</link
+>. </para>
+      </sect4>
+      <sect4>
+        <title
+>Foto teralisuse vähendamine</title>
+        <para
+>Kesises valguses või väga lühikese säriajaga fotot tehes ei saa kaamera piisavalt andmeid, et hinnata korralikult iga piksli tõelist värvi, mistõttu pilt tuleb teraline. Teralisust saab &quot;mahendada&quot; pildile hägu lisades, kuid see toob kaasa teravuse kaotamise. Kui teralisus pole just väga suur, on vahest parim viis kasutada <link linkend="noisereduction"
+>müra vähendamise</link
+> tööriista, mille leiab menüüst <menuchoice
+> <guimenu
+>Parandus</guimenu
+> <guimenuitem
+>Müra vähendamine</guimenuitem
+> </menuchoice
+>. </para>
+      </sect4>
+      <sect4>
+        <title
+>Foto mahendamine</title>
+        <para
+>Mõnikord on aga häda hoopis vastupidises: pilt on liiga terav. Lahenduseks on selle kerge hägustamine: õnneks on see palju lihtsam kui teravustamine. Vali <link linkend="using-blurfilter"
+>hägustamise tööriist</link
+> menüükäsuga <menuchoice
+> <guimenu
+>Parandus</guimenu
+> <guimenuitem
+>Pehmendamine</guimenuitem
+> </menuchoice
+> ning katseta selle võimalusi. Dialoogis paremal asuv aken näitab, milline näeb välja tulemus. </para>
+      </sect4>
+    <sect4 id="using-unsharp">
+      <title
+>Teravustamismaski filter</title>
+      <note>
+        <para
+>Teravustamismaski filter on suurepärane vahend ähmasuse eemaldamiseks fotodelt (vaata selle kohta lähemalt <ulink url="http://www.gimpguru.org/Tutorials/RemovingHaze"
+>seda veebilehekülge</ulink
+>). </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="unsharpdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Teravustamismaski dialoog</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Pildipaneel ja originaalpildi eelvaatlus aitavad pildil liikuda. Eelvaatluseaknas näidatakse filtri väljundit parajasti kehtivate seadistuste korral. </para>
+      <para
+>Dialoogis on kaks olulist parameetrit: <guilabel
+>Raadius</guilabel
+> ja <guilabel
+>Kogus</guilabel
+>. Vaikeväärtused peaksid enamasti hästi sobima. <guilabel
+>Raadius</guilabel
+>e või <guilabel
+>kogus</guilabel
+>e suurendamine tugevdab efekti. Ära lase end siiski eksitada: kui muudad teravustamismaski liiga tugevaks, võimendatakse ka pildil olev müra ning teravdatud servade kõrvale tekivad omamoodi lõhed. </para>
+      <para
+><guilabel
+>Raadius</guilabel
+> võimaldab määrata, kui paljusid piksleid mõlemal pool serva teravustamine mõjutab. Suure lahutusega piltidel on raadius võimalik suurem määrata. Pilti on alati kõige mõttekam teravustada selle maksimaalse lahutuse juures. </para>
+      <para
+><guilabel
+>Kogus</guilabel
+> määrab ära protsentuaalse erinevuse originaali ja originaalile lisata hägustatud pildi vahel. See võimaldab määrata teravustamise tugevuse. </para>
+      <para
+><guilabel
+>Lävi</guilabel
+> määrab ära erinevuse koguse rakendamiseks vajaliku maksimaalse RGB-väärtuse osa. See võimaldab määrata pikslites minimaalse erinevuse teravustatavale servale. Nii saab kaitsta ühtlase tooniüleminekuga alasid teravustamise ees ja vältida müra tekkimist nägudel, taevas või veepinnal. </para>
+    </sect4>
+      <sect4 id="inaction-unsharp">
+        <title
+>Teravustamismask tegevuses</title>
+        <para
+>See on näide, kuidas teravustamismask võib muuta kogu sinu elu. Originaalpilt on (1) ja korrigeeritud pilt (2). Teravustamismask rakendati <guilabel
+>raadius</guilabel
+>ega 6,0, <guilabel
+>kogus</guilabel
+>ega 0,5 ja <guilabel
+>läve</guilabel
+>ga 0,0. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="unsharppreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Teravustamismaski tööriist tegevuses</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+    <sect4 id="refocus">
+      <title
+>Foto fookuse muutmine</title>
+      <para
+>&digikam;i <emphasis
+>fookuse muutmise</emphasis
+> tööriistaga saab parandada pildi teravust. See kasutab <emphasis
+>dekonvolutsioonifiltri</emphasis
+> algoritmi, mille autoriõigus kuulub Ernst Lippele. </para>
+      <para
+>Käesolev tööriist üritab pilti &quot;ümber fokuseerida&quot;, kasutades niinimetatud <emphasis
+>FIR Wieneri filtreerimise</emphasis
+> tehnoloogiat. Traditsiooniliselt teravustatakse pilte teravustamismaski abil. Fookuse muutmine annab enamasti parema tulemuse kui teravustamismask. Selle tööriista saab käivitada pildiredaktoris menüükäsuga <menuchoice
+><guimenu
+>Parandus</guimenu
+><guimenuitem
+>Teravdus</guimenuitem
+><guimenuitem
+>Fookuse muutmine</guimenuitem
+></menuchoice
+>. </para>
+      <para
+>Fookuse muutmine toimib teistmoodi kui <link linkend="using-unsharp"
+>teravustamismask</link
+> ning erineb ka <link linkend="using-adjustsharpness"
+>teravustamisfiltrist</link
+>, mis mõlemad suurendavad kontrasti pildi servadel. Fookuse muutmise tehnoloogia aga üritab taastada selle hetke eelse olukorra, mil pilt muutus kaameras häguseks. See annab pildile nii suurel määral esialgse &quot;fookuse&quot; kui võimalik. Fookuse muutmisel kasutatakse väga võimsat dekonvolutsioonialgoritmi, mis taastab segatud andmed. Formaalselt kõneldes on hägustumine tavaliselt konvolutsiooni tulemus ning dekonvolutsioon pöörab selle tagasi. Seda fookuse muutmise tööriist võimaldabki. Lisaks lubab FIR filtri tehnoloogia eemaldada suure osa mürast ja teralisusest, mis kipuvad sageli kaasnema teravustamisega teravustamisfiltrite abil. </para>
+    </sect4>
+      <sect4 id="using-refocus">
+        <title
+>Fookuse muutmise tööriista kasutamine</title>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="refocusdialog.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Fookuse muutmise dialoog</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+        <para
+>Pildipaneel ja originaalpildi eelvaatlus aitavad pildil liikuda. Eelvaatluseaknas näidatakse filtri väljundit parajasti kehtivate seadistuste korral. </para>
+        <para
+>Enamasti ei ole täpselt teada, milline konvolutsioon halvendas pildi kvaliteeti. Tavaliselt on süüdlaseks üks kahest konvolutsioonist: <itemizedlist
+> <listitem
+><para
+>Gaussi konvolutsioon: selle kellukesekujuline kõver sarnaneb matemaatiliselt normaaljaotusele. Teoreetiliselt õigustab Gaussi konvolutsiooni kasutamist asjaolu, et suurt hulka iseseisvaid juhuslikke konvolutsioone rakendades läheneb tulemus alati Gaussi konvolutsioonile.</para
+></listitem
+> <listitem
+><para
+>Ringkonvolutsioon: see levib igast algpunktist ühetaoliselt fikseeritud raadiusega ringis. Tehniliselt kirjeldab see (ideaalse) läätse kasutamise mõju, mis ei ole korrektselt fokuseeritud.</para
+></listitem
+> </itemizedlist
+> Fookuse muutmise plugin toetab nii Gaussi kui ringkonvolutsiooni ning nende kasutamist üheskoos. </para>
+        <para
+>Praktikas on ringkonvolutsioon enamasti etem kui Gaussi konvolutsioon. Gaussi konvolutsioonil on väga pikk saba, mistõttu matemaatiliselt sõltub konvolutsiooni tulemus ka neist algpikslitest, mis asuvad originaalalgpikslist väga kaugel. FIR Wieneri Gaussi konvolutsiooni tagasipööramist mõjutavad enamasti kaugel asuvad algpikslid päris tugevasti ning tihtipeale annab see soovimatuid tulemusi. </para>
+        <para
+>Dekonvolutsioonifiltri korrektseks määramiseks kasutab plugin järgmisi parameetreid: <itemizedlist>
+            <listitem>
+              <para
+><guilabel
+>Ringteravus</guilabel
+>: see on ringkonvolutsiooni filtri raadius. See on plugina kõige olulisem parameeter. Enamiku piltide korral peaks hästi sobima vaikeväärtus 1. Vali suurem väärtus, kui sinu pilt on väga hägune, kuid vaata, et ei tekiks halo.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Korrelatsioon</guilabel
+>: <guilabel
+>korrelatsioon</guilabel
+>i suurendamine võib kahandada artefakte. Korrelatsioon saab olla vahemikus 0 kuni 1. Mõistlik oleks kasutada väärtusi 0,5 ja ühele lähenevaid väärtusi, näiteks 0,95 ja 0,99. Suurema korrelatsiooniväärtuse kasutamisel väheneb plugina teravustamisefekt.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Mürafilter</guilabel
+>: <guilabel
+>mürafiltri</guilabel
+> suurendamine aitab kahandada artefakte. Väärtused peavad olema vahemikus 0 kuni 1, kuid väärtused üle 0,1 on väga harva abiks. Kui mürafiltri väärtus on liiga väike, näiteks 0, võib pildi kvaliteet olla väga õudne. Mõistlik väärtus on 0,03. Mürafiltri suurema väärtuse korral suureneb pildi hägu veelgi.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Gaussi teravus</guilabel
+>: see on Gaussi konvolutsiooni filtri raadius. Seda parameetrit on mõtet kasutada, kui hägu on Gaussi tüüpi (enamasti tulenevalt varasemast hägufiltrist). Enamasti oleks mõttekas määrata väärtuseks 0, sest see tekitab ebameeldivaid artefakte. Nullist erineva väärtuse kasutamisel on arvatavasti väga soovitatav suurendada ka <guilabel
+>korrelatsioon</guilabel
+>i ja/või <guilabel
+>mürafiltri</guilabel
+> väärtusi.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Maatriksi suurus</guilabel
+>: see määrab teisendusmaatriksi suuruse. <guilabel
+>Maatriksi suurus</guilabel
+>e suurendamine võib anda paremaid tulemusi, eriti kui oled valinud <guilabel
+>ringteravus</guilabel
+>ele või <guilabel
+>Gaussi teravus</guilabel
+>ele suure väärtuse. Pane tähele, et plugin muutub väga aeglaseks, kui valid sellele parameetrile suure väärtuse. Enamasti võiks valik langeda vahemikku 3 kuni 10.</para>
+            </listitem>
+            <listitem>
+              <para
+>Nupud <guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+> teevad just seda, mida nad ütlevad. Mis tahes fookuse muutmise seadistusi saab salvestada tekstifaili ja tekstifailist saab salvestusi ka laadida.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Vaikeväärtused</guilabel
+> taastab kõigi seadistuste vaikeväärtused.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <para
+>Toome nüüd mõned soovitused fookuse muutmise plugina edukamaks kasutamiseks: <itemizedlist>
+            <listitem>
+              <para
+>Mõistlik oleks kõik kärpimised ning värvi- ja intensiivsuskõverate korrigeerimine pildil sooritada enne fookuse muutmise tööriista kasutamist.</para>
+            </listitem>
+            <listitem>
+              <para
+>Paljudel juhtudel tuleks fookuse muutmise tööriista kasutada enne muude toimingute ettevõtmist pildiga. Põhjuseks on asjaolu, et paljud toimingud jätavad servi, mis ei ole vahetult nähtavad, kuid tekitavad inetuid artefakte.</para>
+            </listitem>
+            <listitem>
+              <para
+>Pilte skaneerides ja näiteks JPEG-vormingusse tihendades tuleks tööriista kasutada tihendamata pildiga.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </sect4>
+    <sect4 id="comparison-refocus">
+      <title
+>Fookuse muutmise võrdlus teiste tehnoloogiatega</title>
+      <para
+>Võrdlus kahe tehnoloogiaga, mida sageli kasutatakse piltide parandamiseks: <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="using-adjustsharpness"
+>Teravustamisfilter</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="using-unsharp"
+>Teravustamismask</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Teravustamisel rakendatakse väike konvolutsioonimaatriks, mis suurendab erinevust algpiksli ja selle vahetute naabrite vahel. FIR Wieneri filter on üldisem tehnoloogia, sest see võimaldab märksa suuremat naabrust ning parameetrite paremat määratlemist. Teravustamine toimib ainult siis, kui pildil on väga vähe hägu. Kui teravustamisparameeter väga suur määrata, on tulemuseks sageli üsna &quot;mürarohke&quot; pilt. FIR Wieneri filtri korral saab selle müra suurel määral kahadada, valides parameetritele <guilabel
+>korrelatsioon</guilabel
+> ja <guilabel
+>mürafilter</guilabel
+> suurema väärtuse. </para>
+      <para
+>Teine väga levinud pildi parandamise tehnoloogia on teravustamismask. Matemaatilises mõttes on selle kasutamine natuke kahtlase väärtusega, kuid paljud peavad seda siiski asjalikuks abivahendiks. Selle esimese sammuna luuakse lähtepildi hägustatud koopia. Seejärel lahutatakse lähtepildist lähtepildi ja hägustatud pildi vahe. Õigupoolest on teravustamismask rohkem mõeldud pildi oluliste osade kontrasti parandamiseks kui teravustamiseks. Erinevalt fookuse muutmise pluginast ei mõjuta see kuidagi kaamera ava tõttu tekkinud mustrit. </para>
+      <para
+>Üldiselt annab teravustamismask paremaid tulemusi kui teravustamisfilter. Selle põhjuseks on asjaolu, et teravustamismaski korral on pikslinaabrus suurem. </para>
+      <para
+>Teooria ütleb, et teravustamismask tekitab alati artefakte. Isegi kõige optimaalsemate tingimuste korral ei suuda see häguefekti täielikult kõrvaldada. Wieneri filtri puhul aga saab tõestada, et tegemist on optimaalse lineaarse filtriga. Praktikas on FIR Wieneri filtri tulemused alati vähemalt sama head kui teravustamismaski kasutades. Väikeste detailide taastamisel on aga FIR Wieneri filter sageli palju parem. </para>
+      <para
+>Allpool näeb erinevate filtrite võrdlust väikesele fokuseerimata pildile rakendamisel: <informaltable
+> <tgroup cols="2">
+            <thead>
+              <row>
+                <entry
+>Eelvaatlus</entry>
+                <entry
+>Tüüp</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="refocus-notsharpened.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Parandamist ootav hägune originaalpilt. Pilt on tehtud analoogkaameraga. Fokuseerimatuse põhjuseks on autofokuseeruva objektiivi ebapiisav valgustatus. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="refocus-sharped.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Parandatud pilt teravustamisfiltri rakendamise järel. Teravuseks määrati 80. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="refocus-unsharpmask.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Parandatud pilt teravustamismaski rakendamise järel. Seadistused: raadius = 50, kogus = 5, lävi = 0. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="refocus-refocus.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Parandatud pilt fookuse muutmise filtri rakendamise järel. Seadistused: ringteravus = 1,3, korrelatsioon = 0,5, mürafilter = 0,020, Gaussi teravus = 0, maatriksi suurus = 5. </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </para>
+      <note>
+        <para
+>Rohkem infot digipiltide teravuse parandamise meetodite tehnilise võrdluse kohta leiab <ulink url="http://www.bialith.com/Research/BARclockblur.htm"
+>sellelt saidilt</ulink
+>. </para>
+      </note>
+    </sect4>
+  </sect3>
+  <sect3 id="using-redeyecorrection">
+    <title
+>Punaste silmade eemaldamine fotolt</title>
+    <anchor id="redeyecorrectiontool.anchor"/>
+    <para
+>Punasilmsus tekib enamasti siis, kui inimesi pildistatakse välklampi kasutades. Punane on sel juhul silma tagapõhja peegeldus, mis tekib seepärast, et silm ei jõua piisavalt kiiresti välgule reageerida. Punasilmsust saab korrigeerida, kui valida pildil vajalik ala (see käib nii, nagu kirjeldasime eespool kärpimisest rääkides). Seejärel vali menüükäsk <menuchoice
+><guimenu
+>Parandus</guimenu
+> <guimenuitem
+>Punasilmsuse vähendus</guimenuitem
+></menuchoice
+>. </para>
+    <para
+>Kuidas see töötab <itemizedlist>
+        <listitem
+><para
+>Määra meelepärane eelvaatlusrežiim</para
+></listitem>
+        <listitem
+><para
+>Valikuga <guilabel
+>Tundlikkus</guilabel
+> saab määrata punasilmsuse eemaldamise kvaliteedi (agressiivne või mitte)</para
+></listitem>
+        <listitem
+><para
+>Valikuga <guilabel
+>Mahedus</guilabel
+> saab määrata hägustamisala, mis tumendatakse, et pupillid paistaksid loomutruumad</para
+></listitem>
+        <listitem
+><para
+>Valikuga <guilabel
+>Värvitoon</guilabel
+> saab saab määrata pupillide kohandatud toonimise, näiteks kui soovid tumedate silmade asemel hoopis siniseid</para
+></listitem>
+        <listitem
+><para
+>Valikuga <guilabel
+>Toonimistase</guilabel
+> saab määrata määratud pupilli värvi heledust</para
+></listitem>
+      </itemizedlist>
+    </para>
+    <example>
+      <title
+>Punasilmaefekti vähendamise tööriist tegevuses</title>
+      <screenshot>
+        <screeninfo
+>Punasilmaefekti vähendamise tööriist tegevuses </screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="editor-redeyes-correction.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </example>
+  </sect3>
+  <sect3 id="inpainting">
+    <sect3info>
+      <title
+>Pildiobjekti kaotamine</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>cimglogo</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+><emphasis
+>Pildiobjektide kaotamise</emphasis
+> tööriist on kahtlemata üks tõhusamaid vahendeid fotodelt soovimatute artefaktide eemaldamiseks. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Sissejuhatus</title>
+    <para/>
+    <para
+>Pildiobjektide kaotamise plugina aluseks oleva algoritmi on välja töötanud GREC CNRS labori IMAGE meeskond Caenis Prantsusmaal ning see kuulub <ulink url="http://cimg.sourceforge.net"
+>CImg projekti</ulink
+>. </para>
+    <sect4 id="using-inpainting">
+      <title
+>Pildiobjektide kaotamise tööriista kasutamine</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="inpaintingdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Pildiobjektide kaotamise dialoog</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Restaureerimise lihtsustamiseks pakub plugin välja mitu filtri rakendamise tüüpi, täpsemalt järgmised: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Puudub</guilabel
+>: kasutatakse filtri kõige levinumaid seadistusi, mis ei ole millekski spetsiaalselt optimeeritud.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Väikese objekti eemaldamine</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Keskmise objekti eemaldamine</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Suure objekti eemaldamine</guilabel
+>.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Kui soovid filtri parameetreid veelgi täpsemalt paika seada, kasuta kaarte <guilabel
+>Pehmendamine</guilabel
+> ja <guilabel
+>Muud seadistused</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="inpaintingsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Pildiobjektide kaotamise pehmendamisseadistused</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Detailsuse säilitamine</guilabel
+> p [0, 100]: sellega saab määrata kõverate (omaduste) säilitamise. Väiksem väärtus kehtestab kogu pildil üsna ühesuguse pehmenduse, suuremad väärtused aga pehmendavad homogeenseid piirkondi ning jätavad detailid teravamaks. Väärtus 0,9 peaks detaile piisavalt hästi säilitama, nii et hiljem pole vaja pilti täiendavalt teravdada. Kontrolli alati, et <guilabel
+>detailsuse säilitamine</guilabel
+> oleks väiksem kui <guilabel
+>anisotroopia</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotroopia</guilabel
+> alfa [0, 100]: väiksem väärtus pehmendab võrdselt kõigis suundades, ühele lähenev väärtus aga ainult ühes suunas. Kui fotol on täheldada teralisust või CCD-le iseloomulikku müra, toob suurem väärtus kaasa lainelise mustri, samas JPEG objektidele sobivad just ühele lähenevad väärtused. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Pehmendus</guilabel
+> [0, 500]: see määrab maksimaalse üldise pehmendusteguri (p määrab seevastu suhtelise pehmenduse). Määra see vastavalt müra tasemele.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regulaarsus</guilabel
+> [0, 100]: see parameeter puudutab suuremaid struktuure. Mida suurem väärtus, seda ühtlasem on üldine pehmendus. See on vajalik eriti suurema müra korral, sest sel juhul on keerukas geomeetriat kindlaks määrata. Ka juhul, kui soovid saavutada 'van Goghi' turbulentsusefekti, on soovitatav valida väärtuseks vähemalt 3.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Filtri kordused</guilabel
+>: arv, mitu korda hägustamisalgoritmi rakendatakse. Tavaliselt piisab ühest või kahest korrast.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="inpaintingsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Pildiobjektide kaotamise muud seadistused</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Nurga muut</guilabel
+> da [5, 90]: anisotroopia alfa nurga integraal. Kui alfa on väike, peaks ka da olema väike. Kuid ettevaatust: väike nurk tähendab pikka töötlust. Vali see väärtus nii suur, kui vähegi võimalik. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Integraali muut</guilabel
+> [0,1, 10]: ruumilise integraali muudu laius pikslites. Peaks olema alla 1 (pikslisisene pehmendus) ega tohiks üldiselt ületada 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Lineaarse interpolatsiooni kasutamine</guilabel
+>: selle valimisel on võit kvaliteedis enamasti pisike, küll aga suureneb töötlemise aeg umbes kahekordselt. Soovitatav on seda mitte sisse lülitada.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Nupud <guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+> teevad just seda, mida nad ütlevad. Mis tahes pildiobjekti kaotamise seadistusi saab salvestada tekstifaili ja tekstifailist saab salvestusi ka laadida. </para>
+      <warning>
+        <para
+>Pildiobjektide kaotamine on iseenesest väga kiire operatsioon, kuid reaalselt võtab see päris palju aega ja võib tublisti koormata protsessorit. Sa saad arvutamise alati katkestada, vajutades renderdamise ajal nupule <guilabel
+>Loobu</guilabel
+>. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-inpainting">
+      <title
+>Pildiobjektide kaotamise tööriist tegevuses</title>
+      <para
+>Siin on näha filtritüübi <guilabel
+>Väikese objekti eemaldamine</guilabel
+> rakendamine värvifotole, mis on tehtud analoogkaameraga Guatemalas. Pildil on mingi sobimatu must objekt, mis ilmselt tekkis filmi mitte kõige paremates hoiutingimustes reisi ajal. Originaalpilt on (1), korrigeeritud pilt (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="inpaintingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Pildiobjektide kaotamise filtri eelvaatlus</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="noisereduction">
+    <sect3info>
+      <title
+>Müra tasandus</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam;i <emphasis
+>müra tasandamise</emphasis
+> tööriistaga saab vähendada pildi müra. Selleks kasutatakse algoritmi, mille autoriõigus kuulub Peter Heckertile. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Müra tasandus</keyword>
+        <keyword
+>Pehmendus</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Sissejuhatus</title>
+    <para
+>See tööriist võimaldab kasutada pildifiltreid, millega eemaldada pildilt plekid või muud elemendid, mille on põhjustanud näiteks tolm või läätsele sattunud juuksekarv. Selle abil saab eemaldada ka väiksemaid defekte, sealhulgas kaamera <emphasis
+>sensorimüra</emphasis
+>, mida võib põhjustada näiteks liiga suur ISO-tundlikkus, või niinimetatud <emphasis
+>muaree-efekti</emphasis
+> raamatutest või ajakirjadest skaneeritud piltidel.  </para>
+    <para
+>Rohkem infot kaamera sensorimüra kohta leiab sellest (ingliskeelsest) <ulink url="http://www.cambridgeincolour.com/tutorials/noise.htm"
+>tutvustusest</ulink
+>. </para>
+    <sect4 id="using-noisereduction">
+      <title
+>Müra tasanduse tööriista kasutamine</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="noisereductiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Müra tasanduse dialoog</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Siinne pilt näitab tüüpilist võtet, mis on tehtud analoogkaameraga suure tundlikkusega mustvalge filmiga. Siin on näha teralist müra, mida saab plugina abil edukalt vähendada. </para>
+      <para
+>Muudetava suurusega pildipaneel, kus paikneb originaali eelvaatlus, aitab pilti liigutada. Punast ristkülikut nihutades saab valida vajaliku piirkonna, mis võimaldab paika panna optimaalsed filtriseadistused. Eelvaatluse aknas näeb filtri väljundit. Seda saab muuta neljal erineval moel originaali all asuvate ikoonidega. Antud pildil on valitud esimene viis, kus võrdluseks näidatakse sama osa. Eelvaatlusala all paiknevad <guilabel
+>suurendusteguri</guilabel
+> valikud, millega on võimalik pildiala veelgi suurendada. </para>
+      <para
+>Allpool näeb kõigi parameetrite täielikku kirjeldust. Enamasti läheb vaja ainult kaardi <guilabel
+>Üksikasjad</guilabel
+> sätteid, kaardi <guilabel
+>Muud</guilabel
+> parameetrid võib aga jätta puutumata. <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Raadius</guilabel
+> tähistab filtri kasutatava akna suurust. Suurem väärtus ei suurenda aega, mida läheb vaja pildi iga piksli filtreerimiseks, kuid võib põhjustada hägu. See aken liigub üle pildi ning selle alla jääv värv ühtlustatakse, mis kõrvaldab ebatäpsused. Igal juhul peab see olema umbes sama suur kui müra teralisus või suuremgi. Kui see on liiga suur, võib tekkida soovimatu hägu. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Lävi</guilabel
+>: väärtuse saab üldjoontes paika panna liuguriga ning vajadusel kerimiskastis täpsustada. See määrab serva tuvastamise tundlikkuse. Väärtus tuleb määrata nii, et servad ja üksikasjad on selgelt näha ning müra mahendatakse. Väärtus ei ole seotud intensiivsusega, vaid intensiivsusväärtuste teise tuletisega. Täpsustamisega tuleb olla ettevaatlik, sest vahe mürarohke, maheda ja häguse vahel on väga väike. Kohenda seda sama ettevaatlikult nagu oma kaamera fookust. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Tekstuur</guilabel
+>: see määrab tekstuuri täpsuse. Väiksema väärtuse korral müra ja tekstuur hägustatakse, suurema väärtuse korral tekstuuri võimendatakse, kuid ühtlasi suureneb müra. Pildi servadele pole sel peaaegu mingit mõju, erinevalt filtrist <guilabel
+>Serv</guilabel
+>, mis suurendamise korral hägustab servi. Kui <guilabel
+>servad</guilabel
+> on kohendatud nii, et servad oleksid teravad, aga ikka esineb liiga palju müra, siis võimaldab <guilabel
+>tekstuur</guilabel
+> vähendada müra ilma servi hägustamata. Teine võimalus on vähendada <guilabel
+>raadiuse</guilabel
+> ja suurendada <guilabel
+>serva</guilabel
+> väärtust. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Teravus</guilabel
+>: see võimaldab määrata teravustaset. Selle väärtus määrab vahemaa pikslites, mille tagant filter uurib heleduserinevusi. Väärtuse suurendamisel kõrvaldatakse tipumüra. Hiljem võib asja täpsemalt kohendada <guilabel
+>serva</guilabel
+> abil. Kui väärtus on liiga suur, ei suuda adaptiivfilter enam pildi üksikasju täpselt jälgida ning uuesti võib tekkida müra või siis ilmuda hägu. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Serv</guilabel
+>: see võimaldab määrata teravuse jaoks serva täpsuse. Väärtus parandab filtri sageduskarakteristikat. Kui see on liiga tugev, ei eemaldata kogu müra või tekib tipumüra. Säti see maksimumi lähedale, kui soovid üksikasju kaotamata eemaldada väga nõrga müra või JPEG-artifakte. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Erosioon</guilabel
+>: see võimaldab määrata servade faasinihet. Selle abil saab suurendada servamüra ja tipumüra erosiooni (erosiooniga müra kõrvaldatakse). Efekt sõltub <guilabel
+>teravusest</guilabel
+>, <guilabel
+>sumbuvusest</guilabel
+> ja <guilabel
+>servadest</guilabel
+>. Kui soovid eemaldada nõrka müra või JPEG-i artefakte, määra see minimaalseks. Väärtuse suurendamisel on enamasti tulus suurendada ka <guilabel
+>sumbuvuse</guilabel
+> väärtust. Tipumüra korrigeerimisel avaldab erosioon servadele teravdavat ja antialiaslikku toimet. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Heledus</guilabel
+>: see määrab pildi heledustolerantsi. Soovitatav on kasutada pildi parandamiseks ainult <guilabel
+>värvi</guilabel
+> või <guilabel
+>heleduse</guilabel
+> tolerantsi, aga mitte mõlemat korraga. See seadistus ei mõjuta üldist mahendamist, mida juhivad kaardil <guilabel
+>Üksikasjad</guilabel
+> määratud seadistused. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+> Värv</guilabel
+>: see määrab pildi värvitolerantsi. Soovitatav on kasutada pildi parandamiseks ainult <guilabel
+>värvi</guilabel
+> või <guilabel
+>heleduse</guilabel
+> tolerantsi, aga mitte mõlemat korraga. See seadistus ei mõjuta üldist mahendamist, mida juhivad kaardil <guilabel
+>Üksikasjad</guilabel
+> määratud seadistused. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Gamma</guilabel
+>: see määrab pildi gammatolerantsi. Selle abil saab suurendada tumedamate alade (kus müra on tavaliselt rohkem) tolerantsiväärtusi. Varjudes toob see kaasa suurema hägu. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Sumbuvus</guilabel
+>: see määrab faasivärina sumbuvuse. Väärtus määrab adaptiivfiltri raadiuse reaktsiooni heleduse erinevustele. Suurendamise korral muutuvad servad mahedamaks, aga kui see on liiga suur, võib tekkida hägu. Minimaalse väärtuse korral võib tekkida müra ja faasivärin servadel Suurendamise korral võib see kõrvaldada tipumüra ning see ongi tipumüra eemaldamise eelistatud viis. </para>
+          </listitem>
+          <listitem>
+            <para
+>Nupud <guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+> teevad just seda, mida nad ütlevad. Mis tahes foto müra vähendamise seadistusi saab salvestada tekstifaili ja tekstifailist saab salvestusi ka laadida. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Vaikeväärtused</guilabel
+> taastab kõigi seadistuste vaikeväärtused. </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+      <sect4 id="inaction-noisereduction">
+        <title
+>Müra tasandus tegevuses</title>
+        <para
+>See on näide, kuidas müra tasandamine võib muuta kogu sinu elu. Originaalpilt on (1) ja korrigeeritud pilt (2). Müra tasandati vaikeseadistustega. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="noisereductionpreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Müra tasandus tegevuses</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+      <sect4 id="using-blurfilter">
+        <title
+>Foto mahendamine</title>
+        <para
+>Mõnikord on pilt sinu jaoks liiga terav Lahenduseks on selle kerge hägustamine: õnneks on see palju lihtsam kui teravustamine. Vali hägustamise tööriist menüükäsuga <menuchoice
+> <guimenu
+>Parandus</guimenu
+> <guimenuitem
+>Pehmendamine</guimenuitem
+> </menuchoice
+> ning katseta selle võimalusi. Dialoogis paremal asuv aken näitab, milline näeb välja tulemus. </para>
+        <example>
+          <title
+>Pehmendamistööriist tegevuses</title>
+          <screenshot>
+            <screeninfo
+>Pehmendamistööriist tegevuses</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="editorblurplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+      </sect4>
+  </sect3>
+  <sect3 id="restoration">
+    <sect3info>
+      <title
+>Foto restaureerimine</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>cimglogo</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+>&digikam;i <emphasis
+>foto restaureerimise</emphasis
+> tööriist on kahtlemata üks võimsamaid tööriistu fotode artefaktide kahandamiseks. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Sissejuhatus</title>
+    <para
+>See fantastiline restaureerimisfilter avab vabale tarkvarale enneolematud võimalused eemaldada piltidelt ka suures koguses soovimatuid elemente. See sobib hästi fotodele, mis kannatavad Gaussi mürast, teralisusest, kriimudest või tihendusest tekkinud objektide ning digipiltidel (sõltumata sellest, kas need on algupäraselt digitaalsed või mitte) pahatihti ajapikku tekkiva niinimetatud väsimuse all. Pehmendamine toimub piki pildi kõveraid, mistõttu oluline sisu säilib just sel määral, nagu inimsilm seda tajub ja töötleja soovib. </para>
+    <para
+>Sama algoritmi saab kasutada koloreerimiseks ja tekstuuri asendamiseks, millega tegeleb üks teine plugin (pildiobjektide kaotamise plugin). Restaureerimisalgoritmi on välja töötanud GREC CNRS labori IMAGE meeskond Caenis Prantsusmaal ning see kuulub <ulink url="http://cimg.sourceforge.net"
+>CImg projekti</ulink
+>. </para>
+    <sect4 id="using-restoration">
+      <title
+>Restaureerimistööriista kasutamine</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="restorationdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Foto restaureerimise dialoog</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Restaureerimise lihtsustamiseks pakub plugin välja mitu filtri rakendamise tüüpi, täpsemalt järgmised: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Puudub</guilabel
+>: kasutatakse filtri kõige levinumaid seadistusi, mis ei ole millekski spetsiaalselt optimeeritud.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Ühtlusmüra kahandamine</guilabel
+>: optimaalsed seadistused sensoritest tingitud pildimüra jaoks.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>JPEG objektide kahandamine</guilabel
+>: JPEG tihendus ei ole kuigi perfektne ning teatud tüüpi piltide puhul on see lausa nigel. Kadudega tihendusalgoritm tekitab teatud &quot;tihendusobjekte&quot; ehk kergeid moonutusi lahtipakitud pildil. Selle filtritüübi eesmärk on selle probleemi lahendamine.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Tekstuuri kahandamine</guilabel
+>: optimaalsed seadistused skaneerimisel või digiteerimisel tekkinud objektide ning muaree-mustrite eemaldamiseks.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Kui soovid filtri parameetreid veelgi täpsemalt paika seada, kasuta kaarte <guilabel
+>Pehmendamine</guilabel
+> ja <guilabel
+>Muud seadistused</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="restorationsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Foto restaureerimise pehmendamisseadistused</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Detailsuse säilitamine</guilabel
+> p [0, 100]: sellega saab määrata kõverate (omaduste) säilitamise. Väiksem väärtus kehtestab kogu pildil üsna ühesuguse pehmenduse, suuremad väärtused aga pehmendavad homogeenseid piirkondi ning jätavad detailid teravamaks. Väärtus 0,9 peaks detaile piisavalt hästi säilitama, nii et hiljem pole vaja pilti täiendavalt teravdada. Kontrolli alati, et <guilabel
+>detailsuse säilitamine</guilabel
+> oleks väiksem kui <guilabel
+>anisotroopia</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotroopia</guilabel
+> alfa [0, 100]: väiksem väärtus pehmendab võrdselt kõigis suundades, ühele lähenev väärtus aga ainult ühes suunas. Kui fotol on täheldada teralisust või CCD-le iseloomulikku müra, toob suurem väärtus kaasa lainelise mustri, samas JPEG objektidele sobivad just ühele lähenevad väärtused. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Pehmendus</guilabel
+> [0, 500]: see määrab maksimaalse üldise pehmendusteguri (p määrab seevastu suhtelise pehmenduse). Määra see vastavalt müra tasemele.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regulaarsus</guilabel
+> [0, 100]: see parameeter puudutab pehmenduse ühtlust. Kujuta pehmendust ette kammimisena. Regulaarsus määrab sel juhul kammi suuruse. Mida suurem väärtus, seda ühtlasem on üldine pehmendus. See on vajalik eriti suurema müra korral, sest sel juhul on keerukas geomeetriat kindlaks määrata. Ka juhul, kui soovid saavutada 'van Goghi' turbulentsusefekti, on soovitatav valida väärtuseks vähemalt 3.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Filtri kordused</guilabel
+>: arv, mitu korda hägustamisalgoritmi rakendatakse. Tavaliselt piisab ühest või kahest korrast.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="restorationsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Foto restaureerimise muud seadistused</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Nurga muut</guilabel
+> da [5, 90]: anisotroopia alfa nurga integraal. Kui alfa on väike, peaks ka da olema väike. Kuid ettevaatust: väike nurk tähendab pikka töötlust. Vali see väärtus nii suur, kui vähegi võimalik. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Integraali muut</guilabel
+> [0,1, 10]: ruumilise integraali muudu laius pikslites. Peaks olema alla 1 (pikslisisene pehmendus) ega tohiks üldiselt ületada 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Lineaarse interpolatsiooni kasutamine</guilabel
+>: selle valimisel on võit kvaliteedis enamasti pisike, küll aga suureneb töötlemise aeg umbes kahekordselt. Soovitatav on seda mitte sisse lülitada.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Nupud <guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+> teevad just seda, mida nad ütlevad. Mis tahes foto restaureerimise seadistusi saab salvestada tekstifaili ja tekstifailist saab salvestusi ka laadida. </para>
+      <warning>
+        <para
+>Foto restaureerimine on iseenesest väga kiire operatsioon, kuid reaalselt võtab see päris palju aega ja võib tublisti koormata protsessorit. Sa saad arvutamise alati katkestada, vajutades renderdamise ajal nupule <guilabel
+>Loobu</guilabel
+>. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-restoration">
+      <title
+>Foto restaureerimise tööriist tegevuses</title>
+      <para
+>Siin on näha filtri <guilabel
+>Ühtlusmüra kahandamine</guilabel
+> rakendamine mustvalgele fotole, mis on võetud Minolta(tm) kaameraga Ilford(tm) HP-5 ISO-tundlikkusega 3200 filmile. Nägudel on näha väga märgatav teralisus. Originaalpilt on (1), korrigeeritud pilt (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="restorationpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Ühtlusmüra kahandamise restaureerimise eelvaatlus</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Siin on näha veel üks restaureeritud pilt. Sedakorda on filter <guilabel
+>Tekstuuri kahandamine</guilabel
+> rakendatud vanale värvifotole, mis on digitaliseeritud skänneriga. Skänneri valgus läikival fotopaberil on tekitanud väga märgatava objekti. Originaalpilt on (1), korrigeeritud pilt (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="restorationpreview2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Tekstuuri kahandamise restaureerimise eelvaatlus</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="hotpixels">
+    <sect3info>
+      <title
+>Kuumade pikslite korrigeerimine</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Unai</firstname
+> <surname
+>Garro</surname
+> <affiliation
+> <address
+> <email
+>ugarro at telefonica dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam;i <emphasis
+>kuumade pikslite</emphasis
+> tööriit võimaldab eemaldada CCD-kaameraga tehtud fotolt kuumad pikslid. See kasutab JPEGPixi projekti algoritmi, mille autoriõigus kuulub Martin Dickoppile. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>digiKam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Sissejuhatus</title>
+    <para
+>Enamik tänapäevaseid digikaameraid tekitab väikese säriaja korral pildid, millel on hulk heledaid &quot;halbu piksleid&quot;. Öised pildid võivad selliste &quot;halbade pikslite&quot; tõttu päris untsu minna. &quot;Halbu&quot; piksleid on kolme tüüpi: <itemizedlist
+><listitem
+><para
+>Põlevad (stuck) pikslid: need on alati heledad sõltumata säriajast ning tekitavad lõpp-pildile tavaliselt erepunase, ererohelise või eresinise piksli. Põlevat pikslit ei mõjuta säriaeg, ava ega mingi muu seadustus. See esineb ka tavalise säri korral ning ilmneb selgemalt heledamates tingimustes.</para
+></listitem
+><listitem
+><para
+>Surnud pikslid: need on nullid ehk alati puuduvad sõltumata säriajast. See tekitab lõpp-pildile musta piksli. Nagu põlev piksel, esineb ka surnud piksel säriajale, avale ja muudele kasutaja määratud seadistustele vaatamata.</para
+></listitem
+><listitem
+><para
+>Kuumad pikslid: need on pikema säriaja korral heledamad, kas valged, punased või rohelised. Mida pikem säriaeg, seda ilmsemaks kuumad pikslid muutuvad. Heledates tingimustes neid näha ei ole.</para
+></listitem
+></itemizedlist
+> Pane tähele, et põlevad või surnud pikslid esinevad alati kõigil piltidel ühes ja samas kohas. Kui märkad, et neid esineb erinevates kohtades, on usutavasti tegemist kuuma piksliga. </para>
+    <para
+>Põlevad, surnud või kuumad pikslid on eriti suureks probleemiks siis, kui teha pilte kõrge kvaliteediga toorrežiimis, sest paljudel kaameratel on põlevate pikslite eemaldamine automaatselt kasutusel JPEG-tihenduse korral (mida enamasti kasutataksegi). </para>
+    <para
+>Seda pluginat saab pruukida &quot;kuumade&quot; ja &quot;põlevate pikslite&quot; parandamiseks pildil musta kaadri lahutamise meetodi abil. Halbade pikslite käsitsi valimise võimalust veel ei ole. </para>
+    <sect4 id="using-blackframecreation">
+      <title
+>Musta kaadri loomine</title>
+      <para
+>Musta kaadri lahutamise meetod on kõige etem &quot;kuumade&quot; ja &quot;põlevate pikslite&quot; eemaldamise viis. Selleks tuleb kõigepealt luua vajalik &quot;must kaader&quot;. See on üsna lihtne. Kui oled lõpetanud pika säriajaga foto tegemise, pane objektiivile kate peale ja tee sama säriajaga veel üks &quot;must&quot; foto. See on üleni must, kuid lähemal uurimisel näed seal siiski kuumi ja põlevaid piksleid (värvitäppe). Need asuvad samas kohas, kus eelmisel, pärisfotol. </para>
+      <para
+>Laadi see fail pluginasse nupule <guilabel
+>Must kaader</guilabel
+> klõpsates. Tööriist tuvastab seal automaatselt kuumad ja põlevad pikslid. Need tõstetakse eelvaatluse alas ka esile. </para>
+      <warning>
+        <para
+>Kui sul on vanem digikaamera, on oluline teha must kaader ka järgmisel korral, kui pildistad pikema säriajaga, et tuvastada uusi kuumi ja põlevaid piksleid, mida CCD tekitab. </para>
+      </warning>
+    </sect4>
+    <sect4 id="using-hotpixels">
+      <title
+>Kuumade pikslite tööriista kasutamine</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="hotpixelsdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Kuumade pikslite dialoog</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Nagu eespool seletatud, tuleb kõigepealt laadida must kaader, mille järgi hakatakse pilti korrigeerima. Musta kaadrit parsitakse automaatselt, et leida sellel esinevad halvad pikslid. Pane tähele, et tööriist jätab meelde eelmisel korral kasutatud musta kaadri ja avab selle automaatselt uue seansi ajal. </para>
+      <para
+>Pildil saab liikuda pildipaneeli ja originaalpildi eelvaatluse abil. Eelvaatluse aken näitab filtri väljundit parajasti kehtivate seadistuste puhul. Halvad pikslid on kõigis eelvaatlustes esile tõstetud. </para>
+      <para
+>Vali ala, et näha halbu piksleid eelvaatluses ja filtri väljundis. Selleks saad kasutada pildipaneeli vaate lahutamise valikuid. Vali pikslite või piksliplokkide interpoleerimiseks sobivaim <guilabel
+>filter</guilabel
+>. Kasutada saab järgmisi filtreid: <itemizedlist>
+          <listitem>
+            <para
+>Keskmine: piksliploki naaberpikslitele antakse keskmine väärtus. Saadud värv rakendatakse kõigile ploki pisklitele. Ühemõõtmelise interpolatsiooni koral tehakse seda eraldi piksli kaupa rõhtsate või püstiste viirgudena.</para>
+          </listitem>
+          <listitem>
+            <para
+>Lineaarne: piksliplokist kaugusel 1 asuvaid piksleid kasutatakse bilineaarse pinna (kahemõõtmeline) või lineaarsete kõverate rühma (ühemõõtmeline) arvutamiseks, mida seejärel kasutatakse interpoleeritud värvi omistamiseks ploki pikslitele.</para>
+          </listitem>
+          <listitem>
+            <para
+>Kvadraat: see on vaikefilter. Piksliplokist kuni kaugusel 2 asuvaid piksleid kasutatakse neljandat järku pinna (kahemõõtmeline) või neljandat järku kõverate rühma (ühemõõtmeline) arvutamiseks, mida seejärel kasutatakse interpoleeritud värvi omistamiseks ploki pikslitele.</para>
+          </listitem>
+          <listitem>
+            <para
+>Kuup: piksliplokist kuni kaugusel 3 asuvaid piksleid kasutatakse kaksikbikuuppinna (kahemõõtmeline) või kuupkõverate rühma (ühemõõtmeline) arvutamiseks, mida seejärel kasutatakse interpoleeritud värvi omistamiseks ploki pikslitele.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+    <sect4 id="inaction-hotpixels">
+      <title
+>Kuumade pikslite tööriist tegevuses</title>
+      <para
+>Siin näeb kuumade pikslite korrigeerimise tööriista rakendamist fotole, mis on tehtud vigase kaameraga ISO-tundlikkuse 200 juures ja pika säriajaga. Originaalpilti on suurendatud 300% (1), korrigeeritud pilt on (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="hotpixelspreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Kuumade pikslite korrigeerimise eelvaatlus</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="vignettingcorrection">
+    <sect3info>
+      <title
+>Vinjeti kohendamine</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam;i <emphasis
+>vinjeti kohendamise</emphasis
+> tööriistaga saab korrigeerida pildi vinjetti (alasäritus nurkades). </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Vinjeti kohendamine</keyword>
+	<keyword
+>Vinjeti lisamine</keyword>
+	<keyword
+>Vinjeti kohendamine</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Sissejuhatus</title>
+    <para
+>Lainurkobjektiivid, eriti sellised, mida kasutatakse keskmise ja suure formaadiga fotode tegemisel, ei valgusta tihtipeale kogu kaadrit ühtlaselt, vaid tekitavad pildi servadele ja nurkadesse &quot;vinjeti&quot;, mis takistab valguse jõudmist kaadri neisse kohtadesse. Vinjett võib esineda ka teleobjektiividel. </para>
+    <para
+>Traditsiooniliselt lisatakse selleks objektiivile &quot;tsentrifilter&quot;. See on neutraalne tihedusfilter, mille maksimaalne tihedus langeb läätse optilisele teljele ja mis on äärealadel puhas, olles seega otse vastupidine objektiivi enda vinjetimoonutusele. Tsentrifilter on üsna kasulik, sest see mitte ainult ei korrigeeri automaatselt kõiki kaadreid (kuna on fikseeritud otse objektiivi ette), vaid kompenseerib ka muid vinjetimoonutusi, mis tekivad näiteks siis, kui kaamera liikumist kasutatakse perspektiivi või fookuse kohendamiseks. </para>
+    <para
+>Sellel on siiski ka oma puudused. Suur osa tsentrifiltreid nõuab ava 1,5 või 2, mis omakorda - kuna lainurkobjektiivid töötavad isegi tsentrifiltri korral kõige paremini avaga F/16 või vähem - võib kaasa tuua nii aeglase säri, et kaamera käeshoidmine muutub sisuliselt võimatuks ning liikumishägu tekitab eriti liikuvate objektide pildistamisel juba tõelise probleemi. </para>
+    <para
+>Tänapäeva digikaamerate ja filmiskännerite avarat säri- ja värvisügavuse skaalat arvestades on võimalik tsentrifiltri toimet matkida ka tagantjärgi, rakendades samalaadse muudatuse ilma filtrita tehtud toorpildile. Vinjeti kohendamise tööriist matkibki pildile tsentrifiltri rakendamist. Selleks kasutatakse algoritmi, mille autoriõigus kuulub John Walkerile. </para>
+    <sect4 id="using-vignettingcorrection">
+      <title
+>Vinjeti kohendamise tööriista kasutamine</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="vignettingcorrectiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Vinjeti kohendamise dialoog</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Viie liuguriga saab juhtida vinjeti parandust, veel kolmega aga sihtpildi säritusvalikuid: </para>
+      <para
+><guilabel
+>Kogus</guilabel
+>: see määrab filtri intensiivsuse sumbumise väärtuse maksimaalse koguse punktis. Vaikekogus on 2,0, mis vastab avale 1. Kogust suurendades saab vinjetiefekti rohkemal määral kompenseerida, vähendades vähemal määral. </para>
+      <para
+><guilabel
+>Mahedus</guilabel
+>: see määrab astme, millega filtri intensiivsus kahaneb maksimaalse koguse punktist servade suunas. Vaikeväärtus 1 tähendab filtri koguse lineaarset kahanemist. Aste üle 1 põhjustab kiiremat kahanemist (näiteks 2 korral kahaneb kogus võrdselt selle keskpunktist kauguse ruuduga) ning jätab efekti mõjutama ennekõike keskpunkti piirkonda. Aste alla 1 levitab kogusefiltrit servade poole, näiteks 0,5 korral kahaneb kogus võrdselt selle keskpunktist kauguse ruutjuurega. </para>
+      <para
+><guilabel
+>Raadius</guilabel
+>: see on raadius pildi pooldiagonaali kordsena, mille korral filtri kogus kahaneb nullini (ehk teisisõnu muutub läbipaistvaks). Vaikeväärtus 1,0 määrab filtri, mis juhul, kui see on pildil tsentreeritud, on pildi nurkades läbipaistev. Raadius üle 1 laiendab tsentrifiltri toimet pildi servade taha, raadius alla 1 aga piirab filtri toime vaid teatud osaga pildist. Suure ja teatud keskmise formaadiga fotode tegemiseks kasutatavate kaamerate vinjetiefekti korrigeerimiseks ei sobi vaikeraadius 1 kohe peaaegu kindlasti! Sellised objektiivid &quot;hõlmavad&quot; märksa suurema raadiusega pilti, kui tegelikult filmile mahub, et võimaldada kaamerat liigutades perspektiivi ja fookust kontrollida. Seetõttu tekib neil vinjetiefekt, mis ulatub märksa kaugemale tehtud pildi servadest. See omakorda vajab korrigeerimiseks suuremat raadiust kui 1, et tsentrifilter (või õigemini selle simulatsioon) hõlmaks kogu tegelikku pilti. </para>
+      <para
+>Ainus viis teada saada, milline <guilabel
+>kogus</guilabel
+>, <guilabel
+>mahedus</guilabel
+> ja <guilabel
+>raadius</guilabel
+> antud objektiivi optilist moonutust suudavad parandada, on üles võtta ühtlaselt valgustatud stseen ja pildi tihedust analüüsida. Kui see ei ole mingil põhjusel võimalik ja kui objektiivi tootja ei ole konkreetselt ära märkinud vinjetiefekti iga võimaliku ava korral, võib muidugi ka eksperimenteerida erinevate võimalustega, et leida oma objektiivile parim lahendus. Selle abistamiseks pakub dialoog pisipildi kujul välja rakendatava maski eelvaatluse. Õnneks töötab inimsilm logaritmiliselt, mitte lineaarselt, nagu enamik digitaalsensoreid, mistõttu ei pruugi üritada vinjetiefekti absoluutselt ja täielikult kõrvaldada - pilt võib efekti teatud olemasolule vaatamata tunduda vaatajale ühtlaselt valgustatuna. </para>
+     <para
+><guilabel
+>X-nihe</guilabel
+> ja <guilabel
+>Y-nihe</guilabel
+>: need valikud liigutavad filtri keset vastavalt rõht- või püstsuunas pildi piirde suunas määratud protsendi võrra. X-nihke negatiivne väärtus liigutab filtrit vasakule, positiivne paremale. Y-nihke negatiivne väärtus liigutab filtrit üles, positiivne aga alla. </para>
+      <para
+><guilabel
+>Heledus</guilabel
+>, <guilabel
+>Kontrast</guilabel
+> ja <guilabel
+>Gamma</guilabel
+>: pildi töötlemine tööriistaga kahandab pikslite intensiivsust. Nende liugurite abil saab aga sihtpildi särituse uuesti sobivaks kohendada. Liuguritel on ainult positiivsed väärtused, sest neid väärtusi on kindlasti vaja ainult tugevdada, mitte nõrgendada. </para>
+	<para
+><guilabel
+>Vinjeti lisamine</guilabel
+>: paljud fotod tunduvad lamedatena tähelepanu riisuva tausta või mõne muu kompositsioonilise iseärasuse tõttu. Enamasti tekib küll tahtmine vinjetti eemaldada, kuid mõningatel juhtudel võib see ometi oluliselt parandada pildi arusaadavust ja viia silmad kergemini soovitud kohta. Kunstilistes huvides on mõistlik vajaduse korral ka seda võimalust kasutada. Selle valimisel muudetakse filter vastupidiseks, niisiis tumendatakse foto nurki. </para>
+      <note>
+        <para
+>Kui soovid sihtpildi säritust äärmise täpsusega kohendada, jäta siin heledus, kontrast ja gamma nulliks ning kasuta &digikam;i pildiredaktori värvikõverate kohendamise tööriista, mille saab avada menüükäsuga <menuchoice
+><guimenu
+>Värv</guimenu
+><guimenuitem
+>Värvikõverate kohendamine</guimenuitem
+></menuchoice
+>. </para>
+      </note>
+    </sect4>
+    <sect4 id="inaction-vignettingcorrection">
+      <title
+>Vinjeti kohendamise tööriist tegevuses</title>
+      <para
+>See on näide pildi vinjetiefekti kohendamise kohta. Originaalpildil (1) on näha vinjett nurkades, korrigeeritud pildil (2) see peaaegu puudub. Pluginaga on korrigeeritud ka sihtpildi heledust ja kontrasti. </para>
+      <para
+>Näites on kasutatud järgmisi väärtusi: <itemizedlist>
+          <listitem>
+            <para
+>Tihedus = 2,6.</para>
+          </listitem>
+          <listitem>
+            <para
+>Aste = 0,9.</para>
+          </listitem>
+          <listitem>
+            <para
+>Raadius = 1,1.</para>
+          </listitem>
+          <listitem>
+            <para
+>Heledus = 20.</para>
+          </listitem>
+          <listitem>
+            <para
+>Kontrast = 50.</para>
+          </listitem>
+          <listitem>
+            <para
+>Gamma = 20.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="antivignettingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Pildiredaktori vinjeti kohendamise tööriist tegevuses</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="lensdistortion">
+    <sect3info>
+      <title
+>Läätsemoonutuse parandus</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam;i <emphasis
+>läätsemoonutuse</emphasis
+> tööriist võimaldab korrigeerida fotode sfäärilise aberratsiooni efekti. See kasutab algoritmi, mille autoriõigus kuulub David Hodsonile. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Sissejuhatus</title>
+    <anchor id="lensdistortion.anchor"/>
+    <para
+><emphasis
+>Tünnmoonutus</emphasis
+> on seotud lainurkobjektiividega. See annab piltidele veidi sfäärilise, väljapoole kalduva mulje, niiöelda tünniefekti. Seda on eriti hästi näha siis, kui pildi serval asub mõni sirge element. <emphasis
+>Padimoonutus</emphasis
+> on täpselt vastupidine ning on enamasti seotud teleobjektiivide või vee all tehtud piltidega. Sellised pildid tunduvad kalduvat tsentri poole. See torkab enamasti vähem silma kui vaadimoonutus, aga pildi servadel on ka see selgemini näha. Mõlemast moonutusest on meie plugina abil võimalik hõlpsasti vabaneda ilma pildi kvaliteedis mingeid kaotusi kandmata. </para>
+    <note>
+      <para
+>Tööriist tegeleb ainult geomeetriliste moonutustega, selle abil ei saa korrigeerida värvimoonutusi. </para>
+    </note>
+    <para
+>Järgnevalt selgitame peamisi geomeetrilise moonutuse tüüpe: <itemizedlist>
+        <listitem>
+          <para
+>(1): padimoonutus.</para>
+        </listitem>
+        <listitem>
+          <para
+>(2): moonutus puudub.</para>
+        </listitem>
+        <listitem>
+          <para
+>(3): tünnmoonutus.</para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="distortions.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Läätsemoonutuse tüübid</phrase>
+        </textobject>
+      </inlinemediaobject>
+    </para>
+    <para/>
+    <sect4 id="using-lensdistortion">
+      <title
+>Läätsemoonutuse tööriista kasutamine</title>
+      <note>
+        <para
+>Kõigepealt veidi selgitusi. Geomeetriliseks korrektsiooniks kasutatakse neljanda astme polünoomkordajat. <itemizedlist>
+            <listitem>
+              <para
+>Esimese astme kordajaga muudetakse pildi suurus. Tööriist nimetab seda <guilabel
+>suurendus</guilabel
+>eks.</para>
+            </listitem>
+            <listitem>
+              <para
+>Teise astme kordaja käsitleb läätse peamist geomeetrilist moonutust ning korrigeerib pildi sisse- või väljakallet.</para>
+            </listitem>
+            <listitem>
+              <para
+>Kolmanda astme kordaja teeb umbes sama, kuid mõjutab ennekõike keskme ja servade vahelist ala. Tööriist seda ei kasuta.</para>
+            </listitem>
+            <listitem>
+              <para
+>Neljanda astme kordaja korrigeerib vastandina teise astme kordajale pildi servi. Üheskoos suudavad nad peaaegu täielikult kõrvaldada pildi geomeetrilise moonutuse.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="lensdistortiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Läätsemoonutuse paranduse dialoog</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Moonutuse paranduse filtrit saab juhtida nelja liuguriga: </para>
+      <para
+><guilabel
+>Peamine</guilabel
+>: see väärtus määrab teise astme moonutuse koguse. Negatiivne väärtus vastab tünnmoonutusele, positiivne padimoonutusele. </para>
+      <para
+><guilabel
+>Serv</guilabel
+>: see väärtus määrab neljanda astme moonutuse. See mõjutab ennekõike pildi servi, mitte niivõrd keskosa. Enamiku objektiivide puhul on <guilabel
+>Serv</guilabel
+> ja <guilabel
+>Peamine</guilabel
+> vastasmärgiga. </para>
+      <para
+><guilabel
+>Suurendus</guilabel
+>: see väärtus muudab terve pildi suurust (esimese astme parandus). Negatiivne väärtus vähendab pilti, positiivne suurendab. </para>
+      <para
+><guilabel
+>Heledus</guilabel
+>: see võimaldab kohendada pildi nurkade heledust. Negatiivne väärtus kahandab pildi nurkade heledust, positiivne suurendab. </para>
+      <para
+>Filtri parimate seadistuste valimiseks näitab dialoog pisipildi kujul valitud moonutuse parandust ruudustikmustrina. Sinu kasutatud väärtused jäetakse meelde ning neid kasutatakse tööriista järgmisel kasutamisel. </para>
+      <note>
+        <para
+>Tünn- või padimoonutuse parandamisega tuleb tegelda enne pildi kärpimist või selle suuruse muutmist (kaasa arvatud perspektiivi kohendamine). Tegelikult peakski nende moonutustega tegelemine olema esimene asi, mida pildiga ette võtta. Kui kärbid pilti enne tünnmoonutuse kallale asumist, võib efekt anda väga vale tulemuse. </para>
+      </note>
+      <para
+>Sinu abistamiseks näitab tööriist püstist ja rõhtsat punktiirjoont. Nende nägemiseks vii hiirekursor eelvaatluse kohale. Liiguta kursor sulle olulisse kohta pildil, näiteks veejoonele või hoone nurgale ja klõpsa hiire vasaku nupuga joonte paigalejätmiseks. Seejärel korrigeeri tünn- või padimoonutust vastavalt joontele. </para>
+      <para
+>Padimoonutuse korrigeerimisel jääb korrigeeritud pildi nurkadesse must piire. Sellest saab vabaneda kas pilti kärpides (pildiredaktori menüükäsk <menuchoice
+><guimenu
+>Teisendus</guimenu
+><guimenuitem
+>Kärbi</guimenuitem
+></menuchoice
+>) või siinsamas dialoogis suurendust muutes. </para>
+      <para
+>Enamiku piltide puhul piisab tünnmoonutuse parandamisest, kuid teatud piltide korral, näiteks otsevaated, maalid ja muu selline, on järgmine loogiline samm asuda perspektiivi kohendamise kallale, et kõik nurgad oleksid 90 kraadi all. Arvesta, et kaamerat käes hoides on peaaegu vältimatu mingilaadse perpektiivimoonutuse tekkimine. </para>
+    </sect4>
+    <sect4 id="inaction-lensdistortion">
+      <title
+>Läätsemoonutuse tööriist tegevuses</title>
+      <para
+>Siin on näide tünnmoonutuse paranduse kohta. Originaalpilt on (1), korrigeeritud pilt (2). </para>
+      <para
+>Näites on kasutatud järgmisi väärtusi: <itemizedlist>
+          <listitem>
+            <para
+>Peamine = 40.</para>
+          </listitem>
+          <listitem>
+            <para
+>Serv = 0.</para>
+          </listitem>
+          <listitem>
+            <para
+>Suurendus = -20..</para>
+          </listitem>
+          <listitem>
+            <para
+>Heledus = 0.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="lensdistortionpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Läätsemoonutuse paranduse eelvaatlus</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+</sect2>

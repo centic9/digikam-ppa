@@ -5,9 +5,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-05-07 02:57+0200\n"
-"PO-Revision-Date: 2011-03-09 15:15+0000\n"
-"Last-Translator: Samir Ribić <Unknown>\n"
+"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"PO-Revision-Date: 2013-11-12 13:51+0000\n"
+"Last-Translator: Mirhat <mbabic1@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
@@ -15,39 +15,36 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2011-04-22 07:50+0000\n"
-"X-Generator: Launchpad (build 12883)\n"
+"X-Generator: Launchpad (build 16820)\n"
+"X-Launchpad-Export-Date: 2013-11-13 06:06+0000\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Elmedina Fejzagic,Samir Ribić"
+msgstr "Elmedina Fejzagic,Samir Ribić,Mirhat"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba"
+msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba,mbabic1@etf.unsa.ba"
 
 #: gpsbookmarkowner.cpp:349 searchwidget.cpp:777
 #, kde-format
 msgid "1 image snapped to '%2'"
 msgid_plural "%1 images snapped to '%2'"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 slika namještena na '%2'"
+msgstr[1] "%1 slike namještene na '%2'"
+msgstr[2] "%1 slika namješteno na '%2'"
 
 #: gpscorrelatorwidget.cpp:169
-#, fuzzy
 msgid "Load GPX files..."
-msgstr "Učitaj GPX datoteku..."
+msgstr "Učitaj GPX dokumente..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
-#, fuzzy
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
 msgid "Filename"
-msgstr "Ime datoteke:"
+msgstr "Naziv datoteke"
 
 #: gpscorrelatorwidget.cpp:174
-#, fuzzy
 msgid "#points"
-msgstr "Tačke"
+msgstr "#poeni"
 
 #: gpscorrelatorwidget.cpp:178
 msgid "Max. time gap (sec.):"
@@ -172,43 +169,42 @@ msgstr "Odaberite GPX Datoteku za Učitavanje"
 #, kde-format
 msgid "The following GPX file could not be loaded:"
 msgid_plural "The following %1 GPX files could not be loaded:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Sljedeći %1 GPX dokument ne može biti učitan:"
+msgstr[1] "Sljedeća %1 GPX dokumenta ne mogu biti učitani:"
+msgstr[2] "Sljedećih %1 GPX dokumenata ne može biti učitano:"
 
 #: gpscorrelatorwidget.cpp:402
-#, fuzzy
 msgid "Error loading GPX file"
 msgid_plural "Error loading GPX files"
-msgstr[0] "Greška pri učitavanju slike „%1“"
-msgstr[1] "Greška pri učitavanju slike „%1“"
-msgstr[2] "Greška pri učitavanju slike „%1“"
+msgstr[0] "Greška prilikom učitanja GPX dokumenta"
+msgstr[1] "Greška prilikom učitanja GPX dokumenata"
+msgstr[2] "Greška prilikom učitanja GPX dokumenata"
 
 #: gpscorrelatorwidget.cpp:520
-#, fuzzy
 msgid "Correlating images - %p%"
-msgstr "Greška pri učitavanju slike „%1“"
+msgstr "Uzajamna veza slika - %p%"
 
 #: gpscorrelatorwidget.cpp:590
 msgid ""
 "Could not correlate any image - please make sure the timezone and gap "
 "settings are correct."
 msgstr ""
+"Ne može se uspostaviti uzajamna veza slika - molimo provjerite postavke "
+"vremenske zone i praznine jesu li tačne."
 
 #: gpscorrelatorwidget.cpp:591
-#, fuzzy
 msgid "Correlation failed"
-msgstr "Poveži"
+msgstr "Uzajamna veza propala"
 
 #: gpscorrelatorwidget.cpp:596
 msgid ""
 "All images have been correlated. You can now check their position on the map."
 msgstr ""
+"Sve slike su uzajamno povezane. Možete provjeriti njihovu poziciju na mapi."
 
 #: gpscorrelatorwidget.cpp:597
-#, fuzzy
 msgid "Correlation succeeded"
-msgstr "Poveži"
+msgstr "Uzajamna veza uspjela"
 
 #: gpscorrelatorwidget.cpp:603
 #, kde-format
@@ -216,80 +212,80 @@ msgid ""
 "%1 out of %2 images have been correlated. Please check the timezone and gap "
 "settings if you think that more images should have been correlated."
 msgstr ""
+"%1 od %2 slika su povezane. Molimo provjerite postavke vremenske zone i "
+"praznine ako mislite da više slika treba biti povezano."
 
 #: gpscorrelatorwidget.cpp:604
-#, fuzzy
 msgid "Correlation finished"
-msgstr "Poveži"
+msgstr "Povezivanje uspjelo"
 
 #: gpscorrelatorwidget.cpp:613
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 slika povezana"
+msgstr[1] "%1 slike povezane"
+msgstr[2] "%1 slika povezano"
 
 #: gpsdataparser.cpp:677
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not open: %1"
-msgstr "Ne mogu stvoriti '%1'"
+msgstr "Nije moguće otvoriti: %1"
 
 #: gpsdataparser.cpp:683
 msgid "File is empty."
-msgstr ""
+msgstr "Datoteka je prazna."
 
 #: gpsdataparser.cpp:699
 #, kde-format
 msgid "Parsing error: %1"
-msgstr ""
+msgstr "Greška raščlanjivanja: %1"
 
 #: gpsdataparser.cpp:709
 msgid "No GPX element found - probably not a GPX file."
-msgstr ""
+msgstr "Nijedan GPX element nije nađen - vjerovatno nije GPX dokument."
 
 #: gpsdataparser.cpp:713
 msgid "File is a GPX file, but no datapoints were found."
-msgstr ""
+msgstr "Dokument je GPX dokument, ali nisu pronađene podatkovne tačke."
 
 #: gpsimagedetails.cpp:127
-#, fuzzy
 msgid "Coordinates"
-msgstr "Kopiraj koordinate"
+msgstr "Koordinate"
 
-#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:532
 msgid "Latitude"
 msgstr "Geografska širina"
 
-#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:533
 msgid "Longitude"
 msgstr "Geografska dužina"
 
-#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:534
 msgid "Altitude"
 msgstr "Nadmorska visina"
 
-#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:539
 msgid "Speed"
 msgstr "Brzina"
 
-#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:538
 msgid "# satellites"
-msgstr ""
+msgstr "# sateliti"
 
-#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:537
 msgid "Fix type"
-msgstr ""
+msgstr "Popravi tip"
 
 #: gpsimagedetails.cpp:159
 msgid "2-d"
-msgstr ""
+msgstr "2-d"
 
 #: gpsimagedetails.cpp:160
 msgid "3-d"
-msgstr ""
+msgstr "3-d"
 
-#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:536
 msgid "DOP"
 msgstr "DOP"
 
@@ -299,7 +295,7 @@ msgstr "Primijeni"
 
 #: gpsimagedetails.cpp:445
 msgid "Details changed"
-msgstr ""
+msgstr "Detalji promijenjeni"
 
 #: gpslistviewcontextmenu.cpp:112 searchwidget.cpp:192
 msgid "Copy coordinates"
@@ -310,38 +306,35 @@ msgid "Paste coordinates"
 msgstr "Umetni koordinate"
 
 #: gpslistviewcontextmenu.cpp:116
-#, fuzzy
 msgid "Remove coordinates"
-msgstr "Ukloni koordinate..."
+msgstr "Ukloni koordinate"
 
 #: gpslistviewcontextmenu.cpp:117
-#, fuzzy
 msgid "Remove altitude"
-msgstr "Geografska širina"
+msgstr "Ukloni nadmorsku visinu"
 
 #: gpslistviewcontextmenu.cpp:118
 msgid "Remove uncertainty"
-msgstr ""
+msgstr "Ukloni nesigurnost"
 
-#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
-#, fuzzy
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:643
 msgid "Remove speed"
-msgstr "Ukloni"
+msgstr "Ukloni brzinu"
 
 #: gpslistviewcontextmenu.cpp:120
 msgid "Look up missing altitude values"
-msgstr ""
+msgstr "Pogledaj nedostajuće vrijednosti visine"
 
 #: gpslistviewcontextmenu.cpp:146 searchwidget.cpp:224
 msgid "Bookmarks"
 msgstr "Obilježivači"
 
-#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
-#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
 msgid "GPS Sync"
 msgstr "GPS sinhronizacija"
 
-#: gpslistviewcontextmenu.cpp:420
+#: gpslistviewcontextmenu.cpp:419
 msgid ""
 "Found more than one point on the clipboard - can only assign one point at a "
 "time."
@@ -349,109 +342,106 @@ msgstr ""
 "Pronađeno više od jedne tačke na klipbordu - može se samo dodijeliti jedna "
 "tačka na vrijeme."
 
-#: gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:477
 msgid "Could not find any coordinates on the clipboard."
 msgstr "Ne mogu naći nijednu koordinatu na klipbordu."
 
-#: gpslistviewcontextmenu.cpp:483
-#, fuzzy
+#: gpslistviewcontextmenu.cpp:481
 msgid "Coordinates pasted"
-msgstr "Kopiraj koordinate"
+msgstr "Koordinate zalijepljene"
 
-#: gpslistviewcontextmenu.cpp:514
-#, fuzzy
+#: gpslistviewcontextmenu.cpp:512
 msgid "Bookmark selected"
-msgstr "Dodaj oznaku za lokaciju"
+msgstr "Zabilješke odabrane"
 
-#: gpslistviewcontextmenu.cpp:624
-#, fuzzy
+#: gpslistviewcontextmenu.cpp:622
 msgid "Remove coordinates information"
-msgstr "Ukloni koordinate..."
+msgstr "Ukloni informacije o koordinatama"
 
-#: gpslistviewcontextmenu.cpp:629
+#: gpslistviewcontextmenu.cpp:627
 msgid "Remove altitude information"
-msgstr ""
+msgstr "Ukloni informacije o uzvišenjima"
 
-#: gpslistviewcontextmenu.cpp:635
+#: gpslistviewcontextmenu.cpp:633
 msgid "Remove uncertainty information"
-msgstr ""
+msgstr "Ukloni nesigurne informacije"
 
-#: gpslistviewcontextmenu.cpp:697
-#, fuzzy
+#: gpslistviewcontextmenu.cpp:695
 msgid "Looking up altitudes"
-msgstr "Geografska dužina"
+msgstr "Pregledaj uzvišenja"
 
-#: gpslistviewcontextmenu.cpp:748
-#, fuzzy, kde-format
+#: gpslistviewcontextmenu.cpp:746
+#, kde-format
 msgid ""
 "Altitude lookup failed:\n"
 "%1"
-msgstr "Nema pretrage nadmorske visine"
+msgstr ""
+"Pregled uzvišenja propao:\n"
+"%1"
 
-#: gpslistviewcontextmenu.cpp:755
-#, fuzzy
+#: gpslistviewcontextmenu.cpp:753
 msgid "Altitude looked up"
-msgstr "Nema pretrage nadmorske visine"
+msgstr "Uzvišenja su pregledana"
 
 #: gpsreversegeocodingwidget.cpp:250
 msgid "Add country tag"
-msgstr ""
+msgstr "Dodaj oznaku zemlje"
 
 #: gpsreversegeocodingwidget.cpp:252
 msgid "Add state tag"
-msgstr ""
+msgstr "Dodaj oznaku države"
 
 #: gpsreversegeocodingwidget.cpp:254
 msgid "Add state district tag"
-msgstr ""
+msgstr "Dodaj oznake regije države"
 
 #: gpsreversegeocodingwidget.cpp:256
 msgid "Add county tag"
-msgstr ""
+msgstr "Dodaj oznaku zemlje"
 
 #: gpsreversegeocodingwidget.cpp:258
 msgid "Add city tag"
-msgstr ""
+msgstr "Dodaj oznaku grada"
 
 #: gpsreversegeocodingwidget.cpp:260
 msgid "Add city district tag"
-msgstr ""
+msgstr "Dodaj oznaku podučja grada"
 
 #: gpsreversegeocodingwidget.cpp:262
 msgid "Add suburb tag"
-msgstr ""
+msgstr "Dodaj oznaku predgrađa"
 
 #: gpsreversegeocodingwidget.cpp:264
 msgid "Add town tag"
-msgstr ""
+msgstr "Dodaj oznaku grada"
 
 #: gpsreversegeocodingwidget.cpp:266
 msgid "Add village tag"
-msgstr ""
+msgstr "Dodaj oznaku sela"
 
 #: gpsreversegeocodingwidget.cpp:268
 msgid "Add hamlet tag"
-msgstr ""
+msgstr "Dodaj oznaku zaseoka"
 
 #: gpsreversegeocodingwidget.cpp:270
 msgid "Add street"
-msgstr ""
+msgstr "Dodaj ulicu"
 
 #: gpsreversegeocodingwidget.cpp:272
 msgid "Add house number tag"
-msgstr ""
+msgstr "Dodaj oznaku broja kuće"
 
 #: gpsreversegeocodingwidget.cpp:274
 msgid "Add place"
-msgstr ""
+msgstr "Dodaj mjesto"
 
 #: gpsreversegeocodingwidget.cpp:276
 msgid "Add Local Administrative Area 2"
-msgstr ""
+msgstr "Dodaj oblast lokalne administracije 2"
 
 #: gpsreversegeocodingwidget.cpp:278
 msgid "Add Local Administrative Area 1"
-msgstr ""
+msgstr "Dodaj oblast lokalne administracije 1"
 
 #: gpsreversegeocodingwidget.cpp:280
 msgid "Add new tag"
@@ -463,15 +453,15 @@ msgstr "Ukloni odabranu oznaku"
 
 #: gpsreversegeocodingwidget.cpp:282
 msgid "Remove all control tags below this tag"
-msgstr ""
+msgstr "Ukloni sve kontrolne oznake ispod ove oznake"
 
 #: gpsreversegeocodingwidget.cpp:284
 msgid "Add all address elements"
-msgstr ""
+msgstr "Dodaj sve elemente adrese"
 
 #: gpsreversegeocodingwidget.cpp:288
 msgid "Select language:"
-msgstr ""
+msgstr "Odaberi jezik:"
 
 #: gpsreversegeocodingwidget.cpp:292
 msgid "English"
@@ -483,11 +473,11 @@ msgstr "arapski"
 
 #: gpsreversegeocodingwidget.cpp:294
 msgid "Assamese"
-msgstr ""
+msgstr "Asameški"
 
 #: gpsreversegeocodingwidget.cpp:295
 msgid "Byelorussian"
-msgstr ""
+msgstr "Bjeloruski"
 
 #: gpsreversegeocodingwidget.cpp:296
 msgid "Bulgarian"
@@ -499,7 +489,7 @@ msgstr "bengali"
 
 #: gpsreversegeocodingwidget.cpp:298
 msgid "Chinese"
-msgstr ""
+msgstr "kineski"
 
 #: gpsreversegeocodingwidget.cpp:299
 msgid "Czech"
@@ -583,16 +573,15 @@ msgstr "mongolski"
 
 #: gpsreversegeocodingwidget.cpp:319
 msgid "Moldavian"
-msgstr ""
+msgstr "Moldavski"
 
 #: gpsreversegeocodingwidget.cpp:320
 msgid "Nepali"
-msgstr ""
+msgstr "Nepalski"
 
 #: gpsreversegeocodingwidget.cpp:321
-#, fuzzy
 msgid "Polish"
-msgstr "Tačke"
+msgstr "Poljski"
 
 #: gpsreversegeocodingwidget.cpp:322
 msgid "Portuguese"
@@ -616,7 +605,7 @@ msgstr "Slovenački"
 
 #: gpsreversegeocodingwidget.cpp:327
 msgid "Samoan"
-msgstr ""
+msgstr "Samoanski"
 
 #: gpsreversegeocodingwidget.cpp:328
 msgid "Serbian"
@@ -624,7 +613,7 @@ msgstr "Srpski"
 
 #: gpsreversegeocodingwidget.cpp:329
 msgid "Sudanese"
-msgstr ""
+msgstr "Sudanski"
 
 #: gpsreversegeocodingwidget.cpp:330
 msgid "Spanish"
@@ -639,18 +628,16 @@ msgid "Thai"
 msgstr "tajlandski"
 
 #: gpsreversegeocodingwidget.cpp:333
-#, fuzzy
 msgid "Turkish"
-msgstr "Staze"
+msgstr "Turski"
 
 #: gpsreversegeocodingwidget.cpp:334
 msgid "Ukrainian"
 msgstr "Ukrajinski"
 
 #: gpsreversegeocodingwidget.cpp:335
-#, fuzzy
 msgid "Vietnamese"
-msgstr "Ime datoteke:"
+msgstr "Vijetnamski"
 
 #: gpsreversegeocodingwidget.cpp:337
 msgid "Select service:"
@@ -658,49 +645,47 @@ msgstr "Izaberite servis:"
 
 #: gpsreversegeocodingwidget.cpp:340
 msgid "Open Street Map"
-msgstr ""
+msgstr "Otvori uličnu mapu"
 
 #: gpsreversegeocodingwidget.cpp:341
 msgid "Geonames.org place name (non-US)"
-msgstr ""
+msgstr "Geonames.org naziv mjesta (izvan SAD)"
 
 #: gpsreversegeocodingwidget.cpp:342
 msgid "Geonames.org full address (US only)"
-msgstr ""
+msgstr "Geonames.org cijela adresa (samo SAD)"
 
 #: gpsreversegeocodingwidget.cpp:357 gpsreversegeocodingwidget.cpp:548
 msgid "Less options"
-msgstr ""
+msgstr "Manje opcija"
 
 #: gpsreversegeocodingwidget.cpp:364
 msgid "Write tags to XMP"
-msgstr ""
+msgstr "Napiši oznake u XMP"
 
 #: gpsreversegeocodingwidget.cpp:370
 msgid "Apply reverse geocoding"
-msgstr ""
+msgstr "Primijenite obrnuto geokodiranje"
 
 #: gpsreversegeocodingwidget.cpp:494
 msgid "Image tags are changed."
-msgstr ""
+msgstr "Oznake slike su promijenjene."
 
 #: gpsreversegeocodingwidget.cpp:527
 msgid "Retrieving RG info - %p%"
-msgstr ""
+msgstr "Dohvaćanje RG informacija - %p%"
 
 #: gpsreversegeocodingwidget.cpp:542
 msgid "More options"
-msgstr ""
+msgstr "Više opcija"
 
 #: gpsreversegeocodingwidget.cpp:864
-#, fuzzy
-#| msgid "Add new tag"
 msgid "Add new tag:"
-msgstr "Dodaj novu oznaku"
+msgstr "Dodaj novu oznaku:"
 
 #: gpsreversegeocodingwidget.cpp:865
 msgid "Select a name for the new tag:"
-msgstr ""
+msgstr "Odaberi ime za novu oznaku:"
 
 #: gpsreversegeocodingwidget.cpp:1004
 #, kde-format
@@ -708,18 +693,20 @@ msgid ""
 "%1 out of %2 images have been reverse geocoded. Would you like to keep the "
 "tags which were already obtained or discard them?"
 msgstr ""
+"%1 od %2 slika su reverzno geokodirane. Želite li sačuvati oznake koje "
+"trenutno postoje ili ih želite poništiti?"
 
 #: gpsreversegeocodingwidget.cpp:1009
 msgid "Abort reverse geocoding?"
-msgstr ""
+msgstr "Zaustavi reverzno geokodiranje?"
 
 #: gpsreversegeocodingwidget.cpp:1010
 msgid "Keep tags"
-msgstr ""
+msgstr "Sačuvaj oznake"
 
 #: gpsreversegeocodingwidget.cpp:1011
 msgid "Discard tags"
-msgstr ""
+msgstr "Poništi oznake"
 
 #: gpsreversegeocodingwidget.cpp:1012
 msgid "Continue"
@@ -731,37 +718,35 @@ msgstr "Geo-lokacija"
 
 #: gpssyncdialog.cpp:302
 msgid "Display bookmarked positions on the map."
-msgstr ""
+msgstr "Prikaži zabilježene pozicije na karti."
 
 #: gpssyncdialog.cpp:362
-#, fuzzy
 msgid "Sorting"
-msgstr "Podešavanja"
+msgstr "Sortiranje"
 
 #: gpssyncdialog.cpp:369
 msgid "Show oldest first"
-msgstr ""
+msgstr "Prvo prikaži starije"
 
 #: gpssyncdialog.cpp:373
 msgid "Show youngest first"
-msgstr ""
+msgstr "Prvo prikaži mlađe"
 
 #: gpssyncdialog.cpp:412
 msgid "Details"
 msgstr "Detalji"
 
 #: gpssyncdialog.cpp:413
-#, fuzzy
 msgid "GPS Correlator"
-msgstr "Korelator"
+msgstr "GPS korelator"
 
 #: gpssyncdialog.cpp:414
 msgid "Undo/Redo"
-msgstr ""
+msgstr "Poništiti/Obnoviti"
 
 #: gpssyncdialog.cpp:415
 msgid "Reverse Geocoding"
-msgstr ""
+msgstr "Reverzno Geokodiranje"
 
 #: gpssyncdialog.cpp:416
 msgid "Search"
@@ -772,13 +757,12 @@ msgid "A Plugin to synchronize pictures' metadata with a GPS device"
 msgstr "Priključak za sinhronizaciju metapodataka slike sa GPS uređajom"
 
 #: gpssyncdialog.cpp:440
-#, fuzzy
 msgid "(c) 2006-2013, Gilles Caulier"
-msgstr "(c) 2006-2009, Gilles Caulier"
+msgstr "(c) 2006-2013, Gilles Caulier"
 
 #: gpssyncdialog.cpp:442
 msgid "Michael G. Hansen"
-msgstr ""
+msgstr "Michael G. Hansen"
 
 #: gpssyncdialog.cpp:443
 msgid "Developer and maintainer"
@@ -786,7 +770,7 @@ msgstr "Programer i održavalac"
 
 #: gpssyncdialog.cpp:446
 msgid "Gabriel Voicu"
-msgstr ""
+msgstr "Gabriel Voicu"
 
 #: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
 msgid "Developer"
@@ -798,20 +782,20 @@ msgstr "Gilles Caulier"
 
 #: gpssyncdialog.cpp:626
 msgid "Loading metadata - %p%"
-msgstr ""
+msgstr "Učitavanje metapodataka - %p%"
 
 #: gpssyncdialog.cpp:807
 #, kde-format
 msgid "You have 1 modified image."
 msgid_plural "You have %1 modified images."
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "Imate %1 modifikovanu sliku."
+msgstr[1] "Imate %1 modifikovanih slika."
+msgstr[2] "Imate %1 modifikovane slike."
 
 #: gpssyncdialog.cpp:813
 #, kde-format
 msgid "%1 Would you like to save the changes you made to them?"
-msgstr ""
+msgstr "%1 Želite li sačuvati promjene koje ste napravili na njima?"
 
 #: gpssyncdialog.cpp:814
 msgid "Unsaved changes"
@@ -823,101 +807,99 @@ msgstr "Snimi izmjene"
 
 #: gpssyncdialog.cpp:816
 msgid "Close and discard changes"
-msgstr ""
+msgstr "Zatvori i poništi promjene"
 
 #: gpssyncdialog.cpp:1040
 #, kde-format
 msgid "1 image moved"
 msgid_plural "%1 images moved"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 slika pomjerena"
+msgstr[1] "%1 slike pomjerene"
+msgstr[2] "%1 slika pomjereno"
 
 #: gpssyncdialog.cpp:1074
 msgid "Saving changes - %p%"
-msgstr ""
+msgstr "Snimanje promjena - %p%"
 
 #: gpssyncdialog.cpp:1119
 msgid "Failed to save some information:"
-msgstr ""
+msgstr "Nije uspjelo snimanje nekih informacija:"
 
 #: gpssyncdialog.cpp:1119
 msgid "Error"
 msgstr "Greška"
 
 #: gpssyncdialog.cpp:1147
-#, fuzzy
 msgid "GPS sync"
 msgstr "GPS sinhronizacija"
 
-#: kipiimageitem.cpp:363
+#: kipiimageitem.cpp:369
 msgid "Not available"
 msgstr "Nije dostupno"
 
-#: kipiimageitem.cpp:396
+#: kipiimageitem.cpp:402
 #, kde-format
 msgid "DOP: %1"
-msgstr ""
+msgstr "DOP: %1"
 
-#: kipiimageitem.cpp:401
+#: kipiimageitem.cpp:407
 #, c-format, kde-format
 msgid "Fix: %1d"
-msgstr ""
+msgstr "Popravi: %1d"
 
-#: kipiimageitem.cpp:406
+#: kipiimageitem.cpp:412
 #, kde-format
 msgid "#Sat: %1"
-msgstr ""
+msgstr "#Sat: %1"
 
-#: kipiimageitem.cpp:441
+#: kipiimageitem.cpp:447
 #, c-format, kde-format
 msgid "%1d"
-msgstr ""
+msgstr "%1d"
 
-#: kipiimageitem.cpp:461
+#: kipiimageitem.cpp:467
 msgid "Modified"
 msgstr "Promijenjeno"
 
-#: kipiimageitem.cpp:523
+#: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "Sličica"
 
-#: kipiimageitem.cpp:525
+#: kipiimageitem.cpp:531
 msgid "Date and time"
 msgstr "Datum i vrijeme"
 
-#: kipiimageitem.cpp:529
+#: kipiimageitem.cpp:535
 msgid "Accuracy"
 msgstr "Preciznost"
 
-#: kipiimageitem.cpp:534
+#: kipiimageitem.cpp:540
 msgid "Status"
 msgstr "Status"
 
-#: kipiimageitem.cpp:535
-#, fuzzy
+#: kipiimageitem.cpp:541
 msgid "Tags"
-msgstr "Staze"
+msgstr "Oznake"
 
-#: kipiimageitem.cpp:722
+#: kipiimageitem.cpp:728
 msgid "Failed to open file."
-msgstr ""
+msgstr "Neuspjelo otvaranje dokumenta."
 
-#: kipiimageitem.cpp:783
+#: kipiimageitem.cpp:789
 msgid "Failed to add GPS info to image."
-msgstr ""
+msgstr "Neuspjelo dodavanje GPS informacija na sliku."
 
-#: kipiimageitem.cpp:793
+#: kipiimageitem.cpp:799
 msgid "Failed to remove GPS info from image"
-msgstr ""
+msgstr "Neuspjelo uklanjanje GPS informacija sa slike"
 
-#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+#: kipiimageitem.cpp:826 kipiimageitem.cpp:833
 msgid "Failed to save tags to file."
-msgstr ""
+msgstr "Neuspjelo snimanje oznaka na dokumentu."
 
-#: kipiimageitem.cpp:838
+#: kipiimageitem.cpp:844
 msgid "Unable to save changes to file"
-msgstr ""
+msgstr "Nije moguće snimiti promjene na dokumentu"
 
 #. i18n: ectx: Menu (Image)
 #: kipiplugin_gpssyncui.rc:6
@@ -929,81 +911,92 @@ msgstr "&Slika"
 msgid "Main Toolbar"
 msgstr "Glavna alatna traka"
 
-#: plugin_gpssync.cpp:99
-#, fuzzy
+#: plugin_gpssync.cpp:100
 msgid "Geo-location"
 msgstr "Geo-lokacija"
 
-#: rgtagmodel.cpp:95
-msgid "{Country}"
+#: plugin_gpssync.cpp:120
+msgid ""
+"You have enabled writing to sidecar files for metadata storage in the host "
+"application, but not for reading. This means that any metadata stored in the "
+"sidecar files will be overwritten here.\n"
+"Please enable reading of sidecar files in the host application or continue "
+"at your own risk."
 msgstr ""
 
+#: plugin_gpssync.cpp:125
+msgid "Warning: Sidecar settings"
+msgstr ""
+
+#: rgtagmodel.cpp:95
+msgid "{Country}"
+msgstr "{Zemlja}"
+
 #: rgtagmodel.cpp:96
-#, fuzzy
 msgctxt "Part of a country"
 msgid "{State}"
-msgstr "Status"
+msgstr "{Država}"
 
 #: rgtagmodel.cpp:97
 msgid "{County}"
-msgstr ""
+msgstr "{Zemlja}"
 
 #: rgtagmodel.cpp:98
 msgid "{City}"
-msgstr ""
+msgstr "{Grad}"
 
 #: rgtagmodel.cpp:99
 msgid "{Town}"
-msgstr ""
+msgstr "{Grad}"
 
 #: rgtagmodel.cpp:100
 msgid "{Village}"
-msgstr ""
+msgstr "{Selo}"
 
 #: rgtagmodel.cpp:101
 msgid "{Hamlet}"
-msgstr ""
+msgstr "{Zaseok}"
 
 #: rgtagmodel.cpp:102
 msgid "{Street}"
-msgstr ""
+msgstr "{Ulica}"
 
 #: searchbackend.cpp:310
 msgid "GeoNames"
-msgstr ""
+msgstr "GeoNazivi"
 
 #: searchbackend.cpp:311
 msgid "OSM"
-msgstr ""
+msgstr "OSM"
 
 #: searchwidget.cpp:166
 msgctxt "Start the search"
 msgid "Search"
-msgstr ""
+msgstr "Pretraži"
 
 #: searchwidget.cpp:173
 msgid "Clear the search results."
-msgstr ""
+msgstr "Očisti rezultate pretraživanja"
 
 #: searchwidget.cpp:181
 msgid "Keep the results of old searches when doing a new search."
-msgstr ""
+msgstr "Čuvaj rezultate starih pretraživanja dok vršiš nova pretraživanja."
 
 #: searchwidget.cpp:188
 msgid "Toggle the visibility of the search results on the map."
-msgstr ""
+msgstr "Prebacite vidljivost rezultata pretraživanja na karti."
 
 #: searchwidget.cpp:195
 msgid "Move selected images to this position"
-msgstr ""
+msgstr "Pomaknite odabrane slike na novu poziciju"
 
 #: searchwidget.cpp:197
 msgid "Remove from results list"
-msgstr ""
+msgstr "Ukloni iz liste rezultata"
 
 #: searchwidget.cpp:201
 msgid "Select which service you would like to use."
-msgstr ""
+msgstr "Odaberite koji servis želite koristiti."
 
 #: searchwidget.cpp:277
 #, kde-format
@@ -1011,40 +1004,41 @@ msgid ""
 "Your search failed:\n"
 "%1"
 msgstr ""
+"Vaša pretraga nije uspjela:\n"
+"%1"
 
 #: searchwidget.cpp:277
 msgid "Search failed"
-msgstr ""
+msgstr "Pretraga nije uspjela"
 
 #: searchwidget.cpp:814
 #, kde-format
 msgid "1 image moved to '%2'"
 msgid_plural "%1 images moved to '%2'"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
+msgstr[0] "%1 slika pomjerena na '%2'"
+msgstr[1] "%1 slike pomjerene na '%2'"
+msgstr[2] "%1 slika pomjereno na '%2'"
 
 #: setup.cpp:122
-#, fuzzy
 msgid "Configure"
-msgstr "Konfiguracija"
+msgstr "Podesi"
 
 #: setup.cpp:128
 msgctxt "General setup"
 msgid "General"
-msgstr ""
+msgstr "Opšte"
 
 #: setup_general.cpp:64
 msgid "One map"
-msgstr ""
+msgstr "Jedna karta"
 
 #: setup_general.cpp:65
 msgid "Two maps - horizontal"
-msgstr ""
+msgstr "Dvije karte - vodoravno"
 
 #: setup_general.cpp:66
 msgid "Two maps - vertical"
-msgstr ""
+msgstr "Dvije karte - uspravno"
 
 # >! Missing trailing :
 # >> @label:listbox

@@ -1,15 +1,15 @@
-# Lithuanian translations for l package.
+# Lithuanian translations for kipiplugin_shwup package.
 # Copyright (C) 2009 This_file_is_part_of_KDE
-# This file is distributed under the same license as the l package.
-# Andrius Štikonas <stikonas@gmail.com>, 2009.
-#
+# This file is distributed under the same license as the kipiplugins package.
+# Andrius Štikonas <andrius@stikonas.eu>, 2009.
+# Liudas Ališauskas <liudas@aksioma.lt>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_shwup\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-02-01 02:36+0100\n"
-"PO-Revision-Date: 2009-12-20 00:49+0200\n"
-"Last-Translator: Andrius Štikonas <stikonas@gmail.com>\n"
+"PO-Revision-Date: 2014-03-16 21:00+0200\n"
+"Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -17,45 +17,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Liudas Ališauskas"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "liudas@akmc.lt"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_shwupui.rc:6
 msgid "&Export"
-msgstr ""
+msgstr "&Eksportuoti"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_shwupui.rc:12
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Pagrindinė įrankinė"
 
 #: plugin_shwup.cpp:104
 msgid "Export to Shwup..."
-msgstr ""
+msgstr "Eksportuoti į Shwup..."
 
 #: swalbum.cpp:48
 msgid "Shwup New Album"
-msgstr ""
+msgstr "Shwup naujas albumas"
 
 #: swalbum.cpp:61
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Pavadinimas albumo, kuris bus sukurtas (privaloma)."
 
 #: swalbum.cpp:64
 msgctxt "album edit"
 msgid "Title:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: swlogin.cpp:47
 msgid "Shwup Login"
-msgstr ""
+msgstr "Shwup registracija"
 
 #: swlogin.cpp:59
 msgid "Email of shwup account (required)."
@@ -68,12 +69,12 @@ msgstr ""
 #: swlogin.cpp:66
 msgctxt "login settings"
 msgid "Email:"
-msgstr ""
+msgstr "El. paštas:"
 
 #: swlogin.cpp:67
 msgctxt "login settings"
 msgid "Password:"
-msgstr ""
+msgstr "Slaptažodis:"
 
 #: swwidget.cpp:71
 msgid "This is the list of images to upload to your Shwup account."
@@ -86,7 +87,7 @@ msgstr ""
 
 #: swwidget.cpp:83
 msgid "Account"
-msgstr ""
+msgstr "Paskyra"
 
 #: swwidget.cpp:84
 msgid "This is the Shwup account that is currently logged in."
@@ -95,11 +96,11 @@ msgstr ""
 #: swwidget.cpp:87
 msgctxt "account settings"
 msgid "Name:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: swwidget.cpp:90
 msgid "Change Account"
-msgstr ""
+msgstr "Keisti paskyrą"
 
 #: swwidget.cpp:91
 msgid "Change Shwup Account used for transfer"
@@ -107,7 +108,7 @@ msgstr ""
 
 #: swwidget.cpp:102 swwidget.cpp:122
 msgid "Destination"
-msgstr ""
+msgstr "Tikslas"
 
 #: swwidget.cpp:103
 msgid "This is the Shwup album to which selected photos will be uploaded."
@@ -115,24 +116,24 @@ msgstr ""
 
 #: swwidget.cpp:106
 msgid "Album:"
-msgstr ""
+msgstr "Albumas:"
 
 #: swwidget.cpp:110
 msgid "New Album"
-msgstr ""
+msgstr "Naujas albumas"
 
 #: swwidget.cpp:111
 msgid "Create new Shwup album"
-msgstr ""
+msgstr "Sukurti naują Shwup albumą"
 
 #: swwidget.cpp:112
 msgctxt "album list"
 msgid "Reload"
-msgstr ""
+msgstr "Įkelti iš naujo"
 
 #: swwidget.cpp:113
 msgid "Reload album list"
-msgstr ""
+msgstr "Įkelti iš naujo albumo sąrašą"
 
 #: swwidget.cpp:123
 msgid "This is the location to which Shwup images will be downloaded."
@@ -140,23 +141,23 @@ msgstr ""
 
 #: swwidget.cpp:130
 msgid "Options"
-msgstr ""
+msgstr "Parinktys"
 
 #: swwidget.cpp:131
 msgid "These are options that will be applied to photos before upload."
-msgstr ""
+msgstr "Šios pasirinktys bus pritaikytos paveikslėliams prie įkėlimą."
 
 #: swwidget.cpp:135
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Pakeisti paveikslėlių dydį prieš įkeliant"
 
 #: swwidget.cpp:145
 msgid "Maximum dimension:"
-msgstr ""
+msgstr "Didžiausi išmatavimai:"
 
 #: swwidget.cpp:153
 msgid "JPEG quality:"
-msgstr ""
+msgstr "JPEG kokybė:"
 
 #: swwindow.cpp:88
 msgid "Export to Shwup Web Service"
@@ -164,7 +165,7 @@ msgstr ""
 
 #: swwindow.cpp:89
 msgid "Start Upload"
-msgstr ""
+msgstr "Pradėti įkėlimą"
 
 #: swwindow.cpp:90
 msgid "Start upload to Shwup web service"
@@ -180,15 +181,15 @@ msgstr ""
 
 #: swwindow.cpp:117
 msgid "(c) 2009, Timothée Groleau"
-msgstr ""
+msgstr "(c) 2009, Timothée Groleau"
 
 #: swwindow.cpp:119
 msgid "Timothée Groleau"
-msgstr ""
+msgstr "Timothée Groleau"
 
 #: swwindow.cpp:119
 msgid "Author and maintainer"
-msgstr ""
+msgstr "Autorius ir prižiūrėtojas"
 
 #: swwindow.cpp:258
 msgid ""
@@ -211,7 +212,7 @@ msgstr ""
 
 #: swwindow.cpp:406
 msgid "%v / %m"
-msgstr ""
+msgstr "%v / %m"
 
 #: swwindow.cpp:515
 #, kde-format
@@ -226,12 +227,12 @@ msgstr ""
 
 #: swwindow.cpp:541 swwindow.cpp:561
 msgid "Cannot open file"
-msgstr ""
+msgstr "Nepavyksta atverti failo"
 
 #: swwindow.cpp:565
 #, kde-format
 msgid "Uploading file %1"
-msgstr ""
+msgstr "Išsiunčiama failas %1"
 
 #: swwindow.cpp:590
 #, kde-format

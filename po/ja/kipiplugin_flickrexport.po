@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-04-08 02:55+0200\n"
+"POT-Creation-Date: 2013-10-31 01:24+0000\n"
 "PO-Revision-Date: 2009-01-03 22:38+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <Kdeveloper@kde.gr.jp>\n"
@@ -56,7 +56,7 @@ msgid "Title (required):"
 msgstr "タイトル (必須):"
 
 #. i18n: ectx: property (text), widget (QLabel, captionLabel)
-#: flickralbumdialog.ui:143
+#: flickralbumdialog.ui:147
 #, fuzzy
 #| msgid "Description(optional)"
 msgid "Description (optional)"
@@ -575,23 +575,23 @@ msgstr "Gilles Caulier"
 msgid "Developer"
 msgstr "開発者"
 
-#: flickrwindow.cpp:529
+#: flickrwindow.cpp:576
 msgid "&lt;Photostream Only&gt;"
 msgstr ""
 
-#: flickrwindow.cpp:717
+#: flickrwindow.cpp:764
 #, fuzzy
 #| msgid "Flickr/23hq Export"
 msgid "Flickr Export"
 msgstr "Flickr/23hq エクスポート"
 
-#: flickrwindow.cpp:735
+#: flickrwindow.cpp:782
 #, fuzzy, kde-format
 #| msgid "Failed to Fetch Photosets information from %1. %2\n"
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "%1 からフォトセットの情報を取得できませんでした。%2\n"
 
-#: flickrwindow.cpp:740
+#: flickrwindow.cpp:787
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -638,9 +638,3 @@ msgstr "23hq にエクスポート(&Q)..."
 #| msgid "Export to &23hq..."
 msgid "Export to &Zooomr..."
 msgstr "23hq にエクスポート(&Q)..."
-
-#~ msgid "Handbook"
-#~ msgstr "ハンドブック"
-
-#~ msgid "Uploading file %1"
-#~ msgstr "ファイル <filename>%1</filename> をアップロード中"

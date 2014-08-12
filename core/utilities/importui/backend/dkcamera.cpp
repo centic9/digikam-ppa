@@ -7,7 +7,7 @@
  * Description : abstract camera interface class
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "dkcamera.h"
+#include "dkcamera.moc"
 
 // Local includes
 
@@ -32,7 +32,7 @@
 namespace Digikam
 {
 
-DKCamera::DKCamera(const QString& title, const QString& model, const QString& port, const QString& path)
+DKCamera::DKCamera(const QString& title, const QString& model, const QString& port, const QString& path) : QObject()
 {
     m_title                       = title;
     m_model                       = model;
@@ -44,6 +44,7 @@ DKCamera::DKCamera(const QString& title, const QString& model, const QString& po
     m_mkDirSupport                = false;
     m_delDirSupport               = false;
     m_captureImageSupport         = false;
+    m_captureImagePreviewSupport  = false;
 
     AlbumSettings* const settings = AlbumSettings::instance();
     m_imageFilter                 = settings->getImageFileFilter();
@@ -114,6 +115,12 @@ bool DKCamera::captureImageSupport() const
 {
     return m_captureImageSupport;
 }
+
+bool DKCamera::captureImagePreviewSupport() const
+{
+    return m_captureImagePreviewSupport;
+}
+
 
 QString DKCamera::mimeType(const QString& fileext) const
 {

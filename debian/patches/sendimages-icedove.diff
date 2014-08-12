@@ -1,8 +1,8 @@
-Index: digikam-2.6.0~rc/extra/kipi-plugins/sendimages/sendimages.cpp
+Index: digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/sendimages.cpp
 ===================================================================
---- digikam-2.6.0~rc.orig/extra/kipi-plugins/sendimages/sendimages.cpp	2012-05-09 22:52:34.000000000 +1000
-+++ digikam-2.6.0~rc/extra/kipi-plugins/sendimages/sendimages.cpp	2012-06-02 15:06:22.000000000 +1000
-@@ -524,6 +524,7 @@
+--- digikam-4.0.0~beta1.orig/extra/kipi-plugins/sendimages/sendimages.cpp	2013-12-02 21:24:24.000000000 +1100
++++ digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/sendimages.cpp	2013-12-11 22:33:28.257866860 +1100
+@@ -583,6 +583,7 @@
  
                  case EmailSettings::NETSCAPE:
                  case EmailSettings::THUNDERBIRD:
@@ -10,19 +10,21 @@ Index: digikam-2.6.0~rc/extra/kipi-plugins/sendimages/sendimages.cpp
                  case EmailSettings::GMAILAGENT:
                  {
                      QString prog;
-@@ -531,6 +532,8 @@
-                         prog = QString("netscape");
-                     else if (d->settings.emailProgram == EmailSettings::THUNDERBIRD)
+@@ -595,6 +596,10 @@
+                     {
                          prog = QString("thunderbird");
+                     }
 +                    else if (d->settings.emailProgram == EmailSettings::ICEDOVE)
++                    {
 +                        prog = QString("icedove");
++                    }
                      else
+                     {
                          prog = QString("gmailagent");
- 
-Index: digikam-2.6.0~rc/extra/kipi-plugins/sendimages/emailsettings.h
+Index: digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/emailsettings.h
 ===================================================================
---- digikam-2.6.0~rc.orig/extra/kipi-plugins/sendimages/emailsettings.h	2012-05-09 22:52:34.000000000 +1000
-+++ digikam-2.6.0~rc/extra/kipi-plugins/sendimages/emailsettings.h	2012-06-02 15:08:09.000000000 +1000
+--- digikam-4.0.0~beta1.orig/extra/kipi-plugins/sendimages/emailsettings.h	2013-12-02 21:24:24.000000000 +1100
++++ digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/emailsettings.h	2013-12-11 22:32:19.483052140 +1100
 @@ -70,6 +70,7 @@
          NETSCAPE,
          SYLPHEED,
@@ -31,11 +33,11 @@ Index: digikam-2.6.0~rc/extra/kipi-plugins/sendimages/emailsettings.h
          THUNDERBIRD
      };
  
-Index: digikam-2.6.0~rc/extra/kipi-plugins/sendimages/settingswidget.cpp
+Index: digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/settingswidget.cpp
 ===================================================================
---- digikam-2.6.0~rc.orig/extra/kipi-plugins/sendimages/settingswidget.cpp	2012-05-09 22:52:34.000000000 +1000
-+++ digikam-2.6.0~rc/extra/kipi-plugins/sendimages/settingswidget.cpp	2012-06-02 15:07:25.000000000 +1000
-@@ -98,6 +98,7 @@
+--- digikam-4.0.0~beta1.orig/extra/kipi-plugins/sendimages/settingswidget.cpp	2013-12-02 21:24:24.000000000 +1100
++++ digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/settingswidget.cpp	2013-12-11 22:32:19.483052140 +1100
+@@ -100,6 +100,7 @@
      d->mailAgentName->insertItem(EmailSettings::SYLPHEED,      "Sylpheed");
      d->mailAgentName->insertItem(EmailSettings::SYLPHEEDCLAWS, "Sylpheed-Claws");
      d->mailAgentName->insertItem(EmailSettings::THUNDERBIRD,   "Thunderbird");

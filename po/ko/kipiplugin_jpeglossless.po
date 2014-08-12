@@ -1,16 +1,16 @@
 # Translation of kipiplugins_loseless to Korean.
 # Copyright (C) 2007 This_file_is_part_of_KDE
 # This file is distributed under the same license as the extragear-base package.
-# Park Shinjo <kde@peremen.name>, 2007.
 #
+# Park Shinjo <kde@peremen.name>, 2007, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: extragear-libs\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-02-27 02:34+0100\n"
-"PO-Revision-Date: 2007-12-27 11:17+0900\n"
-"Last-Translator: Park Shinjo <kde@peremen.name>\n"
-"Language-Team: Korean <cho.sungjae@gmail.com>\n"
+"PO-Revision-Date: 2014-03-03 03:30+0900\n"
+"Last-Translator: Park Shinjo <peremen@gmail.com>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,46 +20,38 @@ msgstr ""
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_jpeglosslessui.rc:6
 msgid "&Image"
-msgstr ""
+msgstr "그림(&I)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_jpeglosslessui.rc:15
 msgid "Main Toolbar"
-msgstr ""
+msgstr "주 도구 모음"
 
 #: plugin/plugin_jpeglossless.cpp:182
 msgid "Rotate"
 msgstr "회전"
 
 #: plugin/plugin_jpeglossless.cpp:189
-#, fuzzy
-#| msgid "Rotate"
 msgctxt "rotate image left"
 msgid "Rotate Left"
-msgstr "회전"
+msgstr "왼쪽으로 회전"
 
 #: plugin/plugin_jpeglossless.cpp:199
-#, fuzzy
-#| msgid "Rotate"
 msgctxt "rotate image right"
 msgid "Rotate Right"
-msgstr "회전"
+msgstr "오른쪽으로 회전"
 
 #: plugin/plugin_jpeglossless.cpp:214
 msgid "Flip"
 msgstr "뒤집기"
 
 #: plugin/plugin_jpeglossless.cpp:221
-#, fuzzy
-#| msgid "Horizontally"
 msgid "Flip Horizontally"
-msgstr "수평으로"
+msgstr "수평으로 뒤집기"
 
 #: plugin/plugin_jpeglossless.cpp:231
-#, fuzzy
-#| msgid "Vertically"
 msgid "Flip Vertically"
-msgstr "수직으로"
+msgstr "수직으로 뒤집기"
 
 #: plugin/plugin_jpeglossless.cpp:244
 msgid "Auto Rotate/Flip Using Exif Information"
@@ -222,4 +214,4 @@ msgstr "회전할 수 없음: %1"
 #: transform/jpegtransform.cpp:260 transform/jpegtransform.cpp:270
 #, kde-format
 msgid "The JPEG library reported an error: %1"
-msgstr ""
+msgstr "JPEG 라이브러리에서 오류를 보고함: %1"

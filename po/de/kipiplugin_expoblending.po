@@ -1,4 +1,4 @@
-# Burkhard Lück <lueck@hube-lueck.de>, 2010, 2011, 2012, 2013.
+# Burkhard Lück <lueck@hube-lueck.de>, 2010, 2011, 2012, 2013, 2014.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2010, 2011.
 # Frederik Schwarzer <schwarzer@kde.org>, 2010.
 msgid ""
@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_expoblending\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-07-30 01:31+0000\n"
-"PO-Revision-Date: 2013-09-19 10:48+0200\n"
+"PO-Revision-Date: 2014-01-26 21:03+0100\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -38,14 +38,15 @@ msgid "Exposure (EV)"
 msgstr "Belichtung (LW)"
 
 #: blendingdlg/enfusesettings.cpp:90
-#, fuzzy
 msgctxt "enfuse settings"
 msgid "Auto Levels"
-msgstr "Automatisches Abgleichen"
+msgstr "Automatische Stufe"
 
 #: blendingdlg/enfusesettings.cpp:91
 msgid "Set automatic level selection (maximized) for pyramid blending."
 msgstr ""
+"Setzt die automatische Stufenauswahl (maximiert) für Pyramiden-"
+"Belichtungsvermischung"
 
 #: blendingdlg/enfusesettings.cpp:93
 msgctxt "enfuse settings"
@@ -57,10 +58,13 @@ msgid ""
 "Set the number of levels for pyramid blending. A low number trades off "
 "quality of results for faster execution time and lower memory usage."
 msgstr ""
+"Setzt die Anzahl der Stufen für Pyramiden-Belichtungsvermischung. Eine "
+"geringe Anzahl verringert die Qualität der Ergebnisse bei schnellerer "
+"Ausführung und weniger Speicherauslastung."
 
 #: blendingdlg/enfusesettings.cpp:102
 msgid "Hard Mask"
-msgstr ""
+msgstr "Harte Maske"
 
 #: blendingdlg/enfusesettings.cpp:103
 msgid ""
@@ -68,6 +72,9 @@ msgid ""
 "useful for focus stacks with thin and high contrast features, improves "
 "sharpness at the expense of increased noise."
 msgstr ""
+"Erzwingt harte Vermischungsmasken und keine Mittelwertbildung für genauesten "
+"Maßstab. Dies ist besonder nützlich für Bildschärfenreihen mit wenig und "
+"hohem Kontrast, verbessert die Schärfe auf Kosten von anwachsendem Rauschen."
 
 #: blendingdlg/enfusesettings.cpp:108
 msgctxt "enfuse settings"
@@ -79,6 +86,8 @@ msgid ""
 "Set the exposure contribution for the blending process. Higher values will "
 "favor well-exposed pixels."
 msgstr ""
+"Bestimmt den Beitrag der Belichtung für den Mischungsprozess. Höhere Werte "
+"bevorzugen gut belichtete Pixel."
 
 #: blendingdlg/enfusesettings.cpp:116
 msgctxt "enfuse settings"
@@ -90,6 +99,8 @@ msgid ""
 "Increasing this value makes pixels with high saturation contribute more to "
 "the final output."
 msgstr ""
+"Die Erhöhung dieses Werts vergrößert den Beitrag von Pixeln mit hoher "
+"Sättigung zur endgültigen Ausgabe des Prozesses."
 
 #: blendingdlg/enfusesettings.cpp:124
 msgctxt "enfuse settings"
@@ -102,10 +113,14 @@ msgid ""
 "makes pixels with neighboring differently colored pixels contribute more to "
 "the final output. Particularly useful for focus stacks."
 msgstr ""
+"Bestimmt die relative Gewichtung von Pixeln mit hohem Kontrast. Durch "
+"Vergrößerung dieses Werts werden Pixel mit angrenzenden Pixeln in anderen "
+"Farben einen größeren Betrag zur endgültigen Ausgabe liefern. Besonders "
+"nützlich für Bildschärfe-Stapel."
 
 #: blendingdlg/enfusesettings.cpp:133
 msgid "Use Color Appearance Modelling"
-msgstr ""
+msgstr "Modellierung des Farb-Erscheinungsbilds verwenden"
 
 #: blendingdlg/enfusesettings.cpp:134
 msgid ""
@@ -115,6 +130,12 @@ msgid ""
 "option and default color blending algorithm is very slight, and will be most "
 "noticeable when you need to blend areas of different primary colors together."
 msgstr ""
+"Verwendet ein Farberscheinungsmodell (CIECAM02), um detaillierte Farben zu "
+"rendern. Ihre Eingabedatei sollte eingebettete ICC-Profile beinhalten. Ist "
+"kein ICC-Profil vorhanden, wird statt dessen der sRGB-Farbraum benutzt. Der "
+"Unterschied zwischen dieser Einstellung und dem Standard-Algorithmus zur "
+"Farbvermischung ist gering und wird vor allem dann erkennbar, wenn Sie "
+"Bereiche mit verschiedenen Primärfarben vermischen müssen."
 
 #: blendingdlg/enfusesettings.h:69 blendingdlg/enfusesettings.h:71
 msgid "enabled"
@@ -127,7 +148,7 @@ msgstr "deaktiviert"
 #: blendingdlg/enfusesettings.h:69
 #, kde-format
 msgid "Hardmask: %1"
-msgstr ""
+msgstr "Harte Maske: %1"
 
 #: blendingdlg/enfusesettings.h:71
 #, kde-format
@@ -188,7 +209,7 @@ msgstr "&Speichern"
 
 #: blendingdlg/expoblendingdlg.cpp:145
 msgid "Process and save selected processed items."
-msgstr ""
+msgstr "Bearbeiteten und ausgewählte bearbeitete Einträge speichern."
 
 #: blendingdlg/expoblendingdlg.cpp:148
 msgid "&Preview"
@@ -197,6 +218,8 @@ msgstr "&Vorschau"
 #: blendingdlg/expoblendingdlg.cpp:149
 msgid "Process a preview of bracketed images stack with current settings."
 msgstr ""
+"Eine Vorschau der Bilder aus der Belichtungsreihe mit den aktuellen "
+"Einstellungen verarbeiten."
 
 #: blendingdlg/expoblendingdlg.cpp:152
 msgid "&Abort"
@@ -228,7 +251,7 @@ msgstr "Einstellungen speichern"
 
 #: blendingdlg/expoblendingdlg.cpp:284
 msgid "Enfuse Processing Messages"
-msgstr ""
+msgstr "Enfuse-Nachrichten werden verarbeitet"
 
 #: blendingdlg/expoblendingdlg.cpp:438
 #, kde-format
@@ -293,6 +316,18 @@ msgid ""
 "please take a look at <a href='http://en.wikipedia.org/wiki/Bracketing'>this "
 "page</a></p></qt>"
 msgstr ""
+"<qt><p><h1><b>Willkommen zum Belichtungsvermischungs-Werkzeug</b></h1></"
+"p><p>Dieses Werkzeug verschmilzt Bilder aus einer Belichtungsreihe mit "
+"unterschiedlicher Belichtung, um Pseudo-<a href='https://de.wikipedia.org/"
+"wiki/High_Dynamic_Range_Image'>HDR-Bilder</a> zu erstellen.</p><p>Es kann "
+"auch benutzt werden, um Bilder aus einer Bildschärfenreihe zu einem "
+"einzelnen Bild mit vergrößerter Tiefenschärfe zusammenzufügen.</p><p>Dieser "
+"Assistent hilft Ihnen bei den Einstellungen für den Import der Bilder, bevor "
+"zu zu einem Bild zusammengefügt werden.</p><p>Bilder aus einer "
+"Belichtungsreihe müssen mit dergleichen Kamera unter den gleichen "
+"Bedingungen aufgenommen werden, und möglichst mit einem Stativ.</"
+"p><p>Weitere Informationen finden Sie auf der Seite <a href='https://de."
+"wikipedia.org/wiki/Bracketing'>Belichtungsreihe</a>.</p></qt>"
 
 #: importwizard/intropage.cpp:86
 msgid "Exposure Blending Binaries"
@@ -311,6 +346,11 @@ msgid ""
 "added to the stack.</li><li>Do not mix images with different color depth.</"
 "li><li>All images must have the same dimensions.</li></ul></qt>"
 msgstr ""
+"<qt><p>Geben Sie hier Ihre Bilder aus der Belichtungsreihe zum Verschmelzen "
+"ein. Beachten Sie folgende Bedingungen:</p><ul><li>Mindestens zwei Bilder "
+"vom selbem Objekt müssen zum Stapel hinzugefügt werden.</li><li>Mischen Sie "
+"keine Bilder mit unterschiedlichen Farbtiefen.</li><li>Alle Bilder müssen "
+"die gleichen Dimensionen haben.</li></ul></qt>"
 
 #: importwizard/lastpage.cpp:59
 msgid "Pre-Processing is Complete"
@@ -325,6 +365,12 @@ msgid ""
 "be used.</p><p>Press \"Finish\" button to fuse your items and make a pseudo "
 "HDR image.</p></qt>"
 msgstr ""
+"<qt><p><h1><b>Die Vorverarbeitung der Bilder aus der Belichtungsreihe ist "
+"abgeschlossen.</b></h1></p><p>Ihre Bilder sind zum verschmelzen bereit.</"
+"p><p>Um diese Operation durchzuführen, wird das Programm <b>%1</b> aus dem "
+"Projekt <a href='%2'>Enblend</a> verwendet.</p><p>Drücken Sie auf den Knopf "
+"„Fertigstellen“, um Ihre Elemente zu verschmelzen und ein Pseudo-HDR-Bild zu "
+"erstellen.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:98
 msgid "<b>Pre-Processing Bracketed Images</b>"
@@ -347,6 +393,15 @@ msgid ""
 "will be converted to 16-bit sRGB images with auto-gamma.</p><p>Press \"Next"
 "\" to start pre-processing.</p></qt>"
 msgstr ""
+"<qt><p>Jetzt werden die Bilder aus der Belichtungsreihe vorverarbeitet, ehe "
+"sie verschmolzen werden.</p><p>Um die automatische Ausrichtung "
+"durchzuführen, wird das Programm <b>%1</b> vom Projekt <a href='%2'>%3</a> "
+"verwendet. Ausrichtung muss ausgeführt werden, wenn Sie kein Stativ für die "
+"Aufnahme der Bilder aus der Belichtungsreihe verwendet haben. Ausrichtungs-"
+"Operationen können einige Zeit dauern.</p><p>Vorbearbeitung beinhalten "
+"Entfernen von Mosaikmustern in Rohbildern. Rohbilder werden in 16-bit sRGB-"
+"Bilder mit automatischer Gamma-Einstellung umgewandelt.</p><p>Drücken Sie "
+"\"Weiter\" um die Vorverarbeitung zu starten.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:179
 msgid ""
@@ -365,6 +420,9 @@ msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
 msgstr ""
+"<qt><p>Die Vorverarbeitung ist fehlgeschlagen.</p><p>Bitte überprüfen Sie "
+"Ihre Bilder aus der Belichtungsreihe ...</p><p>Drücken Sie „Details“, um die "
+"Nachrichten der Verarbeitung anzuzeigen.</p></qt>"
 
 #: manager/actionthread.cpp:308
 msgid "unknown"

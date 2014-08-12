@@ -5,26 +5,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-04-08 02:55+0200\n"
-"PO-Revision-Date: 2011-03-09 15:14+0000\n"
-"Last-Translator: Samir Ribić <Unknown>\n"
+"POT-Creation-Date: 2013-10-31 01:24+0000\n"
+"PO-Revision-Date: 2013-12-15 11:27+0000\n"
+"Last-Translator: Nermina Ahmić <nahmic1@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2011-04-22 07:06+0000\n"
-"X-Generator: Launchpad (build 12883)\n"
+"X-Generator: Launchpad (build 16869)\n"
+"X-Launchpad-Export-Date: 2013-12-16 05:34+0000\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Elmedina Fejzagic,Samir Ribić"
+msgstr "Elmedina Fejzagic,Samir Ribić,Nermina Ahmić"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba"
+msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba,nahmic1@etf.unsa.ba"
 
 #: comboboxintermediate.h:53
 msgid "Various"
@@ -56,7 +56,7 @@ msgid "Title (required):"
 msgstr "Naslov (neophodno):"
 
 #. i18n: ectx: property (text), widget (QLabel, captionLabel)
-#: flickralbumdialog.ui:143
+#: flickralbumdialog.ui:147
 msgid "Description (optional)"
 msgstr "Opis (neobavezno)"
 
@@ -120,13 +120,12 @@ msgid "Checking if previous token is still valid"
 msgstr "Provjeravam da li je prethodno obeležje još važeće"
 
 #: flickrtalker.cpp:283
-#, fuzzy
 msgid ""
 "Please follow the instructions in the browser window, then return to press "
 "corresponding button."
 msgstr ""
-"Molim Vas pratite instrukcije u preglednom prozoru, onda se vratite da "
-"pritisnete Da ako ste ovjereni, ili Ne u suprotnom."
+"Molimo Vas da slijedite instrukcije date u prozoru preglednika, a potom se "
+"vratite da pritisnete odgovarajuće dugme."
 
 #: flickrtalker.cpp:285
 #, kde-format
@@ -135,11 +134,11 @@ msgstr "%1 Servis Web Autorizacija"
 
 #: flickrtalker.cpp:286
 msgid "I am authenticated"
-msgstr ""
+msgstr "Ovjeren sam"
 
 #: flickrtalker.cpp:287
 msgid "I am not authenticated"
-msgstr ""
+msgstr "Nisam ovjeren"
 
 #: flickrtalker.cpp:292
 msgid "Authenticating the User on web"
@@ -369,7 +368,7 @@ msgstr "&Nove postavke fotografije"
 
 #: flickrwidget.cpp:195
 msgid "&Reload"
-msgstr ""
+msgstr "&Ponovo učitaj"
 
 #: flickrwidget.cpp:211
 msgid "Tag options"
@@ -452,7 +451,7 @@ msgstr "Opcije Promjene Veličine"
 
 #: flickrwidget.cpp:312
 msgid "Send original file (no resizing)"
-msgstr ""
+msgstr "Pošalji originalnu datoteku (bez promjena dimenzija)"
 
 #: flickrwidget.cpp:316
 msgid "Resize photos before uploading"
@@ -504,14 +503,13 @@ msgstr ""
 "servis."
 
 #: flickrwindow.cpp:143
-#, fuzzy
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
-"(c) 2008-2009, Gilles Caulier\n"
+"(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko"
 
 #: flickrwindow.cpp:147
@@ -530,21 +528,20 @@ msgstr "Gilles Caulier"
 msgid "Developer"
 msgstr "Programer"
 
-#: flickrwindow.cpp:529
+#: flickrwindow.cpp:576
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Samo fotografski tok podataka&gt;"
 
-#: flickrwindow.cpp:717
-#, fuzzy
+#: flickrwindow.cpp:764
 msgid "Flickr Export"
-msgstr "Flickr/23/Zooomr Eksport"
+msgstr "Flickr izvoz"
 
-#: flickrwindow.cpp:735
+#: flickrwindow.cpp:782
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Neuspjelo donošenje Photoset informacija iz %1. %2\n"
 
-#: flickrwindow.cpp:740
+#: flickrwindow.cpp:787
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -555,9 +552,8 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_flickrexportui.rc:6
-#, fuzzy
 msgid "&Export"
-msgstr "Flickr/23/Zooomr Eksport"
+msgstr "&Izvoz"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flickrexportui.rc:14

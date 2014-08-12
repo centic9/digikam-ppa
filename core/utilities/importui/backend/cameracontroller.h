@@ -65,6 +65,7 @@ public:
     bool cameraMkDirSupport() const;
     bool cameraDelDirSupport() const;
     bool cameraCaptureImageSupport() const;
+    bool cameraCaptureImagePreviewSupport() const;
 
     QString cameraPath() const;
     QString cameraTitle() const;
@@ -74,7 +75,8 @@ public:
     QByteArray cameraMD5ID() const;
 
     void capture();
-    void listFolders();
+    void listRootFolder(bool useMetadata);
+    void listFolders(const QString& folder = QString());
     void listFiles(const QString& folder, bool useMetadata);
     void getFreeSpace();
     void getMetadata(const QString& folder, const QString& file);
@@ -111,7 +113,6 @@ Q_SIGNALS:
     void signalDownloaded(const QString& folder, const QString& file, int status);
     void signalDownloadComplete(const QString& sourceFolder, const QString& sourceFile,
                                 const QString& destFolder, const QString& destFile);
-    void signalFinished();
     void signalSkipped(const QString& folder, const QString& file);
     void signalDeleted(const QString& folder, const QString& file, bool status);
     void signalLocked(const QString& folder, const QString& file, bool status);

@@ -5,6 +5,7 @@ PRIVATE_LIBDIR := /usr/lib/digikam
 export DEB_LDFLAGS_MAINT_APPEND := -Wl,--as-needed
 
 ifeq ($(USE_PRIVATE_KDEGRAPHICS),y)
+  # Force to use local libkipi, libkexiv2, and libkdcraw implementation
   EXTRA_CMAKE_ARGS += -DDIGIKAMSC_USE_PRIVATE_KDEGRAPHICS=ON
   CONFLICTS_SUBSTVAR := libkipi-data, libkexiv2-data, libkdcraw-data, libksane-data
 else
@@ -16,8 +17,6 @@ DEB_VERSION_UPSTREAM := $(shell dpkg-parsechangelog | awk '/^Version: / { print 
 
 %:
 	dh $@ --with kde --parallel 
-
-# : Force to use local libkipi, libkexiv2, and libkdcraw implementation
 
 override_dh_auto_configure:
 	dh_auto_configure --buildsystem=kde -- \
@@ -38,7 +37,7 @@ override_dh_installinit:
 	dh_apparmor -pdigikam --profile-name=usr.sbin.mysqld-digikam
 
 override_dh_install:
-	dh_install -Xmultithread -XREADME.MACOSX --list-missing
+	dh_install --list-missing
 	install -m 644 -p -D debian/usr.sbin.mysqld-digikam \
 		debian/digikam/etc/apparmor.d/usr.sbin.mysqld-digikam
 	install -m 755 -p -D debian/mysqld-digikam \

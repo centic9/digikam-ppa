@@ -118,25 +118,6 @@ ImportCategorizedView::~ImportCategorizedView()
     delete d;
 }
 
-//FIXME: Needs testing
-void ImportCategorizedView::installDefaultModels(CameraController* const controller)
-{
-    ImportModel* model             = new ImportModel(this);
-    model->setupCameraController(controller);
-    ImportFilterModel* filterModel = new ImportFilterModel(this);
-
-    filterModel->setSourceImportModel(model);
-
-//    ImportSettings* settings = ImportSettings::instance();
-
-    filterModel->setSortRole(CamItemSortSettings::SortByFileName);
-    filterModel->setSortOrder(CamItemSortSettings::AscendingOrder);
-    filterModel->setCategorizationMode(CamItemSortSettings::CategoryByFormat);
-    filterModel->sort(0); // an initial sorting is necessary
-
-    setModels(model, filterModel);
-}
-
 void ImportCategorizedView::setModels(ImportImageModel* model, ImportSortFilterModel* filterModel)
 {
     if (d->delegate)
@@ -400,6 +381,7 @@ void ImportCategorizedView::setThumbnailSize(int size)
 void ImportCategorizedView::setThumbnailSize(const ThumbnailSize& s)
 {
     // we abuse this pair of method calls to restore scroll position
+    // TODO check if needed
     layoutAboutToBeChanged();
     d->delegate->setThumbnailSize(s);
     layoutWasChanged();

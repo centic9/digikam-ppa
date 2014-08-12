@@ -1,3 +1,153 @@
+digikam (4:4.0.0-0ubuntu1~ubuntu14.04~ppa2) trusty; urgency=medium
+
+  * No-change rebuild against libmarblewidget19 
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 12 Aug 2014 21:07:42 +0200
+
+digikam (4:4.0.0-0ubuntu1~ubuntu14.04~ppa1) trusty; urgency=medium
+
+  * Trusty backport 
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Mon, 26 May 2014 14:22:36 +0200
+
+digikam (4:4.0.0-0ubuntu1) utopic; urgency=medium
+
+  * New upstream release
+    - drop doc-translations-installation.diff, applied upstream
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Mon, 26 May 2014 11:19:01 +0200
+
+digikam (4:4.0.0~beta4-1ubuntu1) utopic; urgency=medium
+
+  [ Philip Muškovac ]
+  * Merge with debian experimental (LP: #1319163), remaining changes:
+    - debian/control:
+      + don't build with openGL on armhf as it's not available there
+      + build-depend on libsane-dev, libexiv2-dev, dh-apparmor and valgrind
+      + build-depend on libboost-graph1.55-dev instead of libboost-graph-dev
+      + don't build-depend on nepomuk-core-dev as we use baloo
+      + drop digikam-private-libs in favour of 
+        libkface1, libkface-data, libkface-dev,
+        libkgeomap1, libkgeomap-data, libkgeomap-dev,
+        libmediawiki1, libkmediawiki-dev,
+        libkvkontakte1, libkvkontakte-dev
+      + digikam suggests libqt4-sql-mysql
+      + don't depend on digikam-private-libs for showfoto, kipi-plugins
+      + enable digikam-dbg package
+      + kipi-plugins breaks/replaces digikam (<< 4:3.4.0),
+        kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
+      + kipi-plugins doesn't recommend konqueror
+      + kipi-plugins-common breaks/replaces digikam-data (<< 4:3.1.0-3ubuntu1~)
+    - debian/rules:
+      + override version of lib* packages
+      + don't delete files during install, we use not-installed for that
+      + install mysqld-digikam wrapper and apparmor profile
+      + only list missing files, don't fail if some files aren't installed
+      + don't run dh_shlibdeps on self-built kde4 libs
+      + re-enable digikam-dbg and don't include lib* debug symbols
+    - update install files for split libraries
+    - put libdigikam* into the digikam package
+    - add mysqld-digikam wrapper and apparmor profile
+    - don't install imgur, imageshack and wikimedia icons for trademark reasons
+    - add kubuntu_mysqld_executable_name.diff to use mysqld wrapper instead
+      of the system mysqld binary
+    - drop 'debian svn-upgrade' from debian/watch as we don't use svn
+    - install rawconverter oxygen icons in kipi-plugins-common
+
+  [ Dimitri John Ledkov ]
+  * Build against boost1.55.
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 13 May 2014 22:15:16 +0200
+
+digikam (4:4.0.0~beta4-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Fix installation of the translated documentations; patch
+    doc-translations-installation.diff.
+  * Update debian/digikam-doc.install for all the translated documentations.
+
+ -- Pino Toscano <pino@debian.org>  Mon, 31 Mar 2014 20:01:03 +0200
+
+digikam (4:4.0.0~beta3-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream release.
+  * Use the haar cascades XML files provided by OpenCV:
+    - remove the versions provided by libkface
+    - make digikam-data depend on opencv-data
+  * Switch the libgphoto2-2-dev build dependency to libgphoto2-dev.
+    (Closes: #739349)
+  * Fix Vcs-Svn header.
+
+ -- Pino Toscano <pino@debian.org>  Sun, 02 Mar 2014 09:56:58 +0100
+
+digikam (4:4.0.0~beta2-1) experimental; urgency=medium
+
+  [ Mark Purcell ]
+  * New upstream release 
+    - Drop changeset_rc53994f0dbeea49a04aeec9298753a954cff427f.diff
+
+  [ Pino Toscano ]
+  * Adjust/improve the build dependencies:
+    - set libusb-dev for all the OSes except kfreebsd (where libusb2-dev
+      is used), as this is what digikam looks for
+    - add nepomuk-core-dev
+  * Since kipi-plugins uses libraries shipped in digikam-private-libs, make
+    this dependency strict.
+  * Move the debian/*.manpage files as debian/man/*.1, and adjust the
+    debian/*.manpages accordingly.
+  * Install also the NEWS file for kipi-plugins.
+  * Drop -Xmultithread -XREADME.MACOSX from the dh_install arguments, as such
+    files do not exist anymore or are not shipped.
+  * Slightly improve the way devel .so symlinks are removed.
+  * Bump Standards-Version to 3.9.5, no changes required.
+  * Change the section of digikam-private-libs to libs.
+  * Update the digikam and showfoto xpm icons according to the current hicolor
+    icons.
+
+ -- Mark Purcell <msp@debian.org>  Sat, 18 Jan 2014 09:28:43 +1100
+
+digikam (4:4.0.0~beta1-1) experimental; urgency=low
+
+  * New upstream release
+  * quilt refresh sendimages-icedove.diff
+  * Pull upstream changeset_rc53994f0dbeea49a04aeec9298753a954cff427f.diff
+
+ -- Mark Purcell <msp@debian.org>  Sun, 15 Dec 2013 22:15:27 +1100
+
+digikam (4:3.5.0-3) unstable; urgency=low
+
+  * Update Build-Depends: for libusb2-dev [kfreebsd-any]
+
+ -- Mark Purcell <msp@debian.org>  Sat, 09 Nov 2013 16:52:11 +1100
+
+digikam (4:3.5.0-2) unstable; urgency=low
+
+  [ Pino Toscano ]
+  * Adjust/improve the build dependencies:
+    - bump libopencv-dev to >= 2.4.5
+    - bump libeigen3-dev to >= 3.1.2
+    - add libusb-dev
+    - switch from libtiff4-dev to libtiff-dev
+    - comment out libsane-dev and libexiv2-dev, needed only when using the
+      embedded kdegraphics libs
+    - remove duplicate libgphoto2-2-dev and libtiff-dev
+  * Bump Standards-Version to 3.9.4, no changes required.
+  * Do not pass -Xusr/lib/kde4/ to dh_shlibdeps, as this skips the dependency
+    calculation of plugins. (Closes: #721107)
+
+  [ Mark Purcell ] 
+  * Fix "non-existent package minidnla (typo)" update debian/control (Closes: #727814)
+
+ -- Mark Purcell <msp@debian.org>  Sat, 09 Nov 2013 11:09:18 +1100
+
+digikam (4:3.5.0-1) experimental; urgency=low
+
+  * New upstream release
+
+ -- Mark Purcell <msp@debian.org>  Sat, 12 Oct 2013 10:38:32 +1100
+
 digikam (4:3.5.0-0ubuntu10) trusty; urgency=medium
 
   * No change rebuild for libmarblewidget16 transition

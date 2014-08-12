@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_htmlexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2012-09-04 04:41+0200\n"
-"PO-Revision-Date: 2013-03-14 13:37+0100\n"
+"PO-Revision-Date: 2013-10-27 12:12+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -25,46 +25,40 @@ msgid "Your emails"
 msgstr "wizzardsk@gmail.com"
 
 #: generator.cpp:152
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not find theme in '%1'"
-msgstr ""
-"Nepodarilo sa nájsť 'kdemain' v '%1'.\n"
-"%2"
+msgstr "Nemôžem nájsť tému v '%1'"
 
 #: generator.cpp:160
-#, fuzzy
 msgid "Copying theme"
-msgstr "Vianočná téma"
+msgstr "Kopírujem tému"
 
 #: generator.cpp:174
-#, fuzzy
 msgid "Could not copy theme"
-msgstr "(Nepodarilo sa načítať tému)"
+msgstr "Nemôžem skopírovať tému"
 
 #: generator.cpp:200
-#, fuzzy, kde-format
+#, kde-format
 msgid "Downloading remote files for \"%1\""
-msgstr "Použiť KGet na sťahovanie súborov"
+msgstr "Sťahujem vzdialené súbory pre \"%1\""
 
 #: generator.cpp:218
-#, fuzzy
 msgid "Could not open temporary file"
-msgstr "Nepodarilo sa otvoriť dočasný súbor."
+msgstr "Nepodarilo sa otvoriť dočasný súbor"
 
 #: generator.cpp:229
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not download %1"
-msgstr "Nepodarilo sa stiahnuť súbor."
+msgstr "Nepodarilo sa stiahnuť %1"
 
 #: generator.cpp:249
-#, fuzzy
 msgid "Could not create gallery.xml"
-msgstr "Nepodarilo sa vytvoriť cieľový priečinok."
+msgstr "Nemôžem vytvoriť gallery.xml"
 
 #: generator.cpp:293
-#, fuzzy, kde-format
+#, kde-format
 msgid "Generating files for \"%1\""
-msgstr "Hľadám súbory"
+msgstr "Generujem súbory pre \"%1\""
 
 #: generator.cpp:328
 msgid "Previous"
@@ -99,29 +93,24 @@ msgid "Image Orientation"
 msgstr "Orientácia obrázku"
 
 #: generator.cpp:337
-#, fuzzy
 msgid "Image X Resolution"
-msgstr "Rozlíšenie obrázku"
+msgstr "X rozlíšenie obrázku"
 
 #: generator.cpp:338
-#, fuzzy
 msgid "Image Y Resolution"
-msgstr "Rozlíšenie obrázku"
+msgstr "Y rozlíšenie obrázku"
 
 #: generator.cpp:339
-#, fuzzy
 msgid "Image Resolution Unit"
-msgstr "Atómová hmotnostná jednotka"
+msgstr "Jednotka rozlíšenia obrázku"
 
 #: generator.cpp:340
-#, fuzzy
 msgid "Image Date Time"
-msgstr "Dátum a čas"
+msgstr "Dátum a čas obrázku"
 
 #: generator.cpp:341
-#, fuzzy
 msgid "YCBCR Positioning"
-msgstr "Povoliť um&iestnenie obrázku"
+msgstr "YCBCR poloha"
 
 #: generator.cpp:342
 msgid "Exposure Time"
@@ -140,9 +129,8 @@ msgid "ISO Speed Ratings"
 msgstr "Rýchlosť ISO"
 
 #: generator.cpp:346
-#, fuzzy
 msgid "Shutter Speed Value"
-msgstr "Hodnota minimálneho dátového toku"
+msgstr "Hodnota rýchlosti uzávierky"
 
 #: generator.cpp:347
 msgid "Aperture Value"
@@ -153,39 +141,34 @@ msgid "Focal Length"
 msgstr "Ohnisková vzdialenosť"
 
 #: generator.cpp:349
-#, fuzzy
 msgid "GPS Altitude"
-msgstr "Nová zemepisná šírka:"
+msgstr "GPS nadmorská výška"
 
 #: generator.cpp:350
-#, fuzzy
 msgid "GPS Latitude"
-msgstr "Severná zemepisná šírka"
+msgstr "GPS zemepisná šírka"
 
 #: generator.cpp:351
-#, fuzzy
 msgid "GPS Longitude"
-msgstr "Západná zemepisná dĺžka"
+msgstr "GSP zemepisná dĺžka"
 
 #: generator.cpp:380
-#, fuzzy
 msgid "Generating HTML files"
-msgstr "Rozbaľujú sa všetky súbory"
+msgstr "Generujem HTML súbory"
 
 #: generator.cpp:387
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not load XSL file '%1'"
-msgstr "Nepodarilo sa načítať konfiguračný súbor témy."
+msgstr "Nemôžem načítať XSL súbor '%1'"
 
 #: generator.cpp:394
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not load XML file '%1'"
-msgstr "Nepodarilo sa zapísať správny XML súbor."
+msgstr "Nemôžem načítať XML súbor '%1'"
 
 #: generator.cpp:428
-#, fuzzy
 msgid "Error processing XML file"
-msgstr "Chyba pri otváraní XML súboru '<b>%1</b>' pre vstup."
+msgstr "Chyba spracovania XML súboru"
 
 #: generator.cpp:436 generator.cpp:443
 #, kde-format
@@ -193,24 +176,24 @@ msgid "Could not open '%1' for writing"
 msgstr "Nepodarilo sa otvoriť '%1' na zápis"
 
 #: generator.cpp:463
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not create folder '%1' in '%2'"
-msgstr "Nepodarilo sa vytvoriť cieľový priečinok."
+msgstr "Nemôžem vytvoriť priečinok '%1' v '%2'"
 
 #: imagegenerationfunctor.cpp:98
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not read image '%1'"
-msgstr "Nedá sa načítať obrázok."
+msgstr "Nemôžem načítať obrázok '%1'"
 
 #: imagegenerationfunctor.cpp:111
-#, fuzzy, kde-format
+#, kde-format
 msgid "Error loading RAW image '%1'"
-msgstr "Nastala chyba pri načítavaní obrázka."
+msgstr "Chyba načítania RAW obrázku '%1'"
 
 #: imagegenerationfunctor.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Format of image '%1' is unknown"
-msgstr "Formát súboru \"%1\" cieľového obrázku nie je podporovaný."
+msgstr "Formát obrázku '%1' je neznámy"
 
 #: imagegenerationfunctor.cpp:130
 #, kde-format
@@ -218,14 +201,14 @@ msgid "Error loading image '%1'"
 msgstr "Chyba pri načítavaní obrázku '%1'"
 
 #: imagegenerationfunctor.cpp:175
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not save image '%1' to '%2'"
-msgstr "Nepodarilo sa uložiť obrázok - nepodarilo sa poslanie."
+msgstr "Nemôžem uložiť obrázok '%1' do '%2'"
 
 #: imagegenerationfunctor.cpp:199
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not save thumbnail for image '%1' to '%2'"
-msgstr "Nepodarilo sa uložiť obrázok - nepodarilo sa poslanie."
+msgstr "Nemôžem uložiť miniatúru pre obrázok '%1' do '%2'"
 
 #: imagegenerationfunctor.cpp:208
 msgid "unavailable"
@@ -237,9 +220,9 @@ msgid "Could not open file '%1' for writing"
 msgstr "Nepodarilo sa otvoriť súbor '%1' pre zápis"
 
 #: imagegenerationfunctor.cpp:402
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not save image to file '%1'"
-msgstr "Nie je možné uložiť zoznam pozorovateľov do súboru."
+msgstr "Nemôžem uložiť obrázok do súboru '%1'"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: imagesettingspage.ui:22
@@ -283,13 +266,12 @@ msgstr "Maximálna veľkosť:"
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_copyOriginalImage)
 #: imagesettingspage.ui:171
 msgid "Include full-size original images for download"
-msgstr ""
+msgstr "Zahrnúť pôvodné obrázky v plnej veľkosti na stiahnutie"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mUseOriginalImageButton)
 #: imagesettingspage.ui:196
-#, fuzzy
 msgid "Use original image"
-msgstr "Použiť nedeformovaný obrázok"
+msgstr "Použiť pôvodný obrázok"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: imagesettingspage.ui:225
@@ -303,9 +285,8 @@ msgstr "Veľkosť:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_thumbnailSquare)
 #: imagesettingspage.ui:346
-#, fuzzy
 msgid "Square thumbnails"
-msgstr "Náhľady na paneli"
+msgstr "Štvorcové miniatúry"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_htmlexportui.rc:6
@@ -332,13 +313,12 @@ msgid "Export to &HTML..."
 msgstr "Exportovať do HTML..."
 
 #: plugin_htmlexport.cpp:134
-#, fuzzy
 msgid "Generating gallery..."
-msgstr "Galéria obrázkov"
+msgstr "Generujem galériu..."
 
 #: plugin_htmlexport.cpp:146
 msgid "Finished, but some warnings occurred."
-msgstr ""
+msgstr "Ukončené, ale nastali nejaké varovania."
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1)
 #: themeparameterspage.ui:22
@@ -346,6 +326,8 @@ msgid ""
 "In this page, you can change some theme parameters. Depending on the theme, "
 "different parameters are available."
 msgstr ""
+"Na tejto stránke môžete zmeniť niektoré parametre témy. V závislosti na téme "
+"sú dostupné rôzne parametre."
 
 #: wizard.cpp:194
 #, kde-format
@@ -355,7 +337,7 @@ msgstr "%1:"
 
 #: wizard.cpp:233
 msgid "Export image collections to HTML pages"
-msgstr ""
+msgstr "Exportovať kolekcie obrázkov do HTML stránok"
 
 #: wizard.cpp:239
 msgid "HTML Export"
@@ -363,7 +345,7 @@ msgstr "HTML Export"
 
 #: wizard.cpp:242
 msgid "A KIPI plugin to export image collections to HTML pages"
-msgstr ""
+msgstr "KIPI plugin na export kolekcií obrázkov do HTML stránok"
 
 #: wizard.cpp:243
 msgid ""
@@ -390,18 +372,16 @@ msgid "Former Author and Maintainer"
 msgstr "Autor a bývalý správca"
 
 #: wizard.cpp:262
-#, fuzzy
 msgid "Collection Selection"
-msgstr "Zvýrazniť výber"
+msgstr "Výber kolekcie"
 
 #: wizard.cpp:268
 msgid "Theme"
 msgstr "Téma"
 
 #: wizard.cpp:274
-#, fuzzy
 msgid "Theme Parameters"
-msgstr "Užívateľské parametre"
+msgstr "Parametre témy"
 
 #: wizard.cpp:275
 msgid "Image Settings"

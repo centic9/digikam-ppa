@@ -3,19 +3,20 @@
 #
 # Yuri Efremov <yur.arh@gmail.com>, 2010.
 # Alexander Potashev <aspotashev@gmail.com>, 2011.
+# Julia Dronova <juliette.tux@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-07-30 01:31+0000\n"
-"PO-Revision-Date: 2011-02-02 01:04+0300\n"
-"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"PO-Revision-Date: 2013-10-15 14:24+0400\n"
+"Last-Translator: Julia Dronova <juliette.tux@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -51,7 +52,7 @@ msgstr "Автоматический выбор уровня"
 msgid "Set automatic level selection (maximized) for pyramid blending."
 msgstr ""
 "Установка автоматического (максимального) выбора уровня для пирамидального "
-"смешивания."
+"объединения."
 
 #: blendingdlg/enfusesettings.cpp:93
 msgctxt "enfuse settings"
@@ -63,7 +64,7 @@ msgid ""
 "Set the number of levels for pyramid blending. A low number trades off "
 "quality of results for faster execution time and lower memory usage."
 msgstr ""
-"Установка количества уровней для пирамидального смешивания. Малые значения "
+"Установка количества уровней для пирамидального объединения. Малые значения "
 "приведут к ухудшению качества, но быстрее произойдёт обработка и будет "
 "использовано меньше памяти."
 
@@ -77,6 +78,10 @@ msgid ""
 "useful for focus stacks with thin and high contrast features, improves "
 "sharpness at the expense of increased noise."
 msgstr ""
+"Принудительное применение жёстких масок объединения, без усреднения значений "
+"даже при максимальной детализации. Особенно удобно для объединения снимков с "
+"брекетингом по фокусировке со слабым и высоким контрастом, при этом за счёт "
+"шума повышается резкость."
 
 #: blendingdlg/enfusesettings.cpp:108
 msgctxt "enfuse settings"
@@ -88,6 +93,8 @@ msgid ""
 "Set the exposure contribution for the blending process. Higher values will "
 "favor well-exposed pixels."
 msgstr ""
+"Указать долю экспозиции в процессе объединения. При высоких значениях "
+"пикселям с хорошей экспозицией будет отдано предпочтение."
 
 #: blendingdlg/enfusesettings.cpp:116
 msgctxt "enfuse settings"
@@ -99,6 +106,8 @@ msgid ""
 "Increasing this value makes pixels with high saturation contribute more to "
 "the final output."
 msgstr ""
+"При увеличении этого значения пиксели с высокой насыщенностью имеют решающее "
+"значение для окончательного результата."
 
 #: blendingdlg/enfusesettings.cpp:124
 msgctxt "enfuse settings"
@@ -111,6 +120,10 @@ msgid ""
 "makes pixels with neighboring differently colored pixels contribute more to "
 "the final output. Particularly useful for focus stacks."
 msgstr ""
+"Устанавливает относительный вес высококонтрастных пикселей. При увеличении "
+"этого веса пиксели, граничащие с пикселями другого цвета, имеют решающее "
+"значение для итогового результата. Особенно удобно для объединения кадров с "
+"разной фокусировкой."
 
 #: blendingdlg/enfusesettings.cpp:133
 msgid "Use Color Appearance Modelling"
@@ -124,6 +137,12 @@ msgid ""
 "option and default color blending algorithm is very slight, and will be most "
 "noticeable when you need to blend areas of different primary colors together."
 msgstr ""
+"Использовать моделирование цветового восприятия (CIECAM02) для детальной "
+"обработки цветов. Входные файлы должны иметь встроенные профили ICC. В "
+"случае их отсутствия будет использоваться цветовое пространство sRGB. "
+"Разница между использованием этого параметра и алгоритмом смешения цветов, "
+"используемым по умолчанию, очень невелика, и больше всего будет заметна при "
+"смешении областей  различных основных цветов."
 
 #: blendingdlg/enfusesettings.h:69 blendingdlg/enfusesettings.h:71
 msgid "enabled"
@@ -177,7 +196,7 @@ msgstr "Результат"
 
 #: blendingdlg/enfusestack.cpp:187
 msgid "Inputs"
-msgstr "Вывод"
+msgstr "Вводимые данные"
 
 #: blendingdlg/enfusestack.cpp:212
 msgid "Remove item"
@@ -189,7 +208,7 @@ msgstr "Очистить всё"
 
 #: blendingdlg/expoblendingdlg.cpp:142 plugin/aboutdata.h:41
 msgid "Exposure Blending"
-msgstr "Смешивание экспозиции"
+msgstr "Объединение экспозиций"
 
 #: blendingdlg/expoblendingdlg.cpp:144
 msgid "&Save"
@@ -197,7 +216,7 @@ msgstr "&Сохранить"
 
 #: blendingdlg/expoblendingdlg.cpp:145
 msgid "Process and save selected processed items."
-msgstr "Обработка и сохранение выбранных элементов."
+msgstr "Обработка и сохранение выбранных обработанных элементов."
 
 #: blendingdlg/expoblendingdlg.cpp:148
 msgid "&Preview"
@@ -205,7 +224,9 @@ msgstr "&Просмотр"
 
 #: blendingdlg/expoblendingdlg.cpp:149
 msgid "Process a preview of bracketed images stack with current settings."
-msgstr "Обработка просмотра объединяемых снимков с текущими параметрами."
+msgstr ""
+"Обработка просмотра объединяемых снимков с брекетингом с текущими "
+"параметрами."
 
 #: blendingdlg/expoblendingdlg.cpp:152
 msgid "&Abort"
@@ -217,11 +238,11 @@ msgstr "Прервать текущую обработку"
 
 #: blendingdlg/expoblendingdlg.cpp:156
 msgid "Exit this tool"
-msgstr "Завершение работы этого инструмента"
+msgstr "Завершить работу этого инструмента"
 
 #: blendingdlg/expoblendingdlg.cpp:167 importwizard/preprocessingpage.cpp:115
 msgid "Details..."
-msgstr "Сведения..."
+msgstr "Подробности..."
 
 #: blendingdlg/expoblendingdlg.cpp:191
 msgid "File Name Template: "
@@ -252,11 +273,11 @@ msgstr "Не удалось сохранить изображение в %1"
 
 #: blendingdlg/expoblendingdlg.cpp:517
 msgid "Processing preview of bracketed images..."
-msgstr "Обработка просмотра объединяемых снимков..."
+msgstr "Подготовка просмотра снимков с брекетингом..."
 
 #: blendingdlg/expoblendingdlg.cpp:523
 msgid "Processing targets of bracketed images..."
-msgstr "Обработка результатов объединяемых снимков..."
+msgstr "Обработка целевых результатов снимков с брекетингом..."
 
 #: blendingdlg/expoblendingdlg.cpp:548
 msgid "Failed to load processed image"
@@ -264,19 +285,19 @@ msgstr "Не удалось загрузить обработанное изоб
 
 #: blendingdlg/expoblendingdlg.cpp:557
 msgid "Failed to process preview of bracketed images"
-msgstr "Не удалось обработать просмотр объединяемых снимков"
+msgstr "Не удалось подготовить просмотр снимков с брекетингом"
 
 #: blendingdlg/expoblendingdlg.cpp:567
 msgid "Failed to process targets of bracketed images"
-msgstr "Не удалось обработать результат объединяемых снимков"
+msgstr "Не удалось обработать результат снимков с брекетингом"
 
 #: importwizard/importwizarddlg.cpp:78
 msgid "Exposure Blending Import Wizard"
-msgstr "Мастер импорта смешивания экспозиции"
+msgstr "Мастер импорта объединения экспозиций"
 
 #: importwizard/intropage.cpp:62
 msgid "Welcome to Exposure Blending Tool"
-msgstr "Добро пожаловать в инструмент смешивания экспозиции"
+msgstr "Добро пожаловать в инструмент объединения экспозиций"
 
 #: importwizard/intropage.cpp:69
 msgid ""
@@ -291,27 +312,25 @@ msgid ""
 "please take a look at <a href='http://en.wikipedia.org/wiki/Bracketing'>this "
 "page</a></p></qt>"
 msgstr ""
-"<qt><p><h1><b>Добро пожаловать в инструмент для смешивания экспозиции</b></"
-"h1></p><p>Этот инструмент предназначен для брекетинга снимков с разной "
-"экспозицией, с целью создания эффекта <a href='http://ru.wikipedia.org/wiki/"
+"<qt><p><h1><b>Добро пожаловать в инструмент для объединения экспозиций</b></"
+"h1></p><p>Этот инструмент предназначен для объединения снимков с брекетингом "
+"экспозиции, с целью создания  псевдо-<a href='http://ru.wikipedia.org/wiki/"
 "High_dynamic_range_imaging'>HDR изображения</a>.</p><p>Также инструментом "
-"можно воспользоваться для объединения нескольких снимков с разной "
-"фокусировкой, с целью получения единого изображения с повышенной глубиной "
+"можно воспользоваться для объединения нескольких снимков с брекетингом "
+"фокусировки, с целью получения единого изображения с повышенной глубиной "
 "резкости.</p><p>Этот мастер поможет вам настроить способ импорта изображений "
-"перед их объединением.</p><p>Изображения для брекетинга должны быть сняты "
-"одним фотоаппаратом при одинаковых условиях, желательно, с помощью штатива.</"
-"p><p>Для получения дополнительной информации посетите <a href='http://ru."
-"wikipedia.org/wiki/Автовилка'>эту веб-страницу</a></p></qt>"
+"перед их объединением.</p><p>Изображения с брекетингом должны быть сняты "
+"одной камерой в одинаковых условиях, желательно с помощью штатива.</p><p>Для "
+"получения дополнительной информации посетите <a href='http://ru.wikipedia."
+"org/wiki/Автовилка'>эту веб-страницу</a></p></qt>"
 
 #: importwizard/intropage.cpp:86
-#, fuzzy
-#| msgid "Exposure Blending"
 msgid "Exposure Blending Binaries"
-msgstr "Смешивание экспозиции"
+msgstr "Исполняемые файлы для объединения экспозиций"
 
 #: importwizard/itemspage.cpp:70
 msgid "<b>Set Bracketed Images</b>"
-msgstr "<b>Установка объединяемых снимков</b>"
+msgstr "<b>Указать снимки с брекетингом</b>"
 
 #: importwizard/itemspage.cpp:77
 msgid ""
@@ -320,23 +339,17 @@ msgid ""
 "added to the stack.</li><li>Do not mix images with different color depth.</"
 "li><li>All images must have the same dimensions.</li></ul></qt>"
 msgstr ""
-"<qt><p>Здесь вы можете указать снимки для брекетинга. Изображения должны "
-"удовлетворять следующим условиям:</p><ul><li>Должно быть минимум 2 снимка "
-"одного объекта.</li><li>Снимки не должны быть с различной глубиной цвета.</"
-"li><li>Снимки должны иметь одинаковый размер.</li></ul></qt>"
+"<qt><p>Укажите список снимков с брекетингом для объединения. Изображения "
+"должны удовлетворять следующим условиям:</p><ul><li>Должно быть минимум 2 "
+"снимка одного объекта.</li><li>Нельзя объединять снимки с различной глубиной "
+"цвета.</li><li>Снимки должны иметь одинаковые размеры.</li></ul></qt>"
 
 #: importwizard/lastpage.cpp:59
 msgid "Pre-Processing is Complete"
 msgstr "Предварительная обработка завершена"
 
 #: importwizard/lastpage.cpp:67
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt><p><h1><b>Bracketed Images Pre-Processing is Done</b></h1></"
-#| "p><p>Congratulations. Your images are ready to be fused. </p>To perform "
-#| "this operation, <b>%1</b> program from <a href='%2'>Enblend</a> project "
-#| "will be used.</p><p>Press \"Finish\" button to fuse your items and make a "
-#| "pseudo HDR image.</p></qt>"
+#, kde-format
 msgid ""
 "<qt><p><h1><b>Bracketed Images Pre-Processing is Done</b></h1></"
 "p><p>Congratulations. Your images are ready to be fused. </p><p>To perform "
@@ -344,30 +357,22 @@ msgid ""
 "be used.</p><p>Press \"Finish\" button to fuse your items and make a pseudo "
 "HDR image.</p></qt>"
 msgstr ""
-"<qt><p><h1><b>Предварительная обработка объединяемых снимков выполнена</b></"
-"h1></p><p>Поздравляем, ваши снимки готовы к брекетингу.</p> Для выполнения "
-"этой операции будет использована программа <b>%1</b> из проекта <a "
-"href='%2'>Enblend</a>.</p><p>Нажмите «Готово», чтобы объединить указанные "
-"вами снимки и создать эффект HDR изображения.</p></qt>"
+"<qt><p><h1><b>Предварительная обработка снимков с брекетингом выполнена</b></"
+"h1></p><p>Поздравляем, ваши снимки готовы к объединению.</p><p>Для "
+"выполнения этой операции будет использована программа <b>%1</b> из проекта "
+"<a href='%2'>Enblend</a>.</p><p>Нажмите «Завершить», чтобы объединить "
+"указанные снимки и создать псевдо-HDR изображение.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:98
 msgid "<b>Pre-Processing Bracketed Images</b>"
-msgstr "<b>Предварительная обработка объединяемых снимков</b>"
+msgstr "<b>Предварительная обработка снимков с брекетингом</b>"
 
 #: importwizard/preprocessingpage.cpp:107
 msgid "Align bracketed images"
 msgstr "Выравнивание объединяемых снимков"
 
 #: importwizard/preprocessingpage.cpp:160
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt><p>Now, we will pre-process bracketed images before fusing them.</"
-#| "p><p>To perform auto-alignment, the <b>%1</b> program from the <a "
-#| "href='%2'>%3</a> project will be used. Alignment must be performed if you "
-#| "have not used a tripod to take bracketed images. Alignment operations can "
-#| "take a while.</p><p>Pre-processing operations include Raw demosaicing. "
-#| "Raw images will be converted to 16-bit sRGB images with auto-gamma."
-#| "<p>Press \"Next\" to start pre-processing.</p></qt>"
+#, kde-format
 msgid ""
 "<qt><p>Now, we will pre-process bracketed images before fusing them.</"
 "p><p>To perform auto-alignment, the <b>%1</b> program from the <a href='%2'>"
@@ -379,25 +384,20 @@ msgid ""
 msgstr ""
 "<qt><p>Сейчас будет выполнена предварительная обработка снимков перед их "
 "объединением.</p><p>Для автоматического выравнивания будет использована "
-"программа <b>%1</b> из проекта <a href='%2'>%3</a>. Выравнивание требуется, "
-"если для создания снимков вы не пользовались штативом. Процесс по "
-"выравниванию может занять некоторое время.</p><p>Также, во время "
-"предварительной обработки будет устранена мозаичность цифровых негативов. "
-"Изображения цифровых негативов будут преобразованы в 16-битные sRGB "
-"изображения с автоматической гаммой.<p>Нажмите «Далее» для начала "
-"предварительной обработки.</p></qt> "
+"программа <b>%1</b> из проекта <a href='%2'>%3</a>. Выравнивание необходимо, "
+"если для создания снимков с брекетингом вы не пользовались штативом. Процесс "
+"выравнивания может занять некоторое время.</p><p>Предварительная обработка "
+"включает в себя демозаику Raw-снимков, которые будут конвертированы в 16-"
+"битные изображения RGB с автоматической гамма-коррекцией. </p><p>Нажмите "
+"«Далее» для начала предварительной обработки.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:179
-#, fuzzy
-#| msgid ""
-#| "<qt><p>Pre-processing is under progress, please wait.<p><p>This can take "
-#| "a while...</p></qt>"
 msgid ""
 "<qt><p>Pre-processing is under progress, please wait.</p><p>This can take a "
 "while...</p></qt>"
 msgstr ""
-"<qt><p>Выполняется предварительная обработка.<p><p>Пожалуйста, подождите...</"
-"p></qt>"
+"<qt><p>Выполняется предварительная обработка.</p><p>Пожалуйста, подождите..."
+"</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:221
 msgid "Pre-Processing Messages"
@@ -409,8 +409,8 @@ msgid ""
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
 msgstr ""
 "<qt><p>Предварительная обработка завершилась неудачно.</p><p>Проверьте ваши "
-"снимки для брекетинга...</p><p>Для просмотра сообщений обработки, нажмите "
-"кнопку «Сведения».</p></qt>"
+"снимки с брекетингом...</p><p>Для просмотра сообщений обработки, нажмите "
+"кнопку «Подробности».</p></qt>"
 
 #: manager/actionthread.cpp:308
 msgid "unknown"
@@ -429,17 +429,15 @@ msgstr ""
 
 #: plugin/aboutdata.h:43
 msgid "A tool to blend bracketed images"
-msgstr "Инструмент для брекетинга снимков"
+msgstr "Инструмент для объединения снимков с брекетингом"
 
 #: plugin/aboutdata.h:44
-#, fuzzy
-#| msgid "(c) 2009-2010, Gilles Caulier"
 msgid "(c) 2009-2012, Gilles Caulier"
-msgstr "© 2009–2010, Gilles Caulier"
+msgstr "© Жиль Колье (Gilles Caulier), 2009–2010"
 
 #: plugin/aboutdata.h:46
 msgid "Gilles Caulier"
-msgstr "Gilles Caulier"
+msgstr "Жиль Колье (Gilles Caulier)"
 
 #: plugin/aboutdata.h:47
 msgid "Author"
@@ -447,7 +445,7 @@ msgstr "Автор"
 
 #: plugin/aboutdata.h:50
 msgid "Johannes Wienke"
-msgstr "Johannes Wienke"
+msgstr "Йоханнес Виенке (Johannes Wienke)"
 
 #: plugin/aboutdata.h:51
 msgid "Developer"
@@ -460,18 +458,16 @@ msgstr "Открыть файл(ы)"
 #. i18n: ectx: Menu (Tools)
 #: plugin/kipiplugin_expoblendingui.rc:6
 msgid "&Tools"
-msgstr ""
+msgstr "С&ервис"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_expoblendingui.rc:12
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Главная панель инструментов"
 
 #: plugin/plugin_expoblending.cpp:95
-#, fuzzy
-#| msgid "Blend bracketed images..."
 msgid "Blend Bracketed Images..."
-msgstr "Брекетинг снимков..."
+msgstr "Объединение снимков с брекетингом…"
 
 #~ msgid "Handbook"
 #~ msgstr "Руководство"

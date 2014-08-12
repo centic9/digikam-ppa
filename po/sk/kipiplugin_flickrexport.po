@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-04-08 02:55+0200\n"
-"PO-Revision-Date: 2013-03-14 13:49+0100\n"
+"POT-Creation-Date: 2013-10-31 01:24+0000\n"
+"PO-Revision-Date: 2013-10-28 21:13+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -58,7 +58,7 @@ msgid "Title (required):"
 msgstr "Vyžaduje sa potvrdenie"
 
 #. i18n: ectx: property (text), widget (QLabel, captionLabel)
-#: flickralbumdialog.ui:143
+#: flickralbumdialog.ui:147
 msgid "Description (optional)"
 msgstr "Popis (voliteľný)"
 
@@ -257,9 +257,8 @@ msgid "Failed to fetch list of photo sets."
 msgstr ""
 
 #: flickrtalker.cpp:1339
-#, fuzzy
 msgid "Failed to upload photo"
-msgstr "Zlyhalo odoslanie \"%1\" pre %2. Dôvod: %3."
+msgstr "Zlyhalo nahratie fotky"
 
 #: flickrtalker.cpp:1407
 msgid "Failed to query photo information"
@@ -329,10 +328,9 @@ msgid "Moderate"
 msgstr "Priemerná"
 
 #: flickrwidget.cpp:152
-#, fuzzy
 msgctxt "photo safety level"
 msgid "Restricted"
-msgstr "Obmedzené prepisovanie"
+msgstr "Obmedzené"
 
 #: flickrwidget.cpp:153 flickrwidget.cpp:288
 msgctxt "photo content type"
@@ -374,7 +372,7 @@ msgstr "Nové články:"
 
 #: flickrwidget.cpp:195
 msgid "&Reload"
-msgstr ""
+msgstr "&Obnoviť"
 
 #: flickrwidget.cpp:211
 #, fuzzy
@@ -451,9 +449,8 @@ msgid "Moderate"
 msgstr "Priemerná"
 
 #: flickrwidget.cpp:284
-#, fuzzy
 msgid "Restricted"
-msgstr "Obmedzené prepisovanie"
+msgstr "Obmedzené"
 
 #: flickrwidget.cpp:286
 msgid "Content type:"
@@ -470,7 +467,7 @@ msgstr ""
 
 #: flickrwidget.cpp:316
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
 #: flickrwidget.cpp:328
 #, fuzzy
@@ -547,22 +544,22 @@ msgstr "Gilles Caulier"
 msgid "Developer"
 msgstr "Vývojár"
 
-#: flickrwindow.cpp:529
+#: flickrwindow.cpp:576
 #, fuzzy
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Všetci interpreti&gt;"
 
-#: flickrwindow.cpp:717
+#: flickrwindow.cpp:764
 #, fuzzy
 msgid "Flickr Export"
 msgstr "Flickr/23/Zooomr export"
 
-#: flickrwindow.cpp:735
+#: flickrwindow.cpp:782
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 
-#: flickrwindow.cpp:740
+#: flickrwindow.cpp:787
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

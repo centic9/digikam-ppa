@@ -3,21 +3,21 @@
 #
 # Шмелёв Артемий Геннадьевич <sgartjom@mail.ru>, 2008.
 # Nick Shaforostoff <shaforostoff@kde.ru>, 2008.
-# Alexander Potashev <aspotashev@gmail.com>, 2010, 2011.
+# Alexander Potashev <aspotashev@gmail.com>, 2010, 2011, 2014.
 # Yuri Efremov <yur.arh@gmail.com>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-04-08 02:55+0200\n"
-"PO-Revision-Date: 2011-05-05 00:06+0400\n"
+"POT-Creation-Date: 2013-10-31 01:24+0000\n"
+"PO-Revision-Date: 2014-02-01 22:50+0400\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -62,7 +62,7 @@ msgid "Title (required):"
 msgstr "Заголовок (обязательно):"
 
 #. i18n: ectx: property (text), widget (QLabel, captionLabel)
-#: flickralbumdialog.ui:143
+#: flickralbumdialog.ui:147
 msgid "Description (optional)"
 msgstr "Описание (необязательно):"
 
@@ -464,7 +464,7 @@ msgstr ""
 
 #: flickrwidget.cpp:316
 msgid "Resize photos before uploading"
-msgstr "Изменить размер перед загрузкой"
+msgstr "Изменять размер фотографий перед загрузкой"
 
 #: flickrwidget.cpp:328
 msgid "Maximum dimension (pixels):"
@@ -542,23 +542,23 @@ msgstr "Gilles Caulier"
 msgid "Developer"
 msgstr "Разработчик"
 
-#: flickrwindow.cpp:529
+#: flickrwindow.cpp:576
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;только в ленте фотографий&gt;"
 
-#: flickrwindow.cpp:717
+#: flickrwindow.cpp:764
 #, fuzzy
 #| msgid "Flickr/23/Zooomr Export"
 msgid "Flickr Export"
 msgstr "Экспорт в Flickr/23/Zooomr"
 
-#: flickrwindow.cpp:735
+#: flickrwindow.cpp:782
 #, fuzzy, kde-format
 #| msgid "Failed to query photo information"
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Ошибка запроса информации о фотографии"
 
-#: flickrwindow.cpp:740
+#: flickrwindow.cpp:787
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

@@ -36,15 +36,24 @@
 #include <QFileInfo>
 #include <QStringList>
 
+// KDE includes
+
+#include <klibloader.h>
+
 // LibRaw includes
 
 #include <libraw_version.h>
+
+#ifdef LIBRAW_HAS_CONFIG
 #include <libraw_config.h>
+#endif
 
 // Local includes
 
 #include "version.h"
 #include "rawfiles.h"
+
+static const KCatalogLoader loader("libkdcraw");
 
 namespace KDcrawIface
 {
@@ -114,6 +123,7 @@ bool KDcraw::loadEmbeddedPreview(QByteArray& imgData, const QString& path)
     LibRaw raw;
 
     int ret = raw.open_file(QFile::encodeName(path));
+
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run open_file: " << libraw_strerror(ret);
@@ -121,39 +131,25 @@ bool KDcraw::loadEmbeddedPreview(QByteArray& imgData, const QString& path)
         return false;
     }
 
-    ret = raw.unpack_thumb();
+    return (Private::loadEmbeddedPreview(imgData, raw));
+}
+
+bool KDcraw::loadEmbeddedPreview(QByteArray& imgData, const QBuffer& buffer)
+{
+    QString rawFilesExt(KDcrawIface::KDcraw::rawFiles());
+    LibRaw  raw;
+
+    QByteArray inData = buffer.data();
+    int ret           = raw.open_buffer((void*) inData.data(), (size_t) inData.size());
+
     if (ret != LIBRAW_SUCCESS)
     {
-        raw.recycle();
-        kDebug() << "LibRaw: failed to run unpack_thumb: " << libraw_strerror(ret);
-        raw.recycle();
-        return false;
-    }
-
-    libraw_processed_image_t* const thumb = raw.dcraw_make_mem_thumb(&ret);
-    if(!thumb)
-    {
-        kDebug() << "LibRaw: failed to run dcraw_make_mem_thumb: " << libraw_strerror(ret);
+        kDebug() << "LibRaw: failed to run open_buffer: " << libraw_strerror(ret);
         raw.recycle();
         return false;
     }
 
-    if(thumb->type == LIBRAW_IMAGE_BITMAP)
-        Private::createPPMHeader(imgData, thumb);
-    else
-        imgData = QByteArray((const char*)thumb->data, (int)thumb->data_size);
-
-    // Clear memory allocation. Introduced with LibRaw 0.11.0
-    raw.dcraw_clear_mem(thumb);
-    raw.recycle();
-
-    if ( imgData.isEmpty() )
-    {
-        kDebug() << "Failed to load JPEG thumb from LibRaw!";
-        return false;
-    }
-
-    return true;
+    return (Private::loadEmbeddedPreview(imgData, raw));
 }
 
 bool KDcraw::loadHalfPreview(QImage& image, const QString& path)
@@ -173,6 +169,7 @@ bool KDcraw::loadHalfPreview(QImage& image, const QString& path)
     raw.imgdata.params.half_size     = 1;         // Half-size color image (3x faster than -q).
 
     int ret = raw.open_file(QFile::encodeName(path));
+
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run open_file: " << libraw_strerror(ret);
@@ -180,15 +177,32 @@ bool KDcraw::loadHalfPreview(QImage& image, const QString& path)
         return false;
     }
 
-    ret = raw.unpack();
-    if (ret != LIBRAW_SUCCESS)
+
+    if(!Private::loadHalfPreview(image, raw))
     {
-        kDebug() << "LibRaw: failed to run unpack: " << libraw_strerror(ret);
-        raw.recycle();
+        kDebug() << "Failed to get half preview from LibRaw!";
         return false;
     }
 
-    ret = raw.dcraw_process();
+    kDebug() << "Using reduced RAW picture extraction";
+
+    return true;
+}
+
+bool KDcraw::loadHalfPreview(QByteArray& imgData, const QString& path)
+{
+    QFileInfo fileInfo(path);
+    QString   rawFilesExt(rawFiles());
+    QString   ext = fileInfo.suffix().toUpper();
+
+    if (!fileInfo.exists() || ext.isEmpty() || !rawFilesExt.toUpper().contains(ext))
+        return false;
+
+    kDebug() << "Try to use reduced RAW picture extraction";
+
+    LibRaw raw;
+    int ret = raw.open_file(QFile::encodeName(path));
+
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run dcraw_process: " << libraw_strerror(ret);
@@ -196,27 +210,47 @@ bool KDcraw::loadHalfPreview(QImage& image, const QString& path)
         return false;
     }
 
-    libraw_processed_image_t* halfImg = raw.dcraw_make_mem_image(&ret);
-    if(!halfImg)
+    QImage image;
+
+    if (!Private::loadHalfPreview(image, raw))
+    {
+        kDebug() << "KDcraw: failed to get half preview: " << libraw_strerror(ret);
+        return false;
+    }
+
+    QBuffer buffer(&imgData);
+    buffer.open(QIODevice::WriteOnly);
+    image.save(&buffer, "JPEG"); 
+
+    return true;
+}
+
+bool KDcraw::loadHalfPreview(QByteArray& imgData, const QBuffer& inBuffer)
+{
+    QString rawFilesExt(KDcrawIface::KDcraw::rawFiles());
+    LibRaw  raw;
+
+    QByteArray inData = inBuffer.data();
+    int ret           = raw.open_buffer((void*) inData.data(), (size_t) inData.size());
+
+    if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run dcraw_make_mem_image: " << libraw_strerror(ret);
         raw.recycle();
         return false;
     }
 
-    QByteArray imgData;
-    Private::createPPMHeader(imgData, halfImg);
-    // Clear memory allocation. Introduced with LibRaw 0.11.0
-    raw.dcraw_clear_mem(halfImg);
-    raw.recycle();
+    QImage image;
 
-    if (!image.loadFromData(imgData))
+    if (!Private::loadHalfPreview(image, raw))
     {
-        kDebug() << "Failed to load PPM data from LibRaw!";
+        kDebug() << "KDcraw: failed to get half preview: " << libraw_strerror(ret);
         return false;
     }
 
-    kDebug() << "Using reduced RAW picture extraction";
+    QBuffer buffer(&imgData);
+    buffer.open(QIODevice::WriteOnly);
+    image.save(&buffer, "JPG"); 
 
     return true;
 }
@@ -239,6 +273,7 @@ bool KDcraw::loadFullImage(QImage& image, const QString& path, const RawDecoding
 
     KDcraw decoder;
     bool ret = decoder.decodeRAWImage(path, prm, imgData, width, height, rgbmax);
+
     if (!ret)
     {
         kDebug() << "Failled to load full RAW picture";
@@ -260,9 +295,9 @@ bool KDcraw::loadFullImage(QImage& image, const QString& path, const RawDecoding
         sptr += 3;
     }
 
-    image = QImage(width, height, QImage::Format_ARGB32);
-    uint*  dptr  = (uint*)image.bits();
-    sptr         = (uchar*)imgData.data();
+    image      = QImage(width, height, QImage::Format_ARGB32);
+    uint* dptr = reinterpret_cast<uint*>(image.bits());
+    sptr       = (uchar*)imgData.data();
 
     for (int i = 0 ; i < width * height ; ++i)
     {
@@ -288,6 +323,7 @@ bool KDcraw::rawFileIdentify(DcrawInfoContainer& identify, const QString& path)
     LibRaw raw;
 
     int ret = raw.open_file(QFile::encodeName(path));
+
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run open_file: " << libraw_strerror(ret);
@@ -296,6 +332,7 @@ bool KDcraw::rawFileIdentify(DcrawInfoContainer& identify, const QString& path)
     }
 
     ret = raw.adjust_sizes_info_only();
+
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run adjust_sizes_info_only: " << libraw_strerror(ret);
@@ -330,6 +367,7 @@ bool KDcraw::extractRAWData(const QString& filePath, QByteArray& rawData, DcrawI
     raw.set_progress_handler(callbackForLibRaw, d);
 
     int ret = raw.open_file(QFile::encodeName(filePath));
+
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run open_file: " << libraw_strerror(ret);
@@ -342,12 +380,13 @@ bool KDcraw::extractRAWData(const QString& filePath, QByteArray& rawData, DcrawI
         raw.recycle();
         return false;
     }
+
     d->setProgress(0.3);
 
     raw.imgdata.params.output_bps  = 16;
     raw.imgdata.params.shot_select = shotSelect;
+    ret                            = raw.unpack();
 
-    ret = raw.unpack();
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run unpack: " << libraw_strerror(ret);
@@ -360,9 +399,11 @@ bool KDcraw::extractRAWData(const QString& filePath, QByteArray& rawData, DcrawI
         raw.recycle();
         return false;
     }
+
     d->setProgress(0.4);
 
     ret = raw.raw2image();
+
     if (ret != LIBRAW_SUCCESS)
     {
         kDebug() << "LibRaw: failed to run raw2image: " << libraw_strerror(ret);
@@ -375,6 +416,7 @@ bool KDcraw::extractRAWData(const QString& filePath, QByteArray& rawData, DcrawI
         raw.recycle();
         return false;
     }
+
     d->setProgress(0.6);
 
     Private::fillIndentifyInfo(&raw, identify);
@@ -384,6 +426,7 @@ bool KDcraw::extractRAWData(const QString& filePath, QByteArray& rawData, DcrawI
         raw.recycle();
         return false;
     }
+
     d->setProgress(0.8);
 
     rawData = QByteArray();
@@ -392,7 +435,7 @@ bool KDcraw::extractRAWData(const QString& filePath, QByteArray& rawData, DcrawI
     {
         rawData.resize((int)(raw.imgdata.sizes.iwidth * raw.imgdata.sizes.iheight  * raw.imgdata.idata.colors * sizeof(unsigned short)));
 
-        unsigned short* output = (unsigned short*)rawData.data();
+        unsigned short* output = reinterpret_cast<unsigned short*>(rawData.data());
 
         for (unsigned int row = 0; row < raw.imgdata.sizes.iheight; row++)
         {
@@ -410,7 +453,7 @@ bool KDcraw::extractRAWData(const QString& filePath, QByteArray& rawData, DcrawI
     {
         rawData.resize((int)(raw.imgdata.sizes.iwidth * raw.imgdata.sizes.iheight * sizeof(unsigned short)));
 
-        unsigned short* output = (unsigned short*)rawData.data();
+        unsigned short* output = reinterpret_cast<unsigned short*>(rawData.data());
 
         for (uint row = 0; row < raw.imgdata.sizes.iheight; row++)
         {
@@ -471,7 +514,7 @@ int KDcraw::rawFilesVersion()
 QStringList KDcraw::supportedCamera()
 {
     QStringList camera;
-    const char** list = LibRaw::cameraList();
+    const char** const list = LibRaw::cameraList();
 
     for (int i = 0; i < LibRaw::cameraCount(); i++)
         camera.append(list[i]);
@@ -484,21 +527,55 @@ QString KDcraw::librawVersion()
     return QString(LIBRAW_VERSION_STR).remove("-Release");
 }
 
-bool KDcraw::librawUseGomp()
+int KDcraw::librawUseGomp()
 {
-#ifdef LIBRAW_USE_OPENMP
+#ifdef LIBRAW_HAS_CONFIG
+#   ifdef LIBRAW_USE_OPENMP
     return true;
-#else
+#   else
     return false;
+#   endif
+#else
+    return -1;
 #endif
 }
 
-bool KDcraw::librawUseRawSpeed()
+int KDcraw::librawUseRawSpeed()
 {
-#ifdef LIBRAW_USE_RAWSPEED
+#ifdef LIBRAW_HAS_CONFIG
+#   ifdef LIBRAW_USE_RAWSPEED
     return true;
-#else
+#   else
     return false;
+#   endif
+#else
+    return -1;
+#endif
+}
+
+int KDcraw::librawUseGPL2DemosaicPack()
+{
+#ifdef LIBRAW_HAS_CONFIG
+#   ifdef LIBRAW_USE_DEMOSAIC_PACK_GPL2
+    return true;
+#   else
+    return false;
+#   endif
+#else
+    return -1;
+#endif
+}
+
+int KDcraw::librawUseGPL3DemosaicPack()
+{
+#ifdef LIBRAW_HAS_CONFIG
+#   ifdef LIBRAW_USE_DEMOSAIC_PACK_GPL3
+    return true;
+#   else
+    return false;
+#   endif
+#else
+    return -1;
 #endif
 }
 

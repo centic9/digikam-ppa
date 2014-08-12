@@ -1,0 +1,1205 @@
+<sect2
+>                                      <title
+>Спеціальні ефекти (Фільтри)</title>
+<sect3 id="infrared">
+<sect3info>
+
+<title
+>Імітація інфрачервоної плівки</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Фільтр &digikam; <emphasis
+>Інфрачервона плівка</emphasis
+> імітує зображення, створені за допомогою традиційної інфрачервоної плівки. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Вступ</title>
+
+<para
+>Імітація класичних зображень на інфрачервоній плівці (остаточне зображення буде чорно-білим) створює цікавий абстрактний ефект, навіть драматичніший за просте чорно-біле перетворення. Покращується контрастність і відчуття абстрактності зображення, це може підкреслити творчий задум фотомитця. Результат буде подібним до результату створення знімків з червоним фільтром об’єктива на чорно-білій плівці. Області, які відбиватимуть мало червоного світла, наприклад, небо, буде перетворено на області низької світності, темні області. Області, які мають чудові властивості щодо відбиття червоного світла, наприклад, рослинність, буде перетворено на області з високою світністю. Снігові пейзажі, перетворені за допомогою цього фільтра, набувають по-справжньому драматичного вигляду. </para>
+
+<para
+>Алгоритм засновано на способі з підручника «Імітація інфрачервоної плівки» з вебсайта GimpGuru.org, доступного за <ulink url="http://www.gimpguru.org/Tutorials/SimulatedInfrared"
+>цією адресою</ulink
+>. У фільтрі виконано спробу відтворити знамениту інфрачервону плівку Ilford(tm) SFX200. Ця плівка має діапазон чутливості у 200-800 ISO. </para>
+
+<sect4 id="using-infrared">
+<title
+>Користування інфрачервоним фільтром</title>
+
+<para
+>За допомогою лівої частини цього діалогового вікна ви зможете вибрати область, яку буде показано на панелі попереднього перегляду. Пересуньте червоний прямокутник за допомогою вказівника миші, щоб побачити результат застосування ефекту до різних частин зображення. </para>
+
+<para
+>У нижній частині вікна передбачено два інструменти керування: «Зерно плівки» і «Світлочутливість (ISO). Позначте пункт <guilabel
+>Додати зернистість плівки</guilabel
+>, якщо вам потрібна імітація зернистої текстури високочутливої плівки. За допомогою повзунка рівня ISO можна змінити величину доданої зернистості плівки і обсяг зеленого кольору (у природі хлорофілу) у мікшері перетворення. Зелені луки стануть білими як сніг! Спробуйте. </para>
+
+<note
+><para
+>Оскільки фільтр змішує канали кольорів у спробі відтворити інфрачервону плівку (з акцентом на каналі зеленого), імітація інфрачервоного ефекту неможлива для чорно-білих фотографій, оскільки у них не міститься даних про кольори зображення. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-infrared">
+<title
+>Робота фільтра</title>
+
+<para
+>Тут наведено приклад застосування ефекту інфрачервоної плівки до кольорової фотографії пейзажу Нової Зеландії. Показано початкове зображення (1) та перетворене зображення (2). Світлочутливість плівки, використана для імітації інфрачервоної плівки, відповідає ISO-400. Вищі значення ISO призведуть до створення чогось на зразок аури поряд з ділянками, які відбивають світло. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;infraredpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Робота інфрачервоного фільтра</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="filmgrain">
+<sect3info>
+
+<title
+>Зернистість фотоплівки</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Фільтр &digikam; <emphasis
+>Зернистість плівки</emphasis
+> імітує зображення, створені за допомогою традиційних високошвидкісних зернистих плівок. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Вступ</title>
+
+<para
+>Фільтр <emphasis
+>зернистість плівки</emphasis
+> &digikam; — це простий інструмент для відтворення зернистості плівки на ваших фотографіях. Подібну зернистість можна побачити на фотографіях, створених за допомогою класичної високошвидкісної плівки, наприклад, знаменитої плівки B/W KodaK Tri-X. Щоб збільшити чутливість плівки, виробники додавали більші зерна сполук срібла у фотоемульсію. </para>
+
+<para
+>За допомогою ефекту зернистості ви можете надати вашим знімкам певного настрою або неначебто перенести їх у часі. Результатом застосування ефекту буде зображення у дусі непідвладності часу, відокремлене від щоденного життя. Якщо вам потрібна саме ця атмосфера шерехуватості, художності, вуличної фотографії, особливо на чорно-білих зображеннях, скористайтеся цим фільтром. </para>
+
+<sect4 id="using-filmgrain">
+<title
+>Користування фільтром «Зернистість плівки»</title>
+
+<para
+>Передбачено повзунок, призначений для калібрування інтенсивності зерен і зернистості у одиницях чутливості ISO. Типовим є значення ISO-2400, хоча часто виникає потреба у вищих значеннях. Якщо вам потрібна вища зернистість, застосуйте фільтрування декілька разів. </para>
+
+</sect4>
+
+<sect4 id="inaction-filmgrain">
+<title
+>Робота фільтра</title>
+
+<para
+>Тут наведено приклад застосування ефекту зернистості плівки, застосованого до чорно-білого зображення. Показано початкове зображення (1) і виправлене зображення (2). Для імітації зернистості плівки вибрано чутливість плівки, що відповідає ISO-1600. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;filmgrainpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Робота фільтра «Зернистість плівки»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="oilpaint">
+<sect3info>
+
+<title
+>Малювання маслом</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>За допомогою фільтра &digikam; <emphasis
+>Малювання маслом</emphasis
+> ви можете надати вашій фотографії вигляд намальованої маслом картини. Використано алгоритм, автором якого є Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Вступ</title>
+
+<para
+>За допомогою фільтра &digikam; <emphasis
+>Малювання маслом</emphasis
+> ви можете надати цифровим фотографіям вигляду картин, намальованих маслом. Для застосування цього ефекту найкраще пасують зображення природи та натюрморти. </para>
+
+<sect4 id="using-oilpaint">
+<title
+>Користування фільтром «Олійна фарба»</title>
+
+<para
+>Для керування цим ефектом ви можете скористатися двома повзунками. За допомогою верхнього повзунка ви можете вибрати <guilabel
+>Розмір пензля</guilabel
+> у межах від 1 до 5. Більші пензлі пасують до великих зображень. <guilabel
+>Розмивання</guilabel
+> керує плавністю або, навпаки, зубчастістю мазків. </para>
+
+</sect4>
+
+<sect4 id="inaction-oilpaint">
+<title
+>Робота фільтра «Олійна фарба»</title>
+
+<para
+>Тут наведено приклад застосування фільтра малювання маслом. Показано початкове зображення (1) і перетворене зображення (2). <guilabel
+>Розмір пензля</guilabel
+> для цього зображення з розміром 640 пікселів було вибрано рівним 1, <guilabel
+>Розмивання</guilabel
+> рівне 17. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;oilpaintpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Попередній перегляд результатів застосування фільтра «Олійна фарба»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="charcoal">
+<sect3info>
+
+<title
+>Малювання вугільним олівцем</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>За допомогою фільтра &digikam; <emphasis
+>Малювання крейдою</emphasis
+> можна створити ефект ескіза крейдою. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Вступ</title>
+
+<para
+>У фільтрі <emphasis
+>Малювання вугільним олівцем</emphasis
+> &digikam; градієнти кольору і освітленості буде використано для створення ескіза «вугільним олівцем» у тонах сірого. За допомогою ліній буде створено контури об’єктів зображення. Якщо на зображенні немає різких змін градієнтів, таке зображення не є ідеальним для застосування цього ефекту. Корисно уявити собі сцену на ескізі створеному вручну, щоб правильно вибрати зображення, до якого б пасував цей ефект. </para>
+
+<sect4 id="using-charcoal">
+<title
+>Користування фільтром малювання вугільним олівцем</title>
+
+<para
+>Передбачено два повзунки для керування масштабом ефекту 1-100. За допомогою верхнього повзунка можна вибрати розмір пензля, а другий повзунок налаштовує контрастність (розмивання). </para>
+
+</sect4>
+
+<sect4 id="inaction-charcoal">
+<title
+>Робота фільтра малювання вугільним олівцем</title>
+
+<para
+>Тут наведено приклад використання фільтра малювання вугільним олівцем. Показано початкове (1) і перетворене (2) зображення. Під час застосування ефекту було використано типові значення 30 і 10. Результат можна покращити зміною рівнів освітленості. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;charcoalpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Робота фільтра малювання вугільним олівцем</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="emboss">
+<sect3info>
+
+<title
+>Створення ефекту барельєфа</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Фільтр <emphasis
+>Барельєф</emphasis
+> &digikam; створює просторове зображення вашої фотографії так, неначебто її було відтиснуто у воску. Авторство алгоритму ефекту належить Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info
+>     <title
+>Вступ</title>
+
+<para
+>Фільтр <emphasis
+>Барельєф</emphasis
+> &digikam; є швидким інструментом для створення на ваших фотографіях просторового ефекту. Цей фільтр досить добре працює для зображень з простою структурою, на яких колір не є найважливішою складовою зображення. Для роботи фільтр використовує різницю між кольорами і освітленістю для перетворення зображення на сірий, подібний до місячного, пейзаж з джерелом світла, розташованим згори ліворуч. </para>
+
+<sect4 id="using-emboss"
+>      <title
+>Користування фільтром «Барельєф»</title>
+
+<para
+>За допомогою елемента керування <guilabel
+>Глибина</guilabel
+> ви можете визначити контрастність фільтрування. Типовим є значення 30 (10%). </para>
+
+</sect4>
+
+<sect4 id="inaction-emboss"
+>   <title
+>Робота фільтра «Барельєф»</title>
+
+<para
+>Тут наведено приклад роботи фільтра барельєфа. Показано початкове зображення (1) і перетворене зображення (2). Використано значення параметра <guilabel
+>Глибина</guilabel
+> у 10%. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;embosspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Робота фільтра «Барельєф»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="distortionfx">
+<sect3info>
+
+<title
+>Ефекти викривлення</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+<para
+>Набір ефектів <emphasis
+>Ефекти викривлення.</emphasis
+> &digikam; є набором ефектів викривлення для цифрових фотографій. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Вступ</title>
+
+<para
+>За допомогою цього набору фільтрів ви зможете за допомогою дій з викривлення перетворити звичайну фотографію на твір мистецтва, гідний створення картинки у рамці. У наборі використано алгоритми, авторство яких належить Pieter Voloshyn.   </para>
+
+<sect4 id="using-distortionfx">
+<title
+>Користування фільтром</title>
+
+<para
+>Ось перелік можливих ефектів викривлення: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Тип</entry>
+      <entry
+>Перегляд</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Риб’ячі очі</guilabel
+>: натягує фотографію на просторову сферичну поверхню для відтворення типового фотографічного ефекту «риб’ячого ока». </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_fisheyes.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Вихор</guilabel
+>: закручує фотографію, що створює ефекти вихору. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_twirl.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Циліндричне гор.</guilabel
+>: натягує фотографію на горизонтальний циліндр. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Циліндричне верт.</guilabel
+>: натягує фотографію на вертикальний циліндр. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Циліндричне Г/В</guilabel
+>: натягує фотографію одразу на 2 циліндри, вертикальний і горизонтальний. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderhv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Карикатура</guilabel
+>: викривляє зображення за допомогою ефекту, зворотного до ефекту «Риб’ячі очі». </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_caricature.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Декілька кутів</guilabel
+>: розбиває фотографію на візерунок з декількома кутами. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_corners.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Хвилі гор.</guilabel
+>: викривляє зображення у формі горизонтальних хвиль. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+            
+   <row>
+      <entry
+><guilabel
+>Хвилі верт.</guilabel
+>: викривляє зображення у формі вертикальних хвиль. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Блокові хвилі 1</guilabel
+>: поділяє зображення на комірки, а потім створює ефект перегляду зображення крізь стіну зі скляних блоків. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Блокові хвилі 2</guilabel
+>: подібний до Блокових хвиль 1, але з використанням іншого різновиду викривлення скляними блоками. </entry>
+               
+      <entry>
+         <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Кругові хвилі 1</guilabel
+>: викривляє зображення у формі кругових хвиль. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Кругові хвилі 2</guilabel
+>: інший варіант ефекту кругових хвиль. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Поляризація</guilabel
+>: перетворює прямокутні декартові координати фотографії на полярні. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_polarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para
+>      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Розполяризація координат</guilabel
+>: ефект, протилежний до ефекту «Поляризація». </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_unpolarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Мозаїка</guilabel
+>: фотографію буде поділено на квадратні блоки, які потім буде випадковим чином пересунуто зображенням. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_tiles.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+      
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Застосування деяких ефектів може тривати досить довго через значне навантаження на процесор комп’ютера. Ви можете скасувати застосування ефекту натисканням кнопки <guilabel
+>Перервати</guilabel
+>. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-distortionfx">
+<title
+>Робота фільтра викривлення</title>
+
+<para
+>Нижче наведено приклади роботи діалогового вікна ефектів викривлення. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;distortionfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Попередній перегляд діалогового вікна інструменту ефектів викривлення</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="blurfx">
+<sect3info>
+
+<title
+>Ефекти розмивання</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Набір ефектів <emphasis
+>Ефекти розмивання.</emphasis
+> &digikam; є набором ефектів розмивання для цифрових фотографій. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Вступ</title>
+
+<para
+>За допомогою цього набору фільтрів ви зможете за допомогою дій з розмивання перетворити звичайну фотографію на твір мистецтва, гідний створення картинки у рамці. У наборі використано алгоритми, авторство яких належить Pieter Voloshyn.   </para>
+
+<sect4 id="using-blurfx">
+<title
+>Користування ефектами розмивання</title>
+
+<para
+>Ось перелік можливих ефектів розмивання: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Тип</entry>
+      <entry
+>Перегляд</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Розмивання трансфокацією</guilabel
+>: розмивання зображення відбувається вздовж радіальних ліній, що виходять з вказаної центральної точки. Цей ефект імітує розмивання внаслідок зміни фокусування об’єктива, надаючи фотографії динамічності, яку часто можна помітити у спортивній фотографії. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_zoomblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Радіальне розмивання</guilabel
+>: розмивання зображення відбувається внаслідок обертання пікселів навколо вказаної центральної точки. Цей ефект імітує розмивання внаслідок обертання фотоапарата. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_radialblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Розмивання віддаленням</guilabel
+>: розмивання зображення імітує ефект розфокусування об’єктива фотоапарата. Об’єкт фотографування неначебто пересувається у тло. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_farblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Розмивання рухом</guilabel
+>: розмивання відбувається пересуванням пікселів у горизонтальному напрямку. Цей ефект імітує розмивання внаслідок лінійного пересування фотоапарата, тобто знімки, виконані з автомобіля або потяга, що рухаються. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_motionblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Фокусне розмивання</guilabel
+>: розмивання у кутах зображення, що відтворює астигматичне викривлення внаслідок недосконалості об’єктива. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_focusblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Розмивання пом’якшенням</guilabel
+>: трошки розмиває зображення у областях з темними тонами і сильно розмиває світлі ділянки. Цей фільтр надає фотографіям замріяного і глянсуватого м’якого ефекту фокусування (ефекту Гамільтона). Цей ефект ідеальний для створення романтичних портретів, гламурних фотографій або додавання до фотографії тепла і відтінку сяйва. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_softenerblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Розмивання перескакуванням</guilabel
+>: розмиває зображення випадковим пересуванням пікселів, імітуючи розмивання випадковими рухами фотоапарата. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_shakeblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Кмітливе розмивання</guilabel
+>: програма знаходить краї кольорових ділянок зображення і розмиває їх без засмічування решти зображення. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_smartblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>      
+
+   <row>
+      <entry
+><guilabel
+>Матове скло</guilabel
+>: розмиває зображення, імітуючи випадкове розсіювання світла, яке є наслідком споглядання зображення крізь матове прозоре скло. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_frostglass.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+
+   <row>
+      <entry
+><guilabel
+>Мозаїка</guilabel
+>: розмиває зображення поділом фотографії на прямокутні комірки з наступним повторним складанням зображення з комірок, заповнених середнім кольором пікселів комірки. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_mosaic.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+               
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Застосування деяких ефектів може тривати досить довго через значне навантаження на процесор комп’ютера. Ви можете скасувати застосування ефекту натисканням кнопки <guilabel
+>Перервати</guilabel
+>. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blurfx">
+<title
+>Робота ефектів розмивання</title>
+
+<para
+>Нижче наведено приклад результатів роботи діалогового вікна ефектів розмивання. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blurfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Попередній перегляд діалогового вікна інструменту ефектів розмивання</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="raindrops">
+<sect3info>
+
+<title
+>Краплі дощу</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Фільтр &digikam; <emphasis
+>Краплі дощу</emphasis
+> створить на вашому зображенні чудову імітацію крапель дощу. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Вступ</title>
+
+<para
+><emphasis
+>Краплі дощу</emphasis
+> — це чудовий невеличкий інструмент, за допомогою якого ви можете додати краплі дощу на ваші зображення. Як зрозуміло з назви, використання цього фільтра надає вашому зображенню вигляду змоченого краплями дощу. Для фільтрування використовується алгоритм, автором якого є Pieter Voloshyn. </para>
+
+<sect4 id="using-raindrops">
+<title
+>Користування фільтром «Краплі дощу»</title>
+
+<para
+>Керувати параметрами ефекту ви можете за допомогою трьох повзунків: </para>
+
+<para
+>Очевидно, поле <guilabel
+>Розмір краплі</guilabel
+> надає змогу змінити розмір крапель. Оскільки розмір крапель не змінюється у автоматичному режимі зі зміною розмірів зображення, часто виникає потреба у зменшенні розміру для маленьких зображень. Параметр <guilabel
+>Кількість</guilabel
+> керує кількістю та щільністю крапель. Параметр <guilabel
+>Коефіцієнт «риб’ячого ока»</guilabel
+> керує оптичним ефектом у краплях на зображенні. </para>
+
+<note
+><para
+>Ви можете створити ділянку, вільну від крапель дощу за допомогою інструменту <guilabel
+>Вибір</guilabel
+> редактора зображень &digikam;. Оберіть ділянку вільну від крапель (наприклад, обличчя) до запуску фільтра <emphasis
+>Краплі дощу</emphasis
+>, щоб наказати програмі звільнити цю ділянку від крапель. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-raindrops">
+<title
+>Робота фільтра «Краплі дощу»</title>
+
+<para
+>Тут наведено приклад застосування фільтра крапель дощу. На початковому зображенні (1) показано захід сонця, на перетвореному зображенні (2) — захід сонця після грози. Для перетворення зображення було використано типові значення фільтрування. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;raindropspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Попередній перегляд результатів застосування фільтра «Краплі дощу»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

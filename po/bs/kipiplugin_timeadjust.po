@@ -5,36 +5,36 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2010-10-07 18:19+0000\n"
-"Last-Translator: Mirza <Unknown>\n"
+"POT-Creation-Date: 2014-01-15 01:27+0000\n"
+"PO-Revision-Date: 2013-11-01 21:17+0000\n"
+"Last-Translator: Mirhat <mbabic1@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 16820)\n"
+"X-Launchpad-Export-Date: 2013-11-02 06:20+0000\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2011-04-22 00:43+0000\n"
-"X-Generator: Launchpad (build 12883)\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Samir Ribić"
+msgstr "Samir Ribić,Mirhat"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "samir.ribic@etf.unsa.ba"
+msgstr "samir.ribic@etf.unsa.ba,mbabic1@etf.unsa.ba"
 
-#: clockphotodialog.cpp:82
+#: clockphotodialog.cpp:83
 msgid "Determine time difference with clock photo"
 msgstr "Utvrđivanje razlika u vremenu sa satom fotografija"
 
-#: clockphotodialog.cpp:86
+#: clockphotodialog.cpp:87
 msgid "Load different photo"
 msgstr "Učitaj drugu fotografiju"
 
-#: clockphotodialog.cpp:95
+#: clockphotodialog.cpp:96
 msgid ""
 "If you have a photo in your set with a clock or another external time source "
 "on it, you can load it here and set the indicator to the (date and) time "
@@ -45,23 +45,23 @@ msgstr ""
 "ga ovdje učitati i postaviti indikator datuma i vremena. Razlika u odnosu na "
 "sat s fotoaparata će se odrediti iz postavki."
 
-#: clockphotodialog.cpp:113
+#: clockphotodialog.cpp:114
 msgid "The clock date and time:"
 msgstr "Satni datum i vrijeme:"
 
-#: clockphotodialog.cpp:185
-#, fuzzy, kde-format
+#: clockphotodialog.cpp:186
+#, kde-format
 msgid ""
 "<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
 "image %1.</b></font>"
 msgstr ""
-"<font color=\"red\"><b>Ne mogu dobiti datumske i vremenske informacije iz "
-"slike %1.</b></font>"
+"<font color=\"red\"><b>Nije moguće dobiti<br>informacije o vremenu i "
+"datumu<br>iz slike %1.</b></font>"
 
-#: clockphotodialog.cpp:197
-#, fuzzy, kde-format
+#: clockphotodialog.cpp:198
+#, kde-format
 msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
-msgstr "<font color=\"red\"><b>Ne mogu učitati sliku %1.</b></font>"
+msgstr "<font color=\"red\"><b>Nije moguće učitati<br>sliku %1.</b></font>"
 
 #. i18n: ectx: Menu (Image)
 #: kipiplugin_timeadjustui.rc:6
@@ -74,18 +74,16 @@ msgid "Main Toolbar"
 msgstr "Glavna alatna traka"
 
 #: myimagelist.cpp:42 settingswidget.cpp:281
-#, fuzzy
 msgid "Timestamp Used"
-msgstr "Koristi datum i vrijeme"
+msgstr "Vremenska oznaka korištena"
 
 #: myimagelist.cpp:44 settingswidget.cpp:283
-#, fuzzy
 msgid "Timestamp Updated"
-msgstr "Koristi datum i vrijeme"
+msgstr "Vremenska oznaka obnovljena"
 
 #: myimagelist.cpp:46
 msgid "New Filename"
-msgstr ""
+msgstr "Nova datoteka"
 
 #: myimagelist.cpp:48
 msgid "Status"
@@ -93,30 +91,28 @@ msgstr "Status"
 
 #: myimagelist.cpp:69
 msgid "not valid"
-msgstr ""
+msgstr "neispravno"
 
 #: myimagelist.cpp:77
 msgctxt "not applicable"
 msgid "N.A"
-msgstr ""
+msgstr "N.A"
 
 #: myimagelist.cpp:95
-#, fuzzy
 msgid "Failed to update metadata timestamp"
-msgstr "Nije moguće ažuriranje metapodataka u:"
+msgstr "Neuspjela obnova metadata vremenske oznake"
 
 #: myimagelist.cpp:100
-#, fuzzy
 msgid "Failed to update file timestamp"
-msgstr "Nije moguće ažurirati vrijeme izmjene datoteke u:"
+msgstr "Neuspjela obnova vremenske oznake dokumenta"
 
 #: myimagelist.cpp:105
 msgid "Failed to rename file"
-msgstr ""
+msgstr "Nemoguće preimenovanje dokumenta"
 
 #: myimagelist.cpp:110
 msgid "Processed without error"
-msgstr ""
+msgstr "Obrađeno bez greške"
 
 #: plugin_timeadjust.cpp:106
 msgid "Adjust Time && Date..."
@@ -160,32 +156,28 @@ msgid "Reset to current date"
 msgstr "Postavi na trenutni datum"
 
 #: settingswidget.cpp:225
-#, fuzzy
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "Kopiraj vrijednost"
 
 #: settingswidget.cpp:226
-#, fuzzy
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Dodaj"
 
 #: settingswidget.cpp:227
-#, fuzzy
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
-msgstr "Oduzmi"
+msgstr "Oduzimanje"
 
 #: settingswidget.cpp:231
 msgctxt "time adjust offset, days value label"
 msgid "days"
-msgstr "dana"
+msgstr "dani"
 
 #: settingswidget.cpp:234
-#, fuzzy
 msgid "Determine difference from clock photo"
-msgstr "Utvrđivanje razlika u vremenu sa satom fotografija"
+msgstr "Odredite razliku iz sata slike"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -196,9 +188,8 @@ msgid "Filename"
 msgstr "Ime datoteke"
 
 #: settingswidget.cpp:282
-#, fuzzy
 msgid "Timestamp Adjustments"
-msgstr "Podešavanje vremena"
+msgstr "Podešavanje vremenske oznake"
 
 #: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
 msgid "Adjust Time & Date"
@@ -213,14 +204,14 @@ msgid "A Kipi plugin for adjusting the timestamp of picture files"
 msgstr "Kipi dodatak za podešavanje vremena nastanka slike"
 
 #: timeadjustdialog.cpp:133
-#, fuzzy
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
 "(c) 2006-2012, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2009, Gilles Caulier"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
 
 #: timeadjustdialog.cpp:137
 msgid "Jesper K. Pedersen"
@@ -240,20 +231,19 @@ msgstr "Programer"
 
 #: timeadjustdialog.cpp:145
 msgid "Smit Mehta"
-msgstr ""
+msgstr "Smit Mehta"
 
 #: timeadjustdialog.cpp:149
 msgid "Pieter Edelman"
-msgstr ""
+msgstr "Pieter Edelman"
 
 #: timeadjustdialog.cpp:377
-#, fuzzy
 msgid "Adjust Time and Date"
 msgstr "Podesi vrijeme i datum"
 
 #: timeadjustdialog.cpp:394
 msgid "Select at least one option"
-msgstr ""
+msgstr "Odaberite barem jednu opciju"
 
 #~ msgid "Determine from clock photo"
 #~ msgstr "Odredi iz sata foto aparata"

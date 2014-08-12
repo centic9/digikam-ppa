@@ -62,6 +62,8 @@
 
 using namespace KDcrawIface;
 
+class KMessageWidget;
+
 namespace Digikam
 {
 
@@ -83,9 +85,11 @@ public:
         decreaseThumbsAction(0),
         zoomFitToWindowAction(0),
         zoomTo100percents(0),
+        deleteAction(0),
         deleteNewAction(0),
         deleteAllAction(0),
         deleteSelectedAction(0),
+        downloadAction(0),
         downloadNewAction(0),
         downloadAllAction(0),
         downloadSelectedAction(0),
@@ -102,11 +106,19 @@ public:
         markAsDownloadedAction(0),
         resumeAction(0),
         pauseAction(0),
+        connectAction(0),
         itemSortAction(0),
         itemSortOrderAction(0),
         itemsGroupAction(0),
         showMenuBarAction(0),
+        showPreferencesAction(0),
         showLogAction(0),
+        showBarAction(0),
+        imageViewSelectionAction(0),
+        iconViewAction(0),
+        camItemPreviewAction(0),
+        mapViewAction(0),
+        cameraActions(0),
         helpMenu(0),
         advBox(0),
         splitter(0),
@@ -116,6 +128,8 @@ public:
         renameCustomizer(0),
         albumCustomizer(0),
         advancedSettings(0),
+        scriptingSettings(0),
+        filterStatusBar(0),
         rightSideBar(0),
         zoomBar(0),
         statusProgressBar(0),
@@ -124,13 +138,15 @@ public:
         progressTimer(0),
         progressValue(0),
         historyView(0),
-        filterComboBox(0)
+        filterComboBox(0),
+        errorWidget(0)
     {
     }
 
     static const QString          configGroupName;
-    static const QString          configUseMetadataDateEntry;
+    static const QString          configUseFileMetadata;
     static const QString          configUseDefaultTargetAlbum;
+    static const QString          configLastTargetAlbum;
     static const QString          configDefaultTargetAlbumId;
     static const QString          importFiltersConfigGroupName;
 
@@ -177,16 +193,20 @@ public:
     KAction*                      markAsDownloadedAction;
     KAction*                      resumeAction;
     KAction*                      pauseAction;
+    KAction*                      connectAction;
     KSelectAction*                itemSortAction;
     KSelectAction*                itemSortOrderAction;
     KSelectAction*                itemsGroupAction;
     KToggleAction*                showMenuBarAction;
+    KAction*                      showPreferencesAction;
     KToggleAction*                showLogAction;
     KToggleAction*                showBarAction;
     KSelectAction*                imageViewSelectionAction;
     KToggleAction*                iconViewAction;
     KToggleAction*                camItemPreviewAction;
     KToggleAction*                mapViewAction;
+    
+    QActionGroup*                 cameraActions;
 
     KUrl                          lastDestURL;
 
@@ -223,11 +243,14 @@ public:
     FilterComboBox*               filterComboBox;
 
     CHUpdateItemMap               map;
+    
+    KMessageWidget*               errorWidget;
 };
 
 const QString ImportUI::Private::configGroupName("Camera Settings");
-const QString ImportUI::Private::configUseMetadataDateEntry("UseThemeBackgroundColor");
+const QString ImportUI::Private::configUseFileMetadata("UseFileMetadata");
 const QString ImportUI::Private::configUseDefaultTargetAlbum("UseDefaultTargetAlbum");
+const QString ImportUI::Private::configLastTargetAlbum("LastTargetAlbum");
 const QString ImportUI::Private::configDefaultTargetAlbumId("DefaultTargetAlbumId");
 const QString ImportUI::Private::importFiltersConfigGroupName("Import Filters");
 

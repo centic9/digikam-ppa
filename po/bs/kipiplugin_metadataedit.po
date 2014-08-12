@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-08-31 01:29+0000\n"
-"PO-Revision-Date: 2011-05-08 12:19+0200\n"
-"Last-Translator: KDE 4 <megaribi@epn.ba>\n"
+"PO-Revision-Date: 2013-12-25 14:00+0000\n"
+"Last-Translator: Nermina Agović <nagovic1@etf.unsa.ba>\n"
 "Language-Team: bosanski <bs@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
@@ -16,16 +16,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Launchpad-Export-Date: 2011-04-22 07:09+0000\n"
-"X-Generator: KBabel 1.11.4\n"
+"X-Generator: Launchpad (build 16877)\n"
+"X-Launchpad-Export-Date: 2013-12-26 06:21+0000\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Elmedina Fejzagic,Samir Ribić"
+msgstr "Elmedina Fejzagic,Samir Ribić,Nermina AgovićSamir Ribić"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba"
+msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba,nagovic1@etf.unsa.ba"
 
 #: exif/exifadjust.cpp:94
 msgid "Brightness (APEX):"
@@ -182,15 +182,13 @@ msgstr ""
 "ograničeno sa ASCII znakovima."
 
 #: exif/exifcaption.cpp:113
-#, fuzzy
 msgctxt "image description"
 msgid "Description (*):"
-msgstr "Odredište:"
+msgstr "Opis(*):"
 
 #: exif/exifcaption.cpp:117
-#, fuzzy
 msgid "Enter the image description. This field is limited to ASCII characters."
-msgstr "Unesite naslov slike. Ovo polje je ograničeno sa ASCII znakovima."
+msgstr "Unesite opis slike. Polje je ograničeno na ASCII karaktere."
 
 #: exif/exifcaption.cpp:122
 msgid "Artist (*):"
@@ -214,7 +212,6 @@ msgstr ""
 "znakovima."
 
 #: exif/exifcaption.cpp:140
-#, fuzzy
 msgctxt "image caption"
 msgid "Caption:"
 msgstr "Naslov:"
@@ -261,9 +258,8 @@ msgid "Creation date and time"
 msgstr "Datum i vrijeme stvaranja"
 
 #: exif/exifdatetime.cpp:111
-#, fuzzy
 msgid "Creation sub-second"
-msgstr "Kreiranje drugog"
+msgstr "Kreiranje sub-drugog"
 
 #: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
 #, kde-format
@@ -301,9 +297,8 @@ msgid "Original date and time"
 msgstr "Originalni datum i vrijeme"
 
 #: exif/exifdatetime.cpp:137
-#, fuzzy
 msgid "Original sub-second"
-msgstr "Originalni drugi"
+msgstr "Originalni sub-drugi"
 
 #: exif/exifdatetime.cpp:143
 msgid "Set original date to today"
@@ -330,9 +325,8 @@ msgid "Digitization date and time"
 msgstr "Datum i vrijeme digitalizacije"
 
 #: exif/exifdatetime.cpp:156
-#, fuzzy
 msgid "Digitization sub-second"
-msgstr "Digitalizacija drugog"
+msgstr "Digitalizacija sub-drugi"
 
 #: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
 msgid "Set digitization date to today"
@@ -988,22 +982,17 @@ msgid "Flash energy (BCPS):"
 msgstr "Snaga blica (BCPS):"
 
 #: exif/exiflight.cpp:179
-#, fuzzy
-#| msgid ""
-#| "Set here the flash energy used to take the picture in BCPS units.  Beam "
-#| "Candle Power Seconds is the measure of effective intensity of a light "
-#| "source when it is focused into a beam by a reflector or lens. This value "
-#| "is the effective intensity for a period of one second."
 msgid ""
 "Set here the flash energy used to take the picture in BCPS units. Beam "
 "Candle Power Seconds is the measure of effective intensity of a light source "
 "when it is focused into a beam by a reflector or lens. This value is the "
 "effective intensity for a period of one second."
 msgstr ""
-"Postavite ovdje energiju bljeska korištenu za slikanje u BCPS jedinicama. "
-"Beam Candle Power Seconds je mjera efektivnog intenziteta izvora svjetla "
-"kada je fokusiran u snopu od reflektora ili leće. Ova vrijednost je "
-"efektivnog intenziteta u periodu od jedne sekunde."
+"Postavite ovdje bljesak energije korišten kako bi snimili fotografiju u BCPS "
+"jedinicama. Jedinica svijecine snage u sekundi je mjera efektivnog "
+"intenziteta izvora svjetlosti kada je usmjerena u snop od strane reflektora "
+"ili sočiva. Ova vrijednost je efektivni intenzitet tokom perioda od jedne "
+"sekunde."
 
 #: exif/exiflight.cpp:187
 msgid "White balance:"
@@ -1519,11 +1508,9 @@ msgstr "8: Nisko"
 
 #: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
 #: xmp/xmpproperties.cpp:194
-#, fuzzy
-#| msgid "Not defined"
 msgctxt "editorial urgency of content"
 msgid "9: User-defined"
-msgstr "Neodređeno"
+msgstr "9: Korisnički definisano"
 
 #: iptc/iptcenvelope.cpp:232
 msgid "Select here the envelope priority."
@@ -1945,9 +1932,8 @@ msgid "A Plugin to edit pictures' metadata."
 msgstr "Priključak za editovanje metapodataka slike."
 
 #: plugin/metadataedit.cpp:159
-#, fuzzy
 msgid "(c) 2006-2013, Gilles Caulier"
-msgstr "(c) 2006-2011, Gilles Caulier"
+msgstr "(c) 2006-2013, Gilles Caulier"
 
 #: plugin/metadataedit.cpp:161
 msgid "Gilles Caulier"
@@ -2128,9 +2114,8 @@ msgstr ""
 "64 ASCII znaka."
 
 #: plugin/plugin_metadataedit.cpp:130
-#, fuzzy
 msgid "&Metadata"
-msgstr "Metapodaci"
+msgstr "&Metapodaci"
 
 #: plugin/plugin_metadataedit.cpp:138
 msgid "Edit &All Metadata..."

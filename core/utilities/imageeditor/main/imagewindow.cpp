@@ -7,7 +7,7 @@
  * Description : digiKam image editor GUI
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2004-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -126,6 +126,7 @@
 #include "slideshow.h"
 #include "statusprogressbar.h"
 #include "syncjob.h"
+#include "tagsactionmngr.h"
 #include "tagscache.h"
 #include "tagspopupmenu.h"
 #include "thememanager.h"
@@ -181,6 +182,7 @@ ImageWindow::ImageWindow()
     setupUserArea();
     setupActions();
     setupStatusBar();
+    createGUI(xmlFile());
 
     // Load image plugins to GUI
 
@@ -459,11 +461,10 @@ void ImageWindow::setupActions()
 
     // ---------------------------------------------------------------------------------
 
-    createHelpActions(); 
+    createHelpActions();
 
-    // ---------------------------------------------------------------------------------
-
-    createGUI(xmlFile());
+    // Labels shortcuts must be registered here to be saved in XML GUI files if user customize it.
+    TagsActionMngr::defaultManager()->registerLabelsActions(actionCollection());
 }
 
 void ImageWindow::slotSetupChanged()
@@ -1431,7 +1432,7 @@ void ImageWindow::dragMoveEvent(QDragMoveEvent* e)
 
     if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs) ||
         DAlbumDrag::decode(e->mimeData(), urls, albumID) ||
-        DTagDrag::canDecode(e->mimeData()))
+        DTagListDrag::canDecode(e->mimeData()))
     {
         e->accept();
         return;
@@ -1495,17 +1496,17 @@ void ImageWindow::dropEvent(QDropEvent* e)
                        i18n("Album \"%1\"", ATitle));
         e->accept();
     }
-    else if (DTagDrag::canDecode(e->mimeData()))
+    else if (DTagListDrag::canDecode(e->mimeData()))
     {
-        int tagID;
+        QList<int> tagIDs;
 
-        if (!DTagDrag::decode(e->mimeData(), tagID))
+        if (!DTagListDrag::decode(e->mimeData(), tagIDs))
         {
             return;
         }
 
         AlbumManager* man        = AlbumManager::instance();
-        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagID, true);
+        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagIDs.first(), true);
         ImageInfoList imageInfoList(itemIDs);
 
         if (imageInfoList.isEmpty())
@@ -1515,7 +1516,7 @@ void ImageWindow::dropEvent(QDropEvent* e)
         }
 
         QString ATitle;
-        TAlbum* talbum     = man->findTAlbum(tagID);
+        TAlbum* talbum     = man->findTAlbum(tagIDs.first());
 
         if (talbum)
         {
@@ -1622,6 +1623,45 @@ void ImageWindow::slotComponentsInfo()
 void ImageWindow::slotDBStat()
 {
     showDigikamDatabaseStat();
+}
+
+void ImageWindow::slotAddedDropedItems(QDropEvent* e)
+{
+    int              albumID;
+    QList<int>       albumIDs;
+    QList<qlonglong> imageIDs;
+    KUrl::List       urls, kioURLs;
+    ImageInfoList    imgList;
+
+    if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs))
+    {
+        imgList = ImageInfoList(imageIDs);
+    }
+    else if (DAlbumDrag::decode(e->mimeData(), urls, albumID))
+    {
+        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInAlbum(albumID);
+
+        imgList = ImageInfoList(itemIDs);
+    }
+    else if (DTagListDrag::canDecode(e->mimeData()))
+    {
+        QList<int> tagIDs;
+
+        if (!DTagListDrag::decode(e->mimeData(), tagIDs))
+        {
+            return;
+        }
+
+        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagIDs.first(), true);
+        imgList = ImageInfoList(itemIDs);
+    }
+
+    e->accept();
+
+    if (!imgList.isEmpty())
+    {
+        loadImageInfos(imgList, imgList.first(), QString());
+    }
 }
 
 }  // namespace Digikam

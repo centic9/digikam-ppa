@@ -7,12 +7,12 @@ MESSAGE(STATUS "Starting CMake configuration for: kipi-plugins")
 # Information to update before to release this package.
 
 # kipi-plugins version
-SET(KIPIPLUGINS_MAJOR_VERSION "3")
-SET(KIPIPLUGINS_MINOR_VERSION "5")
+SET(KIPIPLUGINS_MAJOR_VERSION "4")
+SET(KIPIPLUGINS_MINOR_VERSION "0")
 SET(KIPIPLUGINS_PATCH_VERSION "0")
 
 # kipi-plugins release date
-SET (KIPIPLUGINS_RELEASE_DATE "2013-XX-XX")
+SET (KIPIPLUGINS_RELEASE_DATE "2014-05-12")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -28,6 +28,11 @@ SET(KIPIPLUGINS_SUFFIX_VERSION "")
 
 SET(KIPIPLUGINS_VERSION_STRING
     "${KIPIPLUGINS_MAJOR_VERSION}.${KIPIPLUGINS_MINOR_VERSION}.${KIPIPLUGINS_PATCH_VERSION}${KIPIPLUGINS_SUFFIX_VERSION}"
+   )
+   
+# NOTE: This string is used to set libkipiplugins SO version ID
+SET(KIPIPLUGINS_LIB_SO_VERSION_STRING
+    "${KIPIPLUGINS_MAJOR_VERSION}.${KIPIPLUGINS_MINOR_VERSION}.${KIPIPLUGINS_PATCH_VERSION}"
    )
 
 # =======================================================
@@ -122,12 +127,15 @@ INCLUDE(MacroLibrary)
 SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH})
 
 # Dependencies detection required by all plugins
-FIND_PACKAGE(Kipi 2.0.0 REQUIRED)
-FIND_PACKAGE(Kexiv2     REQUIRED)
-FIND_PACKAGE(JPEG       REQUIRED)
-FIND_PACKAGE(PNG        REQUIRED)
-FIND_PACKAGE(TIFF       REQUIRED)
-FIND_PACKAGE(Kdcraw     REQUIRED)
+
+SET(KIPI_MIN_VERSION "2.0.0")
+
+FIND_PACKAGE(Kipi ${KIPI_MIN_VERSION} REQUIRED)
+FIND_PACKAGE(Kexiv2                   REQUIRED)
+FIND_PACKAGE(JPEG                     REQUIRED)
+FIND_PACKAGE(PNG                      REQUIRED)
+FIND_PACKAGE(TIFF                     REQUIRED)
+FIND_PACKAGE(Kdcraw                   REQUIRED)
 
 # Check the libkdcraw version
 
@@ -163,14 +171,14 @@ MACRO_OPTIONAL_FIND_PACKAGE(KdepimLibs)                                  # For C
 MACRO_OPTIONAL_FIND_PACKAGE(QCA2)                                        # For Shwup and YandexFotki.
 MACRO_OPTIONAL_FIND_PACKAGE(KSane)                                       # For AcquireImages.
 MACRO_OPTIONAL_FIND_PACKAGE(OpenCV)                                      # For RemoveRedEyes.
-MACRO_OPTIONAL_FIND_PACKAGE(QJSON)                                       # For Debian Screenshots Facebook, and Imgur.
+MACRO_OPTIONAL_FIND_PACKAGE(QJSON)                                       # For Debian Screenshots Facebook, GoogleDrive, Dropbox and Imgur.
 MACRO_OPTIONAL_FIND_PACKAGE(KGeoMap)                                     # For GPSSync.
 MACRO_OPTIONAL_FIND_PACKAGE(Mediawiki)                                   # For Mediawiki.
 MACRO_OPTIONAL_FIND_PACKAGE(LibKVkontakte)                               # For VKontakte.
 MACRO_OPTIONAL_FIND_PACKAGE(Hupnp)                                       # For DlnaExport.
 MACRO_OPTIONAL_FIND_PACKAGE(ImageMagick COMPONENTS MagickCore display)   # For VideoSlideshow.
 MACRO_OPTIONAL_FIND_PACKAGE(QtGStreamer)                                 # For VideoSlideshow.
-MACRO_OPTIONAL_FIND_PACKAGE(QtKOAuth)                                     # For Imgur Auhtenticated API
+MACRO_OPTIONAL_FIND_PACKAGE(QtKOAuth)                                    # For Imgur Auhtenticated API
 
 # check the libkgeomap version
 # note that old versions don't specify version information, so for now
@@ -330,6 +338,8 @@ PRINT_PLUGIN_COMPILE_STATUS("RemoveRedEyes"      OpenCV_FOUND)
 PRINT_PLUGIN_COMPILE_STATUS("Debian Screenshots" QJSON_FOUND)
 PRINT_PLUGIN_COMPILE_STATUS("Facebook"           QJSON_FOUND)
 PRINT_PLUGIN_COMPILE_STATUS("Imgur"              QJSON_FOUND)
+PRINT_PLUGIN_COMPILE_STATUS("GoogleDrive"        QJSON_FOUND)
+PRINT_PLUGIN_COMPILE_STATUS("Dropbox"            QJSON_FOUND)
 PRINT_PLUGIN_COMPILE_STATUS("VKontakte"          LIBKVKONTAKTE_FOUND)
 PRINT_PLUGIN_COMPILE_STATUS("IpodExport"         IPOD_FOUND AND GLIB2_FOUND AND GOBJECT_FOUND AND GDK_FOUND)
 PRINT_PLUGIN_COMPILE_STATUS("Calendar"           KDEPIMLIBS_FOUND)
@@ -371,13 +381,9 @@ IF(KIPIPLUGINS_CAN_BE_COMPILED)
     INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/common/libkipiplugins
                         ${CMAKE_CURRENT_BINARY_DIR}/common/libkipiplugins
                         ${CMAKE_CURRENT_SOURCE_DIR}/common/libkipiplugins/dialogs
-                        ${CMAKE_CURRENT_BINARY_DIR}/common/libkipiplugins/dialogs
                         ${CMAKE_CURRENT_SOURCE_DIR}/common/libkipiplugins/widgets
-                        ${CMAKE_CURRENT_BINARY_DIR}/common/libkipiplugins/widgets
                         ${CMAKE_CURRENT_SOURCE_DIR}/common/libkipiplugins/tools
-                        ${CMAKE_CURRENT_BINARY_DIR}/common/libkipiplugins/tools
                         ${CMAKE_CURRENT_SOURCE_DIR}/common/libkipiplugins/tools/imageio
-                        ${CMAKE_CURRENT_BINARY_DIR}/common/libkipiplugins/tools/imageio
                         ${KEXIV2_INCLUDE_DIR}
                         ${KDCRAW_INCLUDE_DIR}
                         ${KIPI_INCLUDE_DIR}
@@ -460,6 +466,8 @@ IF(KIPIPLUGINS_CAN_BE_COMPILED)
         ADD_SUBDIRECTORY(debianscreenshots)
         ADD_SUBDIRECTORY(facebook)
         ADD_SUBDIRECTORY(imgurexport)
+        ADD_SUBDIRECTORY(googledrive)
+        ADD_SUBDIRECTORY(dropbox)
     ENDIF(QJSON_FOUND)
 
     IF(LIBKVKONTAKTE_FOUND)

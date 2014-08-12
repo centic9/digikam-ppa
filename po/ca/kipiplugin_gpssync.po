@@ -1,23 +1,23 @@
 # Translation of kipiplugin_gpssync.po to Catalan
-# Copyright (C) 2007-2013 This_file_is_part_of_KDE
+# Copyright (C) 2007-2014 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
 # Antoni Bella Pérez <antonibella5@orange.es>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-05-07 02:57+0200\n"
-"PO-Revision-Date: 2013-03-21 20:16+0100\n"
-"Last-Translator: Antoni Bella Pérez <antonibella5@orange.es>\n"
+"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"PO-Revision-Date: 2014-02-15 09:15+0100\n"
+"Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 1.4\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -40,7 +40,7 @@ msgstr[1] "S'han ajustat %1 imatges a «%2»"
 msgid "Load GPX files..."
 msgstr "Carrega fitxers GPX..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
 msgid "Filename"
 msgstr "Nom de fitxer"
 
@@ -254,27 +254,27 @@ msgstr "El fitxer és un fitxer GPX, però no s'ha trobat cap punt de dades."
 msgid "Coordinates"
 msgstr "Coordenades"
 
-#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:532
 msgid "Latitude"
 msgstr "Latitud"
 
-#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:533
 msgid "Longitude"
 msgstr "Longitud"
 
-#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:534
 msgid "Altitude"
 msgstr "Altura"
 
-#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:539
 msgid "Speed"
 msgstr "Velocitat"
 
-#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:538
 msgid "# satellites"
 msgstr "Nombre de satèl·lits"
 
-#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:537
 msgid "Fix type"
 msgstr "Tipus de correcció"
 
@@ -286,7 +286,7 @@ msgstr "2-d"
 msgid "3-d"
 msgstr "3-d"
 
-#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:536
 msgid "DOP"
 msgstr "DOP"
 
@@ -318,7 +318,7 @@ msgstr "Suprimeix l'altura"
 msgid "Remove uncertainty"
 msgstr "Suprimeix la incertesa"
 
-#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:643
 msgid "Remove speed"
 msgstr "Suprimeix la velocitat"
 
@@ -330,12 +330,12 @@ msgstr "Cerca els valors d'altura que manquen"
 msgid "Bookmarks"
 msgstr "Punts d'interès"
 
-#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
-#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
 msgid "GPS Sync"
 msgstr "Sincronització GPS"
 
-#: gpslistviewcontextmenu.cpp:420
+#: gpslistviewcontextmenu.cpp:419
 msgid ""
 "Found more than one point on the clipboard - can only assign one point at a "
 "time."
@@ -343,35 +343,35 @@ msgstr ""
 "S'ha trobat més d'un punt al porta-retalls. Només es pot assignar un punt "
 "alhora."
 
-#: gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:477
 msgid "Could not find any coordinates on the clipboard."
 msgstr "No s'ha pogut trobar cap coordenada en el porta-retalls."
 
-#: gpslistviewcontextmenu.cpp:483
+#: gpslistviewcontextmenu.cpp:481
 msgid "Coordinates pasted"
 msgstr "Les coordenades s'han enganxat"
 
-#: gpslistviewcontextmenu.cpp:514
+#: gpslistviewcontextmenu.cpp:512
 msgid "Bookmark selected"
 msgstr "S'ha seleccionat el punt d'interès"
 
-#: gpslistviewcontextmenu.cpp:624
+#: gpslistviewcontextmenu.cpp:622
 msgid "Remove coordinates information"
 msgstr "Suprimeix la informació de les coordenades"
 
-#: gpslistviewcontextmenu.cpp:629
+#: gpslistviewcontextmenu.cpp:627
 msgid "Remove altitude information"
 msgstr "Suprimeix la informació d'altura"
 
-#: gpslistviewcontextmenu.cpp:635
+#: gpslistviewcontextmenu.cpp:633
 msgid "Remove uncertainty information"
 msgstr "Suprimeix la informació incerta"
 
-#: gpslistviewcontextmenu.cpp:697
+#: gpslistviewcontextmenu.cpp:695
 msgid "Looking up altitudes"
 msgstr "S'estan cercant les altituds"
 
-#: gpslistviewcontextmenu.cpp:748
+#: gpslistviewcontextmenu.cpp:746
 #, kde-format
 msgid ""
 "Altitude lookup failed:\n"
@@ -380,7 +380,7 @@ msgstr ""
 "Ha fallat la cerca d'altitud:\n"
 "%1"
 
-#: gpslistviewcontextmenu.cpp:755
+#: gpslistviewcontextmenu.cpp:753
 msgid "Altitude looked up"
 msgstr "Cerca d'altitud"
 
@@ -834,71 +834,71 @@ msgstr "Error"
 msgid "GPS sync"
 msgstr "Sincronització GPS"
 
-#: kipiimageitem.cpp:363
+#: kipiimageitem.cpp:369
 msgid "Not available"
 msgstr "No disponible"
 
-#: kipiimageitem.cpp:396
+#: kipiimageitem.cpp:402
 #, kde-format
 msgid "DOP: %1"
 msgstr "DOP: %1"
 
-#: kipiimageitem.cpp:401
+#: kipiimageitem.cpp:407
 #, c-format, kde-format
 msgid "Fix: %1d"
 msgstr "Fix: %1d"
 
-#: kipiimageitem.cpp:406
+#: kipiimageitem.cpp:412
 #, kde-format
 msgid "#Sat: %1"
 msgstr "Núm.sat.: %1"
 
-#: kipiimageitem.cpp:441
+#: kipiimageitem.cpp:447
 #, c-format, kde-format
 msgid "%1d"
 msgstr "%1d"
 
-#: kipiimageitem.cpp:461
+#: kipiimageitem.cpp:467
 msgid "Modified"
 msgstr "Modificat"
 
-#: kipiimageitem.cpp:523
+#: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: kipiimageitem.cpp:525
+#: kipiimageitem.cpp:531
 msgid "Date and time"
 msgstr "Data i hora"
 
-#: kipiimageitem.cpp:529
+#: kipiimageitem.cpp:535
 msgid "Accuracy"
 msgstr "Precisió"
 
-#: kipiimageitem.cpp:534
+#: kipiimageitem.cpp:540
 msgid "Status"
 msgstr "Estat"
 
-#: kipiimageitem.cpp:535
+#: kipiimageitem.cpp:541
 msgid "Tags"
 msgstr "Etiquetes"
 
-#: kipiimageitem.cpp:722
+#: kipiimageitem.cpp:728
 msgid "Failed to open file."
 msgstr "Ha fallat en obrir el fitxer."
 
-#: kipiimageitem.cpp:783
+#: kipiimageitem.cpp:789
 msgid "Failed to add GPS info to image."
 msgstr "Ha fallat en afegir la informació del GPS a la imatge."
 
-#: kipiimageitem.cpp:793
+#: kipiimageitem.cpp:799
 msgid "Failed to remove GPS info from image"
 msgstr "Ha fallat en suprimir la informació del GPS de la imatge"
 
-#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+#: kipiimageitem.cpp:826 kipiimageitem.cpp:833
 msgid "Failed to save tags to file."
 msgstr "Ha fallat en desar les etiquetes al fitxer."
 
-#: kipiimageitem.cpp:838
+#: kipiimageitem.cpp:844
 msgid "Unable to save changes to file"
 msgstr "No s'ha pogut desar els canvis al fitxer"
 
@@ -912,9 +912,27 @@ msgstr "&Imatge"
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
-#: plugin_gpssync.cpp:99
+#: plugin_gpssync.cpp:100
 msgid "Geo-location"
 msgstr "Geolocalització"
+
+#: plugin_gpssync.cpp:120
+msgid ""
+"You have enabled writing to sidecar files for metadata storage in the host "
+"application, but not for reading. This means that any metadata stored in the "
+"sidecar files will be overwritten here.\n"
+"Please enable reading of sidecar files in the host application or continue "
+"at your own risk."
+msgstr ""
+"Heu activat l'escriptura de fitxers laterals per emmagatzemar les metadades "
+"en l'aplicació pare, però no per lectura. Això significa que aquí se "
+"sobreescriurà qualsevol metadada emmagatzemada en els fitxers laterals.\n"
+"Activeu la lectura dels fitxers laterals en l'aplicació pare o continueu "
+"sota la vostra responsabilitat."
+
+#: plugin_gpssync.cpp:125
+msgid "Warning: Sidecar settings"
+msgstr "Avís: Paràmetres laterals"
 
 #: rgtagmodel.cpp:95
 msgid "{Country}"

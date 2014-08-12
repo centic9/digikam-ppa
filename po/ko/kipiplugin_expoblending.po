@@ -1,0 +1,447 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Park Shinjo <peremen@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-07-30 01:31+0000\n"
+"PO-Revision-Date: 2014-03-24 00:21+0900\n"
+"Last-Translator: Park Shinjo <peremen@gmail.com>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Park Shinjo"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: blendingdlg/bracketstack.cpp:141
+msgid "To process"
+msgstr "처리할 항목"
+
+#: blendingdlg/bracketstack.cpp:142
+msgid "File Name"
+msgstr "파일 이름"
+
+#: blendingdlg/bracketstack.cpp:143 importwizard/itemspage.cpp:85
+msgid "Exposure (EV)"
+msgstr "노출(EV)"
+
+#: blendingdlg/enfusesettings.cpp:90
+msgctxt "enfuse settings"
+msgid "Auto Levels"
+msgstr "자동 레벨"
+
+#: blendingdlg/enfusesettings.cpp:91
+msgid "Set automatic level selection (maximized) for pyramid blending."
+msgstr "피라미드 블렌딩에 자동 레벨 선택(최대화)을 사용합니다."
+
+#: blendingdlg/enfusesettings.cpp:93
+msgctxt "enfuse settings"
+msgid "Levels:"
+msgstr "레벨:"
+
+#: blendingdlg/enfusesettings.cpp:98
+msgid ""
+"Set the number of levels for pyramid blending. A low number trades off "
+"quality of results for faster execution time and lower memory usage."
+msgstr ""
+"피라미드 블렌딩에 사용할 레벨을 선택하십시오. 숫자가 적으면 실행 시간이 빨라"
+"지고 메모리 사용량이 적어지는 대신 품질이 떨어집니다."
+
+#: blendingdlg/enfusesettings.cpp:102
+msgid "Hard Mask"
+msgstr "하드 마스크"
+
+#: blendingdlg/enfusesettings.cpp:103
+msgid ""
+"Force hard blend masks and no averaging on finest scale. This is especially "
+"useful for focus stacks with thin and high contrast features, improves "
+"sharpness at the expense of increased noise."
+msgstr ""
+"하드 블렌딩 마스크를 강제로 사용하고 최적 비율에서 평균값을 사용하지 않습니"
+"다. 잡음이 증가하는 대신 선명도가 증가하며, 얇고 명도가 높은 피사체에 초점이 "
+"맞은 경우 유용합니다."
+
+#: blendingdlg/enfusesettings.cpp:108
+msgctxt "enfuse settings"
+msgid "Exposure:"
+msgstr "노출:"
+
+#: blendingdlg/enfusesettings.cpp:113
+msgid ""
+"Set the exposure contribution for the blending process. Higher values will "
+"favor well-exposed pixels."
+msgstr ""
+"블렌딩 과정에서 사용할 노출 기여도를 선택하십시오. 값이 높으면 노출이 잘 된 "
+"픽셀을 선호합니다."
+
+#: blendingdlg/enfusesettings.cpp:116
+msgctxt "enfuse settings"
+msgid "Saturation:"
+msgstr "색 농도:"
+
+#: blendingdlg/enfusesettings.cpp:121
+msgid ""
+"Increasing this value makes pixels with high saturation contribute more to "
+"the final output."
+msgstr "값이 높을수록 색 농도가 높은 픽셀을 출력에 더 많이 반영합니다."
+
+#: blendingdlg/enfusesettings.cpp:124
+msgctxt "enfuse settings"
+msgid "Contrast:"
+msgstr "명암:"
+
+#: blendingdlg/enfusesettings.cpp:129
+msgid ""
+"Sets the relative weight of high-contrast pixels. Increasing this weight "
+"makes pixels with neighboring differently colored pixels contribute more to "
+"the final output. Particularly useful for focus stacks."
+msgstr ""
+"고명암 픽셀의 상대적인 가중치를 설정합니다. 이 가중치를 높이면 인접한 픽셀과 "
+"색이 다른 픽셀이 출력에 더 많이 나타납니다. 초점 스택 처리에 유용합니다."
+
+#: blendingdlg/enfusesettings.cpp:133
+msgid "Use Color Appearance Modelling"
+msgstr "색 표시 모델링 사용"
+
+#: blendingdlg/enfusesettings.cpp:134
+msgid ""
+"Use Color Appearance Modelling (CIECAM02) to render detailed colors. Your "
+"input files should have embedded ICC profiles. If no ICC profile is present, "
+"sRGB color space will be used instead. The difference between using this "
+"option and default color blending algorithm is very slight, and will be most "
+"noticeable when you need to blend areas of different primary colors together."
+msgstr ""
+"자세한 색을 처리하기 위해서 색 표시 모델링(CIECAM02)을 사용합니다. 입력 파일"
+"에는 ICC 프로필이 내장되어 있어야 하며, 프로필이 없으면 sRGB 색 공간을 사용합"
+"니다. 이 옵션과 기본 색 혼합 알고리즘의 차이는 크지 않으므로, 다른 원색이 혼"
+"합된 영역을 주변으로 차이점이 두드러집니다."
+
+#: blendingdlg/enfusesettings.h:69 blendingdlg/enfusesettings.h:71
+msgid "enabled"
+msgstr "활성화됨"
+
+#: blendingdlg/enfusesettings.h:69 blendingdlg/enfusesettings.h:71
+msgid "disabled"
+msgstr "비활성화됨"
+
+#: blendingdlg/enfusesettings.h:69
+#, kde-format
+msgid "Hardmask: %1"
+msgstr "하드마스크: %1"
+
+#: blendingdlg/enfusesettings.h:71
+#, kde-format
+msgid "CIECAM02: %1"
+msgstr "CIECAM02: %1"
+
+#: blendingdlg/enfusesettings.h:73
+msgid "auto"
+msgstr "자동"
+
+#: blendingdlg/enfusesettings.h:73
+#, kde-format
+msgid "Levels: %1"
+msgstr "레벨: %1"
+
+#: blendingdlg/enfusesettings.h:75
+#, kde-format
+msgid "Exposure: %1"
+msgstr "노출: %1"
+
+#: blendingdlg/enfusesettings.h:77
+#, kde-format
+msgid "Saturation: %1"
+msgstr "색 농도: %1"
+
+#: blendingdlg/enfusesettings.h:79
+#, kde-format
+msgid "Contrast: %1"
+msgstr "명암: %1"
+
+#: blendingdlg/enfusestack.cpp:185
+msgid "To Save"
+msgstr "저장"
+
+#: blendingdlg/enfusestack.cpp:186
+msgid "Target"
+msgstr "대상"
+
+#: blendingdlg/enfusestack.cpp:187
+msgid "Inputs"
+msgstr "입력"
+
+#: blendingdlg/enfusestack.cpp:212
+msgid "Remove item"
+msgstr "항목 삭제"
+
+#: blendingdlg/enfusestack.cpp:219
+msgid "Clear all"
+msgstr "모두 지우기"
+
+#: blendingdlg/expoblendingdlg.cpp:142 plugin/aboutdata.h:41
+msgid "Exposure Blending"
+msgstr "노출 혼합"
+
+#: blendingdlg/expoblendingdlg.cpp:144
+msgid "&Save"
+msgstr "저장(&S)"
+
+#: blendingdlg/expoblendingdlg.cpp:145
+msgid "Process and save selected processed items."
+msgstr "항목을 처리하고 선택한 처리 항목을 저장합니다."
+
+#: blendingdlg/expoblendingdlg.cpp:148
+msgid "&Preview"
+msgstr "미리 보기(&P)"
+
+#: blendingdlg/expoblendingdlg.cpp:149
+msgid "Process a preview of bracketed images stack with current settings."
+msgstr "현재 설정을 사용하여 브래킷된 사진 스택의 미리 보기를 처리합니다."
+
+#: blendingdlg/expoblendingdlg.cpp:152
+msgid "&Abort"
+msgstr "중지(&A)"
+
+#: blendingdlg/expoblendingdlg.cpp:153
+msgid "Abort current process"
+msgstr "현재 진행 중단"
+
+#: blendingdlg/expoblendingdlg.cpp:156
+msgid "Exit this tool"
+msgstr "이 도구 끝내기"
+
+#: blendingdlg/expoblendingdlg.cpp:167 importwizard/preprocessingpage.cpp:115
+msgid "Details..."
+msgstr "자세히..."
+
+#: blendingdlg/expoblendingdlg.cpp:191
+msgid "File Name Template: "
+msgstr "파일 이름 템플릿: "
+
+#: blendingdlg/expoblendingdlg.cpp:196
+msgid "Enfuse Settings"
+msgstr "Enfuse 설정"
+
+#: blendingdlg/expoblendingdlg.cpp:197
+msgid "Save Settings"
+msgstr "저장 설정"
+
+#: blendingdlg/expoblendingdlg.cpp:284
+msgid "Enfuse Processing Messages"
+msgstr "합성 처리 메시지"
+
+#: blendingdlg/expoblendingdlg.cpp:438
+#, kde-format
+msgid ""
+"A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+msgstr "파일 \"%1\"이(가) 이미 존재합니다. 덮어쓰시겠습니까?"
+
+#: blendingdlg/expoblendingdlg.cpp:473
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr "사진을 %1(으)로 저장할 수 없음"
+
+#: blendingdlg/expoblendingdlg.cpp:517
+msgid "Processing preview of bracketed images..."
+msgstr "브래킷된 사진 미리 보기 처리 중..."
+
+#: blendingdlg/expoblendingdlg.cpp:523
+msgid "Processing targets of bracketed images..."
+msgstr "브래킷된 사진의 대상 처리 중..."
+
+#: blendingdlg/expoblendingdlg.cpp:548
+msgid "Failed to load processed image"
+msgstr "처리된 사진을 불러올 수 없음"
+
+#: blendingdlg/expoblendingdlg.cpp:557
+msgid "Failed to process preview of bracketed images"
+msgstr "브래킷된 사진의 미리 보기를 처리할 수 없음"
+
+#: blendingdlg/expoblendingdlg.cpp:567
+msgid "Failed to process targets of bracketed images"
+msgstr "브래킷된 사진의 대상을 처리할 수 없음"
+
+#: importwizard/importwizarddlg.cpp:78
+msgid "Exposure Blending Import Wizard"
+msgstr "노출 혼합 가져오기 마법사"
+
+#: importwizard/intropage.cpp:62
+msgid "Welcome to Exposure Blending Tool"
+msgstr "노출 혼합 도구에 오신 것을 환영합니다"
+
+#: importwizard/intropage.cpp:69
+msgid ""
+"<qt><p><h1><b>Welcome to Exposure Blending tool</b></h1></p><p>This tool "
+"fuses bracketed images with different exposure to make pseudo <a "
+"href='http://en.wikipedia.org/wiki/High_dynamic_range_imaging'>HDR image</a>."
+"</p><p>It can also be used to merge focus bracketed stack to get a single "
+"image with increased depth of field.</p><p>This assistant will help you to "
+"configure how to import images before merging them to a single one.</"
+"p><p>Bracketed images must be taken with the same camera, in the same "
+"conditions, and if possible using a tripod.</p><p>For more information, "
+"please take a look at <a href='http://en.wikipedia.org/wiki/Bracketing'>this "
+"page</a></p></qt>"
+msgstr ""
+"<qt><p><h1><b>노출 혼합 도구에 오신 것을 환영합니다</b></h1></p><p>이 도구는 "
+"서로 다른 노출로 브래킷된 사진을 합성하여 의사 <a href='https://ko.wikipedia."
+"org/wiki/%ED%95%98%EC%9D%B4_%EB%8B%A4%EC%9D%B4%EB%82%B4%EB%AF%B9_%EB%A0%88%EC"
+"%9D%B8%EC%A7%80_%EC%9D%B4%EB%AF%B8%EC%A7%95'>HDR 사진</a>을 합성합니다.</"
+"p><p>초점 브래킷 스택을 합성하여 피사계 심도가 깊은 사진을 만들 수도 있습니"
+"다.</p><p>이 마법사는 사진을 가져오고 단일 사진으로 합성하는 과정을 도와 줄 "
+"것입니다.</p><p>브래킷된 사진은 같은 카메라로 같은 조건에서 쵤영해야 하며, 가"
+"능하다면 삼각대를 사용해야 합니다.</p><p>더 많은 정보를 보려면 <a "
+"href='http://en.wikipedia.org/wiki/Bracketing'>이 페이지</a>를 참고하십시오."
+"</p></qt>"
+
+#: importwizard/intropage.cpp:86
+msgid "Exposure Blending Binaries"
+msgstr "노출 혼합 실행 파일"
+
+#: importwizard/itemspage.cpp:70
+msgid "<b>Set Bracketed Images</b>"
+msgstr "<b>브래킷된 사진 선택</b>"
+
+#: importwizard/itemspage.cpp:77
+msgid ""
+"<qt><p>Set here the list of your bracketed images to fuse. Please follow "
+"these conditions:</p><ul><li>At least 2 images from the same subject must be "
+"added to the stack.</li><li>Do not mix images with different color depth.</"
+"li><li>All images must have the same dimensions.</li></ul></qt>"
+msgstr ""
+"<qt><p>합성할 브래킷된 사진 목록을 설정하십시오. 다음 조건을 만족해야 합니다:"
+"</p><ul><li>스택에 같은 피사체를 촬영한 두 장 이상의 사진이 필요합니다.</"
+"li><li>색 농도가 다른 사진을 섞지 마십시오.</li><li>모든 사진의 크기는 같아"
+"야 합니다.</li></ul></qt>"
+
+#: importwizard/lastpage.cpp:59
+msgid "Pre-Processing is Complete"
+msgstr "전처리 완료"
+
+#: importwizard/lastpage.cpp:67
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Bracketed Images Pre-Processing is Done</b></h1></"
+"p><p>Congratulations. Your images are ready to be fused. </p><p>To perform "
+"this operation, <b>%1</b> program from <a href='%2'>Enblend</a> project will "
+"be used.</p><p>Press \"Finish\" button to fuse your items and make a pseudo "
+"HDR image.</p></qt>"
+msgstr ""
+"<qt><p><h1><b>브래킷된 사진 전처리가 완료되었습니다</b></h1></p><p>이제 사진"
+"을 합칠 수 있습니다.</p><p>이 작업을 수행할 때 <a href='%2'>Enblend</a> 프로"
+"젝트의 <b>%1</b> 프로그램을 사용합니다.</p><p>\"완료\" 단추를 누르면 사진을 "
+"합쳐서 의사 HDR 사진을 생성합니다.</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:98
+msgid "<b>Pre-Processing Bracketed Images</b>"
+msgstr "<b>브래킷된 사진 전처리</b>"
+
+#: importwizard/preprocessingpage.cpp:107
+msgid "Align bracketed images"
+msgstr "브래킷된 사진 정렬"
+
+#: importwizard/preprocessingpage.cpp:160
+#, kde-format
+msgid ""
+"<qt><p>Now, we will pre-process bracketed images before fusing them.</"
+"p><p>To perform auto-alignment, the <b>%1</b> program from the <a href='%2'>"
+"%3</a> project will be used. Alignment must be performed if you have not "
+"used a tripod to take bracketed images. Alignment operations can take a "
+"while.</p><p>Pre-processing operations include Raw demosaicing. Raw images "
+"will be converted to 16-bit sRGB images with auto-gamma.</p><p>Press \"Next"
+"\" to start pre-processing.</p></qt>"
+msgstr ""
+"<qt> <p>이제 브래킷된 사진을 혼합하기 전에 전처리 과정을 진행합니다.</p> <p>"
+"자동 정렬을 실행하기 위해서 <a href='%2'>%3</a> 프로젝트의 <b>%1</b> 프로그램"
+"을 사용합니다. 브래킷된 사진을 삼각대로 찍지 않았으면 정렬 과정을 진행해야 합"
+"니다. 정렬 작업은 시간이 걸릴 수도 있습니다.</p> <p>전처리 과정은 RAW 디모자"
+"이킹 과정을 포함합니다. RAW 사진은 자동 감마를 적용하여 16비트 sRGB 사진으로 "
+"변환합니다.</p> <p>\"다음\"을 누르면 전처리 과정을 시작합니다.</p> </qt>"
+
+#: importwizard/preprocessingpage.cpp:179
+msgid ""
+"<qt><p>Pre-processing is under progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>전처리 진행 중입니다. 기다려 주십시오.</p><p>시간이 걸릴 수도 있습니"
+"다...</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:221
+msgid "Pre-Processing Messages"
+msgstr "전처리 메시지"
+
+#: importwizard/preprocessingpage.cpp:240
+msgid ""
+"<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
+"stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
+msgstr ""
+"<qt><p>전처리가 실패하였습니다.</p><p>브래킷된 사진 스택을 확인하십시오...</"
+"p><p>\"자세히\"를 누르면 처리 메시지를 볼 수 있습니다.</p></qt>"
+
+#: manager/actionthread.cpp:308
+msgid "unknown"
+msgstr "알 수 없음"
+
+#: manager/actionthread.cpp:807
+#, kde-format
+msgid ""
+"Cannot run %1:\n"
+"\n"
+" %2"
+msgstr ""
+"%1을(를) 실행할 수 없음:\n"
+"\n"
+" %2"
+
+#: plugin/aboutdata.h:43
+msgid "A tool to blend bracketed images"
+msgstr "브래킷된 사진을 혼합하는 도구"
+
+#: plugin/aboutdata.h:44
+msgid "(c) 2009-2012, Gilles Caulier"
+msgstr "(c) 2009-2012, Gilles Caulier"
+
+#: plugin/aboutdata.h:46
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:47
+msgid "Author"
+msgstr "작성자"
+
+#: plugin/aboutdata.h:50
+msgid "Johannes Wienke"
+msgstr "Johannes Wienke"
+
+#: plugin/aboutdata.h:51
+msgid "Developer"
+msgstr "개발자"
+
+#: plugin/expoblending.cpp:55
+msgid "File(s) to open"
+msgstr "열 파일"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_expoblendingui.rc:6
+msgid "&Tools"
+msgstr "도구(&T)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_expoblendingui.rc:12
+msgid "Main Toolbar"
+msgstr "주 도구 모음"
+
+#: plugin/plugin_expoblending.cpp:95
+msgid "Blend Bracketed Images..."
+msgstr "브래킷된 사진 혼합..."

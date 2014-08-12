@@ -29,17 +29,47 @@ SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_P
 MESSAGE(STATUS "----------------------------------------------------------------------------------")
 MESSAGE(STATUS "Starting CMake configuration for: libkdcraw")
 
-OPTION(ENABLE_LCMS2    "Link libraw to LCMS2 else LCMS1 (default=OFF)"    OFF)
-OPTION(ENABLE_RAWSPEED "Compile libraw with RawSpeed codec (default=OFF)" OFF)
-
 FIND_PACKAGE(KDE4 REQUIRED)
 INCLUDE(KDE4Defaults)
 INCLUDE(MacroLibrary)
 INCLUDE(MacroOptionalAddSubdirectory)
 INCLUDE(FindPackageHandleStandardArgs)
 
-ADD_DEFINITIONS (${QT_DEFINITIONS} ${QT_QTDBUS_DEFINITIONS} ${KDE4_DEFINITIONS})
-INCLUDE_DIRECTORIES (${QDBUS_INCLUDE_DIRS} ${CMAKE_SOURCE_DIR} ${CMAKE_BINARY_DIR} ${KDE4_INCLUDES})
+# NOTE: Libraw 0.16.x is prefered version to use because it's ported to Cmake with full features supported.
+# Until libraw 0.16.0 is release (ends of 2013), we will support previous version (with limited support)
+FIND_PACKAGE(LibRaw 0.15)
+SET_PACKAGE_PROPERTIES(LibRaw PROPERTIES DESCRIPTION "library that provides image Raw file demosaicing" URL "http://www.libraw.org" TYPE REQUIRED PURPOSE "Required to build libkdcraw")
+IF(NOT LIBRAW_FOUND)
+  FEATURE_SUMMARY(
+    WHAT ALL
+    INCLUDE_QUIET_PACKAGES
+    FATAL_ON_MISSING_REQUIRED_PACKAGES
+  )
+  RETURN()
+ENDIF()
+
+# Check LibRaw config header.
+MESSAGE(STATUS "LibRaw version: ${LibRaw_VERSION_STRING}")
+
+IF(EXISTS "${LibRaw_INCLUDE_DIR}/libraw_config.h")
+    ADD_DEFINITIONS(-DLIBRAW_HAS_CONFIG)
+    MESSAGE(STATUS "LibRaw config file exists: yes")
+ELSE()
+    MESSAGE(STATUS "LibRaw config file exists: no")
+ENDIF()
+
+ADD_DEFINITIONS(${QT_DEFINITIONS}
+                ${QT_QTDBUS_DEFINITIONS}
+                ${KDE4_DEFINITIONS}
+                ${LibRaw_r_DEFINITIONS}
+               )
+
+INCLUDE_DIRECTORIES(${QDBUS_INCLUDE_DIRS} 
+                    ${CMAKE_SOURCE_DIR}
+                    ${CMAKE_BINARY_DIR}
+                    ${KDE4_INCLUDES}
+                    ${LibRaw_INCLUDE_DIR}
+                   )
 
 SET(LIBKDCRAW_AREA_CODE_GENERAL 51002)
 ADD_DEFINITIONS(-DKDE_DEFAULT_DEBUG_AREA=${LIBKDCRAW_AREA_CODE_GENERAL})
@@ -69,11 +99,12 @@ ADD_DEFINITIONS(-DKDE_DEFAULT_DEBUG_AREA=${LIBKDCRAW_AREA_CODE_GENERAL})
 # 2.2.0 => 22.0.0 (Released with KDE 4.10.0 - Including RawSpeed Codec)
 # 2.3.0 => 22.1.0 (Released with KDE 4.11.0 - Including Coverity Report fixes)
 # 2.3.1 => 22.1.1 (Released with KDE 4.11.2 - Including settings widget fixes)
+# 2.4.0 => 23.0.2 (Released with KDE 4.12.0 - Drop internal Libraw source code + new methods to get thumb and preview from QBuffer)
 
 # Library API version
 SET(DCRAW_LIB_MAJOR_VERSION "2")
-SET(DCRAW_LIB_MINOR_VERSION "3")
-SET(DCRAW_LIB_PATCH_VERSION "1")
+SET(DCRAW_LIB_MINOR_VERSION "4")
+SET(DCRAW_LIB_PATCH_VERSION "2")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -86,9 +117,9 @@ SET(DCRAW_LIB_SUFFIX_VERSION "")
 
 # Library ABI version used by linker.
 # For details : http://www.gnu.org/software/libtool/manual/libtool.html#Updating-version-info
-SET(DCRAW_LIB_SO_CUR_VERSION "22")
-SET(DCRAW_LIB_SO_REV_VERSION "1")
-SET(DCRAW_LIB_SO_AGE_VERSION "1")
+SET(DCRAW_LIB_SO_CUR_VERSION "23")
+SET(DCRAW_LIB_SO_REV_VERSION "0")
+SET(DCRAW_LIB_SO_AGE_VERSION "0")
 
 # ==================================================================================================
 # Set env. variables accordinly.
@@ -99,16 +130,7 @@ SET(DCRAW_LIB_VERSION_ID "0x0${DCRAW_LIB_MAJOR_VERSION}0${DCRAW_LIB_MINOR_VERSIO
 SET(DCRAW_LIB_SO_VERSION_STRING "${DCRAW_LIB_SO_CUR_VERSION}.${DCRAW_LIB_SO_REV_VERSION}.${DCRAW_LIB_SO_AGE_VERSION}")
 
 # ==================================================================================================
-# Compiler optimizations for Release target.
 
-IF(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
-    SET(CMAKE_C_FLAGS_RELEASE "-O4 -DNDEBUG -DQT_NO_DEBUG")
-    SET(CMAKE_CXX_FLAGS_RELEASE "-O4 -DNDEBUG -DQT_NO_DEBUG")
-ENDIF(CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
-
-# ==================================================================================================
-
-ADD_SUBDIRECTORY(libraw)
 ADD_SUBDIRECTORY(libkdcraw)
 ADD_SUBDIRECTORY(test)
 ADD_SUBDIRECTORY(icons)
@@ -120,4 +142,8 @@ IF(NOT WIN32)
     INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/libkdcraw.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig)
 ENDIF(NOT WIN32)
 
-MACRO_DISPLAY_FEATURE_LOG()
+FEATURE_SUMMARY(
+  WHAT ALL
+  INCLUDE_QUIET_PACKAGES
+  FATAL_ON_MISSING_REQUIRED_PACKAGES
+)

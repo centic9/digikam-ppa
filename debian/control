@@ -11,7 +11,6 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libkipi-dev (>= 4:4.10), libkexiv2-dev (>= 4:4.10), libkdcraw-dev (>= 4:4.10), libksane-dev (>= 4:4.10),
  libqt4-dev, libqt4-opengl-dev [!armhf], libgl1-mesa-dev [!armhf], libglu1-mesa-dev [!armhf],
  libqtwebkit-dev, libqtgstreamer-dev,
- libgphoto2-dev,
  libmagickcore-dev, imagemagick,
  libhupnp-dev,
  libgtk2.0-dev,
@@ -20,28 +19,31 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libqca2-dev,
  libqjson-dev,
  libpng-dev, libtiff-dev, libjpeg-dev,
- libsane-dev,
  shared-desktop-ontologies,
  mysql-server-core-5.5 | mysql-server-core,
- libglib2.0-dev,
+ libglib2.0-dev, libgphoto2-dev (>= 2.4),
+ libusb-dev [!kfreebsd-any], libusb2-dev [kfreebsd-any],
  liblcms2-dev, liblqr-1-0-dev,
- libopencv-dev (>= 2.4.4),
+ libopencv-dev (>= 2.4.5),
  libjasper-dev,
  liblensfun-dev (>= 0.2.7),
- libexiv2-dev,
  libsqlite3-dev,
+ libsqlite0-dev,
  libpgf-dev,
- flex, bison, libeigen3-dev,
+ flex, bison, libeigen3-dev (>= 3.1.2),
  libboost-graph1.54-dev,
  libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev,
+# for libksane:
+ libsane-dev,
+# for libkexiv2:
+ libexiv2-dev,
  dh-apparmor,
- valgrind [amd64 armel armhf i386 mips mipsel powerpc ppc64 s390x x32],
- libusb-dev
+ valgrind
 Build-Conflicts: libgraphicsmagick1-dev
-Standards-Version: 3.8.4
+Standards-Version: 3.9.5
 Vcs-Bzr: https://code.launchpad.net/~kubuntu-packagers/kubuntu-packaging/digikam
 Vcs-Browser: http://bazaar.launchpad.net/~kubuntu-packagers/kubuntu-packaging/digikam
-X-Debian-Vcs-Svn: svn://svn.debian.org/pkg-kde/kde-extras/digikam/trunk
+X-Debian-Vcs-Svn: svn://anonscm.debian.org/svn/pkg-kde/kde-extras/digikam/trunk
 X-Debian-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-kde/kde-extras/digikam/trunk/
 Homepage: http://www.digikam.org
 
@@ -106,7 +108,7 @@ Description: digital photo management application for KDE
 
 Package: showfoto
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, digikam (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: dolphin, kipi-plugins
 Breaks: kipi-plugins-common (<< 4:3.1.0-2~)
 Replaces: kipi-plugins-common (<< 4:3.1.0-2~)
@@ -130,7 +132,7 @@ Description: debugging symbols for digiKam
 
 Package: digikam-data
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, opencv-data
 Breaks: kipi-plugins-common (<< 4:3.1.0-2~)
 Replaces: kipi-plugins-common (<< 4:3.1.0-2~)
 Conflicts: ${digikam:Conflicts}
@@ -157,7 +159,7 @@ Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, kipi-plugins-common (= ${source:Version})
 Breaks: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
 Replaces: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
-Recommends: imagemagick, hugin, enblend, enfuse, minidnla
+Recommends: imagemagick, hugin, enblend, enfuse, minidlna
 Suggests: gallery, gimp, kmail, vorbis-tools
 Enhances: digikam, gwenview, kphotoalbum, showimg
 Description: image manipulation/handling plugins for KIPI aware programs

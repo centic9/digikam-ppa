@@ -56,19 +56,14 @@ ImportIconView::ImportIconView(QWidget* const parent)
 {
 }
 
-void ImportIconView::init(CameraController* const controller)
+void ImportIconView::init()
 {
-    installDefaultModels(controller);
-
     d->normalDelegate = new ImportNormalDelegate(this);
 
     setItemDelegate(d->normalDelegate);
     setSpacing(10);
 
     ImportSettings* settings = ImportSettings::instance();
-
-    //FIXME: What is the purpose of this line.
-    importFilterModel()->setCategorizationMode(CamItemSortSettings::CategoryByFolder);
 
     setThumbnailSize((ThumbnailSize::Size)settings->getDefaultIconSize());
 
@@ -78,9 +73,6 @@ void ImportIconView::init(CameraController* const controller)
     setDropIndicatorShown(false);
 
     setToolTipEnabled(settings->showToolTipsIsValid());
-    importFilterModel()->setSortRole((CamItemSortSettings::SortRole)settings->getImageSortOrder());
-    importFilterModel()->setSortOrder((CamItemSortSettings::SortOrder)settings->getImageSorting());
-    importFilterModel()->setCategorizationMode((CamItemSortSettings::CategorizationMode)settings->getImageGroupMode());
 
     // selection overlay
     addSelectionOverlay(d->normalDelegate);
@@ -146,7 +138,10 @@ int ImportIconView::fitToWidthIcons()
 
 CamItemInfo ImportIconView::camItemInfo(const QString& folder, const QString& file)
 {
-    QModelIndex indexForCamItemInfo = importFilterModel()->indexForPath(QString(folder + file));
+    KUrl url(folder);
+    url.adjustPath(KUrl::AddTrailingSlash);
+    url.setFileName(file);
+    QModelIndex indexForCamItemInfo = importFilterModel()->indexForPath(url.toLocalFile());
 
     if(indexForCamItemInfo.isValid())
     {
@@ -158,7 +153,10 @@ CamItemInfo ImportIconView::camItemInfo(const QString& folder, const QString& fi
 
 CamItemInfo& ImportIconView::camItemInfoRef(const QString& folder, const QString& file)
 {
-    QModelIndex indexForCamItemInfo = importFilterModel()->indexForPath(QString(folder + file));
+    KUrl url(folder);
+    url.adjustPath(KUrl::AddTrailingSlash);
+    url.setFileName(file);
+    QModelIndex indexForCamItemInfo = importFilterModel()->indexForPath(url.toLocalFile());
     QModelIndex mappedIndex = importFilterModel()->mapToSource(indexForCamItemInfo);
     return importImageModel()->camItemInfoRef(mappedIndex);
 }
@@ -259,7 +257,7 @@ void ImportIconView::slotRotateLeft(const QList<QModelIndex>& indexes)
 {
     QList<ImageInfo> imageInfos;
 
-    foreach(QModelIndex index, indexes)
+    foreach(const QModelIndex& index, indexes)
     {
         ImageInfo imageInfo(importFilterModel()->camItemInfo(index).url());
         imageInfos << imageInfo;
@@ -272,7 +270,7 @@ void ImportIconView::slotRotateRight(const QList<QModelIndex>& indexes)
 {
     QList<ImageInfo> imageInfos;
 
-    foreach(QModelIndex index, indexes)
+    foreach(const QModelIndex& index, indexes)
     {
         ImageInfo imageInfo(importFilterModel()->camItemInfo(index).url());
         imageInfos << imageInfo;
@@ -400,7 +398,7 @@ void ImportIconView::assignTagToSelected(int tagID)
 {
     CamItemInfoList infos = selectedCamItemInfos();
 
-    foreach(CamItemInfo info, infos)
+    foreach(const CamItemInfo& info, infos)
     {
         importImageModel()->camItemInfoRef(importImageModel()->indexForCamItemInfo(info)).tagIds.append(tagID);
     }
@@ -410,7 +408,7 @@ void ImportIconView::removeTagFromSelected(int tagID)
 {
     CamItemInfoList infos = selectedCamItemInfos();
 
-    foreach(CamItemInfo info, infos)
+    foreach(const CamItemInfo& info, infos)
     {
         importImageModel()->camItemInfoRef(importImageModel()->indexForCamItemInfo(info)).tagIds.removeAll(tagID);
     }
@@ -425,7 +423,7 @@ void ImportIconView::assignPickLabelToSelected(int pickId)
 {
     CamItemInfoList infos = selectedCamItemInfos();
 
-    foreach(CamItemInfo info, infos)
+    foreach(const CamItemInfo& info, infos)
     {
         importImageModel()->camItemInfoRef(importImageModel()->indexForCamItemInfo(info)).pickLabel = pickId;
     }
@@ -440,7 +438,7 @@ void ImportIconView::assignColorLabelToSelected(int colorId)
 {
     CamItemInfoList infos = selectedCamItemInfos();
 
-    foreach(CamItemInfo info, infos)
+    foreach(const CamItemInfo& info, infos)
     {
         importImageModel()->camItemInfoRef(importImageModel()->indexForCamItemInfo(info)).colorLabel = colorId;
     }
@@ -448,7 +446,7 @@ void ImportIconView::assignColorLabelToSelected(int colorId)
 
 void ImportIconView::assignRating(const QList<QModelIndex>& indexes, int rating)
 {
-    foreach(QModelIndex index, indexes)
+    foreach(const QModelIndex& index, indexes)
     {
         if (index.isValid())
         {
@@ -461,7 +459,7 @@ void ImportIconView::assignRatingToSelected(int rating)
 {
     CamItemInfoList infos = selectedCamItemInfos();
 
-    foreach(CamItemInfo info, infos)
+    foreach(const CamItemInfo& info, infos)
     {
         importImageModel()->camItemInfoRef(importImageModel()->indexForCamItemInfo(info)).rating = rating;
     }

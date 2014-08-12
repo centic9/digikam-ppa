@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_smug\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-01-31 03:27+0100\n"
-"PO-Revision-Date: 2013-03-14 13:50+0100\n"
+"POT-Creation-Date: 2013-10-30 01:30+0000\n"
+"PO-Revision-Date: 2013-10-28 21:14+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -64,7 +64,7 @@ msgstr ""
 
 #: smugalbum.cpp:70
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
 
 #: smugalbum.cpp:75
 msgid "Category of the album that will be created (required)."
@@ -76,7 +76,7 @@ msgstr ""
 
 #: smugalbum.cpp:84
 msgid "Description of the album that will be created (optional)."
-msgstr ""
+msgstr "Popis albumu, ktorý bude vytvorený (voliteľné)."
 
 #: smugalbum.cpp:89
 msgid "Album template for the new album (optional)."
@@ -95,7 +95,7 @@ msgstr "Kategória:"
 #: smugalbum.cpp:94
 msgctxt "new smug album dialog"
 msgid "Subcategory:"
-msgstr ""
+msgstr "Podkategória:"
 
 #: smugalbum.cpp:95
 msgctxt "new smug album dialog"
@@ -160,16 +160,16 @@ msgstr "   Existuje rada   "
 msgid "Logging in to SmugMug service..."
 msgstr "Prihlásenie sa do %1 zlyhalo: autentifikácia potrebná"
 
-#: smugtalker.cpp:501
+#: smugtalker.cpp:493
 msgid "Login failed"
 msgstr "Prihlásenie zlyhalo"
 
-#: smugtalker.cpp:504
+#: smugtalker.cpp:496
 #, fuzzy
 msgid "Invalid user/nick/password"
 msgstr "Zmeniť heslo tohto užívateľa"
 
-#: smugtalker.cpp:507
+#: smugtalker.cpp:499
 #, fuzzy
 msgid "Invalid API key"
 msgstr "Kľúč nie je platný."
@@ -273,9 +273,8 @@ msgid "Reload"
 msgstr "Znovu načítať"
 
 #: smugwidget.cpp:141
-#, fuzzy
 msgid "Reload album list"
-msgstr "Obnoviť zoznam zariadení"
+msgstr "Obnoviť zoznam albumov"
 
 #: smugwidget.cpp:155
 msgid "Destination"
@@ -291,16 +290,15 @@ msgstr "Možnosti"
 
 #: smugwidget.cpp:164
 msgid "These are options that will be applied to images before upload."
-msgstr ""
+msgstr "Toto sú voľby, ktoré sa použijú na obrázky pred nahraním."
 
 #: smugwidget.cpp:168
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
 #: smugwidget.cpp:178
-#, fuzzy
 msgid "Maximum dimension:"
-msgstr "MUNIT(rozmer)"
+msgstr "Maximálne rozmery:"
 
 #: smugwidget.cpp:186
 msgid "JPEG quality:"
@@ -382,14 +380,12 @@ msgid "%v / %m"
 msgstr "%v / %m"
 
 #: smugwindow.cpp:656
-#, fuzzy
 msgid "Smug Import"
-msgstr "Facebook import/export"
+msgstr "Smug Import"
 
 #: smugwindow.cpp:682
-#, fuzzy
 msgid "Smug Export"
-msgstr "Facebook import/export"
+msgstr "Smug Export"
 
 #: smugwindow.cpp:761 smugwindow.cpp:774
 msgid "Cannot open file"

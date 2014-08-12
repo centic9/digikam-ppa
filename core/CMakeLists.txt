@@ -9,8 +9,8 @@ OPTION(ENABLE_PRESENTATIONMODE "Build digiKam with presentation mode support (de
 OPTION(ENABLE_THUMBS_DB        "Build digiKam with thumbnails database support (default=ON)"           ON)
 OPTION(ENABLE_INTERNALMYSQL    "Look for MySQL server executable at build time (default=ON)"           ON)
 OPTION(ENABLE_ADVANCEDDEBUGMSG "Build digiKam with more internal debug message (default=OFF)"          OFF)
-#OPTION(ENABLE_NEPOMUKSUPPORT   "Build digiKam with Nepomuk support (default=OFF)"                      OFF)
-OPTION(ENABLE_LCMS2            "Link digiKam to LCMS2 instead LCMS1 (experimental) (default=OFF)"      OFF)
+OPTION(ENABLE_NEPOMUKSUPPORT   "Build digiKam with Nepomuk support (default=ON)"                       OFF)
+OPTION(ENABLE_LCMS2            "Link digiKam to LCMS2 instead LCMS1 (default=OFF)"                     OFF)
 
 # NOTE: since 6.11.24, libpgf do not support very well OpenMP. We disable it temporally.
 # See B.K.O #273765 for details.
@@ -21,12 +21,12 @@ OPTION(DIGIKAM_ENABLE_MODELTEST "Enable ModelTest on some models for debugging (
 # Information to update before to release this package.
 
 # digiKam version
-SET(DIGIKAM_MAJOR_VERSION "3")
-SET(DIGIKAM_MINOR_VERSION "5")
+SET(DIGIKAM_MAJOR_VERSION "4")
+SET(DIGIKAM_MINOR_VERSION "0")
 SET(DIGIKAM_PATCH_VERSION "0")
 
 #digiKam release date
-SET(DIGIKAM_RELEASE_DATE "2013-XX-XX")
+SET(DIGIKAM_RELEASE_DATE "2014-05-11")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -40,6 +40,7 @@ SET(DIGIKAM_SUFFIX_VERSION "")
 # ==================================================================================================
 # Set env. variables accordingly.
 
+# NOTE: This string is used to set libdigikamcore and libdigikamdatabase SO version ID
 SET(DIGIKAM_VERSION_SHORT
     "${DIGIKAM_MAJOR_VERSION}.${DIGIKAM_MINOR_VERSION}.${DIGIKAM_PATCH_VERSION}"
    )
@@ -149,12 +150,14 @@ INCLUDE(FindPackageHandleStandardArgs)
 INCLUDE(FindPkgConfig)
 SET(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${CMAKE_MODULE_PATH} )
 
-FIND_PACKAGE(Kipi 2.0.0 REQUIRED)
-FIND_PACKAGE(Kexiv2     REQUIRED)
-FIND_PACKAGE(Kdcraw     REQUIRED)
-FIND_PACKAGE(JPEG       REQUIRED)
-FIND_PACKAGE(PNG        REQUIRED)
-FIND_PACKAGE(TIFF       REQUIRED)
+SET(KIPI_MIN_VERSION "2.0.0")
+
+FIND_PACKAGE(Kipi ${KIPI_MIN_VERSION} REQUIRED)
+FIND_PACKAGE(Kexiv2                   REQUIRED)
+FIND_PACKAGE(Kdcraw                   REQUIRED)
+FIND_PACKAGE(JPEG                     REQUIRED)
+FIND_PACKAGE(PNG                      REQUIRED)
+FIND_PACKAGE(TIFF                     REQUIRED)
 
 FIND_PACKAGE(PkgConfig)
 FIND_PACKAGE(Jasper)
@@ -246,8 +249,6 @@ ELSE (ENABLE_LCMS2)
         FIND_PACKAGE(LCMS2)
         IF (LCMS2_FOUND AND (LCMS2_VERSION VERSION_EQUAL 2.1 OR LCMS2_VERSION VERSION_GREATER 2.1))
             MESSAGE(STATUS "Found LCMS2 instead LCMS1: ${LCMS2_LIBRARIES} ${LCMS2_INCLUDE_DIR}")
-            MESSAGE(WARNING "Support of LCMS2 still experimental")
-            MESSAGE(WARNING "Please install LCMS1 if possible")
             SET(LCMS_FOUND ${LCMS2_FOUND})
             SET(LCMS_LIBRARIES ${LCMS2_LIBRARIES})
             SET(LCMS_INCLUDE_DIR ${LCMS2_INCLUDE_DIR})
@@ -431,25 +432,29 @@ MACRO_BOOL_TO_01(ENABLE_THUMBS_DB        USE_THUMBS_DB)
 MACRO_BOOL_TO_01(ENABLE_ADVANCEDDEBUGMSG USE_ADVANCEDDEBUGMSG)
 
 # Win32 compilation with Nepomuk is broken. It's temporally disabled.
-#IF (ENABLE_NEPOMUKSUPPORT)
-#    IF (${KDE_VERSION} VERSION_GREATER "4.3.99")
-#        MACRO_OPTIONAL_FIND_PACKAGE(Nepomuk)
-#        MACRO_LOG_FEATURE(NEPOMUK_FOUND "Nepomuk" "The Nepomuk libraries"
-#                "http://www.kde.org" FALSE "" "Nepomuk extends the search and tagging")
-#
-#        MACRO_OPTIONAL_FIND_PACKAGE(SharedDesktopOntologies 0.2)
-#        MACRO_LOG_FEATURE(SHAREDDESKTOPONTOLOGIES_FOUND "Shared desktop ontologies" "Desktop ontologies"
-#            "http://oscaf.sourceforge.net" TRUE "0.2" "Ontologies necessary for the Nepomuk semantic desktop.")
-#
-#        IF (NEPOMUK_FOUND AND SHAREDDESKTOPONTOLOGIES_FOUND)
-#            SET(NEPOMUK_FOUND TRUE)
-#        ELSE (NEPOMUK_FOUND AND SHAREDDESKTOPONTOLOGIES_FOUND)
-#            SET(NEPOMUK_FOUND FALSE)
-#        ENDIF (NEPOMUK_FOUND AND SHAREDDESKTOPONTOLOGIES_FOUND)
-#
-#        MACRO_BOOL_TO_01(NEPOMUK_FOUND HAVE_NEPOMUK)
-#    ENDIF (${KDE_VERSION} VERSION_GREATER "4.3.99")
-#ENDIF (ENABLE_NEPOMUKSUPPORT)
+IF (ENABLE_NEPOMUKSUPPORT)
+    IF (${KDE_VERSION} VERSION_GREATER "4.3.99")
+        MACRO_OPTIONAL_FIND_PACKAGE(Soprano)
+        MACRO_LOG_FEATURE(Soprano_FOUND "Soprano" "C++/Qt4 framework for RDF data"
+                "http://soprano.sourceforge.net" TRUE "" "Storage of semantic data")
+
+        MACRO_OPTIONAL_FIND_PACKAGE(NepomukCore)
+        MACRO_LOG_FEATURE(NepomukCore_FOUND "NepomukCore" "The Nepomuk libraries"
+                "http://www.kde.org" TRUE "" "Nepomuk extends the search and tagging")
+
+        MACRO_OPTIONAL_FIND_PACKAGE(SharedDesktopOntologies 0.2)
+        MACRO_LOG_FEATURE(SHAREDDESKTOPONTOLOGIES_FOUND "Shared desktop ontologies" "Desktop ontologies"
+            "http://oscaf.sourceforge.net" TRUE "0.2" "Ontologies necessary for the Nepomuk semantic desktop.")
+
+        IF (Soprano_FOUND AND NepomukCore_FOUND AND SHAREDDESKTOPONTOLOGIES_FOUND)
+            SET(NepomukCore_FOUND TRUE)
+        ELSE (Soprano_FOUND AND NepomukCore_FOUND AND SHAREDDESKTOPONTOLOGIES_FOUND)
+            SET(NepomukCore_FOUND FALSE)
+        ENDIF (Soprano_FOUND AND NepomukCore_FOUND AND SHAREDDESKTOPONTOLOGIES_FOUND)
+
+       MACRO_BOOL_TO_01(NepomukCore_FOUND HAVE_NEPOMUK)
+    ENDIF (${KDE_VERSION} VERSION_GREATER "4.3.99")
+ENDIF (ENABLE_NEPOMUKSUPPORT)
 
 MACRO_OPTIONAL_FIND_PACKAGE(Doxygen)
 
@@ -544,18 +549,18 @@ ENDIF(KDEPIMLIBS_FOUND)
 
 # ================================================================
 
-#IF(NEPOMUK_FOUND)
-#    MESSAGE(STATUS " Nepomuk libraries found.................. YES (optional)")
-#ELSE(NEPOMUK_FOUND)
-#    IF (${KDE_VERSION} VERSION_GREATER "4.4.0")
-#        MESSAGE(STATUS " Nepomuk libraries found.................. NO  (optional)")
-#    ELSE (${KDE_VERSION} VERSION_GREATER "4.4.0")
-#        MESSAGE(STATUS " Nepomuk libraries found.................. NO  (at least KDE 4.4 and shared-desktop-ontologies required)")
-#    ENDIF (${KDE_VERSION} VERSION_GREATER "4.4.0")
-#    MESSAGE(STATUS "")
-#    MESSAGE(STATUS " digiKam will be compiled without support for the Nepomuk semantic desktop services.")
-#    MESSAGE(STATUS "")
-#ENDIF(NEPOMUK_FOUND)
+IF(NepomukCore_FOUND)
+    MESSAGE(STATUS " Nepomuk libraries found.................. YES (optional)")
+ELSE(NepomukCore_FOUND)
+    IF (${KDE_VERSION} VERSION_GREATER "4.4.0")
+        MESSAGE(STATUS " Nepomuk libraries found.................. NO  (optional)")
+    ELSE (${KDE_VERSION} VERSION_GREATER "4.4.0")
+        MESSAGE(STATUS " Nepomuk libraries found.................. NO  (at least KDE 4.4 and shared-desktop-ontologies required)")
+    ENDIF (${KDE_VERSION} VERSION_GREATER "4.4.0")
+    MESSAGE(STATUS "")
+    MESSAGE(STATUS " digiKam will be compiled without support for the Nepomuk semantic desktop services.")
+    MESSAGE(STATUS "")
+ENDIF(NepomukCore_FOUND)
 
 # ================================================================
 
@@ -686,9 +691,6 @@ IF(DIGIKAM_CAN_BE_COMPILED)
                     ${KGEOMAP_DEFINITIONS}
                    )
 
-    # QT3 support rules
-    ADD_DEFINITIONS(-DQT3_SUPPORT -DQT3_SUPPORT_WARNINGS)
-
     # Enable C++ Exceptions support, require by Greycstoration algorithm (CImg.h)
     IF(NOT MSVC)
         ADD_DEFINITIONS(${KDE4_ENABLE_EXCEPTIONS})
@@ -714,9 +716,9 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/utilities/qmlshow)
     ENDIF(USE_PRESENTATION_MODE)
 
-    #IF(NEPOMUK_FOUND)
-    #    INCLUDE_DIRECTORIES(${SOPRANO_INCLUDE_DIR} ${NEPOMUK_INCLUDE_DIR})
-    #ENDIF(NEPOMUK_FOUND)
+    IF(NepomukCore_FOUND)
+        INCLUDE_DIRECTORIES(${SOPRANO_INCLUDE_DIR} ${NEPOMUK_CORE_INCLUDE_DIR})
+    ENDIF(NepomukCore_FOUND)
 
     IF(PGF_FOUND)
        INCLUDE_DIRECTORIES(${PGF_INCLUDE_DIRS})
@@ -973,20 +975,15 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/comboboxutilities.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dcursortracker.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dfontselect.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dhistoryview.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dgradientslider.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/ditemtooltip.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dlogoaction.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dragdropimplementations.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dzoombar.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/filesaveoptionsbox.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/fullscreensettings.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/dxmlguiwindow.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/knotificationwrapper.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/modelcompletion.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/paniconwidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/searchtextbar.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/sidebar.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/splashscreen.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/statesavingobject.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/visibilitycontroller.cpp
@@ -994,15 +991,22 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/ratingwidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/colorlabelwidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/picklabelwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common/thumbbardock.cpp
+       )
 
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/q3support/thumbbar.cpp
-
+    SET(libmainview_SRCS
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/sidebar.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/dxmlguiwindow.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/daboutdata.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/dzoombar.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/dlogoaction.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/thumbbardock.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/dhistoryview.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview/thememanager.cpp
        )
 
     SET(libitemview_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/itemview/digikamkcategorizedview.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/itemview/dcategorizedview.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/itemview/dcategorizedview.cpp        
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/itemview/ditemdelegate.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/itemview/imagedelegateoverlay.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/itemview/itemviewhoverbutton.cpp
@@ -1054,9 +1058,9 @@ IF(DIGIKAM_CAN_BE_COMPILED)
 
     IF(USE_PRESENTATION_MODE)
 
-    SET(libpresentationview_SRCS
-        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/qmlshow/qmlshow.cpp
-       )
+        SET(libpresentationview_SRCS
+            ${CMAKE_CURRENT_SOURCE_DIR}/utilities/qmlshow/qmlshow.cpp
+           )
 
     ENDIF(USE_PRESENTATION_MODE)
 
@@ -1079,11 +1083,10 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets/imagepreviewitem.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets/previewtoolbar.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets/previewlist.cpp
-
-        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/q3support/drubberband.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/q3support/previewwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/q3support/imageregionwidget.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/q3support/canvas.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets/imageregionwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets/imageregionitem.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets/rubberitem.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets/canvas.cpp
        )
 
     SET(libeditordlg_SRCS
@@ -1123,11 +1126,6 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/progressmanager/statusbarprogresswidget.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/progressmanager/statusprogressbar.cpp
        )
-
-    SET(libthememanager_SRCS
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/thememanager/thememanager.cpp
-       )
-
     SET(libtthread_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/threads/threadmanager.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/threads/workerobject.cpp
@@ -1167,7 +1165,6 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/dialogs/libsinfodlg.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/dialogs/rawcameradlg.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/dialogs/triplechoicedialog.cpp
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/dialogs/daboutdata.cpp
        )
 
     SET(libdeletedialog_SRCS
@@ -1199,6 +1196,7 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/setup/setupfacetags.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/setup/setupversioning.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/setup/importfilters.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/setup/setupimagequalitysorter.cpp
        )
 
     SET(libkipiiface_SRCS
@@ -1212,6 +1210,9 @@ IF(DIGIKAM_CAN_BE_COMPILED)
 
     SET(libnepomukservices_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/nepomuk/digikamnepomukservice.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/nepomuk/dknepomukwrap.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/nepomuk/nepomukwatcher.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/nepomuk/nepomukquery.cpp
        )
 
     SET(libfacemanagement_SRCS
@@ -1220,6 +1221,10 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/facemanagement/facepipeline.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/facemanagement/facescandialog.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/facemanagement/assignnamewidget.cpp
+       )
+
+    SET(libimgqsort_SRCS
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/database/imgqsort/imgqsort.cpp
        )
 
     SET(libfirstrun_SRCS
@@ -1268,6 +1273,9 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/thumbstask.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/fingerprintsgenerator.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/fingerprintstask.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/imagequalitysorter.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/imagequalitysettings.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/imagequalitytask.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/maintenancedlg.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/maintenancemngr.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/maintenance/maintenancetool.cpp
@@ -1405,7 +1413,6 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/fuzzysearch/sketchwidget.cpp
        )
 
-
     SET(libgpssearch_SRCS
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/gpssearch/gpssearchview.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/gpssearch/gpsmarkertiler.cpp
@@ -1509,6 +1516,14 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tageditdlg.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagmodificationhelper.cpp
 
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/tagsmanager.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/tagpropwidget.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/taglist.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/tagmngrtreeview.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/models/tagmngrlistview.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/models/tagmngrlistitem.cpp
+
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/utils/albumsettings.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/utils/contextmenuhelper.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/utils/tooltipfiller.cpp
@@ -1519,6 +1534,7 @@ IF(DIGIKAM_CAN_BE_COMPILED)
 
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/views/stackedview.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/views/digikamview.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/views/imagepreviewviewitem.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/views/imagepreviewview.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/views/mediaplayerview.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/views/mapwidgetview.cpp
@@ -1574,6 +1590,8 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/fileaction
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/models
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager
+        ${CMAKE_CURRENT_SOURCE_DIR}/digikam/tags/tagsmanager/models
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/utils
         ${CMAKE_CURRENT_SOURCE_DIR}/digikam/views
         ${CMAKE_CURRENT_SOURCE_DIR}/imageplugins
@@ -1592,6 +1610,7 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/database
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/database/core
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/database/haar
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/database/imgqsort
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/database/imagehistory
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/database/faces
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/dialogs
@@ -1624,14 +1643,12 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/jpegutils/${DIGIKAM_LIBJPEG_DIR}
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/models
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/template
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/thememanager
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/progressmanager
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/threadimageio
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/threads
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/versionmanager
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets
+        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/mainview
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/common
-        ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/q3support
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/graphicsview
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/itemview
         ${CMAKE_CURRENT_SOURCE_DIR}/libs/widgets/iccprofiles
@@ -1670,7 +1687,6 @@ IF(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/printiface
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/rawimport
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/widgets
-        ${CMAKE_CURRENT_SOURCE_DIR}/utilities/imageeditor/q3support
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/kipiiface
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/lighttable
         ${CMAKE_CURRENT_SOURCE_DIR}/utilities/nepomuk

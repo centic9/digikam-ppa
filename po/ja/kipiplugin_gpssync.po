@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-05-07 02:57+0200\n"
+"POT-Creation-Date: 2014-02-11 01:31+0000\n"
 "PO-Revision-Date: 2008-12-21 22:06+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <Kdeveloper@kde.gr.jp>\n"
@@ -39,7 +39,7 @@ msgstr[1] ""
 msgid "Load GPX files..."
 msgstr "GPX ファイルを読み込み..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
 #, fuzzy
 #| msgid "File Name:"
 msgid "Filename"
@@ -252,27 +252,27 @@ msgstr ""
 msgid "Coordinates"
 msgstr "座標を削除..."
 
-#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:532
 msgid "Latitude"
 msgstr "緯度"
 
-#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:533
 msgid "Longitude"
 msgstr "経度"
 
-#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:534
 msgid "Altitude"
 msgstr "高度"
 
-#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:539
 msgid "Speed"
 msgstr ""
 
-#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:538
 msgid "# satellites"
 msgstr ""
 
-#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:537
 msgid "Fix type"
 msgstr ""
 
@@ -284,7 +284,7 @@ msgstr ""
 msgid "3-d"
 msgstr ""
 
-#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:536
 msgid "DOP"
 msgstr ""
 
@@ -324,7 +324,7 @@ msgstr "緯度"
 msgid "Remove uncertainty"
 msgstr ""
 
-#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:643
 #, fuzzy
 #| msgid "Remove"
 msgid "Remove speed"
@@ -338,54 +338,54 @@ msgstr ""
 msgid "Bookmarks"
 msgstr ""
 
-#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
-#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
 msgid "GPS Sync"
 msgstr "GPS 同期"
 
-#: gpslistviewcontextmenu.cpp:420
+#: gpslistviewcontextmenu.cpp:419
 msgid ""
 "Found more than one point on the clipboard - can only assign one point at a "
 "time."
 msgstr ""
 
-#: gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:477
 msgid "Could not find any coordinates on the clipboard."
 msgstr ""
 
-#: gpslistviewcontextmenu.cpp:483
+#: gpslistviewcontextmenu.cpp:481
 #, fuzzy
 #| msgid "Remove Coordinates..."
 msgid "Coordinates pasted"
 msgstr "座標を削除..."
 
-#: gpslistviewcontextmenu.cpp:514
+#: gpslistviewcontextmenu.cpp:512
 #, fuzzy
 #| msgid "Goto Location"
 msgid "Bookmark selected"
 msgstr "場所に移動"
 
-#: gpslistviewcontextmenu.cpp:624
+#: gpslistviewcontextmenu.cpp:622
 #, fuzzy
 #| msgid "Remove Coordinates..."
 msgid "Remove coordinates information"
 msgstr "座標を削除..."
 
-#: gpslistviewcontextmenu.cpp:629
+#: gpslistviewcontextmenu.cpp:627
 msgid "Remove altitude information"
 msgstr ""
 
-#: gpslistviewcontextmenu.cpp:635
+#: gpslistviewcontextmenu.cpp:633
 msgid "Remove uncertainty information"
 msgstr ""
 
-#: gpslistviewcontextmenu.cpp:697
+#: gpslistviewcontextmenu.cpp:695
 #, fuzzy
 #| msgid "Longitude"
 msgid "Looking up altitudes"
 msgstr "経度"
 
-#: gpslistviewcontextmenu.cpp:748
+#: gpslistviewcontextmenu.cpp:746
 #, fuzzy, kde-format
 #| msgid "Altitude"
 msgid ""
@@ -393,7 +393,7 @@ msgid ""
 "%1"
 msgstr "高度"
 
-#: gpslistviewcontextmenu.cpp:755
+#: gpslistviewcontextmenu.cpp:753
 #, fuzzy
 #| msgid "Altitude"
 msgid "Altitude looked up"
@@ -861,73 +861,73 @@ msgstr ""
 msgid "GPS sync"
 msgstr "GPS 同期"
 
-#: kipiimageitem.cpp:363
+#: kipiimageitem.cpp:369
 msgid "Not available"
 msgstr "情報がありません"
 
-#: kipiimageitem.cpp:396
+#: kipiimageitem.cpp:402
 #, kde-format
 msgid "DOP: %1"
 msgstr ""
 
-#: kipiimageitem.cpp:401
+#: kipiimageitem.cpp:407
 #, c-format, kde-format
 msgid "Fix: %1d"
 msgstr ""
 
-#: kipiimageitem.cpp:406
+#: kipiimageitem.cpp:412
 #, kde-format
 msgid "#Sat: %1"
 msgstr ""
 
-#: kipiimageitem.cpp:441
+#: kipiimageitem.cpp:447
 #, c-format, kde-format
 msgid "%1d"
 msgstr ""
 
-#: kipiimageitem.cpp:461
+#: kipiimageitem.cpp:467
 msgid "Modified"
 msgstr ""
 
-#: kipiimageitem.cpp:523
+#: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr ""
 
-#: kipiimageitem.cpp:525
+#: kipiimageitem.cpp:531
 msgid "Date and time"
 msgstr ""
 
-#: kipiimageitem.cpp:529
+#: kipiimageitem.cpp:535
 msgid "Accuracy"
 msgstr ""
 
-#: kipiimageitem.cpp:534
+#: kipiimageitem.cpp:540
 msgid "Status"
 msgstr "状態"
 
-#: kipiimageitem.cpp:535
+#: kipiimageitem.cpp:541
 #, fuzzy
 #| msgid "Tracks"
 msgid "Tags"
 msgstr "トラック"
 
-#: kipiimageitem.cpp:722
+#: kipiimageitem.cpp:728
 msgid "Failed to open file."
 msgstr ""
 
-#: kipiimageitem.cpp:783
+#: kipiimageitem.cpp:789
 msgid "Failed to add GPS info to image."
 msgstr ""
 
-#: kipiimageitem.cpp:793
+#: kipiimageitem.cpp:799
 msgid "Failed to remove GPS info from image"
 msgstr ""
 
-#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+#: kipiimageitem.cpp:826 kipiimageitem.cpp:833
 msgid "Failed to save tags to file."
 msgstr ""
 
-#: kipiimageitem.cpp:838
+#: kipiimageitem.cpp:844
 msgid "Unable to save changes to file"
 msgstr ""
 
@@ -941,11 +941,24 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_gpssync.cpp:99
+#: plugin_gpssync.cpp:100
 #, fuzzy
 #| msgid "Geolocation"
 msgid "Geo-location"
 msgstr "ジオロケーション"
+
+#: plugin_gpssync.cpp:120
+msgid ""
+"You have enabled writing to sidecar files for metadata storage in the host "
+"application, but not for reading. This means that any metadata stored in the "
+"sidecar files will be overwritten here.\n"
+"Please enable reading of sidecar files in the host application or continue "
+"at your own risk."
+msgstr ""
+
+#: plugin_gpssync.cpp:125
+msgid "Warning: Sidecar settings"
+msgstr ""
 
 #: rgtagmodel.cpp:95
 msgid "{Country}"
@@ -1061,11 +1074,3 @@ msgstr ""
 #: setup_general.cpp:68
 msgid "Layout:"
 msgstr ""
-
-#, fuzzy
-#~| msgid "Goto Location"
-#~ msgid "Bookmark location"
-#~ msgstr "場所に移動"
-
-#~ msgid "Handbook"
-#~ msgstr "ハンドブック"

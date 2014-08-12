@@ -2,14 +2,14 @@
 # Copyright (C) 2009 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sveinki@nett.is>, 2009, 2010, 2011, 2012, 2013.
+# Sveinn í Felli <sveinki@nett.is>, 2009, 2010, 2011, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-05-07 02:57+0200\n"
-"PO-Revision-Date: 2013-04-19 11:12+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"PO-Revision-Date: 2014-02-26 13:09+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -44,7 +44,7 @@ msgstr[1] "%1 myndir smullu á '%2'"
 msgid "Load GPX files..."
 msgstr "Hlaða inn GPX skrám..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
 msgid "Filename"
 msgstr "Skáarheiti"
 
@@ -258,27 +258,27 @@ msgstr "Skráin er GPX-skrá, en engir gagnapunktar fundust."
 msgid "Coordinates"
 msgstr "Hnit"
 
-#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:532
 msgid "Latitude"
 msgstr "Breiddargráða"
 
-#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:533
 msgid "Longitude"
 msgstr "Lengdargráða"
 
-#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:534
 msgid "Altitude"
 msgstr "Hæð"
 
-#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:539
 msgid "Speed"
 msgstr "Hraði"
 
-#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:538
 msgid "# satellites"
 msgstr "Fjöldi gervitungla"
 
-#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:537
 msgid "Fix type"
 msgstr "Tegund aðlögunar"
 
@@ -290,7 +290,7 @@ msgstr "2-d"
 msgid "3-d"
 msgstr "3-d"
 
-#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:536
 msgid "DOP"
 msgstr "DOP"
 
@@ -322,7 +322,7 @@ msgstr "Fjarlægja hæðarupplýsingar"
 msgid "Remove uncertainty"
 msgstr "Fjarlægja óvissuupplýsingar"
 
-#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:643
 msgid "Remove speed"
 msgstr "Fjarlægja hraðaupplýsingar"
 
@@ -334,12 +334,12 @@ msgstr "Fletta upp hæðarupplýsingum sem vantar"
 msgid "Bookmarks"
 msgstr "Bókmerki"
 
-#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
-#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
 msgid "GPS Sync"
 msgstr "GPS samræming"
 
-#: gpslistviewcontextmenu.cpp:420
+#: gpslistviewcontextmenu.cpp:419
 msgid ""
 "Found more than one point on the clipboard - can only assign one point at a "
 "time."
@@ -347,35 +347,35 @@ msgstr ""
 "Fann fleiri en einn punkt á klippiborðinu - einungis er hægt að úthluta "
 "einum punkti í einu."
 
-#: gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:477
 msgid "Could not find any coordinates on the clipboard."
 msgstr "Fann engin staðsetningarhnit á klippiborðinu."
 
-#: gpslistviewcontextmenu.cpp:483
+#: gpslistviewcontextmenu.cpp:481
 msgid "Coordinates pasted"
 msgstr "Límdi staðsetningarhnit"
 
-#: gpslistviewcontextmenu.cpp:514
+#: gpslistviewcontextmenu.cpp:512
 msgid "Bookmark selected"
 msgstr "Bókamerki valið"
 
-#: gpslistviewcontextmenu.cpp:624
+#: gpslistviewcontextmenu.cpp:622
 msgid "Remove coordinates information"
 msgstr "Fjarlægja upplýsingar um hnit"
 
-#: gpslistviewcontextmenu.cpp:629
+#: gpslistviewcontextmenu.cpp:627
 msgid "Remove altitude information"
 msgstr "Fjarlægja hæðarupplýsingar"
 
-#: gpslistviewcontextmenu.cpp:635
+#: gpslistviewcontextmenu.cpp:633
 msgid "Remove uncertainty information"
 msgstr "Fjarlægja óvissuupplýsingar"
 
-#: gpslistviewcontextmenu.cpp:697
+#: gpslistviewcontextmenu.cpp:695
 msgid "Looking up altitudes"
 msgstr "Fletti upp hæðarupplýsingum"
 
-#: gpslistviewcontextmenu.cpp:748
+#: gpslistviewcontextmenu.cpp:746
 #, kde-format
 msgid ""
 "Altitude lookup failed:\n"
@@ -384,7 +384,7 @@ msgstr ""
 "Hæðaruppfletting mistókst:\n"
 "%1"
 
-#: gpslistviewcontextmenu.cpp:755
+#: gpslistviewcontextmenu.cpp:753
 msgid "Altitude looked up"
 msgstr "Hæð flett upp"
 
@@ -836,71 +836,71 @@ msgstr "Villa"
 msgid "GPS sync"
 msgstr "GPS samræming"
 
-#: kipiimageitem.cpp:363
+#: kipiimageitem.cpp:369
 msgid "Not available"
 msgstr "Ekki tiltækt"
 
-#: kipiimageitem.cpp:396
+#: kipiimageitem.cpp:402
 #, kde-format
 msgid "DOP: %1"
 msgstr "DOP: %1"
 
-#: kipiimageitem.cpp:401
+#: kipiimageitem.cpp:407
 #, c-format, kde-format
 msgid "Fix: %1d"
 msgstr "Fix: %1d"
 
-#: kipiimageitem.cpp:406
+#: kipiimageitem.cpp:412
 #, kde-format
 msgid "#Sat: %1"
 msgstr "#tungla: %1"
 
-#: kipiimageitem.cpp:441
+#: kipiimageitem.cpp:447
 #, c-format, kde-format
 msgid "%1d"
 msgstr "%1d"
 
-#: kipiimageitem.cpp:461
+#: kipiimageitem.cpp:467
 msgid "Modified"
 msgstr "Breytt"
 
-#: kipiimageitem.cpp:523
+#: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "Smámynd"
 
-#: kipiimageitem.cpp:525
+#: kipiimageitem.cpp:531
 msgid "Date and time"
 msgstr "Dagsetning og tími"
 
-#: kipiimageitem.cpp:529
+#: kipiimageitem.cpp:535
 msgid "Accuracy"
 msgstr "Nákvæmni"
 
-#: kipiimageitem.cpp:534
+#: kipiimageitem.cpp:540
 msgid "Status"
 msgstr "Staða"
 
-#: kipiimageitem.cpp:535
+#: kipiimageitem.cpp:541
 msgid "Tags"
 msgstr "Merki"
 
-#: kipiimageitem.cpp:722
+#: kipiimageitem.cpp:728
 msgid "Failed to open file."
 msgstr "Gat ekki opnað skrá."
 
-#: kipiimageitem.cpp:783
+#: kipiimageitem.cpp:789
 msgid "Failed to add GPS info to image."
 msgstr "Gat ekki bætt GPS-upplýsingum í mynd."
 
-#: kipiimageitem.cpp:793
+#: kipiimageitem.cpp:799
 msgid "Failed to remove GPS info from image"
 msgstr "Gat ekki fjarlægt GPS-upplýsingar úr mynd"
 
-#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+#: kipiimageitem.cpp:826 kipiimageitem.cpp:833
 msgid "Failed to save tags to file."
 msgstr "Gat ekki vistað merki í skrá."
 
-#: kipiimageitem.cpp:838
+#: kipiimageitem.cpp:844
 msgid "Unable to save changes to file"
 msgstr "Gat ekki vistað breytingar í skrá"
 
@@ -914,9 +914,27 @@ msgstr "&Mynd"
 msgid "Main Toolbar"
 msgstr "Aðaltækjaslá"
 
-#: plugin_gpssync.cpp:99
+#: plugin_gpssync.cpp:100
 msgid "Geo-location"
 msgstr "Hnattstaðsetning"
+
+#: plugin_gpssync.cpp:120
+msgid ""
+"You have enabled writing to sidecar files for metadata storage in the host "
+"application, but not for reading. This means that any metadata stored in the "
+"sidecar files will be overwritten here.\n"
+"Please enable reading of sidecar files in the host application or continue "
+"at your own risk."
+msgstr ""
+"Þú hefur gert virkt að skrifa lýsigögn í fylgiskrár (sidecar) í "
+"aðalforritinu, en ekki til lestrar slíkra skráa. Þetta þýðir að fyrir öll "
+"lýsigögn sem geymd eru í fylgiskrám verður skrifað yfir þau hér.\n"
+"Endilega gerðu virkt að lesa lýsigögn í fylgiskrár í aðalforritinu, annars "
+"heðdurðu áfram algerlega á eigin ábyrgð."
+
+#: plugin_gpssync.cpp:125
+msgid "Warning: Sidecar settings"
+msgstr "Aðvörun: stillingar fylgiskráa"
 
 #: rgtagmodel.cpp:95
 msgid "{Country}"

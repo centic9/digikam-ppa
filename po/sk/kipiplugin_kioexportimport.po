@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_kioexportimport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2013-03-14 15:30+0100\n"
+"PO-Revision-Date: 2013-10-27 12:42+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -33,6 +33,8 @@ msgid ""
 "Sets the target address to upload the images to. This can be any address as "
 "used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
 msgstr ""
+"Nastaví cieľovú adresu na nahranie obrázkov. Toto môže byť adresa ako "
+"použitá v Dolphine alebo Konquerori, napr ftp://moj.server.org/pod/priecinok."
 
 #: KioExportWidget.cpp:69
 msgid "Select target location..."
@@ -40,7 +42,7 @@ msgstr "Vyberte cieľové umiestnenie..."
 
 #: KioExportWidget.cpp:75
 msgid "This is the list of images to upload to the specified target."
-msgstr ""
+msgstr "Toto je zoznam obrázkov na nahranie na určený cieľ."
 
 #: KioExportWidget.cpp:140
 msgid "Select target..."
@@ -51,18 +53,16 @@ msgid "not selected"
 msgstr "nevybrané"
 
 #: KioExportWindow.cpp:66
-#, fuzzy
 msgid "Export to Remote Computer"
-msgstr "Nástroj na export obrázkov do vzdialenej galérie"
+msgstr "Export na vzdialený počítač"
 
 #: KioExportWindow.cpp:72
 msgid "Start export"
 msgstr "Spustiť export"
 
 #: KioExportWindow.cpp:73
-#, fuzzy
 msgid "Start export to the specified target"
-msgstr "Index, odkiaľ začať hľadať"
+msgstr "Spustiť export na zadaný cieľ"
 
 #: KioExportWindow.cpp:89
 msgid "Export to remote computer"
@@ -70,7 +70,7 @@ msgstr "Export na vzdialený počítač"
 
 #: KioExportWindow.cpp:92
 msgid "A Kipi plugin to export images over network using KIO-Slave"
-msgstr ""
+msgstr "Kipi plugin na export obrázkov cez sieť pomocou KIO-Slave."
 
 #: KioExportWindow.cpp:93 KioImportWindow.cpp:92
 msgid "(c) 2009, Johannes Wienke"
@@ -89,20 +89,20 @@ msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to export these images now."
 msgstr ""
+"Niektoré obrázky nebolo možné presunúť a sú stále v zozname. Môžete opakovať "
+"prenos týchto obrázkov teraz."
 
 #: KioExportWindow.cpp:206
-#, fuzzy
 msgid "Upload not completed"
-msgstr "Neodosielať"
+msgstr "Nahranie neukončené"
 
 #: KioImportWidget.cpp:55
 msgid "This is the list of images to import into the current album."
-msgstr ""
+msgstr "Toto je zoznam obrázkov na import do aktuálneho albumu."
 
 #: KioImportWindow.cpp:64
-#, fuzzy
 msgid "Import from Remote Computer"
-msgstr "Importovať narodeniny z KAddressBooku"
+msgstr "Import zo vzdialeného počítača"
 
 #: KioImportWindow.cpp:71
 msgid "Start import"
@@ -110,27 +110,27 @@ msgstr "Spustiť import"
 
 #: KioImportWindow.cpp:72
 msgid "Start importing the specified images into the currently selected album."
-msgstr ""
+msgstr "Spustiť import určených obrázkov do aktuálne vybraného albumu."
 
 #: KioImportWindow.cpp:88
-#, fuzzy
 msgid "Import from remote computer"
-msgstr "Importovať narodeniny z KAddressBooku"
+msgstr "Import zo vzdialeného počítača"
 
 #: KioImportWindow.cpp:91
 msgid "A Kipi plugin to import images over network using KIO-Slave"
-msgstr ""
+msgstr "Kipi plugin na import obrázkov cez sieť pomocou KIO-Slave"
 
 #: KioImportWindow.cpp:147
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to import these images now."
 msgstr ""
+"Niektoré obrázky nebolo možné presunúť a sú stále v zozname. Môžete skúsiť "
+"znova importovať tieto obrázky teraz."
 
 #: KioImportWindow.cpp:150
-#, fuzzy
 msgid "Import not completed"
-msgstr "Import starého formátu je ukončený"
+msgstr "Import neukončený"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_kioexportimportui.rc:6
@@ -148,11 +148,9 @@ msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
 #: plugin_kioexportimport.cpp:94
-#, fuzzy
 msgid "Export to remote computer..."
-msgstr "Nástroj na export obrázkov do vzdialenej galérie"
+msgstr "Export na vzdialený počítač..."
 
 #: plugin_kioexportimport.cpp:106
-#, fuzzy
 msgid "Import from remote computer..."
-msgstr "Importovať narodeniny z KAddressBooku"
+msgstr "Import zo vzdialeného počítača..."

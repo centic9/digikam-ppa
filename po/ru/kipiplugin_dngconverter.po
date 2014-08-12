@@ -1,14 +1,14 @@
 # Nick Shaforostoff <shaforostoff@kde.ru>, 2009.
 # Artem Sereda <overmind88@gmail.com>, 2010.
-# Alexander Potashev <aspotashev@gmail.com>, 2010, 2011.
+# Alexander Potashev <aspotashev@gmail.com>, 2010, 2011, 2014.
 # Yuri Efremov <yur.arh@gmail.com>, 2010, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: DNG Convertor\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2012-03-22 00:29+0400\n"
-"Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
+"PO-Revision-Date: 2014-02-01 22:07+0400\n"
+"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-Language: Russian\n"
 "X-Poedit-Country: RUSSIAN FEDERATION\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -51,17 +51,14 @@ msgstr ""
 "Используется инструментарий DNG 1.3"
 
 #: plugin/aboutdata.h:62
-#, fuzzy
-#| msgid ""
-#| "(c) 2008-2012, Gilles Caulier\n"
-#| "(c) 2010-2011, Jens Mueller"
 msgid ""
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2010-2011, Jens Mueller\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
-"© Gilles Caulier, 2008-2012\n"
-"© Jens Mueller, 2010-2011"
+"© Gilles Caulier, 2008-2013\n"
+"© Jens Mueller, 2010-2011\n"
+"© Smit Mehta, 2012"
 
 #: plugin/aboutdata.h:66
 msgid "Gilles Caulier"
@@ -81,7 +78,7 @@ msgstr "Разработчик"
 
 #: plugin/aboutdata.h:74
 msgid "Smit Mehta"
-msgstr ""
+msgstr "Smit Mehta"
 
 #: plugin/batchdialog.cpp:109
 msgid "Exit DNG Converter"
@@ -117,19 +114,19 @@ msgstr "Начать преобразование цифровых негати�
 
 #: plugin/batchdialog.cpp:480
 msgid "Process failed"
-msgstr ""
+msgstr "Ошибка обработки"
 
 #: plugin/batchdialog.cpp:483
 msgid "Process Canceled"
-msgstr ""
+msgstr "Обработка прервана"
 
 #: plugin/batchdialog.cpp:486
 msgid "File not supported"
-msgstr ""
+msgstr "Формат файла не поддерживается"
 
 #: plugin/batchdialog.cpp:489
 msgid "Internal error"
-msgstr ""
+msgstr "Внутренняя ошибка"
 
 #: plugin/batchdialog.cpp:512
 #, kde-format
@@ -143,12 +140,12 @@ msgstr "Преобразуемые файлы"
 #. i18n: ectx: Menu (Tools)
 #: plugin/kipiplugin_dngconverterui.rc:6
 msgid "&Tools"
-msgstr ""
+msgstr "С&ервис"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_dngconverterui.rc:12
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Основная панель инструментов"
 
 #: plugin/myimagelist.cpp:47
 msgid "Raw File"
@@ -164,7 +161,7 @@ msgstr "Камера"
 
 #: plugin/myimagelist.cpp:50
 msgid "Status"
-msgstr ""
+msgstr "Состояние"
 
 #: plugin/plugin_dngconverter.cpp:90
 msgid "DNG Converter..."
@@ -217,9 +214,10 @@ msgstr "Если целевой файл уже существует:"
 msgid "Overwrite automatically"
 msgstr "Автоматически перезаписать"
 
+# TBD: check if a renaming dialog is actually opened --aspotashev
 #: plugin/settingswidget.cpp:156
 msgid "Store as a different name"
-msgstr ""
+msgstr "Открыть диалог переименования файла"
 
 #: plugin/task.cpp:145
 msgid "Cannot identify Raw image"

@@ -1,0 +1,2067 @@
+<chapter id="menu-descriptions"
+>    <title
+>Menubeschrijvingen</title>
+
+<sect1 id="main-window"
+>                <title
+>Het hoofdscherm van &digikam;</title>
+
+    <sect2
+>    <title
+>Het menu Album</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menualbum.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Het menu Album</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+        <para>
+        <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;<keycap
+>Links</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+><guimenuitem
+>Terug</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Go back to the previously visited View using history.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;<keycap
+>Rechts</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+><guimenuitem
+>Vooruit</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Go forward to the previously visited View using history. You can only go forward if you've just gone back.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+><guimenuitem
+>New...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Maakt een nieuwe albummap aan.</action
+></para
+></listitem>
+        </varlistentry>
+<!--        
+        <varlistentry>
+            <term
+><menuchoice>
+                <guimenu
+>Album</guimenu
+><guimenuitem
+>New Album from Selection...</guimenuitem>
+            </menuchoice
+></term>
+            <listitem
+><para
+><action
+>???</action
+></para
+></listitem>
+        </varlistentry>
+-->
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+><guimenuitem
+>Eigenschappen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Edit the currently selected album title, caption and collection.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+><guimenuitem
+>Refresh</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Refresh the current view in the Main Window.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry id="synchronize-metadata">
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+> <guimenuitem
+>Synchronize Images with Database</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Synchronize the metadata between database and the file's metadata of all items of the current Main Window. The images will inherit the database metadata, not the other way around as in <link linkend="update-db-metadata"
+>this </link
+>menu.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+> <guimenuitem
+>Open in File Manager</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Open the default file manager with the current Album path.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+> <guimenuitem
+>Delete</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Verwijdert of plaatst een album in de prullenbak, inclusief de inhoud.</action
+></para
+></listitem
+> 
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+><guimenuitem
+>Quit</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Beëindigt &digikam;</action
+></para
+></listitem>
+        </varlistentry>
+        
+        </variablelist>
+        </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Het menu Tag</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menutag.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menu Tags</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tag</guimenu
+><guimenuitem
+>New..</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Maakt een nieuwe tag aan in de albumdatabase.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tag</guimenu
+><guimenuitem
+>Eigenschappen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Hiermee kunt u de eigenschappen van de geselecteerde tag bewerken.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tag</guimenu
+><guimenuitem
+>Verwijderen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Verwijdert de geselecteerde tag uit de database van het album.</action
+></para
+></listitem>
+        </varlistentry>
+            
+    </variablelist>
+    </para>
+
+    </sect2>
+    
+    <!-- *********************************************************************** -->
+
+<sect2
+>    <title
+>Het menu Afbeelding</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuimage.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menu Afbeelding</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+> <shortcut
+><keycombo action="press"
+><keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Afbeelding</guimenu
+><guimenuitem
+>Weergave...</guimenuitem
+> </menuchoice
+> or <menuchoice
+> <shortcut
+><keycombo action="press"
+>&Enter;</keycombo
+></shortcut
+> <guimenu
+></guimenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Toon de geselecteerde afbeelding.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+> <shortcut
+><keycombo action="press"
+><keycap
+>Esc</keycap
+></keycombo
+></shortcut
+> <guimenu
+></guimenu
+></menuchoice
+> of <menuchoice
+> <shortcut
+><keycombo action="press"
+><keycap
+>F3</keycap
+></keycombo
+></shortcut
+> <guimenu
+></guimenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Zet u terug van 'afbeeldingsweergave' naar het hoofdvenster.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Afbeelding</guimenu
+><guimenuitem
+>Bewerken...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Opent de geselecteerde afbeelding in de &digikam; Afbeeldingsbewerker.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Image</guimenu
+><guimenuitem
+>Place onto Light Table</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Inserts selection to the Light Table thumbbar and puts the Light Table into the foreground.</action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+>&Ctrl;&Shift;<keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Image</guimenu
+><guimenuitem
+>Add to Light Table</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Adds selection to the Light Table thumbbar and puts the Light Table into the foreground.</action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Adjust EXIF Orientation Tag</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Bevat een submenu waarmee u de EXIF-oriëntatietag van de geselecteerde afbeelding kunt veranderen.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Afbeelding</guimenu
+><guimenuitem
+>Automatisch draaien/spiegelen volgens EXIF-informatie</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin menu entry to manually activate the auto rotate/flip feature for the currently selected images using the EXIF orientation tag. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/jpeglossless.html"
+>Verliesloos JPEG</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Afbeelding</guimenu
+><guimenuitem
+>Draaien</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin menu entry for rotating the currently selected images by 90/180/270 degrees. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/jpeglossless.html"
+>Verliesloos JPEG</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Afbeelding</guimenu
+><guimenuitem
+>Spiegelen</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin menu entry for flipping the currently selected images horizontally or vertically. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/jpeglossless.html"
+>Verliesloos JPEG</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Convert to Black &amp; White</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin menu entry for converting the currently selected images to black &amp; white. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/jpeglossless.html"
+>Verliesloos JPEG</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Email Images...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin for emailing images with your preferred mail agent. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/sendimages.html"
+>Afbeeldingen verzenden</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Geolocation</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to handle GPS meta data of the image. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/geolocalization.html"
+>Geolocation manual</ulink
+> for more information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Adjust Time &amp; Date</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin for adjusting time and date of the currently selected images. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/timeadjust.html"
+>Tijd aanpassen</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Metadata</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to handle meta data of the image (EXIF, IPTC, captions). </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/metadata.html"
+>Metadata manual</ulink
+> for more information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Image</guimenu
+><guimenuitem
+>Print Assistant...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to print Album images. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/printwizard.html"
+>Afdrukassistent</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+                                
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Afbeelding</guimenu
+><guimenuitem
+>Als achtergrond instellen</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin for setting the currently selected image as the desktop background. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/wallpaper.html"
+>Bureaubladachtergrond</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+                
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Image</guimenu
+><guimenuitem
+>Rename</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Hiermee kunt u de geselecteerde afbeelding hernoemen.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F8</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Image</guimenu
+><guimenuitem
+>Delete</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Move to trash (recoverable delete)</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Het menu Bewerken</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuselect.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menu bewerken</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bewerken</guimenu
+> <guimenuitem
+>Alles selecteren</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Selecteert alle getoonde afbeeldingen</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Edit</guimenu
+><guimenuitem
+>Select None</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Deselecteert alle items in de huidige weergave</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>*</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Edit</guimenu
+><guimenuitem
+>Invert Selection</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Keert de huidige selectie om</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Het menu Beeld</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuview.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Het menu Beeld</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+><guimenuitem
+>Volledig scherm</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Switch to full screen (same as F11).</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>View</guimenu
+><guisubmenu
+>Slideshow</guisubmenu
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Slide Show including RAW files.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>View</guimenu
+><guisubmenu
+>Slideshow</guisubmenu
+><guimenuitem
+>All</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Start slide show of all images in current window.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;<keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>View</guimenu
+><guisubmenu
+>Slideshow</guisubmenu
+><guimenuitem
+>Selection</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Start slide show on selected images.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Shift;<keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>View</guimenu
+><guisubmenu
+>Slideshow</guisubmenu
+><guimenuitem
+>With All Sub-Albums</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Slide show that recurses through the current album tree.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;&Shift;<keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>View</guimenu
+><guisubmenu
+>Slideshow</guisubmenu
+><guimenuitem
+>Advanced Slideshow...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin for displaying an advanced slide show with Album items. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/slideshow.html"
+>Advanced Slide Show manual</ulink
+> for more information. </para
+>     
+            </listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Inzoomen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Increase preview or the thumbnail size of the currently selected Album.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Uitzoomen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Decrease preview or the thumbnail size of the currently selected Album.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>0</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>View</guimenu
+><guimenuitem
+>Zoom to 100%</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Will show the image 1:1 (meaning 1 image pixel is mapped exactly to 1 screen pixel) in preview mode.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+> &Ctrl;&Shift;<keycap
+>E</keycap
+> </keycombo
+></shortcut
+> <guimenu
+>View</guimenu
+><guimenuitem
+>Fit to Window</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Will size the image as to fit snug into the window.</action
+></para
+></listitem>
+        </varlistentry>
+<!--
+        <varlistentry>
+            <term
+><menuchoice>
+                <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>T</keycap
+></keycombo
+></shortcut>
+                <guimenu
+>View</guimenu
+><guimenuitem
+>Show Thumbnails</guimenuitem>
+            </menuchoice
+></term>
+            <listitem
+><para
+><action
+>???</action
+></para
+></listitem>
+        </varlistentry>
+-->        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>View</guimenu
+><guisubmenu
+>Sort Albums</guisubmenu
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Sorteert alle albums in &digikam; op verzameling of op datum.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>View</guimenu
+><guisubmenu
+>Sort Images</guisubmenu
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Sort all images in current Album by Name, Path, Date, File Size or by Rating.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>View</guimenu
+><guimenuitem
+>Include Album Sub-Tree</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>If a hierarchical album structure exists, the currently selected branch will be displayed in full depth.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>View</guimenu
+><guimenuitem
+>Include Tag Sub-Tree</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>If a hierarchical tag structure exists, the currently selected branch will be displayed in full depth.</action
+></para
+></listitem>
+        </varlistentry>
+        
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Het menu Hulpmiddelen</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menutools.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Het menu Hulpmiddelen</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Tools</guimenu
+><guimenuitem
+>Search...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Launch the simple search items dialog. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Tools</guimenu
+><guimenuitem
+>Advanced Search...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Launch the advanced search items dialog. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Tools</guimenu
+><guimenuitem
+>Light Table</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Switches to the Light Table window. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Tools</guimenu
+><guimenuitem
+>Find Duplicates</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to find duplicate images in Albums Database. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/findduplicateimages.html"
+>Dubbele afbeeldingen zoeken</ulink
+> voor meer informatie. </para
+>     
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>Scan for New Images...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Rescan the library for images not yet in the database (see also <link linkend="rescan-items"
+>start-up option</link
+>). </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>Rebuild all Thumbnails...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Launch rebuild of all thumbnails (that can take a long time if you have many images). </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+<!--        
+        <varlistentry>
+            <term
+><menuchoice>
+                <guimenu
+>Tools</guimenu
+><guimenuitem
+>Rebuild all Fingerprints...</guimenuitem>
+            </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>???</action
+></para>
+            </listitem
+>            
+        </varlistentry>
+-->        
+        <varlistentry id="update-db-metadata">
+            <term
+><menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>Synchronize all Images with Database...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Launch synchronization of all metadata between database and files for all files (not just current view as with <link linkend="synchronize-metadata"
+>this</link
+> menu). Database metadata will be overwritten with the file's metadata in case of discrepancy. The opposite you can do from the <link linkend="synchronize-metadata"
+>Album</link
+> menu. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>Create Calendar...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin for creating a calendar with Album items. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/calendar.html"
+>Kalender</ulink
+> voor meer informatie. </para
+>     
+            </listitem
+>            
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>OpenGL Image Viewer...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin OpenGL full screen image viewer with the selected image. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/openglviewer.html"
+>OpenGL viewer manual</ulink
+> for more information. </para
+>     
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>Remote Galleries</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to set up a list of remote galleries for exporting. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/remotegalleries.html"
+>Remote galleries manual</ulink
+> for more information. </para
+>     
+            </listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Tools</guimenu
+><guimenuitem
+>RAW Image Converter (single)</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin for converting a single RAW image. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/rawconverter.html"
+>RAW Converter manual</ulink
+> for more information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <!-- Import sub menu -->
+ 
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Hulpmiddelen</guimenu
+><guimenuitem
+>Acties</guimenuitem
+> </menuchoice
+></term>
+             
+            <listitem>
+                <para
+><action
+>Kipi-plugin menu entries for performing batch Processes on currently selected images. </action
+></para>
+                <para
+>See the dedicated manuals for more information: <itemizedlist>
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/colorimages.html"
+>Afbeeldingen kleuren</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/convertimages.html"
+>Afbeeldingen converteren</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/effectimages.html"
+>Afbeeldingseffecten</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/filterimages.html"
+>Afbeeldingsfilters</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/recompressimages.html"
+>Afbeeldingen opnieuw comprimeren</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/renameimages.html"
+>Afbeeldingen hernoemen</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/resizeimages.html"
+>Afbeeldinggrootte wijzigen</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/rawconverter.html"
+>RAW Converter manual</ulink>
+                        </para
+></listitem>
+                    </itemizedlist>
+                </para
+>     
+            </listitem>
+        </varlistentry>
+    
+    </variablelist>
+    </para>
+    
+    </sect2>
+    
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>The Import Menu</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuimport.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Import Menu</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <variablelist>
+         <para
+>Any configured digital camera will be listed here. You can use the "Add Camera" menu entry to add a new camera to the list. Please, read the <link linkend="cameraselection.anchor"
+>Setup Camera Section</link
+> for more information. </para>
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Import</guimenu
+><guimenuitem
+>Media Browse</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Browsing attached media devices like card readers, DVDs or memory sticks.</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Import</guimenu
+><guimenuitem
+>Add camera</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Interactively add a new camera.</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Import</guimenu
+><guimenuitem
+>Add Images...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Navigate to a folder and select images</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Import</guimenu
+><guimenuitem
+>Add Folders...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Navigate to a folder and import it entirely</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Import</guimenu
+><guimenuitem
+>Scan Images...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Opens a Kipi-plugin scanner dialog</action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/acquireimages.html"
+>Afbeeldingen handmatig verkrijgen</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Import</guimenu
+><guimenuitem
+>Screen Shot...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Opens a Kipi-plugin screenshot tool</action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/acquireimages.html"
+>Afbeeldingen handmatig verkrijgen</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+
+    </variablelist>
+
+    </sect2>
+    <!-- *********************************************************************** -->
+
+    <sect2 id="export-menu"
+>    <title
+>The Export Menu</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuexport.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Export Menu</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <variablelist>
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>Archive to &CD;/DVD</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to archive Albums to &CD; or DVD using K3b. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/cdarchiving.html"
+>&CD; Archiving manual</ulink
+> for more information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>KML Export...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin that exports the images series into a KML structure. KML files can then be opened and displayed with GoogleEarth. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/fkmlrexport.html"
+>KML Export manual</ulink
+> for more information. </para>
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>Export to Flickr...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to upload or update images to <ulink url="http://www.flickr.com/"
+>Flickr</ulink
+> server. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/flickrexport.html"
+>Flickr Export manual</ulink
+> for more information. </para>
+            </listitem>
+        </varlistentry>
+        <!-- not ported to kde4
+        <varlistentry>
+            <term
+><menuchoice>
+                <guimenu
+>Export</guimenu
+><guimenuitem
+>Create MPEG Slideshow</guimenuitem>
+            </menuchoice
+></term>
+            <listitem>
+                <para
+><action>
+                    Kipi-plugin for creating an MPEG Slideshow with Album items.
+                </action
+></para>
+                <para>
+                    See the dedicated 
+                    <ulink url="help:/kipi-plugins/mpegencoder.html"
+>MPEG Encoder manual</ulink
+> 
+                    for more information.
+                </para
+>     
+            </listitem>
+        </varlistentry>
+	-->
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>Remote Gallery sync...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to upload or update images to <ulink url="http://www.gallery2.org/"
+>web galleries</ulink
+>. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/imagesgallery.html"
+>Galerij-export</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>Export to Picasaweb...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin upload or update images to Googles <ulink url="http://picasaweb.google.com/"
+>Picasaweb galleries</ulink
+>. </action
+></para>
+                <para
+>See the dedicated <ulink url="help:/kipi-plugins/picasaweb.html"
+>Picasaweb export manual</ulink
+> for more information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>&HTML; Gallery</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to create a &HTML; gallery with Albums. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/imagesgallery.html"
+>Afbeeldingengalerij</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>Flash Export</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Kipi-plugin to create a &HTML; gallery with Albums. </action
+></para>
+                <para
+>Zie het handboek <ulink url="help:/kipi-plugins/imagesgallery.html"
+>Afbeeldingengalerij</ulink
+> voor meer informatie. </para
+>     
+            </listitem>
+        </varlistentry>
+    </variablelist>
+
+    </sect2>
+    <!-- *********************************************************************** -->
+
+    <sect2 id="settings-menu"
+>    <title
+>Het menu Instellingen</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menusettings.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menu Instellingen</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Werkbalk tonen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Enable or disable the main &digikam; toolbar.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Statusbalk tonen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Enable or disable the main &digikam; status bar.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Sneltoetsen instellen...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Opent een venster waarmee u de sneltoetsen binnen &digikam; kunt instellen.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Werkbalken instellen...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Opent een venster waarmee u de werkbalken van &digikam; kunt instellen.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Settings</guimenu
+><guimenuitem
+>Configure &digikam;...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>&digikam; instellen</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <sect2
+>    <title
+>Het menu Help</title>
+    <variablelist>
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Help</guimenu
+><guimenuitem
+>Supported RAW Cameras</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Displays a live filter of all supported RAW format cameras.</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="rawcamerasupport.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>RAW camera support</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    </sect2>
+    <!-- *********************************************************************** -->
+
+</sect1>
+&doc-ie-menu; </chapter>

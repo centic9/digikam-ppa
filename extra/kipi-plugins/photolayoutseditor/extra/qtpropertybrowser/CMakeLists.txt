@@ -13,7 +13,6 @@ SET(qtpropertyeditor_SRCS
 )
 
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}
-                    ${CMAKE_CURRENT_BINARY_DIR}/src
                     src
                     ${QT_INCLUDE_DIR}
                    )
@@ -119,4 +118,5 @@ ADD_DEFINITIONS(${QT_DEFINITIONS})
 ADD_DEFINITIONS(-DQT_DLL)
 ADD_DEFINITIONS(-DQT_PLUGIN)
 
-INSTALL( TARGETS PropertyBrowser ARCHIVE DESTINATION lib ${INSTALL_TARGETS_DEFAULT_ARGS} )
+# Do not install (yet), see https://bugs.kde.org/show_bug.cgi?id=319664
+# INSTALL( TARGETS PropertyBrowser ARCHIVE DESTINATION lib ${INSTALL_TARGETS_DEFAULT_ARGS} )
