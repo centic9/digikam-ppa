@@ -87,21 +87,11 @@ void CpCleanTask::run()
     {
         errString = getProcessError(*process);
         successFlag = false;
+        return;
     }
-    else
-    {
-        successFlag = true;
-    }
+    kDebug() << "cpclean's output:" << endl << process->readAll();
 
-    delete process;
-    process = 0;
-
-    PTOFile f;
-    if (successFlag && !f.openFile(cpCleanPtoUrl->toLocalFile()))
-    {
-        kDebug() << "Parse Failed!!";
-    }
-
+    successFlag = true;
     return;
 }
 

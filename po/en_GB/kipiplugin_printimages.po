@@ -1,40 +1,41 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2009.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010.
+# Steve Allewell <steve.allewell@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2010-12-04 11:37+0000\n"
-"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
-"Language-Team: British English <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-07-01 22:46+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Malcolm Hunter"
+msgstr "Malcolm Hunter, Steve Allewell"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "malcolm.hunter@gmx.co.uk"
+msgstr "malcolm.hunter@gmx.co.uk, steve.allewell@gmail.com"
 
 #. i18n: ectx: Menu (Image)
-#: plugin/kipiplugin_printimagesui.rc:6
+#: plugin/kipiplugin_printimagesui.rc:7
 msgid "&Image"
-msgstr ""
+msgstr "&Image"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_printimagesui.rc:13
+#: plugin/kipiplugin_printimagesui.rc:14
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Main Toolbar"
 
 #: plugin/plugin_printimages.cpp:110 plugin/plugin_printimages.cpp:142
 msgid "Print images"
@@ -74,32 +75,24 @@ msgstr "Do not crop"
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateLeft)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateLeft)
 #: ui/croppage.ui:42 ui/croppage.ui:45
-#, fuzzy
-#| msgid "Rotate photo"
 msgid "Rotate photo to the left"
-msgstr "Rotate photo"
+msgstr "Rotate photo to the left"
 
 #. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateLeft)
 #: ui/croppage.ui:48
-#, fuzzy
-#| msgid "&Rotate"
 msgid "&Rotate left"
-msgstr "&Rotate"
+msgstr "&Rotate left"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateRight)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateRight)
 #: ui/croppage.ui:55 ui/croppage.ui:58
-#, fuzzy
-#| msgid "Rotate photo"
 msgid "Rotate photo to the right"
-msgstr "Rotate photo"
+msgstr "Rotate photo to the right"
 
 #. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateRight)
 #: ui/croppage.ui:61
-#, fuzzy
-#| msgid "Rotate photo"
 msgid "&Rotate right"
-msgstr "Rotate photo"
+msgstr "&Rotate right"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageDown)
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
@@ -149,15 +142,13 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
 #: ui/croppage.ui:167
-#, fuzzy
-#| msgid "Save settings"
 msgid "Save As"
-msgstr "Save settings"
+msgstr "Save As"
 
 #. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
 #: ui/croppage.ui:170
 msgid "Ctrl+S"
-msgstr ""
+msgstr "Ctrl+S"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
 #: ui/customlayout.ui:26 wizard/wizard.cpp:691
@@ -514,16 +505,12 @@ msgid "A KIPI plugin to print images"
 msgstr "A KIPI plugin to print images"
 
 #: wizard/wizard.cpp:164
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2004, Todd Shoemaker\n"
-#| "(c) 2007-2010, Angelo Naselli"
 msgid ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
 msgstr ""
 "(c) 2003-2004, Todd Shoemaker\n"
-"(c) 2007-2010, Angelo Naselli"
+"(c) 2007-2013, Angelo Naselli"
 
 #: wizard/wizard.cpp:167
 msgid "Todd Shoemaker"
@@ -565,11 +552,11 @@ msgstr "Page %1 of %2"
 
 #: wizard/wizard.cpp:1460
 msgid "Add again"
-msgstr ""
+msgstr "Add again"
 
 #: wizard/wizard.cpp:1470
 msgid "Remove"
-msgstr ""
+msgstr "Remove"
 
 #: wizard/wizard.cpp:2363
 msgid ""

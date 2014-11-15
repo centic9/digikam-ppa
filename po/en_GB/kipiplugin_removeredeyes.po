@@ -1,30 +1,31 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2009.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009.
+# Steve Allewell <steve.allewell@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_removeredeyes\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-02-06 02:46+0100\n"
-"PO-Revision-Date: 2009-05-20 16:18+0100\n"
-"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
-"Language-Team: British English <kde-i18n-doc@kde.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-07-06 22:20+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.0\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Malcolm Hunter"
+msgstr "Malcolm Hunter, Steve Allewell"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "malcolm.hunter@gmx.co.uk"
+msgstr "malcolm.hunter@gmx.co.uk, steve.allewell@gmail.com"
 
 #: detection/locators/haarclassifier/widgets/blobsettingsbox.cpp:53
 msgid "Blob Extraction Settings"
@@ -101,14 +102,14 @@ msgstr ""
 "only for very high-resolution and sharp images.</p>"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_removeredeyesui.rc:6
+#: plugin/kipiplugin_removeredeyesui.rc:7
 msgid "&Tools"
-msgstr ""
+msgstr "&Tools"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_removeredeyesui.rc:12
+#: plugin/kipiplugin_removeredeyesui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Main Toolbar"
 
 #: plugin/plugin_removeredeyes.cpp:90
 msgid "&Red-Eye Removal..."
@@ -127,10 +128,8 @@ msgid "A plugin to automatically detect and remove red-eye effect."
 msgstr "A plugin to automatically detect and remove red-eye effect."
 
 #: plugin/removeredeyeswindow.cpp:187
-#, fuzzy
-#| msgid "(c) 2008-2009, Andi Clemens"
 msgid "(c) 2008-2013, Andi Clemens"
-msgstr "(c) 2008-2009, Andi Clemens"
+msgstr "(c) 2008-2013, Andi Clemens"
 
 #: plugin/removeredeyeswindow.cpp:189
 msgid "Andi Clemens"
@@ -235,12 +234,10 @@ msgid "Correction Complete"
 msgstr "Correction Complete"
 
 #: plugin/removeredeyeswindow.cpp:772
-#, fuzzy
-#| msgid ""
-#| "<h2>No locator has been loaded.<br/>The plugin is not executable.</h2>"
 msgid ""
 "<h2>Could not load classifier options.<br/>The plugin is not executable.</h2>"
-msgstr "<h2>No locator has been loaded.<br/>The plugin is not executable.</h2>"
+msgstr ""
+"<h2>Could not load classifier options.<br/>The plugin is not executable.</h2>"
 
 #: widgets/myimageslist.cpp:58
 msgid "Corrected Eyes"
@@ -273,7 +270,7 @@ msgstr "<h2>generating preview...</h2>"
 #: widgets/previewwidget.cpp:214
 #, kde-format
 msgid "<p>Can not open preview image<br/>'%1'</p>."
-msgstr "<p>Can not open preview image<br/>'%1'</p>."
+msgstr "<p>Cannot open preview image<br/>'%1'</p>."
 
 #: widgets/previewwidget.cpp:216
 msgid "Error loading preview file"

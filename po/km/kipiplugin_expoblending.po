@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_expoblending\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-07-30 01:31+0000\n"
+"POT-Creation-Date: 2014-08-30 01:38+0000\n"
 "PO-Revision-Date: 2012-07-09 10:22+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -386,11 +386,11 @@ msgstr ""
 "<qt><p>សូម​មេត្តា​រង់​ចាំ ការ​ដំណើរ​ការ​ជាមុន​កំពុង​តែ​ដំណើរការ​ ។</p><p>វា​អាច​ចំណាយ​ពេល​មួយ​ភ្លែត...</"
 "p></qt>"
 
-#: importwizard/preprocessingpage.cpp:221
+#: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
 msgstr "មុន​ដំណើរការ​សារ​"
 
-#: importwizard/preprocessingpage.cpp:240
+#: importwizard/preprocessingpage.cpp:242
 msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
@@ -398,11 +398,11 @@ msgstr ""
 "<qt><p>ការ​ដំណើរ​ការ​ជា​មុន​បាន​បរាជ័យ​ ។</p><p>សូម​ពិនិត្យ​មើល​ជង់​រូបភាព​នៅ​ក្នុង​ដង្កៀប​...</p><p>ចុច​ "
 "\"លម្អិត​\" ដើម្បី​បង្ហាញ​សារ​ដំណើរការ​​ ។</p></qt>"
 
-#: manager/actionthread.cpp:308
+#: manager/actionthread.cpp:320
 msgid "unknown"
 msgstr "មិន​ស្គាល់​"
 
-#: manager/actionthread.cpp:807
+#: manager/actionthread.cpp:835
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -418,7 +418,9 @@ msgid "A tool to blend bracketed images"
 msgstr "ឧបករណ៍​​ត្រូវ​លាយ​រូបភាព​ក្នុង​ដង្កៀប​​"
 
 #: plugin/aboutdata.h:44
-msgid "(c) 2009-2012, Gilles Caulier"
+#, fuzzy
+#| msgid "(c) 2009-2012, Gilles Caulier"
+msgid "(c) 2009-2014, Gilles Caulier"
 msgstr "រក្សាសិទ្ធិ​ឆ្នាំ​ ២០០៩​-២០១២​ ​ដោយ Gilles Caulier"
 
 #: plugin/aboutdata.h:46
@@ -433,21 +435,25 @@ msgstr "អ្នក​និពន្ធ​"
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
-#: plugin/aboutdata.h:51
+#: plugin/aboutdata.h:51 plugin/aboutdata.h:55
 msgid "Developer"
 msgstr "អ្នក​អភិវឌ្ឍន៍​​"
+
+#: plugin/aboutdata.h:54
+msgid "Benjamin Girault"
+msgstr ""
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
 msgstr "ឯកសារ​ត្រូវ​បើក​"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_expoblendingui.rc:6
+#: plugin/kipiplugin_expoblendingui.rc:7
 msgid "&Tools"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_expoblendingui.rc:12
+#: plugin/kipiplugin_expoblendingui.rc:13
 msgid "Main Toolbar"
 msgstr ""
 

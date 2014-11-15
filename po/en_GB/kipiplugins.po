@@ -1,36 +1,35 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Malcolm Hunter <malcolm.hunter@gmx.co.uk>, 2009.
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010, 2011.
+# Steve Allewell <steve.allewell@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-01-09 01:29+0000\n"
-"PO-Revision-Date: 2011-05-01 12:52+0100\n"
-"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
-"Language-Team: British English <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2014-08-27 01:39+0000\n"
+"PO-Revision-Date: 2014-07-06 22:20+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
 
-#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:114
+#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:113
 msgid "<p>This is the current processing status.</p>"
 msgstr "<p>This is the current processing status.</p>"
 
-#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:121
+#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:120
 msgid "<p>This is the batch job progress as a percentage.</p>"
 msgstr "<p>This is the batch job progress as a percentage.</p>"
 
-#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:190
-#, fuzzy
-#| msgid "Copy to Clip&board"
+#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:189
 msgid "Copy to Clipboard"
-msgstr "Copy to Clip&board"
+msgstr "Copy to Clipboard"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:162
 msgid "<i>unavailable</i>"
@@ -95,81 +94,39 @@ msgid "Handbook"
 msgstr "Handbook"
 
 #: libkipiplugins/tools/kpaboutdata.h:54
-#, fuzzy
-#| msgid "Copyright 2003-2011, kipi-plugins team"
 msgid "Copyright 2003-2014, kipi-plugins team"
-msgstr "Copyright 2003-2011, kipi-plugins team"
+msgstr "Copyright 2003-2014, kipi-plugins team"
 
 #: libkipiplugins/tools/kpbinaryiface.cpp:150
 #, kde-format
 msgid "Navigate to %1"
-msgstr ""
-
-#: libkipiplugins/tools/kpversion.h.cmake:49
-#, kde-format
-msgid ""
-"IRC:\n"
-"irc.freenode.net - #kde-imaging\n"
-"\n"
-"Feedback:\n"
-"kde-imaging@kde.org\n"
-"\n"
-"Build date: %1 (target: %2)"
-msgstr ""
-"IRC:\n"
-"irc.freenode.net - #kde-imaging\n"
-"\n"
-"Feedback:\n"
-"kde-imaging@kde.org\n"
-"\n"
-"Build date: %1 (target: %2)"
-
-#: libkipiplugins/tools/kpversion.h.cmake:59
-#, kde-format
-msgid ""
-"IRC:\n"
-"irc.freenode.net - #kde-imaging\n"
-"\n"
-"Feedback:\n"
-"kde-imaging@kde.org\n"
-"\n"
-"Build date: %1 (target: %2)\n"
-"Rev.: %3"
-msgstr ""
-"IRC:\n"
-"irc.freenode.net - #kde-imaging\n"
-"\n"
-"Feedback:\n"
-"kde-imaging@kde.org\n"
-"\n"
-"Build date: %1 (target: %2)\n"
-"Rev.: %3"
+msgstr "Navigate to %1"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:64
 msgid "Binary"
-msgstr ""
+msgstr "Binary"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:65
 msgid "Version"
-msgstr ""
+msgstr "Version"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:97
 msgid "Binary not found."
-msgstr ""
+msgstr "Binary not found."
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:98
 #, kde-format
 msgid "Minimal version number required for this binary is %1"
-msgstr ""
+msgstr "Minimal version number required for this binary is %1"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:100
 msgid "Find"
-msgstr ""
+msgstr "Find"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:102
 #, kde-format
 msgid " or <a href=\"%1\">download</a>"
-msgstr ""
+msgstr " or <a href=\"%1\">download</a>"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:127
 msgid ""
@@ -178,16 +135,22 @@ msgid ""
 "click the 'Find' button to locate them on your system, otherwise please "
 "download and install them to proceed.</font></p></qt>"
 msgstr ""
+"<qt><p><font color=\"red\"><b>Warning:</b> Some necessary binaries have not "
+"been found on your system. If you have these binaries installed, please "
+"click the 'Find' button to locate them on your system, otherwise please "
+"download and install them to proceed.</font></p></qt>"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:161
 msgid ""
 "A development version has been detect. There is no guarantee on the behavior "
 "of this binary."
 msgstr ""
+"A development version has been detect. There is no guarantee on the "
+"behaviour of this binary."
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:167
 msgid "Change"
-msgstr ""
+msgstr "Change"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:291
 msgid "Thumbnail"
@@ -251,11 +214,11 @@ msgstr "Save the list."
 
 #: libkipiplugins/widgets/kpimageslist.cpp:938
 msgid "Select the image file list to load"
-msgstr ""
+msgstr "Select the image file list to load"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:994
 msgid "Select the image file list to save"
-msgstr ""
+msgstr "Select the image file list to save"
 
 #: libkipiplugins/widgets/kppreviewimage.cpp:521
 #: libkipiplugins/widgets/kppreviewimage.cpp:522
@@ -313,7 +276,7 @@ msgstr "Overwrite automatically"
 
 #: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
 msgid "Open rename-file dialog"
-msgstr "Open rename-file dialogue"
+msgstr "Open rename-file dialog"
 
 #. i18n: ectx: @info:tipoftheday
 #: tips:2
@@ -526,7 +489,7 @@ msgstr ""
 "<td>\n"
 "Did you know that the <b>Noise Reduction</b> option in the <b>Filter Images</"
 "b> plugin can be used to improve the rendering of images taken with an "
-"analog camera?\n"
+"analogue camera?\n"
 "</td>\n"
 "</tr>\n"
 "</table>\n"
@@ -724,22 +687,6 @@ msgstr ""
 
 #. i18n: ectx: @info:tipoftheday
 #: tips:224
-#, fuzzy
-#| msgid ""
-#| "<p>\n"
-#| "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
-#| "\">\n"
-#| "<tr>\n"
-#| "<td>\n"
-#| "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-#| "</td>\n"
-#| "<td>\n"
-#| "Did you know that Kipi plugins can also be used in Digikam, Kimdaba, "
-#| "Showimg, and Gwenview programs?\n"
-#| "</td>\n"
-#| "</tr>\n"
-#| "</table>\n"
-#| "</p>\n"
 msgid ""
 "<p>\n"
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
@@ -762,12 +709,48 @@ msgstr ""
 "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
 "</td>\n"
 "<td>\n"
-"Did you know that Kipi plugins can also be used in Digikam, Kimdaba, "
-"Showimg, and Gwenview programs?\n"
+"Did you know that Kipi plugins can also be used in Digikam, KPhotoAlbum, "
+"Showfoto, and Gwenview programs?\n"
 "</td>\n"
 "</tr>\n"
 "</table>\n"
 "</p>\n"
+
+#~ msgid ""
+#~ "IRC:\n"
+#~ "irc.freenode.net - #kde-imaging\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "kde-imaging@kde.org\n"
+#~ "\n"
+#~ "Build date: %1 (target: %2)"
+#~ msgstr ""
+#~ "IRC:\n"
+#~ "irc.freenode.net - #kde-imaging\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "kde-imaging@kde.org\n"
+#~ "\n"
+#~ "Build date: %1 (target: %2)"
+
+#~ msgid ""
+#~ "IRC:\n"
+#~ "irc.freenode.net - #kde-imaging\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "kde-imaging@kde.org\n"
+#~ "\n"
+#~ "Build date: %1 (target: %2)\n"
+#~ "Rev.: %3"
+#~ msgstr ""
+#~ "IRC:\n"
+#~ "irc.freenode.net - #kde-imaging\n"
+#~ "\n"
+#~ "Feedback:\n"
+#~ "kde-imaging@kde.org\n"
+#~ "\n"
+#~ "Build date: %1 (target: %2)\n"
+#~ "Rev.: %3"
 
 #~ msgid ""
 #~ "<qt><p>Unable to find <i>%1</i> executable.</p><p>This program is "

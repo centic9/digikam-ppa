@@ -1,0 +1,1723 @@
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+--><sect2 id="editor-correct-tools">
+  <title
+>Bildförbättring</title>
+  <sect3 id="sharpening">
+    <sect3info>
+      <title
+>Öka bildskärpa</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard snabela kulzer punkt net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam; tillhandahåller tre olika verktyg för skärpa, där vart och ett har <link linkend="comparison-refocus"
+>förtjänster</link
+> i olika avseenden. <itemizedlist>
+            <listitem>
+              <para
+><link linkend="using-adjustsharpness"
+>Skärpa</link
+> är ett traditionellt skärpeverktyg som är mycket snabbt och enkelt, men som ofta kan skapa korniga bilder, särskilt i mörka områden. </para>
+            </listitem>
+            <listitem>
+              <para
+><link linkend="using-unsharp"
+>Oskarp mask</link
+> arbetar med kontrast hos kanter för att få en bild att verka skarpare, men gör den i själva verket inte skarpare alls, utan fungerar mer på ett psykovisuellt sätt. Det kan användas för att ta bort atmosfäriskt dis, och gör då ett mycket bra arbete. Algoritmen kommer från Gimp, med copyright av Winston Chang. </para>
+            </listitem>
+            <listitem>
+              <para
+><link linkend="refocus"
+>Fokusera om</link
+> är troligen det bästa av de tre, eftersom det verkligen förbättrar skärpan. Det är något mer invecklat att använda, eftersom det har flera parametrar som man kan använda. </para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Fokusera om</keyword>
+        <keyword
+>Oskarp mask</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Inledning</title>
+    <para
+>Suddiga fotografier, liksom de flesta digitaliserade bilder, behöver korrigering av skärpan. Det beror på digitaliseringsprocessen som måste dela upp ett färgkontinuum i punkter med något olika färger: element tunnare än samplingsfrekvensen får en enhetlig färg beräknad som ett medelvärde. Sålunda visas skarpa kanter något suddiga. Samma fenomen visar sig när färgpunkter skrivs ut på papper. Spegelreflexkameror kräver regelmässigt ännu mer korrigering av skärpan än konsumentkameror. </para>
+    <para
+>Medan en viss kameraintern skärpeförbättring har utförts för JPEG-bilder, behöver bilder med obehandlat format alltid skärpeförbättring i arbetsflödet. </para>
+    <para
+>Vissa bildläsare använder ett skärpefilter vid läsning. Det är värt att inaktivera det så att du har kontroll över bilden. </para>
+    <sect4 id="using-adjustsharpness">
+      <title
+>Justera skärpan</title>
+      <anchor id="sharpentool.anchor"/>
+    </sect4>
+      <sect4>
+        <title
+>Ta bort suddighet i ett fotografi</title>
+        <para
+>Om kamerans fokus inte är perfekt inställt, eller om kameran rör sig när bilden tas, blir resultatet ett suddigt fotografi. Om det är riktigt suddigt kan du troligen inte göra mycket åt det med någon teknik. Om det bara är något suddigt bör du kunna förbättra fotografiet. Många bra spegelreflexkameror utför mindre bildbehandling av bilderna än enklare kameror (vilka brukar öka kontrasten artificiellt för att få bilderna att se skarpa ut). Den här sortens mindre suddighet kan enkelt förbättras med verktyg. </para>
+        <para
+>I vissa fall kan du få användbara resultat genom att göra ett fotografi skarpare med verktyget Skärpa under menyalternativet <menuchoice
+><guimenu
+>Förbättra</guimenu
+> <guimenuitem
+>Skärpa</guimenuitem
+></menuchoice
+>. </para>
+        <example>
+          <title
+>Verktyget Skärpa under arbete</title>
+          <screenshot>
+            <screeninfo
+>Verktyget Skärpa under arbete</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="&path;editorsharpenplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+        <para
+>Du bör dock vara försiktig med detta, annars ser inte resultatet särskilt naturligt ut. Åtgärden ökar kanternas skenbara skärpan i fotografiet, men förstärker också brus. Den i allmänhet mest användbara tekniken för att göra ett suddigt fotografi skarpare är verktyget Fokusera om. Du kan komma åt det med menyalternativet <menuchoice
+><guimenu
+>Förbättra</guimenu
+> <guimenuitem
+>Fokusera om</guimenuitem
+></menuchoice
+>. Se <link linkend="refocus"
+>Fokusera om</link
+> för mer information och en jämförelse av skärpetekniker. </para>
+      </sect4>
+      <sect4>
+        <title
+>Reducera kornighet i ett fotografi</title>
+        <para
+>När du tar ett fotografi i dåliga ljusförhållanden eller med mycket snabb exponeringstid, får inte kameran tillräckligt med information för att göra bra uppskattningar av den verkliga färgen på varje bildpunkt, och följaktligen ser resultatet kornigt ut. Du kan &quot;jämna ut&quot; kornigheten genom att göra bilden suddigare, men då förlorar du också skärpa. Det bästa tillvägagångssättet, om kornigheten inte är alltför uttalad, är att använda <link linkend="noisereduction"
+>brusreduceringsverktyget</link
+> som är tillgängligt via menyalternativet <menuchoice
+><guimenu
+>Förbättra</guimenu
+> <guimenuitem
+>Brusreducering</guimenuitem
+></menuchoice
+>. </para>
+      </sect4>
+      <sect4>
+        <title
+>Göra ett fotografi mjukare</title>
+        <para
+>Ibland har du motsatt problem: En bild är för skarp. Lösningen är att göra den lite suddigare. Som tur är är det mycket enklare att göra en bild suddigare än att göra den skarpare. Välj verktyget för <link linkend="using-blurfilter"
+>oskärpa</link
+>, med menyalternativet <menuchoice
+><guimenu
+>Förbättra</guimenu
+> <guimenuitem
+>Oskärpa</guimenuitem
+></menuchoice
+> och experimentera med nivån. Förhandsgranskningsfönstret till höger om dialogrutan visar effekten av åtgärden i ditt fotografi. </para>
+      </sect4>
+    <sect4 id="using-unsharp">
+      <title
+>Filtret Oskarp mask</title>
+      <note>
+        <para
+>Filtret oskarp mask är ett utmärkt verktyg för att ta bort suddighet från fotografier. Se <ulink url="http://www.gimpguru.org/Tutorials/RemovingHaze"
+>följande webbadress</ulink
+> för en demonstation. </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;unsharpdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Dialogrutan för oskarp mask</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Bildrutan och förhandsgranskningen av originalet hjälper dig att panorera i bilden. Förhandsgranskningsfönstret visar filterresultatet med nuvarande inställningar. </para>
+      <para
+>Det finns två viktiga parametrar, <guilabel
+>Radie</guilabel
+> och <guilabel
+>Värde</guilabel
+>. De förvalda inställningarna fungerar oftast ganska bra, så du bör först försöka med dem. Att öka antingen <guilabel
+>Radie</guilabel
+> eller<guilabel
+>Värde</guilabel
+> ökar effektens styrka. Men gå inte för långt, om du gör den oskarpa masken för stark förstärker den brus i bilden och skapar intryck av upphöjningar intill skarpa kanter. </para>
+      <para
+><guilabel
+>Radie</guilabel
+> låter dig ställa in hur många bildpunkter på var sida om en kant påverkas av skärpeförbättringen. Bilder med hög upplösning tillåter större radie. Du bör alltid förbättra skärpan i en bild med dess slutliga upplösning. </para>
+      <para
+><guilabel
+>Värde</guilabel
+> är procentvärdet för skillnaden mellan originalet och den oskarpa bilden som adderas tillbaka i originalet. Den låter dig ange styrkan hos skärpeförbättringen. </para>
+      <para
+><guilabel
+>Tröskeln</guilabel
+> är en bråkdel av det maximala RGB-värdet som behövs för att använda skillnadsvärdet. Den låter dig ställa in den minimala skillnaden i bildpunkternas värden som anger en kant där skärpeförbättring ska användas. På så sätt kan du skydda områden med jämna övergångar från skärpeförbättring, och undvika att skapa förvrängningar i ansikten, på himlen eller på vattenytor. </para>
+    </sect4>
+      <sect4 id="inaction-unsharp">
+        <title
+>Oskarp mask under arbete</title>
+        <para
+>Det här är ett exempel på hur Oskarp mask kan ändra ditt liv. Den ursprungliga bilden är (1) och den korrigerade bilden är (2). Den oskarpa masken användes med <guilabel
+>Radie</guilabel
+> = 6,0, <guilabel
+>Värde</guilabel
+> = 0,5 och <guilabel
+>Tröskel</guilabel
+> = 0,0. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;unsharppreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Verktyget Oskarp mask under arbete</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+    <sect4 id="refocus">
+      <title
+>Fokusera om ett fotografi</title>
+      <para
+><emphasis
+>Fokusera om</emphasis
+> i &digikam; är ett verktyg för att fokusera om en bild genom att förbättra skärpan. Det använder algoritmen <emphasis
+>avfaltningsfilter</emphasis
+> med copyright av Ernst Lippe. </para>
+      <para
+>Verktyget försöker &quot;fokusera om&quot; en bild genom att göra defokusering ogjord. Det är bättre än att bara försöka göra ett fotografi skarpare. Det utnyttjar en teknik som kallas <emphasis
+>FIR Wiener filtrering</emphasis
+>. Den traditionella tekniken för att göra bilder skarpare är att använda en oskarp maskering. Omfokusering skapar i allmänhet bättre resultat än oskarp maskering. Starta det från bildeditorns meny <menuchoice
+><guimenu
+>Förbättra</guimenu
+> <guimenuitem
+>Skärpa</guimenuitem
+> <guimenuitem
+>Fokusera om</guimenuitem
+></menuchoice
+>. </para>
+      <para
+>Omfokuseringstekniken fungerar annorlunda än <link linkend="using-unsharp"
+>Oskarp mask</link
+> och skiljer sig också från <link linkend="using-adjustsharpness"
+>Skärpefiltret</link
+>, vilka båda ökar kontrasten hos objektens kanter i en bild. Omfokuseringen vänder istället på processen som gjorde bilden suddig på grund av kamerans cirkulära bländare. Metoden ger dig så mycket av originalet &quot;i fokus&quot; som möjligt. Omfokusering använder en mycket kraftfull avfaltningsalgoritm som återskapar data som har blandats ihop. I matematiska termer orsakas suddigheten oftast av en faltning, och en avfaltning vänder på processen, vilket är exakt vad Fokusera om gör. Dessutom tillåter FIR-filtertekniken att mycket av bruset och kornigheten tas bort, som annars istället framhävs av skärpeprocessen i alla skärpefilter. </para>
+    </sect4>
+      <sect4 id="using-refocus">
+        <title
+>Använda omfokuseringsverktyget</title>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;refocusdialog.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Dialogrutan för omfokusering</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+        <para
+>Bildrutan och förhandsgranskningen av originalet hjälper dig att panorera i bilden. Förhandsgranskningsfönstret visar filterresultatet med nuvarande inställningar. </para>
+        <para
+>I de flesta fall (suddighet från en kamera) orsakas bildens försämringen av en cirkulär faltning, men det finns två tillgängliga faltningar: <itemizedlist
+><listitem
+><para
+>Cirkulär faltning: Denna sprider varje originalpunkt likformigt över en liten cirkelskiva med en fast radie. Tekniskt beskriver detta effekten av att använda en (ideal) lins som inte är riktigt fokuserad.</para
+></listitem
+><listitem
+><para
+>Gaussisk faltning: Denna är matematiskt lik normalfördelningen, men sin klockkurva. Ur teoretisk synvinkel är den matematiska motiveringen för att använda en gaussisk faltning att när man utför ett stort antal slumpmässiga faltningar närmar sig alltid resultatet en gaussisk faltning.</para
+></listitem
+></itemizedlist
+> Insticksprogrammet för omfokusering stöder både den cirkulära och den gaussiska faltningen samt blandningar av de två. </para>
+        <para
+>I praktiken fungerar den cirkulära faltningen mycket bättre än den gaussiska faltningen. Den gaussiska faltningen har en mycket lång svans, alltså beror faltningens matematiska resultat också på originalbildpunkter som har ett stort avstånd från den ursprungliga originalbildpunkten. FIR Wiener inversen av en gaussisk faltning är i de flesta fall starkt beroende av originalbildpunkter på stora avstånd, och i de flesta fall skapar det oönskade resultat. </para>
+        <para
+>För att ställa in filtret för avfaltning, har insticksprogrammet följande parametrar: <itemizedlist>
+            <listitem>
+              <para
+><guilabel
+>Cirkulär skärpa</guilabel
+>: Det här är radien för den cirkulära faltningen. Det är den viktigaste parametern för att använda insticksprogrammet. För de flesta bilder bör standardvärdet 1,0 ge bra resultat. Välj ett högre värde om bilden är mycket suddig, men akta dig för att skapa ljuscirklar.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Korrelation</guilabel
+>: Att öka korrelationen kan hjälpa till att reducera förvrängningar. Korrelationen kan gå från 0 till 1. Användbara värden är 0,5 och värden nära 1, t.ex. 0,95 och 0,99. Att använda ett större värde för korrelationen reducerar insticksprogrammets skärpeeffekt.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Brusfilter</guilabel
+>: Att öka brusfilterparametern hjälper till att reducera förvrängningar. Brusfiltret kan gå från 0 till 1, men värden större än 0,1 är sällan användbara. När brusfiltrets värde är för lågt, t.ex. 0,0 blir bildkvaliteten förskräcklig. Ett användbart värde är 0,03. Att använda ett stort värde för brusfiltret kan till och med göra bilden suddigare.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Gaussisk skärpa</guilabel
+>: Det här är skärpan för den Gaussisk faltningen. Använd parametern när oskärpan är av Gaussisk typ (oftast beroende på tidigare suddighetsfiltrering). I de flesta fall bör du lämna parametern på 0, eftersom den orsakar otäcka förvrängningar. Om du använder värden skilda från noll, måste du troligen också öka parametrarna för korrelation och/eller brusfilter.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Matrisstorlek</guilabel
+>: Den här parametern avgör omvandlingsmatrisens storlek. Att öka matrisstorleken kan ge bättre resultat, särskilt om du har valt stora värden för cirkulär eller Gaussisk skärpa. Observera att insticksprogrammet blir mycket långsamt när du väljer stora värden för parametern. I de flesta fall bör du välja ett värde i intervallet 3 - 10.</para>
+            </listitem>
+            <listitem>
+              <para
+>Knapparna <guilabel
+>Spara som</guilabel
+> och <guilabel
+>Ladda</guilabel
+> används för att göra just det. Alla omfokuseringssinställningar du har ställt in kan sparas i filsystemet i en textfil och senare laddas.</para>
+            </listitem>
+            <listitem>
+              <para
+>Knappen <guilabel
+>Förval</guilabel
+> återställer alla inställningar till förvalda värden.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <para
+>Nedan ser du några tips som hjälper dig att arbeta med insticksprogrammet för omfokusering: <itemizedlist>
+            <listitem>
+              <para
+>Utför all beskärning och korrigering av färg- och intensitetskurvor i bilden innan insticksprogrammet används.</para>
+            </listitem>
+            <listitem>
+              <para
+>Använd annars insticksprogrammet innan du utför några andra åtgärder i bilden. Orsaken är att många åtgärder lämnar gränser i bilden som inte är omedelbart synliga, men som skapar otäcka förvrängningar.</para>
+            </listitem>
+            <listitem>
+              <para
+>När du läser in bilder och komprimerar dem, t.ex. till JPEG, ska du använda insticksprogrammet på den okomprimerade bilden.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </sect4>
+    <sect4 id="comparison-refocus">
+      <title
+>Jämförelse av omfokusering med andra tekniker</title>
+      <para
+>Jämförelse med två andra tekniker som ofta används för att förbättra bilder är: <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="using-adjustsharpness"
+>Skärpefilter</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="using-unsharp"
+>Oskarp mask</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Ett skärpefilter använder en liten faltningsmatris som ökar skillnaden mellan en originalbildpunkt och dess omedelbara grannar. FIR Wiener filtrering är en generellare teknik eftersom den tillåter ett mycket större grannskap och bättre parametrisering. Ett skärpefilter fungerar bara när bilderna har mycket lite suddighet. Dessutom ser resultatet ofta &quot;brusigt&quot; ut med stora värden för skärpeparametrarna. Med FIR Wiener filtrering kan bruset reduceras avsevärt genom att välja stora värden för parametrarna <guilabel
+>Korrelation</guilabel
+> och <guilabel
+>Brusfilter</guilabel
+>. </para>
+      <para
+>Oskarp maskering är en annan mycket populär bildförbättringsteknik. Ur matematisk synvinkel är dess rättfärdigande något dunkelt, men många personer är mycket förtjusta i det. Det första steget är att skapa en suddig kopia av originalbilden. Därefter subtraheras skillnaden mellan originalbilden och den suddiga bilden från originalbilden, därav namnet oskarp mask. I själva verket är oskarp maskering mer av en kontrastförbättring av de viktiga objekten i bilden än en förbättring av skärpan. Den tar inte bort störningen från kamerans bländarmönster som omfokusering gör. </para>
+      <para
+>I allmänhet skapar oskarp maskering bättre resultat än ett skärpefilter. Det beror troligen på det faktum att oskarp maskering använder ett större grannskap än ett skärpefilter. </para>
+      <para
+>Ur teoretisk synvinkel måste alltid oskarp maskering införa förvrängningar. Till och med vid optimala omständigheter kan den aldrig helt och hållet göra suddighetseffekten ogjord. Det är möjligt att bevisa att Wiener-filtrering är den optimala linjära filtreringen. I praktiken visade sig resultatet av FIR Wiener-filtret i samtliga fall vara minst lika bra som det för oskarp maskering. FIR Wiener-filtret är ofta bättre på att återställa små detaljer. </para>
+      <para
+>Nedan ser du en jämförelse av olika filter använda på en liten suddig bild: <informaltable
+> <tgroup cols="2">
+            <thead>
+              <row>
+                <entry
+>Förhandsgranskning</entry>
+                <entry
+>Typ</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-notsharpened.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Ursprunglig suddig färgbild att fixa. Bilden är tagen med en analog stillbildskamera. Suddigheten är resultatet av otillräckligt ljus för autofokusering av linsen. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-sharped.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Fixad bild med enkelt skärpefilter. Skärpeinställningen är 80. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-unsharpmask.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Fixad bild med filtrering med oskarp mask. Inställningarna är Radie = 50, Värde = 5 och Tröskelvärde = 0. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-refocus.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Fixad bild med omfokuseringsfiltret. Inställningar är Cirkulär skärpa = 1,3, Korrelation = 0,5, Brusfilter = 0,020, Gaussisk skärpa = 0 och Matrisstorlek = 5. </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </para>
+      <note>
+        <para
+>För mer information om metoder för korrigering av skärpa som används i digital bildbehandling, kan du hitta en teknisk jämförelse på <ulink url="http://www.bialith.com/Research/BARclockblur.htm"
+>följande webbadress</ulink
+>. </para>
+      </note>
+    </sect4>
+  </sect3>
+  <sect3 id="using-redeyecorrection">
+    <title
+>Borttagning av röda ögon på ett fotografi</title>
+    <anchor id="redeyecorrectiontool.anchor"/>
+    <para
+>Röda ögon uppstår när blixtfotografering används för att ta bilder av människor. Det röda är reflektionen längst bak i ögat som syns eftersom pupillen inte kan reagera snabbt nog på blixten. Med en separat blixt är effekten av röda ögon för övrigt mindre trolig på grund av vinkeln mellan blixten och linsen. Du kan korrigera en del av den värsta effekten av röda ögon genom att markera området med ett öga på fotografiet, på samma sätt som beskrivs för beskärning ovan, och sedan välja <menuchoice
+><guimenu
+>Förbättra</guimenu
+> <guimenuitem
+>Korrigering av röda ögon</guimenuitem
+></menuchoice
+>. </para>
+    <para
+>Hur det fungerar <itemizedlist>
+        <listitem
+><para
+>Ställ in förhandsgranskningsläget som du vill ha det</para
+></listitem>
+        <listitem
+><para
+>Inställningen <guilabel
+>Känslighet</guilabel
+> justerar hur aktiv borttagningen av röda ögon är (aggressiv eller inte)</para
+></listitem>
+        <listitem
+><para
+>Skjutreglaget <guilabel
+>Utjämning</guilabel
+> ställer in hur suddigt området som gjorts mörkare för att återge pupillen naturligare görs</para
+></listitem>
+        <listitem
+><para
+><guilabel
+>Färgnyans</guilabel
+> ställer in en egen färg för pupillen. Om du vill ha blåa ögon istället för mörka, kan du ändra det här</para
+></listitem>
+        <listitem
+><para
+><guilabel
+>Färgnyansnivå</guilabel
+> justerar pupillfärgens ljushet</para
+></listitem>
+      </itemizedlist>
+    </para>
+    <example>
+      <title
+>Verktyget för korrektion av röda ögon under arbete</title>
+      <screenshot>
+        <screeninfo
+>Verktyget för korrektion av röda ögon under arbete </screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="&path;editor-redeyes-correction.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </example>
+  </sect3>
+  <sect3 id="inpainting">
+    <sect3info>
+      <title
+>Fyll i fotografi</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard snabela kulzer punkt net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="&path;cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>cimglogo</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+>Verktyget <emphasis
+>Fyll i fotografi</emphasis
+> är definitivt ett av de mest avancerade verktygen för att ta bort oönskade ytor i ett fotografi, med oöverträffad prestanda. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Inledning</title>
+    <para/>
+    <para
+>Ifyllnadsalgoritmen har utvecklats av IMAGE-gruppen i GREC CNRS laboratorium i Caen, Frankrike, och är en del av <ulink url="http://cimg.sourceforge.net"
+>CImg-projektet</ulink
+>. </para>
+    <sect4 id="using-inpainting">
+      <title
+>Använda verktyget Fyll i fotografi</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Dialogrutan Fyll i fotografi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Verktyget levereras med flera förinställningar som startpunkter och för att förenkla restaurering. Tillgängliga förinställningar listas nedan: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Ingen</guilabel
+>: Använder de vanligaste förvalda filterinställningarna, som inte är optimerade för något visst syfte.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Ta bort liten yta</guilabel
+>:</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Ta bort mellanstor yta</guilabel
+>:</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Ta bort stor yta</guilabel
+>:</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Om du vill ställa in filterparametrar för finjustering, använd flikarna <guilabel
+>Utjämning</guilabel
+> och <guilabel
+>Avancerade inställningar</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Utjämningsinställningar för Fyll i fotografi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Detaljbevarande</guilabel
+> p [0, 100]: Den här styr bevarande av krökningar (anletsdrag). Ett lågt värde tvingar fram en likformig utjämning över hela bilden, medan större värden i första hand utjämnar likformiga områden och lämnar detaljerna skarpare. Värdet 0,9 bevarar detaljer bra nog så att ingen ökning av skärpan krävs efteråt. Observera att <guilabel
+>Detaljbevarande</guilabel
+> alltid måste vara mindre än <guilabel
+>Anisotropi</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotropi</guilabel
+> alfa [0, 100]: Ett lågt värde utjämnar lika mycket i alla riktningar, medan ett värde nära 1 bara utjämnar i en riktning. Om du har filmkorn eller CCD-liknande brus, ger ett högt värde vågliknande mönster, medan JPEG-artefakter är lämpliga för värden nära 1. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Utjämning</guilabel
+> [0, 500]: Den här inställningen anger maximal övergripande utjämningsfaktor (när p definierar den relativa utjämningen). Ställ in det enligt brusnivån.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regelbundenhet</guilabel
+> [0, 100]: Den här parametern gäller större strukturer. Ju större värdet är, desto mer regelbunden blir den övergripande utjämningen. Det är nödvändigt när det finns mycket brus, eftersom det då är svårt att uppskatta geometrin. Om du också vill åstadkomma en 'van Gogh' turbulenseffekt, rekommenderas inställningar större än 3.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Filtreringsiterationer</guilabel
+>: Antal gånger som suddighetsalgoritmen utförs. Oftast är 1 till 2 tillräckligt.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Avancerade inställningar för Fyll i fotografi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Vinkelsteg</guilabel
+> da [5, 90]: Vinkelintegrering av anisotropifaktorn a. Om alfa väljes liten, ska också da väljas liten. Men se upp med att små vinklar ger långa beräkningstider. Välj det så stort som du kan acceptera. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Integreringssteg</guilabel
+> [0,1, 10]: Stegbredd för rumslig integrering uttryckt i bildpunkter. Bör förbli mindre än 1 (delbildpunktsutjämning) och ska aldrig vara mer än 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Använd linjär interpolation</guilabel
+>: Vinsten i kvalitet om du markerar alternativet är bara marginell, och du förlorar en faktor två i hastighet. Rekommendationen är att lämna det av.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Knapparna <guilabel
+>Spara som</guilabel
+> och <guilabel
+>Ladda</guilabel
+> används för att göra just det. Alla filterinställningar för att fylla i ett fotografi som du har ställt in kan sparas i filsystemet i en textfil och senare laddas. </para>
+      <warning>
+        <para
+>Fyll i fotografi är (jämförelsevis) mycket snabbt med tanke på vad det gör, med det kan ta lång tid att utföra, och orsaka hög processorlast. Du kan alltid avbryta beräkningen genom att trycka på knappen <guilabel
+>Avbryt</guilabel
+> under uppritningen. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-inpainting">
+      <title
+>Verktyget Fyll i fotografi under arbete</title>
+      <para
+>Nedan ser du ifyllnadstypen <guilabel
+>Ta bort liten yta</guilabel
+> utförd på ett färgfotografi taget i Guatemala city med en analog kamera. Det verkar som om det finns en konstig svart artefakt mitt på ansiktet, orsakad av dålig lagring av filmen under resan. Originalbilden är (1), den korrigerade bilden är (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Förhandsgranskning av filtret Fyll i fotografi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="noisereduction">
+    <sect3info>
+      <title
+>Brusreducering</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard snabela kulzer punkt net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+><emphasis
+>Brusreducering</emphasis
+> i &digikam; är ett kraftfullt verktyg för att reducera brus i en bild. Det använder en algoritm med copyright av Peter Heckert. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Brusreducering</keyword>
+        <keyword
+>Suddighet</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Inledning</title>
+    <para
+>Verktyget tillhandahåller valbara bildfilter för att ta bort fläckar eller andra förvrängningar orsakade av skräp som dammkorn eller hår på linsen. Det kan också användas för att ta bort <emphasis
+>sensorbrus</emphasis
+> från kameran som kanske orsakats av höga ISO-inställningar samt så kallade <emphasis
+>moir&eacute;-mönster</emphasis
+> för bilder som lästs in från böcker eller tidningar. </para>
+    <para
+>Om du vill ha mer information om sensorbrus i digitalkameror, ta en titt i följande <ulink url="http://www.cambridgeincolour.com/tutorials/noise.htm"
+>handledning</ulink
+>. </para>
+    <sect4 id="using-noisereduction">
+      <title
+>Använda brusreduceringsverktyget</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;noisereductiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Dialogrutan för brusreducering</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Skärmbilden ovan visar en typisk scen tagen med en digital kamera med högkänslig ISO-inställning. Den visar kornighetsbrus som kan reduceras av insticksprogrammet. </para>
+      <para
+>Bildrutan med förhandsgranskning av originalet, vars storlek kan ändras, hjälper dig panorera i bilden. Flytta omkring den röda rektangeln för att välja området som låter dig bedöma de optimala filterinställningarna. Förhandsgranskningsfönstret visar filtrets resultat med nuvarande inställningar. Det kan arrangeras om i fyra olika kombinationer som avbildas av ikonerna under förhandsgranskningen av originalet. Skärmbilden visar det första arrangemanget där samma urklipp visas för jämförelse. Längst ner i förhandsgranskningsområdet ser du inställningen <guilabel
+>Zoomfaktor</guilabel
+> som kan användas för att förstora ett område i bilden. </para>
+      <para
+>Nedan ser du en fullständig beskrivning av alla parametrar. I de flesta fall behövs bara fliken <guilabel
+>Detaljer</guilabel
+> och övriga parametrar tillgängliga under fliken <guilabel
+>Avancerat</guilabel
+> kan lämnas med sina förvalda inställningar. <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Radie</guilabel
+>: Kontrollen väljer storlek på det glidande fönstret som filtret använder. Stora värden ökar inte tidsåtgången för att filtrera varje bildpunkt i bilden men kan orsaka suddighet. Fönstret flyttas över bilden och färgen i det jämnas ut för att ta bort felaktigheter. Hur som helst måste det vara ungefär samma storlek som bruskornigheten eller något större. Om det är inställt till ett större värde än nödvändigt, kan det orsaka oönskad suddighet. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Tröskel</guilabel
+>: Använd skjutreglaget för grovjustering och nummerrutan för finjustering. Kontrollen ställer kantdetekteringens känslighet. Värdet ska ställas in så att kanter och detaljer är klart synliga och brus jämnas ut. Värdet är inte bundet till något styrkevärde, utan är bundet till styrkevärdenas andraderivata. Justera det helt enkelt och titta på förhandsgranskningen. Justeringen måste göras försiktigt, eftersom avståndet mellan brusig, jämn och suddig är mycket litet. Justera det lika försiktigt som du skulle göra med en kameras fokus. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Struktur</guilabel
+>: Kontrollen ställer in strukturens noggrannhet. Värdet kan användas för att få mer eller mindre strukturnoggrannhet. När det minskas görs strukturen och bruset suddiga, medan när det ökas förstärks strukturen men bruset ökar också. Det har nästan ingen effekt för kanter i bilden, i motsats till filtrets <guilabel
+>Kant</guilabel
+>, som skulle göra kanter suddiga när värdet ökas. Om <guilabel
+>Kant</guilabel
+> justeras på så sätt att kanter är skarpa, och det fortfarande finns för mycket områdesbrus, kan strukturdetaljnivån användas för att reducera bruset utan att göra kanterna suddigare. Ett annat sätt skulle vara att minska <guilabel
+>Radie</guilabel
+> och öka <guilabel
+>Kant</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Skärpa</guilabel
+>: Kontrollen ställer in skärpenivån. Värdet definierar avståndet mellan bildpunkter som filtret tittar framåt efter variationer i luminans. När värdet ökas, raderas spikformat brus. Du kan eventuellt justera om filtrets <guilabel
+>Kant</guilabel
+>, när du ändrar inställningen. När värdet är för högt, kan inte det adaptiva filtret längre spåra bilddetaljer noggrannt, och brus kan åter bli synligt eller suddighet kan uppstå. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Kant</guilabel
+>: Kontrollen ställer in kantnoggrannheten för skärpa. Värdet förbättrar filtrets frekvenssvar. När det är för starkt kan inte allt brus tas bort, eller spikformat brus kan bli synligt. Ställ in det nära det maximala värdet om du vill ta bort svagt brus eller JPEG-förvrängningar utan att förlora detaljer. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Avvittring</guilabel
+>: Kontrollen ställer in kanternas fasförskjutning. Värdet kan användas för att avvittra enstaka spikar och har en utjämnande effekt på kanter, och gör dem skarpare med avvittring så att brus vid kanterna vittras bort. Effekten beror på <guilabel
+>Skärpa</guilabel
+>, <guilabel
+>Dämpning</guilabel
+> och <guilabel
+>Kanter</guilabel
+>. Ställ in det till det minimala värdet om du vill ta bort svagt brus eller JPEG-förvrängningar. När värdet ökas är det ofta användbart att också öka <guilabel
+>Dämpning</guilabel
+>. Inställningen tillhandahåller skärpa och kantutjämningseffekt när spikformat brus korrigeras. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Luminans</guilabel
+>: Kontrollen ställer in bildens luminanstolerans. Det rekommenderas att bara använda toleransinställningarna <guilabel
+>Färg</guilabel
+> eller <guilabel
+>Luminans</guilabel
+> för att korrigera bilden, inte båda samtidigt. Inställningen påverkar inte huvudprocessen för utjämning som styrs av inställningen <guilabel
+>Detaljer</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Färg</guilabel
+>: Kontrollen ställer in bildens färgtolerans. Det rekommenderas att bara använda toleransinställningarna <guilabel
+>Färg</guilabel
+> eller <guilabel
+>Luminans</guilabel
+> för att korrigera bilden, inte båda samtidigt. Inställningen påverkar inte huvudprocessen för utjämning som styrs av inställningen <guilabel
+>Detaljer</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Gamma</guilabel
+>: Kontrollen ställer in bildens gammatolerans. Värdet kan användas för att öka toleransvärden för mörkare områden (som ofta innehåller mer brus). Resultatet blir större suddighet för skuggade områden. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Dämpning</guilabel
+>: Kontrollen ställer in dämpningsjusteringen av fasdarr. Värdet definierar hur snabbt det adaptiva filtrets radie reagerar på luminansvariationer. Om det ökas verkar kanterna jämnare. Om det är för högt, kan suddighet uppstå. Om det har sitt minimala värde kan brus och fasdarr uppstå vid kanter. Det kan undertrycka spikformat brus när det ökas och det är då metoden som föredras för att ta bort det. </para>
+          </listitem>
+          <listitem>
+            <para
+>Knapparna <guilabel
+>Spara som</guilabel
+> och <guilabel
+>Ladda</guilabel
+> används för att göra just det. Alla brusreduceringsinställningar du har ställt in kan sparas i filsystemet i en textfil och senare laddas. </para>
+          </listitem>
+          <listitem>
+            <para
+>Knappen <guilabel
+>Förval</guilabel
+> återställer alla inställningar till förvalda värden. </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+      <sect4 id="inaction-noisereduction">
+        <title
+>Brusreducering under arbete</title>
+        <para
+>Det här är ett exempel på hur brusreducering kan ändra ditt liv. Den ursprungliga bilden är (1) och den korrigerade bilden är (2). Brusreducering användes med standardinställningar. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;noisereductionpreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Brusreducering under arbete</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+      <sect4 id="using-blurfilter">
+        <title
+>Göra ett fotografi mjukare</title>
+        <para
+>Ibland är ett fotografi för distinkt för ditt syfte. Lösningen är att göra det lite suddigare. Tursamt nog är det mycket enklare att göra en bild suddigare än att göra den skarpare. Välj oskärpeverktyget med menyalternativet <menuchoice
+> <guimenu
+>Förbättra</guimenu
+> <guimenuitem
+>Oskärpa</guimenuitem
+> </menuchoice
+> och experimentera med nivån. Förhandsgranskningsfönstret till höger om dialogrutan visar effekten av åtgärden i fotografiet. </para>
+        <example>
+          <title
+>Verktyget Oskärpa under arbete</title>
+          <screenshot>
+            <screeninfo
+>Verktyget Oskärpa under arbete</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="&path;editorblurplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+      </sect4>
+  </sect3>
+  <sect3 id="restoration">
+    <sect3info>
+      <title
+>Restaurering av fotografi</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard snabela kulzer punkt net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="&path;cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>cimglogo</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+><emphasis
+>Restaurering av fotografi</emphasis
+> i &digikam; är definitivt ett av de mest avancerade verktygen för att reducera artefakter i fotografier. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Inledning</title>
+    <para
+>Det här fantastiska restaureringsfiltret är en nyutveckling som erbjuder möjligheter utan motstycke bland allmänt tillgängliga verktyg för att ta bort mängder av oönskat skräp från dina bilder. Det är väl anpassat för att hantera försämrade bilder som lider av Gaussiskt brus, filmkorn, repor eller komprimeringsartefakter och lokala försämringar som man ofta stöter på i digitala bilder (original eller digitaliserade). Utjämningen sker längs krökningar i bilderna, och bevarar på så sätt betydelsefullt innehåll på liknande sätt som det mänskliga ögat vill ha det. </para>
+    <para
+>Samma algoritm kan användas för färgläggning och strukturersättning, som täcks av ett annat verktyg (fyll i fotografi). Restaureringsalgoritmen har utvecklats av IMAGE-gruppen i GREC CNRS laboratorium i Caen, Frankrike, och är en del av <ulink url="http://cimg.sourceforge.net"
+>CImg-projektet</ulink
+>. </para>
+    <sect4 id="using-restoration">
+      <title
+>Använda restaureringsverktyget</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="r&path;estorationdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Dialogrutan Restaurering av fotografi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Verktyget levereras med flera förinställningar som startpunkter och för att förenkla restaurering. Tillgängliga förinställningar listas nedan: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Ingen</guilabel
+>: Använder de vanligaste förvalda filterinställningarna, som inte är optimerade för något visst syfte.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Reducera likformigt brus</guilabel
+>: Optimala inställningar för bildbrus orsakat av sensorer.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Reducera JPEG-artefakter</guilabel
+>: JPEG-komprimering är inte perfekt, och för vissa typer av bilder är den långt ifrån perfekt. Som en komprimeringsalgoritm med förlust, finns det vissa &quot;artefakter&quot;, små defekter som visas i den avkodade bilden. Den här inställningen har som mål att korrigera problemet.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Reducera mönster</guilabel
+>: Optimerad för att ta bort artefakter från bildinläsning, digitalisering eller moiré-mönster.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Om du vill ställa in filterparametrar för finjustering, använd flikarna <guilabel
+>Utjämning</guilabel
+> och <guilabel
+>Avancerade inställningar</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Utjämningsinställningar för restaurering av fotografi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Detaljbevarande</guilabel
+> p [0, 100]: Den här styr bevarande av krökningar (anletsdrag). Ett lågt värde tvingar fram en likformig utjämning över hela bilden, medan större värden i första hand utjämnar likformiga områden och lämnar detaljerna skarpare. Värdet 0,9 bevarar detaljer bra nog så att ingen ökning av skärpan krävs efteråt. Observera att <guilabel
+>Detaljbevarande</guilabel
+> alltid måste vara mindre än <guilabel
+>Anisotropi</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotropi</guilabel
+> alfa [0, 100]: Ett lågt värde utjämnar lika mycket i alla riktningar, medan ett värde nära 1 bara utjämnar i en riktning. Om du har filmkorn eller CCD-liknande brus, ger ett högt värde vågliknande mönster, medan JPEG-artefakter är lämpliga för värden nära 1. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Utjämning</guilabel
+> [0, 500]: Den här inställningen anger maximal övergripande utjämningsfaktor (när p definierar den relativa utjämningen). Ställ in det enligt brusnivån.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regelbundenhet</guilabel
+> [0, 100]: Den här parametern gäller utjämningens regelbundenhet. Föreställ dig utjämningsprocessen som att bilden kammas. Då motsvarar regelbundenheten kammens storlek. Ju större värdet är, desto mer regelbunden blir den övergripande utjämningen. Det är nödvändigt när det finns mycket brus, eftersom det då är svårt att uppskatta den lokala geometrin. Om du också vill åstadkomma en 'van Gogh' turbulenseffekt, rekommenderas inställningar större än 3.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Filtreringsiterationer</guilabel
+>: Antal gånger som suddighetsalgoritmen utförs. Oftast är 1 till 2 tillräckligt.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Avancerade inställningar för restaurering av fotografi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Vinkelsteg</guilabel
+> da [5, 90]: Vinkelintegrering av anisotropifaktorn a. Om alfa väljes liten, ska också da väljas liten. Men se upp med att små vinklar ger långa beräkningstider. Välj det så stort som du kan acceptera. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Integreringssteg</guilabel
+> [0,1, 10]: Stegbredd för rumslig integrering uttryckt i bildpunkter. Bör förbli mindre än 1 (delbildpunktsutjämning) och ska aldrig vara mer än 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Använd linjär interpolation</guilabel
+>: Vinsten i kvalitet om du markerar alternativet är bara marginell, och du förlorar en faktor två i hastighet. Rekommendationen är att lämna det av.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Knapparna <guilabel
+>Spara som</guilabel
+> och <guilabel
+>Ladda</guilabel
+> används för att göra just det. Alla filterinställningar för att restaurera ett fotografi som du har ställt in kan sparas i filsystemet i en textfil och senare laddas. </para>
+      <warning>
+        <para
+>Restaurering av ett fotografi är (jämförelsevis) mycket snabbt med tanke på vad det gör, med det kan ta lång tid att utföra, och orsaka hög processorlast. Du kan alltid avbryta en effekt genom att trycka på knappen <guilabel
+>Avbryt</guilabel
+> under uppritning av förhandsgranskningen. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-restoration">
+      <title
+>Restaurering av fotografi under arbete</title>
+      <para
+>Nedan ser du restaureringstypen <guilabel
+>Reducera likformigt brus</guilabel
+> utförd på ett svartvitt fotografi taget med kameran Minolta™ 700Si och Ilford™ HP-5 film inställd på ISO-känsligheten 3200. Du ser ett mycket framträdande filmkorn på ansiktena. Originalbilden är (1), den korrigerade bilden är (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Förhandsgranskning av restaurering med reducera likformigt brus</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Nedan ser du ytterligare ett exempel på restaurering av ett fotografi med restaureringstypen <guilabel
+>Reducera mönster</guilabel
+> utförd på ett gammalt färgfotografi inläst med en digital flatbäddsbildläsare. Du kan se den mycket märkbara artefakten som orsakas av bildläsarens ljus på det inplastade fotografiska pappret. Originalbilden är (1), den korrigerade bilden är (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationpreview2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Förhandsgranskning av restaurering med reducera mönster</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="hotpixels">
+    <sect3info>
+      <title
+>Korrigering av heta bildpunkter</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Unai</firstname
+> <surname
+>Garro</surname
+> <affiliation
+> <address
+> <email
+>ugarro snabela telefonica punkt net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>Verktyget <emphasis
+>Heta bildpunkter</emphasis
+> i &digikam; låter dig ta bort heta bildpunkter i ett fotografi taget med en CCD-kamera. Det använder algoritmer från JPEGPixi-projektet med copyright av Martin Dickopp. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Inledning</title>
+    <para
+>De flesta av dagens digitalkameror producerar bilder med ett flertal ljust färgade &quot;dåliga bildpunkter&quot; när långa slutartider används. Nattbilder kan förstöras av dessa &quot;dåliga bildpunkter&quot;. Det finns tre olika typer av &quot;dåliga bildpunkter&quot;: <itemizedlist
+><listitem
+><para
+>Fasta bildpunkter: Det är en bildpunkt som alltid läses av som hög, eller alltid har maximal effekt i alla exponeringar. Den skapar en ljus bildpunkt, oftast med röd, blå eller grön färg, i den slutliga bilden. En fast bildpunkt syns oavsett slutartiden, bländarstorleken eller någon annan inställning av användaren. Den uppstår vid normal exponering och brukar vara mer uppenbar vid ljusa förhållanden.</para
+></listitem
+><listitem
+><para
+>Döda bildpunkter: Det är en bildpunkt som läses av som noll och alltid är av i alla exponeringar. Tillståndet skapar en svart bildpunkt i den slutliga bilden. På liknande sätt som en fast bildpunkt, syns en död bildpunkt oavsett slutartiden, bländarstorleken eller någon annan inställning av användaren.</para
+></listitem
+> <listitem
+><para
+>Heta bildpunkter: Det är en bildpunkt som läses av som hög (ljus) vid längre exponeringar som vit, röd eller grön färg. Ju längre exponeringstid, desto synligare blir heta bildpunkter. Dessa bildpunkter syns inte vid ljusa förhållanden.</para
+></listitem
+> </itemizedlist
+> Observera att fasta eller döda bildpunkter inträffar på samma plats i alla bilder. Om platsen för en fast eller död bildpunkt varierar, kan det vara en het bildpunkt. </para>
+    <para
+>Fasta, döda eller heta bildpunkter är i synnerhet ett problem vid fotografering med obehandlat läge i hög kvalitet, eftersom många kameror har inbyggd borttagning av heta bildpunkter som automatiskt verkställs när JPEG-komprimering används (vilket oftast är fallet). </para>
+    <para
+>Verktyget kan användas för att fixa &quot;Heta bildpunkter&quot; eller &quot;Fasta bildpunkter&quot; i ett fotografi med en metod baserad på subtraktion av en svart bildruta. Det finns ännu inte någon manuell editor för att välja dåliga bildpunkter. </para>
+    <sect4 id="using-blackframecreation">
+      <title
+>Skapa de svarta bildrutorna</title>
+      <para
+>Metoden med subtraktion av svart bildruta ger den noggrannaste borttagningen av &quot;Heta bildpunkter&quot; och &quot;Fasta bildpunkter&quot;. Först måste du skapa en &quot;svart bildruta&quot; som referens. Det är enkelt att göra. När du har tagit färdigt dina bilder med lång exponeringstid sätt på ett linsskydd på kameran och ta en &quot;svart&quot; bild med samma exponeringstid som de tidigare bilderna. Bilden blir helt svart, men vid nära undersökning ser du att den har vita och fasta bildpunkter (färgade punkter). De är placerade på samma position som på dina föregående bilder. </para>
+      <para
+>Ladda filen i komponenten med knappen <guilabel
+>Svart bildruta</guilabel
+>. Verktyget utför automatisk detektering av vita och fasta bildpunkter. De markeras i kontrollrutans förhandsgranskningsområden. </para>
+      <warning>
+        <para
+>Om du använder en äldre digitalkamera är det viktigt att ta om den svarta bildrutan nästa gång du tar en bild med lång exponeringstid, för att detektera nya vita och fasta bildpunkter på grund av CCD-defekter. </para>
+      </warning>
+    </sect4>
+    <sect4 id="using-hotpixels">
+      <title
+>Använda verktyget Heta bildpunkter</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;hotpixelsdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Dialogrutan för verktyget Heta bildpunkter</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Som förklarades i föregående avsnitt, måste du först ladda en svart bildruta som motsvarar bilden som ska korrigeras. En automatisk tolkning utförs i den svarta bildrutan för att hitta dåliga bildpunkter. Observera att verktyget kommer ihåg föregående svarta bildruta som användes vid den senaste sessionen, och den öppnas automatiskt igen vid nästa session. </para>
+      <para
+>Bildrutan och förhandsgranskningen av originalet hjälper dig att panorera i bilden. Förhandsgranskningsfönstret visar filterresultatet med nuvarande inställningar. Dåliga bildpunkter markeras i alla förhandsgranskningsområden. </para>
+      <para
+>Välj ett område för att se dåliga bildpunkter i förhandsgranskningen och filtrets resultat med alternativet 'Skilda vyer' i bildrutan. Välj bästa metod med <guilabel
+>Filter</guilabel
+> för att interpolera bildpunkter eller bildpunktsblock. Följande filter är tillgängliga: <itemizedlist>
+          <listitem>
+            <para
+>Medelvärde: Bildpunkterna intill bildpunktsblocket medelvärdesbildas. Den resulterade färgen tilldelas till alla bildpunkter i blocket. För endimensionell interpolering görs det separat för en bildpunkt breda, horisontella eller vertikala ränder.</para>
+          </listitem>
+          <listitem>
+            <para
+>Linjär: Bildpunkterna som har avståndet ett från bildpunktsblocket används för att beräkna en bilinjär yta (tvådimensionell), eller en samling linjära kurvor (endimensionella), som sedan används för att tilldela interpolerade färger till bildpunkterna i blocket.</para>
+          </listitem>
+          <listitem>
+            <para
+>Kvadratisk: Det är förvald filtreringsmetod. Bildpunkterna som har avståndet två eller mindre från bildpunktsblocket används för att beräkna en bikvadratisk yta (tvådimensionell), eller en samling kvadratiska kurvor (endimensionella), som sedan används för att tilldela interpolerade färger till bildpunkterna i blocket.</para>
+          </listitem>
+          <listitem>
+            <para
+>Kubisk: Bildpunkter som har avståndet 3 eller mindre från bildpunktsblocket används för att beräkna en bikubisk yta (tvådimensionell), eller en samling kubiska kurvor (endimensionella), som sedan används för att tilldela interpolerade färger till bildpunkterna i blocket.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+    <sect4 id="inaction-hotpixels">
+      <title
+>Verktyget Heta bildpunkter under arbete</title>
+      <para
+>Nedan ser du verktyget för korrigering av heta bildpunkter använd på ett färgfotografi taget med en undermålig digitalkamera vid känsligheten 200 ISO med en långtidsexponering. Originalbilden förstorad 300 % är (1), och den korrigerade bilden är (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;hotpixelspreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Förhandsgranskning av korrigering av heta bildpunkter</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="vignettingcorrection">
+    <sect3info>
+      <title
+>Korrigering av vinjettering</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard snabela kulzer punkt net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+><emphasis
+>Korrigering av vinjettering</emphasis
+> är ett verktyg i &digikam; för att korrigera bildvinjettering (underexponering i hörnen). </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Antivinjettering</keyword>
+	<keyword
+>Lägg till vinjettering</keyword>
+	<keyword
+>Korrigering av vinjettering</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Inledning</title>
+    <para
+>Vidvinkellinser, särskilt de som används vid mellan- och storformatsfotografering, belyser ofta inte hela sensorplanet jämt. Istället &quot;vinjetterar&quot; (skuggar) de bildens kanter och hörn, vilket väsentligt reducerar ljuset som når sensorn där. Även telefotolinser kan uppvisa vinjettering. </para>
+    <para
+>Den traditionella lösningen på detta är att montera ett &quot;centrumfilter&quot; på linsen. Det är ett neutraltäthetsfilter med maximal täthet i linsens optiska axel, genomskinligt i periferin, med en täthet som varierar omvänt mot linsens vinjettering. Ett centrumfilter har många fördelar: det korrigerar inte bara automatiskt helformatsbilder, utan eftersom det är fast monterat framför linsen, kompenserar det också för den ocentrerade vinjettering som uppstår när kamerarörelser används för justering av perspektiv eller fokalplan. </para>
+    <para
+>Dock finns det också nackdelar. Många centrumfilter kräver en justering av bländaren med 1,5 eller 2 steg, som i sin tur kan göra att slutarhastigheten blir så låg (eftersom vidvinkellinser, även med centrumfilter, är bäst att använda vid bländare f/16 eller mindre) att det är omöjligt att hålla kameran i handen, och rörelseoskärpa blir ett problem när rörliga objekt fotograferas. </para>
+    <para
+>Med dagens stora urval av film och färgdjupet (eller gråskaledjupet) hos digitalkameror eller filmbildläsare, är det möjligt att simulera effekten av ett centrumfilter efteråt genom att utföra motsvarande transform på en obehandlad bild tagen utan filtret. Det här verktyget för antivinjettering utför en centrumfiltertransformering av en bild. Det använder en algoritm med copyright av John Walker. </para>
+    <sect4 id="using-vignettingcorrection">
+      <title
+>Använda verktyget för korrigering av vinjettering</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;vignettingcorrectiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Dialogruta för korrigering av vinjettering</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Du kan styra filtret för vinjetteringskorrigering med fem skjutreglage, och tre andra styr resultatbildens exponering: </para>
+      <para
+><guilabel
+>Värde</guilabel
+>: Det här alternativet styr graden av luminositetsförsvagning som filtret ger vid dess maximala värde. Förvalt värde är 2,0, vilket motsvarar ett optiskt filter med filterfaktorn ett bländarsteg (eller, inte av en slump, en faktor två i luminositet). Öka värdet för att kompensera för en större vinjetteringsgrad, och minska den för en mindre. </para>
+      <para
+><guilabel
+>Vävning</guilabel
+>: Det här alternativet avgör hastigheten som filterintensiteten minskar från punkten med maximal täthet mot kanterna, uttryckt som en exponentfaktor. Det förvalda värdet 1 ger en linjär minskning i filtertäthet med avståndet från centrum. Exponentfaktorer större än 1,0 orsakar en snabbare minskning (till exempel gör exponenten 2 att tätheten minskar som kvadraten på avståndet från centrum) och gör att filtrets effekt koncentreras nära centrum. Exponenter mindre än 1 sprider ut filtrets värde mot kanterna. Exponenten 0,5 gör att värdet minskar som kvadratroten av avståndet från centrum. </para>
+      <para
+><guilabel
+>Radie</guilabel
+>: Det här alternativet anger radien, som en multipel av bildens halva diagonalmått, där filtrets värde minskar till noll (eller, med andra ord, blir genomskinligt). Det förvalda värdet 1,0 anger ett filter som, om det är centrerat i bilden, är genomskinligt i dess hörn. Att specificera en radie större än 1 utökar effekten av centrumfiltret bortom bildens kanter, medan en radie mindre än ett begränsar filtrets effekt till ett område mindre än bilden. Vid kompensation av vinjettering för linser som används med stora format och vissa mellanformatkameror, är den förvalda radien 1 sällan riktig. Dessa linser &quot;täcker&quot; ofta en bildcirkel som är väsentligt större än filmen, för att tillåta att kameraförflyttningar styr perspektiv och fokus, och har följaktligen ett vinjetteringsmönster med utsträckning en bra bit utanför filmens kanter, vilket kräver en radieinställning större än 1 för att simulera ett centrumfilter som täcker hela bildcirkeln. </para>
+      <para
+>Det enda sättet att vara säker på vilka inställningar av <guilabel
+>Värde</guilabel
+>, <guilabel
+>Vävning</guilabel
+> och <guilabel
+>Radie</guilabel
+> som bäst kompenserar för de verkliga optiska kännetecknen hos en given lins är att exponera en jämnt upplyst scen (till exempel ett grått kort upplyst med spritt ljus) och utföra täthetsmätningar av den resulterande bilden (till exempel med histogrampositionstaplarna i verktyget Nivåjustering). Kan inte det göras, och om linstillverkarens specifikation inte ger den exakta vinjetteringsgraden för en eller flera arbetsbländare, behöver du experimentera med olika inställningar för att hitta de som fungerar bäst för var och en av dina linser. För att hjälpa dig med uppgiften, tillhandahåller verktygets dialogruta en miniatyrbild med en uppritad mask tillämpad på bilden. Tursamt nog är det mänskliga ögats respons logaritmisk, inte linjär som för de flesta digitala bildsensorer, så du behöver inte kompensera den verkliga vinjetteringen för att skapa bilder som betraktaren uppfattar som jämnt belysta. </para>
+     <para
+>Inställningarna <guilabel
+>X-förskjutning</guilabel
+> och <guilabel
+>Y-förskjutning</guilabel
+>: Dessa alternativ flyttar filtrets centrum horisontellt respektive vertikalt upp mot bildens kant med det angivna procentvärdet. Ett negativt värde för X-förskjutningen skiftar filtret åt vänster, medan ett positivt värde skiftar det åt höger. Ett negativt värde på Y-förskjutningen flyttar filtret uppåt, och slutligen flyttar ett positivt värde det neråt. </para>
+      <para
+>Inställningarna <guilabel
+>Ljusstyrka</guilabel
+>, <guilabel
+>Kontrast</guilabel
+> och <guilabel
+>Gamma</guilabel
+>: Att behandla en bild med antivinjetteringsverktyget reducerar bildpunkternas intensitet. Du måste justera om resultatbildens exponering med dessa alternativ. Skjutkontrollerna ger bara positiva värden, eftersom du bara behöver öka inställningarna. </para>
+	<para
+><guilabel
+>Lägg till vinjettering</guilabel
+>: Många fotografier ser platta ut på grund av en distraherande bakgrund eller någon annan sak i kompositionen. Medan man i de flesta fall vill ta bort vinjettering, är det ett faktum att selektiv vinjettering kan förbättra intrycket av ett fotografi och låta ögonen dras till avsett motiv. Som artist kan man välja att använda alternativet. Att markera det inverterar filtret och gör därigenom hörnen på bilden mörkare. </para>
+      <note>
+        <para
+>Om du vill ha en noggrannare justering av resultatbildens exponering, lämna värdena Ljusstyrka, Kontrast och Gamma nollställda och använd verktyget Kurvjustering från bildeditorn, tillgänglig via menyalternativet <menuchoice
+><guimenu
+>Färg</guimenu
+><guimenuitem
+>Kurvjustering</guimenuitem
+></menuchoice
+>. </para>
+      </note>
+    </sect4>
+    <sect4 id="inaction-vignettingcorrection">
+      <title
+>Verktyget för korrigering av vinjettering under arbete</title>
+      <para
+>Det här är ett exempel på en korrigering av vinjettering utförd på en bild. Den ursprungliga bilden (1) visar vinjettering i hörnen, medan det är mycket mindre i den korrigerade bilden (2). En korrektion av ljusstyrka och kontrast har också utförts på resultatbilden av verktyget. </para>
+      <para
+>De värden som används i exemplet är: <itemizedlist>
+          <listitem>
+            <para
+>Täthet = 2,6.</para>
+          </listitem>
+          <listitem>
+            <para
+>Exponent = 0,9.</para>
+          </listitem>
+          <listitem>
+            <para
+>Radie = 1,1.</para>
+          </listitem>
+          <listitem>
+            <para
+>Ljusstyrka = 20.</para>
+          </listitem>
+          <listitem>
+            <para
+>Kontrast = 50.</para>
+          </listitem>
+          <listitem>
+            <para
+>Gamma = 20.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;antivignettingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Bildeditorns verktyg för korrigering av vinjettering under arbete</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="lensdistortion">
+    <sect3info>
+      <title
+>Korrigering av linsförvrängning</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard snabela kulzer punkt net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+><emphasis
+>Linsförvrängning</emphasis
+> i &digikam; är ett verktyg för att reducera sfärisk avvikelse orsakad av linser i en bild. Det använder en algoritm med copyright av David Hodson. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Inledning</title>
+    <anchor id="lensdistortion.anchor"/>
+    <para
+><emphasis
+>Utåtgående</emphasis
+> förvrängning hör ihop med vidvinkellinser (eller minsta zoom) och gör att bilderna verkar vara sfäriska (med utåtgående kurvor). Du märker det när du har raka kanter nära en bildkant. Motsatsen, den <emphasis
+>inåtgående</emphasis
+> förvrängningen, hör ihop med telefotolinser (eller största zoom) och bilderna verkar ihoptryckta (böjda inåt) mot mitten. Den inåtgående förvrängningen är ofta mindre synbar än den utåtgående. Förvrängningarna kan enkelt elimineras utan synlig förlust av kvalitet med det här verktyget. </para>
+    <note>
+      <para
+>Verktyget hanterar geometriska förvrängningar. Kromatisk aberration korrigeras inte av verktyget. </para>
+    </note>
+    <para
+>Följande figurer förklarar huvudtyperna av geometriska förvrängningar: <itemizedlist>
+        <listitem>
+          <para
+>(1): inåtgående förvrängning.</para>
+        </listitem>
+        <listitem>
+          <para
+>(2): ingen förvrängning.</para>
+        </listitem>
+        <listitem>
+          <para
+>(3): utåtgående förvrängning.</para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="&path;distortions.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Typer av linsförvrängning</phrase>
+        </textobject>
+      </inlinemediaobject>
+    </para>
+    <para/>
+    <sect4 id="using-lensdistortion">
+      <title
+>Använda linsförvrängningsverktyget</title>
+      <note>
+        <para
+>Först en kort förklaring. De geometriska korrektionerna använder fjärde ordningens polynomkoefficienter. <itemizedlist>
+            <listitem>
+              <para
+>Den första ordningens koefficient ändrar bildens storlek. Verktyget kallar det <guilabel
+>Zoom</guilabel
+>.</para>
+            </listitem>
+            <listitem>
+              <para
+>Den andra ordningens koefficient behandlar linsers huvudsakliga geometriska förvrängning, och kan korrigera bildens konvexa eller konkava form.</para>
+            </listitem>
+            <listitem>
+              <para
+>Den tredje ordningens koefficient har en liknande avrundande effekt, men avtar mot kanterna. Denna korrigering utnyttjas inte i verktyget.</para>
+            </listitem>
+            <listitem>
+              <para
+>Den fjärde ordningens koefficient rättar avlägsna kanter omvänt i förhållande till andra ordningens avrundning. Kombinerat med andra ordningens korrektion, kan geometriska förvrängningar nästan elimineras fullständigt.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;lensdistortiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Dialogruta för korrigering av linsförvrängning</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Du kan styra filtret för förvrängningskorrigering med fyra skjutreglage: </para>
+      <para
+><guilabel
+>Total</guilabel
+>: Det här värdet styr totala förvrängningen av andra ordningen. Negativa värden korrigerar utåtgående förvrängning, medan positiva värden korrigerar inåtgående förvrängning. </para>
+      <para
+><guilabel
+>Kant</guilabel
+>: Det här värdet styr totala förvrängningen av fjärde ordningen. Kantstyrningen har större effekt vid bildens kanter än i centrum. För de flesta linser har parametern <guilabel
+>Kant</guilabel
+> motsatt tecken jämfört med parametern <guilabel
+>Total</guilabel
+>. </para>
+      <para
+><guilabel
+>Zooma</guilabel
+>: Det här värdet skalar om övergripande bildstorlek (första ordningens korrektion). Negativa värden zoomar ut bilden, medan positiva värden zoomar in. </para>
+      <para
+><guilabel
+>Ljusstyrka</guilabel
+>: Det här värdet justerar ljusstyrkan i bildens hörn. Negativa värden minskar ljusstyrkan i bildhörnen, medan positiva värde ökar den. </para>
+      <para
+>För att hjälpa dig att välja de bästa filterinställningarna, tillhandahåller komponentens dialogruta en förhandsgranskning med en miniatyrbild av förvrängningskorrigeringen som utförs med ett korsat rutmönster. Värdena du använder för din bild sparas och verktyget visar dem som förvalda värden nästa gång du anropar det. </para>
+      <note>
+        <para
+>Korrigeringen av utåtgående eller inåtgående förvrängning måste göras innan beskärnings- eller storleksändringar (inklusive rättning av perspektiv). I själva verket ska korrigering av utåtgående eller inåtgående förvrängning vara det allra första steget med den ursprungliga bilden. Om du beskär bilden och därefter använder korrigeringen av utåtgående förvrängning blir effekten uppenbart felaktig. </para>
+      </note>
+      <para
+>För att hjälpa dig att hitta den bästa korrigeringen tillhandahåller verktyget en vertikal och horisontell guide. Flytta muspekaren på förhandsgranskningen av bilden för att visa guiden med streckade linjer. Flytta pekaren till en viktig plats på bilden, som havet eller kanten på en byggnad och tryck på vänster musknapp för att frysa de streckade linjernas position. Justera nu utåtgående eller inåtgående korrigering enligt guiden. </para>
+      <para
+>När korrigeringen av inåtgående förvrängning används har resultatbilden en svart kant i hörnen. Du måste beskära den med ett beskärningsverktyg tillgängligt i bildeditorns meny <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Beskär</guimenuitem
+></menuchoice
+> eller via zoomreglaget i den här dialogrutan. </para>
+      <para
+>För de flesta bilder är det nog att använda korrigeringen av utåtgående förvrängning. Dock är nästa logiska steg för vissa bilder som fasader, ramar, målningar, att använda perspektivkorrigering för att göra alla vinklar 90 grader. Observera att när du håller kameran för hand, introducerar du nästan alltid någon sorts mindre perspektivförvrängning. </para>
+    </sect4>
+    <sect4 id="inaction-lensdistortion">
+      <title
+>Linsförvrängningsverktyget under arbete</title>
+      <para
+>Det här är ett exempel på utåtgående korrigering använd på en kyrka i norra Norge. Den ursprungliga bilden är (1), och den korrigerade bilden är (2). </para>
+      <para
+>De värden som används i exemplet är: <itemizedlist>
+          <listitem>
+            <para
+>Total = -40.</para>
+          </listitem>
+          <listitem>
+            <para
+>Kant = 0.</para>
+          </listitem>
+          <listitem>
+            <para
+>Zooma = -20.</para>
+          </listitem>
+          <listitem>
+            <para
+>Ljusstyrka = 0.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;lensdistortionpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Förhandsgranskning av korrigering av linsförvrängning</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+</sect2>

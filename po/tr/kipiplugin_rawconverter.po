@@ -1,23 +1,24 @@
-# translation of kipiplugin_rawconverter.po to Turkish
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Serdar Soytetir <tulliana@gmail.com>, 2008, 2009, 2012.
-# Ozan Çağlayan <ozan@pardus.org.tr>, 2010, 2011.
-# Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
+# Translators:
+# Ozan Çağlayan <ozan@pardus.org.tr>, 2010-2011
+# obsoleteman <tulliana@gmail.com>, 2008-2009,2012
+# Volkan Gezer <volkangezer@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
-"Project-Id-Version: kipiplugin_rawconverter\n"
+"Project-Id-Version: extragear-graphics-kde4\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2014-04-20 03:11+0200\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-06-08 13:47+0000\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
-"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/extragear-"
+"graphics-k-tr/language/tr/)\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgctxt "NAME OF TRANSLATORS"
@@ -224,12 +225,12 @@ msgid "Sensitivity: %1 ISO"
 msgstr "Duyarlılık: %1 ISO"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_rawconverterui.rc:6
+#: plugin/kipiplugin_rawconverterui.rc:7
 msgid "&Tools"
 msgstr "&Araçlar"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_rawconverterui.rc:13
+#: plugin/kipiplugin_rawconverterui.rc:14
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
@@ -245,74 +246,3 @@ msgstr "Toplu RAW Resim Dönüştürücü..."
 #, kde-format
 msgid "\"%1\" is not a RAW file."
 msgstr "\"%1\" bir RAW dosya değil."
-
-#~ msgid "A Kipi plugin to batch convert RAW images"
-#~ msgstr "Ham resimleri dönüştürmek için bir Kipi eklentisi."
-
-#~ msgid "Handbook"
-#~ msgstr "El Kitabı"
-
-#~ msgid "&Add"
-#~ msgstr "&Ekle"
-
-#~ msgid "Add new RAW files to the list"
-#~ msgstr "Listeye yeni Ham dosyalar ekle"
-
-#~ msgid "&Remove"
-#~ msgstr "&Sil"
-
-#~ msgid "Remove selected RAW files from the list"
-#~ msgstr "Seçilen ham dosyaları listeden kaldır."
-
-#~ msgid "Thumbnail"
-#~ msgstr "Küçük Resim"
-
-#~ msgid "Failed to load image after processing"
-#~ msgstr "İşlemden sonra resmi yükleme başarısız"
-
-#~ msgid "Output file format:"
-#~ msgstr "Çıktı dosyası biçimi"
-
-#~ msgid ""
-#~ "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
-#~ "processed image in JPEG format. This format will give smaller-sized "
-#~ "files. Minimum JPEG compression level will be used during RAW conversion."
-#~ "</p><p><b>Warning: Due to the destructive compression algorithm, JPEG is "
-#~ "a lossy quality format.</b></p><p><b>TIFF</b>: output the processed image "
-#~ "in TIFF format. This generates large files, without losing quality. Adobe "
-#~ "Deflate compression will be used during conversion.</p><p><b>PPM</b>: "
-#~ "output the processed image in PPM format. This generates the largest "
-#~ "files, without losing quality.</p><p><b>PNG</b>: output the processed "
-#~ "image in PNG format. This generates large files, without losing quality. "
-#~ "Maximum PNG compression will be used during conversion.</p>"
-#~ msgstr ""
-#~ "<p>Kullanılacak çıktı dosyası biçimini buradan belirle:</p><p><b>JPEG</"
-#~ "b>: İşlenmiş resmi JPEG biçiminde çıkarır. Bu biçim daha küçük boyutlu "
-#~ "dosyalar verecektir. Ham dönüştürme sırasında Asgari JPEG sıkıştırma "
-#~ "seviyesi kullanılacaktır.</p><p><b>Uyarı: Yıkıcı sıkıştırma algoritması "
-#~ "sırasında, JPEG kayıplı bir kalite biçimidir.</b></p><p><b>TIFF</b>: "
-#~ "İşlenmiş resmi TIFF biçiminde çıkarır. Kaliteyi kaybetmeden büyük boyutlu "
-#~ "dosyalar oluşturur. Bu dönüştürme sırasında Adobe Deflate sıkıştırması "
-#~ "kullanılacaktır.</p><p><b>PPM</b>: İşlenmiş resmi PPM biçiminde çıkarır. "
-#~ "Kaliteyi kaybetmeden en büyük boyutlu dosyaları oluşturur.</p><p><b>PNG</"
-#~ "b>: İşlenmiş resmi PNG biçiminde çıkarır. Kaliteyi kaybetmeden en büyük "
-#~ "boyutlu dosyaları oluşturur. Dönüştürme sırasında en yüksek PNG "
-#~ "sıkıştırması kullanılacaktır.</p>"
-
-#~ msgid "If Target File Exists:"
-#~ msgstr "Eğer Hedef Dosya Varsa:"
-
-#~ msgid "Overwrite automatically"
-#~ msgstr "Otomatik olarak üzerine yaz"
-
-#~ msgid "Open rename-file dialog"
-#~ msgstr "Dosya aç-yeniden adlandır penceresi"
-
-#~ msgid "Abort the current Raw files conversion"
-#~ msgstr "Geçerli ham dosya dönüşümünü iptal et"
-
-#~ msgid "Raw Image Converter..."
-#~ msgstr "Ham Resim Dönüştürücü..."
-
-#~ msgid "Raw Image Converter"
-#~ msgstr "Ham Resim Dönüştürücü"

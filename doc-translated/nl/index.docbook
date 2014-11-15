@@ -2437,257 +2437,257 @@ Leuke dingen
       </para>
 
       <para
->Dit diagram toont de ketenelementen voor transmissie in een computer, alle overgangen zijn gevoelig voor transmissiefouten. Het zfs en btrfs bestandssysteem zorgt tenminste voor integriteit in het pad van het besturingsysteem naar de harde schijf.</para>
+>Dit diagram toont de ketenelementen voor transmissie in een computer, alle overgangen zijn gevoelig voor transmissiefouten. Het zfs en btrfs bestandssysteem zorgt tenminste voor integriteit in het pad van het besturingssysteem naar de harde schijf.</para>
       <para
->The Byte Error Rate (BER) for memory and transmission channels is in the order of 1 in 10 Million (10E-7 bit). That just means that <command
->1 in 3000 images has an error only due to transmission problems</command
->. Now how dramatic that is for an image is left to chance, it could mean that the image is destroyed or that a pixel somewhere changed its value, due to the compression used on almost all images one cannot predict the gravity of a single bit error impact. Often one sees some partial images instead of the full image.</para>
+>De Byte Error Rate (BER) voor het geheugen en de transmissie kanalen is in de orde van 1 op 10 miljoen (10E-7 bit). Dat betekent gewoon dat <command
+>1 op 3000 beelden een fout heeft die alleen te wijten is aan de transmissieproblemen</command
+>. Welnu, hoe dramatisch dat is voor een opname wordt aan het toeval overgelaten, het kan betekenen dat het beeld wordt vernietigd of dat een pixel ergens veranderd is in waarde. Door de compressie die op bijna alle foto's wordt toegepast kan men de ernst van een enkele bitfout niet voorspellen. Vaak ziet men een aantal deelbeelden in plaats van de volledige afbeelding.</para>
       <para
->The worst of all that is that nobody tells you when a transmission error occurs, not your hardware. All those glitches go down unheard until one day you open the photograph, and to your surprise it's broken. It is quite worrisome that there should be no protection within a computer, nobody seems to have thought of it. The Internet (TCP protocol) is much saver as a data path than inside a computer.</para>
+>Het ergste van dit alles is dat niemand je vertelt wanneer een transmissiefout optreedt, ook uw hardware niet. Al die storingen gaan onopgemerkt door tot op een dag dat u de foto opent en tot uw verbazing ziet dat die beschadigd is. Het is heel zorgelijk dat er geen bescherming binnen een computer hoeft te zijn, schijnt iemand te hebben gedacht. Het Internet (TCP-protocol) is veel veiliger dan gegevens paden in een computer.</para>
       <para
->Flaky power supplies are another source of transmission losses because they create interference with the data streams. With normal files systems those errors go unnoticed. </para>
+>On-gestabiliseerde voedingen zijn een andere bron van verliezen in de overdracht, omdat ze storing veroorzaken in gegevensstromen. Met gewone bestandssystemen blijven die fouten onopgemerkt. </para>
       <para>
         <inlinemediaobject>
             <imageobject
 ><imagedata fileref="&path;DAM-errors.png" format="PNG"/></imageobject>
             <textobject
 > <phrase
->Expected error rate increasing with complexity</phrase
+>Verwachte foutpercentages nemen toe met complexiteit</phrase
 > </textobject>
         </inlinemediaobject>
       </para>
       <para
->Even if you are not overly concerned today with transmission problems, have a look into the future at illustration. Already in 2010 we'll see thousands of errors per year!</para>
+>Zelfs als u op dit moment niet al te zeer bezorgd bent over problemen met de transmissie, werp dan, ter illustratie, eens een blik in de toekomst. Al in 2010 zullen we duizenden transmissiefouten per jaar zien!</para>
          </sect4>
 
          <sect4
 >  <title
->'Oracle' or 'Rising Sun' at the file system horizon?</title>
+>'Oracle' of 'licht in het donker?' aan de horizon van het bestandssysteem?</title>
       <para
->ZFS from Sun Microsystems seems to be one of two candidates to deal with disk errors on a low level, and it is highly scalable. It is Open Source, heavily patented, comes with an GPL incompatible license, and is available on Solaris and Leopard. Let us hope that it will soon be available for &Linux; and Windows <ulink url="http://blogs.zdnet.com/storage/?p=169"
-> (article)</ulink
+>ZFS van Sun Microsystems lijkt een van de twee kandidaten te zijn die schijffouten op laag niveau aanpakt en het is zeer schaalbaar. Het is open source, zwaar gepatenteerd, wordt geleverd met een met een licentie die onverenigbaar is met GPL en is beschikbaar op Solaris en Leopard. Laten we hopen dat het binnenkort beschikbaar zal zijn voor &Linux; en Windows <ulink url="http://blogs.zdnet.com/storage/?p=169"
+>(artikel)</ulink
 >.</para>
       <para
->This is for the courageous ones. <ulink url="http://www.wizy.org/wiki/ZFS_on_FUSE"
+>Dit is voor de moedigen onder ons: <ulink url="http://www.wizy.org/wiki/ZFS_on_FUSE"
 >Fuse ZFS</ulink
 ></para>
       <para
->Oracle has also started an initiative with its btrfs file system, which still is in an alpha stage. It employs the same protection technique as zfs does, and it's available on &Linux;, although it is not yet part of the stock kernel.</para>
+>Oracle heeft ook een initiatief gestart met zijn btrfs-bestandssysteem, datnog in een alpha fase verkeert. Het hanteert dezelfde beschermingstechniek als zfs en het is beschikbaar op &Linux;, hoewel het nog geen deel uit maakt van de standaard kernel (noot vertaler: nu wel).</para>
          </sect4>
        </sect3>
 
        <sect3 id="human-errors"
 >   <title
->Human errors</title>
+>Menselijke fouten</title>
          <sect4
 >  <title
->Theft and accidents</title>
+>Diefstal en ongelukjes</title>
              <para
->Do not underestimate it! Those two factor account for 86% of notebook and 46% for desktop system data losses. For notebooks, theft counts for 50% alone.</para>
+>Onderschat het niet! Die twee factoren zijn goed voor 86% van de notebook en46% voor desktop systeem data verliezen. Voor notebooks, telt diefstal alleen al voor 50%.</para>
           </sect4>
           <sect4
 >  <title
->Malware</title>
+>Schadelijke software (malware)</title>
       <para
->Data loss due to viruses is less grave than common wisdom make you believe. It accounts for less damage than theft or re-installations, for example. And it is limited to Microsoft OS users. Apple users experience very few viruses and under &Linux; they haven't been around for quite some time now.</para>
+>Het verlies van gegevens als gevolg van virussen is minder ernstig dan algemeen wordt aangenomen. Het vertegenwoordigt minder schade dan bijvoorbeeld diefstal of her-installaties. En het is beperkt tot Microsoft OS-gebruikers. Apple-gebruikers ervaren zeer weinig virussen en onder &Linux; zijn ze al geruime tijd niet gemeld.</para>
           </sect4>
           <sect4
 >  <title
->Panic is a factor in data loss</title>
+>Paniek is ook een factor in het verlies van gegevens</title>
       <para
->Human error, as in everything, is a major problem in data loss. Take a deep breath and stop! Panic is a common reaction, and people do really stupid things. Experienced users will pull the wrong drive from a RAID array or reformat a drive, destroying all their information. Acting without thinking is dangerous to your data. Stop stressing about the loss and don’t do anything to the disk. Better yet, stop using the computer until you have a plan. Sit down and explain you plan to a laymen or better, laywoman. You will be amazed how many stupid ideas you'll discover yourself in such an exercise.</para>
+>Menselijke fouten, zoals in alles, is een groot probleem bij gegevensverlies. Haal eens diep adem en stop! Paniek is een veel voorkomende reactie, en mensen doen echt domme dingen. Ervaren gebruikers kunnen het verkeerde station los koppelen van een RAID-array of formatteren een schijf waardoor al hun gegevens vernietigd worden. Handelen zonder na te denken is gevaarlijk voor uw gegevens. Stop met opgewonden zijn over het verlies en doe niets met de schijf. Beter nog, stop met het gebruik van de computer tot u een plan heeft gemaakt. Ga eens zitten en leg je plan voor aan een leek. U zult versteld staan ​​hoeveel domme ideeën je op die manier zelf zult ontdekken in een dergelijke oefening.</para>
       <para
->If your disk is making weird noises, normal file recovery software isn’t going to work. Do a quick backup if that is going to happen to you. If the drive is still spinning and you can’t find your data, look for a data recovery utility and backup to another computer or drive. (Non-&Linux; users: Google for &quot;free data recovery software&quot; for some options, including one from Ontrack). The important thing is to download them onto another drive, either on another computer, or onto a USB thumb drive or hard disk. It is good practice to save the recovered data to another disk. dd is your friend on *nix systems.</para>
+>Als uw schijf rare geluiden maakt, zal gewone bestandsherstel software niet werken. Maak een snelle back-up als dat gebeurt. Indien de schijf nog draait en u kunt uw gegevens niet vinden, zoek dan naar een toepassing voor dataherstel en maak een reservekopie naar een andere computer of schijf. (Niet-&Linux; gebruikers: Google voor het vinden van "gratis data recovery software &quot;" Voor enige opties, waaronder een van Ontrack). Het belangrijkste is om ze te downloaden op een ander station, hetzij op een andere computer of op een USB-stick of harde schijf. Het is een goede gewoonte om de herstelde data op een andere schijf op te slaan. Het programma dd is uw vriend op *nix-systemen.</para>
      </sect4>
     </sect3>
 
        <sect3 id="myths-dispelled"
 >  <title
->Common myths dispelled</title>
+>Gangbare mythen uit de weg geruimd</title>
       <para
->I'd like to dispel some common myths:</para>
+>Ik wil een paar algemene sprookjes uit de weg ruimen</para>
         <itemizedlist>
         <listitem
 ><para
->Open Source file systems are less prone to data loss than proprietary systems: Wrong, NTFS is rather a tiny notch better than ext3, ReiserFs, JFS, XFS, to name just the most popular file systems that often come as default FS with distributions. A brilliant article about it is here: <ulink url="http://www.cs.wisc.edu/~vijayan/vijayan-thesis.pdf"
->link</ulink
+>Open Source bestandssystemen zijn minder gevoelig voor verlies van gegevens dan proprietary systemen: Fout, NTFS is eerder een klein beetje beter dan ext3, ReiserFS, JFS, XFS, om maar de meest populaire bestandssystemen die vaak standaard worden geleverd als FS bij de verkoop.  Een briljant artikel hierover is: <ulink url="http://www.cs.wisc.edu/~vijayan/vijayan-thesis.pdf"
+>koppeling</ulink
 ></para
 ></listitem>
         <listitem
 ><para
->Journaling files systems prevent data corruption/loss: Wrong, they only speed up the scan process in case of a sudden interrupt during operation and prevent ambiguous states. But if a file was not entirely saved before the mishap, it'll be lost.</para
+>Dagelijks bijhouden van bestandssystemen voorkomt gegevens-schade/verlies: Fout, alleen versnellen zij het scanproces in geval van een plotselinge onderbreking tijdens de werking en voorkomen dubbele versies. Maar als een bestand niet volledig is opgeslagen voordat het ongeluk toeslaat zal het verloren gaan.</para
 ></listitem>
         <listitem
 ><para
->RAID systems prevent data corruption/loss: Mostly wrong, RAID0 and 1 prevent you from nothing, RAID5 can prevent data loss due to disk-failures (but not from disk or file system errors). Many low-end RAID controllers (most mother board controllers are) don’t report problems, figuring you’ll never notice. If you do notice, months later, what is the chance that you’ll know it was the controller’s fault? One insidious problem is corruption of RAID 5 parity data. It is pretty simple to check a file by reading it and matching the metadata. Checking parity data is much more difficult, so you typically won’t see parity errors until a rebuild. Then, of course, it is too late.</para
+>RAID-systemen voorkomen gegevens beschadiging/verlies: Meestal fout, RAID 0 en 1 voorkomen niets, RAID5 kan voorkomen dat gegevens verloren gaan als gevolg van het falen van een schijf (maar niet van fouten op de schijf of in het bestandssysteem). Veel low-end RAID-controllers (meestal controllers op het moederbord) rapporteren geen problemen zodat u het nooit zult merken. Als u het maanden later merkt, hoe groot is de kans dat u weet of de de controller schuldig was? Een sluipend probleem zijn fouten in de pariteitgegevens van RAID 5. Het is vrij eenvoudig om een ​​bestand te controleren door het te lezen en het te vergelijken met de metagegevens. Het controleren van pariteitgegevens is veel moeilijker, dus zult u meestal pariteitfouten niet zien tot bij een herinstallatie. Dan is het natuurlijk te laat.</para
 ></listitem>
         <listitem
 ><para
->Viruses are the biggest thread to digital data: Wrong. Theft, and human errors are the primary cause of data loss.</para
+>Virussen vormen de grootste bedreiging voor digitale gegevens: Fout, diefstal, en menselijke fouten zijn de primaire oorzaak van het verlies van gegevens.</para
 ></listitem>
         </itemizedlist>
     </sect3>
 
        <sect3 id="storage-budget"
 >  <title
->Make your budget: Data size, required storage volume estimation</title>
+>Stel een budget op: gegevensomvang, schatting van vereiste opslagruimte.</title>
       <para
->Digital camera sensors are 1-2 aperture stops away from fundamental physical limitations. What I mean is this: as technology evolves, there is a natural limit to its progress. Sensitivity and noise characteristics for any kind of light sensor are not far from that limit. </para>
+>Sensoren in digitale camera's zijn 1-2 diafragmastops verwijderd van hun fysieke beperkingen. Wat ik bedoel is dit: als de technologie evolueert, is er een natuurlijke beperking van de voortgang. Gevoeligheid en ruiskarakteristieken voor elke vorm van lichtsensor zijn niet ver meer verwijderd van die grens. </para>
       <para
->Today's cameras tend towards 10 mega pixels sensors, although this resolution is already too high for compact cameras and deteriorates the end result. Given the sensor size and quality of optics, 6 mega pixels are optimum for compact cameras. Even DSLR cameras run into their limits at 10-12 mega pixels, for higher resolutions one has to go for full frame sensors (24x36mm) or even bigger formats.</para>
+>De huidige camera's neigen naar sensoren met 10 megapixels, hoewel deze resolutie al te hoog is voor compactcamera's en het eindresultaat verslechtert. Gezien de grootte van de sensor en de kwaliteit van de optica, is 6 megapixels optimaal voor compactcamera's. Zelfs DSLR camera's lopen tegen hun grenzen op bij 10-12 megapixels, voor hogere resoluties moet men voor full frame sensoren (24x36mm) of zelfs groter gaan.</para>
       <para
->So, taking into account the manufacturer mega pixel propaganda it seems save to say that the bulk of future cameras will see less than 20 mega pixels. This gives us an estimation for the necessary storage space per photograph in the long run: &lt;15 MB per image. Even if file versioning will be introduced (grouping of variations of a photograph under one file reference), the trend is to implement scripting of changes so that a small overhead will be recorded only and not a whole different image per version. With faster hardware this concept will see it's maturity quite soon.</para>
+>Dus, rekening houdend met de megapixel-propaganda van fabrikanten lijkt het verantwoord om te stellen dat het grootste deel van de toekomstige camera's minder dan 20 megapixels zal hebben. Dit geeft ons een schatting voor de benodigde opslagruimte per foto op de lange termijn: &lt;15 MB per afbeelding. Zelfs als bestandsversies zal zijn ingevoerd (groepering van varianten van één foto onder één bestandsreferentie), is de trend het implementeren van scripting van veranderingen zodat een kleine overhead zal worden opgenomen en niet een geheel andere afbeelding per versie. Met snellere hardware zal dit concept vrij snel bereikt zijn.</para>
       <para
->In order to estimate the amount of storage space you have to plan for, simply determine the number of photographs you take per year (easy with &digikam;'s timeline sidebar) and multiply it by 15 MB. Most users will keep less than 2000 pictures per year which requires less than 30 GB/year. Assuming that you will change your hard disk (or whatever media in the future) every 4-5 years, the natural increase in storage capacity will suffice to keep you afloat.</para>
+>Om de hoeveelheid opslagruimte te schatten waarvoor u moet plannen, bepaalt u eenvoudig het aantal foto's dat u neemt per jaar (eenvoudig met de zijbalk met tijdlijn van &digikam;) en vermenigvuldigt deze met 15 MB. De meeste gebruikers zullen minder dan 2000 foto's per jaar behouden wat minder dan 30 GB / jaar vergt. Ervan uitgaande dat u uw harde schijf (of wat voor medium in de toekomst ook) om de 4-5 jaar zal vervangen zal de natuurlijke toename van de opslagcapaciteit volstaan ​​om uw hoofd boven water te houden. </para>
       <para
->The more ambitious ones out there will need more space, much more maybe. Think of buying a file server, Giga-Ethernet comes integrated into motherboards today and it's a flick to fetch the files over the local network. Speaking about modern mobos: they now have external SATA connectors. This makes it really a trifle to buy an external SATA drive and hook it up to your machine. 1000 GB drives will hit the market this year (2008). These are terrific compact storage containers for backup swapping: keep one drive at home and one somewhere else.</para>
+>De meer ambitieuze mensen zullen meer, misschien veel meer ruimte nodig hebben. Denk dan aan het kopen van een file-server, Giga-ethernet is tegenwoordig geïntegreerd op moederborden en het is een fluitje van een cent om de bestanden via het lokale netwerk op te halen. Sprekend over moderne moederborden: ze hebben nu externe SATA connectoren. Dit maakt het echt gemakkelijk om een externe SATA-schijf te kopen en aan uw machine aan te sluiten. 1000 GB drives zullen dit jaar op de markt komen (2008). Dit zijn geweldig compacte opslagcontainers voor omwisselen van reservekopieën: houd één schijf thuis en een andere ergens anders. </para>
     </sect3>
 
        <sect3 id="backup"
 >  <title
->Back it up, backup, backup, recover!</title>
+>Reservekopie maken, reservekopie, reservekopie, herstellen!</title>
       <para
->A 750GB HD costs &euro;100 today. Do not blame anybody else for data loss! 6% of all PCs will suffer an episode of data loss in any given year. Backup your data often according to a plan, and back it up and test the backup before you do anything dramatic like re-installing your OS, changing disks, resizing partitions and so on.</para>
+>Een 750GB HD kost vandaag &euro; 100. Geef iemand anders niet de schuld van het verlies van gegevens! 6% van alle pc's zullen slachtoffer worden van gegevensverlies in een gegeven jaar. Maak reservekopieën volgens een vast plan en test de reservekopie voordat u iets ingrijpend gaat doen als het installeren van een ander of nieuw besturingssysteem of het veranderen van schijven, herindelen van partities of dergelijke.</para>
 
           <sect4
 >  <title
->Disaster prevention</title>
+>Het voorkomen van rampen</title>
       <para
->Say, you religiously do your backups every day on a external SATA drive. Then comes the day where lightning strikes. Happy you if the external drive was not connected at that moment!</para>
+>Stel dat u nauwgezet elke dag reservekopieën maakt op een externe SATA-schijf. Dan komt er een de dag waarop de bliksem inslaat. U had geluk als uw externe harde schijf op dat moment niet was aangesloten. </para>
       <para
->Disasters strike locally and destroy a lot. Forget about airplane crashes: fire, water, electricity, kids and theft are dangerous enough to our data. They usually cover a whole room or house. </para>
+>Rampen gebeuren plaatselijk en vernietigen veel. Vergeet vliegtuigcrashes:vuur, water, elektriciteit, kinderen en diefstal zijn gevaarlijk genoeg om voor gegevens. Ze bestrijken meestal een hele kamer of het gehele huis. </para>
       <para
->Therefore disaster control means de-localized storage. Move your backups upstairs, next house, to your bureau (and vise versa), whatever.</para>
+>Daarom, preventie voor rampen betekent de-centralisering van gegevens. Breng uw reservekopieën naar boven, naar een ander huis, uw kantoor of wat dan ook. </para>
       <para
->There is another good aspect to the physical separation: as said above, panic is often the cause of destroying data, even the backup data. Having a backup not at hand right away may safe your ass one day.</para>
+>Er is een ander goed aspect aan de fysieke scheiding: zoals gezegd, paniek is vaak de oorzaak van het vernietigen van gegevens, zelfs de gegevens op reservekopieën. Met een reservekopie niet meteen bij de hand kan dat op een dag wel eens uw geluk zijn.</para>
     </sect4>
           <sect4
 >  <title
->Some backup technicalities explained for laymen.</title>
+>Uitleg voor leken over enige technische kanten van reservekopieën.</title>
 <itemizedlist>
         <listitem
 ><para
->Full Backup: A complete backup of all the files being backed up. It is a snapshot without history, it represents a full copy at one point in time. </para
+>Volledige backup: een complete reservekopie van alle bestanden. Het is een momentopname zonder geschiedenis, het betreft een complete kopie gemaakt op een bepaald moment. </para
 ></listitem>
         <listitem
 ><para
->Differential Backup: A backup of only the files that have changed since the last full backup. Constitutes a full snapshot of two points in time: the full backup and the last differential one.</para
+>Differentiële backup: Een reservekopie van alleen die bestanden die zijn gewijzigd sinds de laatste volledige backup. Vormt een volledige momentopname van twee momenten in de tijd: de volledige backup en de laatste differentiële backup.</para
 ></listitem>
         <listitem
 ><para
->Incremental Backup: A backup of only the files that have changed since last whatever backup. Constitutes multiple snapshots. You can recreate the original state at any point in time such a backup was made. This comes closest to a versioning system except that it is only sampled and not continuous.</para
+>Incrementele backup: Een reservekopie van alleen de bestanden die zijn gewijzigd sinds de laatste reservekopie. Bestaat uit meerdere momentopnamen. U kunt opnieuw de oorspronkelijke staat herstellen op elk tijdstip dat er een reservekopie werd gemaakt. Dit komt dichtst bij een versioning systeem, behalve dat het alleen wordt bemonsterd en niet continue wordt uitgevoerd.</para
 ></listitem>
 </itemizedlist>
     </sect4>
           <sect4
 >  <title
->Best practice: The IT-layman's backup cookbook</title>
+>Beste manier: Backup-kookboek voor de IT-leek</title>
 <orderedlist>
         <listitem
 ><para
->do a full backup in a external storage device.</para
+>voer een volledige backup uit naar een extern opslagmedium.</para
 ></listitem>
         <listitem
 ><para
->verify its data integrity and put it away (disaster control)</para
+>controleer de juistheid van de gegevens en berg het op (ramppreventie)</para
 ></listitem>
         <listitem
 ><para
->have another storage device for frequent backups</para
+>gebruik een ander opslagmedium voor frequente backups</para
 ></listitem>
         <listitem
 ><para
->swap the devices every other month after having verified data integrity</para
+>ruil de opslagapparaten elke maand om nadat de juistheid van de gegevens gecontroleerd is</para
 ></listitem>
 </orderedlist>
     </sect4>
           <sect4
 >  <title
->A useful rsync recipe to backups</title>
+>Een nuttig recept voor rsync voor het maken van reservekopieën</title>
       <para
->Rsync is a wonderful little utility that's amazingly easy to set up on your machines. Rather than have a scripted FTP session, or some other form of file transfer script - rsync copies only the differences of files that have actually changed, compressed and through ssh if you want to for security. That's a mouthful.</para>
+>Rsync is een prachtig klein hulpprogramma dat verbazingwekkend eenvoudig is in te stellen op uw apparatuur. In plaats van een script met FTP opdrachten of een andere vorm van bestandsoverdracht kopieert rsync alleen de verschillen in de bestanden die zijn veranderd. Gecomprimeerd en via ssh als u wilt, voor de veiligheid. Dat is een mondvol.</para>
       <para
->A reasonable backup approach for images could be this one:</para>
+>Een redelijke benadering het maken van reservekopieën van afbeeldingen kan er zó uit zien:</para>
 <orderedlist>
         <listitem
 ><para
->backup important images right away (after dumping them to a computer) to DVD/optical media</para
+>maak van belangrijke opnamen onmiddellijk een backup op dvd/optisch medium, nadat u de beelden op uw pc hebt geladen</para
 ></listitem>
         <listitem
 ><para
->do daily incremental backup of the work space</para
+>maak dagelijks een gedeeltelijke backup van de werkruimte</para
 ></listitem>
         <listitem
 ><para
->do a weekly differential backup and delete integral backups of week-2 (two weeks ago)</para
+>maak wekelijks een differentiële backup en verwijder integrale backups van 2 weken geleden</para
 ></listitem>
         <listitem
 ><para
->do a monthly differential backup and delete backup of month-2</para
+>maak een maandelijkse differentiële backup en verwijder de backup van 2 maanden geleden</para
 ></listitem>
         <listitem
 ><para
->if not physically separated already, separate it now (swapping-in another backup drive)</para
+>als ze niet al fysiek apart zijn scheidt de twee backups dan (ruilen met een ander backup-medium)</para
 ></listitem>
 </orderedlist>
       <para
->This protocol tries to leave you enough time to spot losses and to recover fully at the same time keeping the backup volume at &lt;130% of the working space. You end up with a daily version of the last 7-14 days, a weekly snapshot for at least one month, and a snapshot of every month. Any more thinning should be done by hand after a full verification.</para>
+>Dit protocol heeft tot doel om u meer tijd te gunnen om de verliezen te herkennen en volledig te herstellen. Tegelijkertijd houdt u het reservekopievolume op &lt;130% van de werkruimte. U eindigt met een dagelijkse versie van de laatste 7-14 dagen, een wekelijkse momentopname voor ten minste een maand en een momentopname van elke maand. Verder uitdunnen moet handmatig worden gedaan na een volledige verificatie.</para>
       <para
->For German speaking *nix users: <ulink url="http://www.heinlein-support.de/web/rsync-backup/"
-> link</ulink
+>Voor Duits sprekende *nix gebruikers: <ulink url="http://www.heinlein-support.de/web/rsync-backup/"
+>koppeling</ulink
 ></para>
      </sect4>
     </sect3>
 
        <sect3 id="technology-review"
 >  <title
->Preserve your images through the changes of technology and owners</title>
+>Bewaar uw beelden ook bij veranderende technologie en/of eigenaren</title>
          <para
->Themes: metadata, IPTC stored in image files, XMP files associated, keep the originals, storage, scalability, media, retrieval of images and metadata, copying image data over to the next generation of media, applications, operating systems, virtualization, viewing device... use of the www.</para>
+>Thema's: metagegevens, IPTC opgeslagen in beeldbestanden, XMP-bestanden gekoppeld, behoud de originelen, opslag, schaalbaarheid, media, ophalen van afbeeldingen en metagegevens, afbeelding kopiëren naar de volgende generatie van media, toepassingen, besturingssystemen, virtualisatie, het apparaat voor viewing... gebruik van het www.</para>
          <para
->In order for your valuable images to survive the next 40 years or so (because that's about the time that you will become really interested to revisit those nice old photographs of you as a child, adolescent &etc;) there are two strategies to be observed:</para>
+>Om uw waardevolle foto's de komende 40 jaar of zo te laten overleven(want dat is zo ongeveer tijd wanneer u echt geïnteresseerd bent om opnieuw die mooie oude foto's van u als kind, adolescent te bekijken &etc;) zijn er twee strategieën om onder de loep te nemen:</para>
         <orderedlist>
         <listitem
 ><para
->Keep up with technology, don't lag behind more than a couple of years.</para
+>Blijf bij met technologie, blijf niet meer achter dan enkele jaren.</para
 ></listitem>
         <listitem
 ><para
->Save your photos in an open, non-proprietary standard.</para
+>Bewaar uw foto's in een open, niet merkgebonden format.</para
 ></listitem>
          </orderedlist>
 
         <sect4
 >  <title
->How to keep up with technology?</title>
+>Hoe blijft men bij met de technologie?</title>
       <para
->As the future is unforeseeable by nature, everything said today is to be taken with caution, and to be reviewed as we advance. Unfortunately there is no shortcut possible to some basic vigilance. Every 5-8 years at least one should ask oneself the question of backwards compatibility of current systems. The less variants we used in the past the less questions are to be answered in the future. </para>
+>Aangezien de toekomst van nature onvoorspelbaar is, moeten we bij alle uitspraken die we vandaag doen het nodige voorbehoud maken en terwijl we voort gaan moeten die telkens worden herzien.  Helaas is er geen kortere weg mogelijk voor enige fundamentele waakzaamheid. Op zijn minst elke 5-8 jaar dient zich de vraag aan van terugwerkende uitwisselbaarheid. Hoe minder veranderingen we in het verleden hebben uitgevoerd hoe minder vragen er in de toekomst hoeven te worden beantwoord. </para>
       <para
->Of course every time you change your computer system (machine, operating system, applications, DRM) you have to ask yourself the same questions. Today, if you want to switch to Windows Vista, you have to ask yourself three times if you still can import your pictures, and, more important so, if you are ever able to move them onto some other system or machine. Chances are good that you cannot. I see many people struggling around me, because Vista enforces a strict DRM regime. How can you proof to Vista that you are actually the owner of your pictures copyright?</para>
+>Natuurlijk elke keer dat u uw computer systeem verandert (machine, besturingssysteem, toepassingen, DRM) moet u uzelf deze vragen stellen. Vandaag de dag, als je wilt overschakelen naar Windows 8 of een latere versie van Windows, moet je jezelf wel drie keer afvragen of u nog steeds uw foto's kunt importeren, en, meer belangrijk, dus, of u ooit in staat bent om ze op een ander systeem of apparaat te plaatsen. De kans is groot dat u dat niet kunt. Ik zie veel mensen om me heen daarmee worstelen, omdat Windows hen in een streng DRM regime dwingt. Hoe kunt u aan Windows bewijzen dat u de eigenaar van de auteursrechten van uw foto's bent? </para>
       <para
->Basically the questions should be answered along the line explained in this document: use and change to open standards supported by a manifold of applications.</para>
+>In principe moeten de vragen worden beantwoord in lijn met dit document: gebruik en overstappen naar open standaard ondersteund door een veelheid aan toepassingen.</para>
       <para
->Virtualization becomes available now for everybody. So if you have an old system that is important for reading your images, keep it, install it as a virtual machine for later.</para>
+>Virtualisatie wordt nu beschikbaar voor iedereen. Dus als u een oud systeem heeft dat belangrijk is voor het lezen van uw afbeeldingen, behoud het dan, installeer het als een virtuele machine voor later gebruik.</para>
       <para
->Otherwise the advice is quite simple: every time you change your computer architecture, your storage and backup technology, your file format, check it out, go through your library and convert to a newer standard if necessary. And keep to open standards.</para>
+>Anders is het advies heel simpel: elke keer dat u uw computerarchitectuur, uw opslag en backup-technologie en uw bestandsformaat wijzigt, controleer het dan. Ga door de bibliotheek en converteer naar een nieuwere standaard indien nodig. En houd u aan open standaards.</para>
     </sect4>
 
         <sect4
 >  <title
->Scalability</title>
+>Schaalbaarheid</title>
       <para
->Scalability is the tech-geek expression of the (easy) capability of a system to be resized, which always means up-sized. </para>
+>Schaalbaarheid is een uitdrukking van techneuten voor het gemakkelijk opschalen van het systeem. </para>
       <para
->EMVS /LVM Todo</para>
+>EMVS /LVM taken</para>
       <para
->Lets assume you planned for scalability and dedicated the container you want to increase to a separate disk or partition. On *nix systems like &Linux; you then can copy and resize the container to the new disk:</para>
+>Laten we aannemen dat u gepland heeft voor schaalbaarheid en de map die u wilt vergroten heeft toegewezen aan een aparte schijf of partitie. Met *.nix systemen, zoals &Linux;, u kunt dan de map kopiëren en de grootte aanpassen aan de nieuwe schijf:</para>
       <para
->Check with dmesg if your new disk is recognized by the system, but don't mount it.</para>
+>Controleer met dmesg of uw nieuwe schijf word herkend door het systeem maar stel koppel deze nog niet aan.</para>
 <blockquote
 ><screen
->&dollar; dd if=/dev/sdb[#] of=/dev/sdc # source is /dev/sdb, new disk is /dev/sdc
-&dollar; parted resize /dev/sdc1 0 &lt;disk size in MB&gt; # works on ext2,3, fat16, 32 and reiserfs
-&dollar; resize2fs /dev/sadc1  #resize_reiserfs in case
+>&dollar; dd if=/dev/sdb[#] of=/dev/sdc # bron is /dev/ sdb, nieuwe schijf is /dev/sdc
+&dollar; parted resize /dev/sdc1 0 &lt;disk grootte in MB&gt; # werkt opext2, 3, fat16, 32 en ReiserFS
+&dollar; resize2fs /dev/sdc1 # herschaal_reiserfs in dat geval
 </screen
 ></blockquote>
       <para
@@ -2696,114 +2696,114 @@ Leuke dingen
 
         <sect4
 >  <title
->Use open, non-proprietary standards as file formats</title>
+>Gebruik open standaarden, zonder eigenaar, als bestandsformaat</title>
           <para
->The short history of the digital era in the past 20 years has proven over and over again that proprietary formats are not the way to go when you want your data to be intelligible 10 years into the future. Microsoft is certainly the well known culprit of that sort because of its domineering market share. But other companies are actually (if inadvertently) worse since they may not stay long enough in the market at all or have a small user/contributor base only. In the case of Microsoft one has at least the advantage of many people sharing the same problems. Finding a solution has therefore much more success. Still, in some cases Microsoft is using Open Source documentation to understand their own systems, so badly maintained have been their own documentation. Usually with any given MSoffice suite one cannot properly read a document created with the same application two major versions earlier.</para>
+>De korte geschiedenis van het digitale tijdperk in de afgelopen 20 jaar heeft keer op keer  meer dan bewezen dat merkafhankelijke formaten niet de manier zijn om te uw gegevens voor de volgende tien jaar begrijpelijk te houden. Microsoft is zeker de bekende boosdoener van dat soort vanwege zijn dominante marktaandeel. Maar andere bedrijven zijn eigenlijk (misschien onbedoeld) slechter omdat ze niet lang genoeg in de markt blijven of een klein aantal gebruikers hebben. Bij Microsoft heeft men tenminste het voordeel van groot aantal mensen die dezelfde problemen hebben. Het vinden van een oplossing heeft daardoor meer succes. Toch gebruikt Microsoft in sommige gevallen open-source documentatie om hun eigen systemen te begrijpen, zo slecht onderhouden is hun eigen documentatie geweest. Meestal kan men met een gegeven Msoffice suite niet goed een een document lezen dat is gemaakt met dezelfde toepassing twee belangrijke versies eerder.</para>
           <para
->Image formats have had a longer live time than office documents and are a bit less affected by obsolescence.</para>
+>Beeldformaten hebben een langere levensduur dan kantoordocumenten en worden eenbeetje minder beïnvloed door veroudering.</para>
           <para
->Open Source standards have the huge advantage of having an open specification. Even if one day in the future there'll be no software to read it anymore, one can recreate such software, a task becoming simpler every year.</para>
+>Open Source standaarden hebben het grote voordeel van een openspecificatie. Zelfs als op een dag in de toekomst er geen software is om het te lezen, kan daarvoor een software pakket gemaakt worden, een taak die met het jaar eenvoudiger wordt.</para>
           <para
 ><command
 >JPEG</command
-> has been around for a while now, and whilst it's a lossy format losing a bit every time you make a modification and save it, it is ubiquitous, supports JFIF, EXIF, IPTC and XMP metadata, has good compression ratios and can be read by all imaging software. Because of its metadata limitation, lossy nature, absence of transparency and 8 bit color channel depth, we do not recommend it. JPEG2000 is better, can be employed lossless, but lacks in user base.</para>
+> bestaat al een tijdje en hoewel het formaat kwaliteitsverlies geeft elke keer dat u een wijziging maakt en die opslaat, is het alomtegenwoordig, ondersteunt JFIF, EXIF, IPTC en XMP-metagegevens, heeft goede compressieverhoudingen en kan gelezen worden door alle beeldverwerkingssoftware. Door de metadata beperking, kwaliteitsverlies, gebrek aan transparantie en 8 bits kanaaldiepte voor kleuren, raden we het niet aan. JPEG2000 is beter, kan zonder verlies worden toegepast, maar het heeft een smalle gebruikersbasis.</para>
 	<para
 ><command
 >GIF</command
-> is a proprietary. patented format and slowly disappearing from the market. Don't use it.</para>
+> is een eigen, gepatenteerd formaat en verdwijnt langzaam uit de markt. Gebruik het niet.</para>
           <para
 ><command
 >PNG</command
-> has been invented as a Open Source standard to replace GIF, but it does much more. It is lossless, supports XMP, EXIF and IPTC metadata, 16 bit color encoding and full transparency. PNG can store gamma and chromaticity data for improved color matching on heterogeneous platforms. Its drawback are a relatively big footprints (but smaller than TIFF) and slow compression. We recommend it.</para>
+> is uitgevonden als een Open Source standaard vervanger voor GIF, maar het doet nog veel meer. Het is lossless (zonder verlies), ondersteunt XMP, EXIF en IPTC metadata, 16-bits codering van kleuren en volledige transparantie. PNG kan gamma en gegevens voor kleurkwaliteit voor een betere kleuraanpassing op heterogene platforms opslaan. Het nadeel is een relatief grote bestandsafmeting (maar kleiner dan TIFF) en langzame compressie. Wij bevelen het aan.</para>
           <para
 ><command
 >TIFF</command
-> has been widely accepted as an image format. TIFF can exist in uncompressed form or in a container using a lossless compression algorithm (Deflate). It maintains high image quality but at the expense of much larger file sizes. Some cameras let you save your images in this format. The problem is that the format has been altered by so many people that there are now 50 or more flavors and not all are recognizable by all applications.</para>
+> is algemeen aanvaard als een beeldformaat. TIFF kan bestaan ​​in gecomprimeerde vorm of in een houder met een verlieslooscompressie-algoritme (Deflate). Het handhaaft een hoge beeldkwaliteit, maar ten koste van veel grotere bestanden. Sommige camera's kunnen uw foto's in dat formaat opslaan. Een probleem is dat het formaat is gewijzigd door zoveel mensen dat er nu 50 of meer versies bestaan en niet allemaal worden ze herkend door alle toepassingen.</para>
 	<para
 ><command
 >PGF</command
-> "Progressive Graphics File" is another not so known but open file image format. Wavelet-based, it allows lossless and lossy data compression. PGF compares well with JPEG 2000 but it was developed for speed (compression/decompression) rather than to be the best at compression ratio. At the same file size a PGF file looks significantly better than a JPEG one, while remaining very good at progressive display too. Thus it should be well-suited to the web but at the moment few browsers can display it. For more information about the PGF format see the <ulink url="http://www.libpgf.org/"
->libPGF homepage</ulink
+> "Progressief grafisch bestand" is een ander niet zo bekend maar open beeldformaat. Op Wavelet gebaseerd, biedt gegevenscompressie met en zonder verlies. PGF is goed te vergelijken met JPEG 2000, maar het werd meer ontwikkeld voor snelheid (compressie / decompressie) dan voor de beste compressieverhouding. Bij eenzelfde bestandsgrootte lijkt een PGF bestand significant beter dan een JPEG, terwijl het ook zeer goed blijft in progressieve weergave. Zo moet het goed geschikt zijn voor het web, maar op dit moment kan het door weinig browsers worden weergegeven. Voor informatie over het PGF formaat zie de <ulink url="http://www.libpgf.org/"
+>libPGF homepagina</ulink
 >.</para>
          <para
 ><command
 >RAW</command
-> format. Some, typically more expensive, cameras support RAW format shooting. The RAW format is not really an image standard at all, it is a container format which is different for every brand and camera model. RAW format images contain minimally processed data from the image sensor of a digital camera or image scanner. Raw image files are sometimes called digital negatives, as they fulfill the same role as film negatives in traditional chemical photography: that is, the negative is not directly usable as an image, but has all of the information needed to create an image. Storing photographs in a camera's RAW format provides for higher dynamic range and allows you to alter settings, such as white balance, after the photograph has been taken. Most professional photographers use RAW format, because it offers them maximum flexibility. The downside is that RAW image files can be very large indeed.</para>
+>-formaat. Sommige, meestal duurdere, cameras ondersteunen RAW-opnamen. Het RAW-formaat is niet echt een beeldnorm, het is een container formaat dat verschillend is voor elk merk en cameramodel. RAW-formaat opnamen bevatten minimaal verwerkte gegevens uit de beeldsensor van een digitale camera of image scanner. Raw-afbeeldingsbestanden zijn ook wel digitale negatieven, omdat ze dezelfde rol vervullen als negatieven van film in traditionele analoge chemische fotografie: dat wil zeggen, het negatief is niet direct bruikbaar als beeld, maar heeft alle informatie die nodig is om een beeld te maken. Het opslaan van foto's in RAW-formaat van een camera zorgt voor een hoger dynamisch bereik en u kunt de instellingen, zoals witbalans veranderen, nadat de foto is genomen. De meeste professionele fotografen gebruiken RAW-formaat, omdat het hen maximale flexibiliteit biedt. Het nadeel is dat RAW beeldbestanden erg groot kunnen zijn.</para>
           <para
->My recommendation is clearly to <command
->abstain from archiving in RAW format</command
-> (as opposed to shooting in RAW format, which I recommend). It has all bad ingredients: many varieties and proprietary nature. It is clear that in a few years time you cannot use your old RAW files anymore. I have already seen people changing camera, losing their color profiles and having great difficulty to treat their old RAW files correctly. Better change to DNG format!</para>
+>Mijn aanbeveling is duidelijk <command
+>afzien van archiveren in RAW-formaat</command
+> (in tegenstelling tot het fotograferen in RAW-formaat, dat ik kan aanraden). Het heeft alle slechte ingrediënten: vele variëteiten en een merkgebonden eigen karakter. Het is duidelijk dat je in een paar jaar tijd je oude RAW-bestanden niet meer kan gebruiken. Ik heb al gezien dat mensen van camera veranderen en hun kleurprofielen verliezen en grote moeite hebben om hun oude RAW bestanden correct te behandelen. beter veranderen in DNG-formaat!</para>
           <para
 ><command
 >DNG</command
-> Digital Negative file format is a royalty free and open RAW image format designed by Adobe Systems. DNG was a response to demand for a unifying camera raw file format. It is based on the TIFF/EP format, and mandates use of metadata. A handful of camera manufacturers have adopted DNG already, let's hope that the main contenders Canon and Nikon will use it one day.</para>
+> Digital Negative bestandsformaat is een open RAW afbeeldingsformaat, vrij van royalty's en ontworpen door Adobe Systems. DNG was een reactie op vraag naar een algemeen gebruikt Camera RAW-bestandsformaat. Het is gebaseerd op het TIFF/EP-formaat en verplicht het gebruik van metagegevens. Een handvol fabrikanten van camera's hebben DNG al aangenomen, laten we hopen dat de belangrijkste medespelers Canon en Nikon het op een dag ook zullen gebruiken.</para>
           <para
->I strongly recommend converting RAW files to DNG for archiving. Despite the fact that DNG was created by Adobe, it is an open standard and widely embraced by the Open Source community (which is usually a good indicator of perennial properties). Some manufacturers have already adopted DNG as RAW format. And last not least, Adobe is the most important source of graphical software today, and they of course support their own invention. It is an ideal archival format, the raw sensor data will be preserved as such in TIFF format inside DNG, so that the risk associated with proprietary RAW formats is alleviated. All of this makes migration to another operating system a no-brainer. In the near future we'll see 'non-destructive editing', where files are not changed anymore but rather all editing steps will be recorded (into the DNG as it were). When you open such a file again, the editing script will be replayed. This takes computation power, but it is promising as it leaves the original intact and computing power increases all the time. </para>
+>Ik adviseer om RAW-bestanden in DNG om te zetten voor archiveringsdoeleinden. Ondanks het feit dat DNG is gemaakt door Adobe, is het een open standaard en wordt op grote schaal omarmd door de Open Source gemeenschap (die meestal een goede indicator is van eeuwige eigenschappen). Sommige fabrikanten hebben al DNG RAW aangenomen als formaat. En last but not least, Adobe is de belangrijkste bron van grafische software vandaag, en ze ondersteunen natuurlijk hun eigen uitvinding. Het is een ideale archiveringsindeling. De ruwe sensorgegevens zullen worden bewaard in TIFF-formaat in DNG, zodat het risico voortvloeiend uit eigen RAW formaten wordt verminderd. Dit alles maakt overstappen naar een ander besturingssysteem niet moeilijk. In de nabije toekomst zullen we 'non-destructieve' bewerking van bestanden zien waardoor bestanden niet meer worden veranderd maar waar alle bewerkingsstappen worden opgenomen (in de DNG). Wanneer u een dergelijk bestand opnieuw opent, zal het editing script worden herhaald. Dit kost rekenkracht, maar het is veelbelovend aangezien het de originele intact laat en omdat de rekenkracht (van computers) voortdurend toeneemt. </para>
           <para
 ><command
 >XML</command
-> (Extensible Mark-up Language) or <command
+> (Extensible Markup Language) of <command
 >RDF</command
-> (Resource Description Framework). XML is like HTML, but where HTML is mostly concerned with the presentation of data, XML is concerned with the &quot;representation&quot; of data. On top of that, XML is non-proprietary, operating-system-independent, fairly simple to interpret, text-based and cheap. RDF is the WC3's solution to integrate a variety of different applications such as library catalogs, world-wide directories, news feeds, software, as well as collections of music, images, and events using XML as an interchange syntax. Together the specifications provide a method that uses a lightweight ontology based on the Dublin Core which also supports the &quot;Semantic Web&quot; (easy exchange of knowledge on the Web).</para>
+> (Resource Description Framework). XML is net als HTML, maar waar HTML vooral bezig is met de presentatie van de gegevens, is XML bezig met de "weergave" van gegevens. Bovendien is XML niet-merkgebonden, besturingssysteem-onafhankelijk, vrij eenvoudig te interpreteren, tekst-gebaseerd en goedkoop. RDF is WC3's oplossing voor het integreren van een grote verscheidenheid aan toepassingen zoals bibliotheekcatalogi, wereldwijde directories, nieuws feeds, software, alsmede verzamelingen van muziek, afbeeldingen en evenementen die XML gebruiken als een syntaxis voor uitwisseling. Tezamen bieden de specificaties een werkwijze die gebruik maakt van een lichtgewicht ontologie op basis van de Dublin Core die ook het "Semantic Web" (eenvoudige uitwisseling van kennis op het web) ondersteunt.</para>
 
           <para
->IPTC goes XMP</para>
+>IPTC wordt XMP</para>
           <para
->That's probably one of the reasons why, around 2001, that Adobe introduced its XML based XMP technology to replace the &quot;Image resource block&quot; technology of the nineties. XMP stands for &quot;Extensible Metadata Platform&quot;, a mixture of XML and RDF. It is a labeling technology that lets users embed data about a file in the file itself, the file info is saved using the extension&quot;.xmp&quot; (signifying the use of XML/RDF). </para>
+>Dat is waarschijnlijk een van de redenen waarom, rond 2001, Adobe haar op XML gebaseerde XMP technologie introduceerde om &quot;Image resource block&quot; technologie van de negentiger jaren te vervangen. XMP staat voor: &quot;Extensible Metadata Platform&quot;, een mengsel van XML en RDF. Het is een technologie voor labeling, die gebruikers toestaat gegevens over een bestand in het bestand zelf in te sluiten, de bestandsinfo wordt opgeslagen met de extensie &quot;.xmp&quot; (om het gebruik van XML/RDF aan te geven). </para>
           <para
 ><command
 >XMP</command
->. As much as ODF will be readable forever (since its containing text is written in clear text), XMP will preserve your metadata in a clearly understandable format XML. No danger here of not being able to read it later. It can be embedded into the image files or as a separate accompanying file (sidecar concept). XMP can be used in PDF, JPEG, JPEG2000, GIF, PNG, HTML, TIFF, Adobe Illustrator, PSD, PostScript, and Encapsulated PostScript. In a typical edited JPEG file, XMP information is typically included alongside Exif and IPTC data.</para>
+>. Hoewel ODF voor altijd leesbaar zal zijn (aangezien de tekst in duidelijke tekst wordt weergegeven), zal XMP uw metagegevens behouden in een duidelijk te begrijpen formaat XML. Hier geen gevaar van het later niet kunnen lezen. Het kan worden ingebed in de beeldbestanden of als afzonderlijke bijbehorende bestanden (zijspan concept). XMP kan gebruikt worden in PDF, JPEG, JPEG2000, GIF, PNG, HTML, TIFF, Adobe Illustrator, PSD, PostScript en Encapsulated PostScript. In een typisch bewerkt JPEG-bestand, wordt XMP informatie gewoonlijk meegenomen naast Exif- en IPTC-data.</para>
           <para
->Embedding metadata in files allows easy sharing and transfer of files across products, vendors, platforms, customers, without metadata getting lost. The most common metadata tags recorded in XMP data are those from the Dublin Core Metadata Initiative, which include things like title, description, creator, and so on. The standard is designed to be extensible, allowing users to add their own custom types of metadata into the XMP data. XMP generally does not allow binary data types to be embedded. This means that any binary data one wants to carry in XMP, such as thumbnail images, must be encoded in some XML-friendly format, such as Base64.</para>
+>Insluiten van metadata in bestanden maakt een eenvoudige uitwisseling en overdracht mogelijk van bestanden tussen producten, leveranciers, platforms, klanten, zonder dat metadata verloren gaan. De meest voorkomende metadata-tags opgenomen in XMP-gegevens zijn die van het Dublin Core Metadata Initiative, die zaken als titel, beschrijving, maker, enzovoorts bevatten. De standaard is ontworpen om uitbreidbaar te zijn, waardoor gebruikers hun eigen aangepaste soorten metadata kunnen toevoegen in de XMP-gegevens. XMP maakte het in het algemeen niet mogelijk om binaire soorten gegevens op te nemen. Dit betekent dat binaire gegevens die men wil uitvoeren in XMP, zoals miniaturen, moeten worden gecodeerd in een of ander XML-vriendelijk formaat, zoals Base64.</para>
           <para
->Many photographers prefer keeping an original of their shots (mostly RAW) for the archive. XMP suits that approach as it keeps metadata separate from the image file. I do not share this point of view. There could be problems linking metadata file and image file, and as said above, RAW formats will become obsolete. I recommend using DNG as a container and putting everything inside.</para>
+>Veel fotografen kiezen voor het bewaren van de originelen van hun opnamen voor hun archief (meestal in RAW). XMP zou daar goed in passen omdat het de metadata apart van de beeldbestanden bewaart. Ik ben het daar niet mee eens. Er kunnen problemen ontstaan bij het koppelen van metadata en beeldbestanden. En zoals eerder gesteld, RAW formaten kunnen in onbruik raken. Ik adviseer om DNG te gebruiken als container en daar alle informatie in onder te brengen. </para>
       <para
 ><ulink url="http://dublincore.org/"
 >The Dublin Core Metadata Initiative</ulink
-> is an open organization engaged in the development of interoperable online metadata standards that support a broad range of purposes and business models. DCMI's activities include work on architecture and modeling, discussions and collaborative work in DCMI Communities and DCMI Task Groups, annual conferences and workshops, standards liaison, and educational efforts to promote widespread acceptance of metadata standards and practices.</para>
+> is een open organisatie die zich bezig houdt met de ontwikkeling van standaards voor online metagegevens die een breed bereik van toepassingen en business-modellen ondersteunen. DCMI's bezigheden omvatten: werk aan architectuur en vorming, discussies en samenwerkingen in DCMI gemeenschappen en DCMI projectgroepen. Jaarlijkse conferenties en workshops, standaard samenwerking en opleidingspogingen om breed gedragen aanvaarding van metagegevens en standaarden werkwijzen te promoten. </para>
      </sect4>
     </sect3>
 
         <sect3 id="best-practice"
 >  <title
->Best practice: Data protection</title>
+>Beste manier: gegevensbescherming</title>
       <itemizedlist>
         <listitem
 ><para
->Use surge protectors (UL 1449 standard), possibly combined with a UPS</para
+>Gebruik piekspanningbeveiliging (UL1449 standaard) waar mogelijk gecombineerd met UPS</para
 ></listitem>
         <listitem
 ><para
->use ECC memory to verify correct data transmission (even just saving files)</para
+>gebruik ECC geheugen om juiste gegevensoverdracht te verifiëren (zelfs bij opslag van bestanden)</para
 ></listitem>
         <listitem
 ><para
->watch your hard drives (temperature, noise...), make backups</para
+>houd uw harde schijf in het oog (temperatuur, geluid,..) en maak reservekopieën</para
 ></listitem>
         <listitem
 ><para
->Keep backups at another location, locked up, use web storage space</para
+>bewaar reservekopieën op een andere locatie, achter slot en grendel, gebruik web opslagruimte</para
 ></listitem>
         <listitem
 ><para
->use archival media and burners</para
+>gebruik archiveringsmedia en branders</para
 ></listitem>
         <listitem
 ><para
->Don't panic in case of data loss, explain your recovery plan to a layperson</para
+>Raak niet in paniek bij verlies van gegevens, leg uw herstel plan voor aan een leek</para
 ></listitem>
         <listitem
 ><para
->choose you file system, partitions, folders to cater for easy scalability</para
+>kies uw opslagsysteem, partities en mappen om gemakkelijk te kunnen uitbreiden</para
 ></listitem>
         <listitem
 ><para
->Use open, non-proprietary standards to manage and save photographs</para
+>Gebruik open, niet merkgebonden standaards om uw beelden te organiseren en op te slaan</para
 ></listitem>
         <listitem
 ><para
->Do a technology/migration review at least every 5 years</para
+>Voer iedere vijf jaar een herziening uit van uw techniek en migratiesysteem</para
 ></listitem>
       </itemizedlist>
      </sect3>
@@ -2812,43 +2812,43 @@ Leuke dingen
 
    <sect2 id="dam-workflow"
 >  <title
->A typical DAM workflow with &digikam;</title>
+>Een typisch DAM werkproces met &digikam;</title>
      <orderedlist>
         <listitem
 ><para
->import images from camera, card reader or scanner. As long as the images are stored on the camera media, you can use that as temporary backup.</para
+>importeer beelden van camera, kaartlezer of scanner. Zolang de beelden opgeslagen blijven op het medium van de camera kunt u dat gebruiken als tijdelijke reservekopie.</para
 ></listitem>
         <listitem
 ><para
->RAW are converted to DNG and stored away into an RAW archive (not yet implemented)</para
+>RAW's worden geconverteerd naar DNG en opgeborgen in een RAW archief (nog niet geïmplementeerd)</para
 ></listitem>
         <listitem
 ><para
->rate and cull, write-back metadata to the DNG archive</para
+>waardeer en schift, schrijf meta-gegevens naar het DNG archief</para
 ></listitem>
         <listitem
 ><para
->make a backup &eg; on DVD, optical drive or tape</para
+>maak een reservekopie &eg; op dvd, optisch station of tape</para
 ></listitem>
         <listitem
 ><para
->tag, comment, geo-locate</para
+>geef tags, becommentarieer en voeg locatie toe</para
 ></listitem>
         <listitem
 ><para
->edit and improve photographs</para
+>bewerk en verbeter afbeeldingen</para
 ></listitem>
         <listitem
 ><para
->For layered editing use external applications. Back in &digikam;, re-apply the metadata, which was probably lost or curtailed by the other applications.</para
+>Gebruik voor bewerking in lagen externe toepassingen. Terug in &digikam; pas dan opnieuw metagegevens toe die mogelijk verloren zijn gegaan of verkort werden door andere toepassingen.</para
 ></listitem>
         <listitem
 ><para
->run the routine backup with following data-integrity checks</para
+>voer de routine backup uit met de volgende integriteitscontrole van gegevens</para
 ></listitem>
         <listitem
 ><para
->protect processed images for copyrights with Digital Watermarking. Export to web galleries, slide shows, MPEG encode, contact sheets, printing &etc;</para
+>bescherm bewerkte beelden door copyrights met digitale watermerken. Exporteer naar webgalerijen, diashows, MPEG codering, contactvellen, afdrukken &etc;</para
 ></listitem>
     </orderedlist>
       <para>
@@ -2877,31 +2877,31 @@ Leuke dingen
 >Inleiding tot het cameravenster</title>
 
             <para
->The Camera Tool allows you to download your photographs directly from your camera into a &digikam; Album. You can access the Camera Tool by clicking on the Camera menu and selecting from the list of configured cameras. See the <link linkend="setup-camera"
->Setup Camera Section</link
-> of the manual for instructions on how to setup &digikam; to work with your camera. If you want to have more information about how &digikam; supports digital cameras, please a take a look at <link linkend="using-camerasupport"
->this section</link
+>De camera-toepassing laat u uw foto's direct van de camera downloaden in een &digikam; album. U kunt de camera-toepassing openen door er op te klikken en de betreffende camera uit de lijst van camera's te selecteren. Zie ook <link linkend="setup-camera"
+>Sectie camera instellen</link
+> van het handboek voor het instellen van &digikam; voor het werken met uw camera. Als u meer informatie wilt hebben over hoe &digikam; digitale cameras ondersteunt kijk dan ook in <link linkend="using-camerasupport"
+>deze sectie</link
 >. </para>
 
             <para
->The Camera Interface is not the only way to get your photographs into &digikam;. See the <link linkend="using-addphototoalbum"
->Adding a photograph to an Album</link
-> section for a description of how to add photographs that are already on your hard disk. But Camera Interface provides a lots of advanced settings to import images into your albums database. </para>
+>Het camera-interface is niet de enige manier om uw foto's in &digikam; te krijgen. Zie het gedeelte <link linkend="using-addphototoalbum"
+>Toevoegen van een foto aan een album</link
+> voor een beschrijving van het toevoegen van foto's die al op uw harde schijf staan. Maar Camera-interface biedt tal van geavanceerde instellingen voor het importeren van afbeeldingen in de database van uw albums. </para>
 
             <para
->To be able to use your digital camera with &digikam;, connect the camera to your computer, switch the camera to the image display mode and turn it on. See you camera's user manual if you need more information. </para>
+>Om uw digitale camera te gebruiken met &digikam;, sluit u de camera aanop uw computer, zet de camera aan en schakel de camera in voor beeldweergave.Zie handleiding van de camera als u meer informatie nodig hebt. </para>
 
             <para
->When you start the Camera Interface, it will try to connect to the Camera. For some cameras this connection phase can take a little while. When connected, a <guilabel
->Ready</guilabel
-> indicator will appear on the bottom and thumbnails of any photographs on the camera will be displayed. Some cameras cannot provide thumbnails of the photographs. If this is the case, you will only see the filenames and a mime-type icon for each item stored by your camera (photograph, movies, sounds, etc). </para>
+>Wanneer u het camera-interface start, zal die proberen om verbinding te maken met de camera. Bij sommige camera's kan deze verbindingsfase even duren. Wanneer aangesloten, zal een <guilabel
+>Klaar</guilabel
+>-indicator verschijnen aan de onderzijde en miniaturen van foto's op de camera worden weergegeven. Sommige camera's kunnen geen miniaturen van de foto's weergeven. Als dit het geval is, ziet u alleen de bestandsnamen en een mime-type pictogram voor elk item opgeslagen op uw camera (foto, films, geluiden, etc). </para>
 
             <example
 >   <title
->The Camera Client Window</title>
+>Het venster Cameraclient</title>
                 <screenshot
 ><screeninfo
->The Camera Client Window</screeninfo
+>Het venster Cameraclient</screeninfo
 > <mediaobject
 ><imageobject
 ><imagedata fileref="&path;cameraclient.png" format="PNG"/> </imageobject
@@ -2913,25 +2913,25 @@ Leuke dingen
 
         <sect2>
         <title
->Getting information about photographs from the Camera</title>
+>Verkrijgen van informatie over foto's van de camera</title>
 
             <para
->Before downloading photographs to your computer, you may wish to see camera item information. Using the <menuchoice
+>Alvorens foto's te downloaden naar uw computer, wilt u misschien camera-informatie over de foto's bekijken. Met behulp van <menuchoice
 ><guimenuitem
->Properties</guimenuitem
+>Eigenschappen</guimenuitem
 ></menuchoice
-> and <menuchoice
+> en <menuchoice
 ><guimenuitem
->Metadata</guimenuitem
+>Metagegevens</guimenuitem
 ></menuchoice
-> side bar tabs from Camera Interface will launch camera item properties and metadata information. </para>
+> zullen de tabbladen in de zijpaneel van het Camera-interface Camera-item-eigenschappen en metagegevensinformatie starten. </para>
 
             <example
 >  <title
->The Camera Item Properties Sidebar Tab</title>
+>Het tabblad Camera-item-eigenschappen in het zijpaneel</title>
                 <screenshot
 ><screeninfo
->The camera item properties sidebar Tab</screeninfo
+>Het tabblad Camera-item-eigenschappen in het zijpaneel</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;cameraclientitemproperties.png" format="PNG"/> </imageobject
@@ -2940,40 +2940,40 @@ Leuke dingen
             </example>
 
             <para
->The Properties tab displays file information recorded by the camera and a resume of photographer information to describe how the image has been taken. A flag indicates if the image has not yet been downloaded to the computer. Note, all this information may be unavailable with some digital cameras. </para>
+>Het tabblad Eigenschappen toont bestandsinformatie opgenomen met de camera en een samenvatting van informatie over de fotograaf, die beschrijft hoe de afbeelding is genomen. Een vlag geeft aan of de afbeelding nog niet is gedownload naar de computer. Let op, al deze informatie is mogelijk niet beschikbaar met sommige digitale camera's. </para>
 
             <para
->The Metadata tab displays an internal picture's metadata like EXIF, Makernotes, GPS, &etc; This information is the same as <link linkend="using-sidebarmetadata"
->sidebar Meta-Data</link
-> from the &digikam; main interface or image editor. Note, all these metadata can be unavailable with some digital cameras. </para>
+>Het tabblad Metagegevens toont interne metagegevens van de afbeelding, zoals EXIF, Makernotities, GPS, &etc; Deze informatie is hetzelfde als <link linkend="using-sidebarmetadata"
+>Metagegevens in het zijpaneel</link
+> uit het hoofdinterface van &digikam; of afbeeldingsbewerker. Merk op dat al deze metagegevens niet beschikbaar kunnen zijn bij sommige digitale camera's. </para>
 
         </sect2>
 
         <sect2>
         <title
->Downloading photographs to your computer</title>
+>Foto's downloaden naar uw computer</title>
 
             <para
->The simplest way to download photographs from your camera to your computer is to click the <guilabel
->Download</guilabel
-> button and then click <guilabel
->Download All</guilabel
->. This will download all of the photographs on the camera to a single Album in &digikam;. The download process will not remove the photographs from the camera. It is always advisable to check that the photographs have downloaded safely into the Album you were expecting before deleting them from the camera. </para>
+>De eenvoudigste manier om foto's te downloaden van uw camera naar uw computer is om te klikken op de knop <guilabel
+>Downloaden</guilabel
+> en vervolgens op <guilabel
+>Alles downloaden</guilabel
+>. Dit zal alle foto's downloaden van de camera naar een enkel album van &digikam;. Het downloadproces zal de foto's niet uit de camera verwijderen. Het is altijd raadzaam om te controleren of de foto's veilig in het album zijn gedownload zoals u verwachtte alvorens ze te verwijderen uit de camera. </para>
 
             <para
->If you do not want to download all of the photographs you can select just those that you need using the standard &kde; selection methods. Once you have the photographs selected, click <guilabel
->Download</guilabel
-> and then <guilabel
->Download Selected</guilabel
->. The <guilabel
->Download Selected</guilabel
-> button will be grayed out until you have selected some photographs. </para>
+>Als u niet alle foto's wilt downloaden kunt u met behulp van de standaard KDE selectiemethoden gewoon kiezen welke u nodig hebt. Zodra u de foto's hebt geselecteerd, klikt u op <guilabel
+>Downloaden</guilabel
+> en daarna op <guilabel
+>Geselecteerden downloaden</guilabel
+>. De knop <guilabel
+>Geselecteerden downloaden</guilabel
+> wordt grijs weergegeven totdat u een aantal foto's hebt geselecteerd. </para>
 
             <note
 ><para
->If supported by your camera an option <guilabel
->Download new</guilabel
-> is available. Those are images not yet downloaded by &digikam;. In that case the new images are already marked with a star in the thumbnail window. Obviously if you choose this handy option, it will download the new images only. </para
+>Een optie <guilabel
+>Nieuwe downloaden</guilabel
+> is beschikbaar als uw camera dat ondersteunt. Dat zijn beelden die door &digikam; nog niet zijn gedownload. In dat geval worden de nieuwe beelden gemarkeerd met een ster in het venster met miniaturen. Als u deze handige optie kiest, zullen alleen de nieuwe opnamen worden gedownload. </para
 ></note>
 
         </sect2>
@@ -2984,20 +2984,20 @@ Leuke dingen
         <anchor id="targetalbumdialog.anchor"/>
 
             <para
->Using <guilabel
->Download All</guilabel
-> or <guilabel
->Download Selected</guilabel
-> buttons will bring up a dialog, that allows you to select a target Album into which the photographs will be downloaded. The list of existing Albums is displayed, ordered by the Folder method (see the <link linkend="using-myalbumsview"
->Albums View</link
-> for details of Album ordering). You can select the target Album from this list and then click OK. </para>
+>Met behulp de knoppen <guilabel
+>Alles downloaden</guilabel
+> of <guilabel
+>Geselecteerden downloaden</guilabel
+> verschijnt een dialoogvenster dat u in staat stelt om een doelalbum te selecteren waarin de foto's worden gedownload. De lijst met bestaande Albums wordt weergegeven, geordend volgens de Mappenmethode (zie <link linkend="using-myalbumsview"
+>Albumweergave</link
+> voor meer informatie over ordening van albums). U kunt het album selecteren uit deze lijst en op OK klikken. </para>
 
             <example
 >   <title
->The Target Album Selection Dialog</title>
+>De keuzedialoog voor het doelalbum</title>
                 <screenshot
 ><screeninfo
->The Target Album Selection Dialog</screeninfo
+>De keuzedialoog voor het doelalbum</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;cameratargetalbumdialog.png" format="PNG"/> </imageobject
@@ -3006,9 +3006,9 @@ Leuke dingen
             </example>
 
             <para
->If you want to create a new Album, into which you could download the photographs, click the <guilabel
->New Album</guilabel
-> button. The new Album will be created as a sub-folder of the Album that is currently selected in the existing Album list. This means that, if you do not want your new Album to be a sub-folder of an existing folder, you must first select the "My Albums" entry from the very top of the existing Albums list before creating a new Album. </para>
+>Als u een nieuw album wilt maken waarin u foto's kunt downloaden klik dan op de knop <guilabel
+>Nieuw album</guilabel
+>. Het nieuwe album zal worden gemaakt als een submap van het album dat is geselecteerd in de bestaande Albumlijst. Dit betekent dat, als u niet wilt dat uw nieuwe album in een submap van een bestaande map komt, u eerst het item "Mijn albums" moet selecteren helemaal bovenaan in de lijst met albums voordat u een nieuw album maakt.   </para>
 
             <para
 >Als u het doelalbum hebt geselecteerd, klik op OK en &digikam; zal de foto's van de camera opslaan in dat album. </para>
@@ -3019,7 +3019,7 @@ Leuke dingen
 ><imagedata fileref="&path;cameraclientdownload.png" format="PNG"/> </imageobject
 ><textobject
 ><phrase
->The Downloading in Progress</phrase
+>Het downloaden in werking</phrase
 ></textobject
 ></inlinemediaobject>
             </para>
@@ -3028,26 +3028,26 @@ Leuke dingen
 
         <sect2>
         <title
->Deleting photographs from the camera</title>
+>Verwijderen foto's van de camera </title>
 
             <para
->Once you are happy with the downloaded photographs that you wanted, you are ready to delete photographs from the Camera. You can delete all of the photographs at once by clicking the <menuchoice
+>Zodra u tevreden bent met de gewenste, gedownloade foto's, bent u klaar om foto's uit de camera te verwijderen. U kunt alle foto's in een keer verwijden door te klikken op de knop <menuchoice
 > <guimenu
->Delete</guimenu
+>Verwijderen</guimenu
 > <guimenuitem
->Delete All</guimenuitem
+>Alles verwijderen</guimenuitem
 > </menuchoice
-> button. If you just want to delete a selection of the photographs, you have to select those that you want to delete and click <menuchoice
+>. Als u slechts een ​​selectie van de foto's wilt verwijderen, moet u de foto's die u wilt verwijderen eerst selecteren en dan klikken op <menuchoice
 ><guimenu
->Delete</guimenu
-> <guimenuitem
->Delete Selected</guimenuitem
+>Verwijderen</guimenu
+><guimenuitem
+>Verwijder geselecteerde</guimenuitem
 ></menuchoice
 > </para>
 
             <caution
 ><para
->Please note that there is no way to restore a photo that you have deleted from the camera. The photographs are not moved to the &kde; Trash Can, they are removed completely. It is best to double check that you have successfully downloaded a photograph into a &digikam; Album before you delete it from the camera. Anyway, if you plan to empty the camera card, you better do that from the camera menu because it is much quicker. </para
+>Let op: er is geen manier om een ​​foto die u hebt verwijderd van de camera te herstellen. De foto's worden niet verplaatst naar de Prullenbak van &kde;, ze worden volledig verwijderd. Het is het beste om te controleren of u met succes een foto hebt gedownload in een album van &digikam; voordat u die foto verwijdert uit de camera. Hoe dan ook, als u van plan om de camera-kaart leeg te maken, dan kunt u dat beter doen vanuit het menu van de camera, omdat dat veel sneller gaat. </para
 ></caution>
 
         </sect2>
@@ -3057,14 +3057,14 @@ Leuke dingen
 >Automatisch hernoemen</title>
 
             <para
->Cameras often do not use very meaningful filenames for photographs. The filenames are usually reused once the photographs have been deleted from the camera. This can lead to filename clashes if you download photographs from many shootings into the same Album. It can also be useful to include the date and time that an image was taken into the filename. </para>
+>Camera's gebruiken vaak niet erg betekenisvolle bestandsnamen voor foto's. De bestandsnamen worden meestal opnieuw gebruikt nadat de foto's zijn verwijderd uit de camera. Dit kan leiden tot verwarring van de bestandsnaam als u foto's download van vele sessies in hetzelfde album. Het kan ook nuttig zijn datum en tijd waarop een foto werd genomen in de bestandsnaam in te voegen. </para>
 
             <example
 > <title
->Files Renaming Options</title>
+>De opties voor Bestanden hernoemen</title>
                 <screenshot
 ><screeninfo
->Files Renaming Options</screeninfo
+>De opties voor Bestanden hernoemen</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;cameraclientsetting1.png" format="PNG"/> </imageobject
@@ -3073,18 +3073,18 @@ Leuke dingen
             </example>
 
             <para
->&digikam; can automatically rename your photographs using the date and time information included by the camera in the photograph. To use this feature, click the <guilabel
->Settings</guilabel
-> button on the Camera Interface. The Camera Interface window will expand to reveal some extra features. Select <guilabel
->Customize</guilabel
-> and then enter any filename prefix you would like. As an option you can add many information independently or by combination including : date, time, original file name, file extension, directory, owner, group, camera name, a sequence number or any other metadata from the photograph. </para>
+>&digikam; kan automatisch uw foto hernoemen, met de informatie van datum en tijd opgenomen door de camera bij de foto. Om deze functie te gebruiken, klikt u op de knop <guilabel
+>Instellingen</guilabel
+> op de camera-interface. Het venster Camera-interface zal open vouwen en een aantal extra functies onthullen. Kies <guilabel
+>Aanpassen</guilabel
+> en voer vervolgens het gewenste voorvoegsel in voor de bestandsnaam. Als optie kunt u veel informatie onafhankelijk of in combinatie toevoegen met inbegrip van: datum, tijd, originele bestandsnaam, extensie, map, eigenaar, groep, naam van de camera, een volgnummer of welk ander metagegeven van de foto. </para>
 	 
             <para
->In the next box you find the options for rotating/flipping the image and for date based subalbums. If you check the latter option, folder per day will be automatically generated. </para>
+>In het volgende venster vind u de opties voor draaien/spiegelen van het beeld en voor op datum gebaseerde subalbums. Als u de laatste optie kiest dan wordt automatisch een map per datum aangemaakt. </para>
             <para
->The 'On the fly operations' open three more options that act on the photos before storing them on disk. The first two relate to the authors data in <link linkend="author-identity"
->Default Author Identity</link
-> settings. If checked, the respective items will be copied into the EXIF tags and IPTC fields. The last option allows a date &amp; time for all downloaded photographs to be set. </para>
+>De 'On the fly operaties' openen drie keuzemogelijkheden die invloed hebben op de foto's alvorens ze op te slaan op schijf. De eerste twee betreffen de instellingen voor auteursgegevens <link linkend="author-identity"
+>Standaard identiteit van de auteur</link
+>. Indien aangevinkt, zullen de betreffende gegevens in de EXIF tags en IPTC velden worden gekopieerd. De laatste optie kan een datum &amp; tijd voor alle gedownloade foto's instellen. </para>
 
             <tip>
                 <para>
@@ -3092,27 +3092,27 @@ Leuke dingen
 
 		   <listitem
 ><para
->The sequence number may be needed if you have a camera with a very fast multi-shoot mode where it is possible to get two photographs with exactly the same data and time. </para
+>Het volgnummer kan nodig zijn als u een camera met een zeer snelle multi-shoot modus hebt, waarin het mogelijk is om twee foto's te krijgen met precies dezelfde gegevens en tijd. </para
 ></listitem>
 
                     <listitem
 ><para
->If you want another date format then the default date format, click on <guilabel
->Date &amp; Time...</guilabel
->, choose <guilabel
->Custom</guilabel
-> in <guilabel
->Format</guilabel
-> drop-down list and fill in for example "dd.MM.yyyy hh:mm:ss". For more information, read <ulink url="http://doc.qt.digia.com/qt/qdatetime.html#toString"
+>Als u een andere datumnotatie dan de standaard datumnotatie wilt, klik dan op <guilabel
+>Datum &amp; tijd...</guilabel
+>, kies <guilabel
+>Aangepast</guilabel
+> in het afrolmenu <guilabel
+>Formaat</guilabel
+> en vul bijvoorbeeld "dd.MM.yyyy hh:mm:ss" in. Voor meer informatie, lees de referentieklasse <ulink url="http://doc.qt.digia.com/qt/qdatetime.html#toString"
 >QdateTime</ulink
-> class reference.</para
+>.</para
 ></listitem>
 
                     <listitem
 ><para
->When you select <guilabel
->Camera filenames</guilabel
->, you have the option to change the filenames to lowercase when downloading. Or use uppercase if you prefer.</para
+>Wanneer u <guilabel
+>Camera bestandsnamen</guilabel
+> kiest, hebt u bij het downloaden de mogelijkheid om de bestandsnamen te veranderen naar kleine letters. Of gebruik hoofdletters als u dat verkiest.</para
 ></listitem>
 
                 </itemizedlist>
@@ -3120,7 +3120,7 @@ Leuke dingen
             </tip>
 
             <para
->The new filename that &digikam; will use for the photographs when they are downloaded is shown underneath the name provided by the camera in the thumbnail view. The renaming settings will be remembered the next time you use the camera interface. </para>
+>De nieuwe bestandsnaam die &digikam; gebruikt voor de foto wanneer zij worden gedownload, wordt getoond onder de naam gegeven door de camera in de miniatuurweergave. De instellingen voor hernoemen worden onthouden voor de volgende keer dat u gebruik maken van de camera-interface. </para>
 
         </sect2>
 
@@ -3133,16 +3133,16 @@ Leuke dingen
 >Automatisch draaien</title>
 
                 <para
->&digikam; can use any information about the orientation of the camera at the moment the photograph was taken for automatic rotation of the photograph when it is downloaded. Not all cameras include this information. See the <link linkend="using-sidebarmetadata"
->sidebar Meta-Data</link
-> section for more detail about information that your camera may have embedded in your photographs. </para>
+>&digikam; kan gebruik maken van informatie over de oriëntatie van de camera op het ogenblik dat de foto werd genomen voor automatische rotatie van de foto wanneer die wordt gedownload. Niet alle camera's hebben deze informatie. Zie de sectie <link linkend="using-sidebarmetadata"
+>Metagegevens in het zijpaneel</link
+> voor meer details over de informatie die door uw camera kunnen zijn ingebed in uw foto's. </para>
 
                 <example
 > <title
->On the fly Operations Options</title>
+>Keuzemogelijkheden tijdens de bewerking</title>
                     <screenshot
 ><screeninfo
->On the fly Operations Options</screeninfo
+>Keuzemogelijkheden tijdens de bewerking</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;cameraclientsetting2.png" format="PNG"/> </imageobject
@@ -3151,11 +3151,11 @@ Leuke dingen
                 </example>
 
                 <para
->This automatic rotation is switched on by default, and if your camera does not include the information, &digikam; will leave the photograph at its original orientation. If you would like to switch the automatic rotation off, click the <guilabel
->Advanced</guilabel
-> button and deselect the <guilabel
->Auto Orient</guilabel
-> option at the bottom of the window. </para>
+>Deze automatische rotatie staat standaard aan. En als uw camera die informatie niet mee levert laat &digikam; de foto in de originele positie staan. Als u de automatische rotatie wilt uitzetten klik dan op de knop <guilabel
+>Geavanceerd</guilabel
+> en deactiveer de optie <guilabel
+>Automatische oriëntatie</guilabel
+> onder in het venster.  </para>
 
             </sect3>
 
@@ -3164,16 +3164,16 @@ Leuke dingen
 >Automatisch doelalbums aanmaken</title>
 
                 <para
->If your camera provides information about the date of the photograph's taking, &digikam; can use this to automatically create subalbums in the destination Album when it is downloaded. Subalbums names will be based on image dates. All images which have the same date will be downloaded into the same subalbum. Not all cameras include this information. See the <link linkend="using-sidebarmetadata"
-> sidebar Meta-Data</link
-> section for more detail about information your camera may have embedded in your photographs. </para>
+>Als uw camera informatie geeft over de datum van de foto's, kan &digikam; dit gebruiken om automatisch subalbums creëren in het bestemmingsalbum wanneer de foto word gedownload. Namen van subalbums zullen worden gebaseerd op datums van afbeeldingen. Alle afbeeldingen die dezelfde datum hebben, worden gedownload in hetzelfde subalbum. Niet alle camera's hebben deze informatie. Zie de <link linkend="using-sidebarmetadata"
+>Metagegevens in het zijpaneel</link
+> voor meer informatie over gegevens die uw camera kan hebben ingevoegd in uw foto's.  </para>
 
                 <example
 > <title
->Albums Auto-creation Options</title>
+>Opties voor automatische albumcreatie</title>
                     <screenshot
 ><screeninfo
->Albums Auto-creation Options</screeninfo
+>Opties voor automatische albumcreatie</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;cameraclientsetting3.png" format="PNG"/> </imageobject
@@ -3194,24 +3194,24 @@ Leuke dingen
 
         <sect2>
         <title
->Uploading Photographs to your camera</title>
+>Uploaden van foto's naar uw camera</title>
 
             <para
->The simplest way to upload photographs from your computer to your camera is to click the <guilabel
+>De eenvoudigste manier om foto's te uploaden van uw computer naar uw camerais om te klikken op de knop <guilabel
 >Download</guilabel
-> button and then click <guilabel
->Upload</guilabel
->. A standard &kde; file selection dialog will appear to select the files from your computer to copying on your camera. You can select more than one file using the standard &kde; selection methods. </para>
+> en vervolgens op <guilabel
+>Uploaden</guilabel
+>. Een standaard dialoog van &kde; voor selectie van bestanden zal verschijnen om de bestanden van uw computer te selecteren om deze naar uw camera te kopiëren . U kunt meer dan één bestand selecteren met behulp van de standaard KDE selectiemethoden. </para>
 
             <para
->When images selection is done, &digikam; will ask you where you want to upload the files on your camera. A camera folder selection dialog will appear. Just select one folder and press OK to start uploading. No images will be removed from your computer. </para>
+>Wanneer de selectie van afbeeldingen gereed is, zal &digikam; u vragen waarnaartoe in uw camera u de bestanden wilt uploaden. Een dialoogvenster voor selectie van de map op de camera zal verschijnen. Selecteer eenvoudig een map en druk op OK om te beginnen met uploaden. Er zullen geen afbeeldingen van uw computer worden verwijderd. </para>
 
             <example
 >  <title
->The Camera Folder Selection Dialog</title>
+>De dialoog voor selectie van de map op de camera</title>
                 <screenshot
 ><screeninfo
->The Camera Folder Selection Dialog</screeninfo
+>De dialoog voor selectie van de map op de camera</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;camerafolderselectiondialog.png" format="PNG"/> </imageobject
@@ -3221,84 +3221,84 @@ Leuke dingen
 
             <note
 ><para
->Uploading feature is not supported by all camera drivers. </para
+>Een mogelijkheid tot uploaden wordt niet door alle stuurprogramma's van camera's ondersteund. </para
 ></note>
 
         </sect2>
 
         <sect2 id="using-gps">
         <title
->How to use a GPS device with &digikam;</title>
+>Het gebruik van een GPS-apparaat met &digikam;</title>
             <note
 ><para>
                     <inlinemediaobject>
                     <imageobject
 ><imagedata fileref="&path;handheld_gps.png" format="PNG"/></imageobject>
 </inlinemediaobject
->GPS (global positioning system) is used as a generic term throughout this document. It just means a location in latitude and longitude global coordinates that can be displayed on a map. The actual technical implementation that provides the data can be the American GPS, the Russian GLONAS, the European GALILEO or any other system. </para
+>GPS (Global Positioning System) wordt overal in dit document gebruikt als een algemene term. Het betekent gewoon een locatie in coördinaten van lengte- en breedtegraad die op een kaart kunnen worden weergegeven. De werkelijke technische implementatie die de gegevens levert kan zijn het Amerikaanse GPS, het Russische GLONAS, het Europese Galileo of een ander systeem. </para
 ></note>
 
             <para
->Not only for professional photographers can it be interesting to link an image to a precise geographical location. Not everybody uses an airplane to overfly and scan a certain area with automatic GPS data recording. Environmental planners, military, police, construction bureaus, real estate agencies, all will have an immediate application. </para>
+>Niet alleen voor professionele fotografen kan het interessant zijn om een afbeelding te koppelen aan een precieze geografische locatie. Milieu-planners, militairen, politie, bouwbureaus, vastgoed agentschappen, allen kunnen een behoefte hebben om dit toe te passen.  </para>
             <para
->But if, after some time, one has forgotten where the image was taken, if one loves the nice feature to open with a simple click a browser displaying a zoom of the area, if you like to send your image as a postcard to another &digikam; user (who is then able to locate your shot), or if you simply need the documentation aspect of it - having position data stored in a photo is great. </para>
+>Maar als men, na enige tijd, vergeten is waar de foto werd genomen, als menhoudt van de leuke toepassing om met een simpele klik een browser te openen en een zoomweergave van het gebied te zien, als u uw afbeelding wilt verzenden als een ansichtkaart naar een andere &digikam; gebruiker (die dan in staat is om uw opname te vinden), of als u gewoon behoefte hebt aan het documentatie-aspect ervan - de positiegegevens opgeslagen in een foto is een geweldige mogelijkheid. </para>
             <para
->Now, how do we get GPS data into the images? <ulink url="http://www.exiv2.org/tags.html"
+>Hoe krijgen we nu die GPS-gegevens in de beelden? <ulink url="http://www.exiv2.org/tags.html"
 >exiv2</ulink
-> supports many kinds of the GPS data fields, even bearing, satellite and map references. So the question is really how to get the data into those fields? There are at least three ways to do this: directly with the appropriate hardware, per post-treatment of GPS and image files using the Geolocation Kipi-plugin (<ulink url="help:/kipi-plugins/geolocalization.html"
->Manual</ulink
->) and per 'manual' insertion of known locations. </para>
+> ondersteunt veel soorten velden van GPS-gegevens, ook richting, satelliet- en kaartreferenties. Dus de vraag is eigenlijk hoe komen die gegevens in die velden? Er zijn minstens drie manieren om dit te doen: direct, met de juiste hardware, per nabehandeling van GPS en afbeeldingsbestanden met behulp van de Kipi-plugin geolocatie (<ulink url="help :/kipi-plugins/geolocalization.html"
+>Handboek</ulink
+>) en handmatig inbrengen van bekende locaties. </para>
             <itemizedlist>
 
                 <listitem
 ><para
->Direct GPS data insertion into the image files</para>
+>Direct inbrengen van GPS-gegevens in de afbeeldingsbestanden.</para>
                     <para
->To our knowledge there is at the time of writing no camera that integrates a GPS unit. But there are a few that combine with GPS receivers, either as a plug-in card or by data transmission through cable or Bluetooth. </para>
+>Voor zover wij weten is er op het moment van schrijven geen camera met geïntegreerde GPS-unit. Maar er zijn er paar die te combineren zijn met GPS-ontvangers, hetzij als een insteekkaart of door gegevensoverdracht via kabel of Bluetooth. </para>
                     <para
 ><ulink url="http://www.engadget.com.nyud.net:8090/2004/09/17/diy-black-box-tagging-photos-with-gps-coordinates/"
->Selfmade Howto</ulink>
+>Hoe kunt u dat zelf doen</ulink>
                     </para>
                 </listitem>
 
                 <listitem
 ><para
->Post-treatment of GPS data and image files</para>
+>Nabehandeling van GPS-gegevens en afbeeldingsbestanden</para>
                     <para
->Using the Geolocation Kipi-plugin (<ulink url="help:/kipi-plugins/geolocalization.html"
->Manual</ulink
-> if Kipi-plugins are already installed). </para>
+>Gebruik van de Kipi-plugin voor Geolocation zie het (<ulink url="help:/kipi-plugins/geolocalization.html"
+>Handboek</ulink
+> voor Kipi-plugins als Kipi-plugins al geïnstalleerd zijn). </para>
                     <para
->This approach is dead easy: while taking your pictures just keep a GPS device running and carry it around with the camera. Once you are done, download the pictures and the GPS tracks, and run the above plugin. It will correlate the data in the time domain; so it is important that the camera be accurate in its clock setting (the GPS device is always accurate through the satellites). The positional accuracy interpolated from the track points can be as good as 20 meters. Of course, this approach only works if your camera can record EXIF data. </para>
+>Deze aanpak is doodsimpel: terwijl u gewoon uw foto's blijft maken neemt u een GPS apparaat met u mee. Zodra u klaar bent, download u de foto's en het GPS-spoor, en voert u de bovenstaande plug-in uit. Die zal de gegevens correleren binnen het tijdsbestek; het is dus belangrijk dat de klokinstelling van de camera accuraat is (het GPS-apparaat is altijd accuraat door de satellieten). De nauwkeurigheid van de positie, geïnterpoleerd op grond van de track-punten kan nauwkeurig zijn tot op 20 meter. Natuurlijk, werkt deze aanpak alleen als uw camera EXIF data kan op nemen. </para>
                     <para
->The GPS track download from a device can be managed with the <ulink url="http://gpsman.sourceforge.net/"
+>De GPS route downloaden van een apparaat kan worden gedaan met de <ulink url="http://gpsman.sourceforge.net/"
 >gpsman</ulink
-> or <ulink url="http://www.gpsbabel.org"
+> of <ulink url="http://www.gpsbabel.org"
 >gpsbabel</ulink
->. It is important that the downloaded tracks are being stored in gpx format, which is the only one compatible with the Geolocation plugin. </para>
+>. Het is belangrijk dat de gedownloade routes worden opgeslagen in gpx-formaat, dat is het enige formaat, verenigbaar met de Geolocatie plug-in. </para>
                     <para
->Several programs exist for &Windows; and MacOS that are able to extract and correlate data from images and GPS data tracks. The following site provides the same functionality for &Linux;: <ulink url="http://freefoote.dview.net/linux_gpscorr.html"
+>Er bestaan diverse programma's voor &Windows; and MacOS die in staat zijn om gegevens over te nemen en in verband te brengen met beelden en GPS routes. De volgende site voorziet in dezelfde functie voor &Linux;: <ulink url="http://freefoote.dview.net/linux_gpscorr.html"
 >gpsCorr</ulink
-> or <ulink url="http://www.carto.net/projects/photoTools/gpsPhoto/"
+> of <ulink url="http://www.carto.net/projects/photoTools/gpsPhoto/"
 >gpsPhoto</ulink
 > </para>
                 </listitem>
 
                 <listitem>
                     <para
->'Manual' insertion of known locations</para>
+>Handmatig inbrengen van bekende locaties</para>
                     <para
->If you happen to know the latitude/longitude or other data you can use the this script which is a GPS wrapper for Phil Harvey's <ulink url="http://www.sno.phy.queensu.ca/~phil/exiftool"
+>Als de breedte en lengte of andere gegevens bekend zijn dan kunt u gebruik maken van dit script dat een GPS overkoepeling is voor Phil Harvey's <ulink url="http://www.sno.phy.queensu.ca/~phil/exiftool"
 >ExifTool</ulink
-> that uses the signed floating number coordinate notation as produced by maps.google. </para>
+> dat gebruik maakt van coordinaten in een notatie met drijvendekomma getallen met teken zoals weergegeven door maps.google. </para>
                 </listitem>
 
             </itemizedlist>
 
             <para
->GPS devices: <ulink url="http://www.letsgodigital.org/en/9323/sony_gps_photography/"
->GPS tracker from Sony </ulink
-> and <ulink url="http://www.emtac.com/products/bluetooth/index.html#btgps"
+>GPS apparaten: <ulink url="http://www.letsgodigital.org/en/9323/sony_gps_photography/"
+>GPS tracker van Sony </ulink
+> en <ulink url="http://www.emtac.com/products/bluetooth/index.html#btgps"
 >EMTAC bluetooth GPS </ulink
 > </para>
         </sect2>
@@ -3310,18 +3310,18 @@ Leuke dingen
 
         <sect2 id="setupdialog"
 >        <title
->The Setup Section</title>
+>De sectie Instellen</title>
 
             <anchor id="setupdialog.anchor"/>
 
             <para
->&digikam; tries to give you as much control over how it works as possible. There are many options that change the behavior of &digikam;. To access these settings select <menuchoice
+>&digikam; probeert u zo veel mogelijk controle te bieden over hoe het werkt.Er zijn vele opties die het gedrag van &digikam; veranderen. Om toegang te krijgen tot deze instellingen dient u <menuchoice
 ><guimenu
->Settings</guimenu
-> <guimenuitem
->Configure &digikam;</guimenuitem
+>Instellingen</guimenu
+><guimenuitem
+>&digikam; instellen</guimenuitem
 ></menuchoice
-> from the menubar. The configuration dialog is separated into 15 pages. You can change between these pages by clicking on the icons on the left-hand side of the dialog. </para>
+> op demenubalk te selecteren. Het dialoogvenster instellingen is opgedeeld in 15 pagina's. U kunt van pagina wisselen door op de pictogrammen aan de linkerkant van de dialoogvenster te klikken. </para>
 
          <itemizedlist>
              <listitem
@@ -3339,19 +3339,19 @@ Leuke dingen
              <listitem
 ><para
 ><link linkend="author-identity"
->Default Author Identity</link
+>Standaard identiteit van de auteur</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-embeddedinfo"
->Metadata (embedded information)</link
+>Metagegevens (ingebedde informatie)</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-tooltip"
->Tooltip Settings</link
+>Instellingen voor tekstballonnen</link
 ></para
 ></listitem>
              <listitem
@@ -3363,49 +3363,49 @@ Leuke dingen
              <listitem
 ><para
 ><link linkend="setup-lighttable"
->Light Table Settings</link
+>Lichtbak-instellingen</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-editor"
->Image Editor Settings</link
+>Beeldbewerkingsinstellingen</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-saveimages"
->Save Image Options</link
+>Opties voor opslaan van afbeeldingen</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-raw-decoder"
->RAW Decoder Settings</link
+>Instellingen voor RAW-decoder</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-iccprofiles"
->ICC Profiles setup</link
+>Instelling van ICC-profielen</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-kipiplugins"
->Kipi Plugins Settings</link
+>Instellingen van Kipi-plug-ins</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-slideshow"
->Slide show settings</link
+>Instellingen voor diashow</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-camera"
->Camera Interface Settings</link
+>Instellingen voor camera-interface</link
 ></para
 ></listitem>
              <listitem
@@ -3431,25 +3431,25 @@ Leuke dingen
                 </para>
 
                 <para
->The <guilabel
->Album Library Path</guilabel
-> is the location on your hard disk where &digikam; will store all of the Albums. If you change this location without manually moving all of the Albums on the hard disk, &digikam; assumes that there are no existing Albums and will generate a new database at the new location. Your old Albums will not be altered but you will need to change the Album Library Path back to the old location to access them. If you are not sure of what you are doing it is best not to change this location. </para>
+>Het <guilabel
+>Albumbibliotheekpad</guilabel
+> is de locatie op uw harde schijf waar digikam alle albums zal opslaan. Als u deze locatie wijzigt zonder handmatig verplaatsen van alle albums op de harde schijf, gaat &digikam; ervan uit dat er geen bestaande albums zijn en zal het een nieuwe database genereren op de nieuwe locatie. Uw oude albums zullen niet worden gewijzigd, maar u moet het pad naar de albumbibliotheek terug zetten naar de oude locatie om toegang te krijgen tot die albums. Als u niet zeker weet wat te doen is het beter de locatie van albums niet te wijzigen.  </para>
 
                 <para
->The <guilabel
->Thumbnails</guilabel
-> options are described in the <link linkend="using-imageview"
->Images</link
-> section. </para>
+>De opties voor <guilabel
+>Miniaturen</guilabel
+> worden beschreven in de sectie <link linkend="using-imageview"
+>Afbeeldingen</link
+>. </para>
 
                 <para
->The <guilabel
->Click action</guilabel
-> can be set to <guilabel
->Show embedded preview</guilabel
-> or <guilabel
->Start image editor</guilabel
->. You herewith define the default behavior of &digikam; when you click on an image item in the main view. </para>
+>De <guilabel
+>Klikactie</guilabel
+> kan worden ingesteld op <guilabel
+>Toon ingebed voorbeeld</guilabel
+> of <guilabel
+>Afbeeldingsbewerker openen</guilabel
+>. Hiermede bepaalt u het gedrag van &digikam; als u op een beeld in het hoofdvenster klikt.  </para>
 
             </sect3>
 
@@ -3458,9 +3458,9 @@ Leuke dingen
 >Instellingen van een verzameling</title>
 
                 <para
->This dialog manages your Collection types. Album Collections are described in detail in the <link linkend="using-myalbumsview"
+>Met deze dialoog beheert u uw verzamelingstypen. Album-verzamelingen worden gedetailleerd beschreven in de sectie <link linkend="using-myalbumsview"
 >Albums</link
-> section. </para>
+>. </para>
 
                 <para>
                     <inlinemediaobject
@@ -3473,12 +3473,12 @@ Leuke dingen
 
             <sect3 id="author-identity"
 >              <title
->Default Author Identity for IPTC</title>
+>Standaard identiteit van auteur voor IPTC</title>
 
                 <para
->This page contains the default identity and copyright data as shown on the printscreen below. The data will be automatically written into the respective IPTC data fields if so selected during the download from the <link linkend="using-cameraclientrenaming"
->camera interface</link
->. Also, if you call for database synchronisation, this data will be written into the IPTC fields. </para>
+>Deze pagina bevat de standaard identiteit en copyright gegevens zoals getoond op het schermafdruk hieronder. De gegevens worden automatisch in de respectievelijke IPTC velden gezet als daarvoor is gekozen bij het downloaden van het <link linkend="using-cameraclientrenaming"
+>camera-interface</link
+>. Dat gebeurt ook als u vraagt om synchronisatie met de database, deze gegevens worden naar de IPTC velden geschreven. </para>
 
                 <para>
                     <inlinemediaobject
@@ -3488,47 +3488,47 @@ Leuke dingen
                 </para>
 
                 <para
->This is an extract of the IPTC specifications:</para>
+>Dit is een extract uit de IPTC specificaties.</para>
     <itemizedlist>
       <listitem
 ><para
 ><emphasis
->Author</emphasis
-> (is synonymous to <emphasis
->Creator</emphasis
-> and <emphasis
->By-line</emphasis
->): This field should contain your name, or the name of the person who created the photograph. If it is not appropriate to add the name of the photographer (for example, if the identity of the photographer needs to be protected) the name of a company or organization can also be used. Once saved, this field should not be changed by anyone. This field does not support the use of commas or semi-colons as separator. </para
+>Auteur</emphasis
+> (is synoniem van <emphasis
+>Maker</emphasis
+> en <emphasis
+>per regel</emphasis
+>): dit veld bevat uw naam of de naam van de fotograaf. Als dat niet haalbaar is bijvoorbeeld omdat de naam van de fotograaf beschermd dient te worden, dan kan de naam van de onderneming of de organisatie gebruikt worden. Als dit eenmaal opgeslagen is moet het door niemand meer gewijzigd kunnen worden. Dit veld ondersteund geen komma's of puntkomma's als scheidingsteken. </para
 ></listitem>
 
       <listitem
 ><para
 ><emphasis
->Author title</emphasis
-> (synonymous with <emphasis
->By-line title</emphasis
->): This field should contain the job title of the photographer. Examples might include titles such as: Staff Photographer, Freelance Photographer, or Independent Commercial Photographer. Since this is a qualifier for the Author field, the Author field must also be filled out. </para
+>Auteurtitel</emphasis
+> (synoniem <emphasis
+>per regel</emphasis
+>): Dit veld moet de functionele titel van de fotograaf bevatten. Voorbeelden kunnen zijn: bedrijfsfotograaf, freelance fotograaf of zelfstandig commercieel fotograaf. Aangezien dit een toevoeging is voor het auteurveld moet het auteurveld ook ingevuld worden. </para
 ></listitem>
 
       <listitem
 ><para
 ><emphasis
->Credit</emphasis
-> (synonymous with Provider): Use the credit field to identify who is providing the photograph. This does not necessarily have to be the author. If a photographer is working for a news agency such as Reuters or the Associated Press, these organizations could be listed here as they are &quot;providing&quot; the image for use by others. If the image is a stock photograph, then the group (agency) involved in supplying the image should be listed here. </para
+>Aanbieder</emphasis
+> (synoniem met leverancier): gebruik het aanbiederveld om aan te geven wie de foto aanbiedt. Dit hoeft niet speciaal de maker van de foto te zijn. Als een fotograaf voor een nieuwsagentschap werkt zoals bijvoorbeeld Reuters of Associated Press, dan kan deze organisatie hier genoemd worden aangezien deze als &quot;leverancier&quot; optreedt voor het leveren van de foto. Als het beeld een foto uit het archief is dan dient hier de groep (agent) genoemd te worden die het beeld levert. </para
 ></listitem>
 
       <listitem
 ><para
 ><emphasis
->Source</emphasis
->: The Source field should be used to identify the original owner or copyright holder of the photograph. The value of this field should never be changed after the information is entered following the image's creation. While not yet enforced by the custom panels, you should consider this to be a &quot;write-once&quot; field. The source could be an individual, an agency, or a member of an agency. To aid in later searches, it is suggested to separate any slashes &quot;/&quot; with a blank space. Use the form &quot;photographer / agency&quot; rather than &quot;photographer/agency.&quot; Source may also be different from Creator and from the names listed in the Copyright Notice. </para
+>Bron</emphasis
+>: het bronveld moet worden gebruikt om aan te geven wie de oorspronkelijke eigenaar of copyrighthouder van de foto is. De inhoud van dit veld moet eigenlijk nooit gewijzigd worden nadat het werd ingevuld na het maken van de foto. Hoewel dit niet gehandhaafd word door cliëntenpanels moet u dit beschouwen als een &quot;eenmalig schrijven&quot;-veld. De bron kan zijn een individu, een agentschap of een medewerker van een agentschap. Om latere zoekacties te ondersteunen word voorgesteld om slashes &quot;/&quot; te scheiden door een spatie. Gebruik de vorm &quot;fotograaf  /  agentschap&quot; in plaats van &quot;fotograaf/agentschap.&quot; De bron kan een andere zijn dan de maker en anders dan die genoemd worden in de copyright mededeling. </para
 ></listitem>
 
      <listitem
 ><para
 ><emphasis
->Copyright Notice</emphasis
->: The Copyright Notice should contain any necessary copyright notice for claiming the intellectual property, and should identify the current owner(s) of the copyright for the photograph. Usually, this would be the photographer, but if the image was done by an employee or as work-for-hire, then the agency or company should be listed. Use the form appropriate to your country. For the United States you would typically follow the form of &copy; {date of first publication} name of copyright owner, as in &quot;&copy;2005 John Doe.&quot; Note, the word &quot;copyright&quot; or the abbreviation &quot;copr&quot; may be used in place of the &copy; symbol. In some foreign countries only the copyright symbol is recognized and the abbreviation does not work. Furthermore the copyright symbol must be a full circle with a &quot;c&quot; inside; using something like (c) where the parentheses form a partial circle is not sufficient. For additional protection worldwide, use of the phrase, &quot;all rights reserved&quot; following the notice above is encouraged. In Europe you would use: Copyright {Year} {Copyright owner}, all rights reserved. In Japan, for maximum protection, the following three items should appear in the copyright field of the IPTC Core: (a) the word, Copyright; (b) year of the first publication; and (c) name of the author. You may also wish to include the phrase &quot;all rights reserved.&quot; </para
+>Copyrightmededeling </emphasis
+>: De Copyrightmededeling moet een mededeling  bevatten over het copyright om het intellectuele eigendom van de foto te kunnen claimen en het moet de huidige eigenaar van het copyright voor de foto aanduiden. Gewoonlijk is dit de fotograaf maar als het beeld werd gemaakt door een medewerker of een uitzendkracht  dan moet het agentschap worden genoemd. Gebruik de vorm die van toepassing is in uw land. Voor de VS moet u de vorm kiezen &copy; {datum van eerste publicatie} naam van de copyrighteigenaar zoals in &quot;&copy;2005 John Doe.&quot; Let op het woord &quot;copyright&quot; of de afkorting &quot;copr&quot; mag worden gebruikt in plaats van het symbool &copy;. In sommige landen wordt alleen het copyrightsymbool erkend en de afkorting werkt niet. Verder moet het copyrightsymbool een volle cirkel zijn met een &quot;c&quot; daar binnen; het gebruik van zoiets als (c) waar de haakjes een gedeeltelijke cirkel vormen is niet voldoende.  Voor toegevoegde wereldwijde bescherming gebruikt u de zin: &quot;all rights reserved&quot; het opvolgen van het bovenstaande wordt aanbevolen. In Europa moet u gebruiken: Copyright {jaar} {Copyright eigenaar}, all rights reserved.  Voor maximale bescherming in Japan moeten de volgende drie eenheden in het copyright veld van de IPTC kern: (a) het woord copyright; (b) jaar van eerste publicatie; en (c) naam van de auteur. U mag ook de zin: &quot;all rights reserved.&quot; toevoegen. </para
 ></listitem>
    </itemizedlist>
 
@@ -3536,12 +3536,12 @@ Leuke dingen
 
             <sect3 id="setup-embeddedinfo"
 >           <title
->Metadata (embedded information settings)</title>
+>Metagegevens (instellingen voor ingebedde informatie)</title>
 
                 <para
->Image files can have some meta-data embedded into the image file format. This meta-data can be stored in a number of standard formats. &digikam; can read meta-data in the EXIF format if it is present in the file. &digikam; can also write captions into the <ulink url="http://www.exif.org"
->EXIF information</ulink
->. Writing captions to the EXIF section is limited to JPEG images for now (the exiv2 library is in development and will be extended to PNG and TIFF format metadata embedding in the near future). </para>
+>Afbeeldingsbestanden kunnen enige metagegevens ingebed hebben in het afbeeldingsbestandformaat. Deze metagegevens kunnen opgeslagen worden in een aantal standaard formaten. &digikam; kan metagegevens in het EXIF-formaat lezen als deze in het bestand aanwezig zijn. &digikam; kan ook opschriften in de <ulink url="http://www.exif.org"
+>EXIF-informatie</ulink
+> schrijven. Opschriften in de EXIF-sectie schrijven is op dit moment beperkt tot JPEG-afbeeldingen (de exiv2-bibliotheek is in ontwikkeling en zal worden uitgebreid tot PNG en TIFF formaat ingebedde metagegevens in de nabije toekomst). </para>
 
                 <para>
                     <inlinemediaobject
@@ -3555,34 +3555,34 @@ Leuke dingen
 
                 <para
 ><guilabel
->Show images/thumbnails rotated according to orientation tag</guilabel
-> : this will use any orientation information that your camera has included in the EXIF information to automatically rotate your photographs so that they are the correct way up when displayed. It will not actually rotate the image file, only the display of the image on the screen. If you want to permanently rotate the image on file, you can right-click on the thumbnail and select <guilabel
->Auto-rotate/flip according to EXIF orientation</guilabel
->. The image will then be rotated on disk and the tag will be reset to "normal". If your camera routinely gets this orientation information wrong you might like to switch this feature off. </para>
+>Afbeeldingen/miniaturen in de stand van de oriëntatie-tag tonen</guilabel
+> : dit gebruikt de oriëntatie gegevens die uw camera in de EXIF informatie heeft aangebracht zodat het beeld in de juiste stand wordt weergegeven. Het zal niet het bestand draaien alleen het beeld dat op het beeldscherm verschijnt. Als u een afbeelding permanent wilt draaien klikt u rechts op de miniatuur en kiest u <guilabel
+>Roteer/spiegel automatisch volgens de EXIF-orientatie</guilabel
+>. De afbeelding zal dan op de schijf worden gedraaid en de tag zal gereset worden naar "normaal". Als uw camera deze oriëntatie regelmatig verkeerd aanbrengt kunt u overwegen deze functie uit te zetten.  </para>
 
                 <para
 ><guilabel
->Set orientation tag to normal after rotate/flip</guilabel
-> : the Auto Rotate option automatically corrects the orientation of images taken with digital cameras that have an orientation sensor. The camera adds an orientation tag to the image's EXIF meta-data. &digikam; can read this tag to adjust the image accordingly. If you manually rotate an image, this meta-data will be incorrect. This option will set the orientation tag to "Normal" after an adjustment, assuming that you rotated it to the correct orientation. Switch this off if you don't want &digikam; to make changes to the orientation tag, when you rotate or flip the image. </para>
+>Stel de oriëntatie-tag op normaal na roteren/spiegelen</guilabel
+> : de optie "Automatisch draaien" corrigeert automatisch de stand van afbeeldingen genomen met digitale camera's die een oriëntatie-sensor hebben. De camera voegt een oriëntatie-tag toe aan de EXIF-metagegevens van de afbeelding. &digikam; kan deze tag lezen om het beeld overeenkomstig aan te passen. Als u handmatig een afbeelding draait, zullen deze metagegevens onjuist zijn. Deze optie zal de oriëntatie-tag instellen op "Normaal" na aanpassing, in de veronderstelling dat u de afbeelding in de juiste stand gezet hebt. Schakel dit uit als u niet wilt dat &digikam; wijzigingen aanbrengt in de stand van de afbeelding. </para>
 
                 <para
->The <guilabel
->IPTC Actions</guilabel
-> will save the data into the respective IPTC fields, which ensures a permanent metadata storage in the image and not only in &digikam;'s database. Thus, metadata is persistent across applications, and may be exported or imported into &digikam; without loss. </para>
+>De <guilabel
+> IPTC-acties</guilabel
+> zal de gegevens in de respectievelijke IPTC-velden opslaan, voor een permanente opslag van metagegevens in de afbeelding en niet alleen in de database van &digikam;. Zo worden metagegevens vastgehouden in vele andere toepassingen en kan zonder verlies worden geëxporteerd of geïmporteerd van of naar &digikam; </para>
 
                 <para
 ><guilabel
->Save image captions as embedded text</guilabel
-> : this will synchronize the captions that you add to your photographs with those in embedded in the image. This is useful because the captions embedded in the image can be read by other image viewers. Care should be taken if you have images that already have captions embedded in them because these captions will be overwritten by the captions made within &digikam;. </para>
+>Afbeeldingsbijschriften als ingesloten tekst opslaan</guilabel
+> : dit synchroniseert de bijschriften die u toevoegt aan uw foto met die welke zijn ingebed in het beeld. Dit is nuttig omdat de titels ingebed in de afbeelding kunnen worden gelezen door andere beeldweergave toepassingen. Voorzichtigheid is geboden als u afbeeldingen hebt die al bijschriften ingebed hebben, omdat deze bijschriften worden overschreven door de bijschriften die binnen &digikam; worden toegevoegd. </para>
 
             </sect3>
 
             <sect3 id="setup-tooltip"
 >                <title
->Tooltip Settings</title>
+>Instellingen voor tekstballonnen</title>
 
                 <para
->This setup page covers all options of information appearing when the mouse hovers over a file in the main view. According the checked options they will be shown or not. </para>
+>Deze pagina voor instellingen dekt alle opties voor informatie die verschijnt wanneer de muis boven een bestand in het hoofdvenster zweeft. Volgens de geactiveerde opties zullen ze getoond worden of niet. </para>
 
                 <para>
                     <inlinemediaobject
@@ -3598,10 +3598,10 @@ Leuke dingen
 >Mime bestandstype-instellingen</title>
 
                 <para
->&digikam; can understand lots of different image file types as well as some video and audio formats. To control which types of files &digikam; will try to display you can add or remove file extensions from these lists. Any files that are in the &digikam; Album folders that do not match these extensions will be ignored by &digikam;. </para>
+>&digikam; kan veel verschillende afbeeldingsbestandstypen herkennen alsook enkele video- en audioformaten. Om te bepalen welke bestandstypen &digikam; zal proberen te laten zien kunt u de bestandsextensies toevoegen of verwijderen uit deze lijsten. Alle bestanden die in de albummappen van &digikam; niet overeenkomen met deze extensies zullen worden genegeerd door &digikam;. </para>
                 <note
 ><para
->The default settings can be easily restored by clicking on the update buttons to the right of each category.</para
+>De standaardinstellingen kunnen eenvoudig worden hersteld door te klikken op de update-knoppen rechts van iedere categorie.</para
 ></note>
 
                 <para>
@@ -3615,10 +3615,10 @@ Leuke dingen
 
             <sect3 id="setup-lighttable"
 >               <title
->Light Table Settings</title>
+>Lichtbak instellingen</title>
 
                 <para
->The setting of the &digikam; Light Table can be set to default values on this page so that every time you open the Light Table, these settings are activated (if possible, because for images having different sizes the synchronous mode does not work). The &quot;Load full image size&quot; is only recommended for fast maschines, but if you have one, enable this option for better viewing results. </para>
+>De instelling van de lichtbak van &digikam; kan op deze pagina worden ingesteld op standaardwaarden, zodat elke keer dat u de lichtbak opent, deze instellingen worden geactiveerd (indien mogelijk, want voor beelden met een verschillende grootte werkt de synchrone modus niet). De &quot;Laad originele afmeting&quot; wordt alleen aanbevolen voor snelle computers, maar als u een snelle pc heeft dan wordt dit aanbevolen voor betere weergaveresultaten. </para>
                 <para>
                     <inlinemediaobject
 ><imageobject
@@ -3630,11 +3630,11 @@ Leuke dingen
 
             <sect3 id="setup-editor"
 >                 <title
->Image Editor Settings</title>
+>Instellingen voor afbeeldingbewerking</title>
                 <para
->By default the Image Editor will use a black background behind photographs when they are displayed. If you prefer a different background color you can choose one here. You can also turn off the ToolBar when the Image Editor is in full screen mode. </para>
+>Standaard gebruikt de afbeeldingsbewerking zwart als achtergrond voor de afbeeldingen wanneer deze worden getoond. Als u een andere kleur achtergrond wilt dan kunt u hier de kleur bepalen. U kunt ook kiezen om de taakbalk uit te schakelen als de afbeeldingsbewerking in de modus volledig beeld staat. </para>
                 <para
->Over and underexposed areas of an image can be indicated by dark and light marker colors that can be defined here. In the editor this viewing mode can be switched on and off with F10 and F11 respectively.</para>
+>Over en onderbelichte gebieden van een beeld kunnen worden aangegeven met donkere en lichte markeringskleuren die hier kunnen worden gekozen. Tijdens de bewerking kan deze weergavefunctie worden aan of uitgeschakeld met F10 en F11.</para>
                 <para>
                     <inlinemediaobject
 ><imageobject
@@ -3646,16 +3646,16 @@ Leuke dingen
 
             <sect3 id="setup-saveimages"
 >             <title
->Save Image Options</title>
+>Opties voor opslaan van afbeeldingen</title>
 
                 <para
 >Als u wijzigingen aanbrengt in JPEG-bestanden en ze vervolgens opslaat, dan worden deze bestanden opnieuw gecodeerd. Elke keer dat een JPEG-bestand wordt gecodeerd moet worden bepaald welk kwaliteitsniveau gebruikt zal worden. Helaas wordt het toegepaste kwaliteitsniveau niet opgeslagen in het afbeeldingsbestand. Dit betekent dat het programma niet hetzelfde kwaliteitsniveau kan gebruiken bij het opslaan van een gewijzigde afbeelding als is gebruikt bij de originele afbeelding. U kunt hier een standaard kwaliteitsniveau instellen die het programma zal gebruiken bij het opslaan van afbeeldingen. Sleep de schuifregelaar van <guilabel
 >JPEG-kwaliteit</guilabel
 > naar links voor een lage kwaliteit of naar rechts voor een hoge kwaliteit (1 = laagste kwaliteit, 100 = hoogste kwaliteit en geen compressie). </para>
                 <para
->Chroma subsampling is the practice of encoding images by implementing more resolution for luminance information than for color information. Please read <ulink url="http://en.wikipedia.org/wiki/Chroma_subsampling"
->this</ulink
-> Wikipedia article for a full explanation. </para>
+>Chroma-subsampling is de praktijk van het coderen van afbeeldingen door het aanbrengen van meer resolutie voor belichtingsinformatie dan voor de kleurinformatie. Lees <ulink url="http://en.wikipedia.org/wiki/Chroma_subsampling"
+>dit</ulink
+> Wikipedia artikel voor een volledige uitleg. </para>
                 <para>
                     <inlinemediaobject
 ><imageobject
@@ -3664,48 +3664,48 @@ Leuke dingen
                 </para>
 
                 <para
->With <guilabel
->PNG compression</guilabel
-> option, you can reduce PNG image files size. This operation does not reduce image quality because PNG uses a lossless algorithm. The only effect is that image data needs more time to compress/decompress. If you have a fast computer you can change this value to use a high compression factor (1: low compression / 9: high compression). </para>
+>Met de optie <guilabel
+>PNG compressie</guilabel
+> kunt u de bestandsgrootte van PNG-afbeeldingen verkleinen. Deze handeling geeft geen vermindering van de beeldkwaliteit omdat PNG maakt gebruik van een algoritme zonder verlies. Het enige effect is dat afbeeldingsgegevens meer tijd nodig hebben om te comprimeren/decomprimeren. Als u een snelle computer heeft kunt u deze waarde wijzigen om een hoge compressiefactor (1: lage compressie / 9: hoge compressie) te gebruiken. </para>
 
                 <para
->With <guilabel
->Compress TIFF</guilabel
-> option, you can toggle to use <emphasis
+>Met de optie <guilabel
+>TIFF comprimeren</guilabel
+>, kunt u wisselen om het compressie-algoritme van TIFF-beeldbestanden <emphasis
 >Deflate</emphasis
-> compression algorithm with TIFF image files. This will reduce TIFF image files sizes. It has no image quality effect because <emphasis
+> te gebruiken. Zo verkleint u de grootte van TIFF-bestanden. Het heeft geen effect op de beeldkwaliteit omdat <emphasis
 >Deflate</emphasis
-> is a lossless algorithm. </para>
+> een algoritme zonder verlies is. </para>
 
                 <para
->With the <guilabel
->LossLess JPEG 2000 files</guilabel
-> option allows for lossless storage, or, if the lossy options is selected, even then the quality for comparative files size is much better than normal JPEG. At the time of writing, metadata is not yet supported, but it is in the 'pipeline'. </para>
+>De optie <guilabel
+>LossLess JPEG 2000-bestanden</guilabel
+> maakt opslag zonder verlies mogelijk of, indien de optie met verlies geselecteerd is, zelfs dan is de kwaliteit voor vergelijkbare bestandsgrootte veel beter dan normale JPEG. Op het moment van schrijven, worden metagegevens nog niet ondersteund, maar het zit in de 'pijplijn'. </para>
 
             </sect3>
 
             <sect3 id="setup-raw-decoder"
 >            <title
->RAW Decoder Settings</title>
+>RAW-decoderingsinstellingen</title>
 
                 <para
 >In eerdere versies van &digikam; was de afbeeldingsbewerker (toen afbeeldingweergave genoemd) slechts een viewer voor foto's. Maar deze verandert snel in een handig foto-manipulatie-gereedschap. In dit dialoog kunt u bepalen hoe de afbeeldingsbewerker zich zal gedragen. </para>
 
                 <para
 ><guilabel
->16-bit color depth</guilabel
+>16-bit kleurdiepte</guilabel
 ></para>
                 <para
->If enabled, all RAW files will be decoded to 16-bit color depth using a linear gamma curve. To prevent dark image rendering in the editor, it is recommended to use Color Management in this mode. If disabled, all RAW files will be decoded to 8-bit color depth with a BT.709 gamma curve and a 99th-percentile white point. This mode is faster than 16-bit decoding. In 8-bit mode only will the <guilabel
->brightness</guilabel
-> setting be taken into account (dcraw limitation). </para>
+>Indien ingeschakeld, worden alle RAW-bestanden gedecodeerd naar 16-bits kleurdiepte met behulp van een lineaire gamma-curve. Om donkere afbeeldingsweergave in de editor te voorkomen, word het aanbevolen om kleurbeheer te gebruiken in deze modus. Indien uitgeschakeld, worden alle RAW-bestanden gedecodeerd naar 8-bits kleurdiepte met een BT.709 gamma-curve en een 99-procent witpunt. Deze modus is sneller dan 16-bit decodering. Alleen in 8-bits modus wordt met de instelling <guilabel
+>helderheid</guilabel
+> rekening gehouden (beperking van dcraw). </para>
 
                 <para
 ><guilabel
 >RGB interpoleren als vier kleuren</guilabel
 ></para>
                 <para
->The default is to assume that all green pixels are the same. If even-row green pixels of the CCD sensor are more sensitive to ultraviolet light than odd-row this difference causes a mesh pattern in the output; using this option solves this problem with minimal loss of detail. To resume, this option blurs the image a little, but it eliminates false 2x2 mesh patterns with VNG quality method or mazes with AHD quality method.</para>
+>Standaard wordt aangenomen dat alle groene pixels hetzelfde zijn. Als even-rij groene pixels van de CCD sensor gevoeliger zijn voor ultraviolet licht dan de oneven-rij, veroorzaakt dit een rasterpatroon in de uitvoer; gebruik van deze optie lost dit probleem op met een minimaal verlies aan detail. Samenvattend, deze optie vervaagt het beeld een beetje, maar het elimineert valse 2x2 rasterpatroon met de VNG kwaliteitsmethode of rasters met de AHD kwaliteitsmethode.</para>
 
                 <para>
                     <inlinemediaobject
@@ -3719,102 +3719,102 @@ Leuke dingen
 >Gebruik de kleurbalans van de camera</guilabel
 ></para>
                 <para
->Use the camera's custom white-balance settings if set. Otherwise apply <guilabel
->Automatic color balance</guilabel
-> if this option is set.</para>
+>Gebruik aangepaste instelling voor witbalans van de camera als deze is ingesteld. In andere gevallen gebruik <guilabel
+>Automatische kleurbalans</guilabel
+> als deze optie is ingesteld.</para>
 
                 <para
 ><guilabel
 >Automatische kleurbalans</guilabel
 ></para>
                 <para
->Only used if camera white balance is not set. The default is to use a fixed color balance based on a white card photographed in sunlight.</para>
+>Wordt alleen gebruikt als de witbalans van de camera niet is ingesteld. Standaard wordt een vaste witbalans gebruikt die gebaseerd is op een foto van een witte kaart bij helder zonlicht.</para>
 
                 <para
 ><guilabel
->Use Super CCD secondary sensors</guilabel
+>Gebruik van Super CCD secondaire sensors</guilabel
 ></para>
                 <para
->For Fuji Super CCD SLR cameras only. Use the secondary sensors, in effect underexposing the image by four stops to reveal detail in the highlights. For all other camera types this option is being ignored.</para>
+>Alleen voor Fuji Super CCD SLR cameras. Gebruik de secundaire sensors, om zodoende vier stops onderbelichting te krijgen waardoor details in veel licht zichtbaar worden gemaakt. Voor alle andere camera's wordt deze optie genegeerd.</para>
 
                 <para
 ><guilabel
 >Accentueringen</guilabel
 ></para>
                 <para
->This is the story of the three highlight options, courtesy of Nicolas Vilars:</para>
+>Dit is het verhaal over drie opties voor veel licht, met dank aan Nicolas Vilars:</para>
                 <para
->Default is here to consider highlights (read: part of your images that are burned due to the inability of your camera to capture the highlights) as plain / solid white (<guilabel
->solid white</guilabel
-> option). You can get some fancy results with the <guilabel
+>Standaard is hier om hoge lichten te beschouwen als (lees: een deel van je beelden die zijn verbrand als gevolg van het onvermogen van uw camera om de hoge lichten vast te leggen) als ongenuanceerd / effen wit (optie <guilabel
+>effen wit</guilabel
+>). U kunt een aantal mooie resultaten krijgen met de optie <guilabel
 >unclip</guilabel
-> option which will paint the highlights in various pinks. At last you can try to consider recovering some parts of the missing information from the highlights (<guilabel
->reconstruct</guilabel
-> option).</para>
+> die de hoge lichten in verschillende tinten roze zal leveren. Tenslotte kunt u overwegen om te proberen sommige delen van de ontbrekende informatie van de hoge lichten terug te halen (optie <guilabel
+>reconstrueren</guilabel
+>).</para>
                 <para
->This is possible because the blue pixels tends to saturate less quickly than the greens and the reds. &digikam;/dcraw will try to reconstruct the missing green and red colors from the remaining none saturated blue pixels. Of course here everything is a question of tradeoff between how much color or white you want.</para>
+>Dit is mogelijk omdat blauwe pixels de neiging hebben om minder snel verzadigd te raken dan de groene en rode. &digikam; / dcraw zal proberen om de ontbrekende groene en rode kleuren te reconstrueren uit de overgebleven niet-verzadigde blauwe pixels. Natuurlijk is alles een kwestie van afweging van hoeveel kleur of wit u wilt.</para>
                 <para
->If you select <guilabel
->reconstruct</guilabel
-> as the option, you will be given the choice to set a level. A value of 3 is a compromise and can/should be adapted on a per image basis.</para>
+>Als u de optie <guilabel
+>reconstrueren</guilabel
+> kiest, wordt u de keuze geboden om een niveau in te stellen. Een waarde van 3 is een compromis en kan/moet worden aangepast op basis van de afbeelding.</para>
                 <note
 ><para
->A small warning here, for the few curious that have read the man pages of Dcraw, the author says that 5 is the compromise, 0 is solid white and 1 unclip. This is because in &digikam; 0 and 1 are the "solid white" and "unclip" options in the drop down menu (if you select these, the level slider will be grayed out). Therefore, the slider in &digikam; with the "reconstruct" option will let you choose between 0 to 7 (instead of 0 to 9 in Dcraw command line) where 3 is the compromise instead of 5 in "native" Dcraw command line tool.</para
+>Een kleine waarschuwing hier, voor de weinige nieuwsgierigen die de manpagina's van Dcraw gelezen hebben, zegt de auteur dat 5 het compromis is, 0 is effen wit en 1 is unclip. Dit is omdat in &digikam; 0 en 1 de opties effen-wit en unclip in het afrolmenu zijn (als u deze selecteert wordt de niveauschuifregelaar grijs). Daarom laat de schuifregelaar met de hersteloptie in &digikam; u de keuze tussen 0 en 7 (in plaats van 0 en 9 in de Dcraw opdrachtregel) waar 3 het compromis is in plaats van 5 in de oorspronkelijke Dcraw opdrachtregel . </para
 ></note>
 
                 <para
 ><guilabel
->Brightness</guilabel
-> (works in 8 bit mode only)</para>
+>Helderheid</guilabel
+> (werkt alleen in 8 bit modus)</para>
                 <para
->Set the luminosity to your taste, you probably need to go a little higher than the default = 1. But this can be adjusted later with the image options in the &digikam; image editor. Given the cost in time for demosaicing, stay conservative. </para>
+>Stem de lichtsterkte af op uw wens, u moet waarschijnlijk een beetje hoger instellen dan de standaard = 1. Maar dit kan later bijgesteld worden met de beeldopties in de &digikam; beeldbewerker. Wees hiermee terughoudend gezien de benodigde tijd voor het decoderen.  </para>
 
                 <para
 ><guilabel
 >Kwaliteit</guilabel
 ></para>
                 <para
->A <ulink url="http://en.wikipedia.org/wiki/Demosaicing"
+>Een algoritme voor <ulink url="http://en.wikipedia.org/wiki/Demosaicing"
 >demosaicing</ulink
-> algorithm is a digital image process used to interpolate a complete image from the partial raw data received from the color-filtered image sensor internal to many digital cameras in form of a matrix of colored pixels. Also known as CFA interpolation or color reconstruction.</para>
+> is een digitaal beeldproces dat wordt gebruikt om een compleet beeld te interpoleren uit de gedeeltelijke, ruwe gegevens, verkregen van het kleur-gefilterde beeld van de interne sensor van digitale camera's in de vorm van een matrix van gekleurde pixels. Ook bekend als CFA interpolatie of kleurreconstructie.</para>
                 <para
->&digikam; and Dcraw offer us three alternatives: bi-linear, VNG interpolation, AHD interpolation. It seems that <emphasis
->AHD interpolation</emphasis
-> (for Adaptive Homogeneity-Directed) is the best choice for quality according to some test that I have performed and the paper of the person that implemented it. <emphasis
->VNG interpolation</emphasis
-> (Variable Number of Gradients) was the first algorithm used by Dcraw but suffers from color artifacts on the edge. <emphasis
->Bilinear</emphasis
-> is interesting if you are looking for speed with a acceptable result.</para>
+>&digikam; en Dcraw bieden ons drie alternatieven: bi-lineair, VNG interpolatie, AHD interpolatie. Het lijkt erop dat <emphasis
+>AHD interpolatie</emphasis
+> (voor adaptieve homogeniteit-directed) de beste keuze is voor kwaliteit volgende uit enige testen die ik heb verricht en het artikel van de persoon die dat geïmplementeerd heeft. <emphasis
+>VNG interpolatie</emphasis
+> variabel aantal van het verloop) was het eerste algoritme, gebruikt door dcraw maar het lijdt aan onbedoelde kleureffecten aan de randen. <emphasis
+>Bilineair</emphasis
+> is interessant als jeop zoek bent naar snelheid met een acceptabel resultaat.</para>
 
                  <para
 ><guilabel
 >Ruisreductie activeren</guilabel
 ></para>
                  <para
->While demosaicing your image you can additionally ask for noise reduction (at a slight speed penalty). This option applies a noise reduction algorithm while the image still is in CIE Lab color space. Because the noise is only applied to the Luminosity layer (the "L" of the Lab), it should not blur your image as traditional noise reduction algorithms do in RGB mode. So, if you converted an image from RAW and it appears noisy, rather than applying a denoiser, go back and re-convert with this option enabled. The defaults are: <emphasis
->Threshold</emphasis
-> = 100. Higher values will increase the smoothing, lower will decrease smoothing. </para>
+>Tijdens het demosaicing van uw afbeelding kunt u bovendien vragen om ruisonderdrukking (kost iets meer tijd). Deze optie past een algoritme toe voor ruisonderdrukking terwijl het beeld nog steeds in CIE lab-kleurruimte verblijft. Omdat de ruis alleen wordt aangebracht op de lichtsterktelaag (de "l" in lab) zou het uw beeld niet moeten vervagen wat wel het geval is bij traditionele ruisonderdrukkingsalgorithme in sRGB mode. Dus als u een afbeelding hebt geconverteerd uit RAW en het lijkt ruis te hebben ga dan terug en converteer het beeld opnieuw met deze optie geactiveerd in plaats van een ruisonderdrukking toe te passen. De standaard waarden zijn: <emphasis
+>Drempel</emphasis
+> = 100. Hogere waarden verhogen het vervagen, bij lagere waarden zal het vervagen afnemen.  </para>
 
                 <anchor id="CA.anchor"/>
                 <para
 ><guilabel
->Enable chromatic aberration (CA) correction</guilabel
+>Activeer correctie voor chromatische afwijking (CA)</guilabel
 ></para>
                 <para
->If you know the CA of your lenses you can set the red and blue correction values here. This is certainly the optimal method for CA correction as it is done during RAW conversion. </para>
+>Als u weet wat de chromatische afwijking van uw lens is dan kunt u de rood en blauw correctie hier instellen. Dit is beslist de beste methode om CA te corrigeren omdat het gedurende de conversie van het RAW bestand wordt uitgevoerd. </para>
 
            </sect3>
 
            <sect3 id="setup-iccprofiles"
 >            <title
->ICC Profiles setup</title>
+>Instellen ICC-profielen </title>
 
               <para
->&digikam; is color-management enabled. RAW files - as they come - are not color managed at all. Your camera provides the data it has captured in a raw format and will let you manage all the processing. Every camera has its specifics as to how it captures color information, therefore you will need to apply a specific profile to the images you want to process. Please refer to the section <link linkend="using-iccprofile"
->ICC color profile management</link
-> for more details an explanations. </para>
+>&digikam; geschikt voor kleurbeheer. RAW bestanden zoals ze aangemaakt worden zijn niet voor kleur bewerkt. Uw camera levert de gegevens die hij heeft vastgelegd in RAW formaat en laat u alle bewerkingen uitvoeren. Iedere camera heeft zijn specifieke manier van kleurinformatie vastleggen. Daarom zult u een specifiek profiel moeten toepassen op de beelden die u wilt bewerken. Kijk daarvoor op: <link linkend="using-iccprofile"
+>ICC kleurprofielbeheer</link
+> voor meer details en uitleg. </para>
               <para
->Basically, a profile "maps" the color information and gives information on how one should render them. It gives also information to LCMS and &digikam; on how to translate the color information from one color space to an other in order to keep the colors as accurate as possible across all rendring media. </para>
+>Kortom, een profiel plaatst kleurinformatie en verstrekt informatie over hoe de kleuren moeten worden weergeven. Het geeft ook informatie aan LCMS en &digikam; over hoe de kleur informatie van de ene kleurruimte naar een andere vertaald moet worden om de kleuren zo nauwkeurig mogelijk te houden voor alle media voor weergave. </para>
                 <para>
                     <inlinemediaobject
 ><imageobject
@@ -3824,46 +3824,46 @@ Leuke dingen
 
               <para
 ><guilabel
->Behavior</guilabel
-> Ask when opening an image in image editor / Launch Color Management tool with RAW files </para>
+>Werkwijze </guilabel
+> vraag bij het openen van een afbeelding in de beeldbewerker/start kleurbeheertoepassing met RAW bestanden. </para>
               <para
 ><guilabel
->Color Profiles Directory</guilabel
-> Set this to the folder where you store all your profiles &eg; "/usr/share/color/icc" or "/home/user/.color/icc". &digikam; will scan this folder when starting up.</para>
+>Kleurprofielmap</guilabel
+> Stel deze in op de map waar u alle profielen bewaart &eg; "/usr/share/color/icc" of "/home/user/.color/icc". &digikam; scant deze map bij het opstarten.</para>
               <para
 ><guilabel
->ICC Profiles Settings</guilabel
-> Here you are given the ability to provide &quot;default&quot; choices for your profiles. Everything is adaptable later-on at the opening of a RAW file.</para>
+>Instellingen van ICC-profielen</guilabel
+> Hier wordt de gelegenheid geboden om &quot;standaard&quot; keuzes voor uw profielen aan te geven. Alles is later aanpasbaar bij het openen van een RAW bestand. </para>
               <itemizedlist>
 
                 <listitem
 ><para
->The <guilabel
->Use color managed view</guilabel
-> is an alternative to using Xcalib or Argyll. Only your image will be color managed, not your entire screen! </para
+>De <guilabel
+>Kleurbeheerweergave gebruiken</guilabel
+> is een alternatief voor gebruik van Xcalib of Argyll. Kleurbeheer heeft alleen invloed op uw beeld, niet op het gehele scherm. </para
 ></listitem>
 
                 <listitem
 ><para
->You have to provide a workspace profile (linear profiles such as sRGB, ECI-RGB, LStar-RGB, Adobe-RGB or CIE-RGB). If you want to print your images, you may want to opt for Adobe RGB, if it is only for web publishing, sRGB is better (Adobe RGB will be displayed slightly dull in non color managed enabled software such as browsers). However you may change this later of course (by attributing another profile), therefore Adobe RGB can be a good choice for storing and image handling as you can always change it to sRGB before releasing an image for your blog.</para
+>U moet een werkruimteprofiel aangeven (lineaire profielen als sRGB, ECI-RGB, LStar-,RGB, Adobe-RGB of CIE-RGB). Als u uw afbeeldingen wilt afdrukken kunt u Adobe-RGB kiezen. Als het alleen voor internetpublicatie is dan is sRGB beter (Adobe-RGB wordt een beetje saai in browsers zonder kleurmanagement). Maar u kunt dit later natuurlijk ook veranderen (door een ander profiel aan te geven) daarom kan Adobe-RGB een goede keus zijn voor het opslaan van het beeld omdat u het later altijd nog kan veranderen naar sRGB voor het beeld op uw blog wordt geplaatst.</para
 ><para
->Do not use non-linear profiles as they will change the color-balance</para>
+>Gebruik geen niet-lineaire profielen omdat die de kleurbalans veranderen.</para>
                 </listitem>
 
                 <listitem
 ><para
->The input profile should match the camera maker and model you are using. 'Not all profiles are created equal', there are some that have no tone mapping/gamma correction included (Canon). As of now, dcraw does not correct gamma for 16 bit depth conversion, which means that you have to do the tone mapping yourself.</para
+>Het invoerprofiel moet passen bij het cameramerk en model dat u gebruikt. Niet alle profielen zijn gelijk, er zijn er bij waarin tone mapping/gamma correctie niet is inbegrepen (Canon). Van nu af corrigeert dcraw gamma niet voor bij conversie van 16 bits diepte, dat betekent dat u het tone-mapping zelf moet doen. </para
 ></listitem>
 
                 <listitem
 ><para
->There are some other options such as the soft proof profile which enables you to emulate, granted that you have a profile for it, how your image will render for a particular device. It is useful before printing for instance because your printer has a smaller gamut than your camera and some colors might look saturated. You may want to fix this manually instead of relying on the "blind" algorithm of your printer.</para
+>Er zijn een aantal andere opties, zoals het soft proof-profiel waarmee u vooraf kunt beoordelen, er van uitgaande dat u er een profiel voor heeft, hoe uw afbeelding zal worden voor een bepaald apparaat. Het is handig voor het afdrukken, bijvoorbeeld omdat de printer een kleiner gamma heeft dan uw camera en sommige kleuren verzadigd kunnen lijken. U kunt dit handmatig bepalen in plaats van te vertrouwen op het "blinde" algoritme van uw printer.</para
 ></listitem>
 
               </itemizedlist>
 
               <para
->For most cameras it is pretty obvious what color profile they propose for the type at hand, not so for the Canon's. Here is a table of camera/profiles matches, it is non-authoritative of course: </para>
+>Voor de meeste camera's is het vrij duidelijk welk kleurprofiel zij voorstellen voor het type dat u gebruikt, maar niet voor de Canon's. Hier is een tabel van de camera's en bijpassende profielen, het niet-verplichtend natuurlijk: </para>
               <informaltable
 ><tgroup cols="2">
                 <thead
@@ -3871,7 +3871,7 @@ Leuke dingen
                     <entry
 >Camera</entry>
                     <entry
->Profile series</entry>
+>Profielserie</entry>
                     </row
 ></thead>
                     <tbody>
@@ -3951,20 +3951,20 @@ Leuke dingen
                   </tgroup>
               </informaltable>
               <para
->The Canon profile extension betray the target style: F for Faithful Style, L for Landscape Style, N for Neutral Style, P for Portrait Style, S for Standard Style. </para>
+>De Canon profiel-extensie duidt aan het voorgestelde gebruik: F voor natuurgetrouw, L voor landschap, N voor neutraal, P voor Portret Stijl en S voor standaard stijl. </para>
 
               <para
->Here you find a typical <link linkend="raw-workflow"
+>Hier vind u een typisch <link linkend="raw-workflow"
 >RAW workflow</link
 > scenario.</para>
             </sect3>
 
             <sect3 id="setup-kipiplugins"
 >            <title
->Kipi Plugins Settings</title>
+>Instellingen voor Kipi-plug-ins</title>
 
                 <para
->Kipi is the &kde; Image Plugin Interface. It is an interface that is supported by a number of &kde; image viewer/editor applications. By providing this interface, &digikam; can take advantage of many plugins that are written to work with any application that implements the Kipi interface. </para>
+>Kipi is het &kde; afbeeldings-plugin-interface. Het is een interface dat wordt ondersteund door een aantal &kde; toepassingen voor afbeeldingsweergave/bewerken. Door dit interface in &digikam; beschikbaar te maken, kan deze zijn voordeel doen met vele plug-ins die werden geschreven om te werken met iedere toepassing die het Kipi-interface implementeert.  </para>
 
                <para>
                     <inlinemediaobject
@@ -3974,7 +3974,7 @@ Leuke dingen
                 </para>
 
                 <para
->If your operating system has the Kipi plugins package installed, you will see a list of available plugins. Select those that you want to use and they will be loaded into &digikam;. The plugins will appear as new menu entries in the main menu bar and in the context menu for thumbnails. </para>
+>Als in uw besturingssysteem het pakket KIPI-plug-ins is geïnstalleerd, zult u een lijst met beschikbare plug-ins zien. Selecteer die welke u wilt gebruiken en ze worden in &digikam; geladen;. De plug-ins zullen verschijnen als nieuwe menu-items in het hoofdmenu en in het contextmenu voor miniaturen. </para>
 
                 <para
 >De sneltoetsen voor de plugins kunt u instellen bij menuoptie <menuchoice
@@ -3994,9 +3994,9 @@ Leuke dingen
 
             <sect3 id="setup-slideshow"
 >              <title
->Slide show setup</title>
+>Diashow instellen</title>
                 <para
->The slide show setup should be easy to understand. The upper slider adjusts the time between image transitions; usually a time of 4-5 seconds is good. The other check boxes enable/disable the metadata to be shown on the bottom of the slide show images during display.</para>
+>Het instellen van de diashow is gemakkelijk te begrijpen. De bovenste schuif regelt de tijd tussen de beeldovergangen; gewoonlijk is een tijd van 4-5 seconden goed. De andere vakjes activeren of deactiveren het tonen van metagegevens onder in de beelden van de diashow tijdens het afspelen.</para>
                 <para>
                     <inlinemediaobject
 ><imageobject
@@ -4007,10 +4007,10 @@ Leuke dingen
 
             <sect3 id="setup-camera"
 >                 <title
->Camera Interface Settings</title>
+>Instellingen voor camera-interface</title>
 
                 <para
->The camera settings shows on the left of the list of the currently supported cameras. On the right at the top there is an auto-detect button, which tries to identify the camera connected to your computer (make sure that the camera is connected properly to the computer and turned on in the image display mode). Below this are the port settings; the currently supported are Serial, USB, and USB/FireWire Mass Storage. </para>
+>De camera-instellingen worden getoond links van de lijst met de momenteel ondersteunde camera's. Aan de rechter bovenkant is een auto-detectie knop, die probeert de camera aansluiting op uw computer te identificeren (zorg ervoor dat de camera goed is aangesloten op de computer en is ingeschakeld in de beeldweergave modus). Daaronder zijn de poort instellingen; de momenteel ondersteunde zijn serieel, USB en USB/FireWire massaopslag. </para>
 
                 <para>
                     <inlinemediaobject
@@ -4022,12 +4022,12 @@ Leuke dingen
                 <anchor id="cameraselection.anchor"/>
 
                 <para
->Clicking on a camera in the list on the left will display the supported ports which you can then select. If there is only one supported port it will be automatically selected. At the bottom on the right there is a box for setting the exact path in case of a serial port. Please note that USB interface does not need any paths to be set. If you cannot find your camera on the list, you can try to use a generic Mass Storage device selecting <guilabel
->Mounted Camera</guilabel
-> item in the list. </para>
+>Klikken op een camera in de lijst aan de linkerkant toont de ondersteundepoorten die u vervolgens kunt selecteren. Als er slechts één ondersteunde poort is zal die automatisch worden geselecteerd. Onderaan, aan de rechterkant, is een vakje voor het intikken van het juiste pad bij een seriële poort. Houd er rekening mee dat het USB-interface geen padinstelling nodig heeft. Als u de camera niet kunt vinden in de lijst, kunt u proberen om een ​​algemeen apparaat voor massaopslag te gebruiken, te selecteren met het item <guilabel
+>Aangekoppelde camera</guilabel
+> in de lijst. </para>
 
                 <para
->At the very bottom is where you set the path for a USB or FireWire (IEEE-1394 or i-link) Mass Storage camera. This box becomes active once you select USB or FireWire Mass Storage camera in the camera list. You need to enter here the path where you mount the camera, usually "/mnt/camera" or "/mnt/removable". </para>
+>Helemaal onderaan stelt u het pad in voor een USB of FireWire (IEEE-1394 of i-link) massaopslagcamera. Dit venster wordt geactiveerd wanneer u USB of FireWire massaopslagcamera kiest uit de lijst met camera's. U moet hier het pad aangeven naar de locatie waar u gewoonlijk de camera aansluit. Meestal is dat /mnt/camera of /mnt/removable. </para>
 
                 <para>
                     <inlinemediaobject
@@ -4040,13 +4040,13 @@ Leuke dingen
 >Om uw camera te kunnen benaderen met &digikam; sluit u het toestel aan op uw computer, en zet u de camera aan in de image-display-modus. </para>
 
                 <para
->Try and see if &digikam; can auto-detect the camera; if not, you can set the camera model and port manually. Once you have the camera setup, go to the "Cameras" menu in the main interface and you will see the camera listed in the menu. </para>
+>Probeer of &digikam; uw camera automatisch kan herkennen. Als dat niet lukt kunt u de camera, model en poort handmatig instellen. Als u eenmaal de camera heeft ingesteld ga dan naar het menu "Camera's" in het hoofdinterface  en daar zult u de camera genoemd zien. </para>
 
                 <note
 ><para
->You can choose any title you like for the camera in the setup and this title will be used in the main window <guilabel
->Cameras</guilabel
-> menu. If you have more than one camera, you can add them through this setup interface. </para
+>U kunt willekeurig welke titel kiezen voor uw camera in de instellingen. Deze benaming wordt dan gebruikt in het menu <guilabel
+>Camera's</guilabel
+> in het hoofdvenster. Als u meerdere camera's hebt kunt u die ook via dit interface toevoegen. </para
 ></note>
 
             </sect3>
@@ -4056,29 +4056,29 @@ Leuke dingen
 >Diverse instellingen</title>
 
                 <para
->With the <guilabel
->Confirm when moving items to trash</guilabel
-> setting you can set the verbosity of &digikam; when you delete a photograph or an Album. See <link linkend="using-deleteimage"
->Deleting a Photograph</link
-> and <link linkend="using-deletealbum"
->Deleting an Album</link
-> sections for more details. </para>
+>Met de instelling <guilabel
+>Bevestig verplaatsen naar prullenbak</guilabel
+> kunt u de mededeelzaamheid van &digikam; instellen, wanneer u een foto of een album verwijdert. Zie ook de secties <link linkend="using-deleteimage"
+>Verwijderen van een foto</link
+> en <link linkend="using-deletealbum"
+>Verwijderen van een album</link
+> voor meer details.  </para>
 
                 <para
->The editorial changes done through the right sidebar can be quietly applied by &digikam; when setting the <guilabel
->Apply changes in the right sidebar without confirmation</guilabel
-> option. Otherwise the changes must be applied by pressing the <guilabel
->Apply changes</guilabel
-> button. </para>
+>De redactionele wijzigingen aangebracht via de rechter zijbalk kunnen zonder vermelding door &digikam; worden toegepast bij het instellen van de optie <guilabel
+>Breng veranderingen aan in de rechter zijbalk zonder bevestiging</guilabel
+>. Anders moeten de veranderingen worden toegepast door op de knop <guilabel
+>Wijzigingen toepassen</guilabel
+> te drukken. </para>
 
                 <para
->You can also switch off the display of the splash screen when &digikam; loads. This may speed up the start time of &digikam; slightly. </para>
+>U kunt de weergave van het opstartscherm uitschakelen wanneer &digikam; word geladen. Hierdoor kunt de opstarttijd van &digikam; een weinig bekorten. </para>
 
                 <anchor id="rescan-items"/>
                 <para
-><guilabel
->Scan for new items at startup</guilabel
-> option will force &digikam; to scan the album library tree for new items added or removed between &digikam; sessions. This may slow down the start time of &digikam;. If any items have been removed from album library, &digikam; will ask you confirmation before to remove definitely item references in database. </para>
+>De optie <guilabel
+>Scan voor nieuwe items bij opstarten</guilabel
+> zal &digikam; dwingen om de albumbibliotheek te scannen op nieuwe items toegevoegd of verwijderd tussen &digikam;-sessies. Dit kan namelijk de opstarttijd van &digikam; vertragen. Als er onderdelen zijn verwijderd uit de albumbibliotheek, zal &digikam; u vragen dat te bevestigen alvorens de itemreferenties definitief uit de database te verwijderen. </para>
 
                 <para>
                     <inlinemediaobject
@@ -4093,16 +4093,16 @@ Leuke dingen
 
         <sect2 id="setuptheme"
 >        <title
->The Theme Setup</title>
+>Het thema instellen</title>
 
             <para
->Color schemes are supplied like themes to personalize &digikam; main interface for you pleasure. To access these settings select <menuchoice
+>Kleurenschema's worden geleverd als thema's om het hoofd-interface van &digikam; naar uw wensen te personaliseren. Voor toegang tot deze instellingen, selecteer <menuchoice
 ><guimenu
->Settings</guimenu
+>Instellingen</guimenu
 > <guimenuitem
->Themes</guimenuitem
+>Thema's</guimenuitem
 ></menuchoice
-> from the menubar and select your preferred theme to use. </para>
+> uit de menubalk en selecteer het gewenste te gebruiken thema.  </para>
         </sect2>
 
     </sect1>
@@ -4122,23 +4122,23 @@ Leuke dingen
 
         <sect2 id="imageeditor-window"
 > <title
->The Image Editor Window</title>
+>Het bewerkingsvenster van afbeeldingen</title>
             <para
->&digikam; incorporates a fast Image Editor with a few basic yet powerful image editing tools. You can use the Image Editor to view your photographs and to make corrections and alterations. The Image Editor can be accessed either by clicking on a thumbnail in the Image Window or by right-clicking on a thumbnail and selecting <guilabel
->Edit</guilabel
-> from the context menu. </para>
+>&digikam; is uitgerust met een snelle afbeeldingsbewerker met een paar eenvoudige maar krachtige tools voor beeldbewerking. U kunt de afbeeldingsbewerker gebruiken om uw foto's te bekijken en om correcties en wijzigingen aan te brengen. De afbeeldingsbewerker kan worden benaderd door op een miniatuur in het afbeeldingsvenster te klikken of door rechts te klikken op een miniatuur en <guilabel
+>Bewerken</guilabel
+> in het contextmenu te selecteren. </para>
 
             <para
->The Image Editor provides a number of tools that enable you to adjust a photograph. Some of these tools are provided by plugins to &digikam;. So they may not be available by default on your distribution. See the <link linkend="setup-kipiplugins"
->Setup Image Editor Section</link
-> for more details about Kipi-plugins. </para>
+>De afbeeldingsbewerker biedt een aantal hulpmiddelen die u in staat stellen om een foto te wijzigen. Sommige van deze hulpmiddelen worden door plug-ins aan &digikam; verstrekt. Dus het kan zijn dat ze niet standaard beschikbaar zijn in uw versie. Zie de <link linkend="setup-kipiplugins"
+>sectie afbeeldingsbewerker instellen</link
+> voor meer details over Kipi-plug-ins. </para>
 
             <example
 >  <title
->The Image Editor Window</title>
+>Het bewerkingsvenster van afbeeldingen</title>
                 <screenshot
 ><screeninfo
->The Image Editor Window</screeninfo
+>Het bewerkingsvenster van afbeeldingen</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;editorpreview.png" format="PNG"/> </imageobject
@@ -4156,7 +4156,7 @@ Leuke dingen
 
                 <listitem
 ><para
->A menu bar across the top and below that a tool bar that provides quick access to some commonly used functions. </para
+>Een menubalk langs de bovenkant en daaronder een werkbalk die snelle toegang biedt tot enkele veelgebruikte functies. </para
 ></listitem>
 
             </itemizedlist>
@@ -4179,7 +4179,7 @@ Leuke dingen
 
                 <listitem
 ><para
->First Current Album Image.</para
+>Eerste afbeelding in huidige album.</para
 ></listitem>
 
                 <listitem
@@ -4194,52 +4194,52 @@ Leuke dingen
 
                 <listitem
 ><para
->Last Current Album Image.</para
+>Laatste afbeelding in huidige album.</para
 ></listitem>
 
                 <listitem
 ><para
->Save the modified image.</para
+>De gewijzigde afbeelding opslaan</para
 ></listitem>
 
                 <listitem
 ><para
->Undoing last action.</para
+>De laatste bewerking ongedaan maken</para
 ></listitem>
 
                 <listitem
 ><para
->Redoing previous action.</para
+>Voorgaande bewerking opnieuw doen</para
 ></listitem>
 
                 <listitem
 ><para
->Restore the Current Image From Disk.</para
+>Huidige afbeelding herstellen vanaf de schijf.</para
 ></listitem>
 
                 <listitem
 ><para
->Zoom Into the Image.</para
+>Inzoomen van de afbeelding</para
 ></listitem>
 
                 <listitem
 ><para
->Zoom Out of the Image.</para
+>Uitzoomen van de afbeelding</para
 ></listitem>
 
                 <listitem
 ><para
->Toggle Auto Zooming (if selected image will fit in the window).</para
+>Automatische zoom omschakelen (als gekozen afbeelding past in het venster).</para
 ></listitem>
 
                 <listitem
 ><para
->Rotate the Current Image.</para
+>Het huidig beeld draaien.</para
 ></listitem>
 
                 <listitem
 ><para
->Crop Image to the Selected Region.</para
+>De afbeelding bijsnijden tot het geselecteerde gebied.</para
 ></listitem>
 
             </orderedlist>
@@ -4252,15 +4252,15 @@ Leuke dingen
 >Uw oorspronkelijke foto terughalen</title>
 
             <para
->The editing functions of the Image Editor will make changes to your photograph. None of the editing functions will change the original photograph unless you select <menuchoice
+>De bewerkingsfuncties van de afbeeldingsbewerker zullen wijzigingen in uw foto aanbrengen. Geen van de bewerkingsfuncties zal de oorspronkelijke foto veranderen tenzij u <menuchoice
 ><guimenu
->File</guimenu
+>Bestand</guimenu
 > <guimenuitem
->Save</guimenuitem
+>Opslaan</guimenuitem
 ></menuchoice
-> or click the <guilabel
->Save</guilabel
-> button in the tool bar. Note that once you have saved the changed version you will not be able to recover the original photograph. </para>
+> kiest of klikt op de knop <guilabel
+>Opslaan</guilabel
+> in de werkbalk. Let er op dat als u de veranderde versie hebt opgeslagen u niet in staat zult zijn om de originele foto te herstellen. </para>
 
             <para
 >U kunt eerst een kopie aanmaken van de foto voordat u wijzigingen aanbrengt. Selecteer <menuchoice
@@ -4272,25 +4272,25 @@ Leuke dingen
 > om een werkkopie op te slaan. </para>
 
             <para
->At any time <emphasis
->before</emphasis
-> you save your photograph you can restore the view to the original image by selecting <menuchoice
+><emphasis
+>Voordat</emphasis
+> u uw foto opslaat kunt u de oorspronkelijke afbeelding herstellen door het selecteren van <menuchoice
 ><guimenu
->File</guimenu
+>Bestand</guimenu
 > <guimenuitem
->Revert</guimenuitem
+>Terug</guimenuitem
 ></menuchoice
-> or clicking the <inlinemediaobject
+> of door te klikken op de knop <inlinemediaobject
 > <imageobject
 ><imagedata fileref="&path;editorrevertbutton.png" format="PNG"/></imageobject
 > <textobject
 ><phrase
->The Image Editor Revert Button</phrase
+>De knop Terug van de afbeeldingsbewerker</phrase
 ></textobject
 > </inlinemediaobject
-> <guilabel
->Revert</guilabel
-> button on the tool bar. You will lose any changes that you have made to the photograph since it was last saved. </para>
+> de knop <guilabel
+>Terug</guilabel
+> op de werkbalk. U zult alle wijzigingen die u in de foto hebt gemaakt, sinds de laatste keer opslaan, verliezen. </para>
 
         </sect2>
 
@@ -4314,14 +4314,14 @@ Leuke dingen
 >. </para>
 
             <para
->If these are done frequently, you really should memorize the keyboard shortcuts, <guilabel
+>Als deze bewerkingen vaak worden gedaan zou u eigenlijk gebruik moeten maken van de sneltoetsen; <guilabel
 >&Ctrl;-Z</guilabel
-> to undo an action, and <guilabel
+> om iets ongedaan te maken en <guilabel
 >&Ctrl;-Shift-Z</guilabel
-> to redo an action. </para>
+> om de bewerking opnieuw te doen. </para>
 
             <para
->You have to press the &LMB; over the undo or redo icon in the tool bar and hold it down for a moment to produce a context menu. If you choose one of the menu items, all undo/redo actions until the chosen ones are undone/redone. </para>
+>U moet op de &LMB; drukken boven het pictogram Ongedaan maken/Opnieuw in de werkbalk en deze enkele seconden ingedrukt houden (of op het pijltje naast de knop drukken) om een ​​contextmenu te produceren. U kunt kiezen voor een vande menu-items: alle acties Ongedaan maken of Opnieuw tot de gekozen actie zullen ongedaan worden of opnieuw worden gedaan. </para>
 
         </sect2>
 
@@ -4330,13 +4330,13 @@ Leuke dingen
 >Navigeren door de foto's</title>
 
             <para
->Once you have started the Image Editor you can move between photographs in the same view you started from by using the navigator buttons on the toolbar, <keycap
+>Wanneer u met de afbeeldingsbewerker begonnen bent kunt u tussen foto's in dezelfde weergave waarmee u bent begonnen, schakelen met behulp van de navigatietoetsen op de werkbalk, de toetsen <keycap
 >PgUp</keycap
 >, <keycap
 >PgDown</keycap
-> or the entries in the <guilabel
->File</guilabel
-> menu. If you have made any changes to the current photograph you will be asked if you want to save them. </para>
+> of de vermeldingen in het menu <guilabel
+>Bestand</guilabel
+>. Als u in de huidige foto wijzigingen hebt aangebracht wordt u gevraagd of u deze wilt opslaan of niet. </para>
 
         </sect2>
 
@@ -4366,14 +4366,14 @@ Leuke dingen
             <para
 ><menuchoice
 ><guimenu
->View</guimenu
+>Weergave</guimenu
 > <guimenuitem
->Full Screen Mode</guimenuitem
+>Volledig scherm</guimenuitem
 ></menuchoice
-> will display the photograph using the full screen mode. You can move back to the normal view by pressing the <keycombo
+> toont de foto in de modus volledig scherm. U kunt terug naar het normale beeld door <keycombo
 >&Esc;</keycombo
-> key. By default the toolbar is still displayed even in Full Screen Mode. If you would prefer that the toolbar is not displayed you can turn it off in the Configure &digikam; dialog accessed from the main &digikam; window, see the <link linkend="setup-editor"
->Setup Image Editor Section</link
+> in te drukken. Standaard blijft de bewerkingsbalk zichtbaar, zelfs in de modus volledig scherm. Als u liever hebt dat de bewerkingsbalk niet getoond wordt, dan kunt u die uitzetten in de instellingendialoog van &digikam;, toegankelijk vanuit het hoofdvenster van &digikam;, zie de <link linkend="setup-editor"
+>Sectie Instellingen voor de afbeeldingsbewerker</link
 >. </para>
 
          </sect2>
@@ -4383,22 +4383,22 @@ Leuke dingen
 >Afbeeldingen afdrukken</title>
 
             <para
->When you want to print the current image from the Image Editor, select <menuchoice
+>Wanneer u de huidige afbeelding wilt afdrukken vanuit de afbeeldingsbewerker, dan kiest u <menuchoice
 ><guimenu
->File</guimenu
+>Bestand</guimenu
 > <guimenuitem
->Print image</guimenuitem
+>Afbeelding afdrukken</guimenuitem
 ></menuchoice
-> (&Ctrl;+P) and you get the standard &kde; Print dialog, where you can adjust the settings before printing your photograph. </para>
+> (&Ctrl;+P) en dan krijgt u de standaard afdrukdialoog van &kde;, waar u de instellingen voor uw printer kunt wijzigen, voordat u uw foto afdrukt. </para>
 
            <para
->From the main window view you can print single images or whole sets of them. Entire thumbnail pages can be printed with your selection. All you need to do is selecting images the standard way and call <menuchoice
+>Vanuit het hoofdvenster kunt u enkele foto's afdrukken of hele series. Hele pagina's met miniaturen kunt selecteren en afdrukken. Alles wat u hoeft te doen is het kiezen van de miniaturen op de gebruikelijke manier en het oproepen van de <menuchoice
 ><guimenu
->Image</guimenu
+>Afbeelding</guimenu
 > <guimenuitem
->Print Assistant</guimenuitem
+>Afdrukassistent</guimenuitem
 ></menuchoice
->. Then follow the instructions and choices to make. </para>
+>. Volg daarna de instructies en maak uw keuzes. </para>
          </sect2>
 
     </sect1>
@@ -4463,9 +4463,9 @@ Leuke dingen
 >Vereisten</title>
 
 <para
->In order to successfully use &digikam;, you need the following <ulink url="http://digikam.org/download?q=download/dependencies"
-> digiKam dependencies</ulink
->. All library dependencies require development and binary packages installed on your computer to compile &digikam;. </para>
+>Om &digikam; met succes te gebruiken heeft u de volgende <ulink url="http://digikam.org/download?q=download/dependencies"
+>digiKam-afhankelijkheden</ulink
+> nodig. Alle afhankelijkheden van bibliotheken vereisen het installeren van ontwikkelings- en binaire pakketten op uw computer om &digikam; te compileren. </para>
 
 <para
 >Zeer waarschijnlijk zijn deze pakketten beschikbaar bij uw Linux-distributeur. </para>
@@ -4477,11 +4477,11 @@ Leuke dingen
 >Compilatie en installatie</title>
 
 <para
->In order to compile and install &digikam; on your system, type the following in the base folder of the <emphasis
+>Om &digikam; te compileren en te installeren op uw systeem typ het volgende in in de basismap van de moduledistributies van <emphasis
 >libkipi</emphasis
-> and <emphasis
+> en <emphasis
 >digikam</emphasis
-> module distributions. You should use a separate build folder to help cleaning up sources if something goes wrong. <screen width="40"
+>. U moet een aparte bouwmap gebruiken om de broncode op te schonen als er iets fout gaat. <screen width="40"
 ><prompt
 >%</prompt
 > <userinput

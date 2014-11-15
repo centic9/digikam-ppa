@@ -1,0 +1,1107 @@
+<sect2
+>                               <title
+>Verktyg för bildtransformering</title>
+  <sect3 id="using-rotatingflippingimage">
+     <title
+>Rotera eller vända ett fotografi</title>
+  
+        <para
+>Om fotografiet har fel orientering kan du <guilabel
+>Vända</guilabel
+> eller <guilabel
+>Rotera</guilabel
+> det till den riktiga orientering du vill ha genom att använda verktygen Transformera Vänd/Rotera tillgängliga i menyerna <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Rotera</guimenuitem
+></menuchoice
+> och <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Vänd</guimenuitem
+></menuchoice
+>. </para>
+     
+         <para
+>Med alternativen för vändning kan du vända bilden horisontellt eller vertikalt som en kortlek. Med alternativen för rotation kan du rotera bilden 90 grader medurs, 90 grader moturs eller 180 grader. De kan användas för att ändra läge till stående eller liggande. Du kan rotera friare genom att använda verktyget Rotera bild. Du kan komma åt det med menyalternativet <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Rotera bild</guimenuitem
+></menuchoice
+>. Se den särskilda <link linkend="using-freerotation"
+>handboken för rotera bild</link
+> för mer information. </para>
+
+     </sect3>
+
+<sect3 id="resize">
+<sect3info>
+
+<title
+>Ändra bildstorlek</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+
+<para>
+<ulink url="http://cimg.sourceforge.net"
+><inlinemediaobject>
+<imageobject
+><imagedata fileref="&path;cimg-logo.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>cimglogo</phrase
+></textobject>
+</inlinemediaobject
+></ulink>
+</para>
+
+<para
+>Verktyget <emphasis
+>Förstora fotografi</emphasis
+> i &digikam; är definitivt ett av de mest avancerade verktygen för att öka storleken på ett fotografi med minimal förlust av bildkvalitet. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Cimg</keyword>
+<keyword
+>Restaurering</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Att skala om en bild för att göra den mindre är lätt. Den stora frågan är hur man kan förstora en bild och behålla detaljerna skarpa? Hur kan man zooma in när upplösningsgränsen har nåtts? Hur kan man återuppfinna eller gissa den saknade informationen för att fylla i den nödvändigtvis grova bilden efter att ha ökat storleken? Jo, Cimg-algoritmen som vi använder här gör ett utmärkt jobb. Prova den och se själv! </para>
+
+  <sect4 id="using-resizingimage"
+>            <title
+>Ändra storlek på ett fotografi</title>
+
+    <anchor id="resizetool.anchor"/>
+    <para
+>Om fotografiet har fel storlek kan du skala det till storleken du vill ha med verktyget Transformera Ändra storlek. Välj <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Ändra storlek</guimenuitem
+></menuchoice
+> och justera resultatvärden. Dialogrutan för storleksändringsverktyget är tillgänglig nedan. </para>
+
+    <example
+>  <title
+>Dialogrutan för storleksändringsverktyget</title>
+        <screenshot
+><screeninfo
+>Dialogrutan för storleksändringsverktyget</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorresizetool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+    </example>
+
+    <para
+>Detta bildverktyg för storleksändring använder en vanlig linjär interpolationsmetod för att approximera bildpunkter. Om du vill förstora en liten bild med bättre kvalitet, prova verktyget Förstora fotografi. </para>
+
+  </sect4>
+
+
+<sect4 id="using-blowup"
+> <title
+>Öka bildstorlek (förstora)</title>
+  <para
+>Många bildredigeringsprogram använder någon form av interpolation, t.ex. spline-interpolation, för att förstora en bild. &digikam; använder ett mer sofistikerat tillvägagångssätt. Algoritmen som är grunden i <emphasis
+>Förstora fotografi</emphasis
+> har utvecklats av bildgruppen på GREC CNRS-laboratoriet i Caen, Frankrike, och är en del av <ulink url="http://cimg.sourceforge.net"
+>CImg-projektet</ulink
+>. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Dialogrutan Förstora fotografi</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Du måste tala om för verktyget vilken storleksändring du vill utföra. Inställningarna är tillgängliga under fliken <guilabel
+>Ny storlek</guilabel
+> och listas nedan: <itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Behåll proportion</guilabel
+>: Om det här alternativet är aktiverat, bevaras originalbildens proportion när den nya storleken ställs in.</para
+></listitem>
+  <listitem
+><para
+><guilabel
+>Bredd</guilabel
+>: Den nya bildens bredd som används vid förstoring.</para
+></listitem
+> 
+  <listitem
+><para
+><guilabel
+>Höjd</guilabel
+>: Den nya bildens höjd som används vid förstoring.</para
+></listitem>
+ 
+</itemizedlist>
+</para>
+
+<para
+>Om du vill ställa in filterparametrar för finjustering, använd flikarna <guilabel
+>Utjämning</guilabel
+> och <guilabel
+>Avancerade inställningar</guilabel
+>:</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings1.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Utjämningsinställningar för förstora fotografi</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+  
+     <listitem
+><para
+><guilabel
+>Detaljbevarande</guilabel
+> p [0, 100]: Den här styr bevarande av krökningar (anletsdrag). Ett lågt värde tvingar fram en likformig utjämning över hela bilden, medan större värden i första hand utjämnar likformiga områden och lämnar detaljerna skarpare. Värdet 0,9 bevarar detaljer bra nog så att ingen ökning av skärpan krävs efteråt. Observera att <guilabel
+>Detaljbevarande</guilabel
+> alltid måste vara mindre än <guilabel
+>Anisotropi</guilabel
+>.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Anisotropi</guilabel
+> alfa [0, 100]: Ett lågt värde utjämnar lika mycket i alla riktningar, medan ett värde nära 1 bara utjämnar i en riktning. Om du har filmkorn eller CCD-liknande brus, ger ett högt värde vågliknande mönster, medan JPEG-artefakter är lämpliga för värden nära 1. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Utjämning</guilabel
+> [0, 500]: Den här inställningen anger maximal övergripande utjämningsfaktor (när p definierar den relativa utjämningen). Ställ in det enligt brusnivån.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Regelbundenhet</guilabel
+> [0, 100]: Den här parametern gäller större strukturer. Ju större värdet är, desto mer regelbunden blir den övergripande utjämningen. Det är nödvändigt när det finns mycket brus, eftersom det då är svårt att uppskatta geometrin. Om du också vill åstadkomma en 'van Gogh' turbulenseffekt, rekommenderas inställningar större än 3.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Filtreringsiterationer</guilabel
+>: Antal gånger som suddighetsalgoritmen utförs. Oftast är 1 till 2 tillräckligt.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings2.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Avancerade inställningar för förstora fotografi</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+
+     <listitem
+><para
+><guilabel
+>Vinkelsteg</guilabel
+> da [5, 90]: Vinkelintegrering av anisotropifaktorn a. Om alfa väljes liten, ska också da väljas liten. Men se upp med att små vinklar ger långa beräkningstider. Välj det så stort som du kan acceptera. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Integreringssteg</guilabel
+> [0,1, 10]: Stegbredd för rumslig integrering uttryckt i bildpunkter. Bör förbli mindre än 1 (delbildpunktsutjämning) och ska aldrig vara mer än 2.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Använd linjär interpolation</guilabel
+>: Vinsten i kvalitet om du markerar alternativet är bara marginell, och du förlorar en faktor två i hastighet. Rekommendationen är att lämna det av.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>Knapparna <guilabel
+>Spara som</guilabel
+> och <guilabel
+>Ladda</guilabel
+> används för att göra just det. Alla filterinställningar för att förstora ett fotografi som du har ställt in kan sparas i filsystemet i en textfil och senare laddas. </para>
+
+<warning
+><para
+>Förstoring av fotografi är mycket bra på vad det gör, med det kan ta lång tid att utföra, och orsaka hög processorlast. Du kan alltid avbryta beräkningen genom att trycka på knappen <guilabel
+>Avbryt</guilabel
+> under uppritningen. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blowup">
+<title
+>Förstoringsverktyget under arbete</title>
+
+<para
+>Nedan ser du ett exempel på förstoring av ett fotografi för ett litet färgbildsområde vars storlek har ändrats till x2. Originalet är (1) och det förstorade resultatet (3). Förhandsgranskningen (2) är resultatet med den vanliga linjära storleksändringsmetoden för jämförelse. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowuppreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Förhandsgranskning av filtret förstora fotografi</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="aspect-ratio-crop"
+>        <title
+>Beskära ett fotografi</title>
+ 
+    <sect4 id="using-manualcrop"
+>            <title
+>Manuell beskärning</title>
+
+        <para
+>Att beskära ett fotografi är inte bara en vanlig åtgärd, utan också ett ofta underskattat verktyg för fotografen att komponera en bild. Bildeditorn gör det mycket enkelt. Dra helt enkelt en rektangel över bilden genom att hålla nere vänster musknapp och flytta musen för att beskära en bild. Du ser en rektangulär trådram som visas medan du flyttar musen. </para>
+
+        <example
+>  <title
+>Nuvarande bildmarkering i bildeditorn</title>
+          <screenshot
+><screeninfo
+>Nuvarande bildmarkering i bildeditorn</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorimageselection.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+ 
+        <para
+>När du släpper knappen blir området i fotografiet som tas bort vid beskärningsåtgärden mörkare. Det låter dig få en god uppfattning om hur fotografiet ser ut när du väl har beskurit det. Du kan ändra storleken på det beskurna området genom att dra rektangelns hörn, och du kan åstadkomma ett nytt beskärningsområde genom att helt enkelt skapa en ny rektangel. </para>
+
+        <para
+>När du väl är nöjd med beskärningen, klicka på knappen <inlinemediaobject
+> <imageobject
+><imagedata fileref="&path;editorcropbutton.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Bildeditorns beskärningsknapp</phrase
+> </textobject
+> </inlinemediaobject
+> i verktygsraden, för att beskära fotografiet (&Ctrl;+X). Använd alternativen <menuchoice
+><guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Spara</guimenuitem
+></menuchoice
+> eller <menuchoice
+><guimenu
+>Arkiv</guimenu
+> <guimenuitem
+>Spara som</guimenuitem
+></menuchoice
+> i menyn Arkiv för att spara det nyss beskurna fotografiet. </para>
+
+    </sect4>
+
+    <sect4 id="using-proportionalcrop"
+>      <title
+>Proportionell beskärning</title>
+
+        <anchor id="ratiocroptool.anchor"/>        
+        
+        <para
+>Verktyget för proportionell beskärning går längre. När du redigerar digitala bilder är det ofta nödvändigt att skapa ett format som till exempel fungerar ihop med ditt fotoalbum eller pappersformat. Om du skriver ut en bild från digitalkameran och därefter försöker stoppa in det i ditt fotoalbum, kanske du märker att kameran har en annan bredd eller höjd än vanliga fotografiska filmformat, så att du måste beskära dina digitala bilder med en fördefinierad proportion (till exempel 5:7 eller 2:3 som är en standardiserad fotografisk proportion). </para>
+    
+        <example
+>  <title
+>Dialogrutan för verktyget för proportionell beskärning</title>
+          <screenshot
+><screeninfo
+>Dialogrutan för verktyget för proportionell beskärning</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorratiocroptool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        <para
+>I området för förhandsgranskning kan du ändra storlek på beskärningsrektangeln genom att flytta hörnen med musen. Den behåller proportionen som ställs in längst ner i dialogrutan. </para>
+        
+        <para
+>I inställningarna för verktyget för proportionell beskärning anger du <guilabel
+>Orientering</guilabel
+> som <guilabel
+>Stående</guilabel
+> eller <guilabel
+>Liggande</guilabel
+>. Stående har alltid det större talet tilldelat till <guilabel
+>Höjd</guilabel
+> och liggande till <guilabel
+>Bredd</guilabel
+>. </para>
+        
+        <para
+>Verktyget för proportionell beskärning använder en relativ proportion. Det betyder att den är likadan vare sig du använder centimeter eller tum, och att det inte anger en fysisk storlek. Nedan kan du till exempel se en lista över relationen mellan traditionella fotografiska pappersstorlekar och proportionell beskärning. </para>
+        
+        <informaltable
+><tgroup cols="2">
+
+        <thead
+><row>
+            <entry
+>Standardstorlekar för fotopapper</entry>
+            <entry
+>Proportionell beskärning</entry>
+          </row
+></thead>
+
+    <tbody>
+        <row>
+<entry
+>10x15 cm&nbsp;20x30 cm&nbsp;30x45 cm 3,5x5"&nbsp;4x6"&nbsp;8x12"&nbsp;12x18"&nbsp;16x24"&nbsp;20x30" </entry>
+    
+<entry
+>2:3 </entry>
+        </row>
+
+        <row>
+<entry
+>6x8 cm&nbsp;15x20 cm&nbsp;18x24 cm&nbsp;30x40 cm 3,75x5"&nbsp;4,5x6"&nbsp;6x8"&nbsp;7,5x10"&nbsp;9x12" </entry>
+        
+<entry
+>3:4 </entry>
+        </row>
+        
+        <row>
+<entry
+>20x25 cm&nbsp;40x50 cm 8x10"&nbsp;16x20" </entry>
+        
+<entry
+>4:5 </entry>
+        </row>
+
+        <row>
+<entry
+>15x21 cm&nbsp;30x42 cm 5x7" </entry>
+        
+<entry
+>5:7 </entry>
+        </row>
+        
+        <row>
+<entry
+>21x30 cm&nbsp;42x60cm </entry>
+        
+<entry
+>7:10 </entry>
+        </row>
+
+    </tbody>
+
+        </tgroup
+></informaltable>
+
+        <para
+>Längst till höger i dialogrutan är två knappar tillgängliga för att automatiskt flytta markerat beskärningsområde till bildens horisontella eller vertikala centrum. </para>
+        
+        <para
+>Längst ner i dialogrutan, låter knappen <guilabel
+>Maximal proportion</guilabel
+> dig ändra markeringens yta till den maximala, enligt de nuvarande inställningarna av proportion och orientering. </para>
+    
+        <note
+><para
+>Verktyget för proportionell beskärning kommer ihåg inställningar beroende på bildens orientering (horisontell eller vertikal). När du använder beskärningsverktyget nästa gång används inställningarna som förvalda värden beroende på bildens orientering. De ändrade bilddimensionerna lagras i EXIF-tabeller, så att EXIF-data motsvarar den beskurna bilden och inte originalbilden. </para
+></note>
+        
+    </sect4>
+
+    <sect4 id="using-compositionguides"
+>     <title
+>Kompositionsguide</title>
+
+        <para
+>När man först tittar på en bild, stannar betraktarens öga sällan i bildens centrum, utan går istället från övre vänstra hörnet åt höger, och därefter ner till vänster och till höger igen. Mönstret är oftast omedvetet men det är väldokumenterat. Det hör troligen ihop med det västliga läsmönstret. Ur fotografens synvinkel, blir då målet att leda betraktarens blick till motivet, med kunskap om sättet som många varseblir en bild. </para
+>        
+        
+        <para
+>Inställningarna i <guilabel
+>Kompositionsguiden</guilabel
+> tillhandahåller hjälpelement för att komponera bilder bättre. Hjälplinjerna är: <itemizedlist>
+    
+          <listitem>
+            <para
+><guilabel
+>Tredjedelsregeln</guilabel
+>: Ett rutnät som delar upp bilden i tredjedelar i alla riktningar (vilket ger 9 delar). Proportionerna är nära den gyllene regeln och härleds från det mänskliga ögats blickfält. De används, vanligen med små variationer, för en stor mängd ofta använda objekt. Inne i ramen finns de exakta områden där bildens viktiga delar ska placeras. Samma princip används för att avgöra horisontens position och proportionen mellan mark och himmel. </para>
+        
+            <para
+>Många fotografer och artister är medvetna om tredjedelsregeln, där en bild delas upp i tre delar vertikalt och horisontellt och skärningspunkterna representerar platser där viktiga visuella element ska placeras. Att flytta horisonten i ett landskap till positionen en tredjedel är ofta effektfullare än att placera den i mitten, men den kan också placeras nära botten på en fjärdedel eller en sjättedel. Det finns ingenting obligatoriskt i att använda tredjedelsregeln. När visuella element placeras för att få en effektfull komposition, måste man överväga många faktorer inklusive färg, dominans, storlek och balans tillsammans med proportion. Ofta kan en viss mängd balans eller spändhet i bilden göra en komposition effektfullare. </para>
+    
+            <example
+>  <title
+>Exempel på komposition av ett fotografi med tredjedelsregeln</title>
+             <screenshot
+><screeninfo
+>Exempel på komposition av ett fotografi med tredjedelsregeln </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorrulethirdlinesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+           </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Harmoniska trianglar</guilabel
+>: Harmoniska delningar förlitar sig på principen om likformighet. Som hjälplinjerna för tredjedelsregeln, är harmoniska trianglar en annan uppdelning av bilden som använder en rektangel i likvinkliga harmoniska trianglar uppradade längs diagonalen. </para>
+    
+            <example
+>  <title
+>Exempel på komposition av ett fotografi med harmoniska trianglar</title>
+                <screenshot
+><screeninfo
+>Exempel på komposition av ett fotografi med harmoniska trianglar </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorharmonioustrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+
+    
+        </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Gyllene snittet</guilabel
+>: Det gyllene snittet är ett förhållande som ligger bakom en mångfald växtmönster i hela naturen (från spiralen i ett Nautilus skal till kronbladen i en solros), och det har ett mystiskt sätt att dyka upp i alla möjliga saker vi anser vara vackra. </para>
+
+            <para
+>Det gyllene snittet är det irrationella talet 1,618033988..., vars användning kan dateras tillbaka till de gamla egyptierna och grekerna som använde det när tempel och pyramider konstruerades. Artister och arkitekter har använt det gyllene snittet genom tidsåldrarna när de skapat målningar, byggnader och till och med fotografier, för att ge skapelserna en känsla av naturlig ordning och skönhet. </para>
+    
+            <para
+>Förhållandet är inneboende i Fibonacci-serien: 1, 1, 2, 3, 5, 8, 13, 21, 34 etc., där varje tal som följer efter 1 är lika med summan av de två föregående talen. Förhållandet 1:1,618 som bildas är det gyllene snittet. En komposition som följer regeln anses vara visuellt harmonisk. </para>
+    
+            <para
+>Det gyllene snittet tillhandahåller mer flytande hjälplinjer när det används för att komponera en bild. Hjälplinjerna listas nedan: <itemizedlist
+>    
+
+        <listitem
+>        
+    
+        <para
+>Hjälplinjen <guilabel
+>Gyllene spiral</guilabel
+> ökar chansen att få fängslande resultat i dina fotografier. I motsats till tredjedelsregeln, formar den gyllene spiralen en flytande linje för ögat att följa igenom bilden. Denna kompositionsstil inbjuder betraktarens blick in i bilden längs en spirallinje, vilket skapar ett mer symmetriskt visuellt flöde, och en fascinerande helhetsupplevelse vid betraktandet. </para>
+        
+        <example
+>  <title
+>Exempel på komposition av ett fotografi med gyllene spiralen</title>
+            <screenshot
+><screeninfo
+>Exempel på komposition av ett fotografi med gyllene spiralen </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorgoldenspiralexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+
+        <listitem>
+    
+        <para
+>Ytterligare en hjälplinje är <guilabel
+>Gyllene spiralsnitt</guilabel
+> (eller gyllene rektanglar). Rektanglarna används för att bygga den gyllene spiralen. Det ska finnas något som leder ögat till kompositionens centrum. Det kan vara en linje eller flera motiv. Detta "något" kan bara vara där utan att leda ögat, men det skulle ändå göra sitt jobb. </para>
+    
+        <example
+>  <title
+>Exempel på komposition av ett fotografi med gyllene spiralsnitt</title>
+            <screenshot
+><screeninfo
+>Exempel på komposition av ett fotografi med gyllene spiralsnitt </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldenspiralsectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+><guilabel
+>Gyllene trianglar</guilabel
+> är en version av gyllene spiralen som beskrivs ovan. Dess vertex är mittpunkterna på sidorna i den gyllene rektangeln. Observera att i motsats till harmoniska trianglar, är inte gyllene trianglar likvinkliga trianglar. Att placera diagonaler längs dessa linjer kan göra ett annars statiskt motiv verka mer dynamiskt. </para>
+
+        <para
+>När du använder gyllene trianglar för att dela upp ramen, skapar du en effekt som professionella fotografiska experter givit namnet dynamisk symmetri. Försök att hålla motivet i fokus på en av skärningspunkterna, och placera annan visuell information i trianglarna du redan delat upp. Resultatet blir en mycket attraktiv komposition som du kanske inte annars kunnat uppnå. </para>
+
+        <example
+>  <title
+>Exempel på komposition av ett fotografi med gyllene trianglar</title>
+            <screenshot
+><screeninfo
+>Exempel på komposition av ett fotografi med gyllene trianglar </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldentrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+>Liksom tredjedelsregeln påverkar <guilabel
+>Gyllene snitt</guilabel
+> förhållandet hos bildens storlek samt placering av huvudmotivet på bilden. Förhållandet är nära 35 mm förhållandet, så du behöver inte ändra bildens storlek i de flesta fall, men du måste ta hänsyn till kompositionen: huvudmotivet ska placeras på en av de fyra linjerna eller fyra skärningspunkterna (till exempel motivets ögon). Helt sanningsenligt är inte reglerna likadana. Tredjedelsregeln är en förenklad version av det gyllene snittet. </para>
+        
+        <example
+>  <title
+>Exempel på komposition av ett fotografi med gyllene snitt</title>
+            <screenshot
+><screeninfo
+>Exempel på komposition av ett fotografi med gyllene snitt </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldensectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+    
+            </itemizedlist>
+            </para>
+    
+           </listitem>
+     
+        </itemizedlist>
+        
+        </para>
+        
+        <para
+>Alternativen <guilabel
+>Vänd horisontellt</guilabel
+> och <guilabel
+>Vänd vertikalt</guilabel
+> kan användas för att vända de harmoniska uppdelningarna. </para>
+        
+        <para
+>Knappen <guilabel
+>Färg</guilabel
+> låter dig ställa in hjälplinjernas färg. Om du har en bild med hög färgkontrast, kan hjälplinjerna bli osynliga. På detta sätt kan du anpassa hjälplinjerna till den aktuella bilden. </para>
+    
+    </sect4>
+
+</sect3>
+
+<sect3 id="freerotation">
+<sect3info>
+
+<title
+>Rotera bild</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author
+>        
+</authorgroup>
+
+<abstract>
+<para
+>Verktyget <emphasis
+>Rotera bild</emphasis
+> i &digikam; är ett verktyg för bildrotation med en godtycklig vinkel. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>När en bild tas är det alltför lätt att inte hålla kameran alldeles perfekt vertikalt eller horisontellt, vilket ger en bild där allt lutar med en viss vinkel. Sättet att korrigera det i &digikam;s bildeditor är att använda verktyget Rotera bild. Välj <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Rotera bild</guimenuitem
+></menuchoice
+> och justera resultatets vinkel. </para>
+
+<sect4 id="using-freerotation"
+>    <title
+>Verktyget Rotera bild</title>
+
+<para
+>Rotera bilden genom att använda skjutreglaget <guilabel
+>Vinkel</guilabel
+> (värdet är i grader). Tryck på <guilabel
+>Återställ värden</guilabel
+> för att återställa skjutreglaget till noll. En förhandsgranskning av rotationseffekten är tillgänglig till höger i dialogrutan. Den nya resultatbildens dimensioner i bildpunkter visas. </para>
+
+<para
+>Verktyget rotera bild tillhandahåller en vertikal och horisontell linje för bättre justering. Flytta musmarkören under förhandsgranskningen av bilden för att visa de streckade hjälplinjerna. Flytta markören till en plats i bilden som antas vara vertikal eller horisontell, som havet eller kanten på en byggnad, och klicka med vänster musknapp för att frysa de streckade linjernas position. Justera nu vinkeln enligt hjälplinjerna. </para>
+
+<warning
+><para
+>Efter att bilden har roterats, märker du ofta att resultatet är bättre men inte helt perfekt. En lösning är att rotera lite till, men det finns en nackdel med det angreppssättet. Varje gång du roterar en bild blir den oundvikligen något suddigare, eftersom de roterade bildpunkterna inte radas upp perfekt med de ursprungliga bildpunkterna. Med en enda rotation är effekten ganska liten, men två rotationer ger dubbelt så stor effekt som en och det finns ingen anledning att orsaka mer suddighet än du måste. Hjälplinjerna i förhandsgranskningen för rotera bild kan dock hjälpa dig att utföra en vinkeljustering av en bild riktigt första gången. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-freerotation">
+<title
+>Rotera bild under arbete</title>
+
+<para
+>Dialogrutan för verktyget rotera bild i arbete är tillgänglig nedan. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;freerotationpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Dialogrutan för verktyget rotera bild</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Efter du har roterat en bild finns det otrevliga triangulära "hål" vid hörnen. Ett sätt att fixa dem är att beskära bilden med bildeditorns meny <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Beskär</guimenuitem
+></menuchoice
+>. </para>
+
+<para
+>Ett elegantare sätt att beskära den roterade bilden är att använda funktionen <guilabel
+>Automatisk beskärning</guilabel
+>. Välj någon av följande alternativ från kombinationsrutan enligt vad du föredrar:</para>
+
+<itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Bredaste område</guilabel
+>: Alternativet beskär den roterade bilden till den bredast möjliga rektangulära sektion (bredd).</para
+></listitem>
+  
+  <listitem
+><para
+><guilabel
+>Största område</guilabel
+>: Alternativet beskär den roterade bilden till den största ytan.</para
+></listitem>
+
+</itemizedlist>
+
+<para
+>Håll musen över kombinationsrutan och rulla med hjulet mellan de två möjligheterna.</para>
+
+<para
+>Kryssrutan <guilabel
+>Kantutjämning</guilabel
+> jämnar ut bilden något efter rotationen. Läs varningen ovan. </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="perspective">
+<sect3info>
+
+<title
+>Perspektivjustering</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author
+>    
+</authorgroup>
+
+<abstract>
+<para
+><emphasis
+>Perspektivjustering</emphasis
+> i &digikam; är ett verktyg för att justera bildens perspektiv. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Det här verktyget låter dig omvandla perspektivet i ett fotografi. Det är mycket användbart vid arbete med fotografier som innehåller grundstensförvrängningar. Grundstensförvrängning uppstår när ett objekt fotograferas från en vinkel istället för rakt framifrån. Om du till exempel tar en bild av en hög byggnad från marknivå, verkar byggnadens kanter mötas längst bort i änden. Å andra sidan kan du använda verktyget för att införa ett nytt perspektiv som inte ger en bild rakt framifrån utan ger bilden ett kreativt inslag. </para>
+
+<sect4 id="using-perspective">
+<title
+>Använda perspektivjustering</title>
+
+<para
+>Alla perspektivomvandlingar utförs omkring en fast punkt som kallas referenspunkten. Punkten finns i mitten på objektet du omvandlar och visas med en röd cirkel. </para>
+
+<para
+>Använd de kvadratiska områdena i bildens hörn för att ändra perspektivet. Förhandsgranskningen av perspektivet ritas automatiskt. Till höger i dialogrutan finns information som hjälper dig att styra perspektivändringen: <itemizedlist>
+    <listitem
+><para
+><guilabel
+>Ny bredd</guilabel
+>: Visa den nya bildbredden i bildpunkter inklusive storleken på det tomma området omkring bilden som uppstår på grund av de geometriska omvandlingarna.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Ny höjd</guilabel
+>: Visa den nya bildhöjden i bildpunkter inklusive storleken på det tomma området omkring bilden som uppstår på grund av de geometriska omvandlingarna.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Övre vänstra vinkeln</guilabel
+>: Visa nuvarande vinkel i grader för perspektivområdets övre vänstra hörn.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Övre högra vinkeln</guilabel
+>: Visa nuvarande vinkel i grader för perspektivområdets övre högra hörn.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Nedre vänstra vinkeln</guilabel
+>: Visa nuvarande vinkel i grader för perspektivområdets nedre vänstra hörn.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Nedre högra vinkeln</guilabel
+>: Visa nuvarande vinkel i grader för perspektivområdets nedre högra hörn.</para
+></listitem>
+</itemizedlist>
+</para>
+            
+<warning
+><para
+>Efter en perspektivjustering appliceras på en bild, blir bilden oundvikligen något suddigare. För en enstaka justering är effekten ganska liten, men två justeringar ger dubbelt så stor effekt som en och det finns ingen anledning att orsaka mer suddighet än du måste. </para
+></warning>
+                        
+<para
+>När du har justerat perspektivet i en bild, finns det otrevliga triangulära "hål" i hörnen. Ett sätt att fixa dem är att beskära bilden med bildeditorns meny <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Beskär</guimenuitem
+></menuchoice
+> </para>
+
+</sect4>
+
+<sect4 id="inaction-perspective">
+<title
+>Perspektivjustering under arbete</title>
+
+<para
+>Dialogrutan för perspektivjustering under arbete visas nedan. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;perspectivepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Dialogrutan för perspektivjustering</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="sheartool">
+<sect3info>
+
+<title
+>Skjuva bild</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+><emphasis
+>Skjuva bild</emphasis
+> i &digikam; är ett verktyg för att skjuva en bild horisontellt eller vertikalt. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Skjuvningsverktyget används för att flytta en del av en bild åt ett håll och en annan del åt motsatt håll. En horisontell skjuvning flyttar till exempel den övre delen åt höger och den undre delen åt vänster. Detta är inte en rotation: bilden förvrängs. Med andra ord omvandlar det en rektangel till ett parallellogram. Verktyget är tillgängligt i menyn <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Skjuva</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-sheartool">
+<title
+>Använda skjuvningsverktyget</title>
+
+<para
+>Skjuva bilden genom att använda skjutreglagen <guilabel
+>Horisontell vinkel</guilabel
+> och <guilabel
+>Vertikal vinkel</guilabel
+> (värden i grader). Du kan antingen skjuva horisontellt eller vertikalt på samma gång. Tryck på <guilabel
+>Återställ värden</guilabel
+> för att initiera om skjutreglagen till noll. En förhandsgranskning av skjuvningseffekten är tillgänglig i mitten av dialogrutan. Den nya resultatbildens dimensioner i bildpunkter visas till höger i dialogrutan. </para>
+
+<para
+>För att hjälpa dig tillhandahåller verktyget också en vertikal och horisontell guide. Flytta muspekaren på förhandsgranskningen av bilden för att visa guiden med streckade linjer. Flytta pekaren till en viktig plats på bilden, som havet eller kanten på en byggnad och tryck på vänster musknapp för att frysa positionen för de streckade linjerna. Justera nu skjuvningen enligt guiden. </para>
+            
+<warning
+><para
+>Efter en skjuvningsjustering har verkställts, blir bilden oundvikligen något suddig. För en enstaka skjuvning är suddigheten ganska liten, men två skjuvningar ger dubbelt så stor suddighet som en, och det finns ingen anledning att göra det suddigare än du måste. </para
+></warning>
+                        
+<para
+>Efter du har skjuvat en bild finns det obehagliga triangulära "hål" vid hörnen. Ett sätt att fixa dem är att beskära bilden med bildeditorns meny <menuchoice
+><guimenu
+>Transformera</guimenu
+> <guimenuitem
+>Beskär</guimenuitem
+></menuchoice
+> </para>
+
+</sect4>
+
+<sect4 id="inaction-sheartool">
+<title
+>Skjuvningsverktyget under arbete</title>
+
+<para
+>Skjuvningsverktygets dialogruta under arbete är tillgänglig nedan. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;sheartoolpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Skjuvningsverktygets dialogruta</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

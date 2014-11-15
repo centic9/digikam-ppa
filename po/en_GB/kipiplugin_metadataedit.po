@@ -1,29 +1,30 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010, 2011.
+# Steve Allewell <steve.allewell@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-08-31 01:29+0000\n"
-"PO-Revision-Date: 2011-05-01 12:49+0100\n"
-"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
-"Language-Team: British English <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-07-06 22:19+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrew Coles"
+msgstr "Andrew Coles, Steve Allewell"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrew_coles@yahoo.co.uk"
+msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
 
 #: exif/exifadjust.cpp:94
 msgid "Brightness (APEX):"
@@ -189,17 +190,14 @@ msgstr ""
 "field is limited to ASCII characters."
 
 #: exif/exifcaption.cpp:113
-#, fuzzy
-#| msgid "Destination:"
 msgctxt "image description"
 msgid "Description (*):"
-msgstr "Destination:"
+msgstr "Description (*):"
 
 #: exif/exifcaption.cpp:117
-#, fuzzy
-#| msgid "Enter the image title. This field is limited to ASCII characters."
 msgid "Enter the image description. This field is limited to ASCII characters."
-msgstr "Enter the image title. This field is limited to ASCII characters."
+msgstr ""
+"Enter the image description. This field is limited to ASCII characters."
 
 #: exif/exifcaption.cpp:122
 msgid "Artist (*):"
@@ -224,9 +222,6 @@ msgstr ""
 "characters."
 
 #: exif/exifcaption.cpp:140
-#, fuzzy
-#| msgctxt "image cpation"
-#| msgid "Caption:"
 msgctxt "image caption"
 msgid "Caption:"
 msgstr "Caption:"
@@ -272,10 +267,8 @@ msgid "Creation date and time"
 msgstr "Creation date and time"
 
 #: exif/exifdatetime.cpp:111
-#, fuzzy
-#| msgid "Creation second"
 msgid "Creation sub-second"
-msgstr "Creation second"
+msgstr "Creation sub-second"
 
 #: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
 #, kde-format
@@ -313,10 +306,8 @@ msgid "Original date and time"
 msgstr "Original date and time"
 
 #: exif/exifdatetime.cpp:137
-#, fuzzy
-#| msgid "Original second"
 msgid "Original sub-second"
-msgstr "Original second"
+msgstr "Original sub-second"
 
 #: exif/exifdatetime.cpp:143
 msgid "Set original date to today"
@@ -343,10 +334,8 @@ msgid "Digitization date and time"
 msgstr "Digitisation date and time"
 
 #: exif/exifdatetime.cpp:156
-#, fuzzy
-#| msgid "Digitization second"
 msgid "Digitization sub-second"
-msgstr "Digitisation second"
+msgstr "Digitisation sub-second"
 
 #: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
 msgid "Set digitization date to today"
@@ -1002,19 +991,13 @@ msgid "Flash energy (BCPS):"
 msgstr "Flash energy (BCPS):"
 
 #: exif/exiflight.cpp:179
-#, fuzzy
-#| msgid ""
-#| "Set here the flash energy used to take the picture in BCPS units.  Beam "
-#| "Candle Power Seconds is the measure of effective intensity of a light "
-#| "source when it is focused into a beam by a reflector or lens. This value "
-#| "is the effective intensity for a period of one second."
 msgid ""
 "Set here the flash energy used to take the picture in BCPS units. Beam "
 "Candle Power Seconds is the measure of effective intensity of a light source "
 "when it is focused into a beam by a reflector or lens. This value is the "
 "effective intensity for a period of one second."
 msgstr ""
-"Set here the flash energy used to take the picture in BCPS units.  Beam "
+"Set here the flash energy used to take the picture in BCPS units. Beam "
 "Candle Power Seconds is the measure of effective intensity of a light source "
 "when it is focused into a beam by a reflector or lens. This value is the "
 "effective intensity for a period of one second."
@@ -1148,23 +1131,23 @@ msgstr ""
 "Set here the necessary copyright notice. This field is limited to 128 ASCII "
 "characters."
 
-#: iptc/iptccredits.cpp:106 xmp/xmpcredits.cpp:111
+#: iptc/iptccredits.cpp:106 xmp/xmpcredits.cpp:112
 msgid "Byline:"
 msgstr "Byline:"
 
-#: iptc/iptccredits.cpp:107 xmp/xmpcredits.cpp:112
+#: iptc/iptccredits.cpp:107 xmp/xmpcredits.cpp:113
 msgid "Set here the name of content creator."
 msgstr "Set here the name of content creator."
 
-#: iptc/iptccredits.cpp:112 xmp/xmpcredits.cpp:117
+#: iptc/iptccredits.cpp:112 xmp/xmpcredits.cpp:118
 msgid "Byline Title:"
 msgstr "Byline Title:"
 
-#: iptc/iptccredits.cpp:113 xmp/xmpcredits.cpp:120
+#: iptc/iptccredits.cpp:113 xmp/xmpcredits.cpp:121
 msgid "Set here the title of content creator."
 msgstr "Set here the title of content creator."
 
-#: iptc/iptccredits.cpp:118 xmp/xmpcredits.cpp:182
+#: iptc/iptccredits.cpp:118 xmp/xmpcredits.cpp:183
 msgid "Credit:"
 msgstr "Credit:"
 
@@ -1174,7 +1157,7 @@ msgid ""
 msgstr ""
 "Set here the content provider. This field is limited to 32 ASCII characters."
 
-#: iptc/iptccredits.cpp:128 xmp/xmpcredits.cpp:189
+#: iptc/iptccredits.cpp:128 xmp/xmpcredits.cpp:190
 msgctxt "original owner of content"
 msgid "Source:"
 msgstr "Source:"
@@ -1538,11 +1521,9 @@ msgstr "8: Low"
 
 #: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
 #: xmp/xmpproperties.cpp:194
-#, fuzzy
-#| msgid "Not defined"
 msgctxt "editorial urgency of content"
 msgid "9: User-defined"
-msgstr "Not defined"
+msgstr "9: User-defined"
 
 #: iptc/iptcenvelope.cpp:232
 msgid "Select here the envelope priority."
@@ -1629,7 +1610,7 @@ msgstr "Location:"
 msgid "Set here the full country name referenced by the content."
 msgstr "Set here the full country name referenced by the content."
 
-#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:152 xmp/xmporigin.cpp:150
+#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:153 xmp/xmporigin.cpp:150
 msgid "City:"
 msgstr "City:"
 
@@ -1665,7 +1646,7 @@ msgstr ""
 "Set here the Province or State of content origin. This field is limited to "
 "32 ASCII characters."
 
-#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:157 xmp/xmporigin.cpp:171
+#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:158 xmp/xmporigin.cpp:171
 msgid "Country:"
 msgstr "Country:"
 
@@ -1917,18 +1898,18 @@ msgstr ""
 "characters."
 
 #. i18n: ectx: Menu (Image)
-#: plugin/kipiplugin_metadataeditui.rc:6
+#: plugin/kipiplugin_metadataeditui.rc:7
 msgid "&Image"
-msgstr ""
+msgstr "&Image"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_metadataeditui.rc:12
+#: plugin/kipiplugin_metadataeditui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Main Toolbar"
 
 #: plugin/metadataedit.cpp:97
 msgid "Metadata edit dialog"
-msgstr "Metadata edit dialogue"
+msgstr "Metadata edit dialog"
 
 #: plugin/metadataedit.cpp:102
 msgid "Edit EXIF"
@@ -1959,10 +1940,8 @@ msgid "A Plugin to edit pictures' metadata."
 msgstr "A Plugin to edit pictures' metadata."
 
 #: plugin/metadataedit.cpp:159
-#, fuzzy
-#| msgid "(c) 2006-2011, Gilles Caulier"
 msgid "(c) 2006-2013, Gilles Caulier"
-msgstr "(c) 2006-2011, Gilles Caulier"
+msgstr "(c) 2006-2013, Gilles Caulier"
 
 #: plugin/metadataedit.cpp:161
 msgid "Gilles Caulier"
@@ -2142,10 +2121,8 @@ msgstr ""
 "limited to 64 ASCII characters."
 
 #: plugin/plugin_metadataedit.cpp:130
-#, fuzzy
-#| msgid "Metadata"
 msgid "&Metadata"
-msgstr "Metadata"
+msgstr "&Metadata"
 
 #: plugin/plugin_metadataedit.cpp:138
 msgid "Edit &All Metadata..."
@@ -2282,65 +2259,65 @@ msgstr "Default Language Caption Options"
 msgid "Enter the necessary copyright notice."
 msgstr "Enter the necessary copyright notice."
 
-#: xmp/xmpcredits.cpp:124
+#: xmp/xmpcredits.cpp:125
 msgid "Contact"
 msgstr "Contact"
 
-#: xmp/xmpcredits.cpp:127
+#: xmp/xmpcredits.cpp:128
 msgctxt "contact email address"
 msgid "E-mail:"
 msgstr "E-mail:"
 
-#: xmp/xmpcredits.cpp:130
+#: xmp/xmpcredits.cpp:131
 msgid "Set here the contact e-mail."
 msgstr "Set here the contact e-mail."
 
-#: xmp/xmpcredits.cpp:132
+#: xmp/xmpcredits.cpp:133
 msgid "URL:"
 msgstr "URL:"
 
-#: xmp/xmpcredits.cpp:135
+#: xmp/xmpcredits.cpp:136
 msgid "Set here the contact URL."
 msgstr "Set here the contact URL."
 
-#: xmp/xmpcredits.cpp:137
+#: xmp/xmpcredits.cpp:138
 msgid "Phone:"
 msgstr "Phone:"
 
-#: xmp/xmpcredits.cpp:140
+#: xmp/xmpcredits.cpp:141
 msgid "Set here the contact 'phone number."
 msgstr "Set here the contact 'phone number."
 
-#: xmp/xmpcredits.cpp:142
+#: xmp/xmpcredits.cpp:143
 msgctxt "Street address"
 msgid "Address:"
 msgstr "Address:"
 
-#: xmp/xmpcredits.cpp:145
+#: xmp/xmpcredits.cpp:146
 msgid "Set here the contact address."
 msgstr "Set here the contact address."
 
-#: xmp/xmpcredits.cpp:147
+#: xmp/xmpcredits.cpp:148
 msgid "Postal code:"
 msgstr "Postal code:"
 
-#: xmp/xmpcredits.cpp:150
+#: xmp/xmpcredits.cpp:151
 msgid "Set here the contact postal code."
 msgstr "Set here the contact postal code."
 
-#: xmp/xmpcredits.cpp:155
+#: xmp/xmpcredits.cpp:156
 msgid "Set here the contact city."
 msgstr "Set here the contact city."
 
-#: xmp/xmpcredits.cpp:160
+#: xmp/xmpcredits.cpp:161
 msgid "Set here the contact country."
 msgstr "Set here the contact country."
 
-#: xmp/xmpcredits.cpp:185
+#: xmp/xmpcredits.cpp:186
 msgid "Set here the content provider."
 msgstr "Set here the content provider."
 
-#: xmp/xmpcredits.cpp:192
+#: xmp/xmpcredits.cpp:193
 msgid "Set here the original owner of content."
 msgstr "Set here the original owner of content."
 

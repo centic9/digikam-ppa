@@ -12,7 +12,7 @@
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2005-2006 by Tom Albers <tomalbers at kde dot nl>
  * Copyright (C) 2008      by Arnd Baecker <arnd dot baecker at web dot de>
- * Copyright (C) 2013      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013-2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -103,6 +103,7 @@ extern "C"
 #include "editorcore.h"
 #include "dmetadata.h"
 #include "editorstackview.h"
+#include "fileoperation.h"
 #include "iccsettingscontainer.h"
 #include "imagedialog.h"
 #include "imageplugin.h"
@@ -123,7 +124,7 @@ extern "C"
 #include "thumbnailloadthread.h"
 #include "thumbnailsize.h"
 #include "uifilevalidator.h"
-#include "knotificationwrapper.h"
+#include "dnotificationwrapper.h"
 #include "showfotodelegate.h"
 #include "showfotocategorizedview.h"
 #include "showfotosettings.h"
@@ -406,18 +407,12 @@ void ShowFoto::setupUserArea()
     d->filterModel->setSourceShowfotoModel(d->model);
 
     d->filterModel->setCategorizationMode(ShowfotoItemSortSettings::NoCategories);
-    //d->filterModel->setSortRole((ShowfotoItemSortSettings::SortRole)ShowfotoSettings::instance()->getImageSortOrder());
     d->filterModel->sort(0);
 
     d->thumbBar->setModels(d->model, d->filterModel);
     d->thumbBar->setSelectionMode(QAbstractItemView::SingleSelection);
-    //d->thumbBar->setModelsFiltered(d->model,d->filterModel);
 
     viewContainer->setAutoSaveSettings("ImageViewer Thumbbar", true);
-
-//  TODO: Implement selection overlay
-//  d->normalDelegate = new ShowfotoNormalDelegate(d->thumbBar);
-//  d->thumbBar->addSelectionOverlay(d->normalDelegate);
 
     d->thumbBar->installOverlays();
 
@@ -886,7 +881,7 @@ void ShowFoto::saveIsComplete()
     //d->thumbBar->invalidateThumb(d->currentItem);
 
     // Pop-up a message to bring user when save is done.
-    Digikam::KNotificationWrapper("editorsavefilecompleted", i18n("Image saved successfully"),
+    Digikam::DNotificationWrapper("editorsavefilecompleted", i18n("Image saved successfully"),
                                   this, windowTitle());
 
     resetOrigin();
@@ -916,8 +911,8 @@ void ShowFoto::saveAsIsComplete()
     slotUpdateItemInfo();
 
     // Pop-up a message to bring user when save is done.
-    Digikam::KNotificationWrapper("editorsavefilecompleted", i18n("Image saved successfully"),
-                                    this, windowTitle());
+    Digikam::DNotificationWrapper("editorsavefilecompleted", i18n("Image saved successfully"),
+                                  this, windowTitle());
 */
 }
 
@@ -1027,7 +1022,12 @@ void ShowFoto::slotDeleteCurrentItemResult(KJob* job)
 
 void ShowFoto::slotContextMenu()
 {
-    m_contextMenu->exec(QCursor::pos());
+    if (m_contextMenu)
+    {
+        m_contextMenu->addSeparator();
+        addServicesMenu();
+        m_contextMenu->exec(QCursor::pos());
+    }
 }
 
 void ShowFoto::slideShow(Digikam::SlideShowSettings& settings)
@@ -1068,7 +1068,7 @@ void ShowFoto::slideShow(Digikam::SlideShowSettings& settings)
 
         if (settings.startWithCurrent)
         {
-            slide->setCurrent(d->thumbBar->currentUrl());
+            slide->setCurrentItem(d->thumbBar->currentUrl());
         }
 
         slide->show();
@@ -1264,7 +1264,8 @@ void ShowFoto::slotDroppedUrls(const KUrl::List& droppedUrls)
     {
         KUrl::List validUrls;
 
-        foreach (KUrl url, droppedUrls) {
+        foreach (KUrl url, droppedUrls)
+        {
             if(url.isValid())
             {
                 validUrls << url;
@@ -1337,6 +1338,21 @@ void ShowFoto::slotAddedDropedItems(QDropEvent* e)
     {
         slotDroppedUrls(urls);
     }
+}
+
+void ShowFoto::slotFileWithDefaultApplication()
+{
+    Digikam::FileOperation::openFilesWithDefaultApplication(KUrl::List() << d->thumbBar->currentUrl(), this);
+}
+
+void ShowFoto::addServicesMenu()
+{
+    addServicesMenuForUrl(d->thumbBar->currentUrl());
+}
+
+void ShowFoto::slotOpenWith(QAction* action)
+{
+    openWith(d->thumbBar->currentUrl(), action);
 }
 
 }   // namespace ShowFoto

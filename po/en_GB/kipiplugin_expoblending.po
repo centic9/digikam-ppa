@@ -2,28 +2,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010, 2011.
+# Steve Allewell <steve.allewell@gmail.com>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-07-30 01:31+0000\n"
-"PO-Revision-Date: 2011-05-01 12:42+0100\n"
-"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
-"Language-Team: British English <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2014-08-30 01:38+0000\n"
+"PO-Revision-Date: 2014-08-05 17:48+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrew Coles"
+msgstr "Andrew Coles, Steve Allewell"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrew_coles@yahoo.co.uk"
+msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
 
 #: blendingdlg/bracketstack.cpp:141
 msgid "To process"
@@ -312,10 +313,8 @@ msgstr ""
 "page</a></p></qt>"
 
 #: importwizard/intropage.cpp:86
-#, fuzzy
-#| msgid "Exposure Blending"
 msgid "Exposure Blending Binaries"
-msgstr "Exposure Blending"
+msgstr "Exposure Blending Binaries"
 
 #: importwizard/itemspage.cpp:70
 msgid "<b>Set Bracketed Images</b>"
@@ -338,13 +337,7 @@ msgid "Pre-Processing is Complete"
 msgstr "Pre-Processing is Complete"
 
 #: importwizard/lastpage.cpp:67
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt><p><h1><b>Bracketed Images Pre-Processing is Done</b></h1></"
-#| "p><p>Congratulations. Your images are ready to be fused. </p>To perform "
-#| "this operation, <b>%1</b> program from <a href='%2'>Enblend</a> project "
-#| "will be used.</p><p>Press \"Finish\" button to fuse your items and make a "
-#| "pseudo HDR image.</p></qt>"
+#, kde-format
 msgid ""
 "<qt><p><h1><b>Bracketed Images Pre-Processing is Done</b></h1></"
 "p><p>Congratulations. Your images are ready to be fused. </p><p>To perform "
@@ -353,10 +346,10 @@ msgid ""
 "HDR image.</p></qt>"
 msgstr ""
 "<qt><p><h1><b>Bracketed Images Pre-Processing is Done</b></h1></"
-"p><p>Congratulations. Your images are ready to be fused. </p>To perform this "
-"operation, <b>%1</b> program from <a href='%2'>Enblend</a> project will be "
-"used.</p><p>Press \"Finish\" button to fuse your items and make a pseudo HDR "
-"image.</p></qt>"
+"p><p>Congratulations. Your images are ready to be fused. </p><p>To perform "
+"this operation, <b>%1</b> program from <a href='%2'>Enblend</a> project will "
+"be used.</p><p>Press \"Finish\" button to fuse your items and make a pseudo "
+"HDR image.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:98
 msgid "<b>Pre-Processing Bracketed Images</b>"
@@ -367,15 +360,7 @@ msgid "Align bracketed images"
 msgstr "Align bracketed images"
 
 #: importwizard/preprocessingpage.cpp:160
-#, fuzzy, kde-format
-#| msgid ""
-#| "<qt><p>Now, we will pre-process bracketed images before fusing them.</"
-#| "p><p>To perform auto-alignment, the <b>%1</b> program from the <a "
-#| "href='%2'>%3</a> project will be used. Alignment must be performed if you "
-#| "have not used a tripod to take bracketed images. Alignment operations can "
-#| "take a while.</p><p>Pre-processing operations include Raw demosaicing. "
-#| "Raw images will be converted to 16-bit sRGB images with auto-gamma."
-#| "<p>Press \"Next\" to start pre-processing.</p></qt>"
+#, kde-format
 msgid ""
 "<qt><p>Now, we will pre-process bracketed images before fusing them.</"
 "p><p>To perform auto-alignment, the <b>%1</b> program from the <a href='%2'>"
@@ -390,26 +375,22 @@ msgstr ""
 "%3</a> project will be used. Alignment must be performed if you have not "
 "used a tripod to take bracketed images. Alignment operations can take a "
 "while.</p><p>Pre-processing operations include Raw demosaicing. Raw images "
-"will be converted to 16-bit sRGB images with auto-gamma.<p>Press \"Next\" to "
-"start pre-processing.</p></qt>"
+"will be converted to 16-bit sRGB images with auto-gamma.</p><p>Press \"Next"
+"\" to start pre-processing.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:179
-#, fuzzy
-#| msgid ""
-#| "<qt><p>Pre-processing is under progress, please wait.<p><p>This can take "
-#| "a while...</p></qt>"
 msgid ""
 "<qt><p>Pre-processing is under progress, please wait.</p><p>This can take a "
 "while...</p></qt>"
 msgstr ""
-"<qt><p>Pre-processing is under progress, please wait.<p><p>This can take a "
+"<qt><p>Pre-processing is under progress, please wait.</p><p>This can take a "
 "while...</p></qt>"
 
-#: importwizard/preprocessingpage.cpp:221
+#: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
 msgstr "Pre-Processing Messages"
 
-#: importwizard/preprocessingpage.cpp:240
+#: importwizard/preprocessingpage.cpp:242
 msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
@@ -417,11 +398,11 @@ msgstr ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
 
-#: manager/actionthread.cpp:308
+#: manager/actionthread.cpp:320
 msgid "unknown"
 msgstr "unknown"
 
-#: manager/actionthread.cpp:807
+#: manager/actionthread.cpp:835
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -437,10 +418,8 @@ msgid "A tool to blend bracketed images"
 msgstr "A tool to blend bracketed images"
 
 #: plugin/aboutdata.h:44
-#, fuzzy
-#| msgid "(c) 2009-2011, Gilles Caulier"
-msgid "(c) 2009-2012, Gilles Caulier"
-msgstr "(c) 2009-2011, Gilles Caulier"
+msgid "(c) 2009-2014, Gilles Caulier"
+msgstr "(c) 2009-2014, Gilles Caulier"
 
 #: plugin/aboutdata.h:46
 msgid "Gilles Caulier"
@@ -454,29 +433,31 @@ msgstr "Author"
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
-#: plugin/aboutdata.h:51
+#: plugin/aboutdata.h:51 plugin/aboutdata.h:55
 msgid "Developer"
 msgstr "Developer"
+
+#: plugin/aboutdata.h:54
+msgid "Benjamin Girault"
+msgstr "Benjamin Girault"
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
 msgstr "File(s) to open"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_expoblendingui.rc:6
+#: plugin/kipiplugin_expoblendingui.rc:7
 msgid "&Tools"
-msgstr ""
+msgstr "&Tools"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_expoblendingui.rc:12
+#: plugin/kipiplugin_expoblendingui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Main Toolbar"
 
 #: plugin/plugin_expoblending.cpp:95
-#, fuzzy
-#| msgid "Blend bracketed images..."
 msgid "Blend Bracketed Images..."
-msgstr "Blend bracketed images..."
+msgstr "Blend Bracketed Images..."
 
 #~ msgid "Handbook"
 #~ msgstr "Handbook"

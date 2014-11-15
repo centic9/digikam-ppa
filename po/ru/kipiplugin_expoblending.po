@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-07-30 01:31+0000\n"
+"POT-Creation-Date: 2014-08-30 01:38+0000\n"
 "PO-Revision-Date: 2013-10-15 14:24+0400\n"
 "Last-Translator: Julia Dronova <juliette.tux@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -399,11 +399,11 @@ msgstr ""
 "<qt><p>Выполняется предварительная обработка.</p><p>Пожалуйста, подождите..."
 "</p></qt>"
 
-#: importwizard/preprocessingpage.cpp:221
+#: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
 msgstr "Сообщения предварительной обработки"
 
-#: importwizard/preprocessingpage.cpp:240
+#: importwizard/preprocessingpage.cpp:242
 msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
@@ -412,11 +412,11 @@ msgstr ""
 "снимки с брекетингом...</p><p>Для просмотра сообщений обработки, нажмите "
 "кнопку «Подробности».</p></qt>"
 
-#: manager/actionthread.cpp:308
+#: manager/actionthread.cpp:320
 msgid "unknown"
 msgstr "неизвестно"
 
-#: manager/actionthread.cpp:807
+#: manager/actionthread.cpp:835
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -432,7 +432,9 @@ msgid "A tool to blend bracketed images"
 msgstr "Инструмент для объединения снимков с брекетингом"
 
 #: plugin/aboutdata.h:44
-msgid "(c) 2009-2012, Gilles Caulier"
+#, fuzzy
+#| msgid "(c) 2009-2012, Gilles Caulier"
+msgid "(c) 2009-2014, Gilles Caulier"
 msgstr "© Жиль Колье (Gilles Caulier), 2009–2010"
 
 #: plugin/aboutdata.h:46
@@ -447,21 +449,25 @@ msgstr "Автор"
 msgid "Johannes Wienke"
 msgstr "Йоханнес Виенке (Johannes Wienke)"
 
-#: plugin/aboutdata.h:51
+#: plugin/aboutdata.h:51 plugin/aboutdata.h:55
 msgid "Developer"
 msgstr "Разработчик"
+
+#: plugin/aboutdata.h:54
+msgid "Benjamin Girault"
+msgstr ""
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
 msgstr "Открыть файл(ы)"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_expoblendingui.rc:6
+#: plugin/kipiplugin_expoblendingui.rc:7
 msgid "&Tools"
 msgstr "С&ервис"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_expoblendingui.rc:12
+#: plugin/kipiplugin_expoblendingui.rc:13
 msgid "Main Toolbar"
 msgstr "Главная панель инструментов"
 
