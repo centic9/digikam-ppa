@@ -7,9 +7,9 @@
  * @date   2006-09-19
  * @brief  Track file loading and managing
  *
- * @author Copyright (C) 2006-2013 by Gilles Caulier
+ * @author Copyright (C) 2006-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
- * @author Copyright (C) 2010, 2014 by Michael G. Hansen
+ * @author Copyright (C) 2010-2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
  *
  * This program is free software; you can redistribute it
@@ -29,13 +29,12 @@
 
 // Qt includes
 
-#include <QColor>
-#include <QDateTime>
+#include <QtGui/QColor>
+#include <QtCore/QDateTime>
 
 // KDE includes
 
 #include <kurl.h>
-#include <boost/graph/buffer_concepts.hpp>
 
 // local includes
 
@@ -58,13 +57,13 @@ public:
     public:
 
         TrackPoint()
-        : dateTime(),
-          coordinates(),
-          nSatellites(-1),
-          hDop(-1),
-          pDop(-1),
-          fixType(-1),
-          speed(-1)
+          : dateTime(),
+            coordinates(),
+            nSatellites(-1),
+            hDop(-1),
+            pDop(-1),
+            fixType(-1),
+            speed(-1)
         {
         }
 
@@ -72,13 +71,13 @@ public:
 
     public:
 
-        QDateTime                   dateTime;
-        GeoCoordinates              coordinates;
-        int                         nSatellites;
-        qreal                       hDop;
-        qreal                       pDop;
-        int                         fixType;
-        qreal                       speed;
+        QDateTime                 dateTime;
+        GeoCoordinates            coordinates;
+        int                       nSatellites;
+        qreal                     hDop;
+        qreal                     pDop;
+        int                       fixType;
+        qreal                     speed;
 
         typedef QList<TrackPoint> List;
     };
@@ -91,6 +90,7 @@ public:
     class Track
     {
     public:
+
         enum Flags
         {
             FlagVisible = 1,
@@ -98,21 +98,23 @@ public:
             FlagDefault = FlagVisible
         };
 
+    public:
+
         Track()
-        : url(),
-          points(),
-          id(0),
-          color(Qt::red),
-          flags(FlagDefault)
+          : url(),
+            points(),
+            id(0),
+            color(Qt::red),
+            flags(FlagDefault)
         {
         }
 
-        KUrl url;
-        QList<TrackPoint> points;
+        KUrl                 url;
+        QList<TrackPoint>    points;
         /// 0 means no track id assigned yet
-        Id id;
-        QColor color;
-        Flags flags;
+        Id                   id;
+        QColor               color;
+        Flags                flags;
 
         typedef QList<Track> List;
     };
@@ -120,10 +122,10 @@ public:
     enum ChangeFlag
     {
         ChangeTrackPoints = 1,
-        ChangeMetadata = 2,
+        ChangeMetadata    = 2,
 
-        ChangeRemoved = 4,
-        ChangeAdd = ChangeTrackPoints | ChangeMetadata
+        ChangeRemoved     = 4,
+        ChangeAdd         = ChangeTrackPoints | ChangeMetadata
     };
 
     typedef QPair<Id, ChangeFlag> TrackChanges;
@@ -136,12 +138,15 @@ public:
     void loadTrackFiles(const KUrl::List& urls);
     QList<QPair<KUrl, QString> > readLoadErrors();
     void clear();
+
     const Track& getTrack(const int index) const;
     Track::List getTrackList() const;
     int trackCount() const;
+
     quint64 getNextFreeTrackId();
-    Track getTrackById(const quint64 trackId) const;
-    QColor getNextFreeTrackColor();
+    Track   getTrackById(const quint64 trackId) const;
+    QColor  getNextFreeTrackColor();
+
     void setVisibility(const bool value);
     bool getVisibility() const;
 

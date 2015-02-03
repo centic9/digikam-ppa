@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2011-04-16 05:37+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -287,8 +287,10 @@ msgstr "Groot (1024 Pixels)"
 msgid "Very Big (1280 pixels)"
 msgstr "Bannig groot (1280 Pixels)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Övergroot - Druckgööd (1600 Pixels)"
 
 #: settingswidget.cpp:145
@@ -312,6 +314,10 @@ msgstr ""
 "Bruuk dit bi gaue Internet-Verbinnen un wenn dat Teel-Postfach keen "
 "Gröttgrenz hett.</p><p><b>%5</b>: Bruuk dit, wenn Du Di nich an Gauheit oder "
 "Grött kehren bruukst.</p><p><b>%6</b>: Bruuk dit bloots för't Drucken.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Övergroot - Druckgööd (1600 Pixels)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

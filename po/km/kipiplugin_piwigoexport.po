@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_piwigoexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-10-04 01:39+0000\n"
 "PO-Revision-Date: 2012-06-25 12:02+0700\n"
 "Last-Translator: Sophea <sophea@khmeros.info>\n"
 "Language-Team: Khmer <>\n"
@@ -56,67 +56,66 @@ msgctxt "piwigo login settings"
 msgid "Password:"
 msgstr "ពាក្យសម្ងាត់ ៖"
 
-#: piwigotalker.cpp:275
+#: piwigotalker.cpp:283
 #, kde-format
 msgid "Check if %1 already exists"
 msgstr "ធីក​បើ​ %1 មាន​រួច​ហើយ"
 
-#: piwigotalker.cpp:446
+#: piwigotalker.cpp:432
 msgid "Piwigo URL probably incorrect"
 msgstr "ប្រហែល​ជា​ Piwigo URL ​មិន​ត្រឹមត្រូវ​​"
 
-#: piwigotalker.cpp:452
+#: piwigotalker.cpp:438
 msgid "Incorrect username or password specified"
 msgstr "បាន​បញ្ជាក់​ពាក្យ​សម្ងាត់​ ឬ​ឈ្មោះ​អ្នក​ប្រើ​មិន​ត្រឹមត្រូវ​"
 
-#: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
-#: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
-#: piwigotalker.cpp:1118 piwigotalker.cpp:1252
+#: piwigotalker.cpp:480 piwigotalker.cpp:661
+msgid "Upload to Piwigo version < 2.4 is no longer supported"
+msgstr ""
+
+#: piwigotalker.cpp:552 piwigotalker.cpp:637 piwigotalker.cpp:706
+#: piwigotalker.cpp:778
 msgid "Invalid response received from remote Piwigo"
 msgstr "បាន​ទទួល​ចម្លើយ​តប​មិន​ត្រឹមត្រូវ​ពី​ Piwigo ពី​ចម្ងាយ​"
 
-#: piwigotalker.cpp:564
+#: piwigotalker.cpp:558
 msgid "Failed to list albums"
 msgstr "បាន​បរាជ័យ​រាយ​បញ្ជី​អាល់ប៊ុម​"
 
-#: piwigotalker.cpp:611
+#: piwigotalker.cpp:607
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "រូបថត​ %1 មាន​រួច​ហើយ ។"
 
-#: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
-#: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
+#: piwigotalker.cpp:643 piwigotalker.cpp:784 piwigotalker.cpp:938
 msgid "Failed to upload photo"
 msgstr "បាន​បរាជ័យ​ដើម្បី​ផ្ទុក​រូបថត​"
 
-#: piwigotalker.cpp:682
-#, kde-format
-msgid "Upload resized version of %1"
-msgstr "ផ្ទុក​កំណែ​ដែល​បាន​ប្ដូរ​ទំហំ​ឡើយ​​នៃ​ %1​"
-
-#: piwigotalker.cpp:736
+#: piwigotalker.cpp:712
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "រូបថត​ %1 មាន​រួច​ហើយ​នៅ​ក្នុង​អាល់ប៊ុម​នេះ ។"
 
-#: piwigotalker.cpp:851 piwigotalker.cpp:1082
-#, kde-format
-msgid "Upload the chunk %1 of %2"
+#: piwigotalker.cpp:822
+#, fuzzy, kde-format
+#| msgid "Upload the chunk %1 of %2"
+msgid "Upload the chunk %1/%2 of %3"
 msgstr "ផ្ទុក​សង្ខេប​មេរៀន​ %1 នៃ %2"
 
-#: piwigotalker.cpp:887 piwigotalker.cpp:1169
+#: piwigotalker.cpp:858
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "ការ​ព្រមាន ៖ រូបថត​ទំហំ​ពេញ​មិន​ត្រូវ​បាន​ផ្ទុក​ឡើយ ។​"
 
-#: piwigotalker.cpp:926 piwigotalker.cpp:1216
+#: piwigotalker.cpp:896
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "ផ្ទុក​ទិន្នន័យ​មេតា​នៃ %1"
 
-#: piwigotalker.cpp:1047
-#, kde-format
-msgid "Upload the thumbnail of %1"
-msgstr "ផ្ទុក​រូបភាព​តូច​នៃ​​ %1"
+#: piwigotalker.cpp:932
+#, fuzzy, kde-format
+#| msgid "Invalid response received from remote Piwigo"
+msgid "Invalid response received from remote Piwigo (%1)"
+msgstr "បាន​ទទួល​ចម្លើយ​តប​មិន​ត្រឹមត្រូវ​ពី​ Piwigo ពី​ចម្ងាយ​"
 
 #: piwigowindow.cpp:135
 msgid "Albums"
@@ -142,23 +141,19 @@ msgstr "ទទឹង​អតិបរមា ៖"
 msgid "Maximum height:"
 msgstr "កម្ពស់​អតិបរមា ៖"
 
-#: piwigowindow.cpp:168
-msgid "Maximum thumbnail dimension:"
-msgstr "វិមាត្រ​រូបភាព​តូច​អតិបរមា ៖​"
+#: piwigowindow.cpp:167
+msgid "Resized JPEG quality:"
+msgstr ""
 
-#: piwigowindow.cpp:173
-msgid "Thumbnail size is ignored with Piwigo > 2.4"
-msgstr "ទំហំ​រូបភាព​តូច​ត្រូវ​បាន​មិន​អើពើ​ជាមួយ Piwigo > 2.4"
-
-#: piwigowindow.cpp:235 piwigowindow.cpp:240
+#: piwigowindow.cpp:227 piwigowindow.cpp:232
 msgid "Piwigo Export"
 msgstr "ការ​នាំចេញ Piwigo​"
 
-#: piwigowindow.cpp:243
+#: piwigowindow.cpp:235
 msgid "A Kipi plugin to export image collections to a remote Piwigo server."
 msgstr "កម្មវិធី​ជំនួយ Kipi ​ដើម្បី​នាំចេញ​រូបភាព​សម្រាំង​ទៅកាន់​ម៉ាស៊ីន​បម្រើ​ Piwigo ពី​ចម្ងាយ ។​"
 
-#: piwigowindow.cpp:244
+#: piwigowindow.cpp:236
 #, fuzzy
 #| msgid ""
 #| "(c) 2003-2005, Renchi Raju\n"
@@ -171,7 +166,7 @@ msgid ""
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 msgstr ""
 "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៣-២០០៥ ដោយ​ Renchi Raju\n"
 "រក្សា​សិទ្ធិ​ឆ្នាំ ២០០៦-២០០៧ ដោយ Colin Guthrie\n"
@@ -179,47 +174,47 @@ msgstr ""
 "រក្សា​សិទ្ធិ​ឆ្នាំ ២០០៨ ដោយ Andrea Diamantini\n"
 "រក្សា​សិទ្ធិ​ឆ្នាំ ២០១២ ដោយ Frédéric Coiffier\n"
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Renchi Raju"
 msgstr "Renchi Raju"
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Author"
 msgstr "អ្នក​និពន្ធ​"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Colin Guthrie"
 msgstr "Colin Guthrie"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Maintainer"
 msgstr "អ្នក​ថែទាំ​"
 
-#: piwigowindow.cpp:256
+#: piwigowindow.cpp:248
 msgid "Andrea Diamantini"
 msgstr "Andrea Diamantini"
 
-#: piwigowindow.cpp:256 piwigowindow.cpp:259 piwigowindow.cpp:262
+#: piwigowindow.cpp:248 piwigowindow.cpp:251 piwigowindow.cpp:254
 msgid "Developer"
 msgstr "អ្នក​អភវឌ្ឍន៍​"
 
-#: piwigowindow.cpp:259
+#: piwigowindow.cpp:251
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: piwigowindow.cpp:262
+#: piwigowindow.cpp:254
 msgid "Frédéric Coiffier"
 msgstr "Frédéric Coiffier"
 
-#: piwigowindow.cpp:270
+#: piwigowindow.cpp:262
 msgid "Start Upload"
 msgstr "ចាប់ផ្ដើម​ផ្ទុក​ឡើង"
 
-#: piwigowindow.cpp:404
+#: piwigowindow.cpp:397
 msgid "Failed to login into remote piwigo. "
 msgstr "បាន​បរាជ័យ​ដើម្បី​ចូល​ទៅកាន់​​ piwigo ពី​ចម្ងាយ ។ "
 
-#: piwigowindow.cpp:406
+#: piwigowindow.cpp:399
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
@@ -227,32 +222,39 @@ msgstr ""
 "\n"
 "តើ​អ្នក​ចង់​ពិនិត្យ​មើល​ការ​កំណត់​របស់​អ្នក​ ហើយ​សាកល្បង​ម្ដងទៀត​ដែល​ឬ​ទេ ?"
 
-#: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
+#: piwigowindow.cpp:406 piwigowindow.cpp:648 plugin_piwigoexport.cpp:118
 msgid "Edit Piwigo Data"
 msgstr "កែសម្រួល​ទិន្នន័យ​ Piwigo​"
 
-#: piwigowindow.cpp:473 piwigowindow.cpp:497
+#: piwigowindow.cpp:466 piwigowindow.cpp:490
 msgid "Album"
 msgstr "អាល់ប៊ុម"
 
-#: piwigowindow.cpp:516
+#: piwigowindow.cpp:509
 msgid "Image"
 msgstr "រូបភាព​"
 
-#: piwigowindow.cpp:547
+#: piwigowindow.cpp:540
 msgid "Nothing to upload - please select photos to upload."
 msgstr "គ្មាន​ផ្ទុក​អ្វី​ឡើយ​ - សូម​ជ្រើស​រូបថត​ត្រូវ​ផ្ទុក ។"
 
-#: piwigowindow.cpp:589
+#: piwigowindow.cpp:578
+#, kde-format
+msgid "The file %1 is not a supported image or video format"
+msgstr ""
+
+#: piwigowindow.cpp:582
 #, kde-format
 msgid "Uploading file %1"
 msgstr "ឯកសារ​ដែល​ផ្ទុក​ %1"
 
-#: piwigowindow.cpp:608
-msgid "Failed to upload photo into remote piwigo. "
+#: piwigowindow.cpp:601
+#, fuzzy
+#| msgid "Failed to upload photo into remote piwigo. "
+msgid "Failed to upload media into remote piwigo. "
 msgstr "បាន​បរាជ័យ​ដើម្បី​​ផ្ទុក​រូបថត​ទៅកាន់​​ piwigo ពី​ចម្ងាយ ។ "
 
-#: piwigowindow.cpp:611
+#: piwigowindow.cpp:604
 msgid ""
 "\n"
 "Do you want to continue?"
@@ -263,6 +265,18 @@ msgstr ""
 #: plugin_piwigoexport.cpp:98
 msgid "Export to &Piwigo..."
 msgstr "នាំចេញ​ទៅកាន់​ &Piwigo..."
+
+#~ msgid "Upload resized version of %1"
+#~ msgstr "ផ្ទុក​កំណែ​ដែល​បាន​ប្ដូរ​ទំហំ​ឡើយ​​នៃ​ %1​"
+
+#~ msgid "Upload the thumbnail of %1"
+#~ msgstr "ផ្ទុក​រូបភាព​តូច​នៃ​​ %1"
+
+#~ msgid "Maximum thumbnail dimension:"
+#~ msgstr "វិមាត្រ​រូបភាព​តូច​អតិបរមា ៖​"
+
+#~ msgid "Thumbnail size is ignored with Piwigo > 2.4"
+#~ msgstr "ទំហំ​រូបភាព​តូច​ត្រូវ​បាន​មិន​អើពើ​ជាមួយ Piwigo > 2.4"
 
 #~ msgid "&Add Selected Photos"
 #~ msgstr "បន្ថែម​រូបថត​ដែល​បាន​​ជ្រើស​"

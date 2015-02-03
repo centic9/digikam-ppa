@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
 "PO-Revision-Date: 2012-10-11 10:45+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -76,11 +76,11 @@ msgstr "B&ilde"
 msgid "Main Toolbar"
 msgstr "Hovedverktøylinje"
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 msgid "Timestamp Used"
 msgstr "Tidsstempel brukt"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 msgid "Timestamp Updated"
 msgstr "Tidsstempel oppdatert"
 
@@ -92,28 +92,28 @@ msgstr "Nytt filnavn"
 msgid "Status"
 msgstr "Status"
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr "ugyldig"
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr "I/T"
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 msgid "Failed to update metadata timestamp"
 msgstr "Klarte ikke å oppdatere metadata tidsstempel"
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 msgid "Failed to update file timestamp"
 msgstr "Klarte ikke å oppdatere tidsstempel for fila"
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr "Klarte ikke å gi fila nytt navn"
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr "Behandling ferdig, uten feil"
 
@@ -121,66 +121,70 @@ msgstr "Behandling ferdig, uten feil"
 msgid "Adjust Time && Date..."
 msgstr "Juster tid og dato …"
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr "%1 tidsstempel"
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr "Fil sist endret"
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr "EXIF/IPTC/XMP"
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr "EXIF: opprettet"
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr "EXIF: original"
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr "EXIF: digitalisert"
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr "IPTC: opprettet"
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr "XMP: opprettet"
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "Still tilbake til dagens dato"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "Kopier verdi"
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Legg til"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "Trekk fra"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "dager"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 msgid "Determine difference from clock photo"
 msgstr "Bestem tidsforskjellen fra fotoklokka"
+
+#: settingswidget.cpp:256
+msgid "EXIF: Thumbnail"
+msgstr ""
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -190,11 +194,11 @@ msgstr "XMP"
 msgid "Filename"
 msgstr "Filnavn"
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 msgid "Timestamp Adjustments"
 msgstr "Tidsstempel-justeringer"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "Juster tid og dato"
 
@@ -209,12 +213,9 @@ msgstr "Et Kipi programtillegg for å justere tidsstemplet i bildefiler"
 #: timeadjustdialog.cpp:133
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
-"© 2003-2005 Jesper K. Pedersen\n"
-"© 2006-2011 Gilles Caulier\n"
-"© 2012 Smit Mehta"
 
 #: timeadjustdialog.cpp:137
 msgid "Jesper K. Pedersen"
@@ -240,10 +241,10 @@ msgstr "Smit Mehta"
 msgid "Pieter Edelman"
 msgstr "Pieter Edelman"
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 msgid "Adjust Time and Date"
 msgstr "Juster tid og dato"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr "Du må velge minst ett alternativ"

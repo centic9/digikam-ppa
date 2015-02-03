@@ -4,13 +4,13 @@
 # Rune Rønde Laursen <runerl@skjoldhoej.dk>, 2004, 2005.
 # Erik Kjær Pedersen <erik@binghamton.edu>, 2005, 2006.
 # Anders Lund <anders@alweb.dk>, 2008, 2009.
-# Martin Schlander <mschlander@opensuse.org>, 2009, 2011, 2012, 2013.
+# Martin Schlander <mschlander@opensuse.org>, 2009, 2011, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-04-09 19:35+0200\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
+"PO-Revision-Date: 2014-12-22 20:39+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
@@ -285,9 +285,9 @@ msgstr "Stor (1024 billedpunkter)"
 msgid "Very Big (1280 pixels)"
 msgstr "Meget stor (1280 billedpunkter)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
-msgstr "Meget stor - for udskrift (1600 billedpunkter)"
+#: settingswidget.cpp:143
+msgid "Large - for printing (1600 pixels)"
+msgstr "Stor - til udskrift (1600 billedpunkter)"
 
 #: settingswidget.cpp:145
 #, kde-format
@@ -311,6 +311,10 @@ msgstr ""
 "hvis postkassen ikke er størrelsesbegrænset.</p><p><b>%5</b>: Benyttes hvis "
 "der ingen begrænsning er på hastighed og postkassestørrelse.</p><p><b>%6</"
 "b>: Brug kun denne til udskriftsformål.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Meget stor - for udskrift (1600 billedpunkter)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

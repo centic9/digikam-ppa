@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2009-2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  * @author Copyright (C) 2014 by Justus Schwartz
  *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
@@ -69,9 +69,16 @@ class BMInternalWidgetInfo
 {
 public:
 
+    BMInternalWidgetInfo()
+    {
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
-    BMLayer*               bmLayer;
-#endif    
+        bmLayer = 0;
+#endif
+    }
+
+#ifdef KGEOMAP_MARBLE_ADD_LAYER
+    BMLayer* bmLayer;
+#endif
 };
 
 } /* KGeoMap */
@@ -80,11 +87,12 @@ Q_DECLARE_METATYPE(KGeoMap::BMInternalWidgetInfo)
 
 namespace KGeoMap
 {
-    
-class BackendMarble::BackendMarblePrivate
+
+class BackendMarble::Private
 {
 public:
-    BackendMarblePrivate()
+
+    Private()
       : marbleWidget(0),
         actionGroupMapTheme(0),
         actionGroupProjection(0),
@@ -122,51 +130,51 @@ public:
     {
     }
 
-    QPointer<Marble::MarbleWidget> marbleWidget;
+    QPointer<Marble::MarbleWidget>            marbleWidget;
 
-    QActionGroup*          actionGroupMapTheme;
-    QActionGroup*          actionGroupProjection;
-    QActionGroup*          actionGroupFloatItems;
-    KAction*               actionShowCompass;
-    KAction*               actionShowOverviewMap;
-    KAction*               actionShowScaleBar;
+    QActionGroup*                             actionGroupMapTheme;
+    QActionGroup*                             actionGroupProjection;
+    QActionGroup*                             actionGroupFloatItems;
+    KAction*                                  actionShowCompass;
+    KAction*                                  actionShowOverviewMap;
+    KAction*                                  actionShowScaleBar;
 
-    QString                cacheMapTheme;
-    QString                cacheProjection;
-    bool                   cacheShowCompass;
-    bool                   cacheShowScaleBar;
-    bool                   cacheShowOverviewMap;
-    int                    cacheZoom;
-    bool                   havePotentiallyMouseMovingObject;
-    bool                   haveMouseMovingObject;
-    int                    mouseMoveClusterIndex;
-    QPersistentModelIndex  mouseMoveMarkerIndex;
-    GeoCoordinates         mouseMoveObjectCoordinates;
-    QPoint                 mouseMoveCenterOffset;
-    int                    dragDropMarkerCount;
-    QPoint                 dragDropMarkerPos;
-    int                    clustersDirtyCacheProjection;
-    qreal                  clustersDirtyCacheLat;
-    qreal                  clustersDirtyCacheLon;
+    QString                                   cacheMapTheme;
+    QString                                   cacheProjection;
+    bool                                      cacheShowCompass;
+    bool                                      cacheShowScaleBar;
+    bool                                      cacheShowOverviewMap;
+    int                                       cacheZoom;
+    bool                                      havePotentiallyMouseMovingObject;
+    bool                                      haveMouseMovingObject;
+    int                                       mouseMoveClusterIndex;
+    QPersistentModelIndex                     mouseMoveMarkerIndex;
+    GeoCoordinates                            mouseMoveObjectCoordinates;
+    QPoint                                    mouseMoveCenterOffset;
+    int                                       dragDropMarkerCount;
+    QPoint                                    dragDropMarkerPos;
+    int                                       clustersDirtyCacheProjection;
+    qreal                                     clustersDirtyCacheLat;
+    qreal                                     clustersDirtyCacheLon;
 
-    GeoCoordinates::Pair   displayedRectangle;
-    QPoint                 firstSelectionScreenPoint;
-    QPoint                 intermediateSelectionScreenPoint;
-    GeoCoordinates         firstSelectionPoint;
-    GeoCoordinates         intermediateSelectionPoint;
-    bool                   activeState;
-    bool                   widgetIsDocked;
-    bool                   blockingZoomWhileChangingTheme;
+    GeoCoordinates::Pair                      displayedRectangle;
+    QPoint                                    firstSelectionScreenPoint;
+    QPoint                                    intermediateSelectionScreenPoint;
+    GeoCoordinates                            firstSelectionPoint;
+    GeoCoordinates                            intermediateSelectionPoint;
+    bool                                      activeState;
+    bool                                      widgetIsDocked;
+    bool                                      blockingZoomWhileChangingTheme;
 
     QHash<quint64, Marble::GeoDataLineString> trackCache;
 
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
-    BMLayer*               bmLayer;
+    BMLayer*                                  bmLayer;
 #endif
 };
 
 BackendMarble::BackendMarble(const QExplicitlySharedDataPointer<KGeoMapSharedData>& sharedData, QObject* const parent)
-             : MapBackend(sharedData, parent), d(new BackendMarblePrivate())
+    : MapBackend(sharedData, parent), d(new Private())
 {
     createActions();
 }
@@ -214,6 +222,7 @@ QWidget* BackendMarble::mapWidget()
         KGeoMapGlobalObject* const go = KGeoMapGlobalObject::instance();
 
         KGeoMapInternalWidgetInfo info;
+
         if (go->getInternalWidgetFromPool(this, &info))
         {
             d->marbleWidget = qobject_cast<Marble::MarbleWidget*>(info.widget);
@@ -227,7 +236,7 @@ QWidget* BackendMarble::mapWidget()
         {
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
             d->marbleWidget = new Marble::MarbleWidget();
-            d->bmLayer = new BMLayer(this);
+            d->bmLayer      = new BMLayer(this);
 
 #if MARBLE_VERSION>=0x000c00
             d->marbleWidget->addLayer(d->bmLayer);
@@ -263,6 +272,7 @@ void BackendMarble::releaseWidget(KGeoMapInternalWidgetInfo* const info)
 
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
     BMInternalWidgetInfo intInfo = info->backendData.value<BMInternalWidgetInfo>();
+
     if (intInfo.bmLayer)
     {
         intInfo.bmLayer->setBackend(0);
@@ -273,11 +283,11 @@ void BackendMarble::releaseWidget(KGeoMapInternalWidgetInfo* const info)
                this, SLOT(slotMarbleZoomChanged(int)));
 
     info->currentOwner = 0;
-    info->state = KGeoMapInternalWidgetInfo::InternalWidgetReleased;
+    info->state        = KGeoMapInternalWidgetInfo::InternalWidgetReleased;
 
-    d->marbleWidget = 0;
+    d->marbleWidget    = 0;
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
-    d->bmLayer = 0;
+    d->bmLayer         = 0;
 #endif /* KGEOMAP_MARBLE_ADD_LAYER */
 
     emit(signalBackendReadyChanged(backendName()));
@@ -402,7 +412,8 @@ void BackendMarble::addActionsToConfigurationMenu(QMenu* const configurationMenu
     configurationMenu->addSeparator();
 
     const QList<QAction*> mapThemeActions = d->actionGroupMapTheme->actions();
-    for (int i=0; i<mapThemeActions.count(); ++i)
+
+    for (int i = 0; i < mapThemeActions.count(); ++i)
     {
         configurationMenu->addAction(mapThemeActions.at(i));
     }
@@ -410,18 +421,20 @@ void BackendMarble::addActionsToConfigurationMenu(QMenu* const configurationMenu
     configurationMenu->addSeparator();
 
     // TODO: we need a parent for this guy!
-    QMenu* const projectionSubMenu = new QMenu(i18n("Projection"), configurationMenu);
+    QMenu* const projectionSubMenu          = new QMenu(i18n("Projection"), configurationMenu);
     configurationMenu->addMenu(projectionSubMenu);
     const QList<QAction*> projectionActions = d->actionGroupProjection->actions();
-    for (int i=0; i<projectionActions.count(); ++i)
+
+    for (int i = 0; i < projectionActions.count(); ++i)
     {
         projectionSubMenu->addAction(projectionActions.at(i));
     }
 
-    QMenu* const floatItemsSubMenu = new QMenu(i18n("Float items"), configurationMenu);
+    QMenu* const floatItemsSubMenu     = new QMenu(i18n("Float items"), configurationMenu);
     configurationMenu->addMenu(floatItemsSubMenu);
     const QList<QAction*> floatActions = d->actionGroupFloatItems->actions();
-    for (int i=0; i<floatActions.count(); ++i)
+
+    for (int i = 0; i < floatActions.count(); ++i)
     {
         floatItemsSubMenu->addAction(floatActions.at(i));
     }
@@ -452,7 +465,8 @@ void BackendMarble::setMapTheme(const QString& newMapTheme)
     // Changing the map theme changes the zoom - we want to try to keep the zoom constant
     d->blockingZoomWhileChangingTheme = true;
     // Remember the zoom from the cache. The zoom of the widget may not have been set yet!
-    const int oldMarbleZoom = d->cacheZoom;
+    const int oldMarbleZoom           = d->cacheZoom;
+
     if (newMapTheme == QLatin1String("atlas"))
     {
         d->marbleWidget->setMapThemeId(QLatin1String("earth/srtm/srtm.dgml"));
@@ -469,6 +483,7 @@ void BackendMarble::setMapTheme(const QString& newMapTheme)
 
     // make sure the zoom level is within the allowed range
     int targetZoomLevel = oldMarbleZoom;
+
     if (oldMarbleZoom > d->marbleWidget->maximumZoom())
     {
         targetZoomLevel = d->marbleWidget->maximumZoom();
@@ -484,6 +499,7 @@ void BackendMarble::setMapTheme(const QString& newMapTheme)
         // the signal now to allow the change to propagate
         d->blockingZoomWhileChangingTheme = false;
     }
+
     d->marbleWidget->zoomView(targetZoomLevel);
     d->blockingZoomWhileChangingTheme = false;
 
@@ -492,31 +508,33 @@ void BackendMarble::setMapTheme(const QString& newMapTheme)
 
 void BackendMarble::saveSettingsToGroup(KConfigGroup* const group)
 {
-    KGEOMAP_ASSERT(group!=0);
+    KGEOMAP_ASSERT(group != 0);
+
     if (!group)
     {
         return;
     }
 
-    group->writeEntry("Marble Map Theme", d->cacheMapTheme);
-    group->writeEntry("Marble Projection", d->cacheProjection);
-    group->writeEntry("Marble Show Scale Bar", d->cacheShowScaleBar);
-    group->writeEntry("Marble Show Compass", d->cacheShowCompass);
+    group->writeEntry("Marble Map Theme",         d->cacheMapTheme);
+    group->writeEntry("Marble Projection",        d->cacheProjection);
+    group->writeEntry("Marble Show Scale Bar",    d->cacheShowScaleBar);
+    group->writeEntry("Marble Show Compass",      d->cacheShowCompass);
     group->writeEntry("Marble Show Overview Map", d->cacheShowOverviewMap);
 }
 
 void BackendMarble::readSettingsFromGroup(const KConfigGroup* const group)
 {
-    KGEOMAP_ASSERT(group!=0);
+    KGEOMAP_ASSERT(group != 0);
+
     if (!group)
     {
         return;
     }
 
-    setMapTheme(group->readEntry("Marble Map Theme", d->cacheMapTheme));
-    setProjection(group->readEntry("Marble Projection", d->cacheProjection));
-    setShowScaleBar(group->readEntry("Marble Show Scale Bar", d->cacheShowScaleBar));
-    setShowCompass(group->readEntry("Marble Show Compass", d->cacheShowCompass));
+    setMapTheme(group->readEntry("Marble Map Theme",                d->cacheMapTheme));
+    setProjection(group->readEntry("Marble Projection",             d->cacheProjection));
+    setShowScaleBar(group->readEntry("Marble Show Scale Bar",       d->cacheShowScaleBar));
+    setShowCompass(group->readEntry("Marble Show Compass",          d->cacheShowCompass));
     setShowOverviewMap(group->readEntry("Marble Show Overview Map", d->cacheShowOverviewMap));
 }
 
@@ -545,6 +563,7 @@ bool BackendMarble::screenCoordinates(const GeoCoordinates& coordinates, QPoint*
 
     qreal x, y;
     const bool isVisible = d->marbleWidget->screenCoordinates(coordinates.lon(), coordinates.lat(), x, y);
+
     if (!isVisible)
     {
         return false;
@@ -574,6 +593,7 @@ bool BackendMarble::geoCoordinates(const QPoint& point, GeoCoordinates* const co
 
     qreal lat, lon;
     const bool isVisible = d->marbleWidget->geoCoordinates(point.x(), point.y(), lon, lat, Marble::GeoDataCoordinates::Degree);
+
     if (!isVisible)
     {
         return false;
@@ -601,6 +621,7 @@ void BackendMarble::GeoPainter_drawPixmapAtCoordinates(Marble::GeoPainter* const
 
     // try to convert the coordinates to pixels
     QPoint pointOnScreen;
+
     if (!screenCoordinates(coordinates, &pointOnScreen))
     {
         return;
@@ -609,12 +630,13 @@ void BackendMarble::GeoPainter_drawPixmapAtCoordinates(Marble::GeoPainter* const
     // Marble::GeoPainter::drawPixmap(coordinates, pixmap) draws the pixmap centered on coordinates
     // therefore we calculate the pixel position of the center of the image if its offsetPoint is to be
     // at pointOnScreen:
-    const QSize pixmapSize = pixmap.size();
+    const QSize pixmapSize      = pixmap.size();
     const QPoint pixmapHalfSize = QPoint(pixmapSize.width()/2, pixmapSize.height()/2);
-    const QPoint drawPoint = pointOnScreen + pixmapHalfSize - offsetPoint;
+    const QPoint drawPoint      = pointOnScreen + pixmapHalfSize - offsetPoint;
 
     // now re-calculate the coordinates of the new pixel coordinates:
     GeoCoordinates drawGeoCoordinates;
+
     if (!geoCoordinates(drawPoint, &drawGeoCoordinates))
     {
         return;
@@ -633,13 +655,13 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
     }
 
     // check whether the parameters of the map changed and we may have to update the clusters:
-    if ( (d->clustersDirtyCacheLat != d->marbleWidget->centerLatitude()) ||
-         (d->clustersDirtyCacheLon != d->marbleWidget->centerLongitude()) ||
+    if ( (d->clustersDirtyCacheLat        != d->marbleWidget->centerLatitude())  ||
+         (d->clustersDirtyCacheLon        != d->marbleWidget->centerLongitude()) ||
          (d->clustersDirtyCacheProjection != d->marbleWidget->projection()) )
     {
 //         kDebug()<<d->marbleWidget->centerLatitude()<<d->marbleWidget->centerLongitude()<<d->marbleWidget->projection();
-        d->clustersDirtyCacheLat = d->marbleWidget->centerLatitude();
-        d->clustersDirtyCacheLon = d->marbleWidget->centerLongitude();
+        d->clustersDirtyCacheLat        = d->marbleWidget->centerLatitude();
+        d->clustersDirtyCacheLon        = d->marbleWidget->centerLongitude();
         d->clustersDirtyCacheProjection = d->marbleWidget->projection();
         s->worldMapWidget->markClustersAsDirty();
     }
@@ -658,12 +680,14 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
             for (int trackIdx = 0; trackIdx < tracks.count(); ++trackIdx)
             {
                 TrackManager::Track const& track = tracks.at(trackIdx);
+
                 if (track.points.count() < 2)
                 {
                     continue;
                 }
 
                 Marble::GeoDataLineString lineString;
+
                 if (d->trackCache.contains(track.id))
                 {
                     lineString = d->trackCache.value(track.id);
@@ -672,12 +696,14 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
                 {
                     for (int coordIdx = 0; coordIdx < track.points.count(); ++coordIdx)
                     {
-                        GeoCoordinates const& coordinates = track.points.at(coordIdx).coordinates;
+                        GeoCoordinates const& coordinates                  = track.points.at(coordIdx).coordinates;
                         const Marble::GeoDataCoordinates marbleCoordinates = coordinates.toMarbleCoordinates();
                         lineString << marbleCoordinates;
                     }
+
                     d->trackCache.insert(track.id, lineString);
                 }
+
                 /// @TODO 5 looks a bit too thick IMHO when you zoom out.
                 ///       Maybe adjust to zoom level?
                 QColor trackColor = track.color;
@@ -688,20 +714,21 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
         }
     }
 
-    for (int i = 0; i<s->ungroupedModels.count(); ++i)
+    for (int i = 0; i < s->ungroupedModels.count(); ++i)
     {
         ModelHelper* const modelHelper = s->ungroupedModels.at(i);
+
         if (!modelHelper->modelFlags().testFlag(ModelHelper::FlagVisible))
             continue;
 
         QAbstractItemModel* const model = modelHelper->model();
 
         // render all visible markers:
-        for (int row = 0; row<model->rowCount(); ++row)
+        for (int row = 0; row < model->rowCount(); ++row)
         {
             const QModelIndex currentIndex = model->index(row, 0);
-
             GeoCoordinates markerCoordinates;
+
             if (!modelHelper->itemCoordinates(currentIndex, &markerCoordinates))
                 continue;
 
@@ -712,6 +739,7 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
             }
 
             QPoint markerPoint;
+
             if (!screenCoordinates(markerCoordinates, &markerPoint))
             {
                 /// @todo This check does not work properly in all cases!
@@ -722,9 +750,10 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
             QPoint markerOffsetPoint;
             QPixmap markerPixmap;
             const bool haveMarkerPixmap = modelHelper->itemIcon(currentIndex, &markerOffsetPoint, 0, &markerPixmap, 0);
+
             if (!haveMarkerPixmap || markerPixmap.isNull())
             {
-                markerPixmap = KGeoMapGlobalObject::instance()->getStandardMarkerPixmap();
+                markerPixmap      = KGeoMapGlobalObject::instance()->getStandardMarkerPixmap();
                 markerOffsetPoint = QPoint(markerPixmap.width()/2, markerPixmap.height()-1);
             }
 
@@ -733,35 +762,40 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
     }
 
     int markersInMovingCluster = 0;
+
     if (s->markerModel)
     {
         // now for the clusters:
         s->worldMapWidget->updateClusters();
 
-        for (int i = 0; i<s->clusterList.size(); ++i)
+        for (int i = 0; i < s->clusterList.size(); ++i)
         {
-            const KGeoMapCluster& cluster = s->clusterList.at(i);
-            GeoCoordinates clusterCoordinates = cluster.coordinates;
-            int markerCountOverride = cluster.markerCount;
+            const KGeoMapCluster& cluster            = s->clusterList.at(i);
+            GeoCoordinates clusterCoordinates        = cluster.coordinates;
+            int markerCountOverride                  = cluster.markerCount;
             KGeoMapGroupState selectionStateOverride = cluster.groupState;
+
             if (d->haveMouseMovingObject&&(d->mouseMoveClusterIndex>=0))
             {
                 bool movingSelectedMarkers = s->clusterList.at(d->mouseMoveClusterIndex).groupState!=KGeoMapSelectedNone;
+
                 if (movingSelectedMarkers)
                 {
-                    markersInMovingCluster+=cluster.markerSelectedCount;
-                    markerCountOverride-=cluster.markerSelectedCount;
-                    selectionStateOverride = KGeoMapSelectedNone;
+                    markersInMovingCluster += cluster.markerSelectedCount;
+                    markerCountOverride    -= cluster.markerSelectedCount;
+                    selectionStateOverride  = KGeoMapSelectedNone;
                 }
                 else if (d->mouseMoveClusterIndex == i)
                 {
                     markerCountOverride = 0;
                 }
+
                 if (markerCountOverride==0)
                     continue;
             }
 
             QPoint clusterPoint;
+
             if (!screenCoordinates(clusterCoordinates, &clusterPoint))
             {
                 /// @todo This check does not work properly in all cases!
@@ -779,12 +813,12 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
     // now render the mouse-moving cluster, if there is one:
     if (d->haveMouseMovingObject&&(d->mouseMoveClusterIndex>=0))
     {
-        const KGeoMapCluster& cluster = s->clusterList.at(d->mouseMoveClusterIndex);
-        GeoCoordinates clusterCoordinates = d->mouseMoveObjectCoordinates;
-        int markerCountOverride = (markersInMovingCluster>0)?markersInMovingCluster:cluster.markerCount;
+        const KGeoMapCluster& cluster            = s->clusterList.at(d->mouseMoveClusterIndex);
+        GeoCoordinates clusterCoordinates        = d->mouseMoveObjectCoordinates;
+        int markerCountOverride                  = (markersInMovingCluster>0)?markersInMovingCluster:cluster.markerCount;
         KGeoMapGroupState selectionStateOverride = cluster.groupState;
-
         QPoint clusterPoint;
+
         if (screenCoordinates(clusterCoordinates, &clusterPoint))
         {
             // determine the colors:
@@ -799,14 +833,17 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
                                 &markerCountOverride);
 
             QString pixmapName = fillColor.name().mid(1);
+
             if (cluster.groupState==KGeoMapSelectedAll)
             {
                 pixmapName+=QLatin1String("-selected");
             }
+
             if (cluster.groupState==KGeoMapSelectedSome)
             {
                 pixmapName+=QLatin1String("-someselected");
             }
+
             const QPixmap& markerPixmap = KGeoMapGlobalObject::instance()->getMarkerPixmap(pixmapName);
             painter->drawPixmap(clusterPoint.x()-markerPixmap.width()/2, clusterPoint.y()-markerPixmap.height()-1, markerPixmap);
         }
@@ -825,10 +862,10 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
                             &fillColor, &strokeColor,
                             &strokeStyle, &labelText, &labelColor);
 
-        QString pixmapName = fillColor.name().mid(1);
-        pixmapName+=QLatin1String("-selected");
-
+        QString pixmapName          = fillColor.name().mid(1);
+        pixmapName                 += QLatin1String("-selected");
         const QPixmap& markerPixmap = KGeoMapGlobalObject::instance()->getMarkerPixmap(pixmapName);
+
         painter->drawPixmap(d->dragDropMarkerPos.x()-markerPixmap.width()/2, d->dragDropMarkerPos.y()-markerPixmap.height()-1, markerPixmap);
     }
 
@@ -854,20 +891,21 @@ QString BackendMarble::getProjection() const
     if (d->marbleWidget)
     {
         const Marble::Projection currentProjection = d->marbleWidget->projection();
+
         switch (currentProjection)
         {
-        case Marble::Equirectangular:
-            d->cacheProjection = QLatin1String("equirectangular");
-            break;
+            case Marble::Equirectangular:
+                d->cacheProjection = QLatin1String("equirectangular");
+                break;
 
-        case Marble::Mercator:
-            d->cacheProjection = QLatin1String("mercator");
-            break;
+            case Marble::Mercator:
+                d->cacheProjection = QLatin1String("mercator");
+                break;
 
-        default:
-        case Marble::Spherical:
-            d->cacheProjection = QLatin1String("spherical");
-            break;
+            default:
+            case Marble::Spherical:
+                d->cacheProjection = QLatin1String("spherical");
+                break;
         }
     }
 
@@ -880,15 +918,15 @@ void BackendMarble::setProjection(const QString& newProjection)
 
     if (d->marbleWidget)
     {
-        if (newProjection==QLatin1String("equirectangular"))
+        if (newProjection == QLatin1String("equirectangular"))
         {
             d->marbleWidget->setProjection(Marble::Equirectangular);
         }
-        else if (newProjection==QLatin1String("mercator"))
+        else if (newProjection == QLatin1String("mercator"))
         {
             d->marbleWidget->setProjection(Marble::Mercator);
         }
-        else /*if (newProjection=="spherical")*/
+        else /*if (newProjection == "spherical")*/
         {
             d->marbleWidget->setProjection(Marble::Spherical);
         }
@@ -938,17 +976,17 @@ void BackendMarble::setShowScaleBar(const bool state)
 void BackendMarble::slotFloatSettingsTriggered(QAction* action)
 {
     const QString actionIdString = action->data().toString();
-    const bool actionState = action->isChecked();
+    const bool actionState       = action->isChecked();
 
-    if (actionIdString==QLatin1String("showcompass"))
+    if (actionIdString == QLatin1String("showcompass"))
     {
         setShowCompass(actionState);
     }
-    else if (actionIdString==QLatin1String("showscalebar"))
+    else if (actionIdString == QLatin1String("showscalebar"))
     {
         setShowScaleBar(actionState);
     }
-    else if (actionIdString==QLatin1String("showoverviewmap"))
+    else if (actionIdString == QLatin1String("showoverviewmap"))
     {
         setShowOverviewMap(actionState);
     }
@@ -984,10 +1022,9 @@ void BackendMarble::slotMarbleZoomChanged()
     }
 
     const QString newZoomString = getZoom();
-
     s->worldMapWidget->markClustersAsDirty();
-
     updateActionAvailability();
+
     emit(signalZoomChanged(newZoomString));
 }
 
@@ -997,8 +1034,7 @@ void BackendMarble::setZoom(const QString& newZoom)
     KGEOMAP_ASSERT(myZoomString.startsWith(QLatin1String("marble:")));
 
     const int myZoom = myZoomString.mid(QString::fromLatin1("marble:").length()).toInt();
- 
-    d->cacheZoom = myZoom;
+    d->cacheZoom     = myZoom;
     d->marbleWidget->zoomView(myZoom);
 }
 
@@ -1016,48 +1052,50 @@ int BackendMarble::getMarkerModelLevel()
 {
 //    return AbstractMarkerTiler::TileIndex::MaxLevel-1;
     KGEOMAP_ASSERT(isReady());
+
     if (!isReady())
     {
         return 0;
     }
 
-    const int currentZoom = d->marbleWidget->zoom();
-    int tileLevel = 0;
+    const int currentZoom                      = d->marbleWidget->zoom();
+    int tileLevel                              = 0;
     const Marble::Projection currentProjection = d->marbleWidget->projection();
+
     switch (currentProjection)
     {
-    case Marble::Equirectangular:
+        case Marble::Equirectangular:
 
-             if (currentZoom<1000) { tileLevel = 4; }
-        else if (currentZoom<1400) { tileLevel = 5; }
-        else if (currentZoom<1900) { tileLevel = 6; }
-        else if (currentZoom<2300) { tileLevel = 7; }
-        else if (currentZoom<2800) { tileLevel = 8; }
-        else                       { tileLevel = 9; }
-        // note: level 9 is not enough starting at zoom level 3200
-        break;
+                 if (currentZoom<1000) { tileLevel = 4; }
+            else if (currentZoom<1400) { tileLevel = 5; }
+            else if (currentZoom<1900) { tileLevel = 6; }
+            else if (currentZoom<2300) { tileLevel = 7; }
+            else if (currentZoom<2800) { tileLevel = 8; }
+            else                       { tileLevel = 9; }
+            // note: level 9 is not enough starting at zoom level 3200
+            break;
 
-    case Marble::Mercator:
+        case Marble::Mercator:
 
-             if (currentZoom<1000) { tileLevel = 4; }
-        else if (currentZoom<1500) { tileLevel = 5; }
-        else if (currentZoom<1900) { tileLevel = 6; }
-        else if (currentZoom<2300) { tileLevel = 7; }
-        else if (currentZoom<2800) { tileLevel = 8; }
-        else                       { tileLevel = 9; }
-        // note: level 9 is not enough starting at zoom level 3200
-        break;
+                 if (currentZoom<1000) { tileLevel = 4; }
+            else if (currentZoom<1500) { tileLevel = 5; }
+            else if (currentZoom<1900) { tileLevel = 6; }
+            else if (currentZoom<2300) { tileLevel = 7; }
+            else if (currentZoom<2800) { tileLevel = 8; }
+            else                       { tileLevel = 9; }
+            // note: level 9 is not enough starting at zoom level 3200
+            break;
 
-    default:
-    case Marble::Spherical:
+        default:
+        case Marble::Spherical:
 
-             if (currentZoom<1300) { tileLevel = 5; }
-        else if (currentZoom<1800) { tileLevel = 6; }
-        else if (currentZoom<2200) { tileLevel = 7; }
-        else if (currentZoom<2800) { tileLevel = 8; }
-        else                       { tileLevel = 9; }
-        // note: level 9 is not enough starting at zoom level 3200
-        break;
+                 if (currentZoom<1300) { tileLevel = 5; }
+            else if (currentZoom<1800) { tileLevel = 6; }
+            else if (currentZoom<2200) { tileLevel = 7; }
+            else if (currentZoom<2800) { tileLevel = 8; }
+            else                       { tileLevel = 9; }
+            // note: level 9 is not enough starting at zoom level 3200
+            break;
     }
 
     // TODO: verify that this assertion was too strict
@@ -1095,16 +1133,17 @@ GeoCoordinates::PairList BackendMarble::getNormalizedBounds()
 
 bool BackendMarble::eventFilter(QObject *object, QEvent *event)
 {
-    if (object!=d->marbleWidget)
+    if (object != d->marbleWidget)
     {
         // event not filtered, because it is not for our object
         return QObject::eventFilter(object, event);
     }
 
     // we only handle mouse events:
-    if (   (event->type() != QEvent::MouseButtonPress)
-        && (event->type() != QEvent::MouseMove)
-        && (event->type() != QEvent::MouseButtonRelease) )
+    if ((event->type() != QEvent::MouseButtonPress) &&
+        (event->type() != QEvent::MouseMove)        &&
+        (event->type() != QEvent::MouseButtonRelease)
+       )
     {
         return QObject::eventFilter(object, event);
     }
@@ -1116,12 +1155,12 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
     }
 
     QMouseEvent* const mouseEvent = static_cast<QMouseEvent*>(event);
-    bool doFilterEvent = false;
+    bool doFilterEvent            = false;
 
     if (s->currentMouseMode == MouseModeRegionSelection)
     {
-        if (   ( event->type() == QEvent::MouseButtonPress )
-            && ( mouseEvent->button()==Qt::LeftButton ) )
+        if ((event->type() == QEvent::MouseButtonPress) &&
+            (mouseEvent->button()==Qt::LeftButton))
         {
             // we need to filter this event because otherwise Marble displays
             // a left click context menu
@@ -1135,7 +1174,7 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
                 geoCoordinates(mouseEvent->pos(), &d->intermediateSelectionPoint);
                 d->intermediateSelectionScreenPoint = mouseEvent->pos();
 
-                kDebug()<<d->firstSelectionScreenPoint<<QLatin1String(" ")<<d->intermediateSelectionScreenPoint;
+                kDebug() << d->firstSelectionScreenPoint << QLatin1String(" ") << d->intermediateSelectionScreenPoint;
 
                 qreal lonWest, latNorth, lonEast, latSouth;
 
@@ -1170,10 +1209,11 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
                 d->displayedRectangle = selectionCoordinates;
                 d->marbleWidget->update();
             }
+
             doFilterEvent = true;
         }
-        else if (   (event->type() == QEvent::MouseButtonRelease)
-             && ( mouseEvent->button() == Qt::LeftButton ) )
+        else if ((event->type() == QEvent::MouseButtonRelease) &&
+                 (mouseEvent->button() == Qt::LeftButton))
         {
             if (!d->firstSelectionPoint.hasCoordinates())
             {
@@ -1228,8 +1268,8 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
     }
     else
     {
-        if (   ( event->type() == QEvent::MouseButtonPress )
-            && ( mouseEvent->button()==Qt::LeftButton ) )
+        if ((event->type() == QEvent::MouseButtonPress) &&
+            (mouseEvent->button()==Qt::LeftButton))
         {
             // check whether the user clicked on one of our items:
             // scan in reverse order, because the user would expect
@@ -1270,12 +1310,12 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
             if (/*s->inEditMode&&*/!doFilterEvent)
             {
                 // scan in reverse order of painting!
-                for (int clusterIndex = s->clusterList.count()-1; clusterIndex>=0; --clusterIndex)
+                for (int clusterIndex = s->clusterList.count()-1; clusterIndex >= 0; --clusterIndex)
                 {
-                    const KGeoMapCluster& cluster = s->clusterList.at(clusterIndex);
+                    const KGeoMapCluster& cluster           = s->clusterList.at(clusterIndex);
                     const GeoCoordinates currentCoordinates = cluster.coordinates;
-
                     QPoint clusterPoint;
+
                     if (!screenCoordinates(currentCoordinates, &clusterPoint))
                     {
                         continue;
@@ -1294,45 +1334,48 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
                     /// @todo For circles, make sure the mouse is really above the circle and not just in the rectangle!
 
                     // the user clicked on a cluster:
-                    d->mouseMoveClusterIndex = clusterIndex;
-                    d->mouseMoveCenterOffset = mouseEvent->pos() - clusterPoint;
-                    d->mouseMoveObjectCoordinates = currentCoordinates;
-                    doFilterEvent = true;
+                    d->mouseMoveClusterIndex            = clusterIndex;
+                    d->mouseMoveCenterOffset            = mouseEvent->pos() - clusterPoint;
+                    d->mouseMoveObjectCoordinates       = currentCoordinates;
+                    doFilterEvent                       = true;
                     d->havePotentiallyMouseMovingObject = true;
-                    s->haveMovingCluster = true;
+                    s->haveMovingCluster                = true;
 
                     break;
                 }
             }
         }
-        else if (   (event->type() == QEvent::MouseMove)
-                && (d->havePotentiallyMouseMovingObject || d->haveMouseMovingObject) )
+        else if ((event->type() == QEvent::MouseMove) &&
+                 (d->havePotentiallyMouseMovingObject || d->haveMouseMovingObject))
         {
-            if ( (!s->modificationsAllowed) || (!s->markerModel->tilerFlags().testFlag(AbstractMarkerTiler::FlagMovable)) || ((d->mouseMoveClusterIndex>=0)&&s->showThumbnails) )
+            if ((!s->modificationsAllowed) || (!s->markerModel->tilerFlags().testFlag(AbstractMarkerTiler::FlagMovable)) ||
+                ((d->mouseMoveClusterIndex >= 0) && s->showThumbnails) )
             {
                 // clusters only move in edit mode and when edit mode is enabled
                 /// @todo This blocks moving of the map in non-edit mode
                 d->havePotentiallyMouseMovingObject = false;
-                d->mouseMoveClusterIndex = -1;
-                d->mouseMoveMarkerIndex = QPersistentModelIndex();
-                s->haveMovingCluster = false;
+                d->mouseMoveClusterIndex            = -1;
+                d->mouseMoveMarkerIndex             = QPersistentModelIndex();
+                s->haveMovingCluster                = false;
             }
             else
             {
 
                 // mark the object as really moving:
                 d->havePotentiallyMouseMovingObject = false;
-                d->haveMouseMovingObject = true;
+                d->haveMouseMovingObject            = true;
 
                 // a cluster or marker is being moved. update its position:
                 QPoint newMarkerPoint = mouseEvent->pos() - d->mouseMoveCenterOffset;
                 QPoint snapPoint;
+
                 if (findSnapPoint(newMarkerPoint, &snapPoint, 0, 0))
                 {
                     newMarkerPoint = snapPoint;
                 }
 
                 GeoCoordinates newCoordinates;
+
                 if (geoCoordinates(newMarkerPoint, &newCoordinates))
                 {
                     d->mouseMoveObjectCoordinates = newCoordinates;
@@ -1340,34 +1383,34 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
                 }
             }
         }
-        else if (   (event->type() == QEvent::MouseButtonRelease)
-                && (d->havePotentiallyMouseMovingObject) )
+        else if ((event->type() == QEvent::MouseButtonRelease) &&
+                 (d->havePotentiallyMouseMovingObject))
         {
             // the object was not moved, but just clicked once
             if (d->mouseMoveClusterIndex>=0)
             {
-                const int mouseMoveClusterIndex = d->mouseMoveClusterIndex;
+                const int mouseMoveClusterIndex     = d->mouseMoveClusterIndex;
 
                 // we are done with the clicked object
                 // reset these before sending the signal
                 d->havePotentiallyMouseMovingObject = false;
-                d->mouseMoveClusterIndex = -1;
-                d->mouseMoveMarkerIndex = QPersistentModelIndex();
-                s->haveMovingCluster = false;
+                d->mouseMoveClusterIndex            = -1;
+                d->mouseMoveMarkerIndex             = QPersistentModelIndex();
+                s->haveMovingCluster                = false;
 
-                emit(signalClustersClicked(QIntList()<<mouseMoveClusterIndex));
+                emit(signalClustersClicked(QIntList() << mouseMoveClusterIndex));
             }
             else
             {
                 // we are done with the clicked object:
                 d->havePotentiallyMouseMovingObject = false;
-                d->mouseMoveClusterIndex = -1;
-                d->mouseMoveMarkerIndex = QPersistentModelIndex();
-                s->haveMovingCluster = false;
+                d->mouseMoveClusterIndex            = -1;
+                d->mouseMoveMarkerIndex             = QPersistentModelIndex();
+                s->haveMovingCluster                = false;
             }
         }
-        else if (   (event->type() == QEvent::MouseButtonRelease)
-                && (d->haveMouseMovingObject) )
+        else if ((event->type() == QEvent::MouseButtonRelease) &&
+                 (d->haveMouseMovingObject))
         {
             // the object was dropped, apply the coordinates if it is on screen:
             const QPoint dropMarkerPoint = mouseEvent->pos() - d->mouseMoveCenterOffset;
@@ -1375,6 +1418,7 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
             QPair<int, QModelIndex> snapTargetIndex(-1, QModelIndex());
             GeoCoordinates newCoordinates;
             bool haveValidPoint = findSnapPoint(dropMarkerPoint, 0, &newCoordinates, &snapTargetIndex);
+
             if (!haveValidPoint)
             {
                 haveValidPoint = geoCoordinates(dropMarkerPoint, &newCoordinates);
@@ -1384,28 +1428,29 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
             {
                 if (d->mouseMoveMarkerIndex.isValid())
                 {
-    /*                // the marker was dropped to valid coordinates
+/*                  // the marker was dropped to valid coordinates
                     s->specialMarkersModel->setData(d->mouseMoveMarkerIndex, QVariant::fromValue(newCoordinates), s->specialMarkersCoordinatesRole);
 
                     QList<QPersistentModelIndex> markerIndices;
                     markerIndices << d->mouseMoveMarkerIndex;
 
                     // also emit a signal that the marker was moved:
-                    emit(signalSpecialMarkersMoved(markerIndices));*/
+                    emit(signalSpecialMarkersMoved(markerIndices));
+*/
                 }
                 else
                 {
                     // a cluster is being moved
                     s->clusterList[d->mouseMoveClusterIndex].coordinates = newCoordinates;
-                    emit(signalClustersMoved(QIntList()<<d->mouseMoveClusterIndex, snapTargetIndex));
+                    emit(signalClustersMoved(QIntList() << d->mouseMoveClusterIndex, snapTargetIndex));
                 }
             }
 
             d->haveMouseMovingObject = false;
             d->mouseMoveClusterIndex = -1;
-            d->mouseMoveMarkerIndex = QPersistentModelIndex();
+            d->mouseMoveMarkerIndex  = QPersistentModelIndex();
             d->marbleWidget->update();
-            s->haveMovingCluster = false;
+            s->haveMovingCluster     = false;
         }
     }
 
@@ -1425,7 +1470,7 @@ bool BackendMarble::eventFilter(QObject *object, QEvent *event)
 //     }
 //     else
 //     {
-//         d->dragDropMarkerPos = pos;
+//         d->dragDropMarkerPos   = pos;
 //         d->dragDropMarkerCount = dragData->itemCount;
 //     }
 //     d->marbleWidget->update();
@@ -1446,20 +1491,21 @@ void BackendMarble::updateActionAvailability()
         return;
     }
 
-    kDebug()<<d->cacheZoom<<d->marbleWidget->maximumZoom()<<d->marbleWidget->minimumZoom();
+    kDebug() << d->cacheZoom << d->marbleWidget->maximumZoom() << d->marbleWidget->minimumZoom();
     s->worldMapWidget->getControlAction(QLatin1String("zoomin"))->setEnabled(d->cacheZoom<d->marbleWidget->maximumZoom());
     s->worldMapWidget->getControlAction(QLatin1String("zoomout"))->setEnabled(d->cacheZoom>d->marbleWidget->minimumZoom());
-
     const QList<QAction*> mapThemeActions = d->actionGroupMapTheme->actions();
+
     for (int i=0; i<mapThemeActions.size(); ++i)
     {
-        mapThemeActions.at(i)->setChecked(mapThemeActions.at(i)->data().toString()==getMapTheme());
+        mapThemeActions.at(i)->setChecked(mapThemeActions.at(i)->data().toString() == getMapTheme());
     }
 
     const QList<QAction*> projectionActions = d->actionGroupProjection->actions();
+
     for (int i=0; i<projectionActions.size(); ++i)
     {
-        projectionActions.at(i)->setChecked(projectionActions.at(i)->data().toString()==d->cacheProjection);
+        projectionActions.at(i)->setChecked(projectionActions.at(i)->data().toString() == d->cacheProjection);
     }
 
     d->actionShowCompass->setChecked(d->cacheShowCompass);
@@ -1474,7 +1520,8 @@ void BackendMarble::slotThumbnailAvailableForIndex(const QVariant& index, const 
         return;
     }
 
-    kDebug()<<index<<pixmap.size();
+    kDebug() << index << pixmap.size();
+
     if (pixmap.isNull() || !s->showThumbnails)
     {
         return;
@@ -1482,7 +1529,8 @@ void BackendMarble::slotThumbnailAvailableForIndex(const QVariant& index, const 
 
     // TODO: properly reject pixmaps with the wrong size
     const int expectedThumbnailSize = s->worldMapWidget->getUndecoratedThumbnailSize();
-    if ((pixmap.size().height()!=expectedThumbnailSize)&&(pixmap.size().width()!=expectedThumbnailSize))
+
+    if ((pixmap.size().height() != expectedThumbnailSize) && (pixmap.size().width() != expectedThumbnailSize))
     {
         return;
     }
@@ -1519,57 +1567,59 @@ void BackendMarble::slotTrackManagerChanged()
 
     slotScheduleUpdate();
 }
-  
+
 bool BackendMarble::findSnapPoint(const QPoint& actualPoint, QPoint* const snapPoint, GeoCoordinates* const snapCoordinates, QPair<int, QModelIndex>* const snapTargetIndex)
 {
     QPoint bestSnapPoint;
     GeoCoordinates bestSnapCoordinates;
     int bestSnapDistanceSquared = -1;
     QModelIndex bestSnapIndex;
-    int bestSnapUngroupedModel = -1;
+    int bestSnapUngroupedModel  = -1;
 
     // now handle snapping: is there any object close by?
-    for (int im = 0; im<s->ungroupedModels.count(); ++im)
+    for (int im = 0; im < s->ungroupedModels.count(); ++im)
     {
         ModelHelper* const modelHelper = s->ungroupedModels.at(im);
+
         // TODO: test for active snapping
-        if (   (!modelHelper->modelFlags().testFlag(ModelHelper::FlagVisible))
-            || (!modelHelper->modelFlags().testFlag(ModelHelper::FlagSnaps)) )
+        if ((!modelHelper->modelFlags().testFlag(ModelHelper::FlagVisible)) ||
+            (!modelHelper->modelFlags().testFlag(ModelHelper::FlagSnaps)))
         {
             continue;
         }
 
         // TODO: configurable snapping radius
-        const int snapRadiusSquared = 10*10;
+        const int snapRadiusSquared         = 10*10;
         QAbstractItemModel* const itemModel = modelHelper->model();
 
-        for (int row=0; row<itemModel->rowCount(); ++row)
+        for (int row = 0; row < itemModel->rowCount(); ++row)
         {
             const QModelIndex currentIndex = itemModel->index(row, 0);
             GeoCoordinates currentCoordinates;
+
             if (!modelHelper->itemCoordinates(currentIndex, &currentCoordinates))
             {
                 continue;
             }
 
             QPoint snapMarkerPoint;
+
             if (!screenCoordinates(currentCoordinates, &snapMarkerPoint))
             {
                 continue;
             }
 
-            const QPoint distancePoint = snapMarkerPoint - actualPoint;
+            const QPoint distancePoint    = snapMarkerPoint - actualPoint;
             const int snapDistanceSquared = (distancePoint.x()*distancePoint.x()+distancePoint.y()*distancePoint.y());
-            if ( (snapDistanceSquared<=snapRadiusSquared)
-                &&
-                    ((bestSnapDistanceSquared==-1)||(bestSnapDistanceSquared>snapDistanceSquared))
-                    )
+
+            if ((snapDistanceSquared <= snapRadiusSquared) &&
+                ((bestSnapDistanceSquared == -1) || (bestSnapDistanceSquared > snapDistanceSquared)))
             {
                 bestSnapDistanceSquared = snapDistanceSquared;
-                bestSnapPoint = snapMarkerPoint;
-                bestSnapCoordinates = currentCoordinates;
-                bestSnapIndex = currentIndex;
-                bestSnapUngroupedModel = im;
+                bestSnapPoint           = snapMarkerPoint;
+                bestSnapCoordinates     = currentCoordinates;
+                bestSnapIndex           = currentIndex;
+                bestSnapUngroupedModel  = im;
             }
         }
     }
@@ -1632,12 +1682,12 @@ void BackendMarble::centerOn(const Marble::GeoDataLatLonBox& box, const bool use
      *       yet handle the case of only width or height being too small though.
      */
     const bool boxTooSmall = qMin(box.width(), box.height()) < 0.000001;
+
     if (boxTooSmall)
     {
         d->marbleWidget->centerOn(box.center());
-        d->marbleWidget->zoomView(
-                useSaneZoomLevel ? qMin(3400, d->marbleWidget->maximumZoom()) : d->marbleWidget->maximumZoom()
-            );
+        d->marbleWidget->zoomView(useSaneZoomLevel ? qMin(3400, d->marbleWidget->maximumZoom()) 
+                                                   : d->marbleWidget->maximumZoom());
     }
     else
     {
@@ -1647,13 +1697,14 @@ void BackendMarble::centerOn(const Marble::GeoDataLatLonBox& box, const bool use
     // simple check to see whether the zoom level is now too high
     /// @todo for very small boxes, Marbles zoom becomes -2billion. Catch this case here.
     int maxZoomLevel = d->marbleWidget->maximumZoom();
+
     if (useSaneZoomLevel)
     {
         maxZoomLevel = qMin(maxZoomLevel, 3400);
     }
 
-    if ( (d->marbleWidget->zoom()>maxZoomLevel) ||
-         (d->marbleWidget->zoom()<d->marbleWidget->minimumZoom()) )
+    if ((d->marbleWidget->zoom()>maxZoomLevel) ||
+        (d->marbleWidget->zoom()<d->marbleWidget->minimumZoom()))
     {
         d->marbleWidget->zoomView(maxZoomLevel);
     }
@@ -1662,7 +1713,7 @@ void BackendMarble::centerOn(const Marble::GeoDataLatLonBox& box, const bool use
 void BackendMarble::setActive(const bool state)
 {
     const bool oldState = d->activeState;
-    d->activeState = state;
+    d->activeState      = state;
 
     if (oldState!=state)
     {
@@ -1671,14 +1722,14 @@ void BackendMarble::setActive(const bool state)
             // we should share our widget in the list of widgets in the global object
             KGeoMapInternalWidgetInfo info;
             info.deleteFunction = deleteInfoFunction;
-            info.widget = d->marbleWidget;
-            info.currentOwner = this;
-            info.backendName = backendName();
-            info.state = d->widgetIsDocked ? KGeoMapInternalWidgetInfo::InternalWidgetStillDocked : KGeoMapInternalWidgetInfo::InternalWidgetUndocked;
+            info.widget         = d->marbleWidget;
+            info.currentOwner   = this;
+            info.backendName    = backendName();
+            info.state          = d->widgetIsDocked ? KGeoMapInternalWidgetInfo::InternalWidgetStillDocked : KGeoMapInternalWidgetInfo::InternalWidgetUndocked;
 
             BMInternalWidgetInfo intInfo;
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
-            intInfo.bmLayer = d->bmLayer;
+            intInfo.bmLayer     = d->bmLayer;
 #endif
             info.backendData.setValue(intInfo);
 
@@ -1700,23 +1751,25 @@ void BackendMarble::mapWidgetDocked(const bool state)
     if (d->widgetIsDocked!=state)
     {
         KGeoMapGlobalObject* const go = KGeoMapGlobalObject::instance();
-        go->updatePooledWidgetState(d->marbleWidget, state ? KGeoMapInternalWidgetInfo::InternalWidgetStillDocked : KGeoMapInternalWidgetInfo::InternalWidgetUndocked);
+        go->updatePooledWidgetState(d->marbleWidget, state ? KGeoMapInternalWidgetInfo::InternalWidgetStillDocked
+                                                           : KGeoMapInternalWidgetInfo::InternalWidgetUndocked);
     }
+
     d->widgetIsDocked = state;
 }
 
 void BackendMarble::drawSearchRectangle(Marble::GeoPainter* const painter, const GeoCoordinates::Pair& searchRectangle, const bool isOldRectangle)
 {
-    const GeoCoordinates& topLeft = searchRectangle.first;
+    const GeoCoordinates& topLeft     = searchRectangle.first;
     const GeoCoordinates& bottomRight = searchRectangle.second;
-    const qreal lonWest  = topLeft.lon();
-    const qreal latNorth = topLeft.lat();
-    const qreal lonEast  = bottomRight.lon();
-    const qreal latSouth = bottomRight.lat();
+    const qreal lonWest               = topLeft.lon();
+    const qreal latNorth              = topLeft.lat();
+    const qreal lonEast               = bottomRight.lon();
+    const qreal latSouth              = bottomRight.lat();
 
-    Marble::GeoDataCoordinates coordTopLeft(lonWest, latNorth, 0, Marble::GeoDataCoordinates::Degree);
-    Marble::GeoDataCoordinates coordTopRight(lonEast, latNorth, 0, Marble::GeoDataCoordinates::Degree);
-    Marble::GeoDataCoordinates coordBottomLeft(lonWest, latSouth, 0, Marble::GeoDataCoordinates::Degree);
+    Marble::GeoDataCoordinates coordTopLeft(lonWest,     latNorth, 0, Marble::GeoDataCoordinates::Degree);
+    Marble::GeoDataCoordinates coordTopRight(lonEast,    latNorth, 0, Marble::GeoDataCoordinates::Degree);
+    Marble::GeoDataCoordinates coordBottomLeft(lonWest,  latSouth, 0, Marble::GeoDataCoordinates::Degree);
     Marble::GeoDataCoordinates coordBottomRight(lonEast, latSouth, 0, Marble::GeoDataCoordinates::Degree);
     Marble::GeoDataLinearRing polyRing;
 
@@ -1730,6 +1783,7 @@ void BackendMarble::drawSearchRectangle(Marble::GeoPainter* const painter, const
 #endif // MARBLE_VERSION < 0x000800
 
     QPen selectionPen;
+
     if (isOldRectangle)
     {
         // there is a new selection in progress,
@@ -1757,6 +1811,7 @@ void BackendMarble::deleteInfoFunction(KGeoMapInternalWidgetInfo* const info)
 
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
     BMInternalWidgetInfo intInfo = info->backendData.value<BMInternalWidgetInfo>();
+
     if (intInfo.bmLayer)
     {
         delete intInfo.bmLayer;
@@ -1786,7 +1841,7 @@ void BackendMarble::slotTracksChanged(const QList<TrackManager::TrackChanges> tr
     // invalidate the cache for all changed tracks
     Q_FOREACH(const TrackManager::TrackChanges& tc, trackChanges)
     {
-        if (tc.second & (TrackManager::ChangeTrackPoints | TrackManager::ChangeRemoved) )
+        if (tc.second & (TrackManager::ChangeTrackPoints | TrackManager::ChangeRemoved))
         {
             d->trackCache.remove(tc.first);
         }

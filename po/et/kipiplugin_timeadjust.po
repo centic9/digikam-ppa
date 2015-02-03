@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
 "PO-Revision-Date: 2012-10-09 18:36+0300\n"
 "Last-Translator: Marek Laane <bald@smail.ee>\n"
 "Language-Team: Estonian <kde-et@linux.ee>\n"
@@ -73,11 +73,11 @@ msgstr "P&ilt"
 msgid "Main Toolbar"
 msgstr "Peamine tööriistariba"
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 msgid "Timestamp Used"
 msgstr "Kasutatud ajatempel"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 msgid "Timestamp Updated"
 msgstr "Ajatempel uuendatud"
 
@@ -89,28 +89,28 @@ msgstr "Uus failinimi"
 msgid "Status"
 msgstr "Olek"
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr "pole kehtiv"
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr " - "
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 msgid "Failed to update metadata timestamp"
 msgstr "Metaandmete ajatempli uuendamine nurjus"
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 msgid "Failed to update file timestamp"
 msgstr "Faili ajatempli uuendamine nurjus"
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr "Faili nime muutmine nurjus"
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr "Töötlus lõppes tõrgeteta"
 
@@ -118,66 +118,72 @@ msgstr "Töötlus lõppes tõrgeteta"
 msgid "Adjust Time && Date..."
 msgstr "Kellaaja ja kuupäeva seadmine..."
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr "%1 ajatempel"
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr "Faili viimane muutmine"
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr "EXIF/IPTC/XMP"
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr "EXIF: loodud"
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr "EXIF: originaal"
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr "EXIF: digiteeritud"
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr "IPTC: loodud"
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr "XMP: loodud"
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "Lähtesta aktiivne kuupäev"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "Väärtuse kopeerimine"
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Lisamine"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "Lahutamine"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "päeva"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 msgid "Determine difference from clock photo"
 msgstr "Ajaerinevuse määramine kellaga foto järgi"
+
+#: settingswidget.cpp:256
+#, fuzzy
+#| msgid "EXIF: original"
+msgid "EXIF: Thumbnail"
+msgstr "EXIF: originaal"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -187,11 +193,11 @@ msgstr "XMP"
 msgid "Filename"
 msgstr "Failinimi"
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 msgid "Timestamp Adjustments"
 msgstr "Ajatempli seadmine"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "Kellaaja ja kuupäeva seadmine"
 
@@ -204,9 +210,14 @@ msgid "A Kipi plugin for adjusting the timestamp of picture files"
 msgstr "Kipi plugin pildifailide ajatempli seadmiseks"
 
 #: timeadjustdialog.cpp:133
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Jesper K. Pedersen\n"
+#| "(c) 2006-2012, Gilles Caulier\n"
+#| "(c) 2012, Smit Mehta"
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005: Jesper K. Pedersen\n"
@@ -237,11 +248,11 @@ msgstr "Smit Mehta"
 msgid "Pieter Edelman"
 msgstr "Pieter Edelman"
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 msgid "Adjust Time and Date"
 msgstr "Kellaaja ja kuupäeva seadmine"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr "Vali vähemalt üks valik"
 

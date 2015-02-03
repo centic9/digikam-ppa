@@ -1,20 +1,20 @@
 # translation of kipiplugin_timeadjust.po to Swedish
 # Copyright (C) 2004, 2005, 2006, 2007, 2008, 2009 Free Software Foundation, Inc.
 #
-# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2004, 2005, 2006, 2007, 2008, 2009, 2011, 2012.
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2004, 2005, 2006, 2007, 2008, 2009, 2011, 2012, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2012-09-05 19:46+0200\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
+"PO-Revision-Date: 2014-10-23 07:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgctxt "NAME OF TRANSLATORS"
@@ -73,11 +73,11 @@ msgstr "B&ild"
 msgid "Main Toolbar"
 msgstr "Huvudverktygsrad"
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 msgid "Timestamp Used"
 msgstr "Använd tidsstämpel"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 msgid "Timestamp Updated"
 msgstr "Tidstämpel uppdaterad"
 
@@ -89,28 +89,28 @@ msgstr "Nytt filnamn"
 msgid "Status"
 msgstr "Status"
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr "Ej giltigt"
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr "Ej tillämpligt"
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 msgid "Failed to update metadata timestamp"
 msgstr "Misslyckades uppdatera metadata tidsstämpel"
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 msgid "Failed to update file timestamp"
 msgstr "Kan inte uppdatera filens tidsstämpel"
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr "Misslyckades byta namn på filen"
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr "Behandlad utan fel"
 
@@ -118,66 +118,70 @@ msgstr "Behandlad utan fel"
 msgid "Adjust Time && Date..."
 msgstr "Justera tid och datum..."
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr "%1 tidstämpel"
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr "Filen senast ändrad"
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr "EXIF/IPTC/XMP"
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr "EXIF: skapad"
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr "EXIF: original"
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr "EXIF: digitaliserad"
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr "IPTC: skapad"
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr "XMP: skapad"
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "Återställ till dagens datum"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "Kopiera värde"
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Lägg till"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "Subtrahera"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "dagar"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 msgid "Determine difference from clock photo"
 msgstr "Avgör skillnad från klockfoto"
+
+#: settingswidget.cpp:256
+msgid "EXIF: Thumbnail"
+msgstr "EXIF: miniatyrbild"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -187,11 +191,11 @@ msgstr "XMP"
 msgid "Filename"
 msgstr "Filnamn"
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 msgid "Timestamp Adjustments"
 msgstr "Tidsstämpeljusteringar"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "Justera tid och datum"
 
@@ -206,11 +210,11 @@ msgstr "Ett KIPI-insticksprogram för att justera bildfilers tidsstämpel"
 #: timeadjustdialog.cpp:133
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "© 2003-2005, Jesper K. Pedersen\n"
-"© 2006-2012, Gilles Caulier\n"
+"© 2006-2014, Gilles Caulier\n"
 "© 2012, Smit Mehta"
 
 #: timeadjustdialog.cpp:137
@@ -237,11 +241,11 @@ msgstr "Smit Mehta"
 msgid "Pieter Edelman"
 msgstr "Pieter Edelman"
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 msgid "Adjust Time and Date"
 msgstr "Justera tid och datum"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr "Välj minst ett alternativ"
 

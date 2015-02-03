@@ -32,7 +32,7 @@
 #include "mytreewidget.h"
 
 DemoDragDropHandler::DemoDragDropHandler(QAbstractItemModel* const pModel, QObject* const parent)
-                   : DragDropHandler(parent), model(pModel)
+    : DragDropHandler(parent), model(pModel)
 {
 }
 
@@ -48,14 +48,16 @@ Qt::DropAction DemoDragDropHandler::accepts(const QDropEvent* /*e*/)
 bool DemoDragDropHandler::dropEvent(const QDropEvent* e, const KGeoMap::GeoCoordinates& dropCoordinates)
 {
     const MyDragData* const mimeData = qobject_cast<const MyDragData*>(e->mimeData());
+
     if (!mimeData)
         return false;
 
     kDebug() << mimeData->draggedIndices.count();
 
-    for (int i=0; i<mimeData->draggedIndices.count(); ++i)
+    for (int i = 0; i < mimeData->draggedIndices.count(); ++i)
     {
         const QPersistentModelIndex itemIndex = mimeData->draggedIndices.at(i);
+
         if (!itemIndex.isValid())
             continue;
 

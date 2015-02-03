@@ -310,7 +310,6 @@ void ImportUI::setupActions()
     connect(d->cameraCancelAction, SIGNAL(triggered()), this, SLOT(slotCancelButton()));
     actionCollection()->addAction("importui_cancelprocess", d->cameraCancelAction);
     d->cameraCancelAction->setEnabled(false);
-    d->cameraActions->addAction(d->cameraCancelAction);
 
     // -----------------------------------------------------------------
 
@@ -487,11 +486,13 @@ void ImportUI::setupActions()
     connect(d->camItemPreviewAction, SIGNAL(triggered()), d->view, SLOT(slotImagePreview()));
     d->imageViewSelectionAction->addAction(d->camItemPreviewAction);
 
+#ifdef HAVE_KGEOMAP
     d->mapViewAction = new KToggleAction(KIcon("applications-internet"),
                                          i18nc("@action Switch to map view", "Map"), this);
     actionCollection()->addAction("importui_map_view", d->mapViewAction);
     connect(d->mapViewAction, SIGNAL(triggered()), d->view, SLOT(slotMapWidgetView()));
     d->imageViewSelectionAction->addAction(d->mapViewAction);
+#endif // HAVE_KGEOMAP
 
     /// @todo Add table view stuff here
 
@@ -571,14 +572,14 @@ void ImportUI::setupActions()
 
     // -- Standard 'View' menu actions ---------------------------------------------
 
-    d->increaseThumbsAction = KStandardAction::zoomIn(this, SLOT(slotIncreaseThumbSize()), this);
+    d->increaseThumbsAction = KStandardAction::zoomIn(d->view, SLOT(slotZoomIn()), this);
     d->increaseThumbsAction->setEnabled(false);
     KShortcut keysPlus      = d->increaseThumbsAction->shortcut();
     keysPlus.setAlternate(Qt::Key_Plus);
     d->increaseThumbsAction->setShortcut(keysPlus);
     actionCollection()->addAction("importui_zoomplus", d->increaseThumbsAction);
 
-    d->decreaseThumbsAction = KStandardAction::zoomOut(this, SLOT(slotDecreaseThumbSize()), this);
+    d->decreaseThumbsAction = KStandardAction::zoomOut(d->view, SLOT(slotZoomOut()), this);
     d->decreaseThumbsAction->setEnabled(false);
     KShortcut keysMinus     = d->decreaseThumbsAction->shortcut();
     keysMinus.setAlternate(Qt::Key_Minus);
@@ -655,18 +656,13 @@ void ImportUI::setupActions()
     createGUI(xmlFile());
 
     d->showMenuBarAction->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
-
-    // hide the unsupported actions
-    d->uploadAction->setVisible(d->controller->cameraUploadSupport());
-
-    d->cameraCaptureAction->setVisible(d->controller->cameraCaptureImageSupport());
 }
 
 void ImportUI::setupConnections()
 {
     //TODO: Needs testing.
     connect(d->advancedSettings, SIGNAL(signalDownloadNameChanged()),
-            this, SLOT(slotDownloadNameChanged()));
+            this, SLOT(slotUpdateDownloadName()));
 
     connect(d->historyView, SIGNAL(signalEntryClicked(QVariant)),
             this, SLOT(slotHistoryEntryClicked(QVariant)));
@@ -717,7 +713,7 @@ void ImportUI::setupConnections()
             this, SLOT(slotSetupChanged()));
 
     connect(d->renameCustomizer, SIGNAL(signalChanged()),
-            this, SLOT(slotDownloadNameChanged()));
+            this, SLOT(slotUpdateDownloadName()));
 }
 
 void ImportUI::setupStatusBar()
@@ -731,7 +727,7 @@ void ImportUI::setupStatusBar()
 
     d->cameraFreeSpace = new FreeSpaceWidget(statusBar(), 100);
 
-    if (d->controller->cameraDriverType() == DKCamera::GPhotoDriver)
+    if (cameraUseGPhotoDriver())
     {
         d->cameraFreeSpace->setMode(FreeSpaceWidget::GPhotoCamera);
         connect(d->controller, SIGNAL(signalFreeSpace(ulong,ulong)),
@@ -956,7 +952,7 @@ void ImportUI::slotCancelButton()
 
 void ImportUI::refreshFreeSpace()
 {
-    if (d->controller->cameraDriverType() == DKCamera::GPhotoDriver)
+    if (cameraUseGPhotoDriver())
     {
         d->controller->getFreeSpace();
     }
@@ -1083,6 +1079,7 @@ void ImportUI::slotBusy(bool val)
         }
 
         d->busy = false;
+        d->cameraCancelAction->setEnabled(false);
         d->cameraActions->setEnabled(true);
         d->advBox->setEnabled(true);
 
@@ -1118,18 +1115,6 @@ void ImportUI::slotBusy(bool val)
         // TODO see if this can be enabled too, except while downloading..
         d->advBox->setEnabled(false);
     }
-}
-
-void ImportUI::slotIncreaseThumbSize()
-{
-    int thumbSize = d->view->thumbnailSize().size() + ThumbnailSize::Step;
-    d->view->setThumbSize(thumbSize);
-}
-
-void ImportUI::slotDecreaseThumbSize()
-{
-    int thumbSize = d->view->thumbnailSize().size() - ThumbnailSize::Step;
-    d->view->setThumbSize(thumbSize);
 }
 
 void ImportUI::slotZoomSliderChanged(int size)
@@ -1174,6 +1159,11 @@ void ImportUI::slotConnected(bool val)
     }
     else
     {
+        // disable unsupported actions
+        d->uploadAction->setEnabled(d->controller->cameraUploadSupport());
+
+        d->cameraCaptureAction->setEnabled(d->controller->cameraCaptureImageSupport());
+
         d->errorWidget->hide();
         refreshFreeSpace();
         // FIXME ugly c&p from slotFolderList
@@ -1492,7 +1482,12 @@ void ImportUI::slotDownload(bool onlySelected, bool deleteAfter, Album* album)
         else
         {
             AlbumList list = man->currentAlbums();
-            int albumId    = group.readEntry(d->configLastTargetAlbum, !list.isEmpty() ? list.first()->globalID() : 0);
+
+            int albumId = 0;
+            if (!list.isEmpty())
+            {
+                albumId = group.readEntry(d->configLastTargetAlbum, list.first()->globalID());
+            }
             album          = man->findAlbum(albumId);
 
             if (album && album->type() != Album::PHYSICAL)
@@ -1566,11 +1561,6 @@ void ImportUI::slotDownloaded(const QString& folder, const QString& file, int st
         {
             int curr = d->statusProgressBar->progressValue();
             d->statusProgressBar->setProgressValue(curr + 1);
-
-            if (autoRotate)
-            {
-                d->autoRotateItemsList << info;
-            }
 
             d->renameCustomizer->setStartIndex(d->renameCustomizer->startIndex() + 1);
 
@@ -1689,18 +1679,64 @@ void ImportUI::slotLocked(const QString& folder, const QString& file, bool statu
     d->statusProgressBar->setProgressValue(curr + 1);
 }
 
-void ImportUI::slotDownloadNameChanged()
+void ImportUI::slotUpdateDownloadName()
 {
-    CamItemInfoList list = d->view->allItems();
+    d->view->setIconViewUpdatesEnabled(false);
+
+    bool noSelection          = d->view->selectedCamItemInfos().count() == 0;
+    CamItemInfoList list      = d->view->allItems();
+    DownloadSettings settings = downloadSettings();
 
     foreach (CamItemInfo info, list)
     {
         CamItemInfo& refInfo = d->view->camItemInfoRef(info.folder, info.name);
-        refInfo.downloadName = d->renameCustomizer->newName(info.name, info.ctime);
+        kDebug() << "slotDownloadNameChanged, old: " << refInfo.downloadName;
+
+        QString newName = info.name;
+
+        if (noSelection || d->view->isSelected(info.url()))
+        {
+            newName = d->renameCustomizer->newName(info.name, info.ctime);
+        }
+
+        // Renaming files for the converting jpg to a lossless format
+        // is from cameracontroller.cpp moved here.
+
+        if (settings.convertJpeg && info.mime == QString("image/jpeg") &&
+           (noSelection || d->view->isSelected(info.url())))
+        {
+            QFileInfo     fi(newName);
+            QString ext = fi.suffix();
+
+            if (!ext.isEmpty())
+            {
+                if (ext == "JPG" || ext == "JPE" || ext == "JPEG")
+                {
+                    ext = settings.losslessFormat.toUpper();
+                }
+                else if (ext == "Jpg" || ext == "Jpe" || ext == "Jpeg")
+                {
+                    ext    = settings.losslessFormat.toLower();
+                    ext[0] = ext[0].toUpper();
+                }
+                else
+                {
+                   ext = settings.losslessFormat.toLower();
+                }
+
+                newName = fi.completeBaseName() + '.' + ext;
+            }
+            else
+            {
+                newName = newName + '.' + settings.losslessFormat.toLower();
+            }
+        }
+
+        refInfo.downloadName = newName;
+        kDebug() << "slotDownloadNameChanged, new: " << refInfo.downloadName;
     }
 
-    // connected to slotUpdateDownloadNames, and used externally
-    //emit signalNewSelection(hasSelection);
+    d->view->setIconViewUpdatesEnabled(true);
 }
 
 //FIXME: the new pictures are marked by CameraHistoryUpdater which is not working yet.
@@ -2000,29 +2036,6 @@ bool ImportUI::downloadCameraItems(PAlbum* pAlbum, bool onlySelected, bool delet
     QSet<QString> usedDownloadPaths;
     CamItemInfoList list = d->view->allItems();
 
-    if (!d->renameCustomizer->useDefault())
-    {
-        QList<ParseSettings> renameFiles;
-
-        foreach(CamItemInfo info, list)
-        {
-            if (onlySelected && (d->view->isSelected(info.url())))
-            {
-                ParseSettings parseSettings;
-                parseSettings.fileUrl      = info.name;
-                parseSettings.creationTime = info.ctime;
-                renameFiles.append(parseSettings);
-            }
-        }
-
-        d->renameCustomizer->renameManager()->addFiles(renameFiles);
-        d->renameCustomizer->renameManager()->parseFiles();
-    }
-    else
-    {
-        d->renameCustomizer->renameManager()->reset();
-    }
-
     foreach(CamItemInfo info, list)
     {
         if (onlySelected && !(d->view->isSelected(info.url())))
@@ -2036,7 +2049,8 @@ bool ImportUI::downloadCameraItems(PAlbum* pAlbum, bool onlySelected, bool delet
         settings.colorLabel = info.colorLabel;
         settings.rating     = info.rating;
         dateTime            = info.ctime;
-        downloadName        = d->renameCustomizer->newName(info.name, info.ctime);
+
+        downloadName = info.downloadName; // downloadName should already be set by now
 
         KUrl downloadUrl(url);
 
@@ -2084,6 +2098,12 @@ bool ImportUI::downloadCameraItems(PAlbum* pAlbum, bool onlySelected, bool delet
 
         settings.dest = downloadUrl.toLocalFile();
         allItems.append(settings);
+
+        if (settings.autoRotate)
+        {
+            d->autoRotateItemsList << downloadUrl.toLocalFile();
+            kDebug() << "autorotating for " << downloadUrl;
+        }
 
         ++downloadedItems;
     }
@@ -2254,7 +2274,7 @@ void ImportUI::slotNewSelection(bool hasSelection)
 
     d->downloadSelectedAction->setEnabled(hasSelection);
     d->downloadDelSelectedAction->setEnabled(hasSelection && d->controller->cameraDeleteSupport());
-    d->camItemPreviewAction->setEnabled(hasSelection);
+    d->camItemPreviewAction->setEnabled(hasSelection && cameraUseUMSDriver());
     d->deleteSelectedAction->setEnabled(hasSelection && d->controller->cameraDeleteSupport());
     d->lockAction->setEnabled(hasSelection);
 
@@ -2283,26 +2303,23 @@ void ImportUI::slotNewSelection(bool hasSelection)
         d->markAsDownloadedAction->setEnabled(false);
     }
 
-    if (!d->renameCustomizer->useDefault())
+    QList<ParseSettings> renameFiles;
+    CamItemInfoList list = hasSelection ? d->view->selectedCamItemInfos() : d->view->allItems();
+
+    foreach(CamItemInfo info, list)
     {
-        QList<ParseSettings> renameFiles;
-        CamItemInfoList list = hasSelection ? d->view->selectedCamItemInfos() : d->view->allItems();
+        ParseSettings parseSettings;
 
-        foreach(CamItemInfo info, list)
-        {
-            ParseSettings parseSettings;
-            parseSettings.fileUrl = info.name;
-            parseSettings.creationTime = info.ctime;
-            renameFiles.append(parseSettings);
-        }
-
-        d->renameCustomizer->renameManager()->reset();
-        d->renameCustomizer->renameManager()->addFiles(renameFiles);
-        d->renameCustomizer->renameManager()->parseFiles();
+        parseSettings.fileUrl      = info.name;
+        parseSettings.creationTime = info.ctime;
+        renameFiles.append(parseSettings);
     }
 
-    // TODO why new name is calculated on selection basis?!
-    slotDownloadNameChanged();
+    d->renameCustomizer->renameManager()->reset();
+    d->renameCustomizer->renameManager()->addFiles(renameFiles);
+    d->renameCustomizer->renameManager()->parseFiles();
+
+    slotUpdateDownloadName();
 
     unsigned long fSize = 0;
     unsigned long dSize = 0;
@@ -2411,15 +2428,25 @@ void ImportUI::autoRotateItems()
         return;
     }
 
-    ImageInfoList list;
+    qlonglong         id;
+    ImageInfoList     list;
+    CollectionScanner scanner;
 
-    foreach (CamItemInfo info, d->autoRotateItemsList)
+    ScanController::instance()->suspendCollectionScan();
+
+    foreach (const QString& downloadUrl, d->autoRotateItemsList)
     {
         //TODO: Needs test for Gphoto items.
-        list << ImageInfo(info.url());
+        // make ImageInfo up to date
+        id = scanner.scanFile(downloadUrl, CollectionScanner::NormalScan);
+        list << ImageInfo(id);
     }
 
     FileActionMngr::instance()->transform(list, KExiv2Iface::RotationMatrix::NoTransformation);
+
+    ScanController::instance()->resumeCollectionScan();
+
+    d->autoRotateItemsList.clear();
 }
 
 bool ImportUI::createAutoAlbum(const KUrl& parentURL, const QString& sub,
@@ -2446,9 +2473,9 @@ bool ImportUI::createAutoAlbum(const KUrl& parentURL, const QString& sub,
         }
     }
 
-    // looks like the directory does not exist, try to create it
-
-    PAlbum* const parent = AlbumManager::instance()->findPAlbum(parentURL);
+    // looks like the directory does not exist, try to create it.
+    // First we make sure that the parent exists.
+    PAlbum* parent = AlbumManager::instance()->findPAlbum(parentURL);
 
     if (!parent)
     {
@@ -2456,7 +2483,24 @@ bool ImportUI::createAutoAlbum(const KUrl& parentURL, const QString& sub,
         return false;
     }
 
-    return AlbumManager::instance()->createPAlbum(parent, sub, QString(), date, QString(), errMsg);
+    // Create the album, with any parent albums required for the structure
+    KUrl albumUrl(parentURL);
+    foreach (const QString& folder, sub.split(QChar('/'), QString::SkipEmptyParts))
+    {
+        albumUrl.cd(folder);
+        PAlbum* album = AlbumManager::instance()->findPAlbum(albumUrl);
+        if (!album)
+        {
+            album = AlbumManager::instance()->createPAlbum(parent, folder, QString(), date, QString(), errMsg);
+            if (!album)
+            {
+                return false;
+            }
+        }
+        parent = album;
+    }
+
+    return true;
 }
 
 void ImportUI::slotEditKeys()
@@ -2516,6 +2560,16 @@ bool ImportUI::cameraMkDirSupport() const
 bool ImportUI::cameraDelDirSupport() const
 {
     return d->controller->cameraDelDirSupport();
+}
+
+bool ImportUI::cameraUseUMSDriver() const
+{
+    return d->controller->cameraDriverType() == DKCamera::UMSDriver;
+}
+
+bool ImportUI::cameraUseGPhotoDriver() const
+{
+    return d->controller->cameraDriverType() == DKCamera::GPhotoDriver;
 }
 
 void ImportUI::enableZoomPlusAction(bool val)
@@ -2629,7 +2683,9 @@ void ImportUI::slotSwitchedToIconView()
 void ImportUI::slotSwitchedToMapView()
 {
     d->zoomBar->setBarMode(DZoomBar::ThumbsSizeCtrl);
+#ifdef HAVE_KGEOMAP
     d->imageViewSelectionAction->setCurrentAction(d->mapViewAction);
+#endif // HAVE_KGEOMAP
     toogleShowBar();
 }
 

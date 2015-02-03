@@ -1,6 +1,6 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013.
+# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2014.
 # Lukáš Tinkl <ltinkl@redhat.com>, 2010.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012.
 #
@@ -8,9 +8,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-03-14 15:46+0100\n"
-"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"POT-Creation-Date: 2014-10-05 01:39+0000\n"
+"PO-Revision-Date: 2014-10-22 17:01+0200\n"
+"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -50,7 +50,7 @@ msgid "Please select one or more photos to print."
 msgstr "Zvolte jednu nebo více fotografií k tisku."
 
 #: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
 msgid "Print assistant"
 msgstr "Průvodce tiskem"
 
@@ -191,7 +191,7 @@ msgid "x"
 msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
 msgid "cm"
 msgstr "cm"
 
@@ -201,7 +201,7 @@ msgid "mm"
 msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
 msgid "inches"
 msgstr "palce"
 
@@ -239,26 +239,26 @@ msgid "Empty slots:"
 msgstr "Prázdná místa:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
 msgid "Print to PDF"
 msgstr "Tisk do PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+#: ui/photopage.ui:190 wizard/wizard.cpp:1759
 msgid "Print to PS"
 msgstr "Tisk do PS"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
-#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
+#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
 msgid "Print to JPG"
 msgstr "Tisk do JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
-#: wizard/wizard.cpp:2506
+#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
+#: wizard/wizard.cpp:2511
 msgid "Print to gimp"
-msgstr "Tisknout do gimpu"
+msgstr "Tisknout do GIMPu"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
 #: ui/photopage.ui:214
@@ -294,7 +294,7 @@ msgid "Captions:"
 msgstr "Popisky:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+#: ui/photopage.ui:452 wizard/wizard.cpp:1854
 msgid "No captions"
 msgstr "Bez popisku"
 
@@ -314,7 +314,7 @@ msgid "Comments"
 msgstr "Komentáře"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+#: ui/photopage.ui:472 wizard/wizard.cpp:1860
 msgid "Free"
 msgstr "Volitelný"
 
@@ -558,31 +558,31 @@ msgstr "Znovu přidat"
 msgid "Remove"
 msgstr "Odstranit"
 
-#: wizard/wizard.cpp:2363
+#: wizard/wizard.cpp:2368
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "Následující soubor bude přepsán. Opravdu si jej přejete přepsat?"
 
-#: wizard/wizard.cpp:2384
+#: wizard/wizard.cpp:2389
 msgid "Could not save file, please check your output entry."
 msgstr "Není možné uložit soubor. Zkontrolujte prosím nastavení výstupu."
 
-#: wizard/wizard.cpp:2408
+#: wizard/wizard.cpp:2413
 msgid "Could not remove the GIMP's temporary files."
 msgstr "Nelze odstranit dočasné soubory GIMP."
 
-#: wizard/wizard.cpp:2529
+#: wizard/wizard.cpp:2534
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
 msgstr ""
 "Při spuštění GIMPu došlo k chybě. Ujistěte se, zda je správně nainstalován."
 
-#: wizard/wizard.cpp:2530
+#: wizard/wizard.cpp:2535
 msgid "KIPI"
 msgstr "KIPI"
 
-#: wizard/wizard.cpp:2543
+#: wizard/wizard.cpp:2548
 msgid "Empty output path."
 msgstr "Prázdná cesta k výstupu."

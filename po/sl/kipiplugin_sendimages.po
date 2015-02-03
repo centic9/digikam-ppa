@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013.
+# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-08-31 19:03+0200\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
+"PO-Revision-Date: 2014-11-29 18:00+0100\n"
 "Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -40,11 +40,11 @@ msgstr "Ni mogoče spremeniti velikosti slike. Prekinjanje."
 
 #: imageresize.cpp:182
 msgid "Cannot save resized image (JPEG). Aborting."
-msgstr "Ni mogoče shraniti slike z spremenjeno velikostjo (JPEG). Prekinjanje."
+msgstr "Ni mogoče shraniti slike s spremenjeno velikostjo (JPEG). Prekinjanje."
 
 #: imageresize.cpp:198
 msgid "Cannot save resized image (PNG). Aborting."
-msgstr "Ni mogoče shraniti slike z spremenjeno velikostjo (PNG). Prekinjanje."
+msgstr "Ni mogoče shraniti slike s spremenjeno velikostjo (PNG). Prekinjanje."
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_sendimagesui.rc:7
@@ -281,8 +281,8 @@ msgstr "Velika (1024 slikovnih točk)"
 msgid "Very Big (1280 pixels)"
 msgstr "Zelo velika (1280 slikovnih točk)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+msgid "Large - for printing (1600 pixels)"
 msgstr "Ogromna - za tiskanje (1600 slikovnih točk)"
 
 #: settingswidget.cpp:145
@@ -307,6 +307,10 @@ msgstr ""
 "zelo hitro internetno povezavo ali pa ciljna velikost poštnega predala ni "
 "omejena.</p><p><b>%5</b>: uporabite to, če nimate nobenih omejitev.</p><p><b>"
 "%6</b>: uporabite to le za namene tiskanja.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Ogromna - za tiskanje (1600 slikovnih točk)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

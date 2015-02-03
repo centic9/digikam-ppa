@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2010-01-05 13:48+0800\n"
 "Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
 "Language-Team: Chinese Simplified <kde-china@kde.org>\n"
@@ -282,8 +282,10 @@ msgstr "大(1024 像素)"
 msgid "Very Big (1280 pixels)"
 msgstr "非常大(1280 像素)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "极大 - 用于打印(1600 像素)"
 
 #: settingswidget.cpp:145
@@ -305,6 +307,10 @@ msgstr ""
 "的网络连接和目标邮箱容量。</p><p><b>%4</b>：如果您使用高速的网络连接或者目标"
 "邮箱容量无限，那么使用此选项。</p><p><b>%5</b>：如果没有容量或速度限制，那么"
 "使用此选项。</p><p><b>%6</b>：仅用于打印。</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "极大 - 用于打印(1600 像素)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

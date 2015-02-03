@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_batchprocessimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2012-05-04 10:41+0100\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
+"PO-Revision-Date: 2014-10-23 10:00+0100\n"
 "Last-Translator: Pedro Morais <morais@kde.org>\n"
 "Language-Team: pt <kde-i18n-pt@kde.org>\n"
 "Language: \n"
@@ -72,11 +72,11 @@ msgstr "&Imagem"
 msgid "Main Toolbar"
 msgstr "Barra Principal"
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 msgid "Timestamp Used"
 msgstr "Hora de Uso"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 msgid "Timestamp Updated"
 msgstr "Hora de Actualização"
 
@@ -88,28 +88,28 @@ msgstr "Novo Nome do Ficheiro"
 msgid "Status"
 msgstr "Estado"
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr "não válido"
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr "N.A"
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 msgid "Failed to update metadata timestamp"
 msgstr "Não foi possível actualizar a data dos meta-dados"
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 msgid "Failed to update file timestamp"
 msgstr "Não foi possível actualizar a data do ficheiro"
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr "Não foi possível mudar o nome do ficheiro"
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr "Processado sem erros"
 
@@ -117,66 +117,70 @@ msgstr "Processado sem erros"
 msgid "Adjust Time && Date..."
 msgstr "Ajustar Hora e Data..."
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr "Hora %1"
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr "Última modificação do ficheiro"
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr "EXIF/IPTC/XMP"
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr "EXIF: criação"
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr "EXIF: original"
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr "EXIF: digitalização"
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr "IPTC: criação"
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr "XMP: criação"
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "Repor com a data actual"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "Copiar o valor"
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Adicionar"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "Subtrair"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "dias"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 msgid "Determine difference from clock photo"
 msgstr "Determinar a diferença de horas com a fotografia"
+
+#: settingswidget.cpp:256
+msgid "EXIF: Thumbnail"
+msgstr "EXIF: Miniatura"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -186,11 +190,11 @@ msgstr "XMP"
 msgid "Filename"
 msgstr "Nome do Ficheiro"
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 msgid "Timestamp Adjustments"
 msgstr "Ajustes da Hora"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "Ajustar Hora e Data"
 
@@ -206,11 +210,11 @@ msgstr ""
 #: timeadjustdialog.cpp:133
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 
 #: timeadjustdialog.cpp:137
@@ -237,10 +241,10 @@ msgstr "Smit Mehta"
 msgid "Pieter Edelman"
 msgstr "Pieter Edelman"
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 msgid "Adjust Time and Date"
 msgstr "Ajustar a Data e Hora"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr "Seleccione pelo menos uma opção"

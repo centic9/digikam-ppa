@@ -32,10 +32,11 @@
 namespace KGeoMap
 {
 
-class TileGrouper::TileGrouperPrivate
+class TileGrouper::Private
 {
 public:
-    TileGrouperPrivate()
+
+    Private()
         : clustersDirty(true),
           currentBackend(0)
     {
@@ -47,13 +48,14 @@ public:
 };
 
 TileGrouper::TileGrouper(const QExplicitlySharedDataPointer<KGeoMapSharedData>& sharedData, QObject* const parent)
-    : QObject(parent), d(new TileGrouperPrivate()), s(sharedData)
+    : QObject(parent),
+      d(new Private),
+      s(sharedData)
 {
 }
 
 TileGrouper::~TileGrouper()
 {
-    delete d;
 }
 
 void TileGrouper::setClustersDirty()
@@ -103,6 +105,7 @@ void TileGrouper::updateClusters()
     {
        return;
     }
+
     d->clustersDirty = false;
 
     // constants for clusters
@@ -115,14 +118,14 @@ void TileGrouper::updateClusters()
 
     s->clusterList.clear();
 
-    const int markerLevel = d->currentBackend->getMarkerModelLevel();
+    const int markerLevel                                   = d->currentBackend->getMarkerModelLevel();
     QList<QPair<GeoCoordinates, GeoCoordinates> > mapBounds = d->currentBackend->getNormalizedBounds();
 
 //     // debug output for tile level diagnostics:
 //     QIntList tile1;
 //     tile1<<520;
 //     QIntList tile2 = tile1;
-//     for (int i=1; i<=s->markerModel->maxLevel()-1; ++i)
+//     for (int i = 1; i <= s->markerModel->maxLevel()-1; ++i)
 //     {
 //         tile2 = tile1;
 //         tile2<<0;
@@ -135,7 +138,7 @@ void TileGrouper::updateClusters()
 //         kDebug()<<i<<tile1Point<<tile2Point<<(tile1Point-tile2Point);
 //     }
 
-    const int gridSize = ClusterGridSizeScreen;
+    const int gridSize   = ClusterGridSizeScreen;
     const QSize mapSize  = d->currentBackend->mapSize();
     const int gridWidth  = mapSize.width();
     const int gridHeight = mapSize.height();
@@ -145,7 +148,7 @@ void TileGrouper::updateClusters()
 
     /// @todo Iterate only over the visible part of the map
     int debugCountNonEmptyTiles = 0;
-    int debugTilesSearched = 0;
+    int debugTilesSearched      = 0;
 
     /// @todo Review this
     for(int i = 0; i < mapBounds.count(); ++i)
@@ -161,13 +164,14 @@ void TileGrouper::updateClusters()
         const GeoCoordinates tileCoordinate = tileIndex.toCoordinates();
         debugTilesSearched++;
         QPoint tilePoint;
+
         if (!d->currentBackend->screenCoordinates(tileCoordinate, &tilePoint))
         {
             continue;
         }
 
         // make sure we are in the grid (in case there are rounding errors somewhere in the backend
-        if ((tilePoint.x()<0)||(tilePoint.y()<0)||(tilePoint.x()>=gridWidth)||(tilePoint.y()>=gridHeight))
+        if ((tilePoint.x() < 0) || (tilePoint.y() < 0) || (tilePoint.x() >= gridWidth) || (tilePoint.y() >= gridHeight))
             continue;
 
         debugCountNonEmptyTiles++;
@@ -181,7 +185,7 @@ void TileGrouper::updateClusters()
     /// @todo Cleanup this list every ... iterations in the next loop, too
     QIntList nonEmptyPixelIndices;
 
-    for (int i=0; i<gridWidth*gridHeight; ++i)
+    for (int i = 0; i < gridWidth*gridHeight; ++i)
     {
         if (pixelCountGrid.at(i)>0)
             nonEmptyPixelIndices << i;
@@ -192,25 +196,26 @@ void TileGrouper::updateClusters()
     Q_FOREVER
     {
         // here we store candidates for clusters:
-        int markerMax = 0;
-        int markerX = 0;
-        int markerY = 0;
+        int markerMax             = 0;
+        int markerX               = 0;
+        int markerY               = 0;
         int pixelGridMetaIndexMax = 0;
 
-        for (int pixelGridMetaIndex = 0; pixelGridMetaIndex<nonEmptyPixelIndices.size(); ++pixelGridMetaIndex)
+        for (int pixelGridMetaIndex = 0; pixelGridMetaIndex < nonEmptyPixelIndices.size(); ++pixelGridMetaIndex)
         {
             const int index = nonEmptyPixelIndices.at(pixelGridMetaIndex);
-            if (index<0)
+
+            if (index < 0)
                 continue;
 
-            if (pixelCountGrid.at(index)==0)
+            if (pixelCountGrid.at(index) == 0)
             {
                 /// @todo Also remove this entry from the list to speed up the loop!
                 nonEmptyPixelIndices[pixelGridMetaIndex] = -1;
                 continue;
             }
 
-            if (pixelCountGrid.at(index)>markerMax)
+            if (pixelCountGrid.at(index) > markerMax)
             {
                 // calculate x,y from the linear index:
                 const int x = index % gridWidth;
@@ -227,9 +232,9 @@ void TileGrouper::updateClusters()
 //                 }
 
                 // now check all other clusters:
-                for (int i=0; (!tooClose)&&(i<s->clusterList.size()); ++i)
+                for (int i = 0; (!tooClose) && (i < s->clusterList.size()); ++i)
                 {
-                    if (i==index)
+                    if (i == index)
                         continue;
 
                     tooClose = QPointSquareDistance(s->clusterList.at(i).pixelPos, markerPosition) < pow(ClusterGridSizeScreen/2, 2);
@@ -255,18 +260,18 @@ void TileGrouper::updateClusters()
             }
         }
 
-        if (markerMax==0)
+        if (markerMax == 0)
             break;
 
         GeoCoordinates clusterCoordinates = pixelNonEmptyTileIndexGrid.at(markerX+markerY*gridWidth).first().toCoordinates();
         KGeoMapCluster cluster;
-        cluster.coordinates = clusterCoordinates;
-        cluster.pixelPos = QPoint(markerX, markerY);
-        cluster.tileIndicesList = pixelNonEmptyTileIndexGrid.at(markerX+markerY*gridWidth);
-        cluster.markerCount = pixelCountGrid.at(markerX+markerY*gridWidth);
+        cluster.coordinates               = clusterCoordinates;
+        cluster.pixelPos                  = QPoint(markerX, markerY);
+        cluster.tileIndicesList           = pixelNonEmptyTileIndexGrid.at(markerX+markerY*gridWidth);
+        cluster.markerCount               = pixelCountGrid.at(markerX+markerY*gridWidth);
 
         // mark the pixel as done:
-        pixelCountGrid[markerX+markerY*gridWidth] = 0;
+        pixelCountGrid[markerX+markerY*gridWidth]   = 0;
         pixelNonEmptyTileIndexGrid[markerX+markerY*gridWidth].clear();
         nonEmptyPixelIndices[pixelGridMetaIndexMax] = -1;
 
@@ -279,14 +284,15 @@ void TileGrouper::updateClusters()
         const int yStart    = qMax( (markerY-eatRadius), 0);
         const int xEnd      = qMin( (markerX+eatRadius), gridWidth-1);
         const int yEnd      = qMin( (markerY+eatRadius), gridHeight-1);
+
         for (int indexX = xStart; indexX <= xEnd; ++indexX)
         {
             for (int indexY = yStart; indexY <= yEnd; ++indexY)
             {
-                const int index = indexX + indexY*gridWidth;
+                const int index       = indexX + indexY*gridWidth;
                 cluster.tileIndicesList << pixelNonEmptyTileIndexGrid.at(index);
                 pixelNonEmptyTileIndexGrid[index].clear();
-                cluster.markerCount+= pixelCountGrid.at(index);
+                cluster.markerCount  += pixelCountGrid.at(index);
                 pixelCountGrid[index] = 0;
             }
         }
@@ -303,11 +309,13 @@ void TileGrouper::updateClusters()
         const QPoint markerPosition = it->first;
 
         // find the closest cluster:
-        int closestSquareDistance = 0;
-        int closestIndex = -1;
+        int closestSquareDistance   = 0;
+        int closestIndex            = -1;
+
         for (int i=0; i<s->clusterList.size(); ++i)
         {
             const int squareDistance = QPointSquareDistance(s->clusterList.at(i).pixelPos, markerPosition);
+
             if ((closestIndex < 0) || (squareDistance < closestSquareDistance))
             {
                 closestSquareDistance = squareDistance;
@@ -315,32 +323,30 @@ void TileGrouper::updateClusters()
             }
         }
 
-        if (closestIndex>=0)
+        if (closestIndex >= 0)
         {
-            s->clusterList[closestIndex].markerCount+= it->second.first;
+            s->clusterList[closestIndex].markerCount += it->second.first;
             s->clusterList[closestIndex].tileIndicesList << it->second.second;
         }
     }
 
     // determine the selected states of the clusters:
-    for (int i=0; i<s->clusterList.count(); ++i)
+    for (int i = 0; i < s->clusterList.count(); ++i)
     {
-        KGeoMapCluster& cluster = s->clusterList[i];
-
+        KGeoMapCluster& cluster  = s->clusterList[i];
         int clusterSelectedCount = 0;
         KGeoMapGroupStateComputer clusterStateComputer;
-        for (int iTile=0;
-                (iTile<cluster.tileIndicesList.count());
-                ++iTile)
-        {
-            const TileIndex tileIndex = cluster.tileIndicesList.at(iTile);
 
+        for (int iTile = 0; (iTile < cluster.tileIndicesList.count()); ++iTile)
+        {
+            const TileIndex tileIndex              = cluster.tileIndicesList.at(iTile);
             const KGeoMapGroupState tileGroupState = s->markerModel->getTileGroupState(tileIndex);
             clusterStateComputer.addState(tileGroupState);
-            clusterSelectedCount+= s->markerModel->getTileSelectedCount(tileIndex);
+            clusterSelectedCount                  += s->markerModel->getTileSelectedCount(tileIndex);
         }
+
         cluster.markerSelectedCount = clusterSelectedCount;
-        cluster.groupState = clusterStateComputer.getState();
+        cluster.groupState          = clusterStateComputer.getState();
     }
 
 //     kDebug()<<s->clusterList.size();
@@ -349,5 +355,4 @@ void TileGrouper::updateClusters()
     d->currentBackend->updateClusters();
 }
 
-} /* KGeoMap */
-
+} /* namespace KGeoMap */

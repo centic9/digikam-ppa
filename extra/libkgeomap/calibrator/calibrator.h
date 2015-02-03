@@ -37,30 +37,34 @@ class QStandardItemModel;
 
 class CalibratorModelHelper : public KGeoMap::ModelHelper
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
+
     explicit CalibratorModelHelper(QStandardItemModel* const model, QObject* const parent = 0);
     ~CalibratorModelHelper();
 
-    // these are necessary for grouped and ungrouped models
-    virtual QAbstractItemModel* model() const;
-    virtual QItemSelectionModel* selectionModel() const;
-    virtual bool itemCoordinates(const QModelIndex& index, KGeoMap::GeoCoordinates* const coordinates) const;
-    virtual Flags modelFlags() const;
-
     void setItemCoordinates(const QModelIndex& index, const KGeoMap::GeoCoordinates& coordinates);
+
+    // these are necessary for grouped and ungrouped models
+    virtual QAbstractItemModel*  model()          const;
+    virtual QItemSelectionModel* selectionModel() const;
+    virtual Flags 		 modelFlags()     const;
+    virtual bool itemCoordinates(const QModelIndex& index, KGeoMap::GeoCoordinates* const coordinates) const;
+
 private:
 
-    class CalibratorModelHelperPrivate;
-    CalibratorModelHelperPrivate* const d;
+    class Private;
+    Private* const d;
 
     Q_DISABLE_COPY(CalibratorModelHelper)
 };
 
+// -----------------------------------------------------------------------------------------------------------
+
 class Calibrator : public KMainWindow
 {
-Q_OBJECT
+    Q_OBJECT
 
 public:
     Calibrator();
@@ -81,8 +85,8 @@ private Q_SLOTS:
 
 private:
 
-    class CalibratorPrivate;
-    CalibratorPrivate* const d;
+    class Private;
+    Private* const d;
 
     Q_DISABLE_COPY(Calibrator)
 };

@@ -7,7 +7,7 @@
  * Description : Haar Database interface
  *
  * Copyright (C) 2003      by Ricardo Niederberger Cabral <nieder at mail dot ru>
- * Copyright (C) 2009-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -55,7 +55,6 @@
 #include "albumdb.h"
 #include "databasebackend.h"
 #include "searchxml.h"
-#include "haar.h"
 #include "sqlquery.h"
 
 using namespace std;
@@ -312,7 +311,7 @@ bool HaarIface::indexImage(const QString& filename)
 
 bool HaarIface::indexImage(const QString& filename, const QImage& image)
 {
-    ImageInfo info(KUrl::fromPath(filename));
+    ImageInfo info = ImageInfo::fromLocalFile(filename);
 
     if (info.isNull())
     {
@@ -324,7 +323,7 @@ bool HaarIface::indexImage(const QString& filename, const QImage& image)
 
 bool HaarIface::indexImage(const QString& filename, const DImg& image)
 {
-    ImageInfo info(KUrl::fromPath(filename));
+    ImageInfo info = ImageInfo::fromLocalFile(filename);
 
     if (info.isNull())
     {

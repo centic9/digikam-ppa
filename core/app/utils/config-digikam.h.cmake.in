@@ -30,14 +30,20 @@
 /* Define to 1 if an external liblqr-1 shared library have been found */
 #cmakedefine HAVE_LIBLQR_1 1
 
-/* Define to 1 if an external libpgf shared library have been found */
-#cmakedefine USE_EXT_LIBPGF 1
-
 /* Define to 1 if an external lensfun shared library have been found */
 #cmakedefine HAVE_LENSFUN 1
 
+/* Define to 1 if an external Kipi shared library have been found */
+#cmakedefine HAVE_KIPI 1
+
+/* Define to 1 if an external Kface shared library have been found */
+#cmakedefine HAVE_KFACE 1
+
+/* Define to 1 if an external Kgeomap shared library have been found */
+#cmakedefine HAVE_KGEOMAP 1
+
 /* Define to 1 if an external Eigen3 shared library have been found */
-#cmakedefine HAVE_EIGEN3
+#cmakedefine HAVE_EIGEN3 1
 
 /* The Eigen3 version string, if found, or an empty string otherwise */
 #define EIGEN3_VERSION_STRING "${EIGEN3_VERSION}"
@@ -45,36 +51,33 @@
 /* Define to 1 if GPhoto2 shared library is installed */
 #cmakedefine HAVE_GPHOTO2 1
 
+/* Define to 1 if Jasper shared library is installed */
+#cmakedefine HAVE_JASPER 1
+
 /* Define to 1 if libgphoto2 2.5 shared library is installed */
 #cmakedefine HAVE_GPHOTO25 1
-
-/* Define to 1 if thumbnails database is used */
-#cmakedefine USE_THUMBS_DB 1
-
-/* Define to 1 if script interface is enabled */
-#cmakedefine USE_SCRIPT_IFACE 1
-
-/* Define to 1 if presentation mode is enabled */
-#cmakedefine USE_PRESENTATION_MODE 1
-
-/* Define to 1 if you want Qt to scale the preview images */
-#cmakedefine USE_QT_SCALING 1
-
-/* Define to 1 if advanced debug messages are enabled */
-#cmakedefine USE_ADVANCEDDEBUGMSG 1
 
 /* Define to 1 if you have Baloo shared libraries installed */
 #cmakedefine HAVE_BALOO 1
 
+/* Define to 1 if an external SQLite v2 is installed */
+#cmakedefine HAVE_SQLITE2 1
+
+/* Define to 1 if we support mysql database */
+#cmakedefine HAVE_MYSQLSUPPORT 1
+
 /* Define to 1 if we know how to start mysqld */
 #cmakedefine HAVE_INTERNALMYSQL 1
+
+/* Define to 1 if you want Qt to scale the preview images */
+#cmakedefine USE_QT_SCALING 1
+
+/* Define to 1 if advanced image loader debug messages are enabled */
+#cmakedefine USE_IMGLOADERDEBUGMSG 1
 
 /* remember the lcms library version to use */
 #cmakedefine USE_LCMS_VERSION_1000 1
 #cmakedefine USE_LCMS_VERSION_2000 1
-
-/* Define to 1 if an external SQLite v2 is installed */
-#cmakedefine HAVE_SQLITE2 1
 
 #define LIBEXEC_INSTALL_DIR "${LIBEXEC_INSTALL_DIR}"
 

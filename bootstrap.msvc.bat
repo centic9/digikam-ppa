@@ -1,7 +1,7 @@
 @ECHO OFF
 
 REM  Copyright (c) 2008-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
-REM 
+REM
 REM  Redistribution and use is allowed according to the terms of the BSD license.
 REM  For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
@@ -28,10 +28,19 @@ cmake -G "NMake Makefiles" . ^
       -DCMAKE_BUILD_TYPE=relwithdebinfo ^
       -DCMAKE_INSTALL_PREFIX=%KDE4_INSTALL_DIR% ^
       -DKDE4_BUILD_TESTS=ON ^
-      -DDIGIKAMSC_USE_PRIVATE_KDEGRAPHICS=ON ^
+      -DDIGIKAMSC_CHECKOUT_PO=OFF ^
       -DDIGIKAMSC_COMPILE_PO=OFF ^
-      -DDIGIKAMSC_COMPILE_DOC=OFF ^
+      -DDIGIKAMSC_COMPILE_DOC=ON ^
+      -DDIGIKAMSC_COMPILE_LIBKIPI=OFF ^
+      -DDIGIKAMSC_COMPILE_LIBKEXIV2=OFF ^
+      -DDIGIKAMSC_COMPILE_LIBKDCRAW=OFF ^
+      -DDIGIKAMSC_COMPILE_LIBKSANE=OFF ^
+      -DDIGIKAMSC_COMPILE_LIBKFACE=OFF ^
+      -DDIGIKAMSC_COMPILE_LIBKGEOMAP=OFF ^
+      -DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=OFF ^
+      -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=OFF ^
       -DENABLE_LCMS2=OFF ^
+      -DENABLE_MYSQLSUPPORT=OFF ^
       -DENABLE_INTERNALMYSQL=OFF ^
       -Wno-dev ^
       -DEXPAT_LIBRARY=%KDE4_INSTALL_DIR%/lib/expat.lib ^

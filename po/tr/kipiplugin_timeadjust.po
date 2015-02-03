@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-graphics-kde4\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
 "PO-Revision-Date: 2014-06-08 13:47+0000\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/extragear-"
@@ -77,11 +77,11 @@ msgstr "&Resim"
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 msgid "Timestamp Used"
 msgstr "Kullanılan Zaman Damgası"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 msgid "Timestamp Updated"
 msgstr "Zaman Damgası Güncellendi"
 
@@ -93,28 +93,28 @@ msgstr "Yeni Dosya Adı"
 msgid "Status"
 msgstr "Durum"
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr "geçerli değil"
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr "N.A"
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 msgid "Failed to update metadata timestamp"
 msgstr "Üst veri zaman damgası güncelleme başarısız"
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 msgid "Failed to update file timestamp"
 msgstr "Dosya zaman damgası güncelleme başarısız"
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr "Dosya adlandırma başarısız"
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr "Hatasız tamamlandı"
 
@@ -122,66 +122,72 @@ msgstr "Hatasız tamamlandı"
 msgid "Adjust Time && Date..."
 msgstr "Saati ve Tarihi Ayarla..."
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr "%1 tarih etiketi"
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr "Dosyanın son düzenlenme tarihi"
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr "EXIF/IPTC/XMP"
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr "EXIF: oluşturuldu"
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr "EXIF: özgün"
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr "EXIF: sayısallaştırıldı"
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr "IPTC: oluşturuldu"
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr "XMP: oluşturuldu"
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "Geçerli güne sıfırla"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "Değeri kopyala"
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Ekle"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "Çıkart"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "days"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 msgid "Determine difference from clock photo"
 msgstr "Fotoğraftaki saatten farkı tespit et"
+
+#: settingswidget.cpp:256
+#, fuzzy
+#| msgid "EXIF: original"
+msgid "EXIF: Thumbnail"
+msgstr "EXIF: özgün"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -191,11 +197,11 @@ msgstr "XMP"
 msgid "Filename"
 msgstr "Dosya adı"
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 msgid "Timestamp Adjustments"
 msgstr "Zaman Damgası Ayarlamaları"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "Saati ve Tarihi Ayarla"
 
@@ -209,9 +215,14 @@ msgstr ""
 "Resim dosyalarının saatini ve tarihini ayarlamak için bir Kipi eklentisi"
 
 #: timeadjustdialog.cpp:133
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Jesper K. Pedersen\n"
+#| "(c) 2006-2012, Gilles Caulier\n"
+#| "(c) 2012, Smit Mehta"
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
@@ -242,10 +253,10 @@ msgstr "Smit Mehta"
 msgid "Pieter Edelman"
 msgstr "Pieter Edelman"
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 msgid "Adjust Time and Date"
 msgstr "Saati ve Tarihi Ayarla"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr "En az bir seçenek seçin"

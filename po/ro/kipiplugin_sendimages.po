@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2012-12-22 11:44+0200\n"
 "Last-Translator: Sergiu Bivol <sergiu@ase.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -279,8 +279,10 @@ msgstr "Mare (1024 pixeli)"
 msgid "Very Big (1280 pixels)"
 msgstr "Foarte mare 1280 pixeli("
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Uriașă - pentru imprimare (1600 pixeli)"
 
 #: settingswidget.cpp:145
@@ -296,6 +298,10 @@ msgid ""
 "have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
 "printing purposes.</p>"
 msgstr ""
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Uriașă - pentru imprimare (1600 pixeli)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

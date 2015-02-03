@@ -143,15 +143,16 @@
 #include "maintenancedlg.h"
 #include "maintenancemngr.h"
 #include "newitemsfinder.h"
-#include "kipipluginloader.h"
 #include "imagepluginloader.h"
 #include "tagsmanager.h"
-#ifdef HAVE_BALOO
-#include "baloowrap.h"
+#include "imagesortsettings.h"
+
+#ifdef HAVE_KIPI
+#include "kipipluginloader.h"
 #endif
 
-#ifdef USE_SCRIPT_IFACE
-#include "scriptiface.h"
+#ifdef HAVE_BALOO
+#include "baloowrap.h"
 #endif
 
 using KIO::Job;
@@ -894,26 +895,19 @@ void DigikamApp::setupActions()
     connect(d->imagePreviewAction, SIGNAL(triggered()), d->view, SLOT(slotImagePreview()));
     d->imageViewSelectionAction->addAction(d->imagePreviewAction);
 
+#ifdef HAVE_KGEOMAP
     d->imageMapViewAction = new KToggleAction(KIcon("applications-internet"),
                                               i18nc("@action Switch to map view", "Map"), this);
     actionCollection()->addAction("map_view", d->imageMapViewAction);
     connect(d->imageMapViewAction, SIGNAL(triggered()), d->view, SLOT(slotMapWidgetView()));
     d->imageViewSelectionAction->addAction(d->imageMapViewAction);
+#endif // HAVE_KGEOMAP
 
     d->imageTableViewAction = new KToggleAction(KIcon("view-list-details"),
                                                 i18nc("@action Switch to table view", "Table"), this);
     actionCollection()->addAction("table_view", d->imageTableViewAction);
     connect(d->imageTableViewAction, SIGNAL(triggered()), d->view, SLOT(slotTableView()));
     d->imageViewSelectionAction->addAction(d->imageTableViewAction);
-
-    // -----------------------------------------------------------
-
-#ifdef USE_SCRIPT_IFACE
-    d->scriptConsoleAction = new KAction(KIcon("application-x-shellscript"), i18n("Script Console"), this);
-    d->scriptConsoleAction->setShortcut(KShortcut(Qt::CTRL+Qt::SHIFT+Qt::Key_S));
-    connect(d->scriptConsoleAction, SIGNAL(triggered()), this, SLOT(slotScriptConsole()));
-    actionCollection()->addAction("script_console", d->scriptConsoleAction);
-#endif
 
     // -----------------------------------------------------------
 
@@ -1283,14 +1277,6 @@ void DigikamApp::setupActions()
     actionCollection()->addAction("slideshow_recursive", d->slideShowRecursiveAction);
     d->slideShowAction->addAction(d->slideShowRecursiveAction);
 
-#ifdef USE_PRESENTATION_MODE
-    d->slideShowQmlAction = new KAction(i18n("Presentation View"), this);
-    d->slideShowQmlAction->setShortcut(KShortcut(Qt::Key_F10));
-    connect(d->slideShowQmlAction, SIGNAL(triggered()), d->view, SLOT(slotSlideShowQml()));
-    actionCollection()->addAction("slideshow_qml", d->slideShowQmlAction);
-    d->slideShowAction->addAction(d->slideShowQmlAction);
-#endif // USE_PRESENTATION_MODE
-
     // -----------------------------------------------------------
 
     d->viewCMViewAction = new KToggleAction(KIcon("video-display"), i18n("Color-Managed View"), this);
@@ -1341,9 +1327,11 @@ void DigikamApp::setupActions()
 
     // -----------------------------------------------------------
 
+#ifdef HAVE_MYSQLSUPPORT
     KAction* const databaseMigrationAction = new KAction(KIcon("server-database"), i18n("Database Migration..."), this);
     connect(databaseMigrationAction, SIGNAL(triggered()), this, SLOT(slotDatabaseMigration()));
     actionCollection()->addAction("database_migration", databaseMigrationAction);
+#endif
 
     // -----------------------------------------------------------
 
@@ -2454,8 +2442,12 @@ void DigikamApp::slotEditKeys()
     KShortcutsDialog dialog(KShortcutsEditor::AllActions,
                             KShortcutsEditor::LetterShortcutsAllowed, this);
     dialog.addCollection(actionCollection(), i18nc("general keyboard shortcuts", "General"));
+
+#ifdef HAVE_KIPI
     dialog.addCollection(KipiPluginLoader::instance()->pluginsActionCollection(),
                          i18nc("KIPI-Plugins keyboard shortcuts", "KIPI-Plugins"));
+#endif /* HAVE_KIPI */
+
     dialog.configure();
 }
 
@@ -2500,8 +2492,10 @@ void DigikamApp::slotDBStat()
 
 void DigikamApp::loadPlugins()
 {
+#ifdef HAVE_KIPI
     // Load KIPI plugins
     new KipiPluginLoader(this, d->splashScreen);
+#endif /* HAVE_KIPI */
 
     // Setting the initial menu options after all plugins have been loaded
     QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
@@ -3090,7 +3084,9 @@ void DigikamApp::slotSwitchedToMapView()
 {
     //TODO: Link to map view's zoom actions
     d->zoomBar->setBarMode(DZoomBar::ThumbsSizeCtrl);
+#ifdef HAVE_KGEOMAP
     d->imageMapViewAction->setChecked(true);
+#endif // HAVE_KGEOMAP
     toogleShowBar();
 }
 
@@ -3152,13 +3148,5 @@ void DigikamApp::slotColorManagementOptionsChanged()
     d->viewCMViewAction->setChecked(settings.useManagedPreviews);
     d->viewCMViewAction->blockSignals(false);
 }
-
-#ifdef USE_SCRIPT_IFACE
-void DigikamApp::slotScriptConsole()
-{
-    ScriptIface* const w = new ScriptIface();
-    w->show();
-}
-#endif
 
 }  // namespace Digikam

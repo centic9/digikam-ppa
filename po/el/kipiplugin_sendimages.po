@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2013-02-03 12:49+0100\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -287,8 +287,10 @@ msgstr "Μεγάλη (1024 εικονοστοιχεία)"
 msgid "Very Big (1280 pixels)"
 msgstr "Πολύ μεγάλη (1280 εικονοστοιχεία)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Τεράστια - για εκτύπωση (1600 εικονοστοιχεία)"
 
 #: settingswidget.cpp:145
@@ -315,6 +317,10 @@ msgstr ""
 "προορισμού δεν είναι περιορισμένο.</p><p><b>%5</b>: χρησιμοποιήστε αυτό αν "
 "δεν έχετε περιορισμούς μεγέθους ή ταχύτητας.</p><p><b>%6</b>: χρησιμοποιήστε "
 "αυτό μόνο για εκτύπωση.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Τεράστια - για εκτύπωση (1600 εικονοστοιχεία)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

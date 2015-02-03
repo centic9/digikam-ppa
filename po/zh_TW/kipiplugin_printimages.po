@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-10-05 01:39+0000\n"
 "PO-Revision-Date: 2013-03-14 12:55+0800\n"
 "Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
 "Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
@@ -48,7 +48,7 @@ msgid "Please select one or more photos to print."
 msgstr "請選擇要列印的一張或多張照片。"
 
 #: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
 msgid "Print assistant"
 msgstr "列印助理"
 
@@ -185,7 +185,7 @@ msgid "x"
 msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
 msgid "cm"
 msgstr "公分"
 
@@ -195,7 +195,7 @@ msgid "mm"
 msgstr "公釐"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
 msgid "inches"
 msgstr "英吋"
 
@@ -233,24 +233,24 @@ msgid "Empty slots:"
 msgstr "空時槽："
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
 msgid "Print to PDF"
 msgstr "列印至 PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+#: ui/photopage.ui:190 wizard/wizard.cpp:1759
 msgid "Print to PS"
 msgstr "列印至 PS"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
-#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
+#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
 msgid "Print to JPG"
 msgstr "列印至 JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
-#: wizard/wizard.cpp:2506
+#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
+#: wizard/wizard.cpp:2511
 msgid "Print to gimp"
 msgstr "列印至 gimp"
 
@@ -288,7 +288,7 @@ msgid "Captions:"
 msgstr "標題："
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+#: ui/photopage.ui:452 wizard/wizard.cpp:1854
 msgid "No captions"
 msgstr "無標題"
 
@@ -308,7 +308,7 @@ msgid "Comments"
 msgstr "註解"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+#: ui/photopage.ui:472 wizard/wizard.cpp:1860
 msgid "Free"
 msgstr "自由"
 
@@ -552,31 +552,31 @@ msgstr "再新增一次"
 msgid "Remove"
 msgstr "移除"
 
-#: wizard/wizard.cpp:2363
+#: wizard/wizard.cpp:2368
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "下列檔案會被覆寫。您確定要覆寫嗎？"
 
-#: wizard/wizard.cpp:2384
+#: wizard/wizard.cpp:2389
 msgid "Could not save file, please check your output entry."
 msgstr "無法儲存檔案，請檢查您的輸出欄目。"
 
-#: wizard/wizard.cpp:2408
+#: wizard/wizard.cpp:2413
 msgid "Could not remove the GIMP's temporary files."
 msgstr "無法移除 GIMP 的暫存資料夾。"
 
-#: wizard/wizard.cpp:2529
+#: wizard/wizard.cpp:2534
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
 msgstr "啟動 GIMP 時發生一個錯誤。請確認 GIMP 已正確安裝。"
 
-#: wizard/wizard.cpp:2530
+#: wizard/wizard.cpp:2535
 msgid "KIPI"
 msgstr "KIPI"
 
-#: wizard/wizard.cpp:2543
+#: wizard/wizard.cpp:2548
 msgid "Empty output path."
 msgstr "空的輸出路徑。"
 

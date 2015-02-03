@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2010, 2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010-2013 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  * @author Copyright (C) 2014 by Justus Schwartz
  *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
@@ -31,11 +31,11 @@
 
 // Qt includes
 
-#include <QPixmap>
-#include <QPoint>
-#include <QPointer>
-#include <QSharedData>
-#include <QSize>
+#include <QtGui/QPixmap>
+#include <QtCore/QPoint>
+#include <QtCore/QPointer>
+#include <QtCore/QSharedData>
+#include <QtCore/QSize>
 
 // KDE includes
 
@@ -140,6 +140,7 @@ private:
 
 class KGeoMapCluster
 {
+
 public:
 
     typedef QList<KGeoMapCluster> List;
@@ -194,7 +195,7 @@ const int KGeoMapMinThumbnailSize           = KGeoMapMinThumbnailGroupingRadius 
  */
 inline int QPointSquareDistance(const QPoint& a, const QPoint& b)
 {
-    return (a.x()-b.x())*(a.x()-b.x()) + (a.y()-b.y())*(a.y()-b.y());
+    return (a.x() - b.x()) * (a.x() - b.x()) + (a.y() - b.y()) * (a.y() - b.y());
 }
 
 class KGeoMapSharedData : public QSharedData
@@ -225,7 +226,6 @@ public:
           activeState(false)
     {
     }
-
 
     /// @todo De-inline?
     bool hasRegionSelection() const

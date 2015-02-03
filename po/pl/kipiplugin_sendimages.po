@@ -8,13 +8,13 @@
 # Igor Klimer <kigro@vp.pl>, 2005, 2006, 2007.
 # Igor Klimer <igro@localhost.localdomain>, 2005.
 # Mikołaj Machowski <mikmach@wp.pl>, 2009.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2013.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-03-09 13:34+0100\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
+"PO-Revision-Date: 2014-11-29 10:19+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
@@ -288,9 +288,9 @@ msgstr "duży (1024 piksele)"
 msgid "Very Big (1280 pixels)"
 msgstr "bardzo duży (1280 pikseli)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
-msgstr "gigantyczny - do wydruku (1600 pikseli)"
+#: settingswidget.cpp:143
+msgid "Large - for printing (1600 pixels)"
+msgstr "duży - do wydruku (1600 pikseli)"
 
 #: settingswidget.cpp:145
 #, kde-format
@@ -315,6 +315,10 @@ msgstr ""
 "rozmiar skrzynki docelowej jest nieograniczony. </p><p><b>%5</b>: użyj tego, "
 "jeśli nie masz ograniczenia ani rozmiaru ani szybkości.</p><p><b>%6</b>: "
 "użyj tego tylko z zamiarem drukowania.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "gigantyczny - do wydruku (1600 pikseli)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

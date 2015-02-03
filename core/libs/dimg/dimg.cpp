@@ -71,12 +71,12 @@ extern "C"
 
 // Local includes
 
+#include "config-digikam.h"
 #include "dimagehistory.h"
 #include "pngloader.h"
 #include "tiffloader.h"
 #include "ppmloader.h"
 #include "rawloader.h"
-#include "jp2kloader.h"
 #include "pgfloader.h"
 #include "qimageloader.h"
 #include "jpegloader.h"
@@ -88,6 +88,10 @@ extern "C"
 #include "dimgloaderobserver.h"
 #include "randomnumbergenerator.h"
 
+#ifdef HAVE_JASPER
+#include "jp2kloader.h"
+#endif // HAVE_JASPER
+
 typedef uint64_t ullong;
 typedef int64_t  llong;
 
@@ -98,7 +102,7 @@ DImg::DImg()
     : m_priv(new Private)
 {
 }
-;
+
 DImg::DImg(const QByteArray& filePath, DImgLoaderObserver* const observer,
            const DRawDecoding& rawDecodingSettings)
     : m_priv(new Private)
@@ -513,6 +517,7 @@ bool DImg::load(const QString& filePath, int loadFlagsInt, DImgLoaderObserver* c
             break;
         }
 
+#ifdef HAVE_JASPER
         case (JP2K):
         {
             kDebug() << filePath << " : JPEG2000 file identified";
@@ -530,6 +535,7 @@ bool DImg::load(const QString& filePath, int loadFlagsInt, DImgLoaderObserver* c
 
             break;
         }
+#endif // HAVE_JASPER
 
         case (PGF):
         {
@@ -640,6 +646,7 @@ bool DImg::save(const QString& filePath, FORMAT frm, DImgLoaderObserver* const o
 
 bool DImg::save(const QString& filePath, const QString& format, DImgLoaderObserver* const observer)
 {
+    kDebug() << "Saving to " << filePath << " with format: " << format;
     if (isNull())
     {
         return false;
@@ -693,14 +700,16 @@ bool DImg::save(const QString& filePath, const QString& format, DImgLoaderObserv
         return loader.save(filePath, observer);
     }
 
-    if (frm == "JP2" || frm == "J2K" || frm == "JPX" || frm == "JPC" || frm == "PGX")
+#ifdef HAVE_JASPER
+    else if (frm == "JP2" || frm == "J2K" || frm == "JPX" || frm == "JPC" || frm == "PGX")
     {
         JP2KLoader loader(this);
         setAttribute("savedformat-isreadonly", loader.isReadOnly());
         return loader.save(filePath, observer);
     }
+#endif // HAVE_JASPER
 
-    if (frm == "PGF")
+    else if (frm == "PGF")
     {
         PGFLoader loader(this);
         setAttribute("savedformat-isreadonly", loader.isReadOnly());
@@ -888,7 +897,7 @@ uchar* DImg::bits() const
 
 uchar* DImg::copyBits() const
 {
-    uchar* data = new uchar[numBytes()];
+    uchar* const data = new uchar[numBytes()];
     memcpy(data, bits(), numBytes());
     return data;
 }
@@ -2346,7 +2355,7 @@ void DImg::rotate(ANGLE angle)
                 for (uint y = 0; y < ymax; ++y)
                 {
                     line1 = data + y * w;
-                    line2 = data + (h - y) * w;
+                    line2 = data + (h - y) * w - 1;
 
                     for (uint x = 0; x < w; ++x)
                     {
@@ -2378,7 +2387,7 @@ void DImg::rotate(ANGLE angle)
                 for (uint y = 0; y < ymax; ++y)
                 {
                     line1 = data + y * w;
-                    line2 = data + (h - y) * w;
+                    line2 = data + (h - y) * w - 1;
 
                     for (uint x = 0; x < w; ++x)
                     {

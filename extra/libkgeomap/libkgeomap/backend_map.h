@@ -31,8 +31,8 @@
 
 // Qt includes
 
-#include <QModelIndex>
-#include <QWidget>
+#include <QtCore/QModelIndex>
+#include <QtGui/QWidget>
 
 // local includes
 
@@ -119,7 +119,6 @@ Q_SIGNALS:
     void signalMarkersMoved(const QIntList& markerIndices);
     void signalZoomChanged(const QString& newZoom);
     void signalSelectionHasBeenMade(const KGeoMap::GeoCoordinates::Pair& coordinates);
-
 };
 
 } /* namespace KGeoMap */

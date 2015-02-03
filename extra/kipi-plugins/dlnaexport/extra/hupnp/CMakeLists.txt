@@ -1,17 +1,21 @@
+#
+# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+#
+# Redistribution and use is allowed according to the terms of the BSD license.
+# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}
+include_directories(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_CURRENT_BINARY_DIR}/src
                     src
                     ${QT_INCLUDE_DIR}
-                    ${CMAKE_CURRENT_SOURCE_DIR}/../qtsoap/src
-                    ${CMAKE_CURRENT_BINARY_DIR}/../qtsoap/src
                     ${CMAKE_CURRENT_SOURCE_DIR}/include
                     ${CMAKE_CURRENT_BINARY_DIR}/include
+                    ${QTSOAP_INCLUDE_DIRS}
                    )
 
-INCLUDE(${QT_USE_FILE})
+include(${QT_USE_FILE})
 
-SET(HUpnp_SRCS
+set(HUpnp_SRCS
 
     src/dataelements/hactioninfo.cpp
     src/dataelements/hdeviceinfo.cpp
@@ -100,9 +104,9 @@ SET(HUpnp_SRCS
     src/utils/hmisc_utils_p.cpp
     src/utils/hsysutils_p.cpp
     src/utils/hthreadpool_p.cpp
-)
+   )
 
-SET(HUpnp_MOC_HDRS
+set(HUpnp_MOC_HDRS
 
     src/devicehosting/devicehost/hdevicehost_p.h
     src/devicehosting/devicehost/hserverdevicecontroller_p.h
@@ -141,20 +145,20 @@ SET(HUpnp_MOC_HDRS
 
 QT4_WRAP_CPP(HUpnp_MOC_SRCS ${HUpnp_MOC_HDRS})
 
-SET(SRCS ${HUpnp_SRCS} ${HUpnp_MOC_SRCS})
+set(SRCS ${HUpnp_SRCS} ${HUpnp_MOC_SRCS})
 
-FOREACH(_currentfile ${SRCS})
-    IF(NOT MSVC)
-        SET_SOURCE_FILES_PROPERTIES(${_currentfile} PROPERTIES COMPILE_FLAGS "-fPIC")
-    ENDIF(NOT MSVC)
-ENDFOREACH(_currentfile ${SRCS})
+foreach(_currentfile ${SRCS})
+    if(NOT MSVC)
+        set_source_files_properties(${_currentfile} PROPERTIES COMPILE_FLAGS "-fPIC")
+    endif()
+endforeach()
 
-ADD_LIBRARY(HUpnp STATIC ${SRCS})
+add_library(HUpnp STATIC ${SRCS})
 
-TARGET_LINK_LIBRARIES(HUpnp QtSoap ${QT_LIBRARIES})
+target_link_libraries(HUpnp ${QTSOAP_LIBRARIES} ${QT_LIBRARIES})
 
-IF(NOT MSVC)
-    SET_TARGET_PROPERTIES(HUpnp PROPERTIES COMPILE_FLAGS "-fPIC")
-ENDIF(NOT MSVC)
+if(NOT MSVC)
+    set_target_properties(HUpnp PROPERTIES COMPILE_FLAGS "-fPIC")
+endif()
 
-#INSTALL(TARGETS HUpnp ARCHIVE DESTINATION lib ${INSTALL_TARGETS_DEFAULT_ARGS})
+#install(TARGETS HUpnp ARCHIVE DESTINATION lib ${INSTALL_TARGETS_DEFAULT_ARGS})

@@ -43,6 +43,7 @@
 
 // Local includes
 
+#include "config-digikam.h"
 #include "albumhistory.h"
 #include "applicationsettings.h"
 #include "metadatasynchronizer.h"
@@ -58,7 +59,6 @@
 #include "filterstatusbar.h"
 #include "leftsidebarwidgets.h"
 #include "loadingcacheinterface.h"
-#include "mapwidgetview.h"
 #include "mediaplayerview.h"
 #include "metadatasettings.h"
 #include "newitemsfinder.h"
@@ -85,9 +85,9 @@
 #include "albumlabelstreeview.h"
 #include "tagsactionmngr.h"
 
-#ifdef USE_PRESENTATION_MODE
-#include "qmlshow.h"
-#endif // USE_PRESENTATION_MODE
+#ifdef HAVE_KGEOMAP
+#include "mapwidgetview.h"
+#endif // HAVE_KGEOMAP
 
 namespace Digikam
 {
@@ -112,11 +112,18 @@ public:
         timelineSideBar(0),
         searchSideBar(0),
         fuzzySearchSideBar(0),
+
+#ifdef HAVE_KGEOMAP
         gpsSearchSideBar(0),
+        mapView(0),
+#endif // HAVE_KGEOMAP
+
+#ifdef HAVE_KFACE
         peopleSideBar(0),
+#endif /* HAVE_KFACE */
+
         parent(0),
         iconView(0),
-        mapView(0),
         tableView(0),
         albumManager(0),
         albumHistory(0),
@@ -161,14 +168,17 @@ public:
     SearchSideBarWidget*          searchSideBar;
     FuzzySearchSideBarWidget*     fuzzySearchSideBar;
 
+#ifdef HAVE_KGEOMAP
     GPSSearchSideBarWidget*       gpsSearchSideBar;
+    MapWidgetView*                mapView;
+#endif // HAVE_KGEOMAP
 
+#ifdef HAVE_KFACE
     PeopleSideBarWidget*          peopleSideBar;
+#endif /* HAVE_KFACE */
 
     DigikamApp*                   parent;
-
     DigikamImageView*             iconView;
-    MapWidgetView*                mapView;
     TableView*                    tableView;
     AlbumManager*                 albumManager;
     AlbumHistory*                 albumHistory;
@@ -221,15 +231,13 @@ QString DigikamView::Private::userPresentableAlbumTitle(const QString& title) co
 
 void DigikamView::Private::addPageUpDownActions(DigikamView* const q, QWidget* const w)
 {
-    QShortcut* const nextImageShortcut = new QShortcut(w);
-    nextImageShortcut->setKey(Qt::Key_PageDown);
-    nextImageShortcut->setContext(Qt::WidgetWithChildrenShortcut);
-    QObject::connect(nextImageShortcut, SIGNAL(activated()), q, SLOT(slotNextItem()));
+    defineShortcut(w, Qt::Key_PageDown, q, SLOT(slotNextItem()));
+    defineShortcut(w, Qt::Key_Down,     q, SLOT(slotNextItem()));
+    defineShortcut(w, Qt::Key_Right,    q, SLOT(slotNextItem()));
 
-    QShortcut* const prevImageShortcut = new QShortcut(w);
-    prevImageShortcut->setKey(Qt::Key_PageUp);
-    prevImageShortcut->setContext(Qt::WidgetWithChildrenShortcut);
-    QObject::connect(prevImageShortcut, SIGNAL(activated()), q, SLOT(slotPrevItem()));
+    defineShortcut(w, Qt::Key_PageUp,   q, SLOT(slotPrevItem()));
+    defineShortcut(w, Qt::Key_Up,       q, SLOT(slotPrevItem()));
+    defineShortcut(w, Qt::Key_Left,     q, SLOT(slotPrevItem()));
 }
 
 // -------------------------------------------------------------------------------------------
@@ -265,7 +273,11 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
     d->stackedview->setDockArea(d->dockArea);
 
     d->iconView  = d->stackedview->imageIconView();
+
+#ifdef HAVE_KGEOMAP
     d->mapView   = d->stackedview->mapWidgetView();
+#endif // HAVE_KGEOMAP
+
     d->tableView = d->stackedview->tableView();
 
     d->addPageUpDownActions(this, d->stackedview->imagePreviewView());
@@ -292,7 +304,7 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
             this, SLOT(slotNewDuplicatesSearch(Album*)));
 
     // Labels sidebar
-    d->labelsSideBar = new LabelsSideBarWidget(d->leftSideBar);
+    d->labelsSideBar       = new LabelsSideBarWidget(d->leftSideBar);
     d->leftSideBarWidgets << d->labelsSideBar;
     d->labelsSearchHandler = new AlbumLabelsSearchHandler(d->labelsSideBar->labelsTree());
 
@@ -320,12 +332,16 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
                                                          d->searchModificationHelper);
     d->leftSideBarWidgets << d->fuzzySearchSideBar;
 
+#ifdef HAVE_KGEOMAP
     d->gpsSearchSideBar = new GPSSearchSideBarWidget(d->leftSideBar,
                                                      d->modelCollection->getSearchModel(),
                                                      d->searchModificationHelper,
                                                      d->iconView->imageFilterModel(),d->iconView->getSelectionModel());
 
     d->leftSideBarWidgets << d->gpsSearchSideBar;
+#endif // HAVE_KGEOMAP
+
+#ifdef HAVE_KFACE
 
     // People Sidebar
     d->peopleSideBar = new PeopleSideBarWidget(d->leftSideBar,
@@ -336,6 +352,8 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
             d->iconView, SLOT(setFaceMode(bool)));
 
     d->leftSideBarWidgets << d->peopleSideBar;
+
+#endif /* HAVE_KFACE */
 
     foreach(SidebarWidget* const leftWidget, d->leftSideBarWidgets)
     {
@@ -380,6 +398,7 @@ DigikamView::~DigikamView()
 {
     saveViewState();
 
+    delete d->labelsSearchHandler;
     delete d->albumHistory;
     delete d;
 }
@@ -526,8 +545,10 @@ void DigikamView::setupConnections()
     connect(this, SIGNAL(signalNoCurrentItem()),
             d->rightSideBar, SLOT(slotNoCurrentItem()));
 
+#ifdef HAVE_KGEOMAP
     connect(d->gpsSearchSideBar, SIGNAL(signalMapSoloItems(QList<qlonglong>,QString)),
             d->iconView->imageFilterModel(), SLOT(setIdWhitelist(QList<qlonglong>,QString)));
+#endif // HAVE_KGEOMAP
 
     // -- Filter Bars Connections ---------------------------------
 
@@ -704,7 +725,10 @@ void DigikamView::loadViewState()
 
     d->initialAlbumID = group.readEntry("InitialAlbumID", 0);
 
+#ifdef HAVE_KGEOMAP
     d->mapView->loadState();
+#endif // HAVE_KGEOMAP
+
     d->tableView->loadState();
     d->rightSideBar->loadState();
 }
@@ -748,7 +772,10 @@ void DigikamView::saveViewState()
         group.writeEntry("InitialAlbumID", 0);
     }
 
+#ifdef HAVE_KGEOMAP
     d->mapView->saveState();
+#endif // HAVE_KGEOMAP
+
     d->tableView->saveState();
     d->rightSideBar->saveState();
 }
@@ -1173,7 +1200,11 @@ void DigikamView::slotAlbumSelected(QList<Album*> albums)
     if (albums.isEmpty() || !albums.first())
     {
         d->iconView->openAlbum(QList<Album*>());
+
+#ifdef HAVE_KGEOMAP
         d->mapView->openAlbum(0);
+#endif // HAVE_KGEOMAP
+
         slotTogglePreviewMode(ImageInfo());
         return;
     }
@@ -1650,15 +1681,24 @@ void DigikamView::slotTogglePreviewMode(const ImageInfo& info)
           viewMode() == StackedView::MapWidgetMode)   &&
          !info.isNull() )
     {
-        d->lastViewMode = viewMode();
-
-        if (viewMode() == StackedView::IconViewMode)
+        if (info.isLocationAvailable())
         {
-            d->stackedview->setPreviewItem(info, d->iconView->previousInfo(info), d->iconView->nextInfo(info));
+            d->lastViewMode = viewMode();
+
+            if (viewMode() == StackedView::IconViewMode)
+            {
+                d->stackedview->setPreviewItem(info, d->iconView->previousInfo(info), d->iconView->nextInfo(info));
+            }
+            else
+            {
+                d->stackedview->setPreviewItem(info, ImageInfo(), ImageInfo());
+            }
         }
         else
         {
-            d->stackedview->setPreviewItem(info, ImageInfo(), ImageInfo());
+            QModelIndex index = d->iconView->indexForInfo(info);
+            d->iconView->showIndexNotification(index,
+                                               i18nc("@info", "<i>The storage location of this image<br/>is currently not available</i>"));
         }
     }
     else
@@ -2156,7 +2196,7 @@ void DigikamView::slotRightSideBarActivateAssignedTags()
 void DigikamView::slotRatingChanged(const KUrl& url, int rating)
 {
     rating = qMin(RatingMax, qMax(RatingMin, rating));
-    ImageInfo info(url);
+    ImageInfo info = ImageInfo::fromUrl(url);
 
     if (!info.isNull())
     {
@@ -2166,7 +2206,7 @@ void DigikamView::slotRatingChanged(const KUrl& url, int rating)
 
 void DigikamView::slotColorLabelChanged(const KUrl& url, int color)
 {
-    ImageInfo info(url);
+    ImageInfo info = ImageInfo::fromUrl(url);
 
     if (!info.isNull())
     {
@@ -2176,7 +2216,7 @@ void DigikamView::slotColorLabelChanged(const KUrl& url, int color)
 
 void DigikamView::slotPickLabelChanged(const KUrl& url, int pick)
 {
-    ImageInfo info(url);
+    ImageInfo info = ImageInfo::fromUrl(url);
 
     if (!info.isNull())
     {
@@ -2186,7 +2226,7 @@ void DigikamView::slotPickLabelChanged(const KUrl& url, int pick)
 
 void DigikamView::slotToggleTag(const KUrl& url, int tagID)
 {
-    ImageInfo info(url);
+    ImageInfo info = ImageInfo::fromUrl(url);
 
     if (!info.isNull())
     {
@@ -2228,8 +2268,10 @@ ImageInfo DigikamView::currentInfo() const
         case StackedView::TableViewMode:
             return d->tableView->currentInfo();
 
+#ifdef HAVE_KGEOMAP
         case StackedView::MapWidgetMode:
             return d->mapView->currentImageInfo();
+#endif // HAVE_KGEOMAP
 
         case StackedView::MediaPlayerMode:
         case StackedView::PreviewImageMode:
@@ -2335,25 +2377,5 @@ void DigikamView::toggleFullScreen(bool set)
 {
     d->stackedview->imagePreviewView()->toggleFullScreen(set);
 }
-
-#ifdef USE_PRESENTATION_MODE
-
-void DigikamView::slotSlideShowQml()
-{
-/*
-    QStringList list;
-    foreach (const ImageInfo& info, d->iconView->imageInfos())
-    {
-        list << info.filePath();
-    }
-*/
-    SlideShowSettings settings;
-    settings.readFromConfig();
-    QmlShow* const qmlShow = new QmlShow(allInfo(), settings);
-    qmlShow->setWindowState(Qt::WindowFullScreen);
-    qmlShow->show();
-}
-
-#endif // USE_PRESENTATION_MODE
 
 }  // namespace Digikam

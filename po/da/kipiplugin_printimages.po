@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-10-05 01:39+0000\n"
 "PO-Revision-Date: 2013-04-09 19:34+0200\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
@@ -49,7 +49,7 @@ msgid "Please select one or more photos to print."
 msgstr "Vælg et eller flere billeder at udskrive."
 
 #: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
 msgid "Print assistant"
 msgstr "Udskriftsguide"
 
@@ -189,7 +189,7 @@ msgid "x"
 msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
 msgid "cm"
 msgstr "cm"
 
@@ -199,7 +199,7 @@ msgid "mm"
 msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
 msgid "inches"
 msgstr "tommer"
 
@@ -237,24 +237,24 @@ msgid "Empty slots:"
 msgstr "Tomme pladser:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
 msgid "Print to PDF"
 msgstr "Udskriv til PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+#: ui/photopage.ui:190 wizard/wizard.cpp:1759
 msgid "Print to PS"
 msgstr "Udskriv til PS"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
-#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
+#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
 msgid "Print to JPG"
 msgstr "Udskriv til JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
-#: wizard/wizard.cpp:2506
+#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
+#: wizard/wizard.cpp:2511
 msgid "Print to gimp"
 msgstr "Udskriv til gimp"
 
@@ -292,7 +292,7 @@ msgid "Captions:"
 msgstr "Billedtekster:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+#: ui/photopage.ui:452 wizard/wizard.cpp:1854
 msgid "No captions"
 msgstr "Ingen billedtekster"
 
@@ -312,7 +312,7 @@ msgid "Comments"
 msgstr "Kommentarer"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+#: ui/photopage.ui:472 wizard/wizard.cpp:1860
 msgid "Free"
 msgstr "Fri"
 
@@ -556,21 +556,21 @@ msgstr "Tilføj igen"
 msgid "Remove"
 msgstr "Fjern"
 
-#: wizard/wizard.cpp:2363
+#: wizard/wizard.cpp:2368
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "Den følgende fil vil blive overskrevet. Vil du overskrive denne fil?"
 
-#: wizard/wizard.cpp:2384
+#: wizard/wizard.cpp:2389
 msgid "Could not save file, please check your output entry."
 msgstr "Kunne ikke gemme filen, kontrollér din output-indgang."
 
-#: wizard/wizard.cpp:2408
+#: wizard/wizard.cpp:2413
 msgid "Could not remove the GIMP's temporary files."
 msgstr "Kunne ikke slette GIMP's midlertidige filer."
 
-#: wizard/wizard.cpp:2529
+#: wizard/wizard.cpp:2534
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
@@ -578,11 +578,11 @@ msgstr ""
 "Der opstod en fejl ved opstart af GIMP. Kontrollér at den er korrekt "
 "installeret."
 
-#: wizard/wizard.cpp:2530
+#: wizard/wizard.cpp:2535
 msgid "KIPI"
 msgstr "KIPI"
 
-#: wizard/wizard.cpp:2543
+#: wizard/wizard.cpp:2548
 msgid "Empty output path."
 msgstr "Tom output-sti."
 

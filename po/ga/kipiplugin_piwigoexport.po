@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_piwigoexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-10-04 01:39+0000\n"
 "PO-Revision-Date: 2010-03-18 00:57-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -50,66 +50,63 @@ msgctxt "piwigo login settings"
 msgid "Password:"
 msgstr ""
 
-#: piwigotalker.cpp:275
+#: piwigotalker.cpp:283
 #, kde-format
 msgid "Check if %1 already exists"
 msgstr ""
 
-#: piwigotalker.cpp:446
+#: piwigotalker.cpp:432
 msgid "Piwigo URL probably incorrect"
 msgstr ""
 
-#: piwigotalker.cpp:452
+#: piwigotalker.cpp:438
 msgid "Incorrect username or password specified"
 msgstr ""
 
-#: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
-#: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
-#: piwigotalker.cpp:1118 piwigotalker.cpp:1252
+#: piwigotalker.cpp:480 piwigotalker.cpp:661
+msgid "Upload to Piwigo version < 2.4 is no longer supported"
+msgstr ""
+
+#: piwigotalker.cpp:552 piwigotalker.cpp:637 piwigotalker.cpp:706
+#: piwigotalker.cpp:778
 msgid "Invalid response received from remote Piwigo"
 msgstr ""
 
-#: piwigotalker.cpp:564
+#: piwigotalker.cpp:558
 msgid "Failed to list albums"
 msgstr ""
 
-#: piwigotalker.cpp:611
+#: piwigotalker.cpp:607
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr ""
 
-#: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
-#: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
+#: piwigotalker.cpp:643 piwigotalker.cpp:784 piwigotalker.cpp:938
 msgid "Failed to upload photo"
 msgstr ""
 
-#: piwigotalker.cpp:682
-#, kde-format
-msgid "Upload resized version of %1"
-msgstr ""
-
-#: piwigotalker.cpp:736
+#: piwigotalker.cpp:712
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr ""
 
-#: piwigotalker.cpp:851 piwigotalker.cpp:1082
+#: piwigotalker.cpp:822
 #, kde-format
-msgid "Upload the chunk %1 of %2"
+msgid "Upload the chunk %1/%2 of %3"
 msgstr ""
 
-#: piwigotalker.cpp:887 piwigotalker.cpp:1169
+#: piwigotalker.cpp:858
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr ""
 
-#: piwigotalker.cpp:926 piwigotalker.cpp:1216
+#: piwigotalker.cpp:896
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr ""
 
-#: piwigotalker.cpp:1047
+#: piwigotalker.cpp:932
 #, kde-format
-msgid "Upload the thumbnail of %1"
+msgid "Invalid response received from remote Piwigo (%1)"
 msgstr ""
 
 #: piwigowindow.cpp:135
@@ -136,103 +133,104 @@ msgstr "Leithead uasta:"
 msgid "Maximum height:"
 msgstr ""
 
-#: piwigowindow.cpp:168
-msgid "Maximum thumbnail dimension:"
+#: piwigowindow.cpp:167
+msgid "Resized JPEG quality:"
 msgstr ""
 
-#: piwigowindow.cpp:173
-msgid "Thumbnail size is ignored with Piwigo > 2.4"
-msgstr ""
-
-#: piwigowindow.cpp:235 piwigowindow.cpp:240
+#: piwigowindow.cpp:227 piwigowindow.cpp:232
 msgid "Piwigo Export"
 msgstr ""
 
-#: piwigowindow.cpp:243
+#: piwigowindow.cpp:235
 msgid "A Kipi plugin to export image collections to a remote Piwigo server."
 msgstr ""
 
-#: piwigowindow.cpp:244
+#: piwigowindow.cpp:236
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 msgstr ""
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Renchi Raju"
 msgstr "Renchi Raju"
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Author"
 msgstr "Údar"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Colin Guthrie"
 msgstr "Colin Guthrie"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Maintainer"
 msgstr "Cothaitheoir"
 
-#: piwigowindow.cpp:256
+#: piwigowindow.cpp:248
 msgid "Andrea Diamantini"
 msgstr "Andrea Diamantini"
 
-#: piwigowindow.cpp:256 piwigowindow.cpp:259 piwigowindow.cpp:262
+#: piwigowindow.cpp:248 piwigowindow.cpp:251 piwigowindow.cpp:254
 msgid "Developer"
 msgstr "Forbróir"
 
-#: piwigowindow.cpp:259
+#: piwigowindow.cpp:251
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: piwigowindow.cpp:262
+#: piwigowindow.cpp:254
 msgid "Frédéric Coiffier"
 msgstr ""
 
-#: piwigowindow.cpp:270
+#: piwigowindow.cpp:262
 msgid "Start Upload"
 msgstr "Tosaigh an tUasluchtú"
 
-#: piwigowindow.cpp:404
+#: piwigowindow.cpp:397
 msgid "Failed to login into remote piwigo. "
 msgstr ""
 
-#: piwigowindow.cpp:406
+#: piwigowindow.cpp:399
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
 msgstr ""
 
-#: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
+#: piwigowindow.cpp:406 piwigowindow.cpp:648 plugin_piwigoexport.cpp:118
 msgid "Edit Piwigo Data"
 msgstr ""
 
-#: piwigowindow.cpp:473 piwigowindow.cpp:497
+#: piwigowindow.cpp:466 piwigowindow.cpp:490
 msgid "Album"
 msgstr "Albam"
 
-#: piwigowindow.cpp:516
+#: piwigowindow.cpp:509
 msgid "Image"
 msgstr "Íomhá"
 
-#: piwigowindow.cpp:547
+#: piwigowindow.cpp:540
 msgid "Nothing to upload - please select photos to upload."
 msgstr ""
 
-#: piwigowindow.cpp:589
+#: piwigowindow.cpp:578
+#, kde-format
+msgid "The file %1 is not a supported image or video format"
+msgstr ""
+
+#: piwigowindow.cpp:582
 #, kde-format
 msgid "Uploading file %1"
 msgstr "Comhad %1 á uasluchtú"
 
-#: piwigowindow.cpp:608
-msgid "Failed to upload photo into remote piwigo. "
+#: piwigowindow.cpp:601
+msgid "Failed to upload media into remote piwigo. "
 msgstr ""
 
-#: piwigowindow.cpp:611
+#: piwigowindow.cpp:604
 msgid ""
 "\n"
 "Do you want to continue?"

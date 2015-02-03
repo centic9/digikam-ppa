@@ -1,21 +1,22 @@
 # Translation of kipiplugin_slideshow to Korean.
 # Copyright (C) 2007 This_file_is_part_of_KDE
 # This file is distributed under the same license as the extragear-base package.
-# Park Shinjo <kde@peremen.name>, 2007.
+# Park Shinjo <kde@peremen.name>, 2007, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extragear-libs\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2007-12-27 11:26+0900\n"
+"PO-Revision-Date: 2015-01-18 01:03+0900\n"
 "Last-Translator: Park Shinjo <kde@peremen.name>\n"
-"Language-Team: Korean <cho.sungjae@gmail.com>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -125,7 +126,7 @@ msgstr ""
 
 #: dialogs/slideshowconfig.cpp:123
 msgid "Author and maintainer"
-msgstr "작성자와 관리자"
+msgstr "작성자 및 관리자"
 
 #: dialogs/soundtrackdialog.cpp:63
 msgid "Soundtrack preview"
@@ -220,7 +221,7 @@ msgstr ""
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_advancedslideshowui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "주 도구 모음"
 
 #: plugin/plugin_advancedslideshow.cpp:118
 #, fuzzy
@@ -475,7 +476,7 @@ msgstr "재생 옵션"
 #. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
 #: ui/playbackwidget.ui:35 ui/slideplaybackwidget.ui:37
 msgid "Stop"
-msgstr ""
+msgstr "정지"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_prevButton)
 #: ui/playbackwidget.ui:42 ui/slideplaybackwidget.ui:44
@@ -597,8 +598,6 @@ msgid "%1 - %2"
 msgstr ""
 
 #: widgets/slideshow.cpp:240 widgets/slideshowgl.cpp:390
-#, fuzzy
-#| msgid "None"
 msgctxt "Filter Effect: No effect"
 msgid "None"
 msgstr "없음"

@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2013-07-03 12:00+0200\n"
 "Last-Translator: xavier <xavier.besnard@neuf.fr>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
@@ -292,8 +292,10 @@ msgstr "Grand (1024 pixels)"
 msgid "Very Big (1280 pixels)"
 msgstr "Très grand (1280 pixels)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Volumineux - pour impression (1600 pixels)"
 
 #: settingswidget.cpp:145
@@ -319,6 +321,10 @@ msgstr ""
 "très rapide et si la taille de votre boîte n'est pas limitée.</p><p><b>%5</"
 "b> : à utiliser si vous n'avez aucune restriction de vitesse ou de taille.</"
 "p><p><b>%6</b> : à utiliser uniquement pour des besoins d'impression.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Volumineux - pour impression (1600 pixels)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

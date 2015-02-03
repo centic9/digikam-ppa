@@ -39,7 +39,7 @@
 
 #include "libkgeomap/kgeomap_primitives.h"
 #include "libkgeomap/modelhelper.h"
-#include "libkgeomap/trackmodelhelper.h"
+#include "libkgeomap/tracks.h"
 
 class KCmdLineArgs;
 
@@ -52,15 +52,15 @@ public:
     MarkerModelHelper(QAbstractItemModel* const itemModel, QItemSelectionModel* const itemSelectionModel);
     ~MarkerModelHelper();
 
-    virtual QAbstractItemModel* model() const;
+    virtual QAbstractItemModel*  model()          const;
     virtual QItemSelectionModel* selectionModel() const;
+    virtual Flags                modelFlags()     const;
     virtual bool itemCoordinates(const QModelIndex& index, KGeoMap::GeoCoordinates* const coordinates) const;
     virtual void onIndicesMoved(const QList<QPersistentModelIndex>& movedIndices, const KGeoMap::GeoCoordinates& targetCoordinates, const QPersistentModelIndex& targetSnapIndex);
-    virtual Flags modelFlags() const;
 
 private:
 
-    QAbstractItemModel* const m_itemModel;
+    QAbstractItemModel* const  m_itemModel;
     QItemSelectionModel* const m_itemSelectionModel;
 
 Q_SIGNALS:
@@ -68,23 +68,31 @@ Q_SIGNALS:
     void signalMarkersMoved(const QList<QPersistentModelIndex>& movedIndices);
 };
 
-class MyTrackModelHelper : public KGeoMap::TrackModelHelper
+// ------------------------------------------------------------------------------------------------
+
+class MyTrackModelHelper : public QObject
 {
     Q_OBJECT
 
-    KGeoMap::TrackManager::Track::List m_tracks;
-    QAbstractItemModel* m_itemModel;
-  
 public:
-    MyTrackModelHelper(QAbstractItemModel* imageItemsModel);
-    
+
+    MyTrackModelHelper(QAbstractItemModel* const imageItemsModel);
+
     virtual KGeoMap::TrackManager::Track::List getTracks() const;
 
+Q_SIGNALS:
+
+    void signalModelChanged();
+
 public Q_SLOTS:
+
     void slotTrackModelChanged();
 
-};
+private:
 
+    KGeoMap::TrackManager::Track::List m_tracks;
+    QAbstractItemModel*                m_itemModel;
+};
 
 // ------------------------------------------------------------------------------------------------
 

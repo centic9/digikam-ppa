@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-10-05 01:39+0000\n"
 "PO-Revision-Date: 2013-03-02 11:01+0100\n"
 "Last-Translator: Federico Zenith <federico.zenith@member.fsf.org>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -14,7 +14,6 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 msgctxt "NAME OF TRANSLATORS"
@@ -48,7 +47,7 @@ msgid "Please select one or more photos to print."
 msgstr "Seleziona una o più foto da stampare."
 
 #: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
 msgid "Print assistant"
 msgstr "Assistente di stampa"
 
@@ -189,7 +188,7 @@ msgid "x"
 msgstr "×"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
 msgid "cm"
 msgstr "cm"
 
@@ -199,7 +198,7 @@ msgid "mm"
 msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
 msgid "inches"
 msgstr "pollici"
 
@@ -237,24 +236,24 @@ msgid "Empty slots:"
 msgstr "Spazi liberi:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
 msgid "Print to PDF"
 msgstr "Stampa su PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+#: ui/photopage.ui:190 wizard/wizard.cpp:1759
 msgid "Print to PS"
 msgstr "Stampa su PS"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
-#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
+#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
 msgid "Print to JPG"
 msgstr "Stampa su JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
-#: wizard/wizard.cpp:2506
+#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
+#: wizard/wizard.cpp:2511
 msgid "Print to gimp"
 msgstr "Stampa a Gimp"
 
@@ -292,7 +291,7 @@ msgid "Captions:"
 msgstr "Didascalie:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+#: ui/photopage.ui:452 wizard/wizard.cpp:1854
 msgid "No captions"
 msgstr "Senza didascalie"
 
@@ -312,7 +311,7 @@ msgid "Comments"
 msgstr "Commenti"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+#: ui/photopage.ui:472 wizard/wizard.cpp:1860
 msgid "Free"
 msgstr "Libere"
 
@@ -556,21 +555,21 @@ msgstr "Riaggiungi"
 msgid "Remove"
 msgstr "Rimuovi"
 
-#: wizard/wizard.cpp:2363
+#: wizard/wizard.cpp:2368
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "Il seguente file sarà sovrascritto. Lo vuoi veramente sovrascrivere?"
 
-#: wizard/wizard.cpp:2384
+#: wizard/wizard.cpp:2389
 msgid "Could not save file, please check your output entry."
 msgstr "Impossibile salvare il file, controlla la casella dell'uscita."
 
-#: wizard/wizard.cpp:2408
+#: wizard/wizard.cpp:2413
 msgid "Could not remove the GIMP's temporary files."
 msgstr "Impossibile rimuovere i file temporanei di GIMP."
 
-#: wizard/wizard.cpp:2529
+#: wizard/wizard.cpp:2534
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
@@ -578,11 +577,11 @@ msgstr ""
 "Si è verificato un errore avviando GIMP. Assicurati che sia installato "
 "correttamente."
 
-#: wizard/wizard.cpp:2530
+#: wizard/wizard.cpp:2535
 msgid "KIPI"
 msgstr "Kipi"
 
-#: wizard/wizard.cpp:2543
+#: wizard/wizard.cpp:2548
 msgid "Empty output path."
 msgstr "Percorso dell'uscita vuoto."
 

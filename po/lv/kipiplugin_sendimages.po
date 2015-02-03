@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2008-11-13 13:23+0200\n"
 "Last-Translator: Maris Nartiss <maris.kde@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -322,8 +322,10 @@ msgstr "Liels (1024 pikseļi)"
 msgid "Very Big (1280 pixels)"
 msgstr "Ļoti liels (1280 pikseļi)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Milzīgs - drukāšanai (1600 pikseļi)"
 
 #: settingswidget.cpp:145
@@ -358,6 +360,10 @@ msgstr ""
 "Interneta pieslēgums un saņēmēja e-pasta kastītei nav ziņojuma izmēra "
 "ierobežojumu.</p><p><b>%5</b>: lietojiet šo, ja jums nav ne ātruma ne izmēra "
 "ierobežojumu.</p><p><b>%6</b>: šis noderēs tikai attēlu drukāšanai.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Milzīgs - drukāšanai (1600 pikseļi)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

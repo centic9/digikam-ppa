@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2009-2010, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010-2012 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -31,10 +31,10 @@
 
 #include <QtCore/QString>
 #include <QtCore/QStringList>
+#include <QtCore/QDebug>
 
 // Kde includes
 
-#include <kdebug.h>
 #include <kurl.h>
 
 // local includes
@@ -69,173 +69,44 @@ public:
     typedef QPair<GeoCoordinates, GeoCoordinates>   Pair;
     typedef QList<GeoCoordinates::Pair>             PairList;
 
-    static Pair makePair(const qreal lat1, const qreal lon1, const qreal lat2, const qreal lon2)
-    {
-        return Pair(GeoCoordinates(lat1, lon1), GeoCoordinates(lat2, lon2));
-    }
+public:
 
-    GeoCoordinates()
-        : m_lat(0.0),
-          m_lon(0.0),
-          m_alt(0.0),
-          m_hasFlags(HasNothing)
-    {
-    }
+    GeoCoordinates();
+    GeoCoordinates(const double inLat, const double inLon);
+    GeoCoordinates(const double inLat, const double inLon, const double inAlt);
+    ~GeoCoordinates();
 
-    GeoCoordinates(const double inLat, const double inLon)
-        : m_lat(inLat),
-          m_lon(inLon),
-          m_alt(0.0),
-          m_hasFlags(HasCoordinates)
-    {
-    }
+    bool operator==(const GeoCoordinates& other) const;
+    
+    double lat() const;
+    double lon() const ;
+    double alt() const;
 
-    GeoCoordinates(const double inLat, const double inLon, const double inAlt)
-        : m_lat(inLat),
-          m_lon(inLon),
-          m_alt(inAlt),
-          m_hasFlags(HasCoordinates|HasAltitude)
-    {
-    }
+    bool hasCoordinates() const;
+    bool hasLatitude()    const;
+    bool hasLongitude()   const;
 
-    double lat() const { return m_lat; }
-    double lon() const { return m_lon; }
-    double alt() const { return m_alt; }
+    void setLatLon(const double inLat, const double inLon);
 
-    bool hasCoordinates() const { return m_hasFlags.testFlag(HasCoordinates); }
-    bool hasLatitude() const    { return m_hasFlags.testFlag(HasLatitude);    }
-    bool hasLongitude() const   { return m_hasFlags.testFlag(HasLongitude);   }
+    bool hasAltitude()  const;
+    HasFlags hasFlags() const;
 
-    void setLatLon(const double inLat, const double inLon)
-    {
-        m_lat      = inLat;
-        m_lon      = inLon;
-        m_hasFlags |= HasCoordinates;
-    }
+    void setAlt(const double inAlt);
 
-    bool hasAltitude() const { return m_hasFlags.testFlag(HasAltitude); }
+    void clearAlt();
+    void clear();
 
-    HasFlags hasFlags() const { return m_hasFlags; }
+    QString altString() const;
+    QString latString() const;
+    QString lonString() const;
+    QString geoUrl()    const;
 
-    void setAlt(const double inAlt)
-    {
-        m_hasFlags |= HasAltitude;
-        m_alt      = inAlt;
-    }
-
-    void clearAlt()
-    {
-        m_hasFlags &= ~HasAltitude;
-    }
-
-    void clear()
-    {
-        m_hasFlags = HasNothing;
-    }
-
-    QString altString() const { return m_hasFlags.testFlag(HasAltitude)  ? QString::number(m_alt, 'g', 12) : QString(); }
-    QString latString() const { return m_hasFlags.testFlag(HasLatitude)  ? QString::number(m_lat, 'g', 12) : QString(); }
-    QString lonString() const { return m_hasFlags.testFlag(HasLongitude) ? QString::number(m_lon, 'g', 12) : QString(); }
-
-    QString geoUrl() const
-    {
-        if (!hasCoordinates())
-        {
-            return QString();
-        }
-
-        if (m_hasFlags.testFlag(HasAltitude))
-        {
-            return QString::fromLatin1("geo:%1,%2,%3").arg(latString()).arg(lonString()).arg(altString());
-        }
-        else
-        {
-            return QString::fromLatin1("geo:%1,%2").arg(latString()).arg(lonString());
-        }
-    }
-
-    bool sameLonLatAs(const GeoCoordinates& other) const
-    {
-        return m_hasFlags.testFlag(HasCoordinates) &&
-               other.m_hasFlags.testFlag(HasCoordinates) &&
-               (m_lat==other.m_lat)&&(m_lon==other.m_lon);
-    }
-
-    static GeoCoordinates fromGeoUrl(const QString& url, bool* const parsedOkay = 0)
-    {
-        // parse geo:-uri according to (only partially implemented):
-        // http://tools.ietf.org/html/draft-ietf-geopriv-geo-uri-04
-        // TODO: verify that we follow the spec fully!
-        if (!url.startsWith(QLatin1String( "geo:" )))
-        {
-            // TODO: error
-            if (parsedOkay)
-                *parsedOkay = false;
-            return GeoCoordinates();
-        }
-
-        const QStringList parts = url.mid(4).split(QLatin1Char( ',' ));
-
-        GeoCoordinates position;
-        if ((parts.size()==3)||(parts.size()==2))
-        {
-            bool okay              = true;
-            double ptLongitude     = 0.0;
-            double ptAltitude      = 0.0;
-            const bool hasAltitude = parts.size()==3;
-
-            const double ptLatitude = parts[0].toDouble(&okay);
-            if (okay)
-            {
-                ptLongitude = parts[1].toDouble(&okay);
-            }
-
-            if (okay&&(hasAltitude))
-            {
-                ptAltitude = parts[2].toDouble(&okay);
-            }
-
-            if (!okay)
-            {
-                *parsedOkay = false;
-                return GeoCoordinates();
-            }
-
-            position = GeoCoordinates(ptLatitude, ptLongitude);
-            if (hasAltitude)
-            {
-                position.setAlt(ptAltitude);
-            }
-        }
-        else
-        {
-            if (parsedOkay)
-                *parsedOkay = false;
-            return GeoCoordinates();
-        }
-
-        if (parsedOkay)
-                *parsedOkay = true;
-        return position;
-    }
-
-    bool operator==(const GeoCoordinates& other) const
-    {
-        return
-            ( hasCoordinates() == other.hasCoordinates() ) &&
-            ( hasCoordinates() ?
-                ( ( lat() == other.lat() ) &&
-                  ( lon() == other.lon() )
-                ) : true
-            ) &&
-            ( hasAltitude() == other.hasAltitude() ) &&
-            ( hasAltitude() ?
-                ( alt() == other.alt() )
-                            : true );
-    }
-
+    bool sameLonLatAs(const GeoCoordinates& other)   const;
     Marble::GeoDataCoordinates toMarbleCoordinates() const;
+
+    static GeoCoordinates fromGeoUrl(const QString& url, bool* const parsedOkay = 0);
     static GeoCoordinates fromMarbleCoordinates(const Marble::GeoDataCoordinates& marbleCoordinates);
+    static Pair makePair(const qreal lat1, const qreal lon1, const qreal lat2, const qreal lon2);
 
 private:
 
@@ -249,11 +120,7 @@ private:
 
 Q_DECLARE_OPERATORS_FOR_FLAGS(KGeoMap::GeoCoordinates::HasFlags)
 
-inline QDebug operator<<(QDebug debugOut, const KGeoMap::GeoCoordinates& coordinate)
-{
-    debugOut << coordinate.geoUrl();
-    return debugOut;
-}
+KGEOMAP_EXPORT QDebug operator<<(QDebug debugOut, const KGeoMap::GeoCoordinates& coordinate);
 
 Q_DECLARE_TYPEINFO(KGeoMap::GeoCoordinates, Q_MOVABLE_TYPE);
 Q_DECLARE_METATYPE(KGeoMap::GeoCoordinates)

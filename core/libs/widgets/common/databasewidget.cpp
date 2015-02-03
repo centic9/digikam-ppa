@@ -81,8 +81,6 @@ DatabaseWidget::~DatabaseWidget()
 
 void DatabaseWidget::setupMainArea()
 {
-    setAutoFillBackground(false);
-
     QVBoxLayout* const layout  = new QVBoxLayout();
     setLayout(layout);
 
@@ -102,9 +100,9 @@ void DatabaseWidget::setupMainArea()
 
     QLabel* const databaseTypeLabel                  = new QLabel(i18n("Type"));
     databaseType                                     = new QComboBox();
-#ifdef HAVE_INTERNALMYSQL
+#if defined(HAVE_MYSQLSUPPORT) && defined(HAVE_INTERNALMYSQL)
     QLabel* const internalServerLabel                = new QLabel(i18n("Internal Server"));
-#endif // HAVE_INTERNALMYSQL
+#endif
     internalServer                                   = new QCheckBox();
     QLabel* const databaseNameLabel                  = new QLabel(i18n("Schema Name"));
     databaseName                                     = new QLineEdit();
@@ -133,9 +131,9 @@ void DatabaseWidget::setupMainArea()
     QFormLayout* const expertSettinglayout           = new QFormLayout();
     d->expertSettings->setLayout(expertSettinglayout);
 
-#ifdef HAVE_INTERNALMYSQL
+#if defined(HAVE_MYSQLSUPPORT) && defined(HAVE_INTERNALMYSQL)
     expertSettinglayout->addRow(internalServerLabel, internalServer);
-#endif // HAVE_INTERNALMYSQL
+#endif
 
     expertSettinglayout->addRow(hostNameLabel, hostName);
     expertSettinglayout->addRow(hostPortLabel, hostPort);
@@ -165,37 +163,33 @@ void DatabaseWidget::setupMainArea()
     // --------- fill with default values ---------------------
 
     databaseType->addItem(i18n("SQLite"),               DatabaseParameters::SQLiteDatabaseType());
+#ifdef HAVE_MYSQLSUPPORT
     databaseType->addItem(i18n("MySQL (experimental)"), DatabaseParameters::MySQLDatabaseType());
+#endif
     databaseType->setToolTip(i18n("<p>Select here the type of database backend.</p>"
-                                  "<p><b>SQlite</b> backend is for local database storage with a small and medium collection sizes (less than 100K items). "
+                                  "<p><b>SQlite</b> backend is for local database storage with a small and medium collection sizes. "
                                   "It is the default and recommended backend.</p>"
+#ifdef HAVE_MYSQLSUPPORT
                                   "<p><b>MySQL</b> backend is a more robust solution especially for remote and shared database storage. "
-                                  "It is also more efficient to manage huge collection sizes. "
-                                  "Be careful: this one it is still in experimental stage.</p>"));
+                                  "It is also more efficient to manage huge collection sizes. "                       
+                                  "Be careful: this one it is still in experimental stage.</p>"
+#endif
+                                 ));
+
     setDatabaseInputFields(DatabaseParameters::SQLiteDatabaseType());
 
     // --------------------------------------------------------
 
-    adjustSize();
-
-    // --------------------------------------------------------
-
-    connect(databasePathEdit, SIGNAL(urlSelected(KUrl)),
-            this, SLOT(slotChangeDatabasePath(KUrl)));
-
-    connect(databasePathEdit, SIGNAL(textChanged(QString)),
-            this, SLOT(slotDatabasePathEditedDelayed()));
-
     connect(databaseType, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotHandleDBTypeIndexChanged(int)));
 
-#ifdef HAVE_INTERNALMYSQL
-    connect(internalServer, SIGNAL(stateChanged(int)),
-            this, SLOT(slotHandleInternalServerCheckbox(int)));
-#endif // HAVE_INTERNALMYSQL
-
     connect(checkDatabaseConnectionButton, SIGNAL(clicked()),
             this, SLOT(checkDatabaseConnection()));
+    
+#if defined(HAVE_MYSQLSUPPORT) && defined(HAVE_INTERNALMYSQL)
+    connect(internalServer, SIGNAL(stateChanged(int)),
+            this, SLOT(slotHandleInternalServerCheckbox(int)));
+#endif
 }
 
 QString DatabaseWidget::currentDatabaseType() const
@@ -261,12 +255,24 @@ void DatabaseWidget::setDatabaseInputFields(const QString& currentIndexStr)
         d->databasePathLabel->setVisible(true);
         databasePathEdit->setVisible(true);
         d->expertSettings->setVisible(false);
+
+        connect(databasePathEdit, SIGNAL(urlSelected(KUrl)),
+                this, SLOT(slotChangeDatabasePath(KUrl)));
+
+        connect(databasePathEdit, SIGNAL(textChanged(QString)),
+                this, SLOT(slotDatabasePathEditedDelayed()));
     }
     else
     {
         d->databasePathLabel->setVisible(false);
         databasePathEdit->setVisible(false);
         d->expertSettings->setVisible(true);
+        
+        disconnect(databasePathEdit, SIGNAL(urlSelected(KUrl)),
+                   this, SLOT(slotChangeDatabasePath(KUrl)));
+
+        disconnect(databasePathEdit, SIGNAL(textChanged(QString)),
+                   this, SLOT(slotDatabasePathEditedDelayed()));
     }
 
     adjustSize();
@@ -340,11 +346,11 @@ void DatabaseWidget::setParametersFromSettings(const ApplicationSettings* const 
     originalDbType = settings->getDatabaseType();
     databasePathEdit->setUrl(settings->getDatabaseFilePath());
 
-#ifdef HAVE_INTERNALMYSQL
+#if defined(HAVE_MYSQLSUPPORT) && defined(HAVE_INTERNALMYSQL)
     internalServer->setChecked(settings->getInternalDatabaseServer());
 #else
     internalServer->setChecked(false);
-#endif // HAVE_INTERNALMYSQL
+#endif
     databaseName->setText(settings->getDatabaseName());
     databaseNameThumbnails->setText(settings->getDatabaseNameThumbnails());
     hostName->setText(settings->getDatabaseHostName());
@@ -355,10 +361,10 @@ void DatabaseWidget::setParametersFromSettings(const ApplicationSettings* const 
 
     password->setText(settings->getDatabasePassword());
 
-    /* Now set the type according the database type from the settings.
-     * If no item is found, ignore the setting.
-     */
-    for (int i=0; i<databaseType->count(); ++i)
+    // Now set the type according the database type from the settings.
+    // If no item is found, ignore the setting.
+
+    for (int i = 0; i < databaseType->count(); ++i)
     {
         //kDebug(50003) << "Comparing comboboxentry on index ["<< i <<"] [" << databaseType->itemData(i)
         //              << "] with ["<< settings->getDatabaseType() << "]";

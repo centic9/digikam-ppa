@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2013-07-30 20:22+0200\n"
 "Last-Translator: Marce Villarino <mvillarino@kde-espana.org>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
@@ -288,8 +288,10 @@ msgstr "Grande (1024 píxeles)"
 msgid "Very Big (1280 pixels)"
 msgstr "Moi grande (1280 píxeles)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Enorme - para imprimir (1600 píxeles)"
 
 #: settingswidget.cpp:145
@@ -315,6 +317,10 @@ msgstr ""
 "destinatario non supón un límite.</p><p><b>%5</b>: use isto se non ten "
 "limitacións de tamaño ou velocidade.</p><p><b>%6</b>: use isto só se ten o "
 "propósito de imprimir.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Enorme - para imprimir (1600 píxeles)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

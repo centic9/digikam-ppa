@@ -52,14 +52,28 @@ ENDIF()
 
 INSTALL(TARGETS ksane ${INSTALL_TARGETS_DEFAULT_ARGS} )
 
-INSTALL(FILES ksane.h
-              libksane_export.h
-              ${CMAKE_CURRENT_BINARY_DIR}/version.h
-        DESTINATION ${INCLUDE_INSTALL_DIR}/libksane COMPONENT Devel)
+CONFIGURE_FILE(../cmake/templates/KSaneConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/KSaneConfig.cmake @ONLY)
+
+# Check if compilation is done through digiKam SC or not. If yes, do not install header files.
+IF (NOT DIGIKAMSC_COMPILE_LIBKSANE)
+
+    INSTALL(FILES ksane.h
+                libksane_export.h
+                ${CMAKE_CURRENT_BINARY_DIR}/version.h
+            DESTINATION ${INCLUDE_INSTALL_DIR}/libksane COMPONENT Devel)
+
+    IF(NOT WIN32)
+        CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/templates/libksane.pc.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libksane.pc)
+        CONFIGURE_FILE(${CMAKE_SOURCE_DIR}/cmake/templates/libksane.lsm.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libksane.lsm)
+        INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/libksane.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig )
+    ENDIF(NOT WIN32)
+
+    # Install find cmake script to the system for client applications.
+
+    INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/KSaneConfig.cmake
+        DESTINATION ${LIB_INSTALL_DIR}/cmake/KSane)
+
+ENDIF()
 
 KDE4_INSTALL_ICONS(${ICON_INSTALL_DIR})
 
-CONFIGURE_FILE(../cmake/templates/KSaneConfig.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/KSaneConfig.cmake @ONLY)
-
-INSTALL(FILES ${CMAKE_CURRENT_BINARY_DIR}/KSaneConfig.cmake
-        DESTINATION ${LIB_INSTALL_DIR}/cmake/KSane)
