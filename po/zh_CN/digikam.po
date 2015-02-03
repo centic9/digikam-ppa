@@ -2,15 +2,14 @@
 #
 # Funda Wang <fundawang@linux.net.cn>, 2005.
 # Ni Hui <shuizhuyuanluo@126.com>, 2007, 2008, 2009, 2010.
-# Leon Feng <rainofchaos@gmail.com>, 2010.
-# Feng Chao <rainofchaos@gmail.com>, 2011, 2012.
+# Feng Chao <chaofeng111@gmail.com>, 2010, 2011, 2012, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-05-11 01:40+0000\n"
-"PO-Revision-Date: 2012-11-25 20:40+0800\n"
-"Last-Translator: FengChao <rainofchaos@gmail.com>\n"
+"POT-Creation-Date: 2014-06-25 01:42+0000\n"
+"PO-Revision-Date: 2014-05-10 19:34+0800\n"
+"Last-Translator: Feng Chao <chaofeng111@gmail.com>\n"
 "Language-Team: Chinese Simplified <kde-china@kde.org>\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +24,7 @@ msgstr "KDE 中国,Ni Hui,Leon Feng"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "kde-china@kde.com,shuizhuyuanluo@126.com,rainofchaos@gmail.com"
+msgstr "kde-china@kde.com,shuizhuyuanluo@126.com,chaofeng111@gmail.com"
 
 #: databaseserver/databaseserver.cpp:163
 msgid "No path to mysqld set in server configuration."
@@ -460,13 +459,13 @@ msgstr ""
 msgid "No such tag"
 msgstr "无此标签"
 
-#: digikam/album/albummodificationhelper.cpp:222
+#: digikam/album/albummodificationhelper.cpp:225
 #: digikam/utils/searchmodificationhelper.cpp:143
 #, kde-format
 msgid "Rename Album (%1)"
 msgstr "重命名相册(%1)"
 
-#: digikam/album/albummodificationhelper.cpp:223
+#: digikam/album/albummodificationhelper.cpp:226
 #: digikam/utils/searchmodificationhelper.cpp:144
 msgid "Enter new album name:"
 msgstr "输入新相册名称："
@@ -480,16 +479,14 @@ msgid "Edit Album"
 msgstr "编辑相册"
 
 #: digikam/album/albumpropsedit.cpp:138
-#, fuzzy, kde-format
-#| msgid "<qt><b>Create new Album in<br/>\"<i>%1</i>\"</b></qt>"
+#, kde-format
 msgid "<qt><b>Create new Album in<br/>\"%1\"</b></qt>"
-msgstr "<qt><b>在<br/>“<i>%1</i>”中创建新相册</b></qt>"
+msgstr "<qt><b>在“%1”<br/>中创建新相册</b></qt>"
 
 #: digikam/album/albumpropsedit.cpp:142
-#, fuzzy, kde-format
-#| msgid "<qt><b>\"<i>%1</i>\"<br/>Album Properties</b></qt>"
+#, kde-format
 msgid "<qt><b>\"%1\"<br/>Album Properties</b></qt>"
-msgstr "<qt><b>“<i>%1</i>”<br/>相册属性</b></qt>"
+msgstr "<qt><b>\"%1\"<br/>相册属性</b></qt>"
 
 #: digikam/album/albumpropsedit.cpp:153 digikam/tags/tageditdlg.cpp:139
 #: digikam/tags/tagsmanager/tagpropwidget.cpp:103
@@ -861,15 +858,12 @@ msgid ""
 msgstr "第 %1 周 - %3年%2"
 
 #: digikam/date/timelinewidget.cpp:333
-#, fuzzy
-#| msgctxt "Start index for custom range"
-#| msgid "Start:"
 msgid "Start: "
 msgstr "开始："
 
 #: digikam/date/timelinewidget.cpp:334
 msgid "End: "
-msgstr ""
+msgstr "结束："
 
 #: digikam/date/timelinewidget.cpp:341
 #, kde-format
@@ -1059,11 +1053,11 @@ msgstr "正在复制属性"
 msgid "Process Items"
 msgstr "处理内容"
 
-#: digikam/fileaction/fileworkeriface.cpp:72
+#: digikam/fileaction/fileworkeriface.cpp:73
 msgid "Failed to revise Exif orientation these files:"
 msgstr "修正这些文件的 Exif 方向失败："
 
-#: digikam/fileaction/fileworkeriface.cpp:265
+#: digikam/fileaction/fileworkeriface.cpp:275
 #, fuzzy
 #| msgid "Failed to revise Exif orientation these files:"
 msgid "Failed to transform these files:"
@@ -1367,10 +1361,8 @@ msgid "Defines which fields to search for the text in."
 msgstr ""
 
 #: digikam/filters/textfilter.cpp:93
-#, fuzzy
-#| msgid "Image Name"
 msgid "Item Name"
-msgstr "图像名称"
+msgstr "项目名"
 
 #: digikam/filters/textfilter.cpp:95
 #, fuzzy
@@ -1405,8 +1397,6 @@ msgid "Item Pixel Size"
 msgstr "图像文件大小"
 
 #: digikam/filters/textfilter.cpp:108
-#, fuzzy
-#| msgid "Clear all"
 msgid "Clear All"
 msgstr "全部清除"
 
@@ -1415,7 +1405,7 @@ msgstr "全部清除"
 msgid "Select All"
 msgstr "全部选中"
 
-#: digikam/items/digikamimageview.cpp:334 digikam/views/tableview.cpp:228
+#: digikam/items/digikamimageview.cpp:338 digikam/views/tableview.cpp:228
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "预览"
@@ -1482,9 +1472,18 @@ msgctxt "Month String - Year String"
 msgid "%1 %2"
 msgstr "%2年%1"
 
+#: digikam/items/imagecoordinatesoverlay.cpp:104
+#: showfoto/thumbbar/showfotocoordinatesoverlay.cpp:105
+#: utilities/importui/items/importoverlays.cpp:106
+#, fuzzy
+#| msgid "Edit album properties and collection information."
+msgctxt "@info:tooltip"
+msgid "This item has geolocation information."
+msgstr "编辑相册属性和收藏信息。"
+
 #: digikam/items/imagerotationoverlay.cpp:68
 #: digikam/views/imagepreviewview.cpp:164
-#: utilities/importui/items/importoverlays.cpp:371
+#: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
@@ -1492,7 +1491,7 @@ msgstr "向左旋转"
 
 #: digikam/items/imagerotationoverlay.cpp:72
 #: digikam/views/imagepreviewview.cpp:165
-#: utilities/importui/items/importoverlays.cpp:375
+#: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
@@ -1679,6 +1678,7 @@ msgid "Browse Tags..."
 msgstr "复制标签..."
 
 #: digikam/main/digikamapp.cpp:819 digikam/views/leftsidebarwidgets.cpp:195
+#: libs/imageproperties/imagedescedittab.cpp:294
 #, fuzzy
 #| msgid "Open in File Manager"
 msgid "Open Tag Manager"
@@ -1691,9 +1691,10 @@ msgstr "新建(&E)..."
 
 #: digikam/main/digikamapp.cpp:836 digikam/tags/tagmodificationhelper.cpp:273
 #: digikam/tags/tagmodificationhelper.cpp:378
-#: digikam/tags/tagsmanager/tagsmanager.cpp:378
+#: digikam/tags/tagsmanager/tagsmanager.cpp:399
 #: digikam/utils/editablesearchtreeview.cpp:70
 #: digikam/utils/searchmodificationhelper.cpp:82
+#: utilities/importui/main/importui.cpp:1912
 #: utilities/queuemanager/views/workflowlist.cpp:294
 msgid "Delete"
 msgstr "删除"
@@ -1708,7 +1709,7 @@ msgstr "指派标签"
 msgid "Views"
 msgstr "视图"
 
-#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:474
+#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:476
 msgctxt "@action Go to thumbnails (icon) view"
 msgid "Thumbnails"
 msgstr "缩略图"
@@ -1718,17 +1719,15 @@ msgctxt "View the selected image"
 msgid "Preview Image"
 msgstr "预览图像"
 
-#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:486
+#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:488
 msgctxt "@action Switch to map view"
 msgid "Map"
 msgstr "地图"
 
 #: digikam/main/digikamapp.cpp:872
-#, fuzzy
-#| msgid "enabled"
 msgctxt "@action Switch to table view"
 msgid "Table"
-msgstr "已启用"
+msgstr "表格"
 
 #: digikam/main/digikamapp.cpp:880 utilities/scriptiface/scriptiface.cpp:66
 msgid "Script Console"
@@ -1828,7 +1827,7 @@ msgstr "重命名..."
 msgid "Change the filename of the currently selected item."
 msgstr "更改当前选中项目的文件名。"
 
-#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:506
+#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:510
 #: utilities/imageeditor/editor/editorwindow.cpp:419
 #: utilities/lighttable/lighttablewindow.cpp:507
 msgctxt "Non-pluralized"
@@ -1969,8 +1968,8 @@ msgid "Select None"
 msgstr "全部不选"
 
 #: digikam/main/digikamapp.cpp:1147
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:134
-#: digikam/tags/tagsmanager/tagsmanager.cpp:655
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:149
+#: digikam/tags/tagsmanager/tagsmanager.cpp:679
 #: digikam/utils/contextmenuhelper.cpp:850
 msgid "Invert Selection"
 msgstr "反转选择"
@@ -2194,7 +2193,7 @@ msgstr "KIPI-Plugins"
 msgid "Loading themes..."
 msgstr "正在装入主题..."
 
-#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:425
+#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:429
 msgid "&Themes"
 msgstr "主题(&T)"
 
@@ -2227,7 +2226,7 @@ msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "普通"
 
-#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2492
+#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2497
 msgid "Flipped Horizontally"
 msgstr "水平翻转"
 
@@ -2235,7 +2234,7 @@ msgstr "水平翻转"
 msgid "Rotated Upside Down"
 msgstr "上下翻转"
 
-#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2496
+#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2501
 msgid "Flipped Vertically"
 msgstr "垂直翻转"
 
@@ -2243,7 +2242,7 @@ msgstr "垂直翻转"
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "向右旋转/水平翻转"
 
-#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2504
+#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2509
 msgid "Rotated Right"
 msgstr "向右旋转"
 
@@ -2251,7 +2250,7 @@ msgstr "向右旋转"
 msgid "Rotated Right / Vert. Flipped"
 msgstr "向右旋转/垂直翻转"
 
-#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2500
+#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2505
 msgid "Rotated Left"
 msgstr "向左旋转"
 
@@ -2526,16 +2525,14 @@ msgid "<b>Create New Tag</b>"
 msgstr "<b>创建新标签</b>"
 
 #: digikam/tags/tageditdlg.cpp:305
-#, fuzzy, kde-format
-#| msgid "<b>Create New Tag in<br/><i>\"%1\"</i></b>"
+#, kde-format
 msgid "<b>Create New Tag in<br/>\"%1\"</b>"
-msgstr "<b>在<br/><i>“%1”</i></b>中创建新标签"
+msgstr "<b>在“%1”<br/>中新建标签</b>"
 
 #: digikam/tags/tageditdlg.cpp:311
-#, fuzzy, kde-format
-#| msgid "<b>Properties of Tag<br/><i>\"%1\"</i></b>"
+#, kde-format
 msgid "<b>Properties of Tag<br/>\"%1\"</b>"
-msgstr "<b>标签<br/><i>“%1”</i></b>的属性"
+msgstr "<b>标签属性<br/>“%1”</b>"
 
 #: digikam/tags/tageditdlg.cpp:477
 msgid "Tag creation Error"
@@ -2554,8 +2551,8 @@ msgid "Reset Tag Icon"
 msgstr "重置标签图标"
 
 #: digikam/tags/tagfolderview.cpp:114
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:140
-#: digikam/tags/tagsmanager/tagsmanager.cpp:661
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:155
+#: digikam/tags/tagsmanager/tagsmanager.cpp:685
 #, fuzzy
 #| msgid "Select None"
 msgid "Expand Selected Nodes"
@@ -2649,57 +2646,57 @@ msgid "Assign Tag \"%1\""
 msgstr "指派标签“%1”"
 
 #: digikam/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:111
 #: digikam/utils/contextmenuhelper.cpp:828
 msgid "All Tags"
 msgstr "所有标签"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:270
+#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:266
 msgid "Quick Access List"
 msgstr ""
 
-#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:143
+#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:148
 #, fuzzy
 #| msgid "Delete Selected"
 msgid "Delete Selected from List"
 msgstr "删除所选"
 
 #: digikam/tags/tagsmanager/taglist.cpp:73
-#, fuzzy
-#| msgid "Add to Light Table"
 msgid "Add to List"
-msgstr "添加到灯桌"
+msgstr "添加到列表"
 
 #: digikam/tags/tagsmanager/taglist.cpp:74
 msgid "Add selected tags to Quick Access List"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:131
-#: digikam/tags/tagsmanager/tagsmanager.cpp:649
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:139
+#: digikam/utils/contextmenuhelper.cpp:429
 #, fuzzy
-#| msgid "Reset Tag Icon"
+#| msgid "Delete Tag"
+msgid "Delete Tags"
+msgstr "删除标签"
+
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:146
+#: digikam/tags/tagsmanager/tagsmanager.cpp:673
 msgid "Reset tag Icon"
 msgstr "重置标签图标"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:137
-#: digikam/tags/tagsmanager/tagsmanager.cpp:658
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:152
+#: digikam/tags/tagsmanager/tagsmanager.cpp:682
 #, fuzzy
 #| msgid "Include Tag Sub-Tree"
 msgid "Expand Tag Tree"
 msgstr "包含标签子树形目录"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:143
-#: digikam/tags/tagsmanager/tagsmanager.cpp:663
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:158
+#: digikam/tags/tagsmanager/tagsmanager.cpp:687
 #, fuzzy
 #| msgid "Reread Metadata From Images"
 msgid "Remove Tag from Images"
 msgstr "从图像重新读取元数据"
 
 #: digikam/tags/tagsmanager/tagpropwidget.cpp:108
-#, fuzzy
-#| msgid "Enter tag name here..."
 msgid "Enter tag name here"
-msgstr "在此输入标签名称..."
+msgstr "在此输入标签名称"
 
 #: digikam/tags/tagsmanager/tagpropwidget.cpp:141
 msgid ""
@@ -2711,14 +2708,14 @@ msgstr ""
 msgid "Previous tags were changed. Save changes? "
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:166
+#: digikam/tags/tagsmanager/tagsmanager.cpp:169
 #: libs/widgets/mainview/daboutdata.cpp:177
 #, fuzzy
 #| msgid "Rights Management"
 msgid "Tags Manager"
 msgstr "权限管理"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:331
+#: digikam/tags/tagsmanager/tagsmanager.cpp:351
 #, fuzzy, kde-format
 #| msgid ""
 #| "Tag '%2' has one subtag. Deleting this will also delete the subtag. Do "
@@ -2735,7 +2732,7 @@ msgid_plural ""
 "subtags. Do you want to continue?"
 msgstr[0] "标签“%2”有 %1 个子标签。删除此标签也将删除子标签。您想要继续吗？"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:355
+#: digikam/tags/tagsmanager/tagsmanager.cpp:376
 #, fuzzy, kde-format
 #| msgid "Tag '%2' is assigned to one item. Do you want to continue?"
 #| msgid_plural "Tag '%2' is assigned to %1 items. Do you want to continue?"
@@ -2745,7 +2742,7 @@ msgid_plural ""
 "Tags %2 are assigned to one or more items. Do you want to delete them?"
 msgstr[0] "即将指派标签“%2”到 %1 个项目。您想要继续吗？"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:367
+#: digikam/tags/tagsmanager/tagsmanager.cpp:388
 #, fuzzy, kde-format
 #| msgid "Delete Tag"
 msgctxt "%2 is a comma separated list of tags to be deleted."
@@ -2753,15 +2750,15 @@ msgid "Delete tag %2?"
 msgid_plural "Delete tags %2?"
 msgstr[0] "删除标签"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:377
+#: digikam/tags/tagsmanager/tagsmanager.cpp:398
 #, fuzzy
 #| msgid "Delete Tag"
 msgid "Delete tag"
 msgid_plural "Delete tags"
 msgstr[0] "删除标签"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:483
 #: digikam/tags/tagsmanager/tagsmanager.cpp:505
+#: digikam/tags/tagsmanager/tagsmanager.cpp:527
 #, fuzzy
 #| msgid ""
 #| "Performing this operation will reduce image color quality. Do you want to "
@@ -2771,14 +2768,14 @@ msgid ""
 "Do you want to continue?"
 msgstr "进行该操作会降低图像色彩质量。您想要继续吗？"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:528
+#: digikam/tags/tagsmanager/tagsmanager.cpp:550
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
 "Do you want to continue?"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:591
+#: digikam/tags/tagsmanager/tagsmanager.cpp:613
 #, fuzzy
 #| msgid ""
 #| "Do you want to remove the collection \"%1\" from your list of collections?"
@@ -2786,111 +2783,109 @@ msgid "Do you really want to remove the selected tag from all images?"
 msgid_plural "Do you really want to remove the selected tags from all images?"
 msgstr[0] "您想要从您的收藏列表中删除收藏“%1”吗？"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:645
+#: digikam/tags/tagsmanager/tagsmanager.cpp:669
 msgid "Organize"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:652
-#, fuzzy
-#| msgid "Create Tag From Address Book"
+#: digikam/tags/tagsmanager/tagsmanager.cpp:676
 msgid "Create Tag from Address Book"
 msgstr "从地址簿创建标签"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:666
+#: digikam/tags/tagsmanager/tagsmanager.cpp:690
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:669
+#: digikam/tags/tagsmanager/tagsmanager.cpp:693
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:673
+#: digikam/tags/tagsmanager/tagsmanager.cpp:697
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:676
+#: digikam/tags/tagsmanager/tagsmanager.cpp:700
 msgid "Invert selection. Only visible items will be selected"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:679
+#: digikam/tags/tagsmanager/tagsmanager.cpp:703
 msgid "Expand tag tree by one level"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:681
+#: digikam/tags/tagsmanager/tagsmanager.cpp:705
 msgid "Selected items will be expanded"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:683
+#: digikam/tags/tagsmanager/tagsmanager.cpp:707
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:713
+#: digikam/tags/tagsmanager/tagsmanager.cpp:737
 #, fuzzy
 #| msgid "&Export"
 msgid "Sync &Export"
 msgstr "导出(&E)"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:717
+#: digikam/tags/tagsmanager/tagsmanager.cpp:741
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags from Database to Image"
 msgstr "向选中的图像写入元数据"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:721
+#: digikam/tags/tagsmanager/tagsmanager.cpp:745
 #, fuzzy
 #| msgid "Reread Metadata From Image"
 #| msgid_plural "Reread Metadata From Selected Images"
 msgid "Read Tags from Image"
 msgstr "从选中的图像重新读取元数据"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:724
+#: digikam/tags/tagsmanager/tagsmanager.cpp:748
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Wipe all tags from Database only"
 msgstr "向选中的图像写入元数据"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:727
+#: digikam/tags/tagsmanager/tagsmanager.cpp:751
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags Metadata to Image."
 msgstr "向选中的图像写入元数据"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:729
+#: digikam/tags/tagsmanager/tagsmanager.cpp:753
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:732
+#: digikam/tags/tagsmanager/tagsmanager.cpp:756
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:753
+#: digikam/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync Database with Nepomuk"
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:757
+#: digikam/tags/tagsmanager/tagsmanager.cpp:779
 #, fuzzy
 #| msgid "Synchronizing image metadata with database. Please wait..."
 msgid "Sync Nepomuk to Database"
 msgstr "正在与数据库同步图像元数据。请稍候..."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:758
+#: digikam/tags/tagsmanager/tagsmanager.cpp:780
 msgid ""
 "Export all tags from Database to Nepomuk. digiKam with Nepomuk support is "
 "required."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:761
+#: digikam/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Import tags from Nepomuk. digiKam with Nepomuk support is required."
 msgstr ""
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:787
+#: digikam/tags/tagsmanager/tagsmanager.cpp:809
 #, fuzzy
 #| msgid "Properties"
 msgid "Tag Properties"
@@ -2927,35 +2922,35 @@ msgstr "删除此标签"
 msgid "Go to this Tag"
 msgstr "转到此标签"
 
-#: digikam/utils/albumsettings.cpp:456
+#: digikam/utils/albumsettings.cpp:463
 msgid "Category"
 msgstr "分类"
 
-#: digikam/utils/albumsettings.cpp:457
+#: digikam/utils/albumsettings.cpp:464
 msgid "Travel"
 msgstr "旅行"
 
-#: digikam/utils/albumsettings.cpp:458
+#: digikam/utils/albumsettings.cpp:465
 msgid "Holidays"
 msgstr "假日"
 
-#: digikam/utils/albumsettings.cpp:459
+#: digikam/utils/albumsettings.cpp:466
 msgid "Friends"
 msgstr "好友"
 
-#: digikam/utils/albumsettings.cpp:460
+#: digikam/utils/albumsettings.cpp:467
 msgid "Nature"
 msgstr "自然"
 
-#: digikam/utils/albumsettings.cpp:461
+#: digikam/utils/albumsettings.cpp:468
 msgid "Party"
 msgstr "聚会"
 
-#: digikam/utils/albumsettings.cpp:462
+#: digikam/utils/albumsettings.cpp:469
 msgid "Todo"
 msgstr "待办"
 
-#: digikam/utils/albumsettings.cpp:463 showfoto/setup/setup.cpp:154
+#: digikam/utils/albumsettings.cpp:470 showfoto/setup/setup.cpp:154
 #: utilities/setup/setup.cpp:334
 msgid "Miscellaneous"
 msgstr "杂项"
@@ -2996,12 +2991,6 @@ msgstr "打开方式..."
 #: digikam/utils/contextmenuhelper.cpp:411
 msgid "New Tag..."
 msgstr "新建标签..."
-
-#: digikam/utils/contextmenuhelper.cpp:429
-#, fuzzy
-#| msgid "Delete Tag"
-msgid "Delete Tags"
-msgstr "删除标签"
 
 #: digikam/utils/contextmenuhelper.cpp:438
 msgctxt "Edit Tag Properties"
@@ -3293,8 +3282,6 @@ msgid "Dimensions:"
 msgstr "尺寸："
 
 #: digikam/utils/tooltipfiller.cpp:175
-#, fuzzy
-#| msgid "Unknown"
 msgctxt "unknown / invalid image aspect ratio"
 msgid "Unknown"
 msgstr "未知"
@@ -3773,10 +3760,8 @@ msgstr "视频属性"
 
 #: digikam/views/tableview_column_audiovideo.cpp:78
 #: digikam/views/tableview_column_audiovideo.cpp:109
-#, fuzzy
-#| msgid "Audio Bit Rate"
 msgid "Audio bitrate"
-msgstr "音频比特率"
+msgstr "音频位速率"
 
 #: digikam/views/tableview_column_audiovideo.cpp:82
 #: digikam/views/tableview_column_audiovideo.cpp:111
@@ -3795,22 +3780,16 @@ msgstr "压缩："
 #: digikam/views/tableview_column_audiovideo.cpp:90
 #: digikam/views/tableview_column_audiovideo.cpp:115
 #: utilities/searchwindow/searchfields.cpp:583
-#, fuzzy
-#| msgid "Duration:"
 msgid "Duration"
-msgstr "持续时间："
+msgstr "持续时间"
 
 #: digikam/views/tableview_column_audiovideo.cpp:94
 #: digikam/views/tableview_column_audiovideo.cpp:117
-#, fuzzy
-#| msgid "Frame Rate:"
 msgid "Frame rate"
-msgstr "帧速率："
+msgstr "帧速率"
 
 #: digikam/views/tableview_column_audiovideo.cpp:98
 #: digikam/views/tableview_column_audiovideo.cpp:119
-#, fuzzy
-#| msgid "Video Codec"
 msgid "Video codec"
 msgstr "视频编解码器"
 
@@ -3821,8 +3800,6 @@ msgid "Configure column \"%1\""
 msgstr "已配置相册根"
 
 #: digikam/views/tableview_column_digikam.cpp:74
-#, fuzzy
-#| msgid "digiKam Properties"
 msgid "digiKam properties"
 msgstr "digiKam 属性"
 
@@ -3842,9 +3819,6 @@ msgstr "像素："
 
 #: digikam/views/tableview_column_digikam.cpp:88
 #: digikam/views/tableview_column_digikam.cpp:113
-#, fuzzy
-#| msgctxt "@option:check"
-#| msgid "Color label"
 msgid "Color label"
 msgstr "颜色标签"
 
@@ -3853,7 +3827,7 @@ msgstr "颜色标签"
 #: libs/template/templatelist.cpp:83
 #: utilities/queuemanager/views/workflowlist.cpp:97
 #: utilities/searchwindow/searchfields.cpp:536
-#: utilities/setup/setupcamera.cpp:283
+#: utilities/setup/setupcamera.cpp:285
 msgid "Title"
 msgstr "名称"
 
@@ -3943,8 +3917,6 @@ msgid "White"
 msgstr "白"
 
 #: digikam/views/tableview_column_file.cpp:59
-#, fuzzy
-#| msgid "File Properties"
 msgid "File properties"
 msgstr "文件属性"
 
@@ -3956,7 +3928,7 @@ msgstr "文件名"
 
 #: digikam/views/tableview_column_file.cpp:67
 #: digikam/views/tableview_column_file.cpp:97
-#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:286
+#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:288
 #: utilities/setup/setupcollectionview.cpp:936
 msgid "Path"
 msgstr "路径"
@@ -3969,21 +3941,18 @@ msgstr "大小"
 
 #: digikam/views/tableview_column_file.cpp:75
 #: digikam/views/tableview_column_file.cpp:101
-#, fuzzy
-#| msgid "Fast mode"
 msgid "Last modified"
-msgstr "快速模式"
+msgstr "最后修改时间"
 
 #: digikam/views/tableview_column_file.cpp:226
 #: digikam/views/tableview_column_geo.cpp:256
-#, fuzzy
-#| msgid "Default"
 msgid "KDE default"
-msgstr "默认"
+msgstr "KDE 默认值"
 
 #: digikam/views/tableview_column_file.cpp:227
+#, fuzzy
 msgid "Plain"
-msgstr ""
+msgstr "普通"
 
 #: digikam/views/tableview_column_file.cpp:228
 #: digikam/views/tableview_column_geo.cpp:259
@@ -4007,17 +3976,13 @@ msgstr "无标签"
 
 #: digikam/views/tableview_column_geo.cpp:101
 #: digikam/views/tableview_column_geo.cpp:118
-#, fuzzy
-#| msgid "Polar Coordinates"
 msgid "Coordinates"
-msgstr "极坐标"
+msgstr "坐标"
 
 #: digikam/views/tableview_column_geo.cpp:105
 #: digikam/views/tableview_column_geo.cpp:120
-#, fuzzy
-#| msgid "<b>Altitude</b>:"
 msgid "Altitude"
-msgstr "<b>海拔</b>："
+msgstr "海拔"
 
 #: digikam/views/tableview_column_geo.cpp:257
 msgid "Metric units"
@@ -4028,8 +3993,6 @@ msgid "Imperial units"
 msgstr ""
 
 #: digikam/views/tableview_column_item.cpp:76
-#, fuzzy
-#| msgid "Item Properties"
 msgid "Item properties"
 msgstr "项目属性"
 
@@ -4047,10 +4010,8 @@ msgstr "高度"
 
 #: digikam/views/tableview_column_item.cpp:88
 #: digikam/views/tableview_column_item.cpp:131
-#, fuzzy
-#| msgid "Dimensions:"
 msgid "Dimensions"
-msgstr "尺寸："
+msgstr "尺寸"
 
 #: digikam/views/tableview_column_item.cpp:92
 #: digikam/views/tableview_column_item.cpp:133
@@ -4061,21 +4022,17 @@ msgstr "像素："
 
 #: digikam/views/tableview_column_item.cpp:96
 #: digikam/views/tableview_column_item.cpp:135
-#, fuzzy
-#| msgid "Bit depth: "
 msgid "Bit depth"
-msgstr "比特深度："
+msgstr "比特深度"
 
 #: digikam/views/tableview_column_item.cpp:100
 #: digikam/views/tableview_column_item.cpp:137
-#, fuzzy
-#| msgid "Color mode: "
 msgid "Color mode"
-msgstr "颜色模式："
+msgstr "颜色模式"
 
 #: digikam/views/tableview_column_item.cpp:104
 #: digikam/views/tableview_column_item.cpp:139
-#: libs/widgets/common/databasewidget.cpp:102
+#: libs/widgets/common/databasewidget.cpp:103
 msgid "Type"
 msgstr "类型"
 
@@ -4095,10 +4052,8 @@ msgstr "数字化采样日期和时间"
 
 #: digikam/views/tableview_column_item.cpp:116
 #: digikam/views/tableview_column_item.cpp:145
-#, fuzzy
-#| msgid "Aspect ratio:"
 msgid "Aspect ratio"
-msgstr "宽高比："
+msgstr "纵横比"
 
 #: digikam/views/tableview_column_photo.cpp:78
 #, fuzzy
@@ -4118,7 +4073,7 @@ msgstr "相机名称"
 #, fuzzy
 #| msgid "Camera name"
 msgid "Camera model"
-msgstr "相机名称"
+msgstr "照相模式"
 
 #: digikam/views/tableview_column_photo.cpp:90
 #: digikam/views/tableview_column_photo.cpp:133
@@ -4179,64 +4134,51 @@ msgstr "白平衡"
 #: digikam/views/tableview_column_photo.cpp:243
 #, kde-format
 msgid "%1 s"
-msgstr ""
+msgstr "%1 s"
 
 #: digikam/views/tableview_column_photo.cpp:248
 #, kde-format
 msgid "%1 ms"
-msgstr ""
+msgstr "%1 ms"
 
 #: digikam/views/tableview_column_photo.cpp:253
 #, kde-format
 msgid "%1 µs"
-msgstr ""
+msgstr "%1 µs"
 
 #: digikam/views/tableview_column_photo.cpp:402
-#, fuzzy
-#| msgid "Action"
 msgid "Fraction"
-msgstr "动作图"
+msgstr "分数"
 
 #: digikam/views/tableview_column_photo.cpp:403
-#, fuzzy
-#| msgid "Rotation"
 msgid "Rational"
-msgstr "旋转"
+msgstr "有理数"
 
 #: digikam/views/tableview_column_photo.cpp:407
-#, fuzzy
-#| msgctxt "second color for border effect"
-#| msgid "Second:"
 msgid "Seconds"
-msgstr "次色："
+msgstr "秒"
 
 #: digikam/views/tableview_column_photo.cpp:408
-#, fuzzy
-#| msgid "Millimeters"
 msgid "Milliseconds"
-msgstr "毫米"
+msgstr "毫秒"
 
 #: digikam/views/tableview_column_photo.cpp:409
-#, fuzzy
-#| msgid "Micronesia"
 msgid "Microseconds"
-msgstr "密克罗尼西亚"
+msgstr "微秒"
 
 #: digikam/views/tableview_column_photo.cpp:410
 msgid "Unit"
-msgstr ""
+msgstr "单位"
 
-#: digikam/views/tableview_column_thumbnail.cpp:88
-#: digikam/views/tableview_column_thumbnail.cpp:98
+#: digikam/views/tableview_column_thumbnail.cpp:85
+#: digikam/views/tableview_column_thumbnail.cpp:95
 #: utilities/queuemanager/views/queuelist.cpp:308
 msgid "Thumbnail"
 msgstr "缩略图"
 
 #: digikam/views/tableview_treeview.cpp:88
-#, fuzzy
-#| msgid "Remove this Tag"
 msgid "Remove this column"
-msgstr "删除此标签"
+msgstr "删除此列"
 
 #: digikam/views/tableview_treeview.cpp:92
 #, fuzzy
@@ -5271,8 +5213,6 @@ msgid "Remove Large Artifact"
 msgstr "去除大的瑕疵"
 
 #: imageplugins/enhance/inpaintingtool.cpp:189
-#, fuzzy
-#| msgid "Custom"
 msgctxt "custom inpainting settings"
 msgid "Custom"
 msgstr "自定义"
@@ -5489,8 +5429,6 @@ msgid "Reduce Texturing"
 msgstr "减少纹理"
 
 #: imageplugins/enhance/restorationtool.cpp:163
-#, fuzzy
-#| msgid "Custom"
 msgctxt "custom restoration settings"
 msgid "Custom"
 msgstr "自定义"
@@ -5552,7 +5490,7 @@ msgstr "非锐化蒙板"
 
 #: imageplugins/enhance/sharpentool.cpp:292
 #: libs/dimg/filters/sharp/refocusfilter.h:58
-#: libs/dimg/filters/sharp/sharpsettings.cpp:147
+#: libs/dimg/filters/sharp/sharpsettings.cpp:148
 msgid "Refocus"
 msgstr "重聚焦"
 
@@ -6258,7 +6196,7 @@ msgstr "自动调整"
 
 #: imageplugins/transform/freerotationtool.cpp:223
 #: libs/widgets/metadata/metadatawidget.cpp:146
-#: utilities/importui/main/importui.cpp:291
+#: utilities/importui/main/importui.cpp:293
 msgid "Settings"
 msgstr "设置"
 
@@ -6292,10 +6230,8 @@ msgid "Liquid Rescale..."
 msgstr "液体重缩放..."
 
 #: imageplugins/transform/imageplugin_transform.cpp:114
-#, fuzzy
-#| msgid "Free Rotation"
 msgid "Free Rotation..."
-msgstr "自由旋转"
+msgstr "自由旋转..."
 
 #: imageplugins/transform/imageplugin_transform.cpp:119
 msgid "Set Point 1"
@@ -6675,30 +6611,30 @@ msgid ""
 "process can take some time."
 msgstr "<b>注意：</b>使用还原模式放大图像到大尺寸。此处理会持续一段时间。"
 
-#: imageplugins/transform/resizetool.cpp:556
+#: imageplugins/transform/resizetool.cpp:552
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:353
 #: utilities/queuemanager/basetools/transform/resize.cpp:126
 msgid "Resize"
 msgstr "缩放"
 
-#: imageplugins/transform/resizetool.cpp:587
+#: imageplugins/transform/resizetool.cpp:583
 msgid "Photograph Resizing Settings File to Load"
 msgstr "要装入的照片缩放设置文件"
 
-#: imageplugins/transform/resizetool.cpp:601
+#: imageplugins/transform/resizetool.cpp:597
 #, kde-format
 msgid "\"%1\" is not a Photograph Resizing settings text file."
 msgstr "“%1”不是一个照片缩放设置文本文件。"
 
-#: imageplugins/transform/resizetool.cpp:610
+#: imageplugins/transform/resizetool.cpp:606
 msgid "Cannot load settings from the Photograph Resizing text file."
 msgstr "无法从照片缩放文本文件装入设置。"
 
-#: imageplugins/transform/resizetool.cpp:620
+#: imageplugins/transform/resizetool.cpp:616
 msgid "Photograph Resizing Settings File to Save"
 msgstr "要保存的照片缩放设置文件"
 
-#: imageplugins/transform/resizetool.cpp:635
+#: imageplugins/transform/resizetool.cpp:631
 msgid "Cannot save settings to the Photograph Resizing text file."
 msgstr "无法将设置保存到照片缩放文本文件。"
 
@@ -7679,7 +7615,7 @@ msgstr "组件"
 msgid "Info"
 msgstr "信息"
 
-#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2506
+#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2511
 #: libs/imageproperties/imagepropertiessidebar.cpp:245
 #: libs/imageproperties/imagepropertiessidebardb.cpp:538
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:367
@@ -7763,47 +7699,47 @@ msgid_plural ""
 msgstr[0] ""
 "<p>使用 KDcraw 库版本 %2<br/>使用 LibRaw 程序版本 %3<br/>%1 个样本于列表</p>"
 
-#: libs/dimg/dimg.cpp:3178
+#: libs/dimg/dimg.cpp:3177
 msgctxt "Color Model: RGB"
 msgid "RGB"
 msgstr "RGB"
 
-#: libs/dimg/dimg.cpp:3181
+#: libs/dimg/dimg.cpp:3180
 msgctxt "Color Model: Grayscale"
 msgid "Grayscale"
 msgstr "灰色"
 
-#: libs/dimg/dimg.cpp:3184
+#: libs/dimg/dimg.cpp:3183
 msgctxt "Color Model: Monochrome"
 msgid "Monochrome"
 msgstr "黑白"
 
-#: libs/dimg/dimg.cpp:3187
+#: libs/dimg/dimg.cpp:3186
 msgctxt "Color Model: Indexed"
 msgid "Indexed"
 msgstr "已索引"
 
-#: libs/dimg/dimg.cpp:3190
+#: libs/dimg/dimg.cpp:3189
 msgctxt "Color Model: YCbCr"
 msgid "YCbCr"
 msgstr "YCbCr"
 
-#: libs/dimg/dimg.cpp:3193
+#: libs/dimg/dimg.cpp:3192
 msgctxt "Color Model: CMYK"
 msgid "CMYK"
 msgstr "CMYK"
 
-#: libs/dimg/dimg.cpp:3196
+#: libs/dimg/dimg.cpp:3195
 msgctxt "Color Model: CIE L*a*b*"
 msgid "CIE L*a*b*"
 msgstr "CIE L*a*b*"
 
-#: libs/dimg/dimg.cpp:3199
+#: libs/dimg/dimg.cpp:3198
 msgctxt "Color Model: Uncalibrated (RAW)"
 msgid "Uncalibrated (RAW)"
 msgstr "未校准(RAW)"
 
-#: libs/dimg/dimg.cpp:3203
+#: libs/dimg/dimg.cpp:3202
 msgctxt "Color Model: Unknown"
 msgid "Unknown"
 msgstr "未知"
@@ -9215,7 +9151,7 @@ msgid ""
 msgstr "您可以在此看到图像应用反晕映蒙板的缩略图预览。"
 
 #: libs/dimg/filters/lens/antivignettingsettings.cpp:127
-#: libs/dimg/filters/sharp/sharpsettings.cpp:195
+#: libs/dimg/filters/sharp/sharpsettings.cpp:198
 msgid "Amount:"
 msgstr "量："
 
@@ -9663,7 +9599,7 @@ msgstr ""
 #: libs/dimg/filters/nr/nrsettings.cpp:138
 #: libs/dimg/filters/nr/nrsettings.cpp:165
 #: libs/dimg/filters/nr/nrsettings.cpp:192
-#: libs/dimg/filters/sharp/sharpsettings.cpp:203
+#: libs/dimg/filters/sharp/sharpsettings.cpp:206
 #: utilities/fuzzysearch/fuzzysearchview.cpp:295
 msgid "Threshold:"
 msgstr "界限："
@@ -9725,15 +9661,15 @@ msgstr "简单锐化"
 msgid "Unsharp mask"
 msgstr "非锐化蒙板"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:149
+#: libs/dimg/filters/sharp/sharpsettings.cpp:151
 msgid "Select the sharpening method to apply to the image."
 msgstr "选择对图像应用的锐化方法。"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:166
+#: libs/dimg/filters/sharp/sharpsettings.cpp:168
 msgid "Sharpness:"
 msgstr "清晰度："
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:171
+#: libs/dimg/filters/sharp/sharpsettings.cpp:173
 msgid ""
 "A sharpness of 0 has no effect, 1 and above determine the sharpen matrix "
 "radius that determines how much to sharpen the image."
@@ -9741,33 +9677,33 @@ msgstr ""
 "锐化为 0 表示没有效果，1 和以上数字决定着锐化矩阵半径，从而决定着图像锐化程"
 "度。"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:188
+#: libs/dimg/filters/sharp/sharpsettings.cpp:190
 msgid "Radius:"
 msgstr "半径："
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:192
+#: libs/dimg/filters/sharp/sharpsettings.cpp:195
 msgid ""
 "Radius value is the Gaussian blur matrix radius value used to determines how "
 "much to blur the image."
 msgstr "半径值为高斯模糊矩阵半径值，决定图像的模糊程度。"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:200
+#: libs/dimg/filters/sharp/sharpsettings.cpp:203
 msgid ""
 "The value of the difference between the original and the blur image that is "
 "added back into the original."
 msgstr ""
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:208
+#: libs/dimg/filters/sharp/sharpsettings.cpp:211
 msgid ""
 "The threshold, as a fraction of the maximum luminosity value, needed to "
 "apply the difference amount."
 msgstr ""
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:230
+#: libs/dimg/filters/sharp/sharpsettings.cpp:233
 msgid "Circular sharpness:"
 msgstr "环形锐化："
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:235
+#: libs/dimg/filters/sharp/sharpsettings.cpp:238
 msgid ""
 "This is the radius of the circular convolution. It is the most important "
 "parameter for using this plugin. For most images the default value of 1.0 "
@@ -9775,11 +9711,11 @@ msgid ""
 "blurred."
 msgstr ""
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:239
+#: libs/dimg/filters/sharp/sharpsettings.cpp:242
 msgid "Correlation:"
 msgstr "相关系数："
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:244
+#: libs/dimg/filters/sharp/sharpsettings.cpp:247
 msgid ""
 "Increasing the correlation may help to reduce artifacts. The correlation can "
 "range from 0-1. Useful values are 0.5 and values close to 1, e.g. 0.95 and "
@@ -9787,11 +9723,11 @@ msgid ""
 "effect of the plugin."
 msgstr ""
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:249
+#: libs/dimg/filters/sharp/sharpsettings.cpp:252
 msgid "Noise filter:"
 msgstr "噪音过滤："
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:254
+#: libs/dimg/filters/sharp/sharpsettings.cpp:257
 msgid ""
 "Increasing the noise filter parameter may help to reduce artifacts. The "
 "noise filter can range from 0-1 but values higher than 0.1 are rarely "
@@ -9800,11 +9736,11 @@ msgid ""
 "filter will reduce the sharpening effect of the plugin."
 msgstr ""
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:260
+#: libs/dimg/filters/sharp/sharpsettings.cpp:263
 msgid "Gaussian sharpness:"
 msgstr "高斯锐化："
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:265
+#: libs/dimg/filters/sharp/sharpsettings.cpp:268
 msgid ""
 "This is the sharpness for the Gaussian convolution. Use this parameter when "
 "your blurring is of a Gaussian type. In most cases you should set this "
@@ -9813,35 +9749,35 @@ msgid ""
 "filter parameters."
 msgstr ""
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:270
+#: libs/dimg/filters/sharp/sharpsettings.cpp:273
 msgid "Matrix size:"
 msgstr "矩阵大小："
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:275
+#: libs/dimg/filters/sharp/sharpsettings.cpp:278
 msgid ""
 "This parameter determines the size of the transformation matrix. Increasing "
 "the matrix width may give better results, especially when you have chosen "
 "large values for circular or Gaussian sharpness."
 msgstr ""
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:487
+#: libs/dimg/filters/sharp/sharpsettings.cpp:490
 msgid "Photograph Refocus Settings File to Load"
 msgstr "要装入的照片重聚焦设置文件"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:503
+#: libs/dimg/filters/sharp/sharpsettings.cpp:506
 #, kde-format
 msgid "\"%1\" is not a Photograph Refocus settings text file."
 msgstr "“%1”不是一个照片重聚焦设置文本文件。"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:521
+#: libs/dimg/filters/sharp/sharpsettings.cpp:524
 msgid "Cannot load settings from the Photograph Refocus text file."
 msgstr "无法从照片重聚焦设置文本文件装入设置。"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:531
+#: libs/dimg/filters/sharp/sharpsettings.cpp:534
 msgid "Photograph Refocus Settings File to Save"
 msgstr "要保存的照片重聚焦设置文件"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:554
+#: libs/dimg/filters/sharp/sharpsettings.cpp:557
 msgid "Cannot save settings to the Photograph Refocus text file."
 msgstr "无法将设置保存到照片重聚焦设置文本文件。"
 
@@ -10285,64 +10221,64 @@ msgstr ""
 "<p>切换 TIFF 图像的压缩。</p><p>如果启用了此选项，可以减少 TIFF 图像的最终文"
 "件尺寸。</p><p>保存文件时会使用无损图像压缩格式(Adobe Deflate)。</p>"
 
-#: libs/dmetadata/dmetadata.cpp:2488
+#: libs/dmetadata/dmetadata.cpp:2493
 msgid "Unspecified"
 msgstr "未指定"
 
-#: libs/dmetadata/dmetadata.cpp:2490
+#: libs/dmetadata/dmetadata.cpp:2495
 msgctxt "Rotation of an unrotated image"
 msgid "Normal"
 msgstr "普通"
 
-#: libs/dmetadata/dmetadata.cpp:2494
+#: libs/dmetadata/dmetadata.cpp:2499
 msgid "Rotated by 180 Degrees"
 msgstr "旋转 180 度"
 
-#: libs/dmetadata/dmetadata.cpp:2498
+#: libs/dmetadata/dmetadata.cpp:2503
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "水平翻转并向左旋转"
 
-#: libs/dmetadata/dmetadata.cpp:2502
+#: libs/dmetadata/dmetadata.cpp:2507
 msgid "Flipped Vertically and Rotated Left"
 msgstr "垂直翻转并向左旋转"
 
-#: libs/dmetadata/dmetadata.cpp:2542
+#: libs/dmetadata/dmetadata.cpp:2547
 #, kde-format
 msgctxt "Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "West"
 msgstr "西经"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "East"
 msgstr "东经"
 
-#: libs/dmetadata/dmetadata.cpp:2595 libs/dmetadata/dmetadata.cpp:2608
+#: libs/dmetadata/dmetadata.cpp:2600 libs/dmetadata/dmetadata.cpp:2613
 msgctxt "For use in latitude coordinate"
 msgid "North"
 msgstr "北纬"
 
-#: libs/dmetadata/dmetadata.cpp:2595
+#: libs/dmetadata/dmetadata.cpp:2600
 msgctxt "For use in latitude coordinate"
 msgid "South"
 msgstr "南纬"
 
-#: libs/dmetadata/dmetadata.cpp:2617
+#: libs/dmetadata/dmetadata.cpp:2622
 #, no-c-format
 msgctxt "Height in meters"
 msgid "%L1m"
 msgstr "%L1米"
 
-#: libs/dmetadata/dmetadata.cpp:2759
+#: libs/dmetadata/dmetadata.cpp:2764
 msgid "Flash has been fired"
 msgstr "已使用闪光灯"
 
-#: libs/dmetadata/dmetadata.cpp:2760
+#: libs/dmetadata/dmetadata.cpp:2765
 msgid "Flash with red-eye reduction mode"
 msgstr "防红眼模式的闪光灯"
 
@@ -10585,12 +10521,6 @@ msgstr "更多"
 msgid "Description"
 msgstr "描述"
 
-#: libs/imageproperties/imagedescedittab.cpp:294
-#, fuzzy
-#| msgid "Open in File Manager"
-msgid "Open Tag Manger"
-msgstr "在文件管理器中打开"
-
 #: libs/imageproperties/imagedescedittab.cpp:302
 msgid "Enter new tag here..."
 msgstr "在此输入新标签..."
@@ -10607,6 +10537,7 @@ msgstr "最近的标签"
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:135
 #: utilities/advancedrename/common/tooltipdialog.cpp:57
 #: utilities/importui/dialogs/cameramessagebox.cpp:216
+#: utilities/importui/main/importui.cpp:1891
 msgid "Information"
 msgstr "信息"
 
@@ -11426,19 +11357,19 @@ msgstr "用法："
 msgid "Sublocation:"
 msgstr "次位置："
 
-#: libs/threadimageio/thumbnailcreator.cpp:217
+#: libs/threadimageio/thumbnailcreator.cpp:218
 msgid "No or invalid size specified"
 msgstr "未指定或指定了无效的大小"
 
-#: libs/threadimageio/thumbnailcreator.cpp:285
+#: libs/threadimageio/thumbnailcreator.cpp:286
 msgid "Thumbnail is null"
 msgstr "缩略图为空"
 
-#: libs/threadimageio/thumbnailcreator.cpp:435
+#: libs/threadimageio/thumbnailcreator.cpp:436
 msgid "File does not exist"
 msgstr "文件不存在"
 
-#: libs/threadimageio/thumbnailcreator.cpp:540
+#: libs/threadimageio/thumbnailcreator.cpp:541
 #, kde-format
 msgid "Cannot create thumbnail for %1"
 msgstr "无法创建 %1 的缩略图"
@@ -11457,11 +11388,11 @@ msgstr "初始化缩略图数据库失败"
 msgid "Color Label: %1"
 msgstr "颜色标签：%1"
 
-#: libs/widgets/common/databasewidget.cpp:90
+#: libs/widgets/common/databasewidget.cpp:91
 msgid "Database File Path"
 msgstr "数据库文件路径"
 
-#: libs/widgets/common/databasewidget.cpp:92
+#: libs/widgets/common/databasewidget.cpp:93
 msgid ""
 "<p>The location where the database file will be stored on your system. There "
 "is one common database file for all root albums.<br/>Write access is "
@@ -11472,52 +11403,52 @@ msgstr ""
 "权限以编辑图像属性。</p><p>注意：不能在此使用远程文件系统，比如 NFS。</"
 "p><p></p>"
 
-#: libs/widgets/common/databasewidget.cpp:104
+#: libs/widgets/common/databasewidget.cpp:105
 msgid "Internal Server"
 msgstr "内部服务器"
 
-#: libs/widgets/common/databasewidget.cpp:106
+#: libs/widgets/common/databasewidget.cpp:107
 msgid "Schema Name"
 msgstr "方案名称"
 
-#: libs/widgets/common/databasewidget.cpp:108
+#: libs/widgets/common/databasewidget.cpp:109
 msgid "Thumbnails<br>Schema Name"
 msgstr "缩略图<br>方案名称"
 
-#: libs/widgets/common/databasewidget.cpp:110
+#: libs/widgets/common/databasewidget.cpp:111
 msgid "Host Name"
 msgstr "主机名"
 
-#: libs/widgets/common/databasewidget.cpp:112
-#: utilities/setup/setupcamera.cpp:285
+#: libs/widgets/common/databasewidget.cpp:113
+#: utilities/setup/setupcamera.cpp:287
 msgid "Port"
 msgstr "端口"
 
-#: libs/widgets/common/databasewidget.cpp:116
+#: libs/widgets/common/databasewidget.cpp:117
 msgid "Database<br>Connection<br>Options"
 msgstr "数据库<br>连接<br>选项"
 
-#: libs/widgets/common/databasewidget.cpp:119
+#: libs/widgets/common/databasewidget.cpp:120
 msgid "User"
 msgstr "用户"
 
-#: libs/widgets/common/databasewidget.cpp:122
+#: libs/widgets/common/databasewidget.cpp:123
 msgid "Password"
 msgstr "密码"
 
-#: libs/widgets/common/databasewidget.cpp:126
+#: libs/widgets/common/databasewidget.cpp:127
 msgid "Check DB Connection"
 msgstr "检查数据库连接"
 
-#: libs/widgets/common/databasewidget.cpp:164
+#: libs/widgets/common/databasewidget.cpp:165
 msgid "SQLite"
 msgstr "SQLite"
 
-#: libs/widgets/common/databasewidget.cpp:165
+#: libs/widgets/common/databasewidget.cpp:166
 msgid "MySQL (experimental)"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:166
+#: libs/widgets/common/databasewidget.cpp:167
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small and medium collection sizes (less "
@@ -11527,7 +11458,7 @@ msgid ""
 "Be careful: this one it is still in experimental stage.</p>"
 msgstr ""
 
-#: libs/widgets/common/databasewidget.cpp:218
+#: libs/widgets/common/databasewidget.cpp:219
 msgid ""
 "You do not seem to have write access to this database folder.\n"
 "Without this access, the caption and tag features will not work."
@@ -11535,16 +11466,16 @@ msgstr ""
 "您似乎没有此数据库文件夹的写访问权限。\n"
 " 没有此访问，注释和标签特性将无法工作。"
 
-#: libs/widgets/common/databasewidget.cpp:297
+#: libs/widgets/common/databasewidget.cpp:305
 msgid "Database connection test successful."
 msgstr "数据库连接测试成功。"
 
-#: libs/widgets/common/databasewidget.cpp:297
-#: libs/widgets/common/databasewidget.cpp:302
+#: libs/widgets/common/databasewidget.cpp:305
+#: libs/widgets/common/databasewidget.cpp:310
 msgid "Database connection test"
 msgstr "数据库连接测试"
 
-#: libs/widgets/common/databasewidget.cpp:301
+#: libs/widgets/common/databasewidget.cpp:309
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr "数据库连接失败。<p>错误为: %1</p>"
@@ -11716,7 +11647,7 @@ msgid "Raw information about the ICC profile manufacturer"
 msgstr "有关 ICC profile 色彩描述文件制造商的原始信息"
 
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:139
-#: utilities/setup/setupcamera.cpp:284
+#: utilities/setup/setupcamera.cpp:286
 msgid "Model"
 msgstr "型号"
 
@@ -11930,8 +11861,8 @@ msgid "modified: %1"
 msgstr "修改时间：%1"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:369
-#: showfoto/main/showfoto.cpp:614
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:308
+#: showfoto/main/showfoto.cpp:625
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:320
 #: utilities/importui/items/itemviewimportdelegate.cpp:364
 #, kde-format
 msgctxt "%1 width, %2 height, %3 mpixels"
@@ -11939,14 +11870,14 @@ msgid "%1x%2 (%3Mpx)"
 msgstr "%1x%2 (%3Mpx)"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:373
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:421
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:313
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:423
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:325
 #: utilities/importui/items/itemviewimportdelegate.cpp:368
 msgctxt "unknown image resolution"
 msgid "Unknown"
 msgstr "未知"
 
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:416
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:418
 #, fuzzy, kde-format
 #| msgid "%1x%2 (%3Mpx)"
 msgctxt "%1 width : %2 height (%3 Aspect Ratio)"
@@ -12030,7 +11961,7 @@ msgstr "开发者"
 
 #: libs/widgets/mainview/daboutdata.cpp:144
 msgid "Teemu Rytilahti"
-msgstr ""
+msgstr "Teemu Rytilahti"
 
 #: libs/widgets/mainview/daboutdata.cpp:150
 msgid "Matthias Welwarsky"
@@ -12100,7 +12031,7 @@ msgstr "人脸检测"
 
 #: libs/widgets/mainview/daboutdata.cpp:206
 msgid "Martin Klapetek"
-msgstr ""
+msgstr "Martin Klapetek"
 
 #: libs/widgets/mainview/daboutdata.cpp:207
 msgid "Non-destructive image editing"
@@ -12108,7 +12039,7 @@ msgstr ""
 
 #: libs/widgets/mainview/daboutdata.cpp:212
 msgid "Gabriel Voicu"
-msgstr ""
+msgstr "Gabriel Voicu"
 
 #: libs/widgets/mainview/daboutdata.cpp:213
 #, fuzzy
@@ -12398,7 +12329,7 @@ msgstr "配置..."
 msgid ""
 "Cannot start Colors Settings panel from KDE Control Center. Please check "
 "your system..."
-msgstr ""
+msgstr "无法从 KDE 控制中心启动颜色设置面板。请检查您的系统..."
 
 #: libs/widgets/mainview/thumbbardock.cpp:53
 msgid "Drag to reposition"
@@ -12544,6 +12475,16 @@ msgstr "权限管理"
 msgid "Paged-Text"
 msgstr "分页文本"
 
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:160
+msgid "Metadata Working Group Regions"
+msgstr ""
+
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:164
+#, fuzzy
+#| msgid "Dublin Core"
+msgid "Darwin Core"
+msgstr "都柏林核心"
+
 #: libs/widgets/metadata/metadatalistview.cpp:140
 #, kde-format
 msgid ""
@@ -12591,16 +12532,12 @@ msgid "Apply tags filter over metadata."
 msgstr "一个应用模板元数据的工具"
 
 #: libs/widgets/metadata/metadatawidget.cpp:136
-#, fuzzy
-#| msgid "Noise filter:"
 msgid "No filter"
-msgstr "噪音过滤："
+msgstr "无过滤"
 
 #: libs/widgets/metadata/metadatawidget.cpp:139
-#, fuzzy
-#| msgid "Photo Flash"
 msgid "Photograph"
-msgstr "照片闪光灯"
+msgstr "相片"
 
 #: libs/widgets/metadata/metadatawidget.cpp:142
 #: utilities/queuemanager/basetools/transform/rotate.cpp:106
@@ -12609,10 +12546,8 @@ msgstr "自定义"
 
 #: libs/widgets/metadata/metadatawidget.cpp:155
 #: utilities/queuemanager/views/workflowlist.cpp:98
-#, fuzzy
-#| msgid "&Tools"
 msgid "Tools"
-msgstr "工具(&T)"
+msgstr "工具"
 
 #: libs/widgets/metadata/metadatawidget.cpp:158
 #, fuzzy
@@ -12628,10 +12563,8 @@ msgid "Save in file"
 msgstr "文件保存为"
 
 #: libs/widgets/metadata/metadatawidget.cpp:162
-#, fuzzy
-#| msgid "Print Image"
 msgid "Print"
-msgstr "打印图像"
+msgstr "打印"
 
 #: libs/widgets/metadata/metadatawidget.cpp:326
 #, kde-format
@@ -12663,7 +12596,7 @@ msgstr "showFoto"
 msgid "File(s) or folder(s) to open"
 msgstr "要打开的文件或文件夹"
 
-#: showfoto/main/showfoto.cpp:290
+#: showfoto/main/showfoto.cpp:292
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
 "now, select \"Yes\", otherwise select \"No\". In this case, \"Color "
@@ -12672,31 +12605,31 @@ msgstr ""
 "<p>ICC 色彩描述文件路径似乎无效。</p><p>如果您想要现在设定它，选“是”，否则"
 "选“否”。在此情况下，“色彩管理”特性将会被禁用，直到您解决这个问题</p>"
 
-#: showfoto/main/showfoto.cpp:433
+#: showfoto/main/showfoto.cpp:437
 msgid "Open folder"
 msgstr "打开文件夹"
 
-#: showfoto/main/showfoto.cpp:511
+#: showfoto/main/showfoto.cpp:515
 msgid "Delete File"
 msgstr "删除文件"
 
-#: showfoto/main/showfoto.cpp:613
+#: showfoto/main/showfoto.cpp:624
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "未知"
 
-#: showfoto/main/showfoto.cpp:694
+#: showfoto/main/showfoto.cpp:705
 #: utilities/imageeditor/main/imagewindow.cpp:887
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
 msgid "%1 (%2 of %3)"
 msgstr "%1(第%2张，共%3张)"
 
-#: showfoto/main/showfoto.cpp:732
+#: showfoto/main/showfoto.cpp:743
 msgid "Open Images From Folder"
 msgstr "从文件夹中打开图像"
 
-#: showfoto/main/showfoto.cpp:878
+#: showfoto/main/showfoto.cpp:889
 #: utilities/imageeditor/main/imagewindow.cpp:967
 #: utilities/imageeditor/main/imagewindow.cpp:1065
 #, fuzzy
@@ -12704,7 +12637,7 @@ msgstr "从文件夹中打开图像"
 msgid "Image saved successfully"
 msgstr "项目已成功处理..."
 
-#: showfoto/main/showfoto.cpp:959
+#: showfoto/main/showfoto.cpp:970
 #, kde-format
 msgid ""
 "About to delete file \"%1\"\n"
@@ -12713,13 +12646,14 @@ msgstr ""
 "即将删除文件“%1”\n"
 "您是否确定？"
 
-#: showfoto/main/showfoto.cpp:964
+#: showfoto/main/showfoto.cpp:975
 #: utilities/imageeditor/editor/editorwindow.cpp:1218
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
+#: utilities/importui/main/importui.cpp:1911
 msgid "Warning"
 msgstr "警告"
 
-#: showfoto/main/showfoto.cpp:1037
+#: showfoto/main/showfoto.cpp:1048
 #: utilities/imageeditor/main/imagewindow.cpp:1356
 #: utilities/lighttable/lighttablewindow.cpp:1399
 msgid "Preparing slideshow. Please wait..."
@@ -12847,84 +12781,106 @@ msgstr ""
 "<p><a href='http://en.wikipedia.org/wiki/Extensible_Metadata_Platform'>XMP</"
 "a> - 用于数码拍摄领域的新标准，旨在替代 IPTC。</p>"
 
-#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:101
+#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:103
 #: utilities/queuemanager/views/queuesettingsview.cpp:237
-#: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:511
+#: utilities/setup/setupcamera.cpp:354 utilities/setup/setupicc.cpp:511
 msgid "Behavior"
 msgstr "行为"
 
-#: showfoto/setup/setupmisc.cpp:104
+#: showfoto/setup/setupmisc.cpp:106
 msgid "&Deleted items should go to the trash"
 msgstr "已删除的项目应移入回收站(&D)"
 
-#: showfoto/setup/setupmisc.cpp:105 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/setupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
 msgid "&Show splash screen at startup"
 msgstr "启动时显示飞溅屏幕(&S)"
 
-#: showfoto/setup/setupmisc.cpp:106
-msgid "&Show Mime Type Over Image"
-msgstr ""
+#: showfoto/setup/setupmisc.cpp:108
+#, fuzzy
+#| msgid "Show image rating"
+msgid "&Show image Format"
+msgstr "显示图像评分"
 
-#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupcamera.cpp:443
+#, fuzzy
+#| msgid "Set this option to show the filename below the image thumbnail."
+msgid "Set this option to show image format over image thumbnail."
+msgstr "设定此选项以在图像缩略图下方显示文件名称。"
+
+#: showfoto/setup/setupmisc.cpp:110
+#, fuzzy
+#| msgid "Geolocation Filter"
+msgid "&Show Geolocation Indicator"
+msgstr "地理位置过滤器"
+
+#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupcamera.cpp:446
+#, fuzzy
+#| msgid "Set this option to display the image captions."
+msgid "Set this option to indicate if image has geolocation information."
+msgstr "设定此选项以显示图像说明。"
+
+#: showfoto/setup/setupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
 msgid "Sidebar tab title:"
 msgstr "侧边栏标签页名称："
 
-#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
 msgid "Only For Active Tab"
 msgstr "仅用于活动标签页"
 
-#: showfoto/setup/setupmisc.cpp:112 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/setupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
 msgid "For All Tabs"
 msgstr "用于全部标签页"
 
-#: showfoto/setup/setupmisc.cpp:113
+#: showfoto/setup/setupmisc.cpp:118
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr "在此设定此选项以配置侧边栏标签页名称可见性方式。"
 
-#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/setupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
 msgid "Widget style:"
 msgstr "部件样式："
 
-#: showfoto/setup/setupmisc.cpp:118 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/setupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
 #, fuzzy
 #| msgid "Set this option to display the album collection."
 msgid "Set this option to choose the default window decoration and looks."
 msgstr "设定此选项以显示相册收藏。"
 
-#: showfoto/setup/setupmisc.cpp:133
+#: showfoto/setup/setupmisc.cpp:140
 msgid "Sort order for images"
 msgstr "图像排序方式"
 
-#: showfoto/setup/setupmisc.cpp:137
+#: showfoto/setup/setupmisc.cpp:144
 msgid "Sort images by:"
 msgstr "图像排序方式："
 
-#: showfoto/setup/setupmisc.cpp:139
+#: showfoto/setup/setupmisc.cpp:146
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "日期"
 
-#: showfoto/setup/setupmisc.cpp:140
+#: showfoto/setup/setupmisc.cpp:147
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "名称"
 
-#: showfoto/setup/setupmisc.cpp:141
+#: showfoto/setup/setupmisc.cpp:148
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "文件大小"
 
-#: showfoto/setup/setupmisc.cpp:142
+#: showfoto/setup/setupmisc.cpp:149
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
 msgstr "在此选择新装入的图像是否按照文件日期、文件名称或文件大小排序。"
 
-#: showfoto/setup/setupmisc.cpp:145
+#: showfoto/setup/setupmisc.cpp:152
 msgid "Reverse ordering"
 msgstr "逆序"
 
-#: showfoto/setup/setupmisc.cpp:146
+#: showfoto/setup/setupmisc.cpp:153
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -14481,7 +14437,7 @@ msgstr "确认"
 msgid "Who is this?"
 msgstr ""
 
-#: utilities/facemanagement/facepipeline.cpp:1234
+#: utilities/facemanagement/facepipeline.cpp:1240
 msgid "Applying face changes"
 msgstr "应用面部更改"
 
@@ -14516,9 +14472,12 @@ msgid "Detect faces"
 msgstr "全部不选"
 
 #: utilities/facemanagement/facescandialog.cpp:309
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Recognize faces"
 msgctxt "@option:radio"
-msgid "Detect and recognize faces"
-msgstr ""
+msgid "Detect and recognize faces (experimental)"
+msgstr "检测人脸"
 
 #: utilities/facemanagement/facescandialog.cpp:313
 msgctxt "@info"
@@ -14548,8 +14507,11 @@ msgid "Clear unconfirmed results and rescan"
 msgstr ""
 
 #: utilities/facemanagement/facescandialog.cpp:335
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Recognize faces"
 msgctxt "@option:radio"
-msgid "Recognize faces"
+msgid "Recognize faces (experimental)"
 msgstr "检测人脸"
 
 #: utilities/facemanagement/facescandialog.cpp:338
@@ -15587,11 +15549,9 @@ msgid ""
 msgstr "此选项可用于裁剪图像。选择图像区域可启用此动作。"
 
 #: utilities/imageeditor/editor/editorwindow.cpp:558
-#, fuzzy
-#| msgid "Auto-crop:"
 msgctxt "@action"
 msgid "Auto-Crop"
-msgstr "自动裁剪："
+msgstr "自动裁剪"
 
 #: utilities/imageeditor/editor/editorwindow.cpp:562
 #, fuzzy
@@ -16301,8 +16261,6 @@ msgid "Toggle lock file %1..."
 msgstr "正在切换锁定文件 %1..."
 
 #: utilities/importui/backend/cameracontroller.cpp:813
-#, fuzzy
-#| msgid "Rename File"
 msgctxt "@title:window"
 msgid "Rename File"
 msgstr "重命名文件"
@@ -16324,10 +16282,9 @@ msgid "Download successfully %1..."
 msgstr "下载 %1 成功..."
 
 #: utilities/importui/backend/cameracontroller.cpp:951
-#, fuzzy, kde-format
-#| msgid "Failed to download file \"%1\"."
+#, kde-format
 msgid "Failed to download file <filename>%1</filename>."
-msgstr "下载文件“%1”失败。"
+msgstr "下载文件 <filename>%1</filename> 失败。"
 
 #: utilities/importui/backend/cameracontroller.cpp:955
 #, fuzzy, kde-format
@@ -16343,10 +16300,9 @@ msgid "Failed to upload %1..."
 msgstr "上传 %1 失败..."
 
 #: utilities/importui/backend/cameracontroller.cpp:977
-#, fuzzy, kde-format
-#| msgid "Failed to upload file \"%1\"."
+#, kde-format
 msgid "Failed to upload file <filename>%1</filename>."
-msgstr "上传文件“%1”失败。"
+msgstr "上传文件 <filename>%1</filename> 失败。"
 
 #: utilities/importui/backend/cameracontroller.cpp:981
 #, fuzzy, kde-format
@@ -16356,16 +16312,14 @@ msgid "Failed to upload file <filename>%1</filename>. Do you want to continue?"
 msgstr "即将指派标签“%2”到 %1 个项目。您想要继续吗？"
 
 #: utilities/importui/backend/cameracontroller.cpp:995
-#, fuzzy, kde-format
-#| msgid "Failed to delete file \"%1\"."
+#, kde-format
 msgid "Failed to delete <filename>%1</filename>..."
-msgstr "删除文件“%1”失败。"
+msgstr "删除 <filename>%1</filename> 失败..."
 
 #: utilities/importui/backend/cameracontroller.cpp:1001
-#, fuzzy, kde-format
-#| msgid "Failed to delete file \"%1\"."
+#, kde-format
 msgid "Failed to delete file <filename>%1</filename>."
-msgstr "删除文件“%1”失败。"
+msgstr "删除文件 <filename>%1</filename> 失败。"
 
 #: utilities/importui/backend/cameracontroller.cpp:1005
 #, fuzzy, kde-format
@@ -16374,16 +16328,14 @@ msgid "Failed to delete file <filename>%1</filename>. Do you want to continue?"
 msgstr "此收藏当前不可用。"
 
 #: utilities/importui/backend/cameracontroller.cpp:1019
-#, fuzzy, kde-format
-#| msgid "Failed to upload file \"%1\"."
+#, kde-format
 msgid "Failed to lock <filename>%1</filename>..."
-msgstr "上传文件“%1”失败。"
+msgstr "锁定 <filename>%1</filename> 失败..."
 
 #: utilities/importui/backend/cameracontroller.cpp:1025
-#, fuzzy, kde-format
-#| msgid "Failed to toggle lock file \"%1\"."
+#, kde-format
 msgid "Failed to toggle lock file <filename>%1</filename>."
-msgstr "切换锁定文件“%1”失败。"
+msgstr "切换锁定文件 <filename>%1</filename> 失败。"
 
 #: utilities/importui/backend/cameracontroller.cpp:1029
 #, fuzzy, kde-format
@@ -16393,11 +16345,8 @@ msgid ""
 "Failed to toggle lock file <filename>%1</filename>. Do you want to continue?"
 msgstr "即将指派标签“%2”到 %1 个项目。您想要继续吗？"
 
-#: utilities/importui/backend/gpcamera.cpp:1360
-#, fuzzy, kde-format
-#| msgid ""
-#| "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>"
-#| "%4</b><br/><br/>"
+#: utilities/importui/backend/gpcamera.cpp:1364
+#, kde-format
 msgctxt "@info List of device properties"
 msgid ""
 "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>%4</"
@@ -16406,12 +16355,8 @@ msgstr ""
 "名称：<b>%1</b><br/>型号：<b>%2</b><br/>端口：<b>%3</b><br/>路径：<b>%4</"
 "b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1370
-#, fuzzy, kde-format
-#| msgid ""
-#| "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>"
-#| "%3</b><br/>Upload items: <b>%4</b><br/>Create directories: <b>%5</b><br/"
-#| ">Delete Directories: <b>%6</b><br/><br/>"
+#: utilities/importui/backend/gpcamera.cpp:1374
+#, kde-format
 msgctxt "@info List of supported device operations"
 msgid ""
 "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>%3</"
@@ -16421,12 +16366,12 @@ msgstr ""
 "缩略图：<b>%1</b><br/>捕获图像：<b>%2</b><br/>删除项目：<b>%3</b><br/>上传项"
 "目：<b>%4</b><br/>创建目录：<b>%5</b><br/>删除目录：<b>%6</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -16436,12 +16381,12 @@ msgstr ""
 msgid "yes"
 msgstr "是"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -16466,10 +16411,7 @@ msgid ""
 msgstr ""
 
 #: utilities/importui/backend/umscamera.cpp:564
-#, fuzzy, kde-format
-#| msgid ""
-#| "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>"
-#| "%4</b><br/>UUID: <b>%5</b><br/><br/>"
+#, kde-format
 msgctxt "@info List of device properties"
 msgid ""
 "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>%4</"
@@ -16479,11 +16421,7 @@ msgstr ""
 "b><br/>UUID：<b>%5</b><br/><br/>"
 
 #: utilities/importui/backend/umscamera.cpp:576
-#, fuzzy, kde-format
-#| msgid ""
-#| "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>"
-#| "%3</b><br/>Upload items: <b>%4</b><br/>Create directories: <b>%5</b><br/"
-#| ">Delete directories: <b>%6</b><br/><br/>"
+#, kde-format
 msgctxt "@info List of supported device operations"
 msgid ""
 "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>%3</"
@@ -16513,8 +16451,7 @@ msgstr ""
 "联系 digiKam 团队：<br/><br/>http://www.digikam.org/?q=contact"
 
 #: utilities/importui/dialogs/camerafolderdialog.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 - Select Camera Folder"
+#, kde-format
 msgctxt "@title:window %1: name of the camera"
 msgid "%1 - Select Camera Folder"
 msgstr "%1 - 选择相机文件夹"
@@ -16525,15 +16462,11 @@ msgid ""
 msgstr "<p>请选择您想要上传图像的相机文件夹。</p>"
 
 #: utilities/importui/dialogs/camerainfodialog.cpp:44
-#, fuzzy
-#| msgid "Device Information"
 msgctxt "@title:window"
 msgid "Device Information"
 msgstr "设备信息"
 
 #: utilities/importui/dialogs/camerainfodialog.cpp:58
-#, fuzzy
-#| msgid "Summary"
 msgctxt "Device information summary"
 msgid "Summary"
 msgstr "概览"
@@ -16543,8 +16476,6 @@ msgid "Device Summary"
 msgstr "设备概览"
 
 #: utilities/importui/dialogs/camerainfodialog.cpp:68
-#, fuzzy
-#| msgid "Manual"
 msgctxt "Manual of the device"
 msgid "Manual"
 msgstr "手册"
@@ -16554,8 +16485,6 @@ msgid "Device Manual"
 msgstr "设备手册"
 
 #: utilities/importui/dialogs/camerainfodialog.cpp:78
-#, fuzzy
-#| msgid "About"
 msgctxt "About device driver"
 msgid "About"
 msgstr "关于"
@@ -16579,250 +16508,200 @@ msgid "Do not ask again"
 msgstr "不再询问"
 
 #: utilities/importui/dialogs/capturedlg.cpp:70
-#, fuzzy, kde-format
-#| msgid "Capture from %1"
+#, kde-format
 msgctxt "@title:window %1: name of the camera"
 msgid "Capture from %1"
 msgstr "从 %1 捕获"
 
 #: utilities/importui/dialogs/capturedlg.cpp:73
-#, fuzzy
-#| msgid "Capture"
 msgctxt "@action:button"
 msgid "Capture"
 msgstr "捕获"
 
 #: utilities/importui/items/importcategorydrawer.cpp:212
-#, fuzzy
-#| msgid "Unknown Tools"
 msgid "Unknown Format"
-msgstr "未知工具"
+msgstr "未知格式"
 
-#: utilities/importui/items/importoverlays.cpp:104
+#: utilities/importui/items/importoverlays.cpp:175
 #, fuzzy
 #| msgid " This field is limited to:"
 msgctxt "@info:tooltip"
 msgid "This item is locked."
 msgstr " 本字段限于："
 
-#: utilities/importui/items/importoverlays.cpp:110
+#: utilities/importui/items/importoverlays.cpp:244
 #, fuzzy
 #| msgid "This image is not color managed."
 msgctxt "@info:tooltip"
-msgid "This item is not locked."
+msgid "This item has an unknown download status"
 msgstr "此图像未经色彩管理。"
 
-#: utilities/importui/items/importoverlays.cpp:177
+#: utilities/importui/items/importoverlays.cpp:250
+#, fuzzy
+#| msgid "This image is not color managed."
 msgctxt "@info:tooltip"
-msgid "This item download status is unknown"
+msgid "This item has never been downloaded"
+msgstr "此图像未经色彩管理。"
+
+#: utilities/importui/items/importoverlays.cpp:256
+msgctxt "@info:tooltip"
+msgid "This item has already been downloaded"
 msgstr ""
 
-#: utilities/importui/items/importoverlays.cpp:183
-msgctxt "@info:tooltip"
-msgid "This item download status is new"
-msgstr ""
-
-#: utilities/importui/items/importoverlays.cpp:189
-msgctxt "@info:tooltip"
-msgid "This item download status is downloaded"
-msgstr ""
-
-#: utilities/importui/main/importui.cpp:267
+#: utilities/importui/main/importui.cpp:269
 msgid "Set how digiKam will rename files as they are downloaded."
 msgstr "设定 digiKam 在文件下载后如何重命名它们。"
 
-#: utilities/importui/main/importui.cpp:269
+#: utilities/importui/main/importui.cpp:271
 msgid "File Renaming Options"
 msgstr "文件重命名选项"
 
-#: utilities/importui/main/importui.cpp:275
+#: utilities/importui/main/importui.cpp:277
 msgid "Auto-creation of Albums"
 msgstr "相册自动创建"
 
-#: utilities/importui/main/importui.cpp:281
+#: utilities/importui/main/importui.cpp:283
 msgid "On the Fly Operations (JPEG only)"
 msgstr "流水操作(仅适用 JPEG)"
 
-#: utilities/importui/main/importui.cpp:287
+#: utilities/importui/main/importui.cpp:289
 msgid "Scripting"
 msgstr "脚本"
 
-#: utilities/importui/main/importui.cpp:304
-#, fuzzy
-#| msgid "Cancel"
+#: utilities/importui/main/importui.cpp:306
 msgctxt "@action Cancel process"
 msgid "Cancel"
 msgstr "取消"
 
-#: utilities/importui/main/importui.cpp:312
-#, fuzzy
-#| msgid "Information"
+#: utilities/importui/main/importui.cpp:314
 msgctxt "@action Information about camera"
 msgid "Information"
 msgstr "信息"
 
-#: utilities/importui/main/importui.cpp:319
-#, fuzzy
-#| msgid "Capture"
+#: utilities/importui/main/importui.cpp:321
 msgctxt "@action Capture photo from camera"
 msgid "Capture"
 msgstr "捕获"
 
-#: utilities/importui/main/importui.cpp:331
-#, fuzzy
-#| msgid "Select All"
+#: utilities/importui/main/importui.cpp:333
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "全部选中"
 
-#: utilities/importui/main/importui.cpp:339
-#, fuzzy
-#| msgid "Select None"
+#: utilities/importui/main/importui.cpp:341
 msgctxt "@action:inmenu"
 msgid "Select None"
 msgstr "全部不选"
 
-#: utilities/importui/main/importui.cpp:347
-#, fuzzy
-#| msgid "Invert Selection"
+#: utilities/importui/main/importui.cpp:349
 msgctxt "@action:inmenu"
 msgid "Invert Selection"
 msgstr "反转选择"
 
-#: utilities/importui/main/importui.cpp:355
-#, fuzzy
-#| msgid "Select New Items"
+#: utilities/importui/main/importui.cpp:357
 msgctxt "@action:inmenu"
 msgid "Select New Items"
 msgstr "选择新项目"
 
-#: utilities/importui/main/importui.cpp:362
-#, fuzzy
-#| msgid "Select Locked Items"
+#: utilities/importui/main/importui.cpp:364
 msgctxt "@action:inmenu"
 msgid "Select Locked Items"
 msgstr "选择已锁定项目"
 
-#: utilities/importui/main/importui.cpp:370
-#, fuzzy
-#| msgid "Download"
+#: utilities/importui/main/importui.cpp:372
 msgctxt "@title:menu"
 msgid "Download"
 msgstr "下载"
 
-#: utilities/importui/main/importui.cpp:375
-#, fuzzy
-#| msgid "Download New"
+#: utilities/importui/main/importui.cpp:377
 msgctxt "@action"
 msgid "Download New"
 msgstr "下载新内容"
 
-#: utilities/importui/main/importui.cpp:382
-#, fuzzy
-#| msgid "Download Selected"
+#: utilities/importui/main/importui.cpp:384
 msgctxt "@action"
 msgid "Download Selected"
 msgstr "下载所选项目"
 
-#: utilities/importui/main/importui.cpp:389
-#, fuzzy
-#| msgid "Download All"
+#: utilities/importui/main/importui.cpp:391
 msgctxt "@action"
 msgid "Download All"
 msgstr "全部下载"
 
-#: utilities/importui/main/importui.cpp:397
+#: utilities/importui/main/importui.cpp:399
 #, fuzzy
 #| msgid "Download/Delete All"
 msgctxt "@action"
 msgid "Download && Delete New"
 msgstr "全部下载/删除"
 
-#: utilities/importui/main/importui.cpp:405
-#, fuzzy
-#| msgid "Download/Delete Selected"
+#: utilities/importui/main/importui.cpp:407
 msgctxt "@action"
 msgid "Download && Delete Selected"
-msgstr "下载/删除所选项目"
+msgstr "下载并删除所选项目"
 
-#: utilities/importui/main/importui.cpp:413
-#, fuzzy
-#| msgid "Download/Delete All"
+#: utilities/importui/main/importui.cpp:415
 msgctxt "@action"
 msgid "Download && Delete All"
-msgstr "全部下载/删除"
+msgstr "全部下载并删除"
 
-#: utilities/importui/main/importui.cpp:420
-#, fuzzy
-#| msgid "Upload..."
+#: utilities/importui/main/importui.cpp:422
 msgctxt "@action"
 msgid "Upload..."
 msgstr "上传..."
 
-#: utilities/importui/main/importui.cpp:428
-#, fuzzy
-#| msgid "Toggle Lock"
+#: utilities/importui/main/importui.cpp:430
 msgctxt "@action"
 msgid "Toggle Lock"
 msgstr "切换锁定"
 
-#: utilities/importui/main/importui.cpp:436
-#, fuzzy
-#| msgid "Mark as downloaded"
+#: utilities/importui/main/importui.cpp:438
 msgctxt "@action"
 msgid "Mark as downloaded"
 msgstr "标记为已下载"
 
-#: utilities/importui/main/importui.cpp:443
-#, fuzzy
-#| msgid "Delete"
+#: utilities/importui/main/importui.cpp:445
 msgctxt "@title:menu"
 msgid "Delete"
 msgstr "删除"
 
-#: utilities/importui/main/importui.cpp:448
-#, fuzzy
-#| msgid "Delete Selected"
+#: utilities/importui/main/importui.cpp:450
 msgctxt "@action"
 msgid "Delete Selected"
 msgstr "删除所选"
 
-#: utilities/importui/main/importui.cpp:456
-#, fuzzy
-#| msgid "Delete All"
+#: utilities/importui/main/importui.cpp:458
 msgctxt "@action"
 msgid "Delete All"
 msgstr "全部删除"
 
-#: utilities/importui/main/importui.cpp:462
+#: utilities/importui/main/importui.cpp:464
 #, fuzzy
 #| msgid "Delete File"
 msgctxt "@action"
 msgid "Delete New"
 msgstr "删除文件"
 
-#: utilities/importui/main/importui.cpp:470
-#, fuzzy
-#| msgid "Views"
+#: utilities/importui/main/importui.cpp:472
 msgctxt "@title:group"
 msgid "Views"
 msgstr "视图"
 
-#: utilities/importui/main/importui.cpp:479
+#: utilities/importui/main/importui.cpp:481
 #, fuzzy
 #| msgid "Previous Image"
 msgctxt "@action View the selected image"
 msgid "Preview Item"
 msgstr "上张图像"
 
-#: utilities/importui/main/importui.cpp:495
+#: utilities/importui/main/importui.cpp:497
 #, fuzzy
 #| msgid "&Sort Images"
 msgctxt "@title:menu"
 msgid "&Sort Items"
 msgstr "排序图像(&S)"
 
-#: utilities/importui/main/importui.cpp:496
+#: utilities/importui/main/importui.cpp:498
 #, fuzzy
 #| msgid ""
 #| "The value by which the images in one album are sorted in the thumbnail "
@@ -16831,84 +16710,70 @@ msgctxt "@info:whatsthis"
 msgid "The value by which the items are sorted in the thumbnail view"
 msgstr "相册中图像在缩略图视图中所按照的排序方法"
 
-#: utilities/importui/main/importui.cpp:502
-#, fuzzy
-#| msgid "By Name"
+#: utilities/importui/main/importui.cpp:504
 msgctxt "item:inmenu Sort by"
 msgid "By Name"
 msgstr "按名称"
 
-#: utilities/importui/main/importui.cpp:503
-#, fuzzy
-#| msgid "By Path"
+#: utilities/importui/main/importui.cpp:505
 msgctxt "item:inmenu Sort by"
 msgid "By Path"
 msgstr "按路径"
 
-#: utilities/importui/main/importui.cpp:504
-#, fuzzy
-#| msgid "By Date"
+#: utilities/importui/main/importui.cpp:506
 msgctxt "item:inmenu Sort by"
 msgid "By Date"
 msgstr "按日期"
 
-#: utilities/importui/main/importui.cpp:505
-#, fuzzy
-#| msgid "By Size"
+#: utilities/importui/main/importui.cpp:507
 msgctxt "item:inmenu Sort by"
 msgid "By Size"
 msgstr "按大小"
 
-#: utilities/importui/main/importui.cpp:506
-#, fuzzy
-#| msgid "By Rating"
+#: utilities/importui/main/importui.cpp:508
 msgctxt "item:inmenu Sort by"
 msgid "By Rating"
 msgstr "按评分"
 
-#: utilities/importui/main/importui.cpp:507
+#: utilities/importui/main/importui.cpp:509
 #, fuzzy
 #| msgid "Download Selected"
 msgctxt "item:inmenu Sort by"
 msgid "By Download State"
 msgstr "下载所选项目"
 
-#: utilities/importui/main/importui.cpp:527
+#: utilities/importui/main/importui.cpp:529
 #, fuzzy
 #| msgid "Image Sorting &Order"
 msgctxt "@title:inmenu"
 msgid "Item Sorting &Order"
 msgstr "图像排列顺序(&O)"
 
-#: utilities/importui/main/importui.cpp:528
+#: utilities/importui/main/importui.cpp:530
 #, fuzzy
 #| msgid "Defines whether images are sorted in ascending or descending manner."
 msgctxt "@info:whatsthis"
 msgid "Defines whether items are sorted in ascending or descending manner."
 msgstr "定义图像是按升序还是降序方式排序。"
 
-#: utilities/importui/main/importui.cpp:533
-#, fuzzy
-#| msgid "Ascending"
+#: utilities/importui/main/importui.cpp:535
 msgctxt "@item:inmenu Sorting Order"
 msgid "Ascending"
 msgstr "升序"
 
-#: utilities/importui/main/importui.cpp:534
-#, fuzzy
-#| msgid "Descending"
+#: utilities/importui/main/importui.cpp:536
 msgctxt "@item:inmenu Sorting Order"
 msgid "Descending"
 msgstr "降序"
 
-#: utilities/importui/main/importui.cpp:546
+#: utilities/importui/main/importui.cpp:548
 #, fuzzy
 #| msgid "&Group Images"
 msgctxt "@title:menu"
 msgid "&Group Items"
 msgstr "分组图像(&G)"
 
-#: utilities/importui/main/importui.cpp:547
+#: utilities/importui/main/importui.cpp:549
 #, fuzzy
 #| msgid ""
 #| "The categories in which the images in the thumbnail view are displayed"
@@ -16916,135 +16781,99 @@ msgctxt "@info:whatsthis"
 msgid "The categories in which the items in the thumbnail view are displayed"
 msgstr "图像在缩略图视图中所显示的分类"
 
-#: utilities/importui/main/importui.cpp:553
-#, fuzzy
-#| msgid "Flat List"
+#: utilities/importui/main/importui.cpp:555
 msgctxt "@item:inmenu Group Items"
 msgid "Flat List"
 msgstr "平坦列表"
 
-#: utilities/importui/main/importui.cpp:554
-#, fuzzy
-#| msgid "By Folder"
+#: utilities/importui/main/importui.cpp:556
 msgctxt "@item:inmenu Group Items"
 msgid "By Folder"
 msgstr "按文件夹"
 
-#: utilities/importui/main/importui.cpp:555
-#, fuzzy
-#| msgid "By Format"
+#: utilities/importui/main/importui.cpp:557
 msgctxt "@item:inmenu Group Items"
 msgid "By Format"
 msgstr "按格式"
 
-#: utilities/importui/main/importui.cpp:583
-#, fuzzy
-#| msgid "Fit to &Window"
+#: utilities/importui/main/importui.cpp:585
 msgctxt "@action:inmenu"
 msgid "Fit to &Window"
 msgstr "适合窗口(&W)"
 
-#: utilities/importui/main/importui.cpp:588
-#, fuzzy
-#| msgid "Zoom to 100%"
+#: utilities/importui/main/importui.cpp:590
 msgctxt "@action:inmenu"
 msgid "Zoom to 100%"
 msgstr "缩放至 100%"
 
-#: utilities/importui/main/importui.cpp:597
-#, fuzzy
-#| msgid "Show History"
+#: utilities/importui/main/importui.cpp:599
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "显示历史"
 
-#: utilities/importui/main/importui.cpp:602
-#, fuzzy
-#| msgid "Show Thumbbar"
+#: utilities/importui/main/importui.cpp:604
 msgctxt "@option:check"
 msgid "Show Thumbbar"
 msgstr "显示缩略图栏"
 
-#: utilities/importui/main/importui.cpp:633
-#: utilities/importui/main/importui.cpp:826
-#: utilities/importui/main/importui.cpp:832
-#, fuzzy
-#| msgid "Previous Image"
+#: utilities/importui/main/importui.cpp:634
+#: utilities/importui/main/importui.cpp:828
+#: utilities/importui/main/importui.cpp:834
 msgctxt "@action"
 msgid "Previous Image"
 msgstr "上张图像"
 
-#: utilities/importui/main/importui.cpp:640
-#, fuzzy
-#| msgid "Retry"
+#: utilities/importui/main/importui.cpp:641
 msgctxt "@action Connection failed, try again?"
 msgid "Retry"
 msgstr "重试"
 
-#: utilities/importui/main/importui.cpp:815
-#, fuzzy
-#| msgid "Exit Preview Mode"
+#: utilities/importui/main/importui.cpp:817
 msgctxt "@action"
 msgid "Exit Preview Mode"
 msgstr "退出预览模式"
 
-#: utilities/importui/main/importui.cpp:820
-#, fuzzy
-#| msgid "Next Image"
+#: utilities/importui/main/importui.cpp:822
 msgctxt "@action"
 msgid "Next Image"
 msgstr "下张图像"
 
-#: utilities/importui/main/importui.cpp:837
-#, fuzzy
-#| msgid "First Image"
+#: utilities/importui/main/importui.cpp:839
 msgctxt "@action Go to first image"
 msgid "First Image"
 msgstr "第一张图像"
 
-#: utilities/importui/main/importui.cpp:842
-#, fuzzy
-#| msgid "Last Image"
+#: utilities/importui/main/importui.cpp:844
 msgctxt "@action Go to last image"
 msgid "Last Image"
 msgstr "最后一张图像"
 
-#: utilities/importui/main/importui.cpp:934
-#, fuzzy
-#| msgid "Canceling current operation, please wait..."
+#: utilities/importui/main/importui.cpp:936
 msgctxt "@info:status"
 msgid "Canceling current operation, please wait..."
 msgstr "正在取消当前操作，请稍候..."
 
-#: utilities/importui/main/importui.cpp:989
-#, fuzzy
-#| msgid "Do you want to close the dialog and cancel the current operation?"
+#: utilities/importui/main/importui.cpp:991
 msgctxt "@info"
 msgid "Do you want to close the dialog and cancel the current operation?"
 msgstr "您想要关闭对话框并取消当前操作吗？"
 
-#: utilities/importui/main/importui.cpp:998
-#, fuzzy
-#| msgid "Disconnecting from camera, please wait..."
+#: utilities/importui/main/importui.cpp:1000
 msgctxt "@info:status"
 msgid "Disconnecting from camera, please wait..."
 msgstr "正在从相机断开连接，请稍候..."
 
-#: utilities/importui/main/importui.cpp:1039
-#, fuzzy
-#| msgid "Scanning for new files, please wait..."
+#: utilities/importui/main/importui.cpp:1042
 msgctxt "@info:status"
 msgid "Scanning for new files, please wait..."
 msgstr "正在扫描新项目，请稍候..."
 
-#: utilities/importui/main/importui.cpp:1076
-#, fuzzy
-#| msgid "Ready"
+#: utilities/importui/main/importui.cpp:1079
 msgctxt "@info:status"
 msgid "Ready"
 msgstr "就绪"
 
-#: utilities/importui/main/importui.cpp:1147
+#: utilities/importui/main/importui.cpp:1150
 #, fuzzy
 #| msgid ""
 #| "Failed to connect to the camera. Please make sure it is connected "
@@ -17055,20 +16884,13 @@ msgid ""
 "and turned on."
 msgstr "连接到相机失败。请确定相机已正确连接，并已打开。您是否想要再试一次？"
 
-#: utilities/importui/main/importui.cpp:1267
-#, fuzzy
-#| msgid "Select Image to Upload"
+#: utilities/importui/main/importui.cpp:1270
 msgctxt "@title:window"
 msgid "Select Image to Upload"
 msgstr "选择要上传的图像"
 
-#: utilities/importui/main/importui.cpp:1300
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is not enough free space on the Camera Medium to upload pictures.\n"
-#| "\n"
-#| "Space require: %1\n"
-#| "Available free space: %2"
+#: utilities/importui/main/importui.cpp:1303
+#, kde-format
 msgctxt "@info"
 msgid ""
 "There is not enough free space on the Camera Medium to upload pictures.\n"
@@ -17081,34 +16903,29 @@ msgstr ""
 "需要空间：%1\n"
 "可用空间：%2"
 
-#: utilities/importui/main/importui.cpp:1354
-#, fuzzy, kde-format
-#| msgid ""
-#| "Camera Folder <b>%1</b> already contains the item <b>%2</b>.<br/>Please "
-#| "enter a new filename (without extension):"
+#: utilities/importui/main/importui.cpp:1357
+#, kde-format
 msgctxt "@info"
 msgid ""
 "Camera Folder <resource>%1</resource> already contains the item <resource>"
 "%2</resource>.<nl>Please enter a new filename (without extension):"
 msgstr ""
-"相机文件夹 <b>%1</b> 已经包含项目 <b>%2</b>。<br/>请输入一个新的文件名称(不包"
-"含扩展名)："
+"相机文件夹 <resource>%1</resource> 已经包含项目 <resource>%2</resource>。<br/"
+">请输入一个新的文件名称(不包含扩展名)："
 
-#: utilities/importui/main/importui.cpp:1357
-#, fuzzy
-#| msgid "File already exists"
+#: utilities/importui/main/importui.cpp:1360
 msgctxt "@title:window"
 msgid "File already exists"
-msgstr "文件已存在"
+msgstr "文件已经存在"
 
-#: utilities/importui/main/importui.cpp:1418
+#: utilities/importui/main/importui.cpp:1421
 msgctxt "@info"
 msgid ""
 "Your custom target album date format is not valid. Please check your "
 "settings..."
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1457
+#: utilities/importui/main/importui.cpp:1460
 msgctxt "@info"
 msgid ""
 "Collection which host your default target album set to process download from "
@@ -17116,44 +16933,35 @@ msgid ""
 "configuration dialog."
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1465
+#: utilities/importui/main/importui.cpp:1468
 msgctxt "@info"
 msgid ""
 "Your default target album set to process download from camera device is not "
 "available. Please select another one from camera configuration dialog."
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1483
-#, fuzzy
-#| msgid ""
-#| "<p>Please select the destination album from the digiKam library to import "
-#| "the camera pictures into.</p>"
+#: utilities/importui/main/importui.cpp:1487
 msgctxt "@info"
 msgid ""
 "<p>Please select the destination album from the digiKam library to import "
 "the camera pictures into.</p>"
 msgstr "<p>请从 digiKam 库中选择目标相册以将相机照片导入进去。</p>"
 
-#: utilities/importui/main/importui.cpp:1577
+#: utilities/importui/main/importui.cpp:1581
 msgctxt "@info Popup notification"
 msgid ""
 "Images download finished, you can now detach your camera while the images "
 "will be auto-rotated"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:1581
+#: utilities/importui/main/importui.cpp:1585
 #, fuzzy
 #| msgid "Mark as downloaded"
 msgctxt "@info Popup notification"
 msgid "Images download finished"
 msgstr "标记为已下载"
 
-#: utilities/importui/main/importui.cpp:1884
-#, fuzzy
-#| msgid ""
-#| "The items listed below are locked by camera (read-only). These items will "
-#| "not be deleted. If you really want to delete these items, please unlock "
-#| "them and try again."
+#: utilities/importui/main/importui.cpp:1888
 msgctxt "@info"
 msgid ""
 "The items listed below are locked by camera (read-only). These items will "
@@ -17163,13 +16971,8 @@ msgstr ""
 "以下列出的项目已被相机锁定(只读)。这些项目不会被删除。如果您确实想要删除这些"
 "项目，请解锁并重试。"
 
-#: utilities/importui/main/importui.cpp:1895
-#, fuzzy, kde-format
-#| msgid ""
-#| "About to delete this image. Deleted file is unrecoverable. Are you sure?"
-#| msgid_plural ""
-#| "About to delete these %1 images. Deleted files are unrecoverable. Are you "
-#| "sure?"
+#: utilities/importui/main/importui.cpp:1899
+#, kde-format
 msgctxt "@info"
 msgid ""
 "About to delete this image. <warning>Deleted file is unrecoverable.</"
@@ -17177,30 +16980,21 @@ msgid ""
 msgid_plural ""
 "About to delete these %1 images. <warning>Deleted files are unrecoverable.</"
 "warning> Are you sure?"
-msgstr[0] "即将删除这 %1 个图像。文件一旦删除将无法恢复。您确定吗？"
+msgstr[0] ""
+"即将删除这 %1 个图像。<warning>文件一旦删除将无法恢复。</warning> 您确定吗？"
 
-#: utilities/importui/main/importui.cpp:1945
-#, fuzzy
-#| msgid "Try Anyway"
+#: utilities/importui/main/importui.cpp:1950
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "仍旧尝试"
 
-#: utilities/importui/main/importui.cpp:1947
-#, fuzzy
-#| msgid "Cancel Download"
+#: utilities/importui/main/importui.cpp:1952
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "取消下载"
 
-#: utilities/importui/main/importui.cpp:1950
-#, fuzzy, kde-format
-#| msgid ""
-#| "There is not enough free space on the disk of the album you selected to "
-#| "download and process the selected pictures from the camera.\n"
-#| "\n"
-#| "Estimated space required: %1\n"
-#| "Available free space: %2"
+#: utilities/importui/main/importui.cpp:1954
+#, kde-format
 msgctxt "@info"
 msgid ""
 "There is not enough free space on the disk of the album you selected to "
@@ -17214,15 +17008,13 @@ msgstr ""
 "估计需要空间：%1\n"
 "可用空间：%2"
 
-#: utilities/importui/main/importui.cpp:1956
-#, fuzzy
-#| msgid "Insufficient Disk Space"
+#: utilities/importui/main/importui.cpp:1960
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "磁盘空间不足"
 
-#: utilities/importui/main/importui.cpp:2299
-#: utilities/importui/main/importui.cpp:2325
+#: utilities/importui/main/importui.cpp:2305
+#: utilities/importui/main/importui.cpp:2331
 #, fuzzy, kde-format
 #| msgid "No item selected"
 msgctxt "@info:status"
@@ -17230,40 +17022,35 @@ msgid "No item selected (%1 item)"
 msgid_plural "No item selected (%1 items)"
 msgstr[0] "未选中项目"
 
-#: utilities/importui/main/importui.cpp:2318
+#: utilities/importui/main/importui.cpp:2324
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
-msgstr ""
+msgstr "<filename>%1</filename> (%2 共 %3)"
 
-#: utilities/importui/main/importui.cpp:2334
-#, fuzzy, kde-format
-#| msgid "%2/%1 item selected"
-#| msgid_plural "%2/%1 items selected"
+#: utilities/importui/main/importui.cpp:2340
+#, kde-format
 msgctxt "@info:status"
 msgid "%2/%1 item selected"
 msgid_plural "%2/%1 items selected"
 msgstr[0] "选中 %1 个项目，共 %2 个"
 
-#: utilities/importui/main/importui.cpp:2421
-#, fuzzy, kde-format
-#| msgid "A file with the same name (%1) already exists in folder %2."
+#: utilities/importui/main/importui.cpp:2427
+#, kde-format
 msgctxt "@info"
 msgid ""
 "A file with the same name (<filename>%1</filename>) already exists in folder "
 "<resource>%2</resource>."
-msgstr "文件夹 %2 中已经存在同名文件(%1)。"
+msgstr ""
+"文件夹 <resource>%2</resource> 中已经存在同名文件(<filename>%1</filename>)。"
 
-#: utilities/importui/main/importui.cpp:2433
-#, fuzzy, kde-format
-#| msgid "Failed to find Album for path '%1'."
+#: utilities/importui/main/importui.cpp:2439
+#, kde-format
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
-msgstr "查找路径“%1”的相册失败。"
+msgstr "查找路径 <filename>%1</filename> 的相册失败。"
 
-#: utilities/importui/main/importui.cpp:2444
-#, fuzzy
-#| msgid "General"
+#: utilities/importui/main/importui.cpp:2450
 msgctxt "@title"
 msgid "General"
 msgstr "常规"
@@ -17278,22 +17065,16 @@ msgid "Camera Folders"
 msgstr "相机文件夹"
 
 #: utilities/importui/widgets/advancedsettings.cpp:83
-#, fuzzy
-#| msgid "Fix internal date && time"
 msgctxt "@option:check"
 msgid "Fix internal date && time"
 msgstr "修正内部日期和时间"
 
 #: utilities/importui/widgets/advancedsettings.cpp:85
-#, fuzzy
-#| msgid "Auto-rotate/flip image"
 msgctxt "@option:check"
 msgid "Auto-rotate/flip image"
 msgstr "自动旋转/翻转图像"
 
 #: utilities/importui/widgets/advancedsettings.cpp:86
-#, fuzzy
-#| msgid "Convert to lossless file format"
 msgctxt "@option:check"
 msgid "Convert to lossless file format"
 msgstr "转换为无损文件格式"
@@ -17366,50 +17147,36 @@ msgid ""
 msgstr ""
 
 #: utilities/importui/widgets/albumcustomizer.cpp:108
-#, fuzzy
-#| msgid "Extension-based sub-albums"
 msgctxt "@option:check"
 msgid "Extension-based sub-albums"
 msgstr "基于扩展名的子相册"
 
 #: utilities/importui/widgets/albumcustomizer.cpp:109
-#, fuzzy
-#| msgid "Date-based sub-albums"
 msgctxt "@option:check"
 msgid "Date-based sub-albums"
 msgstr "基于日期的子相册"
 
 #: utilities/importui/widgets/albumcustomizer.cpp:111
-#, fuzzy
-#| msgid "Date format:"
 msgctxt "@label:listbox"
 msgid "Date format:"
 msgstr "日期格式："
 
 #: utilities/importui/widgets/albumcustomizer.cpp:113
-#, fuzzy
-#| msgid "ISO"
 msgctxt "@item:inlistbox"
 msgid "ISO"
 msgstr "ISO"
 
 #: utilities/importui/widgets/albumcustomizer.cpp:114
-#, fuzzy
-#| msgid "Full Text"
 msgctxt "@item:inlistbox"
 msgid "Full Text"
 msgstr "完整文本"
 
 #: utilities/importui/widgets/albumcustomizer.cpp:115
-#, fuzzy
-#| msgid "Local Settings"
 msgctxt "@item:inlistbox"
 msgid "Local Settings"
 msgstr "本地设置"
 
 #: utilities/importui/widgets/albumcustomizer.cpp:116
-#, fuzzy
-#| msgid "Custom"
 msgctxt "@item:inlistbox"
 msgid "Custom"
 msgstr "自定义"
@@ -17479,8 +17246,6 @@ msgid "Cannot display camera preview"
 msgstr "无法显示相机预览"
 
 #: utilities/importui/widgets/filtercombo.cpp:116
-#, fuzzy
-#| msgid "All Files"
 msgctxt "@item:inlistbox"
 msgid "All Files"
 msgstr "所有文件"
@@ -17493,22 +17258,16 @@ msgid "Only New Files"
 msgstr "所有文件"
 
 #: utilities/importui/widgets/filtercombo.cpp:125
-#, fuzzy
-#| msgid "Raw Files"
 msgctxt "@item:inlistbox"
 msgid "Raw Files"
 msgstr "RAW 文件"
 
 #: utilities/importui/widgets/filtercombo.cpp:135
-#, fuzzy
-#| msgid "JPG/TIFF Files"
 msgctxt "@item:inlistbox"
 msgid "JPG/TIFF Files"
 msgstr "JPG/TIFF 文件"
 
 #: utilities/importui/widgets/filtercombo.cpp:140
-#, fuzzy
-#| msgid "Video Files"
 msgctxt "@item:inlistbox"
 msgid "Video Files"
 msgstr "视频文件"
@@ -17523,44 +17282,32 @@ msgstr "相册库"
 
 #: utilities/importui/widgets/freespacewidget.cpp:343
 #: utilities/importui/widgets/freespacewidget.cpp:354
-#, fuzzy
-#| msgid "Capacity:"
 msgctxt "@info Storage"
 msgid "Capacity:"
 msgstr "容量："
 
 #: utilities/importui/widgets/freespacewidget.cpp:346
 #: utilities/importui/widgets/freespacewidget.cpp:357
-#, fuzzy
-#| msgid "Available:"
 msgctxt "@info Storage"
 msgid "Available:"
 msgstr "可用："
 
 #: utilities/importui/widgets/freespacewidget.cpp:349
-#, fuzzy
-#| msgid "Require:"
 msgctxt "@info Storage"
 msgid "Require:"
 msgstr "需要："
 
 #: utilities/importui/widgets/importcontextmenu.cpp:222
-#, fuzzy
-#| msgid "Open With"
 msgctxt "@title:menu"
 msgid "Open With"
 msgstr "打开方式"
 
 #: utilities/importui/widgets/importcontextmenu.cpp:234
-#, fuzzy
-#| msgid "Other..."
 msgctxt "@item:inmenu"
 msgid "Other..."
 msgstr "其它..."
 
 #: utilities/importui/widgets/importcontextmenu.cpp:243
-#, fuzzy
-#| msgid "Open With..."
 msgctxt "@title:menu"
 msgid "Open With..."
 msgstr "打开方式..."
@@ -17809,10 +17556,8 @@ msgid "Process items from:"
 msgstr "处理内容"
 
 #: utilities/maintenance/maintenancedlg.cpp:185
-#, fuzzy
-#| msgid "Common Settings"
 msgid "Common Options"
-msgstr "通用设置"
+msgstr "通用选项"
 
 #: utilities/maintenance/maintenancedlg.cpp:189
 msgid ""
@@ -17869,7 +17614,7 @@ msgstr ""
 #, fuzzy
 #| msgctxt "@option:radio"
 #| msgid "Recognize faces"
-msgid "Detect and recognize Faces"
+msgid "Detect and recognize Faces (experimental)"
 msgstr "检测人脸"
 
 #: utilities/maintenance/maintenancedlg.cpp:240
@@ -18388,10 +18133,8 @@ msgid "Crop images to a region."
 msgstr "一个将图像调整为自定义长度的工具。"
 
 #: utilities/queuemanager/basetools/transform/crop.cpp:97
-#, fuzzy
-#| msgid "Auto-crop:"
 msgid "Auto-Crop"
-msgstr "自动裁剪："
+msgstr "自动裁剪"
 
 #: utilities/queuemanager/basetools/transform/crop.cpp:98
 msgid ""
@@ -18501,7 +18244,7 @@ msgstr "队列设置"
 
 #: utilities/queuemanager/main/queuemgrwindow.cpp:223
 msgid "Control Panel"
-msgstr ""
+msgstr "控制面板"
 
 #: utilities/queuemanager/main/queuemgrwindow.cpp:232
 msgid "Assigned Tools"
@@ -18803,7 +18546,7 @@ msgstr "这是已指派的批处理工具列表。"
 
 #: utilities/queuemanager/views/toolsview.cpp:91
 msgid "Workflow"
-msgstr ""
+msgstr "工作流程"
 
 #: utilities/queuemanager/views/toolsview.cpp:96
 msgid "You can see below the history of last batch operations processed."
@@ -18838,9 +18581,6 @@ msgid "<qt><b>Workflow Properties</b></qt>"
 msgstr "<qt><b>“<i>%1</i>”<br/>相册属性</b></qt>"
 
 #: utilities/queuemanager/views/workflowdlg.cpp:109
-#, fuzzy
-#| msgctxt "Image filter description"
-#| msgid "Description:"
 msgid "Description:"
 msgstr "描述："
 
@@ -19142,10 +18882,8 @@ msgstr "查找与所有这些字词有关的图片："
 
 #: utilities/searchwindow/searchfields.cpp:550
 #: utilities/searchwindow/searchfields.cpp:569
-#, fuzzy
-#| msgid "Aspect Ratio:"
 msgid "Aspect Ratio"
-msgstr "宽高比："
+msgstr "纵横比"
 
 #: utilities/searchwindow/searchfields.cpp:550
 #, fuzzy
@@ -19193,10 +18931,8 @@ msgid "s"
 msgstr "s"
 
 #: utilities/searchwindow/searchfields.cpp:600
-#, fuzzy
-#| msgid "Frame Rate:"
 msgid "Frame Rate"
-msgstr "帧速率："
+msgstr "帧速率"
 
 #: utilities/searchwindow/searchfields.cpp:600
 #, fuzzy
@@ -19213,17 +18949,13 @@ msgid "and"
 msgstr "至"
 
 #: utilities/searchwindow/searchfields.cpp:602
-#, fuzzy
-#| msgid "fps"
 msgctxt "Frames per Second"
 msgid "fps"
 msgstr "fps"
 
 #: utilities/searchwindow/searchfields.cpp:616
-#, fuzzy
-#| msgid "Video Codec"
 msgid "Codec"
-msgstr "视频编解码器"
+msgstr "解码器"
 
 #: utilities/searchwindow/searchfields.cpp:616
 #, fuzzy
@@ -19244,11 +18976,9 @@ msgid "and"
 msgstr "至"
 
 #: utilities/searchwindow/searchfields.cpp:637
-#, fuzzy
-#| msgid "fps"
 msgctxt "Bits per Second"
 msgid "bps"
-msgstr "fps"
+msgstr "bps"
 
 #: utilities/searchwindow/searchfields.cpp:652
 #, fuzzy
@@ -19258,11 +18988,11 @@ msgstr "显示文件类型"
 
 #: utilities/searchwindow/searchfields.cpp:654
 msgid "Mono"
-msgstr ""
+msgstr "单声道"
 
 #: utilities/searchwindow/searchfields.cpp:655
 msgid "Stereo"
-msgstr ""
+msgstr "立体声"
 
 #: utilities/searchwindow/searchfields.cpp:664
 #, fuzzy
@@ -19742,71 +19472,87 @@ msgstr "<qt>杂项设置<br/><i>自定义 digiKam 其它部分的行为</i></qt>
 
 #: utilities/setup/setup.cpp:552
 msgid ""
+"The maximum thumbnail size has been changed.\n"
+"You need to restart digiKam to see this option to take effect.\n"
+"\n"
+"Note: after restarting digiKam, it is recommended to rebuild all album "
+"items' thumbnails, using the \"Tools-Maintenance\" menu."
+msgstr ""
+
+#: utilities/setup/setup.cpp:561
+#, fuzzy
+#| msgid ""
+#| "The Exif auto-rotate thumbnails option has been changed.\n"
+#| "Do you want to rebuild all albums' items' thumbnails now?\n"
+#| "\n"
+#| "Note: thumbnail processing can take a while. You can start this job later "
+#| "from the \"Tools\" menu."
+msgid ""
 "The Exif auto-rotate thumbnails option has been changed.\n"
 "Do you want to rebuild all albums' items' thumbnails now?\n"
 "\n"
 "Note: thumbnail processing can take a while. You can start this job later "
-"from the \"Tools\" menu."
+"from the \"Tools-Maintenance\" menu."
 msgstr ""
 "Exif 自动旋转缩略图选项已更改。\n"
 "您现在想要重建所有相册项目的缩略图吗？\n"
 "\n"
 "注意：缩略图处理会花费一段时间！您可以稍后从“工具”菜单启动这项作业。"
 
-#: utilities/setup/setupalbumview.cpp:121 utilities/setup/setupcamera.cpp:421
+#: utilities/setup/setupalbumview.cpp:131 utilities/setup/setupcamera.cpp:423
 msgid "Icon-View Options"
 msgstr "图标视图选项"
 
-#: utilities/setup/setupalbumview.cpp:124 utilities/setup/setupcamera.cpp:424
+#: utilities/setup/setupalbumview.cpp:134 utilities/setup/setupcamera.cpp:426
 msgid "Show file&name"
 msgstr "显示文件名(&N)"
 
-#: utilities/setup/setupalbumview.cpp:125 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:135 utilities/setup/setupcamera.cpp:427
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示文件名称。"
 
-#: utilities/setup/setupalbumview.cpp:127 utilities/setup/setupcamera.cpp:427
+#: utilities/setup/setupalbumview.cpp:137 utilities/setup/setupcamera.cpp:429
 msgid "Show file si&ze"
 msgstr "显示文件大小(&Z)"
 
-#: utilities/setup/setupalbumview.cpp:128 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:430
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示文件大小。"
 
-#: utilities/setup/setupalbumview.cpp:130 utilities/setup/setupcamera.cpp:430
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:432
 msgid "Show camera creation &date"
 msgstr "显示相机创建日期(&D)"
 
-#: utilities/setup/setupalbumview.cpp:131
+#: utilities/setup/setupalbumview.cpp:141
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示相机创建日期。"
 
-#: utilities/setup/setupalbumview.cpp:134
+#: utilities/setup/setupalbumview.cpp:144
 msgid "Show file &modification date"
 msgstr "显示文件修改日期(&M)"
 
-#: utilities/setup/setupalbumview.cpp:135
+#: utilities/setup/setupalbumview.cpp:145
 msgid ""
 "Set this option to show the file modification date below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示文件修改日期。"
 
-#: utilities/setup/setupalbumview.cpp:138
+#: utilities/setup/setupalbumview.cpp:148
 msgid "Show ima&ge dimensions"
 msgstr "显示图像尺寸(&G)"
 
-#: utilities/setup/setupalbumview.cpp:139
+#: utilities/setup/setupalbumview.cpp:149
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示图像尺寸像素值。"
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setuptooltip.cpp:213
+#: utilities/setup/setupalbumview.cpp:152 utilities/setup/setuptooltip.cpp:213
 #, fuzzy
 #| msgid "Preserve Aspect Ratio"
 msgid "Show image aspect ratio"
 msgstr "保持宽高比"
 
-#: utilities/setup/setupalbumview.cpp:143
+#: utilities/setup/setupalbumview.cpp:153
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
@@ -19814,124 +19560,141 @@ msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示 digiKam 评分。"
 
-#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:440
+#: utilities/setup/setupalbumview.cpp:156 utilities/setup/setupcamera.cpp:442
 #, fuzzy
 #| msgid "Show image rating"
 msgid "Show image Format"
 msgstr "显示图像评分"
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:441
-#, fuzzy
-#| msgid "Set this option to show the filename below the image thumbnail."
-msgid "Set this option to show image format over image thumbnail."
-msgstr "设定此选项以在图像缩略图下方显示文件名称。"
-
-#: utilities/setup/setupalbumview.cpp:149
+#: utilities/setup/setupalbumview.cpp:159
 #, fuzzy
 #| msgid "Show digiKam &rating"
 msgid "Show digiKam tit&le"
 msgstr "显示 digiKam 评分(&R)"
 
-#: utilities/setup/setupalbumview.cpp:150
+#: utilities/setup/setupalbumview.cpp:160
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示 digiKam 评分。"
 
-#: utilities/setup/setupalbumview.cpp:153
+#: utilities/setup/setupalbumview.cpp:163
 msgid "Show digiKam &captions"
 msgstr "显示 digiKam 说明(&C)"
 
-#: utilities/setup/setupalbumview.cpp:154
+#: utilities/setup/setupalbumview.cpp:164
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示 digiKam 说明。"
 
-#: utilities/setup/setupalbumview.cpp:157 utilities/setup/setupcamera.cpp:443
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:448
 msgid "Show digiKam &tags"
 msgstr "显示 digiKam 标签(&T)"
 
-#: utilities/setup/setupalbumview.cpp:158 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:168 utilities/setup/setupcamera.cpp:449
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示 digiKam 标签。"
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:171
 msgid "Show digiKam &rating"
 msgstr "显示 digiKam 评分(&R)"
 
-#: utilities/setup/setupalbumview.cpp:162
+#: utilities/setup/setupalbumview.cpp:172
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示 digiKam 评分。"
 
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:451
+#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:456
 msgid "Show rotation overlay buttons"
 msgstr "显示旋转覆盖按钮"
 
-#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:457
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
 msgstr "设定此选项以在图像缩略图上显示图像旋转的覆盖按钮。"
 
-#: utilities/setup/setupalbumview.cpp:169 utilities/setup/setupcamera.cpp:455
+#: utilities/setup/setupalbumview.cpp:179 utilities/setup/setupcamera.cpp:445
+#, fuzzy
+#| msgid "Geolocation Filter"
+msgid "Show Geolocation Indicator"
+msgstr "地理位置过滤器"
+
+#: utilities/setup/setupalbumview.cpp:182 utilities/setup/setupcamera.cpp:460
 msgid "Thumbnail click action:"
 msgstr "缩略图点击动作："
 
-#: utilities/setup/setupalbumview.cpp:171 utilities/setup/setupcamera.cpp:457
+#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:462
 msgid "Show embedded preview"
 msgstr "显示内嵌预览"
 
-#: utilities/setup/setupalbumview.cpp:172 utilities/setup/setupcamera.cpp:458
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:463
 msgid "Start image editor"
 msgstr "启动图像编辑器"
 
-#: utilities/setup/setupalbumview.cpp:173 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:464
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr "选择当您点击缩略图会发生的事情。"
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:461
+#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:466
 msgid "Icon View font:"
 msgstr "图标视图字体："
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:189 utilities/setup/setupcamera.cpp:467
 msgid "Select here the font used to display text in Icon Views."
 msgstr "在此选择用于全部图标视图中显示文本的字体。"
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:191
+msgid "Use large thumbnail size for high screen resolution"
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:192
+msgid ""
+"Set this option to render icon-view with large thumbnail size, for example "
+"in case of 4K monitor is used.\n"
+"By default this option is turned off and the maximum thumbnail size is "
+"limited to 256x256 pixels. When this option is enabled, thumbnail size can "
+"be extended to 512x512 pixels.\n"
+"This option will store more data in thumbnail database and will use more "
+"system memory. digiKam needs to be restarted to take effect, and Rebuild "
+"Thumbnails option from Maintenance tool needs to be processed over whole "
+"collections."
+msgstr ""
+
+#: utilities/setup/setupalbumview.cpp:223
 msgid "Folder View Options"
 msgstr "文件夹视图选项"
 
-#: utilities/setup/setupalbumview.cpp:203
+#: utilities/setup/setupalbumview.cpp:226
 msgid "Tree View thumbnail size:"
 msgstr "树形视图缩略图大小："
 
-#: utilities/setup/setupalbumview.cpp:209
+#: utilities/setup/setupalbumview.cpp:232
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
 msgstr "设定此选项以对 digiKam 的侧边栏中的树形视图缩略图进行像素尺寸配置。"
 
-#: utilities/setup/setupalbumview.cpp:212
+#: utilities/setup/setupalbumview.cpp:235
 msgid "Tree View font:"
 msgstr "树形视图字体："
 
-#: utilities/setup/setupalbumview.cpp:213
+#: utilities/setup/setupalbumview.cpp:236
 msgid "Select here the font used to display text in Tree Views."
 msgstr "在此选择用于全部树形视图中显示文本的字体。"
 
-#: utilities/setup/setupalbumview.cpp:215
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Show a count of items in Tree Views"
 msgstr "在所有树形视图中显示计数"
 
-#: utilities/setup/setupalbumview.cpp:226 utilities/setup/setupcamera.cpp:481
+#: utilities/setup/setupalbumview.cpp:249 utilities/setup/setupcamera.cpp:487
 msgid "Preview Options"
 msgstr "预览选项"
 
-#: utilities/setup/setupalbumview.cpp:229 utilities/setup/setupcamera.cpp:484
+#: utilities/setup/setupalbumview.cpp:252 utilities/setup/setupcamera.cpp:490
 msgid "Embedded preview loads full-sized images"
 msgstr "内嵌预览装入完整图像大小"
 
-#: utilities/setup/setupalbumview.cpp:230 utilities/setup/setupcamera.cpp:485
+#: utilities/setup/setupalbumview.cpp:253 utilities/setup/setupcamera.cpp:491
 #: utilities/setup/setuplighttable.cpp:108
 msgid ""
 "<p>Set this option to load images at their full size for preview, rather "
@@ -19944,129 +19707,130 @@ msgstr ""
 "在速度较快的电脑上使用。</p><p><b>注意：</b> 注意，对 Raw 图像 将使用一半大小"
 "的 Raw 数据而不是嵌入 JPEG 预览。</p>"
 
-#: utilities/setup/setupalbumview.cpp:237 utilities/setup/setupcamera.cpp:495
+#: utilities/setup/setupalbumview.cpp:260 utilities/setup/setupcamera.cpp:501
 msgid "Show icons and text over preview"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:238 utilities/setup/setupcamera.cpp:496
+#: utilities/setup/setupalbumview.cpp:261
 msgid ""
-"Uncheck this if you don't want to see icons and text in the image preview."
+"Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:279
+#: utilities/setup/setupcamera.cpp:281
 msgid ""
 "Here you can see the digital camera list used by digiKam via the Gphoto "
 "interface."
 msgstr "您可以在此看到 digiKam 通过 Gphoto 接口所用的数码相机列表。"
 
-#: utilities/setup/setupcamera.cpp:300 utilities/setup/setupcamera.cpp:393
+#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
 #: utilities/setup/setupcategory.cpp:100 utilities/setup/setuptemplate.cpp:124
 msgid "&Add..."
 msgstr "添加(&A)..."
 
-#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
+#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
 #: utilities/setup/setupcategory.cpp:101 utilities/setup/setuptemplate.cpp:126
 msgid "&Remove"
 msgstr "删除(&R)"
 
-#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
+#: utilities/setup/setupcamera.cpp:306 utilities/setup/setupcamera.cpp:399
 msgid "&Edit..."
 msgstr "编辑(&E)..."
 
-#: utilities/setup/setupcamera.cpp:306
+#: utilities/setup/setupcamera.cpp:308
 msgid "Auto-&Detect"
 msgstr "自动检测(&D)"
 
-#: utilities/setup/setupcamera.cpp:318
+#: utilities/setup/setupcamera.cpp:320
 msgid "Visit Gphoto project website"
 msgstr "访问 Gphoto 项目网站"
 
-#: utilities/setup/setupcamera.cpp:339
+#: utilities/setup/setupcamera.cpp:341
 msgid "Devices"
 msgstr "设备"
 
-#: utilities/setup/setupcamera.cpp:347
+#: utilities/setup/setupcamera.cpp:349
 msgid "Use file metadata (makes connection slower)"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:348
+#: utilities/setup/setupcamera.cpp:350
 msgid "Turn on high quality thumbnail loading (slower loading)"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:349
+#: utilities/setup/setupcamera.cpp:351
 msgid "Use a default target album to download from camera"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:371
+#: utilities/setup/setupcamera.cpp:373
 msgid ""
 "Here you can see filters that can be used to filter files in import dialog."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:390
+#: utilities/setup/setupcamera.cpp:392
 msgid "Always ignore"
 msgstr "总是忽略"
 
-#: utilities/setup/setupcamera.cpp:391
+#: utilities/setup/setupcamera.cpp:393
 msgid "Ignored file names:"
 msgstr "忽略的文件名称："
 
-#: utilities/setup/setupcamera.cpp:392
+#: utilities/setup/setupcamera.cpp:394
 msgid "Ignored file extensions:"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:412
+#: utilities/setup/setupcamera.cpp:414
 msgid "Import Filters"
 msgstr "导入过滤器"
 
-#: utilities/setup/setupcamera.cpp:431
-#, fuzzy
-#| msgid ""
-#| "Set this option to show the camera creation date below the image "
-#| "thumbnail."
+#: utilities/setup/setupcamera.cpp:433
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail"
-msgstr "设定此选项以在图像缩略图下方显示相机创建日期。"
+msgstr "设定此选项以在图像缩略图下方显示相机创建日期"
 
-#: utilities/setup/setupcamera.cpp:447
+#: utilities/setup/setupcamera.cpp:452
 #, fuzzy
 #| msgid "Show digiKam &rating"
 msgid "Show item &rating"
 msgstr "显示 digiKam 评分(&R)"
 
-#: utilities/setup/setupcamera.cpp:448
+#: utilities/setup/setupcamera.cpp:453
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
 msgid "Set this option to show the item rating below the image thumbnail."
 msgstr "设定此选项以在图像缩略图下方显示 digiKam 评分。"
 
-#: utilities/setup/setupcamera.cpp:492
+#: utilities/setup/setupcamera.cpp:498
 msgid "Preview each item while downloading it"
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:493
+#: utilities/setup/setupcamera.cpp:499
 #, fuzzy
 #| msgid "Set this option to display the image file date."
 msgid "<p>Set this option to preview each item while downloading.</p>"
 msgstr "设定此选项以显示图像文件日期。"
 
-#: utilities/setup/setupcamera.cpp:515
+#: utilities/setup/setupcamera.cpp:502
+msgid ""
+"Uncheck this if you don't want to see icons and text in the image preview."
+msgstr ""
+
+#: utilities/setup/setupcamera.cpp:521
 #, fuzzy
 #| msgid "Importing"
 msgid "Import Window"
 msgstr "导入"
 
-#: utilities/setup/setupcamera.cpp:765
+#: utilities/setup/setupcamera.cpp:773
 msgid ""
 "No default target album have been selected to process download from camera "
 "device. Please select one."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:858
+#: utilities/setup/setupcamera.cpp:866
 msgid "Device detection under progress, please wait..."
 msgstr "正在探测设备，请稍候..."
 
-#: utilities/setup/setupcamera.cpp:869
+#: utilities/setup/setupcamera.cpp:877
 msgid ""
 "Failed to auto-detect camera.\n"
 "Please check if your camera is turned on and retry or try setting it "
@@ -20075,26 +19839,26 @@ msgstr ""
 "自动检测相机失败。\n"
 "请确定相机已正确连接，并已打开，或者试着进行手动设置。"
 
-#: utilities/setup/setupcamera.cpp:883
+#: utilities/setup/setupcamera.cpp:891
 #, kde-format
 msgid "Camera '%1' (%2) is already in list."
 msgstr "相机“%1”(%2)已经在列表中。"
 
-#: utilities/setup/setupcamera.cpp:887
+#: utilities/setup/setupcamera.cpp:895
 #, kde-format
 msgid "Found camera '%1' (%2) and added it to the list."
 msgstr "找到了相机“%1”(%2)并将其添加到了列表。"
 
-#: utilities/setup/setupcamera.cpp:903
+#: utilities/setup/setupcamera.cpp:911
 msgid "Untitled"
 msgstr "无标题"
 
-#: utilities/setup/setupcamera.cpp:945
+#: utilities/setup/setupcamera.cpp:953
 msgid ""
 "In order to enable this feature, the full-sized preview will be disabled."
 msgstr ""
 
-#: utilities/setup/setupcamera.cpp:955
+#: utilities/setup/setupcamera.cpp:963
 msgid ""
 "If the full-sized preview is enabled it will affect the speed of previewing "
 "each item while download."
@@ -20626,7 +20390,43 @@ msgctxt "none of the paths"
 msgid "none"
 msgstr "无"
 
-#: utilities/setup/setupicc.cpp:904
+#: utilities/setup/setupicc.cpp:906
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Windows, the default search paths include <ul><li>%1/Windows/Spool/"
+"Drivers/Color/</li><li>%2/Windows/Color/</li></ul>On your system, currently "
+"these paths exist and are scanned:<ul><li>%3</li></ul>"
+msgstr ""
+"在 Linux 上，默认的搜索路径包括 <ul><li>/usr/share/color/icc</li><li>/usr/"
+"local/share/color/icc</li><li>~/.local/share/color/icc/</li><li>~/.local/"
+"share/icc/</li><li>~/.color/icc/</li></ul>在您的系统上， 目前有这些路径存在并"
+"接受扫描：<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:920
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Mac OS X, the default search paths include <ul><li>/System/Library/"
+"ColorSync/Profiles</li><li>/Library/ColorSync/Profiles</li><li>~/Library/"
+"ColorSync/Profiles</li><li>/opt/local/share/color/icc</li><li>~/.local/share/"
+"color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On "
+"your system, currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgstr ""
+"在 Linux 上，默认的搜索路径包括 <ul><li>/usr/share/color/icc</li><li>/usr/"
+"local/share/color/icc</li><li>~/.local/share/color/icc/</li><li>~/.local/"
+"share/icc/</li><li>~/.color/icc/</li></ul>在您的系统上， 目前有这些路径存在并"
+"接受扫描：<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:936
 #, kde-format
 msgid ""
 "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
@@ -20655,7 +20455,7 @@ msgstr "启用此选项以自动设定方向。"
 
 #: utilities/setup/setupimagequalitysorter.cpp:126
 msgid "Speed:"
-msgstr ""
+msgstr "速度："
 
 #: utilities/setup/setupimagequalitysorter.cpp:127
 msgid "Tradeoff between speed and accuracy of sorting algorithm"
@@ -21162,8 +20962,6 @@ msgid "Advanced Settings"
 msgstr "高级设置"
 
 #: utilities/setup/setupmetadata.cpp:441
-#, fuzzy
-#| msgid "Rotation"
 msgctxt "@title:tab"
 msgid "Rotation"
 msgstr "旋转"
@@ -21210,8 +21008,6 @@ msgid "Fully Resynchronize again"
 msgstr "完全重新同步"
 
 #: utilities/setup/setupmetadata.cpp:500
-#, fuzzy
-#| msgid "Nepomuk"
 msgctxt "@title:tab"
 msgid "Nepomuk"
 msgstr "Nepomuk"
@@ -22040,6 +21836,11 @@ msgctxt ""
 "is active"
 msgid "Giving a presentation"
 msgstr "进行展示"
+
+#, fuzzy
+#~| msgid "Open in File Manager"
+#~ msgid "Open Tag Manger"
+#~ msgstr "在文件管理器中打开"
 
 #, fuzzy
 #~| msgid "Connection failed."

@@ -7,10 +7,12 @@
  * @date   2009-12-01
  * @brief  Google-Maps-backend for KGeoMap
  *
- * @author Copyright (C) 2009-2010 by Michael G. Hansen
+ * @author Copyright (C) 2009-2010, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
  * @author Copyright (C) 2010 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
+ * @author Copyright (C) 2014 by Justus Schwartz
+ *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,6 +32,7 @@
 // local includes
 
 #include "backend_map.h"
+#include "tracks.h"
 
 namespace KGeoMap
 {
@@ -97,7 +100,7 @@ public Q_SLOTS:
     virtual void slotClustersNeedUpdating();
     virtual void slotThumbnailAvailableForIndex(const QVariant& index, const QPixmap& pixmap);
     void slotUngroupedModelChanged(const int mindex);
-
+  
 protected:
 
     bool eventFilter(QObject* object, QEvent* event);
@@ -105,6 +108,7 @@ protected:
     void setClusterPixmap(const int clusterId, const QPoint& centerPoint, const QPixmap& clusterPixmap);
     void setMarkerPixmap(const int modelId, const int markerId, const QPoint& centerPoint, const QPixmap& markerPixmap);
     void setMarkerPixmap(const int modelId, const int markerId, const QPoint& centerPoint, const QSize& iconSize, const KUrl& iconUrl);
+    void storeTrackChanges(const TrackManager::TrackChanges trackChanges);
 
 private Q_SLOTS:
 
@@ -113,12 +117,16 @@ private Q_SLOTS:
     void slotHTMLEvents(const QStringList& eventStrings);
     void slotFloatSettingsTriggered(QAction* action);
     void slotSelectionHasBeenMade(const KGeoMap::GeoCoordinates::Pair& searchCoordinates);
+    void slotTrackManagerChanged();
+    void slotTracksChanged(const QList<TrackManager::TrackChanges> trackChanges);
+    void slotTrackVisibilityChanged(const bool newState);
 
 private:
 
     void updateZoomMinMaxCache();
     static void deleteInfoFunction(KGeoMapInternalWidgetInfo* const info);
-
+    void addPointsToTrack(const quint64 trackId, TrackManager::TrackPoint::List const& track, const int firstPoint, const int nPoints);
+  
 private:
 
     class BackendGoogleMapsPrivate;

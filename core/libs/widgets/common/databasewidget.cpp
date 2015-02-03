@@ -33,6 +33,7 @@
 #include <QSqlError>
 #include <QLabel>
 #include <QGroupBox>
+#include <QTimer>
 
 // KDE includes
 
@@ -101,7 +102,9 @@ void DatabaseWidget::setupMainArea()
 
     QLabel* const databaseTypeLabel                  = new QLabel(i18n("Type"));
     databaseType                                     = new QComboBox();
+#ifdef HAVE_INTERNALMYSQL
     QLabel* const internalServerLabel                = new QLabel(i18n("Internal Server"));
+#endif // HAVE_INTERNALMYSQL
     internalServer                                   = new QCheckBox();
     QLabel* const databaseNameLabel                  = new QLabel(i18n("Schema Name"));
     databaseName                                     = new QLineEdit();
@@ -181,7 +184,7 @@ void DatabaseWidget::setupMainArea()
             this, SLOT(slotChangeDatabasePath(KUrl)));
 
     connect(databasePathEdit, SIGNAL(textChanged(QString)),
-            this, SLOT(slotDatabasePathEdited(QString)));
+            this, SLOT(slotDatabasePathEditedDelayed()));
 
     connect(databaseType, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotHandleDBTypeIndexChanged(int)));
@@ -222,8 +225,15 @@ void DatabaseWidget::slotChangeDatabasePath(const KUrl& result)
     checkDBPath();
 }
 
-void DatabaseWidget::slotDatabasePathEdited(const QString& newPath)
+void DatabaseWidget::slotDatabasePathEditedDelayed()
 {
+    QTimer::singleShot(300, this, SLOT(slotDatabasePathEdited()));
+}
+
+void DatabaseWidget::slotDatabasePathEdited()
+{
+    QString newPath = databasePathEdit->text();
+
 #ifndef _WIN32
 
     if (!newPath.isEmpty() && !QDir::isAbsolutePath(newPath))
@@ -233,7 +243,7 @@ void DatabaseWidget::slotDatabasePathEdited(const QString& newPath)
 
 #endif
 
-    databasePathEdit->setText(QDir::toNativeSeparators(databasePathEdit->text()));
+    databasePathEdit->setText(QDir::toNativeSeparators(newPath));
 
     checkDBPath();
 }
@@ -275,7 +285,7 @@ void DatabaseWidget::slotHandleInternalServerCheckbox(int enableFields)
 
 void DatabaseWidget::checkDatabaseConnection()
 {
-    // TODO : if chek DB connection operations can be threaded, use DBusyDlg dialog there...
+    // TODO : if check DB connection operations can be threaded, use DBusyDlg dialog there...
 
     kapp->setOverrideCursor(Qt::WaitCursor);
 
@@ -351,7 +361,7 @@ void DatabaseWidget::setParametersFromSettings(const AlbumSettings* const settin
     for (int i=0; i<databaseType->count(); ++i)
     {
         //kDebug(50003) << "Comparing comboboxentry on index ["<< i <<"] [" << databaseType->itemData(i)
-        //            << "] with ["<< settings->getDatabaseType() << "]";
+        //              << "] with ["<< settings->getDatabaseType() << "]";
         if (databaseType->itemData(i).toString() == settings->getDatabaseType())
         {
             databaseType->setCurrentIndex(i);

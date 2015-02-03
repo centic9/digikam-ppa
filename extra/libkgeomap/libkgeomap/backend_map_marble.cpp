@@ -7,10 +7,12 @@
  * @date   2009-12-08
  * @brief  Marble-backend for KGeoMap
  *
- * @author Copyright (C) 2009-2011 by Michael G. Hansen
+ * @author Copyright (C) 2009-2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
  * @author Copyright (C) 2010 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
+ * @author Copyright (C) 2014 by Justus Schwartz
+ *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -58,6 +60,7 @@
 #include "abstractmarkertiler.h"
 #include "kgeomap_widget.h"
 #include "modelhelper.h"
+#include "tracks.h"
 
 namespace KGeoMap
 {
@@ -111,7 +114,8 @@ public:
         firstSelectionPoint(),
         activeState(false),
         widgetIsDocked(false),
-        blockingZoomWhileChangingTheme(false)
+        blockingZoomWhileChangingTheme(false),
+        trackCache()
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
         , bmLayer(0)
 #endif
@@ -153,6 +157,8 @@ public:
     bool                   activeState;
     bool                   widgetIsDocked;
     bool                   blockingZoomWhileChangingTheme;
+
+    QHash<quint64, Marble::GeoDataLineString> trackCache;
 
 #ifdef KGEOMAP_MARBLE_ADD_LAYER
     BMLayer*               bmLayer;
@@ -615,7 +621,7 @@ void BackendMarble::GeoPainter_drawPixmapAtCoordinates(Marble::GeoPainter* const
     }
 
     // convert to Marble datatype and draw:
-    const Marble::GeoDataCoordinates mcoord(drawGeoCoordinates.lon(), drawGeoCoordinates.lat(), 0, Marble::GeoDataCoordinates::Degree);
+    const Marble::GeoDataCoordinates mcoord = drawGeoCoordinates.toMarbleCoordinates();
     painter->drawPixmap(mcoord, pixmap);
 }
 
@@ -643,10 +649,44 @@ void BackendMarble::marbleCustomPaint(Marble::GeoPainter* painter)
     painter->autoMapQuality();
 #endif
 
-    QPen circlePen(Qt::green);
-    QBrush circleBrush(Qt::blue);
-    // TODO: use global radius instead, but check the code here first
-    //const int circleRadius = 15; // s->groupingRadius;
+    if (s->trackManager)
+    {
+        if (s->trackManager->getVisibility())
+        {
+            TrackManager::Track::List const& tracks = s->trackManager->getTrackList();
+
+            for (int trackIdx = 0; trackIdx < tracks.count(); ++trackIdx)
+            {
+                TrackManager::Track const& track = tracks.at(trackIdx);
+                if (track.points.count() < 2)
+                {
+                    continue;
+                }
+
+                Marble::GeoDataLineString lineString;
+                if (d->trackCache.contains(track.id))
+                {
+                    lineString = d->trackCache.value(track.id);
+                }
+                else
+                {
+                    for (int coordIdx = 0; coordIdx < track.points.count(); ++coordIdx)
+                    {
+                        GeoCoordinates const& coordinates = track.points.at(coordIdx).coordinates;
+                        const Marble::GeoDataCoordinates marbleCoordinates = coordinates.toMarbleCoordinates();
+                        lineString << marbleCoordinates;
+                    }
+                    d->trackCache.insert(track.id, lineString);
+                }
+                /// @TODO 5 looks a bit too thick IMHO when you zoom out.
+                ///       Maybe adjust to zoom level?
+                QColor trackColor = track.color;
+                trackColor.setAlpha(180);
+                painter->setPen(QPen(QBrush(trackColor),5));
+                painter->drawPolyline(lineString);
+            }
+        }
+    }
 
     for (int i = 0; i<s->ungroupedModels.count(); ++i)
     {
@@ -1463,6 +1503,23 @@ void BackendMarble::slotUngroupedModelChanged(const int index)
     d->marbleWidget->update();
 }
 
+void BackendMarble::slotTrackManagerChanged()
+{
+    d->trackCache.clear();
+
+    if (s->trackManager)
+    {
+        connect(s->trackManager, SIGNAL(signalTracksChanged(const QList<TrackManager::TrackChanges>)),
+                this, SLOT(slotTracksChanged(const QList<TrackManager::TrackChanges>)));
+
+        // when the visibility of the tracks is changed, we simple schedule a redraw
+        connect(s->trackManager, SIGNAL(signalVisibilityChanged(bool)),
+                this, SLOT(slotScheduleUpdate()));
+    }
+
+    slotScheduleUpdate();
+}
+  
 bool BackendMarble::findSnapPoint(const QPoint& actualPoint, QPoint* const snapPoint, GeoCoordinates* const snapCoordinates, QPair<int, QModelIndex>* const snapTargetIndex)
 {
     QPoint bestSnapPoint;
@@ -1722,6 +1779,29 @@ void BackendMarble::applyCacheToWidget()
     setShowCompass(d->cacheShowCompass);
     setShowOverviewMap(d->cacheShowOverviewMap);
     setShowScaleBar(d->cacheShowScaleBar);
+}
+
+void BackendMarble::slotTracksChanged(const QList<TrackManager::TrackChanges> trackChanges)
+{
+    // invalidate the cache for all changed tracks
+    Q_FOREACH(const TrackManager::TrackChanges& tc, trackChanges)
+    {
+        if (tc.second & (TrackManager::ChangeTrackPoints | TrackManager::ChangeRemoved) )
+        {
+            d->trackCache.remove(tc.first);
+        }
+    }
+
+    slotScheduleUpdate();
+}
+
+void BackendMarble::slotScheduleUpdate()
+{
+    if (d->marbleWidget && d->activeState)
+    {
+        /// @TODO Put this onto the eventloop to collect update calls into one.
+        d->marbleWidget->update();
+    }
 }
 
 } /* namespace KGeoMap */

@@ -13,7 +13,6 @@ SET(kipiplugin_gpssync_PART_SRCS
     gpsimagelistdragdrophandler.cpp
     gpslistviewcontextmenu.cpp
     gpscorrelatorwidget.cpp
-    gpsdataparser.cpp
     gpsimagedetails.cpp
     gpsundocommand.cpp
     gpsreversegeocodingwidget.cpp
@@ -27,12 +26,15 @@ SET(kipiplugin_gpssync_PART_SRCS
     setup_general.cpp
     backend-geonamesUS-rg.cpp
     rgtagmodel.cpp
+    track_correlator.cpp
+    track_correlator_thread.cpp
+    track_listmodel.cpp
     tests/simpletreemodel/simpletreemodel.cpp
    )
 
 IF(KDE4_BUILD_TESTS)
     INCLUDE_DIRECTORIES(BEFORE "${CMAKE_CURRENT_SOURCE_DIR}/borrowed")
-    ADD_DEFINITIONS(-DGPSSYNC_MODELTEST)
+    #ADD_DEFINITIONS(-DGPSSYNC_MODELTEST)
     SET(kipiplugin_gpssync_PART_SRCS
         ${kipiplugin_gpssync_PART_SRCS}
         ${CMAKE_CURRENT_SOURCE_DIR}/borrowed/modeltest.cpp

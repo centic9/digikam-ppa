@@ -7,10 +7,12 @@
  * @date   2009-12-08
  * @brief  Marble-backend for KGeoMap
  *
- * @author Copyright (C) 2009-2011 by Michael G. Hansen
+ * @author Copyright (C) 2009-2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
  * @author Copyright (C) 2010 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
+ * @author Copyright (C) 2014 by Justus Schwartz
+ *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,6 +32,7 @@
 // local includes
 
 #include "backend_map.h"
+#include "tracks.h"
 
 /// @cond false
 namespace Marble
@@ -109,6 +112,7 @@ public Q_SLOTS:
     virtual void slotClustersNeedUpdating();
     virtual void slotThumbnailAvailableForIndex(const QVariant& index, const QPixmap& pixmap);
     void slotUngroupedModelChanged(const int index);
+    void slotTrackManagerChanged();
 
 protected:
 
@@ -127,6 +131,8 @@ protected Q_SLOTS:
     void slotProjectionActionTriggered(QAction* action);
     void slotFloatSettingsTriggered(QAction* action);
     void slotMarbleZoomChanged();
+    void slotTracksChanged(const QList<TrackManager::TrackChanges> trackChanges);
+    void slotScheduleUpdate();
 
 private:
 

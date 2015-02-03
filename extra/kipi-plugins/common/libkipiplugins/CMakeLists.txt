@@ -1,4 +1,5 @@
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/tools/kpversion.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/kpversion.h)
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/tools/kpversion.h.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/kpversion.h)
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/../../cmake/templates/Doxyfile.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/Doxyfile)
 
 INCLUDE_DIRECTORIES(${JPEG_INCLUDE_DIR} ${PNG_INCLUDE_DIR} ${TIFF_INCLUDE_DIR})
 
@@ -48,7 +49,3 @@ TARGET_LINK_LIBRARIES(kipiplugins
 SET_TARGET_PROPERTIES(kipiplugins PROPERTIES VERSION ${KIPIPLUGINS_LIB_SO_VERSION_STRING} SOVERSION ${KIPIPLUGINS_LIB_SO_VERSION_STRING})
 
 INSTALL(TARGETS kipiplugins ${INSTALL_TARGETS_DEFAULT_ARGS})
-
-# desktop file used to setup kipi-plugins handbook link and to share kipi-plugins version string.
-CONFIGURE_FILE(kipiplugins.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/kipiplugins.desktop)
-INSTALL(PROGRAMS ${CMAKE_CURRENT_BINARY_DIR}/kipiplugins.desktop DESTINATION ${XDG_APPS_INSTALL_DIR})

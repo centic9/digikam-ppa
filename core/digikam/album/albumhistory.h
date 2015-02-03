@@ -8,6 +8,7 @@
  *
  * Copyright (C) 2004      by Joern Ahrens <joern dot ahrens at kdemail dot net>
  * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -37,6 +38,7 @@
 //KDE includes
 
 #include <kurl.h>
+#include "albumlabelstreeview.h"
 
 namespace Digikam
 {
@@ -62,34 +64,37 @@ public:
     AlbumHistory();
     ~AlbumHistory();
 
-    void            addAlbums(QList<Album*> const albums, QWidget* const widget = 0);
-    void            deleteAlbum(Album* const album);
-    void            clearHistory();
-    void            back(QList<Album*>& album, QWidget** const widget, unsigned int steps=1);
-    void            forward(QList<Album*>& album, QWidget** const widget, unsigned int steps=1);
-    void            getCurrentAlbum(Album** const album, QWidget** const widget) const;
+    void addAlbums(QList<Album*> const albums, QWidget* const widget = 0);
+    void addAlbums(QList<Album*> const albums, QWidget* const widget, QHash<AlbumLabelsTreeView::Labels, QList<int> > selectedLabels);
+    void deleteAlbum(Album* const album);
+    void clearHistory();
+    void back(QList<Album*>& album, QWidget** const widget, unsigned int steps=1);
+    void forward(QList<Album*>& album, QWidget** const widget, unsigned int steps=1);
+    void getCurrentAlbum(Album** const album, QWidget** const widget) const;
 
-    void            getBackwardHistory(QStringList& list) const;
-    void            getForwardHistory(QStringList& list) const;
+    void getBackwardHistory(QStringList& list) const;
+    void getForwardHistory(QStringList& list) const;
 
-    bool            isForwardEmpty() const;
-    bool            isBackwardEmpty() const;
+    bool isForwardEmpty() const;
+    bool isBackwardEmpty() const;
+
+    QHash<AlbumLabelsTreeView::Labels, QList<int> > neededLabels();
 
 Q_SIGNALS:
 
-    void            signalSetCurrent(qlonglong imageId);
-    void            signalSetSelectedInfos(const QList<ImageInfo>&);
+    void signalSetCurrent(qlonglong imageId);
+    void signalSetSelectedInfos(const QList<ImageInfo>&);
 
 public Q_SLOTS:
 
-    void            slotAlbumCurrentChanged();
-    void            slotAlbumDeleted(Album* album);
-    void            slotAlbumsCleared();
-    void            slotAlbumSelected();
-    void            slotClearSelectPAlbum(const ImageInfo& imageInfo);
-    void            slotClearSelectTAlbum(int id);
-    void            slotCurrentChange(const ImageInfo& info);
-    void            slotImageSelected(const ImageInfoList& selectedImage);
+    void slotAlbumCurrentChanged();
+    void slotAlbumDeleted(Album* album);
+    void slotAlbumsCleared();
+    void slotAlbumSelected();
+    void slotClearSelectPAlbum(const ImageInfo& imageInfo);
+    void slotClearSelectTAlbum(int id);
+    void slotCurrentChange(const ImageInfo& info);
+    void slotImageSelected(const ImageInfoList& selectedImage);
 
 private:
 

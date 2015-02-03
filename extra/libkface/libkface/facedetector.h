@@ -11,7 +11,7 @@
  *         <a href="mailto:marcel dot wiesweg at gmx dot de">marcel dot wiesweg at gmx dot de</a>
  * @author Copyright (C) 2010 by Aditya Bhatt
  *         <a href="mailto:adityabhatt1991 at gmail dot com">adityabhatt1991 at gmail dot com</a>
- * @author Copyright (C) 2010 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -58,7 +58,6 @@ public:
      * object is cheap, the expensive creation of the detection backend
      * is performed when detectFaces is called for the first time.
      */
-
     FaceDetector();
     FaceDetector(const FaceDetector& other);
     ~FaceDetector();
@@ -80,14 +79,16 @@ public:
     /**
      * Tunes backend parameters.
      * Available parameters:
-     * "speed" vs. "accuracy", 0..1, float
+     *
+     * "speed"       vs. "accuracy",    0..1, float
      * "sensitivity" vs. "specificity", 0..1, float.
+     *
      * For both pairs: a = 1-b, you can set either.
      * The first pair changes the ROC curve in a trade for computing time.
      * The second pair moves on a given ROC curve towards more false positives, or more missed faces.
      */
-    void setParameter(const QString& parameter, const QVariant& value);
-    void setParameters(const QVariantMap& parameters);
+    void        setParameter(const QString& parameter, const QVariant& value);
+    void        setParameters(const QVariantMap& parameters);
     QVariantMap parameters() const;
 
     /**
@@ -96,10 +97,10 @@ public:
      */
     int recommendedImageSize(const QSize& availableSize = QSize()) const;
 
-    static QRectF toRelativeRect(const QRect& absoluteRect, const QSize& size);
-    static QRect toAbsoluteRect(const QRectF& relativeRect, const QSize& size);
+    static QRectF        toRelativeRect(const QRect& absoluteRect, const QSize& size);
+    static QRect         toAbsoluteRect(const QRectF& relativeRect, const QSize& size);
     static QList<QRectF> toRelativeRects(const QList<QRect>& absoluteRects, const QSize& size);
-    static QList<QRect> toAbsoluteRects(const QList<QRectF>& relativeRects, const QSize& size);
+    static QList<QRect>  toAbsoluteRects(const QList<QRectF>& relativeRects, const QSize& size);
 
 private:
 

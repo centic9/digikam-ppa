@@ -1,8 +1,8 @@
 /** ===========================================================
  * @file
  *
- * This file was developed as part of the libface project
- * <a href="http://libface.sourceforge.net">http://libface.sourceforge.net</a>
+ * This file is a part of digiKam project
+ * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
  * @date    2010-01-03
  * @brief   Class to perform faces detection.
@@ -12,7 +12,7 @@
  *         <a href="alexjironkin at gmail dot com">alexjironkin at gmail dot com</a>
  * @author Copyright (C) 2010 by Aditya Bhatt
  *         <a href="adityabhatt at gmail dot com">adityabhatt at gmail dot com</a>
- * @author Copyright (C) 2010-2013 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  * @author Copyright (C) 2010-2013 by Marcel Wiesweg
  *         <a href="mailto:marcel dot wiesweg at gmx dot de">marcel dot wiesweg at gmx dot de</a>
@@ -35,7 +35,7 @@
 #ifndef LIBKFACE_OPENCVFACEDETECTOR_H
 #define LIBKFACE_OPENCVFACEDETECTOR_H
 
-// OpenCV
+// OpenCV library
 
 #include "libopencv.h"
 
@@ -59,8 +59,8 @@ public:
     OpenCVFaceDetector(const QStringList& cascadeDirs);
     ~OpenCVFaceDetector();
 
-    cv::Mat prepareForDetection(const QImage& inputImage);
-    QList<QRect> detectFaces(const cv::Mat& inputImage, const cv::Size& originalSize = cv::Size(0,0));
+    cv::Mat prepareForDetection(const QImage& inputImage) const;
+    QList<QRect> detectFaces(const cv::Mat& inputImage, const cv::Size& originalSize = cv::Size(0, 0));
 
     /**
      * Tunes the parameters.
@@ -93,10 +93,9 @@ private:
      *  @param params The parameters to be used for detection
      *  @return Returns a vector of Face objects. Each object hold information about 1 face.
      */
-    QList<QRect> cascadeResult(const cv::Mat& inputImage,
-                               Cascade& cascade, const DetectObjectParameters& params);
+    QList<QRect> cascadeResult(const cv::Mat& inputImage, Cascade& cascade, const DetectObjectParameters& params) const;
 
-    bool verifyFace(const cv::Mat& inputImage, const QRect& face);
+    bool verifyFace(const cv::Mat& inputImage, const QRect& face) const;
 
     /**
      * Returns the faces from the detection results of multiple cascades
@@ -106,7 +105,7 @@ private:
      * @param mindups The minimum number of duplicate detections required for a face to qualify as genuine
      * @return The vector of the final faces
      */
-    QList<QRect> mergeFaces(const cv::Mat& inputImage, const QList< QList<QRect> >& preliminaryResults);
+    QList<QRect> mergeFaces(const cv::Mat& inputImage, const QList< QList<QRect> >& preliminaryResults) const;
 
     void updateParameters(const cv::Size& scaledSize, const cv::Size& originalSize);
 

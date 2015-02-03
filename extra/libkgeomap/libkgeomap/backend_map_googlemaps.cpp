@@ -7,10 +7,12 @@
  * @date   2009-12-01
  * @brief  Google-Maps-backend for KGeoMap
  *
- * @author Copyright (C) 2009-2011 by Michael G. Hansen
+ * @author Copyright (C) 2009-2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
  * @author Copyright (C) 2010 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
+ * @author Copyright (C) 2014 by Justus Schwartz
+ *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -85,7 +87,8 @@ public:
       cacheCenter(0.0,0.0),
       cacheBounds(),
       activeState(false),
-      widgetIsDocked(false)
+      widgetIsDocked(false),
+      trackChangeTracker()
     {
     }
 
@@ -109,6 +112,7 @@ public:
     QPair<GeoCoordinates, GeoCoordinates>     cacheBounds;
     bool                                      activeState;
     bool                                      widgetIsDocked;
+    QList<TrackManager::TrackChanges>         trackChangeTracker;
 };
 
 BackendGoogleMaps::BackendGoogleMaps(const QExplicitlySharedDataPointer<KGeoMapSharedData>& sharedData, QObject* const parent)
@@ -1147,12 +1151,19 @@ void BackendGoogleMaps::setActive(const bool state)
             setShowMapTypeControl(d->cacheShowMapTypeControl);
             setShowNavigationControl(d->cacheShowNavigationControl);
             setShowScaleControl(d->cacheShowScaleControl);
+
+            /// @TODO update tracks more gently
+            slotTracksChanged(d->trackChangeTracker);
+            d->trackChangeTracker.clear();
         }
     }
 }
 
 void BackendGoogleMaps::releaseWidget(KGeoMapInternalWidgetInfo* const info)
 {
+    // clear all tracks
+    d->htmlWidget->runScript(QString::fromLatin1("kgeomapClearTracks();"));
+
     disconnect(d->htmlWidget, SIGNAL(signalJavaScriptReady()),
                this, SLOT(slotHTMLInitialized()));
 
@@ -1197,4 +1208,165 @@ void BackendGoogleMaps::deleteInfoFunction(KGeoMapInternalWidgetInfo* const info
 
     delete info->widget.data();
 }
+
+void BackendGoogleMaps::storeTrackChanges(const TrackManager::TrackChanges trackChanges)
+{
+    for (int i=0; i<d->trackChangeTracker.count(); ++i)
+    {
+        if (d->trackChangeTracker.at(i).first==trackChanges.first)
+        {
+            d->trackChangeTracker[i].second = TrackManager::ChangeFlag(d->trackChangeTracker.at(i).second | trackChanges.second);
+            return;
+        }
+    }
+
+    d->trackChangeTracker << trackChanges;
+}
+
+void BackendGoogleMaps::slotTrackManagerChanged()
+{
+    /// @TODO disconnect old track manager
+    /// @TODO mark all tracks as dirty
+
+    if (s->trackManager)
+    {
+        connect(s->trackManager, SIGNAL(signalTracksChanged(const QList<TrackManager::TrackChanges>)),
+                this, SLOT(slotTracksChanged(const QList<TrackManager::TrackChanges>)));
+
+        connect(s->trackManager, SIGNAL(signalVisibilityChanged(bool)),
+                this, SLOT(slotTrackVisibilityChanged(bool)));
+
+        // store all tracks which are already in the manager as changed
+        const TrackManager::Track::List trackList = s->trackManager->getTrackList();
+        Q_FOREACH(const TrackManager::Track& t, trackList)
+        {
+            storeTrackChanges(TrackManager::TrackChanges(t.id, TrackManager::ChangeAdd));
+        }
+    }
+}
+
+void BackendGoogleMaps::slotTracksChanged(const QList<TrackManager::TrackChanges> trackChanges)
+{
+    bool needToTrackChanges = !d->activeState;
+    if (s->trackManager)
+    {
+        needToTrackChanges|=!s->trackManager->getVisibility();
+    }
+    if (needToTrackChanges)
+    {
+        Q_FOREACH(const TrackManager::TrackChanges& tc, trackChanges)
+        {
+            storeTrackChanges(tc);
+        }
+
+        return;
+    }
+
+    /// @TODO We have to re-read the tracks after being inactive.
+    /// @TODO Tracks have to be cleared in JavaScript everytime the
+    ///       htmlwidget is passed to another mapwidget.
+    /// @TODO Clearing all tracks and re-adding them takes too long. We
+    ///       have to see which track changed, and whether coordinates or only properties changed.
+    if (!s->trackManager)
+    {
+        // no track manager, clear all tracks
+        const QVariant successClear = d->htmlWidget->runScript(QString::fromLatin1("kgeomapClearTracks();"));
+
+        return;
+    }
+
+    Q_FOREACH(const TrackManager::TrackChanges& tc, trackChanges)
+    {
+        if (tc.second & TrackManager::ChangeRemoved)
+        {
+            d->htmlWidget->runScript(QString::fromLatin1("kgeomapRemoveTrack(%1);").arg(tc.first));
+        }
+        else
+        {
+            /// @TODO For now, remove the track and re-add it.
+            d->htmlWidget->runScript(QString::fromLatin1("kgeomapRemoveTrack(%1);").arg(tc.first));
+
+            const TrackManager::Track track = s->trackManager->getTrackById(tc.first);
+
+            if (track.points.count() < 2)
+            {
+                continue;
+            }
+
+            const QString createTrackScript =
+                    QString::fromLatin1(
+                            "kgeomapCreateTrack(%1,'%2');"
+                        )
+                        .arg(track.id)
+                        .arg(track.color.name()); // QColor::name() returns #ff00ff
+            d->htmlWidget->runScript(createTrackScript);
+
+            QDateTime t1 = QDateTime::currentDateTime();
+            const int numPointsToPassAtOnce = 1000;
+            for (int coordIdx = 0; coordIdx < track.points.count(); coordIdx += numPointsToPassAtOnce)
+            {
+                /// @TODO Even by passing only a few points each time, we can
+                ///       block the UI for a long time. Instead, it may be better
+                ///       to call addPointsToTrack via the eventloop repeatedly
+                ///       to allow processing of other events.
+                addPointsToTrack(track.id, track.points, coordIdx, numPointsToPassAtOnce);
+            }
+            QDateTime t2 = QDateTime::currentDateTime();
+            kDebug()<<track.url.fileName()<<t1.msecsTo(t2);
+        }
+    }
+}
+
+void BackendGoogleMaps::addPointsToTrack(const quint64 trackId, TrackManager::TrackPoint::List const& track, const int firstPoint, const int nPoints)
+{
+    QString json;
+    QTextStream jsonBuilder(&json);
+    jsonBuilder << '[';
+    int lastPoint = track.count()-1;
+    if (nPoints>0)
+    {
+        lastPoint = qMin(firstPoint + nPoints - 1, track.count()-1);
+    }
+    for (int coordIdx = firstPoint; coordIdx <= lastPoint; ++coordIdx)
+    {
+        GeoCoordinates const& coordinates = track.at(coordIdx).coordinates;
+        if (coordIdx > firstPoint)
+        {
+            jsonBuilder << ',';
+        }
+        // Pass data in plain array format. In KHTML, this is much slower than
+        // using JSON. In Firefox, the speed is roughly the same.
+//         jsonBuilder /*<< "{\"lat\":" */<< coordinates.latString() << ","
+//                     /*<< "\"lon\":" */<< coordinates.lonString() /*<< "}"*/;
+
+        /// @TODO This looks like a lot of text to parse. Is there a more compact way?
+        jsonBuilder << "{\"lat\":" << coordinates.latString() << ","
+                    << "\"lon\":" << coordinates.lonString() << "}";
+    }
+    jsonBuilder << ']';
+    const QString addTrackScript = QString::fromLatin1("kgeomapAddToTrack(%1,'%2');").arg(trackId).arg(json);
+    d->htmlWidget->runScript(addTrackScript);
+}
+
+void BackendGoogleMaps::slotTrackVisibilityChanged(const bool newState)
+{
+    /// @TODO Now we remove all tracks and re-add them on visibility change.
+    ///       This is very slow.
+    if (newState)
+    {
+        // store all tracks which are already in the manager as changed
+        const TrackManager::Track::List trackList = s->trackManager->getTrackList();
+        QList<TrackManager::TrackChanges> trackChanges;
+        Q_FOREACH(const TrackManager::Track& t, trackList)
+        {
+            trackChanges << TrackManager::TrackChanges(t.id, TrackManager::ChangeAdd);
+        }
+        slotTracksChanged(trackChanges);
+    }
+    else
+    {
+        const QVariant successClear = d->htmlWidget->runScript(QString::fromLatin1("kgeomapClearTracks();"));
+    }
+}
+
 } /* namespace KGeoMap */

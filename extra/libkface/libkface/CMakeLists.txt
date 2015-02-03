@@ -4,9 +4,9 @@
 # <a href="http://www.digikam.org">http://www.digikam.org</a>
 #
 # @date   2010-06-16
-# @brief  LibFace library interface for KDE
+# @brief  LibKFace library interface for KDE
 #
-# @author Copyright (C) 2010-2012 by Gilles Caulier
+# @author Copyright (C) 2010-2014 by Gilles Caulier
 #         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
 #
 # This program is free software; you can redistribute it
@@ -22,35 +22,30 @@
 #
 # ============================================================
 
-# To handle OpenCV C++ exceptions.
-ADD_DEFINITIONS(${KDE4_ENABLE_EXCEPTIONS})
-
-ADD_DEFINITIONS(${LIBFACE_DEFINITIONS})
-ADD_DEFINITIONS(${KDE4_ENABLE_EXCEPTIONS})
 REMOVE_DEFINITIONS(-DQT_NO_STL)
 
-CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/version.h.cmake ${CMAKE_CURRENT_BINARY_DIR}/version.h)
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/version.h.cmake.in   ${CMAKE_CURRENT_BINARY_DIR}/version.h)
+CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/libopencv.h.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libopencv.h)
 
-INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/../OpenTLD/src/libopentld/tld
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}/database
                     ${CMAKE_CURRENT_SOURCE_DIR}/detection
-                    ${CMAKE_CURRENT_SOURCE_DIR}/recognition-opentld
                     ${CMAKE_CURRENT_SOURCE_DIR}/recognition-opencv-lbph
                     ${CMAKE_CURRENT_SOURCE_DIR}/alignment-congealing
+#                    ${CMAKE_CURRENT_SOURCE_DIR}/alignment-flandmark
+#                    ${CMAKE_CURRENT_SOURCE_DIR}/preprocessing-tantriggs
                    )
 
 SET(kface_LIB_SRCS facedetector.cpp
+                   identity.cpp
+                   recognitiondatabase.cpp
                    detection/opencvfacedetector.cpp
                    recognition-opencv-lbph/lbphfacemodel.cpp
                    recognition-opencv-lbph/opencvlbphfacerecognizer.cpp
                    recognition-opencv-lbph/facerec_borrowed.cpp
-                   recognition-opentld/opentldfacerecognizer.cpp
-                   recognition-opentld/unitfacemodel.cpp
                    alignment-congealing/funnelreal.cpp
-                   #alignment-flandmark/liblbp.cpp
-                   #alignment-flandmark/flandmark_detector.cpp
-                   preprocessing-tantriggs/tantriggspreprocessor.cpp
-                   recognitiondatabase.cpp
+#                   alignment-flandmark/flandmarkaligner.cpp
+#                   preprocessing-tantriggs/tantriggspreprocessor.cpp
    )
 
 SET(kface_database_LIB_SRCS database/databaseaccess.cpp
@@ -65,18 +60,16 @@ SET(kface_database_LIB_SRCS database/databaseaccess.cpp
                             database/dbcontainers.cpp
    )
 
-KDE4_ADD_LIBRARY(kface SHARED ${kface_LIB_SRCS} ${face_LIB_SRCS} ${kface_database_LIB_SRCS})
+KDE4_ADD_LIBRARY(kface SHARED ${kface_LIB_SRCS} ${kface_database_LIB_SRCS})
 
 TARGET_LINK_LIBRARIES(kface ${KDE4_KDECORE_LIBS}
                             ${KDE4_KDEUI_LIBS}
+
                             ${QT_QTGUI_LIBRARY}
                             ${QT_QTXML_LIBRARY}
-                            ${LIBFACE_LIBRARIES}
-                            ${OpenCV_LIBRARIES}
-
                             ${QT_QTSQL_LIBRARY}
-                            opentld
-                            cvblobs
+
+                            ${OpenCV_LIBRARIES}
                       )
 
 SET_TARGET_PROPERTIES(kface PROPERTIES VERSION ${KFACE_LIB_SO_VERSION_STRING}

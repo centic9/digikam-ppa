@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-05-11 01:40+0000\n"
-"PO-Revision-Date: 2014-03-20 19:15+0100\n"
+"POT-Creation-Date: 2014-06-25 01:42+0000\n"
+"PO-Revision-Date: 2014-06-01 11:08+0200\n"
 "Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -499,13 +499,13 @@ msgstr ""
 msgid "No such tag"
 msgstr "Ni take oznake"
 
-#: digikam/album/albummodificationhelper.cpp:222
+#: digikam/album/albummodificationhelper.cpp:225
 #: digikam/utils/searchmodificationhelper.cpp:143
 #, kde-format
 msgid "Rename Album (%1)"
 msgstr "Preimenuj album (%1)"
 
-#: digikam/album/albummodificationhelper.cpp:223
+#: digikam/album/albummodificationhelper.cpp:226
 #: digikam/utils/searchmodificationhelper.cpp:144
 msgid "Enter new album name:"
 msgstr "Vnesite novo ime albuma:"
@@ -1071,11 +1071,11 @@ msgstr "Kopiranje atributov"
 msgid "Process Items"
 msgstr "Obdelaj predmete"
 
-#: digikam/fileaction/fileworkeriface.cpp:72
+#: digikam/fileaction/fileworkeriface.cpp:73
 msgid "Failed to revise Exif orientation these files:"
 msgstr "V teh datotekah ni bilo mogoče popraviti usmerjenosti Exif:"
 
-#: digikam/fileaction/fileworkeriface.cpp:265
+#: digikam/fileaction/fileworkeriface.cpp:275
 msgid "Failed to transform these files:"
 msgstr "Ni bilo mogoče pretvoriti teh datotek:"
 
@@ -1420,7 +1420,7 @@ msgstr "Počisti vse"
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: digikam/items/digikamimageview.cpp:334 digikam/views/tableview.cpp:228
+#: digikam/items/digikamimageview.cpp:338 digikam/views/tableview.cpp:228
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "Predogled"
@@ -1508,9 +1508,16 @@ msgctxt "Month String - Year String"
 msgid "%1 %2"
 msgstr "%1 %2"
 
+#: digikam/items/imagecoordinatesoverlay.cpp:104
+#: showfoto/thumbbar/showfotocoordinatesoverlay.cpp:105
+#: utilities/importui/items/importoverlays.cpp:106
+msgctxt "@info:tooltip"
+msgid "This item has geolocation information."
+msgstr "Ta predmet ima podatke o zemljepisni legi."
+
 #: digikam/items/imagerotationoverlay.cpp:68
 #: digikam/views/imagepreviewview.cpp:164
-#: utilities/importui/items/importoverlays.cpp:371
+#: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "@info:tooltip"
 msgid "Rotate Left"
@@ -1518,7 +1525,7 @@ msgstr "Zavrti v levo"
 
 #: digikam/items/imagerotationoverlay.cpp:72
 #: digikam/views/imagepreviewview.cpp:165
-#: utilities/importui/items/importoverlays.cpp:375
+#: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
 msgid "Rotate Right"
@@ -1703,6 +1710,7 @@ msgid "Browse Tags..."
 msgstr "Brskanje po oznakah ..."
 
 #: digikam/main/digikamapp.cpp:819 digikam/views/leftsidebarwidgets.cpp:195
+#: libs/imageproperties/imagedescedittab.cpp:294
 msgid "Open Tag Manager"
 msgstr "Odpri upravljalnik oznak"
 
@@ -1713,9 +1721,10 @@ msgstr "&Nova ..."
 
 #: digikam/main/digikamapp.cpp:836 digikam/tags/tagmodificationhelper.cpp:273
 #: digikam/tags/tagmodificationhelper.cpp:378
-#: digikam/tags/tagsmanager/tagsmanager.cpp:378
+#: digikam/tags/tagsmanager/tagsmanager.cpp:399
 #: digikam/utils/editablesearchtreeview.cpp:70
 #: digikam/utils/searchmodificationhelper.cpp:82
+#: utilities/importui/main/importui.cpp:1912
 #: utilities/queuemanager/views/workflowlist.cpp:294
 msgid "Delete"
 msgstr "Izbriši"
@@ -1730,7 +1739,7 @@ msgstr "Dodeli oznako"
 msgid "Views"
 msgstr "Prikazi"
 
-#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:474
+#: digikam/main/digikamapp.cpp:854 utilities/importui/main/importui.cpp:476
 msgctxt "@action Go to thumbnails (icon) view"
 msgid "Thumbnails"
 msgstr "Sličice"
@@ -1740,7 +1749,7 @@ msgctxt "View the selected image"
 msgid "Preview Image"
 msgstr "Predogled slike"
 
-#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:486
+#: digikam/main/digikamapp.cpp:866 utilities/importui/main/importui.cpp:488
 msgctxt "@action Switch to map view"
 msgid "Map"
 msgstr "Zemljevid"
@@ -1849,7 +1858,7 @@ msgstr "Preimenuj ..."
 msgid "Change the filename of the currently selected item."
 msgstr "Spremeni ime datoteke trenutno izbranega predmeta."
 
-#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:506
+#: digikam/main/digikamapp.cpp:992 showfoto/main/showfoto.cpp:510
 #: utilities/imageeditor/editor/editorwindow.cpp:419
 #: utilities/lighttable/lighttablewindow.cpp:507
 msgctxt "Non-pluralized"
@@ -1989,8 +1998,8 @@ msgid "Select None"
 msgstr "Odstrani izbor"
 
 #: digikam/main/digikamapp.cpp:1147
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:134
-#: digikam/tags/tagsmanager/tagsmanager.cpp:655
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:149
+#: digikam/tags/tagsmanager/tagsmanager.cpp:679
 #: digikam/utils/contextmenuhelper.cpp:850
 msgid "Invert Selection"
 msgstr "Obrni izbiro"
@@ -2223,7 +2232,7 @@ msgstr "Vstavki KIPI"
 msgid "Loading themes..."
 msgstr "Nalaganje tem ..."
 
-#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:425
+#: digikam/main/digikamapp.cpp:2472 showfoto/main/showfoto.cpp:429
 msgid "&Themes"
 msgstr "&Teme"
 
@@ -2256,7 +2265,7 @@ msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Običajno"
 
-#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2492
+#: digikam/main/digikamapp.cpp:2765 libs/dmetadata/dmetadata.cpp:2497
 msgid "Flipped Horizontally"
 msgstr "Zrcaljeno vodoravno"
 
@@ -2264,7 +2273,7 @@ msgstr "Zrcaljeno vodoravno"
 msgid "Rotated Upside Down"
 msgstr "Zavrteno za 180 °"
 
-#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2496
+#: digikam/main/digikamapp.cpp:2767 libs/dmetadata/dmetadata.cpp:2501
 msgid "Flipped Vertically"
 msgstr "Zrcaljeno navpično"
 
@@ -2272,7 +2281,7 @@ msgstr "Zrcaljeno navpično"
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Zavrteno desno / zrcaljeno vodoravno"
 
-#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2504
+#: digikam/main/digikamapp.cpp:2769 libs/dmetadata/dmetadata.cpp:2509
 msgid "Rotated Right"
 msgstr "Zavrteno desno"
 
@@ -2280,7 +2289,7 @@ msgstr "Zavrteno desno"
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Zavrteno desno / zrcaljeno navpično"
 
-#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2500
+#: digikam/main/digikamapp.cpp:2771 libs/dmetadata/dmetadata.cpp:2505
 msgid "Rotated Left"
 msgstr "Zavrteno levo"
 
@@ -2589,8 +2598,8 @@ msgid "Reset Tag Icon"
 msgstr "Ponastavi ikono oznake"
 
 #: digikam/tags/tagfolderview.cpp:114
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:140
-#: digikam/tags/tagsmanager/tagsmanager.cpp:661
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:155
+#: digikam/tags/tagsmanager/tagsmanager.cpp:685
 msgid "Expand Selected Nodes"
 msgstr "Razširi izbrana vozlišča"
 
@@ -2684,16 +2693,15 @@ msgid "Assign Tag \"%1\""
 msgstr "Dodeli oznako \"%1\""
 
 #: digikam/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:111
 #: digikam/utils/contextmenuhelper.cpp:828
 msgid "All Tags"
 msgstr "Vse oznake"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:270
+#: digikam/tags/tagsmanager/models/tagmngrlistmodel.cpp:266
 msgid "Quick Access List"
 msgstr "Seznam za hitri dostop"
 
-#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:143
+#: digikam/tags/tagsmanager/models/tagmngrlistview.cpp:148
 msgid "Delete Selected from List"
 msgstr "Izbriši izbrane iz seznama"
 
@@ -2705,18 +2713,23 @@ msgstr "Dodaj na seznam"
 msgid "Add selected tags to Quick Access List"
 msgstr "Dodaj izbrane oznake na seznam za hiter dostop"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:131
-#: digikam/tags/tagsmanager/tagsmanager.cpp:649
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:139
+#: digikam/utils/contextmenuhelper.cpp:429
+msgid "Delete Tags"
+msgstr "Izbriši oznake"
+
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:146
+#: digikam/tags/tagsmanager/tagsmanager.cpp:673
 msgid "Reset tag Icon"
 msgstr "Ponastavi ikono oznake"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:137
-#: digikam/tags/tagsmanager/tagsmanager.cpp:658
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:152
+#: digikam/tags/tagsmanager/tagsmanager.cpp:682
 msgid "Expand Tag Tree"
 msgstr "Razširi drevo oznak"
 
-#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:143
-#: digikam/tags/tagsmanager/tagsmanager.cpp:663
+#: digikam/tags/tagsmanager/tagmngrtreeview.cpp:158
+#: digikam/tags/tagsmanager/tagsmanager.cpp:687
 msgid "Remove Tag from Images"
 msgstr "Odstrani oznako iz slik"
 
@@ -2736,16 +2749,13 @@ msgstr ""
 msgid "Previous tags were changed. Save changes? "
 msgstr "Predhodne oznake so bile spremenjene. Ali želite shraniti spremembe?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:166
+#: digikam/tags/tagsmanager/tagsmanager.cpp:169
 #: libs/widgets/mainview/daboutdata.cpp:177
 msgid "Tags Manager"
 msgstr "Upravljalnik oznak"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:331
-#, fuzzy, kde-format
-#| msgid ""
-#| "Tags '%1' have one or more subtags. Deleting them will also delete the "
-#| "subtags. Do you want to continue?"
+#: digikam/tags/tagsmanager/tagsmanager.cpp:351
+#, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid ""
 "Tag %2 has one or more subtags. Deleting it will also delete the subtags. Do "
@@ -2754,58 +2764,53 @@ msgid_plural ""
 "Tags %2 have one or more subtags. Deleting them will also delete the "
 "subtags. Do you want to continue?"
 msgstr[0] ""
-"Oznaka »%1« ima eno ali več pod-oznak. Z brisanjem te oznake boste izbrisali "
-"tudi vse njene pod-oznake. Ali želite nadaljevati?"
+"Oznake %2 imajo eno ali več pod-oznak. Z brisanjem teh oznak boste izbrisali "
+"tudi vse njihove pod-oznake. Ali želite nadaljevati?"
 msgstr[1] ""
-"Oznaka »%1« ima eno ali več pod-oznak. Z brisanjem te oznake boste izbrisali "
+"Oznaka %2 ima eno ali več pod-oznak. Z brisanjem te oznake boste izbrisali "
 "tudi vse njene pod-oznake. Ali želite nadaljevati?"
 msgstr[2] ""
-"Oznaka »%1« ima eno ali več pod-oznak. Z brisanjem te oznake boste izbrisali "
-"tudi vse njene pod-oznake. Ali želite nadaljevati?"
+"Oznaki %2 imata eno ali več pod-oznak. Z brisanjem teh oznak boste izbrisali "
+"tudi vse njune pod-oznake. Ali želite nadaljevati?"
 msgstr[3] ""
-"Oznaka »%1« ima eno ali več pod-oznak. Z brisanjem te oznake boste izbrisali "
-"tudi vse njene pod-oznake. Ali želite nadaljevati?"
+"Oznake %2 imajo eno ali več pod-oznak. Z brisanjem teh oznak boste izbrisali "
+"tudi vse njihove pod-oznake. Ali želite nadaljevati?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:355
-#, fuzzy, kde-format
-#| msgid ""
-#| "Tags '%1' are assigned to one or more items. Do you want to continue?"
+#: digikam/tags/tagsmanager/tagsmanager.cpp:376
+#, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Tag %2 is assigned to one or more items. Do you want to delete it?"
 msgid_plural ""
 "Tags %2 are assigned to one or more items. Do you want to delete them?"
 msgstr[0] ""
-"Oznake »%1« so dodeljene enemu ali več predmetom. Ali želite nadaljevati?"
+"Oznake %2 so dodeljene enemu ali več predmetom. Ali želite nadaljevati?"
 msgstr[1] ""
-"Oznake »%1« so dodeljene enemu ali več predmetom. Ali želite nadaljevati?"
+"Oznaka %2 je dodeljena enemu ali več predmetom. Ali želite nadaljevati?"
 msgstr[2] ""
-"Oznake »%1« so dodeljene enemu ali več predmetom. Ali želite nadaljevati?"
+"Oznaki %2 sta dodeljeni enemu ali več predmetom. Ali želite nadaljevati?"
 msgstr[3] ""
-"Oznake »%1« so dodeljene enemu ali več predmetom. Ali želite nadaljevati?"
+"Oznake %2 so dodeljene enemu ali več predmetom. Ali želite nadaljevati?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:367
-#, fuzzy, kde-format
-#| msgid "Delete Tag"
+#: digikam/tags/tagsmanager/tagsmanager.cpp:388
+#, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Delete tag %2?"
 msgid_plural "Delete tags %2?"
-msgstr[0] "Izbriši oznako"
-msgstr[1] "Izbriši oznako"
-msgstr[2] "Izbriši oznako"
-msgstr[3] "Izbriši oznako"
+msgstr[0] "Izbrišem oznake %2?"
+msgstr[1] "Izbrišem oznako %2?"
+msgstr[2] "Izbrišem oznaki %2?"
+msgstr[3] "Izbrišem oznake %2?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:377
-#, fuzzy
-#| msgid "Delete Tag"
+#: digikam/tags/tagsmanager/tagsmanager.cpp:398
 msgid "Delete tag"
 msgid_plural "Delete tags"
-msgstr[0] "Izbriši oznako"
+msgstr[0] "Izbriši oznake"
 msgstr[1] "Izbriši oznako"
-msgstr[2] "Izbriši oznako"
-msgstr[3] "Izbriši oznako"
+msgstr[2] "Izbriši oznaki"
+msgstr[3] "Izbriši oznake"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:483
 #: digikam/tags/tagsmanager/tagsmanager.cpp:505
+#: digikam/tags/tagsmanager/tagsmanager.cpp:527
 msgid ""
 "This operation can take long time depending on collection size.\n"
 "Do you want to continue?"
@@ -2813,12 +2818,7 @@ msgstr ""
 "Če je vaša zbirka velika, lahko to opravilo traja dlje časa.\n"
 "Ali želite nadaljevati?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:528
-#, fuzzy
-#| msgid ""
-#| "This operation will wipe all tags from database only.\n"
-#| "To apply changes to files you must choose write metadata to file later\n"
-#| "Do you want to continue?"
+#: digikam/tags/tagsmanager/tagsmanager.cpp:550
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
@@ -2829,32 +2829,29 @@ msgstr ""
 "metapodatkov v datoteke.\n"
 "Ali želite nadaljevati?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:591
-#, fuzzy
-#| msgid ""
-#| "Do you want to remove the collection \"%1\" from your list of collections?"
+#: digikam/tags/tagsmanager/tagsmanager.cpp:613
 msgid "Do you really want to remove the selected tag from all images?"
 msgid_plural "Do you really want to remove the selected tags from all images?"
-msgstr[0] "Ali želite zbirko \"%1\" odstraniti s svojega seznama zbirk?"
-msgstr[1] "Ali želite zbirko \"%1\" odstraniti s svojega seznama zbirk?"
-msgstr[2] "Ali želite zbirko \"%1\" odstraniti s svojega seznama zbirk?"
-msgstr[3] "Ali želite zbirko \"%1\" odstraniti s svojega seznama zbirk?"
+msgstr[0] "Ali resnično želite iz vseh slik odstraniti izbrane oznake?"
+msgstr[1] "Ali resnično želite iz vseh slik odstraniti izbrano oznako?"
+msgstr[2] "Ali resnično želite iz vseh slik odstraniti izbrani oznaki?"
+msgstr[3] "Ali resnično želite iz vseh slik odstraniti izbrane oznake?"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:645
+#: digikam/tags/tagsmanager/tagsmanager.cpp:669
 msgid "Organize"
 msgstr "Organiziraj"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:652
+#: digikam/tags/tagsmanager/tagsmanager.cpp:676
 msgid "Create Tag from Address Book"
 msgstr "Ustvari oznako iz imenika"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:666
+#: digikam/tags/tagsmanager/tagsmanager.cpp:690
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 "Dodaj novo oznako k trenutni. Trenutna oznaka je tista, ki ste jo nazadnje "
 "kliknili."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:669
+#: digikam/tags/tagsmanager/tagsmanager.cpp:693
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
@@ -2862,53 +2859,53 @@ msgstr ""
 "Izbriši izbrane predmete. To deluje tudi z večimi predmeti, ampak ne bo "
 "izbrisalo korenske oznake."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:673
+#: digikam/tags/tagsmanager/tagsmanager.cpp:697
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr "Ponastavi ikono izbranih oznak. Deluje tudi z več izbirami."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:676
+#: digikam/tags/tagsmanager/tagsmanager.cpp:700
 msgid "Invert selection. Only visible items will be selected"
 msgstr "Obrni izbor. Izbrani bodo samo vidni predmeti"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:679
+#: digikam/tags/tagsmanager/tagsmanager.cpp:703
 msgid "Expand tag tree by one level"
 msgstr "Razširi drevo oznak za eno raven"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:681
+#: digikam/tags/tagsmanager/tagsmanager.cpp:705
 msgid "Selected items will be expanded"
 msgstr "Izbrani predmeti bodo razširjeni"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:683
+#: digikam/tags/tagsmanager/tagsmanager.cpp:707
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr "Izbriši izbrane oznake iz slik. Deluje tudi z več izbirami."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:713
+#: digikam/tags/tagsmanager/tagsmanager.cpp:737
 msgid "Sync &Export"
 msgstr "Uskladi &izvoz"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:717
+#: digikam/tags/tagsmanager/tagsmanager.cpp:741
 msgid "Write Tags from Database to Image"
 msgstr "Zapiši oznake iz podatkovne zbirke v sliko"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:721
+#: digikam/tags/tagsmanager/tagsmanager.cpp:745
 msgid "Read Tags from Image"
 msgstr "Preberi oznake iz slike"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:724
+#: digikam/tags/tagsmanager/tagsmanager.cpp:748
 msgid "Wipe all tags from Database only"
 msgstr "Izbriši vse oznake, ampak le iz podatkovne zbirke"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:727
+#: digikam/tags/tagsmanager/tagsmanager.cpp:751
 msgid "Write Tags Metadata to Image."
 msgstr "Zapiši oznake metapodatkov v sliko."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:729
+#: digikam/tags/tagsmanager/tagsmanager.cpp:753
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 "Preberi oznake iz slik v podatkovno zbirko. Obstoječe oznake ne bodo "
 "spremenjene"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:732
+#: digikam/tags/tagsmanager/tagsmanager.cpp:756
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
@@ -2916,15 +2913,15 @@ msgstr ""
 "Izbriši vse oznake, ampak le iz podatkovne zbirke. Uskladitve z datotekami "
 "ne bo. Priporočamo previdnost."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:753
+#: digikam/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync Database with Nepomuk"
 msgstr "Uskladi podatkovno zbirko z Nepomukom"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:757
+#: digikam/tags/tagsmanager/tagsmanager.cpp:779
 msgid "Sync Nepomuk to Database"
 msgstr "Uskladi Nepomuk s podatkovno zbirko"
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:758
+#: digikam/tags/tagsmanager/tagsmanager.cpp:780
 msgid ""
 "Export all tags from Database to Nepomuk. digiKam with Nepomuk support is "
 "required."
@@ -2932,12 +2929,12 @@ msgstr ""
 "Izvozi vse oznake iz podatkovne zbirke v Nepomuk. Zahtevan je digiKam s "
 "podporo za Nepomuk."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:761
+#: digikam/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Import tags from Nepomuk. digiKam with Nepomuk support is required."
 msgstr ""
 "Uvozi vse oznake iz Nepomuka. Zahtevan je digiKam s podporo za Nepomuk."
 
-#: digikam/tags/tagsmanager/tagsmanager.cpp:787
+#: digikam/tags/tagsmanager/tagsmanager.cpp:809
 msgid "Tag Properties"
 msgstr "Lastnosti oznak"
 
@@ -2970,35 +2967,35 @@ msgstr "Odstrani to oznako"
 msgid "Go to this Tag"
 msgstr "Pojdi do te oznake"
 
-#: digikam/utils/albumsettings.cpp:456
+#: digikam/utils/albumsettings.cpp:463
 msgid "Category"
 msgstr "Kategorija"
 
-#: digikam/utils/albumsettings.cpp:457
+#: digikam/utils/albumsettings.cpp:464
 msgid "Travel"
 msgstr "Potovanje"
 
-#: digikam/utils/albumsettings.cpp:458
+#: digikam/utils/albumsettings.cpp:465
 msgid "Holidays"
 msgstr "Prazniki"
 
-#: digikam/utils/albumsettings.cpp:459
+#: digikam/utils/albumsettings.cpp:466
 msgid "Friends"
 msgstr "Prijatelji"
 
-#: digikam/utils/albumsettings.cpp:460
+#: digikam/utils/albumsettings.cpp:467
 msgid "Nature"
 msgstr "Narava"
 
-#: digikam/utils/albumsettings.cpp:461
+#: digikam/utils/albumsettings.cpp:468
 msgid "Party"
 msgstr "Zabava"
 
-#: digikam/utils/albumsettings.cpp:462
+#: digikam/utils/albumsettings.cpp:469
 msgid "Todo"
 msgstr "Naredi"
 
-#: digikam/utils/albumsettings.cpp:463 showfoto/setup/setup.cpp:154
+#: digikam/utils/albumsettings.cpp:470 showfoto/setup/setup.cpp:154
 #: utilities/setup/setup.cpp:334
 msgid "Miscellaneous"
 msgstr "Razno"
@@ -3039,10 +3036,6 @@ msgstr "Odpri z ..."
 #: digikam/utils/contextmenuhelper.cpp:411
 msgid "New Tag..."
 msgstr "Nova oznaka ..."
-
-#: digikam/utils/contextmenuhelper.cpp:429
-msgid "Delete Tags"
-msgstr "Izbriši oznake"
 
 #: digikam/utils/contextmenuhelper.cpp:438
 msgctxt "Edit Tag Properties"
@@ -3596,7 +3589,7 @@ msgstr "Ni mogoče odpreti korena, saj ni fizično mesto."
 #: digikam/views/mediaplayerview.cpp:141
 #: utilities/importui/views/importpreviewview.cpp:188
 msgid "Escape preview"
-msgstr "Izhodni predogled"
+msgstr "Izhod iz predogleda"
 
 #: digikam/views/imagepreviewview.cpp:162
 #: digikam/views/mediaplayerview.cpp:142
@@ -3833,7 +3826,7 @@ msgstr "Barvna oznaka"
 #: libs/template/templatelist.cpp:83
 #: utilities/queuemanager/views/workflowlist.cpp:97
 #: utilities/searchwindow/searchfields.cpp:536
-#: utilities/setup/setupcamera.cpp:283
+#: utilities/setup/setupcamera.cpp:285
 msgid "Title"
 msgstr "Naslov"
 
@@ -3934,7 +3927,7 @@ msgstr "Ime datoteke"
 
 #: digikam/views/tableview_column_file.cpp:67
 #: digikam/views/tableview_column_file.cpp:97
-#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:286
+#: libs/dialogs/deletedialog.cpp:177 utilities/setup/setupcamera.cpp:288
 #: utilities/setup/setupcollectionview.cpp:936
 msgid "Path"
 msgstr "Pot"
@@ -4029,7 +4022,7 @@ msgstr "Barvni način"
 
 #: digikam/views/tableview_column_item.cpp:104
 #: digikam/views/tableview_column_item.cpp:139
-#: libs/widgets/common/databasewidget.cpp:102
+#: libs/widgets/common/databasewidget.cpp:103
 msgid "Type"
 msgstr "Vrsta"
 
@@ -4155,8 +4148,8 @@ msgstr "Mikrosekunde"
 msgid "Unit"
 msgstr "Enota"
 
-#: digikam/views/tableview_column_thumbnail.cpp:88
-#: digikam/views/tableview_column_thumbnail.cpp:98
+#: digikam/views/tableview_column_thumbnail.cpp:85
+#: digikam/views/tableview_column_thumbnail.cpp:95
 #: utilities/queuemanager/views/queuelist.cpp:308
 msgid "Thumbnail"
 msgstr "Sličica"
@@ -5532,7 +5525,7 @@ msgstr "Maska odstranitve ostrine"
 
 #: imageplugins/enhance/sharpentool.cpp:292
 #: libs/dimg/filters/sharp/refocusfilter.h:58
-#: libs/dimg/filters/sharp/sharpsettings.cpp:147
+#: libs/dimg/filters/sharp/sharpsettings.cpp:148
 msgid "Refocus"
 msgstr "Postavi ponovno v žarišče"
 
@@ -5542,11 +5535,8 @@ msgid "Blur Effects"
 msgstr "Učinki zabrisanja"
 
 #: imageplugins/filters/blurfxtool.cpp:121
-#, fuzzy
-#| msgid ""
-#| "This is the preview of the distortion effect applied to the photograph."
 msgid "This is the preview of the blur effect applied to the photograph."
-msgstr "To je predogled učinka popačenja uveljavljenega na fotografiji."
+msgstr "To je predogled učinka zabrisanosti uveljavljenega na fotografiji."
 
 #: imageplugins/filters/blurfxtool.cpp:128
 msgid "Zoom Blur"
@@ -6323,7 +6313,7 @@ msgstr "Samodejna prilagoditev"
 
 #: imageplugins/transform/freerotationtool.cpp:223
 #: libs/widgets/metadata/metadatawidget.cpp:146
-#: utilities/importui/main/importui.cpp:291
+#: utilities/importui/main/importui.cpp:293
 msgid "Settings"
 msgstr "Nastavitve"
 
@@ -6761,35 +6751,35 @@ msgstr ""
 "<b>Opomba:</b> uporabite način obnovitve za spremembo merila slike na "
 "orjaško velikost. To opravilo je lahko dolgotrajno."
 
-#: imageplugins/transform/resizetool.cpp:556
+#: imageplugins/transform/resizetool.cpp:552
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:353
 #: utilities/queuemanager/basetools/transform/resize.cpp:126
 msgid "Resize"
 msgstr "Spremeni velikost"
 
-#: imageplugins/transform/resizetool.cpp:587
+#: imageplugins/transform/resizetool.cpp:583
 msgid "Photograph Resizing Settings File to Load"
 msgstr ""
 "Datoteka z nastavitvami spremembe velikosti fotografije, ki bo naložena"
 
-#: imageplugins/transform/resizetool.cpp:601
+#: imageplugins/transform/resizetool.cpp:597
 #, kde-format
 msgid "\"%1\" is not a Photograph Resizing settings text file."
 msgstr ""
 "\"%1\" ni besedilna datoteka z nastavitvami spremembe velikosti fotografije."
 
-#: imageplugins/transform/resizetool.cpp:610
+#: imageplugins/transform/resizetool.cpp:606
 msgid "Cannot load settings from the Photograph Resizing text file."
 msgstr ""
 "Ni bilo mogoče naložiti nastavitev iz besedilne datoteke z nastavitvami "
 "spremembe velikosti fotografije."
 
-#: imageplugins/transform/resizetool.cpp:620
+#: imageplugins/transform/resizetool.cpp:616
 msgid "Photograph Resizing Settings File to Save"
 msgstr ""
 "Datoteka z nastavitvami spremembe velikosti fotografije, ki bo shranjena"
 
-#: imageplugins/transform/resizetool.cpp:635
+#: imageplugins/transform/resizetool.cpp:631
 msgid "Cannot save settings to the Photograph Resizing text file."
 msgstr ""
 "Ni bilo mogoče shraniti nastavitev v besedilno datoteko z nastavitvami "
@@ -7784,10 +7774,10 @@ msgstr "Paraleliziran kodek PGF"
 #: libs/dialogs/libsinfodlg.cpp:160
 msgid "CPU core"
 msgid_plural "CPU cores"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "jeder CPE"
+msgstr[1] "jedro CPE"
+msgstr[2] "jedri CPE"
+msgstr[3] "jedra CPE"
 
 #: libs/dialogs/libsinfodlg.cpp:162
 msgid "Component"
@@ -7799,7 +7789,7 @@ msgstr "Sestavni del"
 msgid "Info"
 msgstr "Podrobnosti"
 
-#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2506
+#: libs/dialogs/libsinfodlg.cpp:179 libs/dmetadata/dmetadata.cpp:2511
 #: libs/imageproperties/imagepropertiessidebar.cpp:245
 #: libs/imageproperties/imagepropertiessidebardb.cpp:538
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:367
@@ -7891,47 +7881,47 @@ msgstr[3] ""
 "<p>Uporablja se knjižnica KDcraw različice %2<br/>Uporablja se LibRaw "
 "različice %3<br/>%1 modeli na seznamu (najdenih: %4)</p>"
 
-#: libs/dimg/dimg.cpp:3178
+#: libs/dimg/dimg.cpp:3177
 msgctxt "Color Model: RGB"
 msgid "RGB"
 msgstr "RGB"
 
-#: libs/dimg/dimg.cpp:3181
+#: libs/dimg/dimg.cpp:3180
 msgctxt "Color Model: Grayscale"
 msgid "Grayscale"
 msgstr "Sivinsko"
 
-#: libs/dimg/dimg.cpp:3184
+#: libs/dimg/dimg.cpp:3183
 msgctxt "Color Model: Monochrome"
 msgid "Monochrome"
 msgstr "Enobarvno"
 
-#: libs/dimg/dimg.cpp:3187
+#: libs/dimg/dimg.cpp:3186
 msgctxt "Color Model: Indexed"
 msgid "Indexed"
 msgstr "Indeksirano"
 
-#: libs/dimg/dimg.cpp:3190
+#: libs/dimg/dimg.cpp:3189
 msgctxt "Color Model: YCbCr"
 msgid "YCbCr"
 msgstr "YCbCr"
 
-#: libs/dimg/dimg.cpp:3193
+#: libs/dimg/dimg.cpp:3192
 msgctxt "Color Model: CMYK"
 msgid "CMYK"
 msgstr "CMYK"
 
-#: libs/dimg/dimg.cpp:3196
+#: libs/dimg/dimg.cpp:3195
 msgctxt "Color Model: CIE L*a*b*"
 msgid "CIE L*a*b*"
 msgstr "CIE L*a*b*"
 
-#: libs/dimg/dimg.cpp:3199
+#: libs/dimg/dimg.cpp:3198
 msgctxt "Color Model: Uncalibrated (RAW)"
 msgid "Uncalibrated (RAW)"
 msgstr "Ni umerjeno (RAW)"
 
-#: libs/dimg/dimg.cpp:3203
+#: libs/dimg/dimg.cpp:3202
 msgctxt "Color Model: Unknown"
 msgid "Unknown"
 msgstr "Neznano"
@@ -9427,7 +9417,7 @@ msgstr ""
 "uveljavljene na sliki."
 
 #: libs/dimg/filters/lens/antivignettingsettings.cpp:127
-#: libs/dimg/filters/sharp/sharpsettings.cpp:195
+#: libs/dimg/filters/sharp/sharpsettings.cpp:198
 msgid "Amount:"
 msgstr "Količina:"
 
@@ -9904,7 +9894,7 @@ msgstr ""
 #: libs/dimg/filters/nr/nrsettings.cpp:138
 #: libs/dimg/filters/nr/nrsettings.cpp:165
 #: libs/dimg/filters/nr/nrsettings.cpp:192
-#: libs/dimg/filters/sharp/sharpsettings.cpp:203
+#: libs/dimg/filters/sharp/sharpsettings.cpp:206
 #: utilities/fuzzysearch/fuzzysearchview.cpp:295
 msgid "Threshold:"
 msgstr "Prag:"
@@ -9969,15 +9959,15 @@ msgstr "Preprosto ostrenje"
 msgid "Unsharp mask"
 msgstr "Maska odstranitve ostrine"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:149
+#: libs/dimg/filters/sharp/sharpsettings.cpp:151
 msgid "Select the sharpening method to apply to the image."
 msgstr "Izberite metodo ostrenja, ki bo uveljavljena na sliki."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:166
+#: libs/dimg/filters/sharp/sharpsettings.cpp:168
 msgid "Sharpness:"
 msgstr "Ostrina:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:171
+#: libs/dimg/filters/sharp/sharpsettings.cpp:173
 msgid ""
 "A sharpness of 0 has no effect, 1 and above determine the sharpen matrix "
 "radius that determines how much to sharpen the image."
@@ -9985,11 +9975,11 @@ msgstr ""
 "Ostrost 0 nima učinka, 1 in več pa določajo polmer matrice ostrenja, ki "
 "določa kako bo slika ostra."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:188
+#: libs/dimg/filters/sharp/sharpsettings.cpp:190
 msgid "Radius:"
 msgstr "Polmer:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:192
+#: libs/dimg/filters/sharp/sharpsettings.cpp:195
 msgid ""
 "Radius value is the Gaussian blur matrix radius value used to determines how "
 "much to blur the image."
@@ -9997,7 +9987,7 @@ msgstr ""
 "Vrednost polmera je polmer matrike po Gaussu, ki določa kako močno bo slika "
 "zabrisana."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:200
+#: libs/dimg/filters/sharp/sharpsettings.cpp:203
 msgid ""
 "The value of the difference between the original and the blur image that is "
 "added back into the original."
@@ -10005,7 +9995,7 @@ msgstr ""
 "Vrednost razlike med izvirnikom in zabrisano sliko, ki je dodana nazaj k "
 "izvirniku."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:208
+#: libs/dimg/filters/sharp/sharpsettings.cpp:211
 msgid ""
 "The threshold, as a fraction of the maximum luminosity value, needed to "
 "apply the difference amount."
@@ -10013,11 +10003,11 @@ msgstr ""
 "Prag kot delež največje vrednosti svetilnosti, ki je potrebna za uveljavitev "
 "količine razlike."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:230
+#: libs/dimg/filters/sharp/sharpsettings.cpp:233
 msgid "Circular sharpness:"
 msgstr "Krožna ostrina:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:235
+#: libs/dimg/filters/sharp/sharpsettings.cpp:238
 msgid ""
 "This is the radius of the circular convolution. It is the most important "
 "parameter for using this plugin. For most images the default value of 1.0 "
@@ -10028,11 +10018,11 @@ msgstr ""
 "vstavka. Za večino slik bo privzeta vrednost 1.0 dala dobre rezultate. "
 "Izberite višje vrednosti, če je slika zelo zamegljena."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:239
+#: libs/dimg/filters/sharp/sharpsettings.cpp:242
 msgid "Correlation:"
 msgstr "Korelacija:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:244
+#: libs/dimg/filters/sharp/sharpsettings.cpp:247
 msgid ""
 "Increasing the correlation may help to reduce artifacts. The correlation can "
 "range from 0-1. Useful values are 0.5 and values close to 1, e.g. 0.95 and "
@@ -10043,11 +10033,11 @@ msgstr ""
 "0 do 1. Uporabne vrednosti so 0.5 in tiste blizu 1 (npr. 0.95 in 0.99). Če "
 "izberete visoko vrednost korelacije, bo to zmanjšalo učinek ostrenja vstavka."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:249
+#: libs/dimg/filters/sharp/sharpsettings.cpp:252
 msgid "Noise filter:"
 msgstr "Filter za šum:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:254
+#: libs/dimg/filters/sharp/sharpsettings.cpp:257
 msgid ""
 "Increasing the noise filter parameter may help to reduce artifacts. The "
 "noise filter can range from 0-1 but values higher than 0.1 are rarely "
@@ -10061,11 +10051,11 @@ msgstr ""
 "Uporabna vrednost je 0.01. Če uporabite visoko vrednost za filter šuma, bo "
 "to zmanjšalo učinek ostrenja vstavka."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:260
+#: libs/dimg/filters/sharp/sharpsettings.cpp:263
 msgid "Gaussian sharpness:"
 msgstr "Ostrina po Gaussu:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:265
+#: libs/dimg/filters/sharp/sharpsettings.cpp:268
 msgid ""
 "This is the sharpness for the Gaussian convolution. Use this parameter when "
 "your blurring is of a Gaussian type. In most cases you should set this "
@@ -10078,11 +10068,11 @@ msgstr ""
 "na 0, saj povzroča grde napake. Če uporabite vrednost, ki ni nič, boste "
 "morali povečati korelacijo in/ali parametre filtra šuma."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:270
+#: libs/dimg/filters/sharp/sharpsettings.cpp:273
 msgid "Matrix size:"
 msgstr "Velikost matrike:"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:275
+#: libs/dimg/filters/sharp/sharpsettings.cpp:278
 msgid ""
 "This parameter determines the size of the transformation matrix. Increasing "
 "the matrix width may give better results, especially when you have chosen "
@@ -10092,27 +10082,27 @@ msgstr ""
 "matrike lahko da boljše rezultate, še posebej, če ste izbrali visoke "
 "vrednosti za krožno ostrino ali ostrino po Gaussu."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:487
+#: libs/dimg/filters/sharp/sharpsettings.cpp:490
 msgid "Photograph Refocus Settings File to Load"
 msgstr "Datoteka z nastavitvami spremembe žarišča fotografije, ki bo naložena"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:503
+#: libs/dimg/filters/sharp/sharpsettings.cpp:506
 #, kde-format
 msgid "\"%1\" is not a Photograph Refocus settings text file."
 msgstr ""
 "\"%1\" ni besedilna datoteka z nastavitvami spremembe žarišča fotografije."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:521
+#: libs/dimg/filters/sharp/sharpsettings.cpp:524
 msgid "Cannot load settings from the Photograph Refocus text file."
 msgstr ""
 "Ni bilo mogoče naložiti nastavitev iz besedilne datoteke z nastavitvami "
 "spremembe žarišča fotografije."
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:531
+#: libs/dimg/filters/sharp/sharpsettings.cpp:534
 msgid "Photograph Refocus Settings File to Save"
 msgstr "Datoteka z nastavitvami spremembe žarišča fotografije, ki bo shranjena"
 
-#: libs/dimg/filters/sharp/sharpsettings.cpp:554
+#: libs/dimg/filters/sharp/sharpsettings.cpp:557
 msgid "Cannot save settings to the Photograph Refocus text file."
 msgstr ""
 "Ni bilo mogoče shraniti nastavitev v besedilno datoteko z nastavitvami "
@@ -10588,64 +10578,64 @@ msgstr ""
 "zmanjšate končno velikost slike TIFF.</p><p>Za shranjevanje bo uporabljena "
 "vrsta stiskana brez izgub (Deflate).</p>"
 
-#: libs/dmetadata/dmetadata.cpp:2488
+#: libs/dmetadata/dmetadata.cpp:2493
 msgid "Unspecified"
 msgstr "Nedoločeno"
 
-#: libs/dmetadata/dmetadata.cpp:2490
+#: libs/dmetadata/dmetadata.cpp:2495
 msgctxt "Rotation of an unrotated image"
 msgid "Normal"
 msgstr "Običajno"
 
-#: libs/dmetadata/dmetadata.cpp:2494
+#: libs/dmetadata/dmetadata.cpp:2499
 msgid "Rotated by 180 Degrees"
 msgstr "Zavrteno za 180 stopinj"
 
-#: libs/dmetadata/dmetadata.cpp:2498
+#: libs/dmetadata/dmetadata.cpp:2503
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "Zrcaljeno vodoravno in zavrteno levo"
 
-#: libs/dmetadata/dmetadata.cpp:2502
+#: libs/dmetadata/dmetadata.cpp:2507
 msgid "Flipped Vertically and Rotated Left"
 msgstr "Zrcaljeno navpično in zavrteno levo"
 
-#: libs/dmetadata/dmetadata.cpp:2542
+#: libs/dmetadata/dmetadata.cpp:2547
 #, kde-format
 msgctxt "Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "West"
 msgstr "zahodno"
 
-#: libs/dmetadata/dmetadata.cpp:2565 libs/dmetadata/dmetadata.cpp:2578
+#: libs/dmetadata/dmetadata.cpp:2570 libs/dmetadata/dmetadata.cpp:2583
 msgctxt "For use in longitude coordinate"
 msgid "East"
 msgstr "vzhodno"
 
-#: libs/dmetadata/dmetadata.cpp:2595 libs/dmetadata/dmetadata.cpp:2608
+#: libs/dmetadata/dmetadata.cpp:2600 libs/dmetadata/dmetadata.cpp:2613
 msgctxt "For use in latitude coordinate"
 msgid "North"
 msgstr "severno"
 
-#: libs/dmetadata/dmetadata.cpp:2595
+#: libs/dmetadata/dmetadata.cpp:2600
 msgctxt "For use in latitude coordinate"
 msgid "South"
 msgstr "južno"
 
-#: libs/dmetadata/dmetadata.cpp:2617
+#: libs/dmetadata/dmetadata.cpp:2622
 #, no-c-format
 msgctxt "Height in meters"
 msgid "%L1m"
 msgstr "%L1m"
 
-#: libs/dmetadata/dmetadata.cpp:2759
+#: libs/dmetadata/dmetadata.cpp:2764
 msgid "Flash has been fired"
 msgstr "Bliskavica je bila vklopljena"
 
-#: libs/dmetadata/dmetadata.cpp:2760
+#: libs/dmetadata/dmetadata.cpp:2765
 msgid "Flash with red-eye reduction mode"
 msgstr "Bliskavica z načinom za zmanjšanje rdečih oči"
 
@@ -10880,10 +10870,6 @@ msgstr "Več"
 msgid "Description"
 msgstr "Opis"
 
-#: libs/imageproperties/imagedescedittab.cpp:294
-msgid "Open Tag Manger"
-msgstr "Odpri upravljalnik oznak"
-
 #: libs/imageproperties/imagedescedittab.cpp:302
 msgid "Enter new tag here..."
 msgstr "Sem vnesite novo oznako ..."
@@ -10900,6 +10886,7 @@ msgstr "Nedavne oznake"
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:135
 #: utilities/advancedrename/common/tooltipdialog.cpp:57
 #: utilities/importui/dialogs/cameramessagebox.cpp:216
+#: utilities/importui/main/importui.cpp:1891
 msgid "Information"
 msgstr "Podrobnosti"
 
@@ -11795,19 +11782,19 @@ msgstr "Uporabe:"
 msgid "Sublocation:"
 msgstr "Pod-položaj"
 
-#: libs/threadimageio/thumbnailcreator.cpp:217
+#: libs/threadimageio/thumbnailcreator.cpp:218
 msgid "No or invalid size specified"
 msgstr "Navedene ni nobene velikosti ali pa je le ta napačna"
 
-#: libs/threadimageio/thumbnailcreator.cpp:285
+#: libs/threadimageio/thumbnailcreator.cpp:286
 msgid "Thumbnail is null"
 msgstr "Sličice ni"
 
-#: libs/threadimageio/thumbnailcreator.cpp:435
+#: libs/threadimageio/thumbnailcreator.cpp:436
 msgid "File does not exist"
 msgstr "Datoteka ne obstaja"
 
-#: libs/threadimageio/thumbnailcreator.cpp:540
+#: libs/threadimageio/thumbnailcreator.cpp:541
 #, kde-format
 msgid "Cannot create thumbnail for %1"
 msgstr "Ni mogoče ustvariti sličice za %1"
@@ -11826,11 +11813,11 @@ msgstr "Ni bilo mogoče nastaviti začetnih vrednosti podatkovne zbirke sličic"
 msgid "Color Label: %1"
 msgstr "Barvna oznaka: %1"
 
-#: libs/widgets/common/databasewidget.cpp:90
+#: libs/widgets/common/databasewidget.cpp:91
 msgid "Database File Path"
 msgstr "Pot datoteke podatkovne zbirke"
 
-#: libs/widgets/common/databasewidget.cpp:92
+#: libs/widgets/common/databasewidget.cpp:93
 msgid ""
 "<p>The location where the database file will be stored on your system. There "
 "is one common database file for all root albums.<br/>Write access is "
@@ -11843,52 +11830,52 @@ msgstr ""
 "p><p>Opomba: tukaj ne morete uporabite oddaljenega datotečnega sistema kot "
 "je na primer NFS.</p><p></p>"
 
-#: libs/widgets/common/databasewidget.cpp:104
+#: libs/widgets/common/databasewidget.cpp:105
 msgid "Internal Server"
 msgstr "Notranji strežnik"
 
-#: libs/widgets/common/databasewidget.cpp:106
+#: libs/widgets/common/databasewidget.cpp:107
 msgid "Schema Name"
 msgstr "Ime sheme"
 
-#: libs/widgets/common/databasewidget.cpp:108
+#: libs/widgets/common/databasewidget.cpp:109
 msgid "Thumbnails<br>Schema Name"
 msgstr "Ime sheme<br>sličic"
 
-#: libs/widgets/common/databasewidget.cpp:110
+#: libs/widgets/common/databasewidget.cpp:111
 msgid "Host Name"
 msgstr "Ime gostitelja"
 
-#: libs/widgets/common/databasewidget.cpp:112
-#: utilities/setup/setupcamera.cpp:285
+#: libs/widgets/common/databasewidget.cpp:113
+#: utilities/setup/setupcamera.cpp:287
 msgid "Port"
 msgstr "Vrata"
 
-#: libs/widgets/common/databasewidget.cpp:116
+#: libs/widgets/common/databasewidget.cpp:117
 msgid "Database<br>Connection<br>Options"
 msgstr "Možnosti<br>povezave<br>podatkovne zbirke"
 
-#: libs/widgets/common/databasewidget.cpp:119
+#: libs/widgets/common/databasewidget.cpp:120
 msgid "User"
 msgstr "Uporabnik"
 
-#: libs/widgets/common/databasewidget.cpp:122
+#: libs/widgets/common/databasewidget.cpp:123
 msgid "Password"
 msgstr "Geslo"
 
-#: libs/widgets/common/databasewidget.cpp:126
+#: libs/widgets/common/databasewidget.cpp:127
 msgid "Check DB Connection"
 msgstr "Preveri povezavo PZ"
 
-#: libs/widgets/common/databasewidget.cpp:164
+#: libs/widgets/common/databasewidget.cpp:165
 msgid "SQLite"
 msgstr "SQLite"
 
-#: libs/widgets/common/databasewidget.cpp:165
+#: libs/widgets/common/databasewidget.cpp:166
 msgid "MySQL (experimental)"
 msgstr "MySQL (poskusno)"
 
-#: libs/widgets/common/databasewidget.cpp:166
+#: libs/widgets/common/databasewidget.cpp:167
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small and medium collection sizes (less "
@@ -11904,7 +11891,7 @@ msgstr ""
 "za bolj učinkovito zaledje za upravljanje velikih zbirk. Bodite previdni: "
 "podpora je še vedno eksperimentalna.</p>"
 
-#: libs/widgets/common/databasewidget.cpp:218
+#: libs/widgets/common/databasewidget.cpp:219
 msgid ""
 "You do not seem to have write access to this database folder.\n"
 "Without this access, the caption and tag features will not work."
@@ -11912,16 +11899,16 @@ msgstr ""
 "Izgleda, da nimate dovoljenj za zapisovanje v to mapo podatkovne zbirke.\n"
 "Brez tega dostopa ne boste mogli uporabljati zmožnosti naslovov in oznak."
 
-#: libs/widgets/common/databasewidget.cpp:297
+#: libs/widgets/common/databasewidget.cpp:305
 msgid "Database connection test successful."
 msgstr "Preizkus povezave do podatkovne zbirke je bil uspešen."
 
-#: libs/widgets/common/databasewidget.cpp:297
-#: libs/widgets/common/databasewidget.cpp:302
+#: libs/widgets/common/databasewidget.cpp:305
+#: libs/widgets/common/databasewidget.cpp:310
 msgid "Database connection test"
 msgstr "Preizkus povezave do podatkovne zbirke"
 
-#: libs/widgets/common/databasewidget.cpp:301
+#: libs/widgets/common/databasewidget.cpp:309
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr ""
@@ -12104,7 +12091,7 @@ msgid "Raw information about the ICC profile manufacturer"
 msgstr "Surovi podatki o proizvajalcu profila ICC"
 
 #: libs/widgets/iccprofiles/iccprofilewidget.cpp:139
-#: utilities/setup/setupcamera.cpp:284
+#: utilities/setup/setupcamera.cpp:286
 msgid "Model"
 msgstr "Model"
 
@@ -12334,8 +12321,8 @@ msgid "modified: %1"
 msgstr "spremenjeno: %1"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:369
-#: showfoto/main/showfoto.cpp:614
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:308
+#: showfoto/main/showfoto.cpp:625
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:320
 #: utilities/importui/items/itemviewimportdelegate.cpp:364
 #, kde-format
 msgctxt "%1 width, %2 height, %3 mpixels"
@@ -12343,14 +12330,14 @@ msgid "%1x%2 (%3Mpx)"
 msgstr "%1x%2 (%3 Mpx)"
 
 #: libs/widgets/itemview/itemviewimagedelegate.cpp:373
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:421
-#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:313
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:423
+#: showfoto/thumbbar/itemviewshowfotodelegate.cpp:325
 #: utilities/importui/items/itemviewimportdelegate.cpp:368
 msgctxt "unknown image resolution"
 msgid "Unknown"
 msgstr "Neznano"
 
-#: libs/widgets/itemview/itemviewimagedelegate.cpp:416
+#: libs/widgets/itemview/itemviewimagedelegate.cpp:418
 #, kde-format
 msgctxt "%1 width : %2 height (%3 Aspect Ratio)"
 msgid "%1:%2 (%3)"
@@ -12929,6 +12916,16 @@ msgstr "Upravljanje dovoljenj"
 msgid "Paged-Text"
 msgstr "Besedilo"
 
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:160
+msgid "Metadata Working Group Regions"
+msgstr ""
+
+#: libs/widgets/metadata/mdkeylistviewitem.cpp:164
+#, fuzzy
+#| msgid "Dublin Core"
+msgid "Darwin Core"
+msgstr "Dublin Core"
+
 #: libs/widgets/metadata/metadatalistview.cpp:140
 #, kde-format
 msgid ""
@@ -13032,7 +13029,7 @@ msgstr "showFoto"
 msgid "File(s) or folder(s) to open"
 msgstr "Datoteke ali mape za odprtje"
 
-#: showfoto/main/showfoto.cpp:290
+#: showfoto/main/showfoto.cpp:292
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
 "now, select \"Yes\", otherwise select \"No\". In this case, \"Color "
@@ -13043,37 +13040,37 @@ msgstr ""
 "onemogočena zmožnost \"Upravljanja barv\", dokler ne boste te težave rešili."
 "</p>"
 
-#: showfoto/main/showfoto.cpp:433
+#: showfoto/main/showfoto.cpp:437
 msgid "Open folder"
 msgstr "Odpri mapo"
 
-#: showfoto/main/showfoto.cpp:511
+#: showfoto/main/showfoto.cpp:515
 msgid "Delete File"
 msgstr "Izbriši datoteko"
 
-#: showfoto/main/showfoto.cpp:613
+#: showfoto/main/showfoto.cpp:624
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "Neznano"
 
-#: showfoto/main/showfoto.cpp:694
+#: showfoto/main/showfoto.cpp:705
 #: utilities/imageeditor/main/imagewindow.cpp:887
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
 msgid "%1 (%2 of %3)"
 msgstr "%1 (%2 od %3)"
 
-#: showfoto/main/showfoto.cpp:732
+#: showfoto/main/showfoto.cpp:743
 msgid "Open Images From Folder"
 msgstr "Odpri slike v mapi"
 
-#: showfoto/main/showfoto.cpp:878
+#: showfoto/main/showfoto.cpp:889
 #: utilities/imageeditor/main/imagewindow.cpp:967
 #: utilities/imageeditor/main/imagewindow.cpp:1065
 msgid "Image saved successfully"
 msgstr "Slika je bila uspešno shranjena"
 
-#: showfoto/main/showfoto.cpp:959
+#: showfoto/main/showfoto.cpp:970
 #, kde-format
 msgid ""
 "About to delete file \"%1\"\n"
@@ -13082,13 +13079,14 @@ msgstr ""
 "Pravkar boste izbrisali datoteko \"%1\"\n"
 "Ali ste prepričani?"
 
-#: showfoto/main/showfoto.cpp:964
+#: showfoto/main/showfoto.cpp:975
 #: utilities/imageeditor/editor/editorwindow.cpp:1218
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
+#: utilities/importui/main/importui.cpp:1911
 msgid "Warning"
 msgstr "Opozorilo"
 
-#: showfoto/main/showfoto.cpp:1037
+#: showfoto/main/showfoto.cpp:1048
 #: utilities/imageeditor/main/imagewindow.cpp:1356
 #: utilities/lighttable/lighttablewindow.cpp:1399
 msgid "Preparing slideshow. Please wait..."
@@ -13234,73 +13232,88 @@ msgstr ""
 "a> - nov standard uporabljen v digitalni fotografiji, zasnovan, da bo "
 "zamenjal IPTC.</p>"
 
-#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:101
+#: showfoto/setup/setupmetadata.cpp:160 showfoto/setup/setupmisc.cpp:103
 #: utilities/queuemanager/views/queuesettingsview.cpp:237
-#: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:511
+#: utilities/setup/setupcamera.cpp:354 utilities/setup/setupicc.cpp:511
 msgid "Behavior"
 msgstr "Obnašanje"
 
-#: showfoto/setup/setupmisc.cpp:104
+#: showfoto/setup/setupmisc.cpp:106
 msgid "&Deleted items should go to the trash"
 msgstr "Iz&brisani predmeti naj bodo premaknjeni v Smeti"
 
-#: showfoto/setup/setupmisc.cpp:105 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/setupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
 msgid "&Show splash screen at startup"
 msgstr "Ob zagonu pri&kaži pozdravno okno"
 
-#: showfoto/setup/setupmisc.cpp:106
-msgid "&Show Mime Type Over Image"
-msgstr "Nad &sliko pokaži vrsto MIME"
+#: showfoto/setup/setupmisc.cpp:108
+msgid "&Show image Format"
+msgstr "Pokaži vr&sto datoteke"
 
-#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/setupmisc.cpp:109 utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupcamera.cpp:443
+msgid "Set this option to show image format over image thumbnail."
+msgstr "Nastavite to možnost, da čez sličico prikažete vrsto datoteke."
+
+#: showfoto/setup/setupmisc.cpp:110
+msgid "&Show Geolocation Indicator"
+msgstr "Pok&aži kazalnik zemljepisne lege"
+
+#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupcamera.cpp:446
+msgid "Set this option to indicate if image has geolocation information."
+msgstr ""
+"Nastavite to možnost, da prikažete ali ima slika podatke o zemljepisni legi."
+
+#: showfoto/setup/setupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
 msgid "Sidebar tab title:"
 msgstr "Naslov zavihka stranske vrstice:"
 
-#: showfoto/setup/setupmisc.cpp:111 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
 msgid "Only For Active Tab"
 msgstr "Samo za dejaven zavihek"
 
-#: showfoto/setup/setupmisc.cpp:112 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/setupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
 msgid "For All Tabs"
 msgstr "Za vse zavihke"
 
-#: showfoto/setup/setupmisc.cpp:113
+#: showfoto/setup/setupmisc.cpp:118
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr ""
 "Nastavite to možnost, da določite kako je viden naslov stranske vrstice."
 
-#: showfoto/setup/setupmisc.cpp:116 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/setupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
 msgid "Widget style:"
 msgstr "Slog gradnikov:"
 
-#: showfoto/setup/setupmisc.cpp:118 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/setupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
 msgid "Set this option to choose the default window decoration and looks."
 msgstr "Nastavite to možnost, da izberete privzete okraske oken in izgled."
 
-#: showfoto/setup/setupmisc.cpp:133
+#: showfoto/setup/setupmisc.cpp:140
 msgid "Sort order for images"
 msgstr "Vrstni red razvrščanja za slike"
 
-#: showfoto/setup/setupmisc.cpp:137
+#: showfoto/setup/setupmisc.cpp:144
 msgid "Sort images by:"
 msgstr "Razvrsti slike po:"
 
-#: showfoto/setup/setupmisc.cpp:139
+#: showfoto/setup/setupmisc.cpp:146
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "Datumu"
 
-#: showfoto/setup/setupmisc.cpp:140
+#: showfoto/setup/setupmisc.cpp:147
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "Imenu"
 
-#: showfoto/setup/setupmisc.cpp:141
+#: showfoto/setup/setupmisc.cpp:148
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "Velikosti datoteke"
 
-#: showfoto/setup/setupmisc.cpp:142
+#: showfoto/setup/setupmisc.cpp:149
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -13308,11 +13321,11 @@ msgstr ""
 "Tukaj izberite ali so novo naložene slike razvrščene po datumu, imenu ali "
 "velikosti na disku."
 
-#: showfoto/setup/setupmisc.cpp:145
+#: showfoto/setup/setupmisc.cpp:152
 msgid "Reverse ordering"
 msgstr "Obratna razvrstitev"
 
-#: showfoto/setup/setupmisc.cpp:146
+#: showfoto/setup/setupmisc.cpp:153
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -14837,7 +14850,7 @@ msgstr "Potrdite"
 msgid "Who is this?"
 msgstr "Kdo je to?"
 
-#: utilities/facemanagement/facepipeline.cpp:1234
+#: utilities/facemanagement/facepipeline.cpp:1240
 msgid "Applying face changes"
 msgstr "Uveljavljanje sprememb obrazov"
 
@@ -14873,8 +14886,11 @@ msgid "Detect faces"
 msgstr "Zaznaj obraze"
 
 #: utilities/facemanagement/facescandialog.cpp:309
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Detect and recognize faces"
 msgctxt "@option:radio"
-msgid "Detect and recognize faces"
+msgid "Detect and recognize faces (experimental)"
 msgstr "Zaznaj in prepoznaj obraze"
 
 #: utilities/facemanagement/facescandialog.cpp:313
@@ -14907,8 +14923,11 @@ msgid "Clear unconfirmed results and rescan"
 msgstr "Počisti nepotrjene rezultate in znova preišči"
 
 #: utilities/facemanagement/facescandialog.cpp:335
+#, fuzzy
+#| msgctxt "@option:radio"
+#| msgid "Recognize faces"
 msgctxt "@option:radio"
-msgid "Recognize faces"
+msgid "Recognize faces (experimental)"
 msgstr "Prepoznaj obraze"
 
 #: utilities/facemanagement/facescandialog.cpp:338
@@ -16841,7 +16860,7 @@ msgstr ""
 "Ni bilo mogoče preklopiti datoteke zaklepa <filename>%1</filename>. Ali "
 "želite nadaljevati?"
 
-#: utilities/importui/backend/gpcamera.cpp:1360
+#: utilities/importui/backend/gpcamera.cpp:1364
 #, kde-format
 msgctxt "@info List of device properties"
 msgid ""
@@ -16851,7 +16870,7 @@ msgstr ""
 "Naslov: <b>%1</b><br/>Model: <b>%2</b><br/>Vrata: <b>%3</b><br/>Pot: <b>%4</"
 "b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1370
+#: utilities/importui/backend/gpcamera.cpp:1374
 #, kde-format
 msgctxt "@info List of supported device operations"
 msgid ""
@@ -16863,12 +16882,12 @@ msgstr ""
 "b><br/>Pošlji predmete: <b>%4</b><br/>Ustvari mape: <b>%5</b><br/>Izbriši "
 "mape: <b>%6</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -16878,12 +16897,12 @@ msgstr ""
 msgid "yes"
 msgstr "da"
 
-#: utilities/importui/backend/gpcamera.cpp:1376
-#: utilities/importui/backend/gpcamera.cpp:1377
-#: utilities/importui/backend/gpcamera.cpp:1378
-#: utilities/importui/backend/gpcamera.cpp:1379
 #: utilities/importui/backend/gpcamera.cpp:1380
 #: utilities/importui/backend/gpcamera.cpp:1381
+#: utilities/importui/backend/gpcamera.cpp:1382
+#: utilities/importui/backend/gpcamera.cpp:1383
+#: utilities/importui/backend/gpcamera.cpp:1384
+#: utilities/importui/backend/gpcamera.cpp:1385
 #: utilities/importui/backend/umscamera.cpp:582
 #: utilities/importui/backend/umscamera.cpp:583
 #: utilities/importui/backend/umscamera.cpp:584
@@ -17025,334 +17044,329 @@ msgstr "Zajemi"
 msgid "Unknown Format"
 msgstr "Neznana vrsta"
 
-#: utilities/importui/items/importoverlays.cpp:104
+#: utilities/importui/items/importoverlays.cpp:175
 msgctxt "@info:tooltip"
 msgid "This item is locked."
 msgstr "Ta predmet je zaklenjen."
 
-#: utilities/importui/items/importoverlays.cpp:110
+#: utilities/importui/items/importoverlays.cpp:244
 msgctxt "@info:tooltip"
-msgid "This item is not locked."
-msgstr "Ta predmet ni zaklenjen."
-
-#: utilities/importui/items/importoverlays.cpp:177
-msgctxt "@info:tooltip"
-msgid "This item download status is unknown"
+msgid "This item has an unknown download status"
 msgstr "Stanje prejema tega predmeta je neznano"
 
-#: utilities/importui/items/importoverlays.cpp:183
+#: utilities/importui/items/importoverlays.cpp:250
 msgctxt "@info:tooltip"
-msgid "This item download status is new"
-msgstr "Stanje prejema tega predmeta je novo"
+msgid "This item has never been downloaded"
+msgstr "Ta predmet še ni bil nikoli prejet"
 
-#: utilities/importui/items/importoverlays.cpp:189
+#: utilities/importui/items/importoverlays.cpp:256
 msgctxt "@info:tooltip"
-msgid "This item download status is downloaded"
-msgstr "Stanje prejema tega predmeta je prejeto"
+msgid "This item has already been downloaded"
+msgstr "Ta predmet je že bil prejet"
 
-#: utilities/importui/main/importui.cpp:267
+#: utilities/importui/main/importui.cpp:269
 msgid "Set how digiKam will rename files as they are downloaded."
 msgstr "Nastavite kako bo digiKam preimenoval datoteke med prejemanjem."
 
-#: utilities/importui/main/importui.cpp:269
+#: utilities/importui/main/importui.cpp:271
 msgid "File Renaming Options"
 msgstr "Možnosti preimenovanja datotek"
 
-#: utilities/importui/main/importui.cpp:275
+#: utilities/importui/main/importui.cpp:277
 msgid "Auto-creation of Albums"
 msgstr "Samodejno ustvarjanje albumov"
 
-#: utilities/importui/main/importui.cpp:281
+#: utilities/importui/main/importui.cpp:283
 msgid "On the Fly Operations (JPEG only)"
 msgstr "Sprotna opravila (samo JPEG)"
 
-#: utilities/importui/main/importui.cpp:287
+#: utilities/importui/main/importui.cpp:289
 msgid "Scripting"
 msgstr "Skriptno izvajanje"
 
-#: utilities/importui/main/importui.cpp:304
+#: utilities/importui/main/importui.cpp:306
 msgctxt "@action Cancel process"
 msgid "Cancel"
 msgstr "Prekliči"
 
-#: utilities/importui/main/importui.cpp:312
+#: utilities/importui/main/importui.cpp:314
 msgctxt "@action Information about camera"
 msgid "Information"
 msgstr "Podrobnosti"
 
-#: utilities/importui/main/importui.cpp:319
+#: utilities/importui/main/importui.cpp:321
 msgctxt "@action Capture photo from camera"
 msgid "Capture"
 msgstr "Zajemi"
 
-#: utilities/importui/main/importui.cpp:331
+#: utilities/importui/main/importui.cpp:333
 msgctxt "@action:inmenu"
 msgid "Select All"
 msgstr "Izberi vse"
 
-#: utilities/importui/main/importui.cpp:339
+#: utilities/importui/main/importui.cpp:341
 msgctxt "@action:inmenu"
 msgid "Select None"
 msgstr "Odstrani izbor"
 
-#: utilities/importui/main/importui.cpp:347
+#: utilities/importui/main/importui.cpp:349
 msgctxt "@action:inmenu"
 msgid "Invert Selection"
 msgstr "Obrni izbiro"
 
-#: utilities/importui/main/importui.cpp:355
+#: utilities/importui/main/importui.cpp:357
 msgctxt "@action:inmenu"
 msgid "Select New Items"
 msgstr "Izberi nove predmete"
 
-#: utilities/importui/main/importui.cpp:362
+#: utilities/importui/main/importui.cpp:364
 msgctxt "@action:inmenu"
 msgid "Select Locked Items"
 msgstr "Izberi zaklenjene predmete"
 
-#: utilities/importui/main/importui.cpp:370
+#: utilities/importui/main/importui.cpp:372
 msgctxt "@title:menu"
 msgid "Download"
 msgstr "Prejmi"
 
-#: utilities/importui/main/importui.cpp:375
+#: utilities/importui/main/importui.cpp:377
 msgctxt "@action"
 msgid "Download New"
 msgstr "Prejmi nove"
 
-#: utilities/importui/main/importui.cpp:382
+#: utilities/importui/main/importui.cpp:384
 msgctxt "@action"
 msgid "Download Selected"
 msgstr "Prejmi izbrane"
 
-#: utilities/importui/main/importui.cpp:389
+#: utilities/importui/main/importui.cpp:391
 msgctxt "@action"
 msgid "Download All"
 msgstr "Prejmi vse"
 
-#: utilities/importui/main/importui.cpp:397
+#: utilities/importui/main/importui.cpp:399
 msgctxt "@action"
 msgid "Download && Delete New"
 msgstr "Prejmi in izbriši nove"
 
-#: utilities/importui/main/importui.cpp:405
+#: utilities/importui/main/importui.cpp:407
 msgctxt "@action"
 msgid "Download && Delete Selected"
 msgstr "Prejmi in izbriši izbrane"
 
-#: utilities/importui/main/importui.cpp:413
+#: utilities/importui/main/importui.cpp:415
 msgctxt "@action"
 msgid "Download && Delete All"
 msgstr "Prejmi in izbriši vse"
 
-#: utilities/importui/main/importui.cpp:420
+#: utilities/importui/main/importui.cpp:422
 msgctxt "@action"
 msgid "Upload..."
 msgstr "Pošlji ..."
 
-#: utilities/importui/main/importui.cpp:428
+#: utilities/importui/main/importui.cpp:430
 msgctxt "@action"
 msgid "Toggle Lock"
 msgstr "Preklopi zaklep"
 
-#: utilities/importui/main/importui.cpp:436
+#: utilities/importui/main/importui.cpp:438
 msgctxt "@action"
 msgid "Mark as downloaded"
 msgstr "Označi kot prejeto"
 
-#: utilities/importui/main/importui.cpp:443
+#: utilities/importui/main/importui.cpp:445
 msgctxt "@title:menu"
 msgid "Delete"
 msgstr "Izbriši"
 
-#: utilities/importui/main/importui.cpp:448
+#: utilities/importui/main/importui.cpp:450
 msgctxt "@action"
 msgid "Delete Selected"
 msgstr "Izbriši izbrane"
 
-#: utilities/importui/main/importui.cpp:456
+#: utilities/importui/main/importui.cpp:458
 msgctxt "@action"
 msgid "Delete All"
 msgstr "Izbriši vse"
 
-#: utilities/importui/main/importui.cpp:462
+#: utilities/importui/main/importui.cpp:464
 msgctxt "@action"
 msgid "Delete New"
 msgstr "Izbriši nove"
 
-#: utilities/importui/main/importui.cpp:470
+#: utilities/importui/main/importui.cpp:472
 msgctxt "@title:group"
 msgid "Views"
 msgstr "Prikazi"
 
-#: utilities/importui/main/importui.cpp:479
+#: utilities/importui/main/importui.cpp:481
 msgctxt "@action View the selected image"
 msgid "Preview Item"
 msgstr "Predogled predmeta"
 
-#: utilities/importui/main/importui.cpp:495
+#: utilities/importui/main/importui.cpp:497
 msgctxt "@title:menu"
 msgid "&Sort Items"
 msgstr "Razvr&sti predmete"
 
-#: utilities/importui/main/importui.cpp:496
+#: utilities/importui/main/importui.cpp:498
 msgctxt "@info:whatsthis"
 msgid "The value by which the items are sorted in the thumbnail view"
 msgstr "Vrednost po kateri so predmeti razvrščeni v prikazu sličic"
 
-#: utilities/importui/main/importui.cpp:502
+#: utilities/importui/main/importui.cpp:504
 msgctxt "item:inmenu Sort by"
 msgid "By Name"
 msgstr "Po imenu"
 
-#: utilities/importui/main/importui.cpp:503
+#: utilities/importui/main/importui.cpp:505
 msgctxt "item:inmenu Sort by"
 msgid "By Path"
 msgstr "Po poti"
 
-#: utilities/importui/main/importui.cpp:504
+#: utilities/importui/main/importui.cpp:506
 msgctxt "item:inmenu Sort by"
 msgid "By Date"
 msgstr "Po datumu"
 
-#: utilities/importui/main/importui.cpp:505
+#: utilities/importui/main/importui.cpp:507
 msgctxt "item:inmenu Sort by"
 msgid "By Size"
 msgstr "Po velikosti"
 
-#: utilities/importui/main/importui.cpp:506
+#: utilities/importui/main/importui.cpp:508
 msgctxt "item:inmenu Sort by"
 msgid "By Rating"
 msgstr "Po oceni"
 
-#: utilities/importui/main/importui.cpp:507
+#: utilities/importui/main/importui.cpp:509
 msgctxt "item:inmenu Sort by"
 msgid "By Download State"
 msgstr "Po stanju prejema"
 
-#: utilities/importui/main/importui.cpp:527
+#: utilities/importui/main/importui.cpp:529
 msgctxt "@title:inmenu"
 msgid "Item Sorting &Order"
 msgstr "Vrstn&i red razvrščanja predmetov"
 
-#: utilities/importui/main/importui.cpp:528
+#: utilities/importui/main/importui.cpp:530
 msgctxt "@info:whatsthis"
 msgid "Defines whether items are sorted in ascending or descending manner."
 msgstr "Določa ali so predmeti razvrščeni naraščajoče ali padajoče."
 
-#: utilities/importui/main/importui.cpp:533
+#: utilities/importui/main/importui.cpp:535
 msgctxt "@item:inmenu Sorting Order"
 msgid "Ascending"
 msgstr "Naraščajoče"
 
-#: utilities/importui/main/importui.cpp:534
+#: utilities/importui/main/importui.cpp:536
 msgctxt "@item:inmenu Sorting Order"
 msgid "Descending"
 msgstr "Padajoče"
 
-#: utilities/importui/main/importui.cpp:546
+#: utilities/importui/main/importui.cpp:548
 msgctxt "@title:menu"
 msgid "&Group Items"
 msgstr "Z&druži predmete"
 
-#: utilities/importui/main/importui.cpp:547
+#: utilities/importui/main/importui.cpp:549
 msgctxt "@info:whatsthis"
 msgid "The categories in which the items in the thumbnail view are displayed"
 msgstr "Kategorije v katerih so prikazani predmeti v prikazu sličic"
 
-#: utilities/importui/main/importui.cpp:553
+#: utilities/importui/main/importui.cpp:555
 msgctxt "@item:inmenu Group Items"
 msgid "Flat List"
 msgstr "Ploski seznam"
 
-#: utilities/importui/main/importui.cpp:554
+#: utilities/importui/main/importui.cpp:556
 msgctxt "@item:inmenu Group Items"
 msgid "By Folder"
 msgstr "Po mapi"
 
-#: utilities/importui/main/importui.cpp:555
+#: utilities/importui/main/importui.cpp:557
 msgctxt "@item:inmenu Group Items"
 msgid "By Format"
 msgstr "Po vrsti"
 
-#: utilities/importui/main/importui.cpp:583
+#: utilities/importui/main/importui.cpp:585
 msgctxt "@action:inmenu"
 msgid "Fit to &Window"
 msgstr "Prilagodi &oknu"
 
-#: utilities/importui/main/importui.cpp:588
+#: utilities/importui/main/importui.cpp:590
 msgctxt "@action:inmenu"
 msgid "Zoom to 100%"
 msgstr "Približaj na 100 %"
 
-#: utilities/importui/main/importui.cpp:597
+#: utilities/importui/main/importui.cpp:599
 msgctxt "@option:check"
 msgid "Show History"
 msgstr "Pokaži zgodovino"
 
-#: utilities/importui/main/importui.cpp:602
+#: utilities/importui/main/importui.cpp:604
 msgctxt "@option:check"
 msgid "Show Thumbbar"
 msgstr "Pokaži vrstico s sličicami"
 
-#: utilities/importui/main/importui.cpp:633
-#: utilities/importui/main/importui.cpp:826
-#: utilities/importui/main/importui.cpp:832
+#: utilities/importui/main/importui.cpp:634
+#: utilities/importui/main/importui.cpp:828
+#: utilities/importui/main/importui.cpp:834
 msgctxt "@action"
 msgid "Previous Image"
 msgstr "Predhodna slika"
 
-#: utilities/importui/main/importui.cpp:640
+#: utilities/importui/main/importui.cpp:641
 msgctxt "@action Connection failed, try again?"
 msgid "Retry"
 msgstr "Poskusi znova"
 
-#: utilities/importui/main/importui.cpp:815
+#: utilities/importui/main/importui.cpp:817
 msgctxt "@action"
 msgid "Exit Preview Mode"
 msgstr "Končaj način predogleda"
 
-#: utilities/importui/main/importui.cpp:820
+#: utilities/importui/main/importui.cpp:822
 msgctxt "@action"
 msgid "Next Image"
 msgstr "Naslednja slika"
 
-#: utilities/importui/main/importui.cpp:837
+#: utilities/importui/main/importui.cpp:839
 msgctxt "@action Go to first image"
 msgid "First Image"
 msgstr "Prva slika"
 
-#: utilities/importui/main/importui.cpp:842
+#: utilities/importui/main/importui.cpp:844
 msgctxt "@action Go to last image"
 msgid "Last Image"
 msgstr "Zadnja slika"
 
-#: utilities/importui/main/importui.cpp:934
+#: utilities/importui/main/importui.cpp:936
 msgctxt "@info:status"
 msgid "Canceling current operation, please wait..."
 msgstr "Poteka preklic trenutnega opravila, počakajte ..."
 
-#: utilities/importui/main/importui.cpp:989
+#: utilities/importui/main/importui.cpp:991
 msgctxt "@info"
 msgid "Do you want to close the dialog and cancel the current operation?"
 msgstr "Ali želite zapreti pogovorno okno in preklicati trenutno opravilo?"
 
-#: utilities/importui/main/importui.cpp:998
+#: utilities/importui/main/importui.cpp:1000
 msgctxt "@info:status"
 msgid "Disconnecting from camera, please wait..."
 msgstr "Prekinjanje povezave s fotoaparatom, počakajte ..."
 
-#: utilities/importui/main/importui.cpp:1039
+#: utilities/importui/main/importui.cpp:1042
 msgctxt "@info:status"
 msgid "Scanning for new files, please wait..."
 msgstr "Preiskovanje za novimi datotekami, počakajte ..."
 
-#: utilities/importui/main/importui.cpp:1076
+#: utilities/importui/main/importui.cpp:1079
 msgctxt "@info:status"
 msgid "Ready"
 msgstr "Pripravljen"
 
-#: utilities/importui/main/importui.cpp:1147
+#: utilities/importui/main/importui.cpp:1150
 msgctxt "@info"
 msgid ""
 "Failed to connect to the camera. Please make sure it is connected properly "
@@ -17361,12 +17375,12 @@ msgstr ""
 "Ni se bilo mogoče povezati s fotoaparatom. Prepričajte se, da je pravilno "
 "povezan in vklopljen."
 
-#: utilities/importui/main/importui.cpp:1267
+#: utilities/importui/main/importui.cpp:1270
 msgctxt "@title:window"
 msgid "Select Image to Upload"
 msgstr "Izberite sliko za pošiljanje"
 
-#: utilities/importui/main/importui.cpp:1300
+#: utilities/importui/main/importui.cpp:1303
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17381,7 +17395,7 @@ msgstr ""
 "Zahtevan prostor: %1\n"
 "Razpoložljiv neporabljen prostor: %2"
 
-#: utilities/importui/main/importui.cpp:1354
+#: utilities/importui/main/importui.cpp:1357
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17391,12 +17405,12 @@ msgstr ""
 "Mapa na fotoaparatu <b>%1</b> že vsebuje predmet <b>%2</b>.<br/>Vnesite novo "
 "ime datoteke (brez pripone):"
 
-#: utilities/importui/main/importui.cpp:1357
+#: utilities/importui/main/importui.cpp:1360
 msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Datoteka že obstaja"
 
-#: utilities/importui/main/importui.cpp:1418
+#: utilities/importui/main/importui.cpp:1421
 msgctxt "@info"
 msgid ""
 "Your custom target album date format is not valid. Please check your "
@@ -17404,7 +17418,7 @@ msgid ""
 msgstr ""
 "Vaša oblika datuma albuma po meri ni veljavna. Preverite vaše nastavitve ..."
 
-#: utilities/importui/main/importui.cpp:1457
+#: utilities/importui/main/importui.cpp:1460
 msgctxt "@info"
 msgid ""
 "Collection which host your default target album set to process download from "
@@ -17415,7 +17429,7 @@ msgstr ""
 "obdelavo prejema iz vašega fotoaparata, ni na voljo. Izberite novo iz "
 "pogovornega okna nastavitev fotoaparata."
 
-#: utilities/importui/main/importui.cpp:1465
+#: utilities/importui/main/importui.cpp:1468
 msgctxt "@info"
 msgid ""
 "Your default target album set to process download from camera device is not "
@@ -17425,7 +17439,7 @@ msgstr ""
 "fotoaparata, ni na voljo. Izberite novega iz pogovornega okna nastavitev "
 "fotoaparata."
 
-#: utilities/importui/main/importui.cpp:1483
+#: utilities/importui/main/importui.cpp:1487
 msgctxt "@info"
 msgid ""
 "<p>Please select the destination album from the digiKam library to import "
@@ -17434,7 +17448,7 @@ msgstr ""
 "<p>Izberite ciljni album iz knjižnice digiKam, da vanj uvozite slike iz "
 "fotoaparata.</p>"
 
-#: utilities/importui/main/importui.cpp:1577
+#: utilities/importui/main/importui.cpp:1581
 msgctxt "@info Popup notification"
 msgid ""
 "Images download finished, you can now detach your camera while the images "
@@ -17443,12 +17457,12 @@ msgstr ""
 "Prejem slik je zaključen. Sedaj lahko odpnete fotoaparat, slike pa bodo "
 "medtem samodejno zavrtene."
 
-#: utilities/importui/main/importui.cpp:1581
+#: utilities/importui/main/importui.cpp:1585
 msgctxt "@info Popup notification"
 msgid "Images download finished"
 msgstr "Prejem slik je zaključen"
 
-#: utilities/importui/main/importui.cpp:1884
+#: utilities/importui/main/importui.cpp:1888
 msgctxt "@info"
 msgid ""
 "The items listed below are locked by camera (read-only). These items will "
@@ -17459,7 +17473,7 @@ msgstr ""
 "predmeti ne bodo izbrisani. Če jih resnično želite izbrisati, jih odklenite "
 "in poskusite znova."
 
-#: utilities/importui/main/importui.cpp:1895
+#: utilities/importui/main/importui.cpp:1899
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17481,17 +17495,17 @@ msgstr[3] ""
 "Pravkar boste izbrisali %1 datoteke. <warning>Izbrisanih datotek ni mogoče "
 "obnoviti.</warning> Ali ste prepričani?"
 
-#: utilities/importui/main/importui.cpp:1945
+#: utilities/importui/main/importui.cpp:1950
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Vseeno poskusi"
 
-#: utilities/importui/main/importui.cpp:1947
+#: utilities/importui/main/importui.cpp:1952
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "Prekliči prejem"
 
-#: utilities/importui/main/importui.cpp:1950
+#: utilities/importui/main/importui.cpp:1954
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17507,13 +17521,13 @@ msgstr ""
 "Ocenjen zahtevan prostor: %1\n"
 "Razpoložljiv neporabljen prostor: %2"
 
-#: utilities/importui/main/importui.cpp:1956
+#: utilities/importui/main/importui.cpp:1960
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Ni dovolj prostora"
 
-#: utilities/importui/main/importui.cpp:2299
-#: utilities/importui/main/importui.cpp:2325
+#: utilities/importui/main/importui.cpp:2305
+#: utilities/importui/main/importui.cpp:2331
 #, kde-format
 msgctxt "@info:status"
 msgid "No item selected (%1 item)"
@@ -17523,13 +17537,13 @@ msgstr[1] "Ni izbranih predmetov (%1 predmet)"
 msgstr[2] "Ni izbranih predmetov (%1 predmeta)"
 msgstr[3] "Ni izbranih predmetov (%1 predmeti)"
 
-#: utilities/importui/main/importui.cpp:2318
+#: utilities/importui/main/importui.cpp:2324
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr "<filename>%1</filename> (%2 od %3)"
 
-#: utilities/importui/main/importui.cpp:2334
+#: utilities/importui/main/importui.cpp:2340
 #, kde-format
 msgctxt "@info:status"
 msgid "%2/%1 item selected"
@@ -17539,7 +17553,7 @@ msgstr[1] "%2/%1 izbran predmet"
 msgstr[2] "%2/%1 izbrana predmeta"
 msgstr[3] "%2/%1 izbrani predmeti"
 
-#: utilities/importui/main/importui.cpp:2421
+#: utilities/importui/main/importui.cpp:2427
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17549,13 +17563,13 @@ msgstr ""
 "Datoteka z enakim imenom (<filename>%1</filename>) že obstaja v mapi "
 "<resource>%2</resource>."
 
-#: utilities/importui/main/importui.cpp:2433
+#: utilities/importui/main/importui.cpp:2439
 #, kde-format
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "Ni bilo mogoče najti albuma za pot <filename>%1</filename>."
 
-#: utilities/importui/main/importui.cpp:2444
+#: utilities/importui/main/importui.cpp:2450
 msgctxt "@title"
 msgid "General"
 msgstr "Splošno"
@@ -18132,7 +18146,9 @@ msgid "Clear unconfirmed results and rescan"
 msgstr "Počisti nepotrjene rezultate in znova preišči"
 
 #: utilities/maintenance/maintenancedlg.cpp:233
-msgid "Detect and recognize Faces"
+#, fuzzy
+#| msgid "Detect and recognize Faces"
+msgid "Detect and recognize Faces (experimental)"
 msgstr "Zaznaj in prepoznaj obraze"
 
 #: utilities/maintenance/maintenancedlg.cpp:240
@@ -19939,122 +19955,132 @@ msgstr ""
 
 #: utilities/setup/setup.cpp:552
 msgid ""
+"The maximum thumbnail size has been changed.\n"
+"You need to restart digiKam to see this option to take effect.\n"
+"\n"
+"Note: after restarting digiKam, it is recommended to rebuild all album "
+"items' thumbnails, using the \"Tools-Maintenance\" menu."
+msgstr ""
+"Največja velikost sličice je bila spremenjena.\n"
+"Za uveljavitev te možnosti boste morali znova zagnati digiKam.\n"
+"\n"
+"Opomba: po ponovnem zagonu digiKama je priporočljivo, da znova izgradite vse "
+"sličice predmetov albuma z uporabo menija Orodja -> Vzdrževanje."
+
+#: utilities/setup/setup.cpp:561
+msgid ""
 "The Exif auto-rotate thumbnails option has been changed.\n"
 "Do you want to rebuild all albums' items' thumbnails now?\n"
 "\n"
 "Note: thumbnail processing can take a while. You can start this job later "
-"from the \"Tools\" menu."
+"from the \"Tools-Maintenance\" menu."
 msgstr ""
 "Možnost samodejnega vrtenja sličic s pomočjo EXIF je bila spremenjena.\n"
 "Ali želite zdaj znova izgraditi vse sličice predmetov albumov?\n"
 "\n"
 "Opomba: obdelovanje sličic lahko traja nekaj časa. Ta posel lahko kasneje "
-"zaženete iz menija \"Orodja\"."
+"zaženete iz menija \"Orodja -> Vzdrževanje\"."
 
-#: utilities/setup/setupalbumview.cpp:121 utilities/setup/setupcamera.cpp:421
+#: utilities/setup/setupalbumview.cpp:131 utilities/setup/setupcamera.cpp:423
 msgid "Icon-View Options"
 msgstr "Možnosti pogleda ikon"
 
-#: utilities/setup/setupalbumview.cpp:124 utilities/setup/setupcamera.cpp:424
+#: utilities/setup/setupalbumview.cpp:134 utilities/setup/setupcamera.cpp:426
 msgid "Show file&name"
 msgstr "Pokaži &ime datoteke"
 
-#: utilities/setup/setupalbumview.cpp:125 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:135 utilities/setup/setupcamera.cpp:427
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete ime datoteke."
 
-#: utilities/setup/setupalbumview.cpp:127 utilities/setup/setupcamera.cpp:427
+#: utilities/setup/setupalbumview.cpp:137 utilities/setup/setupcamera.cpp:429
 msgid "Show file si&ze"
 msgstr "Pokaži velikos&t datoteke"
 
-#: utilities/setup/setupalbumview.cpp:128 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:430
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete velikost datoteke."
 
-#: utilities/setup/setupalbumview.cpp:130 utilities/setup/setupcamera.cpp:430
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:432
 msgid "Show camera creation &date"
 msgstr "Pokaži &datum ustvaritve"
 
-#: utilities/setup/setupalbumview.cpp:131
+#: utilities/setup/setupalbumview.cpp:141
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr ""
 "Nastavite to možnost, da pod sličico prikažete datum ustvaritve posnetka."
 
-#: utilities/setup/setupalbumview.cpp:134
+#: utilities/setup/setupalbumview.cpp:144
 msgid "Show file &modification date"
 msgstr "Prikaži datum spre&membe datoteke"
 
-#: utilities/setup/setupalbumview.cpp:135
+#: utilities/setup/setupalbumview.cpp:145
 msgid ""
 "Set this option to show the file modification date below the image thumbnail."
 msgstr ""
 "Nastavite to možnost, da pod sličico prikažete datum spremembe datoteke."
 
-#: utilities/setup/setupalbumview.cpp:138
+#: utilities/setup/setupalbumview.cpp:148
 msgid "Show ima&ge dimensions"
 msgstr "Pokaži m&ere slike"
 
-#: utilities/setup/setupalbumview.cpp:139
+#: utilities/setup/setupalbumview.cpp:149
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr ""
 "Nastavite to možnost, da pod sličico prikažete mere slike v slikovnih točkah."
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setuptooltip.cpp:213
+#: utilities/setup/setupalbumview.cpp:152 utilities/setup/setuptooltip.cpp:213
 msgid "Show image aspect ratio"
 msgstr "Prikaži razmerje slike"
 
-#: utilities/setup/setupalbumview.cpp:143
+#: utilities/setup/setupalbumview.cpp:153
 msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete razmerje slike."
 
-#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:440
+#: utilities/setup/setupalbumview.cpp:156 utilities/setup/setupcamera.cpp:442
 msgid "Show image Format"
 msgstr "Pokaži vrsto datoteke"
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:441
-msgid "Set this option to show image format over image thumbnail."
-msgstr "Nastavite to možnost, da čez sličico prikažete vrsto datoteke."
-
-#: utilities/setup/setupalbumview.cpp:149
+#: utilities/setup/setupalbumview.cpp:159
 msgid "Show digiKam tit&le"
 msgstr "Prikaži digiKamov nas&lov"
 
-#: utilities/setup/setupalbumview.cpp:150
+#: utilities/setup/setupalbumview.cpp:160
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete digiKamov naslov."
 
-#: utilities/setup/setupalbumview.cpp:153
+#: utilities/setup/setupalbumview.cpp:163
 msgid "Show digiKam &captions"
 msgstr "Prikaži digiKamov napi&s"
 
-#: utilities/setup/setupalbumview.cpp:154
+#: utilities/setup/setupalbumview.cpp:164
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete digiKamov napis."
 
-#: utilities/setup/setupalbumview.cpp:157 utilities/setup/setupcamera.cpp:443
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:448
 msgid "Show digiKam &tags"
 msgstr "Prikaži o&znake digiKama"
 
-#: utilities/setup/setupalbumview.cpp:158 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:168 utilities/setup/setupcamera.cpp:449
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete digiKamove oznake."
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:171
 msgid "Show digiKam &rating"
 msgstr "Prikaži digiKamovo o&ceno"
 
-#: utilities/setup/setupalbumview.cpp:162
+#: utilities/setup/setupalbumview.cpp:172
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete digiKamovo oceno."
 
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:451
+#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:456
 msgid "Show rotation overlay buttons"
 msgstr "Prikaži prekrivne gumbe za obračanje"
 
-#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:457
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
@@ -20062,39 +20088,68 @@ msgstr ""
 "Nastavite to možnost, da na sličici prikažete prekrivne gumbe za vrtenje "
 "slike."
 
-#: utilities/setup/setupalbumview.cpp:169 utilities/setup/setupcamera.cpp:455
+#: utilities/setup/setupalbumview.cpp:179 utilities/setup/setupcamera.cpp:445
+msgid "Show Geolocation Indicator"
+msgstr "Pokaži kazalnik zemljepisne lege"
+
+#: utilities/setup/setupalbumview.cpp:182 utilities/setup/setupcamera.cpp:460
 msgid "Thumbnail click action:"
 msgstr "Dejanje ob kliku sličice:"
 
-#: utilities/setup/setupalbumview.cpp:171 utilities/setup/setupcamera.cpp:457
+#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:462
 msgid "Show embedded preview"
 msgstr "Prikaži vgrajeni predogled"
 
-#: utilities/setup/setupalbumview.cpp:172 utilities/setup/setupcamera.cpp:458
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:463
 msgid "Start image editor"
 msgstr "Zaženi urejevalnik slik"
 
-#: utilities/setup/setupalbumview.cpp:173 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:464
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr "Izberite kaj se naj bi zgodilo, ko kliknete na sličico."
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:461
+#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:466
 msgid "Icon View font:"
 msgstr "Pisava pogleda ikon:"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:189 utilities/setup/setupcamera.cpp:467
 msgid "Select here the font used to display text in Icon Views."
 msgstr "Tukaj izberite pisavo za prikaz besedila v pogledih ikon."
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:191
+msgid "Use large thumbnail size for high screen resolution"
+msgstr "Uporabi velike sličice za visoko ločljivost"
+
+#: utilities/setup/setupalbumview.cpp:192
+msgid ""
+"Set this option to render icon-view with large thumbnail size, for example "
+"in case of 4K monitor is used.\n"
+"By default this option is turned off and the maximum thumbnail size is "
+"limited to 256x256 pixels. When this option is enabled, thumbnail size can "
+"be extended to 512x512 pixels.\n"
+"This option will store more data in thumbnail database and will use more "
+"system memory. digiKam needs to be restarted to take effect, and Rebuild "
+"Thumbnails option from Maintenance tool needs to be processed over whole "
+"collections."
+msgstr ""
+"Nastavite to možnost za izris ikon z velikimi sličicami, npr. če uporabljate "
+"monitor z ločljivostjo 4K.\n"
+"Privzeto je ta možnost izklopljena, zato je največja velikost sličic 256x256 "
+"slikovnih točk. S to možnostjo lahko velikost sličic povečate na 512x512 "
+"slikovnih točk.\n"
+"Ta možnost bo shranila več podatkov v podatkovni zbirki sličic in porabila "
+"več pomnilnika. Za uveljavitev sprememb boste morali znova zagnati digiKam "
+"in uporabiti vzdrževalno orodje \"Ponovno izgradi sličice\" na vseh zbirkah."
+
+#: utilities/setup/setupalbumview.cpp:223
 msgid "Folder View Options"
 msgstr "Možnosti pogleda map"
 
-#: utilities/setup/setupalbumview.cpp:203
+#: utilities/setup/setupalbumview.cpp:226
 msgid "Tree View thumbnail size:"
 msgstr "Velikost sličic drevesnega pogleda:"
 
-#: utilities/setup/setupalbumview.cpp:209
+#: utilities/setup/setupalbumview.cpp:232
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
@@ -20102,27 +20157,27 @@ msgstr ""
 "Nastavite to možnost, da določite velikost sličic drevesnega pogleda v "
 "slikovnih točkah."
 
-#: utilities/setup/setupalbumview.cpp:212
+#: utilities/setup/setupalbumview.cpp:235
 msgid "Tree View font:"
 msgstr "Pisava drevesnega pogleda:"
 
-#: utilities/setup/setupalbumview.cpp:213
+#: utilities/setup/setupalbumview.cpp:236
 msgid "Select here the font used to display text in Tree Views."
 msgstr "Tukaj izberite pisavo za prikaz besedila v drevesnem pogledu."
 
-#: utilities/setup/setupalbumview.cpp:215
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Show a count of items in Tree Views"
 msgstr "Pokaži števec predmetov v drevesnem pogledu"
 
-#: utilities/setup/setupalbumview.cpp:226 utilities/setup/setupcamera.cpp:481
+#: utilities/setup/setupalbumview.cpp:249 utilities/setup/setupcamera.cpp:487
 msgid "Preview Options"
 msgstr "Možnosti predogleda"
 
-#: utilities/setup/setupalbumview.cpp:229 utilities/setup/setupcamera.cpp:484
+#: utilities/setup/setupalbumview.cpp:252 utilities/setup/setupcamera.cpp:490
 msgid "Embedded preview loads full-sized images"
 msgstr "Vgrajeni predogled naloži slike polne velikosti"
 
-#: utilities/setup/setupalbumview.cpp:230 utilities/setup/setupcamera.cpp:485
+#: utilities/setup/setupalbumview.cpp:253 utilities/setup/setupcamera.cpp:491
 #: utilities/setup/setuplighttable.cpp:108
 msgid ""
 "<p>Set this option to load images at their full size for preview, rather "
@@ -20137,17 +20192,17 @@ msgstr ""
 "uporabljena različica z polovično velikostjo namesto vgrajenega predogleda "
 "JPEG.</p>"
 
-#: utilities/setup/setupalbumview.cpp:237 utilities/setup/setupcamera.cpp:495
+#: utilities/setup/setupalbumview.cpp:260 utilities/setup/setupcamera.cpp:501
 msgid "Show icons and text over preview"
 msgstr "Prikaži ikone in besedilo preko predogleda"
 
-#: utilities/setup/setupalbumview.cpp:238 utilities/setup/setupcamera.cpp:496
+#: utilities/setup/setupalbumview.cpp:261
 msgid ""
-"Uncheck this if you don't want to see icons and text in the image preview."
+"Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 "Odstranite oznako, če ne želite videti ikon in besedila v predogledu slike."
 
-#: utilities/setup/setupcamera.cpp:279
+#: utilities/setup/setupcamera.cpp:281
 msgid ""
 "Here you can see the digital camera list used by digiKam via the Gphoto "
 "interface."
@@ -20155,95 +20210,101 @@ msgstr ""
 "Tukaj lahko vidite seznam digitalnih fotoaparatov, ki jih digiKam uporablja "
 "preko vmesnika Gphoto."
 
-#: utilities/setup/setupcamera.cpp:300 utilities/setup/setupcamera.cpp:393
+#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
 #: utilities/setup/setupcategory.cpp:100 utilities/setup/setuptemplate.cpp:124
 msgid "&Add..."
 msgstr "Dod&aj ..."
 
-#: utilities/setup/setupcamera.cpp:302 utilities/setup/setupcamera.cpp:395
+#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
 #: utilities/setup/setupcategory.cpp:101 utilities/setup/setuptemplate.cpp:126
 msgid "&Remove"
 msgstr "Odst&rani"
 
-#: utilities/setup/setupcamera.cpp:304 utilities/setup/setupcamera.cpp:397
+#: utilities/setup/setupcamera.cpp:306 utilities/setup/setupcamera.cpp:399
 msgid "&Edit..."
 msgstr "Ur&edi ..."
 
-#: utilities/setup/setupcamera.cpp:306
+#: utilities/setup/setupcamera.cpp:308
 msgid "Auto-&Detect"
 msgstr "Samo&dejno zaznaj"
 
-#: utilities/setup/setupcamera.cpp:318
+#: utilities/setup/setupcamera.cpp:320
 msgid "Visit Gphoto project website"
 msgstr "Obiščite spletišče projekta Gphoto"
 
-#: utilities/setup/setupcamera.cpp:339
+#: utilities/setup/setupcamera.cpp:341
 msgid "Devices"
 msgstr "Naprave"
 
-#: utilities/setup/setupcamera.cpp:347
+#: utilities/setup/setupcamera.cpp:349
 msgid "Use file metadata (makes connection slower)"
 msgstr "Uporabi metapodatke datoteke (upočasni povezavo)"
 
-#: utilities/setup/setupcamera.cpp:348
+#: utilities/setup/setupcamera.cpp:350
 msgid "Turn on high quality thumbnail loading (slower loading)"
 msgstr "Vklopi nalaganje sličic visoke kakovosti (počasnejše nalaganje)"
 
-#: utilities/setup/setupcamera.cpp:349
+#: utilities/setup/setupcamera.cpp:351
 msgid "Use a default target album to download from camera"
 msgstr "Uporabi privzet ciljni album za prejem iz fotoaparata"
 
-#: utilities/setup/setupcamera.cpp:371
+#: utilities/setup/setupcamera.cpp:373
 msgid ""
 "Here you can see filters that can be used to filter files in import dialog."
 msgstr ""
 "Tukaj lahko vidite filtre, ki jih lahko uporabite za filtriranje datotek v "
 "pogovornem oknu za uvoz."
 
-#: utilities/setup/setupcamera.cpp:390
+#: utilities/setup/setupcamera.cpp:392
 msgid "Always ignore"
 msgstr "Vedno prezri"
 
-#: utilities/setup/setupcamera.cpp:391
+#: utilities/setup/setupcamera.cpp:393
 msgid "Ignored file names:"
 msgstr "Prezrta imena datotek:"
 
-#: utilities/setup/setupcamera.cpp:392
+#: utilities/setup/setupcamera.cpp:394
 msgid "Ignored file extensions:"
 msgstr "Prezrte pripone datotek:"
 
-#: utilities/setup/setupcamera.cpp:412
+#: utilities/setup/setupcamera.cpp:414
 msgid "Import Filters"
 msgstr "Filtri za uvoz"
 
-#: utilities/setup/setupcamera.cpp:431
+#: utilities/setup/setupcamera.cpp:433
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail"
 msgstr ""
 "Nastavite to možnost, da pod sličico prikažete datum ustvaritve posnetka"
 
-#: utilities/setup/setupcamera.cpp:447
+#: utilities/setup/setupcamera.cpp:452
 msgid "Show item &rating"
 msgstr "Pokaži oceno p&redmeta"
 
-#: utilities/setup/setupcamera.cpp:448
+#: utilities/setup/setupcamera.cpp:453
 msgid "Set this option to show the item rating below the image thumbnail."
 msgstr "Nastavite to možnost, da pod sličico prikažete oceno predmeta."
 
-#: utilities/setup/setupcamera.cpp:492
+#: utilities/setup/setupcamera.cpp:498
 msgid "Preview each item while downloading it"
 msgstr "Med prejemom prikaži predogled vsakega predmeta"
 
-#: utilities/setup/setupcamera.cpp:493
+#: utilities/setup/setupcamera.cpp:499
 msgid "<p>Set this option to preview each item while downloading.</p>"
 msgstr ""
 "<p>Nastavite to možnost za predogled vsakega predmeta med prejemom.</p>"
 
-#: utilities/setup/setupcamera.cpp:515
+#: utilities/setup/setupcamera.cpp:502
+msgid ""
+"Uncheck this if you don't want to see icons and text in the image preview."
+msgstr ""
+"Odstranite oznako, če ne želite videti ikon in besedila v predogledu slike."
+
+#: utilities/setup/setupcamera.cpp:521
 msgid "Import Window"
 msgstr "Okno uvoza"
 
-#: utilities/setup/setupcamera.cpp:765
+#: utilities/setup/setupcamera.cpp:773
 msgid ""
 "No default target album have been selected to process download from camera "
 "device. Please select one."
@@ -20251,11 +20312,11 @@ msgstr ""
 "Ni nastavljenega privzetega ciljnega albuma za obdelavo prejema iz vašega "
 "fotoaparata. Izberite enega."
 
-#: utilities/setup/setupcamera.cpp:858
+#: utilities/setup/setupcamera.cpp:866
 msgid "Device detection under progress, please wait..."
 msgstr "Poteka zaznava naprave, počakajte ..."
 
-#: utilities/setup/setupcamera.cpp:869
+#: utilities/setup/setupcamera.cpp:877
 msgid ""
 "Failed to auto-detect camera.\n"
 "Please check if your camera is turned on and retry or try setting it "
@@ -20265,26 +20326,26 @@ msgstr ""
 "Preverite, če je vaš fotoaparat vklopljen in poskusite znova, lahko pa ga "
 "poskusite nastaviti ročno."
 
-#: utilities/setup/setupcamera.cpp:883
+#: utilities/setup/setupcamera.cpp:891
 #, kde-format
 msgid "Camera '%1' (%2) is already in list."
 msgstr "Fotoaparat »%1« (%2) je že na seznamu."
 
-#: utilities/setup/setupcamera.cpp:887
+#: utilities/setup/setupcamera.cpp:895
 #, kde-format
 msgid "Found camera '%1' (%2) and added it to the list."
 msgstr "Najden fotoaparat »%1« (%2) in dodan na seznam."
 
-#: utilities/setup/setupcamera.cpp:903
+#: utilities/setup/setupcamera.cpp:911
 msgid "Untitled"
 msgstr "Neimenovano"
 
-#: utilities/setup/setupcamera.cpp:945
+#: utilities/setup/setupcamera.cpp:953
 msgid ""
 "In order to enable this feature, the full-sized preview will be disabled."
 msgstr "Da omogočite to zmožnost, bo onemogočen predogled polne velikosti. "
 
-#: utilities/setup/setupcamera.cpp:955
+#: utilities/setup/setupcamera.cpp:963
 msgid ""
 "If the full-sized preview is enabled it will affect the speed of previewing "
 "each item while download."
@@ -20881,7 +20942,43 @@ msgctxt "none of the paths"
 msgid "none"
 msgstr "brez"
 
-#: utilities/setup/setupicc.cpp:904
+#: utilities/setup/setupicc.cpp:906
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Windows, the default search paths include <ul><li>%1/Windows/Spool/"
+"Drivers/Color/</li><li>%2/Windows/Color/</li></ul>On your system, currently "
+"these paths exist and are scanned:<ul><li>%3</li></ul>"
+msgstr ""
+"Na Linuxu privzete iskalne poti vključujejo <ul><li>/usr/share/color/icc</"
+"li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+"li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>Na vašem sistemu "
+"te poti obstajajo in so v preiskovanju:<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:920
+#, fuzzy, kde-format
+#| msgid ""
+#| "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
+#| "li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+#| "li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On your system, "
+#| "currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgid ""
+"On Mac OS X, the default search paths include <ul><li>/System/Library/"
+"ColorSync/Profiles</li><li>/Library/ColorSync/Profiles</li><li>~/Library/"
+"ColorSync/Profiles</li><li>/opt/local/share/color/icc</li><li>~/.local/share/"
+"color/icc/</li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>On "
+"your system, currently these paths exist and are scanned:<ul><li>%1</li></ul>"
+msgstr ""
+"Na Linuxu privzete iskalne poti vključujejo <ul><li>/usr/share/color/icc</"
+"li><li>/usr/local/share/color/icc</li><li>~/.local/share/color/icc/</"
+"li><li>~/.local/share/icc/</li><li>~/.color/icc/</li></ul>Na vašem sistemu "
+"te poti obstajajo in so v preiskovanju:<ul><li>%1</li></ul>"
+
+#: utilities/setup/setupicc.cpp:936
 #, kde-format
 msgid ""
 "On Linux, the default search paths include <ul><li>/usr/share/color/icc</"
@@ -22318,6 +22415,20 @@ msgctxt ""
 "is active"
 msgid "Giving a presentation"
 msgstr "Izvajanje predstavitve"
+
+#~ msgid "Open Tag Manger"
+#~ msgstr "Odpri upravljalnik oznak"
+
+#~ msgid "&Show Mime Type Over Image"
+#~ msgstr "Nad &sliko pokaži vrsto MIME"
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item is not locked."
+#~ msgstr "Ta predmet ni zaklenjen."
+
+#~ msgctxt "@info:tooltip"
+#~ msgid "This item download status is unknown"
+#~ msgstr "Stanje prejema tega predmeta je neznano"
 
 #~ msgctxt "@title:window"
 #~ msgid "Connection Failed"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"POT-Creation-Date: 2014-06-12 01:33+0000\n"
 "PO-Revision-Date: 2010-03-03 23:14+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -32,29 +32,17 @@ msgid "1 image snapped to '%2'"
 msgid_plural "%1 images snapped to '%2'"
 msgstr[0] ""
 
-#: gpscorrelatorwidget.cpp:169
+#: gpscorrelatorwidget.cpp:175
 #, fuzzy
 #| msgid "Load GPX File..."
 msgid "Load GPX files..."
 msgstr "โหลดแฟ้ม GPX..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
-#, fuzzy
-#| msgid "Filename:"
-msgid "Filename"
-msgstr "ชื่อแฟ้ม:"
-
-#: gpscorrelatorwidget.cpp:174
-#, fuzzy
-#| msgid "Points"
-msgid "#points"
-msgstr "จุด"
-
-#: gpscorrelatorwidget.cpp:178
+#: gpscorrelatorwidget.cpp:183
 msgid "Max. time gap (sec.):"
 msgstr "ช่วงห่างสูงสุดของเวลา (วินาที):"
 
-#: gpscorrelatorwidget.cpp:180
+#: gpscorrelatorwidget.cpp:185
 msgid ""
 "Sets the maximum difference in seconds from a GPS track point to the image "
 "time to be matched. If the time difference exceeds this setting, no match "
@@ -63,32 +51,32 @@ msgstr ""
 "ตั้งค่าสูงสุดของช่วงห่างเวลา (หน่วยเป็นวินาที) จากจุดแทร็คติดตาม GPS มายังเวลาที่ตรงกับขอภาพ "
 "หากช่วงเวลานี้มากเกินกว่าค่าที่ตั้งนี้ จะทำให้เชื่อว่ายังไม่ตรงกัน"
 
-#: gpscorrelatorwidget.cpp:184
+#: gpscorrelatorwidget.cpp:189
 msgid "Camera time zone:"
 msgstr "เขตเวลาของกล้อง:"
 
-#: gpscorrelatorwidget.cpp:185
+#: gpscorrelatorwidget.cpp:190
 msgid "Same as system"
 msgstr "แบบเดียวกันกับระบบ"
 
-#: gpscorrelatorwidget.cpp:187
+#: gpscorrelatorwidget.cpp:192
 msgid ""
 "Use this option if the timezone of the camera is the same as the timezone of "
 "this system. The conversion to GMT will be done automatically."
 msgstr ""
 
-#: gpscorrelatorwidget.cpp:190
+#: gpscorrelatorwidget.cpp:195
 msgctxt "manual time zone selection for gps syncing"
 msgid "Manual:"
 msgstr "กำหนดเอง:"
 
-#: gpscorrelatorwidget.cpp:192
+#: gpscorrelatorwidget.cpp:197
 msgid ""
 "Use this option if the timezone of the camera is different from this system "
 "and you have to specify the difference to GMT manually."
 msgstr ""
 
-#: gpscorrelatorwidget.cpp:244
+#: gpscorrelatorwidget.cpp:249
 msgid ""
 "<p>Sets the time zone the camera was set to during photo shooting, so that "
 "the time stamps of the images can be converted to GMT to match the GPS time "
@@ -99,34 +87,34 @@ msgstr ""
 "สามารถจะแปลงมาเป็นเวลาแบบ GMT เพื่อเหมาะกับการอ้างอิงกับเวลา GPS ได้</p><p>โปรดจำ: "
 "ค่าชดเชยมาทางด้านตะวันออกซึ่งเป็นค่าบวกจากเส้นแวงที่ศูนย์ (GMT) มันคือ 'เวลาล่วงหน้า'</p>"
 
-#: gpscorrelatorwidget.cpp:251
+#: gpscorrelatorwidget.cpp:256
 msgid "Fine offset (mm:ss):"
 msgstr "ช่วงเหลื่อมเวลาอย่างละเอียด (นาที(mm):วินาที(ss)):"
 
-#: gpscorrelatorwidget.cpp:253
+#: gpscorrelatorwidget.cpp:258
 msgid ""
 "Sets an additional offset in minutes and seconds that is used to correlate "
 "the photos to the GPS track. This can be used for fine tuning to adjust a "
 "wrong camera clock."
 msgstr ""
 
-#: gpscorrelatorwidget.cpp:263
+#: gpscorrelatorwidget.cpp:268
 msgid "Set whether the camera offset is negative or positive."
 msgstr "ตั้งค่าไม่ว่าช่วงเหลื่อมเวลาของกล้องจะเป็นค่าติดลบหรือเป็นค่าบวก"
 
-#: gpscorrelatorwidget.cpp:267
+#: gpscorrelatorwidget.cpp:272
 msgid "Minutes to fine tune camera offset."
 msgstr "ช่วงเวลาเป็นนาทีของการปรับช่วงเหลื่อมเวลาของกล้องอย่างละเอียด"
 
-#: gpscorrelatorwidget.cpp:270
+#: gpscorrelatorwidget.cpp:275
 msgid "Seconds to fine tune camera offset."
 msgstr "ช่วงเวลาเป็นวินาทีของการปรับช่วงเหลื่อมเวลาของกล้องอย่างละเอียด"
 
-#: gpscorrelatorwidget.cpp:280
+#: gpscorrelatorwidget.cpp:285
 msgid "Interpolate"
 msgstr "ปรับเพิ่มจุดพิกัด"
 
-#: gpscorrelatorwidget.cpp:281
+#: gpscorrelatorwidget.cpp:286
 msgid ""
 "Set this option to interpolate GPS track points which are not closely "
 "matched to the GPX data file."
@@ -134,11 +122,19 @@ msgstr ""
 "เปิดใช้ตัวเลือกนี้ เพื่อให้มีการปรับเพิ่มจุดพิกัดตำแหน่ง GPS "
 "ที่ไม่ใกล้เพียงพอกับค่าข้อมูลที่สัมพันธ์กันในแฟ้ม GPX"
 
-#: gpscorrelatorwidget.cpp:287
+#: gpscorrelatorwidget.cpp:292
+msgid "Show tracks on Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:293
+msgid "Set this option to show tracks on the Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:298
 msgid "Difference in min.:"
 msgstr "ค่าแตกต่างเป็นนาที:"
 
-#: gpscorrelatorwidget.cpp:289
+#: gpscorrelatorwidget.cpp:300
 msgid ""
 "Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
 "file points to image time data."
@@ -146,102 +142,79 @@ msgstr ""
 "ตั้งค่าเวลาสูงสุดที่แตกต่าง มีหน่วยเป็นนาที (สูงสุด 240 นาที) "
 "สำหรับใช้ในการปรับเพิ่มจุดพิกัดแฟ้มข้อมูล GPX ไปยังข้อมูลเวลาของภาพ"
 
-#: gpscorrelatorwidget.cpp:292
+#: gpscorrelatorwidget.cpp:303
 msgid "Correlate"
 msgstr "ค่าสัมพันธ์"
 
-#: gpscorrelatorwidget.cpp:349
+#: gpscorrelatorwidget.cpp:362
 #, kde-format
 msgid "%1|GPS Exchange Format"
 msgstr "%1|ข้อมูลพิกัดตำแหน่ง GPS"
 
-#: gpscorrelatorwidget.cpp:350
+#: gpscorrelatorwidget.cpp:363
 msgid "Select GPX File to Load"
 msgstr "เลือกแฟ้ม GPX ที่ต้องการใช้"
 
-#: gpscorrelatorwidget.cpp:396
+#: gpscorrelatorwidget.cpp:392
 #, kde-format
 msgid "The following GPX file could not be loaded:"
 msgid_plural "The following %1 GPX files could not be loaded:"
 msgstr[0] ""
 
-#: gpscorrelatorwidget.cpp:402
+#: gpscorrelatorwidget.cpp:398
 #, fuzzy
 #| msgid "Error loading image '%1'"
 msgid "Error loading GPX file"
 msgid_plural "Error loading GPX files"
 msgstr[0] "เกิดข้อผิดพลาดระหว่างเรียกภาพ '%1'"
 
-#: gpscorrelatorwidget.cpp:520
+#: gpscorrelatorwidget.cpp:509
 #, fuzzy
 #| msgid "Error loading image '%1'"
 msgid "Correlating images - %p%"
 msgstr "เกิดข้อผิดพลาดระหว่างเรียกภาพ '%1'"
 
-#: gpscorrelatorwidget.cpp:590
+#: gpscorrelatorwidget.cpp:579
 msgid ""
 "Could not correlate any image - please make sure the timezone and gap "
 "settings are correct."
 msgstr ""
 
-#: gpscorrelatorwidget.cpp:591
+#: gpscorrelatorwidget.cpp:580
 #, fuzzy
 #| msgid "Correlate"
 msgid "Correlation failed"
 msgstr "ค่าสัมพันธ์"
 
-#: gpscorrelatorwidget.cpp:596
+#: gpscorrelatorwidget.cpp:585
 msgid ""
 "All images have been correlated. You can now check their position on the map."
 msgstr ""
 
-#: gpscorrelatorwidget.cpp:597
+#: gpscorrelatorwidget.cpp:586
 #, fuzzy
 #| msgid "Correlate"
 msgid "Correlation succeeded"
 msgstr "ค่าสัมพันธ์"
 
-#: gpscorrelatorwidget.cpp:603
+#: gpscorrelatorwidget.cpp:592
 #, kde-format
 msgid ""
 "%1 out of %2 images have been correlated. Please check the timezone and gap "
 "settings if you think that more images should have been correlated."
 msgstr ""
 
-#: gpscorrelatorwidget.cpp:604
+#: gpscorrelatorwidget.cpp:593
 #, fuzzy
 #| msgid "Correlate"
 msgid "Correlation finished"
 msgstr "ค่าสัมพันธ์"
 
-#: gpscorrelatorwidget.cpp:613
+#: gpscorrelatorwidget.cpp:602
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"
 msgstr[0] ""
-
-#: gpsdataparser.cpp:677
-#, fuzzy, kde-format
-#| msgid "Could not create '%1'"
-msgid "Could not open: %1"
-msgstr "ไม่สามารถสร้าง '%1 ได้"
-
-#: gpsdataparser.cpp:683
-msgid "File is empty."
-msgstr ""
-
-#: gpsdataparser.cpp:699
-#, kde-format
-msgid "Parsing error: %1"
-msgstr ""
-
-#: gpsdataparser.cpp:709
-msgid "No GPX element found - probably not a GPX file."
-msgstr ""
-
-#: gpsdataparser.cpp:713
-msgid "File is a GPX file, but no datapoints were found."
-msgstr ""
 
 #: gpsimagedetails.cpp:127
 #, fuzzy
@@ -332,7 +305,7 @@ msgid "Bookmarks"
 msgstr "ที่คั่นหน้า"
 
 #: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
-#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:443
 msgid "GPS Sync"
 msgstr "ปรับเทียบข้อมูล GPS"
 
@@ -727,126 +700,134 @@ msgstr ""
 msgid "Continue"
 msgstr ""
 
-#: gpssyncdialog.cpp:275
+#: gpssyncdialog.cpp:281
 msgid "Geolocation"
 msgstr "ตำแหน่งทางภูมิศาสตร์"
 
-#: gpssyncdialog.cpp:302
+#: gpssyncdialog.cpp:309
 msgid "Display bookmarked positions on the map."
 msgstr ""
 
-#: gpssyncdialog.cpp:362
+#: gpssyncdialog.cpp:369
 #, fuzzy
 #| msgid "Settings"
 msgid "Sorting"
 msgstr "ตั้งค่า"
 
-#: gpssyncdialog.cpp:369
+#: gpssyncdialog.cpp:376
 msgid "Show oldest first"
 msgstr ""
 
-#: gpssyncdialog.cpp:373
+#: gpssyncdialog.cpp:380
 msgid "Show youngest first"
 msgstr ""
 
-#: gpssyncdialog.cpp:412
+#: gpssyncdialog.cpp:419
 msgid "Details"
 msgstr ""
 
-#: gpssyncdialog.cpp:413
+#: gpssyncdialog.cpp:420
 #, fuzzy
 #| msgid "Correlator"
 msgid "GPS Correlator"
 msgstr "ค่าสัมพันธ์"
 
-#: gpssyncdialog.cpp:414
+#: gpssyncdialog.cpp:421
 msgid "Undo/Redo"
 msgstr ""
 
-#: gpssyncdialog.cpp:415
+#: gpssyncdialog.cpp:422
 msgid "Reverse Geocoding"
 msgstr ""
 
-#: gpssyncdialog.cpp:416
+#: gpssyncdialog.cpp:423
 msgid "Search"
 msgstr ""
 
-#: gpssyncdialog.cpp:439
+#: gpssyncdialog.cpp:446
 msgid "A Plugin to synchronize pictures' metadata with a GPS device"
 msgstr "ส่วนเสริมสำหรับปรับเทียบข้อมูลกำกับของภาพกับอุปกรณ์ GPS"
 
-#: gpssyncdialog.cpp:440
+#: gpssyncdialog.cpp:447
 #, fuzzy
 #| msgid "(c) 2006-2009, Gilles Caulier"
 msgid "(c) 2006-2013, Gilles Caulier"
 msgstr "สงวนลิขสิทธิ์ (c) 2006-2009, Gilles Caulier"
 
-#: gpssyncdialog.cpp:442
+#: gpssyncdialog.cpp:449
 msgid "Michael G. Hansen"
 msgstr ""
 
-#: gpssyncdialog.cpp:443
+#: gpssyncdialog.cpp:450
 msgid "Developer and maintainer"
 msgstr "ผู้พัฒนาและผู้ดูแล"
 
-#: gpssyncdialog.cpp:446
+#: gpssyncdialog.cpp:453
 msgid "Gabriel Voicu"
 msgstr ""
 
-#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+#: gpssyncdialog.cpp:454 gpssyncdialog.cpp:458
 msgid "Developer"
 msgstr ""
 
-#: gpssyncdialog.cpp:450
+#: gpssyncdialog.cpp:457
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: gpssyncdialog.cpp:626
+#: gpssyncdialog.cpp:461
+msgid "Justus Schwartz"
+msgstr ""
+
+#: gpssyncdialog.cpp:462
+msgid "Patch for displaying tracks on the map."
+msgstr ""
+
+#: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
 msgstr ""
 
-#: gpssyncdialog.cpp:807
+#: gpssyncdialog.cpp:818
 #, kde-format
 msgid "You have 1 modified image."
 msgid_plural "You have %1 modified images."
 msgstr[0] ""
 
-#: gpssyncdialog.cpp:813
+#: gpssyncdialog.cpp:824
 #, kde-format
 msgid "%1 Would you like to save the changes you made to them?"
 msgstr ""
 
-#: gpssyncdialog.cpp:814
+#: gpssyncdialog.cpp:825
 msgid "Unsaved changes"
 msgstr ""
 
-#: gpssyncdialog.cpp:815
+#: gpssyncdialog.cpp:826
 msgid "Save changes"
 msgstr ""
 
-#: gpssyncdialog.cpp:816
+#: gpssyncdialog.cpp:827
 msgid "Close and discard changes"
 msgstr ""
 
-#: gpssyncdialog.cpp:1040
+#: gpssyncdialog.cpp:1051
 #, kde-format
 msgid "1 image moved"
 msgid_plural "%1 images moved"
 msgstr[0] ""
 
-#: gpssyncdialog.cpp:1074
+#: gpssyncdialog.cpp:1085
 msgid "Saving changes - %p%"
 msgstr ""
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Failed to save some information:"
 msgstr ""
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Error"
 msgstr ""
 
-#: gpssyncdialog.cpp:1147
+#: gpssyncdialog.cpp:1158
 #, fuzzy
 #| msgid "GPS Sync"
 msgid "GPS sync"
@@ -883,6 +864,12 @@ msgstr ""
 #: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "ภาพตัวอย่าง"
+
+#: kipiimageitem.cpp:530 track_listmodel.cpp:212
+#, fuzzy
+#| msgid "Filename:"
+msgid "Filename"
+msgstr "ชื่อแฟ้ม:"
 
 #: kipiimageitem.cpp:531
 msgid "Date and time"
@@ -1066,6 +1053,21 @@ msgstr ""
 #: setup_general.cpp:68
 msgid "Layout:"
 msgstr ""
+
+#: track_listmodel.cpp:210
+msgid "Color"
+msgstr ""
+
+#: track_listmodel.cpp:214
+#, fuzzy
+#| msgid "Points"
+msgid "#points"
+msgstr "จุด"
+
+#, fuzzy
+#~| msgid "Could not create '%1'"
+#~ msgid "Could not open: %1"
+#~ msgstr "ไม่สามารถสร้าง '%1 ได้"
 
 #~ msgid "Bookmark location"
 #~ msgstr "คั่นหน้าตำแหน่ง"

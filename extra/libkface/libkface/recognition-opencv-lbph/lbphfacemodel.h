@@ -4,8 +4,8 @@
  * This file is a part of digiKam project
  * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
- * @date    2010-03-03
- * @brief   openTLD interface.
+ * @date   2010-03-03
+ * @brief  LBPH interface.
  *
  * @author Copyright (C) 2012-2013 by Mahesh Hegde
  *         <a href="mailto:maheshmhegade at gmail dot com">maheshmhegade at gmail dot com</a>
@@ -30,7 +30,7 @@
 #ifndef KFACE_LBPHFACEMODEL_H
 #define KFACE_LBPHFACEMODEL_H
 
-// OpenCV includes
+// OpenCV library
 
 #include "libopencv.h"
 
@@ -52,48 +52,52 @@ class LBPHistogramMetadata
 {
 public:
 
-    LBPHistogramMetadata();
-
     enum StorageStatus
     {
         Created,
         InDatabase
     };
 
-    int     databaseId;
-    int     identity;
-    QString context;
+public:
+
+    LBPHistogramMetadata();
+    ~LBPHistogramMetadata();
+
+public:
+
+    int           databaseId;
+    int           identity;
+    QString       context;
 
     StorageStatus storageStatus;
 };
 
+// -------------------------------------------------------------------------------------------------------------------------------------
+
 class LBPHFaceModel : public cv::Ptr<LBPHFaceRecognizer>
-//class LBPHFaceModel : public cv::Ptr<cv::FaceRecognizer>
 {
 public:
 
     LBPHFaceModel();
+    ~LBPHFaceModel();
 
-    LBPHFaceRecognizer* ptr()             { return cv::Ptr<LBPHFaceRecognizer>::operator KFaceIface::LBPHFaceRecognizer*();       }
-    const LBPHFaceRecognizer* ptr() const { return cv::Ptr<LBPHFaceRecognizer>::operator const KFaceIface::LBPHFaceRecognizer*(); }
+    LBPHFaceRecognizer*       ptr();
+    const LBPHFaceRecognizer* ptr() const;
 
-    //cv::FaceRecognizer* ptr()             { return cv::Ptr<cv::FaceRecognizer>::operator cv::FaceRecognizer*();       }
-    //const cv::FaceRecognizer* ptr() const { return cv::Ptr<cv::FaceRecognizer>::operator const cv::FaceRecognizer*(); }
-
-    int radius() const;
+    int  radius() const;
     void setRadius(int radius);
 
-    int neighbors() const;
+    int  neighbors() const;
     void setNeighbors(int neighbors);
 
-    int gridX() const;
+    int  gridX() const;
     void setGridX(int grid_x);
 
-    int gridY() const;
+    int  gridY() const;
     void setGridY(int grid_y);
 
     QList<LBPHistogramMetadata> histogramMetadata() const;
-    OpenCVMatData histogramData(int index) const;
+    OpenCVMatData               histogramData(int index) const;
 
     void setWrittenToDatabase(int index, int databaseId);
 
@@ -101,6 +105,8 @@ public:
 
     /// Make sure to call this instead of FaceRecognizer::update directly!
     void update(const std::vector<cv::Mat>& images, const std::vector<int>& labels, const QString& context);
+
+public:
 
     int databaseId;
 

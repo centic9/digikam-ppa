@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-02-11 01:31+0000\n"
+"POT-Creation-Date: 2014-06-12 01:33+0000\n"
 "PO-Revision-Date: 2014-02-26 13:09+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -40,23 +40,15 @@ msgid_plural "%1 images snapped to '%2'"
 msgstr[0] "1 mynd small á '%2'"
 msgstr[1] "%1 myndir smullu á '%2'"
 
-#: gpscorrelatorwidget.cpp:169
+#: gpscorrelatorwidget.cpp:175
 msgid "Load GPX files..."
 msgstr "Hlaða inn GPX skrám..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
-msgid "Filename"
-msgstr "Skáarheiti"
-
-#: gpscorrelatorwidget.cpp:174
-msgid "#points"
-msgstr "Fjöldi punkta"
-
-#: gpscorrelatorwidget.cpp:178
+#: gpscorrelatorwidget.cpp:183
 msgid "Max. time gap (sec.):"
 msgstr "Mesti tímamunur (sek):"
 
-#: gpscorrelatorwidget.cpp:180
+#: gpscorrelatorwidget.cpp:185
 msgid ""
 "Sets the maximum difference in seconds from a GPS track point to the image "
 "time to be matched. If the time difference exceeds this setting, no match "
@@ -66,15 +58,15 @@ msgstr ""
 "punkts svo samsvörun verði á milli. Ef tímamunurinn er meiri verður ekki "
 "tengt á milli."
 
-#: gpscorrelatorwidget.cpp:184
+#: gpscorrelatorwidget.cpp:189
 msgid "Camera time zone:"
 msgstr "Tímabelti myndavélar:"
 
-#: gpscorrelatorwidget.cpp:185
+#: gpscorrelatorwidget.cpp:190
 msgid "Same as system"
 msgstr "Sama og stýrikerfið"
 
-#: gpscorrelatorwidget.cpp:187
+#: gpscorrelatorwidget.cpp:192
 msgid ""
 "Use this option if the timezone of the camera is the same as the timezone of "
 "this system. The conversion to GMT will be done automatically."
@@ -82,12 +74,12 @@ msgstr ""
 "Notaðu þetta ef tímastilling myndavélar er sú sama og stýrikerfisins á "
 "þessari tölvu. Umbreyting í GMT verður sjálfvirk."
 
-#: gpscorrelatorwidget.cpp:190
+#: gpscorrelatorwidget.cpp:195
 msgctxt "manual time zone selection for gps syncing"
 msgid "Manual:"
 msgstr "Handvirkt:"
 
-#: gpscorrelatorwidget.cpp:192
+#: gpscorrelatorwidget.cpp:197
 msgid ""
 "Use this option if the timezone of the camera is different from this system "
 "and you have to specify the difference to GMT manually."
@@ -96,7 +88,7 @@ msgstr ""
 "þessari tölvu notar, þannig að þú verður að tilgreina mismuninn við GMT "
 "tímabeltið."
 
-#: gpscorrelatorwidget.cpp:244
+#: gpscorrelatorwidget.cpp:249
 msgid ""
 "<p>Sets the time zone the camera was set to during photo shooting, so that "
 "the time stamps of the images can be converted to GMT to match the GPS time "
@@ -108,11 +100,11 @@ msgstr ""
 "jákvæð hliðrun telst vera í austurátt frá núllbaug lengdar (GMT), þar er "
 "klukkan 'á undan'.</p>"
 
-#: gpscorrelatorwidget.cpp:251
+#: gpscorrelatorwidget.cpp:256
 msgid "Fine offset (mm:ss):"
 msgstr "Nákvæm hliðrun (mm:ss):"
 
-#: gpscorrelatorwidget.cpp:253
+#: gpscorrelatorwidget.cpp:258
 msgid ""
 "Sets an additional offset in minutes and seconds that is used to correlate "
 "the photos to the GPS track. This can be used for fine tuning to adjust a "
@@ -122,23 +114,23 @@ msgstr ""
 "við GPS feril (track). Þetta getur komið sér vel ef myndavélin hefur verið "
 "vanstillt."
 
-#: gpscorrelatorwidget.cpp:263
+#: gpscorrelatorwidget.cpp:268
 msgid "Set whether the camera offset is negative or positive."
 msgstr "Stillir hvort hliðrun myndavélar er jákvæð eða neikvæð."
 
-#: gpscorrelatorwidget.cpp:267
+#: gpscorrelatorwidget.cpp:272
 msgid "Minutes to fine tune camera offset."
 msgstr "Fínhliðrun myndavélar í mínútum."
 
-#: gpscorrelatorwidget.cpp:270
+#: gpscorrelatorwidget.cpp:275
 msgid "Seconds to fine tune camera offset."
 msgstr "Fínhliðrun myndavélar í sekúndum."
 
-#: gpscorrelatorwidget.cpp:280
+#: gpscorrelatorwidget.cpp:285
 msgid "Interpolate"
 msgstr "Skjóta inn"
 
-#: gpscorrelatorwidget.cpp:281
+#: gpscorrelatorwidget.cpp:286
 msgid ""
 "Set this option to interpolate GPS track points which are not closely "
 "matched to the GPX data file."
@@ -146,11 +138,19 @@ msgstr ""
 "Veldu þetta til að skjóta inn GPS ferilpunktum sem ekki eru nákvæmlega "
 "paraðir við upplýsingar í GPX gagnaskrá."
 
-#: gpscorrelatorwidget.cpp:287
+#: gpscorrelatorwidget.cpp:292
+msgid "Show tracks on Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:293
+msgid "Set this option to show tracks on the Map"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:298
 msgid "Difference in min.:"
 msgstr "Mismunur í mínútum.:"
 
-#: gpscorrelatorwidget.cpp:289
+#: gpscorrelatorwidget.cpp:300
 msgid ""
 "Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
 "file points to image time data."
@@ -158,37 +158,37 @@ msgstr ""
 "Stillir mesta mögulega tímamun (mest 240 mín.) til að tengja GPX ferilpunkta "
 "við tímasetningu mynda."
 
-#: gpscorrelatorwidget.cpp:292
+#: gpscorrelatorwidget.cpp:303
 msgid "Correlate"
 msgstr "Pörun"
 
-#: gpscorrelatorwidget.cpp:349
+#: gpscorrelatorwidget.cpp:362
 #, kde-format
 msgid "%1|GPS Exchange Format"
 msgstr "%1|GPS samskiptasnið"
 
-#: gpscorrelatorwidget.cpp:350
+#: gpscorrelatorwidget.cpp:363
 msgid "Select GPX File to Load"
 msgstr "Velja GPX skrá til að hlaða inn"
 
-#: gpscorrelatorwidget.cpp:396
+#: gpscorrelatorwidget.cpp:392
 #, kde-format
 msgid "The following GPX file could not be loaded:"
 msgid_plural "The following %1 GPX files could not be loaded:"
 msgstr[0] "Ekki var hægt að hlaða inn eftirfarandi GPX skrá:"
 msgstr[1] "Ekki var hægt að hlaða inn eftirfarandi %1 GPX skrám:"
 
-#: gpscorrelatorwidget.cpp:402
+#: gpscorrelatorwidget.cpp:398
 msgid "Error loading GPX file"
 msgid_plural "Error loading GPX files"
 msgstr[0] "Villa við hleðslu GPX skrár"
 msgstr[1] "Villa við hleðslu GPX skráa"
 
-#: gpscorrelatorwidget.cpp:520
+#: gpscorrelatorwidget.cpp:509
 msgid "Correlating images - %p%"
 msgstr "Para staðsetningu við myndir - %p%"
 
-#: gpscorrelatorwidget.cpp:590
+#: gpscorrelatorwidget.cpp:579
 msgid ""
 "Could not correlate any image - please make sure the timezone and gap "
 "settings are correct."
@@ -196,22 +196,22 @@ msgstr ""
 "Gat ekki parað staðsetningarhnit við neina mynd - gakktu úr skugga um að "
 "stillingar á tímabelti og frávikum séu réttar."
 
-#: gpscorrelatorwidget.cpp:591
+#: gpscorrelatorwidget.cpp:580
 msgid "Correlation failed"
 msgstr "Pörun mistókst"
 
-#: gpscorrelatorwidget.cpp:596
+#: gpscorrelatorwidget.cpp:585
 msgid ""
 "All images have been correlated. You can now check their position on the map."
 msgstr ""
 "Allar myndir hafa verið paraðar við staðsetningarhnit. Þú getur núna skoðað "
 "staðsetningu þeirra á landakortinu."
 
-#: gpscorrelatorwidget.cpp:597
+#: gpscorrelatorwidget.cpp:586
 msgid "Correlation succeeded"
 msgstr "Pörun tókst"
 
-#: gpscorrelatorwidget.cpp:603
+#: gpscorrelatorwidget.cpp:592
 #, kde-format
 msgid ""
 "%1 out of %2 images have been correlated. Please check the timezone and gap "
@@ -221,38 +221,16 @@ msgstr ""
 "um að stillingar á tímabelti og frávikum séu réttar ef þú heldur að fleiri "
 "myndir hefðu átt að vera paraðar."
 
-#: gpscorrelatorwidget.cpp:604
+#: gpscorrelatorwidget.cpp:593
 msgid "Correlation finished"
 msgstr "Pörun lokið"
 
-#: gpscorrelatorwidget.cpp:613
+#: gpscorrelatorwidget.cpp:602
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"
 msgstr[0] "1 mynd pöruð"
 msgstr[1] "%1 myndir paraðar"
-
-#: gpsdataparser.cpp:677
-#, kde-format
-msgid "Could not open: %1"
-msgstr "Gat ekki opnað: %1"
-
-#: gpsdataparser.cpp:683
-msgid "File is empty."
-msgstr "Skráin er tóm."
-
-#: gpsdataparser.cpp:699
-#, kde-format
-msgid "Parsing error: %1"
-msgstr "Þáttunarvilla: %1"
-
-#: gpsdataparser.cpp:709
-msgid "No GPX element found - probably not a GPX file."
-msgstr "Engar GPX atriði fundust - líklega ekki GPX-skrá."
-
-#: gpsdataparser.cpp:713
-msgid "File is a GPX file, but no datapoints were found."
-msgstr "Skráin er GPX-skrá, en engir gagnapunktar fundust."
 
 #: gpsimagedetails.cpp:127
 msgid "Coordinates"
@@ -335,7 +313,7 @@ msgid "Bookmarks"
 msgstr "Bókmerki"
 
 #: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
-#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:443
 msgid "GPS Sync"
 msgstr "GPS samræming"
 
@@ -717,122 +695,130 @@ msgstr "Henda merkjum"
 msgid "Continue"
 msgstr "Halda áfram"
 
-#: gpssyncdialog.cpp:275
+#: gpssyncdialog.cpp:281
 msgid "Geolocation"
 msgstr "Hnattstaðsetning"
 
-#: gpssyncdialog.cpp:302
+#: gpssyncdialog.cpp:309
 msgid "Display bookmarked positions on the map."
 msgstr "Birta staði með bókamerkjum á kortinu."
 
-#: gpssyncdialog.cpp:362
+#: gpssyncdialog.cpp:369
 msgid "Sorting"
 msgstr "Röðun"
 
-#: gpssyncdialog.cpp:369
+#: gpssyncdialog.cpp:376
 msgid "Show oldest first"
 msgstr "Sýna elsta fyrst"
 
-#: gpssyncdialog.cpp:373
+#: gpssyncdialog.cpp:380
 msgid "Show youngest first"
 msgstr "Sýna yngsta fyrst"
 
-#: gpssyncdialog.cpp:412
+#: gpssyncdialog.cpp:419
 msgid "Details"
 msgstr "Nánar"
 
-#: gpssyncdialog.cpp:413
+#: gpssyncdialog.cpp:420
 msgid "GPS Correlator"
 msgstr "GPS pörun"
 
-#: gpssyncdialog.cpp:414
+#: gpssyncdialog.cpp:421
 msgid "Undo/Redo"
 msgstr "Afturkalla/Endurtaka"
 
-#: gpssyncdialog.cpp:415
+#: gpssyncdialog.cpp:422
 msgid "Reverse Geocoding"
 msgstr "Viðsnúin staðsetningarkóðun (Reverse Geocoding)"
 
-#: gpssyncdialog.cpp:416
+#: gpssyncdialog.cpp:423
 msgid "Search"
 msgstr "Leita"
 
-#: gpssyncdialog.cpp:439
+#: gpssyncdialog.cpp:446
 msgid "A Plugin to synchronize pictures' metadata with a GPS device"
 msgstr "Íforrit til að samræma lýsigögn mynda við GPS staðsetningartæki"
 
-#: gpssyncdialog.cpp:440
+#: gpssyncdialog.cpp:447
 msgid "(c) 2006-2013, Gilles Caulier"
 msgstr "(c) 2006-2013, Gilles Caulier"
 
-#: gpssyncdialog.cpp:442
+#: gpssyncdialog.cpp:449
 msgid "Michael G. Hansen"
 msgstr "Michael G. Hansen"
 
-#: gpssyncdialog.cpp:443
+#: gpssyncdialog.cpp:450
 msgid "Developer and maintainer"
 msgstr "Forritun og umsjón"
 
-#: gpssyncdialog.cpp:446
+#: gpssyncdialog.cpp:453
 msgid "Gabriel Voicu"
 msgstr "Gabriel Voicu"
 
-#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+#: gpssyncdialog.cpp:454 gpssyncdialog.cpp:458
 msgid "Developer"
 msgstr "Forritari"
 
-#: gpssyncdialog.cpp:450
+#: gpssyncdialog.cpp:457
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: gpssyncdialog.cpp:626
+#: gpssyncdialog.cpp:461
+msgid "Justus Schwartz"
+msgstr ""
+
+#: gpssyncdialog.cpp:462
+msgid "Patch for displaying tracks on the map."
+msgstr ""
+
+#: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
 msgstr "Hleð inn lýsigögnum - %p%"
 
-#: gpssyncdialog.cpp:807
+#: gpssyncdialog.cpp:818
 #, kde-format
 msgid "You have 1 modified image."
 msgid_plural "You have %1 modified images."
 msgstr[0] "1 mynd hefur verið breytt."
 msgstr[1] "%1 myndum hefur verið breytt."
 
-#: gpssyncdialog.cpp:813
+#: gpssyncdialog.cpp:824
 #, kde-format
 msgid "%1 Would you like to save the changes you made to them?"
 msgstr "%1 Myndirðu vilja vista breytingarnar sem þú hefur gert á þeim?"
 
-#: gpssyncdialog.cpp:814
+#: gpssyncdialog.cpp:825
 msgid "Unsaved changes"
 msgstr "Óvistaðar breytingar"
 
-#: gpssyncdialog.cpp:815
+#: gpssyncdialog.cpp:826
 msgid "Save changes"
 msgstr "Vista breytingar"
 
-#: gpssyncdialog.cpp:816
+#: gpssyncdialog.cpp:827
 msgid "Close and discard changes"
 msgstr "Loka og henda breytingum"
 
-#: gpssyncdialog.cpp:1040
+#: gpssyncdialog.cpp:1051
 #, kde-format
 msgid "1 image moved"
 msgid_plural "%1 images moved"
 msgstr[0] "1 mynd færð"
 msgstr[1] "%1 myndir færðar"
 
-#: gpssyncdialog.cpp:1074
+#: gpssyncdialog.cpp:1085
 msgid "Saving changes - %p%"
 msgstr "Vista breytingar - %p%"
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Failed to save some information:"
 msgstr "Tókst ekki að vista sumar upplýsingar:"
 
-#: gpssyncdialog.cpp:1119
+#: gpssyncdialog.cpp:1130
 msgid "Error"
 msgstr "Villa"
 
-#: gpssyncdialog.cpp:1147
+#: gpssyncdialog.cpp:1158
 msgid "GPS sync"
 msgstr "GPS samræming"
 
@@ -867,6 +853,10 @@ msgstr "Breytt"
 #: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "Smámynd"
+
+#: kipiimageitem.cpp:530 track_listmodel.cpp:212
+msgid "Filename"
+msgstr "Skáarheiti"
 
 #: kipiimageitem.cpp:531
 msgid "Date and time"
@@ -1050,6 +1040,29 @@ msgstr "Tvö landakort - lóðrétt"
 #: setup_general.cpp:68
 msgid "Layout:"
 msgstr "Framsetning:"
+
+#: track_listmodel.cpp:210
+msgid "Color"
+msgstr ""
+
+#: track_listmodel.cpp:214
+msgid "#points"
+msgstr "Fjöldi punkta"
+
+#~ msgid "Could not open: %1"
+#~ msgstr "Gat ekki opnað: %1"
+
+#~ msgid "File is empty."
+#~ msgstr "Skráin er tóm."
+
+#~ msgid "Parsing error: %1"
+#~ msgstr "Þáttunarvilla: %1"
+
+#~ msgid "No GPX element found - probably not a GPX file."
+#~ msgstr "Engar GPX atriði fundust - líklega ekki GPX-skrá."
+
+#~ msgid "File is a GPX file, but no datapoints were found."
+#~ msgstr "Skráin er GPX-skrá, en engir gagnapunktar fundust."
 
 #~ msgid "Bookmark location"
 #~ msgstr "Staðsetning bókamerkis"

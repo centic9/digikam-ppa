@@ -3,7 +3,9 @@
  * Date        : 2010-02-05
  * Description : JavaScript part of the GoogleMaps-backend for WorldMapWidget2
  *
- * Copyright (C) 2010, 2011 by Michael G. Hansen <mike at mghansen dot de>
+ * Copyright (C) 2010, 2011, 2014 by Michael G. Hansen <mike at mghansen dot de>
+ * Copyright (C) 2014 by Justus Schwartz <justus at gmx dot li>
+
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,6 +25,7 @@ var eventBuffer = new Array();
 var markerList = new Object();
 var clusterList = new Object();
 var clusterDataList = new Object();
+var trackList = new Array();
 var isInEditMode = false;
 var dragMarker;
 var dragSnappingToMid = -1;
@@ -212,6 +215,98 @@ function kgeomapClearMarkers(mid)
         markerList[mid][i].marker.setMap(null);
     }
     markerList[mid] = new Object();
+}
+
+function kgeomapClearTracks() 
+{
+    for (var i in trackList) {
+        trackList[i].track.setMap(null);
+    }
+    trackList = new Array();
+
+    return true;
+}
+
+function kgeomapGetTrackIndex(tid)
+{
+    for (var i=0; i<trackList.length; ++i)
+    {
+        if (trackList[i].id==tid)
+        {
+            return i;
+        }
+    }
+
+    return -1;
+}
+
+function kgeomapRemoveTrack(tid)
+{
+    var idx = kgeomapGetTrackIndex(tid);
+    if (idx<0)
+    {
+        return;
+    }
+
+    trackList[idx].track.setMap(null);
+    trackList.splice(idx, 1);
+}
+
+function kgeomapCreateTrack(tid, trackColor)
+{
+    // trackColor has to have the form '#FF0000'
+    var oldIndex = kgeomapGetTrackIndex(tid);
+    if (oldIndex>=0)
+    {
+        trackList[oldIndex].track.setMap(null);
+        trackList.splice(oldIndex, 1);
+    }
+
+    var trackEntry = new Object();
+    trackEntry.id = tid;
+    trackEntry.track = new google.maps.Polyline({
+            geodesic: true,
+            strokeColor: trackColor,
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+        });
+
+    trackList.push(trackEntry);
+
+    return trackList.length-1;
+}
+
+function kgeomapAddToTrack(tid, coordString)
+{
+    var trackIndex = kgeomapGetTrackIndex(tid);
+    if (trackIndex<0)
+    {
+        return false;
+    }
+
+    var track = trackList[trackIndex].track;
+    /// @TODO Does setting and unsetting the map take long? Maybe it is better
+    ///       to create, add points, then add map instead.
+    track.setMap(null);
+
+    var trackCoordinates = track.getPath();
+//     for (var i = 0; i < coordString.length; i+=2)
+//     {
+//         var cLat = coordString[i];
+//         var cLon = coordString[i+1];
+//         trackCoordinates.push(new google.maps.LatLng(cLat,cLon));
+//     }
+    var coordArray = JSON.parse(coordString);
+    for (var i = 0; i < coordArray.length; ++i)
+    {
+        var coord = coordArray[i];
+        trackCoordinates.push(new google.maps.LatLng(coord.lat,coord.lon));
+    }
+    track.setPath(trackCoordinates);
+    track.setMap(map);
+    trackList[trackIndex].track = track;
+
+    return true;
 }
 
 function kgeomapSetMarkerPixmap(mid, id, pixmapWidth, pixmapHeight, xOffset, yOffset, pixmapurl)

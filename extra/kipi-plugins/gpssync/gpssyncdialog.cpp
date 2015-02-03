@@ -9,10 +9,12 @@
  *
  * @author Copyright (C) 2006-2013 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
- * @author Copyright (C) 2010, 2011 by Michael G. Hansen
+ * @author Copyright (C) 2010, 2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
  * @author Copyright (C) 2010 by Gabriel Voicu
  *         <a href="mailto:ping dot gabi at gmail dot com">ping dot gabi at gmail dot com</a>
+ * @author Copyright (C) 2014 by Justus Schwartz
+ *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -83,6 +85,7 @@
 
 #include <libkgeomap/kgeomap_widget.h>
 #include <libkgeomap/itemmarkertiler.h>
+#include <libkgeomap/tracks.h>
 
 // Local includes
 
@@ -170,6 +173,7 @@ public:
 
     Private()
     {
+        /// @TODO initialize in the initializer list of the constructor
         imageModel               = 0;
         selectionModel           = 0;
         uiEnabled                = true;
@@ -177,6 +181,7 @@ public:
         bookmarkOwner            = 0;
         actionBookmarkVisibility = 0;
         listViewContextMenu      = 0;
+        trackManager             = 0;
         fileIOFutureWatcher      = 0;
         fileIOCountDone          = 0;
         fileIOCountTotal         = 0;
@@ -218,6 +223,7 @@ public:
     GPSBookmarkOwner*                        bookmarkOwner;
     KAction*                                 actionBookmarkVisibility;
     GPSListViewContextMenu*                  listViewContextMenu;
+    KGeoMap::TrackManager*                   trackManager;
 
     // Loading and saving
     QFuture<QPair<KUrl,QString> >            fileIOFuture;
@@ -278,6 +284,7 @@ GPSSyncDialog::GPSSyncDialog(QWidget* const parent)
 
     d->imageModel     = new KipiImageModel(this);
     d->selectionModel = new QItemSelectionModel(d->imageModel);
+    d->trackManager   = new KGeoMap::TrackManager(this);
 
 #ifdef GPSSYNC_MODELTEST
     new ModelTest(d->imageModel, this);
@@ -420,7 +427,7 @@ GPSSyncDialog::GPSSyncDialog(QWidget* const parent)
     d->detailsWidget = new GPSImageDetails(d->stackedWidget, d->imageModel, marginHint(), spacingHint());
     d->stackedWidget->addWidget(d->detailsWidget);
 
-    d->correlatorWidget = new GPSCorrelatorWidget(d->stackedWidget, d->imageModel, marginHint(), spacingHint());
+    d->correlatorWidget = new GPSCorrelatorWidget(d->stackedWidget, d->imageModel, d->trackManager, marginHint(), spacingHint());
     d->stackedWidget->addWidget(d->correlatorWidget);
 
     d->undoView = new QUndoView(d->undoStack, d->stackedWidget);
@@ -450,6 +457,10 @@ GPSSyncDialog::GPSSyncDialog(QWidget* const parent)
     about->addAuthor(ki18n("Gilles Caulier"),
                      ki18n("Developer"),
                            "caulier dot gilles at gmail dot com");
+
+    about->addCredit(ki18n("Justus Schwartz"),
+                     ki18n("Patch for displaying tracks on the map."),
+                           "justus at gmx dot li");
 
     about->setHandbookEntry("gpssync");
     setAboutData(about, help);
@@ -1211,6 +1222,7 @@ KGeoMapWidget* GPSSyncDialog::makeMapWidget(QWidget** const pvbox)
     mapWidget->setDragDropHandler(d->mapDragDropHandler);
     mapWidget->addUngroupedModel(d->bookmarkOwner->bookmarkModelHelper());
     mapWidget->addUngroupedModel(d->searchWidget->getModelHelper());
+    mapWidget->setTrackManager(d->trackManager);
     mapWidget->setSortOptionsMenu(d->sortMenu);
 
     vbox->addWidget(mapWidget);

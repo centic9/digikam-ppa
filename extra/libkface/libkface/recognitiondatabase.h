@@ -5,13 +5,13 @@
  * <a href="http://www.digikam.org">http://www.digikam.org</a>
  *
  * @date  2010-09-02
- * @brief Wrapper class for face recongition
+ * @brief Wrapper class for face recognition database
  *
  * @author Copyright (C) 2010-2013 by Marcel Wiesweg
  *         <a href="mailto:marcel dot wiesweg at gmx dot de">marcel dot wiesweg at gmx dot de</a>
  * @author Copyright (C) 2010 by Aditya Bhatt
  *         <a href="mailto:adityabhatt1991 at gmail dot com">adityabhatt1991 at gmail dot com</a>
- * @author Copyright (C) 2010-2013 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -47,6 +47,17 @@
 namespace KFaceIface
 {
 
+/**
+ * Performs face recognition.
+ * Persistent data about identities and training data will be stored
+ * under a given or the default configuration path.
+ *
+ * The class guarantees
+ * - deferred creation: The backend is created only when used first.
+ * - only one instance per configuration path is created
+ * - an instance of this class is thread-safe
+ *   (this class is also reentrant, for different objects and paths)
+ */
 class KFACE_EXPORT RecognitionDatabase
 {
 
@@ -67,23 +78,12 @@ public:
 public:
 
     /**
-     * Performs face recogition.
-     * Persistent data about identities and training data will be stored
-     * under a given or the default configuration path.
-     *
-     * The class guarantees
-     * - deferred creation: The backend is created only when used first.
-     * - only one instance per configuration path is created
-     * - an instance of this class is thread-safe
-     *   (this class is also reentrant, for different objects and paths)
-     */
-
-    /**
      * Returns an instance of RecognitionDatabase for the given configuration path.
      * When called multiple times with the same path, will return the same database.
      * The database is closed and configuration written after the last object is destroyed.
      * @param configurationPath The path where the RecognitionDatabase configuration file will be stored.
-     * If null, a default path is located by KStandardDirs.
+     * If null, database file located in default path from current home directory is open
+     * (typically ~/.kde4/share/apps/libkface/database/recognition.db under Linux).
      */
     static RecognitionDatabase addDatabase(const QString& configurationPath = QString());
 
@@ -92,6 +92,7 @@ public:
 
     RecognitionDatabase(const RecognitionDatabase& other);
     ~RecognitionDatabase();
+
     RecognitionDatabase& operator=(const RecognitionDatabase& other);
 
     bool isNull() const;
@@ -103,8 +104,8 @@ public:
     /**
      * Returns all identities known to the database
      */
-    QList<Identity> allIdentities() const;
-    Identity identity(int id) const;
+    QList<Identity> allIdentities()  const;
+    Identity        identity(int id) const;
 
     /**
      * Finds the first identity with matching attribute - value.
@@ -142,10 +143,10 @@ public:
      * Tunes backend parameters.
      * Available parameters:
      * "accuracy", synonymous: "threshold", range: 0-1, type: float
-     *      Determines recogition threshold, 0->accept very unsecure recogitions, 1-> be very sure about a recognition.
+     * Determines recognition threshold, 0->accept very unsecure recognitions, 1-> be very sure about a recognition.
      */
-    void setParameter(const QString& parameter, const QVariant& value);
-    void setParameters(const QVariantMap& parameters);
+    void        setParameter(const QString& parameter, const QVariant& value);
+    void        setParameters(const QVariantMap& parameters);
     QVariantMap parameters() const;
 
     // ------------ Recognition, clustering and training --------------
@@ -157,7 +158,7 @@ public:
     int recommendedImageSize(const QSize& availableSize = QSize()) const;
 
     /**
-     * Performs recogition.
+     * Performs recognition.
      * The face details to be recognized are passed by the provider.
      * For each entry in the provider, in 1-to-1 mapping,
      * a recognized identity or the null identity is returned.
@@ -166,7 +167,9 @@ public:
     QList<Identity> recognizeFaces(const QList<QImage>& images);
     Identity        recognizeFace(const QImage& image);
 
-    /// Gives a hint about the complexity of training for the current backend.
+    /**
+     * Gives a hint about the complexity of training for the current backend.
+     */
     TrainingCostHint trainingCostHint() const;
 
     /**
@@ -179,16 +182,41 @@ public:
      * An identifier for the current training context is given,
      * which can identify the application or group of collections.
      * (It is assumed that training from different contexts is based on
-     * non-overlapping collections of images. Keep is always constant for your app.)
+     * non-overlapping collections of images. Keep it always constant for your app.)
      */
-
     void train(const QList<Identity>& identitiesToBeTrained, TrainingDataProvider* const data,
                const QString& trainingContext);
     void train(const Identity& identityToBeTrained, TrainingDataProvider* const data,
                const QString& trainingContext);
 
+    /**
+     * Performs training by using image data directly.
+     *
+     * These are convenience functions for simple setups.
+     * If you want good performance and/or a more versatile implementation, be sure to
+     * implement your own TrainingDataProvider and use one of the above functions.
+     */
+    void train(const Identity& identityToBeTrained, const QImage& image,
+               const QString& trainingContext);
+    void train(const Identity& identityToBeTrained, const QList<QImage>& images,
+               const QString& trainingContext);
+
+    /**
+     * Deletes the training data for all identities,
+     * leaving the identities as such in the database.
+     */
     void clearAllTraining(const QString& trainingContext = QString());
+
+    /**
+     * Deletes the training data for the given identity,
+     * leaving the identity as such in the database.
+     */
     void clearTraining(const QList<Identity>& identitiesToClean, const QString& trainingContext = QString());
+
+    /**
+     * Deletes an identity from the database.
+     */
+    void deleteIdentity(const Identity& identityToBeDeleted);
 
 public:
 

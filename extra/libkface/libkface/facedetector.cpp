@@ -9,6 +9,8 @@
  *
  * @author Copyright (C) 2010 by Marcel Wiesweg
  *         <a href="mailto:marcel dot wiesweg at gmx dot de">marcel dot wiesweg at gmx dot de</a>
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
+ *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,9 +26,7 @@
  * ============================================================ */
 
 // OpenCV includes need to show up before Qt includes
-#include "detection/opencvfacedetector.h"
-
-#include "facedetector.h"
+#include "opencvfacedetector.h"
 
 // Qt includes
 
@@ -36,6 +36,10 @@
 
 #include <kdebug.h>
 #include <kstandarddirs.h>
+
+// Local includes
+
+#include "facedetector.h"
 
 namespace KFaceIface
 {
@@ -59,9 +63,18 @@ public:
         if (!m_backend)
         {
             QStringList cascadeDirs;
-            cascadeDirs << KGlobal::dirs()->findDirs("data", "libkface/haarcascades");
-            cascadeDirs << KGlobal::dirs()->findDirs("xdgdata-apps", "../opencv/haarcascades");
-            m_backend          = new OpenCVFaceDetector(cascadeDirs);
+            // First try : typically work everywhere if packagers don't drop libkface shared data files.
+            cascadeDirs << KGlobal::dirs()->findDirs("data",         "libkface/haarcascades");
+
+            // Second try to find OpenCV shared files. Work only under Linux and OSX. OpenCV do not install XML files under Windows (checked with OpenCV 2.4.9)
+            cascadeDirs << KGlobal::dirs()->findDirs("xdgdata-apps", "../OpenCV/haarcascades");
+            
+            // Last try to find OpenCV shared files, using cmake env variables.
+            cascadeDirs << QString("%1/haarcascades").arg(OPENCV_ROOT_PATH);
+            
+            kDebug() << "Try to find OpenCV Haar Cascade files in these directories: " << cascadeDirs;
+
+            m_backend = new OpenCVFaceDetector(cascadeDirs);
             applyParameters();
         }
 
@@ -79,7 +92,7 @@ public:
         {
             return;
         }
-        for (QVariantMap::const_iterator it = parameters.constBegin(); it != parameters.constEnd(); ++it)
+        for (QVariantMap::const_iterator it = m_parameters.constBegin(); it != m_parameters.constEnd(); ++it)
         {
             if (it.key() == "accuracy")
             {
@@ -102,12 +115,14 @@ public:
 
 public:
 
-    QVariantMap parameters;
+    QVariantMap         m_parameters;
 
 private:
 
     OpenCVFaceDetector* m_backend;
 };
+
+// ---------------------------------------------------------------------------------
 
 FaceDetector::FaceDetector()
     : d(new Private)
@@ -131,25 +146,26 @@ FaceDetector::~FaceDetector()
 
 QString FaceDetector::backendIdentifier() const
 {
-    return "OpenCV Cascades";
+    return QString("OpenCV Cascades");
 }
 
 QList<QRectF> FaceDetector::detectFaces(const QImage& image, const QSize& originalSize)
 {
     QList<QRectF> result;
-    cv::Size cvOriginalSize;
-
-    if (originalSize.isValid())
-    {
-        cvOriginalSize = cv::Size(originalSize.width(), originalSize.height());
-    }
-    else
-    {
-        cvOriginalSize = cv::Size(image.width(), image.height());
-    }
 
     try
     {
+        cv::Size cvOriginalSize;
+
+        if (originalSize.isValid())
+        {
+            cvOriginalSize = cv::Size(originalSize.width(), originalSize.height());
+        }
+        else
+        {
+            cvOriginalSize = cv::Size(image.width(), image.height());
+        }
+
         cv::Mat cvImage       = d->backend()->prepareForDetection(image);
         QList<QRect> absRects = d->backend()->detectFaces(cvImage, cvOriginalSize);
         result                = toRelativeRects(absRects, QSize(cvImage.cols, cvImage.rows));
@@ -159,13 +175,17 @@ QList<QRectF> FaceDetector::detectFaces(const QImage& image, const QSize& origin
     {
         kError() << "cv::Exception:" << e.what();
     }
+    catch(...)
+    {
+        kError() << "Default exception from OpenCV";
+    }
 
     return result;
 }
 
 void FaceDetector::setParameter(const QString& parameter, const QVariant& value)
 {
-    d->parameters.insert(parameter, value);
+    d->m_parameters.insert(parameter, value);
     d->applyParameters();
 }
 
@@ -173,7 +193,7 @@ void FaceDetector::setParameters(const QVariantMap& parameters)
 {
     for (QVariantMap::const_iterator it = parameters.begin(); it != parameters.end(); ++it)
     {
-        d->parameters.insert(it.key(), it.value());
+        d->m_parameters.insert(it.key(), it.value());
     }
 
     d->applyParameters();
@@ -181,7 +201,7 @@ void FaceDetector::setParameters(const QVariantMap& parameters)
 
 QVariantMap FaceDetector::parameters() const
 {
-    return d->parameters;
+    return d->m_parameters;
 }
 
 int FaceDetector::recommendedImageSize(const QSize& availableSize) const
@@ -190,6 +210,8 @@ int FaceDetector::recommendedImageSize(const QSize& availableSize) const
     return OpenCVFaceDetector::recommendedImageSizeForDetection();
 }
 
+// -- Static methods -------------------------------------------------------------
+
 QRectF FaceDetector::toRelativeRect(const QRect& abs, const QSize& s)
 {
     if (s.isEmpty())
@@ -197,10 +219,10 @@ QRectF FaceDetector::toRelativeRect(const QRect& abs, const QSize& s)
         return QRectF();
     }
 
-    return QRectF(qreal(abs.x())       / qreal(s.width()),
-                  qreal(abs.y())       / qreal(s.height()),
-                  qreal(abs.width())   / qreal(s.width()),
-                  qreal(abs.height())  / qreal(s.height()));
+    return QRectF(qreal(abs.x())      / qreal(s.width()),
+                  qreal(abs.y())      / qreal(s.height()),
+                  qreal(abs.width())  / qreal(s.width()),
+                  qreal(abs.height()) / qreal(s.height()));
 }
 
 QRect FaceDetector::toAbsoluteRect(const QRectF& rel, const QSize& s)
