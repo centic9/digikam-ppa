@@ -1,0 +1,170 @@
+DIGIKAM - MANAGE YOUR PHOTOGRAPHS LIKE A PROFESSIONAL WITH THE POWER OF OPEN SOURCE
+
+-- ABOUT -------------------------------------------------------------
+
+ digiKam is an easy to use and powerful digital photo management
+ application, which makes importing, organizing and manipulating
+ digital photos a "snap".  An easy to use interface is provided
+ to connect to your digital camera, preview the images and download
+ and/or delete them.
+
+ The digiKam built-in image editor makes the common photo correction
+ a simple task. The image editor is extensible via plugins and,
+ since the digikamimageplugins project has been merged to digiKam core
+ since release 0.9.2, all useful image editor plugins are available
+ in the base installation.
+
+ digiKam can also make use of the KIPI image handling plugins to
+ extend its capabilities even further for photo manipulations,
+ import and export, etc. The kipi-plugins package contains many
+ very useful extensions.
+
+ digiKam is based in part on the work of the Independent JPEG Group.
+
+
+-- AUTHORS ------------------------------------------------------------
+
+See AUTHORS file for details.
+
+
+-- RELATED URLS -------------------------------------------------------
+
+digiKam      : http://www.digikam.org
+kipi-plugins : http://www.digikam.org
+
+-- CONTACT ------------------------------------------------------------
+
+If you have questions, comments, suggestions to make do email at :
+
+digikam-users@kde.org
+
+If you want contribute to digiKam developments do email at :
+
+digikam-devel@kde.org
+
+IRC channel from irc.freenode.org server: #digikam
+
+-- BUG REPORTS --------------------------------------------------------
+
+IMPORTANT : the bug reports and wishlist entries are hosted by the KDE bug report
+system which can be reached from the standard KDE help menu of digiKam.
+A mail will automatically be sent to the digiKam development mailing list.
+There is no need to contact directly the digiKam mailing list for a bug report
+or a devel wish.
+
+The current bugs and devel wishes reported to the bugzilla servers can be seen
+at these urls :
+
+* digiKam (KDE bugzilla):
+
+http://bugs.kde.org/buglist.cgi?product=digikam&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED
+
+* Image Editor plugins (KDE bugzilla):
+
+http://bugs.kde.org/buglist.cgi?product=digikamimageplugins&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED
+
+* Showfoto (KDE bugzilla):
+
+http://bugs.kde.org/buglist.cgi?product=showfoto&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED
+
+* Kipi-plugins (KDE bugzilla):
+
+http://bugs.kde.org/buglist.cgi?product=kipiplugins&bug_status=UNCONFIRMED&bug_status=NEW&bug_status=ASSIGNED&bug_status=REOPENED
+
+Extra Bugzilla servers for shared libs used by digiKam :
+
+* GPhoto2 library (sourceforge bugzilla):
+
+http://gphoto.org/bugs
+
+* Exiv2 library (robotbattle bugzilla):
+
+http://dev.robotbattle.com/bugs/main_page.php
+
+
+-- DEPENDENCIES -------------------------------------------------------
+
+Name            Version                       URL                                                               Remarks
+
+CMake           >= 2.8.x                      http://www.cmake.org
+libqt           >= 4.6.x                      http://www.qtsoftware.com                                         Including run-time SQLite3 and Mysql database plugin.
+kdelibs         >= 4.4.x                      http://www.kde.org                                                Nepomuk support introduced with KDE 4.3.x.
+liblcms         >= 1.x                        http://www.littlecms.com                                          liblcms >= 2.x compatible too.
+libtiff         >= 3.8.2                      http://www.remotesensing.org/libtiff
+libpng          >= 1.2.x                      http://www.libpng.org/pub/png/libpng.html
+libjpeg         >= 6b                         http://www.ijg.org
+libjasper       >= 1.7.x                      http://www.ece.uvic.ca/~mdadams/jasper
+libkipi         >= 2.0.0                      https://projects.kde.org/projects/kde/kdegraphics/libs/libkipi
+libkexiv2       >= 2.0.0                      https://projects.kde.org/projects/kde/kdegraphics/libs/libkexiv2
+libkdcraw       >= 2.2.0                      https://projects.kde.org/projects/kde/kdegraphics/libs/libkdcraw
+libkface        >= 2.0.0                      https://projects.kde.org/projects/extragear/libs/libkface
+libkgeomap      >= 2.0.0                      https://projects.kde.org/projects/extragear/libs/libkgeomap
+
+Optional :
+
+libkdepimlibs   >= 4.4.x                      http://pim.kde.org                                                To support KAddressBook entries.
+liblensfun      >= 0.2.6                      http://lensfun.berlios.de                                         To support LensCorrection tool.
+liblqr-1        >= 0.4.1                      http://liblqr.wikidot.com                                         To support Liquid Rescale tool.
+libeigen3       >= 3.x                        http://eigen.tuxfamily.org                                        To support Refocus tool.
+libgphoto2      >= 2.4.0                      http://www.gphoto.org                                             To support Gphoto2 Cameras.
+libusb          >= 1.0.0                      http://www.libusb.org                                             Required by Gphoto2 as linking dependency. See details in B.K.O #268267
+libpgf          >= 6.11.24                    http://www.libpgf.org                                             If no external libray is found, internal version is used instead.
+libsqlite2      >= 2.x                        http://www.sqlite.org/                                            Only used to import old database version <= 0.7.
+
+Note : all library dependencies require development and binary packages installed on your
+computer to compile digiKam.
+
+CMake compilation option de customized for digiKam:
+
+Use CMake "-DENABLE_SCRIPTIFACE=on"       flag to compile digiKam with experimental scripting interface                          (disabled by default).
+Use CMake "-DENABLE_PRESENTATIONMODE=on"  flag to compile digiKam with presentation mode                                         (disabled by default).
+Use CMake "-DENABLE_THUMB_DB=off"         flag to compile digiKam without thumbnail database support                             (enabled  by default).
+Use CMake "-DENABLE_INTERNALMYSQL=off"    flag to compile digiKam without internal MySQL server                                  (enabled  by default).
+Use CMake "-DENABLE_ADVANCEDDEBUGMSG=on"  flag to compile digiKam with more internal debug messages, especially in image loaders (disabled by default).
+Use CMake "-DENABLE_NEPOMUKSUPPORT=on"    flag to compile digiKam without Nepomuk support                                        (disabled by default).
+Use CMake "-DKDE4_BUILD_TESTS=on"         flag to compile digiKam source code unit tests                                         (disabled by default).
+Use CMake "-DENABLE_LCMS2=on"             flag to compile digiKam source code against lcms2 instead lcms1                        (disabled by default).
+Use CMake "-ENABLE_PGF_OPENMP"            flag to compile digiKam with paralelized PGF codec                                     (disabled by default).
+
+digiKam do not have any video thumbnailer. Video support is delegate to KDE. To support Video thumbnails, 
+please install "ffmpegthumbs" package, which is the kdemultimedia Video thumbnail generator for KDE4 file managers.
+
+-- INSTALLATION --------------------------------------------------------
+
+In order to compile, especially when QT3/Qt4 are installed at the same time,
+just use something like that:
+
+# export VERBOSE=1
+# export QTDIR=/usr/lib/qt4
+# export PATH=$QTDIR/bin:$PATH
+# cmake .
+# make
+# sudo make install
+
+Usual CMake options :
+
+-DCMAKE_INSTALL_PREFIX : decide where the program will be install on your computer.
+-DCMAKE_BUILD_TYPE     : decide which type of build you want. You can chose between:
+                         "debugfull".     : for hacking. Include all debug information.
+                         "debug".
+                         "profile".
+                         "relwithdebinfo" : default. use gcc -O2 -g options.
+                         "release"        : generate stripped and optimized bin files. For packaging.
+
+Compared to old KDE3 autoconf options:
+
+"cmake . -DCMAKE_BUILD_TYPE=debugfull" is equivalent to "./configure --enable-debug=full"
+"cmake . -DCMAKE_INSTALL_PREFIX=/usr"  is equivalent to "./configure --prefix=/usr"
+
+More details can be found at this url: http://techbase.kde.org/Development/Tutorials/CMake#Environment_Variables
+
+Note: To know KDE install path on your computer, use 'kde-config --prefix' command line like this (with full debug object enabled):
+
+"cmake . -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix`"
+
+-- DONATE MONEY --------------------------------------------------------
+
+If you love digiKam, you can help developers to buy new photo devices to test
+and implement new features. Thanks in advance for your generous donations.
+
+For more information, look at this url : http://www.digikam.org/?q=donation

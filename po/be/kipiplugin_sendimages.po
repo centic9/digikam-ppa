@@ -1,0 +1,347 @@
+# translation of kipiplugin_sendimages.po to Belarusian (Official spelling)
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Darafei Praliaskouski <komzpa@gmail.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2008-01-06 21:29+0200\n"
+"Last-Translator: Darafei Praliaskouski <komzpa@gmail.com>\n"
+"Language-Team: Belarusian (Official spelling) <i18n@mova.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Дарафей Праляскоўскі"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "komzpa@licei2.com"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr ""
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr ""
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr ""
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr ""
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr ""
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr ""
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr ""
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr ""
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr ""
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr ""
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr ""
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr ""
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr ""
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr ""
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr ""
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr ""
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr ""
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr ""
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr ""
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr ""
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr ""
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr ""
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr ""
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr ""
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr ""
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr ""
+
+#: sendimagesdialog.cpp:108
+msgid "A plugin to e-mail items"
+msgstr ""
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr ""
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr ""
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr ""
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr ""
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Распрацоўшчык"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr ""
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "Паштовая праграмаЖ"
+
+#: settingswidget.cpp:93
+#, fuzzy
+#| msgid "Default"
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Прадвызначаны"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr ""
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+
+#: settingswidget.cpp:122
+#, fuzzy
+#| msgid "MB"
+msgid " MB"
+msgstr "Мб"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr ""
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr ""
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr ""
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr ""
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr ""
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+
+#: settingswidget.cpp:184
+#, fuzzy
+#| msgid "Images"
+msgid "Image format:"
+msgstr "Малюнкі"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr ""
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr ""
+
+#~ msgid "Images"
+#~ msgstr "Малюнкі"
+
+#~ msgid "Mail"
+#~ msgstr "Пошта"
+
+#~ msgid "&Add"
+#~ msgstr "&Дадаць"
+
+#~ msgid "&Remove"
+#~ msgstr "&Выдаліць"

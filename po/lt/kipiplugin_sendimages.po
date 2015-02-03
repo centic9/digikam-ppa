@@ -1,0 +1,364 @@
+# Lithuanian translations for kipiplugins_sendimages package.
+#
+# Andrius Štikonas <stikonas@gmail.com>, 2009.
+# Liudas Ališauskas <liudas.alisauskas@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2011-10-07 17:17+0300\n"
+"Last-Translator: Liudas Ališauskas <liudas.alisauskas@gmail.com>\n"
+"Language-Team: Lithuanian <kde-i18n-doc@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.2\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Liudas Ališauskas"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "liudas@akmc.lt"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr "Klaida, atveriant įvesties failą"
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr "Klaida atveriant laikiną aplanką"
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr "Negalima pakeisti paveikslėlio dydžio. Atšaukiama."
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr "Negalima išsaugoti pakeisto dydžio paveikslėlio (JPEG). Atšaukiama."
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr "Negalima išsaugoti pakeisto dydžio paveikslėlio (PNG). Atšaukiama."
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr "Siųsti paveikslėlius el. paštu..."
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr "Siųsti paveikslėlius el. paštu"
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr "Operacija nutraukta naudotojo"
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "Keičiamas dydis %1"
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr "%1 sėkmingai pakeistas dydis"
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "Nepavyko pakeisti dydžio %1: %2"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr "Sukurti paveikslėlių savybių failą"
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr "nėra antraštės"
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr "nėra raktažodžių"
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+"failas „%1“:\n"
+"Originalūs paveikslėliai: %2\n"
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr "Pastabos: %1\n"
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr "Žymės: %1\n"
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr "Vertinimas: %1\n"
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr "savybes.txt"
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr "Paveikslėlio savybių failas baigtas"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+"Žemiau pateiktų paveikslėlių dydis negali būti pakeistas.\n"
+"Ar norite pridėti juos kaip priedus (nekeitus dydžio)?"
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr "Nepavyko pakeisti paveikslėlių dydžio"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+"Failas „%1“ yra per didelis siuntimui, prašome sumažinti jo dydį arba "
+"pakeiskite savo nustatymus"
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr "Paleidžiama numatyta KDE el. pašto programa..."
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr "Nepavyko paleisti „%1“ programos. Patikrinkite savo sistemą."
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "Paleidžiama „%1“ programa..."
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr "Išsiuntus jūsų paveikslėlius el. paštu..."
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr "Paspauskite „Užverti“ mygtuką, kad išvalyti laikinuosius failus."
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr "Paveikslėlių siuntimo el. paštu parinktys"
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr "Siųsti paveikslėlius"
+
+#: sendimagesdialog.cpp:108
+#, fuzzy
+#| msgid "A plugin to email pictures"
+msgid "A plugin to e-mail items"
+msgstr "Priedas paveikslėlių siuntimui el. paštu"
+
+#: sendimagesdialog.cpp:109
+#, fuzzy
+#| msgid "(c) 2003-2011, Gilles Caulier"
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "(c) 2003-2011, Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Autorius ir prižiūrėtojas"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Programuotojas"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "Pašto programa:"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Numatyta"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+"Parinkite jūsų norimą išorinę pašto programą. <b>Numatyta</b> yra šiuo metu "
+"KDE sistemos nustatymuose nustatyta programa."
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr "Pridėti failą su paveikslėlio savybėmis iš %1"
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+"Jei įgalinsite šią pasirinktį, visos paveikslėlio savybės nustatytos %1 kaip "
+"pastabos, įvertinimas ar žymės bus pridėtos kaip priedas."
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " MB"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr "Didžiausia el. pašto dydžio riba:"
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr "Nustatyti paveikslėlio savybes"
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+"Jei įjungsite šią parinktį, visi paveikslėliai KDE programos rodys vidines "
+"animacijas."
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Paveikslėlio savybes"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr "Labai mažas (320 pikselių)"
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Mažas (640 pikselių)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Vidutinis (800 pikselių):"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Didelis (1024 pikselių):"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr "Labai didelis (1280 pikselių)"
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Milžiniškas - spausdinimui (1600 pikselių)"
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+"<p>Pasirinkite siunčiamų paveikslėlių dydį:</p><p><b>%1</b>: naudokite tai, "
+"jei turite labai lėtą interneto ryšį, arba gavėjo pašto dėžutės dydis yra "
+"labai ribotas.</p><p><b>%2</b>: naudokite tai, jei turite lėtą interneto "
+"ryšį ir gavėjo pašto dėžutės dydis yra ribotas.</p><p><b>%3</b>: tai "
+"numatyta vertė vidutiniškiems interneto ryšio greičiui ir gavėjo pašto "
+"dėžutės dydžiui.</p><p><b>%4</b>: naudokite tai,  jei turite labai greitą "
+"interneto ryšį ir gavėjo pašto dėžutės dydis nėra ribotas.</p><p><b>%5</b>: "
+"naudokite tai, jei nėra greičio ir dydžio apribojimų.</p><p><b>%6</b>: "
+"naudokite tai tik spausdinimo tikslais.</p>"
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Paveikslėlio dydis:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr "<p>Pasirinkite siunčiamų paveikslėlių failo formatą.</p>"
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+"<p><b>JPEG</b>: failo formatas yra geras žiniatinklio formatas, bet jis "
+"naudoja nuostolingą glaudinimą.</p><p><b>PNG</b>: failo formatas "
+"nenuostolingam, portabiliam, gerai suglaudintam taškinės grafikos "
+"paveikslėlių saugojimui. PNG užtikrina be patentinį GIF pakeitimą ir taip "
+"pat gali pakeisti daug TIFF panaudojimų atvejų. PNG yra sukurtas puikiai "
+"dirbti internetinio peržiūrėjimo programose.</p>"
+
+#: settingswidget.cpp:184
+#, fuzzy
+#| msgid "Image file format:"
+msgid "Image format:"
+msgstr "Paveikslėlio failo formatas:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr "<p>Nauja siunčiamų JPEG paveikslėlių glaudinimo vertė:</p>"
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+"<p><b>1</b>: labai aukštas glaudinimas<br/><b>25</b>: aukštas glaudinimas<br/"
+"><b>50</b>: vidutinis glaudinimas<br/><b>75</b>: žemas glaudinimas(numatyta "
+"vertė)<br/><b>100</b>: neglaudinus</p>"
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Paveikslo kokybė:"

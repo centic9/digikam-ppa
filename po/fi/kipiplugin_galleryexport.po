@@ -1,0 +1,236 @@
+# KDE Finnish translation sprint participants:
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_galleryexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-02-15 02:52+0100\n"
+"PO-Revision-Date: 2012-07-04 13:36:00+0000\n"
+"Last-Translator: Ei tietoa\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-POT-Import-Date: 2012-12-01 22:20:19+0000\n"
+"X-Generator: MediaWiki 1.21alpha (963ddae); Translate 2012-11-08\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, header)
+#: galleryalbumwidget.ui:16
+msgid "<h3>Enter New Album Name</h3>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, titleLabel)
+#: galleryalbumwidget.ui:38
+msgid "Title:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, nameLabel)
+#: galleryalbumwidget.ui:48
+msgid "Name (optional):"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, captionLabel)
+#: galleryalbumwidget.ui:58
+msgid "Caption (optional):"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonOk)
+#: galleryalbumwidget.ui:113
+msgid "&OK"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, buttonCancel)
+#: galleryalbumwidget.ui:129
+msgid "&Cancel"
+msgstr ""
+
+#: galleryconfig.cpp:99
+msgctxt "gallery login settings"
+msgid "Name:"
+msgstr ""
+
+#: galleryconfig.cpp:103
+msgctxt "gallery login settings"
+msgid "URL:"
+msgstr ""
+
+#: galleryconfig.cpp:107
+msgctxt "gallery login settings"
+msgid "Username:"
+msgstr ""
+
+#: galleryconfig.cpp:111
+msgctxt "gallery login settings"
+msgid "Password:"
+msgstr ""
+
+#: galleryconfig.cpp:116
+msgid "Use &Gallery 2"
+msgstr ""
+
+#: gallerytalker.cpp:454
+msgid "Gallery URL probably incorrect"
+msgstr ""
+
+#: gallerytalker.cpp:460
+msgid "Incorrect username or password specified"
+msgstr ""
+
+#: gallerytalker.cpp:551 gallerytalker.cpp:630 gallerytalker.cpp:683
+#: gallerytalker.cpp:740
+msgid "Invalid response received from remote Gallery"
+msgstr ""
+
+#: gallerytalker.cpp:557
+msgid "Failed to list albums"
+msgstr ""
+
+#: gallerytalker.cpp:636
+msgid "Failed to list photos"
+msgstr ""
+
+#: gallerytalker.cpp:689
+msgid "Failed to create new album"
+msgstr ""
+
+#: gallerytalker.cpp:746
+msgid "Failed to upload photo"
+msgstr ""
+
+#: gallerywindow.cpp:127
+msgid "Albums"
+msgstr ""
+
+#: gallerywindow.cpp:136
+msgid "&New Album"
+msgstr ""
+
+#: gallerywindow.cpp:142
+msgid "&Add Selected Photos"
+msgstr ""
+
+#: gallerywindow.cpp:147
+msgid "Override Default Options"
+msgstr ""
+
+#: gallerywindow.cpp:151
+msgid "Resize photos before uploading"
+msgstr ""
+
+#: gallerywindow.cpp:154
+msgid "Maximum dimension:"
+msgstr ""
+
+#: gallerywindow.cpp:208 gallerywindow.cpp:212
+msgid "Gallery Export"
+msgstr ""
+
+#: gallerywindow.cpp:215
+msgid "A Kipi plugin to export image collections to a remote Gallery server."
+msgstr ""
+
+#: gallerywindow.cpp:216
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+msgstr ""
+
+#: gallerywindow.cpp:221
+msgid "Renchi Raju"
+msgstr ""
+
+#: gallerywindow.cpp:221
+msgid "Author"
+msgstr ""
+
+#: gallerywindow.cpp:224
+msgid "Colin Guthrie"
+msgstr ""
+
+#: gallerywindow.cpp:224
+msgid "Maintainer"
+msgstr ""
+
+#: gallerywindow.cpp:227
+msgid "Andrea Diamantini"
+msgstr ""
+
+#: gallerywindow.cpp:227 gallerywindow.cpp:230
+msgid "Developer"
+msgstr ""
+
+#: gallerywindow.cpp:230
+msgid "Gilles Caulier"
+msgstr ""
+
+#: gallerywindow.cpp:238
+msgid "Settings"
+msgstr ""
+
+#: gallerywindow.cpp:375
+msgid "Failed to login into remote gallery. "
+msgstr ""
+
+#: gallerywindow.cpp:377
+msgid ""
+"\n"
+"Do you want to check your settings and try again?"
+msgstr ""
+
+#: gallerywindow.cpp:384 gallerywindow.cpp:787 plugin_galleryexport.cpp:131
+msgid "Edit Gallery Data"
+msgstr ""
+
+#: gallerywindow.cpp:443 gallerywindow.cpp:466
+msgid "Album"
+msgstr ""
+
+#: gallerywindow.cpp:498 gallerywindow.cpp:513
+msgid "Image"
+msgstr ""
+
+#: gallerywindow.cpp:643
+msgid ""
+"Sorry, these characters are not allowed in album name: \\ / * ? \" ' & &lt; "
+"&gt; | . + # ( ) or spaces"
+msgstr ""
+
+#: gallerywindow.cpp:724
+#, kde-format
+msgid "Uploading file %1"
+msgstr ""
+
+#: gallerywindow.cpp:743
+msgid "Failed to upload photo into remote gallery. "
+msgstr ""
+
+#: gallerywindow.cpp:746
+msgid ""
+"\n"
+"Do you want to continue?"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_galleryexportui.rc:6
+msgid "&Export"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_galleryexportui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_galleryexport.cpp:111
+msgid "Export to &Gallery..."
+msgstr ""

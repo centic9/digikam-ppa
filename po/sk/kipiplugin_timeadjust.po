@@ -1,0 +1,245 @@
+# translation of kipiplugin_timeadjust.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2007, 2009.
+# Richard Frič <Richard.Fric@kdemail.net>, 2011.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_timeadjust\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-01-10 14:54+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Richard Frič"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Richard.Fric@kdemail.net"
+
+#: clockphotodialog.cpp:82
+msgid "Determine time difference with clock photo"
+msgstr "Určiť časový rozdiel s hodinami fotografie"
+
+#: clockphotodialog.cpp:86
+msgid "Load different photo"
+msgstr "Načítať inú fotku"
+
+#: clockphotodialog.cpp:95
+msgid ""
+"If you have a photo in your set with a clock or another external time source "
+"on it, you can load it here and set the indicator to the (date and) time "
+"displayed. The difference of your internal camera clock will be determined "
+"from this setting."
+msgstr ""
+"Ak máte fotku vo vašej sade s hodinami alebo iným externým zdrojom času, "
+"môžete ho načítať a nastaviť indikátor na zobrazený (dátum a) čas. Rozdiel "
+"medzi vnútornými hodinami fotoaparátu sa určí z tohto nastavenia."
+
+#: clockphotodialog.cpp:113
+msgid "The clock date and time:"
+msgstr "Dátum a čas hodín:"
+
+#: clockphotodialog.cpp:185
+#, kde-format
+msgid ""
+"<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
+"image %1.</b></font>"
+msgstr ""
+"<font color=\"red\"><b>Nemôžem získať<br>informácie o dátume a čase<br>z "
+"obrázku %1.</b></font>"
+
+#: clockphotodialog.cpp:197
+#, kde-format
+msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
+msgstr "<font color=\"red\"><b>Nemôžem načítať<br>obrázok %1.</b></font>"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_timeadjustui.rc:6
+msgid "&Image"
+msgstr "&Obrázok"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_timeadjustui.rc:12
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: myimagelist.cpp:42 settingswidget.cpp:281
+msgid "Timestamp Used"
+msgstr "Časové razítko použité"
+
+#: myimagelist.cpp:44 settingswidget.cpp:283
+msgid "Timestamp Updated"
+msgstr "Časové razítko aktualizované"
+
+#: myimagelist.cpp:46
+msgid "New Filename"
+msgstr "Nový názov súboru"
+
+#: myimagelist.cpp:48
+msgid "Status"
+msgstr "Stav"
+
+#: myimagelist.cpp:69
+msgid "not valid"
+msgstr "neplatné"
+
+#: myimagelist.cpp:77
+msgctxt "not applicable"
+msgid "N.A"
+msgstr "N.A"
+
+#: myimagelist.cpp:95
+msgid "Failed to update metadata timestamp"
+msgstr "Zlyhala aktualizácia metadát časového razítka"
+
+#: myimagelist.cpp:100
+msgid "Failed to update file timestamp"
+msgstr "Zlyhala aktualizácia časového razítka súboru"
+
+#: myimagelist.cpp:105
+msgid "Failed to rename file"
+msgstr "Zlyhalo premenovanie súboru"
+
+#: myimagelist.cpp:110
+msgid "Processed without error"
+msgstr "Spracované bez chyby"
+
+#: plugin_timeadjust.cpp:106
+msgid "Adjust Time && Date..."
+msgstr "Opraviť čas a dátum..."
+
+#: settingswidget.cpp:167
+#, kde-format
+msgid "%1 timestamp"
+msgstr "Časové razítko %1"
+
+#: settingswidget.cpp:174 settingswidget.cpp:253
+msgid "File last modified"
+msgstr "Ostatná modifikácia súboru"
+
+#: settingswidget.cpp:181
+msgid "EXIF/IPTC/XMP"
+msgstr "EXIF/IPTC/XMP"
+
+#: settingswidget.cpp:182 settingswidget.cpp:254
+msgid "EXIF: created"
+msgstr "EXIF: vytvorený"
+
+#: settingswidget.cpp:183 settingswidget.cpp:255
+msgid "EXIF: original"
+msgstr "EXIF: pôvodný"
+
+#: settingswidget.cpp:184 settingswidget.cpp:256
+msgid "EXIF: digitized"
+msgstr "EXIF: digitalizovaný"
+
+#: settingswidget.cpp:185 settingswidget.cpp:257
+msgid "IPTC: created"
+msgstr "IPTC: vytvorený"
+
+#: settingswidget.cpp:186
+msgid "XMP: created"
+msgstr "XMP: vytvorený"
+
+#: settingswidget.cpp:196
+msgid "Reset to current date"
+msgstr "Nastaviť na aktuálny dátum"
+
+#: settingswidget.cpp:225
+msgctxt "copy timestamp as well"
+msgid "Copy value"
+msgstr "Kopírovať hodnotu"
+
+#: settingswidget.cpp:226
+msgctxt "add a fixed timestamp to date"
+msgid "Add"
+msgstr "Pridať"
+
+#: settingswidget.cpp:227
+msgctxt "subtract a fixed timestamp to date"
+msgid "Subtract"
+msgstr "Rozdiel"
+
+#: settingswidget.cpp:231
+msgctxt "time adjust offset, days value label"
+msgid "days"
+msgstr "dní"
+
+#: settingswidget.cpp:234
+msgid "Determine difference from clock photo"
+msgstr "Určiť rozdiel z hodín fotografie"
+
+#: settingswidget.cpp:258
+msgid "XMP"
+msgstr "XMP"
+
+#: settingswidget.cpp:259
+msgid "Filename"
+msgstr "Názov súboru"
+
+#: settingswidget.cpp:282
+msgid "Timestamp Adjustments"
+msgstr "Úpravy časového razítka"
+
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+msgid "Adjust Time & Date"
+msgstr "Opraviť čas a dátum"
+
+#: timeadjustdialog.cpp:129
+msgid "Time Adjust"
+msgstr "Oprava času"
+
+#: timeadjustdialog.cpp:132
+msgid "A Kipi plugin for adjusting the timestamp of picture files"
+msgstr "Zásuvný modul Kipi pre opravenie času obrázkov"
+
+#: timeadjustdialog.cpp:133
+msgid ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+
+#: timeadjustdialog.cpp:137
+msgid "Jesper K. Pedersen"
+msgstr "Jesper K. Pedersen"
+
+#: timeadjustdialog.cpp:138
+msgid "Author"
+msgstr "Autor"
+
+#: timeadjustdialog.cpp:141
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+msgid "Developer"
+msgstr "Vývojár"
+
+#: timeadjustdialog.cpp:145
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: timeadjustdialog.cpp:149
+msgid "Pieter Edelman"
+msgstr "Pieter Edelman"
+
+#: timeadjustdialog.cpp:377
+msgid "Adjust Time and Date"
+msgstr "Upraviť čas a dátum"
+
+#: timeadjustdialog.cpp:394
+msgid "Select at least one option"
+msgstr "Vyberte aspoň jednu voľbu"

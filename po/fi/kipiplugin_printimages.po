@@ -1,0 +1,638 @@
+# translation of kipiplugin_printimages.po to Finnish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Mikael Lammentausta <mikael.lammentausta+kdetrans@gmail.com>, 2009.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013.
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+# Author: Niklas Laxström
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_printimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-05-05 19:38+0300\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:20:22+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Mikael Lammentausta"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mikael.lammentausta+kdetrans@gmail.com"
+
+#. i18n: ectx: Menu (Image)
+#: plugin/kipiplugin_printimagesui.rc:6
+msgid "&Image"
+msgstr "&Kuva"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_printimagesui.rc:13
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#: plugin/plugin_printimages.cpp:110 plugin/plugin_printimages.cpp:142
+msgid "Print images"
+msgstr "Tulosta kuvat"
+
+#: plugin/plugin_printimages.cpp:120
+msgid "Print Assistant..."
+msgstr "Ohjattu tulostus..."
+
+#: plugin/plugin_printimages.cpp:141 plugin/plugin_printimages.cpp:162
+msgid "Please select one or more photos to print."
+msgstr "Valitse yksi tai useampi kuva tulostettavaksi."
+
+#: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+msgid "Print assistant"
+msgstr "Ohjattu tulostus"
+
+#: tools/utils.cpp:73
+msgid ""
+"Unable to create a temporary folder. Please make sure you have proper "
+"permissions to this folder and try again."
+msgstr ""
+"Tilapäiskansion luonti epäonnistui. Tarkista käyttöoikeudet ja kokeile "
+"uudelleen."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_disableCrop)
+#: ui/croppage.ui:19
+msgid "Do not crop photos, just scale them."
+msgstr "Muuta kuvien kokoa, mutta älä rajaa."
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_disableCrop)
+#: ui/croppage.ui:22
+msgid "Do not crop"
+msgstr "Ei rajausta"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateLeft)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateLeft)
+#: ui/croppage.ui:42 ui/croppage.ui:45
+msgid "Rotate photo to the left"
+msgstr "Kierrä kuvaa vasemmalle"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateLeft)
+#: ui/croppage.ui:48
+msgid "&Rotate left"
+msgstr "&Kierrä vasemmalle"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateRight)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateRight)
+#: ui/croppage.ui:55 ui/croppage.ui:58
+msgid "Rotate photo to the right"
+msgstr "Kierrä kuvaa oikealle"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateRight)
+#: ui/croppage.ui:61
+msgid "&Rotate right"
+msgstr "&Kierrä oikealle"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageDown)
+#. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropPrev)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropPrev)
+#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:292 ui/photopage.ui:295
+msgid "Previous photo"
+msgstr "Edellinen kuva"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropPrev)
+#: ui/croppage.ui:90
+msgid "<< Pr&evious"
+msgstr "⟸ &Edellinen"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropNext)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropNext)
+#: ui/croppage.ui:97 ui/croppage.ui:100
+msgid "Next photo"
+msgstr "Seuraava kuva"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropNext)
+#: ui/croppage.ui:103
+msgid "Ne&xt >>"
+msgstr "Seu&raava ⟹"
+
+#. i18n: ectx: property (text), widget (QLabel, LblCropPhoto)
+#: ui/croppage.ui:132
+msgid "Photo 0 of 0"
+msgstr "Ei kuvia"
+
+#. i18n: ectx: property (whatsThis), widget (KIPIPrintImagesPlugin::CropFrame, cropFrame)
+#: ui/croppage.ui:155
+msgid ""
+"Move the box in order to crop photos so that they fit inside the photo sizes "
+"you have given.  \n"
+"You can crop each image differently, or just click the 'Next' button to use "
+"the default crop \n"
+"setting for each photo.\n"
+"Enable \"Do not crop\" to avoid cropping all of the photos."
+msgstr ""
+"Siirrä rajausviivoja siten että ne mahtuvat kuvan sisäpuolelle.\n"
+"Voit rajata jokaisen kuvan yksitellen, tai käyttää tätä rajausta kaikilla "
+"kuvilla siirtymällä eteenpäin.\n"
+"Kytke päälle ”ei rajausta”, mikäli et halua rajata yhtään kuvaa."
+
+#. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
+#: ui/croppage.ui:167
+msgid "Save As"
+msgstr "Tallenna nimellä"
+
+#. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
+#: ui/croppage.ui:170
+msgid "Ctrl+S"
+msgstr "Ctrl+S"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
+#: ui/customlayout.ui:26 wizard/wizard.cpp:691
+msgid "Custom layout"
+msgstr "Oma asettelu"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_photoGridCheck)
+#: ui/customlayout.ui:48
+msgid "Photo grid"
+msgstr "Kuvaruudukko"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_fitAsManyCheck)
+#: ui/customlayout.ui:73
+msgid "Fit as many as possible"
+msgstr "Mahduta mahdollisimman monta"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_photosXPageCheck)
+#: ui/customlayout.ui:95
+msgid "Photos per page"
+msgstr "Kuvaa sivulla"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/customlayout.ui:122
+msgid "Rows"
+msgstr "Rivejä"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/customlayout.ui:164
+msgid "Columns"
+msgstr "Sarakkeita"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/customlayout.ui:227
+msgid "Photo size"
+msgstr "Kuvakoko"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/customlayout.ui:267 ui/printoptionspage.ui:439
+msgid "x"
+msgstr "×"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+msgid "cm"
+msgstr "cm"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:314
+msgid "mm"
+msgstr "mm"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+msgid "inches"
+msgstr "tuumaa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_autorotate)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintAutoRotate)
+#: ui/customlayout.ui:433 ui/printoptionspage.ui:73
+msgid "Auto rotate"
+msgstr "Kierrä automaattisesti"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_doneButton)
+#: ui/customlayout.ui:453
+msgid "Done"
+msgstr "Valmis"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4_2)
+#: ui/photopage.ui:47
+msgid "Photos:"
+msgstr "Kuvat:"
+
+#. i18n: ectx: property (text), widget (QLabel, LblPhotoCount)
+#. i18n: ectx: property (text), widget (QLabel, LblSheetsPrinted)
+#. i18n: ectx: property (text), widget (QLabel, LblEmptySlots)
+#: ui/photopage.ui:54 ui/photopage.ui:84 ui/photopage.ui:114
+msgid "<p align=\"right\">0</p>"
+msgstr "<p align=\"right\">0</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
+#: ui/photopage.ui:77
+msgid "Sheets:"
+msgstr "Arkkeja:"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel6)
+#: ui/photopage.ui:107
+msgid "Empty slots:"
+msgstr "Tyhjiä paikkoja:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+msgid "Print to PDF"
+msgstr "Tulosta PDF-tiedostoon"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+msgid "Print to PS"
+msgstr "Tulosta PS-tiedostoon"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
+#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+msgid "Print to JPG"
+msgstr "Tulosta jpg-kuvaksi"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
+#: wizard/wizard.cpp:2506
+msgid "Print to gimp"
+msgstr "Vie kuvankäsittelyohjelmaan"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
+#: ui/photopage.ui:214
+msgid "Page settings"
+msgstr "Sivun asetukset"
+
+#. i18n: ectx: property (text), widget (QPushButton, mLeftButton)
+#. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageDown)
+#: ui/photopage.ui:298 ui/printoptionspage.ui:57
+msgid "<"
+msgstr "⟸"
+
+#. i18n: ectx: property (text), widget (QLabel, LblPreview)
+#: ui/photopage.ui:320
+msgid "Preview"
+msgstr "Esikatselu"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageUp)
+#. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageUp)
+#: ui/photopage.ui:336 ui/photopage.ui:339
+msgid "Next page"
+msgstr "Seuraava sivu"
+
+#. i18n: ectx: property (text), widget (QPushButton, mRightButton)
+#. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageUp)
+#: ui/photopage.ui:342 ui/printoptionspage.ui:64
+msgid ">"
+msgstr "⟹"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/photopage.ui:441
+msgid "Captions:"
+msgstr "Kuvatekstit:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+msgid "No captions"
+msgstr "Ei kuvatekstejä"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:457
+msgid "Image file names"
+msgstr "Tiedostonimet"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:462
+msgid "Exif date-time"
+msgstr "Päiväys"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:467
+msgid "Comments"
+msgstr "Kommentit"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+msgid "Free"
+msgstr "Oma kuvateksti"
+
+#. i18n: ectx: property (text), widget (QLabel, m_free_label)
+#: ui/photopage.ui:506
+#, no-c-format
+msgid ""
+"%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
+"resolution, %a aperture, %l focal length, \\n newline"
+msgstr ""
+"%f tiedostonimi, %t valotusaika, %c kommentti, %i ISO-arvo, %d päiväys, %r "
+"resoluutio, %a aukon koko, %l polttoväli, \\n rivinvaihto"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
+#: ui/photopage.ui:537
+msgid "same to all"
+msgstr "sama kaikille"
+
+#. i18n: ectx: property (text), widget (QPushButton, mSaveSettings)
+#. i18n: ectx: property (text), widget (QPushButton, m_setDefault)
+#: ui/photopage.ui:547 ui/printoptionspage.ui:348
+msgid "Use as default"
+msgstr "Käytä oletuksena"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/photopage.ui:560
+msgid "Family:"
+msgstr "Kirjasin:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/photopage.ui:577
+msgid "Color:"
+msgstr "Väri:"
+
+#. i18n: ectx: property (text), widget (KColorButton, m_font_color)
+#: ui/photopage.ui:587
+msgid "PushButton"
+msgstr "PushButton"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/photopage.ui:604
+msgid "Size:"
+msgstr "Koko:"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintOptionsPage)
+#: ui/printoptionspage.ui:14
+msgid "Image Settings"
+msgstr "Kuva-asetukset"
+
+#. i18n: ectx: property (title), widget (QGroupBox, mGroupImage)
+#: ui/printoptionspage.ui:83
+msgid "Position"
+msgstr "Sijainti"
+
+#. i18n: ectx: property (title), widget (QGroupBox, mGroupScaling)
+#: ui/printoptionspage.ui:108
+msgid "Scaling"
+msgstr "Skaalaus"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mNoScale)
+#: ui/printoptionspage.ui:114
+msgid "&No scaling"
+msgstr "Ei s&kaalausta"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mScaleToPage)
+#: ui/printoptionspage.ui:124
+msgid "&Fit image to page"
+msgstr "&Sovita kuva sivulle"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintEnlargeSmallerImages)
+#: ui/printoptionspage.ui:155
+msgid "Enlarge smaller images"
+msgstr "Suurenna pienemmät kuvat"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mScaleTo)
+#: ui/printoptionspage.ui:180
+msgid "&Scale to:"
+msgstr "&Skaalaa kokoon:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/printoptionspage.ui:219
+msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
+msgid "x"
+msgstr "×"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:246
+msgid "Millimeters"
+msgstr "millimetriä"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:251
+msgid "Centimeters"
+msgstr "senttimetriä"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:256
+msgid "Inches"
+msgstr "tuumaa"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintKeepRatio)
+#: ui/printoptionspage.ui:300
+msgid "Keep ratio"
+msgstr "Säilytä kuvasuhde"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, mSaveSettings)
+#: ui/printoptionspage.ui:345
+msgid "Use these scaling options as default. "
+msgstr "Käytä näitä asetuksia oletuksena."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/printoptionspage.ui:366
+msgid "Photos per page:"
+msgstr "Kuvia sivulla:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/printoptionspage.ui:376
+msgid "Multiple pages:"
+msgstr "Useita sivuja:"
+
+#: wizard/customdlg.cpp:46 wizard/customdlg.cpp:47
+msgid "Choose your grid size"
+msgstr "Valitse ruudukon koko"
+
+#: wizard/customdlg.cpp:48
+msgid "Number of rows"
+msgstr "Rivien määrä"
+
+#: wizard/customdlg.cpp:49
+msgid "Insert number of rows"
+msgstr "Aseta rivien määrä"
+
+#: wizard/customdlg.cpp:50
+msgid "Number of columns"
+msgstr "Sarakkeiden määrä"
+
+#: wizard/customdlg.cpp:51
+msgid "Insert number of columns"
+msgstr "Aseta sarakkeiden määrä"
+
+#: wizard/customdlg.cpp:53 wizard/customdlg.cpp:54
+msgid "Choose to have a custom photo size album"
+msgstr "Valitse jos haluat luoda kuva-albumin mukautetulla kuvakoolla"
+
+#: wizard/customdlg.cpp:55
+msgid "Photo height"
+msgstr "Kuvan korkeus:"
+
+#: wizard/customdlg.cpp:56
+msgid "Insert photo height"
+msgstr "Aseta kuvan korkeus"
+
+#: wizard/customdlg.cpp:57
+msgid "Photo width"
+msgstr "Kuvan leveys"
+
+#: wizard/customdlg.cpp:58
+msgid "Insert photo width"
+msgstr "Aseta kuvan leveys"
+
+#: wizard/customdlg.cpp:60
+msgid "Auto rotate photo"
+msgstr "Kierrä automaattisesti"
+
+#: wizard/printhelper.cpp:244
+msgid "Kipi-plugins image printing"
+msgstr "Kipi-liitännäinen kuvien tulostukseen"
+
+#: wizard/printoptionspage.cpp:149 wizard/printoptionspage.cpp:150
+#: wizard/printoptionspage.cpp:151
+msgid "disabled"
+msgstr "pois käytöstä"
+
+#: wizard/wizard.cpp:113
+msgid "Select page layout"
+msgstr "Valitse sivun asettelu"
+
+#: wizard/wizard.cpp:114
+msgid "Crop photos"
+msgstr "Rajaa kuvia"
+
+#: wizard/wizard.cpp:116
+msgid "Custom"
+msgstr "Mukautettu"
+
+#: wizard/wizard.cpp:163
+msgid "A KIPI plugin to print images"
+msgstr "Kuvien tulostusavustin"
+
+#: wizard/wizard.cpp:164
+msgid ""
+"(c) 2003-2004, Todd Shoemaker\n"
+"(c) 2007-2013, Angelo Naselli"
+msgstr ""
+"© 2003–2004 Todd Shoemaker\n"
+"© 2007–2013 Angelo Naselli"
+
+#: wizard/wizard.cpp:167
+msgid "Todd Shoemaker"
+msgstr "Todd Shoemaker"
+
+#: wizard/wizard.cpp:167
+msgid "Author"
+msgstr "Tekijä"
+
+#: wizard/wizard.cpp:170
+msgid "Angelo Naselli"
+msgstr "Angelo Naselli"
+
+#: wizard/wizard.cpp:170
+msgid "Developer and maintainer"
+msgstr "Kehittäjä ja ylläpitäjä"
+
+#: wizard/wizard.cpp:173
+msgid "Andreas Trink"
+msgstr "Andreas Trink"
+
+#: wizard/wizard.cpp:173
+msgid "Contributor"
+msgstr "Avustaja"
+
+#: wizard/wizard.cpp:659
+msgid "Unsupported Paper Size"
+msgstr "Paperin kokoa ei tueta"
+
+#: wizard/wizard.cpp:1128
+#, kde-format
+msgid "Photo %1 of %2"
+msgstr "Kuva %1 / %2"
+
+#: wizard/wizard.cpp:1212 wizard/wizard.cpp:1219
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "Sivu %1 / %2"
+
+#: wizard/wizard.cpp:1460
+msgid "Add again"
+msgstr "Lisää uudelleen"
+
+#: wizard/wizard.cpp:1470
+msgid "Remove"
+msgstr "Poista"
+
+#: wizard/wizard.cpp:2363
+msgid ""
+"The following file will be overwritten. Are you sure you want to overwrite "
+"it?"
+msgstr "Päivitetäänkö tämä tiedosto?"
+
+#: wizard/wizard.cpp:2384
+msgid "Could not save file, please check your output entry."
+msgstr "Tiedoston tallennus epäonnistui, tarkista tallennuskansio."
+
+#: wizard/wizard.cpp:2408
+msgid "Could not remove the GIMP's temporary files."
+msgstr "Kuvankäsittelyohjelman tilapäistiedostojen poisto epäonnistui."
+
+#: wizard/wizard.cpp:2529
+msgid ""
+"There was an error launching the GIMP. Please make sure it is properly "
+"installed."
+msgstr ""
+"Virhe käynnistettäessä kuvankäsittelyohjelmaa. Tarkista että Gimp on "
+"asennettu."
+
+#: wizard/wizard.cpp:2530
+msgid "KIPI"
+msgstr "Kipi"
+
+#: wizard/wizard.cpp:2543
+msgid "Empty output path."
+msgstr "Määrittämätön tallennuskansio."
+
+#~ msgid "Print Image"
+#~ msgstr "Tulosta kuva"
+
+#~ msgid "Select printing information"
+#~ msgstr "Valitse tulostettavat tiedot"
+
+#~ msgid "Complete. Click Finish to exit the Print Wizard."
+#~ msgstr "Naksauta ”valmis”-painiketta sulkeaksesi avustimen."
+
+#~ msgid "Printing Canceled."
+#~ msgstr "Tulostus peruutettu."
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgid "+"
+#~ msgstr "+"
+
+#~ msgid "-"
+#~ msgstr "–"
+
+#~ msgid "Filename"
+#~ msgstr "Tiedostonimi"
+
+#~ msgid "Copies"
+#~ msgstr "Kopiota"
+
+#~ msgid "Layouts:"
+#~ msgstr "Asettelut:"
+
+#~ msgid "Print order:"
+#~ msgstr "Tulostusjärjestys:"
+
+#~ msgid "Move selected photo Up"
+#~ msgstr "Siirrä ylöspäin"
+
+#~ msgctxt "Move Up"
+#~ msgid "Up"
+#~ msgstr "Ylös"
+
+#~ msgid "Move selected photo Down"
+#~ msgstr "Siirrä alaspäin"
+
+#~ msgid "Down"
+#~ msgstr "Alas"

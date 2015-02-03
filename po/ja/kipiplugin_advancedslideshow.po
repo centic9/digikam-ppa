@@ -1,0 +1,778 @@
+# Translation of kipiplugin_advancedslideshow into Japanese.
+# This file is distributed under the same license as the kipi-plugins package.
+# Yukiko Bando <ybando@k6.dion.ne.jp>, 2005, 2006, 2007, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_advancedslideshow\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2008-12-17 22:14+0900\n"
+"Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
+"Language-Team: Japanese <Kdeveloper@kde.gr.jp>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Yukiko Bando"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ybando@k6.dion.ne.jp"
+
+#: dialogs/captiondialog.cpp:41
+msgid "This is a comment sample..."
+msgstr ""
+
+#: dialogs/maindialog.cpp:244
+#, fuzzy, kde-format
+#| msgid "%1 image [%2]"
+msgid "%1 image [%2]"
+msgid_plural "%1 images [%2]"
+msgstr[0] "%1 画像 [%2]"
+msgstr[1] "%1 画像 [%2]"
+
+#: dialogs/maindialog.cpp:324 dialogs/soundtrackdialog.cpp:560
+#, fuzzy, kde-format
+#| msgid "Cannot access to file %1, please check the path is right."
+msgid "Cannot access file %1. Please check the path is correct."
+msgstr ""
+"ファイル <filename>%1</filename> にアクセスできません。パスが正しいか確認して"
+"ください。"
+
+#: dialogs/maindialog.cpp:362
+#, fuzzy, kde-format
+#| msgid "Image no. %1"
+msgctxt "Image number %1"
+msgid "Image #%1"
+msgstr "画像番号 %1"
+
+#: dialogs/maindialog.cpp:394 widgets/slideshowkb.cpp:574
+msgid "Ken Burns"
+msgstr "Ken Burns"
+
+#: dialogs/maindialog.cpp:415
+msgid "Delay between images (ms):"
+msgstr "画像間の遅延 (ミリ秒):"
+
+#. i18n: ectx: property (text), widget (QLabel, m_delayLabel)
+#: dialogs/maindialog.cpp:422 ui/maindialog.ui:262
+msgid "Delay between images (s):"
+msgstr "画像間の遅延 (秒):"
+
+#: dialogs/slideshowconfig.cpp:77 dialogs/slideshowconfig.cpp:113
+msgid "Advanced Slideshow"
+msgstr "高度なスライドショー..."
+
+#: dialogs/slideshowconfig.cpp:85
+msgid "Start Slideshow"
+msgstr "スライドショーを開始"
+
+#: dialogs/slideshowconfig.cpp:92
+msgid "Main"
+msgstr "メイン"
+
+#: dialogs/slideshowconfig.cpp:93
+msgid "Main Settings"
+msgstr "メイン設定"
+
+#: dialogs/slideshowconfig.cpp:97 dialogs/slideshowconfig.cpp:98
+#, fuzzy
+#| msgid "Caption"
+msgctxt "captions for the slideshow"
+msgid "Caption"
+msgstr "キャプション"
+
+#: dialogs/slideshowconfig.cpp:102 dialogs/slideshowconfig.cpp:103
+msgid "Soundtrack"
+msgstr "音声トラック"
+
+#: dialogs/slideshowconfig.cpp:107 dialogs/slideshowconfig.cpp:108
+msgid "Advanced"
+msgstr "詳細"
+
+#: dialogs/slideshowconfig.cpp:116
+#, fuzzy
+#| msgid "A Kipi plugin for image slideshow"
+msgid "A Kipi plugin for image slideshows"
+msgstr "Kipi 画像スライドショープラグイン"
+
+#: dialogs/slideshowconfig.cpp:117
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2004, Renchi Raju\n"
+#| "(c) 2006-2008, Valerio Fuoglio"
+msgid ""
+"(c) 2003-2004, Renchi Raju\n"
+"(c) 2006-2009, Valerio Fuoglio"
+msgstr ""
+"(c) 2003-2004, Renchi Raju\n"
+"(c) 2006-2008, Valerio Fuoglio"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Author"
+msgstr "作者"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Valerio Fuoglio"
+msgstr "Valerio Fuoglio"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Author and maintainer"
+msgstr "作者およびメンテナ"
+
+#: dialogs/soundtrackdialog.cpp:63
+msgid "Soundtrack preview"
+msgstr "音声トラックのプレビュー"
+
+#: dialogs/soundtrackdialog.cpp:90
+msgid ""
+"If set, the soundtrack for the current album will be saved and restored "
+"automatically on the next startup."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:111
+#, fuzzy
+#| msgid "Moving the current image up on the portfolio list."
+msgid "Move the selected track up in the playlist."
+msgstr "現在の画像をポートフォリオのリストの上位に移動します。"
+
+#: dialogs/soundtrackdialog.cpp:112
+#, fuzzy
+#| msgid "Moving the current image down on the portfolio list."
+msgid "Move the selected track down in the playlist."
+msgstr "現在の画像をポートフォリオのリストの下位に移動します。"
+
+#: dialogs/soundtrackdialog.cpp:113
+#, fuzzy
+#| msgid "Add some image files to the portfolio list."
+msgid "Add new tracks to the playlist."
+msgstr "ポートフォリオに画像ファイルを追加します。"
+
+#: dialogs/soundtrackdialog.cpp:114
+msgid "Delete the selected track from the playlist."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:115
+msgid "Load playlist from a file."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:116
+msgid "Save playlist to a file."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:117
+msgid "Clear the playlist."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:243
+#, fuzzy, kde-format
+#| msgid "%1 track [%2]"
+msgctxt "number of tracks and running time"
+msgid "1 track [%2]"
+msgid_plural "%1 tracks [%2]"
+msgstr[0] "%1 トラック [%2]"
+msgstr[1] "%1 トラック [%2]"
+
+#: dialogs/soundtrackdialog.cpp:271
+#, fuzzy
+#| msgid ""
+#| "Slide time is more than soundtrack time. Suggest: add more sound files."
+msgid ""
+"Slide time is greater than soundtrack time. Suggestion: add more sound files."
+msgstr ""
+"音声トラックの時間がスライドの時間に達していません。音声ファイルを追加するこ"
+"とをお勧めします。"
+
+#: dialogs/soundtrackdialog.cpp:342
+msgid "Select sound files"
+msgstr "音声ファイルを選択"
+
+#: dialogs/soundtrackdialog.cpp:394
+#, fuzzy
+#| msgid "You can only move up one image file at once."
+msgid "You can only move image files up one at a time."
+msgstr "複数の画像ファイルを同時に上に移動することはできません。"
+
+#: dialogs/soundtrackdialog.cpp:426
+#, fuzzy
+#| msgid "You can only move down one file at once."
+msgid "You can only move files down one at a time."
+msgstr "複数のファイルを同時に下に移動することはできません。"
+
+#: dialogs/soundtrackdialog.cpp:448 dialogs/soundtrackdialog.cpp:504
+msgid "*.m3u|Playlist (*.m3u)"
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:449
+msgid "Load playlist"
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:505
+#, fuzzy
+#| msgid "Select audio files"
+msgid "Save playlist"
+msgstr "音声ファイルを選択"
+
+#: dialogs/soundtrackdialog.cpp:569
+msgid "Cannot create a preview of an empty file list."
+msgstr "ファイルのリストが空なのでプレビューを作成できません。"
+
+#. i18n: ectx: Menu (View)
+#: plugin/kipiplugin_advancedslideshowui.rc:6
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_advancedslideshowui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/plugin_advancedslideshow.cpp:118
+msgid "Advanced Slideshow..."
+msgstr "高度なスライドショー..."
+
+#: plugin/plugin_advancedslideshow.cpp:204
+msgid "There are no images to show."
+msgstr "表示する画像がありません。"
+
+#: plugin/plugin_advancedslideshow.cpp:262
+#, fuzzy
+#| msgid "Sorry. OpenGL support not available on your system"
+msgid "OpenGL support is not available on your system."
+msgstr "残念ながら、あなたのシステムには OpenGL サポートがありません。"
+
+# ACCELERATOR removed by translator
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/advanceddialog.ui:24
+msgid "&Interface"
+msgstr "インターフェース"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_useMillisecondsCheckBox)
+#: ui/advanceddialog.ui:36
+msgid "Use &milliseconds instead of seconds"
+msgstr "秒ではなくミリ秒を使う(&M)"
+
+# ACCELERATOR removed by translator
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/advanceddialog.ui:52
+msgid "&Controls"
+msgstr "コントロール"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:64
+msgid "Enable mouse wheel to move between slides."
+msgstr "マウスホイールを使ってスライドを切り替えられるようにします。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:67
+msgid "Enable mouse &wheel "
+msgstr "マウスホイールを有効にする(&W)"
+
+# ACCELERATOR removed by translator
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/advanceddialog.ui:85
+msgid "&Ken Burns effect"
+msgstr "Ken Burns エフェクト"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableFadeCheckBox)
+#: ui/advanceddialog.ui:97
+msgid "Disable &fade-in / fade-out"
+msgstr "フェードイン/フェードアウトを無効にする(&F)"
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableCrossfadeCheckBox)
+#: ui/advanceddialog.ui:110
+#, fuzzy
+#| msgid "Disable &crossfade"
+msgid "Disable &cross-fade"
+msgstr "クロスフェードを無効にする(&D)"
+
+# ACCELERATOR removed by translator
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: ui/advanceddialog.ui:126
+msgid "&Others"
+msgstr "その他"
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QCheckBox, m_cacheCheckBox)
+#: ui/advanceddialog.ui:140
+msgid "Enable &Cache"
+msgstr "キャッシュを有効にする(&E)"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel1)
+#: ui/advanceddialog.ui:155
+msgid "Cache size:"
+msgstr "キャッシュサイズ:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel2)
+#: ui/advanceddialog.ui:197
+msgid "images"
+msgstr "画像"
+
+#. i18n: ectx: property (text), widget (QLabel, m_KBCacheLabel)
+#: ui/advanceddialog.ui:212
+#, fuzzy
+#| msgid ""
+#| "<b>Notice</b>:\n"
+#| "Ken Burns effect doesn't use this cache mechanism."
+msgid ""
+"<b>Notice</b>:\n"
+"Ken Burns effect does not use this cache mechanism."
+msgstr ""
+"<html><note>Ken Burns エフェクトはこのキャッシュを使用しません。</note></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/captiondialog.ui:26
+msgid "Line length (in characters)"
+msgstr "行の長さ (文字数)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/captiondialog.ui:77
+msgid "Colors"
+msgstr "色"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/captiondialog.ui:83
+#, fuzzy
+#| msgid "Font color :"
+msgid "Font color:"
+msgstr "フォント色:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/captiondialog.ui:106
+msgid "Background color:"
+msgstr "背景色:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/captiondialog.ui:167
+#, fuzzy
+#| msgid "Background color:"
+msgid "Background opacity:"
+msgstr "背景色:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_commentsDrawOutlineCheckBox)
+#: ui/captiondialog.ui:174
+msgid "Outlined Text"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_allFilesButton)
+#: ui/maindialog.ui:26
+msgid "Show all images in current al&bum"
+msgstr "現在のアルバムのすべての画像を表示(&B)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_selectedFilesButton)
+#: ui/maindialog.ui:33
+msgid "Show onl&y selected images"
+msgstr "選択した画像のみを表示(&Y)"
+
+# ACCELERATOR changed by translator
+#. i18n: ectx: property (text), widget (QRadioButton, m_customButton)
+#: ui/maindialog.ui:40
+msgid "Cu&stom"
+msgstr "カスタム(&U)"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:50
+msgid "Preview the currently selected image."
+msgstr "現在選択されている画像をプレビューします。"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:53
+#, fuzzy
+#| msgid "Image Files in slideshow"
+msgid "Image Files in Slideshow"
+msgstr "スライドショーの画像ファイル"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label6)
+#: ui/maindialog.ui:120
+msgid "Total number of images in the portfolio and sequence duration."
+msgstr "ポートフォリオに入っている画像の合計数とスライドショーの時間です。"
+
+#. i18n: ectx: property (text), widget (QLabel, m_label6)
+#. i18n: ectx: property (text), widget (QLabel, m_label7)
+#: ui/maindialog.ui:123 ui/maindialog.ui:142
+msgid "None"
+msgstr "なし"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label7)
+#: ui/maindialog.ui:139
+msgid "Currently selected image in the portfolio list."
+msgstr "ポートフォリオのリストで現在選択されている画像です。"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/maindialog.ui:157
+msgid "Content"
+msgstr "コンテンツ"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printNameCheckBox)
+#: ui/maindialog.ui:165
+msgid "P&rint filename"
+msgstr "ファイル名を表示する(&R)"
+
+# ACCELERATOR added by translator
+#. i18n: ectx: property (text), widget (QCheckBox, m_printProgressCheckBox)
+#: ui/maindialog.ui:172
+msgid "Progress indicator"
+msgstr "進捗インジケータ(&P)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printCommentsCheckBox)
+#: ui/maindialog.ui:181
+msgid "Pr&int captions "
+msgstr "キャプションを表示する(&I)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/maindialog.ui:204
+msgid "Video"
+msgstr "動画"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openglCheckBox)
+#: ui/maindialog.ui:210
+msgid "Use Open&GL slideshow transitions"
+msgstr "スライドの入れ替えに OpenGL を使う(&G)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openGlFullScale)
+#: ui/maindialog.ui:217
+msgid "Use full screen resolution (slower)"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/maindialog.ui:240
+msgid "Playback"
+msgstr "再生"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_loopCheckBox)
+#: ui/maindialog.ui:246 ui/soundtrackdialog.ui:331
+msgid "&Loop"
+msgstr "繰り返し(&L)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_shuffleCheckBox)
+#: ui/maindialog.ui:253
+msgid "&Shuffle images"
+msgstr "画像をシャッフル(&S)"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/maindialog.ui:288
+msgid "Transition effect:"
+msgstr "入れ替えの効果:"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playButton)
+#: ui/playbackwidget.ui:28 ui/slideplaybackwidget.ui:30
+msgid "Play"
+msgstr "再生"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
+#: ui/playbackwidget.ui:35 ui/slideplaybackwidget.ui:37
+msgid "Stop"
+msgstr "停止"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_prevButton)
+#: ui/playbackwidget.ui:42 ui/slideplaybackwidget.ui:44
+msgid "Prev"
+msgstr "前へ"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_nextButton)
+#: ui/playbackwidget.ui:49 ui/slideplaybackwidget.ui:51
+msgid "Next"
+msgstr "次へ"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/playbackwidget.ui:69
+msgid "Time"
+msgstr "時間"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/playbackwidget.ui:78
+msgid "elapsed:"
+msgstr "経過:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_elapsedTimeLabel)
+#. i18n: ectx: property (text), widget (QLabel, m_totalTimeLabel)
+#: ui/playbackwidget.ui:85 ui/playbackwidget.ui:99
+msgid "0:00:00"
+msgstr "0:00:00"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/playbackwidget.ui:92
+msgid "total:"
+msgstr "合計:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_selectionGroupBox)
+#: ui/soundtrackdialog.ui:23
+msgid "Select audio files"
+msgstr "音声ファイルを選択"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonUp)
+#: ui/soundtrackdialog.ui:76
+#, fuzzy
+#| msgid "Moving the current image up on the portfolio list."
+msgid "Move the current image up in the portfolio list."
+msgstr "現在の画像をポートフォリオのリストの上位に移動します。"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonAdd)
+#: ui/soundtrackdialog.ui:104
+msgid "Add some image files to the portfolio list."
+msgstr "ポートフォリオに画像ファイルを追加します。"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDelete)
+#: ui/soundtrackdialog.ui:132
+msgid "Remove some image files from the portfolio list."
+msgstr "ポートフォリオから画像ファイルを削除します。"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDown)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonLoad)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonSave)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonReset)
+#: ui/soundtrackdialog.ui:160 ui/soundtrackdialog.ui:191
+#: ui/soundtrackdialog.ui:219 ui/soundtrackdialog.ui:247
+#, fuzzy
+#| msgid "Moving the current image down on the portfolio list."
+msgid "Move the current image down in the portfolio list."
+msgstr "現在の画像をポートフォリオのリストの下位に移動します。"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_previewButton)
+#: ui/soundtrackdialog.ui:305
+msgid "Preview..."
+msgstr "プレビュー..."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/soundtrackdialog.ui:325
+msgid "Options"
+msgstr "オプション"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_rememberSoundtrack)
+#: ui/soundtrackdialog.ui:338
+#, fuzzy
+#| msgid "Soundtrack"
+msgid "Remember soundtrack"
+msgstr "音声トラック"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/soundtrackdialog.ui:361
+msgid "Time comparison"
+msgstr "時間の比較"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/soundtrackdialog.ui:369
+#, fuzzy
+#| msgid "Slide :"
+msgid "Slide:"
+msgstr "スライド:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/soundtrackdialog.ui:383
+#, fuzzy
+#| msgid "Soundtrack :"
+msgid "Soundtrack:"
+msgstr "音声トラック:"
+
+#: widgets/listsounditems.cpp:95
+#, kde-format
+msgid "%1 is damaged and may not be playable."
+msgstr "<filename>%1</filename> は壊れていて再生できないかもしれません。"
+
+#: widgets/listsounditems.cpp:97
+msgid "Phonon error"
+msgstr "Phonon のエラー"
+
+#: widgets/listsounditems.cpp:100
+msgid "This file is damaged and may not be playable."
+msgstr "このファイルは壊れていて再生できないかもしれません。"
+
+#: widgets/listsounditems.cpp:101 widgets/listsounditems.cpp:125
+#, kde-format
+msgctxt "artist - title"
+msgid "%1 - %2"
+msgstr ""
+
+#: widgets/slideshow.cpp:240 widgets/slideshowgl.cpp:390
+#, fuzzy
+#| msgid "None"
+msgctxt "Filter Effect: No effect"
+msgid "None"
+msgstr "なし"
+
+#: widgets/slideshow.cpp:241
+#, fuzzy
+#| msgid "Chess Board"
+msgctxt "Filter Effect: Chess Board"
+msgid "Chess Board"
+msgstr "チェスボード"
+
+#: widgets/slideshow.cpp:242
+#, fuzzy
+#| msgid "Melt Down"
+msgctxt "Filter Effect: Melt Down"
+msgid "Melt Down"
+msgstr "溶ける"
+
+#: widgets/slideshow.cpp:243
+#, fuzzy
+#| msgid "Sweep"
+msgctxt "Filter Effect: Sweep"
+msgid "Sweep"
+msgstr "掃く"
+
+#: widgets/slideshow.cpp:244
+#, fuzzy
+#| msgid "Mosaic"
+msgctxt "Filter Effect: Mosaic"
+msgid "Mosaic"
+msgstr "モザイク"
+
+#: widgets/slideshow.cpp:245
+#, fuzzy
+#| msgid "Cubism"
+msgctxt "Filter Effect: Cubism"
+msgid "Cubism"
+msgstr "キュビズム"
+
+#: widgets/slideshow.cpp:246
+#, fuzzy
+#| msgid "Growing"
+msgctxt "Filter Effect: Growing"
+msgid "Growing"
+msgstr "育つ"
+
+#: widgets/slideshow.cpp:247
+#, fuzzy
+#| msgid "Horizontal Lines"
+msgctxt "Filter Effect: Horizontal Lines"
+msgid "Horizontal Lines"
+msgstr "横線"
+
+#: widgets/slideshow.cpp:248
+#, fuzzy
+#| msgid "Vertical Lines"
+msgctxt "Filter Effect: Vertical Lines"
+msgid "Vertical Lines"
+msgstr "縦線"
+
+#: widgets/slideshow.cpp:249
+#, fuzzy
+#| msgid "Circle Out"
+msgctxt "Filter Effect: Circle Out"
+msgid "Circle Out"
+msgstr "円を描いて出る"
+
+#: widgets/slideshow.cpp:250
+#, fuzzy
+#| msgid "MultiCircle Out"
+msgctxt "Filter Effect: Multi-Circle Out"
+msgid "Multi-Circle Out"
+msgstr "風車"
+
+#: widgets/slideshow.cpp:251
+#, fuzzy
+#| msgid "Spiral In"
+msgctxt "Filter Effect: Spiral In"
+msgid "Spiral In"
+msgstr "らせん状に入る"
+
+#: widgets/slideshow.cpp:252
+#, fuzzy
+#| msgid "Blobs"
+msgctxt "Filter Effect: Blobs"
+msgid "Blobs"
+msgstr "斑点"
+
+#: widgets/slideshow.cpp:253 widgets/slideshowgl.cpp:399
+#, fuzzy
+#| msgid "Random"
+msgctxt "Filter Effect: Random effect"
+msgid "Random"
+msgstr "ランダム"
+
+#: widgets/slideshow.cpp:1314 widgets/slideshowgl.cpp:692
+#, fuzzy
+#| msgid "Slideshow Completed."
+msgid "Slideshow Completed"
+msgstr "スライドショーが完了しました。"
+
+#: widgets/slideshow.cpp:1315 widgets/slideshowgl.cpp:693
+#: widgets/slideshowkb.cpp:516
+#, fuzzy
+#| msgid "Click To Exit..."
+msgid "Click to Exit..."
+msgstr "クリックで終了..."
+
+#: widgets/slideshowgl.cpp:391
+#, fuzzy
+#| msgid "Bend"
+msgctxt "Filter Effect: Bend"
+msgid "Bend"
+msgstr "曲げる"
+
+#: widgets/slideshowgl.cpp:392
+#, fuzzy
+#| msgid "Blend"
+msgctxt "Filter Effect: Blend"
+msgid "Blend"
+msgstr "ブレンド"
+
+#: widgets/slideshowgl.cpp:393
+#, fuzzy
+#| msgid "Cube"
+msgctxt "Filter Effect: Cube"
+msgid "Cube"
+msgstr "キューブ"
+
+#: widgets/slideshowgl.cpp:394
+#, fuzzy
+#| msgid "Fade"
+msgctxt "Filter Effect: Fade"
+msgid "Fade"
+msgstr "フェード"
+
+#: widgets/slideshowgl.cpp:395
+#, fuzzy
+#| msgid "Flutter"
+msgctxt "Filter Effect: Flutter"
+msgid "Flutter"
+msgstr "ひらひら"
+
+#: widgets/slideshowgl.cpp:396
+#, fuzzy
+#| msgid "In Out"
+msgctxt "Filter Effect: In Out"
+msgid "In Out"
+msgstr "ズームイン/アウト"
+
+#: widgets/slideshowgl.cpp:397
+#, fuzzy
+#| msgid "Rotate"
+msgctxt "Filter Effect: Rotate"
+msgid "Rotate"
+msgstr "回転"
+
+#: widgets/slideshowgl.cpp:398
+#, fuzzy
+#| msgid "Slide"
+msgctxt "Filter Effect: Slide"
+msgid "Slide"
+msgstr "スライド"
+
+#: widgets/slideshowkb.cpp:515
+#, fuzzy
+#| msgid "SlideShow Completed."
+msgid "SlideShow Completed"
+msgstr "スライドショーが完了しました。"
+
+#, fuzzy
+#~| msgid "Start Slideshow"
+#~ msgid "Slideshow"
+#~ msgstr "スライドショーを開始"
+
+#~ msgid "Handbook"
+#~ msgstr "ハンドブック"

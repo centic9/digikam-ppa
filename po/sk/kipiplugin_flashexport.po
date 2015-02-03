@@ -1,0 +1,669 @@
+# translation of kipiplugin_flashexport.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2008, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_flashexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-30 03:31+0100\n"
+"PO-Revision-Date: 2013-03-14 13:54+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: aboutdata.h:41
+msgid "Flash Export"
+msgstr "Flash export"
+
+#: aboutdata.h:43
+msgid ""
+"A Kipi plugin to export images to Flash using the SimpleViewer's components."
+msgstr ""
+
+#: aboutdata.h:44
+msgid ""
+"(c) 2005-2006, Joern Ahrens\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2011, Veaceslav Munteanu"
+msgstr ""
+"(c) 2005-2006, Joern Ahrens\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2011, Veaceslav Munteanu"
+
+#: aboutdata.h:51
+msgid "Joern Ahrens"
+msgstr "Joern Ahrens"
+
+#: aboutdata.h:52
+msgid "Author"
+msgstr "Autor"
+
+#: aboutdata.h:55
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: aboutdata.h:56 aboutdata.h:60
+msgid "Developer and maintainer"
+msgstr "Vývojár a správca"
+
+#: aboutdata.h:59
+msgid "Veaceslav Munteanu"
+msgstr "Veaceslav Munteanu"
+
+#: aboutdata.h:63
+msgid "Felix Turner"
+msgstr "Felix Turner"
+
+#: aboutdata.h:64
+msgid "Author of the Simple Viewer Flash component"
+msgstr ""
+
+#: aboutdata.h:68
+msgid "Mikkel B. Stegmann"
+msgstr "Mikkel B. Stegmann"
+
+#: aboutdata.h:69
+msgid "Basis for the index.html template"
+msgstr ""
+
+#: importWizard/firstrunpage.cpp:70
+msgid "First Run"
+msgstr "Prvé spustenie"
+
+#: importWizard/firstrunpage.cpp:77
+msgid ""
+"<p>SimpleViewer's plugins are Flash components which are free to use, but "
+"use a license which comes into conflict with several distributions. Due to "
+"the license it is not possible to ship it with this tool.</p><p>You can now "
+"download plugin from its homepage and point this tool to the downloaded "
+"archive. The archive will be stored with the plugin configuration, so it is "
+"available for further use.</p><p><b>Note: Please download the plugin that "
+"you selected on the first page.</b></p>"
+msgstr ""
+
+#: importWizard/firstrunpage.cpp:86
+#, fuzzy
+msgid "<p>1.) Download plugin from the following url:</p>"
+msgstr "Zlyhal download z neplatného URL."
+
+#: importWizard/firstrunpage.cpp:96
+msgid "<p>2.) Point this tool to the downloaded archive</p>"
+msgstr ""
+
+#: importWizard/generalpage.cpp:84
+msgid "General Settings"
+msgstr "Všeobecné nastavenia"
+
+#: importWizard/generalpage.cpp:91
+#, fuzzy
+msgid "Gallery &Title"
+msgstr "Titulok na výšku"
+
+#: importWizard/generalpage.cpp:94
+#, fuzzy
+msgid "Enter here the gallery title"
+msgstr "Tu zadajte titulok displeja."
+
+#: importWizard/generalpage.cpp:102
+#, fuzzy
+msgid "Save Gallery To"
+msgstr "&Uložiť do súboru..."
+
+#: importWizard/generalpage.cpp:113
+msgid "Image Properties"
+msgstr "Vlastnosti obrázku"
+
+#: importWizard/generalpage.cpp:115
+#, fuzzy
+msgid "Resize Target Images"
+msgstr "Obrázky Microsoft Windows"
+
+#: importWizard/generalpage.cpp:117
+msgid "If you enable this option, all target images can be resized."
+msgstr ""
+
+#: importWizard/generalpage.cpp:121
+#, fuzzy
+msgid "Auto-Rotate/Flip Images"
+msgstr "Automaticky otočiť/preklopiť obrázok"
+
+#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
+#: importWizard/lookpage.cpp:335
+msgid ""
+"If you enable this option, the images' orientations will be set according to "
+"their Exif information."
+msgstr ""
+
+#: importWizard/generalpage.cpp:128
+#, fuzzy
+msgid "&Target Images' Size:"
+msgstr "Veľkosť prihlasovacieho obrázka"
+
+#: importWizard/generalpage.cpp:132
+msgid ""
+"The new size of the exported images, in pixels. SimpleViewer resizes the "
+"images too, but this resizes the images before they are uploaded to your "
+"server."
+msgstr ""
+
+#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+#, fuzzy
+msgid "&Displayed Images' Size:"
+msgstr "Veľkosť prihlasovacieho obrázka"
+
+#: importWizard/generalpage.cpp:149
+msgid ""
+"Scales the displayed images to this size. Normally, use the height or width "
+"of your largest image (in pixels). Images will not be scaled up above this "
+"size, to preserve image quality."
+msgstr ""
+
+#: importWizard/generalpage.cpp:165
+msgid "Misc"
+msgstr "Rôzne"
+
+#: importWizard/generalpage.cpp:168
+#, fuzzy
+msgid "Display Captions"
+msgstr "Bez nadpisov"
+
+#: importWizard/generalpage.cpp:170
+#, fuzzy
+msgid "If this option is enabled, the images' captions will be shown."
+msgstr "Ak je táto voľba zapnutá, zobrazí sa pôvodný obrázok."
+
+#: importWizard/generalpage.cpp:172
+#, fuzzy
+msgid "Display Keywords"
+msgstr "Nastavenie obrazovky"
+
+#: importWizard/generalpage.cpp:174
+#, fuzzy
+msgid "If this option is enabled, the images' keywords will be shown."
+msgstr "Ak je táto voľba zapnutá, zobrazí sa pôvodný obrázok."
+
+#: importWizard/generalpage.cpp:177
+#, fuzzy
+msgid "Open Image with Right Click"
+msgstr "Zmeniť veľkosť obrázku: Pravé tlačidlo myši zruší."
+
+#: importWizard/generalpage.cpp:179
+msgid ""
+"If this option is enabled, the user will be able to open the target image in "
+"a separate window using the right mouse button."
+msgstr ""
+
+#: importWizard/generalpage.cpp:183
+#, fuzzy
+msgid "Open gallery in Browser"
+msgstr "Otvoriť v externom prehliadači"
+
+#: importWizard/generalpage.cpp:185
+msgid ""
+"If this option is enabled, the gallery will be opened in Konqueror "
+"automatically."
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:90
+#, fuzzy
+msgid "Flash Export Wizard"
+msgstr "Sprievodca exportom pre záznamy kPPP"
+
+#: importWizard/importwizarddlg.cpp:135
+msgid ""
+"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
+"date and is not corrupted.</p>"
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:180
+msgid "You must select at least one collection to export."
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:216
+#, kde-format
+msgid ""
+"Target folder %1 already exists.\n"
+"Do you want to overwrite it?  All data in this folder will be lost."
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:225
+#, kde-format
+msgid ""
+"Could not delete %1.\n"
+"Please choose another export folder."
+msgstr ""
+
+#: importWizard/intropage.cpp:60
+#, fuzzy
+msgid "Welcome to FlashExport Tool"
+msgstr "Vitajte v nástroji pre nastavenie servera CUPS"
+
+#: importWizard/intropage.cpp:68
+msgid ""
+"<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
+"href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
+"Postcardviewer</a> to export images to flash galleries</p><p>This assistant "
+"will help you to configure and import images before exporting them to flash</"
+"p><p>Note that:</p><p>1. Free version of SimpleViewer allow only a maximum "
+"of 50 pictures to be exported.</p><p>2. TiltViewer is quite CPU intensive</"
+"p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
+msgstr ""
+
+#: importWizard/intropage.cpp:81
+#, fuzzy
+msgid "Select &Plugin:"
+msgstr "Vyberte prídavný modul pre %1"
+
+#: importWizard/intropage.cpp:84
+msgctxt "SimpleViewer"
+msgid "SimpleViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:85
+msgctxt "TiltViewer"
+msgid "TiltViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:86
+msgctxt "AutoViewer"
+msgid "AutoViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:87
+msgctxt "PostcardViewer"
+msgid "PostcardViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:99
+#, fuzzy
+msgid "&Choose image selection method:"
+msgstr "Viac obrazových efektov (výber)"
+
+#: importWizard/intropage.cpp:101
+msgctxt "Collections"
+msgid "Collections"
+msgstr "Kolekcie"
+
+#: importWizard/intropage.cpp:102
+#, fuzzy
+msgctxt "Image Dialog"
+msgid "Image Dialog"
+msgstr "Dialóg rozbaľovania"
+
+#: importWizard/lookpage.cpp:111
+msgid "Configure appearance"
+msgstr "Nastavenie vzhľadu"
+
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
+#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+msgctxt "Settings for flash export navigation"
+msgid "Navigation"
+msgstr "Navigácia"
+
+#: importWizard/lookpage.cpp:143
+#, fuzzy
+msgid "Thumbnail &Rows:"
+msgstr "Počet riadkov:"
+
+#: importWizard/lookpage.cpp:147
+#, fuzzy
+msgid "Number of thumbnails rows"
+msgstr "Zmeniť počet riadkov"
+
+#: importWizard/lookpage.cpp:151
+#, fuzzy
+msgid "Thumbnail &Columns:"
+msgstr "Dva stĺpce"
+
+#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+#, fuzzy
+msgid "Number of thumbnails columns"
+msgstr "Vložte počet stĺpcov"
+
+#: importWizard/lookpage.cpp:159
+#, fuzzy
+msgid "Thumbnail &Position:"
+msgstr "Pozícia kurzora"
+
+#: importWizard/lookpage.cpp:161
+msgctxt "thumbnail position: right"
+msgid "Right"
+msgstr "Vpravo"
+
+#: importWizard/lookpage.cpp:162
+msgctxt "thumbnail position: left"
+msgid "Left"
+msgstr "Vľavo"
+
+#: importWizard/lookpage.cpp:163
+msgctxt "thumbnail position: top"
+msgid "Top"
+msgstr "Hore"
+
+#: importWizard/lookpage.cpp:164
+msgctxt "thumbnail position: bottom"
+msgid "Bottom"
+msgstr "Dole"
+
+#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
+#: importWizard/lookpage.cpp:418
+msgid "Colors"
+msgstr "Farby"
+
+#: importWizard/lookpage.cpp:184
+msgid "&Text Color:"
+msgstr "Farba textu:"
+
+#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+msgid "Color of title and caption text"
+msgstr ""
+
+#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
+#: importWizard/lookpage.cpp:429
+msgid "&Background Color:"
+msgstr "Farba pozadia:"
+
+#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
+#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+msgid "&Frame Color:"
+msgstr "Farba rámca:"
+
+#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
+#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
+msgstr ""
+
+#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
+#: importWizard/lookpage.cpp:449
+msgid "Style"
+msgstr "Štýl"
+
+#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
+#: importWizard/lookpage.cpp:469
+msgid "&Frame Width:"
+msgstr "Šírka rámca:"
+
+#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+#, fuzzy
+msgid "Width of image frame in pixels."
+msgstr "Šírka nového obrázku v percentách (%)."
+
+#: importWizard/lookpage.cpp:223
+#, fuzzy
+msgid "&Stage Padding:"
+msgstr "IT8 CT w/padding"
+
+#: importWizard/lookpage.cpp:227
+msgid "Distance between image and thumbnails in pixels."
+msgstr ""
+
+#: importWizard/lookpage.cpp:244
+msgid "&Display Time:"
+msgstr "Zobraziť čas:"
+
+#: importWizard/lookpage.cpp:248
+msgid "Number of seconds each image will display in auto-play mode."
+msgstr ""
+
+#: importWizard/lookpage.cpp:292
+#, fuzzy
+msgid "&Image Padding:"
+msgstr "Transformovať obrázok"
+
+#: importWizard/lookpage.cpp:296
+#, fuzzy
+msgid "Distance between images in pixels"
+msgstr "Vzdialenosť medzi ikonami v pixeloch."
+
+#: importWizard/lookpage.cpp:313
+msgid " &Rows:"
+msgstr "Riadky:"
+
+#: importWizard/lookpage.cpp:317
+#, fuzzy
+msgid "Number of rows of images to display."
+msgstr "Komponent na zobrazenie SVG obrázkov"
+
+#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+msgid " &Columns:"
+msgstr "Stĺpce:"
+
+#: importWizard/lookpage.cpp:325
+#, fuzzy
+msgid "Number of columns of images to display."
+msgstr "Komponent na zobrazenie SVG obrázkov"
+
+#: importWizard/lookpage.cpp:328
+#, fuzzy
+msgid "Show Flip Button"
+msgstr "Zobraziť tlačidlo nastavenia"
+
+#: importWizard/lookpage.cpp:333
+#, fuzzy
+msgid "Use reload button"
+msgstr "Povoliť tlačidlo 'Znovu vytlačiť'"
+
+#: importWizard/lookpage.cpp:348
+msgctxt "Settings for flash export navigation"
+msgid "Colors"
+msgstr "Farby"
+
+#: importWizard/lookpage.cpp:359
+#, fuzzy
+msgid "Background &Inner Color:"
+msgstr "Farba pozadia &vybraného..."
+
+#: importWizard/lookpage.cpp:362
+msgid "Color of the stage background gradient center."
+msgstr ""
+
+#: importWizard/lookpage.cpp:366
+#, fuzzy
+msgid "Background &Outer Color:"
+msgstr "Farba pozadia &vybraného..."
+
+#: importWizard/lookpage.cpp:369
+msgid "Color of the stage background gradient edge."
+msgstr ""
+
+#: importWizard/lookpage.cpp:373
+#, fuzzy
+msgid "Image Back Color:"
+msgstr "Farba okraja obrázku"
+
+#: importWizard/lookpage.cpp:376
+msgid "Image's back color when pressing flip button"
+msgstr ""
+
+#: importWizard/lookpage.cpp:395
+#, fuzzy
+msgid "Cell Dimension:"
+msgstr "MUNIT(rozmer)"
+
+#: importWizard/lookpage.cpp:399
+msgid ""
+"Dimension of displayed image cells. Please use a higher value if you set "
+"high image size"
+msgstr ""
+
+#: importWizard/lookpage.cpp:422
+#, fuzzy
+msgid "&Caption Color:"
+msgstr "Obyčajná farba"
+
+#: importWizard/lookpage.cpp:453
+#, fuzzy
+msgid "&Zoom In Percentage:"
+msgstr "Priblížiť"
+
+#: importWizard/lookpage.cpp:457
+msgid "The amount of scale when zoomed in (percentage)"
+msgstr ""
+
+#: importWizard/lookpage.cpp:461
+#, fuzzy
+msgid "&Zoom Out Percentage:"
+msgstr "Oddialiť dokument"
+
+#: importWizard/lookpage.cpp:465
+msgid "The amount of scale when zoomed out (percentage)"
+msgstr ""
+
+#: importWizard/lookpage.cpp:473
+#, fuzzy
+msgid "The frame width"
+msgstr "Šírka rámca"
+
+#: importWizard/progresspage.cpp:49
+msgid "Exporting..."
+msgstr "Exportujem..."
+
+#: importWizard/selectionpage.cpp:68
+#, fuzzy
+msgid "Select Image Collections"
+msgstr "Vybrať oblasť obrázka"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_flashexportui.rc:6
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_flashexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: plugin_flashexport.cpp:94
+#, fuzzy
+msgid "Export to F&lash..."
+msgstr "Exportovať do umiestnenia"
+
+#: simpleviewer.cpp:184
+msgid "Initialising..."
+msgstr ""
+
+#: simpleviewer.cpp:212
+#, fuzzy
+msgid "Export canceled"
+msgstr "Načítanie bolo zrušené"
+
+#: simpleviewer.cpp:223
+#, fuzzy
+msgid "Failed to create export directories"
+msgstr "Zlyhal pri vytvorení zálohovacej kópie."
+
+#: simpleviewer.cpp:230
+#, fuzzy
+msgid "Failed to export the images"
+msgstr "Export do XHTML zlyhal"
+
+#: simpleviewer.cpp:237
+#, fuzzy
+msgid "Failed to create index.html"
+msgstr "Zlyhal pri vytvorení zálohovacej kópie."
+
+#: simpleviewer.cpp:244
+#, fuzzy
+msgid "Failed to copy SimpleViewer files"
+msgstr "Kopírovať vybrané súbory z %1 do:"
+
+#: simpleviewer.cpp:251
+#, fuzzy
+msgid "Failed to upload the gallery"
+msgstr "Zlyhalo odoslanie \"%1\" pre %2. Dôvod: %3."
+
+#: simpleviewer.cpp:260
+#, kde-format
+msgid ""
+"Export was canceled.\n"
+"Do you want to delete files in %1 that have already been created?"
+msgstr ""
+
+#: simpleviewer.cpp:271
+msgctxt "Flash export has finished"
+msgid "Finished..."
+msgstr "Dokončené..."
+
+#: simpleviewer.cpp:285
+#, fuzzy
+msgid "Creating directories..."
+msgstr "Autostart adresáre"
+
+#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#, kde-format
+msgid "Could not create folder '%1'"
+msgstr "Nie je možné vytvoriť priečinok: '%1'"
+
+#: simpleviewer.cpp:320
+#, fuzzy
+msgid "Finished Creating directories..."
+msgstr "Súbory a adresáre"
+
+#: simpleviewer.cpp:353
+#, fuzzy
+msgid "Creating images and thumbnails..."
+msgstr "Editivať a maľovať obrázky"
+
+#: simpleviewer.cpp:483
+#, kde-format
+msgid "Processing %1"
+msgstr "Spracúva sa %1"
+
+#: simpleviewer.cpp:493
+#, fuzzy, kde-format
+msgid "Could not open image '%1'"
+msgstr "Nedá sa načítať obrázok."
+
+#: simpleviewer.cpp:504
+#, fuzzy, kde-format
+msgid "Could not create thumbnail from '%1'"
+msgstr "Zo súboru sa nedá čítať."
+
+#: simpleviewer.cpp:512
+#, fuzzy, kde-format
+msgid "Could not resize image '%1'"
+msgstr "Nedá sa načítať obrázok."
+
+#: simpleviewer.cpp:739
+#, fuzzy
+msgid "Creating index.html..."
+msgstr "&Použiť index.html"
+
+#: simpleviewer.cpp:878
+#, fuzzy
+msgid "index.html created..."
+msgstr "&Použiť index.html"
+
+#: simpleviewer.cpp:888
+#, fuzzy
+msgid "Copying flash files..."
+msgstr "Rozbaľujú sa všetky súbory"
+
+#: simpleviewer.cpp:906
+#, fuzzy
+msgid "Flash files copied..."
+msgstr "Pastebin odkaz skopírovaný"
+
+#: simpleviewer.cpp:916
+#, fuzzy
+msgid "Uploading gallery..."
+msgstr "Galéria obrázkov"
+
+#: simpleviewer.cpp:921
+#, fuzzy
+msgid "Gallery uploaded..."
+msgstr "Galéria obrázkov"

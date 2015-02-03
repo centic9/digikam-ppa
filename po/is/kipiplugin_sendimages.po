@@ -1,0 +1,367 @@
+# translation of kipiplugin_sendimages.po to Icelandic
+# íslenskun kipiplugin_sendimages.po
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2013-04-23 06:52+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"Language-Team: Icelandic <kde-isl@molar.is>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sveinn í Felli"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sveinki@nett.is"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr "Get ekki opnað inntaksskrá"
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr "Get ekki opnað bráðabirgðamöppu"
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr "Get ekki minnkað mynd. Hætti við."
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr "Get ekki vistað minnkaða mynd (JPEG). Hætti við."
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr "Get ekki vistað minnkaða mynd (PNG). Hætti við."
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr "&Flytja annað"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr "Aðaltækjaslá"
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr "Tölvupóstsenda myndir..."
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr "Tölvupóstsenda myndir"
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr "Notandi hætti við aðgerð"
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "Breyti stærð %1"
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr "%1 minnkuð"
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "Get ekki minnkað %1: %2"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr "Byggi skrá með eigileikum mynda"
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr "enginn skýringartexti"
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr "engin stikkorð"
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+"skrá \"%1\":\n"
+"Upprunalegar myndir: %2\n"
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr "Athugasemdir: %1\n"
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr "Merki: %1\n"
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr "Einkunn: %1\n"
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr "eiginleikar.txt"
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr "Skrá með eiginleikum mynda tókst"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+"Myndirnar hér að neðan var ekki hægt að minnka\n"
+"Viltu hengja þær við (án þess að breyta stærð þeirra)?"
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr "Mistókst að minnka myndir"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+"Skráin \"%1\" er of stór til að senda, minnkaðu hana eða breyttu stillingunum"
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr "Ræsi sjálfgefið KDE tölvupóstforrit..."
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr "Tókst ekki að ræsa \"%1\" forritið. Athugaðu kerfið þitt."
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "Ræsi \"%1\" forritið..."
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr "Eftir að þú hefur sent myndirnar með tölvupósti..."
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr "Ýttu þá á 'Loka' hnappinn til að hreinsa upp bráðabirgðaskrár"
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr "Valmöguleikar við sendingu mynda"
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr "Senda myndir"
+
+#: sendimagesdialog.cpp:108
+msgid "A plugin to e-mail items"
+msgstr "Íforrit til að tölvupóstsenda myndir"
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "(c) 2003-2013, Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Höfundur og umsjónarmaður"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Forritari"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "Póstforrit:"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Sjálfgefið"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+"Veldu hér tölvupóstforritið sem þú vilt nota. <b>Sjálfgefið</b> er forritið "
+"sem tilgreint er í KDE kerfisstillingunum."
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr "Hengja við skrá með eiginleikum myndar frá %1"
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+"Ef þú virkjar þetta, munu eiginleikar mynda sem settir eru með %1 sem "
+"Athugasemd, Einkunn, eða Merki, verða sett í viðhengda skrá."
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " MB"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr "Hámarksstærð tölvupósts:"
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr "Breyta eiginleikum mynda"
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+"Ef þú virkjar þetta, er hægt að minnka og endurþjappa allar myndir sem á að "
+"senda."
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Eiginleikar myndar"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr "Mjög lítil (320 dílar)"
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Lítil (640 dílar)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Meðal (800 dílar)"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Stór (800 dílar)"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr "Mjög stór (1280 dílar)"
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Risa - fyrir prentun (1600 dílar)"
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+"<p>Veldu hér stærð myndanna sem þú ætlar að senda:</p><p><b>%1</b>: notaðu "
+"þetta ef þú ert með mjög hæga internettengingu eða ef móttakandinn er með "
+"mjög takmarkaða stærð af pósthólfi.</p><p><b>%2</b>: notaðu þetta ef þú ert "
+"með frekar hæga internettengingu eða ef móttakandinn er með takmarkaða stærð "
+"af pósthólfi.</p><p><b>%3</b>: þetta er sjálfgefið fyrir meðalhraða "
+"internettengingu og þegar móttakandinn er með algenga stærð af pósthólfi.</"
+"p><p><b>%4</b>: notaðu þetta ef þú ert með háhraða internettengingu og ef "
+"móttakandinn er með ótakmarkaða stærð af pósthólfi.</p><p><b>%5</b>: notaðu "
+"þetta ef engar hömlur eru á hraða eða stærð pósthólfs.</p><p><b>%6</b>: "
+"notaðu þetta eingöngu til að senda myndir í prentun.</p>"
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Stærð myndar:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr "<p>Veldu á hvaða skráasniði myndirnar verða sendar.</p>"
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+"<p><b>JPEG</b>: (Joint Photographic Experts Group) er skráarsnið sem virkar "
+"vel á vefnum en það notar þjöppunaraðferð sem tapar gögnum (í hvert skipti "
+"sem mynd er vistuð).</p><p><b>PNG</b>: (Portable Network Graphics) "
+"skráarsniðið er útvíkkanlegt snið fyrir taplausa, yfirfæranlega, vel "
+"þjappanlega geymslu á bitamyndum. PNG býður upp á einkaleyfafrítt snið í "
+"stað GIF og getur í mörgum algengum tilfellum komið í stað TIFF. PNG er "
+"hannað til að virka vel á netinu, þannig að það má streyma að fullu með "
+"möguleika á framvindanlegri birtingu. Einnig má nefna að PNG getur geymt "
+"upplýsingar um litróf og litbrigði til stöðlunar á birtingu í hinum ýmsu og "
+"misjöfnu kerfum.</p>"
+
+#: settingswidget.cpp:184
+msgid "Image format:"
+msgstr "Myndskráarsnið:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr "<p>Ný þjöppun JPEG mynda sem á að senda:</p>"
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+"<p><b>1</b>: mjög mikil þjöppun<br/><b>25</b>: mikil þjöppun<br/><b>50</b>: "
+"meðalþjöppun<br/><b>75</b>: lítil þjöppun (sjálfgefið)<br/><b>100</b>: engin "
+"þjöppun</p>"
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Gæði mynda:"
+
+#~ msgid "Handbook"
+#~ msgstr "Handbók"

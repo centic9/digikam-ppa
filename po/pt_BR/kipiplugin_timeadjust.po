@@ -1,0 +1,260 @@
+# Copyright (C) 2004-2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Translation of kipiplugin_timeadjust.po to Brazilian Portuguese
+#
+# Anderson Carlos Daniel Sanches <anderson@ime.usp.br>, 2004.
+# Jose Monteiro <jf.monteiro@yahoo.com>, 2007.
+# doutor.zero <doutor.zero@gmail.com>, 2007.
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2011, 2012.
+# Marcus Gama <marcus.gama@gmail.com>, 2005, 2009, 2012.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_timeadjust\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2012-09-04 23:16-0300\n"
+"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Anderson Carlos Daniel Sanches, Marcus Gama, Jose Monteiro, Doutor.Zero, "
+"Luiz Fernando Ranghetti"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"anderson@ime.usp.br, marcus.gama@gmail.com, jf.monteiro@yahoo.com, doutor."
+"zero@gmail.com, elchevive@opensuse.org"
+
+#: clockphotodialog.cpp:82
+msgid "Determine time difference with clock photo"
+msgstr "Determinar a diferença de horas com a foto"
+
+#: clockphotodialog.cpp:86
+msgid "Load different photo"
+msgstr "Carregar uma foto diferente"
+
+#: clockphotodialog.cpp:95
+msgid ""
+"If you have a photo in your set with a clock or another external time source "
+"on it, you can load it here and set the indicator to the (date and) time "
+"displayed. The difference of your internal camera clock will be determined "
+"from this setting."
+msgstr ""
+"Se tiver uma foto no seu conjunto com um relógio ou outra fonte horária "
+"externa nela, você pode carregá-la aqui e definir o indicador para a (data "
+"e) hora exibida. A diferença com o seu relógio interno da câmera será "
+"determinada a partir desta opção."
+
+#: clockphotodialog.cpp:113
+msgid "The clock date and time:"
+msgstr "A data e hora do relógio:"
+
+#: clockphotodialog.cpp:185
+#, kde-format
+msgid ""
+"<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
+"image %1.</b></font>"
+msgstr ""
+"<font color=\"red\"><b>Não foi possível obter<br>informações da data e "
+"hora<br>da imagem %1.</b></font>"
+
+#: clockphotodialog.cpp:197
+#, kde-format
+msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
+msgstr ""
+"<font color=\"red\"><b>Não foi possível carregar<br>a imagem %1.</b></font>"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_timeadjustui.rc:6
+msgid "&Image"
+msgstr "&Imagem"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_timeadjustui.rc:12
+msgid "Main Toolbar"
+msgstr "Barra de ferramentas principal"
+
+#: myimagelist.cpp:42 settingswidget.cpp:281
+msgid "Timestamp Used"
+msgstr "Data e hora usado"
+
+#: myimagelist.cpp:44 settingswidget.cpp:283
+msgid "Timestamp Updated"
+msgstr "Data e hora atualizado"
+
+#: myimagelist.cpp:46
+msgid "New Filename"
+msgstr "Novo nome do arquivo"
+
+#: myimagelist.cpp:48
+msgid "Status"
+msgstr "Status"
+
+#: myimagelist.cpp:69
+msgid "not valid"
+msgstr "não válido"
+
+#: myimagelist.cpp:77
+msgctxt "not applicable"
+msgid "N.A"
+msgstr "N.A"
+
+#: myimagelist.cpp:95
+msgid "Failed to update metadata timestamp"
+msgstr "Falha ao atualizar os metadados de data e hora"
+
+#: myimagelist.cpp:100
+msgid "Failed to update file timestamp"
+msgstr "Falha ao atualizar a data e hora do arquivo"
+
+#: myimagelist.cpp:105
+msgid "Failed to rename file"
+msgstr "Falha ao renomear o arquivo"
+
+#: myimagelist.cpp:110
+msgid "Processed without error"
+msgstr "Processado sem erro"
+
+#: plugin_timeadjust.cpp:106
+msgid "Adjust Time && Date..."
+msgstr "Ajustar data e hora..."
+
+#: settingswidget.cpp:167
+#, kde-format
+msgid "%1 timestamp"
+msgstr "Horário %1"
+
+#: settingswidget.cpp:174 settingswidget.cpp:253
+msgid "File last modified"
+msgstr "Última modificação do arquivo"
+
+#: settingswidget.cpp:181
+msgid "EXIF/IPTC/XMP"
+msgstr "EXIF/IPTC/XMP"
+
+#: settingswidget.cpp:182 settingswidget.cpp:254
+msgid "EXIF: created"
+msgstr "EXIF: criado"
+
+#: settingswidget.cpp:183 settingswidget.cpp:255
+msgid "EXIF: original"
+msgstr "EXIF: original"
+
+#: settingswidget.cpp:184 settingswidget.cpp:256
+msgid "EXIF: digitized"
+msgstr "EXIF: digitalizado"
+
+#: settingswidget.cpp:185 settingswidget.cpp:257
+msgid "IPTC: created"
+msgstr "IPTC: criado"
+
+#: settingswidget.cpp:186
+msgid "XMP: created"
+msgstr "XMP: criado"
+
+#: settingswidget.cpp:196
+msgid "Reset to current date"
+msgstr "Redefinir para a data atual"
+
+#: settingswidget.cpp:225
+msgctxt "copy timestamp as well"
+msgid "Copy value"
+msgstr "Copiar valor"
+
+#: settingswidget.cpp:226
+msgctxt "add a fixed timestamp to date"
+msgid "Add"
+msgstr "Adicionar"
+
+#: settingswidget.cpp:227
+msgctxt "subtract a fixed timestamp to date"
+msgid "Subtract"
+msgstr "Subtrair"
+
+#: settingswidget.cpp:231
+msgctxt "time adjust offset, days value label"
+msgid "days"
+msgstr "dias"
+
+#: settingswidget.cpp:234
+msgid "Determine difference from clock photo"
+msgstr "Determinar a diferença de horas com a fotografia"
+
+#: settingswidget.cpp:258
+msgid "XMP"
+msgstr "XMP"
+
+#: settingswidget.cpp:259
+msgid "Filename"
+msgstr "Nome do arquivo"
+
+#: settingswidget.cpp:282
+msgid "Timestamp Adjustments"
+msgstr "Ajustes de data e hora"
+
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+msgid "Adjust Time & Date"
+msgstr "Ajusta data e hora"
+
+#: timeadjustdialog.cpp:129
+msgid "Time Adjust"
+msgstr "Ajuste da hora"
+
+#: timeadjustdialog.cpp:132
+msgid "A Kipi plugin for adjusting the timestamp of picture files"
+msgstr "Um plugin do Kipi para o ajuste de data e hora de arquivos de imagem"
+
+#: timeadjustdialog.cpp:133
+msgid ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+
+#: timeadjustdialog.cpp:137
+msgid "Jesper K. Pedersen"
+msgstr "Jesper K. Pedersen"
+
+#: timeadjustdialog.cpp:138
+msgid "Author"
+msgstr "Autor"
+
+#: timeadjustdialog.cpp:141
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+msgid "Developer"
+msgstr "Desenvolvedor"
+
+#: timeadjustdialog.cpp:145
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: timeadjustdialog.cpp:149
+msgid "Pieter Edelman"
+msgstr "Pieter Edelman"
+
+#: timeadjustdialog.cpp:377
+msgid "Adjust Time and Date"
+msgstr "Ajustar data e hora"
+
+#: timeadjustdialog.cpp:394
+msgid "Select at least one option"
+msgstr "Selecione pelo menos uma opção"

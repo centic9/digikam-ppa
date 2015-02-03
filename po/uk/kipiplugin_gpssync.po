@@ -1,0 +1,1573 @@
+# translation of kipiplugin_gpssync.po to Ukrainian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_gpssync\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-05-07 02:57+0200\n"
+"PO-Revision-Date: 2013-02-24 10:01+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: gpsbookmarkowner.cpp:349 searchwidget.cpp:777
+#, kde-format
+msgid "1 image snapped to '%2'"
+msgid_plural "%1 images snapped to '%2'"
+msgstr[0] "%1 зображення пов’язано з «%2»"
+msgstr[1] "%1 зображення пов’язано з «%2»"
+msgstr[2] "%1 зображень пов’язано з «%2»"
+msgstr[3] "Одне зображення пов’язано з «%2»"
+
+#: gpscorrelatorwidget.cpp:169
+msgid "Load GPX files..."
+msgstr "Завантажити файли GPX…"
+
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+msgid "Filename"
+msgstr "Назва файла"
+
+#: gpscorrelatorwidget.cpp:174
+msgid "#points"
+msgstr "К-ть точок"
+
+#: gpscorrelatorwidget.cpp:178
+msgid "Max. time gap (sec.):"
+msgstr "Макс. проміжок часу (у сек.):"
+
+#: gpscorrelatorwidget.cpp:180
+msgid ""
+"Sets the maximum difference in seconds from a GPS track point to the image "
+"time to be matched. If the time difference exceeds this setting, no match "
+"will be attempted."
+msgstr ""
+"Встановлює максимальну різницю у секундах між точкою маршруту GPS і часом "
+"зображення для встановлення відповідності. Якщо часова різниця перевищує це "
+"значення, спроб встановити відповідність не буде."
+
+#: gpscorrelatorwidget.cpp:184
+msgid "Camera time zone:"
+msgstr "Часовий пояс фотоапарата:"
+
+#: gpscorrelatorwidget.cpp:185
+msgid "Same as system"
+msgstr "Збігається з системним"
+
+#: gpscorrelatorwidget.cpp:187
+msgid ""
+"Use this option if the timezone of the camera is the same as the timezone of "
+"this system. The conversion to GMT will be done automatically."
+msgstr ""
+"Скористайтеся цим пунктом, якщо часовий пояс фотоапарата збігається з "
+"часовим поясом системи. Перетворення на час у форматі відліку від Гринвіча "
+"(GMT) буде виконано автоматично."
+
+#: gpscorrelatorwidget.cpp:190
+msgctxt "manual time zone selection for gps syncing"
+msgid "Manual:"
+msgstr "Вручну:"
+
+#: gpscorrelatorwidget.cpp:192
+msgid ""
+"Use this option if the timezone of the camera is different from this system "
+"and you have to specify the difference to GMT manually."
+msgstr ""
+"Скористайтеся цим пунктом, якщо часовий пояс фотоапарата відрізняється від "
+"системного, і ви бажаєте вказати різницю з Гринвічем вручну."
+
+#: gpscorrelatorwidget.cpp:244
+msgid ""
+"<p>Sets the time zone the camera was set to during photo shooting, so that "
+"the time stamps of the images can be converted to GMT to match the GPS time "
+"reference.</p><p>Note: positive offsets count eastwards from zero longitude "
+"(GMT), they are 'ahead of time'.</p>"
+msgstr ""
+"<p>Встановлює часовий пояс, на який було встановлено фотоапарат під час "
+"виконання знімку, таким чином, можна перетворити часові штампи зображень на "
+"значення всесвітнього часу, щоб встановити відповідність з часовою шкалою "
+"GPS.</p><p>Зауваження: додатною вважається різниця у час на схід від "
+"Гринвіча (GMT), ці значення є «додатковим часом»</p>"
+
+#: gpscorrelatorwidget.cpp:251
+msgid "Fine offset (mm:ss):"
+msgstr "Точна різниця (хх:сс):"
+
+#: gpscorrelatorwidget.cpp:253
+msgid ""
+"Sets an additional offset in minutes and seconds that is used to correlate "
+"the photos to the GPS track. This can be used for fine tuning to adjust a "
+"wrong camera clock."
+msgstr ""
+"Встановлює додаткову різницю у хвилинах та секундах, яку буде використано "
+"для прив’язки фотографій до маршруту GPS. Цим пунктом можна скористатися для "
+"коригування помилки годинника фотоапарата."
+
+#: gpscorrelatorwidget.cpp:263
+msgid "Set whether the camera offset is negative or positive."
+msgstr "Визначає знак різниці часу фотоапарата."
+
+#: gpscorrelatorwidget.cpp:267
+msgid "Minutes to fine tune camera offset."
+msgstr "Точне значення різниці у хвилинах."
+
+#: gpscorrelatorwidget.cpp:270
+msgid "Seconds to fine tune camera offset."
+msgstr "Точне значення різниці у секундах."
+
+#: gpscorrelatorwidget.cpp:280
+msgid "Interpolate"
+msgstr "Інтерполювати"
+
+#: gpscorrelatorwidget.cpp:281
+msgid ""
+"Set this option to interpolate GPS track points which are not closely "
+"matched to the GPX data file."
+msgstr ""
+"Встановіть цей параметр для того, щоб наближено обчислювати точки маршруту "
+"GPS, які не повністю відповідають файлу даних GPX."
+
+#: gpscorrelatorwidget.cpp:287
+msgid "Difference in min.:"
+msgstr "Різниця у хвилинах:"
+
+#: gpscorrelatorwidget.cpp:289
+msgid ""
+"Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
+"file points to image time data."
+msgstr ""
+"Встановлює максимальну часову різницю у хвилинах (максимум 240) для "
+"встановлення приблизної відповідності точок файла GPX часовим даним "
+"зображень."
+
+#: gpscorrelatorwidget.cpp:292
+msgid "Correlate"
+msgstr "Узгодити"
+
+#: gpscorrelatorwidget.cpp:349
+#, kde-format
+msgid "%1|GPS Exchange Format"
+msgstr "%1|Формат обміну GPS"
+
+#: gpscorrelatorwidget.cpp:350
+msgid "Select GPX File to Load"
+msgstr "Вибрати файл GPX для завантаження"
+
+#: gpscorrelatorwidget.cpp:396
+#, kde-format
+msgid "The following GPX file could not be loaded:"
+msgid_plural "The following %1 GPX files could not be loaded:"
+msgstr[0] "Не вдалося завантажити %1 файл GPX:"
+msgstr[1] "Не вдалося завантажити %1 файли GPX:"
+msgstr[2] "Не вдалося завантажити %1 файлів GPX:"
+msgstr[3] "Не вдалося завантажити один файл GPX:"
+
+#: gpscorrelatorwidget.cpp:402
+msgid "Error loading GPX file"
+msgid_plural "Error loading GPX files"
+msgstr[0] "Помилка під час завантаження файлів GPX"
+msgstr[1] "Помилка під час завантаження файлів GPX"
+msgstr[2] "Помилка під час завантаження файлів GPX"
+msgstr[3] "Помилка під час завантаження файла GPX"
+
+#: gpscorrelatorwidget.cpp:520
+msgid "Correlating images - %p%"
+msgstr "Прив’язування зображень: %p%"
+
+#: gpscorrelatorwidget.cpp:590
+msgid ""
+"Could not correlate any image - please make sure the timezone and gap "
+"settings are correct."
+msgstr ""
+"Не вдалося прив’язати жодне зображення. Будь ласка, переконайтеся, що "
+"значення часового поясу та інтервалу встановлено належним чином."
+
+#: gpscorrelatorwidget.cpp:591
+msgid "Correlation failed"
+msgstr "Помилка прив’язування"
+
+#: gpscorrelatorwidget.cpp:596
+msgid ""
+"All images have been correlated. You can now check their position on the map."
+msgstr ""
+"Всі зображення було прив’язано. Тепер відповідні місця показано на карті."
+
+#: gpscorrelatorwidget.cpp:597
+msgid "Correlation succeeded"
+msgstr "Успішне прив’язування"
+
+#: gpscorrelatorwidget.cpp:603
+#, kde-format
+msgid ""
+"%1 out of %2 images have been correlated. Please check the timezone and gap "
+"settings if you think that more images should have been correlated."
+msgstr ""
+"Прив’язано %1 з %2 зображень. Будь ласка, виправте значення параметрів "
+"часового поясу та інтервалу, якщо ви вважаєте, що мало бути прив’язано "
+"більше зображень."
+
+#: gpscorrelatorwidget.cpp:604
+msgid "Correlation finished"
+msgstr "Прив’язування завершено"
+
+#: gpscorrelatorwidget.cpp:613
+#, kde-format
+msgid "1 image correlated"
+msgid_plural "%1 images correlated"
+msgstr[0] "Прив’язано %1 зображення"
+msgstr[1] "Прив’язано %1 зображення"
+msgstr[2] "Прив’язано %1 зображень"
+msgstr[3] "Прив’язано одне зображення"
+
+#: gpsdataparser.cpp:677
+#, kde-format
+msgid "Could not open: %1"
+msgstr "Не вдалося відкрити: %1"
+
+#: gpsdataparser.cpp:683
+msgid "File is empty."
+msgstr "Файл порожній."
+
+#: gpsdataparser.cpp:699
+#, kde-format
+msgid "Parsing error: %1"
+msgstr "Помилка обробки: %1"
+
+#: gpsdataparser.cpp:709
+msgid "No GPX element found - probably not a GPX file."
+msgstr "Не знайдено записів GPX. Ймовірно, файл записано не у форматі GPX."
+
+#: gpsdataparser.cpp:713
+msgid "File is a GPX file, but no datapoints were found."
+msgstr ""
+"Файл записано у форматі GPX, але у ньому не виявлено записів даних точок."
+
+#: gpsimagedetails.cpp:127
+msgid "Coordinates"
+msgstr "Координати"
+
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+msgid "Latitude"
+msgstr "Широта"
+
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+msgid "Longitude"
+msgstr "Довгота"
+
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+msgid "Altitude"
+msgstr "Висота"
+
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+msgid "Speed"
+msgstr "Швидкість"
+
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+msgid "# satellites"
+msgstr "К-ть супутників"
+
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+msgid "Fix type"
+msgstr "Тип виправлення"
+
+#: gpsimagedetails.cpp:159
+msgid "2-d"
+msgstr "2D"
+
+#: gpsimagedetails.cpp:160
+msgid "3-d"
+msgstr "3D"
+
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+msgid "DOP"
+msgstr "DOP"
+
+#: gpsimagedetails.cpp:169
+msgid "Apply"
+msgstr "Застосувати"
+
+#: gpsimagedetails.cpp:445
+msgid "Details changed"
+msgstr "Змінено параметри"
+
+#: gpslistviewcontextmenu.cpp:112 searchwidget.cpp:192
+msgid "Copy coordinates"
+msgstr "Копіювати координати"
+
+#: gpslistviewcontextmenu.cpp:114
+msgid "Paste coordinates"
+msgstr "Вставити координати"
+
+#: gpslistviewcontextmenu.cpp:116
+msgid "Remove coordinates"
+msgstr "Вилучити координати"
+
+#: gpslistviewcontextmenu.cpp:117
+msgid "Remove altitude"
+msgstr "Вилучити широту"
+
+#: gpslistviewcontextmenu.cpp:118
+msgid "Remove uncertainty"
+msgstr "Вилучити неточні"
+
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+msgid "Remove speed"
+msgstr "Вилучити швидкість"
+
+#: gpslistviewcontextmenu.cpp:120
+msgid "Look up missing altitude values"
+msgstr "Визначити пропущені значення висоти"
+
+#: gpslistviewcontextmenu.cpp:146 searchwidget.cpp:224
+msgid "Bookmarks"
+msgstr "Закладки"
+
+#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+msgid "GPS Sync"
+msgstr "Синхронізація GPS"
+
+#: gpslistviewcontextmenu.cpp:420
+msgid ""
+"Found more than one point on the clipboard - can only assign one point at a "
+"time."
+msgstr ""
+"У буфері обміну знайдено декілька точок. Призначати можна лише одну точку за "
+"раз."
+
+#: gpslistviewcontextmenu.cpp:479
+msgid "Could not find any coordinates on the clipboard."
+msgstr "У буфері не знайдено жодних координат."
+
+#: gpslistviewcontextmenu.cpp:483
+msgid "Coordinates pasted"
+msgstr "Координати вставлено"
+
+#: gpslistviewcontextmenu.cpp:514
+msgid "Bookmark selected"
+msgstr "Позначено закладку"
+
+#: gpslistviewcontextmenu.cpp:624
+msgid "Remove coordinates information"
+msgstr "Вилучити дані щодо координат"
+
+#: gpslistviewcontextmenu.cpp:629
+msgid "Remove altitude information"
+msgstr "Вилучити дані щодо широти"
+
+#: gpslistviewcontextmenu.cpp:635
+msgid "Remove uncertainty information"
+msgstr "Вилучити неточні дані"
+
+#: gpslistviewcontextmenu.cpp:697
+msgid "Looking up altitudes"
+msgstr "Пошук висот"
+
+#: gpslistviewcontextmenu.cpp:748
+#, kde-format
+msgid ""
+"Altitude lookup failed:\n"
+"%1"
+msgstr ""
+"Помилка визначення висоти:\n"
+"%1"
+
+#: gpslistviewcontextmenu.cpp:755
+msgid "Altitude looked up"
+msgstr "Значення висоти знайдено"
+
+#: gpsreversegeocodingwidget.cpp:250
+msgid "Add country tag"
+msgstr "Додати мітку країни"
+
+#: gpsreversegeocodingwidget.cpp:252
+msgid "Add state tag"
+msgstr "Додати мітку області"
+
+#: gpsreversegeocodingwidget.cpp:254
+msgid "Add state district tag"
+msgstr "Додати мітку місцевості"
+
+#: gpsreversegeocodingwidget.cpp:256
+msgid "Add county tag"
+msgstr "Додати мітку району"
+
+#: gpsreversegeocodingwidget.cpp:258
+msgid "Add city tag"
+msgstr "Додати мітку міста"
+
+#: gpsreversegeocodingwidget.cpp:260
+msgid "Add city district tag"
+msgstr "Додати мітку району міста"
+
+#: gpsreversegeocodingwidget.cpp:262
+msgid "Add suburb tag"
+msgstr "Додати мітку передмістя"
+
+#: gpsreversegeocodingwidget.cpp:264
+msgid "Add town tag"
+msgstr "Додати мітку міста"
+
+#: gpsreversegeocodingwidget.cpp:266
+msgid "Add village tag"
+msgstr "Додати мітку селища"
+
+#: gpsreversegeocodingwidget.cpp:268
+msgid "Add hamlet tag"
+msgstr "Додати мітку села"
+
+#: gpsreversegeocodingwidget.cpp:270
+msgid "Add street"
+msgstr "Додати вулицю"
+
+#: gpsreversegeocodingwidget.cpp:272
+msgid "Add house number tag"
+msgstr "Додати мітку номера будинку"
+
+#: gpsreversegeocodingwidget.cpp:274
+msgid "Add place"
+msgstr "Додати місце"
+
+#: gpsreversegeocodingwidget.cpp:276
+msgid "Add Local Administrative Area 2"
+msgstr "Додати локальну адміністративну область 2"
+
+#: gpsreversegeocodingwidget.cpp:278
+msgid "Add Local Administrative Area 1"
+msgstr "Додати локальну адміністративну область 1"
+
+#: gpsreversegeocodingwidget.cpp:280
+msgid "Add new tag"
+msgstr "Додати нову мітку"
+
+#: gpsreversegeocodingwidget.cpp:281
+msgid "Remove selected tag"
+msgstr "Вилучити позначену мітку"
+
+#: gpsreversegeocodingwidget.cpp:282
+msgid "Remove all control tags below this tag"
+msgstr "Вилучити всі записи контрольних міток під цим записом"
+
+#: gpsreversegeocodingwidget.cpp:284
+msgid "Add all address elements"
+msgstr "Додати всі записи адреси"
+
+#: gpsreversegeocodingwidget.cpp:288
+msgid "Select language:"
+msgstr "Вибір мови:"
+
+#: gpsreversegeocodingwidget.cpp:292
+msgid "English"
+msgstr "англійська"
+
+#: gpsreversegeocodingwidget.cpp:293
+msgid "Arabic"
+msgstr "арабська"
+
+#: gpsreversegeocodingwidget.cpp:294
+msgid "Assamese"
+msgstr "ассамська"
+
+#: gpsreversegeocodingwidget.cpp:295
+msgid "Byelorussian"
+msgstr "білоруська"
+
+#: gpsreversegeocodingwidget.cpp:296
+msgid "Bulgarian"
+msgstr "болгарська"
+
+#: gpsreversegeocodingwidget.cpp:297
+msgid "Bengali"
+msgstr "бенгальська"
+
+#: gpsreversegeocodingwidget.cpp:298
+msgid "Chinese"
+msgstr "китайська"
+
+#: gpsreversegeocodingwidget.cpp:299
+msgid "Czech"
+msgstr "чеська"
+
+#: gpsreversegeocodingwidget.cpp:300
+msgid "Croatian"
+msgstr "хорватська"
+
+#: gpsreversegeocodingwidget.cpp:301
+msgid "Dutch"
+msgstr "голландська"
+
+#: gpsreversegeocodingwidget.cpp:302
+msgid "German"
+msgstr "німецька"
+
+#: gpsreversegeocodingwidget.cpp:303
+msgid "Greek"
+msgstr "грецька"
+
+#: gpsreversegeocodingwidget.cpp:304
+msgid "Estonian"
+msgstr "естонська"
+
+#: gpsreversegeocodingwidget.cpp:305
+msgid "Finnish"
+msgstr "фінська"
+
+#: gpsreversegeocodingwidget.cpp:306
+msgid "French"
+msgstr "французька"
+
+#: gpsreversegeocodingwidget.cpp:307
+msgid "Georgian"
+msgstr "грузинська"
+
+#: gpsreversegeocodingwidget.cpp:308
+msgid "Hebrew"
+msgstr "іврит"
+
+#: gpsreversegeocodingwidget.cpp:309
+msgid "Hindi"
+msgstr "хінді"
+
+#: gpsreversegeocodingwidget.cpp:310
+msgid "Hungarian"
+msgstr "угорська"
+
+#: gpsreversegeocodingwidget.cpp:311
+msgid "Indonesian"
+msgstr "індонезійська"
+
+#: gpsreversegeocodingwidget.cpp:312
+msgid "Icelandic"
+msgstr "ісландська"
+
+#: gpsreversegeocodingwidget.cpp:313
+msgid "Italian"
+msgstr "італійська"
+
+#: gpsreversegeocodingwidget.cpp:314
+msgid "Japanese"
+msgstr "японська"
+
+#: gpsreversegeocodingwidget.cpp:315
+msgid "Korean"
+msgstr "корейська"
+
+#: gpsreversegeocodingwidget.cpp:316
+msgid "Lithuanian"
+msgstr "литовська"
+
+#: gpsreversegeocodingwidget.cpp:317
+msgid "Macedonian"
+msgstr "македонська"
+
+#: gpsreversegeocodingwidget.cpp:318
+msgid "Mongolian"
+msgstr "монгольська"
+
+#: gpsreversegeocodingwidget.cpp:319
+msgid "Moldavian"
+msgstr "молдавська"
+
+#: gpsreversegeocodingwidget.cpp:320
+msgid "Nepali"
+msgstr "непальська"
+
+#: gpsreversegeocodingwidget.cpp:321
+msgid "Polish"
+msgstr "польська"
+
+#: gpsreversegeocodingwidget.cpp:322
+msgid "Portuguese"
+msgstr "португальська"
+
+#: gpsreversegeocodingwidget.cpp:323
+msgid "Romanian"
+msgstr "румунська"
+
+#: gpsreversegeocodingwidget.cpp:324
+msgid "Russian"
+msgstr "російська"
+
+#: gpsreversegeocodingwidget.cpp:325
+msgid "Slovak"
+msgstr "словацька"
+
+#: gpsreversegeocodingwidget.cpp:326
+msgid "Slovenian"
+msgstr "словенська"
+
+#: gpsreversegeocodingwidget.cpp:327
+msgid "Samoan"
+msgstr "самоанська"
+
+#: gpsreversegeocodingwidget.cpp:328
+msgid "Serbian"
+msgstr "сербська"
+
+#: gpsreversegeocodingwidget.cpp:329
+msgid "Sudanese"
+msgstr "суданська"
+
+#: gpsreversegeocodingwidget.cpp:330
+msgid "Spanish"
+msgstr "іспанська"
+
+#: gpsreversegeocodingwidget.cpp:331
+msgid "Swedish"
+msgstr "шведська"
+
+#: gpsreversegeocodingwidget.cpp:332
+msgid "Thai"
+msgstr "таїландська"
+
+#: gpsreversegeocodingwidget.cpp:333
+msgid "Turkish"
+msgstr "турецька"
+
+#: gpsreversegeocodingwidget.cpp:334
+msgid "Ukrainian"
+msgstr "українська"
+
+#: gpsreversegeocodingwidget.cpp:335
+msgid "Vietnamese"
+msgstr "в’єтнамська"
+
+#: gpsreversegeocodingwidget.cpp:337
+msgid "Select service:"
+msgstr "Вибір служби:"
+
+#: gpsreversegeocodingwidget.cpp:340
+msgid "Open Street Map"
+msgstr "Open Street Map"
+
+#: gpsreversegeocodingwidget.cpp:341
+msgid "Geonames.org place name (non-US)"
+msgstr "Назва місця за Geonames.org (поза межами США)"
+
+#: gpsreversegeocodingwidget.cpp:342
+msgid "Geonames.org full address (US only)"
+msgstr "Повна адреса за Geonames.org (лише США)"
+
+#: gpsreversegeocodingwidget.cpp:357 gpsreversegeocodingwidget.cpp:548
+msgid "Less options"
+msgstr "Менше параметрів"
+
+#: gpsreversegeocodingwidget.cpp:364
+msgid "Write tags to XMP"
+msgstr "Записати мітки до XMP"
+
+#: gpsreversegeocodingwidget.cpp:370
+msgid "Apply reverse geocoding"
+msgstr "Застосувати зворотне геокодування"
+
+#: gpsreversegeocodingwidget.cpp:494
+msgid "Image tags are changed."
+msgstr "Змінено мітки зображень."
+
+#: gpsreversegeocodingwidget.cpp:527
+msgid "Retrieving RG info - %p%"
+msgstr "Отримання даних зворотного геокодування: %p%"
+
+#: gpsreversegeocodingwidget.cpp:542
+msgid "More options"
+msgstr "Додаткові параметри"
+
+#: gpsreversegeocodingwidget.cpp:864
+msgid "Add new tag:"
+msgstr "Додати нову мітку:"
+
+#: gpsreversegeocodingwidget.cpp:865
+msgid "Select a name for the new tag:"
+msgstr "Виберіть назву для нової мітки:"
+
+#: gpsreversegeocodingwidget.cpp:1004
+#, kde-format
+msgid ""
+"%1 out of %2 images have been reverse geocoded. Would you like to keep the "
+"tags which were already obtained or discard them?"
+msgstr ""
+"Дані %1 з %2 зображень було отримано зворотним геокодуванням. Бажаєте "
+"зберегти мітки, які вже було отримано, чи змінити їх?"
+
+#: gpsreversegeocodingwidget.cpp:1009
+msgid "Abort reverse geocoding?"
+msgstr "Перервати процедуру зворотного геокодування?"
+
+#: gpsreversegeocodingwidget.cpp:1010
+msgid "Keep tags"
+msgstr "Зберегти мітки"
+
+#: gpsreversegeocodingwidget.cpp:1011
+msgid "Discard tags"
+msgstr "Відкинути мітки"
+
+#: gpsreversegeocodingwidget.cpp:1012
+msgid "Continue"
+msgstr "Продовжити"
+
+#: gpssyncdialog.cpp:275
+msgid "Geolocation"
+msgstr "Геолокація"
+
+#: gpssyncdialog.cpp:302
+msgid "Display bookmarked positions on the map."
+msgstr "Показувати позиції з закладками на карті."
+
+#: gpssyncdialog.cpp:362
+msgid "Sorting"
+msgstr "Впорядкування"
+
+#: gpssyncdialog.cpp:369
+msgid "Show oldest first"
+msgstr "Показувати найстарішу першою"
+
+#: gpssyncdialog.cpp:373
+msgid "Show youngest first"
+msgstr "Показувати насвіжішу першою"
+
+#: gpssyncdialog.cpp:412
+msgid "Details"
+msgstr "Докладно"
+
+#: gpssyncdialog.cpp:413
+msgid "GPS Correlator"
+msgstr "Узгоджувач даних GPS"
+
+#: gpssyncdialog.cpp:414
+msgid "Undo/Redo"
+msgstr "Скасування/Повторення"
+
+#: gpssyncdialog.cpp:415
+msgid "Reverse Geocoding"
+msgstr "Зворотне геокодування"
+
+#: gpssyncdialog.cpp:416
+msgid "Search"
+msgstr "Пошук"
+
+#: gpssyncdialog.cpp:439
+msgid "A Plugin to synchronize pictures' metadata with a GPS device"
+msgstr "Додаток для синхронізації метаданих зображень з пристроєм GPS"
+
+#: gpssyncdialog.cpp:440
+msgid "(c) 2006-2013, Gilles Caulier"
+msgstr "© Gilles Caulier, 2006–2013"
+
+#: gpssyncdialog.cpp:442
+msgid "Michael G. Hansen"
+msgstr "Michael G. Hansen"
+
+#: gpssyncdialog.cpp:443
+msgid "Developer and maintainer"
+msgstr "Розробник і супровідник"
+
+#: gpssyncdialog.cpp:446
+msgid "Gabriel Voicu"
+msgstr "Gabriel Voicu"
+
+#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+msgid "Developer"
+msgstr "Розробник"
+
+#: gpssyncdialog.cpp:450
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gpssyncdialog.cpp:626
+msgid "Loading metadata - %p%"
+msgstr "Завантаження метаданих: %p%"
+
+#: gpssyncdialog.cpp:807
+#, kde-format
+msgid "You have 1 modified image."
+msgid_plural "You have %1 modified images."
+msgstr[0] "Вами змінено %1 зображення."
+msgstr[1] "Вами змінено %1 зображення."
+msgstr[2] "Вами змінено %1 зображень."
+msgstr[3] "Вами змінено одне зображення."
+
+#: gpssyncdialog.cpp:813
+#, kde-format
+msgid "%1 Would you like to save the changes you made to them?"
+msgstr "%1 Бажаєте зберегти зміни, які було внесено?"
+
+#: gpssyncdialog.cpp:814
+msgid "Unsaved changes"
+msgstr "Незбережені зміни"
+
+#: gpssyncdialog.cpp:815
+msgid "Save changes"
+msgstr "Зберегти зміни"
+
+#: gpssyncdialog.cpp:816
+msgid "Close and discard changes"
+msgstr "Відкинути зміни і закрити"
+
+#: gpssyncdialog.cpp:1040
+#, kde-format
+msgid "1 image moved"
+msgid_plural "%1 images moved"
+msgstr[0] "Пересунуто %1 зображення"
+msgstr[1] "Пересунуто %1 зображення"
+msgstr[2] "Пересунуто %1 зображень"
+msgstr[3] "Пересунуто одне зображення"
+
+#: gpssyncdialog.cpp:1074
+msgid "Saving changes - %p%"
+msgstr "Збереження даних: %p%"
+
+#: gpssyncdialog.cpp:1119
+msgid "Failed to save some information:"
+msgstr "Не вдалося зберегти деякі дані:"
+
+#: gpssyncdialog.cpp:1119
+msgid "Error"
+msgstr "Помилка"
+
+#: gpssyncdialog.cpp:1147
+msgid "GPS sync"
+msgstr "Синхронізація GPS"
+
+#: kipiimageitem.cpp:363
+msgid "Not available"
+msgstr "Недоступне"
+
+#: kipiimageitem.cpp:396
+#, kde-format
+msgid "DOP: %1"
+msgstr "DOP: %1"
+
+#: kipiimageitem.cpp:401
+#, c-format, kde-format
+msgid "Fix: %1d"
+msgstr "Випр.: %1d"
+
+#: kipiimageitem.cpp:406
+#, kde-format
+msgid "#Sat: %1"
+msgstr "К-ть суп.: %1"
+
+#: kipiimageitem.cpp:441
+#, c-format, kde-format
+msgid "%1d"
+msgstr "%1d"
+
+#: kipiimageitem.cpp:461
+msgid "Modified"
+msgstr "Змінено"
+
+#: kipiimageitem.cpp:523
+msgid "Thumbnail"
+msgstr "Мініатюра"
+
+#: kipiimageitem.cpp:525
+msgid "Date and time"
+msgstr "Дата і час"
+
+#: kipiimageitem.cpp:529
+msgid "Accuracy"
+msgstr "Точність"
+
+#: kipiimageitem.cpp:534
+msgid "Status"
+msgstr "Стан"
+
+#: kipiimageitem.cpp:535
+msgid "Tags"
+msgstr "Мітки"
+
+#: kipiimageitem.cpp:722
+msgid "Failed to open file."
+msgstr "Не вдалося відкрити файл."
+
+#: kipiimageitem.cpp:783
+msgid "Failed to add GPS info to image."
+msgstr "Не вдалося додати дані GPS до файла зображення."
+
+#: kipiimageitem.cpp:793
+msgid "Failed to remove GPS info from image"
+msgstr "Не вдалося вилучити дані GPS з файла зображення"
+
+#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+msgid "Failed to save tags to file."
+msgstr "Не вдалося зберегти мітки до файла."
+
+#: kipiimageitem.cpp:838
+msgid "Unable to save changes to file"
+msgstr "Не вдалося зберегти зміни до файла"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_gpssyncui.rc:6
+msgid "&Image"
+msgstr "&Зображення"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_gpssyncui.rc:12
+msgid "Main Toolbar"
+msgstr "Головна панель"
+
+#: plugin_gpssync.cpp:99
+msgid "Geo-location"
+msgstr "Геолокація"
+
+#: rgtagmodel.cpp:95
+msgid "{Country}"
+msgstr "{Країна}"
+
+#: rgtagmodel.cpp:96
+msgctxt "Part of a country"
+msgid "{State}"
+msgstr "{Область}"
+
+#: rgtagmodel.cpp:97
+msgid "{County}"
+msgstr "{Район}"
+
+#: rgtagmodel.cpp:98
+msgid "{City}"
+msgstr "{Місто}"
+
+#: rgtagmodel.cpp:99
+msgid "{Town}"
+msgstr "{Місто}"
+
+#: rgtagmodel.cpp:100
+msgid "{Village}"
+msgstr "{Селище}"
+
+#: rgtagmodel.cpp:101
+msgid "{Hamlet}"
+msgstr "{Село}"
+
+#: rgtagmodel.cpp:102
+msgid "{Street}"
+msgstr "(Вулиця}"
+
+#: searchbackend.cpp:310
+msgid "GeoNames"
+msgstr "GeoNames"
+
+#: searchbackend.cpp:311
+msgid "OSM"
+msgstr "OSM"
+
+#: searchwidget.cpp:166
+msgctxt "Start the search"
+msgid "Search"
+msgstr "Шукати"
+
+#: searchwidget.cpp:173
+msgid "Clear the search results."
+msgstr "Спорожнити список результатів пошуку."
+
+#: searchwidget.cpp:181
+msgid "Keep the results of old searches when doing a new search."
+msgstr ""
+"Зберігати результати попередніх пошуків після створення нового запиту щодо "
+"пошуку."
+
+#: searchwidget.cpp:188
+msgid "Toggle the visibility of the search results on the map."
+msgstr "Увімкнути або вимкнути показ результатів пошуку на карті."
+
+#: searchwidget.cpp:195
+msgid "Move selected images to this position"
+msgstr "Пересунути позначені зображення на цю позицію"
+
+#: searchwidget.cpp:197
+msgid "Remove from results list"
+msgstr "Вилучити зі списку результатів"
+
+#: searchwidget.cpp:201
+msgid "Select which service you would like to use."
+msgstr "Вкажіть, якою службою ви бажаєте скористатися."
+
+#: searchwidget.cpp:277
+#, kde-format
+msgid ""
+"Your search failed:\n"
+"%1"
+msgstr ""
+"Спроба пошуку завершилася невдало:\n"
+"%1"
+
+#: searchwidget.cpp:277
+msgid "Search failed"
+msgstr "Помилка пошуку"
+
+#: searchwidget.cpp:814
+#, kde-format
+msgid "1 image moved to '%2'"
+msgid_plural "%1 images moved to '%2'"
+msgstr[0] "%1 зображення пересунуто до «%2»"
+msgstr[1] "%1 зображення пересунуто до «%2»"
+msgstr[2] "%1 зображень пересунуто до «%2»"
+msgstr[3] "Одне зображення пересунуто до «%2»"
+
+#: setup.cpp:122
+msgid "Configure"
+msgstr "Налаштувати"
+
+#: setup.cpp:128
+msgctxt "General setup"
+msgid "General"
+msgstr "Загальне"
+
+#: setup_general.cpp:64
+msgid "One map"
+msgstr "Одна карта"
+
+#: setup_general.cpp:65
+msgid "Two maps - horizontal"
+msgstr "Дві карти (горизонтально)"
+
+#: setup_general.cpp:66
+msgid "Two maps - vertical"
+msgstr "Дві карти (вертикально)"
+
+#: setup_general.cpp:68
+msgid "Layout:"
+msgstr "Компонування:"
+
+#~ msgid "Bookmark location"
+#~ msgstr "Створити закладку для цього місця"
+
+#~ msgctxt "Title of the new gps location bookmark"
+#~ msgid "Title:"
+#~ msgstr "Заголовок:"
+
+#~ msgid "Handbook"
+#~ msgstr "Підручник"
+
+#~ msgid "%1 - Edit Geographical Coordinates"
+#~ msgstr "%1 - Зміна географічних координат"
+
+#~ msgid ""
+#~ "<p>Use the map on the right to select the location where the picture was "
+#~ "taken. Click with left mouse button or move the marker on the map to get "
+#~ "the GPS coordinates.</p>"
+#~ msgstr ""
+#~ "<p>Для вибору місця, де було зроблено знімок, скористайтеся картою, "
+#~ "розміщеною праворуч. Щоб отримати GPS-координати, клацніть лівою кнопкою "
+#~ "миші або пересуньте позначку на карті.</p>"
+
+#~ msgid "Altitude:"
+#~ msgstr "Висота:"
+
+#~ msgid "Latitude:"
+#~ msgstr "Широта:"
+
+#~ msgid "Longitude:"
+#~ msgstr "Довгота:"
+
+#~ msgid "Go to Location"
+#~ msgstr "Перейти до місця"
+
+#~ msgid "Recent locations"
+#~ msgstr "Нещодавні позиції"
+
+#~ msgid ""
+#~ "<p>Allows you to configure some aspects of the map: The Google Maps API "
+#~ "version to be used and the service to be used for altitude lookup.</"
+#~ "p><p>Use the Google Maps API V2 if you want the search bar which is not "
+#~ "yet available in version 3. If you do not need the search bar, you can "
+#~ "use version 3 to try out the new terrain map.</p><p>If you use no "
+#~ "altitude lookup, all altitudes will be set to zero. The <a href=\"http://"
+#~ "geonames.org\">geonames.org</a> service has no limits on the number of "
+#~ "lookups which we can make, but has limited coverage. The <a href=\"http://"
+#~ "topocoding.com/\">topocoding.com</a> service has better coverage, but the "
+#~ "number of altitude lookups which we can perform per day is limited. If "
+#~ "you get error messages while using it, switch to <a href=\"http://"
+#~ "geonames.org\">geonames.org</a>.</p>"
+#~ msgstr ""
+#~ "<p>Надає вам змогу налаштувати деякі з параметрів карти: версію "
+#~ "інтерфейсу (API) Google Maps, яку буде використано, та службу для "
+#~ "визначення даних щодо висоти над рівнем моря.</p><p>Скористайтеся Google "
+#~ "Maps API V2, якщо вам потрібна панель пошуку, яку ще не реалізовано у "
+#~ "версії 3 інтерфейсу. Якщо вам не потрібна панель пошуку, ви можете "
+#~ "скористатися версією 3, де реалізовано нову карту ландшафту.</p><p>Якщо "
+#~ "ви не використовуватимете інструменти визначення висоти, висота "
+#~ "вважатиметься рівною нулеві. Для служби <a href=\"http://geonames.org"
+#~ "\">geonames.org</a> не передбачено обмежень на кількість запитів щодо "
+#~ "висоти, але у цієї служби є суттєві обмеження щодо покриття. Служба <a "
+#~ "href=\"http://topocoding.com/\">topocoding.com</a> має суттєво краще "
+#~ "покриття за поверхнею Землі, але у ній обмежено кількість запитів щодо "
+#~ "висоти, які ви можете надсилати протягом дня. Якщо під час роботи з цією "
+#~ "службою програма повідомлятиме вам про помилки, перемкніться на "
+#~ "використання <a href=\"http://geonames.org\">geonames.org</a>.</p>"
+
+#~ msgid "Google Maps API V2"
+#~ msgstr "Google Maps API V2"
+
+#~ msgid "Google Maps API V3"
+#~ msgstr "Google Maps API V3"
+
+#~ msgid "Use geonames.org for altitude lookup"
+#~ msgstr "Використовувати для визначення висоти geonames.org"
+
+#~ msgid "Use topocoding for altitude lookup"
+#~ msgstr "Використовувати для визначення висоти topocoding"
+
+#~ msgid "A Plugin to edit geographical coordinates"
+#~ msgstr "Додаток для зміни географічних координат"
+
+#~ msgid "Altitude value is invalid."
+#~ msgstr "Значення висоти є некоректним."
+
+#~ msgid "Edit Geographical Coordinates"
+#~ msgstr "Змінити географічні координати"
+
+#~ msgid "Latitude value is invalid."
+#~ msgstr "Значення широти є некоректним."
+
+#~ msgid "Longitude value is invalid."
+#~ msgstr "Значення довготи є некоректним."
+
+#~ msgid "Interpolated"
+#~ msgstr "Інтерпольовано"
+
+#~ msgctxt "entry was added manually"
+#~ msgid "Added"
+#~ msgstr "Додано"
+
+#~ msgctxt "entry was added automatically"
+#~ msgid "Found"
+#~ msgstr "Знайдено"
+
+#~ msgid "Deleted"
+#~ msgstr "Вилучено"
+
+#~ msgctxt ""
+#~ "Language code for the embedded Google Maps. Please take a look at http://"
+#~ "spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1 for "
+#~ "supported languages. If your language is not on the list, pick 'en'."
+#~ msgid "en"
+#~ msgstr "uk"
+
+#~ msgid "Edit..."
+#~ msgstr "Змінити..."
+
+#~ msgid ""
+#~ "Correlate in time and interpolate distance of data from GPX file with all "
+#~ "images on the list."
+#~ msgstr ""
+#~ "Узгодити у часі і приблизно обчислити відстань даних з файла GPX для всіх "
+#~ "зображень зі списку."
+
+#~ msgid "Manually edit GPS coordinates of selected images from the list."
+#~ msgstr "Вручну змінити координати GPS для вибраних зображень зі списку."
+
+#~ msgid "Remove GPS coordinates of selected images from the list."
+#~ msgstr "Вилучити координати GPS з вибраних зображень зі списку."
+
+#~ msgid "Date"
+#~ msgstr "Дата"
+
+#~ msgid "Current GPX file:"
+#~ msgstr "Поточний файл GPX:"
+
+#~ msgid "No GPX file"
+#~ msgstr "Відсутній файл GPX"
+
+#~ msgid "Cannot parse %1 GPX file."
+#~ msgstr "Не вдалося обробити файл GPX %1."
+
+#~ msgid "The %1 GPX file does not have a date-time track to use."
+#~ msgstr "Файл GPX %1 не містить придатних записів дати і часу."
+
+#~ msgid "Points parsed: %1"
+#~ msgstr "Оброблено точок: %1"
+
+#~ msgid "1 image from the list is not updated."
+#~ msgid_plural "%1 images from the list are not updated."
+#~ msgstr[0] "%1 зображення зі списку не оновлено."
+#~ msgstr[1] "%1 зображення зі списку не оновлено."
+#~ msgstr[2] "%1 зображень зі списку не оновлено."
+#~ msgstr[3] "%1 зображення зі списку не оновлено."
+
+#~ msgid ""
+#~ "<p>%1\n"
+#~ "Do you really want to close this window without applying changes?</p>"
+#~ msgstr ""
+#~ "<p>%1\n"
+#~ "Ви справді бажаєте закрити це вікно без збереження зроблених змін?</p>"
+
+#~ msgid "Cannot find pictures to correlate with GPX file data."
+#~ msgstr ""
+#~ "Не виявлено зображень, які б можна було узгодити з файлом даних GPX."
+
+#~ msgid "The GPS data of 1 image have been updated using the GPX data file."
+#~ msgid_plural ""
+#~ "The GPS data of %1 images have been updated using the GPX data file."
+#~ msgstr[0] ""
+#~ "Дані GPS %1 зображення було оновлено за допомогою файла даних GPX."
+#~ msgstr[1] ""
+#~ "Дані GPS %1 зображень було оновлено за допомогою файла даних GPX."
+#~ msgstr[2] ""
+#~ "Дані GPS %1 зображень було оновлено за допомогою файла даних GPX."
+#~ msgstr[3] ""
+#~ "Дані GPS одного зображення було оновлено за допомогою файла даних GPX."
+
+#~ msgid "Press the Apply button to update the image's metadata."
+#~ msgid_plural "Press the Apply button to update the images' metadata."
+#~ msgstr[0] "Натисніть кнопку «Застосувати», щоб оновити метадані зображень."
+#~ msgstr[1] "Натисніть кнопку «Застосувати», щоб оновити метадані зображень."
+#~ msgstr[2] "Натисніть кнопку «Застосувати», щоб оновити метадані зображень."
+#~ msgstr[3] "Натисніть кнопку «Застосувати», щоб оновити метадані зображення."
+
+#~ msgid ""
+#~ "Please select at least one image from the list to edit GPS coordinates "
+#~ "manually."
+#~ msgstr ""
+#~ "Будь ласка, виберіть принаймні одне з зображень зі списку, щоб змінити "
+#~ "його координати GPS вручну."
+
+#~ msgid ""
+#~ "Please select at least one image from which to remove GPS coordinates."
+#~ msgstr ""
+#~ "Будь ласка, виберіть принаймні одне з зображень зі списку, щоб вилучити з "
+#~ "нього координати GPS."
+
+#~ msgid "Edit Track List Geographical Coordinates"
+#~ msgstr "Змінити географічні координати точок маршруту"
+
+#~ msgid "Id"
+#~ msgstr "ІД"
+
+#~ msgctxt "entry changed"
+#~ msgid "Changed"
+#~ msgstr "Змінено"
+
+#~ msgid "A plugin to edit GPS track lists."
+#~ msgstr "Додаток для зміни точок маршруту GPS"
+
+#~ msgid "(c) 2008-2009, Gilles Caulier"
+#~ msgstr "© Gilles Caulier, 2008–2009"
+
+#~ msgctxt "dirty gps info"
+#~ msgid "Yes"
+#~ msgstr "Так"
+
+#~ msgctxt "dirty gps info"
+#~ msgid "No"
+#~ msgstr "Ні"
+
+#~ msgid "Generating KML file..."
+#~ msgstr "Створення файла KML..."
+
+#~ msgid "Could not read image '%1'"
+#~ msgstr "Не вдалося прочитати зображення «%1»"
+
+#~ msgid "Format of image '%1' is unknown"
+#~ msgstr "Формат зображення «%1» невідомий програмі"
+
+#~ msgid "Could not save image '%1' to '%2'"
+#~ msgstr "Не вдалося зберегти зображення «%1» у «%2»"
+
+#~ msgid "Creation of placemark '%1'"
+#~ msgstr "Створення позначки місця «%1»"
+
+#~ msgid "Could not save icon for image '%1' to '%2'"
+#~ msgstr "Не вдалося зберегти піктограму зображення «%1» до «%2»"
+
+#~ msgid "No GPX file chosen."
+#~ msgstr "Не вибрано жодного файла GPX."
+
+#~ msgid "The %1 GPX file do not have a date-time track to use."
+#~ msgstr "Файл GPX %1 не містить придатних записів дати і часу."
+
+#~ msgid "No position data for '%1'"
+#~ msgstr "Для «%1» відсутні дані про розташування"
+
+#~ msgid "No position data for 1 picture"
+#~ msgid_plural "No position data for %1 pictures"
+#~ msgstr[0] "Для %1 зображення немає даних про розташування"
+#~ msgstr[1] "Для %1 зображень немає даних про розташування"
+#~ msgstr[2] "Для %1 зображень немає даних про розташування"
+#~ msgstr[3] "Для одного зображення немає даних про розташування"
+
+#~ msgid "Move to final directory"
+#~ msgstr "Пересунути до остаточного каталогу"
+
+#~ msgid "KML Export"
+#~ msgstr "Експорт до KML"
+
+#~ msgid "Target Preferences"
+#~ msgstr "Налаштування призначення"
+
+#~ msgid "Target Type"
+#~ msgstr "Тип призначення"
+
+#~ msgid "&Local or web target used by GoogleEarth"
+#~ msgstr "&Локальне або мережеве призначення, що використовується GoogleEarth"
+
+#~ msgid "Web target used by GoogleMap"
+#~ msgstr "Мережеве призначення, що використовується GoogleMap"
+
+#~ msgid ""
+#~ "When using GoogleMap, all images must have complete URLs, icons are "
+#~ "squared, and when drawing a track, only line track is exported."
+#~ msgstr ""
+#~ "Якщо використовувати GoogleMap, всі зображення повинні мати повну адресу "
+#~ "Url, піктограми мають бути квадратними, а, якщо малюється маршрут, "
+#~ "експортуватиметься лише його лінія."
+
+#~ msgid "Picture Altitude:"
+#~ msgstr "Висота знімку:"
+
+#~ msgid "clamp to ground"
+#~ msgstr "на поверхні"
+
+#~ msgid "relative to ground"
+#~ msgstr "відносно поверхні"
+
+#~ msgid "absolute"
+#~ msgstr "абсолютна"
+
+#~ msgid ""
+#~ "<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
+#~ "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+#~ "ground</dt><dd>Sets the altitude of the element relative to the actual "
+#~ "ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets "
+#~ "the altitude of the coordinate relative to sea level, regardless of the "
+#~ "actual elevation of the terrain beneath the element.</dd></dl>"
+#~ msgstr ""
+#~ "<p>Визначає спосіб показу знімків<dl><dt>на поверхні (типовий)</dt><dd>Не "
+#~ "зважати на визначення висоти</dd><dt>відносно поверхні</dt><dd>Встановлює "
+#~ "висоту елемента відносно поточної висоти на місцевістю.</"
+#~ "dd><dt>абсолютна</dt><dd>Встановлює висоту місця відносно рівня моря, "
+#~ "безвідносно до фактичної висоти суходолу під місцем знімку.</dd></dl>"
+
+#~ msgid "Destination Directory:"
+#~ msgstr "Каталог призначення:"
+
+#~ msgid "Select a directory in which to save the kml file and pictures"
+#~ msgstr "Виберіть каталог, куди слід покласти файл kml і знімки"
+
+#~ msgid "Destination URL:"
+#~ msgstr "Адреса URL призначення:"
+
+#~ msgid "Sizes"
+#~ msgstr "Розміри"
+
+#~ msgid "Icon Size:"
+#~ msgstr "Розмір піктограми:"
+
+#~ msgid "Image Size:"
+#~ msgstr "Розмір зображення:"
+
+#~ msgid "GPX Tracks"
+#~ msgstr "Маршрути GPX"
+
+#~ msgid "Draw GPX Track"
+#~ msgstr "Намалювати маршрут GPX"
+
+#~ msgid "GPX file:"
+#~ msgstr "Файл GPX:"
+
+#~ msgid "Time Zone:"
+#~ msgstr "Часовий пояс:"
+
+#~ msgid "GMT-12:00"
+#~ msgstr "GMT-12:00"
+
+#~ msgid "GMT-11:00"
+#~ msgstr "GMT-11:00"
+
+#~ msgid "GMT-10:00"
+#~ msgstr "GMT-10:00"
+
+#~ msgid "GMT-09:00"
+#~ msgstr "GMT-09:00"
+
+#~ msgid "GMT-08:00"
+#~ msgstr "GMT-08:00"
+
+#~ msgid "GMT-07:00"
+#~ msgstr "GMT-07:00"
+
+#~ msgid "GMT-06:00"
+#~ msgstr "GMT-06:00"
+
+#~ msgid "GMT-05:00"
+#~ msgstr "GMT-05:00"
+
+#~ msgid "GMT-04:00"
+#~ msgstr "GMT-04:00"
+
+#~ msgid "GMT-03:00"
+#~ msgstr "GMT-03:00"
+
+#~ msgid "GMT-02:00"
+#~ msgstr "GMT-02:00"
+
+#~ msgid "GMT-01:00"
+#~ msgstr "GMT-01:00"
+
+#~ msgid "GMT"
+#~ msgstr "GMT"
+
+#~ msgid "GMT+01:00"
+#~ msgstr "GMT+01:00"
+
+#~ msgid "GMT+02:00"
+#~ msgstr "GMT+02:00"
+
+#~ msgid "GMT+03:00"
+#~ msgstr "GMT+03:00"
+
+#~ msgid "GMT+04:00"
+#~ msgstr "GMT+04:00"
+
+#~ msgid "GMT+05:00"
+#~ msgstr "GMT+05:00"
+
+#~ msgid "GMT+06:00"
+#~ msgstr "GMT+06:00"
+
+#~ msgid "GMT+07:00"
+#~ msgstr "GMT+07:00"
+
+#~ msgid "GMT+08:00"
+#~ msgstr "GMT+08:00"
+
+#~ msgid "GMT+09:00"
+#~ msgstr "GMT+09:00"
+
+#~ msgid "GMT+10:00"
+#~ msgstr "GMT+10:00"
+
+#~ msgid "GMT+11:00"
+#~ msgstr "GMT+11:00"
+
+#~ msgid "GMT+12:00"
+#~ msgstr "GMT+12:00"
+
+#~ msgid "GMT+13:00"
+#~ msgstr "GMT+13:00"
+
+#~ msgid "GMT+14:00"
+#~ msgstr "GMT+14:00"
+
+#~ msgid ""
+#~ "Sets the time zone of the camera during picture shooting, so that the "
+#~ "time stamps of the GPS can be converted to match the local time"
+#~ msgstr ""
+#~ "Встановлю часовий пояс фотоапарата під час виконання знімку, так, щоб "
+#~ "часовий штамп GPS можна було перетворити на місцевий час"
+
+#~ msgid "Track Width:"
+#~ msgstr "Ширина маршруту:"
+
+#~ msgid "Track Color:"
+#~ msgstr "Колір маршруту:"
+
+#~ msgid "Opacity:"
+#~ msgstr "Непрозорість:"
+
+#~ msgid "Track Altitude:"
+#~ msgstr "Висота маршруту:"
+
+#~ msgid ""
+#~ "<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)"
+#~ "</dt><dd>Indicates to ignore an altitude specification</dd><dt>relative "
+#~ "to ground</dt><dd>Sets the altitude of the element relative to the actual "
+#~ "ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets "
+#~ "the altitude of the coordinate relative to sea level, regardless of the "
+#~ "actual elevation of the terrain beneath the element.</dd></dl>"
+#~ msgstr ""
+#~ "<p>Визначає спосіб показу точок<dl><dt>на поверхні (типовий)</dt><dd>Не "
+#~ "зважати на визначення висоти</dd><dt>відносно поверхні</dt><dd>Встановлює "
+#~ "висоту елемента відносно поточної висоти на місцевістю.</"
+#~ "dd><dt>абсолютна</dt><dd>Встановлює висоту місця відносно рівня моря, "
+#~ "безвідносно до фактичної висоти суходолу під місцем знімку.</dd></dl>"
+
+#~ msgid "A Kipi plugin for KML exporting"
+#~ msgstr "Додаток Kipi для експорту до KML"
+
+#~ msgid "(c) 2006-2007, Stéphane Pontier"
+#~ msgstr "© Stéphane Pontier, 2006–2007"
+
+#~ msgid "Stéphane Pontier"
+#~ msgstr "Stéphane Pontier"
+
+#~ msgid "Track"
+#~ msgstr "Маршрут"
+
+#~ msgid "Point"
+#~ msgstr "Точка"
+
+#~ msgid "Edit Coordinates..."
+#~ msgstr "Змінити координати..."
+
+#~ msgid "Track List Editor..."
+#~ msgstr "Редактор списку маршруту..."
+
+#~ msgid "Export to KML..."
+#~ msgstr "Експорт до KML..."
+
+#~ msgid ""
+#~ "<p>Unable to find the gpsbabel executable:<br/> This program is required "
+#~ "by this plugin to support GPS data file decoding. Please install gpsbabel "
+#~ "as a package from your distributor or <a href=\"%1\">download the source</"
+#~ "a>.</p><p>Note: at least, gpsbabel version %2 is required by this plugin."
+#~ "</p>"
+#~ msgstr ""
+#~ "<p>Неможливо знайти виконуваний файл gpsbabel:<br/> Ця програма потрібна "
+#~ "даному додатку для підтримки декодування файлів даних GPS. Будь ласка, "
+#~ "встановіть пакунок gpsbabel з вашого дистрибутива або <a href="
+#~ "\"%1\">звантажте вихідні коди програми</a>.</p><p>Зауважте: для роботи "
+#~ "цього додатка потрібна версія gpsbabel не нижча за %2.</p>"
+
+#~ msgid ""
+#~ "<p>gpsbabel executable is not up to date:<br/> The version %1 of gpsbabel "
+#~ "have been found on your computer. This version is too old to run properly "
+#~ "with this plugin. Please update gpsbabel as a package from your "
+#~ "distributor or <a href=\"%2\">download the source</a>.</p><p>Note: at "
+#~ "least, gpsbabel version %3 is required by this plugin</p>"
+#~ msgstr ""
+#~ "<p>Ваша версія gpsbabel застаріла:<br/> На вашому комп’ютері знайдено "
+#~ "версію %1 програми gpsbabel. Ця версія застара, щоб належним чином "
+#~ "працювати з даним додатком. Будь ласка, оновіть пакунок gpsbabel з вашого "
+#~ "дистрибутива або <a href=\"%2\">звантажте вихідні коди програми</a>.</"
+#~ "p><p>Зауважте: для роботи цього додатка потрібна версія gpsbabel не нижча "
+#~ "за %3.</p>"
+
+#~ msgid "No GPS locations have been found in your pictures."
+#~ msgstr "У ваших зображеннях не знайдено даних GPS про місця знімків."
+
+#~ msgid ""
+#~ "Geographical coordinates will be definitively removed from all selected "
+#~ "images.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "З усіх вибраних зображень буде повністю вилучено географічні координати.\n"
+#~ "Ви справді бажаєте продовжити?"
+
+#~ msgid "Remove Geographical Coordinates"
+#~ msgstr "Вилучити географічні координати"
+
+#~ msgid "(c) 2006-2008, Gilles Caulier"
+#~ msgstr "(c) 2006-2008, Gilles Caulier"
+
+#~ msgid "(c) 2008, Gilles Caulier"
+#~ msgstr "(c) 2008, Gilles Caulier"
+
+#~ msgid "File Name"
+#~ msgstr "Назва файла"

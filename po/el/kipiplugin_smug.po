@@ -1,0 +1,446 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2008, 2009.
+# Dimitrios Glentadakis <dglent@gmail.com>, 2010, 2011.
+# Stelios <sstavra@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_smugexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2012-09-05 20:46+0100\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Τούσης Μανώλης,Stelios"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "manolis@koppermind.homelinux.org,sstavra@gmail.com"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_smugui.rc:6
+msgid "&Import"
+msgstr "Ε&ισαγωγή"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_smugui.rc:10
+msgid "&Export"
+msgstr "&Εξαγωγή"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_smugui.rc:16
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: plugin_smug.cpp:107
+msgid "Export to &SmugMug..."
+msgstr "Εξαγωγή σε &SmugMug..."
+
+#: plugin_smug.cpp:118
+msgid "Import from &SmugMug..."
+msgstr "Εισαγωγή από &SmugMug..."
+
+#: smugalbum.cpp:52
+msgid "SmugMug New Album"
+msgstr "Νέο λεύκωμα SmugMug"
+
+#: smugalbum.cpp:64 smugwidget.cpp:119
+msgid "Album"
+msgstr "Λεύκωμα"
+
+#: smugalbum.cpp:66
+msgid "These are basic settings for the new SmugMug album."
+msgstr "Αυτές είναι οι βασικές ρυθμίσεις για το νέο λεύκωμα SmugMug."
+
+#: smugalbum.cpp:70
+msgid "Title of the album that will be created (required)."
+msgstr "Τίτλος του λευκώματος που θα δημιουργηθεί (απαιτείται)."
+
+#: smugalbum.cpp:75
+msgid "Category of the album that will be created (required)."
+msgstr "Κατηγορία του λευκώματος που θα δημιουργηθεί (απαιτείται)."
+
+#: smugalbum.cpp:80
+msgid "Subcategory of the album that will be created (optional)."
+msgstr "Υποκατηγορία του λευκώματος που θα δημιουργηθεί (προαιρετικό)."
+
+#: smugalbum.cpp:84
+msgid "Description of the album that will be created (optional)."
+msgstr "Περιγραφή του λευκώματος που θα δημιουργηθεί (προαιρετικό)."
+
+#: smugalbum.cpp:89
+msgid "Album template for the new album (optional)."
+msgstr "Πρότυπο λεύκωμα για το νέο λεύκωμα (προαιρετικό)."
+
+#: smugalbum.cpp:92
+msgctxt "new smug album dialog"
+msgid "Title:"
+msgstr "Τίτλος:"
+
+#: smugalbum.cpp:93
+msgctxt "new smug album dialog"
+msgid "Category:"
+msgstr "Κατηγορία:"
+
+#: smugalbum.cpp:94
+msgctxt "new smug album dialog"
+msgid "Subcategory:"
+msgstr "Υποκατηγορία:"
+
+#: smugalbum.cpp:95
+msgctxt "new smug album dialog"
+msgid "Description:"
+msgstr "Περιγραφή:"
+
+#: smugalbum.cpp:96
+msgctxt "new smug album dialog"
+msgid "Template:"
+msgstr "Φόρμα:"
+
+#: smugalbum.cpp:104
+msgid "Security && Privacy"
+msgstr "Ασφάλεια && προσωπικό απόρρητο"
+
+#: smugalbum.cpp:106
+msgid "These are security and privacy settings for the new SmugMug album."
+msgstr ""
+"Αυτές είναι οι ρυθμίσεις ασφαλείας και προσωπικού απορρήτου για το νέο "
+"λεύκωμα SmugMug."
+
+#: smugalbum.cpp:108
+msgctxt "smug album privacy"
+msgid "Public"
+msgstr "Δημόσιο"
+
+#: smugalbum.cpp:111
+msgid "Public album is listed on your public SmugMug page."
+msgstr "Το δημόσιο λεύκωμα εμφανίζεται στη δημόσια σελίδα σας SmugMug."
+
+#: smugalbum.cpp:112
+msgctxt "smug album privacy"
+msgid "Unlisted"
+msgstr "Μη καταγεγραμμένο"
+
+#: smugalbum.cpp:114
+msgid "Unlisted album is only accessible via URL."
+msgstr "Το μη εμφανιζόμενο λεύκωμα είναι προσπελάσιμο μόνο μέσω του URL."
+
+#: smugalbum.cpp:122
+msgid "Require password to access the album (optional)."
+msgstr "Απαίτηση κωδικού για την πρόσβαση στο λεύκωμα (προαιρετικό)."
+
+#: smugalbum.cpp:126
+msgid "Password hint to present to users in the password prompt (optional)."
+msgstr ""
+"Υπόδειξη κωδικού για τους χρήστες κατά την προτροπή κωδικού πρόσβασης "
+"(προαιρετικό)."
+
+#: smugalbum.cpp:129
+msgid "Privacy:"
+msgstr "Ιδιωτικό απόρρητο:"
+
+#: smugalbum.cpp:130
+msgid "Password:"
+msgstr "Κωδικός πρόσβασης:"
+
+#: smugalbum.cpp:131
+msgid "Password Hint:"
+msgstr "Υπόδειξη κωδικού:"
+
+#: smugtalker.cpp:101
+msgid "Logging in to SmugMug service..."
+msgstr "Σύνδεση στην υπηρεσία SmugMug..."
+
+#: smugtalker.cpp:501
+msgid "Login failed"
+msgstr "Αποτυχία σύνδεσης"
+
+#: smugtalker.cpp:504
+msgid "Invalid user/nick/password"
+msgstr "Μή έγκυρος χρήστης/ψευδώνυμο/κωδικός"
+
+#: smugtalker.cpp:507
+msgid "Invalid API key"
+msgstr "Μη έγκυρο κλειδί API"
+
+#: smugwidget.cpp:73
+msgid "This is the list of images to upload to your SmugMug account."
+msgstr "Αυτή είναι η λίστα εικόνων για αποστολή στο λογαριασμό σας SmugMug."
+
+#: smugwidget.cpp:80
+msgid ""
+"This is a clickable link to open the SmugMug home page in a web browser."
+msgstr ""
+"Αυτός είναι ο δεσμός για το άνοιγμα της αρχικής σελίδας SmugMug στον "
+"περιηγητή ιστού."
+
+#: smugwidget.cpp:86
+msgid "Account"
+msgstr "Λογαριασμός"
+
+#: smugwidget.cpp:88
+msgid "This is the SmugMug account that will be used to authenticate."
+msgstr ""
+"Αυτός είναι ο λογαριασμός SmugMug που θα χρησιμοποιηθεί για την ταυτοποίηση."
+
+#: smugwidget.cpp:91
+msgctxt "smug account login"
+msgid "Anonymous"
+msgstr "Ανώνυμη είσοδος"
+
+#: smugwidget.cpp:93
+msgid "Login as anonymous to SmugMug web service."
+msgstr "Ανώνυμη σύνδεση στην υπηρεσία ιστού SmugMug."
+
+#: smugwidget.cpp:95
+msgid "SmugMug Account"
+msgstr "Λογαριασμός SmugMug"
+
+#: smugwidget.cpp:97
+msgid "Login to SmugMug web service using email and password."
+msgstr ""
+"Σύνδεση στην υπηρεσία ιστού SmugMug με χρήση της διεύθυνσης ηλ. "
+"αλληλογραφίας και κωδικού πρόσβασης."
+
+#: smugwidget.cpp:99
+msgctxt "smug account settings"
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: smugwidget.cpp:101
+msgctxt "smug account settings"
+msgid "Email:"
+msgstr "Ηλ. αλληλογραφία:"
+
+#: smugwidget.cpp:103
+msgid "Change Account"
+msgstr "Αλλαγή λογαριασμού"
+
+#: smugwidget.cpp:104
+msgid "Change SmugMug Account used to authenticate"
+msgstr ""
+"Αλλαγή του λογαριασμού SmugMug που θα χρησιμοποιηθεί για την ταυτοποίηση"
+
+#: smugwidget.cpp:120
+msgid "This is the SmugMug album that will be used for transfer."
+msgstr "Αυτό είναι το λεύκωμα SmugMug που θα χρησιμοποιηθεί για τη μεταφορά."
+
+#: smugwidget.cpp:125
+msgid "Nickname:"
+msgstr "Ψευδώνυμο:"
+
+#: smugwidget.cpp:128
+msgid "Nickname of SmugMug user to list albums."
+msgstr "Ψευδώνυμο του χρήστη SmugMug για την εμφάνιση των λεύκωμα."
+
+#: smugwidget.cpp:129
+msgid "Site Password:"
+msgstr "Κωδικός ιστοσελίδας:"
+
+#: smugwidget.cpp:132
+msgid "Site-wide password for specified SmugMug nick/user."
+msgstr ""
+"Κωδικός πρόσβασης ιστοσελίδας για τον καθορισμένο χρήστη/ψευδώνυμο SmugMug."
+
+#: smugwidget.cpp:133
+msgid "Album Password:"
+msgstr "Κωδικός λεύκωμα:"
+
+#: smugwidget.cpp:136
+msgid "Password for SmugMug album."
+msgstr "Κωδικός πρόσβασης %1:"
+
+#: smugwidget.cpp:138
+msgid "New Album"
+msgstr "Νέο λεύκωμα"
+
+#: smugwidget.cpp:139
+msgid "Create new SmugMug album"
+msgstr "Δημιουργία νέου λεύκωμα SmugMug"
+
+#: smugwidget.cpp:140
+msgctxt "reload album list"
+msgid "Reload"
+msgstr "Επαναφόρτωση"
+
+#: smugwidget.cpp:141
+msgid "Reload album list"
+msgstr "Επαναφόρτωση λίστας λευκωμάτων"
+
+#: smugwidget.cpp:155
+msgid "Destination"
+msgstr "Προορισμός"
+
+#: smugwidget.cpp:156
+msgid "This is the location where SmugMug images will be downloaded."
+msgstr "Αυτή είναι η τοποθεσία όπου γίνεται η λήψη των εικόνων SmugMug."
+
+#: smugwidget.cpp:163
+msgid "Options"
+msgstr "Επιλογές"
+
+#: smugwidget.cpp:164
+msgid "These are options that will be applied to images before upload."
+msgstr "Αυτές οι επιλογές θα εφαρμοστούν στις εικόνες πριν την αποστολή."
+
+#: smugwidget.cpp:168
+msgid "Resize photos before uploading"
+msgstr "Αλλαγή μεγέθους φωτογραφιών πριν την αποστολή"
+
+#: smugwidget.cpp:178
+msgid "Maximum dimension:"
+msgstr "Μέγιστη διάσταση:"
+
+#: smugwidget.cpp:186
+msgid "JPEG quality:"
+msgstr "Ποιότητα JPEG:"
+
+#: smugwindow.cpp:94
+msgid "Import from SmugMug Web Service"
+msgstr "Εισαγωγή από την υπηρεσία ιστού SmugMug"
+
+#: smugwindow.cpp:96
+msgid "Start Download"
+msgstr "Έναρξη λήψης"
+
+#: smugwindow.cpp:97
+msgid "Start download from SmugMug web service"
+msgstr "Έναρξη λήψης από την υπηρεσία ιστού SmugMug"
+
+#: smugwindow.cpp:102
+msgid "Export to SmugMug Web Service"
+msgstr "Εξαγωγή στην υπηρεσία ιστού SmugMug"
+
+#: smugwindow.cpp:104
+msgid "Start Upload"
+msgstr "Έναρξη αποστολής"
+
+#: smugwindow.cpp:105
+msgid "Start upload to SmugMug web service"
+msgstr "Έναρξη αποστολής στην υπηρεσία ιστού SmugMug"
+
+#: smugwindow.cpp:127
+msgid "Smug Import/Export"
+msgstr "Εισαγωγή/εξαγωγή Smug"
+
+#: smugwindow.cpp:129
+msgid ""
+"A Kipi plugin to import/export image collections from/to the SmugMug web "
+"service."
+msgstr ""
+"Ένα πρόσθετο του Kipi για την εισαγωγή/εξαγωγή συλλογής εικόνων σε/προς μια "
+"υπηρεσία ιστού SmugMug."
+
+#: smugwindow.cpp:131
+msgid ""
+"(c) 2005-2008, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2008-2009, Luka Renko"
+msgstr ""
+"(c) 2005-2008, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2008-2009, Luka Renko"
+
+#: smugwindow.cpp:135
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: smugwindow.cpp:135
+msgid "Author and maintainer"
+msgstr "Συγγραφέας και συντηρητής"
+
+#: smugwindow.cpp:144
+msgid ""
+"<qt>Enter the <b>email address</b> and <b>password</b> for your <a href="
+"\"http://www.smugmug.com\">SmugMug</a> account</qt>"
+msgstr ""
+"<qt>Εισάγετε το <b>email</b> και τον <b>κωδικό πρόσβασης</b> του λογαριασμού "
+"σας <a href=\"http://www.smugmug.com\">SmugMug</a></qt>"
+
+#: smugwindow.cpp:401 smugwindow.cpp:410 smugwindow.cpp:438 smugwindow.cpp:470
+#: smugwindow.cpp:501 smugwindow.cpp:530 smugwindow.cpp:891
+#, kde-format
+msgid "SmugMug Call Failed: %1\n"
+msgstr "Αποτυχία κλήσης SmugMug: %1\n"
+
+#: smugwindow.cpp:466 smugwindow.cpp:526
+msgid "&lt;none&gt;"
+msgstr "&lt;κανένα&gt;"
+
+#: smugwindow.cpp:652 smugwindow.cpp:678
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: smugwindow.cpp:656
+msgid "Smug Import"
+msgstr "Εισαγωγή Smug"
+
+#: smugwindow.cpp:682
+msgid "Smug Export"
+msgstr "Εξαγωγή Smug"
+
+#: smugwindow.cpp:761 smugwindow.cpp:774
+msgid "Cannot open file"
+msgstr "Αδυναμία ανοίγματος αρχείου"
+
+#: smugwindow.cpp:798
+#, kde-format
+msgid ""
+"Failed to upload photo into SmugMug: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Αποτυχία αποστολής φωτογραφίας στο SmugMug. %1\n"
+"Επιθυμείτε να συνεχίσετε;"
+
+#: smugwindow.cpp:858
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Αποτυχία αποθήκευσης της φωτογραφίας: %1\n"
+"Επιθυμείτε τη συνέχεια;"
+
+#: smugwindow.cpp:872
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Αποτυχία λήψης της φωτογραφίας: %1\n"
+"Επιθυμείτε τη συνέχεια;"
+
+#~ msgid "Handbook"
+#~ msgstr "Εγχειρίδιο"
+
+#~ msgid "Authentication"
+#~ msgstr "Ταυτοποίηση"
+
+#~ msgid "Transfer Progress"
+#~ msgstr "Πρόοδος μεταφοράς"
+
+#~ msgid "Uploading file %1"
+#~ msgstr "Αποστολή αρχείου %1"
+
+#~ msgid "Downloading file %1"
+#~ msgstr "Λήψη αρχείου %1"
+
+#~ msgid "<none>"
+#~ msgstr "<κανένα>"
+
+#~ msgid "Login with e-mail and password to SmugMug web service."
+#~ msgstr "Σύνδεση με email και κωδικό πρόσβασης στην υπηρεσία ιστού SmugMug."
+
+#~ msgid "This is the SmugMug album where selected photos will be uploaded."
+#~ msgstr ""
+#~ "Αυτό είναι το άλμπουμ SmugMug όπου θα αποσταλούν οι επιλεγμένες "
+#~ "φωτογραφίες."

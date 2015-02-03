@@ -1,0 +1,270 @@
+# Albanian translation for kipi-plugins
+# Copyright (c) 2009 Rosetta Contributors and Canonical Ltd 2009
+# This file is distributed under the same license as the kipi-plugins package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kipi-plugins\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2010-02-06 14:30+0000\n"
+"Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
+"Language-Team: Albanian <sq@li.org>\n"
+"Language: sq\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Launchpad-Export-Date: 2011-04-22 00:43+0000\n"
+"X-Generator: Launchpad (build 12883)\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "KDE Shqip, Launchpad Contributions: Vilson Gjeci"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde-shqip@yahoogroups.com,vilsongjeci@gmail.com"
+
+#: clockphotodialog.cpp:82
+msgid "Determine time difference with clock photo"
+msgstr ""
+
+#: clockphotodialog.cpp:86
+msgid "Load different photo"
+msgstr ""
+
+#: clockphotodialog.cpp:95
+msgid ""
+"If you have a photo in your set with a clock or another external time source "
+"on it, you can load it here and set the indicator to the (date and) time "
+"displayed. The difference of your internal camera clock will be determined "
+"from this setting."
+msgstr ""
+
+#: clockphotodialog.cpp:113
+msgid "The clock date and time:"
+msgstr ""
+
+#: clockphotodialog.cpp:185
+#, kde-format
+msgid ""
+"<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
+"image %1.</b></font>"
+msgstr ""
+
+#: clockphotodialog.cpp:197
+#, kde-format
+msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
+msgstr ""
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_timeadjustui.rc:6
+msgid "&Image"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_timeadjustui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: myimagelist.cpp:42 settingswidget.cpp:281
+#, fuzzy
+#| msgid "Adjust Time & Date"
+msgid "Timestamp Used"
+msgstr "Rregullo Orën & Datën"
+
+#: myimagelist.cpp:44 settingswidget.cpp:283
+msgid "Timestamp Updated"
+msgstr ""
+
+#: myimagelist.cpp:46
+msgid "New Filename"
+msgstr ""
+
+#: myimagelist.cpp:48
+msgid "Status"
+msgstr ""
+
+#: myimagelist.cpp:69
+msgid "not valid"
+msgstr ""
+
+#: myimagelist.cpp:77
+msgctxt "not applicable"
+msgid "N.A"
+msgstr ""
+
+#: myimagelist.cpp:95
+msgid "Failed to update metadata timestamp"
+msgstr ""
+
+#: myimagelist.cpp:100
+msgid "Failed to update file timestamp"
+msgstr ""
+
+#: myimagelist.cpp:105
+msgid "Failed to rename file"
+msgstr ""
+
+#: myimagelist.cpp:110
+msgid "Processed without error"
+msgstr ""
+
+#: plugin_timeadjust.cpp:106
+msgid "Adjust Time && Date..."
+msgstr ""
+
+#: settingswidget.cpp:167
+#, kde-format
+msgid "%1 timestamp"
+msgstr ""
+
+#: settingswidget.cpp:174 settingswidget.cpp:253
+msgid "File last modified"
+msgstr ""
+
+#: settingswidget.cpp:181
+msgid "EXIF/IPTC/XMP"
+msgstr "EXIF/IPTC/XMP"
+
+#: settingswidget.cpp:182 settingswidget.cpp:254
+msgid "EXIF: created"
+msgstr ""
+
+#: settingswidget.cpp:183 settingswidget.cpp:255
+msgid "EXIF: original"
+msgstr ""
+
+#: settingswidget.cpp:184 settingswidget.cpp:256
+msgid "EXIF: digitized"
+msgstr ""
+
+#: settingswidget.cpp:185 settingswidget.cpp:257
+msgid "IPTC: created"
+msgstr ""
+
+#: settingswidget.cpp:186
+msgid "XMP: created"
+msgstr ""
+
+#: settingswidget.cpp:196
+msgid "Reset to current date"
+msgstr ""
+
+#: settingswidget.cpp:225
+msgctxt "copy timestamp as well"
+msgid "Copy value"
+msgstr ""
+
+#: settingswidget.cpp:226
+#, fuzzy
+#| msgid "Add"
+msgctxt "add a fixed timestamp to date"
+msgid "Add"
+msgstr "Shto"
+
+#: settingswidget.cpp:227
+#, fuzzy
+#| msgid "Subtract"
+msgctxt "subtract a fixed timestamp to date"
+msgid "Subtract"
+msgstr "Zbrit"
+
+#: settingswidget.cpp:231
+msgctxt "time adjust offset, days value label"
+msgid "days"
+msgstr "ditë"
+
+#: settingswidget.cpp:234
+msgid "Determine difference from clock photo"
+msgstr ""
+
+#: settingswidget.cpp:258
+msgid "XMP"
+msgstr "XMP"
+
+#: settingswidget.cpp:259
+msgid "Filename"
+msgstr ""
+
+#: settingswidget.cpp:282
+#, fuzzy
+#| msgid "Time Adjust"
+msgid "Timestamp Adjustments"
+msgstr "Rregullo Orën"
+
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+msgid "Adjust Time & Date"
+msgstr "Rregullo Orën & Datën"
+
+#: timeadjustdialog.cpp:129
+msgid "Time Adjust"
+msgstr "Rregullo Orën"
+
+#: timeadjustdialog.cpp:132
+msgid "A Kipi plugin for adjusting the timestamp of picture files"
+msgstr ""
+
+#: timeadjustdialog.cpp:133
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Jesper K. Pedersen\n"
+#| "(c) 2006-2009, Gilles Caulier"
+msgid ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2009, Gilles Caulier"
+
+#: timeadjustdialog.cpp:137
+msgid "Jesper K. Pedersen"
+msgstr "Jesper K. Pedersen"
+
+#: timeadjustdialog.cpp:138
+msgid "Author"
+msgstr "Autori"
+
+#: timeadjustdialog.cpp:141
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+msgid "Developer"
+msgstr ""
+
+#: timeadjustdialog.cpp:145
+msgid "Smit Mehta"
+msgstr ""
+
+#: timeadjustdialog.cpp:149
+msgid "Pieter Edelman"
+msgstr ""
+
+#: timeadjustdialog.cpp:377
+#, fuzzy
+#| msgid "Adjust Time & Date"
+msgid "Adjust Time and Date"
+msgstr "Rregullo Orën & Datën"
+
+#: timeadjustdialog.cpp:394
+msgid "Select at least one option"
+msgstr ""
+
+#~ msgid "Adjust"
+#~ msgstr "Regullo"
+
+#~ msgid "Example"
+#~ msgstr "Shembuj"
+
+#~ msgid "Developer and maintainer"
+#~ msgstr "Krijues dhe mirëmbajtës"
+
+#~ msgid "Handbook"
+#~ msgstr "Broshura"
+
+#~ msgid "Scale:"
+#~ msgstr "Shkalla:"

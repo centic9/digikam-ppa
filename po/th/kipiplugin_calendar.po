@@ -1,0 +1,323 @@
+# translation of kipiplugin_calendar.po to Thai
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Thanomsub Noppaburana <donga.nb@gmail.com>, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_calendar\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-02-01 02:36+0100\n"
+"PO-Revision-Date: 2010-03-03 18:54+0700\n"
+"Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ถนอมทรัพย์ นพบูรณ์"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "donga.nb@gmail.com"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_calendarui.rc:6
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_calendarui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/plugin_calendar.cpp:82
+msgid "Create Calendar..."
+msgstr "สร้างปฏิทิน..."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalEvents)
+#: ui/calevents.ui:13
+msgid "Calendar events"
+msgstr "เหตุการณ์ต่าง ๆ ของปฏิทิน"
+
+#. i18n: ectx: property (text), widget (QLabel, ohHeaderLabel)
+#: ui/calevents.ui:25
+msgid "Select an optional calendar file with the official holidays"
+msgstr "เลือกแฟ้มเสริมของปฏิทินที่มีข้อมูลวันหยุดต่าง ๆ อยู่"
+
+#. i18n: ectx: property (filter), widget (KUrlRequester, ohUrlRequester)
+#. i18n: ectx: property (filter), widget (KUrlRequester, fhUrlRequester)
+#: ui/calevents.ui:32 ui/calevents.ui:88
+msgid "*.ics"
+msgstr "*.ics"
+
+#. i18n: ectx: property (text), widget (QLabel, ohExplainLabel)
+#: ui/calevents.ui:49
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:italic;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">You can download a "
+"calendar for your country from <a href=\"http://www.icalshare.com\"><span "
+"style=\" text-decoration: underline; color:#0057ae;\">http://www.icalshare."
+"com</span></a> or other sites.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">This is fully optional. "
+"All the events from this calendar will be printed in red.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:italic;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\"> "
+"คุณสามารถดาวน์โหลดปฏิทินสำหรับประเทศของคุณได้ที่ <a href=\"http://www.icalshare.com"
+"\"> <span style=\" text-decoration: underline; color:#0057ae;\">http://www."
+"icalshare.com</span></a> หรือจากเว็บไซต์อื่น ๆ ได้</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;"
+"\">ซึ่งนี่เป็นตัวเลือกเสริมและเหตุการณ์ทั้งหมดจากปฏิทินนี้จะถูกพิมพ์ออกมาเป็นสีแดง</p></body></"
+"html>"
+
+#. i18n: ectx: property (text), widget (QLabel, fhHeaderLabel)
+#: ui/calevents.ui:78
+msgid "Select an optional calendar file with your \"family holidays\""
+msgstr "เลือกแฟ้มเสริมของปฏิทินที่มีข้อมูล \"วันหยุดของครอบครัว\""
+
+#. i18n: ectx: property (text), widget (QLabel, fhExplainLabel)
+#: ui/calevents.ui:101
+msgid ""
+"You can create such a calendar using KOrganizer or any other calendar "
+"program.\n"
+"This is fully optional. All the events from this calendar will be printed in "
+"green."
+msgstr ""
+"คุณสามารถสร้างปฏิทินเช่นนี้ได้ โดยใช้ KOrganizer หรือโปรแกรมปฏิทินอื่น ๆ ก็ได้\n"
+"ซึ่งมันเป็นตัวเลือกเสริม และเหตุการณ์ต่าง ๆ จากปฏิทินนี้ จะถูกพิมพ์ออกมาเป็นสีเขียว"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalProgress)
+#: ui/calprogress.ui:14 wizard/calwizard.cpp:89
+msgid "Printing"
+msgstr "การพิมพ์"
+
+#. i18n: ectx: property (text), widget (QLabel, currentLabel)
+#: ui/calprogress.ui:23
+msgid "Current Page"
+msgstr "หน้าปัจจุบัน"
+
+#. i18n: ectx: property (text), widget (QLabel, totalLabel)
+#: ui/calprogress.ui:33
+msgid "Total Pages"
+msgstr "หน้าทั้งหมด"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalTemplate)
+#: ui/caltemplate.ui:14 wizard/calwizard.cpp:69
+msgid "Create Template for Calendar"
+msgstr "สร้างแม่แบบสำหรับปฏิทิน"
+
+#. i18n: ectx: property (title), widget (QGroupBox, previewGroupBox)
+#: ui/caltemplate.ui:26
+msgid "Preview"
+msgstr "แสดงตัวอย่าง"
+
+#. i18n: ectx: property (title), widget (QGroupBox, settingsGroupBox)
+#: ui/caltemplate.ui:43
+msgid "Settings"
+msgstr "ตั้งค่าต่าง ๆ"
+
+#. i18n: ectx: property (text), widget (QLabel, paperSizeLabel)
+#: ui/caltemplate.ui:57
+msgid "Paper Size:"
+msgstr "ขนาดกระดาษ:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, paperSizeCombo)
+#: ui/caltemplate.ui:65
+msgid "A4"
+msgstr "เอ 4"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, paperSizeCombo)
+#: ui/caltemplate.ui:70
+msgid "US Letter"
+msgstr "กระดาษจดหมาย US"
+
+#. i18n: ectx: property (text), widget (QLabel, resolutionLabel)
+#: ui/caltemplate.ui:78
+msgid "Resolution:"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resolutionCombo)
+#: ui/caltemplate.ui:86
+msgid "High"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resolutionCombo)
+#: ui/caltemplate.ui:91
+msgid "Low"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (KButtonGroup, imagePosButtonGroup)
+#: ui/caltemplate.ui:101
+msgid "Image Position"
+msgstr "ตำแหน่งของภาพ"
+
+#. i18n: ectx: property (text), widget (QRadioButton, topRadio)
+#: ui/caltemplate.ui:112
+msgid "&Top"
+msgstr "ด้าน&บน"
+
+#. i18n: ectx: property (text), widget (QRadioButton, leftRadio)
+#: ui/caltemplate.ui:122
+msgid "&Left"
+msgstr "ด้านซ้า&ย"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rightRadio)
+#: ui/caltemplate.ui:132
+msgid "&Right"
+msgstr "ด้าน&ขวา"
+
+#. i18n: ectx: property (text), widget (QCheckBox, drawLinesCheckBox)
+#: ui/caltemplate.ui:147
+msgid "Draw lines on calendar"
+msgstr "วาดเส้นในปฏิทิน"
+
+#. i18n: ectx: property (text), widget (QLabel, ratioLabel)
+#: ui/caltemplate.ui:159
+msgid "Image to text ratio:"
+msgstr "อัตราส่วนระหว่างภาพกับข้อความ:"
+
+#. i18n: ectx: property (text), widget (QLabel, fontLabel)
+#: ui/caltemplate.ui:189
+msgid "Font:"
+msgstr "แบบอักษร:"
+
+#. i18n: ectx: property (text), widget (QLabel, yearLabel)
+#: ui/caltemplate.ui:203
+msgid "Year:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, monthBox)
+#: ui/caltemplate.ui:231
+msgid "Select Images"
+msgstr "เลือกภาพต่าง ๆ"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/caltemplate.ui:240
+#, fuzzy
+#| msgid ""
+#| "Left click on Months to Select Images. Right click to Clear Month.\n"
+#| "You can also drag and drop images onto the Months"
+msgid ""
+"Left click on a month to select an image, right click to clear an image."
+msgstr ""
+"คลิกเมาส์ปุ่มซ้ายบนเดือนต่าง ๆ เพื่อเลือกภาพต่าง ๆ \n"
+"คลิกเมาส์ปุ่มขวาเพื่อล้างเดือนนั้น ๆ นอกจากนี้ \n"
+"คุณยังสามารถใช้การลากและวางภาพมายังเดือนต่าง ๆ ก็ได้"
+
+#: wizard/calwizard.cpp:75
+msgid "Choose events to show on the Calendar"
+msgstr "เลือกเหตุการณ์ที่จะแสดงในปฏิทิน"
+
+#: wizard/calwizard.cpp:83
+msgid "Print"
+msgstr "พิมพ์"
+
+#: wizard/calwizard.cpp:95
+msgid "Calendar"
+msgstr "ปฏิทิน"
+
+#: wizard/calwizard.cpp:98
+msgid "A Kipi plugin to create a calendar"
+msgstr "ส่วนเสริมของ Kipi สำหรับสร้างปฏิทิน"
+
+#: wizard/calwizard.cpp:99
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006 Tom Albers\n"
+"(c) 2007-2008 Orgad Shaneh"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006 Tom Albers\n"
+"(c) 2007-2008 Orgad Shaneh"
+
+#: wizard/calwizard.cpp:103
+msgid "Orgad Shaneh"
+msgstr "Orgad Shaneh"
+
+#: wizard/calwizard.cpp:103
+msgid "Author and maintainer"
+msgstr "ผู้เขียนและผู้ดูแล"
+
+#: wizard/calwizard.cpp:106
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: wizard/calwizard.cpp:106 wizard/calwizard.cpp:109
+msgid "Former author and maintainer"
+msgstr "ผู้เขียนและผู้ดูแลดั้งเดิม"
+
+#: wizard/calwizard.cpp:109
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: wizard/calwizard.cpp:123
+msgid "Create Calendar"
+msgstr "สร้างปฏิทิน"
+
+#: wizard/calwizard.cpp:165
+msgid "No valid images selected for months<br/>Click Back to select images"
+msgstr "ยังไม่มีภาพที่ใช้ได้ที่จะเลือกใช้กับเดือนต่าง ๆ<br/>โปรดคลิกย้อนกลับเพื่อเลือกภาพต่าง ๆ"
+
+#: wizard/calwizard.cpp:178
+msgid ""
+"Please note that you are making a calendar for<br/>the current year or a "
+"year in the past."
+msgstr "โปรดทราบว่าคุณกำลังทำการสร้างปฏิทินสำหรับ<br/>ปีปัจจุบันหรือปีที่ผ่าน ๆ มา"
+
+#: wizard/calwizard.cpp:184
+#, kde-format
+msgid ""
+"Click Next to start Printing<br/><br/>Following months will be printed for "
+"year %1:<br/>"
+msgstr "คลิกถัดไป เพื่อเริ่มทำการพิมพ์<br/><br/>เดือนต่าง ๆ ต่อไปนี้จะถูกพิมพ์สำหรับปี %1:<br/>"
+
+#: wizard/calwizard.cpp:234
+msgid "Printing Cancelled"
+msgstr "การพิมพ์ถูกยกเลิก"
+
+#: wizard/calwizard.cpp:247
+#, fuzzy
+#| msgid "Draw lines on calendar"
+msgid "Making calendar"
+msgstr "วาดเส้นในปฏิทิน"
+
+#: wizard/calwizard.cpp:292
+#, fuzzy, kde-format
+#| msgid "Printing Calendar Page for %1 of %2"
+msgid "Printing calendar page for %1 of %2"
+msgstr "กำลังพิมพ์ปฏิทินหน้า %1 จาก %2"
+
+#: wizard/calwizard.cpp:302
+msgid "Printing Complete"
+msgstr "การพิมพ์เสร็จสมบูรณ์แล้ว"
+
+#~ msgid "Handbook"
+#~ msgstr "คู่มือการใช้งาน"
+
+#~ msgid "Select Year & Images"
+#~ msgstr "เลือกปีและภาพต่าง ๆ"
+
+#~ msgid "Select Year"
+#~ msgstr "เลือกปี"

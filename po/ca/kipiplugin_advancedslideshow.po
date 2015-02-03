@@ -1,0 +1,666 @@
+# Translation of kipiplugin_advancedslideshow.po to Catalan
+# Copyright (C) 2004-2013 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Albert Astals Cid <aacid@kde.org>, 2004, 2005.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011.
+# Joan Maspons <joanmaspons@gmail.com>, 2009.
+# Antoni Bella Pérez <antonibella5@orange.es>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_advancedslideshow\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-03-21 20:20+0100\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@orange.es>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Josep Ma. Ferrer, Joan Maspons Ventura,Antoni Bella"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "txemaq@gmail.com,joanmaspons@gmail.com,antonibella5@orange.es"
+
+#: dialogs/captiondialog.cpp:41
+msgid "This is a comment sample..."
+msgstr "Aquest és un exemple de comentari..."
+
+#: dialogs/maindialog.cpp:244
+#, kde-format
+msgid "%1 image [%2]"
+msgid_plural "%1 images [%2]"
+msgstr[0] "%1 imatge [%2]"
+msgstr[1] "%1 imatges [%2]"
+
+#: dialogs/maindialog.cpp:324 dialogs/soundtrackdialog.cpp:560
+#, kde-format
+msgid "Cannot access file %1. Please check the path is correct."
+msgstr "No es pot accedir al fitxer %1. Comproveu que el camí sigui correcte."
+
+#: dialogs/maindialog.cpp:362
+#, kde-format
+msgctxt "Image number %1"
+msgid "Image #%1"
+msgstr "Imatge núm. %1"
+
+#: dialogs/maindialog.cpp:394 widgets/slideshowkb.cpp:574
+msgid "Ken Burns"
+msgstr "Ken Burns"
+
+#: dialogs/maindialog.cpp:415
+msgid "Delay between images (ms):"
+msgstr "Interval entre imatges (ms):"
+
+#. i18n: ectx: property (text), widget (QLabel, m_delayLabel)
+#: dialogs/maindialog.cpp:422 ui/maindialog.ui:262
+msgid "Delay between images (s):"
+msgstr "Interval entre imatges (s):"
+
+#: dialogs/slideshowconfig.cpp:77 dialogs/slideshowconfig.cpp:113
+msgid "Advanced Slideshow"
+msgstr "Passi de diapositives avançat"
+
+#: dialogs/slideshowconfig.cpp:85
+msgid "Start Slideshow"
+msgstr "Comença el passi de diapositives"
+
+#: dialogs/slideshowconfig.cpp:92
+msgid "Main"
+msgstr "Principal"
+
+#: dialogs/slideshowconfig.cpp:93
+msgid "Main Settings"
+msgstr "Arranjament principal"
+
+#: dialogs/slideshowconfig.cpp:97 dialogs/slideshowconfig.cpp:98
+msgctxt "captions for the slideshow"
+msgid "Caption"
+msgstr "Títol"
+
+#: dialogs/slideshowconfig.cpp:102 dialogs/slideshowconfig.cpp:103
+msgid "Soundtrack"
+msgstr "Banda sonora"
+
+#: dialogs/slideshowconfig.cpp:107 dialogs/slideshowconfig.cpp:108
+msgid "Advanced"
+msgstr "Avançat"
+
+#: dialogs/slideshowconfig.cpp:116
+msgid "A Kipi plugin for image slideshows"
+msgstr "Un connector del Kipi per passis de diapositives d'imatges"
+
+#: dialogs/slideshowconfig.cpp:117
+msgid ""
+"(c) 2003-2004, Renchi Raju\n"
+"(c) 2006-2009, Valerio Fuoglio"
+msgstr ""
+"(c) 2003-2004, Renchi Raju\n"
+"(c) 2006-2009, Valerio Fuoglio"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Author"
+msgstr "Autor"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Valerio Fuoglio"
+msgstr "Valerio Fuoglio"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Author and maintainer"
+msgstr "Autor i mantenidor"
+
+#: dialogs/soundtrackdialog.cpp:63
+msgid "Soundtrack preview"
+msgstr "Vista prèvia de la banda sonora"
+
+#: dialogs/soundtrackdialog.cpp:90
+msgid ""
+"If set, the soundtrack for the current album will be saved and restored "
+"automatically on the next startup."
+msgstr ""
+"Si s'ha indicat, la banda sonora de l'àlbum actual es desarà i es restaurarà "
+"automàticament en el proper inici."
+
+#: dialogs/soundtrackdialog.cpp:111
+msgid "Move the selected track up in the playlist."
+msgstr "Mou cap amunt la peça seleccionada a la llista de reproducció."
+
+#: dialogs/soundtrackdialog.cpp:112
+msgid "Move the selected track down in the playlist."
+msgstr "Mou cap avall la peça seleccionada a la llista de reproducció."
+
+#: dialogs/soundtrackdialog.cpp:113
+msgid "Add new tracks to the playlist."
+msgstr "Afegeix peces noves a la llista de reproducció."
+
+#: dialogs/soundtrackdialog.cpp:114
+msgid "Delete the selected track from the playlist."
+msgstr "Suprimeix la peça seleccionada de la llista de reproducció."
+
+#: dialogs/soundtrackdialog.cpp:115
+msgid "Load playlist from a file."
+msgstr "Carrega la llista de reproducció des d'un fitxer."
+
+#: dialogs/soundtrackdialog.cpp:116
+msgid "Save playlist to a file."
+msgstr "Desa la llista de reproducció a un fitxer."
+
+#: dialogs/soundtrackdialog.cpp:117
+msgid "Clear the playlist."
+msgstr "Neteja la llista de reproducció."
+
+#: dialogs/soundtrackdialog.cpp:243
+#, kde-format
+msgctxt "number of tracks and running time"
+msgid "1 track [%2]"
+msgid_plural "%1 tracks [%2]"
+msgstr[0] "1 peça [%2]"
+msgstr[1] "%1 peces [%2]"
+
+#: dialogs/soundtrackdialog.cpp:271
+msgid ""
+"Slide time is greater than soundtrack time. Suggestion: add more sound files."
+msgstr ""
+"La durada del passi és més gran que la durada de la banda sonora. "
+"Suggeriment: afegiu més fitxers de so."
+
+#: dialogs/soundtrackdialog.cpp:342
+msgid "Select sound files"
+msgstr "Selecció de fitxers de so"
+
+#: dialogs/soundtrackdialog.cpp:394
+msgid "You can only move image files up one at a time."
+msgstr "Només podeu moure cap amunt un fitxer d'imatge cada vegada."
+
+#: dialogs/soundtrackdialog.cpp:426
+msgid "You can only move files down one at a time."
+msgstr "Només podeu moure cap avall un fitxer d'imatge a la vegada."
+
+#: dialogs/soundtrackdialog.cpp:448 dialogs/soundtrackdialog.cpp:504
+msgid "*.m3u|Playlist (*.m3u)"
+msgstr "*.m3u|Llista de reproducció (*.m3u)"
+
+#: dialogs/soundtrackdialog.cpp:449
+msgid "Load playlist"
+msgstr "Carrega una llista de reproducció"
+
+#: dialogs/soundtrackdialog.cpp:505
+msgid "Save playlist"
+msgstr "Desa la llista de reproducció"
+
+#: dialogs/soundtrackdialog.cpp:569
+msgid "Cannot create a preview of an empty file list."
+msgstr "No es pot crear un vista prèvia d'una llista de fitxers buida."
+
+#. i18n: ectx: Menu (View)
+#: plugin/kipiplugin_advancedslideshowui.rc:6
+msgid "&View"
+msgstr "&Visualitza"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_advancedslideshowui.rc:12
+msgid "Main Toolbar"
+msgstr "Barra d'eines principal"
+
+#: plugin/plugin_advancedslideshow.cpp:118
+msgid "Advanced Slideshow..."
+msgstr "Passi de diapositives avançat..."
+
+#: plugin/plugin_advancedslideshow.cpp:204
+msgid "There are no images to show."
+msgstr "No hi ha imatges a mostrar."
+
+#: plugin/plugin_advancedslideshow.cpp:262
+msgid "OpenGL support is not available on your system."
+msgstr "La implementació de l'OpenGL no està disponible en el vostre sistema."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/advanceddialog.ui:24
+msgid "&Interface"
+msgstr "&Interfície"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_useMillisecondsCheckBox)
+#: ui/advanceddialog.ui:36
+msgid "Use &milliseconds instead of seconds"
+msgstr "Usa &mil·lisegons en lloc de segons"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/advanceddialog.ui:52
+msgid "&Controls"
+msgstr "&Controls"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:64
+msgid "Enable mouse wheel to move between slides."
+msgstr "Activa la roda del ratolí per moure's entre les diapositives."
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:67
+msgid "Enable mouse &wheel "
+msgstr "Activa la roda del &ratolí "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/advanceddialog.ui:85
+msgid "&Ken Burns effect"
+msgstr "Efecte &Ken Burns"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableFadeCheckBox)
+#: ui/advanceddialog.ui:97
+msgid "Disable &fade-in / fade-out"
+msgstr "Deshabilita l'aparició/desaparició &gradual"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableCrossfadeCheckBox)
+#: ui/advanceddialog.ui:110
+msgid "Disable &cross-fade"
+msgstr "Deshabilita l'en&cadenament"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: ui/advanceddialog.ui:126
+msgid "&Others"
+msgstr "&Altres"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_cacheCheckBox)
+#: ui/advanceddialog.ui:140
+msgid "Enable &Cache"
+msgstr "Habilita la memòria &cau"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel1)
+#: ui/advanceddialog.ui:155
+msgid "Cache size:"
+msgstr "Mida de la memòria cau:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel2)
+#: ui/advanceddialog.ui:197
+msgid "images"
+msgstr "imatges"
+
+#. i18n: ectx: property (text), widget (QLabel, m_KBCacheLabel)
+#: ui/advanceddialog.ui:212
+msgid ""
+"<b>Notice</b>:\n"
+"Ken Burns effect does not use this cache mechanism."
+msgstr ""
+"<b>Avís</b>:\n"
+"L'efecte Ken Burns no usa aquest mecanisme de memòria cau."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/captiondialog.ui:26
+msgid "Line length (in characters)"
+msgstr "Longitud de la línia (en caràcters)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/captiondialog.ui:77
+msgid "Colors"
+msgstr "Colors"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/captiondialog.ui:83
+msgid "Font color:"
+msgstr "Color de la lletra:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/captiondialog.ui:106
+msgid "Background color:"
+msgstr "Color de fons:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/captiondialog.ui:167
+msgid "Background opacity:"
+msgstr "Opacitat del fons:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_commentsDrawOutlineCheckBox)
+#: ui/captiondialog.ui:174
+msgid "Outlined Text"
+msgstr "Text amb contorn"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_allFilesButton)
+#: ui/maindialog.ui:26
+msgid "Show all images in current al&bum"
+msgstr "Mostra totes les imatges de l'àl&bum actual"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_selectedFilesButton)
+#: ui/maindialog.ui:33
+msgid "Show onl&y selected images"
+msgstr "Mostra &només les imatges seleccionades"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_customButton)
+#: ui/maindialog.ui:40
+msgid "Cu&stom"
+msgstr "&A mida"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:50
+msgid "Preview the currently selected image."
+msgstr "Vista prèvia de la imatge seleccionada actualment."
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:53
+msgid "Image Files in Slideshow"
+msgstr "Fitxers d'imatge a les diapositives"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label6)
+#: ui/maindialog.ui:120
+msgid "Total number of images in the portfolio and sequence duration."
+msgstr "Nombre total d'imatges a la carpeta i durada de la seqüència."
+
+#. i18n: ectx: property (text), widget (QLabel, m_label6)
+#. i18n: ectx: property (text), widget (QLabel, m_label7)
+#: ui/maindialog.ui:123 ui/maindialog.ui:142
+msgid "None"
+msgstr "Cap"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label7)
+#: ui/maindialog.ui:139
+msgid "Currently selected image in the portfolio list."
+msgstr "Imatge seleccionada actualment a la llista de la carpeta."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/maindialog.ui:157
+msgid "Content"
+msgstr "Contingut"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printNameCheckBox)
+#: ui/maindialog.ui:165
+msgid "P&rint filename"
+msgstr "Imp&rimeix el nom del fitxer"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printProgressCheckBox)
+#: ui/maindialog.ui:172
+msgid "Progress indicator"
+msgstr "Indicador de progrés"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printCommentsCheckBox)
+#: ui/maindialog.ui:181
+msgid "Pr&int captions "
+msgstr "Impr&imeix els comentaris "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/maindialog.ui:204
+msgid "Video"
+msgstr "Vídeo"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openglCheckBox)
+#: ui/maindialog.ui:210
+msgid "Use Open&GL slideshow transitions"
+msgstr "Usa l'Open&GL per les transicions entre diapositives"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openGlFullScale)
+#: ui/maindialog.ui:217
+msgid "Use full screen resolution (slower)"
+msgstr "Usa la resolució de pantalla completa (més lent)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/maindialog.ui:240
+msgid "Playback"
+msgstr "Reproducció"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_loopCheckBox)
+#: ui/maindialog.ui:246 ui/soundtrackdialog.ui:331
+msgid "&Loop"
+msgstr "&Repetició"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_shuffleCheckBox)
+#: ui/maindialog.ui:253
+msgid "&Shuffle images"
+msgstr "&Barreja les imatges"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/maindialog.ui:288
+msgid "Transition effect:"
+msgstr "Efecte de transició:"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playButton)
+#: ui/playbackwidget.ui:28 ui/slideplaybackwidget.ui:30
+msgid "Play"
+msgstr "Reprodueix"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
+#: ui/playbackwidget.ui:35 ui/slideplaybackwidget.ui:37
+msgid "Stop"
+msgstr "Atura"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_prevButton)
+#: ui/playbackwidget.ui:42 ui/slideplaybackwidget.ui:44
+msgid "Prev"
+msgstr "Anterior"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_nextButton)
+#: ui/playbackwidget.ui:49 ui/slideplaybackwidget.ui:51
+msgid "Next"
+msgstr "Següent"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/playbackwidget.ui:69
+msgid "Time"
+msgstr "Temps"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/playbackwidget.ui:78
+msgid "elapsed:"
+msgstr "transcorregut:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_elapsedTimeLabel)
+#. i18n: ectx: property (text), widget (QLabel, m_totalTimeLabel)
+#: ui/playbackwidget.ui:85 ui/playbackwidget.ui:99
+msgid "0:00:00"
+msgstr "0:00:00"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/playbackwidget.ui:92
+msgid "total:"
+msgstr "total:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_selectionGroupBox)
+#: ui/soundtrackdialog.ui:23
+msgid "Select audio files"
+msgstr "Selecció de fitxers d'àudio"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonUp)
+#: ui/soundtrackdialog.ui:76
+msgid "Move the current image up in the portfolio list."
+msgstr "Mou cap amunt la imatge actual a la llista de la carpeta."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonAdd)
+#: ui/soundtrackdialog.ui:104
+msgid "Add some image files to the portfolio list."
+msgstr "Afegeix més fitxers d'imatge a la llista de la carpeta."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDelete)
+#: ui/soundtrackdialog.ui:132
+msgid "Remove some image files from the portfolio list."
+msgstr "Suprimeix alguns fitxers d'imatge de la llista de la carpeta."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDown)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonLoad)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonSave)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonReset)
+#: ui/soundtrackdialog.ui:160 ui/soundtrackdialog.ui:191
+#: ui/soundtrackdialog.ui:219 ui/soundtrackdialog.ui:247
+msgid "Move the current image down in the portfolio list."
+msgstr "Mou cap avall la imatge actual a la llista de la carpeta."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_previewButton)
+#: ui/soundtrackdialog.ui:305
+msgid "Preview..."
+msgstr "Vista prèvia..."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/soundtrackdialog.ui:325
+msgid "Options"
+msgstr "Opcions"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_rememberSoundtrack)
+#: ui/soundtrackdialog.ui:338
+msgid "Remember soundtrack"
+msgstr "Recorda la banda sonora"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/soundtrackdialog.ui:361
+msgid "Time comparison"
+msgstr "Comparació de temps"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/soundtrackdialog.ui:369
+msgid "Slide:"
+msgstr "Diapositiva:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/soundtrackdialog.ui:383
+msgid "Soundtrack:"
+msgstr "Pista de so:"
+
+#: widgets/listsounditems.cpp:95
+#, kde-format
+msgid "%1 is damaged and may not be playable."
+msgstr "%1 està malmès i potser no és reproduïble."
+
+#: widgets/listsounditems.cpp:97
+msgid "Phonon error"
+msgstr "Error del Phonon"
+
+#: widgets/listsounditems.cpp:100
+msgid "This file is damaged and may not be playable."
+msgstr "El fitxer està malmès i potser no és reproduïble."
+
+#: widgets/listsounditems.cpp:101 widgets/listsounditems.cpp:125
+#, kde-format
+msgctxt "artist - title"
+msgid "%1 - %2"
+msgstr "%1 - %2"
+
+#: widgets/slideshow.cpp:240 widgets/slideshowgl.cpp:390
+msgctxt "Filter Effect: No effect"
+msgid "None"
+msgstr "Cap"
+
+#: widgets/slideshow.cpp:241
+msgctxt "Filter Effect: Chess Board"
+msgid "Chess Board"
+msgstr "Tauler d'escacs"
+
+#: widgets/slideshow.cpp:242
+msgctxt "Filter Effect: Melt Down"
+msgid "Melt Down"
+msgstr "Fusió cap avall"
+
+#: widgets/slideshow.cpp:243
+msgctxt "Filter Effect: Sweep"
+msgid "Sweep"
+msgstr "Escombrat"
+
+#: widgets/slideshow.cpp:244
+msgctxt "Filter Effect: Mosaic"
+msgid "Mosaic"
+msgstr "Mosaic"
+
+#: widgets/slideshow.cpp:245
+msgctxt "Filter Effect: Cubism"
+msgid "Cubism"
+msgstr "Cubisme"
+
+#: widgets/slideshow.cpp:246
+msgctxt "Filter Effect: Growing"
+msgid "Growing"
+msgstr "Creixent"
+
+#: widgets/slideshow.cpp:247
+msgctxt "Filter Effect: Horizontal Lines"
+msgid "Horizontal Lines"
+msgstr "Línies horitzontals"
+
+#: widgets/slideshow.cpp:248
+msgctxt "Filter Effect: Vertical Lines"
+msgid "Vertical Lines"
+msgstr "Línies verticals"
+
+#: widgets/slideshow.cpp:249
+msgctxt "Filter Effect: Circle Out"
+msgid "Circle Out"
+msgstr "Cercle cap enfora"
+
+#: widgets/slideshow.cpp:250
+msgctxt "Filter Effect: Multi-Circle Out"
+msgid "Multi-Circle Out"
+msgstr "Múltiples cercles cap enfora"
+
+#: widgets/slideshow.cpp:251
+msgctxt "Filter Effect: Spiral In"
+msgid "Spiral In"
+msgstr "Espiral d'entrada"
+
+#: widgets/slideshow.cpp:252
+msgctxt "Filter Effect: Blobs"
+msgid "Blobs"
+msgstr "Bombolles"
+
+#: widgets/slideshow.cpp:253 widgets/slideshowgl.cpp:399
+msgctxt "Filter Effect: Random effect"
+msgid "Random"
+msgstr "Aleatori"
+
+#: widgets/slideshow.cpp:1314 widgets/slideshowgl.cpp:692
+msgid "Slideshow Completed"
+msgstr "Ha finalitzat el passi de diapositives"
+
+#: widgets/slideshow.cpp:1315 widgets/slideshowgl.cpp:693
+#: widgets/slideshowkb.cpp:516
+msgid "Click to Exit..."
+msgstr "Cliqueu per sortir..."
+
+#: widgets/slideshowgl.cpp:391
+msgctxt "Filter Effect: Bend"
+msgid "Bend"
+msgstr "Corba"
+
+#: widgets/slideshowgl.cpp:392
+msgctxt "Filter Effect: Blend"
+msgid "Blend"
+msgstr "Barreja"
+
+#: widgets/slideshowgl.cpp:393
+msgctxt "Filter Effect: Cube"
+msgid "Cube"
+msgstr "Cub"
+
+#: widgets/slideshowgl.cpp:394
+msgctxt "Filter Effect: Fade"
+msgid "Fade"
+msgstr "Esvaïment"
+
+#: widgets/slideshowgl.cpp:395
+msgctxt "Filter Effect: Flutter"
+msgid "Flutter"
+msgstr "Vibració"
+
+#: widgets/slideshowgl.cpp:396
+msgctxt "Filter Effect: In Out"
+msgid "In Out"
+msgstr "Cap enfora"
+
+#: widgets/slideshowgl.cpp:397
+msgctxt "Filter Effect: Rotate"
+msgid "Rotate"
+msgstr "Gir"
+
+#: widgets/slideshowgl.cpp:398
+msgctxt "Filter Effect: Slide"
+msgid "Slide"
+msgstr "Lliscament"
+
+#: widgets/slideshowkb.cpp:515
+msgid "SlideShow Completed"
+msgstr "Ha finalitzat el passi de diapositives"

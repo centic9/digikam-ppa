@@ -1,0 +1,715 @@
+# translation of kipiplugin_flashexport.po to 简体中文
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ni Hui <shuizhuyuanluo@126.com>, 2008, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_flashexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-30 03:31+0100\n"
+"PO-Revision-Date: 2010-01-05 14:02+0800\n"
+"Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ni Hui"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "shuizhuyuanluo@126.com"
+
+#: aboutdata.h:41
+msgid "Flash Export"
+msgstr "Flash 导出"
+
+#: aboutdata.h:43
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to export images to Flash using the Simple Viewer component."
+msgid ""
+"A Kipi plugin to export images to Flash using the SimpleViewer's components."
+msgstr "一个使用 Simple Viewer 组件将图像导出为 Flash 的 Kipi 插件。"
+
+#: aboutdata.h:44
+#, fuzzy
+#| msgid ""
+#| "(c) 2005-2006, Joern Ahrens\n"
+#| "(c) 2008-2009, Gilles Caulier"
+msgid ""
+"(c) 2005-2006, Joern Ahrens\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2011, Veaceslav Munteanu"
+msgstr ""
+"(c) 2005-2006，Joern Ahrens\n"
+"(c) 2008-2009，Gilles Caulier"
+
+#: aboutdata.h:51
+msgid "Joern Ahrens"
+msgstr "Joern Ahrens"
+
+#: aboutdata.h:52
+msgid "Author"
+msgstr "作者"
+
+#: aboutdata.h:55
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: aboutdata.h:56 aboutdata.h:60
+msgid "Developer and maintainer"
+msgstr "开发者和维护者"
+
+#: aboutdata.h:59
+msgid "Veaceslav Munteanu"
+msgstr ""
+
+#: aboutdata.h:63
+msgid "Felix Turner"
+msgstr "Felix Turner"
+
+#: aboutdata.h:64
+msgid "Author of the Simple Viewer Flash component"
+msgstr "Simple Viewer Flash 组件的作者"
+
+#: aboutdata.h:68
+msgid "Mikkel B. Stegmann"
+msgstr "Mikkel B. Stegmann"
+
+#: aboutdata.h:69
+msgid "Basis for the index.html template"
+msgstr "index.html 模板基础"
+
+#: importWizard/firstrunpage.cpp:70
+msgid "First Run"
+msgstr ""
+
+#: importWizard/firstrunpage.cpp:77
+#, fuzzy
+#| msgid ""
+#| "<p>SimpleViewer is a Flash component which is free to use, but uses a "
+#| "license which comes into conflict with several distributions. Due to the "
+#| "license it is not possible to ship it with this plugin.</p><p>You can now "
+#| "download SimpleViewer from its homepage and point this tool to the "
+#| "downloaded archive. The archive will be stored with the plugin "
+#| "configuration, so it is available for further use.</p>"
+msgid ""
+"<p>SimpleViewer's plugins are Flash components which are free to use, but "
+"use a license which comes into conflict with several distributions. Due to "
+"the license it is not possible to ship it with this tool.</p><p>You can now "
+"download plugin from its homepage and point this tool to the downloaded "
+"archive. The archive will be stored with the plugin configuration, so it is "
+"available for further use.</p><p><b>Note: Please download the plugin that "
+"you selected on the first page.</b></p>"
+msgstr ""
+"<p>SimpleViewer 是个可自由使用的 Flash 组件，但使用了一种与多个发行版冲突的许"
+"可协议。由于许可协议的关系，本插件不能与其一同发行。</p><p>现在您可以从其主页"
+"上下载 Simple Viewer 并将此工具设定指向下载的归档。归档文件将会和插件配置一同"
+"保存，以备后需。</p>"
+
+#: importWizard/firstrunpage.cpp:86
+#, fuzzy
+#| msgid "<p>1.) Download SimpleViewer Version 1.9.x</p>"
+msgid "<p>1.) Download plugin from the following url:</p>"
+msgstr "<p>1.) 下载 SimpleViewer 版本 1.9.x</p>"
+
+#: importWizard/firstrunpage.cpp:96
+msgid "<p>2.) Point this tool to the downloaded archive</p>"
+msgstr "<p>2.) 将此工具指向已下载的归档</p>"
+
+#: importWizard/generalpage.cpp:84
+msgid "General Settings"
+msgstr "常规设置"
+
+#: importWizard/generalpage.cpp:91
+msgid "Gallery &Title"
+msgstr "相册标题(&T)"
+
+#: importWizard/generalpage.cpp:94
+msgid "Enter here the gallery title"
+msgstr "在此输入相册标题"
+
+#: importWizard/generalpage.cpp:102
+msgid "Save Gallery To"
+msgstr "相册另存为"
+
+#: importWizard/generalpage.cpp:113
+msgid "Image Properties"
+msgstr "图像属性"
+
+#: importWizard/generalpage.cpp:115
+msgid "Resize Target Images"
+msgstr "调整目标图像大小"
+
+#: importWizard/generalpage.cpp:117
+msgid "If you enable this option, all target images can be resized."
+msgstr "如果您启用此选项，将调整所有目标图像大小。"
+
+#: importWizard/generalpage.cpp:121
+msgid "Auto-Rotate/Flip Images"
+msgstr "自动旋转/翻转图像"
+
+#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
+#: importWizard/lookpage.cpp:335
+msgid ""
+"If you enable this option, the images' orientations will be set according to "
+"their Exif information."
+msgstr "如果您启用此选项，则会依据 Exif 信息自动修正图像方向。"
+
+#: importWizard/generalpage.cpp:128
+msgid "&Target Images' Size:"
+msgstr "目标图像尺寸(&T)："
+
+#: importWizard/generalpage.cpp:132
+msgid ""
+"The new size of the exported images, in pixels. SimpleViewer resizes the "
+"images too, but this resizes the images before they are uploaded to your "
+"server."
+msgstr ""
+"所导出图像新尺寸的像素值。SimpleViewer 也可以调整图像尺寸，但此操作只有在上传"
+"到您的服务器之前才可进行。"
+
+#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+msgid "&Displayed Images' Size:"
+msgstr "显示图像尺寸(&D)："
+
+#: importWizard/generalpage.cpp:149
+msgid ""
+"Scales the displayed images to this size. Normally, use the height or width "
+"of your largest image (in pixels). Images will not be scaled up above this "
+"size, to preserve image quality."
+msgstr ""
+"将显示的图像缩放至此尺寸。通常，将使用您最大图像的高度或宽度(像素值)。为确保"
+"最佳图像质量，缩放将不会超过此尺寸。"
+
+#: importWizard/generalpage.cpp:165
+msgid "Misc"
+msgstr "杂项"
+
+#: importWizard/generalpage.cpp:168
+msgid "Display Captions"
+msgstr "显示说明"
+
+#: importWizard/generalpage.cpp:170
+msgid "If this option is enabled, the images' captions will be shown."
+msgstr "如果您启用此选项，则会显示图像说明。"
+
+#: importWizard/generalpage.cpp:172
+#, fuzzy
+#| msgid "Display Captions"
+msgid "Display Keywords"
+msgstr "显示说明"
+
+#: importWizard/generalpage.cpp:174
+#, fuzzy
+#| msgid "If this option is enabled, the images' captions will be shown."
+msgid "If this option is enabled, the images' keywords will be shown."
+msgstr "如果您启用此选项，则会显示图像说明。"
+
+#: importWizard/generalpage.cpp:177
+msgid "Open Image with Right Click"
+msgstr "以右键打开图像"
+
+#: importWizard/generalpage.cpp:179
+msgid ""
+"If this option is enabled, the user will be able to open the target image in "
+"a separate window using the right mouse button."
+msgstr "如果您启用此选项，用户可以通过鼠标右键在一个独立窗口中打开目标图像。"
+
+#: importWizard/generalpage.cpp:183
+#, fuzzy
+#| msgid "Open gallery in Konqueror"
+msgid "Open gallery in Browser"
+msgstr "在 Konqueror 中打开相册"
+
+#: importWizard/generalpage.cpp:185
+msgid ""
+"If this option is enabled, the gallery will be opened in Konqueror "
+"automatically."
+msgstr "如果您启用此选项，相册将自动在 Konqueror 中打开。"
+
+#: importWizard/importwizarddlg.cpp:90
+#, fuzzy
+#| msgid "Flash Export"
+msgid "Flash Export Wizard"
+msgstr "Flash 导出"
+
+#: importWizard/importwizarddlg.cpp:135
+msgid ""
+"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
+"date and is not corrupted.</p>"
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:180
+msgid "You must select at least one collection to export."
+msgstr "您必须至少选择一个要导出的收藏。"
+
+#: importWizard/importwizarddlg.cpp:216
+#, kde-format
+msgid ""
+"Target folder %1 already exists.\n"
+"Do you want to overwrite it?  All data in this folder will be lost."
+msgstr ""
+"目标文件夹 %1 已存在。\n"
+"您想要覆盖它吗(此文件夹中的所有数据将会丢失)。"
+
+#: importWizard/importwizarddlg.cpp:225
+#, kde-format
+msgid ""
+"Could not delete %1.\n"
+"Please choose another export folder."
+msgstr ""
+"无法删除 %1\n"
+"请另选一个导出文件夹。"
+
+#: importWizard/intropage.cpp:60
+msgid "Welcome to FlashExport Tool"
+msgstr ""
+
+#: importWizard/intropage.cpp:68
+msgid ""
+"<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
+"href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
+"Postcardviewer</a> to export images to flash galleries</p><p>This assistant "
+"will help you to configure and import images before exporting them to flash</"
+"p><p>Note that:</p><p>1. Free version of SimpleViewer allow only a maximum "
+"of 50 pictures to be exported.</p><p>2. TiltViewer is quite CPU intensive</"
+"p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
+msgstr ""
+
+#: importWizard/intropage.cpp:81
+#, fuzzy
+#| msgctxt "Settings tab for selections"
+#| msgid "Selection"
+msgid "Select &Plugin:"
+msgstr "选择"
+
+#: importWizard/intropage.cpp:84
+msgctxt "SimpleViewer"
+msgid "SimpleViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:85
+msgctxt "TiltViewer"
+msgid "TiltViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:86
+msgctxt "AutoViewer"
+msgid "AutoViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:87
+msgctxt "PostcardViewer"
+msgid "PostcardViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:99
+msgid "&Choose image selection method:"
+msgstr ""
+
+#: importWizard/intropage.cpp:101
+#, fuzzy
+#| msgid "Collections List"
+msgctxt "Collections"
+msgid "Collections"
+msgstr "收藏列表"
+
+#: importWizard/intropage.cpp:102
+#, fuzzy
+#| msgid "&Background Color:"
+msgctxt "Image Dialog"
+msgid "Image Dialog"
+msgstr "背景颜色(&B)："
+
+#: importWizard/lookpage.cpp:111
+msgid "Configure appearance"
+msgstr ""
+
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
+#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+msgctxt "Settings for flash export navigation"
+msgid "Navigation"
+msgstr "导航"
+
+#: importWizard/lookpage.cpp:143
+msgid "Thumbnail &Rows:"
+msgstr "缩略图行数(&R)："
+
+#: importWizard/lookpage.cpp:147
+msgid "Number of thumbnails rows"
+msgstr "缩略图行数"
+
+#: importWizard/lookpage.cpp:151
+msgid "Thumbnail &Columns:"
+msgstr "缩略图列数(&C)："
+
+#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+msgid "Number of thumbnails columns"
+msgstr "缩略图列数"
+
+#: importWizard/lookpage.cpp:159
+msgid "Thumbnail &Position:"
+msgstr "缩略图位置(&P)："
+
+#: importWizard/lookpage.cpp:161
+msgctxt "thumbnail position: right"
+msgid "Right"
+msgstr "右侧"
+
+#: importWizard/lookpage.cpp:162
+msgctxt "thumbnail position: left"
+msgid "Left"
+msgstr "左侧"
+
+#: importWizard/lookpage.cpp:163
+msgctxt "thumbnail position: top"
+msgid "Top"
+msgstr "顶部"
+
+#: importWizard/lookpage.cpp:164
+msgctxt "thumbnail position: bottom"
+msgid "Bottom"
+msgstr "底部"
+
+#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
+#: importWizard/lookpage.cpp:418
+msgid "Colors"
+msgstr "颜色"
+
+#: importWizard/lookpage.cpp:184
+msgid "&Text Color:"
+msgstr "文本颜色(&T)："
+
+#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+msgid "Color of title and caption text"
+msgstr "标题和说明文本的颜色"
+
+#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
+#: importWizard/lookpage.cpp:429
+msgid "&Background Color:"
+msgstr "背景颜色(&B)："
+
+#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
+#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+msgid "&Frame Color:"
+msgstr "边框颜色(&F)："
+
+#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
+#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
+msgstr "图像边框、已查看的图标、装入进度条、缩略图箭头的颜色"
+
+#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
+#: importWizard/lookpage.cpp:449
+msgid "Style"
+msgstr "风格"
+
+#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
+#: importWizard/lookpage.cpp:469
+#, fuzzy
+#| msgid "Frame &Width:"
+msgid "&Frame Width:"
+msgstr "边框宽度(&W)："
+
+#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+msgid "Width of image frame in pixels."
+msgstr "图像边框宽度的像素值。"
+
+#: importWizard/lookpage.cpp:223
+#, fuzzy
+#| msgid "Stage &Padding:"
+msgid "&Stage Padding:"
+msgstr "间隔填充宽度(&P)："
+
+#: importWizard/lookpage.cpp:227
+msgid "Distance between image and thumbnails in pixels."
+msgstr "图像和缩略图之间距离的像素值。"
+
+#: importWizard/lookpage.cpp:244
+#, fuzzy
+#| msgid "&Displayed Images' Size:"
+msgid "&Display Time:"
+msgstr "显示图像尺寸(&D)："
+
+#: importWizard/lookpage.cpp:248
+msgid "Number of seconds each image will display in auto-play mode."
+msgstr ""
+
+#: importWizard/lookpage.cpp:292
+#, fuzzy
+#| msgid "Stage &Padding:"
+msgid "&Image Padding:"
+msgstr "间隔填充宽度(&P)："
+
+#: importWizard/lookpage.cpp:296
+#, fuzzy
+#| msgid "Distance between image and thumbnails in pixels."
+msgid "Distance between images in pixels"
+msgstr "图像和缩略图之间距离的像素值。"
+
+#: importWizard/lookpage.cpp:313
+#, fuzzy
+#| msgid "Thumbnail &Rows:"
+msgid " &Rows:"
+msgstr "缩略图行数(&R)："
+
+#: importWizard/lookpage.cpp:317
+msgid "Number of rows of images to display."
+msgstr ""
+
+#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+#, fuzzy
+#| msgid "Thumbnail &Columns:"
+msgid " &Columns:"
+msgstr "缩略图列数(&C)："
+
+#: importWizard/lookpage.cpp:325
+msgid "Number of columns of images to display."
+msgstr ""
+
+#: importWizard/lookpage.cpp:328
+msgid "Show Flip Button"
+msgstr ""
+
+#: importWizard/lookpage.cpp:333
+msgid "Use reload button"
+msgstr ""
+
+#: importWizard/lookpage.cpp:348
+#, fuzzy
+#| msgid "Colors"
+msgctxt "Settings for flash export navigation"
+msgid "Colors"
+msgstr "颜色"
+
+#: importWizard/lookpage.cpp:359
+#, fuzzy
+#| msgid "&Background Color:"
+msgid "Background &Inner Color:"
+msgstr "背景颜色(&B)："
+
+#: importWizard/lookpage.cpp:362
+msgid "Color of the stage background gradient center."
+msgstr ""
+
+#: importWizard/lookpage.cpp:366
+#, fuzzy
+#| msgid "&Background Color:"
+msgid "Background &Outer Color:"
+msgstr "背景颜色(&B)："
+
+#: importWizard/lookpage.cpp:369
+msgid "Color of the stage background gradient edge."
+msgstr ""
+
+#: importWizard/lookpage.cpp:373
+#, fuzzy
+#| msgid "&Background Color:"
+msgid "Image Back Color:"
+msgstr "背景颜色(&B)："
+
+#: importWizard/lookpage.cpp:376
+msgid "Image's back color when pressing flip button"
+msgstr ""
+
+#: importWizard/lookpage.cpp:395
+msgid "Cell Dimension:"
+msgstr ""
+
+#: importWizard/lookpage.cpp:399
+msgid ""
+"Dimension of displayed image cells. Please use a higher value if you set "
+"high image size"
+msgstr ""
+
+#: importWizard/lookpage.cpp:422
+#, fuzzy
+#| msgid "&Text Color:"
+msgid "&Caption Color:"
+msgstr "文本颜色(&T)："
+
+#: importWizard/lookpage.cpp:453
+msgid "&Zoom In Percentage:"
+msgstr ""
+
+#: importWizard/lookpage.cpp:457
+msgid "The amount of scale when zoomed in (percentage)"
+msgstr ""
+
+#: importWizard/lookpage.cpp:461
+msgid "&Zoom Out Percentage:"
+msgstr ""
+
+#: importWizard/lookpage.cpp:465
+msgid "The amount of scale when zoomed out (percentage)"
+msgstr ""
+
+#: importWizard/lookpage.cpp:473
+#, fuzzy
+#| msgid "Frame &Width:"
+msgid "The frame width"
+msgstr "边框宽度(&W)："
+
+#: importWizard/progresspage.cpp:49
+msgid "Exporting..."
+msgstr ""
+
+#: importWizard/selectionpage.cpp:68
+msgid "Select Image Collections"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_flashexportui.rc:6
+#, fuzzy
+#| msgid "Flash Export"
+msgid "&Export"
+msgstr "Flash 导出"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_flashexportui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_flashexport.cpp:94
+msgid "Export to F&lash..."
+msgstr "导出至 F&lash..."
+
+#: simpleviewer.cpp:184
+msgid "Initialising..."
+msgstr "正在初始化..."
+
+#: simpleviewer.cpp:212
+msgid "Export canceled"
+msgstr "已取消导出"
+
+#: simpleviewer.cpp:223
+msgid "Failed to create export directories"
+msgstr "创建导出目录失败"
+
+#: simpleviewer.cpp:230
+msgid "Failed to export the images"
+msgstr "导出图像失败"
+
+#: simpleviewer.cpp:237
+msgid "Failed to create index.html"
+msgstr "创建 index.html 失败"
+
+#: simpleviewer.cpp:244
+msgid "Failed to copy SimpleViewer files"
+msgstr "复制 SimpleViewer 文件失败"
+
+#: simpleviewer.cpp:251
+msgid "Failed to upload the gallery"
+msgstr "上传相册失败"
+
+#: simpleviewer.cpp:260
+#, kde-format
+msgid ""
+"Export was canceled.\n"
+"Do you want to delete files in %1 that have already been created?"
+msgstr ""
+"导出已取消。\n"
+"您想要删除在 %1 中已创建的文件吗？"
+
+#: simpleviewer.cpp:271
+msgctxt "Flash export has finished"
+msgid "Finished..."
+msgstr "已完成..."
+
+#: simpleviewer.cpp:285
+msgid "Creating directories..."
+msgstr "正在创建目录..."
+
+#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#, kde-format
+msgid "Could not create folder '%1'"
+msgstr "无法创建文件夹“%1”"
+
+#: simpleviewer.cpp:320
+#, fuzzy
+#| msgid "Creating directories..."
+msgid "Finished Creating directories..."
+msgstr "正在创建目录..."
+
+#: simpleviewer.cpp:353
+msgid "Creating images and thumbnails..."
+msgstr "正在创建图像和缩略图..."
+
+#: simpleviewer.cpp:483
+#, kde-format
+msgid "Processing %1"
+msgstr "正在处理 %1"
+
+#: simpleviewer.cpp:493
+#, kde-format
+msgid "Could not open image '%1'"
+msgstr "无法打开图像“%1”"
+
+#: simpleviewer.cpp:504
+#, kde-format
+msgid "Could not create thumbnail from '%1'"
+msgstr "无法从“%1”创建缩略图"
+
+#: simpleviewer.cpp:512
+#, kde-format
+msgid "Could not resize image '%1'"
+msgstr "无法调整图像“%1”的大小"
+
+#: simpleviewer.cpp:739
+msgid "Creating index.html..."
+msgstr "正在创建 index.html..."
+
+#: simpleviewer.cpp:878
+msgid "index.html created..."
+msgstr "已创建 index.html..."
+
+#: simpleviewer.cpp:888
+msgid "Copying flash files..."
+msgstr "正在复制 flash 文件..."
+
+#: simpleviewer.cpp:906
+msgid "Flash files copied..."
+msgstr "已复制 flash 文件..."
+
+#: simpleviewer.cpp:916
+msgid "Uploading gallery..."
+msgstr "正在上传相册..."
+
+#: simpleviewer.cpp:921
+msgid "Gallery uploaded..."
+msgstr "已上传相册..."
+
+#~ msgid "Handbook"
+#~ msgstr "手册"
+
+#~ msgid "SimpleViewer installation failed"
+#~ msgstr "SimpleViewer 安装失败"
+
+#~ msgid "&Direction of Navigation:"
+#~ msgstr "导航方向(&D)："
+
+#~ msgid "Left to Right"
+#~ msgstr "从左到右"
+
+#~ msgid "Right to Left"
+#~ msgstr "从右到左"
+
+#~ msgctxt "General settings tab"
+#~ msgid "General"
+#~ msgstr "常规"
+
+#~ msgctxt "Settings tab for the look of the flash export"
+#~ msgid "Look"
+#~ msgstr "外观"
+
+#~ msgid "Look Settings"
+#~ msgstr "外观设置"

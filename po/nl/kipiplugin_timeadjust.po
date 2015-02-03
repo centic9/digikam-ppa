@@ -1,0 +1,360 @@
+# translation of kipiplugin_timeadjust.po to Dutch
+# translation of kipiplugin_timeadjust.po to
+# Sander Devrieze <s.devrieze@pandora.be>, 2004.
+# Wilbert Berendsen <wbsoft@xs4all.nl>, 2004.
+# Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2006, 2007, 2008.
+# Rinse de Vries <RinseDeVries@home.nl>, 2005.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2008, 2009, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_timeadjust\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2012-09-05 11:41+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Sander Devrieze,Wilbert Berendsen,Rinse de Vries,Freek de Kruijf - 2008 t/m "
+"2012"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"s.devrieze@pandora.be,wbsoft@xs4all.nl,rinsedevries@kde.nl,freekdekruijf@kde."
+"nl"
+
+#: clockphotodialog.cpp:82
+msgid "Determine time difference with clock photo"
+msgstr "Bepaal het tijdverschil met de klok van de foto"
+
+#: clockphotodialog.cpp:86
+msgid "Load different photo"
+msgstr "Een andere foto laden"
+
+#: clockphotodialog.cpp:95
+msgid ""
+"If you have a photo in your set with a clock or another external time source "
+"on it, you can load it here and set the indicator to the (date and) time "
+"displayed. The difference of your internal camera clock will be determined "
+"from this setting."
+msgstr ""
+"Als u een foto in uw set hebt met een klok of een andere externe tijdbron, "
+"dan kunt u deze hier laden en de indicator instellen op de getoonde (datum "
+"en) tijd. Het verschil met uw interne cameraklok zal worden bepaald uit deze "
+"instelling."
+
+#: clockphotodialog.cpp:113
+msgid "The clock date and time:"
+msgstr "De datum en tijd uit de klok:"
+
+#: clockphotodialog.cpp:185
+#, kde-format
+msgid ""
+"<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
+"image %1.</b></font>"
+msgstr ""
+"<font color=\"red\"><b>Kan de datum- en<br>tijdinformation uit<br>afbeelding "
+"%1 niet ophalen.</b></font>"
+
+#: clockphotodialog.cpp:197
+#, kde-format
+msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
+msgstr "<font color=\"red\"><b>Kan de afbeelding<br>%1 niet laden.</b></font>"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_timeadjustui.rc:6
+msgid "&Image"
+msgstr "Af&beelding"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_timeadjustui.rc:12
+msgid "Main Toolbar"
+msgstr "Hoofdwerkbalk"
+
+#: myimagelist.cpp:42 settingswidget.cpp:281
+msgid "Timestamp Used"
+msgstr "Gebruikte tijdstempel"
+
+#: myimagelist.cpp:44 settingswidget.cpp:283
+msgid "Timestamp Updated"
+msgstr "Bijgewerkte tijdstempel"
+
+#: myimagelist.cpp:46
+msgid "New Filename"
+msgstr "Nieuwe bestandsnaam"
+
+#: myimagelist.cpp:48
+msgid "Status"
+msgstr "Status"
+
+#: myimagelist.cpp:69
+msgid "not valid"
+msgstr "ongeldig"
+
+#: myimagelist.cpp:77
+msgctxt "not applicable"
+msgid "N.A"
+msgstr "N.v.t."
+
+#: myimagelist.cpp:95
+msgid "Failed to update metadata timestamp"
+msgstr "Tijdstempel in metadata bijwerken is mislukt:"
+
+#: myimagelist.cpp:100
+msgid "Failed to update file timestamp"
+msgstr "Tijdstempel van bestand bijwerken is mislukt:"
+
+#: myimagelist.cpp:105
+msgid "Failed to rename file"
+msgstr "Hernoemen van bestand is mislukt"
+
+#: myimagelist.cpp:110
+msgid "Processed without error"
+msgstr "Zonder fouten verwerkt"
+
+#: plugin_timeadjust.cpp:106
+msgid "Adjust Time && Date..."
+msgstr "Datum && tijd aanpassen..."
+
+#: settingswidget.cpp:167
+#, kde-format
+msgid "%1 timestamp"
+msgstr "%1 tijdsaanduiding"
+
+#: settingswidget.cpp:174 settingswidget.cpp:253
+msgid "File last modified"
+msgstr "Bestand het laatst gewijzigd"
+
+#: settingswidget.cpp:181
+msgid "EXIF/IPTC/XMP"
+msgstr "EXIF/IPTC/XMP"
+
+#: settingswidget.cpp:182 settingswidget.cpp:254
+msgid "EXIF: created"
+msgstr "EXIF: aangemaakt"
+
+#: settingswidget.cpp:183 settingswidget.cpp:255
+msgid "EXIF: original"
+msgstr "EXIF: origineel"
+
+#: settingswidget.cpp:184 settingswidget.cpp:256
+msgid "EXIF: digitized"
+msgstr "EXIF: gedigitaliseerd"
+
+#: settingswidget.cpp:185 settingswidget.cpp:257
+msgid "IPTC: created"
+msgstr "IPTC: aangemaakt"
+
+#: settingswidget.cpp:186
+msgid "XMP: created"
+msgstr "XMP: aangemaakt"
+
+#: settingswidget.cpp:196
+msgid "Reset to current date"
+msgstr "Naar huidige datum terugzetten"
+
+#: settingswidget.cpp:225
+msgctxt "copy timestamp as well"
+msgid "Copy value"
+msgstr "Waarde kopiëren"
+
+#: settingswidget.cpp:226
+msgctxt "add a fixed timestamp to date"
+msgid "Add"
+msgstr "Bijtellen"
+
+#: settingswidget.cpp:227
+msgctxt "subtract a fixed timestamp to date"
+msgid "Subtract"
+msgstr "Aftrekken"
+
+#: settingswidget.cpp:231
+msgctxt "time adjust offset, days value label"
+msgid "days"
+msgstr "dagen"
+
+#: settingswidget.cpp:234
+msgid "Determine difference from clock photo"
+msgstr "Bepaal het verschil van de klok van de foto"
+
+#: settingswidget.cpp:258
+msgid "XMP"
+msgstr "XMP"
+
+#: settingswidget.cpp:259
+msgid "Filename"
+msgstr "Bestandsnaam"
+
+#: settingswidget.cpp:282
+msgid "Timestamp Adjustments"
+msgstr "Bijstelling van tijdstempel"
+
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+msgid "Adjust Time & Date"
+msgstr "Datum en tijd aanpassen"
+
+#: timeadjustdialog.cpp:129
+msgid "Time Adjust"
+msgstr "Tijdbijstelling"
+
+#: timeadjustdialog.cpp:132
+msgid "A Kipi plugin for adjusting the timestamp of picture files"
+msgstr ""
+"Een KIPI-plugin voor het aanpassen van datums en tijden van "
+"afbeeldingsbestanden"
+
+#: timeadjustdialog.cpp:133
+msgid ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+
+#: timeadjustdialog.cpp:137
+msgid "Jesper K. Pedersen"
+msgstr "Jesper K. Pedersen"
+
+#: timeadjustdialog.cpp:138
+msgid "Author"
+msgstr "Auteur"
+
+#: timeadjustdialog.cpp:141
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+msgid "Developer"
+msgstr "Ontwikkelaar"
+
+#: timeadjustdialog.cpp:145
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: timeadjustdialog.cpp:149
+msgid "Pieter Edelman"
+msgstr "Pieter Edelman"
+
+#: timeadjustdialog.cpp:377
+msgid "Adjust Time and Date"
+msgstr "Tijd en datum aanpassen"
+
+#: timeadjustdialog.cpp:394
+msgid "Select at least one option"
+msgstr "Minstens één optie selecteren"
+
+#~ msgid "Determine from clock photo"
+#~ msgstr "Haal deze uit de klok in de foto"
+
+#~ msgid "Adjust"
+#~ msgstr "Bijstellen"
+
+#~ msgid "Update Time && Date"
+#~ msgstr "Datum && tijd bijwerken"
+
+#~ msgid "Example"
+#~ msgstr "Voorbeeld"
+
+#~ msgid "1 image will be changed"
+#~ msgid_plural "%1 images will be changed"
+#~ msgstr[0] "1 afbeelding zal gewijzigd worden"
+#~ msgstr[1] "%1 afbeeldingen zullen gewijzigd worden"
+
+#~ msgid "1 image will be changed; "
+#~ msgid_plural "%1 images will be changed; "
+#~ msgstr[0] "1 afbeelding zal worden gewijzigd; "
+#~ msgstr[1] "%1 afbeeldingen zullen worden gewijzigd; "
+
+#~ msgid "1 image will be skipped due to an inexact date."
+#~ msgid_plural "%1 images will be skipped due to inexact dates."
+#~ msgstr[0] ""
+#~ "1 afbeelding zal worden overgeslagen vanwege een onnauwkeurige datum."
+#~ msgstr[1] ""
+#~ "%1 afbeeldingen zullen worden overgeslagen vanwege onnauwkeurige datums."
+
+#~ msgid "1 image will be skipped due to a missing source timestamp."
+#~ msgid_plural "%1 images will be skipped due to missing source timestamps."
+#~ msgstr[0] ""
+#~ "1 afbeelding zal worden overgeslagen vanwege een ontbrekende "
+#~ "tijdsaanduiding van de bron."
+#~ msgstr[1] ""
+#~ "%1 afbeeldingen zullen worden overgeslagen vanwege een ontbrekende "
+#~ "tijdsaanduiding van de bron."
+
+#~ msgid "Custom: <b>%1 %2</b>"
+#~ msgstr "Aangepast: <b>%1 %2</b>"
+
+#~ msgid "Original: <b>N/A</b><br/>Image will be skipped"
+#~ msgstr "Origineel: <b>nvp</b><br/>Afbeelding zal worden overgeslagen"
+
+#~ msgid "Original: <b>%1 %2</b>"
+#~ msgstr "Origineel: <b>%1 %2</b>"
+
+#~ msgid "Original: <b>%1 %2</b><br/>Adjusted: <b>%3 %4</b>"
+#~ msgstr "Origineel: <b>%1 %2</b><br/>Aangepast: <b>%3 %4</b>"
+
+#~ msgid "Developer and maintainer"
+#~ msgstr "Ontwikkelaar en onderhouder"
+
+#~ msgid "Processing %1"
+#~ msgstr "%1 wordt verwerkt"
+
+#~ msgid "Handbook"
+#~ msgstr "Handboek"
+
+#~ msgid "Scale:"
+#~ msgstr "Schaal:"
+
+#~ msgid "Adjustment Type"
+#~ msgstr "Type bijstelling"
+
+#~ msgid "Set file date to EXIF/IPTC/XMP creation date"
+#~ msgstr "Datum van afbeelding op EXIF/IPTC/XMP-aanmaakdatum zetten"
+
+#~ msgid "Custom date"
+#~ msgstr "Aangepaste datum"
+
+#~ msgid "Update EXIF creation date"
+#~ msgstr "EXIF-aanmaakdatum bijwerken"
+
+#~ msgid "Update IPTC creation date"
+#~ msgstr "IPTC-aanmaakdatum bijwerken"
+
+#~ msgid "Update XMP creation date"
+#~ msgstr "XMP-aanmaakdatum bijwerken"
+
+#~ msgid "Adjustments"
+#~ msgstr "Aanpassingen"
+
+#~ msgid "Hours:"
+#~ msgstr "Uren:"
+
+#~ msgid "Minutes:"
+#~ msgstr "Minuten:"
+
+#~ msgid "Seconds:"
+#~ msgstr "Seconden:"
+
+#~ msgid "Months:"
+#~ msgstr "Maanden:"
+
+#~ msgid "Years:"
+#~ msgstr "Jaren:"
+
+#~ msgid "<b>%1</b><br/>would, for example, change into<br/><b>%2</b>"
+#~ msgstr "<b>%1</b><br/> zal bijvoorbeeld veranderen in <br/><b>%2</b>"
+
+#~ msgid "Unable to set date and time like picture metadata from:"
+#~ msgstr ""
+#~ "Niet in staat om datum en tijd als afbeeldingsmetadata te zetten van:"

@@ -1,0 +1,1449 @@
+# translation of kipiplugin_gpssync.po to Hindi
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ravishankar Shrivastava <raviratlami@yahoo.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_gpssync\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-05-07 02:57+0200\n"
+"PO-Revision-Date: 2008-03-30 13:02+0530\n"
+"Last-Translator: Ravishankar Shrivastava <raviratlami@yahoo.com>\n"
+"Language-Team: Hindi <indlinux-hindi@lists.sourceforge.net>\n"
+"Language: hi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"X-Generator: KBabel 1.11.4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "रविशंकर श्रीवास्तव, जी. करूणाकर"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "raviratlami@aol.in,"
+
+#: gpsbookmarkowner.cpp:349 searchwidget.cpp:777
+#, kde-format
+msgid "1 image snapped to '%2'"
+msgid_plural "%1 images snapped to '%2'"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gpscorrelatorwidget.cpp:169
+#, fuzzy
+#| msgid "Load GPX File..."
+msgid "Load GPX files..."
+msgstr "जीपीएक्स फ़ाइल लोड करें..."
+
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+#, fuzzy
+#| msgid "File Name:"
+msgid "Filename"
+msgstr "फ़ाइल नाम:"
+
+#: gpscorrelatorwidget.cpp:174
+#, fuzzy
+#| msgid "Points"
+msgid "#points"
+msgstr "अंक"
+
+#: gpscorrelatorwidget.cpp:178
+msgid "Max. time gap (sec.):"
+msgstr "अधिकतम समय अंतराल (सेक.):"
+
+#: gpscorrelatorwidget.cpp:180
+msgid ""
+"Sets the maximum difference in seconds from a GPS track point to the image "
+"time to be matched. If the time difference exceeds this setting, no match "
+"will be attempted."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:184
+#, fuzzy
+#| msgid "Camera time stamp"
+msgid "Camera time zone:"
+msgstr "कैमरा समय चिह्न"
+
+#: gpscorrelatorwidget.cpp:185
+msgid "Same as system"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:187
+msgid ""
+"Use this option if the timezone of the camera is the same as the timezone of "
+"this system. The conversion to GMT will be done automatically."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:190
+msgctxt "manual time zone selection for gps syncing"
+msgid "Manual:"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:192
+msgid ""
+"Use this option if the timezone of the camera is different from this system "
+"and you have to specify the difference to GMT manually."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:244
+msgid ""
+"<p>Sets the time zone the camera was set to during photo shooting, so that "
+"the time stamps of the images can be converted to GMT to match the GPS time "
+"reference.</p><p>Note: positive offsets count eastwards from zero longitude "
+"(GMT), they are 'ahead of time'.</p>"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:251
+msgid "Fine offset (mm:ss):"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:253
+msgid ""
+"Sets an additional offset in minutes and seconds that is used to correlate "
+"the photos to the GPS track. This can be used for fine tuning to adjust a "
+"wrong camera clock."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:263
+msgid "Set whether the camera offset is negative or positive."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:267
+msgid "Minutes to fine tune camera offset."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:270
+msgid "Seconds to fine tune camera offset."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:280
+msgid "Interpolate"
+msgstr "इंटरपोलेट"
+
+#: gpscorrelatorwidget.cpp:281
+msgid ""
+"Set this option to interpolate GPS track points which are not closely "
+"matched to the GPX data file."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:287
+msgid "Difference in min.:"
+msgstr "मिनट में अंतर:"
+
+#: gpscorrelatorwidget.cpp:289
+msgid ""
+"Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
+"file points to image time data."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:292
+msgid "Correlate"
+msgstr "कोरीलेट"
+
+#: gpscorrelatorwidget.cpp:349
+#, kde-format
+msgid "%1|GPS Exchange Format"
+msgstr "%1|जीपीएस एक्सचेंज फ़ॉर्मेट"
+
+#: gpscorrelatorwidget.cpp:350
+msgid "Select GPX File to Load"
+msgstr "लोड करने के लिए जीपीएक्स फ़ाइल चुनें"
+
+#: gpscorrelatorwidget.cpp:396
+#, kde-format
+msgid "The following GPX file could not be loaded:"
+msgid_plural "The following %1 GPX files could not be loaded:"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gpscorrelatorwidget.cpp:402
+#, fuzzy
+#| msgid "Error loading image '%1'"
+msgid "Error loading GPX file"
+msgid_plural "Error loading GPX files"
+msgstr[0] "छवि '%1' को लोड करने में त्रुटि हुई"
+msgstr[1] "छवि '%1' को लोड करने में त्रुटि हुई"
+
+#: gpscorrelatorwidget.cpp:520
+#, fuzzy
+#| msgid "Error loading image '%1'"
+msgid "Correlating images - %p%"
+msgstr "छवि '%1' को लोड करने में त्रुटि हुई"
+
+#: gpscorrelatorwidget.cpp:590
+msgid ""
+"Could not correlate any image - please make sure the timezone and gap "
+"settings are correct."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:591
+#, fuzzy
+#| msgid "Correlate"
+msgid "Correlation failed"
+msgstr "कोरीलेट"
+
+#: gpscorrelatorwidget.cpp:596
+msgid ""
+"All images have been correlated. You can now check their position on the map."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:597
+#, fuzzy
+#| msgid "Correlate"
+msgid "Correlation succeeded"
+msgstr "कोरीलेट"
+
+#: gpscorrelatorwidget.cpp:603
+#, kde-format
+msgid ""
+"%1 out of %2 images have been correlated. Please check the timezone and gap "
+"settings if you think that more images should have been correlated."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:604
+#, fuzzy
+#| msgid "Correlate"
+msgid "Correlation finished"
+msgstr "कोरीलेट"
+
+#: gpscorrelatorwidget.cpp:613
+#, kde-format
+msgid "1 image correlated"
+msgid_plural "%1 images correlated"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gpsdataparser.cpp:677
+#, fuzzy, kde-format
+#| msgid "Could not create '%1"
+msgid "Could not open: %1"
+msgstr "'%1 बनाया नहीं जा सका"
+
+#: gpsdataparser.cpp:683
+msgid "File is empty."
+msgstr ""
+
+#: gpsdataparser.cpp:699
+#, kde-format
+msgid "Parsing error: %1"
+msgstr ""
+
+#: gpsdataparser.cpp:709
+msgid "No GPX element found - probably not a GPX file."
+msgstr ""
+
+#: gpsdataparser.cpp:713
+msgid "File is a GPX file, but no datapoints were found."
+msgstr ""
+
+#: gpsimagedetails.cpp:127
+#, fuzzy
+#| msgid "Remove Coordinates..."
+msgid "Coordinates"
+msgstr "निर्देशांक मिटाएं..."
+
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+msgid "Latitude"
+msgstr "अक्षांश"
+
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+msgid "Longitude"
+msgstr "देशान्तर"
+
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+msgid "Altitude"
+msgstr "उन्नतांश"
+
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+msgid "Speed"
+msgstr ""
+
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+msgid "# satellites"
+msgstr ""
+
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+msgid "Fix type"
+msgstr ""
+
+#: gpsimagedetails.cpp:159
+msgid "2-d"
+msgstr ""
+
+#: gpsimagedetails.cpp:160
+msgid "3-d"
+msgstr ""
+
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+msgid "DOP"
+msgstr ""
+
+#: gpsimagedetails.cpp:169
+msgid "Apply"
+msgstr ""
+
+#: gpsimagedetails.cpp:445
+msgid "Details changed"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:112 searchwidget.cpp:192
+#, fuzzy
+#| msgid "Remove Coordinates..."
+msgid "Copy coordinates"
+msgstr "निर्देशांक मिटाएं..."
+
+#: gpslistviewcontextmenu.cpp:114
+#, fuzzy
+#| msgid "Edit Coordinates..."
+msgid "Paste coordinates"
+msgstr "निर्देशांक संपादित करें..."
+
+#: gpslistviewcontextmenu.cpp:116
+#, fuzzy
+#| msgid "Remove Coordinates..."
+msgid "Remove coordinates"
+msgstr "निर्देशांक मिटाएं..."
+
+#: gpslistviewcontextmenu.cpp:117
+#, fuzzy
+#| msgid "Latitude"
+msgid "Remove altitude"
+msgstr "अक्षांश"
+
+#: gpslistviewcontextmenu.cpp:118
+msgid "Remove uncertainty"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+#, fuzzy
+#| msgid "Remove"
+msgid "Remove speed"
+msgstr "हटाएँ"
+
+#: gpslistviewcontextmenu.cpp:120
+msgid "Look up missing altitude values"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:146 searchwidget.cpp:224
+msgid "Bookmarks"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+msgid "GPS Sync"
+msgstr "जीपीएस सिंक"
+
+#: gpslistviewcontextmenu.cpp:420
+msgid ""
+"Found more than one point on the clipboard - can only assign one point at a "
+"time."
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:479
+msgid "Could not find any coordinates on the clipboard."
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:483
+#, fuzzy
+#| msgid "Remove Coordinates..."
+msgid "Coordinates pasted"
+msgstr "निर्देशांक मिटाएं..."
+
+#: gpslistviewcontextmenu.cpp:514
+#, fuzzy
+#| msgid "Goto Location"
+msgid "Bookmark selected"
+msgstr "इस स्थान पर जाएं"
+
+#: gpslistviewcontextmenu.cpp:624
+#, fuzzy
+#| msgid "Remove Coordinates..."
+msgid "Remove coordinates information"
+msgstr "निर्देशांक मिटाएं..."
+
+#: gpslistviewcontextmenu.cpp:629
+msgid "Remove altitude information"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:635
+msgid "Remove uncertainty information"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:697
+#, fuzzy
+#| msgid "Longitude"
+msgid "Looking up altitudes"
+msgstr "देशान्तर"
+
+#: gpslistviewcontextmenu.cpp:748
+#, fuzzy, kde-format
+#| msgid "Altitude"
+msgid ""
+"Altitude lookup failed:\n"
+"%1"
+msgstr "उन्नतांश"
+
+#: gpslistviewcontextmenu.cpp:755
+#, fuzzy
+#| msgid "Altitude"
+msgid "Altitude looked up"
+msgstr "उन्नतांश"
+
+#: gpsreversegeocodingwidget.cpp:250
+msgid "Add country tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:252
+msgid "Add state tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:254
+msgid "Add state district tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:256
+msgid "Add county tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:258
+msgid "Add city tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:260
+msgid "Add city district tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:262
+msgid "Add suburb tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:264
+msgid "Add town tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:266
+msgid "Add village tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:268
+msgid "Add hamlet tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:270
+msgid "Add street"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:272
+msgid "Add house number tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:274
+msgid "Add place"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:276
+msgid "Add Local Administrative Area 2"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:278
+msgid "Add Local Administrative Area 1"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:280
+msgid "Add new tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:281
+msgid "Remove selected tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:282
+msgid "Remove all control tags below this tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:284
+msgid "Add all address elements"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:288
+msgid "Select language:"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:292
+msgid "English"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:293
+msgid "Arabic"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:294
+msgid "Assamese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:295
+msgid "Byelorussian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:296
+msgid "Bulgarian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:297
+msgid "Bengali"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:298
+msgid "Chinese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:299
+msgid "Czech"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:300
+msgid "Croatian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:301
+msgid "Dutch"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:302
+msgid "German"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:303
+msgid "Greek"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:304
+msgid "Estonian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:305
+msgid "Finnish"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:306
+msgid "French"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:307
+msgid "Georgian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:308
+msgid "Hebrew"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:309
+msgid "Hindi"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:310
+msgid "Hungarian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:311
+msgid "Indonesian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:312
+msgid "Icelandic"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:313
+msgid "Italian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:314
+msgid "Japanese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:315
+msgid "Korean"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:316
+msgid "Lithuanian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:317
+msgid "Macedonian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:318
+msgid "Mongolian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:319
+msgid "Moldavian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:320
+msgid "Nepali"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:321
+#, fuzzy
+#| msgid "Points"
+msgid "Polish"
+msgstr "अंक"
+
+#: gpsreversegeocodingwidget.cpp:322
+msgid "Portuguese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:323
+msgid "Romanian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:324
+msgid "Russian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:325
+msgid "Slovak"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:326
+msgid "Slovenian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:327
+msgid "Samoan"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:328
+msgid "Serbian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:329
+msgid "Sudanese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:330
+msgid "Spanish"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:331
+msgid "Swedish"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:332
+#, fuzzy
+#| msgid "Thumbnail"
+msgid "Thai"
+msgstr "लघु छवि"
+
+#: gpsreversegeocodingwidget.cpp:333
+#, fuzzy
+#| msgid "Tracks"
+msgid "Turkish"
+msgstr "ट्रैक्स"
+
+#: gpsreversegeocodingwidget.cpp:334
+msgid "Ukrainian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:335
+#, fuzzy
+#| msgid "File Name:"
+msgid "Vietnamese"
+msgstr "फ़ाइल नाम:"
+
+#: gpsreversegeocodingwidget.cpp:337
+msgid "Select service:"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:340
+msgid "Open Street Map"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:341
+msgid "Geonames.org place name (non-US)"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:342
+msgid "Geonames.org full address (US only)"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:357 gpsreversegeocodingwidget.cpp:548
+msgid "Less options"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:364
+msgid "Write tags to XMP"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:370
+msgid "Apply reverse geocoding"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:494
+msgid "Image tags are changed."
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:527
+msgid "Retrieving RG info - %p%"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:542
+msgid "More options"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:864
+msgid "Add new tag:"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:865
+msgid "Select a name for the new tag:"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1004
+#, kde-format
+msgid ""
+"%1 out of %2 images have been reverse geocoded. Would you like to keep the "
+"tags which were already obtained or discard them?"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1009
+msgid "Abort reverse geocoding?"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1010
+msgid "Keep tags"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1011
+msgid "Discard tags"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1012
+msgid "Continue"
+msgstr ""
+
+#: gpssyncdialog.cpp:275
+msgid "Geolocation"
+msgstr "जियोलोकेशन"
+
+#: gpssyncdialog.cpp:302
+msgid "Display bookmarked positions on the map."
+msgstr ""
+
+#: gpssyncdialog.cpp:362
+#, fuzzy
+#| msgid "Settings"
+msgid "Sorting"
+msgstr "विन्यास"
+
+#: gpssyncdialog.cpp:369
+msgid "Show oldest first"
+msgstr ""
+
+#: gpssyncdialog.cpp:373
+msgid "Show youngest first"
+msgstr ""
+
+#: gpssyncdialog.cpp:412
+msgid "Details"
+msgstr ""
+
+#: gpssyncdialog.cpp:413
+#, fuzzy
+#| msgid "Correlator"
+msgid "GPS Correlator"
+msgstr "कोरीलेटर"
+
+#: gpssyncdialog.cpp:414
+msgid "Undo/Redo"
+msgstr ""
+
+#: gpssyncdialog.cpp:415
+msgid "Reverse Geocoding"
+msgstr ""
+
+#: gpssyncdialog.cpp:416
+msgid "Search"
+msgstr ""
+
+#: gpssyncdialog.cpp:439
+#, fuzzy
+#| msgid "A Plugin to synchronize pictures metadata with a GPS device"
+msgid "A Plugin to synchronize pictures' metadata with a GPS device"
+msgstr "जीपीएस उपकरण से छवि मेटाडाटा को सिंक्रोनाइज करने का एक प्लगइन"
+
+#: gpssyncdialog.cpp:440
+#, fuzzy
+#| msgid "(c) 2006-2008, Gilles Caulier"
+msgid "(c) 2006-2013, Gilles Caulier"
+msgstr "(c) 2006-2008, गिल्स काउलिएर"
+
+#: gpssyncdialog.cpp:442
+msgid "Michael G. Hansen"
+msgstr ""
+
+#: gpssyncdialog.cpp:443
+msgid "Developer and maintainer"
+msgstr "डेवलपर तथा मेंटेनर"
+
+#: gpssyncdialog.cpp:446
+msgid "Gabriel Voicu"
+msgstr ""
+
+#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+msgid "Developer"
+msgstr ""
+
+#: gpssyncdialog.cpp:450
+msgid "Gilles Caulier"
+msgstr "गिल्स काउलिएर"
+
+#: gpssyncdialog.cpp:626
+msgid "Loading metadata - %p%"
+msgstr ""
+
+#: gpssyncdialog.cpp:807
+#, kde-format
+msgid "You have 1 modified image."
+msgid_plural "You have %1 modified images."
+msgstr[0] ""
+msgstr[1] ""
+
+#: gpssyncdialog.cpp:813
+#, kde-format
+msgid "%1 Would you like to save the changes you made to them?"
+msgstr ""
+
+#: gpssyncdialog.cpp:814
+msgid "Unsaved changes"
+msgstr ""
+
+#: gpssyncdialog.cpp:815
+msgid "Save changes"
+msgstr ""
+
+#: gpssyncdialog.cpp:816
+msgid "Close and discard changes"
+msgstr ""
+
+#: gpssyncdialog.cpp:1040
+#, kde-format
+msgid "1 image moved"
+msgid_plural "%1 images moved"
+msgstr[0] ""
+msgstr[1] ""
+
+#: gpssyncdialog.cpp:1074
+msgid "Saving changes - %p%"
+msgstr ""
+
+#: gpssyncdialog.cpp:1119
+msgid "Failed to save some information:"
+msgstr ""
+
+#: gpssyncdialog.cpp:1119
+msgid "Error"
+msgstr ""
+
+#: gpssyncdialog.cpp:1147
+#, fuzzy
+#| msgid "GPS Sync"
+msgid "GPS sync"
+msgstr "जीपीएस सिंक"
+
+#: kipiimageitem.cpp:363
+msgid "Not available"
+msgstr "उपलब्ध नहीं"
+
+#: kipiimageitem.cpp:396
+#, kde-format
+msgid "DOP: %1"
+msgstr ""
+
+#: kipiimageitem.cpp:401
+#, c-format, kde-format
+msgid "Fix: %1d"
+msgstr ""
+
+#: kipiimageitem.cpp:406
+#, kde-format
+msgid "#Sat: %1"
+msgstr ""
+
+#: kipiimageitem.cpp:441
+#, c-format, kde-format
+msgid "%1d"
+msgstr ""
+
+#: kipiimageitem.cpp:461
+msgid "Modified"
+msgstr ""
+
+#: kipiimageitem.cpp:523
+msgid "Thumbnail"
+msgstr "लघु छवि"
+
+#: kipiimageitem.cpp:525
+msgid "Date and time"
+msgstr ""
+
+#: kipiimageitem.cpp:529
+msgid "Accuracy"
+msgstr ""
+
+#: kipiimageitem.cpp:534
+msgid "Status"
+msgstr "स्थिति"
+
+#: kipiimageitem.cpp:535
+#, fuzzy
+#| msgid "Tracks"
+msgid "Tags"
+msgstr "ट्रैक्स"
+
+#: kipiimageitem.cpp:722
+msgid "Failed to open file."
+msgstr ""
+
+#: kipiimageitem.cpp:783
+msgid "Failed to add GPS info to image."
+msgstr ""
+
+#: kipiimageitem.cpp:793
+msgid "Failed to remove GPS info from image"
+msgstr ""
+
+#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+msgid "Failed to save tags to file."
+msgstr ""
+
+#: kipiimageitem.cpp:838
+msgid "Unable to save changes to file"
+msgstr ""
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_gpssyncui.rc:6
+msgid "&Image"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_gpssyncui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_gpssync.cpp:99
+#, fuzzy
+#| msgid "Geolocation"
+msgid "Geo-location"
+msgstr "जियोलोकेशन"
+
+#: rgtagmodel.cpp:95
+msgid "{Country}"
+msgstr ""
+
+#: rgtagmodel.cpp:96
+#, fuzzy
+#| msgid "Status"
+msgctxt "Part of a country"
+msgid "{State}"
+msgstr "स्थिति"
+
+#: rgtagmodel.cpp:97
+msgid "{County}"
+msgstr ""
+
+#: rgtagmodel.cpp:98
+msgid "{City}"
+msgstr ""
+
+#: rgtagmodel.cpp:99
+msgid "{Town}"
+msgstr ""
+
+#: rgtagmodel.cpp:100
+msgid "{Village}"
+msgstr ""
+
+#: rgtagmodel.cpp:101
+msgid "{Hamlet}"
+msgstr ""
+
+#: rgtagmodel.cpp:102
+msgid "{Street}"
+msgstr ""
+
+#: searchbackend.cpp:310
+msgid "GeoNames"
+msgstr ""
+
+#: searchbackend.cpp:311
+msgid "OSM"
+msgstr ""
+
+#: searchwidget.cpp:166
+msgctxt "Start the search"
+msgid "Search"
+msgstr ""
+
+#: searchwidget.cpp:173
+msgid "Clear the search results."
+msgstr ""
+
+#: searchwidget.cpp:181
+msgid "Keep the results of old searches when doing a new search."
+msgstr ""
+
+#: searchwidget.cpp:188
+msgid "Toggle the visibility of the search results on the map."
+msgstr ""
+
+#: searchwidget.cpp:195
+msgid "Move selected images to this position"
+msgstr ""
+
+#: searchwidget.cpp:197
+msgid "Remove from results list"
+msgstr ""
+
+#: searchwidget.cpp:201
+msgid "Select which service you would like to use."
+msgstr ""
+
+#: searchwidget.cpp:277
+#, kde-format
+msgid ""
+"Your search failed:\n"
+"%1"
+msgstr ""
+
+#: searchwidget.cpp:277
+msgid "Search failed"
+msgstr ""
+
+#: searchwidget.cpp:814
+#, kde-format
+msgid "1 image moved to '%2'"
+msgid_plural "%1 images moved to '%2'"
+msgstr[0] ""
+msgstr[1] ""
+
+#: setup.cpp:122
+msgid "Configure"
+msgstr ""
+
+#: setup.cpp:128
+msgctxt "General setup"
+msgid "General"
+msgstr ""
+
+#: setup_general.cpp:64
+msgid "One map"
+msgstr ""
+
+#: setup_general.cpp:65
+msgid "Two maps - horizontal"
+msgstr ""
+
+#: setup_general.cpp:66
+msgid "Two maps - vertical"
+msgstr ""
+
+#: setup_general.cpp:68
+msgid "Layout:"
+msgstr ""
+
+#, fuzzy
+#~| msgid "Goto Location"
+#~ msgid "Bookmark location"
+#~ msgstr "इस स्थान पर जाएं"
+
+#, fuzzy
+#~| msgid "Plugin Handbook"
+#~ msgid "Handbook"
+#~ msgstr "प्लगइन हैंड-बुक"
+
+#~ msgid "%1 - Edit Geographical Coordinates"
+#~ msgstr "%1 - भौगोलिक निर्देशांक संपादित करें"
+
+#~ msgid "Altitude:"
+#~ msgstr "उन्नतांशः"
+
+#~ msgid "Latitude:"
+#~ msgstr "अक्षांशः"
+
+#~ msgid "Longitude:"
+#~ msgstr "देशान्तरः"
+
+#, fuzzy
+#~| msgid "Goto Location"
+#~ msgid "Go to Location"
+#~ msgstr "इस स्थान पर जाएं"
+
+#, fuzzy
+#~| msgid "Geolocation"
+#~ msgid "Recent locations"
+#~ msgstr "जियोलोकेशन"
+
+#~ msgid "A Plugin to edit geographical coordinates"
+#~ msgstr "भौगोलिक निर्देशांक संपादित करने के लिए एक प्लगइन"
+
+#, fuzzy
+#~| msgid "Altitude value is not correct!"
+#~ msgid "Altitude value is invalid."
+#~ msgstr "ऊंचाई मूल्य सही नहीं है!"
+
+#~ msgid "Edit Geographical Coordinates"
+#~ msgstr "भौगोलिक निर्देशांक संपादित करें"
+
+#, fuzzy
+#~| msgid "Latitude value is not correct!"
+#~ msgid "Latitude value is invalid."
+#~ msgstr "अक्षांश मूल्य सही नहीं है!"
+
+#, fuzzy
+#~| msgid "Longitude value is not correct!"
+#~ msgid "Longitude value is invalid."
+#~ msgstr "देशांतर मूल्य सही नहीं है!"
+
+#~ msgid "Interpolated"
+#~ msgstr "इंटरपोलेटेड"
+
+#, fuzzy
+#~| msgid "Added"
+#~ msgctxt "entry was added manually"
+#~ msgid "Added"
+#~ msgstr "जोड़ा गया"
+
+#, fuzzy
+#~| msgid "Found"
+#~ msgctxt "entry was added automatically"
+#~ msgid "Found"
+#~ msgstr "मिला"
+
+#, fuzzy
+#~| msgid "Deleted!"
+#~ msgid "Deleted"
+#~ msgstr "मिटाया!"
+
+#~ msgid "Edit..."
+#~ msgstr "संपादन..."
+
+#~ msgid "Manually edit GPS coordinates of selected images from the list."
+#~ msgstr "सूची में से चयनित छवि के जीपीएस निर्देशांकों को हस्तचालित संपादित करें."
+
+#~ msgid "Remove GPS coordinates of selected images from the list."
+#~ msgstr "सूची में से चयनित छवि के जीपीएस निर्देशांकों को मिटाएं."
+
+#~ msgid "Date"
+#~ msgstr "तारीख़"
+
+#~ msgid "Current GPX file:"
+#~ msgstr "मौज़ूदा जीपीएक्स फ़ाइल:"
+
+#~ msgid "No GPX file"
+#~ msgstr "कोई जीपीएक्स फ़ाइल नहीं"
+
+#, fuzzy
+#~| msgid "Cannot parse %1 GPX file!"
+#~ msgid "Cannot parse %1 GPX file."
+#~ msgstr "जीपीएक्स फ़ाइल %1 को समझ नहीं सका!"
+
+#, fuzzy
+#~| msgid "The %1 GPX file do not have a date-time track to use!"
+#~ msgid "The %1 GPX file does not have a date-time track to use."
+#~ msgstr "जीपीएक्स फ़ाइल %1 में इस्तेमाल लायक तारीख समय ट्रैक नहीं है!"
+
+#~ msgid "Points parsed: %1"
+#~ msgstr "बिन्दु पार्स किए गए: %1"
+
+#~ msgid ""
+#~ "<p>%1\n"
+#~ "Do you really want to close this window without applying changes?</p>"
+#~ msgstr ""
+#~ "<p>%1\n"
+#~ "क्या आप सचमुच परिवर्तनों को लागू किए बगैर इस विंडो को बन्द करना चाहते हैं?</p>"
+
+#~ msgid "Cannot find pictures to correlate with GPX file data."
+#~ msgstr ""
+#~ "जीपीएक्स फ़ाइल डाटा के साथ कोरीलेट करने के लिए छवियाँ प्राप्त नहीं किया जा सका."
+
+#, fuzzy
+#~| msgid "Press Apply button to update images metadata."
+#~ msgid "Press the Apply button to update the image's metadata."
+#~ msgid_plural "Press the Apply button to update the images' metadata."
+#~ msgstr[0] "छवि मेटाडाटा को अद्यतन करने के लिए लागू करें बटन को दबाएं."
+#~ msgstr[1] "छवि मेटाडाटा को अद्यतन करने के लिए लागू करें बटन को दबाएं."
+
+#~ msgid "Edit Track List Geographical Coordinates"
+#~ msgstr "भौगोलिक निर्देशांकों की ट्रैक सूची संपादित करें"
+
+#~ msgid "Id"
+#~ msgstr "आईडी"
+
+#, fuzzy
+#~| msgid "Changed"
+#~ msgctxt "entry changed"
+#~ msgid "Changed"
+#~ msgstr "बदला"
+
+#, fuzzy
+#~| msgid "A Plugin to edit GPS track list"
+#~ msgid "A plugin to edit GPS track lists."
+#~ msgstr "जीपीएस ट्रैक सूची संपादित करने के लिए एक प्लगइन"
+
+#, fuzzy
+#~| msgid "(c) 2006-2008, Gilles Caulier"
+#~ msgid "(c) 2008-2009, Gilles Caulier"
+#~ msgstr "(c) 2006-2008, गिल्स काउलिएर"
+
+#, fuzzy
+#~| msgid "Yes"
+#~ msgctxt "dirty gps info"
+#~ msgid "Yes"
+#~ msgstr "हाँ"
+
+#, fuzzy
+#~| msgid "No"
+#~ msgctxt "dirty gps info"
+#~ msgid "No"
+#~ msgstr "नहीं"
+
+#~ msgid "Generating KML file..."
+#~ msgstr "केएमएल फ़ाइल बनाया जा रहा है..."
+
+#~ msgid "Could not read image '%1'"
+#~ msgstr "छवि '%1' पढ़ नहीं सका"
+
+#~ msgid "Format of image '%1' is unknown"
+#~ msgstr "छवि '%1' का फ़ॉर्मेट अज्ञात है"
+
+#~ msgid "Could not save image '%1' to '%2'"
+#~ msgstr "छवि '%1' को '%2' पर सहेजा नहीं जा सका"
+
+#~ msgid "Creation of placemark '%1'"
+#~ msgstr "प्लेसमार्क '%1' बनाना"
+
+#~ msgid "Could not save icon for image '%1' to '%2'"
+#~ msgstr "छवि '%1' के प्रतीक को '%2' पर सहेजा नहीं जा सका"
+
+#, fuzzy
+#~| msgid "No GPX file Chosen!"
+#~ msgid "No GPX file chosen."
+#~ msgstr "कोई जीपीएक्स फ़ाइल चुना नहीं गया!"
+
+#, fuzzy
+#~| msgid "The %1 GPX file do not have a date-time track to use!"
+#~ msgid "The %1 GPX file do not have a date-time track to use."
+#~ msgstr "जीपीएक्स फ़ाइल %1 में इस्तेमाल लायक तारीख समय ट्रैक नहीं है!"
+
+#~ msgid "No position data for '%1'"
+#~ msgstr "'%1' के लिए कोई स्थिति डाटा नहीं"
+
+#~ msgid "Move to final directory"
+#~ msgstr "अंतिम डिरेक्ट्री में खिसकाएं"
+
+#~ msgid "KML Export"
+#~ msgstr "केएमएल निर्यात"
+
+#~ msgid "Target Preferences"
+#~ msgstr "लक्ष्य प्राथमिकताएँ"
+
+#~ msgid "Target Type"
+#~ msgstr "लक्ष्य क़िस्म"
+
+#~ msgid "&Local or web target used by GoogleEarth"
+#~ msgstr "गूगल अर्थ द्वारा प्रयोग में स्थानीय या वेब लक्ष्य (&L)"
+
+#~ msgid "Web target used by GoogleMap"
+#~ msgstr "गूगलमैप द्वारा प्रयोग में वेब लक्ष्य"
+
+#~ msgid "Picture Altitude:"
+#~ msgstr "छवि ऊंचाई:"
+
+#~ msgid "clamp to ground"
+#~ msgstr "भूमि पर क्लैम्प"
+
+#~ msgid "relative to ground"
+#~ msgstr "भूमि के सापेक्ष"
+
+#~ msgid "absolute"
+#~ msgstr "निरपेक्ष"
+
+#~ msgid "Destination Directory:"
+#~ msgstr "गंतव्य डिरेक्ट्री:"
+
+#, fuzzy
+#~| msgid "Select a directory to save the kml file and pictures"
+#~ msgid "Select a directory in which to save the kml file and pictures"
+#~ msgstr "केएमएल फ़ाइल तथा छवियों को सहेजने के लिए डिरेक्ट्री चुनें"
+
+#, fuzzy
+#~| msgid "Destination Url:"
+#~ msgid "Destination URL:"
+#~ msgstr "गंतव्य यूआरएल:"
+
+#~ msgid "Sizes"
+#~ msgstr "आकार"
+
+#~ msgid "Icon Size:"
+#~ msgstr "प्रतीक आकार:"
+
+#~ msgid "Image Size:"
+#~ msgstr "छवि आकार:"
+
+#~ msgid "GPX Tracks"
+#~ msgstr "जीपीएक्स ट्रैक्स"
+
+#~ msgid "Draw GPX Track"
+#~ msgstr "जीपीएक्स ट्रैक्स बनाएं"
+
+#~ msgid "GPX file:"
+#~ msgstr "जीपीएक्स फ़ाइल:"
+
+#~ msgid "Time Zone:"
+#~ msgstr "समय क्षेत्र:"
+
+#~ msgid "GMT-12:00"
+#~ msgstr "जीएमटी-12:00"
+
+#~ msgid "GMT-11:00"
+#~ msgstr "जीएमटी-11:00"
+
+#~ msgid "GMT-10:00"
+#~ msgstr "जीएमटी-10:00"
+
+#~ msgid "GMT-09:00"
+#~ msgstr "जीएमटी-09:00"
+
+#~ msgid "GMT-08:00"
+#~ msgstr "जीएमटी-08:00"
+
+#~ msgid "GMT-07:00"
+#~ msgstr "जीएमटी-07:00"
+
+#~ msgid "GMT-06:00"
+#~ msgstr "जीएमटी-06:00"
+
+#~ msgid "GMT-05:00"
+#~ msgstr "जीएमटी-05:00"
+
+#~ msgid "GMT-04:00"
+#~ msgstr "जीएमटी-04:00"
+
+#~ msgid "GMT-03:00"
+#~ msgstr "जीएमटी-03:00"
+
+#~ msgid "GMT-02:00"
+#~ msgstr "जीएमटी-02:00"
+
+#~ msgid "GMT-01:00"
+#~ msgstr "जीएमटी-01:00"
+
+#~ msgid "GMT"
+#~ msgstr "जीएमटी"
+
+#~ msgid "GMT+01:00"
+#~ msgstr "जीएमटी+01:00"
+
+#~ msgid "GMT+02:00"
+#~ msgstr "जीएमटी+02:00"
+
+#~ msgid "GMT+03:00"
+#~ msgstr "जीएमटी+03:00"
+
+#~ msgid "GMT+04:00"
+#~ msgstr "जीएमटी+04:00"
+
+#~ msgid "GMT+05:00"
+#~ msgstr "जीएमटी+05:00"
+
+#~ msgid "GMT+06:00"
+#~ msgstr "जीएमटी+06:00"
+
+#~ msgid "GMT+07:00"
+#~ msgstr "जीएमटी+07:00"
+
+#~ msgid "GMT+08:00"
+#~ msgstr "जीएमटी+08:00"
+
+#~ msgid "GMT+09:00"
+#~ msgstr "जीएमटी+09:00"
+
+#~ msgid "GMT+10:00"
+#~ msgstr "जीएमटी+10:00"
+
+#~ msgid "GMT+11:00"
+#~ msgstr "जीएमटी+11:00"
+
+#~ msgid "GMT+12:00"
+#~ msgstr "जीएमटी+12:00"
+
+#~ msgid "GMT+13:00"
+#~ msgstr "जीएमटी+13:00"
+
+#~ msgid "GMT+14:00"
+#~ msgstr "जीएमटी+14:00"
+
+#~ msgid "Track Width:"
+#~ msgstr "ट्रैक चौड़ाई:"
+
+#~ msgid "Track Color:"
+#~ msgstr "ट्रैक रंग:"
+
+#~ msgid "Opacity:"
+#~ msgstr "अपारदर्शिता:"
+
+#~ msgid "Track Altitude:"
+#~ msgstr "ट्रैक ऊंचाई:"
+
+#~ msgid "A Kipi plugin for KML exporting"
+#~ msgstr "केएमएल निर्यात करने के लिए केआईपीआई प्लगइन"
+
+#~ msgid "(c) 2006-2007, Stéphane Pontier"
+#~ msgstr "(C) 2006-2007, स्टीफन पाइंटर"
+
+#~ msgid "Stéphane Pontier"
+#~ msgstr "स्टीफेन पाइंटर"
+
+#~ msgid "Track"
+#~ msgstr "ट्रैक"
+
+#~ msgid "Point"
+#~ msgstr "पाइंट"
+
+#~ msgid "Edit Coordinates..."
+#~ msgstr "निर्देशांक संपादित करें..."
+
+#~ msgid "Track List Editor..."
+#~ msgstr "सूची संपादक ट्रैक करें..."
+
+#, fuzzy
+#~| msgid "KML Export..."
+#~ msgid "Export to KML..."
+#~ msgstr "केएमएल निर्यात..."
+
+#, fuzzy
+#~| msgid "No GPS location have been found in your pictures."
+#~ msgid "No GPS locations have been found in your pictures."
+#~ msgstr "आपकी छवियों में कोई जीपीएस स्थान नहीं मिले."
+
+#~ msgid "Remove Geographical Coordinates"
+#~ msgstr "भौगोलिक निर्देशांकों को हटाएं"
+
+#~ msgid "Time zone:"
+#~ msgstr "समय क्षेत्र:"
+
+#~ msgid "(c) 2006-2008, Gilles Caulier"
+#~ msgstr "(c) 2006-2008, गिल्स काउलिएर"
+
+#~ msgid "(c) 2008, Gilles Caulier"
+#~ msgstr "(c) 2008, गिल्स कालियर"
+
+#~ msgid "File Name"
+#~ msgstr "फ़ाइल नाम"

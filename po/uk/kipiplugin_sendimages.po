@@ -1,0 +1,388 @@
+# Translation of kipiplugin_sendimages.po to Ukrainian
+# translation of kipiplugin_sendimages.po to Ukrainian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013.
+# Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2013-01-31 20:02+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr "Помилка під час відкриття вхідного файла"
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr "Помилка під час відкриття тимчасової теки"
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr "Не вдалося змінити розмір зображення. Аварійне завершення."
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr ""
+"Не вдалося зберегти зображення зі зміненими розмірами (JPEG). Аварійне "
+"завершення."
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr ""
+"Не вдалося зберегти зображення зі зміненими розмірами (PNG). Аварійне "
+"завершення."
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr "&Експорт"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr "Головна панель"
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr "Надіслати зображення..."
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr "Надіслати зображення ел. поштою"
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr "Операцію скасовано користувачем"
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "Зміна розміру %1"
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr "Розмір %1 успішно змінено"
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "Не вдалося змінити розмір %1: %2"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr "Створити файл властивостей зображень"
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr "без підпису"
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr "без ключових слів"
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+"файл «%1»:\n"
+"Вихідні зображення: %2\n"
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr "Коментарі: %1\n"
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr "Мітки: %1\n"
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr "Оцінка: %1\n"
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr "properties.txt"
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr "Створення файла з властивостями зображення завершено"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+"Розмір зображень з нижченаведеного списку не вдалося змінити.\n"
+"Чи бажаєте ви, щоб їх було додано до листа (без зміни розміру)?"
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr "Не вдалося змінити розмір зображень"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+"Файл «%1» завеликий для надсилання; будь ласка, зменшіть його розмір або "
+"змініть ваші налаштування"
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr "Запуск типової поштової програми KDE..."
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr "Не вдалося запустити програму «%1». Перевірте її доступність."
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "Запуск програми «%1»..."
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr "Після надсилання ваших зображень..."
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr "Натисніть кнопку «Закрити», щоб вилучити тимчасові файли"
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr "Параметри надсилання зображень"
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr "Надіслати знімки"
+
+#: sendimagesdialog.cpp:108
+msgid "A plugin to e-mail items"
+msgstr "Додаток для надсилання знімків електронною поштою"
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "© Gilles Caulier, 2003–2013"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Автор і супровідник"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Розробник"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "Поштова програма:"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Типова"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+"Тут ви можете вибрати поштову програму, якій надаєте перевагу. <b>Типова</b> "
+"— це поточна поштова програма, встановлена у Системних параметрах KDE."
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr "Приєднати файл з властивостями зображення з %1"
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+"Якщо ви позначите цей пункт, всі властивості зображень, встановлені %1, "
+"зокрема коментарі, оцінку і мітки, буде додано як файл долучення."
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " МБ"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr "Максимальний розмір листа:"
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr "Налаштувати властивості зображення"
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+"Якщо ви увімкнете цей параметр, всі надіслані зображення можуть бути піддані "
+"процедурі зміни розміру і повторно стиснуті."
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Властивості зображення"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr "Дуже малий (320 пікселів)"
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Малий (640 пікселів)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Середній (800 пікселів)"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Великий (1024 пікселів)"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr "Дуже великий (1280 пікселів)"
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Величезний — для друку (1600 пікселів)"
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+"<p>Тут ви можете вибрати розмір зображення для надсилання:</p><p><b>%1</b>: "
+"цей розмір використовуйте, лише якщо у вас дуже повільне з’єднання з мережею "
+"або поштова скринька-призначення дуже мала.</p><p><b>%2</b>: цей розмір "
+"використовуйте, лише якщо у вас дуже повільне з’єднання з мережею або "
+"поштова скринька-призначення мала.</p><p><b>%3</b>: цей розмір є типовим для "
+"інтернет-з’єднання з посередньою швидкістю і середнього розміру поштових "
+"скриньок призначення.</p><p><b>%4</b>: цей розмір можна використовувати за "
+"умов високошвидкісного інтернет-з’єднання, якщо розмір скриньки призначення "
+"не обмежено.</p><p><b>%5</b>: цей розмір слід використовувати, лише якщо у "
+"вас немає обмежень на розмір або швидкість передавання інформації.</p><p><b>"
+"%6</b>: цей розмір використовуйте лише з метою друку.</p>"
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Розмір зображення:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr ""
+"<p>Тут ви можете вибрати формат файлів зображень, які буде надіслано.</p>"
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+"<p><b>JPEG</b>: Формат файлів Joint Photographic Experts Group є непоганим "
+"форматом для обміну мережею, але він використовує стиснення з втратою якості."
+"</p><p><b>PNG</b>: Формат файлів Portable Network Graphics є придатним для "
+"розширення і перенесення на різні платформи форматом з хорошим рівнем "
+"стисненням без втрат для растрових зображень. PNG надає вам можливість без "
+"використання жодних патентів замінити GIF, а також у багатьох випадках TIFF. "
+"PNG розроблено з метою якісної роботи з переглядачами мережі, отже, цей "
+"формат повністю пристосований для поступового показу зображення під час його "
+"завантаження. Також PNG вміє зберігати гаму та дані про палітру кольорів для "
+"доброї відповідності кольорів на різних платформах.</p>"
+
+#: settingswidget.cpp:184
+msgid "Image format:"
+msgstr "Формат файла зображення:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr ""
+"<p>Нове значення рівня стиснення зображень JPEG, що надсилатимуться:</p>"
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+"<p><b>1</b>: надвисокий рівень стиснення<br/><b>25</b>: високий рівень "
+"стиснення<br/><b>50</b>: середній рівень стиснення<br/><b>75</b>: невисокий "
+"рівень стиснення (типове значення)<br/><b>100</b>: без стиснення</p>"
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Якість зображення:"
+
+#~ msgid "Handbook"
+#~ msgstr "Підручник"
+
+#~ msgid "Images"
+#~ msgstr "Зображення"
+
+#~ msgid "Image List"
+#~ msgstr "Список зображень"
+
+#~ msgid "Mail"
+#~ msgstr "Пошта"
+
+#~ msgid "Mail Options"
+#~ msgstr "Параметри пошти"

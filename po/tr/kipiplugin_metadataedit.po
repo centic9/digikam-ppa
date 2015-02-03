@@ -1,0 +1,4423 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Serdar Soytetir <tulliana@gmail.com>, 2008, 2009.
+# Volkan Gezer <volkangezer@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_metadataedit\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-08-31 01:29+0000\n"
+"PO-Revision-Date: 2013-07-07 21:24+0200\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Serdar Soytetir"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tulliana@gmail.com"
+
+#: exif/exifadjust.cpp:94
+msgid "Brightness (APEX):"
+msgstr "Parlaklık (APEX):"
+
+#: exif/exifadjust.cpp:99
+msgid ""
+"Set here the brightness adjustment value in APEX unit used by camera to take "
+"the picture."
+msgstr ""
+"Fotoğraf çekmek için kamera tarafından kullanılan APEX birimindeki parlaklık "
+"ayar değerini buradan belirleyin."
+
+#: exif/exifadjust.cpp:104
+msgid "Gain Control:"
+msgstr "Kazanç Kontrolü:"
+
+#: exif/exifadjust.cpp:106
+#, fuzzy
+#| msgid "None"
+msgctxt "gain control"
+msgid "None"
+msgstr "Hiçbiri"
+
+#: exif/exifadjust.cpp:107
+#, fuzzy
+#| msgid "Low gain up"
+msgctxt "gain control"
+msgid "Low gain up"
+msgstr "Düşük kazanç"
+
+#: exif/exifadjust.cpp:108
+#, fuzzy
+#| msgid "High gain up"
+msgctxt "gain control"
+msgid "High gain up"
+msgstr "Yüksek kazanç"
+
+#: exif/exifadjust.cpp:109
+#, fuzzy
+#| msgid "Low gain down"
+msgctxt "gain control"
+msgid "Low gain down"
+msgstr "Düşük kazanç"
+
+#: exif/exifadjust.cpp:110
+#, fuzzy
+#| msgid "High gain down"
+msgctxt "gain control"
+msgid "High gain down"
+msgstr "Yüksek kazanç"
+
+#: exif/exifadjust.cpp:111
+msgid ""
+"Set here the degree of overall image gain adjustment used by camera to take "
+"the picture."
+msgstr ""
+"Fotoğraf çekmek için kamera tarafından kullanılan ortalama resim kazanç "
+"ayarlama derecesini buradan belirleyin."
+
+#: exif/exifadjust.cpp:116
+msgid "Contrast:"
+msgstr "Karşıtlık:"
+
+#: exif/exifadjust.cpp:118
+#, fuzzy
+#| msgid "Normal"
+msgctxt "contrast mode"
+msgid "Normal"
+msgstr "Normal"
+
+#: exif/exifadjust.cpp:119
+#, fuzzy
+#| msgid "Soft"
+msgctxt "contrast mode"
+msgid "Soft"
+msgstr "Yumuşak"
+
+#: exif/exifadjust.cpp:120
+#, fuzzy
+#| msgid "Hard"
+msgctxt "contrast mode"
+msgid "Hard"
+msgstr "Sert"
+
+#: exif/exifadjust.cpp:121
+msgid ""
+"Set here the direction of contrast processing applied by the camera to take "
+"the picture."
+msgstr ""
+"Fotoğraf çekmek için kamera tarafından uygulanan zıtlık işlem yönünü buradan "
+"belirleyin."
+
+#: exif/exifadjust.cpp:126
+msgid "Saturation:"
+msgstr "Doygunluk:"
+
+#: exif/exifadjust.cpp:128
+#, fuzzy
+#| msgid "Normal"
+msgctxt "saturation mode"
+msgid "Normal"
+msgstr "Normal"
+
+#: exif/exifadjust.cpp:129
+#, fuzzy
+#| msgid "Low"
+msgctxt "saturation mode"
+msgid "Low"
+msgstr "Düşük"
+
+#: exif/exifadjust.cpp:130
+#, fuzzy
+#| msgid "High"
+msgctxt "saturation mode"
+msgid "High"
+msgstr "Yüksek"
+
+#: exif/exifadjust.cpp:131
+msgid ""
+"Set here the direction of saturation processing applied by the camera to "
+"take the picture."
+msgstr ""
+"Fotoğraf çekmek için kamera tarafından uygulanan canlılık işlem yönünü "
+"buradan belirleyin."
+
+#: exif/exifadjust.cpp:136
+msgid "Sharpness:"
+msgstr "Keskinlik:"
+
+#: exif/exifadjust.cpp:138
+#, fuzzy
+#| msgid "Normal"
+msgctxt "sharpness mode"
+msgid "Normal"
+msgstr "Normal"
+
+#: exif/exifadjust.cpp:139
+#, fuzzy
+#| msgid "Soft"
+msgctxt "sharpness mode"
+msgid "Soft"
+msgstr "Yumuşak"
+
+#: exif/exifadjust.cpp:140
+#, fuzzy
+#| msgid "Hard"
+msgctxt "sharpness mode"
+msgid "Hard"
+msgstr "Sert"
+
+#: exif/exifadjust.cpp:141
+msgid ""
+"Set here the direction of sharpness processing applied by the camera to take "
+"the picture."
+msgstr ""
+"Fotoğraf çekmek için kamera tarafından uygulanan keskinlik işlem yönünü "
+"buradan belirleyin."
+
+#: exif/exifadjust.cpp:146
+msgid "Custom rendered:"
+msgstr "Özel işlenmiş:"
+
+#: exif/exifadjust.cpp:148
+msgid "Normal process"
+msgstr "Normal işlem"
+
+#: exif/exifadjust.cpp:149
+msgid "Custom process"
+msgstr "Özel işlem"
+
+#: exif/exifadjust.cpp:150
+msgid ""
+"Set here the use of special processing on image data, such as rendering "
+"geared to output."
+msgstr ""
+"Çıktıya bağlı olan gerçekleme gibi, resim verisi üzerinde özel işlem "
+"kullanımını buradan belirleyin."
+
+#: exif/exifcaption.cpp:103
+#, fuzzy
+#| msgid "Name (*):"
+msgctxt "name of the document this image has been scanned from"
+msgid "Name (*):"
+msgstr "İsim (*):"
+
+#: exif/exifcaption.cpp:107
+msgid ""
+"Enter the name of the document from which this image was been scanned. This "
+"field is limited to ASCII characters."
+msgstr ""
+"Bu resmin görüntülendiği belgenin adını girin. Bu alan ASCII karakterlerle "
+"sınırlıdır."
+
+#: exif/exifcaption.cpp:113
+#, fuzzy
+#| msgid "Destination:"
+msgctxt "image description"
+msgid "Description (*):"
+msgstr "Hedef:"
+
+#: exif/exifcaption.cpp:117
+#, fuzzy
+#| msgid "Enter the image title. This field is limited to ASCII characters."
+msgid "Enter the image description. This field is limited to ASCII characters."
+msgstr "Resim başlığını girin. Bu alan ASCII karakterlerle sınırlıdır."
+
+#: exif/exifcaption.cpp:122
+msgid "Artist (*):"
+msgstr "Sanatçı (*):"
+
+#: exif/exifcaption.cpp:126
+msgid ""
+"Enter the image author's name. This field is limited to ASCII characters."
+msgstr "Resim sahibinin adını girin. Bu alan ASCII karakterlerle sınırlıdır."
+
+#: exif/exifcaption.cpp:131
+msgid "Copyright (*):"
+msgstr "Telif Hakkı (*):"
+
+#: exif/exifcaption.cpp:135
+msgid ""
+"Enter the copyright owner of the image. This field is limited to ASCII "
+"characters."
+msgstr ""
+"Resmin telif hakkı sahibini girin. Bu alan ASCII karakterlerle sınırlıdır."
+
+#: exif/exifcaption.cpp:140
+#, fuzzy
+#| msgid "Caption:"
+msgctxt "image caption"
+msgid "Caption:"
+msgstr "Başlık:"
+
+#: exif/exifcaption.cpp:142
+msgid ""
+"Enter the image's caption. This field is not limited. UTF8 encoding will be "
+"used to save the text."
+msgstr ""
+"Resmin yazılarını girin. Bu alan sınırlı değildir. Metni kaydetmek için "
+"UTF-8 kodlaması kullanılacaktır."
+
+#: exif/exifcaption.cpp:146
+#, kde-format
+msgid "Sync captions entered through %1"
+msgstr "%1 alanından girilmiş resim yazılarını eşle"
+
+#: exif/exifcaption.cpp:149 iptc/iptccontent.cpp:105 xmp/xmpcontent.cpp:102
+msgid "Sync JFIF Comment section"
+msgstr "JFIF Yorum bölgesini eşle"
+
+#: exif/exifcaption.cpp:150
+msgid "Sync XMP caption"
+msgstr "XMP resim yazısını eşle"
+
+#: exif/exifcaption.cpp:151
+msgid "Sync IPTC caption (warning: limited to 2000 printable Ascii characters)"
+msgstr ""
+"IPTC resim yazısını eşzamanla (uyarı: 2000 yazdırılabilir Ascii karakterine "
+"kadar sınırlı)"
+
+#: exif/exifcaption.cpp:159 exif/exifdevice.cpp:313
+msgid ""
+"<b>Note: <b><a href='http://en.wikipedia.org/wiki/EXIF'>EXIF</a></b> text "
+"tags marked by (*) only support printable <b><a href='http://en.wikipedia."
+"org/wiki/Ascii'>ASCII</a></b> characters.</b>"
+msgstr ""
+"<b>Not:<b>(*) ile işaretlenmiş<a href='http://tr.wikipedia.org/wiki/"
+"EXIF'>EXIF</a></b> metin etiketleri yalnızca basılabilir <b><a href='http://"
+"tr.wikipedia.org/wiki/Ascii'>ASCII</a></b> karakterlerini destekler.</b>"
+
+#: exif/exifdatetime.cpp:110
+msgid "Creation date and time"
+msgstr "Oluşturulma tarihi ve saati"
+
+#: exif/exifdatetime.cpp:111
+#, fuzzy
+#| msgid "Creation sub-second"
+msgid "Creation sub-second"
+msgstr "Yaratılma alt-saniyesi"
+
+#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
+#, kde-format
+msgid "Sync creation date hosted by %1"
+msgstr "%1 tarafından barındırılan yaratılma tarihini eşle"
+
+#: exif/exifdatetime.cpp:117
+msgid "Sync XMP creation date"
+msgstr "XMP yaratılma tarihini eşle"
+
+#: exif/exifdatetime.cpp:118
+msgid "Sync IPTC creation date"
+msgstr "IPTC yaratılma tarihini eşle"
+
+#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:167 xmp/xmporigin.cpp:141
+msgid "Set creation date to today"
+msgstr "Yaratılma tarihini bugün olarak belirle"
+
+#: exif/exifdatetime.cpp:127
+msgid ""
+"Set here the date and time of image creation. In this standard it is the "
+"date and time the file was changed."
+msgstr ""
+"Resim yaratılma tarihini ve saatini buradan belirleyin. Bu standartlarda "
+"dosyadaki tarih ve saat değiştirilir."
+
+#: exif/exifdatetime.cpp:129
+msgid ""
+"Set here the fractions of seconds for the date and time of image creation."
+msgstr ""
+"Resim yaratılma tarihi ve saati için saniye kesirlerini buradan belirleyin."
+
+#: exif/exifdatetime.cpp:136
+msgid "Original date and time"
+msgstr "Özgün tarih ve saat"
+
+#: exif/exifdatetime.cpp:137
+#, fuzzy
+#| msgid "Original sub-second"
+msgid "Original sub-second"
+msgstr "Özgün alt-saniye"
+
+#: exif/exifdatetime.cpp:143
+msgid "Set original date to today"
+msgstr "Özgün tarihi bugün olarak belirle"
+
+#: exif/exifdatetime.cpp:145
+msgid ""
+"Set here the date and time when the original image data was generated. For a "
+"digital still camera the date and time the picture was taken are recorded."
+msgstr ""
+"Özgün resim verisi oluşturulduğundaki tarih ve saati buradan belirleyin. Bir "
+"dijital kamera için resmin çekildiği tarih ve zaman kaydedilir."
+
+#: exif/exifdatetime.cpp:148
+msgid ""
+"Set here the fractions of seconds for the date and time when the original "
+"image data was generated."
+msgstr ""
+"Özgün resim verisi oluşturulduğundaki tarih ve saat için saniye kesirlerini "
+"buradan belirleyin."
+
+#: exif/exifdatetime.cpp:155
+msgid "Digitization date and time"
+msgstr "Sayısallaştırma tarihi ve saati"
+
+#: exif/exifdatetime.cpp:156
+#, fuzzy
+#| msgid "Digitization sub-second"
+msgid "Digitization sub-second"
+msgstr "Sayısallaştırma alt-saniyesi"
+
+#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
+msgid "Set digitization date to today"
+msgstr "Sayısallaştırma zamanını bugün olarak belirle"
+
+#: exif/exifdatetime.cpp:164
+msgid ""
+"Set here the date and time when the image was stored as digital data. If, "
+"for example, an image was captured by a digital still camera and at the same "
+"time the file was recorded, then Original and Digitization date and time "
+"will have the same contents."
+msgstr ""
+"Resmin dijital veri olarak depolandığındaki tarih ve saati buradan "
+"belirleyin. Eğer resim dijital bir kamera ile çekildiyse ve aynı anda dosya "
+"olarak kaydedildiyse, o halde Özgün ve Sayısallaştırma tarih ve saati aynı "
+"içeriğe sahip olacaktır."
+
+#: exif/exifdatetime.cpp:169
+msgid ""
+"Set here the fractions of seconds for the date and time when the image was "
+"stored as digital data."
+msgstr ""
+"Resmin dijital veri olarak depolandığındaki tarih ve saat için saniye "
+"kesirlerini buradan belirleyin."
+
+#: exif/exifdevice.cpp:130
+msgid "Device manufacturer (*):"
+msgstr "Aygıt üreticisi (*):"
+
+#: exif/exifdevice.cpp:134
+msgid ""
+"Set here the manufacturer of image input equipment used to take the picture. "
+"This field is limited to ASCII characters."
+msgstr ""
+"Fotoğraf çekmek için kullanılan resim giriş donanımının üreticisini buradan "
+"belirleyin. Bu alan ASCII karakterlerle sınırlıdır. "
+
+#: exif/exifdevice.cpp:139
+msgid "Device model (*):"
+msgstr "Aygıt modeli (*):"
+
+#: exif/exifdevice.cpp:143
+msgid ""
+"Set here the model of image input equipment used to take the picture. This "
+"field is limited to ASCII characters."
+msgstr ""
+"Foroğraf çekmek için kullanılan resim giriş donanımının modelini buradan "
+"belirleyin. Bu alan ASCII karakterlerle sınırlıdır."
+
+#: exif/exifdevice.cpp:148
+msgid "Device type:"
+msgstr "Aygıt tipi:"
+
+#: exif/exifdevice.cpp:150
+msgid "Film scanner"
+msgstr "Film tarayıcı"
+
+#: exif/exifdevice.cpp:151
+msgid "Reflection print scanner"
+msgstr "Düz yatak tarayıcı"
+
+#: exif/exifdevice.cpp:152
+msgid "Digital still camera"
+msgstr "Dijital kamera"
+
+#: exif/exifdevice.cpp:153
+msgid "Select here the image input equipment type used to take the picture."
+msgstr ""
+"Fotoğraf çekmek için kullanılan resim giriş donanımının türünü buradan "
+"belirleyin."
+
+#: exif/exifdevice.cpp:156
+msgid ""
+"<b>Warning: EXIF <b><a href='http://en.wikipedia.org/wiki/"
+"Exchangeable_image_file_format#MakerNote_data'>Makernotes</a></b> can be "
+"unreadable if you set wrong device manufacturer/model description.</b>"
+msgstr ""
+"<b>Uyarı: EXIF <b><a href='http://en.wikipedia.org/wiki/"
+"Exchangeable_image_file_format#MakerNote_data'>Makernotes</a></b> can be "
+"unreadable if you set wrong device manufacturer/model description.</b>"
+
+#: exif/exifdevice.cpp:168
+msgid "Exposure time (seconds):"
+msgstr "Pozlandırma süresi (saniye):"
+
+#: exif/exifdevice.cpp:173
+msgid ""
+"Set on this option to set the exposure time of picture, given in seconds."
+msgstr "Fotoğrafın ışıklama zamanını bu seçenekten belirleyin."
+
+#: exif/exifdevice.cpp:178
+msgid "Exposure program:"
+msgstr "Pozlandırma uygulaması:"
+
+#: exif/exifdevice.cpp:180
+#, fuzzy
+#| msgid "Not defined"
+msgctxt "exposure program"
+msgid "Not defined"
+msgstr "Tanımlanmamış"
+
+#: exif/exifdevice.cpp:181
+#, fuzzy
+#| msgid "Manual"
+msgctxt "exposure program"
+msgid "Manual"
+msgstr "El ile"
+
+#: exif/exifdevice.cpp:182
+#, fuzzy
+#| msgid "Auto"
+msgctxt "exposure program"
+msgid "Auto"
+msgstr "Otomatik"
+
+#: exif/exifdevice.cpp:183
+#, fuzzy
+#| msgid "Aperture priority"
+msgctxt "exposure program"
+msgid "Aperture priority"
+msgstr "Diyafram açıklığı önceliği"
+
+#: exif/exifdevice.cpp:184
+#, fuzzy
+#| msgid "Shutter priority"
+msgctxt "exposure program"
+msgid "Shutter priority"
+msgstr "Deklanşör önceliği"
+
+#: exif/exifdevice.cpp:185
+#, fuzzy
+#| msgid "Creative program"
+msgctxt "exposure program"
+msgid "Creative program"
+msgstr "Oluşturucu uygulama"
+
+#: exif/exifdevice.cpp:186
+#, fuzzy
+#| msgid "Action program"
+msgctxt "exposure program"
+msgid "Action program"
+msgstr "Eylem uygulaması"
+
+#: exif/exifdevice.cpp:187
+#, fuzzy
+#| msgid "Portrait mode"
+msgctxt "exposure program"
+msgid "Portrait mode"
+msgstr "Dikey kip"
+
+#: exif/exifdevice.cpp:188
+#, fuzzy
+#| msgid "Landscape mode"
+msgctxt "exposure program"
+msgid "Landscape mode"
+msgstr "Yatay kip"
+
+#: exif/exifdevice.cpp:189
+msgid ""
+"Select here the program used by the camera to set exposure when the picture "
+"was taken."
+msgstr ""
+"Fotoğraf çekilirken yapılan pozlandırmayı belirlemek için kamera tarafından "
+"kullanılan programı buradan belirleyin."
+
+#: exif/exifdevice.cpp:194
+msgid "Exposure mode:"
+msgstr "Pozlandırma kipi:"
+
+#: exif/exifdevice.cpp:196
+#, fuzzy
+#| msgid "Auto"
+msgctxt "exposure mode"
+msgid "Auto"
+msgstr "Otomatik"
+
+#: exif/exifdevice.cpp:197
+#, fuzzy
+#| msgid "Manual"
+msgctxt "exposure mode"
+msgid "Manual"
+msgstr "El ile"
+
+#: exif/exifdevice.cpp:198
+#, fuzzy
+#| msgid "Auto bracket"
+msgctxt "exposure mode"
+msgid "Auto bracket"
+msgstr "Otomatik ayraç"
+
+#: exif/exifdevice.cpp:199
+msgid ""
+"Select here the mode used by the camera to set exposure when the picture was "
+"taken. In auto-bracketing mode, the camera shoots a series of frames of the "
+"same scene at different exposure settings."
+msgstr ""
+"Fotoğraf çekilirken makine tarafından kullanılan pozlandırma kipini buradan "
+"belirleyin. Otomatik ayraçlama yönteminde, makine aynı sahnenin çerçeve "
+"grubunu farklı pozlandırma ayarlarıyla çeker."
+
+#: exif/exifdevice.cpp:207
+msgid "Exposure bias (APEX):"
+msgstr "Işıklama sapması (APEX):"
+
+#: exif/exifdevice.cpp:212
+msgid ""
+"Set here the exposure bias value (in APEX units) used by camera to take the "
+"picture."
+msgstr ""
+"Resim çekmek için kamera tarafından kullanılan (APEX birimi ile) pozlandırma "
+"sapması değerini buradan belirleyin."
+
+#: exif/exifdevice.cpp:219
+msgid "Metering mode:"
+msgstr "Ölçme kipi:"
+
+#: exif/exifdevice.cpp:221
+#, fuzzy
+#| msgid "Unknown"
+msgctxt "metering mode"
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: exif/exifdevice.cpp:222
+#, fuzzy
+#| msgid "Average"
+msgctxt "metering mode"
+msgid "Average"
+msgstr "Ortalama"
+
+#: exif/exifdevice.cpp:223
+#, fuzzy
+#| msgid "Center weighted average"
+msgctxt "metering mode"
+msgid "Center weighted average"
+msgstr "Merkez ağırlıklı ortalama"
+
+#: exif/exifdevice.cpp:224
+#, fuzzy
+#| msgid "Spot"
+msgctxt "metering mode"
+msgid "Spot"
+msgstr "Nokta"
+
+#: exif/exifdevice.cpp:225
+#, fuzzy
+#| msgid "Multi-spot"
+msgctxt "metering mode"
+msgid "Multi-spot"
+msgstr "Çoklu-nokta"
+
+#: exif/exifdevice.cpp:226
+#, fuzzy
+#| msgid "Multi-segment"
+msgctxt "metering mode"
+msgid "Multi-segment"
+msgstr "Çoklu-bölüm"
+
+#: exif/exifdevice.cpp:227
+#, fuzzy
+#| msgid "Partial"
+msgctxt "metering mode"
+msgid "Partial"
+msgstr "Kısmi"
+
+#: exif/exifdevice.cpp:228
+#, fuzzy
+#| msgid "Other"
+msgctxt "metering mode"
+msgid "Other"
+msgstr "Diğer"
+
+#: exif/exifdevice.cpp:229
+msgid ""
+"Select here the metering mode used by the camera to set exposure when the "
+"picture was taken."
+msgstr ""
+"Fotoğraf çekilirken yapılan pozlandırmayı belirlemek için kamera tarafından "
+"kullanılan ölçme yöntemini buradan belirleyin."
+
+#: exif/exifdevice.cpp:234
+msgid "Sensitivity (ISO):"
+msgstr "Duyarlılık (ISO):"
+
+#: exif/exifdevice.cpp:272
+msgid "Select here the ISO Speed of the camera which took the picture."
+msgstr "Fotoğrafı çeken kameranın ISO Hızını buradan belirleyin."
+
+#: exif/exifdevice.cpp:277
+msgid "Sensing method:"
+msgstr "Algılama yöntemi:"
+
+#: exif/exifdevice.cpp:279
+msgid "Not defined"
+msgstr "Tanımlanmamış"
+
+#: exif/exifdevice.cpp:280
+msgid "One-chip color area"
+msgstr "Bir-iz renk alanı"
+
+#: exif/exifdevice.cpp:281
+msgid "Two-chip color area"
+msgstr "İki-iz renk alanı"
+
+#: exif/exifdevice.cpp:282
+msgid "Three-chip color area"
+msgstr "Üç-iz renk alanı"
+
+#: exif/exifdevice.cpp:283
+msgid "Color sequential area"
+msgstr "Renk ardaşığı alanı"
+
+#: exif/exifdevice.cpp:284
+msgid "Trilinear sensor"
+msgstr "Üç çizgili algılayıcı"
+
+#: exif/exifdevice.cpp:285
+msgid "Color sequential linear"
+msgstr "Renk ardaşığı doğrusal"
+
+#: exif/exifdevice.cpp:286
+msgid ""
+"Select here the image sensor type used by the camera to take the picture."
+msgstr ""
+"Fotoğraf çekmek için kamera tarafından kullanılan resim algılayıcı türünü "
+"buradan seçin."
+
+#: exif/exifdevice.cpp:291
+msgid "Scene capture type:"
+msgstr "Ekran yakalama tipi:"
+
+#: exif/exifdevice.cpp:293
+msgid "Standard"
+msgstr "Standart"
+
+#: exif/exifdevice.cpp:294
+msgid "Landscape"
+msgstr "Yatay"
+
+#: exif/exifdevice.cpp:295
+msgid "Portrait"
+msgstr "Dikey"
+
+#: exif/exifdevice.cpp:296 xmp/xmpproperties.cpp:95
+msgid "Night scene"
+msgstr "Gece çekimi"
+
+#: exif/exifdevice.cpp:297
+msgid "Select here the type of scene used by the camera to take the picture."
+msgstr ""
+"Fotoğraf çekmek için kamera tarafından kullanılan sahne türünü buradan seçin."
+
+#: exif/exifdevice.cpp:302
+msgid "Subject distance type:"
+msgstr "Nesne mesafe türü:"
+
+#: exif/exifdevice.cpp:304
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: exif/exifdevice.cpp:305
+msgid "Macro"
+msgstr "Makro"
+
+#: exif/exifdevice.cpp:306
+msgid "Close view"
+msgstr "Yakın görünüm"
+
+#: exif/exifdevice.cpp:307
+msgid "Distant view"
+msgstr "Uzak görünüm"
+
+#: exif/exifdevice.cpp:308
+msgid ""
+"Select here the type of distance between the subject and the image input "
+"equipment."
+msgstr "Nesne ve resim giriş donanımı arasındaki mesafe türünü buradan seçin."
+
+#: exif/exifeditwidget.cpp:125
+#, fuzzy
+#| msgid "Caption"
+msgctxt "image caption"
+msgid "Caption"
+msgstr "Başlık"
+
+#: exif/exifeditwidget.cpp:126
+msgid "Caption Information"
+msgstr "Başlık Bilgileri"
+
+#: exif/exifeditwidget.cpp:130
+msgid "Date & Time"
+msgstr "Tarih ve Saat"
+
+#: exif/exifeditwidget.cpp:131
+msgid "Date and Time Information"
+msgstr "Tarih ve Saat Bilgileri"
+
+#: exif/exifeditwidget.cpp:135
+msgid "Lens"
+msgstr "Mercek"
+
+#: exif/exifeditwidget.cpp:136
+msgid "Lens Settings"
+msgstr "Mercek Ayarları"
+
+#: exif/exifeditwidget.cpp:140
+msgid "Device"
+msgstr "Aygıt"
+
+#: exif/exifeditwidget.cpp:141
+msgid "Capture Device Settings"
+msgstr "Yakalama Aygıtı Ayarları"
+
+#: exif/exifeditwidget.cpp:145
+msgid "Light"
+msgstr "Işık"
+
+#: exif/exifeditwidget.cpp:146
+msgid "Light Source Information"
+msgstr "Işık Kaynağı Bilgileri"
+
+#: exif/exifeditwidget.cpp:150
+msgctxt "Picture adjustments"
+msgid "Adjustments"
+msgstr "Düzeltmeler"
+
+#: exif/exifeditwidget.cpp:151
+msgid "Pictures Adjustments"
+msgstr "Fotoğraf Ayarlamaları"
+
+#: exif/exiflens.cpp:152
+msgid "Focal length (mm):"
+msgstr "Odak uzaklığı (mm):"
+
+#: exif/exiflens.cpp:158
+msgid ""
+"Set here the lens focal length in millimeters used by camera to take the "
+"picture."
+msgstr ""
+"Resim çekmek için kamera tarafından kullanılan merceklerin odak "
+"uzunluklarını milimetre olarak buradan belirleyin."
+
+#: exif/exiflens.cpp:163
+msgid "Focal length in 35mm film (mm):"
+msgstr "35 mm filmdeki odak uzunluğu (mm):"
+
+#: exif/exiflens.cpp:165
+msgid ""
+"Set here equivalent focal length assuming a 35mm film camera, in mm. A value "
+"of 0 means the focal length is unknown."
+msgstr ""
+"Bir 35 mm film kamerasına eş odak uzunluğunu buradan belirleyin (mm olarak). "
+"0 değeri odak uzunluğunun bilinmediği anlamına gelir."
+
+#: exif/exiflens.cpp:171
+msgid "Digital zoom ratio:"
+msgstr "Dijital yakınlaşma oranı:"
+
+#: exif/exiflens.cpp:177
+msgid "Set here the digital zoom ratio used by camera to take the picture."
+msgstr ""
+"Resim çekmek için kamera tarafından kullanılan dijital yakınlaşma oranını "
+"buradan belirleyin."
+
+#: exif/exiflens.cpp:182
+msgid "Lens aperture (f-number):"
+msgstr "Lens açıklığı (odak oranıı):"
+
+#: exif/exiflens.cpp:185
+msgid "Select here the lens aperture used by camera to take the picture."
+msgstr ""
+"Resim çekmek için kamera tarafından kullanılan lens açıklığını buradan "
+"belirleyin."
+
+#: exif/exiflens.cpp:190
+msgid "Max. lens aperture (f-number):"
+msgstr "Azami lens açıklığı (odak oranı):"
+
+#: exif/exiflens.cpp:193
+msgid ""
+"Select here the smallest aperture of the lens used by camera to take the "
+"picture."
+msgstr ""
+"Resim çekmek için kamera tarafından kullanılan en küçük lens açıklığını "
+"buradan belirleyin."
+
+#: exif/exiflight.cpp:84
+msgid "No flash"
+msgstr "Flaşsız"
+
+#: exif/exiflight.cpp:85
+msgid "Fired"
+msgstr "Ateşli"
+
+#: exif/exiflight.cpp:86
+msgid "Fired, no strobe return light"
+msgstr "Ateşli, stroboskop dönüş ışığı yok"
+
+#: exif/exiflight.cpp:87
+msgid "Fired, strobe return light"
+msgstr "Ateşli, stroboskop dönüş ışığı"
+
+#: exif/exiflight.cpp:88
+msgid "Yes, compulsory"
+msgstr "Evet, zorunlu"
+
+#: exif/exiflight.cpp:89
+msgid "Yes, compulsory, no return light"
+msgstr "Evet, zorunlu, dönüş ışığı yok"
+
+#: exif/exiflight.cpp:90
+msgid "Yes, compulsory, return light"
+msgstr "Evet, zorunlu, dönüş ışığı"
+
+#: exif/exiflight.cpp:91
+msgid "No, compulsory"
+msgstr "Hayır, zorunlu"
+
+#: exif/exiflight.cpp:92
+msgid "No, auto"
+msgstr "Hayır, otomatik"
+
+#: exif/exiflight.cpp:93
+msgid "Yes, auto"
+msgstr "Evet, otomatik"
+
+#: exif/exiflight.cpp:94
+msgid "Yes, auto, no return light"
+msgstr "Evet, otomatik, dönüş ışığı yok"
+
+#: exif/exiflight.cpp:95
+msgid "Yes, auto, return light"
+msgstr "Evet, otomatik, dönüş ışığı"
+
+#: exif/exiflight.cpp:96
+msgid "No flash function"
+msgstr "Flaş işlevi yok"
+
+#: exif/exiflight.cpp:97
+msgid "Yes, red-eye"
+msgstr "Evet, kırmızı gözz"
+
+#: exif/exiflight.cpp:98
+msgid "Yes, red-eye, no return light"
+msgstr "Evet, kırmızı göz, dönüş ışığı yok"
+
+#: exif/exiflight.cpp:99
+msgid "Yes, red-eye, return light"
+msgstr "Evet, kırmızı göz, dönüş ışığı"
+
+#: exif/exiflight.cpp:100
+msgid "Yes, compulsory, red-eye"
+msgstr "Evet, zorunlu, kırmızı göz"
+
+#: exif/exiflight.cpp:101
+msgid "Yes, compulsory, red-eye, no return light"
+msgstr "Evet, zorunlu, kırmızı göz, dönüş ışığı yok"
+
+#: exif/exiflight.cpp:102
+msgid "Yes, compulsory, red-eye, return light"
+msgstr "Evet, zorunlu, kırmızı göz, dönüş ışığı"
+
+#: exif/exiflight.cpp:103
+msgid "Yes, auto, red-eye"
+msgstr "Evet, otomatik, kırmızı göz"
+
+#: exif/exiflight.cpp:104
+msgid "Yes, auto, red-eye, no return light"
+msgstr "Evet, otomatik, kırmızı göz, dönüş ışığı yok"
+
+#: exif/exiflight.cpp:105
+msgid "Yes, auto, red-eye, return light"
+msgstr "Evet, otomatik, kırmızı göz, dönüş ışığı"
+
+#: exif/exiflight.cpp:134
+msgid "Light source:"
+msgstr "Işık kaynağı:"
+
+#: exif/exiflight.cpp:136
+#, fuzzy
+#| msgid "Unknown"
+msgctxt "light source"
+msgid "Unknown"
+msgstr "Bilinmeyen"
+
+#: exif/exiflight.cpp:137
+#, fuzzy
+#| msgid "Daylight"
+msgctxt "light source"
+msgid "Daylight"
+msgstr "Gün ışığı"
+
+#: exif/exiflight.cpp:138
+#, fuzzy
+#| msgid "Fluorescent"
+msgctxt "light source"
+msgid "Fluorescent"
+msgstr "Florasan"
+
+#: exif/exiflight.cpp:139
+#, fuzzy
+#| msgid "Tungsten (incandescent light)"
+msgctxt "light source"
+msgid "Tungsten (incandescent light)"
+msgstr "Tungusten (parlak ışık)"
+
+#: exif/exiflight.cpp:140
+#, fuzzy
+#| msgid "Flash"
+msgctxt "light source"
+msgid "Flash"
+msgstr "Flaş"
+
+#: exif/exiflight.cpp:141
+#, fuzzy
+#| msgid "Fine weather"
+msgctxt "light source"
+msgid "Fine weather"
+msgstr "Açık hava"
+
+#: exif/exiflight.cpp:142
+#, fuzzy
+#| msgid "Cloudy weather"
+msgctxt "light source"
+msgid "Cloudy weather"
+msgstr "Bulutlu hava"
+
+#: exif/exiflight.cpp:143
+#, fuzzy
+#| msgid "Shade"
+msgctxt "light source"
+msgid "Shade"
+msgstr "Gölge"
+
+#: exif/exiflight.cpp:144
+#, fuzzy
+#| msgid "Daylight fluorescent (D 5700 - 7100K)"
+msgctxt "light source"
+msgid "Daylight fluorescent (D 5700 - 7100K)"
+msgstr "Gün ışığı floresanı (D 5700 - 7100K)"
+
+#: exif/exiflight.cpp:145
+#, fuzzy
+#| msgid "Day white fluorescent (N 4600 - 5400K)"
+msgctxt "light source"
+msgid "Day white fluorescent (N 4600 - 5400K)"
+msgstr "Gündüz beyaz floresan (N 4600 - 5400K)"
+
+#: exif/exiflight.cpp:146
+#, fuzzy
+#| msgid "Cool white fluorescent (W 3900 - 4500K)"
+msgctxt "light source"
+msgid "Cool white fluorescent (W 3900 - 4500K)"
+msgstr "Soğuk beyaz floresan (' 3900 - 4500K)"
+
+#: exif/exiflight.cpp:147
+#, fuzzy
+#| msgid "White fluorescent (WW 3200 - 3700K)"
+msgctxt "light source"
+msgid "White fluorescent (WW 3200 - 3700K)"
+msgstr "Beyaz floresan (WW 3200 - 3700K)"
+
+#: exif/exiflight.cpp:148
+#, fuzzy
+#| msgid "Standard light A"
+msgctxt "light source"
+msgid "Standard light A"
+msgstr "Standart ışık A"
+
+#: exif/exiflight.cpp:149
+#, fuzzy
+#| msgid "Standard light B"
+msgctxt "light source"
+msgid "Standard light B"
+msgstr "Standart ışık B"
+
+#: exif/exiflight.cpp:150
+#, fuzzy
+#| msgid "Standard light C"
+msgctxt "light source"
+msgid "Standard light C"
+msgstr "Standart ışık C"
+
+#: exif/exiflight.cpp:151
+#, fuzzy
+#| msgid "D55"
+msgctxt "light source"
+msgid "D55"
+msgstr "D55"
+
+#: exif/exiflight.cpp:152
+#, fuzzy
+#| msgid "D65"
+msgctxt "light source"
+msgid "D65"
+msgstr "D65"
+
+#: exif/exiflight.cpp:153
+#, fuzzy
+#| msgid "D75"
+msgctxt "light source"
+msgid "D75"
+msgstr "D75"
+
+#: exif/exiflight.cpp:154
+#, fuzzy
+#| msgid "D50"
+msgctxt "light source"
+msgid "D50"
+msgstr "D50"
+
+#: exif/exiflight.cpp:155
+#, fuzzy
+#| msgid "ISO studio tungsten"
+msgctxt "light source"
+msgid "ISO studio tungsten"
+msgstr "ISO stüdyo tungsten"
+
+#: exif/exiflight.cpp:156
+#, fuzzy
+#| msgid "Other light source"
+msgctxt "light source"
+msgid "Other light source"
+msgstr "Diğer ışık kaynağı"
+
+#: exif/exiflight.cpp:157
+msgid "Select here the kind of light source used to take the picture."
+msgstr "Resim çekmek için kullanılan ışık kaynağı türünü buradan seçin."
+
+#: exif/exiflight.cpp:162
+msgid "Flash mode:"
+msgstr "Flaş kipi:"
+
+#: exif/exiflight.cpp:168
+msgid ""
+"Select here the flash program mode used by the camera to take the picture."
+msgstr "Resim çekmek için kullanılan flaş programı yöntemini buradan seçin."
+
+#: exif/exiflight.cpp:173
+msgid "Flash energy (BCPS):"
+msgstr "Flash gücü (BCPS):"
+
+#: exif/exiflight.cpp:179
+#, fuzzy
+#| msgid ""
+#| "Set here the flash energy used to take the picture in BCPS units.  Beam "
+#| "Candle Power Seconds is the measure of effective intensity of a light "
+#| "source when it is focused into a beam by a reflector or lens. This value "
+#| "is the effective intensity for a period of one second."
+msgid ""
+"Set here the flash energy used to take the picture in BCPS units. Beam "
+"Candle Power Seconds is the measure of effective intensity of a light source "
+"when it is focused into a beam by a reflector or lens. This value is the "
+"effective intensity for a period of one second."
+msgstr ""
+"BCPS birimde resim çekmek için kullanılan flaş enerjisini buradan "
+"belirleyin. Işın Mum Gücü Saniyeleri, bir yansıtıcı veya lenslerle bir ışına "
+"odaklandığı zamanki bir ışık kaynağının etkili yoğunluk ölçüsüdür. Bu değer, "
+"bir saniyelik bir periyod için etkili bir yoğunluktur."
+
+#: exif/exiflight.cpp:187
+msgid "White balance:"
+msgstr "Beyaz dengesi:"
+
+#: exif/exiflight.cpp:189
+msgid "Auto"
+msgstr "Otomatik"
+
+#: exif/exiflight.cpp:190
+msgid "Manual"
+msgstr "El ile"
+
+#: exif/exiflight.cpp:191
+msgid ""
+"Select here the white balance mode set by the camera when the picture was "
+"taken."
+msgstr ""
+"Resim çekilirken kamera tarafından belirlenen beyaz dengesi kipini buradan "
+"seçin."
+
+#: iptc/iptccategories.cpp:93 xmp/xmpcategories.cpp:87
+msgid "Identify subject of content (3 chars max):"
+msgstr "İçerik öznesini tanımlayın (en fazla 3 karakter):"
+
+#: iptc/iptccategories.cpp:98
+msgid ""
+"Set here the category of content. This field is limited to 3 ASCII "
+"characters."
+msgstr ""
+"İçerik kategorisini buradan belirleyin. Bu alan 3 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptccategories.cpp:101 xmp/xmpcategories.cpp:94
+msgid "Supplemental categories:"
+msgstr "Tamamlayıcı kategoriler:"
+
+#: iptc/iptccategories.cpp:107
+msgid ""
+"Enter here a new supplemental category of content. This field is limited to "
+"32 ASCII characters."
+msgstr ""
+"Yeni bir tamamlayıcı içerik kategorisini buradan girin. Bu alan 32 ASCII "
+"karakterle sınırlıdır."
+
+#: iptc/iptccategories.cpp:113 iptc/iptckeywords.cpp:100
+#: xmp/xmpcategories.cpp:103 xmp/xmpkeywords.cpp:91
+msgid "&Add"
+msgstr "&Ekle"
+
+#: iptc/iptccategories.cpp:114 iptc/iptckeywords.cpp:101
+#: xmp/xmpcategories.cpp:104 xmp/xmpkeywords.cpp:92
+msgid "&Delete"
+msgstr "&Sil"
+
+#: iptc/iptccategories.cpp:115 iptc/iptckeywords.cpp:102
+#: xmp/xmpcategories.cpp:105 xmp/xmpkeywords.cpp:93
+msgid "&Replace"
+msgstr "&Değiştir"
+
+#: iptc/iptccategories.cpp:124 iptc/iptccontent.cpp:124
+#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:267
+#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:229
+#: iptc/iptcproperties.cpp:238 iptc/iptcstatus.cpp:129
+#: iptc/iptcsubjects.cpp:92
+#, fuzzy
+#| msgid ""
+#| "<b>Note: <b><a href='http://en.wikipedia.org/wiki/IPTC'>IPTC</a></b> text "
+#| "tags only support the printable <b><a href='http://en.wikipedia.org/wiki/"
+#| "Ascii'>ASCII</a></b> characters and limit string sizes. Use contextual "
+#| "help for details.</b>"
+msgid ""
+"<b>Note: <b><a href='http://en.wikipedia.org/wiki/"
+"IPTC_Information_Interchange_Model'>IPTC</a></b> text tags only support the "
+"printable <b><a href='http://en.wikipedia.org/wiki/Ascii'>ASCII</a></b> "
+"characters and limit string sizes. Use contextual help for details.</b>"
+msgstr ""
+"<b>Not:<b><a href='http://tr.wikipedia.org/wiki/IPTC'>IPTC</a></b> metin "
+"etiketleri yalnızca basılabilir <b><a href='http://tr.wikipedia.org/wiki/"
+"Ascii'>ASCII</a></b> karakter takımını destekler ve dizgi boyutunu sınırlar. "
+"Ayrıntılar için bağlamsal yardımı kullanın.</b>"
+
+#: iptc/iptccontent.cpp:93 xmp/xmpcontent.cpp:89
+msgid "Headline:"
+msgstr "Başlık:"
+
+#: iptc/iptccontent.cpp:98
+msgid ""
+"Enter here the content synopsis. This field is limited to 256 ASCII "
+"characters."
+msgstr "İçerik özetini buradan girin. Bu alan 256 karakterler sınırlıdır."
+
+#: iptc/iptccontent.cpp:103 xmp/xmpcontent.cpp:96
+#, fuzzy
+#| msgid "Caption:"
+msgctxt "content description"
+msgid "Caption:"
+msgstr "Başlık:"
+
+#: iptc/iptccontent.cpp:106 xmp/xmpcontent.cpp:103
+#, kde-format
+msgid "Sync caption entered through %1"
+msgstr "%1 konumundan girilen resim yazısını eşle"
+
+#: iptc/iptccontent.cpp:109 xmp/xmpcontent.cpp:106
+msgid "Sync EXIF Comment"
+msgstr "EXIF Yorumunu eşle"
+
+#: iptc/iptccontent.cpp:113
+msgid ""
+"Enter the content description. This field is limited to 2000 ASCII "
+"characters."
+msgstr "İçerik tanımını girin. Bu alan 2000 ASCII karakterle sınırlıdır."
+
+#: iptc/iptccontent.cpp:118 xmp/xmpcontent.cpp:116
+msgid "Caption Writer:"
+msgstr "Resim Yazısı Yazıcısı:"
+
+#: iptc/iptccontent.cpp:119 xmp/xmpcontent.cpp:119
+msgid "Enter the name of the caption author."
+msgstr "Resim yazısı yazarının adını girin."
+
+#: iptc/iptccredits.cpp:96 xmp/xmpcontent.cpp:121
+msgid "Copyright:"
+msgstr "Telif hakkı:"
+
+#: iptc/iptccredits.cpp:101
+msgid ""
+"Set here the necessary copyright notice. This field is limited to 128 ASCII "
+"characters."
+msgstr ""
+"Gerekli telif hakkı uyarısını buradan belirleyin. Bu alan 128 ASCII "
+"karakterle sınırlıdır."
+
+#: iptc/iptccredits.cpp:106 xmp/xmpcredits.cpp:111
+msgid "Byline:"
+msgstr "Yazar Adı:"
+
+#: iptc/iptccredits.cpp:107 xmp/xmpcredits.cpp:112
+msgid "Set here the name of content creator."
+msgstr "İçerik yaratıcısının adını buradan belirleyin."
+
+#: iptc/iptccredits.cpp:112 xmp/xmpcredits.cpp:117
+msgid "Byline Title:"
+msgstr "Yazar Ünvanı:"
+
+#: iptc/iptccredits.cpp:113 xmp/xmpcredits.cpp:120
+msgid "Set here the title of content creator."
+msgstr "İçerik yaratıcısının ünvanını buradan belirleyin."
+
+#: iptc/iptccredits.cpp:118 xmp/xmpcredits.cpp:182
+msgid "Credit:"
+msgstr "Kredi:"
+
+#: iptc/iptccredits.cpp:123
+msgid ""
+"Set here the content provider. This field is limited to 32 ASCII characters."
+msgstr ""
+"İçerik sağlayıcısını buradan belirleyin. Bu alan 32 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptccredits.cpp:128 xmp/xmpcredits.cpp:189
+#, fuzzy
+#| msgid "Source:"
+msgctxt "original owner of content"
+msgid "Source:"
+msgstr "Kaynak:"
+
+#: iptc/iptccredits.cpp:133
+msgid ""
+"Set here the original owner of content. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"İçeriğin özgün sahibini buradan belirleyin. Bu alan 32 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptccredits.cpp:138
+msgid "Contact:"
+msgstr "İletişim:"
+
+#: iptc/iptccredits.cpp:139
+msgid "Set here the person or organisation to contact."
+msgstr "Bağlantı kurulacak kişi veya kurumu buradan belirleyin."
+
+#: iptc/iptceditwidget.cpp:132 xmp/xmpeditwidget.cpp:132
+msgid "Content"
+msgstr "İçerik"
+
+#: iptc/iptceditwidget.cpp:133 xmp/xmpeditwidget.cpp:133
+msgid ""
+"<qt>Content Information<br/><i>Use this panel to describe the visual content "
+"of the image</i></qt>"
+msgstr ""
+"<qt>İçerik Bilgisi<br/><i>Resmin görsel içeriğini tanımlamak için bu paneli "
+"kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:138 xmp/xmpeditwidget.cpp:138
+msgid "Origin"
+msgstr "Kaynak"
+
+#: iptc/iptceditwidget.cpp:139 xmp/xmpeditwidget.cpp:139
+msgid ""
+"<qt>Origin Information<br/><i>Use this panel for formal descriptive "
+"information about the image</i></qt>"
+msgstr ""
+"<qt>Özgün Bilgi<br/><i>Resim hakkında resmi tanımlayıcı bilgi için bu paneli "
+"kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:144 xmp/xmpeditwidget.cpp:144
+msgid "Credits"
+msgstr "Krediler"
+
+#: iptc/iptceditwidget.cpp:145 xmp/xmpeditwidget.cpp:145
+msgid ""
+"<qt>Credit Information<br/><i>Use this panel to record copyright information "
+"about the image</i></qt>"
+msgstr ""
+"<qt>Emeği Geçenlere ait Bilgiler<br/><i>Resimle ilgili telif hakkı "
+"bilgilerini kaydetmek için bu paneli kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:150 xmp/xmpeditwidget.cpp:150
+msgid "Subjects"
+msgstr "Konular"
+
+#: iptc/iptceditwidget.cpp:151 xmp/xmpeditwidget.cpp:151
+msgid ""
+"<qt>Subject Information<br/><i>Use this panel to record subject information "
+"about the image</i></qt>"
+msgstr ""
+"<qt>Konu Bilgileri<br/><i>Resimle ilgili konuları kaydetmek için bu paneli "
+"kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:156 xmp/xmpeditwidget.cpp:156
+msgid "Keywords"
+msgstr "Anahtar sözcükler"
+
+#: iptc/iptceditwidget.cpp:157 xmp/xmpeditwidget.cpp:157
+msgid ""
+"<qt>Keyword Information<br/><i>Use this panel to record keywords relevant to "
+"the image</i></qt>"
+msgstr ""
+"<qt>Anahtar Sözcük Bilgileri<br/><i>Resimle ilgili anahtar sözcükleri "
+"kaydetmek için bu paneli kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:162 xmp/xmpeditwidget.cpp:162
+msgid "Categories"
+msgstr "Kategoriler"
+
+#: iptc/iptceditwidget.cpp:163 xmp/xmpeditwidget.cpp:163
+msgid ""
+"<qt>Category Information<br/><i>Use this panel to record categories relevant "
+"to the image</i></qt>"
+msgstr ""
+"<qt>Kategori Bilgileri<br/><i>Resimle ilgili kategori bilgilerini kaydetmek "
+"için bu paneli kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:168 xmp/xmpeditwidget.cpp:168
+msgid "Status"
+msgstr "Durum"
+
+#: iptc/iptceditwidget.cpp:169 xmp/xmpeditwidget.cpp:169
+msgid ""
+"<qt>Status Information<br/><i>Use this panel to record workflow information</"
+"i></qt>"
+msgstr ""
+"<qt>Durum Bilgileri<br/><i>İş akışı bilgilerini kaydetmek için bu paneli "
+"kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:174 xmp/xmpeditwidget.cpp:174
+msgid "Properties"
+msgstr "Özellikler"
+
+#: iptc/iptceditwidget.cpp:175 xmp/xmpeditwidget.cpp:175
+msgid ""
+"<qt>Status Properties<br/><i>Use this panel to record workflow properties</"
+"i></qt>"
+msgstr ""
+"<qt>Durum Özellikleri<br/><i>İş akışı özelliklerini kaydetmek için bu paneli "
+"kullanın</i></qt>"
+
+#: iptc/iptceditwidget.cpp:180
+msgid "Envelope"
+msgstr "Zarf"
+
+#: iptc/iptceditwidget.cpp:181
+msgid ""
+"<qt>Envelope Information<br/><i>Use this panel to record editorial details</"
+"i></qt>"
+msgstr ""
+"<qt>Yayıncı Bilgileri<br/><i>Yayıncıya ait bilgiyi kaydetmek için bu paneli "
+"kullanın</i></qt>"
+
+#: iptc/iptcenvelope.cpp:88
+msgid "No ObjectData"
+msgstr "NesneVerisi Yok"
+
+#: iptc/iptcenvelope.cpp:89
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 1)"
+msgstr "IPTC-NAA Dijital Haber Fotoğrafı Parametre Kaydı (sürüm 1)"
+
+#: iptc/iptcenvelope.cpp:90
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 2)"
+msgstr "IPTC-NAA Dijital Haber Fotoğrafı Parametre Kaydı (sürüm 2)"
+
+#: iptc/iptcenvelope.cpp:91
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 3)"
+msgstr "IPTC-NAA Dijital Haber Fotoğrafı Parametre Kaydı (sürüm 3)"
+
+#: iptc/iptcenvelope.cpp:92
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 4)"
+msgstr "IPTC-NAA Dijital Haber Fotoğrafı Parametre Kaydı (sürüm 4)"
+
+#: iptc/iptcenvelope.cpp:93
+msgid "IPTC7901 Recommended Message Format"
+msgstr "IPTC7901 Önerilen Mesaj Biçimi"
+
+#: iptc/iptcenvelope.cpp:94
+msgid "Tagged Image File Format (version 5.0)"
+msgstr "Etiketli Görüntü Dosya Biçimi (sürüm 5.0)"
+
+#: iptc/iptcenvelope.cpp:95
+msgid "Tagged Image File Format (version 6.0)"
+msgstr "Etiketli Görüntü Dosya Biçimi (sürüm 6.0)"
+
+#: iptc/iptcenvelope.cpp:96
+msgid "Illustrator"
+msgstr "Illustrator"
+
+#: iptc/iptcenvelope.cpp:97
+msgid "AppleSingle"
+msgstr "AppleSingle"
+
+#: iptc/iptcenvelope.cpp:98
+msgid "NAA 89-3 (ANPA 1312)"
+msgstr "NAA 89-3 (ANPA 1312)"
+
+#: iptc/iptcenvelope.cpp:99
+msgid "MacBinary II"
+msgstr "MacBinary II"
+
+#: iptc/iptcenvelope.cpp:100
+msgid "IPTC Unstructured Character Oriented File Format"
+msgstr "IPTC Yapısal Olmayan Karaktere Yönelik Dosya Biçimi"
+
+#: iptc/iptcenvelope.cpp:101
+msgid "United Press International ANPA 1312 variant"
+msgstr "Birleşik Basın Uluslararası ANPA 1312 değişkesi"
+
+#: iptc/iptcenvelope.cpp:102
+msgid "United Press International Down-Load Message"
+msgstr "Birleşik Basın Uluslararası Karşıdan-Yükleme Mesajı"
+
+#: iptc/iptcenvelope.cpp:103
+msgid "JPEG File Interchange"
+msgstr "JPEG Dosya Değişimi"
+
+#: iptc/iptcenvelope.cpp:104
+msgid "Photo-CD Image-Pac"
+msgstr "Foto-CD Resim-Pak"
+
+#: iptc/iptcenvelope.cpp:105
+msgid "Microsoft Bit Mapped Graphics File [*.BMP]"
+msgstr "Microsoft Noktacık Tabanlı Grafik Dosyası [*.BMP]"
+
+#: iptc/iptcenvelope.cpp:106
+msgid "Digital Audio File [*.WAV]"
+msgstr "Dijital Ses Dosyası [*.WAV]"
+
+#: iptc/iptcenvelope.cpp:107
+msgid "Audio plus Moving Video [*.AVI]"
+msgstr "Ses artı Hareketli Görüntü [*.AVI]"
+
+#: iptc/iptcenvelope.cpp:108
+msgid "PC DOS/Windows Executable Files [*.COM][*.EXE]"
+msgstr "PC DOS/Windows Çalıştırılabilir Dosyaları [*.COM][*.EXE]"
+
+#: iptc/iptcenvelope.cpp:109
+msgid "Compressed Binary File [*.ZIP]"
+msgstr "Sıkıştırılmış İkili Dosya [*.ZIP]"
+
+#: iptc/iptcenvelope.cpp:110
+msgid "Audio Interchange File Format AIFF"
+msgstr "Ses Değişim Dosya Biçimi AIFF"
+
+#: iptc/iptcenvelope.cpp:111
+msgid "RIFF Wave (Microsoft Corporation)"
+msgstr "RIFF Wave (Microsoft Corporation)"
+
+#: iptc/iptcenvelope.cpp:112
+msgid "Freehand (version 3.1)"
+msgstr "Freehand (sürüm 3.1)"
+
+#: iptc/iptcenvelope.cpp:113
+msgid "Freehand (version 4.0)"
+msgstr "Freehand (sürüm 4.0)"
+
+#: iptc/iptcenvelope.cpp:114
+msgid "Freehand (version 5.0)"
+msgstr "Freehand (sürüm 5.0)"
+
+#: iptc/iptcenvelope.cpp:115
+msgid "Freehand (version 5.5)"
+msgstr "Freehand (sürüm 5.5)"
+
+#: iptc/iptcenvelope.cpp:116
+msgid "Hypertext Markup Language \"HTML\""
+msgstr "Köprü Metni Biçimlendirme Dili \"HTML\""
+
+#: iptc/iptcenvelope.cpp:117
+msgid "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
+msgstr "MPEG 2 Ses Katmanı 2 (Musicom), ISO/IEC"
+
+#: iptc/iptcenvelope.cpp:118
+msgid "MPEG 2 Audio Layer 3, ISO/IEC"
+msgstr "MPEG 2 Ses Katmanı 3, ISO/IEC"
+
+#: iptc/iptcenvelope.cpp:119
+msgid "Portable Document File [*.PDF] Adobe"
+msgstr "Taşınabilir Belge Dosyası [*.PDF] Adobe"
+
+#: iptc/iptcenvelope.cpp:120
+msgid "News Industry Text Format"
+msgstr "Basın Endüstrisi Metin Biçimi"
+
+#: iptc/iptcenvelope.cpp:121
+msgid "Tape Archive [*.TAR]"
+msgstr "Bant Arşivi [*.TAR]"
+
+#: iptc/iptcenvelope.cpp:122
+msgid "Tidningarnas Telegrambyra NITF version (TTNITF DTD)"
+msgstr "Tidningarnas Telegrambyra NITF sürümü (TTNITF DTD)"
+
+#: iptc/iptcenvelope.cpp:123
+msgid "Ritzaus Bureau NITF version (RBNITF DTD)"
+msgstr "Ritzaus Bureau NITF sürümü (RBNITF DTD)"
+
+#: iptc/iptcenvelope.cpp:124
+msgid "Corel Draw [*.CDR]"
+msgstr "Corel Draw [*.CDR]"
+
+#: iptc/iptcenvelope.cpp:171
+msgid "Destination:"
+msgstr "Hedef:"
+
+#: iptc/iptcenvelope.cpp:175
+msgid ""
+"Enter the envelope destination. This field is limited to 1024 ASCII "
+"characters."
+msgstr ""
+"Zarfın varış yerini buradan belirleyin. Bu alan 1024 ASCII karakteriyle "
+"sınırlıdır."
+
+#: iptc/iptcenvelope.cpp:180
+msgid "U.N.O ID:"
+msgstr "U.N.O ID:"
+
+#: iptc/iptcenvelope.cpp:185
+msgid ""
+"Set here the Unique Name of Object identifier. This field is limited to 80 "
+"ASCII characters."
+msgstr ""
+"Nesne tanımlayıcısının Eşsiz İsmini buradan belirleyin. Bu alan 80 ASCII "
+"karakteriyle sınırlıdır."
+
+#: iptc/iptcenvelope.cpp:190
+msgid "Product ID:"
+msgstr "Ürün Kimliği:"
+
+#: iptc/iptcenvelope.cpp:195
+msgid ""
+"Set here the product identifier. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Ürün tanımlayıcısını buradan belirleyin. Bu alan 32 ASCII karakteriyle "
+"sınırlıdır."
+
+#: iptc/iptcenvelope.cpp:200
+msgid "Service ID:"
+msgstr "Servis Kimliği:"
+
+#: iptc/iptcenvelope.cpp:205
+msgid ""
+"Set here the service identifier. This field is limited to 10 ASCII "
+"characters."
+msgstr ""
+"Hizmet tanımlayıcısını buradan belirleyin. Bu alan 10 ASCII karakteriyle "
+"sınırlıdır."
+
+#: iptc/iptcenvelope.cpp:210
+msgid "Envelope ID:"
+msgstr "Zarf Kimliği:"
+
+#: iptc/iptcenvelope.cpp:215
+msgid ""
+"Set here the envelope identifier. This field is limited to 8 ASCII "
+"characters."
+msgstr ""
+"Zarf tanımlayıcısını buradan belirleyin. Bu alan 8 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptcenvelope.cpp:220 iptc/iptcproperties.cpp:184
+#: xmp/xmpproperties.cpp:183
+msgid "Priority:"
+msgstr "Öncelik:"
+
+#: iptc/iptcenvelope.cpp:222
+#, fuzzy
+#| msgid "0: None"
+msgctxt "priority for the envelope"
+msgid "0: None"
+msgstr "0: Hiçbiri"
+
+#: iptc/iptcenvelope.cpp:223
+#, fuzzy
+#| msgid "1: High"
+msgctxt "priority for the envelope"
+msgid "1: High"
+msgstr "1: Yüksek"
+
+#: iptc/iptcenvelope.cpp:227
+#, fuzzy
+#| msgid "5: Normal"
+msgctxt "priority for the envelope"
+msgid "5: Normal"
+msgstr "5: Normal"
+
+#: iptc/iptcenvelope.cpp:230
+#, fuzzy
+#| msgid "8: Low"
+msgctxt "priority for the envelope"
+msgid "8: Low"
+msgstr "8: Düşük"
+
+#: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
+#: xmp/xmpproperties.cpp:194
+#, fuzzy
+#| msgid "Not defined"
+msgctxt "editorial urgency of content"
+msgid "9: User-defined"
+msgstr "Tanımlanmamış"
+
+#: iptc/iptcenvelope.cpp:232
+msgid "Select here the envelope priority."
+msgstr "Zarf önceliğini buradan belirleyin."
+
+#: iptc/iptcenvelope.cpp:236
+msgid "Format:"
+msgstr "Biçim:"
+
+#: iptc/iptcenvelope.cpp:248
+msgid "Select here envelope file format."
+msgstr "Zarf dosya biçimini buradan belirleyin."
+
+#: iptc/iptcenvelope.cpp:252
+msgid "Sent date:"
+msgstr "Gönderilme tarihi:"
+
+#: iptc/iptcenvelope.cpp:253
+msgid "Sent time:"
+msgstr "Gönderilme saati:"
+
+#: iptc/iptcenvelope.cpp:259
+msgid "Set envelope sent date to today"
+msgstr "Zarf gönderilme tarihini bugün olarak belirle"
+
+#: iptc/iptcenvelope.cpp:261
+msgid "Set here the date when the service sent the material."
+msgstr "Hizmetin malzemeyi gönderdiği tarihi buradan belirleyin."
+
+#: iptc/iptcenvelope.cpp:262
+msgid "Set here the time when the service sent the material."
+msgstr "Hizmetin malzemeyi gönderdiği saati buradan belirleyin."
+
+#: iptc/iptckeywords.cpp:88 xmp/xmpkeywords.cpp:82
+msgid "Use information retrieval words:"
+msgstr "Bilgi erişim kelimelerini kullan:"
+
+#: iptc/iptckeywords.cpp:94
+msgid "Enter here a new keyword. This field is limited to 64 ASCII characters."
+msgstr ""
+"Buraya yeni bir anahtar kelime girin. Bu alan 64 ASCII karakterle sınırlıdır."
+
+#: iptc/iptcorigin.cpp:138 xmp/xmporigin.cpp:118
+msgid "Digitization date"
+msgstr "Sayısallaştırma tarihi"
+
+#: iptc/iptcorigin.cpp:139
+msgid "Digitization time"
+msgstr "Sayısallaştırma saati"
+
+#: iptc/iptcorigin.cpp:147 xmp/xmporigin.cpp:125
+msgid "Set here the creation date of digital representation."
+msgstr "Dijital temsilin yaratılma tarihini buradan belirleyin."
+
+#: iptc/iptcorigin.cpp:149
+msgid "Set here the creation time of digital representation."
+msgstr "Dijital temsilin yaratılma saatini buradan belirleyin."
+
+#: iptc/iptcorigin.cpp:156 xmp/xmporigin.cpp:132
+msgid "Creation date"
+msgstr "Oluşturulma tarihi"
+
+#: iptc/iptcorigin.cpp:157
+msgid "Creation time"
+msgstr "Oluşturulma saati"
+
+#: iptc/iptcorigin.cpp:163 xmp/xmporigin.cpp:137
+msgid "Sync EXIF creation date"
+msgstr "EXIF yaratılma tarihini eşle"
+
+#: iptc/iptcorigin.cpp:169 xmp/xmporigin.cpp:143
+msgid "Set here the creation date of intellectual content."
+msgstr "Düşünsel içeriğin yaratılma tarihini buradan belirleyin."
+
+#: iptc/iptcorigin.cpp:171
+msgid "Set here the creation time of intellectual content."
+msgstr "Düşünsel içeriğin yaratılma saatini buradan belirleyin."
+
+#: iptc/iptcorigin.cpp:178
+msgid "Location:"
+msgstr "Konum:"
+
+#: iptc/iptcorigin.cpp:179
+msgid "Set here the full country name referenced by the content."
+msgstr "İçerik tarafından başvurulan tam ülke adını buradan belirleyin."
+
+#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:152 xmp/xmporigin.cpp:150
+msgid "City:"
+msgstr "Şehir:"
+
+#: iptc/iptcorigin.cpp:188
+msgid ""
+"Set here the city of content origin. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"İçerik kaynağının kentini buradan belirleyin. Bu alan 32 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptcorigin.cpp:193 xmp/xmporigin.cpp:157
+msgid "Sublocation:"
+msgstr "Alt konum:"
+
+#: iptc/iptcorigin.cpp:198
+msgid ""
+"Set here the content location within city. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Kent içerisindeki içerik konumunu buradan belirleyin. Bu alan 32 ASCII "
+"karakterle sınırlıdır."
+
+#: iptc/iptcorigin.cpp:203 xmp/xmporigin.cpp:164
+msgid "State/Province:"
+msgstr "Eyalet/İl:"
+
+#: iptc/iptcorigin.cpp:208
+msgid ""
+"Set here the Province or State of content origin. This field is limited to "
+"32 ASCII characters."
+msgstr ""
+"İçerik kaynağının İl veya Eyaletini buradan belirleyin. Bu alan 32 ASCII "
+"karakterle sınırlıdır."
+
+#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:157 xmp/xmporigin.cpp:171
+msgid "Country:"
+msgstr "Ülke:"
+
+#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:173
+msgid "Select here country name of content origin."
+msgstr "İçerik kaynağının ülke adını buradan belirleyin."
+
+#: iptc/iptcproperties.cpp:132
+msgid "Release date"
+msgstr "Yayınlanma tarihi"
+
+#: iptc/iptcproperties.cpp:133
+msgid "Release time"
+msgstr "Yayınlanma saati"
+
+#: iptc/iptcproperties.cpp:139
+msgid "Set release date to today"
+msgstr "Yayın tarihini bugün olarak belirle"
+
+#: iptc/iptcproperties.cpp:141
+msgid "Set here the earliest intended usable date of intellectual content."
+msgstr ""
+"Düşünsel içeriğin en erken istenilen kullanılabilir tarihini buradan "
+"belirleyin."
+
+#: iptc/iptcproperties.cpp:143
+msgid "Set here the earliest intended usable time of intellectual content."
+msgstr ""
+"Düşünsel içeriğin en erken istenilen kullanılabilir saatini buradan "
+"belirleyin."
+
+#: iptc/iptcproperties.cpp:149
+msgid "Expiration date"
+msgstr "Zaman aşımı tarihi"
+
+#: iptc/iptcproperties.cpp:150
+msgid "Expiration time"
+msgstr "Zaman aşımı saati"
+
+#: iptc/iptcproperties.cpp:156
+msgid "Set expiration date to today"
+msgstr "Sona erme tarihini bugün olarak belirle"
+
+#: iptc/iptcproperties.cpp:158
+msgid "Set here the latest intended usable date of intellectual content."
+msgstr ""
+"Düşünsel içeriğin en son istenilen kullanılabilir tarihini buradan "
+"belirleyin."
+
+#: iptc/iptcproperties.cpp:160
+msgid "Set here the latest intended usable time of intellectual content."
+msgstr ""
+"Düşünsel içeriğin en son istenilen kullanılabilir saatini buradan belirleyin."
+
+#: iptc/iptcproperties.cpp:167 xmp/xmpproperties.cpp:171
+msgid "Language:"
+msgstr "Dil:"
+
+#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:172
+msgid "Select here the language of content."
+msgstr "İçeriğin dilini buradan seçin."
+
+#: iptc/iptcproperties.cpp:186 xmp/xmpproperties.cpp:185
+#, fuzzy
+#| msgid "0: None"
+msgctxt "editorial urgency of content"
+msgid "0: None"
+msgstr "0: Hiçbiri"
+
+#: iptc/iptcproperties.cpp:187 xmp/xmpproperties.cpp:186
+#, fuzzy
+#| msgid "1: High"
+msgctxt "editorial urgency of content"
+msgid "1: High"
+msgstr "1: Yüksek"
+
+#: iptc/iptcproperties.cpp:191 xmp/xmpproperties.cpp:190
+#, fuzzy
+#| msgid "5: Normal"
+msgctxt "editorial urgency of content"
+msgid "5: Normal"
+msgstr "5: Normal"
+
+#: iptc/iptcproperties.cpp:194 xmp/xmpproperties.cpp:193
+#, fuzzy
+#| msgid "8: Low"
+msgctxt "editorial urgency of content"
+msgid "8: Low"
+msgstr "8: Düşük"
+
+#: iptc/iptcproperties.cpp:196 xmp/xmpproperties.cpp:195
+msgid "Select here the editorial urgency of content."
+msgstr "İçeriğin yayıncıya ait zorunluluğunu buradan seçin."
+
+#: iptc/iptcproperties.cpp:200
+msgid "Cycle:"
+msgstr "Zaman:"
+
+#: iptc/iptcproperties.cpp:202
+msgid "Morning"
+msgstr "Sabah"
+
+#: iptc/iptcproperties.cpp:203
+msgid "Afternoon"
+msgstr "Öğleden sonra"
+
+#: iptc/iptcproperties.cpp:204
+msgid "Evening"
+msgstr "Akşam"
+
+#: iptc/iptcproperties.cpp:205
+msgid "Select here the editorial cycle of content."
+msgstr "İçeriğin yayıncıya ait dolaşımını buradan seçin."
+
+#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
+msgid "Type:"
+msgstr "Tip:"
+
+#: iptc/iptcproperties.cpp:215 xmp/xmpproperties.cpp:114
+msgid "News"
+msgstr "Haberler"
+
+#: iptc/iptcproperties.cpp:216 xmp/xmpproperties.cpp:110
+msgid "Data"
+msgstr "Veri"
+
+#: iptc/iptcproperties.cpp:217 xmp/xmpproperties.cpp:107
+msgid "Advisory"
+msgstr "Öneri"
+
+#: iptc/iptcproperties.cpp:218
+msgid "Select here the editorial type of content."
+msgstr "İçeriğin yayıncıya ait türünü buradab seçin."
+
+#: iptc/iptcproperties.cpp:219
+msgid ""
+"Set here the editorial type description of content. This field is limited to "
+"64 ASCII characters."
+msgstr ""
+"İçeriğin yayıncıya ait tür tanımını buradan belirleyin. Bu alan 64 ASCII "
+"karakterle sınırlıdır."
+
+#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:255
+msgid "Reference:"
+msgstr "Referans:"
+
+#: iptc/iptcproperties.cpp:233
+msgid ""
+"Set here the original content transmission reference. This field is limited "
+"to 32 ASCII characters."
+msgstr ""
+"Özgün içerik iletme referansını buradan belirleyin. Bu alan 32 ASCII "
+"karakterle sınırlıdır."
+
+#: iptc/iptcstatus.cpp:88
+#, fuzzy
+#| msgid "Title:"
+msgctxt "image title"
+msgid "Title:"
+msgstr "Başlık:"
+
+#: iptc/iptcstatus.cpp:93
+msgid ""
+"Set here the shorthand reference of content. This field is limited to 64 "
+"ASCII characters."
+msgstr ""
+"İçeriğin steno referansını buradan belirleyin. Bu alan 64 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptcstatus.cpp:98
+msgid "Edit Status:"
+msgstr "Durumu Düzenle:"
+
+#: iptc/iptcstatus.cpp:103
+msgid ""
+"Set here the title of content status. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"İçerik durumunun başlığını buradan belirleyin. Bu alan 64 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptcstatus.cpp:108
+msgid "Job Identifier:"
+msgstr "Görev Tanımlayıcı:"
+
+#: iptc/iptcstatus.cpp:113
+msgid ""
+"Set here the string that identifies content that recurs. This field is "
+"limited to 32 ASCII characters."
+msgstr ""
+"Yinelenen içeriği tanımlayan dizgiyi buradan belirleyin. Bu alan 32 ASCII "
+"karakterle sınırlıdır."
+
+#: iptc/iptcstatus.cpp:118 xmp/xmpstatus.cpp:103
+msgid "Special Instructions:"
+msgstr "Özel Bilgiler:"
+
+#: iptc/iptcstatus.cpp:124
+msgid ""
+"Enter the editorial usage instructions. This field is limited to 256 ASCII "
+"characters."
+msgstr ""
+"Yayıncıya ait kullanım talimatlarını girin. Bu alan 256 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptcsubjects.cpp:51
+msgid ""
+"Enter here the Informative Provider Reference. I.P.R is a name registered "
+"with the IPTC/NAA, identifying the provider that provides an indicator of "
+"the content. The default value for the I.P.R is \"IPTC\" if a standard "
+"Reference Code is used. This field is limited to 32 ASCII characters."
+msgstr ""
+"Bilgi Verici Sağlayıcı Referansını (I.P.R) buradan girin. I.P.R, IPTC/NAA "
+"ile kaydedilmiş, bir içerik bildiricisi sağlayan sağlayıcıyı tanımlayan bir "
+"isimdir. Eğer standart bir Referans Kodu kullanılırsa öntanımlı I.P.R değeri "
+"\"IPTC\"'dir. Bu alan 32 ASCII karakteriyle sınırlıdır."
+
+#: iptc/iptcsubjects.cpp:59
+msgid ""
+"Enter here the Subject Reference Number. Provides a numeric code to indicate "
+"the Subject Name plus optional Subject Matter and Subject Detail Names in "
+"the language of the service. Subject Reference is a number from the range "
+"01000000 to 17999999 and represent a language independent international "
+"reference to a Subject. A Subject is identified by its Reference Number and "
+"corresponding Names taken from a standard lists given by IPTC/NAA. If a "
+"standard reference code is used, these lists are the English language "
+"reference versions. This field is limited to 8 ASCII digit code."
+msgstr ""
+"Konu Referans Numarasını buradan girin. Konu Adı ve isteğe bağlı olarak Konu "
+"Özü ve Konu Detay Adlarını hizmet dilinde göstermek için bir sayısal kod "
+"sağlar. Konu Referansı, 01000000 ile 17999999 arasında bir sayıdır ve bir "
+"Konu için uluslararası referansdan bağımsız bir dil belirtir. Konu, Referans "
+"Numarasıyla tanımlanır ve IPTC/NAA tarafından verilen standart listelerinden "
+"alınmış Adların yerini tutar. Eğer standart bir referans kodu kullanılırsa, "
+"bu listeler İngilizce dili referans  sürümleridirler. Bu alan 8 haneli kodla "
+"sınırlıdır."
+
+#: iptc/iptcsubjects.cpp:74
+msgid ""
+"Enter here the Subject Name. English language is used if you selected a "
+"standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Konu Adını buradan girin. Eğer standart bir IPTC/NAA referans kodu "
+"seçtiyseniz İngilizce dili kullanılır. Bu alan 64 ASCII karakterle "
+"sınırlıdır."
+
+#: iptc/iptcsubjects.cpp:81
+msgid ""
+"Enter here the Subject Matter Name. English language is used if you selected "
+"a standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Konu Özü Adını buradan girin. Eğer standart bir IPTC/NAA referans kodu "
+"seçtiyseniz İngilizce dili kullanılır. Bu alan 64 ASCII karakteriyle "
+"sınırlıdır."
+
+#: iptc/iptcsubjects.cpp:88
+msgid ""
+"Enter here the Subject Detail Name. English language is used if you selected "
+"a standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Konu Detay Adını buradan girin. Eğer standart bir IPTC(NAA referans kodu "
+"seçtiyseniz İngilizce dili kullanılır. Bu alan 64 ASCII karakteriyle "
+"sınırlıdır."
+
+#. i18n: ectx: Menu (Image)
+#: plugin/kipiplugin_metadataeditui.rc:6
+msgid "&Image"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_metadataeditui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/metadataedit.cpp:97
+msgid "Metadata edit dialog"
+msgstr ""
+
+#: plugin/metadataedit.cpp:102
+#, fuzzy
+#| msgid "Edit EXIF..."
+msgid "Edit EXIF"
+msgstr "EXIF Bilgilerini Düzenle..."
+
+#: plugin/metadataedit.cpp:103
+#, fuzzy
+#| msgid "Edit IPTC..."
+msgid "Edit IPTC"
+msgstr "IPTC Bilgilerini Düzenle..."
+
+#: plugin/metadataedit.cpp:104
+#, fuzzy
+#| msgid "Edit XMP..."
+msgid "Edit XMP"
+msgstr "XMP Bilgilerini Düzenle..."
+
+#: plugin/metadataedit.cpp:112
+msgid "Next"
+msgstr "Sonraki"
+
+#: plugin/metadataedit.cpp:113
+msgid "Previous"
+msgstr "Önceki"
+
+#: plugin/metadataedit.cpp:155
+msgid "Edit Metadata"
+msgstr "Üstveriyi Düzenle"
+
+#: plugin/metadataedit.cpp:158
+msgid "A Plugin to edit pictures' metadata."
+msgstr "Resim üst verilerini düzenlemek için bir eklenti."
+
+#: plugin/metadataedit.cpp:159
+#, fuzzy
+#| msgid "(c) 2006-2009, Gilles Caulier"
+msgid "(c) 2006-2013, Gilles Caulier"
+msgstr "(c) 2006-2009, Gilles Caulier"
+
+#: plugin/metadataedit.cpp:161
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/metadataedit.cpp:161
+msgid "Author and Maintainer"
+msgstr "Yazar ve Projeyi Yürüten"
+
+#: plugin/metadataedit.cpp:164
+msgid "Victor Dodon"
+msgstr ""
+
+#: plugin/metadataedit.cpp:164
+#, fuzzy
+#| msgid "Envelope"
+msgid "Developer"
+msgstr "Zarf"
+
+#: plugin/metadataedit.cpp:268
+#, fuzzy, kde-format
+#| msgid "Edit Metadata"
+msgid "%1 (%2/%3) - Edit Metadata"
+msgstr "Üstveriyi Düzenle"
+
+#: plugin/multistringsedit.cpp:90 plugin/multivaluesedit.cpp:94
+#: plugin/objectattributesedit.cpp:104
+msgid "Add a new value to the list"
+msgstr "Listeye yeni bir değer ekle"
+
+#: plugin/multistringsedit.cpp:91 plugin/multivaluesedit.cpp:95
+#: plugin/objectattributesedit.cpp:105
+msgid "Remove the current selected value from the list"
+msgstr "Listeden seçili değeri kaldır"
+
+#: plugin/multistringsedit.cpp:92 plugin/multivaluesedit.cpp:96
+#: plugin/objectattributesedit.cpp:106
+msgid "Replace the current selected value from the list"
+msgstr "Listeden seçili değeri değiştir"
+
+#: plugin/multistringsedit.cpp:106 plugin/objectattributesedit.cpp:151
+msgid " This field is limited to:"
+msgstr "Bu alan sınırlı:"
+
+#: plugin/multistringsedit.cpp:112 plugin/objectattributesedit.cpp:157
+msgid "<p>Printable ASCII characters.</p>"
+msgstr "<p>Yazdırılabilir ASCII karakterler.</p>"
+
+#: plugin/multistringsedit.cpp:118 plugin/objectattributesedit.cpp:163
+#, kde-format
+msgid "<p>1 character.</p>"
+msgid_plural "<p>%1 characters.</p>"
+msgstr[0] "<p>%1 karakter.</p>"
+msgstr[1] "<p>%1 karakter.</p>"
+
+#: plugin/objectattributesedit.cpp:96 xmp/xmpproperties.cpp:223
+msgid "Attribute:"
+msgstr "Öznitelik:"
+
+#: plugin/objectattributesedit.cpp:118
+msgid "Select here the editorial attribute of content."
+msgstr "İçeriğin yayıncıya ait özniteliğini buradan belirleyin."
+
+#: plugin/objectattributesedit.cpp:119
+#, fuzzy
+#| msgid "Current"
+msgctxt "Content type"
+msgid "Current"
+msgstr "Geçerli"
+
+#: plugin/objectattributesedit.cpp:120
+#, fuzzy
+#| msgid "Analysis"
+msgctxt "Content type"
+msgid "Analysis"
+msgstr "Analiz"
+
+#: plugin/objectattributesedit.cpp:121
+#, fuzzy
+#| msgid "Archive material"
+msgctxt "Content type"
+msgid "Archive material"
+msgstr "Arşiv malzemesi"
+
+#: plugin/objectattributesedit.cpp:122
+#, fuzzy
+#| msgid "Background"
+msgctxt "Content type"
+msgid "Background"
+msgstr "Arkaplan"
+
+#: plugin/objectattributesedit.cpp:123
+#, fuzzy
+#| msgid "Feature"
+msgctxt "Content type"
+msgid "Feature"
+msgstr "Özellik"
+
+#: plugin/objectattributesedit.cpp:124
+#, fuzzy
+#| msgid "Forecast"
+msgctxt "Content type"
+msgid "Forecast"
+msgstr "Hava Durumu"
+
+#: plugin/objectattributesedit.cpp:125
+#, fuzzy
+#| msgid "History"
+msgctxt "Content type"
+msgid "History"
+msgstr "Geçmiş"
+
+#: plugin/objectattributesedit.cpp:126
+#, fuzzy
+#| msgid "Obituary"
+msgctxt "Content type"
+msgid "Obituary"
+msgstr "Anma yazısı"
+
+#: plugin/objectattributesedit.cpp:127
+#, fuzzy
+#| msgid "Opinion"
+msgctxt "Content type"
+msgid "Opinion"
+msgstr "Düşünce"
+
+#: plugin/objectattributesedit.cpp:128
+#, fuzzy
+#| msgid "Polls & Surveys"
+msgctxt "Content type"
+msgid "Polls & Surveys"
+msgstr "Anket ve Araştırmalar"
+
+#: plugin/objectattributesedit.cpp:129
+msgctxt "Content type"
+msgid "Profile"
+msgstr "Profil"
+
+#: plugin/objectattributesedit.cpp:130
+#, fuzzy
+#| msgid "Results Listings & Table"
+msgctxt "Content type"
+msgid "Results Listings & Table"
+msgstr "Sonuç Listelemeleri & Tablo"
+
+#: plugin/objectattributesedit.cpp:131
+#, fuzzy
+#| msgid "Side bar & Supporting information"
+msgctxt "Content type"
+msgid "Side bar & Supporting information"
+msgstr "Kenar çubuğu & Destekleyici bilgi"
+
+#: plugin/objectattributesedit.cpp:132
+#, fuzzy
+#| msgid "Summary"
+msgctxt "Content type"
+msgid "Summary"
+msgstr "Özet"
+
+#: plugin/objectattributesedit.cpp:133
+#, fuzzy
+#| msgid "Transcript & Verbatim"
+msgctxt "Content type"
+msgid "Transcript & Verbatim"
+msgstr "Kopya & Kelimesi Kelimesine"
+
+#: plugin/objectattributesedit.cpp:134
+#, fuzzy
+#| msgid "Interview"
+msgctxt "Content type"
+msgid "Interview"
+msgstr "Görüşme"
+
+#: plugin/objectattributesedit.cpp:135
+#, fuzzy
+#| msgid "From the Scene"
+msgctxt "Content type"
+msgid "From the Scene"
+msgstr "Sahneden"
+
+#: plugin/objectattributesedit.cpp:136
+#, fuzzy
+#| msgid "Retrospective"
+msgctxt "Content type"
+msgid "Retrospective"
+msgstr "Geriye dönük"
+
+#: plugin/objectattributesedit.cpp:137
+#, fuzzy
+#| msgid "Statistics"
+msgctxt "Content type"
+msgid "Statistics"
+msgstr "İstatistikler"
+
+#: plugin/objectattributesedit.cpp:138
+#, fuzzy
+#| msgid "Update"
+msgctxt "Content type"
+msgid "Update"
+msgstr "Güncelle"
+
+#: plugin/objectattributesedit.cpp:139
+#, fuzzy
+#| msgid "Wrap-up"
+msgctxt "Content type"
+msgid "Wrap-up"
+msgstr "Özet"
+
+#: plugin/objectattributesedit.cpp:140
+#, fuzzy
+#| msgid "Press Release"
+msgctxt "Content type"
+msgid "Press Release"
+msgstr "Basın Bildirisi"
+
+#: plugin/objectattributesedit.cpp:146
+msgid ""
+"Set here the editorial attribute description of content. This field is "
+"limited to 64 ASCII characters."
+msgstr ""
+"İçeriğin yayıncıya ait öznitelik tanımını buradan belirleyin. Bu ala 64 "
+"ASCII karakterle sınırlıdır."
+
+#: plugin/plugin_metadataedit.cpp:130
+#, fuzzy
+#| msgid "Metadata"
+msgid "&Metadata"
+msgstr "Metadata"
+
+#: plugin/plugin_metadataedit.cpp:138
+#, fuzzy
+#| msgid "Edit Metadata"
+msgid "Edit &All Metadata..."
+msgstr "Üstveriyi Düzenle"
+
+#: plugin/plugin_metadataedit.cpp:150
+msgid "Import EXIF..."
+msgstr "EXIF Bilgilerini İçeriye Aktar..."
+
+#: plugin/plugin_metadataedit.cpp:158
+msgid "Import IPTC..."
+msgstr "IPTC Bilgilerini İçeriye Aktar..."
+
+#: plugin/plugin_metadataedit.cpp:166
+msgid "Import XMP..."
+msgstr "XMP Bilgilerini İçeriye Aktar..."
+
+#: plugin/plugin_metadataedit.cpp:201
+msgid "Select File to Import EXIF metadata"
+msgstr "EXIF üstverisini içe aktarmak için dosya seçin"
+
+#: plugin/plugin_metadataedit.cpp:211 plugin/plugin_metadataedit.cpp:303
+#: plugin/plugin_metadataedit.cpp:390
+#, kde-format
+msgid "Cannot load metadata from \"%1\""
+msgstr "\"%1\" konumundan üstveri yüklenemiyor"
+
+#: plugin/plugin_metadataedit.cpp:212 plugin/plugin_metadataedit.cpp:226
+#: plugin/plugin_metadataedit.cpp:235 plugin/plugin_metadataedit.cpp:275
+msgid "Import EXIF Metadata"
+msgstr "EXIF Üstverisini İçe Aktar"
+
+#: plugin/plugin_metadataedit.cpp:225
+#, kde-format
+msgid "\"%1\" does not have EXIF metadata."
+msgstr "\"%1\" EXIF üst verilerine sahip değil."
+
+#: plugin/plugin_metadataedit.cpp:232
+#, kde-format
+msgid ""
+"EXIF metadata from the currently selected pictures will be permanently "
+"replaced by the EXIF content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Şimdi seçili olan resimlerdeki EXIF üstverisi kalıcı olarak \"%1 \" ögesinin "
+"EXIF içeriğiyle değiştirilecektir.\n"
+"Devam etmek istiyor musunuz?"
+
+#: plugin/plugin_metadataedit.cpp:273
+msgid "Unable to set EXIF metadata from:"
+msgstr "EXIF üstverisi belirlenemiyor:"
+
+#: plugin/plugin_metadataedit.cpp:293
+msgid "Select File to Import IPTC metadata"
+msgstr "IPTC üstverisini içe aktarmak için dosya seçin"
+
+#: plugin/plugin_metadataedit.cpp:304 plugin/plugin_metadataedit.cpp:313
+#: plugin/plugin_metadataedit.cpp:322 plugin/plugin_metadataedit.cpp:362
+msgid "Import IPTC Metadata"
+msgstr "IPTC Üstverisini İçe Aktar"
+
+#: plugin/plugin_metadataedit.cpp:312
+#, kde-format
+msgid "\"%1\" does not have IPTC metadata."
+msgstr "\"%1\" IPTC üst verilerine sahip değil."
+
+#: plugin/plugin_metadataedit.cpp:319
+#, kde-format
+msgid ""
+"IPTC metadata from the currently selected pictures will be permanently "
+"replaced by the IPTC content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Seçili resimlerdeki IPTC üstverisi kalıcı olarak \"%1 \" konumunun IPTC "
+"içeriğiyle değiştirilecektir.\n"
+"Devam etmek istiyor musunuz?"
+
+#: plugin/plugin_metadataedit.cpp:360
+msgid "Unable to set IPTC metadata from:"
+msgstr "IPTC üstverisi belirlenemiyor:"
+
+#: plugin/plugin_metadataedit.cpp:380
+msgid "Select File to Import XMP metadata"
+msgstr "XMP üstverisini içe aktarmak için dosya seçin"
+
+#: plugin/plugin_metadataedit.cpp:391 plugin/plugin_metadataedit.cpp:400
+#: plugin/plugin_metadataedit.cpp:409 plugin/plugin_metadataedit.cpp:449
+msgid "Import XMP Metadata"
+msgstr "XMP Üstverisini İçe Aktar"
+
+#: plugin/plugin_metadataedit.cpp:399
+#, kde-format
+msgid "\"%1\" does not have XMP metadata."
+msgstr "\"%1\" XMP üst verilerine sahip değil."
+
+#: plugin/plugin_metadataedit.cpp:406
+#, kde-format
+msgid ""
+"XMP metadata from the currently selected pictures will be permanently "
+"replaced by the XMP content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Halihazırda seçili resimlerdeki XMP üstverisi kalıcı olarak \"%1 \" "
+"konumunun XMP içeriğiyle değiştirilecektir.\n"
+"Devam etmek istiyor musunuz?"
+
+#: plugin/plugin_metadataedit.cpp:447
+msgid "Unable to set XMP metadata from:"
+msgstr "XMP üstverisi belirlenemiyor:"
+
+#: xmp/xmpcategories.cpp:91
+msgid ""
+"Set here the category of content. This field is limited to 3 characters."
+msgstr ""
+"İçerik kategorisini buradan belirleyin. Bu alan 3 karakterle sınırlıdır."
+
+#: xmp/xmpcategories.cpp:98
+msgid "Enter here a new supplemental category of content."
+msgstr "Yeni bir tamamlayıcı içerik kategorisini buradan girin."
+
+#: xmp/xmpcontent.cpp:92
+msgid "Enter here the content synopsis."
+msgstr "İçerik özetini buradan girin."
+
+#: xmp/xmpcontent.cpp:97
+msgid "Enter the content description."
+msgstr "İçerik tanımını buradan girin."
+
+#: xmp/xmpcontent.cpp:99
+msgid "Default Language Caption Options"
+msgstr "Öntanımlı Dil Resim Yazısı Seçenekleri"
+
+#: xmp/xmpcontent.cpp:122
+msgid "Enter the necessary copyright notice."
+msgstr "Gerekli telif hakkı uyarılarını buradan belirleyin."
+
+#: xmp/xmpcredits.cpp:124
+msgid "Contact"
+msgstr "İletişim:"
+
+#: xmp/xmpcredits.cpp:127
+#, fuzzy
+#| msgid "E-mail:"
+msgctxt "contact email address"
+msgid "E-mail:"
+msgstr "E-posta:"
+
+#: xmp/xmpcredits.cpp:130
+msgid "Set here the contact e-mail."
+msgstr "Bağlantı e-postasını buradan belirleyin."
+
+#: xmp/xmpcredits.cpp:132
+msgid "URL:"
+msgstr "Adres:"
+
+#: xmp/xmpcredits.cpp:135
+msgid "Set here the contact URL."
+msgstr "İletişim adresini buradan ayarlayın."
+
+#: xmp/xmpcredits.cpp:137
+msgid "Phone:"
+msgstr "Telefon:"
+
+#: xmp/xmpcredits.cpp:140
+msgid "Set here the contact 'phone number."
+msgstr "İletişim telefon numarasını buradan ayarlayın."
+
+#: xmp/xmpcredits.cpp:142
+msgctxt "Street address"
+msgid "Address:"
+msgstr "Adres:"
+
+#: xmp/xmpcredits.cpp:145
+msgid "Set here the contact address."
+msgstr "İletişim adresini buradan ayarlayın."
+
+#: xmp/xmpcredits.cpp:147
+msgid "Postal code:"
+msgstr "Posta kodu:"
+
+#: xmp/xmpcredits.cpp:150
+msgid "Set here the contact postal code."
+msgstr "İletişim posta kodunu buradan ayarlayın."
+
+#: xmp/xmpcredits.cpp:155
+msgid "Set here the contact city."
+msgstr "İletişim şehrini buradan ayarlayın."
+
+#: xmp/xmpcredits.cpp:160
+msgid "Set here the contact country."
+msgstr "İletişim ülkesini buradan ayarlayın."
+
+#: xmp/xmpcredits.cpp:185
+msgid "Set here the content provider."
+msgstr "İçerik sağlayıcıyı buradan belirleyin."
+
+#: xmp/xmpcredits.cpp:192
+msgid "Set here the original owner of content."
+msgstr "İçeriğin özgün sahibini buradan belirleyin."
+
+#: xmp/xmpkeywords.cpp:86
+msgid "Enter here a new keyword."
+msgstr "Buraya yeni bir anahtar sözcük girin."
+
+#: xmp/xmporigin.cpp:153
+msgid "Set here the content's city of origin."
+msgstr "İçerik kaynağının kentini buradan belirleyin."
+
+#: xmp/xmporigin.cpp:160
+msgid "Set here the content's location within the city."
+msgstr "İçeriğin ait olduğu şehirdeki konumunu buradan belirleyin."
+
+#: xmp/xmporigin.cpp:167
+msgid "Set here the content's Province or State of origin."
+msgstr "İçerik kaynağının İl veya Eyaletini buradan belirleyin."
+
+#: xmp/xmpproperties.cpp:82
+msgid "Headshot"
+msgstr "Kafa resmi"
+
+#: xmp/xmpproperties.cpp:83
+msgid "Half-length"
+msgstr "Yarı-boy"
+
+#: xmp/xmpproperties.cpp:84
+msgid "Full-length"
+msgstr "Tam-boy"
+
+#: xmp/xmpproperties.cpp:85
+msgctxt "Side view of a person"
+msgid "Profile"
+msgstr "Profil"
+
+#: xmp/xmpproperties.cpp:86
+msgid "Rear view"
+msgstr "Arkadan görünüm"
+
+#: xmp/xmpproperties.cpp:87
+msgid "Single"
+msgstr "Tek"
+
+#: xmp/xmpproperties.cpp:88
+msgid "Couple"
+msgstr "Çift"
+
+#: xmp/xmpproperties.cpp:89
+msgid "Two"
+msgstr "İki"
+
+#: xmp/xmpproperties.cpp:90
+#, fuzzy
+#| msgid "Group"
+msgctxt "group of people"
+msgid "Group"
+msgstr "Grup"
+
+#: xmp/xmpproperties.cpp:91
+msgid "General view"
+msgstr "Genel görünüm"
+
+#: xmp/xmpproperties.cpp:92
+msgid "Panoramic view"
+msgstr "Panoramik görünüm"
+
+#: xmp/xmpproperties.cpp:93
+msgid "Aerial view"
+msgstr "Havadan görünüm"
+
+#: xmp/xmpproperties.cpp:94
+msgid "Under-water"
+msgstr "Su altı"
+
+#: xmp/xmpproperties.cpp:96
+msgid "Satellite"
+msgstr "Uydu"
+
+#: xmp/xmpproperties.cpp:97
+msgid "Exterior view"
+msgstr "Dıştan görünüm"
+
+#: xmp/xmpproperties.cpp:98
+msgid "Interior view"
+msgstr "İçten görünüm"
+
+#: xmp/xmpproperties.cpp:99
+msgid "Close-up"
+msgstr "Yakın çekim"
+
+#: xmp/xmpproperties.cpp:100
+msgid "Action"
+msgstr "Eylem"
+
+#: xmp/xmpproperties.cpp:101
+msgid "Performing"
+msgstr "Gösteri"
+
+#: xmp/xmpproperties.cpp:102
+msgid "Posing"
+msgstr "Pozlandırılıyor"
+
+#: xmp/xmpproperties.cpp:103
+msgid "Symbolic"
+msgstr "Sembolik"
+
+#: xmp/xmpproperties.cpp:104
+msgid "Off-beat"
+msgstr "Sıradışı"
+
+#: xmp/xmpproperties.cpp:105
+msgid "Movie scene"
+msgstr "Film sahnesi"
+
+#: xmp/xmpproperties.cpp:108
+msgid "Alert"
+msgstr "Uyar"
+
+#: xmp/xmpproperties.cpp:109
+msgid "Catalog"
+msgstr "Katalog"
+
+#: xmp/xmpproperties.cpp:111
+#, fuzzy
+#| msgid "Document"
+msgctxt "type is a document"
+msgid "Document"
+msgstr "Belge"
+
+#: xmp/xmpproperties.cpp:112
+msgid "DTD"
+msgstr "DTD"
+
+#: xmp/xmpproperties.cpp:113
+msgid "Maintenance"
+msgstr "Onarım"
+
+#: xmp/xmpproperties.cpp:115
+msgid "News Management Mode"
+msgstr "Haber Yönetim Kipi"
+
+#: xmp/xmpproperties.cpp:116
+msgid "Package"
+msgstr "Paket"
+
+#: xmp/xmpproperties.cpp:117
+msgid "Schema"
+msgstr "Şema"
+
+#: xmp/xmpproperties.cpp:118
+msgid "Topic"
+msgstr "Başlık"
+
+#: xmp/xmpproperties.cpp:119
+msgid "Topic Set"
+msgstr "Konu Grubu"
+
+#: xmp/xmpproperties.cpp:199
+msgid "Scene:"
+msgstr "Sahne:"
+
+#: xmp/xmpproperties.cpp:200
+msgid "Select here the scene type of the content."
+msgstr "İçeriğin sahne türünü buradan seçin."
+
+#: xmp/xmpproperties.cpp:212
+msgid "Select here the editorial type of the content."
+msgstr "İçeriğin yayıncıya ait türünü buradan seçin."
+
+#: xmp/xmpproperties.cpp:227
+msgid "Set here the editorial attribute description of the content."
+msgstr "İçeriğin yayıncıya ait öznitelik tanımını buradan belirleyin."
+
+#: xmp/xmpproperties.cpp:229
+msgid "Select here the editorial attribute of the content."
+msgstr "İçeriğin yayıncıya ait özniteliğini buradan belirleyin."
+
+#: xmp/xmpproperties.cpp:230
+#, fuzzy
+#| msgid "Current"
+msgctxt "editorial content attribute"
+msgid "Current"
+msgstr "Geçerli"
+
+#: xmp/xmpproperties.cpp:231
+#, fuzzy
+#| msgid "Analysis"
+msgctxt "editorial content attribute"
+msgid "Analysis"
+msgstr "Analiz"
+
+#: xmp/xmpproperties.cpp:232
+#, fuzzy
+#| msgid "Archive material"
+msgctxt "editorial content attribute"
+msgid "Archive material"
+msgstr "Arşiv malzemesi"
+
+#: xmp/xmpproperties.cpp:233
+#, fuzzy
+#| msgid "Background"
+msgctxt "editorial content attribute"
+msgid "Background"
+msgstr "Arkaplan"
+
+#: xmp/xmpproperties.cpp:234
+#, fuzzy
+#| msgid "Feature"
+msgctxt "editorial content attribute"
+msgid "Feature"
+msgstr "Özellik"
+
+#: xmp/xmpproperties.cpp:235
+#, fuzzy
+#| msgid "Forecast"
+msgctxt "editorial content attribute"
+msgid "Forecast"
+msgstr "Hava Durumu"
+
+#: xmp/xmpproperties.cpp:236
+#, fuzzy
+#| msgid "History"
+msgctxt "editorial content attribute"
+msgid "History"
+msgstr "Geçmiş"
+
+#: xmp/xmpproperties.cpp:237
+#, fuzzy
+#| msgid "Obituary"
+msgctxt "editorial content attribute"
+msgid "Obituary"
+msgstr "Anma yazısı"
+
+#: xmp/xmpproperties.cpp:238
+#, fuzzy
+#| msgid "Opinion"
+msgctxt "editorial content attribute"
+msgid "Opinion"
+msgstr "Düşünce"
+
+#: xmp/xmpproperties.cpp:239
+#, fuzzy
+#| msgid "Polls & Surveys"
+msgctxt "editorial content attribute"
+msgid "Polls & Surveys"
+msgstr "Anket ve Araştırmalar"
+
+#: xmp/xmpproperties.cpp:240
+#, fuzzy
+#| msgctxt "Content type"
+#| msgid "Profile"
+msgctxt "editorial content attribute"
+msgid "Profile"
+msgstr "Profil"
+
+#: xmp/xmpproperties.cpp:241
+#, fuzzy
+#| msgid "Results Listings & Table"
+msgctxt "editorial content attribute"
+msgid "Results Listings & Table"
+msgstr "Sonuç Listelemeleri & Tablo"
+
+#: xmp/xmpproperties.cpp:242
+#, fuzzy
+#| msgid "Side bar & Supporting information"
+msgctxt "editorial content attribute"
+msgid "Side bar & Supporting information"
+msgstr "Kenar çubuğu & Destekleyici bilgi"
+
+#: xmp/xmpproperties.cpp:243
+#, fuzzy
+#| msgid "Summary"
+msgctxt "editorial content attribute"
+msgid "Summary"
+msgstr "Özet"
+
+#: xmp/xmpproperties.cpp:244
+#, fuzzy
+#| msgid "Transcript & Verbatim"
+msgctxt "editorial content attribute"
+msgid "Transcript & Verbatim"
+msgstr "Kopya & Kelimesi Kelimesine"
+
+#: xmp/xmpproperties.cpp:245
+#, fuzzy
+#| msgid "Interview"
+msgctxt "editorial content attribute"
+msgid "Interview"
+msgstr "Görüşme"
+
+#: xmp/xmpproperties.cpp:246
+#, fuzzy
+#| msgid "From the Scene"
+msgctxt "editorial content attribute"
+msgid "From the Scene"
+msgstr "Sahneden"
+
+#: xmp/xmpproperties.cpp:247
+#, fuzzy
+#| msgid "Retrospective"
+msgctxt "editorial content attribute"
+msgid "Retrospective"
+msgstr "Geriye dönük"
+
+#: xmp/xmpproperties.cpp:248
+#, fuzzy
+#| msgid "Statistics"
+msgctxt "editorial content attribute"
+msgid "Statistics"
+msgstr "İstatistikler"
+
+#: xmp/xmpproperties.cpp:249
+#, fuzzy
+#| msgid "Update"
+msgctxt "editorial content attribute"
+msgid "Update"
+msgstr "Güncelle"
+
+#: xmp/xmpproperties.cpp:250
+#, fuzzy
+#| msgid "Wrap-up"
+msgctxt "editorial content attribute"
+msgid "Wrap-up"
+msgstr "Özet"
+
+#: xmp/xmpproperties.cpp:251
+#, fuzzy
+#| msgid "Press Release"
+msgctxt "editorial content attribute"
+msgid "Press Release"
+msgstr "Basın Bildirisi"
+
+#: xmp/xmpproperties.cpp:258
+msgid "Set here the original content transmission reference."
+msgstr "Özgün içerik iletme referansını buradan belirleyin."
+
+#: xmp/xmpstatus.cpp:85
+#, fuzzy
+#| msgid "Title:"
+msgctxt "short title for the content"
+msgid "Title:"
+msgstr "Başlık:"
+
+#: xmp/xmpstatus.cpp:86
+msgid "Set here a shorthand reference for the content."
+msgstr "İçeriğin steno referansını buradan belirleyin."
+
+#: xmp/xmpstatus.cpp:90
+msgid "Nickname:"
+msgstr "Takma ad:"
+
+#: xmp/xmpstatus.cpp:93
+msgid "A short informal name for the resource."
+msgstr "Kaynak için resmi olmayan kısa bir isim."
+
+#: xmp/xmpstatus.cpp:97
+msgid "Identifiers:"
+msgstr "Tanımlayıcılar."
+
+#: xmp/xmpstatus.cpp:98
+msgid "Set here the strings that identify content that recurs."
+msgstr "Yinelenen içeriği tanımlayan dizgileri buradan belirleyin."
+
+#: xmp/xmpstatus.cpp:105
+msgid "Enter the editorial usage instructions."
+msgstr "Yayıncıya ait kullanım talimatlarını girin."
+
+#: xmp/xmpsubjects.cpp:51
+msgid ""
+"Enter here the Informative Provider Reference. I.P.R is a name registered "
+"with the XMP/NAA, identifying the provider that provides an indicator of the "
+"content. The default value for the I.P.R is \"XMP\" if a standard Reference "
+"Code is used."
+msgstr ""
+"Bilgi Verici Sağlayıcı Referansını (I.P.R) buradan girin. I.P.R, XMP/NAA ile "
+"kaydedilmiş, bir içerik bildiricisi sağlayan sağlayıcıyı tanımlayan bir "
+"isimdir. Eğer standart bir Referans Kodu kullanılırsa öntanımlı I.P.R değeri "
+"\"XMP\"'dir."
+
+#: xmp/xmpsubjects.cpp:57
+msgid ""
+"Enter here the Subject Reference Number. Provides a numeric code to indicate "
+"the Subject Name plus optional Subject Matter and Subject Detail Names in "
+"the language of the service. Subject Reference is a number from the range "
+"01000000 to 17999999 and represent a language independent international "
+"reference to a Subject. A Subject is identified by its Reference Number and "
+"corresponding Names taken from a standard lists given by XMP/NAA. If a "
+"standard reference code is used, these lists are the English language "
+"reference versions. This field is limited to 8 digit code."
+msgstr ""
+"Konu Referans Numarasını buradan girin. Konu Adı ve isteğe bağlı olarak Konu "
+"Özü ve Konu Detay Adlarını hizmet dilinde göstermek için bir sayısal kod "
+"sağlar. Konu Referansı, 01000000 ile 17999999 arasında bir sayıdır ve bir "
+"Konu için uluslararası referansdan bağımsız bir dil belirtir. Konu, Referans "
+"Numarasıyla tanımlanır ve XMP/NAA tarafından verilen standart listelerinden "
+"alınmış Adların yerini tutar. Eğer standart bir referans kodu kullanılırsa, "
+"bu listeler İngilizce dili referans  sürümleridirler. Bu alan 8 haneli kodla "
+"sınırlıdır."
+
+#: xmp/xmpsubjects.cpp:70
+msgid ""
+"Enter here the Subject Name. English language is used if you selected a "
+"standard XMP/NAA reference code."
+msgstr ""
+"Konu Adını buradan girin. Eğer standart bir XMP/NAA referans kodu "
+"seçtiyseniz İngilizce dili kullanılır."
+
+#: xmp/xmpsubjects.cpp:74
+msgid ""
+"Enter here the Subject Matter Name. English language is used if you selected "
+"a standard XMP/NAA reference code."
+msgstr ""
+"Konu Özü Adını buradan girin. Eğer standart bir XMP/NAA referans kodu "
+"seçtiyseniz İngilizce dili kullanılır. "
+
+#: xmp/xmpsubjects.cpp:78
+msgid ""
+"Enter here the Subject Detail Name. English language is used if you selected "
+"a standard XMP/NAA reference code."
+msgstr ""
+"Konu Detay Adını buradan girin. Eğer standart bir XMP/NAA referans kodu "
+"seçtiyseniz İngilizce dili kullanılır."
+
+#~ msgid "Handbook"
+#~ msgstr "El Kitabı"
+
+#~ msgid "Afghanistan"
+#~ msgstr "Afganistan"
+
+#~ msgid "Albania"
+#~ msgstr "Arnavutluk"
+
+#~ msgid "Algeria"
+#~ msgstr "Cezayir"
+
+#~ msgid "American Samoa"
+#~ msgstr "American Samoa"
+
+#~ msgid "Andorra"
+#~ msgstr "Andorra"
+
+#~ msgid "Angola"
+#~ msgstr "Angola"
+
+#~ msgid "Anguilla"
+#~ msgstr "Anguilla"
+
+#~ msgid "Antarctica"
+#~ msgstr "Antartika"
+
+#~ msgid "Antigua and Barbuda"
+#~ msgstr "Antigua and Barbuda"
+
+#~ msgid "Argentina"
+#~ msgstr "Arjantin"
+
+#~ msgid "Armenia"
+#~ msgstr "Ermenistan"
+
+#~ msgid "Aruba"
+#~ msgstr "Aruba"
+
+#~ msgid "Australia"
+#~ msgstr "Avustralya"
+
+#~ msgid "Austria"
+#~ msgstr "Avusturya"
+
+#~ msgid "Azerbaijan"
+#~ msgstr "Azerbaycan"
+
+#~ msgid "Bahamas"
+#~ msgstr "Bahama"
+
+#~ msgid "Bahrain"
+#~ msgstr "Bahreyn"
+
+#~ msgid "Bangladesh"
+#~ msgstr "Bangladeş"
+
+#~ msgid "Barbados"
+#~ msgstr "Barbados"
+
+#~ msgid "Belarus"
+#~ msgstr "Belarus"
+
+#~ msgid "Belgium"
+#~ msgstr "Belçika"
+
+#~ msgid "Belize"
+#~ msgstr "Belize"
+
+#~ msgid "Benin"
+#~ msgstr "Benin"
+
+#~ msgid "Bermuda"
+#~ msgstr "Bermuda"
+
+#~ msgid "Bhutan"
+#~ msgstr "Bhutan"
+
+#~ msgid "Bolivia"
+#~ msgstr "Bolivya"
+
+#~ msgid "Bosnia and Herzegovina"
+#~ msgstr "Bosna Hersek"
+
+#~ msgid "Botswana"
+#~ msgstr "Botswana"
+
+#~ msgid "Bouvet Island"
+#~ msgstr "Bouvet Adası"
+
+#~ msgid "Brazil"
+#~ msgstr "Brezilya"
+
+#~ msgid "British Indian Ocean Territory"
+#~ msgstr "British Indian Ocean Territory"
+
+#~ msgid "British Virgin Islands"
+#~ msgstr "British Virgin Adaları"
+
+#~ msgid "Brunei Darussalam"
+#~ msgstr "Brunei Darussalam"
+
+#~ msgid "Bulgaria"
+#~ msgstr "Bulgaristan"
+
+#~ msgid "Burkina Faso"
+#~ msgstr "Burkina Faso"
+
+#~ msgid "Burundi"
+#~ msgstr "Burundi"
+
+#~ msgid "Cambodia"
+#~ msgstr "Kamboçya"
+
+#~ msgid "Cameroon"
+#~ msgstr "Kamerun"
+
+#~ msgid "Canada"
+#~ msgstr "Kanada"
+
+#~ msgid "Cape Verde"
+#~ msgstr "Cape Verde"
+
+#~ msgid "Cayman Islands"
+#~ msgstr "Cayman Adaları"
+
+#~ msgid "Central African Republic"
+#~ msgstr "Orta Afrika Cumhuriyeti"
+
+#~ msgid "Chad"
+#~ msgstr "Çad"
+
+#~ msgid "Chile"
+#~ msgstr "Chile"
+
+#~ msgid "China"
+#~ msgstr "Çin"
+
+#~ msgid "Christmas Island "
+#~ msgstr "Christmas Adaları"
+
+#~ msgid "Cocos Islands"
+#~ msgstr "Cocos Adaları"
+
+#~ msgid "Colombia"
+#~ msgstr "Kolombiya"
+
+#~ msgid "Comoros"
+#~ msgstr "Comoros"
+
+#~ msgid "Zaire"
+#~ msgstr "Zaire"
+
+#~ msgid "Congo"
+#~ msgstr "Kongo"
+
+#~ msgid "Cook Islands"
+#~ msgstr "Cook Adaları"
+
+#~ msgid "Costa Rica"
+#~ msgstr "Costa Rica"
+
+#~ msgid "Ivory Coast"
+#~ msgstr "Ivory Coast"
+
+#~ msgid "Cuba"
+#~ msgstr "Küba"
+
+#~ msgid "Cyprus"
+#~ msgstr "Kıbrıs"
+
+#~ msgid "Czech Republic"
+#~ msgstr "Çek Cumhuriyeti"
+
+#~ msgid "Denmark"
+#~ msgstr "Danimarka"
+
+#~ msgid "Djibouti"
+#~ msgstr "Djibouti"
+
+#~ msgid "Dominica"
+#~ msgstr "Dominik"
+
+#~ msgid "Dominican Republic"
+#~ msgstr "Dominik Cumhuriyeti"
+
+#~ msgid "Ecuador"
+#~ msgstr "Ekvador"
+
+#~ msgid "Egypt"
+#~ msgstr "Mısır"
+
+#~ msgid "El Salvador"
+#~ msgstr "El Salvador"
+
+#~ msgid "Equatorial Guinea"
+#~ msgstr "Equatorial Guinea"
+
+#~ msgid "Eritrea"
+#~ msgstr "Eritre"
+
+#~ msgid "Estonia"
+#~ msgstr "Estonya"
+
+#~ msgid "Ethiopia"
+#~ msgstr "Etyopya"
+
+#~ msgid "Faeroe Islands"
+#~ msgstr "Faeroe Adaları"
+
+#~ msgid "Falkland Islands"
+#~ msgstr "Falkland Adaları"
+
+#~ msgid "Fiji Islands"
+#~ msgstr "Fiji Adaları"
+
+#~ msgid "Finland"
+#~ msgstr "Finlandiya"
+
+#~ msgid "France"
+#~ msgstr "Fransa"
+
+#~ msgid "French Guiana"
+#~ msgstr "French Guiana"
+
+#~ msgid "French Polynesia"
+#~ msgstr "French Polynesia"
+
+#~ msgid "French Southern Territories"
+#~ msgstr "French Southern Territories"
+
+#~ msgid "Gabon"
+#~ msgstr "Gabon"
+
+#~ msgid "Gambia"
+#~ msgstr "Gambia"
+
+#~ msgid "Georgia"
+#~ msgstr "Gürcistan"
+
+#~ msgid "Germany"
+#~ msgstr "Almanya"
+
+#~ msgid "Ghana"
+#~ msgstr "Gana"
+
+#~ msgid "Gibraltar"
+#~ msgstr "Gibraltar"
+
+#~ msgid "Greece"
+#~ msgstr "Yunanistan"
+
+#~ msgid "Greenland"
+#~ msgstr "Greenland"
+
+#~ msgid "Grenada"
+#~ msgstr "Grenada"
+
+#~ msgid "Guadaloupe"
+#~ msgstr "Guadaloupe"
+
+#~ msgid "Guam"
+#~ msgstr "Guam"
+
+#~ msgid "Guatemala"
+#~ msgstr "Guatemala"
+
+#~ msgid "Guinea"
+#~ msgstr "Guinea"
+
+#~ msgid "Guinea-Bissau"
+#~ msgstr "Guinea-Bissau"
+
+#~ msgid "Guyana"
+#~ msgstr "Guyana"
+
+#~ msgid "Haiti"
+#~ msgstr "Haiti"
+
+#~ msgid "Heard and McDonald Islands"
+#~ msgstr "Heard and McDonald Islands"
+
+#~ msgid "Vatican"
+#~ msgstr "Vatikan"
+
+#~ msgid "Honduras"
+#~ msgstr "Honduras"
+
+#~ msgid "Hong Kong"
+#~ msgstr "Hong Kong"
+
+#~ msgid "Croatia"
+#~ msgstr "Hırvatistan"
+
+#~ msgid "Hungary"
+#~ msgstr "Macaristan"
+
+#~ msgid "Iceland"
+#~ msgstr "İzlanda"
+
+#~ msgid "India"
+#~ msgstr "Hindistan"
+
+#~ msgid "Indonesia"
+#~ msgstr "Endonezya"
+
+#~ msgid "Iran"
+#~ msgstr "İran"
+
+#~ msgid "Iraq"
+#~ msgstr "Irak"
+
+#~ msgid "Ireland"
+#~ msgstr "İrlanda"
+
+#~ msgid "Israel"
+#~ msgstr "İsrail"
+
+#~ msgid "Italy"
+#~ msgstr "İtalya"
+
+#~ msgid "Jamaica"
+#~ msgstr "Jamaika"
+
+#~ msgid "Japan"
+#~ msgstr "Japonya"
+
+#~ msgid "Jordan"
+#~ msgstr "Ürdün"
+
+#~ msgid "Kazakhstan"
+#~ msgstr "Kazakistan"
+
+#~ msgid "Kenya"
+#~ msgstr "Kenya"
+
+#~ msgid "Kiribati"
+#~ msgstr "Kiribati"
+
+#~ msgid "Korea"
+#~ msgstr "Kore"
+
+#~ msgid "Kuwait"
+#~ msgstr "Kuveyt"
+
+#~ msgid "Kyrgyz Republic"
+#~ msgstr "Kırgızistan"
+
+#~ msgid "Lao"
+#~ msgstr "Lao"
+
+#~ msgid "Latvia"
+#~ msgstr "Latvia"
+
+#~ msgid "Lebanon"
+#~ msgstr "Lübnan"
+
+#~ msgid "Lesotho"
+#~ msgstr "Lesotho"
+
+#~ msgid "Liberia"
+#~ msgstr "Liberya"
+
+#~ msgid "Libyan Arab Jamahiriya"
+#~ msgstr "Libyan Arab Jamahiriya"
+
+#~ msgid "Liechtenstein"
+#~ msgstr "Liechtenstein"
+
+#~ msgid "Lithuania"
+#~ msgstr "Litvanya"
+
+#~ msgid "Luxembourg"
+#~ msgstr "Lüksemburg"
+
+#~ msgid "Macao"
+#~ msgstr "Macao"
+
+#~ msgid "Macedonia"
+#~ msgstr "Makedonya"
+
+#~ msgid "Madagascar"
+#~ msgstr "Madagaskar"
+
+#~ msgid "Malawi"
+#~ msgstr "Malawi"
+
+#~ msgid "Malaysia"
+#~ msgstr "Malezya"
+
+#~ msgid "Maldives"
+#~ msgstr "Maldivler"
+
+#~ msgid "Mali"
+#~ msgstr "Mali"
+
+#~ msgid "Malta"
+#~ msgstr "Malta"
+
+#~ msgid "Marshall Islands"
+#~ msgstr "Marshall Adaları"
+
+#~ msgid "Martinique"
+#~ msgstr "Martinique"
+
+#~ msgid "Mauritania"
+#~ msgstr "Mauritania"
+
+#~ msgid "Mauritius"
+#~ msgstr "Mauritius"
+
+#~ msgid "Mayotte"
+#~ msgstr "Mayotte"
+
+#~ msgid "Mexico"
+#~ msgstr "Meksika"
+
+#~ msgid "Micronesia"
+#~ msgstr "Micronesia"
+
+#~ msgid "Moldova"
+#~ msgstr "Moldova"
+
+#~ msgid "Monaco"
+#~ msgstr "Monaco"
+
+#~ msgid "Mongolia"
+#~ msgstr "Moğolistan"
+
+#~ msgid "Montserrat"
+#~ msgstr "Montserrat"
+
+#~ msgid "Morocco"
+#~ msgstr "Fas"
+
+#~ msgid "Mozambique"
+#~ msgstr "Mozambik"
+
+#~ msgid "Myanmar"
+#~ msgstr "Myanmar"
+
+#~ msgid "Namibia"
+#~ msgstr "Namibya"
+
+#~ msgid "Nauru"
+#~ msgstr "Nauru"
+
+#~ msgid "Nepal"
+#~ msgstr "Nepal"
+
+#~ msgid "Netherlands Antilles"
+#~ msgstr "Netherlands Antilles"
+
+#~ msgid "Netherlands"
+#~ msgstr "Hollanda"
+
+#~ msgid "New Caledonia"
+#~ msgstr "Yeni Kaledonya"
+
+#~ msgid "New Zealand"
+#~ msgstr "Yeni Zellanda"
+
+#~ msgid "Nicaragua"
+#~ msgstr "Nikaragua"
+
+#~ msgid "Niger"
+#~ msgstr "Nijer"
+
+#~ msgid "Nigeria"
+#~ msgstr "Nijerya"
+
+#~ msgid "Niue"
+#~ msgstr "Niue"
+
+#~ msgid "Norfolk Island"
+#~ msgstr "Norfolk Adası"
+
+#~ msgid "Northern Mariana Islands"
+#~ msgstr "Kuzey Mariana Adaları"
+
+#~ msgid "Norway"
+#~ msgstr "Norveç"
+
+#~ msgid "Oman"
+#~ msgstr "Umman"
+
+#~ msgid "Pakistan"
+#~ msgstr "Pakistan"
+
+#~ msgid "Palau"
+#~ msgstr "Palau"
+
+#~ msgid "Palestinian Territory"
+#~ msgstr "Filistin"
+
+#~ msgid "Panama"
+#~ msgstr "Panama"
+
+#~ msgid "Papua New Guinea"
+#~ msgstr "Papua Yeni Gine"
+
+#~ msgid "Paraguay"
+#~ msgstr "Paraguay"
+
+#~ msgid "Peru"
+#~ msgstr "Peru"
+
+#~ msgid "Philippines"
+#~ msgstr "Filipinler"
+
+#~ msgid "Pitcairn Island"
+#~ msgstr "Pitcairn Adası"
+
+#~ msgid "Poland"
+#~ msgstr "Polonya"
+
+#~ msgid "Portugal"
+#~ msgstr "Portekiz"
+
+#~ msgid "Puerto Rico"
+#~ msgstr "Portoriko"
+
+#~ msgid "Qatar"
+#~ msgstr "Katar"
+
+#~ msgid "Reunion"
+#~ msgstr "Reunion"
+
+#~ msgid "Romania"
+#~ msgstr "Romanya"
+
+#~ msgid "Russian Federation"
+#~ msgstr "Rusya Federasyonu"
+
+#~ msgid "Rwanda"
+#~ msgstr "Rwanda"
+
+#~ msgid "St. Helena"
+#~ msgstr "St. Helena"
+
+#~ msgid "St. Kitts and Nevis"
+#~ msgstr "St. Kitts and Nevis"
+
+#~ msgid "St. Lucia"
+#~ msgstr "St. Lucia"
+
+#~ msgid "St. Pierre and Miquelon"
+#~ msgstr "St. Pierre and Miquelon"
+
+#~ msgid "St. Vincent and the Grenadines"
+#~ msgstr "St. Vincent and the Grenadines"
+
+#~ msgid "Samoa"
+#~ msgstr "Samoa"
+
+#~ msgid "San Marino"
+#~ msgstr "San Marino"
+
+#~ msgid "Sao Tome and Principe"
+#~ msgstr "Sao Tome and Principe"
+
+#~ msgid "Saudi Arabia"
+#~ msgstr "Sudi Arabistan"
+
+#~ msgid "Senegal"
+#~ msgstr "Senegal"
+
+#~ msgid "Serbia and Montenegro"
+#~ msgstr "Sırbistan ve Karadağ"
+
+#~ msgid "Seychelles"
+#~ msgstr "Seychelles"
+
+#~ msgid "Sierra Leone"
+#~ msgstr "Sierra Leone"
+
+#~ msgid "Singapore"
+#~ msgstr "Singapur"
+
+#~ msgid "Slovakia"
+#~ msgstr "Slovakya"
+
+#~ msgid "Slovenia"
+#~ msgstr "Slovenya"
+
+#~ msgid "Solomon Islands"
+#~ msgstr "Solomon Adaları"
+
+#~ msgid "Somalia"
+#~ msgstr "Somali"
+
+#~ msgid "South Africa"
+#~ msgstr "Güney Afrika"
+
+#~ msgid "South Georgia and the South Sandwich Islands"
+#~ msgstr "South Georgia and the South Sandwich Islands"
+
+#~ msgid "Spain"
+#~ msgstr "İspanya"
+
+#~ msgid "Sri Lanka"
+#~ msgstr "Sri Lanka"
+
+#~ msgid "Sudan"
+#~ msgstr "Sudan"
+
+#~ msgid "Suriname"
+#~ msgstr "Suriname"
+
+#~ msgid "Svalbard & Jan Mayen Islands"
+#~ msgstr "Svalbard & Jan Mayen Adaları"
+
+#~ msgid "Swaziland"
+#~ msgstr "Swaziland"
+
+#~ msgid "Sweden"
+#~ msgstr "İsveç"
+
+#~ msgid "Switzerland"
+#~ msgstr "İsviçre"
+
+#~ msgid "Syrian Arab Republic"
+#~ msgstr "Suriye Arap Cumhuriyeti"
+
+#~ msgid "Taiwan"
+#~ msgstr "Tayvan"
+
+#~ msgid "Tajikistan"
+#~ msgstr "Tacikistan"
+
+#~ msgid "Tanzania"
+#~ msgstr "Tanzanya"
+
+#~ msgid "Thailand"
+#~ msgstr "Tayland"
+
+#~ msgid "Timor-Leste"
+#~ msgstr "Timor-Leste"
+
+#~ msgid "Togo"
+#~ msgstr "Togo"
+
+#~ msgid "Tokelau Islands"
+#~ msgstr "Tokelau Adaları"
+
+#~ msgid "Tonga"
+#~ msgstr "Tonga"
+
+#~ msgid "Trinidad and Tobago"
+#~ msgstr "Trinidad and Tobago"
+
+#~ msgid "Tunisia"
+#~ msgstr "Tunus"
+
+#~ msgid "Turkey"
+#~ msgstr "Türkiye"
+
+#~ msgid "Turkmenistan"
+#~ msgstr "Türkmenistan"
+
+#~ msgid "Turks and Caicos Islands"
+#~ msgstr "Turks and Caicos Islands"
+
+#~ msgid "Tuvalu"
+#~ msgstr "Tuvalu"
+
+#~ msgid "US Virgin Islands"
+#~ msgstr "US Virgin Adaları"
+
+#~ msgid "Uganda"
+#~ msgstr "Uganda"
+
+#~ msgid "Ukraine"
+#~ msgstr "Ukrayna"
+
+#~ msgid "United Arab Emirates"
+#~ msgstr "Birleşik Arap Emirlikleri"
+
+#~ msgid "United Kingdom"
+#~ msgstr "İngiltere"
+
+#~ msgid "United States Minor Outlying Islands"
+#~ msgstr "United States Minor Outlying Islands"
+
+#~ msgid "United States of America"
+#~ msgstr "Amerika Birleşik Devletleri"
+
+#~ msgid "Uruguay, Eastern Republic of"
+#~ msgstr "Uruguay, Eastern Republic of"
+
+#~ msgid "Uzbekistan"
+#~ msgstr "Özbekistan"
+
+#~ msgid "Vanuatu"
+#~ msgstr "Vanuatu"
+
+#~ msgid "Venezuela"
+#~ msgstr "Venezuella"
+
+#~ msgid "Viet Nam"
+#~ msgstr "Vietnam"
+
+#~ msgid "Wallis and Futuna Islands "
+#~ msgstr "Wallis and Futuna Adaları"
+
+#~ msgid "Western Sahara"
+#~ msgstr "Batı Sahra"
+
+#~ msgid "Yemen"
+#~ msgstr "Yemen"
+
+#~ msgid "Zambia"
+#~ msgstr "Zambiya"
+
+#~ msgid "Zimbabwe"
+#~ msgstr "Zimbabwe"
+
+#~ msgid "United Nations"
+#~ msgstr "Birleşik Devletler"
+
+#~ msgid "European Union"
+#~ msgstr "Avrupa Birliği"
+
+#~ msgid "Space"
+#~ msgstr "Uzay"
+
+#~ msgid "At Sea"
+#~ msgstr "Deniz"
+
+#~ msgid "In Flight"
+#~ msgstr "Uçuş"
+
+#~ msgid "England"
+#~ msgstr "İngiltere"
+
+#~ msgid "Scotland"
+#~ msgstr "İskoçya"
+
+#~ msgid "Northern Ireland"
+#~ msgstr "Kuzey İrlanda"
+
+#~ msgid "Wales"
+#~ msgstr "Galler"
+
+#~ msgid "Palestine"
+#~ msgstr "Filistin"
+
+#~ msgid "Gaza"
+#~ msgstr "Gaza"
+
+#~ msgid "Jericho"
+#~ msgstr "Erika Şehri"
+
+#~ msgid "Select here the content's country of origin."
+#~ msgstr "İçeriğin kaynak ülkesini buradan seçin."
+
+#, fuzzy
+#~| msgid "Title (*):"
+#~ msgctxt "image title"
+#~ msgid "Title (*):"
+#~ msgstr "Başlık (*):"
+
+#~ msgid "Edit Image Caption"
+#~ msgstr "Resim Başlığını Düzenle"
+
+#~ msgid ""
+#~ "Enter the image caption entered through <b>%1</b>. This field is not "
+#~ "limited (excepted with IPTC). UTF-8 encoding will be used to save text."
+#~ msgstr ""
+#~ "<b>%1</b> alanından girilmiş resim başlığını girin. Bu alan sınırlı "
+#~ "değildir (IPTC dışında). UTF-8 kodlaması metni kaydetmek için "
+#~ "kullanılacaktır."
+
+#~ msgid "Sync XMP Caption"
+#~ msgstr "XMP Resim yazısını eşle"
+
+#~ msgid ""
+#~ "<b>Note: captions from currently selected images will be permanently "
+#~ "replaced.</b>"
+#~ msgstr ""
+#~ "<b>Dikkat: Halihazırda seçili resim yazıları kalıcı olarak yer "
+#~ "değiştirilecek.</b>"
+
+#~ msgid "Remove Image Caption"
+#~ msgstr "Resim Yazısını Kaldır"
+
+#~ msgid "Remove caption hosted by %1"
+#~ msgstr "%1 tarafından barındırılmış resim yazısını kaldır"
+
+#~ msgid "Remove JFIF Comment section"
+#~ msgstr "JFIF Yorum bölgesini kaldır"
+
+#~ msgid "Remove EXIF Comment"
+#~ msgstr "EXIF Yorumunu kaldır"
+
+#~ msgid "Remove XMP Caption"
+#~ msgstr "XMP Resim yazısını kaldır"
+
+#~ msgid "Remove IPTC Caption"
+#~ msgstr "IPTC Resim yazısını kaldır"
+
+#~ msgid ""
+#~ "<b>Note: Captions from currently selected images will be permanently "
+#~ "removed.</b>"
+#~ msgstr ""
+#~ "<b>Dikkat: Halihazırda seçili resim yazıları kalıcı olarak kaldırılacak.</"
+#~ "b>"
+
+#~ msgid "Default Language"
+#~ msgstr "Öntanımlı Dil"
+
+#~ msgid "Afrikaans (South Africa)"
+#~ msgstr "Afrika Dili (Güney Afrika)"
+
+#~ msgid "Amharic (Ethiopia)"
+#~ msgstr "Habeşçe (Etyopya)"
+
+#~ msgid "Arabic (UAE)"
+#~ msgstr "Arapça (Birleşik Arap Emirlikleri)"
+
+#~ msgid "Arabic (Bahrain)"
+#~ msgstr "Arapça (Bahreyn)"
+
+#~ msgid "Arabic (Algeria)"
+#~ msgstr "Arapça (Cezayir)"
+
+#~ msgid "Arabic (Egypt)"
+#~ msgstr "Arapça (Mısır)"
+
+#~ msgid "Arabic (Iraq)"
+#~ msgstr "Arapça (Irak)"
+
+#~ msgid "Arabic (Jordan)"
+#~ msgstr "Arapça (Ürdün)"
+
+#~ msgid "Arabic (Kuwait)"
+#~ msgstr "Arapça (Kuveyt)"
+
+#~ msgid "Arabic (Lebanon)"
+#~ msgstr "Arapça (Lübnan)"
+
+#~ msgid "Arabic (Libya)"
+#~ msgstr "Arapça (Libya)"
+
+#~ msgid "Arabic (Morocco)"
+#~ msgstr "Arapça (Fas)"
+
+#~ msgid "Arabic (Oman)"
+#~ msgstr "Arapça (Umman)"
+
+#~ msgid "Arabic (Qatar)"
+#~ msgstr "Arapça (Katar)"
+
+#~ msgid "Arabic (Saudi Arabia)"
+#~ msgstr "Arapça (Sudi Arabistan)"
+
+#~ msgid "Arabic (Syria)"
+#~ msgstr "Arapça (Suriye)"
+
+#~ msgid "Arabic (Tunisia)"
+#~ msgstr "Arapça (Tunus)"
+
+#~ msgid "Arabic (Yemen)"
+#~ msgstr "Arapça (Yemen)"
+
+#~ msgid "Assamese (India)"
+#~ msgstr "Assamese (Hindistan)"
+
+#~ msgid "Bashkir (Russia)"
+#~ msgstr "Bashkir (Rusya)"
+
+#~ msgid "Belarusian (Belarus)"
+#~ msgstr "Belarusian (Belarus)"
+
+#~ msgid "Bulgarian (Bulgaria)"
+#~ msgstr "Bulgarca (Bulgaristan)"
+
+#~ msgid "Bengali (India)"
+#~ msgstr "Bengalce (Hindistan)"
+
+#~ msgid "Tibetan (Bhutan)"
+#~ msgstr "Tibetçe (Bhutan)"
+
+#~ msgid "Tibetan (PRC)"
+#~ msgstr "Tibetçe (PRC)"
+
+#~ msgid "Breton (France)"
+#~ msgstr "Breton (Fransa)"
+
+#~ msgid "Catalan (Andorra)"
+#~ msgstr "Katalan Dili (Andorra)"
+
+#~ msgid "Catalan (Spain)"
+#~ msgstr "Katalan Dili (İspanya)"
+
+#~ msgid "Catalan (France)"
+#~ msgstr "Katalan Dili (Fransa)"
+
+#~ msgid "Corsican (France)"
+#~ msgstr "Corsican (Fransa)"
+
+#~ msgid "Czech (Czech Republic)"
+#~ msgstr "Çekçe (Çek Cumhuriyeti)"
+
+#~ msgid "Welsh (United Kingdom)"
+#~ msgstr "Welsh (İngiltere)"
+
+#~ msgid "Danish (Denmark)"
+#~ msgstr "Danimarkaca (Danimarka)"
+
+#~ msgid "German (Austria)"
+#~ msgstr "Almanca (Avusturya)"
+
+#~ msgid "German (Switzerland)"
+#~ msgstr "Almanca (İsviçre)"
+
+#~ msgid "German (Germany)"
+#~ msgstr "Almanca (Almanya)"
+
+#~ msgid "German (Liechtenstein)"
+#~ msgstr "Almanca (Liechtenstein)"
+
+#~ msgid "German (Luxembourg)"
+#~ msgstr "Almanca (Lüksemburg)"
+
+#~ msgid "Greek (Greece)"
+#~ msgstr "Yunanca (Yunanistan)"
+
+#~ msgid "English (Australia)"
+#~ msgstr "İngilizce (Avustralya)"
+
+#~ msgid "English (Belize)"
+#~ msgstr "İngilizce (Belize)"
+
+#~ msgid "English (Canada)"
+#~ msgstr "İngilizce (Kanada)"
+
+#~ msgid "English (Caribbean)"
+#~ msgstr "İngilizce (Caribbean)"
+
+#~ msgid "English (United Kingdom)"
+#~ msgstr "İngilizce (İngiltere)"
+
+#~ msgid "English (Ireland)"
+#~ msgstr "İngilizce (İrlanda)"
+
+#~ msgid "English (India)"
+#~ msgstr "İngilizce (Hindistan)"
+
+#~ msgid "English (Jamaica)"
+#~ msgstr "İngilizce (Jamaika)"
+
+#~ msgid "English (Malaysia)"
+#~ msgstr "İngilizce (Malezya)"
+
+#~ msgid "English (New Zealand)"
+#~ msgstr "İngilizce (Yeni Zellanda)"
+
+#~ msgid "English (Philippines)"
+#~ msgstr "İngilizce (Filipinler)"
+
+#~ msgid "English (Singapore)"
+#~ msgstr "İngilizce (Singapur)"
+
+#~ msgid "English (Trinidad)"
+#~ msgstr "İngilizce (Trinidad)"
+
+#~ msgid "English (United States)"
+#~ msgstr "İngilizce (Amerika Birleşik Devletleri)"
+
+#~ msgid "English (South Africa)"
+#~ msgstr "İngilizce (Güney Amerika)"
+
+#~ msgid "English (Zimbabwe)"
+#~ msgstr "İngilizce (Zimbave)"
+
+#~ msgid "Spanish (Argentina)"
+#~ msgstr "İspanyolca (Ajantin)"
+
+#~ msgid "Spanish (Bolivia)"
+#~ msgstr "İspanyolca (Bolivya)"
+
+#~ msgid "Spanish (Chile)"
+#~ msgstr "İspanyolca (Chile)"
+
+#~ msgid "Spanish (Colombia)"
+#~ msgstr "İspanyolca (Kolombiya)"
+
+#~ msgid "Spanish (Costa Rica)"
+#~ msgstr "İspanyolca (Costa Rica)"
+
+#~ msgid "Spanish (Dominican Republic)"
+#~ msgstr "İspanyolca (Dominik Cumhuriyeti)"
+
+#~ msgid "Spanish (Ecuador)"
+#~ msgstr "İspanyolca (Ekvador)"
+
+#~ msgid "Spanish (Spain)"
+#~ msgstr "İspanyolca (İspanya)"
+
+#~ msgid "Spanish (Guatemala)"
+#~ msgstr "İspanyolca (Guatemala)"
+
+#~ msgid "Spanish (Honduras)"
+#~ msgstr "İspanyolca (Honduras)"
+
+#~ msgid "Spanish (Mexico)"
+#~ msgstr "İspanyolca (Meksika)"
+
+#~ msgid "Spanish (Nicaragua)"
+#~ msgstr "İspanyolca (Nikaragua)"
+
+#~ msgid "Spanish (Panama)"
+#~ msgstr "İspanyolca (Panama)"
+
+#~ msgid "Spanish (Peru)"
+#~ msgstr "İspanyolca (Peru)"
+
+#~ msgid "Spanish (Puerto Rico)"
+#~ msgstr "İspanyolca (Puerto Rico)"
+
+#~ msgid "Spanish (Paraguay)"
+#~ msgstr "İspanyolca (Paraguay)"
+
+#~ msgid "Spanish (El Salvador)"
+#~ msgstr "İspanyolca (El Salvador)"
+
+#~ msgid "Spanish (Uruguay)"
+#~ msgstr "İspanyolca (Uruguay)"
+
+#~ msgid "Spanish (United States)"
+#~ msgstr "İspanyolca (Birleşik Devletler)"
+
+#~ msgid "Spanish (Venezuela)"
+#~ msgstr "İspanyolca (Venezuela)"
+
+#~ msgid "Estonian (Estonia)"
+#~ msgstr "Estonya Dili (Estonya)"
+
+#~ msgid "Basque (Basque Country)"
+#~ msgstr "Bask Dili (Bask Ülkesi)"
+
+#~ msgid "Persian (Iran)"
+#~ msgstr "Farsça (İran)"
+
+#~ msgid "Finnish (Finland)"
+#~ msgstr "Fince (Finlandiya)"
+
+#~ msgid "Faeroese (Faero Islands)"
+#~ msgstr "Faeroese (Faero Adaları)"
+
+#~ msgid "French (Belgium)"
+#~ msgstr "Fransızca (Belçika)"
+
+#~ msgid "French (Canada)"
+#~ msgstr "Fransızca (Kanada)"
+
+#~ msgid "French (Switzerland)"
+#~ msgstr "Fransızca (İsviçre)"
+
+#~ msgid "French (France)"
+#~ msgstr "Fransızca (Fransa)"
+
+#~ msgid "French (Luxembourg)"
+#~ msgstr "Fransızca (Lüksemburg)"
+
+#~ msgid "French (Monaco)"
+#~ msgstr "Fransızca (Monaco)"
+
+#~ msgid "Frisian (Netherlands)"
+#~ msgstr "Frisian (Hollanda)"
+
+#~ msgid "Irish (Ireland)"
+#~ msgstr "İrlanda Dili (İrlanda)"
+
+#~ msgid "Galician (Galicia)"
+#~ msgstr "Galician (Galicia)"
+
+#~ msgid "Gujarati (India)"
+#~ msgstr "Gujarati (Hindistan)"
+
+#~ msgid "Hebrew (Israel)"
+#~ msgstr "İbranice (İsrail)"
+
+#~ msgid "Hindi (India)"
+#~ msgstr "Hintçe (Hindistan)"
+
+#~ msgid "Croatian (Bosnia and Herzegovina, Latin)"
+#~ msgstr "Hırvatça (Bosna Hersek, Latin)"
+
+#~ msgid "Croatian (Croatia)"
+#~ msgstr "Hırvatça (Hırvatistan)"
+
+#~ msgid "Hungarian (Hungary)"
+#~ msgstr "Macarca (Macaristan)"
+
+#~ msgid "Armenian (Armenia)"
+#~ msgstr "Ermenice (Ermenistan)"
+
+#~ msgid "(Indonesian)"
+#~ msgstr "(Endonezya Dili)"
+
+#~ msgid "Yi (PRC)"
+#~ msgstr "Yi (PRC)"
+
+#~ msgid "Icelandic (Iceland)"
+#~ msgstr "İzlanda Dili (İzlanda)"
+
+#~ msgid "Italian (Switzerland)"
+#~ msgstr "İtalyanca (İsviçre)"
+
+#~ msgid "Italian (Italy)"
+#~ msgstr "İtalyanca (İtalya)"
+
+#~ msgid "Japanese (Japan)"
+#~ msgstr "Japonca (Japonya)"
+
+#~ msgid "Georgian (Georgia)"
+#~ msgstr "Gürcüce (Gürcistan)"
+
+#~ msgid "Kazakh (Kazakhstan)"
+#~ msgstr "Kazakça (Kazakistan)"
+
+#~ msgid "Greenlandic (Greenland)"
+#~ msgstr "Greenlandic (Greenland)"
+
+#~ msgid "Khmer (Cambodia)"
+#~ msgstr "Khmer (Kamboçya)"
+
+#~ msgid "Kannada (India)"
+#~ msgstr "Kannada (Hindistan)"
+
+#, fuzzy
+#~| msgid "Korean (Korea)"
+#~ msgid "Korean (South Korea)"
+#~ msgstr "Korece (Kore)"
+
+#~ msgid "Kyrgyz (Kyrgyzstan)"
+#~ msgstr "Kırgızca (Kırgızistan)"
+
+#~ msgid "Luxembourgish (Luxembourg)"
+#~ msgstr "Lüksemburg Dili (Lüksemburg)"
+
+#~ msgid "Lao (Lao PDR)"
+#~ msgstr "Lao (Lao PDR)"
+
+#~ msgid "Lithuanian (Lithuania)"
+#~ msgstr "Litvanya Dili (Litvanya)"
+
+#~ msgid "Latvian (Latvia)"
+#~ msgstr "Letonya Dili (Letonya)"
+
+#~ msgid "Maori (New Zealand)"
+#~ msgstr "Maori (Yeni Zellanda)"
+
+#~ msgid "Macedonian (Macedonia)"
+#~ msgstr "Mekedonya Dili (Makedonya)"
+
+#~ msgid "Malayalam (India)"
+#~ msgstr "Malayalam (Hindistan)"
+
+#~ msgid "Mongolian (PRC)"
+#~ msgstr "Moğolca (PRC)"
+
+#~ msgid "Mongolian (Mongolia)"
+#~ msgstr "Moğolca (Moğolistan)"
+
+#~ msgid "Marathi (India)"
+#~ msgstr "Marathi (Hindistan)"
+
+#~ msgid "Malay (Brunei Darussalam)"
+#~ msgstr "Malay (Brunei Darussalam)"
+
+#~ msgid "Malay (Malaysia)"
+#~ msgstr "Malay Dili (Malezya)"
+
+#~ msgid "Maltese (Malta)"
+#~ msgstr "Malta Dili (Malta)"
+
+#~ msgid "Norwegian Bokmål (Norway)"
+#~ msgstr "Norveççe Bokmål (Norveç)"
+
+#~ msgid "Nepali (Nepal)"
+#~ msgstr "Nepalce (Nepal)"
+
+#~ msgid "Dutch (Belgium)"
+#~ msgstr "Flamanca (Belçika)"
+
+#~ msgid "Dutch (Netherlands)"
+#~ msgstr "Flamanca (Hollanda)"
+
+#~ msgid "Norwegian Nynorsk (Norway)"
+#~ msgstr "Norveççe Nynorsk (Norveç)"
+
+#~ msgid "Sesotho sa Leboa (South Africa)"
+#~ msgstr "Sesotho sa Leboa (Güney Afrika)"
+
+#~ msgid "Occitan (France)"
+#~ msgstr "Occitan (Fransa)"
+
+#~ msgid "Oriya (India)"
+#~ msgstr "Oriya (Hindistan)"
+
+#~ msgid "Punjabi (India)"
+#~ msgstr "Punjabi (Hindistan)"
+
+#~ msgid "Polish (Poland)"
+#~ msgstr "Lehçe (Polonya)"
+
+#~ msgid "Pashto (Afghanistan)"
+#~ msgstr "Pashto (Afganistan)"
+
+#~ msgid "Portuguese (Brazil)"
+#~ msgstr "Portekizce (Brezilya)"
+
+#~ msgid "Portuguese (Portugal)"
+#~ msgstr "Portekizce (Portekiz)"
+
+#~ msgid "Romansh (Switzerland)"
+#~ msgstr "Romansh (İsviçre)"
+
+#~ msgid "Romanian (Romania)"
+#~ msgstr "Romence (Romanya)"
+
+#~ msgid "Russian (Russia)"
+#~ msgstr "Rusça (Rusya)"
+
+#~ msgid "Kinyarwanda (Rwanda)"
+#~ msgstr "Kinyarwanda (Rwanda)"
+
+#~ msgid "Sanskrit (India)"
+#~ msgstr "Sanskritçe (Hindistan)"
+
+#~ msgid "Sami (Northern, Finland)"
+#~ msgstr "Samice (Kuzey, Finlandiya)"
+
+#~ msgid "Sami (Northern, Norway)"
+#~ msgstr "Samice (Kuzey, Norveç)"
+
+#~ msgid "Sami (Northern, Sweden)"
+#~ msgstr "Samice (Kuzey, İsveç)"
+
+#~ msgid "Sinhala (Sri Lanka)"
+#~ msgstr "Sinhala (Sri Lanka)"
+
+#~ msgid "Slovak (Slovakia)"
+#~ msgstr "Slovakça (Slovakya)"
+
+#~ msgid "Slovenian (Slovenia)"
+#~ msgstr "Slovence (Slovenya)"
+
+#~ msgid "Albanian (Albania)"
+#~ msgstr "Arnavutça (Arnavutluk)"
+
+#~ msgid "Swedish (Finland)"
+#~ msgstr "İsveççe (Finlandiya)"
+
+#~ msgid "Swedish (Sweden)"
+#~ msgstr "İsveççe (İsveç)"
+
+#~ msgid "Swahili (Kenya)"
+#~ msgstr "Swahili (Kenya)"
+
+#~ msgid "Tamil (India)"
+#~ msgstr "Tamilce (Hindistan)"
+
+#~ msgid "Telugu (India)"
+#~ msgstr "Telugu (Hindistan)"
+
+#~ msgid "Thai (Thailand)"
+#~ msgstr "Tay Dili (Tayland)"
+
+#~ msgid "Turkmen (Turkmenistan)"
+#~ msgstr "Türkmence (Türkmenistan)"
+
+#~ msgid "Setswana Tswana (South Africa)"
+#~ msgstr "Setswana Tswana (Güney Afrika)"
+
+#~ msgid "Urdu (India)"
+#~ msgstr "Urduca (Hindistan)"
+
+#~ msgid "Turkish (Turkey)"
+#~ msgstr "Türkçe (Türkiye)"
+
+#~ msgid "Tatar (Russia)"
+#~ msgstr "Tatarca (Rusya)"
+
+#~ msgid "Uighur (PRC)"
+#~ msgstr "Uygurca (PRC)"
+
+#~ msgid "Ukrainian (Ukraine)"
+#~ msgstr "Ukrayna Dili (Ukrayna)"
+
+#~ msgid "Urdu (Pakistan)"
+#~ msgstr "Urdu (Pakistan)"
+
+#~ msgid "Vietnamese (Vietnam)"
+#~ msgstr "Vietnamca (Vietnam)"
+
+#~ msgid "Wolof (Senegal)"
+#~ msgstr "Wolof (Senegal)"
+
+#~ msgid "isiXhosa Xhosa (South Africa)"
+#~ msgstr "isiXhosa Xhosa (South Africa)"
+
+#~ msgid "Yoruba (Nigeria)"
+#~ msgstr "Yoruba (Nijerya)"
+
+#~ msgid "Chinese (PRC)"
+#~ msgstr "Çince (Singapur) (PRC)"
+
+#~ msgid "Chinese (Hong Kong SAR, PRC)"
+#~ msgstr "Çince (Hong Kong SAR, PRC)"
+
+#~ msgid "Chinese (Macao SAR)"
+#~ msgstr "Çince (Macao SAR)"
+
+#~ msgid "Chinese (Singapore)"
+#~ msgstr "Çince (Singapur)"
+
+#~ msgid "Chinese (Taiwan)"
+#~ msgstr "Çince (Taiwan)"
+
+#~ msgid "isiZulu Zulu (South Africa)"
+#~ msgstr "isiZulu Zulu (Güney Afrika)"
+
+#~ msgid "Select here language code."
+#~ msgstr "Burada dil kodunu seçin."
+
+#~ msgid "Edit EXIF Metadata"
+#~ msgstr "EXIF Üstverisini Düzenle"
+
+#~ msgid "(read only)"
+#~ msgstr "(salt okunur)"
+
+#~ msgid "Edit IPTC Metadata"
+#~ msgstr "IPTC Üstverisini Düzenle"
+
+#~ msgid "Remove EXIF..."
+#~ msgstr "EXIF Bilgilerini Sil..."
+
+#~ msgid "Remove IPTC..."
+#~ msgstr "IPTC Bilgilerini Sil..."
+
+#~ msgid "Remove XMP..."
+#~ msgstr "XMP Bilgilerini Sil..."
+
+#~ msgid "Edit Captions..."
+#~ msgstr "Balıkları Düzenle..."
+
+#~ msgid "Remove Captions..."
+#~ msgstr "Başlıkları Sil..."
+
+#~ msgid ""
+#~ "EXIF metadata will be permanently removed from all currently selected "
+#~ "pictures.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "EXIF üstverisi şimdi seçili olan tüm resimlerden kalıcı olarak "
+#~ "kaldırılacaktır.\n"
+#~ "Devam etmek istiyor musunuz?"
+
+#~ msgid "Remove EXIF Metadata"
+#~ msgstr "EXIF Üstverisini Kaldır"
+
+#~ msgid "Unable to remove EXIF metadata from:"
+#~ msgstr "EXIF üstverisi kaldırılamıyor:"
+
+#~ msgid ""
+#~ "IPTC metadata will be permanently removed from all currently selected "
+#~ "pictures.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "IPTC üstverisi halihazırda seçili tüm resimlerden kalıcı olarak "
+#~ "silinecektir.\n"
+#~ "Devam etmek istiyor musunuz?"
+
+#~ msgid "Remove IPTC Metadata"
+#~ msgstr "IPTC Üstverisini Kaldır"
+
+#~ msgid "Unable to remove IPTC metadata from:"
+#~ msgstr "IPTC üstverisi kaldırılamıyor:"
+
+#~ msgid ""
+#~ "XMP metadata will be permanently removed from all of the currently "
+#~ "selected pictures.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "XMP üstverisi seçili olan tüm resimlerden kalıcı olarak silinecektir.\n"
+#~ "Devam etmek istiyor musunuz?"
+
+#~ msgid "Remove XMP Metadata"
+#~ msgstr "XMP Üstverisini Kaldır"
+
+#~ msgid "Unable to remove XMP metadata from:"
+#~ msgstr "XMP üstverisi kaldırılamıyor:"
+
+#~ msgid "Unable to set captions as image metadata from:"
+#~ msgstr "Resim üstverisi olarak resim yazıları belirlenemiyor:"
+
+#~ msgid "Unable to remove caption as image metadata from:"
+#~ msgstr "Resim üstverisi olarak resim yazısı kaldırılamıyor:"
+
+#~ msgid "(c) 2007-2009, Gilles Caulier"
+#~ msgstr "(c) 2007-2009, Gilles Caulier"
+
+#~ msgid "Edit XMP Metadata"
+#~ msgstr "XMP Üstverisini Düzenle"
+
+#~ msgid "Use structured definition of the subject matter:"
+#~ msgstr "Yapısal konu özü tanımını kullan:"
+
+#~ msgid ""
+#~ "Use standard <b><a href='http://www.iptc.org/NewsCodes'>reference code</"
+#~ "a></b>"
+#~ msgstr ""
+#~ "Standart <b><a href='http://www.iptc.org/NewsCodes'>referans kodu</a> "
+#~ "kullan</b>"
+
+#~ msgid "Use custom definition"
+#~ msgstr "Özel tanımlama kullan"
+
+#~ msgid "I.P.R:"
+#~ msgstr "I.P.R:"
+
+#, fuzzy
+#~| msgid "Name:"
+#~ msgctxt "name of the subject"
+#~ msgid "Name:"
+#~ msgstr "İsim:"
+
+#~ msgid "Matter:"
+#~ msgstr "Öz:"
+
+#~ msgid "Detail:"
+#~ msgstr "Ayrıntı:"
+
+#~ msgid "Unknow"
+#~ msgstr "Bilinmeyen"
+
+#~ msgid "Use standard"
+#~ msgstr "Standart kullan"
+
+#, fuzzy
+#~| msgid "Reference:"
+#~ msgid "reference code"
+#~ msgstr "Referans:"
+
+#, fuzzy
+#~| msgid "Use standard"
+#~ msgid "Use standard "
+#~ msgstr "Standart kullan"

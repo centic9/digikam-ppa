@@ -1,0 +1,595 @@
+# Lithuanian translations for kipiplugins_picasawebexport package.
+#
+# Andrius Štikonas <stikonas@gmail.com>, 2009.
+# Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_picasawebexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-04-09 02:54+0200\n"
+"PO-Revision-Date: 2011-09-25 20:05+0300\n"
+"Last-Translator: Remigijus Jarmalavičius <remigijus@jarmalavicius.lt>\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.2\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrius Štikonas"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stikonas@gmail.com"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_picasawebexportui.rc:6
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "&Import"
+msgstr "PicasaWeb eksportas"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_picasawebexportui.rc:10
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "&Export"
+msgstr "PicasaWeb eksportas"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_picasawebexportui.rc:16
+msgid "Main Toolbar"
+msgstr ""
+
+#: picasawebalbum.cpp:51
+msgid "Picasaweb New Album"
+msgstr "Picasaweb naujas albumas"
+
+#: picasawebalbum.cpp:61 picasawebwidget.cpp:101
+msgid "Album"
+msgstr "Albumas"
+
+#: picasawebalbum.cpp:63
+msgid "These are basic settings for the new Picasaweb album."
+msgstr ""
+
+#: picasawebalbum.cpp:66
+msgid "Title of the album that will be created (required)."
+msgstr ""
+
+#: picasawebalbum.cpp:70
+msgid "Date and Time of the album that will be created (optional)."
+msgstr ""
+
+#: picasawebalbum.cpp:73
+msgid "Description of the album that will be created (optional)."
+msgstr ""
+
+#: picasawebalbum.cpp:76
+msgid "Location of the album that will be created (optional)."
+msgstr ""
+
+#: picasawebalbum.cpp:79
+msgctxt "new picasaweb album dialog"
+msgid "Title:"
+msgstr "Pavadinimas:"
+
+#: picasawebalbum.cpp:80
+msgctxt "new picasaweb album dialog"
+msgid "Date & Time:"
+msgstr "Data ir laikas:"
+
+#: picasawebalbum.cpp:81
+msgctxt "new picasaweb album dialog"
+msgid "Description:"
+msgstr "Aprašymas:"
+
+#: picasawebalbum.cpp:82
+msgctxt "new picasaweb album dialog"
+msgid "Location:"
+msgstr "Vieta:"
+
+#: picasawebalbum.cpp:90
+msgid "Access Level"
+msgstr "Prieigos lygis"
+
+#: picasawebalbum.cpp:91
+msgid "These are security and privacy settings for the new Picasaweb album."
+msgstr ""
+
+#: picasawebalbum.cpp:93
+msgctxt "picasaweb album privacy"
+msgid "Public"
+msgstr "Viešas"
+
+#: picasawebalbum.cpp:95
+msgid "Public album is listed on your public Picasaweb page."
+msgstr ""
+
+#: picasawebalbum.cpp:96
+msgctxt "picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr ""
+
+#: picasawebalbum.cpp:97
+msgid "Unlisted album is only accessible via URL."
+msgstr ""
+
+#: picasawebalbum.cpp:98
+msgctxt "picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr ""
+
+#: picasawebalbum.cpp:99
+msgid "Unlisted album require Sign-In to View"
+msgstr ""
+
+#: picasawebalbum.cpp:107
+msgid "Privacy:"
+msgstr "Privatumas:"
+
+#: picasawebimglist.cpp:63
+msgid "This is the list of images to upload to your Picasaweb account."
+msgstr ""
+
+#: picasawebimglist.cpp:112
+#, kde-format
+msgid "%1|All supported files"
+msgstr "%1|Visi palaikomi failai"
+
+#: picasawebimglist.cpp:124
+#, kde-format
+msgid "%1|Camera RAW files"
+msgstr "%1|Fotoaparato RAW failai"
+
+#: picasawebimglist.cpp:126
+#, kde-format
+msgid "%1|Video files"
+msgstr "%1|Video failai"
+
+#: picasawebimglist.cpp:138
+msgid "Select Images"
+msgstr "Pasirinkite paveikslėlius"
+
+#: picasaweblogin.cpp:68
+msgid "Google Login:"
+msgstr "Google prisijungimas:"
+
+#: picasaweblogin.cpp:72
+msgid "Password:"
+msgstr "Slaptažodis:"
+
+#: picasaweblogin.cpp:83
+msgid "&OK"
+msgstr "&Gerai"
+
+#: picasaweblogin.cpp:86
+msgid "&Cancel"
+msgstr "&Atšaukti"
+
+#: picasawebreplacedialog.cpp:95
+msgid "&Add As New"
+msgstr "Pridėti kaip naują"
+
+#: picasawebreplacedialog.cpp:96
+msgid "Item will be added alongside the linked version."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:100
+msgid "&Add All"
+msgstr "Pridėti visus"
+
+#: picasawebreplacedialog.cpp:101
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:105
+msgid "&Replace"
+msgstr "Pa&keisti"
+
+#: picasawebreplacedialog.cpp:106
+msgid "Item will be replacing the linked version."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:110
+msgid "&Replace All"
+msgstr "Pakeisti viską"
+
+#: picasawebreplacedialog.cpp:111
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:121
+msgid "A linked item already exists."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:138 picasawebwidget.cpp:134
+msgid "Destination"
+msgstr "Vieta"
+
+#: picasawebreplacedialog.cpp:142
+msgid "Source"
+msgstr "Šaltinis"
+
+#: picasawebtalker.cpp:110
+msgid "Login"
+msgstr "Prisijungimas"
+
+#: picasawebtalker.cpp:605
+msgid "No photo specified"
+msgstr ""
+
+#: picasawebtalker.cpp:607
+msgid "General upload failure"
+msgstr ""
+
+#: picasawebtalker.cpp:609
+msgid "File-size was zero"
+msgstr "Failas buvo nulinio dydžio"
+
+#: picasawebtalker.cpp:611
+msgid "File-type was not recognized"
+msgstr "Failo tipas nebuvo atpažintas"
+
+#: picasawebtalker.cpp:613
+msgid "User exceeded upload limit"
+msgstr ""
+
+#: picasawebtalker.cpp:615
+msgid "Invalid signature"
+msgstr "Negaliojantis parašas"
+
+#: picasawebtalker.cpp:617
+msgid "Missing signature"
+msgstr "Trūksta parašo"
+
+#: picasawebtalker.cpp:619
+msgid "Login failed / Invalid auth token"
+msgstr ""
+
+#: picasawebtalker.cpp:621
+msgid "Invalid API Key"
+msgstr ""
+
+#: picasawebtalker.cpp:623
+msgid "Service currently unavailable"
+msgstr ""
+
+#: picasawebtalker.cpp:625
+msgid "Invalid Frob"
+msgstr ""
+
+#: picasawebtalker.cpp:627
+msgid "Format \"xxx\" not found"
+msgstr ""
+
+#: picasawebtalker.cpp:629
+msgid "Method \"xxx\" not found"
+msgstr ""
+
+#: picasawebtalker.cpp:631
+msgid "Invalid SOAP envelope"
+msgstr ""
+
+#: picasawebtalker.cpp:633
+msgid "Invalid XML-RPC Method Call"
+msgstr ""
+
+#: picasawebtalker.cpp:635
+msgid "The POST method is now required for all setters."
+msgstr ""
+
+#: picasawebtalker.cpp:637
+msgid "Unknown error"
+msgstr "Nežinoma klaida"
+
+#: picasawebtalker.cpp:640
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+
+#: picasawebtalker.cpp:754 picasawebtalker.cpp:813
+msgid "Failed to fetch photo-set list"
+msgstr ""
+
+#: picasawebtalker.cpp:939 picasawebtalker.cpp:971
+msgid "Failed to create album"
+msgstr ""
+
+#: picasawebtalker.cpp:981
+msgid "Failed to upload photo"
+msgstr ""
+
+#: picasawebwidget.cpp:70
+msgid ""
+"This is a clickable link to open the Picasaweb home page in a web browser."
+msgstr ""
+
+#: picasawebwidget.cpp:76
+msgid "Account"
+msgstr "Paskyra"
+
+#: picasawebwidget.cpp:77
+msgid "This is the Picasaweb account that will be used to authenticate."
+msgstr ""
+
+#: picasawebwidget.cpp:80
+msgctxt "Picasaweb account login"
+msgid "Anonymous"
+msgstr ""
+
+#: picasawebwidget.cpp:81
+msgid "Login as anonymous to Picasaweb web service."
+msgstr ""
+
+#: picasawebwidget.cpp:83
+msgid "Picasaweb Account"
+msgstr ""
+
+#: picasawebwidget.cpp:84
+msgid "Login to Picasaweb web service using username and password."
+msgstr ""
+
+#: picasawebwidget.cpp:86
+msgctxt "Picasaweb account settings"
+msgid "Name:"
+msgstr ""
+
+#: picasawebwidget.cpp:88
+msgid "Change Account"
+msgstr ""
+
+#: picasawebwidget.cpp:89
+msgid "Change Picasaweb Account used to authenticate"
+msgstr ""
+
+#: picasawebwidget.cpp:102
+msgid "This is the Picasaweb album that will be used for transfer."
+msgstr ""
+
+#: picasawebwidget.cpp:108
+msgid "New Album"
+msgstr "Naujas albumas"
+
+#: picasawebwidget.cpp:109
+msgid "Create new Picasaweb album"
+msgstr ""
+
+#: picasawebwidget.cpp:110
+msgctxt "reload album list"
+msgid "Reload"
+msgstr ""
+
+#: picasawebwidget.cpp:111
+msgid "Reload album list"
+msgstr ""
+
+#: picasawebwidget.cpp:119
+msgid "Max Dimension"
+msgstr ""
+
+#: picasawebwidget.cpp:120
+msgid ""
+"This is the maximum dimension of the images. Images larger than this will be "
+"scaled down."
+msgstr ""
+
+#: picasawebwidget.cpp:123
+msgid "Original Size"
+msgstr ""
+
+#: picasawebwidget.cpp:124
+msgid "1600 px"
+msgstr ""
+
+#: picasawebwidget.cpp:125
+msgid "1440 px"
+msgstr ""
+
+#: picasawebwidget.cpp:126
+msgid "1280 px"
+msgstr ""
+
+#: picasawebwidget.cpp:127
+msgid "1152 px"
+msgstr ""
+
+#: picasawebwidget.cpp:128
+msgid "1024 px"
+msgstr ""
+
+#: picasawebwidget.cpp:135
+msgid "This is the location where Picasaweb images will be downloaded."
+msgstr ""
+
+#: picasawebwidget.cpp:142
+msgid "Options"
+msgstr ""
+
+#: picasawebwidget.cpp:143
+msgid "These are options that will be applied to images before upload."
+msgstr ""
+
+#: picasawebwidget.cpp:147
+msgid "Resize photos before uploading"
+msgstr ""
+
+#: picasawebwidget.cpp:157
+msgid "Maximum dimension:"
+msgstr ""
+
+#: picasawebwidget.cpp:165
+msgid "JPEG quality:"
+msgstr ""
+
+#: picasawebwidget.cpp:168
+msgid "Tag path behavior:"
+msgstr ""
+
+#: picasawebwidget.cpp:170
+msgid "Leaf tags only"
+msgstr ""
+
+#: picasawebwidget.cpp:171
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr "Eksportuoti tik lapo žymes iš žymių hierarchijos"
+
+#: picasawebwidget.cpp:172
+msgid "Split tags"
+msgstr ""
+
+#: picasawebwidget.cpp:173
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr "Eksportuoti lapo žymę ir visus prototipus kaip pavienes žymes."
+
+#: picasawebwidget.cpp:174
+msgid "Combined String"
+msgstr ""
+
+#: picasawebwidget.cpp:175
+msgid "Build a combined tag string."
+msgstr ""
+
+#: picasawebwindow.cpp:98
+msgid "Import from Picasa Web Service"
+msgstr ""
+
+#: picasawebwindow.cpp:100
+msgid "Start Download"
+msgstr "Pradėti atsisiuntimą"
+
+#: picasawebwindow.cpp:101
+msgid "Start download from Picasaweb service"
+msgstr ""
+
+#: picasawebwindow.cpp:106
+msgid "Export to Picasa Web Service"
+msgstr "Eksportuoti į Picasa tinklapio tarnybą"
+
+#: picasawebwindow.cpp:108
+msgid "Start Upload"
+msgstr "Pradėti išsiuntimą"
+
+#: picasawebwindow.cpp:109
+msgid "Start upload to Picasaweb service"
+msgstr ""
+
+#: picasawebwindow.cpp:130
+msgid "PicasaWeb Export"
+msgstr "PicasaWeb eksportas"
+
+#: picasawebwindow.cpp:133
+msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgstr ""
+"Kipi priedas eksportuoti paveikslėlių kolekcijas į PicasaWeb tinklo servisą."
+
+#: picasawebwindow.cpp:135
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2010, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010, Jens Mueller"
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2010, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller"
+
+#: picasawebwindow.cpp:140
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: picasawebwindow.cpp:140
+msgid "Author and maintainer"
+msgstr "Autorius ir prižiūrėtojas"
+
+#: picasawebwindow.cpp:143
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: picasawebwindow.cpp:143 picasawebwindow.cpp:146 picasawebwindow.cpp:149
+msgid "Developer"
+msgstr "Programuotojas"
+
+#: picasawebwindow.cpp:146
+msgid "Luka Renko"
+msgstr ""
+
+#: picasawebwindow.cpp:149
+msgid "Jens Mueller"
+msgstr ""
+
+#: picasawebwindow.cpp:329 picasawebwindow.cpp:338 picasawebwindow.cpp:372
+#: picasawebwindow.cpp:408 picasawebwindow.cpp:1018
+#, kde-format
+msgid "Picasaweb Call Failed: %1\n"
+msgstr ""
+
+#: picasawebwindow.cpp:392 picasawebwindow.cpp:469
+msgid "%v / %m"
+msgstr ""
+
+#: picasawebwindow.cpp:473
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "Picasa Export"
+msgstr "PicasaWeb eksportas"
+
+#: picasawebwindow.cpp:636 picasawebwindow.cpp:761
+msgid "Cannot open file"
+msgstr ""
+
+#: picasawebwindow.cpp:797
+#, kde-format
+msgid ""
+"Failed to upload photo into Picasaweb: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: picasawebwindow.cpp:885
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: picasawebwindow.cpp:897
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: picasawebwindow.cpp:924
+#, kde-format
+msgid ""
+"A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+msgstr ""
+
+#: picasawebwindow.cpp:986
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr ""
+
+#: plugin_picasawebexport.cpp:104
+msgid "Export to &PicasaWeb..."
+msgstr "Eksportuoti į &PicasaWeb..."
+
+#: plugin_picasawebexport.cpp:115
+msgid "Import from &PicasaWeb..."
+msgstr ""

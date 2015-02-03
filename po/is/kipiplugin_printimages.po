@@ -1,0 +1,592 @@
+# translation of kipiplugin_printimages.po to Icelandic
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sveinn í Felli <sveinki@nett.is>, 2009, 2010, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_printimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-05-13 22:53+0000\n"
+"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"Language-Team: Icelandic <kde-isl@molar.is>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.2\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sveinn í Felli"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sveinki@nett.is"
+
+#. i18n: ectx: Menu (Image)
+#: plugin/kipiplugin_printimagesui.rc:6
+msgid "&Image"
+msgstr "&Mynd"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_printimagesui.rc:13
+msgid "Main Toolbar"
+msgstr "Aðaltækjaslá"
+
+#: plugin/plugin_printimages.cpp:110 plugin/plugin_printimages.cpp:142
+msgid "Print images"
+msgstr "Prenta myndir"
+
+#: plugin/plugin_printimages.cpp:120
+msgid "Print Assistant..."
+msgstr "Prentaðstoð..."
+
+#: plugin/plugin_printimages.cpp:141 plugin/plugin_printimages.cpp:162
+msgid "Please select one or more photos to print."
+msgstr "Veldu eina eða fleiri myndir til að prenta."
+
+#: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+msgid "Print assistant"
+msgstr "Prentaðstoð"
+
+#: tools/utils.cpp:73
+msgid ""
+"Unable to create a temporary folder. Please make sure you have proper "
+"permissions to this folder and try again."
+msgstr ""
+"Mistókst að búa til bráðabirgðamöppu. Gakktu úr skugga um að þú hafir "
+"skrifheimildir í þessa möppu og reyndu aftur."
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_disableCrop)
+#: ui/croppage.ui:19
+msgid "Do not crop photos, just scale them."
+msgstr "Ekki sníða utan af myndum, einungis breyta stærð þeirra."
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_disableCrop)
+#: ui/croppage.ui:22
+msgid "Do not crop"
+msgstr "Ekki sníða af"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateLeft)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateLeft)
+#: ui/croppage.ui:42 ui/croppage.ui:45
+msgid "Rotate photo to the left"
+msgstr "Snúa mynd til vinstri"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateLeft)
+#: ui/croppage.ui:48
+msgid "&Rotate left"
+msgstr "Snúa til vinst&ri"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateRight)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateRight)
+#: ui/croppage.ui:55 ui/croppage.ui:58
+msgid "Rotate photo to the right"
+msgstr "Snúa mynd til hægri"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateRight)
+#: ui/croppage.ui:61
+msgid "&Rotate right"
+msgstr "Snúa til hæg&ri"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageDown)
+#. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropPrev)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropPrev)
+#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:292 ui/photopage.ui:295
+msgid "Previous photo"
+msgstr "Fyrri mynd"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropPrev)
+#: ui/croppage.ui:90
+msgid "<< Pr&evious"
+msgstr "<< Fy&rri"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropNext)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropNext)
+#: ui/croppage.ui:97 ui/croppage.ui:100
+msgid "Next photo"
+msgstr "Næsta mynd"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropNext)
+#: ui/croppage.ui:103
+msgid "Ne&xt >>"
+msgstr "&Næsta >>"
+
+#. i18n: ectx: property (text), widget (QLabel, LblCropPhoto)
+#: ui/croppage.ui:132
+msgid "Photo 0 of 0"
+msgstr "Mynd 0 af 0"
+
+#. i18n: ectx: property (whatsThis), widget (KIPIPrintImagesPlugin::CropFrame, cropFrame)
+#: ui/croppage.ui:155
+msgid ""
+"Move the box in order to crop photos so that they fit inside the photo sizes "
+"you have given.  \n"
+"You can crop each image differently, or just click the 'Next' button to use "
+"the default crop \n"
+"setting for each photo.\n"
+"Enable \"Do not crop\" to avoid cropping all of the photos."
+msgstr ""
+"Færðu rammann til að sníða af myndunum svo þær passi í stærðirnar sem þú "
+"tilgreindir.  \n"
+"Þú getur sniðið af hverri mynd fyrir sig, eða einfaldlega smellt á 'Næsta' "
+"hnappinn til að  \n"
+"nota sjálfgefna stillingu fyrir allar myndirnar.\n"
+"Virkjaðu \"Ekki sníða af\" til að koma í veg fyrir að skorið sé af myndunum."
+
+#. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
+#: ui/croppage.ui:167
+msgid "Save As"
+msgstr "Vista sem"
+
+#. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
+#: ui/croppage.ui:170
+msgid "Ctrl+S"
+msgstr "Ctrl+S"
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
+#: ui/customlayout.ui:26 wizard/wizard.cpp:691
+msgid "Custom layout"
+msgstr "Sérsniðin framsetning"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_photoGridCheck)
+#: ui/customlayout.ui:48
+msgid "Photo grid"
+msgstr "Myndamöskvi"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_fitAsManyCheck)
+#: ui/customlayout.ui:73
+msgid "Fit as many as possible"
+msgstr "Koma fyrir eins mörgum og mögulegt er"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_photosXPageCheck)
+#: ui/customlayout.ui:95
+msgid "Photos per page"
+msgstr "Myndir á síðu"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/customlayout.ui:122
+msgid "Rows"
+msgstr "Raðir"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/customlayout.ui:164
+msgid "Columns"
+msgstr "Dálkar"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/customlayout.ui:227
+msgid "Photo size"
+msgstr "Stærð ljósmynda"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/customlayout.ui:267 ui/printoptionspage.ui:439
+msgid "x"
+msgstr "x"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+msgid "cm"
+msgstr "cm"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:314
+msgid "mm"
+msgstr "mm"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+msgid "inches"
+msgstr "tommur"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_autorotate)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintAutoRotate)
+#: ui/customlayout.ui:433 ui/printoptionspage.ui:73
+msgid "Auto rotate"
+msgstr "Sjálfvirkur snúningur"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_doneButton)
+#: ui/customlayout.ui:453
+msgid "Done"
+msgstr "Lokið"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4_2)
+#: ui/photopage.ui:47
+msgid "Photos:"
+msgstr "Ljósmyndir:"
+
+#. i18n: ectx: property (text), widget (QLabel, LblPhotoCount)
+#. i18n: ectx: property (text), widget (QLabel, LblSheetsPrinted)
+#. i18n: ectx: property (text), widget (QLabel, LblEmptySlots)
+#: ui/photopage.ui:54 ui/photopage.ui:84 ui/photopage.ui:114
+msgid "<p align=\"right\">0</p>"
+msgstr "<p align=\"hægri\">0</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
+#: ui/photopage.ui:77
+msgid "Sheets:"
+msgstr "Blöð:"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel6)
+#: ui/photopage.ui:107
+msgid "Empty slots:"
+msgstr "Tóm hólf:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+msgid "Print to PDF"
+msgstr "Prenta í PDF"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+msgid "Print to PS"
+msgstr "Prenta í PS"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
+#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+msgid "Print to JPG"
+msgstr "Prenta í JPG"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
+#: wizard/wizard.cpp:2506
+msgid "Print to gimp"
+msgstr "Prenta í Gimp"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
+#: ui/photopage.ui:214
+msgid "Page settings"
+msgstr "Stillingar blaðsíðu"
+
+#. i18n: ectx: property (text), widget (QPushButton, mLeftButton)
+#. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageDown)
+#: ui/photopage.ui:298 ui/printoptionspage.ui:57
+msgid "<"
+msgstr "<"
+
+#. i18n: ectx: property (text), widget (QLabel, LblPreview)
+#: ui/photopage.ui:320
+msgid "Preview"
+msgstr "Forskoðun"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageUp)
+#. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageUp)
+#: ui/photopage.ui:336 ui/photopage.ui:339
+msgid "Next page"
+msgstr "Næsta síða"
+
+#. i18n: ectx: property (text), widget (QPushButton, mRightButton)
+#. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageUp)
+#: ui/photopage.ui:342 ui/printoptionspage.ui:64
+msgid ">"
+msgstr ">"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/photopage.ui:441
+msgid "Captions:"
+msgstr "Skýringatextar:"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+msgid "No captions"
+msgstr "Engir skýringartextar"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:457
+msgid "Image file names"
+msgstr "Nöfn myndskráa"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:462
+msgid "Exif date-time"
+msgstr "EXIF dagsetning/tími"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:467
+msgid "Comments"
+msgstr "Athugasemdir"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+msgid "Free"
+msgstr "Laust"
+
+#. i18n: ectx: property (text), widget (QLabel, m_free_label)
+#: ui/photopage.ui:506
+#, no-c-format
+msgid ""
+"%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
+"resolution, %a aperture, %l focal length, \\n newline"
+msgstr ""
+"%f  skráarheiti, %t lýsingartími, %c athugasemd, %i ISO-ljósnæmni, %d "
+"dagsetning-tími, %r upplausn, %a ljósop, %l brennivídd, \\n ný lína"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
+#: ui/photopage.ui:537
+msgid "same to all"
+msgstr "sama fyrir allt"
+
+#. i18n: ectx: property (text), widget (QPushButton, mSaveSettings)
+#. i18n: ectx: property (text), widget (QPushButton, m_setDefault)
+#: ui/photopage.ui:547 ui/printoptionspage.ui:348
+msgid "Use as default"
+msgstr "Nota sem sjálfgefið"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/photopage.ui:560
+msgid "Family:"
+msgstr "Leturgerð:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/photopage.ui:577
+msgid "Color:"
+msgstr "Litur:"
+
+#. i18n: ectx: property (text), widget (KColorButton, m_font_color)
+#: ui/photopage.ui:587
+msgid "PushButton"
+msgstr "Hnappur"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/photopage.ui:604
+msgid "Size:"
+msgstr "Stærð:"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintOptionsPage)
+#: ui/printoptionspage.ui:14
+msgid "Image Settings"
+msgstr "Stillingar myndar"
+
+#. i18n: ectx: property (title), widget (QGroupBox, mGroupImage)
+#: ui/printoptionspage.ui:83
+msgid "Position"
+msgstr "Staðsetning"
+
+#. i18n: ectx: property (title), widget (QGroupBox, mGroupScaling)
+#: ui/printoptionspage.ui:108
+msgid "Scaling"
+msgstr "Skölun"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mNoScale)
+#: ui/printoptionspage.ui:114
+msgid "&No scaling"
+msgstr "Engi&n skölun"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mScaleToPage)
+#: ui/printoptionspage.ui:124
+msgid "&Fit image to page"
+msgstr "&Laga mynd að síðu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintEnlargeSmallerImages)
+#: ui/printoptionspage.ui:155
+msgid "Enlarge smaller images"
+msgstr "Stækka smáar myndir"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mScaleTo)
+#: ui/printoptionspage.ui:180
+msgid "&Scale to:"
+msgstr "&Skala að:"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/printoptionspage.ui:219
+msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
+msgid "x"
+msgstr "x"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:246
+msgid "Millimeters"
+msgstr "Millímetrar"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:251
+msgid "Centimeters"
+msgstr "Sentímetrar"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:256
+msgid "Inches"
+msgstr "Tommur"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintKeepRatio)
+#: ui/printoptionspage.ui:300
+msgid "Keep ratio"
+msgstr "Halda hlutföllum"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, mSaveSettings)
+#: ui/printoptionspage.ui:345
+msgid "Use these scaling options as default. "
+msgstr "Nota þessar stillingar á skölun sjálfgefið. "
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/printoptionspage.ui:366
+msgid "Photos per page:"
+msgstr "Myndir á síðu:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/printoptionspage.ui:376
+msgid "Multiple pages:"
+msgstr "Margar síður:"
+
+#: wizard/customdlg.cpp:46 wizard/customdlg.cpp:47
+msgid "Choose your grid size"
+msgstr "Veldu stærð möskva"
+
+#: wizard/customdlg.cpp:48
+msgid "Number of rows"
+msgstr "Fjöldi raða"
+
+#: wizard/customdlg.cpp:49
+msgid "Insert number of rows"
+msgstr "Settu inn fjölda raða"
+
+#: wizard/customdlg.cpp:50
+msgid "Number of columns"
+msgstr "Fjöldi dálka"
+
+#: wizard/customdlg.cpp:51
+msgid "Insert number of columns"
+msgstr "Settu inn fjölda dálka"
+
+#: wizard/customdlg.cpp:53 wizard/customdlg.cpp:54
+msgid "Choose to have a custom photo size album"
+msgstr "Veldu þetta til að setja upp sérsniðna stærð myndaalbúms"
+
+#: wizard/customdlg.cpp:55
+msgid "Photo height"
+msgstr "Hæð mynda"
+
+#: wizard/customdlg.cpp:56
+msgid "Insert photo height"
+msgstr "Settu inn hæð mynda"
+
+#: wizard/customdlg.cpp:57
+msgid "Photo width"
+msgstr "Breidd mynda"
+
+#: wizard/customdlg.cpp:58
+msgid "Insert photo width"
+msgstr "Settu inn breidd mynda"
+
+#: wizard/customdlg.cpp:60
+msgid "Auto rotate photo"
+msgstr "Sjálfvirkur snúningur mynda"
+
+#: wizard/printhelper.cpp:244
+msgid "Kipi-plugins image printing"
+msgstr "KIPI-íforrit fyrir myndaprentun"
+
+#: wizard/printoptionspage.cpp:149 wizard/printoptionspage.cpp:150
+#: wizard/printoptionspage.cpp:151
+msgid "disabled"
+msgstr "óvirkt"
+
+#: wizard/wizard.cpp:113
+msgid "Select page layout"
+msgstr "Veldu uppsetningu á síðu"
+
+#: wizard/wizard.cpp:114
+msgid "Crop photos"
+msgstr "Skera utanaf myndum"
+
+#: wizard/wizard.cpp:116
+msgid "Custom"
+msgstr "Sérsniðið"
+
+#: wizard/wizard.cpp:163
+msgid "A KIPI plugin to print images"
+msgstr "KIPI íforrit til að prenta út myndir"
+
+#: wizard/wizard.cpp:164
+msgid ""
+"(c) 2003-2004, Todd Shoemaker\n"
+"(c) 2007-2013, Angelo Naselli"
+msgstr ""
+"(c) 2003-2004, Todd Shoemaker\n"
+"(c) 2007-2013, Angelo Naselli"
+
+#: wizard/wizard.cpp:167
+msgid "Todd Shoemaker"
+msgstr "Todd Shoemaker"
+
+#: wizard/wizard.cpp:167
+msgid "Author"
+msgstr "Höfundur"
+
+#: wizard/wizard.cpp:170
+msgid "Angelo Naselli"
+msgstr "Angelo Naselli"
+
+#: wizard/wizard.cpp:170
+msgid "Developer and maintainer"
+msgstr "Forritun og viðhald"
+
+#: wizard/wizard.cpp:173
+msgid "Andreas Trink"
+msgstr "Andreas Trink"
+
+#: wizard/wizard.cpp:173
+msgid "Contributor"
+msgstr "Framlög"
+
+#: wizard/wizard.cpp:659
+msgid "Unsupported Paper Size"
+msgstr "Óstudd pappírsstærð"
+
+#: wizard/wizard.cpp:1128
+#, kde-format
+msgid "Photo %1 of %2"
+msgstr "Mynd %1 af %2"
+
+#: wizard/wizard.cpp:1212 wizard/wizard.cpp:1219
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "Síða %1 af %2"
+
+#: wizard/wizard.cpp:1460
+msgid "Add again"
+msgstr "Bæta við aftur"
+
+#: wizard/wizard.cpp:1470
+msgid "Remove"
+msgstr "Fjarlægja"
+
+#: wizard/wizard.cpp:2363
+msgid ""
+"The following file will be overwritten. Are you sure you want to overwrite "
+"it?"
+msgstr "Skrifað verður yfir eftirfarandi skrá. Ertu viss um að þú viljir það?"
+
+#: wizard/wizard.cpp:2384
+msgid "Could not save file, please check your output entry."
+msgstr "Gat ekki vistað skrá, athugaðu úttaksfærsluna þína."
+
+#: wizard/wizard.cpp:2408
+msgid "Could not remove the GIMP's temporary files."
+msgstr "Gat ekki fjarlægt bráðabirgðaskrár Gimp forritsins."
+
+#: wizard/wizard.cpp:2529
+msgid ""
+"There was an error launching the GIMP. Please make sure it is properly "
+"installed."
+msgstr ""
+"Það varð villa við ræsingu Gimp. Vinsamlegast athugaðu hvort forritið sé "
+"rétt uppsett."
+
+#: wizard/wizard.cpp:2530
+msgid "KIPI"
+msgstr "KIPI"
+
+#: wizard/wizard.cpp:2543
+msgid "Empty output path."
+msgstr "Auð úttaksslóð."
+
+#~ msgid "Handbook"
+#~ msgstr "Handbók"

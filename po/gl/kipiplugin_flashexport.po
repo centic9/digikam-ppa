@@ -1,0 +1,665 @@
+# translation of kipiplugin_simpleviewerexport.po to galician
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# mvillarino <mvillarino@users.sourceforge.net>, 2008, 2009.
+# Xosé <xosecalvo@gmail.com>, 2009, 2012.
+# marce villarino <mvillarino@users.sourceforge.net>, 2009.
+# Marce Villarino <mvillarino@kde-espana.es>, 2012.
+# Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_simpleviewerexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-30 03:31+0100\n"
+"PO-Revision-Date: 2012-12-30 02:06+0100\n"
+"Last-Translator: Adrian Chaves Fernandez <adriyetichaves@gmail.com>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Xosé Calvo, Marce Villarino"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "proxecto@trasno.net, mvillarino@gmail.com"
+
+#: aboutdata.h:41
+msgid "Flash Export"
+msgstr "Exportar a Flash"
+
+#: aboutdata.h:43
+msgid ""
+"A Kipi plugin to export images to Flash using the SimpleViewer's components."
+msgstr ""
+"Un engadido de Kipi para exportar imaxes a Flash mediante os compoñentes do "
+"SimpleViewer."
+
+#: aboutdata.h:44
+msgid ""
+"(c) 2005-2006, Joern Ahrens\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2011, Veaceslav Munteanu"
+msgstr ""
+"(c) 2005-2006, Joern Ahrens\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2011, Veaceslav Munteanu"
+
+#: aboutdata.h:51
+msgid "Joern Ahrens"
+msgstr "Joern Ahrens"
+
+#: aboutdata.h:52
+msgid "Author"
+msgstr "Autor"
+
+#: aboutdata.h:55
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: aboutdata.h:56 aboutdata.h:60
+msgid "Developer and maintainer"
+msgstr "Desenvolvente e mantenedor"
+
+#: aboutdata.h:59
+msgid "Veaceslav Munteanu"
+msgstr "Veaceslav Munteanu"
+
+#: aboutdata.h:63
+msgid "Felix Turner"
+msgstr "Felix Turner"
+
+#: aboutdata.h:64
+msgid "Author of the Simple Viewer Flash component"
+msgstr "Autor do compoñente Flash do  Simple Viewer"
+
+#: aboutdata.h:68
+msgid "Mikkel B. Stegmann"
+msgstr "Mikkel B. Stegmann"
+
+#: aboutdata.h:69
+msgid "Basis for the index.html template"
+msgstr "Base do modelo de index.html"
+
+#: importWizard/firstrunpage.cpp:70
+msgid "First Run"
+msgstr "Primeira execución"
+
+#: importWizard/firstrunpage.cpp:77
+msgid ""
+"<p>SimpleViewer's plugins are Flash components which are free to use, but "
+"use a license which comes into conflict with several distributions. Due to "
+"the license it is not possible to ship it with this tool.</p><p>You can now "
+"download plugin from its homepage and point this tool to the downloaded "
+"archive. The archive will be stored with the plugin configuration, so it is "
+"available for further use.</p><p><b>Note: Please download the plugin that "
+"you selected on the first page.</b></p>"
+msgstr ""
+"<p>SimpleViewer é un compoñente de Flash que é de libre uso pero emprega "
+"unha licenza que entra en conflito con varias distribucións. Por causa desta "
+"licenza non é posíbel incluílo con esta ferramenta.</p><p>Agora pode obter "
+"SimpleViewer da súa páxina web e apuntar esta ferramenta ao arquivo que "
+"obteña. O arquivo grávase coa configuración da extensión para que así se "
+"poda usar posteriormente.</p><p><b>Nota: Por favor, descargue o engadido que "
+"escolleu na primeira páxina.</b></p>"
+
+#: importWizard/firstrunpage.cpp:86
+msgid "<p>1.) Download plugin from the following url:</p>"
+msgstr "<p>1.) Descargue o engadido do seguinte URL:</p>"
+
+#: importWizard/firstrunpage.cpp:96
+msgid "<p>2.) Point this tool to the downloaded archive</p>"
+msgstr "<p>2.) Apunte esta ferramenta ao arquivo obtido</p>"
+
+#: importWizard/generalpage.cpp:84
+msgid "General Settings"
+msgstr "Configuración xeral"
+
+#: importWizard/generalpage.cpp:91
+msgid "Gallery &Title"
+msgstr "&Título da galería"
+
+#: importWizard/generalpage.cpp:94
+msgid "Enter here the gallery title"
+msgstr "Escriba o título da galería"
+
+#: importWizard/generalpage.cpp:102
+msgid "Save Gallery To"
+msgstr "Gardar a galería en"
+
+#: importWizard/generalpage.cpp:113
+msgid "Image Properties"
+msgstr "Propriedades da imaxe"
+
+#: importWizard/generalpage.cpp:115
+msgid "Resize Target Images"
+msgstr "Mudar o tamaño das imaxes de destino"
+
+#: importWizard/generalpage.cpp:117
+msgid "If you enable this option, all target images can be resized."
+msgstr ""
+"Se sinala esta opción, mudarase o tamaño de todas as imaxes de destino."
+
+#: importWizard/generalpage.cpp:121
+msgid "Auto-Rotate/Flip Images"
+msgstr "Xirar/Inverter automaticamente as imaxes"
+
+#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
+#: importWizard/lookpage.cpp:335
+msgid ""
+"If you enable this option, the images' orientations will be set according to "
+"their Exif information."
+msgstr ""
+"Se sinala esta opción, a orientación das imaxes decídese segundo a "
+"información Exif"
+
+#: importWizard/generalpage.cpp:128
+msgid "&Target Images' Size:"
+msgstr "&Tamaño das imaxes de destino:"
+
+#: importWizard/generalpage.cpp:132
+msgid ""
+"The new size of the exported images, in pixels. SimpleViewer resizes the "
+"images too, but this resizes the images before they are uploaded to your "
+"server."
+msgstr ""
+"O novo tamaño das imaxes exportadas, en píxeles. SimpleViewer tamén muda o "
+"tamaño das imaxes, pero isto faino antes de que se envíen ao servidor"
+
+#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+msgid "&Displayed Images' Size:"
+msgstr "Tamaño das imaxes &mostradas:"
+
+#: importWizard/generalpage.cpp:149
+msgid ""
+"Scales the displayed images to this size. Normally, use the height or width "
+"of your largest image (in pixels). Images will not be scaled up above this "
+"size, to preserve image quality."
+msgstr ""
+"Escala as imaxes mostradas a este tamaño. Normalmente emprégase a altura ou "
+"a largura da imaxe máis grande (en píxeles). As imaxes non se escalan alén "
+"deste tamaño, para garantir así a mellor calidade de imaxe."
+
+#: importWizard/generalpage.cpp:165
+msgid "Misc"
+msgstr "Diversos"
+
+#: importWizard/generalpage.cpp:168
+msgid "Display Captions"
+msgstr "Mostrar os títulos"
+
+#: importWizard/generalpage.cpp:170
+msgid "If this option is enabled, the images' captions will be shown."
+msgstr "Se se sinala esta opción, móstranse os títulos das imaxes."
+
+#: importWizard/generalpage.cpp:172
+msgid "Display Keywords"
+msgstr "Mostrar as palabras chave"
+
+#: importWizard/generalpage.cpp:174
+msgid "If this option is enabled, the images' keywords will be shown."
+msgstr "Se se sinala esta opción, móstranse as palabras chave das imaxes."
+
+#: importWizard/generalpage.cpp:177
+msgid "Open Image with Right Click"
+msgstr "Abrir a imaxe cun clic do botón secundario"
+
+#: importWizard/generalpage.cpp:179
+msgid ""
+"If this option is enabled, the user will be able to open the target image in "
+"a separate window using the right mouse button."
+msgstr ""
+"Se se sinala esta opción, o usuario pode abrir a imaxe obxectivo nunha "
+"xanela separada usando o botón secundario do rato."
+
+#: importWizard/generalpage.cpp:183
+msgid "Open gallery in Browser"
+msgstr "Abrir a galería no navegador"
+
+#: importWizard/generalpage.cpp:185
+msgid ""
+"If this option is enabled, the gallery will be opened in Konqueror "
+"automatically."
+msgstr ""
+"Se se sinala esta opción, ábrese a galería automaticamente en Konqueror."
+
+#: importWizard/importwizarddlg.cpp:90
+msgid "Flash Export Wizard"
+msgstr "Asistente para exportar a Flash"
+
+#: importWizard/importwizarddlg.cpp:135
+msgid ""
+"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
+"date and is not corrupted.</p>"
+msgstr ""
+"<p>Fallou a instalación do SimpleViewer. </p><p>Verifique que:</p><p>- o "
+"arquivo corresponde co engadido escollido na páxina anterior.</p><p>- o "
+"arquivo está actualizado e non está danado.</p>"
+
+#: importWizard/importwizarddlg.cpp:180
+msgid "You must select at least one collection to export."
+msgstr "Debe escoller polo menos unha colección para exportala."
+
+#: importWizard/importwizarddlg.cpp:216
+#, kde-format
+msgid ""
+"Target folder %1 already exists.\n"
+"Do you want to overwrite it?  All data in this folder will be lost."
+msgstr ""
+"O cartafol de destino %1 xa existe.\n"
+"Desexa sobrescribilo? Perderanse todos os dados do cartafol."
+
+#: importWizard/importwizarddlg.cpp:225
+#, kde-format
+msgid ""
+"Could not delete %1.\n"
+"Please choose another export folder."
+msgstr ""
+"Non foi posíbel borrar %1.\n"
+"Escolla outro cartafol ao que exportar."
+
+#: importWizard/intropage.cpp:60
+msgid "Welcome to FlashExport Tool"
+msgstr "Benvida/o á ferramenta FlashExport"
+
+#: importWizard/intropage.cpp:68
+msgid ""
+"<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
+"href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
+"Postcardviewer</a> to export images to flash galleries</p><p>This assistant "
+"will help you to configure and import images before exporting them to flash</"
+"p><p>Note that:</p><p>1. Free version of SimpleViewer allow only a maximum "
+"of 50 pictures to be exported.</p><p>2. TiltViewer is quite CPU intensive</"
+"p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
+msgstr ""
+"<qt><p><h1><b>Benvida/o á ferramenta Exportación a Flash</b></h1></p><p>Esta "
+"ferramenta emprega <a href='http://www.simpleviewer.net/'>SimpleViewer, "
+"AutoViewer, TiltViewer ou Postcardviewer</a> para exportar imaxes a galerías "
+"de flash</p><p>Este asistente axuda a configurar e importar imaxes antes de "
+"as exportar a flash</p><p>Teña en conta que:</p><p>1. A versión gratuíta do "
+"SimpleViewer só permite exportar un máximo de 50 imaxes.</p><p>2. O "
+"TiltViewer require un uso intenso da CPU</p><p>3. O Postcardviewer está "
+"deseñado só para unha cantidade pequena de fotos</p></qt>"
+
+#: importWizard/intropage.cpp:81
+msgid "Select &Plugin:"
+msgstr "Seleccionar o &engadido:"
+
+#: importWizard/intropage.cpp:84
+msgctxt "SimpleViewer"
+msgid "SimpleViewer"
+msgstr "SimpleViewer"
+
+#: importWizard/intropage.cpp:85
+msgctxt "TiltViewer"
+msgid "TiltViewer"
+msgstr "TiltViewer"
+
+#: importWizard/intropage.cpp:86
+msgctxt "AutoViewer"
+msgid "AutoViewer"
+msgstr "AutoViewer"
+
+#: importWizard/intropage.cpp:87
+msgctxt "PostcardViewer"
+msgid "PostcardViewer"
+msgstr "PostcardViewer"
+
+#: importWizard/intropage.cpp:99
+msgid "&Choose image selection method:"
+msgstr "&Escolla o método de selección de imaxes:"
+
+#: importWizard/intropage.cpp:101
+msgctxt "Collections"
+msgid "Collections"
+msgstr "Coleccións"
+
+#: importWizard/intropage.cpp:102
+msgctxt "Image Dialog"
+msgid "Image Dialog"
+msgstr "Diálogo de imaxe"
+
+#: importWizard/lookpage.cpp:111
+msgid "Configure appearance"
+msgstr "Configurar a aparencia"
+
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
+#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+msgctxt "Settings for flash export navigation"
+msgid "Navigation"
+msgstr "Navegación"
+
+#: importWizard/lookpage.cpp:143
+msgid "Thumbnail &Rows:"
+msgstr "&Filas de miniaturas:"
+
+#: importWizard/lookpage.cpp:147
+msgid "Number of thumbnails rows"
+msgstr "O número de filas de miniaturas"
+
+#: importWizard/lookpage.cpp:151
+msgid "Thumbnail &Columns:"
+msgstr "&Columnas de miniaturas:"
+
+#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+msgid "Number of thumbnails columns"
+msgstr "O número de columnas de miniaturas"
+
+#: importWizard/lookpage.cpp:159
+msgid "Thumbnail &Position:"
+msgstr "&Posición da miniatura:"
+
+#: importWizard/lookpage.cpp:161
+msgctxt "thumbnail position: right"
+msgid "Right"
+msgstr "Dereita"
+
+#: importWizard/lookpage.cpp:162
+msgctxt "thumbnail position: left"
+msgid "Left"
+msgstr "Esquerda"
+
+#: importWizard/lookpage.cpp:163
+msgctxt "thumbnail position: top"
+msgid "Top"
+msgstr "Cume"
+
+#: importWizard/lookpage.cpp:164
+msgctxt "thumbnail position: bottom"
+msgid "Bottom"
+msgstr "Fondo"
+
+#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
+#: importWizard/lookpage.cpp:418
+msgid "Colors"
+msgstr "Cores"
+
+#: importWizard/lookpage.cpp:184
+msgid "&Text Color:"
+msgstr "Cor do &texto:"
+
+#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+msgid "Color of title and caption text"
+msgstr "A cor do texto do título e da lenda"
+
+#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
+#: importWizard/lookpage.cpp:429
+msgid "&Background Color:"
+msgstr "Cor de &fondo:"
+
+#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
+#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+msgid "&Frame Color:"
+msgstr "Cor da &moldura:"
+
+#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
+#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
+msgstr ""
+"A cor da moldura da imaxe, icona vista, barras de carga e frechas das "
+"miniaturas"
+
+#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
+#: importWizard/lookpage.cpp:449
+msgid "Style"
+msgstr "Estilo"
+
+#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
+#: importWizard/lookpage.cpp:469
+msgid "&Frame Width:"
+msgstr "&Largura da moldura:"
+
+#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+msgid "Width of image frame in pixels."
+msgstr "A largura da moldura da imaxe en píxeles."
+
+#: importWizard/lookpage.cpp:223
+msgid "&Stage Padding:"
+msgstr "Separación do &escenario:"
+
+#: importWizard/lookpage.cpp:227
+msgid "Distance between image and thumbnails in pixels."
+msgstr "A distancia entre a imaxe e as miniaturas en píxeles."
+
+#: importWizard/lookpage.cpp:244
+msgid "&Display Time:"
+msgstr "&Duración da vista:"
+
+#: importWizard/lookpage.cpp:248
+msgid "Number of seconds each image will display in auto-play mode."
+msgstr "Número de segundos que aparece cada imaxe no modo automático."
+
+#: importWizard/lookpage.cpp:292
+msgid "&Image Padding:"
+msgstr "Separación do &escenario:"
+
+#: importWizard/lookpage.cpp:296
+msgid "Distance between images in pixels"
+msgstr "A distancia entre a imaxe e as imaxes en píxeles"
+
+#: importWizard/lookpage.cpp:313
+msgid " &Rows:"
+msgstr "Filei&ras:"
+
+#: importWizard/lookpage.cpp:317
+msgid "Number of rows of images to display."
+msgstr "Número de fileiras de imaxes para mostrar."
+
+#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+msgid " &Columns:"
+msgstr "&Columnas:"
+
+#: importWizard/lookpage.cpp:325
+msgid "Number of columns of images to display."
+msgstr "Número de columnas de imaxes para mostrar."
+
+#: importWizard/lookpage.cpp:328
+msgid "Show Flip Button"
+msgstr "Mostrar o botón para voltear"
+
+#: importWizard/lookpage.cpp:333
+msgid "Use reload button"
+msgstr "Empregar o botón de recargar"
+
+#: importWizard/lookpage.cpp:348
+msgctxt "Settings for flash export navigation"
+msgid "Colors"
+msgstr "Cores"
+
+#: importWizard/lookpage.cpp:359
+msgid "Background &Inner Color:"
+msgstr "Cor de fondo &interior:"
+
+#: importWizard/lookpage.cpp:362
+msgid "Color of the stage background gradient center."
+msgstr "Cor do centro do gradiente do fondo do escenario."
+
+#: importWizard/lookpage.cpp:366
+msgid "Background &Outer Color:"
+msgstr "Cor de fondo &exterior:"
+
+#: importWizard/lookpage.cpp:369
+msgid "Color of the stage background gradient edge."
+msgstr "Cor do bordo do gradiente do fondo do escenario."
+
+#: importWizard/lookpage.cpp:373
+msgid "Image Back Color:"
+msgstr "Cor de fondo da imaxe:"
+
+#: importWizard/lookpage.cpp:376
+msgid "Image's back color when pressing flip button"
+msgstr "Cor de fondo da imaxe cando se prema o botón de voltear"
+
+#: importWizard/lookpage.cpp:395
+msgid "Cell Dimension:"
+msgstr "Dimensión da cela:"
+
+#: importWizard/lookpage.cpp:399
+msgid ""
+"Dimension of displayed image cells. Please use a higher value if you set "
+"high image size"
+msgstr ""
+"Dimensión das celas de imaxes. Empregue un valor maior se o tamaño da imaxe "
+"é alto"
+
+#: importWizard/lookpage.cpp:422
+msgid "&Caption Color:"
+msgstr "&Cor da lenda:"
+
+#: importWizard/lookpage.cpp:453
+msgid "&Zoom In Percentage:"
+msgstr "&Ampliación en porcentaxe:"
+
+#: importWizard/lookpage.cpp:457
+msgid "The amount of scale when zoomed in (percentage)"
+msgstr "A proporción cando a imaxe se amplía (en porcentaxe)"
+
+#: importWizard/lookpage.cpp:461
+msgid "&Zoom Out Percentage:"
+msgstr "&Redución en porcentaxe:"
+
+#: importWizard/lookpage.cpp:465
+msgid "The amount of scale when zoomed out (percentage)"
+msgstr "A proporción cando a imaxe se reduce (en porcentaxe)"
+
+#: importWizard/lookpage.cpp:473
+msgid "The frame width"
+msgstr "A largura da moldura"
+
+#: importWizard/progresspage.cpp:49
+msgid "Exporting..."
+msgstr "A exportar..."
+
+#: importWizard/selectionpage.cpp:68
+msgid "Select Image Collections"
+msgstr "Seleccionar as coleccións de imaxes"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_flashexportui.rc:6
+msgid "&Export"
+msgstr "&Exportar"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_flashexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Barra de ferramentas principal"
+
+#: plugin_flashexport.cpp:94
+msgid "Export to F&lash..."
+msgstr "Exportar a F&lash..."
+
+#: simpleviewer.cpp:184
+msgid "Initialising..."
+msgstr "A iniciar..."
+
+#: simpleviewer.cpp:212
+msgid "Export canceled"
+msgstr "Cancelouse a exportación"
+
+#: simpleviewer.cpp:223
+msgid "Failed to create export directories"
+msgstr "Non foi posíbel crear os cartafoles de exportación"
+
+#: simpleviewer.cpp:230
+msgid "Failed to export the images"
+msgstr "Non foi posíbel exportar as imaxes"
+
+#: simpleviewer.cpp:237
+msgid "Failed to create index.html"
+msgstr "Non foi posíbel crear index.html"
+
+#: simpleviewer.cpp:244
+msgid "Failed to copy SimpleViewer files"
+msgstr "Non foi posíbel copiar os ficheiros de SimpleViewer"
+
+#: simpleviewer.cpp:251
+msgid "Failed to upload the gallery"
+msgstr "Non foi posíbel enviar a galería"
+
+#: simpleviewer.cpp:260
+#, kde-format
+msgid ""
+"Export was canceled.\n"
+"Do you want to delete files in %1 that have already been created?"
+msgstr ""
+"Cancelouse a exportación.\n"
+"Desexa borrar os ficheiros xa creados en %1?"
+
+#: simpleviewer.cpp:271
+msgctxt "Flash export has finished"
+msgid "Finished..."
+msgstr "Rematou..."
+
+#: simpleviewer.cpp:285
+msgid "Creating directories..."
+msgstr "A crear os cartafoles..."
+
+#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#, kde-format
+msgid "Could not create folder '%1'"
+msgstr "Non foi posíbel crear o cartafol «%1»"
+
+#: simpleviewer.cpp:320
+msgid "Finished Creating directories..."
+msgstr "Rematou a creación dos directorios..."
+
+#: simpleviewer.cpp:353
+msgid "Creating images and thumbnails..."
+msgstr "A crear as imaxes e as miniaturas..."
+
+#: simpleviewer.cpp:483
+#, kde-format
+msgid "Processing %1"
+msgstr "A procesar %1"
+
+#: simpleviewer.cpp:493
+#, kde-format
+msgid "Could not open image '%1'"
+msgstr "Non foi posíbel abrir a imaxe «%1»"
+
+#: simpleviewer.cpp:504
+#, kde-format
+msgid "Could not create thumbnail from '%1'"
+msgstr "Non foi posíbel crear a miniatura de «%1»"
+
+#: simpleviewer.cpp:512
+#, kde-format
+msgid "Could not resize image '%1'"
+msgstr "Non foi posíbel mudar o tamaño da imaxe «%1»"
+
+#: simpleviewer.cpp:739
+msgid "Creating index.html..."
+msgstr "A crear index.html..."
+
+#: simpleviewer.cpp:878
+msgid "index.html created..."
+msgstr "Creouse index.html..."
+
+#: simpleviewer.cpp:888
+msgid "Copying flash files..."
+msgstr "A copiar os ficheiros de flash..."
+
+#: simpleviewer.cpp:906
+msgid "Flash files copied..."
+msgstr "Copiáronse os ficheiros de flash..."
+
+#: simpleviewer.cpp:916
+msgid "Uploading gallery..."
+msgstr "A enviar a galería..."
+
+#: simpleviewer.cpp:921
+msgid "Gallery uploaded..."
+msgstr "Enviouse a galería..."
+
+#~ msgid "Handbook"
+#~ msgstr "Manual"

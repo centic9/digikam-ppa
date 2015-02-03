@@ -1,0 +1,2 @@
+SUBDIRS(data)
+SUBDIRS(libkipiplugins)

@@ -1,0 +1,360 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2013-08-31 19:03+0200\n"
+"Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrej Mernik"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andrejm@ubuntu.si"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr "Napaka med odpiranjem vhodne datoteke"
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr "Napaka med odpiranjem začasne mape"
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr "Ni mogoče spremeniti velikosti slike. Prekinjanje."
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr "Ni mogoče shraniti slike z spremenjeno velikostjo (JPEG). Prekinjanje."
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr "Ni mogoče shraniti slike z spremenjeno velikostjo (PNG). Prekinjanje."
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr "&Izvozi"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr "Glavna orodna vrstica"
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr "Pošlji slike po e-pošti ..."
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr "Pošlji slike po e-pošti"
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr "Opravilo je preklical uporabnik"
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "Spreminjanje velikosti %1"
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr "Uspešno spremenjena velikost za %1"
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "Ni bilo mogoče spremeniti velikosti za %1: %2"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr "Izgradi datoteko z lastnostmi slik"
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr "brez naslova"
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr "brez ključnih besed"
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+"datoteka \"%1\":\n"
+"Izvorne slike: %2\n"
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr "Opombe: %1\n"
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr "Oznake: %1\n"
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr "Ocena: %1\n"
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr "lastnosti.txt"
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr "Datoteka z lastnostmi slik končana"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+"Spodnjim slikam ni mogoče spremeniti velikosti.\n"
+"Ali jih želite dodati kot priponke (brez spreminjanja velikosti)?"
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr "Ni bilo mogoče spremeniti velikosti slik"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+"Datoteka \"%1\" je prevelika in je ni mogoče poslati, spremenite njeno "
+"velikost ali spremenite vaše nastavitve"
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr "Zaganjanje privzetega programa za e-pošto ..."
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr "Ni bilo mogoče zagnati programa \"%1\". Preverite vaš sistem."
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "Začenjanje programa \"%1\" ..."
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr "Po pošiljanju slik po e-pošti ..."
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr "Kliknite gumb 'Zapri', da počistite začasne datoteke"
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr "Možnosti pošiljanja slik po e-pošti"
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr "Pošlji slike"
+
+#: sendimagesdialog.cpp:108
+msgid "A plugin to e-mail items"
+msgstr "Vstavek za pošiljanje predmetov po e-pošti"
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "(c) 2003-2013, Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Avtor in vzdrževalec"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Razvijalec"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "Program za e-pošto:"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Privzeto"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+"Tukaj izberite vaš prednostni zunanji program za e-pošto. <b>Privzet</b> je "
+"trenuten program za e-pošto v sistemskih nastavitvah KDE."
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr "Priloži datoteko z lastnostmi slike iz %1"
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+"Če omogočite to možnost, bodo vse lastnosti slike, ki so bile nastavljene s "
+"strani %1 kot Opombe, Ocene ali Oznake dodane kot priložena datoteka."
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " MB"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr "Največja velikost e-pošte:"
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr "Prilagodi lastnosti slike"
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+"Če omogočite to možnost, lahko vsem slikam, ki bodo poslane, spremenite "
+"velikost ali pa jih znova stisnete."
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Lastnosti slike"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr "Zelo majhna (320 slikovnih točk)"
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Majhna (640 slikovnih točk)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Srednja (800 slikovnih točk)"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Velika (1024 slikovnih točk)"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr "Zelo velika (1280 slikovnih točk)"
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Ogromna - za tiskanje (1600 slikovnih točk)"
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+"<p>Izberite velikost slik, ki bodo poslane:</p><p><b>%1</b>: uporabite to, "
+"če imate zelo počasno internetno povezavo ali pa je ciljna velikost poštnega "
+"predala močno omejena.</p><p><b>%2</b>: uporabite to, če imate počasno "
+"internetno povezavo ali pa je ciljna velikost poštnega predala omejena.</"
+"p><p><b>%3</b>: to je privzeta vrednost za srednjo hitro internetno povezavo "
+"ali srednje velik poštni predal.</p><p><b>%4</b>: uporabite to, če imate "
+"zelo hitro internetno povezavo ali pa ciljna velikost poštnega predala ni "
+"omejena.</p><p><b>%5</b>: uporabite to, če nimate nobenih omejitev.</p><p><b>"
+"%6</b>: uporabite to le za namene tiskanja.</p>"
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Velikost slike:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr "<p>Izberite vrsto datotek slik, ki bodo poslane.</p>"
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+"<p><b>JPEG</b>: Vrsta datoteke Joint Photographic Experts Group je dobra za "
+"splet, ampak uporablja stiskanje z izgubo podatkov.</p><p><b>PNG</b>: "
+"Portable Network Graphics je razširljiva vrsta datotek za dobro stiskanje "
+"rastrskih slik brez izgub. PNG je zamenjava za s patenti obremenjen GIF in "
+"lahko zamenja nekaj običajnih uporab TIFF. PNG je zasnovan za delovanje v "
+"spletnih programih in se ga da tudi pretakati ter nastaviti napredovan "
+"prikaz slike. PNG lahko prav-tako shrani podatke o gami in lastnosti "
+"imenovani chromaticity za boljše barve na raznolikih okoljih.</p>"
+
+#: settingswidget.cpp:184
+msgid "Image format:"
+msgstr "Vrsta slike:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr "<p>Nova vrednost stiskanja za slike JPEG, ki bodo poslane:</p>"
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+"<p><b>1</b>: zelo visoko stiskanje<br/><b>25</b>: visoko stiskanje<br/"
+"><b>50</b>: srednje stiskanje<br/><b>75</b>: nizko stiskanje (privzeta "
+"vrednost) <br/><b>100</b>: brez stiskanja</p>"
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Kakovost slike:"

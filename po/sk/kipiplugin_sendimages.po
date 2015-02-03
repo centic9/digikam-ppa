@@ -1,0 +1,344 @@
+# translation of kipiplugin_sendimages.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2007, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2013-03-14 13:47+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: imageresize.cpp:109
+#, fuzzy
+msgid "Error opening input file"
+msgstr "Chyba pri otváraní XML súboru '<b>%1</b>' pre vstup."
+
+#: imageresize.cpp:120
+#, fuzzy
+msgid "Error opening temporary folder"
+msgstr "Vyberte štandardný dočasný priečinok"
+
+#: imageresize.cpp:164
+#, fuzzy
+msgid "Cannot resize image. Aborting."
+msgstr "Modul na zmenu veľkosti a škály obrázkov"
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr ""
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: plugin_sendimages.cpp:112
+#, fuzzy
+msgid "Email Images..."
+msgstr "Obrázky EXR"
+
+#: sendimages.cpp:143
+#, fuzzy
+msgid "Email images"
+msgstr "Obrázky EXR"
+
+#: sendimages.cpp:186
+#, fuzzy
+msgid "Operation canceled by user"
+msgstr "Operácia bola zrušená používateľom."
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "Mením veľkosť %1"
+
+#: sendimages.cpp:213
+#, fuzzy, kde-format
+msgid "%1 resized successfully"
+msgstr "Úspešne skopírované."
+
+#: sendimages.cpp:222
+#, fuzzy, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "Prispôsobovať veľkosť"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr ""
+
+#: sendimages.cpp:270
+#, fuzzy
+msgid "no caption"
+msgstr "Hlavička poľa"
+
+#: sendimages.cpp:273
+#, fuzzy
+msgid "no keywords"
+msgstr "<žiadny email>"
+
+#: sendimages.cpp:275
+#, fuzzy, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr "Obrázky Microsoft Windows"
+
+#: sendimages.cpp:278
+#, fuzzy, kde-format
+msgid "Comments: %1\n"
+msgstr "Komentáre"
+
+#: sendimages.cpp:281
+#, fuzzy, kde-format
+msgid "Tags: %1\n"
+msgstr "Tagy"
+
+#: sendimages.cpp:284
+#, fuzzy, kde-format
+msgid "Rating: %1\n"
+msgstr "Hodnotenie"
+
+#: sendimages.cpp:289
+#, fuzzy
+msgid "properties.txt"
+msgstr "Vlastnosti kanálu"
+
+#: sendimages.cpp:298
+#, fuzzy
+msgid "Image properties file done"
+msgstr "Zobraziť &meno súboru s obrázkom"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+
+#: sendimages.cpp:319
+#, fuzzy
+msgid "Failed to resize images"
+msgstr "Počet obrázkov na zachytenie"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr ""
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr ""
+
+#: sendimages.cpp:593
+#, fuzzy, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "Kresliaci program"
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr ""
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr ""
+
+#: sendimagesdialog.cpp:83
+#, fuzzy
+msgid "Email Images Options"
+msgstr "Extra možnosti kompresie"
+
+#: sendimagesdialog.cpp:105
+#, fuzzy
+msgid "Send Images"
+msgstr "Obrázky EXR"
+
+#: sendimagesdialog.cpp:108
+#, fuzzy
+msgid "A plugin to e-mail items"
+msgstr "Komponent na zobrazenie obrázkov"
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "(c) 2003-2013, Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Autor a správca"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Vývojár"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+#, fuzzy
+msgid "Mail program:"
+msgstr "Kresliaci program"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Predvolené"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr ""
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " MB"
+
+#: settingswidget.cpp:124
+#, fuzzy
+msgid "Maximum email size limit:"
+msgstr "Obmedziť na maximálnu veľkosť"
+
+#: settingswidget.cpp:129
+#, fuzzy
+msgid "Adjust image properties"
+msgstr "Upraviť vlastnosti zobrazenia..."
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Vlastnosti obrázku"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Malá (640 bodov)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Stredná (800 bodov)"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Veľká (1024 bodov):"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+#, fuzzy
+msgid "Very Big (1280 pixels)"
+msgstr "Vytvorí obrázok s rozmermi 1280 x 1024 pixelov a priehľadným pozadím."
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Veľkosť obrázka:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr ""
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+
+#: settingswidget.cpp:184
+msgid "Image format:"
+msgstr "Formát obrázku:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr ""
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Kvalita obrazu:"

@@ -1,0 +1,404 @@
+# translation of kipiplugin_htmlexport.po to
+#
+# Marek Laane <bald@starman.ee>, 2006-2009.
+# Marek Laane <bald@smail.ee>, 2009, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_htmlexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2012-09-04 04:41+0200\n"
+"PO-Revision-Date: 2012-10-09 18:30+0300\n"
+"Last-Translator: Marek Laane <bald@smail.ee>\n"
+"Language-Team: Estonian <kde-et@linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Marek Laane"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "bald@smail.ee"
+
+#: generator.cpp:152
+#, kde-format
+msgid "Could not find theme in '%1'"
+msgstr "Teemat ei leitud asukohas '%1'"
+
+#: generator.cpp:160
+msgid "Copying theme"
+msgstr "Teema kopeerimine"
+
+#: generator.cpp:174
+msgid "Could not copy theme"
+msgstr "Teema kopeerimine nurjus"
+
+#: generator.cpp:200
+#, kde-format
+msgid "Downloading remote files for \"%1\""
+msgstr "\"%1\" võrgufailide allalaadimine"
+
+#: generator.cpp:218
+msgid "Could not open temporary file"
+msgstr "Ajutise faili avamine nurjus"
+
+#: generator.cpp:229
+#, kde-format
+msgid "Could not download %1"
+msgstr "%1 allalaadimine nurjus"
+
+#: generator.cpp:249
+msgid "Could not create gallery.xml"
+msgstr "gallery.xml loomine nurjus"
+
+#: generator.cpp:293
+#, kde-format
+msgid "Generating files for \"%1\""
+msgstr "\"%1\" failide genereerimine"
+
+#: generator.cpp:328
+msgid "Previous"
+msgstr "Eelmine"
+
+#: generator.cpp:329
+msgid "Next"
+msgstr "Järgmine"
+
+#: generator.cpp:330
+msgid "Collection List"
+msgstr "Kogu nimekiri"
+
+#: generator.cpp:331
+msgid "Original Image"
+msgstr "Originaalpilt"
+
+#: generator.cpp:332
+msgid "Go Up"
+msgstr "Liigu üles"
+
+#: generator.cpp:334
+msgid "Make"
+msgstr "Valmistaja"
+
+#: generator.cpp:335
+msgid "Model"
+msgstr "Mudel"
+
+#: generator.cpp:336
+msgid "Image Orientation"
+msgstr "Pildi orientatsioon"
+
+#: generator.cpp:337
+msgid "Image X Resolution"
+msgstr "Pildi X-lahutus"
+
+#: generator.cpp:338
+msgid "Image Y Resolution"
+msgstr "Pildi Y-lahutus"
+
+#: generator.cpp:339
+msgid "Image Resolution Unit"
+msgstr "Pildi lahutuse ühik"
+
+#: generator.cpp:340
+msgid "Image Date Time"
+msgstr "Pildi kuupäev ja kellaaeg"
+
+#: generator.cpp:341
+msgid "YCBCR Positioning"
+msgstr "YCBCR asend"
+
+#: generator.cpp:342
+msgid "Exposure Time"
+msgstr "Säriaeg"
+
+#: generator.cpp:343
+msgid "F Number"
+msgstr "F-arv"
+
+#: generator.cpp:344
+msgid "Exposure Index"
+msgstr "Säriindeks"
+
+#: generator.cpp:345
+msgid "ISO Speed Ratings"
+msgstr "ISO kiirus"
+
+#: generator.cpp:346
+msgid "Shutter Speed Value"
+msgstr "Särikiirus"
+
+#: generator.cpp:347
+msgid "Aperture Value"
+msgstr "Ava läbimõõt"
+
+#: generator.cpp:348
+msgid "Focal Length"
+msgstr "Fookuskaugus"
+
+#: generator.cpp:349
+msgid "GPS Altitude"
+msgstr "GPS-kõrgus"
+
+#: generator.cpp:350
+msgid "GPS Latitude"
+msgstr "GPS-laiuskraad"
+
+#: generator.cpp:351
+msgid "GPS Longitude"
+msgstr "GPs-pikkuskraad"
+
+#: generator.cpp:380
+msgid "Generating HTML files"
+msgstr "HTML-failide genereerimine"
+
+#: generator.cpp:387
+#, kde-format
+msgid "Could not load XSL file '%1'"
+msgstr "XSL-faili '%1' laadimine nurjus"
+
+#: generator.cpp:394
+#, kde-format
+msgid "Could not load XML file '%1'"
+msgstr "XML-faili '%1' laadimine nurjtus"
+
+#: generator.cpp:428
+msgid "Error processing XML file"
+msgstr "Viga XML-faili töötlemisel"
+
+#: generator.cpp:436 generator.cpp:443
+#, kde-format
+msgid "Could not open '%1' for writing"
+msgstr "'%1' avamine kirjutamiseks nurjus"
+
+#: generator.cpp:463
+#, kde-format
+msgid "Could not create folder '%1' in '%2'"
+msgstr "Kataloogi '%1' loomine asukohas '%2' nurjus"
+
+#: imagegenerationfunctor.cpp:98
+#, kde-format
+msgid "Could not read image '%1'"
+msgstr "Pildi '%1' lugemine nurjus"
+
+#: imagegenerationfunctor.cpp:111
+#, kde-format
+msgid "Error loading RAW image '%1'"
+msgstr "Viga toorpildi '%1' laadimisel"
+
+#: imagegenerationfunctor.cpp:120
+#, kde-format
+msgid "Format of image '%1' is unknown"
+msgstr "Pildi '%1' vorming on tundmatu"
+
+#: imagegenerationfunctor.cpp:130
+#, kde-format
+msgid "Error loading image '%1'"
+msgstr "Viga pildi '%1' laadimisel"
+
+#: imagegenerationfunctor.cpp:175
+#, kde-format
+msgid "Could not save image '%1' to '%2'"
+msgstr "Pildi '%1' salvestamine asukohta '%2' nurjus"
+
+#: imagegenerationfunctor.cpp:199
+#, kde-format
+msgid "Could not save thumbnail for image '%1' to '%2'"
+msgstr "Pildi '%1' pisipildi salvestamine asukohta '%2' nurjus"
+
+#: imagegenerationfunctor.cpp:208
+msgid "unavailable"
+msgstr "pole kättesaadav"
+
+#: imagegenerationfunctor.cpp:397
+#, kde-format
+msgid "Could not open file '%1' for writing"
+msgstr "Pildi '%1' avamine kirjutamiseks nurjus"
+
+#: imagegenerationfunctor.cpp:402
+#, kde-format
+msgid "Could not save image to file '%1'"
+msgstr "Pildi salvestamine failina '%1' nurjus"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: imagesettingspage.ui:22
+msgid "Full Image"
+msgstr "Täielik pilt"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mSaveImageButton)
+#: imagesettingspage.ui:29
+msgid "Save image"
+msgstr "Pildi salvestamine"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
+#: imagesettingspage.ui:39 imagesettingspage.ui:232
+msgid "Format:"
+msgstr "Vorming:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_fullFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_thumbnailFormat)
+#: imagesettingspage.ui:56 imagesettingspage.ui:249
+msgid "JPEG"
+msgstr "JPEG"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_fullFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_thumbnailFormat)
+#: imagesettingspage.ui:61 imagesettingspage.ui:254
+msgid "PNG"
+msgstr "PNG"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: imagesettingspage.ui:85 imagesettingspage.ui:278
+msgid "Quality:"
+msgstr "Kvaliteet:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullResize)
+#: imagesettingspage.ui:130
+msgid "Max size:"
+msgstr "Maks. suurus:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_copyOriginalImage)
+#: imagesettingspage.ui:171
+msgid "Include full-size original images for download"
+msgstr "Täissuuruses "
+
+#. i18n: ectx: property (text), widget (QRadioButton, mUseOriginalImageButton)
+#: imagesettingspage.ui:196
+msgid "Use original image"
+msgstr "Originaalpildi kasutamine"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: imagesettingspage.ui:225
+msgid "Thumbnail"
+msgstr "Pisipilt"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: imagesettingspage.ui:314
+msgid "Size:"
+msgstr "Suurus:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_thumbnailSquare)
+#: imagesettingspage.ui:346
+msgid "Square thumbnails"
+msgstr "Ruudukujulised pisipildid"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_htmlexportui.rc:6
+msgid "&Export"
+msgstr "&Eksport"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_htmlexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Peamine tööriistariba"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: outputpage.ui:21
+msgid "Destination folder:"
+msgstr "Sihtkataloog:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_openInBrowser)
+#: outputpage.ui:39
+msgid "Open in browser"
+msgstr "Ava brauseris"
+
+#: plugin_htmlexport.cpp:104
+msgid "Export to &HTML..."
+msgstr "Ekspordi &HTML-ina..."
+
+#: plugin_htmlexport.cpp:134
+msgid "Generating gallery..."
+msgstr "Galerii genereerimine..."
+
+#: plugin_htmlexport.cpp:146
+msgid "Finished, but some warnings occurred."
+msgstr "Lõpetati, aga esines mõningaid hoiatusi."
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: themeparameterspage.ui:22
+msgid ""
+"In this page, you can change some theme parameters. Depending on the theme, "
+"different parameters are available."
+msgstr ""
+"Sellel kaardil saab muuta mõningaid teema parameetreid. Parameetrid erinevad "
+"vastavalt teemale."
+
+#: wizard.cpp:194
+#, kde-format
+msgctxt "'%1' is a label for a theme parameter"
+msgid "%1:"
+msgstr "%1:"
+
+#: wizard.cpp:233
+msgid "Export image collections to HTML pages"
+msgstr "Pildikogude eksport HTML-leheküljena"
+
+#: wizard.cpp:239
+msgid "HTML Export"
+msgstr "HTML eksport"
+
+#: wizard.cpp:242
+msgid "A KIPI plugin to export image collections to HTML pages"
+msgstr "KIPI plugin pildikogu eksportimiseks HTML-leheküljena"
+
+#: wizard.cpp:243
+msgid ""
+"(c) 2006-2009, Aurelien Gateau\n"
+"(c) 2010, Gianluca Urgese"
+msgstr ""
+"(c) 2006-2009: Aurelien Gateau\n"
+"(c) 2010: Gianluca Urgese"
+
+#: wizard.cpp:247
+msgid "Gianluca Urgese"
+msgstr "Gianluca Urgese"
+
+#: wizard.cpp:248
+msgid "Maintainer"
+msgstr "Hooldaja"
+
+#: wizard.cpp:252
+msgid "Aurelien Gateau"
+msgstr "Aurelien Gateau"
+
+#: wizard.cpp:253
+msgid "Former Author and Maintainer"
+msgstr "Endine autor ja hooldaja"
+
+#: wizard.cpp:262
+msgid "Collection Selection"
+msgstr "Kogu Valik"
+
+#: wizard.cpp:268
+msgid "Theme"
+msgstr "Teema"
+
+#: wizard.cpp:274
+msgid "Theme Parameters"
+msgstr "Teema parameetrid"
+
+#: wizard.cpp:275
+msgid "Image Settings"
+msgstr "Pildi seadistused"
+
+#: wizard.cpp:276
+msgid "Output"
+msgstr "Väljund"
+
+#: wizard.cpp:335
+#, kde-format
+msgid "Author: %1"
+msgstr "Autor: %1"
+
+#~ msgid "Handbook"
+#~ msgstr "Käsiraamat"
+
+#~ msgid "&HTML Gallery..."
+#~ msgstr "&HTML-galerii..."

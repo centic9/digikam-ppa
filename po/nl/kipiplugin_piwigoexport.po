@@ -1,0 +1,277 @@
+# translation of kipiplugin_piwigoexport.po to Dutch
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_piwigoexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-04-18 02:21+0200\n"
+"PO-Revision-Date: 2013-02-06 00:35+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf - 2010 t/m 2013"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_piwigoexportui.rc:6
+msgid "&Export"
+msgstr "&Exporteren"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_piwigoexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Hoofdwerkbalk"
+
+#: piwigoconfig.cpp:76
+msgctxt "piwigo login settings"
+msgid "URL:"
+msgstr "URL-adres:"
+
+#: piwigoconfig.cpp:80
+msgctxt "piwigo login settings"
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+#: piwigoconfig.cpp:84
+msgctxt "piwigo login settings"
+msgid "Password:"
+msgstr "Wachtwoord:"
+
+#: piwigotalker.cpp:275
+#, kde-format
+msgid "Check if %1 already exists"
+msgstr "Controleer of %1 al bestaat"
+
+#: piwigotalker.cpp:446
+msgid "Piwigo URL probably incorrect"
+msgstr "Piwigo URL waarschijnlijk onjuist"
+
+#: piwigotalker.cpp:452
+msgid "Incorrect username or password specified"
+msgstr "Onjuiste gebruikersnaam of wachtwoord gespecificeerd"
+
+#: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
+#: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
+#: piwigotalker.cpp:1118 piwigotalker.cpp:1252
+msgid "Invalid response received from remote Piwigo"
+msgstr "Ongeldige respons ontvangen van Piwigo op afstand"
+
+#: piwigotalker.cpp:564
+msgid "Failed to list albums"
+msgstr "Een lijst van albums maken is mislukt"
+
+#: piwigotalker.cpp:611
+#, kde-format
+msgid "Photo '%1' already exists."
+msgstr "Foto '%1' bestaat al."
+
+#: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
+#: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
+msgid "Failed to upload photo"
+msgstr "Foto uploaden mislukt"
+
+#: piwigotalker.cpp:682
+#, kde-format
+msgid "Upload resized version of %1"
+msgstr "Versie van %1 met aangepaste grootte uploaden"
+
+#: piwigotalker.cpp:736
+#, kde-format
+msgid "Photo '%1' already exists in this album."
+msgstr "Foto '%1' bestaat al in dit album."
+
+#: piwigotalker.cpp:851 piwigotalker.cpp:1082
+#, kde-format
+msgid "Upload the chunk %1 of %2"
+msgstr "Het gedeelte %1 van %2 uploaden"
+
+#: piwigotalker.cpp:887 piwigotalker.cpp:1169
+msgid "Warning : The full size photo cannot be uploaded."
+msgstr "Waarschuwing: De foto met volledige grootte kan niet geüpload worden."
+
+#: piwigotalker.cpp:926 piwigotalker.cpp:1216
+#, kde-format
+msgid "Upload the metadata of %1"
+msgstr "De metagegevens van %1 uploaden"
+
+#: piwigotalker.cpp:1047
+#, kde-format
+msgid "Upload the thumbnail of %1"
+msgstr "Miniatuur van %1 uploaden"
+
+#: piwigowindow.cpp:135
+msgid "Albums"
+msgstr "Albums"
+
+#: piwigowindow.cpp:144
+msgid "Change Account"
+msgstr "Account wijzigen"
+
+#: piwigowindow.cpp:148
+msgid "Options"
+msgstr "Opties"
+
+#: piwigowindow.cpp:152
+msgid "Resize photos before uploading"
+msgstr "Grootte van foto's wijzigen vóór het uploaden"
+
+#: piwigowindow.cpp:155
+msgid "Maximum width:"
+msgstr "Maximale breedte:"
+
+#: piwigowindow.cpp:161
+msgid "Maximum height:"
+msgstr "Maximale hoogte:"
+
+#: piwigowindow.cpp:168
+msgid "Maximum thumbnail dimension:"
+msgstr "Maximale afmeting van miniatuur:"
+
+#: piwigowindow.cpp:173
+msgid "Thumbnail size is ignored with Piwigo > 2.4"
+msgstr "Miniatuurgrootte wordt genegeerd met Piwigo > 2.4"
+
+#: piwigowindow.cpp:235 piwigowindow.cpp:240
+msgid "Piwigo Export"
+msgstr "Piwigo-export"
+
+#: piwigowindow.cpp:243
+msgid "A Kipi plugin to export image collections to a remote Piwigo server."
+msgstr ""
+"Een KIPI-plugin voor het exporteren van een afbeeldingsverzameling naar een "
+"Piwigo-server op afstand."
+
+#: piwigowindow.cpp:244
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2012, Frédéric Coiffier\n"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2012, Frédéric Coiffier\n"
+
+#: piwigowindow.cpp:250
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: piwigowindow.cpp:250
+msgid "Author"
+msgstr "Auteur"
+
+#: piwigowindow.cpp:253
+msgid "Colin Guthrie"
+msgstr "Colin Guthrie"
+
+#: piwigowindow.cpp:253
+msgid "Maintainer"
+msgstr "Onderhouder"
+
+#: piwigowindow.cpp:256
+msgid "Andrea Diamantini"
+msgstr "Andrea Diamantini"
+
+#: piwigowindow.cpp:256 piwigowindow.cpp:259 piwigowindow.cpp:262
+msgid "Developer"
+msgstr "Ontwikkelaar"
+
+#: piwigowindow.cpp:259
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: piwigowindow.cpp:262
+msgid "Frédéric Coiffier"
+msgstr "Frédéric Coiffier"
+
+#: piwigowindow.cpp:270
+msgid "Start Upload"
+msgstr "Uploaden starten"
+
+#: piwigowindow.cpp:404
+msgid "Failed to login into remote piwigo. "
+msgstr "Aanmelden bij piwigo op afstand is mislukt. "
+
+#: piwigowindow.cpp:406
+msgid ""
+"\n"
+"Do you want to check your settings and try again?"
+msgstr ""
+"\n"
+"Wilt u uw instellingen controleren en het opnieuw proberen?"
+
+#: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
+msgid "Edit Piwigo Data"
+msgstr "Piwigo-gegevens bewerken"
+
+#: piwigowindow.cpp:473 piwigowindow.cpp:497
+msgid "Album"
+msgstr "Album"
+
+#: piwigowindow.cpp:516
+msgid "Image"
+msgstr "Afbeelding"
+
+#: piwigowindow.cpp:547
+msgid "Nothing to upload - please select photos to upload."
+msgstr "Er is niets om te uploaden - selecteer te uploaden foto's."
+
+#: piwigowindow.cpp:589
+#, kde-format
+msgid "Uploading file %1"
+msgstr "Uploaden van bestand %1"
+
+#: piwigowindow.cpp:608
+msgid "Failed to upload photo into remote piwigo. "
+msgstr "Uploaden van een foto naar piwigo op afstand is mislukt. "
+
+#: piwigowindow.cpp:611
+msgid ""
+"\n"
+"Do you want to continue?"
+msgstr ""
+"\n"
+"Wilt u doorgaan?"
+
+#: plugin_piwigoexport.cpp:98
+msgid "Export to &Piwigo..."
+msgstr "Naar &Piwigo exporteren..."
+
+#~ msgid "&Add Selected Photos"
+#~ msgstr "Geselecteerde foto's &toevoegen"
+
+#~ msgid "Override Default Options"
+#~ msgstr "Standaard opties overschrijven"
+
+#~ msgid "EXIF Comment (instead of file name) sets Title"
+#~ msgstr "EXIF-commentaar (in plaats van bestandsnaam) stelt de titel in"
+
+#~ msgid "EXIF Comment (instead of file name) sets Comment"
+#~ msgstr ""
+#~ "EXIF-commentaar (in plaats van bestandsnaam) stelt het commentaar in"
+
+#~ msgid "Also download the full size version"
+#~ msgstr "Ook de versie met volledige grootte downloaden"
+
+#~ msgid "Handbook"
+#~ msgstr "Handboek"
+
+#~ msgid "Settings"
+#~ msgstr "Instellingen"

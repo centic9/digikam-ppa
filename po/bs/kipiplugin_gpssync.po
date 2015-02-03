@@ -1,0 +1,1564 @@
+# translation of kipiplugin_gpssync.po to Bosnian
+#
+# Slobodan Simic <simicsl@verat.net>, 2007, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_gpssync\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-05-07 02:57+0200\n"
+"PO-Revision-Date: 2011-03-09 15:15+0000\n"
+"Last-Translator: Samir Ribić <Unknown>\n"
+"Language-Team: Bosnian <bs@li.org>\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2011-04-22 07:50+0000\n"
+"X-Generator: Launchpad (build 12883)\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Elmedina Fejzagic,Samir Ribić"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba"
+
+#: gpsbookmarkowner.cpp:349 searchwidget.cpp:777
+#, kde-format
+msgid "1 image snapped to '%2'"
+msgid_plural "%1 images snapped to '%2'"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: gpscorrelatorwidget.cpp:169
+#, fuzzy
+msgid "Load GPX files..."
+msgstr "Učitaj GPX datoteku..."
+
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+#, fuzzy
+msgid "Filename"
+msgstr "Ime datoteke:"
+
+#: gpscorrelatorwidget.cpp:174
+#, fuzzy
+msgid "#points"
+msgstr "Tačke"
+
+#: gpscorrelatorwidget.cpp:178
+msgid "Max. time gap (sec.):"
+msgstr "Maks. vremenski razmak (sek.):"
+
+#: gpscorrelatorwidget.cpp:180
+msgid ""
+"Sets the maximum difference in seconds from a GPS track point to the image "
+"time to be matched. If the time difference exceeds this setting, no match "
+"will be attempted."
+msgstr ""
+"Postavlja maksimalnu razliku u sekundama iz GPS staze tačaka na vrijeme "
+"slike da bi se uskladili. Ako vremenska razlika prelazi ovu postavku, neće "
+"biti pokušaja usklađivanja."
+
+#: gpscorrelatorwidget.cpp:184
+msgid "Camera time zone:"
+msgstr "Vremenska zona kamere:"
+
+#: gpscorrelatorwidget.cpp:185
+msgid "Same as system"
+msgstr "Isto kao sistem"
+
+#: gpscorrelatorwidget.cpp:187
+msgid ""
+"Use this option if the timezone of the camera is the same as the timezone of "
+"this system. The conversion to GMT will be done automatically."
+msgstr ""
+"Koristite ovu opciju ako je zona kamere ista kao i zona sistema. Konverzija "
+"u GTM će biti automatski urađena."
+
+#: gpscorrelatorwidget.cpp:190
+msgctxt "manual time zone selection for gps syncing"
+msgid "Manual:"
+msgstr "Ručno:"
+
+#: gpscorrelatorwidget.cpp:192
+msgid ""
+"Use this option if the timezone of the camera is different from this system "
+"and you have to specify the difference to GMT manually."
+msgstr ""
+"Koristite ovu opciju ako je zona kamere drugačija od ovog sistema i morat "
+"ćete odrediti razliku u GTM ručno."
+
+#: gpscorrelatorwidget.cpp:244
+msgid ""
+"<p>Sets the time zone the camera was set to during photo shooting, so that "
+"the time stamps of the images can be converted to GMT to match the GPS time "
+"reference.</p><p>Note: positive offsets count eastwards from zero longitude "
+"(GMT), they are 'ahead of time'.</p>"
+msgstr ""
+"<p> Postavlja vremensku zonu u kojoj je fotoaparat je bio postavljen u "
+"vrijeme fotografiranja, tako da vremenske marke slika se mogu pretvoriti u "
+"GMT da odgovaraju referentnom GPS vremenu </p><p> Napomena:. pozitivne "
+"pomake računati na istok od nulte geografske dužine (GMT), oni su 'ispred "
+"svog vremena'. </p>"
+
+#: gpscorrelatorwidget.cpp:251
+msgid "Fine offset (mm:ss):"
+msgstr "Čisti ofset (mm:ss)"
+
+#: gpscorrelatorwidget.cpp:253
+msgid ""
+"Sets an additional offset in minutes and seconds that is used to correlate "
+"the photos to the GPS track. This can be used for fine tuning to adjust a "
+"wrong camera clock."
+msgstr ""
+"Postavlja dodatni ofset u minutama i sekundama koji je korišten da poveže "
+"fotografije na GPS stazi. Ovo može biti korišteno za fini tuning za "
+"podešavanje netačnog sata kamere."
+
+#: gpscorrelatorwidget.cpp:263
+msgid "Set whether the camera offset is negative or positive."
+msgstr "Postavi ako je ofset kamere negativan ili pozitivan."
+
+#: gpscorrelatorwidget.cpp:267
+msgid "Minutes to fine tune camera offset."
+msgstr "Minute za fino podešavanje ofseta kamere."
+
+#: gpscorrelatorwidget.cpp:270
+msgid "Seconds to fine tune camera offset."
+msgstr "Sekunde za fino podešavanje ofseta kamere."
+
+#: gpscorrelatorwidget.cpp:280
+msgid "Interpolate"
+msgstr "Interpolacija"
+
+#: gpscorrelatorwidget.cpp:281
+msgid ""
+"Set this option to interpolate GPS track points which are not closely "
+"matched to the GPX data file."
+msgstr ""
+"Postavi ovu opciju za interpolaciju GPS staze tačaka koje nisu približno "
+"usklađene sa GPX datotekom podataka."
+
+#: gpscorrelatorwidget.cpp:287
+msgid "Difference in min.:"
+msgstr "Razlika u min.:"
+
+#: gpscorrelatorwidget.cpp:289
+msgid ""
+"Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
+"file points to image time data."
+msgstr ""
+"Postavlja maksimalnu vremensku razliku u minutama (240 max.)  za "
+"interpolaciju GPX datoteke tačaka u vremenske podatke slike."
+
+#: gpscorrelatorwidget.cpp:292
+msgid "Correlate"
+msgstr "Poveži"
+
+#: gpscorrelatorwidget.cpp:349
+#, kde-format
+msgid "%1|GPS Exchange Format"
+msgstr "%1|GPS format razmjene"
+
+#: gpscorrelatorwidget.cpp:350
+msgid "Select GPX File to Load"
+msgstr "Odaberite GPX Datoteku za Učitavanje"
+
+#: gpscorrelatorwidget.cpp:396
+#, kde-format
+msgid "The following GPX file could not be loaded:"
+msgid_plural "The following %1 GPX files could not be loaded:"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: gpscorrelatorwidget.cpp:402
+#, fuzzy
+msgid "Error loading GPX file"
+msgid_plural "Error loading GPX files"
+msgstr[0] "Greška pri učitavanju slike „%1“"
+msgstr[1] "Greška pri učitavanju slike „%1“"
+msgstr[2] "Greška pri učitavanju slike „%1“"
+
+#: gpscorrelatorwidget.cpp:520
+#, fuzzy
+msgid "Correlating images - %p%"
+msgstr "Greška pri učitavanju slike „%1“"
+
+#: gpscorrelatorwidget.cpp:590
+msgid ""
+"Could not correlate any image - please make sure the timezone and gap "
+"settings are correct."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:591
+#, fuzzy
+msgid "Correlation failed"
+msgstr "Poveži"
+
+#: gpscorrelatorwidget.cpp:596
+msgid ""
+"All images have been correlated. You can now check their position on the map."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:597
+#, fuzzy
+msgid "Correlation succeeded"
+msgstr "Poveži"
+
+#: gpscorrelatorwidget.cpp:603
+#, kde-format
+msgid ""
+"%1 out of %2 images have been correlated. Please check the timezone and gap "
+"settings if you think that more images should have been correlated."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:604
+#, fuzzy
+msgid "Correlation finished"
+msgstr "Poveži"
+
+#: gpscorrelatorwidget.cpp:613
+#, kde-format
+msgid "1 image correlated"
+msgid_plural "%1 images correlated"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: gpsdataparser.cpp:677
+#, fuzzy, kde-format
+msgid "Could not open: %1"
+msgstr "Ne mogu stvoriti '%1'"
+
+#: gpsdataparser.cpp:683
+msgid "File is empty."
+msgstr ""
+
+#: gpsdataparser.cpp:699
+#, kde-format
+msgid "Parsing error: %1"
+msgstr ""
+
+#: gpsdataparser.cpp:709
+msgid "No GPX element found - probably not a GPX file."
+msgstr ""
+
+#: gpsdataparser.cpp:713
+msgid "File is a GPX file, but no datapoints were found."
+msgstr ""
+
+#: gpsimagedetails.cpp:127
+#, fuzzy
+msgid "Coordinates"
+msgstr "Kopiraj koordinate"
+
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+msgid "Latitude"
+msgstr "Geografska širina"
+
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+msgid "Longitude"
+msgstr "Geografska dužina"
+
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+msgid "Altitude"
+msgstr "Nadmorska visina"
+
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+msgid "Speed"
+msgstr "Brzina"
+
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+msgid "# satellites"
+msgstr ""
+
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+msgid "Fix type"
+msgstr ""
+
+#: gpsimagedetails.cpp:159
+msgid "2-d"
+msgstr ""
+
+#: gpsimagedetails.cpp:160
+msgid "3-d"
+msgstr ""
+
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+msgid "DOP"
+msgstr "DOP"
+
+#: gpsimagedetails.cpp:169
+msgid "Apply"
+msgstr "Primijeni"
+
+#: gpsimagedetails.cpp:445
+msgid "Details changed"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:112 searchwidget.cpp:192
+msgid "Copy coordinates"
+msgstr "Kopiraj koordinate"
+
+#: gpslistviewcontextmenu.cpp:114
+msgid "Paste coordinates"
+msgstr "Umetni koordinate"
+
+#: gpslistviewcontextmenu.cpp:116
+#, fuzzy
+msgid "Remove coordinates"
+msgstr "Ukloni koordinate..."
+
+#: gpslistviewcontextmenu.cpp:117
+#, fuzzy
+msgid "Remove altitude"
+msgstr "Geografska širina"
+
+#: gpslistviewcontextmenu.cpp:118
+msgid "Remove uncertainty"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+#, fuzzy
+msgid "Remove speed"
+msgstr "Ukloni"
+
+#: gpslistviewcontextmenu.cpp:120
+msgid "Look up missing altitude values"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:146 searchwidget.cpp:224
+msgid "Bookmarks"
+msgstr "Obilježivači"
+
+#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+msgid "GPS Sync"
+msgstr "GPS sinhronizacija"
+
+#: gpslistviewcontextmenu.cpp:420
+msgid ""
+"Found more than one point on the clipboard - can only assign one point at a "
+"time."
+msgstr ""
+"Pronađeno više od jedne tačke na klipbordu - može se samo dodijeliti jedna "
+"tačka na vrijeme."
+
+#: gpslistviewcontextmenu.cpp:479
+msgid "Could not find any coordinates on the clipboard."
+msgstr "Ne mogu naći nijednu koordinatu na klipbordu."
+
+#: gpslistviewcontextmenu.cpp:483
+#, fuzzy
+msgid "Coordinates pasted"
+msgstr "Kopiraj koordinate"
+
+#: gpslistviewcontextmenu.cpp:514
+#, fuzzy
+msgid "Bookmark selected"
+msgstr "Dodaj oznaku za lokaciju"
+
+#: gpslistviewcontextmenu.cpp:624
+#, fuzzy
+msgid "Remove coordinates information"
+msgstr "Ukloni koordinate..."
+
+#: gpslistviewcontextmenu.cpp:629
+msgid "Remove altitude information"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:635
+msgid "Remove uncertainty information"
+msgstr ""
+
+#: gpslistviewcontextmenu.cpp:697
+#, fuzzy
+msgid "Looking up altitudes"
+msgstr "Geografska dužina"
+
+#: gpslistviewcontextmenu.cpp:748
+#, fuzzy, kde-format
+msgid ""
+"Altitude lookup failed:\n"
+"%1"
+msgstr "Nema pretrage nadmorske visine"
+
+#: gpslistviewcontextmenu.cpp:755
+#, fuzzy
+msgid "Altitude looked up"
+msgstr "Nema pretrage nadmorske visine"
+
+#: gpsreversegeocodingwidget.cpp:250
+msgid "Add country tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:252
+msgid "Add state tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:254
+msgid "Add state district tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:256
+msgid "Add county tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:258
+msgid "Add city tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:260
+msgid "Add city district tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:262
+msgid "Add suburb tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:264
+msgid "Add town tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:266
+msgid "Add village tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:268
+msgid "Add hamlet tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:270
+msgid "Add street"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:272
+msgid "Add house number tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:274
+msgid "Add place"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:276
+msgid "Add Local Administrative Area 2"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:278
+msgid "Add Local Administrative Area 1"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:280
+msgid "Add new tag"
+msgstr "Dodaj novu oznaku"
+
+#: gpsreversegeocodingwidget.cpp:281
+msgid "Remove selected tag"
+msgstr "Ukloni odabranu oznaku"
+
+#: gpsreversegeocodingwidget.cpp:282
+msgid "Remove all control tags below this tag"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:284
+msgid "Add all address elements"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:288
+msgid "Select language:"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:292
+msgid "English"
+msgstr "Engleski"
+
+#: gpsreversegeocodingwidget.cpp:293
+msgid "Arabic"
+msgstr "arapski"
+
+#: gpsreversegeocodingwidget.cpp:294
+msgid "Assamese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:295
+msgid "Byelorussian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:296
+msgid "Bulgarian"
+msgstr "Bugarski"
+
+#: gpsreversegeocodingwidget.cpp:297
+msgid "Bengali"
+msgstr "bengali"
+
+#: gpsreversegeocodingwidget.cpp:298
+msgid "Chinese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:299
+msgid "Czech"
+msgstr "Češki"
+
+#: gpsreversegeocodingwidget.cpp:300
+msgid "Croatian"
+msgstr "Hrvatski"
+
+#: gpsreversegeocodingwidget.cpp:301
+msgid "Dutch"
+msgstr "Holandski"
+
+#: gpsreversegeocodingwidget.cpp:302
+msgid "German"
+msgstr "njemački"
+
+#: gpsreversegeocodingwidget.cpp:303
+msgid "Greek"
+msgstr "grčki"
+
+#: gpsreversegeocodingwidget.cpp:304
+msgid "Estonian"
+msgstr "Estonski"
+
+#: gpsreversegeocodingwidget.cpp:305
+msgid "Finnish"
+msgstr "Finski"
+
+#: gpsreversegeocodingwidget.cpp:306
+msgid "French"
+msgstr "Francuski"
+
+#: gpsreversegeocodingwidget.cpp:307
+msgid "Georgian"
+msgstr "gruzijski"
+
+#: gpsreversegeocodingwidget.cpp:308
+msgid "Hebrew"
+msgstr "hebrejski"
+
+#: gpsreversegeocodingwidget.cpp:309
+msgid "Hindi"
+msgstr "Hindi"
+
+#: gpsreversegeocodingwidget.cpp:310
+msgid "Hungarian"
+msgstr "Mađarski"
+
+#: gpsreversegeocodingwidget.cpp:311
+msgid "Indonesian"
+msgstr "Indonezijski"
+
+#: gpsreversegeocodingwidget.cpp:312
+msgid "Icelandic"
+msgstr "Islandski"
+
+#: gpsreversegeocodingwidget.cpp:313
+msgid "Italian"
+msgstr "Italijanski"
+
+#: gpsreversegeocodingwidget.cpp:314
+msgid "Japanese"
+msgstr "Japanski"
+
+#: gpsreversegeocodingwidget.cpp:315
+msgid "Korean"
+msgstr "Korejanski"
+
+#: gpsreversegeocodingwidget.cpp:316
+msgid "Lithuanian"
+msgstr "Litvanski"
+
+#: gpsreversegeocodingwidget.cpp:317
+msgid "Macedonian"
+msgstr "Makedonski"
+
+#: gpsreversegeocodingwidget.cpp:318
+msgid "Mongolian"
+msgstr "mongolski"
+
+#: gpsreversegeocodingwidget.cpp:319
+msgid "Moldavian"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:320
+msgid "Nepali"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:321
+#, fuzzy
+msgid "Polish"
+msgstr "Tačke"
+
+#: gpsreversegeocodingwidget.cpp:322
+msgid "Portuguese"
+msgstr "Portugalski"
+
+#: gpsreversegeocodingwidget.cpp:323
+msgid "Romanian"
+msgstr "Rumunski"
+
+#: gpsreversegeocodingwidget.cpp:324
+msgid "Russian"
+msgstr "Ruski"
+
+#: gpsreversegeocodingwidget.cpp:325
+msgid "Slovak"
+msgstr "Slovački"
+
+#: gpsreversegeocodingwidget.cpp:326
+msgid "Slovenian"
+msgstr "Slovenački"
+
+#: gpsreversegeocodingwidget.cpp:327
+msgid "Samoan"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:328
+msgid "Serbian"
+msgstr "Srpski"
+
+#: gpsreversegeocodingwidget.cpp:329
+msgid "Sudanese"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:330
+msgid "Spanish"
+msgstr "Španski"
+
+#: gpsreversegeocodingwidget.cpp:331
+msgid "Swedish"
+msgstr "Švedski"
+
+#: gpsreversegeocodingwidget.cpp:332
+msgid "Thai"
+msgstr "tajlandski"
+
+#: gpsreversegeocodingwidget.cpp:333
+#, fuzzy
+msgid "Turkish"
+msgstr "Staze"
+
+#: gpsreversegeocodingwidget.cpp:334
+msgid "Ukrainian"
+msgstr "Ukrajinski"
+
+#: gpsreversegeocodingwidget.cpp:335
+#, fuzzy
+msgid "Vietnamese"
+msgstr "Ime datoteke:"
+
+#: gpsreversegeocodingwidget.cpp:337
+msgid "Select service:"
+msgstr "Izaberite servis:"
+
+#: gpsreversegeocodingwidget.cpp:340
+msgid "Open Street Map"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:341
+msgid "Geonames.org place name (non-US)"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:342
+msgid "Geonames.org full address (US only)"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:357 gpsreversegeocodingwidget.cpp:548
+msgid "Less options"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:364
+msgid "Write tags to XMP"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:370
+msgid "Apply reverse geocoding"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:494
+msgid "Image tags are changed."
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:527
+msgid "Retrieving RG info - %p%"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:542
+msgid "More options"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:864
+#, fuzzy
+#| msgid "Add new tag"
+msgid "Add new tag:"
+msgstr "Dodaj novu oznaku"
+
+#: gpsreversegeocodingwidget.cpp:865
+msgid "Select a name for the new tag:"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1004
+#, kde-format
+msgid ""
+"%1 out of %2 images have been reverse geocoded. Would you like to keep the "
+"tags which were already obtained or discard them?"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1009
+msgid "Abort reverse geocoding?"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1010
+msgid "Keep tags"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1011
+msgid "Discard tags"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1012
+msgid "Continue"
+msgstr "Nastavi"
+
+#: gpssyncdialog.cpp:275
+msgid "Geolocation"
+msgstr "Geo-lokacija"
+
+#: gpssyncdialog.cpp:302
+msgid "Display bookmarked positions on the map."
+msgstr ""
+
+#: gpssyncdialog.cpp:362
+#, fuzzy
+msgid "Sorting"
+msgstr "Podešavanja"
+
+#: gpssyncdialog.cpp:369
+msgid "Show oldest first"
+msgstr ""
+
+#: gpssyncdialog.cpp:373
+msgid "Show youngest first"
+msgstr ""
+
+#: gpssyncdialog.cpp:412
+msgid "Details"
+msgstr "Detalji"
+
+#: gpssyncdialog.cpp:413
+#, fuzzy
+msgid "GPS Correlator"
+msgstr "Korelator"
+
+#: gpssyncdialog.cpp:414
+msgid "Undo/Redo"
+msgstr ""
+
+#: gpssyncdialog.cpp:415
+msgid "Reverse Geocoding"
+msgstr ""
+
+#: gpssyncdialog.cpp:416
+msgid "Search"
+msgstr "Traži"
+
+#: gpssyncdialog.cpp:439
+msgid "A Plugin to synchronize pictures' metadata with a GPS device"
+msgstr "Priključak za sinhronizaciju metapodataka slike sa GPS uređajom"
+
+#: gpssyncdialog.cpp:440
+#, fuzzy
+msgid "(c) 2006-2013, Gilles Caulier"
+msgstr "(c) 2006-2009, Gilles Caulier"
+
+#: gpssyncdialog.cpp:442
+msgid "Michael G. Hansen"
+msgstr ""
+
+#: gpssyncdialog.cpp:443
+msgid "Developer and maintainer"
+msgstr "Programer i održavalac"
+
+#: gpssyncdialog.cpp:446
+msgid "Gabriel Voicu"
+msgstr ""
+
+#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+msgid "Developer"
+msgstr "Programer"
+
+#: gpssyncdialog.cpp:450
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gpssyncdialog.cpp:626
+msgid "Loading metadata - %p%"
+msgstr ""
+
+#: gpssyncdialog.cpp:807
+#, kde-format
+msgid "You have 1 modified image."
+msgid_plural "You have %1 modified images."
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: gpssyncdialog.cpp:813
+#, kde-format
+msgid "%1 Would you like to save the changes you made to them?"
+msgstr ""
+
+#: gpssyncdialog.cpp:814
+msgid "Unsaved changes"
+msgstr "Nespremljene promjene"
+
+#: gpssyncdialog.cpp:815
+msgid "Save changes"
+msgstr "Snimi izmjene"
+
+#: gpssyncdialog.cpp:816
+msgid "Close and discard changes"
+msgstr ""
+
+#: gpssyncdialog.cpp:1040
+#, kde-format
+msgid "1 image moved"
+msgid_plural "%1 images moved"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: gpssyncdialog.cpp:1074
+msgid "Saving changes - %p%"
+msgstr ""
+
+#: gpssyncdialog.cpp:1119
+msgid "Failed to save some information:"
+msgstr ""
+
+#: gpssyncdialog.cpp:1119
+msgid "Error"
+msgstr "Greška"
+
+#: gpssyncdialog.cpp:1147
+#, fuzzy
+msgid "GPS sync"
+msgstr "GPS sinhronizacija"
+
+#: kipiimageitem.cpp:363
+msgid "Not available"
+msgstr "Nije dostupno"
+
+#: kipiimageitem.cpp:396
+#, kde-format
+msgid "DOP: %1"
+msgstr ""
+
+#: kipiimageitem.cpp:401
+#, c-format, kde-format
+msgid "Fix: %1d"
+msgstr ""
+
+#: kipiimageitem.cpp:406
+#, kde-format
+msgid "#Sat: %1"
+msgstr ""
+
+#: kipiimageitem.cpp:441
+#, c-format, kde-format
+msgid "%1d"
+msgstr ""
+
+#: kipiimageitem.cpp:461
+msgid "Modified"
+msgstr "Promijenjeno"
+
+#: kipiimageitem.cpp:523
+msgid "Thumbnail"
+msgstr "Sličica"
+
+#: kipiimageitem.cpp:525
+msgid "Date and time"
+msgstr "Datum i vrijeme"
+
+#: kipiimageitem.cpp:529
+msgid "Accuracy"
+msgstr "Preciznost"
+
+#: kipiimageitem.cpp:534
+msgid "Status"
+msgstr "Status"
+
+#: kipiimageitem.cpp:535
+#, fuzzy
+msgid "Tags"
+msgstr "Staze"
+
+#: kipiimageitem.cpp:722
+msgid "Failed to open file."
+msgstr ""
+
+#: kipiimageitem.cpp:783
+msgid "Failed to add GPS info to image."
+msgstr ""
+
+#: kipiimageitem.cpp:793
+msgid "Failed to remove GPS info from image"
+msgstr ""
+
+#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+msgid "Failed to save tags to file."
+msgstr ""
+
+#: kipiimageitem.cpp:838
+msgid "Unable to save changes to file"
+msgstr ""
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_gpssyncui.rc:6
+msgid "&Image"
+msgstr "&Slika"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_gpssyncui.rc:12
+msgid "Main Toolbar"
+msgstr "Glavna alatna traka"
+
+#: plugin_gpssync.cpp:99
+#, fuzzy
+msgid "Geo-location"
+msgstr "Geo-lokacija"
+
+#: rgtagmodel.cpp:95
+msgid "{Country}"
+msgstr ""
+
+#: rgtagmodel.cpp:96
+#, fuzzy
+msgctxt "Part of a country"
+msgid "{State}"
+msgstr "Status"
+
+#: rgtagmodel.cpp:97
+msgid "{County}"
+msgstr ""
+
+#: rgtagmodel.cpp:98
+msgid "{City}"
+msgstr ""
+
+#: rgtagmodel.cpp:99
+msgid "{Town}"
+msgstr ""
+
+#: rgtagmodel.cpp:100
+msgid "{Village}"
+msgstr ""
+
+#: rgtagmodel.cpp:101
+msgid "{Hamlet}"
+msgstr ""
+
+#: rgtagmodel.cpp:102
+msgid "{Street}"
+msgstr ""
+
+#: searchbackend.cpp:310
+msgid "GeoNames"
+msgstr ""
+
+#: searchbackend.cpp:311
+msgid "OSM"
+msgstr ""
+
+#: searchwidget.cpp:166
+msgctxt "Start the search"
+msgid "Search"
+msgstr ""
+
+#: searchwidget.cpp:173
+msgid "Clear the search results."
+msgstr ""
+
+#: searchwidget.cpp:181
+msgid "Keep the results of old searches when doing a new search."
+msgstr ""
+
+#: searchwidget.cpp:188
+msgid "Toggle the visibility of the search results on the map."
+msgstr ""
+
+#: searchwidget.cpp:195
+msgid "Move selected images to this position"
+msgstr ""
+
+#: searchwidget.cpp:197
+msgid "Remove from results list"
+msgstr ""
+
+#: searchwidget.cpp:201
+msgid "Select which service you would like to use."
+msgstr ""
+
+#: searchwidget.cpp:277
+#, kde-format
+msgid ""
+"Your search failed:\n"
+"%1"
+msgstr ""
+
+#: searchwidget.cpp:277
+msgid "Search failed"
+msgstr ""
+
+#: searchwidget.cpp:814
+#, kde-format
+msgid "1 image moved to '%2'"
+msgid_plural "%1 images moved to '%2'"
+msgstr[0] ""
+msgstr[1] ""
+msgstr[2] ""
+
+#: setup.cpp:122
+#, fuzzy
+msgid "Configure"
+msgstr "Konfiguracija"
+
+#: setup.cpp:128
+msgctxt "General setup"
+msgid "General"
+msgstr ""
+
+#: setup_general.cpp:64
+msgid "One map"
+msgstr ""
+
+#: setup_general.cpp:65
+msgid "Two maps - horizontal"
+msgstr ""
+
+#: setup_general.cpp:66
+msgid "Two maps - vertical"
+msgstr ""
+
+# >! Missing trailing :
+# >> @label:listbox
+#: setup_general.cpp:68
+msgid "Layout:"
+msgstr "Raspored:"
+
+#~ msgid "Bookmark location"
+#~ msgstr "Dodaj oznaku za lokaciju"
+
+#~ msgctxt "Title of the new gps location bookmark"
+#~ msgid "Title:"
+#~ msgstr "Naslov:"
+
+#~ msgid "Handbook"
+#~ msgstr "Priručnik"
+
+#~ msgid "Edit Coordinates..."
+#~ msgstr "Uredi koordinate..."
+
+#~ msgid "Track List Editor..."
+#~ msgstr "Uređivač lista tragova…"
+
+#~ msgid "Export to KML..."
+#~ msgstr "Izvezi u KML…"
+
+#~ msgid ""
+#~ "<p>Unable to find the gpsbabel executable:<br/> This program is required "
+#~ "by this plugin to support GPS data file decoding. Please install gpsbabel "
+#~ "as a package from your distributor or <a href=\"%1\">download the source</"
+#~ "a>.</p><p>Note: at least, gpsbabel version %2 is required by this plugin."
+#~ "</p>"
+#~ msgstr ""
+#~ "<p>Nije moguće pronaći izvršni program gpsbabel:<br/> Taj je program "
+#~ "potreban ovom priključku za dekodiranje podataka GPS datoteke. Molim "
+#~ "instalirajte gpsbabel kao paket vašeg distributera ili <a href="
+#~ "\"%1\">preuzmite izvorni kôd</a>.</p><p>Opaska: ovaj priključak zahtijeva "
+#~ "gpsbabel inačice %2 ili više.</p>"
+
+#~ msgid ""
+#~ "<p>gpsbabel executable is not up to date:<br/> The version %1 of gpsbabel "
+#~ "have been found on your computer. This version is too old to run properly "
+#~ "with this plugin. Please update gpsbabel as a package from your "
+#~ "distributor or <a href=\"%2\">download the source</a>.</p><p>Note: at "
+#~ "least, gpsbabel version %3 is required by this plugin</p>"
+#~ msgstr ""
+#~ "<p> gpsbabel izvršna datoteka nije aktuelna: <br/> Verzija %1 programa "
+#~ "gpsbabel je pronađena na vašem računaru. Ova verzija je previše stara za "
+#~ "ispravno izvršavanje sa ovim dodatkom. Ažurirajte gpsbabel kao paket iz "
+#~ "vašeg distributera ili <a href=\"%2\"> preuzmite izvor </a> </p> "
+#~ "Napomena:. Barem, gpsbabel verzija %3 zahtijeva ovaj dodatak </p>"
+
+#~ msgid "No GPS locations have been found in your pictures."
+#~ msgstr "Nisu pronađene GPS lokacije u Vašim slikama."
+
+#~ msgid ""
+#~ "Geographical coordinates will be definitively removed from all selected "
+#~ "images.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Geografske koordinate će biti definitivno uklonjene iz svih izabranih "
+#~ "slika.\n"
+#~ "Da li želite da nastavite?"
+
+#~ msgid "Remove Geographical Coordinates"
+#~ msgstr "Ukloni geografske koordinate"
+
+#~ msgid "Edit Track List Geographical Coordinates"
+#~ msgstr "Uredi geografske koordinate iz liste tragova"
+
+#~ msgid "Id"
+#~ msgstr "Id"
+
+#~ msgid "Date"
+#~ msgstr "Datum"
+
+#~ msgctxt "entry changed"
+#~ msgid "Changed"
+#~ msgstr "Izmijenjen"
+
+#~ msgid "A plugin to edit GPS track lists."
+#~ msgstr "Priključak za uređivanje lista GPS tragova."
+
+#~ msgid "(c) 2008-2009, Gilles Caulier"
+#~ msgstr "© 2008–2009 Gilles Caulier"
+
+#~ msgid "Interpolated"
+#~ msgstr "Interpolirano"
+
+#~ msgctxt "entry was added manually"
+#~ msgid "Added"
+#~ msgstr "Dodat"
+
+#~ msgctxt "entry was added automatically"
+#~ msgid "Found"
+#~ msgstr "Nađen"
+
+#~ msgid "Deleted"
+#~ msgstr "Obrisan"
+
+#~ msgctxt "dirty gps info"
+#~ msgid "Yes"
+#~ msgstr "Da"
+
+#~ msgctxt "dirty gps info"
+#~ msgid "No"
+#~ msgstr "Ne"
+
+#~ msgctxt ""
+#~ "Language code for the embedded Google Maps. Please take a look at http://"
+#~ "spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&gid=1 for "
+#~ "supported languages. If your language is not on the list, pick 'en'."
+#~ msgid "en"
+#~ msgstr "en"
+
+#~ msgid "Track"
+#~ msgstr "Staza"
+
+#~ msgid "Point"
+#~ msgstr "Tačka"
+
+#~ msgid "Generating KML file..."
+#~ msgstr "Pravim KML fajl..."
+
+#~ msgid "Could not read image '%1'"
+#~ msgstr "Ne mogu da čitam sliku „%1“"
+
+#~ msgid "Format of image '%1' is unknown"
+#~ msgstr "Format slike „%1“ je nepoznat"
+
+#~ msgid "Could not save image '%1' to '%2'"
+#~ msgstr "Ne mogu da sačuvam sliku „%1“ u „%2“"
+
+#~ msgid "Creation of placemark '%1'"
+#~ msgstr "Pravljenje markera „%1“"
+
+#~ msgid "Could not save icon for image '%1' to '%2'"
+#~ msgstr "Nisam mogao da sačuvam ikonu za sliku „%1“ u „%2“"
+
+#~ msgid "No GPX file chosen."
+#~ msgstr "Nije odabrana ni jedna GPX datoteka."
+
+#~ msgid "Cannot parse %1 GPX file."
+#~ msgstr "Ne mogu raščlaniti %1 GPX datoteku."
+
+#~ msgid "The %1 GPX file do not have a date-time track to use."
+#~ msgstr "GPX datoteka %1 nema ni jedan trag s vremenskim oznakama."
+
+#~ msgid "No position data for '%1'"
+#~ msgstr "Nema podataka o poziciji za „%1“"
+
+#~ msgid "No position data for 1 picture"
+#~ msgid_plural "No position data for %1 pictures"
+#~ msgstr[0] "Nema lokacijskih podataka za %1 sliku"
+#~ msgstr[1] "Nema lokacijskih podataka za %1 slike"
+#~ msgstr[2] "Nema lokacijskih podataka za %1 slika"
+
+#~ msgid "Move to final directory"
+#~ msgstr "Pomjeri u krajnji direktorijum"
+
+#~ msgid "%1 - Edit Geographical Coordinates"
+#~ msgstr "%1 - Uređivanje geografskih koordinata"
+
+#~ msgid ""
+#~ "<p>Use the map on the right to select the location where the picture was "
+#~ "taken. Click with left mouse button or move the marker on the map to get "
+#~ "the GPS coordinates.</p>"
+#~ msgstr ""
+#~ "<p>Koristi mapu sa desne strane da odabereš lokaciju gdje je slika "
+#~ "snimljena. Klikni lijevim dugme miša ili pomjeri maker na mapi da dobije."
+#~ "</p>"
+
+#~ msgid "Altitude:"
+#~ msgstr "Visina:"
+
+#~ msgid "Latitude:"
+#~ msgstr "Geo.širina:"
+
+#~ msgid "Longitude:"
+#~ msgstr "Geo.dužina:"
+
+#~ msgid "Go to Location"
+#~ msgstr "Idi na lokaciju"
+
+#~ msgid "Recent locations"
+#~ msgstr "Nedavne lokacije"
+
+#~ msgid ""
+#~ "<p>Allows you to configure some aspects of the map: The Google Maps API "
+#~ "version to be used and the service to be used for altitude lookup.</"
+#~ "p><p>Use the Google Maps API V2 if you want the search bar which is not "
+#~ "yet available in version 3. If you do not need the search bar, you can "
+#~ "use version 3 to try out the new terrain map.</p><p>If you use no "
+#~ "altitude lookup, all altitudes will be set to zero. The <a href=\"http://"
+#~ "geonames.org\">geonames.org</a> service has no limits on the number of "
+#~ "lookups which we can make, but has limited coverage. The <a href=\"http://"
+#~ "topocoding.com/\">topocoding.com</a> service has better coverage, but the "
+#~ "number of altitude lookups which we can perform per day is limited. If "
+#~ "you get error messages while using it, switch to <a href=\"http://"
+#~ "geonames.org\">geonames.org</a>.</p>"
+#~ msgstr ""
+#~ "<p> Omogućuje vam da konfigurišete neke aspekte karte: Google Maps API "
+#~ "verzija koja će se koristiti i uslugu koja će se koristiti za "
+#~ "pretraživanje visine </p> Koristite Google Maps API V2 ako želite "
+#~ "pretragu koja još nije dostupna u verziji 3. Ako ne trebate pretraživač, "
+#~ "možete koristiti verzije 3 da isprobate novu kartu terena. </P> Ako ne "
+#~ "koristite pretraživanja visine , sve visine će biti postavljene na nulu. "
+#~ "<a Href=\"http://geonames.org\"> geonames.org </a> servis nema "
+#~ "ograničenja na broj pretraga koje možemo napraviti, ali ima ograničenu "
+#~ "pokrivenost. <a href=\"http://topocoding.com/\"> topocoding.com </a> "
+#~ "servis ima bolju pokrivenost, ali broj visinskih pretraga koje možemo "
+#~ "izvoditi po danu je ograničen. Ako dobijete poruku o pogrešci, dok ga "
+#~ "koristite, prebacite se na <a href=\"http://geonames.org\"> geonames.org "
+#~ "</a>. </P>"
+
+#~ msgid "Google Maps API V2"
+#~ msgstr "API V2 Google Mapsa"
+
+#~ msgid "Google Maps API V3"
+#~ msgstr "API V3 Google Mapsa"
+
+#~ msgid "Use geonames.org for altitude lookup"
+#~ msgstr "Koristi geonames.org za određivanje nadmorske visine"
+
+#~ msgid "Use topocoding for altitude lookup"
+#~ msgstr "Koristi topcoding za određivanje nadmorske visine"
+
+#~ msgid "A Plugin to edit geographical coordinates"
+#~ msgstr "Priključak za uređivanje geografskih koordinata"
+
+#~ msgid "Altitude value is invalid."
+#~ msgstr "Nadmorska visina nije važeća."
+
+#~ msgid "Edit Geographical Coordinates"
+#~ msgstr "Uredi geografske koordinate"
+
+#~ msgid "Latitude value is invalid."
+#~ msgstr "Geografska širina nije važeća."
+
+#~ msgid "Longitude value is invalid."
+#~ msgstr "Geografska dužina nije važeća."
+
+#~ msgid "Edit..."
+#~ msgstr "Uredi..."
+
+#~ msgid ""
+#~ "Correlate in time and interpolate distance of data from GPX file with all "
+#~ "images on the list."
+#~ msgstr ""
+#~ "Poveži u vremenu i interpoliraj distancu podataka iz GPX datoteke sa svim "
+#~ "slikama na listi."
+
+#~ msgid "Manually edit GPS coordinates of selected images from the list."
+#~ msgstr "Ručno uredi GPS koordinate za izabrane slike sa liste."
+
+#~ msgid "Remove GPS coordinates of selected images from the list."
+#~ msgstr "Ukloni GPS koordinate za izabrane slike sa liste."
+
+#~ msgid "Current GPX file:"
+#~ msgstr "Tekuća GPX datoteka:"
+
+#~ msgid "No GPX file"
+#~ msgstr "Nema GPX datoteke"
+
+#~ msgid "The %1 GPX file does not have a date-time track to use."
+#~ msgstr "Datoteka %1 GPX nema datum-vrijeme stazu za korištenje."
+
+#~ msgid "Points parsed: %1"
+#~ msgstr "Raščlanjenih tačaka: %1"
+
+#~ msgid "1 image from the list is not updated."
+#~ msgid_plural "%1 images from the list are not updated."
+#~ msgstr[0] "1 slika sa liste nije ažurirana."
+#~ msgstr[1] "%1 slika sa liste nije ažurirana."
+#~ msgstr[2] "%1 slike sa liste nisu ažurirane."
+
+#~ msgid ""
+#~ "<p>%1\n"
+#~ "Do you really want to close this window without applying changes?</p>"
+#~ msgstr ""
+#~ "<p>%1\n"
+#~ "Želite li zaista da zatvorite ovaj prozor bez primjene izmjena?</p>"
+
+#~ msgid "Cannot find pictures to correlate with GPX file data."
+#~ msgstr "Ne mogu da nađem slike koje su u vezi sa GPX datotekom podataka."
+
+#~ msgid "The GPS data of 1 image have been updated using the GPX data file."
+#~ msgid_plural ""
+#~ "The GPS data of %1 images have been updated using the GPX data file."
+#~ msgstr[0] ""
+#~ "GPS podatak 1 slike je bio ažuriran koristeći GPX datoteku podataka."
+#~ msgstr[1] ""
+#~ "GPS podatak %1 slike je bio ažuriran koristeći GPX datoteku podataka."
+#~ msgstr[2] ""
+#~ "GPS podaci %1 slika su bili ažurirani koristeći GPX datoteku podataka."
+
+#~ msgid "Press the Apply button to update the image's metadata."
+#~ msgid_plural "Press the Apply button to update the images' metadata."
+#~ msgstr[0] "Pritisni dugme Primijeni za ažuriranje metapodataka slike."
+#~ msgstr[1] "Pritisni dugme Primijeni za ažuriranje metapodataka slike."
+#~ msgstr[2] "Pritisni dugme Primijeni za ažuriranje metapodataka slika."
+
+#~ msgid ""
+#~ "Please select at least one image from the list to edit GPS coordinates "
+#~ "manually."
+#~ msgstr ""
+#~ "Molim Vas odaberite barem jednu sliku sa liste za ručno uređivanje GPS "
+#~ "koordinata."
+
+#~ msgid ""
+#~ "Please select at least one image from which to remove GPS coordinates."
+#~ msgstr "Molim Vas odaberite barem jednu sliku za uklanjanje GPS koordinata."
+
+#~ msgid "KML Export"
+#~ msgstr "KML izvoz"
+
+#~ msgid "Target Preferences"
+#~ msgstr "Podešavanja cilja"
+
+#~ msgid "Target Type"
+#~ msgstr "Vrsta cilja"
+
+#~ msgid "&Local or web target used by GoogleEarth"
+#~ msgstr "&Lokalni ili veb cilj koji koristi GoogleEarth"
+
+#~ msgid "Web target used by GoogleMap"
+#~ msgstr "Veb cilj koji koristi GoogleMap"
+
+#~ msgid ""
+#~ "When using GoogleMap, all images must have complete URLs, icons are "
+#~ "squared, and when drawing a track, only line track is exported."
+#~ msgstr ""
+#~ "Kod korištenja GoogleMapa, sve slike moraju imati potpune URLove, ikonice "
+#~ "su kvadratne, i tokom crtanja staza, samo jedna linija staze je "
+#~ "eksportovana."
+
+#~ msgid "Picture Altitude:"
+#~ msgstr "Visina Slike:"
+
+#~ msgid "clamp to ground"
+#~ msgstr "spojiti sa tlom"
+
+#~ msgid "relative to ground"
+#~ msgstr "u odnosu na tlo"
+
+#~ msgid "absolute"
+#~ msgstr "apsolutno"
+
+#~ msgid ""
+#~ "<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
+#~ "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+#~ "ground</dt><dd>Sets the altitude of the element relative to the actual "
+#~ "ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets "
+#~ "the altitude of the coordinate relative to sea level, regardless of the "
+#~ "actual elevation of the terrain beneath the element.</dd></dl>"
+#~ msgstr ""
+#~ "<p>Određuje kako su slike prikazane<dl><dt>povezano sa tlom (početno)</"
+#~ "dt><dd>Ukazuje na ignoriranje određivanja visine</dd><dt>u odnosu na tlo</"
+#~ "dt><dd>Određuje visinu elementa u odnosu na  trenutnu visinu tla pojedine "
+#~ "lokacije.</dd><dt>apsolutno</dt><dd>Određuje visinu koordinata u odnosu "
+#~ "visinu mora, bez obzira na trenutnu visinu terena ispod elementa.</dd></"
+#~ "dl>"
+
+#~ msgid "Destination Directory:"
+#~ msgstr "Odredište Direktorija:"
+
+#~ msgid "Select a directory in which to save the kml file and pictures"
+#~ msgstr "Odaberite direktorij u kojem će se sačuvati kml datoteka i slike."
+
+#~ msgid "Destination URL:"
+#~ msgstr "Odredište URL:"
+
+#~ msgid "Sizes"
+#~ msgstr "Veličine"
+
+#~ msgid "Icon Size:"
+#~ msgstr "Veličina Ikone:"
+
+#~ msgid "Image Size:"
+#~ msgstr "Veličina Slike:"
+
+#~ msgid "GPX Tracks"
+#~ msgstr "GPX staze"
+
+#~ msgid "Draw GPX Track"
+#~ msgstr "Nacrtaj GPX Stazu"
+
+#~ msgid "GPX file:"
+#~ msgstr "GPX datoteka:"
+
+#~ msgid "Time Zone:"
+#~ msgstr "Vremenska Zona:"
+
+#~ msgid "GMT-12:00"
+#~ msgstr "GMT-12:00"
+
+#~ msgid "GMT-11:00"
+#~ msgstr "GMT-11:00"
+
+#~ msgid "GMT-10:00"
+#~ msgstr "GMT-10:00"
+
+#~ msgid "GMT-09:00"
+#~ msgstr "GMT-09:00"
+
+#~ msgid "GMT-08:00"
+#~ msgstr "GMT-08:00"
+
+#~ msgid "GMT-07:00"
+#~ msgstr "GMT-07:00"
+
+#~ msgid "GMT-06:00"
+#~ msgstr "GMT-06:00"
+
+#~ msgid "GMT-05:00"
+#~ msgstr "GMT-05:00"
+
+#~ msgid "GMT-04:00"
+#~ msgstr "GMT-04:00"
+
+#~ msgid "GMT-03:00"
+#~ msgstr "GMT-03:00"
+
+#~ msgid "GMT-02:00"
+#~ msgstr "GMT-02:00"
+
+#~ msgid "GMT-01:00"
+#~ msgstr "GMT-01:00"
+
+#~ msgid "GMT"
+#~ msgstr "GMT"
+
+#~ msgid "GMT+01:00"
+#~ msgstr "GMT+01:00"
+
+#~ msgid "GMT+02:00"
+#~ msgstr "GMT+02:00"
+
+#~ msgid "GMT+03:00"
+#~ msgstr "GMT+03:00"
+
+#~ msgid "GMT+04:00"
+#~ msgstr "GMT+04:00"
+
+#~ msgid "GMT+05:00"
+#~ msgstr "GMT+05:00"
+
+#~ msgid "GMT+06:00"
+#~ msgstr "GMT+06:00"
+
+#~ msgid "GMT+07:00"
+#~ msgstr "GMT+07:00"
+
+#~ msgid "GMT+08:00"
+#~ msgstr "GMT+08:00"
+
+#~ msgid "GMT+09:00"
+#~ msgstr "GMT+09:00"
+
+#~ msgid "GMT+10:00"
+#~ msgstr "GMT+10:00"
+
+#~ msgid "GMT+11:00"
+#~ msgstr "GMT+11:00"
+
+#~ msgid "GMT+12:00"
+#~ msgstr "GMT+12:00"
+
+#~ msgid "GMT+13:00"
+#~ msgstr "GMT+13:00"
+
+#~ msgid "GMT+14:00"
+#~ msgstr "GMT+14:00"
+
+#~ msgid ""
+#~ "Sets the time zone of the camera during picture shooting, so that the "
+#~ "time stamps of the GPS can be converted to match the local time"
+#~ msgstr ""
+#~ "Postavlja vremensku zonu kamere tokom snimanja slike, tako da vremenske "
+#~ "oznake iz GPSa mogu biti konvertovane tako da su usklađene sa lokalnim "
+#~ "vremenom"
+
+#~ msgid "Track Width:"
+#~ msgstr "Širina Staze:"
+
+#~ msgid "Track Color:"
+#~ msgstr "Boja Staze:"
+
+#~ msgid "Opacity:"
+#~ msgstr "Neprozirnost:"
+
+#~ msgid "Track Altitude:"
+#~ msgstr "Visina Staze:"
+
+#~ msgid ""
+#~ "<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)"
+#~ "</dt><dd>Indicates to ignore an altitude specification</dd><dt>relative "
+#~ "to ground</dt><dd>Sets the altitude of the element relative to the actual "
+#~ "ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets "
+#~ "the altitude of the coordinate relative to sea level, regardless of the "
+#~ "actual elevation of the terrain beneath the element.</dd></dl>"
+#~ msgstr ""
+#~ "<p>Određuje kako su tačke prikazane<dl><dt>povezano sa tlom (početno)</"
+#~ "dt><dd>Ukazuje na ignoriranje određivanja visine</dd><dt>u odnosu na tlo</"
+#~ "dt><dd>Određuje visinu elementa u odnosu na trenutnu visinu tla pojedine "
+#~ "lokacije.</dd><dt>apsolutno</dt><dd>Određuje visinu koordinata u odnosu "
+#~ "visinu mora, bez obzira na trenutnu visinu terena ispod elementa.</dd></"
+#~ "dl>"
+
+#~ msgid "A Kipi plugin for KML exporting"
+#~ msgstr "Kipi priključak za KML eksport"
+
+#~ msgid "(c) 2006-2007, Stéphane Pontier"
+#~ msgstr "(c) 2006-2007, Stéphane Pontier"
+
+#~ msgid "Stéphane Pontier"
+#~ msgstr "Stéphane Pontier"

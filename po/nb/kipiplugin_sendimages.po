@@ -1,0 +1,370 @@
+# Translation of kipiplugin_sendimages to Norwegian Bokmål
+#
+# Nils Kristian Tomren <slx@nilsk.net>, 2005, 2006.
+# Bjørn Kvisli <bjorn.kvisli@gmail.com>, 2008.
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2008, 2009, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2013-02-20 20:14+0100\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Bjørn Kvisli"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "bjorn.kvisli@gmail.com"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr "Klarte ikke å åpne inndatafila"
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr "Kan ikke åpne midlertidig mappe"
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr "Kan ikke endre bildestørrelsen. Avbryter."
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr ""
+"Klarer ikke å lagre bildet som har fått endret størrelsen (JPEG). Avbryter."
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr ""
+"Klarer ikke å lagre bildet som har fått endret størrelsen (PNG). Avbryter."
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr "&Eksporter"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr "Hovedverktøylinje"
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr "Send bilder med e-post …"
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr "Send bilder med e-post"
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr "Oppgaven ble avbrutt av brukeren"
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "Endrer størrelsen %1"
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr "%1 har fått endret størrelsen"
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "Klarte ikke endre størrelse på %1 : %2"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr "Lag fil for bildeegenskapene"
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr "ingen bildetekst"
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr "ingen nøkkelord"
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+"fil «%1»:\n"
+"Originalbilde: %2\n"
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr "Kommentarer: %1\n"
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr "Etiketter: %1\n"
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr "Karakterer: %1\n"
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr "egenskaper.txt"
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr "Fila med bildeegenskaper er ferdig"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+"Størrelsen på bildene i lista nedenfor kunne ikke endres.\n"
+"Vil du ha dem som vedlegg (med uendret størrelse)?"
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr "Kunne ikke endre størrelsen på bildene"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+"Fila «%1» er for stor til å sendes, reduser størrelsen eller endre "
+"innstillingene."
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr "Starter KDEs standard e-postprogram …"
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr ""
+"Kan ikke starte programmet «%1».\n"
+"Undersøk din installasjon."
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "Starter programmet «%1» …"
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr "Etter at du har sendt bildene dine med e-post …"
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr "Trykk på «Lukk»-knappen for å rydde opp i midlertidige filer"
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr "Innstillinger for Sending av bilder med e-post"
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr "Send bilder"
+
+#: sendimagesdialog.cpp:108
+msgid "A plugin to e-mail items"
+msgstr "Et programtillegg for å sende elementer med e-post"
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "© 2003–2013 Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Utvikler og vedlikeholder"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Utvikler"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "E-postprogram:"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Standard"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+"Her velger du det e-postprogrammet du vil bruke. <b>Standard</b> er det e-"
+"postprogrammet bestemt i KDEs systeminnstillinger."
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr "Legg ved en fil med  egenskaper fra %1"
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+"Hvis du skrur på denne innstillinga blir alle bildeegenskaper satt opp av %1 "
+"som kommentarer, karakterer eller etiketter lagt ved i en fil."
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " MB"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr "Sørste størrelse på e-post:"
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr "Endre bildeegenskapene"
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+"Denne innstillinga gjør det mulig å endre størrelse og komprimeringsnivå på "
+"bildene som skal sendes."
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Bildeegenskaper"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr "Veldig liten (320 billedpunkter)"
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Liten (640 billedpunkter)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Mellom (800 billedpunkter)"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Stor (1024 billedpunkter)"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr "Veldig stor (1280 billedpunkter)"
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Veldig stor (1600 billedpunkter)"
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+"<p>Velg størrelse på bildene som skal sesndes:</p><p><b>%1</b>: bruk dette "
+"hvis internettforbindelsen er veldig treg eller hvis mottakerens postkasse  "
+"er liten.</p><p><b>%2</b>: bruk dette hvis internettforbindelsen er treg og "
+"mottakerens postkassen har begrenset størrelse.</p><p><b>%3</b>: Dette er "
+"standardindstillinga til en gjennomsnitts-forbindelse og -postkassestørrelse."
+"</p><p><b>%4</b>: bruk dette hvis det er en høyhastighetforbindelse og "
+"mottakerens  postkassen ikke har begrenset størrelse.</p><p><b>%5</b>: bruk "
+"dette hvis det ikke er noen begrensning er på hastighet og "
+"postkassestørrelse.</p><p><b>%6</b>: bruk dette bare til utskrifter</p>"
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Bildestørrelse:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr "<p>Velg bildeformat for bildefilene som skal sendes.</p>"
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+"<p><b>JPEG</b>: Joint Photographic Experts Group filformatet er velegnet til "
+"bruk på internett, men benytter en komprimeringsmetode hvor det mistes "
+"bildeinformasjon. </p><p><b>PNG</b>: Portable Networks Graphics filformatet "
+"er et utvidbart format til tapsfritt, portabelt, komprimert lagring av "
+"rasterbilder. PNG tilbyr en patentfri erstatning for GIF og kan også "
+"erstatte bruken av TIFF i visse situasjoner. PNG er designet til å fungere "
+"godt i visningsprogrammer på nettet, for eksempel til World Wide Web, derfor "
+"er formatet mulig å streame og med mulighet for fremskrittsvisning. PNG kan "
+"også lagre gamma og fargeinformasjon til forbedret fargeoverensstemmelse på "
+"forskjellige plattformer.</p>"
+
+#: settingswidget.cpp:184
+msgid "Image format:"
+msgstr "Bildeformat:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr ""
+"<p>Den nye komprimeringsverdien for de JPEG-bildene som skal sendes:</p>"
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+"<p><b>1</b>: veldig høy komprimering<br/><b>25</b>: høy komprimering<br/"
+"><b>50</b>: mellom komprimering<br/><b>75</b>: lav komprimering (standard)"
+"<br/><b>100</b>: ingen komprimering</p>"
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Bildekvalitet:"

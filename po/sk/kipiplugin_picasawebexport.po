@@ -1,0 +1,615 @@
+# translation of kipiplugin_picasawebexport.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2009.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_picasawebexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-04-09 02:54+0200\n"
+"PO-Revision-Date: 2013-03-14 13:58+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_picasawebexportui.rc:6
+msgid "&Import"
+msgstr "&Importovať"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_picasawebexportui.rc:10
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_picasawebexportui.rc:16
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: picasawebalbum.cpp:51
+#, fuzzy
+msgid "Picasaweb New Album"
+msgstr "Vytvoriť nový album"
+
+#: picasawebalbum.cpp:61 picasawebwidget.cpp:101
+msgid "Album"
+msgstr "Album"
+
+#: picasawebalbum.cpp:63
+msgid "These are basic settings for the new Picasaweb album."
+msgstr ""
+
+#: picasawebalbum.cpp:66
+msgid "Title of the album that will be created (required)."
+msgstr ""
+
+#: picasawebalbum.cpp:70
+msgid "Date and Time of the album that will be created (optional)."
+msgstr ""
+
+#: picasawebalbum.cpp:73
+msgid "Description of the album that will be created (optional)."
+msgstr ""
+
+#: picasawebalbum.cpp:76
+msgid "Location of the album that will be created (optional)."
+msgstr ""
+
+#: picasawebalbum.cpp:79
+msgctxt "new picasaweb album dialog"
+msgid "Title:"
+msgstr "Názov:"
+
+#: picasawebalbum.cpp:80
+msgctxt "new picasaweb album dialog"
+msgid "Date & Time:"
+msgstr "Dátum a čas:"
+
+#: picasawebalbum.cpp:81
+msgctxt "new picasaweb album dialog"
+msgid "Description:"
+msgstr "Popis:"
+
+#: picasawebalbum.cpp:82
+msgctxt "new picasaweb album dialog"
+msgid "Location:"
+msgstr "Umiestnenie:"
+
+#: picasawebalbum.cpp:90
+msgid "Access Level"
+msgstr "Prístupová úroveň"
+
+#: picasawebalbum.cpp:91
+msgid "These are security and privacy settings for the new Picasaweb album."
+msgstr ""
+
+#: picasawebalbum.cpp:93
+msgctxt "picasaweb album privacy"
+msgid "Public"
+msgstr "Verejné"
+
+#: picasawebalbum.cpp:95
+msgid "Public album is listed on your public Picasaweb page."
+msgstr ""
+
+#: picasawebalbum.cpp:96
+#, fuzzy
+msgctxt "picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr "Súkromná správa"
+
+#: picasawebalbum.cpp:97
+msgid "Unlisted album is only accessible via URL."
+msgstr ""
+
+#: picasawebalbum.cpp:98
+#, fuzzy
+msgctxt "picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr "Prihlásenie sa do %1 zlyhalo: autentifikácia potrebná"
+
+#: picasawebalbum.cpp:99
+msgid "Unlisted album require Sign-In to View"
+msgstr ""
+
+#: picasawebalbum.cpp:107
+msgid "Privacy:"
+msgstr "Súkromie:"
+
+#: picasawebimglist.cpp:63
+msgid "This is the list of images to upload to your Picasaweb account."
+msgstr ""
+
+#: picasawebimglist.cpp:112
+#, kde-format
+msgid "%1|All supported files"
+msgstr "%1|Všetky podporované súbory"
+
+#: picasawebimglist.cpp:124
+#, kde-format
+msgid "%1|Camera RAW files"
+msgstr "%1|RAW súbory fotoaparátu"
+
+#: picasawebimglist.cpp:126
+#, kde-format
+msgid "%1|Video files"
+msgstr "%1|Video súbory"
+
+#: picasawebimglist.cpp:138
+msgid "Select Images"
+msgstr "Vybrať obrázky"
+
+#: picasaweblogin.cpp:68
+#, fuzzy
+msgid "Google Login:"
+msgstr "Prihlásenie zlyhalo."
+
+#: picasaweblogin.cpp:72
+msgid "Password:"
+msgstr "Heslo:"
+
+#: picasaweblogin.cpp:83
+msgid "&OK"
+msgstr "&OK"
+
+#: picasaweblogin.cpp:86
+msgid "&Cancel"
+msgstr "&Zrušiť"
+
+#: picasawebreplacedialog.cpp:95
+#, fuzzy
+msgid "&Add As New"
+msgstr "Pridať ako nový kalendár"
+
+#: picasawebreplacedialog.cpp:96
+msgid "Item will be added alongside the linked version."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:100
+msgid "&Add All"
+msgstr "Pridať všetko"
+
+#: picasawebreplacedialog.cpp:101
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:105
+msgid "&Replace"
+msgstr "&Nahradiť"
+
+#: picasawebreplacedialog.cpp:106
+msgid "Item will be replacing the linked version."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:110
+msgid "&Replace All"
+msgstr "Nahradiť všetko"
+
+#: picasawebreplacedialog.cpp:111
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+
+#: picasawebreplacedialog.cpp:121
+#, fuzzy
+msgid "A linked item already exists."
+msgstr "Staršia položka s názvom '%1' už existuje."
+
+#: picasawebreplacedialog.cpp:138 picasawebwidget.cpp:134
+msgid "Destination"
+msgstr "Cieľ"
+
+#: picasawebreplacedialog.cpp:142
+msgid "Source"
+msgstr "Zdroj"
+
+#: picasawebtalker.cpp:110
+msgid "Login"
+msgstr "Prihlásenie"
+
+#: picasawebtalker.cpp:605
+#, fuzzy
+msgid "No photo specified"
+msgstr "Nezadaný žiadny názov"
+
+#: picasawebtalker.cpp:607
+#, fuzzy
+msgid "General upload failure"
+msgstr "Nepodarilo sa nájsť informáciu"
+
+#: picasawebtalker.cpp:609
+#, fuzzy
+msgid "File-size was zero"
+msgstr "1 správa s veľkosťou %2 bola archivovaná."
+
+#: picasawebtalker.cpp:611
+#, fuzzy
+msgid "File-type was not recognized"
+msgstr ""
+"Nepodarilo sa importovať súbor typu\n"
+"%1"
+
+#: picasawebtalker.cpp:613
+#, fuzzy
+msgid "User exceeded upload limit"
+msgstr "Obmedzenie odosielania na prenos:"
+
+#: picasawebtalker.cpp:615
+msgid "Invalid signature"
+msgstr "Neplatný podpis"
+
+#: picasawebtalker.cpp:617
+#, fuzzy
+msgid "Missing signature"
+msgstr "Chýbajúci GPG podpis"
+
+#: picasawebtalker.cpp:619
+msgid "Login failed / Invalid auth token"
+msgstr ""
+
+#: picasawebtalker.cpp:621
+#, fuzzy
+msgid "Invalid API Key"
+msgstr "Kľúč nie je platný."
+
+#: picasawebtalker.cpp:623
+#, fuzzy
+msgid "Service currently unavailable"
+msgstr "Požadovaná služba momentálne nie je k dispozícii."
+
+#: picasawebtalker.cpp:625
+#, fuzzy
+msgid "Invalid Frob"
+msgstr "Neplatné heslo"
+
+#: picasawebtalker.cpp:627
+#, fuzzy
+msgid "Format \"xxx\" not found"
+msgstr "Kanál nebol nájdený na %1."
+
+#: picasawebtalker.cpp:629
+#, fuzzy
+msgid "Method \"xxx\" not found"
+msgstr "Kanál nebol nájdený na %1."
+
+#: picasawebtalker.cpp:631
+#, fuzzy
+msgid "Invalid SOAP envelope"
+msgstr "Obálka US #10"
+
+#: picasawebtalker.cpp:633
+msgid "Invalid XML-RPC Method Call"
+msgstr ""
+
+#: picasawebtalker.cpp:635
+msgid "The POST method is now required for all setters."
+msgstr ""
+
+#: picasawebtalker.cpp:637
+msgid "Unknown error"
+msgstr "Neznáma chyba"
+
+#: picasawebtalker.cpp:640
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+
+#: picasawebtalker.cpp:754 picasawebtalker.cpp:813
+msgid "Failed to fetch photo-set list"
+msgstr ""
+
+#: picasawebtalker.cpp:939 picasawebtalker.cpp:971
+#, fuzzy
+msgid "Failed to create album"
+msgstr "Premenovanie albumu zlyhalo"
+
+#: picasawebtalker.cpp:981
+#, fuzzy
+msgid "Failed to upload photo"
+msgstr "Zlyhalo odoslanie \"%1\" pre %2. Dôvod: %3."
+
+#: picasawebwidget.cpp:70
+msgid ""
+"This is a clickable link to open the Picasaweb home page in a web browser."
+msgstr ""
+
+#: picasawebwidget.cpp:76
+msgid "Account"
+msgstr "Účet"
+
+#: picasawebwidget.cpp:77
+msgid "This is the Picasaweb account that will be used to authenticate."
+msgstr ""
+
+#: picasawebwidget.cpp:80
+msgctxt "Picasaweb account login"
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: picasawebwidget.cpp:81
+msgid "Login as anonymous to Picasaweb web service."
+msgstr ""
+
+#: picasawebwidget.cpp:83
+#, fuzzy
+msgid "Picasaweb Account"
+msgstr "Detaily účtu"
+
+#: picasawebwidget.cpp:84
+msgid "Login to Picasaweb web service using username and password."
+msgstr ""
+
+#: picasawebwidget.cpp:86
+msgctxt "Picasaweb account settings"
+msgid "Name:"
+msgstr "Názov:"
+
+#: picasawebwidget.cpp:88
+msgid "Change Account"
+msgstr "Zmeniť účet"
+
+#: picasawebwidget.cpp:89
+msgid "Change Picasaweb Account used to authenticate"
+msgstr ""
+
+#: picasawebwidget.cpp:102
+msgid "This is the Picasaweb album that will be used for transfer."
+msgstr ""
+
+#: picasawebwidget.cpp:108
+msgid "New Album"
+msgstr "Nový album"
+
+#: picasawebwidget.cpp:109
+#, fuzzy
+msgid "Create new Picasaweb album"
+msgstr "<qt><b>Vytvoriť nový album v<br/>\"<i>%1</i>\"</b></qt>"
+
+#: picasawebwidget.cpp:110
+msgctxt "reload album list"
+msgid "Reload"
+msgstr "Znovu načítať"
+
+#: picasawebwidget.cpp:111
+#, fuzzy
+msgid "Reload album list"
+msgstr "Obnoviť zoznam zariadení"
+
+#: picasawebwidget.cpp:119
+#, fuzzy
+msgid "Max Dimension"
+msgstr "MUNIT(rozmer)"
+
+#: picasawebwidget.cpp:120
+msgid ""
+"This is the maximum dimension of the images. Images larger than this will be "
+"scaled down."
+msgstr ""
+
+#: picasawebwidget.cpp:123
+msgid "Original Size"
+msgstr "Originálna veľkosť"
+
+#: picasawebwidget.cpp:124
+msgid "1600 px"
+msgstr "1600 px"
+
+#: picasawebwidget.cpp:125
+msgid "1440 px"
+msgstr "1440 px"
+
+#: picasawebwidget.cpp:126
+msgid "1280 px"
+msgstr "1280 px"
+
+#: picasawebwidget.cpp:127
+msgid "1152 px"
+msgstr "1152 px"
+
+#: picasawebwidget.cpp:128
+msgid "1024 px"
+msgstr "1024 px"
+
+#: picasawebwidget.cpp:135
+msgid "This is the location where Picasaweb images will be downloaded."
+msgstr ""
+
+#: picasawebwidget.cpp:142
+msgid "Options"
+msgstr "Voľby"
+
+#: picasawebwidget.cpp:143
+msgid "These are options that will be applied to images before upload."
+msgstr ""
+
+#: picasawebwidget.cpp:147
+msgid "Resize photos before uploading"
+msgstr ""
+
+#: picasawebwidget.cpp:157
+#, fuzzy
+msgid "Maximum dimension:"
+msgstr "MUNIT(rozmer)"
+
+#: picasawebwidget.cpp:165
+msgid "JPEG quality:"
+msgstr "Kvalita JPEG:"
+
+#: picasawebwidget.cpp:168
+#, fuzzy
+msgid "Tag path behavior:"
+msgstr "Nastavenie správania prehliadača"
+
+#: picasawebwidget.cpp:170
+#, fuzzy
+msgid "Leaf tags only"
+msgstr "Odstrániť iba kategórie"
+
+#: picasawebwidget.cpp:171
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr ""
+
+#: picasawebwidget.cpp:172
+#, fuzzy
+msgid "Split tags"
+msgstr "Komentár/tagy:"
+
+#: picasawebwidget.cpp:173
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr ""
+
+#: picasawebwidget.cpp:174
+#, fuzzy
+msgid "Combined String"
+msgstr "Náhrada teťazca"
+
+#: picasawebwidget.cpp:175
+msgid "Build a combined tag string."
+msgstr ""
+
+#: picasawebwindow.cpp:98
+msgid "Import from Picasa Web Service"
+msgstr ""
+
+#: picasawebwindow.cpp:100
+#, fuzzy
+msgid "Start Download"
+msgstr "Poradie sťahovania"
+
+#: picasawebwindow.cpp:101
+msgid "Start download from Picasaweb service"
+msgstr ""
+
+#: picasawebwindow.cpp:106
+msgid "Export to Picasa Web Service"
+msgstr ""
+
+#: picasawebwindow.cpp:108
+msgid "Start Upload"
+msgstr "Spustiť odoslanie"
+
+#: picasawebwindow.cpp:109
+#, fuzzy
+msgid "Start upload to Picasaweb service"
+msgstr "Čaká sa na spustenie služby"
+
+#: picasawebwindow.cpp:130
+msgid "PicasaWeb Export"
+msgstr "PicasaWeb Export"
+
+#: picasawebwindow.cpp:133
+msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgstr ""
+
+#: picasawebwindow.cpp:135
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller"
+msgstr ""
+
+#: picasawebwindow.cpp:140
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: picasawebwindow.cpp:140
+msgid "Author and maintainer"
+msgstr "Autor a správca"
+
+#: picasawebwindow.cpp:143
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: picasawebwindow.cpp:143 picasawebwindow.cpp:146 picasawebwindow.cpp:149
+msgid "Developer"
+msgstr "Vývojár"
+
+#: picasawebwindow.cpp:146
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: picasawebwindow.cpp:149
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: picasawebwindow.cpp:329 picasawebwindow.cpp:338 picasawebwindow.cpp:372
+#: picasawebwindow.cpp:408 picasawebwindow.cpp:1018
+#, fuzzy, kde-format
+msgid "Picasaweb Call Failed: %1\n"
+msgstr "Volanie D-Bus zlyhalo"
+
+#: picasawebwindow.cpp:392 picasawebwindow.cpp:469
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: picasawebwindow.cpp:473
+#, fuzzy
+msgid "Picasa Export"
+msgstr "&Exportovať kanály..."
+
+#: picasawebwindow.cpp:636 picasawebwindow.cpp:761
+msgid "Cannot open file"
+msgstr "Nie je možné otvoriť súbor"
+
+#: picasawebwindow.cpp:797
+#, kde-format
+msgid ""
+"Failed to upload photo into Picasaweb: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: picasawebwindow.cpp:885
+#, fuzzy, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Zlyhalo ukladanie súboru '%1'.\n"
+"Chcete použiť iné meno súboru?"
+
+#: picasawebwindow.cpp:897
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: picasawebwindow.cpp:924
+#, kde-format
+msgid ""
+"A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+msgstr ""
+"Súbor s názvom \"%1\" už existuje. Ste si istý, že si ho prajete prepísať?"
+
+#: picasawebwindow.cpp:986
+#, fuzzy, kde-format
+msgid "Failed to save image to %1"
+msgstr "Uložiť obrázok do súboru"
+
+#: plugin_picasawebexport.cpp:104
+#, fuzzy
+msgid "Export to &PicasaWeb..."
+msgstr "Exportovať do umiestnenia"
+
+#: plugin_picasawebexport.cpp:115
+#, fuzzy
+msgid "Import from &PicasaWeb..."
+msgstr "&Importovať zo súboru..."

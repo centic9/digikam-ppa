@@ -1,0 +1,276 @@
+# translation of kipiplugin_dngconverter.po to 简体中文
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ni Hui <shuizhuyuanluo@126.com>, 2008, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_dngconverter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2010-11-16 10:17+0800\n"
+"Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ni Hui"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "shuizhuyuanluo@126.com"
+
+#: plugin/aboutdata.h:51
+msgid "DNG Image Converter"
+msgstr "DNG 图像转换器"
+
+#: plugin/aboutdata.h:54
+#, fuzzy, kde-format
+#| msgid ""
+#| "A tool to batch convert RAW camera images to DNG\n"
+#| "Using XMP toolkit %1\n"
+#| "Using DNG toolkit 1.3"
+msgid ""
+"A tool to batch convert RAW camera images to DNG\n"
+"Using LibRaw %1\n"
+"Using LibKdcraw %2\n"
+"Using XMP toolkit %3\n"
+"Using DNG toolkit 1.3"
+msgstr ""
+"一个批量转换 RAW 相机图像为 DNG 的工具\n"
+"使用 XMP 工具 %1\n"
+"使用 DNG 工具 1.3"
+
+#: plugin/aboutdata.h:62
+#, fuzzy
+#| msgid ""
+#| "(c) 2008-2010, Gilles Caulier\n"
+#| "(c) 2010, Jens Mueller"
+msgid ""
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2010-2011, Jens Mueller\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2008-2010，Gilles Caulier\n"
+"(c) 2010，Jens Mueller"
+
+#: plugin/aboutdata.h:66
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:67
+msgid "Author"
+msgstr "作者"
+
+#: plugin/aboutdata.h:70
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: plugin/aboutdata.h:71 plugin/aboutdata.h:75
+msgid "Developer"
+msgstr "开发者"
+
+#: plugin/aboutdata.h:74
+msgid "Smit Mehta"
+msgstr ""
+
+#: plugin/batchdialog.cpp:109
+msgid "Exit DNG Converter"
+msgstr "退出 DNG 转换器"
+
+#: plugin/batchdialog.cpp:110
+msgid "Batch convert RAW camera images to DNG"
+msgstr "批量转换 RAW 相机图像为 DNG"
+
+#: plugin/batchdialog.cpp:265
+msgid "The list does not contain any Raw files to process."
+msgstr "列表中不包含任何要处理的 Raw 文件。"
+
+#: plugin/batchdialog.cpp:274
+#, fuzzy
+#| msgid "DNG Converter..."
+msgid "DNG Converter"
+msgstr "DNG 转换器..."
+
+#: plugin/batchdialog.cpp:399
+msgid "&Abort"
+msgstr "中止(&A)"
+
+#: plugin/batchdialog.cpp:400
+msgid "Abort the conversion of Raw files."
+msgstr "中止 Raw 文件转换。"
+
+#: plugin/batchdialog.cpp:405
+msgid "Con&vert"
+msgstr "转换(&V)"
+
+#: plugin/batchdialog.cpp:406
+msgid "Start converting the Raw images using the current settings."
+msgstr "使用当前设置开始转换 Raw 图像。"
+
+#: plugin/batchdialog.cpp:480
+msgid "Process failed"
+msgstr ""
+
+#: plugin/batchdialog.cpp:483
+msgid "Process Canceled"
+msgstr ""
+
+#: plugin/batchdialog.cpp:486
+msgid "File not supported"
+msgstr ""
+
+#: plugin/batchdialog.cpp:489
+msgid "Internal error"
+msgstr ""
+
+#: plugin/batchdialog.cpp:512
+#, kde-format
+msgid "Processing %1"
+msgstr ""
+
+#: plugin/dngconverter.cpp:54
+msgid "File(s) to convert"
+msgstr "要转换的文件"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_dngconverterui.rc:6
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_dngconverterui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/myimagelist.cpp:47
+msgid "Raw File"
+msgstr "Raw 文件"
+
+#: plugin/myimagelist.cpp:48
+msgid "Target File"
+msgstr "目标文件"
+
+#: plugin/myimagelist.cpp:49
+msgid "Camera"
+msgstr "相机"
+
+#: plugin/myimagelist.cpp:50
+msgid "Status"
+msgstr ""
+
+#: plugin/plugin_dngconverter.cpp:90
+msgid "DNG Converter..."
+msgstr "DNG 转换器..."
+
+#: plugin/settingswidget.cpp:121
+msgid "Embed Original File"
+msgstr "内嵌原始文件"
+
+#: plugin/settingswidget.cpp:123
+msgid "Lossless Compression"
+msgstr "无损压缩"
+
+#: plugin/settingswidget.cpp:127
+msgid "Update File Modification Date"
+msgstr "更新文件修改日期"
+
+#: plugin/settingswidget.cpp:128
+msgid ""
+"Sets the file modification date to the creation date provided in the image "
+"metadata."
+msgstr "将修改日期设定为图像元数据中所提供的创建日期。"
+
+#: plugin/settingswidget.cpp:141
+msgid "JPEG Preview:"
+msgstr "JPEG 预览："
+
+#: plugin/settingswidget.cpp:143
+msgctxt "embedded preview type in dng file"
+msgid "None"
+msgstr "无"
+
+#: plugin/settingswidget.cpp:144
+msgctxt "embedded preview type in dng file"
+msgid "Medium"
+msgstr "中"
+
+#: plugin/settingswidget.cpp:145
+msgctxt "embedded preview type in dng file"
+msgid "Full size"
+msgstr "完整大小"
+
+#: plugin/settingswidget.cpp:151
+msgid "If Target File Exists:"
+msgstr "如果目标文件存在："
+
+#: plugin/settingswidget.cpp:155
+msgid "Overwrite automatically"
+msgstr "自动覆盖"
+
+#: plugin/settingswidget.cpp:156
+msgid "Store as a different name"
+msgstr ""
+
+#: plugin/task.cpp:145
+msgid "Cannot identify Raw image"
+msgstr "无法验证 Raw 图像"
+
+#~ msgid "Open rename-file dialog"
+#~ msgstr "打开重命名文件对话框"
+
+#~ msgid "Save Raw Image converted from '%1' as"
+#~ msgstr "从“%1”转换的 Raw 图像另存为"
+
+#, fuzzy
+#~| msgid "Failed to save image %1"
+#~ msgid "Failed to save sidecar file for image %1..."
+#~ msgstr "保存图像 %1 失败"
+
+#~ msgid "Failed to save image %1"
+#~ msgstr "保存图像 %1 失败"
+
+#~ msgid "Handbook"
+#~ msgstr "手册"
+
+#~ msgid "Make: %1\n"
+#~ msgstr "制造商：%1\n"
+
+#~ msgid "Model: %1\n"
+#~ msgstr "型号：%1\n"
+
+#~ msgid "Created: %1\n"
+#~ msgstr "创建时间：%1\n"
+
+#~ msgid "Aperture: f/%1\n"
+#~ msgstr "孔径：f/%1\n"
+
+#~ msgid "Focal: %1 mm\n"
+#~ msgstr "焦距：%1 毫米\n"
+
+#~ msgid "Exposure: 1/%1 s\n"
+#~ msgstr "曝光量：1/%1 秒\n"
+
+#~ msgid "Sensitivity: %1 ISO"
+#~ msgstr "感光度：%1 ISO"
+
+#~ msgid "&Add"
+#~ msgstr "添加(&A)"
+
+#~ msgid "Add new Raw files to the list"
+#~ msgstr "向列表添加新 Raw 文件"
+
+#~ msgid "&Remove"
+#~ msgstr "删除(&R)"
+
+#~ msgid "Remove selected Raw files from the list"
+#~ msgstr "从列表删除所选 Raw 文件"
+
+#~ msgid "Thumbnail"
+#~ msgstr "缩略图"

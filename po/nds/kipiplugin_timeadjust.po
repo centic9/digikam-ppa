@@ -1,0 +1,372 @@
+# Translation of kipiplugin_timeadjust.po to Low Saxon
+#
+# Sönke Dibbern <s_dibbern@web.de>, 2007, 2008.
+# Manfred Wiese <m.j.wiese@web.de>, 2008, 2009, 2010, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_timeadjust\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2011-10-30 21:43+0100\n"
+"Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
+"Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
+"Language: nds\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sönke Dibbern, Manfred Wiese"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "s_dibbern@web.de, m.j.wiese@web.de"
+
+#: clockphotodialog.cpp:82
+msgid "Determine time difference with clock photo"
+msgstr "Tietverscheel to Bildklock fastslaan"
+
+#: clockphotodialog.cpp:86
+msgid "Load different photo"
+msgstr "Anner Bild laden"
+
+#: clockphotodialog.cpp:95
+msgid ""
+"If you have a photo in your set with a clock or another external time source "
+"on it, you can load it here and set the indicator to the (date and) time "
+"displayed. The difference of your internal camera clock will be determined "
+"from this setting."
+msgstr ""
+"Hest Du binnen Dien Sammeln en Bild, dat en Klock oder en anner extern "
+"Tietborn bargt, lett sik dat hier laden un de Wieser op (dat Datum un) de "
+"wiest Tiet instellen. Disse Instellen leggt den Verscheel to Dien intern "
+"Klock fast."
+
+#: clockphotodialog.cpp:113
+msgid "The clock date and time:"
+msgstr "Datum un Tiet vun de Klock:"
+
+#: clockphotodialog.cpp:185
+#, fuzzy, kde-format
+#| msgid ""
+#| "<font color=\"red\"><b>Could not obtain date and time information from "
+#| "image %1.</b></font>"
+msgid ""
+"<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
+"image %1.</b></font>"
+msgstr ""
+"<font color=\"red\"><b>Ut Bild \"%1\" laat sik keen Datum- un "
+"Tietinformatschonen rutfinnen.</b></font>"
+
+#: clockphotodialog.cpp:197
+#, fuzzy, kde-format
+#| msgid "<font color=\"red\"><b>Could not load image %1.</b></font>"
+msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
+msgstr "<font color=\"red\"><b>Bild \"%1\" lett sik nich laden.</b></font>"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_timeadjustui.rc:6
+msgid "&Image"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_timeadjustui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: myimagelist.cpp:42 settingswidget.cpp:281
+#, fuzzy
+#| msgid "Use Time && Date"
+msgid "Timestamp Used"
+msgstr "Tiet un Datum bruken"
+
+#: myimagelist.cpp:44 settingswidget.cpp:283
+#, fuzzy
+#| msgid "Use Time && Date"
+msgid "Timestamp Updated"
+msgstr "Tiet un Datum bruken"
+
+#: myimagelist.cpp:46
+msgid "New Filename"
+msgstr ""
+
+#: myimagelist.cpp:48
+msgid "Status"
+msgstr ""
+
+#: myimagelist.cpp:69
+msgid "not valid"
+msgstr ""
+
+#: myimagelist.cpp:77
+msgctxt "not applicable"
+msgid "N.A"
+msgstr ""
+
+#: myimagelist.cpp:95
+msgid "Failed to update metadata timestamp"
+msgstr ""
+
+#: myimagelist.cpp:100
+msgid "Failed to update file timestamp"
+msgstr ""
+
+#: myimagelist.cpp:105
+msgid "Failed to rename file"
+msgstr ""
+
+#: myimagelist.cpp:110
+msgid "Processed without error"
+msgstr ""
+
+#: plugin_timeadjust.cpp:106
+msgid "Adjust Time && Date..."
+msgstr "Tiet un Datum instellen..."
+
+#: settingswidget.cpp:167
+#, kde-format
+msgid "%1 timestamp"
+msgstr "%1 Tietmark"
+
+#: settingswidget.cpp:174 settingswidget.cpp:253
+msgid "File last modified"
+msgstr "Datei tolest ännert"
+
+#: settingswidget.cpp:181
+msgid "EXIF/IPTC/XMP"
+msgstr "EXIF/IPTC/XMP"
+
+#: settingswidget.cpp:182 settingswidget.cpp:254
+msgid "EXIF: created"
+msgstr "EXIF: opstellt"
+
+#: settingswidget.cpp:183 settingswidget.cpp:255
+msgid "EXIF: original"
+msgstr "EXIF: Orginaal"
+
+#: settingswidget.cpp:184 settingswidget.cpp:256
+msgid "EXIF: digitized"
+msgstr "EXIF: digitaliseert"
+
+#: settingswidget.cpp:185 settingswidget.cpp:257
+msgid "IPTC: created"
+msgstr "IPTC: opstellt"
+
+#: settingswidget.cpp:186
+msgid "XMP: created"
+msgstr "XMP: opstellt"
+
+#: settingswidget.cpp:196
+msgid "Reset to current date"
+msgstr "Op aktuell Datum torüchsetten"
+
+#: settingswidget.cpp:225
+#, fuzzy
+#| msgid "Copy value"
+msgctxt "copy timestamp as well"
+msgid "Copy value"
+msgstr "Weert koperen"
+
+#: settingswidget.cpp:226
+#, fuzzy
+#| msgctxt "add a fixed time stamp to date"
+#| msgid "Add"
+msgctxt "add a fixed timestamp to date"
+msgid "Add"
+msgstr "Totellen"
+
+#: settingswidget.cpp:227
+#, fuzzy
+#| msgctxt "subtract a fixed time stamp to date"
+#| msgid "Subtract"
+msgctxt "subtract a fixed timestamp to date"
+msgid "Subtract"
+msgstr "Aftrecken"
+
+#: settingswidget.cpp:231
+msgctxt "time adjust offset, days value label"
+msgid "days"
+msgstr "Daag"
+
+#: settingswidget.cpp:234
+#, fuzzy
+#| msgid "Determine time difference with clock photo"
+msgid "Determine difference from clock photo"
+msgstr "Tietverscheel to Bildklock fastslaan"
+
+#: settingswidget.cpp:258
+msgid "XMP"
+msgstr "XMP"
+
+#: settingswidget.cpp:259
+msgid "Filename"
+msgstr ""
+
+#: settingswidget.cpp:282
+#, fuzzy
+#| msgid "Time Adjust"
+msgid "Timestamp Adjustments"
+msgstr "Tiet instellen"
+
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+msgid "Adjust Time & Date"
+msgstr "Tiet un Datum instellen"
+
+#: timeadjustdialog.cpp:129
+msgid "Time Adjust"
+msgstr "Tiet instellen"
+
+#: timeadjustdialog.cpp:132
+msgid "A Kipi plugin for adjusting the timestamp of picture files"
+msgstr "En KIPI-Moduul för't Instellen vun Bilddatei-Tietmarken"
+
+#: timeadjustdialog.cpp:133
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Jesper K. Pedersen\n"
+#| "(c) 2006-2011, Gilles Caulier"
+msgid ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"© 2003-2005, Jesper K. Pedersen\n"
+"© 2006-2011, Gilles Caulier"
+
+#: timeadjustdialog.cpp:137
+msgid "Jesper K. Pedersen"
+msgstr "Jesper K. Pedersen"
+
+#: timeadjustdialog.cpp:138
+msgid "Author"
+msgstr "Autor"
+
+#: timeadjustdialog.cpp:141
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+msgid "Developer"
+msgstr ""
+
+#: timeadjustdialog.cpp:145
+msgid "Smit Mehta"
+msgstr ""
+
+#: timeadjustdialog.cpp:149
+msgid "Pieter Edelman"
+msgstr ""
+
+#: timeadjustdialog.cpp:377
+#, fuzzy
+#| msgid "Adjust Time & Date"
+msgid "Adjust Time and Date"
+msgstr "Tiet un Datum instellen"
+
+#: timeadjustdialog.cpp:394
+msgid "Select at least one option"
+msgstr ""
+
+#~ msgid "Determine from clock photo"
+#~ msgstr "Ut Bildklock fastslaan"
+
+#~ msgid "Adjust"
+#~ msgstr "Topassen"
+
+#~ msgid "Update Time && Date"
+#~ msgstr "Tiet un Datum opfrischen"
+
+#~ msgid "Example"
+#~ msgstr "Bispill"
+
+#~ msgid "1 image will be changed"
+#~ msgid_plural "%1 images will be changed"
+#~ msgstr[0] "Een Bild warrt ännert"
+#~ msgstr[1] "%1 Biller warrt ännert"
+
+#~ msgid "1 image will be changed; "
+#~ msgid_plural "%1 images will be changed; "
+#~ msgstr[0] "Een Bild warrt ännert; "
+#~ msgstr[1] "%1 Biller warrt ännert; "
+
+#~ msgid "1 image will be skipped due to an inexact date."
+#~ msgid_plural "%1 images will be skipped due to inexact dates."
+#~ msgstr[0] "Een Bild warrt wegen en nich nau Datum övergahn."
+#~ msgstr[1] "%1 Biller warrt wegen en nich nau Datum övergahn."
+
+#~ msgid "1 image will be skipped due to a missing source timestamp."
+#~ msgid_plural "%1 images will be skipped due to missing source timestamps."
+#~ msgstr[0] "Een Bild warrt wegen en fehlen Born-Tietmark övergahn."
+#~ msgstr[1] "%1 Biller warrt wegen fehlen Born-Tietmarken övergahn."
+
+#, fuzzy
+#~| msgid "Custom: <b>%1</b>"
+#~ msgid "Custom: <b>%1 %2</b>"
+#~ msgstr "Egen: <b>%1</b>"
+
+#~ msgid "Original: <b>N/A</b><br/>Image will be skipped"
+#~ msgstr "Orginaal: <b>N/A</b><br/>Bild warrt övergahn."
+
+#, fuzzy
+#~| msgid "Original: <b>%1</b>"
+#~ msgid "Original: <b>%1 %2</b>"
+#~ msgstr "Orginaal: <b>%1</b>"
+
+#, fuzzy
+#~| msgid "Original: <b>%1</b><br/>Adjusted: <b>%2</b>"
+#~ msgid "Original: <b>%1 %2</b><br/>Adjusted: <b>%3 %4</b>"
+#~ msgstr "Orginaal: <b>%1</b><br/>Topasst: <b>%2</b>"
+
+#~ msgid "Developer and maintainer"
+#~ msgstr "Autor un Pleger"
+
+#~ msgid "Handbook"
+#~ msgstr "Handbook"
+
+#~ msgid "Scale:"
+#~ msgstr "Topassen:"
+
+#~ msgid "Adjustment Type"
+#~ msgstr "Instellen-Metood"
+
+#~ msgid "Set file date to EXIF/IPTC/XMP creation date"
+#~ msgstr "Dateidatum op EXIF/IPTC/XMP-Opstelldatum fastleggen"
+
+#~ msgid "Custom date"
+#~ msgstr "Egen Datum"
+
+#~ msgid "Update EXIF creation date"
+#~ msgstr "EXIF-Opstelldatum opfrischen"
+
+#~ msgid "Update IPTC creation date"
+#~ msgstr "IPTC-Opstelldatum opfrischen"
+
+#~ msgid "Update XMP creation date"
+#~ msgstr "XMP-Opstelldatum opfrischen"
+
+#~ msgid "Adjustments"
+#~ msgstr "Instellen"
+
+#~ msgid "Hours:"
+#~ msgstr "Stünnen:"
+
+#~ msgid "Minutes:"
+#~ msgstr "Minuten:"
+
+#~ msgid "Seconds:"
+#~ msgstr "Sekunnen:"
+
+#~ msgid "Months:"
+#~ msgstr "Maanden:"
+
+#~ msgid "Years:"
+#~ msgstr "Johren:"
+
+#~ msgid "<b>%1</b><br/>would, for example, change into<br/><b>%2</b>"
+#~ msgstr "<b>%1</b><br/>warrt, as Bispill, ännert na<br/><b>%2</b>"
+
+#~ msgid "Unable to set date and time like picture metadata from:"
+#~ msgstr "Datum un Tiet laat sik nich as Bildmetadaten setten vun:"

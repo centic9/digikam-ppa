@@ -1,0 +1,362 @@
+# translation of kipiplugin_sendimages.po to Finnish
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+# Mikael Lammentausta <mikael.lammentausta+kdetrans@gmail.com>, 2009.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2013-05-05 19:39+0300\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:20:23+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Mikael Lammentausta"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mikael.lammentausta+kdetrans@gmail.com"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr "Tiedostoa ei voitu lukea"
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr "Väliaikaiskansiota ei voitu avata"
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr "Kuvien kokoa ei voitu muuttaa, keskeytetään toimenpide."
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr ""
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr "Lähetä kuvat sähköpostitse..."
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr "Lähetä kuvia sähköpostitse"
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr "Käyttäjä keskeytti toimenpiteen"
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "Skaalataan %1"
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr "%1 skaalattu"
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "Kuvan “%1” skaalaus epäonnistui: %2"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr "Luo kuvaustiedosto kuvien ominaisuuksista"
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr "ei kuvatekstiä"
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr "ei asiasanoja"
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+"tiedosto ”%1”:\n"
+"Alkuperäiset kuvat: %2\n"
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr "Kommentit: %1\n"
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr "Tunnisteet: %1\n"
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr "Arvio: %1\n"
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr "properties.txt"
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr "Kuvien kuvaustiedosto on luotu"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+"Seuraavien kuvien kokoa ei voi muuttaa.\n"
+"Haluatko lisätä ne sähköpostiin liitetiedostoina, ilman muutoksia?"
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr "Kuvien koon muuntaminen epäonnistui"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+"Tiedosto ”%1” on liian iso lähetettäväksi. Pienennä sen kokoa tai muuta "
+"asetuksia."
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr "Käynnistetään sähköpostisovellus..."
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr ""
+"Sovelluksen ”%1” käynnistys epäonnistui. Tarkista järjestelmäasetukset."
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "Käynnistetään sovellus ”%1”..."
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr "Kuvien lähetyksen jälkeen..."
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr "Naksauta ”sulje”-painiketta poistaaksesi tilapäistiedostot."
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr "Kuvien sähköpostituksen asetukset"
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr "Lähetä kuvat"
+
+#: sendimagesdialog.cpp:108
+msgid "A plugin to e-mail items"
+msgstr "Liitännäinen kohteiden lähetykseen sähköpostilla"
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "© 2003–2013, Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Tekijä ja ylläpitäjä"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Kehittäjä"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "Sähköpostisovellus:"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Oletus"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+"Aseta haluamasi sähköpostisovellus. <b>Oletus</b> käyttää "
+"järjestelmäasetuksissa määriteltyä sovellusta."
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr "Liitä tiedosto, jonka ominaisuudet tuodaan tiedostosta ”%1”"
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+"Kuvien ominaisuudet kuten kommentit, arviot ja tunnisteet tuodaan "
+"kuvaustiedostosta ”%1”."
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " Mt"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr "Sähköpostin kokorajoitus:"
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr "Muunna lähetettävät kuvat"
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr "Valitse muokataanko kuvat ennen lähetystä."
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Kuvien ominaisuudet"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr "Erittäin pieni (320 pikseliä)"
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Pieni (640 pikseliä)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Keskikokoinen (800 pikseliä)"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Suuri (1024 pikseliä)"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr "Erittäin suuri (1280 pikseliä)"
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Tulostuskelpoinen (1600 pikseliä)"
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+"<p>Määrittele lähetettävien kuvien koko:</p> <p><b>%1</b>: käytä tätä mikäli "
+"internet-yhteytesi on erittäin hidas, tai vastaanottajan postilaatikon tila "
+"on hyvin rajallinen</p><p><b>%2</b>: käytä tätä mikäli internet-yhteytesi on "
+"hidas, tai vastaanottajan postilaatikko ei vastaanota suuria tiedostoja</p> "
+"<p><b>%3</b>: tämä on hyvä oletusasetus useimmissa tapauksissa</p> <p><b>%4</"
+"b>: käytä tätä mikäli internet-yhteytesi on nopea eikä vastaanottajan "
+"postilaatikolla ole kokorajoituksia</p><p><b>%5</b>: käytä tätä vain mikäli "
+"lähetystä eivät koske mitkään rajoitukset</p><p><b>%6</b>: käytä tätä "
+"lähettäessäsi kuvia tulostettavaksi</p>"
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Resoluutio:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr "<p>Valitse lähetettävien kuvien pakkausmuoto.</p>"
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+
+#: settingswidget.cpp:184
+msgid "Image format:"
+msgstr "Kuvamuoto:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr "<p>Uusi jpeg-pakkausarvo lähetettäville kuville:</p>"
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Pakkausaste:"
+
+#~ msgid "Images"
+#~ msgstr "Lähetettävät kuvat"
+
+#~ msgid "Image List"
+#~ msgstr "Kuvaluettelo"
+
+#~ msgid "Mail"
+#~ msgstr "Postitus"
+
+#~ msgid "Mail Options"
+#~ msgstr "Sähköpostiasetukset"

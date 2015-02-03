@@ -1,0 +1,473 @@
+# translation of kipiplugin_facebook.po to Finnish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Mikael Lammentausta <mikael.lammentausta+kdetrans@gmail.com>, 2009.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013.
+#
+# KDE Finnish translation sprint participants:
+# Author: Artnay
+# Author: Lliehu
+# Author: Niklas Laxström
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_facebook\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-04-02 03:08+0200\n"
+"PO-Revision-Date: 2013-05-05 19:39+0300\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:20:19+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Mikael Lammentausta, Jiri Grönroos"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "mikael.lammentausta+kdetrans@gmail.com, jiri.gronroos+kde@iki.fi"
+
+#: facebookjob.cpp:113
+msgid "Photos taken with KDE"
+msgstr "KDE:llä otetut valokuvat"
+
+#: fbalbum.cpp:47
+msgid "Facebook New Album"
+msgstr "Uusi Facebook-albumi"
+
+#: fbalbum.cpp:59
+msgid "Title of the album that will be created (required)."
+msgstr "Albumin nimi (pakollinen)"
+
+#: fbalbum.cpp:62
+msgid "Location of the album that will be created (optional)."
+msgstr "Albumin sijainti (valinnainen)"
+
+#: fbalbum.cpp:65
+msgid "Description of the album that will be created (optional)."
+msgstr "Albumin kuvaus (valinnainen)"
+
+#: fbalbum.cpp:69
+msgid "Privacy setting of the album that will be created (required)."
+msgstr "Kuka saa nähdä tämän? (pakollinen)"
+
+#: fbalbum.cpp:70
+msgid "Only Me"
+msgstr "Vain minä"
+
+#: fbalbum.cpp:71
+msgid "Only Friends"
+msgstr "Vain kaverini"
+
+#: fbalbum.cpp:72
+msgid "Friends of Friends"
+msgstr "Kavereiden kaverit"
+
+#: fbalbum.cpp:73
+msgid "My Networks and Friends"
+msgstr "Kaikki verkostoni ja kaverini"
+
+#: fbalbum.cpp:74
+msgid "Everyone"
+msgstr "Kaikki"
+
+#: fbalbum.cpp:78
+msgctxt "new facebook album"
+msgid "Title:"
+msgstr "Albumin nimi:"
+
+#: fbalbum.cpp:79
+msgctxt "new facebook album"
+msgid "Location:"
+msgstr "Sijainti:"
+
+#: fbalbum.cpp:80
+msgctxt "new facebook album"
+msgid "Description:"
+msgstr "Kuvaus:"
+
+#: fbalbum.cpp:81
+msgctxt "new facebook album"
+msgid "Privacy:"
+msgstr "Yksityisyys:"
+
+#: fbtalker.cpp:190
+msgid "Validate previous session..."
+msgstr "Käytetään aiempaa istuntoa..."
+
+#: fbtalker.cpp:218
+msgid "Upgrading to OAuth..."
+msgstr "Päivitetään OAuthiin..."
+
+#: fbtalker.cpp:270 fbtalker.cpp:479
+msgid "Facebook Application Authorization"
+msgstr "Facebook-tunnistautuminen"
+
+#: fbtalker.cpp:275
+msgid ""
+"Please follow the instructions in the browser window. When done, copy the "
+"Internet address from your browser into the textbox below and press \"OK\"."
+msgstr ""
+"Noudata verkkoselaimen ikkunassa olevia ohjeita. Kun olet valmis, kopioi "
+"verkko-osoite verkkoselaimesta alla olevaan tekstikenttään ja napsauta OK."
+
+#: fbtalker.cpp:340
+msgid "Canceled by user."
+msgstr "Käyttäjä perui toiminnon."
+
+#: fbtalker.cpp:477
+msgid ""
+"Please follow the instructions in the browser window. Press \"OK\" when done."
+msgstr "Noudata Facebookin ohjeita selainikkunassa, ja naksauta lopuksi ”OK”."
+
+#: fbtalker.cpp:781
+msgid "The service is not available at this time."
+msgstr "Palvelu on hetkellisesti pois käytöstä."
+
+#: fbtalker.cpp:784
+msgid "The application has reached the maximum number of requests allowed."
+msgstr ""
+"Tämä sovellus on ottanut Facebookiin yhteyttä suurimman sallitun rajan "
+"verran."
+
+#: fbtalker.cpp:787
+msgid "Invalid session key or session expired. Try to log in again."
+msgstr "Facebook-istunto on päättynyt. Kirjaudu uudelleen sisään."
+
+#: fbtalker.cpp:790
+msgid "Invalid album ID."
+msgstr "Virheellinen albumin tunnus."
+
+#: fbtalker.cpp:793
+msgid "Album is full."
+msgstr "Albumi on täysi."
+
+#: fbtalker.cpp:796
+msgid "Missing or invalid file."
+msgstr "Tiedostoa ei ole olemassa tai se on virheellinen."
+
+#: fbtalker.cpp:799
+msgid "Too many unapproved photos pending."
+msgstr "Liian monta kuvaa odottaa hyväksyntää."
+
+#: fbwidget.cpp:71
+msgid "This is the list of images to upload to your Facebook account."
+msgstr "Nämä kuvat ovat jonossa matkalla Facebookiin."
+
+#: fbwidget.cpp:77
+msgid ""
+"This is a clickable link to open the Facebook home page in a web browser."
+msgstr "Tämä on linkki Facebookin etusivulle."
+
+#: fbwidget.cpp:83
+msgid "Account"
+msgstr "Käyttäjätunnus"
+
+#: fbwidget.cpp:84
+msgid "This is the Facebook account that is currently logged in."
+msgstr "Tämä on aktiivinen Facebook-käyttäjätunnus"
+
+#: fbwidget.cpp:87
+msgctxt "facebook account settings"
+msgid "Name:"
+msgstr "Tili:"
+
+#: fbwidget.cpp:89
+msgid "Permission:"
+msgstr "Oikeudet:"
+
+#: fbwidget.cpp:90
+msgid ""
+"Permission of KIPI Plugin application to upload photos directly. If not, "
+"user will need to manually approve uploaded photos in Facebook."
+msgstr ""
+"Onko KIPI-sovelmalla lupa tallettaa kuvat profiiliin suoraan. Ellei ole, "
+"sinun on käytävä hyväksymässä kuvat selaimen avulla omalla Facebook-"
+"tililläsi."
+
+#: fbwidget.cpp:93
+msgid "Change Account"
+msgstr "Vaihda käyttäjätili"
+
+#: fbwidget.cpp:94
+msgid "Logout and change Facebook Account used for transfer"
+msgstr "Kirjaudu ulos ja vaihda Facebook-käyttäjätili"
+
+#: fbwidget.cpp:111
+msgid "Download Selection"
+msgstr "Kuvien lataaminen"
+
+#: fbwidget.cpp:112
+msgid "This is the selection of Facebook albums/photos to download."
+msgstr "Tämä on ladattavien kuvien esikatselu – nämä ladataan Facebookista."
+
+#: fbwidget.cpp:116 fbwidget.cpp:163
+msgid "Destination"
+msgstr "Kohdealbumi"
+
+#: fbwidget.cpp:117
+msgid "This is the Facebook album to which selected photos will be uploaded."
+msgstr "Facebook-albumi, johon kuvat lisätään."
+
+#: fbwidget.cpp:122
+msgid "My &Album"
+msgstr "Omat &valokuvat"
+
+#: fbwidget.cpp:123
+msgid "Download complete album of currently logged in user."
+msgstr "Lataa kaikki käyttäjätilillä olevat kuvat."
+
+#: fbwidget.cpp:124
+msgid "Album &of My Friend"
+msgstr "Kaverin v&alokuvat"
+
+#: fbwidget.cpp:125
+msgid "Download complete album of selected friend."
+msgstr "Lataa valitun kaverin kaikki kuvat."
+
+#: fbwidget.cpp:126
+msgid "Photos of &Me"
+msgstr "Valokuvat &itsestä"
+
+#: fbwidget.cpp:127
+msgid "Download all photos of currently logged in user."
+msgstr "Lataa kaikki kuvat, joissa itse esiinnyt."
+
+#: fbwidget.cpp:128
+msgid "Photos of My &Friend"
+msgstr "Valokuvat &kaverista"
+
+#: fbwidget.cpp:129
+msgid "Download all photos of selected friend."
+msgstr "Lataa kaikki kuvat, joissa valittu kaveri esiintyy."
+
+#: fbwidget.cpp:137
+msgid "Friend:"
+msgstr "Kaveri:"
+
+#: fbwidget.cpp:141
+msgid "Album:"
+msgstr "Albumi:"
+
+#: fbwidget.cpp:145
+msgid "New Album"
+msgstr "Uusi albumi"
+
+#: fbwidget.cpp:146
+msgid "Create new Facebook album"
+msgstr "Luo uusi Facebook-albumi"
+
+#: fbwidget.cpp:147
+msgctxt "facebook album list"
+msgid "Reload"
+msgstr "Päivitä"
+
+#: fbwidget.cpp:148
+msgid "Reload album list"
+msgstr "Päivitä albumiluettelo"
+
+#: fbwidget.cpp:164
+msgid "This is the location to which Facebook images will be downloaded."
+msgstr "Kuvat tallennetaan Facebookissa tähän sijaintiin."
+
+#: fbwidget.cpp:171
+msgid "Options"
+msgstr "Valinnat"
+
+#: fbwidget.cpp:172
+msgid "These are options that will be applied to photos before upload."
+msgstr "Nämä valinnat koskevat kuvien muokkausta ennen lähetystä."
+
+#: fbwidget.cpp:176
+msgid "Resize photos before uploading"
+msgstr "Muuta kuvien koko ennen lähetystä"
+
+#: fbwidget.cpp:186
+msgid "Maximum dimension:"
+msgstr "Enimmäiskoko:"
+
+#: fbwidget.cpp:194
+msgid "JPEG quality:"
+msgstr "Jpeg-kuvanlaatu:"
+
+#: fbwidget.cpp:311
+msgid "Direct upload"
+msgstr "Lähetetyt kuvat julkaistaan välittömästi"
+
+#: fbwidget.cpp:313
+msgid "Uploaded photos will not need manual approval by user."
+msgstr "Lisätyt kuvat eivät tarvitse erillistä hyväksyntää."
+
+#: fbwidget.cpp:317
+msgid "Manual upload approval"
+msgstr "Lähetetyt kuvat vaativat hyväksynnän"
+
+#: fbwidget.cpp:318
+msgid ""
+"Uploaded photos will wait in pending state until manually approved by user."
+msgstr "Lisätyt kuvat odottavat vielä käyttäjän hyväksyntää."
+
+#: fbwindow.cpp:87
+msgid "Import from Facebook Web Service"
+msgstr "Kuvien lataus Facebookista"
+
+#: fbwindow.cpp:89
+msgid "Start Download"
+msgstr "Lataa"
+
+#: fbwindow.cpp:90
+msgid "Start download from Facebook web service"
+msgstr "Lataa kuvat Facebookista"
+
+#: fbwindow.cpp:95
+msgid "Export to Facebook Web Service"
+msgstr "Kuvien lähetys Facebookiin"
+
+#: fbwindow.cpp:97
+msgid "Start Upload"
+msgstr "Lähetä"
+
+#: fbwindow.cpp:98
+msgid "Start upload to Facebook web service"
+msgstr "Lähetä kuvat Facebookiin"
+
+#: fbwindow.cpp:121
+msgid "Facebook Import/Export"
+msgstr "Kuvien siirto Facebookin kanssa"
+
+#: fbwindow.cpp:123
+msgid ""
+"A Kipi plugin to import/export image collection to/from Facebook web service."
+msgstr "Kuvien tuonti ja lähetys Facebook-palveluun."
+
+#: fbwindow.cpp:125
+msgid ""
+"(c) 2005-2008, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2008-2009, Luka Renko"
+msgstr ""
+"© 2005–2008, Vardhman Jain\n"
+"© 2008–2012, Gilles Caulier\n"
+"© 2008–2009, Luka Renko"
+
+#: fbwindow.cpp:129
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: fbwindow.cpp:129
+msgid "Author and maintainer"
+msgstr "Tekijä ja ylläpitäjä"
+
+#: fbwindow.cpp:386 fbwindow.cpp:438
+msgid "&lt;auto create&gt;"
+msgstr "&lt;automaattinen luonti&gt;"
+
+#: fbwindow.cpp:405 fbwindow.cpp:423 fbwindow.cpp:488 fbwindow.cpp:518
+#, kde-format
+msgid "Facebook Call Failed: %1\n"
+msgstr "Facebook-virhe: %1\n"
+
+#: fbwindow.cpp:433
+msgctxt "name of special Facebook album for profile pictures"
+msgid "Profile Pictures"
+msgstr "Profiilikuvat"
+
+#: fbwindow.cpp:608 fbwindow.cpp:633
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: fbwindow.cpp:612
+msgid "Facebook import"
+msgstr "Facebook-tuonti"
+
+#: fbwindow.cpp:637
+msgid "Facebook export"
+msgstr "Facebook-vienti"
+
+#: fbwindow.cpp:740 fbwindow.cpp:755
+msgid "Cannot open file"
+msgstr "Tiedostoa ei voida avata"
+
+#: fbwindow.cpp:779
+#, kde-format
+msgid ""
+"Failed to upload photo into Facebook: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Kuvan lähetys epäonnistui: %1\n"
+"Haluatko jatkaa?"
+
+#: fbwindow.cpp:841
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Kuvan tallennus epäonnistui: %1\n"
+"Haluatko jatkaa?"
+
+#: fbwindow.cpp:855
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Kuvan lataus epäonnistui: %1\n"
+"Haluatko jatkaa?"
+
+#: fbwindow.cpp:873
+#, kde-format
+msgid "Facebook Call Failed: %1"
+msgstr "Facebook-virhe: %1"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_facebookui.rc:6
+msgid "&Import"
+msgstr "T&uonti"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_facebookui.rc:10
+msgid "&Export"
+msgstr "&Vienti"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_facebookui.rc:16
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#: plugin_facebook.cpp:101
+msgid "Export to &Facebook..."
+msgstr "Lähetä &Facebookiin..."
+
+#: plugin_facebook.cpp:111
+msgid "Import from &Facebook..."
+msgstr "Tuo &Facebookista..."
+
+#~ msgid "Change Permission"
+#~ msgstr "Määritä käyttöoikeudet"
+
+#~ msgid "Change permission for KIPI application for photo upload"
+#~ msgstr "Määritä Kipi-liitännäisen oikeudet kuvien lisäykseen"
+
+#~ msgid "Logging in to Facebook service..."
+#~ msgstr "Kirjaudutaan Facebookiin..."
+
+#~ msgid "Facebook Service Web Authorization"
+#~ msgstr "Facebook-tunnistautuminen"
+
+#~ msgid "Authentication"
+#~ msgstr "Tunnistautuminen"
+
+#~ msgid "Transfer Progress"
+#~ msgstr "Siirron eteneminen"
+
+#~ msgid "Uploading file %1"
+#~ msgstr "Lähetetään tiedostoa ”%1”"
+
+#~ msgid "Downloading file %1"
+#~ msgstr "Ladataan tiedostoa ”%1”"

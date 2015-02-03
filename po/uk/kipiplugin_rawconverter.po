@@ -1,0 +1,320 @@
+# translation of kipiplugin_rawconverter.po to Ukrainian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_rawconverter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-02-24 10:06+0200\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: dialogs/batchdialog.cpp:127 dialogs/singledialog.cpp:200
+msgid "Exit RAW Converter"
+msgstr "Завершити роботу перетворювача цифрових негативів"
+
+#: dialogs/batchdialog.cpp:128
+msgid "RAW Image Batch Converter"
+msgstr "Пакетний перетворювач зображень цифрових негативів"
+
+#: dialogs/batchdialog.cpp:148
+msgid "Store it under different name"
+msgstr "Зберегти під іншою назвою"
+
+#: dialogs/batchdialog.cpp:151 dialogs/batchdialog.cpp:155
+#: dialogs/singledialog.cpp:149 dialogs/singledialog.cpp:152
+msgid "Save settings"
+msgstr "Зберегти параметри"
+
+#: dialogs/batchdialog.cpp:175 dialogs/singledialog.cpp:131
+#: dialogs/singledialog.cpp:166
+msgid "RAW Image Converter"
+msgstr "Перетворювач зображень RAW"
+
+#: dialogs/batchdialog.cpp:178 dialogs/singledialog.cpp:169
+msgid "A Kipi plugin to convert RAW images"
+msgstr "Додаток Kipi для перетворення зображень цифрових негативів"
+
+#: dialogs/batchdialog.cpp:179 dialogs/singledialog.cpp:170
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"© Renchi Raju, 2003-2005,\n"
+"© Gilles Caulier, 2006-2013\n"
+"© Smit Mehta, 2012"
+
+#: dialogs/batchdialog.cpp:183 dialogs/singledialog.cpp:174
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/batchdialog.cpp:184 dialogs/singledialog.cpp:175
+msgid "Author"
+msgstr "Автор"
+
+#: dialogs/batchdialog.cpp:187 dialogs/singledialog.cpp:178
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: dialogs/batchdialog.cpp:188 dialogs/singledialog.cpp:179
+msgid "Developer and maintainer"
+msgstr "Розробник і супровідник"
+
+#: dialogs/batchdialog.cpp:191 dialogs/singledialog.cpp:182
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: dialogs/batchdialog.cpp:192 dialogs/singledialog.cpp:183
+msgid "Developer"
+msgstr "Розробник"
+
+#: dialogs/batchdialog.cpp:340
+msgid "There is no RAW file in the list to process."
+msgstr "У списку відсутні файли цифрових негативів, призначені для обробки!"
+
+#: dialogs/batchdialog.cpp:349
+msgid "RAW Converter"
+msgstr "Перетворювач цифрових негативів"
+
+#: dialogs/batchdialog.cpp:485 dialogs/singledialog.cpp:130
+msgid "&Abort"
+msgstr "П&ерервати"
+
+#: dialogs/batchdialog.cpp:486 dialogs/singledialog.cpp:198
+msgid "Abort the current RAW file conversion"
+msgstr "Перервати поточне перетворення файла цифрового негатива"
+
+#: dialogs/batchdialog.cpp:491 dialogs/singledialog.cpp:129
+msgid "Con&vert"
+msgstr "Пере&творити"
+
+#: dialogs/batchdialog.cpp:492
+msgid "Start converting the RAW images using current settings."
+msgstr ""
+"Почати перетворення зображень цифрових негативів з поточними параметрами."
+
+#: dialogs/batchdialog.cpp:576
+#, kde-format
+msgid "Processing %1"
+msgstr "Обробка %1"
+
+#: dialogs/myimagelist.cpp:47
+msgid "Raw File"
+msgstr "Файл цифрового негатива"
+
+#: dialogs/myimagelist.cpp:48
+msgid "Target File"
+msgstr "Файл призначення"
+
+#: dialogs/myimagelist.cpp:49
+msgid "Camera"
+msgstr "Фотоапарат"
+
+#: dialogs/myimagelist.cpp:50
+msgid "Status"
+msgstr "Стан"
+
+#: dialogs/singledialog.cpp:128
+msgid "&Preview"
+msgstr "П&ерегляд"
+
+#: dialogs/singledialog.cpp:191
+msgid ""
+"Generate a preview using current settings. Uses a simple bilinear "
+"interpolation for quick results."
+msgstr ""
+"Створює попередній перегляд з поточними параметрами. Використовує просту "
+"білінійну інтерполяцію, щоб швидше показати результати."
+
+#: dialogs/singledialog.cpp:195
+msgid ""
+"Convert the RAW Image using current settings. This uses a high-quality "
+"adaptive algorithm."
+msgstr ""
+"Перетворити зображення цифрового негатива з поточними параметрами. Буде "
+"використано високоякісний адаптивний алгоритм."
+
+#: dialogs/singledialog.cpp:383
+msgid "Generating Preview..."
+msgstr "Створення перегляду..."
+
+#: dialogs/singledialog.cpp:394
+msgid "Failed to generate preview"
+msgstr "Не вдалося створити перегляд"
+
+#: dialogs/singledialog.cpp:399
+msgid "Processing Images..."
+msgstr "Обробка зображень..."
+
+#: dialogs/singledialog.cpp:434
+#, kde-format
+msgid "Save RAW image converted from '%1' as"
+msgstr "Зберегти перетворене зображення цифрового негатива «%1» як"
+
+#: dialogs/singledialog.cpp:464
+#, kde-format
+msgid "Failed to save sidecar file for image %1..."
+msgstr "Не вдалося зберегти додатковий файл для зображення %1…"
+
+#: dialogs/singledialog.cpp:474
+#, kde-format
+msgid "Failed to save image %1"
+msgstr "Не вдалося зберегти зображення %1"
+
+#: dialogs/singledialog.cpp:489
+msgid "Failed to convert RAW image"
+msgstr "Не вдалося перетворити зображення цифрового негатива"
+
+#: manager/task.cpp:124
+msgid "Cannot identify RAW image"
+msgstr "Не вдалося розпізнати зображення цифрового негатива"
+
+#: manager/task.cpp:134
+#, kde-format
+msgid "<br>Make: %1<br>"
+msgstr "<br>Виробник: %1<br>"
+
+#: manager/task.cpp:135
+#, kde-format
+msgid "Model: %1<br>"
+msgstr "Модель: %1<br>"
+
+#: manager/task.cpp:139
+#, kde-format
+msgid "Created: %1<br>"
+msgstr "Створено: %1<br>"
+
+#: manager/task.cpp:145
+#, kde-format
+msgid "Aperture: f/%1<br>"
+msgstr "Апертура: f/%1<br>"
+
+#: manager/task.cpp:150
+#, kde-format
+msgid "Focal: %1 mm<br>"
+msgstr "Фокальна відстань: %1 мм<br>"
+
+#: manager/task.cpp:155
+#, kde-format
+msgid "Exposure: 1/%1 s<br>"
+msgstr "Експозиція: 1/%1 с<br>"
+
+#: manager/task.cpp:160
+#, kde-format
+msgid "Sensitivity: %1 ISO"
+msgstr "Світлочутливість: %1 ISO"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_rawconverterui.rc:6
+msgid "&Tools"
+msgstr "&Інструменти"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_rawconverterui.rc:13
+msgid "Main Toolbar"
+msgstr "Головна панель"
+
+#: plugin/plugin_rawconverter.cpp:111
+msgid "RAW Image Converter..."
+msgstr "Перетворювач зображень RAW..."
+
+#: plugin/plugin_rawconverter.cpp:121
+msgid "Batch RAW Converter..."
+msgstr "Пакетний перетворювач цифрових негативів..."
+
+#: plugin/plugin_rawconverter.cpp:152
+#, kde-format
+msgid "\"%1\" is not a RAW file."
+msgstr "«%1» не є файлом цифрового негатива."
+
+#~ msgid "A Kipi plugin to batch convert RAW images"
+#~ msgstr ""
+#~ "Додаток Kipi для пакетного перетворення зображень цифрових негативів"
+
+#~ msgid "Handbook"
+#~ msgstr "Підручник"
+
+#~ msgid "&Add"
+#~ msgstr "&Додати"
+
+#~ msgid "Add new RAW files to the list"
+#~ msgstr "Додати нові файли цифрових негативів до списку"
+
+#~ msgid "&Remove"
+#~ msgstr "Ви&лучити"
+
+#~ msgid "Remove selected RAW files from the list"
+#~ msgstr "Вилучити вибрані файли цифрових негативів зі списку"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Мініатюра"
+
+#~ msgid "Failed to load image after processing"
+#~ msgstr "Не вдалося завантажити зображення після обробки"
+
+#~ msgid "Output file format:"
+#~ msgstr "Формат файла виводу:"
+
+#~ msgid ""
+#~ "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
+#~ "processed image in JPEG format. This format will give smaller-sized "
+#~ "files. Minimum JPEG compression level will be used during RAW conversion."
+#~ "</p><p><b>Warning: Due to the destructive compression algorithm, JPEG is "
+#~ "a lossy quality format.</b></p><p><b>TIFF</b>: output the processed image "
+#~ "in TIFF format. This generates large files, without losing quality. Adobe "
+#~ "Deflate compression will be used during conversion.</p><p><b>PPM</b>: "
+#~ "output the processed image in PPM format. This generates the largest "
+#~ "files, without losing quality.</p><p><b>PNG</b>: output the processed "
+#~ "image in PNG format. This generates large files, without losing quality. "
+#~ "Maximum PNG compression will be used during conversion.</p>"
+#~ msgstr ""
+#~ "<p>Тут ви можете встановити формат файла виводу, який слід "
+#~ "використовувати:</p><p><b>JPEG</b>: вивести оброблене зображення у формат "
+#~ "JPEG. Цей формат дає файли меншого розміру. Під час перетворення "
+#~ "цифрового негатива буде використано мінімальний рівень стиснення JPEG.</"
+#~ "p><p><b>Увага!!! Через незворотність алгоритму стиснення, JPEG є форматом "
+#~ "зображень з втратою якості.</b></p><p><b>TIFF</b>: вивести оброблене "
+#~ "зображення у формат TIFF. Таким чином буде створено великі файли, але без "
+#~ "втрати якості. Під час перетворення буде використано стиснення Adobe "
+#~ "Deflate.</p><p><b>PPM</b>: вивести оброблене зображення у формат PPM. "
+#~ "Буде створено дуже великі файли, але без втрати якості.</p><p><b>PNG</b>: "
+#~ "вивести оброблене зображення у формат PNG. Буде створено великі файли, "
+#~ "але без втрати якості. Під час перетворення буде використано максимальний "
+#~ "рівень стиснення PNG.</p>"
+
+#~ msgid "If Target File Exists:"
+#~ msgstr "Якщо файли призначення існують:"
+
+#~ msgid "Overwrite automatically"
+#~ msgstr "Автоматично перезаписати"
+
+#~ msgid "Open rename-file dialog"
+#~ msgstr "Відкрити діалог перейменування файлів"
+
+#~ msgid "Abort the current Raw files conversion"
+#~ msgstr "Перервати поточне перетворення файлів цифрових негативів"
+
+#~ msgid "Raw Image Converter..."
+#~ msgstr "Перетворювач зображень цифрових негативів..."
+
+#~ msgid "Raw Image Converter"
+#~ msgstr "Перетворювач зображень цифрових негативів"

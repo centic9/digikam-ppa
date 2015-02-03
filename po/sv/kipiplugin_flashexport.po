@@ -1,0 +1,682 @@
+# translation of kipiplugin_flashexport.po to Swedish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stefan Asserhäll <stefan.asserhall@comhem.se>, 2008, 2009.
+# Stefan Asserhall <stefan.asserhall@comhem.se>, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_flashexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-30 03:31+0100\n"
+"PO-Revision-Date: 2012-09-05 19:41+0200\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@comhem.se>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@comhem.se"
+
+#: aboutdata.h:41
+msgid "Flash Export"
+msgstr "Export till Flash"
+
+#: aboutdata.h:43
+msgid ""
+"A Kipi plugin to export images to Flash using the SimpleViewer's components."
+msgstr ""
+"Ett KIPI-insticksprogram för att exportera bilder till Flash med komponenter "
+"från SimpleViewer."
+
+#: aboutdata.h:44
+msgid ""
+"(c) 2005-2006, Joern Ahrens\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2011, Veaceslav Munteanu"
+msgstr ""
+"© 2005-2006, Joern Ahrens\n"
+"© 2008-2012, Gilles Caulier\n"
+"© 2011, Veaceslav Munteanu"
+
+#: aboutdata.h:51
+msgid "Joern Ahrens"
+msgstr "Joern Ahrens"
+
+#: aboutdata.h:52
+msgid "Author"
+msgstr "Upphovsman"
+
+#: aboutdata.h:55
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: aboutdata.h:56 aboutdata.h:60
+msgid "Developer and maintainer"
+msgstr "Utvecklare och underhåll"
+
+#: aboutdata.h:59
+msgid "Veaceslav Munteanu"
+msgstr "Veaceslav Munteanu"
+
+#: aboutdata.h:63
+msgid "Felix Turner"
+msgstr "Felix Turner"
+
+#: aboutdata.h:64
+msgid "Author of the Simple Viewer Flash component"
+msgstr "Upphovsman till den enkla Flash-komponenten SimpleViewer"
+
+#: aboutdata.h:68
+msgid "Mikkel B. Stegmann"
+msgstr "Mikkel B. Stegmann"
+
+#: aboutdata.h:69
+msgid "Basis for the index.html template"
+msgstr "Bas för mallen index.html"
+
+#: importWizard/firstrunpage.cpp:70
+msgid "First Run"
+msgstr "Första körning"
+
+#: importWizard/firstrunpage.cpp:77
+msgid ""
+"<p>SimpleViewer's plugins are Flash components which are free to use, but "
+"use a license which comes into conflict with several distributions. Due to "
+"the license it is not possible to ship it with this tool.</p><p>You can now "
+"download plugin from its homepage and point this tool to the downloaded "
+"archive. The archive will be stored with the plugin configuration, so it is "
+"available for further use.</p><p><b>Note: Please download the plugin that "
+"you selected on the first page.</b></p>"
+msgstr ""
+"<p>Insticksprogrammen från SimpleViewer är Flash-komponenter som är gratis "
+"att använda, men använder en licens som ger konflikt med flera "
+"distributioner. På grund av licensen är det inte möjligt att leverera dem "
+"med det här verktyget.</p><p>Nu kan du ladda ner insticksprogrammen från "
+"hemsidan, och peka ut det nerladdade arkivet för det här verktyget. Arkivet "
+"lagras tillsammans med insticksprogrammens inställning, så det är "
+"tillgängligt för senare användning.</p><p><b>Observera: Ladda ner "
+"insticksprogrammen du valde på första sidan.</b></p>"
+
+#: importWizard/firstrunpage.cpp:86
+msgid "<p>1.) Download plugin from the following url:</p>"
+msgstr "<p>1. Ladda ner insticksprogram från följande webbadress:</p>"
+
+#: importWizard/firstrunpage.cpp:96
+msgid "<p>2.) Point this tool to the downloaded archive</p>"
+msgstr "<p>2. Peka ut det nerladdade arkivet för det här verktyget</p>"
+
+#: importWizard/generalpage.cpp:84
+msgid "General Settings"
+msgstr "Allmänna inställningar"
+
+#: importWizard/generalpage.cpp:91
+msgid "Gallery &Title"
+msgstr "Galleriets &rubrik"
+
+#: importWizard/generalpage.cpp:94
+msgid "Enter here the gallery title"
+msgstr "Skriv in galleriets rubrik här"
+
+#: importWizard/generalpage.cpp:102
+msgid "Save Gallery To"
+msgstr "Spara galleri som"
+
+#: importWizard/generalpage.cpp:113
+msgid "Image Properties"
+msgstr "Bildegenskaper"
+
+#: importWizard/generalpage.cpp:115
+msgid "Resize Target Images"
+msgstr "Ändra storlek på resultatbilder"
+
+#: importWizard/generalpage.cpp:117
+msgid "If you enable this option, all target images can be resized."
+msgstr ""
+"Om du aktiverar det här alternativet, kan storleken ändras på alla "
+"resultatbilder."
+
+#: importWizard/generalpage.cpp:121
+msgid "Auto-Rotate/Flip Images"
+msgstr "Rotera och vänd bilder automatiskt"
+
+#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
+#: importWizard/lookpage.cpp:335
+msgid ""
+"If you enable this option, the images' orientations will be set according to "
+"their Exif information."
+msgstr ""
+"Om du aktiverar alternativet, rättas bildernas orientering i enlighet med "
+"EXIF-informationen."
+
+#: importWizard/generalpage.cpp:128
+msgid "&Target Images' Size:"
+msgstr "Resultat&bildernas storlek:"
+
+#: importWizard/generalpage.cpp:132
+msgid ""
+"The new size of the exported images, in pixels. SimpleViewer resizes the "
+"images too, but this resizes the images before they are uploaded to your "
+"server."
+msgstr ""
+"Den nya storleken hos exporterade bilder, i bildpunkter. SimpleViewer ändrar "
+"också bildernas storlek, men detta ändrar storleken på dina bilder innan de "
+"laddas upp till servern."
+
+#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+msgid "&Displayed Images' Size:"
+msgstr "&Visad bildstorlek:"
+
+#: importWizard/generalpage.cpp:149
+msgid ""
+"Scales the displayed images to this size. Normally, use the height or width "
+"of your largest image (in pixels). Images will not be scaled up above this "
+"size, to preserve image quality."
+msgstr ""
+"Skalar visade bilder till den här storleken. Normalt används den största "
+"bildens höjd eller bredd (i bildpunkter). Bilder skalas inte över den här "
+"storleken, för att bevara bildkvaliteten."
+
+#: importWizard/generalpage.cpp:165
+msgid "Misc"
+msgstr "Diverse"
+
+#: importWizard/generalpage.cpp:168
+msgid "Display Captions"
+msgstr "Visa rubriker"
+
+#: importWizard/generalpage.cpp:170
+msgid "If this option is enabled, the images' captions will be shown."
+msgstr "Om du aktiverar alternativet, visas bildernas rubrik."
+
+#: importWizard/generalpage.cpp:172
+msgid "Display Keywords"
+msgstr "Visa nyckelord"
+
+#: importWizard/generalpage.cpp:174
+msgid "If this option is enabled, the images' keywords will be shown."
+msgstr "Om alternativet är aktiverat, visas bildernas nyckelord."
+
+#: importWizard/generalpage.cpp:177
+msgid "Open Image with Right Click"
+msgstr "Öppna bild med högerklick"
+
+#: importWizard/generalpage.cpp:179
+msgid ""
+"If this option is enabled, the user will be able to open the target image in "
+"a separate window using the right mouse button."
+msgstr ""
+"Om alternativet aktiveras, kommer användare att kunna öppna resultatbilden i "
+"ett separat fönster genom att använda höger musknapp."
+
+#: importWizard/generalpage.cpp:183
+msgid "Open gallery in Browser"
+msgstr "Öppna galleri i webbläsare"
+
+#: importWizard/generalpage.cpp:185
+msgid ""
+"If this option is enabled, the gallery will be opened in Konqueror "
+"automatically."
+msgstr "Om alternativet aktiveras, öppnas galleriet automatiskt i Konqueror."
+
+#: importWizard/importwizarddlg.cpp:90
+msgid "Flash Export Wizard"
+msgstr "Guide för export till Flash"
+
+#: importWizard/importwizarddlg.cpp:135
+msgid ""
+"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
+"date and is not corrupted.</p>"
+msgstr ""
+"<p>Installation av SimpleViewer misslyckades.</p><p>Kontrollera om:</p><p>- "
+"arkivet motsvarar insticksprogrammet valt på föregående sida.</p><p>- "
+"arkivet är aktuellt och oskadat.</p>"
+
+#: importWizard/importwizarddlg.cpp:180
+msgid "You must select at least one collection to export."
+msgstr "Du måste välja minst en samling att exportera."
+
+#: importWizard/importwizarddlg.cpp:216
+#, kde-format
+msgid ""
+"Target folder %1 already exists.\n"
+"Do you want to overwrite it?  All data in this folder will be lost."
+msgstr ""
+"Resultatkatalogen %1 finns redan.\n"
+"Vill du skriva över den? All data i katalogen går förlorad."
+
+#: importWizard/importwizarddlg.cpp:225
+#, kde-format
+msgid ""
+"Could not delete %1.\n"
+"Please choose another export folder."
+msgstr ""
+"Kunde inte ta bort %1\n"
+"Välj en annan exportkatalog."
+
+#: importWizard/intropage.cpp:60
+msgid "Welcome to FlashExport Tool"
+msgstr "Välkommen till verktyget för export till Flash"
+
+#: importWizard/intropage.cpp:68
+msgid ""
+"<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
+"href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
+"Postcardviewer</a> to export images to flash galleries</p><p>This assistant "
+"will help you to configure and import images before exporting them to flash</"
+"p><p>Note that:</p><p>1. Free version of SimpleViewer allow only a maximum "
+"of 50 pictures to be exported.</p><p>2. TiltViewer is quite CPU intensive</"
+"p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
+msgstr ""
+"<qt><p><h1><b>Välkommen till verktyget för export till Flash</b></h1></"
+"p><p>Verktyget använder <a href='http://www.simpleviewer.net/'>SimpleViewer, "
+"AutoViewer, TiltViewer eller Postcardviewer</a> för att exportera bilder "
+"till Flash-gallerier</p><p>Guiden hjälper till att anpassa och importera "
+"bilder innan de exporteras till Flasg</p><p>Observera att:</p><p>1. Den fria "
+"versionen av SimpleViewer tillåter bara att maximalt 50 bilder exporteras.</"
+"p><p>2. TiltViewer kräver mycket processorresurser.</p><p>3. Postcardviewer "
+"är bara konstruerad för ett fåtal bilder.</p></qt>"
+
+#: importWizard/intropage.cpp:81
+msgid "Select &Plugin:"
+msgstr "Välj insticks&program:"
+
+#: importWizard/intropage.cpp:84
+msgctxt "SimpleViewer"
+msgid "SimpleViewer"
+msgstr "SimpleViewer"
+
+#: importWizard/intropage.cpp:85
+msgctxt "TiltViewer"
+msgid "TiltViewer"
+msgstr "TiltViewer"
+
+#: importWizard/intropage.cpp:86
+msgctxt "AutoViewer"
+msgid "AutoViewer"
+msgstr "AutoViewer"
+
+#: importWizard/intropage.cpp:87
+msgctxt "PostcardViewer"
+msgid "PostcardViewer"
+msgstr "PostcardViewer"
+
+#: importWizard/intropage.cpp:99
+msgid "&Choose image selection method:"
+msgstr "&Välj metod för bildurval:"
+
+#: importWizard/intropage.cpp:101
+msgctxt "Collections"
+msgid "Collections"
+msgstr "Samlingar"
+
+#: importWizard/intropage.cpp:102
+msgctxt "Image Dialog"
+msgid "Image Dialog"
+msgstr "Bilddialogruta"
+
+#: importWizard/lookpage.cpp:111
+msgid "Configure appearance"
+msgstr "Anpassa utseende"
+
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
+#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+msgctxt "Settings for flash export navigation"
+msgid "Navigation"
+msgstr "Navigering"
+
+#: importWizard/lookpage.cpp:143
+msgid "Thumbnail &Rows:"
+msgstr "Miniatyrbilds&rader:"
+
+#: importWizard/lookpage.cpp:147
+msgid "Number of thumbnails rows"
+msgstr "Antal miniatyrbildsrader"
+
+#: importWizard/lookpage.cpp:151
+msgid "Thumbnail &Columns:"
+msgstr "Miniatyrbilds&kolumner:"
+
+#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+msgid "Number of thumbnails columns"
+msgstr "Antal miniatyrbildskolumner"
+
+#: importWizard/lookpage.cpp:159
+msgid "Thumbnail &Position:"
+msgstr "Miniatyrbilds&position:"
+
+#: importWizard/lookpage.cpp:161
+msgctxt "thumbnail position: right"
+msgid "Right"
+msgstr "Höger"
+
+#: importWizard/lookpage.cpp:162
+msgctxt "thumbnail position: left"
+msgid "Left"
+msgstr "Vänster"
+
+#: importWizard/lookpage.cpp:163
+msgctxt "thumbnail position: top"
+msgid "Top"
+msgstr "Längst upp"
+
+#: importWizard/lookpage.cpp:164
+msgctxt "thumbnail position: bottom"
+msgid "Bottom"
+msgstr "Längst ner"
+
+#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
+#: importWizard/lookpage.cpp:418
+msgid "Colors"
+msgstr "Färger"
+
+#: importWizard/lookpage.cpp:184
+msgid "&Text Color:"
+msgstr "&Textfärg:"
+
+#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+msgid "Color of title and caption text"
+msgstr "Färg på titel och rubriktext"
+
+#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
+#: importWizard/lookpage.cpp:429
+msgid "&Background Color:"
+msgstr "&Bakgrundsfärg:"
+
+#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
+#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+msgid "&Frame Color:"
+msgstr "&Ramfärg:"
+
+#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
+#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
+msgstr "Färg på bildram, visade ikoner, laddningsrader, miniatyrbildspilar"
+
+#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
+#: importWizard/lookpage.cpp:449
+msgid "Style"
+msgstr "Stil"
+
+#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
+#: importWizard/lookpage.cpp:469
+msgid "&Frame Width:"
+msgstr "Ram&bredd:"
+
+#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+msgid "Width of image frame in pixels."
+msgstr "Bildramens bredd i bildpunkter."
+
+#: importWizard/lookpage.cpp:223
+msgid "&Stage Padding:"
+msgstr "&Scenutfyllnad:"
+
+#: importWizard/lookpage.cpp:227
+msgid "Distance between image and thumbnails in pixels."
+msgstr "Avstånd mellan bild och miniatyrbilder i bildpunkter."
+
+#: importWizard/lookpage.cpp:244
+msgid "&Display Time:"
+msgstr "Visa ti&d:"
+
+#: importWizard/lookpage.cpp:248
+msgid "Number of seconds each image will display in auto-play mode."
+msgstr "Antal sekunder varje bild kommer att visa i automatiskt visningsläge."
+
+#: importWizard/lookpage.cpp:292
+msgid "&Image Padding:"
+msgstr "B&ildutfyllnad:"
+
+#: importWizard/lookpage.cpp:296
+msgid "Distance between images in pixels"
+msgstr "Avstånd mellan bilder i bildpunkter"
+
+#: importWizard/lookpage.cpp:313
+msgid " &Rows:"
+msgstr " &Rader:"
+
+#: importWizard/lookpage.cpp:317
+msgid "Number of rows of images to display."
+msgstr "Antal rader med bilder att visa."
+
+#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+msgid " &Columns:"
+msgstr " &Kolumner:"
+
+#: importWizard/lookpage.cpp:325
+msgid "Number of columns of images to display."
+msgstr "Antal kolumner med bilder att visa."
+
+#: importWizard/lookpage.cpp:328
+msgid "Show Flip Button"
+msgstr "Visa vändknapp"
+
+#: importWizard/lookpage.cpp:333
+msgid "Use reload button"
+msgstr "Använd uppdateringsknapp"
+
+#: importWizard/lookpage.cpp:348
+msgctxt "Settings for flash export navigation"
+msgid "Colors"
+msgstr "Färger"
+
+#: importWizard/lookpage.cpp:359
+msgid "Background &Inner Color:"
+msgstr "Bakgrundens &inre färg:"
+
+#: importWizard/lookpage.cpp:362
+msgid "Color of the stage background gradient center."
+msgstr "Färg på mitten av scenbakgrundens toning."
+
+#: importWizard/lookpage.cpp:366
+msgid "Background &Outer Color:"
+msgstr "Bakgrundens &yttre färg:"
+
+#: importWizard/lookpage.cpp:369
+msgid "Color of the stage background gradient edge."
+msgstr "Färg på kanten av scenbakgrundens toning."
+
+#: importWizard/lookpage.cpp:373
+msgid "Image Back Color:"
+msgstr "Bildens baksidesfärg:"
+
+#: importWizard/lookpage.cpp:376
+msgid "Image's back color when pressing flip button"
+msgstr "Bildens baksidesfärg när vändknappen klickas"
+
+#: importWizard/lookpage.cpp:395
+msgid "Cell Dimension:"
+msgstr "Celldimension:"
+
+#: importWizard/lookpage.cpp:399
+msgid ""
+"Dimension of displayed image cells. Please use a higher value if you set "
+"high image size"
+msgstr ""
+"Visade bildcellers dimension. Använd ett större värde om en stor bildstorlek "
+"är inställd."
+
+#: importWizard/lookpage.cpp:422
+msgid "&Caption Color:"
+msgstr "Ru&brikfärg:"
+
+#: importWizard/lookpage.cpp:453
+msgid "&Zoom In Percentage:"
+msgstr "In&zoomning i procent:"
+
+#: importWizard/lookpage.cpp:457
+msgid "The amount of scale when zoomed in (percentage)"
+msgstr "Skalningens storlek vid inzoomning (i procent)"
+
+#: importWizard/lookpage.cpp:461
+msgid "&Zoom Out Percentage:"
+msgstr "Ut&zoomning i procent:"
+
+#: importWizard/lookpage.cpp:465
+msgid "The amount of scale when zoomed out (percentage)"
+msgstr "Skalningens storlek vid utzoomning (i procent)"
+
+#: importWizard/lookpage.cpp:473
+msgid "The frame width"
+msgstr "Rambredden"
+
+#: importWizard/progresspage.cpp:49
+msgid "Exporting..."
+msgstr "Exporterar..."
+
+#: importWizard/selectionpage.cpp:68
+msgid "Select Image Collections"
+msgstr "Välj bildsamlingar"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_flashexportui.rc:6
+msgid "&Export"
+msgstr "&Exportera"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_flashexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Huvudverktygsrad"
+
+#: plugin_flashexport.cpp:94
+msgid "Export to F&lash..."
+msgstr "Exportera till F&lash..."
+
+#: simpleviewer.cpp:184
+msgid "Initialising..."
+msgstr "Initierar..."
+
+#: simpleviewer.cpp:212
+msgid "Export canceled"
+msgstr "Export avbruten"
+
+#: simpleviewer.cpp:223
+msgid "Failed to create export directories"
+msgstr "Misslyckades skapa exportkataloger"
+
+#: simpleviewer.cpp:230
+msgid "Failed to export the images"
+msgstr "Misslyckades exportera bilderna"
+
+#: simpleviewer.cpp:237
+msgid "Failed to create index.html"
+msgstr "Misslyckades skapa index.html"
+
+#: simpleviewer.cpp:244
+msgid "Failed to copy SimpleViewer files"
+msgstr "Misslyckades kopiera filer från SimpleViewer"
+
+#: simpleviewer.cpp:251
+msgid "Failed to upload the gallery"
+msgstr "Misslyckades ladda upp galleri"
+
+#: simpleviewer.cpp:260
+#, kde-format
+msgid ""
+"Export was canceled.\n"
+"Do you want to delete files in %1 that have already been created?"
+msgstr ""
+"Exporten har avbrutits.\n"
+"Vill du ta bort filer som redan skapats i %1?"
+
+#: simpleviewer.cpp:271
+msgctxt "Flash export has finished"
+msgid "Finished..."
+msgstr "Klar..."
+
+#: simpleviewer.cpp:285
+msgid "Creating directories..."
+msgstr "Skapar kataloger..."
+
+#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#, kde-format
+msgid "Could not create folder '%1'"
+msgstr "Kunde inte skapa katalogen '%1'"
+
+#: simpleviewer.cpp:320
+msgid "Finished Creating directories..."
+msgstr "Klar med skapa kataloger..."
+
+#: simpleviewer.cpp:353
+msgid "Creating images and thumbnails..."
+msgstr "Skapar bilder och miniatyrbilder..."
+
+#: simpleviewer.cpp:483
+#, kde-format
+msgid "Processing %1"
+msgstr "Behandlar %1"
+
+#: simpleviewer.cpp:493
+#, kde-format
+msgid "Could not open image '%1'"
+msgstr "Kunde inte öppna bilden '%1'"
+
+#: simpleviewer.cpp:504
+#, kde-format
+msgid "Could not create thumbnail from '%1'"
+msgstr "Kunde inte skapa miniatyrbild för '%1'"
+
+#: simpleviewer.cpp:512
+#, kde-format
+msgid "Could not resize image '%1'"
+msgstr "Kunde inte ändra storlek på bilden '%1'"
+
+#: simpleviewer.cpp:739
+msgid "Creating index.html..."
+msgstr "Skapar index.html..."
+
+#: simpleviewer.cpp:878
+msgid "index.html created..."
+msgstr "Skapade index.html..."
+
+#: simpleviewer.cpp:888
+msgid "Copying flash files..."
+msgstr "Kopierar Flash-filer..."
+
+#: simpleviewer.cpp:906
+msgid "Flash files copied..."
+msgstr "Flash-filer kopierade..."
+
+#: simpleviewer.cpp:916
+msgid "Uploading gallery..."
+msgstr "Laddar upp galleri..."
+
+#: simpleviewer.cpp:921
+msgid "Gallery uploaded..."
+msgstr "Galleri uppladdat..."
+
+#~ msgid "Handbook"
+#~ msgstr "Handbok"
+
+#~ msgid "SimpleViewer installation failed"
+#~ msgstr "Installation av SimpleViewer misslyckades"
+
+#~ msgid "&Direction of Navigation:"
+#~ msgstr "&Navigeringsriktning:"
+
+#~ msgid "Left to Right"
+#~ msgstr "Vänster till höger"
+
+#~ msgid "Right to Left"
+#~ msgstr "Höger till vänster"
+
+#~ msgctxt "General settings tab"
+#~ msgid "General"
+#~ msgstr "Allmänt"
+
+#~ msgctxt "Settings tab for the look of the flash export"
+#~ msgid "Look"
+#~ msgstr "Utseende"
+
+#~ msgid "Look Settings"
+#~ msgstr "Inställningar av utseende"

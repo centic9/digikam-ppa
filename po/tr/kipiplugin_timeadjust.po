@@ -1,0 +1,360 @@
+# translation of kipiplugin_timeadjust.po to Turkish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Serdar Soytetir <tulliana@gmail.com>, 2008, 2009.
+# Ozan Çağlayan <ozan@pardus.org.tr>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_timeadjust\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2010-06-25 14:17+0300\n"
+"Last-Translator: Ozan Çağlayan <ozan@pardus.org.tr>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.0\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Serdar Soytetir"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tulliana@gmail.com"
+
+#: clockphotodialog.cpp:82
+msgid "Determine time difference with clock photo"
+msgstr ""
+
+#: clockphotodialog.cpp:86
+msgid "Load different photo"
+msgstr "Farklı bir fotoğraf yükle"
+
+#: clockphotodialog.cpp:95
+msgid ""
+"If you have a photo in your set with a clock or another external time source "
+"on it, you can load it here and set the indicator to the (date and) time "
+"displayed. The difference of your internal camera clock will be determined "
+"from this setting."
+msgstr ""
+
+#: clockphotodialog.cpp:113
+msgid "The clock date and time:"
+msgstr ""
+
+#: clockphotodialog.cpp:185
+#, fuzzy, kde-format
+#| msgid "<font color=\"red\"><b>Couldn't load image %1!</b></font>"
+msgid ""
+"<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
+"image %1.</b></font>"
+msgstr "<font color=\"red\"><b>%1 resmi yüklenemedi!</b></font>"
+
+#: clockphotodialog.cpp:197
+#, fuzzy, kde-format
+#| msgid "<font color=\"red\"><b>Couldn't load image %1!</b></font>"
+msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
+msgstr "<font color=\"red\"><b>%1 resmi yüklenemedi!</b></font>"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_timeadjustui.rc:6
+msgid "&Image"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_timeadjustui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: myimagelist.cpp:42 settingswidget.cpp:281
+#, fuzzy
+#| msgid "Use Time && Date"
+msgid "Timestamp Used"
+msgstr "Saat ve Tarih Kullan"
+
+#: myimagelist.cpp:44 settingswidget.cpp:283
+#, fuzzy
+#| msgid "Use Time && Date"
+msgid "Timestamp Updated"
+msgstr "Saat ve Tarih Kullan"
+
+#: myimagelist.cpp:46
+msgid "New Filename"
+msgstr ""
+
+#: myimagelist.cpp:48
+msgid "Status"
+msgstr ""
+
+#: myimagelist.cpp:69
+msgid "not valid"
+msgstr ""
+
+#: myimagelist.cpp:77
+msgctxt "not applicable"
+msgid "N.A"
+msgstr ""
+
+#: myimagelist.cpp:95
+#, fuzzy
+#| msgid "Unable to update metadata in:"
+msgid "Failed to update metadata timestamp"
+msgstr "Buradaki üstveri güncellenemedi:"
+
+#: myimagelist.cpp:100
+#, fuzzy
+#| msgid "Unable to update file modification time in:"
+msgid "Failed to update file timestamp"
+msgstr "Dosyanın son değiştirilme zamanı güncellenemedi:"
+
+#: myimagelist.cpp:105
+msgid "Failed to rename file"
+msgstr ""
+
+#: myimagelist.cpp:110
+msgid "Processed without error"
+msgstr ""
+
+#: plugin_timeadjust.cpp:106
+msgid "Adjust Time && Date..."
+msgstr "Saati ve Tarihi Ayarla..."
+
+#: settingswidget.cpp:167
+#, kde-format
+msgid "%1 timestamp"
+msgstr "%1 tarih etiketi"
+
+#: settingswidget.cpp:174 settingswidget.cpp:253
+msgid "File last modified"
+msgstr "Dosyanın son düzenlenme tarihi"
+
+#: settingswidget.cpp:181
+msgid "EXIF/IPTC/XMP"
+msgstr "EXIF/IPTC/XMP"
+
+#: settingswidget.cpp:182 settingswidget.cpp:254
+msgid "EXIF: created"
+msgstr "EXIF: oluşturuldu"
+
+#: settingswidget.cpp:183 settingswidget.cpp:255
+msgid "EXIF: original"
+msgstr "EXIF: özgün"
+
+#: settingswidget.cpp:184 settingswidget.cpp:256
+msgid "EXIF: digitized"
+msgstr "EXIF: sayısallaştırıldı"
+
+#: settingswidget.cpp:185 settingswidget.cpp:257
+msgid "IPTC: created"
+msgstr "IPTC: oluşturuldu"
+
+#: settingswidget.cpp:186
+msgid "XMP: created"
+msgstr "XMP: oluşturuldu"
+
+#: settingswidget.cpp:196
+msgid "Reset to current date"
+msgstr "Geçerli güne sıfırla"
+
+#: settingswidget.cpp:225
+#, fuzzy
+#| msgid "Copy value"
+msgctxt "copy timestamp as well"
+msgid "Copy value"
+msgstr "Değeri kopyala"
+
+#: settingswidget.cpp:226
+#, fuzzy
+#| msgid "Add"
+msgctxt "add a fixed timestamp to date"
+msgid "Add"
+msgstr "Ekle"
+
+#: settingswidget.cpp:227
+#, fuzzy
+#| msgid "Subtract"
+msgctxt "subtract a fixed timestamp to date"
+msgid "Subtract"
+msgstr "Çıkarma"
+
+#: settingswidget.cpp:231
+msgctxt "time adjust offset, days value label"
+msgid "days"
+msgstr "days"
+
+#: settingswidget.cpp:234
+msgid "Determine difference from clock photo"
+msgstr ""
+
+#: settingswidget.cpp:258
+msgid "XMP"
+msgstr "XMP"
+
+#: settingswidget.cpp:259
+msgid "Filename"
+msgstr ""
+
+#: settingswidget.cpp:282
+#, fuzzy
+#| msgid "Time Adjust"
+msgid "Timestamp Adjustments"
+msgstr "Saat Ayarı"
+
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+msgid "Adjust Time & Date"
+msgstr "Saati ve Tarihi Ayarla"
+
+#: timeadjustdialog.cpp:129
+msgid "Time Adjust"
+msgstr "Saat Ayarı"
+
+#: timeadjustdialog.cpp:132
+msgid "A Kipi plugin for adjusting the timestamp of picture files"
+msgstr ""
+"Resim dosyalarının saatini ve tarihini ayarlamak için bir Kipi eklentisi"
+
+#: timeadjustdialog.cpp:133
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Jesper K. Pedersen\n"
+#| "(c) 2006-2009, Gilles Caulier"
+msgid ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2009, Gilles Caulier"
+
+#: timeadjustdialog.cpp:137
+msgid "Jesper K. Pedersen"
+msgstr "Jesper K. Pedersen"
+
+#: timeadjustdialog.cpp:138
+msgid "Author"
+msgstr "Yazar"
+
+#: timeadjustdialog.cpp:141
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+msgid "Developer"
+msgstr ""
+
+#: timeadjustdialog.cpp:145
+msgid "Smit Mehta"
+msgstr ""
+
+#: timeadjustdialog.cpp:149
+msgid "Pieter Edelman"
+msgstr ""
+
+#: timeadjustdialog.cpp:377
+#, fuzzy
+#| msgid "Adjust Time & Date"
+msgid "Adjust Time and Date"
+msgstr "Saati ve Tarihi Ayarla"
+
+#: timeadjustdialog.cpp:394
+msgid "Select at least one option"
+msgstr ""
+
+#~ msgid "Adjust"
+#~ msgstr "Ayarla"
+
+#~ msgid "Update Time && Date"
+#~ msgstr "Saati ve Tarihi Güncelle"
+
+#~ msgid "Example"
+#~ msgstr "Örnek"
+
+#~ msgid "1 image will be changed"
+#~ msgid_plural "%1 images will be changed"
+#~ msgstr[0] "%1 resim değiştirilecek"
+
+#~ msgid "1 image will be changed; "
+#~ msgid_plural "%1 images will be changed; "
+#~ msgstr[0] "%1 resim değiştirilecek; "
+
+#~ msgid "1 image will be skipped due to an inexact date."
+#~ msgid_plural "%1 images will be skipped due to inexact dates."
+#~ msgstr[0] "%1 resim kesin olmayan gün sebebi ile atlanacak."
+
+#~ msgid "1 image will be skipped due to a missing source timestamp."
+#~ msgid_plural "%1 images will be skipped due to missing source timestamps."
+#~ msgstr[0] "%1 resim kaynaktaki eksik zaman etiketi sebebi ile atlanacak."
+
+#, fuzzy
+#~| msgid "Custom: <b>%1</b>"
+#~ msgid "Custom: <b>%1 %2</b>"
+#~ msgstr "Özel: <b>%1</b>"
+
+#~ msgid "Original: <b>N/A</b><br/>Image will be skipped"
+#~ msgstr "Özgün: <b>Kullanılabilir Değil</b><br/>Resim atlanacak"
+
+#, fuzzy
+#~| msgid "Original: <b>%1</b>"
+#~ msgid "Original: <b>%1 %2</b>"
+#~ msgstr "Özgün: <b>%1</b>"
+
+#, fuzzy
+#~| msgid "Original: <b>%1</b><br/>Adjusted: <b>%2</b>"
+#~ msgid "Original: <b>%1 %2</b><br/>Adjusted: <b>%3 %4</b>"
+#~ msgstr "Özgün: <b>%1</b><br/>Ayarlanmış: <b>%2</b>"
+
+#~ msgid "Developer and maintainer"
+#~ msgstr "Geliştirici ve projeyi yürüten"
+
+#~ msgid "Handbook"
+#~ msgstr "El Kitabı"
+
+#~ msgid "Scale:"
+#~ msgstr "Ölçeklendir:"
+
+#~ msgid "Adjustment Type"
+#~ msgstr "Ayarlama Tipi"
+
+#~ msgid "Set file date to EXIF/IPTC/XMP creation date"
+#~ msgstr "Dosyanın EXIF/IPTC/XMP oluşturulma tarihini ayarla"
+
+#~ msgid "Custom date"
+#~ msgstr "Özel tarih"
+
+#~ msgid "Update EXIF creation date"
+#~ msgstr "EXIF oluşturulma tarihini güncelle"
+
+#~ msgid "Update IPTC creation date"
+#~ msgstr "IPTC oluşturulma tarihini güncelle"
+
+#~ msgid "Update XMP creation date"
+#~ msgstr "XMP oluşturulma tarihini güncelle"
+
+#~ msgid "Adjustments"
+#~ msgstr "Ayarlamalar"
+
+#~ msgid "Hours:"
+#~ msgstr "Saat:"
+
+#~ msgid "Minutes:"
+#~ msgstr "Dakika:"
+
+#~ msgid "Seconds:"
+#~ msgstr "Saniye:"
+
+#~ msgid "Months:"
+#~ msgstr "Ay:"
+
+#~ msgid "Years:"
+#~ msgstr "Yıl:"
+
+#~ msgid "<b>%1</b><br/>would, for example, change into<br/><b>%2</b>"
+#~ msgstr "<b>%1</b><br/>,örneğin,<br/><b>%2</b>'ye dönüşecektir"
+
+#~ msgid "Unable to set date and time like picture metadata from:"
+#~ msgstr "Tarih ve zaman benzeri resim üstverileri ayarlanamıyor:"

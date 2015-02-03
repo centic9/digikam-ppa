@@ -1,0 +1,820 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Шмелёв Артемий Геннадьевич <sgartjom@mail.ru>, 2008.
+# Artem Sereda <overmind88@gmail.com>, 2010.
+# yuri, 2010.
+# Yuri Efremov <yur.arh@gmail.com>, 2010, 2011, 2013.
+# Alexander Potashev <aspotashev@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_slideshow\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-03-28 23:32+0400\n"
+"Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Артемий Шмелёв,Юрий Ефремов"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sgartjom@mail.ru,yur.arh@gmail.com"
+
+#: dialogs/captiondialog.cpp:41
+msgid "This is a comment sample..."
+msgstr "Это образец комментария..."
+
+#: dialogs/maindialog.cpp:244
+#, kde-format
+msgid "%1 image [%2]"
+msgid_plural "%1 images [%2]"
+msgstr[0] "%1 изображение [%2]"
+msgstr[1] "%1 изображения [%2]"
+msgstr[2] "%1 изображений [%2]"
+msgstr[3] "1 изображение [%2]"
+
+#: dialogs/maindialog.cpp:324 dialogs/soundtrackdialog.cpp:560
+#, kde-format
+msgid "Cannot access file %1. Please check the path is correct."
+msgstr "Файл %1 недоступен, проверьте путь к этому файлу."
+
+#: dialogs/maindialog.cpp:362
+#, kde-format
+msgctxt "Image number %1"
+msgid "Image #%1"
+msgstr "Изображение №%1"
+
+#: dialogs/maindialog.cpp:394 widgets/slideshowkb.cpp:574
+msgid "Ken Burns"
+msgstr "Кен Бернс"
+
+#: dialogs/maindialog.cpp:415
+msgid "Delay between images (ms):"
+msgstr "Пауза между изображениями (мс):"
+
+#. i18n: ectx: property (text), widget (QLabel, m_delayLabel)
+#: dialogs/maindialog.cpp:422 ui/maindialog.ui:262
+msgid "Delay between images (s):"
+msgstr "Пауза между изображениями (с):"
+
+#: dialogs/slideshowconfig.cpp:77 dialogs/slideshowconfig.cpp:113
+msgid "Advanced Slideshow"
+msgstr "Улучшенный показ слайдов"
+
+#: dialogs/slideshowconfig.cpp:85
+msgid "Start Slideshow"
+msgstr "Начать показ слайдов"
+
+#: dialogs/slideshowconfig.cpp:92
+msgid "Main"
+msgstr "Главное"
+
+#: dialogs/slideshowconfig.cpp:93
+msgid "Main Settings"
+msgstr "Основные параметры"
+
+#: dialogs/slideshowconfig.cpp:97 dialogs/slideshowconfig.cpp:98
+msgctxt "captions for the slideshow"
+msgid "Caption"
+msgstr "Подпись"
+
+#: dialogs/slideshowconfig.cpp:102 dialogs/slideshowconfig.cpp:103
+msgid "Soundtrack"
+msgstr "Звуковое сопровождение"
+
+#: dialogs/slideshowconfig.cpp:107 dialogs/slideshowconfig.cpp:108
+msgid "Advanced"
+msgstr "Дополнительно"
+
+#: dialogs/slideshowconfig.cpp:116
+msgid "A Kipi plugin for image slideshows"
+msgstr "Модуль расширения KIPI для показа слайдов"
+
+#: dialogs/slideshowconfig.cpp:117
+msgid ""
+"(c) 2003-2004, Renchi Raju\n"
+"(c) 2006-2009, Valerio Fuoglio"
+msgstr ""
+"© Renchi Raju, 2003-2004\n"
+"© Valerio Fuoglio, 2006-2009"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Author"
+msgstr "Автор"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Valerio Fuoglio"
+msgstr "Valerio Fuoglio"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Author and maintainer"
+msgstr "Автор и сопровождение"
+
+#: dialogs/soundtrackdialog.cpp:63
+msgid "Soundtrack preview"
+msgstr "Предварительный просмотр звуковой дорожки"
+
+#: dialogs/soundtrackdialog.cpp:90
+msgid ""
+"If set, the soundtrack for the current album will be saved and restored "
+"automatically on the next startup."
+msgstr ""
+"Если установлено, то звуковое сопровождение текущего альбома будет "
+"автоматически сохранено и восстановлено при следующем запуске."
+
+#: dialogs/soundtrackdialog.cpp:111
+msgid "Move the selected track up in the playlist."
+msgstr "Переместить выбранную звуковую дорожку вверх."
+
+#: dialogs/soundtrackdialog.cpp:112
+msgid "Move the selected track down in the playlist."
+msgstr "Переместить выбранную звуковую дорожку вниз."
+
+#: dialogs/soundtrackdialog.cpp:113
+msgid "Add new tracks to the playlist."
+msgstr "Добавить новую звуковую дорожку в список воспроизведения."
+
+#: dialogs/soundtrackdialog.cpp:114
+msgid "Delete the selected track from the playlist."
+msgstr "Удалить выбранную звуковую дорожку из списка воспроизведения."
+
+#: dialogs/soundtrackdialog.cpp:115
+msgid "Load playlist from a file."
+msgstr "Загрузить список воспроизведения."
+
+#: dialogs/soundtrackdialog.cpp:116
+msgid "Save playlist to a file."
+msgstr "Сохранить список воспроизведения."
+
+#: dialogs/soundtrackdialog.cpp:117
+msgid "Clear the playlist."
+msgstr "Очистить список воспроизведения."
+
+#: dialogs/soundtrackdialog.cpp:243
+#, kde-format
+msgctxt "number of tracks and running time"
+msgid "1 track [%2]"
+msgid_plural "%1 tracks [%2]"
+msgstr[0] "%1 звуковая дорожка [%2]"
+msgstr[1] "%1 звуковых дорожки [%2]"
+msgstr[2] "%1 звуковых дорожек [%2]"
+msgstr[3] "1 звуковая дорожка [%2]"
+
+#: dialogs/soundtrackdialog.cpp:271
+msgid ""
+"Slide time is greater than soundtrack time. Suggestion: add more sound files."
+msgstr ""
+"Время показа слайдов превышает время звукового сопровождения. Предложение: "
+"увеличьте количество звуковых файлов."
+
+#: dialogs/soundtrackdialog.cpp:342
+msgid "Select sound files"
+msgstr "Выбор звуковых файлов"
+
+#: dialogs/soundtrackdialog.cpp:394
+msgid "You can only move image files up one at a time."
+msgstr "Вы можете переместить вверх только по одному изображению."
+
+#: dialogs/soundtrackdialog.cpp:426
+msgid "You can only move files down one at a time."
+msgstr "Вы можете переместить вниз только по одному изображению."
+
+#: dialogs/soundtrackdialog.cpp:448 dialogs/soundtrackdialog.cpp:504
+msgid "*.m3u|Playlist (*.m3u)"
+msgstr "*.m3u|Список воспроизведения (*.m3u)"
+
+#: dialogs/soundtrackdialog.cpp:449
+msgid "Load playlist"
+msgstr "Загрузка списка воспроизведения"
+
+#: dialogs/soundtrackdialog.cpp:505
+msgid "Save playlist"
+msgstr "Сохранение списка воспроизведения"
+
+#: dialogs/soundtrackdialog.cpp:569
+msgid "Cannot create a preview of an empty file list."
+msgstr ""
+"Для пустого списка файлов создание предварительного просмотра невозможно."
+
+#. i18n: ectx: Menu (View)
+#: plugin/kipiplugin_advancedslideshowui.rc:6
+msgid "&View"
+msgstr "&Вид"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_advancedslideshowui.rc:12
+msgid "Main Toolbar"
+msgstr "Основная панель инструментов"
+
+#: plugin/plugin_advancedslideshow.cpp:118
+msgid "Advanced Slideshow..."
+msgstr "Улучшенный показ слайдов..."
+
+#: plugin/plugin_advancedslideshow.cpp:204
+msgid "There are no images to show."
+msgstr "Нет изображений для показа."
+
+#: plugin/plugin_advancedslideshow.cpp:262
+msgid "OpenGL support is not available on your system."
+msgstr "Ваша система не поддерживает OpenGL."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/advanceddialog.ui:24
+msgid "&Interface"
+msgstr "&Интерфейс"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_useMillisecondsCheckBox)
+#: ui/advanceddialog.ui:36
+msgid "Use &milliseconds instead of seconds"
+msgstr "Использовать &миллисекунды вместо секунд"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/advanceddialog.ui:52
+msgid "&Controls"
+msgstr "&Управление"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:64
+msgid "Enable mouse wheel to move between slides."
+msgstr "Использование колеса мыши для перемещение между слайдами."
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:67
+msgid "Enable mouse &wheel "
+msgstr "Включить колесо &мыши "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/advanceddialog.ui:85
+msgid "&Ken Burns effect"
+msgstr "Эффект Кена Бернса"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableFadeCheckBox)
+#: ui/advanceddialog.ui:97
+msgid "Disable &fade-in / fade-out"
+msgstr "Отключить &плавное появление / исчезновение"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableCrossfadeCheckBox)
+#: ui/advanceddialog.ui:110
+msgid "Disable &cross-fade"
+msgstr "Отключить п&лавный переход"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: ui/advanceddialog.ui:126
+msgid "&Others"
+msgstr "&Другое"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_cacheCheckBox)
+#: ui/advanceddialog.ui:140
+msgid "Enable &Cache"
+msgstr "Включить &кэширование"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel1)
+#: ui/advanceddialog.ui:155
+msgid "Cache size:"
+msgstr "Размера кэша:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel2)
+#: ui/advanceddialog.ui:197
+msgid "images"
+msgstr "изображ."
+
+#. i18n: ectx: property (text), widget (QLabel, m_KBCacheLabel)
+#: ui/advanceddialog.ui:212
+msgid ""
+"<b>Notice</b>:\n"
+"Ken Burns effect does not use this cache mechanism."
+msgstr ""
+"<b>Внимание</b>:\n"
+"Эффект Кена Бернса не использует этот механизм кэширования."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/captiondialog.ui:26
+msgid "Line length (in characters)"
+msgstr "Длина строки (в символах)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/captiondialog.ui:77
+msgid "Colors"
+msgstr "Цвета"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/captiondialog.ui:83
+msgid "Font color:"
+msgstr "Цвет шрифта:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/captiondialog.ui:106
+msgid "Background color:"
+msgstr "Цвет фона:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/captiondialog.ui:167
+msgid "Background opacity:"
+msgstr "Непрозрачность фона:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_commentsDrawOutlineCheckBox)
+#: ui/captiondialog.ui:174
+msgid "Outlined Text"
+msgstr "Контур текста"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_allFilesButton)
+#: ui/maindialog.ui:26
+msgid "Show all images in current al&bum"
+msgstr "Показать все &изображения из текущего альбома"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_selectedFilesButton)
+#: ui/maindialog.ui:33
+msgid "Show onl&y selected images"
+msgstr "Показать только выбра&нные изображения"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_customButton)
+#: ui/maindialog.ui:40
+msgid "Cu&stom"
+msgstr "В&ыборочно"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:50
+msgid "Preview the currently selected image."
+msgstr "Предварительный просмотр выбранного изображения."
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:53
+msgid "Image Files in Slideshow"
+msgstr "Файлы изображений, учавствующих в показе слайдов"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label6)
+#: ui/maindialog.ui:120
+msgid "Total number of images in the portfolio and sequence duration."
+msgstr "Общее количество изображений в портфолио и продолжительность показа."
+
+#. i18n: ectx: property (text), widget (QLabel, m_label6)
+#. i18n: ectx: property (text), widget (QLabel, m_label7)
+#: ui/maindialog.ui:123 ui/maindialog.ui:142
+msgid "None"
+msgstr "Нет"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label7)
+#: ui/maindialog.ui:139
+msgid "Currently selected image in the portfolio list."
+msgstr "Текущее выбранное изображение в списке портфолио."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/maindialog.ui:157
+msgid "Content"
+msgstr "Содержание"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printNameCheckBox)
+#: ui/maindialog.ui:165
+msgid "P&rint filename"
+msgstr "&Показывать имена файлов"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printProgressCheckBox)
+#: ui/maindialog.ui:172
+msgid "Progress indicator"
+msgstr "Индикатор выполнения"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printCommentsCheckBox)
+#: ui/maindialog.ui:181
+msgid "Pr&int captions "
+msgstr "Показывать &подписи "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/maindialog.ui:204
+msgid "Video"
+msgstr "Видео"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openglCheckBox)
+#: ui/maindialog.ui:210
+msgid "Use Open&GL slideshow transitions"
+msgstr "Использовать Open&GL при переходе между слайдами"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openGlFullScale)
+#: ui/maindialog.ui:217
+msgid "Use full screen resolution (slower)"
+msgstr "Использовать полноэкранное разрешение (медленнее)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/maindialog.ui:240
+msgid "Playback"
+msgstr "Воспроизведение"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_loopCheckBox)
+#: ui/maindialog.ui:246 ui/soundtrackdialog.ui:331
+msgid "&Loop"
+msgstr "&В цикле"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_shuffleCheckBox)
+#: ui/maindialog.ui:253
+msgid "&Shuffle images"
+msgstr "&Перемешать изображения"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/maindialog.ui:288
+msgid "Transition effect:"
+msgstr "Эффект смены слайдов:"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playButton)
+#: ui/playbackwidget.ui:28 ui/slideplaybackwidget.ui:30
+msgid "Play"
+msgstr "Играть"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
+#: ui/playbackwidget.ui:35 ui/slideplaybackwidget.ui:37
+msgid "Stop"
+msgstr "Стоп"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_prevButton)
+#: ui/playbackwidget.ui:42 ui/slideplaybackwidget.ui:44
+msgid "Prev"
+msgstr "Пред."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_nextButton)
+#: ui/playbackwidget.ui:49 ui/slideplaybackwidget.ui:51
+msgid "Next"
+msgstr "След."
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/playbackwidget.ui:69
+msgid "Time"
+msgstr "Время"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/playbackwidget.ui:78
+msgid "elapsed:"
+msgstr "прошло:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_elapsedTimeLabel)
+#. i18n: ectx: property (text), widget (QLabel, m_totalTimeLabel)
+#: ui/playbackwidget.ui:85 ui/playbackwidget.ui:99
+msgid "0:00:00"
+msgstr "0:00:00"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/playbackwidget.ui:92
+msgid "total:"
+msgstr "всего:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_selectionGroupBox)
+#: ui/soundtrackdialog.ui:23
+msgid "Select audio files"
+msgstr "Выбор звуковых файлов"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonUp)
+#: ui/soundtrackdialog.ui:76
+msgid "Move the current image up in the portfolio list."
+msgstr "Переместить текущее изображение в портфолио вверх."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonAdd)
+#: ui/soundtrackdialog.ui:104
+msgid "Add some image files to the portfolio list."
+msgstr "Добавить изображения в портфолио."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDelete)
+#: ui/soundtrackdialog.ui:132
+msgid "Remove some image files from the portfolio list."
+msgstr "Удалить изображения из портфолио."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDown)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonLoad)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonSave)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonReset)
+#: ui/soundtrackdialog.ui:160 ui/soundtrackdialog.ui:191
+#: ui/soundtrackdialog.ui:219 ui/soundtrackdialog.ui:247
+msgid "Move the current image down in the portfolio list."
+msgstr "Переместить текущее изображение в портфолио вниз."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_previewButton)
+#: ui/soundtrackdialog.ui:305
+msgid "Preview..."
+msgstr "Прослушать..."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/soundtrackdialog.ui:325
+msgid "Options"
+msgstr "Параметры"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_rememberSoundtrack)
+#: ui/soundtrackdialog.ui:338
+msgid "Remember soundtrack"
+msgstr "Запомнить звуковое сопровождение"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/soundtrackdialog.ui:361
+msgid "Time comparison"
+msgstr "Сравнение времени"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/soundtrackdialog.ui:369
+msgid "Slide:"
+msgstr "Показ слайдов:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/soundtrackdialog.ui:383
+msgid "Soundtrack:"
+msgstr "Звуковое сопровождение:"
+
+#: widgets/listsounditems.cpp:95
+#, kde-format
+msgid "%1 is damaged and may not be playable."
+msgstr "%1 повреждён, воспроизведение невозможно."
+
+#: widgets/listsounditems.cpp:97
+msgid "Phonon error"
+msgstr "Ошибка Phonon"
+
+#: widgets/listsounditems.cpp:100
+msgid "This file is damaged and may not be playable."
+msgstr "Этот файл повреждён, воспроизведение невозможно."
+
+#: widgets/listsounditems.cpp:101 widgets/listsounditems.cpp:125
+#, kde-format
+msgctxt "artist - title"
+msgid "%1 - %2"
+msgstr "%1 — %2"
+
+#: widgets/slideshow.cpp:240 widgets/slideshowgl.cpp:390
+msgctxt "Filter Effect: No effect"
+msgid "None"
+msgstr "Отсутствует"
+
+#: widgets/slideshow.cpp:241
+msgctxt "Filter Effect: Chess Board"
+msgid "Chess Board"
+msgstr "Шахматная доска"
+
+#: widgets/slideshow.cpp:242
+msgctxt "Filter Effect: Melt Down"
+msgid "Melt Down"
+msgstr "Стекание вниз"
+
+#: widgets/slideshow.cpp:243
+msgctxt "Filter Effect: Sweep"
+msgid "Sweep"
+msgstr "Полёт"
+
+#: widgets/slideshow.cpp:244
+msgctxt "Filter Effect: Mosaic"
+msgid "Mosaic"
+msgstr "Мозаика"
+
+#: widgets/slideshow.cpp:245
+msgctxt "Filter Effect: Cubism"
+msgid "Cubism"
+msgstr "Кубизм"
+
+#: widgets/slideshow.cpp:246
+msgctxt "Filter Effect: Growing"
+msgid "Growing"
+msgstr "Увеличение"
+
+#: widgets/slideshow.cpp:247
+msgctxt "Filter Effect: Horizontal Lines"
+msgid "Horizontal Lines"
+msgstr "Горизонтальные линии"
+
+#: widgets/slideshow.cpp:248
+msgctxt "Filter Effect: Vertical Lines"
+msgid "Vertical Lines"
+msgstr "Вертикальные линии"
+
+#: widgets/slideshow.cpp:249
+msgctxt "Filter Effect: Circle Out"
+msgid "Circle Out"
+msgstr "Круг"
+
+#: widgets/slideshow.cpp:250
+msgctxt "Filter Effect: Multi-Circle Out"
+msgid "Multi-Circle Out"
+msgstr "Несколько кругов"
+
+#: widgets/slideshow.cpp:251
+msgctxt "Filter Effect: Spiral In"
+msgid "Spiral In"
+msgstr "Спираль"
+
+#: widgets/slideshow.cpp:252
+msgctxt "Filter Effect: Blobs"
+msgid "Blobs"
+msgstr "Капли"
+
+#: widgets/slideshow.cpp:253 widgets/slideshowgl.cpp:399
+msgctxt "Filter Effect: Random effect"
+msgid "Random"
+msgstr "Случайно"
+
+#: widgets/slideshow.cpp:1314 widgets/slideshowgl.cpp:692
+msgid "Slideshow Completed"
+msgstr "Показ слайдов завершён"
+
+#: widgets/slideshow.cpp:1315 widgets/slideshowgl.cpp:693
+#: widgets/slideshowkb.cpp:516
+msgid "Click to Exit..."
+msgstr "Щёлкните, чтобы выйти..."
+
+#: widgets/slideshowgl.cpp:391
+msgctxt "Filter Effect: Bend"
+msgid "Bend"
+msgstr "Изгиб"
+
+#: widgets/slideshowgl.cpp:392
+msgctxt "Filter Effect: Blend"
+msgid "Blend"
+msgstr "Смесь"
+
+#: widgets/slideshowgl.cpp:393
+msgctxt "Filter Effect: Cube"
+msgid "Cube"
+msgstr "Куб"
+
+#: widgets/slideshowgl.cpp:394
+msgctxt "Filter Effect: Fade"
+msgid "Fade"
+msgstr "Затемнение"
+
+#: widgets/slideshowgl.cpp:395
+msgctxt "Filter Effect: Flutter"
+msgid "Flutter"
+msgstr "Порхание"
+
+#: widgets/slideshowgl.cpp:396
+msgctxt "Filter Effect: In Out"
+msgid "In Out"
+msgstr "Вход-выход"
+
+#: widgets/slideshowgl.cpp:397
+msgctxt "Filter Effect: Rotate"
+msgid "Rotate"
+msgstr "Поворот"
+
+#: widgets/slideshowgl.cpp:398
+msgctxt "Filter Effect: Slide"
+msgid "Slide"
+msgstr "Скольжение"
+
+#: widgets/slideshowkb.cpp:515
+msgid "SlideShow Completed"
+msgstr "Показ слайдов завершён"
+
+#~ msgid "Slideshow"
+#~ msgstr "Слайд-шоу"
+
+#~ msgid "Handbook"
+#~ msgstr "Руководство пользователя"
+
+# https://bugs.kde.org/show_bug.cgi?id=266906 : should not be translatable
+#~ msgid "advancedDialog"
+#~ msgstr "advancedDialog"
+
+# https://bugs.kde.org/show_bug.cgi?id=266906 : should not be translatable
+#~ msgid "captionDialog"
+#~ msgstr "captionDialog"
+
+# https://bugs.kde.org/show_bug.cgi?id=266906 : should not be translatable
+#~ msgid "mainDialog"
+#~ msgstr "mainDialog"
+
+# https://bugs.kde.org/show_bug.cgi?id=266906 : should not be translatable
+#~ msgid "SoundPixmap"
+#~ msgstr "SoundPixmap"
+
+# https://bugs.kde.org/show_bug.cgi?id=266906 : should not be translatable
+#~ msgid "SlidePixmap"
+#~ msgstr "SlidePixmap"
+
+#~ msgid ""
+#~ "AdvancedSlideshow is part of KIPI-Plugins (http://www.kipi-plugins.org)"
+#~ msgstr ""
+#~ "Улучшенный показ слайдов — часть модуля расширения KIPI (http://www.kipi-"
+#~ "plugins.org)"
+
+#~ msgid "Transparent background"
+#~ msgstr "Прозрачный фон"
+
+#, fuzzy
+#~| msgid "You can only move up one image file at once."
+#~ msgid "You can only move image files down one at a time."
+#~ msgstr "Вы можете передвигать вверх только одно изображение за раз."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is the list of the image files for your portfolio.\n"
+#~| "The portfolio's first image is on the top; the last image is on the "
+#~| "bottom.\n"
+#~| "If you want to add some images, click on the 'Add' button or use the "
+#~| "drag-and-drop."
+#~ msgid ""
+#~ "This is the list of the image files for your portfolio.\n"
+#~ "The portfolio's first image is at the top; the last image is at the "
+#~ "bottom.\n"
+#~ "If you want to add some images, click on the 'Add' button or use drag-and-"
+#~ "drop."
+#~ msgstr ""
+#~ "Это список изображений для портфолио.\n"
+#~ "Первое изображение в портфолио вверху списка; последнее — внизу списка.\n"
+#~ "Если вы хотите добавить изображения, нажмите кнопку Добавить, или "
+#~ "перетащите и бросьте изображения здесь."
+
+#, fuzzy
+#~| msgid "%1 images [%2]"
+#~ msgid "%1 tracks [%2]"
+#~ msgstr "%1 изображений [%2]"
+
+#~ msgid "%1 images [%2]"
+#~ msgstr "%1 изображений [%2]"
+
+#~ msgid "You can only move down one image file at once."
+#~ msgstr "Вы можете передвигать вниз только одно изображение за раз."
+
+#~ msgid "Delay between images  (s):"
+#~ msgstr "Пауза между изображениями (с):"
+
+#, fuzzy
+#~| msgid "Slide Show"
+#~ msgid "SlideShow"
+#~ msgstr "Слайд-шоу"
+
+#~ msgid "Noise"
+#~ msgstr "Шум"
+
+#~ msgid "Incom_ing Edges"
+#~ msgstr "Углы"
+
+#~ msgid "&Add..."
+#~ msgstr "&Добавить..."
+
+#~ msgid "&Delete"
+#~ msgstr "&Удалить"
+
+#~ msgid "Image &Up"
+#~ msgstr "&Вверх"
+
+#~ msgid "Image D&own"
+#~ msgstr "&Вниз"
+
+#~ msgid "Content options"
+#~ msgstr "Настройки содержимого"
+
+#~ msgid "&Help"
+#~ msgstr "&Помощь"
+
+#~ msgid "F1"
+#~ msgstr "F1"
+
+#~ msgid "&Exit"
+#~ msgstr "&Выход"
+
+#~ msgid "Slide Show"
+#~ msgstr "Слайд-шоу"
+
+#~ msgid "Alt+B"
+#~ msgstr "Alt+B"
+
+#~ msgid "Alt+Y"
+#~ msgstr "Alt+Y"
+
+#~ msgid "Alt+A"
+#~ msgstr "Alt+A"
+
+#~ msgid "Alt+D"
+#~ msgstr "Alt+D"
+
+#~ msgid "Alt+U"
+#~ msgstr "Alt+U"
+
+#~ msgid "Alt+O"
+#~ msgstr "Alt+O"
+
+#~ msgid "Alt+G"
+#~ msgstr "Alt+G"
+
+#~ msgid "Alt+R"
+#~ msgstr "Alt+R"
+
+#~ msgid "Alt+I"
+#~ msgstr "Alt+I"
+
+#~ msgid "Alt+L"
+#~ msgstr "Alt+L"
+
+#~ msgid "Alt+S"
+#~ msgstr "Alt+S"
+
+#~ msgid "Alt+E"
+#~ msgstr "Alt+E"

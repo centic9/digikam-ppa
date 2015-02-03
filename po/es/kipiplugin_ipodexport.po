@@ -1,0 +1,208 @@
+# translation of kipiplugin_ipodexport.po to Spanish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Eloy Cuadra <ecuadra@eloihr.net>, 2009, 2013.
+# Pablo Pita Leira <pablo.pita@gmail.com>, 2010.
+# Hector Wilvert Ivan Valdez Reza <ranmaru.hibikiya@gmail.com>, 2013.
+# Aitor Morant <fromhell091@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_ipodexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-05 02:03+0000\n"
+"PO-Revision-Date: 2013-07-21 16:23+0200\n"
+"Last-Translator: Aitor Morant <fromhell091@gmail.com>\n"
+"Language-Team: Spanish <kde-i18n-doc@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"com>\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ranmaru Hibikiya,Pablo Pita Leira"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ranmaru.hibikiya@gmail.com,pablo.pita@gmail.com"
+
+#: ipodheader.cpp:95
+msgid "<p align=\"center\"><b>No iPod was detected</b></p>"
+msgstr "<p align=\"center\"><b>No se ha detectado ningún iPod</b></p>"
+
+#: ipodheader.cpp:102
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: ipodheader.cpp:115
+#, kde-format
+msgid ""
+"<p align=\"center\"><b>Your iPod (%1) does not seem to support artwork.</b></"
+"p>"
+msgstr ""
+"<p align=\"center\"><b>Su iPod (%1) no parece soportar imágenes.</b></p>"
+
+#: ipodheader.cpp:123
+msgid "Set iPod Model"
+msgstr "Configurar el modelo de iPod"
+
+#: ipodheader.cpp:139
+#, kde-format
+msgid "<p align=\"center\"><b>iPod %1 detected at: %2</b></p>"
+msgstr "<p align=\"center\"><b>iPod %1 detectado en: %2</b></p>"
+
+#: ipodheader.cpp:144
+#, kde-format
+msgid "<p align=\"center\"><b>iPod %1 detected</b></p>"
+msgstr "<p align=\"center\"><b>iPod %1 detectado</b></p>"
+
+#: ipodlistitem.cpp:40
+msgid "Unnamed"
+msgstr "Sin nombre"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_ipodexportui.rc:6
+msgid "&Export"
+msgstr "&Exportar"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_ipodexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Barra de herramientas principal"
+
+#: plugin_ipodexport.cpp:87
+msgid "Export to &iPod..."
+msgstr "Exportar a &iPod..."
+
+#: plugin_ipodexport.cpp:101 uploaddialog.cpp:110
+msgid "iPod Export"
+msgstr "Exportación a iPod"
+
+#: uploaddialog.cpp:113
+msgid "A tool to export image to an iPod device"
+msgstr "Una herramienta para exportar una imagen a un dispositivo iPod"
+
+#: uploaddialog.cpp:114
+msgid ""
+"(c) 2006-2008, Seb Ruiz\n"
+"(c) 2008-2013, Gilles Caulier"
+msgstr ""
+"(c) 2006-2008, Seb Ruiz\n"
+"(c) 2008-2013, Gilles Caulier"
+
+#: uploaddialog.cpp:117
+msgid "Seb Ruiz"
+msgstr "Seb Ruiz"
+
+#: uploaddialog.cpp:117
+msgid "Author and Maintainer"
+msgstr "Autor y mantenedor"
+
+#: uploaddialog.cpp:120
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: uploaddialog.cpp:120
+msgid "Developer"
+msgstr "Desarrollador"
+
+#: uploaddialog.cpp:132
+msgid "Hard Disk"
+msgstr "Disco duro"
+
+#: uploaddialog.cpp:142
+msgid "&Add..."
+msgstr "&Añadir..."
+
+#: uploaddialog.cpp:143
+msgid "Add images to be queued for the iPod."
+msgstr "Añade imágenes a enviar al iPod."
+
+#: uploaddialog.cpp:145 uploaddialog.cpp:187
+msgid "&Remove"
+msgstr "&Borrar"
+
+#: uploaddialog.cpp:146
+msgid "Remove selected image from the list."
+msgstr "Borra la imagen seleccionada de la lista."
+
+#: uploaddialog.cpp:148
+msgid "&Transfer"
+msgstr "&Transferir"
+
+#: uploaddialog.cpp:149
+msgid "Transfer images to the selected iPod album."
+msgstr "Transfiere las imágenes al álbum seleccionado del iPod."
+
+#: uploaddialog.cpp:155
+msgid "The preview of the selected image in the list."
+msgstr "La previsualización de la imagen seleccionada en la lista."
+
+#: uploaddialog.cpp:176
+msgid "iPod"
+msgstr "iPod"
+
+#: uploaddialog.cpp:184
+msgid "&New..."
+msgstr "&Nuevo..."
+
+#: uploaddialog.cpp:185
+msgid "Create a new photo album on the iPod."
+msgstr "Crea un nuevo álbum de fotografías en el iPod."
+
+#: uploaddialog.cpp:188
+msgid "R&ename..."
+msgstr "&Renombrar..."
+
+#: uploaddialog.cpp:193
+msgid "Remove the selected photos or albums from the iPod."
+msgstr "Borra las imágenes o álbumes seleccionados del iPod."
+
+#: uploaddialog.cpp:194
+msgid "Rename the selected photo album on the iPod."
+msgstr "Renombra el álbum seleccionado en el iPod."
+
+#: uploaddialog.cpp:558
+msgid "Image files"
+msgstr "Archivos de imagen"
+
+#: uploaddialog.cpp:561
+msgid "Add Images"
+msgstr "Añadir imágenes"
+
+#: uploaddialog.cpp:596
+msgid "New iPod Photo Album"
+msgstr "Nuevo álbum de fotos del iPod"
+
+#: uploaddialog.cpp:597
+msgid "Create a new album:"
+msgstr "Crear un nuevo álbum:"
+
+#: uploaddialog.cpp:628
+msgid "Rename iPod Photo Album"
+msgstr "Renombrar un álbum del iPod"
+
+#: uploaddialog.cpp:629
+msgid "New album title:"
+msgstr "Título del nuevo álbum:"
+
+#: uploaddialog.cpp:827
+#, kde-format
+msgid ""
+"An iPod photo database could not be found on the device mounted at %1. "
+"Initialize the iPod photo database?"
+msgstr ""
+"No se pudo encontrar una base de datos de fotografías del iPod en el "
+"dispositivo montado en %1. ¿Desea inicializar la base de datos de su iPod?"
+
+#: uploaddialog.cpp:831
+msgid "Initialize iPod Photo Database?"
+msgstr "¿Inicializar la base de datos de fotografías del iPod?"
+
+#: uploaddialog.cpp:832
+msgid "&Initialize"
+msgstr "&Inicializar"

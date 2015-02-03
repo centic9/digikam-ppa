@@ -1,0 +1,253 @@
+# Translation of kipiplugin_timeadjust.po to Catalan
+# Copyright (C) 2004-2012 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Albert Astals Cid <aacid@kde.org>, 2004.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011.
+# Antoni Bella Pérez <antonibella5@orange.es>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_timeadjust\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2012-11-23 21:31+0100\n"
+"Last-Translator: Antoni Bella Pérez <antonibella5@orange.es>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Josep Ma. Ferrer"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "txemaq@gmail.com"
+
+#: clockphotodialog.cpp:82
+msgid "Determine time difference with clock photo"
+msgstr "Determinar la diferència horària amb el rellotge d'una foto"
+
+#: clockphotodialog.cpp:86
+msgid "Load different photo"
+msgstr "Carrega una foto diferent"
+
+#: clockphotodialog.cpp:95
+msgid ""
+"If you have a photo in your set with a clock or another external time source "
+"on it, you can load it here and set the indicator to the (date and) time "
+"displayed. The difference of your internal camera clock will be determined "
+"from this setting."
+msgstr ""
+"Si teniu una foto amb un rellotge o amb una altra font horària externa, "
+"podeu carregar-la aquí i definir l'indicador a la (data i) hora "
+"visualitzada. La diferència amb el rellotge intern de la càmera es "
+"determinarà a partir d'aquest paràmetre."
+
+#: clockphotodialog.cpp:113
+msgid "The clock date and time:"
+msgstr "La data i hora del rellotge:"
+
+#: clockphotodialog.cpp:185
+#, kde-format
+msgid ""
+"<font color=\"red\"><b>Could not obtain<br>date and time information<br>from "
+"image %1.</b></font>"
+msgstr ""
+"<font color=\"red\"><b>No s'ha pogut obtenir<br>informació de la data i "
+"hora<br>de la imatge %1.</b></font>"
+
+#: clockphotodialog.cpp:197
+#, kde-format
+msgid "<font color=\"red\"><b>Could not load<br>image %1.</b></font>"
+msgstr ""
+"<font color=\"red\"><b>No s'ha pogut carregar<br>la imatge %1.</b></font>"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_timeadjustui.rc:6
+msgid "&Image"
+msgstr "&Imatge"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_timeadjustui.rc:12
+msgid "Main Toolbar"
+msgstr "Barra d'eines principal"
+
+#: myimagelist.cpp:42 settingswidget.cpp:281
+msgid "Timestamp Used"
+msgstr "Utilitza la marca horària"
+
+#: myimagelist.cpp:44 settingswidget.cpp:283
+msgid "Timestamp Updated"
+msgstr "La marca horària s'ha actualitzat"
+
+#: myimagelist.cpp:46
+msgid "New Filename"
+msgstr "Nom de fitxer nou"
+
+#: myimagelist.cpp:48
+msgid "Status"
+msgstr "Estat"
+
+#: myimagelist.cpp:69
+msgid "not valid"
+msgstr "no vàlid"
+
+#: myimagelist.cpp:77
+msgctxt "not applicable"
+msgid "N.A"
+msgstr "N.A"
+
+#: myimagelist.cpp:95
+msgid "Failed to update metadata timestamp"
+msgstr "No s'ha pogut actualitzar la marca horària de les metadades"
+
+#: myimagelist.cpp:100
+msgid "Failed to update file timestamp"
+msgstr "No s'ha pogut actualitzar la marca horària del fitxer"
+
+#: myimagelist.cpp:105
+msgid "Failed to rename file"
+msgstr "No s'ha pogut reanomenar el fitxer"
+
+#: myimagelist.cpp:110
+msgid "Processed without error"
+msgstr "S'ha processat sense errors"
+
+#: plugin_timeadjust.cpp:106
+msgid "Adjust Time && Date..."
+msgstr "Ajusta l'hora i la data..."
+
+#: settingswidget.cpp:167
+#, kde-format
+msgid "%1 timestamp"
+msgstr "Marca horària %1"
+
+#: settingswidget.cpp:174 settingswidget.cpp:253
+msgid "File last modified"
+msgstr "Última modificació del fitxer"
+
+#: settingswidget.cpp:181
+msgid "EXIF/IPTC/XMP"
+msgstr "EXIF/IPTC/XMP"
+
+#: settingswidget.cpp:182 settingswidget.cpp:254
+msgid "EXIF: created"
+msgstr "EXIF: creació"
+
+#: settingswidget.cpp:183 settingswidget.cpp:255
+msgid "EXIF: original"
+msgstr "EXIF: original"
+
+#: settingswidget.cpp:184 settingswidget.cpp:256
+msgid "EXIF: digitized"
+msgstr "EXIF: digitalització"
+
+#: settingswidget.cpp:185 settingswidget.cpp:257
+msgid "IPTC: created"
+msgstr "IPTC: creació"
+
+#: settingswidget.cpp:186
+msgid "XMP: created"
+msgstr "XMP: creació"
+
+#: settingswidget.cpp:196
+msgid "Reset to current date"
+msgstr "Reinicialitza a la data actual"
+
+#: settingswidget.cpp:225
+msgctxt "copy timestamp as well"
+msgid "Copy value"
+msgstr "Copia valor"
+
+#: settingswidget.cpp:226
+msgctxt "add a fixed timestamp to date"
+msgid "Add"
+msgstr "Afegeix"
+
+#: settingswidget.cpp:227
+msgctxt "subtract a fixed timestamp to date"
+msgid "Subtract"
+msgstr "Resta"
+
+#: settingswidget.cpp:231
+msgctxt "time adjust offset, days value label"
+msgid "days"
+msgstr "dies"
+
+#: settingswidget.cpp:234
+msgid "Determine difference from clock photo"
+msgstr "Determina la diferència des del rellotge d'una foto"
+
+#: settingswidget.cpp:258
+msgid "XMP"
+msgstr "XMP"
+
+#: settingswidget.cpp:259
+msgid "Filename"
+msgstr "Nom de fitxer"
+
+#: settingswidget.cpp:282
+msgid "Timestamp Adjustments"
+msgstr "Ajust de la marca horària"
+
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+msgid "Adjust Time & Date"
+msgstr "Ajusta l'hora i la data"
+
+#: timeadjustdialog.cpp:129
+msgid "Time Adjust"
+msgstr "Ajust d'hora"
+
+#: timeadjustdialog.cpp:132
+msgid "A Kipi plugin for adjusting the timestamp of picture files"
+msgstr ""
+"Un connector de Kipi per ajustar la marca horària dels fitxers de fotografies"
+
+#: timeadjustdialog.cpp:133
+msgid ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Jesper K. Pedersen\n"
+"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+
+#: timeadjustdialog.cpp:137
+msgid "Jesper K. Pedersen"
+msgstr "Jesper K. Pedersen"
+
+#: timeadjustdialog.cpp:138
+msgid "Author"
+msgstr "Autor"
+
+#: timeadjustdialog.cpp:141
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+msgid "Developer"
+msgstr "Desenvolupador"
+
+#: timeadjustdialog.cpp:145
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: timeadjustdialog.cpp:149
+msgid "Pieter Edelman"
+msgstr "Pieter Edelman"
+
+#: timeadjustdialog.cpp:377
+msgid "Adjust Time and Date"
+msgstr "Ajusta l'hora i la data"
+
+#: timeadjustdialog.cpp:394
+msgid "Select at least one option"
+msgstr "Trieu almenys una opció"

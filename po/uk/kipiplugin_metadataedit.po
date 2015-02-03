@@ -1,0 +1,4171 @@
+# translation of kipiplugin_metadataedit.po to Ukrainian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_metadataedit\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-08-31 01:29+0000\n"
+"PO-Revision-Date: 2013-08-31 09:35+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: exif/exifadjust.cpp:94
+msgid "Brightness (APEX):"
+msgstr "Яскравість (APEX):"
+
+#: exif/exifadjust.cpp:99
+msgid ""
+"Set here the brightness adjustment value in APEX unit used by camera to take "
+"the picture."
+msgstr ""
+"Тут ви можете вказати значення коригування яскравості у одиницях APEX, яку "
+"було використано фотоапаратом під час знімання."
+
+#: exif/exifadjust.cpp:104
+msgid "Gain Control:"
+msgstr "Керування підсиленням:"
+
+#: exif/exifadjust.cpp:106
+msgctxt "gain control"
+msgid "None"
+msgstr "Немає"
+
+#: exif/exifadjust.cpp:107
+msgctxt "gain control"
+msgid "Low gain up"
+msgstr "Невелике підсилення"
+
+#: exif/exifadjust.cpp:108
+msgctxt "gain control"
+msgid "High gain up"
+msgstr "Значне підсилення"
+
+#: exif/exifadjust.cpp:109
+msgctxt "gain control"
+msgid "Low gain down"
+msgstr "Невелике послаблення"
+
+#: exif/exifadjust.cpp:110
+msgctxt "gain control"
+msgid "High gain down"
+msgstr "Значне послаблення"
+
+#: exif/exifadjust.cpp:111
+msgid ""
+"Set here the degree of overall image gain adjustment used by camera to take "
+"the picture."
+msgstr ""
+"Тут ви можете вказати рівень загального коригування підсилення зображення, "
+"який було використано фотоапаратом під час знімання."
+
+#: exif/exifadjust.cpp:116
+msgid "Contrast:"
+msgstr "Контраст:"
+
+#: exif/exifadjust.cpp:118
+msgctxt "contrast mode"
+msgid "Normal"
+msgstr "Нормальний"
+
+#: exif/exifadjust.cpp:119
+msgctxt "contrast mode"
+msgid "Soft"
+msgstr "М’який"
+
+#: exif/exifadjust.cpp:120
+msgctxt "contrast mode"
+msgid "Hard"
+msgstr "Агресивний"
+
+#: exif/exifadjust.cpp:121
+msgid ""
+"Set here the direction of contrast processing applied by the camera to take "
+"the picture."
+msgstr ""
+"Тут ви можете вказати напрямок обробки контрастності зображення, "
+"застосований фотоапаратом під час знімання."
+
+#: exif/exifadjust.cpp:126
+msgid "Saturation:"
+msgstr "Насиченість:"
+
+#: exif/exifadjust.cpp:128
+msgctxt "saturation mode"
+msgid "Normal"
+msgstr "Нормальна"
+
+#: exif/exifadjust.cpp:129
+msgctxt "saturation mode"
+msgid "Low"
+msgstr "Низька"
+
+#: exif/exifadjust.cpp:130
+msgctxt "saturation mode"
+msgid "High"
+msgstr "Висока"
+
+#: exif/exifadjust.cpp:131
+msgid ""
+"Set here the direction of saturation processing applied by the camera to "
+"take the picture."
+msgstr ""
+"Тут ви можете вказати напрямок обробки насиченості, застосований "
+"фотоапаратом під час знімання."
+
+#: exif/exifadjust.cpp:136
+msgid "Sharpness:"
+msgstr "Різкість:"
+
+#: exif/exifadjust.cpp:138
+msgctxt "sharpness mode"
+msgid "Normal"
+msgstr "Нормальна"
+
+#: exif/exifadjust.cpp:139
+msgctxt "sharpness mode"
+msgid "Soft"
+msgstr "М’яка"
+
+#: exif/exifadjust.cpp:140
+msgctxt "sharpness mode"
+msgid "Hard"
+msgstr "Агресивна"
+
+#: exif/exifadjust.cpp:141
+msgid ""
+"Set here the direction of sharpness processing applied by the camera to take "
+"the picture."
+msgstr ""
+"Тут ви можете вказати напрямок обробки різкості, застосований фотоапаратом "
+"під час знімання."
+
+#: exif/exifadjust.cpp:146
+msgid "Custom rendered:"
+msgstr "Нетипове перетворено:"
+
+#: exif/exifadjust.cpp:148
+msgid "Normal process"
+msgstr "Звичайною обробкою"
+
+#: exif/exifadjust.cpp:149
+msgid "Custom process"
+msgstr "Нетиповою обробкою"
+
+#: exif/exifadjust.cpp:150
+msgid ""
+"Set here the use of special processing on image data, such as rendering "
+"geared to output."
+msgstr ""
+"Тут ви можете вказати, чи було використано особливу обробку даних "
+"зображення, на зразок перетворення зчеплення до виводу."
+
+#: exif/exifcaption.cpp:103
+msgctxt "name of the document this image has been scanned from"
+msgid "Name (*):"
+msgstr "Назва (*):"
+
+#: exif/exifcaption.cpp:107
+msgid ""
+"Enter the name of the document from which this image was been scanned. This "
+"field is limited to ASCII characters."
+msgstr ""
+"Тут ви можете ввести назву документа, з якого було заскановано це "
+"зображення. У цьому полі можна використовувати лише символи ASCII."
+
+#: exif/exifcaption.cpp:113
+msgctxt "image description"
+msgid "Description (*):"
+msgstr "Опис (*):"
+
+#: exif/exifcaption.cpp:117
+msgid "Enter the image description. This field is limited to ASCII characters."
+msgstr ""
+"Тут ви можете вказати опис зображення. У цьому полі можна використовувати "
+"лише символи з набору ASCII."
+
+#: exif/exifcaption.cpp:122
+msgid "Artist (*):"
+msgstr "Художник (*):"
+
+#: exif/exifcaption.cpp:126
+msgid ""
+"Enter the image author's name. This field is limited to ASCII characters."
+msgstr ""
+"Тут ви можете ввести ім’я автора. У цьому полі можна використовувати лише "
+"символи з набору ASCII."
+
+#: exif/exifcaption.cpp:131
+msgid "Copyright (*):"
+msgstr "Авторські права (*):"
+
+#: exif/exifcaption.cpp:135
+msgid ""
+"Enter the copyright owner of the image. This field is limited to ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести ім’я власника авторських прав на це зображення. У цьому "
+"полі можна використовувати лише символи набору ASCII."
+
+#: exif/exifcaption.cpp:140
+msgctxt "image caption"
+msgid "Caption:"
+msgstr "Підпис:"
+
+#: exif/exifcaption.cpp:142
+msgid ""
+"Enter the image's caption. This field is not limited. UTF8 encoding will be "
+"used to save the text."
+msgstr ""
+"Тут ви можете ввести підпис зображення. У цьому полі обмеження не "
+"накладаються. Для зберігання тексту буде використано кодування UTF8."
+
+#: exif/exifcaption.cpp:146
+#, kde-format
+msgid "Sync captions entered through %1"
+msgstr "Синхронізувати підписи введені для %1"
+
+#: exif/exifcaption.cpp:149 iptc/iptccontent.cpp:105 xmp/xmpcontent.cpp:102
+msgid "Sync JFIF Comment section"
+msgstr "Синхронізувати розділ коментаря JFIF"
+
+#: exif/exifcaption.cpp:150
+msgid "Sync XMP caption"
+msgstr "Синхронізувати підпис XMP"
+
+#: exif/exifcaption.cpp:151
+msgid "Sync IPTC caption (warning: limited to 2000 printable Ascii characters)"
+msgstr ""
+"Синхронізувати підпис IPTC (увага: там це поле обмежено 2000 друкованими "
+"символами набору символів Ascii)"
+
+#: exif/exifcaption.cpp:159 exif/exifdevice.cpp:313
+msgid ""
+"<b>Note: <b><a href='http://en.wikipedia.org/wiki/EXIF'>EXIF</a></b> text "
+"tags marked by (*) only support printable <b><a href='http://en.wikipedia."
+"org/wiki/Ascii'>ASCII</a></b> characters.</b>"
+msgstr ""
+"<b>Зауваження: <b>Текстові мітки <a href='http://en.wikipedia.org/wiki/"
+"EXIF'>EXIF</a></b>, позначені символом зірочки (*), підтримують лише набір "
+"друкованих символів <b><a href='http://en.wikipedia.org/wiki/Ascii'>ASCII</"
+"a></b>.</b>"
+
+#: exif/exifdatetime.cpp:110
+msgid "Creation date and time"
+msgstr "Дата і час створення"
+
+#: exif/exifdatetime.cpp:111
+msgid "Creation sub-second"
+msgstr "Долі секунди створення"
+
+#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
+#, kde-format
+msgid "Sync creation date hosted by %1"
+msgstr "Синхронізувати дату створення, що міститься у %1"
+
+#: exif/exifdatetime.cpp:117
+msgid "Sync XMP creation date"
+msgstr "Синхронізувати дату створення XMP"
+
+#: exif/exifdatetime.cpp:118
+msgid "Sync IPTC creation date"
+msgstr "Синхронізувати дату створення IPTC"
+
+#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:167 xmp/xmporigin.cpp:141
+msgid "Set creation date to today"
+msgstr "Встановити сьогоднішню дату створення"
+
+#: exif/exifdatetime.cpp:127
+msgid ""
+"Set here the date and time of image creation. In this standard it is the "
+"date and time the file was changed."
+msgstr ""
+"Тут ви можете встановити дату і час створення зображення. У цьому стандарті "
+"це дата і час, коли файл було змінено."
+
+#: exif/exifdatetime.cpp:129
+msgid ""
+"Set here the fractions of seconds for the date and time of image creation."
+msgstr ""
+"Тут ви можете встановити долі секунд для дати і часу створення зображення."
+
+#: exif/exifdatetime.cpp:136
+msgid "Original date and time"
+msgstr "Початкові дата і час"
+
+#: exif/exifdatetime.cpp:137
+msgid "Original sub-second"
+msgstr "Початкові долі секунд"
+
+#: exif/exifdatetime.cpp:143
+msgid "Set original date to today"
+msgstr "Встановити початковою датою сьогоднішню"
+
+#: exif/exifdatetime.cpp:145
+msgid ""
+"Set here the date and time when the original image data was generated. For a "
+"digital still camera the date and time the picture was taken are recorded."
+msgstr ""
+"Тут ви можете встановити дату і час, коли було створено початкові дані "
+"зображення. Для нерухомої цифрової фотокамери ці дата і час буде взято з "
+"записаних даних."
+
+#: exif/exifdatetime.cpp:148
+msgid ""
+"Set here the fractions of seconds for the date and time when the original "
+"image data was generated."
+msgstr ""
+"Тут ви можете вказати долі секунд для дати і часу, коли було створено "
+"початкові дані зображення."
+
+#: exif/exifdatetime.cpp:155
+msgid "Digitization date and time"
+msgstr "Дата і час цифрування"
+
+#: exif/exifdatetime.cpp:156
+msgid "Digitization sub-second"
+msgstr "Долі секунди цифрування"
+
+#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
+msgid "Set digitization date to today"
+msgstr "Встановити датою цифрування сьогоднішню"
+
+#: exif/exifdatetime.cpp:164
+msgid ""
+"Set here the date and time when the image was stored as digital data. If, "
+"for example, an image was captured by a digital still camera and at the same "
+"time the file was recorded, then Original and Digitization date and time "
+"will have the same contents."
+msgstr ""
+"Тут ви можете вказати дату і час, коли зображення було збережено у вигляді "
+"цифрових даних. Якщо, наприклад, зображення було отримано за допомогою "
+"нерухомого цифрового фотоапарата, і у той же час його було записано до "
+"файла, початкова дата і час, і дата і час цифрування будуть однаковими."
+
+#: exif/exifdatetime.cpp:169
+msgid ""
+"Set here the fractions of seconds for the date and time when the image was "
+"stored as digital data."
+msgstr ""
+"Тут ви можете встановити долі секунд для дати і часу, якщо зображення було "
+"збережено як цифрові дані."
+
+#: exif/exifdevice.cpp:130
+msgid "Device manufacturer (*):"
+msgstr "Виробник пристрою (*):"
+
+#: exif/exifdevice.cpp:134
+msgid ""
+"Set here the manufacturer of image input equipment used to take the picture. "
+"This field is limited to ASCII characters."
+msgstr ""
+"Тут ви можете встановити виробника обладнання, використаного для отримання "
+"зображень. У цьому полі можна використовувати лише символи ASCII."
+
+#: exif/exifdevice.cpp:139
+msgid "Device model (*):"
+msgstr "Модель пристрою (*):"
+
+#: exif/exifdevice.cpp:143
+msgid ""
+"Set here the model of image input equipment used to take the picture. This "
+"field is limited to ASCII characters."
+msgstr ""
+"Тут ви можете встановити модель обладнання для отримання зображення. У цьому "
+"полі можна використовувати лише символи ASCII."
+
+#: exif/exifdevice.cpp:148
+msgid "Device type:"
+msgstr "Тип пристрою:"
+
+#: exif/exifdevice.cpp:150
+msgid "Film scanner"
+msgstr "Плівковий сканер"
+
+#: exif/exifdevice.cpp:151
+msgid "Reflection print scanner"
+msgstr "Сканер віддзеркаленого матеріалу"
+
+#: exif/exifdevice.cpp:152
+msgid "Digital still camera"
+msgstr "Нерухома цифрова фотокамера"
+
+#: exif/exifdevice.cpp:153
+msgid "Select here the image input equipment type used to take the picture."
+msgstr ""
+"Тут ви можете вибрати тип обладнання отримання зображення, який було "
+"використано для отримання знімку."
+
+#: exif/exifdevice.cpp:156
+msgid ""
+"<b>Warning: EXIF <b><a href='http://en.wikipedia.org/wiki/"
+"Exchangeable_image_file_format#MakerNote_data'>Makernotes</a></b> can be "
+"unreadable if you set wrong device manufacturer/model description.</b>"
+msgstr ""
+"<b>Зауваження: <b><a href='http://en.wikipedia.org/wiki/"
+"Exchangeable_image_file_format#MakerNote_data'>Мітки виробника</a></b> EXIF "
+"може стати непридатною для читання, якщо ви введете неправильний опис "
+"виробника/моделі пристрою.</b>"
+
+#: exif/exifdevice.cpp:168
+msgid "Exposure time (seconds):"
+msgstr "Час експозиції (у секундах):"
+
+#: exif/exifdevice.cpp:173
+msgid ""
+"Set on this option to set the exposure time of picture, given in seconds."
+msgstr "Тут ви можете встановити час експозиції знімку у секундах."
+
+#: exif/exifdevice.cpp:178
+msgid "Exposure program:"
+msgstr "Програма експозиції:"
+
+#: exif/exifdevice.cpp:180
+msgctxt "exposure program"
+msgid "Not defined"
+msgstr "Не визначено"
+
+#: exif/exifdevice.cpp:181
+msgctxt "exposure program"
+msgid "Manual"
+msgstr "Вручну"
+
+#: exif/exifdevice.cpp:182
+msgctxt "exposure program"
+msgid "Auto"
+msgstr "Автоматична"
+
+#: exif/exifdevice.cpp:183
+msgctxt "exposure program"
+msgid "Aperture priority"
+msgstr "Пріоритет діафрагми"
+
+#: exif/exifdevice.cpp:184
+msgctxt "exposure program"
+msgid "Shutter priority"
+msgstr "Пріоритет затвору"
+
+#: exif/exifdevice.cpp:185
+msgctxt "exposure program"
+msgid "Creative program"
+msgstr "Творча програма"
+
+#: exif/exifdevice.cpp:186
+msgctxt "exposure program"
+msgid "Action program"
+msgstr "Діяльна програма"
+
+#: exif/exifdevice.cpp:187
+msgctxt "exposure program"
+msgid "Portrait mode"
+msgstr "Книжковий режим"
+
+#: exif/exifdevice.cpp:188
+msgctxt "exposure program"
+msgid "Landscape mode"
+msgstr "Альбомний режим"
+
+#: exif/exifdevice.cpp:189
+msgid ""
+"Select here the program used by the camera to set exposure when the picture "
+"was taken."
+msgstr ""
+"Тут ви можете вибрати програму, яку було використано фотоапаратом для "
+"встановлення експозиції під час знімання."
+
+#: exif/exifdevice.cpp:194
+msgid "Exposure mode:"
+msgstr "Режим експозиції:"
+
+#: exif/exifdevice.cpp:196
+msgctxt "exposure mode"
+msgid "Auto"
+msgstr "Автоматичний"
+
+#: exif/exifdevice.cpp:197
+msgctxt "exposure mode"
+msgid "Manual"
+msgstr "Вручну"
+
+#: exif/exifdevice.cpp:198
+msgctxt "exposure mode"
+msgid "Auto bracket"
+msgstr "Автообмеження"
+
+#: exif/exifdevice.cpp:199
+msgid ""
+"Select here the mode used by the camera to set exposure when the picture was "
+"taken. In auto-bracketing mode, the camera shoots a series of frames of the "
+"same scene at different exposure settings."
+msgstr ""
+"Тут ви можете вибрати режим, який було використано фотоапаратом під час "
+"знімання. У режимі auto-bracket фотоапарат робить серію знімків одної сцени "
+"з різними параметрами експозиції."
+
+#: exif/exifdevice.cpp:207
+msgid "Exposure bias (APEX):"
+msgstr "Зміщення експозиції (APEX):"
+
+#: exif/exifdevice.cpp:212
+msgid ""
+"Set here the exposure bias value (in APEX units) used by camera to take the "
+"picture."
+msgstr ""
+"Тут ви можете встановити значення зміщення експозиції у одиницях APEX, який "
+"було використано фотоапаратом для знімання."
+
+#: exif/exifdevice.cpp:219
+msgid "Metering mode:"
+msgstr "Режим вимірювання:"
+
+#: exif/exifdevice.cpp:221
+msgctxt "metering mode"
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: exif/exifdevice.cpp:222
+msgctxt "metering mode"
+msgid "Average"
+msgstr "Середній"
+
+#: exif/exifdevice.cpp:223
+msgctxt "metering mode"
+msgid "Center weighted average"
+msgstr "Середній відносно центру"
+
+#: exif/exifdevice.cpp:224
+msgctxt "metering mode"
+msgid "Spot"
+msgstr "Пляма"
+
+#: exif/exifdevice.cpp:225
+msgctxt "metering mode"
+msgid "Multi-spot"
+msgstr "Мульти-пляма"
+
+#: exif/exifdevice.cpp:226
+msgctxt "metering mode"
+msgid "Multi-segment"
+msgstr "Мульти-сегмент"
+
+#: exif/exifdevice.cpp:227
+msgctxt "metering mode"
+msgid "Partial"
+msgstr "Частковий"
+
+#: exif/exifdevice.cpp:228
+msgctxt "metering mode"
+msgid "Other"
+msgstr "Інший"
+
+#: exif/exifdevice.cpp:229
+msgid ""
+"Select here the metering mode used by the camera to set exposure when the "
+"picture was taken."
+msgstr ""
+"Тут ви можете вибрати вимірювання, який було використано фотоапаратом для "
+"встановлення експозиції під час знімання."
+
+#: exif/exifdevice.cpp:234
+msgid "Sensitivity (ISO):"
+msgstr "Світлочутливість (ISO):"
+
+#: exif/exifdevice.cpp:272
+msgid "Select here the ISO Speed of the camera which took the picture."
+msgstr ""
+"Тут ви можете вибрати світлочутливість ISO, з якою фотоапарат зробив знімок."
+
+#: exif/exifdevice.cpp:277
+msgid "Sensing method:"
+msgstr "Метод розпізнавання:"
+
+#: exif/exifdevice.cpp:279
+msgid "Not defined"
+msgstr "Не визначено"
+
+#: exif/exifdevice.cpp:280
+msgid "One-chip color area"
+msgstr "Одночипова кольорова область"
+
+#: exif/exifdevice.cpp:281
+msgid "Two-chip color area"
+msgstr "Двочипова кольорова область"
+
+#: exif/exifdevice.cpp:282
+msgid "Three-chip color area"
+msgstr "Тричипова кольорова область"
+
+#: exif/exifdevice.cpp:283
+msgid "Color sequential area"
+msgstr "Область послідовності кольорів"
+
+#: exif/exifdevice.cpp:284
+msgid "Trilinear sensor"
+msgstr "Трилінійний сенсор"
+
+#: exif/exifdevice.cpp:285
+msgid "Color sequential linear"
+msgstr "Лінійна послідовність кольорів"
+
+#: exif/exifdevice.cpp:286
+msgid ""
+"Select here the image sensor type used by the camera to take the picture."
+msgstr ""
+"Тут ви можете вибрати тип сенсора зображення, який було використано "
+"фотоапаратом для знімання."
+
+#: exif/exifdevice.cpp:291
+msgid "Scene capture type:"
+msgstr "Тип сцени знімку:"
+
+#: exif/exifdevice.cpp:293
+msgid "Standard"
+msgstr "Стандартний"
+
+#: exif/exifdevice.cpp:294
+msgid "Landscape"
+msgstr "Ландшафтний"
+
+#: exif/exifdevice.cpp:295
+msgid "Portrait"
+msgstr "Портретний"
+
+#: exif/exifdevice.cpp:296 xmp/xmpproperties.cpp:95
+msgid "Night scene"
+msgstr "Нічне освітлення"
+
+#: exif/exifdevice.cpp:297
+msgid "Select here the type of scene used by the camera to take the picture."
+msgstr ""
+"Тут ви можете вибрати тип сцени, який було використано фотоапаратом для "
+"знімання."
+
+#: exif/exifdevice.cpp:302
+msgid "Subject distance type:"
+msgstr "Тип відстані до об’єкта:"
+
+#: exif/exifdevice.cpp:304
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: exif/exifdevice.cpp:305
+msgid "Macro"
+msgstr "Макро"
+
+#: exif/exifdevice.cpp:306
+msgid "Close view"
+msgstr "Зблизька"
+
+#: exif/exifdevice.cpp:307
+msgid "Distant view"
+msgstr "На відстані"
+
+#: exif/exifdevice.cpp:308
+msgid ""
+"Select here the type of distance between the subject and the image input "
+"equipment."
+msgstr ""
+"Тут ви можете вибрати тип відстані між об’єктом і знімальним обладнанням."
+
+#: exif/exifeditwidget.cpp:125
+msgctxt "image caption"
+msgid "Caption"
+msgstr "Підпис"
+
+#: exif/exifeditwidget.cpp:126
+msgid "Caption Information"
+msgstr "Інформація про підпис"
+
+#: exif/exifeditwidget.cpp:130
+msgid "Date & Time"
+msgstr "Дата і час"
+
+#: exif/exifeditwidget.cpp:131
+msgid "Date and Time Information"
+msgstr "Інформація про дату і час"
+
+#: exif/exifeditwidget.cpp:135
+msgid "Lens"
+msgstr "Об’єктив"
+
+#: exif/exifeditwidget.cpp:136
+msgid "Lens Settings"
+msgstr "Параметри об’єктива"
+
+#: exif/exifeditwidget.cpp:140
+msgid "Device"
+msgstr "Пристрій"
+
+#: exif/exifeditwidget.cpp:141
+msgid "Capture Device Settings"
+msgstr "Параметри пристрою захоплення"
+
+#: exif/exifeditwidget.cpp:145
+msgid "Light"
+msgstr "Світло"
+
+#: exif/exifeditwidget.cpp:146
+msgid "Light Source Information"
+msgstr "Інформація про джерело світла"
+
+#: exif/exifeditwidget.cpp:150
+msgctxt "Picture adjustments"
+msgid "Adjustments"
+msgstr "Коригування"
+
+#: exif/exifeditwidget.cpp:151
+msgid "Pictures Adjustments"
+msgstr "Коригування знімків"
+
+#: exif/exiflens.cpp:152
+msgid "Focal length (mm):"
+msgstr "Фокальна відстань (у мм):"
+
+#: exif/exiflens.cpp:158
+msgid ""
+"Set here the lens focal length in millimeters used by camera to take the "
+"picture."
+msgstr ""
+"Тут ви можете встановити фокальну відстань об’єктива у міліметрах, яку "
+"фотоапарат використав для знімання."
+
+#: exif/exiflens.cpp:163
+msgid "Focal length in 35mm film (mm):"
+msgstr "Фокальна відстань для 35мм плівки (мм):"
+
+#: exif/exiflens.cpp:165
+msgid ""
+"Set here equivalent focal length assuming a 35mm film camera, in mm. A value "
+"of 0 means the focal length is unknown."
+msgstr ""
+"Тут ви можете встановити еквівалентну фокальну відстань для 35мм-плівкового "
+"фотоапарата, у мм. Значення 0 означає, що фокальна відстань є невідомою."
+
+#: exif/exiflens.cpp:171
+msgid "Digital zoom ratio:"
+msgstr "Коефіцієнт цифрового збільшення:"
+
+#: exif/exiflens.cpp:177
+msgid "Set here the digital zoom ratio used by camera to take the picture."
+msgstr ""
+"Тут ви можете встановити коефіцієнт цифрового збільшення, який було "
+"використано фотоапаратом для знімання."
+
+#: exif/exiflens.cpp:182
+msgid "Lens aperture (f-number):"
+msgstr "Апертура об’єктива (f-число):"
+
+#: exif/exiflens.cpp:185
+msgid "Select here the lens aperture used by camera to take the picture."
+msgstr ""
+"Тут ви можете вибрати апертуру об’єктива, яку було використано фотоапаратом "
+"для знімання."
+
+#: exif/exiflens.cpp:190
+msgid "Max. lens aperture (f-number):"
+msgstr "Макс. апертура об’єктива (f-число):"
+
+#: exif/exiflens.cpp:193
+msgid ""
+"Select here the smallest aperture of the lens used by camera to take the "
+"picture."
+msgstr ""
+"Тут ви можете вибрати найменшу апертуру об’єктива, яку було використано "
+"фотоапаратом для знімання."
+
+#: exif/exiflight.cpp:84
+msgid "No flash"
+msgstr "Без спалаху"
+
+#: exif/exiflight.cpp:85
+msgid "Fired"
+msgstr "Використано"
+
+#: exif/exiflight.cpp:86
+msgid "Fired, no strobe return light"
+msgstr "Використано, строб не повернув світла"
+
+#: exif/exiflight.cpp:87
+msgid "Fired, strobe return light"
+msgstr "Використано, строб повернув світло"
+
+#: exif/exiflight.cpp:88
+msgid "Yes, compulsory"
+msgstr "Так, примусово"
+
+#: exif/exiflight.cpp:89
+msgid "Yes, compulsory, no return light"
+msgstr "Так, примусово, без повернення світла"
+
+#: exif/exiflight.cpp:90
+msgid "Yes, compulsory, return light"
+msgstr "Так, примусово, з поверненням світла"
+
+#: exif/exiflight.cpp:91
+msgid "No, compulsory"
+msgstr "Ні, примусово"
+
+#: exif/exiflight.cpp:92
+msgid "No, auto"
+msgstr "Ні, автоматично"
+
+#: exif/exiflight.cpp:93
+msgid "Yes, auto"
+msgstr "Так, автоматично"
+
+#: exif/exiflight.cpp:94
+msgid "Yes, auto, no return light"
+msgstr "Так, автоматично, без повернення світла"
+
+#: exif/exiflight.cpp:95
+msgid "Yes, auto, return light"
+msgstr "Так, автоматично, з поверненням світла"
+
+#: exif/exiflight.cpp:96
+msgid "No flash function"
+msgstr "Без функції спалаху"
+
+#: exif/exiflight.cpp:97
+msgid "Yes, red-eye"
+msgstr "Так, «червоні очі»"
+
+#: exif/exiflight.cpp:98
+msgid "Yes, red-eye, no return light"
+msgstr "Так, «червоні очі», без повернення світла"
+
+#: exif/exiflight.cpp:99
+msgid "Yes, red-eye, return light"
+msgstr "Так, «червоні очі», з поверненням світла"
+
+#: exif/exiflight.cpp:100
+msgid "Yes, compulsory, red-eye"
+msgstr "Так, примусово, «червоні очі»"
+
+#: exif/exiflight.cpp:101
+msgid "Yes, compulsory, red-eye, no return light"
+msgstr "Так, примусово, «червоні очі», без повернення світла"
+
+#: exif/exiflight.cpp:102
+msgid "Yes, compulsory, red-eye, return light"
+msgstr "Так, примусово, «червоні очі», з поверненням світла"
+
+#: exif/exiflight.cpp:103
+msgid "Yes, auto, red-eye"
+msgstr "Так, автоматично, «червоні очі»"
+
+#: exif/exiflight.cpp:104
+msgid "Yes, auto, red-eye, no return light"
+msgstr "Так, автоматично, «червоні очі», без повернення світла"
+
+#: exif/exiflight.cpp:105
+msgid "Yes, auto, red-eye, return light"
+msgstr "Так, автоматично, «червоні очі», з поверненням світла"
+
+#: exif/exiflight.cpp:134
+msgid "Light source:"
+msgstr "Джерело світла:"
+
+#: exif/exiflight.cpp:136
+msgctxt "light source"
+msgid "Unknown"
+msgstr "Невідоме"
+
+#: exif/exiflight.cpp:137
+msgctxt "light source"
+msgid "Daylight"
+msgstr "Денне світло"
+
+#: exif/exiflight.cpp:138
+msgctxt "light source"
+msgid "Fluorescent"
+msgstr "Флуоресцентна лампа"
+
+#: exif/exiflight.cpp:139
+msgctxt "light source"
+msgid "Tungsten (incandescent light)"
+msgstr "Лампа розжарювання (світло дуги)"
+
+#: exif/exiflight.cpp:140
+msgctxt "light source"
+msgid "Flash"
+msgstr "Спалах"
+
+#: exif/exiflight.cpp:141
+msgctxt "light source"
+msgid "Fine weather"
+msgstr "Ясна погода"
+
+#: exif/exiflight.cpp:142
+msgctxt "light source"
+msgid "Cloudy weather"
+msgstr "Хмарна погода"
+
+#: exif/exiflight.cpp:143
+msgctxt "light source"
+msgid "Shade"
+msgstr "Тінь"
+
+#: exif/exiflight.cpp:144
+msgctxt "light source"
+msgid "Daylight fluorescent (D 5700 - 7100K)"
+msgstr "Лампа денного світла (D 5700 - 7100 K)"
+
+#: exif/exiflight.cpp:145
+msgctxt "light source"
+msgid "Day white fluorescent (N 4600 - 5400K)"
+msgstr "Біла лампа денного світла (N 4600 - 5400 K)"
+
+#: exif/exiflight.cpp:146
+msgctxt "light source"
+msgid "Cool white fluorescent (W 3900 - 4500K)"
+msgstr "Лампа холодного білого світла (W 3900 - 4500 K)"
+
+#: exif/exiflight.cpp:147
+msgctxt "light source"
+msgid "White fluorescent (WW 3200 - 3700K)"
+msgstr "Флуоресцентна лампа з білим світлом (WW 3200 - 3700 K)"
+
+#: exif/exiflight.cpp:148
+msgctxt "light source"
+msgid "Standard light A"
+msgstr "Стандартне світло A"
+
+#: exif/exiflight.cpp:149
+msgctxt "light source"
+msgid "Standard light B"
+msgstr "Стандартне світло B"
+
+#: exif/exiflight.cpp:150
+msgctxt "light source"
+msgid "Standard light C"
+msgstr "Стандартне світло C"
+
+#: exif/exiflight.cpp:151
+msgctxt "light source"
+msgid "D55"
+msgstr "D55"
+
+#: exif/exiflight.cpp:152
+msgctxt "light source"
+msgid "D65"
+msgstr "D65"
+
+#: exif/exiflight.cpp:153
+msgctxt "light source"
+msgid "D75"
+msgstr "D75"
+
+#: exif/exiflight.cpp:154
+msgctxt "light source"
+msgid "D50"
+msgstr "D50"
+
+#: exif/exiflight.cpp:155
+msgctxt "light source"
+msgid "ISO studio tungsten"
+msgstr "Студійна лампа розжарювання ISO"
+
+#: exif/exiflight.cpp:156
+msgctxt "light source"
+msgid "Other light source"
+msgstr "Інше джерело світла"
+
+#: exif/exiflight.cpp:157
+msgid "Select here the kind of light source used to take the picture."
+msgstr ""
+"Тут ви можете вибрати вид джерела світла, яке було використано для знімання."
+
+#: exif/exiflight.cpp:162
+msgid "Flash mode:"
+msgstr "Режим спалаху:"
+
+#: exif/exiflight.cpp:168
+msgid ""
+"Select here the flash program mode used by the camera to take the picture."
+msgstr ""
+"Тут ви можете вибрати режим програми спалаху, який було використано "
+"фотоапаратом для знімання."
+
+#: exif/exiflight.cpp:173
+msgid "Flash energy (BCPS):"
+msgstr "Енергія спалаху (BCPS):"
+
+#: exif/exiflight.cpp:179
+msgid ""
+"Set here the flash energy used to take the picture in BCPS units. Beam "
+"Candle Power Seconds is the measure of effective intensity of a light source "
+"when it is focused into a beam by a reflector or lens. This value is the "
+"effective intensity for a period of one second."
+msgstr ""
+"Тут ви можете встановити потужність спалаху, який було використано для "
+"знімання у одиницях BCPS. Потужність променя у свічках на секунду (BCPS) — "
+"це міра ефективної інтенсивності джерела світла, якщо воно сфокусоване у "
+"промінь рефлектором або лінзою. Це значення є ефективною інтенсивністю "
+"протягом однієї секунди."
+
+#: exif/exiflight.cpp:187
+msgid "White balance:"
+msgstr "Баланс білого:"
+
+#: exif/exiflight.cpp:189
+msgid "Auto"
+msgstr "Автоматична"
+
+#: exif/exiflight.cpp:190
+msgid "Manual"
+msgstr "Ручна"
+
+#: exif/exiflight.cpp:191
+msgid ""
+"Select here the white balance mode set by the camera when the picture was "
+"taken."
+msgstr ""
+"Тут ви можете вибрати режим балансу білого, встановлений фотоапаратом під "
+"час знімання."
+
+#: iptc/iptccategories.cpp:93 xmp/xmpcategories.cpp:87
+msgid "Identify subject of content (3 chars max):"
+msgstr "Визначити тему вмісту (до 3 символів):"
+
+#: iptc/iptccategories.cpp:98
+msgid ""
+"Set here the category of content. This field is limited to 3 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете встановити категорію вмісту. Вміст цього поля обмежено 3 "
+"символами ASCII."
+
+#: iptc/iptccategories.cpp:101 xmp/xmpcategories.cpp:94
+msgid "Supplemental categories:"
+msgstr "Додаткові категорії:"
+
+#: iptc/iptccategories.cpp:107
+msgid ""
+"Enter here a new supplemental category of content. This field is limited to "
+"32 ASCII characters."
+msgstr ""
+"Тут ви можете ввести нову додаткову категорію вмісту. Вміст цього поля "
+"обмежено довжиною у 32 символів ASCII."
+
+#: iptc/iptccategories.cpp:113 iptc/iptckeywords.cpp:100
+#: xmp/xmpcategories.cpp:103 xmp/xmpkeywords.cpp:91
+msgid "&Add"
+msgstr "&Додати"
+
+#: iptc/iptccategories.cpp:114 iptc/iptckeywords.cpp:101
+#: xmp/xmpcategories.cpp:104 xmp/xmpkeywords.cpp:92
+msgid "&Delete"
+msgstr "&Вилучити"
+
+#: iptc/iptccategories.cpp:115 iptc/iptckeywords.cpp:102
+#: xmp/xmpcategories.cpp:105 xmp/xmpkeywords.cpp:93
+msgid "&Replace"
+msgstr "&Замінити"
+
+#: iptc/iptccategories.cpp:124 iptc/iptccontent.cpp:124
+#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:267
+#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:229
+#: iptc/iptcproperties.cpp:238 iptc/iptcstatus.cpp:129
+#: iptc/iptcsubjects.cpp:92
+msgid ""
+"<b>Note: <b><a href='http://en.wikipedia.org/wiki/"
+"IPTC_Information_Interchange_Model'>IPTC</a></b> text tags only support the "
+"printable <b><a href='http://en.wikipedia.org/wiki/Ascii'>ASCII</a></b> "
+"characters and limit string sizes. Use contextual help for details.</b>"
+msgstr ""
+"<b>Зауваження: Текстові мітки <b><a href='http://en.wikipedia.org/wiki/"
+"IPTC_Information_Interchange_Model'>IPTC</a></b> підтримують лише придатні "
+"до друку символи набору <b><a href='http://en.wikipedia.org/wiki/"
+"Ascii'>ASCII</a></b> і обмежену довжину рядка. Скористайтеся контекстною "
+"довідкою, щоб дізнатися більше.</b>"
+
+#: iptc/iptccontent.cpp:93 xmp/xmpcontent.cpp:89
+msgid "Headline:"
+msgstr "Короткий вміст:"
+
+#: iptc/iptccontent.cpp:98
+msgid ""
+"Enter here the content synopsis. This field is limited to 256 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести короткий опис вмісту. Вміст цього поля обмежено 256 "
+"символами ASCII."
+
+#: iptc/iptccontent.cpp:103 xmp/xmpcontent.cpp:96
+msgctxt "content description"
+msgid "Caption:"
+msgstr "Підпис:"
+
+#: iptc/iptccontent.cpp:106 xmp/xmpcontent.cpp:103
+#, kde-format
+msgid "Sync caption entered through %1"
+msgstr "Синхронізувати підпис введений для %1"
+
+#: iptc/iptccontent.cpp:109 xmp/xmpcontent.cpp:106
+msgid "Sync EXIF Comment"
+msgstr "Синхронізувати коментар EXIF"
+
+#: iptc/iptccontent.cpp:113
+msgid ""
+"Enter the content description. This field is limited to 2000 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести опис вмісту. Вміст цього поля обмежено 2000 символами "
+"ASCII."
+
+#: iptc/iptccontent.cpp:118 xmp/xmpcontent.cpp:116
+msgid "Caption Writer:"
+msgstr "Автор підпису:"
+
+#: iptc/iptccontent.cpp:119 xmp/xmpcontent.cpp:119
+msgid "Enter the name of the caption author."
+msgstr "Тут ви можете ввести ім’я автора підпису."
+
+#: iptc/iptccredits.cpp:96 xmp/xmpcontent.cpp:121
+msgid "Copyright:"
+msgstr "Авторські права:"
+
+#: iptc/iptccredits.cpp:101
+msgid ""
+"Set here the necessary copyright notice. This field is limited to 128 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете встановити потрібне повідомлення про авторські права. Вміст "
+"цього поля обмежено 128 символами ASCII."
+
+#: iptc/iptccredits.cpp:106 xmp/xmpcredits.cpp:111
+msgid "Byline:"
+msgstr "Автор:"
+
+#: iptc/iptccredits.cpp:107 xmp/xmpcredits.cpp:112
+msgid "Set here the name of content creator."
+msgstr "Тут ви можете встановити ім’я творця вмісту."
+
+#: iptc/iptccredits.cpp:112 xmp/xmpcredits.cpp:117
+msgid "Byline Title:"
+msgstr "Посада автора:"
+
+#: iptc/iptccredits.cpp:113 xmp/xmpcredits.cpp:120
+msgid "Set here the title of content creator."
+msgstr "Тут ви можете вказати посаду автора."
+
+#: iptc/iptccredits.cpp:118 xmp/xmpcredits.cpp:182
+msgid "Credit:"
+msgstr "Подяка:"
+
+#: iptc/iptccredits.cpp:123
+msgid ""
+"Set here the content provider. This field is limited to 32 ASCII characters."
+msgstr ""
+"Тут ви можете вказати постачальника вмісту. Вміст цього поля обмежено 32 "
+"символами ASCII."
+
+#: iptc/iptccredits.cpp:128 xmp/xmpcredits.cpp:189
+msgctxt "original owner of content"
+msgid "Source:"
+msgstr "Автор:"
+
+#: iptc/iptccredits.cpp:133
+msgid ""
+"Set here the original owner of content. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете встановити першого власника вмісту зображення. Вміст цього "
+"поля обмежено 32 символами ASCII."
+
+#: iptc/iptccredits.cpp:138
+msgid "Contact:"
+msgstr "Контакти:"
+
+#: iptc/iptccredits.cpp:139
+msgid "Set here the person or organisation to contact."
+msgstr ""
+"Тут ви можете встановити особу або організацію для контактів щодо зображення."
+
+#: iptc/iptceditwidget.cpp:132 xmp/xmpeditwidget.cpp:132
+msgid "Content"
+msgstr "Вміст"
+
+#: iptc/iptceditwidget.cpp:133 xmp/xmpeditwidget.cpp:133
+msgid ""
+"<qt>Content Information<br/><i>Use this panel to describe the visual content "
+"of the image</i></qt>"
+msgstr ""
+"<qt>Інформація про вміст<br/><i>Скористайтеся цією панеллю для пояснення "
+"візуального вмісту зображення</i></qt>"
+
+#: iptc/iptceditwidget.cpp:138 xmp/xmpeditwidget.cpp:138
+msgid "Origin"
+msgstr "Походження"
+
+#: iptc/iptceditwidget.cpp:139 xmp/xmpeditwidget.cpp:139
+msgid ""
+"<qt>Origin Information<br/><i>Use this panel for formal descriptive "
+"information about the image</i></qt>"
+msgstr ""
+"<qt>Інформація про походження<br/><i>Скористайтеся цією панеллю для "
+"формальної описової інформації про це зображення</i></qt>"
+
+#: iptc/iptceditwidget.cpp:144 xmp/xmpeditwidget.cpp:144
+msgid "Credits"
+msgstr "Подяки"
+
+#: iptc/iptceditwidget.cpp:145 xmp/xmpeditwidget.cpp:145
+msgid ""
+"<qt>Credit Information<br/><i>Use this panel to record copyright information "
+"about the image</i></qt>"
+msgstr ""
+"<qt>Інформація про подяки<br/><i>Скористайтеся цією панеллю для запису "
+"інформацію про авторські права цього зображення</i></qt>"
+
+#: iptc/iptceditwidget.cpp:150 xmp/xmpeditwidget.cpp:150
+msgid "Subjects"
+msgstr "Теми"
+
+#: iptc/iptceditwidget.cpp:151 xmp/xmpeditwidget.cpp:151
+msgid ""
+"<qt>Subject Information<br/><i>Use this panel to record subject information "
+"about the image</i></qt>"
+msgstr ""
+"<qt>Інформація про тему<br/><i>Скористайтеся цією панеллю для запису "
+"інформації про тематичні характеристики зображення</i></qt>"
+
+#: iptc/iptceditwidget.cpp:156 xmp/xmpeditwidget.cpp:156
+msgid "Keywords"
+msgstr "Ключові слова"
+
+#: iptc/iptceditwidget.cpp:157 xmp/xmpeditwidget.cpp:157
+msgid ""
+"<qt>Keyword Information<br/><i>Use this panel to record keywords relevant to "
+"the image</i></qt>"
+msgstr ""
+"<qt>Інформація про ключові слова<br/><i>Скористайтеся цією панеллю для "
+"запису ключових слів, що характеризують зображення</i></qt>"
+
+#: iptc/iptceditwidget.cpp:162 xmp/xmpeditwidget.cpp:162
+msgid "Categories"
+msgstr "Категорії"
+
+#: iptc/iptceditwidget.cpp:163 xmp/xmpeditwidget.cpp:163
+msgid ""
+"<qt>Category Information<br/><i>Use this panel to record categories relevant "
+"to the image</i></qt>"
+msgstr ""
+"<qt>Інформація про категорії<br/><i>Скористайтеся цією панеллю для запису "
+"категорій зображення</i></qt>"
+
+#: iptc/iptceditwidget.cpp:168 xmp/xmpeditwidget.cpp:168
+msgid "Status"
+msgstr "Стан"
+
+#: iptc/iptceditwidget.cpp:169 xmp/xmpeditwidget.cpp:169
+msgid ""
+"<qt>Status Information<br/><i>Use this panel to record workflow information</"
+"i></qt>"
+msgstr ""
+"<qt>Інформація про стан<br/><i>Скористайтеся цією панеллю для запису опису "
+"процесу обробки</i></qt>"
+
+#: iptc/iptceditwidget.cpp:174 xmp/xmpeditwidget.cpp:174
+msgid "Properties"
+msgstr "Властивості"
+
+#: iptc/iptceditwidget.cpp:175 xmp/xmpeditwidget.cpp:175
+msgid ""
+"<qt>Status Properties<br/><i>Use this panel to record workflow properties</"
+"i></qt>"
+msgstr ""
+"<qt>Властивості стану<br/><i>Скористайтеся цією панеллю для запису "
+"властивостей процесу обробки</i></qt>"
+
+#: iptc/iptceditwidget.cpp:180
+msgid "Envelope"
+msgstr "Обгортка"
+
+#: iptc/iptceditwidget.cpp:181
+msgid ""
+"<qt>Envelope Information<br/><i>Use this panel to record editorial details</"
+"i></qt>"
+msgstr ""
+"<qt>Інформація про обгортку<br/><i>Скористайтеся цією панеллю для запису "
+"редакційного опису</i></qt>"
+
+#: iptc/iptcenvelope.cpp:88
+msgid "No ObjectData"
+msgstr "Відсутні ObjectData"
+
+#: iptc/iptcenvelope.cpp:89
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 1)"
+msgstr "IPTC-NAA Digital Newsphoto Parameter Record (версія 1)"
+
+#: iptc/iptcenvelope.cpp:90
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 2)"
+msgstr "IPTC-NAA Digital Newsphoto Parameter Record (версія 2)"
+
+#: iptc/iptcenvelope.cpp:91
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 3)"
+msgstr "IPTC-NAA Digital Newsphoto Parameter Record (версія 3)"
+
+#: iptc/iptcenvelope.cpp:92
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 4)"
+msgstr "IPTC-NAA Digital Newsphoto Parameter Record (версія 4)"
+
+#: iptc/iptcenvelope.cpp:93
+msgid "IPTC7901 Recommended Message Format"
+msgstr "Рекомендований формат листів IPTC7901"
+
+#: iptc/iptcenvelope.cpp:94
+msgid "Tagged Image File Format (version 5.0)"
+msgstr "Tagged Image File Format (TIFF) (версія 5.0)"
+
+#: iptc/iptcenvelope.cpp:95
+msgid "Tagged Image File Format (version 6.0)"
+msgstr "Tagged Image File Format (TIFF) (версія 6.0)"
+
+#: iptc/iptcenvelope.cpp:96
+msgid "Illustrator"
+msgstr "Illustrator"
+
+#: iptc/iptcenvelope.cpp:97
+msgid "AppleSingle"
+msgstr "AppleSingle"
+
+#: iptc/iptcenvelope.cpp:98
+msgid "NAA 89-3 (ANPA 1312)"
+msgstr "NAA 89-3 (ANPA 1312)"
+
+#: iptc/iptcenvelope.cpp:99
+msgid "MacBinary II"
+msgstr "MacBinary II"
+
+#: iptc/iptcenvelope.cpp:100
+msgid "IPTC Unstructured Character Oriented File Format"
+msgstr "Формат файлів неструктурованих символів IPTC"
+
+#: iptc/iptcenvelope.cpp:101
+msgid "United Press International ANPA 1312 variant"
+msgstr "United Press International ANPA варіант 1312"
+
+#: iptc/iptcenvelope.cpp:102
+msgid "United Press International Down-Load Message"
+msgstr "Міжнародне повідомлення про завантаження United Press"
+
+#: iptc/iptcenvelope.cpp:103
+msgid "JPEG File Interchange"
+msgstr "Файл обміну зображеннями JPEG"
+
+#: iptc/iptcenvelope.cpp:104
+msgid "Photo-CD Image-Pac"
+msgstr "Фото-КД з зображеннями"
+
+#: iptc/iptcenvelope.cpp:105
+msgid "Microsoft Bit Mapped Graphics File [*.BMP]"
+msgstr "Файл бітового відображення графіки Microsoft [*.BMP]"
+
+#: iptc/iptcenvelope.cpp:106
+msgid "Digital Audio File [*.WAV]"
+msgstr "Цифровий аудіо-файл [*.WAV]"
+
+#: iptc/iptcenvelope.cpp:107
+msgid "Audio plus Moving Video [*.AVI]"
+msgstr "Звук плюс зображення [*.AVI]"
+
+#: iptc/iptcenvelope.cpp:108
+msgid "PC DOS/Windows Executable Files [*.COM][*.EXE]"
+msgstr "Виконувані файли PC DOS/Windows [*.COM][*.EXE]"
+
+#: iptc/iptcenvelope.cpp:109
+msgid "Compressed Binary File [*.ZIP]"
+msgstr "Стиснений двійковий файл [*.ZIP]"
+
+#: iptc/iptcenvelope.cpp:110
+msgid "Audio Interchange File Format AIFF"
+msgstr "Формат файлів обміну аудіо AIFF"
+
+#: iptc/iptcenvelope.cpp:111
+msgid "RIFF Wave (Microsoft Corporation)"
+msgstr "RIFF Wave (Корпорація Microsoft)"
+
+#: iptc/iptcenvelope.cpp:112
+msgid "Freehand (version 3.1)"
+msgstr "Freehand (версія 3.1)"
+
+#: iptc/iptcenvelope.cpp:113
+msgid "Freehand (version 4.0)"
+msgstr "Freehand (версія 4.0)"
+
+#: iptc/iptcenvelope.cpp:114
+msgid "Freehand (version 5.0)"
+msgstr "Freehand (версія 5.0)"
+
+#: iptc/iptcenvelope.cpp:115
+msgid "Freehand (version 5.5)"
+msgstr "Freehand (версія 5.5)"
+
+#: iptc/iptcenvelope.cpp:116
+msgid "Hypertext Markup Language \"HTML\""
+msgstr "Мова гіпертекстової розмітки «HTML»"
+
+#: iptc/iptcenvelope.cpp:117
+msgid "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
+msgstr "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
+
+#: iptc/iptcenvelope.cpp:118
+msgid "MPEG 2 Audio Layer 3, ISO/IEC"
+msgstr "MPEG 2 Audio Layer 3, ISO/IEC"
+
+#: iptc/iptcenvelope.cpp:119
+msgid "Portable Document File [*.PDF] Adobe"
+msgstr "Файл машинонезалежного документа [*.PDF] Adobe"
+
+#: iptc/iptcenvelope.cpp:120
+msgid "News Industry Text Format"
+msgstr "News Industry Text Format"
+
+#: iptc/iptcenvelope.cpp:121
+msgid "Tape Archive [*.TAR]"
+msgstr "Стрічковий архів [*.TAR]"
+
+#: iptc/iptcenvelope.cpp:122
+msgid "Tidningarnas Telegrambyra NITF version (TTNITF DTD)"
+msgstr "Версія NITF від Tidningarnas Telegrambyra (TTNITF DTD)"
+
+#: iptc/iptcenvelope.cpp:123
+msgid "Ritzaus Bureau NITF version (RBNITF DTD)"
+msgstr "Версія NITF від Ritzaus Bureau (RBNITF DTD)"
+
+#: iptc/iptcenvelope.cpp:124
+msgid "Corel Draw [*.CDR]"
+msgstr "Corel Draw [*.CDR]"
+
+#: iptc/iptcenvelope.cpp:171
+msgid "Destination:"
+msgstr "Призначення:"
+
+#: iptc/iptcenvelope.cpp:175
+msgid ""
+"Enter the envelope destination. This field is limited to 1024 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести призначення обгортки. Вміст цього поля обмежено 1024 "
+"символами ASCII."
+
+#: iptc/iptcenvelope.cpp:180
+msgid "U.N.O ID:"
+msgstr "ІД U.N.O:"
+
+#: iptc/iptcenvelope.cpp:185
+msgid ""
+"Set here the Unique Name of Object identifier. This field is limited to 80 "
+"ASCII characters."
+msgstr ""
+"Тут ви можете встановити ідентифікатор Унікальної назви об’єкта (U.N.O.). "
+"Вміст цього поля обмежено 80 символами ASCII."
+
+#: iptc/iptcenvelope.cpp:190
+msgid "Product ID:"
+msgstr "ІД продукту:"
+
+#: iptc/iptcenvelope.cpp:195
+msgid ""
+"Set here the product identifier. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете встановити ідентифікатор продукту. Вміст цього поля обмежено "
+"32 символами ASCII."
+
+#: iptc/iptcenvelope.cpp:200
+msgid "Service ID:"
+msgstr "ІД служби:"
+
+#: iptc/iptcenvelope.cpp:205
+msgid ""
+"Set here the service identifier. This field is limited to 10 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете встановити ідентифікатор служби. Вміст цього поля обмежено 10 "
+"символами ASCII."
+
+#: iptc/iptcenvelope.cpp:210
+msgid "Envelope ID:"
+msgstr "ІД обгортки:"
+
+#: iptc/iptcenvelope.cpp:215
+msgid ""
+"Set here the envelope identifier. This field is limited to 8 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете вибрати ідентифікатор обгортки. Вміст цього поля обмежено 8 "
+"символами ASCII."
+
+#: iptc/iptcenvelope.cpp:220 iptc/iptcproperties.cpp:184
+#: xmp/xmpproperties.cpp:183
+msgid "Priority:"
+msgstr "Пріоритет:"
+
+#: iptc/iptcenvelope.cpp:222
+msgctxt "priority for the envelope"
+msgid "0: None"
+msgstr "0: Жодного"
+
+#: iptc/iptcenvelope.cpp:223
+msgctxt "priority for the envelope"
+msgid "1: High"
+msgstr "1: Високий"
+
+#: iptc/iptcenvelope.cpp:227
+msgctxt "priority for the envelope"
+msgid "5: Normal"
+msgstr "5: Звичайний"
+
+#: iptc/iptcenvelope.cpp:230
+msgctxt "priority for the envelope"
+msgid "8: Low"
+msgstr "8: Низький"
+
+#: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
+#: xmp/xmpproperties.cpp:194
+msgctxt "editorial urgency of content"
+msgid "9: User-defined"
+msgstr "9: Визначено користувачем"
+
+#: iptc/iptcenvelope.cpp:232
+msgid "Select here the envelope priority."
+msgstr "Тут ви можете вибрати пріоритет обгортки."
+
+#: iptc/iptcenvelope.cpp:236
+msgid "Format:"
+msgstr "Формат:"
+
+#: iptc/iptcenvelope.cpp:248
+msgid "Select here envelope file format."
+msgstr "Тут ви можете вибрати формат файла обгортки."
+
+#: iptc/iptcenvelope.cpp:252
+msgid "Sent date:"
+msgstr "Дата надсилання:"
+
+#: iptc/iptcenvelope.cpp:253
+msgid "Sent time:"
+msgstr "Час надсилання:"
+
+#: iptc/iptcenvelope.cpp:259
+msgid "Set envelope sent date to today"
+msgstr "Встановити сьогоднішню дату надсилання обгортки"
+
+#: iptc/iptcenvelope.cpp:261
+msgid "Set here the date when the service sent the material."
+msgstr "Тут ви можете встановити дату, коли служба надіслала матеріал."
+
+#: iptc/iptcenvelope.cpp:262
+msgid "Set here the time when the service sent the material."
+msgstr "Тут ви можете встановити час, коли служба надіслала матеріал."
+
+#: iptc/iptckeywords.cpp:88 xmp/xmpkeywords.cpp:82
+msgid "Use information retrieval words:"
+msgstr "Використовувати слова для отримання інформації:"
+
+#: iptc/iptckeywords.cpp:94
+msgid "Enter here a new keyword. This field is limited to 64 ASCII characters."
+msgstr ""
+"Тут ви можете ввести нове ключове слово. Вміст цього поля обмежено 64 "
+"символами ASCII."
+
+#: iptc/iptcorigin.cpp:138 xmp/xmporigin.cpp:118
+msgid "Digitization date"
+msgstr "Дата цифрування"
+
+#: iptc/iptcorigin.cpp:139
+msgid "Digitization time"
+msgstr "Час цифрування"
+
+#: iptc/iptcorigin.cpp:147 xmp/xmporigin.cpp:125
+msgid "Set here the creation date of digital representation."
+msgstr "Тут ви можете встановити дату створення цифрового еквівалента."
+
+#: iptc/iptcorigin.cpp:149
+msgid "Set here the creation time of digital representation."
+msgstr "Тут ви можете встановити час створення цифрового еквівалента."
+
+#: iptc/iptcorigin.cpp:156 xmp/xmporigin.cpp:132
+msgid "Creation date"
+msgstr "Дата створення"
+
+#: iptc/iptcorigin.cpp:157
+msgid "Creation time"
+msgstr "Час створення"
+
+#: iptc/iptcorigin.cpp:163 xmp/xmporigin.cpp:137
+msgid "Sync EXIF creation date"
+msgstr "Синхронізувати дату створення EXIF"
+
+#: iptc/iptcorigin.cpp:169 xmp/xmporigin.cpp:143
+msgid "Set here the creation date of intellectual content."
+msgstr "Тут ви можете встановити дату створення інтелектуальної власності."
+
+#: iptc/iptcorigin.cpp:171
+msgid "Set here the creation time of intellectual content."
+msgstr "Тут ви можете встановити час створення інтелектуальної власності."
+
+#: iptc/iptcorigin.cpp:178
+msgid "Location:"
+msgstr "Розташування:"
+
+#: iptc/iptcorigin.cpp:179
+msgid "Set here the full country name referenced by the content."
+msgstr "Тут ви можете встановити повну назву країни, якої стосується вміст."
+
+#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:152 xmp/xmporigin.cpp:150
+msgid "City:"
+msgstr "Місто:"
+
+#: iptc/iptcorigin.cpp:188
+msgid ""
+"Set here the city of content origin. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете встановити місто походження вмісту зображення. Вміст цього "
+"поля обмежено 32 символами ASCII."
+
+#: iptc/iptcorigin.cpp:193 xmp/xmporigin.cpp:157
+msgid "Sublocation:"
+msgstr "Точне розташування:"
+
+#: iptc/iptcorigin.cpp:198
+msgid ""
+"Set here the content location within city. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете встановити розташування вмісту зображення у місті. Вміст цього "
+"поля обмежено 32 символами ASCII."
+
+#: iptc/iptcorigin.cpp:203 xmp/xmporigin.cpp:164
+msgid "State/Province:"
+msgstr "Регіон:"
+
+#: iptc/iptcorigin.cpp:208
+msgid ""
+"Set here the Province or State of content origin. This field is limited to "
+"32 ASCII characters."
+msgstr ""
+"Тут ви можете встановити область або штат походження вмісту зображення. "
+"Вміст цього поля обмежено 32 символами ASCII."
+
+#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:157 xmp/xmporigin.cpp:171
+msgid "Country:"
+msgstr "Країна:"
+
+#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:173
+msgid "Select here country name of content origin."
+msgstr "Тут ви можете вибрати назву країни походження джерела вмісту."
+
+#: iptc/iptcproperties.cpp:132
+msgid "Release date"
+msgstr "Дата випуску"
+
+#: iptc/iptcproperties.cpp:133
+msgid "Release time"
+msgstr "Час випуску"
+
+#: iptc/iptcproperties.cpp:139
+msgid "Set release date to today"
+msgstr "Встановити сьогоднішню дату випуску"
+
+#: iptc/iptcproperties.cpp:141
+msgid "Set here the earliest intended usable date of intellectual content."
+msgstr ""
+"Тут ви можете встановити дату початку придатності інтелектуальної власності "
+"вмісту."
+
+#: iptc/iptcproperties.cpp:143
+msgid "Set here the earliest intended usable time of intellectual content."
+msgstr ""
+"Тут ви можете встановити час початку придатності інтелектуальної власності "
+"вмісту."
+
+#: iptc/iptcproperties.cpp:149
+msgid "Expiration date"
+msgstr "Дата завершення строку дії"
+
+#: iptc/iptcproperties.cpp:150
+msgid "Expiration time"
+msgstr "Завершення строку дії"
+
+#: iptc/iptcproperties.cpp:156
+msgid "Set expiration date to today"
+msgstr "Встановити сьогоднішній строк завершення дії"
+
+#: iptc/iptcproperties.cpp:158
+msgid "Set here the latest intended usable date of intellectual content."
+msgstr ""
+"Тут ви можете встановити останню дату придатності інтелектуальної власності "
+"вмісту."
+
+#: iptc/iptcproperties.cpp:160
+msgid "Set here the latest intended usable time of intellectual content."
+msgstr ""
+"Тут ви можете встановити останній час придатності інтелектуальної власності "
+"вмісту."
+
+#: iptc/iptcproperties.cpp:167 xmp/xmpproperties.cpp:171
+msgid "Language:"
+msgstr "Мова:"
+
+#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:172
+msgid "Select here the language of content."
+msgstr "Тут ви можете вибрати мову вмісту."
+
+#: iptc/iptcproperties.cpp:186 xmp/xmpproperties.cpp:185
+msgctxt "editorial urgency of content"
+msgid "0: None"
+msgstr "0: Жодного"
+
+#: iptc/iptcproperties.cpp:187 xmp/xmpproperties.cpp:186
+msgctxt "editorial urgency of content"
+msgid "1: High"
+msgstr "1: Високий"
+
+#: iptc/iptcproperties.cpp:191 xmp/xmpproperties.cpp:190
+msgctxt "editorial urgency of content"
+msgid "5: Normal"
+msgstr "5: Звичайний"
+
+#: iptc/iptcproperties.cpp:194 xmp/xmpproperties.cpp:193
+msgctxt "editorial urgency of content"
+msgid "8: Low"
+msgstr "8: Низький"
+
+#: iptc/iptcproperties.cpp:196 xmp/xmpproperties.cpp:195
+msgid "Select here the editorial urgency of content."
+msgstr "Тут ви можете вибрати редакційну важливість вмісту."
+
+#: iptc/iptcproperties.cpp:200
+msgid "Cycle:"
+msgstr "Період:"
+
+#: iptc/iptcproperties.cpp:202
+msgid "Morning"
+msgstr "Ранок"
+
+#: iptc/iptcproperties.cpp:203
+msgid "Afternoon"
+msgstr "Після обіду"
+
+#: iptc/iptcproperties.cpp:204
+msgid "Evening"
+msgstr "Вечір"
+
+#: iptc/iptcproperties.cpp:205
+msgid "Select here the editorial cycle of content."
+msgstr "Тут ви можете вибрати редакційний період вмісту."
+
+#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
+msgid "Type:"
+msgstr "Тип:"
+
+#: iptc/iptcproperties.cpp:215 xmp/xmpproperties.cpp:114
+msgid "News"
+msgstr "Новини"
+
+#: iptc/iptcproperties.cpp:216 xmp/xmpproperties.cpp:110
+msgid "Data"
+msgstr "Дані"
+
+#: iptc/iptcproperties.cpp:217 xmp/xmpproperties.cpp:107
+msgid "Advisory"
+msgstr "Рекомендація"
+
+#: iptc/iptcproperties.cpp:218
+msgid "Select here the editorial type of content."
+msgstr "Тут ви можете вибрати редакційний тип вмісту."
+
+#: iptc/iptcproperties.cpp:219
+msgid ""
+"Set here the editorial type description of content. This field is limited to "
+"64 ASCII characters."
+msgstr ""
+"Тут ви можете встановити редакційний тип опису вмісту. Вміст цього поля "
+"обмежено 64 символами ASCII."
+
+#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:255
+msgid "Reference:"
+msgstr "Посилання:"
+
+#: iptc/iptcproperties.cpp:233
+msgid ""
+"Set here the original content transmission reference. This field is limited "
+"to 32 ASCII characters."
+msgstr ""
+"Тут ви можете вказати посилання на початковий матеріал зображеного. Вміст "
+"цього поля обмежено 32 символами ASCII."
+
+#: iptc/iptcstatus.cpp:88
+msgctxt "image title"
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: iptc/iptcstatus.cpp:93
+msgid ""
+"Set here the shorthand reference of content. This field is limited to 64 "
+"ASCII characters."
+msgstr ""
+"Тут ви можете встановити коротку довідку про вміст. Вміст цього поля "
+"обмежено 64 символами ASCII."
+
+#: iptc/iptcstatus.cpp:98
+msgid "Edit Status:"
+msgstr "Стан редагування:"
+
+#: iptc/iptcstatus.cpp:103
+msgid ""
+"Set here the title of content status. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете вказати заголовок стану вмісту. Вміст цього поля обмежено 64 "
+"символами ASCII."
+
+#: iptc/iptcstatus.cpp:108
+msgid "Job Identifier:"
+msgstr "Ідентифікатор роботи:"
+
+#: iptc/iptcstatus.cpp:113
+msgid ""
+"Set here the string that identifies content that recurs. This field is "
+"limited to 32 ASCII characters."
+msgstr ""
+"Тут ви можете встановити рядок, що ідентифікуватиме вміст який повторно "
+"обробляли. Вміст цього поля обмежено 32 символами ASCII."
+
+#: iptc/iptcstatus.cpp:118 xmp/xmpstatus.cpp:103
+msgid "Special Instructions:"
+msgstr "Особливі настанови:"
+
+#: iptc/iptcstatus.cpp:124
+msgid ""
+"Enter the editorial usage instructions. This field is limited to 256 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести редакційні настанови з використання. Вміст цього поля "
+"обмежено 256 символами ASCII."
+
+#: iptc/iptcsubjects.cpp:51
+msgid ""
+"Enter here the Informative Provider Reference. I.P.R is a name registered "
+"with the IPTC/NAA, identifying the provider that provides an indicator of "
+"the content. The default value for the I.P.R is \"IPTC\" if a standard "
+"Reference Code is used. This field is limited to 32 ASCII characters."
+msgstr ""
+"Тут ви можете ввести Довідковий інформаційний код постачальника (I.P.R.). I."
+"P.R — це назва зареєстрована у IPTC/NAA, що ідентифікує постачальника, який "
+"надав позначення вмісту. Типовим значенням I.P.R є «IPTC», якщо використано "
+"стандартний Довідковий код. Вміст цього поля обмежено 32 символами ASCII."
+
+#: iptc/iptcsubjects.cpp:59
+msgid ""
+"Enter here the Subject Reference Number. Provides a numeric code to indicate "
+"the Subject Name plus optional Subject Matter and Subject Detail Names in "
+"the language of the service. Subject Reference is a number from the range "
+"01000000 to 17999999 and represent a language independent international "
+"reference to a Subject. A Subject is identified by its Reference Number and "
+"corresponding Names taken from a standard lists given by IPTC/NAA. If a "
+"standard reference code is used, these lists are the English language "
+"reference versions. This field is limited to 8 ASCII digit code."
+msgstr ""
+"Тут ви можете вказати Довідковий номер об’єкта. Цей номер надає числовий "
+"код, який визначає Назву об’єкта плюс додатково Сутність об’єкта і Докладна "
+"назва об’єкта мовою служби. Довідковий номер знаходиться у межах від "
+"01000000 до 17999999 і відповідають незалежну від мови міжнародну інформацію "
+"про об’єкт. Об’єкт ідентифікується за своїм довідковим номером, а відповідну "
+"назву буде взято з стандартних списків, що надаються IPTC/NAA. Якщо "
+"використано стандартний довідковий код, ці списки дадуть його назву "
+"англійською. Вміст цього поля обмежено 8 цифрами ASCII."
+
+#: iptc/iptcsubjects.cpp:74
+msgid ""
+"Enter here the Subject Name. English language is used if you selected a "
+"standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести Назву об’єкта. Якщо ви обрали стандартний довідковий "
+"код IPTC/NAA, буде використано англійську мову. Вміст цього поля обмежено 64 "
+"символами ASCII."
+
+#: iptc/iptcsubjects.cpp:81
+msgid ""
+"Enter here the Subject Matter Name. English language is used if you selected "
+"a standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести Назву сутності об’єкта. Якщо ви обрали стандартний "
+"довідковий код IPTC/NAA, буде використано англійську мову. Вміст цього поля "
+"обмежено 64 символами ASCII."
+
+#: iptc/iptcsubjects.cpp:88
+msgid ""
+"Enter here the Subject Detail Name. English language is used if you selected "
+"a standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Тут ви можете ввести Докладну назву об’єкта. Якщо ви обрали стандартний "
+"довідковий код IPTC/NAA, буде використано англійську мову. Вміст цього поля "
+"обмежено 64 символами ASCII."
+
+#. i18n: ectx: Menu (Image)
+#: plugin/kipiplugin_metadataeditui.rc:6
+msgid "&Image"
+msgstr "&Зображення"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_metadataeditui.rc:12
+msgid "Main Toolbar"
+msgstr "Головна панель"
+
+#: plugin/metadataedit.cpp:97
+msgid "Metadata edit dialog"
+msgstr "Діалогове вікно редагування метаданих"
+
+#: plugin/metadataedit.cpp:102
+msgid "Edit EXIF"
+msgstr "Змінити EXIF"
+
+#: plugin/metadataedit.cpp:103
+msgid "Edit IPTC"
+msgstr "Змінити IPTC"
+
+#: plugin/metadataedit.cpp:104
+msgid "Edit XMP"
+msgstr "Змінити XMP"
+
+#: plugin/metadataedit.cpp:112
+msgid "Next"
+msgstr "Наступний"
+
+#: plugin/metadataedit.cpp:113
+msgid "Previous"
+msgstr "Попередній"
+
+#: plugin/metadataedit.cpp:155
+msgid "Edit Metadata"
+msgstr "Змінити метадані"
+
+#: plugin/metadataedit.cpp:158
+msgid "A Plugin to edit pictures' metadata."
+msgstr "Додаток для редагування метаданих зображень."
+
+#: plugin/metadataedit.cpp:159
+msgid "(c) 2006-2013, Gilles Caulier"
+msgstr "© Gilles Caulier, 2006–2013"
+
+#: plugin/metadataedit.cpp:161
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/metadataedit.cpp:161
+msgid "Author and Maintainer"
+msgstr "Автор і супровідник"
+
+#: plugin/metadataedit.cpp:164
+msgid "Victor Dodon"
+msgstr "Victor Dodon"
+
+#: plugin/metadataedit.cpp:164
+msgid "Developer"
+msgstr "Розробник"
+
+#: plugin/metadataedit.cpp:268
+#, kde-format
+msgid "%1 (%2/%3) - Edit Metadata"
+msgstr "%1 (%2/%3) — Редагування метаданих"
+
+#: plugin/multistringsedit.cpp:90 plugin/multivaluesedit.cpp:94
+#: plugin/objectattributesedit.cpp:104
+msgid "Add a new value to the list"
+msgstr "Додати нове значення до списку"
+
+#: plugin/multistringsedit.cpp:91 plugin/multivaluesedit.cpp:95
+#: plugin/objectattributesedit.cpp:105
+msgid "Remove the current selected value from the list"
+msgstr "Вилучити поточне вибране значення зі списку"
+
+#: plugin/multistringsedit.cpp:92 plugin/multivaluesedit.cpp:96
+#: plugin/objectattributesedit.cpp:106
+msgid "Replace the current selected value from the list"
+msgstr "Замінити поточне вибране значення зі списку"
+
+#: plugin/multistringsedit.cpp:106 plugin/objectattributesedit.cpp:151
+msgid " This field is limited to:"
+msgstr " Вміст цього поля обмежено:"
+
+#: plugin/multistringsedit.cpp:112 plugin/objectattributesedit.cpp:157
+msgid "<p>Printable ASCII characters.</p>"
+msgstr "<p>Набір призначених для друку символів ASCII.</p>"
+
+#: plugin/multistringsedit.cpp:118 plugin/objectattributesedit.cpp:163
+#, kde-format
+msgid "<p>1 character.</p>"
+msgid_plural "<p>%1 characters.</p>"
+msgstr[0] "<p>%1 символ.</p>"
+msgstr[1] "<p>%1 символи.</p>"
+msgstr[2] "<p>%1 символів.</p>"
+msgstr[3] "<p>%1 символ.</p>"
+
+#: plugin/objectattributesedit.cpp:96 xmp/xmpproperties.cpp:223
+msgid "Attribute:"
+msgstr "Атрибут:"
+
+#: plugin/objectattributesedit.cpp:118
+msgid "Select here the editorial attribute of content."
+msgstr "Тут ви можете вибрати редакційний атрибут вмісту."
+
+#: plugin/objectattributesedit.cpp:119
+msgctxt "Content type"
+msgid "Current"
+msgstr "Поточний"
+
+#: plugin/objectattributesedit.cpp:120
+msgctxt "Content type"
+msgid "Analysis"
+msgstr "Аналіз"
+
+#: plugin/objectattributesedit.cpp:121
+msgctxt "Content type"
+msgid "Archive material"
+msgstr "Архівний матеріал"
+
+#: plugin/objectattributesedit.cpp:122
+msgctxt "Content type"
+msgid "Background"
+msgstr "Тло"
+
+#: plugin/objectattributesedit.cpp:123
+msgctxt "Content type"
+msgid "Feature"
+msgstr "Бойовик"
+
+#: plugin/objectattributesedit.cpp:124
+msgctxt "Content type"
+msgid "Forecast"
+msgstr "Прогноз"
+
+#: plugin/objectattributesedit.cpp:125
+msgctxt "Content type"
+msgid "History"
+msgstr "Історія"
+
+#: plugin/objectattributesedit.cpp:126
+msgctxt "Content type"
+msgid "Obituary"
+msgstr "Некролог"
+
+#: plugin/objectattributesedit.cpp:127
+msgctxt "Content type"
+msgid "Opinion"
+msgstr "Думка"
+
+#: plugin/objectattributesedit.cpp:128
+msgctxt "Content type"
+msgid "Polls & Surveys"
+msgstr "Опитування і анкетування"
+
+#: plugin/objectattributesedit.cpp:129
+msgctxt "Content type"
+msgid "Profile"
+msgstr "Профіль"
+
+#: plugin/objectattributesedit.cpp:130
+msgctxt "Content type"
+msgid "Results Listings & Table"
+msgstr "Списки і таблиця результатів"
+
+#: plugin/objectattributesedit.cpp:131
+msgctxt "Content type"
+msgid "Side bar & Supporting information"
+msgstr "Бокова смуга і супутня інформація"
+
+#: plugin/objectattributesedit.cpp:132
+msgctxt "Content type"
+msgid "Summary"
+msgstr "Резюме"
+
+#: plugin/objectattributesedit.cpp:133
+msgctxt "Content type"
+msgid "Transcript & Verbatim"
+msgstr "Протокол і стенограма"
+
+#: plugin/objectattributesedit.cpp:134
+msgctxt "Content type"
+msgid "Interview"
+msgstr "Інтерв’ю"
+
+#: plugin/objectattributesedit.cpp:135
+msgctxt "Content type"
+msgid "From the Scene"
+msgstr "З місця подій"
+
+#: plugin/objectattributesedit.cpp:136
+msgctxt "Content type"
+msgid "Retrospective"
+msgstr "Ретроспектива"
+
+#: plugin/objectattributesedit.cpp:137
+msgctxt "Content type"
+msgid "Statistics"
+msgstr "Статистика"
+
+#: plugin/objectattributesedit.cpp:138
+msgctxt "Content type"
+msgid "Update"
+msgstr "Оновлення"
+
+#: plugin/objectattributesedit.cpp:139
+msgctxt "Content type"
+msgid "Wrap-up"
+msgstr "Кіт в мішку"
+
+#: plugin/objectattributesedit.cpp:140
+msgctxt "Content type"
+msgid "Press Release"
+msgstr "Повідомлення для друку"
+
+#: plugin/objectattributesedit.cpp:146
+msgid ""
+"Set here the editorial attribute description of content. This field is "
+"limited to 64 ASCII characters."
+msgstr ""
+"Тут ви можете встановити редакційний атрибут опису вмісту. Вміст цього поля "
+"обмежено 64 символами ASCII."
+
+#: plugin/plugin_metadataedit.cpp:130
+msgid "&Metadata"
+msgstr "&Метадані"
+
+#: plugin/plugin_metadataedit.cpp:138
+msgid "Edit &All Metadata..."
+msgstr "Змінити &всі метадані…"
+
+#: plugin/plugin_metadataedit.cpp:150
+msgid "Import EXIF..."
+msgstr "Імпортувати EXIF..."
+
+#: plugin/plugin_metadataedit.cpp:158
+msgid "Import IPTC..."
+msgstr "Імпортувати IPTC..."
+
+#: plugin/plugin_metadataedit.cpp:166
+msgid "Import XMP..."
+msgstr "Імпортувати XMP..."
+
+#: plugin/plugin_metadataedit.cpp:201
+msgid "Select File to Import EXIF metadata"
+msgstr "Виберіть файл для імпорту метаданих EXIF"
+
+#: plugin/plugin_metadataedit.cpp:211 plugin/plugin_metadataedit.cpp:303
+#: plugin/plugin_metadataedit.cpp:390
+#, kde-format
+msgid "Cannot load metadata from \"%1\""
+msgstr "Не вдалося завантажити метадані з «%1»"
+
+#: plugin/plugin_metadataedit.cpp:212 plugin/plugin_metadataedit.cpp:226
+#: plugin/plugin_metadataedit.cpp:235 plugin/plugin_metadataedit.cpp:275
+msgid "Import EXIF Metadata"
+msgstr "Імпортувати метадані EXIF"
+
+#: plugin/plugin_metadataedit.cpp:225
+#, kde-format
+msgid "\"%1\" does not have EXIF metadata."
+msgstr "У «%1» немає метаданих EXIF."
+
+#: plugin/plugin_metadataedit.cpp:232
+#, kde-format
+msgid ""
+"EXIF metadata from the currently selected pictures will be permanently "
+"replaced by the EXIF content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Метадані EXIF з вибраних зараз зображень буде назавжди заміщено даними EXIF "
+"з «%1».\n"
+"Чи бажаєте ви продовжувати?"
+
+#: plugin/plugin_metadataedit.cpp:273
+msgid "Unable to set EXIF metadata from:"
+msgstr "Неможливо встановити метадані EXIF з:"
+
+#: plugin/plugin_metadataedit.cpp:293
+msgid "Select File to Import IPTC metadata"
+msgstr "Виберіть файл для імпорту метаданих IPTC"
+
+#: plugin/plugin_metadataedit.cpp:304 plugin/plugin_metadataedit.cpp:313
+#: plugin/plugin_metadataedit.cpp:322 plugin/plugin_metadataedit.cpp:362
+msgid "Import IPTC Metadata"
+msgstr "Імпортувати метадані IPTC"
+
+#: plugin/plugin_metadataedit.cpp:312
+#, kde-format
+msgid "\"%1\" does not have IPTC metadata."
+msgstr "У «%1» немає метаданих IPTC."
+
+#: plugin/plugin_metadataedit.cpp:319
+#, kde-format
+msgid ""
+"IPTC metadata from the currently selected pictures will be permanently "
+"replaced by the IPTC content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Метадані IPTC з вибраних зараз знімків буде назавжди замінено даними IPTC з "
+"«%1».\n"
+"Чи бажаєте ви продовжувати?"
+
+#: plugin/plugin_metadataedit.cpp:360
+msgid "Unable to set IPTC metadata from:"
+msgstr "Неможливо встановити метадані IPTC з:"
+
+#: plugin/plugin_metadataedit.cpp:380
+msgid "Select File to Import XMP metadata"
+msgstr "Вибрати файл для імпорту метаданих XMP"
+
+#: plugin/plugin_metadataedit.cpp:391 plugin/plugin_metadataedit.cpp:400
+#: plugin/plugin_metadataedit.cpp:409 plugin/plugin_metadataedit.cpp:449
+msgid "Import XMP Metadata"
+msgstr "Імпортувати метадані XMP"
+
+#: plugin/plugin_metadataedit.cpp:399
+#, kde-format
+msgid "\"%1\" does not have XMP metadata."
+msgstr "У «%1» немає метаданих XMP."
+
+#: plugin/plugin_metadataedit.cpp:406
+#, kde-format
+msgid ""
+"XMP metadata from the currently selected pictures will be permanently "
+"replaced by the XMP content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Метадані XMP з вибраних зараз зображень буде назавжди заміщено даними XMP з "
+"«%1».\n"
+"Чи бажаєте ви продовжувати?"
+
+#: plugin/plugin_metadataedit.cpp:447
+msgid "Unable to set XMP metadata from:"
+msgstr "Неможливо встановити метадані XMP з:"
+
+#: xmp/xmpcategories.cpp:91
+msgid ""
+"Set here the category of content. This field is limited to 3 characters."
+msgstr ""
+"Тут ви можете встановити категорію вмісту. Вміст цього поля обмежено 3 "
+"символами ASCII."
+
+#: xmp/xmpcategories.cpp:98
+msgid "Enter here a new supplemental category of content."
+msgstr "Тут ви можете ввести нову додаткову категорію вмісту."
+
+#: xmp/xmpcontent.cpp:92
+msgid "Enter here the content synopsis."
+msgstr "Тут ви можете ввести короткий опис вмісту."
+
+#: xmp/xmpcontent.cpp:97
+msgid "Enter the content description."
+msgstr "Тут ви можете ввести опис вмісту."
+
+#: xmp/xmpcontent.cpp:99
+msgid "Default Language Caption Options"
+msgstr "Параметри типової мови підписів"
+
+#: xmp/xmpcontent.cpp:122
+msgid "Enter the necessary copyright notice."
+msgstr "Тут ви можете вказати повідомлення про авторські права."
+
+#: xmp/xmpcredits.cpp:124
+msgid "Contact"
+msgstr "Контакти"
+
+#: xmp/xmpcredits.cpp:127
+msgctxt "contact email address"
+msgid "E-mail:"
+msgstr "Ел. пошта:"
+
+#: xmp/xmpcredits.cpp:130
+msgid "Set here the contact e-mail."
+msgstr "Тут ви можете встановити адресу електронної пошти для контактів."
+
+#: xmp/xmpcredits.cpp:132
+msgid "URL:"
+msgstr "Адреса URL:"
+
+#: xmp/xmpcredits.cpp:135
+msgid "Set here the contact URL."
+msgstr "Тут ви можете встановити адресу URL для контактів."
+
+#: xmp/xmpcredits.cpp:137
+msgid "Phone:"
+msgstr "Номер телефону:"
+
+#: xmp/xmpcredits.cpp:140
+msgid "Set here the contact 'phone number."
+msgstr "Тут ви можете встановити телефонний номер для контактів."
+
+#: xmp/xmpcredits.cpp:142
+msgctxt "Street address"
+msgid "Address:"
+msgstr "Адреса:"
+
+#: xmp/xmpcredits.cpp:145
+msgid "Set here the contact address."
+msgstr "Тут ви можете встановити адресу для контактів."
+
+#: xmp/xmpcredits.cpp:147
+msgid "Postal code:"
+msgstr "Поштовий код:"
+
+#: xmp/xmpcredits.cpp:150
+msgid "Set here the contact postal code."
+msgstr "Тут ви можете встановити поштовий код для контактів."
+
+#: xmp/xmpcredits.cpp:155
+msgid "Set here the contact city."
+msgstr "Тут ви можете встановити місто для контактів."
+
+#: xmp/xmpcredits.cpp:160
+msgid "Set here the contact country."
+msgstr "Тут ви можете встановити країну для контактів."
+
+#: xmp/xmpcredits.cpp:185
+msgid "Set here the content provider."
+msgstr "Тут ви можете встановити постачальника вмісту."
+
+#: xmp/xmpcredits.cpp:192
+msgid "Set here the original owner of content."
+msgstr "Тут ви можете встановити першого власника вмісту зображення."
+
+#: xmp/xmpkeywords.cpp:86
+msgid "Enter here a new keyword."
+msgstr "Тут ви можете ввести нове ключове слово."
+
+#: xmp/xmporigin.cpp:153
+msgid "Set here the content's city of origin."
+msgstr "Тут ви можете встановити місто походження вмісту зображення."
+
+#: xmp/xmporigin.cpp:160
+msgid "Set here the content's location within the city."
+msgstr "Тут ви можете встановити розташування зображеного у місті."
+
+#: xmp/xmporigin.cpp:167
+msgid "Set here the content's Province or State of origin."
+msgstr "Тут ви можете встановити назву області або штату походження вмісту."
+
+#: xmp/xmpproperties.cpp:82
+msgid "Headshot"
+msgstr "Вид спереду"
+
+#: xmp/xmpproperties.cpp:83
+msgid "Half-length"
+msgstr "У пів довжини"
+
+#: xmp/xmpproperties.cpp:84
+msgid "Full-length"
+msgstr "На повну довжину"
+
+#: xmp/xmpproperties.cpp:85
+msgctxt "Side view of a person"
+msgid "Profile"
+msgstr "Профіль"
+
+#: xmp/xmpproperties.cpp:86
+msgid "Rear view"
+msgstr "Вид ззаду"
+
+#: xmp/xmpproperties.cpp:87
+msgid "Single"
+msgstr "Одиночний"
+
+#: xmp/xmpproperties.cpp:88
+msgid "Couple"
+msgstr "Пара"
+
+#: xmp/xmpproperties.cpp:89
+msgid "Two"
+msgstr "Два"
+
+#: xmp/xmpproperties.cpp:90
+msgctxt "group of people"
+msgid "Group"
+msgstr "Група"
+
+#: xmp/xmpproperties.cpp:91
+msgid "General view"
+msgstr "Загальний вид"
+
+#: xmp/xmpproperties.cpp:92
+msgid "Panoramic view"
+msgstr "Панорама"
+
+#: xmp/xmpproperties.cpp:93
+msgid "Aerial view"
+msgstr "Вид з повітря"
+
+#: xmp/xmpproperties.cpp:94
+msgid "Under-water"
+msgstr "Під водою"
+
+#: xmp/xmpproperties.cpp:96
+msgid "Satellite"
+msgstr "Супутник"
+
+#: xmp/xmpproperties.cpp:97
+msgid "Exterior view"
+msgstr "Вид ззовні"
+
+#: xmp/xmpproperties.cpp:98
+msgid "Interior view"
+msgstr "Вид зсередини"
+
+#: xmp/xmpproperties.cpp:99
+msgid "Close-up"
+msgstr "Зблизька"
+
+#: xmp/xmpproperties.cpp:100
+msgid "Action"
+msgstr "Дія"
+
+#: xmp/xmpproperties.cpp:101
+msgid "Performing"
+msgstr "Вистава"
+
+#: xmp/xmpproperties.cpp:102
+msgid "Posing"
+msgstr "Позування"
+
+#: xmp/xmpproperties.cpp:103
+msgid "Symbolic"
+msgstr "Символічний"
+
+#: xmp/xmpproperties.cpp:104
+msgid "Off-beat"
+msgstr "Оригінальний"
+
+#: xmp/xmpproperties.cpp:105
+msgid "Movie scene"
+msgstr "Сцена з вистави"
+
+#: xmp/xmpproperties.cpp:108
+msgid "Alert"
+msgstr "Попередження"
+
+#: xmp/xmpproperties.cpp:109
+msgid "Catalog"
+msgstr "Каталог"
+
+#: xmp/xmpproperties.cpp:111
+msgctxt "type is a document"
+msgid "Document"
+msgstr "Документ"
+
+#: xmp/xmpproperties.cpp:112
+msgid "DTD"
+msgstr "DTD"
+
+#: xmp/xmpproperties.cpp:113
+msgid "Maintenance"
+msgstr "Супровід"
+
+#: xmp/xmpproperties.cpp:115
+msgid "News Management Mode"
+msgstr "Режим керування новинами"
+
+#: xmp/xmpproperties.cpp:116
+msgid "Package"
+msgstr "Пакунок"
+
+#: xmp/xmpproperties.cpp:117
+msgid "Schema"
+msgstr "Схема"
+
+#: xmp/xmpproperties.cpp:118
+msgid "Topic"
+msgstr "Тема"
+
+#: xmp/xmpproperties.cpp:119
+msgid "Topic Set"
+msgstr "Набір тем"
+
+#: xmp/xmpproperties.cpp:199
+msgid "Scene:"
+msgstr "Місце дії:"
+
+#: xmp/xmpproperties.cpp:200
+msgid "Select here the scene type of the content."
+msgstr "Тут ви можете вибрати тип місця дії вмісту."
+
+#: xmp/xmpproperties.cpp:212
+msgid "Select here the editorial type of the content."
+msgstr "Тут ви можете вибрати редакційний тип вмісту."
+
+#: xmp/xmpproperties.cpp:227
+msgid "Set here the editorial attribute description of the content."
+msgstr "Тут ви можете встановити редакційний атрибут опису вмісту."
+
+#: xmp/xmpproperties.cpp:229
+msgid "Select here the editorial attribute of the content."
+msgstr "Тут ви можете вибрати редакційний атрибут вмісту."
+
+#: xmp/xmpproperties.cpp:230
+msgctxt "editorial content attribute"
+msgid "Current"
+msgstr "Поточний"
+
+#: xmp/xmpproperties.cpp:231
+msgctxt "editorial content attribute"
+msgid "Analysis"
+msgstr "Аналіз"
+
+#: xmp/xmpproperties.cpp:232
+msgctxt "editorial content attribute"
+msgid "Archive material"
+msgstr "Архівний матеріал"
+
+#: xmp/xmpproperties.cpp:233
+msgctxt "editorial content attribute"
+msgid "Background"
+msgstr "Тло"
+
+#: xmp/xmpproperties.cpp:234
+msgctxt "editorial content attribute"
+msgid "Feature"
+msgstr "Бойовик"
+
+#: xmp/xmpproperties.cpp:235
+msgctxt "editorial content attribute"
+msgid "Forecast"
+msgstr "Прогноз"
+
+#: xmp/xmpproperties.cpp:236
+msgctxt "editorial content attribute"
+msgid "History"
+msgstr "Історія"
+
+#: xmp/xmpproperties.cpp:237
+msgctxt "editorial content attribute"
+msgid "Obituary"
+msgstr "Некролог"
+
+#: xmp/xmpproperties.cpp:238
+msgctxt "editorial content attribute"
+msgid "Opinion"
+msgstr "Думка"
+
+#: xmp/xmpproperties.cpp:239
+msgctxt "editorial content attribute"
+msgid "Polls & Surveys"
+msgstr "Опитування і анкетування"
+
+#: xmp/xmpproperties.cpp:240
+msgctxt "editorial content attribute"
+msgid "Profile"
+msgstr "Профіль"
+
+#: xmp/xmpproperties.cpp:241
+msgctxt "editorial content attribute"
+msgid "Results Listings & Table"
+msgstr "Списки і таблиця результатів"
+
+#: xmp/xmpproperties.cpp:242
+msgctxt "editorial content attribute"
+msgid "Side bar & Supporting information"
+msgstr "Бокова смуга і супутня інформація"
+
+#: xmp/xmpproperties.cpp:243
+msgctxt "editorial content attribute"
+msgid "Summary"
+msgstr "Резюме"
+
+#: xmp/xmpproperties.cpp:244
+msgctxt "editorial content attribute"
+msgid "Transcript & Verbatim"
+msgstr "Протокол і стенограма"
+
+#: xmp/xmpproperties.cpp:245
+msgctxt "editorial content attribute"
+msgid "Interview"
+msgstr "Інтерв’ю"
+
+#: xmp/xmpproperties.cpp:246
+msgctxt "editorial content attribute"
+msgid "From the Scene"
+msgstr "З місця подій"
+
+#: xmp/xmpproperties.cpp:247
+msgctxt "editorial content attribute"
+msgid "Retrospective"
+msgstr "Ретроспектива"
+
+#: xmp/xmpproperties.cpp:248
+msgctxt "editorial content attribute"
+msgid "Statistics"
+msgstr "Статистика"
+
+#: xmp/xmpproperties.cpp:249
+msgctxt "editorial content attribute"
+msgid "Update"
+msgstr "Оновлення"
+
+#: xmp/xmpproperties.cpp:250
+msgctxt "editorial content attribute"
+msgid "Wrap-up"
+msgstr "Кіт в мішку"
+
+#: xmp/xmpproperties.cpp:251
+msgctxt "editorial content attribute"
+msgid "Press Release"
+msgstr "Повідомлення для друку"
+
+#: xmp/xmpproperties.cpp:258
+msgid "Set here the original content transmission reference."
+msgstr "Тут ви можете вказати посилання на походження вмісту."
+
+#: xmp/xmpstatus.cpp:85
+msgctxt "short title for the content"
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: xmp/xmpstatus.cpp:86
+msgid "Set here a shorthand reference for the content."
+msgstr "Тут ви можете встановити коротку довідку про вміст."
+
+#: xmp/xmpstatus.cpp:90
+msgid "Nickname:"
+msgstr "Мнемонічна назва:"
+
+#: xmp/xmpstatus.cpp:93
+msgid "A short informal name for the resource."
+msgstr "Коротка інформативна назва ресурсу."
+
+#: xmp/xmpstatus.cpp:97
+msgid "Identifiers:"
+msgstr "Ідентифікатори:"
+
+#: xmp/xmpstatus.cpp:98
+msgid "Set here the strings that identify content that recurs."
+msgstr ""
+"Тут ви можете встановити рядки, які позначатимуть вміст, що було піддано "
+"обробці."
+
+#: xmp/xmpstatus.cpp:105
+msgid "Enter the editorial usage instructions."
+msgstr "Тут ви можете ввести редакційні настанови з використання."
+
+#: xmp/xmpsubjects.cpp:51
+msgid ""
+"Enter here the Informative Provider Reference. I.P.R is a name registered "
+"with the XMP/NAA, identifying the provider that provides an indicator of the "
+"content. The default value for the I.P.R is \"XMP\" if a standard Reference "
+"Code is used."
+msgstr ""
+"Тут ви можете ввести Довідковий інформаційний код постачальника (I.P.R.). I."
+"P.R — це назва зареєстрована у XMP/NAA, що ідентифікує постачальника, який "
+"надав позначення вмісту. Типовим значенням I.P.R є «XMP», якщо використано "
+"стандартний Довідковий код."
+
+#: xmp/xmpsubjects.cpp:57
+msgid ""
+"Enter here the Subject Reference Number. Provides a numeric code to indicate "
+"the Subject Name plus optional Subject Matter and Subject Detail Names in "
+"the language of the service. Subject Reference is a number from the range "
+"01000000 to 17999999 and represent a language independent international "
+"reference to a Subject. A Subject is identified by its Reference Number and "
+"corresponding Names taken from a standard lists given by XMP/NAA. If a "
+"standard reference code is used, these lists are the English language "
+"reference versions. This field is limited to 8 digit code."
+msgstr ""
+"Тут ви можете вказати Довідковий номер об’єкта. Цей номер надає числовий "
+"код, який визначає Назву об’єкта плюс додатково Сутність об’єкта і Докладна "
+"назва об’єкта мовою служби. Довідковий номер знаходиться у межах від "
+"01000000 до 17999999 і відповідають незалежну від мови міжнародну інформацію "
+"про об’єкт. Об’єкт ідентифікується за своїм довідковим номером, а відповідну "
+"назву буде взято з стандартних списків, що надаються XMP/NAA. Якщо "
+"використано стандартний довідковий код, ці списки дадуть його назву "
+"англійською. Вміст цього поля обмежено 8 цифрами ASCII."
+
+#: xmp/xmpsubjects.cpp:70
+msgid ""
+"Enter here the Subject Name. English language is used if you selected a "
+"standard XMP/NAA reference code."
+msgstr ""
+"Тут ви можете ввести назву об’єкта. Якщо ви вибрали стандартний довідковий "
+"код XMP/NAA, буде використано англійську мову."
+
+#: xmp/xmpsubjects.cpp:74
+msgid ""
+"Enter here the Subject Matter Name. English language is used if you selected "
+"a standard XMP/NAA reference code."
+msgstr ""
+"Тут ви можете ввести Назву сутності об’єкта. Якщо ви обрали стандартний "
+"довідковий код XMP/NAA, буде використано англійську мову."
+
+#: xmp/xmpsubjects.cpp:78
+msgid ""
+"Enter here the Subject Detail Name. English language is used if you selected "
+"a standard XMP/NAA reference code."
+msgstr ""
+"Тут ви можете ввести Докладну назву об’єкта. Якщо ви обрали стандартний "
+"довідковий код XMP/NAA, буде використано англійську мову."
+
+#~ msgid "Handbook"
+#~ msgstr "Підручник"
+
+#~ msgid "Afghanistan"
+#~ msgstr "Афганістан"
+
+#~ msgid "Albania"
+#~ msgstr "Албанія"
+
+#~ msgid "Algeria"
+#~ msgstr "Алжир"
+
+#~ msgid "American Samoa"
+#~ msgstr "Американське Самоа"
+
+#~ msgid "Andorra"
+#~ msgstr "Андорра"
+
+#~ msgid "Angola"
+#~ msgstr "Ангола"
+
+#~ msgid "Anguilla"
+#~ msgstr "Ангілья"
+
+#~ msgid "Antarctica"
+#~ msgstr "Антарктида"
+
+#~ msgid "Antigua and Barbuda"
+#~ msgstr "Антигуа і Барбуда"
+
+#~ msgid "Argentina"
+#~ msgstr "Аргентина"
+
+#~ msgid "Armenia"
+#~ msgstr "Вірменія"
+
+#~ msgid "Aruba"
+#~ msgstr "Аруба"
+
+#~ msgid "Australia"
+#~ msgstr "Австралія"
+
+#~ msgid "Austria"
+#~ msgstr "Австрія"
+
+#~ msgid "Azerbaijan"
+#~ msgstr "Азербайджан"
+
+#~ msgid "Bahamas"
+#~ msgstr "Багамські острови"
+
+#~ msgid "Bahrain"
+#~ msgstr "Бахрейн"
+
+#~ msgid "Bangladesh"
+#~ msgstr "Бангладеш"
+
+#~ msgid "Barbados"
+#~ msgstr "Барбадос"
+
+#~ msgid "Belarus"
+#~ msgstr "Білорусь"
+
+#~ msgid "Belgium"
+#~ msgstr "Бельгія"
+
+#~ msgid "Belize"
+#~ msgstr "Беліз"
+
+#~ msgid "Benin"
+#~ msgstr "Бенін"
+
+#~ msgid "Bermuda"
+#~ msgstr "Бермудські Острови"
+
+#~ msgid "Bhutan"
+#~ msgstr "Бутан"
+
+#~ msgid "Bolivia"
+#~ msgstr "Болівія"
+
+#~ msgid "Bosnia and Herzegovina"
+#~ msgstr "Боснія і Герцеговина"
+
+#~ msgid "Botswana"
+#~ msgstr "Ботсвана"
+
+#~ msgid "Bouvet Island"
+#~ msgstr "Острів Буве"
+
+#~ msgid "Brazil"
+#~ msgstr "Бразилія"
+
+#~ msgid "British Indian Ocean Territory"
+#~ msgstr "Британські території у Індійському океані"
+
+#~ msgid "British Virgin Islands"
+#~ msgstr "Британські Віргінські Острови"
+
+#~ msgid "Brunei Darussalam"
+#~ msgstr "Бруней"
+
+#~ msgid "Bulgaria"
+#~ msgstr "Болгарія"
+
+#~ msgid "Burkina Faso"
+#~ msgstr "Буркіна-Фасо"
+
+#~ msgid "Burundi"
+#~ msgstr "Бурунді"
+
+#~ msgid "Cambodia"
+#~ msgstr "Камбоджа"
+
+#~ msgid "Cameroon"
+#~ msgstr "Камерун"
+
+#~ msgid "Canada"
+#~ msgstr "Канада"
+
+#~ msgid "Cape Verde"
+#~ msgstr "Кабо-Верде"
+
+#~ msgid "Cayman Islands"
+#~ msgstr "Кайманові Острови"
+
+#~ msgid "Central African Republic"
+#~ msgstr "Центрально-Африканська Республіка"
+
+#~ msgid "Chad"
+#~ msgstr "Чад"
+
+#~ msgid "Chile"
+#~ msgstr "Чилі"
+
+#~ msgid "China"
+#~ msgstr "Китай"
+
+#~ msgid "Christmas Island "
+#~ msgstr "Острів Різдва "
+
+#~ msgid "Cocos Islands"
+#~ msgstr "Кокосові острови"
+
+#~ msgid "Colombia"
+#~ msgstr "Колумбія"
+
+#~ msgid "Comoros"
+#~ msgstr "Коморські острови"
+
+#~ msgid "Zaire"
+#~ msgstr "Заїр"
+
+#~ msgid "Congo"
+#~ msgstr "Конго"
+
+#~ msgid "Cook Islands"
+#~ msgstr "Острови Кука"
+
+#~ msgid "Costa Rica"
+#~ msgstr "Коста-Рика"
+
+#~ msgid "Ivory Coast"
+#~ msgstr "Берег Слонової Кістки"
+
+#~ msgid "Cuba"
+#~ msgstr "Куба"
+
+#~ msgid "Cyprus"
+#~ msgstr "Кіпр"
+
+#~ msgid "Czech Republic"
+#~ msgstr "Чеська Республіка"
+
+#~ msgid "Denmark"
+#~ msgstr "Данія"
+
+#~ msgid "Djibouti"
+#~ msgstr "Джибуті"
+
+#~ msgid "Dominica"
+#~ msgstr "Домініка"
+
+#~ msgid "Dominican Republic"
+#~ msgstr "Домініканська Республіка"
+
+#~ msgid "Ecuador"
+#~ msgstr "Еквадор"
+
+#~ msgid "Egypt"
+#~ msgstr "Єгипет"
+
+#~ msgid "El Salvador"
+#~ msgstr "Сальвадор"
+
+#~ msgid "Equatorial Guinea"
+#~ msgstr "Екваторіальна Гвінея"
+
+#~ msgid "Eritrea"
+#~ msgstr "Еритрея"
+
+#~ msgid "Estonia"
+#~ msgstr "Естонія"
+
+#~ msgid "Ethiopia"
+#~ msgstr "Ефіопія"
+
+#~ msgid "Faeroe Islands"
+#~ msgstr "Фарерські острови"
+
+#~ msgid "Falkland Islands"
+#~ msgstr "Фолклендські острови"
+
+#~ msgid "Fiji Islands"
+#~ msgstr "Острови Фіджі"
+
+#~ msgid "Finland"
+#~ msgstr "Фінляндія"
+
+#~ msgid "France"
+#~ msgstr "Франція"
+
+#~ msgid "French Guiana"
+#~ msgstr "Французька Гвіана"
+
+#~ msgid "French Polynesia"
+#~ msgstr "Французька Полінезія"
+
+#~ msgid "French Southern Territories"
+#~ msgstr "Французькі Південні Території"
+
+#~ msgid "Gabon"
+#~ msgstr "Габон"
+
+#~ msgid "Gambia"
+#~ msgstr "Гамбія"
+
+#~ msgid "Georgia"
+#~ msgstr "Грузія"
+
+#~ msgid "Germany"
+#~ msgstr "Німеччина"
+
+#~ msgid "Ghana"
+#~ msgstr "Гана"
+
+#~ msgid "Gibraltar"
+#~ msgstr "Гібралтар"
+
+#~ msgid "Greece"
+#~ msgstr "Греція"
+
+#~ msgid "Greenland"
+#~ msgstr "Гренландія"
+
+#~ msgid "Grenada"
+#~ msgstr "Гренада"
+
+#~ msgid "Guadaloupe"
+#~ msgstr "Гваделупа"
+
+#~ msgid "Guam"
+#~ msgstr "Острів Гуам"
+
+#~ msgid "Guatemala"
+#~ msgstr "Гватемала"
+
+#~ msgid "Guinea"
+#~ msgstr "Гвінея"
+
+#~ msgid "Guinea-Bissau"
+#~ msgstr "Гвінея-Бісау"
+
+#~ msgid "Guyana"
+#~ msgstr "Гайана"
+
+#~ msgid "Haiti"
+#~ msgstr "Гаїті"
+
+#~ msgid "Heard and McDonald Islands"
+#~ msgstr "Острови Херд і Макдональд"
+
+#~ msgid "Vatican"
+#~ msgstr "Ватикан"
+
+#~ msgid "Honduras"
+#~ msgstr "Гондурас"
+
+#~ msgid "Hong Kong"
+#~ msgstr "Гонконг"
+
+#~ msgid "Croatia"
+#~ msgstr "Хорватія"
+
+#~ msgid "Hungary"
+#~ msgstr "Угорщина"
+
+#~ msgid "Iceland"
+#~ msgstr "Ісландія"
+
+#~ msgid "India"
+#~ msgstr "Індія"
+
+#~ msgid "Indonesia"
+#~ msgstr "Індонезія"
+
+#~ msgid "Iran"
+#~ msgstr "Іран"
+
+#~ msgid "Iraq"
+#~ msgstr "Ірак"
+
+#~ msgid "Ireland"
+#~ msgstr "Ірландія"
+
+#~ msgid "Israel"
+#~ msgstr "Ізраїль"
+
+#~ msgid "Italy"
+#~ msgstr "Італія"
+
+#~ msgid "Jamaica"
+#~ msgstr "Ямайка"
+
+#~ msgid "Japan"
+#~ msgstr "Японія"
+
+#~ msgid "Jordan"
+#~ msgstr "Йорданія"
+
+#~ msgid "Kazakhstan"
+#~ msgstr "Казахстан"
+
+#~ msgid "Kenya"
+#~ msgstr "Кенія"
+
+#~ msgid "Kiribati"
+#~ msgstr "Кірібаті"
+
+#~ msgid "Korea"
+#~ msgstr "Корея"
+
+#~ msgid "Kuwait"
+#~ msgstr "Кувейт"
+
+#~ msgid "Kyrgyz Republic"
+#~ msgstr "Киргизька Республіка"
+
+#~ msgid "Lao"
+#~ msgstr "Лаос"
+
+#~ msgid "Latvia"
+#~ msgstr "Латвія"
+
+#~ msgid "Lebanon"
+#~ msgstr "Ліван"
+
+#~ msgid "Lesotho"
+#~ msgstr "Лесото"
+
+#~ msgid "Liberia"
+#~ msgstr "Ліберія"
+
+#~ msgid "Libyan Arab Jamahiriya"
+#~ msgstr "Лівійська Арабська Джамахірія"
+
+#~ msgid "Liechtenstein"
+#~ msgstr "Ліхтенштейн"
+
+#~ msgid "Lithuania"
+#~ msgstr "Литва"
+
+#~ msgid "Luxembourg"
+#~ msgstr "Люксембург"
+
+#~ msgid "Macao"
+#~ msgstr "Макао"
+
+#~ msgid "Macedonia"
+#~ msgstr "Македонія"
+
+#~ msgid "Madagascar"
+#~ msgstr "Мадагаскар"
+
+#~ msgid "Malawi"
+#~ msgstr "Малаві"
+
+#~ msgid "Malaysia"
+#~ msgstr "Малайзія"
+
+#~ msgid "Maldives"
+#~ msgstr "Мальдівські острови"
+
+#~ msgid "Mali"
+#~ msgstr "Малі"
+
+#~ msgid "Malta"
+#~ msgstr "Мальта"
+
+#~ msgid "Marshall Islands"
+#~ msgstr "Маршаллові острови"
+
+#~ msgid "Martinique"
+#~ msgstr "Мартиніка"
+
+#~ msgid "Mauritania"
+#~ msgstr "Мавританія"
+
+#~ msgid "Mauritius"
+#~ msgstr "Маврикій"
+
+#~ msgid "Mayotte"
+#~ msgstr "Майотта"
+
+#~ msgid "Mexico"
+#~ msgstr "Мексика"
+
+#~ msgid "Micronesia"
+#~ msgstr "Мікронезія"
+
+#~ msgid "Moldova"
+#~ msgstr "Молдова"
+
+#~ msgid "Monaco"
+#~ msgstr "Монако"
+
+#~ msgid "Mongolia"
+#~ msgstr "Монголія"
+
+#~ msgid "Montserrat"
+#~ msgstr "Монтсеррат"
+
+#~ msgid "Morocco"
+#~ msgstr "Марокко"
+
+#~ msgid "Mozambique"
+#~ msgstr "Мозамбік"
+
+#~ msgid "Myanmar"
+#~ msgstr "М’янма"
+
+#~ msgid "Namibia"
+#~ msgstr "Намібія"
+
+#~ msgid "Nauru"
+#~ msgstr "Науру"
+
+#~ msgid "Nepal"
+#~ msgstr "Непал"
+
+#~ msgid "Netherlands Antilles"
+#~ msgstr "Нідерландські Антильські Острови"
+
+#~ msgid "Netherlands"
+#~ msgstr "Нідерланди"
+
+#~ msgid "New Caledonia"
+#~ msgstr "Нова Каледонія"
+
+#~ msgid "New Zealand"
+#~ msgstr "Нова Зеландія"
+
+#~ msgid "Nicaragua"
+#~ msgstr "Нікарагуа"
+
+#~ msgid "Niger"
+#~ msgstr "Нігер"
+
+#~ msgid "Nigeria"
+#~ msgstr "Нігерія"
+
+#~ msgid "Niue"
+#~ msgstr "Ніуе"
+
+#~ msgid "Norfolk Island"
+#~ msgstr "Острів Норфолк"
+
+#~ msgid "Northern Mariana Islands"
+#~ msgstr "Північні Маріанські Острови"
+
+#~ msgid "Norway"
+#~ msgstr "Норвегія"
+
+#~ msgid "Oman"
+#~ msgstr "Оман"
+
+#~ msgid "Pakistan"
+#~ msgstr "Пакистан"
+
+#~ msgid "Palau"
+#~ msgstr "Палау"
+
+#~ msgid "Palestinian Territory"
+#~ msgstr "Палестинські території"
+
+#~ msgid "Panama"
+#~ msgstr "Панама"
+
+#~ msgid "Papua New Guinea"
+#~ msgstr "Папуа-Нова Гвінея"
+
+#~ msgid "Paraguay"
+#~ msgstr "Парагвай"
+
+#~ msgid "Peru"
+#~ msgstr "Перу"
+
+#~ msgid "Philippines"
+#~ msgstr "Філіппіни"
+
+#~ msgid "Pitcairn Island"
+#~ msgstr "Острови Піткерн"
+
+#~ msgid "Poland"
+#~ msgstr "Польща"
+
+#~ msgid "Portugal"
+#~ msgstr "Португалія"
+
+#~ msgid "Puerto Rico"
+#~ msgstr "Пуерто-Рико"
+
+#~ msgid "Qatar"
+#~ msgstr "Катар"
+
+#~ msgid "Reunion"
+#~ msgstr "Реюньйон"
+
+#~ msgid "Romania"
+#~ msgstr "Румунія"
+
+#~ msgid "Russian Federation"
+#~ msgstr "Російська Федерація"
+
+#~ msgid "Rwanda"
+#~ msgstr "Руанда"
+
+#~ msgid "St. Helena"
+#~ msgstr "Острів Святої Єлени"
+
+#~ msgid "St. Kitts and Nevis"
+#~ msgstr "Сент-Кітс і Невіс"
+
+#~ msgid "St. Lucia"
+#~ msgstr "Сент-Люсія"
+
+#~ msgid "St. Pierre and Miquelon"
+#~ msgstr "Сен-П’єр і Мікелон"
+
+#~ msgid "St. Vincent and the Grenadines"
+#~ msgstr "Сент-Вінсент і Гренадини"
+
+#~ msgid "Samoa"
+#~ msgstr "Самоа"
+
+#~ msgid "San Marino"
+#~ msgstr "Сан-Марино"
+
+#~ msgid "Sao Tome and Principe"
+#~ msgstr "Сан-Томе і Принсіпі"
+
+#~ msgid "Saudi Arabia"
+#~ msgstr "Саудівська Аравія"
+
+#~ msgid "Senegal"
+#~ msgstr "Сенегал"
+
+#~ msgid "Serbia and Montenegro"
+#~ msgstr "Сербія і Чорногорія"
+
+#~ msgid "Seychelles"
+#~ msgstr "Сейшельські острови"
+
+#~ msgid "Sierra Leone"
+#~ msgstr "Сьєрра-Леоне"
+
+#~ msgid "Singapore"
+#~ msgstr "Сінгапур"
+
+#~ msgid "Slovakia"
+#~ msgstr "Словаччина"
+
+#~ msgid "Slovenia"
+#~ msgstr "Словенія"
+
+#~ msgid "Solomon Islands"
+#~ msgstr "Соломонові Острови"
+
+#~ msgid "Somalia"
+#~ msgstr "Сомалі"
+
+#~ msgid "South Africa"
+#~ msgstr "Південно-Африканська Республіка"
+
+#~ msgid "South Georgia and the South Sandwich Islands"
+#~ msgstr "Південна Георгія і Південні Сандвічеві Острови"
+
+#~ msgid "Spain"
+#~ msgstr "Іспанія"
+
+#~ msgid "Sri Lanka"
+#~ msgstr "Шрі-Ланка"
+
+#~ msgid "Sudan"
+#~ msgstr "Судан"
+
+#~ msgid "Suriname"
+#~ msgstr "Суринам"
+
+#~ msgid "Svalbard & Jan Mayen Islands"
+#~ msgstr "Острови Свальбард і Ян-Маєн"
+
+#~ msgid "Swaziland"
+#~ msgstr "Свазіленд"
+
+#~ msgid "Sweden"
+#~ msgstr "Швеція"
+
+#~ msgid "Switzerland"
+#~ msgstr "Швейцарія"
+
+#~ msgid "Syrian Arab Republic"
+#~ msgstr "Сирійська Арабська Республіка"
+
+#~ msgid "Taiwan"
+#~ msgstr "Тайвань"
+
+#~ msgid "Tajikistan"
+#~ msgstr "Таджикистан"
+
+#~ msgid "Tanzania"
+#~ msgstr "Танзанія"
+
+#~ msgid "Thailand"
+#~ msgstr "Таїланд"
+
+#~ msgid "Timor-Leste"
+#~ msgstr "Демократична Республіка Східного Тимору"
+
+#~ msgid "Togo"
+#~ msgstr "Того"
+
+#~ msgid "Tokelau Islands"
+#~ msgstr "Острови Токелау"
+
+#~ msgid "Tonga"
+#~ msgstr "Тонга"
+
+#~ msgid "Trinidad and Tobago"
+#~ msgstr "Тринідад і Тобаго"
+
+#~ msgid "Tunisia"
+#~ msgstr "Туніс"
+
+#~ msgid "Turkey"
+#~ msgstr "Туреччина"
+
+#~ msgid "Turkmenistan"
+#~ msgstr "Туркменістан"
+
+#~ msgid "Turks and Caicos Islands"
+#~ msgstr "Острови Теркс і Кайкос"
+
+#~ msgid "Tuvalu"
+#~ msgstr "Тувалу"
+
+#~ msgid "US Virgin Islands"
+#~ msgstr "Віргінські Острови (США)"
+
+#~ msgid "Uganda"
+#~ msgstr "Уганда"
+
+#~ msgid "Ukraine"
+#~ msgstr "Україна"
+
+#~ msgid "United Arab Emirates"
+#~ msgstr "Об’єднані Арабські Емірати"
+
+#~ msgid "United Kingdom"
+#~ msgstr "Великобританія"
+
+#~ msgid "United States Minor Outlying Islands"
+#~ msgstr "Сполучені Штати Малих Віддалених Островів"
+
+#~ msgid "United States of America"
+#~ msgstr "Сполучені Штати Америки"
+
+#~ msgid "Uruguay, Eastern Republic of"
+#~ msgstr "Східна Республіка Уругвай"
+
+#~ msgid "Uzbekistan"
+#~ msgstr "Узбекистан"
+
+#~ msgid "Vanuatu"
+#~ msgstr "Вануату"
+
+#~ msgid "Venezuela"
+#~ msgstr "Венесуела"
+
+#~ msgid "Viet Nam"
+#~ msgstr "В’єтнам"
+
+#~ msgid "Wallis and Futuna Islands "
+#~ msgstr "Острови Волліс і Футуна"
+
+#~ msgid "Western Sahara"
+#~ msgstr "Західна Сахара"
+
+#~ msgid "Yemen"
+#~ msgstr "Ємен"
+
+#~ msgid "Zambia"
+#~ msgstr "Замбія"
+
+#~ msgid "Zimbabwe"
+#~ msgstr "Зімбабве"
+
+#~ msgid "United Nations"
+#~ msgstr "Об’єднані Нації"
+
+#~ msgid "European Union"
+#~ msgstr "Європейський союз"
+
+#~ msgid "Space"
+#~ msgstr "Космос"
+
+#~ msgid "At Sea"
+#~ msgstr "На морі"
+
+#~ msgid "In Flight"
+#~ msgstr "У польоті"
+
+#~ msgid "England"
+#~ msgstr "Англія"
+
+#~ msgid "Scotland"
+#~ msgstr "Шотландія"
+
+#~ msgid "Northern Ireland"
+#~ msgstr "Північна Ірландія"
+
+#~ msgid "Wales"
+#~ msgstr "Уельс"
+
+#~ msgid "Palestine"
+#~ msgstr "Палестина"
+
+#~ msgid "Gaza"
+#~ msgstr "Газа"
+
+#~ msgid "Jericho"
+#~ msgstr "Єрихон"
+
+#~ msgid "Select here the content's country of origin."
+#~ msgstr "Тут ви можете встановити країну походження вмісту."
+
+#~ msgctxt "image title"
+#~ msgid "Title (*):"
+#~ msgstr "Заголовок (*):"
+
+#~ msgid "Edit"
+#~ msgstr "Змінити"
+
+#~ msgid "Edit Image Caption"
+#~ msgstr "Змінити підпис зображення"
+
+#~ msgid ""
+#~ "Enter the image caption entered through <b>%1</b>. This field is not "
+#~ "limited (excepted with IPTC). UTF-8 encoding will be used to save text."
+#~ msgstr ""
+#~ "Тут ви можете ввести підпис зображення, введений з <b>%1</b>. Записи "
+#~ "цього поля не обмежено (за винятком IPTC). Для зберігання тексту буде "
+#~ "використано кодування UTF-8."
+
+#~ msgid "Sync XMP Caption"
+#~ msgstr "Синхронізувати підпис XMP"
+
+#~ msgid ""
+#~ "<b>Note: captions from currently selected images will be permanently "
+#~ "replaced.</b>"
+#~ msgstr ""
+#~ "<b>Зауваження: підписи з вибраних зараз зображень буде замінено назавжди."
+#~ "</b>"
+
+#~ msgid "Remove Image Caption"
+#~ msgstr "Вилучити підпис зображення"
+
+#~ msgid "Remove caption hosted by %1"
+#~ msgstr "Вилучити підпис, що міститься у %1"
+
+#~ msgid "Remove JFIF Comment section"
+#~ msgstr "Вилучити розділ коментаря JFIF"
+
+#~ msgid "Remove EXIF Comment"
+#~ msgstr "Вилучити коментар EXIF"
+
+#~ msgid "Remove XMP Caption"
+#~ msgstr "Вилучити підпис XMP"
+
+#~ msgid "Remove IPTC Caption"
+#~ msgstr "Вилучити підпис IPTC"
+
+#~ msgid ""
+#~ "<b>Note: Captions from currently selected images will be permanently "
+#~ "removed.</b>"
+#~ msgstr ""
+#~ "<b>Зауваження: Підписи з вибраних зараз зображень буде назавжди вилучено."
+#~ "</b>"
+
+#~ msgid "Default Language"
+#~ msgstr "Типова мова"
+
+#~ msgid "Afrikaans (South Africa)"
+#~ msgstr "Африкаанс (Південна Африка)"
+
+#~ msgid "Amharic (Ethiopia)"
+#~ msgstr "Амхарська (Ефіопія)"
+
+#~ msgid "Arabic (UAE)"
+#~ msgstr "Арабська (ОАЕ)"
+
+#~ msgid "Arabic (Bahrain)"
+#~ msgstr "Арабська (Бахрейн)"
+
+#~ msgid "Arabic (Algeria)"
+#~ msgstr "Арабська (Алжир)"
+
+#~ msgid "Arabic (Egypt)"
+#~ msgstr "Арабська (Єгипет)"
+
+#~ msgid "Arabic (Iraq)"
+#~ msgstr "Арабська (Ірак)"
+
+#~ msgid "Arabic (Jordan)"
+#~ msgstr "Арабська (Йорданія)"
+
+#~ msgid "Arabic (Kuwait)"
+#~ msgstr "Арабська (Кувейт)"
+
+#~ msgid "Arabic (Lebanon)"
+#~ msgstr "Арабська (Ліван)"
+
+#~ msgid "Arabic (Libya)"
+#~ msgstr "Арабська (Лівія)"
+
+#~ msgid "Arabic (Morocco)"
+#~ msgstr "Арабська (Марокко)"
+
+#~ msgid "Arabic (Oman)"
+#~ msgstr "Арабська (Оман)"
+
+#~ msgid "Arabic (Qatar)"
+#~ msgstr "Арабська (Катар)"
+
+#~ msgid "Arabic (Saudi Arabia)"
+#~ msgstr "Арабська (Саудівська Аравія)"
+
+#~ msgid "Arabic (Syria)"
+#~ msgstr "Арабська (Сирія)"
+
+#~ msgid "Arabic (Tunisia)"
+#~ msgstr "Арабська (Туніс)"
+
+#~ msgid "Arabic (Yemen)"
+#~ msgstr "Арабська (Ємен)"
+
+#~ msgid "Assamese (India)"
+#~ msgstr "Ассамська (Індія)"
+
+#~ msgid "Bashkir (Russia)"
+#~ msgstr "Башкирська (Росія)"
+
+#~ msgid "Belarusian (Belarus)"
+#~ msgstr "Білоруська (Білорусь)"
+
+#~ msgid "Bulgarian (Bulgaria)"
+#~ msgstr "Болгарська (Болгарія)"
+
+#~ msgid "Bengali (India)"
+#~ msgstr "Бенгальська (Індія)"
+
+#~ msgid "Tibetan (Bhutan)"
+#~ msgstr "Тибетська (Бутан)"
+
+#~ msgid "Tibetan (PRC)"
+#~ msgstr "Тибетська (КНР)"
+
+#~ msgid "Breton (France)"
+#~ msgstr "Бретонська (Франція)"
+
+#~ msgid "Catalan (Andorra)"
+#~ msgstr "Каталанська (Андорра)"
+
+#~ msgid "Catalan (Spain)"
+#~ msgstr "Каталанська (Іспанія)"
+
+#~ msgid "Catalan (France)"
+#~ msgstr "Каталанська (Франція)"
+
+#~ msgid "Corsican (France)"
+#~ msgstr "Корсиканська (Франція)"
+
+#~ msgid "Czech (Czech Republic)"
+#~ msgstr "Чеська (Чеська Республіка)"
+
+#~ msgid "Welsh (United Kingdom)"
+#~ msgstr "Валійська (Великобританія)"
+
+#~ msgid "Danish (Denmark)"
+#~ msgstr "Данська (Данія)"
+
+#~ msgid "German (Austria)"
+#~ msgstr "Німецька (Австрія)"
+
+#~ msgid "German (Switzerland)"
+#~ msgstr "Німецька (Швейцарія)"
+
+#~ msgid "German (Germany)"
+#~ msgstr "Німецька (Німеччина)"
+
+#~ msgid "German (Liechtenstein)"
+#~ msgstr "Німецька (Ліхтенштейн)"
+
+#~ msgid "German (Luxembourg)"
+#~ msgstr "Німецька (Люксембург)"
+
+#~ msgid "Greek (Greece)"
+#~ msgstr "Грецька (Греція)"
+
+#~ msgid "English (Australia)"
+#~ msgstr "Англійська (Австралія)"
+
+#~ msgid "English (Belize)"
+#~ msgstr "Англійська (Беліз)"
+
+#~ msgid "English (Canada)"
+#~ msgstr "Англійська (Канада)"
+
+#~ msgid "English (Caribbean)"
+#~ msgstr "Англійська (острови Карибського моря)"
+
+#~ msgid "English (United Kingdom)"
+#~ msgstr "Англійська (Великобританія)"
+
+#~ msgid "English (Ireland)"
+#~ msgstr "Англійська (Ірландія)"
+
+#~ msgid "English (India)"
+#~ msgstr "Англійська (Індія)"
+
+#~ msgid "English (Jamaica)"
+#~ msgstr "Англійська (Ямайка)"
+
+#~ msgid "English (Malaysia)"
+#~ msgstr "Англійська (Малайзія)"
+
+#~ msgid "English (New Zealand)"
+#~ msgstr "Англійська (Нова Зеландія)"
+
+#~ msgid "English (Philippines)"
+#~ msgstr "Англійська (Філіппіни)"
+
+#~ msgid "English (Singapore)"
+#~ msgstr "Англійська (Сингапур)"
+
+#~ msgid "English (Trinidad)"
+#~ msgstr "Англійська (Тринідад)"
+
+#~ msgid "English (United States)"
+#~ msgstr "Англійська (США)"
+
+#~ msgid "English (South Africa)"
+#~ msgstr "Англійська (ПАР)"
+
+#~ msgid "English (Zimbabwe)"
+#~ msgstr "Англійська (Зімбабве)"
+
+#~ msgid "Spanish (Argentina)"
+#~ msgstr "Іспанська (Аргентина)"
+
+#~ msgid "Spanish (Bolivia)"
+#~ msgstr "Іспанська (Болівія)"
+
+#~ msgid "Spanish (Chile)"
+#~ msgstr "Іспанська (Чилі)"
+
+#~ msgid "Spanish (Colombia)"
+#~ msgstr "Іспанська (Колумбія)"
+
+#~ msgid "Spanish (Costa Rica)"
+#~ msgstr "Іспанська (Коста-Рика)"
+
+#~ msgid "Spanish (Dominican Republic)"
+#~ msgstr "Іспанська (Домініканська Республіка)"
+
+#~ msgid "Spanish (Ecuador)"
+#~ msgstr "Іспанська (Еквадор)"
+
+#~ msgid "Spanish (Spain)"
+#~ msgstr "Іспанська (Іспанія)"
+
+#~ msgid "Spanish (Guatemala)"
+#~ msgstr "Іспанська (Гватемала)"
+
+#~ msgid "Spanish (Honduras)"
+#~ msgstr "Іспанська (Гондурас)"
+
+#~ msgid "Spanish (Mexico)"
+#~ msgstr "Іспанська (Мексика)"
+
+#~ msgid "Spanish (Nicaragua)"
+#~ msgstr "Іспанська (Нікарагуа)"
+
+#~ msgid "Spanish (Panama)"
+#~ msgstr "Іспанська (Панама)"
+
+#~ msgid "Spanish (Peru)"
+#~ msgstr "Іспанська (Перу)"
+
+#~ msgid "Spanish (Puerto Rico)"
+#~ msgstr "Іспанська (Пуерто-Рико)"
+
+#~ msgid "Spanish (Paraguay)"
+#~ msgstr "Іспанська (Парагвай)"
+
+#~ msgid "Spanish (El Salvador)"
+#~ msgstr "Іспанська (Сальвадор)"
+
+#~ msgid "Spanish (Uruguay)"
+#~ msgstr "Іспанська (Уругвай)"
+
+#~ msgid "Spanish (United States)"
+#~ msgstr "Іспанська (США)"
+
+#~ msgid "Spanish (Venezuela)"
+#~ msgstr "Іспанська (Венесуела)"
+
+#~ msgid "Estonian (Estonia)"
+#~ msgstr "Естонська (Естонія)"
+
+#~ msgid "Basque (Basque Country)"
+#~ msgstr "Баскська (Країна Басків)"
+
+#~ msgid "Persian (Iran)"
+#~ msgstr "Перська (Іран)"
+
+#~ msgid "Finnish (Finland)"
+#~ msgstr "Фінська (Фінляндія)"
+
+#~ msgid "Faeroese (Faero Islands)"
+#~ msgstr "Фарерська (Фарерські острови)"
+
+#~ msgid "French (Belgium)"
+#~ msgstr "Французька (Бельгія)"
+
+#~ msgid "French (Canada)"
+#~ msgstr "Французька (Канада)"
+
+#~ msgid "French (Switzerland)"
+#~ msgstr "Французька (Швейцарія)"
+
+#~ msgid "French (France)"
+#~ msgstr "Французька (Франція)"
+
+#~ msgid "French (Luxembourg)"
+#~ msgstr "Французька (Люксембург)"
+
+#~ msgid "French (Monaco)"
+#~ msgstr "Французька (Монако)"
+
+#~ msgid "Frisian (Netherlands)"
+#~ msgstr "Фризька (Нідерланди)"
+
+#~ msgid "Irish (Ireland)"
+#~ msgstr "Ірландська (Ірландія)"
+
+#~ msgid "Galician (Galicia)"
+#~ msgstr "Галісійська (Галісія)"
+
+#~ msgid "Gujarati (India)"
+#~ msgstr "Гуджараті (Індія)"
+
+#~ msgid "Hebrew (Israel)"
+#~ msgstr "Єврейська (Ізраїль)"
+
+#~ msgid "Hindi (India)"
+#~ msgstr "Хінді (Індія)"
+
+#~ msgid "Croatian (Bosnia and Herzegovina, Latin)"
+#~ msgstr "Хорватська (Боснія і Герцеговина, латиниця)"
+
+#~ msgid "Croatian (Croatia)"
+#~ msgstr "Хорватська (Хорватія)"
+
+#~ msgid "Hungarian (Hungary)"
+#~ msgstr "Угорська (Угорщина)"
+
+#~ msgid "Armenian (Armenia)"
+#~ msgstr "Вірменська (Вірменія)"
+
+#~ msgid "(Indonesian)"
+#~ msgstr "(Індонезійська)"
+
+#~ msgid "Yi (PRC)"
+#~ msgstr "Ї (КНР)"
+
+#~ msgid "Icelandic (Iceland)"
+#~ msgstr "Ісландська (Ісландія)"
+
+#~ msgid "Italian (Switzerland)"
+#~ msgstr "Італійська (Швейцарія)"
+
+#~ msgid "Italian (Italy)"
+#~ msgstr "Італійська (Італія)"
+
+#~ msgid "Japanese (Japan)"
+#~ msgstr "Японська (Японія)"
+
+#~ msgid "Georgian (Georgia)"
+#~ msgstr "Грузинська (Грузія)"
+
+#~ msgid "Kazakh (Kazakhstan)"
+#~ msgstr "Казахська (Казахстан)"
+
+#~ msgid "Greenlandic (Greenland)"
+#~ msgstr "Гренландська (Гренландія)"
+
+#~ msgid "Khmer (Cambodia)"
+#~ msgstr "Кхмерська (Камбоджа)"
+
+#~ msgid "Kannada (India)"
+#~ msgstr "Каннадська (Індія)"
+
+#~ msgid "Korean (South Korea)"
+#~ msgstr "Корейська (Південна Корея)"
+
+#~ msgid "Kyrgyz (Kyrgyzstan)"
+#~ msgstr "Киргизька (Киргизстан)"
+
+#~ msgid "Luxembourgish (Luxembourg)"
+#~ msgstr "Люксембурзька (Люксембург)"
+
+#~ msgid "Lao (Lao PDR)"
+#~ msgstr "Лаоська (Лаос)"
+
+#~ msgid "Lithuanian (Lithuania)"
+#~ msgstr "Литовська (Литва)"
+
+#~ msgid "Latvian (Latvia)"
+#~ msgstr "Латвійська (Латвія)"
+
+#~ msgid "Maori (New Zealand)"
+#~ msgstr "Маорійська (Нова Зеландія)"
+
+#~ msgid "Macedonian (Macedonia)"
+#~ msgstr "Македонська (Македонія)"
+
+#~ msgid "Malayalam (India)"
+#~ msgstr "Малаялам (Індія)"
+
+#~ msgid "Mongolian (PRC)"
+#~ msgstr "Монгольська (КНР)"
+
+#~ msgid "Mongolian (Mongolia)"
+#~ msgstr "Монгольська (Монголія)"
+
+#~ msgid "Marathi (India)"
+#~ msgstr "Мараті (Індія)"
+
+#~ msgid "Malay (Brunei Darussalam)"
+#~ msgstr "Малайська (Бруней)"
+
+#~ msgid "Malay (Malaysia)"
+#~ msgstr "Малайська (Малайзія)"
+
+#~ msgid "Maltese (Malta)"
+#~ msgstr "Мальтійська (Мальта)"
+
+#~ msgid "Norwegian Bokmål (Norway)"
+#~ msgstr "Норвезька Букмол (Норвегія)"
+
+#~ msgid "Nepali (Nepal)"
+#~ msgstr "Непальська (Непал)"
+
+#~ msgid "Dutch (Belgium)"
+#~ msgstr "Голландська (Бельгія)"
+
+#~ msgid "Dutch (Netherlands)"
+#~ msgstr "Голландська (Нідерланди)"
+
+#~ msgid "Norwegian Nynorsk (Norway)"
+#~ msgstr "Норвезька Нюнорск (Норвегія)"
+
+#~ msgid "Sesotho sa Leboa (South Africa)"
+#~ msgstr "Сесото са Лебоа (ПАР)"
+
+#~ msgid "Occitan (France)"
+#~ msgstr "Окситанська (Франція)"
+
+#~ msgid "Oriya (India)"
+#~ msgstr "Орія (Індія)"
+
+#~ msgid "Punjabi (India)"
+#~ msgstr "Пенджабська (Індія)"
+
+#~ msgid "Polish (Poland)"
+#~ msgstr "Польська (Польща)"
+
+#~ msgid "Pashto (Afghanistan)"
+#~ msgstr "Пуштунська (Афганістан)"
+
+#~ msgid "Portuguese (Brazil)"
+#~ msgstr "Португальська (Бразилія)"
+
+#~ msgid "Portuguese (Portugal)"
+#~ msgstr "Португальська (Португалія)"
+
+#~ msgid "Romansh (Switzerland)"
+#~ msgstr "Ретророманська (Швейцарія)"
+
+#~ msgid "Romanian (Romania)"
+#~ msgstr "Румунська (Румунія)"
+
+#~ msgid "Russian (Russia)"
+#~ msgstr "Російська (Росія)"
+
+#~ msgid "Kinyarwanda (Rwanda)"
+#~ msgstr "Киньяруанда (Руанда)"
+
+#~ msgid "Sanskrit (India)"
+#~ msgstr "Санскрит (Індія)"
+
+#~ msgid "Sami (Northern, Finland)"
+#~ msgstr "Саамська (Північ, Фінляндія)"
+
+#~ msgid "Sami (Northern, Norway)"
+#~ msgstr "Саамська (Північ, Норвегія)"
+
+#~ msgid "Sami (Northern, Sweden)"
+#~ msgstr "Саамська (Північ, Швеція)"
+
+#~ msgid "Sinhala (Sri Lanka)"
+#~ msgstr "Сингальська (Шрі-Ланка)"
+
+#~ msgid "Slovak (Slovakia)"
+#~ msgstr "Словацька (Словаччина)"
+
+#~ msgid "Slovenian (Slovenia)"
+#~ msgstr "Словенська (Словенія)"
+
+#~ msgid "Albanian (Albania)"
+#~ msgstr "Албанська (Албанія)"
+
+#~ msgid "Swedish (Finland)"
+#~ msgstr "Шведська (Фінляндія)"
+
+#~ msgid "Swedish (Sweden)"
+#~ msgstr "Шведська (Швеція)"
+
+#~ msgid "Swahili (Kenya)"
+#~ msgstr "Суахілі (Кенія)"
+
+#~ msgid "Tamil (India)"
+#~ msgstr "Тамільська (Індія)"
+
+#~ msgid "Telugu (India)"
+#~ msgstr "Телузька (Індія)"
+
+#~ msgid "Thai (Thailand)"
+#~ msgstr "Тайська (Таїланд)"
+
+#~ msgid "Turkmen (Turkmenistan)"
+#~ msgstr "Туркменська (Туркменістан)"
+
+#~ msgid "Setswana Tswana (South Africa)"
+#~ msgstr "Сетсвана Тсвана (ПАР)"
+
+#~ msgid "Urdu (India)"
+#~ msgstr "Урду (Індія)"
+
+#~ msgid "Turkish (Turkey)"
+#~ msgstr "Турецька (Туреччина)"
+
+#~ msgid "Tatar (Russia)"
+#~ msgstr "Татарська (Росія)"
+
+#~ msgid "Uighur (PRC)"
+#~ msgstr "Уйгурська (КНР)"
+
+#~ msgid "Ukrainian (Ukraine)"
+#~ msgstr "Українська (Україна)"
+
+#~ msgid "Urdu (Pakistan)"
+#~ msgstr "Урду (Пакистан)"
+
+#~ msgid "Vietnamese (Vietnam)"
+#~ msgstr "В’єтнамська (В’єтнам)"
+
+#~ msgid "Wolof (Senegal)"
+#~ msgstr "Волоф (Сенегал)"
+
+#~ msgid "isiXhosa Xhosa (South Africa)"
+#~ msgstr "Кхоса (ПАР)"
+
+#~ msgid "Yoruba (Nigeria)"
+#~ msgstr "Йоруба (Нігерія)"
+
+#~ msgid "Chinese (PRC)"
+#~ msgstr "Китайська (КНР)"
+
+#~ msgid "Chinese (Hong Kong SAR, PRC)"
+#~ msgstr "Китайська (Гонконг, КНР)"
+
+#~ msgid "Chinese (Macao SAR)"
+#~ msgstr "Китайська (Аоминь(Макао))"
+
+#~ msgid "Chinese (Singapore)"
+#~ msgstr "Китайська (Сингапур)"
+
+#~ msgid "Chinese (Taiwan)"
+#~ msgstr "Китайська (Тайвань)"
+
+#~ msgid "isiZulu Zulu (South Africa)"
+#~ msgstr "Зулуська (ПАР)"
+
+#~ msgid "Select here language code."
+#~ msgstr "Тут ви можете вибрати код мови."
+
+#~ msgid "Edit EXIF Metadata"
+#~ msgstr "Змінити метадані EXIF"
+
+#~ msgid "(read only)"
+#~ msgstr "(лише для читання)"
+
+#~ msgid "Edit IPTC Metadata"
+#~ msgstr "Змінити метадані IPTC"
+
+#~ msgid "Remove EXIF..."
+#~ msgstr "Вилучити EXIF..."
+
+#~ msgid "Remove IPTC..."
+#~ msgstr "Вилучити IPTC..."
+
+#~ msgid "Remove XMP..."
+#~ msgstr "Вилучити XMP..."
+
+#~ msgid "Edit Captions..."
+#~ msgstr "Змінити підпис зображення..."
+
+#~ msgid "Remove Captions..."
+#~ msgstr "Вилучити підписи..."
+
+#~ msgid ""
+#~ "EXIF metadata will be permanently removed from all currently selected "
+#~ "pictures.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Метадані EXIF буде вилучено назавжди з всіх вибраних зараз знімків.\n"
+#~ "Ви справді бажаєте продовжувати?"
+
+#~ msgid "Remove EXIF Metadata"
+#~ msgstr "Вилучити метадані EXIF"
+
+#~ msgid "Unable to remove EXIF metadata from:"
+#~ msgstr "Неможливо вилучити метадані EXIF з:"
+
+#~ msgid ""
+#~ "IPTC metadata will be permanently removed from all currently selected "
+#~ "pictures.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Метадані IPTC буде назавжди вилучено з усіх вибраних зараз знімків.\n"
+#~ "Чи бажаєте ви продовжувати?"
+
+#~ msgid "Remove IPTC Metadata"
+#~ msgstr "Вилучити метадані IPTC"
+
+#~ msgid "Unable to remove IPTC metadata from:"
+#~ msgstr "Неможливо вилучити метадані IPTC з:"
+
+#~ msgid ""
+#~ "XMP metadata will be permanently removed from all of the currently "
+#~ "selected pictures.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Метадані XMP буде назавжди вилучено з всіх вибраних зараз знімків.\n"
+#~ "Чи бажаєте ви продовжувати?"
+
+#~ msgid "Remove XMP Metadata"
+#~ msgstr "Вилучити метадані XMP"
+
+#~ msgid "Unable to remove XMP metadata from:"
+#~ msgstr "Неможливо вилучити метадані XMP з:"
+
+#~ msgid "Unable to set captions as image metadata from:"
+#~ msgstr "Неможливо встановити підписи як метадані зображення з:"
+
+#~ msgid "Unable to remove caption as image metadata from:"
+#~ msgstr "Неможливо вилучити підпис, як метадані зображення з:"
+
+#~ msgid "(c) 2007-2009, Gilles Caulier"
+#~ msgstr "© Gilles Caulier, 2007–2009"
+
+#~ msgid "Edit XMP Metadata"
+#~ msgstr "Зміна метаданих XMP"
+
+#~ msgid "Use structured definition of the subject matter:"
+#~ msgstr "Використовувати структурне визначення сутності об’єкта:"
+
+#~ msgid ""
+#~ "Use standard <b><a href='http://www.iptc.org/NewsCodes'>reference code</"
+#~ "a></b>"
+#~ msgstr ""
+#~ "Використовувати стандартний <b><a href='http://www.iptc.org/"
+#~ "NewsCodes'>зразковий код</a></b>"
+
+#~ msgid "Use custom definition"
+#~ msgstr "Використовувати нетипове визначення"
+
+#~ msgid "I.P.R:"
+#~ msgstr "I.P.R:"
+
+#~ msgctxt "name of the subject"
+#~ msgid "Name:"
+#~ msgstr "Назва:"
+
+#~ msgid "Matter:"
+#~ msgstr "Сутність:"
+
+#~ msgid "Detail:"
+#~ msgstr "Деталі:"
+
+#~ msgid "Unknow"
+#~ msgstr "Невідомий"
+
+#~ msgid "Use standard"
+#~ msgstr "Використовувати стандартне"
+
+#~ msgid "reference code"
+#~ msgstr "код посилання"
+
+#~ msgid "Use standard "
+#~ msgstr "Використовувати стандартне"

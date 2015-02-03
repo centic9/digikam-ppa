@@ -1,0 +1,326 @@
+# translation of kipiplugin_rawconverter.po to Dutch
+# translation of kipiplugin_rawconverter.po to
+# vertaling van digikamplugin_rawconverter.po naar Nederlands
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+#
+# Jasper van der Marel <jasper.van.der.marel@wanadoo.nl>, 2004.
+# Sander Devrieze <s.devrieze@pandora.be>, 2004.
+# Wilbert Berendsen <wbsoft@xs4all.nl>, 2004.
+# Rinse de Vries <rinsedevries@kde.nl>, 2004, 2005, 2006, 2007, 2008, 2009.
+# Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2008, 2009.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_rawconverter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-02-24 20:29+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr ""
+"Rinse de Vries - 2004 t/m 2008,Jasper van der Marel - 2004,Sander deVrieze - "
+"2004,Wilbert Berendsen - 2004,Freek de Kruijf - 2009 t/m 2013"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"rinsedevries@kde.nl,jasper.van.der.marel@wanadoo.nl,s.devrieze@pandora.be,"
+"wbsoft@xs4all.nl,freekdekruijf@kde.nl"
+
+#: dialogs/batchdialog.cpp:127 dialogs/singledialog.cpp:200
+msgid "Exit RAW Converter"
+msgstr "Raw-conversie afsluiten"
+
+#: dialogs/batchdialog.cpp:128
+msgid "RAW Image Batch Converter"
+msgstr "Conversie van raw-afbeeldingen"
+
+#: dialogs/batchdialog.cpp:148
+msgid "Store it under different name"
+msgstr "Sla het onder een andere naam op"
+
+#: dialogs/batchdialog.cpp:151 dialogs/batchdialog.cpp:155
+#: dialogs/singledialog.cpp:149 dialogs/singledialog.cpp:152
+msgid "Save settings"
+msgstr "Instellingen opslaan"
+
+#: dialogs/batchdialog.cpp:175 dialogs/singledialog.cpp:131
+#: dialogs/singledialog.cpp:166
+msgid "RAW Image Converter"
+msgstr "Raw-afbeelding-conversie"
+
+#: dialogs/batchdialog.cpp:178 dialogs/singledialog.cpp:169
+msgid "A Kipi plugin to convert RAW images"
+msgstr "Een Kipi-plugin voor het converteren van een RAW-afbeelding"
+
+#: dialogs/batchdialog.cpp:179 dialogs/singledialog.cpp:170
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+
+#: dialogs/batchdialog.cpp:183 dialogs/singledialog.cpp:174
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/batchdialog.cpp:184 dialogs/singledialog.cpp:175
+msgid "Author"
+msgstr "Auteur"
+
+#: dialogs/batchdialog.cpp:187 dialogs/singledialog.cpp:178
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: dialogs/batchdialog.cpp:188 dialogs/singledialog.cpp:179
+msgid "Developer and maintainer"
+msgstr "Ontwikkelaar en onderhouder"
+
+#: dialogs/batchdialog.cpp:191 dialogs/singledialog.cpp:182
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: dialogs/batchdialog.cpp:192 dialogs/singledialog.cpp:183
+msgid "Developer"
+msgstr "Ontwikkelaar"
+
+#: dialogs/batchdialog.cpp:340
+msgid "There is no RAW file in the list to process."
+msgstr "Er is in de lijst geen RAW-bestand om te verwerken aanwezig."
+
+#: dialogs/batchdialog.cpp:349
+msgid "RAW Converter"
+msgstr "Raw-converter"
+
+#: dialogs/batchdialog.cpp:485 dialogs/singledialog.cpp:130
+msgid "&Abort"
+msgstr "&Afbreken"
+
+#: dialogs/batchdialog.cpp:486 dialogs/singledialog.cpp:198
+msgid "Abort the current RAW file conversion"
+msgstr "Conversie van RAW-bestanden afbreken"
+
+#: dialogs/batchdialog.cpp:491 dialogs/singledialog.cpp:129
+msgid "Con&vert"
+msgstr "Con&verteren"
+
+#: dialogs/batchdialog.cpp:492
+msgid "Start converting the RAW images using current settings."
+msgstr "Conversie van de RAW-afbeeldingen met de huidige instellingen starten"
+
+#: dialogs/batchdialog.cpp:576
+#, kde-format
+msgid "Processing %1"
+msgstr "%1 wordt verwerkt"
+
+#: dialogs/myimagelist.cpp:47
+msgid "Raw File"
+msgstr "Raw-bestand"
+
+#: dialogs/myimagelist.cpp:48
+msgid "Target File"
+msgstr "Doelbestand"
+
+#: dialogs/myimagelist.cpp:49
+msgid "Camera"
+msgstr "Camera"
+
+#: dialogs/myimagelist.cpp:50
+msgid "Status"
+msgstr "Status"
+
+#: dialogs/singledialog.cpp:128
+msgid "&Preview"
+msgstr "&Voorbeeld"
+
+#: dialogs/singledialog.cpp:191
+msgid ""
+"Generate a preview using current settings. Uses a simple bilinear "
+"interpolation for quick results."
+msgstr ""
+"Genereer een voorbeeld aan de hand van de huidige instellingen. Maakt "
+"gebruik van een eenvoudige bilineaire interpolatie voor snelle resultaten."
+
+#: dialogs/singledialog.cpp:195
+msgid ""
+"Convert the RAW Image using current settings. This uses a high-quality "
+"adaptive algorithm."
+msgstr ""
+" Converteer de raw-afbeelding aan de hand van de huidige instellingen. "
+"Hiervoor wordt een adaptief algoritme van hoge kwaliteit gebruikt."
+
+#: dialogs/singledialog.cpp:383
+msgid "Generating Preview..."
+msgstr "Voorbeeld wordt aangemaakt..."
+
+#: dialogs/singledialog.cpp:394
+msgid "Failed to generate preview"
+msgstr "Het voorbeeld kon niet worden aangemaakt"
+
+#: dialogs/singledialog.cpp:399
+msgid "Processing Images..."
+msgstr "Afbeeldingen bewerken..."
+
+#: dialogs/singledialog.cpp:434
+#, kde-format
+msgid "Save RAW image converted from '%1' as"
+msgstr "Geconverteerde RAW-afbeelding van '%1' opslaan als"
+
+#: dialogs/singledialog.cpp:464
+#, kde-format
+msgid "Failed to save sidecar file for image %1..."
+msgstr "Opslaan van sidecar-bestand voor afbeelding %1 is mislukt..."
+
+#: dialogs/singledialog.cpp:474
+#, kde-format
+msgid "Failed to save image %1"
+msgstr "De afbeelding %1 kon niet worden opgeslagen"
+
+#: dialogs/singledialog.cpp:489
+msgid "Failed to convert RAW image"
+msgstr "De RAW-afbeelding kon niet worden geconverteerd"
+
+#: manager/task.cpp:124
+msgid "Cannot identify RAW image"
+msgstr "Type RAW-formaat is niet herkend"
+
+#: manager/task.cpp:134
+#, kde-format
+msgid "<br>Make: %1<br>"
+msgstr "<br>Fabrikant: %1<br>"
+
+#: manager/task.cpp:135
+#, kde-format
+msgid "Model: %1<br>"
+msgstr "Model: %1<br>"
+
+#: manager/task.cpp:139
+#, kde-format
+msgid "Created: %1<br>"
+msgstr "Aangemaakt: %1<br>"
+
+#: manager/task.cpp:145
+#, kde-format
+msgid "Aperture: f/%1<br>"
+msgstr "Diafragma: f/%1<br>"
+
+#: manager/task.cpp:150
+#, kde-format
+msgid "Focal: %1 mm<br>"
+msgstr "Brandpuntsafstand: %1 mm<br>"
+
+#: manager/task.cpp:155
+#, kde-format
+msgid "Exposure: 1/%1 s<br>"
+msgstr "Sluitertijd: 1/%1 s<br>"
+
+#: manager/task.cpp:160
+#, kde-format
+msgid "Sensitivity: %1 ISO"
+msgstr "Lichtgevoeligheid: %1 ISO"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_rawconverterui.rc:6
+msgid "&Tools"
+msgstr "H&ulpmiddelen"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_rawconverterui.rc:13
+msgid "Main Toolbar"
+msgstr "Hoofdwerkbalk"
+
+#: plugin/plugin_rawconverter.cpp:111
+msgid "RAW Image Converter..."
+msgstr "RAW-afbeeldingsconversie..."
+
+#: plugin/plugin_rawconverter.cpp:121
+msgid "Batch RAW Converter..."
+msgstr "Serie RAW-afbeeldingen converteren..."
+
+#: plugin/plugin_rawconverter.cpp:152
+#, kde-format
+msgid "\"%1\" is not a RAW file."
+msgstr "\"%1\" is geen RAW-bestand."
+
+#~ msgid "A Kipi plugin to batch convert RAW images"
+#~ msgstr "Een Kipi-plugin voor het converteren van RAW-afbeeldingen"
+
+#~ msgid "Handbook"
+#~ msgstr "Handboek"
+
+#~ msgid "&Add"
+#~ msgstr "&Toevoegen"
+
+#~ msgid "Add new RAW files to the list"
+#~ msgstr "Nieuwe RAW-bestanden aan de lijst toevoegen"
+
+#~ msgid "&Remove"
+#~ msgstr "&Verwijderen"
+
+#~ msgid "Remove selected RAW files from the list"
+#~ msgstr "Geselecteerde RAW-bestanden uit de lijst verwijderen"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Miniatuur"
+
+#~ msgid "Failed to load image after processing"
+#~ msgstr "De afbeelding kon na de conversie niet worden geladen"
+
+#~ msgid "Output file format:"
+#~ msgstr "Formaat van uitvoerbestand:"
+
+#~ msgid ""
+#~ "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
+#~ "processed image in JPEG format. This format will give smaller-sized "
+#~ "files. Minimum JPEG compression level will be used during RAW conversion."
+#~ "</p><p><b>Warning: Due to the destructive compression algorithm, JPEG is "
+#~ "a lossy quality format.</b></p><p><b>TIFF</b>: output the processed image "
+#~ "in TIFF format. This generates large files, without losing quality. Adobe "
+#~ "Deflate compression will be used during conversion.</p><p><b>PPM</b>: "
+#~ "output the processed image in PPM format. This generates the largest "
+#~ "files, without losing quality.</p><p><b>PNG</b>: output the processed "
+#~ "image in PNG format. This generates large files, without losing quality. "
+#~ "Maximum PNG compression will be used during conversion.</p>"
+#~ msgstr ""
+#~ "<p>Stel hier het te gebruiken uitvoerformaat in: </p><p><b>JPEG</b>: Dit "
+#~ "formaat geeft kleinere bestanden. Er zal tijdens de RAW-conversie gebruik "
+#~ "worden gemaakt van een minimale JPEG-compressie.</p><p><b>Waarschuwing! "
+#~ "JPEG is een verliesgevend kwaliteitsformaat. Tijdens de compressie zal er "
+#~ "enige kwaliteit verloren gaan.</b></p><p><b>TIFF</b>: Dit formaat geeft "
+#~ "grote bestanden, zonder kwaliteitsverlies. Er zal tijdens de conversie "
+#~ "gebruik worden gemaakt van Adobe Deflate-compressie.</p><p><b>PPM</b>: "
+#~ "Dit genereert de grootste bestanden in PPM-formaat. Hierbij gaat geen "
+#~ "kwaliteit verloren.</p><p><b>PNG</b>: Dit genereert grote bestanden "
+#~ "zonder kwaliteitsverlies. Tijdens de conversie zal de maximale PNG-"
+#~ "compressie worden gebruikt.</p>"
+
+#~ msgid "If Target File Exists:"
+#~ msgstr "Als doelbestand al bestaat:"
+
+#~ msgid "Overwrite automatically"
+#~ msgstr "Automatisch overschrijven"
+
+#~ msgid "Open rename-file dialog"
+#~ msgstr "Dialoog voor bestandshernoeming openen"
+
+#~ msgid "Abort the current Raw files conversion"
+#~ msgstr "Breek de huidige raw-bestandconversie af"
+
+#~ msgid "Raw Image Converter..."
+#~ msgstr "Raw-afbeeldingen converteren..."
+
+#~ msgid "Raw Image Converter"
+#~ msgstr "Raw-afbeelding-conversie"

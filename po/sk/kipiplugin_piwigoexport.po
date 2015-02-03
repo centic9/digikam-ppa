@@ -1,0 +1,263 @@
+# translation of kipiplugin_piwigoexport.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2010.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_piwigoexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-04-18 02:21+0200\n"
+"PO-Revision-Date: 2013-03-14 13:41+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_piwigoexportui.rc:6
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_piwigoexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: piwigoconfig.cpp:76
+msgctxt "piwigo login settings"
+msgid "URL:"
+msgstr "URL:"
+
+#: piwigoconfig.cpp:80
+msgctxt "piwigo login settings"
+msgid "Username:"
+msgstr "Užívateľské meno:"
+
+#: piwigoconfig.cpp:84
+msgctxt "piwigo login settings"
+msgid "Password:"
+msgstr "Heslo:"
+
+#: piwigotalker.cpp:275
+#, fuzzy, kde-format
+msgid "Check if %1 already exists"
+msgstr ""
+"Súbor %1 už existuje.\n"
+"Chcete ho prepísať?"
+
+#: piwigotalker.cpp:446
+msgid "Piwigo URL probably incorrect"
+msgstr ""
+
+#: piwigotalker.cpp:452
+#, fuzzy
+msgid "Incorrect username or password specified"
+msgstr "<b>Chyba: Neplatné užívateľské meno alebo heslo</b>"
+
+#: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
+#: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
+#: piwigotalker.cpp:1118 piwigotalker.cpp:1252
+msgid "Invalid response received from remote Piwigo"
+msgstr ""
+
+#: piwigotalker.cpp:564
+#, fuzzy
+msgid "Failed to list albums"
+msgstr "Chyba pri vypisovaní súborov v %1."
+
+#: piwigotalker.cpp:611
+#, fuzzy, kde-format
+msgid "Photo '%1' already exists."
+msgstr ""
+"Súbor %1 už existuje.\n"
+"Chcete ho prepísať?"
+
+#: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
+#: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
+#, fuzzy
+msgid "Failed to upload photo"
+msgstr "Zlyhalo odoslanie \"%1\" pre %2. Dôvod: %3."
+
+#: piwigotalker.cpp:682
+#, fuzzy, kde-format
+msgid "Upload resized version of %1"
+msgstr "Systémy pre správu verzií"
+
+#: piwigotalker.cpp:736
+#, fuzzy, kde-format
+msgid "Photo '%1' already exists in this album."
+msgstr ""
+"Súbor %1 už existuje.\n"
+"Chcete ho prepísať?"
+
+#: piwigotalker.cpp:851 piwigotalker.cpp:1082
+#, fuzzy, kde-format
+msgid "Upload the chunk %1 of %2"
+msgstr "Číslo bloku"
+
+#: piwigotalker.cpp:887 piwigotalker.cpp:1169
+msgid "Warning : The full size photo cannot be uploaded."
+msgstr ""
+
+#: piwigotalker.cpp:926 piwigotalker.cpp:1216
+#, fuzzy, kde-format
+msgid "Upload the metadata of %1"
+msgstr "Popisok metadát"
+
+#: piwigotalker.cpp:1047
+#, fuzzy, kde-format
+msgid "Upload the thumbnail of %1"
+msgstr "Podpora náhľadu obrázkov"
+
+#: piwigowindow.cpp:135
+msgid "Albums"
+msgstr "Albumy"
+
+#: piwigowindow.cpp:144
+msgid "Change Account"
+msgstr ""
+
+#: piwigowindow.cpp:148
+msgid "Options"
+msgstr "Možnosti"
+
+#: piwigowindow.cpp:152
+msgid "Resize photos before uploading"
+msgstr ""
+
+#: piwigowindow.cpp:155
+msgid "Maximum width:"
+msgstr "Maximálna šírka:"
+
+#: piwigowindow.cpp:161
+msgid "Maximum height:"
+msgstr "Maximálna výška:"
+
+#: piwigowindow.cpp:168
+#, fuzzy
+msgid "Maximum thumbnail dimension:"
+msgstr ""
+"Vytvorená miniatúra pre:\n"
+"%1"
+
+#: piwigowindow.cpp:173
+msgid "Thumbnail size is ignored with Piwigo > 2.4"
+msgstr ""
+
+#: piwigowindow.cpp:235 piwigowindow.cpp:240
+msgid "Piwigo Export"
+msgstr "Piwigo Export"
+
+#: piwigowindow.cpp:243
+msgid "A Kipi plugin to export image collections to a remote Piwigo server."
+msgstr ""
+
+#: piwigowindow.cpp:244
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2012, Frédéric Coiffier\n"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2012, Frédéric Coiffier\n"
+
+#: piwigowindow.cpp:250
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: piwigowindow.cpp:250
+msgid "Author"
+msgstr "Autor"
+
+#: piwigowindow.cpp:253
+msgid "Colin Guthrie"
+msgstr "Colin Guthrie"
+
+#: piwigowindow.cpp:253
+msgid "Maintainer"
+msgstr "Správca"
+
+#: piwigowindow.cpp:256
+msgid "Andrea Diamantini"
+msgstr "Andrea Diamantini"
+
+#: piwigowindow.cpp:256 piwigowindow.cpp:259 piwigowindow.cpp:262
+msgid "Developer"
+msgstr "Vývojár"
+
+#: piwigowindow.cpp:259
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: piwigowindow.cpp:262
+msgid "Frédéric Coiffier"
+msgstr "Frédéric Coiffier"
+
+#: piwigowindow.cpp:270
+msgid "Start Upload"
+msgstr "Spustiť odoslanie"
+
+#: piwigowindow.cpp:404
+msgid "Failed to login into remote piwigo. "
+msgstr ""
+
+#: piwigowindow.cpp:406
+msgid ""
+"\n"
+"Do you want to check your settings and try again?"
+msgstr ""
+
+#: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
+#, fuzzy
+msgid "Edit Piwigo Data"
+msgstr "Upraviť osobné dáta"
+
+#: piwigowindow.cpp:473 piwigowindow.cpp:497
+msgid "Album"
+msgstr "Album"
+
+#: piwigowindow.cpp:516
+msgid "Image"
+msgstr "Obrázok"
+
+#: piwigowindow.cpp:547
+#, fuzzy
+msgid "Nothing to upload - please select photos to upload."
+msgstr "Prosím, vyberte jednu alebo viac fotiek pre tlač."
+
+#: piwigowindow.cpp:589
+#, fuzzy, kde-format
+msgid "Uploading file %1"
+msgstr "Nahráva sa súbor %1 do fotoaparátu..."
+
+#: piwigowindow.cpp:608
+msgid "Failed to upload photo into remote piwigo. "
+msgstr ""
+
+#: piwigowindow.cpp:611
+#, fuzzy
+msgid ""
+"\n"
+"Do you want to continue?"
+msgstr " Chcete pokračovať?"
+
+#: plugin_piwigoexport.cpp:98
+#, fuzzy
+msgid "Export to &Piwigo..."
+msgstr "Exportovať do umiestnenia"

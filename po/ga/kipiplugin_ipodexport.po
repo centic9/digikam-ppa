@@ -1,0 +1,212 @@
+# Irish translation of kipiplugin_ipodexport
+# Copyright (C) 2009 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kipiplugin_ipodexport package.
+# Kevin Scannell <kscanne@gmail.com>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: extragear-graphics/kipiplugin_ipodexport.po\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-05 02:03+0000\n"
+"PO-Revision-Date: 2009-01-20 10:11-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kevin Scannell"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kscanne@gmail.com"
+
+#: ipodheader.cpp:95
+msgid "<p align=\"center\"><b>No iPod was detected</b></p>"
+msgstr "<p align=\"center\"><b>Níor braitheadh aon iPod</b></p>"
+
+#: ipodheader.cpp:102
+msgid "Refresh"
+msgstr "Athnuaigh"
+
+#: ipodheader.cpp:115
+#, kde-format
+msgid ""
+"<p align=\"center\"><b>Your iPod (%1) does not seem to support artwork.</b></"
+"p>"
+msgstr ""
+"<p align=\"center\"><b>Ní thacaíonn d'iPod (%1) le healaín de réir "
+"cosúlachta.</b></p>"
+
+#: ipodheader.cpp:123
+msgid "Set iPod Model"
+msgstr "Socraigh Samhail an iPod"
+
+#: ipodheader.cpp:139
+#, kde-format
+msgid "<p align=\"center\"><b>iPod %1 detected at: %2</b></p>"
+msgstr "<p align=\"center\"><b>Braitheadh iPod %1 ag: %2</b></p>"
+
+#: ipodheader.cpp:144
+#, kde-format
+msgid "<p align=\"center\"><b>iPod %1 detected</b></p>"
+msgstr "<p align=\"center\"><b>Braitheadh iPod %1</b></p>"
+
+#: ipodlistitem.cpp:40
+msgid "Unnamed"
+msgstr "Gan ainm"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_ipodexportui.rc:6
+msgid "&Export"
+msgstr "&Easpórtáil"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_ipodexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Príomhbharra Uirlisí"
+
+#: plugin_ipodexport.cpp:87
+msgid "Export to &iPod..."
+msgstr "Easpórtáil go &iPod..."
+
+#: plugin_ipodexport.cpp:101 uploaddialog.cpp:110
+msgid "iPod Export"
+msgstr "Easpórtáil iPod"
+
+#: uploaddialog.cpp:113
+msgid "A tool to export image to an iPod device"
+msgstr "Uirlis a easpórtálann íomhánna go gléas iPod"
+
+#: uploaddialog.cpp:114
+#, fuzzy
+#| msgid ""
+#| "(c) 2006-2008, Seb Ruiz\n"
+#| "(c) 2008-2012, Gilles Caulier"
+msgid ""
+"(c) 2006-2008, Seb Ruiz\n"
+"(c) 2008-2013, Gilles Caulier"
+msgstr ""
+"© 2006-2008, Seb Ruiz\n"
+"© 2008-2012, Gilles Caulier"
+
+#: uploaddialog.cpp:117
+msgid "Seb Ruiz"
+msgstr "Seb Ruiz"
+
+#: uploaddialog.cpp:117
+msgid "Author and Maintainer"
+msgstr "Údar agus Cothaitheoir"
+
+#: uploaddialog.cpp:120
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: uploaddialog.cpp:120
+msgid "Developer"
+msgstr "Forbróir"
+
+#: uploaddialog.cpp:132
+msgid "Hard Disk"
+msgstr "Diosca Crua"
+
+#: uploaddialog.cpp:142
+msgid "&Add..."
+msgstr "&Cuir Leis..."
+
+#: uploaddialog.cpp:143
+msgid "Add images to be queued for the iPod."
+msgstr "Cuir íomhánna leis an gciú."
+
+#: uploaddialog.cpp:145 uploaddialog.cpp:187
+msgid "&Remove"
+msgstr "&Bain"
+
+#: uploaddialog.cpp:146
+msgid "Remove selected image from the list."
+msgstr "Bain an íomhá roghnaithe ón liosta."
+
+#: uploaddialog.cpp:148
+msgid "&Transfer"
+msgstr "&Aistrigh"
+
+#: uploaddialog.cpp:149
+msgid "Transfer images to the selected iPod album."
+msgstr "Aistrigh íomhánna go dtí an t-albam roghnaithe iPod."
+
+#: uploaddialog.cpp:155
+msgid "The preview of the selected image in the list."
+msgstr "Réamhamharc ar an íomhá roghnaithe."
+
+#: uploaddialog.cpp:176
+msgid "iPod"
+msgstr "iPod"
+
+#: uploaddialog.cpp:184
+msgid "&New..."
+msgstr "&Nua..."
+
+#: uploaddialog.cpp:185
+msgid "Create a new photo album on the iPod."
+msgstr "Cruthaigh albam nua grianghraf ar an iPod."
+
+#: uploaddialog.cpp:188
+msgid "R&ename..."
+msgstr "&Athainmnigh..."
+
+#: uploaddialog.cpp:193
+msgid "Remove the selected photos or albums from the iPod."
+msgstr "Bain na grianghraif nó albaim roghnaithe ón iPod."
+
+#: uploaddialog.cpp:194
+msgid "Rename the selected photo album on the iPod."
+msgstr "Athainmnigh an t-albam roghnaithe ar an iPod."
+
+#: uploaddialog.cpp:558
+msgid "Image files"
+msgstr "Comhaid íomhá"
+
+#: uploaddialog.cpp:561
+msgid "Add Images"
+msgstr "Cuir Íomhánna Leis"
+
+#: uploaddialog.cpp:596
+msgid "New iPod Photo Album"
+msgstr "Albam Nua Grianghraf iPod"
+
+#: uploaddialog.cpp:597
+msgid "Create a new album:"
+msgstr "Cruthaigh albam nua:"
+
+#: uploaddialog.cpp:628
+msgid "Rename iPod Photo Album"
+msgstr "Athainmnigh Albam Grianghraf iPod"
+
+# not Teideal an albaim nua
+#: uploaddialog.cpp:629
+msgid "New album title:"
+msgstr "Teideal nua an albaim:"
+
+#: uploaddialog.cpp:827
+#, kde-format
+msgid ""
+"An iPod photo database could not be found on the device mounted at %1. "
+"Initialize the iPod photo database?"
+msgstr ""
+"Níor aimsíodh bunachar sonraí grianghraf iPod ar an ngléas feistithe ar %1. "
+"An bhfuil fonn ort bunachar sonraí grianghraf a thúsú ar an iPod?"
+
+#: uploaddialog.cpp:831
+msgid "Initialize iPod Photo Database?"
+msgstr "Túsaigh Bunachar Sonraí Grianghraf iPod?"
+
+#: uploaddialog.cpp:832
+msgid "&Initialize"
+msgstr "Túsa&igh"
+
+#~ msgid "Plugin Handbook"
+#~ msgstr "Lámhleabhar an Bhreiseáin"

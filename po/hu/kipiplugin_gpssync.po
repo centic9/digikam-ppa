@@ -1,0 +1,1002 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Balázs Úr <urbalazs@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-05-07 02:57+0200\n"
+"PO-Revision-Date: 2013-07-22 15:17+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Úr Balázs"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "urbalazs@gmail.com"
+
+#: gpsbookmarkowner.cpp:349 searchwidget.cpp:777
+#, kde-format
+msgid "1 image snapped to '%2'"
+msgid_plural "%1 images snapped to '%2'"
+msgstr[0] "1 kép illesztve ehhez: „%2”"
+msgstr[1] "%1 kép illesztve ehhez: „%2”"
+
+#: gpscorrelatorwidget.cpp:169
+msgid "Load GPX files..."
+msgstr "GPX fájlok betöltése…"
+
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+msgid "Filename"
+msgstr "Fájlnév"
+
+#: gpscorrelatorwidget.cpp:174
+msgid "#points"
+msgstr "pontok száma"
+
+#: gpscorrelatorwidget.cpp:178
+msgid "Max. time gap (sec.):"
+msgstr "Maximális időrés (mp.):"
+
+#: gpscorrelatorwidget.cpp:180
+msgid ""
+"Sets the maximum difference in seconds from a GPS track point to the image "
+"time to be matched. If the time difference exceeds this setting, no match "
+"will be attempted."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:184
+msgid "Camera time zone:"
+msgstr "Fényképező időzónája:"
+
+#: gpscorrelatorwidget.cpp:185
+msgid "Same as system"
+msgstr "Ugyanaz mint a rendszeré"
+
+#: gpscorrelatorwidget.cpp:187
+msgid ""
+"Use this option if the timezone of the camera is the same as the timezone of "
+"this system. The conversion to GMT will be done automatically."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:190
+msgctxt "manual time zone selection for gps syncing"
+msgid "Manual:"
+msgstr "Kézi:"
+
+#: gpscorrelatorwidget.cpp:192
+msgid ""
+"Use this option if the timezone of the camera is different from this system "
+"and you have to specify the difference to GMT manually."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:244
+msgid ""
+"<p>Sets the time zone the camera was set to during photo shooting, so that "
+"the time stamps of the images can be converted to GMT to match the GPS time "
+"reference.</p><p>Note: positive offsets count eastwards from zero longitude "
+"(GMT), they are 'ahead of time'.</p>"
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:251
+msgid "Fine offset (mm:ss):"
+msgstr "Finom eltolás (pp:mm):"
+
+#: gpscorrelatorwidget.cpp:253
+msgid ""
+"Sets an additional offset in minutes and seconds that is used to correlate "
+"the photos to the GPS track. This can be used for fine tuning to adjust a "
+"wrong camera clock."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:263
+msgid "Set whether the camera offset is negative or positive."
+msgstr ""
+"Annak beállítása, hogy a fényképező eltolása negatív vagy pozitív legyen-e."
+
+#: gpscorrelatorwidget.cpp:267
+msgid "Minutes to fine tune camera offset."
+msgstr "Percek a fényképező eltolásának finomhangolásához."
+
+#: gpscorrelatorwidget.cpp:270
+msgid "Seconds to fine tune camera offset."
+msgstr "Másodpercek a fényképező eltolásának finomhangolásához."
+
+#: gpscorrelatorwidget.cpp:280
+msgid "Interpolate"
+msgstr "Interpoláció"
+
+#: gpscorrelatorwidget.cpp:281
+msgid ""
+"Set this option to interpolate GPS track points which are not closely "
+"matched to the GPX data file."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:287
+msgid "Difference in min.:"
+msgstr "Különbség percben:"
+
+#: gpscorrelatorwidget.cpp:289
+msgid ""
+"Sets the maximum time difference in minutes (240 max.) to interpolate GPX "
+"file points to image time data."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:292
+msgid "Correlate"
+msgstr "Viszonyítás"
+
+#: gpscorrelatorwidget.cpp:349
+#, kde-format
+msgid "%1|GPS Exchange Format"
+msgstr "%1|GPS Exchange Format"
+
+#: gpscorrelatorwidget.cpp:350
+msgid "Select GPX File to Load"
+msgstr "A betöltendő GPX fájl kiválasztása"
+
+#: gpscorrelatorwidget.cpp:396
+#, kde-format
+msgid "The following GPX file could not be loaded:"
+msgid_plural "The following %1 GPX files could not be loaded:"
+msgstr[0] "A következő GPX fájl nem tölthető be:"
+msgstr[1] "A következő %1 GPX fájl nem tölthető be:"
+
+#: gpscorrelatorwidget.cpp:402
+msgid "Error loading GPX file"
+msgid_plural "Error loading GPX files"
+msgstr[0] "Hiba a GPX fájl betöltésekor"
+msgstr[1] "Hiba a GPX fájlok betöltésekor"
+
+#: gpscorrelatorwidget.cpp:520
+msgid "Correlating images - %p%"
+msgstr "Képek viszonyítása - %p%"
+
+#: gpscorrelatorwidget.cpp:590
+msgid ""
+"Could not correlate any image - please make sure the timezone and gap "
+"settings are correct."
+msgstr ""
+"Nem sikerült egyetlen képet sem viszonyítani - győződjön meg arról, hogy az "
+"időzóna és a rés beállítások helyesek-e."
+
+#: gpscorrelatorwidget.cpp:591
+msgid "Correlation failed"
+msgstr "A viszonyítás nem sikerült"
+
+#: gpscorrelatorwidget.cpp:596
+msgid ""
+"All images have been correlated. You can now check their position on the map."
+msgstr "Minden kép viszonyítva lett. Ellenőrizheti a helyzetüket a térképen."
+
+#: gpscorrelatorwidget.cpp:597
+msgid "Correlation succeeded"
+msgstr "A viszonyítás sikerült"
+
+#: gpscorrelatorwidget.cpp:603
+#, kde-format
+msgid ""
+"%1 out of %2 images have been correlated. Please check the timezone and gap "
+"settings if you think that more images should have been correlated."
+msgstr ""
+
+#: gpscorrelatorwidget.cpp:604
+msgid "Correlation finished"
+msgstr "A viszonyítás befejeződött"
+
+#: gpscorrelatorwidget.cpp:613
+#, kde-format
+msgid "1 image correlated"
+msgid_plural "%1 images correlated"
+msgstr[0] "1 kép viszonyítva"
+msgstr[1] "%1 kép viszonyítva"
+
+#: gpsdataparser.cpp:677
+#, kde-format
+msgid "Could not open: %1"
+msgstr "Nem sikerült megnyitni: %1"
+
+#: gpsdataparser.cpp:683
+msgid "File is empty."
+msgstr "A fájl üres."
+
+#: gpsdataparser.cpp:699
+#, kde-format
+msgid "Parsing error: %1"
+msgstr "Feldolgozási hiba: %1"
+
+#: gpsdataparser.cpp:709
+msgid "No GPX element found - probably not a GPX file."
+msgstr "Nem található GPX elem - valószínűleg nem GPX fájl."
+
+#: gpsdataparser.cpp:713
+msgid "File is a GPX file, but no datapoints were found."
+msgstr "A fájl GPX fájl, de adatpontok nem találhatók."
+
+#: gpsimagedetails.cpp:127
+msgid "Coordinates"
+msgstr "Koordináták"
+
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+msgid "Latitude"
+msgstr "Szélesség"
+
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+msgid "Longitude"
+msgstr "Hosszúság"
+
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+msgid "Altitude"
+msgstr "Magasság"
+
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+msgid "Speed"
+msgstr "Sebesség"
+
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+msgid "# satellites"
+msgstr "Műholdak száma"
+
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+msgid "Fix type"
+msgstr "Típus javítása"
+
+#: gpsimagedetails.cpp:159
+msgid "2-d"
+msgstr "2-d"
+
+#: gpsimagedetails.cpp:160
+msgid "3-d"
+msgstr "3-d"
+
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+msgid "DOP"
+msgstr "DOP"
+
+#: gpsimagedetails.cpp:169
+msgid "Apply"
+msgstr "Alkalmazás"
+
+#: gpsimagedetails.cpp:445
+msgid "Details changed"
+msgstr "A részletek megváltoztak"
+
+#: gpslistviewcontextmenu.cpp:112 searchwidget.cpp:192
+msgid "Copy coordinates"
+msgstr "Koordináták másolása"
+
+#: gpslistviewcontextmenu.cpp:114
+msgid "Paste coordinates"
+msgstr "Koordináták beillesztése"
+
+#: gpslistviewcontextmenu.cpp:116
+msgid "Remove coordinates"
+msgstr "Koordináták eltávolítása"
+
+#: gpslistviewcontextmenu.cpp:117
+msgid "Remove altitude"
+msgstr "Magasság eltávolítása"
+
+#: gpslistviewcontextmenu.cpp:118
+msgid "Remove uncertainty"
+msgstr "Bizonytalanság eltávolítása"
+
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+msgid "Remove speed"
+msgstr "Sebesség eltávolítása"
+
+#: gpslistviewcontextmenu.cpp:120
+msgid "Look up missing altitude values"
+msgstr "Hiányzó magassági értékek keresése"
+
+#: gpslistviewcontextmenu.cpp:146 searchwidget.cpp:224
+msgid "Bookmarks"
+msgstr "Könyvjelzők"
+
+#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+msgid "GPS Sync"
+msgstr "GPS szinkronizálás"
+
+#: gpslistviewcontextmenu.cpp:420
+msgid ""
+"Found more than one point on the clipboard - can only assign one point at a "
+"time."
+msgstr ""
+"Több mint egy pont található a vágólapon - egyszerre csak egy pont "
+"rendelhető hozzá."
+
+#: gpslistviewcontextmenu.cpp:479
+msgid "Could not find any coordinates on the clipboard."
+msgstr "Nem található egyetlen koordináta sem a vágólapon."
+
+#: gpslistviewcontextmenu.cpp:483
+msgid "Coordinates pasted"
+msgstr "Koordináták beillesztve"
+
+#: gpslistviewcontextmenu.cpp:514
+msgid "Bookmark selected"
+msgstr "Könyvjelző kijelölve"
+
+#: gpslistviewcontextmenu.cpp:624
+msgid "Remove coordinates information"
+msgstr "Koordináták információk eltávolítása"
+
+#: gpslistviewcontextmenu.cpp:629
+msgid "Remove altitude information"
+msgstr "Magasság információk eltávolítása"
+
+#: gpslistviewcontextmenu.cpp:635
+msgid "Remove uncertainty information"
+msgstr "Bizonytalanság információk eltávolítása"
+
+#: gpslistviewcontextmenu.cpp:697
+msgid "Looking up altitudes"
+msgstr "Magasságok keresése"
+
+#: gpslistviewcontextmenu.cpp:748
+#, kde-format
+msgid ""
+"Altitude lookup failed:\n"
+"%1"
+msgstr ""
+"Nem sikerült a magasságkeresés:\n"
+"%1"
+
+#: gpslistviewcontextmenu.cpp:755
+msgid "Altitude looked up"
+msgstr "Magasság megkeresve"
+
+#: gpsreversegeocodingwidget.cpp:250
+msgid "Add country tag"
+msgstr "Ország címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:252
+msgid "Add state tag"
+msgstr "Állam címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:254
+msgid "Add state district tag"
+msgstr "Állam körzet címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:256
+msgid "Add county tag"
+msgstr "Megye címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:258
+msgid "Add city tag"
+msgstr "Település címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:260
+msgid "Add city district tag"
+msgstr "Település kerület címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:262
+msgid "Add suburb tag"
+msgstr "Városrész címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:264
+msgid "Add town tag"
+msgstr "Város címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:266
+msgid "Add village tag"
+msgstr "Falu címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:268
+msgid "Add hamlet tag"
+msgstr "Tanya címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:270
+msgid "Add street"
+msgstr "Utca hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:272
+msgid "Add house number tag"
+msgstr "Házszám címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:274
+msgid "Add place"
+msgstr "Hely hozzáadás"
+
+#: gpsreversegeocodingwidget.cpp:276
+msgid "Add Local Administrative Area 2"
+msgstr "Helyi közigazgatási terület 2 hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:278
+msgid "Add Local Administrative Area 1"
+msgstr "Helyi közigazgatási terület 1 hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:280
+msgid "Add new tag"
+msgstr "Új címke hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:281
+msgid "Remove selected tag"
+msgstr "Kijelölt címke eltávolítása"
+
+#: gpsreversegeocodingwidget.cpp:282
+msgid "Remove all control tags below this tag"
+msgstr "Minden vezérlő címke eltávolítása e címke alól"
+
+#: gpsreversegeocodingwidget.cpp:284
+msgid "Add all address elements"
+msgstr "Minden címelem hozzáadása"
+
+#: gpsreversegeocodingwidget.cpp:288
+msgid "Select language:"
+msgstr "Nyelv kiválasztása:"
+
+#: gpsreversegeocodingwidget.cpp:292
+msgid "English"
+msgstr "Angol"
+
+#: gpsreversegeocodingwidget.cpp:293
+msgid "Arabic"
+msgstr "Arab"
+
+#: gpsreversegeocodingwidget.cpp:294
+msgid "Assamese"
+msgstr "Aszamí"
+
+#: gpsreversegeocodingwidget.cpp:295
+msgid "Byelorussian"
+msgstr "Belorusz"
+
+#: gpsreversegeocodingwidget.cpp:296
+msgid "Bulgarian"
+msgstr "Bolgár"
+
+#: gpsreversegeocodingwidget.cpp:297
+msgid "Bengali"
+msgstr "Bengáli"
+
+#: gpsreversegeocodingwidget.cpp:298
+msgid "Chinese"
+msgstr "Kínai"
+
+#: gpsreversegeocodingwidget.cpp:299
+msgid "Czech"
+msgstr "Cseh"
+
+#: gpsreversegeocodingwidget.cpp:300
+msgid "Croatian"
+msgstr "Horvát"
+
+#: gpsreversegeocodingwidget.cpp:301
+msgid "Dutch"
+msgstr "Holland"
+
+#: gpsreversegeocodingwidget.cpp:302
+msgid "German"
+msgstr "Német"
+
+#: gpsreversegeocodingwidget.cpp:303
+msgid "Greek"
+msgstr "Görög"
+
+#: gpsreversegeocodingwidget.cpp:304
+msgid "Estonian"
+msgstr "Észt"
+
+#: gpsreversegeocodingwidget.cpp:305
+msgid "Finnish"
+msgstr "Finn"
+
+#: gpsreversegeocodingwidget.cpp:306
+msgid "French"
+msgstr "Francia"
+
+#: gpsreversegeocodingwidget.cpp:307
+msgid "Georgian"
+msgstr "Grúz"
+
+#: gpsreversegeocodingwidget.cpp:308
+msgid "Hebrew"
+msgstr "Héber"
+
+#: gpsreversegeocodingwidget.cpp:309
+msgid "Hindi"
+msgstr "Hindi"
+
+#: gpsreversegeocodingwidget.cpp:310
+msgid "Hungarian"
+msgstr "Magyar"
+
+#: gpsreversegeocodingwidget.cpp:311
+msgid "Indonesian"
+msgstr "Indonéz"
+
+#: gpsreversegeocodingwidget.cpp:312
+msgid "Icelandic"
+msgstr "Izlandi"
+
+#: gpsreversegeocodingwidget.cpp:313
+msgid "Italian"
+msgstr "Olasz"
+
+#: gpsreversegeocodingwidget.cpp:314
+msgid "Japanese"
+msgstr "Japán"
+
+#: gpsreversegeocodingwidget.cpp:315
+msgid "Korean"
+msgstr "Koreai"
+
+#: gpsreversegeocodingwidget.cpp:316
+msgid "Lithuanian"
+msgstr "Litván"
+
+#: gpsreversegeocodingwidget.cpp:317
+msgid "Macedonian"
+msgstr "Macedón"
+
+#: gpsreversegeocodingwidget.cpp:318
+msgid "Mongolian"
+msgstr "Mongol"
+
+#: gpsreversegeocodingwidget.cpp:319
+msgid "Moldavian"
+msgstr "Moldovai"
+
+#: gpsreversegeocodingwidget.cpp:320
+msgid "Nepali"
+msgstr "Nepáli"
+
+#: gpsreversegeocodingwidget.cpp:321
+msgid "Polish"
+msgstr "Lengyel"
+
+#: gpsreversegeocodingwidget.cpp:322
+msgid "Portuguese"
+msgstr "Portugál"
+
+#: gpsreversegeocodingwidget.cpp:323
+msgid "Romanian"
+msgstr "Román"
+
+#: gpsreversegeocodingwidget.cpp:324
+msgid "Russian"
+msgstr "Orosz"
+
+#: gpsreversegeocodingwidget.cpp:325
+msgid "Slovak"
+msgstr "Szlovák"
+
+#: gpsreversegeocodingwidget.cpp:326
+msgid "Slovenian"
+msgstr "Szlovén"
+
+#: gpsreversegeocodingwidget.cpp:327
+msgid "Samoan"
+msgstr "Szamoai"
+
+#: gpsreversegeocodingwidget.cpp:328
+msgid "Serbian"
+msgstr "Szerb"
+
+#: gpsreversegeocodingwidget.cpp:329
+msgid "Sudanese"
+msgstr "Szudáni"
+
+#: gpsreversegeocodingwidget.cpp:330
+msgid "Spanish"
+msgstr "Spanyol"
+
+#: gpsreversegeocodingwidget.cpp:331
+msgid "Swedish"
+msgstr "Svéd"
+
+#: gpsreversegeocodingwidget.cpp:332
+msgid "Thai"
+msgstr "Thai"
+
+#: gpsreversegeocodingwidget.cpp:333
+msgid "Turkish"
+msgstr "Török"
+
+#: gpsreversegeocodingwidget.cpp:334
+msgid "Ukrainian"
+msgstr "Ukrán"
+
+#: gpsreversegeocodingwidget.cpp:335
+msgid "Vietnamese"
+msgstr "Vietnami"
+
+#: gpsreversegeocodingwidget.cpp:337
+msgid "Select service:"
+msgstr "Szolgáltatás kiválasztása:"
+
+#: gpsreversegeocodingwidget.cpp:340
+msgid "Open Street Map"
+msgstr "Open Street Map"
+
+#: gpsreversegeocodingwidget.cpp:341
+msgid "Geonames.org place name (non-US)"
+msgstr "Geonames.org helységnév (nem amerikai)"
+
+#: gpsreversegeocodingwidget.cpp:342
+msgid "Geonames.org full address (US only)"
+msgstr "Geonames.org teljes cím (csak amerikai)"
+
+#: gpsreversegeocodingwidget.cpp:357 gpsreversegeocodingwidget.cpp:548
+msgid "Less options"
+msgstr "Kevesebb lehetőség"
+
+#: gpsreversegeocodingwidget.cpp:364
+msgid "Write tags to XMP"
+msgstr "Címkék írása XMP-be"
+
+#: gpsreversegeocodingwidget.cpp:370
+msgid "Apply reverse geocoding"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:494
+msgid "Image tags are changed."
+msgstr "A képcímkék megváltoztak."
+
+#: gpsreversegeocodingwidget.cpp:527
+msgid "Retrieving RG info - %p%"
+msgstr "RG információk lekérése - %p%"
+
+#: gpsreversegeocodingwidget.cpp:542
+msgid "More options"
+msgstr "Több lehetőség"
+
+#: gpsreversegeocodingwidget.cpp:864
+msgid "Add new tag:"
+msgstr "Új címke hozzáadása:"
+
+#: gpsreversegeocodingwidget.cpp:865
+msgid "Select a name for the new tag:"
+msgstr "Név kiválasztása az új címkéhez:"
+
+#: gpsreversegeocodingwidget.cpp:1004
+#, kde-format
+msgid ""
+"%1 out of %2 images have been reverse geocoded. Would you like to keep the "
+"tags which were already obtained or discard them?"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1009
+msgid "Abort reverse geocoding?"
+msgstr ""
+
+#: gpsreversegeocodingwidget.cpp:1010
+msgid "Keep tags"
+msgstr "Címkék megtartása"
+
+#: gpsreversegeocodingwidget.cpp:1011
+msgid "Discard tags"
+msgstr "Címkék eldobása"
+
+#: gpsreversegeocodingwidget.cpp:1012
+msgid "Continue"
+msgstr "Folytatás"
+
+#: gpssyncdialog.cpp:275
+msgid "Geolocation"
+msgstr "Helymeghatározás"
+
+#: gpssyncdialog.cpp:302
+msgid "Display bookmarked positions on the map."
+msgstr "Könyvjelzőzött helyek megjelenítése a térképen."
+
+#: gpssyncdialog.cpp:362
+msgid "Sorting"
+msgstr "Rendezés"
+
+#: gpssyncdialog.cpp:369
+msgid "Show oldest first"
+msgstr "Legrégebbi megjelenítése először"
+
+#: gpssyncdialog.cpp:373
+msgid "Show youngest first"
+msgstr "Legújabb megjelenítése először"
+
+#: gpssyncdialog.cpp:412
+msgid "Details"
+msgstr "Részletek"
+
+#: gpssyncdialog.cpp:413
+msgid "GPS Correlator"
+msgstr "GPS viszonyító"
+
+#: gpssyncdialog.cpp:414
+msgid "Undo/Redo"
+msgstr "Visszavonás/ismétlés"
+
+#: gpssyncdialog.cpp:415
+msgid "Reverse Geocoding"
+msgstr ""
+
+#: gpssyncdialog.cpp:416
+msgid "Search"
+msgstr "Keresés"
+
+#: gpssyncdialog.cpp:439
+msgid "A Plugin to synchronize pictures' metadata with a GPS device"
+msgstr ""
+"Egy bővítmény fényképek metaadatainak szinkronizálásához a GPS eszközzel"
+
+#: gpssyncdialog.cpp:440
+msgid "(c) 2006-2013, Gilles Caulier"
+msgstr "© Gilles Caulier, 2006-2013."
+
+#: gpssyncdialog.cpp:442
+msgid "Michael G. Hansen"
+msgstr "Michael G. Hansen"
+
+#: gpssyncdialog.cpp:443
+msgid "Developer and maintainer"
+msgstr "Fejlesztő és karbantartó"
+
+#: gpssyncdialog.cpp:446
+msgid "Gabriel Voicu"
+msgstr "Gabriel Voicu"
+
+#: gpssyncdialog.cpp:447 gpssyncdialog.cpp:451
+msgid "Developer"
+msgstr "Fejlesztő"
+
+#: gpssyncdialog.cpp:450
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gpssyncdialog.cpp:626
+msgid "Loading metadata - %p%"
+msgstr "Metaadatok betöltése - %p%"
+
+#: gpssyncdialog.cpp:807
+#, kde-format
+msgid "You have 1 modified image."
+msgid_plural "You have %1 modified images."
+msgstr[0] "1 módosított képe van."
+msgstr[1] "%1 módosított képe van."
+
+#: gpssyncdialog.cpp:813
+#, kde-format
+msgid "%1 Would you like to save the changes you made to them?"
+msgstr "%1 Szeretné menteni a változtatásokat, amelyeket elvégzett rajtuk?"
+
+#: gpssyncdialog.cpp:814
+msgid "Unsaved changes"
+msgstr "Nem mentett változtatások"
+
+#: gpssyncdialog.cpp:815
+msgid "Save changes"
+msgstr "Változtatások mentése"
+
+#: gpssyncdialog.cpp:816
+msgid "Close and discard changes"
+msgstr "Bezárás és a változtatások eldobása"
+
+#: gpssyncdialog.cpp:1040
+#, kde-format
+msgid "1 image moved"
+msgid_plural "%1 images moved"
+msgstr[0] "1 kép áthelyezve"
+msgstr[1] "%1 kép áthelyezve"
+
+#: gpssyncdialog.cpp:1074
+msgid "Saving changes - %p%"
+msgstr "Változtatások mentése - %p%"
+
+#: gpssyncdialog.cpp:1119
+msgid "Failed to save some information:"
+msgstr "Nem sikerült néhány információ mentése:"
+
+#: gpssyncdialog.cpp:1119
+msgid "Error"
+msgstr "Hiba"
+
+#: gpssyncdialog.cpp:1147
+msgid "GPS sync"
+msgstr "GPS szinkronizálás"
+
+#: kipiimageitem.cpp:363
+msgid "Not available"
+msgstr "Nem érhető el"
+
+#: kipiimageitem.cpp:396
+#, kde-format
+msgid "DOP: %1"
+msgstr "DOP: %1"
+
+#: kipiimageitem.cpp:401
+#, c-format, kde-format
+msgid "Fix: %1d"
+msgstr "Javítás: %1d"
+
+#: kipiimageitem.cpp:406
+#, kde-format
+msgid "#Sat: %1"
+msgstr "#Műh: %1"
+
+#: kipiimageitem.cpp:441
+#, c-format, kde-format
+msgid "%1d"
+msgstr "%1d"
+
+#: kipiimageitem.cpp:461
+msgid "Modified"
+msgstr "Módosítva"
+
+#: kipiimageitem.cpp:523
+msgid "Thumbnail"
+msgstr "Bélyegkép"
+
+#: kipiimageitem.cpp:525
+msgid "Date and time"
+msgstr "Dátum és idő"
+
+#: kipiimageitem.cpp:529
+msgid "Accuracy"
+msgstr "Pontosság"
+
+#: kipiimageitem.cpp:534
+msgid "Status"
+msgstr "Állapot"
+
+#: kipiimageitem.cpp:535
+msgid "Tags"
+msgstr "Címkék"
+
+#: kipiimageitem.cpp:722
+msgid "Failed to open file."
+msgstr "Nem sikerült megnyitni a fájlt."
+
+#: kipiimageitem.cpp:783
+msgid "Failed to add GPS info to image."
+msgstr "Nem sikerült hozzáadni a GPS információkat a képhez."
+
+#: kipiimageitem.cpp:793
+msgid "Failed to remove GPS info from image"
+msgstr "Nem sikerült eltávolítani a GPS információkat a képről"
+
+#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+msgid "Failed to save tags to file."
+msgstr "Nem sikerült fájlba menteni a címkéket."
+
+#: kipiimageitem.cpp:838
+msgid "Unable to save changes to file"
+msgstr "Nem lehet fájlba menteni a változtatásokat"
+
+#. i18n: ectx: Menu (Image)
+#: kipiplugin_gpssyncui.rc:6
+msgid "&Image"
+msgstr "&Kép"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_gpssyncui.rc:12
+msgid "Main Toolbar"
+msgstr "Fő eszköztár"
+
+#: plugin_gpssync.cpp:99
+msgid "Geo-location"
+msgstr "Helymeghatározás"
+
+#: rgtagmodel.cpp:95
+msgid "{Country}"
+msgstr "{Ország}"
+
+#: rgtagmodel.cpp:96
+msgctxt "Part of a country"
+msgid "{State}"
+msgstr "{Állam}"
+
+#: rgtagmodel.cpp:97
+msgid "{County}"
+msgstr "{Megye}"
+
+#: rgtagmodel.cpp:98
+msgid "{City}"
+msgstr "{Település}"
+
+#: rgtagmodel.cpp:99
+msgid "{Town}"
+msgstr "{Város}"
+
+#: rgtagmodel.cpp:100
+msgid "{Village}"
+msgstr "{Falu}"
+
+#: rgtagmodel.cpp:101
+msgid "{Hamlet}"
+msgstr "{Tanya}"
+
+#: rgtagmodel.cpp:102
+msgid "{Street}"
+msgstr "{Utca}"
+
+#: searchbackend.cpp:310
+msgid "GeoNames"
+msgstr "GeoNames"
+
+#: searchbackend.cpp:311
+msgid "OSM"
+msgstr "OSM"
+
+#: searchwidget.cpp:166
+msgctxt "Start the search"
+msgid "Search"
+msgstr "Keresés"
+
+#: searchwidget.cpp:173
+msgid "Clear the search results."
+msgstr "A keresési eredmények törlése."
+
+#: searchwidget.cpp:181
+msgid "Keep the results of old searches when doing a new search."
+msgstr "A korábbi keresési eredmények megtartása új keresés indításakor."
+
+#: searchwidget.cpp:188
+msgid "Toggle the visibility of the search results on the map."
+msgstr "A keresési eredmények láthatóságának váltása a térképen."
+
+#: searchwidget.cpp:195
+msgid "Move selected images to this position"
+msgstr "A kijelölt képek mozgatása erre a helyre"
+
+#: searchwidget.cpp:197
+msgid "Remove from results list"
+msgstr "Eltávolítás a találati listából"
+
+#: searchwidget.cpp:201
+msgid "Select which service you would like to use."
+msgstr "Válassza ki, hogy mely szolgáltatást szeretné használni."
+
+#: searchwidget.cpp:277
+#, kde-format
+msgid ""
+"Your search failed:\n"
+"%1"
+msgstr ""
+"A keresés nem sikerült:\n"
+"%1"
+
+#: searchwidget.cpp:277
+msgid "Search failed"
+msgstr "A keresés nem sikerült"
+
+#: searchwidget.cpp:814
+#, kde-format
+msgid "1 image moved to '%2'"
+msgid_plural "%1 images moved to '%2'"
+msgstr[0] "1 kép áthelyezve ide: „%2”"
+msgstr[1] "%1 kép áthelyezve ide: „%2”"
+
+#: setup.cpp:122
+msgid "Configure"
+msgstr "Beállítás"
+
+#: setup.cpp:128
+msgctxt "General setup"
+msgid "General"
+msgstr "Általános"
+
+#: setup_general.cpp:64
+msgid "One map"
+msgstr "Egy térkép"
+
+#: setup_general.cpp:65
+msgid "Two maps - horizontal"
+msgstr "Két térkép - vízszintesen"
+
+#: setup_general.cpp:66
+msgid "Two maps - vertical"
+msgstr "Két térkép - függőlegesen"
+
+#: setup_general.cpp:68
+msgid "Layout:"
+msgstr "Elrendezés:"

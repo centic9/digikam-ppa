@@ -1,0 +1,895 @@
+# translation of kipiplugin_slideshow.po to Latvian
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Viesturs Zarins <viesturs.zarins@mii.lu.lv>, 2008.
+# Viesturs Zariņš <viesturs.zarins@algorego.com>, 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_slideshow\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2008-11-24 15:58+0200\n"
+"Last-Translator: Viesturs Zarins <viesturs.zarins@mii.lu.lv>\n"
+"Language-Team: Latvian <locale@laka.lv>\n"
+"Language: lv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n != 0 ? 1 : "
+"2);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Viesturs Zariņš"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "viesturs.zarins@mi.lu.lv"
+
+#: dialogs/captiondialog.cpp:41
+msgid "This is a comment sample..."
+msgstr ""
+
+#: dialogs/maindialog.cpp:244
+#, fuzzy, kde-format
+#| msgid "%1 image [%2]"
+msgid "%1 image [%2]"
+msgid_plural "%1 images [%2]"
+msgstr[0] "%1 attēls [%2]"
+msgstr[1] "%1 attēls [%2]"
+msgstr[2] "%1 attēls [%2]"
+
+#: dialogs/maindialog.cpp:324 dialogs/soundtrackdialog.cpp:560
+#, fuzzy, kde-format
+#| msgid "Cannot access to file %1, please check the path is right."
+msgid "Cannot access file %1. Please check the path is correct."
+msgstr "Neizdevās piekļūt failam %1, lūdzu pārbaudiet ka ceļš ir pareizs."
+
+#: dialogs/maindialog.cpp:362
+#, fuzzy, kde-format
+#| msgid "Image no. %1"
+msgctxt "Image number %1"
+msgid "Image #%1"
+msgstr "Attēls nr. %1"
+
+#: dialogs/maindialog.cpp:394 widgets/slideshowkb.cpp:574
+msgid "Ken Burns"
+msgstr "Ken Burns"
+
+#: dialogs/maindialog.cpp:415
+msgid "Delay between images (ms):"
+msgstr "Laiks starp attēliem (ms):"
+
+#. i18n: ectx: property (text), widget (QLabel, m_delayLabel)
+#: dialogs/maindialog.cpp:422 ui/maindialog.ui:262
+msgid "Delay between images (s):"
+msgstr "Laiks starp attēliem (sek):"
+
+#: dialogs/slideshowconfig.cpp:77 dialogs/slideshowconfig.cpp:113
+#, fuzzy
+#| msgid "Advanced SlideShow..."
+msgid "Advanced Slideshow"
+msgstr "Paplašināta slīdrāde..."
+
+#: dialogs/slideshowconfig.cpp:85
+#, fuzzy
+#| msgid "Start SlideShow"
+msgid "Start Slideshow"
+msgstr "Sākt slīdrādi"
+
+#: dialogs/slideshowconfig.cpp:92
+msgid "Main"
+msgstr "Galvenais"
+
+#: dialogs/slideshowconfig.cpp:93
+msgid "Main Settings"
+msgstr "Galvenie iestatījumi"
+
+#: dialogs/slideshowconfig.cpp:97 dialogs/slideshowconfig.cpp:98
+#, fuzzy
+#| msgid "Caption"
+msgctxt "captions for the slideshow"
+msgid "Caption"
+msgstr "Apraksts"
+
+#: dialogs/slideshowconfig.cpp:102 dialogs/slideshowconfig.cpp:103
+msgid "Soundtrack"
+msgstr "Skaņas celiņš"
+
+#: dialogs/slideshowconfig.cpp:107 dialogs/slideshowconfig.cpp:108
+msgid "Advanced"
+msgstr "Paplašināti"
+
+#: dialogs/slideshowconfig.cpp:116
+#, fuzzy
+#| msgid "A Kipi plugin for image slideshow"
+msgid "A Kipi plugin for image slideshows"
+msgstr "Kipi spraudnis attēlu slīdrādei"
+
+#: dialogs/slideshowconfig.cpp:117
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2004, Renchi Raju\n"
+#| "(c) 2006-2008, Valerio Fuoglio"
+msgid ""
+"(c) 2003-2004, Renchi Raju\n"
+"(c) 2006-2009, Valerio Fuoglio"
+msgstr ""
+"(c) 2003-2004, Renchi Raju\n"
+" (c) 2006-2008, Valerio Fuoglio"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/slideshowconfig.cpp:120
+msgid "Author"
+msgstr "Autors"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Valerio Fuoglio"
+msgstr "Valerio Fuoglio"
+
+#: dialogs/slideshowconfig.cpp:123
+msgid "Author and maintainer"
+msgstr "Autors un uzturētājs"
+
+#: dialogs/soundtrackdialog.cpp:63
+msgid "Soundtrack preview"
+msgstr "Skaņas celiņa priekšskatījums"
+
+#: dialogs/soundtrackdialog.cpp:90
+msgid ""
+"If set, the soundtrack for the current album will be saved and restored "
+"automatically on the next startup."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:111
+#, fuzzy
+#| msgid "Moving the current image up on the portfolio list."
+msgid "Move the selected track up in the playlist."
+msgstr "Pārvieto izvēlēto attēlu sarakstā uz augšu."
+
+#: dialogs/soundtrackdialog.cpp:112
+#, fuzzy
+#| msgid "Moving the current image down on the portfolio list."
+msgid "Move the selected track down in the playlist."
+msgstr "Pārvieto izvēlēto attēlu sarakstā uz leju."
+
+#: dialogs/soundtrackdialog.cpp:113
+#, fuzzy
+#| msgid "Add some image files to the portfolio list."
+msgid "Add new tracks to the playlist."
+msgstr "Pivienot attēlus sarakstam."
+
+#: dialogs/soundtrackdialog.cpp:114
+msgid "Delete the selected track from the playlist."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:115
+msgid "Load playlist from a file."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:116
+msgid "Save playlist to a file."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:117
+msgid "Clear the playlist."
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:243
+#, fuzzy, kde-format
+#| msgid "%1 track [%2]"
+msgctxt "number of tracks and running time"
+msgid "1 track [%2]"
+msgid_plural "%1 tracks [%2]"
+msgstr[0] "%1 celiņš [%2]"
+msgstr[1] "%1 celiņš [%2]"
+msgstr[2] "%1 celiņš [%2]"
+
+#: dialogs/soundtrackdialog.cpp:271
+#, fuzzy
+#| msgid ""
+#| "Slide time is more than soundtrack time. Suggest: add more sound files."
+msgid ""
+"Slide time is greater than soundtrack time. Suggestion: add more sound files."
+msgstr ""
+"Attēlu rādīšana aizņems vairāk laika, nekā skaņas celiņa garums. Ieteicam "
+"pieveinot vēl skaņas failus."
+
+#: dialogs/soundtrackdialog.cpp:342
+msgid "Select sound files"
+msgstr "Izvēlieties skaņas failus"
+
+#: dialogs/soundtrackdialog.cpp:394
+#, fuzzy
+#| msgid "You can only move up one image file at once."
+msgid "You can only move image files up one at a time."
+msgstr "Vienlaicīgi var pārvietot tikai vienu attēlu uz augšu."
+
+#: dialogs/soundtrackdialog.cpp:426
+#, fuzzy
+#| msgid "You can only move down one file at once."
+msgid "You can only move files down one at a time."
+msgstr "Vienlaicīgi var pārvietot tikai vienu attēlu uz leju."
+
+#: dialogs/soundtrackdialog.cpp:448 dialogs/soundtrackdialog.cpp:504
+msgid "*.m3u|Playlist (*.m3u)"
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:449
+msgid "Load playlist"
+msgstr ""
+
+#: dialogs/soundtrackdialog.cpp:505
+#, fuzzy
+#| msgid "Select audio files"
+msgid "Save playlist"
+msgstr "Izvēlieties audio failus"
+
+#: dialogs/soundtrackdialog.cpp:569
+msgid "Cannot create a preview of an empty file list."
+msgstr "Nevar izveidot priekšskatījumu tukšam failu sarakstam."
+
+#. i18n: ectx: Menu (View)
+#: plugin/kipiplugin_advancedslideshowui.rc:6
+msgid "&View"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_advancedslideshowui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/plugin_advancedslideshow.cpp:118
+#, fuzzy
+#| msgid "Advanced SlideShow..."
+msgid "Advanced Slideshow..."
+msgstr "Paplašināta slīdrāde..."
+
+#: plugin/plugin_advancedslideshow.cpp:204
+msgid "There are no images to show."
+msgstr "Nav attēlu, ko rādīt."
+
+#: plugin/plugin_advancedslideshow.cpp:262
+#, fuzzy
+#| msgid "Sorry. OpenGL support not available on your system"
+msgid "OpenGL support is not available on your system."
+msgstr "Atvainojiet. Jūsu sistēmā nav pieejams OpenGL"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/advanceddialog.ui:24
+msgid "&Interface"
+msgstr "&Saskarne"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_useMillisecondsCheckBox)
+#: ui/advanceddialog.ui:36
+msgid "Use &milliseconds instead of seconds"
+msgstr "Lietot &millisekunes nevis sekundes"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/advanceddialog.ui:52
+msgid "&Controls"
+msgstr "&Kontrole"
+
+#. i18n: ectx: property (toolTip), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:64
+msgid "Enable mouse wheel to move between slides."
+msgstr "Lietot peles riteni attēlu pārslēgšanai."
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_enableMouseWheelCheckBox)
+#: ui/advanceddialog.ui:67
+msgid "Enable mouse &wheel "
+msgstr "Lietot peles &ritenīti"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/advanceddialog.ui:85
+msgid "&Ken Burns effect"
+msgstr "&Ken Burns efekts"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableFadeCheckBox)
+#: ui/advanceddialog.ui:97
+msgid "Disable &fade-in / fade-out"
+msgstr "Atslēgt &pakāpenisku parādīšanos/pazušanu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableCrossfadeCheckBox)
+#: ui/advanceddialog.ui:110
+#, fuzzy
+#| msgid "Disable &crossfade"
+msgid "Disable &cross-fade"
+msgstr "Atslēgt pā&rplūšanu"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
+#: ui/advanceddialog.ui:126
+msgid "&Others"
+msgstr "&Citi"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_cacheCheckBox)
+#: ui/advanceddialog.ui:140
+msgid "Enable &Cache"
+msgstr "Lieot &kešu"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel1)
+#: ui/advanceddialog.ui:155
+msgid "Cache size:"
+msgstr "Keša izmērs:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel2)
+#: ui/advanceddialog.ui:197
+msgid "images"
+msgstr "attēli"
+
+#. i18n: ectx: property (text), widget (QLabel, m_KBCacheLabel)
+#: ui/advanceddialog.ui:212
+#, fuzzy
+#| msgid ""
+#| "<b>Notice</b>:\n"
+#| "Ken Burns effect doesn't use this cache mechanism."
+msgid ""
+"<b>Notice</b>:\n"
+"Ken Burns effect does not use this cache mechanism."
+msgstr ""
+"<b>Piezīme</b>:\n"
+"Ken Burns efekts neizmanto šo kešošanas mehānismu."
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/captiondialog.ui:26
+#, fuzzy
+#| msgid "Line lenght (in characters)"
+msgid "Line length (in characters)"
+msgstr "Rindas garums (rakstzīmes)"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/captiondialog.ui:77
+msgid "Colors"
+msgstr "Krāsas"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/captiondialog.ui:83
+#, fuzzy
+#| msgid "Font color :"
+msgid "Font color:"
+msgstr "Teksta krāsa :"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/captiondialog.ui:106
+msgid "Background color:"
+msgstr "Fona krāsa:"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/captiondialog.ui:167
+#, fuzzy
+#| msgid "Background color:"
+msgid "Background opacity:"
+msgstr "Fona krāsa:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_commentsDrawOutlineCheckBox)
+#: ui/captiondialog.ui:174
+msgid "Outlined Text"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_allFilesButton)
+#: ui/maindialog.ui:26
+msgid "Show all images in current al&bum"
+msgstr "Rādīt visus aktīvā al&buma attēlus"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_selectedFilesButton)
+#: ui/maindialog.ui:33
+msgid "Show onl&y selected images"
+msgstr "Rādīt ti&kai izvēlētos attēlus"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_customButton)
+#: ui/maindialog.ui:40
+msgid "Cu&stom"
+msgstr "Pie&lāgota"
+
+#. i18n: ectx: property (whatsThis), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:50
+msgid "Preview the currently selected image."
+msgstr "Priekšskatīt izvēlēto attēlu."
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_ImagesFilesGroup)
+#: ui/maindialog.ui:53
+#, fuzzy
+#| msgid "Image Files in slideshow"
+msgid "Image Files in Slideshow"
+msgstr "Attēlu faili slīdrādē"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label6)
+#: ui/maindialog.ui:120
+msgid "Total number of images in the portfolio and sequence duration."
+msgstr "Kopējais attēlu skaits un rādīšanas ilgums."
+
+#. i18n: ectx: property (text), widget (QLabel, m_label6)
+#. i18n: ectx: property (text), widget (QLabel, m_label7)
+#: ui/maindialog.ui:123 ui/maindialog.ui:142
+msgid "None"
+msgstr "Nav"
+
+#. i18n: ectx: property (whatsThis), widget (QLabel, m_label7)
+#: ui/maindialog.ui:139
+msgid "Currently selected image in the portfolio list."
+msgstr "Šobrīd sarakstā izvēlētais attēls."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/maindialog.ui:157
+msgid "Content"
+msgstr "Saturs"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printNameCheckBox)
+#: ui/maindialog.ui:165
+msgid "P&rint filename"
+msgstr "&Rādīt faila nosaukumu"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printProgressCheckBox)
+#: ui/maindialog.ui:172
+msgid "Progress indicator"
+msgstr "Progresa indikators"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_printCommentsCheckBox)
+#: ui/maindialog.ui:181
+msgid "Pr&int captions "
+msgstr "Rā&dīt aprakstus "
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/maindialog.ui:204
+msgid "Video"
+msgstr "Video"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openglCheckBox)
+#: ui/maindialog.ui:210
+msgid "Use Open&GL slideshow transitions"
+msgstr "Lietot Open&GL slīdrādes pārejām"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_openGlFullScale)
+#: ui/maindialog.ui:217
+msgid "Use full screen resolution (slower)"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
+#: ui/maindialog.ui:240
+msgid "Playback"
+msgstr "Atskaņošana"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_loopCheckBox)
+#: ui/maindialog.ui:246 ui/soundtrackdialog.ui:331
+msgid "&Loop"
+msgstr "&Atkārtot"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_shuffleCheckBox)
+#: ui/maindialog.ui:253
+msgid "&Shuffle images"
+msgstr "&Sajaukt attēlus"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/maindialog.ui:288
+msgid "Transition effect:"
+msgstr "Nomaiņas efekts:"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_playButton)
+#: ui/playbackwidget.ui:28 ui/slideplaybackwidget.ui:30
+msgid "Play"
+msgstr "Atskaņot"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
+#: ui/playbackwidget.ui:35 ui/slideplaybackwidget.ui:37
+msgid "Stop"
+msgstr "Apturēt"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_prevButton)
+#: ui/playbackwidget.ui:42 ui/slideplaybackwidget.ui:44
+msgid "Prev"
+msgstr "Iepriekšējais"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_nextButton)
+#: ui/playbackwidget.ui:49 ui/slideplaybackwidget.ui:51
+msgid "Next"
+msgstr "Nākamais"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/playbackwidget.ui:69
+msgid "Time"
+msgstr "Laiks"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/playbackwidget.ui:78
+msgid "elapsed:"
+msgstr "pagājis:"
+
+#. i18n: ectx: property (text), widget (QLabel, m_elapsedTimeLabel)
+#. i18n: ectx: property (text), widget (QLabel, m_totalTimeLabel)
+#: ui/playbackwidget.ui:85 ui/playbackwidget.ui:99
+msgid "0:00:00"
+msgstr "0:00:00"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/playbackwidget.ui:92
+msgid "total:"
+msgstr "kopā:"
+
+#. i18n: ectx: property (title), widget (QGroupBox, m_selectionGroupBox)
+#: ui/soundtrackdialog.ui:23
+msgid "Select audio files"
+msgstr "Izvēlieties audio failus"
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonUp)
+#: ui/soundtrackdialog.ui:76
+#, fuzzy
+#| msgid "Moving the current image up on the portfolio list."
+msgid "Move the current image up in the portfolio list."
+msgstr "Pārvieto izvēlēto attēlu sarakstā uz augšu."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonAdd)
+#: ui/soundtrackdialog.ui:104
+msgid "Add some image files to the portfolio list."
+msgstr "Pivienot attēlus sarakstam."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDelete)
+#: ui/soundtrackdialog.ui:132
+msgid "Remove some image files from the portfolio list."
+msgstr "Izņemt attēlus no saraksta."
+
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDown)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonLoad)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonSave)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonReset)
+#: ui/soundtrackdialog.ui:160 ui/soundtrackdialog.ui:191
+#: ui/soundtrackdialog.ui:219 ui/soundtrackdialog.ui:247
+#, fuzzy
+#| msgid "Moving the current image down on the portfolio list."
+msgid "Move the current image down in the portfolio list."
+msgstr "Pārvieto izvēlēto attēlu sarakstā uz leju."
+
+#. i18n: ectx: property (text), widget (QPushButton, m_previewButton)
+#: ui/soundtrackdialog.ui:305
+msgid "Preview..."
+msgstr "Apskatīt..."
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox)
+#: ui/soundtrackdialog.ui:325
+msgid "Options"
+msgstr "Opcijas"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_rememberSoundtrack)
+#: ui/soundtrackdialog.ui:338
+#, fuzzy
+#| msgid "Soundtrack"
+msgid "Remember soundtrack"
+msgstr "Skaņas celiņš"
+
+#. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
+#: ui/soundtrackdialog.ui:361
+msgid "Time comparison"
+msgstr "Laika salīdzināšana"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/soundtrackdialog.ui:369
+#, fuzzy
+#| msgid "Slide :"
+msgid "Slide:"
+msgstr "Slaids :"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/soundtrackdialog.ui:383
+#, fuzzy
+#| msgid "Soundtrack :"
+msgid "Soundtrack:"
+msgstr "Celiņš :"
+
+#: widgets/listsounditems.cpp:95
+#, kde-format
+msgid "%1 is damaged and may not be playable."
+msgstr "%1 ir bojāts un to varbūt nav iespējams atskaņot."
+
+#: widgets/listsounditems.cpp:97
+msgid "Phonon error"
+msgstr "Phonon kļūda"
+
+#: widgets/listsounditems.cpp:100
+msgid "This file is damaged and may not be playable."
+msgstr "Šis fails ir bojāts un, drošvien, nav atskaņojams."
+
+#: widgets/listsounditems.cpp:101 widgets/listsounditems.cpp:125
+#, kde-format
+msgctxt "artist - title"
+msgid "%1 - %2"
+msgstr ""
+
+#: widgets/slideshow.cpp:240 widgets/slideshowgl.cpp:390
+#, fuzzy
+#| msgid "None"
+msgctxt "Filter Effect: No effect"
+msgid "None"
+msgstr "Nav"
+
+#: widgets/slideshow.cpp:241
+#, fuzzy
+#| msgid "Chess Board"
+msgctxt "Filter Effect: Chess Board"
+msgid "Chess Board"
+msgstr "Šaha dēlītis"
+
+#: widgets/slideshow.cpp:242
+#, fuzzy
+#| msgid "Melt Down"
+msgctxt "Filter Effect: Melt Down"
+msgid "Melt Down"
+msgstr "Izkust"
+
+#: widgets/slideshow.cpp:243
+#, fuzzy
+#| msgid "Sweep"
+msgctxt "Filter Effect: Sweep"
+msgid "Sweep"
+msgstr "Slaucīt"
+
+#: widgets/slideshow.cpp:244
+#, fuzzy
+#| msgid "Mosaic"
+msgctxt "Filter Effect: Mosaic"
+msgid "Mosaic"
+msgstr "Mozaīka"
+
+#: widgets/slideshow.cpp:245
+#, fuzzy
+#| msgid "Cubism"
+msgctxt "Filter Effect: Cubism"
+msgid "Cubism"
+msgstr "Kubisms"
+
+#: widgets/slideshow.cpp:246
+#, fuzzy
+#| msgid "Growing"
+msgctxt "Filter Effect: Growing"
+msgid "Growing"
+msgstr "Augošs"
+
+#: widgets/slideshow.cpp:247
+#, fuzzy
+#| msgid "Horizontal Lines"
+msgctxt "Filter Effect: Horizontal Lines"
+msgid "Horizontal Lines"
+msgstr "Horizontālas līnijas"
+
+#: widgets/slideshow.cpp:248
+#, fuzzy
+#| msgid "Vertical Lines"
+msgctxt "Filter Effect: Vertical Lines"
+msgid "Vertical Lines"
+msgstr "Vertikālas līnijas"
+
+#: widgets/slideshow.cpp:249
+#, fuzzy
+#| msgid "Circle Out"
+msgctxt "Filter Effect: Circle Out"
+msgid "Circle Out"
+msgstr "Rinķis ārā"
+
+#: widgets/slideshow.cpp:250
+#, fuzzy
+#| msgid "MultiCircle Out"
+msgctxt "Filter Effect: Multi-Circle Out"
+msgid "Multi-Circle Out"
+msgstr "Daudzriņķi ārā"
+
+#: widgets/slideshow.cpp:251
+#, fuzzy
+#| msgid "Spiral In"
+msgctxt "Filter Effect: Spiral In"
+msgid "Spiral In"
+msgstr "Spirāle iekšā"
+
+#: widgets/slideshow.cpp:252
+msgctxt "Filter Effect: Blobs"
+msgid "Blobs"
+msgstr ""
+
+#: widgets/slideshow.cpp:253 widgets/slideshowgl.cpp:399
+#, fuzzy
+#| msgid "Random"
+msgctxt "Filter Effect: Random effect"
+msgid "Random"
+msgstr "Nejaušs"
+
+#: widgets/slideshow.cpp:1314 widgets/slideshowgl.cpp:692
+#, fuzzy
+#| msgid "SlideShow Completed."
+msgid "Slideshow Completed"
+msgstr "Slīdrāde pabeigta."
+
+#: widgets/slideshow.cpp:1315 widgets/slideshowgl.cpp:693
+#: widgets/slideshowkb.cpp:516
+#, fuzzy
+#| msgid "Click To Exit..."
+msgid "Click to Exit..."
+msgstr "Klikšķis lai izietu..."
+
+#: widgets/slideshowgl.cpp:391
+#, fuzzy
+#| msgid "Bend"
+msgctxt "Filter Effect: Bend"
+msgid "Bend"
+msgstr "Salocīt"
+
+#: widgets/slideshowgl.cpp:392
+#, fuzzy
+#| msgid "Blend"
+msgctxt "Filter Effect: Blend"
+msgid "Blend"
+msgstr "Saplūst"
+
+#: widgets/slideshowgl.cpp:393
+#, fuzzy
+#| msgid "Cube"
+msgctxt "Filter Effect: Cube"
+msgid "Cube"
+msgstr "Kubs"
+
+#: widgets/slideshowgl.cpp:394
+#, fuzzy
+#| msgid "Fade"
+msgctxt "Filter Effect: Fade"
+msgid "Fade"
+msgstr "Izdzist"
+
+#: widgets/slideshowgl.cpp:395
+#, fuzzy
+#| msgid "Flutter"
+msgctxt "Filter Effect: Flutter"
+msgid "Flutter"
+msgstr "Aizviļņot"
+
+#: widgets/slideshowgl.cpp:396
+#, fuzzy
+#| msgid "In Out"
+msgctxt "Filter Effect: In Out"
+msgid "In Out"
+msgstr "Iekšā ārā"
+
+#: widgets/slideshowgl.cpp:397
+#, fuzzy
+#| msgid "Rotate"
+msgctxt "Filter Effect: Rotate"
+msgid "Rotate"
+msgstr "Griezt"
+
+#: widgets/slideshowgl.cpp:398
+#, fuzzy
+#| msgid "Slide"
+msgctxt "Filter Effect: Slide"
+msgid "Slide"
+msgstr "Slīdēt"
+
+#: widgets/slideshowkb.cpp:515
+#, fuzzy
+#| msgid "SlideShow Completed."
+msgid "SlideShow Completed"
+msgstr "Slīdrāde pabeigta."
+
+#~ msgid "Slideshow"
+#~ msgstr "Slīdrāde"
+
+#, fuzzy
+#~| msgid "SlideShow Handbook"
+#~ msgid "Handbook"
+#~ msgstr "Slīdrādes iestatījumi"
+
+#, fuzzy
+#~| msgid "Slideshow is part of KIPI-Plugins (http://www.kipi-plugins.org)"
+#~ msgid ""
+#~ "AdvancedSlideshow is part of KIPI-Plugins (http://www.kipi-plugins.org)"
+#~ msgstr "Slīdrāde ir KIPI spraudņu sastāvdaļa (http://www.kipi-plugins.org)"
+
+#~ msgid "Transparent background"
+#~ msgstr "Caurspīdīgs fons"
+
+#, fuzzy
+#~| msgid "You can only move up one image file at once."
+#~ msgid "You can only move image files down one at a time."
+#~ msgstr "Vienlaicīgi var pārvietot tikai vienu attēlu uz augšu."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is the list of the image files for your portfolio.\n"
+#~| "The portfolio's first image is on the top; the last image is on the "
+#~| "bottom.\n"
+#~| "If you want to add some images, click on the 'Add' button or use the "
+#~| "drag-and-drop."
+#~ msgid ""
+#~ "This is the list of the image files for your portfolio.\n"
+#~ "The portfolio's first image is at the top; the last image is at the "
+#~ "bottom.\n"
+#~ "If you want to add some images, click on the 'Add' button or use drag-and-"
+#~ "drop."
+#~ msgstr ""
+#~ "Šis ir attēlu failu saraksts.\n"
+#~ "Pirmais attēls atrodas augšpusē, pēdējais - apakšā.\n"
+#~ "Ja vēlaties pievienot vēl attēls, spiediet pogu 'Pievienot', vai nometiet "
+#~ "attēlus uz saraksta."
+
+#~ msgid "%1 tracks [%2]"
+#~ msgstr "%1 celiņi [%2]"
+
+#~ msgid "%1 images [%2]"
+#~ msgstr "%1 attēli [%2]"
+
+#~ msgid "You can only move down one image file at once."
+#~ msgstr "Vienlaicīgi var pārvietot tikai vienu attēlu uz leju."
+
+#~ msgid "Delay between images  (s):"
+#~ msgstr "Laiks starp attēliem (sek):"
+
+#~ msgid "SlideShow"
+#~ msgstr "Slīdrāde"
+
+#~ msgid "Noise"
+#~ msgstr "Troksnis"
+
+#~ msgid "Incom_ing Edges"
+#~ msgstr "Ienākošas malas"
+
+#~ msgid "&Add..."
+#~ msgstr "&Pievienot..."
+
+#~ msgid "&Delete"
+#~ msgstr "&Izņemt"
+
+#~ msgid "Image &Up"
+#~ msgstr "Attēls a&ugšup"
+
+#~ msgid "Image D&own"
+#~ msgstr "Attēls &lejup"
+
+#~ msgid "Content options"
+#~ msgstr "Satura opcijas"
+
+#~ msgid "&Help"
+#~ msgstr "P&alīdzība"
+
+#~ msgid "F1"
+#~ msgstr "F1"
+
+#~ msgid "&Exit"
+#~ msgstr "I&ziet"
+
+#~ msgid "Slide Show"
+#~ msgstr "Slīdrāde"
+
+#~ msgid "Alt+B"
+#~ msgstr "Alt+B"
+
+#~ msgid "Alt+Y"
+#~ msgstr "Alt+Y"
+
+#~ msgid "Alt+A"
+#~ msgstr "Alt+A"
+
+#~ msgid "Alt+D"
+#~ msgstr "Alt+D"
+
+#~ msgid "Alt+U"
+#~ msgstr "Alt+U"
+
+#~ msgid "Alt+O"
+#~ msgstr "Alt+O"
+
+#~ msgid "Alt+G"
+#~ msgstr "Alt+G"
+
+#~ msgid "Alt+R"
+#~ msgstr "Alt+R"
+
+#~ msgid "Alt+I"
+#~ msgstr "Alt+I"
+
+#~ msgid "Alt+L"
+#~ msgstr "Alt+L"
+
+#~ msgid "Alt+S"
+#~ msgstr "Alt+S"
+
+#~ msgid "Alt+E"
+#~ msgstr "Alt+E"

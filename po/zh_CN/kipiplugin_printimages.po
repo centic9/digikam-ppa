@@ -1,0 +1,784 @@
+# translation of kipiplugin_printimages.po to 简体中文
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ni Hui <shuizhuyuanluo@126.com>, 2008, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_printimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2010-11-16 12:46+0800\n"
+"Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ni Hui"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "shuizhuyuanluo@126.com"
+
+#. i18n: ectx: Menu (Image)
+#: plugin/kipiplugin_printimagesui.rc:6
+msgid "&Image"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_printimagesui.rc:13
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/plugin_printimages.cpp:110 plugin/plugin_printimages.cpp:142
+msgid "Print images"
+msgstr "打印图像"
+
+#: plugin/plugin_printimages.cpp:120
+msgid "Print Assistant..."
+msgstr "打印助手..."
+
+#: plugin/plugin_printimages.cpp:141 plugin/plugin_printimages.cpp:162
+msgid "Please select one or more photos to print."
+msgstr "请选择一张或多张照片以打印。"
+
+#: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+msgid "Print assistant"
+msgstr "打印助手"
+
+#: tools/utils.cpp:73
+msgid ""
+"Unable to create a temporary folder. Please make sure you have proper "
+"permissions to this folder and try again."
+msgstr "无法创建临时文件夹。请确认您拥有此文件夹的相应权限并重试。"
+
+#. i18n: ectx: property (whatsThis), widget (QCheckBox, m_disableCrop)
+#: ui/croppage.ui:19
+msgid "Do not crop photos, just scale them."
+msgstr "不裁剪照片，仅缩放它们。"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_disableCrop)
+#: ui/croppage.ui:22
+msgid "Do not crop"
+msgstr "不裁剪"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateLeft)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateLeft)
+#: ui/croppage.ui:42 ui/croppage.ui:45
+#, fuzzy
+#| msgid "Rotate photo"
+msgid "Rotate photo to the left"
+msgstr "旋转照片"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateLeft)
+#: ui/croppage.ui:48
+#, fuzzy
+#| msgid "&Rotate"
+msgid "&Rotate left"
+msgstr "旋转(&R)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateRight)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateRight)
+#: ui/croppage.ui:55 ui/croppage.ui:58
+#, fuzzy
+#| msgid "Rotate photo"
+msgid "Rotate photo to the right"
+msgstr "旋转照片"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateRight)
+#: ui/croppage.ui:61
+#, fuzzy
+#| msgid "Rotate photo"
+msgid "&Rotate right"
+msgstr "旋转照片"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageDown)
+#. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropPrev)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropPrev)
+#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:292 ui/photopage.ui:295
+msgid "Previous photo"
+msgstr "上一张照片"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropPrev)
+#: ui/croppage.ui:90
+msgid "<< Pr&evious"
+msgstr "<< 上一张(&E)"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropNext)
+#. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropNext)
+#: ui/croppage.ui:97 ui/croppage.ui:100
+msgid "Next photo"
+msgstr "下一张照片"
+
+#. i18n: ectx: property (text), widget (QPushButton, BtnCropNext)
+#: ui/croppage.ui:103
+msgid "Ne&xt >>"
+msgstr "下一张(&X) >>"
+
+#. i18n: ectx: property (text), widget (QLabel, LblCropPhoto)
+#: ui/croppage.ui:132
+msgid "Photo 0 of 0"
+msgstr "第 0 张照片，共 0 张"
+
+#. i18n: ectx: property (whatsThis), widget (KIPIPrintImagesPlugin::CropFrame, cropFrame)
+#: ui/croppage.ui:155
+msgid ""
+"Move the box in order to crop photos so that they fit inside the photo sizes "
+"you have given.  \n"
+"You can crop each image differently, or just click the 'Next' button to use "
+"the default crop \n"
+"setting for each photo.\n"
+"Enable \"Do not crop\" to avoid cropping all of the photos."
+msgstr ""
+"移动方框以将照片裁剪为适合您所给出的照片尺寸。\n"
+"您可以对每张图像不同地裁剪，或只是点击“下一步”按钮\n"
+"为每张照片使用默认裁剪设置。\n"
+"启用“不裁剪”以避免裁剪全部照片。"
+
+#. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
+#: ui/croppage.ui:167
+#, fuzzy
+#| msgid "Save settings"
+msgid "Save As"
+msgstr "保存设置"
+
+#. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
+#: ui/croppage.ui:170
+msgid "Ctrl+S"
+msgstr ""
+
+#. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
+#: ui/customlayout.ui:26 wizard/wizard.cpp:691
+msgid "Custom layout"
+msgstr "自定义布局"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_photoGridCheck)
+#: ui/customlayout.ui:48
+msgid "Photo grid"
+msgstr "照片网格"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_fitAsManyCheck)
+#: ui/customlayout.ui:73
+msgid "Fit as many as possible"
+msgstr "尽可能容纳更多"
+
+#. i18n: ectx: property (text), widget (QRadioButton, m_photosXPageCheck)
+#: ui/customlayout.ui:95
+msgid "Photos per page"
+msgstr "每页照片数"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/customlayout.ui:122
+msgid "Rows"
+msgstr "行"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/customlayout.ui:164
+msgid "Columns"
+msgstr "列"
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/customlayout.ui:227
+msgid "Photo size"
+msgstr "照片大小"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/customlayout.ui:267 ui/printoptionspage.ui:439
+msgid "x"
+msgstr "x"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+msgid "cm"
+msgstr "厘米"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:314
+msgid "mm"
+msgstr "毫米"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+msgid "inches"
+msgstr "英寸"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_autorotate)
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintAutoRotate)
+#: ui/customlayout.ui:433 ui/printoptionspage.ui:73
+msgid "Auto rotate"
+msgstr "自动旋转"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_doneButton)
+#: ui/customlayout.ui:453
+msgid "Done"
+msgstr "完成"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4_2)
+#: ui/photopage.ui:47
+msgid "Photos:"
+msgstr "照片："
+
+#. i18n: ectx: property (text), widget (QLabel, LblPhotoCount)
+#. i18n: ectx: property (text), widget (QLabel, LblSheetsPrinted)
+#. i18n: ectx: property (text), widget (QLabel, LblEmptySlots)
+#: ui/photopage.ui:54 ui/photopage.ui:84 ui/photopage.ui:114
+msgid "<p align=\"right\">0</p>"
+msgstr "<p align=\"right\">0</p>"
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel4)
+#: ui/photopage.ui:77
+msgid "Sheets:"
+msgstr "工作表："
+
+#. i18n: ectx: property (text), widget (QLabel, TextLabel6)
+#: ui/photopage.ui:107
+msgid "Empty slots:"
+msgstr "空槽："
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+msgid "Print to PDF"
+msgstr "打印到 PDF"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+msgid "Print to PS"
+msgstr "打印到 PS"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
+#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+msgid "Print to JPG"
+msgstr "打印到 JPG"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
+#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
+#: wizard/wizard.cpp:2506
+msgid "Print to gimp"
+msgstr "打印到 gimp"
+
+#. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
+#: ui/photopage.ui:214
+msgid "Page settings"
+msgstr "页面设置"
+
+#. i18n: ectx: property (text), widget (QPushButton, mLeftButton)
+#. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageDown)
+#: ui/photopage.ui:298 ui/printoptionspage.ui:57
+msgid "<"
+msgstr "<"
+
+#. i18n: ectx: property (text), widget (QLabel, LblPreview)
+#: ui/photopage.ui:320
+msgid "Preview"
+msgstr "预览"
+
+#. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageUp)
+#. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageUp)
+#: ui/photopage.ui:336 ui/photopage.ui:339
+msgid "Next page"
+msgstr "下一页"
+
+#. i18n: ectx: property (text), widget (QPushButton, mRightButton)
+#. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageUp)
+#: ui/photopage.ui:342 ui/printoptionspage.ui:64
+msgid ">"
+msgstr ">"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/photopage.ui:441
+msgid "Captions:"
+msgstr "标题："
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+msgid "No captions"
+msgstr "无标题"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:457
+msgid "Image file names"
+msgstr "图像文件名称"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:462
+msgid "Exif date-time"
+msgstr "Exif 日期-时间"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:467
+msgid "Comments"
+msgstr "注释"
+
+#. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
+#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+msgid "Free"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, m_free_label)
+#: ui/photopage.ui:506
+#, no-c-format
+msgid ""
+"%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
+"resolution, %a aperture, %l focal length, \\n newline"
+msgstr ""
+"%f  文件名、%t 曝光时长、%c 注释、%i 感光度(ISO)、%d 日期-时间、%r 分辨"
+"率、%a 孔径、%l 焦距、\\n 换行"
+
+#. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
+#: ui/photopage.ui:537
+msgid "same to all"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QPushButton, mSaveSettings)
+#. i18n: ectx: property (text), widget (QPushButton, m_setDefault)
+#: ui/photopage.ui:547 ui/printoptionspage.ui:348
+msgid "Use as default"
+msgstr "设为默认"
+
+#. i18n: ectx: property (text), widget (QLabel, label_3)
+#: ui/photopage.ui:560
+msgid "Family:"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, label_4)
+#: ui/photopage.ui:577
+msgid "Color:"
+msgstr "颜色："
+
+#. i18n: ectx: property (text), widget (KColorButton, m_font_color)
+#: ui/photopage.ui:587
+msgid "PushButton"
+msgstr "PushButton"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
+#: ui/photopage.ui:604
+msgid "Size:"
+msgstr "大小："
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, PrintOptionsPage)
+#: ui/printoptionspage.ui:14
+msgid "Image Settings"
+msgstr "图像设置"
+
+#. i18n: ectx: property (title), widget (QGroupBox, mGroupImage)
+#: ui/printoptionspage.ui:83
+msgid "Position"
+msgstr "位置"
+
+#. i18n: ectx: property (title), widget (QGroupBox, mGroupScaling)
+#: ui/printoptionspage.ui:108
+msgid "Scaling"
+msgstr "缩放"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mNoScale)
+#: ui/printoptionspage.ui:114
+msgid "&No scaling"
+msgstr "不缩放(&N)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mScaleToPage)
+#: ui/printoptionspage.ui:124
+msgid "&Fit image to page"
+msgstr "图像适应页面(&F)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintEnlargeSmallerImages)
+#: ui/printoptionspage.ui:155
+msgid "Enlarge smaller images"
+msgstr "放大小型图像"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mScaleTo)
+#: ui/printoptionspage.ui:180
+msgid "&Scale to:"
+msgstr "缩放至(&S)："
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2)
+#: ui/printoptionspage.ui:219
+msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
+msgid "x"
+msgstr "x"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:246
+msgid "Millimeters"
+msgstr "毫米"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:251
+msgid "Centimeters"
+msgstr "厘米"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#: ui/printoptionspage.ui:256
+msgid "Inches"
+msgstr "英寸"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintKeepRatio)
+#: ui/printoptionspage.ui:300
+msgid "Keep ratio"
+msgstr "保持比例"
+
+#. i18n: ectx: property (toolTip), widget (QPushButton, mSaveSettings)
+#: ui/printoptionspage.ui:345
+msgid "Use these scaling options as default. "
+msgstr "将这些缩放选项设为默认。"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/printoptionspage.ui:366
+msgid "Photos per page:"
+msgstr "每页照片数："
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: ui/printoptionspage.ui:376
+msgid "Multiple pages:"
+msgstr "多页："
+
+#: wizard/customdlg.cpp:46 wizard/customdlg.cpp:47
+msgid "Choose your grid size"
+msgstr "选择您的网格大小"
+
+#: wizard/customdlg.cpp:48
+msgid "Number of rows"
+msgstr "行数"
+
+#: wizard/customdlg.cpp:49
+msgid "Insert number of rows"
+msgstr "插入行数"
+
+#: wizard/customdlg.cpp:50
+msgid "Number of columns"
+msgstr "列数"
+
+#: wizard/customdlg.cpp:51
+msgid "Insert number of columns"
+msgstr "插入列数"
+
+#: wizard/customdlg.cpp:53 wizard/customdlg.cpp:54
+msgid "Choose to have a custom photo size album"
+msgstr "选择自定义照片大小的相册"
+
+#: wizard/customdlg.cpp:55
+msgid "Photo height"
+msgstr "照片高度"
+
+#: wizard/customdlg.cpp:56
+msgid "Insert photo height"
+msgstr "插入照片高度"
+
+#: wizard/customdlg.cpp:57
+msgid "Photo width"
+msgstr "照片宽度"
+
+#: wizard/customdlg.cpp:58
+msgid "Insert photo width"
+msgstr "插入照片宽度"
+
+#: wizard/customdlg.cpp:60
+msgid "Auto rotate photo"
+msgstr "自动旋转照片"
+
+#: wizard/printhelper.cpp:244
+msgid "Kipi-plugins image printing"
+msgstr "Kipi-plugins 图像打印"
+
+#: wizard/printoptionspage.cpp:149 wizard/printoptionspage.cpp:150
+#: wizard/printoptionspage.cpp:151
+msgid "disabled"
+msgstr "已禁用"
+
+#: wizard/wizard.cpp:113
+msgid "Select page layout"
+msgstr "选择页面布局"
+
+#: wizard/wizard.cpp:114
+msgid "Crop photos"
+msgstr "裁剪照片"
+
+#: wizard/wizard.cpp:116
+msgid "Custom"
+msgstr "自定义"
+
+#: wizard/wizard.cpp:163
+msgid "A KIPI plugin to print images"
+msgstr "一个打印图像的 KIPI 插件"
+
+#: wizard/wizard.cpp:164
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2004, Todd Shoemaker\n"
+#| "(c) 2007-2010, Angelo Naselli"
+msgid ""
+"(c) 2003-2004, Todd Shoemaker\n"
+"(c) 2007-2013, Angelo Naselli"
+msgstr ""
+"(c) 2003-2004，Todd Shoemaker\n"
+"(c) 2007-2010，Angelo Naselli"
+
+#: wizard/wizard.cpp:167
+msgid "Todd Shoemaker"
+msgstr "Todd Shoemaker"
+
+#: wizard/wizard.cpp:167
+msgid "Author"
+msgstr "作者"
+
+#: wizard/wizard.cpp:170
+msgid "Angelo Naselli"
+msgstr "Angelo Naselli"
+
+#: wizard/wizard.cpp:170
+msgid "Developer and maintainer"
+msgstr "开发者和维护者"
+
+#: wizard/wizard.cpp:173
+msgid "Andreas Trink"
+msgstr "Andreas Trink"
+
+#: wizard/wizard.cpp:173
+msgid "Contributor"
+msgstr "贡献者"
+
+#: wizard/wizard.cpp:659
+msgid "Unsupported Paper Size"
+msgstr "不支持的分页大小"
+
+#: wizard/wizard.cpp:1128
+#, kde-format
+msgid "Photo %1 of %2"
+msgstr "第 %1 张，共 %2 张"
+
+#: wizard/wizard.cpp:1212 wizard/wizard.cpp:1219
+#, kde-format
+msgid "Page %1 of %2"
+msgstr "第 %1 页，共 %2 页"
+
+#: wizard/wizard.cpp:1460
+msgid "Add again"
+msgstr ""
+
+#: wizard/wizard.cpp:1470
+msgid "Remove"
+msgstr ""
+
+#: wizard/wizard.cpp:2363
+msgid ""
+"The following file will be overwritten. Are you sure you want to overwrite "
+"it?"
+msgstr "以下文件将被覆盖。您想要覆盖这些文件吗？"
+
+#: wizard/wizard.cpp:2384
+msgid "Could not save file, please check your output entry."
+msgstr "无法保存文件，请检查您的输出条目。"
+
+#: wizard/wizard.cpp:2408
+msgid "Could not remove the GIMP's temporary files."
+msgstr "无法删除 GIMP 的临时文件。"
+
+#: wizard/wizard.cpp:2529
+msgid ""
+"There was an error launching the GIMP. Please make sure it is properly "
+"installed."
+msgstr "启动 GIMP 出错。请确保它已正确安装。"
+
+#: wizard/wizard.cpp:2530
+msgid "KIPI"
+msgstr "KIPI"
+
+#: wizard/wizard.cpp:2543
+msgid "Empty output path."
+msgstr "空输出路径。"
+
+#~ msgid "Handbook"
+#~ msgstr "手册"
+
+#~ msgid "Print Image"
+#~ msgstr "打印图像"
+
+#~ msgid "Select printing information"
+#~ msgstr "选择打印信息"
+
+#~ msgid "Complete. Click Finish to exit the Print Wizard."
+#~ msgstr "完成。点击完成以退出打印向导。"
+
+#~ msgid "Printing Canceled."
+#~ msgstr "打印已取消。"
+
+#~ msgid "1"
+#~ msgstr "1"
+
+#~ msgid "+"
+#~ msgstr "+"
+
+#~ msgid "-"
+#~ msgstr "-"
+
+#~ msgid "Filename"
+#~ msgstr "文件名"
+
+#~ msgid "Copies"
+#~ msgstr "副本"
+
+#~ msgid "Layouts:"
+#~ msgstr "布局："
+
+#~ msgid "Print order:"
+#~ msgstr "打印顺序："
+
+#~ msgid "Move selected photo Up"
+#~ msgstr "上移所选照片"
+
+#~ msgctxt "Move Up"
+#~ msgid "Up"
+#~ msgstr "上移"
+
+#~ msgid "Move selected photo Down"
+#~ msgstr "下移所选照片"
+
+#~ msgid "Down"
+#~ msgstr "下移"
+
+#~ msgid "Paper size:"
+#~ msgstr "纸张大小："
+
+#~ msgid "A4"
+#~ msgstr "A4"
+
+#~ msgid "Letter"
+#~ msgstr "信纸"
+
+#~ msgid "A6"
+#~ msgstr "A6"
+
+#~ msgid "10x15cm"
+#~ msgstr "10x15cm"
+
+#~ msgid "13x17cm"
+#~ msgstr "13x17cm"
+
+#~ msgid "no margins"
+#~ msgstr "无页边距"
+
+#~ msgid "Output Settings"
+#~ msgstr "输出设置"
+
+#~ msgid "Open image using GIMP"
+#~ msgstr "使用 GIMP 打开图像"
+
+#~ msgid "Output to printer"
+#~ msgstr "输出到打印机"
+
+#~ msgid "Output to image file"
+#~ msgstr "输出到图像文件"
+
+#~ msgid "Browse..."
+#~ msgstr "浏览..."
+
+#~ msgid ""
+#~ "Each page is named kipi_printassistant_N.jpeg (N is 1, 2, etc.) and saved "
+#~ "to this folder."
+#~ msgstr ""
+#~ "每个页面将命名为 kipi_printassistant_N.jpeg (N 表示 1、2 等)并保存到此文件"
+#~ "夹。"
+
+#~ msgid "Print Assistant"
+#~ msgstr "打印助手"
+
+#~ msgid ""
+#~ "Welcome to the Print Assistant.\n"
+#~ "\n"
+#~ "This assistant will help you with the printing of your photos.\n"
+#~ "\n"
+#~ "Click the 'Next' button to begin."
+#~ msgstr ""
+#~ "欢迎使用打印助手。\n"
+#~ "\n"
+#~ "本助手将引领您打印您的照片。\n"
+#~ "\n"
+#~ "点击“下一步”按钮开始吧。"
+
+#~ msgid "Do not show this any more"
+#~ msgstr "不再显示本消息"
+
+#~ msgid "Number of times to print this photo:"
+#~ msgstr "打印这张照片的次数："
+
+#~ msgid "Number of copies of selected photo"
+#~ msgstr "所选照片的副本数量"
+
+#~ msgid "Valerio Fuoglio"
+#~ msgstr "Valerio Fuoglio"
+
+#~ msgid "Select Output Folder"
+#~ msgstr "选择输出文件夹"
+
+#~ msgid ""
+#~ "Do not forget to set the correct page size according to your printer "
+#~ "settings."
+#~ msgstr "别忘了根据您的打印机设置建立正确的页面大小。"
+
+#~ msgid "Page size settings"
+#~ msgstr "页面大小设置"
+
+#~ msgid "3.5 x 5\""
+#~ msgstr "3.5 x 5\""
+
+#~ msgid "4 x 6\""
+#~ msgstr "4 x 6\""
+
+#~ msgid "4 x 6\" Album"
+#~ msgstr "4 x 6\" 相册"
+
+#~ msgid "5 x 7\""
+#~ msgstr "5 x 7\""
+
+#~ msgid "8 x 10\""
+#~ msgstr "8 x 10\""
+
+#~ msgid "Thumbnails"
+#~ msgstr "缩略图"
+
+#~ msgid "Small Thumbnails"
+#~ msgstr "小型缩略图"
+
+#~ msgid "Album Collage 1 (9 photos)"
+#~ msgstr "相册拼贴画 1 (9 张照片)"
+
+#~ msgid "Album Collage 2 (6 photos)"
+#~ msgstr "相册拼贴画 2 (6 张照片)"
+
+#~ msgid "21 x 29.7cm"
+#~ msgstr "21 x 29.7cm"
+
+#~ msgid "6 x 9cm (8 photos)"
+#~ msgstr "6 x 9cm (8 张照片)"
+
+#~ msgid "9 x 13cm"
+#~ msgstr "9 x 13cm"
+
+#~ msgid "10 x 13.33cm"
+#~ msgstr "10 x 13.33cm"
+
+#~ msgid "10 x 15cm"
+#~ msgstr "10 x 15cm"
+
+#~ msgid "10 x 15cm Album"
+#~ msgstr "10 x 15cm 相册"
+
+#~ msgid "11.5 x 15cm Album"
+#~ msgstr "11.5 x 15cm 相册"
+
+#~ msgid "13 x 18cm"
+#~ msgstr "13 x 18cm"
+
+#~ msgid "20 x 25cm"
+#~ msgstr "20 x 25cm"
+
+#~ msgid "10.5 x 14.8cm"
+#~ msgstr "10.5 x 14.8cm"

@@ -1,0 +1,2740 @@
+# translation of kipiplugin_metadataedit.po to Français
+# translation of kipiplugin_metadataedit.po to
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Bruno Patri <bruno.patri@gmail.com>, 2007, 2008.
+# Etienne Biardeaud <etienne@cyteen.net>, 2008, 2009.
+# Joëlle Cornavin <jcorn@free.fr>, 2010, 2011, 2012, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_metadataedit\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-08-31 01:29+0000\n"
+"PO-Revision-Date: 2013-04-15 17:31+0200\n"
+"Last-Translator: Joëlle Cornavin <jcorn@free.fr>\n"
+"Language-Team: French <kde-francophone@kde.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.4\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Étienne Biardeaud,Joëlle Cornavin,Bruno Patri"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "etienne@cyteen.net,jcorn@free.fr,bruno.patri@gmail.com"
+
+#: exif/exifadjust.cpp:94
+msgid "Brightness (APEX):"
+msgstr "Luminosité (APEX) :"
+
+#: exif/exifadjust.cpp:99
+msgid ""
+"Set here the brightness adjustment value in APEX unit used by camera to take "
+"the picture."
+msgstr ""
+"Définissez ici la valeur d'ajustement de luminosité dans l'unité APEX, "
+"utilisée par l'appareil photo pour prendre le cliché."
+
+#: exif/exifadjust.cpp:104
+msgid "Gain Control:"
+msgstr "Contrôle du gain :"
+
+#: exif/exifadjust.cpp:106
+msgctxt "gain control"
+msgid "None"
+msgstr "Aucun"
+
+#: exif/exifadjust.cpp:107
+msgctxt "gain control"
+msgid "Low gain up"
+msgstr "Faible augmentation du gain"
+
+#: exif/exifadjust.cpp:108
+msgctxt "gain control"
+msgid "High gain up"
+msgstr "Forte augmentation du gain"
+
+#: exif/exifadjust.cpp:109
+msgctxt "gain control"
+msgid "Low gain down"
+msgstr "Faible réduction du gain"
+
+#: exif/exifadjust.cpp:110
+msgctxt "gain control"
+msgid "High gain down"
+msgstr "Forte réduction du gain"
+
+#: exif/exifadjust.cpp:111
+msgid ""
+"Set here the degree of overall image gain adjustment used by camera to take "
+"the picture."
+msgstr ""
+"Définissez ici le degré d'ajustement du gain pour l'ensemble de l'image, "
+"utilisé par l'appareil photo pour prendre le cliché."
+
+#: exif/exifadjust.cpp:116
+msgid "Contrast:"
+msgstr "Contraste :"
+
+#: exif/exifadjust.cpp:118
+msgctxt "contrast mode"
+msgid "Normal"
+msgstr "Normal"
+
+#: exif/exifadjust.cpp:119
+msgctxt "contrast mode"
+msgid "Soft"
+msgstr "Doux"
+
+#: exif/exifadjust.cpp:120
+msgctxt "contrast mode"
+msgid "Hard"
+msgstr "Fort"
+
+#: exif/exifadjust.cpp:121
+msgid ""
+"Set here the direction of contrast processing applied by the camera to take "
+"the picture."
+msgstr ""
+"Définissez ici le sens de traitement du contraste appliqué par l'appareil "
+"photo pour prendre le cliché."
+
+#: exif/exifadjust.cpp:126
+msgid "Saturation:"
+msgstr "Saturation :"
+
+#: exif/exifadjust.cpp:128
+msgctxt "saturation mode"
+msgid "Normal"
+msgstr "Normal"
+
+#: exif/exifadjust.cpp:129
+msgctxt "saturation mode"
+msgid "Low"
+msgstr "Faible"
+
+#: exif/exifadjust.cpp:130
+msgctxt "saturation mode"
+msgid "High"
+msgstr "Élevé"
+
+#: exif/exifadjust.cpp:131
+msgid ""
+"Set here the direction of saturation processing applied by the camera to "
+"take the picture."
+msgstr ""
+"Définissez ici le sens de traitement de la saturation appliqué par "
+"l'appareil photo pour prendre le cliché."
+
+#: exif/exifadjust.cpp:136
+msgid "Sharpness:"
+msgstr "Netteté :"
+
+#: exif/exifadjust.cpp:138
+msgctxt "sharpness mode"
+msgid "Normal"
+msgstr "Normal"
+
+#: exif/exifadjust.cpp:139
+msgctxt "sharpness mode"
+msgid "Soft"
+msgstr "Doux"
+
+#: exif/exifadjust.cpp:140
+msgctxt "sharpness mode"
+msgid "Hard"
+msgstr "Fort"
+
+#: exif/exifadjust.cpp:141
+msgid ""
+"Set here the direction of sharpness processing applied by the camera to take "
+"the picture."
+msgstr ""
+"Définissez ici le sens de traitement de la netteté appliqué par l'appareil "
+"photo pour prendre le cliché."
+
+#: exif/exifadjust.cpp:146
+msgid "Custom rendered:"
+msgstr "Rendu personnalisé :"
+
+#: exif/exifadjust.cpp:148
+msgid "Normal process"
+msgstr "Traitement normal"
+
+#: exif/exifadjust.cpp:149
+msgid "Custom process"
+msgstr "Traitement personnalisé"
+
+#: exif/exifadjust.cpp:150
+msgid ""
+"Set here the use of special processing on image data, such as rendering "
+"geared to output."
+msgstr ""
+"Définissez ici l'utilisation de traitements spéciaux sur les données image, "
+"tel que le rendu répondant aux besoins de la sortie."
+
+#: exif/exifcaption.cpp:103
+msgctxt "name of the document this image has been scanned from"
+msgid "Name (*):"
+msgstr "Nom (*) :"
+
+#: exif/exifcaption.cpp:107
+msgid ""
+"Enter the name of the document from which this image was been scanned. This "
+"field is limited to ASCII characters."
+msgstr ""
+"Saisissez le nom du document à partir duquel cette image a été numérisée. Ce "
+"champ est limité aux caractères ASCII."
+
+#: exif/exifcaption.cpp:113
+msgctxt "image description"
+msgid "Description (*):"
+msgstr "Description (*) :"
+
+#: exif/exifcaption.cpp:117
+msgid "Enter the image description. This field is limited to ASCII characters."
+msgstr ""
+"Saisissez la description de l'image. Ce champ est limité aux caractères "
+"ASCII."
+
+#: exif/exifcaption.cpp:122
+msgid "Artist (*):"
+msgstr "Artiste (*) :"
+
+#: exif/exifcaption.cpp:126
+msgid ""
+"Enter the image author's name. This field is limited to ASCII characters."
+msgstr ""
+"Saisissez  le nom de l'auteur de l'image. Ce champ est limité aux caractères "
+"ASCII."
+
+#: exif/exifcaption.cpp:131
+msgid "Copyright (*):"
+msgstr "Droit d'auteur (*) :"
+
+#: exif/exifcaption.cpp:135
+msgid ""
+"Enter the copyright owner of the image. This field is limited to ASCII "
+"characters."
+msgstr ""
+"Saisissez le propriétaire du droit d'auteur de l'image. Ce champ est limité "
+"aux caractères ASCII."
+
+#: exif/exifcaption.cpp:140
+msgctxt "image caption"
+msgid "Caption:"
+msgstr "Légende :"
+
+#: exif/exifcaption.cpp:142
+msgid ""
+"Enter the image's caption. This field is not limited. UTF8 encoding will be "
+"used to save the text."
+msgstr ""
+"Saisissez la légende de l'image. Ce champ n'est pas limité. L'encodage UTF-8 "
+"sera utilisé pour enregistrer le texte."
+
+#: exif/exifcaption.cpp:146
+#, kde-format
+msgid "Sync captions entered through %1"
+msgstr "Synchroniser les légendes saisies via %1"
+
+#: exif/exifcaption.cpp:149 iptc/iptccontent.cpp:105 xmp/xmpcontent.cpp:102
+msgid "Sync JFIF Comment section"
+msgstr "Synchroniser la section de commentaire JFIF"
+
+#: exif/exifcaption.cpp:150
+msgid "Sync XMP caption"
+msgstr "Synchroniser la légende XMP"
+
+#: exif/exifcaption.cpp:151
+msgid "Sync IPTC caption (warning: limited to 2000 printable Ascii characters)"
+msgstr ""
+"Synchroniser la légende IPTC (attention : limitée à 2 000 caractères ASCII "
+"imprimables)"
+
+#: exif/exifcaption.cpp:159 exif/exifdevice.cpp:313
+msgid ""
+"<b>Note: <b><a href='http://en.wikipedia.org/wiki/EXIF'>EXIF</a></b> text "
+"tags marked by (*) only support printable <b><a href='http://en.wikipedia."
+"org/wiki/Ascii'>ASCII</a></b> characters.</b>"
+msgstr ""
+"<b>Remarque : <b>les étiquettes de texte <a href='http://en.wikipedia.org/"
+"wiki/EXIF'>EXIF</a></b> marquées par (*) ne prennent en charge que les "
+"caractères <b><a href='http://en.wikipedia.org/wiki/Ascii'>ASCII</a></b> "
+"imprimables.</b>"
+
+#: exif/exifdatetime.cpp:110
+msgid "Creation date and time"
+msgstr "Date et heure de création"
+
+#: exif/exifdatetime.cpp:111
+msgid "Creation sub-second"
+msgstr "Création sub-seconde"
+
+#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
+#, kde-format
+msgid "Sync creation date hosted by %1"
+msgstr "Synchroniser une date de création hébergée par %1"
+
+#: exif/exifdatetime.cpp:117
+msgid "Sync XMP creation date"
+msgstr "Synchroniser la date de création XMP"
+
+#: exif/exifdatetime.cpp:118
+msgid "Sync IPTC creation date"
+msgstr "Synchroniser la date de création IPTC"
+
+#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:167 xmp/xmporigin.cpp:141
+msgid "Set creation date to today"
+msgstr "Associer la date de création à aujourd'hui"
+
+#: exif/exifdatetime.cpp:127
+msgid ""
+"Set here the date and time of image creation. In this standard it is the "
+"date and time the file was changed."
+msgstr ""
+"Définissez ici la date et l'heure de création de l'image. Dans ce standard, "
+"il s'agit de la date et l'heure de modification du fichier."
+
+#: exif/exifdatetime.cpp:129
+msgid ""
+"Set here the fractions of seconds for the date and time of image creation."
+msgstr ""
+"Définissez ici les fractions de secondes concernant la date et l'heure de "
+"création de l'image."
+
+#: exif/exifdatetime.cpp:136
+msgid "Original date and time"
+msgstr "Date et heure de l'original"
+
+#: exif/exifdatetime.cpp:137
+msgid "Original sub-second"
+msgstr "Heure sub-seconde originale"
+
+#: exif/exifdatetime.cpp:143
+msgid "Set original date to today"
+msgstr "Associer la date de l'original à aujourd'hui"
+
+#: exif/exifdatetime.cpp:145
+msgid ""
+"Set here the date and time when the original image data was generated. For a "
+"digital still camera the date and time the picture was taken are recorded."
+msgstr ""
+"Définissez ici la date et l'heure à laquelle les données de l'image "
+"originale ont été générées. Pour un appareil photo numérique fixe, la date "
+"et l'heure de la prise du cliché sont enregistrées."
+
+#: exif/exifdatetime.cpp:148
+msgid ""
+"Set here the fractions of seconds for the date and time when the original "
+"image data was generated."
+msgstr ""
+"Définissez ici les fractions de secondes concernant la date et l'heure "
+"auxquelles les données de l'image originale ont été générées."
+
+#: exif/exifdatetime.cpp:155
+msgid "Digitization date and time"
+msgstr "Date et heure de numérisation"
+
+#: exif/exifdatetime.cpp:156
+msgid "Digitization sub-second"
+msgstr "Numérisation sub-seconde"
+
+#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
+msgid "Set digitization date to today"
+msgstr "Associer la date de numérisation à aujourd'hui"
+
+#: exif/exifdatetime.cpp:164
+msgid ""
+"Set here the date and time when the image was stored as digital data. If, "
+"for example, an image was captured by a digital still camera and at the same "
+"time the file was recorded, then Original and Digitization date and time "
+"will have the same contents."
+msgstr ""
+"Définissez ici la date et l'heure d'enregistrement de l'image sous la forme "
+"de données numériques. Lorsque, par exemple, une image a été capturée par un "
+"appareil photo numérique fixe et que le fichier a été enregistré en même "
+"temps, la date et l'heure de l'original et de la numérisation présenteront "
+"le même contenu."
+
+#: exif/exifdatetime.cpp:169
+msgid ""
+"Set here the fractions of seconds for the date and time when the image was "
+"stored as digital data."
+msgstr ""
+"Définissez ici les fractions de secondes concernant la date et l'heure "
+"d'enregistrement de l'image sous la forme de données numériques."
+
+#: exif/exifdevice.cpp:130
+msgid "Device manufacturer (*):"
+msgstr "Fabricant du périphérique (*) :"
+
+#: exif/exifdevice.cpp:134
+msgid ""
+"Set here the manufacturer of image input equipment used to take the picture. "
+"This field is limited to ASCII characters."
+msgstr ""
+"Définissez ici le fabricant de l'équipement de prise de vues utilisé pour "
+"prendre le cliché. Ce champ est limité aux caractères ASCII."
+
+#: exif/exifdevice.cpp:139
+msgid "Device model (*):"
+msgstr "Modèle du périphérique (*) :"
+
+#: exif/exifdevice.cpp:143
+msgid ""
+"Set here the model of image input equipment used to take the picture. This "
+"field is limited to ASCII characters."
+msgstr ""
+"Définissez ici le modèle de l'équipement de prise de vues utilisé pour "
+"prendre le cliché. Ce champ est limité aux caractères ASCII."
+
+#: exif/exifdevice.cpp:148
+msgid "Device type:"
+msgstr "Type du périphérique :"
+
+#: exif/exifdevice.cpp:150
+msgid "Film scanner"
+msgstr "Scanner de films"
+
+#: exif/exifdevice.cpp:151
+msgid "Reflection print scanner"
+msgstr "Scanner d'impression par réflexion"
+
+#: exif/exifdevice.cpp:152
+msgid "Digital still camera"
+msgstr "Appareil photo numérique fixe"
+
+#: exif/exifdevice.cpp:153
+msgid "Select here the image input equipment type used to take the picture."
+msgstr ""
+"Sélectionnez ici le type de l'équipement de prise de vues utilisé pour "
+"prendre le cliché."
+
+#: exif/exifdevice.cpp:156
+msgid ""
+"<b>Warning: EXIF <b><a href='http://en.wikipedia.org/wiki/"
+"Exchangeable_image_file_format#MakerNote_data'>Makernotes</a></b> can be "
+"unreadable if you set wrong device manufacturer/model description.</b>"
+msgstr ""
+"<b>Avertissement : <b>les <a href='http://en.wikipedia.org/wiki/"
+"Exchangeable_image_file_format#MakerNote_Information'>notes de fabricant</"
+"a></b> EXIF risquent d'être illisibles si vous définissez une description "
+"erronée du fabricant / modèle.</b>"
+
+#: exif/exifdevice.cpp:168
+msgid "Exposure time (seconds):"
+msgstr "Temps d'exposition (secondes) :"
+
+#: exif/exifdevice.cpp:173
+msgid ""
+"Set on this option to set the exposure time of picture, given in seconds."
+msgstr ""
+"Cochez cette option pour définir le temps d'exposition de l'image, indiqué "
+"en secondes."
+
+#: exif/exifdevice.cpp:178
+msgid "Exposure program:"
+msgstr "Programme d'exposition :"
+
+#: exif/exifdevice.cpp:180
+msgctxt "exposure program"
+msgid "Not defined"
+msgstr "Non défini"
+
+#: exif/exifdevice.cpp:181
+msgctxt "exposure program"
+msgid "Manual"
+msgstr "Manuel"
+
+#: exif/exifdevice.cpp:182
+msgctxt "exposure program"
+msgid "Auto"
+msgstr "Auto"
+
+#: exif/exifdevice.cpp:183
+msgctxt "exposure program"
+msgid "Aperture priority"
+msgstr "Priorité d'ouverture"
+
+#: exif/exifdevice.cpp:184
+msgctxt "exposure program"
+msgid "Shutter priority"
+msgstr "Priorité d'obturateur"
+
+#: exif/exifdevice.cpp:185
+msgctxt "exposure program"
+msgid "Creative program"
+msgstr "Programme créatif"
+
+#: exif/exifdevice.cpp:186
+msgctxt "exposure program"
+msgid "Action program"
+msgstr "Programme d'action"
+
+#: exif/exifdevice.cpp:187
+msgctxt "exposure program"
+msgid "Portrait mode"
+msgstr "Mode portrait"
+
+#: exif/exifdevice.cpp:188
+msgctxt "exposure program"
+msgid "Landscape mode"
+msgstr "Mode paysage"
+
+#: exif/exifdevice.cpp:189
+msgid ""
+"Select here the program used by the camera to set exposure when the picture "
+"was taken."
+msgstr ""
+"Sélectionnez ici le programme utilisé par l'appareil photo pour définir "
+"l'exposition lors de la prise du cliché."
+
+#: exif/exifdevice.cpp:194
+msgid "Exposure mode:"
+msgstr "Mode d'exposition :"
+
+#: exif/exifdevice.cpp:196
+msgctxt "exposure mode"
+msgid "Auto"
+msgstr "Auto"
+
+#: exif/exifdevice.cpp:197
+msgctxt "exposure mode"
+msgid "Manual"
+msgstr "Manuel"
+
+#: exif/exifdevice.cpp:198
+msgctxt "exposure mode"
+msgid "Auto bracket"
+msgstr "Fourchette automatique"
+
+#: exif/exifdevice.cpp:199
+msgid ""
+"Select here the mode used by the camera to set exposure when the picture was "
+"taken. In auto-bracketing mode, the camera shoots a series of frames of the "
+"same scene at different exposure settings."
+msgstr ""
+"Sélectionnez ici le mode utilisé par l'appareil photo pour définir "
+"l'exposition lors de la prise du cliché. En mode prise de vue en fourchette "
+"automatique, l'appareil prend une série de photos de la même scène avec "
+"différents réglages d'exposition."
+
+#: exif/exifdevice.cpp:207
+msgid "Exposure bias (APEX):"
+msgstr "Correction de l'exposition (APEX) :"
+
+#: exif/exifdevice.cpp:212
+msgid ""
+"Set here the exposure bias value (in APEX units) used by camera to take the "
+"picture."
+msgstr ""
+"Définissez ici la valeur de correction de l'exposition (en unités APEX) "
+"utilisée par l'appareil photo pour prendre le cliché."
+
+#: exif/exifdevice.cpp:219
+msgid "Metering mode:"
+msgstr "Mode de mesure :"
+
+#: exif/exifdevice.cpp:221
+msgctxt "metering mode"
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: exif/exifdevice.cpp:222
+msgctxt "metering mode"
+msgid "Average"
+msgstr "Moyenne"
+
+#: exif/exifdevice.cpp:223
+msgctxt "metering mode"
+msgid "Center weighted average"
+msgstr "Moyenne pondérée centrale"
+
+#: exif/exifdevice.cpp:224
+msgctxt "metering mode"
+msgid "Spot"
+msgstr "Spot"
+
+#: exif/exifdevice.cpp:225
+msgctxt "metering mode"
+msgid "Multi-spot"
+msgstr "Multispot"
+
+#: exif/exifdevice.cpp:226
+msgctxt "metering mode"
+msgid "Multi-segment"
+msgstr "Multisegment"
+
+#: exif/exifdevice.cpp:227
+msgctxt "metering mode"
+msgid "Partial"
+msgstr "Partiel"
+
+#: exif/exifdevice.cpp:228
+msgctxt "metering mode"
+msgid "Other"
+msgstr "Autre"
+
+#: exif/exifdevice.cpp:229
+msgid ""
+"Select here the metering mode used by the camera to set exposure when the "
+"picture was taken."
+msgstr ""
+"Sélectionnez ici le mode de mesure utilisé par l'appareil photo pour définir "
+"l'exposition lors de la prise du cliché."
+
+#: exif/exifdevice.cpp:234
+msgid "Sensitivity (ISO):"
+msgstr "Sensibilité (ISO) :"
+
+#: exif/exifdevice.cpp:272
+msgid "Select here the ISO Speed of the camera which took the picture."
+msgstr ""
+"Sélectionnez ici la vitesse ISO de l'appareil photo qui a pris le cliché."
+
+#: exif/exifdevice.cpp:277
+msgid "Sensing method:"
+msgstr "Méthode de détection :"
+
+#: exif/exifdevice.cpp:279
+msgid "Not defined"
+msgstr "Non définie"
+
+#: exif/exifdevice.cpp:280
+msgid "One-chip color area"
+msgstr "Zone de couleur mono-CCD"
+
+#: exif/exifdevice.cpp:281
+msgid "Two-chip color area"
+msgstr "Zone de couleur bi-CCD"
+
+#: exif/exifdevice.cpp:282
+msgid "Three-chip color area"
+msgstr "Zone de couleur tri-CCD"
+
+#: exif/exifdevice.cpp:283
+msgid "Color sequential area"
+msgstr "Zone séquentielle de couleurs"
+
+#: exif/exifdevice.cpp:284
+msgid "Trilinear sensor"
+msgstr "Capteur trilinéaire"
+
+#: exif/exifdevice.cpp:285
+msgid "Color sequential linear"
+msgstr "Linéaire séquentiel de couleurs"
+
+#: exif/exifdevice.cpp:286
+msgid ""
+"Select here the image sensor type used by the camera to take the picture."
+msgstr ""
+"Sélectionnez ici le type de capteur d'images utilisé par l'appareil photo "
+"pour prendre le cliché."
+
+#: exif/exifdevice.cpp:291
+msgid "Scene capture type:"
+msgstr "Type de capture de scène :"
+
+#: exif/exifdevice.cpp:293
+msgid "Standard"
+msgstr "Standard"
+
+#: exif/exifdevice.cpp:294
+msgid "Landscape"
+msgstr "Paysage"
+
+#: exif/exifdevice.cpp:295
+msgid "Portrait"
+msgstr "Portrait"
+
+#: exif/exifdevice.cpp:296 xmp/xmpproperties.cpp:95
+msgid "Night scene"
+msgstr "Scène de nuit"
+
+#: exif/exifdevice.cpp:297
+msgid "Select here the type of scene used by the camera to take the picture."
+msgstr ""
+"Sélectionnez ici le type de scène utilisé par l'appareil photo pour prendre "
+"le cliché."
+
+#: exif/exifdevice.cpp:302
+msgid "Subject distance type:"
+msgstr "Type de distance avec le sujet :"
+
+#: exif/exifdevice.cpp:304
+msgid "Unknown"
+msgstr "Inconnu"
+
+#: exif/exifdevice.cpp:305
+msgid "Macro"
+msgstr "Macro"
+
+#: exif/exifdevice.cpp:306
+msgid "Close view"
+msgstr "Gros plan"
+
+#: exif/exifdevice.cpp:307
+msgid "Distant view"
+msgstr "Plan large"
+
+#: exif/exifdevice.cpp:308
+msgid ""
+"Select here the type of distance between the subject and the image input "
+"equipment."
+msgstr ""
+"Sélectionnez ici le type de distance entre le sujet et l'équipement de prise "
+"de vues."
+
+#: exif/exifeditwidget.cpp:125
+msgctxt "image caption"
+msgid "Caption"
+msgstr "Légende"
+
+#: exif/exifeditwidget.cpp:126
+msgid "Caption Information"
+msgstr "Informations sur la légende"
+
+#: exif/exifeditwidget.cpp:130
+msgid "Date & Time"
+msgstr "Date et Heure"
+
+#: exif/exifeditwidget.cpp:131
+msgid "Date and Time Information"
+msgstr "Informations sur la date et l'heure"
+
+#: exif/exifeditwidget.cpp:135
+msgid "Lens"
+msgstr "Objectif"
+
+#: exif/exifeditwidget.cpp:136
+msgid "Lens Settings"
+msgstr "Configuration de l'objectif"
+
+#: exif/exifeditwidget.cpp:140
+msgid "Device"
+msgstr "Périphérique"
+
+#: exif/exifeditwidget.cpp:141
+msgid "Capture Device Settings"
+msgstr "Configuration du périphérique de capture"
+
+#: exif/exifeditwidget.cpp:145
+msgid "Light"
+msgstr "Lumière"
+
+#: exif/exifeditwidget.cpp:146
+msgid "Light Source Information"
+msgstr "Informations sur la source de lumière"
+
+#: exif/exifeditwidget.cpp:150
+msgctxt "Picture adjustments"
+msgid "Adjustments"
+msgstr "Ajustements"
+
+#: exif/exifeditwidget.cpp:151
+msgid "Pictures Adjustments"
+msgstr "Ajustements des images"
+
+#: exif/exiflens.cpp:152
+msgid "Focal length (mm):"
+msgstr "Longueur focale (mm) :"
+
+#: exif/exiflens.cpp:158
+msgid ""
+"Set here the lens focal length in millimeters used by camera to take the "
+"picture."
+msgstr ""
+"Définissez ici la longueur focale de l'objectif en millimètres utilisée par "
+"l'appareil photo pour prendre le cliché."
+
+#: exif/exiflens.cpp:163
+msgid "Focal length in 35mm film (mm):"
+msgstr "Longueur focale pour un film 35 mm (mm) :"
+
+#: exif/exiflens.cpp:165
+msgid ""
+"Set here equivalent focal length assuming a 35mm film camera, in mm. A value "
+"of 0 means the focal length is unknown."
+msgstr ""
+"Définissez ici la longueur focale équivalente en partant d'un appareil photo "
+"utilisant du film 35 mm. Une valeur de 0 signifie que la longueur focale est "
+"inconnue."
+
+#: exif/exiflens.cpp:171
+msgid "Digital zoom ratio:"
+msgstr "Rapport de zoom numérique :"
+
+#: exif/exiflens.cpp:177
+msgid "Set here the digital zoom ratio used by camera to take the picture."
+msgstr ""
+"Définissez ici le rapport de zoom numérique utilisé par l'appareil photo "
+"pour prendre le cliché."
+
+#: exif/exiflens.cpp:182
+msgid "Lens aperture (f-number):"
+msgstr "Ouverture de l'objectif (nombre-f) :"
+
+#: exif/exiflens.cpp:185
+msgid "Select here the lens aperture used by camera to take the picture."
+msgstr ""
+"Sélectionnez ici l'ouverture d'objectif utilisée par l'appareil pour prendre "
+"le cliché."
+
+#: exif/exiflens.cpp:190
+msgid "Max. lens aperture (f-number):"
+msgstr "Ouverture max. de l'objectif (nombre-f) :"
+
+#: exif/exiflens.cpp:193
+msgid ""
+"Select here the smallest aperture of the lens used by camera to take the "
+"picture."
+msgstr ""
+"Sélectionnez ici la plus petite ouverture d'objectif utilisée par l'appareil "
+"photo pour prendre le cliché."
+
+#: exif/exiflight.cpp:84
+msgid "No flash"
+msgstr "Pas de flash"
+
+#: exif/exiflight.cpp:85
+msgid "Fired"
+msgstr "Déclenché"
+
+#: exif/exiflight.cpp:86
+msgid "Fired, no strobe return light"
+msgstr "Déclenché, pas de lumière de retour du flash"
+
+#: exif/exiflight.cpp:87
+msgid "Fired, strobe return light"
+msgstr "Déclenché, lumière de retour du flash"
+
+#: exif/exiflight.cpp:88
+msgid "Yes, compulsory"
+msgstr "Oui, d'office"
+
+#: exif/exiflight.cpp:89
+msgid "Yes, compulsory, no return light"
+msgstr "Oui, d'office, pas de lumière réfléchie"
+
+#: exif/exiflight.cpp:90
+msgid "Yes, compulsory, return light"
+msgstr "Oui, d'office, lumière réfléchie"
+
+#: exif/exiflight.cpp:91
+msgid "No, compulsory"
+msgstr "Non, d'office"
+
+#: exif/exiflight.cpp:92
+msgid "No, auto"
+msgstr "Non, automatique"
+
+#: exif/exiflight.cpp:93
+msgid "Yes, auto"
+msgstr "Oui, automatique"
+
+#: exif/exiflight.cpp:94
+msgid "Yes, auto, no return light"
+msgstr "Oui, automatique, pas de lumière réfléchie"
+
+#: exif/exiflight.cpp:95
+msgid "Yes, auto, return light"
+msgstr "Oui, automatique, lumière réfléchie"
+
+#: exif/exiflight.cpp:96
+msgid "No flash function"
+msgstr "Pas de fonction flash"
+
+#: exif/exiflight.cpp:97
+msgid "Yes, red-eye"
+msgstr "Oui, yeux rouges"
+
+#: exif/exiflight.cpp:98
+msgid "Yes, red-eye, no return light"
+msgstr "Oui, yeux rouges, pas de lumière réfléchie"
+
+#: exif/exiflight.cpp:99
+msgid "Yes, red-eye, return light"
+msgstr "Oui, yeux rouges, lumière réfléchie"
+
+#: exif/exiflight.cpp:100
+msgid "Yes, compulsory, red-eye"
+msgstr "Oui, d'office, yeux rouges"
+
+#: exif/exiflight.cpp:101
+msgid "Yes, compulsory, red-eye, no return light"
+msgstr "Oui, d'office, yeux rouges, pas de lumière réfléchie"
+
+#: exif/exiflight.cpp:102
+msgid "Yes, compulsory, red-eye, return light"
+msgstr "Oui, d'office, yeux rouges, lumière réfléchie"
+
+#: exif/exiflight.cpp:103
+msgid "Yes, auto, red-eye"
+msgstr "Oui, automatique, yeux rouges"
+
+#: exif/exiflight.cpp:104
+msgid "Yes, auto, red-eye, no return light"
+msgstr "Oui, automatique, yeux rouges, pas de lumière réfléchie"
+
+#: exif/exiflight.cpp:105
+msgid "Yes, auto, red-eye, return light"
+msgstr "Oui, automatique, yeux rouges, lumière réfléchie"
+
+#: exif/exiflight.cpp:134
+msgid "Light source:"
+msgstr "Source de lumière :"
+
+#: exif/exiflight.cpp:136
+msgctxt "light source"
+msgid "Unknown"
+msgstr "Inconnue"
+
+#: exif/exiflight.cpp:137
+msgctxt "light source"
+msgid "Daylight"
+msgstr "Lumière du jour"
+
+#: exif/exiflight.cpp:138
+msgctxt "light source"
+msgid "Fluorescent"
+msgstr "Fluorescente"
+
+#: exif/exiflight.cpp:139
+msgctxt "light source"
+msgid "Tungsten (incandescent light)"
+msgstr "Tungstène (lampe à incandescence)"
+
+#: exif/exiflight.cpp:140
+msgctxt "light source"
+msgid "Flash"
+msgstr "Flash"
+
+#: exif/exiflight.cpp:141
+msgctxt "light source"
+msgid "Fine weather"
+msgstr "Beau temps"
+
+#: exif/exiflight.cpp:142
+msgctxt "light source"
+msgid "Cloudy weather"
+msgstr "Temps nuageux"
+
+#: exif/exiflight.cpp:143
+msgctxt "light source"
+msgid "Shade"
+msgstr "Ombre"
+
+#: exif/exiflight.cpp:144
+msgctxt "light source"
+msgid "Daylight fluorescent (D 5700 - 7100K)"
+msgstr "Fluorescente « lumière du jour » (D 5700 - 7100 K)"
+
+#: exif/exiflight.cpp:145
+msgctxt "light source"
+msgid "Day white fluorescent (N 4600 - 5400K)"
+msgstr "Fluorescente blanche « jour » (N 4600 - 5400 K)"
+
+#: exif/exiflight.cpp:146
+msgctxt "light source"
+msgid "Cool white fluorescent (W 3900 - 4500K)"
+msgstr "Fluorescente blanche « froide » (W 3900 - 4500 K)"
+
+#: exif/exiflight.cpp:147
+msgctxt "light source"
+msgid "White fluorescent (WW 3200 - 3700K)"
+msgstr "Fluorescente blanche (WW 3200 - 3700 K)"
+
+#: exif/exiflight.cpp:148
+msgctxt "light source"
+msgid "Standard light A"
+msgstr "Lumière standard A"
+
+#: exif/exiflight.cpp:149
+msgctxt "light source"
+msgid "Standard light B"
+msgstr "Lumière standard B"
+
+#: exif/exiflight.cpp:150
+msgctxt "light source"
+msgid "Standard light C"
+msgstr "Lumière standard C"
+
+#: exif/exiflight.cpp:151
+msgctxt "light source"
+msgid "D55"
+msgstr "D55"
+
+#: exif/exiflight.cpp:152
+msgctxt "light source"
+msgid "D65"
+msgstr "D65"
+
+#: exif/exiflight.cpp:153
+msgctxt "light source"
+msgid "D75"
+msgstr "D75"
+
+#: exif/exiflight.cpp:154
+msgctxt "light source"
+msgid "D50"
+msgstr "D50"
+
+#: exif/exiflight.cpp:155
+msgctxt "light source"
+msgid "ISO studio tungsten"
+msgstr "Tungstène ISO de studio"
+
+#: exif/exiflight.cpp:156
+msgctxt "light source"
+msgid "Other light source"
+msgstr "Autre source de lumière"
+
+#: exif/exiflight.cpp:157
+msgid "Select here the kind of light source used to take the picture."
+msgstr ""
+"Sélectionnez ici le type de source de lumière utilisé pour prendre le cliché."
+
+#: exif/exiflight.cpp:162
+msgid "Flash mode:"
+msgstr "Mode flash :"
+
+#: exif/exiflight.cpp:168
+msgid ""
+"Select here the flash program mode used by the camera to take the picture."
+msgstr ""
+"Sélectionnez ici le mode de programme de flash utilisé par l'appareil photo "
+"pour prendre le cliché."
+
+#: exif/exiflight.cpp:173
+msgid "Flash energy (BCPS):"
+msgstr "Énergie du flash (BPCS) :"
+
+#: exif/exiflight.cpp:179
+msgid ""
+"Set here the flash energy used to take the picture in BCPS units. Beam "
+"Candle Power Seconds is the measure of effective intensity of a light source "
+"when it is focused into a beam by a reflector or lens. This value is the "
+"effective intensity for a period of one second."
+msgstr ""
+"Définissez ici l'énergie du flash utilisé pour prendre le cliché en unités "
+"BCPS. La quantité de lumière efficace par seconde (« Beam Candle Power "
+"Seconds ») est la mesure de l'intensité effective d'une source de lumière "
+"lorsqu'elle est concentrée en un rayon par un réflecteur ou un objectif. "
+"Cette valeur correspond à l'intensité efficace pour une période d'une "
+"seconde."
+
+#: exif/exiflight.cpp:187
+msgid "White balance:"
+msgstr "Balance des blancs :"
+
+#: exif/exiflight.cpp:189
+msgid "Auto"
+msgstr "Auto"
+
+#: exif/exiflight.cpp:190
+msgid "Manual"
+msgstr "Manuel"
+
+#: exif/exiflight.cpp:191
+msgid ""
+"Select here the white balance mode set by the camera when the picture was "
+"taken."
+msgstr ""
+"Sélectionnez ici le mode de balance des blancs utilisé par l'appareil photo "
+"quand le cliché a été pris."
+
+#: iptc/iptccategories.cpp:93 xmp/xmpcategories.cpp:87
+msgid "Identify subject of content (3 chars max):"
+msgstr "Identifiez le sujet du contenu (3 caractères max) :"
+
+#: iptc/iptccategories.cpp:98
+msgid ""
+"Set here the category of content. This field is limited to 3 ASCII "
+"characters."
+msgstr ""
+"Définissez ici la catégorie du contenu. Ce champ est limité à "
+"3 caractères ASCII."
+
+#: iptc/iptccategories.cpp:101 xmp/xmpcategories.cpp:94
+msgid "Supplemental categories:"
+msgstr "Catégories supplémentaires :"
+
+#: iptc/iptccategories.cpp:107
+msgid ""
+"Enter here a new supplemental category of content. This field is limited to "
+"32 ASCII characters."
+msgstr ""
+"Saisissez ici une nouvelle catégorie supplémentaire de contenu. Ce champ est "
+"limité à 32 caractères ASCII."
+
+#: iptc/iptccategories.cpp:113 iptc/iptckeywords.cpp:100
+#: xmp/xmpcategories.cpp:103 xmp/xmpkeywords.cpp:91
+msgid "&Add"
+msgstr "&Ajouter"
+
+#: iptc/iptccategories.cpp:114 iptc/iptckeywords.cpp:101
+#: xmp/xmpcategories.cpp:104 xmp/xmpkeywords.cpp:92
+msgid "&Delete"
+msgstr "&Supprimer"
+
+#: iptc/iptccategories.cpp:115 iptc/iptckeywords.cpp:102
+#: xmp/xmpcategories.cpp:105 xmp/xmpkeywords.cpp:93
+msgid "&Replace"
+msgstr "&Remplacer"
+
+#: iptc/iptccategories.cpp:124 iptc/iptccontent.cpp:124
+#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:267
+#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:229
+#: iptc/iptcproperties.cpp:238 iptc/iptcstatus.cpp:129
+#: iptc/iptcsubjects.cpp:92
+msgid ""
+"<b>Note: <b><a href='http://en.wikipedia.org/wiki/"
+"IPTC_Information_Interchange_Model'>IPTC</a></b> text tags only support the "
+"printable <b><a href='http://en.wikipedia.org/wiki/Ascii'>ASCII</a></b> "
+"characters and limit string sizes. Use contextual help for details.</b>"
+msgstr ""
+"<b>Remarque : <b>les étiquettes de texte <a href='http://en.wikipedia.org/"
+"wiki/IPTC_Information_Interchange_Model'>IPTC</a></b> ne prennent en charge "
+"que les caractères <b><a href='http://fr.wikipedia.org/wiki/Ascii'>ASCII</"
+"a></b> imprimables et des tailles de chaînes limitées. Utilisez l'aide "
+"contextuelle pour plus de détails.</b>"
+
+#: iptc/iptccontent.cpp:93 xmp/xmpcontent.cpp:89
+msgid "Headline:"
+msgstr "Page de titre :"
+
+#: iptc/iptccontent.cpp:98
+msgid ""
+"Enter here the content synopsis. This field is limited to 256 ASCII "
+"characters."
+msgstr ""
+"Saisissez ici le synopsis du contenu. Ce champ est limité à 256 caractères "
+"ASCII."
+
+#: iptc/iptccontent.cpp:103 xmp/xmpcontent.cpp:96
+msgctxt "content description"
+msgid "Caption:"
+msgstr "Légende :"
+
+#: iptc/iptccontent.cpp:106 xmp/xmpcontent.cpp:103
+#, kde-format
+msgid "Sync caption entered through %1"
+msgstr "Synchroniser la légende saisie via %1"
+
+#: iptc/iptccontent.cpp:109 xmp/xmpcontent.cpp:106
+msgid "Sync EXIF Comment"
+msgstr "Synchroniser le commentaire EXIF"
+
+#: iptc/iptccontent.cpp:113
+msgid ""
+"Enter the content description. This field is limited to 2000 ASCII "
+"characters."
+msgstr ""
+"Saisissez la description du contenu. Ce champ est limité à "
+"2 000 caractères ASCII."
+
+#: iptc/iptccontent.cpp:118 xmp/xmpcontent.cpp:116
+msgid "Caption Writer:"
+msgstr "Auteur de la légende :"
+
+#: iptc/iptccontent.cpp:119 xmp/xmpcontent.cpp:119
+msgid "Enter the name of the caption author."
+msgstr "Saisissez le nom de l'auteur de la légende."
+
+#: iptc/iptccredits.cpp:96 xmp/xmpcontent.cpp:121
+msgid "Copyright:"
+msgstr "Droit d'auteur :"
+
+#: iptc/iptccredits.cpp:101
+msgid ""
+"Set here the necessary copyright notice. This field is limited to 128 ASCII "
+"characters."
+msgstr ""
+"Définissez ici la mention de droit d'auteur nécessaire. Ce champ est limité "
+"à 128 caractères ASCII."
+
+#: iptc/iptccredits.cpp:106 xmp/xmpcredits.cpp:111
+msgid "Byline:"
+msgstr "Mention de responsabilité :"
+
+#: iptc/iptccredits.cpp:107 xmp/xmpcredits.cpp:112
+msgid "Set here the name of content creator."
+msgstr "Définissez ici le nom du créateur du contenu."
+
+#: iptc/iptccredits.cpp:112 xmp/xmpcredits.cpp:117
+msgid "Byline Title:"
+msgstr "Titre de la mention de responsabilité :"
+
+#: iptc/iptccredits.cpp:113 xmp/xmpcredits.cpp:120
+msgid "Set here the title of content creator."
+msgstr "Définissez ici le titre du créateur du contenu."
+
+#: iptc/iptccredits.cpp:118 xmp/xmpcredits.cpp:182
+msgid "Credit:"
+msgstr "Crédits :"
+
+#: iptc/iptccredits.cpp:123
+msgid ""
+"Set here the content provider. This field is limited to 32 ASCII characters."
+msgstr ""
+"Définissez ici le fournisseur du contenu. Ce champ est limité à "
+"32 caractères ASCII."
+
+#: iptc/iptccredits.cpp:128 xmp/xmpcredits.cpp:189
+msgctxt "original owner of content"
+msgid "Source:"
+msgstr "Source :"
+
+#: iptc/iptccredits.cpp:133
+msgid ""
+"Set here the original owner of content. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Définissez ici le propriétaire originel du contenu. Ce champ est limité à "
+"32 caractères ASCII."
+
+#: iptc/iptccredits.cpp:138
+msgid "Contact:"
+msgstr "Contact :"
+
+#: iptc/iptccredits.cpp:139
+msgid "Set here the person or organisation to contact."
+msgstr "Définissez ici la personne ou l'organisation à contacter."
+
+#: iptc/iptceditwidget.cpp:132 xmp/xmpeditwidget.cpp:132
+msgid "Content"
+msgstr "Contenu"
+
+#: iptc/iptceditwidget.cpp:133 xmp/xmpeditwidget.cpp:133
+msgid ""
+"<qt>Content Information<br/><i>Use this panel to describe the visual content "
+"of the image</i></qt>"
+msgstr ""
+"<qt>Informations sur le contenu<br/><i>Utilisez ce tableau de bord pour "
+"décrire le contenu visuel de l'image</i></qt>"
+
+#: iptc/iptceditwidget.cpp:138 xmp/xmpeditwidget.cpp:138
+msgid "Origin"
+msgstr "Origine"
+
+#: iptc/iptceditwidget.cpp:139 xmp/xmpeditwidget.cpp:139
+msgid ""
+"<qt>Origin Information<br/><i>Use this panel for formal descriptive "
+"information about the image</i></qt>"
+msgstr ""
+"<qt>Informations sur l'origine<br/><i>Utilisez ce tableau de bord pour les "
+"informations descriptives à propos de l'image</i></qt>"
+
+#: iptc/iptceditwidget.cpp:144 xmp/xmpeditwidget.cpp:144
+msgid "Credits"
+msgstr "Crédits"
+
+#: iptc/iptceditwidget.cpp:145 xmp/xmpeditwidget.cpp:145
+msgid ""
+"<qt>Credit Information<br/><i>Use this panel to record copyright information "
+"about the image</i></qt>"
+msgstr ""
+"<qt>Informations sur les crédits<br/><i>Utilisez ce tableau de bord pour "
+"enregistrer les informations de droit d'auteur à propos de l'image</i></qt>"
+
+#: iptc/iptceditwidget.cpp:150 xmp/xmpeditwidget.cpp:150
+msgid "Subjects"
+msgstr "Sujets"
+
+#: iptc/iptceditwidget.cpp:151 xmp/xmpeditwidget.cpp:151
+msgid ""
+"<qt>Subject Information<br/><i>Use this panel to record subject information "
+"about the image</i></qt>"
+msgstr ""
+"<qt>Informations sur le sujet<br/><i>Utilisez ce tableau de bord pour "
+"enregistrer les informations de sujet à propos de l'image</i></qt>"
+
+#: iptc/iptceditwidget.cpp:156 xmp/xmpeditwidget.cpp:156
+msgid "Keywords"
+msgstr "Mots clés"
+
+#: iptc/iptceditwidget.cpp:157 xmp/xmpeditwidget.cpp:157
+msgid ""
+"<qt>Keyword Information<br/><i>Use this panel to record keywords relevant to "
+"the image</i></qt>"
+msgstr ""
+"<qt>Informations sur les mots clés<br/><i>Utilisez ce tableau de bord pour "
+"enregistrer les mots clés pertinents à propos de l'image</i></qt>"
+
+#: iptc/iptceditwidget.cpp:162 xmp/xmpeditwidget.cpp:162
+msgid "Categories"
+msgstr "Catégories"
+
+#: iptc/iptceditwidget.cpp:163 xmp/xmpeditwidget.cpp:163
+msgid ""
+"<qt>Category Information<br/><i>Use this panel to record categories relevant "
+"to the image</i></qt>"
+msgstr ""
+"<qt>Informations sur les catégories<br/><i>Utilisez ce tableau de bord pour "
+"enregistrer les catégories pertinentes à propos de l'image</i></qt>"
+
+#: iptc/iptceditwidget.cpp:168 xmp/xmpeditwidget.cpp:168
+msgid "Status"
+msgstr "État"
+
+#: iptc/iptceditwidget.cpp:169 xmp/xmpeditwidget.cpp:169
+msgid ""
+"<qt>Status Information<br/><i>Use this panel to record workflow information</"
+"i></qt>"
+msgstr ""
+"<qt>Informations sur l'état<br/><i>Utilisez ce tableau de bord pour "
+"enregistrer les informations sur le flux de travail</i></qt>"
+
+#: iptc/iptceditwidget.cpp:174 xmp/xmpeditwidget.cpp:174
+msgid "Properties"
+msgstr "Propriétés"
+
+#: iptc/iptceditwidget.cpp:175 xmp/xmpeditwidget.cpp:175
+msgid ""
+"<qt>Status Properties<br/><i>Use this panel to record workflow properties</"
+"i></qt>"
+msgstr ""
+"<qt>Propriétés d'état<br/><i>Utilisez ce tableau de bord pour enregistrer "
+"les propriétés du flux de travail</i></qt>"
+
+#: iptc/iptceditwidget.cpp:180
+msgid "Envelope"
+msgstr "Enveloppe"
+
+#: iptc/iptceditwidget.cpp:181
+msgid ""
+"<qt>Envelope Information<br/><i>Use this panel to record editorial details</"
+"i></qt>"
+msgstr ""
+"<qt>Informations sur l'enveloppe<br/><i>Utilisez ce tableau de bord pour "
+"enregistrer les détails éditoriaux</i></qt>"
+
+#: iptc/iptcenvelope.cpp:88
+msgid "No ObjectData"
+msgstr "Pas de données d'objets"
+
+#: iptc/iptcenvelope.cpp:89
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 1)"
+msgstr "DNPR (Digital Newsphoto Parameter Record) IPTC-NAA (version 1)"
+
+#: iptc/iptcenvelope.cpp:90
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 2)"
+msgstr "DNPR (Digital Newsphoto Parameter Record) IPTC-NAA (version 2)"
+
+#: iptc/iptcenvelope.cpp:91
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 3)"
+msgstr "DNPR (Digital Newsphoto Parameter Record) IPTC-NAA (version 3)"
+
+#: iptc/iptcenvelope.cpp:92
+msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 4)"
+msgstr "DNPR (Digital Newsphoto Parameter Record) IPTC-NAA (version 4)"
+
+#: iptc/iptcenvelope.cpp:93
+msgid "IPTC7901 Recommended Message Format"
+msgstr "Format de message recommandé par IPTC7901"
+
+#: iptc/iptcenvelope.cpp:94
+msgid "Tagged Image File Format (version 5.0)"
+msgstr "TIFF (Tagged Image File Format version 5.0)"
+
+#: iptc/iptcenvelope.cpp:95
+msgid "Tagged Image File Format (version 6.0)"
+msgstr "TIFF (Tagged Image File Format version 6.0)"
+
+#: iptc/iptcenvelope.cpp:96
+msgid "Illustrator"
+msgstr "Illustrator"
+
+#: iptc/iptcenvelope.cpp:97
+msgid "AppleSingle"
+msgstr "AppleSingle"
+
+#: iptc/iptcenvelope.cpp:98
+msgid "NAA 89-3 (ANPA 1312)"
+msgstr "NAA 89-3 (ANPA 1312)"
+
+#: iptc/iptcenvelope.cpp:99
+msgid "MacBinary II"
+msgstr "MacBinary II"
+
+#: iptc/iptcenvelope.cpp:100
+msgid "IPTC Unstructured Character Oriented File Format"
+msgstr "Format de fichier orienté caractères non structuré par IPTC"
+
+#: iptc/iptcenvelope.cpp:101
+msgid "United Press International ANPA 1312 variant"
+msgstr "Variante United Press International de l'ANPA 1312"
+
+#: iptc/iptcenvelope.cpp:102
+msgid "United Press International Down-Load Message"
+msgstr "Message de téléchargement de l'United Press International"
+
+#: iptc/iptcenvelope.cpp:103
+msgid "JPEG File Interchange"
+msgstr "JFIF (JPEG File Interchange)"
+
+#: iptc/iptcenvelope.cpp:104
+msgid "Photo-CD Image-Pac"
+msgstr "Photo-CD Image-Pac"
+
+#: iptc/iptcenvelope.cpp:105
+msgid "Microsoft Bit Mapped Graphics File [*.BMP]"
+msgstr "Fichier graphique en mode point Microsoft [*.BMP]"
+
+#: iptc/iptcenvelope.cpp:106
+msgid "Digital Audio File [*.WAV]"
+msgstr "Fichier audio numérique [*.WAV]"
+
+#: iptc/iptcenvelope.cpp:107
+msgid "Audio plus Moving Video [*.AVI]"
+msgstr "Imbrication audio et vidéo [*.AVI]"
+
+#: iptc/iptcenvelope.cpp:108
+msgid "PC DOS/Windows Executable Files [*.COM][*.EXE]"
+msgstr "Fichiers exécutables PC DOS / Windows [*.COM][*.EXE]"
+
+#: iptc/iptcenvelope.cpp:109
+msgid "Compressed Binary File [*.ZIP]"
+msgstr "Fichier binaire comprimé [*.ZIP]"
+
+#: iptc/iptcenvelope.cpp:110
+msgid "Audio Interchange File Format AIFF"
+msgstr "AIFF (Audio Interchange File Format)"
+
+#: iptc/iptcenvelope.cpp:111
+msgid "RIFF Wave (Microsoft Corporation)"
+msgstr "RIFF Wave (Microsoft Corporation)"
+
+#: iptc/iptcenvelope.cpp:112
+msgid "Freehand (version 3.1)"
+msgstr "Freehand (version 3.1)"
+
+#: iptc/iptcenvelope.cpp:113
+msgid "Freehand (version 4.0)"
+msgstr "Freehand (version 4.0)"
+
+#: iptc/iptcenvelope.cpp:114
+msgid "Freehand (version 5.0)"
+msgstr "Freehand (version 5.0)"
+
+#: iptc/iptcenvelope.cpp:115
+msgid "Freehand (version 5.5)"
+msgstr "Freehand (version 5.5)"
+
+#: iptc/iptcenvelope.cpp:116
+msgid "Hypertext Markup Language \"HTML\""
+msgstr "Langage de balisage hypertexte « HTML »"
+
+#: iptc/iptcenvelope.cpp:117
+msgid "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
+msgstr "MPEG 2 Audio Layer 2 (Musicom), ISO / IEC"
+
+#: iptc/iptcenvelope.cpp:118
+msgid "MPEG 2 Audio Layer 3, ISO/IEC"
+msgstr "MPEG 2 Audio Layer 3, ISO / IEC"
+
+#: iptc/iptcenvelope.cpp:119
+msgid "Portable Document File [*.PDF] Adobe"
+msgstr "Adobe PDF (Portable Document File) [*.PDF]"
+
+#: iptc/iptcenvelope.cpp:120
+msgid "News Industry Text Format"
+msgstr "NITF (News Industry Text Format)"
+
+#: iptc/iptcenvelope.cpp:121
+msgid "Tape Archive [*.TAR]"
+msgstr "Tape Archive [*.TAR]"
+
+#: iptc/iptcenvelope.cpp:122
+msgid "Tidningarnas Telegrambyra NITF version (TTNITF DTD)"
+msgstr "Version NITF de l'Agence Tidningarnas Telegrambyra (DTD TTNITF)"
+
+#: iptc/iptcenvelope.cpp:123
+msgid "Ritzaus Bureau NITF version (RBNITF DTD)"
+msgstr "Version NITF de l'Agence Ritzau (DTD RBNITF)"
+
+#: iptc/iptcenvelope.cpp:124
+msgid "Corel Draw [*.CDR]"
+msgstr "Corel Draw [*.CDR]"
+
+#: iptc/iptcenvelope.cpp:171
+msgid "Destination:"
+msgstr "Destination :"
+
+#: iptc/iptcenvelope.cpp:175
+msgid ""
+"Enter the envelope destination. This field is limited to 1024 ASCII "
+"characters."
+msgstr ""
+"Saisissez la destination de l'enveloppe. Ce champ est limité à "
+"1 024 caractères ASCII."
+
+#: iptc/iptcenvelope.cpp:180
+msgid "U.N.O ID:"
+msgstr "ID du nom unique d'objet :"
+
+#: iptc/iptcenvelope.cpp:185
+msgid ""
+"Set here the Unique Name of Object identifier. This field is limited to 80 "
+"ASCII characters."
+msgstr ""
+" Définissez ici l'identifiant du nom unique d'objet. Ce champ est limité à "
+"80 caractères ASCII."
+
+#: iptc/iptcenvelope.cpp:190
+msgid "Product ID:"
+msgstr "ID du produit :"
+
+#: iptc/iptcenvelope.cpp:195
+msgid ""
+"Set here the product identifier. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Définissez ici l'identifiant du produit. Ce champ est limité à "
+"32 caractères ASCII."
+
+#: iptc/iptcenvelope.cpp:200
+msgid "Service ID:"
+msgstr "ID du service :"
+
+#: iptc/iptcenvelope.cpp:205
+msgid ""
+"Set here the service identifier. This field is limited to 10 ASCII "
+"characters."
+msgstr ""
+"Définissez ici l'identifiant du service. Ce champ est limité à "
+"10 caractères ASCII."
+
+#: iptc/iptcenvelope.cpp:210
+msgid "Envelope ID:"
+msgstr "ID de l'enveloppe :"
+
+#: iptc/iptcenvelope.cpp:215
+msgid ""
+"Set here the envelope identifier. This field is limited to 8 ASCII "
+"characters."
+msgstr ""
+"Définissez ici l'identifiant de l'enveloppe. Ce champ est limité à "
+"8 caractères ASCII."
+
+#: iptc/iptcenvelope.cpp:220 iptc/iptcproperties.cpp:184
+#: xmp/xmpproperties.cpp:183
+msgid "Priority:"
+msgstr "Priorité :"
+
+#: iptc/iptcenvelope.cpp:222
+msgctxt "priority for the envelope"
+msgid "0: None"
+msgstr "0 : aucune"
+
+#: iptc/iptcenvelope.cpp:223
+msgctxt "priority for the envelope"
+msgid "1: High"
+msgstr "1 : élevée"
+
+#: iptc/iptcenvelope.cpp:227
+msgctxt "priority for the envelope"
+msgid "5: Normal"
+msgstr "5 : normale"
+
+#: iptc/iptcenvelope.cpp:230
+msgctxt "priority for the envelope"
+msgid "8: Low"
+msgstr "8 : faible"
+
+#: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
+#: xmp/xmpproperties.cpp:194
+#, fuzzy
+#| msgid "Not defined"
+msgctxt "editorial urgency of content"
+msgid "9: User-defined"
+msgstr "Non définie"
+
+#: iptc/iptcenvelope.cpp:232
+msgid "Select here the envelope priority."
+msgstr "Sélectionnez ici la priorité de l'enveloppe."
+
+#: iptc/iptcenvelope.cpp:236
+msgid "Format:"
+msgstr "Format :"
+
+#: iptc/iptcenvelope.cpp:248
+msgid "Select here envelope file format."
+msgstr "Sélectionnez ici le format de fichier de l'enveloppe."
+
+#: iptc/iptcenvelope.cpp:252
+msgid "Sent date:"
+msgstr "Date d'envoi :"
+
+#: iptc/iptcenvelope.cpp:253
+msgid "Sent time:"
+msgstr "Heure d'envoi :"
+
+#: iptc/iptcenvelope.cpp:259
+msgid "Set envelope sent date to today"
+msgstr "Associe la date d'envoi de l'enveloppe à aujourd'hui"
+
+#: iptc/iptcenvelope.cpp:261
+msgid "Set here the date when the service sent the material."
+msgstr "Définissez ici la date d'envoi des éléments par le service."
+
+#: iptc/iptcenvelope.cpp:262
+msgid "Set here the time when the service sent the material."
+msgstr "Définissez ici l'heure d'envoi des éléments par le service."
+
+#: iptc/iptckeywords.cpp:88 xmp/xmpkeywords.cpp:82
+msgid "Use information retrieval words:"
+msgstr "Utilisez des mots clés pour retrouver les informations :"
+
+#: iptc/iptckeywords.cpp:94
+msgid "Enter here a new keyword. This field is limited to 64 ASCII characters."
+msgstr ""
+"Saisissez ici un nouveau mot clé. Ce champ est limité à 64 caractères ASCII."
+
+#: iptc/iptcorigin.cpp:138 xmp/xmporigin.cpp:118
+msgid "Digitization date"
+msgstr "Date de numérisation"
+
+#: iptc/iptcorigin.cpp:139
+msgid "Digitization time"
+msgstr "Heure de numérisation"
+
+#: iptc/iptcorigin.cpp:147 xmp/xmporigin.cpp:125
+msgid "Set here the creation date of digital representation."
+msgstr "Définissez ici la date de création de la représentation numérique."
+
+#: iptc/iptcorigin.cpp:149
+msgid "Set here the creation time of digital representation."
+msgstr "Définissez ici l'heure de création de la représentation numérique."
+
+#: iptc/iptcorigin.cpp:156 xmp/xmporigin.cpp:132
+msgid "Creation date"
+msgstr "Date de création"
+
+#: iptc/iptcorigin.cpp:157
+msgid "Creation time"
+msgstr "Heure de création"
+
+#: iptc/iptcorigin.cpp:163 xmp/xmporigin.cpp:137
+msgid "Sync EXIF creation date"
+msgstr "Synchroniser une date de création EXIF"
+
+#: iptc/iptcorigin.cpp:169 xmp/xmporigin.cpp:143
+msgid "Set here the creation date of intellectual content."
+msgstr "Définissez ici la date de création du contenu intellectuel."
+
+#: iptc/iptcorigin.cpp:171
+msgid "Set here the creation time of intellectual content."
+msgstr "Définissez ici l'heure de création du contenu intellectuel."
+
+#: iptc/iptcorigin.cpp:178
+msgid "Location:"
+msgstr "Lieu :"
+
+#: iptc/iptcorigin.cpp:179
+msgid "Set here the full country name referenced by the content."
+msgstr "Définissez ici le nom complet du pays référencé par le contenu."
+
+#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:152 xmp/xmporigin.cpp:150
+msgid "City:"
+msgstr "Ville :"
+
+#: iptc/iptcorigin.cpp:188
+msgid ""
+"Set here the city of content origin. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Définissez ici la ville d'origine du contenu. Ce champ est limité à "
+"32 caractères ASCII."
+
+#: iptc/iptcorigin.cpp:193 xmp/xmporigin.cpp:157
+msgid "Sublocation:"
+msgstr "Lieu précis :"
+
+#: iptc/iptcorigin.cpp:198
+msgid ""
+"Set here the content location within city. This field is limited to 32 ASCII "
+"characters."
+msgstr ""
+"Définissez ici l'emplacement du contenu au sein d'une ville. Ce champ est "
+"limité à 32 caractères ASCII."
+
+#: iptc/iptcorigin.cpp:203 xmp/xmporigin.cpp:164
+msgid "State/Province:"
+msgstr "État / Province :"
+
+#: iptc/iptcorigin.cpp:208
+msgid ""
+"Set here the Province or State of content origin. This field is limited to "
+"32 ASCII characters."
+msgstr ""
+"Définissez ici l'état ou la province d'origine du contenu. Ce champ est "
+"limité à 32 caractères ASCII."
+
+#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:157 xmp/xmporigin.cpp:171
+msgid "Country:"
+msgstr "Pays :"
+
+#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:173
+msgid "Select here country name of content origin."
+msgstr "Sélectionnez ici le nom du pays d'origine du contenu."
+
+#: iptc/iptcproperties.cpp:132
+msgid "Release date"
+msgstr "Date de publication"
+
+#: iptc/iptcproperties.cpp:133
+msgid "Release time"
+msgstr "Heure de publication"
+
+#: iptc/iptcproperties.cpp:139
+msgid "Set release date to today"
+msgstr "Associer la date de publication à aujourd'hui"
+
+#: iptc/iptcproperties.cpp:141
+msgid "Set here the earliest intended usable date of intellectual content."
+msgstr ""
+"Définissez ici la toute première date prévue à partir de laquelle le contenu "
+"intellectuel pourra être utilisé."
+
+#: iptc/iptcproperties.cpp:143
+msgid "Set here the earliest intended usable time of intellectual content."
+msgstr ""
+"Définissez ici la toute première heure prévue à partir de laquelle le "
+"contenu intellectuel pourra être utilisé."
+
+#: iptc/iptcproperties.cpp:149
+msgid "Expiration date"
+msgstr "Date d'expiration"
+
+#: iptc/iptcproperties.cpp:150
+msgid "Expiration time"
+msgstr "Heure d'expiration"
+
+#: iptc/iptcproperties.cpp:156
+msgid "Set expiration date to today"
+msgstr "Associer la date d'expiration à aujourd'hui"
+
+#: iptc/iptcproperties.cpp:158
+msgid "Set here the latest intended usable date of intellectual content."
+msgstr ""
+"Définissez ici la toute dernière date prévue jusqu'à laquelle le contenu "
+"intellectuel pourra être utilisé."
+
+#: iptc/iptcproperties.cpp:160
+msgid "Set here the latest intended usable time of intellectual content."
+msgstr ""
+"Définissez ici la toute dernière heure prévue jusqu'à laquelle le contenu "
+"intellectuel pourra être utilisé."
+
+#: iptc/iptcproperties.cpp:167 xmp/xmpproperties.cpp:171
+msgid "Language:"
+msgstr "Langue :"
+
+#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:172
+msgid "Select here the language of content."
+msgstr "Sélectionnez ici la langue du contenu."
+
+#: iptc/iptcproperties.cpp:186 xmp/xmpproperties.cpp:185
+msgctxt "editorial urgency of content"
+msgid "0: None"
+msgstr "0 : aucune"
+
+#: iptc/iptcproperties.cpp:187 xmp/xmpproperties.cpp:186
+msgctxt "editorial urgency of content"
+msgid "1: High"
+msgstr "1 : élevée"
+
+#: iptc/iptcproperties.cpp:191 xmp/xmpproperties.cpp:190
+msgctxt "editorial urgency of content"
+msgid "5: Normal"
+msgstr "5 : normale"
+
+#: iptc/iptcproperties.cpp:194 xmp/xmpproperties.cpp:193
+msgctxt "editorial urgency of content"
+msgid "8: Low"
+msgstr "8 : faible"
+
+#: iptc/iptcproperties.cpp:196 xmp/xmpproperties.cpp:195
+msgid "Select here the editorial urgency of content."
+msgstr "Sélectionnez ici la priorité éditoriale du contenu."
+
+#: iptc/iptcproperties.cpp:200
+msgid "Cycle:"
+msgstr "Cycle :"
+
+#: iptc/iptcproperties.cpp:202
+msgid "Morning"
+msgstr "Matin"
+
+#: iptc/iptcproperties.cpp:203
+msgid "Afternoon"
+msgstr "Après-midi"
+
+#: iptc/iptcproperties.cpp:204
+msgid "Evening"
+msgstr "Soir"
+
+#: iptc/iptcproperties.cpp:205
+msgid "Select here the editorial cycle of content."
+msgstr "Sélectionnez ici le cycle éditorial du contenu."
+
+#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
+msgid "Type:"
+msgstr "Type :"
+
+#: iptc/iptcproperties.cpp:215 xmp/xmpproperties.cpp:114
+msgid "News"
+msgstr "Actualité"
+
+#: iptc/iptcproperties.cpp:216 xmp/xmpproperties.cpp:110
+msgid "Data"
+msgstr "Données"
+
+#: iptc/iptcproperties.cpp:217 xmp/xmpproperties.cpp:107
+msgid "Advisory"
+msgstr "Consultatif"
+
+#: iptc/iptcproperties.cpp:218
+msgid "Select here the editorial type of content."
+msgstr "Sélectionnez ici le type éditorial du contenu."
+
+#: iptc/iptcproperties.cpp:219
+msgid ""
+"Set here the editorial type description of content. This field is limited to "
+"64 ASCII characters."
+msgstr ""
+"Définissez ici la description du type éditorial du contenu. Ce champ est "
+"limité à 64 caractères ASCII."
+
+#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:255
+msgid "Reference:"
+msgstr "Référence :"
+
+#: iptc/iptcproperties.cpp:233
+msgid ""
+"Set here the original content transmission reference. This field is limited "
+"to 32 ASCII characters."
+msgstr ""
+"Définissez ici la référence de transmission du contenu originel. Ce champ "
+"est limité à 32 caractères ASCII."
+
+#: iptc/iptcstatus.cpp:88
+msgctxt "image title"
+msgid "Title:"
+msgstr "Titre :"
+
+#: iptc/iptcstatus.cpp:93
+msgid ""
+"Set here the shorthand reference of content. This field is limited to 64 "
+"ASCII characters."
+msgstr ""
+"Définissez ici la référence abrégée du contenu. Ce champ est limité à "
+"64 caractères ASCII."
+
+#: iptc/iptcstatus.cpp:98
+msgid "Edit Status:"
+msgstr "État de modification :"
+
+#: iptc/iptcstatus.cpp:103
+msgid ""
+"Set here the title of content status. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Définissez ici l'état du contenu. Ce champ est limité à 64 caractères ASCII."
+
+#: iptc/iptcstatus.cpp:108
+msgid "Job Identifier:"
+msgstr "Identifiant de la tâche :"
+
+#: iptc/iptcstatus.cpp:113
+msgid ""
+"Set here the string that identifies content that recurs. This field is "
+"limited to 32 ASCII characters."
+msgstr ""
+"Définissez ici la chaîne identifiant le contenu se répétant. Ce champ est "
+"limité à 32 caractères ASCII."
+
+#: iptc/iptcstatus.cpp:118 xmp/xmpstatus.cpp:103
+msgid "Special Instructions:"
+msgstr "Instructions spéciales :"
+
+#: iptc/iptcstatus.cpp:124
+msgid ""
+"Enter the editorial usage instructions. This field is limited to 256 ASCII "
+"characters."
+msgstr ""
+"Saisissez les instructions d'utilisation éditoriale. Ce champ est limité à "
+"256 caractères ASCII."
+
+#: iptc/iptcsubjects.cpp:51
+msgid ""
+"Enter here the Informative Provider Reference. I.P.R is a name registered "
+"with the IPTC/NAA, identifying the provider that provides an indicator of "
+"the content. The default value for the I.P.R is \"IPTC\" if a standard "
+"Reference Code is used. This field is limited to 32 ASCII characters."
+msgstr ""
+"Saisissez ici l'I.P.R (« Informative Provider Reference », référence de la "
+"source d'informations). I.P.R est un nom enregistré avec IPTC / NAA, "
+"identifiant la source qui fournit un indicateur du contenu. La valeur par "
+"défaut de l'I.P.R. est « IPTC » si un code de référence standard est "
+"utilisé. Ce champ est limité à 32 caractères ASCII."
+
+#: iptc/iptcsubjects.cpp:59
+msgid ""
+"Enter here the Subject Reference Number. Provides a numeric code to indicate "
+"the Subject Name plus optional Subject Matter and Subject Detail Names in "
+"the language of the service. Subject Reference is a number from the range "
+"01000000 to 17999999 and represent a language independent international "
+"reference to a Subject. A Subject is identified by its Reference Number and "
+"corresponding Names taken from a standard lists given by IPTC/NAA. If a "
+"standard reference code is used, these lists are the English language "
+"reference versions. This field is limited to 8 ASCII digit code."
+msgstr ""
+"Saisissez ici le numéro de référence du sujet. Fournit un code numérique "
+"pour indiquer le nom du sujet ainsi que, de façon optionnelle, les noms du "
+"domaine du sujet et les noms détaillés du sujet dans la langue du service. "
+"La référence du sujet est un nombre compris entre 01000000 et 17999999 "
+"représentant une référence internationale indépendante de la langue. Un "
+"sujet est identifié par son numéro de référence et les noms correspondants "
+"provenant de listes standard définis par IPTC / NAA. Si un code de référence "
+"standard est utilisé, ces listes constituent les versions de référence de "
+"l'anglais. Ce champ est limité à un code à 8 chiffres."
+
+#: iptc/iptcsubjects.cpp:74
+msgid ""
+"Enter here the Subject Name. English language is used if you selected a "
+"standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Saisissez ici le nom du sujet. L'anglais est utilisé si vous avez "
+"sélectionné un code de référence IPTC / NAA standard. Ce champ est limité à "
+"64 caractères ASCII."
+
+#: iptc/iptcsubjects.cpp:81
+msgid ""
+"Enter here the Subject Matter Name. English language is used if you selected "
+"a standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Saisissez ici le nom du domaine du sujet. L'anglais est utilisé si vous avez "
+"sélectionné un code de référence IPTC / NAA standard. Ce champ est limité à "
+"64 caractères ASCII."
+
+#: iptc/iptcsubjects.cpp:88
+msgid ""
+"Enter here the Subject Detail Name. English language is used if you selected "
+"a standard IPTC/NAA reference code. This field is limited to 64 ASCII "
+"characters."
+msgstr ""
+"Saisissez ici le nom détaillé du sujet. L'anglais est utilisé si vous avez "
+"sélectionné un code de référence IPTC / NAA standard. Ce champ est limité à "
+"64 caractères ASCII."
+
+#. i18n: ectx: Menu (Image)
+#: plugin/kipiplugin_metadataeditui.rc:6
+msgid "&Image"
+msgstr "&Image"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_metadataeditui.rc:12
+msgid "Main Toolbar"
+msgstr "Barre principale"
+
+#: plugin/metadataedit.cpp:97
+msgid "Metadata edit dialog"
+msgstr "Boite de dialogue de modification des métadonnées"
+
+#: plugin/metadataedit.cpp:102
+msgid "Edit EXIF"
+msgstr "Modifier EXIF"
+
+#: plugin/metadataedit.cpp:103
+msgid "Edit IPTC"
+msgstr "Modifier IPTC"
+
+#: plugin/metadataedit.cpp:104
+msgid "Edit XMP"
+msgstr "Modifier XMP"
+
+#: plugin/metadataedit.cpp:112
+msgid "Next"
+msgstr "Suivant"
+
+#: plugin/metadataedit.cpp:113
+msgid "Previous"
+msgstr "Précédent"
+
+#: plugin/metadataedit.cpp:155
+msgid "Edit Metadata"
+msgstr "Modifier des métadonnées"
+
+#: plugin/metadataedit.cpp:158
+msgid "A Plugin to edit pictures' metadata."
+msgstr "Un module externe pour modifier les métadonnées des images."
+
+#: plugin/metadataedit.cpp:159
+msgid "(c) 2006-2013, Gilles Caulier"
+msgstr "(c) 2006-2013, Gilles Caulier"
+
+#: plugin/metadataedit.cpp:161
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/metadataedit.cpp:161
+msgid "Author and Maintainer"
+msgstr "Auteur et mainteneur"
+
+#: plugin/metadataedit.cpp:164
+msgid "Victor Dodon"
+msgstr "Victor Dodon"
+
+#: plugin/metadataedit.cpp:164
+msgid "Developer"
+msgstr "Développeur"
+
+#: plugin/metadataedit.cpp:268
+#, kde-format
+msgid "%1 (%2/%3) - Edit Metadata"
+msgstr "%1 (%2/%3) - Modifier des métadonnées"
+
+#: plugin/multistringsedit.cpp:90 plugin/multivaluesedit.cpp:94
+#: plugin/objectattributesedit.cpp:104
+msgid "Add a new value to the list"
+msgstr "Ajouter une nouvelle valeur à la liste"
+
+#: plugin/multistringsedit.cpp:91 plugin/multivaluesedit.cpp:95
+#: plugin/objectattributesedit.cpp:105
+msgid "Remove the current selected value from the list"
+msgstr "Supprimer la valeur actuellement sélectionnée depuis la liste"
+
+#: plugin/multistringsedit.cpp:92 plugin/multivaluesedit.cpp:96
+#: plugin/objectattributesedit.cpp:106
+msgid "Replace the current selected value from the list"
+msgstr "Remplacer la valeur actuellement sélectionnée depuis la liste"
+
+#: plugin/multistringsedit.cpp:106 plugin/objectattributesedit.cpp:151
+msgid " This field is limited to:"
+msgstr " Ce champ est limité à :"
+
+#: plugin/multistringsedit.cpp:112 plugin/objectattributesedit.cpp:157
+msgid "<p>Printable ASCII characters.</p>"
+msgstr "<p>Caractères ASCII imprimables.</p>"
+
+#: plugin/multistringsedit.cpp:118 plugin/objectattributesedit.cpp:163
+#, kde-format
+msgid "<p>1 character.</p>"
+msgid_plural "<p>%1 characters.</p>"
+msgstr[0] "<p>Un caractère.</p>"
+msgstr[1] "<p>%1 caractères.</p>"
+
+#: plugin/objectattributesedit.cpp:96 xmp/xmpproperties.cpp:223
+msgid "Attribute:"
+msgstr "Attribut :"
+
+#: plugin/objectattributesedit.cpp:118
+msgid "Select here the editorial attribute of content."
+msgstr "Sélectionnez ici l'attribut éditorial du contenu."
+
+#: plugin/objectattributesedit.cpp:119
+msgctxt "Content type"
+msgid "Current"
+msgstr "Actuel"
+
+#: plugin/objectattributesedit.cpp:120
+msgctxt "Content type"
+msgid "Analysis"
+msgstr "Analyse"
+
+#: plugin/objectattributesedit.cpp:121
+msgctxt "Content type"
+msgid "Archive material"
+msgstr "Élément d'archive"
+
+#: plugin/objectattributesedit.cpp:122
+msgctxt "Content type"
+msgid "Background"
+msgstr "Fond"
+
+#: plugin/objectattributesedit.cpp:123
+msgctxt "Content type"
+msgid "Feature"
+msgstr "Fonctionnalité"
+
+#: plugin/objectattributesedit.cpp:124
+msgctxt "Content type"
+msgid "Forecast"
+msgstr "Prévisions"
+
+#: plugin/objectattributesedit.cpp:125
+msgctxt "Content type"
+msgid "History"
+msgstr "Historique"
+
+#: plugin/objectattributesedit.cpp:126
+msgctxt "Content type"
+msgid "Obituary"
+msgstr "Obituaire"
+
+#: plugin/objectattributesedit.cpp:127
+msgctxt "Content type"
+msgid "Opinion"
+msgstr "Opinion"
+
+#: plugin/objectattributesedit.cpp:128
+msgctxt "Content type"
+msgid "Polls & Surveys"
+msgstr "Enquêtes et Sondages"
+
+#: plugin/objectattributesedit.cpp:129
+msgctxt "Content type"
+msgid "Profile"
+msgstr "Profil"
+
+#: plugin/objectattributesedit.cpp:130
+msgctxt "Content type"
+msgid "Results Listings & Table"
+msgstr "Listages et Tableau de résultats"
+
+#: plugin/objectattributesedit.cpp:131
+msgctxt "Content type"
+msgid "Side bar & Supporting information"
+msgstr "Informations sur la barre latérale et la prise en charge"
+
+#: plugin/objectattributesedit.cpp:132
+msgctxt "Content type"
+msgid "Summary"
+msgstr "Résumé"
+
+#: plugin/objectattributesedit.cpp:133
+msgctxt "Content type"
+msgid "Transcript & Verbatim"
+msgstr "Copie et Verbatim"
+
+#: plugin/objectattributesedit.cpp:134
+msgctxt "Content type"
+msgid "Interview"
+msgstr "Interview"
+
+#: plugin/objectattributesedit.cpp:135
+msgctxt "Content type"
+msgid "From the Scene"
+msgstr "Sur les lieux"
+
+#: plugin/objectattributesedit.cpp:136
+msgctxt "Content type"
+msgid "Retrospective"
+msgstr "Rétrospective"
+
+#: plugin/objectattributesedit.cpp:137
+msgctxt "Content type"
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: plugin/objectattributesedit.cpp:138
+msgctxt "Content type"
+msgid "Update"
+msgstr "Mise à jour"
+
+#: plugin/objectattributesedit.cpp:139
+msgctxt "Content type"
+msgid "Wrap-up"
+msgstr "Synthèse"
+
+#: plugin/objectattributesedit.cpp:140
+msgctxt "Content type"
+msgid "Press Release"
+msgstr "Communiqué de presse"
+
+#: plugin/objectattributesedit.cpp:146
+msgid ""
+"Set here the editorial attribute description of content. This field is "
+"limited to 64 ASCII characters."
+msgstr ""
+"Définissez ici la description de l'attribut éditorial du contenu. Ce champ "
+"est limité à 64 caractères ASCII."
+
+#: plugin/plugin_metadataedit.cpp:130
+msgid "&Metadata"
+msgstr "&Métadonnées"
+
+#: plugin/plugin_metadataedit.cpp:138
+msgid "Edit &All Metadata..."
+msgstr "Modifier toutes les mét&adonnées..."
+
+#: plugin/plugin_metadataedit.cpp:150
+msgid "Import EXIF..."
+msgstr "Importation EXIF..."
+
+#: plugin/plugin_metadataedit.cpp:158
+msgid "Import IPTC..."
+msgstr "Importation IPTC..."
+
+#: plugin/plugin_metadataedit.cpp:166
+msgid "Import XMP..."
+msgstr "Importation XMP..."
+
+#: plugin/plugin_metadataedit.cpp:201
+msgid "Select File to Import EXIF metadata"
+msgstr "Sélectionner un fichier pour importer des métadonnées EXIF"
+
+#: plugin/plugin_metadataedit.cpp:211 plugin/plugin_metadataedit.cpp:303
+#: plugin/plugin_metadataedit.cpp:390
+#, kde-format
+msgid "Cannot load metadata from \"%1\""
+msgstr "Impossible de charger des métadonnées depuis « %1 »"
+
+#: plugin/plugin_metadataedit.cpp:212 plugin/plugin_metadataedit.cpp:226
+#: plugin/plugin_metadataedit.cpp:235 plugin/plugin_metadataedit.cpp:275
+msgid "Import EXIF Metadata"
+msgstr "Importer des métadonnées EXIF"
+
+#: plugin/plugin_metadataedit.cpp:225
+#, kde-format
+msgid "\"%1\" does not have EXIF metadata."
+msgstr "« %1 » ne comporte pas de métadonnées EXIF."
+
+#: plugin/plugin_metadataedit.cpp:232
+#, kde-format
+msgid ""
+"EXIF metadata from the currently selected pictures will be permanently "
+"replaced by the EXIF content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Les métadonnées EXIF provenant des images actuellement sélectionnées seront "
+"définitivement remplacées par le contenu EXIF de « %1 ».\n"
+"Voulez-vous continuer ?"
+
+#: plugin/plugin_metadataedit.cpp:273
+msgid "Unable to set EXIF metadata from:"
+msgstr "Impossible de définir des métadonnées EXIF depuis :"
+
+#: plugin/plugin_metadataedit.cpp:293
+msgid "Select File to Import IPTC metadata"
+msgstr "Sélectionner un fichier pour importer des métadonnées IPTC"
+
+#: plugin/plugin_metadataedit.cpp:304 plugin/plugin_metadataedit.cpp:313
+#: plugin/plugin_metadataedit.cpp:322 plugin/plugin_metadataedit.cpp:362
+msgid "Import IPTC Metadata"
+msgstr "Importer des métadonnées IPTC"
+
+#: plugin/plugin_metadataedit.cpp:312
+#, kde-format
+msgid "\"%1\" does not have IPTC metadata."
+msgstr "« %1 » ne comporte pas de métadonnées IPTC."
+
+#: plugin/plugin_metadataedit.cpp:319
+#, kde-format
+msgid ""
+"IPTC metadata from the currently selected pictures will be permanently "
+"replaced by the IPTC content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Les métadonnées IPTC provenant des images actuellement sélectionnées seront "
+"définitivement remplacées par le contenu IPTC de « %1 ».\n"
+"Voulez-vous continuer ?"
+
+#: plugin/plugin_metadataedit.cpp:360
+msgid "Unable to set IPTC metadata from:"
+msgstr "Impossible de définir des métadonnées IPTC depuis :"
+
+#: plugin/plugin_metadataedit.cpp:380
+msgid "Select File to Import XMP metadata"
+msgstr "Sélectionner un fichier pour importer des métadonnées XMP"
+
+#: plugin/plugin_metadataedit.cpp:391 plugin/plugin_metadataedit.cpp:400
+#: plugin/plugin_metadataedit.cpp:409 plugin/plugin_metadataedit.cpp:449
+msgid "Import XMP Metadata"
+msgstr "Importer des métadonnées XMP"
+
+#: plugin/plugin_metadataedit.cpp:399
+#, kde-format
+msgid "\"%1\" does not have XMP metadata."
+msgstr "« %1 » ne comporte pas de métadonnées XMP."
+
+#: plugin/plugin_metadataedit.cpp:406
+#, kde-format
+msgid ""
+"XMP metadata from the currently selected pictures will be permanently "
+"replaced by the XMP content of \"%1\".\n"
+"Do you want to continue?"
+msgstr ""
+"Les métadonnées XMP provenant des images actuellement sélectionnées seront "
+"définitivement remplacées par le contenu XMP de « %1 ».\n"
+"Voulez-vous continuer ?"
+
+#: plugin/plugin_metadataedit.cpp:447
+msgid "Unable to set XMP metadata from:"
+msgstr "Impossible de définir des métadonnées XMP depuis :"
+
+#: xmp/xmpcategories.cpp:91
+msgid ""
+"Set here the category of content. This field is limited to 3 characters."
+msgstr ""
+"Définissez ici la catégorie du contenu. Ce champ est limité à 3 caractères."
+
+#: xmp/xmpcategories.cpp:98
+msgid "Enter here a new supplemental category of content."
+msgstr "Saisissez ici une nouvelle catégorie supplémentaire de contenu."
+
+#: xmp/xmpcontent.cpp:92
+msgid "Enter here the content synopsis."
+msgstr "Saisissez ici le synopsis du contenu."
+
+#: xmp/xmpcontent.cpp:97
+msgid "Enter the content description."
+msgstr "Saisissez la description du contenu."
+
+#: xmp/xmpcontent.cpp:99
+msgid "Default Language Caption Options"
+msgstr "Options de légende dans la langue par défaut"
+
+#: xmp/xmpcontent.cpp:122
+msgid "Enter the necessary copyright notice."
+msgstr "Saisissez la mention du droit d'auteur nécessaire."
+
+#: xmp/xmpcredits.cpp:124
+msgid "Contact"
+msgstr "Contact"
+
+#: xmp/xmpcredits.cpp:127
+msgctxt "contact email address"
+msgid "E-mail:"
+msgstr "Adresse électronique :"
+
+#: xmp/xmpcredits.cpp:130
+msgid "Set here the contact e-mail."
+msgstr "Définissez ici l'adresse électronique du contact."
+
+#: xmp/xmpcredits.cpp:132
+msgid "URL:"
+msgstr "URL :"
+
+#: xmp/xmpcredits.cpp:135
+msgid "Set here the contact URL."
+msgstr "Définissez ici l'URL du contact."
+
+#: xmp/xmpcredits.cpp:137
+msgid "Phone:"
+msgstr "Téléphone :"
+
+#: xmp/xmpcredits.cpp:140
+msgid "Set here the contact 'phone number."
+msgstr "Définissez ici le numéro de téléphone du contact."
+
+#: xmp/xmpcredits.cpp:142
+msgctxt "Street address"
+msgid "Address:"
+msgstr "Adresse :"
+
+#: xmp/xmpcredits.cpp:145
+msgid "Set here the contact address."
+msgstr "Définissez ici l'adresse du contact."
+
+#: xmp/xmpcredits.cpp:147
+msgid "Postal code:"
+msgstr "Code postal :"
+
+#: xmp/xmpcredits.cpp:150
+msgid "Set here the contact postal code."
+msgstr "Définissez ici le code postal du contact."
+
+#: xmp/xmpcredits.cpp:155
+msgid "Set here the contact city."
+msgstr "Définissez ici la ville du contact."
+
+#: xmp/xmpcredits.cpp:160
+msgid "Set here the contact country."
+msgstr "Définissez ici le pays du contact."
+
+#: xmp/xmpcredits.cpp:185
+msgid "Set here the content provider."
+msgstr "Définissez ici le fournisseur du contenu."
+
+#: xmp/xmpcredits.cpp:192
+msgid "Set here the original owner of content."
+msgstr "Définissez ici le propriétaire originel du contenu."
+
+#: xmp/xmpkeywords.cpp:86
+msgid "Enter here a new keyword."
+msgstr "Saisissez ici un nouveau mot clé."
+
+#: xmp/xmporigin.cpp:153
+msgid "Set here the content's city of origin."
+msgstr "Définissez ici la ville d'origine du contenu."
+
+#: xmp/xmporigin.cpp:160
+msgid "Set here the content's location within the city."
+msgstr "Définissez ici l'emplacement du contenu au sein de la ville."
+
+#: xmp/xmporigin.cpp:167
+msgid "Set here the content's Province or State of origin."
+msgstr "Définissez ici la province ou l'état d'origine du contenu."
+
+#: xmp/xmpproperties.cpp:82
+msgid "Headshot"
+msgstr "Portrait"
+
+#: xmp/xmpproperties.cpp:83
+msgid "Half-length"
+msgstr "En buste"
+
+#: xmp/xmpproperties.cpp:84
+msgid "Full-length"
+msgstr "En pied"
+
+#: xmp/xmpproperties.cpp:85
+msgctxt "Side view of a person"
+msgid "Profile"
+msgstr "De profil"
+
+#: xmp/xmpproperties.cpp:86
+msgid "Rear view"
+msgstr "Vue arrière"
+
+#: xmp/xmpproperties.cpp:87
+msgid "Single"
+msgstr "Une personne"
+
+#: xmp/xmpproperties.cpp:88
+msgid "Couple"
+msgstr "Couple"
+
+#: xmp/xmpproperties.cpp:89
+msgid "Two"
+msgstr "Deux personnes"
+
+#: xmp/xmpproperties.cpp:90
+msgctxt "group of people"
+msgid "Group"
+msgstr "Groupe"
+
+#: xmp/xmpproperties.cpp:91
+msgid "General view"
+msgstr "Vue générale"
+
+#: xmp/xmpproperties.cpp:92
+msgid "Panoramic view"
+msgstr "Vue panoramique"
+
+#: xmp/xmpproperties.cpp:93
+msgid "Aerial view"
+msgstr "Vue aérienne"
+
+#: xmp/xmpproperties.cpp:94
+msgid "Under-water"
+msgstr "Vue sous-marine"
+
+#: xmp/xmpproperties.cpp:96
+msgid "Satellite"
+msgstr "Satellite"
+
+#: xmp/xmpproperties.cpp:97
+msgid "Exterior view"
+msgstr "Vue extérieur"
+
+#: xmp/xmpproperties.cpp:98
+msgid "Interior view"
+msgstr "Vue intérieure"
+
+#: xmp/xmpproperties.cpp:99
+msgid "Close-up"
+msgstr "Gros plan"
+
+#: xmp/xmpproperties.cpp:100
+msgid "Action"
+msgstr "Action"
+
+#: xmp/xmpproperties.cpp:101
+msgid "Performing"
+msgstr "Interprétation"
+
+#: xmp/xmpproperties.cpp:102
+msgid "Posing"
+msgstr "Pose"
+
+#: xmp/xmpproperties.cpp:103
+msgid "Symbolic"
+msgstr "Symbolique"
+
+#: xmp/xmpproperties.cpp:104
+msgid "Off-beat"
+msgstr "Hors contexte"
+
+#: xmp/xmpproperties.cpp:105
+msgid "Movie scene"
+msgstr "Scène filmée"
+
+#: xmp/xmpproperties.cpp:108
+msgid "Alert"
+msgstr "Alerte"
+
+#: xmp/xmpproperties.cpp:109
+msgid "Catalog"
+msgstr "Catalogue"
+
+#: xmp/xmpproperties.cpp:111
+msgctxt "type is a document"
+msgid "Document"
+msgstr "Document"
+
+#: xmp/xmpproperties.cpp:112
+msgid "DTD"
+msgstr "DTD"
+
+#: xmp/xmpproperties.cpp:113
+msgid "Maintenance"
+msgstr "Maintenance"
+
+#: xmp/xmpproperties.cpp:115
+msgid "News Management Mode"
+msgstr "Mode de gestion des nouvelles"
+
+#: xmp/xmpproperties.cpp:116
+msgid "Package"
+msgstr "Paquetage"
+
+#: xmp/xmpproperties.cpp:117
+msgid "Schema"
+msgstr "Schéma"
+
+#: xmp/xmpproperties.cpp:118
+msgid "Topic"
+msgstr "Sujet"
+
+#: xmp/xmpproperties.cpp:119
+msgid "Topic Set"
+msgstr "Ensemble de sujets"
+
+#: xmp/xmpproperties.cpp:199
+msgid "Scene:"
+msgstr "Scène :"
+
+#: xmp/xmpproperties.cpp:200
+msgid "Select here the scene type of the content."
+msgstr "Sélectionnez ici le type de scène du contenu."
+
+#: xmp/xmpproperties.cpp:212
+msgid "Select here the editorial type of the content."
+msgstr "Sélectionnez ici le type éditorial du contenu."
+
+#: xmp/xmpproperties.cpp:227
+msgid "Set here the editorial attribute description of the content."
+msgstr "Sélectionnez ici la description de l'attribut éditorial du contenu."
+
+#: xmp/xmpproperties.cpp:229
+msgid "Select here the editorial attribute of the content."
+msgstr "Sélectionnez ici l'attribut éditorial du contenu."
+
+#: xmp/xmpproperties.cpp:230
+msgctxt "editorial content attribute"
+msgid "Current"
+msgstr "Actuel"
+
+#: xmp/xmpproperties.cpp:231
+msgctxt "editorial content attribute"
+msgid "Analysis"
+msgstr "Analyse"
+
+#: xmp/xmpproperties.cpp:232
+msgctxt "editorial content attribute"
+msgid "Archive material"
+msgstr "Élément d'archive"
+
+#: xmp/xmpproperties.cpp:233
+msgctxt "editorial content attribute"
+msgid "Background"
+msgstr "Fond"
+
+#: xmp/xmpproperties.cpp:234
+msgctxt "editorial content attribute"
+msgid "Feature"
+msgstr "Fonctionnalité"
+
+#: xmp/xmpproperties.cpp:235
+msgctxt "editorial content attribute"
+msgid "Forecast"
+msgstr "Prévisions"
+
+#: xmp/xmpproperties.cpp:236
+msgctxt "editorial content attribute"
+msgid "History"
+msgstr "Historique"
+
+#: xmp/xmpproperties.cpp:237
+msgctxt "editorial content attribute"
+msgid "Obituary"
+msgstr "Obituaire"
+
+#: xmp/xmpproperties.cpp:238
+msgctxt "editorial content attribute"
+msgid "Opinion"
+msgstr "Opinion"
+
+#: xmp/xmpproperties.cpp:239
+msgctxt "editorial content attribute"
+msgid "Polls & Surveys"
+msgstr "Enquêtes et Sondages"
+
+#: xmp/xmpproperties.cpp:240
+msgctxt "editorial content attribute"
+msgid "Profile"
+msgstr "Profil"
+
+#: xmp/xmpproperties.cpp:241
+msgctxt "editorial content attribute"
+msgid "Results Listings & Table"
+msgstr "Listages et Tableau de résultats"
+
+#: xmp/xmpproperties.cpp:242
+msgctxt "editorial content attribute"
+msgid "Side bar & Supporting information"
+msgstr "Informations sur la barre latérale et la prise en charge"
+
+#: xmp/xmpproperties.cpp:243
+msgctxt "editorial content attribute"
+msgid "Summary"
+msgstr "Résumé"
+
+#: xmp/xmpproperties.cpp:244
+msgctxt "editorial content attribute"
+msgid "Transcript & Verbatim"
+msgstr "Transcription et Verbatim"
+
+#: xmp/xmpproperties.cpp:245
+msgctxt "editorial content attribute"
+msgid "Interview"
+msgstr "Interview"
+
+#: xmp/xmpproperties.cpp:246
+msgctxt "editorial content attribute"
+msgid "From the Scene"
+msgstr "Sur les lieux"
+
+#: xmp/xmpproperties.cpp:247
+msgctxt "editorial content attribute"
+msgid "Retrospective"
+msgstr "Rétrospective"
+
+#: xmp/xmpproperties.cpp:248
+msgctxt "editorial content attribute"
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: xmp/xmpproperties.cpp:249
+msgctxt "editorial content attribute"
+msgid "Update"
+msgstr "Mise à jour"
+
+#: xmp/xmpproperties.cpp:250
+msgctxt "editorial content attribute"
+msgid "Wrap-up"
+msgstr "Synthèse"
+
+#: xmp/xmpproperties.cpp:251
+msgctxt "editorial content attribute"
+msgid "Press Release"
+msgstr "Communiqué de presse"
+
+#: xmp/xmpproperties.cpp:258
+msgid "Set here the original content transmission reference."
+msgstr "Définissez ici la référence de transmission du contenu original."
+
+#: xmp/xmpstatus.cpp:85
+msgctxt "short title for the content"
+msgid "Title:"
+msgstr "Titre :"
+
+#: xmp/xmpstatus.cpp:86
+msgid "Set here a shorthand reference for the content."
+msgstr "Sélectionnez ici une référence abrégée pour le contenu."
+
+#: xmp/xmpstatus.cpp:90
+msgid "Nickname:"
+msgstr "Pseudonyme :"
+
+#: xmp/xmpstatus.cpp:93
+msgid "A short informal name for the resource."
+msgstr "Un nom court informel pour la ressource."
+
+#: xmp/xmpstatus.cpp:97
+msgid "Identifiers:"
+msgstr "Identifiants :"
+
+#: xmp/xmpstatus.cpp:98
+msgid "Set here the strings that identify content that recurs."
+msgstr "Définissez ici les chaînes identifiant le contenu récurrent."
+
+#: xmp/xmpstatus.cpp:105
+msgid "Enter the editorial usage instructions."
+msgstr "Saisissez ici les instructions d'utilisation éditoriale."
+
+#: xmp/xmpsubjects.cpp:51
+msgid ""
+"Enter here the Informative Provider Reference. I.P.R is a name registered "
+"with the XMP/NAA, identifying the provider that provides an indicator of the "
+"content. The default value for the I.P.R is \"XMP\" if a standard Reference "
+"Code is used."
+msgstr ""
+"Saisissez ici l'IPR (« Informative Provider Reference », référence de la "
+"source d'informations). I.P.R est un nom enregistré avec le XMP / NAA, "
+"identifiant la source qui fournit un indicateur de contenu. La valeur par "
+"défaut de l'I.P.R. est « XMP » si un code de référence standard est utilisé."
+
+#: xmp/xmpsubjects.cpp:57
+msgid ""
+"Enter here the Subject Reference Number. Provides a numeric code to indicate "
+"the Subject Name plus optional Subject Matter and Subject Detail Names in "
+"the language of the service. Subject Reference is a number from the range "
+"01000000 to 17999999 and represent a language independent international "
+"reference to a Subject. A Subject is identified by its Reference Number and "
+"corresponding Names taken from a standard lists given by XMP/NAA. If a "
+"standard reference code is used, these lists are the English language "
+"reference versions. This field is limited to 8 digit code."
+msgstr ""
+"Saisissez ici le numéro de référence du sujet. Fournit un code numérique "
+"pour indiquer le nom du sujet ainsi que, de façon optionnelle, les noms du "
+"domaine du sujet et les noms détaillés du sujet dans la langue du service. "
+"La référence du sujet est un nombre compris entre 01000000 et 17999999 "
+"représentant une référence internationale indépendante de la langue. Un "
+"sujet est identifié par son numéro de référence et les noms correspondants "
+"tirés de listes standard fournis par XMP / NAA. Si un code de référence "
+"standard est utilisé, ces listes constituent les versions de référence de "
+"l'anglais. Ce champ est limité à un code à 8 chiffres."
+
+#: xmp/xmpsubjects.cpp:70
+msgid ""
+"Enter here the Subject Name. English language is used if you selected a "
+"standard XMP/NAA reference code."
+msgstr ""
+"Saisissez ici le nom du sujet. L'anglais est utilisé si vous avez "
+"sélectionné un code de référence XMP / NAA standard."
+
+#: xmp/xmpsubjects.cpp:74
+msgid ""
+"Enter here the Subject Matter Name. English language is used if you selected "
+"a standard XMP/NAA reference code."
+msgstr ""
+"Saisissez ici le nom du domaine du sujet. L'anglais est utilisé si vous avez "
+"sélectionné un code de référence XMP / NAA standard."
+
+#: xmp/xmpsubjects.cpp:78
+msgid ""
+"Enter here the Subject Detail Name. English language is used if you selected "
+"a standard XMP/NAA reference code."
+msgstr ""
+"Saisissez ici le nom détaillé du sujet. L'anglais est utilisé si vous avez "
+"sélectionné un code de référence XMP / NAA standard."
+
+#~ msgid "Handbook"
+#~ msgstr "Manuel utilisateur"

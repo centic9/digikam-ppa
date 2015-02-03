@@ -1,0 +1,211 @@
+# Translation of kipiplugin_ipodexport into Japanese.
+# This file is distributed under the same license as the kipi-plugins package.
+# Yukiko Bando <ybando@k6.dion.ne.jp>, 2008.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_ipodexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-05 02:03+0000\n"
+"PO-Revision-Date: 2008-11-22 09:58+0900\n"
+"Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
+"Language-Team: Japanese <Kdeveloper@kde.gr.jp>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Yukiko Bando"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ybando@k6.dion.ne.jp"
+
+#: ipodheader.cpp:95
+msgid "<p align=\"center\"><b>No iPod was detected</b></p>"
+msgstr "<p>iPod は検出されませんでした</p>"
+
+#: ipodheader.cpp:102
+msgid "Refresh"
+msgstr "更新"
+
+#: ipodheader.cpp:115
+#, kde-format
+msgid ""
+"<p align=\"center\"><b>Your iPod (%1) does not seem to support artwork.</b></"
+"p>"
+msgstr "<p>あなたの iPod (%1) はアートワークをサポートしていないようです</p>"
+
+#: ipodheader.cpp:123
+msgid "Set iPod Model"
+msgstr "iPod のモデルを設定"
+
+#: ipodheader.cpp:139
+#, kde-format
+msgid "<p align=\"center\"><b>iPod %1 detected at: %2</b></p>"
+msgstr "<p>iPod %1 を次に検出しました: %2</p>"
+
+#: ipodheader.cpp:144
+#, kde-format
+msgid "<p align=\"center\"><b>iPod %1 detected</b></p>"
+msgstr "<p>iPod %1 を検出しました</p>"
+
+#: ipodlistitem.cpp:40
+msgid "Unnamed"
+msgstr "名前なし"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_ipodexportui.rc:6
+#, fuzzy
+#| msgid "iPod Export"
+msgid "&Export"
+msgstr "iPod エクスポート"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_ipodexportui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_ipodexport.cpp:87
+msgid "Export to &iPod..."
+msgstr "iPod にエクスポート(&I)..."
+
+#: plugin_ipodexport.cpp:101 uploaddialog.cpp:110
+msgid "iPod Export"
+msgstr "iPod エクスポート"
+
+#: uploaddialog.cpp:113
+msgid "A tool to export image to an iPod device"
+msgstr "画像を iPod デバイスにエクスポートするツール"
+
+#: uploaddialog.cpp:114
+#, fuzzy
+#| msgid "(c) 2006-2008, Seb Ruiz"
+msgid ""
+"(c) 2006-2008, Seb Ruiz\n"
+"(c) 2008-2013, Gilles Caulier"
+msgstr "(c) 2006-2008, Seb Ruiz"
+
+#: uploaddialog.cpp:117
+msgid "Seb Ruiz"
+msgstr "Seb Ruiz"
+
+#: uploaddialog.cpp:117
+msgid "Author and Maintainer"
+msgstr "作者、メンテナ"
+
+#: uploaddialog.cpp:120
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: uploaddialog.cpp:120
+msgid "Developer"
+msgstr "開発者"
+
+#: uploaddialog.cpp:132
+msgid "Hard Disk"
+msgstr "ハードディスク"
+
+#: uploaddialog.cpp:142
+msgid "&Add..."
+msgstr "追加(&A)..."
+
+#: uploaddialog.cpp:143
+msgid "Add images to be queued for the iPod."
+msgstr "iPod へ転送する画像をキューに追加します。"
+
+#: uploaddialog.cpp:145 uploaddialog.cpp:187
+msgid "&Remove"
+msgstr "削除(&R)"
+
+#: uploaddialog.cpp:146
+msgid "Remove selected image from the list."
+msgstr "選択した画像をリストから削除します。"
+
+#: uploaddialog.cpp:148
+msgid "&Transfer"
+msgstr "転送(&T)"
+
+#: uploaddialog.cpp:149
+msgid "Transfer images to the selected iPod album."
+msgstr "画像を選択した iPod アルバムに転送します。"
+
+#: uploaddialog.cpp:155
+msgid "The preview of the selected image in the list."
+msgstr "リストで選択した画像のプレビューです。"
+
+#: uploaddialog.cpp:176
+msgid "iPod"
+msgstr "iPod"
+
+#: uploaddialog.cpp:184
+msgid "&New..."
+msgstr "新規(&N)..."
+
+#: uploaddialog.cpp:185
+msgid "Create a new photo album on the iPod."
+msgstr "iPod に新しいフォトアルバムを作成します。"
+
+#: uploaddialog.cpp:188
+msgid "R&ename..."
+msgstr "名前変更(&E)..."
+
+#: uploaddialog.cpp:193
+msgid "Remove the selected photos or albums from the iPod."
+msgstr "選択した写真またはアルバムを iPod から削除します。"
+
+#: uploaddialog.cpp:194
+msgid "Rename the selected photo album on the iPod."
+msgstr "選択した iPod フォトアルバムの名前を変更します。"
+
+#: uploaddialog.cpp:558
+msgid "Image files"
+msgstr "画像ファイル"
+
+#: uploaddialog.cpp:561
+msgid "Add Images"
+msgstr "画像を追加"
+
+#: uploaddialog.cpp:596
+msgid "New iPod Photo Album"
+msgstr "新しい iPod フォトアルバム"
+
+#: uploaddialog.cpp:597
+msgid "Create a new album:"
+msgstr "新しいアルバムを作成:"
+
+#: uploaddialog.cpp:628
+msgid "Rename iPod Photo Album"
+msgstr "iPod フォトアルバムの名前を変更"
+
+#: uploaddialog.cpp:629
+msgid "New album title:"
+msgstr "新しいアルバムのタイトル:"
+
+#: uploaddialog.cpp:827
+#, fuzzy, kde-format
+#| msgid ""
+#| "An iPod photo database could not be found on device mounted at %1. Should "
+#| "I try to initialize your iPod photo database?"
+msgid ""
+"An iPod photo database could not be found on the device mounted at %1. "
+"Initialize the iPod photo database?"
+msgstr ""
+"%1 にマウントされたデバイスに iPod フォトデータベースが見つかりませんでした。"
+"iPod フォトデータベースの初期化を試みますか？"
+
+#: uploaddialog.cpp:831
+msgid "Initialize iPod Photo Database?"
+msgstr "iPod フォトデータベースを初期化しますか？"
+
+#: uploaddialog.cpp:832
+msgid "&Initialize"
+msgstr "初期化(&I)"
+
+#~ msgid "Plugin Handbook"
+#~ msgstr "プラグインハンドブック"

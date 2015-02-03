@@ -1,0 +1,725 @@
+# translation of kipiplugin_simpleviewerexport.po to Thai
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Thanomsub Noppaburana <donga.nb@gmail.com>, 2008, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_simpleviewerexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-30 03:31+0100\n"
+"PO-Revision-Date: 2010-03-07 20:23+0700\n"
+"Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ถนอมทรัพย์ นพบูรณ์"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "donga.nb@gmail.com"
+
+#: aboutdata.h:41
+msgid "Flash Export"
+msgstr "ส่งออกเป็นแฟ้ม Flash"
+
+#: aboutdata.h:43
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to export images to Flash using the Simple Viewer component."
+msgid ""
+"A Kipi plugin to export images to Flash using the SimpleViewer's components."
+msgstr "ส่วนเสริมของ Kipi สำหรับส่งออกภาพเป็นแฟ้ม Flash โดยใช้ส่วนประกอบ Simple Viewer"
+
+#: aboutdata.h:44
+#, fuzzy
+#| msgid ""
+#| "(c) 2005-2006, Joern Ahrens\n"
+#| "(c) 2008-2009, Gilles Caulier"
+msgid ""
+"(c) 2005-2006, Joern Ahrens\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2011, Veaceslav Munteanu"
+msgstr ""
+"สงวนลิขสิทธิ์ (c) 2005-2006, Joern Ahrens\n"
+"สงวนลิขสิทธิ์ (c) 2008-2009, Gilles Caulier"
+
+#: aboutdata.h:51
+msgid "Joern Ahrens"
+msgstr "Joern Ahrens"
+
+#: aboutdata.h:52
+msgid "Author"
+msgstr "ผู้เขียน"
+
+#: aboutdata.h:55
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: aboutdata.h:56 aboutdata.h:60
+msgid "Developer and maintainer"
+msgstr "ผู้พัฒนาและผู้ดูแล"
+
+#: aboutdata.h:59
+msgid "Veaceslav Munteanu"
+msgstr ""
+
+#: aboutdata.h:63
+msgid "Felix Turner"
+msgstr "Felix Turner"
+
+#: aboutdata.h:64
+msgid "Author of the Simple Viewer Flash component"
+msgstr "ผู้เขียนคอมโพเน้นต์ Simple Viewer Flash"
+
+#: aboutdata.h:68
+msgid "Mikkel B. Stegmann"
+msgstr "Mikkel B. Stegmann"
+
+#: aboutdata.h:69
+msgid "Basis for the index.html template"
+msgstr "พื้นฐานของแม่แบบแฟ้ม index.html"
+
+#: importWizard/firstrunpage.cpp:70
+msgid "First Run"
+msgstr ""
+
+#: importWizard/firstrunpage.cpp:77
+#, fuzzy
+#| msgid ""
+#| "<p>SimpleViewer is a Flash component which is free to use, but uses a "
+#| "license which comes into conflict with several distributions. Due to the "
+#| "license it is not possible to ship it with this plugin.</p><p>You can now "
+#| "download SimpleViewer from its homepage and point this tool to the "
+#| "downloaded archive. The archive will be stored with the plugin "
+#| "configuration, so it is available for further use.</p>"
+msgid ""
+"<p>SimpleViewer's plugins are Flash components which are free to use, but "
+"use a license which comes into conflict with several distributions. Due to "
+"the license it is not possible to ship it with this tool.</p><p>You can now "
+"download plugin from its homepage and point this tool to the downloaded "
+"archive. The archive will be stored with the plugin configuration, so it is "
+"available for further use.</p><p><b>Note: Please download the plugin that "
+"you selected on the first page.</b></p>"
+msgstr ""
+"<p>โปรแกรม SimpleViewer คือส่วนประกอบสำหรับสร้างแฟ้ม Flash ซึ่งฟรีสำหรับการใช้งาน "
+"แต่มีสัญญาอนุญาตที่ขัดกับดิสทริบิวชันทั่ว ๆ ไป ดังนั้นจึงไม่สามารถให้มันมาพร้อมกับส่วนเสริมนี้ได้</"
+"p><p>คุณสามารถดาวน์โหลด SimpleViewer ได้ จากหน้าเว็บหลักของมัน "
+"และชี้เครื่องมือนี้ไปยังแฟ้มจัดเก็บที่ได้ทำการดาวน์โหลดไว้ "
+"แล้วแฟ้มจัดเก็บจะถูกจัดเก็บไว้ด้วยการปรับแต่งค่าของส่วนเสริม "
+"จากนั้นก็จะใช้งานมันต่อไปได้ตลอดไปแล้ว</p>"
+
+#: importWizard/firstrunpage.cpp:86
+#, fuzzy
+#| msgid "<p>1.) Download SimpleViewer Version 1.9.x</p>"
+msgid "<p>1.) Download plugin from the following url:</p>"
+msgstr "<p>1.) ทำการดาวน์โหลด SimpleViewer รุ่น 1.9.x</p>"
+
+#: importWizard/firstrunpage.cpp:96
+msgid "<p>2.) Point this tool to the downloaded archive</p>"
+msgstr "<p>2.) ชี้เครื่องมือนี้ไปยังแฟ้มจัดเก็บที่ได้ทำการดาวน์โหลดมา</p>"
+
+#: importWizard/generalpage.cpp:84
+msgid "General Settings"
+msgstr "ตั้งค่าทั่วไปต่าง ๆ"
+
+#: importWizard/generalpage.cpp:91
+msgid "Gallery &Title"
+msgstr "ชื่อแกลเลอรีภาพ"
+
+#: importWizard/generalpage.cpp:94
+msgid "Enter here the gallery title"
+msgstr "ป้อนชื่อของแกลเลอรีภาพที่นี่"
+
+#: importWizard/generalpage.cpp:102
+msgid "Save Gallery To"
+msgstr "จัดเก็บแกลเลอรีภาพไปยัง"
+
+#: importWizard/generalpage.cpp:113
+msgid "Image Properties"
+msgstr "คุณสมบัติต่าง ๆ ของภาพ"
+
+#: importWizard/generalpage.cpp:115
+msgid "Resize Target Images"
+msgstr "ปรับขนาดภาพเป้าหมาย"
+
+#: importWizard/generalpage.cpp:117
+msgid "If you enable this option, all target images can be resized."
+msgstr "หากเปิดใช้ตัวเลือกนี้ ภาพเป้าหมายทั้งหมดจะสามารถปรับขนาดได้"
+
+#: importWizard/generalpage.cpp:121
+msgid "Auto-Rotate/Flip Images"
+msgstr "หมุนภาพ/พลิกภาพอัตโนมัติ"
+
+#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
+#: importWizard/lookpage.cpp:335
+msgid ""
+"If you enable this option, the images' orientations will be set according to "
+"their Exif information."
+msgstr ""
+"หากเปิดใช้ตัวเลือกนี้ แนวทิศทางของภาพจะถูกแก้ไข โดยใช้ข้อมูลกำกับ จากข้อมูล Exif "
+"ที่สัมพันธ์กันของภาพ"
+
+#: importWizard/generalpage.cpp:128
+msgid "&Target Images' Size:"
+msgstr "ขนาดภาพเ&ป้าหมาย:"
+
+#: importWizard/generalpage.cpp:132
+msgid ""
+"The new size of the exported images, in pixels. SimpleViewer resizes the "
+"images too, but this resizes the images before they are uploaded to your "
+"server."
+msgstr ""
+"ขนาดใหม่ของภาพที่จะส่งออกโดยมีหน่วยเป็นพิกเซล, โปรแกรม SimpleViewer "
+"เองก็สามารถที่จะปรับขนาดภาพให้ได้เช่นกัน แต่นี่จะเป็นการปรับขนาดภาพต่าง ๆ ของคุณ "
+"ก่อนจะทำการอัปโหลดไปยังแม่ข่ายของคุณ"
+
+#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+msgid "&Displayed Images' Size:"
+msgstr "ขนาดภาพที่แ&สดงอยู่:"
+
+#: importWizard/generalpage.cpp:149
+msgid ""
+"Scales the displayed images to this size. Normally, use the height or width "
+"of your largest image (in pixels). Images will not be scaled up above this "
+"size, to preserve image quality."
+msgstr ""
+"ปรับขนาดภาพที่แสดงอยู่ให้เป็นขนาดนี้ โดยปกติแล้วจะใช้ค่าความสูงมากที่สุด "
+"หรือความกว้างที่สุดของภาพที่ใหญ่ที่สุดของคุณ (หน่วยเป็นพิกเซล) "
+"จากนั้นภาพจะไม่ถูกปรับขนาดให้ใหญ่กว่าขนาดนี้ได้ เพื่อให้แน่ใจว่าจะได้ภาพที่มีคุณภาพดีที่สุด"
+
+#: importWizard/generalpage.cpp:165
+msgid "Misc"
+msgstr "เบ็ดเตล็ด"
+
+#: importWizard/generalpage.cpp:168
+msgid "Display Captions"
+msgstr "แสดงคำบรรยายภาพ"
+
+#: importWizard/generalpage.cpp:170
+msgid "If this option is enabled, the images' captions will be shown."
+msgstr "หากเปิดใช้ตัวเลือกนี้ จะมีการแสดงคำบรรยายภาพด้วย"
+
+#: importWizard/generalpage.cpp:172
+#, fuzzy
+#| msgid "Display Captions"
+msgid "Display Keywords"
+msgstr "แสดงคำบรรยายภาพ"
+
+#: importWizard/generalpage.cpp:174
+#, fuzzy
+#| msgid "If this option is enabled, the images' captions will be shown."
+msgid "If this option is enabled, the images' keywords will be shown."
+msgstr "หากเปิดใช้ตัวเลือกนี้ จะมีการแสดงคำบรรยายภาพด้วย"
+
+#: importWizard/generalpage.cpp:177
+msgid "Open Image with Right Click"
+msgstr "เปิดภาพด้วยการคลิกเมาส์ปุ่มขวา"
+
+#: importWizard/generalpage.cpp:179
+msgid ""
+"If this option is enabled, the user will be able to open the target image in "
+"a separate window using the right mouse button."
+msgstr ""
+"หากเปิดใช้ตัวเลือกนี้ ผู้ใช้จะสามารถเปิดภาพเป้าหมายในหน้าต่างแยกต่างหากได้ "
+"ด้วยการคลิกเมาส์ปุ่มขวา"
+
+#: importWizard/generalpage.cpp:183
+#, fuzzy
+#| msgid "Open gallery in Konqueror"
+msgid "Open gallery in Browser"
+msgstr "เปิดแกลเลอรีในคอนเควอร์เรอร์"
+
+#: importWizard/generalpage.cpp:185
+msgid ""
+"If this option is enabled, the gallery will be opened in Konqueror "
+"automatically."
+msgstr "หากเปิดใช้ตัวเลือกนี้ แกลเลอรีภาพจะถูกเปิดในคอนเควอร์เรอร์ให้โดยอัตโนมัติ"
+
+#: importWizard/importwizarddlg.cpp:90
+#, fuzzy
+#| msgid "Flash Export"
+msgid "Flash Export Wizard"
+msgstr "ส่งออกเป็นแฟ้ม Flash"
+
+#: importWizard/importwizarddlg.cpp:135
+msgid ""
+"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
+"date and is not corrupted.</p>"
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:180
+msgid "You must select at least one collection to export."
+msgstr "คุณต้องเลือกชุดสะสมอย่างน้อยหนึ่งชุดเพื่อใช้ส่งออก"
+
+#: importWizard/importwizarddlg.cpp:216
+#, kde-format
+msgid ""
+"Target folder %1 already exists.\n"
+"Do you want to overwrite it?  All data in this folder will be lost."
+msgstr ""
+"มีโฟลเดอร์เป้าหมาย %1 อยู่ก่อนแล้ว\n"
+"คุณต้องการจะเขียนทับมันหรือไม่ (ข้อมูลทั้งหมดในโฟลเดอร์นี้จะสูญหายไป)"
+
+#: importWizard/importwizarddlg.cpp:225
+#, kde-format
+msgid ""
+"Could not delete %1.\n"
+"Please choose another export folder."
+msgstr ""
+"ไม่สามารถลบ %1 ได้\n"
+"โปรดเลือกโฟลเดอร์ส่งออกตัวอื่น"
+
+#: importWizard/intropage.cpp:60
+msgid "Welcome to FlashExport Tool"
+msgstr ""
+
+#: importWizard/intropage.cpp:68
+msgid ""
+"<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
+"href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
+"Postcardviewer</a> to export images to flash galleries</p><p>This assistant "
+"will help you to configure and import images before exporting them to flash</"
+"p><p>Note that:</p><p>1. Free version of SimpleViewer allow only a maximum "
+"of 50 pictures to be exported.</p><p>2. TiltViewer is quite CPU intensive</"
+"p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
+msgstr ""
+
+#: importWizard/intropage.cpp:81
+#, fuzzy
+#| msgctxt "Settings tab for selections"
+#| msgid "Selection"
+msgid "Select &Plugin:"
+msgstr "การเลือก"
+
+#: importWizard/intropage.cpp:84
+msgctxt "SimpleViewer"
+msgid "SimpleViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:85
+msgctxt "TiltViewer"
+msgid "TiltViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:86
+msgctxt "AutoViewer"
+msgid "AutoViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:87
+msgctxt "PostcardViewer"
+msgid "PostcardViewer"
+msgstr ""
+
+#: importWizard/intropage.cpp:99
+msgid "&Choose image selection method:"
+msgstr ""
+
+#: importWizard/intropage.cpp:101
+#, fuzzy
+#| msgid "Collections List"
+msgctxt "Collections"
+msgid "Collections"
+msgstr "รายการชุดสะสม"
+
+#: importWizard/intropage.cpp:102
+#, fuzzy
+#| msgid "&Background Color:"
+msgctxt "Image Dialog"
+msgid "Image Dialog"
+msgstr "สี&พื้นหลัง:"
+
+#: importWizard/lookpage.cpp:111
+msgid "Configure appearance"
+msgstr ""
+
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
+#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+msgctxt "Settings for flash export navigation"
+msgid "Navigation"
+msgstr "การนำทาง"
+
+#: importWizard/lookpage.cpp:143
+msgid "Thumbnail &Rows:"
+msgstr "จำนวนแ&ถวของภาพตัวอย่าง:"
+
+#: importWizard/lookpage.cpp:147
+msgid "Number of thumbnails rows"
+msgstr "จำนวนแถวของภาพตัวอย่าง"
+
+#: importWizard/lookpage.cpp:151
+msgid "Thumbnail &Columns:"
+msgstr "จำนวน&คอลัมน์ของภาพตัวอย่าง:"
+
+#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+msgid "Number of thumbnails columns"
+msgstr "จำนวนคอลัมน์ของภาพตัวอย่าง"
+
+#: importWizard/lookpage.cpp:159
+msgid "Thumbnail &Position:"
+msgstr "ตำแห&น่งของภาพตัวอย่าง:"
+
+#: importWizard/lookpage.cpp:161
+msgctxt "thumbnail position: right"
+msgid "Right"
+msgstr "ด้านขวา"
+
+#: importWizard/lookpage.cpp:162
+msgctxt "thumbnail position: left"
+msgid "Left"
+msgstr "ด้านซ้าย"
+
+#: importWizard/lookpage.cpp:163
+msgctxt "thumbnail position: top"
+msgid "Top"
+msgstr "ด้านบน"
+
+#: importWizard/lookpage.cpp:164
+msgctxt "thumbnail position: bottom"
+msgid "Bottom"
+msgstr "ด้านล่าง"
+
+#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
+#: importWizard/lookpage.cpp:418
+msgid "Colors"
+msgstr "สีต่าง ๆ"
+
+#: importWizard/lookpage.cpp:184
+msgid "&Text Color:"
+msgstr "สี&ข้อความ:"
+
+#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+msgid "Color of title and caption text"
+msgstr "สีของข้อความหัวเรื่องและคำบรรยายภาพ"
+
+#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
+#: importWizard/lookpage.cpp:429
+msgid "&Background Color:"
+msgstr "สี&พื้นหลัง:"
+
+#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
+#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+msgid "&Frame Color:"
+msgstr "สี&กรอบ:"
+
+#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
+#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
+msgstr "สีของกรอบภาพ, ไอคอนที่ดู, แถบการโหลด, ลูกศรภาพตัวอย่าง"
+
+#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
+#: importWizard/lookpage.cpp:449
+msgid "Style"
+msgstr "รูปแบบ"
+
+#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
+#: importWizard/lookpage.cpp:469
+#, fuzzy
+#| msgid "Frame &Width:"
+msgid "&Frame Width:"
+msgstr "ความก&ว้างของกรอบ:"
+
+#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+msgid "Width of image frame in pixels."
+msgstr "ความกว้างของกรอบภาพ หน่วยเป็นพิกเซล"
+
+#: importWizard/lookpage.cpp:223
+#, fuzzy
+#| msgid "Stage &Padding:"
+msgid "&Stage Padding:"
+msgstr "ระยะห่า&ง:"
+
+#: importWizard/lookpage.cpp:227
+msgid "Distance between image and thumbnails in pixels."
+msgstr "ระยะห่างระหว่างภาพและภาพตัวอย่าง หน่วยเป็นพิกเซล"
+
+#: importWizard/lookpage.cpp:244
+#, fuzzy
+#| msgid "&Displayed Images' Size:"
+msgid "&Display Time:"
+msgstr "ขนาดภาพที่แ&สดงอยู่:"
+
+#: importWizard/lookpage.cpp:248
+msgid "Number of seconds each image will display in auto-play mode."
+msgstr ""
+
+#: importWizard/lookpage.cpp:292
+#, fuzzy
+#| msgid "Stage &Padding:"
+msgid "&Image Padding:"
+msgstr "ระยะห่า&ง:"
+
+#: importWizard/lookpage.cpp:296
+#, fuzzy
+#| msgid "Distance between image and thumbnails in pixels."
+msgid "Distance between images in pixels"
+msgstr "ระยะห่างระหว่างภาพและภาพตัวอย่าง หน่วยเป็นพิกเซล"
+
+#: importWizard/lookpage.cpp:313
+#, fuzzy
+#| msgid "Thumbnail &Rows:"
+msgid " &Rows:"
+msgstr "จำนวนแ&ถวของภาพตัวอย่าง:"
+
+#: importWizard/lookpage.cpp:317
+msgid "Number of rows of images to display."
+msgstr ""
+
+#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+#, fuzzy
+#| msgid "Thumbnail &Columns:"
+msgid " &Columns:"
+msgstr "จำนวน&คอลัมน์ของภาพตัวอย่าง:"
+
+#: importWizard/lookpage.cpp:325
+msgid "Number of columns of images to display."
+msgstr ""
+
+#: importWizard/lookpage.cpp:328
+msgid "Show Flip Button"
+msgstr ""
+
+#: importWizard/lookpage.cpp:333
+msgid "Use reload button"
+msgstr ""
+
+#: importWizard/lookpage.cpp:348
+#, fuzzy
+#| msgid "Colors"
+msgctxt "Settings for flash export navigation"
+msgid "Colors"
+msgstr "สีต่าง ๆ"
+
+#: importWizard/lookpage.cpp:359
+#, fuzzy
+#| msgid "&Background Color:"
+msgid "Background &Inner Color:"
+msgstr "สี&พื้นหลัง:"
+
+#: importWizard/lookpage.cpp:362
+msgid "Color of the stage background gradient center."
+msgstr ""
+
+#: importWizard/lookpage.cpp:366
+#, fuzzy
+#| msgid "&Background Color:"
+msgid "Background &Outer Color:"
+msgstr "สี&พื้นหลัง:"
+
+#: importWizard/lookpage.cpp:369
+msgid "Color of the stage background gradient edge."
+msgstr ""
+
+#: importWizard/lookpage.cpp:373
+#, fuzzy
+#| msgid "&Background Color:"
+msgid "Image Back Color:"
+msgstr "สี&พื้นหลัง:"
+
+#: importWizard/lookpage.cpp:376
+msgid "Image's back color when pressing flip button"
+msgstr ""
+
+#: importWizard/lookpage.cpp:395
+msgid "Cell Dimension:"
+msgstr ""
+
+#: importWizard/lookpage.cpp:399
+msgid ""
+"Dimension of displayed image cells. Please use a higher value if you set "
+"high image size"
+msgstr ""
+
+#: importWizard/lookpage.cpp:422
+#, fuzzy
+#| msgid "&Text Color:"
+msgid "&Caption Color:"
+msgstr "สี&ข้อความ:"
+
+#: importWizard/lookpage.cpp:453
+msgid "&Zoom In Percentage:"
+msgstr ""
+
+#: importWizard/lookpage.cpp:457
+msgid "The amount of scale when zoomed in (percentage)"
+msgstr ""
+
+#: importWizard/lookpage.cpp:461
+msgid "&Zoom Out Percentage:"
+msgstr ""
+
+#: importWizard/lookpage.cpp:465
+msgid "The amount of scale when zoomed out (percentage)"
+msgstr ""
+
+#: importWizard/lookpage.cpp:473
+#, fuzzy
+#| msgid "Frame &Width:"
+msgid "The frame width"
+msgstr "ความก&ว้างของกรอบ:"
+
+#: importWizard/progresspage.cpp:49
+#, fuzzy
+#| msgid "Flash Export..."
+msgid "Exporting..."
+msgstr "ส่งออกเป็นแฟ้ม Flash..."
+
+#: importWizard/selectionpage.cpp:68
+msgid "Select Image Collections"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_flashexportui.rc:6
+#, fuzzy
+#| msgid "Flash Export"
+msgid "&Export"
+msgstr "ส่งออกเป็นแฟ้ม Flash"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_flashexportui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_flashexport.cpp:94
+msgid "Export to F&lash..."
+msgstr "ส่งออกเป็นแฟ้ม F&lash..."
+
+#: simpleviewer.cpp:184
+msgid "Initialising..."
+msgstr "กำลังเริ่มการใช้งาน..."
+
+#: simpleviewer.cpp:212
+msgid "Export canceled"
+msgstr "ยกเลิกการส่งออกแล้ว"
+
+#: simpleviewer.cpp:223
+msgid "Failed to create export directories"
+msgstr "ล้มเหลวในการสร้างไดเรกทอรีส่งออก"
+
+#: simpleviewer.cpp:230
+msgid "Failed to export the images"
+msgstr "ล้มเหลวในการส่งออกภาพ"
+
+#: simpleviewer.cpp:237
+msgid "Failed to create index.html"
+msgstr "ล้มเหลวในการสร้าง index.html"
+
+#: simpleviewer.cpp:244
+msgid "Failed to copy SimpleViewer files"
+msgstr "ล้มเหลวในการคัดลอกแฟ้ม SimpleViewe"
+
+#: simpleviewer.cpp:251
+msgid "Failed to upload the gallery"
+msgstr "ล้มเหลวในการอัปโหลดแกลเลอรีภาพ"
+
+#: simpleviewer.cpp:260
+#, kde-format
+msgid ""
+"Export was canceled.\n"
+"Do you want to delete files in %1 that have already been created?"
+msgstr ""
+"การส่งออกถูกยกเลิก\n"
+"คุณต้องการจะลบแฟ้มที่ถูกสร้างไว้แล้วใน %1 หรือไม่ ?"
+
+#: simpleviewer.cpp:271
+msgctxt "Flash export has finished"
+msgid "Finished..."
+msgstr "เสร็จสิ้นแล้ว..."
+
+#: simpleviewer.cpp:285
+msgid "Creating directories..."
+msgstr "กำลังสร้างไดเรกทอรี..."
+
+#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#, kde-format
+msgid "Could not create folder '%1'"
+msgstr "ไม่สามารถสร้างโฟลเดอร์ '%1' ได้"
+
+#: simpleviewer.cpp:320
+#, fuzzy
+#| msgid "Creating directories..."
+msgid "Finished Creating directories..."
+msgstr "กำลังสร้างไดเรกทอรี..."
+
+#: simpleviewer.cpp:353
+msgid "Creating images and thumbnails..."
+msgstr "กำลังสร้างภาพและภาพตัวอย่าง..."
+
+#: simpleviewer.cpp:483
+#, kde-format
+msgid "Processing %1"
+msgstr "กำลังประมวลผล %1"
+
+#: simpleviewer.cpp:493
+#, kde-format
+msgid "Could not open image '%1'"
+msgstr "ไม่สามารถเปิดภาพ '%1' ได้"
+
+#: simpleviewer.cpp:504
+#, kde-format
+msgid "Could not create thumbnail from '%1'"
+msgstr "ไม่สามารถสร้างภาพตัวอย่างจาก '%1' ได้"
+
+#: simpleviewer.cpp:512
+#, kde-format
+msgid "Could not resize image '%1'"
+msgstr "ไม่สามารถปรับขนาดภาพ '%1' ได้"
+
+#: simpleviewer.cpp:739
+msgid "Creating index.html..."
+msgstr "กำลังสร้างแฟ้ม index.html..."
+
+#: simpleviewer.cpp:878
+msgid "index.html created..."
+msgstr "สร้างแฟ้ม index.html เรียบร้อยแล้ว..."
+
+#: simpleviewer.cpp:888
+msgid "Copying flash files..."
+msgstr "กำลังคัดลอกแฟ้ม flash..."
+
+#: simpleviewer.cpp:906
+msgid "Flash files copied..."
+msgstr "คัดลอกแฟ้ม Flash เรียบร้อยแล้ว..."
+
+#: simpleviewer.cpp:916
+msgid "Uploading gallery..."
+msgstr "กำลังอัปโหลดแกลเลอรีภาพ..."
+
+#: simpleviewer.cpp:921
+msgid "Gallery uploaded..."
+msgstr "อัปโหลดแกลเลอรีภาพเรียบร้อยแล้ว..."
+
+#~ msgid "Handbook"
+#~ msgstr "คู่มือการใช้งาน"
+
+#~ msgid "SimpleViewer installation failed"
+#~ msgstr "การติดตั้ง SimpleViewer ล้มเหลว"
+
+#~ msgid "&Direction of Navigation:"
+#~ msgstr "&ทิศทางของการนำทาง:"
+
+#~ msgid "Left to Right"
+#~ msgstr "ซ้ายไปขวา"
+
+#~ msgid "Right to Left"
+#~ msgstr "ขวาไปซ้าย"
+
+#~ msgctxt "General settings tab"
+#~ msgid "General"
+#~ msgstr "ค่าทั่วไป"
+
+#~ msgctxt "Settings tab for the look of the flash export"
+#~ msgid "Look"
+#~ msgstr "รูปลักษณ์"
+
+#~ msgid "Look Settings"
+#~ msgstr "ตั้งค่าต่าง ๆ ของรูปลักษณ์"

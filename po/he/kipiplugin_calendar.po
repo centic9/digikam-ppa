@@ -1,0 +1,326 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# , 2008.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_calendar\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-02-01 02:36+0100\n"
+"PO-Revision-Date: 2008-11-26 21:59+0200\n"
+"Last-Translator: \n"
+"Language-Team: American English <kde-i18n-doc@lists.kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 0.2\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "אורגד שנה"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "orgads@gmail.com"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_calendarui.rc:6
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_calendarui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/plugin_calendar.cpp:82
+msgid "Create Calendar..."
+msgstr "צור לוח שנה..."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalEvents)
+#: ui/calevents.ui:13
+msgid "Calendar events"
+msgstr "אירועים בלוח השנה"
+
+#. i18n: ectx: property (text), widget (QLabel, ohHeaderLabel)
+#: ui/calevents.ui:25
+msgid "Select an optional calendar file with the official holidays"
+msgstr "בחר קובץ לוח שנה (אופציונאלי) עם חגים רשמיים"
+
+#. i18n: ectx: property (filter), widget (KUrlRequester, ohUrlRequester)
+#. i18n: ectx: property (filter), widget (KUrlRequester, fhUrlRequester)
+#: ui/calevents.ui:32 ui/calevents.ui:88
+msgid "*.ics"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, ohExplainLabel)
+#: ui/calevents.ui:49
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:italic;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">You can download a "
+"calendar for your country from <a href=\"http://www.icalshare.com\"><span "
+"style=\" text-decoration: underline; color:#0057ae;\">http://www.icalshare."
+"com</span></a> or other sites.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">This is fully optional. "
+"All the events from this calendar will be printed in red.</p></body></html>"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, fhHeaderLabel)
+#: ui/calevents.ui:78
+msgid "Select an optional calendar file with your \"family holidays\""
+msgstr "בחר קובץ לוח שנה עם תאריכים מיוחדים משפחתיים"
+
+#. i18n: ectx: property (text), widget (QLabel, fhExplainLabel)
+#: ui/calevents.ui:101
+#, fuzzy
+#| msgid ""
+#| "You can create such a calendar using KOrganizer or any other calendar "
+#| "program.\n"
+#| "This is fully optional. All the events from this calendar will be printed "
+#| "green."
+msgid ""
+"You can create such a calendar using KOrganizer or any other calendar "
+"program.\n"
+"This is fully optional. All the events from this calendar will be printed in "
+"green."
+msgstr ""
+"באפשרותך ליצור לוח שנה כזה באמצעות KOrganizer או כל תוכנה אחרת של לוח שנה.\n"
+" אפשרות זו אינה חובה. כל האירועים בלוח שנה זה יודפסו בירוק."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalProgress)
+#: ui/calprogress.ui:14 wizard/calwizard.cpp:89
+msgid "Printing"
+msgstr "מדפיס"
+
+#. i18n: ectx: property (text), widget (QLabel, currentLabel)
+#: ui/calprogress.ui:23
+msgid "Current Page"
+msgstr "דף נוכחי"
+
+#. i18n: ectx: property (text), widget (QLabel, totalLabel)
+#: ui/calprogress.ui:33
+msgid "Total Pages"
+msgstr "סה\"כ דפים"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalTemplate)
+#: ui/caltemplate.ui:14 wizard/calwizard.cpp:69
+msgid "Create Template for Calendar"
+msgstr "צור תבנית ללוח השנה"
+
+#. i18n: ectx: property (title), widget (QGroupBox, previewGroupBox)
+#: ui/caltemplate.ui:26
+msgid "Preview"
+msgstr "תצוגה מקדימה"
+
+#. i18n: ectx: property (title), widget (QGroupBox, settingsGroupBox)
+#: ui/caltemplate.ui:43
+msgid "Settings"
+msgstr "הגדרות"
+
+#. i18n: ectx: property (text), widget (QLabel, paperSizeLabel)
+#: ui/caltemplate.ui:57
+msgid "Paper Size:"
+msgstr "גודל דף:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, paperSizeCombo)
+#: ui/caltemplate.ui:65
+msgid "A4"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (KComboBox, paperSizeCombo)
+#: ui/caltemplate.ui:70
+msgid "US Letter"
+msgstr ""
+
+#. i18n: ectx: property (text), widget (QLabel, resolutionLabel)
+#: ui/caltemplate.ui:78
+msgid "Resolution:"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resolutionCombo)
+#: ui/caltemplate.ui:86
+msgid "High"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resolutionCombo)
+#: ui/caltemplate.ui:91
+msgid "Low"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (KButtonGroup, imagePosButtonGroup)
+#: ui/caltemplate.ui:101
+msgid "Image Position"
+msgstr "מיקום תמונה"
+
+#. i18n: ectx: property (text), widget (QRadioButton, topRadio)
+#: ui/caltemplate.ui:112
+msgid "&Top"
+msgstr "&מעל"
+
+#. i18n: ectx: property (text), widget (QRadioButton, leftRadio)
+#: ui/caltemplate.ui:122
+msgid "&Left"
+msgstr "&שמאל"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rightRadio)
+#: ui/caltemplate.ui:132
+msgid "&Right"
+msgstr "&ימין"
+
+#. i18n: ectx: property (text), widget (QCheckBox, drawLinesCheckBox)
+#: ui/caltemplate.ui:147
+#, fuzzy
+#| msgid "Draw lines in calendar"
+msgid "Draw lines on calendar"
+msgstr "צייר קוים בלוח השנה"
+
+#. i18n: ectx: property (text), widget (QLabel, ratioLabel)
+#: ui/caltemplate.ui:159
+msgid "Image to text ratio:"
+msgstr "יחס תמונה לטקסט:"
+
+#. i18n: ectx: property (text), widget (QLabel, fontLabel)
+#: ui/caltemplate.ui:189
+msgid "Font:"
+msgstr "גופן:"
+
+#. i18n: ectx: property (text), widget (QLabel, yearLabel)
+#: ui/caltemplate.ui:203
+msgid "Year:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, monthBox)
+#: ui/caltemplate.ui:231
+msgid "Select Images"
+msgstr "בחר תמונות"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/caltemplate.ui:240
+#, fuzzy
+#| msgid ""
+#| "Left click on Months to Select Images. Right click to Clear Month.\n"
+#| "You can also drag and drop images onto the Months"
+msgid ""
+"Left click on a month to select an image, right click to clear an image."
+msgstr ""
+"לחיצה שמאלית על חודש מאפשרת לבחור תמונה. לחיצה ימנית מסירה את התמונה.\n"
+" באפשרותך גם לגרור תמונות אל החודשים"
+
+#: wizard/calwizard.cpp:75
+msgid "Choose events to show on the Calendar"
+msgstr "בחר אירועים להצגה בלוח השנה"
+
+#: wizard/calwizard.cpp:83
+msgid "Print"
+msgstr "הדפס"
+
+#: wizard/calwizard.cpp:95
+msgid "Calendar"
+msgstr "לוח שנה"
+
+#: wizard/calwizard.cpp:98
+msgid "A Kipi plugin to create a calendar"
+msgstr "תוסף KIPI ליצירת לוח שנה"
+
+#: wizard/calwizard.cpp:99
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006 Tom Albers\n"
+"(c) 2007-2008 Orgad Shaneh"
+msgstr ""
+"(c) 2003-2005 רנצ'י ראג'ו\n"
+" (c) 2006 טום אלברס\n"
+" (c) 2007-2008 אורגד שנה"
+
+#: wizard/calwizard.cpp:103
+msgid "Orgad Shaneh"
+msgstr "אורגד שנה"
+
+#: wizard/calwizard.cpp:103
+msgid "Author and maintainer"
+msgstr "כתב ומתחזק"
+
+#: wizard/calwizard.cpp:106
+msgid "Tom Albers"
+msgstr "טום אלברס"
+
+#: wizard/calwizard.cpp:106 wizard/calwizard.cpp:109
+msgid "Former author and maintainer"
+msgstr "כתב ותחזק בעבר"
+
+#: wizard/calwizard.cpp:109
+msgid "Renchi Raju"
+msgstr "רנצ'י ראג'ו"
+
+#: wizard/calwizard.cpp:123
+msgid "Create Calendar"
+msgstr "צור לוח שנה"
+
+#: wizard/calwizard.cpp:165
+msgid "No valid images selected for months<br/>Click Back to select images"
+msgstr "לא נבחרו תמונות תקינות לחודשים<br/>לחץ על \"אחורה\" לבחירת תמונות"
+
+#: wizard/calwizard.cpp:178
+msgid ""
+"Please note that you are making a calendar for<br/>the current year or a "
+"year in the past."
+msgstr ".לתשומת לבך: אתה מכין לוח שנה לשנה הנוכחית או לשנה בעבר"
+
+#: wizard/calwizard.cpp:184
+#, kde-format
+msgid ""
+"Click Next to start Printing<br/><br/>Following months will be printed for "
+"year %1:<br/>"
+msgstr ""
+"לחץ על \"הבא\" להתחלת ההדפסה<br/><br/>החודשים הבאים יודפסו עבור שנה %1:<br/>"
+
+#: wizard/calwizard.cpp:234
+msgid "Printing Cancelled"
+msgstr "ההדפסה בוטלה"
+
+#: wizard/calwizard.cpp:247
+#, fuzzy
+#| msgid "Draw lines in calendar"
+msgid "Making calendar"
+msgstr "צייר קוים בלוח השנה"
+
+#: wizard/calwizard.cpp:292
+#, fuzzy, kde-format
+#| msgid "Printing Calendar Page for %1 of %2"
+msgid "Printing calendar page for %1 of %2"
+msgstr "מדפיס דף מלוח שנה עבור חודש %1 של %2"
+
+#: wizard/calwizard.cpp:302
+msgid "Printing Complete"
+msgstr "הדפסה הושלמה"
+
+#, fuzzy
+#~| msgid "Plugin Handbook"
+#~ msgid "Handbook"
+#~ msgstr "מדריך התוספים"
+
+#~ msgid "Select Year & Images"
+#~ msgstr "בחר שנה ותמונות"
+
+#~ msgid "Select Year"
+#~ msgstr "בחר שנה"
+
+#~ msgid ""
+#~ "You can download a calendar for your country from http://www.icalshare."
+#~ "com/ or other sites.\n"
+#~ "This is fully optional. All the events from this calendar will be printed "
+#~ "red."
+#~ msgstr ""
+#~ "באפשרותך להוריד לוח שנה של ארצך מהאתר http://www.icalshare.com או מאתרים "
+#~ "אחרים.\n"
+#~ " אפשרות זו אינה חובה. כל האירועים בלוח שנה זה יודפסו באדום."

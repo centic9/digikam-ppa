@@ -1,0 +1,303 @@
+# translation of kipiplugin_rawconverter.po to 简体中文
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ni Hui <shuizhuyuanluo@126.com>, 2007, 2008, 2009, 2010.
+# FengChao <rainofchaos@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_rawconverter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2012-04-13 22:09+0800\n"
+"Last-Translator: FengChao <rainofchaos@gmail.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ni Hui"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "shuizhuyuanluo@126.com"
+
+#: dialogs/batchdialog.cpp:127 dialogs/singledialog.cpp:200
+msgid "Exit RAW Converter"
+msgstr "退出 RAW 转换器"
+
+#: dialogs/batchdialog.cpp:128
+msgid "RAW Image Batch Converter"
+msgstr "批量 RAW 图像转换器"
+
+#: dialogs/batchdialog.cpp:148
+msgid "Store it under different name"
+msgstr ""
+
+#: dialogs/batchdialog.cpp:151 dialogs/batchdialog.cpp:155
+#: dialogs/singledialog.cpp:149 dialogs/singledialog.cpp:152
+msgid "Save settings"
+msgstr "保存设置"
+
+#: dialogs/batchdialog.cpp:175 dialogs/singledialog.cpp:131
+#: dialogs/singledialog.cpp:166
+msgid "RAW Image Converter"
+msgstr "RAW 图像转换器"
+
+#: dialogs/batchdialog.cpp:178 dialogs/singledialog.cpp:169
+msgid "A Kipi plugin to convert RAW images"
+msgstr "一个转换 RAW 图像的 Kipi 插件"
+
+#: dialogs/batchdialog.cpp:179 dialogs/singledialog.cpp:170
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Renchi Raju\n"
+#| "(c) 2006-2012, Gilles Caulier"
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2012, Gilles Caulier"
+
+#: dialogs/batchdialog.cpp:183 dialogs/singledialog.cpp:174
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/batchdialog.cpp:184 dialogs/singledialog.cpp:175
+msgid "Author"
+msgstr "作者"
+
+#: dialogs/batchdialog.cpp:187 dialogs/singledialog.cpp:178
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: dialogs/batchdialog.cpp:188 dialogs/singledialog.cpp:179
+msgid "Developer and maintainer"
+msgstr "开发者和维护者"
+
+#: dialogs/batchdialog.cpp:191 dialogs/singledialog.cpp:182
+msgid "Smit Mehta"
+msgstr ""
+
+#: dialogs/batchdialog.cpp:192 dialogs/singledialog.cpp:183
+msgid "Developer"
+msgstr ""
+
+#: dialogs/batchdialog.cpp:340
+msgid "There is no RAW file in the list to process."
+msgstr "列表中没有要处理的 RAW 文件。"
+
+#: dialogs/batchdialog.cpp:349
+msgid "RAW Converter"
+msgstr "RAW 转换器"
+
+#: dialogs/batchdialog.cpp:485 dialogs/singledialog.cpp:130
+msgid "&Abort"
+msgstr "中止(&A)"
+
+#: dialogs/batchdialog.cpp:486 dialogs/singledialog.cpp:198
+msgid "Abort the current RAW file conversion"
+msgstr "中止当前 RAW 文件转换"
+
+#: dialogs/batchdialog.cpp:491 dialogs/singledialog.cpp:129
+msgid "Con&vert"
+msgstr "转换(&V)"
+
+#: dialogs/batchdialog.cpp:492
+msgid "Start converting the RAW images using current settings."
+msgstr "以当前设置开始转换 RAW 图像"
+
+#: dialogs/batchdialog.cpp:576
+#, kde-format
+msgid "Processing %1"
+msgstr "正在处理 %1"
+
+#: dialogs/myimagelist.cpp:47
+msgid "Raw File"
+msgstr "Raw 文件"
+
+#: dialogs/myimagelist.cpp:48
+msgid "Target File"
+msgstr "目标文件"
+
+#: dialogs/myimagelist.cpp:49
+msgid "Camera"
+msgstr "相机"
+
+#: dialogs/myimagelist.cpp:50
+msgid "Status"
+msgstr ""
+
+#: dialogs/singledialog.cpp:128
+msgid "&Preview"
+msgstr "预览(&P)"
+
+#: dialogs/singledialog.cpp:191
+msgid ""
+"Generate a preview using current settings. Uses a simple bilinear "
+"interpolation for quick results."
+msgstr "以当前设置生成预览。这会使用一种简单的双线性内插法以快速生成。"
+
+#: dialogs/singledialog.cpp:195
+msgid ""
+"Convert the RAW Image using current settings. This uses a high-quality "
+"adaptive algorithm."
+msgstr "以当前设置转换 RAW 图像。这会使用一种高质量的自适应算法。"
+
+#: dialogs/singledialog.cpp:383
+msgid "Generating Preview..."
+msgstr "正在生成预览..."
+
+#: dialogs/singledialog.cpp:394
+msgid "Failed to generate preview"
+msgstr "生成预览失败"
+
+#: dialogs/singledialog.cpp:399
+msgid "Processing Images..."
+msgstr "正在处理图像..."
+
+#: dialogs/singledialog.cpp:434
+#, kde-format
+msgid "Save RAW image converted from '%1' as"
+msgstr "将转换自“%1”的 RAW 图像另存为"
+
+#: dialogs/singledialog.cpp:464
+#, kde-format
+msgid "Failed to save sidecar file for image %1..."
+msgstr "保存图像 %1 sidecar 文件失败"
+
+#: dialogs/singledialog.cpp:474
+#, kde-format
+msgid "Failed to save image %1"
+msgstr "保存图像 %1 失败"
+
+#: dialogs/singledialog.cpp:489
+msgid "Failed to convert RAW image"
+msgstr "转换 RAW 图像失败"
+
+#: manager/task.cpp:124
+msgid "Cannot identify RAW image"
+msgstr "无法识别 RAW 图像"
+
+#: manager/task.cpp:134
+#, kde-format
+msgid "<br>Make: %1<br>"
+msgstr "<br>制造商：%1<br>"
+
+#: manager/task.cpp:135
+#, kde-format
+msgid "Model: %1<br>"
+msgstr "型号：%1<br>"
+
+#: manager/task.cpp:139
+#, kde-format
+msgid "Created: %1<br>"
+msgstr "创建时间：%1<br>"
+
+#: manager/task.cpp:145
+#, kde-format
+msgid "Aperture: f/%1<br>"
+msgstr "光圈：f/%1<br>"
+
+#: manager/task.cpp:150
+#, kde-format
+msgid "Focal: %1 mm<br>"
+msgstr "焦距：%1 毫米<br>"
+
+#: manager/task.cpp:155
+#, kde-format
+msgid "Exposure: 1/%1 s<br>"
+msgstr "曝光量：1/%1 s<br>"
+
+#: manager/task.cpp:160
+#, kde-format
+msgid "Sensitivity: %1 ISO"
+msgstr "感光度：%1 ISO"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_rawconverterui.rc:6
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_rawconverterui.rc:13
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/plugin_rawconverter.cpp:111
+msgid "RAW Image Converter..."
+msgstr "RAW 图像转换器..."
+
+#: plugin/plugin_rawconverter.cpp:121
+msgid "Batch RAW Converter..."
+msgstr "批量 RAW 转换器..."
+
+#: plugin/plugin_rawconverter.cpp:152
+#, kde-format
+msgid "\"%1\" is not a RAW file."
+msgstr "“%1”不是一个 RAW 文件。"
+
+#~ msgid "A Kipi plugin to batch convert RAW images"
+#~ msgstr "一个批量转换 RAW 图像的 Kipi 插件"
+
+#~ msgid "Handbook"
+#~ msgstr "手册"
+
+#~ msgid "&Add"
+#~ msgstr "添加(&A)"
+
+#~ msgid "Add new RAW files to the list"
+#~ msgstr "向列表添加新的 RAW 文件"
+
+#~ msgid "&Remove"
+#~ msgstr "删除(&R)"
+
+#~ msgid "Remove selected RAW files from the list"
+#~ msgstr "从列表中删除选中的 RAW 文件"
+
+#~ msgid "Thumbnail"
+#~ msgstr "缩略图"
+
+#~ msgid "Failed to load image after processing"
+#~ msgstr "装入处理后图像失败"
+
+#~ msgid "Output file format:"
+#~ msgstr "输出文件格式："
+
+#~ msgid ""
+#~ "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
+#~ "processed image in JPEG format. This format will give smaller-sized "
+#~ "files. Minimum JPEG compression level will be used during RAW conversion."
+#~ "</p><p><b>Warning: Due to the destructive compression algorithm, JPEG is "
+#~ "a lossy quality format.</b></p><p><b>TIFF</b>: output the processed image "
+#~ "in TIFF format. This generates large files, without losing quality. Adobe "
+#~ "Deflate compression will be used during conversion.</p><p><b>PPM</b>: "
+#~ "output the processed image in PPM format. This generates the largest "
+#~ "files, without losing quality.</p><p><b>PNG</b>: output the processed "
+#~ "image in PNG format. This generates large files, without losing quality. "
+#~ "Maximum PNG compression will be used during conversion.</p>"
+#~ msgstr ""
+#~ "<p>在此设定要使用的输出文件格式：</p><p><b>JPEG</b>：以 JPEG 格式输出处理"
+#~ "后的图像。此格式能够让文件尺寸更小。在 RAW 转换过程中将会使用最小 JPEG 压"
+#~ "缩级别。</p><p><b>警告！！！由于有损压缩算法的原因，JPEG 是一种有损质量的"
+#~ "格式。</b></p><p><b>TIFF</b>：以 TIFF 格式输出处理后的图像。这会不损失质量"
+#~ "而生成大文件。转换过程使用 Adobe Deflate 压缩算法。</p><p><b>PPM</b>：以 "
+#~ "PPM 格式输出处理后的图像。这会不损失质量而生成大文件。</p><p><b>PNG</b>："
+#~ "以 PNG 格式输出处理后的图像。这会不损失质量而生成大文件。转换过程使用最大 "
+#~ "PNG 压缩。</p>"
+
+#~ msgid "If Target File Exists:"
+#~ msgstr "如果目标文件已存在："
+
+#~ msgid "Overwrite automatically"
+#~ msgstr "自动覆盖"
+
+#~ msgid "Open rename-file dialog"
+#~ msgstr "打开重命名文件对话框"

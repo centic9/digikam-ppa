@@ -1,0 +1,83 @@
+This is the digiKam Software Compilation <http://www.digikam.org>
+
+- ABOUT --------------------------------------------------------------------
+
+digiKam is an advanced digital photo management application for KDE, which makes importing and organizing digital photos a 'snap'.
+
+This is a super-repository that helps to download and compile digiKam with all components developed by digiKam team.
+
+- DEPENDENCIES -------------------------------------------------------------
+
+* To checkout all source code:
+
+- PERL <http://www.perl.org>
+- GIT  <http://git-scm.com>
+- RUBY <http://www.ruby-lang.org> (optional, to extract translations files from KDE repositories)
+
+To download all needed git repositories, execute download script like this: perl ./download-repos
+
+* To compile all source code: 
+
+- take a look on each README files to resolve dependencies...
+
+- COMPONENTS ---------------------------------------------------------------
+
+* digiKam Redmine page can be found here :
+
+https://projects.kde.org/projects/extragear/graphics/digikam/digikam-software-compilation
+
+* Extra components managed by this Software Compilation are listed below:
+
+- kipi-plugins
+- libkipi
+- libkexiv2
+- libkdcraw
+- libkface
+- libkgeomap
+- libksane
+- libmediawiki
+- libkvkontatke
+
+* This Software Collection include also digiKam and Kipi-plugins handbooks.
+
+- NOTES ---------------------------------------------------------------------
+
+If you are a developer with push access to the repositories, it is strongly recommended
+to use the "kde:" prefix and let git use the read-only mirrors for pulling.
+
+If you did not clone this repository (digikam-software-compilation) from "kde:", do it again:
+    git config --global url.git://anongit.kde.org/.insteadof kde:
+    git config --global url.ssh://git@git.kde.org/.pushinsteadof kde:
+    git clone kde:digikam-software-compilation
+
+- REDMINE PROJECT PAGES -----------------------------------------------------
+
+digiKam SC       : https://projects.kde.org/projects/extragear/graphics/digikam/digikam-software-compilation
+digiKam          : https://projects.kde.org/projects/extragear/graphics/digikam
+digiKam DOC      : https://projects.kde.org/projects/extragear/graphics/digikam/digikam-doc
+Kipi-plugins     : https://projects.kde.org/projects/extragear/graphics/kipi-plugins
+Kipi-plugins DOC : https://projects.kde.org/projects/extragear/graphics/kipi-plugins/kipi-plugins-doc
+libkface         : https://projects.kde.org/projects/extragear/libs/libkface
+libkgeomap       : https://projects.kde.org/projects/extragear/libs/libkgeomap
+libmediawiki     : https://projects.kde.org/projects/extragear/libs/libmediawiki
+libkvkontatke    : https://projects.kde.org/projects/extragear/libs/libkvkontatke
+libkipi          : https://projects.kde.org/projects/kde/kdegraphics/libs/libkipi
+libkexiv2        : https://projects.kde.org/projects/kde/kdegraphics/libs/libkexiv2
+libkdcraw        : https://projects.kde.org/projects/kde/kdegraphics/libs/libkdcraw
+libksane         : https://projects.kde.org/projects/kde/kdegraphics/libs/libksane
+
+- CMAKE OPTIONS --------------------------------------------------------------
+
+"-DDIGIKAMSC_USE_PRIVATE_KDEGRAPHICS=on" : Force to use local libkipi, libkexiv2, and libkdcraw implementation
+                                           instead KDE version installed on your computer.
+"-DDIGIKAMSC_COMPILE_DOC=on"               Build handbook files.
+"-DDIGIKAMSC_CHECKOUT_PO=on"               Extract po files from KDE repositories.
+"-DDIGIKAMSC_COMPILE_PO=on"                Build translations files. It require to checkout po files before from KDE repositories
+                                           using ./project/release/fetch_l10n.rb Ruby script.
+
+Look README files from sub-dirs for more options available to configure compilation environnement.
+
+To configure project with CMake, use dedicated "bootstrap" script for your platform.
+
+------------
+digiKam team

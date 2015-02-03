@@ -1,0 +1,222 @@
+# translation of kipiplugin_dngconverter.po to Khmer
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2010, 2012.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_dngconverter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2012-07-09 11:15+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer <support@khmeros.info>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
+"X-Language: km-KH\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info"
+
+#: plugin/aboutdata.h:51
+msgid "DNG Image Converter"
+msgstr "កម្មវិធី​បម្លែង​រូបភាព​ DNG"
+
+#: plugin/aboutdata.h:54
+#, kde-format
+msgid ""
+"A tool to batch convert RAW camera images to DNG\n"
+"Using LibRaw %1\n"
+"Using LibKdcraw %2\n"
+"Using XMP toolkit %3\n"
+"Using DNG toolkit 1.3"
+msgstr ""
+"ឧបករណ៍​សម្រាប់​បម្លែង​រូបភាព​ម៉ាស៊ីន​ថត​ដើម​ជា​ក្រុម​ ទៅ​ជា​ DNG\n"
+"ដោយ​ប្រើ LibRaw %1\n"
+"ដោយ​ប្រើ LibKdcraw %2\n"
+"ដោយ​ប្រើ XMP toolkit %3\n"
+"ដោយ​ប្រើ DNG toolkit 1.3"
+
+#: plugin/aboutdata.h:62
+#, fuzzy
+#| msgid ""
+#| "(c) 2008-2012, Gilles Caulier\n"
+#| "(c) 2010-2011, Jens Mueller\n"
+#| "(c) 2012, Smit Mehta"
+msgid ""
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2010-2011, Jens Mueller\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"រក្សាសិទ្ធិ​ឆ្នាំ​ ២០០៨​-២០១២ ដោយ Gilles Caulier\n"
+"រក្សាសិទ្ធិ​ឆ្នាំ​ ២០១០-២០១១ ដោយ Jens Mueller\n"
+"រក្សាសិទ្ធិ​ឆ្នាំ ២០១២ ដោយ Smit Mehta"
+
+#: plugin/aboutdata.h:66
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:67
+msgid "Author"
+msgstr "អ្នក​និពន្ធ​"
+
+#: plugin/aboutdata.h:70
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: plugin/aboutdata.h:71 plugin/aboutdata.h:75
+msgid "Developer"
+msgstr "អ្នក​អភិវឌ្ឍន៍​​"
+
+#: plugin/aboutdata.h:74
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: plugin/batchdialog.cpp:109
+msgid "Exit DNG Converter"
+msgstr "ចេញ​កម្មវិធី​បម្លែង​  DNG "
+
+#: plugin/batchdialog.cpp:110
+msgid "Batch convert RAW camera images to DNG"
+msgstr "បម្លែង​រូបភាព​ម៉ាស៊ីន​ថត​រូប​ដើម​ជា​ក្រុម​​ទៅជា​​​ DNG"
+
+#: plugin/batchdialog.cpp:265
+msgid "The list does not contain any Raw files to process."
+msgstr "បញ្ជី​មិន​មាន​ឯកសារ​ដើម​​មួយ​ចំនួន​ត្រូវ​ដំណើរការ​ឡើយ ។"
+
+#: plugin/batchdialog.cpp:274
+msgid "DNG Converter"
+msgstr "កម្មវិធី​បម្លែង DNG"
+
+#: plugin/batchdialog.cpp:399
+msgid "&Abort"
+msgstr "បោះបង់​"
+
+#: plugin/batchdialog.cpp:400
+msgid "Abort the conversion of Raw files."
+msgstr "បោះ​បង់​ការ​បម្លែង​ឯកសារ​ដើម ។"
+
+#: plugin/batchdialog.cpp:405
+msgid "Con&vert"
+msgstr "បម្លែង​"
+
+#: plugin/batchdialog.cpp:406
+msgid "Start converting the Raw images using the current settings."
+msgstr "ចាប់ផ្ដើម​ការ​បម្លែង​រូបភាព​​ដើម​​ដោយ​​ប្រើ​ការកំណត់​បច្ចុប្បន្ន ។​"
+
+#: plugin/batchdialog.cpp:480
+msgid "Process failed"
+msgstr ""
+
+#: plugin/batchdialog.cpp:483
+msgid "Process Canceled"
+msgstr ""
+
+#: plugin/batchdialog.cpp:486
+msgid "File not supported"
+msgstr ""
+
+#: plugin/batchdialog.cpp:489
+msgid "Internal error"
+msgstr ""
+
+#: plugin/batchdialog.cpp:512
+#, kde-format
+msgid "Processing %1"
+msgstr "ដំណើរការ %1"
+
+#: plugin/dngconverter.cpp:54
+msgid "File(s) to convert"
+msgstr "ឯកសារ​ត្រូវ​បម្លែង​"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_dngconverterui.rc:6
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_dngconverterui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/myimagelist.cpp:47
+msgid "Raw File"
+msgstr "ឯកសារដើម​"
+
+#: plugin/myimagelist.cpp:48
+msgid "Target File"
+msgstr "ឯកសារ​គោល​ដៅ​"
+
+#: plugin/myimagelist.cpp:49
+msgid "Camera"
+msgstr "ម៉ាស៊ីន​ថត​រូប​​"
+
+#: plugin/myimagelist.cpp:50
+msgid "Status"
+msgstr "ស្ថានភាព"
+
+#: plugin/plugin_dngconverter.cpp:90
+msgid "DNG Converter..."
+msgstr "កម្មវិធី​បម្លែង DNG ..."
+
+#: plugin/settingswidget.cpp:121
+msgid "Embed Original File"
+msgstr "បង្កប់​ឯកសារ​ដើម​"
+
+#: plugin/settingswidget.cpp:123
+msgid "Lossless Compression"
+msgstr "ការ​បង្ហាប់​ដែល​គ្មាន​ការ​បាត់​បង់"
+
+#: plugin/settingswidget.cpp:127
+msgid "Update File Modification Date"
+msgstr "ធ្វើ​បច្ចុប្បន្នភាព​កាលបរិច្ឆេទ​កំណែប្រែ​​ឯកសារ​​"
+
+#: plugin/settingswidget.cpp:128
+msgid ""
+"Sets the file modification date to the creation date provided in the image "
+"metadata."
+msgstr ""
+"កំណត់​កាល​បរិច្ឆេទ​កំណែ​ប្រែ​ឯកសារ​ទៅ​ជា​កាលបរិច្ឆេទ​បង្កើត​ដូច​ដែល​បាន​ផ្ដល់​នៅ​ក្នុង​ទិន្នន័យ​មេតា​រូបភាព ។"
+
+#: plugin/settingswidget.cpp:141
+msgid "JPEG Preview:"
+msgstr "មើល​ JPEG ជាមុន​ ៖"
+
+#: plugin/settingswidget.cpp:143
+msgctxt "embedded preview type in dng file"
+msgid "None"
+msgstr "គ្មាន​"
+
+#: plugin/settingswidget.cpp:144
+msgctxt "embedded preview type in dng file"
+msgid "Medium"
+msgstr "មធ្យម​​"
+
+#: plugin/settingswidget.cpp:145
+msgctxt "embedded preview type in dng file"
+msgid "Full size"
+msgstr "ទំហំ​ពេញ​"
+
+#: plugin/settingswidget.cpp:151
+msgid "If Target File Exists:"
+msgstr "ប្រសិនបើ​មាន​ឯកសារ​គោលដៅ​ ៖​"
+
+#: plugin/settingswidget.cpp:155
+msgid "Overwrite automatically"
+msgstr "សរសេរ​ជាន់​លើ​ដោយ​ស្វ័យប្រវត្តិ​"
+
+#: plugin/settingswidget.cpp:156
+msgid "Store as a different name"
+msgstr "រក្សាទុក​ជា​ឈ្មោះ​ផ្សេង"
+
+#: plugin/task.cpp:145
+msgid "Cannot identify Raw image"
+msgstr "មិន​អាច​មើល​រូប​ភាព​ដើម​បាន​ឡើយ​"

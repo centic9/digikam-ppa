@@ -1,0 +1,275 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-04-18 02:21+0200\n"
+"PO-Revision-Date: 2013-03-09 11:50+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Łukasz Wojniłowicz"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lukasz.wojnilowicz@gmail.com"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_piwigoexportui.rc:6
+msgid "&Export"
+msgstr "&Eksportuj"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_piwigoexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Główny pasek narzędzi"
+
+#: piwigoconfig.cpp:76
+msgctxt "piwigo login settings"
+msgid "URL:"
+msgstr "Adres URL:"
+
+#: piwigoconfig.cpp:80
+msgctxt "piwigo login settings"
+msgid "Username:"
+msgstr "Nazwa użytkownika:"
+
+#: piwigoconfig.cpp:84
+msgctxt "piwigo login settings"
+msgid "Password:"
+msgstr "Hasło:"
+
+#: piwigotalker.cpp:275
+#, kde-format
+msgid "Check if %1 already exists"
+msgstr "Sprawdź czy %1 już istnieje"
+
+#: piwigotalker.cpp:446
+msgid "Piwigo URL probably incorrect"
+msgstr "Adres URL Piwigo prawdopodobnie niepoprawny"
+
+#: piwigotalker.cpp:452
+msgid "Incorrect username or password specified"
+msgstr "Podano nieprawidłową nazwę użytkownika lub hasło"
+
+#: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
+#: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
+#: piwigotalker.cpp:1118 piwigotalker.cpp:1252
+msgid "Invalid response received from remote Piwigo"
+msgstr "Otrzymano nieprawidłowa odpowiedź ze zdalnego Piwigo"
+
+#: piwigotalker.cpp:564
+msgid "Failed to list albums"
+msgstr "Nieudane sporządzenie listy albumów"
+
+#: piwigotalker.cpp:611
+#, kde-format
+msgid "Photo '%1' already exists."
+msgstr "Zdjęcie '%1' już istnieje."
+
+#: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
+#: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
+msgid "Failed to upload photo"
+msgstr "Nieudane wysyłanie zdjęcia"
+
+#: piwigotalker.cpp:682
+#, kde-format
+msgid "Upload resized version of %1"
+msgstr "Wyślij zmieniony rozmiar wersji %1"
+
+#: piwigotalker.cpp:736
+#, kde-format
+msgid "Photo '%1' already exists in this album."
+msgstr "Zdjęcie '%1' już istnieje w tym albumie."
+
+#: piwigotalker.cpp:851 piwigotalker.cpp:1082
+#, kde-format
+msgid "Upload the chunk %1 of %2"
+msgstr "Wyślij kawałek %1 z %2"
+
+#: piwigotalker.cpp:887 piwigotalker.cpp:1169
+msgid "Warning : The full size photo cannot be uploaded."
+msgstr "Ostrzeżenie : Nie można wysłać zdjęcia pełnowymiarowego."
+
+#: piwigotalker.cpp:926 piwigotalker.cpp:1216
+#, kde-format
+msgid "Upload the metadata of %1"
+msgstr "Wyślij metadane %1"
+
+#: piwigotalker.cpp:1047
+#, kde-format
+msgid "Upload the thumbnail of %1"
+msgstr "Wyślij miniaturkę %1"
+
+#: piwigowindow.cpp:135
+msgid "Albums"
+msgstr "Albumy"
+
+#: piwigowindow.cpp:144
+msgid "Change Account"
+msgstr "Zmień konto"
+
+#: piwigowindow.cpp:148
+msgid "Options"
+msgstr "Opcje"
+
+#: piwigowindow.cpp:152
+msgid "Resize photos before uploading"
+msgstr "Zmień rozmiar zdjęć przed wysłaniem"
+
+#: piwigowindow.cpp:155
+msgid "Maximum width:"
+msgstr "Maksymalna szerokość:"
+
+#: piwigowindow.cpp:161
+msgid "Maximum height:"
+msgstr "Maksymalna wysokość:"
+
+#: piwigowindow.cpp:168
+msgid "Maximum thumbnail dimension:"
+msgstr "Maksymalny rozmiar miniatury:"
+
+#: piwigowindow.cpp:173
+msgid "Thumbnail size is ignored with Piwigo > 2.4"
+msgstr "Rozmiar miniatury jest ignorowany przy korzystaniu z Piwigo > 2.4"
+
+#: piwigowindow.cpp:235 piwigowindow.cpp:240
+msgid "Piwigo Export"
+msgstr "Eksport Piwigo"
+
+#: piwigowindow.cpp:243
+msgid "A Kipi plugin to export image collections to a remote Piwigo server."
+msgstr ""
+"Wtyczka Kipi do eksportowania kolekcji obrazów na zdalny serwer Piwigo."
+
+#: piwigowindow.cpp:244
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2012, Frédéric Coiffier\n"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2012, Frédéric Coiffier\n"
+
+#: piwigowindow.cpp:250
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: piwigowindow.cpp:250
+msgid "Author"
+msgstr "Autor"
+
+#: piwigowindow.cpp:253
+msgid "Colin Guthrie"
+msgstr "Colin Guthrie"
+
+#: piwigowindow.cpp:253
+msgid "Maintainer"
+msgstr "Opiekun"
+
+#: piwigowindow.cpp:256
+msgid "Andrea Diamantini"
+msgstr "Andrea Diamantini"
+
+#: piwigowindow.cpp:256 piwigowindow.cpp:259 piwigowindow.cpp:262
+msgid "Developer"
+msgstr "Programista"
+
+#: piwigowindow.cpp:259
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: piwigowindow.cpp:262
+msgid "Frédéric Coiffier"
+msgstr "Frédéric Coiffier"
+
+#: piwigowindow.cpp:270
+msgid "Start Upload"
+msgstr "Rozpocznij wysyłanie"
+
+#: piwigowindow.cpp:404
+msgid "Failed to login into remote piwigo. "
+msgstr "Nieudane logowanie do zdalnego piwigo. "
+
+#: piwigowindow.cpp:406
+msgid ""
+"\n"
+"Do you want to check your settings and try again?"
+msgstr ""
+"\n"
+"Czy chcesz sprawdzić swoje ustawienia i spróbować ponownie?"
+
+#: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
+msgid "Edit Piwigo Data"
+msgstr "Edytuj dane Piwigo"
+
+#: piwigowindow.cpp:473 piwigowindow.cpp:497
+msgid "Album"
+msgstr "Album"
+
+#: piwigowindow.cpp:516
+msgid "Image"
+msgstr "Obraz"
+
+#: piwigowindow.cpp:547
+msgid "Nothing to upload - please select photos to upload."
+msgstr "Nic do wysłania - proszę wybrać zdjęcia do wysłania."
+
+#: piwigowindow.cpp:589
+#, kde-format
+msgid "Uploading file %1"
+msgstr "Wysyłanie pliku %1"
+
+#: piwigowindow.cpp:608
+msgid "Failed to upload photo into remote piwigo. "
+msgstr "Nieudane wysłanie zdjęcia do zdalnego piwigo. "
+
+#: piwigowindow.cpp:611
+msgid ""
+"\n"
+"Do you want to continue?"
+msgstr ""
+"\n"
+"Czy chcesz kontynuować?"
+
+#: plugin_piwigoexport.cpp:98
+msgid "Export to &Piwigo..."
+msgstr "Eksportuj do &Piwigo..."
+
+#~ msgid "&Add Selected Photos"
+#~ msgstr "&Dodaj wybrane zdjęcia"
+
+#~ msgid "Override Default Options"
+#~ msgstr "Zastąp opcje domyślne"
+
+#~ msgid "EXIF Comment (instead of file name) sets Title"
+#~ msgstr "Komentarz EXIF (zamiast nazwy pliku) ustawia tytuł"
+
+#~ msgid "EXIF Comment (instead of file name) sets Comment"
+#~ msgstr "Komentarz EXIF (zamiast nazwy pliku) ustawia komentarz"
+
+#~ msgid "Also download the full size version"
+#~ msgstr "Pobierz także wersję pełnowymiarową"
+
+#~ msgid "Handbook"
+#~ msgstr "Podręcznik"
+
+#~ msgid "Settings"
+#~ msgstr "Ustawienia"

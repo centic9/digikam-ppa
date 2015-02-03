@@ -1,0 +1,234 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-03-09 11:38+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Łukasz Wojniłowicz"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lukasz.wojnilowicz@gmail.com"
+
+#: plugin/aboutdata.h:51
+msgid "DNG Image Converter"
+msgstr "Przekształcanie obrazów DNG"
+
+#: plugin/aboutdata.h:54
+#, kde-format
+msgid ""
+"A tool to batch convert RAW camera images to DNG\n"
+"Using LibRaw %1\n"
+"Using LibKdcraw %2\n"
+"Using XMP toolkit %3\n"
+"Using DNG toolkit 1.3"
+msgstr ""
+"Narzędzie do wsadowego przekształcania obrazów RAW z aparatu do DNG\n"
+"Wykorzystując LibRaw %1\n"
+"Wykorzystując LibKdcraw %2\n"
+"Wykorzystując XMP toolkit %3\n"
+"Wykorzystując DNG toolkit 1.3"
+
+#: plugin/aboutdata.h:62
+msgid ""
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2010-2011, Jens Mueller\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2010-2011, Jens Mueller\n"
+"(c) 2012, Smit Mehta"
+
+#: plugin/aboutdata.h:66
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:67
+msgid "Author"
+msgstr "Autor"
+
+#: plugin/aboutdata.h:70
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: plugin/aboutdata.h:71 plugin/aboutdata.h:75
+msgid "Developer"
+msgstr "Programista"
+
+#: plugin/aboutdata.h:74
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: plugin/batchdialog.cpp:109
+msgid "Exit DNG Converter"
+msgstr "Wyjdź z konwertera DNG"
+
+#: plugin/batchdialog.cpp:110
+msgid "Batch convert RAW camera images to DNG"
+msgstr "Przekształć wsadowo obrazy RAW z aparatu do DNG"
+
+#: plugin/batchdialog.cpp:265
+msgid "The list does not contain any Raw files to process."
+msgstr "Lista nie zawiera żadnych plików Raw do przetworzenia."
+
+#: plugin/batchdialog.cpp:274
+msgid "DNG Converter"
+msgstr "Przekształcanie DNG"
+
+#: plugin/batchdialog.cpp:399
+msgid "&Abort"
+msgstr "&Przerwij"
+
+#: plugin/batchdialog.cpp:400
+msgid "Abort the conversion of Raw files."
+msgstr "Przerwij przekształcanie plików Raw."
+
+#: plugin/batchdialog.cpp:405
+msgid "Con&vert"
+msgstr "&Przekształć"
+
+#: plugin/batchdialog.cpp:406
+msgid "Start converting the Raw images using the current settings."
+msgstr ""
+"Rozpocznij przekształcanie obrazów Raw wykorzystując obecne ustawienia."
+
+#: plugin/batchdialog.cpp:480
+msgid "Process failed"
+msgstr "Proces zakończył niepowodzeniem"
+
+#: plugin/batchdialog.cpp:483
+msgid "Process Canceled"
+msgstr "Proces został anulowany"
+
+#: plugin/batchdialog.cpp:486
+msgid "File not supported"
+msgstr "Plik jest nieobsługiwany"
+
+#: plugin/batchdialog.cpp:489
+msgid "Internal error"
+msgstr "Błąd wewnętrzny"
+
+#: plugin/batchdialog.cpp:512
+#, kde-format
+msgid "Processing %1"
+msgstr "Przetwarzanie %1"
+
+#: plugin/dngconverter.cpp:54
+msgid "File(s) to convert"
+msgstr "Plik(i) do przekształcenia"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_dngconverterui.rc:6
+msgid "&Tools"
+msgstr "&Narzędzia"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_dngconverterui.rc:12
+msgid "Main Toolbar"
+msgstr "Główny pasek narzędzi"
+
+#: plugin/myimagelist.cpp:47
+msgid "Raw File"
+msgstr "Plik RAW"
+
+#: plugin/myimagelist.cpp:48
+msgid "Target File"
+msgstr "Plik docelowy"
+
+#: plugin/myimagelist.cpp:49
+msgid "Camera"
+msgstr "Aparat"
+
+#: plugin/myimagelist.cpp:50
+msgid "Status"
+msgstr "Stan"
+
+#: plugin/plugin_dngconverter.cpp:90
+msgid "DNG Converter..."
+msgstr "Przekształcanie DNG..."
+
+#: plugin/settingswidget.cpp:121
+msgid "Embed Original File"
+msgstr "Osadź oryginalny plik"
+
+#: plugin/settingswidget.cpp:123
+msgid "Lossless Compression"
+msgstr "Bezstratna kompresja"
+
+#: plugin/settingswidget.cpp:127
+msgid "Update File Modification Date"
+msgstr "Uaktualnij datę modyfikacji pliku"
+
+#: plugin/settingswidget.cpp:128
+msgid ""
+"Sets the file modification date to the creation date provided in the image "
+"metadata."
+msgstr ""
+"Ustawia datę modyfikacji pliku na datę utworzenia dostarczoną wraz z meta-"
+"danymi obrazu."
+
+#: plugin/settingswidget.cpp:141
+msgid "JPEG Preview:"
+msgstr "Podgląd JPEG:"
+
+#: plugin/settingswidget.cpp:143
+msgctxt "embedded preview type in dng file"
+msgid "None"
+msgstr "Brak"
+
+#: plugin/settingswidget.cpp:144
+msgctxt "embedded preview type in dng file"
+msgid "Medium"
+msgstr "Średni"
+
+#: plugin/settingswidget.cpp:145
+msgctxt "embedded preview type in dng file"
+msgid "Full size"
+msgstr "Pełny rozmiar"
+
+#: plugin/settingswidget.cpp:151
+msgid "If Target File Exists:"
+msgstr "Jeśli istnieje plik docelowy:"
+
+#: plugin/settingswidget.cpp:155
+msgid "Overwrite automatically"
+msgstr "Zastąp samoczynnie"
+
+#: plugin/settingswidget.cpp:156
+msgid "Store as a different name"
+msgstr "Zapisz pod inną nazwą"
+
+#: plugin/task.cpp:145
+msgid "Cannot identify Raw image"
+msgstr "Nie można zidentyfikować obrazu RAW"
+
+#~ msgid "Save Raw Image converted from '%1' as"
+#~ msgstr "Zapisz obraz Raw przekształcony z '%1' jako"
+
+#~ msgid "Failed to save sidecar file for image %1..."
+#~ msgstr "Nie można zapisać pliku przybocznego dla obrazu %1..."
+
+#~ msgid "Failed to save image %1"
+#~ msgstr "Nieudany zapis obrazu %1"
+
+#~ msgid "Open rename-file dialog"
+#~ msgstr "Otwórz okno dialogowe zmiany nazwy"
+
+#~ msgid "Handbook"
+#~ msgstr "Podręcznik"

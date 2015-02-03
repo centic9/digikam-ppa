@@ -1,0 +1,320 @@
+# translation of kipiplugin_calendar.po to 简体中文
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ni Hui <shuizhuyuanluo@126.com>, 2008, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_calendar\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-02-01 02:36+0100\n"
+"PO-Revision-Date: 2009-05-28 10:01+0000\n"
+"Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
+"Language-Team: 简体中文 <kde-china@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: KBabel 1.11.4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ni Hui"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "shuizhuyuanluo@126.com"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_calendarui.rc:6
+msgid "&Tools"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_calendarui.rc:12
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin/plugin_calendar.cpp:82
+msgid "Create Calendar..."
+msgstr "创建日历..."
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalEvents)
+#: ui/calevents.ui:13
+msgid "Calendar events"
+msgstr "日历事件"
+
+#. i18n: ectx: property (text), widget (QLabel, ohHeaderLabel)
+#: ui/calevents.ui:25
+msgid "Select an optional calendar file with the official holidays"
+msgstr "选择一个带有国定假日的可选日历文件"
+
+#. i18n: ectx: property (filter), widget (KUrlRequester, ohUrlRequester)
+#. i18n: ectx: property (filter), widget (KUrlRequester, fhUrlRequester)
+#: ui/calevents.ui:32 ui/calevents.ui:88
+msgid "*.ics"
+msgstr "*.ics"
+
+#. i18n: ectx: property (text), widget (QLabel, ohExplainLabel)
+#: ui/calevents.ui:49
+msgid ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:italic;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">You can download a "
+"calendar for your country from <a href=\"http://www.icalshare.com\"><span "
+"style=\" text-decoration: underline; color:#0057ae;\">http://www.icalshare."
+"com</span></a> or other sites.</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">This is fully optional. "
+"All the events from this calendar will be printed in red.</p></body></html>"
+msgstr ""
+"<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+"REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css"
+"\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'DejaVu Sans'; font-size:9pt; font-"
+"weight:400; font-style:italic;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">您可以从 <a href=\"http://"
+"www.icalshare.com\"><span style=\" text-decoration: underline; color:#0057ae;"
+"\">http://www.icalshare.com</span></a> 或其它站点下载您国家的日历。</p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+"right:0px; -qt-block-indent:0; text-indent:0px;\">这完全是可选的。所有此日历"
+"中的事件都会打印成红色。</p></body></html>"
+
+#. i18n: ectx: property (text), widget (QLabel, fhHeaderLabel)
+#: ui/calevents.ui:78
+msgid "Select an optional calendar file with your \"family holidays\""
+msgstr "选择一个带有您“家庭节日”的可选日历文件"
+
+#. i18n: ectx: property (text), widget (QLabel, fhExplainLabel)
+#: ui/calevents.ui:101
+msgid ""
+"You can create such a calendar using KOrganizer or any other calendar "
+"program.\n"
+"This is fully optional. All the events from this calendar will be printed in "
+"green."
+msgstr ""
+"您可以使用 KOrganizer 或任何其它日历程序创建这样一个日历。\n"
+"这完全是可选的。所有此日历中的事件都会打印成绿色。"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalProgress)
+#: ui/calprogress.ui:14 wizard/calwizard.cpp:89
+msgid "Printing"
+msgstr "打印"
+
+#. i18n: ectx: property (text), widget (QLabel, currentLabel)
+#: ui/calprogress.ui:23
+msgid "Current Page"
+msgstr "当前页面"
+
+#. i18n: ectx: property (text), widget (QLabel, totalLabel)
+#: ui/calprogress.ui:33
+msgid "Total Pages"
+msgstr "总页面"
+
+#. i18n: ectx: property (windowTitle), widget (QWidget, CalTemplate)
+#: ui/caltemplate.ui:14 wizard/calwizard.cpp:69
+msgid "Create Template for Calendar"
+msgstr "创建日历模板"
+
+#. i18n: ectx: property (title), widget (QGroupBox, previewGroupBox)
+#: ui/caltemplate.ui:26
+msgid "Preview"
+msgstr "预览"
+
+#. i18n: ectx: property (title), widget (QGroupBox, settingsGroupBox)
+#: ui/caltemplate.ui:43
+msgid "Settings"
+msgstr "设置"
+
+#. i18n: ectx: property (text), widget (QLabel, paperSizeLabel)
+#: ui/caltemplate.ui:57
+msgid "Paper Size:"
+msgstr "纸张大小："
+
+#. i18n: ectx: property (text), item, widget (KComboBox, paperSizeCombo)
+#: ui/caltemplate.ui:65
+msgid "A4"
+msgstr "A4"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, paperSizeCombo)
+#: ui/caltemplate.ui:70
+msgid "US Letter"
+msgstr "美式信纸"
+
+#. i18n: ectx: property (text), widget (QLabel, resolutionLabel)
+#: ui/caltemplate.ui:78
+msgid "Resolution:"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resolutionCombo)
+#: ui/caltemplate.ui:86
+msgid "High"
+msgstr ""
+
+#. i18n: ectx: property (text), item, widget (QComboBox, resolutionCombo)
+#: ui/caltemplate.ui:91
+msgid "Low"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (KButtonGroup, imagePosButtonGroup)
+#: ui/caltemplate.ui:101
+msgid "Image Position"
+msgstr "图像位置"
+
+#. i18n: ectx: property (text), widget (QRadioButton, topRadio)
+#: ui/caltemplate.ui:112
+msgid "&Top"
+msgstr "顶部(&T)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, leftRadio)
+#: ui/caltemplate.ui:122
+msgid "&Left"
+msgstr "左侧(&L)"
+
+#. i18n: ectx: property (text), widget (QRadioButton, rightRadio)
+#: ui/caltemplate.ui:132
+msgid "&Right"
+msgstr "右侧(&R)"
+
+#. i18n: ectx: property (text), widget (QCheckBox, drawLinesCheckBox)
+#: ui/caltemplate.ui:147
+msgid "Draw lines on calendar"
+msgstr "在日历中画线"
+
+#. i18n: ectx: property (text), widget (QLabel, ratioLabel)
+#: ui/caltemplate.ui:159
+msgid "Image to text ratio:"
+msgstr "图像相对文本比率："
+
+#. i18n: ectx: property (text), widget (QLabel, fontLabel)
+#: ui/caltemplate.ui:189
+msgid "Font:"
+msgstr "字体："
+
+#. i18n: ectx: property (text), widget (QLabel, yearLabel)
+#: ui/caltemplate.ui:203
+msgid "Year:"
+msgstr ""
+
+#. i18n: ectx: property (title), widget (QGroupBox, monthBox)
+#: ui/caltemplate.ui:231
+msgid "Select Images"
+msgstr "选择图像"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: ui/caltemplate.ui:240
+#, fuzzy
+#| msgid ""
+#| "Left click on Months to Select Images. Right click to Clear Month.\n"
+#| "You can also drag and drop images onto the Months"
+msgid ""
+"Left click on a month to select an image, right click to clear an image."
+msgstr ""
+"在月份上左键点击可选择图像。右键点击可清除月份。\n"
+"您还可以向月份拖放图像"
+
+#: wizard/calwizard.cpp:75
+msgid "Choose events to show on the Calendar"
+msgstr "选择要在日历上显示的事件"
+
+#: wizard/calwizard.cpp:83
+msgid "Print"
+msgstr "打印"
+
+#: wizard/calwizard.cpp:95
+msgid "Calendar"
+msgstr "日历"
+
+#: wizard/calwizard.cpp:98
+msgid "A Kipi plugin to create a calendar"
+msgstr "一个创建日历的 Kipi 插件"
+
+#: wizard/calwizard.cpp:99
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006 Tom Albers\n"
+"(c) 2007-2008 Orgad Shaneh"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006 Tom Albers\n"
+"(c) 2007-2008 Orgad Shaneh"
+
+#: wizard/calwizard.cpp:103
+msgid "Orgad Shaneh"
+msgstr "Orgad Shaneh"
+
+#: wizard/calwizard.cpp:103
+msgid "Author and maintainer"
+msgstr "作者和维护者"
+
+#: wizard/calwizard.cpp:106
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: wizard/calwizard.cpp:106 wizard/calwizard.cpp:109
+msgid "Former author and maintainer"
+msgstr "前任作者和维护者"
+
+#: wizard/calwizard.cpp:109
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: wizard/calwizard.cpp:123
+msgid "Create Calendar"
+msgstr "创建日历"
+
+#: wizard/calwizard.cpp:165
+msgid "No valid images selected for months<br/>Click Back to select images"
+msgstr "未为月份选择有效的图像<br/>点击后退以选择图像"
+
+#: wizard/calwizard.cpp:178
+msgid ""
+"Please note that you are making a calendar for<br/>the current year or a "
+"year in the past."
+msgstr "请注意，您正在为当前年份或过去一年<br/>制作日历。"
+
+#: wizard/calwizard.cpp:184
+#, kde-format
+msgid ""
+"Click Next to start Printing<br/><br/>Following months will be printed for "
+"year %1:<br/>"
+msgstr "点击前进以开始打印<br/><br/>以下月份将打印于 %1 年：<br/>"
+
+#: wizard/calwizard.cpp:234
+msgid "Printing Cancelled"
+msgstr "打印已取消"
+
+#: wizard/calwizard.cpp:247
+#, fuzzy
+#| msgid "Draw lines on calendar"
+msgid "Making calendar"
+msgstr "在日历中画线"
+
+#: wizard/calwizard.cpp:292
+#, fuzzy, kde-format
+#| msgid "Printing Calendar Page for %1 of %2"
+msgid "Printing calendar page for %1 of %2"
+msgstr "正在打印日历页面 %1，共 %2 页"
+
+#: wizard/calwizard.cpp:302
+msgid "Printing Complete"
+msgstr "打印完成"
+
+#~ msgid "Handbook"
+#~ msgstr "手册"
+
+#~ msgid "Select Year & Images"
+#~ msgstr "选择年份和图像"
+
+#~ msgid "Select Year"
+#~ msgstr "选择年份"

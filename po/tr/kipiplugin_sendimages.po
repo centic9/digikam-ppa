@@ -1,0 +1,405 @@
+# translation of kipiplugin_sendimages.po to Turkish
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Serdar Soytetir <tulliana@gmail.com>, 2008, 2009, 2012.
+# Ozan Çağlayan <ozan@pardus.org.tr>, 2010, 2011.
+# Volkan Gezer <volkangezer@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_sendimages\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-01-31 03:27+0100\n"
+"PO-Revision-Date: 2013-07-06 02:28+0200\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
+"Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Serdar Soytetir"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "tulliana@gmail.com"
+
+#: imageresize.cpp:109
+msgid "Error opening input file"
+msgstr "Girdi dosyası açılamadı"
+
+#: imageresize.cpp:120
+msgid "Error opening temporary folder"
+msgstr "Geçici dizin açılamadı"
+
+#: imageresize.cpp:164
+msgid "Cannot resize image. Aborting."
+msgstr "Resim yeniden boyutlandırılamıyor. İptal ediliyor."
+
+#: imageresize.cpp:182
+msgid "Cannot save resized image (JPEG). Aborting."
+msgstr "Yeniden boyutlandırılan resim (JPEG) kaydedilemedi. İptal ediliyor."
+
+#: imageresize.cpp:198
+msgid "Cannot save resized image (PNG). Aborting."
+msgstr "Yeniden boyutlandırılan resim (PNG) kaydedilemedi. İptal ediliyor."
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_sendimagesui.rc:6
+msgid "&Export"
+msgstr "&Dışarıya Aktar"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_sendimagesui.rc:12
+msgid "Main Toolbar"
+msgstr "Ana Araç Çubuğu"
+
+#: plugin_sendimages.cpp:112
+msgid "Email Images..."
+msgstr "Resimleri E-posta ile Gönder..."
+
+#: sendimages.cpp:143
+msgid "Email images"
+msgstr "Resimleri e-posta ile gönder"
+
+#: sendimages.cpp:186
+msgid "Operation canceled by user"
+msgstr "İşlem kullanıcı tarafından kesildi"
+
+#: sendimages.cpp:200
+#, kde-format
+msgid "Resizing %1"
+msgstr "%1 Yeniden Boyutlandırılıyor"
+
+#: sendimages.cpp:213
+#, kde-format
+msgid "%1 resized successfully"
+msgstr "%1 başarılı bir şekilde yeniden boyutlandırıldı"
+
+#: sendimages.cpp:222
+#, kde-format
+msgid "Failed to resize %1: %2"
+msgstr "%1 yeniden boyutlandırılamadı: %2"
+
+#: sendimages.cpp:257
+msgid "Build images properties file"
+msgstr "Resim özellikleri dosyayı oluştur"
+
+#: sendimages.cpp:270
+msgid "no caption"
+msgstr "başlık yok"
+
+#: sendimages.cpp:273
+msgid "no keywords"
+msgstr "anahtar sözcük yok"
+
+#: sendimages.cpp:275
+#, kde-format
+msgid ""
+"file \"%1\":\n"
+"Original images: %2\n"
+msgstr ""
+"dosya \"%1\":\n"
+"Özgün resimler: %2\n"
+
+#: sendimages.cpp:278
+#, kde-format
+msgid "Comments: %1\n"
+msgstr "Açıklamalar: %1\n"
+
+#: sendimages.cpp:281
+#, kde-format
+msgid "Tags: %1\n"
+msgstr "Etiketler: %1\n"
+
+#: sendimages.cpp:284
+#, kde-format
+msgid "Rating: %1\n"
+msgstr "Beğeni: %1\n"
+
+#: sendimages.cpp:289
+msgid "properties.txt"
+msgstr "özellikler.txt"
+
+#: sendimages.cpp:298
+msgid "Image properties file done"
+msgstr "Resim özellikleri dosyası oluşturuldu"
+
+#: sendimages.cpp:315
+msgid ""
+"The images listed below cannot be resized.\n"
+"Do you want them to be added as attachments (without resizing)?"
+msgstr ""
+"Aşağıda listelenmiş resimler yeniden boyutlandırılamazlar.\n"
+"Resimleri ek olarak iliştirilmesini ister misiniz (yeniden "
+"boyutlandırılmadan)?"
+
+#: sendimages.cpp:319
+msgid "Failed to resize images"
+msgstr "Resimler yeniden boyutlandırılamadı"
+
+#: sendimages.cpp:378
+#, kde-format
+msgid ""
+"The file \"%1\" is too big to be sent, please reduce its size or change your "
+"settings"
+msgstr ""
+"\"%1\"  dosyası gönderilmek için çok büyük, lütfen resmin boyutunu küçültün "
+"veya ayarlarınızı değiştirin"
+
+#: sendimages.cpp:426
+msgid "Starting default KDE email program..."
+msgstr "KDE Öntanımlı e-posta uygulaması başlatılıyor..."
+
+#: sendimages.cpp:580
+#, kde-format
+msgid "Failed to start \"%1\" program. Check your system."
+msgstr "\"%1\" uygulaması başlatılamadı. Lütfen sisteminizi kontrol edin."
+
+#: sendimages.cpp:593
+#, kde-format
+msgid "Starting \"%1\" program..."
+msgstr "\"%1\" uygulaması başlatılıyor..."
+
+#: sendimages.cpp:603
+msgid "After having sent your images by email..."
+msgstr "Resimleriniz e-postayla gönderildikten sonra..."
+
+#: sendimages.cpp:604
+msgid "Press 'Close' button to clean up temporary files"
+msgstr "Geçici dosyaları temizlemek için 'Kapat' düğmesine basın"
+
+#: sendimagesdialog.cpp:83
+msgid "Email Images Options"
+msgstr "E-posta Resimlerinin Seçenekleri"
+
+#: sendimagesdialog.cpp:105
+msgid "Send Images"
+msgstr "Resimleri Gönder"
+
+#: sendimagesdialog.cpp:108
+msgid "A plugin to e-mail items"
+msgstr "Ögeleri e-posta ile göndermek için bir eklenti"
+
+#: sendimagesdialog.cpp:109
+msgid "(c) 2003-2013, Gilles Caulier"
+msgstr "(c) 2003-2013, Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: sendimagesdialog.cpp:111
+msgid "Author and Maintainer"
+msgstr "Yazar ve Projeyi Yürüten"
+
+#: sendimagesdialog.cpp:114
+msgid "Michael Hoechstetter"
+msgstr "Michael Hoechstetter"
+
+#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+msgid "Developer"
+msgstr "Geliştirici"
+
+#: sendimagesdialog.cpp:117
+msgid "Tom Albers"
+msgstr "Tom Albers"
+
+#: settingswidget.cpp:90
+msgid "Mail program:"
+msgstr "E-posta uygulaması:"
+
+#: settingswidget.cpp:93
+msgctxt "default mail agent"
+msgid "Default"
+msgstr "Öntanımlı"
+
+#: settingswidget.cpp:104
+msgid ""
+"Select your preferred external email program here. <b>Default</b> is the "
+"current email program set in KDE System Settings."
+msgstr ""
+"Buradan tercih ettiğiniz dış e-posta uygulamasını seçin. <b>Öntanımlı</b> "
+"uygulama KDE Sistem Ayarlarında belirlenmiş olandır."
+
+#: settingswidget.cpp:110
+#, kde-format
+msgid "Attach a file with image properties from %1"
+msgstr "%1 konumundan resim özelliklerine sahip bir dosya iliştir"
+
+#: settingswidget.cpp:113
+#, kde-format
+msgid ""
+"If you enable this option, all image properties set by %1 as Comments, "
+"Rating, or Tags, will be added as an attached file."
+msgstr ""
+"Bu seçeneği etkinleştirirseniz, Yorumlar, Derece, veya Etiketler gibi %1 "
+"tarafından belirlenen tüm resim özellikleri  iliştirilmiş bir dosya olarak "
+"eklenecektir."
+
+#: settingswidget.cpp:122
+msgid " MB"
+msgstr " MB"
+
+#: settingswidget.cpp:124
+msgid "Maximum email size limit:"
+msgstr "En büyük e-posta boyutu sınırı:"
+
+#: settingswidget.cpp:129
+msgid "Adjust image properties"
+msgstr "Resim özelliklerini ayarla"
+
+#: settingswidget.cpp:131
+msgid ""
+"If you enable this option, all images to be sent can be resized and "
+"recompressed."
+msgstr ""
+"Bu seçeneği etkinleştirirseniz, gönderilecek tüm resimler yeniden "
+"boyutlandırılabilir ve yeniden sıkıştırılabilir."
+
+#: settingswidget.cpp:134
+msgid "Image Properties"
+msgstr "Resim Özellikleri"
+
+#: settingswidget.cpp:138 settingswidget.cpp:156
+msgid "Very Small (320 pixels)"
+msgstr "Çok Küçük (320 piksel)"
+
+#: settingswidget.cpp:139 settingswidget.cpp:157
+msgid "Small (640 pixels)"
+msgstr "Küçük (640 piksel)"
+
+#: settingswidget.cpp:140 settingswidget.cpp:158
+msgid "Medium (800 pixels)"
+msgstr "Orta (800 piksel)"
+
+#: settingswidget.cpp:141 settingswidget.cpp:159
+msgid "Big (1024 pixels)"
+msgstr "Büyük (1024 piksel)"
+
+#: settingswidget.cpp:142 settingswidget.cpp:160
+msgid "Very Big (1280 pixels)"
+msgstr "Çok Büyük (1280 piksel)"
+
+#: settingswidget.cpp:143 settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Çok Büyük - yazdırmak için (1600 piksel)"
+
+#: settingswidget.cpp:145
+#, kde-format
+msgid ""
+"<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
+"this if you have a very slow Internet connection or the target mailbox size "
+"is very limited.</p><p><b>%2</b>: use this if you have a slow Internet "
+"connection and the target mailbox size is limited.</p><p><b>%3</b>: this is "
+"the default value for medium Internet connection speed and target mailbox "
+"size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
+"and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
+"have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
+"printing purposes.</p>"
+msgstr ""
+"<p>Gönderilecek resim boyutunu buradan seçin:</p><p><b>%1</b>: Eğer çok "
+"yavaş bir İnternet bağlantınız varsa veya hedef posta kutusunun boyutu "
+"sınırlıysa bunu kullanın.</p><p><b>%2</b>: Eğer çok yavaş bir İnternet "
+"bağlantınız varsa veya hedef posta kutusunun boyutu sınırlıysa bunu kullanın."
+"</p><p><b>%3</b>: Ortalama bir İnternet bağlantısı ve hedef posta kutusu "
+"boyutu için öntanımlı değer budur.</p><p><b>%4</b>: Yüksek hızlı İnternet "
+"bağlantınız varsa ve hedef posta kutusunun boyutu sınırsızsa bunu kullanın.</"
+"p><p><b>%5</b>: Eğer hiçbir boyut ve hız kısıtlamanız yoksa bunu kullanın.</"
+"p><p><b>%6</b>: Yalnızca yazdırma amacı için bunu kullanın.</p>"
+
+#: settingswidget.cpp:164
+msgid "Image size:"
+msgstr "Resim boyutu:"
+
+#: settingswidget.cpp:173
+msgid "<p>Select the file format of the image files to be sent.</p>"
+msgstr "<p>Gönderilecek resim dosyalarının biçimini buradan seçin.</p>"
+
+#: settingswidget.cpp:174
+msgid ""
+"<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
+"web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
+"Portable Network Graphics format is an extensible file format for the "
+"lossless, portable, well-compressed storage of raster images. PNG provides a "
+"patent-free replacement for GIF and can also replace many common uses of "
+"TIFF. PNG is designed to work well in online viewing applications, such as "
+"the World Wide Web, so it is fully streamable with a progressive display "
+"option. Also, PNG can store gamma and chromaticity data for improved color-"
+"matching on heterogeneous platforms.</p>"
+msgstr ""
+"<p><b>JPEG</b>: Joint Photographic Experts Group dosya biçimi iyi bir Web "
+"dosya biçimidir ancak kayıplı sıkıştırma kullanır.</p><p><b>PNG</b>: "
+"Portable Network Graphics biçimi ham resimlerin kayıpsız, taşınabilir, iyi "
+"sıkıştırılmış depolaması için esnek bir dosya biçimidir. PNG, GIF için "
+"patentsiz bir alternatif sağlar ve ayrıca TIFF biçiminin genel kullanımının "
+"yerini alabilir. PNG, World Wide Web gibi çevrimiçi görüntüleme "
+"uygulamalarında iyi bir şekilde çalışmak için tasarlandı, bu yüzden gelişen "
+"görüntü seçeneğiyle birlikte ilerleyebilir. Ayrıca, PNG, farklı yapıda "
+"platformlardaki gelişmiş renk eşleşmesi için gama ve boyanabilirlik verisi "
+"depolayabilir.</p>"
+
+#: settingswidget.cpp:184
+msgid "Image format:"
+msgstr "Resim biçimi:"
+
+#: settingswidget.cpp:192
+msgid "<p>The new compression value of JPEG images to be sent:</p>"
+msgstr "<p>Gönderilecek JPEG resimlerinin yeni sıkıştırma değeri:</p>"
+
+#: settingswidget.cpp:193
+msgid ""
+"<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
+"<br/><b>100</b>: no compression</p>"
+msgstr ""
+"<p><b>1</b>: çok yüksek sıkıştırma<br/><b>25</b>: yüksek sıkıştırma<br/"
+"><b>50</b>: ortalama sıkıştırma<br/><b>75</b>: düşük sıkıştırmaa (öntanımlı "
+"değer)<br/><b>100</b>: sıkıştırma yok</p>"
+
+#: settingswidget.cpp:201
+msgid "Image quality:"
+msgstr "Resim kalitesi:"
+
+#~ msgid "Handbook"
+#~ msgstr "El Kitabı"
+
+#~ msgid "Images"
+#~ msgstr "Resimler"
+
+#~ msgid "Image List"
+#~ msgstr "Resim Listesi"
+
+#~ msgid "Mail"
+#~ msgstr "E-Posta"
+
+#~ msgid "Mail Options"
+#~ msgstr "E-posta Seçenekleri"
+
+#~ msgid "very small (320 pixels)"
+#~ msgstr "çok küçük (320 piksel)"
+
+#~ msgid "small (640 pixels)"
+#~ msgstr "küçük (640 piksel)"
+
+#~ msgid "medium (800 pixels)"
+#~ msgstr "orta (800 piksel)"
+
+#~ msgid "big (1024 pixels)"
+#~ msgstr "büyük (1024 piksel)"
+
+#~ msgid "very big (1280 pixels)"
+#~ msgstr "çok büyük (1280 piksel)"
+
+#~ msgid "huge - for printing (1600 pixels)"
+#~ msgstr "çok büyük - yazdırmak için (1600 piksel)"
+
+#~ msgid "&Add"
+#~ msgstr "&Ekle"
+
+#~ msgid "&Remove"
+#~ msgstr "&Sil"

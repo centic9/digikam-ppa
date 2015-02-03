@@ -1,0 +1,319 @@
+# translation of kipiplugin_rawconverter.po to greek
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Spiros Georgaras <sng@hellug.gr>, 2007, 2008.
+# Toussis Manolis <manolis@koppermind.homelinux.org>, 2007, 2008, 2009.
+# Stelios <sstavra@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_rawconverter\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-06-17 01:29+0000\n"
+"PO-Revision-Date: 2013-02-25 23:03+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Σπύρος Γεωργαράς, Τούσης Μανώλης"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sng@hellug.gr, manolis@koppermind.homelinux.org"
+
+#: dialogs/batchdialog.cpp:127 dialogs/singledialog.cpp:200
+msgid "Exit RAW Converter"
+msgstr "Έξοδος από το μετατροπέα RAW"
+
+#: dialogs/batchdialog.cpp:128
+msgid "RAW Image Batch Converter"
+msgstr "Μετατροπή δέσμης ακατέργαστων εικόνων RAW"
+
+#: dialogs/batchdialog.cpp:148
+msgid "Store it under different name"
+msgstr "Αποθηκεύστε το με διαφορετικό όνομα"
+
+#: dialogs/batchdialog.cpp:151 dialogs/batchdialog.cpp:155
+#: dialogs/singledialog.cpp:149 dialogs/singledialog.cpp:152
+msgid "Save settings"
+msgstr "Αποθήκευση ρυθμίσεων"
+
+#: dialogs/batchdialog.cpp:175 dialogs/singledialog.cpp:131
+#: dialogs/singledialog.cpp:166
+msgid "RAW Image Converter"
+msgstr "Μετατροπέας εικόνων RAW"
+
+#: dialogs/batchdialog.cpp:178 dialogs/singledialog.cpp:169
+msgid "A Kipi plugin to convert RAW images"
+msgstr "Ένα πρόσθετο Kipi για τη μετατροπή εικόνων RAW"
+
+#: dialogs/batchdialog.cpp:179 dialogs/singledialog.cpp:170
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
+
+#: dialogs/batchdialog.cpp:183 dialogs/singledialog.cpp:174
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: dialogs/batchdialog.cpp:184 dialogs/singledialog.cpp:175
+msgid "Author"
+msgstr "Συγγραφέας"
+
+#: dialogs/batchdialog.cpp:187 dialogs/singledialog.cpp:178
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: dialogs/batchdialog.cpp:188 dialogs/singledialog.cpp:179
+msgid "Developer and maintainer"
+msgstr "Συγγραφέας και συντηρητής"
+
+#: dialogs/batchdialog.cpp:191 dialogs/singledialog.cpp:182
+msgid "Smit Mehta"
+msgstr "Smit Mehta"
+
+#: dialogs/batchdialog.cpp:192 dialogs/singledialog.cpp:183
+msgid "Developer"
+msgstr "Προγραμματιστής"
+
+#: dialogs/batchdialog.cpp:340
+msgid "There is no RAW file in the list to process."
+msgstr "Δεν υπάρχει αρχείο RAW για επεξεργασία στη λίστα."
+
+#: dialogs/batchdialog.cpp:349
+msgid "RAW Converter"
+msgstr "Μετατροπέας RAW"
+
+#: dialogs/batchdialog.cpp:485 dialogs/singledialog.cpp:130
+msgid "&Abort"
+msgstr "&Εγκατάλειψη"
+
+#: dialogs/batchdialog.cpp:486 dialogs/singledialog.cpp:198
+msgid "Abort the current RAW file conversion"
+msgstr "Εγκατάλειψη της τρέχουσας μετατροπής αρχείου RAW"
+
+#: dialogs/batchdialog.cpp:491 dialogs/singledialog.cpp:129
+msgid "Con&vert"
+msgstr "&Μετατροπή"
+
+#: dialogs/batchdialog.cpp:492
+msgid "Start converting the RAW images using current settings."
+msgstr ""
+"Εκκίνηση μετατροπής των ακατέργαστων εικόνων RAW με τις τρέχουσες ρυθμίσεις"
+
+#: dialogs/batchdialog.cpp:576
+#, kde-format
+msgid "Processing %1"
+msgstr "Γίνεται επεξεργασία %1"
+
+#: dialogs/myimagelist.cpp:47
+msgid "Raw File"
+msgstr "Αρχείο Raw"
+
+#: dialogs/myimagelist.cpp:48
+msgid "Target File"
+msgstr "Εικόνα προορισμού"
+
+#: dialogs/myimagelist.cpp:49
+msgid "Camera"
+msgstr "Φωτογραφική μηχανή"
+
+#: dialogs/myimagelist.cpp:50
+msgid "Status"
+msgstr "Κατάσταση"
+
+#: dialogs/singledialog.cpp:128
+msgid "&Preview"
+msgstr "&Προεπισκόπηση"
+
+#: dialogs/singledialog.cpp:191
+msgid ""
+"Generate a preview using current settings. Uses a simple bilinear "
+"interpolation for quick results."
+msgstr ""
+"Δημιουργία μιας προεπισκόπησης με τις τρέχουσες ρυθμίσεις. Χρησιμοποιεί μια "
+"απλή γραμμική παρεμβολή για γρήγορα αποτελέσματα."
+
+#: dialogs/singledialog.cpp:195
+msgid ""
+"Convert the RAW Image using current settings. This uses a high-quality "
+"adaptive algorithm."
+msgstr ""
+"Μετατροπή της ακατέργαστης RAW εικόνας με τις τρέχουσες ρυθμίσεις. Αυτό "
+"χρησιμοποιεί ένα υψηλής ποιότητας προσαρμοστικό αλγόριθμο."
+
+#: dialogs/singledialog.cpp:383
+msgid "Generating Preview..."
+msgstr "Δημιουργία προεπισκόπησης..."
+
+#: dialogs/singledialog.cpp:394
+msgid "Failed to generate preview"
+msgstr "Η δημιουργία της προεπισκόπησης απέτυχε"
+
+#: dialogs/singledialog.cpp:399
+msgid "Processing Images..."
+msgstr "Επεξεργασία εικόνων..."
+
+#: dialogs/singledialog.cpp:434
+#, kde-format
+msgid "Save RAW image converted from '%1' as"
+msgstr "Αποθήκευση ακατέργαστης εικόνας RAW από '%1' ως"
+
+#: dialogs/singledialog.cpp:464
+#, kde-format
+msgid "Failed to save sidecar file for image %1..."
+msgstr "Η αποθήκευση αρχείου πλευρικής γραμμής για την εικόνα %1 απέτυχε..."
+
+#: dialogs/singledialog.cpp:474
+#, kde-format
+msgid "Failed to save image %1"
+msgstr "Η αποθήκευση της εικόνας %1 απέτυχε"
+
+#: dialogs/singledialog.cpp:489
+msgid "Failed to convert RAW image"
+msgstr "Αποτυχία μετατροπής ακατέργαστης εικόνας RAW"
+
+#: manager/task.cpp:124
+msgid "Cannot identify RAW image"
+msgstr "Αδυναμία αναγνώρισης της ακατέργαστης RAW εικόνας"
+
+#: manager/task.cpp:134
+#, kde-format
+msgid "<br>Make: %1<br>"
+msgstr "<br>Κατασκευαστής: %1<br>"
+
+#: manager/task.cpp:135
+#, kde-format
+msgid "Model: %1<br>"
+msgstr "Μοντέλο: %1<br>"
+
+#: manager/task.cpp:139
+#, kde-format
+msgid "Created: %1<br>"
+msgstr "Δημιουργήθηκε: %1<br>"
+
+#: manager/task.cpp:145
+#, kde-format
+msgid "Aperture: f/%1<br>"
+msgstr "Διάφραγμα φακού: f/%1<br>"
+
+#: manager/task.cpp:150
+#, kde-format
+msgid "Focal: %1 mm<br>"
+msgstr "Εστίαση: %1 mm<br>"
+
+#: manager/task.cpp:155
+#, kde-format
+msgid "Exposure: 1/%1 s<br>"
+msgstr "Έκθεση: 1/%1 s<br>"
+
+#: manager/task.cpp:160
+#, kde-format
+msgid "Sensitivity: %1 ISO"
+msgstr "Ευαισθησία: %1 ISO"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_rawconverterui.rc:6
+msgid "&Tools"
+msgstr "&Εργαλεία"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_rawconverterui.rc:13
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: plugin/plugin_rawconverter.cpp:111
+msgid "RAW Image Converter..."
+msgstr "Μετατροπέας εικόνων RAW..."
+
+#: plugin/plugin_rawconverter.cpp:121
+msgid "Batch RAW Converter..."
+msgstr "Μετατροπή δέσμης ακατέργαστων εικόνων RAW..."
+
+#: plugin/plugin_rawconverter.cpp:152
+#, kde-format
+msgid "\"%1\" is not a RAW file."
+msgstr "Το αρχείο \"%1\" δεν είναι ένα ακατέργαστο RAW."
+
+#~ msgid "A Kipi plugin to batch convert RAW images"
+#~ msgstr "Ένα πρόσθετο Kipi για τη μετατροπή δέσμης εικόνων RAW"
+
+#~ msgid "Handbook"
+#~ msgstr "Εγχειρίδιο"
+
+#~ msgid "&Add"
+#~ msgstr "&Προσθήκη"
+
+#~ msgid "Add new RAW files to the list"
+#~ msgstr "Προσθήκη νέων αρχείων RAW στη λίστα"
+
+#~ msgid "&Remove"
+#~ msgstr "Α&φαίρεση"
+
+#~ msgid "Remove selected RAW files from the list"
+#~ msgstr "Αφαίρεση των επιλεγμένων αρχείων RAW από τη λίστα"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Εικόνα επισκόπησης"
+
+#~ msgid "Failed to load image after processing"
+#~ msgstr "Η φόρτωση της εικόνας μετά την επεξεργασία απέτυχε"
+
+#~ msgid "Output file format:"
+#~ msgstr "Μορφή αρχείου εξόδου:"
+
+#~ msgid ""
+#~ "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
+#~ "processed image in JPEG format. This format will give smaller-sized "
+#~ "files. Minimum JPEG compression level will be used during RAW conversion."
+#~ "</p><p><b>Warning: Due to the destructive compression algorithm, JPEG is "
+#~ "a lossy quality format.</b></p><p><b>TIFF</b>: output the processed image "
+#~ "in TIFF format. This generates large files, without losing quality. Adobe "
+#~ "Deflate compression will be used during conversion.</p><p><b>PPM</b>: "
+#~ "output the processed image in PPM format. This generates the largest "
+#~ "files, without losing quality.</p><p><b>PNG</b>: output the processed "
+#~ "image in PNG format. This generates large files, without losing quality. "
+#~ "Maximum PNG compression will be used during conversion.</p>"
+#~ msgstr ""
+#~ "<p>Ορίστε εδώ τη μορφή αρχείου εξόδου που θα χρησιμοποιήσετε:</"
+#~ "p><p><b>JPEG</b>: έξοδος της επεξεργασμένης εικόνας σε μορφή JPEG. Αυτή η "
+#~ "μορφή δίνει μικρότερα μεγέθη αρχείων. Κατά τη μετατροπή RAW θα "
+#~ "χρησιμοποιηθεί το ελάχιστο επίπεδο συμπίεσης JPEG.</"
+#~ "p><p><b>Προειδοποίηση: Ο αλγόριθμος JPEG συμπίεσης είναι απωλεστικός.</"
+#~ "b></p><p><b>TIFF</b>: έξοδος της επεξεργασμένης εικόνας σε μορφή TIFF. "
+#~ "Αυτό δημιουργεί μεγαλύτερες εικόνες χωρίς όμως απώλεια ποιότητας. "
+#~ "Χρησιμοποιείται ο αλγόριθμος συμπίεσης Adobe Deflate.</p><p><b>PPM</b>: "
+#~ "έξοδος της επεξεργασμένης εικόνας σε μορφή PPM. Αυτό δημιουργεί τα "
+#~ "μεγαλύτερα αρχεία χωρίς απώλεια ποιότητας.</p><p><b>PNG</b>: έξοδος της "
+#~ "επεξεργασμένης εικόνας σε μορφή PNG. Αυτό δημιουργεί μεγάλα αρχεία χωρίς "
+#~ "απώλεια ποιότητας. Κατά τη μετατροπή χρησιμοποιείται το μέγιστο επίπεδο "
+#~ "συμπίεσης.</p>"
+
+#~ msgid "If Target File Exists:"
+#~ msgstr "Αν το αρχείο προορισμού υπάρχει:"
+
+#~ msgid "Overwrite automatically"
+#~ msgstr "Αυτόματη αντικατάσταση"
+
+#~ msgid "Open rename-file dialog"
+#~ msgstr "Άνοιγμα διαλόγου μετονομασίας αρχείων"
+
+#~ msgid "Abort the current Raw files conversion"
+#~ msgstr "Εγκατάλειψη της τρέχουσας μετατροπής RAW"
+
+#~ msgid "Raw Image Converter..."
+#~ msgstr "Μετατροπέας ακατέργαστων εικόνων..."
+
+#~ msgid "Raw Image Converter"
+#~ msgstr "Μετατροπέας ακατέργαστων εικόνων"

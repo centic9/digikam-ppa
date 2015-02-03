@@ -1,0 +1,411 @@
+# translation of kipiplugin_htmlexport.po to Dutch
+# Copyright (C) 2008 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kipiplugin_htmlexport package.
+#
+# Kristof Bal <kristof.bal@gmail.com>, 2008.
+# Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2008, 2009.
+# Rinse de Vries <rinsedevries@kde.nl>, 2009.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2011, 2012.
+# Freek de Kruijf <f.de.kruijf@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_htmlexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2012-09-04 04:41+0200\n"
+"PO-Revision-Date: 2012-09-05 11:50+0200\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kristof Bal,Freek de Kruijf - 2012"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kristof.bal@gmail.com,freekdekruijf@kde.nl"
+
+#: generator.cpp:152
+#, kde-format
+msgid "Could not find theme in '%1'"
+msgstr "Kon thema niet vinden in '%1'"
+
+#: generator.cpp:160
+msgid "Copying theme"
+msgstr "Thema kopiëren"
+
+#: generator.cpp:174
+msgid "Could not copy theme"
+msgstr "Kon thema niet kopiëren"
+
+#: generator.cpp:200
+#, kde-format
+msgid "Downloading remote files for \"%1\""
+msgstr "Downloaden van bestanden in het netwerk voor \"%1\""
+
+#: generator.cpp:218
+msgid "Could not open temporary file"
+msgstr "Kan een tijdelijk bestand niet openen"
+
+#: generator.cpp:229
+#, kde-format
+msgid "Could not download %1"
+msgstr "Kan %1 niet downloaden"
+
+#: generator.cpp:249
+msgid "Could not create gallery.xml"
+msgstr "Kon gallery.xml niet aanmaken"
+
+#: generator.cpp:293
+#, kde-format
+msgid "Generating files for \"%1\""
+msgstr "Bestanden genereren voor \"%1\""
+
+#: generator.cpp:328
+msgid "Previous"
+msgstr "Vorige"
+
+#: generator.cpp:329
+msgid "Next"
+msgstr "Volgende"
+
+#: generator.cpp:330
+msgid "Collection List"
+msgstr "Collectielijst"
+
+#: generator.cpp:331
+msgid "Original Image"
+msgstr "Oorspronkelijke afbeelding"
+
+#: generator.cpp:332
+msgid "Go Up"
+msgstr "Ga omhoog"
+
+#: generator.cpp:334
+msgid "Make"
+msgstr "Merk"
+
+#: generator.cpp:335
+msgid "Model"
+msgstr "Model"
+
+#: generator.cpp:336
+msgid "Image Orientation"
+msgstr "Oriëntatie van de afbeelding"
+
+#: generator.cpp:337
+msgid "Image X Resolution"
+msgstr "X-resolutie van afbeelding"
+
+#: generator.cpp:338
+msgid "Image Y Resolution"
+msgstr "Y-resolutie van afbeelding"
+
+#: generator.cpp:339
+msgid "Image Resolution Unit"
+msgstr "Eenheid voor afbeeldingsresolutie"
+
+#: generator.cpp:340
+msgid "Image Date Time"
+msgstr "Datum en tijd van afbeelding"
+
+#: generator.cpp:341
+msgid "YCBCR Positioning"
+msgstr "YCBCR-positionering"
+
+#: generator.cpp:342
+msgid "Exposure Time"
+msgstr "Belichtingstijd"
+
+#: generator.cpp:343
+msgid "F Number"
+msgstr "F-getal"
+
+#: generator.cpp:344
+msgid "Exposure Index"
+msgstr "Belichting-index"
+
+#: generator.cpp:345
+msgid "ISO Speed Ratings"
+msgstr "ISO-snelheid"
+
+#: generator.cpp:346
+msgid "Shutter Speed Value"
+msgstr "Sluitersnelheid"
+
+#: generator.cpp:347
+msgid "Aperture Value"
+msgstr "Diafragmawaarde"
+
+#: generator.cpp:348
+msgid "Focal Length"
+msgstr "Brandpuntsafstand"
+
+#: generator.cpp:349
+msgid "GPS Altitude"
+msgstr "GPS-hoogte"
+
+#: generator.cpp:350
+msgid "GPS Latitude"
+msgstr "GPS-breedtegraad"
+
+#: generator.cpp:351
+msgid "GPS Longitude"
+msgstr "GPS-lengtegraad"
+
+#: generator.cpp:380
+msgid "Generating HTML files"
+msgstr "HTML-bestanden genereren"
+
+#: generator.cpp:387
+#, kde-format
+msgid "Could not load XSL file '%1'"
+msgstr "Kon XSL-bestand '%1' niet laden"
+
+#: generator.cpp:394
+#, kde-format
+msgid "Could not load XML file '%1'"
+msgstr "Kon XML-bestand '%1' niet laden"
+
+#: generator.cpp:428
+msgid "Error processing XML file"
+msgstr "Fout bij het verwerken van het XML-bestand"
+
+#: generator.cpp:436 generator.cpp:443
+#, kde-format
+msgid "Could not open '%1' for writing"
+msgstr "Kon '%1' niet openen om te schrijven"
+
+#: generator.cpp:463
+#, kde-format
+msgid "Could not create folder '%1' in '%2'"
+msgstr "Kon map '%1' niet aanmaken in '%2'"
+
+#: imagegenerationfunctor.cpp:98
+#, kde-format
+msgid "Could not read image '%1'"
+msgstr "Kon afbeelding '%1' niet lezen"
+
+#: imagegenerationfunctor.cpp:111
+#, kde-format
+msgid "Error loading RAW image '%1'"
+msgstr "Fout bij het laden van RAW-afbeelding '%1'"
+
+#: imagegenerationfunctor.cpp:120
+#, kde-format
+msgid "Format of image '%1' is unknown"
+msgstr "Formaat van afbeelding '%1' is onbekend"
+
+#: imagegenerationfunctor.cpp:130
+#, kde-format
+msgid "Error loading image '%1'"
+msgstr "Fout bij het laden van afbeelding '%1'"
+
+#: imagegenerationfunctor.cpp:175
+#, kde-format
+msgid "Could not save image '%1' to '%2'"
+msgstr "Kon afbeelding '%1' niet opslaan naar '%2'"
+
+#: imagegenerationfunctor.cpp:199
+#, kde-format
+msgid "Could not save thumbnail for image '%1' to '%2'"
+msgstr "Kon miniatuur van '%1' niet opslaan naar '%2'"
+
+#: imagegenerationfunctor.cpp:208
+msgid "unavailable"
+msgstr "niet beschikbaar"
+
+#: imagegenerationfunctor.cpp:397
+#, kde-format
+msgid "Could not open file '%1' for writing"
+msgstr "Kon bestand '%1' niet openen om te schrijven"
+
+#: imagegenerationfunctor.cpp:402
+#, kde-format
+msgid "Could not save image to file '%1'"
+msgstr "Kon afbeelding niet opslaan naar bestand '%1'"
+
+#. i18n: ectx: property (text), widget (QLabel, label)
+#: imagesettingspage.ui:22
+msgid "Full Image"
+msgstr "Volledige afbeelding"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mSaveImageButton)
+#: imagesettingspage.ui:29
+msgid "Save image"
+msgstr "Afbeelding opslaan"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2_2)
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2_2)
+#: imagesettingspage.ui:39 imagesettingspage.ui:232
+msgid "Format:"
+msgstr "Formaat:"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_fullFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_thumbnailFormat)
+#: imagesettingspage.ui:56 imagesettingspage.ui:249
+msgid "JPEG"
+msgstr "JPEG"
+
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_fullFormat)
+#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_thumbnailFormat)
+#: imagesettingspage.ui:61 imagesettingspage.ui:254
+msgid "PNG"
+msgstr "PNG"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel4)
+#. i18n: ectx: property (text), widget (QLabel, textLabel4_2)
+#: imagesettingspage.ui:85 imagesettingspage.ui:278
+msgid "Quality:"
+msgstr "Kwaliteit:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_fullResize)
+#: imagesettingspage.ui:130
+msgid "Max size:"
+msgstr "Max. grootte:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_copyOriginalImage)
+#: imagesettingspage.ui:171
+msgid "Include full-size original images for download"
+msgstr "Afbeeldingen op volledige grootte toevoegen voor download"
+
+#. i18n: ectx: property (text), widget (QRadioButton, mUseOriginalImageButton)
+#: imagesettingspage.ui:196
+msgid "Use original image"
+msgstr "Originele afbeelding gebruiken"
+
+#. i18n: ectx: property (text), widget (QLabel, label_2)
+#: imagesettingspage.ui:225
+msgid "Thumbnail"
+msgstr "Miniatuur"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel2_2)
+#: imagesettingspage.ui:314
+msgid "Size:"
+msgstr "Grootte:"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_thumbnailSquare)
+#: imagesettingspage.ui:346
+msgid "Square thumbnails"
+msgstr "Vierkante miniaturen"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_htmlexportui.rc:6
+msgid "&Export"
+msgstr "&Exporteren"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_htmlexportui.rc:12
+msgid "Main Toolbar"
+msgstr "Hoofdwerkbalk"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: outputpage.ui:21
+msgid "Destination folder:"
+msgstr "Doelmap"
+
+#. i18n: ectx: property (text), widget (QCheckBox, kcfg_openInBrowser)
+#: outputpage.ui:39
+msgid "Open in browser"
+msgstr "In browser openen"
+
+#: plugin_htmlexport.cpp:104
+msgid "Export to &HTML..."
+msgstr "Naar &HTML exporteren..."
+
+#: plugin_htmlexport.cpp:134
+msgid "Generating gallery..."
+msgstr "Gallerij aanmaken..."
+
+#: plugin_htmlexport.cpp:146
+msgid "Finished, but some warnings occurred."
+msgstr "Voltooid, maar enkele waarschuwingen traden op"
+
+#. i18n: ectx: property (text), widget (QLabel, textLabel1)
+#: themeparameterspage.ui:22
+msgid ""
+"In this page, you can change some theme parameters. Depending on the theme, "
+"different parameters are available."
+msgstr ""
+"Op deze pagina kunt u enkele themaparameters aanpassen. Afhankelijk van het "
+"thema zijn verschillende parameters beschikbaar."
+
+#: wizard.cpp:194
+#, kde-format
+msgctxt "'%1' is a label for a theme parameter"
+msgid "%1:"
+msgstr "%1:"
+
+#: wizard.cpp:233
+msgid "Export image collections to HTML pages"
+msgstr "Exporteer een afbeeldingenverzameling naar HTML-pagina's"
+
+#: wizard.cpp:239
+msgid "HTML Export"
+msgstr "HTML Export"
+
+#: wizard.cpp:242
+msgid "A KIPI plugin to export image collections to HTML pages"
+msgstr ""
+"Een KIPI-plugin voor het exporteren van afbeeldingen naar HTML-pagina's"
+
+#: wizard.cpp:243
+msgid ""
+"(c) 2006-2009, Aurelien Gateau\n"
+"(c) 2010, Gianluca Urgese"
+msgstr ""
+"(c) 2006-2009, Aurelien Gateau\n"
+"(c) 2010, Gianluca Urgese"
+
+#: wizard.cpp:247
+msgid "Gianluca Urgese"
+msgstr "Gianluca Urgese"
+
+#: wizard.cpp:248
+msgid "Maintainer"
+msgstr "Onderhouder"
+
+#: wizard.cpp:252
+msgid "Aurelien Gateau"
+msgstr "Aurelien Gateau"
+
+#: wizard.cpp:253
+msgid "Former Author and Maintainer"
+msgstr "Voormalig auteur en onderhouder"
+
+#: wizard.cpp:262
+msgid "Collection Selection"
+msgstr "Collectie selecteren"
+
+#: wizard.cpp:268
+msgid "Theme"
+msgstr "Thema"
+
+#: wizard.cpp:274
+msgid "Theme Parameters"
+msgstr "Thema-parameters"
+
+#: wizard.cpp:275
+msgid "Image Settings"
+msgstr "Afbeeldinginstellingen"
+
+#: wizard.cpp:276
+msgid "Output"
+msgstr "Uitvoer"
+
+#: wizard.cpp:335
+#, kde-format
+msgid "Author: %1"
+msgstr "Auteur: %1"
+
+#~ msgid "Handbook"
+#~ msgstr "Handboek"
+
+# consistent met andere plugins
+#~ msgid "&HTML Gallery..."
+#~ msgstr "Exporteren naar &HTML-galerij..."
