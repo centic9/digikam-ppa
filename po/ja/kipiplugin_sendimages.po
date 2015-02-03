@@ -6,10 +6,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2008-12-17 22:14+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
-"Language-Team: Japanese <Kdeveloper@kde.gr.jp>\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -322,8 +322,10 @@ msgstr "大 (1024 ピクセル)"
 msgid "Very Big (1280 pixels)"
 msgstr "特大 (1280 ピクセル)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "巨大- 印刷用 (1600 ピクセル)"
 
 #: settingswidget.cpp:145
@@ -356,6 +358,10 @@ msgstr ""
 "p><p>%4: インターネット接続の回線速度が速く、行き先のメールボックスの容量に制"
 "限がない場合。</p><p>%5: 回線速度やメールボックス容量に一切制限がない場合。</"
 "p><p>%6: これは印刷用にのみ使用してください。</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "巨大- 印刷用 (1600 ピクセル)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

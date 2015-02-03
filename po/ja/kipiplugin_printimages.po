@@ -1,13 +1,14 @@
 # Translation of kipiplugin_printimages into Japanese.
-# Yukiko Bando <ybando@k6.dion.ne.jp>, 2009.
+# Yukiko Bando <ybando@k6.dion.ne.jp>, 2009, 2015.
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2009-02-15 22:19+0900\n"
-"Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
-"Language-Team: Japanese <Kdeveloper@kde.gr.jp>\n"
+"POT-Creation-Date: 2014-10-05 01:39+0000\n"
+"PO-Revision-Date: 2015-01-09 22:29-0800\n"
+"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
+"Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,6 +16,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -27,12 +29,12 @@ msgstr "ybando@k6.dion.ne.jp"
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_printimagesui.rc:7
 msgid "&Image"
-msgstr ""
+msgstr "画像(&I)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_printimagesui.rc:14
 msgid "Main Toolbar"
-msgstr ""
+msgstr "メインツールバー"
 
 #: plugin/plugin_printimages.cpp:110 plugin/plugin_printimages.cpp:142
 msgid "Print images"
@@ -47,15 +49,11 @@ msgid "Please select one or more photos to print."
 msgstr "印刷する写真を最低 1 つ選んでください。"
 
 #: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
 msgid "Print assistant"
 msgstr "印刷ウィザード"
 
 #: tools/utils.cpp:73
-#, fuzzy
-#| msgid ""
-#| "Unable to create a temporary folder; please make sure you have proper "
-#| "permissions to this folder and try again."
 msgid ""
 "Unable to create a temporary folder. Please make sure you have proper "
 "permissions to this folder and try again."
@@ -65,47 +63,35 @@ msgstr ""
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_disableCrop)
 #: ui/croppage.ui:19
-#, fuzzy
-#| msgid "Don't crop photos, just scale them"
 msgid "Do not crop photos, just scale them."
 msgstr "写真を切り取らずに縮小します"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_disableCrop)
 #: ui/croppage.ui:22
-#, fuzzy
-#| msgid "Don't crop"
 msgid "Do not crop"
 msgstr "切り取らない"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateLeft)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateLeft)
 #: ui/croppage.ui:42 ui/croppage.ui:45
-#, fuzzy
-#| msgid "Rotate photo"
 msgid "Rotate photo to the left"
-msgstr "写真を回転します"
+msgstr "写真を左に回転します"
 
 #. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateLeft)
 #: ui/croppage.ui:48
-#, fuzzy
-#| msgid "&Rotate"
 msgid "&Rotate left"
-msgstr "回転(&R)"
+msgstr "左に回転(&R)"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropRotateRight)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropRotateRight)
 #: ui/croppage.ui:55 ui/croppage.ui:58
-#, fuzzy
-#| msgid "Rotate photo"
 msgid "Rotate photo to the right"
-msgstr "写真を回転します"
+msgstr "写真を右に回転します"
 
 #. i18n: ectx: property (text), widget (QPushButton, BtnCropRotateRight)
 #: ui/croppage.ui:61
-#, fuzzy
-#| msgid "Rotate photo"
 msgid "&Rotate right"
-msgstr "写真を回転します"
+msgstr "右に回転(&R)"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageDown)
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
@@ -167,7 +153,7 @@ msgstr ""
 #. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
 #: ui/croppage.ui:170
 msgid "Ctrl+S"
-msgstr ""
+msgstr "Ctrl+S"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
 #: ui/customlayout.ui:26 wizard/wizard.cpp:691
@@ -176,10 +162,8 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, m_photoGridCheck)
 #: ui/customlayout.ui:48
-#, fuzzy
-#| msgid "Photos:"
 msgid "Photo grid"
-msgstr "写真の数:"
+msgstr "フォトグリッド"
 
 #. i18n: ectx: property (text), widget (QRadioButton, m_fitAsManyCheck)
 #: ui/customlayout.ui:73
@@ -188,10 +172,8 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QRadioButton, m_photosXPageCheck)
 #: ui/customlayout.ui:95
-#, fuzzy
-#| msgid "Photos:"
 msgid "Photos per page"
-msgstr "写真の数:"
+msgstr "ページごとの写真の数"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/customlayout.ui:122
@@ -207,10 +189,8 @@ msgstr "コメント"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/customlayout.ui:227
-#, fuzzy
-#| msgid "Photos:"
 msgid "Photo size"
-msgstr "写真の数:"
+msgstr "写真のサイズ"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/customlayout.ui:267 ui/printoptionspage.ui:439
@@ -218,27 +198,25 @@ msgid "x"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
 msgid "cm"
-msgstr ""
+msgstr "cm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
 #: ui/customlayout.ui:314
 msgid "mm"
-msgstr ""
+msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
 msgid "inches"
-msgstr ""
+msgstr "インチ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_autorotate)
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintAutoRotate)
 #: ui/customlayout.ui:433 ui/printoptionspage.ui:73
-#, fuzzy
-#| msgid "Rotate photo"
 msgid "Auto rotate"
-msgstr "写真を回転します"
+msgstr "自動回転"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_doneButton)
 #: ui/customlayout.ui:453
@@ -270,26 +248,26 @@ msgid "Empty slots:"
 msgstr "空のスロット数:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
 msgid "Print to PDF"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+#: ui/photopage.ui:190 wizard/wizard.cpp:1759
 #, fuzzy
 #| msgid "Print order"
 msgid "Print to PS"
 msgstr "印刷順序"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
-#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
+#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
 msgid "Print to JPG"
 msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
-#: wizard/wizard.cpp:2506
+#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
+#: wizard/wizard.cpp:2511
 #, fuzzy
 #| msgid "Print images"
 msgid "Print to gimp"
@@ -325,13 +303,11 @@ msgstr ">"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/photopage.ui:441
-#, fuzzy
-#| msgid "No captions"
 msgid "Captions:"
-msgstr "キャプションなし"
+msgstr "キャプション:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+#: ui/photopage.ui:452 wizard/wizard.cpp:1854
 msgid "No captions"
 msgstr "キャプションなし"
 
@@ -351,30 +327,19 @@ msgid "Comments"
 msgstr "コメント"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+#: ui/photopage.ui:472 wizard/wizard.cpp:1860
 msgid "Free"
 msgstr "カスタム"
 
 #. i18n: ectx: property (text), widget (QLabel, m_free_label)
 #: ui/photopage.ui:506
-#, fuzzy, no-c-format
-#| msgid ""
-#| "%f  filename    %t exposure time\n"
-#| "%c comment  %i iso\n"
-#| "%d date-time  %r resolution\n"
-#| "%a aperture    %l focal length\n"
-#| "\n"
-#| "\\n newline"
+#, no-c-format
 msgid ""
 "%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
 "resolution, %a aperture, %l focal length, \\n newline"
 msgstr ""
-"%f ファイル名  %t 露出時間\n"
-"%c コメント  %i ISO\n"
-"%d 日付と時間  %r 解像度\n"
-"%a 絞り  %l 焦点距離\n"
-"\n"
-"\\n 改行"
+"%f ファイル名、%t 露出時間、%c コメント、%i ISO、%d 日付と時間、%r 解像"
+"度、%a 絞り、%l 焦点距離、\\n 改行"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
 #: ui/photopage.ui:537
@@ -395,7 +360,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/photopage.ui:577
 msgid "Color:"
-msgstr ""
+msgstr "色:"
 
 #. i18n: ectx: property (text), widget (KColorButton, m_font_color)
 #: ui/photopage.ui:587
@@ -404,24 +369,18 @@ msgstr "プッシュボタン"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/photopage.ui:604
-#, fuzzy
-#| msgid "Size"
 msgid "Size:"
-msgstr "サイズ"
+msgstr "サイズ:"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, PrintOptionsPage)
 #: ui/printoptionspage.ui:14
-#, fuzzy
-#| msgid "Page settings"
 msgid "Image Settings"
-msgstr "ページの設定"
+msgstr "画像の設定"
 
 #. i18n: ectx: property (title), widget (QGroupBox, mGroupImage)
 #: ui/printoptionspage.ui:83
-#, fuzzy
-#| msgid "Image Captions"
 msgid "Position"
-msgstr "画像のキャプション"
+msgstr "位置"
 
 #. i18n: ectx: property (title), widget (QGroupBox, mGroupScaling)
 #: ui/printoptionspage.ui:108
@@ -456,27 +415,27 @@ msgstr ""
 #: ui/printoptionspage.ui:219
 msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
 msgid "x"
-msgstr ""
+msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:246
 msgid "Millimeters"
-msgstr ""
+msgstr "ミリメートル"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:251
 msgid "Centimeters"
-msgstr ""
+msgstr "センチメートル"
 
 #. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:256
 msgid "Inches"
-msgstr ""
+msgstr "インチ"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintKeepRatio)
 #: ui/printoptionspage.ui:300
 msgid "Keep ratio"
-msgstr ""
+msgstr "比率を維持"
 
 #. i18n: ectx: property (toolTip), widget (QPushButton, mSaveSettings)
 #: ui/printoptionspage.ui:345
@@ -485,10 +444,8 @@ msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/printoptionspage.ui:366
-#, fuzzy
-#| msgid "Photos:"
 msgid "Photos per page:"
-msgstr "写真の数:"
+msgstr "ページごとの写真の数:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/printoptionspage.ui:376
@@ -520,20 +477,16 @@ msgid "Choose to have a custom photo size album"
 msgstr ""
 
 #: wizard/customdlg.cpp:55
-#, fuzzy
-#| msgid "Photos:"
 msgid "Photo height"
-msgstr "写真の数:"
+msgstr "写真の高さ"
 
 #: wizard/customdlg.cpp:56
 msgid "Insert photo height"
 msgstr ""
 
 #: wizard/customdlg.cpp:57
-#, fuzzy
-#| msgid "Photos:"
 msgid "Photo width"
-msgstr "写真の数:"
+msgstr "写真の幅"
 
 #: wizard/customdlg.cpp:58
 msgid "Insert photo width"
@@ -566,23 +519,19 @@ msgstr "前の写真"
 
 #: wizard/wizard.cpp:116
 msgid "Custom"
-msgstr ""
+msgstr "カスタム"
 
 #: wizard/wizard.cpp:163
 msgid "A KIPI plugin to print images"
 msgstr "Kipi 画像印刷プラグイン"
 
 #: wizard/wizard.cpp:164
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2004, Todd Shoemaker\n"
-#| "(c) 2007-2008, Angelo Naselli"
 msgid ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
 msgstr ""
 "(c) 2003-2004, Todd Shoemaker\n"
-"(c) 2007-2008, Angelo Naselli"
+"(c) 2007-2013, Angelo Naselli"
 
 #: wizard/wizard.cpp:167
 msgid "Todd Shoemaker"
@@ -602,7 +551,7 @@ msgstr "開発者およびメンテナ"
 
 #: wizard/wizard.cpp:173
 msgid "Andreas Trink"
-msgstr ""
+msgstr "Andreas Trink"
 
 #: wizard/wizard.cpp:173
 msgid "Contributor"
@@ -630,31 +579,21 @@ msgstr ""
 msgid "Remove"
 msgstr ""
 
-#: wizard/wizard.cpp:2363
-#, fuzzy
-#| msgid ""
-#| "The following file will be overwritten. Do you want to overwrite this "
-#| "file?"
+#: wizard/wizard.cpp:2368
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "以下のファイルが上書きされます。よろしいですか？"
 
-#: wizard/wizard.cpp:2384
+#: wizard/wizard.cpp:2389
 msgid "Could not save file, please check your output entry."
 msgstr ""
 
-#: wizard/wizard.cpp:2408
-#, fuzzy
-#| msgid "Could not remove the Gimp's temporary files."
+#: wizard/wizard.cpp:2413
 msgid "Could not remove the GIMP's temporary files."
 msgstr "GIMP の一時ファイルを削除できませんでした。"
 
-#: wizard/wizard.cpp:2529
-#, fuzzy
-#| msgid ""
-#| "There was an error launching the Gimp. Please make sure it is properly "
-#| "installed."
+#: wizard/wizard.cpp:2534
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
@@ -662,10 +601,10 @@ msgstr ""
 "GIMP を起動する際にエラーが発生しました。正しくインストールされているか確認し"
 "てください。"
 
-#: wizard/wizard.cpp:2530
+#: wizard/wizard.cpp:2535
 msgid "KIPI"
 msgstr "KIPI"
 
-#: wizard/wizard.cpp:2543
+#: wizard/wizard.cpp:2548
 msgid "Empty output path."
 msgstr ""

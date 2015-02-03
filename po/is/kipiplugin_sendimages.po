@@ -3,14 +3,14 @@
 # Copyright (C) 2008 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2011, 2012, 2013.
+# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2011, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-04-23 06:52+0000\n"
-"Last-Translator: Sveinn í Felli <sveinki@nett.is>\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
+"PO-Revision-Date: 2015-01-29 09:07+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
@@ -26,7 +26,7 @@ msgstr "Sveinn í Felli"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sveinki@nett.is"
+msgstr "sv1@fellsnet.is"
 
 #: imageresize.cpp:109
 msgid "Error opening input file"
@@ -282,8 +282,10 @@ msgstr "Stór (800 dílar)"
 msgid "Very Big (1280 pixels)"
 msgstr "Mjög stór (1280 dílar)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Risa - fyrir prentun (1600 dílar)"
 
 #: settingswidget.cpp:145
@@ -309,6 +311,10 @@ msgstr ""
 "móttakandinn er með ótakmarkaða stærð af pósthólfi.</p><p><b>%5</b>: notaðu "
 "þetta ef engar hömlur eru á hraða eða stærð pósthólfs.</p><p><b>%6</b>: "
 "notaðu þetta eingöngu til að senda myndir í prentun.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Risa - fyrir prentun (1600 dílar)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

@@ -3,6 +3,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 # Mikael Lammentausta <mikael.lammentausta+kdetrans@gmail.com>, 2009.
 # Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014.
+# Tommi Nieminen <translator@legisign.org>, 2014.
 #
 # KDE Finnish translation sprint participants:
 # Author: Artnay
@@ -12,10 +13,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2014-04-08 00:14+0300\n"
-"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
-"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"POT-Creation-Date: 2014-10-05 01:39+0000\n"
+"PO-Revision-Date: 2014-10-29 11:56+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -55,7 +56,7 @@ msgid "Please select one or more photos to print."
 msgstr "Valitse yksi tai useampi kuva tulostettavaksi."
 
 #: plugin/plugin_printimages.cpp:163 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2477
+#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
 msgid "Print assistant"
 msgstr "Ohjattu tulostus"
 
@@ -194,7 +195,7 @@ msgid "x"
 msgstr "×"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
 msgid "cm"
 msgstr "cm"
 
@@ -204,7 +205,7 @@ msgid "mm"
 msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1994
+#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
 msgid "inches"
 msgstr "tuumaa"
 
@@ -242,24 +243,24 @@ msgid "Empty slots:"
 msgstr "Tyhjiä paikkoja:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1745 wizard/wizard.cpp:2233
+#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
 msgid "Print to PDF"
 msgstr "Tulosta PDF-tiedostoon"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1754
+#: ui/photopage.ui:190 wizard/wizard.cpp:1759
 msgid "Print to PS"
 msgstr "Tulosta PS-tiedostoon"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1746 wizard/wizard.cpp:2191
-#: wizard/wizard.cpp:2261 wizard/wizard.cpp:2461 wizard/wizard.cpp:2534
+#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
+#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
 msgid "Print to JPG"
 msgstr "Tulosta jpg-kuvaksi"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1747 wizard/wizard.cpp:2462
-#: wizard/wizard.cpp:2506
+#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
+#: wizard/wizard.cpp:2511
 msgid "Print to gimp"
 msgstr "Vie kuvankäsittelyohjelmaan"
 
@@ -297,7 +298,7 @@ msgid "Captions:"
 msgstr "Kuvatekstit:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1849
+#: ui/photopage.ui:452 wizard/wizard.cpp:1854
 msgid "No captions"
 msgstr "Ei kuvatekstejä"
 
@@ -317,7 +318,7 @@ msgid "Comments"
 msgstr "Kommentit"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1855
+#: ui/photopage.ui:472 wizard/wizard.cpp:1860
 msgid "Free"
 msgstr "Oma kuvateksti"
 
@@ -355,7 +356,7 @@ msgstr "Väri:"
 #. i18n: ectx: property (text), widget (KColorButton, m_font_color)
 #: ui/photopage.ui:587
 msgid "PushButton"
-msgstr "PushButton"
+msgstr "Painike"
 
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
 #: ui/photopage.ui:604
@@ -561,33 +562,33 @@ msgstr "Lisää uudelleen"
 msgid "Remove"
 msgstr "Poista"
 
-#: wizard/wizard.cpp:2363
+#: wizard/wizard.cpp:2368
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
-msgstr "Päivitetäänkö tämä tiedosto?"
+msgstr "Seuraava tiedosto tullaan korvaamaan. Haluatko varmasti korvata sen?"
 
-#: wizard/wizard.cpp:2384
+#: wizard/wizard.cpp:2389
 msgid "Could not save file, please check your output entry."
-msgstr "Tiedoston tallennus epäonnistui, tarkista tallennuskansio."
+msgstr "Tiedoston tallennus epäonnistui: tarkista tallennuskansio."
 
-#: wizard/wizard.cpp:2408
+#: wizard/wizard.cpp:2413
 msgid "Could not remove the GIMP's temporary files."
 msgstr "Kuvankäsittelyohjelman tilapäistiedostojen poisto epäonnistui."
 
-#: wizard/wizard.cpp:2529
+#: wizard/wizard.cpp:2534
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
 msgstr ""
-"Virhe käynnistettäessä kuvankäsittelyohjelmaa. Tarkista että Gimp on "
+"Virhe käynnistettäessä kuvankäsittelyohjelmaa. Tarkista, että Gimp on "
 "asennettu."
 
-#: wizard/wizard.cpp:2530
+#: wizard/wizard.cpp:2535
 msgid "KIPI"
 msgstr "Kipi"
 
-#: wizard/wizard.cpp:2543
+#: wizard/wizard.cpp:2548
 msgid "Empty output path."
 msgstr "Määrittämätön tallennuskansio."
 

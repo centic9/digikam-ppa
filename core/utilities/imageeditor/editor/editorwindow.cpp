@@ -58,11 +58,13 @@
 // KDE includes
 
 #include <kdeversion.h>
-#include <kaboutdata.h>
-#include <kaction.h>
+
 #if KDE_IS_VERSION(4,1,68)
 #include <kactioncategory.h>
 #endif
+
+#include <kaboutdata.h>
+#include <kaction.h>
 #include <kactioncollection.h>
 #include <kapplication.h>
 #include <kconfig.h>
@@ -115,6 +117,7 @@
 
 // Local includes
 
+#include "config-digikam.h"
 #include "applicationsettings.h"
 #include "actioncategorizedview.h"
 #include "buttonicondisabler.h"
@@ -166,7 +169,8 @@ namespace Digikam
 const QString EditorWindow::CONFIG_GROUP_NAME = "ImageViewer Settings";
 
 EditorWindow::EditorWindow(const char* const name)
-    : DXmlGuiWindow(0), d(new Private)
+    : DXmlGuiWindow(0),
+      d(new Private)
 {
     setObjectName(name);
     setWindowFlags(Qt::Window);
@@ -174,6 +178,8 @@ EditorWindow::EditorWindow(const char* const name)
 
     m_nonDestructive           = true;
     m_contextMenu              = 0;
+    m_servicesMenu             = 0;
+    m_serviceAction            = 0;
     m_canvas                   = 0;
     m_imagePluginLoader        = 0;
     m_openVersionAction        = 0;
@@ -311,6 +317,9 @@ void EditorWindow::setupStandardConnections()
     connect(m_canvas, SIGNAL(signalSelectionChanged(QRect)),
             this, SLOT(slotSelectionChanged(QRect)));
 
+    connect(m_canvas, SIGNAL(signalSelectionSetText(QRect)),
+            this, SLOT(slotSelectionSetText(QRect)));
+
     connect(m_canvas->interface(), SIGNAL(signalFileOriginChanged(QString)),
             this, SLOT(slotFileOriginChanged(QString)));
 
@@ -386,8 +395,9 @@ void EditorWindow::setupStandardActions()
     d->plugNewVersionInFormatAction(this, m_saveNewVersionInFormatAction, i18nc("@action:inmenu", "TIFF"),      "TIFF");
     d->plugNewVersionInFormatAction(this, m_saveNewVersionInFormatAction, i18nc("@action:inmenu", "PNG"),       "PNG");
     d->plugNewVersionInFormatAction(this, m_saveNewVersionInFormatAction, i18nc("@action:inmenu", "PGF"),       "PGF");
+#ifdef HAVE_JASPER
     d->plugNewVersionInFormatAction(this, m_saveNewVersionInFormatAction, i18nc("@action:inmenu", "JPEG 2000"), "JP2");
-
+#endif // HAVE_JASPER
     m_saveNewVersionAction->menu()->addAction(m_saveNewVersionAsAction);
     m_saveNewVersionAction->menu()->addAction(m_saveNewVersionInFormatAction);
 
@@ -633,14 +643,16 @@ void EditorWindow::setupStandardActions()
     connect(ThemeManager::instance(), SIGNAL(signalThemeChanged()),
             this, SLOT(slotThemeChanged()));
 
-    // -- Keyboard-only actions added to <MainWindow> ------------------------------
+    // -- Keyboard-only actions --------------------------------------------------------
 
     KAction* altBackwardAction = new KAction(i18n("Previous Image"), this);
     actionCollection()->addAction("editorwindow_backward_shift_space", altBackwardAction);
     altBackwardAction->setShortcut(KShortcut(Qt::SHIFT + Qt::Key_Space));
     connect(altBackwardAction, SIGNAL(triggered()), this, SLOT(slotBackward()));
 
-    // -- Tool control actions ------------------------------
+    d->addPageUpDownActions(this, this);
+
+    // -- Tool control actions ---------------------------------------------------------
 
     m_selectToolsAction = new KActionMenu(KIcon("applications-graphics"),
                                           i18nc("@action Select image editor tool/filter", "Select Tool"), this);
@@ -1612,7 +1624,7 @@ void EditorWindow::slotSelected(bool val)
     // Update status bar
     if (val)
     {
-        setToolInfoMessage(QString("(%1, %2) (%3 x %4)").arg(sel.x()).arg(sel.y()).arg(sel.width()).arg(sel.height()));
+        slotSelectionSetText(sel);
     }
     else
     {
@@ -2089,10 +2101,13 @@ QStringList EditorWindow::getWritingFilters()
     kDebug() << "KImageIO offered pattern: " << writablePattern;
 
     // append custom file types
+
+#ifdef HAVE_JASPER
     if (!pattern.contains("*.jp2"))
     {
         writablePattern.append(QString("*.jp2|") + i18n("JPEG 2000 image"));
     }
+#endif // HAVE_JASPER
 
     if (!pattern.contains("*.pgf"))
     {
@@ -2176,10 +2191,11 @@ QString EditorWindow::selectValidSavingFormat(const QString& filter,
     validTypes << "JPG";
     validTypes << "JPEG";
     validTypes << "JPE";
+    validTypes << "PGF";
+#ifdef HAVE_JASPER
     validTypes << "J2K";
     validTypes << "JP2";
-    validTypes << "PGF";
-
+#endif // HAVE_JASPER
     kDebug() << "Writable formats: " << validTypes;
 
     // if the auto filter is used, use the format provided in the filename
@@ -2693,6 +2709,7 @@ void EditorWindow::slotUpdateSoftProofingState()
 {
     bool on = d->viewSoftProofAction->isChecked();
     m_canvas->setSoftProofingEnabled(on);
+    d->toolIface->updateICCSettings();
 }
 
 void EditorWindow::slotSetUnderExposureIndicator(bool on)
@@ -2733,6 +2750,12 @@ void EditorWindow::slotToggleSlideShow()
 }
 
 void EditorWindow::slotSelectionChanged(const QRect& sel)
+{
+    slotSelectionSetText(sel);
+    emit signalSelectionChanged(sel);
+}
+
+void EditorWindow::slotSelectionSetText(const QRect& sel)
 {
     setToolInfoMessage(QString("(%1, %2) (%3 x %4)").arg(sel.x()).arg(sel.y()).arg(sel.width()).arg(sel.height()));
 }
@@ -2955,37 +2978,48 @@ void EditorWindow::addServicesMenuForUrl(const KUrl& url)
 
     kDebug() << offers.count() << " services found to open " << url;
 
+    if (m_servicesMenu)
+    {
+        delete m_servicesMenu;
+        m_servicesMenu = 0;
+    }
+
+    if (m_serviceAction)
+    {
+        delete m_serviceAction;
+        m_serviceAction = 0;
+    }
+
     if (!offers.isEmpty())
     {
-        KMenu* const servicesMenu = new KMenu(this);
-        qDeleteAll(servicesMenu->actions());
+        m_servicesMenu = new KMenu(this);
 
-        QAction* const serviceAction = servicesMenu->menuAction();
+        QAction* const serviceAction = m_servicesMenu->menuAction();
         serviceAction->setText(i18n("Open With"));
 
         foreach(const KService::Ptr& service, offers)
         {
             QString name          = service->name().replace('&', "&&");
-            QAction* const action = servicesMenu->addAction(name);
+            QAction* const action = m_servicesMenu->addAction(name);
             action->setIcon(KIcon(service->icon()));
             action->setData(service->name());
             d->servicesMap[name]  = service;
         }
 
-        servicesMenu->addSeparator();
-        servicesMenu->addAction(i18n("Other..."));
+        m_servicesMenu->addSeparator();
+        m_servicesMenu->addAction(i18n("Other..."));
 
         m_contextMenu->addAction(serviceAction);
 
-        connect(servicesMenu, SIGNAL(triggered(QAction*)),
+        connect(m_servicesMenu, SIGNAL(triggered(QAction*)),
                 this, SLOT(slotOpenWith(QAction*)));
     }
     else
     {
-        QAction* const serviceAction = new QAction(i18n("Open With..."), this);
-        m_contextMenu->addAction(serviceAction);
+        m_serviceAction = new QAction(i18n("Open With..."), this);
+        m_contextMenu->addAction(m_serviceAction);
 
-        connect(serviceAction, SIGNAL(triggered()),
+        connect(m_serviceAction, SIGNAL(triggered()),
                 this, SLOT(slotOpenWith()));
     }
 }

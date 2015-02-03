@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-libs\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2014-03-24 01:09+0900\n"
 "Last-Translator: Park Shinjo <peremen@gmail.com>\n"
 "Language-Team: Korean <kde@peremen.name>\n"
@@ -278,8 +278,10 @@ msgstr "크게 (1024 픽셀)"
 msgid "Very Big (1280 pixels)"
 msgstr "아주 크게 (1280 픽셀)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "매우 크게 - 인쇄용 (1600 픽셀)"
 
 #: settingswidget.cpp:145
@@ -302,6 +304,10 @@ msgstr ""
 "p><p><b>%4</b>: 인터넷 연결 속도가 충분하고 대상 메일 서비스 공간 제한이 없"
 "을 때 사용하십시오.</p><p><b>%5</b>: 속도나 공간 제한이 없을 때 사용하십시오."
 "</p><p><b>%6</b>: 인쇄 목적으로 사용하십시오.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "매우 크게 - 인쇄용 (1600 픽셀)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

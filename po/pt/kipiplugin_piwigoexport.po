@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_piwigoexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-02-06 11:20+0000\n"
+"POT-Creation-Date: 2014-10-04 01:39+0000\n"
+"PO-Revision-Date: 2014-10-05 15:42+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -47,67 +47,64 @@ msgctxt "piwigo login settings"
 msgid "Password:"
 msgstr "Senha:"
 
-#: piwigotalker.cpp:275
+#: piwigotalker.cpp:283
 #, kde-format
 msgid "Check if %1 already exists"
 msgstr "Verificar se %1 já existe"
 
-#: piwigotalker.cpp:446
+#: piwigotalker.cpp:432
 msgid "Piwigo URL probably incorrect"
 msgstr "O URL do Piwigo é provavelmente incorrecto"
 
-#: piwigotalker.cpp:452
+#: piwigotalker.cpp:438
 msgid "Incorrect username or password specified"
 msgstr "Foi indicado um utilizador ou senha incorrectos"
 
-#: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
-#: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
-#: piwigotalker.cpp:1118 piwigotalker.cpp:1252
+#: piwigotalker.cpp:480 piwigotalker.cpp:661
+msgid "Upload to Piwigo version < 2.4 is no longer supported"
+msgstr "O envio para o Piwigo com uma versão < 2.4 não é mais suportado"
+
+#: piwigotalker.cpp:552 piwigotalker.cpp:637 piwigotalker.cpp:706
+#: piwigotalker.cpp:778
 msgid "Invalid response received from remote Piwigo"
 msgstr "Foi recebida uma resposta inválida do Piwigo remoto"
 
-#: piwigotalker.cpp:564
+#: piwigotalker.cpp:558
 msgid "Failed to list albums"
 msgstr "Não foi possível listar os álbuns"
 
-#: piwigotalker.cpp:611
+#: piwigotalker.cpp:607
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "A fotografia '%1' já existe."
 
-#: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
-#: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
+#: piwigotalker.cpp:643 piwigotalker.cpp:784 piwigotalker.cpp:938
 msgid "Failed to upload photo"
 msgstr "Não foi possível enviar a fotografia"
 
-#: piwigotalker.cpp:682
-#, kde-format
-msgid "Upload resized version of %1"
-msgstr "Enviar a versão dimensionada de %1"
-
-#: piwigotalker.cpp:736
+#: piwigotalker.cpp:712
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "A fotografia '%1' já existe neste álbum."
 
-#: piwigotalker.cpp:851 piwigotalker.cpp:1082
+#: piwigotalker.cpp:822
 #, kde-format
-msgid "Upload the chunk %1 of %2"
-msgstr "Enviar o bloco %1 de %2"
+msgid "Upload the chunk %1/%2 of %3"
+msgstr "Enviar o bloco %1/%2 de %3"
 
-#: piwigotalker.cpp:887 piwigotalker.cpp:1169
+#: piwigotalker.cpp:858
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "Atenção : Não é possível enviar a fotografia no tamanho original."
 
-#: piwigotalker.cpp:926 piwigotalker.cpp:1216
+#: piwigotalker.cpp:896
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "Enviar os meta-dados de %1"
 
-#: piwigotalker.cpp:1047
+#: piwigotalker.cpp:932
 #, kde-format
-msgid "Upload the thumbnail of %1"
-msgstr "Enviar a miniatura de %1"
+msgid "Invalid response received from remote Piwigo (%1)"
+msgstr "Foi recebida uma resposta inválida do Piwigo remoto (%1)"
 
 #: piwigowindow.cpp:135
 msgid "Albums"
@@ -133,79 +130,75 @@ msgstr "Largura máxima:"
 msgid "Maximum height:"
 msgstr "Altura máxima:"
 
-#: piwigowindow.cpp:168
-msgid "Maximum thumbnail dimension:"
-msgstr "Dimensão máxima das miniaturas:"
+#: piwigowindow.cpp:167
+msgid "Resized JPEG quality:"
+msgstr "Qualidade do JPEG dimensionado:"
 
-#: piwigowindow.cpp:173
-msgid "Thumbnail size is ignored with Piwigo > 2.4"
-msgstr "O tamanho da miniatura é ignorado com o Piwigo > 2.4"
-
-#: piwigowindow.cpp:235 piwigowindow.cpp:240
+#: piwigowindow.cpp:227 piwigowindow.cpp:232
 msgid "Piwigo Export"
 msgstr "Exportação para o Piwigo"
 
-#: piwigowindow.cpp:243
+#: piwigowindow.cpp:235
 msgid "A Kipi plugin to export image collections to a remote Piwigo server."
 msgstr ""
 "Um 'plugin' do Kipi para exportar as colecções de imagens para um servidor "
 "Piwigo remoto."
 
-#: piwigowindow.cpp:244
+#: piwigowindow.cpp:236
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 msgstr ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Renchi Raju"
 msgstr "Renchi Raju"
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Author"
 msgstr "Autoria"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Colin Guthrie"
 msgstr "Colin Guthrie"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Maintainer"
 msgstr "Manutenção"
 
-#: piwigowindow.cpp:256
+#: piwigowindow.cpp:248
 msgid "Andrea Diamantini"
 msgstr "Andrea Diamantini"
 
-#: piwigowindow.cpp:256 piwigowindow.cpp:259 piwigowindow.cpp:262
+#: piwigowindow.cpp:248 piwigowindow.cpp:251 piwigowindow.cpp:254
 msgid "Developer"
 msgstr "Desenvolvimento"
 
-#: piwigowindow.cpp:259
+#: piwigowindow.cpp:251
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: piwigowindow.cpp:262
+#: piwigowindow.cpp:254
 msgid "Frédéric Coiffier"
 msgstr "Frédéric Coiffier"
 
-#: piwigowindow.cpp:270
+#: piwigowindow.cpp:262
 msgid "Start Upload"
 msgstr "Iniciar o Envio"
 
-#: piwigowindow.cpp:404
+#: piwigowindow.cpp:397
 msgid "Failed to login into remote piwigo. "
 msgstr "Não foi possível autenticar-se no Piwigo remoto. "
 
-#: piwigowindow.cpp:406
+#: piwigowindow.cpp:399
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
@@ -213,33 +206,38 @@ msgstr ""
 "\n"
 "Deseja verificar a sua configuração e tentar de novo?"
 
-#: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
+#: piwigowindow.cpp:406 piwigowindow.cpp:648 plugin_piwigoexport.cpp:118
 msgid "Edit Piwigo Data"
 msgstr "Editar os Dados do Piwigo"
 
-#: piwigowindow.cpp:473 piwigowindow.cpp:497
+#: piwigowindow.cpp:466 piwigowindow.cpp:490
 msgid "Album"
 msgstr "Álbum"
 
-#: piwigowindow.cpp:516
+#: piwigowindow.cpp:509
 msgid "Image"
 msgstr "Imagem"
 
-#: piwigowindow.cpp:547
+#: piwigowindow.cpp:540
 msgid "Nothing to upload - please select photos to upload."
 msgstr ""
 "Não há nada para enviar - seleccione por favor as fotografias a enviar."
 
-#: piwigowindow.cpp:589
+#: piwigowindow.cpp:578
+#, kde-format
+msgid "The file %1 is not a supported image or video format"
+msgstr "O ficheiro %1 não é um formato de imagem ou de vídeo suportado"
+
+#: piwigowindow.cpp:582
 #, kde-format
 msgid "Uploading file %1"
 msgstr "A enviar o ficheiro %1"
 
-#: piwigowindow.cpp:608
-msgid "Failed to upload photo into remote piwigo. "
-msgstr "Não foi possível enviar a fotografia para o Piwigo remoto. "
+#: piwigowindow.cpp:601
+msgid "Failed to upload media into remote piwigo. "
+msgstr "Não foi possível enviar os conteúdos para o Piwigo remoto. "
 
-#: piwigowindow.cpp:611
+#: piwigowindow.cpp:604
 msgid ""
 "\n"
 "Do you want to continue?"

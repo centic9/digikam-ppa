@@ -641,16 +641,16 @@
 >. Alle jpeg's (of tiff's, als u een ouder model Minolta Dimage camera hebt) die regelrecht uit de camera komen beginnen hun leven als een raw-bestand dat geconverteerd werd door de inwendige analoog naar digitaal converter (omzetter.) Zelfs wanneer gemaakt door eenvoudige pocket-camera's. Als u uw beelden opslaat als jpeg's, dan interpoleert de processor in uw camera het raw-bestand, wijst een cameraprofiel toe, vertaalt de resulterende RGB waarden naar een werkruimte (gewoonlijk sRGB, maar soms kan u kiezen voor AdobeRGB), zorgt voor de jpeg-compressie en slaat de afbeelding op in de geheugenkaart van uw camera. Voor jpeg's (of tiff's) van uw camera is het niet nodig een profiel toe te wijzen dat dan vertaald wordt naar werkruimte via een PCS. Jpeg's van uw camera bevinden zich al in een kleurwerkruimte. </para>
           <para
 ><emphasis
->Useful mathematical information</emphasis
-> if you are dealing with dcraw's linear gamma output: Mathematically speaking, when doing a gamma transform you normalize (that is, divide by 256 if you are working with 8-bit values) the RGB numbers and raise the resulting numbers to an appropriate power depending on the respective gammas of the starting and ending color space, then renormalize the results to a new set of RGB numbers. It's not hard, and very instructive, to do this with a calculator for a few sets of RGB numbers spaced from (0,0,0) to (255,255,255) to see how RGB numbers change from one gamma encoding to another. LCMS does this for you when you ask LCMS to convert from one color space to another. However, if ALL you are doing is converting from one color space to the same color space except for a different gamma, use imagemagick instead of LCMS and just manipulate the RGB numbers directly, then assign the new working space to the image - the results will be more accurate than going through a color space transform.</para>
+>Handige wiskundige informatie</emphasis
+> als u te maken hebt met lineaire gamma-uitvoer van dcraw: wiskundig gezien, bij het doen van een gamma transformatie normaliseert u, (dat is, de RGB-nummers delen door 256 als u werkt met 8- bits waarden) en verhoogt u de verkregen getallen naar een passende waarde, afhankelijk van de respectievelijke gamma's van de eerste en laatste kleurruimte, daarna normalizeert u de resultaten opnieuw naar een nieuwe reeks van RGB getallen. Het is niet moeilijk en zeer leerzaam om dit te doen met een rekenmachine voor een paar afzonderlijke sets van RGB getallen van (0,0,0) tot (255,255,255) om te zien hoe RGB-getallen van de ene gamma-codering naar de andere veranderen. LCMS doet dit voor u wanneer u LCMS vraagt te converteren van de ene kleurruimte naar de andere. Als alles wat u doet is het converteren van één kleurruimte naar dezelfde kleurruimte behalve voor een andere gamma, gebruik dan imagemagick in plaats van LCMS en behandel de RGB-getallen direct, ken dan de nieuwe werkruimte toe aan de afbeelding - het resultaat zal beter zijn dan door een transformatie van de kleurruimte te gaan.</para>
           <para
 ><emphasis
->Copyrighted and copyleft working spaces</emphasis
->: I will take it as given that all the ordinarily encountered working spaces, such as: </para>
+>door Copyright beschermde en onbeschermde werkruimten</emphasis
+>: ik neem aan dat alle gewone werkruimten die men tegen kan komen zoals:  </para>
           <orderedlist>
               <listitem
 ><para
->the several variants of sRGB (see color.org) </para
+>de verschillende varianten van sRGB (zie color.org) </para
 ></listitem>
               <listitem
 ><para
@@ -662,91 +662,91 @@
 ></listitem>
               <listitem
 ><para
->AdobeRGB, Adobe WideGamutRGB, and Kodak/Adobe ProPhotoRGB (Kodak and Adobe ProPhoto are the same, just branded differently) and their non-branded, non-copyrighted counterparts (Oyranos includes a non-branded version of AdobeRGB) </para
+>AdobeRGB, AdobeWideGamutRGB, en Kodak/Adobe ProPhotoRGB (Kodak en Adobe ProPhoto zijn hetzelfde met een andere naam) en hun merkloze onbeschermde tegenhangers (Oyranos bevat een merkloze versie van AdobeRGB) </para
 ></listitem>
           </orderedlist>
           <para
->and quite a few other working spaces that could be added to this list, are all more or less suitable as working spaces. Which working space you should use depends only and solely on you, on your requirements as the editor of your digital images with your eventual output intentions (web, fine art print, etc). However, as a critical aside, if you are using Adobe or other copyrighted working space profiles, these profiles contain copyright information that shows up in your image exif information. Lately I've been perusing the openicc mailing lists. Apparently LCMS can be used to produce nonbranded, copyleft working space profiles that are just the same as - actually indistinguishable from - the branded, copyrighted working space profiles. It would be a wonderful addition to &digikam; if a set of "copyleft" working space profiles, including nonbranded, relabelled versions of ProPhotoRGB, AdobeRGB, and Adobe WidegamutRGB (perhaps in two flavors each: linear gamma and the usual gamma), could be bundled as part of the &digikam; package. </para>
+>en nog heel wat andere werkruimten die aan de lijst kunnen worden toegevoegd, zijn allen min of meer bruikbaar als werkruimte. Welke werkruimte u zou moeten gebruiken hangt alleen van u af. Van uw eisen als bewerker van digitale beelden met uw uiteindelijke gebruiksdoelen. (Internet, beeldkunst, afdrukken enz.) Echter als kritische aantekening, als u Adobe of andere beschermde werkruimteprofielen gebruikt. Deze profielen bevatten copyright informatie die zichtbaar wordt in de EXIF gegevens van uw afbeeldingen. Onlangs heb ik kennis genomen van de openicc mailing lijst. Blijkbaar kan LCMS worden gebruikt om merkloze, copyleft werkruimteprofielen aan te maken die gelijk zijn, in feite niet te onderscheiden van, de gemerkte en van copyright voorziene werkruimten profielen. Het zou een prachtige aanvulling op &digikam; zijn om een set "copyrightloze" werkruimteprofielen, inclusief merkloze, hernoemde versies van ProPhotoRGB, AdobeRGB, en Adobe WidegamutRGB (misschien elk in twee smaken, linear gamma en het gebruikelijke gamma), samen te pakken als onderdeel van het &digikam; pakket. </para>
      </sect2>
 
      <sect2 id="profile-connection"
 >  <title
->The Universal Translator: your camera profile, the Profile Connection Space, and LMCS</title>
+>De algemene omzetter: uw camera profiel, de profielverbindende kleurruimte en de LMCS (Littel Colour Management System).</title>
 
          <para
->So the question for each RGB trio of values in the (let us assume) 16-bit tiff produced by dcraw becomes, "What does a particular trio of RGB values for the pixels making up images produced by this particular (make and model) camera really mean in terms of some absolute standard referencing some ideal observer". This absolute standard referencing an ideal observer is more commonly called a <emphasis
->Profile Connection Space</emphasis
->. A camera profile is needed to accurately characterize or describe the response of a given camera's pixels to light entering that camera, so that the RGB values in the output file produced by the raw converter can be translated first into an absolute Profile Connection Space (PCS) and then from the PCS to your chosen working space. As a very important aside, for most of the open source world (including digikam), the software used to translate from the camera profile to the PCS and from the PCS to your chosen working space and eventually to your chosen output space (for printing or perhaps monitor display) is based on lcms (the <ulink url="http://littlecms.com"
+>En zo ontstaat de vraag: wat doet ieder trio RGB-waarden van een 16-bits pixel in tiff door dcraw gemaakt voor een ideale waarnemer. Deze absolute standaard, refererend aan een ideale waarnemer wordt <emphasis
+>Profielverbindende ruimte</emphasis
+>genoemd. Om de respons van een camera op het binnenkomende licht te karakteriseren is een cameraprofiel nodig. Zo kunnen de RGB-waarden in het uitvoerbestand, die gemaakt werden door de rawverwerker, vertaald worden naar een absolute Profielverbindende ruimte (PCS) en naar uw werkruimte. Belangrijke kanttekening: voor het grootste deel van de open source wereld, (inclusief digikam), is de software die gebruikt wordt voor omzetting van het cameraprofiel naar PCS en van PCS naar de werkruimte en uiteindelijk naar de gekozen uitvoerruimte (naar printer of beeldscherm) gebaseerd op LCMS <ulink url="http://littlecms.com"
 >little color management engine</ulink
->). For what it's worth, my own testing has shown that lcms does more accurate conversions than Adobe's proprietary color conversion engine. Further, for almost all raw conversion programs, including commercial closed source software such as Adobe Photoshop, the raw conversion is typically based on decoding of the proprietary raw file done by dcraw. David Coffin, author of dcraw, is the hero of raw conversion - without him we'd all be stuck using the usually windows/mac only proprietary software that comes with our digital cameras. The dcraw's interpolation algorithms (not to be confused with the aforementioned decoding of the proprietary raw file), which are part of &digikam; if properly used, produce results equal or superior to commercial, closed source software. We in the world of linux and open source software are NOT second-class citizens when it comes to digital imaging. Far from. </para>
+>. Mijn eigen testen hebben aangetoond dat LCMS nauwkeuriger omzettingen levert dan het eigen conversieprogramma van Adobe. En verder, voor bijna alle rawconversieprogramma's, inclusief het commercieel verkrijgbare Adobe Photoshop, is de rawconversie gebaseerd de decodering van het rawbestand door dcraw. David Coffin, schrijver van (het programma) dcraw, is de held van de rawconversie. Zonder hem zouden we allen nog steeds vast zitten aan de Windows/Mac software die meegeleverd wordt met camera's. Dcraw interpolatie algoritmen (niet te verwarren met eerder genoemde decodering van merkgebonden raw-bestanden), die deel uit maken van &digikam; leveren, als ze juist toegepast worden, resultaten die gelijk of beter zijn dan de commerciële closed source software. Wij in de wereld van Linux en open source software zijn geen tweederangs burgers wanneer het gaat om digitale beeldverwerking. Verre van dat. </para>
 
          <para
->There are two commonly used Profile Connection Spaces - CIELAB and CIEXYZ (see <ulink url="http://en.wikipedia.org/wiki/Color_management"
->Color management</ulink
->, section on color translation, then look up CIELAB and CIEXYZ on wikipedia). Lcms uses the camera profile to translate the RGB values from the interpolated raw file, that is, the tiff produced by dcraw, into the appropriate Profile Connection Space (usually CIEXYZ - why CIEXYZ? I haven't taken the time to learn). A profile connection space is not itself a working space. Rather a PCS is an absolute reference space used only for translating from one color space to another - think of a PCS as a Universal Translator for all the color profiles that an image might encounter in the course of its journey from camera raw file to final output:</para>
+>Er zijn twee algemeen gebruikte Profielverbindenderuimten - CIELAB en CIEXYZ (zie de sectie over kleurvertaling <ulink url="http://en.wikipedia.org/wiki/Color_management"
+>kleurbeheer</ulink
+>, zoek ook op CIELAB en CIEXYZ op wikipedia). Lcms gebruikt het cameraprofiel om RGB-waarden van het geïnterpoleerde raw-bestand, dat is de tiff die dcraw levert, te vertalen naar de juiste profielverbindende ruimte (gewoonlijk CIEXYZ).Een profielverbindende ruimte is op zich nog geen werkruimte. Een PCS is wel een absolute referentieruimte, gebruikt voor het vertalen van de ene kleurruimte naar een andere. Beschouw PCS maar als een universele vertaler voor alle kleurprofielen die een beeldbestand tegen komt op de route van camera raw-bestand naar uiteindelijke uitvoer:</para>
          <orderedlist>
             <listitem
 ><para
->Lcms uses the camera profile, also called an input profile, to translate the interpolated dcraw-produced RGB numbers, which only have meaning relative to your (make and model of) camera, to a second set of RGB numbers that only have meaning in the Profile Connection Space.</para
+>Lcms gebruikt het cameraprofiel, ook wel genoemd het invoerprofiel, om de geïnterpoleerde, door dcraw geproduceerde, RGB-getallen, die alleen betekenis hebben voor uw (merk en model) camera, te vertalen naar een tweede set RGB-getallen die alleen van betekenis zijn voor de profielverbindende ruimte.</para
 ></listitem>
             <listitem
 ><para
->Lcms translates the Profile Connection Space RGB numbers to the corresponding numbers in your chosen working space so you can edit your image. And again, these working space numbers ONLY have meaning relative to a given working space. The same red, visually speaking, is represented by different trios of RGB numbers in different working spaces; and if you assign the wrong profile the image will look wrong, slightly wrong or very wrong depending on the differences between the two profiles.</para
+>Lcms vertaalt de RGB-getallen van de Profielverbindenderuimte naar de overeenkomstige getallen in uw gekozen werkruimte zodat u uw beeldbestand kan bewerken. En deze werkruimtegetallen hebben ALLEEN betekenis voor een gegeven werkruimte. Hetzelfde rood, visueel gesproken, wordt in verschillende werkruimten vertegenwoordigd  door verschillende trio's van RGBgetallen; en als u het verkeerde profiel toewijst zal het beeld er verkeerd uitzien, een beetje verkeerd of heel erg verkeerd, afhankelijk van de verschillen tussen de twee profielen.</para
 ></listitem>
             <listitem
 ><para
->While you are editing your image in your chosen working space, then lcms should translate all the working space RGB numbers back to the PCS, and then over to the correct RGB numbers that enable your monitor (your display device) to give you the most accurate possible display representation of your image as it is being edited. This translation for display is done on the fly and you should never even notice it happening, unless it doesn't happen correctly - then the displayed image will look wrong, perhaps a little wrong, perhaps really, really, really wrong. </para
+>Terwijl u uw afbeelding bewerkt in de door u gekozen werkruimte, zou lcms alle RGB waarden van de werkruimte moeten terug vertalen naar de PCS en vervolgens naar de juiste RGB waarden die uw beeldscherm in staat stellen de meest accurate weergave te bieden terwijl u de afbeelding aan het bewerken bent. Deze vertaling voor het beeldscherm wordt ondertussen uitgevoerd en u zou zelfs nooit moeten merken dat dit plaats vindt, behalve wanneer het niet goed wordt uitgevoerd. In dat geval is het beeld op uw beeldscherm verkeerd, een beetje of heel erg of zelfs totaal verkeerd. </para
 ></listitem>
             <listitem
 ><para
->When you are satisfied that your edited image is ready to share with the world, lcms translates the working space RGB numbers back into the PCS space and out again to a printer color space using a printer profile characterizing your printer/paper combination (if you plan on printing the image) or to sRGB (if you plan on displaying the image on the web or emailing it to friends or perhaps creating a slide-show to play on monitors other than your own).</para
+>Wanneer u vindt dat uw afbeelding gereed is om aan de buitenwereld te presenteren vertaalt lcms de werkruimte RGB-getallen terug naar de PCS-ruimte (profielverbindende) en naar de kleurruimte van de printer met gebruik van het printerprofiel dat aangeeft welke printer/papier combinatie gebruikt wordt. Of, naar sRGB, als u van plan bent het beeld op internet te tonen of het per e-mail te verzenden of om een diashow te maken die op andere beeldschermen getoond kan worden.</para
 ></listitem>
        </orderedlist>
 
        <para
->To back up a little bit and look at the first color profile an image encounters, that is, the camera profile (see (1) immediately above) - dcraw can in fact apply your camera profile for you (dcraw uses lcms internally). But (i)the generating of the tiff composed of the interpolated RGB values derived from the camera raw file, and (ii)the application of the camera profile to the interpolated file, are two very distinct and totally separable (separable in theory and practice for dcraw; in theory only for most raw converters) steps. The dcraw command line output options "-o 0 [Raw color (unique to each camera)] -4 [16-bit linear] -T [tiff]" tell dcraw to output the RGB numbers from the raw interpolation into a tiff WITHOUT applying a camera input profile (the words in brackets explain the options but should not be entered at the command line). Then, if you truly enjoy working from the command line, you can use the lcms utility tifficc to apply your camera profile yourself. The advantage of doing so is that you can tell lcms to use high quality conversion (dcraw seems to use the lcms default medium). The disadvantage, of course, is that applying your camera profile from the command line adds one extra step to your raw workflow.</para>
+>Laten we even terug gaan en kijken naar het eerste kleurprofiel waarmee uw afbeelding te maken krijgt. Dat is het cameraprofiel (zie (1) hier boven) - dcraw kan uw cameraprofiel voor u toepassen (dcraw gebruikt lcms inwendig). Maar (i) het opwekken van de tiff samengesteld uit de geïnterpoleerde RGB-waarden die van het camera-RAW-bestand komen en (ii) de toepassing van het cameraprofiel op het geïnterpoleerde bestand  zijn twee verschillende en afzonderlijk te gebruiken stappen (afzonderlijk in theorie en praktijk voor dcraw; in theorie alleen voor de meeste raw-converters). De uitvoeropties van de dcraw-opdrachtregel "-o 0 [Raw-kleur (uniek voor elke camera )] -4 [16-bit lineair] -T [tiff]" draagt dcraw op om de RGB waarden van de raw-interpolatie uit te drukken in een tiff ZONDER het camera invoerprofiel toe te passen (de woorden tussen haken verklaren de opties maar moeten niet worden ingebracht in de opdrachtregel). Dan, als u werkelijk plezier heeft in het werken vanuit de opdrachtregel, kunt u het lcms hulpmiddel tifficc gebruiken om het cameraprofiel zelf toe te passen. Het voordeel van deze methode is dat u lcms kunt opdragen om hoge kwaliteit conversie toe te passen (dcraw schijnt lcms middelmatig als standaard te gebruiken). Het nadeel is natuurlijk dat het inbrengen van uw camera profiel in de opdrachtregel een extra stap in het proces is.</para>
 
       <sect3 id="using-iccprofile"
 >   <title
->Where to find camera profiles</title>
+>Waar kunt u cameraprofielen vinden</title>
 
         <para
->So where do we get these elusive and oh-so-necessary camera-specific profiles that we need to translate our interpolated raw files to a working color space? The <ulink url="http://ufraw.sourceforge.net/Colors.html"
+>En waar vinden we nu die camera-profielen die we nodig hebben om onze geïnterpoleerde raw-bestanden te vertalen naar een kleurwerkruimte. De sectie <ulink url="http://ufraw.sourceforge.net/Colors.html"
 >UFRAW website </ulink
-> section on color management has a bit of information on where to find ready-made camera profiles. It's an unfortunate fact of digital imaging that the camera profiles supplied by Canon, Nikon, and the like don't work as well with raw converters other than each camera manufacturer's own proprietary raw converter. Which is why Bibble and Phase One (and Adobe, but ACR hides the Adobe-made profiles inside the program code), for example, have to make their own profiles for all the cameras that they support - keep this proprietary propensity of your camera manufacturer in mind next time you buy a digital camera. </para>
+> over kleurbeheer geeft een beetje informatie over waar wij kant en klare cameraprofielen kunnen vinden. Jammer genoeg werken de cameraprofielen die geleverd worden door Canon, Nikon en soortgenoten niet zo goed samen met andere raw-converters dan de door de fabrikant meegeleverde converters. Dat is waarom Bibble en Phase One (en Adobe, maar ACR verbergt het door Adobe gemaakte profiel in de programmacode), hun eigen profiel moeten maken voor iedere camera die ze ondersteunen. Onthoud deze eigendomsmentaliteit van de camerafabrikant de volgende keer dat u een digitale camera koopt.  </para>
         <para
->But back to finding a camera profile for YOUR camera - the real answer (assuming you don't find a ready-made profile that makes you happy) is to make your own camera profile or have one made for you. There are quite a few commercial services who provide profiling services (for a fee, of course). Or you can use LPRof or Argyll to profile your camera yourself. I haven't yet walked down that road so I cannot speak about how easy or difficult the process of profiling a camera might be. But I would imagine, knowing how very meticulous the people behind Argyll, LPRof, and lcms are about color management, that making your own camera profile is very do-able and very likely the results will be better than any proprietary profile. After all, Canon (and also Bibble and Phase One for that matter) didn't profile MY camera - they just profiled a camera LIKE mine.</para>
+>Maar even terug naar het vinden van een cameraprofiel voor uw camera. Het juiste antwoord is; (als u geen kant en klaar profiel voor uw camera kunt vinden) om uw eigen profiel aan te maken of te laten maken. Er zijn nogal wat commerciële dienstverleners die tegen betaling een profiel voor uw camera maken. Of u kunt gebruik maken van LPRof, dan wel Argyll om zelf uw camera te profileren. Ik heb dat zelf nog nooit gedaan daarom kan ik niet zeggen hoe gemakkelijk of hoe moeilijk het is. Maar ik kan me voor stellen dat het te doen is als ik bedenk hoe nauwgezet de mensen achter Argyll en LPRof zijn ten aanzien van kleurbeheer. En de resultaten zullen beter zijn dan het door de maker van de camera geleverde profiel. Want Canon (en ook Bibble en Phase One) hebben niet het profiel van mijn camera gemaakt maar het profiel van een camera zoals die van mij.</para>
         <para
->Working Spaces:</para>
+>Werkruimten:</para>
 
         <para
->So now your raw file has been interpolated by dcraw and you've obtained a camera profile and used lcms tifficc to apply your camera profile to the tiff produced by dcraw (or you've asked dcraw to apply it for you). What does all this mean? The real answer involves a lot of math and color science that goes way over my head and likely yours. The short, practical answer is that neither the camera profile space nor the Profile Connection Space is an appropriate space for image editing. Your next step is to choose a working space for image editing. And then you (or rather the lcms color management engine that your open source digital imaging software uses) actually perform a double translation. First lcms uses the camera profile to translate the RGB values of each pixel in the dcraw-output-image-without-camera-profile-applied into the aforementioned Profile Connection Space. Then it translates the RGB values of each pixel from the PCS to your chosen working space.</para>
+>Dus nu is uw raw-bestand geïnterpoleerd door dcraw, u heeft een cameraprofiel verkregen en u heeft lcms tifficc gebruikt om ​​uw cameraprofiel toe te passen op het tiff bestand, geproduceerd door dcraw (of u heeft dcraw gevraagd dat voor u toe te passen). Wat betekent dit nou allemaal? Het werkelijk antwoord omvat veel rekenkunde en kleurwetenschap, iets wat u en mij ver boven de pet gaat. Het korte praktische antwoord is dat noch de cameraprofielruimte, noch de profielverbindende ruimte een passende omgeving is om uw afbeelding te bewerken. Uw volgende stap is om een werkruimte te kiezen voor de bewerking van uw afbeelding. En dan voert u (of eigenlijk de lcms kleurbeheermotor die uw digitale beeldsoftware gebruikt) een dubbele vertaling uit. Eerst gebruikt lcms het cameraprofiel om de RGB-waarden van ieder pixel in het dcraw-uitvoer-beeld-zonder-cameraprofiel-toegepast, naar de eerder genoemde Profielverbindenderuimte. Daarna vertaalt het de RGB-waarden van ieder pixel in de Profielverbindenderuimte naar de door u gekozen werkruimte.</para>
 
         <para
->Confusions and confusing terminology:</para>
+>Verwarring en verwarrende benamingen:</para>
         <para
 >Alvorens over werkruimten te spreken, is het nodig enige verwarring en verwarrende terminologie weg te nemen en op te klaren: </para>
         <para
->First, sRGB is both a working color space and an output color space for images intended for the web and for monitor display (if you have a spiffy new monitor with a gamut larger than the gamut covered by sRGB, obviously you might want to reconsider what output profile to use to best take advantage of your wonderful and hopefully calibrated and profiled monitor, but please convert your image to sRGB before sending it on to your friends!). sRGB is also the color space that a lot of home and mass-production commercial printers expect image files to be in when sent to the printer. It is also the color space that most programs assume if an image does not have an embedded color profile telling the program what color space should be used to interpret (translate) the RGB numbers. So if you choose to not use color-management, your color-management choices are simple - set everything to sRGB. </para>
+>Ten eerste, sRGB is zowel een kleurwerkruimte alsook een uitvoerkleurruimte voor beelden bestemd voor het Internet en het beeldscherm. Als u een moderne monitor bezit met een gamut groter dan dat wat door sRGB wordt bestreken dan kunt u overwegen om het uitvoerprofiel te gebruiken waarmee u ten volle gebruik kunt maken van de voordelen van die nieuwe en hopelijk gekalibreerde monitor. Maar zorg er alstublieft voor dat uw beelden naar sRGB worden omgezet voor u ze naar uw vrienden stuurt. sRGB is ook de kleurruimte van beeldbestanden die veel thuisprinters en massa-productie commerciële afdrukcentrales verwachten wanneer u beelden verzendt. Het is ook de kleurruimte die de meeste programma's verwachten wanneer beelden zonder ingesloten kleurprofiel worden geopend. Dus als je ervoor kiest om kleurbeheer niet gebruiken, dan zijn uw keuzes voor kleurbeheer simpel, stel alles in op sRGB. </para>
         <para
->Second, all jpegs (or tiffs, if you have an older Minolta Dimage camera) coming straight out of a camera (even if produced by point-and-shoots cameras that don't allow you to save a raw file) start life inside the camera as a raw file produced by the camera's A to D converter. The processor inside the camera interpolates the raw file, assigns a camera profile, translates the resulting RGB numbers to a working space (usually sRGB but sometimes you can choose AdobeRGB, depending on the camera), does the jpeg compression, and stores the jpeg file on your camera card. So jpegs (or tiffs) from your camera NEVER need to be assigned a camera or input profile which is then translated to a working space via a PCS. Jpegs from a camera are already in a working space.</para>
+>Ten tweede, alle jpeg afbeeldingen vinden hun oorsprong in de camera in de vorm van een raw bestand aangemaakt door A(naloog) naar D(igitaal) omzetter. Dat geldt ook voor eenvoudige compactcamera's die geen raw-bestanden opslaan. De processor in de camera interpoleert het raw-bestand wijst een cameraprofiel toe, vertaalt de RGB-waarden naar een werkruimte, (gewoonlijk RGB maar soms kunt u kiezen uit sRGB of Adobe RGB afhankelijk van de camera)  voert de jpeg-compressie uit en slaat het bestand op op de geheugenkaart van uw camera. Zodoende hoeft er voor jpeg's(of tiff's) van uw camera NOOIT een camera- of invoerprofiel worden toegewezen, want jpeg's van een camera zitten al in een werkruimte.</para>
         <para
->Third, in case anyone is unsure on this point, note that an interpolated raw file is no longer a raw file - it has been interpolated and then output as a tiff whose RGB values need to be translated to a working space, using the camera profile, the PCS, and lcms. Fourth (strictly for future reference), to introduce a bit of commonly heard color-management terminology here - the camera profile and your printer's color profile are both device dependent, whereas the working space will be device-independent - it can be used with any image, with any properly color-managed software, without regard for where the image originated.</para>
+>Ten derde, mocht iemand nog onzeker zijn op dit punt onthoud dan dat een geïnterpoleerd raw-bestand niet langer een raw-bestand is. Het is geïnterpoleerd en vervolgens uitgevoerd als tiff-bestand  waarvan de RGBwaarden nog moeten worden vertaald naar een werkruimte met gebruikmaking van het cameraprofiel, de PCS (profielverbindende ruimte) en de lcms. Ten vierde (alleen voor toekomstige referentie), om hier maar eens een beetje algemeen gehanteerde kleurbeheerbenamingen te introduceren - het cameraprofiel en het kleurprofiel van uw printer zijn beiden afhankelijk van respectievelijk de camera en de printer. Terwijl de werkruimte onafhankelijk van de apparatuur is. Het kan voor elke beeld gebruikt worden, met elke kleurbeheersoftware, los van waar het beeld ontstond. </para>
         <para
->Fifth, above I have used the words translate and translation as a descriptive metaphor for what lcms does when it translates RGB values from one color space to another via the PCS. The usual and correct terminology is convert and conversion, which I will use below. The four methods of conversion from one color space to another are: perceptual, relative colorimetric, absolute colorimetric, and saturation. Which method of conversion you should use for any given image processing step from raw file to final output image is beyond the scope of this tutorial. The standard advice is: when in doubt, use perceptual.</para>
+>Ten vijfde, hiervoor heb ik de uitdrukkingen: vertalen en vertaling gebruikt als beschrijving van wat lcms doet wanneer het RGB-waarden, via de profielverbindenderuimte vertaalt van een kleurruimte naar een andere kleurruimte. De gebruikelijke en juiste termen zijn converteren en conversie die ik hierna zal gebruiken. De vier methoden voor conversie van een kleurruimte naar een andere zijn perceptueel, relatief colorometrisch, absoluut colorometrisch  en verzadigd. Welke methode u zou moeten hanteren voor een gegeven beeldberwerkingsstap van raw-bestand tot uiteindelijke uitvoer valt buiten het bereik van deze zelfstudie. De vuistregel is: als je het niet weet, kies dan perceptueel als uitvoer. </para>
         <para
->Sixth (and again, strictly for future reference), assign a profile means change the meaning of the RGB numbers in an image by embedding a new profile without changing the actual RGB numbers associated with each pixel in the image; convert means embed a new profile, but also change the RGB numbers at the same time so that the meaning of the RGB values - that is, the real-world visible color represented by the trio of RGB numbers associated with each pixel in an image - remains the same before and after the conversion from one space to another. You should be able to do multiple conversions of an image from one working space to another, and with a properly color-managed image editor, even though all the RGB numbers in the image will change with each conversion, the image on your screen should look the same (leaving aside the usually unnoticeable small but inevitable changes from accumulated gamut mismatches and mathematical rounding errors). However, every time you assign a new working space profile rather than convert to a new working space, the appearance of the image should more or less drastically change (usually for the worse).</para>
+>Ten zesde (en dit is echt alleen voor toekomstige referenties), een profiel toewijzen betekent het wijzigen van de RGB waarden van een beeld door het inbrengen van een nieuw profiel zonder de eigenlijke RGBwaarden te wijzigen die bij iedere pixel van het beeld horen. Converteren betekent breng een nieuw profiel in  maar wijzig ook de RGBwaarden op het zelfde moment zodat de betekenis van de RGBwaarden, zeg maar de werkelijke zichtbare kleuren, het zelfde blijven voor en na de conversie van een ruimte naar een andere ruimte. Met een goed kleurbeeldbewerkingsprogramma moet u meerdere conversies van een afbeelding kunnen uitvoeren bij het converteren van de ene werkruimte naar de andere, hoewel alle de RGB-nummers in de afbeelding veranderen met elke conversie, moet het beeld op het scherm er hetzelfde uitzien (afgezien van de meestal onmerkbaar kleine, maar onvermijdelijke veranderingen van geaccumuleerde gamma mismatches en wiskundige afrondingsfouten). Echter, elke keer dat u een nieuwe werkruimteprofiel toewijst in plaats van te converteren naar een nieuwe werkruimte, zal het uiterlijk van de afbeelding drastisch veranderen (meestal wordt het slechter).</para>
         <para
->Finally, (and this is a crucially important point), color management is NOT only relevant if you shoot raw. Color management affects every stage of the image processing pipeline, whether you start with a raw file that you, yourself interpolate and translate into a tiff, or if you start with a jpeg or tiff produced by your camera.</para>
+>Tenslotte, (en dit is belangrijk) kleurbeheer is NIET alleen relevant wanneer u in raw schiet. Kleurbeheer beïnvloedt elke fase van het beeldbewerkingsproces. Of u nu begint met een door u gemaakte en geïnterpoleerde raw-opname die geconverteerd werd naar een tiff-bestand of wanneer u begint met een jpeg of tiff aangemaakt door uw camera. </para>
 
         <para
 >Werkruimten met copyright en copyleft:</para>
         <para
->I will take it as given that ALL the ordinarily encountered working spaces, such as:</para>
+>Ik beschouw het als een gegeven dat ALLE werkruimten die men tegenkomt, zoals:</para>
         <orderedlist>
           <listitem
 ><para
->the several variants of sRGB (see <ulink url="http://www.color.org/v4spec.xalter"
+>de diverse varianten van sRGB (zie  <ulink url="http://www.color.org/v4spec.xalter"
 >color.org</ulink
 >) </para
 ></listitem>
@@ -764,17 +764,17 @@
 ></listitem>
           <listitem
 ><para
->AdobeRGB, Adobe WideGamutRGB, and Kodak/Adobe ProPhotoRGB (Kodak and Adobe ProPhoto are the same, just branded differently) and their <ulink url="http://www.behrmann.name/index.php?option=com_content&amp;task=view&amp;id=34&amp;Itemid=68"
+>AdobeRGB, Adobe WideGamutRGB en Kodak/Adobe ProPhotoRGB (Kodak en Adobe ProPhoto zijn hetzelfde alleen met een verschillende naam) en hun <ulink url="http://www.behrmann.name/index.php?option=com_content&amp;task=view&amp;id=34&amp;Itemid=68"
 >non-branded, non-copyrighted</ulink
-> counterparts (Oyranos includes a non-branded version of AdobeRGB</para
+> tegenpolen (Oyranos bevat een merkloze versie van AdobeRGB)</para
 ></listitem>
           <listitem
 ><para
->and quite a few others that could be added to this list are all more or less suitable as working spaces. Which working space you should use depends only and solely on YOU, on YOUR requirements as the editor of YOUR digital images with YOUR eventual output intentions (web, fine art print, etc).</para
+>en nog heel wat anderen die aan de lijst kunnen worden toegevoegd, zijn allen min of meer bruikbare werkruimten. Welke werkruimte u kiest is geheel aan u en aan uw vereisten ten aanzien van de uitvoer van uw digitale opnamen met uw uiteindelijke gebruiksdoelen. (Web, afdrukken voor schone kunsten, enz.)  </para
 ></listitem>
         </orderedlist>
         <para
->However, as a critical aside, if you are using Adobe (or other copyrighted) working space profiles, these profiles contain copyright information that shows up in your image exif information. Lately I've been perusing the openicc mailing lists. Apparently lcms can be used to produce nonbranded, copyleft working space profiles that are just the same as - actually indistinguishable from - the branded, copyrighted working space profiles. It would be a wonderful addition to digikam if a set of "copyleft" working space profiles, including nonbranded, relabelled versions of ProPhotoRGB, AdobeRGB, and Adobe WidegamutRGB (perhaps in two flavors each: linear gamma and the usual gamma), could be bundled as part of the &digikam; package. </para>
+>Echter, als kritische aantekening, als u Adobe of andere beschermde werkruimteprofielen gebruikt. Deze profielen bevatten copyright informatie die zichtbaar wordt in de EXIF gegevens van uw afbeeldingen. Onlangs heb ik kennis genomen van de openicc mailing lijst. Blijkbaar kan LCMS worden gebruikt om merkloze, copyleft werkruimteprofielen aan te maken die gelijk zijn, in feite niet te onderscheiden van, de gemerkte en van copyright voorziene werkruimteprofielen. Het zou een prachtige aanvulling op &digikam; zijn om een set "copyrightloze" werkruimteprofielen, inclusief merkloze, hernoemde versies van ProPhotoRGB, AdobeRGB, en Adobe WidegamutRGB (misschien elk in twee smaken, linear gamma en het gebruikelijke gamma), samen te pakken als onderdeel van het &digikam; pakket. </para>
 
         <para
 >Welke werkruimte: gamma</para
@@ -784,13 +784,13 @@
 >Wikipedia zegt: </ulink
 > <blockquote
 ><para
->Working spaces, such as sRGB or Adobe RGB, are color spaces that facilitate good results while editing. For instance, pixels with equal values of RGB should appear neutral. Using a large (gamut) working space will lead to posterization, while using a small working space will lead to clipping. This trade-off is a consideration for the critical image editor</para
+>Werkruimten als sRGB of AdobeRGB zijn kleurruimten die goede resultaten mogelijk maken bij het bewerken. Bijvoorbeeld, pixels met gelijke RGB-waarden moeten neutraal lijken. Het gebruik van een werkruimte met brede gamma leidt tot posterkleuren terwijl gebruik van een kleinere werkruimte zal leiden tot afvlakken. De afweging: welke kleurruimte moet de kritische bewerker zelf maken. </para
 ></blockquote
 > </para>
         <para
->Well, that quote from wikipedia is about as clear as mud and I don't know if I will be able to explain it more clearly, but I will try. "[P]ixels with equal values of RGB should appear neutral" just means that for any given pixel in an image that has been converted to a suitable working space, if R=G=B you should see grey or black or white on your screen. </para>
+>Dat citaat uit wikipedia is zo helder als modder. Ik weet niet zeker of ik het duidelijker kan uitleggen maar ik zal het proberen. "[P]ixels met gelijke waarden van RGB moeten neutraal lijken" betekent gewoon dat voor een bepaald pixel in een beeld dat is omgezet naar een geschikte werkruimte geldt: indien R = G = B, u grijs of zwart of wit op uw scherm moet zien. </para>
         <para
->I am not aware of a list of other technical requirements for a suitable working space, though undoubtedly someone has produced such a list. But most working space profiles are characterized by: </para>
+>Het bestaan van een lijst met andere technische vereisten voor een passende werkruimte is mij niet bekend. Ongetwijfeld zal er wel iemand zijn die zo'n lijst heeft gemaakt. Maar de meeste werkruimteprofielen worden gekarakteriseerd door: </para>
         <orderedlist>
            <listitem
 ><para
@@ -807,33 +807,33 @@
         </orderedlist
 > 
         <para
->The practical consequences that result from using different RGB primaries, leading to larger or smaller working spaces, are discussed below. The practical consequences for different choices for the working space white point are beyond the scope of this tutorial. Here I will talk a little bit about the practical consequences of the working space gamma (for an excellent article and references, look up gamma on wikipedia). </para>
+>De praktische consequenties van het gebruik van verschillende primaire kleuren die leiden tot kleinere of grotere werkruimten worden hieronder beschreven. De praktische consequenties van verschillende keuzen van werkruimte-witpunt vallen buiten het bereik van deze zelfstudie. Hier bespreken we alleen iets over de praktische consequenties van het kleurruimte-gamma. (Kijk voor een uitstekend artikel en referenties op wikipedia onder: 'gamma'). </para>
         <para
->The gamma of a color profile dictates what power transform needs to take place to properly convert from an image's embedded color profile (perhaps your working color space) to another color profile with a different gamma, such as (i)the display profile used to display the image on the screen or (ii)perhaps to a new working space, or (iii)perhaps from your working space to your printer's color space. </para>
+>Het gamma van een kleurprofiel dicteert welke krachtconversie nodig is om een juiste conversie te doen van het ingebouwde kleurprofiel van een beeld (misschien uw kleurwerkruimte) naar een ander kleurprofiel met een ander gamma. Zoals (i) het weergaveprofiel dat gebruikt wordt om het beeld op het beeldscherm te krijgen. Of (ii) misschien naar een andere kleurwerkruimte, of (iii) misschien van uw kleurwerkruimte naar de kleurruimte van uw printer. </para>
 
         <tip
 ><para
->Mathematically speaking, for a power transform you normalize the RGB numbers and raise the resulting numbers to an appropriate power depending on the respective gammas of the starting and ending color space, then renormalize the results to a new set of RGB numbers. Lcms does this for you when you ask lcms to convert from one color space to another; however, if ALL you are doing is a power transform, use imagemagick instead of lcms and just manipulate the RGB numbers directly - the results will be more accurate.</para
+>Wiskundig gezien, voor een vermogenstransformatie normaliseert u de RGB-waarden en verhoogt u de verkregen waarden naar een juiste macht afhankelijk van de respectievelijke gamma's van de beginnende en eindigende kleurruimte. Dan normaliseert u opnieuw de resultaten naar een nieuwe reeks RGB-waarden. Lcms doet dit voor u wanneer u lcms vraagt te converteren van de ene kleurruimte naar de andere; echter, als het enige dat u wilt doen is, een macht te transformeren, gebruik dan imagemagick in plaats van LCMS en manipuleer de RGB-waarden rechtstreeks - de resultaten zullen nauwkeuriger zijn.</para
 ></tip>
 
         <para
->One practical consequence of the gamma of a working space is that the higher the gamma, the more tones are available for editing in the shadows, with consequently fewer tones available in the highlights. So theoretically, if you are working on a very dark-toned (low key) image you might want a working space with a higher gamma. And if you are working on a high key image, say a picture taken in full noon sunlight of a wedding dress with snow as a backdrop, you might want to choose a working space with a lower gamma, so you have more available tonal gradations in the highlights. But in the real world of real image editing, almost everyone uses working spaces with either gamma 1.8 or 2.2. </para>
+>Een praktische eigenschap van het gamma van een kleurruimte is dat hoe hoger het gamma, hoe meer tonen er beschikbaar zijn in donkere partijen en hoe minder tonen beschikbaar zijn in de lichtere partijen. Dus in theorie als u werkt in een beeld met donkere tonen (zg, low key) zou u een werkruimte met een hoger gamma willen hebben. En als u werkt in een licht beeld(high key) bijvoorbeeld opnamen gemaakt in het volle zonlicht met een witte trouwjurk en sneeuw als achtergrond dan kiest u voor een werkruimte met een lager gamma. Daardoor beschikt u over meer toon gradaties in de hoge lichten. Maar in werkelijkheid kiest bijna iedereen werkruimten met een gamma van 1,8 of 2,2. </para>
         <para
->Some people are trying to standardize on gamma 2.0. sRGB and LStar-RGB are not gamma-based working spaces. Rather, sRGB uses a <ulink url="http://en.wikipedia.org/wiki/SRGB"
+>Sommige mensen proberen een gamma van 2. als standaard te gebruiken. sRGb en LStar-RGB zijn geen op gamma gebaseerde werkruimten. Eigenlijk gebruikt sRGB <ulink url="http://en. wikipedia.org/wiki/SRGB"
 >hybrid gamma</ulink
->, and LStar-RGB uses a luminosity-based tonal response curve instead of a gamma value - see <ulink url="http://www.colormanagement.org/en/workingspaces.html"
->here</ulink
-> for more information, and then google around for more in-depth information. </para>
+> en LStar-RGB gebruikt een op helderheid gebaseerde toonresponskromme in plaats van een gammawaarde- zie <ulink url="http://www.colormanagement.org/en/workingspaces.html"
+>hier</ulink
+> voor meer informatie en google dan een beetje rond voor meer diepgaande informatie.  </para>
         <para
->In addition to gamma 1.8 and gamma 2.2 the only other gamma for a working space that gets much mention or use is gamma 1.0, also called linear gamma. <emphasis
->Linear gamma</emphasis
-> is used in HDR (high dynamic range) imaging and also if one wants to avoid introducing gamma-induced errors into one's regular low dynamic range editing. Gamma-induced errors is a topic outside the scope of this tutorial, but see <ulink url="http://www.4p8.com/eric.brasseur/gamma.html"
+>Naast het gamma 1,8 en gamma 2,2 is de enige andere gamma voor een werkruimte die veel vermeldt of gebruikt wordt gamma 1,0, ook wel lineair gamma genoemd. <emphasis
+>Lineair gamma</emphasis
+> wordt gebruikt in HDR (High Dynamic Range) beelden en als men fouten wil vermijden die door gamma worden veroorzaakt in de gewone low dynamic range bewerkingen. Door gamma veroorzaakte fouten, is een onderwerp dat te ver gaat voor deze zelfstudie. Maar kijk eens op <ulink url="http://www.4p8.com/eric.brasseur/gamma.html"
 >Gamma errors</ulink
 > in <ulink url="http://www.21stcenturyshoebox.com/essays/color_reproduction.html"
 >picture scaling,</ulink
-> for gamma-induced color shifts. </para>
+> voor door gamma veroorzaakte kleurverschuivingen. </para>
         <para
->Unfortunately and despite their undeniable mathematical advantages, linear gamma working spaces have so few tones in the shadows that (in my opinion) they are impossible to use for editing if one is working in 8-bits, and still problematic at 16-bits. When the day comes when we are all doing our editing on 32-bit files produced by our HDR cameras on our personal supercomputers, I predict that we will all be using working spaces with gamma 1; Adobe Lightroom is already using a linear gamma working space "under the hood" and Lightzone has always used a linear gamma working space. </para>
+>Helaas en ondanks de onweerlegbare wiskundige voordelen hebben lineaire gamma werkruimten zo weinig tonen in de donkere partijen dat ze onmogelijk gebruikt kunnen worden voor bewerking in 8-bits bestanden, en zelfs in 16-bits bestanden is het problematisch. Wanneer de dag komt dat we allemaal onze bewerking doen op 32-bits bestanden geproduceerd door onze HDR camera's op onze persoonlijke supercomputers, voorspel ik dat we allemaal werkruimten zullen gebruiken met gamma 1. Adobe Lightroom gebruikt al een lineaire gamma werkruimte en LightZone heeft altijd gebruik gemaakt van een lineaire gamma werkruimte. </para>
 
         <para
 >Welke werkruimte: <emphasis
@@ -842,11 +842,11 @@
 >kleine gamut</emphasis
 ></para>
         <para
->One MAJOR consideration in choosing a working space is that some working spaces are bigger than others, meaning they cover more of the visible spectrum (and perhaps even include some imaginary colors - mathematical constructs that don't really exist). These bigger spaces offer the advantage of allowing you to keep all the colors captured by your camera and preserved by the lcms conversion from your camera profile to the really big profile connection space. </para>
+>Een belangrijke factor bij het kiezen van een werkruimte is dat sommige werkruimten groter dan anderen zijn, waardoor ze meer van het zichtbare spectrum beslaan. (en misschien zelfs ook enkele denkbeeldige kleuren - wiskundige constructies die niet echt bestaan). Deze grotere ruimtes bieden het voordeel van het toestaan ​​van het behouden van alle kleuren die uw camera heeft vastgelegd en bewaard door de lcms conversie van uw camera-profiel naar de echt grote profiel verbindende kleurruimte. </para>
         <para
->But keeping all the possible colors comes at a price. It seems that any given digital image (pictures of daffodils with saturated yellows being one common exception) likely only contains a small subset of all the possible visible colors that your camera is capable of capturing. This small subset is easily contained in one of the smaller working spaces. Using a very large working space mean that editing your image (applying curves, saturation, etc) can easily produce colors that your eventual output device (printer, monitor) simply cannot display. So the conversion from your working space to your output device space (say your printer) will have to remap the out of gamut colors in your edited image, some of which might even be totally imaginary, to your printer color space with its much smaller gamut, leading to inaccurate colors at best and at worst to banding (posterization - gaps in what should be a smooth color transition, say, across an expanse of blue sky) and clipping (your carefully crafted muted transitions across delicate shades of red, for example, might get remapped to a solid block of dull red after conversion to your printer's color space).</para>
+>Maar zoals u zult zien is het behoud van alle mogelijke kleuren niet zonder consequenties. En het lijkt er op dat elk digitaal beeld een kleine reeks bevat van alle mogelijke zichtbare kleuren die uw camera kan vastleggen. (een uitzondering die een groter kleurengamma vereist zou een opname zijn van een hoog verzadigd onderwerp zoals een gele narcis). Deze kleine reeks past gemakkelijk in een van de kleinere werkruimten. Gebruik maken van een heel grote werkruimte betekent dat het bewerken van uw afbeelding gemakkelijk kleuren kan voortbrengen die uw uiteindelijke uitvoerapparaat, bv, printer, niet kan weergeven. Dus de conversie van uw werkruimte naar de werkruimte van uw uitvoerapparaat(bv printer) zal de kleuren die buiten het kleurengamma vallen opnieuw moeten indelen voor de werkruimte van uw printer die een stuk kleiner is. Omdat sommige kleuren die daardoor ontstaan geheel denkbeeldige kleuren zijn kan het gevolg zijn dat kleuren niet juist worden weergegeven of dat posterkleuren ontstaan of dat er banding of afknijpen op treed. Zo kan het gebeuren dat de zorgvuldig door u bewerkte kleuren uit de printer komen als massieve blokken rood of een andere kleur in plaats van dat er een geleidelijk overgang in de kleuren zichtbaar is.</para>
         <para
->In other words, large gamut working spaces, improperly handled, can lead to lost information on output. Small gamut working spaces can clip information on input. Like Wikipedia says, it's a trade-off. Here is some oft-repeated advice:</para>
+>Met andere woorden, wanneer grotere werkruimten met een groter gamut onjuist worden behandeld kan dat leiden tot teloorgaan van informatie bij de uitvoer. Kleine gamut werkruimten kunnen informatie al bij de invoer aftoppen. Zoals in wikipedia beschreven is het allemaal een kwestie van afwegen. Hier is een vaak gegeven advies:</para>
         <orderedlist>
           <listitem
 ><para
@@ -854,7 +854,7 @@
 ></listitem>
           <listitem
 ><para
->For the most accuracy in your image editing (that is, making the most of your "bits" with the least risk of banding or clipping when you convert your image from your working space to an output space), use the smallest working space that includes all the colors in the scene that you photographed, plus a little extra room for those new colors you intentionally produce as you edit. </para
+>Gebruik voor de hoogste nauwkeurigheid bij het bewerken van uw afbeeldingen de kleinste werkruimte die alle kleuren bevat die u vast legde, plus een beetje extra ruimte voor de kleuren die u bewust produceerde tijdens de bewerkingen. Dit betekent, het meeste uit uw bitjes halen met het laagste risico op banden of afknijpen. </para
 ></listitem>
           <listitem
 ><para
@@ -862,9 +862,9 @@
 ></listitem>
           <listitem
 ><para
->For archival purposes, convert your raw file to a 16-bit tiff with a large gamut working space to avoid loosing color information. Then convert this archival tiff to your working space of choice (saving the converted working tiff under a new name, of course). See <ulink url="http://simon.tindemans.eu/essays/scenereferredworkflow"
->here</ulink
-> for more details.</para
+>Converteer voor archivering van uw afbeeldingen, deze naar een 16-bits tiff met een werkruimte met een groot kleurengamma, om verlies van kleurinformatie te voorkomen. Daarna kunt u de gearchiveerde tiff (natuurlijk met een nieuwe naam) naar de werkruimte van uw keuze converteren. Zie <ulink url="http://simon.tindemans.eu/essays/scenereferredworkflow"
+>hier</ulink
+> voor details.</para
 ></listitem>
         </orderedlist>
 

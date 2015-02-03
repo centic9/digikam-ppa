@@ -52,13 +52,14 @@ private:
 
     bool currentBackendReady();
 
-    class TileGrouperPrivate;
-    TileGrouperPrivate* const d;
+private:
+
+    class Private;
+    const QScopedPointer<Private> d;
 
     const QExplicitlySharedDataPointer<KGeoMapSharedData> s;
-
 };
 
-} /* KGeoMap */
+} /* namespace KGeoMap */
 
 #endif /* TILEGROUPER_H */

@@ -227,7 +227,7 @@ bool PGFLoader::load(const QString& filePath, DImgLoaderObserver* const observer
                 break;
         }
 
-#ifdef USE_ADVANCEDDEBUGMSG
+#ifdef USE_IMGLOADERDEBUGMSG
         const PGFHeader* header = pgf.GetHeader();
         kDebug() << "PGF width    = " << header->width;
         kDebug() << "PGF height   = " << header->height;
@@ -240,7 +240,7 @@ bool PGFLoader::load(const QString& filePath, DImgLoaderObserver* const observer
 #endif
 
         // NOTE: see bug #273765 : Loading PGF thumbs with OpenMP support through a separated thread do not work properlly with libppgf 6.11.24
-        pgf.ConfigureDecoder(PGFUtils::libPGFUseOpenMP());
+        pgf.ConfigureDecoder(false);
 
         int width   = pgf.Width();
         int height  = pgf.Height();
@@ -453,7 +453,7 @@ bool PGFLoader::save(const QString& filePath, DImgLoaderObserver* const observer
         pgf.SetHeader(header);
 
         // NOTE: see bug #273765 : Loading PGF thumbs with OpenMP support through a separated thread do not work properlly with libppgf 6.11.24
-        pgf.ConfigureEncoder(PGFUtils::libPGFUseOpenMP());
+        pgf.ConfigureEncoder(false);
 
         pgf.ImportBitmap(4 * imageWidth() * (imageSixteenBit() ? 2 : 1),
                          (UINT8*)imageData(),
@@ -471,7 +471,7 @@ bool PGFLoader::save(const QString& filePath, DImgLoaderObserver* const observer
         pgf.Write(&stream, 0, CallbackForLibPGF, &nWrittenBytes, this);
 #endif
 
-#ifdef USE_ADVANCEDDEBUGMSG
+#ifdef USE_IMGLOADERDEBUGMSG
         kDebug() << "PGF width     = " << header.width;
         kDebug() << "PGF height    = " << header.height;
         kDebug() << "PGF bbp       = " << header.bpp;

@@ -101,6 +101,11 @@ KipiInterface::~KipiInterface()
 
 KIPI::ImageCollection KipiInterface::currentAlbum()
 {
+    if(d->albumManager->currentAlbums().isEmpty())
+    {
+        return KIPI::ImageCollection(0);
+    }
+
     Album* currAlbum = d->albumManager->currentAlbums().first();
 
     if (currAlbum)
@@ -117,6 +122,11 @@ KIPI::ImageCollection KipiInterface::currentAlbum()
 
 KIPI::ImageCollection KipiInterface::currentSelection()
 {
+    if (d->albumManager->currentAlbums().isEmpty())
+    {
+            return KIPI::ImageCollection(0);
+    }
+
     Album* currAlbum = d->albumManager->currentAlbums().first();
 
     if (currAlbum)
@@ -185,7 +195,7 @@ void KipiInterface::refreshImages(const KUrl::List& urls)
 
     foreach(const KUrl& url, urls)
     {
-        ImageInfo info(url);
+        ImageInfo info = ImageInfo::fromUrl(url);
 
         if (!info.isNull())
         {
@@ -286,7 +296,7 @@ void KipiInterface::slotCurrentAlbumChanged(QList<Album*> albums)
 void KipiInterface::thumbnail(const KUrl& url, int /*size*/)
 {
     // NOTE: size is not used here. Cache use the max pixmap size to store thumbs (256).
-    d->thumbLoadThread->find(url.toLocalFile());
+    d->thumbLoadThread->find(ImageInfo::fromUrl(url).thumbnailIdentifier());
 }
 
 void KipiInterface::thumbnails(const KUrl::List& list, int size)
@@ -440,7 +450,7 @@ void KipiInterface::aboutToEdit(const KUrl& url, KIPI::EditHints hints)
 {
     if (hints == KIPI::HintMetadataOnlyChange)
     {
-        ImageInfo info(url.toLocalFile());
+        ImageInfo info = ImageInfo::fromUrl(url);
         ScanController::instance()->beginFileMetadataWrite(info);
     }
 }
@@ -449,7 +459,7 @@ void KipiInterface::editingFinished(const KUrl& url, KIPI::EditHints hints)
 {
     if ((hints & ~KIPI::HintEditAborted) == KIPI::HintMetadataOnlyChange)
     {
-        ImageInfo info(url.toLocalFile());
+        ImageInfo info = ImageInfo::fromUrl(url);
         ScanController::instance()->finishFileMetadataWrite(info, !(hints & KIPI::HintEditAborted));
     }
 }

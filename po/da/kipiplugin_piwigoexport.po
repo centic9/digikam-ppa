@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Martin Schlander <mschlander@opensuse.org>, 2010, 2011, 2012, 2013.
+# Martin Schlander <mschlander@opensuse.org>, 2010, 2011, 2012, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-04-09 19:34+0200\n"
+"POT-Creation-Date: 2014-10-04 01:39+0000\n"
+"PO-Revision-Date: 2014-12-22 20:38+0100\n"
 "Last-Translator: Martin Schlander <mschlander@opensuse.org>\n"
 "Language-Team: Danish <kde-i18n-doc@kde.org>\n"
 "Language: da\n"
@@ -50,67 +50,64 @@ msgctxt "piwigo login settings"
 msgid "Password:"
 msgstr "Adgangskode:"
 
-#: piwigotalker.cpp:275
+#: piwigotalker.cpp:283
 #, kde-format
 msgid "Check if %1 already exists"
 msgstr "Tjek om %1 allerede findes"
 
-#: piwigotalker.cpp:446
+#: piwigotalker.cpp:432
 msgid "Piwigo URL probably incorrect"
 msgstr "URL til Piwigo er sandsynligvis forkert"
 
-#: piwigotalker.cpp:452
+#: piwigotalker.cpp:438
 msgid "Incorrect username or password specified"
 msgstr "Forkert brugernavn eller adgangskode angivet"
 
-#: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
-#: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
-#: piwigotalker.cpp:1118 piwigotalker.cpp:1252
+#: piwigotalker.cpp:480 piwigotalker.cpp:661
+msgid "Upload to Piwigo version < 2.4 is no longer supported"
+msgstr "Upload til Piwigo version < 2.4 er ikke længere understøttet"
+
+#: piwigotalker.cpp:552 piwigotalker.cpp:637 piwigotalker.cpp:706
+#: piwigotalker.cpp:778
 msgid "Invalid response received from remote Piwigo"
 msgstr "Ugyldigt svar fra ekstern Piwigo"
 
-#: piwigotalker.cpp:564
+#: piwigotalker.cpp:558
 msgid "Failed to list albums"
 msgstr "Kunne ikke opliste albummer"
 
-#: piwigotalker.cpp:611
+#: piwigotalker.cpp:607
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "Fotoet \"%1\" findes allerede."
 
-#: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
-#: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
+#: piwigotalker.cpp:643 piwigotalker.cpp:784 piwigotalker.cpp:938
 msgid "Failed to upload photo"
 msgstr "Kunne ikke uploade foto"
 
-#: piwigotalker.cpp:682
-#, kde-format
-msgid "Upload resized version of %1"
-msgstr "Upload version af %1 med tilpasset størrelse"
-
-#: piwigotalker.cpp:736
+#: piwigotalker.cpp:712
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "Fotoet \"%1\" findes allerede i dette album."
 
-#: piwigotalker.cpp:851 piwigotalker.cpp:1082
+#: piwigotalker.cpp:822
 #, kde-format
-msgid "Upload the chunk %1 of %2"
-msgstr "Upload stykke %1 ud af %2"
+msgid "Upload the chunk %1/%2 of %3"
+msgstr "Upload stykket %1/%2 ud af %3"
 
-#: piwigotalker.cpp:887 piwigotalker.cpp:1169
+#: piwigotalker.cpp:858
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "Advarsel: Billedet kan ikke uploades i fuld størrelse."
 
-#: piwigotalker.cpp:926 piwigotalker.cpp:1216
+#: piwigotalker.cpp:896
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "Upload metadata for %1"
 
-#: piwigotalker.cpp:1047
+#: piwigotalker.cpp:932
 #, kde-format
-msgid "Upload the thumbnail of %1"
-msgstr "Upload miniature af %1"
+msgid "Invalid response received from remote Piwigo (%1)"
+msgstr "Ugyldigt svar fra ekstern Piwigo (%1)"
 
 #: piwigowindow.cpp:135
 msgid "Albums"
@@ -136,79 +133,75 @@ msgstr "Maksimal bredde:"
 msgid "Maximum height:"
 msgstr "Maksimal højde:"
 
-#: piwigowindow.cpp:168
-msgid "Maximum thumbnail dimension:"
-msgstr "Maksimal dimension på miniature:"
+#: piwigowindow.cpp:167
+msgid "Resized JPEG quality:"
+msgstr "JPEG-kvalitet med ændret størrelse:"
 
-#: piwigowindow.cpp:173
-msgid "Thumbnail size is ignored with Piwigo > 2.4"
-msgstr "Miniaturestørrelse ignoreres med Piwigo > 2.4"
-
-#: piwigowindow.cpp:235 piwigowindow.cpp:240
+#: piwigowindow.cpp:227 piwigowindow.cpp:232
 msgid "Piwigo Export"
 msgstr "Eksport til Piwigo"
 
-#: piwigowindow.cpp:243
+#: piwigowindow.cpp:235
 msgid "A Kipi plugin to export image collections to a remote Piwigo server."
 msgstr ""
 "Et KIPI-plugin til at eksportere billedsamlinger til en ekstern Piwigo-"
 "server."
 
-#: piwigowindow.cpp:244
+#: piwigowindow.cpp:236
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 msgstr ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Renchi Raju"
 msgstr "Renchi Raju"
 
-#: piwigowindow.cpp:250
+#: piwigowindow.cpp:242
 msgid "Author"
 msgstr "Ophavsmand"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Colin Guthrie"
 msgstr "Colin Guthrie"
 
-#: piwigowindow.cpp:253
+#: piwigowindow.cpp:245
 msgid "Maintainer"
 msgstr "Vedligeholder"
 
-#: piwigowindow.cpp:256
+#: piwigowindow.cpp:248
 msgid "Andrea Diamantini"
 msgstr "Andrea Diamantini"
 
-#: piwigowindow.cpp:256 piwigowindow.cpp:259 piwigowindow.cpp:262
+#: piwigowindow.cpp:248 piwigowindow.cpp:251 piwigowindow.cpp:254
 msgid "Developer"
 msgstr "Udvikler"
 
-#: piwigowindow.cpp:259
+#: piwigowindow.cpp:251
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: piwigowindow.cpp:262
+#: piwigowindow.cpp:254
 msgid "Frédéric Coiffier"
 msgstr "Frédéric Coiffier"
 
-#: piwigowindow.cpp:270
+#: piwigowindow.cpp:262
 msgid "Start Upload"
 msgstr "Start upload"
 
-#: piwigowindow.cpp:404
+#: piwigowindow.cpp:397
 msgid "Failed to login into remote piwigo. "
 msgstr "Kunne ikke logge ind på ekstern Piwigo. "
 
-#: piwigowindow.cpp:406
+#: piwigowindow.cpp:399
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
@@ -216,32 +209,37 @@ msgstr ""
 "\n"
 "Vil du kontrollere dine indstillinger og prøve igen?"
 
-#: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
+#: piwigowindow.cpp:406 piwigowindow.cpp:648 plugin_piwigoexport.cpp:118
 msgid "Edit Piwigo Data"
 msgstr "Redigér Piwigo-data"
 
-#: piwigowindow.cpp:473 piwigowindow.cpp:497
+#: piwigowindow.cpp:466 piwigowindow.cpp:490
 msgid "Album"
 msgstr "Album"
 
-#: piwigowindow.cpp:516
+#: piwigowindow.cpp:509
 msgid "Image"
 msgstr "Billede"
 
-#: piwigowindow.cpp:547
+#: piwigowindow.cpp:540
 msgid "Nothing to upload - please select photos to upload."
 msgstr "Intet at uploade - vælg fotos der skal uploades."
 
-#: piwigowindow.cpp:589
+#: piwigowindow.cpp:578
+#, kde-format
+msgid "The file %1 is not a supported image or video format"
+msgstr "Filen %1 er ikke et understøttet billed- eller videoformat"
+
+#: piwigowindow.cpp:582
 #, kde-format
 msgid "Uploading file %1"
 msgstr "Uploader filen %1"
 
-#: piwigowindow.cpp:608
-msgid "Failed to upload photo into remote piwigo. "
-msgstr "Kunne ikke uploade foto til ekstern Piwigo."
+#: piwigowindow.cpp:601
+msgid "Failed to upload media into remote piwigo. "
+msgstr "Kunne ikke uploade mediet til ekstern Piwigo. "
 
-#: piwigowindow.cpp:611
+#: piwigowindow.cpp:604
 msgid ""
 "\n"
 "Do you want to continue?"
@@ -252,6 +250,18 @@ msgstr ""
 #: plugin_piwigoexport.cpp:98
 msgid "Export to &Piwigo..."
 msgstr "Eksportér til &Piwigo..."
+
+#~ msgid "Upload resized version of %1"
+#~ msgstr "Upload version af %1 med tilpasset størrelse"
+
+#~ msgid "Upload the thumbnail of %1"
+#~ msgstr "Upload miniature af %1"
+
+#~ msgid "Maximum thumbnail dimension:"
+#~ msgstr "Maksimal dimension på miniature:"
+
+#~ msgid "Thumbnail size is ignored with Piwigo > 2.4"
+#~ msgstr "Miniaturestørrelse ignoreres med Piwigo > 2.4"
 
 #~ msgid "&Add Selected Photos"
 #~ msgstr "&Tilføj valgte fotos"

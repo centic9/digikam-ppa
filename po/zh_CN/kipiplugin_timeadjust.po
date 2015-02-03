@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
 "PO-Revision-Date: 2010-05-17 01:26+0800\n"
 "Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
 "Language-Team: Chinese Simplified <kde-china@kde.org>\n"
@@ -74,13 +74,13 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 #, fuzzy
 #| msgid "Use Time && Date"
 msgid "Timestamp Used"
 msgstr "使用时间和日期"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 #, fuzzy
 #| msgid "Use Time && Date"
 msgid "Timestamp Updated"
@@ -94,32 +94,32 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr ""
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr ""
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 #, fuzzy
 #| msgid "Unable to update metadata in:"
 msgid "Failed to update metadata timestamp"
 msgstr "无法更新元数据："
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 #, fuzzy
 #| msgid "Unable to update file modification time in:"
 msgid "Failed to update file timestamp"
 msgstr "无法更新文件修改时间："
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr ""
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr ""
 
@@ -127,74 +127,80 @@ msgstr ""
 msgid "Adjust Time && Date..."
 msgstr "调整时间和日期..."
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr "%1 时间戳"
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr "上次修改的文件"
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr "EXIF/IPTC/XMP"
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr "EXIF：创建时间"
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr "EXIF：原始时间"
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr "EXIF：数字化时间"
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr "IPTC：创建时间"
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr "XMP：创建时间"
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "重置为当前日期"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 #, fuzzy
 #| msgid "Copy value"
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "复制值"
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 #, fuzzy
 #| msgid "Add"
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "加"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 #, fuzzy
 #| msgid "Subtract"
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "减"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "天"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 #, fuzzy
 #| msgid "Determine time difference with clock photo"
 msgid "Determine difference from clock photo"
 msgstr "以时钟照片判定时间差"
+
+#: settingswidget.cpp:256
+#, fuzzy
+#| msgid "EXIF: original"
+msgid "EXIF: Thumbnail"
+msgstr "EXIF：原始时间"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -204,13 +210,13 @@ msgstr "XMP"
 msgid "Filename"
 msgstr ""
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 #, fuzzy
 #| msgid "Time Adjust"
 msgid "Timestamp Adjustments"
 msgstr "调整时间"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "调整时间和日期"
 
@@ -229,7 +235,7 @@ msgstr "一个用于调整图片文件时间戳的 Kipi 插件"
 #| "(c) 2006-2009, Gilles Caulier"
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005，Jesper K. Pedersen\n"
@@ -259,13 +265,13 @@ msgstr ""
 msgid "Pieter Edelman"
 msgstr ""
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 #, fuzzy
 #| msgid "Adjust Time & Date"
 msgid "Adjust Time and Date"
 msgstr "调整时间和日期"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr ""
 

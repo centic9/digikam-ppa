@@ -7,7 +7,7 @@
  * @date   2010-06-16
  * @brief  Wrapper for OpenCV header files
  *
- * @author Copyright (C) 2012 by Gilles Caulier
+ * @author Copyright (C) 2012-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -32,6 +32,20 @@
 
 // To avoid broken compilation with OpenCV >= 2.0
 #undef HAVE_CONFIG_H
+
+// Pragma directives to reduce warnings from OpenCV header files.
+#if not defined(__APPLE__) && defined(__GNUC__)
+#pragma GCC diagnostic push
+#pragma GCC diagnostic ignored "-Wnon-virtual-dtor"
+#pragma GCC diagnostic ignored "-Woverloaded-virtual"
+#endif
+
+#if defined(__APPLE__) && defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnon-virtual-dtor"
+#pragma clang diagnostic ignored "-Woverloaded-virtual"
+#pragma clang diagnostic ignored "-Wcast-align"
+#endif
 
 // OpenCV includes
 
@@ -60,5 +74,14 @@
 //! Vector de doubles
 typedef std::vector<double> double_stl_vector;
 #endif // MATRIXCV_ACTIU
+
+// Restore warnings
+#if not defined(__APPLE__) && defined(__GNUC__)
+#pragma GCC diagnostic pop
+#endif
+
+#if defined(__APPLE__) && defined(__clang__)
+#pragma clang diagnostic pop
+#endif
 
 #endif // LIB_OPEN_CV_H

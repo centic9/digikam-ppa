@@ -1259,6 +1259,8 @@ void FuzzySearchSideBarWidget::newSimilarSearch(const ImageInfo& imageInfo)
 
 // -----------------------------------------------------------------------------
 
+#ifdef HAVE_KGEOMAP
+
 class GPSSearchSideBarWidget::Private
 {
 public:
@@ -1331,7 +1333,11 @@ QString GPSSearchSideBarWidget::getCaption()
     return i18nc("Search images on a map", "Map");
 }
 
+#endif // HAVE_KGEOMAP
+
 // -----------------------------------------------------------------------------
+
+#ifdef HAVE_KFACE
 
 class PeopleSideBarWidget::Private : public TagViewSideBarWidget::Private
 {
@@ -1460,5 +1466,7 @@ QString PeopleSideBarWidget::getCaption()
 {
     return i18nc("Browse images sorted by depicted people", "People");
 }
+
+#endif /* HAVE_KFACE */
 
 } // namespace Digikam

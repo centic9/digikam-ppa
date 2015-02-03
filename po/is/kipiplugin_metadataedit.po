@@ -3,13 +3,13 @@
 # Copyright (C) 2008, 2010 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2010, 2011, 2012, 2014.
+# Sveinn í Felli <sveinki@nett.is>, 2008, 2009, 2010, 2011, 2012, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2014-05-06 17:06+0000\n"
+"PO-Revision-Date: 2015-01-29 09:07+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
 "Language: is\n"
@@ -37,7 +37,7 @@ msgstr "Sveinn í Felli"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "sveinki@nett.is"
+msgstr "sv1@fellsnet.is"
 
 #: exif/exifadjust.cpp:94
 msgid "Brightness (APEX):"
@@ -1212,6 +1212,8 @@ msgid ""
 "<qt>Origin Information<br/><i>Use this panel for formal descriptive "
 "information about the image</i></qt>"
 msgstr ""
+"<qt>Uppruni<br/><i>Notaðu þennan flipa til að skrá upplýsingar um uppruna "
+"myndarinnar</i></qt>"
 
 #: iptc/iptceditwidget.cpp:144 xmp/xmpeditwidget.cpp:144
 msgid "Credits"
@@ -1222,6 +1224,8 @@ msgid ""
 "<qt>Credit Information<br/><i>Use this panel to record copyright information "
 "about the image</i></qt>"
 msgstr ""
+"<qt>Framlög<br/><i>Notaðu þennan flipa til að skrá upplýsingar um "
+"höfundarrétt á myndinni</i></qt>"
 
 #: iptc/iptceditwidget.cpp:150 xmp/xmpeditwidget.cpp:150
 msgid "Subjects"
@@ -1451,6 +1455,8 @@ msgid ""
 "Enter the envelope destination. This field is limited to 1024 ASCII "
 "characters."
 msgstr ""
+"Settu hér inn áfangastað umslagsins. Þessi reitur takmarkast við 1024 stafi "
+"úr ASCII stafasettinu."
 
 #: iptc/iptcenvelope.cpp:180
 msgid "U.N.O ID:"
@@ -1466,33 +1472,39 @@ msgstr ""
 
 #: iptc/iptcenvelope.cpp:190
 msgid "Product ID:"
-msgstr ""
+msgstr "Vöruauðkenni:"
 
 #: iptc/iptcenvelope.cpp:195
 msgid ""
 "Set here the product identifier. This field is limited to 32 ASCII "
 "characters."
 msgstr ""
+"Settu hér auðkenni vörunnar. Þessi reitur er takmarkaður við 32 stafi úr "
+"ASCII stafasettinu."
 
 #: iptc/iptcenvelope.cpp:200
 msgid "Service ID:"
-msgstr ""
+msgstr "Þjónustuauðkenni:"
 
 #: iptc/iptcenvelope.cpp:205
 msgid ""
 "Set here the service identifier. This field is limited to 10 ASCII "
 "characters."
 msgstr ""
+"Settu hér auðkenni þjónustunnar. Þessi reitur er takmarkaður við 10 stafi úr "
+"ASCII stafasettinu."
 
 #: iptc/iptcenvelope.cpp:210
 msgid "Envelope ID:"
-msgstr ""
+msgstr "Umslagsauðkenni:"
 
 #: iptc/iptcenvelope.cpp:215
 msgid ""
 "Set here the envelope identifier. This field is limited to 8 ASCII "
 "characters."
 msgstr ""
+"Settu hér auðkenni umslagsins. Þessi reitur er takmarkaður við 8 stafi úr "
+"ASCII stafasettinu."
 
 #: iptc/iptcenvelope.cpp:220 iptc/iptcproperties.cpp:184
 #: xmp/xmpproperties.cpp:183
@@ -1527,7 +1539,7 @@ msgstr "9: Skilgreint af notanda"
 
 #: iptc/iptcenvelope.cpp:232
 msgid "Select here the envelope priority."
-msgstr ""
+msgstr "Veldu hér forgang umslags."
 
 #: iptc/iptcenvelope.cpp:236
 msgid "Format:"
@@ -1535,7 +1547,7 @@ msgstr "Snið:"
 
 #: iptc/iptcenvelope.cpp:248
 msgid "Select here envelope file format."
-msgstr ""
+msgstr "Veldu hér skráasnið umslags."
 
 #: iptc/iptcenvelope.cpp:252
 msgid "Sent date:"
@@ -2253,7 +2265,7 @@ msgstr "Settu inn lýsingu á efninu."
 
 #: xmp/xmpcontent.cpp:99
 msgid "Default Language Caption Options"
-msgstr ""
+msgstr "Valkostir fyrir sjálfgefið tungumál skýringatexta"
 
 #: xmp/xmpcontent.cpp:122
 msgid "Enter the necessary copyright notice."
@@ -2613,7 +2625,7 @@ msgstr "Titill:"
 
 #: xmp/xmpstatus.cpp:86
 msgid "Set here a shorthand reference for the content."
-msgstr ""
+msgstr "Settu hér inn stutta tilvísun fyrir efnið."
 
 #: xmp/xmpstatus.cpp:90
 msgid "Nickname:"
@@ -2621,19 +2633,19 @@ msgstr "Gælunafn:"
 
 #: xmp/xmpstatus.cpp:93
 msgid "A short informal name for the resource."
-msgstr ""
+msgstr "Stutt óformlegt heiti á aðfanginu."
 
 #: xmp/xmpstatus.cpp:97
 msgid "Identifiers:"
-msgstr ""
+msgstr "Auðkenni:"
 
 #: xmp/xmpstatus.cpp:98
 msgid "Set here the strings that identify content that recurs."
-msgstr ""
+msgstr "Settu hér inn streng sem auðkennir efnið sem kemur fyrir."
 
 #: xmp/xmpstatus.cpp:105
 msgid "Enter the editorial usage instructions."
-msgstr ""
+msgstr "Settu hér ritstjórnarlegar leiðbeiningar um meðferð efnisins."
 
 #: xmp/xmpsubjects.cpp:51
 msgid ""
@@ -2642,6 +2654,10 @@ msgid ""
 "content. The default value for the I.P.R is \"XMP\" if a standard Reference "
 "Code is used."
 msgstr ""
+"Settu hér inn auðkenni upplýsingaveitanda (Informative Provider Reference) I."
+"P.R er nafn sem skráð er hjá XMP/NAA, og gefur tilvísun á útgefanda "
+"efnisins. Sjálfgefið gildi fyrir I.P.R er \"XMP\" ef staðlaður tílvísanakóði "
+"(Reference Code) er notaður."
 
 #: xmp/xmpsubjects.cpp:57
 msgid ""
@@ -2654,24 +2670,40 @@ msgid ""
 "standard reference code is used, these lists are the English language "
 "reference versions. This field is limited to 8 digit code."
 msgstr ""
+"Settu hér inn tilvísunarnúmer á efnisflokk (Subject Reference Number) Þetta "
+"er kóðanúmer sem gefur til kynna heiti efnisflokks (Subject Name) auk "
+"viðbótarskilgreiningar á umfjöllunarefni og ítarlegri skilgreiningu (Subject "
+"Matter og Subject Detail Name) á tungumáli þjónustunnar. Tilvísunarnúmer "
+"efnisflokks er tala á bilinu 01000000 til 17999999 og stendur fyrir "
+"alþjóðlega flokkun á efni, óháð tungumálum. Hvert efni er auðkennt með "
+"tilvísunarnúmeri og eru samsvarandi heiti á viðkomandi tungumáli (ef til "
+"eru) tekin úr listum sem gefnir eru út af XMP/NAA. Ef staðlaður "
+"tilvísanakóði er notaður, þá eru nöfnin úr þessum listum höfð á ensku. Þessi "
+"reitur er takmarkaður við 8 stafa tölu."
 
 #: xmp/xmpsubjects.cpp:70
 msgid ""
 "Enter here the Subject Name. English language is used if you selected a "
 "standard XMP/NAA reference code."
 msgstr ""
+"Settu hér inn heiti ítarlegs umfjöllunarefnis (Subject Detail Name) Enska er "
+"notuð ef þú hefur valið að nota staðlaðan XMP/NAA tilvísanakóða."
 
 #: xmp/xmpsubjects.cpp:74
 msgid ""
 "Enter here the Subject Matter Name. English language is used if you selected "
 "a standard XMP/NAA reference code."
 msgstr ""
+"Settu hér inn heiti umfjöllunarefnis (Subject Matter Name) Enska er notuð ef "
+"þú hefur valið að nota staðlaðan XMP/NAA tilvísanakóða."
 
 #: xmp/xmpsubjects.cpp:78
 msgid ""
 "Enter here the Subject Detail Name. English language is used if you selected "
 "a standard XMP/NAA reference code."
 msgstr ""
+"Settu hér inn heiti ítarlegs umfjöllunarefnis (Subject Detail Name) Enska er "
+"notuð ef þú hefur valið að nota staðlaðan XMP/NAA tilvísanakóða."
 
 #~ msgid "Handbook"
 #~ msgstr "Handbók"

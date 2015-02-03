@@ -55,6 +55,7 @@
 
 // Local includes
 
+#include "config-digikam.h"
 #include "imagepreviewviewitem.h"
 #include "applicationsettings.h"
 #include "contextmenuhelper.h"
@@ -62,7 +63,6 @@
 #include "digikamapp.h"
 #include "dimg.h"
 #include "dimgpreviewitem.h"
-#include "facegroup.h"
 #include "imageinfo.h"
 #include "fileactionmngr.h"
 #include "metadatasettings.h"
@@ -70,9 +70,14 @@
 #include "tagspopupmenu.h"
 #include "thememanager.h"
 #include "previewlayout.h"
+#include "previewsettings.h"
 #include "tagscache.h"
 #include "imagetagpair.h"
 #include "albummanager.h"
+
+#ifdef HAVE_KFACE
+#include "facegroup.h"
+#endif /* HAVE_KFACE */
 
 namespace Digikam
 {
@@ -83,7 +88,6 @@ public:
 
     Private()
     {
-        peopleTagsShown     = false;
         fullSize            = 0;
         scale               = 1.0;
         item                = 0;
@@ -94,14 +98,15 @@ public:
         nextAction          = 0;
         rotLeftAction       = 0;
         rotRightAction      = 0;
+        mode                = ImagePreviewView::IconViewPreview;
+#ifdef HAVE_KFACE
+        faceGroup           = 0;
         peopleToggleAction  = 0;
         addPersonAction     = 0;
-        faceGroup           = 0;
         forgetFacesAction   = 0;
-        mode                = ImagePreviewView::IconViewPreview;
+#endif /* HAVE_KFACE */
     }
 
-    bool                   peopleTagsShown;
     bool                   fullSize;
     double                 scale;
     bool                   isValid;
@@ -115,13 +120,15 @@ public:
     QAction*               nextAction;
     QAction*               rotLeftAction;
     QAction*               rotRightAction;
-    KToggleAction*         peopleToggleAction;
-    QAction*               addPersonAction;
-    QAction*               forgetFacesAction;
 
     QToolBar*              toolBar;
 
+#ifdef HAVE_KFACE
     FaceGroup*             faceGroup;
+    KToggleAction*         peopleToggleAction;
+    QAction*               addPersonAction;
+    QAction*               forgetFacesAction;
+#endif /* HAVE_KFACE */
 };
 
 ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
@@ -131,10 +138,12 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     d->item      = new ImagePreviewViewItem();
     setItem(d->item);
 
+#ifdef HAVE_KFACE
     d->faceGroup = new FaceGroup(this);
     d->faceGroup->setShowOnHover(true);
 
     d->item->setFaceGroup(d->faceGroup);
+#endif /* HAVE_KFACE */
 
     connect(d->item, SIGNAL(loaded()),
             this, SLOT(imageLoaded()));
@@ -160,10 +169,13 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     d->nextAction          = new QAction(SmallIcon("go-next"),             i18nc("go to next image", "Forward"),   this);
     d->rotLeftAction       = new QAction(SmallIcon("object-rotate-left"),  i18nc("@info:tooltip", "Rotate Left"),  this);
     d->rotRightAction      = new QAction(SmallIcon("object-rotate-right"), i18nc("@info:tooltip", "Rotate Right"), this);
+
+#ifdef HAVE_KFACE
     d->addPersonAction     = new QAction(SmallIcon("list-add-user"),       i18n("Add a Face Tag"),                 this);
     d->forgetFacesAction   = new QAction(SmallIcon("list-remove-user"),    i18n("Clear all faces on this image"),  this);
     d->peopleToggleAction  = new KToggleAction(i18n("Show Face Tags"),                                             this);
     d->peopleToggleAction->setIcon(SmallIcon("user-identity"));
+#endif /* HAVE_KFACE */
 
     d->toolBar             = new QToolBar(this);
 
@@ -175,8 +187,11 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
 
     d->toolBar->addAction(d->rotLeftAction);
     d->toolBar->addAction(d->rotRightAction);
+
+#ifdef HAVE_KFACE
     d->toolBar->addAction(d->peopleToggleAction);
     d->toolBar->addAction(d->addPersonAction);
+#endif /* HAVE_KFACE */
 
     connect(d->prevAction, SIGNAL(triggered()),
             this, SIGNAL(toPreviousImage()));
@@ -190,6 +205,7 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     connect(d->rotRightAction, SIGNAL(triggered()),
             this, SLOT(slotRotateRight()));
 
+#ifdef HAVE_KFACE
     connect(d->peopleToggleAction, SIGNAL(toggled(bool)),
             d->faceGroup, SLOT(setVisible(bool)));
 
@@ -198,6 +214,7 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
 
     connect(d->forgetFacesAction, SIGNAL(triggered()),
             d->faceGroup, SLOT(rejectAll()));
+#endif /* HAVE_KFACE */
 
     // ------------------------------------------------------------
 
@@ -236,7 +253,9 @@ void ImagePreviewView::imageLoaded()
     d->rotLeftAction->setEnabled(true);
     d->rotRightAction->setEnabled(true);
 
+#ifdef HAVE_KFACE
     d->faceGroup->setInfo(d->item->imageInfo());
+#endif /* HAVE_KFACE */
 
     connect(d->item, SIGNAL(imageChanged()),
             this, SLOT(slotUpdateFaces()));
@@ -247,12 +266,18 @@ void ImagePreviewView::imageLoadingFailed()
     emit signalPreviewLoaded(false);
     d->rotLeftAction->setEnabled(false);
     d->rotRightAction->setEnabled(false);
+
+#ifdef HAVE_KFACE
     d->faceGroup->setInfo(ImageInfo());
+#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::setImageInfo(const ImageInfo& info, const ImageInfo& previous, const ImageInfo& next)
 {
+#ifdef HAVE_KFACE
     d->faceGroup->aboutToSetInfo(info);
+#endif /* HAVE_KFACE */
+
     d->item->setImageInfo(info);
 
     d->prevAction->setEnabled(!previous.isNull());
@@ -285,23 +310,37 @@ bool ImagePreviewView::acceptsMouseClick(QMouseEvent* e)
         return false;
     }
 
+#ifdef HAVE_KFACE
     return d->faceGroup->acceptsMouseClick(mapToScene(e->pos()));
+#else
+    return false;
+#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::enterEvent(QEvent* e)
 {
+#ifdef HAVE_KFACE
     d->faceGroup->enterEvent(e);
+#else
+    Q_UNUSED(e);
+#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::leaveEvent(QEvent* e)
 {
+#ifdef HAVE_KFACE
     d->faceGroup->leaveEvent(e);
+#else
+    Q_UNUSED(e);
+#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::showEvent(QShowEvent* e)
 {
     GraphicsDImgView::showEvent(e);
+#ifdef HAVE_KFACE
     d->faceGroup->setVisible(d->peopleToggleAction->isChecked());
+#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event)
@@ -341,10 +380,12 @@ void ImagePreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event
 
     // --------------------------------------------------------
 
+#ifdef HAVE_KFACE
     cmhelper.addAction(d->peopleToggleAction, true);
     cmhelper.addAction(d->addPersonAction,    true);
     cmhelper.addAction(d->forgetFacesAction,  true);
     cmhelper.addSeparator();
+#endif /* HAVE_KFACE */
 
     // --------------------------------------------------------
 
@@ -449,7 +490,7 @@ void ImagePreviewView::slotThemeChanged()
 
 void ImagePreviewView::slotSetupChanged()
 {
-    previewItem()->setLoadFullImageSize(ApplicationSettings::instance()->getPreviewLoadFullImageSize());
+    previewItem()->setPreviewSettings(ApplicationSettings::instance()->getPreviewSettings());
 
     d->toolBar->setVisible(ApplicationSettings::instance()->getPreviewShowIcons());
     setShowText(ApplicationSettings::instance()->getPreviewShowIcons());
@@ -469,10 +510,13 @@ void ImagePreviewView::slotRotateLeft()
      */
     d->item->setAcceptHoverEvents(false);
 
+#ifdef HAVE_KFACE
     /**
      * aboutToSetInfo will delete all face tags from FaceGroup storage
      */
     d->faceGroup->aboutToSetInfo(ImageInfo());
+#endif /* HAVE_KFACE */
+
     FileActionMngr::instance()->transform(QList<ImageInfo>() << d->item->imageInfo(), KExiv2Iface::RotationMatrix::Rotate270);
 }
 
@@ -488,10 +532,13 @@ void ImagePreviewView::slotRotateRight()
      */
     d->item->setAcceptHoverEvents(false);
 
+#ifdef HAVE_KFACE
     /**
      * aboutToSetInfo will delete all face tags from FaceGroup storage
      */
     d->faceGroup->aboutToSetInfo(ImageInfo());
+#endif /* HAVE_KFACE */
+
     FileActionMngr::instance()->transform(QList<ImageInfo>() << d->item->imageInfo(), KExiv2Iface::RotationMatrix::Rotate90);
 }
 
@@ -502,8 +549,12 @@ void ImagePreviewView::slotDeleteItem()
 
 void Digikam::ImagePreviewView::slotUpdateFaces()
 {
+#ifdef HAVE_KFACE
     d->faceGroup->aboutToSetInfo(ImageInfo());
+#endif /* HAVE_KFACE */
+
     d->item->setAcceptHoverEvents(true);
+
     /**
      * Release rotation lock after rotation
      */

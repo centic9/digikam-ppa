@@ -1,62 +1,64 @@
-# KDE Finnish translation sprint participants:
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tommi Nieminen <translator@legisign.org>, 2014.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kipiplugin_advancedslideshow\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2012-07-04 13:35:59+0000\n"
-"Last-Translator: Ei tietoa\n"
-"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"PO-Revision-Date: 2014-10-28 19:08+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2012-12-01 22:20:18+0000\n"
-"X-Generator: MediaWiki 1.21alpha (963ddae); Translate 2012-11-08\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Tommi Nieminen"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "translator@legisign.org"
 
 #: dialogs/captiondialog.cpp:41
 msgid "This is a comment sample..."
-msgstr ""
+msgstr "Tämä on esimerkkikommentti…"
 
 #: dialogs/maindialog.cpp:244
 #, kde-format
 msgid "%1 image [%2]"
 msgid_plural "%1 images [%2]"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%1 kuva [%2]"
+msgstr[1] "%1 kuvaa [%2]"
 
 #: dialogs/maindialog.cpp:324 dialogs/soundtrackdialog.cpp:560
 #, kde-format
 msgid "Cannot access file %1. Please check the path is correct."
-msgstr ""
+msgstr "Tiedostoa %1 ei voi käsitellä. Tarkista, että sijainti on oikein."
 
 #: dialogs/maindialog.cpp:362
 #, kde-format
 msgctxt "Image number %1"
 msgid "Image #%1"
-msgstr ""
+msgstr "Kuva %1"
 
 #: dialogs/maindialog.cpp:394 widgets/slideshowkb.cpp:574
 msgid "Ken Burns"
-msgstr ""
+msgstr "Ken Burns"
 
 #: dialogs/maindialog.cpp:415
 msgid "Delay between images (ms):"
-msgstr ""
+msgstr "Viive kuvien välillä (ms):"
 
 #. i18n: ectx: property (text), widget (QLabel, m_delayLabel)
 #: dialogs/maindialog.cpp:422 ui/maindialog.ui:262
 msgid "Delay between images (s):"
-msgstr ""
+msgstr "Viive kuvien välillä (s):"
 
 #: dialogs/slideshowconfig.cpp:77 dialogs/slideshowconfig.cpp:113
 msgid "Advanced Slideshow"
@@ -64,7 +66,7 @@ msgstr ""
 
 #: dialogs/slideshowconfig.cpp:85
 msgid "Start Slideshow"
-msgstr ""
+msgstr "Käynnistä diaesitys"
 
 #: dialogs/slideshowconfig.cpp:92
 msgid "Main"
@@ -72,135 +74,140 @@ msgstr ""
 
 #: dialogs/slideshowconfig.cpp:93
 msgid "Main Settings"
-msgstr ""
+msgstr "Keskeiset asetukset"
 
 #: dialogs/slideshowconfig.cpp:97 dialogs/slideshowconfig.cpp:98
 msgctxt "captions for the slideshow"
 msgid "Caption"
-msgstr ""
+msgstr "Selite"
 
 #: dialogs/slideshowconfig.cpp:102 dialogs/slideshowconfig.cpp:103
 msgid "Soundtrack"
-msgstr ""
+msgstr "Ääniraita"
 
 #: dialogs/slideshowconfig.cpp:107 dialogs/slideshowconfig.cpp:108
 msgid "Advanced"
-msgstr ""
+msgstr "Lisäasetukset"
 
 #: dialogs/slideshowconfig.cpp:116
 msgid "A Kipi plugin for image slideshows"
-msgstr ""
+msgstr "Kipi-liitännäinen diaesityksiin"
 
 #: dialogs/slideshowconfig.cpp:117
 msgid ""
 "(c) 2003-2004, Renchi Raju\n"
 "(c) 2006-2009, Valerio Fuoglio"
 msgstr ""
+"© 2003–2004, Renchi Raju\n"
+"© 2006–2009, Valerio Fuoglio"
 
 #: dialogs/slideshowconfig.cpp:120
 msgid "Renchi Raju"
-msgstr ""
+msgstr "Renchi Raju"
 
 #: dialogs/slideshowconfig.cpp:120
 msgid "Author"
-msgstr ""
+msgstr "Tekijä"
 
 #: dialogs/slideshowconfig.cpp:123
 msgid "Valerio Fuoglio"
-msgstr ""
+msgstr "Valerio Fuoglio"
 
 #: dialogs/slideshowconfig.cpp:123
 msgid "Author and maintainer"
-msgstr ""
+msgstr "Tekijä ja ylläpitäjä"
 
 #: dialogs/soundtrackdialog.cpp:63
 msgid "Soundtrack preview"
-msgstr ""
+msgstr "Ääniraidan esikatselu"
 
 #: dialogs/soundtrackdialog.cpp:90
 msgid ""
 "If set, the soundtrack for the current album will be saved and restored "
 "automatically on the next startup."
 msgstr ""
+"Jos asetettu, nykyisen albumin ääniraita tallennetaan ja palautetaan "
+"automaattisesti seuraavassa käynnistyksessä."
 
 #: dialogs/soundtrackdialog.cpp:111
 msgid "Move the selected track up in the playlist."
-msgstr ""
+msgstr "Nosta valittua raitaa ylemmäs soittolistalla."
 
 #: dialogs/soundtrackdialog.cpp:112
 msgid "Move the selected track down in the playlist."
-msgstr ""
+msgstr "Laske valittua raitaa alemmas soittolistalla."
 
 #: dialogs/soundtrackdialog.cpp:113
 msgid "Add new tracks to the playlist."
-msgstr ""
+msgstr "Lisää uusia raitoja soittolistalle."
 
 #: dialogs/soundtrackdialog.cpp:114
 msgid "Delete the selected track from the playlist."
-msgstr ""
+msgstr "Poista valittu raita soittolistalta."
 
 #: dialogs/soundtrackdialog.cpp:115
 msgid "Load playlist from a file."
-msgstr ""
+msgstr "Lataa soittolista tiedostosta."
 
 #: dialogs/soundtrackdialog.cpp:116
 msgid "Save playlist to a file."
-msgstr ""
+msgstr "Tallenna soittolista tiedostoon."
 
 #: dialogs/soundtrackdialog.cpp:117
 msgid "Clear the playlist."
-msgstr ""
+msgstr "Tyhjennä soittolista."
 
 #: dialogs/soundtrackdialog.cpp:243
 #, kde-format
 msgctxt "number of tracks and running time"
 msgid "1 track [%2]"
 msgid_plural "%1 tracks [%2]"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "1 raita [%2]"
+msgstr[1] "%1 raitaa [%2]"
 
 #: dialogs/soundtrackdialog.cpp:271
 msgid ""
 "Slide time is greater than soundtrack time. Suggestion: add more sound files."
 msgstr ""
+"Dian aika on pidempi kuin ääniraidan. Ehdotus: lisää useampia äänitiedostoja."
 
 #: dialogs/soundtrackdialog.cpp:342
 msgid "Select sound files"
-msgstr ""
+msgstr "Valitse äänitiedostot"
 
 #: dialogs/soundtrackdialog.cpp:394
 msgid "You can only move image files up one at a time."
-msgstr ""
+msgstr "Voit siirtää kuvia ylemmäs vain yksi kerrallaan."
 
 #: dialogs/soundtrackdialog.cpp:426
 msgid "You can only move files down one at a time."
-msgstr ""
+msgstr "Voit siirtää tiedostoja alemmas vain yksi kerrallaan."
 
 #: dialogs/soundtrackdialog.cpp:448 dialogs/soundtrackdialog.cpp:504
 msgid "*.m3u|Playlist (*.m3u)"
-msgstr ""
+msgstr "*.m3u|Soittolista (*.m3u)"
 
 #: dialogs/soundtrackdialog.cpp:449
 msgid "Load playlist"
-msgstr ""
+msgstr "Lataa soittolista"
 
 #: dialogs/soundtrackdialog.cpp:505
 msgid "Save playlist"
-msgstr ""
+msgstr "Tallenna soittolista"
 
 #: dialogs/soundtrackdialog.cpp:569
 msgid "Cannot create a preview of an empty file list."
-msgstr ""
+msgstr "Tyhjästä tiedostoluettelosta ei voi luoda esikatselua."
 
 #. i18n: ectx: Menu (View)
 #: plugin/kipiplugin_advancedslideshowui.rc:7
 msgid "&View"
-msgstr ""
+msgstr "&Näkymä"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_advancedslideshowui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Päätyökalurivi"
 
 #: plugin/plugin_advancedslideshow.cpp:118
 msgid "Advanced Slideshow..."
@@ -208,21 +215,21 @@ msgstr ""
 
 #: plugin/plugin_advancedslideshow.cpp:204
 msgid "There are no images to show."
-msgstr ""
+msgstr "Näytettäviä kuvia ei ole."
 
 #: plugin/plugin_advancedslideshow.cpp:262
 msgid "OpenGL support is not available on your system."
-msgstr ""
+msgstr "Järjestelmässäsi ei ole OpenGL-tukea."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/advanceddialog.ui:24
 msgid "&Interface"
-msgstr ""
+msgstr "L&iittymä"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_useMillisecondsCheckBox)
 #: ui/advanceddialog.ui:36
 msgid "Use &milliseconds instead of seconds"
-msgstr ""
+msgstr "Käytä &millisekunteja sekuntien sijaan"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/advanceddialog.ui:52
@@ -232,47 +239,48 @@ msgstr ""
 #. i18n: ectx: property (toolTip), widget (QCheckBox, m_enableMouseWheelCheckBox)
 #: ui/advanceddialog.ui:64
 msgid "Enable mouse wheel to move between slides."
-msgstr ""
+msgstr "Siirry diojen välillä hiiren rullalla"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_enableMouseWheelCheckBox)
 #: ui/advanceddialog.ui:67
 msgid "Enable mouse &wheel "
-msgstr ""
+msgstr "Käytä &hiiren rullaa"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/advanceddialog.ui:85
 msgid "&Ken Burns effect"
-msgstr ""
+msgstr "Ken &Burns -tehoste"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableFadeCheckBox)
 #: ui/advanceddialog.ui:97
 msgid "Disable &fade-in / fade-out"
-msgstr ""
+msgstr "Poista h&äivytys käytöstä"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_kbDisableCrossfadeCheckBox)
 #: ui/advanceddialog.ui:110
 msgid "Disable &cross-fade"
-msgstr ""
+msgstr "Poista h&äivytys käytöstä"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_4)
 #: ui/advanceddialog.ui:126
 msgid "&Others"
-msgstr ""
+msgstr "M&uut"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_cacheCheckBox)
 #: ui/advanceddialog.ui:140
 msgid "Enable &Cache"
-msgstr ""
+msgstr "Ota &välimuisti käyttöön"
 
 #. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel1)
 #: ui/advanceddialog.ui:155
 msgid "Cache size:"
-msgstr ""
+msgstr "Välimuistin koko:"
 
+# *** TARKISTA: Vai seuraako numeroa?
 #. i18n: ectx: property (text), widget (QLabel, m_cacheSizeLabel2)
 #: ui/advanceddialog.ui:197
 msgid "images"
-msgstr ""
+msgstr "kuvat"
 
 #. i18n: ectx: property (text), widget (QLabel, m_KBCacheLabel)
 #: ui/advanceddialog.ui:212
@@ -280,168 +288,170 @@ msgid ""
 "<b>Notice</b>:\n"
 "Ken Burns effect does not use this cache mechanism."
 msgstr ""
+"<b>Huomaa:</b>:\n"
+"Ken Burns -tehoste ei käytä välimuistia."
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/captiondialog.ui:26
 msgid "Line length (in characters)"
-msgstr ""
+msgstr "Rivin pituus (merkkeinä)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/captiondialog.ui:77
 msgid "Colors"
-msgstr ""
+msgstr "Värit"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/captiondialog.ui:83
 msgid "Font color:"
-msgstr ""
+msgstr "Tekstiväri:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/captiondialog.ui:106
 msgid "Background color:"
-msgstr ""
+msgstr "Taustaväri:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: ui/captiondialog.ui:167
 msgid "Background opacity:"
-msgstr ""
+msgstr "Taustan peittävyys:"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_commentsDrawOutlineCheckBox)
 #: ui/captiondialog.ui:174
 msgid "Outlined Text"
-msgstr ""
+msgstr "Ääriviivateksti"
 
 #. i18n: ectx: property (text), widget (QRadioButton, m_allFilesButton)
 #: ui/maindialog.ui:26
 msgid "Show all images in current al&bum"
-msgstr ""
+msgstr "Näytä kaikki nykyisen al&bumin kuvat"
 
 #. i18n: ectx: property (text), widget (QRadioButton, m_selectedFilesButton)
 #: ui/maindialog.ui:33
 msgid "Show onl&y selected images"
-msgstr ""
+msgstr "Näytä &vain valitut kuvat"
 
 #. i18n: ectx: property (text), widget (QRadioButton, m_customButton)
 #: ui/maindialog.ui:40
 msgid "Cu&stom"
-msgstr ""
+msgstr "M&ukautettu"
 
 #. i18n: ectx: property (whatsThis), widget (QGroupBox, m_ImagesFilesGroup)
 #: ui/maindialog.ui:50
 msgid "Preview the currently selected image."
-msgstr ""
+msgstr "Esikatsele valittua kuvaa."
 
 #. i18n: ectx: property (title), widget (QGroupBox, m_ImagesFilesGroup)
 #: ui/maindialog.ui:53
 msgid "Image Files in Slideshow"
-msgstr ""
+msgstr "Diaesityksen kuvatiedostot"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, m_label6)
 #: ui/maindialog.ui:120
 msgid "Total number of images in the portfolio and sequence duration."
-msgstr ""
+msgstr "Portfolion kuvien kokonaismäärä ja esityksen kesto."
 
 #. i18n: ectx: property (text), widget (QLabel, m_label6)
 #. i18n: ectx: property (text), widget (QLabel, m_label7)
 #: ui/maindialog.ui:123 ui/maindialog.ui:142
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #. i18n: ectx: property (whatsThis), widget (QLabel, m_label7)
 #: ui/maindialog.ui:139
 msgid "Currently selected image in the portfolio list."
-msgstr ""
+msgstr "Nykyinen portfolioluettelosta valittu kuva."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/maindialog.ui:157
 msgid "Content"
-msgstr ""
+msgstr "Sisältö"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_printNameCheckBox)
 #: ui/maindialog.ui:165
 msgid "P&rint filename"
-msgstr ""
+msgstr "&Tulosta tiedostonimi"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_printProgressCheckBox)
 #: ui/maindialog.ui:172
 msgid "Progress indicator"
-msgstr ""
+msgstr "Etenemisen osoitin"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_printCommentsCheckBox)
 #: ui/maindialog.ui:181
 msgid "Pr&int captions "
-msgstr ""
+msgstr "Tulosta &selitteet"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/maindialog.ui:204
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_openglCheckBox)
 #: ui/maindialog.ui:210
 msgid "Use Open&GL slideshow transitions"
-msgstr ""
+msgstr "Käytä Open&GL-siirtymiä diaesityksessä"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_openGlFullScale)
 #: ui/maindialog.ui:217
 msgid "Use full screen resolution (slower)"
-msgstr ""
+msgstr "Käytä näytön koko tarkkuutta (hitaampaa)"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/maindialog.ui:240
 msgid "Playback"
-msgstr ""
+msgstr "Toisto"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_loopCheckBox)
 #: ui/maindialog.ui:246 ui/soundtrackdialog.ui:331
 msgid "&Loop"
-msgstr ""
+msgstr "&Silmukka"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_shuffleCheckBox)
 #: ui/maindialog.ui:253
 msgid "&Shuffle images"
-msgstr ""
+msgstr "S&ekoita kuvat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/maindialog.ui:288
 msgid "Transition effect:"
-msgstr ""
+msgstr "Siirtymätehoste:"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_playButton)
 #: ui/playbackwidget.ui:28 ui/slideplaybackwidget.ui:30
 msgid "Play"
-msgstr ""
+msgstr "Toista"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
 #: ui/playbackwidget.ui:35 ui/slideplaybackwidget.ui:37
 msgid "Stop"
-msgstr ""
+msgstr "Pysäytä"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_prevButton)
 #: ui/playbackwidget.ui:42 ui/slideplaybackwidget.ui:44
 msgid "Prev"
-msgstr ""
+msgstr "Edellinen"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_nextButton)
 #: ui/playbackwidget.ui:49 ui/slideplaybackwidget.ui:51
 msgid "Next"
-msgstr ""
+msgstr "Seuraava"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/playbackwidget.ui:69
 msgid "Time"
-msgstr ""
+msgstr "Aika"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/playbackwidget.ui:78
 msgid "elapsed:"
-msgstr ""
+msgstr "kulunut:"
 
 #. i18n: ectx: property (text), widget (QLabel, m_elapsedTimeLabel)
 #. i18n: ectx: property (text), widget (QLabel, m_totalTimeLabel)
 #: ui/playbackwidget.ui:85 ui/playbackwidget.ui:99
 msgid "0:00:00"
-msgstr ""
+msgstr "0:00:00"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: ui/playbackwidget.ui:92
@@ -451,22 +461,22 @@ msgstr ""
 #. i18n: ectx: property (title), widget (QGroupBox, m_selectionGroupBox)
 #: ui/soundtrackdialog.ui:23
 msgid "Select audio files"
-msgstr ""
+msgstr "Valitse äänitiedostot"
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonUp)
 #: ui/soundtrackdialog.ui:76
 msgid "Move the current image up in the portfolio list."
-msgstr ""
+msgstr "Nosta valittua kuvaa ylemmäs portfolioluettelossa."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonAdd)
 #: ui/soundtrackdialog.ui:104
 msgid "Add some image files to the portfolio list."
-msgstr ""
+msgstr "Lisää joitakin kuvatiedostoja portfolioluetteloon."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDelete)
 #: ui/soundtrackdialog.ui:132
 msgid "Remove some image files from the portfolio list."
-msgstr ""
+msgstr "Poista joitakin kuvatiedostoja portfolioluettelosta."
 
 #. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonDown)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, m_SoundFilesButtonLoad)
@@ -475,135 +485,135 @@ msgstr ""
 #: ui/soundtrackdialog.ui:160 ui/soundtrackdialog.ui:191
 #: ui/soundtrackdialog.ui:219 ui/soundtrackdialog.ui:247
 msgid "Move the current image down in the portfolio list."
-msgstr ""
+msgstr "Laske valittua kuvaa alemmas portfolioluettelossa."
 
 #. i18n: ectx: property (text), widget (QPushButton, m_previewButton)
 #: ui/soundtrackdialog.ui:305
 msgid "Preview..."
-msgstr ""
+msgstr "Esikatselu…"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox)
 #: ui/soundtrackdialog.ui:325
 msgid "Options"
-msgstr ""
+msgstr "Asetukset"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_rememberSoundtrack)
 #: ui/soundtrackdialog.ui:338
 msgid "Remember soundtrack"
-msgstr ""
+msgstr "Muista ääniraita"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/soundtrackdialog.ui:361
 msgid "Time comparison"
-msgstr ""
+msgstr "Ajan vertailu"
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/soundtrackdialog.ui:369
 msgid "Slide:"
-msgstr ""
+msgstr "Dia:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
 #: ui/soundtrackdialog.ui:383
 msgid "Soundtrack:"
-msgstr ""
+msgstr "Ääniraita:"
 
 #: widgets/listsounditems.cpp:95
 #, kde-format
 msgid "%1 is damaged and may not be playable."
-msgstr ""
+msgstr "%1 on vioittunut eikä sitä voi toistaa."
 
 #: widgets/listsounditems.cpp:97
 msgid "Phonon error"
-msgstr ""
+msgstr "Phonon-virhe"
 
 #: widgets/listsounditems.cpp:100
 msgid "This file is damaged and may not be playable."
-msgstr ""
+msgstr "Tämä tiedosto on vioittunut eikä ehkä ole toistettavissa."
 
 #: widgets/listsounditems.cpp:101 widgets/listsounditems.cpp:125
 #, kde-format
 msgctxt "artist - title"
 msgid "%1 - %2"
-msgstr ""
+msgstr "%1 – %2"
 
 #: widgets/slideshow.cpp:240 widgets/slideshowgl.cpp:390
 msgctxt "Filter Effect: No effect"
 msgid "None"
-msgstr ""
+msgstr "Ei mitään"
 
 #: widgets/slideshow.cpp:241
 msgctxt "Filter Effect: Chess Board"
 msgid "Chess Board"
-msgstr ""
+msgstr "Šakkilauta"
 
 #: widgets/slideshow.cpp:242
 msgctxt "Filter Effect: Melt Down"
 msgid "Melt Down"
-msgstr ""
+msgstr "Sulaminen"
 
 #: widgets/slideshow.cpp:243
 msgctxt "Filter Effect: Sweep"
 msgid "Sweep"
-msgstr ""
+msgstr "Pyyhkäisy"
 
 #: widgets/slideshow.cpp:244
 msgctxt "Filter Effect: Mosaic"
 msgid "Mosaic"
-msgstr ""
+msgstr "Mosaiikki"
 
 #: widgets/slideshow.cpp:245
 msgctxt "Filter Effect: Cubism"
 msgid "Cubism"
-msgstr ""
+msgstr "Kubismi"
 
 #: widgets/slideshow.cpp:246
 msgctxt "Filter Effect: Growing"
 msgid "Growing"
-msgstr ""
+msgstr "Kasvu"
 
 #: widgets/slideshow.cpp:247
 msgctxt "Filter Effect: Horizontal Lines"
 msgid "Horizontal Lines"
-msgstr ""
+msgstr "Vaakaviivat"
 
 #: widgets/slideshow.cpp:248
 msgctxt "Filter Effect: Vertical Lines"
 msgid "Vertical Lines"
-msgstr ""
+msgstr "Pystyviivat"
 
 #: widgets/slideshow.cpp:249
 msgctxt "Filter Effect: Circle Out"
 msgid "Circle Out"
-msgstr ""
+msgstr "Ympyrä ulospäin"
 
 #: widgets/slideshow.cpp:250
 msgctxt "Filter Effect: Multi-Circle Out"
 msgid "Multi-Circle Out"
-msgstr ""
+msgstr "Useampi ympyrä ulospäin"
 
 #: widgets/slideshow.cpp:251
 msgctxt "Filter Effect: Spiral In"
 msgid "Spiral In"
-msgstr ""
+msgstr "Spiraali sisäänpäin"
 
 #: widgets/slideshow.cpp:252
 msgctxt "Filter Effect: Blobs"
 msgid "Blobs"
-msgstr ""
+msgstr "Möykyt"
 
 #: widgets/slideshow.cpp:253 widgets/slideshowgl.cpp:399
 msgctxt "Filter Effect: Random effect"
 msgid "Random"
-msgstr ""
+msgstr "Satunnainen"
 
 #: widgets/slideshow.cpp:1314 widgets/slideshowgl.cpp:692
 msgid "Slideshow Completed"
-msgstr ""
+msgstr "Diaesitys lopussa"
 
 #: widgets/slideshow.cpp:1315 widgets/slideshowgl.cpp:693
 #: widgets/slideshowkb.cpp:516
 msgid "Click to Exit..."
-msgstr ""
+msgstr "Lopeta napsauttamalla…"
 
 #: widgets/slideshowgl.cpp:391
 msgctxt "Filter Effect: Bend"
@@ -613,17 +623,17 @@ msgstr ""
 #: widgets/slideshowgl.cpp:392
 msgctxt "Filter Effect: Blend"
 msgid "Blend"
-msgstr ""
+msgstr "Sekoitus"
 
 #: widgets/slideshowgl.cpp:393
 msgctxt "Filter Effect: Cube"
 msgid "Cube"
-msgstr ""
+msgstr "Kuutio"
 
 #: widgets/slideshowgl.cpp:394
 msgctxt "Filter Effect: Fade"
 msgid "Fade"
-msgstr ""
+msgstr "Häivytys"
 
 #: widgets/slideshowgl.cpp:395
 msgctxt "Filter Effect: Flutter"
@@ -633,18 +643,18 @@ msgstr ""
 #: widgets/slideshowgl.cpp:396
 msgctxt "Filter Effect: In Out"
 msgid "In Out"
-msgstr ""
+msgstr "Sisään–ulos"
 
 #: widgets/slideshowgl.cpp:397
 msgctxt "Filter Effect: Rotate"
 msgid "Rotate"
-msgstr ""
+msgstr "Pyörähdys"
 
 #: widgets/slideshowgl.cpp:398
 msgctxt "Filter Effect: Slide"
 msgid "Slide"
-msgstr ""
+msgstr "Liuku"
 
 #: widgets/slideshowkb.cpp:515
 msgid "SlideShow Completed"
-msgstr ""
+msgstr "Diaesitys lopussa"

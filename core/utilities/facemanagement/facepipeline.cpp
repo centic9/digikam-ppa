@@ -34,6 +34,10 @@
 #include <kdebug.h>
 #include <klocale.h>
 
+// libkface includes
+
+#include <libkface/version.h>
+
 // Local includes
 
 #include "loadingdescription.h"
@@ -535,6 +539,7 @@ QList<QImage> FaceImageRetriever::getDetails(const DImg& src, const QList<QRectF
     {
         images << src.copyQImage(rect);
     }
+
     return images;
 }
 
@@ -553,12 +558,13 @@ QList<QImage> FaceImageRetriever::getDetails(const DImg& src, const QList<Databa
 
 QList<QImage> FaceImageRetriever::getThumbnails(const QString& filePath, const QList<DatabaseFace>& faces)
 {
+    Q_UNUSED(filePath)
     thumbnailCatcher()->setActive(true);
 
     foreach (const DatabaseFace& face, faces)
     {
         QRect rect = face.region().toRect();
-        catcher->thread()->find(filePath, rect);
+        catcher->thread()->find(ImageInfo::thumbnailIdentifier(face.imageId()), rect);
         catcher->enqueue();
     }
 
@@ -579,7 +585,7 @@ RecognitionWorker::RecognitionWorker(FacePipeline::Private* const d)
 
 void RecognitionWorker::process(FacePipelineExtendedPackage::Ptr package)
 {
-    FaceUtils utils;
+    FaceUtils     utils;
     QList<QImage> images;
 
     if (package->processFlags & FacePipelinePackage::ProcessedByDetector)
@@ -665,7 +671,12 @@ void DatabaseWriter::process(FacePipelineExtendedPackage::Ptr package)
                     !package->recognitionResults[i].isNull())
                 {
                     // Only perform this call if recognition as results, to prevent crash in QMap. See bug #335624
+
+#if KFACE_VERSION >= 0x030500
+                    tagId = FaceTags::getOrCreateTagForIdentity(package->recognitionResults[i].attributesMap());
+#else
                     tagId = FaceTags::getOrCreateTagForIdentity(package->recognitionResults[i].attributes);
+#endif
                 }
 
                 package->databaseFaces[i]        = utils.changeSuggestedName(package->databaseFaces[i], tagId);
@@ -958,9 +969,15 @@ public:
 
     KFaceIface::ImageListProvider* newImages(const KFaceIface::Identity& identity)
     {
+#if KFACE_VERSION >= 0x030500
+        if (imagesToTrain.contains(identity.id()))
+        {
+            KFaceIface::QListImageListProvider& provider = imagesToTrain[identity.id()];
+#else
         if (imagesToTrain.contains(identity.id))
         {
             KFaceIface::QListImageListProvider& provider = imagesToTrain[identity.id];
+#endif
             provider.reset();
             return &provider;
         }
@@ -1005,7 +1022,12 @@ void Trainer::process(FacePipelineExtendedPackage::Ptr package)
             toTrain << dbFace;
 
             KFaceIface::Identity identity = utils.identityForTag(dbFace.tagId(), database);
+
+#if KFACE_VERSION >= 0x030500
+            identities  << identity.id();
+#else
             identities  << identity.id;
+#endif
 
             if (!identitySet.contains(identity))
             {
@@ -1150,6 +1172,7 @@ void FacePipeline::Private::send(FacePipelineExtendedPackage::Ptr package)
 {
     start();
     ++totalPackagesAdded;
+    emit(q->processing(*package));
 
     if (senderFlowControl(package))
     {

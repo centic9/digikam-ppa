@@ -35,6 +35,8 @@
 
 // Local includes
 
+#include "config-digikam.h"
+#include "globals.h"
 #include "importui.h"
 #include "importiconview.h"
 #include "thumbnailsize.h"
@@ -43,7 +45,10 @@
 #include "sidebar.h"
 #include "dzoombar.h"
 #include "camitemsortsettings.h"
+
+#ifdef HAVE_KGEOMAP
 #include "mapwidgetview.h"
+#endif // HAVE_KGEOMAP
 
 namespace Digikam
 {
@@ -61,7 +66,9 @@ public:
         thumbSizeTimer(0),
         parent(0),
         iconView(0),
+#ifdef HAVE_KGEOMAP
         mapView(0),
+#endif // HAVE_KGEOMAP
         stackedView(0),
         lastViewMode(ImportStackedView::PreviewCameraMode),
         model(0),
@@ -88,7 +95,9 @@ public:
     ImportUI*                          parent;
 
     ImportIconView*                    iconView;
+#ifdef HAVE_KGEOMAP
     MapWidgetView*                     mapView;
+#endif // HAVE_KGEOMAP
     ImportStackedView*                 stackedView;
     ImportStackedView::StackedViewMode lastViewMode;
 
@@ -102,19 +111,13 @@ public:
 
 void ImportView::Private::addPageUpDownActions(ImportView* const q, QWidget* const w)
 {
-    QShortcut* const nextImageShortcut = new QShortcut(w);
-    nextImageShortcut->setKey(Qt::Key_PageDown);
-    nextImageShortcut->setContext(Qt::WidgetWithChildrenShortcut);
+    defineShortcut(w, Qt::Key_PageDown, q, SLOT(slotNextItem()));
+    defineShortcut(w, Qt::Key_Down,     q, SLOT(slotNextItem()));
+    defineShortcut(w, Qt::Key_Right,    q, SLOT(slotNextItem()));
 
-    connect(nextImageShortcut, SIGNAL(activated()),
-            q, SLOT(slotNextItem()));
-
-    QShortcut* const prevImageShortcut = new QShortcut(w);
-    prevImageShortcut->setKey(Qt::Key_PageUp);
-    prevImageShortcut->setContext(Qt::WidgetWithChildrenShortcut);
-
-    connect(prevImageShortcut, SIGNAL(activated()),
-            q, SLOT(slotPrevItem()));
+    defineShortcut(w, Qt::Key_PageUp,   q, SLOT(slotPrevItem()));
+    defineShortcut(w, Qt::Key_Up,       q, SLOT(slotPrevItem()));
+    defineShortcut(w, Qt::Key_Left,     q, SLOT(slotPrevItem()));
 }
 
 ImportView::ImportView(ImportUI* const ui, ImportImageModel* const model, ImportFilterModel* const filterModel, QWidget* const parent)
@@ -142,7 +145,10 @@ ImportView::ImportView(ImportUI* const ui, ImportImageModel* const model, Import
     d->stackedView->setDockArea(d->dockArea);
 
     d->iconView = d->stackedView->importIconView();
+
+#ifdef HAVE_KGEOMAP
     d->mapView  = d->stackedView->mapWidgetView();
+#endif // HAVE_KGEOMAP
 
     d->addPageUpDownActions(this, d->stackedView->importPreviewView());
     d->addPageUpDownActions(this, d->stackedView->thumbBar());
@@ -207,12 +213,6 @@ void ImportView::setupConnections()
     connect(d->iconView, SIGNAL(previewRequested(CamItemInfo,bool)),
             this, SLOT(slotTogglePreviewMode(CamItemInfo,bool)));
 
-    connect(d->iconView, SIGNAL(zoomOutStep()),
-            this, SLOT(slotZoomOut()));
-
-    connect(d->iconView, SIGNAL(zoomInStep()),
-            this, SLOT(slotZoomIn()));
-
     // -- Preview image widget Connections ------------------------
 
     connect(d->stackedView, SIGNAL(signalNextItem()),
@@ -254,7 +254,7 @@ void ImportView::setupConnections()
 
 /*void ImportView::connectIconViewFilter(FilterStatusBar* filterbar)
 {
-    ImageAlbumFilterModel* model = d->iconView->imageAlbumFilterModel();
+    ImageAlbumFilterModel* const model = d->iconView->imageAlbumFilterModel();
 
     connect(model, SIGNAL(filterMatches(bool)),
             filterbar, SLOT(slotFilterMatches(bool)));
@@ -290,7 +290,9 @@ void ImportView::loadViewState()
     thumbbarState = group.readEntry("ThumbbarState", thumbbarState);
     d->dockArea->restoreState(QByteArray::fromBase64(thumbbarState));
 
+#ifdef HAVE_KGEOMAP
     d->mapView->loadState();
+#endif // HAVE_KGEOMAP
 }
 
 void ImportView::saveViewState()
@@ -310,7 +312,9 @@ void ImportView::saveViewState()
     d->stackedView->thumbBarDock()->close();
     group.writeEntry("ThumbbarState", d->dockArea->saveState().toBase64());
 
+#ifdef HAVE_KGEOMAP
     d->mapView->saveState();
+#endif // HAVE_KGEOMAP
 }
 
 CamItemInfo ImportView::camItemInfo(const QString& folder, const QString& file) const
@@ -653,11 +657,13 @@ void ImportView::slotImagePreview()
     {
         currentInfo = d->iconView->currentInfo();
     }
+#ifdef HAVE_KGEOMAP
     //TODO: Implement MapWidget
     else if (currentPreviewMode == ImportStackedView::MapWidgetMode)
     {
         currentInfo = d->mapView->currentCamItemInfo();
     }
+#endif // HAVE_KGEOMAP
 
     slotTogglePreviewMode(currentInfo, false);
 }
@@ -667,6 +673,11 @@ void ImportView::slotImagePreview()
  */
 void ImportView::slotTogglePreviewMode(const CamItemInfo& info, bool downloadPreview)
 {
+    if (!d->parent->cameraUseUMSDriver())
+    {
+        return;
+    }
+
     if (  (d->stackedView->viewMode() == ImportStackedView::PreviewCameraMode ||
            d->stackedView->viewMode() == ImportStackedView::MapWidgetMode || downloadPreview) &&
            !info.isNull() )
@@ -836,6 +847,11 @@ ImportStackedView::StackedViewMode ImportView::viewMode() const
 void ImportView::toggleFullScreen(bool set)
 {
     d->stackedView->importPreviewView()->toggleFullScreen(set);
+}
+
+void ImportView::setIconViewUpdatesEnabled(bool b)
+{
+    d->iconView->setUpdatesEnabled(b);
 }
 
 } // namespace Digikam

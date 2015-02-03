@@ -126,10 +126,13 @@ void EditorToolIface::loadTool(EditorTool* const tool)
     {
         connect(d->editor, SIGNAL(signalPreviewModeChanged(int)),
                 view2, SLOT(slotPreviewModeChanged(int)));
+        
+        connect(d->editor->editorStackView(), SIGNAL(signalZoomChanged(bool,bool,double)),
+                view2, SLOT(slotOriginalImageRegionChangedDelayed()));
 
         if (d->editor->editorStackView()->canvas()->layout()->isFitToWindow())
         {
-            view2->toggleFitToWindow();
+            view2->fitToWindow();
         }
         else
         {
@@ -170,7 +173,7 @@ void EditorToolIface::unLoadTool()
     {
         if (view2->layout()->isFitToWindow())
         {
-            d->editor->editorStackView()->canvas()->toggleFitToWindow();
+            d->editor->editorStackView()->canvas()->fitToWindow();
         }
         else
         {
@@ -198,6 +201,7 @@ void EditorToolIface::unLoadTool()
 
     // Reset info label in status bar with canvas selection info.
     d->editor->slotSelected(!d->editor->m_canvas->getSelectedArea().isNull());
+    d->editor->editorStackView()->canvas()->layout()->updateZoomAndSize();
 }
 
 void EditorToolIface::setToolInfoMessage(const QString& txt)

@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2009-2010 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -33,55 +33,32 @@
 #include <QtCore/QString>
 #include <QtCore/QVariant>
 
-// Kde includes
+// KDE includes
 
 #include <kdebug.h>
 #include <kurl.h>
 
-// local includes
+// Local includes
 
 #include "libkgeomap_export.h"
 #include "geocoordinates.h"
 
 Q_DECLARE_METATYPE(QPersistentModelIndex)
 
-#ifdef KGEOMAP_HAVE_VALGRIND
-#include <valgrind/valgrind.h>
-#endif /* KGEOMAP_HAVE_VALGRIND */
-
-#define KGEOMAP_ASSERT(cond) ((!(cond)) ? KGeoMap::KGeoMap_assert(#cond,__FILE__,__LINE__) : qt_noop())
-
 namespace KGeoMap
 {
 
-inline void KGeoMap_assert(const char* const condition, const char* const filename, const int lineNumber)
-{
-    const QString debugString = QString::fromLatin1( "ASSERT: %1 - %2:%3").arg(QLatin1String( condition )).arg(QLatin1String( filename )).arg(lineNumber);
-#ifdef KGEOMAP_HAVE_VALGRIND
-    if (RUNNING_ON_VALGRIND>0)
-    {
-        // TODO: which encoding?
-        const QByteArray dummyArray = debugString.toUtf8();
-        VALGRIND_PRINTF_BACKTRACE("%s", dummyArray.constData());
-    }
-    else
-    {
-        kDebug(51006)<<debugString;
-    }
-#else
-    kDebug(51006)<<debugString;
-#endif /* KGEOMAP_HAVE_VALGRIND */
-}
+KGEOMAP_EXPORT void KGeoMap_assert(const char* const condition, const char* const filename, const int lineNumber);
 
 enum MouseMode
 {
-    MouseModePan                        = 1,
-    MouseModeRegionSelection            = 2,
-    MouseModeRegionSelectionFromIcon    = 4,
-    MouseModeFilter                     = 8,
-    MouseModeSelectThumbnail            = 16,
-    MouseModeZoomIntoGroup              = 32,
-    MouseModeLast                       = 32
+    MouseModePan                     = 1,
+    MouseModeRegionSelection         = 2,
+    MouseModeRegionSelectionFromIcon = 4,
+    MouseModeFilter                  = 8,
+    MouseModeSelectThumbnail         = 16,
+    MouseModeZoomIntoGroup           = 32,
+    MouseModeLast                    = 32
 };
 
 Q_DECLARE_FLAGS(MouseModes, MouseMode)
@@ -117,135 +94,51 @@ typedef QPair<int, int> QIntPair;
  */
 enum KGeoMapGroupStateEnum
 {
-    KGeoMapSelectedMask = 0x03 << 0,
-    KGeoMapSelectedNone = 0x00 << 0,
-    KGeoMapSelectedSome = 0x03 << 0,
-    KGeoMapSelectedAll  = 0x02 << 0,
+    KGeoMapSelectedMask         = 0x03 << 0,
+    KGeoMapSelectedNone         = 0x00 << 0,
+    KGeoMapSelectedSome         = 0x03 << 0,
+    KGeoMapSelectedAll          = 0x02 << 0,
 
     KGeoMapFilteredPositiveMask = 0x03 << 2,
     KGeoMapFilteredPositiveNone = 0x00 << 2,
     KGeoMapFilteredPositiveSome = 0x03 << 2,
     KGeoMapFilteredPositiveAll  = 0x02 << 2,
 
-    KGeoMapRegionSelectedMask = 0x03 << 4,
-    KGeoMapRegionSelectedNone = 0x00 << 4,
-    KGeoMapRegionSelectedSome = 0x03 << 4,
-    KGeoMapRegionSelectedAll  = 0x02 << 4
+    KGeoMapRegionSelectedMask   = 0x03 << 4,
+    KGeoMapRegionSelectedNone   = 0x00 << 4,
+    KGeoMapRegionSelectedSome   = 0x03 << 4,
+    KGeoMapRegionSelectedAll    = 0x02 << 4
 };
 
 /// @todo KGeoMapGroupState -> KGeoMapGroupStates?
 Q_DECLARE_FLAGS(KGeoMapGroupState, KGeoMapGroupStateEnum)
 Q_DECLARE_OPERATORS_FOR_FLAGS(KGeoMapGroupState)
 
-class KGeoMapGroupStateComputer
+class KGEOMAP_EXPORT KGeoMapGroupStateComputer
 {
-private:
-
-    KGeoMapGroupState m_state;
-    KGeoMapGroupState m_stateMask;
-
 public:
 
-    /// @todo Make member functions non-inline?
+    KGeoMapGroupStateComputer();
+    virtual ~KGeoMapGroupStateComputer();
 
-    KGeoMapGroupStateComputer()
-    : m_state(KGeoMapSelectedNone),
-      m_stateMask(KGeoMapSelectedNone)
-    {
-    }
+    KGeoMapGroupState getState() const;
 
-    KGeoMapGroupState getState() const
-    {
-        return m_state;
-    }
+    void clear();
 
-    void clear()
-    {
-        m_state = KGeoMapSelectedNone;
-        m_stateMask = KGeoMapSelectedNone;
-    }
+    void addState(const KGeoMapGroupState state);
+    void addSelectedState(const KGeoMapGroupState state);
+    void addFilteredPositiveState(const KGeoMapGroupState state);
+    void addRegionSelectedState(const KGeoMapGroupState state);
 
-    void addState(const KGeoMapGroupState state)
-    {
-        addSelectedState(state);
-        addFilteredPositiveState(state);
-        addRegionSelectedState(state);
-    }
+private:
 
-    void addSelectedState(const KGeoMapGroupState state)
-    {
-        if (!(m_stateMask & KGeoMapSelectedMask))
-        {
-            m_state|= state;
-            m_stateMask|= KGeoMapSelectedMask;
-        }
-        else
-        {
-            if ((state&KGeoMapSelectedMask)==KGeoMapSelectedAll)
-            {
-                m_state|=KGeoMapSelectedAll;
-            }
-            else if ((m_state&KGeoMapSelectedMask)==KGeoMapSelectedAll)
-            {
-                m_state|=KGeoMapSelectedSome;
-            }
-            else
-            {
-                m_state|=state;
-            }
-        }
-    }
-
-    void addFilteredPositiveState(const KGeoMapGroupState state)
-    {
-        if (!(m_stateMask & KGeoMapFilteredPositiveMask))
-        {
-            m_state|= state;
-            m_stateMask|= KGeoMapFilteredPositiveMask;
-        }
-        else
-        {
-            if ((state&KGeoMapFilteredPositiveMask)==KGeoMapFilteredPositiveAll)
-            {
-                m_state|=KGeoMapFilteredPositiveAll;
-            }
-            else if ((m_state&KGeoMapFilteredPositiveMask)==KGeoMapFilteredPositiveAll)
-            {
-                m_state|=KGeoMapFilteredPositiveSome;
-            }
-            else
-            {
-                m_state|=state;
-            }
-        }
-    }
-
-    void addRegionSelectedState(const KGeoMapGroupState state)
-    {
-        if (!(m_stateMask & KGeoMapRegionSelectedMask))
-        {
-            m_state|= state;
-            m_stateMask|= KGeoMapRegionSelectedMask;
-        }
-        else
-        {
-            if ((state&KGeoMapRegionSelectedMask)==KGeoMapRegionSelectedAll)
-            {
-                m_state|=KGeoMapRegionSelectedAll;
-            }
-            else if ((m_state&KGeoMapRegionSelectedMask)==KGeoMapRegionSelectedAll)
-            {
-                m_state|=KGeoMapRegionSelectedSome;
-            }
-            else
-            {
-                m_state|=state;
-            }
-        }
-    }
+    class Private;
+    const QScopedPointer<Private> d;
 };
 
 } /* namespace KGeoMap */
+
+#define KGEOMAP_ASSERT(cond) ((!(cond)) ? KGeoMap::KGeoMap_assert(#cond,__FILE__,__LINE__) : qt_noop())
 
 Q_DECLARE_METATYPE(KGeoMap::MouseModes)
 

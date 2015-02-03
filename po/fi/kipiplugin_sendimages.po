@@ -3,15 +3,16 @@
 # Author: Artnay
 # Author: Lliehu
 # Mikael Lammentausta <mikael.lammentausta+kdetrans@gmail.com>, 2009.
-# Lasse Liehu <lasse.liehu@gmail.com>, 2013.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013, 2014.
+# Tommi Nieminen <translator@legisign.org>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-12-22 13:53+0200\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
+"PO-Revision-Date: 2014-11-30 21:20+0200\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
-"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,36 +23,36 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Mikael Lammentausta"
+msgstr "Tommi Nieminen, Mikael Lammentausta"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "mikael.lammentausta+kdetrans@gmail.com"
+msgstr "translator@legisign.org,mikael.lammentausta+kdetrans@gmail.com"
 
 #: imageresize.cpp:109
 msgid "Error opening input file"
-msgstr "Tiedostoa ei voitu lukea"
+msgstr "Virhe avattaessa syötetiedostoa"
 
 #: imageresize.cpp:120
 msgid "Error opening temporary folder"
-msgstr "Väliaikaiskansiota ei voitu avata"
+msgstr "Virhe avattaessa väliaikaiskansiota"
 
 #: imageresize.cpp:164
 msgid "Cannot resize image. Aborting."
-msgstr "Kuvien kokoa ei voitu muuttaa, keskeytetään toimenpide."
+msgstr "Kuvan kokoa ei voi muuttaa: keskeytetään."
 
 #: imageresize.cpp:182
 msgid "Cannot save resized image (JPEG). Aborting."
-msgstr ""
+msgstr "Uutta JPEG-kuvaa ei voi tallentaa: keskeytetään."
 
 #: imageresize.cpp:198
 msgid "Cannot save resized image (PNG). Aborting."
-msgstr ""
+msgstr "Uutta PNG-kuvaa ei voi tallentaa: keskeytetään."
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_sendimagesui.rc:7
 msgid "&Export"
-msgstr ""
+msgstr "&Vie"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_sendimagesui.rc:13
@@ -83,7 +84,7 @@ msgstr "%1 skaalattu"
 #: sendimages.cpp:222
 #, kde-format
 msgid "Failed to resize %1: %2"
-msgstr "Kuvan “%1” skaalaus epäonnistui: %2"
+msgstr "Kuvan ”%1” skaalaus epäonnistui: %2"
 
 #: sendimages.cpp:257
 msgid "Build images properties file"
@@ -152,7 +153,7 @@ msgstr ""
 
 #: sendimages.cpp:426
 msgid "Starting default KDE email program..."
-msgstr "Käynnistetään sähköpostisovellus…"
+msgstr "Käynnistetään KDE:n oletussähköpostisovellus…"
 
 #: sendimages.cpp:648
 #, kde-format
@@ -171,7 +172,7 @@ msgstr "Kuvien lähetyksen jälkeen…"
 
 #: sendimages.cpp:672
 msgid "Press 'Close' button to clean up temporary files"
-msgstr "Naksauta ”sulje”-painiketta poistaaksesi tilapäistiedostot."
+msgstr "Poista tilapäistiedostot napsauttamalla ”Sulje”."
 
 #: sendimagesdialog.cpp:83
 msgid "Email Images Options"
@@ -187,7 +188,7 @@ msgstr "Liitännäinen kohteiden lähetykseen sähköpostilla"
 
 #: sendimagesdialog.cpp:109
 msgid "(c) 2003-2013, Gilles Caulier"
-msgstr "© 2003–2013, Gilles Caulier"
+msgstr "© 2003–2013 Gilles Caulier"
 
 #: sendimagesdialog.cpp:111
 msgid "Gilles Caulier"
@@ -223,7 +224,7 @@ msgid ""
 "Select your preferred external email program here. <b>Default</b> is the "
 "current email program set in KDE System Settings."
 msgstr ""
-"Aseta haluamasi sähköpostisovellus. <b>Oletus</b> käyttää "
+"Aseta haluamasi sähköpostisovellus. <b>Oletus</b> käyttää KDE:n "
 "järjestelmäasetuksissa määriteltyä sovellusta."
 
 #: settingswidget.cpp:110
@@ -264,27 +265,27 @@ msgstr "Kuvien ominaisuudet"
 
 #: settingswidget.cpp:138 settingswidget.cpp:156
 msgid "Very Small (320 pixels)"
-msgstr "Erittäin pieni (320 pikseliä)"
+msgstr "Erittäin pieni (320 kuvapistettä)"
 
 #: settingswidget.cpp:139 settingswidget.cpp:157
 msgid "Small (640 pixels)"
-msgstr "Pieni (640 pikseliä)"
+msgstr "Pieni (640 kuvapistettä)"
 
 #: settingswidget.cpp:140 settingswidget.cpp:158
 msgid "Medium (800 pixels)"
-msgstr "Keskikokoinen (800 pikseliä)"
+msgstr "Keskikokoinen (800 kuvapistettä)"
 
 #: settingswidget.cpp:141 settingswidget.cpp:159
 msgid "Big (1024 pixels)"
-msgstr "Suuri (1024 pikseliä)"
+msgstr "Suuri (1024 kuvapistettä)"
 
 #: settingswidget.cpp:142 settingswidget.cpp:160
 msgid "Very Big (1280 pixels)"
-msgstr "Erittäin suuri (1280 pikseliä)"
+msgstr "Hyvin suuri (1280 kuvapistettä)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
-msgstr "Tulostuskelpoinen (1600 pikseliä)"
+#: settingswidget.cpp:143
+msgid "Large - for printing (1600 pixels)"
+msgstr "Valtava – tulostuskelpoinen (1600 kuvapistettä)"
 
 #: settingswidget.cpp:145
 #, kde-format
@@ -299,23 +300,27 @@ msgid ""
 "have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
 "printing purposes.</p>"
 msgstr ""
-"<p>Määrittele lähetettävien kuvien koko:</p> <p><b>%1</b>: käytä tätä mikäli "
-"internet-yhteytesi on erittäin hidas, tai vastaanottajan postilaatikon tila "
-"on hyvin rajallinen</p><p><b>%2</b>: käytä tätä mikäli internet-yhteytesi on "
-"hidas, tai vastaanottajan postilaatikko ei vastaanota suuria tiedostoja</p> "
-"<p><b>%3</b>: tämä on hyvä oletusasetus useimmissa tapauksissa</p> <p><b>%4</"
-"b>: käytä tätä mikäli internet-yhteytesi on nopea eikä vastaanottajan "
-"postilaatikolla ole kokorajoituksia</p><p><b>%5</b>: käytä tätä vain mikäli "
-"lähetystä eivät koske mitkään rajoitukset</p><p><b>%6</b>: käytä tätä "
-"lähettäessäsi kuvia tulostettavaksi</p>"
+"<p>Määritä lähetettävien kuvien koko:</p> <p><b>%1</b>: käytä tätä,jos "
+"internetyhteytesi on hidas tai vastaanottajan postilaatikon tila on hyvin "
+"rajallinen</p><p><b>%2</b>: käytä tätä, jos internetyhteytesi on hidas tai "
+"vastaanottajan postilaatikko ei vastaanota suuria tiedostoja</p> <p><b>%3</"
+"b>: tämä on hyvä oletusasetus useimmissa tapauksissa</p> <p><b>%4</b>: käytä "
+"tätä, jos internetyhteytesi on nopea eikä vastaanottajan postilaatikossa ole "
+"kokorajoituksia</p><p><b>%5</b>: käytä tätä vain, jollei lähetystä koske "
+"mikään rajoitus</p><p><b>%6</b>: käytä tätä lähettäessäsi kuvia "
+"tulostettavaksi</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Valtava – tulostuskelpoinen (1600 kuvapistettä)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"
-msgstr "Resoluutio:"
+msgstr "Kuvan koko:"
 
 #: settingswidget.cpp:173
 msgid "<p>Select the file format of the image files to be sent.</p>"
-msgstr "<p>Valitse lähetettävien kuvien pakkausmuoto.</p>"
+msgstr "<p>Valitse lähetettävien kuvien tiedostomuoto.</p>"
 
 #: settingswidget.cpp:174
 msgid ""
@@ -329,6 +334,15 @@ msgid ""
 "option. Also, PNG can store gamma and chromaticity data for improved color-"
 "matching on heterogeneous platforms.</p>"
 msgstr ""
+"<p><b>JPEG</b>: Joint Photographic Experts Groupin tiedostomuoto on hyvä "
+"verkkokäyttöön mutta käyttää häviöllistä pakkausta.</p><p><b>PNG</b>: "
+"siirrettävä verkkografiikkamuoto (Portable Network Graphics) on "
+"laajennettavissa oleva tiedostomuoto häviöttömään, siirrettävään, hyvin "
+"pakattuun rasterikuvatallennukseen. PNG on patentiton vaihtoehto GIF-"
+"muodolle ja voi korvata monia TIFFien käyttötavoista. PNG on suunniteltu "
+"toimimaan hyvin verkkokatselussa, joten se on täysin virtaistettavissa "
+"etenevän näkymän asetuksella. PNG voi myös tallentaa gamma- ja "
+"kromaattisuustiedot eri alustojen värien vastaavuuden parantamiseksi.</p>"
 
 #: settingswidget.cpp:184
 msgid "Image format:"
@@ -336,7 +350,7 @@ msgstr "Kuvamuoto:"
 
 #: settingswidget.cpp:192
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
-msgstr "<p>Uusi jpeg-pakkausarvo lähetettäville kuville:</p>"
+msgstr "<p>Lähetettävien kuvien uusi JPEG-pakkausarvo:</p>"
 
 #: settingswidget.cpp:193
 msgid ""
@@ -344,6 +358,9 @@ msgid ""
 "><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
 "<br/><b>100</b>: no compression</p>"
 msgstr ""
+"<p><b>1</b>: hyvin vahva pakkaus<br/><b>25</b>: vahva pakkaus<br/><b>50</b>: "
+"keskivahva pakkaus<br/><b>75</b>: heikko pakkaus (oletusarvo)<br/><b>100</"
+"b>: ei pakkausta</p>"
 
 #: settingswidget.cpp:201
 msgid "Image quality:"

@@ -469,51 +469,51 @@ End:
 >Rode ogen in een foto corrigeren</title>
     <anchor id="redeyecorrectiontool.anchor"/>
     <para
->Red eyes are caused when the camera flashlight is used to take photographs of people. The red is the reflection from the back of the eye which can be seen because the pupil cannot react quickly enough to the flash. By the way, with a separate flash light the red eye effect is less likely because of the different viewing angle of flash and lens. You can correct some of the worst effect of Red Eye by selecting the area of the eye on the photograph, in the same way as described for cropping above. Then select <menuchoice
+>Het gebruik van flitslicht bij het maken van foto's veroorzaakt rode ogen. Het rood is de reflectie via de achterkant van het oog dat u kunt zien omdat de pupil niet snel genoeg op het flitslicht kan reageren. Overigens, met een separaat flitslicht is het effect van rode ogen minder waarschijnlijk omdat er een hoek is tussen het flitslicht en de lens. U kunt het ergste rode ogen effecten een beetje corrigeren door op de foto het gebied rond de ogen te selecteren, op dezelfde manier als beschreven bij afsnijden boven. En vervolgens <menuchoice
 > <guimenu
->Enhance</guimenu
+>Verbeteren</guimenu
 > <guimenuitem
->Red Eye Reduction</guimenuitem
+>Rode ogen corrigeren</guimenuitem
 > </menuchoice
->. </para>
+> te selecteren. </para>
     <para
 >Hoe het werkt <itemizedlist>
         <listitem
 ><para
->Set the preview mode to your liking</para
+>Stel de voorbeeldweergave naar wens in.</para
 ></listitem>
         <listitem
 ><para
->The <guilabel
->Sensitivity</guilabel
-> setting adjusts the amount of red eyes removal (agressive or not)</para
+>De schuifknop voor <guilabel
+>Gevoeligheid</guilabel
+> stelt de hoeveelheid in voor het verwijderen van rode ogen (agressief of niet).</para
 ></listitem>
         <listitem
 ><para
->The <guilabel
->Smooth</guilabel
-> slider sets the blurring of the area that has been darkened to render the pupil more natural</para
+>De schuifknop voor <guilabel
+>Gladheid</guilabel
+> stelt de wazigheid in van het gebied dat donkerder is gemaakt zodat de pupil er natuurlijker uitziet.</para
 ></listitem>
         <listitem
 ><para
->The <guilabel
->Color Tint</guilabel
-> sets a custom colorization for the pupil. If you want blue eyes instead of dark ones, here you can do it</para
+>Met de schuifknop <guilabel
+>Kleurtint</guilabel
+> kunt u een kleur instellen voor de pupil. Als u blauwe ogen wilt in plaats van donkere ogen dan kunt u dat hier regelen.</para
 ></listitem>
         <listitem
 ><para
->The <guilabel
->Tint Level</guilabel
-> adjusts the luminosity of set pupil color</para
+>De schuifknop <guilabel
+>Tintniveau</guilabel
+> stelt de lichtkracht in van de ingestelde pupilkleur.</para
 ></listitem>
       </itemizedlist>
     </para>
     <example>
       <title
->The Red Eyes Correction Tool in Action</title>
+>Het hulpmiddel voor rode ogen correctie in actie</title>
       <screenshot>
         <screeninfo
->The Red Eyes Correction Tool in Action </screeninfo>
+>Het hulpmiddel voor rode ogen correctie in actie </screeninfo>
         <mediaobject>
           <imageobject>
             <imagedata fileref="&path;editor-redeyes-correction.png" format="PNG"/>
@@ -567,9 +567,9 @@ End:
           </ulink>
         </para>
         <para
->The <emphasis
->Photograph Inpainting</emphasis
-> tool is definitely one of the most advanced tools to remove unwanted artifacts with unprecedented performance. </para>
+>Het hulpmiddel <emphasis
+>Foto inkleuren</emphasis
+> is zeker een van de meest geavanceerde gereedschappen voor het verwijderen van ongewenste artefacten met een ongeëvenaarde performance. </para>
       </abstract>
       <keywordset>
         <keyword
@@ -582,12 +582,12 @@ End:
 >Inleiding</title>
     <para/>
     <para
->The inpainting algorithm has been developed by the IMAGE team of GREC CNRS lab in Caen/France and is a part of the <ulink url="http://cimg.sourceforge.net"
+>Het algoritme voor inkleuren is ontwikkeld door het IMAGE-team van het GREC CNRS laboratorium in Caen/Frankrijk en is een onderdeel van het <ulink url="http://cimg.sourceforge.net"
 >CImg project</ulink
 >. </para>
     <sect4 id="using-inpainting">
       <title
->Using the Inpainting tool</title>
+>Het inkleur-gereedschap gebruiken</title>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -595,44 +595,44 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Photograph Inpainting Dialog</phrase>
+>Het dialoogvenster voor foto inkleuren</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
       <para
->The tool comes with several presets as starting points and to simplify the restoration. The preset settings available are listed below: <itemizedlist>
+>Het hulpmiddel komt met aantal keuzemogelijkheden die u als startpunt kunt gebruiken en wat restauratie eenvoudiger maakt. Hieronder ziet u de lijst met keuzemogelijkheden: <itemizedlist>
           <listitem>
             <para
 ><guilabel
->None</guilabel
->: Using most common default filter settings not optimized for any particular purpose.</para>
+>Geen</guilabel
+>: Gebruikt de meest algemene standaard filterinstellingen zonder enige optimalisatie voor wat voor doel dan ook.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Remove Small Area</guilabel
+>Klein artefact verwijderen</guilabel
 >: .</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Remove Medium Area</guilabel
+>Middelgroot artefact verwijderen</guilabel
 >: .</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Remove Large Area</guilabel
+>Groot artefact verwijderen</guilabel
 >: .</para>
           </listitem>
         </itemizedlist>
       </para>
       <para
->If you want to set filter parameters for finer adjustments, use <guilabel
->Smoothing Settings</guilabel
-> and <guilabel
->Advanced Settings</guilabel
-> tabs:</para>
+>Als u de filterparameters wilt instellen voor fijnere aanpassingen, gebruik dan de tabbladen: <guilabel
+>Gladheid</guilabel
+> en <guilabel
+>Geavanceerde instellingen</guilabel
+>:</para>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -640,7 +640,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Inpainting Smoothing Settings</phrase>
+>De inkleurinstellingen voor gladheid</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -649,36 +649,36 @@ End:
           <listitem>
             <para
 ><guilabel
->Detail Preservation</guilabel
-> p [0, 100]: this controls the preservation of the curvatures (features). A low value forces an equal smoothing across the image, whereas bigger values preferably smooth the homogeneous regions and leaves the details sharper. A value of 0.9 should well preserve details so that no sharpening is required afterwards. Note that <guilabel
->Detail Preservation</guilabel
-> must be always inferior to <guilabel
->Anisotropy</guilabel
+>Detailbehoud</guilabel
+> p [0, 100]: dit regelt het behoud van de krommingen (features). Een kleine waarde geeft over de gehele foto een egaal resultaat, terwijl grotere waarden homogene vlakken egaal maakt en toch de details scherp houdt. Een waarde van 0.9 zal details bewaren zodat daarna verscherpen niet nodig is. Let wel op dat <guilabel
+>Detailbehoud</guilabel
+> altijd kleiner moet zijn dan <guilabel
+>Anisotropie</guilabel
 >.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Anisotropy</guilabel
-> alpha [0, 100]: a low value smooths equally in all directions, whereas a value close to 1 smooths in one direction only. If you have film grain or CCD kind of noise a high value will result in wave-like pattern, whereas JPEG artifacts are suited for values close to 1. </para>
+>Anisotropie</guilabel
+> alpha [0, 100]: een kleine waarde geeft in alle richtingen een egaal resultaat, terwijl een waarde dicht bij 1 maar in een richting werkt. Als u een korrelige film heeft of sterke ruis bij een CCD dan krijgt u golfvormige patronen, terwijl JPEG artifacts vragen om waarden dicht bij 1. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Smoothing</guilabel
-> [0, 500]: this sets the maximum overall smoothing factor (when p defines the relative smoothing). Set it according to the noise level.</para>
+>Gladheid</guilabel
+> [0, 500]: dit stelt de algemene maximale gladheidsfactor in (waarbij p de relatieve gladheid is). Stel het in overeenkomstig het ruis-niveau.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Regularity</guilabel
-> [0, 100]: this parameter is concerned with the bigger structures. The bigger this value, the more even the overall smoothing will be. This is necessary when much noise is present since it is then difficult to estimate the geometry. Also if you want to achieve a 'van Gogh' turbulence effect, setting it higher than 3 is recommended.</para>
+>Regelmatigheid</guilabel
+> [0, 100]: deze waarde is van belang voor grotere structuren. hoe groter deze waarde, des te egaler de algemene gladheid zal zijn. Dit is van belang als er veel ruis aanwezig is omdat het dan moeilijk is om de geometrie te bepalen. Maar als u een 'van Gogh' turbulent effect wilt bereiken, dan wordt u aanbevolen om het groter dan 3 in te stellen.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Filter Iterations</guilabel
->: number of times the blurring algorithm is applied. Usually 1 or 2 is sufficient.</para>
+>Filterherhalingen</guilabel
+>: het aantal keren dat het algoritme voor vervagen wordt toegepast. Meestal is 1 of 2 voldoende.</para>
           </listitem>
         </itemizedlist>
       </para>
@@ -689,7 +689,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Inpainting Advanced Settings</phrase>
+>De geavanceerde inkleurinstellingen</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -698,43 +698,43 @@ End:
           <listitem>
             <para
 ><guilabel
->Angular Step</guilabel
-> da [5, 90]: angular integration of the anisotropy alpha. If alpha is chosen small, da should also be chosen small. But beware, small angles result in long runs! Choose it as large as you can accept. </para>
+>Hoekstap</guilabel
+> da [5, 90]: hoek integratie van de anisotropie alpha. Als alpha klein is gekozen dan moet u da ook klein instellen. Maar pas op, kleine hoeken resulteren in lange rekentijden! Kies het zo groot mogelijk. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Integral Step</guilabel
-> [0.1, 10]: spatial integration step width in terms of pixels. Should remain less than 1 (sub-pixel smoothing) and never be higher than 2.</para>
+>Integraalstap</guilabel
+> [0.1, 10]: spatiële integraalstap met de stap in pixels. Bij voorkeur kleiner dan 1 (subpixel vervaging) en nooit groter dan 2.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Use Linear Interpolation</guilabel
->: The gain in quality if you select this option is only marginal and you lose a factor of 2 in speed. Our recommendation is to leave it off.</para>
+>Lineaire interpolatie gebruiken</guilabel
+>: Het kwaliteitsvoordeel is bij gebruik marginaal en het gaat 2x zo langzaam. Ons advies is daarom om het uitgeschakeld te laten.</para>
           </listitem>
         </itemizedlist>
       </para>
       <para
-><guilabel
->Save As</guilabel
-> and <guilabel
->Load</guilabel
-> buttons are used to do just that. Any Photograph Inpainting filter settings that you have set can be saved to the filesystem in a text file and loaded later. </para>
+>De knoppen <guilabel
+>Opslaan als</guilabel
+> en <guilabel
+>Laden</guilabel
+> zijn precies voor dat doel in gebruik. Alle inkleurinstellingen kunt u opslaan in een tekstbestand en later weer laden. </para>
       <warning>
         <para
->Photograph Inpainting is (comparatively) very fast in what it is doing, but it can take a long time to run and cause high CPU load. You may always abort computation by pressing <guilabel
->Cancel</guilabel
-> button during rendering. </para>
+>Fotografisch inkleuren is (relatief) erg snel in wat het doet, maar het kan toch veel processortijd gebruiken. U kunt altijd de berekening afbreken door tijdens de berekening op de knop <guilabel
+>Afbreken</guilabel
+> te drukken. </para>
       </warning>
     </sect4>
     <sect4 id="inaction-inpainting">
       <title
->The Inpainting tool in action</title>
+>Het hulpmiddel voor inkleuren in actie</title>
       <para
->Below, you can see a <guilabel
->Remove Small Area</guilabel
-> Inpainting type applied to a color photograph taken at Guatemala city with an analog camera. Look like there is a strange black artifacts on the face front, resulting of a bad film stockage during the travel. The original image is (1), the corrected image (2). </para>
+>Hieronder ziet u de inkleuring <guilabel
+>Klein artefact verwijderen</guilabel
+> toegepast op een kleurenfoto genomen in Guatemala-stad met een analoge camera. Zoals u ziet is er een raar zwart artifact op het gezicht, het resultaat van slechte film opslag tijdens de reis. De originele foto is (1), de gecorrigeerde foto (2). </para>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -742,7 +742,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Inpainting Filter Preview</phrase>
+>De voorbeeldweergave van het inkleurfilter</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -780,9 +780,9 @@ End:
       </authorgroup>
       <abstract>
         <para
->&digikam; The <emphasis
->Noise Reduction</emphasis
-> is a powerful tool to reduce the image noise. It uses an algorithm copyrighted by Peter Heckert. </para>
+>&digikam; De <emphasis
+>Ruisreductie</emphasis
+> is een krachtig hulpmiddel voor het reduceren van ruis in de foto. Het gebruikt een algoritme met copyright bij Peter Heckert. </para>
       </abstract>
       <keywordset>
         <keyword
@@ -798,18 +798,18 @@ End:
     <title
 >Inleiding</title>
     <para
->This tool provides selectable image filters to remove specks or other artifacts caused by junk such as dust or hair on the lens. It also can be used to remove <emphasis
->Sensor Noise</emphasis
-> from the camera that maybe caused by high ISO settings, as well as the so-called <emphasis
-> Moir&eacute; Patterns</emphasis
-> on scanned images from books or magazines. </para>
+>Dit hulpmiddel heeft fotografische filters voor het verwijderen van vlekjes en andere artefacten die veroorzaakt zijn door stof of haar op de lens. U kunt het ook gebruiken om <emphasis
+>Sensor ruis</emphasis
+> van de camera te verwijderen dat misschien veroorzaakt kan zijn door hoge ISO-waarden maar ook voor het verwijderen van zogenoemde <emphasis
+>Moir&eacute; patronen</emphasis
+> op ingescande afbeeldingen uit boeken en tijdschriften. </para>
     <para
->If you want more information about what's digital camera sensor noise, please take a look in this <ulink url="http://www.cambridgeincolour.com/tutorials/noise.htm"
->tutorial</ulink
->. </para>
+>Meer informatie over sensorruis in digitale camera´s kunt u in deze <ulink url="http://www.cambridgeincolour.com/tutorials/noise.htm"
+>handleiding</ulink
+> lezen. </para>
     <sect4 id="using-noisereduction">
       <title
->Using the Noisereduction Tool</title>
+>Het hulpmiddel voor ruisreductie gebruiken</title>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -817,121 +817,121 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Noise Reduction Dialog</phrase>
+>Het dialoogvenster voor ruisreductie</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
       <para
->The above screenshot shows a typical scene taken with an digital camera using a high sensitivity ISO setting. It shows grainy noise which can be reduced successfully with this tool. </para>
+>In de schermafdruk hierboven ziet u een veelvoorkomende scene genomen met een digitale camera waarbij de ISO hoog is ingesteld. U ziet korrelige ruis die u met dit gereedschap succesvol kan reduceren. </para>
       <para
->The re-sizeable image panel with the original preview helps you to pan within the image. Move the red rectangle around to select the area that lets you judge on the optimal filter settings. The preview window shows the filter output using the current settings. It can be rearranged in four different combinations as depicted in the icons below the original preview. This screenshot shows the first arrangement where the same cutout is shown for comparison. On the bottom of preview area, you can see <guilabel
->Zoom Factor</guilabel
-> settings to magnify an area of the image. </para>
+>Het in grootte instelbare weergavepaneel met het origineel helpt u om in de foto te verplaatsen. U kunt het rode rechthoekje verplaatsen om een gebied te selecteren dat u wilt beoordelen voor de optimale filter instellingen. De voorbeeldweergave toont de uitkomst van het filter met de huidige instellingen. U kunt dit in de vier verschillende combinaties laten zien die de pictogrammen onderaan aangeven. Deze schermafdruk toont de eerste combinatie waar dezelfde uitsnede ter vergelijking getoond wordt. Onderaan ziet u de <guilabel
+>Zoomfactor</guilabel
+> waarmee u een gedeelte van de foto voor bewerking kunt vergroten. </para>
       <para
->You can see below a full description of all parameters. In most cases only <guilabel
+>U ziet hieronder een complete lijst met de beschrijvingen van alle instellingen. In de meeste gevallen is alleen het tabblad <guilabel
 >Details</guilabel
-> tab is needed and the other parameters available into <guilabel
->Advanced</guilabel
-> tab can be left at their default setting. <itemizedlist>
+> nodig en kunnen de andere instellingen in het tabblad <guilabel
+>Geavanceerd</guilabel
+> op hun standaard waarde blijven. <itemizedlist>
           <listitem>
             <para
 ><guilabel
->Radius</guilabel
->: this control selects the gliding window size used for the filter. Larger values do not increase the amount of time needed to filter each pixel in the image but can cause blurring. This window moves across the image, and the color in it is smoothed to remove imperfections. In any case it must be about the same size as noise granularity or somewhat more. If it is set higher than necessary, then it can cause unwanted blur. </para>
+>Straal</guilabel
+>: deze schuifknop stelt het formaat van het glijdende venster in voor het filter. Grotere waarden maken de voor het filteren van elk pixel benodigde rekentijd niet langer maar kan wel wazigheid veroorzaken. Dit venster verplaatst zich over de foto en de kleur daarin wordt gladder gemaakt zodat onregelmatigheden verdwijnen. In elk geval moet u het op ongeveer hetzelfde formaat (of iets groter) als de ruis-korreligheid instellen. Als het groter dan nodig is ingesteld kan het ongewenste wazigheid veroorzaken. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Threshold</guilabel
->: use the slider for coarse adjustment, and the spin control for fine adjustment. This controls edge detection sensitivity. This value should be set so that edges and details are clearly visible and noise is smoothed out. This value is not bound to any intensity value, it is bound to the second derivative of intensity values. Simply adjust it and watch the preview. Adjustment must be made carefully, because the gap between noisy, smooth, and blur is very small. Adjust it as carefully as you would adjust the focus of a camera. </para>
+>Drempel</guilabel
+>: gebruik de schuifknop voor een grove instelling en het invoervak voor de fijne instelling. Dit bestuurt gevoeligheid voor detectie van randen. Dit moet u zodanig instellen dat randen en details goed zichtbaar zijn en de ruis toch is weggewerkt. Er is geen relatie tussen de intensiteit en deze waarde, er is wel een relatie met de tweede afgeleide van de intensiteit. Wijzig het en bekijk het resultaat. Aanpassingen moet u voorzichtig doen omdat de ruimte tussen ruis, glad en wazig klein is. Doe de aanpassing net zo voorzichtig als de aanpassing van de focus van een camera. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Texture</guilabel
->: this control set the texture accuracy. This value can be used, to get more or less texture accuracy. When decreased, then noise and texture are blurred out, when increased then texture is amplified, but also noise will increase. It has almost no effect to image edges, opposed to filter <guilabel
->Edge</guilabel
->, which would blur edges, when increased. If <guilabel
->Edge</guilabel
-> is adjusted in away so that edges are sharp, and there is still too much area noise, then <guilabel
->Texture</guilabel
-> detail could be used to reduce noise without blurring edges. Another way would be to decrease <guilabel
->Radius</guilabel
-> and to increase <guilabel
->Edge</guilabel
+>Textuur</guilabel
+>: hiermee stelt u de nauwkeurigheid van de textuur in. Met deze instelling regelt u of de textuur meer of minder nauwkeurig is. Bij kleine waarden zijn de ruis en de textuur waziger, bij grotere waarden is de textuur sterker maar is ook de ruis sterker. Het heeft bijna geen effect op randen in de foto, in tegenstelling tot het filter <guilabel
+>Rand</guilabel
+>, die bij grotere waarden randen waziger maakt. Als <guilabel
+>Rand</guilabel
+> zodanig is ingesteld dat dat de randen nog scherp zijn en er toch nog teveel ruis aanwezig is, dan kunt u detail van <guilabel
+>Textuur</guilabel
+> gebruiken om de ruis te verminderen zonder dat u randen waziger maakt. Een andere manier is het verkleinen van <guilabel
+>Straal</guilabel
+> en het vergroten van <guilabel
+>Rand</guilabel
 >. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Sharpness</guilabel
->: this control set the sharpness level. This value defines the pixel distance in which the filter looks ahead for luminance variations. When this value is increased, then spikenoise is erased. You can eventually readjust filter <guilabel
->Edge</guilabel
->, when you changed this setting. When this value is to high, then the adaptive filter cannot longer accurately track image details, and noise can reappear or blur can occur. </para>
+>Scherpheid</guilabel
+>: hiermee stelt u het niveau van scherpheid mee in. Met deze instelling regelt u de afstand in pixels waarmee het filter naar voren kijkt naar variaties in lichtkracht. Door het vergroten van deze waarde verwijdert u ruispieken. U kunt eventueel het filter <guilabel
+>Rand</guilabel
+> opnieuw aanpassen als u dit hebt aangepast. Als deze waarde te hoog is kan het filter niet langer nauwkeurig details in de foto detecteren en kan opnieuw ruis verschijnen of het beeld wazig worden. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Edge</guilabel
->: this control set the edge accuracy for sharpness. This value improves the frequency response for the filter. When it is too strong then not all noise can be removed, or spike noise may appear. Set it near to maximum, if you want to remove weak noise or JPEG-artifacts, without loosing detail. </para>
+>Rand</guilabel
+>: hiermee stelt u de nauwkeurigheid in voor de scherpheid. De waarde verbetert de reactie van het filter op de frequenties. Als deze waarde te hoog is kunt u niet alle ruis verwijderen, maar er kunnen ook ruispieken verschijnen. Zet het dicht bij het maximum als u zwakke ruis of JPEG-artifacts wilt verwijderen zonder details te verliezen. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Erosion</guilabel
->: this control set the phase shift for edges. This value can be used to erodes singular spikes and it has a smooth effect to edges, and sharpens edges by erosion, so noise at edges is eroded. The effect is dependant from <guilabel
->Sharpness</guilabel
+>Erosie</guilabel
+>: hiermee stelt u de faseverschuiving voor randen in. Daarmee kunt u losstaande pieken eroderen en heeft daarmee een verzachtend effect op randen, zodat ruis bij randen weg slijt. Het effect is afhankelijk van <guilabel
+>Scherpheid</guilabel
 >, <guilabel
->Damping</guilabel
->, and <guilabel
->Edges</guilabel
->. Set it to minimum, if you want to remove weak noise or JPEG-artifacts. When this value is increased, then also increasing <guilabel
->Damping</guilabel
-> is often useful. This setting can provides sharpening and antialiasing effect to edges when spike noise is corrected. </para>
+>Demping</guilabel
+> en <guilabel
+>Randen</guilabel
+>. Als u dit op het minimum instelt dan kunt u er zwakke ruis en JPEG-artifacts mee verwijderen. Het is verstandig om ook <guilabel
+>Demping</guilabel
+> te vergroten als u deze waarde vergroot. Dit kan zorgen voor verscherping en het antialiasing effect bij randen bij het corrigeren van ruispieken. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Luminance</guilabel
->: this control set the luminance tolerance of image. It's recommended to use only <guilabel
->Color</guilabel
-> or <guilabel
->Luminance</guilabel
-> tolerance settings to make an image correction, not the both at the same time. This settings don't influence the main smoothing process controlled by <guilabel
+>Lichtkracht</guilabel
+>: hiermee stelt u de tolerantie voor lichtkracht in de foto in. Wij raden aan om alleen tolerantie instellingen voor <guilabel
+>Kleur</guilabel
+> of <guilabel
+>Lichtkracht</guilabel
+> te gebruiken voor correctie van een foto en niet beide tegelijk. Deze instellingen beïnvloeden niet het belangrijke gladmakingsproces dat u met de instelling <guilabel
 >Details</guilabel
-> settings. </para>
+> heeft ingesteld. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Color</guilabel
->: this control set the color tolerance of image. It's recommended to use only <guilabel
->Color</guilabel
-> or <guilabel
->Luminance</guilabel
-> tolerance settings to make an image correction, not the both at the same time. This settings don't influence the main smoothing process controlled by <guilabel
+>Kleur</guilabel
+>: hiermee stelt u de tolerantie voor kleuren in de foto in. Wij raden aan om alleen tolerantie instellingen voor <guilabel
+>Kleur</guilabel
+> of <guilabel
+>Lichtkracht</guilabel
+> te gebruiken voor een correctie van een foto en niet beide tegelijk. Deze instellingen beïnvloeden niet het belangrijke gladmakingsproces dat u met de instelling <guilabel
 >Details</guilabel
-> settings. </para>
+> heeft ingesteld. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
 >Gamma</guilabel
->: this control set the gamma tolerance of image. This value can be used to increase the tolerance values for darker areas (which commonly are more noisy). This results in more blur for shadow areas. </para>
+>: hiermee stelt u de gamma-variatie in de foto in. Deze waarde kunt u gebruiken om de variaties voor de donkerder plekken (die vaak meer ruis hebben) te vergroten. Dit kan als resultaat hebben dat de schaduwen waziger zijn. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Damping</guilabel
->: this control set the phase jitter damping adjustment. This value defines how fast the adaptive filter-radius reacts to luminance variations. If increased, then edges appear smoother, if too high, then blur may occur. If at minimum then noise and phase jitter at edges can occur. It can suppress spike noise when increased and this is the preferred method to remove it. </para>
+>Demping</guilabel
+>: hiermee stelt u de aansturing van de fase-jitter-demping in. Deze definieert hoe snel de adaptieve filter-radius reageert op helderheidsvariaties. Bij verhoging worden randen meer geleidelijk, maar te hoog geeft vervaging. Op een minimum waarde kan ruis en fase-jitter op randen optreden. Het kan piek-ruis onderdrukken bij verhoging en dit is dan ook de voorkeursmethode om het te verwijderen. </para>
           </listitem>
           <listitem>
             <para
-><guilabel
->Save As</guilabel
-> and <guilabel
->Load</guilabel
->: these buttons are used to do just that. Any Noise Reduction parameters that you have set can be saved to the filesystem and loaded later. </para>
+>De knoppen <guilabel
+>Opslaan als</guilabel
+> en <guilabel
+>Laden</guilabel
+> zijn precies voor dat doel in gebruik. Alle instellingen voor ruisreductie kunt u opslaan in een het bestandssysteem en later weer laden. </para>
           </listitem>
           <listitem>
             <para
@@ -944,9 +944,9 @@ End:
     </sect4>
       <sect4 id="inaction-noisereduction">
         <title
->Noisereduction in action</title>
+>Ruisreductie in actie</title>
         <para
->This is an example of how the noise reduction can change your life. The original image is (1) and the corrected image is (2). The noise reduction was applied using default settings. </para>
+>Hier ziet u een voorbeeld hoe ruisreductie uw leven kan veranderen. De originele foto is (1), de gecorrigeerde foto (2). De ruisreductie is met de standaardwaarden toegepast. </para>
         <para>
           <inlinemediaobject>
             <imageobject>
@@ -954,7 +954,7 @@ End:
             </imageobject>
             <textobject>
               <phrase
->The Noise Reduction in Action</phrase>
+>De ruisreductie in actie</phrase>
             </textobject>
           </inlinemediaobject>
         </para>
@@ -963,19 +963,19 @@ End:
         <title
 >Een foto verzachten</title>
         <para
->Sometimes an image is too crisp for your purposes. The solution is to blur it a bit: fortunately blurring an image is much easier than sharpening it. Select the Blur Tool with the <menuchoice
+>Soms is een foto te scherp voor uw doel. De oplossing is het een beetje waziger maken: gelukkig is het veel makkelijker om een foto waziger te maken dan om het scherper te maken. Selecteer het gereedschap voor wazigheid via het menuitem <menuchoice
 > <guimenu
->Enhance</guimenu
+>Verbeteren</guimenu
 > <guimenuitem
->Blur</guimenuitem
+>Vervagen</guimenuitem
 > </menuchoice
-> menu entry and experiment with the level. The preview window on the right of the dialog shows the effect of the operation on your photograph. </para>
+> en experimenteer met de instellingen. In het voorbeeldvenster rechts in het dialoogvenster kunt u het effect op uw foto zien. </para>
         <example>
           <title
->The Blur Tool in Action</title>
+>Het hulpmiddel Vervagen in actie</title>
           <screenshot>
             <screeninfo
->The Blur Tool in Action</screeninfo>
+>Het hulpmiddel Vervagen in actie</screeninfo>
             <mediaobject>
               <imageobject>
                 <imagedata fileref="&path;editorblurplugin.png" format="PNG"/>
@@ -1030,9 +1030,9 @@ End:
           </ulink>
         </para>
         <para
->&digikam; The <emphasis
->Photograph Restoration</emphasis
-> is definitely one of the most advanced tools to reduce photograph artifacts. </para>
+>&digikam; De <emphasis
+>Fotorestauratie</emphasis
+> is beslist een van de meest geavanceerde hulpmiddelen voor het reduceren van fotografische artefacten. </para>
       </abstract>
       <keywordset>
         <keyword
@@ -1044,14 +1044,14 @@ End:
     <title
 >Inleiding</title>
     <para
->This fantastic restoration filter is a new development providing unprecedented possibilities in the public domain to remove lots of unwanted stuff from your images. It is well adapted to deal with degraded images suffering from Gaussian noise, film grain, scratches or compression artifacts and local degradations usually encountered in digital (original or digitized) images. The smoothing happens along the image curvatures, thus preserving the meaningful content much alike our human eye would want it. </para>
+>Dit fantastische restauratiefilter is nieuw ontwikkeld en geeft in het publieke domein ongehoorde mogelijkheden voor het verwijderen van vele ongewenste zaken op uw foto´s. Het is geschikt voor het bewerken van aangetaste foto´s die last hebben van Gaussiaanse ruis, korrelige film, krassen of artefacten door compressie en lokale aantastingen die men vaak tegenkomt bij digitale (origineel of gedigitaliseerd) foto´s. Het gladmaken gaat langs de krommingen in de foto en bewaart de belangrijke inhoud zoals het menselijke oog dat graag wil. </para>
     <para
->The same algorithm can be used for colorization and texture replacement which is covered by another tool (inpainting). The restoration algorithm has been developed by the IMAGE team of GREC CNRS lab in Caen/France and is a part of the <ulink url="http://cimg.sourceforge.net"
+>Dit algoritme kunt u ook gebruiken voor inkleuren en textuur vervanging dat mogelijk is met een ander hulpmiddel (inkleuring). Het restauratiealgoritme is ontwikkeld door het IMAGE-team van het GREC CNRS laboratorium in Caen/Frankrijk en is een onderdeel van het <ulink url="http://cimg.sourceforge.net"
 >CImg project</ulink
 >. </para>
     <sect4 id="using-restoration">
       <title
->Using the Restoration tool</title>
+>Het Hulpmiddel Restauratie gebruiken</title>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -1059,44 +1059,44 @@ End:
           </imageobject>
           <textobject>
             <phrase
->Photograph Restoration Dialog</phrase>
+>Dialoogvenster Fotorestauratie</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
       <para
->The tool comes with several presets as starting points and to simplify the restoration. The preset settings available are listed below: <itemizedlist>
+>Het hulpmiddel komt met aantal keuzemogelijkheden die u als startpunt kunt gebruiken en wat restauratie eenvoudiger maakt. Hieronder ziet u de lijst met keuzemogelijkheden: <itemizedlist>
           <listitem>
             <para
 ><guilabel
->None</guilabel
->: Using most common default filter settings not optimized for any particular purpose.</para>
+>Geen</guilabel
+>: Gebruikt de meest algemene standaard filterinstellingen zonder enige optimalisatie voor wat voor doel dan ook.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Reduce Uniform Noise</guilabel
->: Optimum settings for image noise due to sensors.</para>
+>Uniforme ruis reduceren</guilabel
+>: Optimale instelling voor ruis veroorzaakt door sensors.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Reduce JPEG Artifacts</guilabel
->: JPEG's compression is not perfect, in fact for some types of images it is far from it. As a lossy compression algorithm, there are some compression &quot;artifacts&quot; - slight defaults showing in the decompressed image. This setting aims at correcting this problem.</para>
+>JPEG-artefacten reduceren</guilabel
+>: de compressie van JPEG is niet perfect, in feite is het voor sommige soorten afbeeldingen zelfs helemaal niet perfect. Omdat het een niet verliesvrij compressie algoritme is, zijn er kleine compressie &quot;artefacten&quot; - te zien in de weergegeven afbeelding. Deze instelling probeert dit probleem op te lossen.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Reduce Texturing</guilabel
->: Optimized to remove artifacts from scanning, digitizing or Moire patterns.</para>
+>Reduceren van textuur</guilabel
+>: Geoptimaliseerd voor het verwijderen van artifacts veroorzaakt door scannen, digitaliseren of Moire patronen.</para>
           </listitem>
         </itemizedlist>
       </para>
       <para
->If you want to set filter parameters for finer adjustments, use <guilabel
->Smoothing Settings</guilabel
-> and <guilabel
->Advanced Settings</guilabel
-> tabs:</para>
+>Als u de filterparameters wilt instellen voor fijnere aanpassingen, gebruik dan de tabbladen: <guilabel
+>Gladheid</guilabel
+> en <guilabel
+>Geavanceerde instellingen</guilabel
+>:</para>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -1104,7 +1104,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Restoration Smoothing Settings</phrase>
+>De instellingen voor restauratie door uitsmeren</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -1113,36 +1113,36 @@ End:
           <listitem>
             <para
 ><guilabel
->Detail Preservation</guilabel
-> p [0, 100]: this controls the preservation of the curvatures (features). A low value forces an equal smoothing across the image, whereas bigger values preferably smooth the homogeneous regions and leaves the details sharper. A value of 0.9 should well preserve details so that no sharpening is required afterwards. Note that <guilabel
->Detail Preservation</guilabel
-> must be always inferior to <guilabel
->Anisotropy</guilabel
+>Detailbehoud</guilabel
+> p [0, 100]: dit regelt het behoud van de krommingen (features). Een kleine waarde geeft over de gehele foto een egaal resultaat, terwijl grotere waarden homogene vlakken egaal maakt en toch de details scherp houdt. Een waarde van 0.9 zal details bewaren zodat daarna verscherpen niet nodig is. Let wel op dat <guilabel
+>Detailbehoud</guilabel
+> altijd kleiner moet zijn dan <guilabel
+>Anisotropie</guilabel
 >.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Anisotropy</guilabel
-> alpha [0, 100]: a low value smooths equally in all directions, whereas a value close to 1 smooths in one direction only. If you have film grain or CCD kind of noise a high value will result in wave-like pattern, whereas JPEG artifacts are suited for values close to 1. </para>
+>Anisotropie</guilabel
+> alpha [0, 100]: een kleine waarde geeft in alle richtingen een egaal resultaat, terwijl een waarde dicht bij 1 maar in een richting werkt. Als u een korrelige film heeft of sterke ruis bij een CCD dan krijgt u golfvormige patronen, terwijl JPEG artifacts vragen om waarden dicht bij 1. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Smoothing</guilabel
-> [0, 500]: this sets the maximum overall smoothing factor (when p defines the relative smoothing). Set it according to the noise level.</para>
+>Gladheid</guilabel
+> [0, 500]: dit stelt de algemene maximale gladheidsfactor in (waarbij p de relatieve gladheid is). Stel het in overeenkomstig het ruis-niveau.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Regularity</guilabel
-> [0, 100]: this parameter is concerned with the uniformity of the smoothing. Imagine the smoothing process as a combing of the image. Then the Regularity would correspond to the size of the comb. The bigger this value, the more even the overall smoothing will be. This is necessary when much noise is present since it is then difficult to estimate the local geometry. Also if you want to achieve a 'van Gogh' turbulence effect, setting it higher than 3 is recommended.</para>
+>Regelmatigheid</guilabel
+> [0, 100]: deze waarde gaat over de gelijkmatigheid van het proces van gladmaken. Stelt u zich het proces van gladmaken voor als het kammen (of borstelen) van de foto. Dan komt de regelmatigheid overeen met de grootte van de kam. Hoe groter de waarde, hoe regelmatiger zal de algemene gladheid zijn. Dit is van belang als er veel ruis aanwezig is omdat het dan moeilijk is om de plaatselijke geometrie te bepalen. Maar als u een 'van Gogh' turbulent effect wilt bereiken, dan wordt aanbevolen om het groter dan 3 in te stellen.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Filter Iterations</guilabel
->: number of times the blurring algorithm is applied. Usually 1 or 2 is sufficient.</para>
+>Filterherhalingen</guilabel
+>: het aantal keren dat het algoritme voor vervagen wordt toegepast. Meestal is 1 of 2 voldoende.</para>
           </listitem>
         </itemizedlist>
       </para>
@@ -1153,7 +1153,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Restoration Advanced Settings</phrase>
+>De geavanceerde restauratie-instellingen</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -1162,43 +1162,43 @@ End:
           <listitem>
             <para
 ><guilabel
->Angular Step</guilabel
-> da [5, 90]: angular integration of the anisotropy alpha. If alpha is chosen small, da should also be chosen small. But beware, small angles result in long runs! Choose it as large as you can accept. </para>
+>Hoekstap</guilabel
+> da [5, 90]: hoek integratie van de anisotropie alpha. Als alpha klein is gekozen dan moet u da ook klein instellen. Maar pas op, kleine hoeken resulteren in lange rekentijden! Kies het zo groot mogelijk. </para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Integral Step</guilabel
-> [0.1, 10]: spatial integration step width in terms of pixels. Should remain less than 1 (sub-pixel smoothing) and never be higher than 2.</para>
+>Integraalstap</guilabel
+> [0.1, 10]: spatiële integraalstap met de stap in pixels. Bij voorkeur kleiner dan 1 (subpixel vervaging) en nooit groter dan 2.</para>
           </listitem>
           <listitem>
             <para
 ><guilabel
->Use Linear Interpolation</guilabel
->: The gain in quality if you select this option is only marginal and you lose a factor of 2 in speed. Our recommendation is to leave it off.</para>
+>Lineaire interpolatie gebruiken</guilabel
+>: Het kwaliteitsvoordeel is bij gebruik marginaal en het gaat 2x zo langzaam. Ons advies is daarom om het uitgeschakeld te laten.</para>
           </listitem>
         </itemizedlist>
       </para>
       <para
-><guilabel
->Save As</guilabel
-> and <guilabel
->Load</guilabel
-> buttons are used to do just that. Any Photograph Restoration filter settings that you have set can be saved to the filesystem in a text file and loaded later. </para>
+>De knoppen <guilabel
+>Opslaan als</guilabel
+> en <guilabel
+>Laden</guilabel
+> zijn precies voor dat doel in gebruik. Alle instellingen van Fotorestauratie kunt u opslaan in een tekstbestand en later weer laden. </para>
       <warning>
         <para
->Photograph restoration is (comparatively) very fast in what it is doing, but it can take a long time to run and cause high CPU load. You may always abort computation by pressing <guilabel
->Abort</guilabel
-> button during preview rendering. </para>
+>Fotorestauratie is (relatief) erg snel in wat het doet, maar het kan ook veel processortijd gebruiken. U kunt altijd de berekening afbreken door tijdens de berekening op de knop <guilabel
+>Afbreken</guilabel
+> te drukken. </para>
       </warning>
     </sect4>
     <sect4 id="inaction-restoration">
       <title
->The Restoration tool in action</title>
+>Het hulpmiddel fotorestauratie in actie</title>
       <para
->Below, you can see a <guilabel
->Reduce Uniform Noise</guilabel
-> Restoration type applied to a Black and White photograph taken with a Minolta(tm) 700Si camera using Ilford(tm) HP-5 film set at 3200 ISO sensitivity. You see the very prominent film grain on the faces. The original image is (1), the corrected image (2). </para>
+>Hieronder ziet u een Restauratie met <guilabel
+>Uniforme ruis reduceren</guilabel
+> toegepast op een zwart-witfoto genomen met een Minolta(tm) 700Si camera en een Ilford(tm) HP-5 film ingesteld met 3200 ISO gevoeligheid. U kunt op de gezichten de nogal nadrukkelijke korreligheid zien. De originele foto is (1), de gecorrigeerde foto (2). </para>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -1206,14 +1206,14 @@ End:
           </imageobject>
           <textobject>
             <phrase
->Reduce Uniform Noise Restoration Preview</phrase>
+>Voorbeeldweergave van Uniforme ruis reductie</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
       <para
->Below, you can see an another Photograph Restoration example using <guilabel
->Reduce Texturing</guilabel
-> Restoration type applied to an old color photograph acquire with a digital flat scanner. You see the very prominent artifacts resulting of scanner light on plastic photograph paper. The original image is (1), the corrected image (2). </para>
+>Hieronder ziet u nog een restauratie-voorbeeld waarbij <guilabel
+>Reducering van textuur</guilabel
+> is toegepast op een oude kleurenfoto die is ingescand met een digitale flatbed scanner. U kunt de nogal nadrukkelijke artefacten zien die het resultaat zijn van de weerkaatsing van de scan-belichting op het plastic fotopapier. De originele foto is (1), de gecorrigeerde foto (2). </para>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -1221,7 +1221,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->Reduce Texturing Restoration Preview</phrase>
+>Voorbeeldweergave van Restauratie door reductie van textuur</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -1259,9 +1259,9 @@ End:
       </authorgroup>
       <abstract>
         <para
->&digikam; The <emphasis
+>Het hulpmiddel <emphasis
 >Hot Pixels</emphasis
-> tool facilitates removing hot pixels from photographs taken with a CCD camera. It uses algorithms from the JPEGPixi project which are copyrighted by Martin Dickopp. </para>
+> helpt bij het verwijderen van hot pixels van een met een CCD-camera genomen foto. Het gebruikt algoritmes van het JPEGPixi project met copyright bij Martin Dickopp. </para>
       </abstract>
       <keywordset>
         <keyword
@@ -1273,42 +1273,42 @@ End:
     <title
 >Inleiding</title>
     <para
->Most current digital cameras produce images with several brightly colored &quot;bad pixels&quot; when using slow shutter speeds. Night images can be ruined by these &quot;bad pixels&quot;. There are three different types of &quot;bad pixels&quot;: <itemizedlist
+>De meeste huidige digitale camera´s produceren, als ze lange sluitertijden gebruiken, foto´s met enkele fel gekleurde &quot;bad pixels&quot;. Nachtelijke foto´s kunnen geruïneerd worden door deze &quot;bad pixels&quot;. Er zijn drie verschillende soorten &quot;bad pixels&quot;: <itemizedlist
 > <listitem
 > <para
->Stuck pixels: it's a pixel that always reads high or is always on to maximum power on all exposures. This produces a bright pixel usually of red, blue or green color in the final image. A stuck pixel will occur regardless of shutter speed, aperture size or any other user settings. It will occur on a normal exposure and tends to be more obvious under bright condition.</para
+>Stuck pixels: dit is een pixel dat altijd een hoog signaal geeft of altijd aan is bij alle belichtingen. Het produceert in de uiteindelijke foto een helder pixel met meestal een rode, blauwe of groene kleur. Een stuck pixel zal onafhankelijk van de sluitertijd, diafragma opening of wat voor instelling dan ook altijd optreden. Het treedt op bij normale belichtingen en neigt meer duidelijk te zijn bij heldere condities.</para
 > </listitem
 > <listitem
 > <para
->Dead pixels: it's a pixel that reads zero or is always off on all exposures. This state produces a black pixel in the final image. Similar to stuck pixel, a dead pixel will occur regardless of shutter speed, aperture size or any other user settings.</para
+>Dead pixels: dit is een pixel dat altijd een laag signaal geeft of is altijd uit bij alle belichtingen. Het produceert in de uiteindelijke foto een zwart pixel. Net zoals een stuck pixel, zal een dead pixel altijd optreden onafhankelijk van sluitertijden, diafragma opening of wat voor instelling dan ook.</para
 > </listitem
 > <listitem
 > <para
->Hot pixels: it's a pixel that reads high (bright) on longer exposures as white, red, or green color. The longer the exposure time, the more visible hot pixels will become. These pixels will not be visible in bright conditions.</para
+>Hot pixels: dit is een pixel dat een hoger signaal (fel) signaal geeft bij langere belichtingen met meestal een witte, rode of groene kleur. Hoe langer de belichtingstijd, hoe meer zichtbaarder de hot pixels zal worden. Deze pixels zullen niet zichtbaar zijn in heldere condities.</para
 > </listitem
 > </itemizedlist
-> Note that stuck or dead pixels will occur at the same location for all images. If the location of the stuck or dead pixel occurs at different locations, it may be a Hot Pixel. </para>
+>Merk op dat stuck of dead pixels bij alle foto's altijd op dezelfde plaats zal optreden. als de stuck of dead pixel op verschillende plekken verschijnt, dan kan het een Hot Pixel zijn. </para>
     <para
->Stuck, dead or hot pixels are a problem in particular when shooting in high quality raw mode since many cameras have built-in hot pixel suppression applied automatically when JPEG compression is used (which is mostly the case). </para>
+>Stuck, dead en hot pixels zijn met name een probleem wanneer u foto´s opslaat in hoge kwaliteit raw mode omdat veel camera´s een ingebouwde hot pixel onderdrukking heeft die automatisch werkt bij gebruik van JPEG compressie (wat meestal het geval is). </para>
     <para
->This tool can be used to fix the &quot;Hot pixels&quot; and &quot;Stuck Pixels&quot; on a photograph using a black frame subtraction method. There is no yet a manual editor to select bad pixels. </para>
+>Dit hulpmiddel kunt u gebruiken voor het herstellen van &quot;Hot pixels&quot; en &quot;Stuck Pixels&quot; op een foto met behulp van de zwart-frame methode. Op dit moment is er nog geen methode om handmatig bad pixels te selecteren. </para>
     <sect4 id="using-blackframecreation">
       <title
->Create the Black Frames</title>
+>De zwart-frames aanmaken</title>
       <para
->The Black Frame substraction method is the most accurate &quot;Hot Pixels&quot; and &quot;Stuck Pixels&quot; removal. First you have to create a &quot;Black Frame&quot; as a reference. This is easy to do. When you finish taking your long exposure shots, put a lens cap on the camera and take one &quot;dark&quot; image with the same exposure time as the images before. This image will be all dark, but with close examination you will see that it has the Hot and Stuck Pixels (colored dots). These are positioned at the same places as on your previous shots. </para>
+>De zwart-frame methode is het meest accuraat in het verwijderen van &quot;Hot Pixels&quot; en &quot;Stuck Pixels&quot;. Als eerste stap moet u een voor referentie een &quot;zwart-frame&quot; maken. Dit gaat erg makkelijk. Nadat u de laatste foto met lange belichtingstijd heeft gemaakt, plaatst u een lensdop op de camera en neemt een &quot;zwarte&quot; foto met dezelfde belichtingstijd als de foto´s daarvoor. Deze foto zal compleet donker zijn, maar bij nader inspectie ziet u dat het Hot en Stuck Pixels (gekleurde dots) heeft. Deze zitten op dezelfde posities als bij uw eerdere foto´s. </para>
       <para
->Load this file to the widget using the <guilabel
->Black Frame</guilabel
-> button. The toll will process an automatic detection of Hot and Stuck Pixels. They will be highlighted in the control panel preview areas. </para>
+>U kunt dit bestand laden door het gebruik van de knop <guilabel
+>Zwart-frame</guilabel
+>. Het programma zal een automatisch detectie van Hot en Stuck Pixels opstarten. Deze zullen oplichten in het voorbeeldvenster van het controle paneel. </para>
       <warning>
         <para
->If you use an old digital camera, it is important to re-shoot the Black Frame next time you are taking a long exposure images to detect new Hot and Stuck Pixels on CCD defects. </para>
+>Als u een oude digitale camera gebruikt, dan is het belangrijk dat u als u de volgende keer een foto met lange belichtingstijden maakt opnieuw een zwart-frame foto maakt om nieuwe Hot en Stuck Pixels te detecteren op een CCD met defecten. </para>
       </warning>
     </sect4>
     <sect4 id="using-hotpixels">
       <title
->Using the hotpixel tool</title>
+>Het gebruik van het hotpixel hulpmiddel</title>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -1316,42 +1316,42 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Hot Pixels Dialog</phrase>
+>Het dialoogvenster Hot Pixel</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
       <para
->At first, as explained in the previous section, you need to load a Black Frame corresponding to the image to correct. An automatic parsing will be processed on the Black Frame to find bad pixels. Note that the widget will remember the previous Black Frame used on the last session and it will be re-opened automatically with the next session. </para>
+>Om te beginnen, zoals uitgelegd in de vorige sectie, moet u een zwart-frame laden dat overeenkomt met de foto die u wilt corrigeren. Deze zal automatisch worden geanalyseerd om de bad pixels te vinden. Merk op dat het widget het laatst gebruikte zwarte frame zal herinneren en deze automatisch bij een volgende sessie zal openen. </para>
       <para
->The image panel and the original preview help you to pan within the image. The preview window shows the filter output using the current settings. Bad Pixels are highlighted on all preview areas. </para>
+>De afbeeldingweergaves met het vergrootglas van het origineel helpen u om u door de foto te verplaatsen. Het voorbeeldvenster toont het resultaat van het filter met de huidige instellingen. Bad Pixels zijn gemarkeerd op de afbeeldingweergave. </para>
       <para
->Select an area to see bad pixels on preview and the filter result using 'Separate View' options of image panel. Choose the best <guilabel
+>Selecteer een gebied waarvan u de bad pixels in de afbeeldingweergave wilt zien met daarnaast afhankelijk van de ´separate beeld´ het resultaat van het gekozen filter. Maak een keuze voor de meest geschikte <guilabel
 >Filter</guilabel
-> method to interpolate pixels or pixel blocks. These are the available filters: <itemizedlist>
+>-methode voor het interpoleren van pixels of pixel blokken. Dit zijn de beschikbare filters: <itemizedlist>
           <listitem>
             <para
->Average: the pixels adjacent to the pixel block are averaged. The resulting color is assigned to all pixels in the block. For 1-dimensional interpolation, this is done separately for one pixel-wide, horizontal or vertical stripes.</para>
+>Gemiddelde: de pixels naast het pixel blok worden gemiddeld. De resulterende kleur worden vervolgens aan alle pixels in het blok toegewezen. Voor 1-dimensionale interpolatie, wordt dit separaat voor een pixel-brede, horizontale of verticale stroken uitgevoerd.</para>
           </listitem>
           <listitem>
             <para
->Linear: the pixels which have a distance of 1 from the pixel block are used to calculate a bi-linear surface (2-dim), or a group of linear curves (1-dim), which is then used to assign interpolated colors to the pixels in the block.</para>
+>Lineair: de pixels die op een afstand van 1 van het pixel blok zijn, worden gebruikt voor het bereken van een bi-lineair oppervlak (2-dim), of een groep van lineaire curves (1-dim), welke vervolgens worden gebruikt om de geïnterpoleerde kleuren aan de pixels van het het blok toe te wijzen.</para>
           </listitem>
           <listitem>
             <para
->Quadratic: this is the default filtering method. The pixels which have a distance of 2 or less from the pixel block are used to calculate a bi-quadratic surface (2-dim), or a group of quadratic curves (1-dim), which is then used to assign interpolated colors to the pixels in the block.</para>
+>Kwadratisch: dit is de standaard filter methode. de pixels die een afstand van 2 of minder van het pixel blok hebben, worden gebruikt voor het berekenen van een bi-kwadratisch oppervlak (2-dim) of een groep van kwadratische curves (1-dim), welke vervolgens worden gebruikt om de geïnterpoleerde kleuren aan de pixels van het het blok toe te wijzen.</para>
           </listitem>
           <listitem>
             <para
->Cubic: the pixels which have a distance of 3 or less from the pixel block are used to calculate a bi-cubic surface (2-dim), or a group of cubic curves (1-dim), which is then used to assign interpolated colors to the pixels in the block.</para>
+>Kubisch: de pixels die op een afstand van 3 of minder van het pixel blok zijn, worden gebruikt voor het bereken van een bi-kubisch oppervlak (2-dim), of een groep van kubische curves (1-dim), welke vervolgens worden gebruikt om de geïnterpoleerde kleuren aan de pixels van het het blok toe te wijzen.</para>
           </listitem>
         </itemizedlist>
       </para>
     </sect4>
     <sect4 id="inaction-hotpixels">
       <title
->The hotpixels tool in action</title>
+>Het hulpmiddel Hot Pixel in actie</title>
       <para
->Below, you can see the Hot Pixels Correction tool applied to a color photograph taken with a deficient digital camera at 200 ISO sensitivity with a long exposure shot. The original image magnified to 300% is (1), the corrected image (2). </para>
+>Hieronder ziet u een kleurenfoto met een lange sluitertijd genomen met een gebrekkige digitale camera met een 200 ISO gevoeligheid waarop Hot Pixels-correctie is toegepast. De originele foto vergroot tot 300% is (1), de gecorrigeerde foto (2). </para>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -1359,7 +1359,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Pixels Correction Preview</phrase>
+>De voorbeeldweergave Pixels-correctie</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -1397,9 +1397,9 @@ End:
       </authorgroup>
       <abstract>
         <para
->&digikam; The <emphasis
->Vignetting correction</emphasis
-> is a tool to correct image vignetting (under-exposure in the corners). </para>
+>&digikam; De <emphasis
+>Vignetteringscorrectie</emphasis
+> is een hulpmiddel voor het corrigeren van vignettering van foto's (onderbelichting in de hoeken). </para>
       </abstract>
       <keywordset>
         <keyword
@@ -1407,7 +1407,7 @@ End:
         <keyword
 >Digikam</keyword>
         <keyword
->Anti-Vignetting</keyword>
+>Anti-vignettering</keyword>
 	<keyword
 >Vignettering toevoegen</keyword>
 	<keyword
@@ -1417,16 +1417,16 @@ End:
     <title
 >Inleiding</title>
     <para
->Wide angle lenses, especially those used in medium and large format photography, frequently do not uniformly illuminate the entire sensor plane. Instead, they &quot;vignette&quot; (shade) the edges and corners of the image, substantially reducing the light reaching the sensor there. But telelenses may show vignetting too. </para>
+>Groothoeklenzen, met name het type gebruikt in medium en groot formaat fotografie, belichten vaak niet het gehele sensorvlak egaal. In plaats daarvan, is er &quot;vignettering&quot; (schaduw) aan de randen en in de hoeken van de foto, de hoeveelheid licht die de sensor daar bereikt is belangrijk verminderend. Maar telelenzen kunnen ook last hebben van vignetting. </para>
     <para
->The traditional solution for this is to attach a &quot;center filter&quot; to the lens. This is a neutral density filter with maximum density at the optical axis of the lens, clear at the periphery, with density varying inversely to the vignetting of the lens. A center filter has many advantages: not only does it automatically correct for full-frame images but, since it's fixed to the front of the lens, it also compensates for the off-center vignetting which occurs when camera movements are employed for perspective or plane of focus adjustment. </para>
+>De traditionele oplossing hiervoor is het monteren van een &quot;center filter&quot; op de lens. Dit is een grijsverloop ND filter die het donkerst is bij de optische as van de lens en helder langs de rand, waarbij de grijswaarden omgekeerd met de vignettering van de lens verloopt. Een center filter heeft veel voordelen: niet alleen corrigeert het automatisch voor vol-formaat foto´s, maar omdat het aan de voorkant van de lens is bevestigd, compenseert het ook voor ongelijkmatig vignetting dat optreedt bij camera verplaatsingen vanwege aanpassingen voor perspectief of scherpstelling. </para>
     <para
->But there are disadvantages as well. Many center filters require a 1.5 or 2 f-stop filter factor adjustment, which may in turn necessitate a shutter speed so slow (since wide angle lenses, even with center filters, are best used at apertures of f/16 or smaller) that hand-holding the camera is impossible and motion blur becomes a problem when photographing moving objects. </para>
+>Maar er zijn ook nadelen. Veel center filters vereisen een 1.5 of 2 f-stop filterfactor aanpassing, waarvoor op zijn beurt een zo langzame sluitertijd noodzakelijk kan zijn (omdat u bij groothoeklenzen, zelfs met center filters, beter diafragma's van f/16 of kleiner kunt gebruiken) dat een camera zonder statief onmogelijk is en bewegingsonscherpte een probleem wordt bij het fotograferen van bewegende objecten.  </para>
     <para
->With the wide exposure range of present-day film and the color (or grey-scale) depth of digital camera or film scanners, it is possible to simulate the effect of a center filter by applying an equivalent transform to a raw image taken without the filter. This antivignetting tool applies a center filter transformation to an image employing an algorithm copyrighted by John Walker. </para>
+>Met het grote bereik in belichting van de hedendaagse film en de kleur (of grijs) waarden van digitale camera of film scanners, is het mogelijk om het effect van een center filter na te bootsen door een vergelijkbare transformatie toe te passen op een raw foto genomen zonder dit filter. Dit antivignetting hulpmiddel past een center filter transformatie op een foto toe met gebruik van een algoritme met copyright bij John Walker. </para>
     <sect4 id="using-vignettingcorrection">
       <title
->Using the vignetting correction tool</title>
+>Het gebruik van het hulpmiddel correctie van vignettering</title>
       <para>
         <inlinemediaobject>
           <imageobject>
@@ -1439,63 +1439,63 @@ End:
         </inlinemediaobject>
       </para>
       <para
->Five sliders give you control over the vignetting correction filter, and three more over the target image exposure: </para>
+>Met vijf schuifknoppen kunt u het vignettingcorrectiefilter instellen, met nog drie extra voor de belichting van het resultaat: </para>
       <para
 ><guilabel
->Amount</guilabel
->: this option controls the degree of luminosity attenuation by the filter at its point of maximum amount. The default amount is 2.0, which corresponds to an optical filter with a 1 f-stop filter factor (or, by no coincidence, a factor of 2 in luminosity). Increase the amount to compensate for a greater degree of vignetting; reduce it for less. </para>
+>Hoeveelheid</guilabel
+>: hiermee stelt u de grootste hoeveelheid van verzwakking van het licht mee in. De standaardwaarde is 2.0, wat overeenkomt met een optisch filter met een 1 f-stop filter factor (of, niet bij toeval, een factor 2 in verlichtingssterkte). Vergroot deze waarde om te compenseren voor een grotere mate van vignetting; verklein het voor minder. </para>
       <para
 ><guilabel
->Feather</guilabel
->: this option determines the rate at which the filter intensity falls off from the point of maximum amount toward the edges, expressed as a power factor. The default of 1 yields a linear reduction in filter amount with distance from the center. Power factors greater than 1.0 cause a faster fall-off (for example, a power of 2 causes the amount to decrease as the square of the distance from the center) and causes the effect of the filter to be concentrated near the center. Powers less than 1 spread out the amount of the filter toward the edges; a power of 0.5 causes the amount to fall as the square root of the distance from the center. </para>
+>Doezelen</guilabel
+>: hiermee stelt u het verloop mee in waarmee de intensiteit van het filter vanuit het middelpunt naar de randen verloopt, uitgedrukt als exponent. De standaardwaarde van 1 geeft een reductie van het filter dat lineair loopt met de afstand tot het middelpunt. Een exponent groter dan 1.0 veroorzaakt een snellere reductie (bijvoorbeeld, een exponent van 2 zorgt ervoor dat de reductie van het filter kwadratisch met de afstand van het middelpunt verloopt) zodat het effect geconcentreerd is nabij het middelpunt. Een exponent kleiner dan 1 verspreidt het effect van het filter meer naar de randen; een exponent van 0.5 zorgt dat de waarde vermindert met de wortel van de afstand tot het middelpunt. </para>
       <para
 ><guilabel
->Radius</guilabel
->: this option specifies the radius, as a multiple of the half diagonal measure of the image, at which the amount of the filter falls off to zero (or, in other words, becomes transparent). The default value of 1.0 specifies a filter which is transparent at its corners. A radius specification greater than 1 extends the effect of the center filter beyond the edges of the image, while a radius less than one limits the filter's action to a region smaller than the image. When compensating for vignetting by lenses used with large format and some medium format cameras, the default radius factor of 1 is rarely correct! These lenses often &quot;cover&quot; an image circle substantially larger than the film to permit camera movements to control perspective and focus, and consequently have a vignetting pattern which extends well beyond the edges of the film, requiring a radius setting greater than 1 to simulate a center filter covering the entire image circle. </para>
+>Straal</guilabel
+>: hiermee stelt u de straal mee in, uitgedrukt in verhouding met de halve diagonaal van de foto, waarop het filter naar nul gaat (met andere woorden transparant wordt). De standaardwaarde van 1.0 stelt een filter in die transparent op de hoeken is. Een waarde groter dan 1 vergroot het effect van het center filter tot voorbij de hoeken van het filter, terwijl een straal kleiner dan een het effect van het filter tot een gedeelte van de foto beperkt. Bij het corrigeren voor vignetting door lenzen gebruikt in groot formaat en enkele medium formaat cameras, is de standaard straalwaarde van 1 zelden correct! Dit soort lenzen &quot;bedekken&quot; vaak een projectievlak die belangrijk groter is dan de film zodat camera verplaatsingen mogelijk zijn vanwege aanpassingen voor perspectief of scherpstelling, de consequentie daarvan is dat het vignetting patroon heeft dat zich tot ver voorbij de randen van de film uitstrekt, en dus een straalinstelling vereisen groter dan 1 vereisen om een center filter te simuleren dat het gehele projectievlak bedekt. </para>
       <para
->The only way to be sure which settings of <guilabel
->Amount</guilabel
+>De enige manier om te bepalen welke combinaties van <guilabel
+>Hoeveelheid</guilabel
 >, <guilabel
->Feather</guilabel
->, and <guilabel
->Radius</guilabel
-> best compensate for the actual optical characteristics of a given lens is to expose a uniformly illuminated scene (for example, a grey card lit by diffuse light) and perform densitometry on the resulting image (for example with Adjust Level tool histogram position bar). Failing that, or specifications by the lens manufacturer giving the precise degree of vignetting at one or more working apertures, you may have to experiment with different settings to find those which work best for each of your lenses. For help you in this task, the widget dialog provide a thumbnail mask rendering applied on the image. Fortunately, the response of the human eye is logarithmic, not linear like most digital imaging sensors, so you needn't precisely compensate for the actual vignetting to create images which viewers will perceive as uniformly illuminated. </para>
+>Doezelen</guilabel
+>, en <guilabel
+>Straal</guilabel
+> het beste de werkelijke optische karakteristieken van een bepaalde lens compenseren, is door een foto te maken van een egaal verlichte scene (bijvoorbeeld, een grijze kaart belicht door diffuus licht) en een densitometing (meting van zwarting) van de resulterende foto uit te voeren (bijvoorbeeld met de histogram balk van Niveau Aanpassen). Als dat niet het geval is, en als in de door de fabrikant opgegeven specificaties van de lens niet precies de vignetting van een of meerdere openingen zijn te vinden, dan moet zelf experimenteren met verschillende instellingen om te bepalen welke het beste is voor elk van uw lenzen. Om u te helpen met deze taak is er in de voorbeeldweergave een masker toegevoegd die het vignetting voorstelt. Gelukkig is de gevoeligheid van het menselijk oog logaritmisch en niet lineair zoals de meeste digitale beeldsensors, daarom hoeft u niet nauwkeurig de werkelijke vignetting te compenseren om toch foto´s te creëren die kijkers als egaal belicht zal opvatten. </para>
      <para
-><guilabel
->X offset</guilabel
-> and <guilabel
->Y offset</guilabel
-> settings: these options moves respectively the center of the filter horizontally or vertically up to the border of the image by the specified percentage. A negative value for the X offset will shift the filter to the left while a positive value will shift it to the right. A negative value for the Y offset will move the filter up, and finally a positive value will move it down. </para>
+>De instellingen <guilabel
+>Verplaatsing X</guilabel
+> en <guilabel
+>Verplaatsing Y</guilabel
+>: hiermee verplaatst u het middelpunt van het filter horizontaal respectievelijk verticaal naar de rand van de foto met een opgegeven percentage. Een negatieve waarde voor de X-waarde verschuift het filter naar links terwijl een positieve waarde het naar rechts verschuift. Een negatieve waarde voor de Y-waarde verschuift het filter omhoog, en tenslotte een positieve waarde zal het omlaag verschuiven. </para>
       <para
-><guilabel
->Brightness</guilabel
+>De instellingen <guilabel
+>Helderheid</guilabel
 >, <guilabel
 >Contrast</guilabel
->, and <guilabel
+>, en <guilabel
 >Gamma</guilabel
-> settings: processing an image with this antivignetting tool reduces the luminosity of pixels. You need to re-adjust the target image exposure with these options. These sliders give only positive values because you need only to increase this setting. </para>
+>: het bewerken van een foto met dit antivignetting gereedschap vermindert de lichtkracht van de pixels. U moet daarom de foto opnieuw voor deze waarden instellen. Deze schuifknoppen hebben alleen positieve waarden omdat u alleen deze instellingen moet verhogen. </para>
 	<para
 ><guilabel
->Add Vignetting</guilabel
->: many photographs looks flat because of a distracting background or another composition matter. While most of time you will want to remove vignetting it is a fact that a selective vignetting could improve the readability of a photograph and draw the eyes to the intended subject. As an artist you may choose this option, ticking it will invert the filter thus darkening the corners of a photograph. </para>
+>Vignettering toevoegen</guilabel
+>: veel foto´s zien er vlak uit vanwege een achtergrond die teveel aandacht trekt of andere compositie problemen. Meestal wilt u vignetting juist verwijderen maar soms kan het selectief toevoegen van vignetting een foto juist verbeteren en de aandacht juist naar het gewenste onderwerp trekken. Als artiest kunt u deze keuze maken, als u dit inschakelt dan maakt dat de hoeken van de foto donkerder. </para>
       <note>
         <para
->&digikam; If you want a finer exposure re-adjustment of the target image, leave the Brightness/Contrast/Gamma values at zero and use the Adjust Curve tool from Image Editor available under <menuchoice
+>Als u van de foto zelf de belichting wilt instellen, dan is het beter om hier Helderheid/Contrast/Gamma met rust te laten en Curves aanpassen uit Afbeeldingsbewerken via het menuitem <menuchoice
 > <guimenu
->Color</guimenu
+>Kleur</guimenu
 > <guimenuitem
->Adjust Curve</guimenuitem
+>Curves aanpassen</guimenuitem
 > </menuchoice
-> menu entry. </para>
+> te gebruiken. </para>
       </note>
     </sect4>
     <sect4 id="inaction-vignettingcorrection">
       <title
->The vignetting correction tool in action</title>
+>Het vignetting correctie gereedschap in actie</title>
       <para
->This is an example of an anti vignetting correction applied to an image. The original image (1) shows vignetting in the corners, the corrected image (2) much less. A brightness and contrast correction is also applied to the target image by this tool. </para>
+>Dit is een voorbeeld van een anti vignetting correctie toegepast op een foto. Bij de originele foto (1) is vignetting in de hoeken zichtbaar, bij de gecorrigeerde foto (2) veel minder. Een helderheid en contrast correctie is ook met dit hulpmiddel op deze foto toegepast. </para>
       <para
->The values used for this example are: <itemizedlist>
+>De in dit voorbeeld gebruikte waarden zijn: <itemizedlist>
           <listitem>
             <para
 >Dichtheid = 2,6.</para>
@@ -1529,7 +1529,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->The Vignetting Correction Image Editor Tool in Action</phrase>
+>Het Vignetting correctie gereedschap in actie</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -1567,9 +1567,9 @@ End:
       </authorgroup>
       <abstract>
         <para
->&digikam; The <emphasis
->Lens Distortion</emphasis
-> is a tool to correct spherical lens aberrations on the photos. It uses an algorithm copyrighted by David Hodson. </para>
+>De <emphasis
+>Lensvervorming correctie</emphasis
+> is een hulpmiddel voor het corrigeren van lens afwijkingen op de foto´s. Het gebruikt een algoritme met copyright bij David Hodson. </para>
       </abstract>
       <keywordset>
         <keyword
@@ -1583,27 +1583,27 @@ End:
     <anchor id="lensdistortion.anchor"/>
     <para
 ><emphasis
->Barrel distortion</emphasis
-> is associated with wide angle (or minimal zoom) lenses. It causes the images to appear slightly spherical (curved outward) like a barrel. You can notice this when you have straight features close to the image's peripheral sides. <emphasis
->Pincushion distortion</emphasis
-> is the opposite defect and is associated with Telephoto lenses (maximum zoom) or underwater images. The images appear pinched (bent inward) toward the center. The Pincushion is often less noticeable than barrel but are equally visible near the edges. These distortions can easily be eliminated without visible loss in quality with this tool. </para>
+>Tonvormige lensvervorming</emphasis
+> wordt vaak in verband gebracht met groothoek (of minimale zoom) lenzen. Het zorgt ervoor dat foto´s een beetje bolvormig lijken (naar buiten gebogen) zoals een ton. U kunt dit opmerken als er rechte voorwerpen vlakbij de randen van de foto te zien zijn. <emphasis
+>Kussenvormige lensvervorming</emphasis
+> is het tegenovergestelde defect en wordt vaak in verband gebracht met telelenzen (maximum zoom) of onderwater fotografie. De foto´s lijken samengeknepen (naar binnen gebogen) naar het middelpunt. De kussen is meestal minder zichtbaar dan ton maar vlakbij de randen net zo goed zichtbaar. Deze vervormingen kunt u makkelijk met dit gereedschap verwijderen zonder zichtbaar kwaliteitsverlies, </para>
     <note>
       <para
->This tool treats the geometrical distortions. Chromatic aberrations will not be corrected by this tool. </para>
+>Dit gereedschap behandeld geometrische vervormingen. Dit gereedschap bewerkt geen chromatische afwijkingen. </para>
     </note>
     <para
->The following figures explain the main types of geometrical distortions: <itemizedlist>
+>De volgende afbeeldingen tonen de verschillende soorten geometrische vervormingen: <itemizedlist>
         <listitem>
           <para
->(1): pincushion distortion.</para>
+>(1): kussenvormige lensvervorming.</para>
         </listitem>
         <listitem>
           <para
->(2): no distortion.</para>
+>(2): geen vervorming.</para>
         </listitem>
         <listitem>
           <para
->(3): barrel distortion.</para>
+>(3): tonvormige lensvervorming.</para>
         </listitem>
       </itemizedlist>
     </para>
@@ -1614,34 +1614,34 @@ End:
         </imageobject>
         <textobject>
           <phrase
->Lens Distortion Types</phrase>
+>Soorten lensvervorming</phrase>
         </textobject>
       </inlinemediaobject>
     </para>
     <para/>
     <sect4 id="using-lensdistortion">
       <title
->Using the lens distortion tool</title>
+>Lensvervorming correctie gebruiken</title>
       <note>
         <para
->A bit of explanation first. The geometrical corrections use 4th-order polynomial coefficients. <itemizedlist>
+>Eerst nog enige uitleg. De geometrische correcties gebruiken vierde order polynoom coëfficiënten. <itemizedlist>
             <listitem>
               <para
->The 1st-order coefficient changes the size of the image. The tool calls this <guilabel
+>Het 1e-order coëfficiënt wijzigt het formaat van de foto. In het programma heet dit <guilabel
 >Zoom</guilabel
 >.</para>
             </listitem>
             <listitem>
               <para
->The 2nd-order coefficient treats the main geometrical distortion of lenses and can correct the convex or concave shape of the image.</para>
+>Het 2de-order coëfficiënt behandeld de belangrijkste geometrische vervormingen van lenzen en kan de convexe of concave vorm van een foto corrigeren.</para>
             </listitem>
             <listitem>
               <para
->The 3rd-order coefficient has a similar rounding effect but levels off towards the edges. This correction is not employed in the tool.</para>
+>Het 3de-order coëfficiënt heeft een vergelijkbaar effect maar werkt minder nabij de randen. Deze correctie is niet toegepast in dit gereedschap.</para>
             </listitem>
             <listitem>
               <para
->The 4th-order coefficient corrects the far edges inversely to the 2nd-order rounding. Combining it with the 2nd-order correction the geometrical distortions can be almost completely eliminated.</para>
+>Het 4de-order coëfficiënt corrigeert de uiterste hoeken omgekeerd met de Het 2de coëfficiënt. Gecombineerd met de 2de coëfficiënt correctie kan het bijna compleet de geometrische vervormingen elimineren.</para>
             </listitem>
           </itemizedlist>
         </para>
@@ -1653,7 +1653,7 @@ End:
           </imageobject>
           <textobject>
             <phrase
->Lens Distortion Correction Dialog</phrase>
+>Lensvervorming correctie dialoogvenster</phrase>
           </textobject>
         </inlinemediaobject>
       </para>
@@ -1661,15 +1661,15 @@ End:
 >Met vier schuifknoppen stelt u het correctiefilter voor vervorming in: </para>
       <para
 ><guilabel
->Main</guilabel
->: this value controls the amount of 2nd-order distortion. Negative values correct barrel distortions, while positive values correct pincushion distortion. </para>
+>Hoofd</guilabel
+>: Deze waarde bepaalt de hoeveelheid 2de coëfficiënt vervorming. Negatieve waarden corrigeren tonvormige lensvervorming en positieve waarden corrigeren kussenvormige lensvervorming. </para>
       <para
 ><guilabel
->Edge</guilabel
->: this value controls the amount of 4th-order distortion. The Edge control has more effect at the edges of the image than at the center. For most lenses, the <guilabel
->Edge</guilabel
-> parameter has the opposite sign of the <guilabel
->Main</guilabel
+>Rand</guilabel
+>: Deze waarde bepaalt de 4de-orde vervorming. De rand-instellingen hebben meer effect lang de randen van de foto dan in het middelpunt. Bij de meeste lenzen heeft de <guilabel
+>Rand</guilabel
+> parameter het tegenovergestelde effect van de <guilabel
+>Hoofd</guilabel
 > parameter. </para>
       <para
 ><guilabel
@@ -1680,23 +1680,23 @@ End:
 >Helder maken</guilabel
 >: deze waarde stelt de helderheid van de afbeeldingshoeken bij. Negatieve waarden verminderen de helderheid van de afbeeldingshoeken en positieve waarden verhogen het. </para>
       <para
->To help you to choose the best filter settings, the widget dialog illustrates with a thumbnail preview the distortion correction applied to a crossed mesh pattern. The values you apply to your image will be saved and come up with the same values as default the next time you call the tool. </para>
+>Om u te ondersteunen bij het kiezen van de meest geschikte filter instellingen, is er in een klein voorbeeldje met een ruitjespatroon te zien toont wat het ingestelde correctie gaat doen. De ingestelde waarden worden voor de volgende keer bewaart en weer geladen als u de volgende keer dit dialoogvenster opent. </para>
       <note>
         <para
->The barrel-pincushion correction should be done before any crop or size changes (including perspective correction). In fact the Barrel-Pincushion corrections should be the very first step on the original image. If you crop the image and then use barrel correction the effect would be obviously wrong. </para>
+>De ton-kussen correctie moet u uitvoeren voordat u enige afsnijd of formaat wijziging (inclusief perspectief correctie) uitvoert. Eigenlijk moeten ton-kussen correcties de eerste bewerking op het originele foto zijn. Als u eerst de foto bijsnijdt en vervolgens de ton-correctie uitvoert dan zal het resultaat duidelijk fout zijn. </para>
       </note>
       <para
->To help you finding the best correction the tool provides a vertical and horizontal guide. Move the mouse cursor in the image preview to display the dashed lines guide. Move the cursor to an important place in the image like the sea level or a building border and press the left mouse button for freeze the dashed lines position. Now, adjust the barrel/pincushion correction to align with the guide. </para>
+>Om u te ondersteunen bij het vinden van de beste correctie heeft het gereedschap een verticale en een horizontale kruisdraad. Beweeg de muiscursor over de foto om de gestippelde kruisdraad te zien. Beweeg de cursor naar een belangrijke plek in de foto zoals de zeespiegel of de rand van een gebouw en druk op de &LMB; om de positie van het kruisdraad te bevriezen. Nu kunt u de ton-kussen correctie uitvoeren. </para>
       <para
->When using pincushion correction the resulting image will have a black border in the corner. You will need to cut this out with a crop tool available in <menuchoice
+>Na het gebruik van de ton-kussen correctie, zal het resultaat een zwarte rand in de hoeken hebben. U kan dit afsnijden met een bijsnijd-gereedschap dat beschikbaar is via het menuitem <menuchoice
 > <guimenu
->Transform</guimenu
+>Transformeren</guimenu
 > <guimenuitem
->Crop</guimenuitem
+>Bijsnijden</guimenuitem
 > </menuchoice
-> Image Editor menu or via the zoom slider of this dialog. </para>
+> of via the zoom schuifknoppen in dit dialoog. </para>
       <para
->On most images using the barrel correction is enough, however with some shots such as front images, frames, paintings, the next logical step is to use perspective correction to make all the angles 90 degrees. Note that when you hold your camera by hand you almost always introduce some kind of slight perspective distortion. </para>
+>Bij de meeste foto´s is de ton-correctie voldoende, maar bij sommige foto´s van front-afbeeldingen, kaders, schilderijen is het logisch om de volgende stap van perspectief-correctie uit te voeren zodat alle hoeken weer 90 graden zijn. Vergeet niet dat bij het maken van foto´s uit de hand, u bijna altijd een vorm van perspectief vervorming introduceert. </para>
     </sect4>
     <sect4 id="inaction-lensdistortion">
       <title
@@ -1704,7 +1704,7 @@ End:
       <para
 >Dit is een voorbeeld van een tonvormige correctie toegepast op een kerk in Noord Noorwegen. De originele foto is (1), de gecorrigeerde foto (2). </para>
       <para
->The values used for this example are: <itemizedlist>
+>De in dit voorbeeld gebruikte waarden zijn: <itemizedlist>
           <listitem>
             <para
 >Main = -40.</para>

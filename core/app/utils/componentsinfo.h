@@ -24,6 +24,8 @@
 #ifndef COMPONENTS_INFO_H
 #define COMPONENTS_INFO_H
 
+#include "config-digikam.h"
+
 // Qt includes
 
 #include <QString>
@@ -34,22 +36,30 @@
 #include <klocale.h>
 #include <kapplication.h>
 
+#ifdef HAVE_KIPI
+
 // LibKIPI includes
 
 #include <libkipi/interface.h>
 #include <libkipi/pluginloader.h>
 
+#endif /* HAVE_KIPI */
+
+#ifdef HAVE_KFACE
+
 // LibKface includes
 
 #include <libkface/recognitiondatabase.h>
 
+#endif /* HAVE_KFACE */
+
 // Local includes
 
-#include "config-digikam.h"
 #include "libsinfodlg.h"
 #include "rawcameradlg.h"
 #include "dbstatdlg.h"
 #include "applicationsettings.h"
+#include "libopencv.h"
 
 #ifdef HAVE_GPHOTO2
 
@@ -72,24 +82,42 @@ static inline void showDigikamComponentsInfo()
 
 #ifdef HAVE_GPHOTO2
     list.insert(i18n("LibGphoto2"), QString(gp_library_version(GP_VERSION_SHORT)[0]));
+#else
+    list.insert(i18n("LibGphoto2 support"), i18n("no"));
 #endif /* HAVE_GPHOTO2 */
 
 #ifdef HAVE_SQLITE2
     list.insert(i18n("Sqlite2 support"), i18n("Yes"));
+#else
+    list.insert(i18n("Sqlite2 support"), i18n("no"));
 #endif /* HAVE_SQLITE2 */
 
 #ifdef HAVE_BALOO
     list.insert(i18n("Baloo support"), i18n("Yes"));
+#else
+    list.insert(i18n("Baloo support"), i18n("no"));
 #endif /* HAVE_BALOO */
 
 #ifdef HAVE_KDEPIMLIBS
     list.insert(i18n("Kdepimlibs support"), i18n("Yes"));
+#else
+    list.insert(i18n("Kdepimlibs support"), i18n("no"));
 #endif /* HAVE_KDEPIMLIBS */
 
-    list.insert(i18n("LibOpenCV"),    KFaceIface::LibOpenCVVersion());
-    list.insert(i18n("LibKface"),     KFaceIface::version());
+#ifdef HAVE_KIPI
     list.insert(i18n("LibKipi"),      KIPI::Interface::version());
     list.insert(i18n("Kipi-Plugins"), KIPI::PluginLoader::instance()->kipiPluginsVersion());
+#else
+    list.insert(i18n("LibKipi support"), i18n("no"));
+#endif /* HAVE_KIPI */
+
+#ifdef HAVE_KFACE
+    list.insert(i18n("LibKface"),     KFaceIface::version());
+#else
+    list.insert(i18n("LibKface support"), i18n("no"));
+#endif /* HAVE_KFACE */
+
+    list.insert(i18n("LibOpenCV"),    QString("%1").arg(CV_VERSION));
 
     // Database Backend information
 

@@ -93,7 +93,7 @@ class KIPIPhotoLayoutsEditor::ScenePrivate
         m_rot_item(0),
         m_scale_item(0),
         m_crop_item(0),
-        m_blend_active(false),
+//        m_blend_active(false),
         m_readSceneMousePress_listener(0),
         m_readSceneMousePress_enabled(false),
         m_hovered_photo(0)
@@ -279,7 +279,7 @@ class KIPIPhotoLayoutsEditor::ScenePrivate
 
     // Used for cropping items
     CropWidgetItem*              m_crop_item;
-    bool                         m_blend_active;
+//    bool                         m_blend_active;
 
     // For reading mouse press
     MousePressListener*          m_readSceneMousePress_listener;
@@ -791,7 +791,7 @@ void Scene::mousePressEvent(QGraphicsSceneMouseEvent * event)
 
             // If single selection mode, clear CTRL modifier
             if (selectionMode & SingleSelection)
-                event->setModifiers(QFlags<Qt::KeyboardModifier>(((int)event->modifiers()) & !Qt::ControlModifier));
+                event->setModifiers(QFlags<Qt::KeyboardModifier>(((int)event->modifiers()) & ~Qt::ControlModifier));
 
             // Get items under mouse
             d->m_pressed_object = d->m_pressed_item = 0;

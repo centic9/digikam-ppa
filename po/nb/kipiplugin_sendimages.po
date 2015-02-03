@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2013-02-20 20:14+0100\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -288,9 +288,9 @@ msgstr "Stor (1024 billedpunkter)"
 msgid "Very Big (1280 pixels)"
 msgstr "Veldig stor (1280 billedpunkter)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
-msgstr "Veldig stor (1600 billedpunkter)"
+#: settingswidget.cpp:143
+msgid "Large - for printing (1600 pixels)"
+msgstr ""
 
 #: settingswidget.cpp:145
 #, kde-format
@@ -314,6 +314,10 @@ msgstr ""
 "mottakerens  postkassen ikke har begrenset størrelse.</p><p><b>%5</b>: bruk "
 "dette hvis det ikke er noen begrensning er på hastighet og "
 "postkassestørrelse.</p><p><b>%6</b>: bruk dette bare til utskrifter</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Veldig stor (1600 billedpunkter)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"
@@ -358,12 +362,12 @@ msgstr ""
 #: settingswidget.cpp:193
 msgid ""
 "<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
-"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
-"<br/><b>100</b>: no compression</p>"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default "
+"value)<br/><b>100</b>: no compression</p>"
 msgstr ""
 "<p><b>1</b>: veldig høy komprimering<br/><b>25</b>: høy komprimering<br/"
-"><b>50</b>: mellom komprimering<br/><b>75</b>: lav komprimering (standard)"
-"<br/><b>100</b>: ingen komprimering</p>"
+"><b>50</b>: mellom komprimering<br/><b>75</b>: lav komprimering "
+"(standard)<br/><b>100</b>: ingen komprimering</p>"
 
 #: settingswidget.cpp:201
 msgid "Image quality:"

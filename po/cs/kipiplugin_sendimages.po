@@ -1,15 +1,15 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2011, 2012, 2013.
+# Vít Pelčák <vit@pelcak.org>, 2011, 2012, 2013, 2014.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-02-06 11:25+0100\n"
-"Last-Translator: Tomáš Chvátal <tomas.chvatal@gmail.com>\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
+"PO-Revision-Date: 2014-12-01 11:02+0100\n"
+"Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
 "MIME-Version: 1.0\n"
@@ -155,7 +155,7 @@ msgstr "Spouštění výchozího e-mailového klienta KDE..."
 #: sendimages.cpp:648
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
-msgstr "Nelze spustit program \"%1\". Překontrolujte instalaci vašeho sysému."
+msgstr "Nelze spustit program \"%1\". Překontrolujte instalaci vašeho systému."
 
 #: sendimages.cpp:661
 #, kde-format
@@ -281,9 +281,9 @@ msgstr "Velký (1024 pixelů)"
 msgid "Very Big (1280 pixels)"
 msgstr "Velmi velký (1280 pixelů)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
-msgstr "Obrovský - pro tisk (1600 pixelů)"
+#: settingswidget.cpp:143
+msgid "Large - for printing (1600 pixels)"
+msgstr "Rozlehlý - pro tisk (1600 pixelů)"
 
 #: settingswidget.cpp:145
 #, kde-format
@@ -307,6 +307,10 @@ msgstr ""
 "připojení k internetu a cílová schránka není omezená.</p><p><b>%5</b>: "
 "použijte, pokud vás v odesílání nic neomezuje. </p><p><b>%6</b>: použijte "
 "pro tiskové účely.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Obrovský - pro tisk (1600 pixelů)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

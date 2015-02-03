@@ -121,7 +121,9 @@ public:
         assignTagAction(0),
         imageViewSelectionAction(0),
         imagePreviewAction(0),
+#ifdef HAVE_KGEOMAP
         imageMapViewAction(0),
+#endif // HAVE_KGEOMAP
         imageTableViewAction(0),
         imageIconViewAction(0),
         imageLightTableAction(0),
@@ -174,9 +176,6 @@ public:
         maintenanceAction(0),
         slideShowQmlAction(0),
         qualityAction(0),
-#ifdef USE_SCRIPT_IFACE
-        scriptConsoleAction(0),
-#endif
         kipiHelpAction(0),
         addCameraSeparatorAction(0),
         quitAction(0),
@@ -243,7 +242,9 @@ public:
     // Image Actions
     KSelectAction*                      imageViewSelectionAction;
     KToggleAction*                      imagePreviewAction;
+#ifdef HAVE_KGEOMAP
     KToggleAction*                      imageMapViewAction;
+#endif // HAVE_KGEOMAP
     KToggleAction*                      imageTableViewAction;
     KToggleAction*                      imageIconViewAction;
     KAction*                            imageLightTableAction;
@@ -302,10 +303,6 @@ public:
     KAction*                            maintenanceAction;
     KAction*                            slideShowQmlAction;
     KAction*                            qualityAction;
-
-#ifdef USE_SCRIPT_IFACE
-    KAction*                            scriptConsoleAction;
-#endif
 
     // Application Actions
     KAction*                            kipiHelpAction;

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-libs/kipiplugin_sendimages.po\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2007-10-30 20:08-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -281,8 +281,10 @@ msgstr "Mór (1024 picteilín)"
 msgid "Very Big (1280 pixels)"
 msgstr "An-Mhór (1280 picteilín)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Ollmhór - le haghaidh priontála (1600 picteilín)"
 
 #: settingswidget.cpp:145
@@ -307,6 +309,10 @@ msgstr ""
 "agus nach bhfuil teorainn ar mhéid an bhosca sprice.</p><p><b>%5</b>: úsáid "
 "é seo mura bhfuil srian ar bith ar luas do cheangail nó ar mhéid an bhosca.</"
 "p><p><b>%6</b>: úsáid é seo chun na híomhánna a phriontáil amháin.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Ollmhór - le haghaidh priontála (1600 picteilín)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

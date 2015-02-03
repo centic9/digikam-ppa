@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-29 01:50+0000\n"
 "PO-Revision-Date: 2011-10-07 17:17+0300\n"
 "Last-Translator: Liudas Ališauskas <liudas.alisauskas@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-doc@kde.org>\n"
@@ -285,8 +285,10 @@ msgstr "Didelis (1024 pikselių):"
 msgid "Very Big (1280 pixels)"
 msgstr "Labai didelis (1280 pikselių)"
 
-#: settingswidget.cpp:143 settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
+#: settingswidget.cpp:143
+#, fuzzy
+#| msgid "Huge - for printing (1600 pixels)"
+msgid "Large - for printing (1600 pixels)"
 msgstr "Milžiniškas - spausdinimui (1600 pikselių)"
 
 #: settingswidget.cpp:145
@@ -311,6 +313,10 @@ msgstr ""
 "interneto ryšį ir gavėjo pašto dėžutės dydis nėra ribotas.</p><p><b>%5</b>: "
 "naudokite tai, jei nėra greičio ir dydžio apribojimų.</p><p><b>%6</b>: "
 "naudokite tai tik spausdinimo tikslais.</p>"
+
+#: settingswidget.cpp:161
+msgid "Huge - for printing (1600 pixels)"
+msgstr "Milžiniškas - spausdinimui (1600 pikselių)"
 
 #: settingswidget.cpp:164
 msgid "Image size:"

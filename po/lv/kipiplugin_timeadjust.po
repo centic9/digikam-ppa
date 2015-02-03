@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
 "PO-Revision-Date: 2008-11-09 21:28+0200\n"
 "Last-Translator: Viesturs Zarins <viesturs.zarins@mii.lu.lv>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -70,13 +70,13 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 #, fuzzy
 #| msgid "Adjust Time & Date"
 msgid "Timestamp Used"
 msgstr "Mainīt laiku un datumu"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 #, fuzzy
 #| msgid "Adjust Time & Date"
 msgid "Timestamp Updated"
@@ -90,28 +90,28 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr ""
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr ""
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 msgid "Failed to update metadata timestamp"
 msgstr ""
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 msgid "Failed to update file timestamp"
 msgstr ""
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr ""
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr ""
 
@@ -119,71 +119,75 @@ msgstr ""
 msgid "Adjust Time && Date..."
 msgstr "Mainīt laiku un datumu..."
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr ""
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr ""
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr ""
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr ""
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr ""
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr ""
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr ""
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr ""
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "Nomest uz šodienas datumu"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr ""
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 #, fuzzy
 #| msgid "Add"
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Pieskaitīt"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 #, fuzzy
 #| msgid "Subtract"
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "Atņemt"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 #, fuzzy
 #| msgid "Days:"
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "Dienas:"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 msgid "Determine difference from clock photo"
+msgstr ""
+
+#: settingswidget.cpp:256
+msgid "EXIF: Thumbnail"
 msgstr ""
 
 #: settingswidget.cpp:258
@@ -194,13 +198,13 @@ msgstr ""
 msgid "Filename"
 msgstr ""
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 #, fuzzy
 #| msgid "Time Adjust"
 msgid "Timestamp Adjustments"
 msgstr "Laika mainīšana"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "Mainīt laiku un datumu"
 
@@ -221,7 +225,7 @@ msgstr "Šis KIPI spraudnis maina attēlu failu laika zīmogu"
 #| "(c) 2006-2008, Gilles Caulier"
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
@@ -251,13 +255,13 @@ msgstr ""
 msgid "Pieter Edelman"
 msgstr ""
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 #, fuzzy
 #| msgid "Adjust Time & Date"
 msgid "Adjust Time and Date"
 msgstr "Mainīt laiku un datumu"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr ""
 

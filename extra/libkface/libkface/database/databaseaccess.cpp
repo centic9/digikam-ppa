@@ -30,6 +30,7 @@
 
 // KDE includes
 
+#include <klibloader.h>
 #include <kdebug.h>
 #include <klocale.h>
 
@@ -38,6 +39,8 @@
 #include "databasecorebackend.h"
 #include "trainingdb.h"
 #include "schemaupdater.h"
+
+static const KCatalogLoader loader("libkface");
 
 namespace KFaceIface
 {
@@ -227,8 +230,8 @@ bool DatabaseAccess::checkReadyForUse(DatabaseAccessData* const d, Initializatio
     {
         if (!d->backend->open(d->parameters))
         {
-            access.setLastError(i18n("Error opening database backend.\n ")
-                                + d->backend->lastError());
+            access.setLastError(i18n("Error opening database backend.\n%1",
+                                     d->backend->lastError()));
             return false;
         }
     }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2014-11-26 01:45+0000\n"
 "PO-Revision-Date: 2010-06-26 15:29+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -77,13 +77,13 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: myimagelist.cpp:42 settingswidget.cpp:281
+#: myimagelist.cpp:42 settingswidget.cpp:282
 #, fuzzy
 #| msgid "Use Time && Date"
 msgid "Timestamp Used"
 msgstr "Erabili data eta ordua"
 
-#: myimagelist.cpp:44 settingswidget.cpp:283
+#: myimagelist.cpp:44 settingswidget.cpp:284
 #, fuzzy
 #| msgid "Use Time && Date"
 msgid "Timestamp Updated"
@@ -97,32 +97,32 @@ msgstr ""
 msgid "Status"
 msgstr ""
 
-#: myimagelist.cpp:69
+#: myimagelist.cpp:71
 msgid "not valid"
 msgstr ""
 
-#: myimagelist.cpp:77
+#: myimagelist.cpp:79
 msgctxt "not applicable"
 msgid "N.A"
 msgstr ""
 
-#: myimagelist.cpp:95
+#: myimagelist.cpp:98
 #, fuzzy
 #| msgid "Unable to update metadata in:"
 msgid "Failed to update metadata timestamp"
 msgstr "Ezin da metadaturik hemen eguneratu:"
 
-#: myimagelist.cpp:100
+#: myimagelist.cpp:103
 #, fuzzy
 #| msgid "Unable to update file modification time in:"
 msgid "Failed to update file timestamp"
 msgstr "Ezin da fitxategiaren aldaketaren ordua hemen eguneratu: "
 
-#: myimagelist.cpp:105
+#: myimagelist.cpp:108
 msgid "Failed to rename file"
 msgstr ""
 
-#: myimagelist.cpp:110
+#: myimagelist.cpp:113
 msgid "Processed without error"
 msgstr ""
 
@@ -130,74 +130,80 @@ msgstr ""
 msgid "Adjust Time && Date..."
 msgstr "Doitu data eta ordua..."
 
-#: settingswidget.cpp:167
+#: settingswidget.cpp:166
 #, kde-format
 msgid "%1 timestamp"
 msgstr "%1 data-zigilua"
 
-#: settingswidget.cpp:174 settingswidget.cpp:253
+#: settingswidget.cpp:173 settingswidget.cpp:252
 msgid "File last modified"
 msgstr "Fitxategiaren azken aldaketa"
 
-#: settingswidget.cpp:181
+#: settingswidget.cpp:180
 msgid "EXIF/IPTC/XMP"
 msgstr "EXIF/IPTC/XMP"
 
-#: settingswidget.cpp:182 settingswidget.cpp:254
+#: settingswidget.cpp:181 settingswidget.cpp:253
 msgid "EXIF: created"
 msgstr "EXIF: sortuta"
 
-#: settingswidget.cpp:183 settingswidget.cpp:255
+#: settingswidget.cpp:182 settingswidget.cpp:254
 msgid "EXIF: original"
 msgstr "EXIF: jatorrizkoa"
 
-#: settingswidget.cpp:184 settingswidget.cpp:256
+#: settingswidget.cpp:183 settingswidget.cpp:255
 msgid "EXIF: digitized"
 msgstr "EXIF: digitalizatua"
 
-#: settingswidget.cpp:185 settingswidget.cpp:257
+#: settingswidget.cpp:184 settingswidget.cpp:257
 msgid "IPTC: created"
 msgstr "IPTC: sortuta"
 
-#: settingswidget.cpp:186
+#: settingswidget.cpp:185
 msgid "XMP: created"
 msgstr "XMP: sortuta"
 
-#: settingswidget.cpp:196
+#: settingswidget.cpp:195
 msgid "Reset to current date"
 msgstr "Berrezarri uneko datara"
 
-#: settingswidget.cpp:225
+#: settingswidget.cpp:224
 #, fuzzy
 #| msgid "Copy value"
 msgctxt "copy timestamp as well"
 msgid "Copy value"
 msgstr "Kopiatu balioa"
 
-#: settingswidget.cpp:226
+#: settingswidget.cpp:225
 #, fuzzy
 #| msgid "Add"
 msgctxt "add a fixed timestamp to date"
 msgid "Add"
 msgstr "Gehiketa"
 
-#: settingswidget.cpp:227
+#: settingswidget.cpp:226
 #, fuzzy
 #| msgid "Subtract"
 msgctxt "subtract a fixed timestamp to date"
 msgid "Subtract"
 msgstr "Kenketa"
 
-#: settingswidget.cpp:231
+#: settingswidget.cpp:230
 msgctxt "time adjust offset, days value label"
 msgid "days"
 msgstr "egun"
 
-#: settingswidget.cpp:234
+#: settingswidget.cpp:233
 #, fuzzy
 #| msgid "Determine time difference with clock photo"
 msgid "Determine difference from clock photo"
 msgstr "Zehaztu orduaren desberdintasuna argazkiarenarekin"
+
+#: settingswidget.cpp:256
+#, fuzzy
+#| msgid "EXIF: original"
+msgid "EXIF: Thumbnail"
+msgstr "EXIF: jatorrizkoa"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -207,13 +213,13 @@ msgstr "XMP"
 msgid "Filename"
 msgstr ""
 
-#: settingswidget.cpp:282
+#: settingswidget.cpp:283
 #, fuzzy
 #| msgid "Time Adjust"
 msgid "Timestamp Adjustments"
 msgstr "Doitu ordua"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:395
+#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
 msgid "Adjust Time & Date"
 msgstr "Doitu data eta ordua"
 
@@ -232,7 +238,7 @@ msgstr "Kipi-ren plugina argazkien data-zigilua doitzeko"
 #| "(c) 2006-2009, Gilles Caulier"
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier\n"
+"(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
@@ -262,13 +268,13 @@ msgstr ""
 msgid "Pieter Edelman"
 msgstr ""
 
-#: timeadjustdialog.cpp:377
+#: timeadjustdialog.cpp:380
 #, fuzzy
 #| msgid "Adjust Time & Date"
 msgid "Adjust Time and Date"
 msgstr "Doitu data eta ordua"
 
-#: timeadjustdialog.cpp:394
+#: timeadjustdialog.cpp:397
 msgid "Select at least one option"
 msgstr ""
 

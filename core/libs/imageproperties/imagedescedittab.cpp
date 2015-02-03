@@ -204,8 +204,6 @@ ImageDescEditTab::ImageDescEditTab(QWidget* const parent)
     QWidget* const captionTagsArea = new QWidget(sv->viewport());
     QGridLayout* const grid1       = new QGridLayout(captionTagsArea);
     sv->setWidget(captionTagsArea);
-    sv->viewport()->setAutoFillBackground(false);
-    captionTagsArea->setAutoFillBackground(false);
 
     d->titleEdit    = new AltLangStrEdit(captionTagsArea);
     d->titleEdit->setTitle(i18n("Title:"));
@@ -283,8 +281,6 @@ ImageDescEditTab::ImageDescEditTab(QWidget* const parent)
     QWidget* const tagsArea   = new QWidget(sv3->viewport());
     QGridLayout* const grid3  = new QGridLayout(tagsArea);
     sv3->setWidget(tagsArea);
-    sv3->viewport()->setAutoFillBackground(false);
-    tagsArea->setAutoFillBackground(false);
 
     d->tagModel     = new TagModel(AbstractAlbumModel::IncludeRootAlbum, this);
     d->tagModel->setCheckable(true);
@@ -345,8 +341,6 @@ ImageDescEditTab::ImageDescEditTab(QWidget* const parent)
     QWidget* const infoArea   = new QWidget(sv2->viewport());
     QGridLayout* const grid2  = new QGridLayout(infoArea);
     sv2->setWidget(infoArea);
-    sv2->viewport()->setAutoFillBackground(false);
-    infoArea->setAutoFillBackground(false);
 
     d->templateSelector = new TemplateSelector(infoArea);
     d->templateViewer   = new TemplateViewer(infoArea);
@@ -429,7 +423,7 @@ ImageDescEditTab::ImageDescEditTab(QWidget* const parent)
 
     // Initialize ---------------------------------------------
 
-#if KEXIV2_VERSION >= 0x020302
+#if KEXIV2_VERSION >= 0x020400
     d->titleEdit->textEdit()->installEventFilter(this);
     d->captionsEdit->textEdit()->installEventFilter(this);
 #endif
@@ -532,7 +526,7 @@ void ImageDescEditTab::setFocusToNewTagEdit()
 void ImageDescEditTab::setFocusToTitlesEdit()
 {
     d->tabWidget->setCurrentIndex(Private::DESCRIPTIONS);
-#if KEXIV2_VERSION >= 0x020302
+#if KEXIV2_VERSION >= 0x020400
     d->titleEdit->textEdit()->setFocus();
 #endif
 }
@@ -540,7 +534,7 @@ void ImageDescEditTab::setFocusToTitlesEdit()
 void ImageDescEditTab::setFocusToCommentsEdit()
 {
     d->tabWidget->setCurrentIndex(Private::DESCRIPTIONS);
-#if KEXIV2_VERSION >= 0x020302
+#if KEXIV2_VERSION >= 0x020400
     d->captionsEdit->textEdit()->setFocus();
 #endif
 }

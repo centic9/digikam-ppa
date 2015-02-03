@@ -1,149 +1,158 @@
-# KDE Finnish translation sprint participants:
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tommi Nieminen <translator@legisign.org>, 2014.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: kipiplugin_kioexportimport\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2012-07-04 13:36:00+0000\n"
-"Last-Translator: Ei tietoa\n"
-"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"PO-Revision-Date: 2014-10-29 10:45+0200\n"
+"Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
+"Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
 "Language: fi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-POT-Import-Date: 2012-12-01 22:20:20+0000\n"
-"X-Generator: MediaWiki 1.21alpha (963ddae); Translate 2012-11-08\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Tommi Nieminen"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "translator@legisign.org"
 
 #: KioExportWidget.cpp:63
 msgid "Target location: "
-msgstr ""
+msgstr "Kohteen sijainti: "
 
 #: KioExportWidget.cpp:65
 msgid ""
 "Sets the target address to upload the images to. This can be any address as "
 "used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
 msgstr ""
+"Aseta kohdeosoite, johon kuvat lähetetään. Tämä voi olla mikä tahansa "
+"Dolphinin tai Konquerorin ymmärtämä osoite, esim. ftp://oma.palvelin.fi/ali/"
+"kansio."
 
 #: KioExportWidget.cpp:69
 msgid "Select target location..."
-msgstr ""
+msgstr "Aseta kohteen sijainti…"
 
 #: KioExportWidget.cpp:75
 msgid "This is the list of images to upload to the specified target."
-msgstr ""
+msgstr "Tämä on luettelo annettuun kohteeseen lähetettävistä kuvista."
 
 #: KioExportWidget.cpp:140
 msgid "Select target..."
-msgstr ""
+msgstr "Valitse kohde…"
 
 #: KioExportWidget.cpp:160
 msgid "not selected"
-msgstr ""
+msgstr "ei valittu"
 
 #: KioExportWindow.cpp:66
 msgid "Export to Remote Computer"
-msgstr ""
+msgstr "Vie etätietokoneelle"
 
 #: KioExportWindow.cpp:72
 msgid "Start export"
-msgstr ""
+msgstr "Aloita vienti"
 
 #: KioExportWindow.cpp:73
 msgid "Start export to the specified target"
-msgstr ""
+msgstr "Aloita vienti annettuun kohteeseen"
 
 #: KioExportWindow.cpp:89
 msgid "Export to remote computer"
-msgstr ""
+msgstr "Vie etätietokoneelle"
 
 #: KioExportWindow.cpp:92
 msgid "A Kipi plugin to export images over network using KIO-Slave"
-msgstr ""
+msgstr "Kipi-liitännäinen kuvien viemiseksi verkon yli KIO-menetelmällä"
 
 #: KioExportWindow.cpp:93 KioImportWindow.cpp:92
 msgid "(c) 2009, Johannes Wienke"
-msgstr ""
+msgstr "© 2009 Johannes Wienke"
 
 #: KioExportWindow.cpp:95 KioImportWindow.cpp:94
 msgid "Johannes Wienke"
-msgstr ""
+msgstr "Johannes Wienke"
 
 #: KioExportWindow.cpp:96 KioImportWindow.cpp:95
 msgid "Developer and maintainer"
-msgstr ""
+msgstr "Kehittäjä ja ylläpitäjä"
 
 #: KioExportWindow.cpp:203
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to export these images now."
 msgstr ""
+"Joitakin kuvista ei siirretty ja ne jätettiin luetteloon. Voit yrittää viedä "
+"nämä kuvat nyt."
 
 #: KioExportWindow.cpp:206
 msgid "Upload not completed"
-msgstr ""
+msgstr "Lähetys ei valmis"
 
 #: KioImportWidget.cpp:55
 msgid "This is the list of images to import into the current album."
-msgstr ""
+msgstr "Tämä on luettelo nykyiseen albumiin tuotavista kuvista."
 
 #: KioImportWindow.cpp:64
 msgid "Import from Remote Computer"
-msgstr ""
+msgstr "Tuo etätietokoneelta"
 
 #: KioImportWindow.cpp:71
 msgid "Start import"
-msgstr ""
+msgstr "Aloita tuonti"
 
 #: KioImportWindow.cpp:72
 msgid "Start importing the specified images into the currently selected album."
-msgstr ""
+msgstr "Aloita valittujen kuvien tuonti valittuna olevaan albumiin."
 
 #: KioImportWindow.cpp:88
 msgid "Import from remote computer"
-msgstr ""
+msgstr "Tuo etätietokoneelta"
 
 #: KioImportWindow.cpp:91
 msgid "A Kipi plugin to import images over network using KIO-Slave"
-msgstr ""
+msgstr "Kipi-liitännäinen kuvien tuomiseksi verkon yli KIO-menetelmällä"
 
 #: KioImportWindow.cpp:147
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to import these images now."
 msgstr ""
+"Joitakin kuvista ei siirretty ja ne jätettiin luetteloon. Voit yrittää tuoda "
+"nämä kuvat nyt."
 
 #: KioImportWindow.cpp:150
 msgid "Import not completed"
-msgstr ""
+msgstr "Tuonti ei valmis"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_kioexportimportui.rc:7
 msgid "&Import"
-msgstr ""
+msgstr "&Tuo"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_kioexportimportui.rc:11
 msgid "&Export"
-msgstr ""
+msgstr "&Vie"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_kioexportimportui.rc:17
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Päätyökalurivi"
 
 #: plugin_kioexportimport.cpp:94
 msgid "Export to remote computer..."
-msgstr ""
+msgstr "Vie etätietokoneelle…"
 
 #: plugin_kioexportimport.cpp:106
 msgid "Import from remote computer..."
-msgstr ""
+msgstr "Tuo etätietokoneelta…"

@@ -119,9 +119,6 @@ PluginListView::PluginListView(QWidget* const parent)
     header()->setResizeMode(3, QHeaderView::Interactive);
     header()->setSortIndicatorShown(true);
 
-    setAutoFillBackground(false);
-    viewport()->setAutoFillBackground(false);
-
     PluginLoader* const loader = PluginLoader::instance();
 
     if (loader)
@@ -156,7 +153,7 @@ void PluginListView::slotApply()
 
         if (orig != load)
         {
-            group.writeEntry(item->m_info->name(), load);
+            group.writeEntry(item->m_info->uname(), load);
             item->m_info->setShouldLoad(load);
 
             // Bugfix #289779 - Plugins are not really freed / unplugged when disabled in the kipi setup dialog, always call reload()

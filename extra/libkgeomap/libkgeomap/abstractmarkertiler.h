@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2009-2011 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -56,14 +56,16 @@ public:
 
     Q_DECLARE_FLAGS(Flags, Flag)
 
+public:
+
     class ClickInfo
     {
     public:
 
-        TileIndex::List tileIndicesList;
-        QVariant representativeIndex;
+        TileIndex::List   tileIndicesList;
+        QVariant          representativeIndex;
         KGeoMapGroupState groupSelectionState;
-        MouseModes currentMouseMode;
+        MouseModes        currentMouseMode;
     };
 
 public:
@@ -72,72 +74,30 @@ public:
     {
     public:
 
-        Tile()
-            : children()
-        {
-        }
+        Tile();
 
         /**
-         * Note: Tile is only deleted by AbstractMarkerTiler::tileDelete.
+         * NOTE: Tile is only deleted by AbstractMarkerTiler::tileDelete.
          * All subclasses of AbstractMarkerTiler have to reimplement tileDelete
          * to delete their Tile subclasses.
          * This was done in order not to have any virtual functions
          * in Tile and its subclasses in order to save memory, since there
          * can be a lot of tiles in a MarkerTiler.
          */
-        ~Tile()
-        {
-        }
+        ~Tile();
 
-        static int maxChildCount()
-        {
-            return TileIndex::Tiling * TileIndex::Tiling;
-        }
+        Tile* getChild(const int linearIndex);
 
-        Tile* getChild(const int linearIndex)
-        {
-            if (children.isEmpty())
-            {
-                return 0;
-            }
-
-            return children.at(linearIndex);
-        }
-
-        void addChild(const int linearIndex, Tile* const tilePointer)
-        {
-            if ( (tilePointer==0) && children.isEmpty() )
-            {
-                return;
-            }
-
-            prepareForChildren();
-
-            children[linearIndex] = tilePointer;
-        }
+        void addChild(const int linearIndex, Tile* const tilePointer);
 
         /**
          * @brief Sets the pointer to a child tile to zero, but you have to delete the tile by yourself!
          */
-        void clearChild(const int linearIndex)
-        {
-            if (children.isEmpty())
-            {
-                return;
-            }
+        void clearChild(const int linearIndex);
 
-            children[linearIndex] = 0;
-        }
+        int indexOfChildTile(Tile* const tile);
 
-        int indexOfChildTile(Tile* const tile)
-        {
-            return children.indexOf(tile);
-        }
-
-        bool childrenEmpty() const
-        {
-            return children.isEmpty();
-        }
+        bool childrenEmpty() const;
 
         /**
          * @brief Take away the list of children, only to be used for deleting them.
@@ -145,24 +105,13 @@ public:
          * @todo Make this function protected.
          *
          */
-        QVector<Tile*> takeChildren()
-        {
-            QVector<Tile*> childrenCopy = children;
-            children.clear();
-            return childrenCopy;
-        }
+        QVector<Tile*> takeChildren();
+
+        static int maxChildCount();
 
     private:
 
-        void prepareForChildren()
-        {
-            if (!children.isEmpty())
-            {
-                return;
-            }
-
-            children = QVector<Tile*>(maxChildCount(), 0);
-        }
+        void prepareForChildren();
 
     private:
 
@@ -181,10 +130,10 @@ public:
         NonEmptyIterator(AbstractMarkerTiler* const model, const int level, const GeoCoordinates::PairList& normalizedMapBounds);
         ~NonEmptyIterator();
 
-        bool atEnd() const;
-        TileIndex nextIndex();
-        TileIndex currentIndex() const;
-        AbstractMarkerTiler* model() const;
+        bool                 atEnd()        const;
+        TileIndex            nextIndex();
+        TileIndex            currentIndex() const;
+        AbstractMarkerTiler* model()        const;
 
     private:
 
@@ -192,8 +141,8 @@ public:
 
     private:
 
-        class AbstractMarkerTilerNonEmptyIteratorPrivate;
-        AbstractMarkerTilerNonEmptyIteratorPrivate* const d;
+        class Private;
+        Private* const d;
     };
 
 public:
@@ -249,8 +198,8 @@ protected:
 
 private:
 
-    class AbstractMarkerTilerPrivate;
-    AbstractMarkerTilerPrivate* const d;
+    class Private;
+    Private* const d;
 };
 
 } /* namespace KGeoMap */

@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2009-2011 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -28,6 +28,159 @@
 
 namespace KGeoMap
 {
+    
+TileIndex::TileIndex()
+    : m_indicesCount(0)
+{
+    for (int i = 0; i < MaxIndexCount; ++i)
+    {
+        m_indices[i] = 0;
+    }
+}
+
+TileIndex::~TileIndex()
+{
+}
+    
+int TileIndex::indexCount() const
+{
+    return m_indicesCount;
+}
+
+int TileIndex::level() const
+{
+    return m_indicesCount > 0 ? m_indicesCount - 1 : 0;
+}
+
+void TileIndex::clear()
+{
+    m_indicesCount = 0;
+}
+
+void TileIndex::appendLinearIndex(const int newIndex)
+{
+    KGEOMAP_ASSERT(m_indicesCount+1<=MaxIndexCount);
+    m_indices[m_indicesCount] = newIndex;
+    m_indicesCount++;
+}
+
+int TileIndex::linearIndex(const int getLevel) const
+{
+    KGEOMAP_ASSERT(getLevel<=level());
+    return m_indices[getLevel];
+}
+
+int TileIndex::at(const int getLevel) const
+{
+    KGEOMAP_ASSERT(getLevel<=level());
+    return m_indices[getLevel];
+}
+
+int TileIndex::lastIndex() const
+{
+    KGEOMAP_ASSERT(m_indicesCount>0);
+    return m_indices[m_indicesCount-1];
+}
+
+int TileIndex::indexLat(const int getLevel) const
+{
+    return linearIndex(getLevel) / Tiling;
+}
+
+int TileIndex::indexLon(const int getLevel) const
+{
+    return linearIndex(getLevel) % Tiling;
+}
+
+QPoint TileIndex::latLonIndex(const int getLevel) const
+{
+    return QPoint(indexLon(getLevel), indexLat(getLevel));
+}
+
+void TileIndex::latLonIndex(const int getLevel, int* const latIndex, int* const lonIndex) const
+{
+    KGEOMAP_ASSERT(getLevel <= level());
+    *latIndex = indexLat(getLevel);
+    *lonIndex = indexLon(getLevel);
+    KGEOMAP_ASSERT(*latIndex < Tiling);
+    KGEOMAP_ASSERT(*lonIndex < Tiling);
+}
+
+void TileIndex::appendLatLonIndex(const int latIndex, const int lonIndex)
+{
+    appendLinearIndex(latIndex*Tiling + lonIndex);
+}
+
+QIntList TileIndex::toIntList() const
+{
+    QIntList result;
+
+    for (int i = 0; i < m_indicesCount; ++i)
+    {
+        result << m_indices[i];
+    }
+
+    return result;
+}
+
+TileIndex TileIndex::fromIntList(const QIntList& intList)
+{
+    TileIndex result;
+
+    for (int i = 0; i < intList.count(); ++i)
+    {
+        result.appendLinearIndex(intList.at(i));
+    }
+
+    return result;
+}
+
+bool TileIndex::indicesEqual(const TileIndex& a, const TileIndex& b, const int upToLevel)
+{
+    KGEOMAP_ASSERT(a.level() >= upToLevel);
+    KGEOMAP_ASSERT(b.level() >= upToLevel);
+
+    for (int i = 0; i <= upToLevel; ++i)
+    {
+        if (a.linearIndex(i)!=b.linearIndex(i))
+        {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+TileIndex TileIndex::mid(const int first, const int len) const
+{
+    KGEOMAP_ASSERT(first+(len-1) <= m_indicesCount);
+    TileIndex result;
+
+    for (int i = first; i < first+len; ++i)
+    {
+        result.appendLinearIndex(m_indices[i]);
+    }
+
+    return result;
+}
+
+void TileIndex::oneUp()
+{
+    KGEOMAP_ASSERT(m_indicesCount>0);
+    m_indicesCount--;
+}
+
+QList<QIntList> TileIndex::listToIntListList(const QList<TileIndex>& tileIndexList)
+{
+    QList<QIntList> result;
+
+    for (int i = 0; i < tileIndexList.count(); ++i)
+    {
+        result << tileIndexList.at(i).toIntList();
+    }
+
+    return result;
+}
 
 TileIndex TileIndex::fromCoordinates(const KGeoMap::GeoCoordinates& coordinate, const int getLevel)
 {
@@ -42,6 +195,7 @@ TileIndex TileIndex::fromCoordinates(const KGeoMap::GeoCoordinates& coordinate, 
     qreal tileLonWidth  = 360.0;
 
     TileIndex resultIndex;
+
     for (int l = 0; l <= getLevel; ++l)
     {
         // how many tiles at this level?
@@ -56,26 +210,31 @@ TileIndex TileIndex::fromCoordinates(const KGeoMap::GeoCoordinates& coordinate, 
 
         // protect against invalid indices due to rounding errors
         bool haveRoundingErrors = false;
-        if (latIndex<0)
+
+        if (latIndex < 0)
         {
             haveRoundingErrors = true;
-            latIndex = 0;
+            latIndex           = 0;
         }
-        if (lonIndex<0)
+
+        if (lonIndex < 0)
         {
             haveRoundingErrors = true;
-            lonIndex = 0;
+            lonIndex           = 0;
         }
-        if (latIndex>=latDivisor)
+
+        if (latIndex >= latDivisor)
         {
             haveRoundingErrors = true;
-            latIndex = latDivisor-1;
+            latIndex           = latDivisor-1;
         }
-        if (lonIndex>=lonDivisor)
+
+        if (lonIndex >= lonDivisor)
         {
             haveRoundingErrors = true;
-            lonIndex = lonDivisor-1;
+            lonIndex           = lonDivisor-1;
         }
+
         if (haveRoundingErrors)
         {
 //             kDebug() << QString::fromLatin1("Rounding errors at level %1!").arg(l);
@@ -115,10 +274,10 @@ GeoCoordinates TileIndex::toCoordinates() const
         const int lonIndex     = indexLon(l);
 
         // update the start position for the next tile:
-        tileLatBL     += latIndex*dLat;
-        tileLonBL     += lonIndex*dLon;
-        tileLatHeight /= latDivisor;
-        tileLonWidth  /= lonDivisor;
+        tileLatBL             += latIndex*dLat;
+        tileLonBL             += lonIndex*dLon;
+        tileLatHeight         /= latDivisor;
+        tileLonWidth          /= lonDivisor;
     }
 
     return GeoCoordinates(tileLatBL, tileLonBL);
@@ -146,7 +305,7 @@ GeoCoordinates TileIndex::toCoordinates(const CornerPosition ofCorner) const
         const int lonIndex     = indexLon(l);
 
         // update the start position for the next tile:
-        if (l+1 >= m_indicesCount)
+        if ((l+1) >= m_indicesCount)
         {
             if (ofCorner == CornerNW)
             {
@@ -172,8 +331,8 @@ GeoCoordinates TileIndex::toCoordinates(const CornerPosition ofCorner) const
         else
         {
             // update the start position for the next tile:
-            tileLatBL     += latIndex*dLat;
-            tileLonBL     += lonIndex*dLon;
+            tileLatBL += latIndex*dLat;
+            tileLonBL += lonIndex*dLon;
         }
 
         tileLatHeight /= latDivisor;
@@ -183,4 +342,10 @@ GeoCoordinates TileIndex::toCoordinates(const CornerPosition ofCorner) const
     return GeoCoordinates(tileLatBL, tileLonBL);
 }
 
-} /* KGeoMap */
+QDebug operator<<(QDebug debugOut, const KGeoMap::TileIndex& tileIndex)
+{
+    debugOut << tileIndex.toIntList();
+    return debugOut;
+}
+
+} /* namespace KGeoMap */

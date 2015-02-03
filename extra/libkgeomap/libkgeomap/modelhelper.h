@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2009-2010 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010 by Gilles Caulier
+ * @author Copyright (C) 2010-2014 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  *
  * This program is free software; you can redistribute it
@@ -29,10 +29,10 @@
 
 // Qt includes
 
-#include <QtCore/QAbstractItemModel>
 #include <QtGui/QItemSelectionModel>
-#include <QtCore/QPersistentModelIndex>
 #include <QtGui/QPixmap>
+#include <QtCore/QAbstractItemModel>
+#include <QtCore/QPersistentModelIndex>
 #include <QtCore/QPoint>
 #include <QtCore/QString>
 
@@ -65,6 +65,8 @@ public:
     };
 
     Q_DECLARE_FLAGS(Flags, Flag)
+
+public:
 
     explicit ModelHelper(QObject* const parent = 0);
     virtual ~ModelHelper();
