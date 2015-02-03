@@ -1,188 +1,184 @@
-digikam (4:4.4.0-1.1) unstable; urgency=medium
-
-  * Non-maintainer upload.
-  * Add versioned Breaks/Replaces on digikam-doc, that fixes the Squeeze to
-    Wheezy upgrade. (Closes: #767570)
-
- -- Jean-Michel Nirgal Vourgère <jmv_deb@nirgal.com>  Sat, 15 Nov 2014 12:15:00 +0000
-
-digikam (4:4.4.0-1) unstable; urgency=medium
-
-  * Team upload.
-  * New upstream release. (Closes: #764920)
-  * Drop upstream_Restore-the-lowercase-path-to-opencv-shared-data.patch,
-    backported.
-  * Backport upstream commit f6945f23e0ed1e11f26e2c7e62b02baa8cfa640e to fix
-    build with libkexiv2 4.14.x; patch
-    upstream_fix-libkexiv2-version-for-AltLangStrEdit-textEdit.patch.
-
- -- Pino Toscano <pino@debian.org>  Tue, 14 Oct 2014 22:57:30 +0200
-
-digikam (4:4.3.0-2) unstable; urgency=medium
-
-  * Change section of digikam-private-libs from graphics to libs.
-  * Remove the gallery suggest from kipi-plugins, since it does not exist in
-    Debian nor seem used.
-  * Backport upstream commit 4433a5ba8386641088fe0d606f8b18fd0e87e973 (from
-    libkface) to fix the loading of OpenCV Haar Cascade XML files; patch
-    upstream_Restore-the-lowercase-path-to-opencv-shared-data.patch.
-    (Closes: #763089)
-  * Remove Achim Bohnet from Uploaders, since he has not done any work on
-    digikam in more than 6 years. Thanks for your past work!
-  * Add myself to Uploaders.
-
- -- Pino Toscano <pino@debian.org>  Wed, 01 Oct 2014 20:32:24 +0200
-
-digikam (4:4.3.0-1) unstable; urgency=low
-
-  * Team upload.
-
-  [ Mark Purcell ]
-  * New upstream release 4.2.0: (Closes: #761376)
-    - fixes upload to Flick (Closes: #753777)
-
-  [ Pino Toscano ]
-  * New upstream release 4.3.0.
-  * Update the build dependencies for the Nepomuk -> Baloo switch:
-    - remove nepomuk-core-dev and shared-desktop-ontologies
-    - add baloo-dev, and libkfilemetadata-dev because of #762240
-  * Update install files.
-  * Change section of most of the binaries from kde to graphics.
-
- -- Pino Toscano <pino@debian.org>  Sat, 20 Sep 2014 18:26:53 +0200
-
-digikam (4:4.1.0-1) unstable; urgency=low
-
-  * New upstream release
-  * Update Build-Depends: libopencv-dev (>= 2.4.9)
-  * Update Vcs-Svn
-
- -- Mark Purcell <msp@debian.org>  Sat, 12 Jul 2014 13:58:12 +1000
-
-digikam (4:4.0.0-1) unstable; urgency=low
-
-  * New upstream release
-    - Fixes "[transition blocker] Digikam FTBFS with" (Closes: #746228)
-    - Fixes "facebook plugin: caption" (Closes: #564574)
-  * Refresh debian/patches/
-  * Drop doc-translations-installation.diff - incorporated upstream
-  * Support kde/4.12 transition Build-Depends: libkdcraw-dev (>= 4:4.12)
-  * debian/control Section: kde - fix override disparities
-
- -- Mark Purcell <msp@debian.org>  Wed, 14 May 2014 19:20:17 +1000
-
-digikam (4:4.0.0~beta4-1) experimental; urgency=medium
-
-  * Team upload.
-  * New upstream release.
-  * Fix installation of the translated documentations; patch
-    doc-translations-installation.diff.
-  * Update debian/digikam-doc.install for all the translated documentations.
-
- -- Pino Toscano <pino@debian.org>  Mon, 31 Mar 2014 20:01:03 +0200
-
-digikam (4:4.0.0~beta3-1) experimental; urgency=medium
-
-  * Team upload.
-  * New upstream release.
-  * Use the haar cascades XML files provided by OpenCV:
-    - remove the versions provided by libkface
-    - make digikam-data depend on opencv-data
-  * Switch the libgphoto2-2-dev build dependency to libgphoto2-dev.
-    (Closes: #739349)
-  * Fix Vcs-Svn header.
-
- -- Pino Toscano <pino@debian.org>  Sun, 02 Mar 2014 09:56:58 +0100
-
-digikam (4:4.0.0~beta2-1) experimental; urgency=medium
-
-  [ Mark Purcell ]
-  * New upstream release 
-    - Drop changeset_rc53994f0dbeea49a04aeec9298753a954cff427f.diff
-
-  [ Pino Toscano ]
-  * Adjust/improve the build dependencies:
-    - set libusb-dev for all the OSes except kfreebsd (where libusb2-dev
-      is used), as this is what digikam looks for
-    - add nepomuk-core-dev
-  * Since kipi-plugins uses libraries shipped in digikam-private-libs, make
-    this dependency strict.
-  * Move the debian/*.manpage files as debian/man/*.1, and adjust the
-    debian/*.manpages accordingly.
-  * Install also the NEWS file for kipi-plugins.
-  * Drop -Xmultithread -XREADME.MACOSX from the dh_install arguments, as such
-    files do not exist anymore or are not shipped.
-  * Slightly improve the way devel .so symlinks are removed.
-  * Bump Standards-Version to 3.9.5, no changes required.
-  * Change the section of digikam-private-libs to libs.
-  * Update the digikam and showfoto xpm icons according to the current hicolor
-    icons.
-
- -- Mark Purcell <msp@debian.org>  Sat, 18 Jan 2014 09:28:43 +1100
-
-digikam (4:4.0.0~beta1-1) experimental; urgency=low
-
-  * New upstream release
-  * quilt refresh sendimages-icedove.diff
-  * Pull upstream changeset_rc53994f0dbeea49a04aeec9298753a954cff427f.diff
-
- -- Mark Purcell <msp@debian.org>  Sun, 15 Dec 2013 22:15:27 +1100
-
-digikam (4:3.5.0-3) unstable; urgency=low
-
-  * Update Build-Depends: for libusb2-dev [kfreebsd-any]
-
- -- Mark Purcell <msp@debian.org>  Sat, 09 Nov 2013 16:52:11 +1100
-
-digikam (4:3.5.0-2) unstable; urgency=low
-
-  [ Pino Toscano ]
-  * Adjust/improve the build dependencies:
-    - bump libopencv-dev to >= 2.4.5
-    - bump libeigen3-dev to >= 3.1.2
-    - add libusb-dev
-    - switch from libtiff4-dev to libtiff-dev
-    - comment out libsane-dev and libexiv2-dev, needed only when using the
-      embedded kdegraphics libs
-    - remove duplicate libgphoto2-2-dev and libtiff-dev
-  * Bump Standards-Version to 3.9.4, no changes required.
-  * Do not pass -Xusr/lib/kde4/ to dh_shlibdeps, as this skips the dependency
-    calculation of plugins. (Closes: #721107)
-
-  [ Mark Purcell ] 
-  * Fix "non-existent package minidnla (typo)" update debian/control (Closes: #727814)
-
- -- Mark Purcell <msp@debian.org>  Sat, 09 Nov 2013 11:09:18 +1100
-
-digikam (4:3.5.0-1) experimental; urgency=low
+digikam (4:4.7.0-utopic~ppa1) utopic; urgency=low
 
   * New upstream release
 
- -- Mark Purcell <msp@debian.org>  Sat, 12 Oct 2013 10:38:32 +1100
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Tue, 03 Feb 2015 05:39:40 +0100
 
-digikam (4:3.4.0-1) unstable; urgency=low
+digikam (4:4.6.0-utopic~ppa2) utopic; urgency=low
+
+  * With DLNAExport support
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Wed, 21 Jan 2015 17:19:21 +0100
+
+digikam (4:4.6.0-utopic~ppa1) utopic; urgency=low
 
   * New upstream release
-    - Fixes "[digikam] New upstream version 3.4.0" (Closes: #720894)
 
-  [ Pino Toscano ]
-  * Fix Vcs-Svn header.
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Thu, 18 Dec 2014 20:29:21 +0100
 
-  [ Mark Purcell ]
-  * Update debian/watch to include kde/unstable
-  * Update kipi-plugins-common.install
-  * Add Build-Depends: libeigen3-dev, libopencv-dev (>= 2.4.4)
-  * Add Suggests: systemsettings
-    - Fixes "Include package systemsettings" (Closes: #708067)
+digikam (4:4.5.0-utopic~ppa1) utopic; urgency=low
 
- -- Mark Purcell <msp@debian.org>  Sat, 14 Sep 2013 18:15:24 +1000
+  * New upstream release
 
-digikam (4:3.1.0-4) unstable; urgency=low
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Fri, 14 Nov 2014 14:46:31 +0100
 
-  * Upload to unstable 
-  * debian/rules dh_shlibdeps -l
+digikam (4:4.4.0-utopic~ppa3) utopic; urgency=low
 
- -- Mark Purcell <msp@debian.org>  Fri, 19 Jul 2013 13:35:11 +1000
+  * Rebuild
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Sat, 11 Oct 2014 20:19:10 +0200
+
+digikam (4:4.4.0-trusty~ppa2kde414) trusty; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Thu, 09 Oct 2014 16:50:40 +0200
+
+digikam (4:4.3.0-trusty~ppa4kde414) trusty; urgency=medium
+
+  * Patch against libkexiv2 crashes git commit 573069e8 and e2eeb730
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Tue, 23 Sep 2014 14:49:40 +0200
+
+digikam (4:4.3.0-trusty~ppa2kde414) trusty; urgency=medium
+
+  * Rebuild against libkexiv2 from digikam 4.3.0 git de62cac2
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Mon, 22 Sep 2014 16:55:41 +0200
+
+digikam (4:4.3.0-trusty~ppa1kde414) trusty; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Wed, 17 Sep 2014 19:18:02 +0200
+
+digikam (4:4.2.0-trusty~ppa1kde414) trusty; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Tue, 05 Aug 2014 01:31:59 +0200
+
+digikam (4:4.1.0-trusty~ppa3) trusty; urgency=low
+
+  * rebuild against updated libraw
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Sat, 19 Jul 2014 16:06:31 +0200
+
+digikam (4:4.1.0-trusty~ppa2) trusty; urgency=low
+
+  * fix conflicting files in debian/digikam-doc.install
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Sat, 19 Jul 2014 13:18:43 +0200
+
+digikam (4:4.1.0-trusty~ppa1) trusty; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Wed, 02 Jul 2014 00:13:31 +0200
+
+digikam (4:4.0.0-trusty~ppa1) trusty; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Thu, 15 May 2014 16:30:33 +0200
+
+digikam (4:4.0.0~rc-trusty~ppa1) trusty; urgency=low
+
+  * New upstream beta release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Tue, 29 Apr 2014 20:18:22 +0200
+
+digikam (4:4.0.0~beta4-saucy~ppa1) saucy; urgency=low
+
+  * New upstream beta release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Thu, 27 Mar 2014 23:15:03 +0100
+
+digikam (4:3.5.0-saucy~ppa2) saucy; urgency=low
+
+  * Remove libpgf-dev dependecy
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Mon, 28 Oct 2013 18:57:06 +0100
+
+digikam (4:3.5.0-raring~ppa1) raring; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Fri, 11 Oct 2013 15:11:22 +0200
+
+digikam (4:3.4.0-raring~ppa1) raring; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Sat, 07 Sep 2013 00:39:57 +0200
+
+digikam (4:3.3.0-raring~ppa1) raring; urgency=low
+
+  * New upstream release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Tue, 06 Aug 2013 13:45:30 +0200
+
+digikam (4:3.3.0~beta2-raring~ppa1) raring; urgency=low
+
+  * New upstream beta release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Thu, 20 Jun 2013 17:10:57 +0200
+
+digikam (4:3.3.0~beta1-raring~ppa1) raring; urgency=low
+
+  * New upstream beta release
+
+ -- Philip Johnsson <philip.johnsson@gmail.com>  Fri, 07 Jun 2013 21:57:30 +0200
+
+digikam (4:3.2.0-0ubuntu1~ubuntu13.04~ppa1) raring; urgency=low
+
+  * raring backport 
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Thu, 16 May 2013 21:35:08 +0200
+
+digikam (4:3.2.0-0ubuntu1) saucy; urgency=low
+
+  * New upstream relase (LP: #1175854) 
+    - build-depend on libeigen3-dev
+    - add jalbum icons to kipi-plugins-common.install
+    - add more libkipi translations to not-installed
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Wed, 15 May 2013 22:58:24 +0200
+
+digikam (4:3.1.0-3ubuntu1) saucy; urgency=low
+
+  * Merge with debian experimental, remaining changes: 
+    - debian/control:
+      + build-depend on libtiff-dev instead of libtiff4-dev
+      + build-depend on libboost-graph1.53-dev instead of libboost-graph-dev
+      + build-depend on dh-apparmor
+      + enable digikam-dbg package
+      + kipi-plugins doesn't recommend konqueror
+      + drop digikam-private-libs package
+      + add packages: libkface1, libkface-data, libkface-dev,
+        libkgeomap1, libkgeomap-data, libkgeomap-dev,
+        libmediawiki1, libkmediawiki-dev,
+        libkvkontakte1, libkvkontakte-dev
+      + kipi-plugins-common breaks/replaces digikam-data << 4:3.1.0-3ubuntu1~
+      + kipi-plugins breaks/replaces kipi-plugins-common << 4:3.1.0-3ubuntu1~
+    - debian/rules:
+      + override version of lib* packages
+      + don't delete files during install, we use not-installed for that
+      + install mysqld-digikam wrapper and apparmor profile
+      + only list missing files, don't fail if some files aren't installed
+    - add mysqld-digikam wrapper and apparmor profile
+    - add kubuntu_mysqld_executable_name.diff to use mysqld wrapper instead
+      of the system mysqld binary
+    - replace icons from KDE 3 time in debian/xpm.d/*.xpm with the new
+      versions
+    - don't install libkgeomap translations in digikam-data.install, they're
+      in libkgeomap-data.install
+    - put /usr/lib/libdigikam*.so.3* into digikam.install and install them into
+      /usr/lib/digikam/
+    - don't install imgur, imageshack and wikimedia icons for trademark reasons
+    - install rawconverter oxygen icons in kipi-plugins-common
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 14 May 2013 20:19:34 +0200
 
 digikam (4:3.1.0-3) experimental; urgency=low
 
@@ -259,6 +255,12 @@ digikam (4:3.1.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Tue, 26 Mar 2013 22:26:00 +1100
 
+digikam (4:3.1.0-0ubuntu1) raring; urgency=low
+
+  * New upstream bugfix release (LP: #1154532)
+
+ -- Howard Chan <smartboyhw@gmail.com>  Wed, 13 Mar 2013 21:08:47 +0800
+
 digikam (4:3.0.0-1) experimental; urgency=low
 
   * New upstream release
@@ -273,6 +275,103 @@ digikam (4:3.0.0-1) experimental; urgency=low
   * Unsatisfactory Conflicts: libkipi8, libkexiv2-10, libkdcraw20, libksane0
 
  -- Mark Purcell <msp@debian.org>  Sun, 10 Feb 2013 15:47:49 +1100
+
+digikam (4:3.0.0-0ubuntu3) raring; urgency=low
+
+  * Bump build-dep on liblensfun-dev to >= 0.2.6~ and rebuild now that 0.2.7
+    was uploaded so it uses it again. 
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 05 Mar 2013 13:22:48 +0100
+
+digikam (4:3.0.0-0ubuntu2) raring; urgency=low
+
+  * Set ENABLE_LCMS2=ON so we always use lcms2
+  * Drop Build-Conflicts on liblcms1-dev
+  * Build-Depend on libmagickcore-dev and imagemagick for VideoSlideshow
+  * Build-Depend on libpgf-dev instead of using the internal version
+  * kipi-plugins unconditionally recommends imagemagick
+  * Disable auto-tests as they require user interaction
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Mon, 25 Feb 2013 20:17:29 +0100
+
+digikam (4:3.0.0-0ubuntu1) raring; urgency=low
+
+  * New upstream release (LP: #1132393)
+    - Build-depend on flex and bison for Panorama
+    - Add Panorama icons to kipi-plugins-common.install
+  * Add stable release location to watch file
+  * Drop svn-upgrade commands from watch file as we don't use svn and
+    we don't have a bzr equivalent
+  * Don't build-dep on libmagickcore-dev as it pulls in liblcms1-dev which
+    causes crashes as the archive version of libkdcraw uses liblcms2
+    (can be added back once bug 1132506 is fixed)
+  * Add Build-Conflicts against liblcms1-dev to make sure it's not available
+      during build.
+  * use X instead of XS for Debian-Vcs entries to fix lintian warning
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Sun, 24 Feb 2013 13:53:05 +0100
+
+digikam (4:3.0.0~rc-0ubuntu3) raring; urgency=low
+
+  * Don't build the internal kdegraphics libraries, we're using the
+    ones in the archive.
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 29 Jan 2013 01:30:32 +0100
+
+digikam (4:3.0.0~rc-0ubuntu2) raring; urgency=low
+
+  * Restrict patterns in digikam-data.install, kipi-plugins.install and
+    kipi-plugins-common.install so libkipi files don't get installed.
+    They conflict with libkipi from the KDE SC
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Thu, 24 Jan 2013 00:55:53 +0100
+
+digikam (4:3.0.0~rc-0ubuntu1) raring; urgency=low
+
+  * New upstream release candidate
+    - refresh kubuntu_mysqld_executable_name.diff
+    - update not-installed
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Wed, 23 Jan 2013 17:57:24 +0100
+
+digikam (4:3.0.0~beta3-0ubuntu3) raring; urgency=low
+
+  * Rebuild against newer hupnp
+    - Install dlna icons
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Tue, 11 Dec 2012 08:49:37 +0000
+
+digikam (4:3.0.0~beta3-0ubuntu2) raring; urgency=low
+
+  * Rebuild for opencv 2.4
+
+ -- Fabrice Coutadeur <fabricesp@ubuntu.com>  Tue, 04 Dec 2012 21:56:32 +0100
+
+digikam (4:3.0.0~beta3-0ubuntu1) raring; urgency=low
+
+  * New upstream release
+    - Add build-deps :  libhupnp-dev, libqtgstreamer-dev, libmagickcore-dev
+  * Merge from debian, remaining changes:
+    - Make sure libqt4-opengl-dev, libgl1-mesa-dev and libglu1-mesa-dev only
+      install on i386,amd64 and powerpc
+    - Depend on libtiff-dev instead of libtiff4-dev
+    - Drop digikam breaks/replaces kipi-plugins-common since we're past the
+      LTS release now
+    - digikam to recommend mplayerthumbs | ffmpegthumbs. We currently only
+      have latter in the archives, even though former is also supposed to
+      be part of kdemultimedia. (LP: #890059)
+    - kipi-plugins to recommend www-browser rather than konqueror directly
+      since 2.8 no direct usage of konqueror is present in the flickr
+      plugin anymore (LP: #1011211)
+    - Keep kubuntu_mysqld_executable_name.diff
+    - Don't install libkipi translations
+    - Keep deps on libcv-dev, libcvaux-dev
+    - Keep split packaging of libraries
+    - Replace icons from KDE 3 time in debian/xpm.d/*.xpm with the new
+      versions (LP: #658047)
+  * Update debian/not-installed
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Mon, 26 Nov 2012 18:24:20 +0000
 
 digikam (4:3.0.0~beta1a-1) experimental; urgency=low
 
@@ -316,6 +415,33 @@ digikam (4:2.8.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Sun, 12 Aug 2012 18:22:59 +1000
 
+digikam (4:2.8.0-0ubuntu2) raring; urgency=low
+
+  [ Rohan Garg ]
+  * Replace icons from KDE 3 time in debian/xpm.d/*.xpm with the new
+    versions (LP: #658047)
+  * Update install files
+    - Ship adjustlevelstool.upd, which resets adjustlevels configuration
+      by removing the respective config group from digikamrc. It prevents
+      showing a black image in adjustlevels tool after updating to 2.6.0
+
+  [ Harald Sitter ]
+  * Install hicolor application icons (LP: #781728)
+  * kipi-plugins to recommend www-browser rather than konqueror directly
+    since 2.8 no direct usage of konqueror is present in the flickr
+    plugin anymore (LP: #1011211)
+  * digikam to recommend mplayerthumbs | ffmpegthumbs. We currently only
+    have latter in the archives, even though former is also supposed to
+    be part of kdemultimedia. (LP: #890059)
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Sat, 18 Aug 2012 03:31:49 +0530
+
+digikam (4:2.8.0-0ubuntu1) quantal; urgency=low
+
+  * New upstream release
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Mon, 13 Aug 2012 18:23:16 +0100
+
 digikam (4:2.7.0-1) experimental; urgency=low
 
   * New upstream release 
@@ -323,12 +449,46 @@ digikam (4:2.7.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Sat, 14 Jul 2012 20:27:25 +1000
 
+digikam (4:2.7.0-0ubuntu1) quantal-proposed; urgency=low
+
+  * New upstream release (LP: #1022972)
+    - Use libtiff-dev instead of libtiff4-dev
+    - Drop duplicate build dep on libtiff4-dev
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Fri, 13 Jul 2012 18:30:11 +0200
+
 digikam (4:2.6.0-1) unstable; urgency=low
 
   * New upstream release 
   * Drop dngconverter_BYTE_ORDER.diff - included upstream
 
  -- Mark Purcell <msp@debian.org>  Sun, 10 Jun 2012 15:01:18 +1000
+
+digikam (4:2.6.0-0ubuntu2) quantal; urgency=low
+
+  * libkvkontakte1 should not depend on libkvkontakte-data
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Sun, 24 Jun 2012 19:20:11 +0200
+
+digikam (4:2.6.0-0ubuntu1) quantal; urgency=low
+
+  * Merge from debian, remaining changes (LP: #885324, #1009943)
+    - keep seperate binary packages:
+      + libkface1, libkface-data, libkface-dev
+      + libkgeomap1, libkgeomap-data, libkgeomap-dev
+      + libvkontakte1, libkvkontakte-dev
+      + libmediawiki1, libmediawiki-dev
+    - keep patches:
+      + kubuntu_mysqld_executable_name.diff
+    - don't fail on missing files in dh_install
+    - install oxygen icons for kipi-plugins
+    - digikam breaks/replaces kipi-plugins-common << 4:2.5.0~
+    - digikam-doc breaks/replaces digikam-data << 4:2.5.0~
+    - digikam-data breaks/replaces kipi-plugins << 4:2.5.0~
+    - kipi-plugins-common breaks/replaces kipi-plugins << 4:2.5.0~
+  * Update install files
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Fri, 08 Jun 2012 00:31:19 +0400
 
 digikam (4:2.6.0~rc-4) unstable; urgency=low
 
@@ -395,6 +555,38 @@ digikam (4:2.6.0~beta1-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Thu, 09 Feb 2012 20:44:48 +1100
 
+digikam (4:2.5.0-1ubuntu2) precise; urgency=low
+
+  * Add kubuntu_fix_arm_build.patch to fix building 
+    with armel & armhf (LP: #945343)
+    - Fix FTBFS due to attempt to use GL instead of GLES
+      + libqt4-opengl-dev, libgl1-mesa-dev, and libglu1-mesa-dev as build-deps
+        only on [i386 amd64 powerpc]
+  * Add build-dep on dh-apparmor (LP: #948481)
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Mon, 05 Mar 2012 17:12:54 +0100
+
+digikam (4:2.5.0-1ubuntu1) precise; urgency=low
+
+  * Merge from debian unstable, remaining changes:
+    - keep seperate binary packages:
+      + libkface1, libkface-data, libkface-dev
+      + libkgeomap1, libkgeomap-data, libkgeomap-dev
+      + libvkontakte1, libkvkontakte-dev
+      + libmediawiki1, libmediawiki-dev
+    - keep patches:
+      + kubuntu_mysqld_executable_name.diff
+    - don't fail on missing files in dh_install
+    - install oxygen icons for kipi-plugins
+    - build-depend on mysql 5.5 instead of 5.1
+    - update install files
+  * digikam breaks/replaces kipi-plugins-common << 4:2.5.0~
+  * digikam-doc breaks/replaces digikam-data << 4:2.5.0~
+  * digikam-data breaks/replaces kipi-plugins << 4:2.5.0~
+  * kipi-plugins-common breaks/replaces kipi-plugins << 4:2.5.0~
+
+ -- Philip Muškovac <yofel@kubuntu.org>  Tue, 14 Feb 2012 19:29:29 +0100
+
 digikam (4:2.5.0-1) experimental; urgency=low
 
   * New upstream release 
@@ -439,6 +631,28 @@ digikam (4:2.3.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Wed, 07 Dec 2011 21:29:39 +1100
 
+digikam (2:2.4.1-0ubuntu3) precise; urgency=low
+
+  * No change rebuild against new libmarblewidget LP: #913038
+
+ -- Thorsteinn A Malmjursson (BarkingFish) <lightningstrike35@live.nl>  Thu, 12 Jan 2012 22:21:50 +0000
+
+digikam (2:2.4.1-0ubuntu2) precise; urgency=low
+
+  * No-change rebuild for libmarblewidget transition
+
+ -- Andreas Moog <amoog@ubuntu.com>  Sat, 24 Dec 2011 21:51:20 +0100
+
+digikam (2:2.4.1-0ubuntu1) precise; urgency=low
+
+  * New upstream release
+  * Build-dep on mysql-server-5.5
+  * Add kubuntu_disable_kvkontakte.diff to disable libkvkontakte which
+    has compile failures, disable in debian/rules and debian/control
+    (https://bugs.kde.org/288679)
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 10 Dec 2011 17:30:36 +0000
+
 digikam (2:2.2.0-2) experimental; urgency=low
 
   * Fix override disparties: Section: doc & kde
@@ -476,6 +690,44 @@ digikam (2:2.2.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Fri, 07 Oct 2011 22:30:40 +1100
 
+digikam (2:2.1.1-0ubuntu1) oneiric; urgency=low
+
+  [ Rohan Garg ]
+  * New upstream release (LP: #834190)
+    - debian/control
+      + Build with libqtwebkit-dev
+   - debian/kipi-plugins-common
+      + Install libkvkontakte required by kipi-plugins
+   - debian/digikam
+      + Install panoramagui
+
+  [ Philip Muškovac ]
+  * New upstream release
+    - debian/control:
+      + Add libcv-dev, libcvaux-dev, libhighgui-dev, libboost-graph1.46-dev,
+        libksane-dev, libxml2-dev, libxslt-dev, libqt4-opengl-dev, libqjson-dev,
+        libgpod-dev and libqca2-dev to build-deps
+      + Add packages for kipi-plugins, libmediawiki, libkface, libkgeomap and
+        libkvkontakte
+    - debian/rules:
+      + Don't build with gphoto2 since it doesn't build with it.
+    - Add kubuntu_fix_test_linking.diff to fix linking of the dngconverter test
+    - update install files
+    - update kubuntu_01_mysqld_executable_name.diff for new cmake layout
+      and rename to kubuntu_mysqld_executable_name.diff
+  * Fix typo in digikam-data description (LP: #804894)
+  * Fix Vcs links
+
+  [ Felix Geyer ]
+  * Move library data files to the new packages libkface-data, libkgeomap-data
+    and libkvkontakte-data.
+  * Override version of the embedded library packages to 1.0~digikam<version>.
+  * Exclude the library packages from digikam-dbg to prevent file conflicts in
+    the future.
+  * Call dh_install with --list-missing.
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Fri, 23 Sep 2011 18:18:55 +0200
+
 digikam (2:1.9.0-3) unstable; urgency=low
 
   * Upload to unstable
@@ -492,6 +744,24 @@ digikam (2:1.9.0-2) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Sun, 08 May 2011 10:47:46 +1000
 
+digikam (2:1.9.0-1ubuntu2) oneiric; urgency=low
+
+  * No change rebuild for libkdcraw9 transition
+
+ -- Scott Kitterman <scott@kitterman.com>  Fri, 22 Jul 2011 23:48:15 -0400
+
+digikam (2:1.9.0-1ubuntu1) natty; urgency=low
+
+  * Merge with debian, remaining changes
+    - Export .pot name and copy to plugins in debian/rules
+  * Add an AppArmor profile for the local mysql server. (LP: #735949)
+    - Use a wrapper script for mysqld.
+    - Add kubuntu_01_mysqld_executable_name.diff so digikam uses the
+      wrapper script instead of directly running mysqld.
+  * Make digikam suggest libqt4-sql-mysql and mysql-server-core-5.1.
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Thu, 17 Mar 2011 11:21:31 +0100
+
 digikam (2:1.9.0-1) experimental; urgency=low
 
   * New upstream release
@@ -499,12 +769,32 @@ digikam (2:1.9.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Sat, 05 Mar 2011 09:57:45 +1100
 
+digikam (2:1.8.0-1ubuntu1) natty; urgency=low
+
+  * Merge with debian, remaining changes
+    - Export .pot name and copy to plugins in debian/rules
+    - Version build-depends on kipi-plugins-dev to ensure build is against the
+      same version on all archs
+
+ -- Rohan Garg <rohangarg@kubuntu.org>  Tue, 25 Jan 2011 15:54:05 +0100
+
 digikam (2:1.8.0-1) experimental; urgency=low
 
   * New upstream release
     - Requires packages from http://qt-kde.debian.net/
 
  -- Mark Purcell <msp@debian.org>  Wed, 22 Dec 2010 07:35:26 +1100
+
+digikam (2:1.7.0-1ubuntu1) natty; urgency=low
+
+  * Merge from Debian Experimental. Remaining Ubuntu changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Version build-depends on kipi-plugins-dev to ensure build is against the
+      same version on all archs
+  * Drop debian/patches/kubuntu_01_linker.diff, incoporated upstream
+  * Remove patches directory and unused patches
+
+ -- Scott Kitterman <scott@kitterman.com>  Tue, 21 Dec 2010 23:19:11 -0500
 
 digikam (2:1.7.0-1) experimental; urgency=low
 
@@ -525,6 +815,42 @@ digikam (2:1.6.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Sun, 28 Nov 2010 11:50:13 +1100
 
+digikam (2:1.6.0-0ubuntu1) natty; urgency=low
+
+  * New upstream release
+  * Add kubuntu_01_linker.diff to fix linking
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 13 Dec 2010 12:06:40 +0000
+
+digikam (2:1.5.0-0ubuntu1) natty; urgency=low
+
+  * New upstream release
+    - Bump build-dependencies
+    - Build against libkipi-dev 1.5.0
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Sun, 24 Oct 2010 00:20:43 +0200
+
+digikam (2:1.4.0-0ubuntu1) maverick; urgency=low
+
+  * New upstream bugfix release (LP: #626751)
+  * Install the file NEWS as upstream changelog because "ChangeLog" is
+    too verbose.
+  * Don't copy the desktop .pot file to imageplugins, not needed anymore.
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Thu, 26 Aug 2010 19:25:16 +0200
+
+digikam (2:1.3.0-0ubuntu1) maverick; urgency=low
+
+  * Merge with Debian unstable, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Enable Nepomuk support in Digikam
+      - Add shared-desktop-ontologies to build depends
+  * New upstream release:
+    - Remove digikam-1.2.0-kde232628.patch fixed by upstream
+    - Add mysql-server-5.1 to buil-depends
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Fri, 18 Jun 2010 21:58:46 +0200
+
 digikam (2:1.2.0-7) unstable; urgency=medium
 
   * Pull ratingwidget patch from upstream (Closes: #591918)
@@ -544,6 +870,21 @@ digikam (2:1.2.0-5) unstable; urgency=low
   * Added epoc: Fix "Incorrect Conflicts/Replaces versions" (Closes: #584792)
 
  -- Mark Purcell <msp@debian.org>  Mon, 07 Jun 2010 08:04:43 +1000
+
+digikam (2:1.2.0-4ubuntu2) maverick; urgency=low
+
+  * Rebuild for libmarblewidget4 -> libmarblewidget10 transition
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Wed, 09 Jun 2010 03:48:41 +0200
+
+digikam (2:1.2.0-4ubuntu1) maverick; urgency=low
+
+  * Merge with Debian, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Enable Nepomuk support in Digikam
+      + Add shared-desktop-ontologies to build depends
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Sat, 05 Jun 2010 18:38:57 +0200
 
 digikam (2:1.2.0-4) unstable; urgency=low
 
@@ -575,12 +916,65 @@ digikam (2:1.2.0-1) experimental; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Wed, 07 Apr 2010 19:39:11 +1000
 
+digikam (2:1.2.0-0ubuntu3) maverick; urgency=low
+
+  * Update build-deps for libkipi-dev, libkexiv2-dev, libkdcraw-dev to new
+    package names
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 31 May 2010 12:05:11 +0000
+
+digikam (2:1.2.0-0ubuntu2) lucid; urgency=low
+
+  * Add kubuntu_01_fix_crash_startup_in_ratingwidget.diff (LP: #565604)
+  * Add quilt to build-depends
+  * Add include /usr/share/cdbs/1/rules/patchsys-quilt.mk in debian/rules
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Sun, 18 Apr 2010 11:06:03 +0200
+
+digikam (2:1.2.0-0ubuntu1) lucid; urgency=low
+
+  * New upstream release (LP: #560576)
+  * Remove all patches, fixed upstream
+    - Remove quilt build-depend
+
+ -- Christian Mangold <neversfelde@ubuntu.com>  Fri, 09 Apr 2010 21:30:01 +0200
+
 digikam (2:1.1.0-1+snapshots) UNRELEASED; urgency=low
 
   * Special build for experimental-snapshots
   * Build-Depends: libkipi-dev libkdcraw-dev
 
  -- Mark Purcell <msp@debian.org>  Sat, 06 Mar 2010 17:40:16 +1100
+
+digikam (2:1.1.0-1ubuntu2) lucid; urgency=low
+
+  * Enable Nepomuk support in Digikam
+    - Add shared-desktop-ontologies to build depends
+
+ -- Luka Renko <lure@ubuntu.com>  Tue, 09 Feb 2010 15:32:01 +0100
+
+digikam (2:1.1.0-1+snapshots) UNRELEASED; urgency=low
+
+  * Special build for experimental-snapshots
+  * Build-Depends: libkipi-dev libkdcraw-dev
+
+ -- Mark Purcell <msp@debian.org>  Sat, 06 Mar 2010 17:40:16 +1100
+
+digikam (2:1.1.0-1ubuntu1) lucid; urgency=low
+
+  * New upstream release:
+    - Rename in BQM fails with multi dot names (LP: #501135)
+    - Add collection with similar name fails (LP: #500581)
+    - Add SMB folder error message (LP: #350280)
+    - Zoom indicators indicate wrong magnification (LP: #510346)
+  * Merge with Debian, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Build-depend on libkipi7-dev, libkexiv2-8-dev and
+      libkdcraw8-dev (KDE 4.3 -> 4.4)
+    - Build-depend on libmarble-dev (was disabled temporarily
+      in Debian due to 4.3.4 regression)
+
+ -- Luka Renko <lure@ubuntu.com>  Thu, 04 Feb 2010 07:46:57 +0100
 
 digikam (2:1.1.0-1) unstable; urgency=low
 
@@ -597,6 +991,16 @@ digikam (2:1.1.0-1) unstable; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Tue, 02 Feb 2010 18:04:57 +0100
 
+digikam (2:1.0.0-1ubuntu1) lucid; urgency=low
+
+  * Merge with Debian, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Build-depend on libkipi7-dev, libkexiv2-8-dev and
+      libkdcraw8-dev (KDE 4.3 -> 4.4)
+  * Build-depend on liblqr-1-0-dev: now in main (LP: #493508)
+
+ -- Luka Renko <lure@ubuntu.com>  Tue, 22 Dec 2009 21:38:14 +0100
+
 digikam (2:1.0.0-1) unstable; urgency=low
 
   * New upstream release
@@ -610,6 +1014,21 @@ digikam (2:1.0.0-1) unstable; urgency=low
 
  -- Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>  Mon, 21 Dec 2009 21:27:10 +0100
 
+digikam (2:1.0.0~rc-1ubuntu2) lucid; urgency=low
+
+  * Change build-dep on libkipi6-dev, libkexiv2-7-dev, and libkdcraw7-dev to
+    libkipi7-dev, libkexiv2-8-dev, and libkdcraw8-dev (KDE 4.3 -> 4.4)
+
+ -- Scott Kitterman <scott@kitterman.com>  Wed, 09 Dec 2009 10:42:42 -0500
+
+digikam (2:1.0.0~rc-1ubuntu1) lucid; urgency=low
+
+  * Merge with Debian, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Remove liblqr-1-0-dev from build-deps, not in main
+
+ -- Luka Renko <lure@ubuntu.com>  Sun, 06 Dec 2009 19:35:35 +0100
+
 digikam (2:1.0.0~rc-1) unstable; urgency=low
 
   * New upstream release
@@ -620,11 +1039,35 @@ digikam (2:1.0.0~rc-1) unstable; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Wed, 02 Dec 2009 18:43:31 +1100
 
+digikam (2:1.0.0~beta6-1ubuntu2) lucid; urgency=low
+
+  * Rebuild against Qt 4.6 rc 1, which is binary incompatible with 4.6
+    beta
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Tue, 24 Nov 2009 08:59:50 +0000
+
+digikam (2:1.0.0~beta6-1ubuntu1) lucid; urgency=low
+
+  * Merge with Debian, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Remove liblqr-1-0-dev from build-deps, not in main
+
+ -- Luka Renko <lure@ubuntu.com>  Thu, 12 Nov 2009 18:02:13 +0100
+
 digikam (2:1.0.0~beta6-1) unstable; urgency=low
 
   * New upstream release 
 
  -- Mark Purcell <msp@debian.org>  Tue, 10 Nov 2009 08:05:18 +1100
+
+digikam (2:1.0.0~beta5-1ubuntu1) karmic; urgency=low
+
+  * New upstream release (LP: #445232)
+  * Merge with Debian, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Remove liblqr-1-0-dev from build-deps, not in main
+
+ -- Luka Renko <lure@ubuntu.com>  Wed, 07 Oct 2009 07:11:34 +0200
 
 digikam (2:1.0.0~beta5-1) unstable; urgency=low
 
@@ -651,6 +1094,14 @@ digikam (2:1.0.0~beta4-1) unstable; urgency=low
 
  -- Mark Purcell <msp@debian.org>  Tue, 01 Sep 2009 17:53:38 +1000
 
+digikam (2:1.0.0~beta3-1ubuntu1) karmic; urgency=low
+
+  * Merge with debian unstable, remaining changes:
+    - Export .pot name and copy to plugins in debian/rules
+    - Remove liblqr-1-0-dev from build-deps, not in main
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Sun, 26 Jul 2009 22:11:35 +0200
+
 digikam (2:1.0.0~beta3-1) unstable; urgency=low
 
   * New upstream release
@@ -666,6 +1117,20 @@ digikam (2:1.0.0~beta2-1) unstable; urgency=low
 
  -- Fathi Boudra <fabo@debian.org>  Thu, 09 Jul 2009 10:09:06 +0200
 
+digikam (2:1.0.0~beta1-1ubuntu2) karmic; urgency=low
+
+  * Remove liblqr-1-0-dev from build-deps, not in main
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Tue, 23 Jun 2009 14:42:23 +0200
+
+digikam (2:1.0.0~beta1-1ubuntu1) karmic; urgency=low
+
+  * Merge with debian unstable, remaining changes:
+    - export .pot name and copy to plugins in debian/rules
+    - digikam.install: add /usr/bin/cleanup_digikamdb
+
+ -- Alessandro Ghersi <alessandro-ghersi@kubuntu.org>  Fri, 19 Jun 2009 19:56:52 +0200
+
 digikam (2:1.0.0~beta1-1) unstable; urgency=low
 
   * New upstream release
@@ -677,6 +1142,15 @@ digikam (2:1.0.0~beta1-1) unstable; urgency=low
     added. Thks ubuntu
 
  -- Mark Purcell <msp@debian.org>  Wed, 10 Jun 2009 22:17:30 +1000
+
+digikam (2:0.10.0-2ubuntu1) karmic; urgency=low
+
+  * Merge with Debian, remaining changes:
+   - export .pot name and copy to plugins in debian/rules
+   - Move showfoto data directory to showfoto package. (edit showfoto.install and digikam.install)
+     Conflicts/Replaces added to take care of transition.
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Fri, 05 Jun 2009 16:16:01 +0100
 
 digikam (2:0.10.0-2) unstable; urgency=low
 
@@ -690,6 +1164,35 @@ digikam (2:0.10.0-2) unstable; urgency=low
   * Upload to unstable - KDE4 is here ;-) 
 
  -- Mark Purcell <msp@debian.org>  Tue, 07 Apr 2009 19:35:12 +1000
+
+digikam (2:0.10.0-1ubuntu3) jaunty; urgency=low
+
+  * In debian/rules add KUBUNTU_DESKTOP_POT and common-install-prehook-impl
+    to copy desktop translations template file to imageplugins too
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 08 Apr 2009 14:40:55 +0100
+
+digikam (2:0.10.0-1ubuntu2) jaunty; urgency=low
+
+  * Fix installation path for application icons (digikam/showfoto)
+    Install app icons in /usr/share/icons/hicolor (KDE bug 187748).
+    This fixes missing icons in non-KDE desktops (GNOME, XFCE).
+    Added debian/patches/01-fix-apps-icons-path.patch
+  * Move showfoto data directory to showfoto package.
+    Conflicts/Replaces added to take care of transition.
+
+ -- Luka Renko <lure@ubuntu.com>  Sun, 22 Mar 2009 20:33:46 +0100
+
+digikam (2:0.10.0-1ubuntu1) jaunty; urgency=low
+
+  * Remaining changes to Debian (committed to Debian SVN):
+    - Depends: kde-icons-oxygen dropped (included through kdelibs)
+    - Recommends: kipi-plugins added (provides major functionality)
+    - debian/digikamthemedesigner.manpage: add missing manpage
+  * Remaning change to Debian:
+    - Section: devel for -dbg package (no debug in Jaunty)
+
+ -- Luka Renko <lure@ubuntu.com>  Tue, 17 Mar 2009 23:07:56 +0100
 
 digikam (2:0.10.0-1) experimental; urgency=low
 
