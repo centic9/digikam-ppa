@@ -1,0 +1,1205 @@
+<sect2
+>                                      <title
+>Specialeffekter (filter)</title>
+<sect3 id="infrared">
+<sect3info>
+
+<title
+>Simulera infraröd film</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email
+></address
+></affiliation>
+    </author
+>  
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Filtret <emphasis
+>Infraröd film</emphasis
+> i &digikam; simulerar traditionellt infrarött filmmaterial. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Att simulera klassiskt infrarött filmmaterial (effekten utförs i svartvitt) ger en intressant fjärmande effekt som till och med är starkare och mer dramatisk än rena svartvita konverteringar. Kontrast och en abstrakt känsla förbättras, vilket kan stödja fotografens uttrycksfullhet som artist. Det är som att ta en bild i svartvitt med ett rödfilter på kameralinsen. Områden som reflekterar lite rött ljus, t.ex. himlen, visas som mörka områden med låg täthet. Områden som ger utmärkt reflektion av rött ljus, t.ex. de flesta typer av grönt lövverk, blir områden med hög täthet. Snölandskap blir verkligt dramatiska. </para>
+
+<para
+>Algoritmen är baserad på metoden i handledningen 'Simulate Infrared Film' från webbplatsen GimpGuru.org, tillgänglig på <ulink url="http://www.gimpguru.org/Tutorials/SimulatedInfrared"
+>denna webbadress</ulink
+>. Filtret försöker reproducera den berömda infraröda filmen Ilford™ SFX200. Filmen har känslighetsområdet ISO 200-800. </para>
+
+<sect4 id="using-infrared">
+<title
+>Använda det infraröda filtret</title>
+
+<para
+>Den vänstra delen av dialogfönstret låter dig välja ett område som ska visas i förhandsgranskningsdelen. Flytta omkring den röda rektangeln med musen för att se effekten på olika delar av bilden. </para>
+
+<para
+>Den nedre delen tillhandahåller två kontroller. Filmkorn och ISO känslighet. Markera rutan <guilabel
+>Lägg till filmkorn</guilabel
+> om du vill simulera den korniga strukturen från en högkänslig film. Skjutreglaget för ISO-nivå ändrar mängden filmkorn som läggs till och överflödet grön färg (klorofyll i naturen) i konverteringsblandningen. Gröna ängar blir vita som snö. Prova det. </para>
+
+<note
+><para
+>Eftersom filtret blandar färgkanaler för att reproducera infraröd film (särskilt den gröna kanalen), är det ingen mening med att försöka simulera infrarödeffekten med ett svartvitt originalfotografi, eftersom färginformation saknas. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-infrared">
+<title
+>Filtret under arbete</title>
+
+<para
+>Det här är ett exempel på effekten infraröd film på en färgbild av ett landskap tagen i Nya Zealand. Originalbilden är (1) och den konverterade bilden är (2). Filmkänsligheten använd för att simulera den infraröda filmen är ISO 400. Högre ISO-värden skapar en sorts aura i dagrarna. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;infraredpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Infraröd filtret under arbete</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="filmgrain">
+<sect3info>
+
+<title
+>Filmkorn</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Filtret <emphasis
+>Filmkorn</emphasis
+> i &digikam; reproducerar filmkornighet för traditionell teknik med högkänsliga filmer. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Filtret <emphasis
+>Filmkorn</emphasis
+> i &digikam; är ett enkelt verktyg för att producera filmkornighet på bilderna som är känd från klassiska högkänsliga filmmaterial, som till exempel den berömda svartvita Kodak Trx-X. För att öka filmens känslighet använde tillverkare större silverkorn i fotoemulsionen. </para>
+
+<para
+>Filmkornighetseffekten ger fotot en särskild stämning eller verkar transportera det i tiden. Den behandlade bilden erhåller en tidlös atmosfär, frånkopplat från det dagliga livet. Om du vill ha det där gryniga, konstnärliga, gatubildkorniga filmutseendet, särskilt för monokromatiska foton, använd då det här filtret. </para>
+
+<sect4 id="using-filmgrain">
+<title
+>Använda filmkorninghetsfiltret</title>
+
+<para
+>Det finns en skjutkontroll kalibrerad i ISO-känslighet för att styra kornintensiteten och granulariteten. Standardvärdet är inställt till ISO-2400, även om högre värden ofta krävs. Om du vill ha ännu mer kornighet, använd filtret flera gånger. </para>
+
+</sect4>
+
+<sect4 id="inaction-filmgrain">
+<title
+>Filtret under arbete</title>
+
+<para
+>Det här är ett exempel på en filmkornighetseffekt använd på en svartvit bild. Den ursprungliga bilden är (1) och den filtrerade bilden är (2). Filmkänsligheten som används för att simulera filmens kornighet är ISO-1600. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;filmgrainpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Filmkornsfiltret under arbete</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="oilpaint">
+<sect3info>
+
+<title
+>Oljemålning</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Filtret <emphasis
+>Oljemålning</emphasis
+> i &digikam; ger bilden utseendet hos en oljemålning. Det använder en algoritm med copyright av Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Filtret <emphasis
+>Oljemålning</emphasis
+> i &digikam; hjälper till att ge digitala bilder ett fint oljemålningsliknande utseende. Bilder av natur och stilleben passar bra för den här effekten. </para>
+
+<sect4 id="using-oilpaint">
+<title
+>Använda oljemålningsfiltret</title>
+
+<para
+>Det finns två skjutkontroller för att styra effekten. Den övre kontrollen väljer <guilabel
+>Penselstorlek</guilabel
+> mellan 1 och 5. Större penslar passar bättre för större bilder. Den nedre, <guilabel
+>Utjämning</guilabel
+>, styr jämnheten, eller sett från andra hållet, ojämnheten. </para>
+
+</sect4>
+
+<sect4 id="inaction-oilpaint">
+<title
+>Oljemålningsfiltret under arbete</title>
+
+<para
+>Det här är ett exempel på oljemålningsfiltereffekten. Den ursprungliga bilden är (1) och den konverterade bilden är (2). <guilabel
+>Penselstorlek</guilabel
+> för den här 640 bildpunkter stora bilden är 1, och <guilabel
+>Utjämning</guilabel
+> är 17. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;oilpaintpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Förhandsgranskning av oljemålningseffekten</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="charcoal">
+<sect3info>
+
+<title
+>Kolteckning</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Filtret <emphasis
+>Kolteckna</emphasis
+> i &digikam; är ett effektfilter som skapar ett resultat som liknar en kolteckning. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Filtret <emphasis
+>Kolteckna</emphasis
+> i &digikam; använder toningar med färg och ljusstyrka för att skapa en kolteckning i gråskala. Linjerna som definierar kanterna i bilden blir förstärkta. Bilder med toningar som ändras långsamt är inte ideala för effekten. Det är till hjälp att tänka sig vilken scen man skulle se ut för att själv göra en teckning för hand, när bilden att utgå från ska väljas. </para>
+
+<sect4 id="using-charcoal">
+<title
+>Använda kolteckningsfiltret</title>
+
+<para
+>Det finns två skjutkontroller för att styra effekten med en skala från 1 till 100. Den övre skjutkontrollen väljer pennans storlek, medan den andra skjutkontrollen ger möjlighet att justera kontrasten (jämnheten). </para>
+
+</sect4>
+
+<sect4 id="inaction-charcoal">
+<title
+>Kolteckningsfiltret under arbete</title>
+
+<para
+>Det här är ett exempel på kolteckningsfiltret. Den ursprungliga bilden är (1) och den behandlade bilden är (2). Standardvärdena 30 och 10 användes. Resultatet kan förbättras genom att justera ljusstyrkenivåerna. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;charcoalpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Kolteckningsfiltret under arbete</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="emboss">
+<sect3info>
+
+<title
+>Skapa reliefbild</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Filtret <emphasis
+>Relief</emphasis
+> i &digikam; skulpterar bilden till tre dimensioner som om den var tryckt i vax. Det använder en algoritm med copyright av Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info
+>     <title
+>Inledning</title>
+
+<para
+>Filtret <emphasis
+>Relief</emphasis
+> i &digikam; är ett snabbt verktyg för att rita upp bilder med en tredimensionell effekt. Den fungerar särskilt bra på bilder med en enkelt struktur, där färgerna inte är det viktigaste innehållet. Filtret använder skillnader mellan färger och ljusstyrka för att konvertera bilden till ett grått, månliknande landskap upplyst från klockan 10. </para>
+
+<sect4 id="using-emboss"
+>      <title
+>Använda relieffiltret</title>
+
+<para
+><guilabel
+>Djup</guilabel
+> gör det möjligt att definiera filtreringens kontrast. Värdet 30 (10 %) är normalt. </para>
+
+</sect4>
+
+<sect4 id="inaction-emboss"
+>   <title
+>Relieffiltret under arbete</title>
+
+<para
+>Det här är ett exempel på relieffiltret. Den ursprungliga bilden är (1) och den konverterade bilden är (2). <guilabel
+>Djup</guilabel
+> som använts är 10 %. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;embosspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Relieffiltret under arbete</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="distortionfx">
+<sect3info>
+
+<title
+>Förvrängningseffekt</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+<para
+><emphasis
+>Förvrängningseffekt</emphasis
+> i &digikam; är en serie förvrängningseffekter för digitala stillbilder. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Du kan ändra ett vanligt fotografi till ett konstverk lämpligt för inramning med förvrängningsåtgärder med det här filteruppsättningen. Den använder algoritmer med copyright av Pieter Voloshyn. </para>
+
+<sect4 id="using-distortionfx">
+<title
+>Använda filtret</title>
+
+<para
+>Här är tillgängliga förvrängningseffekter: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Typ</entry>
+      <entry
+>Förhandsgranskning</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Fiskögon</guilabel
+>: Förvränger fotografiet omkring en tredimensionell sfärisk form för att reproducera den vanliga fotografiska effekten 'fisköga'. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_fisheyes.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Virvel</guilabel
+>: Snurrar fotografiet för att skapa ett virvelmönster. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_twirl.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Cylindrisk horisontell</guilabel
+>: Förvränger fotografiet omkring en horisontell cylinder. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Cylindrisk vertikal</guilabel
+>: Förvränger fotografiet omkring en vertikal cylinder. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Cylindrisk h/v</guilabel
+>: Förvränger fotografiet omkring två cylindrar, en horisontell och en vertikal. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderhv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Karikatyr</guilabel
+>: Förvränger fotografiet med inversen av effekten 'fiskögon'. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_caricature.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Flera hörn</guilabel
+>: Delar upp fotografiet i ett mönster med flera hörn. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_corners.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Horisontella vågor</guilabel
+>: Förvränger fotografiet med horisontella vågor. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+            
+   <row>
+      <entry
+><guilabel
+>Vertikala vågor</guilabel
+>: Förvränger fotografiet med vertikala vågor. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Blockvågor 1</guilabel
+>: Delar upp bilden i celler och får den att se ut som om den syns genom glasblock. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Blockvågor 2</guilabel
+>: Som Blockvågor 1 men med en annan version av glasblocksförvrängning. </entry>
+               
+      <entry>
+         <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Cirkulära vågor 1</guilabel
+>: Förvränger fotografiet med cirkulära vågor. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Cirkulära vågor 2</guilabel
+>: En annan variation på effekten med cirkulära vågor. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Polära koordinater</guilabel
+>: Konverterar fotografiet från rektangulära till polära koordinater. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_polarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para
+>      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Omvända polära koordinater</guilabel
+>: Inversen av effekten Polära koordinater. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_unpolarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Ruta</guilabel
+>: Delar upp fotografiet i fyrkantiga rutor och flyttar omkring dem slumpmässigt inne i bilden. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_tiles.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+      
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Vissa effekter kan ta lång tid att utföra, och orsaka hög processorlast. Du kan alltid avbryta en effekt genom att trycka på knappen <guilabel
+>Avbryt</guilabel
+> under uppritning av förhandsgranskningen. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-distortionfx">
+<title
+>Förvrängningsfiltret under arbete</title>
+
+<para
+>Dialogrutan för verktyget förvrängningseffekt under arbete är tillgänglig nedan. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;distortionfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Förhandsgranskning i dialogrutan för verktyget förvrängningseffekt</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="blurfx">
+<sect3info>
+
+<title
+>Oskärpeeffekt</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_punkt_gilles_snabela_gmail_punkt_com</email
+></address
+></affiliation>
+    </author
+>  
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+><emphasis
+>Oskärpeeffekt</emphasis
+> i &digikam; är en serie oskärpeeffekter för digitala stillbilder. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+>Du kan transformera ett vanligt fotografi till ett konstverk lämpat för inramning med oskärpeoperationer genom att använda filteruppsättningen. Den använder algoritmer med copyright av Pieter Voloshyn. </para>
+
+<sect4 id="using-blurfx">
+<title
+>Använda oskärpeeffekter</title>
+
+<para
+>Detta är tillgängliga oskärpeeffekter: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Typ</entry>
+      <entry
+>Förhandsgranskning</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Zoomoskärpa</guilabel
+>: Gör bilden oskarp längs radiella linjer med början i en angiven centrumpunkt. Detta simulerar oskärpan hos en kamera med zoomobjektiv, och ger därigenom fotografiet ett dynamiskt uttryck som ofta syns i sportfotografering. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_zoomblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Radiell oskärpa</guilabel
+>: Gör bilden oskarp genom att rotera bildpunkterna omkring den angivna centrumpunkten. Detta simulerar oskärpan hos en roterande kamera. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_radialblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Avståndsoskärpa</guilabel
+>: Gör bilden oskarp genom att använda effekten av en ofokuserad kameralins. Motivet verkar dra sig bort mot bakgrunden. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_farblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Rörelseoskärpa</guilabel
+>: Gör bilden oskarp genom att flytta bildpunkterna horisontellt. Detta simulerar oskärpan från en linjärt förflyttad kamera, dvs. som en bild tagen från en bil eller ett tåg. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_motionblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Fokuseringsoskärpa</guilabel
+>: Gör bildens hörn oskarpa för att reproducera astigmatisk förvrängning hos en lins. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_focusblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Mjukare oskärpa</guilabel
+>: Gör bilden mjukt oskarp i mörka toner och starkt i dagrarna. Det ger fotografier en drömlik och glansig mjuk fokuseringseffekt (Hamilton-effekt). Det är idealiskt för att skapa romantiska porträtt, glamorösa fotografier eller för att ge fotografier en varm och finstämd glöd. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_softenerblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Skakningsoskärpa</guilabel
+>: Gör bilden oskarp genom att flytta bildpunkterna slumpmässigt, för att simulerar oskärpan från en kamera som rör sig godtyckligt. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_shakeblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Smart oskärpa</guilabel
+>: Hittar färgkanterna i bilden och gör dem oskarpa utan att smutsa ner resten av bilden. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_smartblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>      
+
+   <row>
+      <entry
+><guilabel
+>Frostat glas</guilabel
+>: Gör bilden oskarp genom att slumpmässigt fördela ljus som kommer genom att frostat glas. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_frostglass.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+
+   <row>
+      <entry
+><guilabel
+>Mosaik</guilabel
+>: Delar upp fotografiet i rektangulära celler och skapar därefter om det genom att fylla i cellerna med medelvärdet av bildpunkterna. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_mosaic.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+               
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Vissa effekter kan ta lång tid att utföra, och orsaka hög processorlast. Du kan alltid avbryta en effekt genom att trycka på knappen <guilabel
+>Avbryt</guilabel
+> under uppritning av förhandsgranskningen. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blurfx">
+<title
+>Oskärpeeffekter under arbete</title>
+
+<para
+>Ett exempel på effektfiltret för oskärpa under arbete visas nedan. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blurfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Förhandsgranskningen i oskärpeeffektfiltrets dialogruta</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="raindrops">
+<sect3info>
+
+<title
+>Regndroppar</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard snabela kulzer punkt net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Filtret <emphasis
+>Regndroppar</emphasis
+> i &digikam; är ett bildeffektfilter som lägger till vackra regndroppar på en bild. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inledning</title>
+
+<para
+><emphasis
+>Regndroppar</emphasis
+> är ett trevligt litet verktyg för att lägga till regndroppar på dina bilder. Det återger förstås din bild med ett sorts vått utseende. Det använder en algoritm med copyright av Pieter Voloshyn. </para>
+
+<sect4 id="using-raindrops">
+<title
+>Använda regndroppsfiltret</title>
+
+<para
+>Tre skjutreglage ger dig kontroll över effektfiltret: </para>
+
+<para
+><guilabel
+>Droppstorlek</guilabel
+> tillåter förstås att ändra storleken på dropparna. Eftersom droppstorleken inte automatiskt skalas med bildstorleken, är det ofta nödvändigt att reducera storleken för små bilder. <guilabel
+>Antal</guilabel
+> ändra antalet och tätheten hos dropparna. <guilabel
+>Fisköga</guilabel
+> ändrar den optiska effekten av dropparna över bilden. </para>
+
+<note
+><para
+>Du kan hålla ett område rent från regndroppar med verktyget <guilabel
+>Markera</guilabel
+> i &digikam;s bildeditor. Att markera ett område att undvika (till exempel ett ansikte) innan filtret <emphasis
+>Regndroppar</emphasis
+> startas, håller det fritt från regndroppar. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-raindrops">
+<title
+>Regndroppsfiltret under arbete</title>
+
+<para
+>Det här är ett exempel på regndroppsfiltret. Den ursprungliga bilden (1) visar en stilla solnedgång, den förändrade bilden (2) visar en solnedgång efter en åskstorm. Förvalda värden har använts för exemplet. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;raindropspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Förhandsgranskning av regndroppseffekten</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

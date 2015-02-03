@@ -1,0 +1,1767 @@
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+--><sect2 id="editor-correct-tools">
+  <title
+>Miglioramento delle immagini</title>
+  <sect3 id="sharpening">
+    <sect3info>
+      <title
+>Nitidezza delle immagini</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard@kulzer.net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam; fornisce tre diversi strumenti per la nitidezza, ciascuno con i suoi <link linkend="comparison-refocus"
+>meriti</link
+> i diversi ambiti. <itemizedlist>
+            <listitem>
+              <para
+><link linkend="using-adjustsharpness"
+>Aumenta la nitidezza</link
+> è uno strumento di aumento della nitidezza tradizionale, molto facile e veloce, ma può facilmente produrre immagini sgranate, soprattutto nelle aree scure. </para>
+            </listitem>
+            <listitem>
+              <para
+>La <link linkend="using-unsharp"
+>maschera di contrasto</link
+> funziona sul contrasto ai bordi per far sembrare più nitida un'immagine, ma in realtà non aumenta affatto la nitidezza: funziona piuttosto psico-visivamente. Può essere usata per rimuovere la foschia atmosferica, e in questo caso fa davvero un ottimo lavoro. L'algoritmo è stato preso da Gimp, ed è opera di Winston Chang. </para>
+            </listitem>
+            <listitem>
+              <para
+><link linkend="refocus"
+>Rimessa a fuoco</link
+> è probabilmente il migliore dei tre perché migliora davvero la nitidezza. È un po' più complicato applicarlo perché ha diversi parametri da regolare. </para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Rimessa a fuoco</keyword>
+        <keyword
+>Maschera di contrasto</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introduzione</title>
+    <para
+>Le fotografie sfocate, oltre alla maggior parte delle immagini digitalizzate, hanno bisogno di una correzione della nitidezza. Ciò è dovuto al processo di digitalizzazione, che deve tagliare un continuo di colori in punti con colori leggermente diversi: gli elementi più sottili della frequenza di campionamento saranno fusi in un colore uniforme. Quindi, i bordi netti sono resi un po' sfocati. Lo stesso fenomeno appare quando si stampano dei punti sulla carta. Le macchine fotografiche reflex hanno ancora più bisogno di aumentare regolarmente la nitidezza rispetto a quelle più semplici. </para>
+    <para
+>Mentre le immagini JPEG hanno un po' di aumento della nitidezza interno alla macchina fotografica, le immagini in formato grezzo lo richiedono sempre durante la loro elaborazione. </para>
+    <para
+>Alcuni scanner applicano un filtro di aumento della nitidezza durante la scansione. Vale la pena di disattivarlo in modo da mantenere il controllo dell'immagine. </para>
+    <sect4 id="using-adjustsharpness">
+      <title
+>Regolazione della nitidezza</title>
+      <anchor id="sharpentool.anchor"/>
+    </sect4>
+      <sect4>
+        <title
+>Togliere la sfocatura di una fotografia</title>
+        <para
+>Se il fuoco della fotocamera non era impostato correttamente o se la camera si muoveva durante lo scatto il risultato è una foto sfocata. Se la sfocatura è tanta, probabilmente non sarai in grado di farci molto con qualunque tecnica. Se è poca, potresti essere in grado di migliorare l'immagine. Molte fotocamere SLR applicano meno elaborazione all'immagine rispetto alle compatte (che tendono ad aumentare artificialmente il contrasto per far risaltare le immagini). Questo tipo leggero di sfocatura può essere facilmente migliorato con gli strumenti.  </para>
+        <para
+>In alcune situazioni, potresti essere in grado di avere risultati utili attraverso il contrasto della fotografia usando lo strumento nitidezza tramite il menu <menuchoice
+> <guimenu
+>Migliora</guimenu
+> <guimenuitem
+>Aumenta la nitidezza...</guimenuitem
+> </menuchoice
+> . </para>
+        <example>
+          <title
+>Lo strumento Aumenta la nitidezza in azione</title>
+          <screenshot>
+            <screeninfo
+>Lo strumento Aumento la nitidezza in azione</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="&path;editorsharpenplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+        <para
+>Tuttavia dovresti esser molto attento con questo, o i risultati non sembreranno molto naturali: il rendere nitido aumenta la nitidezza apparente dei bordi nella foto, ma amplifica anche il rumore. Generalmente, la tecnica più utile per aumentare la nitidezza di una foto è lo strumento Rimessa a fuoco.  Puoi accedervi dal menu <menuchoice
+> <guimenu
+>Migliora</guimenu
+> <guimenuitem
+>Rimessa a fuoco</guimenuitem
+> </menuchoice
+>. Dai un'occhiata a <link linkend="refocus"
+>Rimessa a fuoco</link
+> per maggiori informazioni e confronti tra tutte le tecniche di aumento di nitidezza. </para>
+      </sect4>
+      <sect4>
+        <title
+>Riduci la grana in una fotografia</title>
+        <para
+>Quando scatti in condizioni di scarsa illuminazione o con un tempo di esposizione basso. la fotocamera non ottiene abbastanza dati per stimare bene il colore vero ad ogni pixel e di conseguenza la foto risultante sembra sgranata. Tu puoi &quot;addolcire &quot; la grana attraverso una sfocatura dell'immagine, ma allora perderai di nitidezza. Probabilmente, l'approccio migliore se la grana non è troppo cattiva, è di usare il filtro <link linkend="noisereduction"
+>Riduzione dei disturbi</link
+>: puoi accedervi dal menu <menuchoice
+> <guimenu
+>Migliora</guimenu
+> <guimenuitem
+>Riduzione dei disturbi</guimenuitem
+> </menuchoice
+>. </para>
+      </sect4>
+      <sect4>
+        <title
+>Sfocare una fotografia</title>
+        <para
+>Alcune volte ti si presenta il problema opposto: un'immagine è troppo incisiva. La soluzione è di sfocare un po': fortunatamente sfocare un'immagine è molto più facile che aumentarne la nitidezza. Seleziona lo <link linkend="using-blurfilter"
+>strumento sfoca</link
+> con la voce di menu <menuchoice
+> <guimenu
+>Migliora</guimenu
+> <guimenuitem
+>Sfoca</guimenuitem
+> </menuchoice
+> e gioca con il livello. La finestra di anteprima nella parte destra della finestra di dialogo mostra l'effetto complessivo sulla tua foto. </para>
+      </sect4>
+    <sect4 id="using-unsharp">
+      <title
+>Il filtro di maschera di contrasto</title>
+      <note>
+        <para
+>Il filtro di maschera di contrasto è uno strumento eccellente per rimuovere la foschia dalle tue fotografie, vedi <ulink url="http://www.gimpguru.org/Tutorials/RemovingHaze"
+>questo URL</ulink
+> per una dimostrazione. </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;unsharpdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Finestra della maschera di contrasto</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Il pannello dell'immagine e l'anteprima dell'originale ti aiutano a scorrere l'immagine. La finestra dell'anteprima mostra il risultato del filtro usando le impostazioni attuali. </para>
+      <para
+>Ci sono due parametri importanti, <guilabel
+>Raggio</guilabel
+> e <guilabel
+>Quantità</guilabel
+>. I valori predefiniti spesso funzionano piuttosto bene, quindi dovresti provare prima quelli. Aumentare il <guilabel
+>Raggio</guilabel
+> o la <guilabel
+>Quantità</guilabel
+> aumenta la forza dell'effetto. Non farti trasportare, però: se rafforzi troppo la maschera di contrasto, amplificherà i disturbi nell'immagine e creerà l'impressione di rilievi vicino ai bordi netti. </para>
+      <para
+>Il <guilabel
+>Raggio</guilabel
+> ti permette di impostare quanti pixel saranno influenzati dall'aumento della nitidezza su entrambi i lati di un bordo. Le immagini ad alta risoluzione permettono un raggio maggiore. Ti conviene sempre aumentare la nitidezza di un'immagine nella sua risoluzione definitiva. </para>
+      <para
+>Il controllo della <guilabel
+>Quantità</guilabel
+> è la percentuale di differenza tra l'originale e l'immagine sfocata che viene riaggiunta nell'originale. Ti permette di impostare la forza dell'aumento di nitidezza. </para>
+      <para
+>Il controllo della <guilabel
+>Soglia</guilabel
+> è una frazione del valore RGB massimo necessario per applicare la quantità di differenza. Ti permette di impostare la differenza minima in valori di pixel che indica un bordo dove si dovrebbe applicare l'aumento della nitidezza. In questo modo, puoi proteggere aree di transizione morbida dei toni dall'aumento della nitidezza, ed evitare la creazione di macchie nelle superfici di facce, cielo o acqua. </para>
+    </sect4>
+      <sect4 id="inaction-unsharp">
+        <title
+>La maschera di contrasto in azione</title>
+        <para
+>Questo è un esempio di come la maschera di contrasto può cambiarti la vita. L'immagine originale è (1) e l'immagine corretta è (2). La maschera di contrasto è stata applicata con <guilabel
+>Raggio</guilabel
+> = 6,0, <guilabel
+>Quantità</guilabel
+> = 0,5, e <guilabel
+>Soglia</guilabel
+> = 0,0. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;unsharppreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Lo strumento maschera di contrasto in azione</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+    <sect4 id="refocus">
+      <title
+>Rimessa a fuoco di una fotografia</title>
+      <para
+>La <emphasis
+>rimessa a fuoco</emphasis
+> di &digikam; è uno strumento per rimettere a fuoco un'immagine migliorandone la nitidezza. Usa l'algoritmo di <emphasis
+>deconvoluzione</emphasis
+> che è copyright di Ernst Lippe. </para>
+      <para
+>Questo strumento cerca di &quot;rimettere a fuoco&quot; un'immagine annullando la sfocatura. Ciò è meglio di tentare semplicemente di aumentarne la nitidezza. Usa una tecnica nota come <emphasis
+>filtro FIR di Wiener</emphasis
+>. La tecnica tradizionale per aumentare la nitidezza delle immagini è usare la maschera di contrasto. La rimessa a fuoco produce di solito risultati migliori della maschera di contrasto. Avviala dal menu dell'editor di immagini <menuchoice
+><guimenu
+>Migliora</guimenu
+><guimenuitem
+>Aumenta la nitidezza</guimenuitem
+><guimenuitem
+>Rimessa a fuoco</guimenuitem
+></menuchoice
+>. </para>
+      <para
+>La tecnica di rimessa a fuoco funziona diversamente dalla <link linkend="using-unsharp"
+>maschera di contrasto</link
+>, ed è anche diversa dal <link linkend="using-adjustsharpness"
+>filtro di aumento della nitidezza</link
+>, i quali aumentano il contrasto dei bordi di un'immagine. La rimessa a fuoco, invece, inverte il processo con cui l'immagine è stata sfocata dal diaframma circolare della macchina fotografica. Questo metodo ti rende il più possibile dell'immagine originale &quot;a fuoco&quot;. La rimessa a fuoco usa un algoritmo di deconvoluzione molto potente che riotterrà i dati che sono stati persi. In termini scientifici, la sfocatura è normalmente il risultato di una convoluzione, e una deconvoluzione invertirà il processo; questo è esattamente quello che fa la rimessa a fuoco. Inoltre, la tecnica del filtro FIR permette di rimuovere molti disturbi e granularità che spesso vengono accentuati con tutti i filtri di aumento della nitidezza. </para>
+    </sect4>
+      <sect4 id="using-refocus">
+        <title
+>Usare lo strumento di rimessa a fuoco</title>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;refocusdialog.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Finestra di rimessa a fuoco</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+        <para
+>Il pannello dell'immagine e l'anteprima dell'originale ti aiutano a scorrere l'immagine. La finestra dell'anteprima mostra il risultato del filtro usando le impostazioni attuali. </para>
+        <para
+>Nella maggior parte dei casi (sfocatura da parte della macchina fotografica) l'immagine è stata rovinata da una convoluzione circolare, ma ci sono due convoluzioni disponibili: <itemizedlist
+><listitem
+><para
+>La convoluzione circolare: questa sparge ogni punto sorgente uniformemente su un piccolo disco di raggio fisso. Tecnicamente ciò descrive l'effetto di usare una lente (ideale) che non è correttamente messa a fuoco.</para
+></listitem
+><listitem
+><para
+>La convoluzione gaussiana: questa è matematicamente simile alla distribuzione normale, con la sua curva a campana. Viene causata da una sfocatura non naturale (a causa del software, per esempio). Da un punto di vista teorico, la giustificazione matematica per l'uso della convoluzione gaussiana è che quando applichi un gran numero di convoluzioni casuali indipendenti, il risultato si avvicinerà a una convoluzione gaussiana.</para
+></listitem
+></itemizedlist
+> Lo strumento di rimessa a fuoco supporta entrambe le convoluzioni, e anche miscele di queste. </para>
+        <para
+>In pratica, nella maggior parte dei casi la convoluzione circolare funziona molto meglio della gaussiana. La convoluzione gaussiana ha una coda molto lunga, quindi matematicamente il risultato della convoluzione dipende anche da pixel sorgente a una grande distanza dal pixel sorgente originale. L'inversa FIR di Wiener di una convoluzione gaussiana è nella maggior parte dei casi fortemente influenzata dai pixel sorgente a grandi distanze, e nella maggior parte dei casi ciò porta a risultati indesiderati. </para>
+        <para
+>Per impostare correttamente il filtro di deconvoluzione, l'estensione ha i parametri seguenti: <itemizedlist>
+            <listitem>
+              <para
+><guilabel
+>Nitidezza circolare</guilabel
+>: questo è il raggio del filtro di convoluzione circolare. È il parametro più importante per usare l'estensione. Per la maggior parte delle immagini il valore predefinito di 1 dovrebbe dare buoni risultati. Seleziona un valore più alto quando la tua immagine è molto sfocata.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Correlazione</guilabel
+>: aumentare la <guilabel
+>Correlazione</guilabel
+> potrebbe aiutare a ridurre gli artefatti. La correlazione può variare da zero a uno. I valori utili sono 0,5 e i valori vicini a 1, come 0,95 e 0,99. Usare un valore elevato per la correlazione ridurrà l'effetto di aumento della nitidezza dell'estensione.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Filtro dei disturbi</guilabel
+>: aumentare il <guilabel
+>Filtro dei disturbi</guilabel
+> aiuta a ridurre gli artefatti. I disturbi possono variare tra zero e uno, ma i valori superiori a 0,1 sono raramente utili. Quando il valore dei disturbi è troppo basso, per esempio zero, la qualità dell'immagine sarà pessima. Un valore utile è 0,03. Usare un valore elevato per il rumore sfocherà ulteriormente l'immagine.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Nitidezza gaussiana</guilabel
+>: questo è il raggio per il filtro di convoluzione gaussiana. Usa questo parametro quando la tua sfocatura è gaussiana (di solito a causa di un precedente filtraggio di sfocatura). Nella maggior parte dei casi dovresti impostare questo parametro a zero, perché crea dei fastidiosi artefatti. Quando usi valori diversi da zero, dovrai probabilmente aumentare anche i parametri della <guilabel
+>Correlazione</guilabel
+> o del <guilabel
+>Filtro dei disturbi</guilabel
+>.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Dimensione della matrice:</guilabel
+>: questo parametro determina la dimensione della matrice di trasformazione. Aumentare la <guilabel
+>Dimensione della matrice:</guilabel
+> potrebbe produrre risultati migliori, specialmente quando scegli valori elevati per la <guilabel
+>Nitidezza circolare</guilabel
+> o la <guilabel
+>Nitidezza gaussiana</guilabel
+>. Nota che l'estensione diverrà molto lento quando selezioni un valore elevato per questo parametro. Nella maggior parte dei casi dovresti selezionare un valore tra 3 e 10.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+>: sono usati per fare esattamente quello che i loro nomi descrivono. Qualsiasi parametro di rimessa a fuoco che hai impostato può essere salvato sul disco e caricato più tardi.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Valori predefiniti</guilabel
+>: questo pulsante reimposta tutte le impostazioni ai loro valori predefiniti.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <para
+>Sotto puoi vedere alcuni suggerimenti per aiutarti a lavorare con l'estensione di rimessa a fuoco: <itemizedlist>
+            <listitem>
+              <para
+>Preferibilmente, fai tutte le correzioni al taglio, al colore e alle curve di intensità sull'immagine prima di usare l'estensione.</para>
+            </listitem>
+            <listitem>
+              <para
+>Altrimenti dovresti usare questa estensione prima di effettuare qualsiasi altra operazione sull'immagine. La ragione è che molte operazioni sull'immagine lasceranno dei contorni non immediatamente visibili, ma che lasceranno dei fastidiosi artefatti.</para>
+            </listitem>
+            <listitem>
+              <para
+>Quando scansioni delle immagini e le comprimi, per esempio in JPEG, dovresti usare prima l'estensione sull'immagine non compressa.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </sect4>
+    <sect4 id="comparison-refocus">
+      <title
+>Confronto della rimessa a fuoco con altre tecniche</title>
+      <para
+>Confronto con due altre tecniche frequentemente usate per migliorare le immagini: <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="using-adjustsharpness"
+>Filtro di aumento della nitidezza</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="using-unsharp"
+>Maschera di contrasto</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>L'aumento della nitidezza applica una piccola matrice di convoluzione che aumenta la differenza tra un pixel sorgente e quelli nelle sue immediate vicinanze. Il filtraggio FIR di Wiener è una tecnica più generale perché permette un intorno molto più grande e migliori parametrizzazioni. L'aumento della nitidezza funziona solo quando le tue immagini sono molto poco sfocate. Inoltre, con valori elevati del parametro di aumento della nitidezza i risultati sono spesso &quot;disturbati&quot;. Con il filtraggio FIR di Wiener questi disturbi possono essere fortemente ridotti selezionando valori maggiori per i parametri di <guilabel
+>Correlazione</guilabel
+> e <guilabel
+>Filtro dei disturbi</guilabel
+>. </para>
+      <para
+>La maschera di contrasto è un altro modo molto popolare di migliorare le immagini. Da un punto di vista matematico, la sua giustificazione è un po' oscura, ma piace a molta gente. Il primo passo è creare una copia sfocata dell'immagine sorgente. Quindi la differenza tra l'immagine sorgente e l'immagine sfocata viene sottratta dall'immagine sorgente, da cui il nome di maschera di contrasto. In realtà, la maschera di contrasto è più un miglioramento del contrasto su un elemento importante dell'immagine che un aumento della nitidezza. Non annulla l'interferenza dello schema dell'apertura del diaframma della macchina fotografica come fa la rimessa a fuoco. </para>
+      <para
+>In generale, la maschera di contrasto produce risultati migliori dell'aumento della nitidezza. Probabilmente ciò è dovuto al fatto che la maschera di contrasto usa un intorno più grande dell'aumento della nitidezza. </para>
+      <para
+>Da un punto di vista teorico, la maschera di contrasto deve sempre introdurre degli artefatti. Anche in condizioni ottimali non può mai annullare completamente l'effetto delle sfocature. È possibile provare che il filtraggio Wiener è il filtro lineare ottimale. In pratica, in tutti i casi i risultati del filtro FIR di Wiener sono almeno buoni quanto la maschera di contrasto. Il filtro FIR di Wiener è spesso migliore a restaurare i dettagli minori. </para>
+      <para
+>Sotto puoi vedere un confronto tra filtri diversi applicati a una piccola immagine sfocata: <informaltable
+> <tgroup cols="2">
+            <thead>
+              <row>
+                <entry
+>Anteprima</entry>
+                <entry
+>Tipo</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-notsharpened.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Immagini sfocata originale da correggere. Questa immagine è stata fatta con una macchina fotografica analogica. La sfocatura è stata causata da luce insufficiente per l'autofocus della lente. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-sharped.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Immagine corretta con un filtro semplice per l'aumento della nitidezza. L'impostazione della nitidezza è 80. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-unsharpmask.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Immagine corretta con un filtro di maschera di contrasto. Le impostazioni sono raggio=50, quantità=5 e soglia=0. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-refocus.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>Immagine corretta con un filtro di rimessa a fuoco. Le impostazioni sono nitidezza circolare=1,3, correlazione=0,5, filtro dei disturbi=0,020, nitidezza gaussiana=0 e dimensione della matrice=5. </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </para>
+      <note>
+        <para
+>Per maggiori informazioni sui metodi di correzione della nitidezza usati nella fotografia digitale, puoi trovare un confronto tecnico a <ulink url="http://www.bialith.com/Research/BARclockblur.htm"
+>questo indirizzo</ulink
+>. </para>
+      </note>
+    </sect4>
+  </sect3>
+  <sect3 id="using-redeyecorrection">
+    <title
+>Rimuovi gli occhi rossi in una fotografia</title>
+    <anchor id="redeyecorrectiontool.anchor"/>
+    <para
+>Gli occhi rossi appaiono quando si usa il flash per fotografare delle persone. Il rosso è il riflesso del retro dell'occhio, visibile perché la pupilla non può reagire abbastanza velocemente al bagliore. Incidentalmente, con un flash separato l'effetto è meno probabile a causa della diversa angolazione del flash e della lente. Puoi correggere alcuni degli occhi rossi peggiori selezionando l'area dell'occhio nella fotografia, esattamente come descritto sopra per il taglio. Quindi seleziona <menuchoice
+><guimenu
+>Migliora</guimenu
+><guimenuitem
+>Riduzione degli occhi rossi</guimenuitem
+></menuchoice
+>. </para>
+    <para
+>Come funziona: <itemizedlist>
+        <listitem
+><para
+>Imposta come preferisci la modalità di anteprima.</para
+></listitem>
+        <listitem
+><para
+>L'impostazione della <guilabel
+>Sensibilità</guilabel
+> regola la quantità di rimozione degli occhi rossi (più o meno aggressiva).</para
+></listitem>
+        <listitem
+><para
+>Il cursore della <guilabel
+>Smussatura</guilabel
+> imposta la sfocatura dell'area che viene scurita per rendere la pupilla più naturale.</para
+></listitem>
+        <listitem
+><para
+>La <guilabel
+>Tinta di colorazione</guilabel
+> imposta un colore particolare per la pupilla. Se vuoi occhi blu invece che scuri, li puoi ottenere qui.</para
+></listitem>
+        <listitem
+><para
+>Il <guilabel
+>Livello di tinta</guilabel
+> regola la luminosità del colore della pupilla impostato.</para
+></listitem>
+      </itemizedlist>
+    </para>
+    <example>
+      <title
+>Lo strumento di correzione degli occhi rossi in azione</title>
+      <screenshot>
+        <screeninfo
+>Lo strumento di correzione degli occhi rossi in azione </screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="&path;editor-redeyes-correction.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </example>
+  </sect3>
+  <sect3 id="inpainting">
+    <sect3info>
+      <title
+>Reintegrazione fotografica</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard@kulzer.net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="&path;cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>cimglogo</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+>Lo strumento di <emphasis
+>reintegrazione fotografica</emphasis
+> è decisamente uno degli strumenti più avanzati per rimuovere gli artefatti indesiderati con prestazioni senza precedenti. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introduzione</title>
+    <para/>
+    <para
+>L'algoritmo di reintegrazione è stato sviluppato dal gruppo IMAGE del laboratorio GREC CNRS di Caen in Francia, e fa parte del <ulink url="http://cimg.sourceforge.net"
+>progetto CImg</ulink
+>. </para>
+    <sect4 id="using-inpainting">
+      <title
+>Usare lo strumento di reintegrazione</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La finestra di reintegrazione fotografica</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Lo strumento è dotato di diverse preimpostazioni come punti di partenza e per semplificare il restauro. Le preimpostazioni disponibili sono elencate sotto: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Nessuna</guilabel
+>: usa le impostazioni predefinite più comuni del filtro, non ottimizzate per uno scopo particolare.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Rimuovi area piccola</guilabel
+>: .</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Rimuovi area media</guilabel
+>: .</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Rimuovi area grande</guilabel
+>: .</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Se vuoi impostare i parametri del filtro per fare regolazioni più precise, usa le schede <guilabel
+>Impostazioni di smussatura</guilabel
+> e <guilabel
+>Impostazioni avanzate</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Impostazioni di smussatura della reintegrazione fotografica</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Mantenimento dei dettagli</guilabel
+> p [0, 100]: questo controlla il mantenimento delle curvature (caratteristiche). Un valore basso impone una smussatura uniforme nell'immagine, mentre valori più grandi lisciano preferenzialmente le zone omogenee e lasciano i dettagli nitidi. Un valore di 0,9 dovrebbe mantenere bene i dettagli in modo che in seguito non sia necessario aumentare la nitidezza. Nota che <guilabel
+>Mantenimento dei dettagli</guilabel
+> deve sempre essere minore di <guilabel
+>Anisotropia</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotropia</guilabel
+> alfa [0, 100]: un valore basso liscia allo stesso modo in tutte le direzioni, mentre un valore vicino a 1 liscia solo in una direzione. Se hai grana della pellicola o disturbi di tipo CCD, un valore alto risulterà in uno schema a onde, mentre gli artefatti JPEG sono adatti a valori vicini a 1. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Smussatura</guilabel
+> [0, 500]: questo imposta il fattore di smussatura complessivo massimo (mentre p definisce la smussatura relativa). Impostalo secondo il livello del disturbo.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regolarità</guilabel
+> [0, 100]: questo parametro riguarda le strutture abbastanza grandi. Più grande è questo valore, più regolare sarà la smussatura complessiva. Ciò è necessario quando ci sono molti disturbi, perché in quei casi è difficile indovinare la geometria. Inoltre, se vuoi ottenere un effetto di turbolenza in stile van Gogh, è raccomandata un'impostazione maggiore di 3.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Iterazioni del filtro</guilabel
+>: il numero di volte che sarà applicato l'algoritmo di sfocatura. Normalmente basta 1 o 2.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Le impostazioni avanzate della reintegrazione</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Passo angolare</guilabel
+> da [5, 90]: integrazione angolare del fattore di anisotropia alfa. Se alfa viene scelto piccolo, anche da dovrebbe essere piccolo. Ma attenzione, gli angoli piccoli causano grandi calcoli! Sceglilo tanto largo quanto lo puoi accettare. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Passo integrale</guilabel
+> [0,1, 10]: larghezza del passo di integrazione spaziale in pixel. Dovrebbe rimanere sotto 1 (smussatura sub-pixel) e mai andare oltre 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Usa interpolazione lineare</guilabel
+>: il guadagno di qualità se selezioni questa opzione è solo marginale, e perdi un fattore di 2 in velocità. Raccomandiamo di lasciarla inattiva.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>I pulsanti <guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+> sono usati per fare esattamente quello che descrivono. Qualsiasi impostazione del filtro di reintegrazione fotografica che hai impostato può essere salvata sul disco in un file di testo e caricata più tardi. </para>
+      <warning>
+        <para
+>La reintegrazione fotografica è (relativamente) molto veloce a fare il suo lavoro, ma può richiedere molto tempo per l'esecuzione e causare un alto consumo delle risorse del processore. Puoi sempre interrompere il calcolo premendo il pulsante <guilabel
+>Annulla</guilabel
+> durante la resa. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-inpainting">
+      <title
+>Lo strumento di reintegrazione in azione</title>
+      <para
+>Sotto puoi vedere una reintegrazione di tipo <guilabel
+>Rimuovi artefatto piccolo</guilabel
+> applicato a una fotografia a colori scattata a Città del Guatemala con una macchina fotografica analogica. Si direbbe che ci sia uno strano artefatto nero sul volto, causato da una cattiva conservazione della pellicola durante il viaggio. L'immagine originale è (1), l'immagine corretta è (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Anteprima del filtro di reintegrazione</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="noisereduction">
+    <sect3info>
+      <title
+>Riduzione dei disturbi</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard@kulzer.net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>La <emphasis
+>riduzione dei disturbi</emphasis
+> di &digikam; è un potente strumento per ridurre i disturbi delle immagini. Usa un algoritmo sotto il copyright di Peter Heckert. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Riduzione dei disturbi</keyword>
+        <keyword
+>Sfoca</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introduzione</title>
+    <para
+>Questo strumento fornisce dei filtri per immagini selezionabili per rimuovere macchie o altri artefatti causati da sporcizia come polvere o capelli sulla lente. Può anche essere usato per rimuovere i <emphasis
+>disturbi del sensore</emphasis
+> della macchina fotografica, causati magari da alte impostazioni ISO, oltre al cosiddetto <emphasis
+>effetto Moiré</emphasis
+> su immagini acquisite con uno scanner da libri o riviste. </para>
+    <para
+>Se vuoi avere maggiori informazioni sui disturbi dei sensori della macchine fotografiche, dai un'occhiata a questa <ulink url="http://www.cambridgeincolour.com/tutorials/noise.htm"
+>esercitazione</ulink
+>. </para>
+    <sect4 id="using-noisereduction">
+      <title
+>Usare lo strumento di riduzione dei disturbi</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;noisereductiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La finestra di riduzione dei disturbi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>La schermata sopra mostra una tipica foto scattata con una macchina digitale usando un'impostazione ISO ad alta sensibilità. Mostra dei disturbi di granularità che possono venire ridotti con questo strumento. </para>
+      <para
+>Il pannello delle immagini ridimensionabile con l'anteprima dell'originale ti aiuta a scorrere l'immagine. Sposta il rettangolo rosso per selezionare l'area che ti permette di giudicare le impostazioni ottimali del filtro. La finestra di anteprima mostra il risultato del filtro usando le impostazioni attuali. Può essere riordinato in quattro diverse combinazioni come indicato nelle icone sotto l'anteprima dell'originale. Questa schermata mostra la prima disposizione dove viene mostrato, per confronto, lo stesso ritaglio. In fondo all'area di anteprima, puoi vedere le impostazioni del <guilabel
+>Fattore di ingrandimento</guilabel
+> per ingrandire un'area dell'immagine. </para>
+      <para
+>Sotto puoi leggere una descrizione completa di tutti i parametri. Nella maggior parte dei casi è necessaria solo la scheda <guilabel
+>Dettagli</guilabel
+>, e gli altri parametri nella scheda <guilabel
+>Avanzate</guilabel
+> possono essere lasciati alle loro impostazioni predefinite. <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Raggio</guilabel
+>: questo controllo seleziona la dimensione della finestra scorrevole usata per il filtro. Valori maggiori non implicano più tempo necessario per filtrare ogni pixel dell'immagine, ma possono causare sfocature. Questa finestra scorre nell'immagine, e il colore in essa compreso viene smussato per rimuovere le imperfezioni. In ogni caso dovrebbe essere delle stesse dimensioni della granularità dei disturbi o un po' di più. Se è più grande del necessario, può causare una sfocatura indesiderata. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Soglia</guilabel
+>: usa questo cursore per la regolazione di massima, e la casella numerica per la regolazione di precisione. Questo controlla la sensibilità al rilevamento dei bordi. Questo valore dovrebbe essere impostato in modo che i bordi e i dettagli siano chiaramente visibili e i disturbi siano cancellati. Questo valore non è vincolato a nessun valore di intensità, ma alla derivata seconda dei valori di intensità. Prova a regolarlo e vedere cosa succede. La regolazione deve essere fatta con attenzione, perché il passaggio tra <quote
+>disturbato</quote
+>, <quote
+>giusto</quote
+> e <quote
+>sfocato</quote
+> è molto veloce. Regola con la stessa attenzione che metteresti a regolare la messa a fuoco della macchina fotografica. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Trama</guilabel
+>: questo controllo imposta la precisione della trama. Questo valore può essere usato per avere maggiore o minore accuratezza. Quando viene ridotto, trama e disturbi vengono sfocati; quando viene aumentato, la trama viene amplificata ma anche il disturbo. Non ha praticamente nessun effetto sui bordi dell'immagine, al contrario del filtro <guilabel
+>Bordo</guilabel
+>, che sfocherebbe i bordi se venisse aumentato. Se <guilabel
+>Bordo</guilabel
+> viene regolato in modo tale che i bordi siano nitidi, e ci sono ancora troppi disturbi nell'area, si potrebbe usare il dettaglio della <guilabel
+>Trama</guilabel
+> per ridurre i disturbi senza sfocare i bordi. Un altro modo è ridurre il <guilabel
+>Raggio</guilabel
+> e aumentare il <guilabel
+>Bordo</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Nitidezza</guilabel
+>: questo controllo imposta il livello di nitidezza. Questo valore definisce la distanza in pixel per cui il filtro cerca variazioni di luminanza. Aumentando questo valore, si cancellano i disturbi a picco. Puoi eventualmente regolare il filtro <guilabel
+>Bordo</guilabel
+> quando cambi questa impostazione. Quando questo valore è troppo elevato il filtro adattativo non può più seguire accuratamente i dettagli dell'immagine, i disturbi possono riapparire e potrebbe verificarsi una sfocatura. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Bordo</guilabel
+>: questo controllo imposta la nitidezza della precisione del bordo. Questo valore migliora la risposta in frequenza del filtro. Quando è troppo elevato non sarà possibile rimuovere tutti i disturbi, o potrebbero apparire dei picchi di disturbo. Impostalo quasi al massimo se vuoi rimuovere dei disturbi molto deboli o artefatti JPEG senza perdere dettagli. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Erosione</guilabel
+>: questo controllo imposta lo scostamento di fase per i bordi. Questo valore può essere usato per erodere picchi singoli, ha un effetto lisciante sui bordi, e aumenta la loro nitidezza erodendoli, in modo che i disturbi ai bordi vengano erosi. L'effetto dipende dalla <guilabel
+>Nitidezza</guilabel
+>, dallo <guilabel
+>Smorzamento</guilabel
+> e dal <guilabel
+>Bordo</guilabel
+>. Impostalo al minimo se vuoi rimuovere dei disturbi molto deboli o artefatti JPEG. Quando questo valore viene aumentato, è utile aumentare anche lo <guilabel
+>Smorzamento</guilabel
+>. Questa impostazione aumenta la nitidezza e riduce l'aliasing ai bordi durante la correzione dei disturbi a picco. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Luminanza</guilabel
+>: questo controllo imposta la tolleranza alla luminanza dell'immagine. Si raccomanda di usare solo le impostazioni di tolleranza del <guilabel
+>Colore</guilabel
+> e della <guilabel
+>Luminanza</guilabel
+> per correggere un'immagine, non entrambe allo stesso tempo. Questa impostazione non ha influenza sul processo di smussatura principale controllato dalle impostazioni dei <guilabel
+>Dettagli</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Colore</guilabel
+>: questo controllo imposta la tolleranza al colore dell'immagine. Si raccomanda di usare solo le impostazioni di tolleranza del <guilabel
+>Colore</guilabel
+> e della <guilabel
+>Luminanza</guilabel
+> per correggere un'immagine, non entrambe allo stesso tempo. Questa impostazione non ha influenza sul processo di smussatura principale controllato dalle impostazioni dei <guilabel
+>Dettagli</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Gamma</guilabel
+>: questo controllo imposta la tolleranza al gamma dell'immagine. Questo valore può essere usato per aumentare i valori di tolleranza per le aree scure (che normalmente sono più disturbate). Ciò risulta in una maggiore sfocatura delle aree in ombra. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Smorzamento</guilabel
+>: questo controllo imposta la regolazione dello smorzamento del tremolio di fase. Questo valore definisce quanto velocemente il raggio del filtro adattativo reagisce a variazioni di luminanza. Se viene aumentato, i bordi sembreranno più lisci, se è troppo alto potrebbe verificarsi una sfocatura. Se è al minimo potrebbero verificarsi disturbi e tremolio di fase ai bordi. Può eliminare i disturbi a picco quando viene aumentato, e questo è il metodo preferito per rimuoverli. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+>: questi pulsanti sono usati per fare esattamente quello che descrivono. Qualsiasi parametro di riduzione dei disturbi che hai impostato può essere salvato sul disco in un file e caricato più tardi. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Valori predefiniti</guilabel
+>: questo pulsante reimposta tutte le impostazioni ai loro valori predefiniti. </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+      <sect4 id="inaction-noisereduction">
+        <title
+>Riduzione dei disturbi in azione</title>
+        <para
+>Questo è un esempio di come la riduzione dei disturbi può cambiarti la vita. L'immagine originale è (1) e l'immagine corretta è (2). La riduzione del rumore è stata applicata con le impostazioni di base. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;noisereductionpreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>La riduzione dei disturbi in azione</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+      <sect4 id="using-blurfilter">
+        <title
+>Sfocare una fotografia</title>
+        <para
+>Alcune volte ti si presenta il problema opposto: un'immagine è troppo incisiva. La soluzione è di sfocare un po': fortunatamente sfocare un'immagine è molto più facile che aumentarne la nitidezza. Seleziona lo <link linkend="using-blurfilter"
+>strumento sfoca</link
+> con la voce di menu <menuchoice
+> <guimenu
+>Migliora</guimenu
+> <guimenuitem
+>Sfoca</guimenuitem
+> </menuchoice
+> e gioca con il livello. La finestra di anteprima nella parte destra della finestra di dialogo mostra l'effetto complessivo sulla tua foto. </para>
+        <example>
+          <title
+>Lo strumento di sfocatura in azione</title>
+          <screenshot>
+            <screeninfo
+>Lo strumento di sfocatura in azione</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="&path;editorblurplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+      </sect4>
+  </sect3>
+  <sect3 id="restoration">
+    <sect3info>
+      <title
+>Restauro fotografico</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard@kulzer.net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="&path;cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>cimglogo</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+>Il <emphasis
+>restauro fotografico</emphasis
+> di &digikam; è decisamente uno degli strumenti più avanzati per ridurre gli artefatti fotografici. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introduzione</title>
+    <para
+>Questo fantastico filtro di restauro è un nuovo sviluppo che fornisce possibilità senza precedenti nel dominio pubblico per rimuovere molte cose indesiderate dalle tue immagini. È molto adatto per gestire immagini degradate dai disturbi gaussiani, grana della pellicola, graffi o artefatti di compressione e degradazioni locali comuni nelle immagini digitali (originali o importate). La smussatura viene fatta lungo le curve dell'immagine, mantenendo il significato del contenuto in modo molto simile a quello che si aspetterebbe l'occhio umano. </para>
+    <para
+>Lo stesso algoritmo può essere usato per la colorizzazione e la sostituzione delle trame, che è trattata in un altro strumento (Reintegrazione). L'algoritmo di restauro è stato sviluppato dalla squadra IMAGE dei laboratori GREC CNRS di Caen in Francia, e fa parte del <ulink url="http://cimg.sourceforge.net"
+>progetto CImg</ulink
+>. </para>
+    <sect4 id="using-restoration">
+      <title
+>Uso dello strumento di restauro</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="r&path;estorationdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Finestra di restauro fotografico</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Lo strumento è dotato di diverse preimpostazioni come punti di partenza e per semplificare il restauro. Le preimpostazioni disponibili sono elencate sotto: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Nessuna</guilabel
+>: usa le impostazioni predefinite più comuni del filtro, non ottimizzate per uno scopo particolare.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Riduci i disturbi uniformi</guilabel
+>: impostazioni ottimali per i disturbi dell'immagine dovuti a disturbi del sensore.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Riduci gli artefatti JPEG</guilabel
+>: la compressione JPEG non è perfetta, anzi per alcuni tipi di immagini è molto lontana dall'esserlo. Essendo JPEG un algoritmo di compressione con perdita, ci sono degli <quote
+>artefatti</quote
+> di compressione, cioè piccoli difetti che appaiono nell'immagine decompressa. Questa impostazione cerca di correggere questo problema.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Riduci la trama</guilabel
+>: ottimizzata per rimuovere artefatti da schemi di scansione, di digitalizzazione o Moiré.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Se vuoi impostare i parametri del filtro per fare regolazioni più precise, usa le schede <guilabel
+>Impostazioni di smussatura</guilabel
+> e <guilabel
+>Impostazioni avanzate</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Impostazioni di smussatura del restauro</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Mantenimento dei dettagli</guilabel
+> p [0, 100]: questo controlla il mantenimento delle curvature (caratteristiche). Un valore basso impone una smussatura uniforme nell'immagine, mentre valori più grandi lisciano preferenzialmente le zone omogenee e lasciano i dettagli nitidi. Un valore di 0,9 dovrebbe mantenere bene i dettagli in modo che in seguito non sia necessario aumentare la nitidezza. Nota che <guilabel
+>Mantenimento dei dettagli</guilabel
+> deve sempre essere minore di <guilabel
+>Anisotropia</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotropia</guilabel
+> alfa [0, 100]: un valore basso liscia allo stesso modo in tutte le direzioni, mentre un valore vicino a 1 liscia solo in una direzione. Se hai grana della pellicola o disturbi di tipo CCD, un valore alto risulterà in uno schema a onde, mentre gli artefatti JPEG sono adatti a valori vicini a 1. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Smussatura</guilabel
+> [0, 500]: questo imposta il fattore di smussatura complessivo massimo (mentre p definisce la smussatura relativa). Impostalo secondo il livello del disturbo.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regolarità</guilabel
+> [0, 100]: questo parametro riguarda l'uniformità della smussatura. Immagina il processo di smussatura come una pettinatura dell'immagine. In tal caso la regolarità corrisponderebbe alle dimensioni del pettine. Più grande è questo valore, più regolare sarà la smussatura complessiva. Ciò è necessario quando ci sono molti disturbi, perché in quei casi è difficile stimare la geometria. Inoltre, se vuoi ottenere un effetto di turbolenza alla van Gogh, è raccomandata un'impostazione maggiore di 3.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Iterazioni del filtro</guilabel
+>: il numero di volte che sarà applicato l'algoritmo di sfocatura. Normalmente basta 1 o 2.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Le impostazioni avanzate del restauro</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Passo angolare</guilabel
+> da [5, 90]: integrazione angolare del fattore di anisotropia alfa. Se alfa viene scelto piccolo, anche da dovrebbe essere piccolo. Ma attenzione, gli angoli piccoli causano grandi calcoli! Sceglilo tanto largo quanto lo puoi accettare. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Passo integrale</guilabel
+> [0,1, 10]: larghezza del passo di integrazione spaziale in pixel. Dovrebbe rimanere sotto 1 (smussatura sub-pixel) e mai andare oltre 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Usa interpolazione lineare</guilabel
+>: il guadagno di qualità se selezioni questa opzione è solo marginale, e perdi un fattore di 2 in velocità. Raccomandiamo di lasciarla inattiva.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>I pulsanti <guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+> sono usati per fare esattamente quello. Qualsiasi impostazione del filtro di restauro fotografico che hai impostato può essere salvata sul disco in un file di testo e caricata più tardi. </para>
+      <warning>
+        <para
+>Il restauro fotografico è (relativamente) molto veloce a fare il suo lavoro, ma può richiedere molto tempo per l'esecuzione e causare un alto consumo delle risorse del processore. Puoi sempre interrompere il calcolo premendo il pulsante <guilabel
+>Annulla</guilabel
+> durante la resa dell'anteprima. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-restoration">
+      <title
+>Lo strumento di restauro in azione</title>
+      <para
+>Sotto puoi vedere un restauro di tipo <guilabel
+>Riduci i disturbi uniformi</guilabel
+> applicato a una fotografia in bianco e nero fatta con una macchina fotografica Minolta (tm) 700Si usando una pellicola Ilford(tm) HP-5 impostata a una sensibilità di 3200 ISO. Puoi vedere l'evidente grana della pellicola sui volti. L'immagine originale è (1), l'immagine corretta è (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Anteprima di Restauro con riduzione dei disturbi uniformi</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Sotto puoi vedere un altro esempio di restauro fotografico usando il tipo di restauro <guilabel
+>Riduci la trama</guilabel
+> applicato a una vecchia fotografia a colori acquisita con uno scanner. Puoi vedere l'evidente artefatto risultante dalla luce dello scanner sulla carta fotografica plastificata. L'immagine originale è (1), quella corretta è (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationpreview2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Anteprima del restauro con riduzione della trama</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="hotpixels">
+    <sect3info>
+      <title
+>Correzione dei pixel bruciati</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Unai</firstname
+> <surname
+>Garro</surname
+> <affiliation
+> <address
+> <email
+>ugarro at telefonica dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>Lo strumento per <emphasis
+>pixel bruciati</emphasis
+> di &digikam; facilita la rimozione dei pixel bruciati dalle fotografie fatte con una macchina fotografica con CCD. Usa degli algoritmi del progetto JPEGPixi che sono sotto il copyright di Martin Dickopp. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>digiKam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introduzione</title>
+    <para
+>La maggior parte delle macchine fotografiche digitali attuali fanno immagini con diversi <quote
+>pixel difettosi</quote
+>, molto luminosi quando si usano dei tempi di otturazione corti. Le immagini notturne potrebbero esserne rovinate. Ci sono tre tipi di <quote
+>pixel difettosi</quote
+>: <itemizedlist
+><listitem
+><para
+>Pixel bloccati: sono pixel che leggono sempre un valore elevato, o sono sempre alla massima potenza su ogni esposizione. Ciò produce un pixel luminoso, normalmente di colore rosso, verde o blu nell'immagine finale. Un pixel bloccato apparirà indipendentemente dal tempo di otturazione, dall'apertura del diaframma o qualsiasi altra impostazione. Apparirà nell'esposizione normale e sarà più evidente in condizioni luminose.</para
+></listitem
+><listitem
+><para
+>Pixel morti: sono pixel che leggono sempre zero o sono sempre spenti in tutte le esposizioni. Questo stato produce un pixel nero nell'immagine finale. Come un pixel bloccato, un pixel morto apparirà indipendentemente dal tempo di otturazione, dall'apertura del diaframma o qualsiasi altra impostazione.</para
+></listitem
+><listitem
+><para
+>Pixel bruciati: sono pixel che leggono valori elevati, nelle esposizioni prolungate, di bianco, rosso o verde. Più lungo è il tempo di esposizione, più i pixel bruciati saranno visibili.</para
+></listitem
+></itemizedlist
+> Nota che i pixel bloccati o morti saranno nello stesso posto per tutte le immagini. Se la posizione di un pixel bloccato o morto cambia, potrebbe essere un pixel bruciato. </para>
+    <para
+>I pixel bloccati, morti o bruciati sono un problema in particolare quando si scatta in modalità grezza ad alta qualità, perché molte macchine fotografiche hanno una soppressione dei pixel bruciati incorporata che viene applicata automaticamente quando viene usata la compressione JPEG (cioè la maggior parte dei casi). </para>
+    <para
+>Questo strumento può essere utile per correggere i <quote
+>pixel bruciati</quote
+> e <quote
+>bloccati</quote
+> in una fotografia usando un metodo di sottrazione di foto scura. Non c'è ancora un editor manuale per selezionare i pixel difettosi. </para>
+    <sect4 id="using-blackframecreation">
+      <title
+>Creare le foto scure</title>
+      <para
+>Il metodo di sottrazione delle foto scure è il metodo più accurato per rimuovere i pixel bruciati e bloccati. Prima devi creare una <quote
+>foto scura</quote
+> come riferimento. Questo è facile da fare: quando hai finito di fare le foto a lunga esposizione, metti il copriobiettivo sulla lente e scatta un'immagine <quote
+>scura</quote
+> con lo stesso tempo di esposizione delle immagini precedenti. Questa immagine sarà scura, ma ad un esame più attento vedrai che contiene i pixel bloccati e bruciati (punti colorati). Questi sono posizionati come nella tue foto precedenti. </para>
+      <para
+>Carica questo file nello strumento usando il pulsante <guilabel
+>Foto scura...</guilabel
+>. Lo strumento elaborerà un rilevamento automatico dei pixel bruciati e bloccati. Questi saranno evidenziati nelle aree di anteprima del pannello di controllo. </para>
+      <warning>
+        <para
+>Se usi una macchina digitale vecchia, è importante scattare la foto scura la prossima volta che fai delle foto a lunga esposizione per rilevare i nuovi pixel bruciati e bloccati tra i difetti del CCD. </para>
+      </warning>
+    </sect4>
+    <sect4 id="using-hotpixels">
+      <title
+>Usare lo strumento dei pixel bruciati</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;hotpixelsdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La finestra dei pixel bruciati</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>All'inizio, come spiegato nella sezione precedente, devi caricare una foto scura corrispondente all'immagine da correggere. Verrà fatta un'elaborazione automatica sulla foto scura per trovare i pixel difettosi. Nota che lo strumento ricorderà la foto scura usata nell'ultima sessione, e la riaprirà automaticamente la prossima volta. </para>
+      <para
+>Il pannello dell'immagine e l'anteprima dell'originale ti aiutano a scorrere l'immagine. La finestra dell'anteprima mostra il risultato del filtro usando le impostazioni attuali. I pixel difettosi sono evidenziati in tutte le aree di anteprima. </para>
+      <para
+>Seleziona un'area per vedere i pixel difettosi nell'anteprima e il risultato del filtro usando l'opzione 'Vista separata' del pannello dell'immagine. Scegli il miglior <guilabel
+>Filtro</guilabel
+> per interpolare i pixel o i blocchi di pixel. Questi sono i filtri disponibili: <itemizedlist>
+          <listitem>
+            <para
+>Medio: viene presa la media dei pixel adiacenti al blocco di pixel. Il colore risultante viene assegnato a tutti i pixel del blocco. Per l'interpolazione monodimensionale, ciò viene fatto separatamente a strisce orizzontali o verticali larghe un pixel.</para>
+          </listitem>
+          <listitem>
+            <para
+>Lineare: i pixel a una distanza di uno dal blocco di pixel sono usati per calcolare una superficie bilineare (bidimensionale), o un gruppo di curve lineari (monodimensionali), che viene poi usata per assegnare i colori interpolati ai pixel del blocco.</para>
+          </listitem>
+          <listitem>
+            <para
+>Quadratico: questo è il metodo predefinito di filtraggio. I pixel con una distanza di due o meno dal blocco di pixel sono usati per calcolare una superficie biquadratica (bidimensionale), o un gruppo di curve quadratiche (monodimensionali), che viene poi usata per assegnare i colori interpolati ai pixel del blocco.</para>
+          </listitem>
+          <listitem>
+            <para
+>Cubico: i pixel con una distanza di tre o meno dal blocco di pixel sono usati per calcolare un superficie bicubica (bidimensionale), o un gruppo di curve cubiche (monodimensionali), che viene poi usata per assegnare i colori interpolati ai pixel del blocco.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+    <sect4 id="inaction-hotpixels">
+      <title
+>Lo strumento dei pixel bruciati in azione</title>
+      <para
+>Sotto puoi vedere lo strumento di correzione dei pixel bruciati applicato a una fotografia a colori scattata con una macchina digitale difettosa a una sensibilità di 200 ISO con uno scatto a lunga esposizione. L'immagine originale, ingrandita del 300%, è (1), quella corretta è (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;hotpixelspreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>L'anteprima della correzione dei pixel</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="vignettingcorrection">
+    <sect3info>
+      <title
+>Correzione della vignettatura</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard@kulzer.net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>La <emphasis
+>Correzione vignettatura</emphasis
+> di &digikam; è uno strumento per correggere la vignettatura delle immagini, cioè la sottoesposizione negli angoli. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Antivignettatura</keyword>
+	<keyword
+>Aggiungi vignettatura</keyword>
+	<keyword
+>Correzione vignettatura</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introduzione</title>
+    <para
+>Frequentemente le lenti a grandangolo, specialmente quelle usate nella fotografia di medio e ampio formato, non illuminano uniformemente l'intera area del sensore. Invece, <quote
+>vignettano</quote
+> (mettono in ombra) i bordi e gli angoli dell'immagine, riducendo sostanzialmente la luce che raggiunge il sensore. Anche i teleobiettivi potrebbero causare la vignettatura. </para>
+    <para
+>La soluzione tradizionale è allegare un <quote
+>filtro centrale</quote
+> alla lente. Questo è un filtro a densità neutrale con densità massima sull'asse ottico della lente, trasparente alla periferia, con la densità che varia inversamente alla vignettatura della lente. Un filtro centrale ha molti vantaggi: non solo corregge automaticamente le immagini a grandezza piena, ma, siccome è fissato di fronte alla lente, compensa anche la vignettatura che avviene quando si usano movimenti della macchina fotografica per la prospettiva o per regolazione del piano di fuoco. </para>
+    <para
+>Ma ci sono anche degli svantaggi. Molti filtri centrali richiedono una regolazione del fattore del diaframma di 1.5 o 2, che a sua volta può richiedere una velocità di otturazione così lenta (perché le lenti a grandangolo, anche con filtri centrali, sono usate al meglio ad aperture di f/16 o più piccole) che tenere la macchina in mano è impossibile, e la sfocatura diventa un problema quando si fotografano gli oggetti in movimento. </para>
+    <para
+>Con l'ampio intervallo di esposizione delle pellicole odierne e la profondità di colore (o di scala di grigio) delle macchine fotografiche digitali o degli scanner di pellicole, è possibile simulare l'effetto di un filtro centrale applicando una trasformata equivalente a un'immagine grezza presa senza questo filtro. Questo strumento di antivignettatura applica una trasformazione a filtro centrale a un'immagine usando un algoritmo il cui diritto d'autore appartiene a John Walker. </para>
+    <sect4 id="using-vignettingcorrection">
+      <title
+>Usare lo strumento di correzione vignettatura</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;vignettingcorrectiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Finestra di dialogo della Correzione vignettatura</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Cinque cursori ti danno il controllo del filtro di correzione della vignettatura, e altri tre dell'esposizione dell'immagine risultante: </para>
+      <para
+><guilabel
+>Quantità</guilabel
+>: questa opzione controlla il grado di attenuazione della luminosità da parte del filtro al suo punto di massima intensità. La quantità predefinita è 2,0, che corrisponde a un filtro ottico con un'apertura del diaframma pari a 1 (o, non per caso, un fattore di luminosità pari a 2). Aumenta la quantità per compensare un maggior grado di vignettatura; riducila per uno minore. </para>
+      <para
+><guilabel
+>Piumino</guilabel
+>: questa opzione determina la velocità a cui l'intensità del filtro si riduce dal punto di massima quantità verso i bordi, espressa come un fattore di potenza. Il valore predefinito, 1, rende una riduzione lineare della quantità del filtro con la distanza dal centro. I fattori di potenza più grandi di 10 causano una riduzione più veloce (per esempio, una potenza di 2 fa ridurre la quantità con il quadrato della distanza dal centro) e fa concentrare l'effetto del filtro vicino al centro. Le potenze inferiori a 1 diffondono la quantità del filtro verso i bordi; una potenza di 0,5 fa ridurre la densità con la radice quadrata della distanza dal centro. </para>
+      <para
+><guilabel
+>Raggio</guilabel
+>: questa opzione specifica il raggio, come multiplo della misura della semi-diagonale dell'immagine, alla quale la quantità del filtro si azzera (o, in altre parole, diventa trasparente). Il valore predefinito 1,0 specifica un filtro che è trasparente ai suoi angoli. Una specificazione del raggio superiore a 1 estende l'effetto del filtro centrale oltre i bordi dell'immagine, mentre un raggio inferiore a uno limita l'azione del filtro a una regione più piccola dell'immagine. Quando si compensa la vignettatura di lenti usate con macchine fotografiche a formato ampio e alcune a formato medio, il raggio predefinito 1 è raramente giusto! Spesso queste lenti <quote
+>coprono</quote
+> un cerchio dell'immagine sensibilmente più grande della pellicola per permettere ai movimenti della macchina fotografica di controllare la prospettiva e il fuoco, e di conseguenza hanno uno schema di vignettatura che si estende ben oltre i bordi della pellicola, richiedendo un'impostazione del raggio maggiore di 1 per simulare un filtro centrale che copra l'intero cerchio dell'immagine. </para>
+      <para
+>L'unico modo di essere sicuri di quali impostazioni di <guilabel
+>Quantità</guilabel
+>, <guilabel
+>Piumino</guilabel
+> e <guilabel
+>Raggio</guilabel
+> compensano al meglio le caratteristiche ottiche reali di una certa lente è esporre una scena illuminata uniformemente (per esempio, uno schermo grigia illuminata da luce diffusa) ed effettuare una densitometria sull'immagine risultante (per esempio con la barra di posizionamento dell'istogramma dello strumento di regolazione dei livelli). In alternativa, o se le specificazioni del produttore della lente danno il grado preciso di vignettatura a una o più aperture di lavoro, potresti dover sperimentare con diverse impostazioni per trovare quelle che funzionano al meglio per ciascuna delle tue lenti. Per aiutarti in questo compito, la finestra dello strumento fornisce una maschera di resa in miniatura dell'applicazione all'immagine. Fortunatamente, la risposta dell'occhio umano è logaritmica, non lineare come la maggior parte dei sensori digitali per immagini, quindi non devi necessariamente compensare precisamente l'esatta vignettatura per creare immagini che saranno percepite come uniformemente illuminate da chi le vede. </para>
+     <para
+>Impostazioni <guilabel
+>spostamento X</guilabel
+> e <guilabel
+>spostamento Y</guilabel
+>: queste opzioni muovono rispettivamente il centro del filtro orizzontalmente o verticalmente fino ai bordi dell'immagine della percentuale specificata. Un valore negativo per lo spostamento X muoverà il filtro verso sinistra mentre un valore positivo lo sposterà alla destra. Un valore negativo per lo spostamento Y muoverà il filtro verso l'alto mentre un valore positivo lo sposterà verso il basso. </para>
+      <para
+>Impostazioni <guilabel
+>Luminosità</guilabel
+>, <guilabel
+>Contrasto</guilabel
+>, e <guilabel
+>Gamma</guilabel
+>: l'elaborazione di un'immagine con questo strumento di antivignettatura riduce la luminosità dei pixel. Devi risistemare l'esposizione dell'immagine risultante con queste opzioni. Questi cursori danno solo valori positivi perché ti serve solo aumentare questa impostazione. </para>
+	<para
+><guilabel
+>Aggiungi vignettatura</guilabel
+>: molte fotografie sembrano piatte a causa di uno sfondo che distrae o per un difetto nella composizione. Mentre nella maggior parte delle volte varrai eliminare la vignettatura, è un fatto che una vignettatura selettiva può migliorare la leggibilità di una foto e guidare gli occhi verso il soggetto voluto. Come un artista puoi scegliere questa opzione: spuntando la casella farai invertire il filtro in modo che gli angoli della foto siano scuriti. </para>
+      <note>
+        <para
+>Se vuoi una risistemazione più precisa dell'esposizione dell'immagine risultante, lascia i valori di luminosità, contrasto e gamma a zero e usa lo strumento Regola curve dell'editor di immagini di &digikam; disponibile dalla voce del menu <menuchoice
+><guimenu
+>Colore</guimenu
+><guimenuitem
+>Regola curva</guimenuitem
+></menuchoice
+>. </para>
+      </note>
+    </sect4>
+    <sect4 id="inaction-vignettingcorrection">
+      <title
+>Lo strumento di correzione vignettatura in azione</title>
+      <para
+>Questo è un esempio di una correzione di antivignettatura applicata a un'immagine. L'immagine originale (1) mostra della vignettatura negli angoli, l'immagine corretta (2) molto meno. Viene applicata all'immagine risultante anche una correzione della luminosità e nel contrasto da parte di questo strumento. </para>
+      <para
+>I valori usato per questo esempio sono: <itemizedlist>
+          <listitem>
+            <para
+>Densità = 2,6.</para>
+          </listitem>
+          <listitem>
+            <para
+>Potenza = 0,9.</para>
+          </listitem>
+          <listitem>
+            <para
+>Raggio = 1,1.</para>
+          </listitem>
+          <listitem>
+            <para
+>Luminosità = 20.</para>
+          </listitem>
+          <listitem>
+            <para
+>Contrasto = 50.</para>
+          </listitem>
+          <listitem>
+            <para
+>Gamma = 20.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;antivignettingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Lo strumento di Correzione vignettatura dell'editor di immagini in azione</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="lensdistortion">
+    <sect3info>
+      <title
+>Correzione della distorsione lenticolare</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard@kulzer.net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>La <emphasis
+>distorsione lenticolare</emphasis
+> di &digikam; è uno strumento per correggere le aberrazioni lenticolari sferiche nelle foto. Usa un algoritmo sotto il copyright di David Hodson. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introduzione</title>
+    <anchor id="lensdistortion.anchor"/>
+    <para
+>La <emphasis
+>distorsione a barilotto</emphasis
+> è associata alle lenti a grandangolo (o a ingrandimento minimo). Fa apparire l'immagine leggermente sferica (curvata all'esterno) come un barilotto. Puoi notarlo quando ci sono oggetti dritti vicino ai lati esterni dell'immagine. La <emphasis
+>distorsione a cuscinetto</emphasis
+> è il difetto opposto ed è associata ai teleobiettivi (a ingrandimento massimo) o a immagini subacquee. Le immagini appaiono sciancrate (piegate all'interno). L'effetto a cuscinetto è spesso meno facile da vedere del barilotto, ma sono ugualmente visibili vicino ai bordi. Queste distorsioni possono facilmente essere eliminate senza una perdita di qualità sensibile con questo strumento. </para>
+    <note>
+      <para
+>Questo strumento tratta le distorsioni geometriche. Le aberrazioni cromatiche non saranno corrette da questo strumento. </para>
+    </note>
+    <para
+>Le figure seguenti spiegano i tipi principali di distorsioni geometriche: <itemizedlist>
+        <listitem>
+          <para
+>(1): distorsione a cuscinetto.</para>
+        </listitem>
+        <listitem>
+          <para
+>(2): senza distorsione.</para>
+        </listitem>
+        <listitem>
+          <para
+>(3): distorsione a barilotto.</para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="&path;distortions.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Tipi di distorsione lenticolare</phrase>
+        </textobject>
+      </inlinemediaobject>
+    </para>
+    <para/>
+    <sect4 id="using-lensdistortion">
+      <title
+>Uso dello strumento di distorsione lenticolare</title>
+      <note>
+        <para
+>Prima un po' di spiegazioni. Le correzioni geometriche usano dei coefficienti polinomiali di quarto ordine. <itemizedlist>
+            <listitem>
+              <para
+>Il coefficiente di primo ordine cambia le dimensioni dell'immagine. Lo strumento lo chiama <guilabel
+>Ingrandimento</guilabel
+>.</para>
+            </listitem>
+            <listitem>
+              <para
+>Il coefficiente di secondo ordine riguarda la distorsione geometrica principale delle lenti e può correggere la forma convessa o concava dell'immagine.</para>
+            </listitem>
+            <listitem>
+              <para
+>Il coefficiente di terzo ordine ha un effetto di arrotondamento simile, ma si livella verso i bordi. Questa correzione non è impiegata nello strumento.</para>
+            </listitem>
+            <listitem>
+              <para
+>Il coefficiente di quarto ordine corregge i bordi distanti inversamente all'arrotondamento di secondo ordine. Combinandolo con la correzione di secondo ordine, le distorsioni geometriche possono essere eliminate quasi completamente.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;lensdistortiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Finestra di Correzione della distorsione lenticolare</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Quattro cursori ti permettono di impostare il filtro di correzione della distorsione: </para>
+      <para
+><guilabel
+>Principale</guilabel
+>: questo valore controlla la quantità di distorsione di secondo ordine. I valori negativi correggono le distorsioni a barilotto, mentre i valori positivi correggono le distorsioni a cuscinetto. </para>
+      <para
+><guilabel
+>Bordo</guilabel
+>: questo valore controlla la quantità di distorsione di quarto ordine. Il controllo Bordo ha più effetto ai bordi dell'immagine che al centro. Per la maggior parte delle lenti, il parametro <guilabel
+>Bordo</guilabel
+> ha segno opposto al parametro <guilabel
+>Principale</guilabel
+>. </para>
+      <para
+><guilabel
+>Ingrandimento</guilabel
+>: questo valore riduce le dimensioni totali dell'immagine (correzione di primo ordine). I valori negativi rimpiccioliscono l'immagine, mentre i positivi la ingrandiscono. </para>
+      <para
+><guilabel
+>Illuminazione</guilabel
+>: questo controllo regola la luminosità negli angoli dell'immagine. I valori negativi riducono la luminosità dell'immagine negli angoli, mentre i valori positivi la aumentano. </para>
+      <para
+>Per aiutarti a scegliere le migliori impostazioni per il filtro, la finestra dello strumento illustra la correzione della distorsione applicata a uno schema a rete incrociata in un'anteprima in miniatura. I valori che applichi all'immagine saranno salvati e riappariranno come impostazione predefinita la prossima volta che userai il strumento. </para>
+      <note>
+        <para
+>La correzione barilotto-cuscinetto dovrebbe essere fatta prima di qualsiasi taglio o cambiamento di dimensioni (inclusa la correzione della prospettiva). Anzi, le correzioni barilotto-cuscinetto dovrebbero essere il primissimo intervento sull'immagine originale. Se tagli l'immagine e poi usi la correzione a barilotto l'effetto verrebbe chiaramente sbagliato. </para>
+      </note>
+      <para
+>Per aiutarti a trovare la correzione migliore, lo strumento fornisce anche una guida verticale e orizzontale. Sposta il cursore del mouse nell'anteprima dell'immagine per visualizzare la guida a linee tratteggiate. Sposta il cursore in un posto importante dell'immagine come il livello del mare o il bordo di un edificio, e premi il pulsante sinistro del mouse per congelare la posizione delle linee tratteggiate. Adesso, regola la correzione barilotto/cuscinetto per allinearti alla guida. </para>
+      <para
+>Quando usi la correzione a cuscinetto l'immagine risultante avrà un bordo nero nell'angolo. Dovrai tagliarlo con uno strumento di taglio disponibile nel menu dell'editor di immagini <menuchoice
+><guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Taglia</guimenuitem
+></menuchoice
+> o con il cursore dell'ingrandimento di questa finestra. </para>
+      <para
+>Per la maggior parte delle immagini l'uso della correzione a barilotto è sufficiente, ma con alcune foto come immagini frontali, cornici, quadri, il prossimo passo logico è usare la correzione della prospettiva per rendere tutti gli angoli di 90 gradi. Nota che quando tieni in mano la tua macchina fotografica introduci quasi sempre qualche tipo di leggera distorsione della prospettiva. </para>
+    </sect4>
+    <sect4 id="inaction-lensdistortion">
+      <title
+>Lo strumento di distorsione lenticolare in azione</title>
+      <para
+>Questo è un esempio di una correzione a barilotto applicata a una chiesa nella Norvegia settentrionale. L'immagine originale è (1), l'immagine corretta (2). </para>
+      <para
+>I valori usato per questo esempio sono: <itemizedlist>
+          <listitem>
+            <para
+>Principale = -40.</para>
+          </listitem>
+          <listitem>
+            <para
+>Bordo = 0.</para>
+          </listitem>
+          <listitem>
+            <para
+>Ingrandimento = -20.</para>
+          </listitem>
+          <listitem>
+            <para
+>Illuminazione = 0.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;lensdistortionpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Anteprima della correzione della distorsione lenticolare</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+</sect2>

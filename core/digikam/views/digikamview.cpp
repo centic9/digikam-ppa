@@ -11,6 +11,7 @@
  * Copyright (C) 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2011-2013 by Michael G. Hansen <mike at mghansen dot de>
+ * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -65,6 +66,7 @@
 #include "fileactionmngr.h"
 #include "queuemgrwindow.h"
 #include "scancontroller.h"
+#include "setup.h"
 #include "sidebar.h"
 #include "slideshow.h"
 #include "slideshowbuilder.h"
@@ -77,6 +79,7 @@
 #include "fileactionprogress.h"
 #include "versionmanagersettings.h"
 #include "tableview.h"
+#include "tagsmanager.h"
 
 #ifdef USE_PRESENTATION_MODE
 #include "qmlshow.h"
@@ -355,6 +358,9 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
 
     connect(d->rightSideBar->imageDescEditTab()->getNewTagEdit(), SIGNAL(taggingActionFinished()),
             this, SLOT(slotFocusAndNextImage()));
+
+    connect(d->rightSideBar, SIGNAL(signalSetupMetadataFilters(int)),
+            this, SLOT(slotSetupMetadataFilters(int)));
 }
 
 DigikamView::~DigikamView()
@@ -415,8 +421,8 @@ void DigikamView::setupConnections()
 
     // -- AlbumManager connections --------------------------------
 
-    connect(d->albumManager, SIGNAL(signalAlbumCurrentChanged(Album*)),
-            this, SLOT(slotAlbumSelected(Album*)));
+    connect(d->albumManager, SIGNAL(signalAlbumCurrentChanged(QList<Album*>)),
+            this, SLOT(slotAlbumSelected(QList<Album*>)));
 
     connect(d->albumManager, SIGNAL(signalAllAlbumsLoaded()),
             this, SLOT(slotAllAlbumsLoaded()));
@@ -515,11 +521,9 @@ void DigikamView::setupConnections()
     ImageAlbumFilterModel* const model = d->iconView->imageAlbumFilterModel();
 
     connect(d->filterWidget,
-            SIGNAL(signalTagFilterChanged(const QList<int>&, const QList<int>&,
-                                          ImageFilterSettings::MatchingCondition, bool, const QList<int>&, const QList<int>&)),
+            SIGNAL(signalTagFilterChanged(QList<int>,QList<int>,ImageFilterSettings::MatchingCondition,bool,QList<int>,QList<int>)),
             d->iconView->imageFilterModel(),
-            SLOT(setTagFilter(const QList<int>&, const QList<int>&,
-                              ImageFilterSettings::MatchingCondition, bool, const QList<int>&, const QList<int>&)));
+            SLOT(setTagFilter(QList<int>,QList<int>,ImageFilterSettings::MatchingCondition,bool,QList<int>,QList<int>)));
 
     connect(d->filterWidget, SIGNAL(signalRatingFilterChanged(int,ImageFilterSettings::RatingCondition)),
             model, SLOT(setRatingFilter(int,ImageFilterSettings::RatingCondition)));
@@ -606,7 +610,7 @@ void DigikamView::setupConnections()
     connect(this, SIGNAL(signalAlbumSelected(bool)),
             d->albumHistory, SLOT(slotAlbumSelected()));
 
-    connect(this, SIGNAL(signalImageSelected(ImageInfoList, ImageInfoList)),
+    connect(this, SIGNAL(signalImageSelected(ImageInfoList,ImageInfoList)),
             d->albumHistory, SLOT(slotImageSelected(ImageInfoList)));
 
     connect(d->iconView, SIGNAL(currentChanged(ImageInfo)),
@@ -714,7 +718,13 @@ void DigikamView::saveViewState()
     d->stackedview->thumbBarDock()->close();
     group.writeEntry("ThumbbarState", d->dockArea->saveState().toBase64());
 
-    Album* const album = AlbumManager::instance()->currentAlbum();
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    Album* album = 0;
+
+    if(!albumList.isEmpty())
+    {
+        album = albumList.first();
+    }
 
     if (album)
     {
@@ -849,7 +859,7 @@ void DigikamView::slotAllAlbumsLoaded()
     // now that all albums have been loaded, activate the albumHistory
     d->useAlbumHistory = true;
     Album* const album = d->albumManager->findAlbum(d->initialAlbumID);
-    d->albumManager->setCurrentAlbum(album);
+    d->albumManager->setCurrentAlbums(QList<Album*>() << album);
 }
 
 void DigikamView::slotSortAlbums(int order)
@@ -862,8 +872,14 @@ void DigikamView::slotSortAlbums(int order)
     }
 
     settings->setAlbumSortOrder((AlbumSettings::AlbumSortOrder) order);
-    // TODO sorting by anything else then the name is currently not supported by the model
-    //d->folderView->resort();
+    settings->saveSettings();
+    //A dummy way to force the tree view to resort if the album sort role changed
+    settings->setAlbumSortChanged(true);
+    d->albumFolderSideBar->doSaveState();
+    d->albumFolderSideBar->doLoadState();
+    d->albumFolderSideBar->doSaveState();
+    d->albumFolderSideBar->doLoadState();
+    settings->setAlbumSortChanged(false);
 }
 
 void DigikamView::slotNewAlbum()
@@ -890,6 +906,14 @@ void DigikamView::slotDeleteTag()
 void DigikamView::slotEditTag()
 {
     d->tagModificationHelper->slotTagEdit(d->tagViewSideBar->currentAlbum());
+}
+
+void DigikamView::slotOpenTagsManager()
+{
+    TagsManager* tagMngr = TagsManager::instance();
+    tagMngr->show();
+    tagMngr->activateWindow();
+    tagMngr->raise();
 }
 
 void DigikamView::slotAssignTag()
@@ -928,28 +952,28 @@ void DigikamView::slotAlbumsCleared()
 
 void DigikamView::slotAlbumHistoryBack(int steps)
 {
-    Album* album    = 0;
+    QList<Album*> albums;
     QWidget* widget = 0;
 
-    d->albumHistory->back(&album, &widget, steps);
+    d->albumHistory->back(albums, &widget, steps);
 
-    changeAlbumFromHistory(album, widget);
+    changeAlbumFromHistory(albums, widget);
 }
 
 void DigikamView::slotAlbumHistoryForward(int steps)
 {
-    Album* album    = 0;
+    QList<Album*> albums;
     QWidget* widget = 0;
 
-    d->albumHistory->forward(&album, &widget, steps);
+    d->albumHistory->forward(albums, &widget, steps);
 
-    changeAlbumFromHistory(album, widget);
+    changeAlbumFromHistory(albums , widget);
 }
 
 // TODO update, use SideBarWidget instead of QWidget
-void DigikamView::changeAlbumFromHistory(Album* const album, QWidget* const widget)
+void DigikamView::changeAlbumFromHistory(QList<Album*> album, QWidget* const widget)
 {
-    if (album && widget)
+    if (!(album.isEmpty()) && widget)
     {
         // TODO update, temporary casting until signature is changed
         SidebarWidget* const sideBarWidget = dynamic_cast<SidebarWidget*>(widget);
@@ -1010,7 +1034,7 @@ void DigikamView::slotGotoAlbumAndItem(const ImageInfo& imageInfo)
 
     // And finally toggle album manager to handle album history and
     // reload all items.
-    d->albumManager->setCurrentAlbum(album);
+    d->albumManager->setCurrentAlbums(QList<Album*>() << album);
 
 }
 
@@ -1080,13 +1104,13 @@ void DigikamView::slotSelectAlbum(const KUrl& url)
     d->albumFolderSideBar->setCurrentAlbum(album);
 }
 
-void DigikamView::slotAlbumSelected(Album* album)
+void DigikamView::slotAlbumSelected(QList<Album*> albums)
 {
     emit signalNoCurrentItem();
 
-    if (!album)
+    if (albums.isEmpty() || !(albums.first()))
     {
-        d->iconView->openAlbum(0);
+        d->iconView->openAlbum(QList<Album*>());
         d->mapView->openAlbum(0);
         emit signalAlbumSelected(false);
         emit signalTagSelected(false);
@@ -1094,6 +1118,7 @@ void DigikamView::slotAlbumSelected(Album* album)
         return;
     }
 
+    Album* album = albums.first();
     if (album->type() == Album::PHYSICAL)
     {
         emit signalAlbumSelected(true);
@@ -1133,13 +1158,13 @@ void DigikamView::slotAlbumSelected(Album* album)
 
     if (d->useAlbumHistory)
     {
-        d->albumHistory->addAlbum(album, d->leftSideBar->getActiveTab());
+        d->albumHistory->addAlbums(albums, d->leftSideBar->getActiveTab());
     }
 
     d->parent->enableAlbumBackwardHistory(d->useAlbumHistory && !d->albumHistory->isBackwardEmpty());
     d->parent->enableAlbumForwardHistory(d->useAlbumHistory && !d->albumHistory->isForwardEmpty());
 
-    d->iconView->openAlbum(album);
+    d->iconView->openAlbum(albums);
 
     if (album->isRoot())
     {
@@ -1162,7 +1187,7 @@ void DigikamView::slotAlbumSelected(Album* album)
 
 void DigikamView::slotAlbumOpenInFileManager()
 {
-    Album* const album = d->albumManager->currentAlbum();
+    Album* const album = d->albumManager->currentAlbums().first();
 
     if (!album || album->type() != Album::PHYSICAL)
     {
@@ -1185,7 +1210,7 @@ void DigikamView::slotAlbumOpenInFileManager()
 
 void DigikamView::slotAlbumOpenInTerminal()
 {
-    Album* const album = d->albumManager->currentAlbum();
+    Album* const album = d->albumManager->currentAlbums().first();
 
     if (!album || album->type() != Album::PHYSICAL)
     {
@@ -1470,7 +1495,7 @@ void DigikamView::slotAlbumPropsEdit()
 
 void DigikamView::slotAlbumWriteMetadata()
 {
-    Album* const album = d->albumManager->currentAlbum();
+    Album* const album = d->albumManager->currentAlbums().first();
 
     if (!album)
     {
@@ -1483,7 +1508,7 @@ void DigikamView::slotAlbumWriteMetadata()
 
 void DigikamView::slotAlbumReadMetadata()
 {
-    Album* const album = d->albumManager->currentAlbum();
+    Album* const album = d->albumManager->currentAlbums().first();
 
     if (!album)
     {
@@ -1919,7 +1944,13 @@ void DigikamView::slotSlideShowSelection()
 
 void DigikamView::slotSlideShowRecursive()
 {
-    Album* const album = AlbumManager::instance()->currentAlbum();
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    Album* album = 0;
+
+    if(!albumList.isEmpty())
+    {
+        album = albumList.first();
+    }
 
     if (album)
     {
@@ -1962,7 +1993,7 @@ void DigikamView::slotSlideShowBuilderComplete(const SlideShowSettings& settings
 void DigikamView::toggleShowBar(bool b)
 {
     d->stackedview->thumbBarDock()->showThumbBar(b);
-    
+
     // See B.K.O #319876 : force to reload current view mode to set thumbbar visibility properly.
     d->stackedview->setViewMode(viewMode());
 }
@@ -2186,6 +2217,11 @@ void DigikamView::slotAwayFromSelection()
 StackedView::StackedViewMode DigikamView::viewMode() const
 {
     return d->stackedview->viewMode();
+}
+
+void DigikamView::slotSetupMetadataFilters(int tab)
+{
+    Setup::execMetadataFilters(this, tab);
 }
 
 #ifdef USE_PRESENTATION_MODE

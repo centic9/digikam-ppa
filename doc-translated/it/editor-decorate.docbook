@@ -1,0 +1,472 @@
+<sect2
+>                                      <title
+>Aggiungere elementi decorativi</title>
+<sect3 id="texture">
+<sect3info>
+
+<title
+>Applica trama</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier.gilles@gmail.com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento <emphasis
+>Applica trama</emphasis
+> di &digikam; serve ad applicare trame decorative ad un'immagine. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Aggiungendo una trama alle tue immagini, a colori o in bianco e nero, puoi farle sembrare un dipinto a olio su tela, un'acquaforte dei Maestri pittori, un ritratto di pop art in mezzatinta, o addirittura un murales. Per farlo usa il menu <menuchoice
+><guimenu
+>Immagine</guimenu
+> <guimenuitem
+>Applica trama</guimenuitem
+></menuchoice
+> dell'editor di immagini. </para>
+
+<sect4 id="using-texture">
+<title
+>Usare lo strumento di applicazione delle trame</title>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;texturedialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di applicazione delle trame</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Due opzioni ti danno il controllo della trama applicata all'immagine: </para>
+ 
+<para
+><guilabel
+>Tipo</guilabel
+>: questa opzione specifica lo stile di trama decorativa da applicare sotto l'immagine. </para>
+
+<para
+><guilabel
+>Rilievo</guilabel
+>: trascinare questo impostazione a destra aumenta l'aspetto di profondità o tridimensionalità della trama dell'immagine. </para>
+
+</sect4>
+
+<sect4 id="inaction-texture">
+<title
+>Lo strumento di applicazione delle trame in azione</title>
+
+<para
+>È sotto disponibile l'effetto di una trama a <guilabel
+>Carta</guilabel
+> applicato a una foto. L'immagine originale è (1), l'immagine risultante è (2). Il fattore di <guilabel
+>Rilievo</guilabel
+> usato è 200. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;texturepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>L'anteprima dell'effetto di applicazione delle trame</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="border">
+<sect3info>
+
+<title
+>Aggiungi bordo</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier.gilles@gmail.com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento <emphasis
+>Aggiungi bordo</emphasis
+> di &digikam; serve ad incorniciare un'immagine con un bordo decorativo. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Mantenere l'interesse di chi guarda all'interno dei confini di una fotografia non è un compito semplice. Uno dei modi più semplici di fissare l'attenzione su un'immagine è incorporare una cornice descrittiva attorno a un'immagine. Funziona come una specie di barriera psicologica per l'occhio vagabondo. Il menu dell'editor di immagini <menuchoice
+><guimenu
+>Immagine</guimenu
+><guimenuitem
+>Aggiungi bordo</guimenuitem
+></menuchoice
+> può essere usato per questo. </para>
+
+<sect4 id="using-border">
+<title
+>Usare lo strumento di aggiunta dei bordi</title>
+
+<para
+>Quattro opzioni ti danno il controllo della resa della cornice decorativa: </para>
+ 
+<para
+><guilabel
+>Tipo</guilabel
+>: questa opzione specifica lo stile della cornice decorativa da applicare attorno all'immagine. Lo stile <guilabel
+>Solido</guilabel
+> circonda l'immagine con una semplice linea colorata, lo stile <guilabel
+>Niépce</guilabel
+> circonda l'immagine con una linea fine e un ampio bordo (ideale per le immagini in bianco e nero), lo stile <guilabel
+>Rilievo</guilabel
+> aggiunge una dimensione interessante alla tua immagine (ideale per creare un effetto a pulsante), e lo stile <guilabel
+>Decorativo</guilabel
+> aggiunge un bordo ornamentale usando dei motivi. </para>
+
+<para
+><guilabel
+>Larghezza</guilabel
+>: questa opzione specifica la larghezza del bordo in percentuale delle dimensioni dell'immagine. Il bordo viene aggiunto attorno all'immagine. La larghezza può essere tra l'1 e il 50%. </para>
+
+<para
+><guilabel
+>Primo</guilabel
+>: questa opzione specifica il primo colore da usare con il tipo di bordo attuale. </para>
+
+<para
+><guilabel
+>Secondo</guilabel
+>: questa opzione specifica il primo colore da usare con il tipo di bordo attuale. </para>
+
+<para
+>Fai clic sul pulsante <guilabel
+>OK</guilabel
+> per applicare il bordo attorno all'immagine attuale. </para>
+
+<note
+><para
+>L'immagine risultante decorata con il bordo sarà più grande dell'originale, ma manterrà le stesse proporzioni. Ciò è importante per la stampa delle immagini, specialmente se hai prima usato lo strumento di taglio alle proporzioni. </para
+></note>
+           
+</sect4>
+
+<sect4 id="inaction-border">
+<title
+>Lo strumento di aggiunta dei bordi in azione</title>
+
+<para
+>La finestra dello strumento di aggiunta dei bordi in azione è visibile sotto. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;borderpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di aggiunta dei bordi in azione</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="inserttext">
+<sect3info>
+
+<title
+>Inserisci testo</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier.gilles@gmail.com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard@kulzer.net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento <emphasis
+>Inserisci testo</emphasis
+> di &digikam; serve ad aggiungere del testo ad un'immagine. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Questo è uno strumento comodo perché ti permette di aggiungere facilmente del testo formattato a un'immagine dovunque tu voglia, e in diversi posti se necessario. </para>
+
+<sect4 id="using-inserttext">
+<title
+>Usare lo strumento di inserimento del testo</title>
+
+<para
+>Questo strumento è molto intuitivo da usare. Scrivi il testo e posizionalo con il mouse. Usa le impostazioni del blocco come vuoi. Scegli l'orientazione, il colore dallo spazio dei colori, e i caratteri con tutte le loro proprietà. Dovrai scalare la dimensione dei caratteri con l'immagine: più è grande l'immagine, tanto più grande dovrà essere il carattere. Infine, scegli se aggiungere un bordo attorno al testo o uno sfondo semitrasparente. Ecco fatto! </para>
+
+<para
+>Ogni impostazione del testo che hai scelto può sempre essere cambiata finché non fai clic sul pulsante OK. Nelle immagini salvate e ricaricate il testo sarà diventato parte dell'immagine, e non potrà più essere cambiato. </para>
+ 
+</sect4>
+
+<sect4 id="inaction-inserttext">
+<title
+>Lo strumento di inserimento del testo in azione</title>
+
+<para
+>La finestra di inserimento del testo in azione è mostrata sotto. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;inserttextpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di inserimento del testo in azione</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="superimpose">
+<sect3info>
+
+<title
+>Sovrapposizione di modelli</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier.gilles@gmail.com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard@kulzer.net</email
+></address
+></affiliation>
+    </author
+>    
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento di <emphasis
+>Sovrapposizione di modelli</emphasis
+> di &digikam; serve a sovrapporre delle maschere a un'immagine. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Questo strumento permette di combinare molto facilmente due immagini sovrapponendole. Puoi usare questo strumento per incorniciare le tue foto a seconda delle circostanze. Immagini o grafica possono essere usati per creare file PNG di modelli contenenti bordi, cornici, e immagini composte che possono essere aggiunte o sovrapposte ad altre immagini. I file dei modelli non sono installati insieme a &digikam; ma possono essere trovati a <ulink url="http://digikam3rdparty.free.fr/Templates/"
+>questo URL</ulink
+>. Scarica i contenuti nella banca dati degli album di &digikam; e imposta la <guilabel
+>Cartella radice dei modelli</guilabel
+>. </para>
+
+<para
+>Il menu dell'editor di immagini <menuchoice
+><guimenu
+>Immagine</guimenu
+><guimenuitem
+>Sovrapposizione di modelli</guimenuitem
+></menuchoice
+> è usato per applicare dei modelli a un'immagine. </para>
+
+<sect4 id="using-template-creation">
+<title
+>Per creare dei nuovi modelli</title>
+
+<para
+>I nuovi modelli possono essere creati usando un programma di disegno, e il modello deve essere salvato sul disco. Le aree colorate di un'immagine diventeranno una maschera che sarà poi sovrapposta su un'altra immagine selezionata. I file PNG dei modelli devono essere creati in modalità RGB con canale alfa. Il canale alfa rappresenta le aree trasparenti nel modello che non saranno visualizzate nella sovrapposizione. L'immagine selezionata su cui il modello verrà sovrapposto apparirà al posto delle aree trasparenti nel modello. </para>
+
+<para
+>Non ci sono limiti alla dimensione o all'orientazione del modello, ma devi usare il formato di file PNG con compressione massima (9) per ridurre la dimensione del file del modello. Se vuoi aggiungere il tuo modello alla banca dati dei modelli di &digikam;, per piacere contatta per posta elettronica la mailing list di &digikam; <email
+>digikam-users@kde.org</email
+>. </para>
+            
+</sect4>
+
+<sect4 id="using-superimpose">
+<title
+>Usare lo strumento di sovrapposizione</title>
+
+<para
+>Se stai usando lo strumento per la prima volta, devi impostare la tua cartella locale dei modelli usando il pulsante <guilabel
+>Cartella radice</guilabel
+> nella finestra. Seleziona la cartella dove hai copiato i file dei modelli. L'oggetto si ricorderà questa impostazione la prossima volta. </para>
+
+<para
+>Quando la cartella radice dei modelli è impostata, viene creata una vista ad albero delle cartelle, che mostra la struttura delle cartelle dei modelli. Sceglierne uno aggiornerà automaticamente la barra di anteprima dei modelli. </para>
+
+<para
+>Sotto l'area di anteprima, tre pulsanti ti danno il controllo dell'ingrandimento e della posizione del modello sull'immagine: </para>
+
+<para
+><guilabel
+>Ingrandisci</guilabel
+>: questo pulsante aumenta il fattore di ingrandimento dell'immagine sottostante. L'immagine è centrata sulla posizione attuale del mouse. Conferma con il pulsante sinistro del mouse. </para>
+
+<para
+><guilabel
+>Rimpicciolisci</guilabel
+>: questo pulsante riduce il fattore di ingrandimento. Se vuoi applicare il modello all'immagine completa devi rimpicciolire completamente. Conferma con il pulsante sinistro del mouse. </para>
+
+<para
+><guilabel
+>Sposta</guilabel
+>: usa questo pulsante per scorrere l'immagine sottostante. Fai clic e trascina l'immagine con il pulsante destro del mouse. </para>
+ 
+<para
+>Fai clic sul pulsante <guilabel
+>OK</guilabel
+> per applicare il modello all'immagine attuale, che sarà automaticamente ridimensionata alle dimensioni del modello. </para>
+           
+</sect4>
+
+<sect4 id="inaction-superimpose">
+<title
+>La sovrapposizione in azione</title>
+
+<para
+>La finestra dello strumento di sovrapposizione dei modelli in azione è disponibile sotto. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;superimposepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di sovrapposizione dei modelli</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

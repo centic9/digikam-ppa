@@ -58,8 +58,10 @@ public:
     {
         if (!m_backend)
         {
-            QString cascadeDir = KStandardDirs::installPath("data") + QString("libkface/haarcascades");
-            m_backend          = new OpenCVFaceDetector(cascadeDir);
+            QStringList cascadeDirs;
+            cascadeDirs << KGlobal::dirs()->findDirs("data", "libkface/haarcascades");
+            cascadeDirs << KGlobal::dirs()->findDirs("xdgdata-apps", "../opencv/haarcascades");
+            m_backend          = new OpenCVFaceDetector(cascadeDirs);
             applyParameters();
         }
 

@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-04-02 03:08+0200\n"
-"PO-Revision-Date: 2013-03-14 13:53+0100\n"
+"PO-Revision-Date: 2013-10-28 21:16+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -36,7 +36,7 @@ msgstr "Vytvoriť nový album"
 
 #: fbalbum.cpp:59
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
 
 #: fbalbum.cpp:62
 msgid "Location of the album that will be created (optional)."
@@ -44,21 +44,19 @@ msgstr ""
 
 #: fbalbum.cpp:65
 msgid "Description of the album that will be created (optional)."
-msgstr ""
+msgstr "Popis albumu, ktorý bude vytvorený (voliteľné)."
 
 #: fbalbum.cpp:69
 msgid "Privacy setting of the album that will be created (required)."
 msgstr ""
 
 #: fbalbum.cpp:70
-#, fuzzy
 msgid "Only Me"
-msgstr "Zobraziť priateľov:"
+msgstr "Iba ja"
 
 #: fbalbum.cpp:71
-#, fuzzy
 msgid "Only Friends"
-msgstr "Zobraziť priateľov:"
+msgstr "Iba priatelia"
 
 #: fbalbum.cpp:72
 #, fuzzy
@@ -142,9 +140,8 @@ msgid "Invalid album ID."
 msgstr "Neplatné ID pre Jabber"
 
 #: fbtalker.cpp:793
-#, fuzzy
 msgid "Album is full."
-msgstr "Kanál je plný"
+msgstr "Album je plný."
 
 #: fbtalker.cpp:796
 #, fuzzy
@@ -214,9 +211,8 @@ msgid "This is the Facebook album to which selected photos will be uploaded."
 msgstr ""
 
 #: fbwidget.cpp:122
-#, fuzzy
 msgid "My &Album"
-msgstr "Značka albumu"
+msgstr "Môj album"
 
 #: fbwidget.cpp:123
 msgid "Download complete album of currently logged in user."
@@ -272,9 +268,8 @@ msgid "Reload"
 msgstr "Znovu načítať"
 
 #: fbwidget.cpp:148
-#, fuzzy
 msgid "Reload album list"
-msgstr "Obnoviť zoznam zariadení"
+msgstr "Obnoviť zoznam albumov"
 
 #: fbwidget.cpp:164
 msgid "This is the location to which Facebook images will be downloaded."
@@ -286,25 +281,23 @@ msgstr "Možnosti"
 
 #: fbwidget.cpp:172
 msgid "These are options that will be applied to photos before upload."
-msgstr ""
+msgstr "Toto sú voľby, ktoré sa použijú na fotky pred nahraním."
 
 #: fbwidget.cpp:176
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
 #: fbwidget.cpp:186
-#, fuzzy
 msgid "Maximum dimension:"
-msgstr "MUNIT(rozmer)"
+msgstr "Maximálne rozmery:"
 
 #: fbwidget.cpp:194
 msgid "JPEG quality:"
 msgstr "Kvalita JPEG:"
 
 #: fbwidget.cpp:311
-#, fuzzy
 msgid "Direct upload"
-msgstr "Uploadovať z:"
+msgstr "Priame nahranie"
 
 #: fbwidget.cpp:313
 msgid "Uploaded photos will not need manual approval by user."
@@ -383,24 +376,21 @@ msgid "Facebook Call Failed: %1\n"
 msgstr "Volanie D-Bus zlyhalo"
 
 #: fbwindow.cpp:433
-#, fuzzy
 msgctxt "name of special Facebook album for profile pictures"
 msgid "Profile Pictures"
-msgstr "Cesta k obrázkom:"
+msgstr "Profilové fotky"
 
 #: fbwindow.cpp:608 fbwindow.cpp:633
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: fbwindow.cpp:612
-#, fuzzy
 msgid "Facebook import"
-msgstr "Facebook import/export"
+msgstr "Facebook import"
 
 #: fbwindow.cpp:637
-#, fuzzy
 msgid "Facebook export"
-msgstr "Facebook import/export"
+msgstr "Facebook export"
 
 #: fbwindow.cpp:740 fbwindow.cpp:755
 msgid "Cannot open file"

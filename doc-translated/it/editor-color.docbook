@@ -1,0 +1,1643 @@
+<sect2
+>                                     <title
+>Strumenti di modifica dei colori</title>
+
+<sect3 id="auto-correction">
+<sect3info
+>           <title
+>Strumenti di correzione automatica</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>Questo gruppo di strumenti fornisce cinque livelli di correzione automatica che nella maggior parte dei casi miglioreranno un'immagine. usa questo strumento prima di usare le più intricate regolazioni manuali. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Introduzione</title>
+   <anchor id="autocolorcorrectiontool.anchor"/>
+
+            <para
+>Le funzioni <guilabel
+>Normalizza</guilabel
+>, <guilabel
+>Equalizza</guilabel
+>, <guilabel
+>Livelli automatici</guilabel
+>, e <guilabel
+>Stira il contrasto</guilabel
+> disponibili sotto la voce del menu <menuchoice
+><guilabel
+>Correggi</guilabel
+><guimenuitem
+>Correzione automatica...</guimenuitem
+></menuchoice
+> cercheranno di indovinare automaticamente i migliori livelli dei colori. Devi sperimentare con gli effetti di queste funzioni per vedere cosa va meglio per la tua fotografia. <itemizedlist>
+
+                <listitem
+><para
+><guilabel
+>Normalizza</guilabel
+>: questo metodo scala i valori di luminosità in tutta l'immagine selezionata in modo che il punto più scuro diviene nero, e il punto più chiaro il più luminoso possibile senza alterarne la tonalità. Questa è spesso la <quote
+>bacchetta magica</quote
+> per le immagini opache o slavate. <example
+><title
+>Anteprima della normalizzazione dei colori</title
+>   <screenshot
+><screeninfo
+>Anteprima della normalizzazione dei colori</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editornormalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+                </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Equalizza</guilabel
+>: questo metodo regola la luminosità dei colori in tutta l'immagine selezionata in modo che l'istogramma del canale dei valori sia il più piatto possibile; cioè, che ogni valore di luminosità possibile appaia in circa lo stesso numero di pixel di ogni altro valore. A volte Equalizza funziona egregiamente per migliorare il contrasto di un'immagine. Altre volte produce spazzatura. È un'operazione molto potente, che può sia fare miracoli su un'immagine che peggiorarla. <example
+><title
+>Anteprima dell'equalizzazione dei colori</title
+> <screenshot
+><screeninfo
+>Anteprima dell'equalizzazione dei colori</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorequalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Livelli automatici</guilabel
+>: questo metodo massimizza l'intervallo dei toni nei canali del rosso, del verde e del blu. Determina i limiti d'ombra e di luce dell'immagine, e regola i canali del rosso, del verde e del blu per ottenere un intervallo completo dell'istogramma. <example
+><title
+>Anteprima della correzione ai livelli automatici</title
+> <screenshot
+><screeninfo
+>Anteprima della correzione ai livelli automatici</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorautolevels.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Stira il contrasto</guilabel
+>: questo metodo migliora il contrasto e la luminosità dei valori RGB di un'immagine stirandone i valori minimo e massimo al loro intervallo massimo, regolando tutto quello che c'è in mezzo. Ciò si può notare solo nelle immagini slavate, e può essere un buon strumento di correzione per brutte foto. <example
+><title
+>Correzione di stiramento del contrasto</title
+> <screenshot
+><screeninfo
+>Anteprima della correzione di stiramento del contrasto</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorstretchcontrast.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+            </itemizedlist>
+
+            </para>
+
+            <para
+>Il risultato di qualsiasi regolazione che tu faccia non sarà memorizzato finché non salverai la foto. </para>
+</sect3>
+
+<sect3 id="whitebalance">
+<sect3info>
+
+<title
+>Bilanciamento del bianco</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Il <emphasis
+>bilanciamento del bianco</emphasis
+> di &digikam; è uno strumento semiautomatico per regolare il bilanciamento del bianco di una fotografia. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Le impostazioni del bilanciamento del bianco sono un problema comune nelle macchine fotografiche digitali. Ai bei vecchi tempi delle pellicole, il bilanciamento del bianco veniva fatto dal laboratorio fotografico. Oggi la povera macchinetta fotografica deve indovinare cos'è bianco e cos'è nero. La maggior parte delle volte, ciò che viene rilevato dalla macchina come il punto bianco non è della corretta sfumatura o tonalità. Usando questo strumento, è facile correggere il problema. Esso fornisce una serie di parametri che possono essere adattati per ottenere un risultato migliore. </para>
+
+<note
+><para
+>La correzione del bilanciamento del bianco è un po' limitata dal fatto che operiamo in uno spazio cromatico a 8 bit per canale. Quindi, se ti allontani troppo dall'originale, potrebbero apparire zone di sovraesposizione. Se puoi regolare il bilanciamento del bianco in modalità di conversione grezza (che viene fatto in uno spazio a 16 bit), il margine di correzione sarà maggiore. </para
+></note>
+
+<para
+>Questo strumento si basa su un algoritmo di bilanciamento del colore bianco sotto copyright di Pawel T. Jochym. Avvialo dal menu dell'editor di immagini <menuchoice
+><guimenu
+>Colore</guimenu
+><guimenuitem
+>Bilanciamento del bianco</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-whitebalance"
+>  <title
+>Usare lo strumento di bilanciamento del bianco</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;whitebalancedialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di bilanciamento del bianco</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>La finestra di anteprima può essere ridimensionata. A sinistra, sono visualizzate una scheda di anteprima dell'originale e del risultato. L'anteprima del risultato viene aggiornata dinamicamente secondo le impostazioni dello strumento. Se vuoi vedere il bilanciamento del bianco originale, fai clic sulla scheda dell'immagine originale. </para>
+
+<para
+>L'anteprima della fotografia risultante ha un segno rosso disponibile. Il valore di luminosità del pixel sotto il segno viene indicato come una linea verticale nell'istogramma. </para>
+
+<para
+>In alto a destra, lo strumento visualizza un istogramma che viene aggiornato dinamicamente quando cambi i parametri. Questo istogramma è molto istruttivo perché mostra che anche in fotografie ben esposte, la maggior parte dei pixel hanno una luminosità molto ridotta. Con un pulsante puoi scegliere di mostrare uno qualsiasi dei tre colori (o la loro somma, detta luminosità). </para>
+
+<para
+>Con <guilabel
+>Esposizione</guilabel
+> puoi cambiare digitalmente l'esposizione della foto originale. Aumentare l'esposizione comporta il rischio di rendere più visibili i disturbi dei pixel ed espandere le luci. Segna l'<guilabel
+>Indicatore di sovraesposizione</guilabel
+> in basso a destra per vedere se sei soggetto a problemi di saturazione. La regolazione del <guilabel
+>Punto nero</guilabel
+> può essere usata per tagliare l'istogramma a sinistra. Se la tua fotografia sembra nebbiosa (l'istogramma ha spazio vuoto sul lato sinistro nero), probabilmente devi usare questa opzione. Le regolazioni dell'<guilabel
+>Esposizione</guilabel
+> e del <guilabel
+>Punto nero</guilabel
+> possono essere stimate automaticamente premendo il pulsante di <guilabel
+>Regolazioni di autoesposizione</guilabel
+>. Ciò imposta il punto nero piuttosto precisamente. </para>
+
+<para
+>Il contrasto del tuo risultato dipende dai parametri <guilabel
+>Ombre</guilabel
+>, <guilabel
+>Saturazione</guilabel
+> e <guilabel
+>Gamma</guilabel
+>. La regolazione delle <guilabel
+>Ombre</guilabel
+> ti permette di migliorare o diminuire i dettagli delle ombre nella tuo foto. </para>
+
+<para
+>Aumentare il contrasto della tua fotografia può avere l'effetto collaterale di ridurre la <guilabel
+>Saturazione</guilabel
+> apparente della foto. Usa un valore maggiore di 1 per aumentare la saturazione e un valore minore di 1 per desaturare la foto. Un valore di 0 ti restituirà una foto in bianco e nero. Non aver paura di aumentare un po' la saturazione delle foto. La regola generale è che con un maggior contrasto (minor <guilabel
+>Gamma</guilabel
+>) devi applicare più <guilabel
+>Saturazione</guilabel
+>. </para>
+
+<para
+>Il prossimo insieme di opzioni è la spina dorsale delle impostazioni del bilanciamento del bianco, che controllano il rapporto tra i tre canali dei colori. Qui puoi impostare la <guilabel
+>Temperatura</guilabel
+> del colore, scaldando o raffreddando la tua immagine. Una temperatura maggiore causerà un tono più caldo. Impostare il rapporto tra i tre canali del colore richiede due regolazioni. Siccome la regolazione della temperatura controlla per lo più il rapporto tra i canali del rosso e del blu, è naturale che la seconda regolazione controllerà l'intensità del canale del <guilabel
+>Verde</guilabel
+>. </para>
+
+<para
+>Invece di macchinare con i controlli sopra, puoi semplicemente usare il pulsante <guilabel
+>Selettore del colore del tono della temperatura</guilabel
+>. Premi questo pulsante e fai clic da qualsiasi parte nell'anteprima dell'immagine originale per ottenere i colori di output di quell'area per calcolare le impostazioni della temperatura di bilanciamento del colore bianco. In questo modo, i valori di <guilabel
+>Temperatura</guilabel
+> e <guilabel
+>Verde</guilabel
+> sono calcolati automaticamente. </para>
+
+<para
+>Inoltre puoi impostare il bilanciamento del bianco usando l'elenco di preimpostazioni. Queste sono le preimpostazioni di temperatura per il bilanciamento del bianco disponibili: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="3">
+
+<thead>
+   <row>
+      <entry
+>Temperatura del colore</entry>
+      <entry
+>Descrizione</entry>
+      <entry
+>Kelvin</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry>
+      <guilabel
+>40W</guilabel>
+      </entry>
+
+      <entry
+>Lampadina a incandescenza da 40 watt. </entry>
+
+      <entry>
+      <guilabel
+>2680</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>200W</guilabel>
+      </entry>
+
+      <entry
+>Lampadina a incandescenza da 200 watt, luci da studio, illuminazione fotografica. </entry>
+
+      <entry>
+      <guilabel
+>3000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Alba</guilabel>
+      </entry>
+
+      <entry
+>Luce di un'alba o di un tramonto. </entry>
+
+      <entry>
+      <guilabel
+>3200</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Tungsteno</guilabel>
+      </entry>
+
+      <entry
+>Lampadina al tungsteno o luce a un'ora dall'alba o dal crepuscolo. </entry>
+
+      <entry>
+      <guilabel
+>3400</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Neutra</guilabel>
+      </entry>
+
+      <entry
+>Temperatura del colore neutra. </entry>
+
+      <entry>
+      <guilabel
+>4750</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Xeno</guilabel>
+      </entry>
+
+      <entry
+>Lampada allo xeno o arco elettrico. </entry>
+
+      <entry>
+      <guilabel
+>5000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Sole</guilabel>
+      </entry>
+
+      <entry
+>Luce diurna attorno a mezzogiorno. </entry>
+
+      <entry>
+      <guilabel
+>5500</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Flash</guilabel>
+      </entry>
+
+      <entry
+>Flash elettronico di una macchina fotografica. </entry>
+
+      <entry>
+      <guilabel
+>5600</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Cielo</guilabel>
+      </entry>
+
+      <entry
+>Luce di un cielo coperto. </entry>
+
+      <entry>
+      <guilabel
+>6500</guilabel>
+      </entry>
+   </row>
+
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<para
+>La <guilabel
+>Temperatura del colore</guilabel
+> è un modo semplificato di rappresentare le caratteristiche spettrali di una sorgente di luce. Mentre in realtà il colore della luce è determinato da quanto ogni componente dello spettro contribuisce alla somma, il risultato può sempre essere sommato su una scala lineare. Questo valore è utile, per esempio, per determinare il bilanciamento del bianco corretto nella fotografia digitale, e per specificare la sorgente di luce giusta nella progettazione dell'illuminazione in architettura. Nota, comunque, che le sorgenti di luce dello stesso colore (metameri) possono variare ampiamente nella qualità di luce emessa. </para>
+
+<para
+>Una <guilabel
+>Temperatura del colore</guilabel
+> bassa implica più luce gialla e rossa, mentre una temperatura del colore alta implica più luce blu. La luce diurna ha una temperatura di colore piuttosto bassa all'alba, e una più alta durante il giorno. Quindi può essere utile installare un sistema di illuminazione elettrica che possa fornire una luce più chiara per aggiungersi alla luce diurna quando necessario, e per introdurre luce più calda di notte. Ciò si correla anche con le impressioni delle persone riguardo ai colori caldi della luce che viene dalle candele o da un bivacco di notte. L'unità standard della temperatura del colore è il kelvin (K). </para>
+
+<para
+>L'opzione <guilabel
+>Indicatore di sovraesposizione</guilabel
+> somma i colori se più di un canale in un pixel è sovraesposto, e vedrai il colore combinato risultante dalle impostazioni dei controlli del bilanciamento del bianco. Questa regola è applicata solo all'area di anteprima del risultato, e non ha effetto sulla resa finale. </para>
+
+<para
+>I pulsanti <guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+> sono usati per fare le azioni che descrivono. Qualsiasi impostazione del bilanciamento del bianco che hai impostato può essere salvata su un file di testo e caricata più tardi. </para>
+
+<para
+><guilabel
+>Reimposta tutto</guilabel
+>: questo pulsante reimposta tutte le impostazioni del filtro ai valori predefiniti corrispondenti al colore di bilanciamento del bianco neutro (attenzione, anche l'impostazione neutra potrebbe essere diversa dalla tua foto originale. Se la salvi, il bilanciamento del bianco sarà modificato). </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="encoding-depth"
+>    <title
+>Profondità di codifica</title>
+    <para
+>Qui puoi cambiare la profondità di codifica per canale di colore dell'immagine modificata. La codifica a 8 bit è il normale formato JPEG, quella a 16 bit è più adatta alle immagini di alta qualità, ma questo formato ha bisogno di più spazio e tempo di calcolo, ed è attualmente disponibile solo per i formati PNG, PNM, TIFF e DNG.</para>
+</sect3>
+
+<sect3 id="color-management"
+>    <title
+>Gestione dei colori</title>
+    <para
+>Questo strumento apre la stessa finestra di quando si modificano le immagini grezze. Il suo uso è la modifica e l'assegnazione dei profili di colore. Dalla scheda di regolazione della luminosità (scheda in fondo) si può anche fare la mappatura dei toni. Per istruzioni dettagliate sull'uso dei profili di colore, riferisciti al <ulink url="help:/digikam/using-setup.html#setup-iccprofiles"
+>capitolo sulla gestione dei colori</ulink
+>.</para>
+</sect3>
+
+<sect3 id="exposure-correct"
+>    <title
+>Correggere l'esposizione</title>
+
+     <anchor id="bcgadjusttool.anchor"/>
+
+     <para
+>Il sistema più semplice è usare lo strumento Luminosità/contrasto/gamma. È anche il meno potente, ma in molti casi fa tutto quello di cui hai bisogno. Questo strumento è spesso utile per le immagini sovraesposte o sottoesposte; non è utile per correggere le dominanti di colore. Lo strumento ti dà tre cursori da regolare, per la luminosità, per il contrasto, e per il fattore gamma. Puoi vedere ogni regolazione che fai riflettersi nell'anteprima. Quando sei soddisfatto dei risultati, premi <guilabel
+>OK</guilabel
+> e avranno effetto. </para>
+
+     <example
+>  <title
+>Lo strumento Luminosità/contrasto/gamma in azione</title>
+         <screenshot
+><screeninfo
+>Lo strumento Luminosità/contrasto/gamma in azione</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbcgadjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <para
+>Un altro strumento importante è <menuchoice
+><guimenu
+>Colore</guimenu
+><guimenuitem
+>Regola livelli</guimenuitem
+></menuchoice
+>. Questo strumento fornisce un modo integrato di vedere i risultati della regolazione di livelli multipli e permette anche di salvare le impostazioni dei livelli per l'applicazione a più fotografie. Ciò può essere utile se una macchina fotografica o uno scanner fanno spesso gli stessi errori e vuoi applicare le stesse correzioni. Vedi il <link linkend="using-adjustlevels"
+>manuale dedicato alla regolazione dei livelli</link
+> per maggiori informazioni. </para>
+
+     <para
+>Un modo molto potente di correggere i problemi di esposizione è usare lo strumento di regolazione delle curve, disponibile dalla voce del menu <menuchoice
+><guimenu
+>Colore</guimenu
+><guimenuitem
+>Regola curve</guimenuitem
+></menuchoice
+>. </para>
+
+</sect3>
+
+<sect3 id="coloreffects">
+
+<sect3info>
+<title
+>Solarizza immagine</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento <emphasis
+>Effetti dei colori</emphasis
+> di &digikam; fornisce quattro effetti dei colori: un effetto di solarizzazione, un effetto Velvia, un effetto al neon e un filtro dei bordi. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Solarizzazione</keyword>
+<keyword
+>Velvia</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Nell'era dell'elaborazione chimica delle immagini, la solarizzazione (nota anche come effetto Sabatier) era un effetto ottenuto esponendo una stampa parzialmente sviluppata a un breve lampo di luce, e poi completando lo sviluppo. Le aree colorate e più scure impediscono alla luce aggiuntiva di raggiungere gli strati sensibili della foto, che risulta nell'effetto di scurire le aree chiare e invertire i colori nella seconda esposizione. Il risultato assomiglia a un'immagine parzialmente negativa. Lo strumento permette di regolare gradualmente questo interessante effetto. </para>
+
+<sect4 id="using-solarize"
+> <title
+>Usare la solarizzazione</title>
+
+<para
+>Il controllo dell'<guilabel
+>Intensità</guilabel
+> aiuta a fare un'anteprima della solarizzazione semplicemente aumentandola. A circa il 50% dell'intensità l'immagine mostra quello che una volta era possibile per mezzo della chimica. Se aumenti ulteriormente l'effetto, alla fine diverrà un'immagine negativa, uno stadio di inversione non raggiungibile su carta fotografica. </para>
+</sect4>
+
+<sect4 id="inaction-solarize"
+> <title
+>La solarizzazione in azione</title>
+
+<para
+>Questo è un esempio dell'effetto di solarizzazione. L'immagine originale è (1) e l'immagine corretta è (2). Il livello di <guilabel
+>Intensità</guilabel
+> applicato è del 30%. </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;solarizepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Anteprima dell'effetto di solarizzazione dell'immagine</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+<sect4
+>   <title
+>L'effetto vivido (filtro Velvia)</title>
+  <para
+>Il filtro vivido simula quello che è noto come l'effetto <quote
+>Velvia</quote
+>. È diverso dalla saturazione perché ha un effetto più pronunciato sul contrasto che rende i colori più vividi e brillanti. Provalo, funziona molto bene su molti soggetti! </para>
+  <para
+>Velvia è una marca di pellicole a colori invertiti bilanciati per la luce diurna prodotte dalla compagnia giapponese Fujifilm. Il nome è una contrazione di <quote
+>Velvet Media</quote
+>, in riferimento alla loro struttura liscia delle immagini. Le immagini Velvia hanno colori molto saturi e alto contrasto nella luce diurna. Queste caratteristiche le rendono le pellicole preferiti di molti fotografi naturalisti. I colori altamente saturi delle pellicole Velvia, tuttavia, sono considerati eccessivi da alcuni fotografi, specialmente quelli che non si specializzano in paesaggi. </para>
+     <example
+>  <title
+>Originale e filtro vivido</title>
+        <screenshot
+><screeninfo
+>Originale e filtro vivido</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorvivid.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>L'effetto neon</title>
+  <para
+>Il filtro neon simula la luce al neon lungo i bordi del contrasto. Il parametro del livello controlla la luminosità del risultato, mentre il cursore dell'interazione determina lo spessore della luce al neon. Con immagini grandi, il filtro potrebbe prendere parecchio tempo al processore. </para>
+     <example
+>  <title
+>Il filtro neon</title>
+        <screenshot
+><screeninfo
+>Il filtro neon</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorneon.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>L'effetto del bordo</title>
+ <para
+>[Da fare] </para>
+</sect4>
+
+</sect3>
+
+<sect3 id="using-correctingcolor"
+>       <title
+>Correggere il colore</title>
+
+     <anchor id="colorbalancetool.anchor"/>
+
+     <para
+>Le macchine fotografiche digitali hanno spesso problemi con le condizioni di illuminazione, e non è raro voler correggere il colore, il contrasto e la luminosità di una foto. Puoi provare ad alterare i livelli di diversi aspetti delle tue foto usando gli strumenti sotto il menu <menuchoice
+><guimenu
+>Correggi</guimenu
+></menuchoice
+>. Puoi vedere ogni regolazione che fai riflettersi nell'anteprima. Quando sei soddisfatto dei risultati, premi <guilabel
+>OK</guilabel
+> e avranno effetto. </para>
+
+     <example
+>  <title
+>Lo strumento di bilanciamento del colore in azione</title>
+        <screenshot
+><screeninfo
+>Lo strumento di bilanciamento del colore in azione</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorcolorbalance.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <anchor id="hsladjusttool.anchor"/>
+
+     <para
+>Se l'immagine è slavata (che capita facilmente quando fai foto in piena luce) prova lo strumento Tonalità/saturazione/luminosità, che ti dà tre cursori da manipolare. Aumentare la saturazione probabilmente migliorerà l'aspetto dell'immagine. In alcuni casi, è utile regolare contemporaneamente la luminosità. La luminosità, qui, è simile alla luminosità dello strumento Luminosità/contrasto/gamma, tranne per il fatto che è formata da diverse combinazioni dei canali del rosso, verde e blu. </para>
+
+     <para
+>Quando scatti una foto in condizioni di scarsa luminosità, potresti ottenere il problema opposto: troppa saturazione. Anche in questo caso lo strumento Tonalità/saturazione è utile, però per ridurre la saturazione invece che aumentarla. Puoi vedere tutte le regolazioni che fai proiettate nell'immagine di anteprima. Quando sei soddisfatto dei risultati, premi <guilabel
+>OK</guilabel
+> e avranno effetto. </para>
+
+     <example
+>  <title
+>Lo strumento Tonalità/saturazione/luminosità in azione</title>
+         <screenshot
+><screeninfo
+>Lo strumento Tonalità/saturazione/luminosità in azione</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorhsladjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+ </sect3>
+
+<sect3 id="adjustlevels">
+<sect3info>
+
+<title
+>Regola livelli</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>La <emphasis
+>regolazione dei livelli</emphasis
+> di &digikam; è uno strumento per regolare manualmente i canali degli istogrammi di un'immagine. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Situato tra il più sofisticato strumento di regolazione delle curve e il più semplice strumento di modifica di Luminosità/Contrasto/Gamma dell'editor di immagini c'è questo strumento di regolazione dei livelli, per migliorare l'esposizione. Sebbene la finestra di questo strumento sembri molto complicata, l'unica parte che ti interessa è l'area <guilabel
+>Livelli di input</guilabel
+>, in concreto i tre cursori presenti sotto l'istogramma. </para>
+
+<para
+>Questo strumento contiene un grafico visivo dei valori di intensità dello strato attivo o della selezione (istogramma). Sotto il grafico ci sono cinque cursori su cui si può fare clic, e che possono essere trascinati per limitare e cambiare il livello di intensità dell'immagine. La posizione sinistra del cursore rappresenta le aree scure, e similmente la posizione destra rappresenta quelle chiare. </para>
+
+<sect4 id="using-adjustlevels">
+<title
+>Usare lo strumento di regolazione dei livelli</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelsdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di regolazione dei livelli</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>In pratica il modo più facile di imparare a usarlo è provare a spostare i tre cursori, e vedere come l'immagine ne viene influenzata. </para>
+
+<para
+>A destra è disponibile un'anteprima sia dell'immagine originale che della risultante. L'anteprima della risultante è aggiornata dinamicamente secondo le posizioni dei cursori. Sulla sinistra, sono disponibili le seguenti opzioni: <itemizedlist>
+
+  <listitem
+><para
+>Modifica i livelli per <guilabel
+>Canale</guilabel
+>: questa casella combinata permette la selezione del canale specifico che sarà modificato dallo strumento: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Luminosità</guilabel
+>: questa opzione esegue cambiamenti dell'intensità rispetto a tutti i pixel dell'immagine.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Rosso</guilabel
+>: questa opzione esegue cambiamenti della saturazione del rosso rispetto a tutti i pixel dell'immagine.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Verde</guilabel
+>: questa opzione esegue cambiamenti della saturazione del verde rispetto a tutti i pixel dell'immagine.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Blu</guilabel
+>: questa opzione esegue cambiamenti della saturazione del blu rispetto a tutti i pixel dell'immagine.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: questa opzione esegue cambiamenti della trasparenza rispetto a tutti i pixel dell'immagine.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+>Imposta la <guilabel
+>Scala</guilabel
+> del canale: questa casella controlla la visualizzazione dell'istogramma in scala lineare o logaritmica. Per le immagini fatte con una macchina fotografica digitale, la modalità lineare è normalmente la più utile. Tuttavia, nelle immagini che contengono aree estese di colore costante, un istogramma lineare sarà spesso dominato da una sola barra. In questo caso un istogramma logaritmico sarà più utile.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Livelli di input</guilabel
+>: i livelli di input permettono di selezionare delle regolazioni manuali per ciascuno degli intervalli. L'area principale è una rappresentazione grafica del contenuto scuro, medio e chiaro dell'immagine. Sono sull'ascissa dal livello 0 (nero) al livello 255 (bianco). Il numero di pixel di un livello è sull'asse delle ordinate. La superficie della curva rappresenta tutti i pixel dell'immagine con livelli (toni) distribuiti su tutto l'intervallo. Un'immagine con un colore blu predominante, per esempio, produrrà un istogramma spostato a sinistra nei canali del verde e del rosso, indicato dalla mancanza di porzioni significative di verde e rosso. Gli intervalli dei livelli possono essere cambiati in tre modi: <itemizedlist>
+          <listitem
+><para
+>Tre cursori: il primo in cima per i toni scuri, il secondo per i toni chiari, e l'ultimo in basso per i toni medi (spesso chiamato valore gamma). </para
+></listitem>
+          <listitem
+><para
+>Tre caselle per inserire i valori direttamente. </para
+></listitem>
+          <listitem
+><para
+>Tre pulsanti di selezione del colore usando l'anteprima della foto originale per regolare automaticamente i livelli di input per i toni in ombra, medi ed in risalto. C'è anche un pulsante di regolazione completamente automatica disponibile di fianco al pulsante di reimpostazione. </para
+></listitem>
+      </itemizedlist>
+  </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Livelli di output</guilabel
+>: i livelli di output permettono la selezione manuale di un intervallo di output limitato. Qui ci sono anche due cursori che possono essere usati per cambiare interattivamente i livelli di output come i <guilabel
+>Livelli di input</guilabel
+>. Questa compressione dell'output potrebbe, per esempio, essere usata per creare un'immagine sbiancata come sfondo per qualche altro soggetto da mettere in primo piano.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Auto</guilabel
+>: questo pulsante esegue un'impostazione automatica dei livelli basandosi sulle intensità dei pixel dell'immagine.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+>: questi pulsanti servono a fare quello che dicono. Qualsiasi livello che tu abbia impostato può essere salvato su file e caricato più tardi. Il formato di file usato è il formato dei livelli di Gimp.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Reimposta tutto</guilabel
+>: questo pulsante reimposta tutti i valori dei <guilabel
+>Livelli di input</guilabel
+> e dei <guilabel
+>Livelli di output</guilabel
+> per tutti i canali.</para
+></listitem>
+
+</itemizedlist>
+</para>
+
+<para
+>Lo strumento di regolazione dei livelli ha diverse funzionalità per facilitare il posizionamento dei cursori dei livelli. Fare clic col pulsante del mouse nell'anteprima dell'immagine originale produce una barra tratteggiata verticale nell'area del grafico dell'istogramma. La posizione della barra corrisponde al valore del pixel sotto il cursore del mouse. Fare clic col pulsante del mouse e trascinare aggiorna interattivamente la posizione della barra verticale. In questo modo, è possibile vedere dove i valori di diversi pixel sono posizionati sui cursori dei livelli di input, e ciò aiuta a scoprire la posizione dei pixel in ombra, con tono medio o in risalto. </para>
+
+<para
+>Usare questo metodo e i tre pulsanti del <guilabel
+>Selettore del colore</guilabel
+> regolerà automaticamente le impostazioni dei livelli di input in tutti i canali per i toni in ombra, medi e in risalto. Attiva il selettore del colore che vuoi usare, e fai clic sull'area dell'anteprima dell'immagine originale per impostare i livelli di input su ciascuno dei canali dell'istogramma del rosso, del verde, del blu e della luminosità. </para>
+
+<para
+>L'opzione <guilabel
+>Indicatore di sovraesposizione</guilabel
+> controlla tutti i canali dei colori per vedere se un canale in un pixel è sovraesposto, e vedrai il colore combinato risultante dalle impostazioni della curva del canale. Questa funzionalità è solo indicativa nell'area dell'anteprima del risultato, e non ha effetto sulla resa finale. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustlevels">
+<title
+>Lo strumento per la regolazione dei livelli in azione</title>
+
+<para
+>Sotto, puoi vedere un esempio di regolazione dei <guilabel
+>Livelli di input</guilabel
+> applicato a un'immagine a colori per i canali di rosso, verde e blu. I canali di intensità e alfa e i <guilabel
+>Livelli di output</guilabel
+> sono invariati. L'immagine originale è (1), l'immagine corretta è (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Lo strumento per la regolazione dei livelli in azione</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="adjustcurves">
+<sect3info>
+
+<title
+>Regola curve</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+  <para
+>La <emphasis
+>regolazione dei livelli</emphasis
+> di &digikam; è uno strumento per regolare non-linearmente la gradazione di luminosità e i canali dei colori. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Lo strumento delle curve è lo strumento più sofisticato disponibile per regolare la tonalità delle immagini. Avvialo dal medu dell'editor di immagini <menuchoice
+> <guimenu
+>Colore</guimenu
+><guimenuitem
+>Regola curve</guimenuitem
+></menuchoice
+>. Ti permette di trascinare dei punti di controllo su una curva per creare una funzione libera che mappa i livelli di luminosità in ingresso ad altri in uscita. Lo strumento delle curve può replicare qualsiasi effetto che puoi ottenere con Luminosità/contrasto/gamma e con lo strumento di regolazione dei livelli, ma è più potente di entrambi. Ma questo strumento può fare altro per te: ti aiuta a migliorare la qualità dei toni delle tue foto in scale di grigio molto fini. Non dimenticare che tanto migliori sono le foto (buona esposizione, formato senza perdita, profondità a 24 o 32 bit), tanto più le puoi migliorare. Vai alla sezione <quote
+><foreignphrase lang="en"
+>Achieving ultimate tonal quality</foreignphrase
+></quote
+> di questa pagina istruttiva: <ulink url="http://www.normankoren.com/digital_tonality.html"
+>Qualità di tono e intervallo dinamico nelle macchine fotografiche digitali, di Norman Koren</ulink
+>. Usa lo strumento di regolazione delle curve di per fare esattamente lo stesso! </para>
+<para
+>Questo strumento fornisce curve visive per modificare i valori di intensità dello strato attivo visualizzato come un istogramma non lineare. Nella modalità <guilabel
+>Liscia</guilabel
+> di modifica delle curve, cambi la forma delle curve aggiungendo nuovi punti alle curve, o spostando la posizione degli estremi. Un altro modo è disegnare tutta la curva manualmente nella modalità <guilabel
+>Libera</guilabel
+> di modifica delle curve. In entrambi i casi, l'effetto è immediatamente visualizzato nell'area di anteprima dell'immagine a sinistra, dove l'anteprima può essere configurata facendo clic sulle icone in alto a sinistra. </para>
+
+<sect4 id="using-adjustcurves">
+<title
+>Usare la regolazione delle curve</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustcurvesdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di regolazione delle curve</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>A sinistra, vengono mostrate metà delle anteprime delle immagini originale e risultante. L'anteprima della risultante viene aggiornata dinamicamente secondo le impostazioni dello strumento. Sulla destra sono disponibili le seguenti opzioni: <itemizedlist>
+
+  <listitem
+><para
+>Modifica <guilabel
+>Canale</guilabel
+>: con questa casella combinata puoi selezionare il canale specifico da modificare con lo strumento: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Luminosità</guilabel
+>: cambia l'intensità di tutti i pixel.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Rosso</guilabel
+>: cambia la saturazione del rosso di tutti i pixel.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Verde</guilabel
+>: cambia la saturazione del verde di tutti i pixel.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Blu</guilabel
+>: cambia la saturazione del blu di tutti i pixel.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: cambia la trasparenza di tutti i pixel.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+>Di fianco a questo riquadro ci sono due icone per scegliere la visualizzazione dell'istogramma in scala lineare o logaritmica. Per le immagini fatte con una macchina fotografica digitale, la modalità lineare è normalmente la più utile. Tuttavia, nelle immagini che contengono aree estese di colore costante, un istogramma lineare sarà spesso dominato da una sola barra. In questo caso un istogramma logaritmico sarà più utile. </para
+></listitem>
+
+  <listitem
+><para
+>Area principale di modifica delle curve: la barra orizzontale (asse X) rappresenta i valori di input (sono i livelli di valore da 0 a 255). La barra verticale (asse Y) è solo una scala per i colori di output del canale selezionato. La curva di controllo viene disegnata su una griglia e taglia diagonalmente il diagramma. La posizione X/Y del puntatore viene visualizzata costantemente sopra la griglia. Se fai clic sulla curva, viene creato un punto di controllo. Puoi spostarlo per piegare la curva. Anche se fai clic al di fuori della curva viene creato un punto di controllo, e la curva lo include automaticamente. Perciò ogni punto della curva rappresenta un 'X' tradotto in un livello di output 'Y'. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Tipo</guilabel
+> della curva del canale: sotto l'area di modifica ci sono diverse icone che determinano se la curva può essere modificata usando una modalità <guilabel
+>Liscia</guilabel
+> o una a mano <guilabel
+>Libera</guilabel
+>. La modalità liscia impone che il tipo della curva sia una linea liscia in tensione e dà una resa realistica. La modalità libera ti lascia disegnare la tua curva a mano libera con il mouse. Con dei segmenti di curva sparsi sulla griglia, il risultato sarà sorprendente, ma poco ripetibile. È disponibile anche un pulsante di reimpostazione dei valori predefiniti. </para
+></listitem>
+
+  <listitem
+><para
+>Se, per esempio, sposti un segmento di curva a destra, cioè verso i toni in risalto, vedrai che questi toni corrispondono a toni di output più scuri e che i pixel dell'immagine che corrispondono a questo segmento di curva si scuriranno. </para
+></listitem>
+
+  <listitem
+><para
+>Con i canali dei colori, spostare a destra ridurrà la saturazione fino a raggiungere il colore complementare. Per eliminare tutti i punti di controllo (eccetto gli estremi), fai clic sul pulsante <guilabel
+>Reimposta valori</guilabel
+>. Per eliminare solo un punto, spostalo su di un altro punto. Piega la curva e giudica i risultati. Puoi anche solarizzare l'immagine su parte dei suoi toni. Ciò avviene quando la curva è invertita in qualche punto. </para
+></listitem>
+
+  <listitem
+><para
+>Sull'anteprima della foto originale c'è un segno rosso. Se metti questo segno su una zona che vuoi modificare, sarà disegnata una linea corrispondente sulla griglia delle curve per indicare il valore originale. Crea un punto su quella linea e spostalo in alto o in basso a tuo piacimento. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+>: questi pulsanti servono a fare quello che dicono. Qualsiasi curva che tu abbia impostato può essere salvata su file e caricata più tardi. Il formato di file usato è il formato dei livelli di Gimp. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Reimposta tutto</guilabel
+>: questo pulsante reimposta tutti i valori delle curve per tutti i canali. </para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>Lo strumento delle curve ha diverse funzionalità che facilitano il posizionamento dei punti sulle curve di controllo. Fare clic col pulsante del mouse nell'anteprima dell'immagine originale produce una barra tratteggiata verticale nell'area del grafico dello strumento delle curve. La posizione della barra corrisponde al valore del pixel sul quale si trova il mouse. Fare clic col pulsante del mouse e trascinare aggiorna interattivamente la posizione della barra verticale. In questo modo, è possibile vedere dove i valori di diversi pixel sono posizionati sulla curva di controllo, e ciò aiuta a scoprire la posizione dei pixel in ombra, con tono medio o in risalto. </para>
+
+<para
+>Usando questo metodo e i tre pulsanti del <guilabel
+>Selettore del colore</guilabel
+> creerà automaticamente dei punti di controllo sulle curve di tutti i canali per i toni in ombra, medi e in risalto. Attiva il selettore del colore che vuoi usare, e fai clic sull'area dell'anteprima dell'immagine originale per produrre punti di controllo su ciascuna delle curve di controllo del rosso, del verde, del blu e della luminosità. </para>
+
+<para
+>L'opzione <guilabel
+>Indicatore di sovraesposizione</guilabel
+> somma tutti i canali dei colori e le luci espanse. Se in un pixel più di un canale è sovraesposto, vedrai il colore combinato risultante dalle impostazioni della curva. Il visore è solo indicativo e non ha effetto sulla resa finale. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustcurves">
+<title
+>La regolazione delle curve in azione</title>
+
+<para
+>Sotto puoi vedere una fotografia in bianco e nero corretta nel canale della <guilabel
+>Luminosità</guilabel
+>. Sono stati usati gli strumenti di selezione dei toni in ombra e in risalto per determinare le curve da applicare all'originale. L'immagine originale è (1), l'immagine corretta è (2). </para>
+
+        <para
+><inlinemediaobject
+><imageobject>
+               <imagedata fileref="&path;adjustcurvespreview.png" format="PNG"/>
+              </imageobject>
+              <textobject
+><phrase
+>Lo strumento di regolazione delle curve in azione</phrase
+></textobject
+></inlinemediaobject>
+        </para>
+
+
+</sect4>
+</sect3>
+
+<sect3 id="channelmixer">
+<sect3info>
+
+<title
+>Miscelatore dei canali</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Il <emphasis
+>Miscelatore dei canali</emphasis
+> di &digikam; è uno strumento per miscelare i canali dei colori per migliorare o modificare le sfumature dei colori della fotografia. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Il miscelatore dei canali è un altro strumento avanzato per raffinare la tonalità delle immagini. Avvialo dal menu dell'editor delle immagini <menuchoice
+><guimenu
+>Colore</guimenu
+><guimenuitem
+>Miscelatore dei canali</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-channelmixer">
+<title
+>Usare il miscelatore dei canali</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di miscelazione dei canali</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Con la casella combinata dei canali selezioni e visualizzi l'istogramma per colore. Dà una prima idea di come correggere i canali dalla loro distribuzione e ampiezza relative. La metà sinistra della finestra mostra sempre un'anteprima di cosa stai facendo. L'originale, per confronto, può essere visto nella sua scheda della finestra. </para>
+
+<para
+>L'anteprima della foto risultante ha a disposizione un segno rosso. Se metti questo segno da qualche parte nell'immagine, sarà disegnata una linea verticale corrispondente nell'istogramma che indica il livello del colore nel canale attualmente selezionato. </para>
+
+<para
+>Adesso i controlli in basso a destra: i controlli dei cursori del <guilabel
+>Rosso</guilabel
+>, <guilabel
+>Verde</guilabel
+> e <guilabel
+>Blu</guilabel
+> ti permettono di miscelare i canali. Se segni <guilabel
+>Mantieni la luminosità</guilabel
+> l'immagine manterrà la sua luminosità complessiva anche se cambi i suoi componenti dei colori. Questa funzionalità è particolarmente utile quando segni anche la casella <guilabel
+>Monocromatico</guilabel
+>, perché il miscelatore dei canali è lo strumento migliore per le conversioni in bianco e nero delle tue fotografie. Prova a ridurre il canale del verde per i ritratti in bianco e nero. </para>
+
+<note
+><para
+>A volte, soprattutto quando si fa una miscela monocromatica, ridurre un canale dei colori potrebbe aumentare i disturbi visibili, che in realtà sono causati dal disturbo cromatico. Il disturbo cromatico significa che non appaiono gli stessi disturbi nella stessa posizione in tutti i canali dei colori, ma lo schema dei disturbi sembra diverso in ogni canale. Se è questo il caso, puoi migliorare la conversione monocromatica riducendo per prima cosa il disturbo cromatico. </para
+></note>
+
+<para
+>I pulsanti <guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+> si usano per fare esattamente quello. Qualsiasi impostazione che tu abbia impostato può essere salvata su disco e ricaricata più tardi. Il formato del file usato è il formato del miscelatore dei canali di Gimp. </para>
+
+<para
+>L'opzione <guilabel
+>Indicatore di sovraesposizione</guilabel
+> somma i colori in un pixel se più di un canale è sovraesposto, e vedrai il colore combinato risultante dalle impostazioni dei guadagni dei canali. Questa regola si applica all'area di anteprima risultante e non ha effetto sulla resa finale. </para>
+
+<para
+>Il pulsante <guilabel
+>Reimposta tutto</guilabel
+> reimposta tutte le impostazioni del miscelatore dei canali ai valori predefiniti. </para>
+
+</sect4>
+
+<sect4 id="inaction-channelmixer">
+<title
+>Il miscelatore dei canali in azione</title>
+
+<para
+>Sotto, puoi vedere una regolazione del tono dei colori di una fotografia per il canale del <guilabel
+>Blu</guilabel
+>. L'opzione <guilabel
+>Mantieni la luminosità</guilabel
+> è attiva. L'immagine originale è (1), l'immagine corretta è (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Il miscelatore dei canali in azione</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="blackandwhite-conversion">
+<sect3info
+>           <title
+>Filtri di conversione in bianco e nero</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>La fotografia in bianco e nero è sempre stata affascinante per la sua capacità di astrazione. Con l'avvento della fotografia digitale, il bianco e nero è diventato un'attività molto semplice, perché le immagini a colori possono essere convertite facilmente in bianco e nero sul computer, fornendo anche una serie di profili di pellicole classiche. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Introduzione</title>
+    <anchor id="blackandwhitetool.anchor"/>
+    <para
+>&digikam; ha un paio di filtri in bianco e nero che puoi usare sulle tue foto. Sotto il menu <menuchoice
+><guimenuitem
+>Filtri</guimenuitem
+><guimenuitem
+>Bianco e nero</guimenuitem
+></menuchoice
+> troverai i toni classici del bianco e nero usati nella fotografia analogica. I controlli sono su quattro schede: <guilabel
+>Pellicola</guilabel
+>, <guilabel
+>Filtri lenticolari</guilabel
+>, <guilabel
+>Tono</guilabel
+> e <guilabel
+>Luminosità</guilabel
+> come mostrato nella schermata sotto. Le pellicole, i filtri e i toni di colore possono essere applicati indipendentemente l'uno dall'altro (uno sull'altro). I filtri modificano la miscela dei canali RGB, mentre i toni aggiungono soltanto una tinta monocromatica alla fotografia in bianco e nero. Nella scheda <guilabel
+>Luminosità</guilabel
+> troverai uno strumento di regolazione del tono (come la regolazione delle curve), uno strumento per il contrasto e un indicatore di sovraesposizione per migliorare la resa in bianco e nero. </para>
+      <example
+>  <title
+>Lo strumento del filtro in bianco e nero in azione</title>
+        <screenshot
+><screeninfo
+>Lo strumento del filtro in bianco e nero in azione</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbwfilter.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+      </example>
+
+    <para
+>La tabella sotto mostra in maggior dettaglio l'effetto di tutti i filtri e tinte.</para>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Anteprima</entry
+>        <entry
+>Emulazione della pellicola fotografica</entry>
+    </row
+></thead>
+    <tbody>
+
+        <row>
+            <entry>
+              <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry>
+              <para
+>Sono disponibili impostazioni specifiche per emulare un certo numero di famose pellicole fotografiche in bianco e nero:</para>
+              <para
+>Agfa 200X, Agfa Pan 25, Agfa Pan 100, Agfa Pan 400</para>
+              <para
+>Ilford Delta 100, Ilford Delta 400, Ilford Delta 400 Pro 3200, Ilford FP4 Plus, Ilford HP5 Plus, Ilford PanF Plus, Ilford XP2 Super</para>
+              <para
+>Kodak Tmax 100, Kodak Tmax 400, Kodak TriX</para>
+            </entry>
+        </row>
+    </tbody>
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+     <thead
+><row>
+        <entry
+>Anteprima</entry>
+        <entry
+>Tipo di filtro lenticolare</entry>
+     </row
+></thead>
+       <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_original.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Immagine a colori originale scattata nei paesaggi della Nuova Zelanda. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bw.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Neutro: simula l'esposizione in bianco e nero su pellicola neutra. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwgreen.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+           <entry
+>Filtro verde: simula l'esposizione con pellicola in bianco e nero usando un filtro lenticolare verde. Riesce bene con tutte le immagini sceniche, ed adatto particolarmente per i ritratti fotografati sullo sfondo del cielo. Simile al filtro verde 004 Cokin(tm). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bworange.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Filtro arancione: simula l'esposizione con pellicola in bianco e nero usando un filtro lenticolare arancione. Ciò migliorerà i paesaggi, le scene marine e le fotografie aeree. Simile al filtro arancione 002 Cokin(tm). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Filtro rosso: simula l'esposizione con pellicola in bianco e nero usando un filtro lenticolare rosso. Si usa per creare effetti teatrali con il cielo e simula scenari al chiaro di luna di giorno. Simile al filtro rosso 003 Cokin(tm). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwyellow.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Filtro giallo: simula l'esposizione con pellicola in bianco e nero usando un filtro lenticolare giallo. È la correzione di tonalità più naturale, e migliora il contrasto. Ideale per i paesaggi. Simile al filtro giallo 001 Cokin(tm). </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Anteprima</entry
+>        <entry
+>Tinta del colore</entry>
+    </row
+></thead>
+
+      <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_sepia.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Tono seppia: dà delle luci e dei toni medi caldi, aggiungendo un po' di freddo alle ombre; molto simile al processo di sbiancare una stampa e sviluppare nuovamente con un inchiostro seppia (tipico per le fotografie della nonna). Simile al filtro seppia 005 Cokin(tm). </entry>
+        </row>
+
+         <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_brown.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Tono marrone: simile al filtro a tono seppia, ma meno pronunciato. </entry>
+        </row>
+
+       <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_cold.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Tono freddo: parte in sottotono e rifà la stampa su una carta in bianco e nero in tono freddo, come la carta da ingrandimento al bromuro. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_platinium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Tono platino: effetto che replica la tradizionale tonalità chimica del platino fatta nella camera oscura. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_selenium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Tono selenio: effetto che replica la tradizionale tonalità chimica del selenio fatta nella camera oscura. </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+</sect3>
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

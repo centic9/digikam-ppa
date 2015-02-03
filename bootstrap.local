@@ -36,7 +36,7 @@ export PKG_CONFIG_PATH=$DIGIKAM_INSTALL_PREFIX/lib/pkgconfig:/usr/lib/pkgconfig
 #export CXX=g++4.4
 
 # Manage local install dir
-if [ $CLEANROOT == 1 ]
+if [ "$CLEANROOT" = "1" ]
 then
     rm -Rf $DIGIKAM_INSTALL_PREFIX
 fi
@@ -60,6 +60,6 @@ cmake -G "$MAKEFILES_TYPE" . \
       -DDIGIKAMSC_CHECKOUT_PO=off \
       -DENABLE_PRESENTATIONMODE=off\
       -DENABLE_LCMS2=off \
-      -DENABLE_RAWSPEED=off \
+      -DENABLE_NEPOMUKSUPPORT=ON \
       -Wno-dev \
       ..

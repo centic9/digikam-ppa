@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_picasawebexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-04-09 02:54+0200\n"
-"PO-Revision-Date: 2013-03-14 13:58+0100\n"
+"PO-Revision-Date: 2013-10-28 21:19+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -54,7 +54,7 @@ msgstr ""
 
 #: picasawebalbum.cpp:66
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
 
 #: picasawebalbum.cpp:70
 msgid "Date and Time of the album that will be created (optional)."
@@ -62,7 +62,7 @@ msgstr ""
 
 #: picasawebalbum.cpp:73
 msgid "Description of the album that will be created (optional)."
-msgstr ""
+msgstr "Popis albumu, ktorý bude vytvorený (voliteľné)."
 
 #: picasawebalbum.cpp:76
 msgid "Location of the album that will be created (optional)."
@@ -316,14 +316,12 @@ msgid "Failed to fetch photo-set list"
 msgstr ""
 
 #: picasawebtalker.cpp:939 picasawebtalker.cpp:971
-#, fuzzy
 msgid "Failed to create album"
-msgstr "Premenovanie albumu zlyhalo"
+msgstr "Zlyhalo vytvorenie albumu"
 
 #: picasawebtalker.cpp:981
-#, fuzzy
 msgid "Failed to upload photo"
-msgstr "Zlyhalo odoslanie \"%1\" pre %2. Dôvod: %3."
+msgstr "Zlyhalo nahratie fotky"
 
 #: picasawebwidget.cpp:70
 msgid ""
@@ -388,9 +386,8 @@ msgid "Reload"
 msgstr "Znovu načítať"
 
 #: picasawebwidget.cpp:111
-#, fuzzy
 msgid "Reload album list"
-msgstr "Obnoviť zoznam zariadení"
+msgstr "Obnoviť zoznam albumov"
 
 #: picasawebwidget.cpp:119
 #, fuzzy
@@ -437,16 +434,15 @@ msgstr "Voľby"
 
 #: picasawebwidget.cpp:143
 msgid "These are options that will be applied to images before upload."
-msgstr ""
+msgstr "Toto sú voľby, ktoré sa použijú na obrázky pred nahraním."
 
 #: picasawebwidget.cpp:147
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
 #: picasawebwidget.cpp:157
-#, fuzzy
 msgid "Maximum dimension:"
-msgstr "MUNIT(rozmer)"
+msgstr "Maximálne rozmery:"
 
 #: picasawebwidget.cpp:165
 msgid "JPEG quality:"
@@ -525,6 +521,10 @@ msgid ""
 "(c) 2009, Luka Renko\n"
 "(c) 2010, Jens Mueller"
 msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller"
 
 #: picasawebwindow.cpp:140
 msgid "Vardhman Jain"

@@ -2,60 +2,53 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Serdar Soytetir <tulliana@gmail.com>, 2009.
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_batchprocessimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2010-09-22 12:27+0300\n"
-"Last-Translator: Serdar Soytetir <tulliana@gmail.com>\n"
+"PO-Revision-Date: 2014-04-21 14:59+0200\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Serdar Soytetir"
+msgstr "Serdar Soytetir, Volkan Gezer"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "tulliana@gmail.com"
+msgstr "tulliana@gmail.com, volkangezer@gmail.com"
 
 #: common/batchprocessimagesdialog.cpp:105
 #: common/batchprocessimagesdialog.cpp:907 tools/renameimagesdialog.cpp:54
-#, fuzzy
-#| msgid "&Start"
 msgctxt "start batch process images"
 msgid "&Start"
 msgstr "&Başlat"
 
 #: common/batchprocessimagesdialog.cpp:108 common/imagepreview.cpp:54
-#, fuzzy
-#| msgid "Batch process images"
 msgid "Batch Process Images"
-msgstr "Resimleri toplu işle"
+msgstr "Resimleri Toplu İşle"
 
 #: common/batchprocessimagesdialog.cpp:111 common/imagepreview.cpp:57
-#, fuzzy
-#| msgid "A Kipi plugin to batch-rename images"
 msgid "A Kipi plugin for batch process images using \"ImageMagick\""
-msgstr "Resimleri toplu olarak yeniden adlandıran bir Kipi eklentisi"
+msgstr ""
+"Resimleri toplu olarak işlemek için \"ImageMagick\" kullanan bir Kipi "
+"eklentisi"
 
 #: common/batchprocessimagesdialog.cpp:112 common/imagepreview.cpp:58
 #: tools/renameimagesdialog.cpp:63
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2009, Gilles Caulier\n"
-#| "(c) 2007-2009, Aurélien Gateau"
 msgid ""
 "(c) 2003-2012, Gilles Caulier\n"
 "(c) 2007-2009, Aurélien Gateau"
 msgstr ""
-"(c) 2003-2009, Gilles Caulier\n"
+"(c) 2003-2012, Gilles Caulier\n"
 "(c) 2007-2009, Aurélien Gateau"
 
 #: common/batchprocessimagesdialog.cpp:115 common/imagepreview.cpp:61
@@ -79,22 +72,20 @@ msgid "Maintainer"
 msgstr "Projeyi Yürüten"
 
 #: common/batchprocessimagesdialog.cpp:149
-#, fuzzy
 msgid "You can choose here the options to use for the current process."
 msgstr ""
-"<p>Burada, geçerli işlem için kullanmak üzere seçenekleri "
+"Burada, geçerli işlem için kullanmak üzere seçenekleri "
 "değerlendirebilirsiniz."
 
 #: common/batchprocessimagesdialog.cpp:151
-#, fuzzy
 msgid ""
 "If you enable this option, all preview effects will be calculated on a small "
 "zone of the image (300x300 pixels in the top left corner). Enable this "
 "option if you have a slow computer."
 msgstr ""
-"<p>Bu seçeneği etkin hale getirirseniz, bütün önizleme etkileri resmin "
-"sadece küçük bir bölgesinde (sol üst köşede 300x300 piksel) hesaplanacaktır. "
-"Yavaş bir bilgisayarınız varsa bunu etkinleştirin."
+"Bu seçeneği etkin hale getirirseniz, bütün önizleme etkileri resmin sadece "
+"küçük bir bölgesinde (sol üst köşede 300x300 piksel) hesaplanacaktır. Yavaş "
+"bir bilgisayarınız varsa bunu etkinleştirin."
 
 #: common/batchprocessimagesdialog.cpp:156
 msgid ""
@@ -126,22 +117,20 @@ msgid "Skip"
 msgstr "Atla"
 
 #: common/batchprocessimagesdialog.cpp:164
-#, fuzzy
 msgid ""
 "Select here the overwrite mode used if your target's image files already "
 "exist."
 msgstr ""
-"<p>Burada hedef resim dosyanız zaten mevcutsa kullanılan üzerine yazma "
-"kipini seçin."
+"Burada hedef resim dosyanız zaten mevcutsa kullanılan üzerine yazma kipini "
+"seçin."
 
 #: common/batchprocessimagesdialog.cpp:167
-#, fuzzy
 msgid ""
 "If you enable this option, all original image files will be removed after "
 "processing."
 msgstr ""
-"<p> Bu seçeneği etkinleştirirseniz, bütün asıl resim dosyaları işlemden "
-"sonra kaldırılacaktır."
+" Bu seçeneği etkinleştirirseniz, bütün asıl resim dosyaları işlemden sonra "
+"kaldırılacaktır."
 
 #: common/batchprocessimagesdialog.cpp:185
 msgid "Here you can select the target folder which will used by the process."
@@ -211,8 +200,6 @@ msgstr "hedef dosya zaten var (kullanıcı tarafından atlandı)."
 #: common/batchprocessimagesdialog.cpp:593
 #: common/batchprocessimagesdialog.cpp:649
 #: common/batchprocessimagesdialog.cpp:687
-#, fuzzy
-#| msgid "Failed."
 msgctxt "batch process result"
 msgid "Failed."
 msgstr "Başarısız oldu."
@@ -271,8 +258,6 @@ msgid "Error Adding Image to Application"
 msgstr "Uygulamaya Resim Ekleme Hatası Oluştu"
 
 #: common/batchprocessimagesdialog.cpp:670
-#, fuzzy
-#| msgid "Warning:"
 msgctxt "batch process result"
 msgid "Warning:"
 msgstr "Uyarı:"
@@ -356,7 +341,6 @@ msgid "Result"
 msgstr "Sonuç"
 
 #: common/batchprocessimageslist.cpp:54
-#, fuzzy
 msgid ""
 "<p>You can see here the operations' results during the process. Double-click "
 "on an item for more information once the process has ended.</p><p>You can "
@@ -365,10 +349,10 @@ msgid ""
 "be merged to the target Album.</p>"
 msgstr ""
 "<p>Burada, işlem esnasında sonuçları görebilirsiniz. İşlem bitince daha "
-"fazla  bilgi almak için herhangi bir başlığa çift tıklayabilirsiniz."
-"<p>Listeye yeni başlıklar eklemek için \"Ekle\" düğmesini veya sürükle-bırak "
-"kullanabilirsiniz.<p>Eğer başlıklar farklı Albümlerden alınmış ise işlemin "
-"sonucu, hedef Albüm ile birleştirilecektir."
+"fazla bilgi almak için herhangi bir başlığa çift tıklayabilirsiniz.</"
+"p><p>Listeye yeni başlıklar eklemek için \"Ekle\" düğmesini veya sürükle-"
+"bırak kullanabilirsiniz.</p><p>Eğer başlıklar farklı Albümlerden alınmış ise "
+"işlemin sonucu, hedef Albüm ile birleştirilecektir.</p>"
 
 #: common/imagepreview.cpp:49
 #, kde-format
@@ -378,12 +362,12 @@ msgstr "Çoklu İşlem Önizleme (%1 - %2)"
 #. i18n: ectx: Menu (Tools)
 #: plugin/kipiplugin_batchprocessimagesui.rc:6
 msgid "&Tools"
-msgstr ""
+msgstr "&Araçlar"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_batchprocessimagesui.rc:19
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Ana Araç Çubuğu"
 
 #: plugin/plugin_batchprocessimages.cpp:154
 msgid "Border Images..."
@@ -434,28 +418,21 @@ msgid "Border:"
 msgstr "Kenarlık:"
 
 #: tools/borderimagesdialog.cpp:67
-#, fuzzy
-#| msgid "Solid"
 msgctxt "image border type"
 msgid "Solid"
 msgstr "Düz"
 
 #: tools/borderimagesdialog.cpp:72
-#, fuzzy
-#| msgid "Raise"
 msgctxt "image border type"
 msgid "Raise"
 msgstr "Kabartma"
 
 #: tools/borderimagesdialog.cpp:73
-#, fuzzy
-#| msgid "Frame"
 msgctxt "image border type"
 msgid "Frame"
 msgstr "Çerçeve"
 
 #: tools/borderimagesdialog.cpp:76
-#, fuzzy
 msgid ""
 "<p>Select here the border type for your images:</p><p><b>Solid</b>: just "
 "surround the images with a line.<br/><b>Niepce</b>: surround the images with "
@@ -463,11 +440,12 @@ msgid ""
 "><b>Raise</b>: creating a 3D effect around the images.<br/><b>Frame</b>: "
 "surround the images with an ornamental border.</p>"
 msgstr ""
-"<p>Burada resimleriniz için kenarlık tipini seçebilirsiniz.<p><b>Katı</b>: "
-"resmi sadece bir çizgi ile çerçeveler.<p><b>İki Renk</b>: Resmi ince bi "
-"çizgi ve kalın bir kenarlık ile çerçeveler.(siyah-beyaz resimler için "
-"idealdir).<p><b>Kabartma</b>: resimlerin etrafında 3B bir etki oluşturur."
-"<p><b>Çerçeve</b>: resimlerin etrafında dekoratif bir çerçeve oluşturur.<p>"
+"<p>Burada resimleriniz için kenarlık türünü seçebilirsiniz.</p><p><b>Katı</"
+"b>: resmi sadece bir çizgi ile çerçeveler.</p><p><b>İki Renk</b>: Resmi ince "
+"bi çizgi ve kalın bir kenarlık ile çerçeveler.(siyah-beyaz resimler için "
+"idealdir).</p><p><b>Kabartma</b>: resimlerin etrafında 3B bir etki oluşturur."
+"</p><p><b>Çerçeve</b>: resimlerin etrafında dekoratif bir çerçeve oluşturur."
+"</p>"
 
 #: tools/borderoptionsdialog.cpp:58
 msgid "Border Options"
@@ -480,9 +458,8 @@ msgstr "Kenarlık kalınlığı:"
 
 #: tools/borderoptionsdialog.cpp:76 tools/borderoptionsdialog.cpp:110
 #: tools/borderoptionsdialog.cpp:128 tools/borderoptionsdialog.cpp:139
-#, fuzzy
 msgid "Select here the border width in pixels."
-msgstr "<p>Burada kenar genişliğini piksel olarak seçin."
+msgstr "Burada kenar genişliğini piksel olarak seçin."
 
 #: tools/borderoptionsdialog.cpp:80 tools/borderoptionsdialog.cpp:114
 #: tools/borderoptionsdialog.cpp:153
@@ -491,9 +468,8 @@ msgstr "Kenarlık rengi:"
 
 #: tools/borderoptionsdialog.cpp:84 tools/borderoptionsdialog.cpp:118
 #: tools/borderoptionsdialog.cpp:157
-#, fuzzy
 msgid "You can select here the border color."
-msgstr "<p>Burada kenarlık rengini seçebilirsiniz."
+msgstr "Burada kenarlık rengini seçebilirsiniz."
 
 #: tools/borderoptionsdialog.cpp:89
 msgid "Line border width:"
@@ -516,12 +492,11 @@ msgid "Bevel width:"
 msgstr "Kabartma genişliği:"
 
 #: tools/borderoptionsdialog.cpp:148
-#, fuzzy
 msgid ""
 "Select here the bevel width in pixels. This value must be &lt;= Border "
 "width / 2"
 msgstr ""
-"<p>Burada kabartma genişliğini piksel olarak seçebilirsiniz. Bu değer <= "
+"Burada kabartma genişliğini piksel olarak seçebilirsiniz. Bu değer &lt;= "
 "Kenarlık genişliği / 2 olmalıdır."
 
 #: tools/colorimagesdialog.cpp:56
@@ -538,78 +513,56 @@ msgid "Filter:"
 msgstr "Filtre:"
 
 #: tools/colorimagesdialog.cpp:66
-#, fuzzy
-#| msgid "Decrease Contrast"
 msgctxt "color image filter"
 msgid "Decrease Contrast"
 msgstr "Karşıtlığı Azalt"
 
 #: tools/colorimagesdialog.cpp:67
-#, fuzzy
-#| msgid "Depth"
 msgctxt "color image filter"
 msgid "Depth"
 msgstr "Derinlik"
 
 #: tools/colorimagesdialog.cpp:68
-#, fuzzy
-#| msgid "Equalize"
 msgctxt "color image filter"
 msgid "Equalize"
 msgstr "Eşitle"
 
 #: tools/colorimagesdialog.cpp:69
-#, fuzzy
-#| msgid "Fuzz"
 msgctxt "color image filter"
 msgid "Fuzz"
 msgstr "Bulanıklaştır"
 
 #: tools/colorimagesdialog.cpp:70
-#, fuzzy
-#| msgid "Gray Scales"
 msgctxt "color image filter"
 msgid "Gray Scales"
 msgstr "Gri Ölçek"
 
 #: tools/colorimagesdialog.cpp:71
-#, fuzzy
-#| msgid "Increase Contrast"
 msgctxt "color image filter"
 msgid "Increase Contrast"
 msgstr "Karşıtlığı Arttır"
 
 #: tools/colorimagesdialog.cpp:72
-#, fuzzy
-#| msgid "Monochrome"
 msgctxt "color image filter"
 msgid "Monochrome"
 msgstr "Tek renk"
 
 #: tools/colorimagesdialog.cpp:73
-#, fuzzy
-#| msgid "Negate"
 msgctxt "color image filter"
 msgid "Negate"
 msgstr "Negatifleştir"
 
 #: tools/colorimagesdialog.cpp:74
-#, fuzzy
-#| msgid "Normalize"
 msgctxt "color image filter"
 msgid "Normalize"
 msgstr "Normalleştir"
 
 #: tools/colorimagesdialog.cpp:75
-#, fuzzy
-#| msgid "Segment"
 msgctxt "color image filter"
 msgid "Segment"
 msgstr "Parça"
 
 #: tools/colorimagesdialog.cpp:76
-#, fuzzy
-#| msgid "Trim"
 msgctxt "color image filter"
 msgid "Trim"
 msgstr "Düzelt"
@@ -641,6 +594,25 @@ msgid ""
 "(fuzz reverse technique). The algorithm remove edges that are the background "
 "color from the image.</p>"
 msgstr ""
+"<p>Buradan resimleriniz için renk iyileştirme türünü seçin:</"
+"p><p><b>Karşıtlığı azalt</b>: resim karşıtlığını azalt. Algoritma resimdeki "
+"daha açık ve koyu ögeler arasındaki yoğunluk farkını azaltır.<br/"
+"><b>Derinlik</b>: resmin renk derinliğini değiştirir.<br/><b>Eşitle</b>: "
+"resme histogram eşitliği uygular.<br/><b>Bulanıklık</b>: resimleri bir "
+"uzaklıktan birleştir (örn. eşit olmalarını sağla).<br/><b>Gri tonlama</b>: "
+"renkli resimleri gri tonlu resimlere dönüştür.<br/><b>Karşıtlığı arttır</b>: "
+"resim karşıtlığını arttırır. Algoritma resimdeki daha açık ve koyu ögeler "
+"arasındaki yoğunluk farkını iyileştirir.<br/><b>Tek renkli</b>: resmi siyah "
+"ve beyaza dönüştür.<br/><b>Tersine çevir</b>: her bir pikseli kendi "
+"bütünleyici rengi ile değiştir. Resmin kırmızı, yeşil ve mavi yoğunlukları "
+"tersine çevrilir. Beyaz siyah, sarı mavi vb. olur.<br/><b>Normalleştir</b>: "
+"resmi tüm renk değer aralıklarını kaplaması için dönüştür. Bu bir karşıtlık "
+"iyileştirme tekniğidir. Algoritma, renkli resmin karşıtlığını, piksel "
+"renklerinin mümkün olan tüm renk aralıklarını kapsayabilmesi için değiştirir."
+"<br/><b>Parçala</b>: bir resmi renk bileşenlerini inceleyerek ve bulanık c-"
+"means tekniği ile homojen olan birimleri tespit ederek böl.<br/><b>Kırp</b>: "
+"bir resmi kırp (ters balıklaştırma tekniği). Algoritma resimden, arkaplan "
+"renklerine sahip kenarları kaldırır..</p>"
 
 #: tools/coloroptionsdialog.cpp:53
 msgid "Color Options"
@@ -651,45 +623,41 @@ msgid "Depth value:"
 msgstr "Derinlik değeri:"
 
 #: tools/coloroptionsdialog.cpp:72
-#, fuzzy
 msgid "Select here the image depth in bits."
-msgstr "<p>Burada resim derinliğini bit olarak seçin."
+msgstr "Burada resim derinliğini bit olarak seçin."
 
 #: tools/coloroptionsdialog.cpp:78
 msgid "Distance:"
 msgstr "Uzaklık:"
 
 #: tools/coloroptionsdialog.cpp:83
-#, fuzzy
 msgid "Select here the fuzz distance in absolute intensity units."
-msgstr "<p>Burada bulanıklık ayarını tam yoğunluk birimi olarak giriniz."
+msgstr "Burada bulanıklık ayarını tam yoğunluk birimi olarak girin."
 
 #: tools/coloroptionsdialog.cpp:90
 msgid "Cluster threshold:"
 msgstr "Kümelenme eşiği:"
 
 #: tools/coloroptionsdialog.cpp:95
-#, fuzzy
 msgid ""
 "Select here the value which represents the minimum number of pixels "
 "contained in a hexahedron before it can be considered valid."
 msgstr ""
-"<p>Burada, bir altı yüzeylide geçerli sayılabilmeden önceki en az benek "
-"sayısınıseçin. "
+"Burada, bir altı yüzeylide geçerli sayılabilmeden önceki en az piksel "
+"sayısını seçin. "
 
 #: tools/coloroptionsdialog.cpp:101
 msgid "Smooth threshold:"
 msgstr "Düzleştirme eşiği:"
 
 #: tools/coloroptionsdialog.cpp:106
-#, fuzzy
 msgid ""
 "Select here the value which eliminates noise in the second derivative of the "
 "histogram. As the value is increased, you can expect a smoother second "
 "derivative."
 msgstr ""
-"<p>Burada, histogramın ikinci türevindeki paraziti gideren değeri seçin. "
-"Değer arttıkça, ikinci türevin daha yumuşak olmasını bekleyebilirsiniz."
+"Burada, histogramın ikinci türevindeki paraziti gideren değeri seçin. Değer "
+"arttıkça, ikinci türevin daha yumuşak olmasını bekleyebilirsiniz."
 
 #: tools/convertimagesdialog.cpp:61
 msgid "Batch Convert Images"
@@ -704,12 +672,10 @@ msgid "Format:"
 msgstr "Biçim:"
 
 #: tools/convertimagesdialog.cpp:75
-#, fuzzy
 msgid "<p>Select here the target image file format.</p>"
-msgstr "<p>Burada hedef resim dosyasının biçimini seçin.<p>"
+msgstr "<p>Burada hedef resim dosyasının biçimini seçin.</p>"
 
 #: tools/convertimagesdialog.cpp:76
-#, fuzzy
 msgid ""
 "<p><b>JPEG</b>: The Joint Photographic Experts Group's file format is a good "
 "Web file format but it uses lossy data compression.</p><p><b>PNG</b>: the "
@@ -721,18 +687,17 @@ msgid ""
 "option. Also, PNG can store gamma and chromaticity data for improved color "
 "matching on heterogeneous platforms.</p>"
 msgstr ""
-"<b>JPEG</b>: The Joint Photographic Experts Group dosya biçimi Web için iyi "
-"bir biçimdir fakat kayıplı veri sıkıştırmayı kullanır.<p><b>PNG</b>: "
+"<p><b>JPEG</b>: The Joint Photographic Experts Group dosya biçimi Web için "
+"iyi bir biçimdir fakat kayıplı veri sıkıştırmayı kullanır.</p><p><b>PNG</b>: "
 "Portable Network Graphics biçimi, kaypsız, taşınabilir, iyi sıkıştırılmış "
 "raster resimler için esnek bir biçimdir. PNG, GIF için telifsiz bir  "
 "alternatif sunar, aynı zamanda TIFF'in birçok genel kullanımını da ikame "
 "eder. PNG, Web çevrimiçi görüntüleme uygulamalarında iyi çalışmak üzere "
 "tasarlanmıştır. Bu yüzden, uygun görüntü seçeneklerinde tamamen akıcıdır. "
 "Ayrıca, PNG değişik ortamlarda doğru renk eşleşmesi için gama bilgilerini de "
-"saklar."
+"saklar.</p>"
 
 #: tools/convertimagesdialog.cpp:85
-#, fuzzy
 msgid ""
 "<p><b>TIFF</b>: the Tag Image File Format is a rather old standard that is "
 "still very popular today. It is a highly flexible and platform-independent "
@@ -741,10 +706,9 @@ msgid ""
 msgstr ""
 "<p><b>TIFF</b>: Tagged Image File Format halen daha popüler olan ve nispeten "
 "eski bir biçimdir. Çok esnek ve ortamdan bağımsız bir biçimdir. Birçok resim "
-"işleme uygulamaları tarafından da desteklenmektedir."
+"işleme uygulamaları tarafından da desteklenmektedir.</p>"
 
 #: tools/convertimagesdialog.cpp:89
-#, fuzzy
 msgid ""
 "<p><b>PPM</b>: the Portable Pixel Map file format is used as an intermediate "
 "format for storing color bitmap information. PPM files may be either binary "
@@ -755,10 +719,9 @@ msgstr ""
 "saklamak için ortalama bir dosya biçimidir. PPM dosyaları ya ikilik veya "
 "ASCII olabilir ve boyut olarak 24 bit'e kadar piksel değerleri sklayabilir. "
 "Bu dosya biçimi resimleri kodlarken kaliteden kayıp vermemek için en büyük "
-"boyutlu metin dosyalarını oluşturur."
+"boyutlu metin dosyalarını oluşturur.</p>"
 
 #: tools/convertimagesdialog.cpp:94
-#, fuzzy
 msgid ""
 "<p><b>BMP</b>: the BitMaP file format is a popular image format from Win32 "
 "environment. It efficiently stores mapped or unmapped RGB graphics data with "
@@ -772,10 +735,9 @@ msgstr ""
 "verilerini başarılı bir biçimde kaydeder. Veri ham veya 4-bit veya 8-bit RLE "
 "veri sıkıştırma algoritması kullanılarak sıkıştırılmış bir şekilde saklanır. "
 "BMP basit bir bitmap biçimi için mükemmel bir seçimdir ve oldukça geniş bir "
-"RGB resim verisi aralığını destekler."
+"RGB resim verisi aralığını destekler.</p>"
 
 #: tools/convertimagesdialog.cpp:100
-#, fuzzy
 msgid ""
 "<p><b>TGA</b>: the TarGA image file format is one of the most widely used "
 "bitmap file formats for storage of 24 and 32 bits truecolor images.  TGA "
@@ -785,10 +747,9 @@ msgstr ""
 "<p><b>TGA</b>: TarGA resim dosya biçimi 24 ve 32 bitlik renkli resimleri "
 "kaydetmek için en yaygın kullanılan bitmap dosya biçimlerinden biridir. TGA "
 "renk haritalarını, alfa kanalını, gama değerini, resim etiketlerini, metin "
-"bilgisini ve geliştirici tarafından tanımlanabilen verileri destekler."
+"bilgisini ve geliştirici tarafından tanımlanabilen verileri destekler.</p>"
 
 #: tools/convertimagesdialog.cpp:104
-#, fuzzy
 msgid ""
 "<p><b>EPS</b>: the  Adobe Encapsulated PostScript image file format is a "
 "PostScript language program describing the appearance of a single page. "
@@ -798,12 +759,10 @@ msgstr ""
 "<p><b>EPS</b>: Adobe Encapsulated PostScript resim dosya biçimi, bir "
 "sayfanın nasıl görüneceğini tarif eden PostScript dilinde programdır. "
 "Genellikle, EPS dosyasının maksadı başka bir PostScript sayfasının içine "
-"gömülmektir."
+"gömülmektir.</p>"
 
 #: tools/convertimagesdialog.cpp:191 tools/convertimagesdialog.cpp:192
 #: tools/convertimagesdialog.cpp:241 tools/convertimagesdialog.cpp:254
-#, fuzzy
-#| msgid "None"
 msgctxt "image compression type"
 msgid "None"
 msgstr "Hiçbiri"
@@ -871,84 +830,61 @@ msgid "Effect:"
 msgstr "Efekt:"
 
 #: tools/effectimagesdialog.cpp:65
-#, fuzzy
-#| msgid "Adaptive Threshold"
 msgctxt "image effect"
 msgid "Adaptive Threshold"
 msgstr "Uyabilen Eşik"
 
 #: tools/effectimagesdialog.cpp:66
-#, fuzzy
-#| msgid "Charcoal"
 msgctxt "image effect"
 msgid "Charcoal"
 msgstr "Karakalem"
 
 #: tools/effectimagesdialog.cpp:67
-#, fuzzy
-#| msgid "Detect Edges"
 msgctxt "image effect"
 msgid "Detect Edges"
 msgstr "Kenarlıkları Bul"
 
 #: tools/effectimagesdialog.cpp:68 tools/effectimagesdialog.cpp:76
-#, fuzzy
-#| msgid "Emboss"
 msgctxt "image effect"
 msgid "Emboss"
 msgstr "Kabartma"
 
 #: tools/effectimagesdialog.cpp:69
-#, fuzzy
-#| msgid "Implode"
 msgctxt "image effect"
 msgid "Implode"
 msgstr "Çökme"
 
 #: tools/effectimagesdialog.cpp:70
-#, fuzzy
-#| msgid "Paint"
 msgctxt "image effect"
 msgid "Paint"
 msgstr "Boya"
 
 #: tools/effectimagesdialog.cpp:71
-#, fuzzy
-#| msgid "Shade Light"
 msgctxt "image effect"
 msgid "Shade Light"
-msgstr "Gölge ışığı"
+msgstr "Gölge Işığı"
 
 #: tools/effectimagesdialog.cpp:72
-#, fuzzy
-#| msgid "Solarize"
 msgctxt "image effect"
 msgid "Solarize"
 msgstr "Soldurma"
 
 #: tools/effectimagesdialog.cpp:73
-#, fuzzy
-#| msgid "Spread"
 msgctxt "image effect"
 msgid "Spread"
 msgstr "Dağıt"
 
 #: tools/effectimagesdialog.cpp:74
-#, fuzzy
-#| msgid "Swirl"
 msgctxt "image effect"
 msgid "Swirl"
 msgstr "Girdap"
 
 #: tools/effectimagesdialog.cpp:75
-#, fuzzy
-#| msgid "Wave"
 msgctxt "image effect"
 msgid "Wave"
 msgstr "Dalga"
 
 #: tools/effectimagesdialog.cpp:78
-#, fuzzy
 msgid ""
 "<p>Select here the effect type for your images:</p><p><b>Adaptive threshold</"
 "b>: perform local adaptive thresholding. The algorithm selects an individual "
@@ -970,20 +906,21 @@ msgid ""
 "image. <br/><b>Wave</b>: creates a \"ripple\" effect in the image by "
 "shifting the pixels vertically along a sine wave.</p>"
 msgstr ""
-"<p>Burada, resimleriniz için etki tipini seçin:<p><b>Uyarlanır limit</b>: "
-"yerel uyarlanır limit uygular. Algoritma, herbir benek için yerel "
-"komşuluğunda yoğunluk değeri aralığına dayalı ayrı bir limit seçer."
-"<p><b>Kara kalem</b>: karakalem çizimini taklit eder.<p><b>Sınırları "
-"belirle</b>: bir resimdeki sınırları bulur.<p><b>Kabartma</b>: üç boyutlu "
-"görünüme sahip gri bir sonuç oluşturur. Algoritma, resmi verilen bir yarıçap "
-"ve standart sapmaya gre Gaussian işlemi ile değiştirir.<p><b>Çökme</b>: "
-"resim beneklerini merkezden genişletir.<p><b>Boya</b>: yağlı boya benzetmesi "
-"yapan özel bir etki.<p><b>Gölge ışığı</b>:üç boyutlu etki oluşturmak için "
-"resime uzak bir ışık ekler.<p><b>Güneş ışığı</b>: limit düzeyinin üstündeki "
-"tüm benekleri ters çevirir. .<p><b>Yayma</b>: belirlenen yarıçapa göre bir "
-"blok içierisinde herbir beneği rastgele değiştirir.<p><b>Girdap</b>: resmin "
-"merkezi etrafında benekleri çevirir. <p><b>Dalga</b>: benekleri rastgele bir "
-"sinüs dalgasına göre dikey olarak kaydırarak dalga etkisi oluşturur.<p>"
+"<p>Burada, resimleriniz için etki türünü seçin:</p><p><b>Uyarlanır limit</"
+"b>: yerel uyarlanır limit uygular. Algoritma, her bir piksel için yerel "
+"komşuluğunda yoğunluk değeri aralığına dayalı ayrı bir limit seçer.</"
+"p><p><b>Kara kalem</b>: karakalem çizimini taklit eder.</p><p><b>Sınırları "
+"belirle</b>: bir resimdeki sınırları bulur.</p><p><b>Kabartma</b>: üç "
+"boyutlu görünüme sahip gri bir sonuç oluşturur. Algoritma, resmi verilen bir "
+"yarıçap ve standart sapmaya gre Gaussian işlemi ile değiştirir.</"
+"p><p><b>Çökme</b>: resim piksellerini merkezden genişletir.</p><p><b>Boya</"
+"b>: yağlı boya benzetmesi yapan özel bir etki.</p><p><b>Gölge ışığı</b>:üç "
+"boyutlu etki oluşturmak için resime uzak bir ışık ekler.</p><p><b>Güneş "
+"ışığı</b>: limit düzeyinin üstündeki tüm pikselleri ters çevirir.</"
+"p><p><b>Yayma</b>: belirlenen yarıçapa göre bir blok içierisinde herbir "
+"pikseli rastgele değiştirir.</p><p><b>Girdap</b>: resmin merkezi etrafında "
+"pikselleri çevirir.</p><p><b>Dalga</b>: pikselleri rastgele bir sinüs "
+"dalgasına göre dikey olarak kaydırarak dalga etkisi oluşturur.</p>"
 
 #: tools/effectoptionsdialog.cpp:64
 msgid "Effect Options"
@@ -996,26 +933,24 @@ msgstr "Genişlik:"
 #: tools/effectoptionsdialog.cpp:82
 msgid ""
 "Select here the value which represents the width of the local neighborhood."
-msgstr ""
+msgstr "Burada yerel komşuluğun genişliğini temsil eden değeri seçin."
 
 #: tools/effectoptionsdialog.cpp:87
 msgid "Height:"
 msgstr "Yükseklik:"
 
 #: tools/effectoptionsdialog.cpp:92
-#, fuzzy
 msgid ""
 "Select here the value which represents the height of the local neighborhood."
-msgstr "<p>Burada yerel komşuluk yüksekliğini gösteren değeri seçin."
+msgstr "Burada yerel komşuluk yüksekliğini gösteren değeri seçin."
 
 #: tools/effectoptionsdialog.cpp:97
 msgid "Offset:"
 msgstr "Yerleşim:"
 
 #: tools/effectoptionsdialog.cpp:102
-#, fuzzy
 msgid "Select here the value which represents the mean offset."
-msgstr "<p>Burada ortalama uzaklık değerini seçin."
+msgstr "Burada ortalama uzaklık değerini seçin."
 
 #: tools/effectoptionsdialog.cpp:109 tools/effectoptionsdialog.cpp:132
 #: tools/effectoptionsdialog.cpp:147 tools/effectoptionsdialog.cpp:185
@@ -1028,7 +963,7 @@ msgstr "Yarıçap:"
 #: tools/effectoptionsdialog.cpp:114
 msgid ""
 "Select here the value which represents the radius of the pixel neighborhood."
-msgstr "Buradan benek komşuluğunun yarıçapını gösteren değeri seçin."
+msgstr "Buradan piksel komşuluğunun yarıçapını gösteren değeri seçin."
 
 #: tools/effectoptionsdialog.cpp:119 tools/effectoptionsdialog.cpp:159
 #: tools/filteroptionsdialog.cpp:106 tools/filteroptionsdialog.cpp:145
@@ -1037,30 +972,28 @@ msgid "Deviation:"
 msgstr "Sapma:"
 
 #: tools/effectoptionsdialog.cpp:124 tools/effectoptionsdialog.cpp:164
-#, fuzzy
 msgid ""
 "Select here the value which represents the standard deviation of the "
 "Gaussian, in pixels."
-msgstr "<p>Burada benek olarak Gaussian standart sapma değerini seçin."
+msgstr "Burada piksel olarak Gaussian standart sapma değerini seçin."
 
 #: tools/effectoptionsdialog.cpp:137
-#, fuzzy
 msgid ""
 "Select here the value which represents the radius of the pixel neighborhood. "
 "Radius defines the radius of the convolution filter. If you use a radius of "
 "0 the algorithm selects a suitable radius."
 msgstr ""
-"<p>Burada benek komşuluğunun yarıçapını gösteren değeri seçin. Yarıçap, "
-"bükülme filtresinin yarıçapını belirtmektedir."
+"Burada piksel komşuluğunun yarıçapını gösteren değeri seçin. Yarıçap, "
+"bükülme filtresinin yarıçapını belirtmektedir. Eğer yarıçap olarak 0 "
+"girerseniz, algoritma uygun bir yarıçap seçecektir."
 
 #: tools/effectoptionsdialog.cpp:152
-#, fuzzy
 msgid ""
 "Select here the value which represents the radius of the pixel neighborhood. "
 "For reasonable results, radius should be larger than deviation. If you use a "
 "radius of 0 the algorithm selects a suitable radius."
 msgstr ""
-"<p>Burada benek komşuluğunun yarıçapını gösteren değeri seçin. Mantıklı "
+"Burada piksel komşuluğunun yarıçapını gösteren değeri seçin. Mantıklı "
 "sonuçlar almak için, yarıçap sapmadan büyük olmalıdır. Yarıçap olarak 0 "
 "seçerseniz, işlem kendisi uygun bir yarıçap seçecektir."
 
@@ -1069,19 +1002,17 @@ msgid "Factor:"
 msgstr "Çarpan:"
 
 #: tools/effectoptionsdialog.cpp:177
-#, fuzzy
 msgid "Select here the value which represents the extent of the implosion."
-msgstr "<p>Burada, büyütme sınırını gösteren bir değer seçin."
+msgstr "Burada, büyütme sınırını gösteren bir değer seçin."
 
 #: tools/effectoptionsdialog.cpp:190
-#, fuzzy
 msgid ""
 "Select here the value which represents the radius of the circular "
 "neighborhood. Each pixel is replaced by the most frequent color occurring in "
 "a circular region defined by the radius."
 msgstr ""
-"<p>Burada, dairesel komşuluk yarıçapını gösteren bir değer seçin. Herbir "
-"benek, belirlenen yarıçapta dairesel bir bölgede en fazla tekrarlanan renk "
+"Burada, dairesel komşuluk yarıçapını gösteren bir değer seçin. Herbir "
+"piksel, belirlenen yarıçapta dairesel bir bölgede en fazla tekrarlanan renk "
 "ile değiştirilir."
 
 #: tools/effectoptionsdialog.cpp:200
@@ -1089,12 +1020,11 @@ msgid "Azimuth:"
 msgstr "Güney açısı:"
 
 #: tools/effectoptionsdialog.cpp:205
-#, fuzzy
 msgid ""
 "Select here the value which represents the azimuth of the light source "
 "direction. The azimuth is measured in degrees above the x axis."
 msgstr ""
-"<p>Burada ışık kaynak yönünün azimutunu gösteren değeri seçin. Azimut x "
+"Burada ışık kaynak yönünün azimutunu gösteren değeri seçin. Azimut x "
 "ekseninin üzerinde derece olarak ölçülür."
 
 #: tools/effectoptionsdialog.cpp:211
@@ -1102,60 +1032,53 @@ msgid "Elevation:"
 msgstr "Yükseklik:"
 
 #: tools/effectoptionsdialog.cpp:216
-#, fuzzy
 msgid ""
 "Select here the value which represents the elevation of the light source "
 "direction. The elevation is measured in pixels above the Z axis."
 msgstr ""
-"<p>Burada ışık kaynak yönünün yükselişini gösteren değeri seçin. Yükseliş "
-"Zekseninin üzerinde benek cinsinden ölçülür."
+"Burada ışık kaynak yönünün yükselişini gösteren değeri seçin. Yükseliş Z-"
+"ekseninin üzerinde piksel cinsinden ölçülür."
 
 #: tools/effectoptionsdialog.cpp:230
-#, fuzzy
 msgid ""
 "Select here the value which represents the percent-threshold of the solarize "
 "intensity."
-msgstr ""
-"<p>Burada güneş ışığı etkisinin yoğunluk limitini gösteren değeri seçin."
+msgstr "Burada güneş ışığı etkisinin yoğunluk limitini gösteren değeri seçin."
 
 #: tools/effectoptionsdialog.cpp:243
-#, fuzzy
 msgid ""
 "Select here the value which represents the random pixel in a neighborhood of "
 "this extent."
-msgstr "<p>Burada, bir komşulukta rastgele beneği gösteren bir değer seçin."
+msgstr "Burada, bir komşulukta rastgele beneği gösteren bir değer seçin."
 
 #: tools/effectoptionsdialog.cpp:251
 msgid "Degrees:"
 msgstr "Derece:"
 
 #: tools/effectoptionsdialog.cpp:256
-#, fuzzy
 msgid ""
 "Select here the value which represents the tightness of the swirling effect. "
 "You get a more dramatic effect as the degrees move from 1 to 360."
 msgstr ""
-"<p>Burada girdap etkisinin sıkılığını gösteren değeri seçin. Derece "
-"olarak1'den 360'a doğru gittikçe daha etkili sonuç elde edersiniz."
+"Burada girdap etkisinin sıkılığını gösteren değeri seçin. Derece olarak "
+"1'den 360'a doğru gittikçe daha etkili sonuç elde edersiniz."
 
 #: tools/effectoptionsdialog.cpp:265
 msgid "Amplitude:"
 msgstr "Genişlik:"
 
 #: tools/effectoptionsdialog.cpp:270
-#, fuzzy
 msgid "Select here the value which represents the amplitude of the sine wave."
-msgstr "<p>Burada sinüs eğrisinin genişliğini gösteren değeri seçin."
+msgstr "Burada sinüs eğrisinin genişliğini gösteren değeri seçin."
 
 #: tools/effectoptionsdialog.cpp:275
 msgid "Length:"
 msgstr "Uzunluk:"
 
 #: tools/effectoptionsdialog.cpp:280
-#, fuzzy
 msgid ""
 "Select here the value which represents the wave length of the sine wave."
-msgstr "<p>Burada sinüs eğrisinin dalga boyu uzunluğunu gösteren değeri seçin."
+msgstr "Burada sinüs eğrisinin dalga boyu uzunluğunu gösteren değeri seçin."
 
 #: tools/filterimagesdialog.cpp:55
 msgid "Batch Image Filtering"
@@ -1166,64 +1089,46 @@ msgid "Image Filtering Options"
 msgstr "Resim Filtreleme Seçenekleri"
 
 #: tools/filterimagesdialog.cpp:65
-#, fuzzy
-#| msgid "Add Noise"
 msgctxt "image filter"
 msgid "Add Noise"
 msgstr "Gürültü Ekle"
 
 #: tools/filterimagesdialog.cpp:66
-#, fuzzy
-#| msgid "Antialias"
 msgctxt "image filter"
 msgid "Antialias"
 msgstr "Örtüşme Önle"
 
 #: tools/filterimagesdialog.cpp:67
-#, fuzzy
-#| msgid "Blur"
 msgctxt "image filter"
 msgid "Blur"
 msgstr "Bulanıklaştır"
 
 #: tools/filterimagesdialog.cpp:68
-#, fuzzy
-#| msgid "Despeckle"
 msgctxt "image filter"
 msgid "Despeckle"
 msgstr "Parazit Kaldır"
 
 #: tools/filterimagesdialog.cpp:69
-#, fuzzy
-#| msgid "Enhance"
 msgctxt "image filter"
 msgid "Enhance"
 msgstr "Pekiştir"
 
 #: tools/filterimagesdialog.cpp:70
-#, fuzzy
-#| msgid "Median"
 msgctxt "image filter"
 msgid "Median"
 msgstr "Ortalama"
 
 #: tools/filterimagesdialog.cpp:71
-#, fuzzy
-#| msgid "Noise Reduction"
 msgctxt "image filter"
 msgid "Noise Reduction"
 msgstr "Gürültü Azaltma"
 
 #: tools/filterimagesdialog.cpp:72 tools/filterimagesdialog.cpp:74
-#, fuzzy
-#| msgid "Sharpen"
 msgctxt "image filter"
 msgid "Sharpen"
 msgstr "Keskinleştir"
 
 #: tools/filterimagesdialog.cpp:73
-#, fuzzy
-#| msgid "Unsharp"
 msgctxt "image filter"
 msgid "Unsharp"
 msgstr "Keskinleştirmeyi Al"
@@ -1240,46 +1145,44 @@ msgid ""
 "sharpen the image with a Gaussian operator.<br/><b>Unsharp</b>: sharpen the "
 "image with an unsharp mask operator.</p>"
 msgstr ""
+"<p>Resimleriniz için filtre türünü seçin:</p><p><b>Gürültü ekle</b>: bir "
+"resme yapay gürültü ekle.<br/><b>Yaşartma giderme</b>: piksel yaşartmasını "
+"kaldır.<br/><b>Bulanıklaştır</b>: resmi bir Gaussian işleci ile "
+"bulanıklaştır.<br/><b>Temizle</b>: özgün resmin kenarlarını korurken leke "
+"gürültüsünü azaltır.<br/><b>İyileştir</b>: gürültülü resmi iyileştirmek için "
+"dijital bir filtre uygula.<br/><b>Medyan</b>: bir resme medyan filtresi "
+"uygula.<br/><b>Gürültü azaltma</b>: bir resimdeki gürültüyü azalt. <br/"
+"><b>Keskinleştir</b>: resmi bir Gaussian işleci ile keskinleştir.<br/"
+"><b>Keskinleştirmeyi kaldır</b>: resmi keskinleştirme kaldırıcı maske işleci "
+"ile keskinleştir.</p>"
 
 #: tools/filterimagesdialog.cpp:185 tools/filterimagesdialog.cpp:238
 #: tools/filteroptionsdialog.cpp:84
-#, fuzzy
-#| msgid "Gaussian"
 msgctxt "image noise type"
 msgid "Gaussian"
 msgstr "Gaussian"
 
 #: tools/filterimagesdialog.cpp:237 tools/filteroptionsdialog.cpp:83
-#, fuzzy
-#| msgid "Uniform"
 msgctxt "image noise type"
 msgid "Uniform"
 msgstr "Düzgün"
 
 #: tools/filterimagesdialog.cpp:239 tools/filteroptionsdialog.cpp:85
-#, fuzzy
-#| msgid "Multiplicative"
 msgctxt "image noise type"
 msgid "Multiplicative"
 msgstr "Çoklu"
 
 #: tools/filterimagesdialog.cpp:240 tools/filteroptionsdialog.cpp:86
-#, fuzzy
-#| msgid "Impulse"
 msgctxt "image noise type"
 msgid "Impulse"
 msgstr "Vuruş"
 
 #: tools/filterimagesdialog.cpp:241 tools/filteroptionsdialog.cpp:87
-#, fuzzy
-#| msgid "Laplacian"
 msgctxt "image noise type"
 msgid "Laplacian"
 msgstr "Laplacian"
 
 #: tools/filterimagesdialog.cpp:242 tools/filteroptionsdialog.cpp:88
-#, fuzzy
-#| msgid "Poisson"
 msgctxt "image noise type"
 msgid "Poisson"
 msgstr "Poisson"
@@ -1289,13 +1192,12 @@ msgid "Filter Options"
 msgstr "Filtre Seçenekleri"
 
 #: tools/filteroptionsdialog.cpp:89
-#, fuzzy
 msgid ""
 "Select here the algorithm method which will used to add random noise to the "
 "images."
 msgstr ""
-"<p>Burada, resme rastgele parazit ekleme için kullanılacak algoritma "
-"metodunu seçin."
+"Burada, resme rastgele parazit ekleme için kullanılacak algoritma yöntemini "
+"seçin."
 
 #: tools/filteroptionsdialog.cpp:91
 msgid "Noise algorithm:"
@@ -1309,40 +1211,32 @@ msgid "px"
 msgstr "px"
 
 #: tools/filteroptionsdialog.cpp:97
-#, fuzzy
 msgid ""
 "Select here the blur radius of the Gaussian, not counting the center pixel. "
 "For reasonable results, the radius should be larger than deviation. If you "
 "use a radius of 0 the blur operation selects a suitable radius."
 msgstr ""
-"<p>Burada, merkezi benek sayılmamak üzere benek cinsinden Gaussian "
+"Burada, merkezi piksel sayılmamak üzere piksel cinsinden Gaussian "
 "bulanıklaştırma yarıçapını seçin. Mantıklı sonuçlar için, yarıçap sapmadan "
 "büyük olmalıdır. Yarıçap olarak 0 seçerseniz, bulanıklaştırma işlemi uygun "
 "bir yarıçap seçecektir."
 
 #: tools/filteroptionsdialog.cpp:105
-#, fuzzy
-#| msgid "Select here the standard deviation of the blur Gaussian, in pixels."
 msgid "Select here the standard deviation of the blur Gaussian."
-msgstr ""
-"Burada Gaussian bulanıklaştırmasının benek cinsinden standart sapmasını "
-"seçin."
+msgstr "Burada Gaussian bulanıklaştırmasının standart sapmasını seçin."
 
 #: tools/filteroptionsdialog.cpp:112
-#, fuzzy
 msgid ""
 "Select here the median radius of the pixel neighborhood. The algorithm "
 "applies a digital filter that improves the quality of noisy images. Each "
 "pixel is replaced by the median in a set of neighboring pixels as defined by "
 "the radius."
 msgstr ""
-"<p>Burada, benek komşuluğunun medyan yarıçapını bulunuz. Algoritma, "
-"parazitli resimlerin kalitesini yükselten dijital bir filtre uygular. Her "
-"benek, yarıçapla belirlenen bir komu benekler kümesindeki medyan ile "
-"değiştirilir."
+"Burada, piksel komşuluğunun medyan yarıçapını bulunuz. Algoritma, parazitli "
+"resimlerin kalitesini yükselten dijital bir filtre uygular. Her piksel, "
+"yarıçapla belirlenen bir komşu pikseller kümesindeki medyan ile değiştirilir."
 
 #: tools/filteroptionsdialog.cpp:122
-#, fuzzy
 msgid ""
 "Select here the noise reduction radius value. The algorithm smooths the "
 "contours of an image while still preserving edge information. The algorithm "
@@ -1350,34 +1244,28 @@ msgid ""
 "is defined by the radius. If you use a radius of 0 the algorithm selects a "
 "suitable radius."
 msgstr ""
-"<p>Burada, benek cinsinden parazit giderme yarıçap değerini seçin. "
-"Algoritma, sınır bilgilerini korurken aynı zamanda bir resmin dış hatlarını "
-"da yumuşatır. Algortima, herbir beneği değer olarak en yakın komşusuyla "
+"Burada, piksel cinsinden parazit giderme yarıçap değerini seçin. Algoritma, "
+"sınır bilgilerini korurken aynı zamanda bir resmin dış hatlarını da "
+"yumuşatır. Algortima, herbir beneği değer olarak en yakın komşusuyla "
 "değiştirerek işler. Komşu, yarıçap ile belirlenir. Yarıçap olarak 0 "
 "seçerseniz, algoritma uygun bir yarıçap seçecektir."
 
 #: tools/filteroptionsdialog.cpp:134
-#, fuzzy
 msgid ""
 "Select here the radius of the sharpen Gaussian, not counting the center "
 "pixel. For reasonable results, the radius should be larger than deviation. "
 "If you use a radius of 0 the sharpen operation selects a suitable radius."
 msgstr ""
-"<p>BUrada, merkezi benek sayılmadan Gaussian keskinleştirmesinin yarıçapını "
-"benek cinsinden seçin. Mantıklı sonuçlar için, yarıçap sapmadan büyük "
+"Burada, merkezi piksel sayılmadan Gaussian keskinleştirmesinin yarıçapını "
+"piksel cinsinden seçin. Mantıklı sonuçlar için, yarıçap sapmadan büyük "
 "olmalıdır. Yarıçap olarak 0 kullanırsanız, ksekinleştirme işlemi uygun bir "
 "yarıçap seçecektir."
 
 #: tools/filteroptionsdialog.cpp:143
-#, fuzzy
-#| msgid "Select here the sharpen deviation value of the Laplacian in pixels."
 msgid "Select here the sharpen deviation value of the Laplacian."
-msgstr ""
-"Buradan Laplacian keskinleştirmesi için standart sapma değerini benek olarak "
-"seçin."
+msgstr "Buradan Laplacian keskinleştirmesi için standart sapma değerini seçin."
 
 #: tools/filteroptionsdialog.cpp:151
-#, fuzzy
 msgid ""
 "Select here the radius of the unsharpen Gaussian, not counting the center "
 "pixel. The algorithm convolve the image with a Gaussian operator of the "
@@ -1385,18 +1273,15 @@ msgid ""
 "be larger than sigma. If you use a radius of 0 the algorithm selects a "
 "suitable radius."
 msgstr ""
-"<p>Burada, benek cinsinden merkezi benek hariç Gaussian yumuşatmasının "
+"Burada, piksel cinsinden merkezi piksel hariç Gaussian yumuşatmasının "
 "yarıçapını seçin. Algoritma, verilen yarıçap ve standart sapmanın Gaussian "
 "işlemi ile resmi değiştirir. Mantıklı sonuçlar için yarıçap, sigma "
 "değerinden büyük olmalıdır. Yarıçap olarak 0 seçerseniz, algoritma uygun bir "
 "yarıçap seçecektir."
 
 #: tools/filteroptionsdialog.cpp:161
-#, fuzzy
-#| msgid ""
-#| "Select here the unsharpen deviation value of the Gaussian, in pixels."
 msgid "Select here the unsharpen deviation value of the Gaussian."
-msgstr "Buradan benek cinsinden Gaussian için yumuşatma sapma değerini seçin."
+msgstr "Burada Gaussian için yumuşatma geri alma sapma değerini seçin."
 
 #: tools/filteroptionsdialog.cpp:166 tools/filteroptionsdialog.cpp:172
 msgid "%"
@@ -1415,13 +1300,12 @@ msgid "Amount:"
 msgstr "Miktar:"
 
 #: tools/filteroptionsdialog.cpp:173
-#, fuzzy
 msgid ""
 "Select here the unsharpen threshold value, as a percentage of the maximum "
 "color component value, needed to apply the difference amount."
 msgstr ""
-"<p>Burada, fark miktarının uygulanmasında kullanılacak olan yumuşatma limit "
-"değerini benek cinsinden seçin."
+"Burada, fark miktarının uygulanmasında kullanılacak olan yumuşatma geri alma "
+"sınır değerini en fazla renk bileşen değerinin yüzdesi cinsinden seçin."
 
 #: tools/filteroptionsdialog.cpp:176
 msgid "Threshold:"
@@ -1438,8 +1322,6 @@ msgstr "Resim Sıkıştırma Seçenekleri"
 #: tools/recompressimagesdialog.cpp:118 tools/recompressimagesdialog.cpp:119
 #: tools/recompressimagesdialog.cpp:172 tools/recompressimagesdialog.cpp:186
 #: tools/recompressoptionsdialog.cpp:125 tools/recompressoptionsdialog.cpp:142
-#, fuzzy
-#| msgid "None"
 msgctxt "image compression"
 msgid "None"
 msgstr "Hiçbiri"
@@ -1513,25 +1395,19 @@ msgid "Rename File"
 msgstr "Dosyayı Yeniden Adlandır"
 
 #: tools/renameimageswidget.cpp:581
-#, fuzzy
-#| msgid "Skipped"
 msgctxt "batch process result"
 msgid "Skipped"
 msgstr "Atlandı"
 
 #: tools/renameimageswidget.cpp:596
-#, fuzzy
-#| msgid "OK"
 msgctxt "batch process result"
 msgid "OK"
 msgstr "Tamam"
 
 #: tools/renameimageswidget.cpp:600
-#, fuzzy
-#| msgid "Failed"
 msgctxt "batch process result"
 msgid "Failed"
-msgstr "Başarısız oldu"
+msgstr "Başarısız"
 
 #: tools/resizeimagesdialog.cpp:146
 msgid "Batch Resize Images"
@@ -1555,55 +1431,45 @@ msgstr "Yazdırmaya Hazırla"
 
 #: tools/resizeimagesdialog.cpp:164
 msgid "Image Resizing Options"
-msgstr "Resimleri Yendien Boyutlandırma Seçenekleri"
+msgstr "Resimleri Yeniden Boyutlandırma Seçenekleri"
 
 #: tools/resizeimagesdialog.cpp:167
 msgid "Type:"
-msgstr "Tip:"
+msgstr "Tür:"
 
 #: tools/resizeimagesdialog.cpp:174
 msgid "<p>Select here the image-resize type.</p>"
-msgstr "<p>Resim yeniden boyutlandırma tipini seçin.</p>"
+msgstr "<p>Resim yeniden boyutlandırma türünü seçin.</p>"
 
 #: tools/resizeoptionsdialog.cpp:54
 msgid "Image-Resize Options"
 msgstr "Resimleri Yeniden Boyutlandırma Seçenekleri"
 
 #: tools/resizeoptionsdialog.cpp:80
-#, fuzzy
-#| msgid "Size Settings"
 msgid "Quality Settings"
-msgstr "Boyut Ayarları"
+msgstr "Kalite Ayarları"
 
 #: tools/resizeoptionsdialog.cpp:86
 msgctxt "Filter name"
 msgid "&lt;default&gt;"
-msgstr ""
+msgstr "&lt;öntanımlı&gt;"
 
 #: tools/resizeoptionsdialog.cpp:90
-#, fuzzy
-#| msgid ""
-#| "Select here the filter name for the resize-image process. This filter "
-#| "will be used like a kernel convolution process during the increased image "
-#| "size rendering. The default filter is 'Lanczos'."
 msgid ""
 "Select here the filter name for the resize-image process. This filter will "
 "be used like a kernel convolution process during the increased image size "
 "rendering."
 msgstr ""
 "Burada resmi boyutlandırmak için filtre adı seçin. Bu filtre artan resim "
-"boyutları hesaplanırken bir çekirdek dönüştürme işlemi gibi kullanılacaktır. "
-"Öntanımlı süzgeç 'Lanzcos'tur."
+"boyutları hesaplanırken bir çekirdek dönüştürme işlemi gibi kullanılacaktır."
 
 #: tools/resizeoptionsdialog.cpp:98
 msgid "Image quality (percent):"
 msgstr "Resim kalitesi (yüzde):"
 
 #: tools/resizeoptionsdialog.cpp:99
-#, fuzzy
-#| msgid "Quality for JPEG images."
 msgid "Quality for compressed images."
-msgstr "JPEG resimlerin kalitesi."
+msgstr "Sıkıştırılmış resimlerin kalitesi."
 
 #: tools/resizeoptionsdialog.cpp:209 tools/resizeoptionsdialog.cpp:296
 #: tools/resizeoptionsdialog.cpp:397
@@ -1647,7 +1513,7 @@ msgstr "Yeni resimlerin piksel olarak yüksekliği."
 
 #: tools/resizeoptionsdialog.cpp:312
 msgid "Fill image to specified size"
-msgstr ""
+msgstr "Resmi belirtilen boyuta doldur"
 
 #: tools/resizeoptionsdialog.cpp:313
 msgid ""
@@ -1655,6 +1521,9 @@ msgid ""
 "background color to the desired dimension, otherwise it is only as big as "
 "needed to fit the original image into the specified dimensions."
 msgstr ""
+"Eğer bu kutu seçili ise, sonuç resmi istenen ölçeklerde belirtilen arkaplan "
+"rengi ile doldurulacaktır. Aksi takdirde, belirtilen ölçeklere sığması için "
+"gerektiği kadar büyüktür."
 
 #: tools/resizeoptionsdialog.cpp:318
 msgid "Background color:"
@@ -1716,10 +1585,8 @@ msgid "The standard print resolutions in dots per inch."
 msgstr "İnç başına nokta (dpi) cinsinden standart yazdırma çözünürlüğü."
 
 #: tools/resizeoptionsdialog.cpp:539
-#, fuzzy
-#| msgid "Source Image"
 msgid "Stretch Image"
-msgstr "Kaynak Resim"
+msgstr "Resmi Uzat"
 
 #: tools/resizeoptionsdialog.cpp:540
 msgid ""
@@ -1727,6 +1594,9 @@ msgid ""
 "dimensions. Otherwise it will be centered on the canvas and the borders will "
 "get cropped to achieve the desired paper size."
 msgstr ""
+"Eğer bu seçili ise, resim kağıt ölçülerine sığdırılmak üzere uzatılacaktır. "
+"Aksi takdirde, istenen kağıt boyutuna ulaşılabilmesi için ortalanacak ve "
+"kenarları kırpılacaktır."
 
 #: tools/resizeoptionsdialog.cpp:556
 msgid "Printing Custom Settings"
@@ -1781,8 +1651,6 @@ msgstr "Küçük önizleme"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/batchprocessimagesdialog.ui:103
-#, fuzzy
-#| msgid "Source"
 msgctxt "List of images to process"
 msgid "Source"
 msgstr "Kaynak"
@@ -1797,7 +1665,7 @@ msgstr "Ekle"
 #. i18n: ectx: property (text), widget (QPushButton, m_removeButton)
 #: ui/batchprocessimagesdialog.ui:126 ui/renameimagesbase.ui:152
 msgid "Remove"
-msgstr "Sil"
+msgstr "Kaldır"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: ui/batchprocessimagesdialog.ui:183
@@ -1826,14 +1694,12 @@ msgstr "Asıl Resim"
 
 #. i18n: ectx: property (whatsThis), widget (KIPIPlugins::KPPreviewManager, m_origView)
 #: ui/imagepreview.ui:29
-#, fuzzy
 msgid ""
 "This is the original image preview. You can use the mouse wheel to change "
 "the zoom factor. Click in and use the mouse to move the image."
 msgstr ""
-"<p>Asıl resim önizleme. Yaklaştırma oranını değiştirmek için fare "
-"tekerleğini kullanabilirsiniz. Resmi taşımak için tıklayın ve fareyi "
-"kullanın."
+"Asıl resim önizleme. Yaklaştırma oranını değiştirmek için fare tekerleğini "
+"kullanabilirsiniz. Resmi taşımak için tıklayın ve fareyi kullanın."
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: ui/imagepreview.ui:51
@@ -1842,14 +1708,12 @@ msgstr "Hedef Resim"
 
 #. i18n: ectx: property (whatsThis), widget (KIPIPlugins::KPPreviewManager, m_destView)
 #: ui/imagepreview.ui:57
-#, fuzzy
 msgid ""
 "This is the destination image preview. You can use the mouse wheel to change "
 "the zoom factor. Click in and use the mouse to move the image."
 msgstr ""
-"<p>Hedef resim önizleme. Yaklaştırma oranını değiştirmek için fare "
-"tekerleğini kullanabilirsiniz. Resmi taşımak için tıklayın ve fareyi "
-"kullanın."
+"Hedef resim önizleme. Yaklaştırma oranını değiştirmek için fare tekerleğini "
+"kullanabilirsiniz. Resmi taşımak için tıklayın ve fareyi kullanın."
 
 #. i18n: ectx: property (title), widget (QGroupBox, m_templateGroupBox)
 #: ui/renameimagesbase.ui:20
@@ -1859,7 +1723,7 @@ msgstr "Dosyaları yeniden adlandırmak için şablon"
 #. i18n: ectx: property (text), widget (QLabel, m_seqLabel)
 #: ui/renameimagesbase.ui:26
 msgid "Sequence number start value:"
-msgstr ""
+msgstr "Sıra sayısı başlama değeri:"
 
 #. i18n: ectx: property (text), widget (QLabel, m_prefixLabel)
 #: ui/renameimagesbase.ui:39
@@ -1879,7 +1743,7 @@ msgstr "Dosya tarihi ekle"
 #. i18n: ectx: property (text), widget (QCheckBox, m_useExtraSymbolsCheck)
 #: ui/renameimagesbase.ui:63
 msgid "Use extra [X*] symbols in date format field"
-msgstr ""
+msgstr "Tarih biçim alanında ek [X*] sembollerini kullanın"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_formatDateCheck)
 #: ui/renameimagesbase.ui:91

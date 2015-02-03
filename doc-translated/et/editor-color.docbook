@@ -1,0 +1,1627 @@
+<sect2
+>                                     <title
+>Värvi redigeerimise tööriistad</title>
+
+<sect3 id="auto-correction">
+<sect3info
+>           <title
+>Automaatkorrektsiooni tööriistad</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>Need tööriistad pakuvad viit automaatkorrektsiooni taset, mis enamasti aitavad pilti parandada. Seda tööriista oleks mõttekas kasutada enne keerukamate käsitsikohendamiste juurde asumist. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Sissejuhatus</title>
+   <anchor id="autocolorcorrectiontool.anchor"/>
+
+            <para
+>Menüükirjed <guilabel
+>Normaliseerimine</guilabel
+>, <guilabel
+>Võrdsustamine</guilabel
+>, <guilabel
+>Automaattasemed</guilabel
+> ja <guilabel
+>Võimenda kontrasti</guilabel
+>, mille leiab menüüst <menuchoice
+><guilabel
+>Parandus</guilabel
+><guimenuitem
+>Automaatkorrektsioon</guimenuitem
+></menuchoice
+>, püüavad valida automaatselt parimad värvitasemed. Nendega tasub eksperimenteerida, et välja selgitada, kuidas need sinu fotole kõige paremini sobivad. <itemizedlist>
+
+                <listitem
+><para
+><guilabel
+>Normaliseerimine</guilabel
+>: selle meetodiga skaleeritakse valitud pildi heledusväärtused, nii et tumedaim punkt muutub mustaks ja heledaim punkt nii heledaks kui võimalik ilma tooni muutmata. See kujutab endast tihtipeale "võluvitsa", kui pilt on liiga tuhm või luitunud. <example
+><title
+>Värvide normaliseerimise eelvaatlus</title
+>   <screenshot
+><screeninfo
+>Värvide normaliseerimise eelvaatlus</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editornormalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+                </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Võrdsustamine</guilabel
+>: see kohandab aktiivse pildi värvide heledust, et väärtuskanali histogramm oleks võimalikult ühtlane - see tähendab, et iga võimalik heledusväärtus oleks pikslites ligikaudu sama numbriga mis teised. Vahel on võrdsustamine lausa imelise toimega pildi kontrasti suurendamisel, vahel aga tekitab see prahti. See on väga võimas operatsioon, mis võib pildiga imet teha või selle lausa hävitada. <example
+><title
+>Värvide võrdsustamise eelvaatlus</title
+> <screenshot
+><screeninfo
+>Värvide võrdsustamise eelvaatlus</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorequalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Automaattasemed</guilabel
+>: selle meetodiga maksimeeritakse punase, rohelise ja sinise kanali toonivahemik. See määrab kindlaks pildi tumedate ja heledate toonide piirväärtused ning kohandab punast, rohelist ja sinist kanalit, et need hõlmaks kogu histogrammi. <example
+><title
+>Automaattasemete eelvaatlus</title
+> <screenshot
+><screeninfo
+>Automaattasemete eelvaatlus</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorautolevels.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Võimenda kontrasti</guilabel
+>: selle meetodiga tugevdatakse pildi RGB-väärtuste kontrasti ja heledust, võimendades ehk venitades madalaima ja kõrgeima väärtuse täisvahemikku ning kohendades kõike, mis nende vahele jääb. See annab paremaid tulemusi ainult luitunud fotode korral ja võib olla päris hea abivahend kesiste fotode parandamisel. <example
+><title
+>Kontrasti võimendamine</title
+> <screenshot
+><screeninfo
+>Kontrasti võimendamise eelvaatlus</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorstretchcontrast.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+            </itemizedlist>
+
+            </para>
+
+            <para
+>Mis tahes muudatusi ei rakendata lõplikult enne seda, kui sa foto salvestad. </para>
+</sect3>
+
+<sect3 id="whitebalance">
+<sect3info>
+
+<title
+>Valge tasakaal</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>&digikam;i <emphasis
+>valge tasakaalu</emphasis
+> tööriist kohendab poolautomaatselt foto valge tasakaalu. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Sissejuhatus</title>
+
+<para
+>Valge tasakaalu määramine on üks suuremaid digikaamerate probleeme. Vanade heade aegade filmilintide korral pandi valge tasakaal paika fotolaboris. Tänapäeval peab aga vaene väike kaamera ise selgeks tegema, mis on valge ja mis must. Kui kaamera valib valgepunkti, jääb tihtipeale vari või toon valeks. Selle pluginaga saab taolisi probleeme hõlpsasti korrigeerida. Siin on terve rida parameetreid, mida timmides on võimalik saada väga hea tulemus. </para>
+
+<note
+><para
+>Valge tasakaalu parandamist pärsib teatud määral tõik, et tegutseda tuleb 8 bitti kanali kohta värviruumis. See tähendab, et kui originaalist liiga palju kõrvale kalduda, võivad tekkida ülesärituse tsoonid. Kui valge tasakaalu saab kohandada toorteisendamise režiimis (see toimub 16-bitises värviruumis), on parandamise võimalused avaramad. </para
+></note>
+
+<para
+>Tööriista aluseks on valge tasakaalu algoritm, mille autoriõigus kuulub Pawel T. Jochymile. Selle saab käivitada pildiredaktoris menüükäsuga <menuchoice
+><guimenu
+>Värv</guimenu
+><guimenuitem
+>Valge tasakaal</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-whitebalance"
+>  <title
+>Valge tasakaalu tööriista kasutamine</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;whitebalancedialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Valge tasakaalu dialoog</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Eelvaatluse akna suurust saab muuta. Vasakul näeb nii originaal- kui sihtpilti. Sihtpilti uuendatakse dünaamiliselt vastavalt plugina seadistuste muutmisele. Kui soovid näha originaali valge tasakaalu, klõpsa lihtsalt sellele kaardile. </para>
+
+<para
+>Sihtpildil on näha punane marker. Markeri all asuva piksli helendusväärtust näeb histogrammi püstjoonel. </para>
+
+<para
+>Paremal ülal asub histogramm, mis parameetrite muutmisel dünaamiliselt uueneb. Histogramm on väga kasulik, sest see näitab sageli, et ka muidu korraliku säritusega fotodel on suurem osa pikslitest väga vähese helendusega. Nuppudega saab valida ühe kolmest värvist (või summa, mida nimetataksegi helenduseks). </para>
+
+<para
+><guilabel
+>Säritus</guilabel
+> võimaldab digitaalselt muuta originaalfoto säritust. Selle suurendamine on imelihtne, paraku kaasneb sellega müra suurenemine pildil. Kui küllastus tekitab probleeme, tasuks paremal all sisse lülitada <guilabel
+>Ülesärituse indikaator</guilabel
+>. Vasakult saab toorhistogrammi lõigata <guilabel
+>mustpunkti</guilabel
+> muutes. Kui foto on udune (histogrammil on vasakul ehk mustal küljel tühi ala), on ilmselt seda võimalust mõttekas kasutada. <guilabel
+>Säritus</guilabel
+>t ja <guilabel
+>mustpunkt</guilabel
+>i saab ka automaatselt kohendada, kui klõpsata <guilabel
+>automaatse särituse kohandamise</guilabel
+> nupule. See määrab mustpunkti üsna täpselt. </para>
+
+<para
+>Väljundi kontrast sõltub parameetritest <guilabel
+>Tumedad toonid</guilabel
+>, <guilabel
+>Küllastus</guilabel
+> ja <guilabel
+>Gamma</guilabel
+>. <guilabel
+>Tumedad toonid</guilabel
+> võimaldavad tugevadada või nõrgestada tumedate toonide rolli fotol. </para>
+
+<para
+>Foto kontrasti suurenemisel võib paraku väheneda selle värvi<guilabel
+>küllastus</guilabel
+>. Ühte ületav väärtus suurendab küllastust, alla 1 jäävad väärtused kahandavad seda. Väärtus 0 annab tulemuseks mustvalge foto. Foto värviküllastuse suurendamist ei tasuks peljata. Rusikareeglina võib öelda, et mida suurem on kontrast (väiksem <guilabel
+>gamma</guilabel
+>), seda suurem peaks olema <guilabel
+>küllastus</guilabel
+>. </para>
+
+<para
+>Järgmine valikuterühm ongi kõige peamisemad valge tasakaalu seadistused, mis määravad kolme värvikanali omavahelise suhte. Siin saab määrata värvi <guilabel
+>temperatuuri</guilabel
+>, millega pilt muutub soojemaks või külmemaks. Kõrgem temperatuur annab soojema tooni. Kolme värvikanali omavahelise suhte määramiseks on vaja seadistada kaht asja. Kuna temperatuur mõjutab peamiselt punase ja sinise kanali suhet, siis on loomulik, et teine seadistus mõjutab <guilabel
+>rohelise</guilabel
+> kanali intensiivsust. </para>
+
+<para
+>Mainitud seadistuste ükshaaval muutmise asemel võib aga kasutada hoopis <guilabel
+>temperatuuritooni värvivalija</guilabel
+> nuppu. Klõpsa sellele nupule ja seejärel originaalpildil kohale, kust hankida väljundvärv valge tasakaalu temperatuuriseadistuse arvutamiseks. Nii arvutatakse <guilabel
+>temperatuuri</guilabel
+> ja <guilabel
+>rohelise</guilabel
+> väärtused automaatselt. </para>
+
+<para
+>Lisaks saab valge tasakaalu määrata teatud eelnevalt määratud väärtusi valides. Valge tasakaalu temperatuuritüübid on järgmised: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="3">
+
+<thead>
+   <row>
+      <entry
+>Värvitemperatuur</entry>
+      <entry
+>Kirjeldus</entry>
+      <entry
+>Kelvinit</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry>
+      <guilabel
+>40W</guilabel>
+      </entry>
+
+      <entry
+>40-vatine pirn. </entry>
+
+      <entry>
+      <guilabel
+>2680</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>200W</guilabel>
+      </entry>
+
+      <entry
+>200-vatine pirn, stuudiovalgus. </entry>
+
+      <entry>
+      <guilabel
+>3000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Päikesetõus</guilabel>
+      </entry>
+
+      <entry
+>Päikesetõusu või -loojangu valgus. </entry>
+
+      <entry>
+      <guilabel
+>3200</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Volfram</guilabel>
+      </entry>
+
+      <entry
+>Volframpirn või valgus 1 tund enne loojangut või pärast koitu. </entry>
+
+      <entry>
+      <guilabel
+>3400</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Neutraalne</guilabel>
+      </entry>
+
+      <entry
+>Neutraalne värvitemperatuur. </entry>
+
+      <entry>
+      <guilabel
+>4750</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Ksenoon</guilabel>
+      </entry>
+
+      <entry
+>Ksenoonpirn. </entry>
+
+      <entry>
+      <guilabel
+>5000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Päike</guilabel>
+      </entry>
+
+      <entry
+>Päikeselise päeva valgus keskpäeval. </entry>
+
+      <entry>
+      <guilabel
+>5500</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Välklamp</guilabel>
+      </entry>
+
+      <entry
+>Elektrooniline välklamp. </entry>
+
+      <entry>
+      <guilabel
+>5600</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Taevas</guilabel>
+      </entry>
+
+      <entry
+>Üldine taevavalgus. </entry>
+
+      <entry>
+      <guilabel
+>6500</guilabel>
+      </entry>
+   </row>
+
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<para
+><guilabel
+>Värvitemperatuur</guilabel
+> on lihtsustatud viis iseloomustada valgusallika spektraalseid omadusi. Kui tegelikkuses määrab valguse värvi see, milline on iga spektrikõvera punkti panus lõppväljundisse, siis ometi võib tulemust esitada ka lineaarsel skaalal. See on kasulik näiteks korrektse valge tasakaalu määramisel digitaalfotograafias ning korrektse valgusallika tüübi määramisel ehitusoptikas. Arvesta siiski, et üht värvi valgusallikad (metameerid) võivad tunduvalt erineda valguskiirguse kvaliteedilt. </para>
+
+<para
+>Väiksem <guilabel
+>värvitemperatuur</guilabel
+> tähendab kollakaspunasemat valgust, kõrgem temperatuur sinisemat. Päevavalgus on koidu ajal tavaliselt suhteliselt madala värvitemperatuuriga, kasvades päeva kestel. Seepärast võib olla mõistlik paigaldada elektrivalgussüsteem, mis kompenseeriks vajaduse korral päevavalgust jahedama valgusega ning nii-öelda soojendaks seda öösel. See korrigeerib ka inimesele omast tunnetust soojemate värvide osas näiteks küünlavalguses või öösel lõkke ääres. Värvitemperatuuri mõõdetakse kelvinites (K). </para>
+
+<para
+><guilabel
+>Ülesärituse indikaator</guilabel
+> liidab värvi, kui pikslis on enam kui üks kanal ülesäritusega, ning sa näed kombineeritud värvi valge tasakaalu tulemusena. Seda rakendatakse ainult sihtpildi eelvaatluse alal ning see ei mõjuta kuidagi lõplikku renderdamist. </para>
+
+<para
+>Nupud <guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+> teevad just seda, mida nad ütlevad. Mis tahes valge tasakaalu seadistusi saab salvestada tekstifaili ja tekstifailist saab salvestusi ka laadida. </para>
+
+<para
+><guilabel
+>Lähtesta kõik</guilabel
+> taastab kõik filtriseadistused nende vaikeväärtustele, millele vastab neutraalne valge tasakaal. (Tähelepanu! Isegi neutraalne tasakaal võib erineda sinu algse foto tasakaalust. Salvestamise korral muudetakse originaalpildi valge tasakaalu.) </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="encoding-depth"
+>    <title
+>Kodeerimise sügavus</title>
+    <para
+>Siin saab muuta redigeeritama pildi värvikanali kodeerimise sügavust. 8-bitine kodeering on levinud JPEG-vormingu korral, 16-bitine sobib paremini kõrge kvaliteediga piltidele, aga see nõuab suuremat salvestusruumi, arvutamisaega ning on praegu kasutatav ainult PNG, PNM, TIFF ja DNG vormingu korral.</para>
+</sect3>
+
+<sect3 id="color-management"
+>    <title
+>Värvihaldus</title>
+    <para
+>See tööriist avab samasuguse dialoogi nagu toorpiltide redigeerimise korral. Seda saab kasutada värvusprofiilide omistamiseks ja muutmiseks. Kõige alumise, heleduse kohendamise kaardi abil saab ka toone seostada. Värvusprofiilide kasutamisest kõneleb lähemalt <ulink url="help:/digikam/using-setup.html#setup-iccprofiles"
+>värvihalduse peatükk</ulink
+>.</para>
+</sect3>
+
+<sect3 id="exposure-correct"
+>    <title
+>Särituse korrigeerimine</title>
+
+     <anchor id="bcgadjusttool.anchor"/>
+
+     <para
+>Kõige lihtsam on kasutada heleduse, kontrasti ja gamma tööriista. See pole küll kõige võimsam tööriist, kuid väga sageli piisab sellest täiesti sinu vajaduste rahuldamiseks. Eriti kasulik on see üle- või alasäritusega fotode puhul, samas värviprobleemide lahendamisel on sellest vähe abi. Kolme liuguriga saad muuta vastavalt heledust, kontrasti ja gammat. Eelvaatluses näed kohe, millise tulemuse mingi muudatus annab. Kui tulemus sind rahuldab, klõpsa selle rakendamiseks nupule <guilabel
+>OK</guilabel
+>. </para>
+
+     <example
+>  <title
+>Heleduse/kontrasti/gamma tööriist tegevuses</title>
+         <screenshot
+><screeninfo
+>Heleduse/kontrasti/gamma tööriist tegevuses</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbcgadjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <para
+>Veel üks oluline tööriist on <menuchoice
+><guimenu
+>Värv</guimenu
+><guimenuitem
+>Tasemete kohandamine</guimenuitem
+></menuchoice
+>. See võimaldab korraga näha mitme värvitaseme kohandamise tulemust, samuti salvestada tasemete seadistused, et neid kasutada ka edaspidi. See on abiks näiteks juhul, kui sinu kaamera või skänner tekitab sageli ühesuguse vea ja sul tuleb seda ikka ja jälle ühtmoodi parandada. Täpsemalt kõneleb sellest <link linkend="using-adjustlevels"
+>tasemete kohandamise käsiraamat</link
+>. </para>
+
+     <para
+>Väga võimas säritusprobleemide lahendamise tööriist on värvikõverate kohendamine, mida saab kasutada menüükäsuga <menuchoice
+><guimenu
+>Värv</guimenu
+><guimenuitem
+>Kõverate kohandamine</guimenuitem
+></menuchoice
+>. </para>
+
+</sect3>
+
+<sect3 id="coloreffects">
+
+<sect3info>
+<title
+>Pildi ülesäritus</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>&digikam;i <emphasis
+>värviefektide</emphasis
+> tööriist pakub nelja värviefekti: ülesäritus, erksusfilter, neoonefekt ja servafilter. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Ülesäritus</keyword>
+<keyword
+>Velvia</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Sissejuhatus</title>
+
+<para
+>Piltide keemilise töötlemise ajastul oli ülesäritamine efekt, mis tekitati osaliselt ilmutatud fotole valgussähvatust suunates ja seejärel seda lõplikult ilmutades. Värvilised, tumedamad alad takistasid valgusel foto tundlike kihtideni jõudmast, mistõttu heledamad alad muutusid tumedamaks ja värvid inverteeriti teise särituse ajal. Tulemus meenutas osaliselt negatiivi. See tööriist võimaldab seda efekti paindlikult rakendada. </para>
+
+<sect4 id="using-solarize"
+> <title
+>Ülesärituse kasutamine</title>
+
+<para
+>Liugurit <guilabel
+>Intensiivsus</guilabel
+> nihutades saab muuta ülesärituse tugevust. Umbes 50% on intensiivsus, mis oli võimalik keemilise ilmutamise korral. Efekti jätkuvalt tugevdades muutub see lõpuks täielikuks negatiiviks, mida fotopaberil ei olnud ega ole sellisel moel võimalik saavutada. </para>
+</sect4>
+
+<sect4 id="inaction-solarize"
+> <title
+>Ülesäritus tegevuses</title>
+
+<para
+>See on näide ülesärituse efektist. Originaalpilt on (1) ja korrigeeritud pilt (2). <guilabel
+>Intensiivsus</guilabel
+>eks on määratud 30%. </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;solarizepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Ülesärituse efekti eelvaatlus</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+<sect4
+>   <title
+>Erksusefekt (Velvia filter)</title>
+  <para
+>Erksusfilter simuleerib &quot;Velvia&quot; efekti. See erineb küllastamisest selle poolest, et pakub tugevamat kontrasti, mis muudab värvid elavaks ja säravaks. Proovi seda - paljud asjad muutuvad märksa ilusamaks! </para>
+  <para
+>Velvia on Jaapani firma Fujifilm toodetud värvifilmi mark. Nimetus kujutab endast fraasi &quot;Velvet Media&quot; lühendit, mis osutab pildi pehmele struktuurile. Velviale on omased väga küllastunud värvid päevavalguses ja tugev kontrast. Need omadused on muutnud filmi paljude loodusfotograafide lemmikuks. Samas peavad mõnedki fotograafid Velvia väga küllastunud värve miinuseks, ennekõike need, kes maastiku pildistamisega ei tegele. </para>
+     <example
+>  <title
+>Originaal ja erksusfilter</title>
+        <screenshot
+><screeninfo
+>Originaal ja erksusfilter</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorvivid.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>Neoonefekt</title>
+  <para
+>Neoonfilter simuleerib neoonvalgust. Tasemeparameeter määrab tulemuse heleduse, korduseliugur aga neoonvalguse tiheduse. Suurte piltide korral võib see filter mõneks hetkeks nõuda väga palju protsessorivõimsust. </para>
+     <example
+>  <title
+>Neoonfilter</title>
+        <screenshot
+><screeninfo
+>Neoonfilter</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorneon.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>Servaefekt</title>
+ <para
+>Veel kirjutamata </para>
+</sect4>
+
+</sect3>
+
+<sect3 id="using-correctingcolor"
+>       <title
+>Värvide parandamine</title>
+
+     <anchor id="colorbalancetool.anchor"/>
+
+     <para
+>Digikaameratel on tihti probleeme valgustingimustega ning üsna sageli tuleb fotol kontrasti ja heledust kohendada. Foto erinevate aspektide tasemeid saab kohendada menüüs <menuchoice
+><guimenu
+>Värv</guimenu
+></menuchoice
+> leiduvate tääriistadega. Kõik muudatused kajastuvad otsekohe eelvaatluses. Kui need sind rahuldavad, klõpsa nende rakendamiseks nupule <guilabel
+>OK</guilabel
+>. </para>
+
+     <example
+>  <title
+>Värvustasakaalu tööriist tegevuses</title>
+        <screenshot
+><screeninfo
+>Värvustasakaalu tööriist tegevuses</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorcolorbalance.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <anchor id="hsladjusttool.anchor"/>
+
+     <para
+>Kui pilt on luitunud (see võib kergesti juhtuda eredas valguses pildistades), katseta tooni, küllastuse ja heleduse tööriista, kus saab liuguritega muuta nii pildi tooni, värviküllastust kui ka heledust. Küllastuse suurendamine annab tõneäoliselt pildile parema väljanägemise. Mõnikord on mõttekas ühtlasi korrigeerida heledust (heledus on siin sama, mis heledus heleduse, kontrasti ja gamma tööriistas, ainult et need koosnevad erinevatest punase, rohelise ja sinise kanali kombinatsioonist). </para>
+
+     <para
+>Kui foto on tehtud vähese valgustuse tingimustes, on probleem vastupidine: liiga suur värviküllastus. Ka sel juhul kulub tooni ja küllastuse tööriist marjaks ära, ainult et värviküllastust tuleb vähendada, mitte suurendada. Eelvaatluses näed kohe, kuidas tehtud muudatused fotot mõjutavad. Kui tulemus sind rahuldab, klõpsa <guilabel
+>OK</guilabel
+> ning fotot muudetaksegi. </para>
+
+     <example
+>  <title
+>Tooni/küllastuse/heleduse tööriist tegevuses</title>
+         <screenshot
+><screeninfo
+>Tooni/küllastuse/heleduse tööriist tegevuses</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorhsladjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+ </sect3>
+
+<sect3 id="adjustlevels">
+<sect3info>
+
+<title
+>Tasemete kohendamine</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>&digikam;i <emphasis
+>tasemete kohendamise</emphasis
+> võimaldab käsitsi kohendada pildi histogrammi kanaleid. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Sissejuhatus</title>
+
+<para
+>See tööriist on säritusprobleemide kohendamiseks märksa võimsam kui heleduse, kontrasti ja gamma kohendamise tööriist ning ainult mõnevõrra keerukam, jäädes samas siiski alla värvikõverate tööriistale. Dialoog tundub esmapilgul päris keerukana, kuid põhimõtteliselt on oluline ainult <guilabel
+>sisendi taseme</guilabel
+>te ala, eriti kolm histogrammi all paiknevat liugurit. </para>
+
+<para
+>Tööriist näitab aktiivse kihi või valiku (histogramm) intensiivsusväärtuste graafikut. Graafiku all paikneb viis liugurit, millega saab piirata ja muuda pildi intensiivsustaset. Liugureid vasakule nihutades muutub pilt tumedamaks, paremale nihutades heledamaks. </para>
+
+<sect4 id="using-adjustlevels">
+<title
+>Tasemete kohendamise tööriista kasutamine</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelsdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Tasemete kohendamise dialoog</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Õigupoolest on lihtsaim viis asja tundma õppida nihutada kolme liugurit ja vaadata, kuidas pilt vastavalt muutub. </para>
+
+<para
+>Vasakul näeb nii originaal- kui ka sihtpildi eelvaatlust. Sihtpilti uuendatakse dünaamiliselt vastavalt plugina seadistuste muutmisele. Paremal on kasutada järgmised valikud: <itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Kanal</guilabel
+>: tasemete muutmise liitkastis saab valida kanali, mida muuta: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Helendus</guilabel
+>: muudab kõigi pildi pikslite intensiivsust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Punane</guilabel
+>: muudab pildi kõigi pikslite punase värvi küllastust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Roheline</guilabel
+>: muudab pildi kõigi pikslite rohelise värvi küllastust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Sinine</guilabel
+>: muudab pildi kõigi pikslite sinise värvi küllastust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: muudab pildi kõigi pikslite läbipaistvust.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+>Kanali <guilabel
+>Skaala</guilabel
+> liitkastis saab valida histogrammi näitamise lineaarse või logaritmilisena. Enamiku digikaamera piltide puhul on lineaarne režiim kõige mõistlikum. Kuid piltide korral, mis sisaldavad olulisi püsivärviga alasid, domineerib lineaarse histogrammi kasutamisel sageli üks tulp. Sel juhul sobib logaritmiline histogramm paremini.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Sisendi tasemed</guilabel
+>: see võimaldab kõigile vahemikele käsitsi tasemed valida. Graafikul näidatakse pilti tumedate, keskmiste ja heledate toonidena. Abstsiss hõlmab vahemikku 0 (must) kuni 255 (valge). Taseme pikslite arv asub ordinaadil. Kõvera pind tähistab kõiki pildi piksleid valitud kanalil (histogramm). Korralikult balansseeritud pildil on tasemed (toonid) terves vahemikus üsna ühtlaselt jaotunud. Kui pildil domineerib näiteks sinine värv, siis selle histogramm on rohelisel ja punasel kanalil tublisti vasakule nihkunud. Tasemete vahemikke saab muuta kolmel moel: <itemizedlist>
+          <listitem
+><para
+>Kolme liuguriga. Ülalt esimene on mõeldud tumedate toonide, teine heledate toonide ja kolmas keskmiste toonide (sageli nimetatakse ka gammaväärtuseks) tarbeks. </para
+></listitem>
+          <listitem
+><para
+>Kolme sisendkastiga, kuhu saab väärtused otse sisestada. </para
+></listitem>
+          <listitem
+><para
+>Kolme värvivalija nupuga, mille abil saab originaalfotolt hankida väärtused, mis kohendavad automaatselt kõigi kanalite sisendi tasemeid. Lähtestamisnupu kõrval paikneb ka täielikult automaatse kohendamise nupp. </para
+></listitem>
+      </itemizedlist>
+  </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Väljundi tasemed</guilabel
+>: see võimaldab käsitsi valida väljundi taseme vahemike piirangud. Ka siin on kaks liugurit, millega saab muuta väljundi tasemeid samamoodi, nagu seda kirjeldati <guilabel
+>sisendi taseme</guilabel
+>te juures. Väljundi tasemeid muutes võib näiteks luua mõnele esiplaanil asuvale objektile luitunud tausta.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Auto</guilabel
+>: selle nupuga saab määrata tasemetele automaatsed seadistused vastavalt pildi pikslite intensiivsusele.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+>: need nupud teevad just seda, mida nimi ütleb. Kõiki tasemeid saab salvestada failina ja neid hiljem failist laadida. Failivorminguna kasutatakse Gimpi tasemete vormingut.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Lähtesta kõik</guilabel
+>: selle nupuga saab lähtestada kõigi kanalite kõik <guilabel
+>sisendi tasemed</guilabel
+> ja <guilabel
+>väljundi tasemed</guilabel
+>.</para
+></listitem>
+
+</itemizedlist>
+</para>
+
+<para
+>Tasemete kohendamise tööriista mitmed võimalused lihtsustavad kontrollpunktide määramist sisendi tasemetele. Hiirega originaalpildi eelvaatlusele klõpsates luuakse redigeerimisalal püstine punktiirriba. See vastab piksliväärtusele kohas, kuhu pildiaknas hiirega klõpsasid. Hiirenuppu lohistades muudetakse püstriba positsiooni. Nii saab näha, kus asuvad pildi erinevad piksliväärtused sisendi tasemel, mis lubab tuvastada tumedate, keskmiste ja heledate toonide asukohta. </para>
+
+<para
+>Selle võimaluse ning kolme <guilabel
+>värvivalija</guilabel
+> nupu abil saab automaatselt kohendada sisendi tasemeid kõigile kanalitele kontrollpunktid tumedate, keskmiste ja heledate toonide jaoks. Vali värvivalija, mida soovid kasutada, ning klõpsa originaalpildi eelvaatluse alal, misjärel luuakse sisendi tasemed nii punase, rohelise, sinise kui ka helenduse histogrammi kanalil. </para>
+
+<para
+><guilabel
+>Ülesärituse indikaator</guilabel
+> liidab värvi, kui pikslis on enam kui üks kanal ülesäritusega, ning sa näed kombineeritud värvi kanali kõveral. Seda rakendatakse ainult sihtpildi eelvaatluse alal ning see ei mõjuta kuidagi lõplikku renderdamist. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustlevels">
+<title
+>Tasemete kohendamise tööriist tegevuses</title>
+
+<para
+>Allpool on näha värvifoto <guilabel
+>sisendi taseme</guilabel
+>te kohendamine punase, rohelise ja sinise kanali jaoks. Intensiivsus/alfakanal ning <guilabel
+>väljundi tasemed</guilabel
+> on puutumata. Originaalpilt on (1), sihtpilt (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Tasemete kohendamise tööriist tegevuses</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="adjustcurves">
+<sect3info>
+
+<title
+>Värvikõverate kohendamine</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+  <para
+>&digikam;i <emphasis
+>värvikõverate kohendamise</emphasis
+> tööriist võimaldab mittelineaarselt muuta pildi helenduse ja värvikanalite väärtusi. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Sissejuhatus</title>
+
+<para
+>Värvikõverate kohendamise tööriist on väga võimas pildi tonaalsuse muutmise vahend. Selle saab käivitada pildiredaktori menüüst käsuga <menuchoice
+><guimenu
+>Värv</guimenu
+><guimenuitem
+>Värvikõverate kohandamine</guimenuitem
+></menuchoice
+>. See võimaldab sul kõveral kontrollpunkte lohistades luua vabalt funktsiooni, mis seob heleduse sisendtaseme selle väljundtasemega. Värvikõverate tööriist suudab kõike, mida suudavad heleduse/kontrasti/gamma ning värvitasemete kohandamise tööriistad, ainult et on neist veel võimsam. Kuid see võib isegi rohkemat, nimelt parandada sinu fotode tonaalsust väga peenikeste vahedega hallskaala alusel. Ei tohi muidugi unustada seda, et mida parem on pilt (hea säritus, kadudeta vorming, 24- või 32-bitine sügavus), seda enam saab seda veel paremaks muuta. Uuri näiteks osa "Achieving ultimate tonal quality" väga teaberohkel veebileheküljel <ulink url="http://www.normankoren.com/digital_tonality.html"
+>Tonal quality and dynamic range in digital cameras by Norman Koren</ulink
+>. Kasuta värvikõverate kohandamise tööriista samal otstarbel! </para>
+<para
+>Tööriist näitab visuaalselt värvikõveraid, mida muutes saab mittelineaarselt muuta aktiivse kihi (histogrammi) intensiivsusväärtusi. Värvikõvera redigeerimise <guilabel
+>ühtlane</guilabel
+> režiim võimaldab kõvera kuju muuta kõverale uusi punkte lisades või selle otspunkte liigutades. Teine võimalus on kujundada värvikõverad käsitsi, mida pakub kõverate <guilabel
+>vaba</guilabel
+> muutmise režiim. Mõlemal juhul näeb tulemust kohe vasakul paiknevas eelvaatluses, mida saab omakorda seadistada ülal vasakul asuvatele ikoonidele klõpsates. </para>
+
+<sect4 id="using-adjustcurves">
+<title
+>Värvikõverate kohendamise tööriista kasutamine</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustcurvesdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Värvikõverate kohendamise dialoog</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Vasakul näeb nii originaalpildi kui sihtpildi eelvaatlust. Sihtpilti uuendatakse dünaamiliselt vastavalt plugina seadistuste muutmisele. Paremal on kasutada järgmised valikud: <itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Kanal</guilabel
+>: liitkastis saab valida kanali, mida antud tööriistaga muuta: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Helendus</guilabel
+>: muudab kõigi pikslite intensiivsust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Punane</guilabel
+>: muudab kõigi pikslite punase värvi küllastust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Roheline</guilabel
+>: muudab kõigi pikslite rohelise värvi küllastust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Sinine</guilabel
+>: muudab kõigi pikslite sinise värvi küllastust.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: muudab kõigi pikslite läbipaistvust.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+>Selle kõrval saab kahe ikooniga valida histogrammi näitamise lineaarse või logaritmilisena. Enamiku digikaamera piltide puhul on lineaarne režiim kõige mõistlikum. Kuid piltide korral, mis sisaldavad olulisi püsivärviga alasid, domineerib lineaarse histogrammi kasutamisel sageli üks tulp. Sel juhul sobib logaritmiline histogramm paremini. </para
+></listitem>
+
+  <listitem
+><para
+>Kõverate redigeerimise ala: rõhtriba (X-telg) tähistab sisendväärtusi (vahemikus 0 kuni 255). Püstriba (Y-telg) tähistab valitud kanali väljundvärvide skaalat. Kõver on kujutatud alusvõrgul ja kulgeb diagonaalselt. Kursori X- ja Y-asend on ala kohal kogu aeg näha. Kõverale klõpsates luuakse kontrollpunkt. Seda liigutades saab muuta kõvera kuju. Kontrollpunkt luuakse ka siis, kui klõpsad väljapoole kõverat: kõver muudab selle hõlmamiseks automaatselt kuju. Niisiis kujutab iga punkt kõveral X-i taset, millele vastab Y-i värv. </para
+></listitem>
+
+  <listitem
+><para
+>Kanali kõvera <guilabel
+>tüübi</guilabel
+> ikoonidega saab määrata, kas kõverat redigeeritakse <guilabel
+>ühtlase</guilabel
+> või <guilabel
+>vaba</guilabel
+> kõverana. Ühtlase kõvera korral on kõver ühtlane punktidega joon, mis võimaldab realistlikku renderdamist. Vaba režiimi korral saab kõvera joonistada hiirega just sellise, nagu süda lustib. Kui nii joonistada üsna segane värvikõver, võib tulemus olla üllatav, kuid enamasti ei ole see ka korratav... Samuti leidub seal vaikeväärtuste taastamise nupp. </para
+></listitem>
+
+  <listitem
+><para
+>Kui liigutad näiteks kõvera lõigu paremale, siis näed, et see vastab tumedamale väljundtoonile ja et kõvera antud lõigule vastavad pikslid muutuvad tumedamaks. </para
+></listitem>
+
+  <listitem
+><para
+>Värvikanali korral vähendab kõvera lõigu liigutamine paremale värviküllastust. Kõigi kontrollpunktide kustutamiseks (välja arvatud mõistagi otspunktid), klõpsa nupule <guilabel
+>Vaikeväärtused</guilabel
+>. Ainult ühe punkti kustutamiseks liiguta see teise punkti peale. Mängi kõveratega ja jälgi tulemusi. Võimalik on isegi pilti nii-öelda üle säritada. See juhtub siis, kui kõver kuskil inverteerida. </para
+></listitem>
+
+  <listitem
+><para
+>Originaalpildil on omaette punane marker. Kui viid selle tsooni kohale, mida soovid muuta, näidatakse kõvera redigeerimisalal vastava tsooni väärtust. Seejärel võid luua kõverale uusi kontrollpunkte ja neid vastavalt vajadusele või soovile liigutada. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+>: need nupud teevad just seda, mida nimi ütleb. Kõiki värvikõveraid saab salvestada failina ja neid hiljem failist laadida. Failivorminguna kasutatakse Gimpi värvikõverate vormingut. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Lähtesta kõik</guilabel
+>: selle nupuga saab lähtestada kõigi kanalite kõigi värvikõverate väärtused. </para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>Kõverate kohendamise tööriista mitmed võimalused lihtsustavad kontrollpunktide määramist kõveratele. Hiirega originaalpildi eelvaatlusele klõpsates luuakse redigeerimisalal püstine punktiirriba. See vastab piksliväärtusele kohas, kuhu pildiaknas hiirega klõpsasid. Hiirenuppu lohistades muudetakse püstriba positsiooni. Nii saab näha, kus asuvad pildi erinevad piksliväärtused kõveral, mis lubab tuvastada tumedate, keskmiste ja heledate toonide asukohta. </para>
+
+<para
+>Selle võimaluse ning kolme <guilabel
+>värvivalija</guilabel
+> nupu abil saab automaatselt luua kõveral kõigile kanalitele kontrollpunktid tumedate, keskmiste ja heledate toonide jaoks. Vali värvivalija, mida soovid kasutada, ning klõpsa originaalpildi eelvaatluse alal, misjärel luuakse kontrollpunktid nii punase, rohelise, sinise kui ka helenduse kõveral. </para>
+
+<para
+><guilabel
+>Ülesärituse indikaator</guilabel
+> liidab värvi, kui pikslis on enam kui üks kanal ülesäritusega, ning sa näed kombineeritud värvi kanali kõveral. Seda rakendatakse ainult sihtpildi eelvaatluse alal ning see ei mõjuta kuidagi lõplikku renderdamist. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustcurves">
+<title
+>Värvikõverate kohendamise tööriist tegevuses</title>
+
+<para
+>Siin on näha mustvalge foto, millel on korrigeeritud <guilabel
+>helendus</guilabel
+>e kanalit. Tumedate ja heledate toonide valimise tööriistaga on kõveraid kohendatud. Originaalpilt on (1), korrigeeritud pilt (2). </para>
+
+        <para
+><inlinemediaobject
+><imageobject>
+               <imagedata fileref="&path;adjustcurvespreview.png" format="PNG"/>
+              </imageobject>
+              <textobject
+><phrase
+>Värvikõverate kohendamise tööriist tegevuses</phrase
+></textobject
+></inlinemediaobject>
+        </para>
+
+
+</sect4>
+</sect3>
+
+<sect3 id="channelmixer">
+<sect3info>
+
+<title
+>Kanalite mikser</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>&digikam;i <emphasis
+>kanalite mikser</emphasis
+> võimaldab värvikanaleid ümber segada ehk miksida, et parandada või muuta foto värvitoone. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Sissejuhatus</title>
+
+<para
+>Kanalite mikser on veel üks võimas pildi tonaalsuse korrigeerimise tööriist. Selle saab käivitada pildiredaktoris menüükäsuga <menuchoice
+><guimenu
+>Värv</guimenu
+><guimenuitem
+>Kanalite mikser</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-channelmixer">
+<title
+>Kanalite miksri kasutamine</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Kanalite miksri dialoog</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Kanalite liitkastis saab valida ja lasta näidata värvi või intensiivsuse väärtuse histogrammi. See annab esimese vihje, kuidas kanaleid nende jaotust ja amplituudi muutes korrigeerida. Dialoogi vasakpoolses osas näeb nii originaalpilti kui ka kõige ettevõetu tulemuse eelvaatlust. </para>
+
+<para
+>Sihtfoto eelvaatluse alal paikneb punane marker. Kui viia see pildi mõne tsooni kohale, näidatakse histogrammil püstriba, mis osutab valitud kanali värvitaseme väärtusele. </para>
+
+<para
+>Paremal all olevate liuguritega <guilabel
+>Punane</guilabel
+>, <guilabel
+>Roheline</guilabel
+> ja <guilabel
+>Sinine</guilabel
+> saab kanalite miksimisega praktiliselt tegelda. Kui märkida ära <guilabel
+>Helenduse säilitamine</guilabel
+>, säilitatakse sõltumata värvikomponentidega ettevõetud muudatustest pildi üldine helendus. See on eriti kasulik juhul, kui märkida ära ka <guilabel
+>Ühevärviline</guilabel
+>, sest kanalite mikser on tõeliselt võimas vahend sinu fotodel musta ja valge vahetamiseks. Mustvalgete portreede korral tasuks proovida kahandada rohelist kanalit. </para>
+
+<note
+><para
+>Eriti ühevärvilise miksimise korral tekitab ühe värvikanali kahandamine vahel märkimisväärselt müra, mille allikaks on tegelikult värvusmüra. Värvusmüra tähendab seda, et pisikesed müraelemendid ei ole mitte kõigil värvikanalitel ühes ja samas kohas, vaid igal kanalil erinevates kohtades. Sellisel juhul tuleks ühevärvilise teisenduse korral kõigepealt kahandada värvusmüra. </para
+></note>
+
+<para
+>Nupud <guilabel
+>Salvesta kui</guilabel
+> ja <guilabel
+>Laadi</guilabel
+> teevad just seda, mida nad ütlevad. Mis tahes miksriseadistusi saab salvestada tekstifaili ja tekstifailist saab salvestusi ka laadida. Failivorminguna kasutatakse GIMP-i kanalite miksri seadistustefaili vormingut. </para>
+
+<para
+><guilabel
+>Ülesärituse indikaator</guilabel
+> liidab värvi, kui pikslis on enam kui üks kanal ülesäritusega, ning sa näed kombineeritud värvi kanali kõveral. Seda rakendatakse ainult sihtpildi eelvaatluse alal ning see ei mõjuta kuidagi lõplikku renderdamist. </para>
+
+<para
+><guilabel
+>Lähtesta kõik</guilabel
+> taastab kõik kanalite miksri seadistused nende vaikeväärtustele. </para>
+
+</sect4>
+
+<sect4 id="inaction-channelmixer">
+<title
+>Kanalite mikser tegevuses</title>
+
+<para
+>Siin on näha foto värvitooni kohendamine <guilabel
+>sinisel</guilabel
+> kanalil. <guilabel
+>Helenduse säilitamine</guilabel
+> on sisse lülitatud. Originaalpilt on (1), korrigeeritud pilt (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Kanalite mikser tegevuses</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="blackandwhite-conversion">
+<sect3info
+>           <title
+>Mustvalge teisenduse filtrid</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>Mustvalge foto on alati oma abstraktsuses köitev. Digifotograafia saabudes muutus mustvalge foto peaaegu eranditult arvutitöötluse objektiks, sest värvipilte saab arvutis üsna lihtsalt mustvalgeks muuta ja isegi neile mitmesuguseid lisavõimalusi rakendada. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Sissejuhatus</title>
+    <anchor id="blackandwhitetool.anchor"/>
+    <para
+>&digikam; pakub mitut mustvalge filtrit. Menüüs <menuchoice
+><guimenuitem
+>Filtrid</guimenuitem
+><guimenuitem
+>Mustvalge</guimenuitem
+></menuchoice
+> leiab klassikalised mustvalge keemilise toonimise võimalused, mida kasutati analoogfotograafia ajal. Asja saab juhtida kolmel kaardil: <emphasis
+>Film, Läätsefiltrid, Toon</emphasis
+> ja <emphasis
+>Heledus</emphasis
+>, nagu näitab alltoodud pilt. Filmi, filtreid ja värvitooni saab rakendada üksteisest sõltumatult. Filtrid mõjutavad tegelikult RGB kanali miksimist, toonimine aga lisab lihtsalt ühtse monokromaatilise tooni mustvalgele fotole. Heleduse kaardil leiab tooni kohendamise tööriista (sarnaneb kõvera kohendamisele), kontrasti tööriista ning ülesärituse indikaatori, mis kõik aitavad parandada mustvalge foto renderdamist. </para>
+      <example
+>  <title
+>Mustvalge filtri tööriist tegevuses</title>
+        <screenshot
+><screeninfo
+>Mustvalge filtri tööriist tegevuses</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbwfilter.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+      </example>
+
+    <para
+>Tabel selgitab põhjalikumalt kõigi filtrite ja toonide toimet.</para>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Eelvaatlus</entry
+>        <entry
+>Filmi matkimine</entry>
+    </row
+></thead>
+    <tbody>
+
+        <row>
+            <entry>
+              <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry>
+              <para
+>Konkreetsed seadistused mitme kuulsa mustvalge filmi matkimiseks:</para>
+              <para
+>Agfa 200X, Agfa Pan 25, Agfa Pan 100, Agfa Pan 400</para>
+              <para
+>Ilford Delta 100, Ilford Delta 400, Ilford Delta 400 Pro 3200, Ilford FP4 Plus, Ilford HP5 Plus, Ilford PanF Plus, Ilford XP2 Super</para>
+              <para
+>Kodak Tmax 100, Kodak Tmax 400, Kodak TriX</para>
+            </entry>
+        </row>
+    </tbody>
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+     <thead
+><row>
+        <entry
+>Eelvaatlus</entry>
+        <entry
+>Läätsefiltru tüüp</entry>
+     </row
+></thead>
+       <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_original.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Originaalpilt Uus-Meremaa maastikuga. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bw.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Neutraalne: mustvalge filmi neutraalse särituse matkimine. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwgreen.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+           <entry
+>Roheline rilter: simuleerib mustvalget fotot rohelise filtri kasutamisel. See sobib väga hästi välisvõtetele, eriti just vastu taevast tehtud piltidele. Sarnaneb 004 Cokin(tm) rohelisele filtrile. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bworange.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Oranž filter: simuleerib mustvalget fotot oranži filtri kasutamisel. See parandab omajagu maastiku-, mere- ja õhufotosid. Sarnaneb 002 Cokin(tm) oranži filtriga. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Punane filter: simuleerib mustvalget fotot punase filtri kasutamisel. See loob dramaatilisi taevaefekte ja simuleerib ka päeval tehtud piltidel kuuvalgust. Sarnaneb 003 Cokin(tm) punase filtriga. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwyellow.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Kollane filter: simuleerib mustvalget fotot kollase filtri kasutamisel. Kõige loomulikum toonikorrektsioon, parandab kontrasti. Ideaalne maastiku korral. Sarnaneb 001 Cokin(tm) kollase filtriga. </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Eelvaatlus</entry
+>        <entry
+>Värvitoon</entry>
+    </row
+></thead>
+
+      <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_sepia.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Seepiatoon: annab soojad heledad ja keskmised toonid, lisades samas veidi jahedust tumedatele toonidele - sarnane pleegitamise ja ja seepiatooneris töötlemise tulemusele. Sarnaneb 005 Cokin(tm) seepiafiltriga. </entry>
+        </row>
+
+         <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_brown.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Pruun toon: neutraalsem kui seepiatooni filter. </entry>
+        </row>
+
+       <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_cold.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Külm toon: matkib kinnistamist külmas toonis mustvalgele paberile (nt. bromiidpaber). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_platinium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Plaatinatoon: matkib traditsioonilist keemilist plaatinatoonimist pimikus. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_selenium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Seleenitoon: matkib traditsioonilist keemilist seleentoonimist pimikus. </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+</sect3>
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

@@ -23,6 +23,10 @@
 
 #include "importfiltermodel.moc"
 #include "camiteminfo.h"
+#include "filtercombo.h"
+#include "filter.h"
+#include "importimagemodel.h"
+#include <KDebug>
 
 namespace Digikam
 {
@@ -229,6 +233,7 @@ public:
     {
         q                = 0;
         importImageModel = 0;
+        filter = 0;
     }
 
     void init(ImportFilterModel* const _q);
@@ -243,6 +248,7 @@ public:
     ImportFilterModel*  q;
     ImportImageModel*   importImageModel;
     CamItemSortSettings sorter;
+    Filter*             filter;
 };
 
 void ImportFilterModel::ImportFilterModelPrivate::init(ImportFilterModel* const _q)
@@ -329,6 +335,19 @@ void ImportFilterModel::setSortOrder(CamItemSortSettings::SortOrder order)
     setCamItemSortSettings(d->sorter);
 }
 
+void ImportFilterModel::setFilter(Digikam::Filter* filter)
+{
+    Q_D(ImportFilterModel);
+    d->filter = filter;
+    invalidateFilter();
+}
+
+void ImportFilterModel::setCameraController(Digikam::CameraController* controller)
+{
+    Q_D(ImportFilterModel);
+    d->importImageModel->setCameraController(controller);
+}
+
 void ImportFilterModel::setSendCamItemInfoSignals(bool sendSignals)
 {
     if (sendSignals)
@@ -382,8 +401,10 @@ void ImportFilterModel::setDirectSourceImportModel(ImportImageModel* const sourc
         //disconnect(d->importImageModel, SIGNAL(modelReset()),
                            //this, SLOT(slotModelReset()));
         //TODO: slotModelReset(); will be added when implementing filtering options
+        disconnect(d->importImageModel, SIGNAL(processAdded(QList<CamItemInfo>)), this, SLOT(slotProcessAdded(QList<CamItemInfo>)));
     }
 
+    // TODO do we need to delete the old one?
     d->importImageModel = sourceModel;
 
     if (d->importImageModel)
@@ -395,10 +416,17 @@ void ImportFilterModel::setDirectSourceImportModel(ImportImageModel* const sourc
                 //d->importImageModel, SLOT(reAddingFinished()));
 
         //TODO: connect(d->importImageModel, SIGNAL(modelReset()), this, SLOT(slotModelReset()));
+        connect(d->importImageModel, SIGNAL(processAdded(QList<CamItemInfo>)), this, SLOT(slotProcessAdded(QList<CamItemInfo>)));
     }
 
     setSourceModel(d->importImageModel);
 }
+
+void ImportFilterModel::slotProcessAdded(const QList< CamItemInfo >&)
+{
+    invalidate();
+}
+
 
 int ImportFilterModel::compareCategories(const QModelIndex& left, const QModelIndex& right) const
 {
@@ -470,6 +498,25 @@ QString ImportFilterModel::categoryIdentifier(const CamItemInfo& info) const
             return QString();
     }
 }
+
+bool ImportFilterModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
+{
+    Q_D(const ImportFilterModel);
+    
+    if(!d->filter) {
+        return true;
+    }
+
+    QModelIndex idx = sourceModel()->index(source_row, 0, source_parent);
+    const CamItemInfo &info = d->importImageModel->camItemInfo(idx);
+
+    if(d->filter->matchesCurrentFilter(info)) {
+        return true;
+    }
+    
+    return false;
+}
+
 
 // -------------------------------------------------------------------------------------------------------
 

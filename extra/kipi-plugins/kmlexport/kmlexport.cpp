@@ -327,7 +327,7 @@ void KmlExport::generateImagesthumb(const KUrl& imageURL, QDomElement& kmlAlbum 
         }
         else if (m_interface->hasFeature(ImagesHasTime))
         {
-            QDomElement kmlTimeStamp = addKmlElement(kmlGeometry, "TimeStamp");
+            QDomElement kmlTimeStamp = addKmlElement(kmlPlacemark, "TimeStamp");
             addKmlTextElement(kmlTimeStamp, "when", (info.date()).toString("yyyy-MM-ddThh:mm:ssZ"));
         }
 
@@ -459,7 +459,7 @@ void KmlExport::generate()
     QDomImplementation impl;
     QDomProcessingInstruction instr = m_kmlDocument->createProcessingInstruction("xml", "version=\"1.0\" encoding=\"UTF-8\"");
     m_kmlDocument->appendChild(instr);
-    QDomElement kmlRoot             = m_kmlDocument->createElementNS("http://earth.google.com/kml/2.1","kml");
+    QDomElement kmlRoot             = m_kmlDocument->createElementNS("http://www.opengis.net/kml/2.2", "kml");
     m_kmlDocument->appendChild( kmlRoot );
 
     QDomElement kmlAlbum            = addKmlElement(kmlRoot, "Document");

@@ -7,7 +7,8 @@
  * Description : Qt Model for Albums - filter model
  *
  * Copyright (C) 2008-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2009 by Johannes Wienke <languitar at semipol dot de>
+ * Copyright (C) 2009      by Johannes Wienke <languitar at semipol dot de>
+ * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -239,6 +240,38 @@ QModelIndex AlbumFilterModel::rootAlbumIndex() const
     return mapFromSourceAlbumModel(model->rootAlbumIndex());
 }
 
+QVariant AlbumFilterModel::dataForCurrentSortRole(const QModelIndex& index) const
+{
+    Album* album = albumForIndex(index);
+
+    if(album)
+    {
+        if(album->type() == Album::PHYSICAL)
+        {
+            AlbumSettings::AlbumSortOrder sortRole = AlbumSettings::instance()->getAlbumSortOrder();
+            switch (sortRole)
+            {
+                case AlbumSettings::ByFolder:
+                    return static_cast<PAlbum*>(album)->title();
+                case AlbumSettings::ByDate:
+                    return static_cast<PAlbum*>(album)->date();
+                default:
+                    return static_cast<PAlbum*>(album)->category();
+            }
+        }
+        else if(album->type() == Album::TAG)
+        {
+            return static_cast<TAlbum*>(album)->title();
+        }
+        else
+        {
+            return static_cast<DAlbum*>(album)->date();
+        }
+    }
+
+    return QVariant();
+}
+
 bool AlbumFilterModel::matches(Album* album) const
 {
     // We want to work on the visual representation, so we use model data with AlbumTitleRole,
@@ -335,23 +368,28 @@ bool AlbumFilterModel::filterAcceptsRow(int source_row, const QModelIndex& sourc
 
 bool AlbumFilterModel::lessThan(const QModelIndex& left, const QModelIndex& right) const
 {
-    QVariant valLeft  = left.data(sortRole());
-    QVariant valRight = right.data(sortRole());
+    QVariant valLeft  = dataForCurrentSortRole(left);
+    QVariant valRight = dataForCurrentSortRole(right);
 
-    if ((valLeft.type() == QVariant::String) && (valRight.type() == QVariant::String))
-        switch (AlbumSettings::instance()->getStringComparisonType())
+    AlbumSettings::StringComparisonType strComparisonType = AlbumSettings::instance()->getStringComparisonType();
+
+    if((valLeft.type() == QVariant::String) && (valRight.type() == QVariant::String))
+    {
+        switch (strComparisonType)
         {
             case AlbumSettings::Natural:
                 return KStringHandler::naturalCompare(valLeft.toString(), valRight.toString(), sortCaseSensitivity()) < 0;
-
             case AlbumSettings::Normal:
             default:
                 return QString::compare(valLeft.toString(), valRight.toString(), sortCaseSensitivity()) < 0;
         }
-    else
-    {
-        return QSortFilterProxyModel::lessThan(left, right);
     }
+    else if((valLeft.type() == QVariant::Date) && (valRight.type() == QVariant::Date))
+    {
+        return compareByOrder(valLeft.toDate(),valRight.toDate(),Qt::AscendingOrder) < 0;
+    }
+
+    return QSortFilterProxyModel::lessThan(left, right);
 }
 
 void AlbumFilterModel::slotAlbumRenamed(Album* album)
@@ -657,6 +695,52 @@ bool TagPropertiesFilterModel::matches(Album* album) const
     }
 
     return true;
+}
+
+TagsManagerFilterModel::TagsManagerFilterModel(QObject* parent)
+    : TagPropertiesFilterModel(parent)
+{
+
+}
+
+void TagsManagerFilterModel::setQuickListTags(QList<int> tags)
+{
+    m_keywords.clear();
+
+    foreach(int tag, tags)
+    {
+        m_keywords << tag;
+    }
+    invalidateFilter();
+    emit filterChanged();
+}
+
+bool TagsManagerFilterModel::matches(Album* album) const
+{
+    if(!TagPropertiesFilterModel::matches(album))
+    {
+        return false;
+    }
+
+    if(m_keywords.isEmpty())
+        return true;
+
+    bool dirty = false;
+
+    for(QSet<int>::const_iterator it = m_keywords.begin(); it != m_keywords.end(); ++it)
+    {
+        TAlbum* talbum = AlbumManager::instance()->findTAlbum(*it);
+        if(!talbum)
+        {
+            continue;
+        }
+        if(talbum->title().contains(album->title()))
+        {
+            dirty = true;
+        }
+    }
+
+    return dirty;
 }
 
 } // namespace Digikam

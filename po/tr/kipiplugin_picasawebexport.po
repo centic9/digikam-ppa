@@ -2,103 +2,92 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Serdar Soytetir <tulliana@gmail.com>, 2008, 2009.
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_picasawebexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-04-09 02:54+0200\n"
-"PO-Revision-Date: 2009-08-15 14:41+0300\n"
-"Last-Translator: Serdar Soytetir <tulliana@gmail.com>\n"
+"PO-Revision-Date: 2014-04-21 14:52+0200\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 0.3\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Serdar Soytetir"
+msgstr "Serdar Soytetir, Volkan Gezer"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "tulliana@gmail.com"
+msgstr "tulliana@gmail.com, volkangezer@gmail.com"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_picasawebexportui.rc:6
-#, fuzzy
-#| msgid "PicasaWeb Export"
 msgid "&Import"
-msgstr "PicasaEeb Aktarımı"
+msgstr "&İçeriye Aktar"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_picasawebexportui.rc:10
-#, fuzzy
-#| msgid "PicasaWeb Export"
 msgid "&Export"
-msgstr "PicasaEeb Aktarımı"
+msgstr "&Dışarıya Aktar"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_picasawebexportui.rc:16
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Ana Araç Çubuğu"
 
 #: picasawebalbum.cpp:51
-#, fuzzy
-#| msgid "New &Album"
 msgid "Picasaweb New Album"
-msgstr "&Yeni Albüm"
+msgstr "Picasaweb Yeni Albüm"
 
 #: picasawebalbum.cpp:61 picasawebwidget.cpp:101
-#, fuzzy
-#| msgid "Album:"
 msgid "Album"
-msgstr "Albüm:"
+msgstr "Albüm"
 
 #: picasawebalbum.cpp:63
 msgid "These are basic settings for the new Picasaweb album."
-msgstr ""
+msgstr "Bunlar, yeni Picasaweb albümü için temel seçeneklerdir."
 
 #: picasawebalbum.cpp:66
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Oluşturulacak albüm başlığı (gerekli)."
 
 #: picasawebalbum.cpp:70
 msgid "Date and Time of the album that will be created (optional)."
-msgstr ""
+msgstr "Oluşturulacak albümün Tarih ve Zamanı (isteğe bağlı)."
 
 #: picasawebalbum.cpp:73
 msgid "Description of the album that will be created (optional)."
-msgstr ""
+msgstr "Oluşturulacak albümün açıklaması (isteğe bağlı)."
 
 #: picasawebalbum.cpp:76
 msgid "Location of the album that will be created (optional)."
-msgstr ""
+msgstr "Oluşturulacak albümün konumu (isteğe bağlı)."
 
 #: picasawebalbum.cpp:79
-#, fuzzy
-#| msgid "Title"
 msgctxt "new picasaweb album dialog"
 msgid "Title:"
-msgstr "Başlık"
+msgstr "Başlık:"
 
 #: picasawebalbum.cpp:80
 msgctxt "new picasaweb album dialog"
 msgid "Date & Time:"
-msgstr ""
+msgstr "Tarih ve Saat"
 
 #: picasawebalbum.cpp:81
-#, fuzzy
-#| msgid "Description"
 msgctxt "new picasaweb album dialog"
 msgid "Description:"
-msgstr "Tanımlama"
+msgstr "Açıklama:"
 
 #: picasawebalbum.cpp:82
 msgctxt "new picasaweb album dialog"
 msgid "Location:"
-msgstr ""
+msgstr "Konum:"
 
 #: picasawebalbum.cpp:90
 msgid "Access Level"
@@ -106,69 +95,61 @@ msgstr "Erişim Düzeyi"
 
 #: picasawebalbum.cpp:91
 msgid "These are security and privacy settings for the new Picasaweb album."
-msgstr ""
+msgstr "Bunlar, yeni Picasaweb albümü için güvenlik ve gizlilik ayarlarıdır."
 
 #: picasawebalbum.cpp:93
-#, fuzzy
-#| msgid "Public"
 msgctxt "picasaweb album privacy"
 msgid "Public"
 msgstr "Genel"
 
 #: picasawebalbum.cpp:95
 msgid "Public album is listed on your public Picasaweb page."
-msgstr ""
+msgstr "Genel albüm herkese açık Picasaweb sayfanızda listelenir."
 
 #: picasawebalbum.cpp:96
-#, fuzzy
-#| msgid "Unlisted / Private"
 msgctxt "picasaweb album privacy"
 msgid "Unlisted / Private"
 msgstr "Listelenmemiş / Özel"
 
 #: picasawebalbum.cpp:97
 msgid "Unlisted album is only accessible via URL."
-msgstr ""
+msgstr "Listelenmemiş albüm sadece bir adres ile ulaşılabilir."
 
 #: picasawebalbum.cpp:98
-#, fuzzy
-#| msgid "Sign-In Required to View"
 msgctxt "picasaweb album privacy"
 msgid "Sign-In Required to View"
-msgstr "Görüntülemek için Giriş Yapmak Gerekiyor"
+msgstr "Görüntülemek için Giriş Yapmak Gerekli"
 
 #: picasawebalbum.cpp:99
 msgid "Unlisted album require Sign-In to View"
-msgstr ""
+msgstr "Listelenmemiş albüm için giriş yapmak gerekli"
 
 #: picasawebalbum.cpp:107
 msgid "Privacy:"
-msgstr ""
+msgstr "Gizlilik:"
 
 #: picasawebimglist.cpp:63
 msgid "This is the list of images to upload to your Picasaweb account."
-msgstr ""
+msgstr "Bu, Picasaweb hesabınıza yükleyeceğiniz resimlerin listesidir."
 
 #: picasawebimglist.cpp:112
 #, kde-format
 msgid "%1|All supported files"
-msgstr ""
+msgstr "%1|Desteklenen Tüm Dosyalar"
 
 #: picasawebimglist.cpp:124
 #, kde-format
 msgid "%1|Camera RAW files"
-msgstr ""
+msgstr "%1|Kamera RAW dosyaları"
 
 #: picasawebimglist.cpp:126
 #, kde-format
 msgid "%1|Video files"
-msgstr ""
+msgstr "%1|Video Dosyaları"
 
 #: picasawebimglist.cpp:138
-#, fuzzy
-#| msgid "Select Images for Upload"
 msgid "Select Images"
-msgstr "Yüklenecek Resimleri Seç"
+msgstr "Resimleri Seç"
 
 #: picasaweblogin.cpp:68
 msgid "Google Login:"
@@ -188,52 +169,52 @@ msgstr "İ&ptal"
 
 #: picasawebreplacedialog.cpp:95
 msgid "&Add As New"
-msgstr ""
+msgstr "&Yeni Olarak Ekle"
 
 #: picasawebreplacedialog.cpp:96
 msgid "Item will be added alongside the linked version."
-msgstr ""
+msgstr "Öge bağlantısı sürümünün yanına eklenecektir."
 
 #: picasawebreplacedialog.cpp:100
 msgid "&Add All"
-msgstr ""
+msgstr "&Tümünü Ekle"
 
 #: picasawebreplacedialog.cpp:101
 msgid ""
 "Items will be added alongside the linked version. You will not be prompted "
 "again."
 msgstr ""
+"Ögeler bağlantılı sürümlerinin yanına eklenecektir. Tekrar sorulmayacak."
 
 #: picasawebreplacedialog.cpp:105
 msgid "&Replace"
-msgstr ""
+msgstr "&Değiştir"
 
 #: picasawebreplacedialog.cpp:106
 msgid "Item will be replacing the linked version."
-msgstr ""
+msgstr "Öge, bağlantılı sürümü ile yer değiştirecektir."
 
 #: picasawebreplacedialog.cpp:110
 msgid "&Replace All"
-msgstr ""
+msgstr "&Tümünü Değiştir"
 
 #: picasawebreplacedialog.cpp:111
 msgid ""
 "Items will be replacing the linked version. You will not be prompted again."
 msgstr ""
+"Ögeler bağlantılı sürümleri ile yer değiştirecektir. Tekrar sorulmayacak."
 
 #: picasawebreplacedialog.cpp:121
 msgid "A linked item already exists."
-msgstr ""
+msgstr "Bağlantılı öge zaten mevcut."
 
 #: picasawebreplacedialog.cpp:138 picasawebwidget.cpp:134
-#, fuzzy
-#| msgid "Description"
 msgid "Destination"
-msgstr "Tanımlama"
+msgstr "Hedef"
 
 #: picasawebreplacedialog.cpp:142
 msgid "Source"
-msgstr ""
+msgstr "Kaynak"
 
 #: picasawebtalker.cpp:110
 msgid "Login"
@@ -253,7 +234,7 @@ msgstr "Dosya boyutu sıfır"
 
 #: picasawebtalker.cpp:611
 msgid "File-type was not recognized"
-msgstr "Dosya tipi belirlenemedi"
+msgstr "Dosya türü belirlenemedi"
 
 #: picasawebtalker.cpp:613
 msgid "User exceeded upload limit"
@@ -322,7 +303,7 @@ msgstr "Fotoğraf dizilerinin listesi alınamadı"
 
 #: picasawebtalker.cpp:939 picasawebtalker.cpp:971
 msgid "Failed to create album"
-msgstr ""
+msgstr "Albüm oluşturma başarısız"
 
 #: picasawebtalker.cpp:981
 msgid "Failed to upload photo"
@@ -332,203 +313,182 @@ msgstr "Fotoğraf gönderilemedi"
 msgid ""
 "This is a clickable link to open the Picasaweb home page in a web browser."
 msgstr ""
+"Bu Picasaweb ana sayfasını bir web tarayıcısında açmak için tıklanabilir bir "
+"bağlantıdır."
 
 #: picasawebwidget.cpp:76
-#, fuzzy
-#| msgid "Account Details"
 msgid "Account"
-msgstr "Hesap Ayrıntıları"
+msgstr "Hesap"
 
 #: picasawebwidget.cpp:77
 msgid "This is the Picasaweb account that will be used to authenticate."
-msgstr ""
+msgstr "Bu, oturum açmakta kullanılan Picasaweb hesabıdır."
 
 #: picasawebwidget.cpp:80
 msgctxt "Picasaweb account login"
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonim"
 
 #: picasawebwidget.cpp:81
-#, fuzzy
-#| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
 msgid "Login as anonymous to Picasaweb web service."
-msgstr ""
-"Resim koleksiyonlarını PicasaWeb web servisine göndermeye yarayan bir Kipi "
-"eklentisi."
+msgstr "Picasaweb web hizmetine anonim olarak oturum aç."
 
 #: picasawebwidget.cpp:83
-#, fuzzy
-#| msgid "PicasaWeb Export"
 msgid "Picasaweb Account"
-msgstr "PicasaEeb Aktarımı"
+msgstr "Picasaweb Hesabı"
 
 #: picasawebwidget.cpp:84
 msgid "Login to Picasaweb web service using username and password."
-msgstr ""
+msgstr "Picasaweb web hizmetine kullanıcı adı ve parola girerek oturum aç."
 
 #: picasawebwidget.cpp:86
 msgctxt "Picasaweb account settings"
 msgid "Name:"
-msgstr ""
+msgstr "İsim:"
 
 #: picasawebwidget.cpp:88
 msgid "Change Account"
-msgstr ""
+msgstr "Hesabı Değiştir"
 
 #: picasawebwidget.cpp:89
 msgid "Change Picasaweb Account used to authenticate"
-msgstr ""
+msgstr "Oturum açmakta kullanılan Picasaweb hesabını değiştir"
 
 #: picasawebwidget.cpp:102
 msgid "This is the Picasaweb album that will be used for transfer."
-msgstr ""
+msgstr "Bu, aktarım için kullanılacak Picasaweb albümüdür."
 
 #: picasawebwidget.cpp:108
-#, fuzzy
-#| msgid "New &Album"
 msgid "New Album"
-msgstr "&Yeni Albüm"
+msgstr "Yeni Albüm"
 
 #: picasawebwidget.cpp:109
 msgid "Create new Picasaweb album"
-msgstr ""
+msgstr "Yeni Picasaweb Albümü Oluştur"
 
 #: picasawebwidget.cpp:110
-#, fuzzy
-#| msgid "Reload"
 msgctxt "reload album list"
 msgid "Reload"
 msgstr "Yeniden Yükle"
 
 #: picasawebwidget.cpp:111
 msgid "Reload album list"
-msgstr ""
+msgstr "Albüm listesini yeniden yükle"
 
 #: picasawebwidget.cpp:119
 msgid "Max Dimension"
-msgstr ""
+msgstr "Azami Boyutlar"
 
 #: picasawebwidget.cpp:120
 msgid ""
 "This is the maximum dimension of the images. Images larger than this will be "
 "scaled down."
 msgstr ""
+"Bu, resimlerin azami boyutudur. Bu boyuttan büyük resimler küçültülecektir."
 
 #: picasawebwidget.cpp:123
 msgid "Original Size"
-msgstr ""
+msgstr "Özgün Boyut"
 
 #: picasawebwidget.cpp:124
 msgid "1600 px"
-msgstr ""
+msgstr "1600 px"
 
 #: picasawebwidget.cpp:125
 msgid "1440 px"
-msgstr ""
+msgstr "1440 px"
 
 #: picasawebwidget.cpp:126
 msgid "1280 px"
-msgstr ""
+msgstr "1280 px"
 
 #: picasawebwidget.cpp:127
 msgid "1152 px"
-msgstr ""
+msgstr "1152 px"
 
 #: picasawebwidget.cpp:128
 msgid "1024 px"
-msgstr ""
+msgstr "1024 px"
 
 #: picasawebwidget.cpp:135
 msgid "This is the location where Picasaweb images will be downloaded."
-msgstr ""
+msgstr "Bu, Picasaweb resimlerinin indirileceği konumdur."
 
 #: picasawebwidget.cpp:142
 msgid "Options"
-msgstr ""
+msgstr "Seçenekler"
 
 #: picasawebwidget.cpp:143
 msgid "These are options that will be applied to images before upload."
-msgstr ""
+msgstr "Yüklemeden önce fotoğraflara uygulanacak seçenekler."
 
 #: picasawebwidget.cpp:147
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Fotoğrafları göndermeden önce yeniden boyutlandır"
 
 #: picasawebwidget.cpp:157
 msgid "Maximum dimension:"
-msgstr ""
+msgstr "En büyük boyut:"
 
 #: picasawebwidget.cpp:165
 msgid "JPEG quality:"
-msgstr ""
+msgstr "JPEG kalitesi:"
 
 #: picasawebwidget.cpp:168
 msgid "Tag path behavior:"
-msgstr ""
+msgstr "Etiket yol davranışı:"
 
 #: picasawebwidget.cpp:170
 msgid "Leaf tags only"
-msgstr ""
+msgstr "Sadece yaprak etiketler"
 
 #: picasawebwidget.cpp:171
 msgid "Export only the leaf tags of tag hierarchies"
-msgstr ""
+msgstr "Etiket hiyerarşilerinin sadece yaprak etiketlerini aktar"
 
 #: picasawebwidget.cpp:172
-#, fuzzy
-#| msgid "Select Images for Upload"
 msgid "Split tags"
-msgstr "Yüklenecek Resimleri Seç"
+msgstr "Etiketleri ayır"
 
 #: picasawebwidget.cpp:173
 msgid "Export the leaf tag and all ancestors as single tags."
-msgstr ""
+msgstr "Yaprak etiketi ve tüm atalarını tek etiket olarak aktar."
 
 #: picasawebwidget.cpp:174
 msgid "Combined String"
-msgstr ""
+msgstr "Bileşik Dizge"
 
 #: picasawebwidget.cpp:175
 msgid "Build a combined tag string."
-msgstr ""
+msgstr "Bileşik bir etiket dizgesi oluştur."
 
 #: picasawebwindow.cpp:98
-#, fuzzy
-#| msgid "Export to Picasa Web Service"
 msgid "Import from Picasa Web Service"
-msgstr "Picasa Web Hizmetine Aktar"
+msgstr "Picasa Web Hizmetinden İçeri Aktar"
 
 #: picasawebwindow.cpp:100
-#, fuzzy
-#| msgid "Start Uploading"
 msgid "Start Download"
-msgstr "Gönderimi Başlat"
+msgstr "İndirmeyi Başlat"
 
 #: picasawebwindow.cpp:101
-#, fuzzy
-#| msgid "Export to Picasa Web Service"
 msgid "Start download from Picasaweb service"
-msgstr "Picasa Web Hizmetine Aktar"
+msgstr "Picasaweb hizmetinden indirmeye başla"
 
 #: picasawebwindow.cpp:106
 msgid "Export to Picasa Web Service"
 msgstr "Picasa Web Hizmetine Aktar"
 
 #: picasawebwindow.cpp:108
-#, fuzzy
-#| msgid "Start Uploading"
 msgid "Start Upload"
 msgstr "Gönderimi Başlat"
 
 #: picasawebwindow.cpp:109
-#, fuzzy
-#| msgid "Export to Picasa Web Service"
 msgid "Start upload to Picasaweb service"
-msgstr "Picasa Web Hizmetine Aktar"
+msgstr "Picasa Web hizmetine aktarımı başlat"
 
 #: picasawebwindow.cpp:130
 msgid "PicasaWeb Export"
-msgstr "PicasaEeb Aktarımı"
+msgstr "PicasaWeb Aktarımı"
 
 #: picasawebwindow.cpp:133
 msgid "A Kipi plugin to export image collections to PicasaWeb web service."
@@ -537,11 +497,6 @@ msgstr ""
 "eklentisi."
 
 #: picasawebwindow.cpp:135
-#, fuzzy
-#| msgid ""
-#| "(c) 2007-2009, Vardhman Jain\n"
-#| "(c) 2008-2009, Gilles Caulier\n"
-#| "(c) 2009, Luka Renko"
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
@@ -549,8 +504,9 @@ msgid ""
 "(c) 2010, Jens Mueller"
 msgstr ""
 "(c) 2007-2009, Vardhman Jain\n"
-"(c) 2008-2009, Gilles Caulier\n"
-"(c) 2009, Luka Renko"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller"
 
 #: picasawebwindow.cpp:140
 msgid "Vardhman Jain"
@@ -574,62 +530,51 @@ msgstr "Luka Renko"
 
 #: picasawebwindow.cpp:149
 msgid "Jens Mueller"
-msgstr ""
+msgstr "Jens Mueller"
 
 #: picasawebwindow.cpp:329 picasawebwindow.cpp:338 picasawebwindow.cpp:372
 #: picasawebwindow.cpp:408 picasawebwindow.cpp:1018
 #, kde-format
 msgid "Picasaweb Call Failed: %1\n"
-msgstr ""
+msgstr "Picasaweb Çağırımı Başarısız: %1\n"
 
 #: picasawebwindow.cpp:392 picasawebwindow.cpp:469
 msgid "%v / %m"
-msgstr ""
+msgstr "%v / %m"
 
 #: picasawebwindow.cpp:473
-#, fuzzy
-#| msgid "PicasaWeb Export"
 msgid "Picasa Export"
-msgstr "PicasaEeb Aktarımı"
+msgstr "Picasa Aktarımı"
 
 #: picasawebwindow.cpp:636 picasawebwindow.cpp:761
 msgid "Cannot open file"
-msgstr ""
+msgstr "Dosya açılamadı"
 
 #: picasawebwindow.cpp:797
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to upload photo to PicasaWeb. %1\n"
-#| "Do you want to continue?"
+#, kde-format
 msgid ""
 "Failed to upload photo into Picasaweb: %1\n"
 "Do you want to continue?"
 msgstr ""
-"PicasaWeb'e resim yükleme işlemi başarısız oldu. %1\n"
+"PicasaWeb'e resim yükleme işlemi başarısız oldu: %1\n"
 "Devam etmek istiyor musunuz?"
 
 #: picasawebwindow.cpp:885
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to upload photo to PicasaWeb. %1\n"
-#| "Do you want to continue?"
+#, kde-format
 msgid ""
 "Failed to save photo: %1\n"
 "Do you want to continue?"
 msgstr ""
-"PicasaWeb'e resim yükleme işlemi başarısız oldu. %1\n"
+"Fotoğraf kaydetme başarısız: %1\n"
 "Devam etmek istiyor musunuz?"
 
 #: picasawebwindow.cpp:897
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to upload photo to PicasaWeb. %1\n"
-#| "Do you want to continue?"
+#, kde-format
 msgid ""
 "Failed to download photo: %1\n"
 "Do you want to continue?"
 msgstr ""
-"PicasaWeb'e resim yükleme işlemi başarısız oldu. %1\n"
+"Fotoğraf indirme başarısız: %1\n"
 "Devam etmek istiyor musunuz?"
 
 #: picasawebwindow.cpp:924
@@ -637,21 +582,21 @@ msgstr ""
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
 msgstr ""
+"\"%1\" isminde bir dosya zaten var. Üzerine yazmak istediğinizden emin "
+"misiniz?"
 
 #: picasawebwindow.cpp:986
 #, kde-format
 msgid "Failed to save image to %1"
-msgstr ""
+msgstr "Resmi şuraya kaydetme başarısız: %1"
 
 #: plugin_picasawebexport.cpp:104
 msgid "Export to &PicasaWeb..."
-msgstr "&Picasaweb'e Aktar..."
+msgstr "&PicasaWeb'e Aktar..."
 
 #: plugin_picasawebexport.cpp:115
-#, fuzzy
-#| msgid "Export to &PicasaWeb..."
 msgid "Import from &PicasaWeb..."
-msgstr "&Picasaweb'e Aktar..."
+msgstr "&PicasaWeb'ten İçe Aktar..."
 
 #~ msgid "Handbook"
 #~ msgstr "El Kitabı"

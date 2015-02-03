@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-04-08 02:55+0200\n"
-"PO-Revision-Date: 2013-04-08 08:21-0300\n"
+"POT-Creation-Date: 2013-10-31 01:24+0000\n"
+"PO-Revision-Date: 2013-10-28 00:37-0200\n"
 "Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
 "Language: pt_BR\n"
@@ -35,15 +35,18 @@ msgstr "elchevive@opensuse.org, alvarenga@kde.org"
 msgid "Various"
 msgstr "Vários"
 
+# A tradução como "Conjunto de fotos" apresenta problemas no leiaute do programa.
+# Por isso, foi alterada para "Álbum de fotos" ou apenas "Álbum" (no caso de botões).
+# O Flickr usa o termo "Álbum". (Alvarenga)
 #. i18n: ectx: property (windowTitle), widget (QDialog, FlickrAlbumDialog)
 #: flickralbumdialog.ui:14
 msgid "New PhotoSet"
-msgstr "Novo conjunto de fotos"
+msgstr "Novo álbum"
 
 #. i18n: ectx: property (text), widget (QLabel, header)
 #: flickralbumdialog.ui:29
 msgid "<h3>Create New PhotoSet </h3>"
-msgstr "<h3>Criar novo conjunto de fotos</h3>"
+msgstr "<h3>Criar novo álbum de fotos</h3>"
 
 #. i18n: ectx: property (text), widget (QPushButton, buttonOk)
 #: flickralbumdialog.ui:86
@@ -61,7 +64,7 @@ msgid "Title (required):"
 msgstr "Título (obrigatório):"
 
 #. i18n: ectx: property (text), widget (QLabel, captionLabel)
-#: flickralbumdialog.ui:143
+#: flickralbumdialog.ui:147
 msgid "Description (optional)"
 msgstr "Descrição (opcional)"
 
@@ -70,24 +73,24 @@ msgid ""
 "Check if photo should be publicly visible or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
-"Assinalar se a foto deve ser pública ou use a aba de opções de envio para "
-"especificar isto para todas as imagens"
+"Assinale se a foto deve ficar visível para o público ou use a aba de opções "
+"de envio para indicar isto em todas as imagens"
 
 #: flickrlist.cpp:423
 msgid ""
 "Check if photo should be visible to family or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
-"Assinalar se a foto deve estar visível para a família ou use a aba de opções "
-"de envio para especificar isto para todas as imagens"
+"Assinale se a foto deve ficar visível para a família ou use a aba de opções "
+"de envio para indicar isto em todas as imagens"
 
 #: flickrlist.cpp:426
 msgid ""
 "Check if photo should be visible to friends or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
-"Assinalar se a foto deve estar visível para os amigos ou use a aba de opções "
-"de envio para especificar isto para todas as imagens"
+"Assinale se a foto deve ficar visível para os amigos ou use a aba de opções "
+"de envio para indicar isto em todas as imagens"
 
 #: flickrlist.cpp:429
 msgid ""
@@ -183,7 +186,7 @@ msgstr "Assinatura ausente"
 
 #: flickrtalker.cpp:759
 msgid "Login Failed / Invalid auth token"
-msgstr "Falha no login / token de autorização inválido"
+msgstr "Falha na autenticação / Token de autorização inválido"
 
 #: flickrtalker.cpp:763
 msgid "Invalid API Key"
@@ -191,7 +194,7 @@ msgstr "Chave API inválida"
 
 #: flickrtalker.cpp:767
 msgid "Service currently unavailable"
-msgstr "O serviço está atualmente indisponível"
+msgstr "O serviço está indisponível no momento"
 
 #: flickrtalker.cpp:771
 msgid "Invalid Frob"
@@ -215,7 +218,7 @@ msgstr "Método de chamada XML-RPC inválido"
 
 #: flickrtalker.cpp:791
 msgid "The POST method is now required for all setters"
-msgstr "O método POST agora é necessário para todos os setters"
+msgstr "O método POST agora é necessário para todos os modificadores"
 
 #: flickrtalker.cpp:795
 msgid "Unknown error"
@@ -248,23 +251,23 @@ msgstr "excluir"
 #: flickrtalker.cpp:1007
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
-"Seu token é inválido. Você gostaria de obter um novo token para continuar?\n"
+"Seu token é inválido. Gostaria de obter um novo token para continuar?\n"
 
 #: flickrtalker.cpp:1165
 msgid "PhotoSet creation failed: "
-msgstr "Falha na criação do conjunto de fotos: "
+msgstr "Falha na criação do álbum de fotos: "
 
 #: flickrtalker.cpp:1260
 msgid "Failed to fetch list of photo sets."
-msgstr "Falha ao obter a lista de conjunto de fotos."
+msgstr "Falha ao obter a lista de álbuns de fotos."
 
 #: flickrtalker.cpp:1339
 msgid "Failed to upload photo"
-msgstr "Falha ao enviar foto"
+msgstr "Falha ao enviar a foto"
 
 #: flickrtalker.cpp:1407
 msgid "Failed to query photo information"
-msgstr "Falha ao pesquisar as informações da foto"
+msgstr "Falha ao consultar as informações da foto"
 
 #: flickrwidget.cpp:81
 msgid ""
@@ -341,10 +344,11 @@ msgctxt "photo content type"
 msgid "Photo"
 msgstr "Foto"
 
+# Essa é a tradução usada no Flickr. (Alvarenga)
 #: flickrwidget.cpp:154 flickrwidget.cpp:289
 msgctxt "photo content type"
 msgid "Screenshot"
-msgstr "Imagem"
+msgstr "Captura de tela"
 
 #: flickrwidget.cpp:155 flickrwidget.cpp:290
 msgctxt "photo content type"
@@ -364,13 +368,19 @@ msgstr "Nome de usuário: "
 msgid "Use a different account"
 msgstr "Usar uma conta diferente"
 
+# A tradução como "Conjunto de fotos" apresenta problemas no leiaute do programa.
+# Por isso, foi alterada para "Álbum de fotos" ou apenas "Álbum" (no caso de botões).
+# O Flickr usa o termo "Álbum". (Alvarenga)
 #: flickrwidget.cpp:189
 msgid "PhotoSet:"
-msgstr "Conjunto de fotos:"
+msgstr "Álbum de fotos:"
 
+# A tradução como "Conjunto de fotos" apresenta problemas no leiaute do programa.
+# Por isso, foi alterada para "Álbum de fotos" ou apenas "Álbum" (no caso de botões).
+# O Flickr usa o termo "Álbum". (Alvarenga)
 #: flickrwidget.cpp:192
 msgid "&New PhotoSet"
-msgstr "&Novo conjunto de fotos"
+msgstr "&Novo álbum"
 
 #: flickrwidget.cpp:195
 msgid "&Reload"
@@ -382,11 +392,11 @@ msgstr "Opções de etiquetas"
 
 #: flickrwidget.cpp:215
 msgid "Use Host Application Tags"
-msgstr "Usar etiquetas do aplicativo host"
+msgstr "Usar as etiquetas do aplicativo hospedeiro"
 
 #: flickrwidget.cpp:217 flickrwidget.cpp:641
 msgid "More tag options"
-msgstr "Mais opções das etiquetas"
+msgstr "Mais opções de etiquetas"
 
 #: flickrwidget.cpp:231
 msgid "Added Tags: "
@@ -394,7 +404,7 @@ msgstr "Etiquetas adicionadas: "
 
 #: flickrwidget.cpp:233
 msgid "Enter new tags here, separated by commas."
-msgstr "Digite as novas etiquetas aqui, separadas por vírgulas."
+msgstr "Digite as novas etiquetas aqui, separadas por vírgula."
 
 #: flickrwidget.cpp:235
 msgid "Add tags per image"
@@ -408,7 +418,7 @@ msgstr ""
 
 #: flickrwidget.cpp:240
 msgid "Strip Spaces From Tags"
-msgstr "Retirar espaços das etiquetas"
+msgstr "Retirar os espaços das etiquetas"
 
 #: flickrwidget.cpp:253
 msgid "Publication Options"
@@ -421,11 +431,11 @@ msgstr "Público (qualquer pessoa pode ver)"
 
 #: flickrwidget.cpp:261
 msgid "Visible to Family"
-msgstr "Visível a família"
+msgstr "Visível para a família"
 
 #: flickrwidget.cpp:264
 msgid "Visible to Friends"
-msgstr "Visível aos amigos"
+msgstr "Visível para os amigos"
 
 #: flickrwidget.cpp:267 flickrwidget.cpp:628
 msgid "More publication options"
@@ -534,20 +544,20 @@ msgstr "Gilles Caulier"
 msgid "Developer"
 msgstr "Desenvolvedor"
 
-#: flickrwindow.cpp:529
+#: flickrwindow.cpp:576
 msgid "&lt;Photostream Only&gt;"
-msgstr "&lt;Apenas para a Galeria&gt;"
+msgstr "&lt;Apenas na Galeria&gt;"
 
-#: flickrwindow.cpp:717
+#: flickrwindow.cpp:764
 msgid "Flickr Export"
 msgstr "Exportar para o Flickr"
 
-#: flickrwindow.cpp:735
+#: flickrwindow.cpp:782
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
-msgstr "Falha ao obter a informação do conjunto de fotos de %1. %2\n"
+msgstr "Falha ao obter informações do álbum de fotos de %1. %2\n"
 
-#: flickrwindow.cpp:740
+#: flickrwindow.cpp:787
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

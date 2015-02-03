@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_piwigoexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-04-18 02:21+0200\n"
-"PO-Revision-Date: 2013-03-14 13:41+0100\n"
+"PO-Revision-Date: 2013-10-27 22:53+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -50,75 +50,66 @@ msgid "Password:"
 msgstr "Heslo:"
 
 #: piwigotalker.cpp:275
-#, fuzzy, kde-format
+#, kde-format
 msgid "Check if %1 already exists"
-msgstr ""
-"Súbor %1 už existuje.\n"
-"Chcete ho prepísať?"
+msgstr "Skontrolujte či %1 už existuje"
 
 #: piwigotalker.cpp:446
 msgid "Piwigo URL probably incorrect"
-msgstr ""
+msgstr "Piwigo URL pravdepodobne nesprávne"
 
 #: piwigotalker.cpp:452
-#, fuzzy
 msgid "Incorrect username or password specified"
-msgstr "<b>Chyba: Neplatné užívateľské meno alebo heslo</b>"
+msgstr "Nesprávne zadané meno používateľa alebo heslo"
 
 #: piwigotalker.cpp:558 piwigotalker.cpp:641 piwigotalker.cpp:730
 #: piwigotalker.cpp:802 piwigotalker.cpp:962 piwigotalker.cpp:1015
 #: piwigotalker.cpp:1118 piwigotalker.cpp:1252
 msgid "Invalid response received from remote Piwigo"
-msgstr ""
+msgstr "Neplatná odpoveď získaná zo vzdialeného Piwigo"
 
 #: piwigotalker.cpp:564
-#, fuzzy
 msgid "Failed to list albums"
-msgstr "Chyba pri vypisovaní súborov v %1."
+msgstr "Zlyhalo vypísanie albumov"
 
 #: piwigotalker.cpp:611
-#, fuzzy, kde-format
+#, kde-format
 msgid "Photo '%1' already exists."
-msgstr ""
-"Súbor %1 už existuje.\n"
-"Chcete ho prepísať?"
+msgstr "Fotka '%1' už existuje."
 
 #: piwigotalker.cpp:647 piwigotalker.cpp:808 piwigotalker.cpp:968
 #: piwigotalker.cpp:1021 piwigotalker.cpp:1124 piwigotalker.cpp:1258
-#, fuzzy
 msgid "Failed to upload photo"
-msgstr "Zlyhalo odoslanie \"%1\" pre %2. Dôvod: %3."
+msgstr "Zlyhalo nahratie fotky"
 
 #: piwigotalker.cpp:682
-#, fuzzy, kde-format
+#, kde-format
 msgid "Upload resized version of %1"
-msgstr "Systémy pre správu verzií"
+msgstr "Nahrať revidovanú verziu %1"
 
 #: piwigotalker.cpp:736
-#, fuzzy, kde-format
+#, kde-format
 msgid "Photo '%1' already exists in this album."
-msgstr ""
-"Súbor %1 už existuje.\n"
-"Chcete ho prepísať?"
+msgstr "Fotka '%1' už existuje v tomto albume."
 
 #: piwigotalker.cpp:851 piwigotalker.cpp:1082
-#, fuzzy, kde-format
+#, kde-format
 msgid "Upload the chunk %1 of %2"
-msgstr "Číslo bloku"
+msgstr "Nahrať blok %1 z %2"
 
 #: piwigotalker.cpp:887 piwigotalker.cpp:1169
 msgid "Warning : The full size photo cannot be uploaded."
-msgstr ""
+msgstr "Upozornenie: Fotku v plnej veľkosti nie je možné nahrať."
 
 #: piwigotalker.cpp:926 piwigotalker.cpp:1216
-#, fuzzy, kde-format
+#, kde-format
 msgid "Upload the metadata of %1"
-msgstr "Popisok metadát"
+msgstr "Nahrať metadáta %1"
 
 #: piwigotalker.cpp:1047
-#, fuzzy, kde-format
+#, kde-format
 msgid "Upload the thumbnail of %1"
-msgstr "Podpora náhľadu obrázkov"
+msgstr "Nahrať miniatúru %1"
 
 #: piwigowindow.cpp:135
 msgid "Albums"
@@ -126,7 +117,7 @@ msgstr "Albumy"
 
 #: piwigowindow.cpp:144
 msgid "Change Account"
-msgstr ""
+msgstr "Zmeniť účet"
 
 #: piwigowindow.cpp:148
 msgid "Options"
@@ -134,7 +125,7 @@ msgstr "Možnosti"
 
 #: piwigowindow.cpp:152
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
 #: piwigowindow.cpp:155
 msgid "Maximum width:"
@@ -145,15 +136,12 @@ msgid "Maximum height:"
 msgstr "Maximálna výška:"
 
 #: piwigowindow.cpp:168
-#, fuzzy
 msgid "Maximum thumbnail dimension:"
-msgstr ""
-"Vytvorená miniatúra pre:\n"
-"%1"
+msgstr "Maximálne rozlíšenie miniatúry:"
 
 #: piwigowindow.cpp:173
 msgid "Thumbnail size is ignored with Piwigo > 2.4"
-msgstr ""
+msgstr "Veľkosť miniatúry je ignorovaná s Piwigo > 2.4"
 
 #: piwigowindow.cpp:235 piwigowindow.cpp:240
 msgid "Piwigo Export"
@@ -161,7 +149,7 @@ msgstr "Piwigo Export"
 
 #: piwigowindow.cpp:243
 msgid "A Kipi plugin to export image collections to a remote Piwigo server."
-msgstr ""
+msgstr "Kupi plugin na export kolekcie obrázkov na vzdialený Piwigo server."
 
 #: piwigowindow.cpp:244
 msgid ""
@@ -215,18 +203,19 @@ msgstr "Spustiť odoslanie"
 
 #: piwigowindow.cpp:404
 msgid "Failed to login into remote piwigo. "
-msgstr ""
+msgstr "Zlyhalo prihlásenie na vzdialené Piwigo."
 
 #: piwigowindow.cpp:406
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
 msgstr ""
+"\n"
+"Chcete skontrolovať vaše nastavenia a skúsiť znova?"
 
 #: piwigowindow.cpp:413 piwigowindow.cpp:654 plugin_piwigoexport.cpp:118
-#, fuzzy
 msgid "Edit Piwigo Data"
-msgstr "Upraviť osobné dáta"
+msgstr "Upraviť údaje Piwigo"
 
 #: piwigowindow.cpp:473 piwigowindow.cpp:497
 msgid "Album"
@@ -237,27 +226,26 @@ msgid "Image"
 msgstr "Obrázok"
 
 #: piwigowindow.cpp:547
-#, fuzzy
 msgid "Nothing to upload - please select photos to upload."
-msgstr "Prosím, vyberte jednu alebo viac fotiek pre tlač."
+msgstr "Nie je čo nahrať - prosím vyberte fotky na nahranie."
 
 #: piwigowindow.cpp:589
-#, fuzzy, kde-format
+#, kde-format
 msgid "Uploading file %1"
-msgstr "Nahráva sa súbor %1 do fotoaparátu..."
+msgstr "Nahrávam súbor %1"
 
 #: piwigowindow.cpp:608
 msgid "Failed to upload photo into remote piwigo. "
-msgstr ""
+msgstr "Zlyhalo nahranie fotky na vzdialené Piwigo."
 
 #: piwigowindow.cpp:611
-#, fuzzy
 msgid ""
 "\n"
 "Do you want to continue?"
-msgstr " Chcete pokračovať?"
+msgstr ""
+"\n"
+"Chcete pokračovať?"
 
 #: plugin_piwigoexport.cpp:98
-#, fuzzy
 msgid "Export to &Piwigo..."
-msgstr "Exportovať do umiestnenia"
+msgstr "Exportovať do Piwigo..."

@@ -1,0 +1,1119 @@
+<sect2
+>                               <title
+>Strumenti di trasformazione delle immagini</title>
+  <sect3 id="using-rotatingflippingimage">
+     <title
+>Ruotare o ribaltare una foto</title>
+  
+        <para
+>Se la fotografia è orientata male, puoi ribaltarla o ruotarla nell'orientazione che vuoi usando gli strumenti di rotazione e ribaltamento disponibili da <menuchoice
+><guimenu
+>Trasforma</guimenu
+> <guimenuitem
+>Ruota</guimenuitem
+></menuchoice
+> e <menuchoice
+> <guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Ribalta</guimenuitem
+> </menuchoice
+>. </para>
+     
+         <para
+>Con le opzioni di ribaltamento, puoi ribaltare (specchiare) l'immagine orizzontalmente o verticalmente come un mazzo di carte. Con le opzioni di rotazione, puoi ruotare l'immagine a passi di 90 gradi in senso orario. Si può usare per cambiare la modalità di visualizzazione della foto da orizzontale a verticale. Fai attenzione che questa rotazione non è senza perdita quando si usa il formato JPEG. Puoi anche ruotare più precisamente usando lo strumento di rotazione libera. Lo puoi raggiungere dal menu <menuchoice
+> <guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Rotazione libera</guimenuitem
+> </menuchoice
+>. Vedi l'apposito <link linkend="using-freerotation"
+>manuale di rotazione libera</link
+> per maggiori informazioni. </para>
+
+     </sect3>
+
+<sect3 id="resize">
+<sect3info>
+
+<title
+>Cambiare le dimensioni dell'immagine</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard@kulzer.net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+
+<para>
+<ulink url="http://cimg.sourceforge.net"
+><inlinemediaobject>
+<imageobject
+><imagedata fileref="&path;cimg-logo.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>cimglogo</phrase
+></textobject>
+</inlinemediaobject
+></ulink>
+</para>
+
+<para
+>Lo strumento <emphasis
+>Espansione fotografica</emphasis
+> di &digikam; è decisamente uno degli strumenti più avanzati per aumentare le dimensioni di una fotografia con una perdita minima in qualità dell'immagine. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Cimg</keyword>
+<keyword
+>Greycstoration</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Rimpicciolire un'immagine è facile. Il problema è: come si può espandere un'immagine e mantenerne i dettagli nitidi? Come si può ingrandire quando è stato raggiunto il limite di risoluzione? Come si possono inventare o indovinare le informazioni mancanti da inserire nell'immagine necessariamente grezza dopo l'ingrandimento? Be', l'algoritmo CImg che usiamo fa un ottimo lavoro, provalo da te! </para>
+
+  <sect4 id="using-resizingimage"
+>            <title
+>Ridimensionare una foto</title>
+
+    <anchor id="resizetool.anchor"/>
+    <para
+>Se la fotografia ha le dimensioni sbagliate, puoi cambiarle come vuoi usando lo strumento di ridimensionamento. Seleziona <menuchoice
+> <guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Ridimensiona</guimenuitem
+> </menuchoice
+>, e regola i valori di destinazione. La finestra dello strumento di ridimensionamento è visibile sotto. </para>
+
+    <example
+>  <title
+>La finestra dello strumento di ridimensionamento</title>
+        <screenshot
+><screeninfo
+>La finestra dello strumento di ridimensionamento</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorresizetool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+    </example>
+
+    <para
+>Questo strumento di ridimensionamento delle immagini usa un normale metodo a interpolazione lineare per approssimare i pixel. Se vuoi ingrandire un'immagine con una qualità migliore, usa lo strumento di espansione. </para>
+
+  </sect4>
+
+
+<sect4 id="using-blowup"
+> <title
+>Aumentare le dimensioni dell'immagine (espansione)</title>
+  <para
+>Molti programmi di fotoritocco usano qualche tipo di interpolazione, per esempio l'interpolazione spline, per ingrandire le immagini. &digikam; usa un approccio più sofisticato. L'algoritmo incorporato in <emphasis
+>Espansione fotografica</emphasis
+> è stato sviluppato dalla squadra IMAGE dei laboratori GREC CNRS di Caen in Francia, e fa parte del <ulink url="http://cimg.sourceforge.net"
+>progetto CImg</ulink
+>. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Finestra di Espansione fotografica</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Devi dire allo strumento quale ridimensionamento vuoi fare. Nella scheda <guilabel
+>Nuova dimensione</guilabel
+> sono disponibili le impostazioni elencate sotto: <itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Mantieni le proporzioni</guilabel
+>: se questa opzione è abilitata, impostare la nuova dimensione dell'immagine manterrà le proporzioni dell'immagine originale.</para
+></listitem>
+  <listitem
+><para
+><guilabel
+>Larghezza</guilabel
+>: la nuova larghezza dell'immagine da usare per l'espansione.</para
+></listitem
+> 
+  <listitem
+><para
+><guilabel
+>Altezza</guilabel
+>: la nuova altezza dell'immagine da usare per l'espansione.</para
+></listitem>
+ 
+</itemizedlist>
+</para>
+
+<para
+>Se vuoi impostare i parametri del filtro per fare regolazioni più precise, usa le schede <guilabel
+>Impostazioni di lisciatura</guilabel
+> e <guilabel
+>Impostazioni avanzate</guilabel
+>:</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings1.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Impostazioni di smussatura dell'ingrandimento fotografico</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+  
+     <listitem
+><para
+><guilabel
+>Mantenimento dei dettagli</guilabel
+> p [0, 100]: questo controlla il mantenimento delle curvature (caratteristiche). Un valore basso impone una lisciatura uniforme nell'immagine, mentre valori più grandi lisciano preferenzialmente le zone omogenee e lasciano i dettagli nitidi. Un valore di 0,9 dovrebbe mantenere bene i dettagli in modo che in seguito non sia necessario aumentare la nitidezza. Nota che il <guilabel
+>Mantenimento dei dettagli</guilabel
+> deve sempre essere minore dell'<guilabel
+>Anisotropia</guilabel
+>.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Anisotropia</guilabel
+> alfa [0, 100]: un valore basso liscia allo stesso modo in tutte le direzioni, mentre un valore vicino a 1 liscia solo in una direzione. Se hai grana della pellicola o disturbi di tipo CCD, un valore alto risulterà in uno schema a onde, mentre gli artefatti JPEG sono adatti a valori vicini a 1. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Lisciatura</guilabel
+> [0, 500]: questo imposta il fattore di lisciatura complessivo massimo (mentre p definisce la lisciatura relativa). Impostalo secondo il livello del disturbo.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Regolarità</guilabel
+> [0, 100]: questo parametro riguarda le strutture abbastanza grandi. Più grande è questo valore, più regolare sarà la lisciatura complessiva. Ciò è necessario quando ci sono molti disturbi, perché in quei casi è difficile stimare la geometria. Inoltre, se vuoi ottenere un effetto di turbolenza in stile van Gogh, è raccomandata un'impostazione maggiore di 3.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Iterazioni del filtro</guilabel
+>: il numero di volte che sarà applicato l'algoritmo di sfocatura. Normalmente basta 1 o 2.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings2.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Impostazioni avanzate dell'espansione fotografica</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+
+     <listitem
+><para
+><guilabel
+>Passo angolare</guilabel
+> da [5, 90]: integrazione angolare del fattore di anisotropia alfa. Se alfa viene scelto piccolo, anche da dovrebbe essere piccolo. Ma attenzione, gli angoli piccoli causano grandi calcoli! Sceglilo tanto largo quanto lo puoi accettare. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Passo integrale</guilabel
+> [0,1, 10]: larghezza del passo di integrazione spaziale in pixel. Dovrebbe rimanere sotto 1 (lisciatura sub-pixel) e mai andare oltre 2.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Usa interpolazione lineare</guilabel
+>: il guadagno di qualità se selezioni questa opzione è solo marginale, e perdi un fattore di 2 in velocità. Raccomandiamo di lasciarla inattiva.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>I pulsanti <guilabel
+>Salva come...</guilabel
+> e <guilabel
+>Carica</guilabel
+> sono usati per fare esattamente quello. Qualsiasi impostazione del filtro di espansione fotografica che hai impostato può essere salvata sul disco in un file di testo e caricata più tardi. </para>
+
+<warning
+><para
+>L'espansione fotografica è molto veloce a fare il suo lavoro, ma può volerci molto tempo per farlo e potrebbe causare un forte carico sulla CPU. Puoi sempre interrompere il calcolo premendo il pulsante <guilabel
+>Interrompi</guilabel
+> durante la resa dell'anteprima. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blowup">
+<title
+>Lo strumento di espansione in azione</title>
+
+<para
+>Sotto puoi vedere un esempio di Espansione fotografica a una piccola area di un'immagine a colori ridimensionata al doppio. L'originale è (1), il risultato espanso (3). L'anteprima (2) è il risultato dato al metodo di ridimensionamento standard lineare come confronto. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowuppreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Anteprima del filtro di espansione fotografica</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="aspect-ratio-crop"
+>        <title
+>Ritagliare una fotografia</title>
+ 
+    <sect4 id="using-manualcrop"
+>            <title
+>Taglio manuale</title>
+
+        <para
+>Il taglio di una fotografia non è solo un'operazione comune, ma spesso è uno strumento fotografico sottovalutato per comporre un'immagine. L'editor di immagini lo rende facilissimo. Per tagliare una foto trascina un rettangolo sull'immagine tenendo premuto il &LMB; e muovendo il mouse. Mentre muovi il mouse vedrai apparire un riquadro rettangolare. </para>
+
+        <example
+>  <title
+>La selezione dell'immagine nell'editor</title>
+          <screenshot
+><screeninfo
+>La selezione dell'immagine nell'editor</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorimageselection.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+ 
+        <para
+>Quando rilasci il pulsante l'area della fotografia che sarà rimossa da un'operazione di taglio sarà oscurata. Ciò ti permette di avere una buona vista di come sembrerà la tua foto dopo che l'avrai tagliata. Puoi cambiare le dimensioni dell'area tagliata trascinandone gli angoli, e puoi creare una nuova area di taglio semplicemente tracciando un altro rettangolo. </para>
+
+        <para
+>Una volta che sei soddisfatto del taglio, fai clic sul pulsante <inlinemediaobject
+> <imageobject
+><imagedata fileref="&path;editorcropbutton.png" format="PNG"/> </imageobject
+><textobject
+><phrase
+>Il pulsante di taglio dell'editor di immagini</phrase
+></textobject
+></inlinemediaobject
+> sulla barra degli strumenti, e la fotografia sarà tagliata (&Ctrl;+X). Usa le voci <menuchoice
+> <guimenu
+>File</guimenu
+><guimenuitem
+>Salva</guimenuitem
+></menuchoice
+> o <menuchoice
+><guimenu
+>File</guimenu
+><guimenuitem
+>Salva come...</guimenuitem
+></menuchoice
+> nel menu <guimenu
+>File</guimenu
+> per salvare la fotografia appena tagliata. </para>
+
+    </sect4>
+
+    <sect4 id="using-proportionalcrop"
+>      <title
+>Taglio proporzionale</title>
+
+        <anchor id="ratiocroptool.anchor"/>        
+        
+        <para
+>Lo strumento di taglio proporzionale va oltre. Quando modifichi le immagini digitali, diviene spesso necessario creare un formato compatibile con, per esempio, il tuo album di fotografie o con il formato della carta. Se stampi un'immagine dalla tua macchina fotografica digitale e poi cerchi di metterla nel tuo album di foto, potresti notare che la macchina ha un diverso rapporto tra altezza e larghezza rispetto a una normale pellicola fotografica, quindi dovrai tagliare le tue immagini digitali a delle proporzioni predefinite (per esempio 5:7 o 2:3, che sono delle proporzioni standard). </para>
+    
+        <example
+>  <title
+>La finestra dello strumento di taglio proporzionale</title>
+          <screenshot
+><screeninfo
+>La finestra dello strumento di taglio proporzionale</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorratiocroptool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        <para
+>Nell'area di anteprima puoi ridimensionare il rettangolo di taglio spostando gli angoli con il mouse. Sarà mantenuto il rapporto tra le proporzioni impostato in fondo alla finestra. </para>
+        
+        <para
+>Nelle impostazioni dello strumento di taglio proporzionale, specifichi l'<guilabel
+>Orientazione</guilabel
+> come <guilabel
+>Verticale</guilabel
+> o <guilabel
+>Orizzontale</guilabel
+>. L'opzione <guilabel
+>Verticale</guilabel
+> assegnerà sempre la dimensione maggiore all'<guilabel
+>Altezza</guilabel
+> e <guilabel
+>Orizzontale</guilabel
+> alla <guilabel
+>Larghezza</guilabel
+>. </para>
+        
+        <para
+>Lo strumento di taglio proporzionale usa un rapporto relativo. Vale a dire che è lo stesso se usi centimetri o pollici, e non specifica la dimensione fisica. Per esempio, sotto vedi un elenco di corrispondenze tra le dimensioni tradizionali della carta fotografica e il taglio proporzionale. </para>
+        
+        <informaltable
+><tgroup cols="2">
+
+        <thead
+><row>
+            <entry
+>Dimensioni standard della carta fotografica</entry>
+            <entry
+>Taglio proporzionale</entry>
+          </row
+></thead>
+
+    <tbody>
+        <row>
+<entry
+>10×15cm&nbsp;20×30cm&nbsp;30×45cm 3,5×5″&nbsp;4×6″&nbsp;8×12″&nbsp;12×18″&nbsp;16×24″&nbsp;20×30″ </entry>
+    
+<entry
+>2:3 </entry>
+        </row>
+
+        <row>
+<entry
+>6×8cm&nbsp;15×20cm&nbsp;18×24cm&nbsp;30×40cm 3,75×5″&nbsp;4,5×6″&nbsp;6×8″&nbsp;7,5×10″&nbsp;9×12″ </entry>
+        
+<entry
+>3:4 </entry>
+        </row>
+        
+        <row>
+<entry
+>20×25cm&nbsp;40×50cm 8×10″&nbsp;16×20″ </entry>
+        
+<entry
+>4:5 </entry>
+        </row>
+
+        <row>
+<entry
+>15×21cm&nbsp;30×42cm 5×7″ </entry>
+        
+<entry
+>5:7 </entry>
+        </row>
+        
+        <row>
+<entry
+>21×30cm&nbsp;42×60cm </entry>
+        
+<entry
+>7:10 </entry>
+        </row>
+
+    </tbody>
+
+        </tgroup
+></informaltable>
+
+        <para
+>In fondo a destra nella finestra sono disponibili due pulsanti per spostare automaticamente la selezione di taglio al centro orizzontale o verticale dell'immagine. </para>
+        
+        <para
+>Nell'ultima riga della finestra, il pulsante <guilabel
+>Proporzioni massime</guilabel
+> ti permette di impostare l'area di taglio alle dimensioni massime, secondo le impostazioni attuali delle proporzioni e dell'orientazione. </para>
+    
+        <note
+><para
+>Lo strumento di taglio alle proporzioni ricorda le impostazioni che dipendono dall'orientazione dell'immagine (orizzontale o verticale). La prossima volta che userai lo strumento di taglio, queste impostazioni saranno usate come valori predefiniti, a seconda dell'orientazione dell'immagine. Le dimensioni modificate vengono salvate nelle tabelle EXIF in modo che i dati EXIF riflettano sempre l'immagine ritagliata e non quella originale. </para
+></note>
+        
+    </sect4>
+
+    <sect4 id="using-compositionguides"
+>     <title
+>Guida di composizione</title>
+
+        <para
+>Quando si guarda per la prima volta un'immagine, l'occhio dello spettatore raramente si posa al centro dell'immagine, ma si sposta da in alto a sinistra verso destra, e poi da in basso a sinistra di nuovo a destra. Questo schema è inconscio, ma è ben documentato; è probabilmente associato allo schema di lettura occidentale. Dal punto di vista del fotografo, l'obbiettivo diventa guidare lo sguardo dello spettatore dell'oggetto, tenendo conto del modo in cui molti percepiscono un'immagine. </para
+>        
+        
+        <para
+>Le impostazioni della <guilabel
+>Guida di composizione</guilabel
+> forniscono degli elementi di guida per comporre meglio le tue immagini. Queste guide sono: <itemizedlist>
+    
+          <listitem>
+            <para
+><guilabel
+>Regola dei terzi</guilabel
+>: una griglia che divide l'immagine in terzi in ogni direzione (cioè in nove parti). Queste proporzioni sono vicine alla regola aurea, e sono derivate dal campo visivo dell'occhio umano. Sono usate, spesso con variazioni minori, per una serie di oggetti comunemente usati. In questi riquadri ci sono aree precise dove dovrebbero essere posizionate le parti importanti dell'immagine. Lo stesso principio si usa per determinare la posizione dell'orizzonte e le proporzioni tra cielo e terra. </para>
+        
+            <para
+>Molti fotografi e artisti conoscono la regola dei terzi, in cui un'immagine viene divisa in tre sezioni verticalmente e orizzontalmente, e i punti di intersezione rappresentano i posti in cui disporre gli elementi visuali più importanti. Spostare l'orizzonte di un paesaggio nella posizione di un terzo è spesso meglio che metterlo nel mezzo, ma potrebbe anche essere messo a un quarto o un sesto dal fondo. Non c'è nulla di obbligatorio nella regola dei terzi. Nel posizionamento degli elementi visivi per ottenere una composizione riuscita, si devono valutare molti fattori come colore, prevalenza, dimensioni e bilanciamento insieme alle proporzioni. Spesso una certa quantità di bilanciamento o di tensione dell'immagine può rendere migliore una composizione. </para>
+    
+            <example
+>  <title
+>Esempio di composizione delle immagini usando la regola dei terzi</title>
+             <screenshot
+><screeninfo
+>Esempio di composizione delle immagini usando la regola dei terzi </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorrulethirdlinesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+           </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Triangoli armonici</guilabel
+>: le divisioni armoniche si affidano al principio di somiglianza. Come la guida della regola dei terzi, i triangoli armonici sono un'altra divisione dell'immagine in triangoli armonici equiangoli allineati alla diagonale. </para>
+    
+            <example
+>  <title
+>Esempio di composizione fotografica usando i triangoli armonici</title>
+                <screenshot
+><screeninfo
+>Esempio di composizione fotografica usando i triangoli armonici </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorharmonioustrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+
+    
+        </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Sezione aurea</guilabel
+>: la sezione aurea è un rapporto intrinseco in molti schemi di crescita nella natura (dalla spirale della conchiglia di un nautilo ai petali del girasole), che ha la bizzarra abitudine di apparire in tutte le cose che consideriamo belle. </para>
+
+            <para
+>La sezione aurea è il numero irrazionale 1,618033988..., e il suo uso risale agli antichi egizi e greci, che la usarono nella costruzione delle loro piramidi e templi. Artisti e architetti hanno usato la sezione aurea attraverso i secoli nella composizione di dipinti, edifici e anche fotografie, per dare alle loro composizioni un senso di ordine e bellezza naturali. </para>
+    
+            <para
+>La sezione è intrinseca nella serie di Fibonacci: 1, 1, 2, 3, 5, 8, 13, 21, 34, eccetera, dove ogni numero dopo 1 è uguale alla somma dei due precedenti. Il rapporto risultante, 1:1,618, è la sezione aurea. Una composizione che segua questa regola è considerata visivamente armoniosa. </para>
+    
+            <para
+>La sezione aurea fornisce linee guida più fluide quando viene usata per comporre un'immagine. Queste guide sono elencate di seguito: <itemizedlist
+>    
+
+        <listitem
+>        
+    
+        <para
+>La guida <guilabel
+>Spirale aurea</guilabel
+> aumenterà le probabilità di ottenere risultati accattivanti nelle tue fotografie. Al contrario della regola dei terzi, la spirale aurea forma una linea fluida che l'occhio traccia nell'immagine. Questo stile di composizione invita lo sguardo dello spettatore nell'immagine secondo la linea della spirale, creando un flusso visivo più simmetrico, e un'impressione visiva complessivamente coinvolgente. </para>
+        
+        <example
+>  <title
+>Esempio di composizione delle immagini usando la spirale aurea</title>
+            <screenshot
+><screeninfo
+>Esempio di composizione delle immagini usando la spirale aurea </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorgoldenspiralexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+
+        <listitem>
+    
+        <para
+>Un'altra regola sono le <guilabel
+>Sezioni della spirale aurea</guilabel
+>, o rettangoli aurei. Questi rettangoli si usano per costruire la spirale aurea. Ci dovrebbe essere qualcosa che guida l'occhio al centro della composizione. Potrebbe essere una linea o alcuni soggetti. Questo <quote
+>qualcosa</quote
+> potrebbe essere lì senza guidare gli occhi, ma farebbe lo stesso il suo lavoro. </para>
+    
+        <example
+>  <title
+>Esempio di composizione delle immagini usando le sezioni della spirale aurea</title>
+            <screenshot
+><screeninfo
+>Esempio di composizione delle immagini usando le sezioni della spirale aurea </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldenspiralsectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+>I <guilabel
+>Triangoli aurei</guilabel
+> sono derivati dalla spirale aurea discussa prima. I loro vertici sono i punti centrali dei lati dei rettangoli aurei. Nota che, al contrario dei triangoli armonici, i triangoli aurei non sono equiangoli. Mettere le diagonali lungo queste linee può rendere più dinamico un soggetto altrimenti statico. </para>
+
+        <para
+>Quando usi i triangoli aurei per dividere l'immagine, crei un effetto che gli esperti di fotografia chiamano <quote
+>simmetria dinamica</quote
+>. Prova a mantenere il tuo soggetto in uno dei punti di intersezione, e metti le altre informazioni visive nei triangoli che hai già diviso. Il risultato sarà una composizione molto accattivante che altrimenti potresti non essere riuscito a creare. </para>
+
+        <example
+>  <title
+>Esempio di composizione fotografica usando il triangolo aureo</title>
+            <screenshot
+><screeninfo
+>Esempio di composizione fotografica usando i triangoli aurei </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldentrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+>Come la regola dei terzi, le <guilabel
+>Sezioni auree</guilabel
+> influenzano il rapporto delle dimensioni di un'immagine oltre alla posizione del soggetto principale nella fotografia. Il rapporto è vicino al rapporto delle pellicole a 35mm, quindi di solito non devi cambiare le dimensioni delle foto. Però devi considerare la composizione: il soggetto principale dovrebbe restare su una delle quattro linee o quattro intersezioni (l'occhio del soggetto, per esempio). In verità, queste regole non sono esattamente le stesse. La regola dei terzi è una versione semplificata della sezione aurea. </para>
+        
+        <example
+>  <title
+>Esempio di composizione delle immagini usando le sezioni auree</title>
+            <screenshot
+><screeninfo
+>Esempio di composizione fotografica usando le sezioni auree </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldensectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+    
+            </itemizedlist>
+            </para>
+    
+           </listitem>
+     
+        </itemizedlist>
+        
+        </para>
+        
+        <para
+>Le opzioni <guilabel
+>Ribalta orizzontalmente</guilabel
+> e <guilabel
+>Ribalta verticalmente</guilabel
+> possono essere usate per effettuare ribaltamenti sulle divisioni armoniche. </para>
+        
+        <para
+>Il pulsante <guilabel
+>Colore</guilabel
+> ti permette di impostare il colore delle linee guida. Se hai un'immagine con forte contrasto cromatico, le linee guida potrebbero scomparire. In questo modo, puoi adattare il colore della guida all'immagine attuale. </para>
+    
+    </sect4>
+
+</sect3>
+
+<sect3 id="freerotation">
+<sect3info>
+
+<title
+>Rotazione libera</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard@kulzer.net</email
+></address
+></affiliation>
+    </author
+>        
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento di <emphasis
+>Rotazione libera</emphasis
+> di &digikam; è uno strumento per la rotazione delle immagini di un qualsiasi angolo. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Quando si fa una foto è fin troppo facile tenere la macchina non proprio perfettamente verticale o orizzontale, risultando in una foto dove le cose sono un po' inclinate. Il modo di sistemarle con l'editor delle immagini di &digikam; è usare lo strumento di Rotazione libera. Seleziona <menuchoice
+><guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Rotazione libera</guimenuitem
+></menuchoice
+> e regola l'angolo finale. </para>
+
+<sect4 id="using-freerotation"
+>    <title
+>Strumento di rotazione libera</title>
+
+<para
+>Ruota la tua immagine usando il cursore <guilabel
+>Angolo</guilabel
+> (valore in gradi). Premi <guilabel
+>Reimposta valori</guilabel
+> per azzerare il cursore. Un'anteprima dell'effetto di rotazione è disponibile a destra nella finestra. Le dimensioni in pixel della nuova immagine risultante sono visualizzate. </para>
+
+<para
+>Per un'orientazione migliore, lo strumento di Rotazione libera fornisce una guida verticale e una orizzontale. Sposta il cursore del mouse sull'anteprima dell'immagine per visualizzare la guida a linee tratteggiate. Sposta il cursore su un oggetto dell'immagine che si suppone essere orizzontale o verticale, come l'orizzonte del mare o il bordo di un edificio, e premi il pulsante sinistro del mouse per bloccare la posizione delle linee tratteggiate. Ora, regola l'angolo secondo la guida. </para>
+
+<warning
+><para
+>Dopo aver ruotato l'immagine, spesso noti che le cose sono migliori ma non perfette. Una soluzione è ruotare un po' di più, ma c'è uno svantaggio in questo procedimento. Ogni volta che ruoti un'immagine, siccome i pixel ruotati non si allineano perfettamente con quelli originali, l'immagine inevitabilmente si sfoca un po'. Per una rotazione singola, la quantità di sfocatura per rotazione è piuttosto piccola, ma due rotazioni causano una sfocatura doppia, e non c'è ragione di sfocare le cose più di quanto ce ne sia bisogno. Quindi, lo strumento di guida disponibile nell'anteprima della Rotazione libera può aiutarti ad applicare correttamente una regolazione dell'angolo al primo colpo. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-freerotation">
+<title
+>Rotazione libera in azione</title>
+
+<para
+>Lo strumento di rotazione libera in azione è visibile sotto. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;freerotationpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di rotazione libera</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Dopo che hai ruotato un'immagine, ci saranno dei fastidiosi <quote
+>buchi</quote
+> triangolari negli angoli. Un modo di correggerli è tagliare l'immagine con <menuchoice
+><guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Taglia</guimenuitem
+></menuchoice
+> nel menu dell'editor delle immagini. </para>
+
+<para
+>Un modo più elegante di tagliare l'immagine ruotata è usare la funzione di <guilabel
+>Taglio automatico</guilabel
+>. Scegli una qualsiasi delle seguenti opzioni dalla casella combinata secondo le tue preferenze:</para>
+
+<itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Area più larga</guilabel
+> Questa opzione taglia l'immagine ruotata nella sezione rettangolare più larga possibile.</para
+></listitem>
+  
+  <listitem
+><para
+><guilabel
+>Area massima</guilabel
+> Questa opzione taglia l'immagine ruotata nella superficie massima.</para
+></listitem>
+
+</itemizedlist>
+
+<para
+>Tieni il mouse sopra la casella combinata e scorri con la rotellina tra le due possibilità.</para>
+
+<para
+>La casella <guilabel
+>Antialiasing</guilabel
+> liscerà un po' l'immagine dopo una rotazione. Leggi l'avvertimento sopra. </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="perspective">
+<sect3info>
+
+<title
+>Regolazione della prospettiva</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard@kulzer.net</email
+></address
+></affiliation>
+    </author
+>    
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento di <emphasis
+>Regolazione della prospettiva</emphasis
+> di &digikam; è uno strumento per regolare la prospettiva di un'immagine. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Con questo strumento puoi lavorare sulla prospettiva di una fotografia. È molto utile quando lavori con fotografie che contengono distorsione trapezoidale. La distorsione trapezoidale avviene quando un oggetto viene fotografato da un angolo invece che di fronte. Per esempio, se fai una foto di un edificio alto da terra, i bordi sembrano incontrarsi verso la cima. D'altro canto puoi usare questo strumento per introdurre una nuova prospettiva che non sia una vista frontale ma per dare all'immagine un tocco creativo. </para>
+
+<sect4 id="using-perspective">
+<title
+>Usare la regolazione della prospettiva</title>
+
+<para
+>Tutte le trasformazioni di prospettiva sono effettuate attorno a un punto fisso chiamato punto di fuga. Questo punto è al centro dell'elemento che stai trasformando ed è visualizzato da un cerchio rosso. </para>
+
+<para
+>Per cambiare la prospettiva, usa le aree quadrate agli angoli dell'immagine per trascinare. L'anteprima della prospettiva viene resa automaticamente. A destra nella finestra troverai delle informazioni che ti aiuteranno a controllare il cambiamento di prospettiva: <itemizedlist>
+    <listitem
+><para
+><guilabel
+>Nuova larghezza</guilabel
+>: mostra la nuova larghezza dell'immagine in pixel inclusa l'area vuota attorno all'immagine risultante dalla trasformazione geometrica.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Nuova altezza</guilabel
+>: mostra la nuova altezza dell'immagine in pixel inclusa l'area vuota attorno all'immagine risultante dalla trasformazione geometrica.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angolo in alto a sinistra</guilabel
+>: mostra l'angolo attuale in gradi all'angolo in alto a sinistra dell'area di prospettiva.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angolo in alto a destra</guilabel
+>: mostra l'angolo attuale in gradi all'angolo in alto a destra dell'area di prospettiva.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angolo in basso a sinistra</guilabel
+>: mostra l'angolo attuale in gradi all'angolo in basso a sinistra dell'area di prospettiva.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angolo in basso a destra</guilabel
+>: mostra l'angolo attuale in gradi all'angolo in basso a destra dell'area di prospettiva.</para
+></listitem>
+</itemizedlist>
+</para>
+            
+<warning
+><para
+>Dopo aver applicato la regolazione della prospettiva, l'immagine sarà inevitabilmente un po' sfocata. Per una sola regolazione, la quantità di sfocatura è piuttosto piccola, ma due regolazioni causano il doppio di sfocatura di una, e non c'è ragione di sfocare le cose più di quanto sia necessario. </para
+></warning>
+                        
+<para
+>Dopo aver regolato la prospettiva di un'immagine ci saranno dei fastidiosi <quote
+>buchi</quote
+> triangolari negli angoli. Un modo per sistemarli è tagliare l'immagine con il menu dell'editor di immagini <menuchoice
+><guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Taglia</guimenuitem
+></menuchoice
+>. </para>
+
+</sect4>
+
+<sect4 id="inaction-perspective">
+<title
+>Lo strumento di regolazione della prospettiva in azione</title>
+
+<para
+>La finestra di Regolazione della prospettiva in azione è mostrata sotto. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;perspectivepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra di Regolazione della prospettiva</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="sheartool">
+<sect3info>
+
+<title
+>Distorsione curvilinea delle immagini</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Lo strumento <emphasis
+>Distorsione curvilinea delle immagini</emphasis
+> di &digikam; è uno strumento per distorcere un'immagine orizzontalmente o verticalmente. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduzione</title>
+
+<para
+>Lo strumento di distorsione curvilinea è usato per spostare parte di un'immagine in una direzione e l'altra parte nella direzione opposta. Per esempio, una distorsione orizzontale sposterà la parte superiore a destra e la parte inferiore a sinistra. Questa non è una rotazione: l'immagine è distorta. In altre parole, trasformerà un rettangolo in un parallelogramma. Questo strumento è raggiungibile dal menu <menuchoice
+><guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Distorsione</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-sheartool">
+<title
+>Usare lo strumento di distorsione</title>
+
+<para
+>Distorci la tua immagine usando i cursori <guilabel
+>Angolo orizzontale</guilabel
+> e <guilabel
+>Angolo verticale</guilabel
+> (valori in gradi). Puoi distorcere orizzontalmente o verticalmente allo stesso tempo. Fai clic su <guilabel
+>Reimposta valori</guilabel
+> per azzerare i cursori. Un'anteprima dell'effetto di distorsione curvilinea è disponibile nel centro della finestra. Le dimensioni in pixel della nuova immagine risultante sono visualizzate a destra nella finestra. </para>
+
+<para
+>Per aiutarti nell'allineamento, lo strumento fornisce una guida orizzontale e verticale. Sposta il cursore del mouse nell'anteprima dell'immagine per visualizzare la guida a linee tratteggiate. Sposta il cursore in un punto importante dell'immagine, come il mare o il bordo di un edificio, e premi il pulsante sinistro del mouse per congelare la posizione delle linee tratteggiate. Adesso, regola la correzione della distorsione curvilinea secondo la guida. </para>
+            
+<warning
+><para
+>Dopo aver applicato la regolazione della distorsione curvilinea, l'immagine si sfocherà inevitabilmente un po'. Per una sola distorsione, la quantità di sfocatura è piuttosto ridotta, ma due distorsioni causano una sfocatura doppia, e non c'è ragione di sfocare le cose più del necessario. </para
+></warning>
+                        
+<para
+>Dopo aver distorto un'immagine, ci saranno dei fastidiosi <quote
+>buchi</quote
+> triangolari negli angoli. Un modo per correggerli è tagliare l'immagine con il menu dell'editor di immagini <menuchoice
+><guimenu
+>Trasforma</guimenu
+><guimenuitem
+>Taglia</guimenuitem
+></menuchoice
+>. </para>
+
+</sect4>
+
+<sect4 id="inaction-sheartool">
+<title
+>Lo strumento di distorsione in azione</title>
+
+<para
+>La finestra dello strumento di distorsione curvilinea è disponibile sotto. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;sheartoolpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La finestra dello strumento di distorsione curvilinea</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

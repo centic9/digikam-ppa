@@ -7,7 +7,7 @@
  * Description : USB Mass Storage camera interface
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -42,6 +42,7 @@ extern "C"
 #include <QMatrix>
 #include <QStringList>
 #include <QTextDocument>
+#include <QtGlobal>
 
 // KDE includes
 
@@ -135,12 +136,46 @@ void UMSCamera::cancel()
     m_cancel = true;
 }
 
-void UMSCamera::getAllFolders(const QString& folder, QStringList& subFolderList)
+bool UMSCamera::getFolders(const QString& folder)
 {
-    m_cancel = false;
-    subFolderList.clear();
-    subFolderList.append(folder);
-    listFolders(folder, subFolderList);
+    if (m_cancel)
+    {
+        return false;
+    }
+
+    QDir dir(folder);
+    dir.setFilter(QDir::Dirs | QDir::Executable);
+
+    const QFileInfoList list = dir.entryInfoList();
+
+    if (list.isEmpty())
+    {
+        return false;
+    }
+
+    QFileInfoList::const_iterator fi;
+    QStringList subFolderList;
+
+    for (fi = list.constBegin() ; !m_cancel && (fi != list.constEnd()) ; ++fi)
+    {
+        if (fi->fileName() == "." || fi->fileName() == "..")
+        {
+            continue;
+        }
+
+        QString subFolder = folder + QString(folder.endsWith('/') ? "" : "/") + fi->fileName();
+        subFolderList.append(subFolder);
+
+    }
+
+    if(subFolderList.isEmpty())
+    {
+        return false;
+    }
+
+    emit signalFolderList(subFolderList);
+
+    return true;
 }
 
 bool UMSCamera::getItemsInfoList(const QString& folder, bool useMetadata, CamItemInfoList& infoList)
@@ -204,6 +239,13 @@ void UMSCamera::getItemInfo(const QString& folder, const QString& itemName, CamI
             // Only use file system date
             info.ctime = ImageScanner::creationDateFromFilesystem(fi);
         }
+    }
+
+    // if we have an image, allow previews
+    // TODO allow video previews at some point?
+    if(info.mime.startsWith("image/"))
+    {
+        info.previewPossible = true;
     }
 }
 
@@ -273,8 +315,9 @@ bool UMSCamera::getThumbnail(const QString& folder, const QString& itemName, QIm
 
     kDebug() << "Use DImg loader to get thumbnail from : " << path;
 
-    DImg dimgThumb(path);
-
+    DImg dimgThumb;
+    // skip loading the data we don't need to speed it up.
+    dimgThumb.load(path, false /*loadMetadata*/, false /*loadICCData*/, false /*loadUniqueHash*/, false /*loadHistory*/);
     if (!dimgThumb.isNull())
     {
         thumbnail = dimgThumb.copyQImage();
@@ -336,11 +379,11 @@ bool UMSCamera::downloadItem(const QString& folder, const QString& itemName, con
 
     const int MAX_IPC_SIZE = (1024 * 32);
     char      buffer[MAX_IPC_SIZE];
-    Q_LONG    len;
+    qint64    len;
 
     while (((len = sFile.read(buffer, MAX_IPC_SIZE)) != 0) && !m_cancel)
     {
-        if ((len == -1) || (dFile.write(buffer, (Q_ULONG)len) != len))
+        if ((len == -1) || (dFile.write(buffer, (quint64)len) != len))
         {
             sFile.close();
             dFile.close();
@@ -351,8 +394,8 @@ bool UMSCamera::downloadItem(const QString& folder, const QString& itemName, con
     sFile.close();
     dFile.close();
 
-    // set the file modification time of the downloaded file to that
-    // of the original file
+    // Set the file modification time of the downloaded file to the original file.
+    // NOTE: this behavior don't need to be managed through Setup/Metadata settings.
     struct stat st;
 
     if (::stat(QFile::encodeName(src), &st) == 0)
@@ -443,11 +486,11 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
 
     char buffer[MAX_IPC_SIZE];
 
-    Q_LONG len;
+    qint64 len;
 
     while (((len = sFile.read(buffer, MAX_IPC_SIZE)) != 0) && !m_cancel)
     {
-        if ((len == -1) || (dFile.write(buffer, (Q_ULONG)len) == -1))
+        if ((len == -1) || (dFile.write(buffer, (quint64)len) == -1))
         {
             sFile.close();
             dFile.close();
@@ -458,8 +501,8 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
     sFile.close();
     dFile.close();
 
-    // set the file modification time of the uploaded file to that
-    // of the original file
+    // Set the file modification time of the uploaded file to original file.
+    // NOTE: this behavior don't need to be managed through Setup/Metadata settings.
     struct stat st;
 
     if (::stat(QFile::encodeName(src), &st) == 0)
@@ -510,39 +553,6 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
     return true;
 }
 
-void UMSCamera::listFolders(const QString& folder, QStringList& subFolderList)
-{
-    if (m_cancel)
-    {
-        return;
-    }
-
-    QDir dir(folder);
-    dir.setFilter(QDir::Dirs | QDir::Executable);
-
-    const QFileInfoList list = dir.entryInfoList();
-
-    if (list.isEmpty())
-    {
-        return;
-    }
-
-    QFileInfoList::const_iterator fi;
-    QString                       subfolder;
-
-    for (fi = list.constBegin() ; !m_cancel && (fi != list.constEnd()) ; ++fi)
-    {
-        if (fi->fileName() == "." || fi->fileName() == "..")
-        {
-            continue;
-        }
-
-        subfolder = folder + QString(folder.endsWith('/') ? "" : "/") + fi->fileName();
-        subFolderList.append(subfolder);
-        listFolders(subfolder, subFolderList);
-    }
-}
-
 bool UMSCamera::cameraSummary(QString& summary)
 {
     summary =  QString(i18n("<b>Mounted Camera</b> driver for USB/IEEE1394 mass storage cameras and "
@@ -550,7 +560,8 @@ bool UMSCamera::cameraSummary(QString& summary)
 
     // we do not expect titel/model/etc. to contain newlines,
     // so we just escape HTML characters
-    summary += i18n("Title: <b>%1</b><br/>"
+    summary += i18nc("@info List of device properties",
+                    "Title: <b>%1</b><br/>"
                     "Model: <b>%2</b><br/>"
                     "Port: <b>%3</b><br/>"
                     "Path: <b>%4</b><br/>"
@@ -561,7 +572,8 @@ bool UMSCamera::cameraSummary(QString& summary)
                     Qt::escape(path()),
                     Qt::escape(uuid()));
 
-    summary += i18n("Thumbnails: <b>%1</b><br/>"
+    summary += i18nc("@info List of supported device operations",
+                    "Thumbnails: <b>%1</b><br/>"
                     "Capture image: <b>%2</b><br/>"
                     "Delete items: <b>%3</b><br/>"
                     "Upload items: <b>%4</b><br/>"

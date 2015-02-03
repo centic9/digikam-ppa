@@ -6,7 +6,7 @@
  * Date        : 2009-12-23
  * Description : Autodetect binary program and version
  *
- * Copyright (C) 2009-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Benjamin Girault <benjamin dot girault at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -105,7 +105,7 @@ bool KPBinaryIface::parseHeader(const QString& output)
     {
         QString version = firstLine.remove(0, m_headerStarts.length());
 
-        if (version.startsWith("Pre-Release "))
+        if (version.startsWith(QLatin1String("Pre-Release ")))
         {
             version.remove("Pre-Release ");            // Special case with Hugin beta.
             m_developmentVersion = true;
@@ -135,9 +135,9 @@ void KPBinaryIface::slotNavigateAndCheck()
     }
     else
     {
-#if defined Q_WS_MAC
+#if defined Q_OS_MAC
         start = KUrl(QString("/Applications/"));
-#elif defined Q_WS_WIN
+#elif defined Q_OS_WIN
         start = KUrl(QString("C:/Program Files/"));
 #else
         start = KUrl(QString("/usr/bin/"));
@@ -222,9 +222,9 @@ bool KPBinaryIface::checkDir(const QString& possibleDir)
     QProcess process;
     process.setProcessChannelMode(QProcess::MergedChannels);
     process.start(possiblePath, m_binaryArguments);
-    process.waitForFinished();
+    bool val = process.waitForFinished();
 
-    if (process.error() != QProcess::FailedToStart)
+    if (val && (process.error() != QProcess::FailedToStart))
     {
         m_isFound = true;
 

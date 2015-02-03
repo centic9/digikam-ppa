@@ -3,13 +3,13 @@
 #
 # Serdar Soytetir <tulliana@gmail.com>, 2008, 2009, 2012.
 # Ozan Çağlayan <ozan@pardus.org.tr>, 2011.
-# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-04-08 02:55+0200\n"
-"PO-Revision-Date: 2013-07-08 03:44+0200\n"
+"POT-Creation-Date: 2013-10-31 01:24+0000\n"
+"PO-Revision-Date: 2014-04-21 14:52+0200\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -21,11 +21,11 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Serdar Soytetir"
+msgstr "Serdar Soytetir, Volkan Gezer"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "tulliana@gmail.com"
+msgstr "tulliana@gmail.com, volkangezer@gmail.com"
 
 #: comboboxintermediate.h:53
 msgid "Various"
@@ -57,7 +57,7 @@ msgid "Title (required):"
 msgstr "Başlık (gerekli):"
 
 #. i18n: ectx: property (text), widget (QLabel, captionLabel)
-#: flickralbumdialog.ui:143
+#: flickralbumdialog.ui:147
 msgid "Description (optional)"
 msgstr "Açıklamalar (isteğe bağlı)"
 
@@ -66,30 +66,40 @@ msgid ""
 "Check if photo should be publicly visible or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
+"Resmin herkese görünür olup olmayacağını işaretleyin veya tüm resimler için "
+"bunu belirtmek üzere Yükleme Seçenekleri sekmesini kullanın"
 
 #: flickrlist.cpp:423
 msgid ""
 "Check if photo should be visible to family or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
+"Resmin aileye görünür olup olmayacağını işaretleyin veya tüm resimler için "
+"bunu belirtmek üzere Yükleme Seçenekleri sekmesini kullanın"
 
 #: flickrlist.cpp:426
 msgid ""
 "Check if photo should be visible to friends or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
+"Resmin arkadaşlara görünür olup olmayacağını işaretleyin veya tüm resimler "
+"için bunu belirtmek üzere Yükleme Seçenekleri sekmesini kullanın"
 
 #: flickrlist.cpp:429
 msgid ""
 "Indicate the safety level for the photo or use Upload Options tab to specify "
 "this for all images"
 msgstr ""
+"Bu resim için güvenlik seviyesini belirtin veya bunu tüm resimler için "
+"belirtmek üzere Yükleme Seçeneklerini kullanın."
 
 #: flickrlist.cpp:432
 msgid ""
 "Indicate what kind of image this is or use Upload Options tab to specify "
 "this for all images"
 msgstr ""
+"Bu resmin türünü belirtin veya bunu tüm resimler için belirtmek üzere "
+"Yükleme Seçeneklerini kullanın."
 
 #: flickrlist.cpp:445
 msgid ""
@@ -153,7 +163,7 @@ msgstr "Dosya boyutu sıfır"
 
 #: flickrtalker.cpp:743
 msgid "Filetype was not recognized"
-msgstr "Dosya tipi belirlenemedi"
+msgstr "Dosya türü belirlenemedi"
 
 #: flickrtalker.cpp:747
 msgid "User exceeded upload limit"
@@ -305,7 +315,7 @@ msgstr "Güvenlik düzeyi"
 
 #: flickrwidget.cpp:147
 msgid "Content type"
-msgstr "İçerik tipi"
+msgstr "İçerik türü"
 
 #: flickrwidget.cpp:150
 msgctxt "photo safety level"
@@ -360,7 +370,7 @@ msgstr "&Yeni Fotoğraf Dizisi"
 
 #: flickrwidget.cpp:195
 msgid "&Reload"
-msgstr ""
+msgstr "&Yeniden Yükle"
 
 #: flickrwidget.cpp:211
 msgid "Tag options"
@@ -435,15 +445,15 @@ msgstr "Kısıtlı"
 
 #: flickrwidget.cpp:286
 msgid "Content type:"
-msgstr "İçerik tipi:"
+msgstr "İçerik türü:"
 
 #: flickrwidget.cpp:307
 msgid "Resizing Options"
-msgstr "Yendien Boyutlandırma Seçenekleri"
+msgstr "Yeniden Boyutlandırma Seçenekleri"
 
 #: flickrwidget.cpp:312
 msgid "Send original file (no resizing)"
-msgstr ""
+msgstr "Özgün dosyayı gönder (boyutlandırma yok)"
 
 #: flickrwidget.cpp:316
 msgid "Resize photos before uploading"
@@ -520,20 +530,20 @@ msgstr "Gilles Caulier"
 msgid "Developer"
 msgstr "Geliştirici"
 
-#: flickrwindow.cpp:529
+#: flickrwindow.cpp:576
 msgid "&lt;Photostream Only&gt;"
-msgstr ""
+msgstr "&lt;Sadece Fotoğraf Akışı&gt;"
 
-#: flickrwindow.cpp:717
+#: flickrwindow.cpp:764
 msgid "Flickr Export"
 msgstr "Flickr'a Aktar"
 
-#: flickrwindow.cpp:735
+#: flickrwindow.cpp:782
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "%1 konumundan Fotoğraf Dizisi bilgileri alınamadı. %2\n"
 
-#: flickrwindow.cpp:740
+#: flickrwindow.cpp:787
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -550,7 +560,7 @@ msgstr "&Dışarıya Aktar"
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flickrexportui.rc:14
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Ana Araç Çubuğu"
 
 #: login.cpp:68
 msgctxt "flickr login"

@@ -1,0 +1,1515 @@
+<sect1 id="image-editor-menu"
+>               <title
+>De afbeeldingsbewerker</title>
+
+    <sect2
+>        <title
+>Het menu Bestand</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>PgUp</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Terug</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Toont de vorige afbeelding in het huidige album.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>PgDown</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Verder</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Toont de volgende afbeelding in het huidige album.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Home</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Eerste</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Toont de eerste afbeelding in het huidige album.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>End</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Laatste</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Toont de laatste afbeelding in het huidige album.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Opslaan</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Slaat de wijzigingen in de huidige afbeelding op.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Opslaan als</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Slaat de huidige afbeelding op onder een nieuwe naam.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bestand</guimenu
+><guimenuitem
+>Ongedaan maken</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Herstelt de huidige afbeelding aan de hand van het oorspronkelijke bestand als de afbeelding is gewijzigd.</action
+></para
+></listitem>
+        </varlistentry>
+                            
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo
+>&Shift;<keycap
+>Del</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Bestand verwijderen/naar prullenbak verplaatsen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Verwijdert de afbeelding uit het huidige album, of verplaatst deze naar de prullenbak.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+><guimenuitem
+>Afbeelding afdrukken</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Drukt de huidige afbeelding af.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bestand</guimenu
+> <guimenuitem
+>Afsluiten</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Beëindigt &digikam; Afbeeldingsbewerker.</action
+></para
+></listitem>
+        </varlistentry>
+            
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>Het menu Bewerken</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bewerken</guimenu
+> <guimenuitem
+>Kopiëren</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Kopieert de afbeeldingsselectie naar het klembord.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bewerken</guimenu
+> <guimenuitem
+>Ongedaan maken</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Annuleert de laatst toegepaste actie aan de hand van een geschiedenis.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bewerken</guimenu
+> <guimenuitem
+>Opnieuw</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Voert de laatst toegepaste actie opnieuw uit aan de hand van een geschiedenis.</action
+></para
+></listitem>
+        </varlistentry>
+    
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>Het menu Kleur</title>
+      <para>
+      <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>B</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+><guimenuitem
+>Auto-Correction</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Automatic color/exposure correction of the current image by an histogram manipulation <link linkend="autocolorcorrectiontool.anchor"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>White Balance</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor tool to adjust white color balance on the current image <link linkend="using-whitebalance"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+> <guimenuitem
+>Brightness/Contrast/Gamma</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Exposure correction of the current image by Brightness, Contrast, or Gamma adjustments <link linkend="bcgadjusttool.anchor"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+> <guimenuitem
+>Hue/Saturation/Lightness</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Color correction of the current image by Hue, Saturation, or Lightness adjustments<link linkend="colorbalancetool.anchor"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Color Effects</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Set of four Image Editor tools: Solarize, Vivid (Velvia), Neon and Edge <link linkend="coloreffects"
+>(help)</link
+>. </action
+></para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+><guimenuitem
+>Color Balance</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Color correction of the current image by Red, Green, or Blue adjustments <link linkend="colorbalancetool.anchor"
+>(help)</link
+></action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Curves Adjust</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to adjust curves manually on the current image <link linkend="adjustcurves"
+>(help)</link
+>. </action
+></para>
+             </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Levels Adjust</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to adjust levels manually on the current image <link linkend="adjustlevels"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Channel Mixer</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+><link linkend="using-channelmixer"
+>Image Editor tool </link
+>to mix color channels on the current image. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+><guimenuitem
+>Invert</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Kleuren van afbeelding omdraaien.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Black &amp; White</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Open the <link linkend="blackandwhite-conversion"
+>Black &amp; White </link
+>filter dialog for the current image.</action
+></para
+></listitem>
+        </varlistentry>
+ 
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Color Management</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Invokes the interactive <link linkend="using-iccprofile"
+>Color Management</link
+> editor.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Kleur</guimenu
+><guimenuitem
+>Diepte</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Toggle between 8 bit and 16 bit format on color channels.</action
+></para
+></listitem>
+        </varlistentry>
+
+       </variablelist>
+      </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>The Enhance Menu</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Sharpen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Classical image sharping operation <link linkend="sharpening"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Blur</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Image softening operation by blurring <link linkend="using-blurfilter"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Red Eye Reduction</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Red Eye correction tool using the current selection <link linkend="redeyecorrectiontool.anchor"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Inpainting</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor tool to remove unwanted areas and specs <link linkend="inpainting"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Noise Reduction</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor tool to reduce the noise with a Despeckle filter <link linkend="noisereduction"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Restoration</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor tool to reduce artifacts on the current image <link linkend="restoration"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Hot Pixels Correction</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor tool to remove hot pixels on the current image <link linkend="hotpixels"
+>(help)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Anti Vignetting</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to correct vignetting of the current image <link linkend="vignettingcorrection"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Enhance</guimenu
+><guimenuitem
+>Lens Distortion Correction</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to correct lens distortion of the current image <link linkend="lensdistortion.anchor"
+>(help)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+    
+    <sect2
+>        <title
+>Het menu Transformeren</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Left</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transform</guimenu
+><guimenuitem
+>Rotate</guimenuitem
+><guimenuitem
+>-90 degrees</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Left rotation of the current image.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>Right</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transform</guimenu
+><guimenuitem
+>Rotate</guimenuitem
+><guimenuitem
+>90 degrees</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Hiermee draait u de afbeelding 90 graden.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transformeren</guimenu
+><guimenuitem
+>Vrije rotatie</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to rotate the current image by any angle in degrees <link linkend="freerotation"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>*</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transform</guimenu
+><guimenuitem
+>Flip</guimenuitem
+><guimenuitem
+>Horizontally</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Spiegelt de afbeelding horizontaal.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>/</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transform</guimenu
+><guimenuitem
+>Flip</guimenuitem
+><guimenuitem
+>Vertically</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Spiegelt de afbeelding verticaal.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transform</guimenu
+><guimenuitem
+>Crop</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Crop image to the current selection.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transformeren</guimenu
+><guimenuitem
+>Grootte wijzigen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Resize (reduce or blow-up) the current image to the appropriate factor or dimensions <link linkend="resize"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transformeren</guimenu
+><guimenuitem
+>Proportioneel bijsnijden</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Crop the current image using an constrained aspect ratio <link linkend="aspect-ratio-crop"
+>(help)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transformeren</guimenu
+><guimenuitem
+>Schuintrekken</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to shear the current image horizontally or vertically <link linkend="sheartool"
+>(help)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transformeren</guimenu
+><guimenuitem
+>Perspectief aanpassen</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to adjust perspective of the current image <link linkend="perspective"
+>(help)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+ 
+    <sect2
+>        <title
+>The Decoration Menu</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoration</guimenu
+><guimenuitem
+>Apply Texture</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor tool to apply decorative texture to the current image. </action
+></para>
+                <para
+>See the dedicated <link linkend="using-texture"
+>Apply Texture manual</link
+> for more information. </para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoration</guimenu
+><guimenuitem
+>Add Border</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to add a decorative border around the current image <link linkend="border"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoration</guimenu
+><guimenuitem
+>Insert Text</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin to insert text in the current image <link linkend="inserttext"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry
+>      
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoration</guimenu
+><guimenuitem
+>Template Superimpose</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor plugin for apply a template to the current image <link linkend="superimpose"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- ********************************************************************** -->
+
+    <sect2
+>        <title
+>Het menu Beeld</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Inzoomen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Vergroot de weergave van de afbeelding.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl; <keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Uitzoomen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Verkleint de weergave van de afbeelding.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>View</guimenu
+><guimenuitem
+>Fit to Window</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Toggle between fit-to-window zoom or 100% image zoom size.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>View</guimenu
+><guimenuitem
+>Fit to Selection</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Make the selection fit the window.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Beeld</guimenu
+> <guimenuitem
+>Histogram</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Display superposed histogram on current image (Luminosity, Red, Green, Blue, Alpha).</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>View</guimenu
+><guimenuitem
+>Slideshow</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Start a slideshow of the current album.</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+    
+    <sect2 id="filters-menu"
+>    <title
+>The Filter Menu</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Infrared Film</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor filter to simulate infrared film <link linkend="infrared"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Add Film Grain</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor filter for to adding Film Grain <link linkend="filmgrain"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Oil paint</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor filter to simulate Oil Painting <link linkend="oilpaint"
+>(help)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Charcoal Drawing</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor filter to simulate Charcoal Drawing <link linkend="charcoal"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Emboss</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor Emboss filter <link linkend="emboss"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Distortion Effects</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor filter set with distortion special effects <link linkend="distortionfx"
+>(help)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Blur Effects</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor filter set with blurring special effects on <link linkend="blurfx"
+>(help)</link
+>. </action
+></para>
+             </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filter</guimenu
+><guimenuitem
+>Raindrops</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Image Editor filter to add Rain Drops <link linkend="raindrops"
+>(help)</link
+>. </action
+></para>
+            </listitem
+>       
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>Het menu Instellingen</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+> <keycombo action="simul"
+>&Ctrl;&Shift; <keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Instellingen</guimenu
+> <guimenuitem
+>Volledig scherm</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Zet de modus Volledig scherm aan/uit.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Sneltoetsen instellen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Opent een venster waarmee u de sneltoetsen van &digikam; Afbeeldingsbewerker kunt instellen.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Instellingen</guimenu
+><guimenuitem
+>Werkbalken instellen</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Opent een venster waarmee u de werkbalken van &digikam; Afbeeldingsbewerker kunt instellen.</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+        
+    <!-- *********************************************************************** -->
+            
+    <sect2
+>        <title
+>Het menu Help</title>
+&help.menu.documentation; <para
+>&digikam; biedt bovendien ook nog het volgende item:</para>
+
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Help</guimenu
+> <guimenuitem
+>Afbeeldingsplugins-handboeken</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+>Launch the &kde; help interface with the &digikam; Image Editor plugins handbooks.</para
+></listitem>
+        </varlistentry>
+    
+    </variablelist>
+
+    </sect2>
+            
+</sect1>

@@ -11,6 +11,7 @@
  * Copyright (C) 2002-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
+ * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -116,7 +117,6 @@
 #include "iccsettings.h"
 #include "imageattributeswatch.h"
 #include "imageinfo.h"
-#include "imagesortsettings.h"
 #include "imagewindow.h"
 #include "lighttablewindow.h"
 #include "queuemgrwindow.h"
@@ -146,6 +146,7 @@
 #include "thumbsgenerator.h"
 #include "kipipluginloader.h"
 #include "imagepluginloader.h"
+#include "tagsmanager.h"
 
 #ifdef USE_SCRIPT_IFACE
 #include "scriptiface.h"
@@ -253,6 +254,9 @@ DigikamApp::DigikamApp()
 
     d->modelCollection = new DigikamModelCollection;
 
+    // This manager must be created after collection setup and before accelerators setup.
+    d->tagsActionManager = new TagsActionMngr(this);
+
     // First create everything, then connect.
     // Otherwise some items may send signals and the slots can try
     // to access items which were not created yet.
@@ -260,12 +264,10 @@ DigikamApp::DigikamApp()
     setupAccelerators();
     setupActions();
     setupStatusBar();
+
     initGui();
 
     setupViewConnections();
-
-    // This manager must be created after collection setup.
-    d->tagsActionManager = new TagsActionMngr(this);
 
     applyMainWindowSettings(group);
 
@@ -336,6 +338,10 @@ DigikamApp::~DigikamApp()
         QueueMgrWindow::queueManagerWindow()->close();
     }
 
+    if(TagsManager::isCreated())
+    {
+        TagsManager::instance()->close();
+    }
     delete d->view;
 
     AlbumSettings::instance()->setRecurseAlbums(d->recurseAlbumsAction->isChecked());
@@ -652,6 +658,9 @@ void DigikamApp::setupAccelerators()
 
     d->pasteItemsAction = KStandardAction::paste(this, SIGNAL(signalPasteAlbumItemsSelection()), this);
     actionCollection()->addAction("paste_album_selection", d->pasteItemsAction);
+
+    // Labels shortcuts must be registered here to be saved in XML GUI files if user customize it.
+    d->tagsActionManager->registerLabelsActions(actionCollection());
 }
 
 void DigikamApp::setupActions()
@@ -807,6 +816,11 @@ void DigikamApp::setupActions()
 
     // -----------------------------------------------------------
 
+    d->openTagMngrAction = new KAction(KIcon("tag"), i18n("Open Tag Manager"), this);
+    connect(d->openTagMngrAction, SIGNAL(triggered()), d->view, SLOT(slotOpenTagsManager()));
+    actionCollection()->addAction("open_tag_mngr", d->openTagMngrAction);
+
+    // -----------------------------------------------------------
     d->newTagAction = new KAction(KIcon("tag-new"), i18nc("new tag", "N&ew..."), this);
     connect(d->newTagAction, SIGNAL(triggered()), d->view, SLOT(slotNewTag()));
     actionCollection()->addAction("tag_new", d->newTagAction);
@@ -1015,8 +1029,7 @@ void DigikamApp::setupActions()
     d->albumSortAction = new KSelectAction(i18n("&Sort Albums"), this);
     d->albumSortAction->setWhatsThis(i18n("Sort Albums in tree-view."));
     connect(d->albumSortAction, SIGNAL(triggered(int)), d->view, SLOT(slotSortAlbums(int)));
-    // TODO this action is currently not supported by the model
-    //actionCollection()->addAction("album_sort", d->albumSortAction);
+    actionCollection()->addAction("album_sort", d->albumSortAction);
 
     // Use same list order as in albumsettings enum
     QStringList sortActionList;
@@ -1142,9 +1155,9 @@ void DigikamApp::setupActions()
     d->showBarAction->setShortcut(KShortcut(Qt::CTRL+Qt::Key_T));
     connect(d->showBarAction, SIGNAL(triggered()), this, SLOT(slotToggleShowBar()));
     actionCollection()->addAction("showthumbs", d->showBarAction);
-    
+
     d->showMenuBarAction = KStandardAction::showMenubar(this, SLOT(slotShowMenuBar()), actionCollection());
-    
+
     KStandardAction::keyBindings(this,            SLOT(slotEditKeys()),          actionCollection());
     KStandardAction::configureToolbars(this,      SLOT(slotConfToolbars()),      actionCollection());
     KStandardAction::configureNotifications(this, SLOT(slotConfNotifications()), actionCollection());
@@ -1155,7 +1168,7 @@ void DigikamApp::setupActions()
 
     // Provides a menu entry that allows showing/hiding the statusbar
     createStandardStatusBarAction();
-    
+
     // -----------------------------------------------------------
 
     d->zoomPlusAction  = KStandardAction::zoomIn(d->view, SLOT(slotZoomIn()), this);
@@ -1379,7 +1392,13 @@ void DigikamApp::slotAlbumSelected(bool val)
 {
     // NOTE: val is true when a PAlbum is selected.
 
-    Album* album = AlbumManager::instance()->currentAlbum();
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    Album* album = 0;
+
+    if(!albumList.isEmpty())
+    {
+        album = albumList.first();
+    }
 
     if (album)
     {
@@ -1409,8 +1428,8 @@ void DigikamApp::slotAlbumSelected(bool val)
             d->deleteAction->setEnabled(isNormalAlbum);
             d->addImagesAction->setEnabled(isNormalAlbum || isAlbumRoot);
             d->propsEditAction->setEnabled(isNormalAlbum);
-            d->openInFileManagerAction->setEnabled(true);
-            d->openInTerminalAction->setEnabled(true);
+            d->openInFileManagerAction->setEnabled(isNormalAlbum || isAlbumRoot);
+            d->openInTerminalAction->setEnabled(isNormalAlbum || isAlbumRoot);
             d->newAction->setEnabled(isNormalAlbum || isAlbumRoot);
             d->addFoldersAction->setEnabled(isNormalAlbum || isAlbumRoot);
             d->writeAlbumMetadataAction->setEnabled(isNormalAlbum || isAlbumRoot);
@@ -1435,7 +1454,13 @@ void DigikamApp::slotAlbumSelected(bool val)
 
 void DigikamApp::slotTagSelected(bool val)
 {
-    Album* album = AlbumManager::instance()->currentAlbum();
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    Album* album = 0;
+
+    if(!albumList.isEmpty())
+    {
+        album = albumList.first();
+    }
 
     if (!album)
     {
@@ -2197,11 +2222,11 @@ void DigikamApp::fillSolidMenus()
             {
                 labelOrProduct = volume->label();
             }
-            else if (volumeDevice.product().isEmpty())
+            else if (!volumeDevice.product().isEmpty())
             {
                 labelOrProduct = volumeDevice.product();
             }
-            else if (volumeDevice.vendor().isEmpty())
+            else if (!volumeDevice.vendor().isEmpty())
             {
                 labelOrProduct = volumeDevice.vendor();
             }
@@ -2430,7 +2455,9 @@ void DigikamApp::loadPlugins()
     new KipiPluginLoader(this, d->splashScreen);
 
     // Setting the initial menu options after all plugins have been loaded
-    d->view->slotAlbumSelected(AlbumManager::instance()->currentAlbum());
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+
+    d->view->slotAlbumSelected(albumList);
 
     // Load Image Editor plugins.
     new ImagePluginLoader(this, d->splashScreen);
@@ -2466,7 +2493,7 @@ void DigikamApp::preloadWindows()
     ImageWindow::imageWindow();
     LightTableWindow::lightTableWindow();
 
-    d->tagsActionManager->registerActionCollections();
+    d->tagsActionManager->registerTagsActionCollections();
 }
 
 void DigikamApp::slotDatabaseMigration()
@@ -2477,12 +2504,13 @@ void DigikamApp::slotDatabaseMigration()
 
 void DigikamApp::slotMaintenance()
 {
-    MaintenanceDlg* dlg = new MaintenanceDlg(this);
+    MaintenanceDlg* const dlg = new MaintenanceDlg(this);
+
     if (dlg->exec() == QDialog::Accepted)
     {
         d->maintenanceAction->setEnabled(false);
 
-        MaintenanceMngr* mngr = new MaintenanceMngr(this);
+        MaintenanceMngr* const mngr = new MaintenanceMngr(this);
 
         connect(mngr, SIGNAL(signalComplete()),
                 this, SLOT(slotMaintenanceDone()));
@@ -2509,7 +2537,15 @@ void DigikamApp::slotMaintenanceDone()
 
 void DigikamApp::slotRebuildAlbumThumbnails()
 {
-    ThumbsGenerator* tool = new ThumbsGenerator(true, AlbumManager::instance()->currentAlbum()->id());
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    int id = 0;
+
+    if(!albumList.isEmpty())
+    {
+        id = albumList.first()->id();
+    }
+
+    ThumbsGenerator* tool = new ThumbsGenerator(true, id);
     tool->start();
 }
 
@@ -2590,7 +2626,13 @@ void DigikamApp::slotImportAddFolders()
         return;
     }
 
-    Album* album = AlbumManager::instance()->currentAlbum();
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    Album* album = 0;
+
+    if(!albumList.isEmpty())
+    {
+        album = albumList.first();
+    }
 
     if (album && album->type() != Album::PHYSICAL)
     {
@@ -3011,7 +3053,7 @@ void DigikamApp::toogleShowBar()
         case StackedView::MediaPlayerMode:
             d->showBarAction->setEnabled(true);
             break;
-            
+
         default:
             d->showBarAction->setEnabled(false);
             break;

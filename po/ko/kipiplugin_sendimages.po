@@ -1,21 +1,22 @@
 # Translation of kipiplugin_sendimages to Korean.
 # Copyright (C) 2007 This_file_is_part_of_KDE
 # This file is distributed under the same license as the extragear-base package.
-# Park Shinjo <kde@peremen.name>, 2007.
+# Park Shinjo <kde@peremen.name>, 2007, 2014.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: extragear-libs\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-01-31 03:27+0100\n"
-"PO-Revision-Date: 2007-12-27 11:17+0900\n"
-"Last-Translator: Park Shinjo <kde@peremen.name>\n"
-"Language-Team: Korean <cho.sungjae@gmail.com>\n"
+"POT-Creation-Date: 2014-02-27 01:32+0000\n"
+"PO-Revision-Date: 2014-03-24 01:09+0900\n"
+"Last-Translator: Park Shinjo <peremen@gmail.com>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -26,20 +27,14 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: imageresize.cpp:109
-#, fuzzy
-#| msgid "Error in opening input file"
 msgid "Error opening input file"
 msgstr "입력 파일을 여는 중 오류 발생"
 
 #: imageresize.cpp:120
-#, fuzzy
-#| msgid "Error in opening temporary folder"
 msgid "Error opening temporary folder"
 msgstr "임시 폴더를 여는 중 오류 발생"
 
 #: imageresize.cpp:164
-#, fuzzy
-#| msgid "Cannot resizing image. Aborting."
 msgid "Cannot resize image. Aborting."
 msgstr "그림 크기를 조절할 수 없습니다. 중단합니다."
 
@@ -54,20 +49,18 @@ msgstr "크기 조정된 그림(PNG)을 저장할 수 없습니다. 중단합니
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_sendimagesui.rc:6
 msgid "&Export"
-msgstr ""
+msgstr "내보내기(&E)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_sendimagesui.rc:12
 msgid "Main Toolbar"
-msgstr ""
+msgstr "주 도구 모음"
 
 #: plugin_sendimages.cpp:112
 msgid "Email Images..."
 msgstr "이메일로 그림 보내기..."
 
 #: sendimages.cpp:143
-#, fuzzy
-#| msgid "E-mail images"
 msgid "Email images"
 msgstr "이메일로 그림 보내기"
 
@@ -81,14 +74,12 @@ msgid "Resizing %1"
 msgstr "%1 크기 조정 중"
 
 #: sendimages.cpp:213
-#, fuzzy, kde-format
-#| msgid "%1 resized succesfully"
+#, kde-format
 msgid "%1 resized successfully"
 msgstr "%1 크기 조정 완료"
 
 #: sendimages.cpp:222
-#, fuzzy, kde-format
-#| msgid "Failed to resize %1 : %2"
+#, kde-format
 msgid "Failed to resize %1: %2"
 msgstr "%1의 크기를 조정하는 데 실패함: %2"
 
@@ -133,8 +124,6 @@ msgid "properties.txt"
 msgstr "properties.txt"
 
 #: sendimages.cpp:298
-#, fuzzy
-#| msgid "Images properties file done"
 msgid "Image properties file done"
 msgstr "그림 속성 파일 완료됨"
 
@@ -156,38 +145,31 @@ msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
 "settings"
 msgstr ""
+"파일 \"%1\"을(를) 보내기에 너무 큽니다. 크기를 조정하거나 설정을 변경하십시오"
 
 #: sendimages.cpp:426
-#, fuzzy
-#| msgid "Starting default KDE e-mail program..."
 msgid "Starting default KDE email program..."
 msgstr "기본 KDE 이메일 프로그램 시작하는 중..."
 
-#: sendimages.cpp:580
+#: sendimages.cpp:648
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "프로그램 \"%1\"을(를) 시작할 수 없습니다. 시스템을 확인하십시오."
 
-#: sendimages.cpp:593
+#: sendimages.cpp:661
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "프로그램 \"%1\" 시작하는 중..."
 
-#: sendimages.cpp:603
-#, fuzzy
-#| msgid "After to have sent your images by e-mail..."
+#: sendimages.cpp:671
 msgid "After having sent your images by email..."
 msgstr "그림을 이메일로 보낸 후..."
 
-#: sendimages.cpp:604
-#, fuzzy
-#| msgid "Press 'Close' button to clean-up temporary files"
+#: sendimages.cpp:672
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "임시 파일을 삭제하기 위해서 닫기 단추를 누르십시오"
 
 #: sendimagesdialog.cpp:83
-#, fuzzy
-#| msgid "E-Mail Images Options"
 msgid "Email Images Options"
 msgstr "그림 보내기 옵션"
 
@@ -196,16 +178,12 @@ msgid "Send Images"
 msgstr "그림 보내기"
 
 #: sendimagesdialog.cpp:108
-#, fuzzy
-#| msgid "A Plugin to e-mail pictures"
 msgid "A plugin to e-mail items"
 msgstr "그림을 이메일로 보내는 플러그인"
 
 #: sendimagesdialog.cpp:109
-#, fuzzy
-#| msgid "(c) 2003-2007, Gilles Caulier"
 msgid "(c) 2003-2013, Gilles Caulier"
-msgstr "(c) 2003-2007, Gilles Caulier"
+msgstr "(c) 2003-2013, Gilles Caulier"
 
 #: sendimagesdialog.cpp:111
 msgid "Gilles Caulier"
@@ -232,49 +210,37 @@ msgid "Mail program:"
 msgstr "이메일 프로그램:"
 
 #: settingswidget.cpp:93
-#, fuzzy
-#| msgid "Default"
 msgctxt "default mail agent"
 msgid "Default"
 msgstr "기본값"
 
 #: settingswidget.cpp:104
-#, fuzzy
-#| msgid ""
-#| "<p>Select here your preferred external e-mail program. <b>Default</b> is "
-#| "the current e-mail program set on KDE Control Panel."
 msgid ""
 "Select your preferred external email program here. <b>Default</b> is the "
 "current email program set in KDE System Settings."
 msgstr ""
-"<p>선호하는 외부 이메일 프로그램을 선택하십시오. <b>기본값</b>은 KDE 제어판에"
-"서 설정한 이메일 프로그램입니다."
+"선호하는 외부 이메일 프로그램을 선택하십시오. <b>기본값</b>은 KDE 시스템 설정"
+"에서 설정한 이메일 프로그램입니다."
 
 #: settingswidget.cpp:110
-#, fuzzy, kde-format
-#| msgid "Attach a file with caption and tags"
+#, kde-format
 msgid "Attach a file with image properties from %1"
-msgstr "캡션과 태그를 달아서 파일 첨부하기"
+msgstr "%1에 있는 그림 속성을 사용하여 파일 첨부하기"
 
 #: settingswidget.cpp:113
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>If you enable this option, all image captions and tags will be added "
-#| "as an attached file."
+#, kde-format
 msgid ""
 "If you enable this option, all image properties set by %1 as Comments, "
 "Rating, or Tags, will be added as an attached file."
-msgstr "<p>이 옵션을 사용하면 모든 그림 캡션과 태그가 첨부 파일로 추가됩니다."
+msgstr ""
+"이 옵션을 사용하면 %1에서 설정한 설명, 태그, 별점과 같은 모든 그림 속성이 첨"
+"부 파일로 추가됩니다.."
 
 #: settingswidget.cpp:122
-#, fuzzy
-#| msgid "MB"
 msgid " MB"
-msgstr "MB"
+msgstr " MB"
 
 #: settingswidget.cpp:124
-#, fuzzy
-#| msgid "Maximum e-mail size limit:"
 msgid "Maximum email size limit:"
 msgstr "최대 이메일 크기 제한:"
 
@@ -283,15 +249,10 @@ msgid "Adjust image properties"
 msgstr "그림 속성 조정"
 
 #: settingswidget.cpp:131
-#, fuzzy
-#| msgid ""
-#| "<p>If you enable this option, all images to send can be resized and "
-#| "recompressed."
 msgid ""
 "If you enable this option, all images to be sent can be resized and "
 "recompressed."
-msgstr ""
-"<p>이 옵션을 사용하면 모든 그림을 보내기 전에 크기를 조정하고 압축합니다."
+msgstr "이 옵션을 사용하면 모든 그림을 보내기 전에 크기를 조정하고 압축합니다."
 
 #: settingswidget.cpp:134
 msgid "Image Properties"
@@ -334,16 +295,21 @@ msgid ""
 "have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
 "printing purposes.</p>"
 msgstr ""
+"<p>보낼 그림 크기를 선택하십시오:</p><p><b>%1</b>: 인터넷 연결이 매우 느리거"
+"나 대상 메일 서비스 공간이 매우 작을 때 선택하십시오.</p><p><b>%2</b>: 인터"
+"넷 연결이 느리거나 대상 메일 서비스 공간이 작을 때 선택하십시오.</p><p><b>"
+"%3</b>: 중간 인터넷 연결 속도 및 대상 메일 서비스 공간 기본값입니다.</"
+"p><p><b>%4</b>: 인터넷 연결 속도가 충분하고 대상 메일 서비스 공간 제한이 없"
+"을 때 사용하십시오.</p><p><b>%5</b>: 속도나 공간 제한이 없을 때 사용하십시오."
+"</p><p><b>%6</b>: 인쇄 목적으로 사용하십시오.</p>"
 
 #: settingswidget.cpp:164
 msgid "Image size:"
 msgstr "그림 크기:"
 
 #: settingswidget.cpp:173
-#, fuzzy
-#| msgid "<p>Select here the images files format to send.<p>"
 msgid "<p>Select the file format of the image files to be sent.</p>"
-msgstr "<p>보낼 그림의 형식을 선택하십시오.<p>"
+msgstr "<p>보낼 그림의 형식을 선택하십시오.</p>"
 
 #: settingswidget.cpp:174
 msgid ""
@@ -357,18 +323,20 @@ msgid ""
 "option. Also, PNG can store gamma and chromaticity data for improved color-"
 "matching on heterogeneous platforms.</p>"
 msgstr ""
+"<p><b>JPEG</b>: 파일 크기는 작지만 손실 압축을 수행합니다.</p> <p><b>PNG</"
+"b>: 무손실, 이식 가능, 압축된 래스터 그림을 저장하는 형식입니다. PNG는 특허"
+"로 제약받지 않는 GIF의 대안이며 TIFF 사용 상황을 대체할 수 있습니다. PNG는 웹"
+"과 같은 온라인 환경에 최적화되어 설계되었으며, 순차 표시 옵션을 사용하여 스트"
+"리밍 가능합니다. PNG는 다중 플랫폼에서 색을 일치시키기 위하여 감마와 크로마 "
+"데이터를 저장할 수 있습니다.</p>"
 
 #: settingswidget.cpp:184
-#, fuzzy
-#| msgid "Image file format:"
 msgid "Image format:"
-msgstr "그림 파일 형식:"
+msgstr "그림 형식:"
 
 #: settingswidget.cpp:192
-#, fuzzy
-#| msgid "<p>The new compression value of JPEG images to send:<p>"
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
-msgstr "<p>보낼 JPEG 그림의 새 압축률 설정:<p>"
+msgstr "<p>보낼 JPEG 그림의 새 압축률 설정:</p>"
 
 #: settingswidget.cpp:193
 msgid ""
@@ -376,6 +344,8 @@ msgid ""
 "><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
 "<br/><b>100</b>: no compression</p>"
 msgstr ""
+"<p><b>1</b>: 매우 높은 압축<br/><b>25</b>: 높은 압축<br/><b>50</b>: 중간 압축"
+"<br/><b>75</b>: 낮은 압축(기본값)<br/><b>100</b>: 압축하지 않음</p>"
 
 #: settingswidget.cpp:201
 msgid "Image quality:"

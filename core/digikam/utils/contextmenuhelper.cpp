@@ -23,6 +23,7 @@
  * ============================================================ */
 
 #include "contextmenuhelper.moc"
+#include "config-digikam.h"
 
 // Qt includes
 
@@ -58,7 +59,6 @@
 
 // Local includes
 
-#include "config-digikam.h"
 #include "album.h"
 #include "albumdb.h"
 #include "albummanager.h"
@@ -357,7 +357,7 @@ void ContextMenuHelper::slotOpenWith(QAction* action)
     {
         QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(list);
 
-        if (!dlg->exec() == KOpenWithDialog::Accepted)
+        if (dlg->exec() != KOpenWithDialog::Accepted)
         {
             delete dlg;
             return;
@@ -422,6 +422,15 @@ void ContextMenuHelper::addActionDeleteTag(TagModificationHelper* helper, TAlbum
     helper->bindTag(deleteTagAction, tag);
     connect(deleteTagAction, SIGNAL(triggered()),
             helper, SLOT(slotTagDelete()));
+}
+
+void ContextMenuHelper::addActionDeleteTags(Digikam::TagModificationHelper* helper, QList< TAlbum* > tags)
+{
+    QAction* deleteTagsAction = new QAction(SmallIcon("user-trash"), i18n("Delete Tags"), this);
+    addAction(deleteTagsAction);
+    helper->bindMultipleTags(deleteTagsAction, tags);
+    connect(deleteTagsAction, SIGNAL(triggered()),
+            helper, SLOT(slotMultipleTagDel()));
 }
 
 void ContextMenuHelper::addActionEditTag(TagModificationHelper* helper, TAlbum* tag)
@@ -553,39 +562,42 @@ void ContextMenuHelper::addCreateTagFromAddressbookMenu()
 #endif // HAVE_KDEPIMLIBS
 }
 
-//void ContextMenuHelper::slotABCContextMenu()
-//{
-//#ifdef HAVE_KDEPIMLIBS
+// TODO: Port from KABC::AdressBook to to libakonadi-kontact. For instance using Akonadi::ContactSearchJob.
+// See http://techbase.kde.org/Development/AkonadiPorting/AddressBook
+
+// void ContextMenuHelper::slotABCContextMenu()
+// {
+// #ifdef HAVE_KDEPIMLIBS
 //    d->ABCmenu->clear();
-//
+// 
 //    KABC::AddressBook* ab = KABC::StdAddressBook::self();
 //    QStringList names;
-//
+// 
 //    for ( KABC::AddressBook::Iterator it = ab->begin(); it != ab->end(); ++it )
 //    {
 //        names.push_back(it->formattedName());
 //    }
-//
+// 
 //    qSort(names);
-//
+// 
 //    for ( QStringList::ConstIterator it = names.constBegin(); it != names.constEnd(); ++it )
 //    {
 //        QString name = *it;
-//
+// 
 //        if (!name.isNull() )
 //        {
 //            d->ABCmenu->addAction(name);
 //        }
 //    }
-//
+// 
 //    if (d->ABCmenu->isEmpty())
 //    {
 //        QAction* nothingFound = d->ABCmenu->addAction(i18n("No address book entries found"));
 //        nothingFound->setEnabled(false);
 //    }
-//
-//#endif // HAVE_KDEPIMLIBS
-//}
+// 
+// #endif // HAVE_KDEPIMLIBS
+// }
 
 void ContextMenuHelper::slotABCMenuTriggered(QAction* action)
 {
@@ -721,7 +733,20 @@ void ContextMenuHelper::addGotoMenu(const imageIds &ids)
         gotoTag->setEnabled(false);
     }
 
-    Album* currentAlbum = AlbumManager::instance()->currentAlbum();
+    /**
+     * TODO:tags to be ported to multiple selection
+     */
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    Album* currentAlbum = 0;
+
+    if(!albumList.isEmpty())
+    {
+        currentAlbum = albumList.first();
+    }
+    else
+    {
+        return;
+    }
 
     if (currentAlbum->type() == Album::PHYSICAL)
     {

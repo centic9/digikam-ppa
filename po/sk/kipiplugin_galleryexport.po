@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_galleryexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-02-15 02:52+0100\n"
-"PO-Revision-Date: 2013-03-14 13:40+0100\n"
+"PO-Revision-Date: 2013-10-27 22:46+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -36,9 +36,8 @@ msgstr "Titul:"
 
 #. i18n: ectx: property (text), widget (QLabel, nameLabel)
 #: galleryalbumwidget.ui:48
-#, fuzzy
 msgid "Name (optional):"
-msgstr "&Užívateľské meno (nepovinné):"
+msgstr "Názov (voliteľné):"
 
 #. i18n: ectx: property (text), widget (QLabel, captionLabel)
 #: galleryalbumwidget.ui:58
@@ -76,43 +75,37 @@ msgid "Password:"
 msgstr "Heslo:"
 
 #: galleryconfig.cpp:116
-#, fuzzy
 msgid "Use &Gallery 2"
-msgstr "Galéria obrázkov"
+msgstr "Použiť galériu 2"
 
 #: gallerytalker.cpp:454
 msgid "Gallery URL probably incorrect"
-msgstr ""
+msgstr "URL galérie pravdepodobne nesprávne"
 
 #: gallerytalker.cpp:460
-#, fuzzy
 msgid "Incorrect username or password specified"
-msgstr "<b>Chyba: Neplatné užívateľské meno alebo heslo</b>"
+msgstr "Nesprávne zadané meno používateľa alebo heslo"
 
 #: gallerytalker.cpp:551 gallerytalker.cpp:630 gallerytalker.cpp:683
 #: gallerytalker.cpp:740
 msgid "Invalid response received from remote Gallery"
-msgstr ""
+msgstr "Neplatná odpoveď získaná zo vzdialenej galérie"
 
 #: gallerytalker.cpp:557
-#, fuzzy
 msgid "Failed to list albums"
-msgstr "Chyba pri vypisovaní súborov v %1."
+msgstr "Zlyhalo vypísanie albumov"
 
 #: gallerytalker.cpp:636
-#, fuzzy
 msgid "Failed to list photos"
-msgstr "Chyba pri vypisovaní súborov v %1."
+msgstr "Zlyhalo vypísanie fotiek"
 
 #: gallerytalker.cpp:689
-#, fuzzy
 msgid "Failed to create new album"
-msgstr "Nepodarilo sa vytvoriť nový odkaz: %1"
+msgstr "Zlyhalo vytvorenie nového albumu"
 
 #: gallerytalker.cpp:746
-#, fuzzy
 msgid "Failed to upload photo"
-msgstr "Zlyhalo odoslanie \"%1\" pre %2. Dôvod: %3."
+msgstr "Zlyhalo nahratie fotky"
 
 #: gallerywindow.cpp:127
 msgid "Albums"
@@ -123,32 +116,28 @@ msgid "&New Album"
 msgstr "&Nový album"
 
 #: gallerywindow.cpp:142
-#, fuzzy
 msgid "&Add Selected Photos"
-msgstr "Aktivita pre fotografie"
+msgstr "Pridať vybrané fotky"
 
 #: gallerywindow.cpp:147
-#, fuzzy
 msgid "Override Default Options"
-msgstr "Prestaviť štandardný shell."
+msgstr "Potlačiť predvolené voľby"
 
 #: gallerywindow.cpp:151
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
 #: gallerywindow.cpp:154
-#, fuzzy
 msgid "Maximum dimension:"
-msgstr "MUNIT(rozmer)"
+msgstr "Maximálne rozmery:"
 
 #: gallerywindow.cpp:208 gallerywindow.cpp:212
-#, fuzzy
 msgid "Gallery Export"
-msgstr "Export do vzdialenej galérie"
+msgstr "Export galérie"
 
 #: gallerywindow.cpp:215
 msgid "A Kipi plugin to export image collections to a remote Gallery server."
-msgstr ""
+msgstr "Kipi plugin na export kolekcií obrázkov na vzdialený server galérie."
 
 #: gallerywindow.cpp:216
 msgid ""
@@ -196,18 +185,19 @@ msgstr "Nastavenia"
 
 #: gallerywindow.cpp:375
 msgid "Failed to login into remote gallery. "
-msgstr ""
+msgstr "Zlyhalo prihlásenie do vzdialenej galérie. "
 
 #: gallerywindow.cpp:377
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
 msgstr ""
+"\n"
+"Chcete skontrolovať vaše nastavenia a skúsiť znova?"
 
 #: gallerywindow.cpp:384 gallerywindow.cpp:787 plugin_galleryexport.cpp:131
-#, fuzzy
 msgid "Edit Gallery Data"
-msgstr "Upraviť osobné dáta"
+msgstr "Upraviť údaje galérie"
 
 #: gallerywindow.cpp:443 gallerywindow.cpp:466
 msgid "Album"
@@ -222,22 +212,25 @@ msgid ""
 "Sorry, these characters are not allowed in album name: \\ / * ? \" ' & &lt; "
 "&gt; | . + # ( ) or spaces"
 msgstr ""
+"Prepáčte, tieto znaky nie sú povolené v názve albumu: \\ / * ? \" ' & &lt; "
+"&gt; | . + # ( ) alebo medzery"
 
 #: gallerywindow.cpp:724
-#, fuzzy, kde-format
+#, kde-format
 msgid "Uploading file %1"
-msgstr "Nahráva sa súbor %1 do fotoaparátu..."
+msgstr "Nahrávam súbor %1"
 
 #: gallerywindow.cpp:743
 msgid "Failed to upload photo into remote gallery. "
-msgstr ""
+msgstr "Zlyhalo nahranie fotky do vzdialenej galérie. "
 
 #: gallerywindow.cpp:746
-#, fuzzy
 msgid ""
 "\n"
 "Do you want to continue?"
-msgstr " Chcete pokračovať?"
+msgstr ""
+"\n"
+"Chcete pokračovať?"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_galleryexportui.rc:6
@@ -250,6 +243,5 @@ msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
 #: plugin_galleryexport.cpp:111
-#, fuzzy
 msgid "Export to &Gallery..."
-msgstr "Export do vzdialenej galérie"
+msgstr "Export do galérie..."

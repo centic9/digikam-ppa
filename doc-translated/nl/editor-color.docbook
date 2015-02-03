@@ -1,0 +1,1629 @@
+<sect2
+>                                     <title
+>Hulpmiddelen voor kleurbewerking</title>
+
+<sect3 id="auto-correction">
+<sect3info
+>           <title
+>Hulpmiddelen voor autocorrectie</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>Dit hulpmiddel levert een set van vijf automatische correctieniveaus die in de meeste gevallen een afbeelding verbetert. Gebruik dit hulpmiddel alvorens in de meer omvattende handmatige aanpassingen verder te gaan. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Inleiding</title>
+   <anchor id="autocolorcorrectiontool.anchor"/>
+
+            <para
+>De menu-items <guilabel
+>Normaliseren</guilabel
+>, <guilabel
+>Effenen</guilabel
+>, <guilabel
+>Auto-niveaus</guilabel
+> en <guilabel
+>Contrast uitrekken</guilabel
+>, die beschikbaar zijn in <menuchoice
+><guilabel
+>Correctie</guilabel
+><guimenuitem
+>Autocorrectie</guimenuitem
+></menuchoice
+> zullen proberen om automatisch de beste kleurniveaus in te stellen. U zult waarschijnlijk wat met het effect van deze functies moeten experimenteren om te bepalen welke instellingen voor uw foto het beste zijn. <itemizedlist>
+
+                <listitem
+><para
+><guilabel
+>Normaliseren</guilabel
+>: dit schaalt de helderheidswaarden over de geselecteerde afbeelding zodat de donkerste punten zwart worden en de lichte punten zo licht mogelijk zonder dat de tint wordt gewijzigd. Dit is vaak een "magische reparatie" voor afbeeldingen die flets of flauw zijn. <example
+><title
+>Kleurencorrectievoorbeeld normaliseren</title
+>   <screenshot
+><screeninfo
+>Kleurencorrectievoorbeeld normaliseren</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editornormalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+                </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Gelijktrekken</guilabel
+>: deze methode corrigeert de helderheid van de kleuren van de geselecteerde foto zodanig aan dat het histogram voor het kanaal zo vlak mogelijk is, dat houd in dat alle in de afbeelding voorkomende helderheidwaardes een gelijk aantal pixels heeft. In sommige gevallen geeft Gelijktrekken geweldige resultaten bij het verbeteren van het contrast van een foto. In andere gevallen maakt het er een puinhoop van. Het is een krachtig stuk gereedschap dat zowel een geweldig resultaat als er een puinhoop van kan maken. <example
+><title
+>Kleurencorrectievoorbeeld voor gelijktrekken</title
+> <screenshot
+><screeninfo
+>Kleurencorrectievoorbeeld voor gelijktrekken</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorequalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Autoniveaus</guilabel
+>: deze methode maximaliseert het toonbereik in de rood-, groen- en blauwkanalen. Het bepaalt de afbeeldingsschaduw- en de lichtlimietwaarden en stelt de rood- groen- en blauwkanalen bij tot een volledig histogrambereik. <example
+><title
+>Voorbeeld van automatische niveaucorrectie</title
+> <screenshot
+><screeninfo
+>Voorbeeld van automatische niveaucorrectie</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorautolevels.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Contrast uitrekken</guilabel
+>: dit verbetert de contrast en helderheid van de RGB-waarden van een afbeelding door de laagste en hoogste waarden op te rekken naar het hoogste bereik, waarbij alles ertussenin wordt bijgesteld. Dit is alleen merkbaar bij fletse foto's en kan een goed reparatiemiddel zijn voor slechte foto's. <example
+><title
+>Contrastcorrectie uitrekken</title
+> <screenshot
+><screeninfo
+>Voorbeeld van contrastcorrectie uitrekken</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorstretchcontrast.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+            </itemizedlist>
+
+            </para>
+
+            <para
+>Het resultaat van de aanpassingen die u hebt gemaakt zullen pas worden onthouden als u uw foto hebt opgeslagen. </para>
+</sect3>
+
+<sect3 id="whitebalance">
+<sect3info>
+
+<title
+>Witbalans</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>De <emphasis
+>Witbalans</emphasis
+> van &digikam; is een halfautomatisch hulpmiddel om de witbalans van een foto aan te passen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inleiding</title>
+
+<para
+>Het gaat vaak mis met de witbalans instelling bij digitale fotocamera's. In de "goede oude tijd" van het filmrolletje werd de witbalans verzorgt door het fotolaboratorium. In de huidige tijd moet de arme kleine camera raden wat op de foto wit is en wat zwart is. Wat de camera meestal uitkiest als een witpunt heeft niet de juiste schaduw of verzadiging. Met behulp van dit hulpmiddel kunt u dat gemakkelijk corrigeren. Het heeft een aantal parameters die u kunt aanpassen zodat u een beter resultaat krijgt. </para>
+
+<note
+><para
+>De correctie van de witbalans is gelimiteerd door het feit dat we met 8 bits per kleurruimte van een kanaal werken. Als u dus te veel afwijkt van het origineel dan kunnen overbelichte plekken verschijnen. Als u in de modus rawconversie (wat met 16 bits gebeurt) de witbalans corrigeert dan heeft u meer ruimte voor correctie. </para
+></note>
+
+<para
+>Dit hulpmiddel is gebaseerd op een witbalans algoritme met als auteursrechthebbende Pawel T. Jochym. Start het via het menu Afbeelding bewerken<menuchoice
+><guimenu
+>Kleur</guimenu
+><guimenuitem
+>Witbalans</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-whitebalance"
+>  <title
+>Het hulpmiddel Witbalans gebruiken</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;whitebalancedialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Het dialoogvenster voor witbalans</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>U kunt het formaat van het voorbeeldvenster instellen. Aan de linkerkant is het origineel en het resultaatvoorbeeld te zien. Het resultaatvoorbeeld wordt onmiddellijk overeenkomstig de nieuwe instellingen bijgewerkt. Klik op de knop <guilabel
+>Standaard</guilabel
+> als u het weer met de originele witbalans wilt zien. </para>
+
+<para
+>Bij het resultaatvoorbeeld is een rode markeerstift beschikbaar. De lichtkracht van het pixel onder de markeerstift is te zien als een verticale lijn in het histogram. </para>
+
+<para
+>Rechtsboven ziet u in een widget een histogram dat dynamisch wordt bijgewerkt wanneer de parameters wijzigen. Dit histogram is zeer informatief omdat het toont dat zelfs in goed belichte foto's de meeste pixels zeer weinig lichtkracht hebben. Met een knop kunt u een van de 3 kleuren selecteren (of het totaal ervan dat de naam lichtkracht draagt). </para>
+
+<para
+>Met <guilabel
+>Belichting</guilabel
+> kunt u digitaal de originele belichting van de foto aanpassen. De belichting verhogen geeft wel het risico dat ruis meer zichtbaar wordt en de lichtere plekken flets worden. Om te zien of u een probleem met de verzadiging heeft kunt u de <guilabel
+>Overbelichtingsindicatie</guilabel
+> rechtsonder controleren. Met de knop <guilabel
+>Zwartpunt</guilabel
+> verschuift u het histogram naar links. Als uw foto er mistig uitziet (het histogram heeft lege ruimte aan de linker, zwarte zijde) dan moet u waarschijnlijk deze mogelijkheid gebruiken. De instellingen voor <guilabel
+>Belichting</guilabel
+> en <guilabel
+>Zwartpunt</guilabel
+> kunnen automatisch worden berekent door op de knop <guilabel
+>Autobelichting aanpassen</guilabel
+> te drukken. Dit stelt het zwartpunt vrij nauwkeurig in. </para>
+
+<para
+>Het contrast van uw foto is afhankelijk van <guilabel
+>Schaduwen</guilabel
+>, <guilabel
+>Verzadiging</guilabel
+> en <guilabel
+>Gamma</guilabel
+>. Met de knop <guilabel
+>Schaduwen</guilabel
+> kunt u de details in de schaduwen op uw foto meer of minder zichtbaar maken. </para>
+
+<para
+>Het vergroten van het contrast van uw foto kan als neveneffect hebben dat de schijnbare <guilabel
+>Verzadiging</guilabel
+> van de foto vermindert. Het gebruik van een waarde groter dan 1 vergroot de verzadiging en een waarde kleiner dan 1 vermindert de verzadiging van de foto. Een waarde 0 geeft een zwart-witfoto. Wees niet te verlegen om de verzadiging van uw foto's een beetje te vergroten. In het algemeen is voor een groter contrast (minder <guilabel
+>Gamma</guilabel
+>) meer <guilabel
+>Verzadiging</guilabel
+> nodig. </para>
+
+<para
+>De volgende set schuifknoppen zijn de belangrijkste onderdelen voor de instellingen van de witbalans, die de verhoudingen controleren tussen de hoofdkleuren. Hier kunt u de kleur-<guilabel
+>Temperatuur</guilabel
+> instellen wat uw foto warmer of kouder maakt. Hogere temperaturen geven een warmere tint. Om de verhouding tussen de drie hoofdkleuren in te stellen zijn er twee instellingen nodig. Omdat de temperatuur-instelling voornamelijk de verhouding tussen de hoofdkleuren rood en blauw regelen, zal daarom de tweede instelling de intensiteit van de hoofdkleur <guilabel
+>Groen</guilabel
+> regelen. </para>
+
+<para
+>In plaats van moeizaam met bovengenoemde schuifknoppen te rommelen, kunt u ook eenvoudig de knop <guilabel
+>Temperatuurtint-kleurenkiezer</guilabel
+> gebruiken. Druk op deze knop en klik ergens op de originele voorbeeldafbeelding om een sample van de kleur op die plek te nemen en vervolgens de temperatuur van de witbalans te berekenen.De waarden van <guilabel
+>Temperatuur</guilabel
+> en <guilabel
+>Groen</guilabel
+> worden op deze manier automatisch berekend. </para>
+
+<para
+>Daarnaast kunt u ook de witbalans instellen via een keuzelijst. Dit zijn de beschikbare witbalans temperaturen: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="3">
+
+<thead>
+   <row>
+      <entry
+>Kleurtemperatuur</entry>
+      <entry
+>Beschrijving</entry>
+      <entry
+>Kelvin</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry>
+      <guilabel
+>40W</guilabel>
+      </entry>
+
+      <entry
+>40 Watt gloeilamp. </entry>
+
+      <entry>
+      <guilabel
+>2680</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>200W</guilabel>
+      </entry>
+
+      <entry
+>200 Watt gloeilamp, studio lampen, flood-licht. </entry>
+
+      <entry>
+      <guilabel
+>3000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Zonsopgang</guilabel>
+      </entry>
+
+      <entry
+>Zonsopgang- of zonsonderganglicht. </entry>
+
+      <entry>
+      <guilabel
+>3200</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Wolfraam</guilabel>
+      </entry>
+
+      <entry
+>Gloeilamp of licht een uur na ochtend- of voor avondschemering. </entry>
+
+      <entry>
+      <guilabel
+>3400</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Neutraal</guilabel>
+      </entry>
+
+      <entry
+>Neutrale kleurtemperatuur </entry>
+
+      <entry>
+      <guilabel
+>4750</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Xenon</guilabel>
+      </entry>
+
+      <entry
+>Xenonlamp of lichtboog. </entry>
+
+      <entry>
+      <guilabel
+>5000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Zon</guilabel>
+      </entry>
+
+      <entry
+>Zonnig daglicht rond het middaguur. </entry>
+
+      <entry>
+      <guilabel
+>5500</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Flits</guilabel>
+      </entry>
+
+      <entry
+>Elektronische flits </entry>
+
+      <entry>
+      <guilabel
+>5600</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Hemel</guilabel>
+      </entry>
+
+      <entry
+>Licht van bewolkte lucht. </entry>
+
+      <entry>
+      <guilabel
+>6500</guilabel>
+      </entry>
+   </row>
+
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<para
+><guilabel
+>Kleurtemperatuur</guilabel
+> is een vereenvoudigde voorstelling van de spectrale eigenschappen van een lichtbron. Terwijl in werkelijkheid de kleur van het licht wordt bepaald door hoeveel elk punt op de spectrale grafiek aan het totaal toevoegt, kan het resultaat toch op een lineaire schaal worden opgeteld. Deze waarde is bruikbaar &eg; voor het vaststellen van de correcte witbalans in digitale fotografie, en voor specificatie van de lichtbronnen in een architecturaal lichtplan. Merk wel op dat lichtbronnen met ogenschijnlijk dezelfde kleur (metameren) een groot verschil kunnen hebben in de kwaliteit van het uitgezonden licht. </para>
+
+<para
+>Een lage <guilabel
+>Kleurtemperatuur</guilabel
+> houdt meer geelrood licht in terwijl een hoge kleurtemperatuur meer blauw licht inhoud. Vlak na zonsopgang heeft daglicht een nogal lage kleurtemperatuur, en een hogere tijdens de rest van de dag. Het kan daarom zinvol zijn om een elektrisch verlichtingsysteem aan te leggen dat desgewenst koeler licht kan toevoegen aan het daglicht, en warmer licht kan toevoegen aan de nacht. Dit komt overeen met de gevoeligheid van het menselijke oog voor de warme kleuren die van kaarsen en open haarden in het donker komen. De standaard eenheid voor kleurtemperatuur is Kelvin (K). </para>
+
+<para
+>De <guilabel
+>Overbelichtingsindicatie</guilabel
+> controleert voor alle kleurkanalen of een pixel is overbelicht, als dat het geval is dan ziet u het gecombineerde resultaat van de witbalans-instelling. Dit onderdeel geeft alleen een indicatie in de voorbeeldweergave en heeft geen effect in het uiteindelijke resultaat. </para>
+
+<para
+>De knoppen <guilabel
+>Opslaan als</guilabel
+> en <guilabel
+>Laden</guilabel
+> zijn precies voor dat doel in gebruik. Elke door u gemaakte witbalans-instelling kunt u in het bestandssysteem als een tekstbestand opslaan, om die later weer te laden. </para>
+
+<para
+>De knop <guilabel
+>Alles herstellen</guilabel
+> zet alle filters terug naar de standaardwaarden van de neutrale witbalans kleur. (Let op, de neutrale instelling kan zelfs verschillen van uw originele foto, bij het opslaan kan de witbalans gewijzigd zijn.) </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="encoding-depth"
+>    <title
+>Codeerdiepte</title>
+    <para
+>Hier kunt u van de bewerkte foto per kleurkanaal de codeerdiepte instellen. Codering met 8 bits is de JPEG standaard, voor foto's met een hoge resolutie is codering met 16 bits meer geschikt, maar deze instelling gebruikt meer opslagruimte en processortijd en is op dit moment alleen beschikbaar voor de bestandsformaten PNG, PNM, TIFF, en DNG .</para>
+</sect3>
+
+<sect3 id="color-management"
+>    <title
+>Kleurbeheer</title>
+    <para
+>U krijgt bij dit hulpmiddel hetzelfde dialoogvenster als bij het bewerken van RAW afbeeldingen. U gebruikt het voor het wijzigen en toewijzen van kleurprofielen. Tone-mapping kunt u via het tabblad voor Lichtheid (onderste tabblad) uitvoeren. Voor gedetailleerde instructies van het gebruik van kleurprofielen leest u het <ulink url="help:/digikam/using-setup.html#setup-iccprofiles"
+>hoofdstuk CM</ulink
+>.</para>
+</sect3>
+
+<sect3 id="exposure-correct"
+>    <title
+>Belichting aanpassen</title>
+
+     <anchor id="bcgadjusttool.anchor"/>
+
+     <para
+>Het eenvoudigste hulpmiddel om te gebruiken is de Helderheid/Contrast/Gamma. Het is ook het minst krachtig, maar in veel gevallen doet het precies wat u nodig hebt. Dit hulpmiddel is vaak bruikbaar voor afbeeldingen die over- of onderbelicht zijn: het is niet geschikt voor het aanpassen van kleuren. Het hulpmiddel bevat drie schuifregelaars om de "helderheid", "contrast" en "gamma" bij te stellen. U ziet de aanpassingen die u hebt aangebracht meteen terug in het voorbeeld. Als u tevreden bent met het resultaat, dan klikt u op <guilabel
+>OK</guilabel
+> om het toe te passen. </para>
+
+     <example
+>  <title
+>Het hulpmiddel voor helderheid/contrast/gamma in actie</title>
+         <screenshot
+><screeninfo
+>Het hulpmiddel voor helderheid/contrast/gamma in actie</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbcgadjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <para
+>Een ander belangrijk hulpmiddel is <menuchoice
+><guimenu
+>Kleur</guimenu
+> <guimenuitem
+>Niveaus aanpassen</guimenuitem
+></menuchoice
+>. Dit hulpmiddel geeft een geïntegreerde manier voor het bekijken van de resultaten van het aanpassen van de verschillende niveaus waarbij u deze instellingen kunt opslaan zodat u ze bij meerdere foto's kunt toepassen. Dit kan handig zijn als uw camera of scanner vaker dezelfde fout maakt en u daarom dezelfde correcties wilt toepassen. Lees de speciale <link linkend="using-adjustlevels"
+>handleiding voor niveaus aanpassen</link
+> voor meer informatie. </para>
+
+     <para
+>Een zeer krachtige manier van belichtingscorrectie is het gebruik van Curves aanpassen via het menu-item <menuchoice
+><guimenu
+>Kleur</guimenu
+> <guimenuitem
+>Curves aanpassen</guimenuitem
+></menuchoice
+>. </para>
+
+</sect3>
+
+<sect3 id="coloreffects">
+
+<sect3info>
+<title
+>Afbeelding solariseren</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Het onderdeel <emphasis
+>Kleureffecten</emphasis
+> van &digikam; heeft vier kleureffecten: een solarisatie effect, een velvia filter, neon effect en randfilter. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Solariseren</keyword>
+<keyword
+>Velvia</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inleiding</title>
+
+<para
+>In het tijdperk van het chemisch ontwikkelen was solariseren (ook bekend als Sabatier) een effect dat ontstond door een gedeeltelijk ontwikkelde afdruk kort aan licht bloot te stellen om vervolgens de ontwikkeling te voltooien. De gekleurde donkerder plekken beschermde de lichtgevoelige laag tegen het toegevoegde licht, wat als netto effect heeft dat de lichte plekken donkerder werden en de kleuren negatief worden tijdens de tweede belichting .Het resultaat komt overeen met een gedeeltelijk negatieve afdruk. Dit onderdeel maakt het mogelijk om dit effect voorzichtig toe te passen. </para>
+
+<sect4 id="using-solarize"
+> <title
+>Solariseren gebruiken</title>
+
+<para
+>De knop <guilabel
+>Intensiteit</guilabel
+> kan u een indruk geven van het solariseren door het eenvoudig te verhogen. De foto toont bij een niveau van ongeveer 50% wat vroeger chemisch mogelijk was. Als u het effect nog verder verhoogt dan krijgt u uiteindelijk een negatieve afdruk, een fase van omkeren die op fotografisch papier onbereikbaar was. </para>
+</sect4>
+
+<sect4 id="inaction-solarize"
+> <title
+>Solariseren in actie</title>
+
+<para
+>Dit is een voorbeeld van het solarisatie effect. De originele afbeelding is (1) en de aangepaste afbeelding is (2). De toegepaste niveau voor <guilabel
+>Intensiteit</guilabel
+> is 30%. </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;solarizepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Voorbeeld van solarisatie effect</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+<sect4
+>   <title
+>Het Vivid effect (Velvia filter)</title>
+  <para
+>Het vivid filter bootst het &quot;Velvia&quot; effect na. Het wijkt af van verzadiging omdat het een meer geprononceerd contrast effect heeft dat erg levendige kleuren geeft. Probeer het eens uit, het geeft een schitterend resultaat bij veel onderwerpen! </para>
+  <para
+>Velvia is een merk voor daglicht gebalanceerde kleurennegatieffilm geproduceerd door de Japanse firma Fujifilm. De naam is een samentrekking van &quot;Velvet Media&quot;, en refereert aan de zachte foto-structuren. Velvia heeft zeer verzadigde kleuren bij daglicht en een hoog contrast. Deze karakteristieken zorgen ervoor dat het erg geliefd is bij natuur-fotografen. De oververzadigde kleuren van Velvia's zijn echter niet bij alle fotografen geliefd, met name bij diegene die niet primair landschappen fotograferen. </para>
+     <example
+>  <title
+>Origineel versus Vivid-filter</title>
+        <screenshot
+><screeninfo
+>Origineel versus Vivid filter</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorvivid.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>Het Neon Effect</title>
+  <para
+>Het neonfilter bootst neonverlichting na dat langs contrast-overgangen loopt. De niveau-schuifknop stelt het lichtniveau in van het resultaat waarbij de herhaling-schuif de dikte van het neonlicht instelt. Bij foto's met een groot formaat kan dit voor een kort moment veel processortijd gebruiken. </para>
+     <example
+>  <title
+>Het neonfilter</title>
+        <screenshot
+><screeninfo
+>Het neonfilter</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorneon.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>Het effect van het zoeken van randen</title>
+ <para
+>TE DOEN </para>
+</sect4>
+
+</sect3>
+
+<sect3 id="using-correctingcolor"
+>       <title
+>Kleur corrigeren</title>
+
+     <anchor id="colorbalancetool.anchor"/>
+
+     <para
+>De licht-condities zijn voor digitale cameras vaak problematisch en het is daarom niet ongewoon om het kleurcontrast en de helderheid van een foto te corrigeren. U kunt experimenteren door de niveaus van de diverse aspecten van uw foto te wijzigingen met behulp van de hulpmiddelen in het menu <menuchoice
+><guimenu
+>Kleur</guimenu
+> </menuchoice
+>. U kunt de gemaakte aanpassingen onmiddellijk bestuderen in de voorbeeldweergave. Als u tevreden bent met de resultaten dan kunt u op <guilabel
+>Ok</guilabel
+> drukken zodat de aanpassingen onmiddellijk van toepassing zijn. </para>
+
+     <example
+>  <title
+>Het hulpmiddel voor kleurbalans in actie</title>
+        <screenshot
+><screeninfo
+>Het hulpmiddel voor kleurbalans in actie</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorcolorbalance.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <anchor id="hsladjusttool.anchor"/>
+
+     <para
+>Als uw foto flets is (wat gemakkelijk kan gebeuren als u foto's maakt met helder omgevingslicht) dan kunt u het onderdeel voor Tint/verzadiging/lichtheid proberen, waarin u drie schuifknoppen vindt waarmee u de tint, de verzadiging en de lichtheid kunt bewerken. De foto zal er misschien beter van worden als u het meer verzadiging geeft. In sommige gevallen kan het verstandig zijn om tegelijk de lichtheid aan te passen. ("Lichtheid" hier is vergelijkbaar met "Helderheid" in het hulpmiddel voor Helderheid/Contrast/Gamma, behalve dat er verschillende combinaties van rood, groen en blauw zijn gebruikt). </para>
+
+     <para
+>Wanneer u foto's maakt in slechte licht-omstandigheden dan kan u het tegenovergestelde probleem krijgen: teveel verzadiging. In dat geval komt het hulpmiddel voor Tint/verzadiging weer van pas, in dit geval om de verzadiging niet te vergroten maar te verminderen. U kunt de gemaakte aanpassingen onmiddellijk bestuderen in de voorbeeldweergave. Als u tevreden bent met de resultaten dan kunt u op <guilabel
+>Ok</guilabel
+> drukken zodat de aanpassingen onmiddellijk van toepassing zijn. </para>
+
+     <example
+>  <title
+>Het hulpmiddel voor Tint, Verzadiging en Lichtheid in actie</title>
+         <screenshot
+><screeninfo
+>Het hulpmiddel voor Tint, Verzadiging en Lichtheid in actie</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorhsladjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+ </sect3>
+
+<sect3 id="adjustlevels">
+<sect3info>
+
+<title
+>Niveau aanpassen</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Het <emphasis
+>Niveau Aanpassen </emphasis
+> van &digikam; is een hulpmiddel waarmee u handmatig het histogram van een foto kunt aanpassen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inleiding</title>
+
+<para
+>Geplaatst tussen de meer geraffineerde Curves aanpassen en het eenvoudiger foto bewerken met Helderheid/Contrast/Gamma is dit Niveau aanpassen te vinden. Op het eerste gezicht ziet deze dialoog er ingewikkeld uit maar voor dagelijks gebruik is <guilabel
+>Invoerniveaus</guilabel
+> het enige onderdeel dat van belang is, met name de 3 schuifknoppen die bij het histogram horen. </para>
+
+<para
+>Dit widget toont een grafiek met de intensiteitswaarden van de gekozen laag of selectie (histogram). Onder de grafiek zijn vijf schuifknoppen die u kunt selecteren en daarna verslepen zodat de intensiteit van de foto wijzigt. De linker schuifknoppen zijn voor de donkere plekken en de rechter schuifknoppen zijn voor de lichtere plekken. </para>
+
+<sect4 id="using-adjustlevels">
+<title
+>Het gebruik van Niveau aanpassen</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelsdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Het dialoogvenster Niveau aanpassen</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Eigenlijk is de gemakkelijkste manier om te leren hoe u ze moet gebruiken, is te experimenteren door de stand van de drie schuifknoppen te veranderen en te bekijken hoe de foto erdoor veranderd. </para>
+
+<para
+>Aan de rechterkant zijn voorbeeldweergaven van het origineel en van het resultaat beschikbaar. De voorbeeldweergave van het resultaat wordt dynamisch bijgewerkt wanneer de schuifknoppen een andere stand krijgen. Aan de linkerkant heeft u de volgende keuzemogelijkheden: <itemizedlist>
+
+  <listitem
+><para
+>Niveaus van <guilabel
+>Kanaal</guilabel
+> wijzigen : met dit keuzevakje kunt u het kanaal selecteren dat u gaat wijzigen met de knop: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Lichtkracht</guilabel
+>: deze knop wijzigt de intensiteit van alle pixels in de afbeelding.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Rood</guilabel
+>: deze optie wijzigt de rode verzadiging van alle pixels in de afbeelding.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Groen</guilabel
+>: deze optie wijzigt de groene verzadiging van alle pixels in de afbeelding.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Blauw</guilabel
+>: deze optie wijzigt de blauwe verzadiging van alle pixels in de afbeelding.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: deze optie wijzigt de transparantie van alle pixels in de afbeelding.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Schaal</guilabel
+> instellen: via deze keuzemogelijkheid kunt u instellen of u het histogram ziet met een lineaire of een logaritmische schaal. Voor met een digitale camera gemaakte foto's is meestal de lineaire modus het handigst, maar bij afbeeldingen met daarop grote vlakken met een constante kleur, zal een lineair histogram gedomineerd worden door een enkele piek. In zulke gevallen zal een logaritmisch histogram handiger zijn.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>invoerniveaus</guilabel
+>: met de invoerniveaus kunt u handmatig wijzigingen invoeren voor elk van de bereiken. Het hoofdvak is een grafische representatie van de afbeelding met donkere, grijze en lichte inhoud. Zij zijn op de X-as van het niveau 0 (zwart) tot niveau 255 (wit). De pixelaantallen voor een niveau zijn op de Y-as te vinden. Het oppervlak van de curve stelt alle pixels in de foto van de geselecteerde kleur (histogram) voor. Een goed gebalanceerde foto is een foto met niveaus (kleurtonen) over het hele bereik verspreidt. Een foto met bijvoorbeeld voornamelijk blauwe kleuren, zal een histogram geven dat naar links in het groen en rood is verschoven, wat tot uitdrukking komt in het feit dat groen en rood niet voorkomen in de lichtere plekken. U kunt het bereik op drie manieren wijzigen: <itemizedlist>
+          <listitem
+><para
+>Drie schuifknoppen: de bovenste is voor de donkere tinten, de middelste is voor de lichte tinten, en tenslotte de onderste voor de middentonen (vaak Gamma-waarde genoemd). </para
+></listitem>
+          <listitem
+><para
+>Drie invoervakken om de waarde direct in te voeren. </para
+></listitem>
+          <listitem
+><para
+>Drie knoppen voor kleurselectie uit de originele foto om automatisch de invoer niveaus voor schaduwen, middentonen en lichte plekken in te stellen. Ook is er een volledig automatische knop aanwezig naast de herstel-knop. </para
+></listitem>
+      </itemizedlist>
+  </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Uitvoerniveaus</guilabel
+>: met de uitvoerniveaus kunt u handmatig wijzigingen invoeren voor elk van de bereiken. Hier vindt u ook twee schuifknoppen die u net zo kunt gebruiken als bij de <guilabel
+>Invoerniveaus</guilabel
+>. Deze uitvoerniveau-vermindering kunt u bijvoorbeeld gebruiken om een uitgebleekte foto te creëren die u wilt gebruiken als achtergrond voor een ander onderwerp dat u in de voorgrond plaatst.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Auto</guilabel
+>: deze knop stelt de niveaus automatisch in gebaseerd op de pixel-intensiteit van de afbeelding.</para
+></listitem>
+
+  <listitem
+><para
+>De knoppen <guilabel
+>Opslaan als</guilabel
+> en <guilabel
+>Laden</guilabel
+> zijn precies voor dat doel in gebruik. Alle ingestelde niveaus kunt u opslaan in een bestand en later weer laden. Het gebruikte bestandsformaat is het The Gimp Levels formaat.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Alles herstellen</guilabel
+>: deze knop hersteld voor alle kanalen alle <guilabel
+>Invoerniveaus</guilabel
+> en <guilabel
+>Uitvoerniveaus</guilabel
+> naar de beginwaarden.</para
+></listitem>
+
+</itemizedlist>
+</para>
+
+<para
+>Het hulpmiddel Niveau aanpassen heeft verschillende onderdelen voor het instellen van de controleschuifknoppen voor de invoerniveaus. Door met de muis te klikken in de voorbeeldweergave van het origineel krijgt u een verticale balk in het histogram te zien. De locatie van de balk komt overeen met waarde van het pixel waarboven de muis zweeft in het hoofdvenster. Door het verslepen met de muis kunt u de positie van deze verticale balk bijwerken. Op deze manier is het mogelijk om te zien welke locatie de verschillende pixels in de foto op de controleschuifknoppen hebben en het helpt om de locaties van schaduwen, middentonen en lichte plekken te vinden. </para>
+
+<para
+>Via deze methode en de drie <guilabel
+>Kleurenkiezer</guilabel
+>-knoppen wijzigt u automatisch de instellingen van de controleschuifknoppen voor de invoerniveaus van de schaduw, middentonen en lichte plekken in alle kanalen. Selecteer de kleurenkiezer die u wilt gebruiken en klik op de voorbeeldafbeelding van het origineel om de instellingen van de controleschuifknoppen voor de invoerniveaus van elk van het rode, groene, blauwe en lichtkracht histogramkanaal te wijzigen. </para>
+
+<para
+>De <guilabel
+>Overbelichtingsindicatie</guilabel
+> controleert voor alle kleurkanalen of een pixel is overbelicht, als dat het geval is dan ziet u het gecombineerde resultaat van alle kleurinstellingen. Dit onderdeel geeft alleen een indicatie in de voorbeeldweergave en heeft geen effect in het uiteindelijke resultaat. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustlevels">
+<title
+>Het hulpmiddel Niveau aanpassen in actie</title>
+
+<para
+>Hieronder kunt u een voorbeeld van een aanpassing in <guilabel
+>Invoerniveaus</guilabel
+> voor de kanalen rood/groen/blauw van een afbeelding zien. De intensiteit/alfa kanalen en <guilabel
+>Uitvoerniveaus</guilabel
+> zijn ongewijzigd. De originele foto is (1), De aangepaste foto is (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Het hulpmiddel Niveau aanpassen in actie</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="adjustcurves">
+<sect3info>
+
+<title
+>Curves aanpassen</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+  <para
+>Het <emphasis
+>Curves aanpassen</emphasis
+> van &digikam; is een hulpmiddel voor het niet lineair aanpassen van de lichtkracht en de kleurkanalen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inleiding</title>
+
+<para
+>Het hulpmiddel Curves is het meest geavanceerde gereedschap dat beschikbaar is voor het aanpassen van de tonen in een afbeelding. Start het via het menu Afbeelding bewerken <menuchoice
+><guimenu
+>Kleur</guimenu
+> <guimenuitem
+>Curves aanpassen</guimenuitem
+></menuchoice
+>. U heeft via klikken en het verslepen van controlepunten op de curve de volledige vrijheid om een curve te maken die de invoer helderheid-niveaus omzet naar uitvoer helderheid-niveaus. Het Curves-hulpmiddel kan elk effect dat u met hulpmiddel 'Helderheid/Contrast/Gamma' bereikt of 'Niveaus aanpassen', nabootsen, maar het heeft meer mogelijkheden dan de twee bovengenoemde. Het kan u daarnaast ook helpen bij het in kleine stapjes verbeteren van de grijstonen van uw afbeeldingen. En vergeet niet hoe beter de kwaliteit van de afbeeldingen is (goed belicht, verliesvrij formaat, 24 of 32 bits diep) des te meer kunt u ze verbeteren. Ga voor meer informatie naar de sectie "Achieving ultimate tonal quality" van deze informatieve pagina: <ulink url="http://www.normankoren.com/digital_tonality.html"
+>Tonal quality and dynamic range in digital cameras by Norman Koren</ulink
+>. U kunt hetzelfde bereiken door gebruik te maken van 'Curves aanpassen'! </para>
+<para
+>Dit hulpmiddel laat de curves visueel zien zodat u de intensiteitswaarden van de actieve laag kunt wijzigen, die als een niet lineair histogram te zien zijn. In de modus <guilabel
+>Gladde</guilabel
+> curve kunt u de vorm van de curve wijzigen door meer punten aan de curve toe te voegen of door de eindpunten te verplaatsen. Een andere manier is het handmatig tekenen van de hele curve in de modus <guilabel
+>Vrije</guilabel
+> curve. In beide gevallen is het effect onmiddellijk zichtbaar in de voorbeeldweergave links, de voorbeeldweergave kunt u instellen door op de pictogrammen linksboven te klikken. </para>
+
+<sect4 id="using-adjustcurves">
+<title
+>Curves aanpassen gebruiken</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustcurvesdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Het dialoogvenster Curves aanpassen</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Links zijn de helften van het origineel en van de voorbeeldweergave te zien. De voorbeeldweergave van het resultaat wordt dynamisch bijgewerkt wanneer de schuifknoppen een andere stand krijgen. Rechts kunt u kiezen uit de volgende keuzemogelijkheden: <itemizedlist>
+
+  <listitem
+><para
+>Wijzig <guilabel
+>Kanaal</guilabel
+> : met dit keuzevakje kunt u het kanaal selecteren dat u gaat wijzigen met het hulpmiddel: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Lichtkracht</guilabel
+>: wijzigt de intensiteit van alle pixels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Rood</guilabel
+>: wijzigt de rood verzadiging van alle pixels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Groen</guilabel
+>: wijzigt de groen verzadiging van alle pixels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Blauw</guilabel
+>: wijzigt de blauw verzadiging van alle pixels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: wijzigt de transparantie van alle pixels.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+>Naast dit vierkant ziet u twee pictogrammen voor de keuze tussen een lineair of een logaritmisch histogram. Voor foto's gemaakt met een digitale camera is meestal de lineaire modus het handigst, maar bij afbeeldingen met daarop grote vlakken met een constante kleur, zal een lineair histogram gedomineerd worden door een enkele piek. In zulke gevallen zal een logaritmisch histogram handiger zijn. </para
+></listitem>
+
+  <listitem
+><para
+>Hoofdvak voor curve bewerking: de horizontale balk (x-as) stelt de invoerwaarde voor (de waarde kan variëren van 0 tot 255). De verticale balk (y-as) is alleen een schaal voor de uitvoerkleuren van het geselecteerde kanaal. De regelcurve loopt in het histogram (met een ruitjespatroon) diagonaal. De x/y-locaties van de cursor zijn permanent zichtbaar boven op het ruitjespatroon. Als u op de curve klikt dan voegt u een controlepunt toe. U kunt deze verplaatsen zodat u daarmee bochten in de curve aanbrengt. U voegt ook een controlepunt toe als u naast de curve klikt en de curve neemt deze automatisch op. Elk punt van de curve stelt daarom een 'x' voor vertaald naar een 'y' uitvoer. </para
+></listitem>
+
+  <listitem
+><para
+>Curve <guilabel
+>Type</guilabel
+> voor kanaal: onder het bewerkingsvenster ziet u verschillende pictogrammen die aangeven of u de curve kunt bewerken in de modus <guilabel
+>Gladde</guilabel
+> curve of uit <guilabel
+>Vrije</guilabel
+> hand. Gladde modus beperkt de curve tot een gladde lijn die een realistisch resultaat geeft. In de modus Vrije hand kunt u met de muis de curve tekenen. Met de segmenten verspreidt over het vlak, kunnen verrassende resultaten bereikt worden die nauwelijks herhaalbaar zijn. Een herstel-knop voor de standaardwaarden is ook beschikbaar. </para
+></listitem>
+
+  <listitem
+><para
+>Als u bijvoorbeeld een gedeelte van de curve naar rechts verplaatst, dan kunt u bij lichte plekken zien dat deze lichte plekken donkerder tonen krijgen en dat de afbeeldingspixels die bij dit curve-segment horen donkerder worden. </para
+></listitem>
+
+  <listitem
+><para
+>Bij kleuren-kanalen zal naar rechts verplaatsen de verzadiging verminderen totdat de complementaire kleur is bereikt. Om alle controlepunten te verwijderen (afgezien van de begin en eindpunten) klikt u op de knop <guilabel
+>Herstel waarden</guilabel
+>. Om alleen een punt te verwijderen, versleept u het naar een ander punt. Speel gewoon een beetje met de curves en bestudeer de resultaten. U kunt zelfs de foto solariseren voor een gedeelte van zijn kleurtoon-bereik. Dit gebeurt als de curve voor een gedeelte is geïnverteerd. </para
+></listitem>
+
+  <listitem
+><para
+>De voorbeeldweergave van de originele foto heeft een rode markering. Als u deze markering verplaatst naar de plek die u wilt wijzigen, dan zal er een bijbehorende lijn op het rooster worden getrokken die de originele waarden voorstelt. U kunt vervolgens een controlepunt op deze lijn aanmaken en deze naar wens omhoog of omlaag verplaatsen. </para
+></listitem>
+
+  <listitem
+><para
+>De knoppen <guilabel
+>Opslaan als</guilabel
+> en <guilabel
+>Laden</guilabel
+> zijn precies voor dat doel in gebruik. Alle ingestelde curves kunt u opslaan in een bestand en later weer laden. Het gebruikte bestandsformaat is het The Gimp Curves formaat. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Alles herstellen</guilabel
+>: deze knop hersteld alle curves naar de beginwaarden. </para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>Het dialoogvenster van curves heeft verschillende onderdelen die kunnen helpen bij het positioneren van de punten op de controle-curven. Door met de muis te klikken in de voorbeeldweergave van het origineel krijgt u een verticale balk in het curvevlak te zien. De locatie van de balk komt overeen met waarde van het pixel waarboven de muis zweeft in het hoofdvenster. Door verslepen met de muis kunt u de positie van deze verticale balk bijwerken. Op deze manier is het mogelijk om te zien welke locatie de verschillende pixels in de afbeelding op de control-curve hebben en het helpt om de locaties van schaduwen, middentonen en lichte plekken te vinden. </para>
+
+<para
+>Via deze methode en de drie <guilabel
+>Kleurenkiezer</guilabel
+>-knoppen creëert u automatisch controlepunten op de curve voor schaduw, middentonen en lichte tinten in alle kanalen. Selecteer de kleurenkiezer die u wilt gebruiken en klik op de voorbeeldafbeelding van het origineel om controlepunten voor elk van de rode, groene, blauwe en lichtkracht controle curves aan te maken. </para>
+
+<para
+>De <guilabel
+>Overbelichtingsindicatie</guilabel
+> controleert voor alle kleurkanalen of een pixel is overbelicht, als dat het geval is dan ziet u het gecombineerde resultaat van alle kleurinstellingen. Dit onderdeel geeft alleen een indicatie in de voorbeeldweergave en heeft geen effect in het uiteindelijke resultaat. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustcurves">
+<title
+>Het gebruik van Curves Aanpassen in actie</title>
+
+<para
+>Hieronder kunt u een zwart-witfoto zien die voor <guilabel
+>Lichtkracht</guilabel
+> is gecorrigeerd . U kunt het schaduwtint en het oplichttint pipet gebruiken om de curve vast te stellen die u wilt gebruiken voor het origineel. De originele foto is (1), de aangepaste foto (2). </para>
+
+        <para
+><inlinemediaobject
+><imageobject>
+               <imagedata fileref="&path;adjustcurvespreview.png" format="PNG"/>
+              </imageobject>
+              <textobject
+><phrase
+>Het gebruik van Curves Aanpassen in actie</phrase
+></textobject
+></inlinemediaobject>
+        </para>
+
+
+</sect4>
+</sect3>
+
+<sect3 id="channelmixer">
+<sect3info>
+
+<title
+>Kanaalmixer</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>De <emphasis
+>Kanaalmixer</emphasis
+> van een afbeelding in &digikam; is een hulpmiddel voor het mixen van kleurkanalen om de kleurschakeringen van een afbeelding te verbeteren of te wijzigen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Inleiding</title>
+
+<para
+>De kanaalmixer is een andere geavanceerd hulpmiddel voor het verfijnen van kleurtonen van afbeeldingen. U kunt het starten via het menuitem voor fotobewerking <menuchoice
+><guimenu
+>Kleur</guimenu
+><guimenuitem
+>Kanaalmixer</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-channelmixer">
+<title
+>De Kanaalmixer gebruiken</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Het dialoogvenster Kanaalmixer</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Met de keuzelijst kunt u een histogram per kanaal voor vertoning selecteren. Dit geeft een eerste indruk van hoe u de kanalen kunt corrigeren via hun relatieve verdeling en amplitude. De linker helft van het dialoogvenster geeft altijd een indruk van het resultaat. U kunt voor vergelijking het origineel bekijken door het via zijn eigen tabblad te selecteren. </para>
+
+<para
+>De voorbeeldweergave van de originele afbeelding heeft een rode markering. Als u deze markering ergens op de afbeelding plaatst zal er een bijbehorende balk in het histogram worden weergegeven, die de kleurintensiteit voor het betreffende kleurkanaal weergeeft. </para>
+
+<para
+>U kunt de bediening rechtsonder vinden: met de schuifregelaars <guilabel
+>Rood</guilabel
+>, <guilabel
+>Groen</guilabel
+> en <guilabel
+>Blauw</guilabel
+> is het mogelijk om de kleuren te mengen. Als u <guilabel
+>Lichtkracht behouden</guilabel
+> inschakelt dan zal de foto zijn lichtkracht behouden ondanks dat u de kleurverhouding heeft gewijzigd. Dit is met name handig als u ook <guilabel
+>Monochroom</guilabel
+> heeft ingeschakeld. Omdat de kanaalmixer HET hulpmiddel is om uw foto's naar zwart-wit om te zetten. Probeer voor zwart-wit portretten het groen te reduceren. </para>
+
+<note
+><para
+>Soms kan het gebeuren, met name als u bezig bent met monochroom mixen en een kleur reduceert, dat ruis zichtbaar wordt, waarvan de oorsprong chroma-ruis is. Chroma-ruis houdt in dat de kleine ruis-stippels niet in alle kleurkanalen op dezelfde locatie verschijnen, maar dat de ruispatronen in elk kanaal verschillend zijn. In dat geval kunt u de monochroom omzetting verbeteren door eerst de monochroom ruis te verbeteren. </para
+></note>
+
+<para
+>De knoppen <guilabel
+>Opslaan als</guilabel
+> en <guilabel
+>Laden</guilabel
+> zijn precies voor dat doel in gebruik. Alle mixer-instellingen kunt u opslaan in een bestand en later weer laden. Het gebruikte bestandsformaat is het The Gimp channel mixer formaat. </para>
+
+<para
+>De <guilabel
+>Overbelichtingsindicatie</guilabel
+> controleert voor alle kleurkanalen of een pixel is overbelicht, als dat het geval is dan ziet u het gecombineerde resultaat van alle kleurinstellingen. Dit onderdeel geeft alleen een indicatie in de voorbeeldweergave en heeft geen effect op het uiteindelijke resultaat. </para>
+
+<para
+><guilabel
+>Alles herstellen</guilabel
+>: deze knop hersteld alle kanaalmixer-instellingen naar de beginwaarden. </para>
+
+</sect4>
+
+<sect4 id="inaction-channelmixer">
+<title
+>De kanaalmixer in actie</title>
+
+<para
+>Hieronder ziet u aanpassingen voor de kleurtonen van een foto voor het <guilabel
+>Blauw</guilabel
+> kanaal. <guilabel
+>Lichtkracht behouden</guilabel
+> is ingeschakeld. De originele afbeelding is (1), de aangepaste afbeelding (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>De kanaalmixer in actie</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="blackandwhite-conversion">
+<sect3info
+>           <title
+>Zwart-wit conversie-filters</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>Zwart-wit fotografie is altijd fascinerend geweest vanwege de abstractie daarvan. Met de komst van digitale fotografie, is zwart-wit bijna een desktop-activiteit geworden, omdat u kleurenfoto's op de computer zo makkelijk naar zwart-wit kunt omzetten, waarbij u ze zelfs eigenschappen van een oude film kunt geven. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Inleiding</title>
+    <anchor id="blackandwhitetool.anchor"/>
+    <para
+>&digikam; komt met een aantal zwart-wit filters die u voor uw foto's kunt gebruiken. Via het menu <menuchoice
+><guimenuitem
+>Filters</guimenuitem
+><guimenuitem
+>Zwart-wit</guimenuitem
+></menuchoice
+> vindt u klassieke chemische zwart-wit tonen zoals gebruikt in de analoge fotografie. De knoppen zijn verdeeld over drie tabbladen: <emphasis
+>Film, Lensfilters, Toon</emphasis
+> en <emphasis
+>Lichtkracht</emphasis
+> zoals u op de schermafdruk hieronder kunt zien. Film, filters en kleurtonen kunt u onafhankelijk van elkaar gebruiken (boven op elkaar). Het filter beïnvloedt eigenlijk de RGB kanaal-verhoudingen, waarbij de kleurtonen alleen een uniforme monochromatische tint aan de zwart-wit foto toevoegt. Onder het tabblad voor lichtkracht kunt u een knop vinden om de tonen aan te passen (voor het aanpassen van de curve), een knop voor de contrast en een Overbelichtingsindicatie waarmee u kunt proberen de zwart-wit weergave te verbeteren. </para>
+      <example
+>  <title
+>Het zwart-wit conversie-filter in actie</title>
+        <screenshot
+><screeninfo
+>Het zwart-wit conversie-filter in actie</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbwfilter.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+      </example>
+
+    <para
+>De onderstaande tabel toont in meer detail het effect van alle filters en tinten.</para>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Voorbeeld</entry
+>        <entry
+>Emulatie van fotografische film</entry>
+    </row
+></thead>
+    <tbody>
+
+        <row>
+            <entry>
+              <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry>
+              <para
+>Specifieke instellingen voor de emulatie van een aantal beroemde zwart-wit fotografische films zijn beschikbaar:</para>
+              <para
+>Agfa 200X, Agfa Pan 25, Agfa Pan 100, Agfa Pan 400</para>
+              <para
+>Ilford Delta 100, Ilford Delta 400, Ilford Delta 400 Pro 3200, Ilford FP4 Plus, Ilford HP5 Plus, Ilford PanF Plus, Ilford XP2 Super</para>
+              <para
+>Kodak Tmax 100, Kodak Tmax 400, Kodak TriX</para>
+            </entry>
+        </row>
+    </tbody>
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+     <thead
+><row>
+        <entry
+>Voorbeeld</entry>
+        <entry
+>Type lensfilter</entry>
+     </row
+></thead>
+       <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_original.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Oorspronkelijke kleurenfoto, genomen in Nieuw Zeeland. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bw.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Neutraal: bootst zwart-wit neutrale filmbelichting na. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwgreen.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+           <entry
+>Groen filter: bootst zwart-wit film met belichting via een groen filter na. Dit werkt goed bij schilderachtige foto's, speciaal bij portretten met een blauwe lucht (vergelijkbaar met het 004 Cokin(tm) Green filter). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bworange.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Oranje filter: bootst zwart-wit film met belichting via een oranje filter na. Dit werkt goed bij landschappen, zeegezichten en luchtfotografie (vergelijkbaar met het 002 Cokin(tm) Orange filter). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Rood filter: bootst zwart-wit film met belichting via een rood filter na. Dit geeft dramatische luchten en bootst maanlicht scenes na bij daglicht (vergelijkbaar met het 003 Cokin(tm) Red filter). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwyellow.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Geel filter: bootst zwart-wit film met belichting via een geel filter na. Dit is de meest natuurlijke tonale correctie en verhoogt het contrast. Ideaal voor landschappen (vergelijkbaar met het 001 Cokin(tm) Yellow filter). </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Voorbeeld</entry
+>        <entry
+>Kleurtint</entry>
+    </row
+></thead>
+
+      <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_sepia.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Sepiatoon: geeft warmte in witte delen en tussentonen terwijl het een beetje koelte in de schaduw geeft - vergelijkbaar met het proces van het bleken van een afdruk en opnieuw ontwikkelen in een sepia kleurstof (normaal voor de foto's van uw grootmoeder). Vergelijkbaar met het 005 Cokin(tm) Sepia filter. </entry>
+        </row>
+
+         <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_brown.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Bruintoon: dit filter is neutraler dan het sepia toonfilter. </entry>
+        </row>
+
+       <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_cold.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Koudetoon: start een subtiele afdruk op koudetoon zwart-wit papier zoals bromide-vergrotingspapier. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_platinium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Platinatoon: Dit effect geeft een traditionele platinatoonafdruk die chemisch werd aangebracht in de donkere kamer. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_selenium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Seleniumtoon: Dit effect geeft een traditionele seleniumtoonafdruk die chemisch werd aangebracht in de donkere kamer. </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+</sect3>
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

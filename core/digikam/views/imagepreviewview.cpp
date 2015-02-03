@@ -6,7 +6,7 @@
  * Date        : 2006-21-12
  * Description : a embedded view to show the image preview widget.
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2010-2011 by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  *
@@ -31,6 +31,9 @@
 #include <QGraphicsSceneContextMenuEvent>
 #include <QMouseEvent>
 #include <QToolBar>
+#include <QDragMoveEvent>
+#include <QDropEvent>
+#include <QDragEnterEvent>
 
 // KDE includes
 
@@ -52,8 +55,10 @@
 
 // Local includes
 
+#include "imagepreviewviewitem.h"
 #include "albumsettings.h"
 #include "contextmenuhelper.h"
+#include "ddragobjects.h"
 #include "digikamapp.h"
 #include "dimg.h"
 #include "dimgpreviewitem.h"
@@ -71,61 +76,6 @@
 
 namespace Digikam
 {
-
-class ImagePreviewViewItem : public DImgPreviewItem
-{
-public:
-
-    explicit ImagePreviewViewItem(ImagePreviewView* const view)
-        : m_view(view), m_group(0)
-    {
-        setAcceptHoverEvents(true);
-    }
-
-    void setFaceGroup(FaceGroup* group)
-    {
-        m_group = group;
-    }
-
-    void contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
-    {
-        m_view->showContextMenu(m_info, event);
-    }
-
-    void setImageInfo(const ImageInfo& info)
-    {
-        m_info = info;
-        setPath(info.filePath());
-    }
-
-    void hoverEnterEvent(QGraphicsSceneHoverEvent* e)
-    {
-        m_group->itemHoverEnterEvent(e);
-    }
-
-    void hoverLeaveEvent(QGraphicsSceneHoverEvent* e)
-    {
-        m_group->itemHoverLeaveEvent(e);
-    }
-
-    void hoverMoveEvent(QGraphicsSceneHoverEvent* e)
-    {
-        m_group->itemHoverMoveEvent(e);
-    }
-
-    ImageInfo imageInfo() const
-    {
-        return m_info;
-    }
-
-protected:
-
-    ImagePreviewView* m_view;
-    FaceGroup*        m_group;
-    ImageInfo         m_info;
-};
-
-// ---------------------------------------------------------------------
 
 class ImagePreviewView::Private
 {
@@ -148,6 +98,7 @@ public:
         peopleToggleAction  = 0;
         addPersonAction     = 0;
         faceGroup           = 0;
+        forgetFacesAction   = 0;
         mode                = ImagePreviewView::IconViewPreview;
     }
 
@@ -178,8 +129,8 @@ public:
 ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     : GraphicsDImgView(parent), d(new Private)
 {
-    d->mode = mode;
-    d->item = new ImagePreviewViewItem(this);
+    d->mode      = mode;
+    d->item      = new ImagePreviewViewItem();
     setItem(d->item);
 
     d->faceGroup = new FaceGroup(this);
@@ -193,6 +144,9 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     connect(d->item, SIGNAL(loadingFailed()),
             this, SLOT(imageLoadingFailed()));
 
+    connect(d->item, SIGNAL(showContextMenu(QGraphicsSceneContextMenuEvent*)),
+            this, SLOT(slotShowContextMenu(QGraphicsSceneContextMenuEvent*)));
+
     // set default zoom
     layout()->fitToWindow();
 
@@ -204,17 +158,17 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
 
     // ------------------------------------------------------------
 
-    d->escapePreviewAction   = new QAction(SmallIcon("folder-image"),        i18n("Escape preview"),                 this);
-    d->prevAction         = new QAction(SmallIcon("go-previous"),         i18nc("go to previous image", "Back"),  this);
-    d->nextAction         = new QAction(SmallIcon("go-next"),             i18nc("go to next image", "Forward"),   this);
-    d->rotLeftAction      = new QAction(SmallIcon("object-rotate-left"),  i18nc("@info:tooltip", "Rotate Left"),  this);
-    d->rotRightAction     = new QAction(SmallIcon("object-rotate-right"), i18nc("@info:tooltip", "Rotate Right"), this);
-    d->addPersonAction    = new QAction(SmallIcon("list-add-user"),       i18n("Add a Face Tag"),                 this);
-    d->forgetFacesAction  = new QAction(SmallIcon("list-remove-user"),    i18n("Clear all faces on this image"),  this);
-    d->peopleToggleAction = new KToggleAction(i18n("Show Face Tags"),                                             this);
+    d->escapePreviewAction = new QAction(SmallIcon("folder-image"),        i18n("Escape preview"),                 this);
+    d->prevAction          = new QAction(SmallIcon("go-previous"),         i18nc("go to previous image", "Back"),  this);
+    d->nextAction          = new QAction(SmallIcon("go-next"),             i18nc("go to next image", "Forward"),   this);
+    d->rotLeftAction       = new QAction(SmallIcon("object-rotate-left"),  i18nc("@info:tooltip", "Rotate Left"),  this);
+    d->rotRightAction      = new QAction(SmallIcon("object-rotate-right"), i18nc("@info:tooltip", "Rotate Right"), this);
+    d->addPersonAction     = new QAction(SmallIcon("list-add-user"),       i18n("Add a Face Tag"),                 this);
+    d->forgetFacesAction   = new QAction(SmallIcon("list-remove-user"),    i18n("Clear all faces on this image"),  this);
+    d->peopleToggleAction  = new KToggleAction(i18n("Show Face Tags"),                                             this);
     d->peopleToggleAction->setIcon(SmallIcon("user-identity"));
 
-    d->toolBar = new QToolBar(this);
+    d->toolBar             = new QToolBar(this);
 
     if (mode == IconViewPreview)
     {
@@ -291,10 +245,8 @@ void ImagePreviewView::imageLoaded()
 
     d->faceGroup->setInfo(d->item->imageInfo());
 
-    connect(d->item,
-            SIGNAL(imageChanged()),
-            this,
-            SLOT(slotUpdateFaces()));
+    connect(d->item, SIGNAL(imageChanged()),
+            this, SLOT(slotUpdateFaces()));
 }
 
 void ImagePreviewView::imageLoadingFailed()
@@ -359,8 +311,10 @@ void ImagePreviewView::showEvent(QShowEvent* e)
     d->faceGroup->setVisible(d->peopleToggleAction->isChecked());
 }
 
-void ImagePreviewView::showContextMenu(const ImageInfo& info, QGraphicsSceneContextMenuEvent* event)
+void ImagePreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event)
 {
+    ImageInfo info = d->item->imageInfo();
+
     if (info.isNull())
     {
         return;
@@ -561,6 +515,56 @@ void Digikam::ImagePreviewView::slotUpdateFaces()
      * Release rotation lock after rotation
      */
     d->rotationLock = false;
+}
+
+void ImagePreviewView::dragMoveEvent(QDragMoveEvent* e)
+{
+    if (DTagListDrag::canDecode(e->mimeData()))
+    {
+        e->accept();
+        return;
+    }
+
+    e->ignore();
+}
+
+void ImagePreviewView::dragEnterEvent(QDragEnterEvent* e)
+{
+  if (DTagListDrag::canDecode(e->mimeData()))
+    {
+        e->accept();
+        return;
+    }
+
+    e->ignore();
+}
+
+void ImagePreviewView::dropEvent(QDropEvent* e)
+{
+    if (DTagListDrag::canDecode(e->mimeData()))
+    {
+        QList<int> tagIDs;
+
+        if (!DTagListDrag::decode(e->mimeData(), tagIDs))
+        {
+            return;
+        }
+
+        KMenu popMenu(this);
+        QAction* assignToThisAction = popMenu.addAction(SmallIcon("tag"), i18n("Assign Tags to &This Item"));
+        popMenu.addSeparator();
+        popMenu.addAction(SmallIcon("dialog-cancel"), i18n("&Cancel"));
+        popMenu.setMouseTracking(true);
+        QAction* const choice = popMenu.exec(this->mapToGlobal(e->pos()));
+
+        if(choice==assignToThisAction)
+        {
+            FileActionMngr::instance()->assignTags(d->item->imageInfo(),tagIDs);
+        }
+    }
+
+    e->accept();
+    return;
 }
 
 }  // namespace Digikam

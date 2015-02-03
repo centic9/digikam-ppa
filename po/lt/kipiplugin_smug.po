@@ -1,13 +1,14 @@
 # Lithuanian translations for kipiplugins_smug package.
-# Andrius Štikonas <stikonas@gmail.com>, 2009.
 #
+# Andrius Štikonas <andrius@stikonas.eu>, 2009.
+# Liudas Ališauskas <liudas@aksioma.lt>, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_smug\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-01-31 03:27+0100\n"
-"PO-Revision-Date: 2009-01-18 17:37+0200\n"
-"Last-Translator: Andrius Štikonas <stikonas@gmail.com>\n"
+"POT-Creation-Date: 2013-10-30 01:30+0000\n"
+"PO-Revision-Date: 2014-03-16 21:06+0200\n"
+"Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
 "Language: lt\n"
 "MIME-Version: 1.0\n"
@@ -15,45 +16,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
 "%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr ""
+msgstr "Liudas Ališauskas"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr ""
+msgstr "liudas@akmc.lt"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_smugui.rc:6
 msgid "&Import"
-msgstr ""
+msgstr "&Importuoti"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_smugui.rc:10
 msgid "&Export"
-msgstr ""
+msgstr "&Eksportuoti"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_smugui.rc:16
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Pagrindinė įrankinė"
 
 #: plugin_smug.cpp:107
 msgid "Export to &SmugMug..."
-msgstr ""
+msgstr "Eksportuoti į SmugMug..."
 
 #: plugin_smug.cpp:118
 msgid "Import from &SmugMug..."
-msgstr ""
+msgstr "Importuoti iš SmugMug..."
 
 #: smugalbum.cpp:52
 msgid "SmugMug New Album"
-msgstr ""
+msgstr "SmugMug naujas albumas"
 
 #: smugalbum.cpp:64 smugwidget.cpp:119
 msgid "Album"
-msgstr ""
+msgstr "Albumas"
 
 #: smugalbum.cpp:66
 msgid "These are basic settings for the new SmugMug album."
@@ -61,7 +63,7 @@ msgstr ""
 
 #: smugalbum.cpp:70
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Pavadinimas albumo, kuris bus sukurtas (privaloma)."
 
 #: smugalbum.cpp:75
 msgid "Category of the album that will be created (required)."
@@ -73,7 +75,7 @@ msgstr ""
 
 #: smugalbum.cpp:84
 msgid "Description of the album that will be created (optional)."
-msgstr ""
+msgstr "Aprašymas albumo, kuris bus sukurtas (privaloma)."
 
 #: smugalbum.cpp:89
 msgid "Album template for the new album (optional)."
@@ -82,12 +84,12 @@ msgstr ""
 #: smugalbum.cpp:92
 msgctxt "new smug album dialog"
 msgid "Title:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: smugalbum.cpp:93
 msgctxt "new smug album dialog"
 msgid "Category:"
-msgstr ""
+msgstr "Kategorija:"
 
 #: smugalbum.cpp:94
 msgctxt "new smug album dialog"
@@ -97,12 +99,12 @@ msgstr ""
 #: smugalbum.cpp:95
 msgctxt "new smug album dialog"
 msgid "Description:"
-msgstr ""
+msgstr "Aprašymas:"
 
 #: smugalbum.cpp:96
 msgctxt "new smug album dialog"
 msgid "Template:"
-msgstr ""
+msgstr "Šablonas:"
 
 #: smugalbum.cpp:104
 msgid "Security && Privacy"
@@ -115,7 +117,7 @@ msgstr ""
 #: smugalbum.cpp:108
 msgctxt "smug album privacy"
 msgid "Public"
-msgstr ""
+msgstr "Viešas"
 
 #: smugalbum.cpp:111
 msgid "Public album is listed on your public SmugMug page."
@@ -140,11 +142,11 @@ msgstr ""
 
 #: smugalbum.cpp:129
 msgid "Privacy:"
-msgstr ""
+msgstr "Privatumas:"
 
 #: smugalbum.cpp:130
 msgid "Password:"
-msgstr ""
+msgstr "Slaptažodis:"
 
 #: smugalbum.cpp:131
 msgid "Password Hint:"
@@ -154,17 +156,17 @@ msgstr ""
 msgid "Logging in to SmugMug service..."
 msgstr ""
 
-#: smugtalker.cpp:501
+#: smugtalker.cpp:493
 msgid "Login failed"
-msgstr ""
+msgstr "Prisijungimas nepavyko"
 
-#: smugtalker.cpp:504
+#: smugtalker.cpp:496
 msgid "Invalid user/nick/password"
 msgstr ""
 
-#: smugtalker.cpp:507
+#: smugtalker.cpp:499
 msgid "Invalid API key"
-msgstr ""
+msgstr "Neteisingas API raktas"
 
 #: smugwidget.cpp:73
 msgid "This is the list of images to upload to your SmugMug account."
@@ -177,7 +179,7 @@ msgstr ""
 
 #: smugwidget.cpp:86
 msgid "Account"
-msgstr ""
+msgstr "Paskyra"
 
 #: smugwidget.cpp:88
 msgid "This is the SmugMug account that will be used to authenticate."
@@ -186,7 +188,7 @@ msgstr ""
 #: smugwidget.cpp:91
 msgctxt "smug account login"
 msgid "Anonymous"
-msgstr ""
+msgstr "Anonimas"
 
 #: smugwidget.cpp:93
 msgid "Login as anonymous to SmugMug web service."
@@ -203,16 +205,16 @@ msgstr ""
 #: smugwidget.cpp:99
 msgctxt "smug account settings"
 msgid "Name:"
-msgstr ""
+msgstr "Pavadinimas:"
 
 #: smugwidget.cpp:101
 msgctxt "smug account settings"
 msgid "Email:"
-msgstr ""
+msgstr "El. paštas:"
 
 #: smugwidget.cpp:103
 msgid "Change Account"
-msgstr ""
+msgstr "Keisti paskyrą"
 
 #: smugwidget.cpp:104
 msgid "Change SmugMug Account used to authenticate"
@@ -224,7 +226,7 @@ msgstr ""
 
 #: smugwidget.cpp:125
 msgid "Nickname:"
-msgstr ""
+msgstr "Slapyvardis:"
 
 #: smugwidget.cpp:128
 msgid "Nickname of SmugMug user to list albums."
@@ -248,7 +250,7 @@ msgstr ""
 
 #: smugwidget.cpp:138
 msgid "New Album"
-msgstr ""
+msgstr "Naujas albumas"
 
 #: smugwidget.cpp:139
 msgid "Create new SmugMug album"
@@ -257,15 +259,15 @@ msgstr ""
 #: smugwidget.cpp:140
 msgctxt "reload album list"
 msgid "Reload"
-msgstr ""
+msgstr "Įkelti iš naujo"
 
 #: smugwidget.cpp:141
 msgid "Reload album list"
-msgstr ""
+msgstr "Įkelti iš naujo albumo sąrašą"
 
 #: smugwidget.cpp:155
 msgid "Destination"
-msgstr ""
+msgstr "Tikslas"
 
 #: smugwidget.cpp:156
 msgid "This is the location where SmugMug images will be downloaded."
@@ -273,7 +275,7 @@ msgstr ""
 
 #: smugwidget.cpp:163
 msgid "Options"
-msgstr ""
+msgstr "Parinktys"
 
 #: smugwidget.cpp:164
 msgid "These are options that will be applied to images before upload."
@@ -281,15 +283,15 @@ msgstr ""
 
 #: smugwidget.cpp:168
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Pakeisti paveikslėlių dydį prieš įkeliant"
 
 #: smugwidget.cpp:178
 msgid "Maximum dimension:"
-msgstr ""
+msgstr "Didžiausi išmatavimai:"
 
 #: smugwidget.cpp:186
 msgid "JPEG quality:"
-msgstr ""
+msgstr "JPEG kokybė:"
 
 #: smugwindow.cpp:94
 msgid "Import from SmugMug Web Service"
@@ -297,7 +299,7 @@ msgstr ""
 
 #: smugwindow.cpp:96
 msgid "Start Download"
-msgstr ""
+msgstr "Pradėti atsisiuntimą"
 
 #: smugwindow.cpp:97
 msgid "Start download from SmugMug web service"
@@ -309,7 +311,7 @@ msgstr ""
 
 #: smugwindow.cpp:104
 msgid "Start Upload"
-msgstr ""
+msgstr "Pradėti įkėlimą"
 
 #: smugwindow.cpp:105
 msgid "Start upload to SmugMug web service"
@@ -334,11 +336,11 @@ msgstr ""
 
 #: smugwindow.cpp:135
 msgid "Luka Renko"
-msgstr ""
+msgstr "Luka Renko"
 
 #: smugwindow.cpp:135
 msgid "Author and maintainer"
-msgstr ""
+msgstr "Autorius ir prižiūrėtojas"
 
 #: smugwindow.cpp:144
 msgid ""
@@ -358,7 +360,7 @@ msgstr ""
 
 #: smugwindow.cpp:652 smugwindow.cpp:678
 msgid "%v / %m"
-msgstr ""
+msgstr "%v / %m"
 
 #: smugwindow.cpp:656
 msgid "Smug Import"
@@ -370,7 +372,7 @@ msgstr ""
 
 #: smugwindow.cpp:761 smugwindow.cpp:774
 msgid "Cannot open file"
-msgstr ""
+msgstr "Nepavyksta atverti failo"
 
 #: smugwindow.cpp:798
 #, kde-format
@@ -385,6 +387,8 @@ msgid ""
 "Failed to save photo: %1\n"
 "Do you want to continue?"
 msgstr ""
+"Nepavyko išsaugoti paveikslėlio: %1\n"
+"Ar norite tęsti?"
 
 #: smugwindow.cpp:872
 #, kde-format
@@ -392,3 +396,5 @@ msgid ""
 "Failed to download photo: %1\n"
 "Do you want to continue?"
 msgstr ""
+"Nepavyko atsiųsti paveikslėlio: %1\n"
+"Ar norite tęsti?"

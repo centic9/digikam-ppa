@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_jpeglossless\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-02-27 02:34+0100\n"
-"PO-Revision-Date: 2013-03-14 15:29+0100\n"
+"PO-Revision-Date: 2013-10-27 22:41+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -54,7 +54,7 @@ msgstr "Prevrátiť zvisle"
 
 #: plugin/plugin_jpeglossless.cpp:244
 msgid "Auto Rotate/Flip Using Exif Information"
-msgstr ""
+msgstr "Automaticky otočiť/prevrátiť pomocou Exif informácie"
 
 #: plugin/plugin_jpeglossless.cpp:254
 msgid "Convert to Black && White"
@@ -82,152 +82,135 @@ msgid "left (counterclockwise)"
 msgstr "vľavo (proti smeru hodinových ručičiek)"
 
 #: plugin/plugin_jpeglossless.cpp:313
-#, fuzzy
 msgid "using Exif orientation tag"
-msgstr "Opraviť Exif štítok orientácie"
+msgstr "pomocou značky Exif orientácie"
 
 #: plugin/plugin_jpeglossless.cpp:332
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rotate images %1"
-msgstr "Obrázky EXR"
+msgstr "Otočiť obrázky %1"
 
 #: plugin/plugin_jpeglossless.cpp:349
 msgid ""
 "<p>Are you sure you wish to convert the selected image(s) to black and "
 "white? This operation <b>cannot</b> be undone.</p>"
 msgstr ""
+"<p>Určite chcete previesť vybraný obrázok (obrázky) na čiernobiele? Táto "
+"operácia sa <b>nedá</b> vrátiť.</p>"
 
 #: plugin/plugin_jpeglossless.cpp:363
-#, fuzzy
 msgid "Convert images to black & white"
-msgstr "Prehodiť čiernu na bielu, ostatné na čiernu"
+msgstr "Previesť obrázky do čiernobielej"
 
 #: plugin/plugin_jpeglossless.cpp:399
-#, fuzzy, kde-format
+#, kde-format
 msgid "Rotating Image \"%1\""
-msgstr "Transformovať obrázok"
+msgstr "Otáčam obrázok \"%1\""
 
 #: plugin/plugin_jpeglossless.cpp:404
-#, fuzzy, kde-format
+#, kde-format
 msgid "Flipping Image \"%1\""
-msgstr "Transformovať obrázok"
+msgstr "Prevraciam obrázok \"%1\""
 
 #: plugin/plugin_jpeglossless.cpp:409
-#, fuzzy, kde-format
+#, kde-format
 msgid "Converting to Black & White \"%1\""
-msgstr "Previesť na čiernobielu"
+msgstr "Prevádzam na čiernobielu \"%1\""
 
 #: plugin/plugin_jpeglossless.cpp:432
-#, fuzzy
 msgid "Rotate image complete"
-msgstr "Modul rotácia obrázkov"
+msgstr "Otočenie obrázku hotové"
 
 #: plugin/plugin_jpeglossless.cpp:437
-#, fuzzy
 msgid "Flip image complete"
-msgstr "Automaticky otočiť/preklopiť obrázok"
+msgstr "Prevrátenie obrázku hotové"
 
 #: plugin/plugin_jpeglossless.cpp:442
-#, fuzzy
 msgid "Convert to Black & White complete"
-msgstr "Prehodiť čiernu na bielu, ostatné na čiernu"
+msgstr "Prevod na čiernobielu hotový"
 
 #: plugin/plugin_jpeglossless.cpp:468
-#, fuzzy
 msgid "Failed to Rotate image"
-msgstr "Nepodarilo sa načítať obrázok"
+msgstr "Zlyhalo otočenie obrázku"
 
 #: plugin/plugin_jpeglossless.cpp:473
-#, fuzzy
 msgid "Failed to Flip image"
-msgstr "Nepodarilo sa načítať obrázok"
+msgstr "Zlyhalo prevrátenie obrázku"
 
 #: plugin/plugin_jpeglossless.cpp:478
 msgid "Failed to convert image to Black & White"
-msgstr ""
+msgstr "Zlyhal prevod obrázku do čiernobielej"
 
 #: plugin/utils.cpp:88
-#, fuzzy
 msgid "unable to open source file"
-msgstr "Nie je možné otvoriť uzamknutý súbor."
+msgstr "nemôžem otvoriť zdrojový súbor"
 
 #: plugin/utils.cpp:119 plugin/utils.cpp:149
-#, fuzzy
 msgid "unable to open temp file"
-msgstr "Nie je možné otvoriť uzamknutý súbor."
+msgstr "nemôžem otvoriť dočasný súbor"
 
 #: plugin/utils.cpp:134
 msgid "Cannot rotate: unable to open temp file"
-msgstr ""
+msgstr "Nemôžem otočiť: nemôžem otvoriť dočasný súbor"
 
 #: plugin/utils.cpp:199
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cannot update metadata: %1"
-msgstr "Nie je možné určiť meta dáta"
+msgstr "Nemôžem aktualizovať metadáta: %1"
 
 #: transform/convert2grayscale.cpp:92 transform/convert2grayscale.cpp:174
 #: transform/imageflip.cpp:87 transform/imagerotate.cpp:88
 #: transform/jpegtransform.cpp:228 transform/jpegtransform.cpp:335
-#, fuzzy
 msgid "Error in opening input file"
-msgstr "Chyba pri otváraní XML súboru '<b>%1</b>' pre vstup."
+msgstr "Chyba otvárania vstupného súboru"
 
 #: transform/convert2grayscale.cpp:98 transform/imageflip.cpp:93
 #: transform/imagerotate.cpp:96
-#, fuzzy
 msgid "Error in opening temporary file"
-msgstr "Chyba pri vytváraní dočasného súboru so skriptom"
+msgstr "Chyba otvárania dočasného súboru"
 
 #: transform/convert2grayscale.cpp:111
 msgid "Cannot convert to gray scale RAW file"
-msgstr ""
+msgstr "Nemôžem previesť do šedej škály RAW súbor"
 
 #: transform/convert2grayscale.cpp:136 transform/imageflip.cpp:131
 #: transform/imagerotate.cpp:137
-#, fuzzy
 msgid "Cannot update source image"
-msgstr "Prosím určte zdrojový obrázok."
+msgstr "Nemôžem aktualizovať zdrojový súbor"
 
 #: transform/convert2grayscale.cpp:182 transform/jpegtransform.cpp:250
 #: transform/jpegtransform.cpp:345
-#, fuzzy
 msgid "Error in opening output file"
-msgstr "Chyba pri otváraní výstupného súboru."
+msgstr "Chyba otvárania výstupného súboru"
 
 #: transform/convert2grayscale.cpp:278
 #, kde-format
 msgid "Cannot convert to gray scale: %1"
-msgstr ""
+msgstr "Nemôžem previesť do šedej škály: %1"
 
 #: transform/imageflip.cpp:106 transform/imagerotate.cpp:109
-#, fuzzy
 msgid "Cannot rotate RAW file"
-msgstr "Nie je možné odoslať neuložený súbor"
+msgstr "Nemôžem otočiť RAW súbor"
 
 #: transform/imageflip.cpp:157 transform/imageflip.cpp:186
-#, fuzzy
 msgid "Nonstandard flip action"
-msgstr "Nastavenie dialógu akcií"
+msgstr "Neštandardná akcia prevrátenia"
 
 #: transform/imageflip.cpp:219
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cannot flip: %1"
-msgstr "Preklopiť zvisle"
+msgstr "Nemôžem prevrátiť: %1"
 
 #: transform/imagerotate.cpp:173 transform/imagerotate.cpp:213
-#, fuzzy
 msgid "Nonstandard rotation angle"
-msgstr "Vyberte uhol rotácie..."
+msgstr "Neštandardný uhol otočenia"
 
 #: transform/imagerotate.cpp:246
-#, fuzzy, kde-format
+#, kde-format
 msgid "Cannot rotate: %1"
-msgstr "Otočiť v smere hodin"
+msgstr "Nemôžem otočiť: %1"
 
 #: transform/jpegtransform.cpp:260 transform/jpegtransform.cpp:270
-#, fuzzy, kde-format
+#, kde-format
 msgid "The JPEG library reported an error: %1"
-msgstr ""
-"Ukončenie aplikácie %1 zlyhalo. Oznámená chyba:\n"
-"\n"
-"     %2 : %3"
+msgstr "JPEG knižnica oznámila chybu: %1"

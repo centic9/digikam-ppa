@@ -1,0 +1,292 @@
+ <sect1 id="using-fileformatsupport"
+>  <title
+>Toetatud failivormingud</title>
+
+        <para
+>&digikam; tugineb pildivormingute laadimisel ja salvestamisel mitmele teegile ja tugipaketile. See, milliseid pildivorminguid kasutada saab, sõltub nende saadaolekust sinu süsteemis ning mõnel juhul isegi sellest, kuidas teegid on kompileeritud. Enamikus süsteemides peaks &digikam; võimaldama kasutada väga paljusid pildivorminguid. </para>
+
+        <para
+>Sõltuvus teistest teekidest tähendab, et me ei saa anda täielikku nimekirja, millised pildivormingud on just sinu süsteemis toetatud. Üldiselt peaks olema alati toetatud vähemalt JPEG-, PNG- ja TIFF-vorming. </para>
+
+        <para
+>&digikam; näitab ainult selliseid faile, mille vorming on talle arusaadav. Selleks uuritakse faililaiendit ja kontrollitakse seda etteantud nimekirjaga. Kui faililaiend on nimekirjas, näitab &digikam; vastavat faili pildivaates. Faililaiendite nimekirja, mida &digikam; kasutab, saab ka muuta - sellest kõneleb lähemalt osa <link linkend="using-setup"
+>Seadistamine</link
+>. </para>
+
+        <sect2
+>        <title
+>Fotovormingud</title>
+
+            <sect3
+>            <title
+>Sissejuhatus</title>
+
+                <para
+>Peaaegu kõik digikaamerad salvestavad fotod kas JPEG- või TIFF-vormingus. Paljud kaamerad lubavad sul endal valida, millist vormingut kasutada. Täpsemalt kirjeldab neid failivorminguid <ulink url="http://en.wikipedia.org/wiki/Graphics_file_format"
+>Wikipedia</ulink
+>. &digikam; toetab mõlemat vormingut. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>Fotode tihendus</title>
+
+                <para
+>Piltide tihendus tähendab andmetihenduse skeemide rakendamist digipiltidele. Seda tehakse pildiandmete liiasust vähendades, et salvestada või edastada andmeid tõhusamal kujul. </para>
+
+                <para
+>Pilditihendus võib olla kadudeta või kadudega. Kadudeta tihendusmeetodid on mõistagi eelistatud piltide säilitamisel, enne kui neid hakatakse muutma, näiteks kärpima, suurust muutma, värvi parandama &etc; Nimelt tekitavad kadudega tihendusmeetodid eriti vähese bitisügavuse korral ebameeldivaid artefakte. Kadudega meetodid sobivad sellistele piltidele ja fotodele, kus mõnigi kord silmale peaaegu nähtamatu kvaliteedikadu on mööndav. Näiteks on kadudega tihendus üsna mõistlik internetis avaldavatel fotodel. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>JPEG</title>
+                <para
+>JPEG on tihendusvorming, mis loovutab teatud määral kvaliteeti failisuuruse nimel. Õigupoolest salvestabki enamik kaameraid pildid just selles vormingus, kui sa spetsiaalselt teisiti ei määra. JPEG kujutab endast kadudega tihendust, kuid tihenduse tase võib olla üsna erinev. See võimaldab valida väiksema tihenduse ja parema kvaliteedi ning suurema tihenduse ja kehvema kvaliteedi vahel. Suurema tihenduse kasutamise eeliseks on failide väiksem suurus, mis lubab salvestada rohkem pilte, samuti on väiksemaid faile hõlpsam saata e-kirjaga või avaldada veebis. Enamik kaameraid pakub salvestamiseks kaks-kolm võimalust, mis enamasti kannavad nimetusi hea, parem ja parim või midagi sellist. </para>
+		<para
+>Toetatud on ka JPEG 2000. See tagab enamasti JPEG-ga samasuguse tihenduse juures parema tulemuse. JPEG 2000 võib olla ka kadudeta, kui see spetsiaalselt määrata. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>TIFF</title>
+                <para
+>TIFF on laialt levinud ja toetatud pildivorming. Üldiselt salvestab kaamera TIFF-faili kas tihendamata kujul või siis kadudeta tihenduse algoritmi kasutades (Deflate). Nii säilib pildi kvaliteet, kuid failid on üpris suured. Mõned kaamerad salvestavad sellesse vormingusse ka vaikimisi. Selle vormingu eeliseks on just kadudeta tihendusalgoritm. Probleeme tekitab aga see, et vormingut on muudetud nii palju, et praegu on kasutusel ligikaudu 50 erinevat varianti ja mitte kõiki neid ei tunne programmid alati ühtmoodi ära. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>PNG</title>
+                <para
+>PNG-vorming töötati välja vanemate, 1990. aastatel veel laialdaselt kasutusel olnud pildifailivormingute asendamiseks. See on kadudeta nagu TIFF, kuid märksa kompaktsem ja väiksem. Kuigi sinu kaamera usutavasti PNG-d otseselt ei toeta, teisendavad paljud oma pildid PNG-vormingusse niipea, kui nad on fotod arvutisse tõmmanud. Erinevalt JPEG-piltidest ei kaota PNG-pildid kvaliteedis ka siis, kui neid muutmise järel uuesti kodeeritakse. &digikam; toetab täielikult PNG-pilte ning pakktöötluse pluginatega võib isegi väga erinevates vormingutes pilte ühekorraga PNG-vormingusse teisendada. Pluginate kasutamisest &digikam;is kõneleb lähemalt osa <link linkend="using-setup"
+>Seadistamine</link
+>. </para>
+
+                <para
+>PNG on rasterpiltide kadudeta, porditav, hea tihendusega, laiendatav failivorming. PNG kujutab endast &GIF;-i patendivaba asendust ning suudab suurel määral asendada ka TIFF-i. PNG loomisel on tugevasti arvestatud interneti ja veebiga, nii et see sobib väga hästi piltide avaldamiseks võrgus. PNG salvestab ka gamma- ja värviandmed, mis lubab erinevatel platvormidel pilte ühtmoodi näha. PNG toetab 8- ja 16-bitist värvisügavust. See on perfektne failivorming oma piltide säilitamiseks. PNG-vormingust räägib pikemalt <ulink url="http://www.libpng.org/pub/png/"
+>PNG kodulehekülg</ulink
+>. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>PGF</title>
+	       <para
+>"Progressive Graphics File" (progressiivne graafikafail) on veel üks mitte väga tuntud, aga avatud pildifailivorming. Lainikupõhisena võimaldab see nii andmete kadudeta kui ka kadudega tihendamist. PGF on igati võrreldav JPEG 2000 vorminguga, kuid selle arendamisel on parima tihendussuhte asemel silmas peetud pigem (tihendamise ja lahtipakkimise) kiirust. Sama failisuuruse juures paistab PGF-fail märksa paremana kui JPEG ning ta on päris hea ka progressiivsel kuvamisel. See tähendab, et ta sobib kenasti veebivajadusteks, kuid praegu suudavad seda näidata vaid vähesed brauserid. Täpsemalt kõneleb PGF-vormingust <ulink url="http://www.libpgf.org/"
+>libPGF kodulehekülg</ulink
+>. </para
+> 
+
+            </sect3>
+
+            <sect3
+>            <title
+>RAW</title>
+
+                <para
+>Mõned, enamasti kallimad kaamerad lubavad salvestada pilte toorvormingus (RAW). See ei ole õigupoolest standardne pildivorming ning võib kaamerati erineda. Toorvorming sisaldab kõiki kaamera pildisensorite andmeid enne seda, kui kaamera tarkvara hakkab neid töötlema, täpsustades valge tasakaalu ja muid omadusi. Suur osa professionaalseid fotograafe kasutab toorpilte, sest need võimaldavad fotodega kõige rohkem manipuleerida. Toorpiltide miinuseks on aga nende tõesti väga suur suurus. </para>
+
+                <para
+>Toorpildivormingust kõnelevad lähemalt veebileheküljed <ulink url="http://en.wikipedia.org/wiki/RAW_image_format"
+>Wikipedias</ulink
+>, <ulink url="http://www.luminous-landscape.com/tutorials/understanding-series/u-raw-files.shtml"
+>The Luminous Landscape</ulink
+> ja <ulink url="http://www.cambridgeincolour.com/tutorials/RAW-file-format.htm"
+>Cambridge in Colour</ulink
+>. Toorpilte saab &digikam;is teisendada JPEG- või TIFF-vormingusse <ulink url="help:/kipi-plugins/rawconverter.html"
+>toorpiltide teisendamise pluginaga</ulink
+>. Pluginate kasutamisest &digikam;is kõneleb lähemalt osa <link linkend="using-setup"
+>Seadistamine</link
+>. </para>
+
+                <para
+>&digikam; toetab ainult toorpiltide laadimist programmile <ulink url="http://www.cybercom.net/~dcoffin/dcraw/"
+>DCRAW</ulink
+> tuginedes. See on kaasatud &digikam;i tuuma ning toetab enam kui 200 toorfailivormingut. Kõik toetatud kaamerad on ära toodud <ulink url="http://www.cybercom.net/~dcoffin/dcraw"
+> Dave Coffini</ulink
+> veebilehekülje allosas. Peamised toorpildivormingud, mida &digikam; toetab, on järgmised: <informaltable
+><tgroup cols="2">
+
+                    <thead
+><row>
+                    <entry
+>Toorfailivorming</entry>
+                    <entry
+>Kirjeldus</entry>
+                    </row
+></thead>
+                    <tbody>
+                        <row
+><entry
+>CRW, CR2 </entry
+><entry
+>Canoni digikaamerate toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+                        <row
+><entry
+>NEF </entry
+><entry
+>Nikoni digikaamera toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>ORF </entry
+><entry
+>Olympuse digikaamera toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>RAF </entry
+><entry
+>Fuji digikaamera toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>RWL </entry
+><entry
+>Leica kaamerate toorfailivorming </entry
+></row>
+
+                         <!-- ************************ -->
+
+                        <row
+><entry
+>PEF, PTX </entry
+><entry
+>Pentaxi digikaamerate toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>X3F </entry
+><entry
+>Sigma digikaamera toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>DCR, KDC, DC2, K25 </entry
+><entry
+>Kodaki digikaamerate toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>SRF, ARW, MRW, MDC </entry
+><entry
+>Sony/Minolta digikaamerate toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>RAW </entry
+><entry
+>Panasonicu, Casio, Leica digikaamerate toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>DNG (CS1, HDR) </entry
+><entry
+>Adobe toorfailivorming (Digital Negative) </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>BAY </entry
+><entry
+>Casio RAW (Bayer) </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>ERF </entry
+><entry
+>Epsoni digikaamera toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>FFF </entry
+><entry
+>Imacon/Hasselbladi toorfailivorming </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>MOS </entry
+><entry
+>CREO Photo RAW </entry
+></row>
+
+                        <!-- ************************ -->
+                        <row
+><entry
+>PXN </entry
+><entry
+>Fotoman RAW </entry
+></row>
+
+                        <!-- ************************ -->
+                        <row
+><entry
+>RDC </entry
+><entry
+>Ricohi toorfailivorming </entry
+></row>
+
+
+                    </tbody>
+
+                </tgroup
+></informaltable>
+
+                </para>
+
+            </sect3>
+
+        </sect2>
+
+        <sect2
+>        <title
+>Filmi/videovormingud</title>
+
+        <para
+>Paljud digikaamerad võimaldavad salvestada ka lühikesi filmilõike. Enamasti salvestatakse need AVI- või MPEG-vormingus. &digikam; toetab neid vorminguid ning loob pisipildid ka filmifailidele. Siiski pole &digikam; mõeldud filmitöötluseks ning rakendusel puudub sisseehitatud filmi vaatamise või töötlemise võimalus. Filmifailil topeltklõpsu tehes valib &digikam; vastavalt &kde; seadistustele rakenduse, millega filmi näidata. </para>
+        </sect2>
+
+    </sect1>

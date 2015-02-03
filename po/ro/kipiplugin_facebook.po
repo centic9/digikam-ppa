@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 #
-# Sergiu Bivol <sergiu@ase.md>, 2009, 2012.
+# Sergiu Bivol <sergiu@ase.md>, 2009, 2012, 2014.
 # Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2009.
 # Cristian Oneț <onet.cristian@gmail.com>, 2011.
 msgid ""
@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_fbexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-04-02 03:08+0200\n"
-"PO-Revision-Date: 2012-12-22 11:42+0200\n"
+"PO-Revision-Date: 2014-04-11 15:47+0300\n"
 "Last-Translator: Sergiu Bivol <sergiu@ase.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
 "Language: ro\n"
@@ -43,7 +43,7 @@ msgstr "Titlul albumului ce va fi creat (obligatoriu)."
 
 #: fbalbum.cpp:62
 msgid "Location of the album that will be created (optional)."
-msgstr "Locația albumului ce va fi creat (opțional)."
+msgstr "Amplasarea albumului ce va fi creat (opțional)."
 
 #: fbalbum.cpp:65
 msgid "Description of the album that will be created (optional)."
@@ -83,7 +83,7 @@ msgstr "Titlu:"
 #: fbalbum.cpp:79
 msgctxt "new facebook album"
 msgid "Location:"
-msgstr "Locație:"
+msgstr "Amplasare:"
 
 #: fbalbum.cpp:80
 msgctxt "new facebook album"
@@ -101,7 +101,7 @@ msgstr "Validare sesiune anterioară..."
 
 #: fbtalker.cpp:218
 msgid "Upgrading to OAuth..."
-msgstr ""
+msgstr "Se înnoiește la OAuth..."
 
 #: fbtalker.cpp:270 fbtalker.cpp:479
 msgid "Facebook Application Authorization"
@@ -361,18 +361,13 @@ msgstr ""
 "serviciul web Facebook."
 
 #: fbwindow.cpp:125
-#, fuzzy
-#| msgid ""
-#| "(c) 2005-2008, Vardhman Jain\n"
-#| "(c) 2008-2009, Gilles Caulier\n"
-#| "(c) 2008-2009, Luka Renko"
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
-"(c) 2008-2009, Gilles Caulier\n"
+"(c) 2008-2012, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
 #: fbwindow.cpp:129
@@ -402,16 +397,12 @@ msgid "%v / %m"
 msgstr "%v / %m"
 
 #: fbwindow.cpp:612
-#, fuzzy
-#| msgid "Facebook Import/Export"
 msgid "Facebook import"
-msgstr "Import/Export Facebook"
+msgstr "Import Facebook"
 
 #: fbwindow.cpp:637
-#, fuzzy
-#| msgid "Facebook Import/Export"
 msgid "Facebook export"
-msgstr "Import/Export Facebook"
+msgstr "Export Facebook"
 
 #: fbwindow.cpp:740 fbwindow.cpp:755
 msgid "Cannot open file"
@@ -452,12 +443,12 @@ msgstr "Apelul Facebook a eșuat: %1"
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_facebookui.rc:6
 msgid "&Import"
-msgstr ""
+msgstr "&Importă"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_facebookui.rc:10
 msgid "&Export"
-msgstr ""
+msgstr "&Exportă"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_facebookui.rc:16

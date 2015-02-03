@@ -6,7 +6,7 @@
  * Date        : 2008-07-11
  * Description : shared libraries list dialog
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,6 +28,7 @@
 #include <QStringList>
 #include <QString>
 #include <QTreeWidget>
+#include <QThreadPool>
 
 // KDE includes
 
@@ -99,20 +100,16 @@ LibsInfoDlg::LibsInfoDlg(QWidget* const parent)
     list.insert(i18n("LibRaw"),                      KDcraw::librawVersion());
 
 #if KDCRAW_VERSION >= 0x000500
-    list.insert(i18n("Parallelized demosaicing"),    KDcraw::librawUseGomp() ?
-                i18n("Yes") : i18n("No"));
+    list.insert(i18n("Parallelized demosaicing"),    checkTriState(KDcraw::librawUseGomp()));
 #endif
 
 #if KDCRAW_VERSION >= 0x020400
-    list.insert(i18n("Demosaic GPL2 pack support"),  KDcraw::librawUseGPL2DemosaicPack() ?
-                i18n("Yes") : i18n("No"));
-    list.insert(i18n("Demosaic GPL3 pack support"),  KDcraw::librawUseGPL3DemosaicPack() ?
-                i18n("Yes") : i18n("No"));
+    list.insert(i18n("Demosaic GPL2 pack support"),  checkTriState(KDcraw::librawUseGPL2DemosaicPack()));
+    list.insert(i18n("Demosaic GPL3 pack support"),  checkTriState(KDcraw::librawUseGPL3DemosaicPack()));
 #endif
 
 #if KDCRAW_VERSION >= 0x020200
-    list.insert(i18n("RawSpeed codec support"),      KDcraw::librawUseRawSpeed() ?
-                i18n("Yes") : i18n("No"));
+    list.insert(i18n("RawSpeed codec support"),      checkTriState(KDcraw::librawUseRawSpeed()));
 #endif
 
 #ifdef HAVE_EIGEN3
@@ -159,12 +156,28 @@ LibsInfoDlg::LibsInfoDlg(QWidget* const parent)
 
     list.insert(i18n("Parallelized PGF codec"),      PGFUtils::libPGFUseOpenMP() ? i18n("Yes") : i18n("No"));
 
+    int nbcore = QThreadPool::globalInstance()->maxThreadCount();
+    list.insert(i18np("CPU core", "CPU cores", nbcore), QString("%1").arg(nbcore));
+
     listView()->setHeaderLabels(QStringList() << i18n("Component") << i18n("Info"));
     setInfoMap(list);
 }
 
 LibsInfoDlg::~LibsInfoDlg()
 {
+}
+
+QString LibsInfoDlg::checkTriState(int value)
+{
+    switch(value)
+    {
+        case true:
+            return i18n("Yes");
+        case false:
+            return i18n("No");
+        default:
+            return i18n("Unknown");
+    }
 }
 
 }  // namespace Digikam

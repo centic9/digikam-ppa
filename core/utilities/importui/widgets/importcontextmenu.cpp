@@ -219,7 +219,7 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
         qDeleteAll(servicesMenu->actions());
 
         QAction* serviceAction = servicesMenu->menuAction();
-        serviceAction->setText(i18n("Open With"));
+        serviceAction->setText(i18nc("@title:menu", "Open With"));
 
         foreach(KService::Ptr service, offers)
         {
@@ -231,7 +231,7 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
         }
 
         servicesMenu->addSeparator();
-        servicesMenu->addAction(i18n("Other..."));
+        servicesMenu->addAction(i18nc("@item:inmenu", "Other..."));
 
         addAction(serviceAction);
 
@@ -240,7 +240,7 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
     }
     else
     {
-        QAction* serviceAction = new QAction(i18n("Open With..."), this);
+        QAction* serviceAction = new QAction(i18nc("@title:menu", "Open With..."), this);
         addAction(serviceAction);
 
         connect(serviceAction, SIGNAL(triggered()),
@@ -265,7 +265,7 @@ void ImportContextMenuHelper::slotOpenWith(QAction* action)
     {
         QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(list);
 
-        if (!dlg->exec() == KOpenWithDialog::Accepted)
+        if (dlg->exec() != KOpenWithDialog::Accepted)
         {
             delete dlg;
             return;

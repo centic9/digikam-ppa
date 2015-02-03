@@ -6,7 +6,7 @@
  * Date        : 2004-07-21
  * Description : image histogram manipulation methods.
  *
- * Copyright (C) 2004-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -161,6 +161,7 @@ void ImageHistogram::run()
 
 void ImageHistogram::calculate()
 {
+    // TODO this gets even called with null img
     if (d->img.isNull())
     {
         emit calculationFinished(false);
@@ -196,9 +197,11 @@ void ImageHistogram::calculate()
     if (isSixteenBit())         // 16 bits image.
     {
         unsigned short blue, green, red, alpha;
-        unsigned short* const data = (unsigned short*)d->img.bits();
+        unsigned short* const data = reinterpret_cast<unsigned short*>(d->img.bits());
 
-        for (i = 0 ; (i < d->img.width() * d->img.height() * 4) && runningFlag() ; i += 4)
+        // count here instead of inside the loop, because d is not optimized because it's not defined in the header
+        const uint count = d->img.width() * d->img.height() * 4;
+        for (i = 0 ; i < count && runningFlag() ; i += 4)
         {
             blue  = data[i    ];
             green = data[i + 1];
@@ -227,7 +230,9 @@ void ImageHistogram::calculate()
         uchar blue, green, red, alpha;
         const uchar* const data = d->img.bits();
 
-        for (i = 0 ; (i < d->img.width() * d->img.height() * 4) && runningFlag() ; i += 4)
+        // count here instead of inside the loop, because d is not optimized because it's not defined in the header
+        const uint count = d->img.width() * d->img.height() * 4;
+        for (i = 0 ; i < count && runningFlag() ; i += 4)
         {
             blue  = data[i    ];
             green = data[i + 1];
@@ -316,10 +321,6 @@ double ImageHistogram::getCount(int channel, int start, int end) const
             }
 
             break;
-
-        default:
-            return 0.0;
-            break;
     }
 
     return count;
@@ -396,7 +397,6 @@ double ImageHistogram::getMean(int channel, int start, int end) const
 
         default:
             return 0.0;
-            break;
     }
 
     count = getCount(channel, start, end);
@@ -497,10 +497,9 @@ int ImageHistogram::getMedian(int channel, int start, int end) const
 
         default:
             return 0;
-            break;
     }
 
-    return -1;
+    return 0;
 }
 
 double ImageHistogram::getStdDev(int channel, int start, int end) const
@@ -573,7 +572,6 @@ double ImageHistogram::getStdDev(int channel, int start, int end) const
 
         default:
             return 0.0;
-            break;
     }
 
     return sqrt(dev / count);
@@ -612,7 +610,6 @@ double ImageHistogram::getValue(int channel, int bin) const
 
         default:
             return 0.0;
-            break;
     }
 
     return value;
@@ -692,7 +689,6 @@ double ImageHistogram::getMaximum(int channel, int start, int end) const
 
         default:
             return 0.0;
-            break;
     }
 
     return max;

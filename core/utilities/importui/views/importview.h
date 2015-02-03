@@ -33,7 +33,6 @@
 #include "camiteminfo.h"
 #include "sidebarwidget.h"
 #include "importui.h"
-#include "importmodel.h"
 #include "importstackedview.h"
 
 namespace Digikam
@@ -47,7 +46,7 @@ class ImportView : public KHBox
 
 public:
 
-    ImportView(ImportUI* const ui, QWidget* const parent);
+    ImportView(Digikam::ImportUI* const ui, ImportImageModel* const model, ImportFilterModel* const filterModel, QWidget* const parent);
     ~ImportView();
 
     void applySettings();
@@ -62,25 +61,24 @@ public:
 
     void scrollTo(const QString& folder, const QString& file);
 
-    CamItemInfo  camItemInfo(const QString& folder, const QString& file) const;
-    CamItemInfo& camItemInfoRef(const QString& folder, const QString& file) const;
-    bool hasImage(const CamItemInfo& info);
+    CamItemInfo  camItemInfo(const QString& folder, const QString& file)     const;
+    CamItemInfo& camItemInfoRef(const QString& folder, const QString& file)  const;
+    bool         hasImage(const CamItemInfo& info)                           const;
 
-    KUrl::List         allUrls() const;
-    KUrl::List         selectedUrls() const;
-    QList<CamItemInfo> selectedCamItemInfos() const;
-    QList<CamItemInfo> allItems() const;
+    KUrl::List         allUrls()                                             const;
+    KUrl::List         selectedUrls()                                        const;
+    QList<CamItemInfo> selectedCamItemInfos()                                const;
+    QList<CamItemInfo> allItems()                                            const;
     void               setSelectedCamItemInfos(const CamItemInfoList& infos) const;
-    int                downloadedCamItemInfos() const;
-    bool               hasCurrentItem() const;
+    int                downloadedCamItemInfos()                              const;
+    bool               hasCurrentItem()                                      const;
+    bool               isSelected(const KUrl& url)                           const;
 
-    bool isSelected(const KUrl url);
-
-    double zoomMin();
-    double zoomMax();
-
-    ThumbnailSize thumbnailSize();
-    ImportStackedView::StackedViewMode viewMode() const;
+    double                             zoomMin()           const;
+    double                             zoomMax()           const;
+    ThumbnailSize                      thumbnailSize()     const;
+    ImportStackedView::StackedViewMode viewMode()          const;
+    ImportFilterModel*                 importFilterModel() const;
 
 Q_SIGNALS:
 
@@ -114,7 +112,7 @@ public Q_SLOTS:
 
     void slotImageRename();
 
-    void slotSortImages(int order);
+    void slotSortImagesBy(int sortBy);
     void slotSortImagesOrder(int order);
     void slotGroupImages(int mode);
 

@@ -100,20 +100,20 @@ AlbumCustomizer::AlbumCustomizer(QWidget* const parent)
                                       "expression. Examples, if date is 20 July 1969:<p>"
                                       "<p><b>dd.MM.yyyy</b> : 20.07.1969</p>"
                                       "<p><b>ddd MMMM d yy</b> : Sun July 20 69</p>"
-                                      "<p><b>'Photo shoted' dddd</b> : Photo shotted Sunday</p>"
+                                      "<p><b>'Photo shot on ' dddd</b> : Photo shot on Sunday</p>"
                                      ));
     d->tooltipDialog->resize(650, 530);
 
     QVBoxLayout* albumVlay = new QVBoxLayout(this);
-    d->autoAlbumExtCheck   = new QCheckBox(i18n("Extension-based sub-albums"), this);
-    d->autoAlbumDateCheck  = new QCheckBox(i18n("Date-based sub-albums"), this);
+    d->autoAlbumExtCheck   = new QCheckBox(i18nc("@option:check", "Extension-based sub-albums"), this);
+    d->autoAlbumDateCheck  = new QCheckBox(i18nc("@option:check", "Date-based sub-albums"), this);
     KHBox* hbox1           = new KHBox(this);
-    d->folderDateLabel     = new QLabel(i18n("Date format:"), hbox1);
+    d->folderDateLabel     = new QLabel(i18nc("@label:listbox", "Date format:"), hbox1);
     d->folderDateFormat    = new KComboBox(hbox1);
-    d->folderDateFormat->insertItem(IsoDateFormat,    i18n("ISO"));
-    d->folderDateFormat->insertItem(TextDateFormat,   i18n("Full Text"));
-    d->folderDateFormat->insertItem(LocalDateFormat,  i18n("Local Settings"));
-    d->folderDateFormat->insertItem(CustomDateFormat, i18n("Custom"));
+    d->folderDateFormat->insertItem(IsoDateFormat,    i18nc("@item:inlistbox", "ISO"));
+    d->folderDateFormat->insertItem(TextDateFormat,   i18nc("@item:inlistbox", "Full Text"));
+    d->folderDateFormat->insertItem(LocalDateFormat,  i18nc("@item:inlistbox", "Local Settings"));
+    d->folderDateFormat->insertItem(CustomDateFormat, i18nc("@item:inlistbox", "Custom"));
 
     KHBox* hbox2           = new KHBox(this);
     d->customizer          = new KLineEdit(hbox2);
@@ -245,11 +245,11 @@ void AlbumCustomizer::slotCustomizerChanged()
 
         if (customDateFormatIsValid())
         {
-            d->customExample->setText(i18n("Ex.: %1", date.toString(customDateFormat())));
+            d->customExample->setText(i18nc("Example of custom date format for album naming", "Ex.: %1", date.toString(customDateFormat())));
         }
         else
         {
-            d->customExample->setText(i18n("Format is not valid..."));
+            d->customExample->setText(i18nc("Custom date format", "Format is not valid..."));
         }
     }
     else

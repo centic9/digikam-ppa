@@ -108,7 +108,7 @@ MapWidgetView::MapWidgetView(QItemSelectionModel* const selectionModel,
     : QWidget(parent), StateSavingObject(this), d(new Private())
 {
     d->mode = mode;
-
+    d->selectionModel = selectionModel;
     if (d->mode)
     {
         d->imageFilterModel   = dynamic_cast<ImageFilterModel*>(imageFilterModel);
@@ -122,7 +122,6 @@ MapWidgetView::MapWidgetView(QItemSelectionModel* const selectionModel,
         d->mapViewModelHelper = new MapViewModelHelper(d->selectionModel, d->importFilterModel, this, false);
     }
 
-    d->selectionModel             = selectionModel;
     QVBoxLayout* const vBoxLayout = new QVBoxLayout(this);
     d->mapWidget                  = new KGeoMap::KGeoMapWidget(this);
     d->mapWidget->setAvailableMouseModes(KGeoMap::MouseModePan|KGeoMap::MouseModeZoomIntoGroup|KGeoMap::MouseModeSelectThumbnail);
@@ -175,7 +174,10 @@ void MapWidgetView::doSaveState()
  */
 void MapWidgetView::openAlbum(Album* const album)
 {
-    d->imageModel->openAlbum(album);
+    if(album)
+    {
+        d->imageModel->openAlbum(QList<Album*>() << album);
+    }
 }
 
 /**

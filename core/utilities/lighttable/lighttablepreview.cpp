@@ -6,7 +6,7 @@
  * Date        : 2006-21-12
  * Description : digiKam light table preview item.
  *
- * Copyright (C) 2006-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -47,11 +47,11 @@
 namespace Digikam
 {
 
-LightTablePreview::LightTablePreview(QWidget* parent)
+LightTablePreview::LightTablePreview(QWidget* const parent)
     : ImagePreviewView(parent, ImagePreviewView::LightTablePreview)
 {
     setDragAndDropEnabled(true);
-    setDragAndDropMessage();
+    showDragAndDropMessage();
 }
 
 LightTablePreview::~LightTablePreview()
@@ -64,7 +64,7 @@ void LightTablePreview::setDragAndDropEnabled(bool b)
     viewport()->setAcceptDrops(b);
 }
 
-void LightTablePreview::setDragAndDropMessage()
+void LightTablePreview::showDragAndDropMessage()
 {
     if (acceptDrops())
     {
@@ -110,7 +110,7 @@ bool LightTablePreview::dragEventWrapper(const QMimeData* data) const
 
         if (DItemDrag::decode(data, urls, kioURLs, albumIDs, imageIDs) ||
             DAlbumDrag::decode(data, urls, albumID)                    ||
-            DTagDrag::canDecode(data))
+            DTagListDrag::canDecode(data))
         {
             return true;
         }
@@ -142,16 +142,16 @@ void LightTablePreview::dropEvent(QDropEvent* e)
             e->accept();
             return;
         }
-        else if (DTagDrag::canDecode(e->mimeData()))
+        else if (DTagListDrag::canDecode(e->mimeData()))
         {
-            int tagID;
+            QList<int> tagIDs;
 
-            if (!DTagDrag::decode(e->mimeData(), tagID))
+            if (!DTagListDrag::decode(e->mimeData(), tagIDs))
             {
                 return;
             }
 
-            QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagID, true);
+            QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagIDs.first(), true);
             ImageInfoList imageInfoList;
 
             emit signalDroppedItems(ImageInfoList(itemIDs));

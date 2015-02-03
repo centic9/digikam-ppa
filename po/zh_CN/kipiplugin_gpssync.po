@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-05-07 02:57+0200\n"
+"POT-Creation-Date: 2014-02-11 01:31+0000\n"
 "PO-Revision-Date: 2011-03-23 21:52+0800\n"
 "Last-Translator: Feng Chao <rainofchaos@gmail.com>\n"
 "Language-Team: Chinese Simplified <kde-china@kde.org>\n"
@@ -37,7 +37,7 @@ msgstr[0] ""
 msgid "Load GPX files..."
 msgstr "装入 GPX 文件..."
 
-#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:524
+#: gpscorrelatorwidget.cpp:174 kipiimageitem.cpp:530
 msgid "Filename"
 msgstr "文件名"
 
@@ -239,28 +239,28 @@ msgstr ""
 msgid "Coordinates"
 msgstr "坐标"
 
-#: gpsimagedetails.cpp:133 kipiimageitem.cpp:526
+#: gpsimagedetails.cpp:133 kipiimageitem.cpp:532
 msgid "Latitude"
 msgstr "纬度"
 
-#: gpsimagedetails.cpp:137 kipiimageitem.cpp:527
+#: gpsimagedetails.cpp:137 kipiimageitem.cpp:533
 msgid "Longitude"
 msgstr "经度"
 
-#: gpsimagedetails.cpp:139 kipiimageitem.cpp:528
+#: gpsimagedetails.cpp:139 kipiimageitem.cpp:534
 msgid "Altitude"
 msgstr "海拔"
 
-#: gpsimagedetails.cpp:145 kipiimageitem.cpp:533
+#: gpsimagedetails.cpp:145 kipiimageitem.cpp:539
 msgid "Speed"
 msgstr "速度"
 
-#: gpsimagedetails.cpp:151 kipiimageitem.cpp:532
+#: gpsimagedetails.cpp:151 kipiimageitem.cpp:538
 #, fuzzy
 msgid "# satellites"
 msgstr "人造卫星"
 
-#: gpsimagedetails.cpp:157 kipiimageitem.cpp:531
+#: gpsimagedetails.cpp:157 kipiimageitem.cpp:537
 msgid "Fix type"
 msgstr ""
 
@@ -272,7 +272,7 @@ msgstr "2D"
 msgid "3-d"
 msgstr "3D"
 
-#: gpsimagedetails.cpp:163 kipiimageitem.cpp:530
+#: gpsimagedetails.cpp:163 kipiimageitem.cpp:536
 msgid "DOP"
 msgstr "DOP"
 
@@ -304,7 +304,7 @@ msgstr "删除海拔"
 msgid "Remove uncertainty"
 msgstr "删除不确定的信息"
 
-#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:645
+#: gpslistviewcontextmenu.cpp:119 gpslistviewcontextmenu.cpp:643
 msgid "Remove speed"
 msgstr "删除速度"
 
@@ -316,48 +316,48 @@ msgstr ""
 msgid "Bookmarks"
 msgstr "书签"
 
-#: gpslistviewcontextmenu.cpp:420 gpslistviewcontextmenu.cpp:479
-#: gpslistviewcontextmenu.cpp:749 gpssyncdialog.cpp:436
+#: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
+#: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:436
 msgid "GPS Sync"
 msgstr "GPS 同步"
 
-#: gpslistviewcontextmenu.cpp:420
+#: gpslistviewcontextmenu.cpp:419
 msgid ""
 "Found more than one point on the clipboard - can only assign one point at a "
 "time."
 msgstr "在剪贴板中找到多个点 - 一次只能指派一点。"
 
-#: gpslistviewcontextmenu.cpp:479
+#: gpslistviewcontextmenu.cpp:477
 msgid "Could not find any coordinates on the clipboard."
 msgstr "未在剪贴板中找到任何坐标。"
 
-#: gpslistviewcontextmenu.cpp:483
+#: gpslistviewcontextmenu.cpp:481
 msgid "Coordinates pasted"
 msgstr "复制的坐标"
 
-#: gpslistviewcontextmenu.cpp:514
+#: gpslistviewcontextmenu.cpp:512
 msgid "Bookmark selected"
 msgstr "选择的书签"
 
-#: gpslistviewcontextmenu.cpp:624
+#: gpslistviewcontextmenu.cpp:622
 msgid "Remove coordinates information"
 msgstr "删除坐标信息"
 
-#: gpslistviewcontextmenu.cpp:629
+#: gpslistviewcontextmenu.cpp:627
 msgid "Remove altitude information"
 msgstr "删除海拔信息"
 
-#: gpslistviewcontextmenu.cpp:635
+#: gpslistviewcontextmenu.cpp:633
 msgid "Remove uncertainty information"
 msgstr "删除不确定的信息"
 
-#: gpslistviewcontextmenu.cpp:697
+#: gpslistviewcontextmenu.cpp:695
 #, fuzzy
 #| msgid "Longitude"
 msgid "Looking up altitudes"
 msgstr "经度"
 
-#: gpslistviewcontextmenu.cpp:748
+#: gpslistviewcontextmenu.cpp:746
 #, fuzzy, kde-format
 #| msgid "No altitude lookup"
 msgid ""
@@ -365,7 +365,7 @@ msgid ""
 "%1"
 msgstr "不查询海拔"
 
-#: gpslistviewcontextmenu.cpp:755
+#: gpslistviewcontextmenu.cpp:753
 #, fuzzy
 #| msgid "No altitude lookup"
 msgid "Altitude looked up"
@@ -824,71 +824,71 @@ msgstr "错误"
 msgid "GPS sync"
 msgstr "GPS 同步"
 
-#: kipiimageitem.cpp:363
+#: kipiimageitem.cpp:369
 msgid "Not available"
 msgstr "不可用"
 
-#: kipiimageitem.cpp:396
+#: kipiimageitem.cpp:402
 #, kde-format
 msgid "DOP: %1"
 msgstr "DOP: %1"
 
-#: kipiimageitem.cpp:401
+#: kipiimageitem.cpp:407
 #, c-format, kde-format
 msgid "Fix: %1d"
 msgstr ""
 
-#: kipiimageitem.cpp:406
+#: kipiimageitem.cpp:412
 #, fuzzy, kde-format
 msgid "#Sat: %1"
 msgstr "周六"
 
-#: kipiimageitem.cpp:441
+#: kipiimageitem.cpp:447
 #, fuzzy, c-format, kde-format
 msgid "%1d"
 msgstr "%1天"
 
-#: kipiimageitem.cpp:461
+#: kipiimageitem.cpp:467
 msgid "Modified"
 msgstr "修改时间"
 
-#: kipiimageitem.cpp:523
+#: kipiimageitem.cpp:529
 msgid "Thumbnail"
 msgstr "缩略图"
 
-#: kipiimageitem.cpp:525
+#: kipiimageitem.cpp:531
 msgid "Date and time"
 msgstr "日期和时间"
 
-#: kipiimageitem.cpp:529
+#: kipiimageitem.cpp:535
 msgid "Accuracy"
 msgstr "精确度"
 
-#: kipiimageitem.cpp:534
+#: kipiimageitem.cpp:540
 msgid "Status"
 msgstr "状态"
 
-#: kipiimageitem.cpp:535
+#: kipiimageitem.cpp:541
 msgid "Tags"
 msgstr "标签"
 
-#: kipiimageitem.cpp:722
+#: kipiimageitem.cpp:728
 msgid "Failed to open file."
 msgstr "打开文件失败。"
 
-#: kipiimageitem.cpp:783
+#: kipiimageitem.cpp:789
 msgid "Failed to add GPS info to image."
 msgstr ""
 
-#: kipiimageitem.cpp:793
+#: kipiimageitem.cpp:799
 msgid "Failed to remove GPS info from image"
 msgstr ""
 
-#: kipiimageitem.cpp:820 kipiimageitem.cpp:827
+#: kipiimageitem.cpp:826 kipiimageitem.cpp:833
 msgid "Failed to save tags to file."
 msgstr ""
 
-#: kipiimageitem.cpp:838
+#: kipiimageitem.cpp:844
 msgid "Unable to save changes to file"
 msgstr ""
 
@@ -902,9 +902,22 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_gpssync.cpp:99
+#: plugin_gpssync.cpp:100
 msgid "Geo-location"
 msgstr "地理位置"
+
+#: plugin_gpssync.cpp:120
+msgid ""
+"You have enabled writing to sidecar files for metadata storage in the host "
+"application, but not for reading. This means that any metadata stored in the "
+"sidecar files will be overwritten here.\n"
+"Please enable reading of sidecar files in the host application or continue "
+"at your own risk."
+msgstr ""
+
+#: plugin_gpssync.cpp:125
+msgid "Warning: Sidecar settings"
+msgstr ""
 
 #: rgtagmodel.cpp:95
 msgid "{Country}"

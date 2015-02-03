@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Serdar Soytetir <tulliana@gmail.com>, 2008, 2009.
-# Volkan Gezer <volkangezer@gmail.com>, 2013.
+# Volkan Gezer <volkangezer@gmail.com>, 2013, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_removeredeyes\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-02-06 02:46+0100\n"
-"PO-Revision-Date: 2013-07-07 21:24+0200\n"
+"PO-Revision-Date: 2014-04-20 03:11+0200\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20,52 +20,54 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Serdar Soytetir"
+msgstr "Serdar Soytetir, Volkan Gezer"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "tulliana@gmail.com"
+msgstr "tulliana@gmail.com, volkangezer@gmail.com"
 
 #: detection/locators/haarclassifier/widgets/blobsettingsbox.cpp:53
 msgid "Blob Extraction Settings"
-msgstr ""
+msgstr "Blob Çıkartma Ayarları"
 
 #: detection/locators/haarclassifier/widgets/blobsettingsbox.cpp:56
 msgid "Minimum &blob size:"
-msgstr ""
+msgstr "En düşük &blob boyutu:"
 
 #: detection/locators/haarclassifier/widgets/blobsettingsbox.cpp:61
 msgid "Minimum &roundness:"
-msgstr ""
+msgstr "Asgari &yuvarlaklık:"
 
 #: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:60
 msgid "Classifier Settings"
-msgstr ""
+msgstr "Sınıflandırıcı Ayarları"
 
 #: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:62
 msgid "Use &standard classifier"
-msgstr ""
+msgstr "&Standart sınıflandıcı kullan"
 
 #: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:65
 msgid ""
 "If checked, the standard classifier shipped with this KIPI plugin is used."
 msgstr ""
+"İşaretli ise, bu KIPI eklentisi ile birlikte gelen standart sınıflandırıcı "
+"kullanılacak."
 
 #: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:67
 msgid "Enter the location of the classifier here."
-msgstr ""
+msgstr "Sınıflandırıcının konumunu buraya girin."
 
 #: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:70
 msgid "&Neighbor groups:"
-msgstr ""
+msgstr "&Komşu gruplar:"
 
 #: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:75
 msgid "&Scaling factor:"
-msgstr ""
+msgstr "&Ölçeklendirme oranı:"
 
 #: detection/locators/haarclassifier/widgets/haarsettingswidget.cpp:127
 msgid "&Advanced Mode"
-msgstr "&Gelişmiş Kipi"
+msgstr "&Gelişmiş Kip"
 
 #: detection/locators/haarclassifier/widgets/haarsettingswidget.cpp:133
 msgid "&Simple Mode"
@@ -77,12 +79,18 @@ msgid ""
 "the automatic detection and correction of red-eye is the most reliable. The "
 "drawback of the higher detection rate is a much slower computation.</p>"
 msgstr ""
+"<p><b>Daha yavaş<br/>(düşük çöz. / hafif bulanık resimler)</b></p><p>Bu "
+"kipte, kırmızı gözün otomatik tespiti ve düzeltilmesi en güvenilir "
+"durumdadır. Daha yüksek tespit oranının olumsuz yanı daha yavaş hesaplama "
+"yapılmasıdır.</p>"
 
 #: detection/locators/haarclassifier/widgets/simplesettings.cpp:92
 msgid ""
 "<p><b>Standard</b></p><p>This mode is adequate for most image resolutions. "
 "Always try this mode first.</p>"
 msgstr ""
+"<p><b>Standart</b></p><p>Bu kip çoğu resim çözünürlüğü için uygundur. Her "
+"zaman ilk olarak bu kipi deneyin.</p>"
 
 #: detection/locators/haarclassifier/widgets/simplesettings.cpp:96
 msgid ""
@@ -90,16 +98,20 @@ msgid ""
 "detection will be faster, but more false positives may occur. Use this mode "
 "only for very high-resolution and sharp images.</p>"
 msgstr ""
+"<p><b>Daha hızlı<br/>(yüksek çöz. resimler)</b></p><p>Bu kipte otomatik "
+"tespit daha hızlı olacaktır ancak hatalı pozitif sonuç sayısı fazla "
+"olabilir. Bu kipi sadece çok büyük çözünürlükte ve keskin olan resimlerde "
+"kullanın.</p>"
 
 #. i18n: ectx: Menu (Tools)
 #: plugin/kipiplugin_removeredeyesui.rc:6
 msgid "&Tools"
-msgstr ""
+msgstr "&Araçlar"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_removeredeyesui.rc:12
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Ana Araç Çubuğu"
 
 #: plugin/plugin_removeredeyes.cpp:90
 msgid "&Red-Eye Removal..."
@@ -107,7 +119,7 @@ msgstr "&Kırmızı Göz Düzelt..."
 
 #: plugin/removeredeyeswindow.cpp:157
 msgid "Automatic Red-Eye Removal"
-msgstr "Kırmızı Gözleri Otomatik olarak Düzeltici"
+msgstr "Otomatik Kırmızı Göz Düzeltici"
 
 #: plugin/removeredeyeswindow.cpp:182
 msgid "Remove Red-Eye"
@@ -118,10 +130,8 @@ msgid "A plugin to automatically detect and remove red-eye effect."
 msgstr "Kırmızı gözleri otomatik olarak sezip kaldırmak için bir eklenti."
 
 #: plugin/removeredeyeswindow.cpp:187
-#, fuzzy
-#| msgid "(c) 2008-2009, Andi Clemens"
 msgid "(c) 2008-2013, Andi Clemens"
-msgstr "(c) 2008-2009, Andi Clemens"
+msgstr "(c) 2008-2013, Andi Clemens"
 
 #: plugin/removeredeyeswindow.cpp:189
 msgid "Andi Clemens"
@@ -201,13 +211,13 @@ msgid ""
 "types are not supported.</p><p><b>They were automatically removed from the "
 "list.</b></p>"
 msgstr ""
-"<p>Eklentiye <b>HAM resimler</b> eklemeyi denediniz<br/>ancak bu dosya "
+"<p>Eklentiye <b>RAW resimler</b> eklemeyi denediniz<br/>ancak bu dosya "
 "türleri desteklenmiyor.</p><p><b>Bu dosyalar listeden otomatik olarak "
 "kaldırıldılar.</b></p>"
 
 #: plugin/removeredeyeswindow.cpp:652
 msgid "RAW images found"
-msgstr "HAM resimler bulundu"
+msgstr "RAW resimler bulundu"
 
 #: plugin/removeredeyeswindow.cpp:730
 #, kde-format
@@ -228,6 +238,7 @@ msgstr "Düzeltme Tamamlandı"
 msgid ""
 "<h2>Could not load classifier options.<br/>The plugin is not executable.</h2>"
 msgstr ""
+"<h2>Sınıflandırıcı seçenekleri yüklenemedi.<br/>Eklenti çalıştırılamaz.</h2>"
 
 #: widgets/myimageslist.cpp:58
 msgid "Corrected Eyes"
@@ -235,7 +246,7 @@ msgstr "Düzeltilmiş Gözler"
 
 #: widgets/myimageslist.cpp:60
 msgid "This is the list of images from which to remove red-eye."
-msgstr ""
+msgstr "Bu, kırmızı gözlerin düzeltileceği resimlerin listesidir."
 
 #: widgets/previewwidget.cpp:80
 msgid ""
@@ -246,6 +257,13 @@ msgid ""
 "correction mask.</li></ul></p><p>The zoom buttons and panning widget allow "
 "you to view certain parts of the image more closely.</p>"
 msgstr ""
+"<p>Bu gereç, geçerli seçimdeki resim için bir düzeltme önizlemesi "
+"görüntüleyecektir.</p><p><ul><li>Özgün resmi görüntülemek için fareyi "
+"önizlemenin <b>üzerine</b> götürün.</li><li>Düzeltilmiş resmi görüntülemek "
+"için fareyi önizlemenin <b>dışına</b> götürün.</li><li>Düzeltme maskesini "
+"görüntülemek için önizlemeye <b>tıklayın</b>.</li></ul></p><p>Yakınlaştırma "
+"düğmeleri ve kaydırma gereçleri, resmin belirli bölgelerini daha yakından "
+"görmenizi sağlar.</p>"
 
 #: widgets/previewwidget.cpp:113
 msgid "<h2>generating preview...</h2>"
@@ -291,6 +309,13 @@ msgid ""
 "p><p>Each of the three modes allows you to add an optional keyword to the "
 "image metadata.</p>"
 msgstr ""
+"<p>Bu ayarlar düzeltilmiş resimlerin depolanmasını kontrol eder. Seçilecek "
+"üç kip bulunmaktadır:</p><p><ul><li><b>Alt klasör:</b> Düzeltilen resimler, "
+"geçerli albüm yolunun altında bir alt klasöre kaydedilir.</li><li><b>Önek:</"
+"b> Düzeltilen resme özel bir önek eklenir.</li><li><b>Son ek:</b>Düzeltilen "
+"resme özel bir son ek eklenir.</li><li><b>Üzerine yaz:</b> Tüm özgün "
+"resimlerin üzerine yazılır.</li></ul></p><p>Bu üç kipten her biri resim üst "
+"verisine isteğe bağlı bir anahtar kelime eklemenize izin verir.</p>"
 
 #: widgets/storagesettingsbox.cpp:83
 msgid "Save in Subfolder"
@@ -343,6 +368,14 @@ msgid ""
 "list:</b> All unprocessed images are removed after the test run.</li></ul></"
 "p>"
 msgstr ""
+"<p>Bu ayarlar test kipinde çalışılırken işlenmemiş resimlerin ele alınmasını "
+"kontrol eder. Son düzeltmeyi hızlandırmak için, işlenmemiş resimler listeden "
+"kaldırılabilir ve tekrar analiz edilmezler. Seçilebilir üç kip bulunmaktadır:"
+"</p><p><ul><li><b>Kullanıcıya sor:</b> Yapılacak sonraki işlem için soran "
+"bir açılır pencere görünecektir.</li><li><b>Dosya listesinde sakla:</b> "
+"İşlenmemiş tüm resimler listede tutulur.</li><li><b>Dosya listesinden kaldır:"
+"</b> İşlenmemiş tüm resimler test çalıştırma işleminden sonra kaldırılır.</"
+"li></ul></p>"
 
 #: widgets/unprocessedsettingsbox.cpp:76
 msgid "&Ask the user"
@@ -352,6 +385,8 @@ msgstr "Kull&anıcıya sor"
 msgid ""
 "If checked, the user will be asked to keep or remove unprocessed images."
 msgstr ""
+"İşaretlendiğinde, kullanıcıya işlenmemiş resimlerin saklanıp/saklanmayacağı "
+"sorulur."
 
 #: widgets/unprocessedsettingsbox.cpp:81
 msgid "&Keep in file list"
@@ -362,6 +397,8 @@ msgid ""
 "If checked, unprocessed images will be kept in the file list after the test-"
 "run."
 msgstr ""
+"İşaretlendiğinde, test çalıştırma işleminden sonra işlenmemiş resimler "
+"listede bırakılır."
 
 #: widgets/unprocessedsettingsbox.cpp:86
 msgid "&Remove from file list"
@@ -372,6 +409,8 @@ msgid ""
 "If checked, unprocessed images will be removed from the file list after the "
 "test-run."
 msgstr ""
+"İşaretlendiğinde, test çalıştırma işleminden sonra işlenmemiş resimler "
+"listeden kaldırılır."
 
 #~ msgid "Handbook"
 #~ msgstr "El Kitabı"

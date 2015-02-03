@@ -142,7 +142,9 @@ void KDcraw::Private::fillIndentifyInfo(LibRaw* const raw, DcrawInfoContainer& i
     if (raw->imgdata.idata.filters)
     {
         if (!raw->imgdata.idata.cdesc[3])
+        {
             raw->imgdata.idata.cdesc[3] = 'G';
+        }
 
         for (int i=0; i < 16; i++)
         {
@@ -421,8 +423,11 @@ bool KDcraw::Private::loadFromLibraw(const QString& filePath, QByteArray& imageD
             }
             break;
         }
-        default:   // No input profile
+        default:
+        {
+            // No input profile
             break;
+        }
     }
 
     switch (m_parent->m_rawDecodingSettings.outputColorSpace)
@@ -446,10 +451,10 @@ bool KDcraw::Private::loadFromLibraw(const QString& filePath, QByteArray& imageD
 
     //-- Extended demosaicing settings ----------------------------------------------------------
 
-    raw.imgdata.params.dcb_iterations  = m_parent->m_rawDecodingSettings.dcbIterations;
-    raw.imgdata.params.dcb_enhance_fl  = m_parent->m_rawDecodingSettings.dcbEnhanceFl;
-    raw.imgdata.params.eeci_refine     = m_parent->m_rawDecodingSettings.eeciRefine;
-    raw.imgdata.params.es_med_passes   = m_parent->m_rawDecodingSettings.esMedPasses;
+    raw.imgdata.params.dcb_iterations = m_parent->m_rawDecodingSettings.dcbIterations;
+    raw.imgdata.params.dcb_enhance_fl = m_parent->m_rawDecodingSettings.dcbEnhanceFl;
+    raw.imgdata.params.eeci_refine    = m_parent->m_rawDecodingSettings.eeciRefine;
+    raw.imgdata.params.es_med_passes  = m_parent->m_rawDecodingSettings.esMedPasses;
 
     //-------------------------------------------------------------------------------------------
 
@@ -557,9 +562,10 @@ bool KDcraw::Private::loadFromLibraw(const QString& filePath, QByteArray& imageD
         for (int i = 0 ; i < (int)img->data_size ; ++i)
         {
             for (int j = 0 ; j < 3 ; ++j)
+            {
                 imageData.append(img->data[i]);
-    }
-
+            }
+        }
     }
 
     // Clear memory allocation. Introduced with LibRaw 0.11.0
@@ -576,6 +582,103 @@ bool KDcraw::Private::loadFromLibraw(const QString& filePath, QByteArray& imageD
     kDebug() << "LibRaw: data info: width=" << width
              << " height=" << height
              << " rgbmax=" << rgbmax;
+
+    return true;
+}
+
+bool KDcraw::Private::loadEmbeddedPreview(QByteArray& imgData, LibRaw& raw)
+{
+    int ret = raw.unpack_thumb();
+
+    if (ret != LIBRAW_SUCCESS)
+    {
+        raw.recycle();
+        kDebug() << "LibRaw: failed to run unpack_thumb: " << libraw_strerror(ret);
+        raw.recycle();
+        return false;
+    }
+
+    libraw_processed_image_t* const thumb = raw.dcraw_make_mem_thumb(&ret);
+
+    if(!thumb)
+    {
+        kDebug() << "LibRaw: failed to run dcraw_make_mem_thumb: " << libraw_strerror(ret);
+        raw.recycle();
+        return false;
+    }
+
+    if(thumb->type == LIBRAW_IMAGE_BITMAP)
+    {
+        createPPMHeader(imgData, thumb);
+    }
+    else
+    {
+        imgData = QByteArray((const char*)thumb->data, (int)thumb->data_size);
+    }
+
+    // Clear memory allocation. Introduced with LibRaw 0.11.0
+    raw.dcraw_clear_mem(thumb);
+    raw.recycle();
+
+    if ( imgData.isEmpty() )
+    {
+        kDebug() << "Failed to load JPEG thumb from LibRaw!";
+        return false;
+    }
+
+    return true;
+}
+
+bool KDcraw::Private::loadHalfPreview(QImage& image, LibRaw& raw)
+{
+    raw.imgdata.params.use_auto_wb   = 1;         // Use automatic white balance.
+    raw.imgdata.params.use_camera_wb = 1;         // Use camera white balance, if possible.
+    raw.imgdata.params.half_size     = 1;         // Half-size color image (3x faster than -q).
+    QByteArray imgData;
+
+    int ret = raw.unpack();
+
+    if (ret != LIBRAW_SUCCESS)
+    {
+        kDebug() << "LibRaw: failed to run unpack: " << libraw_strerror(ret);
+        raw.recycle();
+        return false;
+    }
+
+    ret = raw.dcraw_process();
+
+    if (ret != LIBRAW_SUCCESS)
+    {
+        kDebug() << "LibRaw: failed to run dcraw_process: " << libraw_strerror(ret);
+        raw.recycle();
+        return false;
+    }
+
+    libraw_processed_image_t* halfImg = raw.dcraw_make_mem_image(&ret);
+
+    if(!halfImg)
+    {
+        kDebug() << "LibRaw: failed to run dcraw_make_mem_image: " << libraw_strerror(ret);
+        raw.recycle();
+        return false;
+    }
+
+    Private::createPPMHeader(imgData, halfImg);
+    // Clear memory allocation. Introduced with LibRaw 0.11.0
+    raw.dcraw_clear_mem(halfImg);
+    raw.recycle();
+
+    if ( imgData.isEmpty() )
+    {
+        kDebug() << "Failed to load half preview from LibRaw!";
+        return false;
+    }
+
+    if (!image.loadFromData(imgData))
+    {
+        kDebug() << "Failed to load PPM data from LibRaw!";
+        return false;
+    }
 
     return true;
 }

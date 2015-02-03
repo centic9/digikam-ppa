@@ -1,16 +1,16 @@
 # Translation of kipiplugin_rawconverter to Korean.
 # Copyright (C) 2007 This_file_is_part_of_KDE
 # This file is distributed under the same license as the extragear-base package.
-# Park Shinjo <kde@peremen.name>, 2007.
 #
+# Park Shinjo <kde@peremen.name>, 2007, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: extragear-libs\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2007-12-27 11:17+0900\n"
-"Last-Translator: Park Shinjo <kde@peremen.name>\n"
-"Language-Team: Korean <cho.sungjae@gmail.com>\n"
+"PO-Revision-Date: 2014-03-03 03:32+0900\n"
+"Last-Translator: Park Shinjo <peremen@gmail.com>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -26,20 +26,16 @@ msgid "Your emails"
 msgstr "kde@peremen.name"
 
 #: dialogs/batchdialog.cpp:127 dialogs/singledialog.cpp:200
-#, fuzzy
-#| msgid "<p>Exit Raw Converter"
 msgid "Exit RAW Converter"
-msgstr "<p>RAW 변환기 끝내기"
+msgstr "RAW 변환기 끝내기"
 
 #: dialogs/batchdialog.cpp:128
-#, fuzzy
-#| msgid "Raw Images Batch Converter"
 msgid "RAW Image Batch Converter"
 msgstr "RAW 그림 일괄 변환기"
 
 #: dialogs/batchdialog.cpp:148
 msgid "Store it under different name"
-msgstr ""
+msgstr "다른 이름으로 저장"
 
 #: dialogs/batchdialog.cpp:151 dialogs/batchdialog.cpp:155
 #: dialogs/singledialog.cpp:149 dialogs/singledialog.cpp:152
@@ -52,23 +48,18 @@ msgid "RAW Image Converter"
 msgstr "RAW 그림 변환기"
 
 #: dialogs/batchdialog.cpp:178 dialogs/singledialog.cpp:169
-#, fuzzy
-#| msgid "A Kipi plugin to convert a Raw image"
 msgid "A Kipi plugin to convert RAW images"
 msgstr "RAW 그림을 변환하는 Kipi 플러그인"
 
 #: dialogs/batchdialog.cpp:179 dialogs/singledialog.cpp:170
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2005, Renchi Raju\n"
-#| "(c) 2006-2007, Gilles Caulier"
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
 "(c) 2003-2005, Renchi Raju\n"
-"(c) 2006-2007, Gilles Caulier"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2012, Smit Mehta"
 
 #: dialogs/batchdialog.cpp:183 dialogs/singledialog.cpp:174
 msgid "Renchi Raju"
@@ -83,60 +74,47 @@ msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: dialogs/batchdialog.cpp:188 dialogs/singledialog.cpp:179
-#, fuzzy
-#| msgid "Developper and maintainer"
 msgid "Developer and maintainer"
-msgstr "개발자와 관리자"
+msgstr "개발자, 관리자"
 
 #: dialogs/batchdialog.cpp:191 dialogs/singledialog.cpp:182
 msgid "Smit Mehta"
-msgstr ""
+msgstr "Smit Mehta"
 
 #: dialogs/batchdialog.cpp:192 dialogs/singledialog.cpp:183
 msgid "Developer"
-msgstr ""
+msgstr "개발자"
 
 #: dialogs/batchdialog.cpp:340
-#, fuzzy
-#| msgid "There is no Raw file to process in the list!"
 msgid "There is no RAW file in the list to process."
-msgstr "목록에 처리할 RAW 파일이 없습니다!"
+msgstr "목록에 처리할 RAW 파일이 없습니다."
 
 #: dialogs/batchdialog.cpp:349
-#, fuzzy
-#| msgid "<p>Exit Raw Converter"
 msgid "RAW Converter"
-msgstr "<p>RAW 변환기 끝내기"
+msgstr "RAW 변환기"
 
 #: dialogs/batchdialog.cpp:485 dialogs/singledialog.cpp:130
 msgid "&Abort"
 msgstr "중단(&A)"
 
 #: dialogs/batchdialog.cpp:486 dialogs/singledialog.cpp:198
-#, fuzzy
-#| msgid "<p>Abort the current Raw file conversion"
 msgid "Abort the current RAW file conversion"
-msgstr "<p>현재 RAW 파일 변환 중단하기"
+msgstr "현재 RAW 파일 변환 중단하기"
 
 #: dialogs/batchdialog.cpp:491 dialogs/singledialog.cpp:129
 msgid "Con&vert"
 msgstr "변환(&V)"
 
 #: dialogs/batchdialog.cpp:492
-#, fuzzy
-#| msgid "<p>Start converting the Raw images from current settings"
 msgid "Start converting the RAW images using current settings."
-msgstr "<p>현재 설정으로 RAW 그림 변환을 시작합니다"
+msgstr "현재 설정으로 RAW 그림 변환을 시작합니다."
 
 #: dialogs/batchdialog.cpp:576
-#, fuzzy, kde-format
-#| msgid "Converting Raw Image..."
+#, kde-format
 msgid "Processing %1"
-msgstr "RAW 그림 변환하는 중..."
+msgstr "%1 처리 중"
 
 #: dialogs/myimagelist.cpp:47
-#, fuzzy
-#| msgid "Raw File"
 msgid "Raw File"
 msgstr "RAW 파일"
 
@@ -150,34 +128,26 @@ msgstr "카메라"
 
 #: dialogs/myimagelist.cpp:50
 msgid "Status"
-msgstr ""
+msgstr "상태"
 
 #: dialogs/singledialog.cpp:128
 msgid "&Preview"
 msgstr "미리 보기(&P)"
 
 #: dialogs/singledialog.cpp:191
-#, fuzzy
-#| msgid ""
-#| "<p>Generate a Preview from current settings. Uses a simple bilinear "
-#| "interpolation for quick results."
 msgid ""
 "Generate a preview using current settings. Uses a simple bilinear "
 "interpolation for quick results."
 msgstr ""
-"<p>현재 설정으로 미리 보기 그림을 만듭니다. 간단한 이중 보간법으로 빠른 결과"
-"를 만듭니다."
+"현재 설정으로 미리 보기 그림을 만듭니다. 간단한 이중 보간법으로 빠른 결과를 "
+"만듭니다."
 
 #: dialogs/singledialog.cpp:195
-#, fuzzy
-#| msgid ""
-#| "<p>Convert the Raw Image from current settings. This uses a high-quality "
-#| "adaptive algorithm."
 msgid ""
 "Convert the RAW Image using current settings. This uses a high-quality "
 "adaptive algorithm."
 msgstr ""
-"<p>현재 설정으로 RAW 그림을 만듭니다. 이것은 고품질 알고리즘을 사용합니다."
+"현재 설정으로 RAW 그림을 만듭니다. 이것은 고품질 알고리즘을 사용합니다."
 
 #: dialogs/singledialog.cpp:383
 msgid "Generating Preview..."
@@ -188,22 +158,18 @@ msgid "Failed to generate preview"
 msgstr "미리 보기 만드는 데 실패함"
 
 #: dialogs/singledialog.cpp:399
-#, fuzzy
-#| msgid "Converting Raw Image..."
 msgid "Processing Images..."
-msgstr "RAW 그림 변환하는 중..."
+msgstr "처리 중..."
 
 #: dialogs/singledialog.cpp:434
-#, fuzzy, kde-format
-#| msgid "Save Raw Image converted from '%1' as"
+#, kde-format
 msgid "Save RAW image converted from '%1' as"
 msgstr "'%1'에서 변환된 RAW 그림을 다음으로 저장하기"
 
 #: dialogs/singledialog.cpp:464
-#, fuzzy, kde-format
-#| msgid "Failed to save image %1"
+#, kde-format
 msgid "Failed to save sidecar file for image %1..."
-msgstr "그림 %1을(를) 저장하는 데 실패함"
+msgstr "그림 %1의 사이드카 파일을 저장하는 데 실패함..."
 
 #: dialogs/singledialog.cpp:474
 #, kde-format
@@ -211,52 +177,42 @@ msgid "Failed to save image %1"
 msgstr "그림 %1을(를) 저장하는 데 실패함"
 
 #: dialogs/singledialog.cpp:489
-#, fuzzy
-#| msgid "Failed to convert Raw image"
 msgid "Failed to convert RAW image"
 msgstr "RAW 그림을 변환하는 데 실패함"
 
 #: manager/task.cpp:124
-#, fuzzy
-#| msgid "Cannot identify Raw image"
 msgid "Cannot identify RAW image"
 msgstr "RAW 그림을 식별할 수 없음"
 
 #: manager/task.cpp:134
-#, fuzzy, kde-format
-#| msgid "Make: %1\n"
+#, kde-format
 msgid "<br>Make: %1<br>"
-msgstr "제조사: %1\n"
+msgstr "<br>제조사: %1<br>"
 
 #: manager/task.cpp:135
-#, fuzzy, kde-format
-#| msgid "Model: %1\n"
+#, kde-format
 msgid "Model: %1<br>"
-msgstr "모델: %1\n"
+msgstr "모델: %1<br>"
 
 #: manager/task.cpp:139
-#, fuzzy, kde-format
-#| msgid "Created: %1\n"
+#, kde-format
 msgid "Created: %1<br>"
-msgstr "만든 날짜: %1\n"
+msgstr "생성됨: %1<br>"
 
 #: manager/task.cpp:145
-#, fuzzy, kde-format
-#| msgid "Aperture: f/%1\n"
+#, kde-format
 msgid "Aperture: f/%1<br>"
-msgstr "조리개 구경: f/%1\n"
+msgstr "조리개 구경: f/%1<br>"
 
 #: manager/task.cpp:150
-#, fuzzy, kde-format
-#| msgid "Focal: %1 mm\n"
+#, kde-format
 msgid "Focal: %1 mm<br>"
-msgstr "초점 거리: %1 mm\n"
+msgstr "초점 거리: %1mm<br>"
 
 #: manager/task.cpp:155
-#, fuzzy, kde-format
-#| msgid "Exposure: 1/%1 s\n"
+#, kde-format
 msgid "Exposure: 1/%1 s<br>"
-msgstr "노출: 1/%1 초\n"
+msgstr "노출: 1/%1초<br>"
 
 #: manager/task.cpp:160
 #, kde-format
@@ -266,27 +222,22 @@ msgstr "감도: ISO %1"
 #. i18n: ectx: Menu (Tools)
 #: plugin/kipiplugin_rawconverterui.rc:6
 msgid "&Tools"
-msgstr ""
+msgstr "도구(&T)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_rawconverterui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "주 도구 모음"
 
 #: plugin/plugin_rawconverter.cpp:111
-#, fuzzy
-#| msgid "RAW Image Converter"
 msgid "RAW Image Converter..."
-msgstr "RAW 그림 변환기"
+msgstr "RAW 그림 변환기..."
 
 #: plugin/plugin_rawconverter.cpp:121
-#, fuzzy
-#| msgid "Batch Raw Converter..."
 msgid "Batch RAW Converter..."
 msgstr "일괄 RAW 변환기..."
 
 #: plugin/plugin_rawconverter.cpp:152
-#, fuzzy, kde-format
-#| msgid "\"%1\" is not a Raw file."
+#, kde-format
 msgid "\"%1\" is not a RAW file."
 msgstr "\"%1\"은(는) RAW 파일이 아닙니다."

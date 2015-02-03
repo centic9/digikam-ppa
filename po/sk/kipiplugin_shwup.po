@@ -6,7 +6,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_shwup\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2013-02-01 02:36+0100\n"
-"PO-Revision-Date: 2013-03-14 13:42+0100\n"
+"PO-Revision-Date: 2013-10-28 21:02+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
@@ -35,18 +35,16 @@ msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
 #: plugin_shwup.cpp:104
-#, fuzzy
 msgid "Export to Shwup..."
-msgstr "Exportovať do umiestnenia"
+msgstr "Export do Shwup..."
 
 #: swalbum.cpp:48
-#, fuzzy
 msgid "Shwup New Album"
-msgstr "Vytvoriť nový album"
+msgstr "Nový album Shwup"
 
 #: swalbum.cpp:61
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
 
 #: swalbum.cpp:64
 msgctxt "album edit"
@@ -54,19 +52,16 @@ msgid "Title:"
 msgstr "Názov:"
 
 #: swlogin.cpp:47
-#, fuzzy
 msgid "Shwup Login"
-msgstr "Prihlásenie zlyhalo."
+msgstr "Prihlásenie Shwup"
 
 #: swlogin.cpp:59
-#, fuzzy
 msgid "Email of shwup account (required)."
-msgstr "E-mailový výstup na vybranú adresu."
+msgstr "E-mail účtu Shwup (povinné)."
 
 #: swlogin.cpp:63
-#, fuzzy
 msgid "Password of shwup account (required)."
-msgstr "Uživateľské meno a heslo je vyžadované"
+msgstr "Heslo účtu Shwup (povinné)"
 
 #: swlogin.cpp:66
 msgctxt "login settings"
@@ -80,12 +75,14 @@ msgstr "Heslo:"
 
 #: swwidget.cpp:71
 msgid "This is the list of images to upload to your Shwup account."
-msgstr ""
+msgstr "Toto je zoznam obrázkov na nahranie na váš účet Shwup."
 
 #: swwidget.cpp:77
 msgid ""
 "This is a clickable link to open the Shwup.com home page in a web browser."
 msgstr ""
+"Toto je klikateľný odkaz na otvorenie domovskej stránky Shwup.com vo webovom "
+"prehliadači."
 
 #: swwidget.cpp:83
 msgid "Account"
@@ -93,7 +90,7 @@ msgstr "Účet"
 
 #: swwidget.cpp:84
 msgid "This is the Shwup account that is currently logged in."
-msgstr ""
+msgstr "Toto je účet Shwup, ktorý je práve prihlásený."
 
 #: swwidget.cpp:87
 msgctxt "account settings"
@@ -101,13 +98,12 @@ msgid "Name:"
 msgstr "Názov:"
 
 #: swwidget.cpp:90
-#, fuzzy
 msgid "Change Account"
-msgstr "Detaily účtu"
+msgstr "Zmeniť účet"
 
 #: swwidget.cpp:91
 msgid "Change Shwup Account used for transfer"
-msgstr ""
+msgstr "Zmeniť účet Shwup použitý na prenos"
 
 #: swwidget.cpp:102 swwidget.cpp:122
 msgid "Destination"
@@ -115,7 +111,7 @@ msgstr "Cieľ"
 
 #: swwidget.cpp:103
 msgid "This is the Shwup album to which selected photos will be uploaded."
-msgstr ""
+msgstr "Toto je album Shwup, kam sa nahrajú vybrané fotky."
 
 #: swwidget.cpp:106
 msgid "Album:"
@@ -126,9 +122,8 @@ msgid "New Album"
 msgstr "Nový album"
 
 #: swwidget.cpp:111
-#, fuzzy
 msgid "Create new Shwup album"
-msgstr "<qt><b>Vytvoriť nový album v<br/>\"<i>%1</i>\"</b></qt>"
+msgstr "Vytvoriť nový album Shwup"
 
 #: swwidget.cpp:112
 msgctxt "album list"
@@ -136,13 +131,12 @@ msgid "Reload"
 msgstr "Znovu načítať"
 
 #: swwidget.cpp:113
-#, fuzzy
 msgid "Reload album list"
-msgstr "Obnoviť zoznam zariadení"
+msgstr "Obnoviť zoznam albumov"
 
 #: swwidget.cpp:123
 msgid "This is the location to which Shwup images will be downloaded."
-msgstr ""
+msgstr "Toto je umiestnenie, kam sa stiahnu obrázky Shwup."
 
 #: swwidget.cpp:130
 msgid "Options"
@@ -150,16 +144,15 @@ msgstr "Možnosti"
 
 #: swwidget.cpp:131
 msgid "These are options that will be applied to photos before upload."
-msgstr ""
+msgstr "Toto sú voľby, ktoré sa použijú na fotky pred nahraním."
 
 #: swwidget.cpp:135
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
 #: swwidget.cpp:145
-#, fuzzy
 msgid "Maximum dimension:"
-msgstr "MUNIT(rozmer)"
+msgstr "Maximálne rozmery:"
 
 #: swwidget.cpp:153
 msgid "JPEG quality:"
@@ -167,25 +160,23 @@ msgstr "Kvalita JPEG:"
 
 #: swwindow.cpp:88
 msgid "Export to Shwup Web Service"
-msgstr ""
+msgstr "Exportovať do webovej služby Shwup"
 
 #: swwindow.cpp:89
 msgid "Start Upload"
 msgstr "Spustiť odoslanie"
 
 #: swwindow.cpp:90
-#, fuzzy
 msgid "Start upload to Shwup web service"
-msgstr "Nástroj na export obrázkov do Shwup webovej služby"
+msgstr "Spustiť nahrávanie do webovej služby Shwup"
 
 #: swwindow.cpp:113
 msgid "Shwup Export"
 msgstr "Shwup export"
 
 #: swwindow.cpp:115
-#, fuzzy
 msgid "A Kipi plugin to export images to Shwup web service."
-msgstr "Nástroj na export obrázkov do Shwup webovej služby"
+msgstr "Kipi plugin na export obrázkov na webovú službu Shwup."
 
 #: swwindow.cpp:117
 msgid "(c) 2009, Timothée Groleau"
@@ -203,21 +194,20 @@ msgstr "Autor a správca"
 msgid ""
 "The shwup.com service does not seem to be available at this time, please try "
 "again later."
-msgstr ""
+msgstr "Služba shwup.com je zrejme práve nedostupná, skúste neskôr, prosím."
 
 #: swwindow.cpp:288
 msgid "This application has been blacklisted by the shwup.com service."
-msgstr ""
+msgstr "Táto aplikácia bola zablokovaná službou shwup.com."
 
 #: swwindow.cpp:300
-#, fuzzy, kde-format
+#, kde-format
 msgid "Shwup Call Failed: %1\n"
-msgstr "Volanie D-Bus zlyhalo"
+msgstr "Shwup volanie zlyhalo: %1\n"
 
 #: swwindow.cpp:401
-#, fuzzy
 msgid "Transfer Progress"
-msgstr "prebieha"
+msgstr "Postup prenosu"
 
 #: swwindow.cpp:406
 msgid "%v / %m"
@@ -229,6 +219,8 @@ msgid ""
 "Upload complete. Visit \"<a href=\"%1\">%2</a>\" to view the album online "
 "and invite people."
 msgstr ""
+"Nahrávanie ukončené. Navštívte \"<a href=\"%1\">%2</a>\" na prezretie albumu "
+"online a pozvanie ľudí."
 
 #: swwindow.cpp:518
 msgid "Upload complete"
@@ -239,9 +231,9 @@ msgid "Cannot open file"
 msgstr "Nie je možné otvoriť súbor"
 
 #: swwindow.cpp:565
-#, fuzzy, kde-format
+#, kde-format
 msgid "Uploading file %1"
-msgstr "Nahráva sa súbor %1 do fotoaparátu..."
+msgstr "Nahrávam súbor %1"
 
 #: swwindow.cpp:590
 #, kde-format
@@ -249,8 +241,10 @@ msgid ""
 "Failed to upload photo into Shwup: %1\n"
 "Do you want to continue?"
 msgstr ""
+"Zlyhalo nahranie fotky na Shwup: %1\n"
+"Chcete pokračovať?"
 
 #: swwindow.cpp:614
-#, fuzzy, kde-format
+#, kde-format
 msgid "Shwup Call Failed: %1"
-msgstr "Volanie D-Bus zlyhalo"
+msgstr "Shwup volanie zlyhalo: %1"
