@@ -107,8 +107,14 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >Os meta-dados são os dados sobre as imagens ou os ficheiros, como os dados técnicos da configuração da máquina durante a tiragem da fotografia, a informação do autor, os direitos de cópia, palavras-chave, títulos e coordenadas do local.</para>
            <para
 >A barra de meta-dados é composta por quatro sub-páginas: <guilabel
->EXIF, Notas do Fabricante, IPTC e GPS</guilabel
->. Do lado esquerdo, estão dois botões que lhe permitem mudar entre a visualização completa e simplificada dos dados. A seguir à mesma existe um ícone para imprimir e outro para copiar: o primeiro imprime os dados com a janela do   &kprinter; e o outro copia os meta-dados da página para a área de transferência. Na área da janela principal, irá encontrar um botão de navegação com o nome do ficheiro no topo das páginas. </para>
+>EXIF</guilabel
+>, <guilabel
+>Notas do Fabricante</guilabel
+>, <guilabel
+>IPTC</guilabel
+> e <guilabel
+>GPS</guilabel
+>. Do lado esquerdo, estão dois botões que lhe permitem mudar entre a visualização completa e simplificada dos dados. A seguir à mesma existe um ícone para imprimir e outro para copiar: o primeiro imprime os dados e o outro copia os meta-dados da página para a área de transferência. </para>
            <para
 >Uma funcionalidade realmente boa é o campo de pesquisa na parte inferior das páginas de meta-dados. À medida que vai escrevendo uma palavra-chave, os meta-dados no topo serão filtrados sucessivamente até que os reduza ao que está à procura. É uma forma rápida de aceder a informações específicas.</para>
 
@@ -116,8 +122,8 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >Os meta-dados, tal como são apresentados nestas quatro páginas, poderão ser modificados e melhorados de diversas formas noutro local: <itemizedlist>
                  <listitem
 ><para
->with the <ulink url="help:/index.html#using-cameraclientrenaming"
->camera dialog</ulink
+>com a <ulink url="help:/digikam/using-camera.html"
+>interface da máquina fotográfica</ulink
 ></para
 ></listitem>
                  <listitem
@@ -169,7 +175,7 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >O que é o EXIF?</title>
 
                     <para
->O EXIF significa <ulink url="http://www.exif.org"
+>O EXIF significa <ulink url="https://en.wikipedia.org/wiki/Exif"
 >EXtended Interchange Format</ulink
 >. Foi desenhado especificamente para as máquinas fotográficas digitais. Permite guardar uma grande quantidade de informação acerca da fotografia a guardar. Esta informação descreve a máquina que tirou a fotografia, bem como a sua configuração (incluindo a data e hora) usada na altura da tiragem da fotografia. Poderá ser incluída uma miniatura incorporada. </para>
 
@@ -220,21 +226,25 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >Poderá rever a informação do EXIF incorporada para a imagem seleccionada, na primeira página da barra lateral. O Visualizador de EXIF é meramente informativo: nada do que fizer aqui irá provocar qualquer alteração nas secções do EXIF. Se existirem mais itens do que espaço disponível, basta deslocar-se com a roda do rato. </para>
 
                     <para
->Poderá usar dois níveis diferentes para mostrar as secções de marcação do EXIF: <itemizedlist
-> <listitem
+>Poderá usar dois níveis diferentes para mostrar as secções de marcações EXIF: <itemizedlist>
+
+                        <listitem
 ><para
-> <guilabel
+><guilabel
 >Simples</guilabel
->: mostra apenas os marcadores de EXIF mais importantes para a fotografia.</para
-></listitem
-> <listitem
+>: mostra apenas as marcações EXIF mais importantes para as fotografias. </para
+></listitem>
+
+                        <listitem
 ><para
-> <guilabel
->Completo</guilabel
->: mostrar todos os marcadores de EXIF. </para
-></listitem
-> </itemizedlist
-> Para os dados apresentados, o Visualizador de EXIF oferece uma ajuda de contexto. Seleccione um item com o &RMB; para que a ajuda correspondente possa ser apresentada com a opção "O Que é Isto?" da janela. </para>
+><guilabel
+>Completa</guilabel
+>: mostra todas as marcações de EXIF. </para
+></listitem>
+
+                    </itemizedlist>
+
+                    </para>
 
                     <para
 >Alguns fabricantes adicionam secções extra do EXIF, como a Canon, a Fujifilm, a Nikon, a Minolta e a Sigma. Estas secções contêm as notas específicas do fabricante e do modelo. Estas serão apresentadas na secção das<guilabel
@@ -379,7 +389,7 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
                     <listitem
 ><para
 ><guilabel
->Intensidade</guilabel
+>Luminosidade</guilabel
 >: mostra a distribuição dos valores de brilho. </para
 ></listitem>
 
@@ -411,24 +421,13 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >Verde</guilabel
 > e <guilabel
 >Azul</guilabel
-> sobrepostos, para que possa ver a informação da distribuição de todas as cores numa única vista. Neste modo, a cor principal do histograma poderá ser escolhida com a opção <guilabel
->Cor</guilabel
->. </para
+> sobrepostos, para que possa ver a informação da distribuição de todas as cores numa única vista. </para
 ></listitem>
                             
                 </itemizedlist>
             
                 </para>
             
-                <para
->Com a opção de <guilabel
->Representação</guilabel
->, poderá determinar se o histograma será apresentado com os dados da <guilabel
->Imagem Completa</guilabel
-> ou apenas com a <guilabel
->Selecção da Imagem</guilabel
-> actual. Esta opção só poderá ser activada se tiver seleccionado previamente uma região da imagem com o Editor de Imagens. </para>
-
                 <para
 >Com a opção <guilabel
 >Escala</guilabel
@@ -461,37 +460,61 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 > 
             
                 <para
->As estatísticas apresentadas no fundo do Visualizador do Histograma descrevem a distribuição dos valores dos canais, restringidas ao intervalo seleccionado. Estas são: <itemizedlist
-> <listitem
+>As estatísticas apresentadas no fundo do Visualizador do Histograma descrevem a distribuição dos valores dos canais restrita ao intervalo seleccionado. Estes são: <itemizedlist>
+            
+                    <listitem
 ><para
-> A média. </para
-></listitem
-> <listitem
+>O número de pontos na imagem. </para
+></listitem>
+
+                    <listitem
 ><para
-> O desvio-padrão. </para
-></listitem
-> <listitem
+>O número de pontos cujos valores caem dentro do intervalo seleccionado. </para
+></listitem>
+
+                    <listitem
 ><para
-> A mediana da parte seleccionada do histograma. </para
-></listitem
-> <listitem
+>A média. </para
+></listitem>
+
+                    <listitem
 ><para
-> O número de pixels na imagem. </para
-></listitem
-> <listitem
+>O desvio-padrão. </para
+></listitem>
+            
+                    <listitem
 ><para
-> O número de valores que caem no intervalo seleccionado. </para
-></listitem
-> <listitem
+>A mediana da secção seleccionada no histograma. </para
+></listitem>
+
+                    <listitem
 ><para
-> A percentagem dos valores que caem dentro do intervalo seleccionado. </para
+>A percentagem dos valores que caem dentro do intervalo seleccionado. </para
 ></listitem
-> </itemizedlist
-> No modo do canal <guilabel
->Cores</guilabel
->, as estatísticas são actualizadas com a cor principal seleccionada na opção <guilabel
->Cor</guilabel
->. </para>
+>      
+                                                      
+                    <listitem
+><para
+>A profundidade de cor da imagem. </para
+></listitem>
+
+                    <listitem
+><para
+>O canal alfa na imagem. </para
+></listitem>
+
+                    <listitem
+><para
+>A origem do histograma, que pode ser <guilabel
+>Imagem Completa</guilabel
+> ou <guilabel
+>Região da Imagem</guilabel
+>, caso tenha seleccionado uma área da imagem no editor. </para
+></listitem>
+
+                </itemizedlist>
+
+                </para>
         
             </sect3>
 
@@ -537,35 +560,35 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >Uma Fotografia Sub-Exposta</screeninfo
 ><mediaobject
 ><imageobject
+><imagedata fileref="&path;editorhistogramsample1.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example
+> Com uma fotografia sobre-exposta, o histograma irá ter uma distribuição de brilho que será mais proeminente perto da direita do gráfico. <example
+> <title
+>Uma Fotografia Exposta Correctamente</title
+> <screenshot
+><screeninfo
+>Uma Fotografia Sobre-Exposta</screeninfo
+><mediaobject
+><imageobject
 ><imagedata fileref="&path;editorhistogramsample3.png" format="PNG"/> </imageobject
 ></mediaobject
 ></screenshot
 > </example
-> Com uma fotografia exposta correctamente, o histograma irá ter uma distribuição de brilho que será mais proeminente perto do centro do gráfico. <example
-> <title
->Uma Fotografia Exposta Correctamente</title
-> <screenshot
+> Com uma fotografia exposta correctamente, o histograma terá o relevo a mostrar o brilho distribuído mais ao centro no gráfico. <example
+>   <title
+>Uma Fotografia Exposta Correctamente</title>
+                    <screenshot
 ><screeninfo
 >Uma Fotografia Exposta Correctamente</screeninfo
 ><mediaobject
 ><imageobject
 ><imagedata fileref="&path;editorhistogramsample2.png" format="PNG"/> </imageobject
 ></mediaobject
-></screenshot
-> </example
-> Com uma fotografia sobre-exposta, o histograma terá o relevo a mostrar o brilho distribuído mais à direita no gráfico. <example
->    <title
->Uma Fotografia Sub-Exposta</title>
-                    <screenshot
-><screeninfo
->Uma Fotografia Sub-Exposta</screeninfo
-><mediaobject
-><imageobject
-><imagedata fileref="&path;editorhistogramsample1.png" format="PNG"/> </imageobject
-></mediaobject
 ></screenshot>
                 </example>
-
+                
                 </para>
 
                 <para
@@ -585,7 +608,7 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >       <title
 >A Página de Geo-Localização</title>
 
-	<para
+    <para
 >Esta página baseia-se no elemento do Marble para mostrar um mapa de orientação. Poderá ampliar e reduzir, com a deslocação da roda do rato ou ao carregar nesta e arrastá-la. Posicione-se, mantendo carregado o botão esquerdo do rato.</para>
                 <example
 >   <title
@@ -605,13 +628,13 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 >botão esquerdo do rato</keycap
 ></keycombo
 > para desenhar um quadrado. Todas as imagens que caiam nas coordenadas desse quadrado serão filtradas e apresentadas (desde que as suas imagens tenham sido geo-referenciadas, como é óbvio). </para>
-	<para
+    <para
 >Na barra lateral da direita, irá encontrar uma cruz que indica a localização GPS e o nome da imagem seleccionada a seguir a ela. As coordenadas do GPS e a informação da data são mostradas por baixo do elemento. </para>
-	<para
+    <para
 >Para os mapas de maior resolução, escolha o botão <guibutton
 >Mais Informação</guibutton
 > para abrir o serviço detalhado de mapas (escolha antes na área à esquerda) num navegador Internet.</para>
-	<para
+    <para
 >Os dados de posicionamento apresentados estão de facto guardados nas marcas EXIF da imagem (e ainda não na base de dados). Isto permite ler a localização a partir qualquer outra aplicação que consiga compreender os dados de GPS do EXIF.</para>
 
                  <sect3
@@ -628,7 +651,7 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 > para obter mais informações. </para>
                 </sect3>
 
-	</sect2>
+    </sect2>
 
         <sect2 id="using-sidebarcommentstags">
         <title
@@ -658,11 +681,11 @@ Se carregar sucessivamente na mesma página, fará com que a barra lateral apare
 ><para
 >Os dados do IPTC só suportam caracteres ASCII e 2000 caracteres no máximo (a norma Americana antiga). Todos os comentários serão delimitados ao fim de 2000 caracteres e os caracteres especiais serão considerados inválidos. Se pretender usar o campo do título do IPTC noutras aplicações, deverá ser compatível com estas restrições. </para
 ></caution>
-	<para
+    <para
 >Depois de comentar, poderá escolher o botão <guibutton
 >Aplicar</guibutton
 > ou passar para a imagem seguinte; nesse caso, serão guardados os títulos.</para>
-	<para
+    <para
 >A seguir ao botão Aplicar, existe o botão <guibutton
 >Mais</guibutton
 >. Nele, poderá optar por ler os meta-dados do ficheiro seleccionado para a base de dados; ou, no sentido inverso, gravar os meta-dados nos ficheiros (o último caso acontece sempre, se escolheu uma configuração de meta-dados em que os mesmos sejam guardados sempre nas imagens).</para>

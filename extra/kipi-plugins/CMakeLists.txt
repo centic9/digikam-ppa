@@ -8,11 +8,11 @@ MESSAGE(STATUS "Starting CMake configuration for: kipi-plugins")
 
 # kipi-plugins version
 SET(KIPIPLUGINS_MAJOR_VERSION "4")
-SET(KIPIPLUGINS_MINOR_VERSION "2")
+SET(KIPIPLUGINS_MINOR_VERSION "4")
 SET(KIPIPLUGINS_PATCH_VERSION "0")
 
 # kipi-plugins release date
-SET (KIPIPLUGINS_RELEASE_DATE "2014-08-03")
+SET (KIPIPLUGINS_RELEASE_DATE "2014-10-06")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -119,21 +119,7 @@ ENDIF(NOT WIN32 AND NOT APPLE)
 
 INCLUDE(MacroUtils)
 INCLUDE(MacroOpenCV)
-DETECT_OPENCV(2.4.6 core highgui objdetect contrib)
-
-# OpenMP detection requires CMake >= 2.6.3
-
-EXECUTE_PROCESS(COMMAND ${CMAKE_COMMAND} --version OUTPUT_VARIABLE VERSION_CMAKE_INFO)
-MESSAGE(STATUS "CMake version: ${VERSION_CMAKE_INFO}")
-STRING(REPLACE "-patch " "." VERSION_CMAKE_INFO "${VERSION_CMAKE_INFO}")
-MESSAGE(STATUS "CMake version (cleaned): ${VERSION_CMAKE_INFO}")
-MACRO_ENSURE_VERSION("2.6.3" "${VERSION_CMAKE_INFO}" OPENMP_VERSION_CMAKE)
-
-IF(OPENMP_VERSION_CMAKE AND NOT APPLE)
-    MACRO_OPTIONAL_FIND_PACKAGE(OpenMP)
-ELSE(OPENMP_VERSION_CMAKE AND NOT APPLE)
-    MESSAGE(STATUS "CMake version is too old: cannot detected OpenMP. Some plugins may have a weaker performance without OpenMP.")
-ENDIF(OPENMP_VERSION_CMAKE AND NOT APPLE)
+DETECT_OPENCV(2.4.9 core highgui objdetect contrib legacy imgproc)
 
 INCLUDE(MacroOptionalDependPackage)
 
@@ -174,10 +160,6 @@ PRINT_OPTIONAL_LIBRARY_STATUS("libkvkontakte"          LIBKVKONTAKTE_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libimagemagick"         ImageMagick_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libqtgstreamer"         QTGSTREAMER_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("QtKOAuth"               QTKOAUTH_FOUND)
-
-IF(OPENMP_VERSION_CMAKE)
-    PRINT_OPTIONAL_LIBRARY_STATUS("OpenMP" OPENMP_FOUND)
-ENDIF(OPENMP_VERSION_CMAKE)
 
 # LINUX Only.
 IF(NOT WIN32 AND NOT APPLE)

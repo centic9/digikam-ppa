@@ -91,7 +91,7 @@
 ></screeninfo>
           <mediaobject>
            <imageobject>
-            <imagedata fileref="542px-CIExy1931_sRGB.svg.png" format="PNG"/>
+            <imagedata fileref="&path;542px-CIExy1931_sRGB_svg.png" format="PNG"/>
            </imageobject>
            <textobject>
             <phrase
@@ -195,12 +195,6 @@
           <listitem
 ><para
 ><ulink url="http://www.creativepro.com/article/the-darkroom-makes-a-comeback-part-2-"
-></ulink
-></para
-></listitem>
-          <listitem
-><para
-><ulink url="http://www.kevinmillsphoto.com/Articles/OfficeLightingArticle.html"
 ></ulink
 ></para
 ></listitem>
@@ -508,19 +502,13 @@
           </orderedlist
 ></para>
           <para
->For more information on choosing a working space, see <ulink url="http://www.brucelindbloom.com/Info"
->this page</ulink
->, Information about RGB Working Spaces for a visual comparison of the gamut (array of included colors) of the various working color spaces. See <ulink url="http://www.luminous-landscape.com/tutorials/prophoto-rgb.shtml"
->here</ulink
-> and <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
->here</ulink
-> for a pro- and con- presentation, respectively, of the merits of using large gamut working spaces. And while you are on the cambrideincolour.com website, check out the tutorial on color management. </para>
-       </sect3>
-        <sect3
-> <title
->What white point should my working space have? </title>
-          <para
->[[Section removed pending permission to quote]]</para>
+>Para obter mais informações sobre a escolha de um espaço de trabalho, veja em <ulink url="http://www.brucelindbloom.com/Info"
+>Informações sobre Espaços de Trabalho RGB</ulink
+> uma comparação visual do gamute (lista de cores incluídas) dos vários espaços de cores de trabalho. Veja <ulink url="http://www.luminous-landscape.com/tutorials/prophoto-rgb.shtml"
+>aqui</ulink
+> e <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
+>aqui</ulink
+> uma apresentação dos prós e contras, respectivamente, em relação à utilização de espaços de trabalho de gamute largo. E, já que está na página Web cambrideincolour.com, veja o tutorial sobre a gestão de cores. </para>
        </sect3>
      </sect2>
 
@@ -833,15 +821,13 @@
 >aqui</ulink
 >, e depois pesquise por mais informações e mais detalhadas. </para>
         <para
->In addition to gamma 1.8 and gamma 2.2 the only other gamma for a working space that gets much mention or use is gamma 1.0, also called linear gamma. <emphasis
->Linear gamma</emphasis
-> is used in HDR (high dynamic range) imaging and also if one wants to avoid introducing gamma-induced errors into one's regular low dynamic range editing. Gamma-induced errors is a topic outside the scope of this tutorial, but see <ulink url="http://www.4p8.com/eric.brasseur/gamma.html"
->Gamma errors</ulink
-> in <ulink url="http://www.21stcenturyshoebox.com/essays/color_reproduction.html"
->picture scaling,</ulink
-> for gamma-induced color shifts; and of course Timo Autiokari's somewhat infamous <ulink url="http://www.aim-dtp.net/"
->website</ulink
->. </para>
+>Para além do 'gama' 1,8 e 2,2, o outro 'gama' para um espaço de trabalho que valerá a pena mencionar ou usar é o 'gama' 1,0, também chamado de 'gama' linear. O <emphasis
+>gama linear</emphasis
+> é usado nas imagens HDR (gama dinâmica elevada) e também se quiser evitar a introdução de erros induzidos pelo 'gama' para uma edição de imagem com gama dinâmica elevada. Os erros induzidos pelo 'gama' são um tópico fora do âmbito deste tutorial, mas veja os <ulink url="http://www.4p8.com/eric.brasseur/gamma.html"
+>erros do 'gama'</ulink
+> na <ulink url="http://www.21stcenturyshoebox.com/essays/color_reproduction.html"
+>mudança de escala da imagem,</ulink
+>, no que respeita aos desvios de cores induzidos pelo 'gama'. </para>
         <para
 >Infelizmente, e apesar das suas vantagens matemáticas inegáveis, os espaços de trabalho com 'gama' linear têm tão poucos tons escuros que (na opinião do autor) são impossíveis de usar na edição, caso esteja a trabalhar a 8 'bits', e continuam a ser problemáticos a 16 'bits'. No dia em que todos façam edições com ficheiros de 32 'bits', produzidos com máquinas HDR e em computadores poderosos, prevê-se que se utilizará então espaços de trabalho com 'gama' 1; o Adobe Lightroom já usa um espaço de trabalho com 'gama' linear "nos bastidores" e o Lightzone sempre usou um espaço de trabalho com 'gama' linear. </para>
 
@@ -872,22 +858,22 @@
 ></listitem>
           <listitem
 ><para
->For archival purposes, convert your raw file to a 16-bit tiff with a large gamut working space to avoid loosing color information. Then convert this archival tiff to your working space of choice (saving the converted working tiff under a new name, of course). See <ulink url="http://www.21stcenturyshoebox.com/essays/scenereferredworkflow.html"
->here</ulink
-> for more details.</para
+>Para fins de arquivo, converta o seu ficheiro RAW para um TIFF de 16 bits, com um espaço de trabalho de gamute largo, para evitar perder informações de cores. Depois, converta este TIFF de arquivo para o espaço de trabalho de gamute médio ou largo à sua escolha (guardando o TIFF convertido com um nome novo, obviamente). Veja mais detalhes <ulink url="http://simon.tindemans.eu/essays/scenereferredworkflow"
+>aqui</ulink
+>.</para
 ></listitem>
         </orderedlist>
 
         <para
->The WHYs of these bits of advice regarding which working space are beyond the scope of this tutorial. See Bruce Lindbloom's excellent website (<ulink url="http://www.brucelindbloom.com/"
->Info, Information about RGB Working Spaces</ulink
->) for a visual comparison of the gamut (array of included colors) of the various working color spaces. See <ulink url="http://www.luminous-landscape.com/tutorials/prophoto-rgb.shtml"
->here</ulink
-> and <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
->here</ulink
-> for a pro and con presentation, respectively, of the merits of using large gamut working spaces. And while you are on the <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
+>Os PORQUÊS destes conselhos estão para além do âmbito deste tutorial. Veja a página Web excelente de Bruce Lindbloom em <ulink url="http://www.brucelindbloom.com"
+>Informações sobre Espaços de Trabalho RGB</ulink
+>, uma comparação visual do gamute (lista de cores incluídas) dos vários espaços de cores de trabalho. Veja <ulink url="http://www.luminous-landscape.com/tutorials/prophoto-rgb.shtml"
+>aqui</ulink
+> e <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
+>aqui</ulink
+> uma apresentação dos prós e contras, respectivamente, em relação à utilização de espaços de trabalho de gamute largo. E, já que está na página Web  <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
 >cambrideincolour.com</ulink
-> website, check out the tutorial on color management. </para>
+>, veja o tutorial sobre a gestão de cores. </para>
     </sect3>
 
             <sect3 id="softproofing"

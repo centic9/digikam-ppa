@@ -1,0 +1,2069 @@
+<chapter id="menu-descriptions"
+>    <title
+>Menybeskrivningar</title>
+
+<sect1 id="main-window"
+>                <title
+>Huvudfönstret i &digikam;</title>
+
+    <sect2
+>    <title
+>Menyn Album</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menualbum.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Album</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+        <para>
+        <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;<keycap
+>Vänster</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+> <guimenuitem
+>Bakåt</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Gå tillbaka till föregående besökta vy med användning av historiken.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;<keycap
+>Höger</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+> <guimenuitem
+>Framåt</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Gå framåt till tidigare besökta vy med användning av historiken. Du kan bara gå framåt om du just gått bakåt.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>N</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+><guimenuitem
+>Ny...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Skapa en ny albumkatalog.</action
+></para
+></listitem>
+        </varlistentry>
+<!--        
+        <varlistentry>
+            <term
+><menuchoice>
+                <guimenu
+>Album</guimenu
+><guimenuitem
+>New Album from Selection...</guimenuitem>
+            </menuchoice
+></term>
+            <listitem
+><para
+><action
+>???</action
+></para
+></listitem>
+        </varlistentry>
+-->
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+><guimenuitem
+>Egenskaper</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Redigera titel, rubrik och samling för albumet som för närvarande är markerat.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>F5</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+><guimenuitem
+>Uppdatera</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Uppdatera den aktuella vyn i huvudfönstret.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry id="synchronize-metadata">
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+> <guimenuitem
+>Synkronisera bilder med databas</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Synkronisera metadata mellan databas och filens metadata för alla objekt i det nuvarande huvudfönstret. Bilderna ärver databasens metadata, inte tvärtom som med <link linkend="update-db-metadata"
+>detta</link
+> menyalternativ.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+> <guimenuitem
+>Öppna i filhanterare</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Öppna förvald filhanterare med nuvarande albumsökväg.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Album</guimenu
+> <guimenuitem
+>Ta bort</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Ta bort eller flytta valt album och alla objekt i det till papperskorgen.</action
+></para
+></listitem
+> 
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Album</guimenu
+> <guimenuitem
+>Avsluta</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Avsluta &digikam;</action
+></para
+></listitem>
+        </varlistentry>
+        
+        </variablelist>
+        </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Menyn Etikett</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menutag.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Etikett</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Etikett</guimenu
+><guimenuitem
+>Ny...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Skapa en ny etikettpost i albumdatabasen.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Etikett</guimenu
+><guimenuitem
+>Egenskaper</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Redigera egenskaperna för etiketten som för närvarande är markerad.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Etikett</guimenu
+> <guimenuitem
+>Ta bort</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Ta bort etiketten som för närvarande är markerad från albumdatabasen.</action
+></para
+></listitem>
+        </varlistentry>
+            
+    </variablelist>
+    </para>
+
+    </sect2>
+    
+    <!-- *********************************************************************** -->
+
+<sect2
+>    <title
+>Menyn Bild</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuimage.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Bild</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+> <shortcut
+><keycombo action="press"
+><keycap
+>F3</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bild</guimenu
+><guimenuitem
+>Visa...</guimenuitem
+> </menuchoice
+> eller <menuchoice
+> <shortcut
+><keycombo action="press"
+><keycap
+>Retur</keycap
+></keycombo
+></shortcut
+> <guimenu
+></guimenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Visa markerad bild.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+> <shortcut
+><keycombo action="press"
+><keycap
+>Esc</keycap
+></keycombo
+></shortcut
+> <guimenu
+></guimenu
+></menuchoice
+> eller <menuchoice
+> <shortcut
+><keycombo action="press"
+><keycap
+>F3</keycap
+></keycombo
+></shortcut
+> <guimenu
+></guimenu
+></menuchoice
+></term>
+            <listitem
+><para
+><action
+>Går tillbaka från 'bildvyn' till huvudfönstret.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F4</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bild</guimenu
+><guimenuitem
+>Redigera...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Öppna bilden som för närvarande är markerad i &digikam;s bildeditor.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+>&Ctrl;<keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bild</guimenu
+><guimenuitem
+>Lägg till på ljusbordet</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Infogar markeringen i ljusbordets miniatyrbildsrad och lägger ljusbordet i förgrunden.</action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+>&Ctrl;&Shift;<keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bild</guimenu
+><guimenuitem
+>Lägg till på ljusbordet</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Lägger till markeringen till ljusbordets miniatyrbildsrad och lägger ljusbordet i förgrunden.</action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+><guimenuitem
+>Korrigera EXIF-orienteringstagg</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Manuella justeringsalternativ för EXIF-orienteringstaggen för bilden som för närvarande är markerad.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+><guimenuitem
+>Rotera eller vänd automatiskt med EXIF-information</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram menyalternativ för att aktivera funktionen för automatiskt rotation eller vändning för bilderna som för närvarande är markerade med EXIF-orienteringstaggen. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/jpeglossless.html"
+>handboken för förlustfri JPEG</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Rotera</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram menyalternativ för att rotera bilderna som för närvarande är markerade 90, 180 eller 270 grader. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/jpeglossless.html"
+>handboken för förlustfri JPEG</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Vänd</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram menyalternativ för att vända bilderna som för närvarande är markerade horisontellt eller vertikalt. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/jpeglossless.html"
+>handboken för förlustfri JPEG</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+><guimenuitem
+>Konvertera till svart-vitt</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram menyalternativ för att konvertera bilderna som för närvarande är markerade till svartvitt. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/jpeglossless.html"
+>handboken för förlustfri JPEG</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+><guimenuitem
+>E-posta bilder...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att e-posta bilder med e-postprogrammet du föredrar. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/sendimages.html"
+>handboken för skicka bilder</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Lokalisera geografiskt</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att hantera GPS-metadata i bilden. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/geolocalization.html"
+>handboken för lokalisera geografiskt</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+><guimenuitem
+>Justera tid och datum</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att justera tid och datum för bilderna som för närvarande är markerade. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/timeadjust.html"
+>handboken för tidjustering</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Metadata</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att hantera bildens metadata (EXIF, IPTC, rubriker). </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/metadata.html"
+>handboken för metadata</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Utskriftsassistent...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att skriva ut albumbilder. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/printwizard.html"
+>handboken för utskriftsguiden</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+                                
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Bild</guimenu
+><guimenuitem
+>Ställ in som bakgrund</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att använda bilden som för närvarande är markerad som skrivbordsunderlägg. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/wallpaper.html"
+>handboken för skrivbordsunderlägg</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+                
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F2</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bild</guimenu
+><guimenuitem
+>Byt namn</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Byt namn på bilden som för närvarande är markerad.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F8</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Bild</guimenu
+><guimenuitem
+>Ta bort</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Flytta till papperskorg (borttagning som kan ångras)</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Menyn Redigera</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuselect.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Redigera</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Redigera</guimenu
+> <guimenuitem
+>Markera alla</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Markera alla bilder som för närvarande visas</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+></shortcut
+> <guimenu
+>Redigera</guimenu
+><guimenuitem
+>Avmarkera alla</guimenuitem
+> </menuchoice
+></term>
+        <listitem
+><para
+><action
+>Avmarkera alla objekt i nuvarande vy</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>*</keycap
+> </keycombo
+> </shortcut
+> <guimenu
+>Redigera</guimenu
+><guimenuitem
+>Invertera markering</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Invertera nuvarande markering</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Menyn Visa</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuview.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Visa</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+><guimenuitem
+>Fullskärmsläge</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Byt till fullskärm (samma som F11).</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guisubmenu
+>Bildspel</guisubmenu
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Bildspel, där obehandlade filer ingår.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+><guisubmenu
+>Bildspel</guisubmenu
+><guimenuitem
+>Alla</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Startar ett bildspel med alla bilder i nuvarande fönster.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;<keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+><guisubmenu
+>Bildspel</guisubmenu
+><guimenuitem
+>Markering</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Startar ett bildspel med markerade bilder.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Shift;<keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+><guisubmenu
+>Bildspel</guisubmenu
+><guimenuitem
+>Med alla delalbum</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Bildspel som går igenom nuvarande albumträd hierarkiskt.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;&Shift;<keycap
+>F9</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+><guisubmenu
+>Bildspel</guisubmenu
+><guimenuitem
+>Avancerat bildspel...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att visa ett avancerat bildspel med albumobjekt. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/slideshow.html"
+>handboken för avancerat bildspel</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Zooma in</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Öka förhandsgransknigens eller minatyrbildernas storlek för albumet som för närvarande är markerat.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Zooma ut</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Minska förhandsgransknigens eller minatyrbildernas storlek för albumet som för närvarande är markerat.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Alt;<keycap
+>0</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+> <guimenuitem
+>Zooma till 100 %</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Visar bilden 1:1 (vilket betyder att 1 bildpunkt i bilden avbildas exakt till 1 bildpunkt på skärmen) i förhandsgranskningsläge.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Shift;<keycap
+>E</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visa</guimenu
+><guimenuitem
+>Anpassa till fönster</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Ändrar storlek på bilden så att den bekvämt passar in i fönstret.</action
+></para
+></listitem>
+        </varlistentry>
+<!--
+        <varlistentry>
+            <term
+><menuchoice>
+                <shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>T</keycap
+></keycombo
+></shortcut>
+                <guimenu
+>View</guimenu
+><guimenuitem
+>Show Thumbnails</guimenuitem>
+            </menuchoice
+></term>
+            <listitem
+><para
+><action
+>???</action
+></para
+></listitem>
+        </varlistentry>
+-->        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guisubmenu
+>Sortera album</guisubmenu
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Sortera alla &digikam;-album enligt katalog, samling eller datum.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guisubmenu
+>Sortera bilder</guisubmenu
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Sortera alla bilder i aktuellt album enligt namn, sökväg, datum, filstorlek eller enligt poäng.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Inkludera albumets underkataloger</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Om en hierarkisk albumstruktur finns, visas grenen som för närvarande är markerad i sitt fulla djup.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Visa</guimenu
+> <guimenuitem
+>Inkludera etikettens deletiketter</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Om en hierarkisk etikettstruktur finns, visas grenen som för närvarande är markerad i sitt fulla djup.</action
+></para
+></listitem>
+        </varlistentry>
+        
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Menyn Verktyg</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menutools.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Verktyg</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Verktyg</guimenu
+><guimenuitem
+>Sök...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Starta dialogrutan med enkla objektsökningar. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Alt;&Ctrl;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Verktyg</guimenu
+><guimenuitem
+>Avancerad sökning...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Starta dialogrutan för avancerad objektsökning. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+><keycap
+>L</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Verktyg</guimenu
+><guimenuitem
+>Ljusbord</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Byter till ljusbordets fönster. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>D</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Verktyg</guimenu
+><guimenuitem
+>Sök duplikat...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att söka efter duplicerade bilder i albumdatabasen. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/findduplicateimages.html"
+>handboken för sök duplicerade bilder</ulink
+> för mer information. </para
+>     
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>Sök efter nya bilder...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Sök igenom biblioteket efter bilder som ännu inte finns i databasen (se också <link linkend="rescan-items"
+>startinställningar</link
+>). </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>Skapa om alla miniatyrbilder...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Börja skapa om alla miniatyrbilder (det kan ta lång tid om du har många bilder). </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+<!--        
+        <varlistentry>
+            <term
+><menuchoice>
+                <guimenu
+>Tools</guimenu
+><guimenuitem
+>Rebuild all Fingerprints...</guimenuitem>
+            </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>???</action
+></para>
+            </listitem
+>            
+        </varlistentry>
+-->        
+        <varlistentry id="update-db-metadata">
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>Synkronisera alla bilder med databas</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Starta synkronisering av all metadata mellan databas och filer, för alla filer (inte bara för nuvarande vy som med <link linkend="synchronize-metadata"
+>detta</link
+> menyalternativ). Databasens metadata kommer att skrivas över med filens metadata i fall då de skiljer sig åt. Du kan göra tvärtom med menyn <link linkend="synchronize-metadata"
+>Album</link
+>. </action
+></para>
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>Skapa kalender...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att skapa en kalender med albumobjekt. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/calendar.html"
+>handboken för kalender</ulink
+> för mer information. </para
+>     
+            </listitem
+>            
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>OpenGL bildvisning...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för fullskärmsvisning av markerad bild med OpenGL. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/openglviewer.html"
+>handboken för bildvisning med OpenGL</ulink
+> för mer information. </para
+>     
+            </listitem
+>            
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>Fjärrgallerier</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att skapa en lista av fjärrgallerier för export. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/remotegalleries.html"
+>handboken för fjärrgallerier</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>Konvertering av obehandlade bilder (enstaka)</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att konvertera en enstaka obehandlad bild. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/rawconverter.html"
+>handboken för konvertering av obehandlade bilder</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <!-- Import sub menu -->
+ 
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Verktyg</guimenu
+> <guimenuitem
+>Bakgrundsbehandling</guimenuitem
+> </menuchoice
+></term>
+             
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram menyalternativ för att utföra behandling i bakgrunden för bilder som för närvarande är markerade. </action
+></para>
+                <para
+>Se de särskilda handböckerna för mer information: <itemizedlist>
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/colorimages.html"
+>Handbok Bildfärgförbättring</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/convertimages.html"
+>Handbok Bildkonvertering</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/effectimages.html"
+>Handbok Bildeffekter</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/filterimages.html"
+>Handbok Bildfiltrering</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/recompressimages.html"
+>Handbok Bildomkomprimering</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/renameimages.html"
+>Handbok Bildnamnbyte</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/resizeimages.html"
+>Handbok Ändra bildstorlek</ulink>
+                        </para
+></listitem>
+
+                        <listitem
+><para>
+                        <ulink url="help:/kipi-plugins/rawconverter.html"
+>Handbok Konvertering av obehandlade bilder</ulink>
+                        </para
+></listitem>
+                    </itemizedlist>
+                </para
+>     
+            </listitem>
+        </varlistentry>
+    
+    </variablelist>
+    </para>
+    
+    </sect2>
+    
+    <!-- *********************************************************************** -->
+
+    <sect2
+>    <title
+>Menyn Importera</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuimport.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Importera</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <variablelist>
+         <para
+>Alla digitalkameror som är inställda listas här. Du kan använda menyalternativet "Lägg till kamera" för att lägga till en ny kamera i listan. Läs avsnittet <link linkend="cameraselection.anchor"
+>Ställa in kamera</link
+> för mer information. </para>
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Importera</guimenu
+> <guimenuitem
+>Mediabläddrare</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Bläddra i anslutna mediaenheter som kortläsare, dvd:er eller minnesstickor.</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Importera</guimenu
+> <guimenuitem
+>Lägg till kamera</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Lägg till en ny kamera interaktivt.</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Importera</guimenu
+> <guimenuitem
+>Lägg till bilder...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Navigera till en katalog och markera bilder</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Importera</guimenu
+> <guimenuitem
+>Lägg till kataloger...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Navigera till en katalog och importera den i sin helhet</action
+></para
+></listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Importera</guimenu
+> <guimenuitem
+>Läs in bilder...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Visar ett KIPI-insticksprogram med en dialogruta för bildläsare</action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/acquireimages.html"
+>handboken för Hämta bilder</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Importera</guimenu
+> <guimenuitem
+>Skärmdump...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Visar ett KIPI-insticksprogram med ett verktyg för skärmdump</action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/acquireimages.html"
+>handboken för Hämta bilder</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+    </variablelist>
+
+    </sect2>
+    <!-- *********************************************************************** -->
+
+    <sect2 id="export-menu"
+>    <title
+>Menyn Exportera</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menuexport.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Exportera</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <variablelist>
+         <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Exportera</guimenu
+><guimenuitem
+>Arkivera till cd eller dvd</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att arkivera album på en cd eller dvd med användning av K3b. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/cdarchiving.html"
+>handboken för cd-arkivering</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Exportera</guimenu
+> <guimenuitem
+>KML-export...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram som exporterar bildserien till en KML-struktur. KML-filer kan därefter öppnas och visas med GoogleEarth. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/fkmlrexport.html"
+>handboken för export till KML</ulink
+> för mer information. </para>
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+><guimenuitem
+>Export till Flickr...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att ladda upp eller uppdatera bilder på <ulink url="http://www.flickr.com/"
+>Flickr</ulink
+>-servern. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/flickrexport.html"
+>handboken för export till Flickr</ulink
+> för mer information. </para>
+            </listitem>
+        </varlistentry>
+        <!-- not ported to kde4
+        <varlistentry>
+            <term
+><menuchoice>
+                <guimenu
+>Export</guimenu
+><guimenuitem
+>Create MPEG Slideshow</guimenuitem>
+            </menuchoice
+></term>
+            <listitem>
+                <para
+><action>
+                    Kipi-plugin for creating an MPEG Slideshow with Album items.
+                </action
+></para>
+                <para>
+                    See the dedicated 
+                    <ulink url="help:/kipi-plugins/mpegencoder.html"
+>MPEG Encoder manual</ulink
+> 
+                    for more information.
+                </para
+>     
+            </listitem>
+        </varlistentry>
+	-->
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+> <guimenuitem
+>Synkronisera med fjärrgalleri...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att ladda upp eller uppdatera bilder på <ulink url="http://www.gallery2.org/"
+>webbgallerier</ulink
+>. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/galleryexport.html"
+>handboken för galleriexport</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+> <guimenuitem
+>Exportera till Picasaweb...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att ladda upp eller uppdatera bilder till Googles <ulink url="http://picasaweb.google.com/"
+>Picasaweb gallerier</ulink
+>. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/picasaweb.html"
+>handboken för export till Picasaweb</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Export</guimenu
+> <guimenuitem
+>HTML-galleri</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att skapa ett &HTML;-galleri med album. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/imagesgallery.html"
+>handboken för bildgalleri</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Exportera</guimenu
+> <guimenuitem
+>Vänd</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>KIPI-insticksprogram för att skapa ett &HTML;-galleri med album. </action
+></para>
+                <para
+>Se den särskilda <ulink url="help:/kipi-plugins/imagesgallery.html"
+>handboken för bildgalleri</ulink
+> för mer information. </para
+>     
+            </listitem>
+        </varlistentry>
+    </variablelist>
+
+    </sect2>
+    <!-- *********************************************************************** -->
+
+    <sect2 id="settings-menu"
+>    <title
+>Menyn Inställningar</title>
+
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="&path;menusettings.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Menyn Inställningar</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Visa verktygsrad</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Aktivera eller inaktivera huvudverktygsraden i &digikam;.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Visa statusrad</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Aktivera eller inaktivera statusraden i &digikam;.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa genvägar...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Anpassa snabbtangenter i &digikam;.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa verktygsrader...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Anpassa verktygsrader i &digikam;.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Inställningar</guimenu
+> <guimenuitem
+>Anpassa &digikam;...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Starta &digikam;s inställningsdialogruta.</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <sect2
+>    <title
+>Menyn Hjälp</title>
+    <variablelist>
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Hjälp</guimenu
+> <guimenuitem
+>Obehandlade kamerafiler som stöds</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Visar ett aktivt filter med alla kameror där det finns stöd för obehandlade bildformat.</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    <para>
+        <inlinemediaobject>
+            <imageobject
+><imagedata fileref="rawcamerasupport.png" format="PNG"/></imageobject>
+            <textobject
+> <phrase
+>Stöd för obehandlade kamerabilder</phrase
+> </textobject>
+        </inlinemediaobject>
+    </para>
+
+    </sect2>
+    <!-- *********************************************************************** -->
+
+</sect1>
+&doc-ie-menu; </chapter>

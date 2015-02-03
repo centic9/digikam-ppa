@@ -30,7 +30,7 @@
        from kde-genent.entities and $LANG/user.entities. -->
 ]>
 
-<book lang="&language;">
+<book id="digikam" lang="&language;">
 
 <bookinfo>
 
@@ -222,8 +222,8 @@
 >, através da biblioteca do 'gphoto2'. Obviamente, qualquer leitor de cartões ou suportes de armazenamento suportado pelo seu sistema operativo irá interagir com o &digikam;. </para>
 
        <para
->&digikam; incorporates a fast Image Editor with many image editing tools. You can use the Image Editor to view your photographs, comment and rate them, correct, enhance and alter them. The editing power can be easily extended by a set of plugins, the <ulink url="http://www.kipi-plugins.org"
->Kde Image Plugins Interface</ulink
+>O &digikam; incorpora um Editor de Imagens Rápido com algumas ferramentas de edição básicas. Poderá usar o Editor de Imagens para ver as suas fotografias, para fazer correcções e alterações e classificá-las ou comentá-las. O poder de edição poderá ser extendido facilmente com um conjunto de 'plugins', a <ulink url="https://projects.kde.org/projects/extragear/graphics/kipi-plugins"
+>Interface de 'Plugins' de Imagem do KDE (KIPI)</ulink
 > (<ulink url="help:/kipi-plugins/index.html"
 >manual</ulink
 >) </para>
@@ -725,19 +725,19 @@
 > <listitem
 ><para
 ><emphasis
->Kipi Plugins</emphasis
->: the <ulink url="http://www.kipi-plugins.org"
->Kde Image Plugins Interface project (Kipi)</ulink
+>'Plugins' do KIPI</emphasis
+>: o <ulink url="http://projects.kde.org/projects/extragear/graphics/kipi-plugins"
+>projecto de Interface de 'Plugins' de Imagem do KDE</ulink
 > (<ulink url="help:/kipi-plugins/index.html"
 >manual</ulink
->) is an effort to develop a common plugin structure for &digikam;, <application
+>) é um esforço para desenvolver uma estrutura de 'plugins' comum para o &digikam;, o <application
 >KPhotoAlbum</application
->, <application
+>, o <application
 >Showimg</application
-> and <application
+> e o <application
 >Gwenview</application
->. Its aim is to share image plugins among graphical applications. Kipi-Plugins setup is described in this <link linkend="setup-kipiplugins"
->section</link
+>. O seu objectivo é partilhar os 'plugins' de imagens entre as várias aplicações gráficas. A configuração dos 'Plugins' do Kipi está descrita nesta <link linkend="setup-kipiplugins"
+>secção</link
 >.</para
 ></listitem>
 
@@ -1444,7 +1444,7 @@
 >, de modo a poder seleccionar as marcas que deseja atribuir. </para>
 
          <para
->Poderá etiquetar uma fotografia com as marcas que desejar. A fotografia irá aparecer quando você seleccionar uma das marcas que lhe está atribuída. Desta forma, poderá atribuir uma marca por cada pessoa numa fotografia, assim como o local em que a fotografia foi tirada, o evento em que foi tirada, &etc;. </para>
+>Poderá etiquetar uma fotografia com as marcas que desejar. A fotografia irá aparecer quando você seleccionar uma das marcas que lhe está atribuída. Desta forma, poderá atribuir uma marca por cada pessoa numa fotografia, assim como o local em que a fotografia foi tirada, o evento em que foi tirada, &etc; </para>
 
            <example
 > <title
@@ -1785,49 +1785,49 @@
 
     <para
 ><link linkend="build-dam"
->Build a system to organize and find your photographs</link
+>Criar um sistema para organizar e encontrar as suas imagens</link
 ></para>
     <itemizedlist>
        <listitem
 ><para
 ><link linkend="case-for-digikam"
->A case for doing DAM with &digikam;</link
+>Um caso para fazer DAM com o &digikam;</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="build-archive"
->Build the archive: Folder organization, physical layout as information</link
+>Criar o pacote: Organização das pastas, disposição física como dados</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="automatic-metadata"
->Automatic metadata generation</link
+>Geração automática de meta-dados</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="ranking"
->Rating/Ranking</link
+>Classificação/Organização</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="keywords"
->Tagging, Keyword assignment</link
+>Marcação, Atribuição de palavras-chave</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="captions"
->Captions/Comments</link
+>Títulos/Comentários</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="geotagging"
->Geolocation (geo-tagging)</link
+>Geo-localização (geo-marcação)</link
 ></para
 ></listitem>
     </itemizedlist>
@@ -1839,13 +1839,13 @@
        <listitem
 ><para
 ><link linkend="watermarking"
->Digital Watermarking (DW)</link
+>Marca de Água Digital (DW)</link
 ></para
 ></listitem>
     </itemizedlist>
     <para
 ><link linkend="data-corruption"
->Protect your images from data corruption and loss</link
+>Proteja as suas imagens da corrupção e perda de dados</link
 ></para>
     <itemizedlist>
        <listitem
@@ -1863,37 +1863,37 @@
        <listitem
 ><para
 ><link linkend="human-errors"
->Human errors</link
+>Erros humanos</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="myths-dispelled"
->Common myths dispelled</link
+>Mitos comuns desfeitos</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="storage-budget"
->Make your budget: Data size, required storage volume estimation</link
+>Faça o seu orçamento: Tamanho dos dados, estimativa do volume de armazenamento necessário</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="backup"
->Back it up, backup, backup, recover!</link
+>Faça cópias de segurança, faça, faça e recupere!</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="technology-review"
->Preserve your images through the changes of technology and owners</link
+>Preserve as suas imagens ao longo das mudanças de tecnologia</link
 ></para
 ></listitem>
        <listitem
 ><para
 ><link linkend="best-practice"
->Best practice: Data protection</link
+>Boas práticas: protecção de dados</link
 ></para
 ></listitem>
     </itemizedlist>
@@ -2633,8 +2633,6 @@ Coisas giras
       <para
 >Este protocolo tenta deixar-lhe bastante tempo para detectar as perdas e para recuperar por completo, ao mesmo tempo, mantendo o volume de salvaguarda a &lt;130% do espaço de trabalho. Irá terminar com uma versão diária dos últimos 7-14 dias, uma imagem semanal, para pelo menos um mês, e uma imagem de todos os meses. Uma redução maior deverá ser feita à mão, após uma verificação completa.</para>
       <para
->script to follow....TBD</para>
-      <para
 >Para os utilizadores de *nix que falam Alemão: <ulink url="http://www.heinlein-support.de/web/rsync-backup/"
 >referência</ulink
 ></para>
@@ -2945,7 +2943,7 @@ Coisas giras
 >A página de Propriedades mostra as informações das propriedades do ficheiro que são usadas internamente pela máquina para guardar o item. Existe uma marca que indica também se o item já tiver sido transferido para o seu computador. Lembre-se que todas estas informações poderão não estar disponíveis em algumas máquinas digitais. </para>
 
             <para
->A página de Meta-Dados mostra as informações de meta-dados internas às imagens, como o EXIF, as Notas do Fabricante, GPS, &etc;. Estes dados são os mesmos que os <link linkend="using-sidebarmetadata"
+>A página de Meta-Dados mostra as informações de meta-dados internas às imagens, como o EXIF, as Notas do Fabricante, GPS, &etc; Estes dados são os mesmos que os <link linkend="using-sidebarmetadata"
 >Meta-Dados da barra lateral</link
 > da interface principal do &digikam; ou do editor de imagens. Nota: todos estes meta-dados poderão estar indisponíveis, para algumas máquinas fotográficas digitais. </para>
 
@@ -3101,15 +3099,15 @@ Coisas giras
 
                     <listitem
 ><para
->If you want another date format then the default date format, click on <guilabel
->Date &amp; Time...</guilabel
->, choose <guilabel
->Custom</guilabel
-> in <guilabel
->Format</guilabel
-> drop-down list and fill in for example "dd.MM.yyyy hh:mm:ss". For more information, read <ulink url="http://doc.trolltech.com/latest/qdatetime.html#toString"
->QdateTime</ulink
-> class reference.</para
+>Se quiser outro formato de datas que não o predefinido, carregue em <guilabel
+>Data &amp; Hora...</guilabel
+>, escolha <guilabel
+>Personalizado</guilabel
+> na lista <guilabel
+>Formato</guilabel
+>, preenchendo por exemplo "dd.MM.yyyy hh:mm:ss". Para mais informações, leia a referência da classe <ulink url="http://doc.qt.digia.com/qt/qdatetime.html#toString"
+>QDateTime</ulink
+>.</para
 ></listitem>
 
                     <listitem
@@ -3247,13 +3245,11 @@ Coisas giras
             <para
 >Mas se, ao fim de algum tempo, uma pessoa se esquecer onde a imagem foi retirada, mas poderia gostar de abrir um navegador com uma ampliação da área, poderá querer enviar a sua imagem como um postal para outro utilizador do &digikam; (que queira localizar depois a sua foto) ou simplesmente necessitar do aspecto de documentação da foto - ter os dados da posição guardados numa fotografia é óptimo. </para>
             <para
->Now, how do we get GPS data into the images? <ulink url="http://www.exiv2.org/tags.html"
->exiv2</ulink
-> supports many kinds of the GPS data fields, even bearing, satellite and map references. So the question is really how to get the data into those fields? There are at least three ways to do this: directly with the appropriate hardware, per post-treatment of GPS and image files using the <ulink url="http://www.kipi-plugins.org"
->Geolocation</ulink
-> (<ulink url="help:/kipi-plugins/geolocalization.html"
+>Agora, como é que se colocam os dados de GPS nas imagens? Em primeiro lugar, convém dizer que o <ulink url="http://www.exiv2.org/tags.html"
+>EXIF2</ulink
+> suporta muitos tipos de campos de dados de GPS, incluindo a direcção e as referências dos satélites e mapas. Por isso, a questão real é como colocar os dados nesses campos? Existem pelo menos três formas de o fazer: directamente com o 'hardware' apropriado, pelo tratamento posterior do GPS e dos ficheiros de imagens, usando o 'plugin' de Geolocalização (<ulink url="help:/kipi-plugins/geolocalization.html"
 >Manual</ulink
->) Kipi-plugin and per 'manual' insertion of known locations. </para>
+>) e com a inserção 'manual' dos locais conhecidos. </para>
             <itemizedlist>
 
                 <listitem
@@ -3265,39 +3261,23 @@ Coisas giras
 ><ulink url="http://www.engadget.com.nyud.net:8090/2004/09/17/diy-black-box-tagging-photos-with-gps-coordinates/"
 >HOWTO Automático</ulink>
                     </para>
-                    <para
->Cameras with GPS interface: <ulink url="http://www.lupinelogic.com/products/coyoteye.html"
->CoyoteEye iPAQ</ulink
-> <ulink url="http://www.survey-lab.com/"
->Ike</ulink
-> <ulink url="http://www.kodak.com/global/en/service/professional/tib/tib7061.jhtml?id=0.1.14.34.3.110&amp;lc=en"
->Kodak DCS Pro</ulink
-> <ulink url="http://nikonimaging.com/global/products/digitalcamera/index.htm"
->Nikon DSLR</ulink
-> <ulink url="http://www.geospatialexperts.com/ricoh.html"
->Ricoh Pro G3</ulink
-> <ulink url="http://digitalcameras.engadget.com/2004/04/30/gps-attachment-for-sony-digital-camcorders/"
->Sony</ulink
-> </para>
                 </listitem>
 
                 <listitem
 ><para
 >Tratamento posterior dos dados do GPS e dos ficheiros de imagem</para>
                     <para
->Using the <ulink url="http://www.kipi-plugins.org"
->Geolocation</ulink
-> Kipi-plugin (<ulink url="help:/kipi-plugins/geolocalization.html"
+>A usar o 'plugin' do Kipi de Geolocalização (<ulink url="help:/kipi-plugins/geolocalization.html"
 >Manual</ulink
-> if Kipi-plugins are already installed). </para>
+>), se os 'plugins' do KIPI já estiverem instalados). </para>
                     <para
 >A aproximação é bastante simples: enquanto tira as suas fotografias, deixe um dispositivo de GPS em funcionamento e transporte-o com a máquina. Quando acabar, transfira as imagens e os dados de GPS e corra o programa acima. Ele irá correlacionar os dados no domínio do tempo; por isso, é importante que a máquina fotográfica tenha uma precisão correcta do relógio (o dispositivo de GPS é sempre correcto, face aos satélites). A precisão da posição, interpolada a partir dos pontos do trajecto, poderá ser tão boa quanto 20 metros. Obviamente, esta aproximação só funciona se a sua máquina conseguir registar dados de EXIF. </para>
                     <para
->The GPS track download from a device can be managed with the <ulink url="http://www.ncc.up.pt/gpsman"
+>O trajecto transferido de um dispositivo de GPS poderá ser gerido com os utilitários <ulink url="http://gpsman.sourceforge.net"
 >gpsman</ulink
-> or <ulink url="http://www.gpsbabel.org"
+> ou <ulink url="http://www.gpsbabel.org"
 >gpsbabel</ulink
->. It is important that the downloaded tracks are being stored in gpx format, which is the only one compatible with the Geolocation plugin. </para>
+>. É importante que o trajecto transferido esteja guardado no formato GPX, que é o único compatível com o 'plugin' de Geolocalização. </para>
                     <para
 >Existem vários programas para o &Windows; e o MacOS que são capazes de extrair e correlacionar os dados das imagens e das faixas de dados em GPS. O servidor seguinte oferece a mesma funcionalidade para o &Linux;: o <ulink url="http://freefoote.dview.net/linux_gpscorr.html"
 >gpsCorr</ulink
@@ -3313,21 +3293,15 @@ Coisas giras
 >Se souber por acaso a latitude/longitude ou outros dados, poderá usar este programa, que serve como interface para a <ulink url="http://www.sno.phy.queensu.ca/~phil/exiftool"
 >ExifTool</ulink
 > de Phil Harvey, que usa a notação de coordenadas em números de vírgula flutuante, o formato produzido pelo maps.google. </para>
-                    <tip
-><para
->maps.google.com does not show the street maps of Europe. But there are European sites (.fr .de .es .it .co .uk at least) that show all navigation details in all of Europe. </para
-></tip>
                 </listitem>
 
             </itemizedlist>
 
             <para
->GPS devices: <ulink url="http://www.letsgodigital.org/en/9323/sony_gps_photography/"
->GPS tracker from Sony </ulink
-> and <ulink url="http://photofinder.atpinc.com/"
->ATP Fotofinder GPS tracker</ulink
-> <ulink url="http://www.emtac.com/products/bluetooth/index.html#btgps"
->EMTAC bluetooth GPS </ulink
+>Dispositivos GPS: <ulink url="http://www.letsgodigital.org/en/9323/sony_gps_photography/"
+>localizador GPS da Sony </ulink
+> e o <ulink url="http://www.emtac.com/products/bluetooth/index.html#btgps"
+>GPS Bluetooth da EMTAC</ulink
 > </para>
         </sect2>
     </sect1>
@@ -3355,13 +3329,13 @@ Coisas giras
              <listitem
 ><para
 ><link linkend="setup-album"
->Album Settings</link
+>Configuração do Álbum</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-collection"
->Collection Settings</link
+>Configuração da Colecção</link
 ></para
 ></listitem>
              <listitem
@@ -3379,49 +3353,49 @@ Coisas giras
              <listitem
 ><para
 ><link linkend="setup-tooltip"
->Tooltip Settings</link
+>Configuração das Dicas do Item do Álbum</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-mimetype"
->Mime Type Settings</link
+>Configuração do Tipo MIME</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-lighttable"
->Light Table Settings</link
+>Configuração da Mesa de Luz</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-editor"
->Image Editor Settings</link
+>Configuração do Editor de Imagem</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-saveimages"
->Save Image Options</link
+>Opções de Gravação da Imagem</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-raw-decoder"
->RAW Decoder Settings</link
+>Configuração do Descodificador RAW</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-iccprofiles"
->ICC Profiles setup</link
+>Configuração dos perfis de ICC</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-kipiplugins"
->Kipi Plugins Settings</link
+>Configuração dos 'Plugins' do Kipi</link
 ></para
 ></listitem>
              <listitem
@@ -3433,13 +3407,13 @@ Coisas giras
              <listitem
 ><para
 ><link linkend="setup-camera"
->Camera Interface Settings</link
+>Configuração da Interface da Máquina Fotográfica</link
 ></para
 ></listitem>
              <listitem
 ><para
 ><link linkend="setup-miscellaneous"
->Miscellaneous Settings</link
+>Configuração Diversa</link
 ></para
 ></listitem>
          </itemizedlist>
@@ -3764,9 +3738,7 @@ Coisas giras
 >Realces</guilabel
 ></para>
                 <para
->This is the story of the three highlight options, courtesy of <ulink url="http://linux.vilars.com/"
->Nicolas Vilars</ulink
-> :</para>
+>Esta é a história das três opções de tons claros, com a cortesia de Nicolas Vilars:</para>
                 <para
 >A opção predefinida aqui é considerar as áreas claras (leia-se: as partes da sua imagem que estão queimadas devido à incapacidade da sua máquina capturar os tons claros) como branco puro (opção <guilabel
 >branco puro</guilabel
@@ -4010,10 +3982,8 @@ Coisas giras
 >. </para>
 
                 <para
->For more information about Kipi plugins, you can consult the Kipi project at <ulink url="http://www.kipi-plugins.org"
->http://www.kipi-plugins.org</ulink
-> or the <ulink url="help:/kipi-plugins/index.html"
->Kipi-plugins manual</ulink
+>Para mais informações sobre os 'plugins' do Kipi, por favor consulte o <ulink url="help:/kipi-plugins/index.html"
+>manual do Kipi-plugins</ulink
 >. </para>
 
             </sect3>
@@ -4122,149 +4092,13 @@ Coisas giras
 >A Configuração de Temas</title>
 
             <para
->Color schemes are supplied like themes to personalize &digikam; main interface for you pleasure. To access these settings select <menuchoice
+>Os esquemas de cores são oferecidos como temas para personalizar a interface principal do &digikam; de acordo com os seus gostos. Para aceder a esta configuração, seleccione a opção <menuchoice
 ><guimenu
->Settings</guimenu
+>Configuração</guimenu
 > <guimenuitem
->Themes</guimenuitem
+>Temas</guimenuitem
 ></menuchoice
-> from the menubar and select your preferred theme to use. A preview of the available themes is listed below: </para>
-
-            <informaltable
-><tgroup cols="2">
-
-            <thead
-><row>
-                <entry
->Preview</entry>
-                <entry
->Theme Name</entry>
-            </row
-></thead>
-
-            <tbody>
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemeclean.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Clean </entry>
-                </row>
-
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemedark.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Dark </entry>
-                </row>
-
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemedefault.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Default </entry>
-                </row>
-
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemedessert.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Dessert </entry>
-                </row>
-
-
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemedigicasa.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Digicasa </entry>
-                </row>
-
-
-                <row>
-                    <entry>
-                     <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemedreary.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Dreary </entry>
-                </row>
-
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthememarine.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Marine </entry>
-                </row>
-
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemeorangecrush.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->OrangeCrush </entry>
-                </row>
-
-                <row>
-                    <entry>
-                    <inlinemediaobject
-><imageobject
-><imagedata fileref="&path;setupthemesandy.png" format="PNG"/> </imageobject
-></inlinemediaobject>
-                    </entry>
-
-                    <entry
->Sandy </entry>
-                </row>
-
-            </tbody>
-
-            </tgroup
-></informaltable>
-
-            <note
-><para
->Theme settings are implemented in simple text file. If you are interested to create a new theme for &digikam;, you can find more information about it in this <ulink url="http://www.digikam.org/themeguide.html"
->tutorial</ulink
->. </para
-></note>
-
+> do menu e seleccione o tema preferido a usar. </para>
         </sect2>
 
     </sect1>
@@ -4553,11 +4387,6 @@ Coisas giras
 ></menuchoice
 > (&Ctrl;+P) e obterá a janela de impressão normal do &kde;, onde poderá ajustar a configuração antes de imprimir a sua fotografia. </para>
 
-            <para
->For more information about advanced printing settings, please consult <ulink url="help:/kdeprint/index.html"
->&kde; Print manual</ulink
->. </para>
-
            <para
 >Na janela principal, poderá imprimir imagens individualmente ou em grupos. Poderá imprimir páginas inteiras com miniaturas, a partir da sua selecção. Tudo o que terá de fazer é seleccionar as imagens no formato normal e invocar a opção <menuchoice
 ><guimenu
@@ -4587,42 +4416,40 @@ Coisas giras
 >Como Obter o &digikam;</title>
 
 <para
->The website for &digikam; is at <ulink url="http://www.digikam.org"
+>A página Web do &digikam; está em <ulink url="http://www.digikam.org"
 >http://www.digikam.org</ulink
->. Please check it regularly to get the latest news about &digikam;. &digikam; can be obtained in binary and source format from <ulink url="http://sourceforge.net/project/showfiles.php?group_id=42641"
->http://sourceforge.net/project/showfiles.php?group_id=42641</ulink
->. </para>
+>. Por favor, verifique-a com regularidade para obter as últimas notícias acerca do &digikam;. O &digikam; poderá ser obtido no formato binário e de código na página Web do digiKam. </para>
 
 <para
->Also you can checkout the <emphasis
+>Também poderá obter os módulos de código do <emphasis
 >digikam</emphasis
-> and <emphasis
+> e do <emphasis
 >kipi</emphasis
-> source code modules from &kde; Extragear SVN repository like this: <screen width="40"
+> a partir do repositório de Git Extragear do &kde;, da seguinte forma: <screen width="40"
 ><prompt
 >%</prompt
 > <userinput
->svn co -N svn://anonsvn.kde.org/home/kde/trunk/extragear/graphics</userinput>
+>git clone git://anongit.kde.org/digikam</userinput>
     <prompt
 >%</prompt
 > <userinput
->cd graphics</userinput>
+>git clone git://anongit.kde.org/digikam-doc</userinput>
     <prompt
 >%</prompt
 > <userinput
->svn up digikam</userinput>
+>git clone git://anongit.kde.org/kipi-plugins</userinput>
     <prompt
 >%</prompt
 > <userinput
->svn co svn://anonsvn.kde.org/home/kde/branches/KDE/3.5/kde-common/admin</userinput
+>git clone git://anongit.kde.org/kipi-plugins-doc</userinput
 >
 </screen>
 
 </para>
 
 <para
->The last SVN snapshoots can be downloaded at this &URL; <ulink url="ftp://ftp.kde.org/pub/kde/unstable/snapshots/"
-> ftp://ftp.kde.org/pub/kde/unstable/snapshots/</ulink
+>As últimas versões poderão ser obtidas neste &URL; <ulink url="ftp://ftp.kde.org/pub/kde/unstable/digikam/"
+> ftp://ftp.kde.org/pub/kde/unstable/digikam/</ulink
 >. </para>
 
 </sect1>
@@ -4632,113 +4459,9 @@ Coisas giras
 >Requisitos</title>
 
 <para
->In order to successfully use &digikam;, you need the following: <itemizedlist
-> <listitem
-><para
->AutoConf 
->= 2.5 <ulink url="http://www.gnu.org/software/autoconf"
->GNU autoconf</ulink
-></para
-></listitem
-> <listitem
-><para
->AutoMake 
->= 1.7.0 <ulink url="http://www.gnu.org/software/automake"
->GNU automake</ulink
-></para
-></listitem
-> <listitem
-><para
->&kde; 3.x <ulink url="http://www.kde.org"
->&kde; Home Page</ulink
-></para
-></listitem
-> <listitem
-><para
->libqt 
->= 3.3.x <ulink url="http://www.trolltech.com"
->Trolltech</ulink
-></para
-></listitem
-> <listitem
-><para
->libsqlite 
->= 3.x <ulink url="http://www.sqlite.org"
->SQlite3</ulink
-></para
-></listitem
-> <listitem
-><para
->gphoto2 
->= 2.x <ulink url="http://www.gphoto.org"
->Gphoto Home Page</ulink
-></para
-></listitem
-> <listitem
-><para
->libgdbm 
->= 1.8.0</para
-></listitem
-> <listitem
-><para
->libkipi 
->= 0.1 <ulink url="http://www.kipi-plugins.org"
->www.kipi-plugins.org</ulink
-></para
-></listitem
-> <listitem
-><para
->libkexiv2 
->= 0.1 <ulink url="http://www.kipi-plugins.org"
->www.kipi-plugins.org</ulink
-></para
-></listitem
-> <listitem
-><para
->libdcraw 
->= 0.1.5 <ulink url="http://www.kipi-plugins.org"
->www.kipi-plugins.org</ulink
-></para
-></listitem
-> <listitem
-><para
->libtiff 
->= 3.6.x (
->=3.8.2 recommended) <ulink url="http://www.remotesensing.org/libtiff"
->www.remotesensing.org</ulink
-></para
-></listitem
-> <listitem
-><para
->libpng 
->= 1.2.0 <ulink url="http://www.libpng.org/pub/png/libpng.html"
->www.libpng.org</ulink
-></para
-></listitem
-> <listitem
-><para
->liblcms 
->= 1.14.x <ulink url="http://www.littlecms.com"
->Little CMS Home Page</ulink
-></para
-></listitem
-> <listitem
-><para
->libjasper 
->= 1.7 <ulink url="http://www.ece.uvic.ca/~mdadams/jasper"
->Jasper site</ulink
-></para
-></listitem
-> <listitem
-><para
->exiv2 
->= 0.12 (
->=0.14 recommended) <ulink url="http://www.exiv2.org"
->Exiv2.org</ulink
-></para
-></listitem
-> </itemizedlist
-> All library dependencies require development and binary packages installed on your computer to compile &digikam;. </para>
+>Para poder usar com sucesso o &digikam;, irá necessitar das seguintes <ulink url="http://digikam.org/download?q=download/dependencies"
+>dependências do digiKam</ulink
+>. Todas as dependências como bibliotecas necessitam de ter os pacotes binários e de desenvolvimento instalados no seu computador para compilar o &digikam;. </para>
 
 <para
 >Provavelmente, o fabricante da sua distribuição poderá já ter criado e oferecido esses pacotes. </para>
@@ -4750,34 +4473,20 @@ Coisas giras
 >Compilação e Instalação</title>
 
 <para
->In order to compile and install &digikam; on your system, type the following in the base folder of the <emphasis
+>Para poder compilar e instalar o &digikam; no seu sistema, escreva o seguinte na pasta de base das distribuições dos módulos <emphasis
 >libkipi</emphasis
-> and <emphasis
+> e <emphasis
 >digikam</emphasis
-> module distributions: <screen width="40"
+>. Deverá usar uma pasta de compilação separada para ajudar a limpar o código, caso algo ocorra de errado. <screen width="40"
 ><prompt
 >%</prompt
 > <userinput
->export WANT_AUTOCONF_2_5=1</userinput>
+>mkdir build </userinput>
     <prompt
 >%</prompt
 > <userinput
->export KDEDIR=KDE_installation_dir_on_your_system</userinput>
-    <prompt
->%</prompt
-> <userinput
->export 
-    PKG_CONFIG_PATH=$PKG_CONFIG_PATH:/path/to/installation/lib/pkgconfig</userinput
->    
-    <prompt
->%</prompt
-> <userinput
->make -f Makefile.cvs</userinput>
-    <prompt
->%</prompt
-> <userinput
->./configure</userinput>
-    <prompt
+>cmake -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` .. </userinput>
+   <prompt
 >%</prompt
 > <userinput
 >make</userinput>
@@ -4801,18 +4510,18 @@ Coisas giras
 >A etapa 3 é necessária se estiver a instalar a libkipi/libkexiv2 num local fora do normal, e se quiser que pkg-config indique a sua localização. </para>
 
 <para
->More specific compilation and installation options can be passed to the <emphasis
->configure</emphasis
-> script. Use <userinput
->./configure --help</userinput
-> on the command line to view these options. </para>
+>Poderá passar mais opções de compilação e instalação específicas ao programa <emphasis
+>cmake</emphasis
+>. Use o <userinput
+>./cmake --help</userinput
+> na linha de comandos para ver estas opções. </para>
 
 <para
->Use <emphasis
->--enable-debug=full</emphasis
-> option with <emphasis
->configure</emphasis
-> script for to provide a full information bug report. </para>
+>Use a opção <emphasis
+>-DCMAKE_BUILD_TYPE=debugfull</emphasis
+> com o <emphasis
+>cmake</emphasis
+> para obter um relatório de erros com informação completa. </para>
 
 <para
 >Dado que o &digikam; depende da <emphasis
@@ -4824,7 +4533,7 @@ Coisas giras
 </note>
 
 <para
->Since &digikam; uses autoconf and automake you should not have trouble compiling it. If you run into problems please report them to <email
+>Dado que o &digikam; usa o CMake, não deverá ter problemas a compilá-lo. Caso os tenha, por favor comunique-os a <email
 >digikam-users@kde.org</email
 >. </para>
 

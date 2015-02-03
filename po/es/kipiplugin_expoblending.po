@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-07-30 01:31+0000\n"
+"POT-Creation-Date: 2014-08-30 01:38+0000\n"
 "PO-Revision-Date: 2013-01-09 17:42-0600\n"
 "Last-Translator: Hector Wilvert Ivan Valdez Reza <ranmaru.hibikiya@gmail."
 "com>\n"
@@ -407,11 +407,11 @@ msgstr ""
 "<qt><p>El preprocesado está ejecutándose, por favor espere.</p><p>Puede "
 "durar un rato...</p></qt>"
 
-#: importwizard/preprocessingpage.cpp:221
+#: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
 msgstr "Mensajes del preprocesado"
 
-#: importwizard/preprocessingpage.cpp:240
+#: importwizard/preprocessingpage.cpp:242
 msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
@@ -420,11 +420,11 @@ msgstr ""
 "imágenes delimitadas...</p><p>Pulse en el botón «Detalles» para mostrar las "
 "imágenes procesadas.</p></qt>"
 
-#: manager/actionthread.cpp:308
+#: manager/actionthread.cpp:320
 msgid "unknown"
 msgstr "desconocido"
 
-#: manager/actionthread.cpp:807
+#: manager/actionthread.cpp:835
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -440,7 +440,9 @@ msgid "A tool to blend bracketed images"
 msgstr "Una herramienta para unir imágenes delimitadas"
 
 #: plugin/aboutdata.h:44
-msgid "(c) 2009-2012, Gilles Caulier"
+#, fuzzy
+#| msgid "(c) 2009-2012, Gilles Caulier"
+msgid "(c) 2009-2014, Gilles Caulier"
 msgstr "© 2009-2012, Gilles Caulier"
 
 #: plugin/aboutdata.h:46
@@ -455,21 +457,25 @@ msgstr "Autor"
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
-#: plugin/aboutdata.h:51
+#: plugin/aboutdata.h:51 plugin/aboutdata.h:55
 msgid "Developer"
 msgstr "Desarrollador"
+
+#: plugin/aboutdata.h:54
+msgid "Benjamin Girault"
+msgstr ""
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
 msgstr "Archivo(s) a abrir"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_expoblendingui.rc:6
+#: plugin/kipiplugin_expoblendingui.rc:7
 msgid "&Tools"
 msgstr "&Herramientas"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_expoblendingui.rc:12
+#: plugin/kipiplugin_expoblendingui.rc:13
 msgid "Main Toolbar"
 msgstr "Barra de herramientas principal"
 

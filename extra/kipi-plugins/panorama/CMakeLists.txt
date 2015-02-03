@@ -52,7 +52,7 @@ SET(panorama_common_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/tasks/copyfilestask.cpp
    )
 
-# Adjust flag for static lib and 64 bits computers using -fPIC for GCC compiler (B.K.O: #269903)
+# Adjust flag for static lib and 64 bits computers using -fPIC for GCC compiler (bug: #269903)
 FOREACH(_currentfile ${panorama_common_SRCS})
     IF(NOT MSVC)
         SET_SOURCE_FILES_PROPERTIES(${_currentfile} PROPERTIES COMPILE_FLAGS "-fPIC")
@@ -85,6 +85,17 @@ CONFIGURE_FILE(plugin/kipiplugin_panorama.desktop.cmake ${CMAKE_CURRENT_BINARY_D
 INSTALL(FILES   ${CMAKE_CURRENT_BINARY_DIR}/plugin/kipiplugin_panorama.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 INSTALL(TARGETS kipiplugin_panorama                                            DESTINATION ${PLUGIN_INSTALL_DIR})
 INSTALL(FILES   plugin/kipiplugin_panoramaui.rc                                DESTINATION ${DATA_INSTALL_DIR}/kipi)
+
+# =======================================================
+# Test program
+
+IF(CMAKE_BUILD_TYPE MATCHES ".*[dD]ebug.*")
+    SET(pto_parser_test_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/plugin/parser_test.cpp)
+
+    KDE4_ADD_EXECUTABLE(pto_parser_test ${pto_parser_test_SRCS})
+
+    TARGET_LINK_LIBRARIES(pto_parser_test libpanorama)
+ENDIF(CMAKE_BUILD_TYPE MATCHES ".*[dD]ebug.*")
 
 # =======================================================
 # Stand alone version of Panorama plugin

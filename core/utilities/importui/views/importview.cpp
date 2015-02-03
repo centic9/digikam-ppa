@@ -787,7 +787,7 @@ void ImportView::toggleShowBar(bool b)
 {
     d->stackedView->thumbBarDock()->showThumbBar(b);
 
-    // See B.K.O #319876 : force to reload current view mode to set thumbbar visibility properly.
+    // See bug #319876 : force to reload current view mode to set thumbbar visibility properly.
     d->stackedView->setViewMode(viewMode());
 }
 
@@ -831,6 +831,11 @@ ImportFilterModel* ImportView::importFilterModel() const
 ImportStackedView::StackedViewMode ImportView::viewMode() const
 {
     return d->stackedView->viewMode();
+}
+
+void ImportView::toggleFullScreen(bool set)
+{
+    d->stackedView->importPreviewView()->toggleFullScreen(set);
 }
 
 } // namespace Digikam

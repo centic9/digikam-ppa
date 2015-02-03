@@ -221,8 +221,7 @@ QPixmap ImportDelegate::retrieveThumbnailPixmap(const QModelIndex& index, int th
     model->setData(index, thumbnailSize, ImportImageModel::ThumbnailRole);
     // get data from model
     QVariant thumbData              = index.data(ImportImageModel::ThumbnailRole);
-
-    return thumbData.value<QPixmap>();
+    return (thumbData.value<QPixmap>());
 }
 
 QPixmap ImportDelegate::thumbnailPixmap(const QModelIndex& index) const
@@ -326,7 +325,9 @@ void ImportDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, cons
 
     if (!d->tagRect.isNull())
     {
-        QString tags = AlbumManager::instance()->tagNames(info.tagIds).join(", ");
+        QStringList tagsList = AlbumManager::instance()->tagNames(info.tagIds);
+        tagsList.sort();
+        QString tags         = tagsList.join(", ");
         drawTags(p, d->tagRect, tags, isSelected);
     }
 

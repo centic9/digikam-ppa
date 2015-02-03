@@ -1,40 +1,37 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010, 2011.
+# Steve Allewell <steve.allewell@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-06-17 01:29+0000\n"
-"PO-Revision-Date: 2011-05-01 12:42+0100\n"
-"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
-"Language-Team: British English <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-07-01 22:35+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.2\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrew Coles"
+msgstr "Andrew Coles, Steve Allewell"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrew_coles@yahoo.co.uk"
+msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
 
 #: plugin/aboutdata.h:51
 msgid "DNG Image Converter"
 msgstr "DNG Image Converter"
 
 #: plugin/aboutdata.h:54
-#, fuzzy, kde-format
-#| msgid ""
-#| "A tool to batch convert RAW camera images to DNG\n"
-#| "Using XMP toolkit %1\n"
-#| "Using DNG toolkit 1.3"
+#, kde-format
 msgid ""
 "A tool to batch convert RAW camera images to DNG\n"
 "Using LibRaw %1\n"
@@ -43,21 +40,20 @@ msgid ""
 "Using DNG toolkit 1.3"
 msgstr ""
 "A tool to batch convert RAW camera images to DNG\n"
-"Using XMP toolkit %1\n"
+"Using LibRaw %1\n"
+"Using LibKdcraw %2\n"
+"Using XMP toolkit %3\n"
 "Using DNG toolkit 1.3"
 
 #: plugin/aboutdata.h:62
-#, fuzzy
-#| msgid ""
-#| "(c) 2008-2011, Gilles Caulier\n"
-#| "(c) 2010-2011, Jens Mueller"
 msgid ""
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2010-2011, Jens Mueller\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
-"(c) 2008-2011, Gilles Caulier\n"
-"(c) 2010-2011, Jens Mueller"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2010-2011, Jens Mueller\n"
+"(c) 2012, Smit Mehta"
 
 #: plugin/aboutdata.h:66
 msgid "Gilles Caulier"
@@ -77,7 +73,7 @@ msgstr "Developer"
 
 #: plugin/aboutdata.h:74
 msgid "Smit Mehta"
-msgstr ""
+msgstr "Smit Mehta"
 
 #: plugin/batchdialog.cpp:109
 msgid "Exit DNG Converter"
@@ -92,10 +88,8 @@ msgid "The list does not contain any Raw files to process."
 msgstr "The list does not contain any Raw files to process."
 
 #: plugin/batchdialog.cpp:274
-#, fuzzy
-#| msgid "DNG Converter..."
 msgid "DNG Converter"
-msgstr "DNG Converter..."
+msgstr "DNG Converter"
 
 #: plugin/batchdialog.cpp:399
 msgid "&Abort"
@@ -115,38 +109,38 @@ msgstr "Start converting the Raw images using the current settings."
 
 #: plugin/batchdialog.cpp:480
 msgid "Process failed"
-msgstr ""
+msgstr "Process failed"
 
 #: plugin/batchdialog.cpp:483
 msgid "Process Canceled"
-msgstr ""
+msgstr "Process Cancelled"
 
 #: plugin/batchdialog.cpp:486
 msgid "File not supported"
-msgstr ""
+msgstr "File not supported"
 
 #: plugin/batchdialog.cpp:489
 msgid "Internal error"
-msgstr ""
+msgstr "Internal error"
 
 #: plugin/batchdialog.cpp:512
 #, kde-format
 msgid "Processing %1"
-msgstr ""
+msgstr "Processing %1"
 
 #: plugin/dngconverter.cpp:54
 msgid "File(s) to convert"
 msgstr "File(s) to convert"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_dngconverterui.rc:6
+#: plugin/kipiplugin_dngconverterui.rc:7
 msgid "&Tools"
-msgstr ""
+msgstr "&Tools"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_dngconverterui.rc:12
+#: plugin/kipiplugin_dngconverterui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Main Toolbar"
 
 #: plugin/myimagelist.cpp:47
 msgid "Raw File"
@@ -162,7 +156,7 @@ msgstr "Camera"
 
 #: plugin/myimagelist.cpp:50
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: plugin/plugin_dngconverter.cpp:90
 msgid "DNG Converter..."
@@ -217,7 +211,7 @@ msgstr "Overwrite automatically"
 
 #: plugin/settingswidget.cpp:156
 msgid "Store as a different name"
-msgstr ""
+msgstr "Store as a different name"
 
 #: plugin/task.cpp:145
 msgid "Cannot identify Raw image"

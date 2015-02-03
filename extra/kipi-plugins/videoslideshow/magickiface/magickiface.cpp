@@ -8,7 +8,7 @@
  * @brief  c++ wrapper on ImageMagick Api
  *
  * @author Copyright (C) 2012      by A Janardhan Reddy <annapareddyjanardhanreddy at gmail dot com>
- *         Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ *         Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -70,7 +70,7 @@ void MagickImage::setHeight(int height)
 
 bool MagickImage::setImage(Image* const img)
 {
-    if(!img)
+    if (!img)
         return false;
 
     m_image = img;
@@ -94,7 +94,7 @@ Image* MagickImage::getImage() const
 
 bool MagickImage::freeImage() const
 {
-    if(m_image)
+    if (m_image)
         DestroyImage(m_image);
 
     return true;
@@ -199,7 +199,7 @@ MagickImage* MagickApi::loadQImage(const QImage& qimage)
 {
     MagickImage* img      = 0;
     PixelPacket* img_data = 0;
-    Image*       image;
+    Image*       image    = 0;
     int x, y;
 
     img = d->allocImage();
@@ -211,6 +211,7 @@ MagickImage* MagickApi::loadQImage(const QImage& qimage)
           1.0, &img->getImage()->exception)))
     {
         Q_EMIT signalsAPIError("ResizeImage() failed\n");
+        freeImage(*img);
         return 0;
     }
 
@@ -219,10 +220,10 @@ MagickImage* MagickApi::loadQImage(const QImage& qimage)
     img->setWidth(img->getImage()->columns);
     img->setHeight(img->getImage()->rows);
 
-    if (!(img_data = GetAuthenticPixels(img->getImage(), 0, 0, img->getWidth(), img->getHeight(), 
-          &img->getImage()->exception)))
+    if (!(img_data = GetAuthenticPixels(img->getImage(), 0, 0, img->getWidth(), img->getHeight(), &img->getImage()->exception)))
     {
         Q_EMIT signalsAPIError("GetImagePixels() failed\n");
+        freeImage(*img);
         return 0;
     }
 
@@ -230,7 +231,7 @@ MagickImage* MagickApi::loadQImage(const QImage& qimage)
     {
         for (x = 0 ; x < img->getWidth() ; x++)
         {
-            QColor rgb = qimage.pixel(x, y);
+            QColor rgb      = qimage.pixel(x, y);
             img_data->red   = rgb.red() * USHRT_MAX / UCHAR_MAX;
             img_data->green = rgb.green() * USHRT_MAX / UCHAR_MAX ;
             img_data->blue  = rgb.blue() * USHRT_MAX / UCHAR_MAX ;
@@ -239,6 +240,7 @@ MagickImage* MagickApi::loadQImage(const QImage& qimage)
     }
 
     SyncAuthenticPixels(img->getImage(), &img->getImage()->exception);
+
     return img;
 }
 
@@ -250,7 +252,7 @@ MagickImage* MagickApi::loadImage(const QString& file)
 
     img = d->allocImage();
 
-    if(!img)
+    if (!img)
         return 0;
 
     GetExceptionInfo(&exception);
@@ -258,11 +260,12 @@ MagickImage* MagickApi::loadImage(const QString& file)
     if (!(info = CloneImageInfo((ImageInfo*) NULL)))
     {
         Q_EMIT signalsAPIError("CloneImageInfo() failed\n");
+        freeImage(*img);
         return 0;
     }
 
     QString nfile = file;
-    nfile.truncate(4096);
+    nfile.truncate(MaxTextExtent);
 
     strcpy(info->filename, nfile.toAscii());
 
@@ -272,6 +275,7 @@ MagickImage* MagickApi::loadImage(const QString& file)
     if (!(img->setImage(ReadImage(info, &exception))))
     {
         Q_EMIT signalsAPIError("ReadImage(%s) failed\n");
+        freeImage(*img);
         return 0;
     }
 
@@ -285,7 +289,7 @@ MagickImage* MagickApi::loadImage(const QString& file)
 
 MagickImage* MagickApi::loadStream(QFile& stream)
 {
-    if(stream.isOpen())
+    if (stream.isOpen())
         stream.close();
 
     stream.open(QIODevice::ReadOnly);
@@ -304,6 +308,7 @@ MagickImage* MagickApi::loadStream(QFile& stream)
     if (!(info = CloneImageInfo((ImageInfo*) NULL)))
     {
         Q_EMIT signalsAPIError("CloneImageInfo() failed\n");
+        freeImage(*img);
         return 0;
     }
 
@@ -316,6 +321,7 @@ MagickImage* MagickApi::loadStream(QFile& stream)
     if (!(img->setImage(ReadImage(info,&exception))))
     {
         Q_EMIT signalsAPIError("ReadImage(%s) failed\n");
+        freeImage(*img);
         return 0;
     }
 
@@ -338,10 +344,10 @@ int MagickApi::saveToFile(const MagickImage& img, const QString& file)
     }
 
     QString nfile = file;
-    nfile.truncate(4096);
+    nfile.truncate(MaxTextExtent);
 
     strcpy(info->filename, nfile.toAscii());
-    strcpy(info->magick,"PPM");
+    strcpy(info->magick, "PPM");
     info->compression           = UndefinedCompression;
     info->depth                 = 8;
     img.getImage()->compression = UndefinedCompression;
@@ -360,7 +366,7 @@ int MagickApi::saveToFile(const MagickImage& img, const QString& file)
 
 int MagickApi::saveToStream(const MagickImage& img, QFile& stream)
 {
-    if(stream.isOpen())
+    if (stream.isOpen())
         stream.close();
 
     stream.open(QIODevice::WriteOnly);
@@ -373,13 +379,13 @@ int MagickApi::saveToStream(const MagickImage& img, QFile& stream)
         return -1;
     }
 
-    info->file            = fdopen(fileHandle,"wb");
-    strcpy(info->magick,"PPM");
+    info->file            = fdopen(fileHandle, "wb");
+    strcpy(info->magick, "PPM");
     info->compression     = UndefinedCompression;
     info->depth           = 8;
     img.getImage()->compression = UndefinedCompression;
-    strcpy(img.getImage()->filename,"");
-    strcpy(img.getImage()->magick,"PPM");
+    strcpy(img.getImage()->filename, "");
+    strcpy(img.getImage()->magick, "PPM");
     img.getImage()->depth = 8;
 
     if (WriteImage(info,img.getImage()) != MagickTrue)
@@ -411,6 +417,7 @@ MagickImage* MagickApi::createImage(const QString& color, int width, int height)
     if (!(image = ResizeImage(img->getImage(), width, height, SCALE_FILTER_FAST, 1.0, &exception)))
     {
         Q_EMIT signalsAPIError("ResizeImage() failed\n");
+        freeImage(*img);
         return 0;
     }
 
@@ -448,6 +455,7 @@ MagickImage* MagickApi::duplicateImage(const MagickImage& src)
     if (!(dst->setImage(CloneImage(src.getImage(), 0, 0, (MagickBooleanType)1, &exception))))
     {
         Q_EMIT signalsAPIError("CloneImageInfo() failed\n");
+        freeImage(*dst);
         return 0;
     }
 
@@ -566,7 +574,7 @@ MagickImage* MagickApi::borderImage(const MagickImage& simg, const QString& colo
     if (!img)
         return 0;
 
-    if(bitblitImage(*img, bw, bh, simg, 0, 0, simg.getWidth(), simg.getHeight()) != 1)
+    if (bitblitImage(*img, bw, bh, simg, 0, 0, simg.getWidth(), simg.getHeight()) != 1)
     {
         freeImage(*img);
         return 0;
@@ -585,14 +593,14 @@ MagickImage* MagickApi::geoscaleImage(const MagickImage& simg, int x, int y, int
         return 0;
 
     /* copy the area out of the source image */
-    if(bitblitImage(*img, 0, 0, simg, x, y, w, h) != 1)
+    if (bitblitImage(*img, 0, 0, simg, x, y, w, h) != 1)
     {
         freeImage(*img);
         return 0;
     }
 
     /* and scale it to correct output size */
-    if(scaleImage(*img, width, height) != 1)
+    if (scaleImage(*img, width, height) != 1)
     {
         freeImage(*img);
         return 0;
@@ -615,13 +623,13 @@ int MagickApi::scaleblitImage(MagickImage& dimg, int dx, int dy, int dw, int dh,
     if (!img)
         return -1;
 
-    if(bitblitImage(dimg, dx, dy, *img, 0, 0, dw, dh) != 1)
+    if (bitblitImage(dimg, dx, dy, *img, 0, 0, dw, dh) != 1)
     {
         freeImage(*img);
         return -1;
     }
 
-    if(!freeImage(*img))
+    if (!freeImage(*img))
         return -1;
 
     return 1;

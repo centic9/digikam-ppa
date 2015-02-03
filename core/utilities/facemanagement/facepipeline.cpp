@@ -660,9 +660,11 @@ void DatabaseWriter::process(FacePipelineExtendedPackage::Ptr package)
                 // Allow to overwrite existing recognition with new, possibly valid, "not recognized" status
                 int tagId = FaceTags::unknownPersonTagId();
 
-                if (!package->recognitionResults[i].isNull())
+                // NOTE: See bug #338485 : check if index is not outside of containe size.
+                if (i < package->recognitionResults.size() &&
+                    !package->recognitionResults[i].isNull())
                 {
-                    // Only perform this call if recognition as results, to prevent crash in QMap. See B.K.O #335624
+                    // Only perform this call if recognition as results, to prevent crash in QMap. See bug #335624
                     tagId = FaceTags::getOrCreateTagForIdentity(package->recognitionResults[i].attributes);
                 }
 

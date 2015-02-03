@@ -206,7 +206,7 @@ QString DatabaseWidget::currentDatabaseType() const
 void DatabaseWidget::slotChangeDatabasePath(const KUrl& result)
 {
 #ifdef _WIN32
-    // Work around B.K.O #189168
+    // Work around bug #189168
     KTemporaryFile temp;
     temp.setPrefix(result.toLocalFile(KUrl::AddTrailingSlash));
     temp.open();
@@ -334,7 +334,7 @@ void DatabaseWidget::checkDBPath()
     //d->mainDialog->enableButtonOk(dbOk);
 }
 
-void DatabaseWidget::setParametersFromSettings(const AlbumSettings* const settings)
+void DatabaseWidget::setParametersFromSettings(const ApplicationSettings* const settings)
 {
     originalDbPath = settings->getDatabaseFilePath();
     originalDbType = settings->getDatabaseType();

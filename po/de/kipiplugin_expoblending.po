@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_expoblending\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-07-30 01:31+0000\n"
-"PO-Revision-Date: 2014-01-26 21:03+0100\n"
+"POT-Creation-Date: 2014-08-30 01:38+0000\n"
+"PO-Revision-Date: 2014-08-05 16:43+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -411,11 +411,11 @@ msgstr ""
 "<qt><p>Die Vorverarbeitung wird durchgeführt, bitte warten Sie.</p><p>Dies "
 "kann eine Weile dauern ...</p></qt>"
 
-#: importwizard/preprocessingpage.cpp:221
+#: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
 msgstr "Nachrichten der Vorverarbeitung"
 
-#: importwizard/preprocessingpage.cpp:240
+#: importwizard/preprocessingpage.cpp:242
 msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
@@ -424,11 +424,11 @@ msgstr ""
 "Ihre Bilder aus der Belichtungsreihe ...</p><p>Drücken Sie „Details“, um die "
 "Nachrichten der Verarbeitung anzuzeigen.</p></qt>"
 
-#: manager/actionthread.cpp:308
+#: manager/actionthread.cpp:320
 msgid "unknown"
 msgstr "unbekannt"
 
-#: manager/actionthread.cpp:807
+#: manager/actionthread.cpp:835
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -446,8 +446,8 @@ msgid "A tool to blend bracketed images"
 msgstr "Ein Werkzeug, um Bilder aus einer Belichtungsreihe zu mischen"
 
 #: plugin/aboutdata.h:44
-msgid "(c) 2009-2012, Gilles Caulier"
-msgstr "(c) 2009-2012, Gilles Caulier"
+msgid "(c) 2009-2014, Gilles Caulier"
+msgstr "(c) 2009-2014, Gilles Caulier"
 
 #: plugin/aboutdata.h:46
 msgid "Gilles Caulier"
@@ -461,21 +461,25 @@ msgstr "Autor"
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
-#: plugin/aboutdata.h:51
+#: plugin/aboutdata.h:51 plugin/aboutdata.h:55
 msgid "Developer"
 msgstr "Entwickler"
+
+#: plugin/aboutdata.h:54
+msgid "Benjamin Girault"
+msgstr "Benjamin Girault"
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
 msgstr "Zu öffnende Datei(en)"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_expoblendingui.rc:6
+#: plugin/kipiplugin_expoblendingui.rc:7
 msgid "&Tools"
 msgstr "E&xtras"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_expoblendingui.rc:12
+#: plugin/kipiplugin_expoblendingui.rc:13
 msgid "Main Toolbar"
 msgstr "Haupt-Werkzeugleiste"
 

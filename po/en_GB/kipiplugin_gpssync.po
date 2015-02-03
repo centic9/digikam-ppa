@@ -1,29 +1,30 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Andrew Coles <andrew_coles@yahoo.co.uk>, 2009, 2010, 2011.
+# Steve Allewell <steve.allewell@gmail.com>, 2014.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-06-12 01:33+0000\n"
-"PO-Revision-Date: 2011-05-01 12:59+0100\n"
-"Last-Translator: Andrew Coles <andrew_coles@yahoo.co.uk>\n"
-"Language-Team: British English <kde-i18n-doc@kde.org>\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-07-01 22:41+0100\n"
+"Last-Translator: Steve Allewell <steve.allewell@gmail.com>\n"
+"Language-Team: British English <kde-l10n-en_gb@kde.org>\n"
 "Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.2\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Andrew Coles"
+msgstr "Andrew Coles, Steve Allewell"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "andrew_coles@yahoo.co.uk"
+msgstr "andrew_coles@yahoo.co.uk, steve.allewell@gmail.com"
 
 #: gpsbookmarkowner.cpp:349 searchwidget.cpp:777
 #, kde-format
@@ -131,11 +132,11 @@ msgstr ""
 
 #: gpscorrelatorwidget.cpp:292
 msgid "Show tracks on Map"
-msgstr ""
+msgstr "Show tracks on Map"
 
 #: gpscorrelatorwidget.cpp:293
 msgid "Set this option to show tracks on the Map"
-msgstr ""
+msgstr "Set this option to show tracks on the Map"
 
 #: gpscorrelatorwidget.cpp:298
 msgid "Difference in min.:"
@@ -343,12 +344,13 @@ msgid "Looking up altitudes"
 msgstr "Looking up altitudes"
 
 #: gpslistviewcontextmenu.cpp:746
-#, fuzzy, kde-format
-#| msgid "Altitude looked up"
+#, kde-format
 msgid ""
 "Altitude lookup failed:\n"
 "%1"
-msgstr "Altitude looked up"
+msgstr ""
+"Altitude lookup failed:\n"
+"%1"
 
 #: gpslistviewcontextmenu.cpp:753
 msgid "Altitude looked up"
@@ -651,14 +653,12 @@ msgid "More options"
 msgstr "More options"
 
 #: gpsreversegeocodingwidget.cpp:864
-#, fuzzy
-#| msgid "Add new tag"
 msgid "Add new tag:"
-msgstr "Add new tag"
+msgstr "Add new tag:"
 
 #: gpsreversegeocodingwidget.cpp:865
 msgid "Select a name for the new tag:"
-msgstr ""
+msgstr "Select a name for the new tag:"
 
 #: gpsreversegeocodingwidget.cpp:1004
 #, kde-format
@@ -730,10 +730,8 @@ msgid "A Plugin to synchronize pictures' metadata with a GPS device"
 msgstr "A Plugin to synchronise pictures' metadata with a GPS device"
 
 #: gpssyncdialog.cpp:447
-#, fuzzy
-#| msgid "(c) 2006-2010, Gilles Caulier"
 msgid "(c) 2006-2013, Gilles Caulier"
-msgstr "(c) 2006-2010, Gilles Caulier"
+msgstr "(c) 2006-2013, Gilles Caulier"
 
 #: gpssyncdialog.cpp:449
 msgid "Michael G. Hansen"
@@ -757,11 +755,11 @@ msgstr "Gilles Caulier"
 
 #: gpssyncdialog.cpp:461
 msgid "Justus Schwartz"
-msgstr ""
+msgstr "Justus Schwartz"
 
 #: gpssyncdialog.cpp:462
 msgid "Patch for displaying tracks on the map."
-msgstr ""
+msgstr "Patch for displaying tracks on the map."
 
 #: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
@@ -811,10 +809,8 @@ msgid "Error"
 msgstr "Error"
 
 #: gpssyncdialog.cpp:1158
-#, fuzzy
-#| msgid "GPS Sync"
 msgid "GPS sync"
-msgstr "GPS Sync"
+msgstr "GPS sync"
 
 #: kipiimageitem.cpp:369
 msgid "Not available"
@@ -884,19 +880,19 @@ msgstr "Failed to remove GPS info from image"
 msgid "Failed to save tags to file."
 msgstr "Failed to save tags to file."
 
-#: kipiimageitem.cpp:844
+#: kipiimageitem.cpp:848
 msgid "Unable to save changes to file"
 msgstr "Unable to save changes to file"
 
 #. i18n: ectx: Menu (Image)
-#: kipiplugin_gpssyncui.rc:6
+#: kipiplugin_gpssyncui.rc:7
 msgid "&Image"
-msgstr ""
+msgstr "&Image"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: kipiplugin_gpssyncui.rc:12
+#: kipiplugin_gpssyncui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Main Toolbar"
 
 #: plugin_gpssync.cpp:100
 msgid "Geo-location"
@@ -910,10 +906,15 @@ msgid ""
 "Please enable reading of sidecar files in the host application or continue "
 "at your own risk."
 msgstr ""
+"You have enabled writing to sidecar files for metadata storage in the host "
+"application, but not for reading. This means that any metadata stored in the "
+"sidecar files will be overwritten here.\n"
+"Please enable reading of sidecar files in the host application or continue "
+"at your own risk."
 
 #: plugin_gpssync.cpp:125
 msgid "Warning: Sidecar settings"
-msgstr ""
+msgstr "Warning: Sidecar settings"
 
 #: rgtagmodel.cpp:95
 msgid "{Country}"
@@ -1032,7 +1033,7 @@ msgstr "Layout:"
 
 #: track_listmodel.cpp:210
 msgid "Color"
-msgstr ""
+msgstr "Colour"
 
 #: track_listmodel.cpp:214
 msgid "#points"

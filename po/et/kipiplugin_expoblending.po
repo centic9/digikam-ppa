@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-07-30 01:31+0000\n"
+"POT-Creation-Date: 2014-08-30 01:38+0000\n"
 "PO-Revision-Date: 2012-10-19 03:10+0300\n"
 "Last-Translator: Marek Laane <bald@smail.ee>\n"
 "Language-Team: Estonian <kde-et@linux.ee>\n"
@@ -395,11 +395,11 @@ msgstr ""
 "<qt><p>Eeltöötlemine käib, palun oota.</p><p>See võib võtta veidi aega...</"
 "p></qt>"
 
-#: importwizard/preprocessingpage.cpp:221
+#: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
 msgstr "Eeltöötlemise teated"
 
-#: importwizard/preprocessingpage.cpp:240
+#: importwizard/preprocessingpage.cpp:242
 msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
@@ -407,11 +407,11 @@ msgstr ""
 "<qt><p>Eeltöötlus nurjus.</p><p>Palun kontrolli kahveldatud piltide pinu...</"
 "p><p>Töötlemisteadete nägemiseks klõpsa nupule \"Üksikasjad\".</p></qt>"
 
-#: manager/actionthread.cpp:308
+#: manager/actionthread.cpp:320
 msgid "unknown"
 msgstr "tundmatu"
 
-#: manager/actionthread.cpp:807
+#: manager/actionthread.cpp:835
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -427,7 +427,9 @@ msgid "A tool to blend bracketed images"
 msgstr "Tööriist kahveldatud piltide liitmiseks"
 
 #: plugin/aboutdata.h:44
-msgid "(c) 2009-2012, Gilles Caulier"
+#, fuzzy
+#| msgid "(c) 2009-2012, Gilles Caulier"
+msgid "(c) 2009-2014, Gilles Caulier"
 msgstr "(c) 2009-2012: Gilles Caulier"
 
 #: plugin/aboutdata.h:46
@@ -442,21 +444,25 @@ msgstr "Autor"
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
-#: plugin/aboutdata.h:51
+#: plugin/aboutdata.h:51 plugin/aboutdata.h:55
 msgid "Developer"
 msgstr "Arendaja"
+
+#: plugin/aboutdata.h:54
+msgid "Benjamin Girault"
+msgstr ""
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
 msgstr "Avatavad failid"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_expoblendingui.rc:6
+#: plugin/kipiplugin_expoblendingui.rc:7
 msgid "&Tools"
 msgstr "&Tööriistad"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_expoblendingui.rc:12
+#: plugin/kipiplugin_expoblendingui.rc:13
 msgid "Main Toolbar"
 msgstr "Peamine tööriistariba"
 

@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_expoblending\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2013-07-30 01:31+0000\n"
+"POT-Creation-Date: 2014-08-30 01:38+0000\n"
 "PO-Revision-Date: 2013-10-19 12:43+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: bosanski <bs@li.org>\n"
@@ -378,11 +378,11 @@ msgid ""
 "while...</p></qt>"
 msgstr ""
 
-#: importwizard/preprocessingpage.cpp:221
+#: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
 msgstr "Pre-procesiranje poruka"
 
-#: importwizard/preprocessingpage.cpp:240
+#: importwizard/preprocessingpage.cpp:242
 msgid ""
 "<qt><p>Pre-processing has failed.</p><p>Please check your bracketed images "
 "stack...</p><p>Press \"Details\" to show processing messages.</p></qt>"
@@ -390,11 +390,11 @@ msgstr ""
 "<qt><p>Predprocesiranje je neuspjelo.</p><p>Provjerite gomilu ugniježdenih "
 "slika...</p><p>Pritisnite \"Detalji\" da vidite poruke procesa.</p></qt>"
 
-#: manager/actionthread.cpp:308
+#: manager/actionthread.cpp:320
 msgid "unknown"
 msgstr "nepoznato"
 
-#: manager/actionthread.cpp:807
+#: manager/actionthread.cpp:835
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -410,8 +410,10 @@ msgid "A tool to blend bracketed images"
 msgstr "Alat za miješanje uzastopnih slika"
 
 #: plugin/aboutdata.h:44
-msgid "(c) 2009-2012, Gilles Caulier"
-msgstr ""
+#, fuzzy
+#| msgid "Gilles Caulier"
+msgid "(c) 2009-2014, Gilles Caulier"
+msgstr "Gilles Caulier"
 
 #: plugin/aboutdata.h:46
 msgid "Gilles Caulier"
@@ -425,21 +427,25 @@ msgstr "Autor"
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
-#: plugin/aboutdata.h:51
+#: plugin/aboutdata.h:51 plugin/aboutdata.h:55
 msgid "Developer"
 msgstr "Glavni programer"
+
+#: plugin/aboutdata.h:54
+msgid "Benjamin Girault"
+msgstr ""
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
 msgstr "Datoteke za otvaranje"
 
 #. i18n: ectx: Menu (Tools)
-#: plugin/kipiplugin_expoblendingui.rc:6
+#: plugin/kipiplugin_expoblendingui.rc:7
 msgid "&Tools"
 msgstr "&Alati"
 
 #. i18n: ectx: ToolBar (mainToolBar)
-#: plugin/kipiplugin_expoblendingui.rc:12
+#: plugin/kipiplugin_expoblendingui.rc:13
 msgid "Main Toolbar"
 msgstr "Glavna alatna traka"
 
