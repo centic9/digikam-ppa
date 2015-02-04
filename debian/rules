@@ -22,22 +22,30 @@ override_dh_auto_configure:
 	  -DDIGIKAMSC_COMPILE_PO=on \
 	  -DENABLE_LCMS2=ON \
 	  -DKDE4_BUILD_TESTS=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKIPI=ON \
+	-DDIGIKAMSC_COMPILE_LIBKEXIV2=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKDCRAW=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKSANE=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKFACE=ON \
+	-DDIGIKAMSC_COMPILE_LIBKGEOMAP=ON \
+	-DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=ON \
+	-DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=ON \
 	  $(EXTRA_CMAKE_ARGS)
 
 override_dh_auto_install:
 	dh_auto_install
 	# remove development stuff: headers, cmake config files, pkg-config files, .so symlinks, static libs
-	rm -r --verbose debian/tmp/usr/include
-	rm -r --verbose debian/tmp/usr/share/kde4/apps/cmake
-	rm -r --verbose debian/tmp/usr/lib/cmake
-	rm -r --verbose debian/tmp/usr/lib/pkgconfig
+	rm -rf --verbose debian/tmp/usr/include
+	rm -rf --verbose debian/tmp/usr/share/kde4/apps/cmake
+	rm -rf --verbose debian/tmp/usr/lib/cmake
+	rm -rf --verbose debian/tmp/usr/lib/pkgconfig
 	find debian/tmp/usr/lib -type l -name '*.so' -exec rm --verbose {} \;
 	# remove potentially conflicting oxygen icons in global icon theme
-	rm -r --verbose debian/tmp/usr/share/icons/oxygen
+	rm -rf --verbose debian/tmp/usr/share/icons/oxygen
 	# remove libkipi translations, provided by kde-l10n-*
-	rm -r --verbose debian/tmp/usr/share/locale/*/LC_MESSAGES/libkipi.mo
+	rm -rf --verbose debian/tmp/usr/share/locale/*/LC_MESSAGES/libkipi.mo
 	# remove haar cascades, the versions in opencv-data will be used instead
-	rm -r --verbose debian/tmp/usr/share/kde4/apps/libkface/haarcascades
+	rm -rf --verbose debian/tmp/usr/share/kde4/apps/libkface/haarcascades
 
 override_dh_installchangelogs:
 	dh_installchangelogs -pdigikam core/ChangeLog
