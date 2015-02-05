@@ -5,11 +5,12 @@ Maintainer: Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
 Uploaders: Mark Purcell <msp@debian.org>, Fathi Boudra <fabo@debian.org>, Pino Toscano <pino@debian.org>
 Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2.6.2),
  doxygen,
- kdelibs5-dev, kdepimlibs5-dev,
- libmarble-dev,
+ kdelibs5-dev (>= 4:4.10), kdepimlibs5-dev (>= 4:4.10),
+ libmarble-dev (>= 4:4.10),
  libkipi-dev (>= 4:4.12), libkexiv2-dev (>= 4:4.12), libkdcraw-dev (>= 4:4.12), libksane-dev,
  baloo-dev, libkfilemetadata-dev,
- libqt4-dev, libqt4-opengl-dev, libgl1-mesa-dev, libglu1-mesa-dev,
+ libqt4-dev, libqt4-opengl-dev [!armhf], libgl1-mesa-dev [!armhf], libglu1-mesa-dev [!armhf],
+ libkqoauth-dev,
  libqtwebkit-dev, libqtgstreamer-dev,
  libmagickcore-dev, imagemagick,
  libhupnp-dev,
@@ -19,6 +20,7 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libqca2-dev,
  libqjson-dev,
  libpng-dev, libtiff-dev, libjpeg-dev,
+ shared-desktop-ontologies,
  mysql-server-core-5.5 | mysql-server-core,
  libglib2.0-dev, libgphoto2-dev (>= 2.4),
  libusb-dev [!kfreebsd-any], libusb2-dev [kfreebsd-any],
@@ -32,11 +34,13 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  flex, bison, libeigen3-dev (>= 3.1.2),
  libboost-graph-dev,
  libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev,
- libhupnp-dev
+ libhupnp-dev,
 # for libksane:
-# libsane-dev,
+ libsane-dev,
 # for libkexiv2:
-# libexiv2-dev,
+ libexiv2-dev,
+ dh-apparmor,
+ valgrind
 Build-Conflicts: libgraphicsmagick1-dev
 Standards-Version: 3.9.5
 Vcs-Svn: svn://anonscm.debian.org/pkg-kde/kde-extras/digikam/trunk
@@ -58,7 +62,7 @@ Package: digikam
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, digikam-private-libs (= ${binary:Version}), libqt4-sql-sqlite, digikam-data (= ${source:Version})
 Recommends: www-browser, kipi-plugins, ffmpegthumbs | mplayerthumbs
-Suggests: digikam-doc, systemsettings
+Suggests: digikam-doc, systemsettings, libqt4-sql-mysql
 Conflicts: ${digikam:Conflicts}
 Description: digital photo management application for KDE
  Digital photo management program designed to import, organize, enhance, search
@@ -152,7 +156,7 @@ Description: digiKam architecture-independant data
 
 Package: digikam-doc
 Architecture: all
-Depends: ${misc:Depends}, khelpcenter4
+Depends: ${misc:Depends}, khelpcenter4 | khelpcenter
 Recommends: digikam
 Section: doc
 Description: handbook for digiKam 
@@ -165,10 +169,10 @@ Package: kipi-plugins
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, kipi-plugins-common (= ${source:Version}),
  digikam-private-libs (= ${binary:Version})
-Breaks: digikam (<< 4:2.3.0-2~), kipi-plugins-common (<< 4:3.1.0-2~)
-Replaces: digikam (<< 4:2.3.0-2~), kipi-plugins-common (<< 4:3.1.0-2~)
+Breaks: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
+Replaces: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
 Recommends: konqueror, imagemagick, hugin, enblend, enfuse, minidlna
-Suggests: gimp, kmail, vorbis-tools
+Suggests: gallery, gimp, kmail, vorbis-tools
 Enhances: digikam, gwenview, kphotoalbum, showimg
 Description: image manipulation/handling plugins for KIPI aware programs
  KIPI plugins (KDE Image Plugin Interface) is an effort to develop a
@@ -227,8 +231,8 @@ Description: image manipulation/handling plugins for KIPI aware programs
 Package: kipi-plugins-common
 Architecture: all
 Depends: ${misc:Depends}
-Breaks: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-2~)
-Replaces: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-2~)
+Breaks: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-3ubuntu1~)
+Replaces: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-3ubuntu1~)
 Conflicts: ${digikam:Conflicts}
 Description: kipi-plugins architecture-independent data
  KIPI plugins (KDE Image Plugin Interface) is an effort to develop a
@@ -237,3 +241,122 @@ Description: kipi-plugins architecture-independent data
  Its aim is to share image plugins among graphic applications.
  .
  The architecture independent data needed for the kipi-plugins package.
+
+Package: libkface2
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkface-data
+Description: LibFace wrapper for Qt/C++
+ Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+ recognition and detection over pictures
+ .
+ This package contains the shared library to be used by applications.
+
+Package: libkface-data
+Architecture: all
+Section: libs
+Depends: ${misc:Depends}
+Description: Data files for libkface
+ Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+ recognition and detection over pictures
+ .
+ This package contains the data files of the LibKFace library
+
+Package: libkface-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, libkface2 (= ${binary:Version})
+Description: Development files for libkface
+ Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+ recognition and detection over pictures
+ .
+ This package contains the development headers and files needed to create
+ applications that use the LibKFace library
+
+Package: libkgeomap1
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap-data
+Description: World-map wrapper to browse and arrange photos over a map
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the shared library to be used by applications.
+
+Package: libkgeomap-data
+Architecture: all
+Section: libs
+Depends: ${misc:Depends}
+Description: Data files for libkgeomap
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the data files of the libkgeomap library
+
+Package: libkgeomap-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap1 (= ${binary:Version})
+Description: Development files for libkgeomap
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the development headers and files needed to create
+ applications that use the KGeoMap library
+
+Package: libmediawiki1
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: KDE C++ interface for MediaWiki based web services (runtime)
+ libmediawiki is a KDE C++ interface for MediaWiki based web service as 
+ wikipedia.org
+ .
+ This package contains the shared library to be used by applications
+
+Package: libmediawiki-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, libmediawiki1 (= ${binary:Version})
+Description: Development files for libmediawiki
+ libmediawiki is a KDE C++ interface for MediaWiki based web service as 
+ wikipedia.org
+ .
+ This package contains the development headers and files needed to create
+ applications that use the mediawiki library
+
+Package: libkvkontakte1
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: vkontakte.ru library
+ libkvkontakte1 is a KDE C++ library for asynchronous interaction with the
+ vkontakte.ru social network via its open API.
+ .
+ This package contains the shared library to be used by applications.
+
+Package: libkvkontakte-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, libkvkontakte1 (= ${binary:Version})
+Description: Development files for libkvkontakte
+ libkvkontakte1 is a KDE C++ library for asynchronous interaction with the
+ vkontakte.ru social network via its open API.
+ .
+ This package contains the development headers and files needed to create
+ applications that use the kvkontakte library
