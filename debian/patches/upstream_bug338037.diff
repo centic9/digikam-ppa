@@ -1,0 +1,50 @@
+Description: Fix BFS with opencv .4.9
+ digikam fails to build from source
+---
+Origin: upstream, https://bugs.kde.org/show_bug.cgi?id=338037
+Bug: https://bugs.kde.org/show_bug.cgi?id=338037
+Last-Update: <2014-08-11>
+
+--- digikam-4.2.0.orig/core/CMakeLists.txt
++++ digikam-4.2.0/core/CMakeLists.txt
+@@ -103,7 +103,7 @@ FIND_PACKAGE(Boost) # 1.36.0)
+ 
+ INCLUDE(MacroUtils)
+ INCLUDE(MacroOpenCV)
+-DETECT_OPENCV(2.4.6 core highgui imgproc)
++DETECT_OPENCV(2.4.9 core highgui objdetect contrib legacy imgproc)
+ 
+ # check the libkdcraw version
+ 
+--- digikam-4.2.0.orig/core/README
++++ digikam-4.2.0/core/README
+@@ -99,6 +99,7 @@ libkexiv2       >= 2.0.0
+ libkdcraw       >= 2.2.0                      https://projects.kde.org/projects/kde/kdegraphics/libs/libkdcraw
+ libkface        >= 2.0.0                      https://projects.kde.org/projects/extragear/libs/libkface
+ libkgeomap      >= 2.0.0                      https://projects.kde.org/projects/extragear/libs/libkgeomap
++libopencv       >= 2.4.9                      http://opencv.willowgarage.com
+ 
+ Optional :
+ 
+--- digikam-4.2.0.orig/extra/kipi-plugins/CMakeLists.txt
++++ digikam-4.2.0/extra/kipi-plugins/CMakeLists.txt
+@@ -119,7 +119,7 @@ ENDIF(NOT WIN32 AND NOT APPLE)
+ 
+ INCLUDE(MacroUtils)
+ INCLUDE(MacroOpenCV)
+-DETECT_OPENCV(2.4.6 core highgui objdetect contrib)
++DETECT_OPENCV(2.4.9 core highgui objdetect contrib legacy imgproc)
+ 
+ # OpenMP detection requires CMake >= 2.6.3
+ 
+--- digikam-4.2.0.orig/extra/kipi-plugins/README
++++ digikam-4.2.0/extra/kipi-plugins/README
+@@ -78,7 +78,7 @@ libX11          >= 1.1.5
+ libexpat        >= 2.0.1                        http://expat.sourceforge.net
+ libqtopengl     >= 4.3.x                        http://www.trolltech.com
+ Mesa3D          >= 7.0.4                        http://mesa3d.sourceforge.net
+-libopencv       >= 2.x                          http://opencv.willowgarage.com
++libopencv       >= 2.4.9                        http://opencv.willowgarage.com
+ libgpod         >= 0.7.0                        http://www.gtkpod.org/libgpod.html
+ libgdk          >= 2.0.0                        http://library.gnome.org/devel/gdk-pixbuf
+ libqca          >= 2.0.0                        http://delta.affinix.com/qca

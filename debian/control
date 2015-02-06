@@ -47,20 +47,9 @@ Vcs-Svn: svn://anonscm.debian.org/pkg-kde/kde-extras/digikam/trunk
 Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-kde/kde-extras/digikam/trunk/
 Homepage: http://www.digikam.org
 
-Package: digikam-private-libs
-Section: libs
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: private libraries for digiKam and kipi plugins
- This package contains private libraries to be used by digikam and
- kipi-plugins.
- .
- This has no use for anything else than digikam, since the libraries are
- installed in a private library path.
-
 Package: digikam
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, digikam-private-libs (= ${binary:Version}), libqt4-sql-sqlite, digikam-data (= ${source:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, libqt4-sql-sqlite, digikam-data (= ${source:Version})
 Recommends: www-browser, kipi-plugins, ffmpegthumbs | mplayerthumbs
 Suggests: digikam-doc, systemsettings, libqt4-sql-mysql
 Conflicts: ${digikam:Conflicts}
@@ -119,7 +108,7 @@ Description: digital photo management application for KDE
 
 Package: showfoto
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, digikam-private-libs (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: dolphin, kipi-plugins
 Breaks: digikam-doc (<< 2:2.0.0-1~), kipi-plugins-common (<< 4:3.1.0-2~)
 Replaces: digikam-doc (<< 2:2.0.0-1~), kipi-plugins-common (<< 4:3.1.0-2~)
@@ -129,17 +118,17 @@ Description: image viewer/editor for KDE
  It runs without digiKam images database support, but provides all Image Editor
  functions.
 
-#Package: digikam-dbg
-#Architecture: any
-#Section: debug
-#Depends: ${shlibs:Depends}, ${misc:Depends}, digikam (= ${binary:Version}), showfoto (= ${binary:Version}), kdelibs5-dbg
-#Priority: extra
-#Description: debugging symbols for digiKam
-# The debugging symbols associated with digiKam and showFoto. They will
-# automatically be used by GDB for debugging digiKam-related issues.
-# .
-# This package should be installed if you wish to obtain a backtrace with 
-# symbols.
+Package: digikam-dbg
+Architecture: any
+Section: debug
+Depends: ${shlibs:Depends}, ${misc:Depends}, digikam (= ${binary:Version}), showfoto (= ${binary:Version}), kdelibs5-dbg
+Priority: extra
+Description: debugging symbols for digiKam
+ The debugging symbols associated with digiKam and showFoto. They will
+ automatically be used by GDB for debugging digiKam-related issues.
+ .
+ This package should be installed if you wish to obtain a backtrace with 
+ symbols.
 
 Package: digikam-data
 Architecture: all
@@ -167,8 +156,7 @@ Description: handbook for digiKam
 
 Package: kipi-plugins
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, kipi-plugins-common (= ${source:Version}),
- digikam-private-libs (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, kipi-plugins-common (= ${source:Version})
 Breaks: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
 Replaces: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
 Recommends: konqueror, imagemagick, hugin, enblend, enfuse, minidlna
@@ -242,7 +230,7 @@ Description: kipi-plugins architecture-independent data
  .
  The architecture independent data needed for the kipi-plugins package.
 
-Package: libkface2
+Package: libkface3
 Architecture: any
 Section: libs
 Depends: ${misc:Depends}, ${shlibs:Depends}, libkface-data
@@ -265,7 +253,7 @@ Description: Data files for libkface
 Package: libkface-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}, libkface2 (= ${binary:Version})
+Depends: ${misc:Depends}, libkface3 (= ${binary:Version})
 Description: Development files for libkface
  Libkface is a Qt/C++ wrapper around LibFace library to perform face 
  recognition and detection over pictures
