@@ -1,0 +1,59 @@
+Index: git/extra/libkgeomap/libkgeomap/CMakeLists.txt
+===================================================================
+--- git.orig/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-06 23:36:03.439836931 +0100
++++ git/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-06 23:36:03.435836897 +0100
+@@ -74,7 +74,7 @@
+ install(TARGETS kgeomap ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+ # Check if compilation is done through digiKam SC or not. If yes, do not install header files.
+-if(NOT DIGIKAMSC_COMPILE_LIBKGEOMAP)
++#if(NOT DIGIKAMSC_COMPILE_LIBKGEOMAP)
+ 
+     install(FILES libkgeomap_export.h
+                   abstractmarkertiler.h
+@@ -104,4 +104,4 @@
+     install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindKGeoMap.cmake
+             DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
+ 
+-endif()
++#endif()
+Index: git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt
+===================================================================
+--- git.orig/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-06 23:36:03.439836931 +0100
++++ git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-06 23:36:03.435836897 +0100
+@@ -67,7 +67,7 @@
+ 	EXPORT LibKVkontakteExport
+ 	${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+-if (NOT DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
++#if (NOT DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
+ 
+     install(FILES
+         ${CMAKE_CURRENT_BINARY_DIR}/version.h
+@@ -105,4 +105,4 @@
+         grouplistjob.h
+         DESTINATION ${INCLUDE_INSTALL_DIR}/libkvkontakte COMPONENT Devel)
+ 
+-endif()
+\ No newline at end of file
++#endif()
+\ No newline at end of file
+Index: git/extra/libmediawiki/libmediawiki/CMakeLists.txt
+===================================================================
+--- git.orig/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-06 17:03:50.151687888 +0100
++++ git/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-06 23:36:56.000000000 +0100
+@@ -42,7 +42,7 @@
+ install(TARGETS mediawiki ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+ # Check if compilation is done through digiKam SC or not. If yes, do not install header files.
+-if(NOT DIGIKAMSC_COMPILE_LIBMEDIAWIKI)
++#if(NOT DIGIKAMSC_COMPILE_LIBMEDIAWIKI)
+ 
+     install(FILES image.h
+                   imageinfo.h
+@@ -79,4 +79,4 @@
+     install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindMediawiki.cmake
+             DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
+ 
+-endif()
++#endif()

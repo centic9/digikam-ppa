@@ -226,36 +226,36 @@ Description: kipi-plugins architecture-independent data
  .
  The architecture independent data needed for the kipi-plugins package.
 
-Package: libkface3
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, ${shlibs:Depends}, libkface-data, libopencv-photo2.4
-Description: LibFace wrapper for Qt/C++
- Libkface is a Qt/C++ wrapper around LibFace library to perform face 
- recognition and detection over pictures
- .
- This package contains the shared library to be used by applications.
+#Package: libkface3
+#Architecture: any
+#Section: libs
+#Depends: ${misc:Depends}, ${shlibs:Depends}, libkface-data, libopencv-photo2.4
+#Description: LibFace wrapper for Qt/C++
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the shared library to be used by applications.
 
-Package: libkface-data
-Architecture: all
-Section: libs
-Depends: ${misc:Depends}
-Description: Data files for libkface
- Libkface is a Qt/C++ wrapper around LibFace library to perform face 
- recognition and detection over pictures
- .
- This package contains the data files of the LibKFace library
+#Package: libkface-data
+#Architecture: all
+#Section: libs
+#Depends: ${misc:Depends}
+#Description: Data files for libkface
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the data files of the LibKFace library
 
-Package: libkface-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends}, libkface3 (= ${binary:Version})
-Description: Development files for libkface
- Libkface is a Qt/C++ wrapper around LibFace library to perform face 
- recognition and detection over pictures
- .
- This package contains the development headers and files needed to create
- applications that use the LibKFace library
+#Package: libkface-dev
+#Architecture: any
+#Section: libdevel
+#Depends: ${misc:Depends}, libkface3 (= ${binary:Version})
+#Description: Development files for libkface
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the development headers and files needed to create
+# applications that use the LibKFace library
 
 Package: libkgeomap2
 Architecture: any
