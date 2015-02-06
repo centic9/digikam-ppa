@@ -25,6 +25,14 @@ override_dh_auto_configure:
 	  -DDIGIKAMSC_COMPILE_PO=on \
 	  -DENABLE_LCMS2=ON \
 	  -DKDE4_BUILD_TESTS=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKIPI=ON \
+	-DDIGIKAMSC_COMPILE_LIBKEXIV2=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKDCRAW=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKSANE=OFF \
+	-DDIGIKAMSC_COMPILE_LIBKFACE=ON \
+	-DDIGIKAMSC_COMPILE_LIBKGEOMAP=ON \
+	-DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=ON \
+	-DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=ON \
 	  $(EXTRA_CMAKE_ARGS)
 
 override_dh_installchangelogs:
@@ -47,7 +55,7 @@ override_dh_shlibdeps:
 	dh_shlibdeps -Xusr/lib/kde4/ -l$(CURDIR)/debian/digikam-private-libs/$(PRIVATE_LIBDIR):$(CURDIR)/debian/kipi-plugins/$(PRIVATE_LIBDIR)
 
 override_dh_gencontrol:
-	dh_gencontrol -plibkface2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkface3 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkface-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkface-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkgeomap1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
@@ -62,11 +70,11 @@ override_dh_gencontrol:
 override_dh_strip:
 	# Don't include the libraries in the debug package to prevent file conflicts
 	# in the future. We have -dbgsym packages anyway.
-	dh_strip -plibkface2 -plibkgeomap1 -plibmediawiki1 -plibkvkontakte1
+	dh_strip -plibkface3 -plibkgeomap1 -plibmediawiki1 -plibkvkontakte1
 	dh_strip --remaining-packages --dbg-package=digikam-dbg
 
 override_dh_makeshlibs:
-	dh_makeshlibs -plibkface2 -V 'libkface2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
+	dh_makeshlibs -plibkface3 -V 'libkface3 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkgeomap1 -V 'libkgeomap1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibmediawiki1 -V 'libmediawiki1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkvkontakte1 -V 'libkvkontakte1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'

@@ -1,3 +1,32 @@
+digikam (4:4.7.0-0ubuntu0~ppa4) trusty; urgency=medium
+
+  * Rebase on latest Ubuntu version to try to avoid problems
+    with Debian packaging
+  * New dependencies
+  * Rename libkface2 to libkface3
+  * Set build-vars to still get internal libs built
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Fri, 06 Feb 2015 06:43:33 +0100
+
+digikam (4:4.7.0-0ubuntu0~ppa3) trusty; urgency=medium
+
+  * Fix some more for building, remove libexec.
+  * Up-port changes from Ubuntu to package additional libs.
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Thu, 05 Feb 2015 19:18:49 +0100
+
+digikam (4:4.7.0-0ubuntu0~ppa2) trusty; urgency=medium
+
+  * Set new cmake-flags to build libraries.
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Wed, 04 Feb 2015 21:47:05 +0100
+
+digikam (4:4.7.0-0ubuntu0~ppa1) trusty; urgency=medium
+
+  * New upstream release
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Tue, 03 Feb 2015 22:07:20 +0100
+
 digikam (4:4.2.0-0ubuntu1) utopic; urgency=medium
 
   * New upstream release
