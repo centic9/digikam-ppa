@@ -48,20 +48,15 @@ override_dh_installinit:
 override_dh_strip:
 	# Don't include the libraries in the debug package to prevent file conflicts
 	# in the future. We have -dbgsym packages anyway.
-	dh_strip -plibkface3 -plibkgeomap2 -plibmediawiki1 -plibkvkontakte1
 	dh_strip --remaining-packages --dbg-package=digikam-dbg
 
 override_dh_makeshlibs:
-	dh_makeshlibs -plibkface3 -V 'libkface3 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkgeomap2 -V 'libkgeomap2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibmediawiki1 -V 'libmediawiki1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkvkontakte1 -V 'libkvkontakte1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs --remaining-packages
 
 override_dh_gencontrol:
-	dh_gencontrol -plibkface3 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkface-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkface-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkgeomap2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkgeomap-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkgeomap-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'

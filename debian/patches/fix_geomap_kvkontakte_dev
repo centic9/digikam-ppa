@@ -1,7 +1,7 @@
 Index: git/extra/libkgeomap/libkgeomap/CMakeLists.txt
 ===================================================================
---- git.orig/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-07 12:46:49.195089251 +0100
-+++ git/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-07 12:47:29.435392725 +0100
+--- git.orig/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
++++ git/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-07 20:17:07.693613874 +0100
 @@ -74,7 +74,7 @@
  install(TARGETS kgeomap ${INSTALL_TARGETS_DEFAULT_ARGS})
  
@@ -11,7 +11,7 @@ Index: git/extra/libkgeomap/libkgeomap/CMakeLists.txt
  
      install(FILES libkgeomap_export.h
                    abstractmarkertiler.h
-@@ -94,8 +94,8 @@
+@@ -94,14 +94,14 @@
             )
  
      if(NOT WIN32)
@@ -22,16 +22,18 @@ Index: git/extra/libkgeomap/libkgeomap/CMakeLists.txt
          install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libkgeomap.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig )
      endif()
  
-@@ -104,4 +104,4 @@
-     install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindKGeoMap.cmake
+     # Install find cmake script to the system for client applications.
+ 
+-    install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindKGeoMap.cmake
++    install(FILES ../cmake/modules/FindKGeoMap.cmake
              DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
  
 -endif()
 +#endif()
 Index: git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt
 ===================================================================
---- git.orig/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-07 12:46:49.195089251 +0100
-+++ git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-07 12:46:49.191089225 +0100
+--- git.orig/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
++++ git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
 @@ -67,7 +67,7 @@
  	EXPORT LibKVkontakteExport
  	${INSTALL_TARGETS_DEFAULT_ARGS})
@@ -51,8 +53,8 @@ Index: git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt
 \ No newline at end of file
 Index: git/extra/libmediawiki/libmediawiki/CMakeLists.txt
 ===================================================================
---- git.orig/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-07 12:46:49.195089251 +0100
-+++ git/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-07 12:47:13.743283300 +0100
+--- git.orig/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
++++ git/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-07 20:17:17.025705958 +0100
 @@ -42,7 +42,7 @@
  install(TARGETS mediawiki ${INSTALL_TARGETS_DEFAULT_ARGS})
  
@@ -62,7 +64,7 @@ Index: git/extra/libmediawiki/libmediawiki/CMakeLists.txt
  
      install(FILES image.h
                    imageinfo.h
-@@ -69,8 +69,8 @@
+@@ -69,14 +69,14 @@
          DESTINATION ${INCLUDE_INSTALL_DIR}/libmediawiki COMPONENT Devel)
  
      if(NOT WIN32)
@@ -73,8 +75,10 @@ Index: git/extra/libmediawiki/libmediawiki/CMakeLists.txt
          install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libmediawiki.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig )
      endif()
  
-@@ -79,4 +79,4 @@
-     install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindMediawiki.cmake
+     # Install find cmake script to the system for client applications.
+ 
+-    install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindMediawiki.cmake
++    install(FILES ../cmake/modules/FindMediawiki.cmake
              DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
  
 -endif()
