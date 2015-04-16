@@ -1,45 +1,53 @@
 Source: digikam
 Section: graphics
 Priority: optional
-Maintainer: Philip Johnsson <philip.johnsson@gmail.com>
+Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
+XSBC-Original-Maintainer: Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
+Uploaders: Achim Bohnet <ach@mpe.mpg.de>, Mark Purcell <msp@debian.org>, Fathi Boudra <fabo@debian.org>
 Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2.6.2),
- doxygen, libfile-fcntllock-perl,
- kdelibs5-dev (>= 4:4.10), kdepimlibs5-dev (>= 4:4.10), libkqoauth-dev,
- libmarble-dev (>= 4:4.10), baloo-dev,
- libkipi-dev (>= 4:4.10), libkexiv2-dev (>= 4:4.14.2), libkdcraw-dev (>= 4:4.10), libksane-dev (>= 4:4.10), libkfilemetadata-dev,
- libqt4-dev, libqt4-opengl-dev, libgl1-mesa-dev, libglu1-mesa-dev,
+ doxygen,
+ kdelibs5-dev (>= 4:4.10), kdepimlibs5-dev (>= 4:4.10),
+ libmarble-dev (>= 4:4.10),
+ libkipi-dev (>= 4:4.10), libkexiv2-dev (>= 4:4.10), libkdcraw-dev (>= 4:4.10), libksane-dev (>= 4:4.10),
+ libqt4-dev, libqt4-opengl-dev [!armhf], libgl1-mesa-dev [!armhf], libglu1-mesa-dev [!armhf],
+ libkqoauth-dev,
  libqtwebkit-dev, libqtgstreamer-dev,
- libmagickcore-dev, imagemagick, libraw-dev, libpgf-dev,
- libqtsolutions-soap-dev,
+ libmagickcore-dev, imagemagick,
+ libhupnp-dev,
  libgtk2.0-dev,
  libxslt1-dev | libxslt-dev, libxml2-dev,
  libgpod-nogtk-dev,
  libqca2-dev,
  libqjson-dev,
  libpng-dev, libtiff-dev, libjpeg-dev,
- libsane-dev,
  shared-desktop-ontologies,
- mysql-server-core-5.5 | mysql-server-core,
+ mysql-server-core-5.6 | mysql-server-core,
  libglib2.0-dev, libgphoto2-dev (>= 2.4),
+ libusb-dev [!kfreebsd-any], libusb2-dev [kfreebsd-any],
  liblcms2-dev, liblqr-1-0-dev,
- libopencv-dev (>= 2.4.9),
+ libopencv-dev (>= 2.4.5),
  libjasper-dev,
  liblensfun-dev (>= 0.2.7),
- libexiv2-dev,
  libsqlite3-dev,
  libsqlite0-dev,
- flex, bison,
- libboost-all-dev,
+ libpgf-dev,
+ flex, bison, libeigen3-dev (>= 3.1.2),
+ libboost-graph1.55-dev,
  libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev,
+# for libksane:
+ libsane-dev,
+# for libkexiv2:
+ libexiv2-dev,
  dh-apparmor,
- libeigen3-dev,
  valgrind,
- libusb-dev
+ libkface-dev,
+ baloo-dev,
+ libkfilemetadata-dev
 Build-Conflicts: libgraphicsmagick1-dev
-Standards-Version: 3.8.4
+Standards-Version: 3.9.5
 Vcs-Bzr: https://code.launchpad.net/~kubuntu-packagers/kubuntu-packaging/digikam
 Vcs-Browser: http://bazaar.launchpad.net/~kubuntu-packagers/kubuntu-packaging/digikam
-X-Debian-Vcs-Svn: svn://svn.debian.org/pkg-kde/kde-extras/digikam/trunk
+X-Debian-Vcs-Svn: svn://anonscm.debian.org/svn/pkg-kde/kde-extras/digikam/trunk
 X-Debian-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-kde/kde-extras/digikam/trunk/
 Homepage: http://www.digikam.org
 
@@ -47,7 +55,7 @@ Package: digikam
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, libqt4-sql-sqlite, digikam-data (= ${source:Version})
 Recommends: www-browser, kipi-plugins, ffmpegthumbs | mplayerthumbs
-Suggests: digikam-doc
+Suggests: digikam-doc, systemsettings, libqt4-sql-mysql
 Conflicts: ${digikam:Conflicts}
 Description: digital photo management application for KDE
  Digital photo management program designed to import, organize, enhance, search
@@ -104,7 +112,7 @@ Description: digital photo management application for KDE
 
 Package: showfoto
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, digikam (= ${binary:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: dolphin, kipi-plugins
 Breaks: kipi-plugins-common (<< 4:3.1.0-2~)
 Replaces: kipi-plugins-common (<< 4:3.1.0-2~)
@@ -128,7 +136,7 @@ Description: debugging symbols for digiKam
 
 Package: digikam-data
 Architecture: all
-Depends: ${misc:Depends}
+Depends: ${misc:Depends}, opencv-data
 Breaks: kipi-plugins-common (<< 4:3.1.0-2~)
 Replaces: kipi-plugins-common (<< 4:3.1.0-2~)
 Conflicts: ${digikam:Conflicts}
@@ -141,7 +149,7 @@ Description: digiKam architecture-independant data
 
 Package: digikam-doc
 Architecture: all
-Depends: ${misc:Depends}, khelpcenter4
+Depends: ${misc:Depends}, khelpcenter4 | khelpcenter
 Recommends: digikam
 Section: doc
 Description: handbook for digiKam 
@@ -153,9 +161,9 @@ Description: handbook for digiKam
 Package: kipi-plugins
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, kipi-plugins-common (= ${source:Version})
-Breaks: digikam (<< 4:2.3.0-2~), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
-Replaces: digikam (<< 4:2.3.0-2~), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
-Recommends: imagemagick, hugin, enblend, enfuse, minidnla
+Breaks: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
+Replaces: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
+Recommends: imagemagick, hugin, enblend, enfuse, minidlna
 Suggests: gallery, gimp, kmail, vorbis-tools
 Enhances: digikam, gwenview, kphotoalbum, showimg
 Description: image manipulation/handling plugins for KIPI aware programs
@@ -226,37 +234,6 @@ Description: kipi-plugins architecture-independent data
  .
  The architecture independent data needed for the kipi-plugins package.
 
-Package: libkface3
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, ${shlibs:Depends}, libkface-data, libopencv-photo2.4
-Description: LibFace wrapper for Qt/C++
- Libkface is a Qt/C++ wrapper around LibFace library to perform face 
- recognition and detection over pictures
- .
- This package contains the shared library to be used by applications.
-
-Package: libkface-data
-Architecture: all
-Section: libs
-Depends: ${misc:Depends}
-Description: Data files for libkface
- Libkface is a Qt/C++ wrapper around LibFace library to perform face 
- recognition and detection over pictures
- .
- This package contains the data files of the LibKFace library
-
-Package: libkface-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends}, libkface3 (= ${binary:Version})
-Description: Development files for libkface
- Libkface is a Qt/C++ wrapper around LibFace library to perform face 
- recognition and detection over pictures
- .
- This package contains the development headers and files needed to create
- applications that use the LibKFace library
-
 Package: libkgeomap2
 Architecture: any
 Section: libs
@@ -287,40 +264,15 @@ Description: Data files for libkgeomap
  .
  This package contains the data files of the libkgeomap library
 
-Package: libkgeomap-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap2 (= ${binary:Version})
-Description: Development files for libkgeomap
- Libkgeomap is a wrapper around different world-map components, to browse and
- arrange photos over a map.
- .
- Currently supported map engines are:
-  - Marble
-  - OpenstreetMap (via Marble)
-  - GoogleMap
- .
- This package contains the development headers and files needed to create
- applications that use the KGeoMap library
-
 Package: libmediawiki1
 Architecture: any
 Section: libs
 Depends: ${misc:Depends}, ${shlibs:Depends}
 Description: KDE C++ interface for MediaWiki based web services (runtime)
- libmediawiki is a KDE C++ interface for MediaWiki based web service as wikipedia.org
+ libmediawiki is a KDE C++ interface for MediaWiki based web service as 
+ wikipedia.org
  .
  This package contains the shared library to be used by applications
-
-Package: libmediawiki-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends}, libmediawiki1 (= ${binary:Version})
-Description: Development files for libmediawiki
- libmediawiki is a KDE C++ interface for MediaWiki based web service as wikipedia.org
- .
- This package contains the development headers and files needed to create
- applications that use the mediawiki library
 
 Package: libkvkontakte1
 Architecture: any
@@ -331,14 +283,3 @@ Description: vkontakte.ru library
  vkontakte.ru social network via its open API.
  .
  This package contains the shared library to be used by applications.
-
-Package: libkvkontakte-dev
-Architecture: any
-Section: libdevel
-Depends: ${misc:Depends}, libkvkontakte1 (= ${binary:Version})
-Description: Development files for libkvkontakte
- libkvkontakte1 is a KDE C++ library for asynchronous interaction with the
- vkontakte.ru social network via its open API.
- .
- This package contains the development headers and files needed to create
- applications that use the kvkontakte library

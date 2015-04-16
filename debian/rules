@@ -1,32 +1,33 @@
 #!/usr/bin/make -f
 
-USE_PRIVATE_SHAREDLIBS := n
+USE_PRIVATE_KDEGRAPHICS := n
 PRIVATE_LIBDIR := /usr/lib/digikam
 export DEB_LDFLAGS_MAINT_APPEND := -Wl,--as-needed
+
+ifeq ($(USE_PRIVATE_KDEGRAPHICS),y)
+  # Force to use local libkipi, libkexiv2, and libkdcraw implementation
+  EXTRA_CMAKE_ARGS += -DDIGIKAMSC_USE_PRIVATE_KDEGRAPHICS=ON
+  CONFLICTS_SUBSTVAR := libkipi-data, libkexiv2-data, libkdcraw-data, libksane-data
+else
+  EXTRA_CMAKE_ARGS += -DDIGIKAMSC_USE_PRIVATE_KDEGRAPHICS=OFF
+endif
 
 DEB_VERSION_UPSTREAM_REVISION := $(shell dpkg-parsechangelog | awk '/^Version: / { print $$2 }' | sed -e 's/^[0-9]*://')
 DEB_VERSION_UPSTREAM := $(shell dpkg-parsechangelog | awk '/^Version: / { print $$2 }' | sed -e 's/-[^-]*$$//' | sed -e 's/^[0-9]*://')
 
 %:
-	dh $@ --with kde --parallel 
-
-# : Force to use local libkipi, libkexiv2, and libkdcraw implementation
+	dh $@ --with kde --parallel
 
 override_dh_auto_configure:
 	dh_auto_configure --buildsystem=kde -- \
 	  -DCMAKE_INSTALL_RPATH="$(PRIVATE_LIBDIR)" \
-	  -DDIGIKAMSC_COMPILE_DOC=ON \
-	  -DDIGIKAMSC_COMPILE_PO=ON \
-	  -DENABLE_KDEPIMLIBSSUPPORT=ON \
-	  -DENABLE_INTERNALMYSQL=ON \
-	  -DENABLE_MYSQLSUPPORT=ON \
+	  -DDIGIKAMSC_COMPILE_DOC=on \
+	  -DDIGIKAMSC_COMPILE_PO=on \
 	  -DENABLE_LCMS2=ON \
-	  -DENABLE_BALOOSUPPORT=ON \
 	  -DKDE4_BUILD_TESTS=OFF \
 	  -DDIGIKAMSC_COMPILE_LIBKGEOMAP=ON \
 	  -DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=ON \
 	  -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=ON \
-	  -DDIGIKAMSC_COMPILE_LIBKFACE=ON \
 	  $(EXTRA_CMAKE_ARGS)
 
 override_dh_installchangelogs:
@@ -34,42 +35,40 @@ override_dh_installchangelogs:
 	dh_installchangelogs -pkipi-plugins extra/kipi-plugins/ChangeLog
 	dh_installchangelogs --remaining-packages
 
+override_dh_installinit:
+	dh_installinit
+	dh_apparmor -pdigikam --profile-name=usr.sbin.mysqld-digikam
+
 override_dh_install:
-	dh_install -Xmultithread -XREADME.MACOSX --list-missing
+	dh_install --list-missing
 	install -m 644 -p -D debian/usr.sbin.mysqld-digikam \
 		debian/digikam/etc/apparmor.d/usr.sbin.mysqld-digikam
 	install -m 755 -p -D debian/mysqld-digikam \
 		debian/digikam/usr/sbin/mysqld-digikam
 
-override_dh_installinit:
-	dh_installinit
-	dh_apparmor -pdigikam --profile-name=usr.sbin.mysqld-digikam
+override_dh_shlibdeps:
+	dh_shlibdeps -l$(CURDIR)/debian/digikam-private-libs/$(PRIVATE_LIBDIR):$(CURDIR)/debian/kipi-plugins/$(PRIVATE_LIBDIR)
+
+override_dh_gencontrol:
+	dh_gencontrol -plibkgeomap2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkgeomap-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibmediawiki1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkvkontakte1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol --remaining-packages -- -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 
 override_dh_strip:
 	# Don't include the libraries in the debug package to prevent file conflicts
 	# in the future. We have -dbgsym packages anyway.
-	dh_strip -plibkface3 -plibkgeomap2 -plibmediawiki1 -plibkvkontakte1
+	dh_strip -plibkface2 -plibkgeomap2 -plibmediawiki1 -plibkvkontakte1
 	dh_strip --remaining-packages --dbg-package=digikam-dbg
 
 override_dh_makeshlibs:
-	dh_makeshlibs -plibkface3 -V 'libkface3 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
+	dh_makeshlibs -plibkface2 -V 'libkface2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkgeomap2 -V 'libkgeomap2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibmediawiki1 -V 'libmediawiki1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkvkontakte1 -V 'libkvkontakte1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs --remaining-packages
 
-override_dh_gencontrol:
-	dh_gencontrol -plibkface3 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkface-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkface-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkgeomap2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkgeomap-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkgeomap-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibmediawiki1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibmediawiki-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkvkontakte1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkvkontakte-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol --remaining-packages -- -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-
 # auto tests require user interaction - override
 override_dh_auto_test:
+

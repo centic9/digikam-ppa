@@ -1,67 +1,43 @@
-Description: <short summary of the patch>
- TODO: Put a short summary on the line above and replace this paragraph
- with a longer explanation of this change. Complete the meta-information
- with other relevant fields (see below for details). To make it easier, the
- information below has been extracted from the changelog. Adjust it or drop
- it.
- .
- digikam (4:4.0.0~beta4-saucy~ppa1) saucy; urgency=low
- .
-   * New upstream beta release
-Author: Philip Johnsson <philip.johnsson@gmail.com>
-
----
-The information above should follow the Patch Tagging Guidelines, please
-checkout http://dep.debian.net/deps/dep3/ to learn about the format. Here
-are templates for supplementary fields that you might want to add:
-
-Origin: <vendor|upstream|other>, <url of original patch>
-Bug: <url in upstream bugtracker>
-Bug-Debian: http://bugs.debian.org/<bugnumber>
-Bug-Ubuntu: https://launchpad.net/bugs/<bugnumber>
-Forwarded: <no|not-needed|url proving that it has been forwarded>
-Reviewed-By: <name and email of someone who approved the patch>
-Last-Update: <YYYY-MM-DD>
-
---- digikam-4.0.0~beta4.orig/extra/kipi-plugins/sendimages/emailsettings.h
-+++ digikam-4.0.0~beta4/extra/kipi-plugins/sendimages/emailsettings.h
-@@ -70,6 +70,7 @@ public:
-         NETSCAPE,
-         SYLPHEED,
-         SYLPHEEDCLAWS,
-+	ICEDOVE,
-         THUNDERBIRD
-     };
- 
---- digikam-4.0.0~beta4.orig/extra/kipi-plugins/sendimages/sendimages.cpp
-+++ digikam-4.0.0~beta4/extra/kipi-plugins/sendimages/sendimages.cpp
-@@ -582,6 +582,7 @@ bool SendImages::invokeMailAgent()
+Index: digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/sendimages.cpp
+===================================================================
+--- digikam-4.0.0~beta1.orig/extra/kipi-plugins/sendimages/sendimages.cpp	2013-12-02 21:24:24.000000000 +1100
++++ digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/sendimages.cpp	2013-12-11 22:33:28.257866860 +1100
+@@ -583,6 +583,7 @@
  
                  case EmailSettings::NETSCAPE:
                  case EmailSettings::THUNDERBIRD:
-+		case EmailSettings::ICEDOVE:
++                case EmailSettings::ICEDOVE:
                  case EmailSettings::GMAILAGENT:
                  {
                      QString prog;
-@@ -594,10 +595,15 @@ bool SendImages::invokeMailAgent()
+@@ -595,6 +596,10 @@
                      {
                          prog = QString("thunderbird");
                      }
 +                    else if (d->settings.emailProgram == EmailSettings::ICEDOVE)
 +                    {
-+		      prog = QString("icedove");
-+		    }
++                        prog = QString("icedove");
++                    }
                      else
                      {
                          prog = QString("gmailagent");
-                     }
-+                    
+Index: digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/emailsettings.h
+===================================================================
+--- digikam-4.0.0~beta1.orig/extra/kipi-plugins/sendimages/emailsettings.h	2013-12-02 21:24:24.000000000 +1100
++++ digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/emailsettings.h	2013-12-11 22:32:19.483052140 +1100
+@@ -70,6 +70,7 @@
+         NETSCAPE,
+         SYLPHEED,
+         SYLPHEEDCLAWS,
++        ICEDOVE,
+         THUNDERBIRD
+     };
  
-                     QStringList args;
- 
---- digikam-4.0.0~beta4.orig/extra/kipi-plugins/sendimages/settingswidget.cpp
-+++ digikam-4.0.0~beta4/extra/kipi-plugins/sendimages/settingswidget.cpp
-@@ -100,6 +100,7 @@ SettingsWidget::SettingsWidget(QWidget*
+Index: digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/settingswidget.cpp
+===================================================================
+--- digikam-4.0.0~beta1.orig/extra/kipi-plugins/sendimages/settingswidget.cpp	2013-12-02 21:24:24.000000000 +1100
++++ digikam-4.0.0~beta1/extra/kipi-plugins/sendimages/settingswidget.cpp	2013-12-11 22:32:19.483052140 +1100
+@@ -100,6 +100,7 @@
      d->mailAgentName->insertItem(EmailSettings::SYLPHEED,      "Sylpheed");
      d->mailAgentName->insertItem(EmailSettings::SYLPHEEDCLAWS, "Sylpheed-Claws");
      d->mailAgentName->insertItem(EmailSettings::THUNDERBIRD,   "Thunderbird");
