@@ -1,3 +1,10 @@
+digikam (4:4.7.0-0ubuntu5~ppa1) trusty; urgency=medium
+
+  * Bump version to overrule package in Vivid which does not provide the necessary libs
+    for KPhotoAlbum packaging.
+
+ -- Dominik Stadler (Ubuntu key) <dominik.stadler@gmx.at>  Mon, 25 May 2015 22:23:21 +0200
+
 digikam (4:4.7.0-0ubuntu2~ppa1) trusty; urgency=medium
 
   * Bump version to overrule package in Vivid which does not provide the necessary libs
@@ -172,7 +179,7 @@ digikam (4:3.2.0-0ubuntu1~ubuntu13.04~ppa1) raring; urgency=low
 
 digikam (4:3.2.0-0ubuntu1) saucy; urgency=low
 
-  * New upstream relase (LP: #1175854) 
+  * New upstream release (LP: #1175854) 
     - build-depend on libeigen3-dev
     - add jalbum icons to kipi-plugins-common.install
     - add more libkipi translations to not-installed
