@@ -1,0 +1,418 @@
+# Translation of kipiplugin_wikimedia.po to Brazilian Portuguese
+# Copyright (C) 2011-2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2011, 2012, 2013, 2014.
+# Marcus Gama <marcus.gama@gmail.com>, 2012.
+# Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_wikimedia\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-05-24 01:57+0000\n"
+"PO-Revision-Date: 2014-08-17 11:29-0300\n"
+"Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
+"Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "André Marcelo Alvarenga"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "alvarenga@kde.org"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_wikimediaui.rc:7
+msgid "&Export"
+msgstr "&Exportar"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_wikimediaui.rc:13
+msgid "Main Toolbar"
+msgstr "Barra de ferramentas principal"
+
+#: plugin_wikimedia.cpp:116
+msgid "Export to MediaWiki..."
+msgstr "Exportar para o MediaWiki..."
+
+#: wikimediajob.cpp:121
+#, kde-format
+msgid "Error on file '%1'\n"
+msgstr "Erro no arquivo '%1'\n"
+
+#: wikimediajob.cpp:125
+#, kde-format
+msgid "Error on file '%1': %2\n"
+msgstr "Erro no arquivo '%1': %2\n"
+
+#: wikimediajob.cpp:156
+msgid "Uploaded via KIPI uploader"
+msgstr "Enviado pelo KIPI"
+
+#: wmwidget.cpp:127
+msgid "Select an image"
+msgstr "Selecione uma imagem"
+
+#: wmwidget.cpp:196
+msgid ""
+"This is a clickable link to open the MediaWiki home page in a web browser."
+msgstr "Este é um link para abrir a página Web do MediaWiki."
+
+#: wmwidget.cpp:204
+msgid "This is the list of images to upload to the wiki."
+msgstr "Esta é a lista de imagens a enviar para a wiki."
+
+#: wmwidget.cpp:229 wmwidget.cpp:397
+msgid "This is the login form to your account on the chosen wiki."
+msgstr ""
+"Este é o formulário de autenticação para a sua conta na wiki escolhida."
+
+#: wmwidget.cpp:250
+msgid "Title:"
+msgstr "Título:"
+
+#: wmwidget.cpp:252
+msgid "Date:"
+msgstr "Data:"
+
+#: wmwidget.cpp:254
+msgid "Description:"
+msgstr "Descrição:"
+
+#: wmwidget.cpp:256
+msgid "Categories:"
+msgstr "Categorias:"
+
+#: wmwidget.cpp:258
+msgid "Latitude:"
+msgstr "Latitude:"
+
+#: wmwidget.cpp:260
+msgid "Longitude:"
+msgstr "Longitude:"
+
+#: wmwidget.cpp:290
+msgid "This is the login form to your MediaWiki account."
+msgstr "Este é o formulário de autenticação da sua conta do MediaWiki."
+
+#: wmwidget.cpp:294
+msgid "New"
+msgstr "Nova"
+
+#: wmwidget.cpp:294
+msgid "Add a wiki to this list"
+msgstr "Adicionar uma wiki a esta lista"
+
+#: wmwidget.cpp:299
+msgid "Wikimedia Commons"
+msgstr "Wikimedia Commons"
+
+#: wmwidget.cpp:300
+msgid "Wikimedia Meta"
+msgstr "Wikimedia Meta"
+
+#: wmwidget.cpp:301
+msgid "Wikipedia"
+msgstr "Wikipédia"
+
+#: wmwidget.cpp:302
+msgid "Wikibooks"
+msgstr "Wikibooks"
+
+#: wmwidget.cpp:303
+msgid "Wikinews"
+msgstr "Wikinews"
+
+#: wmwidget.cpp:304
+msgid "Wikiquote"
+msgstr "Wikiquote"
+
+#: wmwidget.cpp:305
+msgid "Wikisource"
+msgstr "Wikisource"
+
+#: wmwidget.cpp:306
+msgid "Wiktionary"
+msgstr "Wiktionary"
+
+#: wmwidget.cpp:307
+msgid "MediaWiki"
+msgstr "MediaWiki"
+
+#: wmwidget.cpp:308
+msgid "Wikia Foto"
+msgstr "Wikia Foto"
+
+#: wmwidget.cpp:309
+msgid "Wikia Uncyclopedia"
+msgstr "Desciclopédia Wikia"
+
+#: wmwidget.cpp:314
+msgid "Wiki:"
+msgstr "Wiki:"
+
+#: wmwidget.cpp:325
+msgid "These are options for adding a Wiki."
+msgstr "Estas são as opções para criar uma nova wiki."
+
+#: wmwidget.cpp:330
+msgid "Name:"
+msgstr "Nome:"
+
+#: wmwidget.cpp:334
+msgid "API URL:"
+msgstr "URL da API:"
+
+#: wmwidget.cpp:339
+msgid "Add"
+msgstr "Adicionar"
+
+#: wmwidget.cpp:339
+msgid "Add a new wiki"
+msgstr "Adicionar uma nova wiki"
+
+#: wmwidget.cpp:348
+msgid "Login:"
+msgstr "Usuário:"
+
+#: wmwidget.cpp:351
+msgid "Password:"
+msgstr "Senha:"
+
+#: wmwidget.cpp:356
+msgid "&Log in"
+msgstr "&Entrar"
+
+#: wmwidget.cpp:373
+msgctxt "Name of the wiki the user is currently logged on"
+msgid "Logged on: "
+msgstr "Autenticado em: "
+
+#: wmwidget.cpp:377
+msgctxt "Username which is used to connect to the wiki"
+msgid "Logged as: "
+msgstr "Autenticado como: "
+
+#: wmwidget.cpp:380
+msgid "Change Account"
+msgstr "Alterar conta"
+
+#: wmwidget.cpp:381
+msgid "Logout and change the account used for transfer"
+msgstr "Encerrar e mudar a conta usada para transferência"
+
+#: wmwidget.cpp:391
+msgid "Account"
+msgstr "Conta"
+
+#: wmwidget.cpp:400
+msgid "Author:"
+msgstr "Autor:"
+
+#: wmwidget.cpp:403
+msgid "Source:"
+msgstr "Fonte:"
+
+#: wmwidget.cpp:406
+msgid "License:"
+msgstr "Licença:"
+
+#: wmwidget.cpp:409
+msgid "Own work, multi-license with CC-BY-SA-3.0 and GFDL"
+msgstr "Trabalho próprio, licença múltipla com CC-BY-SA-3.0 e GFDL"
+
+#: wmwidget.cpp:411
+msgid "Own work, multi-license with CC-BY-SA-3.0 and older"
+msgstr "Trabalho próprio, licença múltipla com CC-BY-SA-3.0 e anteriores"
+
+#: wmwidget.cpp:413
+msgid "Creative Commons Attribution-Share Alike 3.0"
+msgstr "Creative Commons Attribution-Share Alike 3.0"
+
+#: wmwidget.cpp:415
+msgid "Own work, Creative Commons Attribution 3.0"
+msgstr "Trabalho próprio, Creative Commons Attribution 3.0"
+
+#: wmwidget.cpp:417
+msgid "Own work, release into public domain under the CC-Zero license"
+msgstr "Trabalho próprio, disponível em domínio público com a licença CC-Zero"
+
+#: wmwidget.cpp:419
+msgid "Author died more than 100 years ago"
+msgstr "O autor morreu há mais de 100 anos"
+
+#: wmwidget.cpp:421
+msgid ""
+"Photo of a two-dimensional work whose author died more than 100 years ago"
+msgstr ""
+"Foto de um trabalho bidimensional cujo autor morreu há mais de 100 anos"
+
+#: wmwidget.cpp:423
+msgid "First published in the United States before 1923"
+msgstr "Publicado pela primeira vez nos Estados Unidos antes de 1923"
+
+#: wmwidget.cpp:425
+msgid "Work of a U.S. government agency"
+msgstr "Trabalho de uma agência governamental dos E.U.A."
+
+#: wmwidget.cpp:427
+msgid "Simple typefaces, individual words or geometric shapes"
+msgstr "Formas simples, palavras individuais ou formas geométricas"
+
+#: wmwidget.cpp:429
+msgid "Logos with only simple typefaces, individual words or geometric shapes"
+msgstr ""
+"Logotipos apenas com forma simples, palavras individuais ou formas "
+"geométricas"
+
+#: wmwidget.cpp:431
+msgid "No license specified (not recommended for public wiki sites)"
+msgstr "Nenhuma licença indicada (não recomendada para wikis públicas)"
+
+#: wmwidget.cpp:434
+msgid "Generic categories:"
+msgstr "Categorias genéricas:"
+
+#: wmwidget.cpp:437
+msgid ""
+"This is a place to enter categories that will be added to all the files."
+msgstr ""
+"Este é o local para digitar as categorias que serão adicionadas a todos os "
+"arquivos."
+
+#: wmwidget.cpp:440
+msgid "Generic text:"
+msgstr "Texto genérico:"
+
+#: wmwidget.cpp:443
+msgid ""
+"This is a place to enter text that will be added to all the files, below the "
+"Information template."
+msgstr ""
+"Este é o local para digitar o texto que será adicionado a todos os arquivos, "
+"abaixo da modelo Informações."
+
+#: wmwidget.cpp:447
+msgid "Upload comments:"
+msgstr "Comentários de envio:"
+
+#: wmwidget.cpp:450
+msgid ""
+"This is a place to enter text that will be used as upload comments. The "
+"default of 'Uploaded via KIPI uploader' will be used if empty."
+msgstr ""
+"Local para digitar o texto que será usado como comentário de envio. Se "
+"estiver em branco, será usado o padrão \"Enviado pelo KIPI'."
+
+#: wmwidget.cpp:469
+msgid "Information"
+msgstr "Informações"
+
+#: wmwidget.cpp:475
+msgid "These are options that will be applied to photos before upload."
+msgstr "Estas são as opções que serão aplicadas às fotos antes do envio."
+
+#: wmwidget.cpp:479
+msgid "Resize photos before uploading"
+msgstr "Redimensionar as fotos antes de enviar"
+
+#: wmwidget.cpp:489
+msgid "Maximum size:"
+msgstr "Tamanho máximo:"
+
+#: wmwidget.cpp:497
+msgid "JPEG quality:"
+msgstr "Qualidade JPEG:"
+
+#: wmwidget.cpp:500
+msgid "Remove metadata from file"
+msgstr "Remover os metadados do arquivo"
+
+#: wmwidget.cpp:504
+msgid "Remove coordinates from file"
+msgstr "Remover as coordenadas do arquivo"
+
+#: wmwidget.cpp:518
+msgid "Options"
+msgstr "Opções"
+
+#: wmwidget.cpp:524
+msgid "Items Properties"
+msgstr "Propriedades dos itens"
+
+#: wmwidget.cpp:525
+msgid "Upload Settings"
+msgstr "Enviar as configurações"
+
+#: wmwindow.cpp:112
+msgid "Export to MediaWiki"
+msgstr "Exportar para MediaWiki"
+
+#: wmwindow.cpp:113
+msgid "Start Upload"
+msgstr "Iniciar envio"
+
+#: wmwindow.cpp:114
+msgid "Start upload to MediaWiki"
+msgstr "Iniciar o envio para o MediaWiki"
+
+#: wmwindow.cpp:119 wmwindow.cpp:311
+msgid "MediaWiki export"
+msgstr "Exportação para o MediaWiki"
+
+#: wmwindow.cpp:121
+#, kde-format
+msgid ""
+"A Kipi plugin to export image collection to a MediaWiki installation.\n"
+"Using libmediawiki version %1"
+msgstr ""
+"Um plugin do Kipi para exportar uma coleção de imagens para uma instalação "
+"do MediaWiki.\n"
+"Usando a versão %1 do libmediawiki"
+
+#: wmwindow.cpp:124
+msgid "(c) 2011, Alexandre Mendes"
+msgstr "(c) 2011, Alexandre Mendes"
+
+#: wmwindow.cpp:126
+msgid "Alexandre Mendes"
+msgstr "Alexandre Mendes"
+
+#: wmwindow.cpp:126
+msgid "Author"
+msgstr "Autor"
+
+#: wmwindow.cpp:129
+msgid "Guillaume Hormiere"
+msgstr "Guillaume Hormiere"
+
+#: wmwindow.cpp:129 wmwindow.cpp:132 wmwindow.cpp:135
+msgid "Developer"
+msgstr "Desenvolvedor"
+
+#: wmwindow.cpp:132
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: wmwindow.cpp:135
+msgid "Peter Potrowl"
+msgstr "Peter Potrowl"
+
+#: wmwindow.cpp:347
+msgid ""
+"Login error\n"
+"Please check your credentials and try again."
+msgstr ""
+"Erro de autenticação\n"
+"Por favor, verifique as suas credenciais e tente novamente."
+
+#: wmwindow.cpp:368
+msgid "Upload finished with no errors."
+msgstr "O envio foi concluído sem erros."

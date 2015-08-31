@@ -1,0 +1,308 @@
+# kipiplugin_vkontakte.po translation [el]
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_vkontakte\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2013-02-10 18:49+0200\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.2\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stelios"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sstavra@gmail.com"
+
+#: albumchooserwidget.cpp:53
+msgctxt "@title:group Header above controls for managing albums"
+msgid "Album"
+msgstr "Λεύκωμα"
+
+#: albumchooserwidget.cpp:58
+msgid "This is the VKontakte album that will be used for the transfer."
+msgstr "Αυτό είναι το λεύκωμα VKontakte που θα χρησιμοποιηθεί για τη μεταφορά."
+
+#: albumchooserwidget.cpp:64
+msgid "New Album"
+msgstr "Νέο λεύκωμα"
+
+#: albumchooserwidget.cpp:64
+msgid "Create new VKontakte album"
+msgstr "Δημιουργία νέου λευκώματος VKontakte"
+
+#: albumchooserwidget.cpp:65
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "Επαναφόρτωση"
+
+#: albumchooserwidget.cpp:66
+msgid "Reload albums list"
+msgstr "Επαναφόρτωση λίστας λευκωμάτων"
+
+#: albumchooserwidget.cpp:69
+msgid "Edit selected album"
+msgstr "Επεξεργασία επιλεγμένου λευκώματος"
+
+#: albumchooserwidget.cpp:74
+msgid "Delete selected album"
+msgstr "Διαγραφή επιλεγμένου λευκώματος"
+
+#: albumchooserwidget.cpp:285
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
+"in it?</qt>"
+msgstr ""
+"<qt>Είστε βέβαιοι ότι θέλετε να αφαιρέσετε το λεύκωμα <b>%1</b> και όλες τις "
+"φωτογραφίες που περιέχει;</qt>"
+
+#: albumchooserwidget.cpp:286
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Επιβεβαίωση διαγραφής λευκώματος"
+
+#: albumchooserwidget.cpp:385
+msgid "Internal error: Null pointer to KJob instance."
+msgstr ""
+
+#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+msgctxt "@title:window"
+msgid "Request to VKontakte failed"
+msgstr "Η αίτηση προς το VKontakte απέτυχε"
+
+#: authinfowidget.cpp:58
+msgid "Account"
+msgstr "Λογαριασμός"
+
+#: authinfowidget.cpp:63
+msgid "This account is used for authentication."
+msgstr "Ο λογαριασμός αυτός χρησιμοποιείται για ταυτοποίηση."
+
+#: authinfowidget.cpp:67
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: authinfowidget.cpp:68
+msgid "Your VKontakte login"
+msgstr "Είσοδος στο VKontakte"
+
+#: authinfowidget.cpp:71
+msgid "Change Account"
+msgstr "Αλλαγή λογαριασμού"
+
+#: authinfowidget.cpp:72
+msgid "Change VKontakte account used to authenticate"
+msgstr "Αλλαγή λογαριασμού VKontakte που χρησιμοποιείται για ταυτοποίηση"
+
+#: authinfowidget.cpp:133
+#, kde-format
+msgctxt "Concatenation of first name (%1) and last name (%2)"
+msgid "%1 %2"
+msgstr ""
+
+#: authinfowidget.cpp:150
+msgid "Unauthorized"
+msgstr "Χωρίς ταυτοποίηση"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_vkontakteui.rc:7
+msgid "&Export"
+msgstr "&Εξαγωγή"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_vkontakteui.rc:13
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: plugin_vkontakte.cpp:88
+msgid "Export to &VKontakte..."
+msgstr "Εξαγωγή στο &VKontakte..."
+
+#: vkalbumdialog.cpp:72
+msgctxt "@title:window"
+msgid "Edit album"
+msgstr "Επεξεργασία λευκώματος"
+
+#: vkalbumdialog.cpp:73
+msgctxt "@title:window"
+msgid "New album"
+msgstr "Νέο λεύκωμα"
+
+#: vkalbumdialog.cpp:81
+msgctxt "@title:group Header above Title and Summary fields"
+msgid "Album"
+msgstr "Λεύκωμα"
+
+#: vkalbumdialog.cpp:82
+msgid "These are basic settings for the new VKontakte album."
+msgstr "Αυτές είναι βασικές ρυθμίσεις για το νέο λεύκωμα VKontakte."
+
+#: vkalbumdialog.cpp:85
+msgid "Title of the album that will be created (required)."
+msgstr "Τίτλος του λευκώματος που θα δημιουργηθεί (απαιτούμενο)."
+
+#: vkalbumdialog.cpp:88
+msgid "Description of the album that will be created (optional)."
+msgstr "Περιγραφή του λευκώματος που θα δημιουργηθεί (προαιρετικό)."
+
+#: vkalbumdialog.cpp:92
+msgid "Title:"
+msgstr "Τίτλος:"
+
+#: vkalbumdialog.cpp:93
+msgid "Summary:"
+msgstr "Περίληψη:"
+
+#: vkalbumdialog.cpp:96
+msgid "Privacy Settings"
+msgstr "Ρυθμίσεις ιδιωτικότητας"
+
+#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+msgid "Only me"
+msgstr "Μόνο σε εμένα"
+
+#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+msgid "My friends"
+msgstr "Στους φίλους μου"
+
+#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+msgid "Friends of my friends"
+msgstr "Στους φίλους των φίλων μου"
+
+#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+msgid "Everyone"
+msgstr "Σε όλους"
+
+#: vkalbumdialog.cpp:104
+msgid "Album available to:"
+msgstr "Λεύκωμα διαθέσιμο:"
+
+#: vkalbumdialog.cpp:112
+msgid "Comments available to:"
+msgstr "Σχόλια διαθέσιμα:"
+
+#: vkalbumdialog.cpp:140
+msgid "Title cannot be empty."
+msgstr "Ο τίτλος δεν γίνεται να είναι κενός."
+
+#: vkalbumdialog.cpp:141
+msgid "Error"
+msgstr "Σφάλμα"
+
+#: vkwindow.cpp:108
+msgid "This is the list of images to upload to your VKontakte album."
+msgstr ""
+"Αυτή είναι η λίστα εικόνων για αποστολή στο δικό σας λεύκωμα VKontakte."
+
+#: vkwindow.cpp:114
+msgid ""
+"This is a clickable link to open the VKontakte service in a web browser."
+msgstr ""
+"Αυτός είναι ένας υπερσύνδεσμος για το άνοιγμα της υπηρεσίας VKontakte σε "
+"έναν περιηγητή ιστού."
+
+#: vkwindow.cpp:132
+msgid "Destination"
+msgstr "Προορισμός"
+
+#: vkwindow.cpp:133
+msgid "This is the location where VKontakte images will be downloaded."
+msgstr "Αυτή είναι η θέση όπου θα γίνει η λήψη των VKontakte εικόνων."
+
+#: vkwindow.cpp:141
+msgid "Options"
+msgstr "Επιλογές"
+
+#: vkwindow.cpp:142
+msgid "These are options that will be applied to images before upload."
+msgstr ""
+"Αυτές είναι επιλογές που θα εφαρμοστούν στις εικόνες πριν την αποστολή."
+
+#: vkwindow.cpp:180
+msgctxt "@title:window"
+msgid "Export to VKontakte Web Service"
+msgstr "Εξαγωγή στην υπηρεσία ιστού VKontakte"
+
+#: vkwindow.cpp:182
+msgid "Start Upload"
+msgstr "Έναρξη αποστολής"
+
+#: vkwindow.cpp:183
+msgid "Start upload to VKontakte service"
+msgstr "Έναρξη αποστολής στην υπηρεσία VKontakte"
+
+#: vkwindow.cpp:194
+msgid "VKontakte Plugin"
+msgstr "Πρόσθετο VKontakte"
+
+#: vkwindow.cpp:197
+msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgstr ""
+"Ένα Kipi πρόσθετο για την εξαγωγή συλλογών εικόνων στην υπηρεσία ιστού "
+"VKontakte."
+
+#: vkwindow.cpp:199
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Alexander Potashev"
+msgstr "Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Author"
+msgstr "Συγγραφέας"
+
+#: vkwindow.cpp:275
+msgid "Close"
+msgstr "Κλείσιμο"
+
+#: vkwindow.cpp:276
+msgid "Close window"
+msgstr "Κλείσιμο παραθύρου"
+
+#: vkwindow.cpp:283
+msgid "Cancel"
+msgstr "Ακύρωση"
+
+#: vkwindow.cpp:284
+msgid "Cancel current operation"
+msgstr "Ακύρωση τρέχουσας λειτουργίας"
+
+#: vkwindow.cpp:383
+msgid "VKontakte"
+msgstr "VKontakte"
+
+#: vkwindow.cpp:401
+msgid "Please select album first."
+msgstr "Επιλέξτε λεύκωμα πρώτα."
+
+#: vkwindow.cpp:431
+msgid "Vkontakte Export"
+msgstr "VKontakte εξαγωγή"
+
+#~ msgid "Handbook"
+#~ msgstr "Εγχειρίδιο"

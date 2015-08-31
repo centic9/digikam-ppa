@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-06-05 01:54+0000\n"
 "PO-Revision-Date: 2010-06-26 15:26+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -111,15 +111,19 @@ msgstr ""
 msgid "Enter extra tags, separated by commas."
 msgstr "Sartu etiketa gehigarriak, komaz bereiztuta."
 
-#: flickrtalker.cpp:211
+#: flickrtalker.cpp:196
+msgid "Getting the maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:262
 msgid "Getting the Frob"
 msgstr "Frob-etik eskuratzen"
 
-#: flickrtalker.cpp:257
+#: flickrtalker.cpp:308
 msgid "Checking if previous token is still valid"
 msgstr "Begiratu aurreko tokena oraindik baliozkoa den"
 
-#: flickrtalker.cpp:283
+#: flickrtalker.cpp:334
 #, fuzzy
 #| msgid ""
 #| "Please follow the instructions in the browser window, then return to "
@@ -131,96 +135,96 @@ msgstr ""
 "Jarraitu web arakatzaileko instrukzioak, gero egin klik \"Bai\" botoian "
 "autentifikatu bazara, edo bestela \"Ez\"."
 
-#: flickrtalker.cpp:285
+#: flickrtalker.cpp:336
 #, kde-format
 msgid "%1 Service Web Authorization"
 msgstr "%1 zerbitzuaren web-autentifikazioa"
 
-#: flickrtalker.cpp:286
+#: flickrtalker.cpp:337
 msgid "I am authenticated"
 msgstr ""
 
-#: flickrtalker.cpp:287
+#: flickrtalker.cpp:338
 msgid "I am not authenticated"
 msgstr ""
 
-#: flickrtalker.cpp:292
+#: flickrtalker.cpp:343
 msgid "Authenticating the User on web"
 msgstr "Erabiltzailea webean autentifikatzea"
 
-#: flickrtalker.cpp:345
+#: flickrtalker.cpp:396
 msgid "Getting the Token from the server"
 msgstr "Eskuratu tokena zerbitzaritik"
 
-#: flickrtalker.cpp:731
+#: flickrtalker.cpp:787
 msgid "No photo specified"
 msgstr "Ez da argazkirik zehaztu"
 
-#: flickrtalker.cpp:735
+#: flickrtalker.cpp:791
 msgid "General upload failure"
 msgstr "Igoeraren hutsegite orokorra"
 
-#: flickrtalker.cpp:739
+#: flickrtalker.cpp:795
 msgid "Filesize was zero"
 msgstr "Fitxategiaren tamaina zero da"
 
-#: flickrtalker.cpp:743
+#: flickrtalker.cpp:799
 msgid "Filetype was not recognized"
 msgstr "Fitxategi mota ez da ezaguna"
 
-#: flickrtalker.cpp:747
+#: flickrtalker.cpp:803
 msgid "User exceeded upload limit"
 msgstr "Erabiltzaileak igotzeko muga gainditu du"
 
-#: flickrtalker.cpp:751
+#: flickrtalker.cpp:807
 msgid "Invalid signature"
 msgstr "Sinadura baliogabea"
 
-#: flickrtalker.cpp:755
+#: flickrtalker.cpp:811
 msgid "Missing signature"
 msgstr "Sinadura falta da"
 
-#: flickrtalker.cpp:759
+#: flickrtalker.cpp:815
 msgid "Login Failed / Invalid auth token"
 msgstr "Saio-hasierak huts egin du edo autentifikazioko tokena baliogabea"
 
-#: flickrtalker.cpp:763
+#: flickrtalker.cpp:819
 msgid "Invalid API Key"
 msgstr "APIaren gakoa baliogabea"
 
-#: flickrtalker.cpp:767
+#: flickrtalker.cpp:823
 msgid "Service currently unavailable"
 msgstr "Zerbitzua unean ez dago erabilgarri"
 
-#: flickrtalker.cpp:771
+#: flickrtalker.cpp:827
 msgid "Invalid Frob"
 msgstr "Baliogabeko Frob"
 
-#: flickrtalker.cpp:775
+#: flickrtalker.cpp:831
 msgid "Format \"xxx\" not found"
 msgstr "'xxx' formatua ez da aurkitu"
 
-#: flickrtalker.cpp:779
+#: flickrtalker.cpp:835
 msgid "Method \"xxx\" not found"
 msgstr "'xxx' metodoa ez da aurkitu"
 
-#: flickrtalker.cpp:783
+#: flickrtalker.cpp:839
 msgid "Invalid SOAP envelope"
 msgstr "Baliogabeko SOAP inguratzailea"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:843
 msgid "Invalid XML-RPC Method Call"
 msgstr "Baliogabeko XML-RPC metodoaren deia"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:847
 msgid "The POST method is now required for all setters"
 msgstr "POST metodoa behar da orain ezartzaile guztientzako"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:851
 msgid "Unknown error"
 msgstr "Errore ezezaguna"
 
-#: flickrtalker.cpp:800
+#: flickrtalker.cpp:856
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -229,40 +233,40 @@ msgstr ""
 "Errorea gertatu da: %1\n"
 "Ezin da urrats gehiago landu."
 
-#: flickrtalker.cpp:968
+#: flickrtalker.cpp:1076
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "idatzi"
 
-#: flickrtalker.cpp:972
+#: flickrtalker.cpp:1080
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "irakurri"
 
-#: flickrtalker.cpp:976
+#: flickrtalker.cpp:1084
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "ezabatu"
 
-#: flickrtalker.cpp:1007
+#: flickrtalker.cpp:1115
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 "Zure tokena ez da baliozkoa. Token berri bat lortzea nahi duzu aurrera "
 "jarraitzeko?\n"
 
-#: flickrtalker.cpp:1165
+#: flickrtalker.cpp:1273
 msgid "PhotoSet creation failed: "
 msgstr "Huts egin du argazkien multzoa sortzean: "
 
-#: flickrtalker.cpp:1260
+#: flickrtalker.cpp:1368
 msgid "Failed to fetch list of photo sets."
 msgstr "Huts egin du argazkien multzoaren zerrenda eskuratzean."
 
-#: flickrtalker.cpp:1339
+#: flickrtalker.cpp:1448
 msgid "Failed to upload photo"
 msgstr "Huts egin du argazkia igotzean"
 
-#: flickrtalker.cpp:1407
+#: flickrtalker.cpp:1516
 msgid "Failed to query photo information"
 msgstr "Huts egin du argazkiaren informazioa kontsultatzean"
 
@@ -336,17 +340,17 @@ msgctxt "photo safety level"
 msgid "Restricted"
 msgstr "Murriztua"
 
-#: flickrwidget.cpp:153 flickrwidget.cpp:288
+#: flickrwidget.cpp:153 flickrwidget.cpp:292
 msgctxt "photo content type"
 msgid "Photo"
 msgstr "Argazkia"
 
-#: flickrwidget.cpp:154 flickrwidget.cpp:289
+#: flickrwidget.cpp:154 flickrwidget.cpp:293
 msgctxt "photo content type"
 msgid "Screenshot"
 msgstr "Pantailako argazkia"
 
-#: flickrwidget.cpp:155 flickrwidget.cpp:290
+#: flickrwidget.cpp:155 flickrwidget.cpp:294
 msgctxt "photo content type"
 msgid "Other"
 msgstr "Bestelakoa"
@@ -360,151 +364,157 @@ msgctxt "account settings"
 msgid "Username: "
 msgstr "Erabiltzaile-izena: "
 
-#: flickrwidget.cpp:186
+#: flickrwidget.cpp:187
 msgid "Use a different account"
 msgstr "Erabili beste kontu bat"
 
-#: flickrwidget.cpp:189
+#: flickrwidget.cpp:191
+#, fuzzy
+#| msgid "Account"
+msgid "Remove Account"
+msgstr "Kontua"
+
+#: flickrwidget.cpp:194
 msgid "PhotoSet:"
 msgstr "Argazkien multzoa:"
 
-#: flickrwidget.cpp:192
+#: flickrwidget.cpp:196
 msgid "&New PhotoSet"
 msgstr "Argazkien multzo &berria:"
 
-#: flickrwidget.cpp:195
+#: flickrwidget.cpp:198
 msgid "&Reload"
 msgstr ""
 
-#: flickrwidget.cpp:211
+#: flickrwidget.cpp:215
 msgid "Tag options"
 msgstr "Etiketen aukerak"
 
-#: flickrwidget.cpp:215
+#: flickrwidget.cpp:219
 msgid "Use Host Application Tags"
 msgstr "Erabili aplikazioaren etiketak"
 
-#: flickrwidget.cpp:217 flickrwidget.cpp:641
+#: flickrwidget.cpp:221 flickrwidget.cpp:645
 msgid "More tag options"
 msgstr "Etiketen aukera gehiago"
 
-#: flickrwidget.cpp:231
+#: flickrwidget.cpp:235
 msgid "Added Tags: "
 msgstr "Gehitutako etiketak: "
 
-#: flickrwidget.cpp:233
+#: flickrwidget.cpp:237
 msgid "Enter new tags here, separated by commas."
 msgstr "Sartu etiketa berriak, komaz bereiztuta."
 
-#: flickrwidget.cpp:235
+#: flickrwidget.cpp:239
 msgid "Add tags per image"
 msgstr "Gehitu etiketak irudiko"
 
-#: flickrwidget.cpp:236
+#: flickrwidget.cpp:240
 msgid "If checked, you can set extra tags for each image in the File List tab"
 msgstr ""
 "Aktibatzen bada, etiketa gehigarriak ezar diezaiokezu irudi bakoitzari "
 "'Fitxategien zerrenda' fitxan"
 
-#: flickrwidget.cpp:240
+#: flickrwidget.cpp:244
 msgid "Strip Spaces From Tags"
 msgstr "Kendu zuriuneak etiketetatik"
 
-#: flickrwidget.cpp:253
+#: flickrwidget.cpp:257
 msgid "Publication Options"
 msgstr "Argitalpenaren aukerak"
 
-#: flickrwidget.cpp:258
+#: flickrwidget.cpp:262
 msgctxt "As in accessible for people"
 msgid "Public (anyone can see them)"
 msgstr "Publikoa (edonork ikus ditzake)"
 
-#: flickrwidget.cpp:261
+#: flickrwidget.cpp:265
 msgid "Visible to Family"
 msgstr "Ikusgai senideentzako"
 
-#: flickrwidget.cpp:264
+#: flickrwidget.cpp:268
 msgid "Visible to Friends"
 msgstr "Ikusgai lagunentzako"
 
-#: flickrwidget.cpp:267 flickrwidget.cpp:628
+#: flickrwidget.cpp:271 flickrwidget.cpp:632
 msgid "More publication options"
 msgstr "Argitalpenaren aukera gehiago"
 
-#: flickrwidget.cpp:280
+#: flickrwidget.cpp:284
 msgid "Safety level:"
 msgstr "Segurtasun maila:"
 
-#: flickrwidget.cpp:282
+#: flickrwidget.cpp:286
 msgid "Safe"
 msgstr "Segurua"
 
-#: flickrwidget.cpp:283
+#: flickrwidget.cpp:287
 msgid "Moderate"
 msgstr "Moderatua"
 
-#: flickrwidget.cpp:284
+#: flickrwidget.cpp:288
 msgid "Restricted"
 msgstr "Murriztua"
 
-#: flickrwidget.cpp:286
+#: flickrwidget.cpp:290
 msgid "Content type:"
 msgstr "Eduki mota:"
 
-#: flickrwidget.cpp:307
+#: flickrwidget.cpp:311
 msgid "Resizing Options"
 msgstr "Tamaina aldatzeko aukerak"
 
-#: flickrwidget.cpp:312
+#: flickrwidget.cpp:316
 msgid "Send original file (no resizing)"
 msgstr ""
 
-#: flickrwidget.cpp:316
+#: flickrwidget.cpp:320
 msgid "Resize photos before uploading"
 msgstr "Aldatu argazkien tamainak igo aurretik"
 
-#: flickrwidget.cpp:328
+#: flickrwidget.cpp:332
 msgid "Maximum dimension (pixels):"
 msgstr "Gehienezko dimentsioak (pixeletan):"
 
-#: flickrwidget.cpp:337
+#: flickrwidget.cpp:341
 msgid "JPEG Image Quality (higher is better):"
 msgstr "JPEG irudiaren kalitatea (altuagoa hobeagoa):"
 
-#: flickrwidget.cpp:367
+#: flickrwidget.cpp:371
 msgid "File List"
 msgstr "Fitxategien zerrenda"
 
-#: flickrwidget.cpp:368
+#: flickrwidget.cpp:372
 msgid "Upload Options"
 msgstr "Igotzeko aukerak"
 
-#: flickrwidget.cpp:624
+#: flickrwidget.cpp:628
 #, fuzzy
 #| msgid "More publication options"
 msgid "Fewer publication options"
 msgstr "Argitalpenaren aukera gehiago"
 
-#: flickrwidget.cpp:646
+#: flickrwidget.cpp:650
 #, fuzzy
 #| msgid "More tag options"
 msgid "Fewer tag options"
 msgstr "Etiketen aukera gehiago"
 
-#: flickrwindow.cpp:81
+#: flickrwindow.cpp:82
 #, kde-format
 msgid "Export to %1 Web Service"
 msgstr "Esportatu %1 webeko zerbitzura"
 
-#: flickrwindow.cpp:126
+#: flickrwindow.cpp:137
 msgid "Start Uploading"
 msgstr "Hasi igotzen"
 
-#: flickrwindow.cpp:138
+#: flickrwindow.cpp:149
 msgid "Flickr/23/Zooomr Export"
 msgstr "Flickr/23/Zooomr esportatzea"
 
-#: flickrwindow.cpp:141
+#: flickrwindow.cpp:152
 msgid ""
 "A Kipi plugin to export an image collection to a Flickr / 23 / Zooomr web "
 "service."
@@ -512,7 +522,7 @@ msgstr ""
 "Kipi-ren plugina Flickr / 23 / Zooomr web zerbitzu batera irudien bilduma "
 "esportatzeko."
 
-#: flickrwindow.cpp:143
+#: flickrwindow.cpp:154
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -527,39 +537,39 @@ msgstr ""
 "(c) 2008-2009, Gilles Caulier\n"
 "(c) 2009, Luka Renko"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Author and maintainer"
 msgstr "Egilea eta mantentzailea"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Developer"
 msgstr "Garatzailea"
 
-#: flickrwindow.cpp:576
+#: flickrwindow.cpp:638
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Photostream-entzako soilik&gt;"
 
-#: flickrwindow.cpp:764
+#: flickrwindow.cpp:837
 #, fuzzy
 #| msgid "Flickr/23/Zooomr Export"
 msgid "Flickr Export"
 msgstr "Flickr/23/Zooomr esportatzea"
 
-#: flickrwindow.cpp:782
+#: flickrwindow.cpp:856
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 "Huts egin du argazkien multzoaren informazioa %1 gunetik eskuratzean. %2\n"
 
-#: flickrwindow.cpp:787
+#: flickrwindow.cpp:861
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -589,17 +599,25 @@ msgstr "Erabiltzaile-izena:"
 msgid "Password:"
 msgstr "Pasahitza:"
 
-#: plugin_flickrexport.cpp:103
+#: plugin_flickrexport.cpp:104
 msgid "Export to Flick&r..."
 msgstr "Esportatu &Flickr webgunera..."
 
-#: plugin_flickrexport.cpp:113
+#: plugin_flickrexport.cpp:116
 msgid "Export to &23..."
 msgstr "Esportatu &23 webgunera..."
 
-#: plugin_flickrexport.cpp:123
+#: plugin_flickrexport.cpp:128
 msgid "Export to &Zooomr..."
 msgstr "Esportatu &Zooomr webgunera..."
+
+#: selectuserdlg.cpp:48
+msgid "Flickr Account Selector"
+msgstr ""
+
+#: selectuserdlg.cpp:54
+msgid "Add another account"
+msgstr ""
 
 #~ msgid "Handbook"
 #~ msgstr "Eskuliburua"

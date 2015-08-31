@@ -1,0 +1,278 @@
+# translation of kipiplugin_rajceexport.po into [el]
+# copyright (c) year this_file_is_part_of_kde
+# this file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_rajceexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2013-02-10 18:48+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.2\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stelios"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sstavra@gmail.com"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_rajceexportui.rc:7
+msgid "&Export"
+msgstr "&Εξαγωγή"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_rajceexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: newalbumdialog.cpp:42 rajcewidget.cpp:122
+msgid "New Album"
+msgstr "Νέο λεύκωμα"
+
+#: newalbumdialog.cpp:59
+msgid "Name"
+msgstr "Όνομα"
+
+#: newalbumdialog.cpp:60
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: newalbumdialog.cpp:61
+msgid "Public"
+msgstr "Δημόσιο"
+
+#: plugin_rajceexport.cpp:96
+msgid "Export to &Rajce.net..."
+msgstr "Εξαγωγή στο &Rajce.net..."
+
+#: rajcelogindialog.cpp:55
+msgid "Login:"
+msgstr "Είσοδος:"
+
+#: rajcelogindialog.cpp:59
+msgid "Password:"
+msgstr "Κωδικός:"
+
+#: rajcelogindialog.cpp:70
+msgid "&OK"
+msgstr "&Εντάξει"
+
+#: rajcelogindialog.cpp:73
+msgid "&Cancel"
+msgstr "&Ακύρωση"
+
+#: rajcewidget.cpp:78
+msgid "This is the list of images to upload to your Rajce.net account."
+msgstr "Αυτή είναι η λίστα εικόνων για αποστολή στο Rajce.net λογαριασμό σας."
+
+#: rajcewidget.cpp:84
+msgid ""
+"This is a clickable link to open the Rajce.net home page in a web browser."
+msgstr ""
+"Αυτός είναι ένας σύνδεσμος για το άνοιγμα της αρχικής σελίδας του Rajce.net "
+"σε έναν περιηγητή ιστού."
+
+#: rajcewidget.cpp:90
+msgid "Account"
+msgstr "Λογαριασμός"
+
+#: rajcewidget.cpp:91
+msgid "This is the Rajce.net account that will be used to authenticate."
+msgstr "Αυτός είναι ο Rajce.net λογαριασμός για την ταυτοποίηση."
+
+#: rajcewidget.cpp:94
+msgctxt "Rajce.net account login"
+msgid "Anonymous"
+msgstr "Ανώνυμος"
+
+#: rajcewidget.cpp:95
+msgid "Login as anonymous to Rajce.net web service."
+msgstr "Είσοδος ανώνυμα στην υπηρεσία ιστού Rajce.net ."
+
+#: rajcewidget.cpp:97
+msgid "Rajce.net Account"
+msgstr "Rajce.net λογαριασμός"
+
+#: rajcewidget.cpp:98
+msgid "Login to Rajce.net using username and password."
+msgstr "Είσοδος στο Rajce.net με όνομα χρήστη και κωδικό."
+
+#: rajcewidget.cpp:100
+msgctxt "Rajce.net account settings"
+msgid "Name:"
+msgstr "Όνομα:"
+
+#: rajcewidget.cpp:102
+msgid "Change Account"
+msgstr "Αλλαγή λογαριασμού"
+
+#: rajcewidget.cpp:103
+msgid "Change Rajce.net Account used to authenticate"
+msgstr "Αλλαγή Rajce.net λογαριασμού για την ταυτοποίηση"
+
+#: rajcewidget.cpp:115
+msgid "Album"
+msgstr "Λεύκωμα"
+
+#: rajcewidget.cpp:116
+msgid "This is the Rajce.net album that will be used for transfer."
+msgstr "Αυτό είναι το Rajce.net λεύκωμα που θα χρησιμοποιηθεί για τη μεταφορά."
+
+#: rajcewidget.cpp:123
+msgid "Create new Rajce.net album"
+msgstr "Δημιουργία νέου Rajce.net λευκώματος"
+
+#: rajcewidget.cpp:124
+msgctxt "reload album list"
+msgid "Reload"
+msgstr "Επαναφόρτωση"
+
+#: rajcewidget.cpp:125
+msgid "Reload album list"
+msgstr "Επαναφόρτωση λίστας λευκωμάτων"
+
+#: rajcewidget.cpp:133
+msgid "Destination"
+msgstr "Προορισμός"
+
+#: rajcewidget.cpp:134
+msgid "This is the location where Rajce.net images will be downloaded."
+msgstr "Αυτή είναι η θέση από όπου θα γίνει λήψη των Rajce.net εικόνων."
+
+#: rajcewidget.cpp:141
+msgid "Options"
+msgstr "Επιλογές"
+
+#: rajcewidget.cpp:142
+msgid "These are options that will be applied to images before upload."
+msgstr "Αυτές οι επιλογές θα εφαρμοστούν στις εικόνες πριν από τη λήψη."
+
+#: rajcewidget.cpp:151
+msgid "Maximum dimension:"
+msgstr "Μέγιστη διάσταση:"
+
+#: rajcewidget.cpp:159
+msgid "JPEG quality:"
+msgstr "Ποιότητα JPEG:"
+
+#: rajcewidget.cpp:238
+msgid "Not logged in"
+msgstr "Δεν έχει γίνει είσοδος"
+
+#: rajcewidget.cpp:304
+msgid "Unknown error"
+msgstr "Άγνωστο σφάλμα"
+
+#: rajcewidget.cpp:305
+msgid "Invalid command"
+msgstr "Μη έγκυρη εντολή"
+
+#: rajcewidget.cpp:306
+msgid "Invalid login name or password"
+msgstr "Μη έγκυρο το όνομα χρήστη ή ο κωδικός"
+
+#: rajcewidget.cpp:307
+msgid "Session expired"
+msgstr "Λήξη συνεδρίας"
+
+#: rajcewidget.cpp:309 rajcewidget.cpp:310
+msgid "Unknown album"
+msgstr "Άγνωστο λεύκωμα"
+
+#: rajcewidget.cpp:311
+msgid "Failed to open album"
+msgstr "Αποτυχία στο άνοιγμα λευκώματος"
+
+#: rajcewidget.cpp:312
+msgid "The album name cannot be empty"
+msgstr "Το όνομα λευκώματος δεν μπορεί να είναι κενό"
+
+#: rajcewidget.cpp:313
+msgid "Failed to create album"
+msgstr "Αποτυχία δημιουργίας λευκώματος"
+
+#: rajcewidget.cpp:314
+msgid "Album does not exist"
+msgstr "το λεύκωμα δεν υπάρχει"
+
+#: rajcewidget.cpp:317 rajcewidget.cpp:319
+msgid "File upload failed"
+msgstr "Αποτυχία αποστολής αρχείου"
+
+#: rajcewidget.cpp:320
+msgid "Unsupported file extension"
+msgstr "Η επέκταση αρχείου δεν υποστηρίζεται"
+
+#: rajcewidget.cpp:389
+msgid "Logging in %v%"
+msgstr "Είσοδος %v%"
+
+#: rajcewidget.cpp:390
+msgid "Logging out %v%"
+msgstr "Έξοδος %v%"
+
+#: rajcewidget.cpp:391
+msgid "Loading albums %v%"
+msgstr "Φόρτωση λευκωμάτων %v%"
+
+#: rajcewidget.cpp:392
+msgid "Creating album %v%"
+msgstr "Δημιουργία λευκώματος %v%"
+
+#: rajcewidget.cpp:393
+msgid "Opening album %v%"
+msgstr "Άνοιγμα λευκώματος %v%"
+
+#: rajcewidget.cpp:394
+msgid "Closing album %v%"
+msgstr "Κλείσιμο λευκώματος %v%"
+
+#: rajcewidget.cpp:395
+msgid "Adding photos %v%"
+msgstr "Προσθήκη φωτογραφιών %v%"
+
+#: rajcewindow.cpp:55
+msgid "Export to Rajce.net"
+msgstr "Εξαγωγή στο Rajce.net"
+
+#: rajcewindow.cpp:56
+msgid "Start Upload"
+msgstr "Έναρξη αποστολής"
+
+#: rajcewindow.cpp:57
+msgid "Start upload to Rajce.net"
+msgstr "Έναρξη αποστολής στο Rajce.net"
+
+#: rajcewindow.cpp:71
+msgid "Rajce.net Export"
+msgstr "Εξαγωγή Rajce.net"
+
+#: rajcewindow.cpp:74
+msgid "A Kipi plugin to export image collections to Rajce.net."
+msgstr "Ένα πρόσθετο Kipi για εξαγωγή συλλογών εικόνων στο Rajce.net ."
+
+#: rajcewindow.cpp:76
+msgid "(c) 2011-2013, Lukas Krejci"
+msgstr "(c) 2011-2013, Lukas Krejci"
+
+#: rajcewindow.cpp:78
+msgid "Lukas Krejci"
+msgstr "Lukas Krejci"
+
+#: rajcewindow.cpp:78
+msgid "Author and maintainer"
+msgstr "Συγγραφέας και συντηρητής"
+
+#~ msgid "Handbook"
+#~ msgstr "Εγχειρίδιο"

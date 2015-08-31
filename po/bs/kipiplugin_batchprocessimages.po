@@ -6,17 +6,15 @@ msgstr ""
 "Project-Id-Version: kipiplugin_batchprocessimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-11-23 01:54+0000\n"
-"PO-Revision-Date: 2013-10-19 01:29+0000\n"
-"Last-Translator: Samir Ribić <Unknown>\n"
+"PO-Revision-Date: 2015-02-22 15:29+0100\n"
+"Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Launchpad (build 16807)\n"
-"X-Launchpad-Export-Date: 2013-10-20 05:00+0000\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-16 06:45+0000\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -24,7 +22,7 @@ msgstr "Elmedina Fejzagic,Samir Ribić"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba"
+msgstr "Ef@etf.ba,samir.ribic@etf.unsa.ba"
 
 #: common/batchprocessimagesdialog.cpp:105
 #: common/batchprocessimagesdialog.cpp:907 tools/renameimagesdialog.cpp:54
@@ -34,11 +32,11 @@ msgstr "&Pokreni"
 
 #: common/batchprocessimagesdialog.cpp:108 common/imagepreview.cpp:54
 msgid "Batch Process Images"
-msgstr ""
+msgstr "Grupna obrada slika"
 
 #: common/batchprocessimagesdialog.cpp:111 common/imagepreview.cpp:57
 msgid "A Kipi plugin for batch process images using \"ImageMagick\""
-msgstr ""
+msgstr "Kipi dodatak za grupnu obradu slika koristeći \"ImageMagick\""
 
 #: common/batchprocessimagesdialog.cpp:112 common/imagepreview.cpp:58
 #: tools/renameimagesdialog.cpp:63
@@ -46,6 +44,8 @@ msgid ""
 "(c) 2003-2012, Gilles Caulier\n"
 "(c) 2007-2009, Aurélien Gateau"
 msgstr ""
+"(c) 2003-2012, Gilles Caulier\n"
+"(c) 2007-2009, Aurélien Gateau"
 
 #: common/batchprocessimagesdialog.cpp:115 common/imagepreview.cpp:61
 #: tools/renameimagesdialog.cpp:66
@@ -189,7 +189,7 @@ msgstr "Preskočeno."
 
 #: common/batchprocessimagesdialog.cpp:440
 msgid "destination image file already exists (skipped by user)."
-msgstr "Odredišna datoteka slike već postoji (korisnik ga je preskočio)."
+msgstr "odredišna datoteka slike već postoji (korisnik ga je preskočio)."
 
 #: common/batchprocessimagesdialog.cpp:476
 #: common/batchprocessimagesdialog.cpp:593
@@ -201,11 +201,11 @@ msgstr "Nije uspjelo."
 
 #: common/batchprocessimagesdialog.cpp:477
 msgid "destination image file already exists and cannot be renamed."
-msgstr "Odredišna datoteka slike već postoji i ne može biti preimenovan."
+msgstr "odredišna datoteka slike već postoji i ne može biti preimenovan."
 
 #: common/batchprocessimagesdialog.cpp:505
 msgid "destination image file already exists (skipped automatically)."
-msgstr "Odredišna datoteka slike već postoji (automatski je preskočen)."
+msgstr "odredišna datoteka slike već postoji (automatski je preskočen)."
 
 #: common/batchprocessimagesdialog.cpp:552
 #: common/batchprocessimagesdialog.cpp:760
@@ -236,7 +236,7 @@ msgstr "U redu"
 
 #: common/batchprocessimagesdialog.cpp:616
 msgid "no processing error"
-msgstr "Bez greške u obradi"
+msgstr "bez greške u obradi"
 
 #: common/batchprocessimagesdialog.cpp:638
 #, kde-format
@@ -255,11 +255,11 @@ msgstr "Upozorenje:"
 
 #: common/batchprocessimagesdialog.cpp:671
 msgid "cannot remove original image file."
-msgstr "Ne mogu da uklonim originalnu datoteku slike."
+msgstr "ne mogu da uklonim originalnu datoteku slike."
 
 #: common/batchprocessimagesdialog.cpp:688
 msgid "cannot process original image file."
-msgstr "Ne mogu da obradim originalnu datoteku slike."
+msgstr "ne mogu da obradim originalnu datoteku slike."
 
 #: common/batchprocessimagesdialog.cpp:709
 msgid "Image processing error"
@@ -282,7 +282,7 @@ msgstr "Morate izabrati stavku iz liste da bi se sračunao pregled."
 
 #: common/batchprocessimagesdialog.cpp:777
 msgid "Cannot run properly 'convert' program from 'ImageMagick' package."
-msgstr "Ne mogu da pokrenem program „convert“ iz paketa „ImageMagick“"
+msgstr "Ne mogu da pokrenem program „convert“ iz paketa „ImageMagick“."
 
 #: common/batchprocessimagesdialog.cpp:792
 msgid " - small preview"
@@ -307,7 +307,7 @@ msgstr "Prekinuto."
 
 #: common/batchprocessimagesdialog.cpp:943
 msgid "process aborted by user"
-msgstr "Korisnik je prekinuo obradu"
+msgstr "korisnik je prekinuo obradu"
 
 #: common/batchprocessimagesdialog.cpp:966
 msgid "&Close"
@@ -727,30 +727,18 @@ msgstr ""
 "podataka o slikama.</p>"
 
 #: tools/convertimagesdialog.cpp:100
-#, fuzzy
-#| msgid ""
-#| "<p><b>TGA</b>: the TarGA image file format is one of the most widely used "
-#| "bitmap file formats for storage of 24 and 32 bits truecolor images.  TGA "
-#| "supports colormaps, alpha channel, gamma value, postage stamp image, "
-#| "textual information, and developer-definable data.</p>"
 msgid ""
 "<p><b>TGA</b>: the TarGA image file format is one of the most widely used "
 "bitmap file formats for storage of 24 and 32 bits truecolor images. TGA "
 "supports colormaps, alpha channel, gamma value, postage stamp image, textual "
 "information, and developer-definable data.</p>"
 msgstr ""
-"<p><b>TGA</b>: Targa format slike je jedan od najšire korištenih bitmap "
+"<p><b>TGA</b>: TarGA format slike je jedan od najšire korištenih bitmap "
 "formata datoteka za pohranu 24 i 32 bitne truecolor slike. TGA podržava "
 "colormaps, alfa kanal, gama vrijednosti, slike poštanske marke slike, "
 "tekstualne informacije, i programerske podatke</p>"
 
 #: tools/convertimagesdialog.cpp:104
-#, fuzzy
-#| msgid ""
-#| "<p><b>EPS</b>: the  Adobe Encapsulated PostScript image file format is a "
-#| "PostScript language program describing the appearance of a single page. "
-#| "Usually, the purpose of the EPS file is to be embedded inside another "
-#| "PostScript language page description.</p>"
 msgid ""
 "<p><b>EPS</b>: the Adobe Encapsulated PostScript image file format is a "
 "PostScript language program describing the appearance of a single page. "
@@ -759,7 +747,8 @@ msgid ""
 msgstr ""
 "<p><b>EPS</b>: Adobe PostScript oklopljeni format datoteke slike je program "
 "u PostScript jeziku koji opisuje izgled jedne stranice. Obično, EPS datoteka "
-"treba biti ugrađena unutar opisa neke druge stranice u PostScript jeziku.</p>"
+"je predviđena za ugradnju unutar opisa neke druge stranice u PostScript "
+"jeziku.</p>"
 
 #: tools/convertimagesdialog.cpp:191 tools/convertimagesdialog.cpp:192
 #: tools/convertimagesdialog.cpp:241 tools/convertimagesdialog.cpp:254
@@ -1334,7 +1323,7 @@ msgstr "Nikakva"
 
 #: tools/recompressimagesdialog.cpp:218 tools/resizeimagesdialog.cpp:253
 msgid "image file format unsupported."
-msgstr "Format datoteke slike nije podržan."
+msgstr "format datoteke slike nije podržan."
 
 #: tools/recompressoptionsdialog.cpp:48
 msgid "Recompression Options"
@@ -1776,117 +1765,3 @@ msgstr "Pomjeri &dole"
 #: ui/renameimagesbase.ui:212
 msgid "Move &Up"
 msgstr "Pomjeri &gore"
-
-#~ msgid "Handbook"
-#~ msgstr "Priručnik"
-
-#~ msgid ""
-#~ "Preview\n"
-#~ "image\n"
-#~ "processing\n"
-#~ "in\n"
-#~ "progress..."
-#~ msgstr ""
-#~ "U toku je\n"
-#~ "obrada\n"
-#~ "pregleda\n"
-#~ "slike..."
-
-#~ msgid ""
-#~ "Cannot\n"
-#~ "process\n"
-#~ "preview\n"
-#~ "image."
-#~ msgstr ""
-#~ "Ne mogu da\n"
-#~ "obradim\n"
-#~ "pregled\n"
-#~ "slike."
-
-#~ msgid ""
-#~ "An interface to preview the \"Batch Process Images\" Kipi plugin.\n"
-#~ "This plugin uses the \"convert\" program from the \"ImageMagick\" package."
-#~ msgstr "Sučelje za pregled \"Batch Process Images\" Kipi priključka."
-
-#~ msgid "Batch Image-bordering"
-#~ msgstr "Paketno oivičavanje slika"
-
-#~ msgid ""
-#~ "A Kipi plugin for batch bordering images\n"
-#~ "This plugin use the \"convert\" program from \"ImageMagick\" package."
-#~ msgstr ""
-#~ "KIPI-jev dodatak za paketno oivičavanje slika\n"
-#~ "Ovaj priključak koristi program „convert“ iz paketa „ImageMagick“."
-
-#~ msgid "Batch image-color enhancement"
-#~ msgstr "Paketno poboljšavanje boja slike"
-
-#, fuzzy
-#~| msgid ""
-#~| "A Kipi plugin for batch image-color enhancement.\n"
-#~| "This plugin use the \"convert\" program from the \"ImageMagick\" package."
-#~ msgid ""
-#~ "A Kipi plugin for batch image-color enhancement.\n"
-#~ "This plugin uses the \"convert\" program from the \"ImageMagick\" package."
-#~ msgstr ""
-#~ "Kipi priključak za poboljšanje paketa slika-boja.\n"
-#~ "Ovaj priključak koristi \"convert\" program iz \"ImageMagick\" paketa."
-
-#~ msgid "Batch image effects"
-#~ msgstr "Paketno dodavanje efekata slikama"
-
-#~ msgid ""
-#~ "A Kipi plugin for batch image-effect transformations.\n"
-#~ "This plugin uses the \"convert\" program from the \"ImageMagick\" package."
-#~ msgstr ""
-#~ "Kipi priključak za paket transformaciju efekta slike.\n"
-#~ "Ovaj priključak koristi \"convert\" program iz \"ImageMagick\" paketa."
-
-#~ msgid "Batch recompress images"
-#~ msgstr "Paketna rekompresija slika"
-
-#~ msgid ""
-#~ "A Kipi plugin to batch recompress images.\n"
-#~ "This plugin uses the \"convert\" program from the \"ImageMagick\" package."
-#~ msgstr ""
-#~ "Kipi priključak za paketnu rekompresiju slika.\n"
-#~ "Ovaj priključak koristi \"convert\" program iz \"ImageMagick\" paketa."
-
-#~ msgid "Batch resize images"
-#~ msgstr "Paketna promjena veličine slike"
-
-#~ msgid ""
-#~ "A Kipi plugin to batch-resize images.\n"
-#~ "This plugin uses the \"convert\" program from the \"ImageMagick\" package."
-#~ msgstr ""
-#~ "Kipi priključak za paketnu promjenu veličine slike.\n"
-#~ "Ovaj priključak koristi \"convert\" program za \"ImageMagick\" paket."
-
-#~ msgid "Johannes Wienke"
-#~ msgstr "Johannes Wienke"
-
-#~ msgid "Batch convert images"
-#~ msgstr "Paketno konvertovanje slika"
-
-#~ msgid ""
-#~ "A Kipi plugin for batch converting images.\n"
-#~ "This plugin uses the \"convert\" program from the \"ImageMagick\" package."
-#~ msgstr ""
-#~ "Kipi priključak za paketno konvertovanje slika.\n"
-#~ "Ovaj priključak koristi \"convert\" program iz \"ImageMagick\" paketa."
-
-#~ msgid "Batch image filtering"
-#~ msgstr "Paketnog filtriranje slika"
-
-#~ msgid ""
-#~ "A Kipi plugin to batch filter images.\n"
-#~ "This plugin uses the \"convert\" program from the \"ImageMagick\" package."
-#~ msgstr ""
-#~ "Kipi priključak za paketno filtriranje slika.\n"
-#~ "Ovaj priključak koristi \"convert\" program iz \"ImageMagick\" paketa."
-
-#~ msgid "Zoom:"
-#~ msgstr "Uvećavanje:"
-
-#~ msgid "SET_AT_RUNTIME"
-#~ msgstr "POSTAVI_DUŽINU_TRAJANJA"

@@ -1,0 +1,292 @@
+ <sect1 id="using-fileformatsupport"
+>  <title
+>Formats de fitxer acceptats</title>
+
+        <para
+>&digikam; es basa en una sèrie de biblioteques i paquets de suport per carregar i desar els formats d'imatge. Quins formats d'imatge hi ha disponibles dependrà de la disponibilitat d'aquestes biblioteques en el sistema i, en alguns casos, en la forma en que s'han compilat aquestes. En la majoria de distribucions trobareu una gran varietat de formats d'imatge que podreu visualitzar a &digikam;. </para>
+
+        <para
+>Aquesta dependència d'altres biblioteques significa que no es pot donar una llista definitiva de tots els formats que estaran disponibles al vostre sistema. Almenys haurien d'estar disponibles els formats JPEG, PNG i TIFF. </para>
+
+        <para
+>&digikam; només mostra els fitxers que estan en els formats que entén. Ho fa mirant l'extensió de fitxer i la comprova contra una llista predefinida. Si l'extensió de fitxer es troba llistada a &digikam; us el mostrarà a la vista d'imatge. Podeu canviar la llista d'extensions de fitxer que &digikam; accepta, per a més detalls veure la secció <link linkend="using-setup"
+>Configuració</link
+>. </para>
+
+        <sect2
+>        <title
+>Formats de fotografia fixa</title>
+
+            <sect3
+>            <title
+>Introducció</title>
+
+                <para
+>Gairebé totes les càmeres digitals emmagatzemen les fotografies en dos formats: JPEG o TIFF. Moltes càmeres us permeten seleccionar quin d'aquests formats utilitzar. Podeu trobar una descripció completa d'aquests formats a la <ulink url="http://en.wikipedia.org/wiki/Graphics_file_format"
+>Viquipèdia</ulink
+>. &digikam; suporta ambdós formats. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>Compressió d'imatge fixa</title>
+
+                <para
+>La compressió de la imatge és l'aplicació d'esquemes de compressió de dades sobre imatges digitals. Es realitza a través de la reducció de la redundància de les dades d'imatge a fi de ser capaç d'emmagatzemar o transmetre dades d'una forma eficient. </para>
+
+                <para
+>La compressió d'imatges pot ser amb o sense pèrdua. Els mètodes de compressió sense pèrdua sempre són els preferits pel seu alt valor de preservació a efectes d'arxivat abans d'aplicar transformacions com el retallat, canvi de mida, correccions de color, &etc; El següent és per als mètodes de compressió amb pèrdua, especialment quan s'utilitza a baixes velocitats, introduint defectes de compressió. Els mètodes amb pèrdua són adequats per oferir imatges naturals, com ara fotografies en aplicacions en les quals una pèrdua menor (de vegades imperceptible) de la fidelitat és acceptable per aconseguir una reducció substancial en la mida del fitxer. La compressió amb pèrdua és bona per a la publicació d'imatges a Internet. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>JPEG</title>
+                <para
+>JPEG és un format comprimit, que tracta quelcom de la qualitat d'imatge per reduir la mida del fitxer. De fet, la majoria de les càmeres desen les seves imatges en aquest format a menys que s'especifiqui el contrari. Una imatge JPEG s'emmagatzema utilitzant la compressió amb pèrdua i es pot variar la quantitat de compressió. Això us permet escollir entre una compressió menor amb una major qualitat d'imatge i una compressió major amb una qualitat menor. L'única raó per triar una compressió més alta és perquè crea un fitxer més petit de manera que podreu emmagatzemar més imatges, i és més fàcil enviar-les per a correu electrònic o publicar-les a la web. La majoria de les càmeres us ofereixen dues o tres opcions equivalents de bona, millor, encara millor -si bé els seus noms poden variar-. </para>
+		<para
+>JPEG 2000 també està implementat. Estableix la mateixa relació de compressió, el millor (més suau) resultat en comparació amb JPEG. La versió 2000 té l'opció de ser sense pèrdua si s'especifica a la configuració. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>TIFF</title>
+                <para
+>TIFF ha estat àmpliament acceptat i àmpliament implementat com un format d'imatge. En general, TIFF es pot ser emmagatzemat per la càmera en forma sense compressió o utilitzant l'algorisme de compressió sense pèrdua (Deflate). Mantindrà una major qualitat d'imatge, però a costa de mides de fitxer molt més grans. Algunes càmeres permeten desar les imatges en aquest format i és un format molt popular a causa del seu algorisme de compressió sense pèrdua. El problema és que el format ha estat alterat per tanta gent que ara hi ha 50 o més sabors, i no tots són reconeguts pels programes. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>PNG</title>
+                <para
+>PNG és un format d'imatge desenvolupat com un substitut de nombrosos formats de fitxer d'imatge utilitzats àmpliament als anys 90. Es tracta d'un format sense pèrdues com el TIFF però molt més compacte i estalvia espai en disc. Encara que és poc probable que la càmera el suporti, algunes persones volen convertir les seves fotografies a PNG quant les passen a l'ordinador. A diferència de JPEG, les imatges PNG no perden qualitat cada vegada que es tornen a codificar després de la modificar-les. &digikam; és totalment compatible amb les imatges PNG i el connector de processament d'imatges per lots pot convertir un lot d'imatges des de qualsevol format a PNG en un sol pas. Per obtenir informació sobre l'ús dels connectors amb &digikam;, veure la secció <link linkend="using-setup"
+>Configuració</link
+>. </para>
+
+                <para
+>PNG és un format de fitxer extensible per una menor pèrdua, portàtil, ben comprimit, emmagatzematge d'imatges ràster. PNG proveeix un substitut lliure de patents de &GIF; i pot substituir molts dels usos comuns de TIFF. PNG està dissenyat per funcionar bé en aplicacions de visualització en línia, com ara a la «World Wide Web», pel que és totalment transmissible amb una opció de visualització progressiva. El PNG també pot emmagatzemar dades de gamma i cromaticitat per millorar la coincidència de color en plataformes heterogènies. PNG admet profunditats de color/píxels de 8 i 16 bits. És el format de fitxer perfecte per arxivar les vostres fotografies. Per a més informació sobre el format PNG veure la <ulink url="http://www.libpng.org/pub/png/"
+>pàgina web de PNG</ulink
+>. </para>
+
+            </sect3>
+
+            <sect3
+>            <title
+>PGF</title>
+	       <para
+>«Progressive Graphics File» n'és un altre, no tan conegut, però obert. Basat en ondetes, que permeten la compressió de dades amb i sense pèrdua. PGF en comparació amb JPEG 2000, va ser desenvolupat per a la velocitat (compressió/descompressió) en comptes de ser millor en la relació de compressió. Amb la mateixa mida de fitxer un fitxer PGF es veu molt millor que un fitxer JPEG, sense deixar de ser molt bo també en la visualització progressiva. Per tant, està ben adaptat al web, però de moment el poden mostrar pocs navegadors. Per obtenir més informació sobre el format PGF veure la <ulink url="http://www.libpgf.org/"
+>pàgina web de libPGF</ulink
+>. </para
+> 
+
+            </sect3>
+
+            <sect3
+>            <title
+>RAW</title>
+
+                <para
+>Algunes càmeres, generalment més cares, us permeten emmagatzemar les imatges en format RAW. El format RAW no és realment un estàndard d'imatge, en absolut. És diferent per a cada marca de càmera. Les imatges en format RAW contenen totes les dades que es prenen directament del sensor d'imatge de la càmera abans que el programari a la cambra apliqui coses com el balanç de blancs, nitidesa, &etc; L'emmagatzematge de fotografies en format RAW d'una càmera us permet modificar la configuració, com ara el balanç de blancs, després de prendre la fotografia. La majoria dels fotògrafs professionals utilitzen el format RAW, ja que els ofereix la màxima flexibilitat. El desavantatge és que els fitxers d'imatge RAW poden ser molt grans. </para>
+
+                <para
+>Per aprendre més sobre el format d'imatge RAW visiteu les molt útils guies <ulink url="http://en.wikipedia.org/wiki/RAW_image_format"
+>Viquipèdia</ulink
+>, <ulink url="http://www.luminous-landscape.com/tutorials/understanding-series/u-raw-files.shtml"
+>The Luminous Landscape</ulink
+> i <ulink url="http://www.cambridgeincolour.com/tutorials/RAW-file-format.htm"
+>Cambridge in Colour</ulink
+>. Podeu convertir les imatges en format RAW a JPEG o TIFF en &digikam; utilitzant el <ulink url="help:/kipi-plugins/rawconverter.html"
+>connector convertidor d'imatges RAW</ulink
+>. Per obtenir informació sobre l'ús dels connectors amb &digikam;, veure la secció <link linkend="using-setup"
+>Configuració</link
+>. </para>
+
+                <para
+>&digikam; només suporta la càrrega d'imatges RAW, confiant en el <ulink url="http://www.cybercom.net/~dcoffin/dcraw"
+>programa DCRAW</ulink
+> que s'inclou en el nucli de &digikam; i és compatible amb més de 200 formats de fitxer RAW. Totes les càmeres compatibles s'enumeren a la part inferior de la pàgina web d'en <ulink url="http://www.cybercom.net/~dcoffin/dcraw"
+>Dave Coffin</ulink
+>. La següent taula mostra una curta llista dels fitxers RAW de càmeres compatibles amb &digikam;: <informaltable
+><tgroup cols="2">
+
+                    <thead
+><row>
+                    <entry
+>Format de fitxer RAW</entry>
+                    <entry
+>Descripció</entry>
+                    </row
+></thead>
+                    <tbody>
+                        <row
+><entry
+>CRW, CR2 </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Canon» </entry
+></row>
+
+                        <!-- ************************ -->
+                        <row
+><entry
+>NEF </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Nikon» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>ORF </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Olympus» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>RAF </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Fuji» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>RWL </entry
+><entry
+>Formats de fitxer RAW de càmeres «Leica» </entry
+></row>
+
+                         <!-- ************************ -->
+
+                        <row
+><entry
+>PEF, PTX </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Pentax» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>X3F </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Sigma» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>DCR, KDC, DC2, K25 </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Kodak» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>SRF, ARW, MRW, MDC </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Sony»/«Minolta» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>RAW </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Panasonic», «Casio» i «Leica» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>DNG (CS1, HDR) </entry
+><entry
+>Format de fitxer RAW d'«Adobe» (negatiu digital) </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>BAY </entry
+><entry
+>RAW de «Casio» (Bayer) </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>ERF </entry
+><entry
+>Formats de fitxer RAW de càmeres digitals «Epson» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>FFF </entry
+><entry
+>Format RAW de «Imacon/Hasselblad» </entry
+></row>
+
+                        <!-- ************************ -->
+
+                        <row
+><entry
+>MOS </entry
+><entry
+>Fotografia RAW de «CREO» </entry
+></row>
+
+                        <!-- ************************ -->
+                        <row
+><entry
+>PXN </entry
+><entry
+>RAW de «Fotoman» </entry
+></row>
+
+                        <!-- ************************ -->
+                        <row
+><entry
+>RDC </entry
+><entry
+>Format RAW de «Ricoh» </entry
+></row>
+
+
+                    </tbody>
+
+                </tgroup
+></informaltable>
+
+                </para>
+
+            </sect3>
+
+        </sect2>
+
+        <sect2
+>        <title
+>Formats d'imatge en moviment (vídeos)</title>
+
+        <para
+>Moltes càmeres digitals implementen la presa de clips de pel·lícula curts. Aquests clips són emmagatzemats en format AVI o MPEG. &digikam; entén aquests formats i genera les miniatures dels fitxers de pel·lícula. No obstant, &digikam; no és una aplicació d'edició de pel·lícules i no incorpora cap funció de visualització o edició de pel·lícules. Si feu doble clic sobre un fitxer de pel·lícula el &digikam; utilitzarà la configuració del &kde; per triar una aplicació de visualització a utilitzar. </para>
+        </sect2>
+
+    </sect1>

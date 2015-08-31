@@ -1,0 +1,220 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tommi Nieminen <translator@legisign.org>, 2014.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-11-08 04:00+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org"
+
+#: imgurimageslist.cpp:50
+msgid "Thumbnail"
+msgstr "Pikkukuva"
+
+#: imgurimageslist.cpp:55
+msgid "Submission title"
+msgstr "Lähetyksen otsikko"
+
+#: imgurimageslist.cpp:58
+msgid "Submission description"
+msgstr "Lähetyksen kuvaus"
+
+#: imgurimageslist.cpp:61
+msgid "Imgur URL"
+msgstr "Imgurin verkko-osoite"
+
+#: imgurimageslist.cpp:64
+msgid "Imgur Delete URL"
+msgstr "Imgur-poiston verkko-osoite"
+
+#: imgurtalker.cpp:149
+msgid "Unexpected response from the web service"
+msgstr "Odottamaton vastaus verkkopalvelusta"
+
+#: imgurtalker.cpp:166
+msgid "Upload failed"
+msgstr "Lähetys epäonnistui"
+
+#: imgurtalker.cpp:407
+msgid "Parse error"
+msgstr "Jäsennysvirhe"
+
+#: imgurtalkerauth.cpp:94
+msgid "Network error: timeout, cannot connect."
+msgstr "Verkkovirhe: aikakatkaisu, ei voida yhdistää."
+
+#: imgurtalkerauth.cpp:97
+msgid "Request endpoint is not valid."
+msgstr "Pyydetty loppupiste ei ole kelvollinen."
+
+#: imgurtalkerauth.cpp:100
+msgid "Request is not valid: some parameter missing?"
+msgstr "Pyyntö ei ole kelvollinen: puuttuuko jokin parametri?"
+
+#: imgurtalkerauth.cpp:103
+msgid "Authorization error: trying to access a resource without tokens."
+msgstr ""
+
+#: imgurtalkerauth.cpp:106
+msgid "The given request is invalid."
+msgstr "Annettu pyyntö on virheellinen."
+
+#: imgurtalkerauth.cpp:109
+msgid "Manager error, cannot use for sending requests."
+msgstr "Hallintavirhe: ei voida käyttää pyyntöjen lähettämiseen."
+
+#: imgurtalkerauth.cpp:113
+msgid "No error"
+msgstr "Ei virheitä"
+
+#: imgurtalkerauth.cpp:249
+msgid "OK"
+msgstr "OK"
+
+#: imgurwidget.cpp:86
+msgid "This is a clickable link to open the Imgur home page in a web browser"
+msgstr "Tästä linkistä voit napsauttaa selaimeen auki Imgurin kotisivun"
+
+#: imgurwidget.cpp:103
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: imgurwidget.cpp:104
+msgid "Export to Imgur"
+msgstr "Vie Imguriin"
+
+#: imgurwidget.cpp:112
+msgid "Imgur authorization"
+msgstr "Imgurin valtuutus"
+
+#: imgurwidget.cpp:113
+msgid ""
+"Requesting Imgur for authorization to upload images with the KIPI Imgur "
+"Exporter plugin."
+msgstr ""
+"Pyydetään Imgurista valtuutusta kuvien lähettämiseksi KIPIn Imgur-"
+"vientiliitännäisellä."
+
+#: imgurwidget.cpp:120
+msgid "Request authorization"
+msgstr "Pyydetään valtuutusta"
+
+#: imgurwidget.cpp:121
+msgid "Set permissions for the current application to upload images to Imgur."
+msgstr "Anna nykyiselle sovellukselle oikeus lähettää kuvia Imguriin."
+
+#: imgurwidget.cpp:229
+#, kde-format
+msgid "Processing %1"
+msgstr "Käsitellään: %1"
+
+#: imgurwidget.cpp:275
+msgid "Authenticated"
+msgstr "Valtuutettu"
+
+#: imgurwindow.cpp:76
+msgid "Export to imgur.com"
+msgstr "Vie imgur.comiin"
+
+#: imgurwindow.cpp:80
+msgid "Upload"
+msgstr "Lähetä"
+
+#: imgurwindow.cpp:80
+msgid "Start upload to Imgur"
+msgstr "Aloita lähetys Imguriin"
+
+#: imgurwindow.cpp:88
+msgid "Imgur Export"
+msgstr "Imgur-vienti"
+
+#: imgurwindow.cpp:91
+msgid "A tool to export images to Imgur web service"
+msgstr "Työkalu kuvien viemiseksi Imgur-verkkopalveluun"
+
+#: imgurwindow.cpp:92
+msgid "(c) 2012-2013, Marius Orcsik"
+msgstr "© 2012–2013 Marius Orcsik"
+
+#: imgurwindow.cpp:94
+msgid "Marius Orcsik"
+msgstr "Marius Orcsik"
+
+#: imgurwindow.cpp:94
+msgid "Author and Maintainer"
+msgstr "Tekijä ja ylläpitäjä"
+
+#: imgurwindow.cpp:97
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: imgurwindow.cpp:97
+msgid "Developer"
+msgstr "Kehittäjä"
+
+#: imgurwindow.cpp:206
+#, kde-format
+msgid ""
+"Failed to upload photo to Imgur: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Kuvan lähetys Imguriin epäonnistui: %1\n"
+"Haluatko jatkaa?"
+
+#: imgurwindow.cpp:220
+#, kde-format
+msgid "Failed to upload photo to Imgur: %1\n"
+msgstr "Kuvan lähetys Imguriin epäonnistui: %1\n"
+
+#: imgurwindow.cpp:238
+#, kde-format
+msgctxt "%1 is the error string"
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"%1\n"
+"Do you want to continue?"
+msgstr ""
+"Imgur-valtuutus epäonnistui.\n"
+"%1\n"
+"Haluatko jatkaa?"
+
+#: imgurwindow.cpp:243
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"Do you want to continue?"
+msgstr ""
+"Imgur-valtuutus epäonnistui.\n"
+"Haluatko jatkaa?"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_imgurexportui.rc:7
+msgid "&Export"
+msgstr "&Vie"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_imgurexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#: plugin_imgurexport.cpp:104
+msgid "Export to &Imgur..."
+msgstr "Vie Im&guriin…"

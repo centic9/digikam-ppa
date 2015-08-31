@@ -1,0 +1,577 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <bald@smail.ee>, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-17 01:52+0000\n"
+"PO-Revision-Date: 2013-01-15 01:13+0200\n"
+"Last-Translator: Marek Laane <bald@smail.ee>\n"
+"Language-Team: Estonian <kde-et@linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Marek Laane"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "bald@smail.ee"
+
+#: importwizard/importwizarddlg.cpp:87
+msgid "Panorama Creator Wizard"
+msgstr "Panoraami loomise nõustaja"
+
+#: importwizard/intropage.cpp:93
+msgid "<b>Welcome to Panorama Tool</b>"
+msgstr "<b>Tere tulemast kasutama panoraamitööriista</b>"
+
+#: importwizard/intropage.cpp:100
+msgid ""
+"<qt><p><h1><b>Welcome to Panorama tool</b></h1></p><p>This tool stitches "
+"several images together to create a panorama, making the seam between images "
+"not visible.</p><p>This assistant will help you to configure how to import "
+"images before stitching them into a panorama.</p><p>Images must be taken "
+"from the same point of view.</p><p>For more information, please take a look "
+"at <a href='http://hugin.sourceforge.net/tutorials/overview/en.shtml'>this "
+"page</a></p></qt>"
+msgstr ""
+"<qt><p><h1><b>Tere tulemast kasutama panoraamitööriista</b></h1></p><p>See "
+"tööriist ühendab omavahel mitu pilti, et luua panoraam, mille puhul eri "
+"piltide üleminekuid pole enam näha.</p><p>Nõustaja aitab seadistada piltide "
+"importimist, enne kui need ühendatakse panoraamiks.</p><p>Pildid peavad "
+"olema tehtud ühest ja samast vaatepunktist.</p><p>Täpsemalt kõneleb sellest "
+"<a href='http://hugin.sourceforge.net/tutorials/overview/en.shtml'>see "
+"lehekülg</a> (ingliskeelne).</p></qt>"
+
+#: importwizard/intropage.cpp:114
+msgid "Panorama Binaries"
+msgstr "Panoraami failid:"
+
+#: importwizard/intropage.cpp:147
+msgid "File Format"
+msgstr "Failivorming"
+
+#: importwizard/intropage.cpp:151
+msgid "JPEG output"
+msgstr "JPEG väljund"
+
+#: importwizard/intropage.cpp:154
+#, no-c-format
+msgid ""
+"Selects a JPEG output with 90% compression rate (lossy compression, smaller "
+"size)."
+msgstr ""
+"Valib JPEG väljundi 90% tihendusega (kadudega tihendus, väiksem suurus)."
+
+#: importwizard/intropage.cpp:156
+msgid ""
+"<b>JPEG output</b>: Using JPEG output, the panorama file will be smaller at "
+"the cost of information loss during compression. This is the easiest way to "
+"share the result, or print it online or in a shop."
+msgstr ""
+"<b>JPEG väljund</b>: JPEG väljundi korral on panoraam mahult väiksem, kuid "
+"seda teabe kaotuse arvel tihendamise käigus. See on lihtsaim viis jagada oma "
+"loodud panoraami või avaldada seda internetis või trükis."
+
+#: importwizard/intropage.cpp:162
+msgid "TIFF output"
+msgstr "TIFF väljund"
+
+#: importwizard/intropage.cpp:163
+msgid ""
+"Selects a TIFF output compressed using the LZW algorithm (lossless "
+"compression, bigger size)."
+msgstr ""
+"Valib TIFF väljundi, mida tihendatakse LZW algoritmiga (kadudeta tihendus, "
+"suurem suurus)."
+
+#: importwizard/intropage.cpp:165
+msgid ""
+"<b>TIFF output</b>: Using TIFF output, you get the same color depth than "
+"your original photos using RAW images at the cost of a bigger panorama file."
+msgstr ""
+"<b>TIFF väljund</b>: TIFF väljundiga on tulemuseks sama värvisügavus nagu "
+"originaalfotodel, see tähendab et kasutatakse toorpilte, mis toob aga kaasa "
+"panoraamfaili mahu suurenemise."
+
+#: importwizard/itemspage.cpp:66
+msgid "<b>Set Panorama Images</b>"
+msgstr "<b>Panoraami piltide määramine</b>"
+
+#: importwizard/itemspage.cpp:72
+msgid ""
+"<qt><p>Set here the list of your images to blend into a panorama. Please "
+"follow these conditions:</p><ul><li>Images are taken from the same point of "
+"view.</li><li>Images are taken with the same camera (and lens).</li><li>Do "
+"not mix images with different color depth.</li></ul><p>Note that, in the "
+"case of a 360° panorama, the first image in the list will be the image that "
+"will be in the center of the panorama.</p></qt>"
+msgstr ""
+"<qt><p>Siin saab kindlaks määrata pildid, mis liidetakse panoraamiks. Palun "
+"arvesta järgmiste tingimustega:</p><ul><li>Pildid peavad olema tehtud samast "
+"vaatekohast.</li><li>Pildid peavad olema tehtud sama kaamera (ja "
+"objektiiviga).</li><li>Ei tohi ühte panna eri värvisügavusega pilte.</li></"
+"ul><p>Pane tähele, et 360° panoraami korral on nimekirja esimene pilt see, "
+"mis seatakse panoraami keskele.</p></qt>"
+
+#: importwizard/lastpage.cpp:75
+msgid "<b>Panorama Stitched</b>"
+msgstr "<b>Panoraami loomine</b>"
+
+#: importwizard/lastpage.cpp:88
+msgid "Save Settings"
+msgstr "Salvestamisseadistused"
+
+#: importwizard/lastpage.cpp:92
+msgid "File name template:"
+msgstr "Failinime mall: "
+
+#: importwizard/lastpage.cpp:95
+msgid "Name of the panorama file (without its extension)."
+msgstr "Panoraamifaili nimi (ilma laiendita)."
+
+#: importwizard/lastpage.cpp:96
+msgid ""
+"<b>File name template</b>: Set here the base name of the files that will be "
+"saved. For example, if your template is <i>panorama</i> and if you chose a "
+"JPEG output, then your panorama will be saved with the name <i>panorama.jpg</"
+"i>. If you choose to save also the project file, it will have the name "
+"<i>panorama.pto</i>."
+msgstr ""
+"<b>Failinime mall</b>: siin saab määrata salvestatavate failide baasnime. "
+"Kui sinu mall on näiteks <i>panoraam</i> ja valid JPEG väljundi, siis "
+"salvestatakse panoraam nimega <i>panoraam.jpg</i>. Kui otsustad salvestada "
+"ka projektifaili, siis selle nimeks saab <i>panoraam.pto</i>."
+
+#: importwizard/lastpage.cpp:102
+msgid "Save project file"
+msgstr "Projektifaili salvestamine"
+
+#: importwizard/lastpage.cpp:104
+msgid "Save the project file for further processing within Hugin GUI."
+msgstr "Projektifaili salvestamine edasiseks töötluseks rakenduses Hugin."
+
+#: importwizard/lastpage.cpp:105
+msgid ""
+"<b>Save project file</b>: You can keep the project file generated to stitch "
+"your panorama for further tweaking within <a href=\"http://hugin.sourceforge."
+"net/\">Hugin</a> by checking this. This is useful if you want a different "
+"projection, modify the horizon or the center of the panorama, or modify the "
+"control points to get better results."
+msgstr ""
+"<b>Projektifaili salvestamine</b>: seda valikut märkides saab alles hoida "
+"panoraami loomisel kasutatud projektifaili, et oma loomingut vajaduse korral "
+"edasi töödelda rakenduses <a href=\"http://hugin.sourceforge.net/\">Hugin</"
+"a>. See on abiks näiteks siis, kui soovid teistsugust projektsiooni, muuta "
+"panoraami horisonti või keset või muuta parema tulemuse saavutamiseks "
+"kontrollpunkte."
+
+#: importwizard/lastpage.cpp:187
+#, kde-format
+msgid "<qt><p><font color=\"red\"><b>Error:</b> %1</font></p></qt>"
+msgstr "<qt><p><font color=\"red\"><b>Tõrge:</b> %1</font></p></qt>"
+
+#: importwizard/lastpage.cpp:222
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Panorama Stitching is Done</b></h1></p><p>Congratulations. "
+"Your images are stitched into a panorama.</p><p>Your panorama will be "
+"created to the directory</p><p><b>%1</b></p><p>once you press the <i>Finish</"
+"i> button, with the name set below.</p><p>If you choose to save the project "
+"file, and if your images were raw images then the converted images used "
+"during the stitching process will be copied at the same time (those are TIFF "
+"files that can be big).</p></qt>"
+msgstr ""
+"<qt><p><h1><b>Panoraam on loodud</b></h1></p><p>Õnnitleme. Sinu pildid on "
+"nüüd ühendatud panoraamiks.</p><p>Panoraam luuakse kataloogi </p><p><b>%1</"
+"b></p><p>kui vajutad nupule <i>Lõpeta</i>, kasutades allpool määratud nime.</"
+"p><p>Kui soovid salvestada ka projektifaili ja sinu pildid olid toorpildid, "
+"siis kopeeritakse samal ajal samuti ühendamise käigus kasutatud teisendatud "
+"pildid (need on TIFF-failid, mis võivad olla päris suured).</p></qt>"
+
+#: importwizard/lastpage.cpp:275
+msgid ""
+"<qt><p><font color=\"red\"><b>Warning:</b> This file already exists.</font></"
+"p></qt>"
+msgstr ""
+"<qt><p><font color=\"red\"><b>Hoiatus:</b> fail on juba olemas.</font></p></"
+"qt>"
+
+#: importwizard/optimizepage.cpp:98
+msgid "<b>Optimization</b>"
+msgstr "<b>Optimeerimine</b>"
+
+#: importwizard/optimizepage.cpp:111
+msgid "Level horizon"
+msgstr "Horisondi ühtlustamine"
+
+#: importwizard/optimizepage.cpp:113
+msgid "Detect the horizon and adapt the project to make it horizontal."
+msgstr ""
+"Horisondi tuvastamine ja projektsiooni kohandamine, et see oleks rõhtne."
+
+#: importwizard/optimizepage.cpp:114
+msgid ""
+"<b>Level horizon</b>: Detect the horizon and adapt the projection so that "
+"the detected horizon is an horizontal line in the final panorama"
+msgstr ""
+"<b>Horisondi ühtlustamine</b>: horisondi tuvastamine ja projektsiooni "
+"kohandamine, et tuvastatud horisont oleks lõplikul panoraamil rõhtne joon."
+
+#: importwizard/optimizepage.cpp:144 importwizard/preprocessingpage.cpp:131
+#: importwizard/previewpage.cpp:99
+msgid "Details..."
+msgstr "Üksikasjad..."
+
+#: importwizard/optimizepage.cpp:194
+msgid ""
+"<qt><p>Optimization is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>Optimeerimine käib, palun oota.</p><p>See võib võtta veidi aega...</"
+"p></qt>"
+
+#: importwizard/optimizepage.cpp:276
+msgid ""
+"<qt><p>Optimization has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>Optimeerimine nurjus.</p><p>Klõpsa \"Üksikasjad\", et näha "
+"töötlemisteateid.</p></qt>"
+
+#: importwizard/optimizepage.cpp:323 importwizard/preprocessingpage.cpp:249
+msgid "Pre-Processing Messages"
+msgstr "Eeltöötlemise teated"
+
+#: importwizard/optimizepage.cpp:332
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Images Pre-Processing is Done</b></h1></p><p>The optimization "
+"step according to your settings is ready to be performed.</p><p>This step "
+"can include an automatic leveling of the horizon, and also an automatic "
+"projection selection and size</p><p>To perform this operation, the <b>%1</b> "
+"program from the <a href='%2'>%3</a> project will be used.</p><p>Press the "
+"\"Next\" button to run the optimization.</p></qt>"
+msgstr ""
+"<qt><p><h1><b>Piltide eeltöötlemine on lõpetatud</b></h1></p><p>Nüüd on kõik "
+"valmis optimeerimiseks vastavalt sinu valikutele.</p><p>Selle käigus "
+"võidakse automaatselt ühtlustada horisonti, samuti automaatselt valida "
+"projektsioon ja selle suuruse.</p><p>Selleks kasutatakse programmi <b>%1</"
+"b>, mida pakub projekt <a href='%2'>%3</a>.</p><p>. Klõpsa optimeerimise "
+"käivitamiseks \"Järgmine\".</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:106
+msgid "<b>Pre-Processing Images</b>"
+msgstr "<b>Piltide eeltöötlemine</b>"
+
+#: importwizard/preprocessingpage.cpp:119
+msgid "Detect moving skies"
+msgstr "Taevase liikumise tuvastamine"
+
+#: importwizard/preprocessingpage.cpp:121
+msgid ""
+"Automatic detection of clouds to prevent wrong keypoints matching between "
+"images due to moving clouds."
+msgstr ""
+"Pilvede automaatne tuvastamine, et vältida liikuvate pilvede tõttu valede "
+"võtmepunktide sobitamist eri piltide vahel."
+
+#: importwizard/preprocessingpage.cpp:123
+msgid ""
+"<b>Detect moving skies</b>: During the control points selection and "
+"matching, this option discards any points that are associated to a possible "
+"cloud. This is useful to prevent moving clouds from altering the control "
+"points matching process."
+msgstr ""
+"<b>Taevase liikumise tuvastamine</b>: kontrollpunktide valimise ja "
+"sobitamise käigus jäetakse selle valiku märkimise korral arvesse võtmata "
+"kõik punktid, mis võivad olla seotud pilvedega. See aitab vältida liikuvate "
+"pilvede segavat mõju kontrollpunktide sobitamisel."
+
+#: importwizard/preprocessingpage.cpp:178
+msgid ""
+"<qt><p>Pre-processing is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>Eeltöötlemine käib, palun oota.</p><p>See võib võtta veidi aega...</"
+"p></qt>"
+
+#: importwizard/preprocessingpage.cpp:280
+msgid ""
+"<qt><p>Pre-processing has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>Eeltöötlemine nurjus.</p><p>Klõpsa \"Üksikasjad\", et näha "
+"töötlemisteateid.</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:339
+#, kde-format
+msgid ""
+"<qt><p>Now, we will pre-process images before stitching them.</p><p>Pre-"
+"processing operations include Raw demosaicing. Raw images will be converted "
+"to 16-bit sRGB images with auto-gamma.</p><p>Pre-processing also include a "
+"calculation of some control points to match overlaps between images. For "
+"that purpose, the <b>%1</b> program from the <a href='%2'>%3</a> project "
+"will be used.</p><p>Press \"Next\" to start pre-processing.</p></qt>"
+msgstr ""
+"<qt><p>Nüüd alustatakse piltide eeltöötlusega, enne kui need omavahel "
+"lõplikult liita.</p><p>Eeltöötlusega kaasneb toorpiltide "
+"värvirekonstruktsioon (demosaicing). Toorpildid teisendatakse automaatse "
+"gammaga 16-bitisteks sRGB-piltideks.</p><p>Eeltöötlemisega kaasneb ka "
+"mõningate kontrollpunktide arvutamine piltide kattuvate alade "
+"kooskõlastamiseks. Selleks kasutatakse programmi <b>%1</b>, mida pakub "
+"projekt <a href='%2'>%3</a>.</p><p>Klõpsa eeltöötluse alustamiseks \"Järgmine"
+"\".</p></qt>"
+
+#: importwizard/previewpage.cpp:89
+msgid "<b>Preview and Post-Processing</b>"
+msgstr "<b>Eelvaatlus ja järeltöötlus</b>"
+
+#: importwizard/previewpage.cpp:148
+msgid "Preview Processing Cancelled."
+msgstr "Eelvaatluse töötlemine katkestati"
+
+#: importwizard/previewpage.cpp:175
+msgid "Processing Panorama Preview..."
+msgstr "Panoraami eelvaatluse töötlemine..."
+
+#: importwizard/previewpage.cpp:233
+msgid "<qt><p><h1>Panorama Post-Processing</h1></p></qt>"
+msgstr "<qt><p><h1>Panoraami järeltöötlus</h1></p></qt>"
+
+#: importwizard/previewpage.cpp:239
+msgid "Panorama Post-Processing"
+msgstr "Panoraami järeltöötlus"
+
+#: importwizard/previewpage.cpp:298
+#, kde-format
+msgid "<qt><h2><b>Error</b></h2><p>%1</p></qt>"
+msgstr "<qt><h2><b>Tõrge</b></h2><p>%1</p></qt>"
+
+#: importwizard/previewpage.cpp:315
+#, kde-format
+msgid "Processing file %1 / %2: %3"
+msgstr "Faili %1 / %2 töötlemine: %3"
+
+#: importwizard/previewpage.cpp:333
+#, kde-format
+msgid "Panorama compilation: %1"
+msgstr "Panoraami loomine: %1"
+
+#: importwizard/previewpage.cpp:365
+msgid ""
+"<qt><p><h1>Panorama Preview</h1></p><p>Draw a rectangle if you want to crop "
+"the image.</p><p>Pressing the <i>Next</i> button will then launch the final "
+"stitching process.</p></qt>"
+msgstr ""
+"<qt><p><h1>Panoraami eelvaatlus</h1></p><p>Lohista ristkülik, kui soovid "
+"pilti kärpida.</p><p>Klõps nupule <i>Järgmine</i> käivitab lõpliku panoraami "
+"loomise.</p></qt>"
+
+#: importwizard/previewpage.cpp:390 importwizard/previewpage.cpp:435
+#, kde-format
+msgid "Processing file %1 / %2"
+msgstr "Faili %1 / %2 töötlemine"
+
+#: importwizard/previewpage.cpp:405 importwizard/previewpage.cpp:441
+msgid "Panorama compilation"
+msgstr "Panoraami loomine"
+
+#: plugin/aboutdata.h:41
+msgid "Panorama Stitching"
+msgstr "Panoraami loomine"
+
+#: plugin/aboutdata.h:43
+msgid "A tool to automatically stitch images into panorama"
+msgstr "Tööriist piltide automaatseks ühendamiseks panoraamiks"
+
+#: plugin/aboutdata.h:44
+#, fuzzy
+#| msgid "(c) 2011-2012, Benjamin Girault"
+msgid "(c) 2011-2013, Benjamin Girault"
+msgstr "(c) 2011-2012: Benjamin Girault"
+
+#: plugin/aboutdata.h:46
+msgid "Benjamin Girault"
+msgstr "Benjamin Girault"
+
+#: plugin/aboutdata.h:47
+msgid "Author"
+msgstr "Autor"
+
+#: plugin/aboutdata.h:50
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:51
+msgid "Developer"
+msgstr "Arendaja"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_panoramaui.rc:7
+msgid "&Tools"
+msgstr "&Tööriistad"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_panoramaui.rc:13
+msgid "Main Toolbar"
+msgstr "Peamine tööriistariba"
+
+#: plugin/panorama.cpp:56
+msgid "File(s) to open"
+msgstr "Avatavad failid"
+
+#: plugin/plugin_panorama.cpp:104
+msgid "Stitch images into a panorama..."
+msgstr "Piltide ühendamine panoraamiks..."
+
+#: tasks/copyfilestask.cpp:85
+msgid "Temporary panorama file does not exists."
+msgstr "Ajutist panoraamifaili ei ole olemas."
+
+#: tasks/copyfilestask.cpp:93 tasks/copyfilestask.cpp:109
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Fail nimega %1 on juba olemas."
+
+#: tasks/copyfilestask.cpp:101
+msgid "Temporary project file does not exist."
+msgstr "Ajutist projektifaili ei ole olemas."
+
+#: tasks/copyfilestask.cpp:173
+#, kde-format
+msgid "Cannot move panorama from %1 to %2."
+msgstr "Panoraami ei saa liigutada asukohast %1 asukohta %2."
+
+#: tasks/copyfilestask.cpp:187
+#, kde-format
+msgid "Cannot move project file from %1 to %2."
+msgstr "Projektifaili ei saa liigutada asukohast %1 asukohta %2."
+
+#: tasks/copyfilestask.cpp:206
+#, kde-format
+msgid "Cannot copy converted image file from %1 to %2."
+msgstr "Teisendatud pilti ei saa kopeerida asukohast %1 asukohta %2."
+
+#: tasks/createfinalptotask.cpp:72 tasks/createptotask.cpp:71
+msgid "PTO file already created in the temporary directory."
+msgstr "PTO-fail on juba ajutisse kataloogi loodud."
+
+#: tasks/createfinalptotask.cpp:79 tasks/createptotask.cpp:77
+msgid "PTO file cannot be created in the temporary directory."
+msgstr "PTO-faili ei saa ajutisse kataloogi luua."
+
+#: tasks/createpreviewtask.cpp:71
+msgid "Project file parsing failed."
+msgstr "Projektifaili parsimine nurjus."
+
+#: tasks/createpreviewtask.cpp:98
+#, kde-format
+msgid "Unknown input file in the project file: %1"
+msgstr "Tundmatu sisendfail projektifailis: %1"
+
+#: tasks/preprocesstask.cpp:129
+msgid "Input image cannot be loaded for preview generation"
+msgstr "Sisendpildi laadimine eelvaate loomiseks nurjus."
+
+#: tasks/preprocesstask.cpp:166
+msgid "Operation canceled."
+msgstr "Operatsioon katkestati."
+
+#: tasks/preprocesstask.cpp:198
+msgid "Tiff image creation failed."
+msgstr "Tiff-pildi loomine nurjus."
+
+#: tasks/preprocesstask.cpp:208
+msgid "Raw file conversion failed."
+msgstr "Toorfaili teisendamine nurjus."
+
+#: tasks/task.cpp:66
+#, kde-format
+msgid ""
+"Cannot run %1:\n"
+"\n"
+" %2"
+msgstr ""
+"Programmi %1 käivitamine nurjus:\n"
+"\n"
+" %2"
+
+#~ msgid "Missing project file."
+#~ msgstr "Projektifail puudub."
+
+#~ msgid "Panorama Settings"
+#~ msgstr "Panoraami seadistused:"
+
+#~ msgid "HDR output"
+#~ msgstr "HDR väljund"
+
+#~ msgid ""
+#~ "When checked, the panorama will be stitched into an High Dynamic Range "
+#~ "(HDR) image, that can be processed further with a dedicated software."
+#~ msgstr ""
+#~ "Märkimise korral luuakse panoraam kõrgdünaamilise ulatusega HDR-pildina, "
+#~ "mida võib soovi korral edasi töödelda juba spetsiaalse tarkvaraga."
+
+#~ msgid ""
+#~ "<b>HDR output</b>: Output in High Dynamic Range, meaning that every piece "
+#~ "of information contained in the original photos are preserved. Note that "
+#~ "you need another software to process the resulting panorama, like <a href="
+#~ "\"http://qtpfsgui.sourceforge.net/\">Luminance HDR</a>"
+#~ msgstr ""
+#~ "<b>HDR väljund</b>: väljund kõrgdünaamilise ulatusega pildina, mis "
+#~ "tähendab, et säilitatakse kogu originaalpiltide teave. Arvesta, et saadud "
+#~ "panoraami edasiseks töötlemiseks läheb vaja muud tarkvara, näiteks "
+#~ "programmi <a href=\"http://qtpfsgui.sourceforge.net/\">Luminance HDR</a>."
+
+#~ msgid "Automatic projection"
+#~ msgstr "Automaatne projektsioon"
+
+#~ msgid ""
+#~ "Adapt the projection of the panorama and the area rendered on the "
+#~ "resulting projection so that every photo fits in the resulting panorama."
+#~ msgstr ""
+#~ "Panoraami projektsiooni kohandamine ja saadud projektsiooni renderdamine, "
+#~ "et kõik fotod sobiksid tulemuseks saadud panoraami."
+
+#~ msgid ""
+#~ "<b>Automatic projection</b>: Automatically adapt the projection and the "
+#~ "area rendered of the panorama to get every photos into the panorama."
+#~ msgstr ""
+#~ "<b>Automaatne projektsioon</b>: projektsiooni automaatne kohandamine ja "
+#~ "panoraami renderdamine, et kõik fotod osaleksid panoraamis."
+
+#~ msgid "Cannot read project file."
+#~ msgstr "Projektifaili lugemine nurjus."
+
+#~ msgid "Preview project file cannot be created."
+#~ msgstr "Eelvaatluse projektifaili ei saa luua."
+
+#~ msgid "Handbook"
+#~ msgstr "Käsiraamat"
+
+#~ msgid "Cannot create Makefile."
+#~ msgstr "Makefile'i loomine nurjus."
+
+#~ msgid "Preview cannot be processed."
+#~ msgstr "Eelvaatlust ei saa töödelda."
+
+#~ msgid ""
+#~ "Hugin's tools have been detected. However, the version detected is not a "
+#~ "stable one. Be advised that it may lead to undefined behavior and we "
+#~ "strongly encourage you to switch to a stable one."
+#~ msgstr ""
+#~ "Leiti Hugini tööriistad. Siiski ei ole leitud versioon stabiilse "
+#~ "väljalaske oma. Võta arvesse, et sellega võib kaasneda ettenägematu "
+#~ "käitumine, mistõttu me soovitame tungivalt kasutada stabiilset versiooni."
+
+#~ msgid "Development version of Hugin"
+#~ msgstr "Hugini arendusversioon"

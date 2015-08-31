@@ -1,16 +1,16 @@
 # Translation of kipiplugin_sendimages.po to Ukrainian
-# Copyright (C) 2008-2014 This_file_is_part_of_KDE
+# Copyright (C) 2008-2015 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014.
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
 # Ivan Petrouchtchak <fr.ivan@ukrainian-orthodox.org>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-29 01:50+0000\n"
-"PO-Revision-Date: 2014-11-29 09:04+0200\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2015-06-18 08:05+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -90,19 +90,23 @@ msgstr "Розмір %1 успішно змінено"
 msgid "Failed to resize %1: %2"
 msgstr "Не вдалося змінити розмір %1: %2"
 
-#: sendimages.cpp:257
+#: sendimages.cpp:250
+msgid "There are no files to send"
+msgstr "Немає файлів для надсилання"
+
+#: sendimages.cpp:268
 msgid "Build images properties file"
 msgstr "Створити файл властивостей зображень"
 
-#: sendimages.cpp:270
+#: sendimages.cpp:281
 msgid "no caption"
 msgstr "без підпису"
 
-#: sendimages.cpp:273
+#: sendimages.cpp:284
 msgid "no keywords"
 msgstr "без ключових слів"
 
-#: sendimages.cpp:275
+#: sendimages.cpp:286
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -111,30 +115,30 @@ msgstr ""
 "файл «%1»:\n"
 "Вихідні зображення: %2\n"
 
-#: sendimages.cpp:278
+#: sendimages.cpp:289
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Коментарі: %1\n"
 
-#: sendimages.cpp:281
+#: sendimages.cpp:292
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Мітки: %1\n"
 
-#: sendimages.cpp:284
+#: sendimages.cpp:295
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Оцінка: %1\n"
 
-#: sendimages.cpp:289
+#: sendimages.cpp:300
 msgid "properties.txt"
 msgstr "properties.txt"
 
-#: sendimages.cpp:298
+#: sendimages.cpp:309
 msgid "Image properties file done"
 msgstr "Створення файла з властивостями зображення завершено"
 
-#: sendimages.cpp:315
+#: sendimages.cpp:326
 msgid ""
 "The images listed below cannot be resized.\n"
 "Do you want them to be added as attachments (without resizing)?"
@@ -142,11 +146,11 @@ msgstr ""
 "Розмір зображень з нижченаведеного списку не вдалося змінити.\n"
 "Чи бажаєте ви, щоб їх було додано до листа (без зміни розміру)?"
 
-#: sendimages.cpp:319
+#: sendimages.cpp:330
 msgid "Failed to resize images"
 msgstr "Не вдалося змінити розмір зображень"
 
-#: sendimages.cpp:378
+#: sendimages.cpp:389
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -155,61 +159,66 @@ msgstr ""
 "Файл «%1» завеликий для надсилання; будь ласка, зменшіть його розмір або "
 "змініть ваші налаштування"
 
-#: sendimages.cpp:426
+#: sendimages.cpp:437
 msgid "Starting default KDE email program..."
 msgstr "Запуск типової поштової програми KDE..."
 
-#: sendimages.cpp:648
+#: sendimages.cpp:659
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Не вдалося запустити програму «%1». Перевірте її доступність."
 
-#: sendimages.cpp:661
+#: sendimages.cpp:672
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Запуск програми «%1»..."
 
-#: sendimages.cpp:671
+#: sendimages.cpp:682
 msgid "After having sent your images by email..."
 msgstr "Після надсилання ваших зображень..."
 
-#: sendimages.cpp:672
+#: sendimages.cpp:683
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "Натисніть кнопку «Закрити», щоб вилучити тимчасові файли"
 
-#: sendimagesdialog.cpp:83
+#: sendimagesdialog.cpp:85
 msgid "Email Images Options"
 msgstr "Параметри надсилання зображень"
 
-#: sendimagesdialog.cpp:105
+#: sendimagesdialog.cpp:90
+msgctxt "@action:button"
+msgid "&Send"
+msgstr "&Надіслати"
+
+#: sendimagesdialog.cpp:110
 msgid "Send Images"
 msgstr "Надіслати знімки"
 
-#: sendimagesdialog.cpp:108
+#: sendimagesdialog.cpp:113
 msgid "A plugin to e-mail items"
 msgstr "Додаток для надсилання знімків електронною поштою"
 
-#: sendimagesdialog.cpp:109
+#: sendimagesdialog.cpp:114
 msgid "(c) 2003-2013, Gilles Caulier"
 msgstr "© Gilles Caulier, 2003–2013"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Author and Maintainer"
 msgstr "Автор і супровідник"
 
-#: sendimagesdialog.cpp:114
+#: sendimagesdialog.cpp:119
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
-#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:119 sendimagesdialog.cpp:122
 msgid "Developer"
 msgstr "Розробник"
 
-#: sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:122
 msgid "Tom Albers"
 msgstr "Tom Albers"
 

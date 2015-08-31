@@ -517,7 +517,7 @@ void YandexFotkiWindow::slotChangeUserClicked()
     authenticate(true);
 }
 
-void YandexFotkiWindow::slotCloseEvent(QCloseEvent* event)
+void YandexFotkiWindow::closeEvent(QCloseEvent* event)
 {
     kDebug() << "closeEvent";
     writeSettings();
@@ -540,8 +540,10 @@ void YandexFotkiWindow::slotButtonClicked(int button)
             }
             break;
         default:
-            KDialog::slotButtonClicked(button);
+            break;
     }
+
+    KDialog::slotButtonClicked(button);
 }
 
 void YandexFotkiWindow::slotResizeChecked()

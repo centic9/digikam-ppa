@@ -1,22 +1,24 @@
-/* Copyright 2011, 2012 Alexander Potashev <aspotashev@gmail.com>
+/*
+ * Copyright (C) 2011, 2012, 2015  Alexander Potashev <aspotashev@gmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) version 3, or any
+ * later version accepted by the membership of KDE e.V. (or its
+ * successor approved by the membership of KDE e.V.), which shall
+ * act as a proxy defined in Section 6 of version 3 of the license.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-   This library is free software; you can redistribute it and/or modify
-   it under the terms of the GNU Library General Public License as published
-   by the Free Software Foundation; either version 2 of the License or
-   ( at your option ) version 3 or, at the discretion of KDE e.V.
-   ( which shall act as a proxy as in section 14 of the GPLv3 ), any later version.
-
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
-#include "uploadphotosjob.moc"
+#include "uploadphotosjob.h"
 #include "getphotouploadserverjob.h"
 #include "photopostjob.h"
 #include "savephotojob.h"
@@ -89,13 +91,17 @@ void UploadPhotosJob::serverJobFinished(KJob *kjob)
     Q_ASSERT(job);
 
     if(!job) return;
-    m_jobs.removeAll(job);
 
     if (job->error()) {
         setError(job->error());
         setErrorText(job->errorText());
         kWarning() << "Job error: " << job->errorString();
+
+        // It is safe to emit result here because there are no jobs
+        // running in parallel with this one.
         emitResult();
+
+        m_jobs.removeAll(job);
         return;
     }
 
@@ -106,9 +112,9 @@ void UploadPhotosJob::serverJobFinished(KJob *kjob)
     for (int offset = 0; offset < totalCount; offset += requestFilesCount)
         startPostJob(offset, qMin(requestFilesCount, totalCount - offset));
 
-    // All subjobs have finished
-    if (m_jobs.size() == 0)
-        emitResult();
+    // Remove as the last step to avoid the situation when m_jobs is empty but
+    // there is something left to do.
+    m_jobs.removeAll(job);
 }
 
 bool UploadPhotosJob::mayStartPostJob()
@@ -137,9 +143,6 @@ void UploadPhotosJob::postJobFinished(KJob *kjob)
     Q_ASSERT(job);
 
     if (!job) return;
-    m_jobs.removeAll(job);
-
-    d->workingPostJobs --;
 
     // start one pending job if possible
     if (mayStartPostJob() && !d->pendingPostJobs.empty())
@@ -155,15 +158,23 @@ void UploadPhotosJob::postJobFinished(KJob *kjob)
         setError(job->error());
         setErrorText(job->errorText());
         kWarning() << "Job error: " << job->errorString();
-        emitResult();
+    }
+
+    if (error()) {
+        if (m_jobs.size() == 1)
+        {
+            emitResult();
+        }
+
+        d->workingPostJobs --;
+        m_jobs.removeAll(job);
         return;
     }
 
     startSaveJob(job->response());
 
-    // All subjobs have finished
-    if (m_jobs.size() == 0)
-        emitResult();
+    d->workingPostJobs --;
+    m_jobs.removeAll(job);
 }
 
 void UploadPhotosJob::startSaveJob(const QVariantMap &photoIdData)
@@ -183,13 +194,21 @@ void UploadPhotosJob::saveJobFinished(KJob *kjob)
     Q_ASSERT(job);
 
     if (!job) return;
-    m_jobs.removeAll(job);
 
     if (job->error()) {
         setError(job->error());
         setErrorText(job->errorText());
         kWarning() << "Job error: " << job->errorString();
-        emitResult();
+    }
+
+    if (error()) {
+        // All subjobs have finished
+        if (m_jobs.size() == 1)
+        {
+            emitResult();
+        }
+
+        m_jobs.removeAll(job);
         return;
     }
 
@@ -197,8 +216,12 @@ void UploadPhotosJob::saveJobFinished(KJob *kjob)
     emit progress(100 * d->list.size() / d->files.size());
 
     // All subjobs have finished
-    if (m_jobs.size() == 0)
+    if (m_jobs.size() == 1)
+    {
         emitResult();
+    }
+
+    m_jobs.removeAll(job);
 }
 
 QList<PhotoInfoPtr> UploadPhotosJob::list() const

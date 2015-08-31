@@ -1,0 +1,1633 @@
+<sect2
+>                                     <title
+>Eines d'edició del color</title>
+
+<sect3 id="auto-correction">
+<sect3info
+>           <title
+>Eines de correcció automàtica</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>Aquest conjunt d'eines proporciona cinc nivells de correcció automàtica que en la majoria dels casos milloraran la imatge. Utilitzeu aquesta eina abans d'involucrar-vos en més ajustaments manuals. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Introducció</title>
+   <anchor id="autocolorcorrectiontool.anchor"/>
+
+            <para
+>Les entrades de menú <guilabel
+>Normalitza</guilabel
+>, <guilabel
+>Equalitza</guilabel
+>, <guilabel
+>Nivells automàtics</guilabel
+>, <guilabel
+>Augmenta el contrast</guilabel
+> i <guilabel
+>Exposició automàtica</guilabel
+> disponibles des del menú <menuchoice
+><guilabel
+>Color</guilabel
+><guimenuitem
+>Correcció automàtica</guimenuitem
+></menuchoice
+> intentaran esbrinar els millors nivells de color de forma automàtica. Haureu d'experimentar amb els efectes d'aquestes funcions per veure què funciona millor amb la vostra fotografia. <itemizedlist>
+
+                <listitem
+><para
+><guilabel
+>Normalitza</guilabel
+>: Aquest mètode escala els valors de brillantor de la imatge seleccionada de manera que el punt més fosc esdevé negre, i el punt més brillant esdevé tan brillant com sigui possible sense alterar el seu to. Sovint, això és un «retoc màgic» per a les imatges que estan apagades o esvaïdes. <example
+><title
+>Vista prèvia per a la correcció de colors «Normalitza»</title
+>   <screenshot
+><screeninfo
+>Vista prèvia per a la correcció de colors «Normalitza»</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editornormalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+                </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Equalitza</guilabel
+>: Aquest mètode ajusta la brillantor dels colors de la imatge seleccionada de manera que l'histograma del canal arribi a ser tant pla com sigui possible, això és, que cada valor possible de brillantor aparegui en el mateix nombre de píxels que qualsevol altre valor. Algunes vegades l'equalització treballa bé realçant els contrastos d'una imatge. Altres vegades, torna brossa. És una operació molt potent, que pot fer miracles amb una imatge o destruir-la. <example
+><title
+>Vista prèvia per a la correcció de colors «Equalitza»</title
+> <screenshot
+><screeninfo
+>Vista prèvia per a la correcció de colors «Equalitza»</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorequalize.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Nivells automàtics</guilabel
+>: Aquest mètode maximitza l'abast tonal dels canals vermell, verd, verd i blau. Determina els valors límit de les ombres i les llums intenses, i ajusta els canals vermell, verd, verd i blau a l'abast complet de l'histograma. <example
+><title
+>Vista prèvia per a la correcció de colors «Nivells automàtics»</title
+> <screenshot
+><screeninfo
+>Vista prèvia per a la correcció de colors «Nivells automàtics»</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorautolevels.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+                <listitem
+><para
+><guilabel
+>Augmenta el contrast</guilabel
+>: Aquest mètode realça el contrast i la brillantor dels valors RGB d'una imatge augmentant els valors més baixos i els més alts al seu abast més gran, ajustant tots els valors intermedis. Això només és notable amb imatges descolorides i pot ser una bona eina de correcció per les fotografies en mal estat. <example
+><title
+>Correcció «Augmenta el contrast»</title
+> <screenshot
+><screeninfo
+>Vista prèvia per a la correcció «Augmenta el contrast»</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorstretchcontrast.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> </example>
+
+                </para
+></listitem>
+
+            </itemizedlist>
+
+            </para>
+
+            <para
+>Els resultats de qualsevol ajustament no seran recordats fins que deseu la vostra fotografia. </para>
+</sect3>
+
+<sect3 id="whitebalance">
+<sect3info>
+
+<title
+>Balanç de blancs</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El <emphasis
+>balanç de blancs</emphasis
+> al &digikam; és una eina semiautomàtica per ajustar el balanç de blancs d'una fotografia. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>L'ajust del balanç de blancs és un problema comú per a les càmeres fotogràfiques digitals. En els «bons vells temps» dels rotllos de pel·lícula, el balanç de blancs es feia al laboratori fotogràfic. Avui en dia la pobra càmera ha d'endevinar què és blanc i què és negre. La majoria de les vegades, el que la càmera tria com a punt blanc, no és de l'ombra o to correcte. Utilitzant aquesta eina, és fàcil de corregir aquest problema. Proporciona una varietat de paràmetres que es poden ajustar per obtenir un millor resultat. </para>
+
+<note
+><para
+>La correcció del balanç de blancs està una mica limitada pel fet que operem en l'espai de color de 8 bits per canal. De manera que si us allunyeu massa de l'original, poden aparèixer zones amb sobreexposició. Si podeu ajustar el balanç de blancs en mode de conversió RAW (el qual es fa a l'espai de 16 bits), el marge per a la correcció serà més gran. </para
+></note>
+
+<para
+>Aquesta eina es basa en un algoritme del balanç del color blanc copyright d'en Pawel T. Jochym. Es llança des del menú <menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Balanç de blancs</guimenuitem
+></menuchoice
+> de l'editor d'imatges. </para>
+
+<sect4 id="using-whitebalance"
+>  <title
+>Usar l'eina «Balanç de blancs»</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;whitebalancedialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El diàleg de l'eina «Balanç de blancs»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>La finestra de vista prèvia es pot canviar de mida. A l'esquerra, es mostren les vistes prèvies tant de l'original com la de destinació. La vista prèvia del resultat s'actualitza dinàmicament segons els ajustos de l'eina. Si voleu veure el balanç de blancs original, només cal fer clic sobre aquesta pestanya. </para>
+
+<para
+>La vista prèvia de la fotografia de destinació conté un marcador vermell. El valor de la lluminositat del píxel sota el marcador es mostra com una línia vertical a l'histograma. </para>
+
+<para
+>A la part superior dreta, l'estri mostra un histograma que s'actualitza de forma dinàmica en canviar els paràmetres. Aquest histograma és molt instructiu, ja que mostra que, fins i tot en fotografies ben exposades, la majoria dels píxels tenen una lluminositat molt petita. Amb un botó podeu seleccionar per mostrar un dels 3 colors (o la seva suma, el que s'anomena lluminositat). </para>
+
+<para
+>Amb <guilabel
+>Exposició</guilabel
+> podeu canviar digitalment l'exposició de la fotografia original. Augmentant l'exposició es corre el risc de fer el soroll de píxels més visible i d'apagar les llums intenses. Marqueu <guilabel
+>Indicador de sobreexposició</guilabel
+> a la part inferior dreta per veure si sou propens a tenir problemes de saturació. L'ajust <guilabel
+>Punt negre</guilabel
+> es pot utilitzar per tallar l'histograma a l'esquerra. Si es veu boira a la fotografia (l'histograma té un espai buit a l'esquerra, costat negre), probablement haureu d'utilitzar aquesta opció. Els ajustaments <guilabel
+>Exposició</guilabel
+> i <guilabel
+>Punt negre</guilabel
+> es poden estimar de forma automàtica prement el botó <guilabel
+>Arranjaments automàtics d'exposició</guilabel
+>. Això estableix el punt negre amb força precisió. </para>
+
+<para
+>El contrast de la sortida dependrà dels paràmetres <guilabel
+>Ombres</guilabel
+>, <guilabel
+>Saturació</guilabel
+> i <guilabel
+>Gamma</guilabel
+>. L'ajustament de les <guilabel
+>Ombres</guilabel
+> us permetran millorar o disminuir els detalls de les ombres a la fotografia. </para>
+
+<para
+>Augmentar el contrast de la fotografia pot tenir l'efecte secundari de reduir la <guilabel
+>Saturació</guilabel
+> aparent de la fotografia. Utilitzeu un valor més gran que 1 per augmentar la saturació i un valor de menor que 1 per a dessaturar la fotografia. Un valor de 0 us donarà una fotografia en blanc i negre. No tingueu por de pujar una mica la saturació de les fotografies. La regla general és que per a un major contrast (menor <guilabel
+>Gamma</guilabel
+>) és necessari aplicar més <guilabel
+>Saturació</guilabel
+>. </para>
+
+<para
+>El següent conjunt d'opcions són la base dels ajustos del balanç de blancs, els quals controlen la relació entre els tres canals de color. Aquí podeu establir la <guilabel
+>Temperatura</guilabel
+> del color, fent que la vostra imatge sigui més calenta o més freda. Una temperatura més alta donarà lloc a un to més càlid. Establir la relació entre els tres canals de color requereix dos ajustaments. Atès que l'ajust de la temperatura sobretot controla la relació entre els canals <guilabel
+>Vermell</guilabel
+> i <guilabel
+>Blau</guilabel
+>, és natural que el segon ajustament controli la intensitat del canal <guilabel
+>Verd</guilabel
+>. </para>
+
+<para
+>En lloc de perdre el temps amb els controls anteriors, només heu d'utilitzar el botó <guilabel
+>Selector del color del to de la temperatura</guilabel
+>. Premeu aquest botó i feu clic a qualsevol part de la vista prèvia de la imatge original per obtenir el color de sortida d'aquesta àrea per a calcular els ajustaments de temperatura de balanç del color blanc. D'aquesta manera, els valors <guilabel
+>Temperatura</guilabel
+> i <guilabel
+>Verd</guilabel
+> es calculen de forma automàtica. </para>
+
+<para
+>A més podeu establir el balanç de blancs utilitzant la llista de predeterminats. Aquests són els paràmetres predeterminats de temperatura de balanç del color blanc disponibles: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="3">
+
+<thead>
+   <row>
+      <entry
+>Temperatura del color</entry>
+      <entry
+>Descripció</entry>
+      <entry
+>Kelvin</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry>
+      <guilabel
+>40W</guilabel>
+      </entry>
+
+      <entry
+>Làmpada incandescent de 40 watts. </entry>
+
+      <entry>
+      <guilabel
+>2680</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>200W</guilabel>
+      </entry>
+
+      <entry
+>Làmpada incandescent de 200 watts, llums de l'estudi, inundacions a la fotografia. </entry>
+
+      <entry>
+      <guilabel
+>3000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Sortida del sol</guilabel>
+      </entry>
+
+      <entry
+>Llum de l'alba o posta del Sol. </entry>
+
+      <entry>
+      <guilabel
+>3200</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Tungstè</guilabel>
+      </entry>
+
+      <entry
+>Làmpada de tungstè o llum a hora de la sortida/posta del Sol. </entry>
+
+      <entry>
+      <guilabel
+>3400</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Neutral</guilabel>
+      </entry>
+
+      <entry
+>Temperatura del color neutre. </entry>
+
+      <entry>
+      <guilabel
+>4750</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Xenó</guilabel>
+      </entry>
+
+      <entry
+>Làmpada de xenó o arc de llum. </entry>
+
+      <entry>
+      <guilabel
+>5000</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Sol</guilabel>
+      </entry>
+
+      <entry
+>Llum d'un dia assolellat cap al migdia. </entry>
+
+      <entry>
+      <guilabel
+>5500</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Flaix</guilabel>
+      </entry>
+
+      <entry
+>Flaix electrònic de fotografia. </entry>
+
+      <entry>
+      <guilabel
+>5600</guilabel>
+      </entry>
+   </row>
+
+   <row>
+      <entry>
+      <guilabel
+>Cel</guilabel>
+      </entry>
+
+      <entry
+>Llum de cel ennuvolat. </entry>
+
+      <entry>
+      <guilabel
+>6500</guilabel>
+      </entry>
+   </row>
+
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<para
+><guilabel
+>Temperatura del color</guilabel
+> és una forma simplificada de caracteritzar les propietats espectrals d'una font de llum. Mentre que en la realitat el color de la llum és determinat per la quantitat que cada punt a la corba espectral contribueix a la seva sortida, el resultat encara es pot resumir en una escala lineal. Aquest valor és útil, &pex;, per determinar el balanç de blancs correcte en la fotografia digital, i per especificar els tipus de fonts de llum adequats en el disseny de la il·luminació arquitectònica. Tingueu en compte, però, que les fonts de llum del mateix color poden variar molt en la qualitat de la llum emesa. </para>
+
+<para
+>Una baixa <guilabel
+>Temperatura del color</guilabel
+> implica llum més groga i vermella mentre que una alta temperatura del color implica una llum més blava. La llum del dia té una temperatura del color més baixa a prop de la matinada, i una més alta durant el dia. Per tant, pot ser útil per instal·lar un sistema d'enllumenat elèctric que pot proporcionar llum més freda per complementar la llum del dia quan sigui necessari, i omplir amb llum més càlida a la nit. Això també es relaciona amb els sentiments humans cap als colors càlids de la llum procedent de les veles o una xemeneia durant la nit. La unitat estàndard per a temperatura del color és el Kelvin (K). </para>
+
+<para
+>L'opció <guilabel
+>Indicador de sobreexposició</guilabel
+> suma els colors si més d'un canal a un píxel està sobreexposat, i veureu el color combinat resultant dels ajustaments de balanç del color blanc. Aquesta regla només s'aplica a l'àrea de la vista prèvia de destinació a títol indicatiu i no té cap efecte en la representació final. </para>
+
+<para
+>Els botons <guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+> s'utilitzen per realitzar les accions que descriuen. Qualsevol ajustament al balanç del color blanc que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. </para>
+
+<para
+>El botó <guilabel
+>Reinicialitza-ho tot</guilabel
+> restableix tots els ajustaments de filtre als valors per omissió corresponents al color de balanç de blancs neutral. (Atenció, la posició neutral encara pot ser diferent de la fotografia original. Si la deseu, es canviarà el balanç de blancs). </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="encoding-depth"
+>    <title
+>Profunditat de codificació</title>
+    <para
+>Aquí podeu canviar la profunditat de codificació per canal de color de la imatge editada. La codificació de 8 bits és el format JPEG comú, la codificació de 16 bits és més adequada per a imatges d'alta qualitat, però aquest format necessita més espai d'emmagatzematge, temps de càlcul i actualment només està disponible amb els formats PNG, PNM, TIFF i DNG.</para>
+</sect3>
+
+<sect3 id="color-management"
+>    <title
+>Gestionar el color</title>
+    <para
+>Aquesta eina obre el mateix diàleg utilitzat en editar les imatges RAW. El seu ús és el canvi i assignació de perfils de color. El mapatge dels tons també es pot fer des de la pestanya d'ajustament Lluminositat (pestanya inferior). Per obtenir instruccions detallades sobre l'ús dels perfils de color, consulteu el <ulink url="help:/digikam/using-setup.html#setup-iccprofiles"
+>capítol Gestió del color</ulink
+>.</para>
+</sect3>
+
+<sect3 id="exposure-correct"
+>    <title
+>Correcció de l'exposició</title>
+
+     <anchor id="bcgadjusttool.anchor"/>
+
+     <para
+>L'eina més fàcil d'utilitzar és l'eina de Brillantor/Contrast/Gamma. També és la menys potent, però en molts casos fa tot el necessari. Aquesta eina sol ser útil per a les imatges que han estat sobreexposades o subexposades, no és útil per a corregir matisos de color. L'eina us dóna tres controls lliscants per ajustar la «Brillantor», «Contrast» i «Gamma». Podeu veure qualsevol ajustament reflectit a la imatge de vista prèvia. Quan esteu satisfet amb els resultats, premeu <guilabel
+>D'acord</guilabel
+> i tindran efecte. </para>
+
+     <example
+>  <title
+>L'eina «Brillantor/Contrast/Gamma» en acció</title>
+         <screenshot
+><screeninfo
+>L'eina «Brillantor/Contrast/Gamma» en acció</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbcgadjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <para
+>Una altra eina important s'anomena <menuchoice
+><guimenu
+>Color</guimenu
+> <guimenuitem
+>Ajust de nivells</guimenuitem
+></menuchoice
+>. Aquesta eina proporciona una forma integral de veure els resultats d'ajustar múltiples nivells i també permet desar la configuració de nivell per a la seva aplicació a múltiples fotografies. Això pot ser útil si la vostra càmera o escàner comet els mateixos errors i voleu aplicar les mateixes correccions. Per a més informació, veure la part dedicada del manual <link linkend="using-adjustlevels"
+>Ajustar els nivells</link
+>. </para>
+
+     <para
+>Una manera molt poderosa de corregir els problemes d'exposició és utilitzar l'eina Ajust de corbes disponible a l'entrada de menú <menuchoice
+><guimenu
+>Color</guimenu
+> <guimenuitem
+>Ajust de corbes</guimenuitem
+></menuchoice
+>. </para>
+
+</sect3>
+
+<sect3 id="coloreffects">
+
+<sect3info>
+<title
+>Solaritza una imatge</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'eina <emphasis
+>efectes de color</emphasis
+> del &digikam; ofereix quatre efectes de color: un efecte de solarització, un filtre velvia, un efecte neó i un filtre de límits. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Solarització</keyword>
+<keyword
+>Velvia</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>En l'era del processament químic de la imatge, la solarització (també coneguda com a Sabatier) era un efecte creat per l'exposició d'una impressió parcialment desenvolupada a un breu centelleig de llum, després es completa el desenvolupament. Les zones de colors més foscos protegeixen la llum addicional de les capes fotosensibles, el qual té l'efecte net d'enfosquir les àrees més clares i d'invertir els colors durant la segona exposició. El resultat s'assembla a una imatge parcialment en negatiu. L'eina permet ajustar aquest efecte interessant sense problemes. </para>
+
+<sect4 id="using-solarize"
+> <title
+>Usar la «Solarització»</title>
+
+<para
+>El control <guilabel
+>Intensitat</guilabel
+> ajuda a obtenir una vista prèvia de la solarització amb només augmentar-la. Al voltant del 50% d'intensitat la imatge mostrarà el que una vegada va ser possible amb la química. Si augmenteu encara més l'efecte, al final es convertirà en una imatge en negatiu, una etapa d'inversió que no s'aconsegueix en el paper fotogràfic. </para>
+</sect4>
+
+<sect4 id="inaction-solarize"
+> <title
+>Solarització en acció</title>
+
+<para
+>Aquest és un exemple de l'efecte de solarització. La imatge original és (1) i la imatge corregida és (2). El nivell d'<guilabel
+>Intensitat</guilabel
+> aplicat és del 30%. </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;solarizepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Vista prèvia de l'efecte d'imatge «Solaritza»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+<sect4
+>   <title
+>L'efecte «Llampant» (filtre Velvia)</title>
+  <para
+>El filtre llampant simula el que es coneix com efecte &quot;Velvia&quot;. És diferent de la saturació, ja que té un efecte de contrast més pronunciat que porta colors més intensos i brillants. Proveu-lo, funciona molt bé en molts temes! </para>
+  <para
+>Velvia és una marca de pel·lícula reversible de color equilibrada a la llum del dia produïda per la companyia japonesa Fujifilm. El nom és una contracció de &quot;Velvet Media&quot;, una referència a la seva estructura d'imatge suau. Velvia dóna colors molt saturats sota la llum del dia, d'alt contrast. Aquestes característiques la converteixen en la pel·lícula escollida per a diapositives per la majoria dels fotògrafs de la naturalesa. Els colors altament saturats de Velvia són, però, considerats exagerats per alguns fotògrafs, especialment pels que no s'especialitzen en paisatges. </para>
+     <example
+>  <title
+>Original front al filtre «Llampant»</title>
+        <screenshot
+><screeninfo
+>Original front al filtre «Llampant»</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorvivid.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>L'efecte «Neó»</title>
+  <para
+>El filtre de neó simula la llum de neó al llarg de les vores de contrast. El paràmetre de nivell controla la lluminositat del resultat, mentre que la interacció del control lliscant determina la densitat de la llum de neó. Amb imatges grans, el filtre pot prendre molt de temps de la CPU. </para>
+     <example
+>  <title
+>El filtre neó</title>
+        <screenshot
+><screeninfo
+>El filtre neó</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorneon.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+</sect4>
+
+<sect4
+>  <title
+>L'efecte «Límits»</title>
+ <para
+>Pendent </para>
+</sect4>
+
+</sect3>
+
+<sect3 id="using-correctingcolor"
+>       <title
+>Corregir el color</title>
+
+     <anchor id="colorbalancetool.anchor"/>
+
+     <para
+>Les càmeres digitals solen tenir problemes amb les condicions de la il·luminació i no és inusual voler corregir el contrast del color i la brillantor d'una fotografia. Podeu experimentar amb l'alteració dels nivells dels diferents aspectes de les vostres fotografies utilitzant les eines sota el menú <menuchoice
+><guimenu
+>Color</guimenu
+> </menuchoice
+>. Podreu veure qualsevol ajustament realitzat reflectit a la vista prèvia. Quan esteu satisfet amb els resultats, premeu <guilabel
+>D'acord</guilabel
+> i tindran efecte. </para>
+
+     <example
+>  <title
+>L'eina «Equilibri de color» en acció</title>
+        <screenshot
+><screeninfo
+>L'eina «Equilibri de color» en acció</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorcolorbalance.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+     <anchor id="hsladjusttool.anchor"/>
+
+     <para
+>Si la vostra imatge s'esvaeix (el qual pot succeir fàcilment quan es prenen imatges sota llum brillant) proveu l'eina To/Saturació/Lluminositat, la qual ofereix tres controls lliscants per a manipular per to, saturació i lluminositat. L'augment de la saturació probablement farà que la imatge es vegi millor. En alguns casos, és útil ajustar alhora la Lluminositat. (La «Lluminositat» aquí és similar a la «Brillantor» a l'eina de Brillantor/Contrast/Gamma, llevat que es formen a partir de diferents combinacions dels canals de vermell, verd i blau). </para>
+
+     <para
+>Quan preneu imatges en condicions de poca llum, podríeu obtenir el problema oposat: excés de saturació. En aquest cas l'eina To/Saturació és de nou bona per utilitzar, només reduint la saturació en comptes d'augmentar-la. Podreu veure qualsevol ajustament realitzat reflectit a la vista prèvia. Quan esteu satisfet amb els resultats, premeu <guilabel
+>D'acord</guilabel
+> i tindran efecte. </para>
+
+     <example
+>  <title
+>L'eina «To/Saturació/Lluminositat» en acció</title>
+         <screenshot
+><screeninfo
+>L'eina «To/Saturació/Lluminositat» en acció</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorhsladjust.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+     </example>
+
+ </sect3>
+
+<sect3 id="adjustlevels">
+<sect3info>
+
+<title
+>Ajustar els nivells</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'<emphasis
+>ajust de nivells</emphasis
+> del &digikam; és una eina per ajustar manualment els canals de l'histograma d'una imatge. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>Situada entre l'eina més sofisticada Ajust de corbes i la més simple de l'editor d'imatges Brillantor/Contrast/Gamma es troba l'eina Ajust de nivells per a millorar l'exposició. Encara que el diàleg per aquesta eina sembla molt complicat, per a l'ús bàsic que tenim en ment, l'única part que ens interessa és l'àrea <guilabel
+>Nivells d'entrada</guilabel
+>, concretament els 3 controls lliscants que apareixen sota l'histograma. </para>
+
+<para
+>Aquest estri conté una gràfica visual dels valors d'intensitat de la capa o selecció (histograma) activa. Sota la gràfica hi ha cinc controls lliscants sobre els que es pot fer clic i arrossegar per a limitar i canviar el nivell d'intensitat de la imatge. La posició esquerra del control lliscant representa les àrees fosques i de manera similar, la posició dreta representa les àrees clares. </para>
+
+<sect4 id="using-adjustlevels">
+<title
+>Usar l'eina «Ajust de nivells»</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelsdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El diàleg de l'eina «Ajust de nivells»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>En realitat, la forma més fàcil d'aprendre a utilitzar-la és experimentar movent els tres controls lliscants, i veure com es veu afectada la imatge. </para>
+
+<para
+>A la dreta, hi ha disponible tant una vista prèvia de la imatge original i la de destinació. La vista prèvia de destinació s'actualitza de forma dinàmica d'acord a les posicions dels controls lliscants. Al costat esquerra estan disponibles les següents opcions: <itemizedlist>
+
+  <listitem
+><para
+>Modificar els nivells per <guilabel
+>Canal</guilabel
+>: aquest quadre combinat permet la selecció del canal específic que es modificarà amb l'eina: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Lluminositat</guilabel
+>: aquesta opció realitza canvis d'intensitat en tots els píxels de la imatge.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Vermell</guilabel
+>: aquesta opció realitza canvis de saturació del vermell en tots els píxels de la imatge.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Verd</guilabel
+>: aquesta opció realitza canvis de saturació del verd en tots els píxels de la imatge.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Blau</guilabel
+>: aquesta opció realitza canvis de saturació del blau en tots els píxels de la imatge.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: aquesta opció realitza canvis de transparència en tots els píxels de la imatge.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+>Establir una <guilabel
+>Escala</guilabel
+> per canal: Aquest quadre combinat controla si l'histograma es mostrarà utilitzant una amplitud lineal o logarítmica. Per a les imatges preses amb una càmera digital, el mode lineal normalment és el més útil. No obstant, per a les imatges que contenen àrees substancials de color constant, un histograma en escala lineal sovint està dominat per una sola barra. En aquest cas, un histograma en escala logarítmica serà més útil.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Nivells d'entrada</guilabel
+>: els nivells d'entrada permeten ajustaments manuals que seran seleccionats per a cadascun dels intervals. L'àrea principal és una representació gràfica d'una imatge contenint tons foscos, mitjos i clars. Estan en abscissa des del nivell 0 (negre) al nivell 255 (blanc). El nombre de píxels per a un nivell és en l'eix d'ordenades. La superfície de la corba representa tots els píxels de la imatge pel canal seleccionat (histograma). Una imatge ben equilibrada és una imatge amb nivells (tons) distribuïts per tot l'interval. Una imatge amb un color blau predominant, per exemple, produirà un histograma mogut a l'esquerra en els canals Verd i Vermell, manifestat per una manca de llums als colors Verd i Vermell. Els intervals de nivell es poden modificar de tres maneres: <itemizedlist>
+          <listitem
+><para
+>Tres controls lliscants: el primer a la part superior pels tons foscos, el segon pels tons clars, i l'últim a la part inferior pels tons mitjos (sovint anomenat valor gamma). </para
+></listitem>
+          <listitem
+><para
+>Tres quadres d'entrada per introduir directament els valors. </para
+></listitem>
+          <listitem
+><para
+>Tres botons del selector de color utilitzant la vista prèvia de la fotografia original per ajustar automàticament els nivells d'entrada per a les ombres, tons mitjos i llums intenses. També hi ha un botó d'ajust totalment automàtic disponible al costat del botó per tornar a iniciar. </para
+></listitem>
+      </itemizedlist>
+  </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Nivells de sortida</guilabel
+>: els nivells de sortida permeten la selecció manual d'un interval del nivell de sortida restringit. També disposa de dos controls lliscants que es poden utilitzar per canviar de forma interactiva els nivells de sortida com als <guilabel
+>Nivells d'entrada</guilabel
+>. Aquesta compressió del nivell de sortida podria, per exemple, utilitzar-se per crear una imatge descolorida com a fons per algun altre tema que es posarà en primer pla.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Auto</guilabel
+>: aquest botó realitza un ajust automàtic dels nivells sobre la base de les intensitats dels píxels de la imatge.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+>: Aquests botons s'utilitzen per a realitzar les accions que descriuen. Qualsevol nivell que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. El format de fitxer és el format de nivells utilitzat per The Gimp.</para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Restableix-ho tot</guilabel
+>: aquest botó restableix tots els valors dels <guilabel
+>Nivells d'entrada</guilabel
+> i els <guilabel
+>Nivells de sortida</guilabel
+> per a tots els canals.</para
+></listitem>
+
+</itemizedlist>
+</para>
+
+<para
+>L'eina Ajust de nivells té diverses característiques per facilitar el posicionament dels controls lliscants dels nivells d'entrada. Fent amb clic al botó del ratolí a l'àrea de vista prèvia de la imatge original es produirà una barra de punts vertical a l'àrea de la gràfica de l'histograma. La posició de la barra correspon al valor del píxel sota el punter del ratolí a la finestra de la imatge. En fer clic i arrossegar el ratolí interactiva actualitza la posició de la barra vertical. D'aquesta manera és possible veure on es troben els diferents valors dels píxels a la imatge en els controls lliscants dels nivells d'entrada i ajuda a descobrir les posicions dels píxels d'ombres, tons mitjos i llums intenses. </para>
+
+<para
+>Utilitzant aquest mode i els tres botons <guilabel
+>Selector de color</guilabel
+> s'ajusten automàticament els nivells d'entrada en tots els canals per les ombres, tons mitjos i llums intenses. Activeu el botó selector de color que voleu utilitzar i feu clic sobre l'àrea de vista prèvia de la imatge original per establir els nivells d'entrada de cadascun dels canals Vermell, Verd, Blau i Lluminositat de l'histograma. </para>
+
+<para
+>L'opció <guilabel
+>Indicador de sobreexposició</guilabel
+> controla tots els canals de color per veure si més d'un canal a un píxel està sobreexposat, i veureu el color combinat resultant dels ajustaments del nivell de canal. Aquesta característica està disponible com un indicador a l'àrea de vista prèvia de destinació i no té cap efecte en la representació final. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustlevels">
+<title
+>L'eina «Ajust de nivells» en acció</title>
+
+<para
+>A continuació, es pot veure un exemple d'ajust dels <guilabel
+>Nivells d'entrada</guilabel
+> aplicat a una imatge de color pels canals Vermell/Verd/Blau. Els canals Intensitat/Alfa i els <guilabel
+>Nivells de sortida</guilabel
+> no s'han modificat. La imatge original és (1), la imatge corregida és (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustlevelspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>L'eina «Ajust de nivells» en acció</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="adjustcurves">
+<sect3info>
+
+<title
+>Ajustar les corbes</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+  <para
+>L'<emphasis
+>ajust de corbes</emphasis
+> del &digikam; és una eina per ajustar de forma no lineal els canals de graduació de la lluminositat i de color. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>L'eina Corbes és l'eina més sofisticada disponible per ajustar la tonalitat de les imatges. Comenceu des del menú de l'editor d'imatges <menuchoice
+><guimenu
+>Color</guimenu
+> <guimenuitem
+>Ajust de corbes</guimenuitem
+></menuchoice
+>. Permet fer clic i arrossegar els punts de control sobre una corba per crear una funció lliure que assigna els nivells de brillantor de l'entrada als nivells de brillantor de la sortida. L'eina Corbes pot reproduir qualsevol efecte que pugueu aconseguir amb les eines Brillantor/Contrast/Gamma o Ajust de nivells, si bé és més poderosa que qualsevol d'aquestes. Però aquesta eina pot fer més, us ajudarà a millorar la qualitat tonal de les vostres fotografies a escales de grisos escalonats molt finament. I no oblideu que la millor de les fotografies seran (bona exposició, format sense pèrdua, 24 o 32 bits de profunditat) les que més podeu millorar. Aneu a la secció «Achieving ultimate tonal quality» d'aquesta pàgina instructiva: <ulink url="http://www.normankoren.com/digital_tonality.html"
+>la qualitat tonal i el rang dinàmic de les càmeres digitals per en Norman Koren</ulink
+>. Utilitzeu l'eina Ajust de corbes per fer precisament el mateix! </para>
+<para
+>Aquesta eina proporciona corbes visuals per a modificar els valors d'intensitat de la capa activa mostrada com un histograma de forma no lineal. En el mode d'edició de corba <guilabel
+>Suau</guilabel
+>, podeu canviar la forma de les corbes afegint nous punts a la corba o movent les posicions dels extrems. Un altre mode és dibuixar tota la corba de forma manual en el mode d'edició de corba <guilabel
+>Lliure</guilabel
+>. En ambdós casos, l'efecte es mostra immediatament en l'àrea de vista prèvia de la imatge a l'esquerra, on la vista prèvia es pot configurar fent clic a les icones de dalt a l'esquerra. </para>
+
+<sect4 id="using-adjustcurves">
+<title
+>Usar l'«Ajust de corbes»</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;adjustcurvesdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El diàleg de l'eina «Ajust de corbes»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>A l'esquerra, es mostra tant una vista prèvia de la imatge original i la de destinació. La vista prèvia de destinació s'actualitza de forma dinàmica d'acord als ajustaments dels estris. Al costat dret estan disponibles les següents opcions: <itemizedlist>
+
+  <listitem
+><para
+>Modificar el <guilabel
+>Canal</guilabel
+>: amb aquest quadre combinat podreu seleccionar el canal específic a modificar amb l'eina: <itemizedlist>
+          <listitem
+><para
+><guilabel
+>Lluminositat</guilabel
+>: canvia la intensitat de tots els píxels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Vermell</guilabel
+>: canvia la saturació del vermell de tots els píxels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Verd</guilabel
+>: canvia la saturació del verd de tots els píxels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Blau</guilabel
+>: canvia la saturació del blau de tots els píxels.</para
+></listitem>
+          <listitem
+><para
+><guilabel
+>Alfa</guilabel
+>: canvia la transparència de tots els píxels.</para
+></listitem>
+      </itemizedlist>
+
+  </para
+></listitem>
+
+  <listitem
+><para
+>Al costat d'aquest quadre hi ha dues icones per seleccionar mostrar l'histograma en escala lineal o logarítmica. Per a les imatges preses amb una càmera digital en el mode lineal normalment és el més útil. No obstant, per a imatges que contenen àrees substancials de color constant, un histograma en escala lineal sovint estarà dominat per una sola barra. En aquest cas un histograma en escala logarítmica serà més apropiat. </para
+></listitem>
+
+  <listitem
+><para
+>L'àrea principal de l'edició de corbes: la barra horitzontal (eix x) representa els valors d'entrada (són nivells de valor des de 0 a 255). La barra vertical (eix y) només és una escala pels colors de sortida del canal seleccionat. La corba de control es dibuixa sobre una graella i creua l'histograma en diagonal. La posició x/y del punter es mostra permanentment a sobre de la graella. Si feu clic sobre la corba, es crearà un punt de control, el podeu moure per doblar la corba. Si feu clic fora de la corba, també es crea un punt de control, i la corba l'inclourà de forma automàtica. De manera que cada punt de la corba representa una «x» traduïda en un nivell de sortida «y». </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Tipus</guilabel
+> de corba del canal: per sota de l'àrea d'edició hi ha diverses icones que determinen si la corba es pot editar utilitzant una corba <guilabel
+>Suau</guilabel
+> o un mode <guilabel
+>Lliure</guilabel
+> d'edició de la corba. El mode suau limita el tipus de corba a una línia suau sota tensió i proporciona una representació realista. El mode lliure us permet dibuixar la corba a mà alçada amb el ratolí. Amb segments de la corba escampats per tota la graella, el resultat serà sorprenent, però difícilment repetible. També hi ha disponible un botó per a restablir els valors per omissió. </para
+></listitem>
+
+  <listitem
+><para
+>Si, per exemple, moveu un segment de la corba a la dreta, &ead;, cap als tons clars, podreu veure que aquests tons clars corresponen als tons de sortida més foscos i que els píxels de la imatge que corresponen a aquest segment de la corba seran més foscos. </para
+></listitem>
+
+  <listitem
+><para
+>Amb els canals de color, movent cap a la dreta es disminuirà la saturació fins abastar el color complementari. Per eliminar tots els punts de control (excepte els extrems), feu clic al botó <guilabel
+>Reinicia els valors</guilabel
+>. Per eliminar un sol punt, moveu-lo cap a un altre punt. Simplement jugueu amb les corbes i mireu els resultats. Fins i tot podeu solaritzar la imatge sobre part del seu abast tonal. Això succeeix quan la corba s'inverteix en alguna part. </para
+></listitem>
+
+  <listitem
+><para
+>La vista prèvia de la fotografia original conté un marcador vermell. Si situeu aquest marcador a una àrea que voleu modificar, es dibuixarà una línia corresponent sobre la corba de la graella indicant el valor original. Creeu un punt sobre aquesta línia i moveu-lo cap amunt o cap avall per ajustar-lo al vostre plaer. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+>: Aquests botons s'utilitzen per a realitzar les accions que descriuen. Qualsevol corba que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. El format de fitxer és el format de corbes utilitzat per The Gimp. </para
+></listitem>
+
+  <listitem
+><para
+><guilabel
+>Restableix-ho tot</guilabel
+>: aquest botó restableix tots els valors de la corba per a tots els canals. </para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>L'eina de corbes té diverses característiques que faciliten el posicionament dels punts sobre les corbes de control. Fent clic del botó del ratolí a l'àrea de vista prèvia de la imatge original es produeix una barra de punts vertical a l'àrea de la gràfica de l'eina de corbes. La posició de la barra correspon al valor del píxel on es troba el cursor del ratolí sobre la finestra de la imatge. Fent clic i arrossegant el botó del ratolí actualitzareu de forma interactiva la posició de la barra vertical. D'aquesta manera, veureu la ubicació dels diferents valors dels píxels a la imatge sobre la línia de control i ajuda a descobrir les ubicacions dels píxels ombres, tons mitjos i llums intenses. </para>
+
+<para
+>Utilitzant aquest mètode i els tres botons del <guilabel
+>Selector de color</guilabel
+> es crearan automàticament els punts de control sobre la corba en tots els canals per a ombres, tons mitjos i llums intenses. Activeu el botó selector de color que voleu utilitzar i feu clic sobre l'àrea de vista prèvia de la imatge original per produir els punts de control sobre cadascuna de les corbes de control Vermell, Verd, Blau i Lluminositat. </para>
+
+<para
+>L'opció <guilabel
+>Indicador de sobreexposició</guilabel
+> afegeix tots els canals de color i indica les llums intenses sobreexposades. Si hi ha més d'un canal a un píxel sobreexposat veureu el color combinat resultant des dels ajustaments de la corba. La pantalla només és un indicador i no té cap efecte sobre la representació final. </para>
+
+</sect4>
+
+<sect4 id="inaction-adjustcurves">
+<title
+>L'eina «Ajust de corbes» en acció</title>
+
+<para
+>A continuació podeu veure una fotografia en blanc i negre corregida al canal <guilabel
+>Lluminositat</guilabel
+>. Utilitzeu l'eina de selecció de tons d'ombra i llums intenses per a determinar les corbes aplicables a partir de l'original. La imatge original és (1), la imatge corregida (2). </para>
+
+        <para
+><inlinemediaobject
+><imageobject>
+               <imagedata fileref="&path;adjustcurvespreview.png" format="PNG"/>
+              </imageobject>
+              <textobject
+><phrase
+>L'eina «Ajust de corbes» en acció</phrase
+></textobject
+></inlinemediaobject>
+        </para>
+
+
+</sect4>
+</sect3>
+
+<sect3 id="channelmixer">
+<sect3info>
+
+<title
+>Mesclador de canals</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El <emphasis
+>mesclador de canals</emphasis
+> de la imatge del &digikam; és una eina per a tornar a mesclar els canals de color per millorar o modificar els tons de color de la fotografia. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>El mesclador de canals és una eina més sofisticada per a refinar la tonalitat de les imatges. Es llança des del menú <menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Mesclador de canals</guimenuitem
+></menuchoice
+> de l'editor d'imatges. </para>
+
+<sect4 id="using-channelmixer">
+<title
+>Usar el «Mesclador de canals»</title>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El diàleg de l'eina «Mesclador de canals»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Amb el quadre combinat de canal, seleccionareu i mostrareu l'histograma per color. Dóna un primer indici sobre com corregir els canals per la seva distribució i amplitud relativa. La meitat esquerra de la finestra de diàleg sempre mostra una vista prèvia del que esteu fent. L'original per a comparació es podrà veure en seleccionar la seva pròpia pestanya de finestra. </para>
+
+<para
+>La vista prèvia de la fotografia de destinació conté un marcador vermell. Si situeu aquest marcador en algun lloc de la imatge, es dibuixarà una barra vertical corresponent a l'histograma indicant el valor del nivell de color al canal actualment seleccionat. </para>
+
+<para
+>Ara els controls són a la part inferior dreta: els controls lliscants <guilabel
+>Vermell</guilabel
+>, <guilabel
+>Verd</guilabel
+> i <guilabel
+>Blau</guilabel
+> us permeten barrejar els canals. Si marqueu la casella <guilabel
+>Preserva la lluminositat</guilabel
+>, la imatge mantindrà la seva lluminositat general encara que canvieu els seus components de color. Aquesta característica és particularment útil quan també heu marcat la casella <guilabel
+>Monocrom</guilabel
+>. Ja que el mesclador de canals «és l'eina» per a realitzar grans conversions en blanc i negre de les vostres fotografies. Intenteu reduir el canal verd per als retrats en blanc i negre. </para>
+
+<note
+><para
+>A vegades, sobretot quan es fa una barreja monocrom, reduint un canal de color augmentareu el soroll visible, que en realitat origina el soroll cromàtic. El soroll cromàtic significa que les petites alteracions de soroll no apareixen a la mateixa ubicació en tots els canals de color, però els patrons de soroll es veuen diferents en cada canal. Si aquest és el cas, podeu millorar la conversió monocrom reduint primer el soroll cromàtic. </para
+></note>
+
+<para
+>Els botons <guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+> s'utilitzen per a realitzar les accions que descriuen. Qualsevol ajustament del mesclador que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. El format de fitxer és el format de mesclador de canals per The Gimp. </para>
+
+<para
+>L'opció <guilabel
+>Indicador de sobreexposició</guilabel
+> suma els colors si més d'un canal a un píxel està sobreexposat, i veureu el color combinat resultant dels ajustaments de guany del canal. Aquesta regla s'aplica a l'àrea de la vista prèvia de destinació a títol indicatiu i no té cap efecte en la representació final. </para>
+
+<para
+>El botó <guilabel
+>Restableix-ho tot</guilabel
+> restablirà tots els ajustaments del mesclador de canals als valors per omissió. </para>
+
+</sect4>
+
+<sect4 id="inaction-channelmixer">
+<title
+>El «Mesclador de canals» en acció</title>
+
+<para
+>A continuació, podeu veure una fotografia amb ajustos al to del color per al canal <guilabel
+>Blau</guilabel
+>. L'opció <guilabel
+>Preserva la lluminositat</guilabel
+> està activada. La imatge original és (1), la imatge corregida (2). </para>
+
+   <para
+><inlinemediaobject
+><imageobject>
+      <imagedata fileref="&path;channelmixerpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El «Mesclador de canals» en acció</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+</sect3>
+
+<sect3 id="blackandwhite-conversion">
+<sect3info
+>           <title
+>Filtres de conversió al blanc i negre</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+    <para
+>La fotografia en blanc i negre sempre ha estat fascinant per la seva capacitat d'abstracció. Amb l'arribada de la fotografia digital, el blanc i negre gairebé s'ha convertit en una activitat d'escriptori, ja que les imatges en color es poden convertir amb facilitat a l'ordinador, fins i tot proporciona un conjunt de perfils de rotllo de pel·lícules d'època. </para>
+ </abstract>
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+<title
+>Introducció</title>
+    <anchor id="blackandwhitetool.anchor"/>
+    <para
+>&digikam; ve amb un parell de filtres en blanc i negre que podeu utilitzar en les vostres fotografies. Sota el menú <menuchoice
+><guimenuitem
+>Filtres</guimenuitem
+><guimenuitem
+>Blanc i negre</guimenuitem
+></menuchoice
+> trobareu el clàssic blanc i negre que s'utilitza en la fotografia analògica. Els controls vénen sobre tres pestanyes: <emphasis
+>Pel·lícula, Filtres de les lents, To</emphasis
+> i <emphasis
+>Lluminositat</emphasis
+>, com es mostra en la següent captura de pantalla. La pel·lícula, filtres i tons de colors es poden aplicar de forma independent l'un de l'altre (un al damunt de l'altra). Els filtres en realitat influeixen en la mescla del canal RGB, mentre que els tons només afegeixen un tint monocromàtic uniforme a la fotografia en blanc i negre. A la pestanya lluminositat trobareu una eina d'ajustament tonal (com ajustar una corba), una eina de contrast i un indicador de sobreexposició per millorar el renderitzat del blanc i negre. </para>
+      <example
+>  <title
+>L'eina de filtre «Blanc i negre» en acció</title>
+        <screenshot
+><screeninfo
+>L'eina de filtre «Blanc i negre» en acció</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorbwfilter.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+      </example>
+
+    <para
+>La següent taula mostra en detall l'efecte de tots els filtres i els tints.</para>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Vista prèvia</entry
+>        <entry
+>Emulació de pel·lícula fotogràfica</entry>
+    </row
+></thead>
+    <tbody>
+
+        <row>
+            <entry>
+              <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry>
+              <para
+>Hi ha disponibles ajustaments específics per emular una sèrie de famoses pel·lícules fotogràfiques en blanc i negre:</para>
+              <para
+>Agfa 200X, Agfa Pan 25, Agfa Pan 100, Agfa Pan 400</para>
+              <para
+>Ilford Delta 100, Ilford Delta 400, Ilford Delta 400 Pro 3200, Ilford FP4 Plus, Ilford HP5 Plus, Ilford PanF Plus, Ilford XP2 Super</para>
+              <para
+>Kodak Tmax 100, Kodak Tmax 400, Kodak TriX</para>
+            </entry>
+        </row>
+    </tbody>
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+     <thead
+><row>
+        <entry
+>Vista prèvia</entry>
+        <entry
+>Tipus de filtre per a les lents</entry>
+     </row
+></thead>
+       <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_original.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Color de la imatge original presa als paisatges de Nova Zelanda. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bw.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Neutral: simula una exposició amb pel·lícula neutral en blanc i negre. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwgreen.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+           <entry
+>Filtre verd: simula una exposició amb pel·lícula en blanc i negre amb el filtre de la lent de color verd. Això va bé amb totes les imatges escèniques, especialment indicat per prendre retrats contra el cel (similar al filtre verd 004 Cokin(tm)). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bworange.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Filtre taronja: Simula una exposició amb pel·lícula en blanc i negre utilitzant un filtre de la lent de color taronja. Millora els paisatges, les escenes marines i la fotografia aèria (similar al filtre taronja 002 Cokin(tm)). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwred.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Filtre vermell: simula una exposició amb pel·lícula en blanc i negre amb el filtre de la lent de color vermell. Crea efectes dramàtics del cel i pot simular escenes de llum de la lluna durant el dia (similar al filtre vermell 003 Cokin(tm)). </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_bwyellow.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>Filtre groc: simula una exposició amb pel·lícula en blanc i negre amb filtre de la lent de color groc. Correcció tonal més natural, millora el contrast. Ideal per a paisatges (similar al filtre groc 001 Cokin(tm)). </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+    <informaltable
+><tgroup cols="2">
+
+    <thead
+><row>
+        <entry
+>Vista prèvia</entry
+>        <entry
+>Tint de color</entry>
+    </row
+></thead>
+
+      <tbody>
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_sepia.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>To sèpia: Dóna una càlida tonalitat clara i de tons mitjos, afegint frescor a les ombres. És molt similar al procés de blanquejar un positiu i tornar-lo a revelar en un viratge al to sèpia (habitual a les fotografies dels vostres avis). Similar al filtre sèpia 005 Cokin(tm). </entry>
+        </row>
+
+         <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_brown.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>To marró: similar al filtre de to sèpia, però menys pronunciat. </entry>
+        </row>
+
+       <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_cold.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>To fred: Comença subtilment i replica el revelat en un paper en blanc i negre d'un to fred com el del paper d'ampliació de bromur. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_platinium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>To platí: Aquest efecte replica el tradicional viratge químic al platí efectuat a la cambra fosca. </entry>
+        </row>
+
+        <row>
+            <entry>
+            <inlinemediaobject
+><imageobject
+><imagedata fileref="&path;editorconvert_selenium.png" format="PNG"/> </imageobject
+></inlinemediaobject>
+            </entry>
+
+            <entry
+>To seleni: Aquest efecte replica el tradicional viratge químic al seleni efectuat a la cambra fosca. </entry>
+        </row>
+
+    </tbody>
+
+    </tgroup
+></informaltable>
+
+</sect3>
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->
+

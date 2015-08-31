@@ -1,0 +1,224 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexander Potashev <aspotashev@gmail.com>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-02-05 02:50+0400\n"
+"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.5\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Александр Поташев"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "aspotashev@gmail.com"
+
+#: imgurimageslist.cpp:50
+msgid "Thumbnail"
+msgstr "Миниатюра"
+
+#: imgurimageslist.cpp:55
+msgid "Submission title"
+msgstr "Заголовок публикации"
+
+#: imgurimageslist.cpp:58
+msgid "Submission description"
+msgstr "Описание публикации"
+
+#: imgurimageslist.cpp:61
+msgid "Imgur URL"
+msgstr "Адрес на Imgur"
+
+#: imgurimageslist.cpp:64
+msgid "Imgur Delete URL"
+msgstr "Адрес для удаления"
+
+#: imgurtalker.cpp:149
+msgid "Unexpected response from the web service"
+msgstr "Получен неожиданный ответ от веб-службы"
+
+#: imgurtalker.cpp:166
+msgid "Upload failed"
+msgstr "Не удалось загрузить файл на сервер"
+
+#: imgurtalker.cpp:407
+msgid "Parse error"
+msgstr "Ошибка обработки"
+
+#: imgurtalkerauth.cpp:94
+msgid "Network error: timeout, cannot connect."
+msgstr "Время ожидания сети истекло, не удалось подключиться."
+
+#: imgurtalkerauth.cpp:97
+msgid "Request endpoint is not valid."
+msgstr "Недопустимый конечный пункт запроса."
+
+#: imgurtalkerauth.cpp:100
+msgid "Request is not valid: some parameter missing?"
+msgstr "Недопустимый запрос: возможно, пропущены аргументы."
+
+#: imgurtalkerauth.cpp:103
+msgid "Authorization error: trying to access a resource without tokens."
+msgstr ""
+"Ошибка авторизации: попытка получить доступ к данным без указания ключа."
+
+#: imgurtalkerauth.cpp:106
+msgid "The given request is invalid."
+msgstr "Указан недопустимый запрос"
+
+#: imgurtalkerauth.cpp:109
+msgid "Manager error, cannot use for sending requests."
+msgstr "Ошибка диспетчера OAuth, невозможно отправлять запросы."
+
+#: imgurtalkerauth.cpp:113
+msgid "No error"
+msgstr "Нет ошибок"
+
+#: imgurtalkerauth.cpp:249
+msgid "OK"
+msgstr "ОК"
+
+#: imgurwidget.cpp:86
+msgid "This is a clickable link to open the Imgur home page in a web browser"
+msgstr "Эта ссылка открывает в веб-браузере домашнюю страницу службы Imgur."
+
+#: imgurwidget.cpp:103
+msgid "%v / %m"
+msgstr "%v из %m"
+
+#: imgurwidget.cpp:104
+msgid "Export to Imgur"
+msgstr "Экспорт в Imgur"
+
+#: imgurwidget.cpp:112
+msgid "Imgur authorization"
+msgstr "Авторизация на Imgur"
+
+#: imgurwidget.cpp:113
+msgid ""
+"Requesting Imgur for authorization to upload images with the KIPI Imgur "
+"Exporter plugin."
+msgstr ""
+"Запрос на получение прав модулю экспорта загружать изображения на Imgur."
+
+#: imgurwidget.cpp:120
+msgid "Request authorization"
+msgstr "Запросить авторизацию"
+
+#: imgurwidget.cpp:121
+msgid "Set permissions for the current application to upload images to Imgur."
+msgstr ""
+"Получить права для текущего приложения на загрузку изображений на Imgur."
+
+#: imgurwidget.cpp:229
+#, kde-format
+msgid "Processing %1"
+msgstr "Обработка %1"
+
+#: imgurwidget.cpp:275
+msgid "Authenticated"
+msgstr "Вход выполнен"
+
+#: imgurwindow.cpp:76
+msgid "Export to imgur.com"
+msgstr "Экспорт на imgur.com"
+
+#: imgurwindow.cpp:80
+msgid "Upload"
+msgstr "Начать загрузку"
+
+#: imgurwindow.cpp:80
+msgid "Start upload to Imgur"
+msgstr "Начать загрузку в веб-службу Imgur"
+
+#: imgurwindow.cpp:88
+msgid "Imgur Export"
+msgstr "Экспорт в Imgur"
+
+#: imgurwindow.cpp:91
+msgid "A tool to export images to Imgur web service"
+msgstr "Инструмент для экспорта изображений в веб-службу Imgur"
+
+#: imgurwindow.cpp:92
+msgid "(c) 2012-2013, Marius Orcsik"
+msgstr "© Marius Orcsik, 2012–2013"
+
+#: imgurwindow.cpp:94
+msgid "Marius Orcsik"
+msgstr "Marius Orcsik"
+
+#: imgurwindow.cpp:94
+msgid "Author and Maintainer"
+msgstr "Автор и сопровождающий"
+
+#: imgurwindow.cpp:97
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: imgurwindow.cpp:97
+msgid "Developer"
+msgstr "Разработчик"
+
+#: imgurwindow.cpp:206
+#, kde-format
+msgid ""
+"Failed to upload photo to Imgur: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Не удалось загрузить фотографию на Imgur: %1\n"
+"Продолжить?"
+
+#: imgurwindow.cpp:220
+#, kde-format
+msgid "Failed to upload photo to Imgur: %1\n"
+msgstr "Не удалось загрузить фотографию на Imgur: %1\n"
+
+#: imgurwindow.cpp:238
+#, kde-format
+msgctxt "%1 is the error string"
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"%1\n"
+"Do you want to continue?"
+msgstr ""
+"Не удалось выполнить вход на Imgur.\n"
+"%1\n"
+"Продолжить?"
+
+#: imgurwindow.cpp:243
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"Do you want to continue?"
+msgstr ""
+"Не удалось выполнить вход на Imgur.\n"
+"Продолжить?"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_imgurexportui.rc:7
+msgid "&Export"
+msgstr "&Экспорт"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_imgurexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Основная панель инструментов"
+
+#: plugin_imgurexport.cpp:104
+msgid "Export to &Imgur..."
+msgstr "Экспорт в &Imgur..."

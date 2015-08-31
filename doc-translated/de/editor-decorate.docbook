@@ -1,0 +1,504 @@
+<sect2
+>                                      <title
+>Dekorative Elemente hinzufügen</title>
+<sect3 id="texture">
+<sect3info>
+
+<title
+>Textur anwenden</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Mit dem &digikam; Werkzeug <emphasis
+>Textur anwenden</emphasis
+> können Sie dekorative Texturen auf ein Bild anwenden. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Durch das Hinzufügen einer Textur zu Ihrem Bild, unabhängig ob es ein Farbbild ist oder nicht, können Sie es aussehen lassen wie ein Ölgemälde auf einer Leinwand, den Stich eines alten Meisters, ein Pop Art Portrait aus vergrößerten Punkten oder wie ein Wandbild auf einer Mauer. Der Menüeintrag <menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Textur anwenden</guimenuitem
+></menuchoice
+> der Bildbearbeitung kann dafür benutzt werden. </para>
+
+<sect4 id="using-texture">
+<title
+>Das Werkzeug <quote
+>Textur anwenden</quote
+> benutzen</title>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;texturedialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Der Dialog <quote
+>Textur anwenden</quote
+></phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Es existieren zwei Parameter mit denen Sie Ihre Textur einstellen können: </para>
+ 
+<para
+><guilabel
+>Typ</guilabel
+>: dieser Parameter gibt die Art der Textur unter dem Bild an. </para>
+
+<para
+><guilabel
+>Relief</guilabel
+>: verschieben dieses Parameters nach rechts erhöht den Anschein der Tiefe bzw. Dreidimensionalität der Textur auf dem Bild. </para>
+
+</sect4>
+
+<sect4 id="inaction-texture">
+<title
+>Das Texturwerkzeug in Aktion</title>
+
+<para
+>Ein <guilabel
+> Papier</guilabel
+> Textureffekt ist auf dem Foto unten angewendet worden. Das Originalbild ist (1) und das veränderte unter (2) zu sehen. Der Parameter <guilabel
+>Relief</guilabel
+> ist auf 200 gesetzt gewesen. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;texturepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Die Vorschau des Textureffektes</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="border">
+<sect3info>
+
+<title
+>Rahmen hinzufügen</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Mit dem &digikam; Werkzeug <emphasis
+>Rahmen hinzufügen</emphasis
+> kann ein dekorativer Rahmen um ein Bild hinzugefügt werden. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Das Auge eines Betrachters in den Grenzen eines Fotos zu halten ist keine leichte Aufgabe. Eine Möglichkeit seine Aufmerksamkeit zu behalten ist es um das Bild einen dekorativen Rahmen zu setzen. Dies ist eine psychologische Barriere für das streuende Auge. Unter <menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Rahmen hinzufügen</guimenuitem
+></menuchoice
+> kann das Modul aus der Bildbearbeitung gestartet werden. </para>
+
+<sect4 id="using-border">
+<title
+>Das Werkzeug <quote
+>Rahmen hinzufügen</quote
+> benutzen</title>
+
+<para
+>Vier Parameter stehen Ihnen zur Erstellung eines dekorativen Rahmens zur Verfügung: </para>
+ 
+<para
+><guilabel
+>Typ</guilabel
+>: mit diesem Parameter stellen Sie den gewünschten Rahmentyp für Ihr Bild ein. <guilabel
+>Durchgehend</guilabel
+> umrandet das Bild mit einer farbigen Linie, <guilabel
+>Niepce</guilabel
+> umrandet es mit einer dünnen Linie und einem breiten Rahmen (ideal für Schwarz-Weiß Bilder), <guilabel
+>Abgekantet</guilabel
+> umrandet es mit einem netten dreidimensionalen Rahmen der ideal ist für einen <quote
+>Knopfeffekt</quote
+> und <guilabel
+>Dekorativ</guilabel
+> fügt einen Zierrahmen mit Mustern hinzu. </para>
+
+<para
+><guilabel
+>Breite</guilabel
+>: gibt die Breite des Rahmens in Prozent an. Der Wertebereich für die Breite ist von 1 % bis 50 % beschränkt. </para>
+
+<para
+><guilabel
+>Erste</guilabel
+>: gibt die erste Farbe an die für den aktuellen Rahmentyp genutzt werden soll. </para>
+
+<para
+><guilabel
+>Zweite</guilabel
+>: gibt die zweite Farbe an die für den aktuellen Rahmentyp genutzt werden soll. </para>
+
+<para
+>Drücken Sie den <guilabel
+>OK</guilabel
+> Knopf um den Rahmen um das aktuell Bild hinzuzufügen. </para>
+
+<note
+><para
+>Das mit dem Rahmen dekorierte Zielbild wird größer sein als das Original, aber das gleiche Seitenverhältnis haben. Dies ist wichtig für den Druck der Bilder, besonders wenn Sie das Werkzeug <quote
+>Nach Seitenverhältnis zuschneiden</quote
+> vorher benutzt haben. </para
+></note>
+           
+</sect4>
+
+<sect4 id="inaction-border">
+<title
+>Das Werkzeug <quote
+>Rahmen hinzufügen</quote
+> in Aktion</title>
+
+<para
+>Der <quote
+>Rahmen hinzufügen</quote
+> Dialog ist unten in Aktion zu sehen. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;borderpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Das Werkzeug <quote
+>Rahmen hinzufügen</quote
+> in Aktion</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="inserttext">
+<sect3info>
+
+<title
+>Text einfügen</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Mit dem &digikam; Werkzeug <emphasis
+>Text einfügen</emphasis
+> kann Text zu einem Bild hinzugefügt werden. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Mit diesem praktischen Werkzeug, können Sie einfache einen formatierten Text in ein Bild an beliebiger Stelle einfügen. Dies geht auch an mehreren Stellen wenn Sie es benötigen. </para>
+
+<sect4 id="using-inserttext">
+<title
+>Das Werkzeug <quote
+>Text einfügen</quote
+> in Aktion</title>
+
+<para
+>Diese Werkzeug ist sehr intuitiv zu benutzen. geben Sie einfach den Text ein und platzieren Sie ihn mit der Maus. Benutzen Sie Textausrichtung, Orientierung, Farbe aus dem Farbraum und den Zeichensatz mit seinen Eigenschaften wie Sie sie benötigen. Sie werden die Zeichensatzgröße der Bildgröße anpassen müssen. Je größer das Bild, desto größer muss der Zeichensatz sein. Zum Schluss wählen Sie einfach einen Rahmen um den Text und /oder einen halbdurchsichtigen Hintergrund. Schon ist das Bild fertig. </para>
+
+<para
+>Jede Einstellung, die Sie für Ihren Text gewählt haben, kann geändert werden, bis Sie auf den Knopf „OK“ drücken. Nachdem das Bild einmal gespeichert wurde, ist der Text Teil des Bildes. Er kann nicht mehr geändert werden. </para>
+ 
+</sect4>
+
+<sect4 id="inaction-inserttext">
+<title
+>Das Werkzeug <quote
+>Text einfügen</quote
+> in Aktion</title>
+
+<para
+>Der Dialog <quote
+>Text einfügen</quote
+> ist unten in Aktion zu sehen. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;inserttextpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Der Dialog <quote
+>Text einfügen</quote
+> in Aktion</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="superimpose">
+<sect3info>
+
+<title
+>Schablone anwenden</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author
+>    
+</authorgroup>
+
+<abstract>
+<para
+>Mit dem &digikam; Werkzeug <emphasis
+>Schablone anwenden</emphasis
+> können Sie eine Schablone über ein Bild legen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Dieses Werkzeug erlaubt es zwei Bilder zu kombinieren, in dem das eine über das andere gelegt wird. Sie können es benutzen, um die Geschichte die Ihre Bilder erzählen ein zurahmen. Sie können sowohl existierende Bilder als auch künstliche erstellte Grafiken als PNG Schablonendateien benutzen. Diese enthalten dann Grenzen, Rahmen, Gradienten und zusammengesetzte Bilder, die zu den anderen Bildern hinzugefügt werden. Die Schablonendateien werden nicht mit &digikam; zusammen installiert. Sie können Sie unter <ulink url="http://digikam3rdparty.free.fr/Templates/"
+>dieser URL</ulink
+> finden. Laden Sie den Inhalt einfach in Ihre &digikam; Albendatenbank herunter und setzen Sie den <guilabel
+>Basisordner</guilabel
+> in dem Werkzeug.. </para>
+
+<para
+>Das Menü <menuchoice
+><guimenu
+>Bild</guimenu
+> <guimenuitem
+>Schablone anwenden</guimenuitem
+></menuchoice
+> in der Bildbearbeitung kann benutzt werden, um Schablonen über ein Bild zu legen. </para>
+
+<sect4 id="using-template-creation">
+<title
+>Neue Schablonen erstellen</title>
+
+<para
+>Neue Schablonen können mit jedem beliebigen Malprogramm erstellt werden. Die Farbigen Bereiche des Bildes werden die Maske die später als Schablone über die Fotos gelegt wird. Die Schablonen müssen als PNG Dateien im RGB Modus mit Alphakanal erzeugt werden. Der Alphakanal wird für die durchsichtigen Gebiete in den beim darüberlegen der Schablone das Originalbild zu sehen ist benutzt. Das ausgewählte Bild wird also durch die transparenten Gebiete durchscheinen. </para>
+
+<para
+>Für die Schablone gibt es keine Beschränkungen bzgl. die Größe und der Orientierung. Sie müssen allerdings das PNG Dateiformat nehmen und sollten mit maximaler Komprimierung (9) zur Verkleinerung der Dateigröße der Schablone arbeiten. Wen Sie Ihre Schablone der &digikam; Schablonendatenbank hinzufügen wollen, so senden Sie einfach eine E-Mail in englisch an die &digikam; Mailingliste <email
+>digikam-users@kde.org</email
+>.. </para>
+            
+</sect4>
+
+<sect4 id="using-superimpose">
+<title
+>Das Werkzeug <quote
+>Schablone anwenden</quote
+> benutzen</title>
+
+<para
+>Wenn Sie dieses Werkzeug zum erstenmal benutzen, müssen Sie Ihren Schablonenordner mit dem Knopf <guilabel
+>Basisordner</guilabel
+> im Dialog setzen. Wählen Sie hier den Ordner in den Sie die Schablonendateien kopiert haben. Diese Einstellungen werden für den nächsten Start gemerkt. </para>
+
+<para
+>Nachdem der Basisordner für die Schablonen gesetzt wurde erscheint eine Baumansicht, die die Ordnerstruktur des Schablonenordners wiederspiegelt. Die Auswahl eines Ordners aktualisiert die Vorschauleiste der Schablonen automatisch. </para>
+
+<para
+>Unter der Vorschau befinden sich drei Knöpfe mit denen Sie den Vergrößerungsfaktor und die Position Ihres Bildes verändern können. </para>
+
+<para
+><guilabel
+>Vergrößern</guilabel
+>: dieser Knopf vergrößert das darunterliegende Bild. Es wird um die Position der Maus zentriert. Überprüfen Sie es mit dem linken Mausknopf. </para>
+
+<para
+><guilabel
+>Verkleinern</guilabel
+>: dieser Knopf verkleinert das darunter liegende Bild. Es wird um die Position der Maus zentriert. Falls Sie die Schablone auf das ganze Bild anwenden wollen, müssen Sie das Bild entsprechend verkleinern. Überprüfen Sie es mit dem linken Mausknopf. </para>
+
+<para
+><guilabel
+>Verschieben</guilabel
+>: benutzen Sie diesen Knopf um das unter der Schablone liegende Bild zu verschieben. Nehmen Sie dazu das Bild und legen Sie es an der gewünschten Position ab. </para>
+ 
+<para
+>Benutzen Sie <guilabel
+>OK</guilabel
+> wenn Sie die Schablone auf Ihr Bild anwenden wollen. Das Bild wird dann automatische der Vorschaugröße angepasst. </para>
+           
+</sect4>
+
+<sect4 id="inaction-superimpose">
+<title
+><quote
+>Schablone anwenden</quote
+> in Aktion</title>
+
+<para
+>Der Dialog <quote
+>Schablone anwenden</quote
+> ist unten in Aktion zu sehen. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;superimposepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Der Dialog <quote
+>Schablone anwenden</quote
+></phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

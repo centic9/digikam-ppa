@@ -27,11 +27,11 @@ option(ENABLE_IMGLOADERDEBUGMSG "Build digiKam with more internal debug message 
 
 # digiKam version
 set(DIGIKAM_MAJOR_VERSION "4")
-set(DIGIKAM_MINOR_VERSION "7")
+set(DIGIKAM_MINOR_VERSION "12")
 set(DIGIKAM_PATCH_VERSION "0")
 
 #digiKam release date
-set(DIGIKAM_RELEASE_DATE "2015-01-25")
+set(DIGIKAM_RELEASE_DATE "2015-07-26")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -74,9 +74,6 @@ set(AREA_CODE_IMAGEPLUGINS   "50006")
 set(AREA_CODE_DATABASESERVER "50007")
 add_definitions(-DKDE_DEFAULT_DEBUG_AREA=${AREA_CODE_GENERAL})
 add_definitions(-DQT_USE_FAST_CONCATENATION -DQT_USE_FAST_OPERATOR_PLUS)
-
-# surpress deprecated warning for glibc 2.20+
-add_definitions(-D_DEFAULT_SOURCE)
 
 macro(SET_DEBUG_AREA_CODE _areacode)
     remove_definitions(-DKDE_DEFAULT_DEBUG_AREA=${AREA_CODE_GENERAL})
@@ -468,13 +465,7 @@ if(DIGIKAM_CAN_BE_COMPILED)
     # Using -fno-tree-pre is work around this problem.
 
     if(CMAKE_COMPILER_IS_GNUCXX)
-        exec_program(${CMAKE_CXX_COMPILER} ARGS ${CMAKE_CXX_COMPILER_ARG1} --version OUTPUT_VARIABLE VERSION_GCC_INFO)
-        string(REGEX MATCH " [34]\\.[0-9]\\.[0-9]" GCC_VERSION "${VERSION_GCC_INFO}")
-
-        # gcc on mac just reports: "gcc (GCC) 3.3 20030304 ..." without the patch level, handle this here:
-        if(NOT GCC_VERSION)
-            string(REGEX REPLACE ".*\\(GCC\\).* ([34]\\.[0-9]) .*" "\\1.0" GCC_VERSION "${VERSION_GCC_INFO}")
-        endif()
+        exec_program(${CMAKE_CXX_COMPILER} ARGS ${CMAKE_CXX_COMPILER_ARG1} -dumpversion OUTPUT_VARIABLE GCC_VERSION)
 
         MACRO_ENSURE_VERSION("4.3.0" "${GCC_VERSION}" GCC_VERSION_BAD)
 

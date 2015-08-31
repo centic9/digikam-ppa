@@ -1,0 +1,213 @@
+# Lithuanian translations for l package.
+# Copyright (C) 2014 This_file_is_part_of_KDE
+# This file is distributed under the same license as the l package.
+#
+# Automatically generated, 2014.
+# Liudas Ališauskas <liudas@aksioma.lt>, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: l 10n\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-03-16 20:58+0200\n"
+"Last-Translator: Liudas Ališauskas <liudas@aksioma.lt>\n"
+"Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
+"Language: lt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : n%10>=2 && (n%100<10 || n"
+"%100>=20) ? 1 : n%10==0 || (n%100>10 && n%100<20) ? 2 : 3);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Liudas Ališauskas"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "liudas@akmc.lt"
+
+#: imgurimageslist.cpp:50
+msgid "Thumbnail"
+msgstr "Miniatiūra"
+
+#: imgurimageslist.cpp:55
+msgid "Submission title"
+msgstr "Pateikimo pavadinimas"
+
+#: imgurimageslist.cpp:58
+msgid "Submission description"
+msgstr "Pateikimo aprašymas"
+
+#: imgurimageslist.cpp:61
+msgid "Imgur URL"
+msgstr "Imgur URL"
+
+#: imgurimageslist.cpp:64
+msgid "Imgur Delete URL"
+msgstr "Imgur šalinimo URL"
+
+#: imgurtalker.cpp:149
+msgid "Unexpected response from the web service"
+msgstr ""
+
+#: imgurtalker.cpp:166
+msgid "Upload failed"
+msgstr "Nusiuntimas nepavyko"
+
+#: imgurtalker.cpp:407
+msgid "Parse error"
+msgstr "Apdorojimo klaida"
+
+#: imgurtalkerauth.cpp:94
+msgid "Network error: timeout, cannot connect."
+msgstr ""
+
+#: imgurtalkerauth.cpp:97
+msgid "Request endpoint is not valid."
+msgstr ""
+
+#: imgurtalkerauth.cpp:100
+msgid "Request is not valid: some parameter missing?"
+msgstr ""
+
+#: imgurtalkerauth.cpp:103
+msgid "Authorization error: trying to access a resource without tokens."
+msgstr ""
+
+#: imgurtalkerauth.cpp:106
+msgid "The given request is invalid."
+msgstr ""
+
+#: imgurtalkerauth.cpp:109
+msgid "Manager error, cannot use for sending requests."
+msgstr ""
+
+#: imgurtalkerauth.cpp:113
+msgid "No error"
+msgstr "Nėra klaidos"
+
+#: imgurtalkerauth.cpp:249
+msgid "OK"
+msgstr "Gerai"
+
+#: imgurwidget.cpp:86
+msgid "This is a clickable link to open the Imgur home page in a web browser"
+msgstr ""
+
+#: imgurwidget.cpp:103
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: imgurwidget.cpp:104
+msgid "Export to Imgur"
+msgstr "Eksportuoti į Imgur"
+
+#: imgurwidget.cpp:112
+msgid "Imgur authorization"
+msgstr "Imgur autorizacija"
+
+#: imgurwidget.cpp:113
+msgid ""
+"Requesting Imgur for authorization to upload images with the KIPI Imgur "
+"Exporter plugin."
+msgstr ""
+
+#: imgurwidget.cpp:120
+msgid "Request authorization"
+msgstr "Paprašyti autorizacijos"
+
+#: imgurwidget.cpp:121
+msgid "Set permissions for the current application to upload images to Imgur."
+msgstr ""
+
+#: imgurwidget.cpp:229
+#, kde-format
+msgid "Processing %1"
+msgstr "Apdorojama %1"
+
+#: imgurwidget.cpp:275
+msgid "Authenticated"
+msgstr "Nustatyta tapatybė"
+
+#: imgurwindow.cpp:76
+msgid "Export to imgur.com"
+msgstr ""
+
+#: imgurwindow.cpp:80
+msgid "Upload"
+msgstr "Nusiųsti"
+
+#: imgurwindow.cpp:80
+msgid "Start upload to Imgur"
+msgstr ""
+
+#: imgurwindow.cpp:88
+msgid "Imgur Export"
+msgstr ""
+
+#: imgurwindow.cpp:91
+msgid "A tool to export images to Imgur web service"
+msgstr ""
+
+#: imgurwindow.cpp:92
+msgid "(c) 2012-2013, Marius Orcsik"
+msgstr ""
+
+#: imgurwindow.cpp:94
+msgid "Marius Orcsik"
+msgstr ""
+
+#: imgurwindow.cpp:94
+msgid "Author and Maintainer"
+msgstr "Autorius ir prižiūrėtojas"
+
+#: imgurwindow.cpp:97
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: imgurwindow.cpp:97
+msgid "Developer"
+msgstr "Programuotojas"
+
+#: imgurwindow.cpp:206
+#, kde-format
+msgid ""
+"Failed to upload photo to Imgur: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: imgurwindow.cpp:220
+#, kde-format
+msgid "Failed to upload photo to Imgur: %1\n"
+msgstr ""
+
+#: imgurwindow.cpp:238
+#, kde-format
+msgctxt "%1 is the error string"
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"%1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: imgurwindow.cpp:243
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"Do you want to continue?"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_imgurexportui.rc:7
+msgid "&Export"
+msgstr "&Eksportuoti"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_imgurexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Pagrindinė įrankinė"
+
+#: plugin_imgurexport.cpp:104
+msgid "Export to &Imgur..."
+msgstr ""

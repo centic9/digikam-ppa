@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-07-26 02:06+0000\n"
 "PO-Revision-Date: 2013-07-05 21:22+0200\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -24,10 +24,6 @@ msgstr "Úr Balázs"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "urbalazs@gmail.com"
-
-#: facebookjob.cpp:113
-msgid "Photos taken with KDE"
-msgstr "KDE-vel készített fényképek"
 
 #: fbalbum.cpp:47
 msgid "Facebook New Album"
@@ -89,19 +85,19 @@ msgctxt "new facebook album"
 msgid "Privacy:"
 msgstr "Adatvédelem:"
 
-#: fbtalker.cpp:190
+#: fbtalker.cpp:189
 msgid "Validate previous session..."
 msgstr "Előző munkamenet érvényesítése…"
 
-#: fbtalker.cpp:218
+#: fbtalker.cpp:217
 msgid "Upgrading to OAuth..."
 msgstr "Frissítés OAuth-ra…"
 
-#: fbtalker.cpp:270 fbtalker.cpp:479
+#: fbtalker.cpp:268
 msgid "Facebook Application Authorization"
 msgstr "Facebook alkalmazás felhatalmazás"
 
-#: fbtalker.cpp:275
+#: fbtalker.cpp:273
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -110,44 +106,37 @@ msgstr ""
 "internetcímet a böngészőből a lenti szövegdobozba és nyomja meg az „OK” "
 "gombot."
 
-#: fbtalker.cpp:340
+#: fbtalker.cpp:338
 msgid "Canceled by user."
 msgstr "Megszakítva a felhasználó által."
 
-#: fbtalker.cpp:477
-msgid ""
-"Please follow the instructions in the browser window. Press \"OK\" when done."
-msgstr ""
-"Kérjük kövesse a böngészőablakban lévő utasításokat. Nyomja meg az „OK” "
-"gombot, ha végzett."
-
-#: fbtalker.cpp:781
+#: fbtalker.cpp:644
 msgid "The service is not available at this time."
 msgstr "A szolgáltatás jelenleg nem elérhető."
 
-#: fbtalker.cpp:784
+#: fbtalker.cpp:647
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Az alkalmazás elérte a megengedett kérések maximális számát."
 
-#: fbtalker.cpp:787
+#: fbtalker.cpp:650
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "Érvénytelen munkamenetkulcs vagy a munkamenet lejárt. Próbáljon meg újra "
 "belépni."
 
-#: fbtalker.cpp:790
+#: fbtalker.cpp:653
 msgid "Invalid album ID."
 msgstr "Érvénytelen albumazonosító."
 
-#: fbtalker.cpp:793
+#: fbtalker.cpp:656
 msgid "Album is full."
 msgstr "Az album tele van."
 
-#: fbtalker.cpp:796
+#: fbtalker.cpp:659
 msgid "Missing or invalid file."
 msgstr "Hiányzó vagy érvénytelen fájl."
 
-#: fbtalker.cpp:799
+#: fbtalker.cpp:662
 msgid "Too many unapproved photos pending."
 msgstr "Túl sok jóváhagyás nélküli fénykép van függőben."
 
@@ -353,54 +342,74 @@ msgstr ""
 "webszolgáltatásba/webszolgáltatásból."
 
 #: fbwindow.cpp:125
+#, fuzzy
+#| msgid ""
+#| "(c) 2005-2008, Vardhman Jain\n"
+#| "(c) 2008-2012, Gilles Caulier\n"
+#| "(c) 2008-2009, Luka Renko"
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko"
+"(c) 2008-2009, Luka Renko\n"
+"(c) 2015 Shourya Singh Gupta"
 msgstr ""
 "© Vardhman Jain, 2005-2008.\n"
 "© Gilles Caulier, 2008-2012.\n"
 "© Luka Renko, 2008-2009."
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Author and maintainer"
 msgstr "Szerző és karbantartó"
 
-#: fbwindow.cpp:386 fbwindow.cpp:438
+#: fbwindow.cpp:132
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: fbwindow.cpp:132
+msgid "Developer"
+msgstr ""
+
+#: fbwindow.cpp:389 fbwindow.cpp:441
 msgid "&lt;auto create&gt;"
 msgstr "&lt;automatikus létrehozás&gt;"
 
-#: fbwindow.cpp:405 fbwindow.cpp:423 fbwindow.cpp:488 fbwindow.cpp:518
+#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "A Facebook-hívás nem sikerült: %1\n"
 
-#: fbwindow.cpp:433
+#: fbwindow.cpp:436
 msgctxt "name of special Facebook album for profile pictures"
 msgid "Profile Pictures"
 msgstr "Profilképek"
 
-#: fbwindow.cpp:608 fbwindow.cpp:633
+#: fbwindow.cpp:568
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#: fbwindow.cpp:618 fbwindow.cpp:643
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:612
+#: fbwindow.cpp:622
 msgid "Facebook import"
 msgstr "Facebook importálás"
 
-#: fbwindow.cpp:637
+#: fbwindow.cpp:647
 msgid "Facebook export"
 msgstr "Facebook exportálás"
 
-#: fbwindow.cpp:740 fbwindow.cpp:755
+#: fbwindow.cpp:750 fbwindow.cpp:765
 msgid "Cannot open file"
 msgstr "Nem nyitható meg a fájl"
 
-#: fbwindow.cpp:779
+#: fbwindow.cpp:789
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -409,7 +418,7 @@ msgstr ""
 "Nem sikerült feltölteni a fényképeket a Facebookba: %1\n"
 "Szeretné folytatni?"
 
-#: fbwindow.cpp:841
+#: fbwindow.cpp:851
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -418,7 +427,7 @@ msgstr ""
 "Nem sikerült elmenteni a fényképet: %1\n"
 "Szeretné folytatni?"
 
-#: fbwindow.cpp:855
+#: fbwindow.cpp:865
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -427,7 +436,7 @@ msgstr ""
 "Nem sikerült letölteni a fényképet: %1\n"
 "Szeretné folytatni?"
 
-#: fbwindow.cpp:873
+#: fbwindow.cpp:883
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "A Facebook-hívás nem sikerült: %1"
@@ -447,10 +456,20 @@ msgstr "&Exportálás"
 msgid "Main Toolbar"
 msgstr "Fő eszköztár"
 
-#: plugin_facebook.cpp:101
+#: plugin_facebook.cpp:100
 msgid "Export to &Facebook..."
 msgstr "Exportálás a &Facebookra…"
 
-#: plugin_facebook.cpp:111
+#: plugin_facebook.cpp:110
 msgid "Import from &Facebook..."
 msgstr "Importálás a &Facebookról…"
+
+#~ msgid ""
+#~ "Please follow the instructions in the browser window. Press \"OK\" when "
+#~ "done."
+#~ msgstr ""
+#~ "Kérjük kövesse a böngészőablakban lévő utasításokat. Nyomja meg az „OK” "
+#~ "gombot, ha végzett."
+
+#~ msgid "Photos taken with KDE"
+#~ msgstr "KDE-vel készített fényképek"

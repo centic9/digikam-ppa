@@ -1,18 +1,18 @@
 # Translation of kipiplugin_sendimages.po to Brazilian Portuguese
-# Copyright (C) 2004-2014 This_file_is_part_of_KDE
+# Copyright (C) 2004-2015 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Anderson Carlos Daniel Sanches <anderson@ime.usp.br>, 2004.
 # Marcus Gama <marcus_gama@uol.com.br>, 2005.
 # Jose Monteiro <jf.monteiro@yahoo.com>, 2007.
-# André Marcelo Alvarenga <alvarenga@kde.org>, 2008, 2009, 2011, 2012, 2013, 2014.
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2008, 2009, 2011, 2012, 2013, 2014, 2015.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-29 01:50+0000\n"
-"PO-Revision-Date: 2014-11-29 10:09-0200\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2015-06-19 07:32-0300\n"
 "Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
 "Language: pt_BR\n"
@@ -87,19 +87,23 @@ msgstr "%1 foi redimensionado com sucesso"
 msgid "Failed to resize %1: %2"
 msgstr "Falha ao redimensionar %1: %2"
 
-#: sendimages.cpp:257
+#: sendimages.cpp:250
+msgid "There are no files to send"
+msgstr "Não há arquivos para enviar"
+
+#: sendimages.cpp:268
 msgid "Build images properties file"
 msgstr "Construir o arquivo de propriedades das imagens"
 
-#: sendimages.cpp:270
+#: sendimages.cpp:281
 msgid "no caption"
 msgstr "sem legendas"
 
-#: sendimages.cpp:273
+#: sendimages.cpp:284
 msgid "no keywords"
 msgstr "sem palavras-chave"
 
-#: sendimages.cpp:275
+#: sendimages.cpp:286
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -108,30 +112,30 @@ msgstr ""
 "Arquivo \"%1\":\n"
 "Imagens originais: %2\n"
 
-#: sendimages.cpp:278
+#: sendimages.cpp:289
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Comentários: %1\n"
 
-#: sendimages.cpp:281
+#: sendimages.cpp:292
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Etiquetas: %1\n"
 
-#: sendimages.cpp:284
+#: sendimages.cpp:295
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Avaliação: %1\n"
 
-#: sendimages.cpp:289
+#: sendimages.cpp:300
 msgid "properties.txt"
 msgstr "propriedades.txt"
 
-#: sendimages.cpp:298
+#: sendimages.cpp:309
 msgid "Image properties file done"
 msgstr "O arquivo de propriedades das imagens está concluído"
 
-#: sendimages.cpp:315
+#: sendimages.cpp:326
 msgid ""
 "The images listed below cannot be resized.\n"
 "Do you want them to be added as attachments (without resizing)?"
@@ -139,11 +143,11 @@ msgstr ""
 "As imagens listadas abaixo não podem ser redimensionadas.\n"
 "Deseja adicioná-las como anexos (sem redimensionar)?"
 
-#: sendimages.cpp:319
+#: sendimages.cpp:330
 msgid "Failed to resize images"
 msgstr "Falha ao redimensionar as imagens"
 
-#: sendimages.cpp:378
+#: sendimages.cpp:389
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -152,61 +156,66 @@ msgstr ""
 "O arquivo \"%1\" é muito grande para ser enviado. Reduza o tamanho ou altere "
 "as suas configurações"
 
-#: sendimages.cpp:426
+#: sendimages.cpp:437
 msgid "Starting default KDE email program..."
 msgstr "Iniciando o programa de e-mail padrão do KDE..."
 
-#: sendimages.cpp:648
+#: sendimages.cpp:659
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Não foi possível iniciar o programa \"%1\". Verifique o seu sistema."
 
-#: sendimages.cpp:661
+#: sendimages.cpp:672
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Iniciando o programa \"%1\"..."
 
-#: sendimages.cpp:671
+#: sendimages.cpp:682
 msgid "After having sent your images by email..."
 msgstr "Após ter enviado as suas imagens por e-mail..."
 
-#: sendimages.cpp:672
+#: sendimages.cpp:683
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "Pressione o botão 'Fechar' para limpar os arquivos temporários"
 
-#: sendimagesdialog.cpp:83
+#: sendimagesdialog.cpp:85
 msgid "Email Images Options"
 msgstr "Opções das imagem por e-mail"
 
-#: sendimagesdialog.cpp:105
+#: sendimagesdialog.cpp:90
+msgctxt "@action:button"
+msgid "&Send"
+msgstr "&Enviar"
+
+#: sendimagesdialog.cpp:110
 msgid "Send Images"
 msgstr "Enviar imagens"
 
-#: sendimagesdialog.cpp:108
+#: sendimagesdialog.cpp:113
 msgid "A plugin to e-mail items"
 msgstr "Plugin para enviar itens por e-mail"
 
-#: sendimagesdialog.cpp:109
+#: sendimagesdialog.cpp:114
 msgid "(c) 2003-2013, Gilles Caulier"
 msgstr "(c) 2003-2013, Gilles Caulier"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Author and Maintainer"
 msgstr "Autor e mantenedor"
 
-#: sendimagesdialog.cpp:114
+#: sendimagesdialog.cpp:119
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
-#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:119 sendimagesdialog.cpp:122
 msgid "Developer"
 msgstr "Desenvolvedor"
 
-#: sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:122
 msgid "Tom Albers"
 msgstr "Tom Albers"
 

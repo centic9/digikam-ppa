@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-06-05 01:54+0000\n"
 "PO-Revision-Date: 2012-07-09 11:16+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -107,110 +107,114 @@ msgstr "បន្ថែម​ស្លាក​ខាងក្រៅ​ចំ​
 msgid "Enter extra tags, separated by commas."
 msgstr "បញ្ចូល​ស្លាក់​បន្ថែម​​ ដោយ​សញ្ញា​ក្បៀស​ដែល​​បំបែក​ដោយ​ឡែក​ ។​​"
 
-#: flickrtalker.cpp:211
+#: flickrtalker.cpp:196
+msgid "Getting the maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:262
 msgid "Getting the Frob"
 msgstr "បាន​យក​​ Frob​"
 
-#: flickrtalker.cpp:257
+#: flickrtalker.cpp:308
 msgid "Checking if previous token is still valid"
 msgstr "ធីក​ បើ​ថូខឹន​មុន​នៅ​តែ​ត្រឹមត្រូវ​​"
 
-#: flickrtalker.cpp:283
+#: flickrtalker.cpp:334
 msgid ""
 "Please follow the instructions in the browser window, then return to press "
 "corresponding button."
 msgstr "សូម​អនុវត្ត​តាម​សេចក្ដីណែនាំ​នៅ​ក្នុង​បង្អួច​កម្មវិធី​រុក​រក​ បន្ទាប់​មក​ត្រឡប់​ទៅ​ចុច​ប៊ូតុង​ដែល​ត្រូវគ្នា ។"
 
-#: flickrtalker.cpp:285
+#: flickrtalker.cpp:336
 #, kde-format
 msgid "%1 Service Web Authorization"
 msgstr "សេចក្ដី​អនុញ្ញាត​បណ្ដាញ​សេវា​ %1 ​​"
 
-#: flickrtalker.cpp:286
+#: flickrtalker.cpp:337
 msgid "I am authenticated"
 msgstr "ខ្ញុំ​ត្រូវ​បាន​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ"
 
-#: flickrtalker.cpp:287
+#: flickrtalker.cpp:338
 msgid "I am not authenticated"
 msgstr "ខ្ញុំ​មិន​ត្រូវ​បាន​ផ្ទៀងផ្ទាត់​ភាព​ត្រឹមត្រូវ"
 
-#: flickrtalker.cpp:292
+#: flickrtalker.cpp:343
 msgid "Authenticating the User on web"
 msgstr "ផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្រូវ​អ្នកប្រើ​លើ​បណ្ដាញ​​"
 
-#: flickrtalker.cpp:345
+#: flickrtalker.cpp:396
 msgid "Getting the Token from the server"
 msgstr "ទទួល​យក​ថូខឹន​ពី​ម៉ាស៊ីន​បម្រើ​​"
 
-#: flickrtalker.cpp:731
+#: flickrtalker.cpp:787
 msgid "No photo specified"
 msgstr "គ្មាន​រូបថត​ដែល​បាន​បញ្ជាក់​​ឡើយ​"
 
-#: flickrtalker.cpp:735
+#: flickrtalker.cpp:791
 msgid "General upload failure"
 msgstr "ភាព​បរាជ័យ​ផ្ទុក​ឡើង​ទូទៅ​​"
 
-#: flickrtalker.cpp:739
+#: flickrtalker.cpp:795
 msgid "Filesize was zero"
 msgstr "ទំហំ​ឯកសារ​សូន្យ​"
 
-#: flickrtalker.cpp:743
+#: flickrtalker.cpp:799
 msgid "Filetype was not recognized"
 msgstr "ប្រភេទ​ឯកសារ​មិន​ត្រូវ​បាន​ទទួល​ស្គាល់​​"
 
-#: flickrtalker.cpp:747
+#: flickrtalker.cpp:803
 msgid "User exceeded upload limit"
 msgstr "ព្រំដែន​ផ្ទុក​ឡើង​លើស​អ្នក​ប្រើ​"
 
-#: flickrtalker.cpp:751
+#: flickrtalker.cpp:807
 msgid "Invalid signature"
 msgstr "ហត្ថលេខា​មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:755
+#: flickrtalker.cpp:811
 msgid "Missing signature"
 msgstr "បាត់​ហត្ថលេខា​"
 
-#: flickrtalker.cpp:759
+#: flickrtalker.cpp:815
 msgid "Login Failed / Invalid auth token"
 msgstr "ចូល​បាន​បរាជ័យ​​ / ផ្ទៀង​ផ្ទាត់​​ថូខឹន​មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:763
+#: flickrtalker.cpp:819
 msgid "Invalid API Key"
 msgstr "សោ​​ API ​មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:767
+#: flickrtalker.cpp:823
 msgid "Service currently unavailable"
 msgstr "គ្មាន​សេវា​ពេល​បច្ចុប្បន្ន​​"
 
-#: flickrtalker.cpp:771
+#: flickrtalker.cpp:827
 msgid "Invalid Frob"
 msgstr "Frob មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:775
+#: flickrtalker.cpp:831
 msgid "Format \"xxx\" not found"
 msgstr "រក​មិន​ឃើញ​​ទ្រង់ទ្រាយ​​ \"xxx\" ​"
 
-#: flickrtalker.cpp:779
+#: flickrtalker.cpp:835
 msgid "Method \"xxx\" not found"
 msgstr "រក​មិន​ឃើញ​​វិធីសាស្ត្រ​ \"xxx\"​"
 
-#: flickrtalker.cpp:783
+#: flickrtalker.cpp:839
 msgid "Invalid SOAP envelope"
 msgstr "​SOAP envelope មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:843
 msgid "Invalid XML-RPC Method Call"
 msgstr "ហៅ​វិធីសាស្ត្រ​ XML-RPC មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:847
 msgid "The POST method is now required for all setters"
 msgstr "ឥឡូវ​ វិធីសាស្ត្រ​ POST ត្រូវ​បាន​ទាមទារ​ សម្រាប់ setters ទាំងអស់​"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:851
 msgid "Unknown error"
 msgstr "មិន​ស្គាល់​កំហុស​"
 
-#: flickrtalker.cpp:800
+#: flickrtalker.cpp:856
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -219,38 +223,38 @@ msgstr ""
 "កំហុស​បាន​កើត​ឡើង​ ៖​​ %1\n"
 "មិន​អាច​ធ្វើ​បន្ត​ទៀត​ឡើយ​ ។"
 
-#: flickrtalker.cpp:968
+#: flickrtalker.cpp:1076
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "សរសេរ​"
 
-#: flickrtalker.cpp:972
+#: flickrtalker.cpp:1080
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "អាន​"
 
-#: flickrtalker.cpp:976
+#: flickrtalker.cpp:1084
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "លុប​"
 
-#: flickrtalker.cpp:1007
+#: flickrtalker.cpp:1115
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr "Your token is invalid. Would you like to get a new token to proceed?\n"
 
-#: flickrtalker.cpp:1165
+#: flickrtalker.cpp:1273
 msgid "PhotoSet creation failed: "
 msgstr "បាន​បរាជ័យ​​ការ​បង្កើត​ PhotoSet ៖"
 
-#: flickrtalker.cpp:1260
+#: flickrtalker.cpp:1368
 msgid "Failed to fetch list of photo sets."
 msgstr "បាន​បរាជ័យ​ ដើម្បី​ប្រ​មូល​យក​​បញ្ជី​សំណុំ​រូប​ថត​ ។​"
 
-#: flickrtalker.cpp:1339
+#: flickrtalker.cpp:1448
 msgid "Failed to upload photo"
 msgstr "បាន​បរាជ័យ​ ដើម្បី​ផ្ទុក​រូបថត​ឡើង​​"
 
-#: flickrtalker.cpp:1407
+#: flickrtalker.cpp:1516
 msgid "Failed to query photo information"
 msgstr "បាន​បរាជ័យ​ ដើម្បី​សួរ​ព័ត៌មាន​រូបថត​"
 
@@ -324,17 +328,17 @@ msgctxt "photo safety level"
 msgid "Restricted"
 msgstr "ដែល​ត្រូវ​បាន​កម្រិត​"
 
-#: flickrwidget.cpp:153 flickrwidget.cpp:288
+#: flickrwidget.cpp:153 flickrwidget.cpp:292
 msgctxt "photo content type"
 msgid "Photo"
 msgstr "រូបថត​"
 
-#: flickrwidget.cpp:154 flickrwidget.cpp:289
+#: flickrwidget.cpp:154 flickrwidget.cpp:293
 msgctxt "photo content type"
 msgid "Screenshot"
 msgstr "រូបថត​អេក្រង់​"
 
-#: flickrwidget.cpp:155 flickrwidget.cpp:290
+#: flickrwidget.cpp:155 flickrwidget.cpp:294
 msgctxt "photo content type"
 msgid "Other"
 msgstr "ផ្សេងទៀត​"
@@ -348,152 +352,158 @@ msgctxt "account settings"
 msgid "Username: "
 msgstr "ឈ្មោះ​អ្នក​ប្រើ​ ៖​"
 
-#: flickrwidget.cpp:186
+#: flickrwidget.cpp:187
 msgid "Use a different account"
 msgstr "ប្រើ​គណនី​ខុស​គ្នា​"
 
-#: flickrwidget.cpp:189
+#: flickrwidget.cpp:191
+#, fuzzy
+#| msgid "Account"
+msgid "Remove Account"
+msgstr "គណនី​"
+
+#: flickrwidget.cpp:194
 msgid "PhotoSet:"
 msgstr "PhotoSet:"
 
-#: flickrwidget.cpp:192
+#: flickrwidget.cpp:196
 msgid "&New PhotoSet"
 msgstr "PhotoSet ថ្មី​"
 
-#: flickrwidget.cpp:195
+#: flickrwidget.cpp:198
 msgid "&Reload"
 msgstr ""
 
-#: flickrwidget.cpp:211
+#: flickrwidget.cpp:215
 msgid "Tag options"
 msgstr "ជម្រើស​ស្លាក​"
 
-#: flickrwidget.cpp:215
+#: flickrwidget.cpp:219
 msgid "Use Host Application Tags"
 msgstr "ប្រើ​ស្លាក​កម្មវិធី​ម៉ាស៊ីន​"
 
-#: flickrwidget.cpp:217 flickrwidget.cpp:641
+#: flickrwidget.cpp:221 flickrwidget.cpp:645
 msgid "More tag options"
 msgstr "ជម្រើស​ស្លាក​បន្ថែម​"
 
-#: flickrwidget.cpp:231
+#: flickrwidget.cpp:235
 msgid "Added Tags: "
 msgstr "ស្លាក​ដែល​បាន​បន្ថែម​ ៖"
 
-#: flickrwidget.cpp:233
+#: flickrwidget.cpp:237
 msgid "Enter new tags here, separated by commas."
 msgstr "បញ្ចូល​ស្លាក​​ថ្មី​ទីនេះ​ បំបែក​ដោយ​​សញ្ញា​ក្បៀស​ ។​"
 
-#: flickrwidget.cpp:235
+#: flickrwidget.cpp:239
 msgid "Add tags per image"
 msgstr "បន្ថែម​ស្លាក​​លើ​រូប​ភាព​"
 
-#: flickrwidget.cpp:236
+#: flickrwidget.cpp:240
 msgid "If checked, you can set extra tags for each image in the File List tab"
 msgstr "ប្រ​សិន​បើ​ធីក ​អ្នក​អាច​កំណត់​ស្លា​បន្ថែម​ ​សម្រាប់​រូបភាព​នីមួយៗ​​ក្នុង​ផ្ទាំង​បញ្ជី​ឯកសារ​​"
 
-#: flickrwidget.cpp:240
+#: flickrwidget.cpp:244
 msgid "Strip Spaces From Tags"
 msgstr "ច្បូត​ទំហំ​ពីស្លាក"
 
-#: flickrwidget.cpp:253
+#: flickrwidget.cpp:257
 msgid "Publication Options"
 msgstr "ជម្រើស​ការ​បោះពុម្ពផ្សាយ​"
 
-#: flickrwidget.cpp:258
+#: flickrwidget.cpp:262
 msgctxt "As in accessible for people"
 msgid "Public (anyone can see them)"
 msgstr "សាធារណៈ​​ (អ្នករាល់គ្នា​អាច​មើល​វា​​ឃើញ​)"
 
-#: flickrwidget.cpp:261
+#: flickrwidget.cpp:265
 msgid "Visible to Family"
 msgstr "គ្រួសារ​អាច​មើល​ឃើញ​​"
 
-#: flickrwidget.cpp:264
+#: flickrwidget.cpp:268
 msgid "Visible to Friends"
 msgstr "មិត្តភ័ក្ដិ​អាច​មើល​ឃើញ​​"
 
-#: flickrwidget.cpp:267 flickrwidget.cpp:628
+#: flickrwidget.cpp:271 flickrwidget.cpp:632
 msgid "More publication options"
 msgstr "ជម្រើស​ការ​បោះពុម្ពផ្សាយ​បន្ថែម​"
 
-#: flickrwidget.cpp:280
+#: flickrwidget.cpp:284
 msgid "Safety level:"
 msgstr "កម្រិត​សុវត្ថិភាព​ ៖​"
 
-#: flickrwidget.cpp:282
+#: flickrwidget.cpp:286
 msgid "Safe"
 msgstr "សុវត្ថិភាព​"
 
-#: flickrwidget.cpp:283
+#: flickrwidget.cpp:287
 msgid "Moderate"
 msgstr "ល្មម​"
 
-#: flickrwidget.cpp:284
+#: flickrwidget.cpp:288
 msgid "Restricted"
 msgstr "ដែល​ត្រូវ​បាន​កម្រិត​"
 
-#: flickrwidget.cpp:286
+#: flickrwidget.cpp:290
 msgid "Content type:"
 msgstr "ប្រភេទ​មាតិកា ៖"
 
-#: flickrwidget.cpp:307
+#: flickrwidget.cpp:311
 msgid "Resizing Options"
 msgstr "ជម្រើស​ប្ដូរ​ទំហំ​"
 
-#: flickrwidget.cpp:312
+#: flickrwidget.cpp:316
 msgid "Send original file (no resizing)"
 msgstr "ផ្ញើ​ឯកសារ​ដើម (មិន​ប្ដូរ​ទំហំ)"
 
-#: flickrwidget.cpp:316
+#: flickrwidget.cpp:320
 msgid "Resize photos before uploading"
 msgstr "ប្ដូរ​ទំហំ​រូបថត​ មុន​ពេល​ការ​ផ្ទុក​ឡើង​​"
 
-#: flickrwidget.cpp:328
+#: flickrwidget.cpp:332
 msgid "Maximum dimension (pixels):"
 msgstr "វិមាត្រ​អតិបរមា​ (ភីកសែល​​) ៖"
 
-#: flickrwidget.cpp:337
+#: flickrwidget.cpp:341
 msgid "JPEG Image Quality (higher is better):"
 msgstr "គុណភាព​រូបភាព​របស់​ JPEG ​(ល្អ​ប្រសើរ​ជាង​) ៖​"
 
-#: flickrwidget.cpp:367
+#: flickrwidget.cpp:371
 msgid "File List"
 msgstr "បញ្ជី​ឯកសារ​"
 
-#: flickrwidget.cpp:368
+#: flickrwidget.cpp:372
 msgid "Upload Options"
 msgstr "ជម្រើស​ផ្ទុក​ឡើង​"
 
-#: flickrwidget.cpp:624
+#: flickrwidget.cpp:628
 msgid "Fewer publication options"
 msgstr "ជម្រើស​ការ​បោះពុម្ពផ្សាយ​តិច​ជាង​"
 
-#: flickrwidget.cpp:646
+#: flickrwidget.cpp:650
 msgid "Fewer tag options"
 msgstr "ជម្រើស​ស្លាក​​តិច​ជាង​"
 
-#: flickrwindow.cpp:81
+#: flickrwindow.cpp:82
 #, kde-format
 msgid "Export to %1 Web Service"
 msgstr "នាំចេញ​ទៅ​ជា​សេវា​បណ្ដាញ %1"
 
-#: flickrwindow.cpp:126
+#: flickrwindow.cpp:137
 msgid "Start Uploading"
 msgstr "ចាប់​ផ្ដើម​ការ​ផ្ទុក​ឡើង​"
 
-#: flickrwindow.cpp:138
+#: flickrwindow.cpp:149
 msgid "Flickr/23/Zooomr Export"
 msgstr "នាំចេញ​ Flickr/23/Zooomr ​"
 
-#: flickrwindow.cpp:141
+#: flickrwindow.cpp:152
 msgid ""
 "A Kipi plugin to export an image collection to a Flickr / 23 / Zooomr web "
 "service."
 msgstr ""
 "កម្មវិធី​ជំនួយ​ Kipi សម្រាប់​នាំ​ចេញ​សម្រាំង​រូបភាព​ទៅ​កាន់​សេវា​បណ្ដាញ Flickr / 23 / Zooomr​ ។"
 
-#: flickrwindow.cpp:143
+#: flickrwindow.cpp:154
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -508,36 +518,36 @@ msgstr ""
 "រក្សាសិទ្ធិ​ឆ្នាំ​ ២០០៨​-២០១២​​ ដោយ Gilles Caulier\n"
 "រក្សាសិទ្ធិ​ឆ្នាំ​ ២០០៩ ដោយ​ Luka Renko"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Author and maintainer"
 msgstr "អ្នក​និពន្ធ​ និង​អ្នក​ថែទាំ​​"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Developer"
 msgstr "អ្នក​អភិវឌ្ឍន៍​​​"
 
-#: flickrwindow.cpp:576
+#: flickrwindow.cpp:638
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;ស្ទ្រីម​រូប​ថត​តែ​ប៉ុណ្ណោះ​​&gt;​"
 
-#: flickrwindow.cpp:764
+#: flickrwindow.cpp:837
 msgid "Flickr Export"
 msgstr "ការ​នាំចេញ​ Flickr"
 
-#: flickrwindow.cpp:782
+#: flickrwindow.cpp:856
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Failed to Fetch Photoset information from %1. %2\n"
 
-#: flickrwindow.cpp:787
+#: flickrwindow.cpp:861
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -567,14 +577,22 @@ msgstr "ឈ្មោះ​អ្នក​ប្រើ​ ៖​"
 msgid "Password:"
 msgstr "ពាក្យ​សម្ងាត់​ ៖​"
 
-#: plugin_flickrexport.cpp:103
+#: plugin_flickrexport.cpp:104
 msgid "Export to Flick&r..."
 msgstr "នាំចេញ​ទៅកាន់​​ Flick&r..."
 
-#: plugin_flickrexport.cpp:113
+#: plugin_flickrexport.cpp:116
 msgid "Export to &23..."
 msgstr "នាំចេញ​ទៅកាន់​ &23..."
 
-#: plugin_flickrexport.cpp:123
+#: plugin_flickrexport.cpp:128
 msgid "Export to &Zooomr..."
 msgstr "នាំចេញ​ទៅកាន់​​ &Zooomr..."
+
+#: selectuserdlg.cpp:48
+msgid "Flickr Account Selector"
+msgstr ""
+
+#: selectuserdlg.cpp:54
+msgid "Add another account"
+msgstr ""

@@ -1,14 +1,14 @@
 # Translation of kipiplugin_removeredeyes into Japanese.
 # This file is distributed under the same license as the kipi-plugins package.
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2008, 2009.
-#
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_removeredeyes\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2009-02-20 00:11+0900\n"
-"Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
+"POT-Creation-Date: 2015-06-04 01:56+0000\n"
+"PO-Revision-Date: 2015-06-14 16:09-0700\n"
+"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Language: ja_JP\n"
+"X-Source-Language: C\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -109,12 +111,12 @@ msgstr ""
 #. i18n: ectx: Menu (Tools)
 #: plugin/kipiplugin_removeredeyesui.rc:7
 msgid "&Tools"
-msgstr ""
+msgstr "ツール(&T)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_removeredeyesui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "メインツールバー"
 
 #: plugin/plugin_removeredeyes.cpp:90
 #, fuzzy
@@ -170,7 +172,7 @@ msgstr "テスト(&T)"
 
 #: plugin/removeredeyeswindow.cpp:204
 msgid "Simulate the correction process, without saving the results."
-msgstr "結果を保存せずに修正をシミュレートします"
+msgstr "結果を保存せずに修正をシミュレートします。"
 
 #: plugin/removeredeyeswindow.cpp:234
 msgctxt "The total number of images in the list"
@@ -197,7 +199,7 @@ msgstr "ファイルのリスト"
 msgid "Settings"
 msgstr "設定"
 
-#: plugin/removeredeyeswindow.cpp:401
+#: plugin/removeredeyeswindow.cpp:404
 #, fuzzy
 #| msgid ""
 #| "<p>You choose the <b>'overwrite' correction mode</b>!<br/>Are you sure "
@@ -209,11 +211,11 @@ msgstr ""
 "<p><interface>上書きモード</interface>を選択しました。<br/>元の画像が失われま"
 "すが、本当によろしいですか？</p>"
 
-#: plugin/removeredeyeswindow.cpp:404
+#: plugin/removeredeyeswindow.cpp:407
 msgid "Overwrite mode"
 msgstr "上書きモード"
 
-#: plugin/removeredeyeswindow.cpp:607
+#: plugin/removeredeyeswindow.cpp:610
 #, fuzzy
 #| msgid ""
 #| "<p>Some of the images could not be analyzed with the current settings or "
@@ -227,11 +229,11 @@ msgstr ""
 "<p>現在の設定で分析できないか、赤目が含まれていない画像があります。</p><p>こ"
 "れらの画像をリストから削除しますか？</p>"
 
-#: plugin/removeredeyeswindow.cpp:613
+#: plugin/removeredeyeswindow.cpp:616
 msgid "Remove unprocessed images?"
 msgstr "処理されなかった画像を削除しますか？"
 
-#: plugin/removeredeyeswindow.cpp:648
+#: plugin/removeredeyeswindow.cpp:651
 #, fuzzy
 #| msgid ""
 #| "<p>You tried to add <b>RAW images</b> to the plugin,<br/>but those "
@@ -245,28 +247,28 @@ msgstr ""
 "<p>RAW 画像を追加しようとしましたが、これらのファイルタイプはサポートされてい"
 "ません。</p><p>自動的にリストから削除しました。</p>"
 
-#: plugin/removeredeyeswindow.cpp:652
+#: plugin/removeredeyeswindow.cpp:655
 msgid "RAW images found"
 msgstr "RAW 画像を検出"
 
-#: plugin/removeredeyeswindow.cpp:730
-#, kde-format
+#: plugin/removeredeyeswindow.cpp:733
+#, fuzzy, kde-format
 msgid "<p>%1 image has been successfully processed.</p>"
 msgid_plural "<p>%1 images have been successfully processed.</p>"
 msgstr[0] "<p>%1 画像を処理しました。</p>"
 msgstr[1] "<p>%1 画像を処理しました。</p>"
 
-#: plugin/removeredeyeswindow.cpp:733
+#: plugin/removeredeyeswindow.cpp:736
 #, fuzzy
 #| msgid "<h2>Correction Complete!</h2>"
 msgid "<h2>Correction Complete</h2>"
 msgstr "<h2>修正完了!</h2>"
 
-#: plugin/removeredeyeswindow.cpp:735
+#: plugin/removeredeyeswindow.cpp:738
 msgid "Correction Complete"
 msgstr "修正完了"
 
-#: plugin/removeredeyeswindow.cpp:772
+#: plugin/removeredeyeswindow.cpp:775
 #, fuzzy
 #| msgid ""
 #| "<h2>No locator has been loaded.<br/>The plugin is not executable.</h2>"
@@ -317,7 +319,7 @@ msgstr "<h2>プレビューを生成中...</h2>"
 #: widgets/previewwidget.cpp:214
 #, kde-format
 msgid "<p>Can not open preview image<br/>'%1'</p>."
-msgstr "<p>プレビュー画像を開けません<br/><filename>%1</filename></p>"
+msgstr "<p>プレビュー画像を開けません<br/>'%1'</p>."
 
 #: widgets/previewwidget.cpp:216
 msgid "Error loading preview file"
@@ -450,25 +452,20 @@ msgid "&Keep in file list"
 msgstr "ファイルリストに残す(&K)"
 
 #: widgets/unprocessedsettingsbox.cpp:82
-#, fuzzy
-#| msgid ""
-#| "If checked, unprocessed images will be kept in the file list after the "
-#| "testrun."
 msgid ""
 "If checked, unprocessed images will be kept in the file list after the test-"
 "run."
-msgstr "テストで処理されなかった画像をテスト後もリストに残します。"
+msgstr ""
+"チェックすると、テストで処理されなかった画像をテスト後もリストに残します。"
 
 #: widgets/unprocessedsettingsbox.cpp:86
 msgid "&Remove from file list"
 msgstr "ファイルリストから削除する(&R)"
 
 #: widgets/unprocessedsettingsbox.cpp:87
-#, fuzzy
-#| msgid ""
-#| "If checked, unprocessed images will be removed from the file list after "
-#| "the testrun."
 msgid ""
 "If checked, unprocessed images will be removed from the file list after the "
 "test-run."
-msgstr "テストで処理されなかった画像をテスト後にリストから削除します。"
+msgstr ""
+"チェックすると、テストで処理されなかった画像をテスト後にリストから削除しま"
+"す。"

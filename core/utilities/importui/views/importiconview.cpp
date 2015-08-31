@@ -55,10 +55,14 @@ namespace Digikam
 ImportIconView::ImportIconView(QWidget* const parent)
     : ImportCategorizedView(parent), d(new Private(this))
 {
-}
+    ImportThumbnailModel* model    = new ImportThumbnailModel(this);
+    ImportFilterModel* filterModel = new ImportFilterModel(this);
 
-void ImportIconView::init()
-{
+    filterModel->setSourceImportModel(model);
+    filterModel->sort(0); // an initial sorting is necessary
+
+    setModels(model, filterModel);
+
     d->normalDelegate              = new ImportNormalDelegate(this);
 
     setItemDelegate(d->normalDelegate);
@@ -336,9 +340,9 @@ void ImportIconView::showContextMenuOnInfo(QContextMenuEvent* event, const CamIt
     cmhelper.addAction("importui_selectinvert");
     cmhelper.addSeparator();
     // --------------------------------------------------------
-    cmhelper.addAssignTagsMenu(selectedItemIDs);
-    cmhelper.addRemoveTagsMenu(selectedItemIDs);
-    cmhelper.addSeparator();
+    //cmhelper.addAssignTagsMenu(selectedItemIDs);
+    //cmhelper.addRemoveTagsMenu(selectedItemIDs);
+    //cmhelper.addSeparator();
     // --------------------------------------------------------
     cmhelper.addLabelsAction();
     //if (!d->faceMode)
@@ -348,15 +352,15 @@ void ImportIconView::showContextMenuOnInfo(QContextMenuEvent* event, const CamIt
 
     // special action handling --------------------------------
 
-    connect(&cmhelper, SIGNAL(signalAssignTag(int)),
-            this, SLOT(assignTagToSelected(int)));
+    //connect(&cmhelper, SIGNAL(signalAssignTag(int)),
+            //this, SLOT(assignTagToSelected(int)));
 
     //TODO: Implement tag view for import tool.
-    connect(&cmhelper, SIGNAL(signalPopupTagsView()),
-            this, SIGNAL(signalPopupTagsView()));
+    //connect(&cmhelper, SIGNAL(signalPopupTagsView()),
+            //this, SIGNAL(signalPopupTagsView()));
 
-    connect(&cmhelper, SIGNAL(signalRemoveTag(int)),
-            this, SLOT(removeTagFromSelected(int)));
+    //connect(&cmhelper, SIGNAL(signalRemoveTag(int)),
+            //this, SLOT(removeTagFromSelected(int)));
 
     //connect(&cmhelper, SIGNAL(signalGotoTag(int)),
             //this, SIGNAL(gotoTagAndImageRequested(int)));

@@ -25,7 +25,7 @@ override_dh_auto_configure:
 	  -DDIGIKAMSC_COMPILE_PO=on \
 	  -DENABLE_LCMS2=ON \
 	  -DKDE4_BUILD_TESTS=OFF \
-	  -DDIGIKAMSC_COMPILE_LIBKGEOMAP=ON \
+	  -DDIGIKAMSC_COMPILE_LIBKGEOMAP=OFF \
 	  -DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=ON \
 	  -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=ON \
 	  $(EXTRA_CMAKE_ARGS)
@@ -50,8 +50,6 @@ override_dh_shlibdeps:
 	dh_shlibdeps -l$(CURDIR)/debian/digikam-private-libs/$(PRIVATE_LIBDIR):$(CURDIR)/debian/kipi-plugins/$(PRIVATE_LIBDIR)
 
 override_dh_gencontrol:
-	dh_gencontrol -plibkgeomap2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkgeomap-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibmediawiki1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkvkontakte1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol --remaining-packages -- -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
@@ -59,12 +57,11 @@ override_dh_gencontrol:
 override_dh_strip:
 	# Don't include the libraries in the debug package to prevent file conflicts
 	# in the future. We have -dbgsym packages anyway.
-	dh_strip -plibkface2 -plibkgeomap2 -plibmediawiki1 -plibkvkontakte1
+	dh_strip -plibmediawiki1 -plibkvkontakte1
 	dh_strip --remaining-packages --dbg-package=digikam-dbg
 
 override_dh_makeshlibs:
 	dh_makeshlibs -plibkface2 -V 'libkface2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
-	dh_makeshlibs -plibkgeomap2 -V 'libkgeomap2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibmediawiki1 -V 'libmediawiki1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkvkontakte1 -V 'libkvkontakte1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs --remaining-packages

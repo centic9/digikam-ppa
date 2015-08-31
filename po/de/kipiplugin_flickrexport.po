@@ -1,14 +1,14 @@
 # Oliver Dörr <kde@doerr-privat.de>, 2008, 2009.
-# Burkhard Lück <lueck@hube-lueck.de>, 2009, 2011, 2012, 2013.
+# Burkhard Lück <lueck@hube-lueck.de>, 2009, 2011, 2012, 2013, 2015.
 # Panagiotis Papadopoulos <pano_90@gmx.net>, 2009, 2010.
 # Frederik Schwarzer <schwarzer@kde.org>, 2010, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-07-03 20:07+0200\n"
-"Last-Translator: Frederik Schwarzer <schwarzer@kde.org>\n"
+"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"PO-Revision-Date: 2015-05-19 22:02+0200\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
@@ -112,15 +112,19 @@ msgstr ""
 msgid "Enter extra tags, separated by commas."
 msgstr "Geben Sie hier durch Komma getrennte, zusätzliche Stichwörter ein."
 
-#: flickrtalker.cpp:211
+#: flickrtalker.cpp:196
+msgid "Getting the maximum allowed file size."
+msgstr "Die maximal erlaubte Dateigröße wird geholt."
+
+#: flickrtalker.cpp:262
 msgid "Getting the Frob"
 msgstr "Der Frob wird geholt."
 
-#: flickrtalker.cpp:257
+#: flickrtalker.cpp:308
 msgid "Checking if previous token is still valid"
 msgstr "Es wird überprüft, ob das alte Token noch gültig ist."
 
-#: flickrtalker.cpp:283
+#: flickrtalker.cpp:334
 msgid ""
 "Please follow the instructions in the browser window, then return to press "
 "corresponding button."
@@ -128,96 +132,96 @@ msgstr ""
 "Bitte folgen Sie den Anweisungen im Fenster Ihres Webbrowsers. Klicken Sie "
 "auf den passenden Knopf."
 
-#: flickrtalker.cpp:285
+#: flickrtalker.cpp:336
 #, kde-format
 msgid "%1 Service Web Authorization"
 msgstr "Web-Autorisierung für %1-Dienst"
 
-#: flickrtalker.cpp:286
+#: flickrtalker.cpp:337
 msgid "I am authenticated"
 msgstr "Ich bin angemeldet"
 
-#: flickrtalker.cpp:287
+#: flickrtalker.cpp:338
 msgid "I am not authenticated"
 msgstr "Ich bin nicht angemeldet"
 
-#: flickrtalker.cpp:292
+#: flickrtalker.cpp:343
 msgid "Authenticating the User on web"
 msgstr "Der Benutzer wird authentifiziert."
 
-#: flickrtalker.cpp:345
+#: flickrtalker.cpp:396
 msgid "Getting the Token from the server"
 msgstr "Token vom Server erhalten."
 
-#: flickrtalker.cpp:731
+#: flickrtalker.cpp:787
 msgid "No photo specified"
 msgstr "Kein Foto angegeben."
 
-#: flickrtalker.cpp:735
+#: flickrtalker.cpp:791
 msgid "General upload failure"
 msgstr "Allgemeiner Fehler beim Hochladen"
 
-#: flickrtalker.cpp:739
+#: flickrtalker.cpp:795
 msgid "Filesize was zero"
 msgstr "Dateigröße war Null."
 
-#: flickrtalker.cpp:743
+#: flickrtalker.cpp:799
 msgid "Filetype was not recognized"
 msgstr "Dateityp ist unbekannt."
 
-#: flickrtalker.cpp:747
+#: flickrtalker.cpp:803
 msgid "User exceeded upload limit"
 msgstr "Benutzer hat seine Grenze zum Hochladen überschritten."
 
-#: flickrtalker.cpp:751
+#: flickrtalker.cpp:807
 msgid "Invalid signature"
 msgstr "Ungültige Signatur."
 
-#: flickrtalker.cpp:755
+#: flickrtalker.cpp:811
 msgid "Missing signature"
 msgstr "Fehlende Signatur."
 
-#: flickrtalker.cpp:759
+#: flickrtalker.cpp:815
 msgid "Login Failed / Invalid auth token"
 msgstr "Anmeldung fehlgeschlagen / Ungültiger Authentifizierungstoken."
 
-#: flickrtalker.cpp:763
+#: flickrtalker.cpp:819
 msgid "Invalid API Key"
 msgstr "Ungültiger API-Schlüssel"
 
-#: flickrtalker.cpp:767
+#: flickrtalker.cpp:823
 msgid "Service currently unavailable"
 msgstr "Dienst zurzeit nicht verfügbar"
 
-#: flickrtalker.cpp:771
+#: flickrtalker.cpp:827
 msgid "Invalid Frob"
 msgstr "Ungültiger Frob"
 
-#: flickrtalker.cpp:775
+#: flickrtalker.cpp:831
 msgid "Format \"xxx\" not found"
 msgstr "Format „xxx“ nicht gefunden."
 
-#: flickrtalker.cpp:779
+#: flickrtalker.cpp:835
 msgid "Method \"xxx\" not found"
 msgstr "Methode „xxx“ nicht gefunden."
 
-#: flickrtalker.cpp:783
+#: flickrtalker.cpp:839
 msgid "Invalid SOAP envelope"
 msgstr "Ungültige SOAP-Hülle"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:843
 msgid "Invalid XML-RPC Method Call"
 msgstr "Ungültiger XML-RPC-Methodenaufruf"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:847
 msgid "The POST method is now required for all setters"
 msgstr "Die Methode POST ist nun für alle Einrichter verpflichtend."
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:851
 msgid "Unknown error"
 msgstr "Unbekannter Fehler"
 
-#: flickrtalker.cpp:800
+#: flickrtalker.cpp:856
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -226,40 +230,40 @@ msgstr ""
 "Es ist ein Fehler aufgetreten: %1\n"
 "Es kann nicht fortgefahren werden."
 
-#: flickrtalker.cpp:968
+#: flickrtalker.cpp:1076
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "Schreiben"
 
-#: flickrtalker.cpp:972
+#: flickrtalker.cpp:1080
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "Lesen"
 
-#: flickrtalker.cpp:976
+#: flickrtalker.cpp:1084
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "Löschen"
 
-#: flickrtalker.cpp:1007
+#: flickrtalker.cpp:1115
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 "Ihr Token ist ungültig. Möchten Sie ein neues Token erhalten, um "
 "fortzufahren?\n"
 
-#: flickrtalker.cpp:1165
+#: flickrtalker.cpp:1273
 msgid "PhotoSet creation failed: "
 msgstr "Die Erstellung des Fotosatzes schlug fehl:"
 
-#: flickrtalker.cpp:1260
+#: flickrtalker.cpp:1368
 msgid "Failed to fetch list of photo sets."
 msgstr "Die Liste der Fotosätze kann nicht abgefragt werden."
 
-#: flickrtalker.cpp:1339
+#: flickrtalker.cpp:1448
 msgid "Failed to upload photo"
 msgstr "Beim Hochladen des Fotos ist ein Fehler aufgetreten."
 
-#: flickrtalker.cpp:1407
+#: flickrtalker.cpp:1516
 msgid "Failed to query photo information"
 msgstr "Die Fotoinformationen lassen sich nicht abfragen."
 
@@ -335,17 +339,17 @@ msgctxt "photo safety level"
 msgid "Restricted"
 msgstr "Eingeschränkt"
 
-#: flickrwidget.cpp:153 flickrwidget.cpp:288
+#: flickrwidget.cpp:153 flickrwidget.cpp:292
 msgctxt "photo content type"
 msgid "Photo"
 msgstr "Foto"
 
-#: flickrwidget.cpp:154 flickrwidget.cpp:289
+#: flickrwidget.cpp:154 flickrwidget.cpp:293
 msgctxt "photo content type"
 msgid "Screenshot"
 msgstr "Bildschirmfoto"
 
-#: flickrwidget.cpp:155 flickrwidget.cpp:290
+#: flickrwidget.cpp:155 flickrwidget.cpp:294
 msgctxt "photo content type"
 msgid "Other"
 msgstr "Weitere"
@@ -359,153 +363,157 @@ msgctxt "account settings"
 msgid "Username: "
 msgstr "Benutzername: "
 
-#: flickrwidget.cpp:186
+#: flickrwidget.cpp:187
 msgid "Use a different account"
 msgstr "Mit einem anderen Benutzernamen anmelden"
 
-#: flickrwidget.cpp:189
+#: flickrwidget.cpp:191
+msgid "Remove Account"
+msgstr "Zugang entfernen"
+
+#: flickrwidget.cpp:194
 msgid "PhotoSet:"
 msgstr "Fotosatz:"
 
-#: flickrwidget.cpp:192
+#: flickrwidget.cpp:196
 msgid "&New PhotoSet"
 msgstr "&Neuer Fotosatz"
 
-#: flickrwidget.cpp:195
+#: flickrwidget.cpp:198
 msgid "&Reload"
 msgstr "E&rneut laden"
 
-#: flickrwidget.cpp:211
+#: flickrwidget.cpp:215
 msgid "Tag options"
 msgstr "Einstellungen zu den Stichwörtern"
 
-#: flickrwidget.cpp:215
+#: flickrwidget.cpp:219
 msgid "Use Host Application Tags"
 msgstr "Host-Anwendungsstichwörter benutzen"
 
-#: flickrwidget.cpp:217 flickrwidget.cpp:641
+#: flickrwidget.cpp:221 flickrwidget.cpp:645
 msgid "More tag options"
 msgstr "Weitere Einstellungen"
 
-#: flickrwidget.cpp:231
+#: flickrwidget.cpp:235
 msgid "Added Tags: "
 msgstr "Hinzuzufügende Stichwörter:"
 
-#: flickrwidget.cpp:233
+#: flickrwidget.cpp:237
 msgid "Enter new tags here, separated by commas."
 msgstr "Geben Sie hier durch Komma getrennte, neue Stichwörter ein."
 
-#: flickrwidget.cpp:235
+#: flickrwidget.cpp:239
 msgid "Add tags per image"
 msgstr "Stichwörter pro Bild hinzufügen"
 
-#: flickrwidget.cpp:236
+#: flickrwidget.cpp:240
 msgid "If checked, you can set extra tags for each image in the File List tab"
 msgstr ""
 "Falls aktiviert, können Sie für jedes Bild in der Dateiliste zusätzliche "
 "Stichwörter hinzufügen."
 
-#: flickrwidget.cpp:240
+#: flickrwidget.cpp:244
 msgid "Strip Spaces From Tags"
 msgstr "Leerzeichen in Stichwörtern entfernen"
 
-#: flickrwidget.cpp:253
+#: flickrwidget.cpp:257
 msgid "Publication Options"
 msgstr "Einstellungen für das Veröffentlichen"
 
-#: flickrwidget.cpp:258
+#: flickrwidget.cpp:262
 msgctxt "As in accessible for people"
 msgid "Public (anyone can see them)"
 msgstr "Öffentlich (für alle sichtbar)"
 
-#: flickrwidget.cpp:261
+#: flickrwidget.cpp:265
 msgid "Visible to Family"
 msgstr "Sichtbar für die Familie"
 
-#: flickrwidget.cpp:264
+#: flickrwidget.cpp:268
 msgid "Visible to Friends"
 msgstr "Sichtbar für Freunde"
 
-#: flickrwidget.cpp:267 flickrwidget.cpp:628
+#: flickrwidget.cpp:271 flickrwidget.cpp:632
 msgid "More publication options"
 msgstr "Weitere Einstellungen"
 
-#: flickrwidget.cpp:280
+#: flickrwidget.cpp:284
 msgid "Safety level:"
 msgstr "Sicherheitsstufe:"
 
-#: flickrwidget.cpp:282
+#: flickrwidget.cpp:286
 msgid "Safe"
 msgstr "Sicher"
 
-#: flickrwidget.cpp:283
+#: flickrwidget.cpp:287
 msgid "Moderate"
 msgstr "Mäßig"
 
-#: flickrwidget.cpp:284
+#: flickrwidget.cpp:288
 msgid "Restricted"
 msgstr "Eingeschränkt"
 
-#: flickrwidget.cpp:286
+#: flickrwidget.cpp:290
 msgid "Content type:"
 msgstr "Art des Bildes:"
 
-#: flickrwidget.cpp:307
+#: flickrwidget.cpp:311
 msgid "Resizing Options"
 msgstr "Einstellungen zur Fotogrößenänderung"
 
-#: flickrwidget.cpp:312
+#: flickrwidget.cpp:316
 msgid "Send original file (no resizing)"
 msgstr "Originaldatei senden (keine Größenänderung)"
 
-#: flickrwidget.cpp:316
+#: flickrwidget.cpp:320
 msgid "Resize photos before uploading"
 msgstr "Größe der Fotos vor dem Hochladen ändern"
 
-#: flickrwidget.cpp:328
+#: flickrwidget.cpp:332
 msgid "Maximum dimension (pixels):"
 msgstr "Maximalgröße (Pixel):"
 
-#: flickrwidget.cpp:337
+#: flickrwidget.cpp:341
 msgid "JPEG Image Quality (higher is better):"
 msgstr "JPEG-Bildqualität (höher ist besser):"
 
-#: flickrwidget.cpp:367
+#: flickrwidget.cpp:371
 msgid "File List"
 msgstr "Dateiliste"
 
-#: flickrwidget.cpp:368
+#: flickrwidget.cpp:372
 msgid "Upload Options"
 msgstr "Einstellungen für das Hochladen"
 
-#: flickrwidget.cpp:624
+#: flickrwidget.cpp:628
 msgid "Fewer publication options"
 msgstr "Weniger Einstellungen für Veröffentlichungen"
 
-#: flickrwidget.cpp:646
+#: flickrwidget.cpp:650
 msgid "Fewer tag options"
 msgstr "Weniger Einstellungen für Stichwörter"
 
-#: flickrwindow.cpp:81
+#: flickrwindow.cpp:82
 #, kde-format
 msgid "Export to %1 Web Service"
 msgstr "Zu %1 exportieren"
 
-#: flickrwindow.cpp:126
+#: flickrwindow.cpp:137
 msgid "Start Uploading"
 msgstr "Hochladen starten"
 
-#: flickrwindow.cpp:138
+#: flickrwindow.cpp:149
 msgid "Flickr/23/Zooomr Export"
 msgstr "Exportieren auf Flickr/23/Zooomr"
 
-#: flickrwindow.cpp:141
+#: flickrwindow.cpp:152
 msgid ""
 "A Kipi plugin to export an image collection to a Flickr / 23 / Zooomr web "
 "service."
 msgstr "Ein KIPI-Modul zum Exportieren von Bildern auf Flickr/23/Zooomr."
 
-#: flickrwindow.cpp:143
+#: flickrwindow.cpp:154
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
@@ -515,37 +523,37 @@ msgstr ""
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Author and maintainer"
 msgstr "Autor und Betreuer"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Developer"
 msgstr "Entwickler"
 
-#: flickrwindow.cpp:576
+#: flickrwindow.cpp:638
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Nur Bildfluss&gt;"
 
-#: flickrwindow.cpp:764
+#: flickrwindow.cpp:837
 msgid "Flickr Export"
 msgstr "Export zu Flickr"
 
-#: flickrwindow.cpp:782
+#: flickrwindow.cpp:856
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 "Die Informationen des Fotosatzes lassen sich nicht von %1 abfragen. %2\n"
 
-#: flickrwindow.cpp:787
+#: flickrwindow.cpp:861
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -573,17 +581,25 @@ msgstr "Benutzername:"
 msgid "Password:"
 msgstr "Passwort:"
 
-#: plugin_flickrexport.cpp:103
+#: plugin_flickrexport.cpp:104
 msgid "Export to Flick&r..."
 msgstr "Zu Flick&r ..."
 
-#: plugin_flickrexport.cpp:113
+#: plugin_flickrexport.cpp:116
 msgid "Export to &23..."
 msgstr "Zu &23 ..."
 
-#: plugin_flickrexport.cpp:123
+#: plugin_flickrexport.cpp:128
 msgid "Export to &Zooomr..."
 msgstr "Zu &Zooomr ..."
+
+#: selectuserdlg.cpp:48
+msgid "Flickr Account Selector"
+msgstr "Flickr-Zugangsauswahl"
+
+#: selectuserdlg.cpp:54
+msgid "Add another account"
+msgstr "Einen anderen Zugang hinzufügen"
 
 #~ msgid "Handbook"
 #~ msgstr "Handbuch"

@@ -1,0 +1,406 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Volkan Gezer <volkangezer@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: extragear-graphics-kde4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-02-01 02:36+0100\n"
+"PO-Revision-Date: 2014-06-08 13:47+0000\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/extragear-"
+"graphics-k-tr/language/tr/)\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Volkan Gezer"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "volkangezer@gmail.com"
+
+#: kmlexport.cpp:79
+msgid "Generating KML file..."
+msgstr "KML dosyası oluşturuluyor..."
+
+#: kmlexport.cpp:100
+#, kde-format
+msgid "Could not create '%1'"
+msgstr "'%1' oluşturulamadı"
+
+#: kmlexport.cpp:188
+#, kde-format
+msgid "Could not read image '%1'"
+msgstr "'%1' resmi okunamadı"
+
+#: kmlexport.cpp:197
+#, kde-format
+msgid "Format of image '%1' is unknown"
+msgstr "'%1' resminin biçimi bilinmiyor"
+
+#: kmlexport.cpp:209
+#, kde-format
+msgid "Error loading image '%1'"
+msgstr "'%1' resmini yükleme hatası"
+
+#: kmlexport.cpp:248
+#, kde-format
+msgid "Could not save image '%1' to '%2'"
+msgstr "'%1' resmi '%2' konumuna kaydedilemedi"
+
+#: kmlexport.cpp:351
+#, kde-format
+msgid "Creation of placemark '%1'"
+msgstr "'%1' konum işareti oluşturma işlemi"
+
+#: kmlexport.cpp:359
+#, kde-format
+msgid "Could not save icon for image '%1' to '%2'"
+msgstr "'%1' resmi için '%2' konumuna simge kaydedilemedi"
+
+#: kmlexport.cpp:391
+msgid "No GPX file chosen."
+msgstr "GPX dosyası seçilmemiş."
+
+#: kmlexport.cpp:400
+#, kde-format
+msgid "Cannot parse %1 GPX file."
+msgstr "%1 GPX dosyası ayıklanamıyor."
+
+#: kmlexport.cpp:406
+#, kde-format
+msgid "The %1 GPX file do not have a date-time track to use."
+msgstr "%1 GPX dosyası kullanmak üzere tarih-saat içermiyor."
+
+#: kmlexport.cpp:413
+msgid "Tracks"
+msgstr "Yollar"
+
+#: kmlexport.cpp:508
+#, kde-format
+msgid "No position data for '%1'"
+msgstr "'%1' için konum verisi yok"
+
+#: kmlexport.cpp:520
+#, kde-format
+msgid "No position data for 1 picture"
+msgid_plural "No position data for %1 pictures"
+msgstr[0] "1 resim için konum verisi yok"
+msgstr[1] "%1 resim için konum verisi yok"
+
+#: kmlexport.cpp:536
+msgid "Move to final directory"
+msgstr "Son dizine taşı"
+
+#: kmlexportconfig.cpp:66 kmlexportconfig.cpp:279
+msgid "KML Export"
+msgstr "KML Dışa Aktarımı"
+
+#: kmlexportconfig.cpp:76
+msgid "Target Preferences"
+msgstr "Hedef Tercihleri"
+
+#: kmlexportconfig.cpp:80
+msgid "Target Type"
+msgstr "Hedef Türü"
+
+#: kmlexportconfig.cpp:83
+msgid "&Local or web target used by GoogleEarth"
+msgstr "GoogleEar&th tarafından kullanılan yerel veya web hedefi"
+
+#: kmlexportconfig.cpp:86
+msgid "Web target used by GoogleMaps"
+msgstr "GoogleMaps tarafından kullanılan web hedefleri"
+
+#: kmlexportconfig.cpp:87
+msgid ""
+"When using GoogleMaps, all images must have complete URLs, icons are "
+"squared, and when drawing a track, only line track is exported."
+msgstr ""
+"GoogleMaps kullanırken, tüm resimler tam adres içermelidir. Simgeler kare "
+"olur ve bir yol çizerken sadece çizgi yol aktarılır."
+
+#: kmlexportconfig.cpp:99
+msgid "Picture Altitude:"
+msgstr "Resim Yüksekliği:"
+
+#: kmlexportconfig.cpp:101 kmlexportconfig.cpp:224
+msgid "clamp to ground"
+msgstr "yere kenetli"
+
+#: kmlexportconfig.cpp:102 kmlexportconfig.cpp:225
+msgid "relative to ground"
+msgstr "yere bağıl"
+
+#: kmlexportconfig.cpp:103 kmlexportconfig.cpp:226
+msgid "absolute"
+msgstr "mutlak"
+
+#: kmlexportconfig.cpp:104
+msgid ""
+"<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
+"dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+"ground</dt><dd>Sets the altitude of the element relative to the actual "
+"ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets the "
+"altitude of the coordinate relative to sea level, regardless of the actual "
+"elevation of the terrain beneath the element.</dd></dl>"
+msgstr ""
+"<p>Resimlerin nasıl görüntülendiğini belirtir<dl><dt>yere kenetli (öntanımlı)"
+"</dt><dd>Yükseklik niteliğini yoksaymasını belirtir</dd><dt>yere bağıl</"
+"dt><dd>Ögenin yüksekliğini, belirli bir konumda asıl yer yüksekliğine bağlı "
+"olarak ayarlar.</dd><dt>mutlak</dt><dd>Koordinatın yüksekliğini deniz "
+"seviyesine göre, ögenin altındaki zeminin gerçek yüksekliğine bakılmaksızın "
+"ayarlar.</dd></dl>"
+
+#: kmlexportconfig.cpp:114
+msgid "Destination Directory:"
+msgstr "Hedef Dizin:"
+
+#: kmlexportconfig.cpp:118
+msgid "Select a directory in which to save the kml file and pictures"
+msgstr "KML dosya ve resimlerinin kaydedileceği bir dizin seçin"
+
+#: kmlexportconfig.cpp:121
+msgid "Destination URL:"
+msgstr "Hedef Adres:"
+
+#: kmlexportconfig.cpp:123
+msgid "Filename:"
+msgstr "Dosya adı:"
+
+#: kmlexportconfig.cpp:142
+msgid "Sizes"
+msgstr "Boyutlar"
+
+#: kmlexportconfig.cpp:144
+msgid "Icon Size:"
+msgstr "Simge Boyutu:"
+
+#: kmlexportconfig.cpp:148
+msgid "Image Size:"
+msgstr "Resim Boyutu:"
+
+#: kmlexportconfig.cpp:163
+msgid "GPX Tracks"
+msgstr "GPX Yolları"
+
+#: kmlexportconfig.cpp:167
+msgid "Draw GPX Track"
+msgstr "GPX Yolu Çiz"
+
+#: kmlexportconfig.cpp:170
+msgid "GPX file:"
+msgstr "GPX dosyası:"
+
+#: kmlexportconfig.cpp:173
+#, kde-format
+msgid "%1|GPS Exchange Format"
+msgstr "%1|GPS Takas Biçimi"
+
+#: kmlexportconfig.cpp:174
+msgid "Select GPX File to Load"
+msgstr "Yüklemek için bir GPX dosyası Seçin"
+
+#: kmlexportconfig.cpp:176
+msgid "Time Zone:"
+msgstr "Zaman Dilimi:"
+
+#: kmlexportconfig.cpp:178
+msgid "GMT-12:00"
+msgstr "GMT-12:00"
+
+#: kmlexportconfig.cpp:179
+msgid "GMT-11:00"
+msgstr "GMT-11:00"
+
+#: kmlexportconfig.cpp:180
+msgid "GMT-10:00"
+msgstr "GMT-10:00"
+
+#: kmlexportconfig.cpp:181
+msgid "GMT-09:00"
+msgstr "GMT-09:00"
+
+#: kmlexportconfig.cpp:182
+msgid "GMT-08:00"
+msgstr "GMT-08:00"
+
+#: kmlexportconfig.cpp:183
+msgid "GMT-07:00"
+msgstr "GMT-07:00"
+
+#: kmlexportconfig.cpp:184
+msgid "GMT-06:00"
+msgstr "GMT-06:00"
+
+#: kmlexportconfig.cpp:185
+msgid "GMT-05:00"
+msgstr "GMT-05:00"
+
+#: kmlexportconfig.cpp:186
+msgid "GMT-04:00"
+msgstr "GMT-04:00"
+
+#: kmlexportconfig.cpp:187
+msgid "GMT-03:00"
+msgstr "GMT-03:00"
+
+#: kmlexportconfig.cpp:188
+msgid "GMT-02:00"
+msgstr "GMT-02:00"
+
+#: kmlexportconfig.cpp:189
+msgid "GMT-01:00"
+msgstr "GMT-01:00"
+
+#: kmlexportconfig.cpp:190
+msgid "GMT"
+msgstr "GMT"
+
+#: kmlexportconfig.cpp:191
+msgid "GMT+01:00"
+msgstr "GMT+01:00"
+
+#: kmlexportconfig.cpp:192
+msgid "GMT+02:00"
+msgstr "GMT+02:00"
+
+#: kmlexportconfig.cpp:193
+msgid "GMT+03:00"
+msgstr "GMT+03:00"
+
+#: kmlexportconfig.cpp:194
+msgid "GMT+04:00"
+msgstr "GMT+04:00"
+
+#: kmlexportconfig.cpp:195
+msgid "GMT+05:00"
+msgstr "GMT+05:00"
+
+#: kmlexportconfig.cpp:196
+msgid "GMT+06:00"
+msgstr "GMT+06:00"
+
+#: kmlexportconfig.cpp:197
+msgid "GMT+07:00"
+msgstr "GMT+07:00"
+
+#: kmlexportconfig.cpp:198
+msgid "GMT+08:00"
+msgstr "GMT+08:00"
+
+#: kmlexportconfig.cpp:199
+msgid "GMT+09:00"
+msgstr "GMT+09:00"
+
+#: kmlexportconfig.cpp:200
+msgid "GMT+10:00"
+msgstr "GMT+10:00"
+
+#: kmlexportconfig.cpp:201
+msgid "GMT+11:00"
+msgstr "GMT+11:00"
+
+#: kmlexportconfig.cpp:202
+msgid "GMT+12:00"
+msgstr "GMT+12:00"
+
+#: kmlexportconfig.cpp:203
+msgid "GMT+13:00"
+msgstr "GMT+13:00"
+
+#: kmlexportconfig.cpp:204
+msgid "GMT+14:00"
+msgstr "GMT+14:00"
+
+#: kmlexportconfig.cpp:205
+msgid ""
+"Sets the time zone of the camera during picture shooting, so that the time "
+"stamps of the GPS can be converted to match the local time"
+msgstr ""
+"Resim çekme sırasındaki kameranın zaman dilimini ayarlar, böylece GPS'eki "
+"zaman damgası yerel saat ile eşleştirilmesi için dönüştürülebilir."
+
+#: kmlexportconfig.cpp:209
+msgid "Track Width:"
+msgstr "Yol Genişliği:"
+
+#: kmlexportconfig.cpp:213
+msgid "Track Color:"
+msgstr "Yol Rengi:"
+
+#: kmlexportconfig.cpp:219
+msgid "Opacity:"
+msgstr "Matlık:"
+
+#: kmlexportconfig.cpp:222
+msgid "Track Altitude:"
+msgstr "Yol Yüksekliği:"
+
+#: kmlexportconfig.cpp:227
+msgid ""
+"<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)</"
+"dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+"ground</dt><dd>Sets the altitude of the element relative to the actual "
+"ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets the "
+"altitude of the coordinate relative to sea level, regardless of the actual "
+"elevation of the terrain beneath the element.</dd></dl>"
+msgstr ""
+"<p>Noktaların nasıl görüntülendiğini belirtir<dl><dt>yere kenetli (öntanımlı)"
+"</dt><dd>Yükseklik niteliğini yoksaymasını belirtir</dd><dt>yere bağıl</"
+"dt><dd>Ögenin yüksekliğini, belirli bir konumda asıl yer yüksekliğine bağlı "
+"olarak ayarlar.</dd><dt>mutlak</dt><dd>Koordinatın yüksekliğini deniz "
+"seviyesine göre, ögenin altındaki zeminin gerçek yüksekliğine bakılmaksızın "
+"ayarlar.</dd></dl>"
+
+#: kmlexportconfig.cpp:282
+msgid "A Kipi plugin for KML exporting"
+msgstr "KML dışa aktarımı için bir Kipi eklentisi"
+
+#: kmlexportconfig.cpp:283
+msgid "(c) 2006-2007, Stéphane Pontier"
+msgstr "(c) 2006-2007, Stéphane Pontier"
+
+#: kmlexportconfig.cpp:285
+msgid "Stéphane Pontier"
+msgstr "Stéphane Pontier"
+
+#: kmlexportconfig.cpp:286 kmlexportconfig.cpp:290
+msgid "Developer and maintainer"
+msgstr "Geliştirici ve projeyi yürüten"
+
+#: kmlexportconfig.cpp:289
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: kmlexportconfig.cpp:293
+msgid "Michael G. Hansen"
+msgstr "Michael G. Hansen"
+
+#: kmlexportconfig.cpp:294
+msgid "Maintainer"
+msgstr "Projeyi Yürüten"
+
+#: kmlgpsdataparser.cpp:64
+msgid "Track"
+msgstr "Yol"
+
+#: kmlgpsdataparser.cpp:90
+msgid "Points"
+msgstr "Noktalar"
+
+#: kmlgpsdataparser.cpp:101
+msgid "Point"
+msgstr "Nokta"
+
+#: plugin_kmlexport.cpp:98
+msgid "Export to KML..."
+msgstr "KML Dosyasına Aktar..."

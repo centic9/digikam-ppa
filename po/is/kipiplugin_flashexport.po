@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: kipiplugin_flashexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-11-23 01:54+0000\n"
-"PO-Revision-Date: 2015-01-29 09:07+0000\n"
+"PO-Revision-Date: 2015-04-15 09:51+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
 "Language: is\n"
@@ -148,7 +148,7 @@ msgstr "Ef þetta er virkt verður stærð allra úttaksmynda endurákvörðuð.
 
 #: importWizard/generalpage.cpp:121
 msgid "Auto-Rotate/Flip Images"
-msgstr "Sjálfvirkur snúningur/speglun mynda"
+msgstr "Sjálfvirkur snúningur/fletting mynda"
 
 #: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
 #: importWizard/lookpage.cpp:335
@@ -238,16 +238,16 @@ msgid ""
 "corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
 "date and is not corrupted.</p>"
 msgstr ""
+"<p>Uppsetning SimpleViewer mistókst. </p><p>Athugaðu hvort:</p><p>- safnskrá "
+"samsvarar íforriti sem valið var á fyrri síðu.</p><p>- safnskrá sé uppfærð í "
+"nýjustu útgáfu og sé ekki skemmd.</p>"
 
 #: importWizard/importwizarddlg.cpp:180
 msgid "You must select at least one collection to export."
 msgstr "Þú verður að velja a.m.k. eitt safn til útflutnings."
 
 #: importWizard/importwizarddlg.cpp:216
-#, fuzzy, kde-format
-#| msgid ""
-#| "Target folder %1 already exists.\n"
-#| "Do you want to overwrite it?  All data in this folder will be lost."
+#, kde-format
 msgid ""
 "Target folder %1 already exists.\n"
 "Do you want to overwrite it? All data in this folder will be lost."
@@ -278,6 +278,14 @@ msgid ""
 "of 50 pictures to be exported.</p><p>2. TiltViewer is quite CPU intensive</"
 "p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
 msgstr ""
+"<qt><p><h1><b>Velkomin í FlashExport áhaldið</b></h1></p><p>Þetta verkfæri "
+"notar <a href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, "
+"TiltViewer eða Postcardviewer</a> til að flytja myndir út í flash myndasöfn."
+"</p><p>Þessi leiðarvísir getur hjálpað þér að stilla og flytja inn myndir "
+"áður en þær eru fluttar út sem flash.</p><p>Athugaðu að:</p><p>1. Frjálsa "
+"útgáfan af SimpleViewer leyfir einungis að hámarki útflutning á 50 myndum.</"
+"p><p>2. TiltViewer er frekur á örgjörvavinnslu.</p><p>3. Postcardviewer er "
+"hannaður fyrir frekar lítinn fjölda mynda.</p></qt>"
 
 #: importWizard/intropage.cpp:81
 msgid "Select &Plugin:"
@@ -305,7 +313,7 @@ msgstr "PostcardViewer"
 
 #: importWizard/intropage.cpp:99
 msgid "&Choose image selection method:"
-msgstr ""
+msgstr "Vel&du aðferð við val mynda:"
 
 #: importWizard/intropage.cpp:101
 msgctxt "Collections"
@@ -423,7 +431,7 @@ msgstr "&Birtingartími:"
 
 #: importWizard/lookpage.cpp:248
 msgid "Number of seconds each image will display in auto-play mode."
-msgstr ""
+msgstr "Fjöldi sekúndna sem hver mynd birtist í sjálfspilunarham."
 
 #: importWizard/lookpage.cpp:292
 msgid "&Image Padding:"
@@ -451,7 +459,7 @@ msgstr "Fjöldi myndadálka sem á að birta."
 
 #: importWizard/lookpage.cpp:328
 msgid "Show Flip Button"
-msgstr "Sýna speglunarhnapp"
+msgstr "Sýna flettihnapp"
 
 #: importWizard/lookpage.cpp:333
 msgid "Use reload button"
@@ -468,7 +476,7 @@ msgstr "&Innri bakgrunnslitur:"
 
 #: importWizard/lookpage.cpp:362
 msgid "Color of the stage background gradient center."
-msgstr ""
+msgstr "Litur í miðjum litstigli á bakgrunni."
 
 #: importWizard/lookpage.cpp:366
 msgid "Background &Outer Color:"
@@ -476,7 +484,7 @@ msgstr "&Ytri bakgrunnslitur:"
 
 #: importWizard/lookpage.cpp:369
 msgid "Color of the stage background gradient edge."
-msgstr ""
+msgstr "Litur á jaðri litstiguls á bakgrunni."
 
 #: importWizard/lookpage.cpp:373
 msgid "Image Back Color:"
@@ -484,7 +492,7 @@ msgstr "Litur bakhliðar:"
 
 #: importWizard/lookpage.cpp:376
 msgid "Image's back color when pressing flip button"
-msgstr ""
+msgstr "Litur bakhliðar á mynd þegar ýtt er á flettihnapp"
 
 #: importWizard/lookpage.cpp:395
 msgid "Cell Dimension:"
@@ -495,6 +503,8 @@ msgid ""
 "Dimension of displayed image cells. Please use a higher value if you set "
 "high image size"
 msgstr ""
+"Stærðir birtra myndareita. Notaðu hærri gildi ef þú setur mikla stærð á "
+"myndum"
 
 #: importWizard/lookpage.cpp:422
 msgid "&Caption Color:"
@@ -506,7 +516,7 @@ msgstr "&Aðdráttarprósenta:"
 
 #: importWizard/lookpage.cpp:457
 msgid "The amount of scale when zoomed in (percentage)"
-msgstr ""
+msgstr "Styrkur kvörðunar við mikinn aðdrátt (prósenta)"
 
 #: importWizard/lookpage.cpp:461
 msgid "&Zoom Out Percentage:"
@@ -514,7 +524,7 @@ msgstr "&Smækkunarprósenta:"
 
 #: importWizard/lookpage.cpp:465
 msgid "The amount of scale when zoomed out (percentage)"
-msgstr ""
+msgstr "Styrkur kvörðunar við lítinn aðdrátt (prósenta)"
 
 #: importWizard/lookpage.cpp:473
 msgid "The frame width"

@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-12-25 14:00+0000\n"
+"POT-Creation-Date: 2015-05-31 01:58+0000\n"
+"PO-Revision-Date: 2014-10-20 19:54+0000\n"
 "Last-Translator: Nermina Agović <nagovic1@etf.unsa.ba>\n"
 "Language-Team: bosanski <bs@li.org>\n"
 "Language: \n"
@@ -16,16 +16,16 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Launchpad (build 16877)\n"
-"X-Launchpad-Export-Date: 2013-12-26 06:21+0000\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:23+0000\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Elmedina Fejzagic,Samir Ribić,Nermina AgovićSamir Ribić"
+msgstr "Elmedina Fejzagic,Samir Ribić,Nermina Agović"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ef@etf.ba,samir.ribic@etf.unsa.ba,nagovic1@etf.unsa.ba"
+msgstr "Ef@etf.ba,samir.ribic@etf.unsa.ba,nagovic1@etf.unsa.ba"
 
 #: exif/exifadjust.cpp:94
 msgid "Brightness (APEX):"
@@ -166,7 +166,7 @@ msgid ""
 "Set here the use of special processing on image data, such as rendering "
 "geared to output."
 msgstr ""
-"Navedite ovdje specijalnu oradu slike, kao što je iscrtavanje prema izlazu"
+"Navedite ovdje specijalnu oradu slike, kao što je iscrtavanje prema izlazu."
 
 #: exif/exifcaption.cpp:103
 msgctxt "name of the document this image has been scanned from"
@@ -261,7 +261,7 @@ msgstr "Datum i vrijeme stvaranja"
 msgid "Creation sub-second"
 msgstr "Kreiranje sub-drugog"
 
-#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
+#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:170 xmp/xmporigin.cpp:144
 #, kde-format
 msgid "Sync creation date hosted by %1"
 msgstr "Sinhronizuj datum kreiranja od %1"
@@ -274,7 +274,7 @@ msgstr "Sinhronizuj XMP datum kreiranja"
 msgid "Sync IPTC creation date"
 msgstr "Sinhronizuj IPTC datum stvaranja"
 
-#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:167 xmp/xmporigin.cpp:141
+#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:177 xmp/xmporigin.cpp:151
 msgid "Set creation date to today"
 msgstr "Postavi datum kreiranja na danas"
 
@@ -328,7 +328,7 @@ msgstr "Datum i vrijeme digitalizacije"
 msgid "Digitization sub-second"
 msgstr "Digitalizacija sub-drugi"
 
-#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
+#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:152 xmp/xmporigin.cpp:130
 msgid "Set digitization date to today"
 msgstr "Postavi datum digitalizacije na danas"
 
@@ -1051,9 +1051,9 @@ msgid "&Replace"
 msgstr "&Zamijeni"
 
 #: iptc/iptccategories.cpp:124 iptc/iptccontent.cpp:124
-#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:267
-#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:229
-#: iptc/iptcproperties.cpp:238 iptc/iptcstatus.cpp:129
+#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:274
+#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:241
+#: iptc/iptcproperties.cpp:251 iptc/iptcstatus.cpp:129
 #: iptc/iptcsubjects.cpp:92
 msgid ""
 "<b>Note: <b><a href='http://en.wikipedia.org/wiki/"
@@ -1274,170 +1274,170 @@ msgstr ""
 "<qt>Informacije o koverti<br/><i>Koristite ovaj panel da snimite "
 "editorijalne detalje</i></qt>"
 
-#: iptc/iptcenvelope.cpp:88
+#: iptc/iptcenvelope.cpp:90
 msgid "No ObjectData"
 msgstr "Nema ObjectData"
 
-#: iptc/iptcenvelope.cpp:89
+#: iptc/iptcenvelope.cpp:91
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 1)"
 msgstr "IPTC-NAA Digitalna NovaSlika Parametar Snimanja (verzija 1)"
 
-#: iptc/iptcenvelope.cpp:90
+#: iptc/iptcenvelope.cpp:92
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 2)"
 msgstr "IPTC-NAA Digitalna NovaSlika Parametar Snimanja (verzija 2)"
 
-#: iptc/iptcenvelope.cpp:91
+#: iptc/iptcenvelope.cpp:93
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 3)"
 msgstr "IPTC-NAA Digitalna NovaSlika Parametar Snimanja (verzija 3)"
 
-#: iptc/iptcenvelope.cpp:92
+#: iptc/iptcenvelope.cpp:94
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 4)"
 msgstr "IPTC-NAA Digitalna NovaSlika Parametar Snimanja (verzija 4)"
 
-#: iptc/iptcenvelope.cpp:93
+#: iptc/iptcenvelope.cpp:95
 msgid "IPTC7901 Recommended Message Format"
 msgstr "IPTC7901 Preporučeni Format Poruke"
 
-#: iptc/iptcenvelope.cpp:94
+#: iptc/iptcenvelope.cpp:96
 msgid "Tagged Image File Format (version 5.0)"
 msgstr "Označeni Format Datoteke (verzija 5.0)"
 
-#: iptc/iptcenvelope.cpp:95
+#: iptc/iptcenvelope.cpp:97
 msgid "Tagged Image File Format (version 6.0)"
 msgstr "Označeni Format Datoteke (verzija 6.0)"
 
-#: iptc/iptcenvelope.cpp:96
+#: iptc/iptcenvelope.cpp:98
 msgid "Illustrator"
 msgstr "Illustrator"
 
-#: iptc/iptcenvelope.cpp:97
+#: iptc/iptcenvelope.cpp:99
 msgid "AppleSingle"
 msgstr "AppleSingle"
 
-#: iptc/iptcenvelope.cpp:98
+#: iptc/iptcenvelope.cpp:100
 msgid "NAA 89-3 (ANPA 1312)"
 msgstr "NAA 89-3 (ANPA 1312)"
 
-#: iptc/iptcenvelope.cpp:99
+#: iptc/iptcenvelope.cpp:101
 msgid "MacBinary II"
 msgstr "MacBinary II"
 
-#: iptc/iptcenvelope.cpp:100
+#: iptc/iptcenvelope.cpp:102
 msgid "IPTC Unstructured Character Oriented File Format"
 msgstr "IPTC Nestruktuirani Karakterno Orijentirani Format Datoteke"
 
-#: iptc/iptcenvelope.cpp:101
+#: iptc/iptcenvelope.cpp:103
 msgid "United Press International ANPA 1312 variant"
 msgstr "Ujedinjeni Press International ANPA 1312 variant"
 
-#: iptc/iptcenvelope.cpp:102
+#: iptc/iptcenvelope.cpp:104
 msgid "United Press International Down-Load Message"
 msgstr "Ujedinjeni Press International Down-Load Message"
 
-#: iptc/iptcenvelope.cpp:103
+#: iptc/iptcenvelope.cpp:105
 msgid "JPEG File Interchange"
 msgstr "JPEG Datoteka Zamjena"
 
-#: iptc/iptcenvelope.cpp:104
+#: iptc/iptcenvelope.cpp:106
 msgid "Photo-CD Image-Pac"
 msgstr "Fotografija-CD Slika-Pac"
 
-#: iptc/iptcenvelope.cpp:105
+#: iptc/iptcenvelope.cpp:107
 msgid "Microsoft Bit Mapped Graphics File [*.BMP]"
 msgstr "Microsoft Bit Mapped Grafička Datoteka [*.BMP]"
 
-#: iptc/iptcenvelope.cpp:106
+#: iptc/iptcenvelope.cpp:108
 msgid "Digital Audio File [*.WAV]"
 msgstr "Digitalna Audio Datoteka [*.WAV]"
 
-#: iptc/iptcenvelope.cpp:107
+#: iptc/iptcenvelope.cpp:109
 msgid "Audio plus Moving Video [*.AVI]"
 msgstr "Audio plus Moving Video [*.AVI]"
 
-#: iptc/iptcenvelope.cpp:108
+#: iptc/iptcenvelope.cpp:110
 msgid "PC DOS/Windows Executable Files [*.COM][*.EXE]"
 msgstr "PC DOS/Windows Izvršne Datoteke [*.COM][*.EXE]"
 
-#: iptc/iptcenvelope.cpp:109
+#: iptc/iptcenvelope.cpp:111
 msgid "Compressed Binary File [*.ZIP]"
 msgstr "Komprimirana Binarna Datoteka [*.ZIP]"
 
-#: iptc/iptcenvelope.cpp:110
+#: iptc/iptcenvelope.cpp:112
 msgid "Audio Interchange File Format AIFF"
 msgstr "Audio Razmjena Format Datoteke AIFF"
 
-#: iptc/iptcenvelope.cpp:111
+#: iptc/iptcenvelope.cpp:113
 msgid "RIFF Wave (Microsoft Corporation)"
 msgstr "RIFF Val (Microsoft Corporation)"
 
-#: iptc/iptcenvelope.cpp:112
+#: iptc/iptcenvelope.cpp:114
 msgid "Freehand (version 3.1)"
 msgstr "Slobodnom rukom (verzija 3.1)"
 
-#: iptc/iptcenvelope.cpp:113
+#: iptc/iptcenvelope.cpp:115
 msgid "Freehand (version 4.0)"
 msgstr "Slobodnom rukom (verzija 4.0)"
 
-#: iptc/iptcenvelope.cpp:114
+#: iptc/iptcenvelope.cpp:116
 msgid "Freehand (version 5.0)"
 msgstr "Slobodnom rukom (verzija 5.0)"
 
-#: iptc/iptcenvelope.cpp:115
+#: iptc/iptcenvelope.cpp:117
 msgid "Freehand (version 5.5)"
 msgstr "Slobodnom rukom (verzija 5.5)"
 
-#: iptc/iptcenvelope.cpp:116
+#: iptc/iptcenvelope.cpp:118
 msgid "Hypertext Markup Language \"HTML\""
 msgstr "Hypertext Markup Language \"HTML\""
 
-#: iptc/iptcenvelope.cpp:117
+#: iptc/iptcenvelope.cpp:119
 msgid "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
 msgstr "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
 
-#: iptc/iptcenvelope.cpp:118
+#: iptc/iptcenvelope.cpp:120
 msgid "MPEG 2 Audio Layer 3, ISO/IEC"
 msgstr "MPEG 2 Audio Layer 3, ISO/IEC"
 
-#: iptc/iptcenvelope.cpp:119
+#: iptc/iptcenvelope.cpp:121
 msgid "Portable Document File [*.PDF] Adobe"
 msgstr "Portable Document File [*.PDF] Adobe"
 
-#: iptc/iptcenvelope.cpp:120
+#: iptc/iptcenvelope.cpp:122
 msgid "News Industry Text Format"
 msgstr "News Industry Text Format"
 
-#: iptc/iptcenvelope.cpp:121
+#: iptc/iptcenvelope.cpp:123
 msgid "Tape Archive [*.TAR]"
 msgstr "Tape Archive [*.TAR]"
 
-#: iptc/iptcenvelope.cpp:122
+#: iptc/iptcenvelope.cpp:124
 msgid "Tidningarnas Telegrambyra NITF version (TTNITF DTD)"
 msgstr "Tidningarnas Telegrambyra NITF verzija (TTNITF DTD)"
 
-#: iptc/iptcenvelope.cpp:123
+#: iptc/iptcenvelope.cpp:125
 msgid "Ritzaus Bureau NITF version (RBNITF DTD)"
 msgstr "Ritzaus Bureau NITF version (RBNITF DTD)"
 
-#: iptc/iptcenvelope.cpp:124
+#: iptc/iptcenvelope.cpp:126
 msgid "Corel Draw [*.CDR]"
 msgstr "Corel Draw [*.CDR]"
 
-#: iptc/iptcenvelope.cpp:171
+#: iptc/iptcenvelope.cpp:175
 msgid "Destination:"
 msgstr "Odredište:"
 
-#: iptc/iptcenvelope.cpp:175
+#: iptc/iptcenvelope.cpp:179
 msgid ""
 "Enter the envelope destination. This field is limited to 1024 ASCII "
 "characters."
 msgstr ""
 "Unesite odredište koverte. Ovo polje je ograničeno sa 1024 ASCII znakova."
 
-#: iptc/iptcenvelope.cpp:180
+#: iptc/iptcenvelope.cpp:184
 msgid "U.N.O ID:"
 msgstr "U.N.O ID:"
 
-#: iptc/iptcenvelope.cpp:185
+#: iptc/iptcenvelope.cpp:189
 msgid ""
 "Set here the Unique Name of Object identifier. This field is limited to 80 "
 "ASCII characters."
@@ -1445,11 +1445,11 @@ msgstr ""
 "Postavite ovdje Jedinstveno Ime od Objekta Identifikatora. Ovo polje je "
 "ograničeno sa 80 ASCII znakova."
 
-#: iptc/iptcenvelope.cpp:190
+#: iptc/iptcenvelope.cpp:194
 msgid "Product ID:"
 msgstr "Identifikacijski broj produkta:"
 
-#: iptc/iptcenvelope.cpp:195
+#: iptc/iptcenvelope.cpp:199
 msgid ""
 "Set here the product identifier. This field is limited to 32 ASCII "
 "characters."
@@ -1457,11 +1457,11 @@ msgstr ""
 "Postavite ovdje identifikator produkta. Ovo polje je ograničeno sa 32 ASCII "
 "znakova."
 
-#: iptc/iptcenvelope.cpp:200
+#: iptc/iptcenvelope.cpp:204
 msgid "Service ID:"
 msgstr "Identifikacijski broj servisa:"
 
-#: iptc/iptcenvelope.cpp:205
+#: iptc/iptcenvelope.cpp:209
 msgid ""
 "Set here the service identifier. This field is limited to 10 ASCII "
 "characters."
@@ -1469,11 +1469,11 @@ msgstr ""
 "Postavite ovdje identifikator servisa. Ovo polje je ograničeno sa 10 ASCII "
 "znakova."
 
-#: iptc/iptcenvelope.cpp:210
+#: iptc/iptcenvelope.cpp:214
 msgid "Envelope ID:"
 msgstr "Identifikacijski broj konverte:"
 
-#: iptc/iptcenvelope.cpp:215
+#: iptc/iptcenvelope.cpp:219
 msgid ""
 "Set here the envelope identifier. This field is limited to 8 ASCII "
 "characters."
@@ -1481,67 +1481,73 @@ msgstr ""
 "Postavite ovdje identifikator koverte. Ovo polje je ograničeno sa 8 ASCII "
 "znakova."
 
-#: iptc/iptcenvelope.cpp:220 iptc/iptcproperties.cpp:184
+#: iptc/iptcenvelope.cpp:224 iptc/iptcproperties.cpp:197
 #: xmp/xmpproperties.cpp:183
 msgid "Priority:"
 msgstr "Prioritet:"
 
-#: iptc/iptcenvelope.cpp:222
+#: iptc/iptcenvelope.cpp:226
 msgctxt "priority for the envelope"
 msgid "0: None"
 msgstr "0: Nikakav"
 
-#: iptc/iptcenvelope.cpp:223
+#: iptc/iptcenvelope.cpp:227
 msgctxt "priority for the envelope"
 msgid "1: High"
 msgstr "1: Visoko"
 
-#: iptc/iptcenvelope.cpp:227
+#: iptc/iptcenvelope.cpp:231
 msgctxt "priority for the envelope"
 msgid "5: Normal"
 msgstr "5: Normalno"
 
-#: iptc/iptcenvelope.cpp:230
+#: iptc/iptcenvelope.cpp:234
 msgctxt "priority for the envelope"
 msgid "8: Low"
 msgstr "8: Nisko"
 
-#: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
+#: iptc/iptcenvelope.cpp:235 iptc/iptcproperties.cpp:208
 #: xmp/xmpproperties.cpp:194
 msgctxt "editorial urgency of content"
 msgid "9: User-defined"
 msgstr "9: Korisnički definisano"
 
-#: iptc/iptcenvelope.cpp:232
+#: iptc/iptcenvelope.cpp:236
 msgid "Select here the envelope priority."
 msgstr "Odaberite ovdje prioritet koverte."
 
-#: iptc/iptcenvelope.cpp:236
+#: iptc/iptcenvelope.cpp:240
 msgid "Format:"
 msgstr "Format:"
 
-#: iptc/iptcenvelope.cpp:248
-msgid "Select here envelope file format."
-msgstr "odaberite ovdje format datoteke koverte."
-
 #: iptc/iptcenvelope.cpp:252
+msgid "Select here envelope file format."
+msgstr "Odaberite ovdje format datoteke koverte."
+
+#: iptc/iptcenvelope.cpp:256
 msgid "Sent date:"
 msgstr "Datum slanja:"
 
-#: iptc/iptcenvelope.cpp:253
+#: iptc/iptcenvelope.cpp:257
 msgid "Sent time:"
 msgstr "Datum slanja:"
 
-#: iptc/iptcenvelope.cpp:259
+#: iptc/iptcenvelope.cpp:264
 msgid "Set envelope sent date to today"
 msgstr "Postavi datum slanja koverte na danas"
 
-#: iptc/iptcenvelope.cpp:261
+#: iptc/iptcenvelope.cpp:266
 msgid "Set here the date when the service sent the material."
 msgstr "Postavite ovdje datum kad je servis poslao materijal."
 
-#: iptc/iptcenvelope.cpp:262
+#: iptc/iptcenvelope.cpp:267
 msgid "Set here the time when the service sent the material."
+msgstr "Postavite ovdje vrijeme kad je servis poslao materijal."
+
+#: iptc/iptcenvelope.cpp:268
+#, fuzzy
+#| msgid "Set here the time when the service sent the material."
+msgid "Set here the time zone when the service sent the material."
 msgstr "Postavite ovdje vrijeme kad je servis poslao materijal."
 
 #: iptc/iptckeywords.cpp:88 xmp/xmpkeywords.cpp:82
@@ -1553,55 +1559,67 @@ msgid "Enter here a new keyword. This field is limited to 64 ASCII characters."
 msgstr ""
 "Unesite ovdje novu ključnu riječ. Ovo polje je ograničeno sa 64 ASCII znaka."
 
-#: iptc/iptcorigin.cpp:138 xmp/xmporigin.cpp:118
+#: iptc/iptcorigin.cpp:144 xmp/xmporigin.cpp:124
 msgid "Digitization date"
 msgstr "Datum digitalizacije"
 
-#: iptc/iptcorigin.cpp:139
+#: iptc/iptcorigin.cpp:145
 msgid "Digitization time"
 msgstr "Vrijeme digitalizacije"
 
-#: iptc/iptcorigin.cpp:147 xmp/xmporigin.cpp:125
+#: iptc/iptcorigin.cpp:154 xmp/xmporigin.cpp:132
 msgid "Set here the creation date of digital representation."
 msgstr "Postavi ovdje datum kreiranja digitalnog prikaza."
 
-#: iptc/iptcorigin.cpp:149
+#: iptc/iptcorigin.cpp:156
 msgid "Set here the creation time of digital representation."
 msgstr "Postavi ovdje vrijeme kreiranja digitalnog prikaza."
 
-#: iptc/iptcorigin.cpp:156 xmp/xmporigin.cpp:132
+#: iptc/iptcorigin.cpp:158 xmp/xmporigin.cpp:134
+#, fuzzy
+#| msgid "Set here the creation time of digital representation."
+msgid "Set here the time zone of digital representation."
+msgstr "Postavi ovdje vrijeme kreiranja digitalnog prikaza."
+
+#: iptc/iptcorigin.cpp:165 xmp/xmporigin.cpp:141
 msgid "Creation date"
 msgstr "Datum stvaranja"
 
-#: iptc/iptcorigin.cpp:157
+#: iptc/iptcorigin.cpp:166
 msgid "Creation time"
 msgstr "Vrijeme stvaranja"
 
-#: iptc/iptcorigin.cpp:163 xmp/xmporigin.cpp:137
+#: iptc/iptcorigin.cpp:173 xmp/xmporigin.cpp:147
 msgid "Sync EXIF creation date"
 msgstr "Sinhronizuj EXIF datum stvaranja"
 
-#: iptc/iptcorigin.cpp:169 xmp/xmporigin.cpp:143
+#: iptc/iptcorigin.cpp:179 xmp/xmporigin.cpp:153
 msgid "Set here the creation date of intellectual content."
 msgstr "Postavi datum kreiranja intelektualnog sadržaja."
 
-#: iptc/iptcorigin.cpp:171
+#: iptc/iptcorigin.cpp:181
 msgid "Set here the creation time of intellectual content."
 msgstr "Postavi vrijeme kreiranja intelektualnog sadržaja."
 
-#: iptc/iptcorigin.cpp:178
+#: iptc/iptcorigin.cpp:183 xmp/xmporigin.cpp:155
+#, fuzzy
+#| msgid "Set here the creation time of intellectual content."
+msgid "Set here the time zone of intellectual content."
+msgstr "Postavi vrijeme kreiranja intelektualnog sadržaja."
+
+#: iptc/iptcorigin.cpp:190
 msgid "Location:"
 msgstr "Lokacija:"
 
-#: iptc/iptcorigin.cpp:179
+#: iptc/iptcorigin.cpp:191
 msgid "Set here the full country name referenced by the content."
 msgstr "Postavi ovdje puno ime države na koje upućuje sadržaj."
 
-#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:153 xmp/xmporigin.cpp:150
+#: iptc/iptcorigin.cpp:195 xmp/xmpcredits.cpp:153 xmp/xmporigin.cpp:162
 msgid "City:"
 msgstr "Grad:"
 
-#: iptc/iptcorigin.cpp:188
+#: iptc/iptcorigin.cpp:200
 msgid ""
 "Set here the city of content origin. This field is limited to 32 ASCII "
 "characters."
@@ -1609,11 +1627,11 @@ msgstr ""
 "Postavi ovdje grad gdje je ovaj sadržaj nastao. Ovo polje je ograničeno sa "
 "32 ASCII znaka."
 
-#: iptc/iptcorigin.cpp:193 xmp/xmporigin.cpp:157
+#: iptc/iptcorigin.cpp:205 xmp/xmporigin.cpp:169
 msgid "Sublocation:"
 msgstr "Pod-lokacija:"
 
-#: iptc/iptcorigin.cpp:198
+#: iptc/iptcorigin.cpp:210
 msgid ""
 "Set here the content location within city. This field is limited to 32 ASCII "
 "characters."
@@ -1621,11 +1639,11 @@ msgstr ""
 "Postavi ovdje sadržaj lokacije unutar grada. Ovo polje je ograničeno sa 32 "
 "ASCII znaka."
 
-#: iptc/iptcorigin.cpp:203 xmp/xmporigin.cpp:164
+#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:176
 msgid "State/Province:"
 msgstr "Država/provincija:"
 
-#: iptc/iptcorigin.cpp:208
+#: iptc/iptcorigin.cpp:220
 msgid ""
 "Set here the Province or State of content origin. This field is limited to "
 "32 ASCII characters."
@@ -1633,133 +1651,150 @@ msgstr ""
 "Postavite ovdje Pokrajinu ili Državu iz koje je sadržaj. Ovo polje je "
 "oganičeno sa 32 ASCII znaka."
 
-#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:158 xmp/xmporigin.cpp:171
+#: iptc/iptcorigin.cpp:225 xmp/xmpcredits.cpp:158 xmp/xmporigin.cpp:183
 msgid "Country:"
 msgstr "Država:"
 
-#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:173
+#: iptc/iptcorigin.cpp:227 xmp/xmporigin.cpp:185
 msgid "Select here country name of content origin."
 msgstr "Postavite ovdje ime države iz koje je sadržaj."
 
-#: iptc/iptcproperties.cpp:132
+#: iptc/iptcproperties.cpp:138
 msgid "Release date"
 msgstr "Datum izdavanja"
 
-#: iptc/iptcproperties.cpp:133
+#: iptc/iptcproperties.cpp:139
 msgid "Release time"
 msgstr "Vrijeme izdavanja"
 
-#: iptc/iptcproperties.cpp:139
+#: iptc/iptcproperties.cpp:146
 msgid "Set release date to today"
 msgstr "Postavite datum izdavanja na danas"
 
-#: iptc/iptcproperties.cpp:141
+#: iptc/iptcproperties.cpp:148
 msgid "Set here the earliest intended usable date of intellectual content."
 msgstr ""
 "Postavite ovdje najranije namjenjen upotrebljiv datum intelektualnog "
 "sadržaja."
 
-#: iptc/iptcproperties.cpp:143
+#: iptc/iptcproperties.cpp:150
 msgid "Set here the earliest intended usable time of intellectual content."
 msgstr ""
 "Postavite ovdje najranije namjenjeno upotrebljivo vrijeme intelektualnog "
 "sadržaja."
 
-#: iptc/iptcproperties.cpp:149
+#: iptc/iptcproperties.cpp:152
+#, fuzzy
+#| msgid "Set here the earliest intended usable time of intellectual content."
+msgid ""
+"Set here the earliest intended usable time zone of intellectual content."
+msgstr ""
+"Postavite ovdje najranije namjenjeno upotrebljivo vrijeme intelektualnog "
+"sadržaja."
+
+#: iptc/iptcproperties.cpp:159
 msgid "Expiration date"
 msgstr "Datum isteka"
 
-#: iptc/iptcproperties.cpp:150
+#: iptc/iptcproperties.cpp:160
 msgid "Expiration time"
 msgstr "Vrijeme isteka"
 
-#: iptc/iptcproperties.cpp:156
+#: iptc/iptcproperties.cpp:167
 msgid "Set expiration date to today"
 msgstr "Postavi datum isteka na danas"
 
-#: iptc/iptcproperties.cpp:158
+#: iptc/iptcproperties.cpp:169
 msgid "Set here the latest intended usable date of intellectual content."
 msgstr "Postavite ovdje najkasnije namjenjen datum intelektualnog sadržaja."
 
-#: iptc/iptcproperties.cpp:160
+#: iptc/iptcproperties.cpp:171
 msgid "Set here the latest intended usable time of intellectual content."
 msgstr ""
 "Postavite ovdje najkasnije namjenjeno upotrebljivo vrijeme intelektualnog "
 "sadržaja."
 
-#: iptc/iptcproperties.cpp:167 xmp/xmpproperties.cpp:171
+#: iptc/iptcproperties.cpp:173
+#, fuzzy
+#| msgid "Set here the latest intended usable time of intellectual content."
+msgid "Set here the latest intended usable time zone of intellectual content."
+msgstr ""
+"Postavite ovdje najkasnije namjenjeno upotrebljivo vrijeme intelektualnog "
+"sadržaja."
+
+#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:171
 msgid "Language:"
 msgstr "Jezik:"
 
-#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:172
+#: iptc/iptcproperties.cpp:193 xmp/xmpproperties.cpp:172
 msgid "Select here the language of content."
 msgstr "Odaberite ovdje jezik sadržaja."
 
-#: iptc/iptcproperties.cpp:186 xmp/xmpproperties.cpp:185
+#: iptc/iptcproperties.cpp:199 xmp/xmpproperties.cpp:185
 msgctxt "editorial urgency of content"
 msgid "0: None"
 msgstr "0: Nikakav"
 
-#: iptc/iptcproperties.cpp:187 xmp/xmpproperties.cpp:186
+#: iptc/iptcproperties.cpp:200 xmp/xmpproperties.cpp:186
 msgctxt "editorial urgency of content"
 msgid "1: High"
 msgstr "1: Visoko"
 
-#: iptc/iptcproperties.cpp:191 xmp/xmpproperties.cpp:190
+#: iptc/iptcproperties.cpp:204 xmp/xmpproperties.cpp:190
 msgctxt "editorial urgency of content"
 msgid "5: Normal"
 msgstr "5: Normalno"
 
-#: iptc/iptcproperties.cpp:194 xmp/xmpproperties.cpp:193
+#: iptc/iptcproperties.cpp:207 xmp/xmpproperties.cpp:193
 msgctxt "editorial urgency of content"
 msgid "8: Low"
 msgstr "8: Nisko"
 
-#: iptc/iptcproperties.cpp:196 xmp/xmpproperties.cpp:195
+#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:195
 msgid "Select here the editorial urgency of content."
 msgstr "Postavite ovdje editorijalnu hitnost sadržaja."
 
-#: iptc/iptcproperties.cpp:200
+#: iptc/iptcproperties.cpp:213
 msgid "Cycle:"
 msgstr "Ciklus:"
 
-#: iptc/iptcproperties.cpp:202
+#: iptc/iptcproperties.cpp:215
 msgid "Morning"
 msgstr "Jutro"
 
-#: iptc/iptcproperties.cpp:203
+#: iptc/iptcproperties.cpp:216
 msgid "Afternoon"
 msgstr "Popodne"
 
-#: iptc/iptcproperties.cpp:204
+#: iptc/iptcproperties.cpp:217
 msgid "Evening"
 msgstr "Veče"
 
-#: iptc/iptcproperties.cpp:205
+#: iptc/iptcproperties.cpp:218
 msgid "Select here the editorial cycle of content."
 msgstr "Postavite ovdje editorijalni ciklus sadržaja."
 
-#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
+#: iptc/iptcproperties.cpp:222 xmp/xmpproperties.cpp:211
 msgid "Type:"
 msgstr "Tip:"
 
-#: iptc/iptcproperties.cpp:215 xmp/xmpproperties.cpp:114
+#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:114
 msgid "News"
 msgstr "Novosti"
 
-#: iptc/iptcproperties.cpp:216 xmp/xmpproperties.cpp:110
+#: iptc/iptcproperties.cpp:229 xmp/xmpproperties.cpp:110
 msgid "Data"
 msgstr "Podaci"
 
-#: iptc/iptcproperties.cpp:217 xmp/xmpproperties.cpp:107
+#: iptc/iptcproperties.cpp:230 xmp/xmpproperties.cpp:107
 msgid "Advisory"
 msgstr "Savjeti"
 
-#: iptc/iptcproperties.cpp:218
+#: iptc/iptcproperties.cpp:231
 msgid "Select here the editorial type of content."
 msgstr "Postavite ovdje editorijalni tip sadržaja."
 
-#: iptc/iptcproperties.cpp:219
+#: iptc/iptcproperties.cpp:232
 msgid ""
 "Set here the editorial type description of content. This field is limited to "
 "64 ASCII characters."
@@ -1767,11 +1802,11 @@ msgstr ""
 "Postavite ovdje editorijalni tip opisa sadržaja. Ovo polje je ograničeno sa "
 "64 ASCII znaka."
 
-#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:255
+#: iptc/iptcproperties.cpp:241 xmp/xmpproperties.cpp:255
 msgid "Reference:"
 msgstr "Referenca:"
 
-#: iptc/iptcproperties.cpp:233
+#: iptc/iptcproperties.cpp:246
 msgid ""
 "Set here the original content transmission reference. This field is limited "
 "to 32 ASCII characters."
@@ -1984,8 +2019,8 @@ msgstr "<p>Ispisivi ASCII znakovi.</p>"
 msgid "<p>1 character.</p>"
 msgid_plural "<p>%1 characters.</p>"
 msgstr[0] "<p>%1 znak.</p>"
-msgstr[1] "<p>%1 znak.</p>"
-msgstr[2] "<p>%1 znakovi.</p>"
+msgstr[1] "<p>%1 znaka.</p>"
+msgstr[2] "<p>%1 znakova.</p>"
 
 #: plugin/objectattributesedit.cpp:96 xmp/xmpproperties.cpp:223
 msgid "Attribute:"
@@ -2119,7 +2154,7 @@ msgstr "&Metapodaci"
 
 #: plugin/plugin_metadataedit.cpp:138
 msgid "Edit &All Metadata..."
-msgstr "Uredi &metapodatke"
+msgstr "Uredi &metapodatke..."
 
 #: plugin/plugin_metadataedit.cpp:150
 msgid "Import EXIF..."
@@ -2180,7 +2215,7 @@ msgstr "Uvezi IPTC metapodatke"
 #: plugin/plugin_metadataedit.cpp:312
 #, kde-format
 msgid "\"%1\" does not have IPTC metadata."
-msgstr "\"%1\" nema IPTC metapodatke"
+msgstr "\"%1\" nema IPTC metapodatke."
 
 #: plugin/plugin_metadataedit.cpp:319
 #, kde-format
@@ -2318,15 +2353,15 @@ msgstr "Postavi ovdje originalnog vlasnika sadržaja."
 msgid "Enter here a new keyword."
 msgstr "Unesite ovdje novu ključnu riječ."
 
-#: xmp/xmporigin.cpp:153
+#: xmp/xmporigin.cpp:165
 msgid "Set here the content's city of origin."
 msgstr "Postavite ovdje grad odakle je sadržaj."
 
-#: xmp/xmporigin.cpp:160
+#: xmp/xmporigin.cpp:172
 msgid "Set here the content's location within the city."
 msgstr "Postavite ovdje lokaciju iz grada odakle je sadržaj."
 
-#: xmp/xmporigin.cpp:167
+#: xmp/xmporigin.cpp:179
 msgid "Set here the content's Province or State of origin."
 msgstr "Postavite ovdje Pokrajinu ili Državu odakle je sadržaj."
 
@@ -2684,763 +2719,3 @@ msgid ""
 msgstr ""
 "Unesite ovdje Ime Detalja Teme. Engleski jezik je korišten ako odaberete "
 "standardni XMP/NAA referentni broj."
-
-#~ msgid "Handbook"
-#~ msgstr "Priručnik"
-
-#~ msgid "Afghanistan"
-#~ msgstr "Afghanistan"
-
-#~ msgid "Albania"
-#~ msgstr "Albanija"
-
-#~ msgid "Algeria"
-#~ msgstr "Alžir"
-
-#~ msgid "American Samoa"
-#~ msgstr "Američka Samoa"
-
-#~ msgid "Andorra"
-#~ msgstr "Andora"
-
-#~ msgid "Angola"
-#~ msgstr "Angola"
-
-#~ msgid "Anguilla"
-#~ msgstr "Angila"
-
-#~ msgid "Antarctica"
-#~ msgstr "Antarktik"
-
-#~ msgid "Antigua and Barbuda"
-#~ msgstr "Antigua i Barbuda"
-
-#~ msgid "Argentina"
-#~ msgstr "Argentina"
-
-#~ msgid "Armenia"
-#~ msgstr "Jermenija"
-
-#~ msgid "Aruba"
-#~ msgstr "Aruba"
-
-#~ msgid "Australia"
-#~ msgstr "Australija"
-
-#~ msgid "Austria"
-#~ msgstr "Austrija"
-
-#~ msgid "Azerbaijan"
-#~ msgstr "Azerbejdžan"
-
-#~ msgid "Bahamas"
-#~ msgstr "Bahami"
-
-#~ msgid "Bahrain"
-#~ msgstr "Bahrein"
-
-#~ msgid "Bangladesh"
-#~ msgstr "Bangladeš"
-
-#~ msgid "Barbados"
-#~ msgstr "Barbados"
-
-#~ msgid "Belarus"
-#~ msgstr "Bjelorusija"
-
-#~ msgid "Belgium"
-#~ msgstr "Belgija"
-
-#~ msgid "Belize"
-#~ msgstr "Belize"
-
-#~ msgid "Benin"
-#~ msgstr "Benin"
-
-#~ msgid "Bermuda"
-#~ msgstr "Bermuda"
-
-#~ msgid "Bhutan"
-#~ msgstr "Butan"
-
-#~ msgid "Bolivia"
-#~ msgstr "Bolivija"
-
-#~ msgid "Bosnia and Herzegovina"
-#~ msgstr "Bosna i Hercegovina"
-
-#~ msgid "Botswana"
-#~ msgstr "Bocvana"
-
-#~ msgid "Bouvet Island"
-#~ msgstr "Ostrvo Buve"
-
-#~ msgid "Brazil"
-#~ msgstr "Brazil"
-
-#~ msgid "British Indian Ocean Territory"
-#~ msgstr "Britanska teritorija indijskog okeana"
-
-#~ msgid "British Virgin Islands"
-#~ msgstr "Britanska Djevičanska ostrva"
-
-#~ msgid "Brunei Darussalam"
-#~ msgstr "Brunej Darusalam"
-
-#~ msgid "Bulgaria"
-#~ msgstr "Bugarska"
-
-#~ msgid "Burkina Faso"
-#~ msgstr "Burkina Faso"
-
-#~ msgid "Burundi"
-#~ msgstr "Burundi"
-
-#~ msgid "Cambodia"
-#~ msgstr "Kambodža"
-
-#~ msgid "Cameroon"
-#~ msgstr "Kamerun"
-
-#~ msgid "Canada"
-#~ msgstr "Kanada"
-
-#~ msgid "Cape Verde"
-#~ msgstr "Kejp Verde"
-
-#~ msgid "Cayman Islands"
-#~ msgstr "Kajmanska ostrva"
-
-#~ msgid "Central African Republic"
-#~ msgstr "Centralnoafrička republika"
-
-#~ msgid "Chad"
-#~ msgstr "Čad"
-
-#~ msgid "Chile"
-#~ msgstr "Čile"
-
-#~ msgid "China"
-#~ msgstr "Kina"
-
-#~ msgid "Christmas Island "
-#~ msgstr "Božićno ostrvo "
-
-#~ msgid "Cocos Islands"
-#~ msgstr "Kokosova ostrva"
-
-#~ msgid "Colombia"
-#~ msgstr "Kolumbija"
-
-#~ msgid "Comoros"
-#~ msgstr "Komori"
-
-#~ msgid "Zaire"
-#~ msgstr "Zair"
-
-#~ msgid "Congo"
-#~ msgstr "Kongo"
-
-#~ msgid "Cook Islands"
-#~ msgstr "Kukova ostrva"
-
-#~ msgid "Costa Rica"
-#~ msgstr "Kostarika"
-
-#~ msgid "Ivory Coast"
-#~ msgstr "Obala Slonovače"
-
-#~ msgid "Cuba"
-#~ msgstr "Kuba"
-
-#~ msgid "Cyprus"
-#~ msgstr "Kipar"
-
-#~ msgid "Czech Republic"
-#~ msgstr "Češka republika"
-
-#~ msgid "Denmark"
-#~ msgstr "Danska"
-
-#~ msgid "Djibouti"
-#~ msgstr "Džibuti"
-
-#~ msgid "Dominica"
-#~ msgstr "Dominika"
-
-#~ msgid "Dominican Republic"
-#~ msgstr "Dominikanska republika"
-
-#~ msgid "Ecuador"
-#~ msgstr "Ekvador"
-
-#~ msgid "Egypt"
-#~ msgstr "Egipat"
-
-#~ msgid "El Salvador"
-#~ msgstr "El Salvador"
-
-#~ msgid "Equatorial Guinea"
-#~ msgstr "Ekvatorijalna Gvineja"
-
-#~ msgid "Eritrea"
-#~ msgstr "Eritreja"
-
-#~ msgid "Estonia"
-#~ msgstr "Estonija"
-
-#~ msgid "Ethiopia"
-#~ msgstr "Etiopija"
-
-#~ msgid "Faeroe Islands"
-#~ msgstr "Farska ostrva"
-
-#~ msgid "Falkland Islands"
-#~ msgstr "Foklandska ostrva"
-
-#~ msgid "Fiji Islands"
-#~ msgstr "Fidži"
-
-#~ msgid "Finland"
-#~ msgstr "Finska"
-
-#~ msgid "France"
-#~ msgstr "Francuska"
-
-#~ msgid "French Guiana"
-#~ msgstr "Francuska Gvajana"
-
-#~ msgid "French Polynesia"
-#~ msgstr "Francuska Polinezija"
-
-#~ msgid "French Southern Territories"
-#~ msgstr "Francuske južne teritorije"
-
-#~ msgid "Gabon"
-#~ msgstr "Gabon"
-
-#~ msgid "Gambia"
-#~ msgstr "Gambija"
-
-#~ msgid "Georgia"
-#~ msgstr "Gruzija"
-
-#~ msgid "Germany"
-#~ msgstr "Njemačka"
-
-#~ msgid "Ghana"
-#~ msgstr "Gana"
-
-#~ msgid "Gibraltar"
-#~ msgstr "Gibraltar"
-
-#~ msgid "Greece"
-#~ msgstr "Grčka"
-
-#~ msgid "Greenland"
-#~ msgstr "Grenland"
-
-#~ msgid "Grenada"
-#~ msgstr "Grenada"
-
-#~ msgid "Guadaloupe"
-#~ msgstr "Gvadalupe"
-
-#~ msgid "Guam"
-#~ msgstr "Guam"
-
-#~ msgid "Guatemala"
-#~ msgstr "Gvatemala"
-
-#~ msgid "Guinea"
-#~ msgstr "Gvineja"
-
-#~ msgid "Guinea-Bissau"
-#~ msgstr "Gvineja-Bisao"
-
-#~ msgid "Guyana"
-#~ msgstr "Gvajana"
-
-#~ msgid "Haiti"
-#~ msgstr "Haiti"
-
-#~ msgid "Heard and McDonald Islands"
-#~ msgstr "Hardova i Mekdonaldsova ostrva"
-
-#~ msgid "Vatican"
-#~ msgstr "Vatikan"
-
-#~ msgid "Honduras"
-#~ msgstr "Honduras"
-
-#~ msgid "Hong Kong"
-#~ msgstr "Hong Kong"
-
-#~ msgid "Croatia"
-#~ msgstr "Hrvatska"
-
-#~ msgid "Hungary"
-#~ msgstr "Mađarska"
-
-#~ msgid "Iceland"
-#~ msgstr "Island"
-
-#~ msgid "India"
-#~ msgstr "Indija"
-
-#~ msgid "Indonesia"
-#~ msgstr "Indonezija"
-
-#~ msgid "Iran"
-#~ msgstr "Iran"
-
-#~ msgid "Iraq"
-#~ msgstr "Irak"
-
-#~ msgid "Ireland"
-#~ msgstr "Irska"
-
-#~ msgid "Israel"
-#~ msgstr "Izrael"
-
-#~ msgid "Italy"
-#~ msgstr "Italija"
-
-#~ msgid "Jamaica"
-#~ msgstr "Jamajka"
-
-#~ msgid "Japan"
-#~ msgstr "Japan"
-
-#~ msgid "Jordan"
-#~ msgstr "Jordan"
-
-#~ msgid "Kazakhstan"
-#~ msgstr "Kazahstan"
-
-#~ msgid "Kenya"
-#~ msgstr "Kenija"
-
-#~ msgid "Kiribati"
-#~ msgstr "Kiribati"
-
-#~ msgid "Korea"
-#~ msgstr "Koreja"
-
-#~ msgid "Kuwait"
-#~ msgstr "Kuvajt"
-
-#~ msgid "Kyrgyz Republic"
-#~ msgstr "Kirgiska republika"
-
-#~ msgid "Lao"
-#~ msgstr "Lao"
-
-#~ msgid "Latvia"
-#~ msgstr "Latvija"
-
-#~ msgid "Lebanon"
-#~ msgstr "Liban"
-
-#~ msgid "Lesotho"
-#~ msgstr "Lesoto"
-
-#~ msgid "Liberia"
-#~ msgstr "Liberija"
-
-#~ msgid "Libyan Arab Jamahiriya"
-#~ msgstr "Libijska arapska džamahirija"
-
-#~ msgid "Liechtenstein"
-#~ msgstr "Lihtenštajn"
-
-#~ msgid "Lithuania"
-#~ msgstr "Litvanija"
-
-#~ msgid "Luxembourg"
-#~ msgstr "Luksemburg"
-
-#~ msgid "Macao"
-#~ msgstr "Makao"
-
-#~ msgid "Macedonia"
-#~ msgstr "Makedonija"
-
-#~ msgid "Madagascar"
-#~ msgstr "Madagaskar"
-
-#~ msgid "Malawi"
-#~ msgstr "Malavi"
-
-#~ msgid "Malaysia"
-#~ msgstr "Malezija"
-
-#~ msgid "Maldives"
-#~ msgstr "Maldivi"
-
-#~ msgid "Mali"
-#~ msgstr "Mali"
-
-#~ msgid "Malta"
-#~ msgstr "Malta"
-
-#~ msgid "Marshall Islands"
-#~ msgstr "Maršalska ostrva"
-
-#~ msgid "Martinique"
-#~ msgstr "Martinik"
-
-#~ msgid "Mauritania"
-#~ msgstr "Mauritanija"
-
-#~ msgid "Mauritius"
-#~ msgstr "Mauricijus"
-
-#~ msgid "Mayotte"
-#~ msgstr "Majota"
-
-#~ msgid "Mexico"
-#~ msgstr "Meksiko"
-
-#~ msgid "Micronesia"
-#~ msgstr "Mikronezija"
-
-#~ msgid "Moldova"
-#~ msgstr "Moldavija"
-
-#~ msgid "Monaco"
-#~ msgstr "Monako"
-
-#~ msgid "Mongolia"
-#~ msgstr "Mongolija"
-
-#~ msgid "Montserrat"
-#~ msgstr "Monserat"
-
-#~ msgid "Morocco"
-#~ msgstr "Maroko"
-
-#~ msgid "Mozambique"
-#~ msgstr "Mozambik"
-
-#~ msgid "Myanmar"
-#~ msgstr "Mijanmar"
-
-#~ msgid "Namibia"
-#~ msgstr "Namibija"
-
-#~ msgid "Nauru"
-#~ msgstr "Nauru"
-
-#~ msgid "Nepal"
-#~ msgstr "Nepal"
-
-#~ msgid "Netherlands Antilles"
-#~ msgstr "Holandski antili"
-
-#~ msgid "Netherlands"
-#~ msgstr "Holandija"
-
-#~ msgid "New Caledonia"
-#~ msgstr "Nova Kaledonija"
-
-#~ msgid "New Zealand"
-#~ msgstr "Novi Zeland"
-
-#~ msgid "Nicaragua"
-#~ msgstr "Nikaragva"
-
-#~ msgid "Niger"
-#~ msgstr "Niger"
-
-#~ msgid "Nigeria"
-#~ msgstr "Nigerija"
-
-#~ msgid "Niue"
-#~ msgstr "Niui"
-
-#~ msgid "Norfolk Island"
-#~ msgstr "Norfolk ostrva"
-
-#~ msgid "Northern Mariana Islands"
-#~ msgstr "Sjeverna Marijanska ostrva"
-
-#~ msgid "Norway"
-#~ msgstr "Norveška"
-
-#~ msgid "Oman"
-#~ msgstr "Oman"
-
-#~ msgid "Pakistan"
-#~ msgstr "Pakistan"
-
-#~ msgid "Palau"
-#~ msgstr "Palau"
-
-#~ msgid "Palestinian Territory"
-#~ msgstr "Palestina"
-
-#~ msgid "Panama"
-#~ msgstr "Panama"
-
-#~ msgid "Papua New Guinea"
-#~ msgstr "Papua nova Gvineja"
-
-#~ msgid "Paraguay"
-#~ msgstr "Paragvaj"
-
-#~ msgid "Peru"
-#~ msgstr "Peru"
-
-#~ msgid "Philippines"
-#~ msgstr "Filipini"
-
-#~ msgid "Pitcairn Island"
-#~ msgstr "Pitkairn ostrvo"
-
-#~ msgid "Poland"
-#~ msgstr "Poljska"
-
-#~ msgid "Portugal"
-#~ msgstr "Portugal"
-
-#~ msgid "Puerto Rico"
-#~ msgstr "Portoriko"
-
-#~ msgid "Qatar"
-#~ msgstr "Katar"
-
-#~ msgid "Reunion"
-#~ msgstr "Reunion"
-
-#~ msgid "Romania"
-#~ msgstr "Rumunija"
-
-#~ msgid "Russian Federation"
-#~ msgstr "Ruska federacija"
-
-#~ msgid "Rwanda"
-#~ msgstr "Ruanda"
-
-#~ msgid "St. Helena"
-#~ msgstr "Sv. Helena"
-
-#~ msgid "St. Kitts and Nevis"
-#~ msgstr "Sv. Kits i Nevis"
-
-#~ msgid "St. Lucia"
-#~ msgstr "Sv. Lucija"
-
-#~ msgid "St. Pierre and Miquelon"
-#~ msgstr "Sv. Pjer i Mikelon"
-
-#~ msgid "St. Vincent and the Grenadines"
-#~ msgstr "Sv. Vinsent i Grenadini"
-
-#~ msgid "Samoa"
-#~ msgstr "Samoa"
-
-#~ msgid "San Marino"
-#~ msgstr "San Marino"
-
-#~ msgid "Sao Tome and Principe"
-#~ msgstr "Sao Tome i Principe"
-
-#~ msgid "Saudi Arabia"
-#~ msgstr "Saudijska Arabija"
-
-#~ msgid "Senegal"
-#~ msgstr "Senegal"
-
-#~ msgid "Serbia and Montenegro"
-#~ msgstr "Srbija i Crna gora"
-
-#~ msgid "Seychelles"
-#~ msgstr "Sejšeli"
-
-#~ msgid "Sierra Leone"
-#~ msgstr "Sijera Leone"
-
-#~ msgid "Singapore"
-#~ msgstr "Singapur"
-
-#~ msgid "Slovakia"
-#~ msgstr "Slovačka"
-
-#~ msgid "Slovenia"
-#~ msgstr "Slovenija"
-
-#~ msgid "Solomon Islands"
-#~ msgstr "Solomonska ostrva"
-
-#~ msgid "Somalia"
-#~ msgstr "Somalija"
-
-#~ msgid "South Africa"
-#~ msgstr "Južna Afrika"
-
-#~ msgid "South Georgia and the South Sandwich Islands"
-#~ msgstr "Južna Gruzija i Južna Sendvič ostrva"
-
-#~ msgid "Spain"
-#~ msgstr "Španija"
-
-#~ msgid "Sri Lanka"
-#~ msgstr "Šri Lanka"
-
-#~ msgid "Sudan"
-#~ msgstr "Sudan"
-
-#~ msgid "Suriname"
-#~ msgstr "Surinam"
-
-#~ msgid "Svalbard & Jan Mayen Islands"
-#~ msgstr "Svalbard i Jan Majen ostrva"
-
-#~ msgid "Swaziland"
-#~ msgstr "Svazilend"
-
-#~ msgid "Sweden"
-#~ msgstr "Švedska"
-
-#~ msgid "Switzerland"
-#~ msgstr "Švajcarska"
-
-#~ msgid "Syrian Arab Republic"
-#~ msgstr "Sirijska arapska republika"
-
-#~ msgid "Taiwan"
-#~ msgstr "Tajvan"
-
-#~ msgid "Tajikistan"
-#~ msgstr "Tadžikistan"
-
-#~ msgid "Tanzania"
-#~ msgstr "Tanzanija"
-
-#~ msgid "Thailand"
-#~ msgstr "Tajland"
-
-#~ msgid "Timor-Leste"
-#~ msgstr "Timor"
-
-#~ msgid "Togo"
-#~ msgstr "Togo"
-
-#~ msgid "Tokelau Islands"
-#~ msgstr "Tokelau ostrva"
-
-#~ msgid "Tonga"
-#~ msgstr "Tonga"
-
-#~ msgid "Trinidad and Tobago"
-#~ msgstr "Trinidad i Tobago"
-
-#~ msgid "Tunisia"
-#~ msgstr "Tunis"
-
-#~ msgid "Turkey"
-#~ msgstr "Turska"
-
-#~ msgid "Turkmenistan"
-#~ msgstr "Turkmenistan"
-
-#~ msgid "Turks and Caicos Islands"
-#~ msgstr "Turkska i Kajkaska ostrva"
-
-#~ msgid "Tuvalu"
-#~ msgstr "Tuvalu"
-
-#~ msgid "US Virgin Islands"
-#~ msgstr "Američka Djevičanska ostrva"
-
-#~ msgid "Uganda"
-#~ msgstr "Uganda"
-
-#~ msgid "Ukraine"
-#~ msgstr "Ukrajina"
-
-#~ msgid "United Arab Emirates"
-#~ msgstr "Ujedinjeni arapski emirati"
-
-#~ msgid "United Kingdom"
-#~ msgstr "Ujedinjeno kraljevstvo"
-
-#~ msgid "United States Minor Outlying Islands"
-#~ msgstr "Mala spoljna ostrva Sjedinjenih država"
-
-#~ msgid "United States of America"
-#~ msgstr "Sjedinjene Američke Države"
-
-#~ msgid "Uruguay, Eastern Republic of"
-#~ msgstr "Urugvaj"
-
-#~ msgid "Uzbekistan"
-#~ msgstr "Uzbekistan"
-
-#~ msgid "Vanuatu"
-#~ msgstr "Vanuatu"
-
-#~ msgid "Venezuela"
-#~ msgstr "Venecuela"
-
-#~ msgid "Viet Nam"
-#~ msgstr "Vijetnam"
-
-#~ msgid "Wallis and Futuna Islands "
-#~ msgstr "Valis i Futuna ostrva "
-
-#~ msgid "Western Sahara"
-#~ msgstr "Zapadna Sahara"
-
-#~ msgid "Yemen"
-#~ msgstr "Jemen"
-
-#~ msgid "Zambia"
-#~ msgstr "Zambija"
-
-#~ msgid "Zimbabwe"
-#~ msgstr "Zimbabve"
-
-#~ msgid "United Nations"
-#~ msgstr "Ujedinjene nacije"
-
-#~ msgid "European Union"
-#~ msgstr "Evropska unija"
-
-#~ msgid "Space"
-#~ msgstr "Kosmos"
-
-#~ msgid "At Sea"
-#~ msgstr "Na moru"
-
-#~ msgid "In Flight"
-#~ msgstr "U letu"
-
-#~ msgid "England"
-#~ msgstr "Engleska"
-
-#~ msgid "Scotland"
-#~ msgstr "Škotska"
-
-#~ msgid "Northern Ireland"
-#~ msgstr "Sjeverna Irska"
-
-#~ msgid "Wales"
-#~ msgstr "Vels"
-
-#~ msgid "Palestine"
-#~ msgstr "Palestina"
-
-#~ msgid "Gaza"
-#~ msgstr "Gaza"
-
-#~ msgid "Jericho"
-#~ msgstr "Jerihon"
-
-#~ msgid "Select here the content's country of origin."
-#~ msgstr "Postavite ovdje državu odakle je sadržaj."
-
-#~ msgctxt "image title"
-#~ msgid "Title (*):"
-#~ msgstr "Naslov (*):"

@@ -32,11 +32,13 @@ class QLabel;
 class KPushButton;
 class KJob;
 
+namespace Vkontakte
+{
+    class VkApi;
+}
+
 namespace KIPIVkontaktePlugin
 {
-
-class VkAPI;
-
 
 class AuthInfoWidget : public QGroupBox
 {
@@ -44,7 +46,7 @@ class AuthInfoWidget : public QGroupBox
 
 public:
 
-    AuthInfoWidget(QWidget* const parent, VkAPI* const vkapi);
+    AuthInfoWidget(QWidget* const parent, Vkontakte::VkApi* const vkapi);
     ~AuthInfoWidget();
 
     QString albumsURL() const;
@@ -64,10 +66,8 @@ protected Q_SLOTS:
 
     void updateAuthInfo();
 
-    void startGetUserId();
-    void startGetFullName();
-    void slotGetUserIdDone(KJob* kjob);
-    void slotGetFullNameDone(KJob* kjob);
+    void startGetUserInfo();
+    void slotGetUserInfoDone(KJob* kjob);
 
 protected:
 
@@ -76,7 +76,7 @@ protected:
 private:
 
     // VK.com interface
-    VkAPI*       m_vkapi;
+    Vkontakte::VkApi* m_vkapi;
 
     // Data
     int          m_userId;

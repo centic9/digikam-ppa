@@ -1,24 +1,24 @@
 # Translation of kipiplugin_batchprocessimages.po to Catalan
-# Copyright (C) 2009-2014 This_file_is_part_of_KDE
+# Copyright (C) 2009-2015 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Joan Maspons <joanmaspons@gmail.com>, 2009.
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2009, 2010, 2012, 2013, 2014.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2009, 2010, 2012, 2013, 2014, 2015.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2014.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_batchprocessimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-11-23 01:54+0000\n"
-"PO-Revision-Date: 2014-12-06 17:11+0100\n"
+"PO-Revision-Date: 2015-06-03 20:36+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -94,7 +94,7 @@ msgid ""
 "This button builds a process preview for the currently selected image on the "
 "list."
 msgstr ""
-"Aquest botó construeix un vista prèvia del procés per a la imatge de la "
+"Aquest botó construeix una vista prèvia del procés per a la imatge de la "
 "llista seleccionada actualment."
 
 #: common/batchprocessimagesdialog.cpp:159
@@ -137,7 +137,8 @@ msgstr ""
 #: common/batchprocessimagesdialog.cpp:185
 msgid "Here you can select the target folder which will used by the process."
 msgstr ""
-"Aquí podeu seleccionar la carpeta de destinació que s'utilitzarà pel procés."
+"Aquí podeu seleccionar la carpeta de destinació que s'utilitzarà per al "
+"procés."
 
 #: common/batchprocessimagesdialog.cpp:188
 msgid "Add images to the list."
@@ -448,9 +449,9 @@ msgid ""
 msgstr ""
 "<p>Seleccioneu aquí el tipus de vora per a les imatges:</p><p><b>Sòlid</b>: "
 "envolta completament la imatge amb una línia.<br/><b>Niepce</b>: envolta la "
-"imatge amb un línia fina i una vora ampla (ideal per fotos en blanc i negre)."
-"<br/><b>Eleva</b>: crea un efecte 3D al voltant de la imatge.<br/><b>Marc</"
-"b>: envolta la imatge amb una vora ornamental.</p>"
+"imatge amb una línia fina i una vora ampla (ideal per fotos en blanc i "
+"negre).<br/><b>Eleva</b>: crea un efecte 3D al voltant de la imatge.<br/"
+"><b>Marc</b>: envolta la imatge amb una vora ornamental.</p>"
 
 #: tools/borderoptionsdialog.cpp:58
 msgid "Border Options"
@@ -616,7 +617,7 @@ msgstr ""
 "><b>Normalitza</b>: transforma la imatge per expandir els colors a tot "
 "l'interval de valors. Aquesta és una tècnica de millora del contrast. "
 "L'algoritme millora el contrast d'una imatge a color ajustant el color dels "
-"pixels per expandir-lo a tot l'interval de colors disponibles.<br/> "
+"píxels per expandir-lo a tot l'interval de colors disponibles.<br/> "
 "<b>Segmenta</b>: segmenta una imatge analitzant-ne l'histograma dels "
 "components del color i identificant unitats homogènies amb la tècnica c-"
 "mitjanes borroses.<br/><b>Escapça</b>: escapça una imatge (tècnica de la "
@@ -653,7 +654,7 @@ msgid ""
 "Select here the value which represents the minimum number of pixels "
 "contained in a hexahedron before it can be considered valid."
 msgstr ""
-"Seleccioneu aquí el valor que representa el número mínim de píxels "
+"Seleccioneu aquí el valor que representa el nombre mínim de píxels "
 "continguts en un hexàedre abans que es pugui considerar vàlid."
 
 #: tools/coloroptionsdialog.cpp:101
@@ -747,8 +748,8 @@ msgid ""
 msgstr ""
 "<p><b>BMP</b>: el format de fitxer «BitMaP» (mapa de bits) és un format "
 "d'imatge popular de l'entorn Win32. Emmagatzema eficientment dades de "
-"gràfics RGB mapats o no amb píxels de 1, 4, 8 o 24 bits de mida. Les dades "
-"es poden emmagatzemar directament o comprimides usant algorismes RLE de "
+"gràfics RGB mapats o no amb píxels d'1, 4, 8 o 24 bits de mida. Les dades es "
+"poden emmagatzemar directament o comprimides usant algorismes RLE de "
 "compressió de dades de 4 o 8 bits. El format BMP és una bona elecció per un "
 "format de mapa de bits simple que accepti una gran varietat de dades "
 "d'imatge RGB.</p>"
@@ -805,8 +806,8 @@ msgid ""
 "<br/><b>100</b>: no compression</p>"
 msgstr ""
 "<p><b>1</b>: compressió molt alta<br/><b>25</b>: compressió alta<br/> <b>50</"
-"b>: compressió mitja<br/><b>75</b>: compressió baixa (valor per defecte) <br/"
-"><b>100</b>: sense compressió</p>"
+"b>: compressió mitjana<br/><b>75</b>: compressió baixa (valor per defecte) "
+"<br/><b>100</b>: sense compressió</p>"
 
 #: tools/convertoptionsdialog.cpp:85 tools/recompressoptionsdialog.cpp:77
 msgid "Use lossless compression"
@@ -927,7 +928,7 @@ msgstr ""
 "adaptatiu</b>: efectua una adaptació local del llindar. L'algorisme "
 "selecciona un llindar individual per a cada píxel basat en l'interval dels "
 "valors d'intensitat de la seva zona local. Això permet determinar el llindar "
-"en una imatge en que l'histograma d'intensitat global no té puntes "
+"en una imatge en què l'histograma d'intensitat global no té puntes "
 "específiques.<br/> <b>Carbonet</b>: simula un dibuix al carbonet.<br/"
 "><b>Detecció de vores</b>: detecta les vores en una imatge.<br/><b>Relleu</"
 "b>: retorna una imatge en escala de grisos amb un efecte tridimensional. "
@@ -939,9 +940,9 @@ msgstr ""
 "tridimensional.<br/> <b>Solaritzar</b>: converteix a negatiu tots els píxels "
 "per sobre del nivell del llindar. Aquest algorisme produeix un efecte de "
 "solarització que es veu en exposar una pel·lícula fotogràfica a la llum "
-"durant el procés de revelat.<br/><b>Dispersió</b>: aquest és un mètode "
+"durant el procés de revelatge.<br/><b>Dispersió</b>: aquest és un mètode "
 "d'efecte especial que desplaça aleatòriament cada píxel d'un bloc definit "
-"pel paràmetre radi.<br/> <b>Remolí</b>: arremolina els píxels cap el centre "
+"pel paràmetre radi.<br/> <b>Remolí</b>: arremolina els píxels cap al centre "
 "de la imatge.<br/> <b>Ona</b>: crea un efecte d'ondulació en la imatge "
 "canviant verticalment els píxels en una ona sinusoïdal.</p>"
 
@@ -1090,7 +1091,7 @@ msgid ""
 "You get a more dramatic effect as the degrees move from 1 to 360."
 msgstr ""
 "Seleccioneu aquí el valor que representa el tancament de l'efecte remolí. "
-"Aconseguireu un efecte més dramàtic augmentant els graus des de 1 cap a 360."
+"Aconseguireu un efecte més dramàtic augmentant els graus des d'1 fins a 360."
 
 #: tools/effectoptionsdialog.cpp:265
 msgid "Amplitude:"
@@ -1127,7 +1128,7 @@ msgstr "Afegeix soroll"
 #: tools/filterimagesdialog.cpp:66
 msgctxt "image filter"
 msgid "Antialias"
-msgstr "Antialias"
+msgstr "Antialiàsing"
 
 #: tools/filterimagesdialog.cpp:67
 msgctxt "image filter"
@@ -1550,7 +1551,7 @@ msgstr "La nova alçada de les imatges en píxels."
 
 #: tools/resizeoptionsdialog.cpp:312
 msgid "Fill image to specified size"
-msgstr "Omple la imatge fins la mida especificada"
+msgstr "Omple la imatge fins a la mida especificada"
 
 #: tools/resizeoptionsdialog.cpp:313
 msgid ""
@@ -1633,7 +1634,7 @@ msgid ""
 "dimensions. Otherwise it will be centered on the canvas and the borders will "
 "get cropped to achieve the desired paper size."
 msgstr ""
-"Si això està seleccionat, la imatge s'ampliarà fins encaixar en les "
+"Si això està seleccionat, la imatge s'ampliarà fins a encaixar en les "
 "dimensions del paper. En cas contrari, se centrarà en el llenç i les vores "
 "es retallaran per encaixar en la mida de paper desitjada."
 
@@ -1673,8 +1674,8 @@ msgstr ""
 "<p><b>Prepara per imprimir</b>: prepara la imatge per a la impressió "
 "fotogràfica. L'usuari pot definir la resolució de la impressió i la mida del "
 "paper fotogràfic. Les imatges de destinació s'adaptaran a les dimensions "
-"especificades (incloent la mida del fons, la mida dels marges, i el color de "
-"fons).</p>"
+"especificades (incloent-hi la mida del fons, la mida dels marges, i el color "
+"de fons).</p>"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_optionsButton)
 #: ui/batchprocessimagesdialog.ui:51
@@ -1787,7 +1788,7 @@ msgstr "Afegeix la data del fitxer"
 #. i18n: ectx: property (text), widget (QCheckBox, m_useExtraSymbolsCheck)
 #: ui/renameimagesbase.ui:63
 msgid "Use extra [X*] symbols in date format field"
-msgstr "Utilitza símbols extra [X*] en el camp del format de data"
+msgstr "Utilitza símbols extres [X*] en el camp del format de data"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_formatDateCheck)
 #: ui/renameimagesbase.ui:91

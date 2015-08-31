@@ -6,18 +6,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-29 01:50+0000\n"
-"PO-Revision-Date: 2013-10-19 01:33+0000\n"
-"Last-Translator: Samir Ribić <Unknown>\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2015-02-22 15:43+0100\n"
+"Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: bosanski <bs@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Launchpad (build 16807)\n"
-"X-Launchpad-Export-Date: 2013-10-20 04:58+0000\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-16 06:45+0000\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -84,19 +82,23 @@ msgstr "%1 uspješno raširena"
 msgid "Failed to resize %1: %2"
 msgstr "Neuspjeh u promjeni širine %1: %2"
 
-#: sendimages.cpp:257
+#: sendimages.cpp:250
+msgid "There are no files to send"
+msgstr ""
+
+#: sendimages.cpp:268
 msgid "Build images properties file"
 msgstr "Izgradi datoteku svojstava slike"
 
-#: sendimages.cpp:270
+#: sendimages.cpp:281
 msgid "no caption"
 msgstr "bez komentara"
 
-#: sendimages.cpp:273
+#: sendimages.cpp:284
 msgid "no keywords"
 msgstr "nema ključnih riječi"
 
-#: sendimages.cpp:275
+#: sendimages.cpp:286
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -105,30 +107,30 @@ msgstr ""
 "datoteka \"%1\":\n"
 "Originalne slike: %2\n"
 
-#: sendimages.cpp:278
+#: sendimages.cpp:289
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Komentari: %1\n"
 
-#: sendimages.cpp:281
+#: sendimages.cpp:292
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Oznake: %1\n"
 
-#: sendimages.cpp:284
+#: sendimages.cpp:295
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Rang: %1\n"
 
-#: sendimages.cpp:289
+#: sendimages.cpp:300
 msgid "properties.txt"
 msgstr "properties.txt"
 
-#: sendimages.cpp:298
+#: sendimages.cpp:309
 msgid "Image properties file done"
 msgstr "Odrađena datoteka svojstava slike"
 
-#: sendimages.cpp:315
+#: sendimages.cpp:326
 msgid ""
 "The images listed below cannot be resized.\n"
 "Do you want them to be added as attachments (without resizing)?"
@@ -136,11 +138,11 @@ msgstr ""
 "Slikama navedenim u nastavku ne može se promijeniti veličina.\n"
 "Želite li ih dodati u priloge (bez promjene veličine)?"
 
-#: sendimages.cpp:319
+#: sendimages.cpp:330
 msgid "Failed to resize images"
 msgstr "Nisam uspio promijeniti veličinu slike"
 
-#: sendimages.cpp:378
+#: sendimages.cpp:389
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -149,61 +151,66 @@ msgstr ""
 "Datoteka \"%1\" je prevelika da se šalje, molimo smanjiti njezinu veličinu "
 "ili promijeniti svoje postavke"
 
-#: sendimages.cpp:426
+#: sendimages.cpp:437
 msgid "Starting default KDE email program..."
 msgstr "Pokrećem zadani KDE e-mail program ..."
 
-#: sendimages.cpp:648
+#: sendimages.cpp:659
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Nije uspjelo pokretanje  \"%1\" programa. Provjerite svoj sistem."
 
-#: sendimages.cpp:661
+#: sendimages.cpp:672
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Pokrećem \"%1\" program..."
 
-#: sendimages.cpp:671
+#: sendimages.cpp:682
 msgid "After having sent your images by email..."
 msgstr "Nakon što ste poslali svoje slike putem e-pošte ..."
 
-#: sendimages.cpp:672
+#: sendimages.cpp:683
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "Pritisnite \"Zatvori\" dugme da počistite privremene datoteke"
 
-#: sendimagesdialog.cpp:83
+#: sendimagesdialog.cpp:85
 msgid "Email Images Options"
 msgstr "Opcije slanja slika e-poštom"
 
-#: sendimagesdialog.cpp:105
+#: sendimagesdialog.cpp:90
+msgctxt "@action:button"
+msgid "&Send"
+msgstr ""
+
+#: sendimagesdialog.cpp:110
 msgid "Send Images"
 msgstr "Pošalji slike"
 
-#: sendimagesdialog.cpp:108
+#: sendimagesdialog.cpp:113
 msgid "A plugin to e-mail items"
-msgstr ""
+msgstr "Dodatak za slanje slike elektronskom poštom"
 
-#: sendimagesdialog.cpp:109
+#: sendimagesdialog.cpp:114
 msgid "(c) 2003-2013, Gilles Caulier"
-msgstr ""
+msgstr "(c) 2003-2013, Gilles Caulier"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Author and Maintainer"
 msgstr "Autor i Održavalac"
 
-#: sendimagesdialog.cpp:114
+#: sendimagesdialog.cpp:119
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
-#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:119 sendimagesdialog.cpp:122
 msgid "Developer"
 msgstr "Programer"
 
-#: sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:122
 msgid "Tom Albers"
 msgstr "Tom Albers"
 
@@ -283,8 +290,6 @@ msgid "Very Big (1280 pixels)"
 msgstr "Vrlo velike (1280 piksela)"
 
 #: settingswidget.cpp:143
-#, fuzzy
-#| msgid "Huge - for printing (1600 pixels)"
 msgid "Large - for printing (1600 pixels)"
 msgstr "Ogromne - za štampu (1600 piksela)"
 
@@ -349,7 +354,7 @@ msgstr ""
 
 #: settingswidget.cpp:184
 msgid "Image format:"
-msgstr ""
+msgstr "Format slike:"
 
 #: settingswidget.cpp:192
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
@@ -368,18 +373,3 @@ msgstr ""
 #: settingswidget.cpp:201
 msgid "Image quality:"
 msgstr "Kvalitet slike:"
-
-#~ msgid "Handbook"
-#~ msgstr "Priručnik"
-
-#~ msgid "Images"
-#~ msgstr "Slike"
-
-#~ msgid "Image List"
-#~ msgstr "Lista slika"
-
-#~ msgid "Mail"
-#~ msgstr "Pošta"
-
-#~ msgid "Mail Options"
-#~ msgstr "Opcije pošte"

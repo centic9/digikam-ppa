@@ -1,0 +1,132 @@
+# kipiplugin_jalbumexport.po translation el
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_jalbumexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2013-04-20 22:55+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stelios"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sstavra@gmail.com"
+
+#: jalbumconfig.cpp:105
+msgid "jAlbum albums location:"
+msgstr "θέση λευκωμάτων jAlbum:"
+
+#: jalbumconfig.cpp:107
+msgid "Sets the path where the jAlbum albums are stored."
+msgstr "Ρυθμίζει τη διαδρομή που θα αποθηκευτούν τα λευκώματα jAlbum."
+
+#: jalbumconfig.cpp:110 jalbumconfig.cpp:180
+msgid "Select Albums Location"
+msgstr "Επιλογή θέσης λευκωμάτων"
+
+#: jalbumconfig.cpp:129
+msgid "jAlbum jar file:"
+msgstr "αρχείο jar του jAlbum:"
+
+#: jalbumconfig.cpp:131
+msgid "Sets the path of the jAlbum jar file."
+msgstr "Ρυθμίζει τη διαδρομή του αρχείου jar του jAlbum."
+
+#: jalbumconfig.cpp:134
+msgid "Select jAlbum jar File Location"
+msgstr "Επιλογή θέσης αρχείου jar του jAlbum"
+
+#: jalbumconfig.cpp:202
+msgid "Select jar File Location"
+msgstr "Επιλογή θέσης jar αρχείου"
+
+#: jalbumconfig.cpp:264
+#, kde-format
+msgid "Directory %1 does not exist, do you wish to create it?"
+msgstr "Ο κατάλογος %1 δεν υπάρχει, θέλετε να τον δημιουργήσετε;"
+
+#: jalbumconfig.cpp:273
+msgid "Failed to create directory"
+msgstr "Αποτυχία δημιουργίας καταλόγου"
+
+#: jalbumconfig.cpp:281
+msgid "Chosen path is not a directory"
+msgstr "Η επιλεγμένη διαδρομή δεν είναι κατάλογος"
+
+#: jalbumwindow.cpp:98
+msgid "jAlbum Album name to export to:"
+msgstr "Όνομα λευκώματος jAlbum για την εξαγωγή:"
+
+#. i18n: ectx: Menu (Export)
+#: jalbumwindow.cpp:105 kipiplugin_jalbumexportui.rc:7
+msgid "&Export"
+msgstr "&Εξαγωγή"
+
+#: jalbumwindow.cpp:125 jalbumwindow.cpp:129
+msgid "jAlbum Export"
+msgstr "Εξαγωγή jAlbum"
+
+#: jalbumwindow.cpp:132
+msgid "A Kipi plugin to launch jAlbum using selected images."
+msgstr ""
+"Πρόσθετο kipi για την εκτέλεση του jAlbum με χρήση επιλεγμένων εικόνων."
+
+#: jalbumwindow.cpp:133
+msgid "(c) 2013, Andrew Goodbody\n"
+msgstr "(c) 2013, Andrew Goodbody\n"
+
+#: jalbumwindow.cpp:135
+msgid "Andrew Goodbody"
+msgstr "Andrew Goodbody"
+
+#: jalbumwindow.cpp:135
+msgid "Author"
+msgstr "Συγγραφέας"
+
+#: jalbumwindow.cpp:143
+msgid "Settings"
+msgstr "Ρυθμίσεις"
+
+#: jalbumwindow.cpp:208
+#, kde-format
+msgid "Album %1 already exists, do you wish to overwrite it?"
+msgstr "Το λεύκωμα %1 ήδη υπάρχει, θέλετε να το αντικαταστήσετε;"
+
+#: jalbumwindow.cpp:218
+msgid "Failed to create album directory"
+msgstr "Αποτυχία δημιουργίας καταλόγου λευκώματος"
+
+#: jalbumwindow.cpp:229
+msgid "Could not open 'albumfiles.txt' for writing"
+msgstr "Αδυναμία ανοίγματος του 'albumfiles.txt' για εγγραφή"
+
+#: jalbumwindow.cpp:247
+msgid "Could not open 'jalbum-settings.jap' for writing"
+msgstr "Αδυναμία ανοίγματος του 'jalbum-settings.jap' για εγγραφή"
+
+#: jalbumwindow.cpp:266 plugin_jalbumexport.cpp:126
+msgid "Edit jAlbum Data"
+msgstr "Επεξεργασία δεδομένων jAlbum"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_jalbumexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: plugin_jalbumexport.cpp:108
+msgid "Export via &jAlbum"
+msgstr "Εξαγωγή μέσω &jAlbum"

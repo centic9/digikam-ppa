@@ -1,27 +1,30 @@
-/* Copyright 2010, 2011 Thomas McGuire <mcguire@kde.org>
-   Copyright 2011 Alexander Potashev <aspotashev@gmail.com>
+/*
+ * Copyright (C) 2010, 2011  Thomas McGuire <mcguire@kde.org>
+ * Copyright (C) 2011, 2015  Alexander Potashev <aspotashev@gmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) version 3, or any
+ * later version accepted by the membership of KDE e.V. (or its
+ * successor approved by the membership of KDE e.V.), which shall
+ * act as a proxy defined in Section 6 of version 3 of the license.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-   This library is free software; you can redistribute it and/or modify
-   it under the terms of the GNU Library General Public License as published
-   by the Free Software Foundation; either version 2 of the License or
-   ( at your option ) version 3 or, at the discretion of KDE e.V.
-   ( which shall act as a proxy as in section 14 of the GPLv3 ), any later version.
-
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
-#include "userinfo.moc"
+#include "userinfo.h"
 #include "util.h"
 
-#include <QtCore/QStringList>
 #include <KDebug>
+
+#include <QtCore/QStringList>
 
 namespace Vkontakte
 {
@@ -413,39 +416,62 @@ int UserInfo::timezone() const
 QString UserInfo::profileUrl() const
 {
     if (domain().isEmpty())
-        return QString("http://vkontakte.ru/id") + QString::number(uid());
+        return QString("http://vk.com/id") + QString::number(uid());
     else
-        return QString("http://vkontakte.ru/") + domain();
+        return QString("http://vk.com/") + domain();
 }
 
-/**
- * @brief Returns the stringlist of all possible field groups
- * that may be requested in VKontakte API methods "getProfiles" and "friends.get"
- *
- * @return The list of strings to pass as "fields" argument to a method.
- **/
 // static
 QStringList UserInfo::allQueryFields()
 {
     QStringList fields;
-    fields << "uid"
-           << "first_name"
-           << "last_name"
-           << "nickname"
-           << "domain"
-           << "sex"
+    fields << "sex"
            << "bdate"
            << "city"
            << "country"
-           << "timezone"
-           << "photo"
-           << "photo_medium"
-           << "photo_big"
+           << "photo_50"
+           << "photo_100"
+           << "photo_200_orig"
+           << "photo_200"
+           << "photo_400_orig"
+           << "photo_max"
+           << "photo_max_orig"
+           << "photo_id"
+           << "online"
+           << "online_mobile"
+           << "domain"
            << "has_mobile"
-           << "rate"
            << "contacts"
+           << "connections"
+           << "site"
            << "education"
-           << "online";
+           << "universities"
+           << "schools"
+           << "can_post"
+           << "can_see_all_posts"
+           << "can_see_audio"
+           << "can_write_private_message"
+           << "status"
+           << "last_seen"
+           << "common_count"
+           << "relation"
+           << "relatives"
+           << "counters"
+           << "screen_name"
+           << "maiden_name"
+           << "timezone"
+           << "occupation"
+           << "activities"
+           << "interests"
+           << "music"
+           << "movies"
+           << "tv"
+           << "books"
+           << "games"
+           << "about"
+           << "quotes"
+           << "personal"
+           << "friends_status";
     return fields;
 }
 

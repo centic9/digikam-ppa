@@ -1,0 +1,390 @@
+# Translation of kipiplugin_yandexfotki.po to Ukrainian
+# Copyright (C) 2011-2012 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_yandexfotki\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-07-07 01:58+0000\n"
+"PO-Revision-Date: 2012-09-04 19:20+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_yandexfotkiui.rc:7
+msgid "&Export"
+msgstr "&Експорт"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_yandexfotkiui.rc:13
+msgid "Main Toolbar"
+msgstr "Головна панель"
+
+#: logindialog.cpp:61 yfwindow.cpp:460
+msgctxt "Yandex.Fotki"
+msgid "Y"
+msgstr "Я"
+
+#: logindialog.cpp:62 yfwindow.cpp:461
+msgctxt "Yandex.Fotki"
+msgid "andex."
+msgstr "ндекс."
+
+#: logindialog.cpp:63 yfwindow.cpp:462
+msgctxt "Yandex.Fotki"
+msgid "Fotki"
+msgstr "Фотки"
+
+#: logindialog.cpp:78
+msgid "Login:"
+msgstr "Користувач:"
+
+#: logindialog.cpp:81 yfalbumdialog.cpp:74
+msgid "Password:"
+msgstr "Пароль:"
+
+#: logindialog.cpp:84
+msgid "Forgot your password?"
+msgstr "Забули ваш пароль?"
+
+#: logindialog.cpp:100
+msgid "&Login"
+msgstr "У&війти"
+
+#: logindialog.cpp:103
+msgid "&Skip"
+msgstr "Проп&устити"
+
+#: logindialog.cpp:113
+msgid "Yandex User Agreement"
+msgstr "Угода Яндекс з користувачем"
+
+#: logindialog.cpp:175
+msgid "Password cannot be empty."
+msgstr "Пароль не може бути порожнім."
+
+#: logindialog.cpp:175 yfalbumdialog.cpp:96
+msgid "Error"
+msgstr "Помилка"
+
+#: plugin_yandexfotki.cpp:89
+msgid "Export to &Yandex.Fotki..."
+msgstr "Експортувати до &Яндекс.Фотки…"
+
+#: yfalbumdialog.cpp:51
+msgid "New album"
+msgstr "Новий альбом"
+
+#: yfalbumdialog.cpp:59 yfwindow.cpp:165
+msgid "Album"
+msgstr "Альбом"
+
+#: yfalbumdialog.cpp:60
+msgid "These are basic settings for the new Yandex album."
+msgstr "Основні параметри нового альбому Яндекс."
+
+#: yfalbumdialog.cpp:63
+msgid "Title of the album that will be created (required)."
+msgstr "Назва альбому, який буде створено (обов’язкова)."
+
+#: yfalbumdialog.cpp:66
+msgid "Description of the album that will be created (optional)."
+msgstr "Опис альбому, який буде створено (необов’язковий)."
+
+#: yfalbumdialog.cpp:69
+msgid "Password for the album (optional)."
+msgstr "Пароль до альбому (необов’язковий)."
+
+#: yfalbumdialog.cpp:72
+msgid "Title:"
+msgstr "Заголовок:"
+
+#: yfalbumdialog.cpp:73
+msgid "Summary:"
+msgstr "Резюме:"
+
+#: yfalbumdialog.cpp:95
+msgid "Title cannot be empty."
+msgstr "Заголовок не може бути порожнім."
+
+#: yfwindow.cpp:127
+msgid "This is the list of images to upload to your Yandex album."
+msgstr "Це список зображень, які буде вивантажено до вашого альбому Яндекс."
+
+#: yfwindow.cpp:133
+msgid ""
+"This is a clickable link to open the Yandex.Fotki service in a web browser."
+msgstr ""
+"Це придатне для натискання посилання для відкриття вашої сторінки Яндекс."
+"Фотки у програмі для перегляду інтернету."
+
+#: yfwindow.cpp:141
+msgid "Account"
+msgstr "Обліковий запис"
+
+#: yfwindow.cpp:142
+msgid "This account is used for authentication."
+msgstr "Цей обліковий запис буде використано для розпізнавання."
+
+#: yfwindow.cpp:146
+msgid "Name:"
+msgstr "Назва:"
+
+#: yfwindow.cpp:147
+msgid "Your Yandex login"
+msgstr "Назва вашого облікового запису Яндекс"
+
+#: yfwindow.cpp:150
+msgid "Change Account"
+msgstr "Змінити обліковий запис"
+
+#: yfwindow.cpp:151
+msgid "Change Yandex account used to authenticate"
+msgstr ""
+"Змінити обліковий запис Яндекс, який буде використано для розпізнавання"
+
+#: yfwindow.cpp:166
+msgid "This is the Yandex.Fotki album that will be used for the transfer."
+msgstr "Це альбом Яндекс.Фотки, який буде використано для передавання даних."
+
+#: yfwindow.cpp:172
+msgid "New Album"
+msgstr "Створити альбом"
+
+#: yfwindow.cpp:173
+msgid "Create new Yandex.Fotki album"
+msgstr "Створити новий альбом Яндекс.Фотки"
+
+#: yfwindow.cpp:174
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "Перезавантажити"
+
+#: yfwindow.cpp:175
+msgid "Reload albums list"
+msgstr "Перезавантажити список альбомів"
+
+#: yfwindow.cpp:190
+msgid "Destination"
+msgstr "Призначення"
+
+#: yfwindow.cpp:191
+msgid "This is the location where Yandex.Fotki images will be downloaded."
+msgstr "Це адреса теки, до якої буде отримано зображення з Яндекс.Фотки."
+
+#: yfwindow.cpp:198
+msgid "Options"
+msgstr "Параметри"
+
+#: yfwindow.cpp:199
+msgid "These are options that will be applied to images before upload."
+msgstr "Це параметри, які буде застосовано до зображення перед вивантаженням."
+
+#: yfwindow.cpp:203
+msgid "Resize photos before uploading"
+msgstr "Змінити розмір фотографій перед вивантаженням"
+
+#: yfwindow.cpp:216
+msgid "Maximum dimension:"
+msgstr "Максимальний розмір:"
+
+#: yfwindow.cpp:224
+msgid "JPEG quality:"
+msgstr "Якість JPEG:"
+
+#: yfwindow.cpp:228
+msgid "Update policy:"
+msgstr "Правила оновлення:"
+
+#: yfwindow.cpp:230
+msgid "Update metadata"
+msgstr "Оновлювати метадані"
+
+#: yfwindow.cpp:231
+msgid "Update metadata of remote file and merge remote tags with local"
+msgstr "Оновити метадані віддаленого файла і об’єднати його мітки з локальними"
+
+#. i18n("Update metadata of remote file but keep remote tags untouched."));
+#.
+#: yfwindow.cpp:239
+msgid "Skip photo"
+msgstr "Пропустити фотографію"
+
+#: yfwindow.cpp:240
+msgid "Simple skip photo"
+msgstr "Просто пропустити фотографію"
+
+#: yfwindow.cpp:241
+msgid "Upload as new"
+msgstr "Вивантажити як нову"
+
+#: yfwindow.cpp:242
+msgid "Add photo as new"
+msgstr "Додати фотографію як нову"
+
+#: yfwindow.cpp:244
+msgid "Privacy settings:"
+msgstr "Параметри конфіденційності:"
+
+#: yfwindow.cpp:246
+msgid "Public access"
+msgstr "Загальний доступ"
+
+#: yfwindow.cpp:247
+msgid "Friends access"
+msgstr "Доступ для друзів"
+
+#: yfwindow.cpp:248
+msgid "Private access"
+msgstr "Конфіденційний доступ"
+
+#: yfwindow.cpp:250
+msgid "Hide original photo"
+msgstr "Приховати початкові варіанти"
+
+#: yfwindow.cpp:251
+msgid "Disable comments"
+msgstr "Вимкнути коментування"
+
+#: yfwindow.cpp:252
+msgid "Adult content"
+msgstr "Зображення для дорослих"
+
+#: yfwindow.cpp:313
+msgid "Export to Yandex.Fotki Web Service"
+msgstr "Експорт даних до служби Яндекс.Фотки"
+
+#: yfwindow.cpp:315
+msgid "Start Upload"
+msgstr "Почати вивантаження"
+
+#: yfwindow.cpp:316
+msgid "Start upload to Yandex.Fotki service"
+msgstr "Почати вивантаження до служби Яндекс.Фотки"
+
+#: yfwindow.cpp:328
+msgid "Yandex.Fotki Plugin"
+msgstr "Додаток Яндекс.Фотки"
+
+#: yfwindow.cpp:331
+msgid "A Kipi plugin to export image collections to Yandex.Fotki web service."
+msgstr "Додаток Kipi для експорту збірок зображень до веб-служби Яндекс.Фотки."
+
+#: yfwindow.cpp:333
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Roman Tsisyk"
+msgstr ""
+"© Vardhman Jain, 2007–2009\n"
+"© Gilles Caulier, 2008–2012\n"
+"© Luka Renko, 2009\n"
+"© Роман Цісик, 2010"
+
+#: yfwindow.cpp:338
+msgid "Roman Tsisyk"
+msgstr "Роман Цісик"
+
+#: yfwindow.cpp:338
+msgid "Author"
+msgstr "Автор"
+
+#: yfwindow.cpp:419
+msgid "Close"
+msgstr "Закрити"
+
+#: yfwindow.cpp:420
+msgid "Close window"
+msgstr "Закрити вікно"
+
+#: yfwindow.cpp:430
+msgid "Cancel"
+msgstr "Скасувати"
+
+#: yfwindow.cpp:431
+msgid "Cancel current operation"
+msgstr "Скасувати поточну дію"
+
+#: yfwindow.cpp:448
+msgid "Unauthorized"
+msgstr "Не уповноважено"
+
+#: yfwindow.cpp:812
+#, kde-format
+msgid ""
+"Failed to prepare image %1\n"
+"Do you want to continue?"
+msgstr ""
+"Не вдалося підготувати зображення %1\n"
+"Бажаєте продовжити вивантаження?"
+
+#: yfwindow.cpp:838
+msgid "Images has been uploaded"
+msgstr "Зображення вивантажено"
+
+#: yfwindow.cpp:868
+msgid "Please select album first"
+msgstr "Будь ласка, спочатку вкажіть альбом"
+
+#: yfwindow.cpp:890
+msgid "Session error"
+msgstr "Помилка сеансу"
+
+#: yfwindow.cpp:893
+msgid "Token error"
+msgstr "Помилка розпізнавання"
+
+#: yfwindow.cpp:896
+msgid "Invalid credentials"
+msgstr "Реєстраційні дані вказано з помилками"
+
+#: yfwindow.cpp:900
+msgid "Cannot get service document"
+msgstr "Не вдалося отримати службовий документ"
+
+#: yfwindow.cpp:913
+msgid "Cannot list albums"
+msgstr "Не вдалося отримати список альбомів"
+
+#: yfwindow.cpp:916
+msgid "Cannot list photos"
+msgstr "Не вдалося отримати список фотографій"
+
+#: yfwindow.cpp:919
+msgid "Cannot update album info"
+msgstr "Не вдалося оновити дані альбому"
+
+#: yfwindow.cpp:925
+#, kde-format
+msgid ""
+"Failed to upload image %1\n"
+"Do you want to continue?"
+msgstr ""
+"Не вдалося вивантажити зображення %1\n"
+"Бажаєте продовжувати вивантаження?"
+
+#: yfwindow.cpp:946
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#~ msgid "Handbook"
+#~ msgstr "Підручник"

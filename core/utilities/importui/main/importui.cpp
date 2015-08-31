@@ -232,16 +232,10 @@ ImportUI* ImportUI::instance()
 
 void ImportUI::setupUserArea()
 {
-    ImportThumbnailModel* const model    = new ImportThumbnailModel(this);
-    ImportFilterModel* const filterModel = new ImportFilterModel(this);
-
-    filterModel->setSourceImportModel(model);
-    filterModel->sort(0); // an initial sorting is necessary
-
     KHBox* const widget = new KHBox(this);
     d->splitter         = new SidebarSplitter(widget);
     KVBox* const vbox   = new KVBox(d->splitter);
-    d->view             = new ImportView(this, model, filterModel, vbox);
+    d->view             = new ImportView(this, vbox);
     d->view->importFilterModel()->setCameraThumbsController(d->camThumbsCtrl);
     d->historyView      = new DHistoryView(vbox);
     d->rightSideBar     = new ImagePropertiesSideBarCamGui(widget, d->splitter, KMultiTabBar::Right, true);
@@ -658,6 +652,41 @@ void ImportUI::setupActions()
     d->showMenuBarAction->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 }
 
+void ImportUI::updateActions()
+{
+    CamItemInfoList list = d->view->selectedCamItemInfos();
+    bool hasSelection    = list.count() > 0;
+
+    d->downloadDelSelectedAction->setEnabled(hasSelection && d->controller->cameraDeleteSupport());
+    d->deleteSelectedAction->setEnabled(hasSelection && d->controller->cameraDeleteSupport());
+    d->camItemPreviewAction->setEnabled(hasSelection && cameraUseUMSDriver());
+    d->downloadSelectedAction->setEnabled(hasSelection);
+    d->lockAction->setEnabled(hasSelection);
+
+    if (hasSelection)
+    {
+        // only enable "Mark as downloaded" if at least one
+        // selected image has not been downloaded
+        bool haveNotDownloadedItem = false;
+
+        foreach(CamItemInfo info, list)
+        {
+            haveNotDownloadedItem = !(info.downloaded == CamItemInfo::DownloadedYes);
+
+            if (haveNotDownloadedItem)
+            {
+                break;
+            }
+        }
+
+        d->markAsDownloadedAction->setEnabled(haveNotDownloadedItem);
+    }
+    else
+    {
+        d->markAsDownloadedAction->setEnabled(false);
+    }
+}
+
 void ImportUI::setupConnections()
 {
     //TODO: Needs testing.
@@ -671,9 +700,6 @@ void ImportUI::setupConnections()
             this, SLOT(slotColorManagementOptionsChanged()));
 
     // -------------------------------------------------------------------------
-
-    //connect(d->view, SIGNAL(signalSelected(CamItemInfo,bool)),
-    //this, SLOT(slotItemsSelected(CamItemInfo,bool)));
 
     connect(d->view, SIGNAL(signalImageSelected(CamItemInfoList,CamItemInfoList)),
             this, SLOT(slotImageSelected(CamItemInfoList,CamItemInfoList)));
@@ -1082,10 +1108,11 @@ void ImportUI::slotBusy(bool val)
         d->cameraCancelAction->setEnabled(false);
         d->cameraActions->setEnabled(true);
         d->advBox->setEnabled(true);
+        d->view->setEnabled(true);
 
         // selection-dependent update of lockAction, markAsDownloadedAction,
         // downloadSelectedAction, downloadDelSelectedAction, deleteSelectedAction
-        slotNewSelection(d->view->selectedUrls().count() > 0);
+        updateActions();
 
         m_animLogo->stop();
         d->statusProgressBar->setProgressValue(0);
@@ -1111,9 +1138,6 @@ void ImportUI::slotBusy(bool val)
 
         d->busy = true;
         d->cameraActions->setEnabled(false);
-
-        // TODO see if this can be enabled too, except while downloading..
-        d->advBox->setEnabled(false);
     }
 }
 
@@ -1554,7 +1578,7 @@ void ImportUI::slotDownloaded(const QString& folder, const QString& file, int st
 
         if (d->rightSideBar->url() == info.url())
         {
-            slotItemsSelected(d->view->camItemInfo(folder, file), true);
+            updateRightSideBar(info);
         }
 
         if (info.downloaded == CamItemInfo::DownloadedYes)
@@ -1670,7 +1694,7 @@ void ImportUI::slotLocked(const QString& folder, const QString& file, bool statu
 
             if (d->rightSideBar->url() == info.url())
             {
-                slotItemsSelected(d->view->camItemInfo(folder, file), true);
+                updateRightSideBar(info);
             }
         }
     }
@@ -1681,9 +1705,8 @@ void ImportUI::slotLocked(const QString& folder, const QString& file, bool statu
 
 void ImportUI::slotUpdateDownloadName()
 {
-    d->view->setIconViewUpdatesEnabled(false);
-
-    bool noSelection          = d->view->selectedCamItemInfos().count() == 0;
+    KUrl::List selected       = d->view->selectedUrls();
+    bool hasNoSelection       = selected.count() == 0;
     CamItemInfoList list      = d->view->allItems();
     DownloadSettings settings = downloadSettings();
 
@@ -1694,56 +1717,65 @@ void ImportUI::slotUpdateDownloadName()
 
         QString newName = info.name;
 
-        if (noSelection || d->view->isSelected(info.url()))
+        if (hasNoSelection || selected.contains(info.url()))
         {
-            newName = d->renameCustomizer->newName(info.name, info.ctime);
-        }
-
-        // Renaming files for the converting jpg to a lossless format
-        // is from cameracontroller.cpp moved here.
-
-        if (settings.convertJpeg && info.mime == QString("image/jpeg") &&
-           (noSelection || d->view->isSelected(info.url())))
-        {
-            QFileInfo     fi(newName);
-            QString ext = fi.suffix();
-
-            if (!ext.isEmpty())
+            if (d->renameCustomizer->useDefault())
             {
-                if (ext == "JPG" || ext == "JPE" || ext == "JPEG")
+                newName = d->renameCustomizer->newName(info.name, info.ctime);
+            }
+            else if (d->renameCustomizer->isEnabled())
+            {
+                newName = d->renameCustomizer->newName(info.url().toLocalFile(), info.ctime);
+            }
+            else if (!refInfo.downloadName.isEmpty())
+            {
+                newName = refInfo.downloadName;
+            }
+
+            // Renaming files for the converting jpg to a lossless format
+            // is from cameracontroller.cpp moved here.
+
+            if (settings.convertJpeg && info.mime == QLatin1String("image/jpeg"))
+            {
+                QFileInfo     fi(newName);
+                QString ext = fi.suffix();
+
+                if (!ext.isEmpty())
                 {
-                    ext = settings.losslessFormat.toUpper();
-                }
-                else if (ext == "Jpg" || ext == "Jpe" || ext == "Jpeg")
-                {
-                    ext    = settings.losslessFormat.toLower();
-                    ext[0] = ext[0].toUpper();
+                    if (ext[0].isUpper() && ext[ext.length()-1].isUpper())
+                    {
+                        ext = settings.losslessFormat.toUpper();
+                    }
+                    else if (ext[0].isUpper())
+                    {
+                        ext    = settings.losslessFormat.toLower();
+                        ext[0] = ext[0].toUpper();
+                    }
+                    else
+                    {
+                        ext = settings.losslessFormat.toLower();
+                    }
+
+                    newName = fi.completeBaseName() + QLatin1Char('.') + ext;
                 }
                 else
                 {
-                   ext = settings.losslessFormat.toLower();
+                    newName = newName + QLatin1Char('.') + settings.losslessFormat.toLower();
                 }
-
-                newName = fi.completeBaseName() + '.' + ext;
-            }
-            else
-            {
-                newName = newName + '.' + settings.losslessFormat.toLower();
             }
         }
 
         refInfo.downloadName = newName;
+
         kDebug() << "slotDownloadNameChanged, new: " << refInfo.downloadName;
     }
 
-    d->view->setIconViewUpdatesEnabled(true);
+    d->view->updateIconView();
 }
 
 //FIXME: the new pictures are marked by CameraHistoryUpdater which is not working yet.
 void ImportUI::slotSelectNew()
 {
-    blockSignals(true);
-
     CamItemInfoList infos = d->view->allItems();
     CamItemInfoList toBeSelected;
 
@@ -1756,7 +1788,6 @@ void ImportUI::slotSelectNew()
     }
 
     d->view->setSelectedCamItemInfos(toBeSelected);
-    blockSignals(false);
 }
 
 void ImportUI::slotSelectLocked()
@@ -1847,13 +1878,14 @@ void ImportUI::itemsSelectionSizeInfo(unsigned long& fSizeKB, unsigned long& dSi
 {
     qint64 fSize = 0;  // Files size
     qint64 dSize = 0;  // Estimated space requires to download and process files.
+
+    KUrl::List selected       = d->view->selectedUrls();
+    CamItemInfoList list      = d->view->allItems();
     DownloadSettings settings = downloadSettings();
 
-    QList<CamItemInfo> infos = d->view->allItems();
-
-    foreach (CamItemInfo info, infos)
+    foreach (CamItemInfo info, list)
     {
-        if (d->view->isSelected(info.url()))
+        if (selected.contains(info.url()))
         {
             qint64 size = info.size;
 
@@ -2033,12 +2065,13 @@ bool ImportUI::downloadCameraItems(PAlbum* pAlbum, bool onlySelected, bool delet
 
     // -- Download camera items -------------------------------
 
-    QSet<QString> usedDownloadPaths;
+    KUrl::List selected  = d->view->selectedUrls();
     CamItemInfoList list = d->view->allItems();
+    QSet<QString> usedDownloadPaths;
 
     foreach(CamItemInfo info, list)
     {
-        if (onlySelected && !(d->view->isSelected(info.url())))
+        if (onlySelected && !(selected.contains(info.url())))
         {
             continue;
         }
@@ -2122,6 +2155,7 @@ bool ImportUI::downloadCameraItems(PAlbum* pAlbum, bool onlySelected, bool delet
     // disable settings tab here instead of slotBusy:
     // Only needs to be disabled while downloading
     d->advBox->setEnabled(false);
+    d->view->setEnabled(false);
 
     d->deleteAfter = deleteAfter;
 
@@ -2267,41 +2301,7 @@ void ImportUI::slotMetadata(const QString& folder, const QString& file, const DM
 
 void ImportUI::slotNewSelection(bool hasSelection)
 {
-    if (!d->controller)
-    {
-        return;
-    }
-
-    d->downloadSelectedAction->setEnabled(hasSelection);
-    d->downloadDelSelectedAction->setEnabled(hasSelection && d->controller->cameraDeleteSupport());
-    d->camItemPreviewAction->setEnabled(hasSelection && cameraUseUMSDriver());
-    d->deleteSelectedAction->setEnabled(hasSelection && d->controller->cameraDeleteSupport());
-    d->lockAction->setEnabled(hasSelection);
-
-    if (hasSelection)
-    {
-        // only enable "Mark as downloaded" if at least one
-        // selected image has not been downloaded
-        bool haveNotDownloadedItem = false;
-
-        CamItemInfoList list = d->view->selectedCamItemInfos();
-
-        foreach(CamItemInfo info, list)
-        {
-            haveNotDownloadedItem = !(info.downloaded == CamItemInfo::DownloadedYes);
-
-            if (haveNotDownloadedItem)
-            {
-                break;
-            }
-        }
-
-        d->markAsDownloadedAction->setEnabled(haveNotDownloadedItem);
-    }
-    else
-    {
-        d->markAsDownloadedAction->setEnabled(false);
-    }
+    updateActions();
 
     QList<ParseSettings> renameFiles;
     CamItemInfoList list = hasSelection ? d->view->selectedCamItemInfos() : d->view->allItems();
@@ -2310,7 +2310,7 @@ void ImportUI::slotNewSelection(bool hasSelection)
     {
         ParseSettings parseSettings;
 
-        parseSettings.fileUrl      = info.name;
+        parseSettings.fileUrl      = info.url();
         parseSettings.creationTime = info.ctime;
         renameFiles.append(parseSettings);
     }
@@ -2347,9 +2347,7 @@ void ImportUI::slotImageSelected(const CamItemInfoList& selection, const CamItem
             // if selected item is in the list of item which will be deleted, set no current item
             if (!d->currentlyDeleting.contains(selection.first().folder + selection.first().name))
             {
-                d->rightSideBar->itemChanged(selection.first(), DMetadata());
-                d->controller->getMetadata(selection.first().folder, selection.first().name);
-
+                updateRightSideBar(selection.first());
                 int index = listAll.indexOf(selection.first()) + 1;
 
                 d->statusProgressBar->progressBarMode(StatusProgressBar::TextMode,
@@ -2376,39 +2374,16 @@ void ImportUI::slotImageSelected(const CamItemInfoList& selection, const CamItem
             break;
         }
     }
-
-    slotNewSelection(d->view->selectedCamItemInfos().count() > 0);
 }
 
-//FIXME: To be removed.
-void ImportUI::slotItemsSelected(const CamItemInfo& info, bool selected)
+void ImportUI::updateRightSideBar(const CamItemInfo& info)
 {
-    if (!d->controller)
-    {
-        return;
-    }
+    d->rightSideBar->itemChanged(info, DMetadata());
 
-    if (selected)
+    if (!d->busy)
     {
-        // if selected item is in the list of item which will be deleted, set no current item
-        if (!d->currentlyDeleting.contains(info.folder + info.name))
-        {
-            //KUrl url(info.folder + '/' + info.name);
-            //TODO: d->rightSideBar->itemChanged(info, info);
-            //d->controller->getExif(info.folder, info.name);
-        }
-        else
-        {
-            d->rightSideBar->slotNoCurrentItem();
-        }
+        d->controller->getMetadata(info.folder, info.name);
     }
-    else
-    {
-        d->rightSideBar->slotNoCurrentItem();
-    }
-
-    // update availability of actions
-    slotNewSelection(d->view->selectedCamItemInfos().count() > 0);
 }
 
 QString ImportUI::identifyCategoryforMime(const QString& mime)

@@ -11,7 +11,6 @@ to use a plugin architecture for additional functionalities.
 
 Notes:
 
-Most of the Kipi-plugins have previously been DigikamPlugins.
 kipi-plugins is based in part on the work of the Independent JPEG Group.
 
 Current plugins ported to Qt4/KDE4:
@@ -27,7 +26,7 @@ HTMLExport         : A tool to export images collections into a static XHTML pag
 ImageViewer        : A tool to preview images using OpenGL.
 JpegLossLess       : A tool to rotate/flip images without losing quality.
 MetadataEdit       : A tool to edit EXIF, IPTC and XMP metadata.
-PicasaWebExport    : A tool to export images to a remote Picasa web service (http://www.picasaweb.com).
+GoogleServices     : A tool to export images to Google web services.
 PrintImage         : A tool to print images in various format.
 RawConverter       : A tool to convert Raw Image to JPEG/PNG/TIFF.
 RemoveRedEyes      : A tool to remove red eyes on image automatically.
@@ -53,7 +52,6 @@ ImageShackExport   : A tool to export images to ImageShack web service (http://i
 ImgurExport        : A tool to export images to ImgUr web service (http://imgur.com)
 DLNAExport         : A tool to export collection on DLNA network service (http://www.dlna.org).
 Panorama           : A tool to assemble panoramic photo automatically.
-WallPaper          : A tool to set image as background on your desktop.
 
 -- DEPENDENCIES -------------------------------------------------------
 
@@ -92,7 +90,7 @@ libimagemagick  >= 5.5.4                        http://www.imagemagick.org
 libqtgstreamer  >= 0.9.0                        http://gstreamer.freedesktop.org/modules/qt-gstreamer.html
 libhupnp        >= 2.0.0                        http://www.herqq.org                                               If no external libray is found, internal version is used instead.
 libqtsoap       >= 2.7.0                        https://github.com/commontk/QtSOAP
-libqtkoauth     >= 0.97                         http://gitorious.org/kqoauth
+libqtkoauth     >= 0.97                         https://github.com/kypeli/kQOAuth
 flex            >= 2.5.0                        http://flex.sourceforge.net
 bison           >= 2.5.0                        http://www.gnu.org/software/bison/bison.html
 
@@ -104,7 +102,6 @@ DngConverter       : libexpat.
 AcquireImages      : libksane.
 HtmlExport         : libxslt and libxml2.
 JpegLossless       : imagemagick (runtime dependency).
-WallPaper          : kdebase (runtime dependency).
 RemoveRedEyes      : libopencv.
 IpodExport         : libgpod and libgdk.
 Calendar           : libkdepimlibs.
@@ -118,8 +115,7 @@ Mediawiki          : libmediawiki.
 Vkontakte          : libkvkontakte.
 DLNAExport         : libhupnp and libqtsoap.
 VideoSlideshow     : libimagemagick and libqtgstreamer
-Imgur              : libqtkoauth.
-ImgurExport        : kqoauth for Imgur.com's authenticated API.
+Imgur              : libqtkoauth for Imgur.com's authenticated API.
 Panorama           : Hugin command line tools, flex, bison (runtime dependency).
 
 -- CONTACT ------------------------------------------------------------

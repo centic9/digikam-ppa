@@ -32,7 +32,7 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libsqlite0-dev,
  libpgf-dev,
  flex, bison, libeigen3-dev (>= 3.1.2),
- libboost-graph1.55-dev,
+ libboost-graph-dev,
  libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev,
 # for libksane:
  libsane-dev,
@@ -233,36 +233,6 @@ Description: kipi-plugins architecture-independent data
  Its aim is to share image plugins among graphic applications.
  .
  The architecture independent data needed for the kipi-plugins package.
-
-Package: libkgeomap2
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap-data
-Description: World-map wrapper to browse and arrange photos over a map
- Libkgeomap is a wrapper around different world-map components, to browse and
- arrange photos over a map.
- .
- Currently supported map engines are:
-  - Marble
-  - OpenstreetMap (via Marble)
-  - GoogleMap
- .
- This package contains the shared library to be used by applications.
-
-Package: libkgeomap-data
-Architecture: all
-Section: libs
-Depends: ${misc:Depends}
-Description: Data files for libkgeomap
- Libkgeomap is a wrapper around different world-map components, to browse and
- arrange photos over a map.
- .
- Currently supported map engines are:
-  - Marble
-  - OpenstreetMap (via Marble)
-  - GoogleMap
- .
- This package contains the data files of the libkgeomap library
 
 Package: libmediawiki1
 Architecture: any

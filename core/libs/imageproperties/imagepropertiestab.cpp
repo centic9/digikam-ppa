@@ -911,18 +911,6 @@ double ImagePropertiesTab::doubleToHumanReadableFraction(double val, long* num, 
     *num = m[0][0];
     *den = m[1][0];
 
-    if (*den == 1)
-    {
-        // Try other possibility
-
-        ai      = (maxden - m[1][1]) / m[1][0];
-        m[0][0] = m[0][0] * ai + m[0][1];
-        m[1][0] = m[1][0] * ai + m[1][1];
-
-        *num = m[0][0];
-        *den = m[1][0];
-    }
-
     // Return approxiamtion error
 
     return (val - ((double) m[0][0] / (double) m[1][0]));
@@ -946,7 +934,7 @@ bool ImagePropertiesTab::aspectRatioToString(int width, int height, QString& arS
     }
 
     long   num=0, den=0;
-    doubleToHumanReadableFraction((double)nw / (double)nh, &num, &den, 4);
+    doubleToHumanReadableFraction((double)nw / (double)nh, &num, &den, 10);
 
     const QString awidth  = QString::number(num);
     const QString aheight = QString::number(den);

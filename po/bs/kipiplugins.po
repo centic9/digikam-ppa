@@ -7,18 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipi-plugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-01-01 01:44+0000\n"
-"PO-Revision-Date: 2014-02-10 00:07+0100\n"
+"POT-Creation-Date: 2015-06-02 01:59+0000\n"
+"PO-Revision-Date: 2015-02-22 15:30+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-01-11 06:22+0000\n"
-"X-Generator: Launchpad (build 16890)\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Launchpad-Export-Date: 2015-02-05 07:07+0000\n"
+"X-Generator: Launchpad (build 17331)\n"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:113
 msgid "<p>This is the current processing status.</p>"
@@ -95,10 +93,8 @@ msgid "Handbook"
 msgstr "Priručnik"
 
 #: libkipiplugins/tools/kpaboutdata.h:54
-#, fuzzy
-#| msgid "Copyright 2003-2014, kipi-plugins team"
 msgid "Copyright 2003-2015, digiKam developers team"
-msgstr "Copyright 2003-2014, kipi-plugins team"
+msgstr "Autorska prava 2003-2015, digiKam developers team"
 
 #: libkipiplugins/tools/kpbinaryiface.cpp:150
 #, kde-format
@@ -115,7 +111,7 @@ msgstr "Verzija"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:97
 msgid "Binary not found."
-msgstr "Binarni program nije pronađen"
+msgstr "Binarni program nije pronađen."
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:98
 #, kde-format
@@ -124,7 +120,7 @@ msgstr "Minimalan broj verzije potrebne za ovaj binarni broj je %1"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:100
 msgid "Find"
-msgstr "nađi"
+msgstr "Nađi"
 
 #: libkipiplugins/widgets/kpbinarysearch.cpp:102
 #, kde-format
@@ -205,7 +201,7 @@ msgstr "Pomakni trenutno odabrane slike dolje u popisu"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:559
 msgid "Clear the list."
-msgstr "Očisti popis"
+msgstr "Očisti popis."
 
 #: libkipiplugins/widgets/kpimageslist.cpp:560
 msgid "Load a saved list."
@@ -213,13 +209,13 @@ msgstr "Učitaj snimljeni popis."
 
 #: libkipiplugins/widgets/kpimageslist.cpp:561
 msgid "Save the list."
-msgstr "Snimi popis"
+msgstr "Snimi popis."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:938
+#: libkipiplugins/widgets/kpimageslist.cpp:980
 msgid "Select the image file list to load"
 msgstr "Odaberite popis slikovne datoteke za učitavanje"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:994
+#: libkipiplugins/widgets/kpimageslist.cpp:1036
 msgid "Select the image file list to save"
 msgstr "Odaberite listu slikovne datoteke za spremanje"
 
@@ -460,7 +456,7 @@ msgstr ""
 "</td>\n"
 "<td>\n"
 "Jeste li znali da se sve slikovne operacije u grupnoj obradi slika mogu "
-"pokrenuti bez gubljenja <b> Exif </b> informacije u <b> JPEG </ b> "
+"pokrenuti bez gubljenja <b> Exif </b> informacije u <b> JPEG </b> "
 "datotekama?\n"
 "</td>\n"
 "</tr>\n"
@@ -720,86 +716,3 @@ msgstr ""
 "</tr>\n"
 "</table>\n"
 "</p>\n"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Build date: %1 (target: %2)"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Komunikacija:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Datum gradnje: %1 (target: %2)"
-
-#~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Build date: %1 (target: %2)\n"
-#~ "Rev.: %3"
-#~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Komunikacija:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Datum gradnje: %1 (target: %2)\n"
-#~ "Rev.: %3"
-
-#~ msgid "Copyright 2003-2013, kipi-plugins team"
-#~ msgstr "Copyright 2003-2013, kipi-plugins team"
-
-#~ msgid ""
-#~ "<p>\n"
-#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
-#~ "\">\n"
-#~ "<tr>\n"
-#~ "<td>\n"
-#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-#~ "</td>\n"
-#~ "<td>\n"
-#~ "Did you know that Kipi plugins can also be used in Digikam, Kimdaba, "
-#~ "Showimg, and Gwenview programs?\n"
-#~ "</td>\n"
-#~ "</tr>\n"
-#~ "</table>\n"
-#~ "</p>\n"
-#~ msgstr ""
-#~ "<p>\n"
-#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
-#~ "\">\n"
-#~ "<tr>\n"
-#~ "<td>\n"
-#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-#~ "</td>\n"
-#~ "<td>\n"
-#~ "Jeste li znali da se Kipi dodaci također mogu koristiti u Digikam, "
-#~ "Kimdaba, Showimg i Gwenview programima?\n"
-#~ "</td>\n"
-#~ "</tr>\n"
-#~ "</table>\n"
-#~ "</p>\n"
-
-#~ msgid ""
-#~ "<qt><p>Unable to find <i>%1</i> executable.</p><p>This program is "
-#~ "required to continue.<br/>Please install it from <b>%2</b> package "
-#~ "provided by your distributor<br/>or download and install <a href="
-#~ "\"%3\">the source</a>.</p><p>Note: at least, <i>%4</i> version <b>%5</b> "
-#~ "is required.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p>Ne može se pronaći <i>%1</i> program.</p><p>Ovaj program je "
-#~ "potreban za nastavak.<br/>Molim instalirajte ga iz <b>%2</b> pakte kojeg "
-#~ "daje vaš distributer<br/>ili preuzmite ili instalirajte <a href="
-#~ "\"%3\">izvorni kod</a>.</p><p>Napomena: najmanje, <i>%4</i> verzija <b>"
-#~ "%5</b> je potrebna.</p></qt>"

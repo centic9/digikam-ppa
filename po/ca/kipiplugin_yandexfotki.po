@@ -1,0 +1,393 @@
+# Translation of kipiplugin_yandexfotki.po to Catalan
+# Copyright (C) 2011-2015 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2011, 2012, 2015.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_yandexfotki\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-07-07 01:58+0000\n"
+"PO-Revision-Date: 2015-06-03 21:59+0200\n"
+"Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Josep Ma. Ferrer"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "txemaq@gmail.com"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_yandexfotkiui.rc:7
+msgid "&Export"
+msgstr "&Exporta"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_yandexfotkiui.rc:13
+msgid "Main Toolbar"
+msgstr "Barra d'eines principal"
+
+#: logindialog.cpp:61 yfwindow.cpp:460
+msgctxt "Yandex.Fotki"
+msgid "Y"
+msgstr "Y"
+
+#: logindialog.cpp:62 yfwindow.cpp:461
+msgctxt "Yandex.Fotki"
+msgid "andex."
+msgstr "andex."
+
+#: logindialog.cpp:63 yfwindow.cpp:462
+msgctxt "Yandex.Fotki"
+msgid "Fotki"
+msgstr "Fotki"
+
+#: logindialog.cpp:78
+msgid "Login:"
+msgstr "Usuari:"
+
+#: logindialog.cpp:81 yfalbumdialog.cpp:74
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: logindialog.cpp:84
+msgid "Forgot your password?"
+msgstr "Heu oblidat la contrasenya?"
+
+#: logindialog.cpp:100
+msgid "&Login"
+msgstr "&Entrada"
+
+#: logindialog.cpp:103
+msgid "&Skip"
+msgstr "&Omet"
+
+#: logindialog.cpp:113
+msgid "Yandex User Agreement"
+msgstr "Acord d'usuari del Yandex"
+
+#: logindialog.cpp:175
+msgid "Password cannot be empty."
+msgstr "La contrasenya no pot ser buida."
+
+#: logindialog.cpp:175 yfalbumdialog.cpp:96
+msgid "Error"
+msgstr "Error"
+
+#: plugin_yandexfotki.cpp:89
+msgid "Export to &Yandex.Fotki..."
+msgstr "Exporta a &Yandex.Fotki..."
+
+#: yfalbumdialog.cpp:51
+msgid "New album"
+msgstr "Àlbum nou"
+
+#: yfalbumdialog.cpp:59 yfwindow.cpp:165
+msgid "Album"
+msgstr "Àlbum"
+
+#: yfalbumdialog.cpp:60
+msgid "These are basic settings for the new Yandex album."
+msgstr "Aquest és l'arranjament bàsic del nou àlbum de Yandex."
+
+#: yfalbumdialog.cpp:63
+msgid "Title of the album that will be created (required)."
+msgstr "Títol de l'àlbum que es crearà (requerit)."
+
+#: yfalbumdialog.cpp:66
+msgid "Description of the album that will be created (optional)."
+msgstr "Descripció de l'àlbum que es crearà (opcional)."
+
+#: yfalbumdialog.cpp:69
+msgid "Password for the album (optional)."
+msgstr "Contrasenya per l'àlbum (opcional)."
+
+#: yfalbumdialog.cpp:72
+msgid "Title:"
+msgstr "Títol:"
+
+#: yfalbumdialog.cpp:73
+msgid "Summary:"
+msgstr "Resum:"
+
+#: yfalbumdialog.cpp:95
+msgid "Title cannot be empty."
+msgstr "El títol no pot estar buit."
+
+#: yfwindow.cpp:127
+msgid "This is the list of images to upload to your Yandex album."
+msgstr "Aquesta és la llista d'imatges a pujar al vostre compte de Yandex."
+
+#: yfwindow.cpp:133
+msgid ""
+"This is a clickable link to open the Yandex.Fotki service in a web browser."
+msgstr ""
+"Això és un enllaç que podeu clicar per obrir el servei de Yandex.Fotki en un "
+"navegador web."
+
+#: yfwindow.cpp:141
+msgid "Account"
+msgstr "Compte"
+
+#: yfwindow.cpp:142
+msgid "This account is used for authentication."
+msgstr "Aquest compte s'utilitza per a l'autenticació."
+
+#: yfwindow.cpp:146
+msgid "Name:"
+msgstr "Nom:"
+
+#: yfwindow.cpp:147
+msgid "Your Yandex login"
+msgstr "El compte de Yandex"
+
+#: yfwindow.cpp:150
+msgid "Change Account"
+msgstr "Canvia de compte"
+
+#: yfwindow.cpp:151
+msgid "Change Yandex account used to authenticate"
+msgstr "Canvia el compte de Yandex utilitzat per autenticar-se"
+
+#: yfwindow.cpp:166
+msgid "This is the Yandex.Fotki album that will be used for the transfer."
+msgstr ""
+"Aquest és l'àlbum de Yandex.Fotki que s'utilitzarà en la transferència."
+
+#: yfwindow.cpp:172
+msgid "New Album"
+msgstr "Àlbum nou"
+
+#: yfwindow.cpp:173
+msgid "Create new Yandex.Fotki album"
+msgstr "Crea un nou àlbum a Yandex.Fotki"
+
+#: yfwindow.cpp:174
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "Actualitza"
+
+#: yfwindow.cpp:175
+msgid "Reload albums list"
+msgstr "Actualitza la llista d'àlbums"
+
+#: yfwindow.cpp:190
+msgid "Destination"
+msgstr "Destinació"
+
+#: yfwindow.cpp:191
+msgid "This is the location where Yandex.Fotki images will be downloaded."
+msgstr "Aquest és el lloc a on es descarregaran les imatges de Yandex.Fotki."
+
+#: yfwindow.cpp:198
+msgid "Options"
+msgstr "Opcions"
+
+#: yfwindow.cpp:199
+msgid "These are options that will be applied to images before upload."
+msgstr ""
+"Aquestes són les opcions que s'aplicaran a les imatges abans de pujar-les."
+
+#: yfwindow.cpp:203
+msgid "Resize photos before uploading"
+msgstr "Redimensiona les fotos abans de pujar-les"
+
+#: yfwindow.cpp:216
+msgid "Maximum dimension:"
+msgstr "Dimensió màxima:"
+
+#: yfwindow.cpp:224
+msgid "JPEG quality:"
+msgstr "Qualitat JPEG:"
+
+#: yfwindow.cpp:228
+msgid "Update policy:"
+msgstr "Política d'actualització:"
+
+#: yfwindow.cpp:230
+msgid "Update metadata"
+msgstr "Actualitza les metadades"
+
+#: yfwindow.cpp:231
+msgid "Update metadata of remote file and merge remote tags with local"
+msgstr ""
+"Actualitza les metadades del fitxer remot i fusiona les etiquetes remotes "
+"amb les locals"
+
+#. i18n("Update metadata of remote file but keep remote tags untouched."));
+#.
+#: yfwindow.cpp:239
+msgid "Skip photo"
+msgstr "Omet la foto"
+
+#: yfwindow.cpp:240
+msgid "Simple skip photo"
+msgstr "Omet senzillament la foto"
+
+#: yfwindow.cpp:241
+msgid "Upload as new"
+msgstr "Puja com a nou"
+
+#: yfwindow.cpp:242
+msgid "Add photo as new"
+msgstr "Afegeix una foto com a nova"
+
+#: yfwindow.cpp:244
+msgid "Privacy settings:"
+msgstr "Arranjaments de privadesa:"
+
+#: yfwindow.cpp:246
+msgid "Public access"
+msgstr "Accés públic"
+
+#: yfwindow.cpp:247
+msgid "Friends access"
+msgstr "Accés als amics"
+
+#: yfwindow.cpp:248
+msgid "Private access"
+msgstr "Accés privat"
+
+#: yfwindow.cpp:250
+msgid "Hide original photo"
+msgstr "Oculta la imatge original"
+
+#: yfwindow.cpp:251
+msgid "Disable comments"
+msgstr "Desactiva els comentaris"
+
+#: yfwindow.cpp:252
+msgid "Adult content"
+msgstr "Contingut per adults"
+
+#: yfwindow.cpp:313
+msgid "Export to Yandex.Fotki Web Service"
+msgstr "Exporta al servei web de Yandex.Fotki"
+
+#: yfwindow.cpp:315
+msgid "Start Upload"
+msgstr "Comença la pujada"
+
+#: yfwindow.cpp:316
+msgid "Start upload to Yandex.Fotki service"
+msgstr "Comença la pujada al servei web de Yandex.Fotki"
+
+#: yfwindow.cpp:328
+msgid "Yandex.Fotki Plugin"
+msgstr "Connector pel Yandex.Fotki"
+
+#: yfwindow.cpp:331
+msgid "A Kipi plugin to export image collections to Yandex.Fotki web service."
+msgstr ""
+"Un connector de Kipi per exportar col·leccions d'imatges al servei web de "
+"Yandex.Fotki."
+
+#: yfwindow.cpp:333
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Roman Tsisyk"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Roman Tsisyk"
+
+#: yfwindow.cpp:338
+msgid "Roman Tsisyk"
+msgstr "Roman Tsisyk"
+
+#: yfwindow.cpp:338
+msgid "Author"
+msgstr "Autor"
+
+#: yfwindow.cpp:419
+msgid "Close"
+msgstr "Tanca"
+
+#: yfwindow.cpp:420
+msgid "Close window"
+msgstr "Tanca la finestra"
+
+#: yfwindow.cpp:430
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: yfwindow.cpp:431
+msgid "Cancel current operation"
+msgstr "Cancel·la l'operació actual"
+
+#: yfwindow.cpp:448
+msgid "Unauthorized"
+msgstr "No autoritzat"
+
+#: yfwindow.cpp:812
+#, kde-format
+msgid ""
+"Failed to prepare image %1\n"
+"Do you want to continue?"
+msgstr ""
+"Ha fallat en preparar la imatge %1\n"
+"Voleu continuar?"
+
+#: yfwindow.cpp:838
+msgid "Images has been uploaded"
+msgstr "Les imatges han pujat"
+
+#: yfwindow.cpp:868
+msgid "Please select album first"
+msgstr "Primer seleccioneu l'àlbum"
+
+#: yfwindow.cpp:890
+msgid "Session error"
+msgstr "Error de sessió"
+
+#: yfwindow.cpp:893
+msgid "Token error"
+msgstr "Error de testimoni"
+
+#: yfwindow.cpp:896
+msgid "Invalid credentials"
+msgstr "Credencials no vàlides"
+
+#: yfwindow.cpp:900
+msgid "Cannot get service document"
+msgstr "No s'ha pogut obtenir el document de servei"
+
+#: yfwindow.cpp:913
+msgid "Cannot list albums"
+msgstr "No s'han pogut llistar els àlbums"
+
+#: yfwindow.cpp:916
+msgid "Cannot list photos"
+msgstr "No s'han pogut llistar les fotos"
+
+#: yfwindow.cpp:919
+msgid "Cannot update album info"
+msgstr "No s'ha pogut actualitzar la informació de l'àlbum"
+
+#: yfwindow.cpp:925
+#, kde-format
+msgid ""
+"Failed to upload image %1\n"
+"Do you want to continue?"
+msgstr ""
+"Ha fallat en pujar la imatge %1\n"
+"Voleu continuar?"
+
+#: yfwindow.cpp:946
+msgid "Unknown error"
+msgstr "Error desconegut"

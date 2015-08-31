@@ -46,7 +46,7 @@ class ImportView : public KHBox
 
 public:
 
-    ImportView(Digikam::ImportUI* const ui, ImportImageModel* const model, ImportFilterModel* const filterModel, QWidget* const parent);
+    ImportView(Digikam::ImportUI* const ui, QWidget* const parent);
     ~ImportView();
 
     void applySettings();
@@ -59,7 +59,7 @@ public:
     void setThumbSize(int size);
     void toggleShowBar(bool b);
     void toggleFullScreen(bool set);
-    void setIconViewUpdatesEnabled(bool b);
+    void updateIconView();
 
     void scrollTo(const QString& folder, const QString& file);
 

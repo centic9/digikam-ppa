@@ -1,30 +1,33 @@
-/* Copyright 2010, 2011 Thomas McGuire <mcguire@kde.org>
-   Copyright 2011 Roeland Jago Douma <unix@rullzer.com>
-   Copyright 2011 Alexander Potashev <aspotashev@gmail.com>
+/*
+ * Copyright (C) 2010, 2011  Thomas McGuire <mcguire@kde.org>
+ * Copyright (C) 2011  Roeland Jago Douma <unix@rullzer.com>
+ * Copyright (C) 2011, 2015  Alexander Potashev <aspotashev@gmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) version 3, or any
+ * later version accepted by the membership of KDE e.V. (or its
+ * successor approved by the membership of KDE e.V.), which shall
+ * act as a proxy defined in Section 6 of version 3 of the license.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-   This library is free software; you can redistribute it and/or modify
-   it under the terms of the GNU Library General Public License as published
-   by the Free Software Foundation; either version 2 of the License or
-   ( at your option ) version 3 or, at the discretion of KDE e.V.
-   ( which shall act as a proxy as in section 14 of the GPLv3 ), any later version.
-
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
 #ifndef VKONTAKTEJOBS_H
 #define VKONTAKTEJOBS_H
 
-#include <QtCore/QPointer>
+#include "libkvkontakte_export.h"
+
 #include <KDE/KJob>
 
-#include "libkvkontakte_export.h"
+#include <QtCore/QPointer>
 
 namespace Vkontakte
 {
@@ -59,7 +62,7 @@ public:
     /**
      * Constructor that sets the path and the accesstoken
      *
-     * @param method For the list of methods see http://vkontakte.ru/developers.php?o=-1&p=%CE%EF%E8%F1%E0%ED%E8%E5%20%EC%E5%F2%EE%E4%EE%E2%20API (in Russian)
+     * @param method For the list of methods see http://vk.com/dev/methods (in English or Russian)
      * @param accessToken The accessToken to access our data on vkontakte
      * @param httpPost Whether to make a POST http request instead of GET ("false" by default)
      * */
@@ -73,13 +76,18 @@ protected:
     /** Add a query item to the list */
     void addQueryItem(const QString &key, const QString &value);
 
+private:
     /** Check for a return error and set the appropriate error messages */
-    void handleError(const QVariant &data);
+    // Returns "true" if we will retry the call.
+    bool handleError(const QVariant &data);
 
     virtual void handleData(const QVariant &data) = 0;
 
     /** Called right before sending request to server */
     virtual void prepareQueryItems() {}
+
+    // TODO: cache url in a member variable
+    KJob* createHttpJob();
 
     QString m_accessToken;         /** Vkontakte Access token */
     QString m_method;
@@ -88,6 +96,7 @@ protected:
 
 private Q_SLOTS:
     void jobFinished(KJob *kjob);
+    void slotRetry();
 };
 
 } /* namespace Vkontakte */

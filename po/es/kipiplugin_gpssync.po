@@ -5,14 +5,14 @@
 # Santi <santi@kde-es.org>, 2008, 2010.
 # Pablo Pita Leira <pablo.pita@gmail.com>, 2010, 2011.
 # Hector Wilvert Ivan Valdez Reza <ranmaru.hibikiya@gmail.com>, 2013.
-# Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2014.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2014, 2015.
 # Aitor Morant <fromhell091@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-11-10 01:36+0000\n"
-"PO-Revision-Date: 2014-06-07 11:58+0200\n"
+"PO-Revision-Date: 2015-04-24 15:08+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -25,11 +25,14 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Ranmaru Hibikiya,Santiago Fernández Sancho,Pablo Pita Leira"
+msgstr ""
+"Eloy Cuadra,Ranmaru Hibikiya,Santiago Fernández Sancho,Pablo Pita Leira"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "ranmaru.hibikiya@gmail.com,santi@kde-es.org,pablo.pita@gmail.com"
+msgstr ""
+"ecuadra@eloihr.net,ranmaru.hibikiya@gmail.com,santi@kde-es.org,pablo."
+"pita@gmail.com"
 
 #: gpsbookmarkowner.cpp:349 searchwidget.cpp:777
 #, kde-format
@@ -137,11 +140,11 @@ msgstr ""
 
 #: gpscorrelatorwidget.cpp:292
 msgid "Show tracks on Map"
-msgstr ""
+msgstr "Mostrar trazas en el mapa"
 
 #: gpscorrelatorwidget.cpp:293
 msgid "Set this option to show tracks on the Map"
-msgstr ""
+msgstr "Marque esta opción para mostrar trazas en el mapa"
 
 #: gpscorrelatorwidget.cpp:298
 msgid "Difference in min.:"
@@ -768,7 +771,7 @@ msgstr "Justus Schwartz"
 
 #: gpssyncdialog.cpp:462
 msgid "Patch for displaying tracks on the map."
-msgstr ""
+msgstr "Parche para mostrar trazas en el mapa."
 
 #: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
@@ -915,10 +918,16 @@ msgid ""
 "Please enable reading of sidecar files in the host application or continue "
 "at your own risk."
 msgstr ""
+"Ha activado la escritura en archivos anexos para el almacenamiento de "
+"metadatos en la aplicación receptora, pero no para la lectura. Esto "
+"significa que aquí se sobrescribirá cualquier metadato almacenado en "
+"archivos anexos.\n"
+"Por favor, active la lectura de archivos anexos en la aplicación receptora o "
+"continúe bajo su responsabilidad."
 
 #: plugin_gpssync.cpp:125
 msgid "Warning: Sidecar settings"
-msgstr ""
+msgstr "Advertencia: preferencias de anexos"
 
 #: rgtagmodel.cpp:95
 msgid "{Country}"
@@ -1039,7 +1048,7 @@ msgstr "Formato:"
 
 #: track_listmodel.cpp:222
 msgid "Color"
-msgstr ""
+msgstr "Color"
 
 #: track_listmodel.cpp:226
 msgid "#points"

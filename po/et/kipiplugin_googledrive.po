@@ -1,0 +1,930 @@
+# translation of kipiplugin_picasawebexport.po to Estonian
+#
+# Marek Laane <bald@smail.ee>, 2007-2009.
+# Marek Laane <bald@smail.ee>, 2009, 2010, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_picasawebexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-07-12 01:57+0000\n"
+"PO-Revision-Date: 2012-10-09 18:32+0300\n"
+"Last-Translator: Marek Laane <bald@smail.ee>\n"
+"Language-Team: Estonian <kde-et@linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Marek Laane"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "bamd@smail.ee"
+
+#: authorize.cpp:119
+msgid "Google Drive Authorization"
+msgstr ""
+
+#: authorize.cpp:123
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+
+#: gdtalker.cpp:344
+#, fuzzy
+#| msgid "Failed to fetch photo-set list"
+msgid "Failed to list folders"
+msgstr "Fotokogu nimekirja hankimine nurjus"
+
+#: gdtalker.cpp:415
+#, fuzzy
+#| msgid "Failed to create album"
+msgid "Failed to create folder"
+msgstr "Albumi loomine nurjus"
+
+#: gdtalker.cpp:449 picasawebtalker.cpp:837
+msgid "Failed to upload photo"
+msgstr "foto üleslaadimine nurjus"
+
+#: gswidget.cpp:86
+#, fuzzy
+#| msgid "This is the list of images to upload to your Picasaweb account."
+msgid "This is the list of images to upload to your Google Drive account."
+msgstr "See on piltide nimekiri, mis laaditakse sinu Picasawebi kontosse."
+
+#: gswidget.cpp:88
+#, fuzzy
+#| msgid "This is the list of images to upload to your Picasaweb account."
+msgid ""
+"This is the list of images to upload to your Google Photos/PicasaWeb account."
+msgstr "See on piltide nimekiri, mis laaditakse sinu Picasawebi kontosse."
+
+#: gswidget.cpp:96
+#, fuzzy
+#| msgid ""
+#| "This is a clickable link to open the Picasaweb home page in a web browser."
+msgid "This is a clickable link to open Google Drive in a browser."
+msgstr "Klõpsatav link Picasawebi kodulehekülje avamiseks veebibrauseris."
+
+#: gswidget.cpp:98
+#, fuzzy
+#| msgid ""
+#| "This is a clickable link to open the Picasaweb home page in a web browser."
+msgid "This is a clickable link to open Google Photos/PicasaWeb in a browser."
+msgstr "Klõpsatav link Picasawebi kodulehekülje avamiseks veebibrauseris."
+
+#: gswidget.cpp:105
+msgid "Account"
+msgstr "Konto"
+
+#: gswidget.cpp:108
+msgid "This is the Google Drive account that is currently logged in."
+msgstr ""
+
+#: gswidget.cpp:110
+#, fuzzy
+#| msgid "This is the Picasaweb account that will be used to authenticate."
+msgid ""
+"This is the Google Photos/PicasaWeb account that is currently logged in."
+msgstr "Autentimiseks kasutatav Picasawebi konto."
+
+#: gswidget.cpp:114
+#, fuzzy
+#| msgctxt "Picasaweb account settings"
+#| msgid "Name:"
+msgctxt "account settings"
+msgid "Name:"
+msgstr "Nimi:"
+
+#: gswidget.cpp:118 gswidget.cpp:121
+msgid "Change Account"
+msgstr "Muuda kontot"
+
+#: gswidget.cpp:119
+msgid "Change Google Drive account for transfer"
+msgstr ""
+
+#: gswidget.cpp:122
+msgid "Change Google Photos/PicasaWeb account for transfer"
+msgstr ""
+
+#: gswidget.cpp:133 newalbumdlg.cpp:76
+msgid "Album"
+msgstr "Album"
+
+#: gswidget.cpp:137
+msgid ""
+"This is the Google Drive folder to which selected photos will be uploaded."
+msgstr ""
+
+#: gswidget.cpp:141
+msgid ""
+"This is the Google Photos/PicasaWeb folder to which selected photos will be "
+"uploaded."
+msgstr ""
+
+#: gswidget.cpp:145
+#, fuzzy
+#| msgid "This is the location where Picasaweb images will be downloaded."
+msgid ""
+"This is the Google Photos/PicasaWeb folder from which selected photos will "
+"be downloaded."
+msgstr "Asukoht, kuhu allalaaditud Picasawebi pildid salvestatakse."
+
+#: gswidget.cpp:150
+#, fuzzy
+#| msgid "Album"
+msgid "Album:"
+msgstr "Album"
+
+#: gswidget.cpp:156 gswidget.cpp:161
+msgid "New Album"
+msgstr "Uus album"
+
+#: gswidget.cpp:157
+msgid "Create new Google Drive folder"
+msgstr ""
+
+#: gswidget.cpp:162
+#, fuzzy
+#| msgid "Create new Picasaweb album"
+msgid "Create new Google Photos/PicasaWeb folder"
+msgstr "Uue Picasawebi albumi loomine"
+
+#: gswidget.cpp:165
+#, fuzzy
+#| msgctxt "reload album list"
+#| msgid "Reload"
+msgctxt "album list"
+msgid "Reload"
+msgstr "Laadi uuesti"
+
+#: gswidget.cpp:166
+msgid "Reload album list"
+msgstr "Albumite nimekirja taaslaadimine"
+
+#: gswidget.cpp:175
+msgid "Max Dimension"
+msgstr "Maksimummõõde:"
+
+#: gswidget.cpp:176
+msgid ""
+"This is the maximum dimension of the images. Images larger than this will be "
+"scaled down."
+msgstr ""
+"See on piltide maksimaalne mõõde. Suuremad pildid skaleeritakse väiksemaks."
+
+#: gswidget.cpp:179
+msgid "Original Size"
+msgstr ""
+
+#: gswidget.cpp:180
+msgid "1600 px"
+msgstr ""
+
+#: gswidget.cpp:181
+msgid "1440 px"
+msgstr ""
+
+#: gswidget.cpp:182
+msgid "1280 px"
+msgstr ""
+
+#: gswidget.cpp:183
+msgid "1152 px"
+msgstr ""
+
+#: gswidget.cpp:184
+msgid "1024 px"
+msgstr ""
+
+#: gswidget.cpp:190 replacedialog.cpp:138
+msgid "Destination"
+msgstr "Sihtkoht"
+
+#: gswidget.cpp:191
+#, fuzzy
+#| msgid "This is the location where Picasaweb images will be downloaded."
+msgid ""
+"This is the location where Google Photos/PicasaWeb images will be downloaded."
+msgstr "Asukoht, kuhu allalaaditud Picasawebi pildid salvestatakse."
+
+#: gswidget.cpp:198
+msgid "Options"
+msgstr "Valikud"
+
+#: gswidget.cpp:199
+#, fuzzy
+#| msgid "These are options that will be applied to images before upload."
+msgid "These are the options that would be applied to photos before upload."
+msgstr "Piltidele enne üleslaadimist rakendatavad valikud."
+
+#: gswidget.cpp:203
+msgid "Resize photos before uploading"
+msgstr "Fotode suuruse muutmine enne üleslaadimist"
+
+#: gswidget.cpp:214
+#, fuzzy
+#| msgid "Maximum dimension:"
+msgid "Maximum Dimension:"
+msgstr "Maksimummõõtmed:"
+
+#: gswidget.cpp:223
+#, fuzzy
+#| msgid "JPEG quality:"
+msgid "JPEG Quality:"
+msgstr "JPEG kvaliteet:"
+
+#: gswidget.cpp:236
+#, fuzzy
+#| msgid "Tag path behavior:"
+msgid "Tag path behavior :"
+msgstr "Sildi asukoha käitumine:"
+
+#: gswidget.cpp:238
+msgid "Leaf tags only"
+msgstr "Ainult vallassildid"
+
+#: gswidget.cpp:239
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr "Ainult sildihierarhia vallassiltide eksport"
+
+#: gswidget.cpp:240
+msgid "Split tags"
+msgstr "Siltide jagamine"
+
+#: gswidget.cpp:241
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr "Vallassildi ja kõigi eellaste eksport ühtse sildina."
+
+#: gswidget.cpp:242
+msgid "Combined String"
+msgstr "Kombineeritud string"
+
+#: gswidget.cpp:243
+msgid "Build a combined tag string."
+msgstr "Kombineeritud sildistringi loomine."
+
+#: gswindow.cpp:114
+msgid "Google Drive Export"
+msgstr ""
+
+#: gswindow.cpp:116
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgid "A Kipi-plugin to export images to Google Drive"
+msgstr "Kipi plugin pildikogu eksportimiseks PicasaWebi veebiteenusele."
+
+#: gswindow.cpp:118
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:121
+msgid "Saurabh Patel"
+msgstr ""
+
+#: gswindow.cpp:121 gswindow.cpp:148
+msgid "Author and maintainer"
+msgstr "Autor ja hooldaja"
+
+#: gswindow.cpp:124 gswindow.cpp:160
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:124 gswindow.cpp:151 gswindow.cpp:154 gswindow.cpp:157
+#: gswindow.cpp:160
+msgid "Developer"
+msgstr "Arendaja"
+
+#: gswindow.cpp:131
+#, fuzzy
+#| msgid "Export to Picasa Web Service"
+msgid "Export to Google Drive"
+msgstr "Ekspordi Picasasse"
+
+#: gswindow.cpp:132 gswindow.cpp:170
+msgid "Start Upload"
+msgstr "Alusta üleslaadimist"
+
+#: gswindow.cpp:132
+#, fuzzy
+#| msgid "Start upload to Picasaweb service"
+msgid "Start upload to Google Drive"
+msgstr "Üleslaadimise alustamine Picasawebi veebiteenusesse"
+
+#: gswindow.cpp:137
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "Google Photos/PicasaWeb Export"
+msgstr "PicasaWebi eksport"
+
+#: gswindow.cpp:140
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgid ""
+"A Kipi plugin to export image collections to Google Photos/Picasa web "
+"service."
+msgstr "Kipi plugin pildikogu eksportimiseks PicasaWebi veebiteenusele."
+
+#: gswindow.cpp:142
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2012, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010, Jens Mueller"
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"(c) 2007-2009: Vardhman Jain\n"
+"(c) 2008-2012: Gilles Caulier\n"
+"(c) 2009: Luka Renko\n"
+"(c) 2010: Jens Mueller"
+
+#: gswindow.cpp:148
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:151
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:154
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:157
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: gswindow.cpp:169
+#, fuzzy
+#| msgid "Export to Picasa Web Service"
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr "Ekspordi Picasasse"
+
+#: gswindow.cpp:170
+#, fuzzy
+#| msgid "Start upload to Picasaweb service"
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr "Üleslaadimise alustamine Picasawebi veebiteenusesse"
+
+#: gswindow.cpp:175
+#, fuzzy
+#| msgid "Import from Picasa Web Service"
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr "Import Picasa veebiteenusest"
+
+#: gswindow.cpp:176
+msgid "Start Download"
+msgstr "Alusta allalaadimist"
+
+#: gswindow.cpp:176
+#, fuzzy
+#| msgid "Start download from Picasaweb service"
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr "Allalaadimise alustamine Picasawebi veebiteenusest"
+
+#: gswindow.cpp:404 gswindow.cpp:441 gswindow.cpp:545
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr "Picasawebi väljakutsumine nurjus: %1\n"
+
+#: gswindow.cpp:424 gswindow.cpp:502 gswindow.cpp:701
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: gswindow.cpp:506
+msgid "Picasa Export"
+msgstr "Picasa eksport"
+
+#: gswindow.cpp:520 gswindow.cpp:1192
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+
+#: gswindow.cpp:617
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+
+#: gswindow.cpp:628
+msgid "No image selected. Please select which images should be uploaded."
+msgstr ""
+
+#: gswindow.cpp:641 gswindow.cpp:657
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr ""
+
+#: gswindow.cpp:705
+msgid "Google Drive export"
+msgstr ""
+
+#: gswindow.cpp:940
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Foto salvestamine nurjus: %1\n"
+"Kas jätkata?"
+
+#: gswindow.cpp:952
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Foto allalaadimine nurjus: %1\n"
+"Kas jätkata?"
+
+#: gswindow.cpp:979
+#, kde-format
+msgid ""
+"A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+msgstr "Fail nimega \"%1\" on juba olemas. Kas tõesti see üle kirjutada?"
+
+#: gswindow.cpp:1041
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr "Pilti ei õnnestunud salvestada asukohta %1"
+
+#: gswindow.cpp:1066
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo into Picasaweb: %1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to upload photo to Google Drive.\n"
+"%1\n"
+"Do you want to continue?"
+msgstr ""
+"Foto üleslaadimine Picasawebi nurjus %1\n"
+"Kas jätkata?"
+
+#: gswindow.cpp:1083
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo into Picasaweb: %1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to upload photo to Google Photos/PicasaWeb.\n"
+"%1\n"
+"Do you want to continue?"
+msgstr ""
+"Foto üleslaadimine Picasawebi nurjus %1\n"
+"Kas jätkata?"
+
+#: gswindow.cpp:1161
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr ""
+
+#: gswindow.cpp:1199
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr "Picasawebi väljakutsumine nurjus: %1\n"
+
+#: gswindow.cpp:1224
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+msgid "&Export"
+msgstr "&Eksport"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+msgid "&Import"
+msgstr "&Import"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr "Peamine tööriistariba"
+
+#: newalbumdlg.cpp:67
+msgid "Title of the album that will be created (required)."
+msgstr "Loodava albumi nimi (nõutav)."
+
+#: newalbumdlg.cpp:78
+#, fuzzy
+#| msgid "These are basic settings for the new Picasaweb album."
+msgid "These are basic settings for the new Google Photos/Picasaweb album."
+msgstr "Uue Picasawebi albumi põhiseadistused."
+
+#: newalbumdlg.cpp:82
+msgid "Date and Time of the album that will be created (optional)."
+msgstr "Loodava albumi kuupäev ja kellaaeg (pole kohustuslik)."
+
+#: newalbumdlg.cpp:85
+msgid "Description of the album that will be created (optional)."
+msgstr "Loodava albumi kirjeldus (pole kohustuslik)."
+
+#: newalbumdlg.cpp:88
+msgid "Location of the album that will be created (optional)."
+msgstr "Loodava albumi asukoht (pole kohustuslik)."
+
+#: newalbumdlg.cpp:92
+#, fuzzy
+#| msgid "Title of the album that will be created (required)."
+msgid "This is the title of the folder that will be created."
+msgstr "Loodava albumi nimi (nõutav)."
+
+#: newalbumdlg.cpp:93
+#, fuzzy
+#| msgctxt "new picasaweb album dialog"
+#| msgid "Title:"
+msgctxt "folder edit"
+msgid "Title:"
+msgstr "Pealkiri:"
+
+#: newalbumdlg.cpp:98
+#, fuzzy
+#| msgctxt "new picasaweb album dialog"
+#| msgid "Title:"
+msgctxt "new google photos/picasaweb album dialog"
+msgid "Title:"
+msgstr "Pealkiri:"
+
+#: newalbumdlg.cpp:99
+#, fuzzy
+#| msgctxt "new picasaweb album dialog"
+#| msgid "Date & Time:"
+msgctxt "new google photos/picasaweb album dialog"
+msgid "Date & Time:"
+msgstr "Kuupäev ja kellaaeg:"
+
+#: newalbumdlg.cpp:100
+#, fuzzy
+#| msgctxt "new picasaweb album dialog"
+#| msgid "Description:"
+msgctxt "new google photos/picasaweb album dialog"
+msgid "Description:"
+msgstr "Kirjeldus:"
+
+#: newalbumdlg.cpp:101
+#, fuzzy
+#| msgctxt "new picasaweb album dialog"
+#| msgid "Location:"
+msgctxt "new google photos/picasaweb album dialog"
+msgid "Location:"
+msgstr "Asukoht:"
+
+#: newalbumdlg.cpp:111
+msgid "Access Level"
+msgstr "Ligipääs"
+
+#: newalbumdlg.cpp:112
+#, fuzzy
+#| msgid "These are security and privacy settings for the new Picasaweb album."
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr "Uue Picasawebi albumi turbe- ja privaatsusseadistused."
+
+#: newalbumdlg.cpp:114
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Public"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr "Avalik"
+
+#: newalbumdlg.cpp:116
+#, fuzzy
+#| msgid "Public album is listed on your public Picasaweb page."
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr "Avalik album on näha sinu avalikul Picasawebi leheküljel."
+
+#: newalbumdlg.cpp:117
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Unlisted / Private"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr "Avaldamata / privaatne"
+
+#: newalbumdlg.cpp:118
+msgid "Unlisted album is only accessible via URL."
+msgstr "Mitteavalikule albumile pääseb ligi ainult URL-i kaudu."
+
+#: newalbumdlg.cpp:119
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Sign-In Required to View"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr "Vaatamiseks on vajalik sisselogimine"
+
+#: newalbumdlg.cpp:120
+msgid "Unlisted album require Sign-In to View"
+msgstr "Avaldamata albumi vaatamiseks on vajalik sisselogimine"
+
+#: newalbumdlg.cpp:128
+msgid "Privacy:"
+msgstr "Privaatsus:"
+
+#: picasawebtalker.cpp:510
+msgid "No photo specified"
+msgstr "Foto pole määratud"
+
+#: picasawebtalker.cpp:512
+msgid "General upload failure"
+msgstr "Üldine üleslaadimise nurjumine"
+
+#: picasawebtalker.cpp:514
+msgid "File-size was zero"
+msgstr "Failisuurus oli null"
+
+#: picasawebtalker.cpp:516
+msgid "File-type was not recognized"
+msgstr "Failitüüpi ei tuntud ära"
+
+#: picasawebtalker.cpp:518
+msgid "User exceeded upload limit"
+msgstr "Ületati kasutaja üleslaadimise limiit "
+
+#: picasawebtalker.cpp:520
+msgid "Invalid signature"
+msgstr "Vigane signatuur"
+
+#: picasawebtalker.cpp:522
+msgid "Missing signature"
+msgstr "Puuduv signatuur"
+
+#: picasawebtalker.cpp:524
+msgid "Login failed / Invalid auth token"
+msgstr "Sisselogimine nurjus / Vigane autentimise tähis"
+
+#: picasawebtalker.cpp:526
+msgid "Invalid API Key"
+msgstr "Vigane API võti"
+
+#: picasawebtalker.cpp:528
+msgid "Service currently unavailable"
+msgstr "Teenus pole praegu saadaval"
+
+#: picasawebtalker.cpp:530
+msgid "Invalid Frob"
+msgstr "Vigane frob"
+
+#: picasawebtalker.cpp:532
+msgid "Format \"xxx\" not found"
+msgstr "Vormingut \"xxx\" ei leitud"
+
+#: picasawebtalker.cpp:534
+msgid "Method \"xxx\" not found"
+msgstr "Meetodit \"xxx\" ei leitud"
+
+#: picasawebtalker.cpp:536
+msgid "Invalid SOAP envelope"
+msgstr "Vigane SOAP-i ümbris"
+
+#: picasawebtalker.cpp:538
+msgid "Invalid XML-RPC Method Call"
+msgstr "Vigane XML-RPC meetodi väljakutse"
+
+#: picasawebtalker.cpp:540
+msgid "The POST method is now required for all setters."
+msgstr "Kõik setterid vajavad nüüd POST-meetodit."
+
+#: picasawebtalker.cpp:542
+msgid "Unknown error"
+msgstr "Tundmatu viga"
+
+#: picasawebtalker.cpp:545
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+"Tekkis viga: %1\n"
+"Ei saa enam midagi edasi teha."
+
+#: picasawebtalker.cpp:603 picasawebtalker.cpp:669
+msgid "Failed to fetch photo-set list"
+msgstr "Fotokogu nimekirja hankimine nurjus"
+
+#: picasawebtalker.cpp:795 picasawebtalker.cpp:827
+msgid "Failed to create album"
+msgstr "Albumi loomine nurjus"
+
+#: plugin_googleservices.cpp:98
+#, fuzzy
+#| msgid "Export to &PicasaWeb..."
+msgid "Export to &Google Drive..."
+msgstr "Ekspordi &PicasaWebi..."
+
+#: plugin_googleservices.cpp:108
+#, fuzzy
+#| msgid "Export to &PicasaWeb..."
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr "Ekspordi &PicasaWebi..."
+
+#: plugin_googleservices.cpp:118
+#, fuzzy
+#| msgid "Import from &PicasaWeb..."
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr "Impordi &Picasawebist..."
+
+#: replacedialog.cpp:95
+msgid "&Add As New"
+msgstr "Lis&a uuena"
+
+#: replacedialog.cpp:96
+msgid "Item will be added alongside the linked version."
+msgstr "Element lisatakse koos lingitud versiooniga."
+
+#: replacedialog.cpp:100
+msgid "&Add All"
+msgstr "Lis&a kõik"
+
+#: replacedialog.cpp:101
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr "Elemendid lisatakse koos lingitud versiooniga. Rohkem seda ei küsita."
+
+#: replacedialog.cpp:105
+msgid "&Replace"
+msgstr "&Asenda"
+
+#: replacedialog.cpp:106
+msgid "Item will be replacing the linked version."
+msgstr "Element asendab lingitud versiooni."
+
+#: replacedialog.cpp:110
+msgid "&Replace All"
+msgstr "&Asenda kõik"
+
+#: replacedialog.cpp:111
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr "Elemendid asendavad lingitud versiooni. Rohkem seda ei küsita."
+
+#: replacedialog.cpp:121
+msgid "A linked item already exists."
+msgstr "Lingitud element on juba olemas."
+
+#: replacedialog.cpp:142
+msgid "Source"
+msgstr "Allikas"
+
+#~ msgid "Picasaweb New Album"
+#~ msgstr "Picasawebi uus album"
+
+#~ msgid "%1|All supported files"
+#~ msgstr "%1|Kõik toetatud failid"
+
+#~ msgid "%1|Camera RAW files"
+#~ msgstr "%1|Kaamera toorfailid (RAW)"
+
+#~ msgid "%1|Video files"
+#~ msgstr "%1|Videofailid"
+
+#~ msgid "Select Images"
+#~ msgstr "Piltide valimine"
+
+#~ msgid "Google Login:"
+#~ msgstr "Google'i kasutajanimi:"
+
+#~ msgid "Password:"
+#~ msgstr "Parool:"
+
+#~ msgid "&OK"
+#~ msgstr "&OK"
+
+#~ msgid "&Cancel"
+#~ msgstr "&Loobu"
+
+#~ msgid "Login"
+#~ msgstr "Sisselogimine"
+
+#~ msgctxt "Picasaweb account login"
+#~ msgid "Anonymous"
+#~ msgstr "Anonüümne"
+
+#~ msgid "Login as anonymous to Picasaweb web service."
+#~ msgstr "Anonüümne sisselogimine Picasawebi veebiteenusesse."
+
+#~ msgid "Picasaweb Account"
+#~ msgstr "Picasawebi konto"
+
+#~ msgid "Login to Picasaweb web service using username and password."
+#~ msgstr "Sisselogimine Picasawebi veebiteenusesse kasutajanime ja parooliga."
+
+#~ msgid "Change Picasaweb Account used to authenticate"
+#~ msgstr "Muuda autentimisel kasutatavat Picasawebi kontot"
+
+#~ msgid "This is the Picasaweb album that will be used for transfer."
+#~ msgstr "Ülekandel kasutatav Picasawebi album."
+
+#~ msgid "Cannot open file"
+#~ msgstr "Faili avamine nurjus"
+
+#~ msgid "Handbook"
+#~ msgstr "Käsiraamat"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Site Password:"
+#~ msgstr "Parool:"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Album Password:"
+#~ msgstr "Parool:"
+
+#~ msgid "Getting the token"
+#~ msgstr "Tähise hankimine"
+
+#~ msgid "Checking if previous token is still valid"
+#~ msgstr "Eelmise tähise kehtivuse kontroll"
+
+#~ msgid "Failed to query photo information"
+#~ msgstr "Fototeabe päring nurjus"
+
+#~ msgid "No album selected - please create and select album."
+#~ msgstr "Ühtegi albumit pole valitud - palun loo ja vali album."
+
+#~ msgid "Nothing to upload - please select photos to upload."
+#~ msgstr "Pole midagi üles laadida - palun vali fotod."
+
+#~ msgid "Uploading file %1 "
+#~ msgstr "Faili %1 üleslaadimine"
+
+#~ msgid "New Album Dialog"
+#~ msgstr "Uue albumi dialoog"
+
+#~ msgid "Place Taken"
+#~ msgstr "Tegemise koht"
+
+#~ msgid "Create"
+#~ msgstr "Loomine"
+
+#~ msgid "Cancel"
+#~ msgstr "Loobu"
+
+#~ msgid "Date"
+#~ msgstr "Kuupäev"
+
+#~ msgid "PicasaWeb Exporter Upload"
+#~ msgstr "Picasawebi eksportija üleslaadimine"
+
+#~ msgid "PicasaWeb Uploader"
+#~ msgstr "Picasawebi üleslaadija"
+
+#~ msgid "Tags:<p align=\"center\"></p>"
+#~ msgstr "Sildid:<p align=\"center\"></p>"
+
+#~ msgid "E&xport Application Tags"
+#~ msgstr "&Ekspordi rakenduse sildid"
+
+#~ msgid "Resi&ze"
+#~ msgstr "Muu&da suurust"
+
+#~ msgid "Size (pixels):"
+#~ msgstr "Suurus (pikslites):"
+
+#~ msgid "Compression:"
+#~ msgstr "Tihendus:"
+
+#~ msgid "Images to upload"
+#~ msgstr "Üleslaaditavad pildid"
+
+#~ msgid "Currentl&y Selected Images"
+#~ msgstr "Valit&ud pildid"
+
+#~ msgid "Select Photos"
+#~ msgstr "Fotode valimine"
+
+#~ msgid "Username:"
+#~ msgstr "Kasutajanimi:"
+
+#~ msgid "Change User"
+#~ msgstr "Kasutaja muutmine"

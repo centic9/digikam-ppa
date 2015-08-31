@@ -1,5 +1,6 @@
 [Desktop Entry]
 Comment=A tool to create KML files with geolocated images
+Comment[bs]=Alat za kreiranje KML datoteka s geolociranim slikama
 Comment[ca]=Una eina per crear fitxers KML per presentar imatges amb coordenades
 Comment[cs]=Modul pro vytváření souborů KML s obrázky se souřadnicemi.
 Comment[da]=Et værktøj til at oprette KML-filer med geolokaliserede billeder
@@ -7,15 +8,18 @@ Comment[de]=Ein Werkzeug zum Erstellen von KML-Dateien mit Bilder, die geografis
 Comment[el]=Ένα πρόσθετο δημιουργίας αρχείων KML με γεωχωρικές εικόνες
 Comment[en_GB]=A tool to create KML files with geolocated images
 Comment[es]=Una herramienta para crear archivos KML con imágenes geolocalizadas
+Comment[gl]=Unha ferramenta para crear ficheiros KML con imaxes que inclúen coordenadas.
 Comment[is]=Verkfæri til að búa til KML-skrár fyrir hnattstaðsetningu mynda.
 Comment[it]=Uno strumento per creare file KML con immagini geolocalizzate.
 Comment[nl]=Een hulpmiddel om KML-bestanden aan te maken met afbeeldingen met geo-locaties.
 Comment[pl]=Narzędzie do tworzenia plików KML z obrazów o ustalonym położeniu geograficznym
 Comment[pt]=Um 'plugin' para criar ficheiros KML com imagens geo-localizadas.
 Comment[pt_BR]=Ferramenta para criar arquivos KML com imagens geolocalizadas.
+Comment[ru]=Инструмент для создания файлов KML из изображений с географическими координатами
 Comment[sk]=Nástroj na tvorbu KML súborov s geolokalizovanými obrázkami
 Comment[sl]=Orodje za ustvarjanje datotek KML, ki predstavijo sliko s koordinatami
 Comment[sv]=Ett verktyg för att skapa KML-filer med geografiskt lokaliserade bilder
+Comment[tr]=Konum içeren resimlerden KML dosyaları oluşturmak için bir araç
 Comment[uk]=Інструмент для створення файлів KML для показу зображення з координатами
 Comment[x-test]=xxA tool to create KML files with geolocated imagesxx
 Icon=applications-development-web

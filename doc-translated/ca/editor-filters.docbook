@@ -1,0 +1,1205 @@
+<sect2
+>                                      <title
+>Efectes especials (filtres)</title>
+<sect3 id="infrared">
+<sect3info>
+
+<title
+>Simular una pel·lícula infraroja</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El filtre <emphasis
+>pel·lícula infraroja</emphasis
+> del &digikam; simula material de pel·lícula infraroja tradicional. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>La simulació del material de pel·lícula infraroja clàssica (l'efecte es renderitza en blanc i negre) és un interessant efecte d'alienació que encara és més fort i impressionant que la conversió a negre i blanc purs. Es millora el contrast i un toc abstracte, que pot sustentar l'expressió del fotògraf com a artista. És com prendre una imatge en blanc i negre amb un filtre vermell a les lents de la càmera. Les àrees que reflecteixen poca llum vermella, &pex;, el cel, es mostraran com de baixa densitat, àrees fosques. Les àrees que reflecteixen bé la llum vermella, &pex;, la majoria del fullatge verd, seran zones d'alta densitat. I els paisatges nevats seran realment espectaculars. </para>
+
+<para
+>L'algorisme es basa en el mètode de la guia d'aprenentatge «Simulate Infrared Film» del lloc web GimpGuru.org disponible en <ulink url="http://www.gimpguru.org/Tutorials/SimulatedInfrared"
+>aquest URL</ulink
+>. El filtre tracta de reproduir la famosa pel·lícula infraroja SFX200 d'Ilford(tm). Aquesta pel·lícula té un interval ISO de 200 a 800. </para>
+
+<sect4 id="using-infrared">
+<title
+>Usar el «Filtre infraroig»</title>
+
+<para
+>La part esquerra del diàleg us permet seleccionar la regió que es mostrarà a la secció vista prèvia. Moveu el rectangle vermell amb el ratolí per mostrar l'efecte sobre diferents parts de la imatge. </para>
+
+<para
+>La part inferior proporciona els dos controls, «Gra de la pel·lícula» i «Sensibilitat ISO». Marqueu la casella <guilabel
+>Afegeix gra de pel·lícula</guilabel
+> si voleu simular la textura granulada d'una pel·lícula d'alta sensibilitat. El control lliscant del nivell ISO modifica la quantitat de gra de pel·lícula afegit i el predomini del color verd (clorofil·la a la naturalesa) en el mesclador de conversió. Les pastures verdes es convertiran en blancs com la neu! Proveu-ho. </para>
+
+<note
+><para
+>Atès que el filtre barreja els canals de color per reproduir una pel·lícula infraroja (amb èmfasi sobre el canal verd), no es pot simular l'efecte infraroig des de la fotografia original en blanc i negre, ja que falta la informació de color. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-infrared">
+<title
+>El filtre en acció</title>
+
+<para
+>Aquest és un exemple de l'efecte de pel·lícula infraroja aplicat a una imatge en color presa en els paisatges de Nova Zelanda. La imatge original és (1) i la imatge convertida és (2). La sensibilitat de la pel·lícula utilitzada per a simular la pel·lícula infraroja és ISO de 400. Valors ISO més alts crearan una mena d'aura a les llums intenses. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;infraredpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El filtre infraroig en acció</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="filmgrain">
+<sect3info>
+
+<title
+>Gra de pel·lícula</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El filtre <emphasis
+>gra de pel·lícula</emphasis
+> del &digikam; reprodueix les tècniques de gra de pel·lícula tradicional de les pel·lícules d'alta velocitat. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>El filtre <emphasis
+>gra de pel·lícula</emphasis
+> del &digikam; és una eina fàcil per presentar gra de la pel·lícula sobre les vostres imatges com es coneix des del material de pel·lícula d'alta velocitat clàssica, per exemple, el famosa B/W KodaK Tri-X. Per tal d'augmentar la sensibilitat de la pel·lícula, els fabricants fan servir grans de plata en l'emulsió fotogràfica. </para>
+
+<para
+>L'efecte de gra de pel·lícula dóna a les vostres fotografies una determinada atmosfera o sembla que us transporta en el temps. La imatge tractada adquirirà una atmosfera atemporal, separada de la vida quotidiana. Si voleu que l'aspecte gra de pel·lícula sorrenc, casa d'art, fotografia de carrer, especialment en fotografies monocromàtiques, utilitzeu aquest filtre. </para>
+
+<sect4 id="using-filmgrain">
+<title
+>Usar el filtre «Gra de pel·lícula»</title>
+
+<para
+>Hi ha un control lliscant calibrat en la sensibilitat ISO per a controlar la intensitat i granularitat del gra. El valor per omissió s'estableix a ISO 2400, encara que sovint es requereixen valors més alts. Si encara voleu més gra, apliqueu el filtre diverses vegades. </para>
+
+</sect4>
+
+<sect4 id="inaction-filmgrain">
+<title
+>El filtre en acció</title>
+
+<para
+>Aquest és un exemple de l'efecte gra de pel·lícula aplicat sobre una imatge en blanc i negre. La imatge original és (1) i la imatge corregida és (2). La sensibilitat de la pel·lícula utilitzada per a simular el gra de pel·lícula és ISO 1600. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;filmgrainpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El filtre «Gra de pel·lícula» en acció</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="oilpaint">
+<sect3info>
+
+<title
+>Pintura a l'oli</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El filtre <emphasis
+>pintura a l'oli</emphasis
+> del &digikam; dóna a la vostra imatge l'aspecte d'una pintura a l'oli. Utilitza un algoritme propietat d'en Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>El filtre <emphasis
+>pintura a l'oli</emphasis
+> del &digikam; dóna a les vostres imatges digitals un bonic aspecte com pintura a l'oli. Imatges de la naturalesa i de natura morta són molt adequades per a aquest efecte. </para>
+
+<sect4 id="using-oilpaint">
+<title
+>Usar el filtre «Pintura a l'oli»</title>
+
+<para
+>Hi ha dos controls lliscants per a controlar l'efecte. El control lliscant superior selecciona la <guilabel
+>Mida del pinzell</guilabel
+> entre 1 i 5. Els pinzells més grans són més adequats per a imatges grans. <guilabel
+>Suavitzat</guilabel
+> controla el suavitzat o, vist des de l'altre costat, la deformació. </para>
+
+</sect4>
+
+<sect4 id="inaction-oilpaint">
+<title
+>El filtre «Pintura a l'oli» en acció</title>
+
+<para
+>Aquest és un exemple de l'efecte del filtre pintura a l'oli. La imatge original és (1) i la imatge transformada és (2). La <guilabel
+>Mida del pinzell</guilabel
+> per a aquesta mida d'imatge de 640 píxels és 1, <guilabel
+>Suavitzat</guilabel
+> és 17. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;oilpaintpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Vista prèvia de l'efecte d'imatge «Pintura a l'oli»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="charcoal">
+<sect3info>
+
+<title
+>Dibuix al carbonet</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El <emphasis
+>carbonet</emphasis
+> del &digikam; és un filtre d'efecte que com a resultat crea un esbós de carbonet. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>El filtre <emphasis
+>carbonet</emphasis
+> del &digikam; utilitza els degradats de color i lluminositat per presentar un dibuix al carbonet en escala de grisos. Les línies que defineixen el contorn de la imatge són pronunciades. Les imatges que canvien amb lentitud els degradats no són ideals per aquest efecte. És útil que imagineu l'escena fent-la com un dibuix a mà, escolliu la imatge amb la que començar. </para>
+
+<sect4 id="using-charcoal">
+<title
+>Usar el filtre «Carbonet»</title>
+
+<para
+>Hi ha dos controls lliscants per controlar l'efecte en una escala d'1 a 100. El control lliscant superior selecciona la mida del llapis, mentre que el segon control lliscant ajusta el contrast (suavitzat). </para>
+
+</sect4>
+
+<sect4 id="inaction-charcoal">
+<title
+>El filtre «carbonet» en acció</title>
+
+<para
+>Aquest és un exemple del filtre carbonet. La imatge original és (1) i la imatge transformada és (2). S'apliquen els valors per omissió 30 i 10. El resultat es pot millorar ajustant els nivells de lluminositat. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;charcoalpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El filtre «carbonet» en acció</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="emboss">
+<sect3info>
+
+<title
+>Imatge amb relleu</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El filtre <emphasis
+>relleu</emphasis
+> del &digikam; esculpeix la vostra imatge en 3D com si estigués impresa en cera. Utilitza un algoritme propietat d'en Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info
+>     <title
+>Introducció</title>
+
+<para
+>El filtre <emphasis
+>relleu</emphasis
+> del &digikam; és una eina ràpida per a renderitzar les vostres imatges en un efecte 3D. Funciona especialment bé en imatges amb una estructura simple on el color no és el contingut més important. El filtre utilitza la diferència entre els colors i la lluminositat per convertir-lo en un de gris, paisatge lunar il·luminat des de les 10 hores. </para>
+
+<sect4 id="using-emboss"
+>      <title
+>Usar el filtre «Relleu»</title>
+
+<para
+>El control <guilabel
+>Profunditat</guilabel
+> permet definir el contrast del filtratge. Un valor de 30 (10%) és l'estàndard. </para>
+
+</sect4>
+
+<sect4 id="inaction-emboss"
+>   <title
+>El filtre «Relleu» en acció</title>
+
+<para
+>Aquest és un exemple de l'efecte de relleu. La imatge original és (1) i la imatge corregida és (2). El nivell de <guilabel
+>Profunditat</guilabel
+> aplicat és del 10%. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;embosspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El filtre «Relleu» en acció</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="distortionfx">
+<sect3info>
+
+<title
+>Efecte especial de distorsió</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+<para
+>L'<emphasis
+>efecte especial de distorsió</emphasis
+> del &digikam; és una sèrie d'efectes de distorsió per a imatges fotogràfiques digitals. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>Amb aquest conjunt de filtres, podeu transformar una fotografia normal en una obra d'art per emmarcar utilitzant operacions que distorsionen. Utilitza algoritmes amb copyright d'en Pieter Voloshyn. </para>
+
+<sect4 id="using-distortionfx">
+<title
+>Usar el filtre</title>
+
+<para
+>Aquests són els efectes de distorsió disponibles: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Tipus</entry>
+      <entry
+>Vista prèvia</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Ull de peix</guilabel
+>: blega la fotografia al voltant d'una forma esfèrica en 3D per a reproduir aquest efecte fotogràfic comú. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_fisheyes.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Molinet</guilabel
+>: gira la fotografia per a presentar un patró de molinet. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_twirl.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Cilindre horitzontal</guilabel
+>: blega la fotografia al voltant d'un cilindre horitzontal. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Cilindre vertical</guilabel
+>: blega la fotografia al voltant d'un cilindre vertical. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Cilindre H/V</guilabel
+>: blega la fotografia al voltant de 2 cilindres, vertical i horitzontal. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderhv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Caricatura</guilabel
+>: distorsiona la fotografia amb efecte de «Ull de peix» invertit. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_caricature.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Múltiples cantonades</guilabel
+>: divideix la fotografia com un patró de múltiples cantonades. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_corners.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Ones horitzontals</guilabel
+>: distorsiona la fotografia amb ones horitzontals. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+            
+   <row>
+      <entry
+><guilabel
+>Ones verticals</guilabel
+>: distorsiona la fotografia amb ones verticals. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Blocs d'ones 1</guilabel
+>: divideix la imatge en cel·les i li dóna un aspecte com si es veiés a través de blocs de vidre. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Blocs d'ones 2</guilabel
+>: com «Blocs d'ones 1», però amb una altra versió de la distorsió blocs de vidre. </entry>
+               
+      <entry>
+         <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Ones circulars 1</guilabel
+>: distorsiona la fotografia amb ones circulars. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Ones circulars 2</guilabel
+>: una altra variació de l'efecte «Ones circulars». </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Coordenades polars</guilabel
+>: converteix la fotografia de rectangular a coordenades polars. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_polarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para
+>      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Coordenades no polars</guilabel
+>: efecte de coordenades polars invertit. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_unpolarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Mosaic</guilabel
+>: divideix la fotografia en blocs quadrats i es mouen de forma aleatòria dins de la imatge. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_tiles.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+      
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Alguns efectes poden prendre molt de temps a executar-se i això causa una càrrega de la CPU. Sempre podreu cancel·lar el càlcul prement el botó <guilabel
+>Cancel·la</guilabel
+> durant la renderització de la vista prèvia. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-distortionfx">
+<title
+>El filtre de distorsió en acció</title>
+
+<para
+>El diàleg de l'eina «Efecte especial de distorsió» en acció està disponible a continuació. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;distortionfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La vista prèvia del diàleg de l'eina «Efecte especial de distorsió»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="blurfx">
+<sect3info>
+
+<title
+>Efectes especials de difuminat</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'<emphasis
+>efecte especial de difuminat</emphasis
+> del &digikam; són una sèrie d'efectes de difuminat per a imatges fotogràfiques digitals. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>Amb aquest conjunt de filtres, podeu transformar una fotografia normal en una obra d'art per emmarcar utilitzant operacions que difuminen. Utilitza algoritmes amb copyright d'en Pieter Voloshyn. </para>
+
+<sect4 id="using-blurfx">
+<title
+>Usar l'«Efecte especial de difuminat»</title>
+
+<para
+>Aquests són els efectes especials de difuminat disponibles: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Tipus</entry>
+      <entry
+>Vista prèvia</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Difuminat per zoom</guilabel
+>: difumina la imatge al llarg de les línies radials a partir d'un punt central especificat. Simula el difuminat d'una càmera amb zoom, el qual dóna a la fotografia un expressió dinàmica que sovint es veu en fotografies esportives. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_zoomblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Difuminat radial</guilabel
+>: difumina la imatge donant un efecte de gir als píxels al voltant d'un punt central especificat. Simula el desenfocament d'una càmera giratòria. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_radialblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Difuminat llunyà</guilabel
+>: difumina la imatge per a simular l'efecte d'una lent de càmera desenfocada. El tema sembla retrocedir a un segon pla. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_farblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Difuminat per moviment</guilabel
+>: difumina la imatge sacsejant els píxels horitzontalment. Simula el desenfocament d'una càmera en moviment lineal, &ead;, com una fotografia presa des d'un cotxe o un tren. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_motionblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Difuminat de focus</guilabel
+>: difumina les cantonades de la imatge per a reproduir la distorsió astigmàtica d'una lent. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_focusblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Difuminat per atenuació</guilabel
+>: difumina la imatge suaument en sobre els tons més foscos i fortament en els més lluminosos. Això li dóna a les fotografies un efecte de somni i d'enfocament suau sense brillantor (efecte de Hamilton). És ideal per crear retrats romàntics, fotografies amb glamour, o afegir un fulgor càlid i subtil. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_softenerblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Difuminat per sacseig</guilabel
+>: difumina la imatge movent els píxels de forma aleatòria simulant el desenfocament d'una càmera en moviment arbitrari. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_shakeblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Difuminat intel·ligent</guilabel
+>: troba les vores de color a la fotografia i les difumina sense enterbolir la resta de la imatge. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_smartblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>      
+
+   <row>
+      <entry
+><guilabel
+>Vidre glaçat</guilabel
+>: difumina la imatge simulant una dispersió de la llum a l'atzar filtrada a través d'un vidre glaçat. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_frostglass.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+
+   <row>
+      <entry
+><guilabel
+>Mosaic</guilabel
+>: difumina la imatge dividint la fotografia en cel·les rectangulars i després recrea l'ompliment de les cel·les amb el valor mitjà dels píxels. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_mosaic.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+               
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Alguns efectes poden prendre molt de temps a executar-se i això causa una càrrega de la CPU. Sempre podreu cancel·lar el càlcul prement el botó <guilabel
+>Cancel·la</guilabel
+> durant la renderització de la vista prèvia. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blurfx">
+<title
+>L'«efecte especial de difuminat» en acció</title>
+
+<para
+>Un exemple del diàleg de l'«Efecte especial de difuminat» en acció es mostra a continuació. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blurfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La vista prèvia del diàleg de l'eina «Efecte especial de difuminat»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="raindrops">
+<sect3info>
+
+<title
+>Gotes de pluja</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>El filtre <emphasis
+>Gotes de pluja</emphasis
+> del &digikam; posa boniques gotes de pluja a la imatge. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>Les <emphasis
+>gotes de pluja</emphasis
+> és una petita eina bonica per posar gotes d'aigua a les imatges. Naturalment, renderitza la vostra imatge amb una mena d'efecte mullat. Utilitza un algoritme amb copyright d'en Pieter Voloshyn. </para>
+
+<sect4 id="using-raindrops">
+<title
+>Usar el filtre «Gotes de pluja»</title>
+
+<para
+>Tres controls lliscants permeten controlar l'efecte de filtre: </para>
+
+<para
+><guilabel
+>Mida de la gota</guilabel
+>, òbviament, permet canviar la mida de les gotes. Atès que la mida de la gota no s'escala automàticament amb la mida de la imatge, sovint és necessari reduir la mida per a les imatges petites. <guilabel
+>Nombre</guilabel
+> canvia el nombre i la densitat de les gotes. <guilabel
+>Ull de peix</guilabel
+> canvia l'efecte òptic de les gotes a través de la imatge. </para>
+
+<note
+><para
+>Podeu mantenir una zona neta de les gotes de pluja amb l'eina <guilabel
+>Selecciona</guilabel
+> de l'editor d'imatges del &digikam;. Seleccionant l'àrea a evitar (per exemple una cara) abans de llançar el filtre <emphasis
+>gotes de pluja</emphasis
+>, mantenint-la lliure de gotes de pluja. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-raindrops">
+<title
+>El filtre «Gotes de pluja» en acció</title>
+
+<para
+>Aquest és un exemple del filtre de gotes de pluja. La imatge original és (1), mostra una tranquil·la posta de sol, la imatge transformada és (2), indica una posta de sol després d'una tempesta. Per aquest exemple s'han utilitzat els valors per omissió. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;raindropspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Vista prèvia de l'efecte d'imatge «Gotes de pluja»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

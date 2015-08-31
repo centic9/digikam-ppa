@@ -31,6 +31,9 @@
 // KDE includes
 
 #include <kmainwindow.h>
+
+// Local includes
+
 #include "statesavingobject.h"
 
 namespace Digikam
@@ -134,6 +137,10 @@ private Q_SLOTS:
      */
     void slotRemoveTagsFromImgs();
 
+    /**
+     * @brief slotRemoveNotAssignedTags - remove all tags that are not assigned to images
+     */
+    void slotRemoveNotAssignedTags();
 
 protected:
 

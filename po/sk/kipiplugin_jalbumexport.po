@@ -1,0 +1,128 @@
+# translation of kipiplugin_jalbumexport.po to Slovak
+# Roman Paholík <wizzardsk@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_jalbumexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2013-04-16 08:01+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: jalbumconfig.cpp:105
+msgid "jAlbum albums location:"
+msgstr "Umiestnenie albumov jAlbum:"
+
+#: jalbumconfig.cpp:107
+msgid "Sets the path where the jAlbum albums are stored."
+msgstr "Nastaví cestu, kde sú uložené albumy jAlbum."
+
+#: jalbumconfig.cpp:110 jalbumconfig.cpp:180
+msgid "Select Albums Location"
+msgstr "Vybrať umiestnenie albumov"
+
+#: jalbumconfig.cpp:129
+msgid "jAlbum jar file:"
+msgstr "Jar súbor jAlbum:"
+
+#: jalbumconfig.cpp:131
+msgid "Sets the path of the jAlbum jar file."
+msgstr "Nastaví cestu jar súboru jAlbum."
+
+#: jalbumconfig.cpp:134
+msgid "Select jAlbum jar File Location"
+msgstr "Vybrať umiestnenie jar súboru jAlbum"
+
+#: jalbumconfig.cpp:202
+msgid "Select jar File Location"
+msgstr "Vybrať umiestnenie jar súboru"
+
+#: jalbumconfig.cpp:264
+#, kde-format
+msgid "Directory %1 does not exist, do you wish to create it?"
+msgstr "Adresár %1 neexistuje, chcete ho vytvoriť?"
+
+#: jalbumconfig.cpp:273
+msgid "Failed to create directory"
+msgstr "Vytvorenie adresára zlyhalo"
+
+#: jalbumconfig.cpp:281
+msgid "Chosen path is not a directory"
+msgstr "Vybraná cesta nie je adresár"
+
+#: jalbumwindow.cpp:98
+msgid "jAlbum Album name to export to:"
+msgstr "Názov albumu jAlbum na export do:"
+
+#. i18n: ectx: Menu (Export)
+#: jalbumwindow.cpp:105 kipiplugin_jalbumexportui.rc:7
+msgid "&Export"
+msgstr "&Exportovať"
+
+#: jalbumwindow.cpp:125 jalbumwindow.cpp:129
+msgid "jAlbum Export"
+msgstr "jAlbum Export"
+
+#: jalbumwindow.cpp:132
+msgid "A Kipi plugin to launch jAlbum using selected images."
+msgstr "Kipi plugin na spustenie jAlbum pomocou vybraných obrázkov."
+
+#: jalbumwindow.cpp:133
+msgid "(c) 2013, Andrew Goodbody\n"
+msgstr "(c) 2013, Andrew Goodbody\n"
+
+#: jalbumwindow.cpp:135
+msgid "Andrew Goodbody"
+msgstr "Andrew Goodbody"
+
+#: jalbumwindow.cpp:135
+msgid "Author"
+msgstr "Autor"
+
+#: jalbumwindow.cpp:143
+msgid "Settings"
+msgstr "Nastavenia"
+
+#: jalbumwindow.cpp:208
+#, kde-format
+msgid "Album %1 already exists, do you wish to overwrite it?"
+msgstr "Album %1 už existuje, chcete ho prepísať?"
+
+#: jalbumwindow.cpp:218
+msgid "Failed to create album directory"
+msgstr "Zlyhalo vytvorenie adresára albumu"
+
+#: jalbumwindow.cpp:229
+msgid "Could not open 'albumfiles.txt' for writing"
+msgstr "Nemôžem otvoriť 'albumfiles.txt' na zápis"
+
+#: jalbumwindow.cpp:247
+msgid "Could not open 'jalbum-settings.jap' for writing"
+msgstr "Nemôžem otvoriť 'jalbum-settings.jap' na zápis"
+
+#: jalbumwindow.cpp:266 plugin_jalbumexport.cpp:126
+msgid "Edit jAlbum Data"
+msgstr "Upraviť údaje jAlbum"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_jalbumexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: plugin_jalbumexport.cpp:108
+msgid "Export via &jAlbum"
+msgstr "Exportovať cez &jAlbum"

@@ -1,22 +1,56 @@
-digikam (4:4.7.0-0ubuntu4) vivid; urgency=medium
+digikam (4:4.12.0-0ubuntu5) wily; urgency=medium
 
-  * Add missing libkgeomap2.install
+  * No change rebuild for libkexiv2-11v5
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 16 Apr 2015 12:21:01 +0200
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 31 Aug 2015 22:51:14 +0100
 
-digikam (4:4.7.0-0ubuntu3) vivid; urgency=medium
+digikam (4:4.12.0-0ubuntu4) wily; urgency=medium
 
-  * Build-dep on mysql-server-core-5.6 not 5.5
+  * Fix libkvkontakte1 to include library file
+  * In override_dh_shlibdeps don't exclude usr/lib/kde4 from paths for
+    shlibs LP: #1483620
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 16 Apr 2015 01:14:40 +0200
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Aug 2015 16:24:53 +0100
 
-digikam (4:4.7.0-0ubuntu2) vivid; urgency=medium
+digikam (4:4.12.0-0ubuntu3) wily; urgency=medium
 
-  * From Debian: Do not pass -Xusr/lib/kde4/ to dh_shlibdeps, as this
-    skips the dependency calculation of plugins. (Closes: #721107)
-    LP: #1372920
+  * Unversioned boost build dependency
 
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 15 Apr 2015 15:31:02 +0200
+ -- Matthias Klose <doko@ubuntu.com>  Sat, 08 Aug 2015 15:05:06 +0000
+
+digikam (4:4.12.0-0ubuntu2) wily; urgency=medium
+
+  * Remove reference to build-dep on libusb2-dev which seems to confuse
+    soyuz
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 05 Aug 2015 10:47:56 +0200
+
+digikam (4:4.12.0-0ubuntu1) wily; urgency=medium
+
+  * New upstream release
+
+ -- Clive Johnston <clivejo@aol.com>  Mon, 03 Aug 2015 21:11:53 +0100
+
+digikam (4:4.10.0-0ubuntu2) wily; urgency=medium
+
+  * Comment out files for gpssync plugin since we don't have libkgeomap
+    available at the moment
+    - update debian/kipi-plugins-common.install 
+
+ -- Micah Gersten <micahg@ubuntu.com>  Wed, 27 May 2015 16:29:23 -0500
+
+digikam (4:4.10.0-0ubuntu1) wily; urgency=medium
+
+  * New upstream release 
+  * Rebuild without libkgeomap which is now part of applications 15.04
+
+ -- Clive Johnston <clivejo@aol.com>  Thu, 21 May 2015 23:50:06 +0100
+
+digikam (4:4.9.0-0ubuntu1) vivid; urgency=medium
+
+  * New upstream release
+
+ -- Jonathan Riddell <jriddell@ubuntu.com>  Sat, 11 Apr 2015 20:39:50 +0000
 
 digikam (4:4.7.0-0ubuntu1) vivid; urgency=medium
 

@@ -4,20 +4,20 @@
 # Igor Klimer <igro@localhost.localdomain>, 2005.
 # Mikołaj Machowski <mikmach@wp.pl>, 2009.
 # Mikolaj Machowski <mikmach@wp.pl>, 2009.
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2014.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2011, 2012, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-26 01:45+0000\n"
-"PO-Revision-Date: 2014-10-26 06:55+0100\n"
+"POT-Creation-Date: 2015-06-18 01:56+0000\n"
+"PO-Revision-Date: 2015-06-20 07:11+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -199,19 +199,29 @@ msgstr "Nazwa pliku"
 msgid "Timestamp Adjustments"
 msgstr "Dopasowanie znacznika czasu"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
+#: timeadjustdialog.cpp:105 timeadjustdialog.cpp:403
 msgid "Adjust Time & Date"
 msgstr "Dopasuj czas i datę"
 
-#: timeadjustdialog.cpp:129
+#: timeadjustdialog.cpp:109
+msgctxt "@action:button"
+msgid "&Apply"
+msgstr "Z&astosuj"
+
+#: timeadjustdialog.cpp:110
+msgctxt "@info:tooltip"
+msgid "Write the corrected date and time for each image"
+msgstr "Zapisuj poprawione daty i czasy dla każdego obrazu"
+
+#: timeadjustdialog.cpp:134
 msgid "Time Adjust"
 msgstr "Dopasowanie godziny"
 
-#: timeadjustdialog.cpp:132
+#: timeadjustdialog.cpp:137
 msgid "A Kipi plugin for adjusting the timestamp of picture files"
 msgstr "Wtyczka Kipi do dostosowywania znacznika czasu na plikach zdjęć"
 
-#: timeadjustdialog.cpp:133
+#: timeadjustdialog.cpp:138
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
 "(c) 2006-2014, Gilles Caulier\n"
@@ -221,35 +231,35 @@ msgstr ""
 "(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 
-#: timeadjustdialog.cpp:137
+#: timeadjustdialog.cpp:142
 msgid "Jesper K. Pedersen"
 msgstr "Jesper K. Pedersen"
 
-#: timeadjustdialog.cpp:138
+#: timeadjustdialog.cpp:143
 msgid "Author"
 msgstr "Autor"
 
-#: timeadjustdialog.cpp:141
+#: timeadjustdialog.cpp:146
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+#: timeadjustdialog.cpp:147 timeadjustdialog.cpp:151 timeadjustdialog.cpp:155
 msgid "Developer"
 msgstr "Programista"
 
-#: timeadjustdialog.cpp:145
+#: timeadjustdialog.cpp:150
 msgid "Smit Mehta"
 msgstr "Smit Mehta"
 
-#: timeadjustdialog.cpp:149
+#: timeadjustdialog.cpp:154
 msgid "Pieter Edelman"
 msgstr "Pieter Edelman"
 
-#: timeadjustdialog.cpp:380
+#: timeadjustdialog.cpp:385
 msgid "Adjust Time and Date"
 msgstr "Dopasuj czas i datę"
 
-#: timeadjustdialog.cpp:397
+#: timeadjustdialog.cpp:402
 msgid "Select at least one option"
 msgstr "Wybierz co najmniej jedną opcję"
 

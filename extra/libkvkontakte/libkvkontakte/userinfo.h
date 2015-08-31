@@ -1,34 +1,37 @@
-/* Copyright 2010, 2011 Thomas McGuire <mcguire@kde.org>
-   Copyright 2011 Alexander Potashev <aspotashev@gmail.com>
+/*
+ * Copyright (C) 2010, 2011  Thomas McGuire <mcguire@kde.org>
+ * Copyright (C) 2011, 2015  Alexander Potashev <aspotashev@gmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) version 3, or any
+ * later version accepted by the membership of KDE e.V. (or its
+ * successor approved by the membership of KDE e.V.), which shall
+ * act as a proxy defined in Section 6 of version 3 of the license.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-   This library is free software; you can redistribute it and/or modify
-   it under the terms of the GNU Library General Public License as published
-   by the Free Software Foundation; either version 2 of the License or
-   ( at your option ) version 3 or, at the discretion of KDE e.V.
-   ( which shall act as a proxy as in section 14 of the GPLv3 ), any later version.
-
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
 #ifndef USERINFO_H
 #define USERINFO_H
 
-#include <QtCore/QVariantMap>
+#include "libkvkontakte_export.h"
+
 #include <KDE/KDateTime>
 
-#include "libkvkontakte_export.h"
+#include <QtCore/QVariantMap>
 
 namespace Vkontakte
 {
 
-// http://vkontakte.ru/developers.php?o=-1&p=getProfiles
+// http://vk.com/dev/fields
 class LIBKVKONTAKTE_EXPORT UserInfo : public QObject
 {
     Q_OBJECT
@@ -62,40 +65,41 @@ class LIBKVKONTAKTE_EXPORT UserInfo : public QObject
     // be also available: country.
     Q_PROPERTY(int country WRITE setCountry READ country)
 
-    // If "photo" was requested, then this field will
-    // be also available: photo.
-    Q_PROPERTY(QString photo WRITE setPhoto READ photo)
+    // If "photo_50" was requested, then this field will
+    // be also available: photo_50.
+    Q_PROPERTY(QString photo_50 WRITE setPhoto READ photo)
 
-    // If "photo_medium" was requested, then this field will
-    // be also available: photo_medium.
-    Q_PROPERTY(QString photo_medium WRITE setPhotoMedium READ photoMedium)
+    // If "photo_100" was requested, then this field will
+    // be also available: photo_100.
+    Q_PROPERTY(QString photo_100 WRITE setPhotoMedium READ photoMedium)
 
-    // If "photo_medium_rec" was requested, then this field will
-    // be also available: photo_medium_rec.
+    // Obsolete, worked only with the API method "getProfiles"
     Q_PROPERTY(QString photo_medium_rec WRITE setPhotoMediumRec READ photoMediumRec)
 
-    // If "photo_big" was requested, then this field will
-    // be also available: photo_big.
-    Q_PROPERTY(QString photo_big WRITE setPhotoBig READ photoBig)
+    // If "photo_200_orig" was requested, then this field will
+    // be also available: photo_200_orig.
+    Q_PROPERTY(QString photo_200_orig WRITE setPhotoBig READ photoBig)
 
-    // If "photo_rec" was requested, then this field will
-    // be also available: photo_rec.
-    Q_PROPERTY(QString photo_rec WRITE setPhotoRec READ photoRec)
+    // Obsolete, worked only with the API method "getProfiles"
+    Q_PROPERTY(QString photo_200 WRITE setPhotoRec READ photoRec)
 
     // TODO: add "lists" field
 
     // If "screen_name" was requested, then this field will
     // be also available: screen_name.
+    //
+    // "screen_name" is alias for "domain".
     Q_PROPERTY(QString screen_name WRITE setDomain READ domain)
-    // http://vkontakte.ru/developers.php?oid=-1&p=friends.get
+
+    // If "domain" was requested, then this field will
+    // be also available: domain.
     Q_PROPERTY(QString domain WRITE setDomain READ domain)
 
     // If "has_mobile" was requested, then this field will
     // be also available: has_mobile.
     Q_PROPERTY(bool has_mobile WRITE setHasMobile READ hasMobile)
 
-    // If "rate" was requested, then this field will
-    // be also available: rate.
+    // Obsolete, worked only with the API method "getProfiles"
     Q_PROPERTY(int rate WRITE setRate READ rate)
 
     // If "contacts" was requested, then these fields will
@@ -230,6 +234,13 @@ public:
 
 
     QString profileUrl() const;
+
+    /**
+    * @brief Returns the stringlist of all possible field groups
+    * that may be requested in VK API method "users.get".
+    *
+    * @return The list of strings to pass as "fields" argument to a method.
+    **/
     static QStringList allQueryFields();
 
 private:

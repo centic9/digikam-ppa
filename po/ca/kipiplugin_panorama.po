@@ -1,0 +1,561 @@
+# Translation of kipiplugin_panorama.po to Catalan
+# Copyright (C) 2012-2015 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2013, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_panorama\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-17 01:52+0000\n"
+"PO-Revision-Date: 2015-06-03 21:13+0200\n"
+"Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Antoni Bella Pérez"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "antonibella5@yahoo.com"
+
+#: importwizard/importwizarddlg.cpp:87
+msgid "Panorama Creator Wizard"
+msgstr "Assistent del creador de panorama"
+
+#: importwizard/intropage.cpp:93
+msgid "<b>Welcome to Panorama Tool</b>"
+msgstr "<b>Benvingut a l'eina «Panorama»</b>"
+
+#: importwizard/intropage.cpp:100
+msgid ""
+"<qt><p><h1><b>Welcome to Panorama tool</b></h1></p><p>This tool stitches "
+"several images together to create a panorama, making the seam between images "
+"not visible.</p><p>This assistant will help you to configure how to import "
+"images before stitching them into a panorama.</p><p>Images must be taken "
+"from the same point of view.</p><p>For more information, please take a look "
+"at <a href='http://hugin.sourceforge.net/tutorials/overview/en.shtml'>this "
+"page</a></p></qt>"
+msgstr ""
+"<qt><p><h1><b>Benvingut a l'eina «Panorama»</b></h1></p><p>Aquesta eina "
+"ajunta diverses imatges per crear un panorama, fent que la unió entre les "
+"imatges no sigui visible.</p><p>Aquest assistent us ajudarà a configurar com "
+"importar les imatges abans d'agrupar-les en un panorama.</p><p>Les imatges "
+"s'han de prendre des del mateix punt de vista.</p><p>Per a més informació, "
+"doneu un cop d'ull a <a href='http://hugin.sourceforge.net/tutorials/"
+"overview/en.shtml'>aquesta pàgina</a>.</p></qt>"
+
+#: importwizard/intropage.cpp:114
+msgid "Panorama Binaries"
+msgstr "Binaris del panorama"
+
+#: importwizard/intropage.cpp:147
+msgid "File Format"
+msgstr "Format de fitxer"
+
+#: importwizard/intropage.cpp:151
+msgid "JPEG output"
+msgstr "Sortida JPEG"
+
+#: importwizard/intropage.cpp:154
+#, no-c-format
+msgid ""
+"Selects a JPEG output with 90% compression rate (lossy compression, smaller "
+"size)."
+msgstr ""
+"Selecciona una sortida JPEG amb una taxa de compressió del 90% (de "
+"compressió amb pèrdua, una mida més petita)."
+
+#: importwizard/intropage.cpp:156
+msgid ""
+"<b>JPEG output</b>: Using JPEG output, the panorama file will be smaller at "
+"the cost of information loss during compression. This is the easiest way to "
+"share the result, or print it online or in a shop."
+msgstr ""
+"<b>Sortida JPEG</b>: Utilitzant la sortida JPEG, el fitxer de panorama serà "
+"més petit amb el cost de pèrdua d'informació durant la compressió. Aquesta "
+"és la forma més senzilla de compartir el resultat, o imprimir-lo en línia o "
+"en una botiga."
+
+#: importwizard/intropage.cpp:162
+msgid "TIFF output"
+msgstr "Sortida TIFF"
+
+#: importwizard/intropage.cpp:163
+msgid ""
+"Selects a TIFF output compressed using the LZW algorithm (lossless "
+"compression, bigger size)."
+msgstr ""
+"Selecciona una sortida TIFF comprimida utilitzant l'algoritme LZW "
+"(compressió sense pèrdua, una mida més gran)."
+
+#: importwizard/intropage.cpp:165
+msgid ""
+"<b>TIFF output</b>: Using TIFF output, you get the same color depth than "
+"your original photos using RAW images at the cost of a bigger panorama file."
+msgstr ""
+"<b>Sortida TIFF</b>: Utilitzant sortida TIFF, obtindreu la mateixa "
+"profunditat de color que a les fotos originals utilitzant imatges RAW amb el "
+"cost d'un fitxer de panorama més gran."
+
+#: importwizard/itemspage.cpp:66
+msgid "<b>Set Panorama Images</b>"
+msgstr "<b>Establir les imatges del panorama</b>"
+
+#: importwizard/itemspage.cpp:72
+msgid ""
+"<qt><p>Set here the list of your images to blend into a panorama. Please "
+"follow these conditions:</p><ul><li>Images are taken from the same point of "
+"view.</li><li>Images are taken with the same camera (and lens).</li><li>Do "
+"not mix images with different color depth.</li></ul><p>Note that, in the "
+"case of a 360° panorama, the first image in the list will be the image that "
+"will be in the center of the panorama.</p></qt>"
+msgstr ""
+"<qt><p>Establiu aquí la llista de les vostres imatges a fusionar en un "
+"panorama. Seguiu les següents condicions:</p><ul><li>Les imatges s'han pres "
+"des del mateix punt de vista.</li><li>Les imatges s'ha pres amb la mateixa "
+"càmera (i lents).</li><li>No es barregen imatges amb una profunditat de "
+"color diferent.</li></ul><p>Tingueu en compte que, en el cas d'un panorama "
+"de 360 graus, la primera imatge de la llista serà la imatge que restarà al "
+"centre del panorama.</p></qt>"
+
+#: importwizard/lastpage.cpp:75
+msgid "<b>Panorama Stitched</b>"
+msgstr "<b>Retallat del panorama</b>"
+
+#: importwizard/lastpage.cpp:88
+msgid "Save Settings"
+msgstr "Desa l'arranjament"
+
+#: importwizard/lastpage.cpp:92
+msgid "File name template:"
+msgstr "Nom de fitxer de la plantilla:"
+
+#: importwizard/lastpage.cpp:95
+msgid "Name of the panorama file (without its extension)."
+msgstr "Nom de fitxer del panorama (sense extensió)."
+
+#: importwizard/lastpage.cpp:96
+msgid ""
+"<b>File name template</b>: Set here the base name of the files that will be "
+"saved. For example, if your template is <i>panorama</i> and if you chose a "
+"JPEG output, then your panorama will be saved with the name <i>panorama.jpg</"
+"i>. If you choose to save also the project file, it will have the name "
+"<i>panorama.pto</i>."
+msgstr ""
+"<b>Nom de fitxer de la plantilla</b>: Establiu aquí el nom base dels fitxers "
+"que es desaran. Per exemple, si la plantilla és <i>panorama</i> i si heu "
+"triat una sortida JPEG, llavors el panorama es desarà amb el nom <i>panorama."
+"jpg</i>. Si també decidiu desar el fitxer de projecte, el seu nom serà "
+"<i>panorama.pto</i>."
+
+#: importwizard/lastpage.cpp:102
+msgid "Save project file"
+msgstr "Desa el fitxer de projecte"
+
+#: importwizard/lastpage.cpp:104
+msgid "Save the project file for further processing within Hugin GUI."
+msgstr ""
+"Desa el fitxer de projecte per al seu posterior processament a la interfície "
+"gràfica d'usuari Hugin."
+
+#: importwizard/lastpage.cpp:105
+msgid ""
+"<b>Save project file</b>: You can keep the project file generated to stitch "
+"your panorama for further tweaking within <a href=\"http://hugin.sourceforge."
+"net/\">Hugin</a> by checking this. This is useful if you want a different "
+"projection, modify the horizon or the center of the panorama, or modify the "
+"control points to get better results."
+msgstr ""
+"<b>Desa el fitxer de projecte</b>: Podeu desar el fitxer de projecte generat "
+"per fusionar el vostre panorama per ajustar-lo encara més amb <a href="
+"\"http://hugin.sourceforge.net/\">Hugin</a>. Això és útil si voleu una "
+"projecció diferent, modificació de l'horitzó o centrat del panorama, o "
+"modificar els punts de control per obtenir millors resultats."
+
+#: importwizard/lastpage.cpp:187
+#, kde-format
+msgid "<qt><p><font color=\"red\"><b>Error:</b> %1</font></p></qt>"
+msgstr "<qt><p><font color=\"red\"><b>Error:</b> %1</font></p></qt>"
+
+#: importwizard/lastpage.cpp:222
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Panorama Stitching is Done</b></h1></p><p>Congratulations. "
+"Your images are stitched into a panorama.</p><p>Your panorama will be "
+"created to the directory</p><p><b>%1</b></p><p>once you press the <i>Finish</"
+"i> button, with the name set below.</p><p>If you choose to save the project "
+"file, and if your images were raw images then the converted images used "
+"during the stitching process will be copied at the same time (those are TIFF "
+"files that can be big).</p></qt>"
+msgstr ""
+"<qt><p><h1><b>El fusionat del panorama ha acabat</b></h1></p><p>Felicitats. "
+"Les vostres imatges s'han fusionat en el panorama.</p><p>El vostre panorama "
+"es crearà en el directori</p><p><b>%1</b></p><p>una vegada premeu el botó "
+"<i>Acaba</i>, amb el nom establert a sota.</p><p>Si voleu desar el fitxer de "
+"projecte, i si les imatges eren imatges en brut, llavors les imatges "
+"convertides utilitzades durant el procés de fusionat també es copiaran "
+"(aquestes són els fitxers TIFF, que poden ser grans).</p></qt>"
+
+#: importwizard/lastpage.cpp:275
+msgid ""
+"<qt><p><font color=\"red\"><b>Warning:</b> This file already exists.</font></"
+"p></qt>"
+msgstr ""
+"<qt><p><font color=\"red\"><b>Avís:</b> Aquest fitxer ja existeix.</font></"
+"p></qt>"
+
+#: importwizard/optimizepage.cpp:98
+msgid "<b>Optimization</b>"
+msgstr "<b>Optimització</b>"
+
+#: importwizard/optimizepage.cpp:111
+msgid "Level horizon"
+msgstr "Nivell de l'horitzó"
+
+#: importwizard/optimizepage.cpp:113
+msgid "Detect the horizon and adapt the project to make it horizontal."
+msgstr "Detecta l'horitzó i adapta el projecte perquè sigui horitzontal."
+
+#: importwizard/optimizepage.cpp:114
+msgid ""
+"<b>Level horizon</b>: Detect the horizon and adapt the projection so that "
+"the detected horizon is an horizontal line in the final panorama"
+msgstr ""
+"<b>Nivell de l'horitzó</b>: Detecta l'horitzó i adapta la projecció de "
+"manera que l'horitzó detectat sigui una línia horitzontal en el panorama "
+"final."
+
+#: importwizard/optimizepage.cpp:144 importwizard/preprocessingpage.cpp:131
+#: importwizard/previewpage.cpp:99
+msgid "Details..."
+msgstr "Detalls..."
+
+#: importwizard/optimizepage.cpp:194
+msgid ""
+"<qt><p>Optimization is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>L'optimització és en curs, si us plau, espereu.</p><p>Això pot trigar "
+"una estona...</p></qt>"
+
+#: importwizard/optimizepage.cpp:276
+msgid ""
+"<qt><p>Optimization has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>L'optimització ha fallat.</p><p>Premeu «Detalls» per a veure els "
+"missatges del procés.</p></qt>"
+
+#: importwizard/optimizepage.cpp:323 importwizard/preprocessingpage.cpp:249
+msgid "Pre-Processing Messages"
+msgstr "Missatges del preprocessament"
+
+#: importwizard/optimizepage.cpp:332
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Images Pre-Processing is Done</b></h1></p><p>The optimization "
+"step according to your settings is ready to be performed.</p><p>This step "
+"can include an automatic leveling of the horizon, and also an automatic "
+"projection selection and size</p><p>To perform this operation, the <b>%1</b> "
+"program from the <a href='%2'>%3</a> project will be used.</p><p>Press the "
+"\"Next\" button to run the optimization.</p></qt>"
+msgstr ""
+"<qt><p><h1><b>El preprocessament de les imatges ha acabat</b></h1></p><p>El "
+"pas d'optimització d'acord a la vostra configuració està llest per a dur-se "
+"a terme.</p><p>Aquest pas pot incloure un anivellament automàtic de "
+"l'horitzó, i també una selecció automàtica de projecció i mida.</p><p>Per "
+"dur a terme aquesta operació, s'usarà el programa <b>%1</b> del projecte <a "
+"href='%2'>%3</a>.</p><p>Premeu el botó «Següent» per executar l'optimització."
+"</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:106
+msgid "<b>Pre-Processing Images</b>"
+msgstr "<b>Preprocessament de les imatges</b>"
+
+#: importwizard/preprocessingpage.cpp:119
+msgid "Detect moving skies"
+msgstr "Detecta el moviment del cel"
+
+#: importwizard/preprocessingpage.cpp:121
+msgid ""
+"Automatic detection of clouds to prevent wrong keypoints matching between "
+"images due to moving clouds."
+msgstr ""
+"Detecta automàticament els núvols per evitar el mal joc de punts clau entre "
+"les imatges a causa de núvols en moviment."
+
+#: importwizard/preprocessingpage.cpp:123
+msgid ""
+"<b>Detect moving skies</b>: During the control points selection and "
+"matching, this option discards any points that are associated to a possible "
+"cloud. This is useful to prevent moving clouds from altering the control "
+"points matching process."
+msgstr ""
+"<b>Detecta el moviment del cel</b>: Durant la selecció de punts de control i "
+"de coincidència, aquesta opció descarta qualsevol punt que s'associï a un "
+"possible núvol. Això és útil per evitar que el moviment dels núvols alteri "
+"el procés de coincidència amb punts de control."
+
+#: importwizard/preprocessingpage.cpp:178
+msgid ""
+"<qt><p>Pre-processing is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>El preprocessament és en curs, espereu.</p><p>Això pot trigar una "
+"estona...</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:280
+msgid ""
+"<qt><p>Pre-processing has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>El preprocessament ha fallat.</p><p>Premeu «Detalls» per a veure els "
+"missatges del procés.</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:339
+#, kde-format
+msgid ""
+"<qt><p>Now, we will pre-process images before stitching them.</p><p>Pre-"
+"processing operations include Raw demosaicing. Raw images will be converted "
+"to 16-bit sRGB images with auto-gamma.</p><p>Pre-processing also include a "
+"calculation of some control points to match overlaps between images. For "
+"that purpose, the <b>%1</b> program from the <a href='%2'>%3</a> project "
+"will be used.</p><p>Press \"Next\" to start pre-processing.</p></qt>"
+msgstr ""
+"<qt><p>Ara, és preprocessaran les imatges abans de fusionar-les.</p><p>Les "
+"operacions de preprocessament inclouen la interpolació cromàtica en cru. Les "
+"imatges en cru es converteixen a imatges sRGB de 16 bits amb autogamma.</"
+"p><p>El preprocessament també inclou un càlcul dels punts de control per a "
+"que les unions coincideixin entre les imatges. A aquest efecte, s'usarà el "
+"programa <b>%1</b> del projecte <a href='%2'>%3</a>.</p><p>Premeu el botó "
+"«Següent» per iniciar el preprocessament.</p></qt>"
+
+#: importwizard/previewpage.cpp:89
+msgid "<b>Preview and Post-Processing</b>"
+msgstr "<b>Vista prèvia i postprocés</b>"
+
+#: importwizard/previewpage.cpp:148
+msgid "Preview Processing Cancelled."
+msgstr "S'ha cancel·lat el processament de la vista prèvia."
+
+#: importwizard/previewpage.cpp:175
+msgid "Processing Panorama Preview..."
+msgstr "S'està processant la vista prèvia del panorama..."
+
+#: importwizard/previewpage.cpp:233
+msgid "<qt><p><h1>Panorama Post-Processing</h1></p></qt>"
+msgstr "<qt><p><h1>Postprocés del panorama</h1></p></qt>"
+
+#: importwizard/previewpage.cpp:239
+msgid "Panorama Post-Processing"
+msgstr "Postprocessament del panorama"
+
+#: importwizard/previewpage.cpp:298
+#, kde-format
+msgid "<qt><h2><b>Error</b></h2><p>%1</p></qt>"
+msgstr "<qt><h2><b>Error</b></h2><p>%1</p></qt>"
+
+#: importwizard/previewpage.cpp:315
+#, kde-format
+msgid "Processing file %1 / %2: %3"
+msgstr "Es processa el fitxer %1 / %2: %3"
+
+#: importwizard/previewpage.cpp:333
+#, kde-format
+msgid "Panorama compilation: %1"
+msgstr "Compilació de Panorama: %1"
+
+#: importwizard/previewpage.cpp:365
+msgid ""
+"<qt><p><h1>Panorama Preview</h1></p><p>Draw a rectangle if you want to crop "
+"the image.</p><p>Pressing the <i>Next</i> button will then launch the final "
+"stitching process.</p></qt>"
+msgstr ""
+"<qt><p><h1>Vista prèvia del panorama</h1></p><p>Dibuixeu un rectangle si "
+"voleu retallar la imatge.</p><p>En prémer el botó <i>Següent</i> es llançarà "
+"el procés d'agrupació final.</p></qt>"
+
+#: importwizard/previewpage.cpp:390 importwizard/previewpage.cpp:435
+#, kde-format
+msgid "Processing file %1 / %2"
+msgstr "Es processa el fitxer %1 / %2"
+
+#: importwizard/previewpage.cpp:405 importwizard/previewpage.cpp:441
+msgid "Panorama compilation"
+msgstr "Compilació de Panorama"
+
+#: plugin/aboutdata.h:41
+msgid "Panorama Stitching"
+msgstr "Retallat del panorama"
+
+#: plugin/aboutdata.h:43
+msgid "A tool to automatically stitch images into panorama"
+msgstr "Una eina per fusionar imatges automàticament en un panorama"
+
+#: plugin/aboutdata.h:44
+msgid "(c) 2011-2013, Benjamin Girault"
+msgstr "(c) 2011-2013, Benjamin Girault"
+
+#: plugin/aboutdata.h:46
+msgid "Benjamin Girault"
+msgstr "Benjamin Girault"
+
+#: plugin/aboutdata.h:47
+msgid "Author"
+msgstr "Autor"
+
+#: plugin/aboutdata.h:50
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:51
+msgid "Developer"
+msgstr "Desenvolupador"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_panoramaui.rc:7
+msgid "&Tools"
+msgstr "&Eines"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_panoramaui.rc:13
+msgid "Main Toolbar"
+msgstr "Barra d'eines principal"
+
+#: plugin/panorama.cpp:56
+msgid "File(s) to open"
+msgstr "Fitxer/s a obrir"
+
+#: plugin/plugin_panorama.cpp:104
+msgid "Stitch images into a panorama..."
+msgstr "Fusiona les imatges en un panorama..."
+
+#: tasks/copyfilestask.cpp:85
+msgid "Temporary panorama file does not exists."
+msgstr "El fitxer temporal de panorama no existeix."
+
+#: tasks/copyfilestask.cpp:93 tasks/copyfilestask.cpp:109
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Ja existeix un fitxer anomenat %1."
+
+#: tasks/copyfilestask.cpp:101
+msgid "Temporary project file does not exist."
+msgstr "El fitxer temporal de projecte no existeix."
+
+#: tasks/copyfilestask.cpp:173
+#, kde-format
+msgid "Cannot move panorama from %1 to %2."
+msgstr "No es pot moure panorama de %1 a %2."
+
+#: tasks/copyfilestask.cpp:187
+#, kde-format
+msgid "Cannot move project file from %1 to %2."
+msgstr "No es pot moure el fitxer de projecte de %1 a %2."
+
+#: tasks/copyfilestask.cpp:206
+#, kde-format
+msgid "Cannot copy converted image file from %1 to %2."
+msgstr "No es pot copiar el fitxer d'imatge convertit de %1 a %2."
+
+#: tasks/createfinalptotask.cpp:72 tasks/createptotask.cpp:71
+msgid "PTO file already created in the temporary directory."
+msgstr "El fitxer PTO ja s'ha creat en el directori temporal."
+
+#: tasks/createfinalptotask.cpp:79 tasks/createptotask.cpp:77
+msgid "PTO file cannot be created in the temporary directory."
+msgstr "El fitxer PTO no s'ha pogut crear en el directori temporal."
+
+#: tasks/createpreviewtask.cpp:71
+msgid "Project file parsing failed."
+msgstr "L'anàlisi del fitxer de projecte ha fallat."
+
+#: tasks/createpreviewtask.cpp:98
+#, kde-format
+msgid "Unknown input file in the project file: %1"
+msgstr "Fitxer d'entrada desconegut en el fitxer de projecte: %1"
+
+#: tasks/preprocesstask.cpp:129
+msgid "Input image cannot be loaded for preview generation"
+msgstr ""
+"La imatge d'entrada no es pot carregar per a la generació de la vista prèvia"
+
+#: tasks/preprocesstask.cpp:166
+msgid "Operation canceled."
+msgstr "Operació cancel·lada."
+
+#: tasks/preprocesstask.cpp:198
+msgid "Tiff image creation failed."
+msgstr "La creació de la imatge TIFF ha fallat."
+
+#: tasks/preprocesstask.cpp:208
+msgid "Raw file conversion failed."
+msgstr "La conversió de la imatge RAW ha fallat."
+
+#: tasks/task.cpp:66
+#, kde-format
+msgid ""
+"Cannot run %1:\n"
+"\n"
+" %2"
+msgstr ""
+"No es pot executar %1:\n"
+"\n"
+" %2"
+
+#~ msgid "Missing project file."
+#~ msgstr "Falta el fitxer de projecte."
+
+#~ msgid "Panorama Settings"
+#~ msgstr "Ajustaments del panorama"
+
+#~ msgid "HDR output"
+#~ msgstr "Sortida HDR"
+
+#~ msgid ""
+#~ "When checked, the panorama will be stitched into an High Dynamic Range "
+#~ "(HDR) image, that can be processed further with a dedicated software."
+#~ msgstr ""
+#~ "Quan es marca, el panorama les agruparà en una imatge de marge dinàmic "
+#~ "elevat (High Dynamic Range -HDR-), la qual es podrà tractar posteriorment "
+#~ "amb un programari dedicat."
+
+#~ msgid ""
+#~ "<b>HDR output</b>: Output in High Dynamic Range, meaning that every piece "
+#~ "of information contained in the original photos are preserved. Note that "
+#~ "you need another software to process the resulting panorama, like <a href="
+#~ "\"http://qtpfsgui.sourceforge.net/\">Luminance HDR</a>"
+#~ msgstr ""
+#~ "<b>Sortida HDR</b>: Sortida de marge dinàmic elevat, significa que es "
+#~ "conservarà cada peça d'informació continguda en les fotos originals. "
+#~ "Tingueu en compte que necessitareu un altre programari per a processar el "
+#~ "panorama resultant, com <a href=\"http://qtpfsgui.sourceforge.net/"
+#~ "\">Luminance HDR</a>."
+
+#~ msgid "Automatic projection"
+#~ msgstr "Projecció automàtica"
+
+#~ msgid ""
+#~ "Adapt the projection of the panorama and the area rendered on the "
+#~ "resulting projection so that every photo fits in the resulting panorama."
+#~ msgstr ""
+#~ "Adapta la projecció del panorama i dibuixa l'àrea en la projecció "
+#~ "resultant de manera que cada foto s'adapti en el panorama resultant."
+
+#~ msgid ""
+#~ "<b>Automatic projection</b>: Automatically adapt the projection and the "
+#~ "area rendered of the panorama to get every photos into the panorama."
+#~ msgstr ""
+#~ "<b>Projecció automàtica</b>: Adapta automàticament la projecció i dibuixa "
+#~ "l'àrea del panorama per inserir totes les fotos en el panorama."

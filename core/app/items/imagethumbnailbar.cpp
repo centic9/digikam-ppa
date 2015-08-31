@@ -82,6 +82,7 @@ ImageThumbnailBar::ImageThumbnailBar(QWidget* const parent)
     setSpacing(3);
     setUsePointingHandCursor(false);
     setScrollStepGranularity(5);
+    setScrollCurrentToCenter(true);
     setScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
     setDragEnabled(true);
@@ -206,7 +207,7 @@ void ImageThumbnailBar::assignRating(const QList<QModelIndex>& indexes, int rati
 bool ImageThumbnailBar::event(QEvent* e)
 {
     // reset widget max/min sizes
-    if (e->type() == QEvent::StyleChange)
+    if (e->type() == QEvent::StyleChange || e->type() == QEvent::Show)
     {
         setFlow(flow());
     }

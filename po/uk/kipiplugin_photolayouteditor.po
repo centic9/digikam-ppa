@@ -1,0 +1,984 @@
+# Translation of kipiplugin_photolayouteditor.po to Ukrainian
+# Copyright (C) 2011-2014 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2011, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_photolayouteditor\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-04-01 09:21+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:40
+msgid "Write here some text"
+msgstr "Впишіть сюди якесь речення"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:59
+#: borderplugins/solid/SolidBorderDrawer.cpp:71
+#: widgets/dialogs/CanvasSizeDialog.cpp:364
+#: widgets/dialogs/CanvasSizeWidget.cpp:147
+#: widgets/tools/CanvasEditTool.cpp:589
+msgid "Width"
+msgstr "Ширина"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:61
+msgid "Text"
+msgstr "Текст"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:63
+#: borderplugins/solid/SolidBorderDrawer.cpp:67
+#: widgets/tools/CanvasEditTool.cpp:104 widgets/tools/CanvasEditTool.cpp:544
+#: widgets/tools/CanvasEditTool.cpp:599
+msgid "Color"
+msgstr "Колір"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:65
+#: widgets/items/TextItem.cpp:812
+msgid "Font"
+msgstr "Шрифт"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:158
+#: borderplugins/StandardBordersFactory.cpp:41
+#: borderplugins/StandardBordersFactory.cpp:49
+msgid "Polaroid border"
+msgstr "Поляризована рамка"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:54
+msgid "Miter"
+msgstr "Фацет"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:55
+msgid "Bevel"
+msgstr "Фаска"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:56
+msgid "Round"
+msgstr "Округлення"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:69
+msgid "Corners style"
+msgstr "Стиль кутів"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:73
+msgid "Spacing"
+msgstr "Інтервал"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:165
+#: borderplugins/StandardBordersFactory.cpp:42
+#: borderplugins/StandardBordersFactory.cpp:47
+msgid "Solid border"
+msgstr "Суцільна рамка"
+
+#: borders/BorderChangeListener.cpp:48 widgets/canvas/SceneBorder.cpp:56
+#: widgets/canvas/SceneBorder.cpp:100
+msgid "Border Change"
+msgstr "Зміна рамки"
+
+#: effectplugins/blur/BlurPhotoEffect.cpp:53
+#: effectplugins/StandardEffectsFactory.cpp:42
+#: effectplugins/StandardEffectsFactory.cpp:57
+#: effects/temp/BlurPhotoEffect.cpp:122
+msgid "Blur effect"
+msgstr "Ефект розмивання"
+
+#: effectplugins/colorize/ColorizePhotoEffect.cpp:55
+#: effectplugins/StandardEffectsFactory.cpp:44
+#: effectplugins/StandardEffectsFactory.cpp:58
+msgid "Colorize effect"
+msgstr "Ефект розфарбовування"
+
+#: effectplugins/grayscale/GrayscalePhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:46
+#: effectplugins/StandardEffectsFactory.cpp:59
+msgid "Grayscale effect"
+msgstr "Ефект перетворення на тони сірого"
+
+#: effectplugins/negative/NegativePhotoEffect.cpp:49
+#: effectplugins/StandardEffectsFactory.cpp:50
+#: effectplugins/StandardEffectsFactory.cpp:61
+msgid "Negative effect"
+msgstr "Ефект негатива"
+
+#: effectplugins/sepia/SepiaPhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:48
+#: effectplugins/StandardEffectsFactory.cpp:60
+msgid "Sepia effect"
+msgstr "Ефекти сепії"
+
+#: effects/PhotoEffectsGroup.cpp:188
+msgid "Effect name"
+msgstr "Назва ефекту"
+
+#: effects/PixelizePhotoEffect.cpp:94
+msgid "Pixel size"
+msgstr "Розмір пікселя"
+
+#: effects/PixelizePhotoEffect.cpp:104
+msgid "Pixelize effect"
+msgstr "Ефект пікселювання"
+
+#: effects/PixelizePhotoEffect.cpp:142
+#, kde-format
+msgid "Pixelize [%1 = %2]"
+msgstr "Пікселювати [%1 = %2]"
+
+#: effects/temp/BlurPhotoEffect.cpp:37
+msgid "Radius"
+msgstr "Радіус"
+
+#: models/LayersModelItem.cpp:159
+msgid "Layer"
+msgstr "Шар"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_photolayoutseditorui.rc:7
+msgid "&Tools"
+msgstr "&Інструменти"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_photolayoutseditorui.rc:13
+msgid "Main Toolbar"
+msgstr "Головна панель"
+
+#: plugin/main.cpp:49
+msgid "Input file"
+msgstr "Вхідний файл"
+
+#: plugin/photolayoutseditor.cpp:103
+msgid "Canvas size change"
+msgstr "Зміна розмірів полотна"
+
+#: plugin/photolayoutseditor.cpp:139 plugin/PLEAboutData.h:39
+msgid "Photo Layouts Editor"
+msgstr "Редактор компонування фотографій"
+
+#: plugin/photolayoutseditor.cpp:258
+msgctxt "Saves canvas as a template file..."
+msgid "Save As Template..."
+msgstr "Зберегти як шаблон…"
+
+#: plugin/photolayoutseditor.cpp:262
+msgctxt "Export current frame layout to image file..."
+msgid "Export..."
+msgstr "Експортувати…"
+
+#: plugin/photolayoutseditor.cpp:294
+msgctxt "Adds new image(s) from file..."
+msgid "Add image(s)..."
+msgstr "Додати зображення…"
+
+#: plugin/photolayoutseditor.cpp:298
+msgctxt "View grid lines..."
+msgid "Show..."
+msgstr "Показати…"
+
+#: plugin/photolayoutseditor.cpp:304
+msgctxt "Configure grid lines visibility..."
+msgid "Setup grid..."
+msgstr "Налаштувати сітку…"
+
+#: plugin/photolayoutseditor.cpp:308
+msgctxt "Configure canvas size..."
+msgid "Change canvas size..."
+msgstr "Змінити розміри полотна…"
+
+#: plugin/photolayoutseditor.cpp:368 widgets/layers/LayersTreeTitleWidget.h:51
+msgid "Layers"
+msgstr "Шари"
+
+#: plugin/photolayoutseditor.cpp:432
+msgid "Cannot read image file."
+msgstr "Не вдалося прочитати файл зображення."
+
+#: plugin/photolayoutseditor.cpp:506 plugin/photolayoutseditor.cpp:542
+#: plugin/photolayoutseditor.cpp:557
+msgid "*.ple|Photo Layouts Editor files"
+msgstr "*.ple|файли редактора компонувань фотографій"
+
+#: plugin/photolayoutseditor.cpp:569 plugin/photolayoutseditor.cpp:579
+msgid "There is nothing to save."
+msgstr "Нічого зберігати!"
+
+#: plugin/photolayoutseditor.cpp:602
+msgid "Image can't be saved in selected file."
+msgstr "Не вдалося зберегти дані зображення у вказаному файлі."
+
+#: plugin/photolayoutseditor.cpp:607
+msgid "Unexpected error while saving an image."
+msgstr "Неочікувана помилка під час спроби зберегти зображення."
+
+#: plugin/photolayoutseditor.cpp:650
+msgid "Save changes to current frame?"
+msgstr "Зберегти зміни до поточного кадру?"
+
+#: plugin/photolayoutseditor.cpp:745
+msgid "Invalid image size."
+msgstr "Некоректний розмір зображення."
+
+#. i18n: ectx: Menu (File)
+#: plugin/photolayoutseditorui.rc:8
+msgid "&File"
+msgstr "&Файл"
+
+#. i18n: ectx: Menu (Edit)
+#: plugin/photolayoutseditorui.rc:27
+msgid "&Edit"
+msgstr "З&міни"
+
+#. i18n: ectx: Menu (Canvas)
+#: plugin/photolayoutseditorui.rc:35
+msgid "&Canvas"
+msgstr "&Полотно"
+
+#. i18n: ectx: Menu (grid_lines)
+#: plugin/photolayoutseditorui.rc:39
+msgid "&Grid lines"
+msgstr "&Лінії сітки"
+
+#: plugin/PLEAboutData.h:42
+msgid "A tool to create photo layouts by fusion of several images"
+msgstr "Інструмент створення композицій шляхом поєднання декількох фотографій"
+
+#: plugin/PLEAboutData.h:43
+msgid "(c) 2011, Lukasz Spas"
+msgstr "© Lukasz Spas, 2011"
+
+#: plugin/PLEAboutData.h:46
+msgid "Lukasz Spas"
+msgstr "Lukasz Spas"
+
+#: plugin/PLEAboutData.h:47
+msgid "Author and Developer"
+msgstr "Автор і розробник"
+
+#: plugin/plugin_photolayoutseditor.cpp:93
+msgid "Create photo layouts..."
+msgstr "Створити фотокомпозицію…"
+
+#. i18n: ectx: label, entry (recentFiles), group (General)
+#: settings/photolayoutseditor.kcfg:25
+msgid "Recent opened files"
+msgstr "Нещодавно відкриті файли"
+
+#. i18n: ectx: label, entry (recentFilesCount), group (General)
+#: settings/photolayoutseditor.kcfg:28
+msgid "Maximum count of the urls saved on the recent files list"
+msgstr ""
+"Максимальна кількість адрес, які зберігатимуться у списку нещодавніх файлів"
+
+#. i18n: ectx: label, entry (embedImagesData), group (Saving)
+#: settings/photolayoutseditor.kcfg:36
+msgid "Embed full-sized images"
+msgstr "Вбудувати зображення без зміни розмірів"
+
+#. i18n: ectx: label, entry (antialiasing), group (View)
+#: settings/photolayoutseditor.kcfg:42 settings/PLEConfigViewWidget.cpp:91
+msgid "Antialiasing"
+msgstr "Згладжування"
+
+#. i18n: ectx: label, entry (horizontalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:51 settings/PLEConfigViewWidget.cpp:111
+#: widgets/dialogs/GridSetupDialog.cpp:61
+msgid "Horizontal distance"
+msgstr "Горизонтальний інтервал"
+
+#. i18n: ectx: label, entry (verticalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:58 settings/PLEConfigViewWidget.cpp:122
+#: widgets/dialogs/GridSetupDialog.cpp:75
+msgid "Vertical distance"
+msgstr "Вертикальний інтервал"
+
+#: settings/PLEConfigDialog.cpp:46 settings/PLEConfigDialog.cpp:47
+msgid "View"
+msgstr "Перегляд"
+
+#: settings/PLEConfigViewWidget.cpp:93
+msgid "Grid"
+msgstr "Ґратка"
+
+#: settings/PLEConfigViewWidget.cpp:100
+msgid "Show grid lines"
+msgstr "Показувати лінії сітки"
+
+#: threads/AbstractPhotoItemLoader.cpp:76
+msgid "Reading properties..."
+msgstr "Читання властивостей…"
+
+#: threads/AbstractPhotoItemLoader.cpp:160
+msgid "Reading borders..."
+msgstr "Читання рамок…"
+
+#: threads/AbstractPhotoItemLoader.cpp:186
+msgid "Reading effects..."
+msgstr "Читання ефектів…"
+
+#: threads/AbstractPhotoItemLoader.cpp:203
+msgid "Reading cropping shape..."
+msgstr "Читання форми обрізання…"
+
+#: threads/CanvasLoadingThread.cpp:123
+msgid "Loading background..."
+msgstr "Завантаження тла…"
+
+#: threads/CanvasLoadingThread.cpp:144
+#, kde-format
+msgid "Loading item no. %1..."
+msgstr "Завантаження об’єкта №%1…"
+
+#: threads/CanvasLoadingThread.cpp:173
+msgid "Loading border..."
+msgstr "Завантаження рамки…"
+
+#: threads/CanvasSavingThread.cpp:84
+msgid "Creating canvas..."
+msgstr "Створення полотна…"
+
+#: threads/CanvasSavingThread.cpp:134
+msgid "Saving scene..."
+msgstr "Збереження композиції…"
+
+#: threads/CanvasSavingThread.cpp:153
+msgid "Encoding data..."
+msgstr "Кодування даних…"
+
+#: threads/CanvasSavingThread.cpp:164
+msgid "Writing data to file..."
+msgstr "Запис даних до файла…"
+
+#: threads/ImageLoadingThread.cpp:191 threads/ImageLoadingThread.cpp:274
+msgid "Loading "
+msgstr "Завантаження "
+
+#: threads/ImageLoadingThread.cpp:209 threads/ImageLoadingThread.cpp:304
+msgid "Decoding image"
+msgstr "Декодування зображення"
+
+#: threads/ImageLoadingThread.cpp:260 threads/ImageLoadingThread.cpp:311
+#: threads/PhotoItemLoader.cpp:129 threads/TextItemLoader.cpp:97
+msgid "Finishing..."
+msgstr "Завершення…"
+
+#: threads/PhotoItemLoader.cpp:65
+msgid "Loading shape..."
+msgstr "Завантаження форми…"
+
+#: threads/PhotoItemLoader.cpp:104
+msgid "Loading image..."
+msgstr "Завантаження зображення…"
+
+#: threads/TextItemLoader.cpp:60
+msgid "Reading text..."
+msgstr "Читання тексту…"
+
+#: threads/TextItemLoader.cpp:76
+msgid "Reading color..."
+msgstr "Читання кольору…"
+
+#: threads/TextItemLoader.cpp:87
+msgid "Reading fonts..."
+msgstr "Читання шрифтів…"
+
+#: undo/UndoBorderChangeCommand.cpp:36
+msgid "Border changed"
+msgstr "Змінено рамку"
+
+#: undo/UndoMoveRowsCommand.cpp:45
+msgid "Move layers up"
+msgstr "Пересунути шар вище"
+
+#: undo/UndoMoveRowsCommand.cpp:47
+msgid "Move layers down"
+msgstr "Пересунути шар нижче"
+
+#: undo/UndoMoveRowsCommand.cpp:50
+msgid "Change parent layer"
+msgstr "Змінити основний шар"
+
+#: widgets/canvas/Canvas.cpp:886
+msgid "Invalid image size!"
+msgstr "Некоректний розмір зображення!"
+
+#: widgets/canvas/Canvas.cpp:963 widgets/canvas/Canvas.cpp:986
+msgid "Can't save canvas!"
+msgstr "Не вдалося зберегти полотно!"
+
+#: widgets/canvas/Canvas.cpp:964 widgets/canvas/Canvas.cpp:987
+msgid "Invalid file path."
+msgstr "Некоректний шлях до файла."
+
+#: widgets/canvas/Canvas.cpp:1084
+msgid "Remove items"
+msgstr "Вилучити об’єкти"
+
+#: widgets/canvas/CropWidgetItem.cpp:253
+msgid "Crop items"
+msgstr "Обрізати об’єкти"
+
+#: widgets/canvas/CropWidgetItem.cpp:267
+#, no-c-format, kde-format
+msgid ""
+"Bounding rectangle of the crop shape has size [%1px x %2px] and it's less "
+"than 1px x 1px"
+msgstr ""
+"Обмежувальний прямокутник форми обрізання має розміри [%1пк ⨯ %2пк], які є "
+"меншими за 1пк ⨯ 1пк"
+
+#: widgets/canvas/RotationWidgetItem.cpp:49
+#: widgets/canvas/RotationWidgetItem.cpp:291
+msgid "Rotate item"
+msgid_plural "Rotate items"
+msgstr[0] "Обернути об’єкти"
+msgstr[1] "Обернути об’єкти"
+msgstr[2] "Обернути об’єкти"
+msgstr[3] "Обернути об’єкт"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:51
+#: widgets/canvas/ScalingWidgetItem.cpp:497 widgets/canvas/Scene.cpp:353
+msgid "Move item"
+msgid_plural "Move items"
+msgstr[0] "Пересунути об’єкти"
+msgstr[1] "Пересунути об’єкти"
+msgstr[2] "Пересунути об’єкти"
+msgstr[3] "Пересунути об’єкт"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:96
+#: widgets/canvas/ScalingWidgetItem.cpp:482
+msgid "Scale item"
+msgid_plural "Scale items"
+msgstr[0] "Масштабувати об’єкти"
+msgstr[1] "Масштабувати об’єкти"
+msgstr[2] "Масштабувати об’єкти"
+msgstr[3] "Масштабувати об’єкт"
+
+#: widgets/canvas/Scene.cpp:302 widgets/canvas/Scene.cpp:310
+#: widgets/canvas/Scene.cpp:646
+msgid "Add item"
+msgid_plural "Add items"
+msgstr[0] "Додати об’єкти"
+msgstr[1] "Додати об’єкти"
+msgstr[2] "Додати об’єкти"
+msgstr[3] "Додати об’єкт"
+
+#: widgets/canvas/Scene.cpp:501
+msgid "Crop item"
+msgid_plural "Crop items"
+msgstr[0] "Обрізати об’єкти"
+msgstr[1] "Обрізати об’єкти"
+msgstr[2] "Обрізати об’єкти"
+msgstr[3] "Обрізати об’єкт"
+
+#: widgets/canvas/Scene.cpp:674
+msgid "Remove item"
+msgid_plural "Remove items"
+msgstr[0] "Вилучити об’єкти"
+msgstr[1] "Вилучити об’єкти"
+msgstr[2] "Вилучити об’єкти"
+msgstr[3] "Вилучити об’єкт"
+
+#: widgets/canvas/Scene.cpp:724
+msgid "Change item's image"
+msgstr "Змінити зображення об’єкта"
+
+#: widgets/canvas/Scene.cpp:729
+msgid "Delete selected item"
+msgid_plural "Delete selected items"
+msgstr[0] "Вилучити позначені об’єкти"
+msgstr[1] "Вилучити позначені об’єкти"
+msgstr[2] "Вилучити позначені об’єкти"
+msgstr[3] "Вилучити позначений об’єкт"
+
+#: widgets/canvas/Scene.cpp:735
+msgid "Canvas background"
+msgstr "Тло полотна"
+
+#: widgets/canvas/Scene.cpp:1412
+msgid "Saving background..."
+msgstr "Збереження тла…"
+
+#: widgets/canvas/Scene.cpp:1432
+#, kde-format
+msgid "Saving %1..."
+msgstr "Збереження %1…"
+
+#: widgets/canvas/Scene.cpp:1445
+msgid "Saving border..."
+msgstr "Збереження рамки…"
+
+#: widgets/canvas/Scene.cpp:1524
+#, kde-format
+msgid "Unable to create one element"
+msgid_plural "Unable to create %1 elements"
+msgstr[0] "Не вдалося створити %1 елемент"
+msgstr[1] "Не вдалося створити %1 елементи"
+msgstr[2] "Не вдалося створити %1 елементів"
+msgstr[3] "Не вдалося створити елемент"
+
+#: widgets/canvas/Scene.cpp:1630
+#, kde-format
+msgid "Are you sure you want to delete selected item?"
+msgid_plural "Are you sure you want to delete %1 selected items?"
+msgstr[0] "Ви справді бажаєте вилучити %1 позначений об’єкт?"
+msgstr[1] "Ви справді бажаєте вилучити %1 позначених об’єкти?"
+msgstr[2] "Ви справді бажаєте вилучити %1 позначених об’єктів?"
+msgstr[3] "Ви справді бажаєте вилучити позначений об’єкт?"
+
+#: widgets/canvas/Scene.cpp:1630
+msgid "Items deleting"
+msgstr "Вилучення об’єктів"
+
+#: widgets/canvas/SceneBackground.cpp:58 widgets/canvas/SceneBackground.cpp:69
+#: widgets/canvas/SceneBackground.cpp:119
+#: widgets/canvas/SceneBackground.cpp:147
+#: widgets/canvas/SceneBackground.cpp:207
+#: widgets/canvas/SceneBackground.cpp:253
+#: widgets/canvas/SceneBackground.cpp:279
+msgid "Background Change"
+msgstr "Зміна тла"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:320
+#: widgets/dialogs/CanvasSizeDialog.cpp:349
+#: widgets/dialogs/CanvasSizeWidget.cpp:132
+msgid "Canvas size"
+msgstr "Розмір полотна"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:340
+msgid "Custom"
+msgstr "Нетиповий"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:344
+msgid "Template"
+msgstr "Шаблон"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:376
+#: widgets/dialogs/CanvasSizeWidget.cpp:159
+#: widgets/tools/CanvasEditTool.cpp:594
+msgid "Height"
+msgstr "Висота"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:398
+msgid "Orientation"
+msgstr "Орієнтація"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:404
+#: widgets/dialogs/CanvasSizeWidget.cpp:174
+msgid "Advanced"
+msgstr "Додатково"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:416
+#: widgets/dialogs/CanvasSizeWidget.cpp:186
+msgid "Resolution X"
+msgstr "Роздільність за X"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:426
+#: widgets/dialogs/CanvasSizeWidget.cpp:196
+msgid "Resolution Y"
+msgstr "Роздільність за Y"
+
+#: widgets/dialogs/GridSetupDialog.cpp:40
+msgid "Setup grid lines"
+msgstr "Налаштування ліній сітки"
+
+#: widgets/dialogs/ImageFileDialog.cpp:74
+#, kde-format
+msgid ""
+"Currently this file type (%1) is unsupported.\n"
+"Please notify the author and ask for it in the next versions of the "
+"application."
+msgstr ""
+"У поточній версії додатка не передбачено підтримки цього типу файлів (%1).\n"
+"Будь ласка, повідомте про помилку автора і попросіть реалізувати підтримку "
+"цього типу файлів у майбутніх версіях програми."
+
+#: widgets/dialogs/ImageFileDialog.cpp:75
+msgid "The image can't be saved!"
+msgstr "Не вдалося зберегти зображення!"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:295
+msgid "Empty"
+msgstr "Порожній"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:334
+msgid "Create new canvas..."
+msgstr "Створення полотна…"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:348
+msgid "Paper sizes"
+msgstr "Розмір аркуша"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:377
+msgid "Select a template"
+msgstr "Виберіть шаблон"
+
+#: widgets/items/AbstractPhoto.cpp:54
+msgid "Crop shape change"
+msgstr "Зміна форми обрізання"
+
+#: widgets/items/AbstractPhoto.cpp:79
+msgid "Name Change"
+msgstr "Зміна назви"
+
+#: widgets/items/AbstractPhoto.cpp:109
+msgid "New layer"
+msgstr "Новий шар"
+
+#: widgets/items/PhotoItem.cpp:62 widgets/items/PhotoItem.cpp:68
+#: widgets/items/PhotoItem.cpp:711 widgets/items/PhotoItem.cpp:724
+msgid "Image Change"
+msgstr "Зміна зображення"
+
+#: widgets/items/PhotoItem.cpp:97
+msgid "Image Path Change"
+msgstr "Зміна шляху до зображення"
+
+#: widgets/items/PhotoItem.cpp:129
+msgid "Image Shape Change"
+msgstr "Зміна форми зображення"
+
+#: widgets/items/PhotoItem.cpp:158
+msgid "Image Position Change"
+msgstr "Зміна розташування зображення"
+
+#: widgets/items/PhotoItem.cpp:219
+#, kde-format
+msgid ""
+"Can't find image file in this location:\n"
+"%1\n"
+"\n"
+"Would you like to set new location of this file?\n"
+"If not this image will be removed from the composition."
+msgstr ""
+"Не вдалося знайти файл зображення за його попередньою адресою:\n"
+"%1\n"
+"\n"
+"Бажаєте вказати нову адресу цього файла?\n"
+"Якщо такої адреси вказано не буде, зображення буде вилучено з композиції."
+
+#: widgets/items/PhotoItem.cpp:224
+msgid "File reading error"
+msgstr "Помилка під час спроби читання файла"
+
+#: widgets/items/PhotoItem.cpp:265 widgets/items/PhotoItem.cpp:273
+#: widgets/items/PhotoItem.cpp:282
+msgid "New image"
+msgstr "Нове зображення"
+
+#: widgets/items/PhotoItem.cpp:347
+#, kde-format
+msgid ""
+"Do you want to embed images data?\n"
+"Remember that when you move or rename image files on your disk or the "
+"storage device become unavailable, those images become unavailable for %1 "
+"and this layout might become broken."
+msgstr ""
+"Бажаєте вбудувати дані зображення?\n"
+"Зауважте, що у разі пересування або перейменування файлів зображень на "
+"вашому диску або у разі недоступності пристрою зберігання даних ці "
+"зображення можуть стати недоступними для %1, отже бажану композицію не можна "
+"буде переглянути."
+
+#: widgets/items/PhotoItem.cpp:350
+#, kde-format
+msgid "Saving: %1"
+msgstr "Збереження: %1"
+
+#: widgets/items/TextItem.cpp:52
+msgid "Text change"
+msgstr "Зміна тексту"
+
+#: widgets/items/TextItem.cpp:75
+msgid "Text color change"
+msgstr "Зміна кольору тексту"
+
+#: widgets/items/TextItem.cpp:101
+msgid "Text font change"
+msgstr "Зміна шрифту тексту"
+
+#: widgets/items/TextItem.cpp:129 widgets/items/TextItem.cpp:157
+#: widgets/items/TextItem.cpp:192 widgets/items/TextItem.cpp:226
+msgid "Text edit"
+msgstr "Редагування тексту"
+
+#: widgets/items/TextItem.cpp:407
+msgid "Text item"
+msgstr "Текстовий об’єкт"
+
+#: widgets/items/TextItem.cpp:799
+msgid "Text color"
+msgstr "Колір тексту"
+
+#: widgets/menus/LayersTreeMenu.cpp:35
+msgid "Move up"
+msgstr "Пересунути вище"
+
+#: widgets/menus/LayersTreeMenu.cpp:37
+msgid "Move down"
+msgstr "Пересунути нижче"
+
+#: widgets/menus/LayersTreeMenu.cpp:40
+msgid "Delete selected"
+msgstr "Вилучити позначене"
+
+#: widgets/tools/BorderEditTool.cpp:49
+msgid "Borders editor"
+msgstr "Редактор рамок"
+
+#: widgets/tools/CanvasEditTool.cpp:105
+msgid "Image"
+msgstr "Зображення"
+
+#: widgets/tools/CanvasEditTool.cpp:106 widgets/tools/CanvasEditTool.cpp:613
+msgid "Pattern"
+msgstr "Візерунок"
+
+#: widgets/tools/CanvasEditTool.cpp:109
+msgid "Expanded"
+msgstr "Широке"
+
+#: widgets/tools/CanvasEditTool.cpp:110
+msgid "Scaled"
+msgstr "Масштабоване"
+
+#: widgets/tools/CanvasEditTool.cpp:111
+msgid "Fixed size"
+msgstr "Фіксовані розміри"
+
+#: widgets/tools/CanvasEditTool.cpp:113 widgets/tools/CanvasEditTool.cpp:117
+msgid "Center"
+msgstr "За центром"
+
+#: widgets/tools/CanvasEditTool.cpp:114
+msgid "Left"
+msgstr "Ліворуч"
+
+#: widgets/tools/CanvasEditTool.cpp:115
+msgid "Right"
+msgstr "Праворуч"
+
+#: widgets/tools/CanvasEditTool.cpp:118
+msgid "Top"
+msgstr "Вгорі"
+
+#: widgets/tools/CanvasEditTool.cpp:119
+msgid "Bottom"
+msgstr "Внизу"
+
+#: widgets/tools/CanvasEditTool.cpp:124 widgets/tools/CanvasEditTool.cpp:129
+msgid "Click here to set an image"
+msgstr "Клацніть тут, щоб встановити зображення"
+
+#: widgets/tools/CanvasEditTool.cpp:369 widgets/tools/CanvasEditTool.cpp:405
+msgid "Invalid or unsupported image file."
+msgstr "Некоректний або непідтримуваний файл зображення."
+
+#: widgets/tools/CanvasEditTool.cpp:509
+msgid "Border"
+msgstr "Рамка"
+
+#: widgets/tools/CanvasEditTool.cpp:523
+msgid "Background"
+msgstr "Тло"
+
+#: widgets/tools/CanvasEditTool.cpp:531
+msgid "Type"
+msgstr "Тип"
+
+#: widgets/tools/CanvasEditTool.cpp:562
+msgid "Scaling"
+msgstr "Масштабування"
+
+#: widgets/tools/CanvasEditTool.cpp:567
+msgid "Tiled"
+msgstr "Плиткою"
+
+#: widgets/tools/CanvasEditTool.cpp:569
+msgid "Alignment"
+msgstr "Вирівнювання"
+
+#: widgets/tools/CanvasEditTool.cpp:575
+msgid "Horizontal"
+msgstr "Горизонтально"
+
+#: widgets/tools/CanvasEditTool.cpp:579
+msgid "Vertical"
+msgstr "Вертикально"
+
+#: widgets/tools/CanvasEditTool.cpp:582
+msgid "Size"
+msgstr "Розмір"
+
+#: widgets/tools/CanvasEditTool.cpp:608
+msgid "Color 1"
+msgstr "Колір 1"
+
+#: widgets/tools/CanvasEditTool.cpp:611
+msgid "Color 2"
+msgstr "Колір 2"
+
+#: widgets/tools/EffectsEditorTool.cpp:45
+msgid "Effects"
+msgstr "Ефекти"
+
+#: widgets/tools/TextEditorTool.cpp:52
+msgid "Create text item"
+msgstr "Створити новий текстовий об’єкт"
+
+#: widgets/tools/ToolsDockWidget.cpp:98
+msgid "Tools"
+msgstr "Інструменти"
+
+#: widgets/tools/ToolsDockWidget.cpp:129
+msgid "Allows to select and move images on canvas"
+msgstr "Надає змогу позначати та пересувати зображення на полотні"
+
+#: widgets/tools/ToolsDockWidget.cpp:130
+msgid ""
+"Tool which allows one to select and move images on canvas. Any other "
+"operations are disabled."
+msgstr ""
+"Інструмент, за допомогою якого можна позначати та пересувати зображення на "
+"полотні. Всі інші дії буде вимкнено."
+
+#: widgets/tools/ToolsDockWidget.cpp:140
+msgid "Viewing tool"
+msgstr "Інструмент перегляду"
+
+#: widgets/tools/ToolsDockWidget.cpp:141
+msgid ""
+"This tool allows one to view whole canvas in read-only mode. Only scrolling "
+"and zooming are available."
+msgstr ""
+"За допомогою цього інструмента можна переглядати все полотно у режимі лише "
+"читання. Для перегляду можна буде користуватися лише гортанням полотна та "
+"зміною масштабу."
+
+#: widgets/tools/ToolsDockWidget.cpp:151
+msgid "Zooming tool"
+msgstr "Інструмент масштабування"
+
+#: widgets/tools/ToolsDockWidget.cpp:152
+msgid ""
+"This tool allows one to zoom canvas to fit it to the application window or "
+"users preferences."
+msgstr ""
+"За допомогою цього інструмента можна змінити масштаб полотна відповідно до "
+"розмірів вікна програми чи уподобань користувача."
+
+#: widgets/tools/ToolsDockWidget.cpp:162
+msgid "Canvas editor"
+msgstr "Редактор полотна"
+
+#: widgets/tools/ToolsDockWidget.cpp:163
+msgid ""
+"This tool allows you to edit canvas properties like size and background."
+msgstr ""
+"За допомогою цього інструменту можна змінювати властивості полотна, зокрема "
+"розміри та тло."
+
+#: widgets/tools/ToolsDockWidget.cpp:173
+msgid "Text editor"
+msgstr "Текстовий редактор"
+
+#: widgets/tools/ToolsDockWidget.cpp:174
+msgid ""
+"This tool allows you to write text on the canvas. It's simple - just click "
+"on the canvas where you want to add some text and write it!"
+msgstr ""
+"За допомогою цього інструмента можна додавати на полотно текст. Це просто: "
+"клацніть у точці полотна, куди слід додати текст, і просто впишіть потрібне "
+"слово або речення."
+
+#: widgets/tools/ToolsDockWidget.cpp:185
+msgid "Rotation tool"
+msgstr "Інструмент обертання"
+
+#: widgets/tools/ToolsDockWidget.cpp:186
+msgid "This tool allows you to rotate items on your canvas."
+msgstr ""
+"За допомогою цього інструмента можна змінювати масштаб об’єктів на вашому "
+"полотні."
+
+#: widgets/tools/ToolsDockWidget.cpp:196
+msgid "Scaling tool"
+msgstr "Інструмент масштабування"
+
+#: widgets/tools/ToolsDockWidget.cpp:197
+msgid "This tool allows you to scale items on your canvas."
+msgstr ""
+"За допомогою цього інструмента можна змінювати масштаб зображень на полотні."
+
+#: widgets/tools/ToolsDockWidget.cpp:207
+msgid "Crop tool"
+msgstr "Інструмент обрізування"
+
+#: widgets/tools/ToolsDockWidget.cpp:208
+msgid "This tool allows you to crop items."
+msgstr "За допомогою цього інструмента можна обрізувати об’єкти."
+
+#: widgets/tools/ToolsDockWidget.cpp:218
+msgid "Image effects editor"
+msgstr "Редактор ефектів зображення"
+
+#: widgets/tools/ToolsDockWidget.cpp:219
+msgid ""
+"This tool allows you to edit existing effects of your photo layers and add "
+"some new one."
+msgstr ""
+"За допомогою цього інструмента можна редагувати вже додані до шарів вашої "
+"фотографії ефекти та додавати нові ефекти."
+
+#: widgets/tools/ZoomTool.cpp:56
+msgid "Zoom out"
+msgstr "Зменшити"
+
+#: widgets/tools/ZoomTool.cpp:59
+msgid "Zoom in"
+msgstr "Збільшити"
+
+#~ msgid "Rotate item(s)"
+#~ msgstr "Обернути об’єкти"
+
+#~ msgid "Scale item(s)"
+#~ msgstr "Масштабувати об’єкти"
+
+#~ msgid "Move item(s)"
+#~ msgstr "Пересунути об’єкти"
+
+#~ msgid "Add item(s)"
+#~ msgstr "Додати об’єкти"
+
+#~ msgid "Crop item(s)"
+#~ msgstr "Обрізати об’єкти"
+
+#~ msgid "Finishing"
+#~ msgstr "Завершення"
+
+#~ msgid "Change text color"
+#~ msgstr "Змінити колір тексту"
+
+#~ msgid "Change text font"
+#~ msgstr "Змінити шрифт тексту"
+
+#~ msgid "Solid"
+#~ msgstr "Суцільні"
+
+#~ msgid "Add effect"
+#~ msgstr "Додати ефект"

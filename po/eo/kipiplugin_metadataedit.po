@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-05-31 01:58+0000\n"
 "PO-Revision-Date: 2009-11-15 12:06+0100\n"
 "Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
 "Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
@@ -39,8 +39,6 @@ msgid "Gain Control:"
 msgstr ""
 
 #: exif/exifadjust.cpp:106
-#, fuzzy
-#| msgid "None"
 msgctxt "gain control"
 msgid "None"
 msgstr "Neniu"
@@ -76,8 +74,6 @@ msgid "Contrast:"
 msgstr "Kontrasto:"
 
 #: exif/exifadjust.cpp:118
-#, fuzzy
-#| msgid "Normal"
 msgctxt "contrast mode"
 msgid "Normal"
 msgstr "Normala"
@@ -275,7 +271,7 @@ msgstr ""
 msgid "Creation sub-second"
 msgstr "Kroatujo"
 
-#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
+#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:170 xmp/xmporigin.cpp:144
 #, kde-format
 msgid "Sync creation date hosted by %1"
 msgstr ""
@@ -288,7 +284,7 @@ msgstr ""
 msgid "Sync IPTC creation date"
 msgstr ""
 
-#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:167 xmp/xmporigin.cpp:141
+#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:177 xmp/xmporigin.cpp:151
 msgid "Set creation date to today"
 msgstr ""
 
@@ -337,7 +333,7 @@ msgstr ""
 msgid "Digitization sub-second"
 msgstr "Kroatujo"
 
-#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
+#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:152 xmp/xmporigin.cpp:130
 msgid "Set digitization date to today"
 msgstr ""
 
@@ -529,15 +525,11 @@ msgid "Metering mode:"
 msgstr "Elekto"
 
 #: exif/exifdevice.cpp:221
-#, fuzzy
-#| msgid "Unknown"
 msgctxt "metering mode"
 msgid "Unknown"
 msgstr "Nekonata"
 
 #: exif/exifdevice.cpp:222
-#, fuzzy
-#| msgid "Average"
 msgctxt "metering mode"
 msgid "Average"
 msgstr "Averaĝa"
@@ -564,15 +556,11 @@ msgid "Multi-segment"
 msgstr ""
 
 #: exif/exifdevice.cpp:227
-#, fuzzy
-#| msgid "Partial"
 msgctxt "metering mode"
 msgid "Partial"
 msgstr "Parta"
 
 #: exif/exifdevice.cpp:228
-#, fuzzy
-#| msgid "Other"
 msgctxt "metering mode"
 msgid "Other"
 msgstr "Alia"
@@ -733,7 +721,7 @@ msgstr ""
 #: exif/exifeditwidget.cpp:150
 msgctxt "Picture adjustments"
 msgid "Adjustments"
-msgstr ""
+msgstr "Alĝustigoj"
 
 #: exif/exifeditwidget.cpp:151
 msgid "Pictures Adjustments"
@@ -880,8 +868,6 @@ msgid "Light source:"
 msgstr "Nur heligu"
 
 #: exif/exiflight.cpp:136
-#, fuzzy
-#| msgid "Unknown"
 msgctxt "light source"
 msgid "Unknown"
 msgstr "Nekonata"
@@ -922,8 +908,6 @@ msgid "Cloudy weather"
 msgstr "Ebeno"
 
 #: exif/exiflight.cpp:143
-#, fuzzy
-#| msgid "Shade"
 msgctxt "light source"
 msgid "Shade"
 msgstr "Ombrigi"
@@ -967,29 +951,21 @@ msgid "Standard light C"
 msgstr "&Krajonilo"
 
 #: exif/exiflight.cpp:151
-#, fuzzy
-#| msgid "D55"
 msgctxt "light source"
 msgid "D55"
 msgstr "D55"
 
 #: exif/exiflight.cpp:152
-#, fuzzy
-#| msgid "D65"
 msgctxt "light source"
 msgid "D65"
 msgstr "D65"
 
 #: exif/exiflight.cpp:153
-#, fuzzy
-#| msgid "D75"
 msgctxt "light source"
 msgid "D75"
 msgstr "D75"
 
 #: exif/exiflight.cpp:154
-#, fuzzy
-#| msgid "D50"
 msgctxt "light source"
 msgid "D50"
 msgstr "D50"
@@ -1084,9 +1060,9 @@ msgid "&Replace"
 msgstr "&Anstataŭigi"
 
 #: iptc/iptccategories.cpp:124 iptc/iptccontent.cpp:124
-#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:267
-#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:229
-#: iptc/iptcproperties.cpp:238 iptc/iptcstatus.cpp:129
+#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:274
+#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:241
+#: iptc/iptcproperties.cpp:251 iptc/iptcstatus.cpp:129
 #: iptc/iptcsubjects.cpp:92
 msgid ""
 "<b>Note: <b><a href='http://en.wikipedia.org/wiki/"
@@ -1290,280 +1266,278 @@ msgid ""
 "i></qt>"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:88
+#: iptc/iptcenvelope.cpp:90
 msgid "No ObjectData"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:89
+#: iptc/iptcenvelope.cpp:91
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 1)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:90
+#: iptc/iptcenvelope.cpp:92
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 2)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:91
+#: iptc/iptcenvelope.cpp:93
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 3)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:92
+#: iptc/iptcenvelope.cpp:94
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 4)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:93
+#: iptc/iptcenvelope.cpp:95
 msgid "IPTC7901 Recommended Message Format"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:94
+#: iptc/iptcenvelope.cpp:96
 msgid "Tagged Image File Format (version 5.0)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:95
+#: iptc/iptcenvelope.cpp:97
 msgid "Tagged Image File Format (version 6.0)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:96
+#: iptc/iptcenvelope.cpp:98
 msgid "Illustrator"
 msgstr "Illustrator"
 
-#: iptc/iptcenvelope.cpp:97
+#: iptc/iptcenvelope.cpp:99
 #, fuzzy
 #| msgid "single"
 msgid "AppleSingle"
 msgstr "unutrako"
 
-#: iptc/iptcenvelope.cpp:98
+#: iptc/iptcenvelope.cpp:100
 msgid "NAA 89-3 (ANPA 1312)"
 msgstr "NAA 89-3 (ANPA 1312)"
 
-#: iptc/iptcenvelope.cpp:99
+#: iptc/iptcenvelope.cpp:101
 msgid "MacBinary II"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:100
+#: iptc/iptcenvelope.cpp:102
 msgid "IPTC Unstructured Character Oriented File Format"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:101
+#: iptc/iptcenvelope.cpp:103
 msgid "United Press International ANPA 1312 variant"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:102
+#: iptc/iptcenvelope.cpp:104
 msgid "United Press International Down-Load Message"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:103
+#: iptc/iptcenvelope.cpp:105
 msgid "JPEG File Interchange"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:104
+#: iptc/iptcenvelope.cpp:106
 msgid "Photo-CD Image-Pac"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:105
+#: iptc/iptcenvelope.cpp:107
 msgid "Microsoft Bit Mapped Graphics File [*.BMP]"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:106
+#: iptc/iptcenvelope.cpp:108
 msgid "Digital Audio File [*.WAV]"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:107
+#: iptc/iptcenvelope.cpp:109
 msgid "Audio plus Moving Video [*.AVI]"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:108
+#: iptc/iptcenvelope.cpp:110
 msgid "PC DOS/Windows Executable Files [*.COM][*.EXE]"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:109
+#: iptc/iptcenvelope.cpp:111
 msgid "Compressed Binary File [*.ZIP]"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:110
+#: iptc/iptcenvelope.cpp:112
 msgid "Audio Interchange File Format AIFF"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:111
+#: iptc/iptcenvelope.cpp:113
 msgid "RIFF Wave (Microsoft Corporation)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:112
+#: iptc/iptcenvelope.cpp:114
 msgid "Freehand (version 3.1)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:113
+#: iptc/iptcenvelope.cpp:115
 msgid "Freehand (version 4.0)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:114
+#: iptc/iptcenvelope.cpp:116
 msgid "Freehand (version 5.0)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:115
+#: iptc/iptcenvelope.cpp:117
 msgid "Freehand (version 5.5)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:116
+#: iptc/iptcenvelope.cpp:118
 msgid "Hypertext Markup Language \"HTML\""
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:117
+#: iptc/iptcenvelope.cpp:119
 msgid "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:118
+#: iptc/iptcenvelope.cpp:120
 msgid "MPEG 2 Audio Layer 3, ISO/IEC"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:119
+#: iptc/iptcenvelope.cpp:121
 msgid "Portable Document File [*.PDF] Adobe"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:120
+#: iptc/iptcenvelope.cpp:122
 msgid "News Industry Text Format"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:121
+#: iptc/iptcenvelope.cpp:123
 msgid "Tape Archive [*.TAR]"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:122
+#: iptc/iptcenvelope.cpp:124
 msgid "Tidningarnas Telegrambyra NITF version (TTNITF DTD)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:123
+#: iptc/iptcenvelope.cpp:125
 msgid "Ritzaus Bureau NITF version (RBNITF DTD)"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:124
+#: iptc/iptcenvelope.cpp:126
 msgid "Corel Draw [*.CDR]"
 msgstr "Corel Draw [*.CDR]"
 
-#: iptc/iptcenvelope.cpp:171
+#: iptc/iptcenvelope.cpp:175
 #, fuzzy
 #| msgid "Saturation:"
 msgid "Destination:"
 msgstr "Saturo:"
 
-#: iptc/iptcenvelope.cpp:175
+#: iptc/iptcenvelope.cpp:179
 msgid ""
 "Enter the envelope destination. This field is limited to 1024 ASCII "
 "characters."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:180
+#: iptc/iptcenvelope.cpp:184
 msgid "U.N.O ID:"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:185
+#: iptc/iptcenvelope.cpp:189
 msgid ""
 "Set here the Unique Name of Object identifier. This field is limited to 80 "
 "ASCII characters."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:190
+#: iptc/iptcenvelope.cpp:194
 msgid "Product ID:"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:195
+#: iptc/iptcenvelope.cpp:199
 msgid ""
 "Set here the product identifier. This field is limited to 32 ASCII "
 "characters."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:200
+#: iptc/iptcenvelope.cpp:204
 msgid "Service ID:"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:205
+#: iptc/iptcenvelope.cpp:209
 msgid ""
 "Set here the service identifier. This field is limited to 10 ASCII "
 "characters."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:210
+#: iptc/iptcenvelope.cpp:214
 #, fuzzy
 #| msgid "Envelope"
 msgid "Envelope ID:"
 msgstr "Koverto"
 
-#: iptc/iptcenvelope.cpp:215
+#: iptc/iptcenvelope.cpp:219
 msgid ""
 "Set here the envelope identifier. This field is limited to 8 ASCII "
 "characters."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:220 iptc/iptcproperties.cpp:184
+#: iptc/iptcenvelope.cpp:224 iptc/iptcproperties.cpp:197
 #: xmp/xmpproperties.cpp:183
 msgid "Priority:"
 msgstr "Prioritato:"
 
-#: iptc/iptcenvelope.cpp:222
-#, fuzzy
-#| msgid "None"
+#: iptc/iptcenvelope.cpp:226
 msgctxt "priority for the envelope"
 msgid "0: None"
-msgstr "Neniu"
-
-#: iptc/iptcenvelope.cpp:223
-#, fuzzy
-#| msgid "High"
-msgctxt "priority for the envelope"
-msgid "1: High"
-msgstr "Alta"
+msgstr "0: Neniu"
 
 #: iptc/iptcenvelope.cpp:227
+msgctxt "priority for the envelope"
+msgid "1: High"
+msgstr "1: Alta"
+
+#: iptc/iptcenvelope.cpp:231
 #, fuzzy
 #| msgid "5: Normal"
 msgctxt "priority for the envelope"
 msgid "5: Normal"
 msgstr "5: Normal"
 
-#: iptc/iptcenvelope.cpp:230
-#, fuzzy
-#| msgid "Low"
+#: iptc/iptcenvelope.cpp:234
 msgctxt "priority for the envelope"
 msgid "8: Low"
-msgstr "Malalta"
+msgstr "8: Malalta"
 
-#: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
+#: iptc/iptcenvelope.cpp:235 iptc/iptcproperties.cpp:208
 #: xmp/xmpproperties.cpp:194
 #, fuzzy
 msgctxt "editorial urgency of content"
 msgid "9: User-defined"
 msgstr "indeksita"
 
-#: iptc/iptcenvelope.cpp:232
+#: iptc/iptcenvelope.cpp:236
 msgid "Select here the envelope priority."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:236
+#: iptc/iptcenvelope.cpp:240
 msgid "Format:"
 msgstr "Formato:"
 
-#: iptc/iptcenvelope.cpp:248
+#: iptc/iptcenvelope.cpp:252
 msgid "Select here envelope file format."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:252
+#: iptc/iptcenvelope.cpp:256
 msgid "Sent date:"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:253
+#: iptc/iptcenvelope.cpp:257
 msgid "Sent time:"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:259
+#: iptc/iptcenvelope.cpp:264
 msgid "Set envelope sent date to today"
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:261
+#: iptc/iptcenvelope.cpp:266
 msgid "Set here the date when the service sent the material."
 msgstr ""
 
-#: iptc/iptcenvelope.cpp:262
+#: iptc/iptcenvelope.cpp:267
 msgid "Set here the time when the service sent the material."
+msgstr ""
+
+#: iptc/iptcenvelope.cpp:268
+msgid "Set here the time zone when the service sent the material."
 msgstr ""
 
 #: iptc/iptckeywords.cpp:88 xmp/xmpkeywords.cpp:82
@@ -1574,233 +1548,248 @@ msgstr ""
 msgid "Enter here a new keyword. This field is limited to 64 ASCII characters."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:138 xmp/xmporigin.cpp:118
+#: iptc/iptcorigin.cpp:144 xmp/xmporigin.cpp:124
 msgid "Digitization date"
 msgstr ""
 
-#: iptc/iptcorigin.cpp:139
+#: iptc/iptcorigin.cpp:145
 msgid "Digitization time"
 msgstr ""
 
-#: iptc/iptcorigin.cpp:147 xmp/xmporigin.cpp:125
+#: iptc/iptcorigin.cpp:154 xmp/xmporigin.cpp:132
 msgid "Set here the creation date of digital representation."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:149
+#: iptc/iptcorigin.cpp:156
 msgid "Set here the creation time of digital representation."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:156 xmp/xmporigin.cpp:132
+#: iptc/iptcorigin.cpp:158 xmp/xmporigin.cpp:134
+msgid "Set here the time zone of digital representation."
+msgstr ""
+
+#: iptc/iptcorigin.cpp:165 xmp/xmporigin.cpp:141
 #, fuzzy
 #| msgid "Croatia"
 msgid "Creation date"
 msgstr "Kroatujo"
 
-#: iptc/iptcorigin.cpp:157
+#: iptc/iptcorigin.cpp:166
 msgid "Creation time"
 msgstr ""
 
-#: iptc/iptcorigin.cpp:163 xmp/xmporigin.cpp:137
+#: iptc/iptcorigin.cpp:173 xmp/xmporigin.cpp:147
 msgid "Sync EXIF creation date"
 msgstr ""
 
-#: iptc/iptcorigin.cpp:169 xmp/xmporigin.cpp:143
+#: iptc/iptcorigin.cpp:179 xmp/xmporigin.cpp:153
 msgid "Set here the creation date of intellectual content."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:171
+#: iptc/iptcorigin.cpp:181
 msgid "Set here the creation time of intellectual content."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:178
+#: iptc/iptcorigin.cpp:183 xmp/xmporigin.cpp:155
+msgid "Set here the time zone of intellectual content."
+msgstr ""
+
+#: iptc/iptcorigin.cpp:190
 msgid "Location:"
 msgstr "Loko:"
 
-#: iptc/iptcorigin.cpp:179
+#: iptc/iptcorigin.cpp:191
 msgid "Set here the full country name referenced by the content."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:153 xmp/xmporigin.cpp:150
+#: iptc/iptcorigin.cpp:195 xmp/xmpcredits.cpp:153 xmp/xmporigin.cpp:162
 msgid "City:"
 msgstr "Urbo:"
 
-#: iptc/iptcorigin.cpp:188
+#: iptc/iptcorigin.cpp:200
 msgid ""
 "Set here the city of content origin. This field is limited to 32 ASCII "
 "characters."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:193 xmp/xmporigin.cpp:157
+#: iptc/iptcorigin.cpp:205 xmp/xmporigin.cpp:169
 #, fuzzy
 #| msgid "Location:"
 msgid "Sublocation:"
 msgstr "Loko:"
 
-#: iptc/iptcorigin.cpp:198
+#: iptc/iptcorigin.cpp:210
 msgid ""
 "Set here the content location within city. This field is limited to 32 ASCII "
 "characters."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:203 xmp/xmporigin.cpp:164
+#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:176
 msgid "State/Province:"
 msgstr ""
 
-#: iptc/iptcorigin.cpp:208
+#: iptc/iptcorigin.cpp:220
 msgid ""
 "Set here the Province or State of content origin. This field is limited to "
 "32 ASCII characters."
 msgstr ""
 
-#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:158 xmp/xmporigin.cpp:171
+#: iptc/iptcorigin.cpp:225 xmp/xmpcredits.cpp:158 xmp/xmporigin.cpp:183
 msgid "Country:"
 msgstr "Lando:"
 
-#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:173
+#: iptc/iptcorigin.cpp:227 xmp/xmporigin.cpp:185
 msgid "Select here country name of content origin."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:132
+#: iptc/iptcproperties.cpp:138
 msgid "Release date"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:133
+#: iptc/iptcproperties.cpp:139
 msgid "Release time"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:139
+#: iptc/iptcproperties.cpp:146
 msgid "Set release date to today"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:141
+#: iptc/iptcproperties.cpp:148
 msgid "Set here the earliest intended usable date of intellectual content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:143
+#: iptc/iptcproperties.cpp:150
 msgid "Set here the earliest intended usable time of intellectual content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:149
+#: iptc/iptcproperties.cpp:152
+msgid ""
+"Set here the earliest intended usable time zone of intellectual content."
+msgstr ""
+
+#: iptc/iptcproperties.cpp:159
 msgid "Expiration date"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:150
+#: iptc/iptcproperties.cpp:160
 msgid "Expiration time"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:156
+#: iptc/iptcproperties.cpp:167
 msgid "Set expiration date to today"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:158
+#: iptc/iptcproperties.cpp:169
 msgid "Set here the latest intended usable date of intellectual content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:160
+#: iptc/iptcproperties.cpp:171
 msgid "Set here the latest intended usable time of intellectual content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:167 xmp/xmpproperties.cpp:171
+#: iptc/iptcproperties.cpp:173
+msgid "Set here the latest intended usable time zone of intellectual content."
+msgstr ""
+
+#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:171
 msgid "Language:"
 msgstr "Lingvo:"
 
-#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:172
+#: iptc/iptcproperties.cpp:193 xmp/xmpproperties.cpp:172
 msgid "Select here the language of content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:186 xmp/xmpproperties.cpp:185
+#: iptc/iptcproperties.cpp:199 xmp/xmpproperties.cpp:185
 #, fuzzy
 #| msgid "None"
 msgctxt "editorial urgency of content"
 msgid "0: None"
 msgstr "Neniu"
 
-#: iptc/iptcproperties.cpp:187 xmp/xmpproperties.cpp:186
+#: iptc/iptcproperties.cpp:200 xmp/xmpproperties.cpp:186
 #, fuzzy
 #| msgid "High"
 msgctxt "editorial urgency of content"
 msgid "1: High"
 msgstr "Alta"
 
-#: iptc/iptcproperties.cpp:191 xmp/xmpproperties.cpp:190
+#: iptc/iptcproperties.cpp:204 xmp/xmpproperties.cpp:190
 #, fuzzy
 #| msgid "5: Normal"
 msgctxt "editorial urgency of content"
 msgid "5: Normal"
 msgstr "5: Normal"
 
-#: iptc/iptcproperties.cpp:194 xmp/xmpproperties.cpp:193
+#: iptc/iptcproperties.cpp:207 xmp/xmpproperties.cpp:193
 #, fuzzy
 #| msgid "Low"
 msgctxt "editorial urgency of content"
 msgid "8: Low"
 msgstr "Malalta"
 
-#: iptc/iptcproperties.cpp:196 xmp/xmpproperties.cpp:195
+#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:195
 msgid "Select here the editorial urgency of content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:200
+#: iptc/iptcproperties.cpp:213
 msgid "Cycle:"
 msgstr "Ciklo:"
 
-#: iptc/iptcproperties.cpp:202
+#: iptc/iptcproperties.cpp:215
 msgid "Morning"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:203
+#: iptc/iptcproperties.cpp:216
 msgid "Afternoon"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:204
+#: iptc/iptcproperties.cpp:217
 msgid "Evening"
 msgstr "Vespero"
 
-#: iptc/iptcproperties.cpp:205
+#: iptc/iptcproperties.cpp:218
 msgid "Select here the editorial cycle of content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
+#: iptc/iptcproperties.cpp:222 xmp/xmpproperties.cpp:211
 msgid "Type:"
 msgstr "Tipo:"
 
-#: iptc/iptcproperties.cpp:215 xmp/xmpproperties.cpp:114
+#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:114
 msgid "News"
-msgstr ""
+msgstr "Novaĵoj"
 
-#: iptc/iptcproperties.cpp:216 xmp/xmpproperties.cpp:110
+#: iptc/iptcproperties.cpp:229 xmp/xmpproperties.cpp:110
 msgid "Data"
 msgstr "Datumo"
 
-#: iptc/iptcproperties.cpp:217 xmp/xmpproperties.cpp:107
+#: iptc/iptcproperties.cpp:230 xmp/xmpproperties.cpp:107
 #, fuzzy
 #| msgid "History"
 msgid "Advisory"
 msgstr "Historio"
 
-#: iptc/iptcproperties.cpp:218
+#: iptc/iptcproperties.cpp:231
 msgid "Select here the editorial type of content."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:219
+#: iptc/iptcproperties.cpp:232
 msgid ""
 "Set here the editorial type description of content. This field is limited to "
 "64 ASCII characters."
 msgstr ""
 
-#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:255
+#: iptc/iptcproperties.cpp:241 xmp/xmpproperties.cpp:255
 msgid "Reference:"
 msgstr ""
 
-#: iptc/iptcproperties.cpp:233
+#: iptc/iptcproperties.cpp:246
 msgid ""
 "Set here the original content transmission reference. This field is limited "
 "to 32 ASCII characters."
 msgstr ""
 
 #: iptc/iptcstatus.cpp:88
-#, fuzzy
-#| msgid "Title:"
 msgctxt "image title"
 msgid "Title:"
 msgstr "Titolo:"
@@ -1887,12 +1876,12 @@ msgstr ""
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_metadataeditui.rc:7
 msgid "&Image"
-msgstr ""
+msgstr "&Bildo"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: plugin/kipiplugin_metadataeditui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "Ĉefa ilobreto"
 
 #: plugin/metadataedit.cpp:97
 msgid "Metadata edit dialog"
@@ -1945,10 +1934,8 @@ msgid "Victor Dodon"
 msgstr ""
 
 #: plugin/metadataedit.cpp:164
-#, fuzzy
-#| msgid "Envelope"
 msgid "Developer"
-msgstr "Koverto"
+msgstr "Programisto"
 
 #: plugin/metadataedit.cpp:268
 #, kde-format
@@ -2013,15 +2000,11 @@ msgid "Archive material"
 msgstr ""
 
 #: plugin/objectattributesedit.cpp:122
-#, fuzzy
-#| msgid "Background"
 msgctxt "Content type"
 msgid "Background"
 msgstr "Fono"
 
 #: plugin/objectattributesedit.cpp:123
-#, fuzzy
-#| msgid "Feature"
 msgctxt "Content type"
 msgid "Feature"
 msgstr "Eblo"
@@ -2034,8 +2017,6 @@ msgid "Forecast"
 msgstr "Formato:"
 
 #: plugin/objectattributesedit.cpp:125
-#, fuzzy
-#| msgid "History"
 msgctxt "Content type"
 msgid "History"
 msgstr "Historio"
@@ -2058,7 +2039,7 @@ msgstr ""
 #: plugin/objectattributesedit.cpp:129
 msgctxt "Content type"
 msgid "Profile"
-msgstr ""
+msgstr "Profilo"
 
 #: plugin/objectattributesedit.cpp:130
 msgctxt "Content type"
@@ -2071,8 +2052,6 @@ msgid "Side bar & Supporting information"
 msgstr ""
 
 #: plugin/objectattributesedit.cpp:132
-#, fuzzy
-#| msgid "Summary"
 msgctxt "Content type"
 msgid "Summary"
 msgstr "Resumo"
@@ -2100,15 +2079,11 @@ msgid "Retrospective"
 msgstr "Ecoj"
 
 #: plugin/objectattributesedit.cpp:137
-#, fuzzy
-#| msgid "Statistics"
 msgctxt "Content type"
 msgid "Statistics"
 msgstr "Statistikoj"
 
 #: plugin/objectattributesedit.cpp:138
-#, fuzzy
-#| msgid "Update"
 msgctxt "Content type"
 msgid "Update"
 msgstr "Ĝisdatigi"
@@ -2259,14 +2234,13 @@ msgid "Enter the necessary copyright notice."
 msgstr ""
 
 #: xmp/xmpcredits.cpp:125
-#, fuzzy
 msgid "Contact"
-msgstr "Kalkulu"
+msgstr "Kontaktulo"
 
 #: xmp/xmpcredits.cpp:128
 msgctxt "contact email address"
 msgid "E-mail:"
-msgstr ""
+msgstr "Retadreso:"
 
 #: xmp/xmpcredits.cpp:131
 msgid "Set here the contact e-mail."
@@ -2274,7 +2248,7 @@ msgstr ""
 
 #: xmp/xmpcredits.cpp:133
 msgid "URL:"
-msgstr "URL:"
+msgstr "Retadreso:"
 
 #: xmp/xmpcredits.cpp:136
 msgid "Set here the contact URL."
@@ -2291,7 +2265,7 @@ msgstr ""
 #: xmp/xmpcredits.cpp:143
 msgctxt "Street address"
 msgid "Address:"
-msgstr ""
+msgstr "Adreso:"
 
 #: xmp/xmpcredits.cpp:146
 msgid "Set here the contact address."
@@ -2325,15 +2299,15 @@ msgstr ""
 msgid "Enter here a new keyword."
 msgstr ""
 
-#: xmp/xmporigin.cpp:153
+#: xmp/xmporigin.cpp:165
 msgid "Set here the content's city of origin."
 msgstr ""
 
-#: xmp/xmporigin.cpp:160
+#: xmp/xmporigin.cpp:172
 msgid "Set here the content's location within the city."
 msgstr ""
 
-#: xmp/xmporigin.cpp:167
+#: xmp/xmporigin.cpp:179
 msgid "Set here the content's Province or State of origin."
 msgstr ""
 
@@ -2352,17 +2326,15 @@ msgstr ""
 #: xmp/xmpproperties.cpp:85
 msgctxt "Side view of a person"
 msgid "Profile"
-msgstr ""
+msgstr "Profilo"
 
 #: xmp/xmpproperties.cpp:86
 msgid "Rear view"
 msgstr ""
 
 #: xmp/xmpproperties.cpp:87
-#, fuzzy
-#| msgid "single"
 msgid "Single"
-msgstr "unutrako"
+msgstr "unuopa"
 
 #: xmp/xmpproperties.cpp:88
 msgid "Couple"
@@ -2373,8 +2345,6 @@ msgid "Two"
 msgstr "Du"
 
 #: xmp/xmpproperties.cpp:90
-#, fuzzy
-#| msgid "Group"
 msgctxt "group of people"
 msgid "Group"
 msgstr "Grupo"
@@ -2447,8 +2417,6 @@ msgid "Catalog"
 msgstr ""
 
 #: xmp/xmpproperties.cpp:111
-#, fuzzy
-#| msgid "Document"
 msgctxt "type is a document"
 msgid "Document"
 msgstr "Dokumento"
@@ -2525,15 +2493,11 @@ msgid "Archive material"
 msgstr ""
 
 #: xmp/xmpproperties.cpp:233
-#, fuzzy
-#| msgid "Background"
 msgctxt "editorial content attribute"
 msgid "Background"
 msgstr "Fono"
 
 #: xmp/xmpproperties.cpp:234
-#, fuzzy
-#| msgid "Feature"
 msgctxt "editorial content attribute"
 msgid "Feature"
 msgstr "Eblo"
@@ -2546,8 +2510,6 @@ msgid "Forecast"
 msgstr "Formato:"
 
 #: xmp/xmpproperties.cpp:236
-#, fuzzy
-#| msgid "History"
 msgctxt "editorial content attribute"
 msgid "History"
 msgstr "Historio"
@@ -2570,7 +2532,7 @@ msgstr ""
 #: xmp/xmpproperties.cpp:240
 msgctxt "editorial content attribute"
 msgid "Profile"
-msgstr ""
+msgstr "Profilo"
 
 #: xmp/xmpproperties.cpp:241
 msgctxt "editorial content attribute"
@@ -2583,8 +2545,6 @@ msgid "Side bar & Supporting information"
 msgstr ""
 
 #: xmp/xmpproperties.cpp:243
-#, fuzzy
-#| msgid "Summary"
 msgctxt "editorial content attribute"
 msgid "Summary"
 msgstr "Resumo"
@@ -2612,15 +2572,11 @@ msgid "Retrospective"
 msgstr "Ecoj"
 
 #: xmp/xmpproperties.cpp:248
-#, fuzzy
-#| msgid "Statistics"
 msgctxt "editorial content attribute"
 msgid "Statistics"
 msgstr "Statistikoj"
 
 #: xmp/xmpproperties.cpp:249
-#, fuzzy
-#| msgid "Update"
 msgctxt "editorial content attribute"
 msgid "Update"
 msgstr "Ĝisdatigi"
@@ -2640,8 +2596,6 @@ msgid "Set here the original content transmission reference."
 msgstr ""
 
 #: xmp/xmpstatus.cpp:85
-#, fuzzy
-#| msgid "Title:"
 msgctxt "short title for the content"
 msgid "Title:"
 msgstr "Titolo:"

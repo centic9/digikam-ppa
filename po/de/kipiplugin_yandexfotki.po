@@ -1,0 +1,392 @@
+# Panagiotis Papadopoulos <pano_90@gmx.net>, 2011.
+# Burkhard Lück <lueck@hube-lueck.de>, 2011, 2012, 2013.
+# Torbjörn Klatt <opensource@torbjoern-klatt.de>, 2011.
+# Frederik Schwarzer <schwarzer@kde.org>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_yandexfotki\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-07-07 01:58+0000\n"
+"PO-Revision-Date: 2013-10-21 22:00+0200\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Panagiotis Papadopoulos"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "pano_90@gmx.net"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_yandexfotkiui.rc:7
+msgid "&Export"
+msgstr "&Exportieren"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_yandexfotkiui.rc:13
+msgid "Main Toolbar"
+msgstr "Haupt-Werkzeugleiste"
+
+#: logindialog.cpp:61 yfwindow.cpp:460
+msgctxt "Yandex.Fotki"
+msgid "Y"
+msgstr "Y"
+
+#: logindialog.cpp:62 yfwindow.cpp:461
+msgctxt "Yandex.Fotki"
+msgid "andex."
+msgstr "andex."
+
+#: logindialog.cpp:63 yfwindow.cpp:462
+msgctxt "Yandex.Fotki"
+msgid "Fotki"
+msgstr "Fotki"
+
+#: logindialog.cpp:78
+msgid "Login:"
+msgstr "Benutzername:"
+
+#: logindialog.cpp:81 yfalbumdialog.cpp:74
+msgid "Password:"
+msgstr "Passwort:"
+
+#: logindialog.cpp:84
+msgid "Forgot your password?"
+msgstr "Passwort vergessen?"
+
+#: logindialog.cpp:100
+msgid "&Login"
+msgstr "&Anmelden"
+
+#: logindialog.cpp:103
+msgid "&Skip"
+msgstr "Über&springen"
+
+#: logindialog.cpp:113
+msgid "Yandex User Agreement"
+msgstr "Yandex-Nutzungsbestimmungen"
+
+#: logindialog.cpp:175
+msgid "Password cannot be empty."
+msgstr "Das Passwortfeld darf nicht leer sein."
+
+#: logindialog.cpp:175 yfalbumdialog.cpp:96
+msgid "Error"
+msgstr "Fehler"
+
+#: plugin_yandexfotki.cpp:89
+msgid "Export to &Yandex.Fotki..."
+msgstr "Zu &Yandex.Fotki ..."
+
+#: yfalbumdialog.cpp:51
+msgid "New album"
+msgstr "Neues Album"
+
+#: yfalbumdialog.cpp:59 yfwindow.cpp:165
+msgid "Album"
+msgstr "Album"
+
+#: yfalbumdialog.cpp:60
+msgid "These are basic settings for the new Yandex album."
+msgstr "Dies sind die Basiseinstellungen für ein neues Yandex-Album."
+
+#: yfalbumdialog.cpp:63
+msgid "Title of the album that will be created (required)."
+msgstr "Titel des zu erstellenden Albums (erforderlich)."
+
+#: yfalbumdialog.cpp:66
+msgid "Description of the album that will be created (optional)."
+msgstr "Beschreibung des zu erstellenden Albums (optional)."
+
+#: yfalbumdialog.cpp:69
+msgid "Password for the album (optional)."
+msgstr "Password für das Album (optional)."
+
+#: yfalbumdialog.cpp:72
+msgid "Title:"
+msgstr "Titel:"
+
+#: yfalbumdialog.cpp:73
+msgid "Summary:"
+msgstr "Zusammenfassung:"
+
+#: yfalbumdialog.cpp:95
+msgid "Title cannot be empty."
+msgstr "Der Titel darf nicht leer sein."
+
+#: yfwindow.cpp:127
+msgid "This is the list of images to upload to your Yandex album."
+msgstr ""
+"Das ist die Liste von Bildern, die auf Ihr Yandex-Album hochgeladen werden."
+
+#: yfwindow.cpp:133
+msgid ""
+"This is a clickable link to open the Yandex.Fotki service in a web browser."
+msgstr ""
+"Das ist eine anklickbare Verknüpfung, um die Yandex.Fotki-Webseite in einem "
+"Webbrowser zu öffnen."
+
+#: yfwindow.cpp:141
+msgid "Account"
+msgstr "Zugang"
+
+#: yfwindow.cpp:142
+msgid "This account is used for authentication."
+msgstr "Dieser Zugang wird zur Authentifizierung genutzt."
+
+#: yfwindow.cpp:146
+msgid "Name:"
+msgstr "Name:"
+
+#: yfwindow.cpp:147
+msgid "Your Yandex login"
+msgstr "Ihr Yandex-Benutzername"
+
+#: yfwindow.cpp:150
+msgid "Change Account"
+msgstr "Zugang wechseln"
+
+#: yfwindow.cpp:151
+msgid "Change Yandex account used to authenticate"
+msgstr "Den für die Authentifizierung genutzten Yandex-Zugang ändern"
+
+#: yfwindow.cpp:166
+msgid "This is the Yandex.Fotki album that will be used for the transfer."
+msgstr "Dies ist das Yandex.Fotki-Album, das zur Übertragung benutzt wird."
+
+#: yfwindow.cpp:172
+msgid "New Album"
+msgstr "Neues Album"
+
+#: yfwindow.cpp:173
+msgid "Create new Yandex.Fotki album"
+msgstr "Neues Yandex.Fotki-Album erstellen"
+
+#: yfwindow.cpp:174
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "Neu laden"
+
+#: yfwindow.cpp:175
+msgid "Reload albums list"
+msgstr "Albumliste &neu einlesen"
+
+#: yfwindow.cpp:190
+msgid "Destination"
+msgstr "Ziel"
+
+#: yfwindow.cpp:191
+msgid "This is the location where Yandex.Fotki images will be downloaded."
+msgstr ""
+"Das ist der Speicherort, in den die Yandex.Fotki-Bilder heruntergeladen "
+"werden."
+
+#: yfwindow.cpp:198
+msgid "Options"
+msgstr "Einstellungen"
+
+#: yfwindow.cpp:199
+msgid "These are options that will be applied to images before upload."
+msgstr ""
+"Diese Einstellungen werden vor dem Hochladen auf die Bilder angewendet."
+
+#: yfwindow.cpp:203
+msgid "Resize photos before uploading"
+msgstr "Größe der Fotos vor dem Hochladen ändern"
+
+#: yfwindow.cpp:216
+msgid "Maximum dimension:"
+msgstr "Maximalgröße:"
+
+#: yfwindow.cpp:224
+msgid "JPEG quality:"
+msgstr "JPEG-Qualität:"
+
+#: yfwindow.cpp:228
+msgid "Update policy:"
+msgstr "Aktualisierungsregeln:"
+
+#: yfwindow.cpp:230
+msgid "Update metadata"
+msgstr "Metadaten aktualisieren"
+
+#: yfwindow.cpp:231
+msgid "Update metadata of remote file and merge remote tags with local"
+msgstr ""
+"Metadaten der entfernten Datei aktualisieren und entfernte Stichwörter mit "
+"den lokalen zusammenfassen"
+
+#. i18n("Update metadata of remote file but keep remote tags untouched."));
+#.
+#: yfwindow.cpp:239
+msgid "Skip photo"
+msgstr "Foto überspringen"
+
+#: yfwindow.cpp:240
+msgid "Simple skip photo"
+msgstr "Einfaches Überspringen des Fotos"
+
+#: yfwindow.cpp:241
+msgid "Upload as new"
+msgstr "Als neu hochladen"
+
+#: yfwindow.cpp:242
+msgid "Add photo as new"
+msgstr "Foto als neu hinzufügen"
+
+#: yfwindow.cpp:244
+msgid "Privacy settings:"
+msgstr "Einstellungen zur Privatsphäre:"
+
+#: yfwindow.cpp:246
+msgid "Public access"
+msgstr "Öffentlicher Zugriff"
+
+#: yfwindow.cpp:247
+msgid "Friends access"
+msgstr "Zugriff für Freunde"
+
+#: yfwindow.cpp:248
+msgid "Private access"
+msgstr "Privater Zugriff"
+
+#: yfwindow.cpp:250
+msgid "Hide original photo"
+msgstr "Ursprüngliches Foto ausblenden"
+
+#: yfwindow.cpp:251
+msgid "Disable comments"
+msgstr "Kommentare deaktivieren"
+
+#: yfwindow.cpp:252
+msgid "Adult content"
+msgstr "Inhalt für Erwachsene"
+
+#: yfwindow.cpp:313
+msgid "Export to Yandex.Fotki Web Service"
+msgstr "Zum Yandex.Fotki-Webdienst exportieren"
+
+#: yfwindow.cpp:315
+msgid "Start Upload"
+msgstr "Hochladen starten"
+
+#: yfwindow.cpp:316
+msgid "Start upload to Yandex.Fotki service"
+msgstr "Hochladen auf Yandex.Fotki starten"
+
+#: yfwindow.cpp:328
+msgid "Yandex.Fotki Plugin"
+msgstr "Yandex.Fotki-Modul"
+
+#: yfwindow.cpp:331
+msgid "A Kipi plugin to export image collections to Yandex.Fotki web service."
+msgstr "Ein KIPI-Modul zum Exportieren von Bildersammlungen auf Yandex.Fotki."
+
+#: yfwindow.cpp:333
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Roman Tsisyk"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Roman Tsisyk"
+
+#: yfwindow.cpp:338
+msgid "Roman Tsisyk"
+msgstr "Roman Tsisyk"
+
+#: yfwindow.cpp:338
+msgid "Author"
+msgstr "Autor"
+
+#: yfwindow.cpp:419
+msgid "Close"
+msgstr "Schließen"
+
+#: yfwindow.cpp:420
+msgid "Close window"
+msgstr "Fenster schließen"
+
+#: yfwindow.cpp:430
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: yfwindow.cpp:431
+msgid "Cancel current operation"
+msgstr "Aktuelle Aktion abbrechen"
+
+#: yfwindow.cpp:448
+msgid "Unauthorized"
+msgstr "Nicht autorisiert"
+
+#: yfwindow.cpp:812
+#, kde-format
+msgid ""
+"Failed to prepare image %1\n"
+"Do you want to continue?"
+msgstr ""
+"Vorbereiten des Bildes %1 ist fehlgeschlagen\n"
+"Möchten Sie fortfahren?"
+
+#: yfwindow.cpp:838
+msgid "Images has been uploaded"
+msgstr "Bilder wurden hochgeladen"
+
+#: yfwindow.cpp:868
+msgid "Please select album first"
+msgstr "Bitten wählen Sie zuerst ein Album"
+
+#: yfwindow.cpp:890
+msgid "Session error"
+msgstr "Sitzungsfehler"
+
+#: yfwindow.cpp:893
+msgid "Token error"
+msgstr "Token-Fehler"
+
+#: yfwindow.cpp:896
+msgid "Invalid credentials"
+msgstr "Ungültige Zugangsdaten"
+
+#: yfwindow.cpp:900
+msgid "Cannot get service document"
+msgstr "Das Dienstdokument kann nicht abgeholt werden"
+
+#: yfwindow.cpp:913
+msgid "Cannot list albums"
+msgstr "Die Liste der Alben lässt sich nicht lesen."
+
+#: yfwindow.cpp:916
+msgid "Cannot list photos"
+msgstr "Die Liste der Fotos lässt sich nicht lesen."
+
+#: yfwindow.cpp:919
+msgid "Cannot update album info"
+msgstr "Die Albuminformationen lassen sich nicht aktualisieren."
+
+#: yfwindow.cpp:925
+#, kde-format
+msgid ""
+"Failed to upload image %1\n"
+"Do you want to continue?"
+msgstr ""
+"Beim Hochladen des Fotos ist ein Fehler aufgetreten %1\n"
+"Möchten Sie fortfahren?"
+
+#: yfwindow.cpp:946
+msgid "Unknown error"
+msgstr "Unbekannter Fehler"
+
+#~ msgid "Handbook"
+#~ msgstr "Handbuch"

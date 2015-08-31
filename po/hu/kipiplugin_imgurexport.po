@@ -1,0 +1,224 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Balázs Úr <urbalazs@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2013-07-20 22:19+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Úr Balázs"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "urbalazs@gmail.com"
+
+#: imgurimageslist.cpp:50
+msgid "Thumbnail"
+msgstr "Bélyegkép"
+
+#: imgurimageslist.cpp:55
+msgid "Submission title"
+msgstr "Beküldés címe"
+
+#: imgurimageslist.cpp:58
+msgid "Submission description"
+msgstr "Beküldés leírása"
+
+#: imgurimageslist.cpp:61
+msgid "Imgur URL"
+msgstr "Imgur URL"
+
+#: imgurimageslist.cpp:64
+msgid "Imgur Delete URL"
+msgstr "Imgur URL törlés"
+
+#: imgurtalker.cpp:149
+msgid "Unexpected response from the web service"
+msgstr "Nem várt válasz a webszolgáltatástól"
+
+#: imgurtalker.cpp:166
+msgid "Upload failed"
+msgstr "A feltöltés nem sikerült"
+
+#: imgurtalker.cpp:407
+msgid "Parse error"
+msgstr "Feldolgozási hiba"
+
+#: imgurtalkerauth.cpp:94
+msgid "Network error: timeout, cannot connect."
+msgstr "Hálózati hiba: időtúllépés, nem lehet csatlakozni."
+
+#: imgurtalkerauth.cpp:97
+msgid "Request endpoint is not valid."
+msgstr "A kért végpont nem érvényes."
+
+#: imgurtalkerauth.cpp:100
+msgid "Request is not valid: some parameter missing?"
+msgstr "A kérés nem érvényes: hiányzik néhány paraméter?"
+
+#: imgurtalkerauth.cpp:103
+msgid "Authorization error: trying to access a resource without tokens."
+msgstr ""
+"Hitelesítési hiba: tokenek nélküli hozzáférés kísérlete egy erőforráshoz."
+
+#: imgurtalkerauth.cpp:106
+msgid "The given request is invalid."
+msgstr "A megadott kérés érvénytelen."
+
+#: imgurtalkerauth.cpp:109
+msgid "Manager error, cannot use for sending requests."
+msgstr "Kezelő hiba, nem használható kérések küldéséhez."
+
+#: imgurtalkerauth.cpp:113
+msgid "No error"
+msgstr "Nincs hiba"
+
+#: imgurtalkerauth.cpp:249
+msgid "OK"
+msgstr "OK"
+
+#: imgurwidget.cpp:86
+msgid "This is a clickable link to open the Imgur home page in a web browser"
+msgstr ""
+"Ez egy kattintható hivatkozás, amely megnyitja az Imgur kezdőlapot a "
+"webböngészőben"
+
+#: imgurwidget.cpp:103
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: imgurwidget.cpp:104
+msgid "Export to Imgur"
+msgstr "Exportálás az Imgurba"
+
+#: imgurwidget.cpp:112
+msgid "Imgur authorization"
+msgstr "Imgur felhatalmazás"
+
+#: imgurwidget.cpp:113
+msgid ""
+"Requesting Imgur for authorization to upload images with the KIPI Imgur "
+"Exporter plugin."
+msgstr ""
+"Az Imgur hitelesítésének kérése képek feltöltéséhez a KIPI Imgur exportáló "
+"bővítménnyel."
+
+#: imgurwidget.cpp:120
+msgid "Request authorization"
+msgstr "Hitelesítés kérése"
+
+#: imgurwidget.cpp:121
+msgid "Set permissions for the current application to upload images to Imgur."
+msgstr ""
+"Jogosultságok beállítása a jelenlegi alkalmazáshoz képek feltöltéséhez az "
+"Imgurba."
+
+#: imgurwidget.cpp:229
+#, kde-format
+msgid "Processing %1"
+msgstr "%1 feldolgozása"
+
+#: imgurwidget.cpp:275
+msgid "Authenticated"
+msgstr "Hitelesítve"
+
+#: imgurwindow.cpp:76
+msgid "Export to imgur.com"
+msgstr "Exportálás az imgur.com oldalra"
+
+#: imgurwindow.cpp:80
+msgid "Upload"
+msgstr "Feltöltés"
+
+#: imgurwindow.cpp:80
+msgid "Start upload to Imgur"
+msgstr "Feltöltés indítása az Imgurba"
+
+#: imgurwindow.cpp:88
+msgid "Imgur Export"
+msgstr "Imgur exportálás"
+
+#: imgurwindow.cpp:91
+msgid "A tool to export images to Imgur web service"
+msgstr "Egy eszköz képek exportálásához az Imgur webszolgáltatásba"
+
+#: imgurwindow.cpp:92
+msgid "(c) 2012-2013, Marius Orcsik"
+msgstr "© Marius Orcsik, 2012-2013."
+
+#: imgurwindow.cpp:94
+msgid "Marius Orcsik"
+msgstr "Marius Orcsik"
+
+#: imgurwindow.cpp:94
+msgid "Author and Maintainer"
+msgstr "Szerző és karbantartó"
+
+#: imgurwindow.cpp:97
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: imgurwindow.cpp:97
+msgid "Developer"
+msgstr "Fejlesztő"
+
+#: imgurwindow.cpp:206
+#, kde-format
+msgid ""
+"Failed to upload photo to Imgur: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Nem sikerült feltölteni a fényképet az Imgurba: %1\n"
+"Szeretné folytatni?"
+
+#: imgurwindow.cpp:220
+#, kde-format
+msgid "Failed to upload photo to Imgur: %1\n"
+msgstr "Nem sikerült feltölteni a fényképet az Imgurba: %1\n"
+
+#: imgurwindow.cpp:238
+#, kde-format
+msgctxt "%1 is the error string"
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"%1\n"
+"Do you want to continue?"
+msgstr ""
+"Nem sikerült bejelentkezni az Imgurba.\n"
+"%1\n"
+"Szeretné folytatni?"
+
+#: imgurwindow.cpp:243
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"Do you want to continue?"
+msgstr ""
+"Nem sikerült bejelentkezni az Imgurba.\n"
+"Szeretné folytatni?"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_imgurexportui.rc:7
+msgid "&Export"
+msgstr "&Exportálás"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_imgurexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Fő eszköztár"
+
+#: plugin_imgurexport.cpp:104
+msgid "Export to &Imgur..."
+msgstr "Exportálás az &Imgurba…"

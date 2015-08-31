@@ -1,0 +1,1731 @@
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+--><sect2 id="editor-correct-tools">
+  <title
+>Millorar la imatge</title>
+  <sect3 id="sharpening">
+    <sect3info>
+      <title
+>Nitidesa de la imatge</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>&digikam; ofereix tres eines diferents per a la nitidesa, cadascuna amb <link linkend="comparison-refocus"
+>mèrits</link
+> sobre una àrea diferent. <itemizedlist>
+            <listitem>
+              <para
+><link linkend="using-adjustsharpness"
+>Nitidesa</link
+> és una eina per augmentar la nitidesa tradicional, la qual és molt ràpida i fàcil, però pot presentar ràpidament imatges granulades, en particular en les zones fosques. </para>
+            </listitem>
+            <listitem>
+              <para
+><link linkend="using-unsharp"
+>Màscara de suavitzat</link
+> funciona sobre el contrast de les vores per crear una imatge més nítida, però en realitat no augmenta la nitidesa en absolut, funciona força psico-visualment. Es pot utilitzar per eliminar la boirina atmosfèrica, i en aquest cas fa una molt bona feina. L'algorisme es va prendre del Gimp, i és copyright d'en Winston Chang. </para>
+            </listitem>
+            <listitem>
+              <para
+><link linkend="refocus"
+>Reenfoc</link
+> probablement és la millor de les tres, ja que en realitat millora la nitidesa. És una mica més complicada d'aplicar, ja que disposa de diversos paràmetres amb els que jugar. </para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Reenfoc</keyword>
+        <keyword
+>Màscara de suavitzat</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introducció</title>
+    <para
+>Les fotografies desenfocades, així com la majoria de les imatges digitalitzades, necessiten una correcció de la nitidesa. Això es deu al fet que el procés de digitalització ha de tallar un continu de color en punts amb colors lleugerament diferents: els elements més subtils de la freqüència de mostratge es fusionaran en un color uniforme. Per tant, les vores s'aguditzaran i es presentaran una mica borroses. El mateix fenomen apareix quan s'imprimeixen punts de color sobre el paper. Les càmeres rèflex digitals encara tenen més necessitat d'augmentar regularment la nitidesa en comparació amb altres càmeres de consum. </para>
+    <para
+>Mentre que les imatges JPEG tenen alguna nitidesa aplicada internament a la càmera, les imatges en format RAW sempre requeriran nitidesa en el seu flux de treball. </para>
+    <para
+>Alguns escàners apliquen un filtre per augmentar la nitidesa durant l'escaneig. Val la pena desactivar-lo per poder mantenir el control sobre la vostra imatge. </para>
+    <sect4 id="using-adjustsharpness">
+      <title
+>Ajustar la nitidesa</title>
+      <anchor id="sharpentool.anchor"/>
+    </sect4>
+      <sect4>
+        <title
+>Manllevar la manca de definició d'una fotografia</title>
+        <para
+>Si l'enfocament de la càmera no està ajustat perfectament o si la càmera es mou en prendre la imatge, el resultat serà una fotografia borrosa. Si n'hi ha una gran quantitat, probablement no sereu capaç de fer gaire referent a això amb cap tècnica. Si només n'hi ha una quantitat moderada, hauríeu de ser capaç de millorar la imatge. Moltes càmeres rèflex digitals de qualitat apliquen menys processament a la imatge que les càmeres més simples (les quals tendeixen a augmentar artificialment el contrast per a que les imatges es vegin nítides). Aquest tipus de manca de definició lleu es pot millorar fàcilment amb algunes eines. </para>
+        <para
+>En algunes situacions, sereu capaç d'obtenir resultats útils definint una fotografia utilitzant l'eina Nitidesa des de l'entrada de menú <menuchoice
+> <guimenu
+>Millora</guimenu
+> <guimenuitem
+>Nitidesa</guimenuitem
+> </menuchoice
+>. </para>
+        <example>
+          <title
+>L'eina «Nitidesa» en acció</title>
+          <screenshot>
+            <screeninfo
+>L'eina «Nitidesa» en acció</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="&path;editorsharpenplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+        <para
+>Haureu de tenir cura amb això, o els resultats no es veuran molt naturals: augmenta la nitidesa aparent de les vores de la fotografia, però també amplifica el soroll. En general, la tècnica més útil per definir més una fotografia borrosa és l'eina Reenfoc. Hi podeu accedir amb l'entrada de menú <menuchoice
+> <guimenu
+>Millora</guimenu
+> <guimenuitem
+>Reenfoc</guimenuitem
+> </menuchoice
+>. Mireu a <link linkend="refocus"
+>Reenfoc</link
+> per obtenir més informació i una comparació de totes les tècniques per augmentar la nitidesa. </para>
+      </sect4>
+      <sect4>
+        <title
+>Reduir el gra en una fotografia</title>
+        <para
+>Quan preneu una fotografia en condicions de poca llum o amb un temps d'exposició molt ràpid, la càmera no rebrà prou dades per fer una bona estimació del veritable color en cada píxel, i per tant la fotografia resultant es veurà granulada. Podreu &quot;suavitzar&quot; el gra difuminant la imatge, però també podríeu perdre nitidesa. Probablement la millor manera -si el gra no és tan dolent- és utilitzar el filtre de reducció de soroll, hi podeu accedir des de l'entrada de menú <menuchoice
+> <guimenu
+>Millora</guimenu
+> <guimenuitem
+>Reducció de soroll</guimenuitem
+> </menuchoice
+>. </para>
+      </sect4>
+      <sect4>
+        <title
+>Suavitzar una fotografia</title>
+        <para
+>De vegades tindreu el problema oposat: una imatge està massa nítida. La solució consisteix en difuminar-la una mica: per sort difuminar una imatge és molt més fàcil que definir-la més. Seleccioneu <link linkend="using-blurfilter"
+>l'eina Difuminat</link
+> amb l'entrada de menú <menuchoice
+> <guimenu
+>Millora</guimenu
+> <guimenuitem
+>Difuminat</guimenuitem
+> </menuchoice
+> i experimenteu amb el nivell. La finestra de vista prèvia a la dreta del diàleg mostrarà l'efecte de l'operació sobre la vostra fotografia. </para>
+      </sect4>
+    <sect4 id="using-unsharp">
+      <title
+>El filtre «Màscara de suavitzat»</title>
+      <note>
+        <para
+>El filtre Màscara de suavitzat és una excel·lent eina per eliminar la boira de les vostres fotografies, veure <ulink url="http://www.gimpguru.org/Tutorials/RemovingHaze"
+>aquest url</ulink
+> per a una demostració. </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;unsharpdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>El diàleg «Màscara de suavitzat»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>El plafó d'imatge i la vista prèvia original us ajudaran a desplaçar dins de la imatge. La finestra de vista prèvia mostrarà la sortida del filtre utilitzant els ajustaments actuals. </para>
+      <para
+>Hi ha dos paràmetres importants, <guilabel
+>Radi</guilabel
+> i <guilabel
+>Quantitat</guilabel
+>. Els valors per omissió solen funcionar força bé, de manera que primer els haureu de provar. Augmentant el <guilabel
+>Radi</guilabel
+> o la <guilabel
+>Quantitat</guilabel
+> s'incrementarà la intensitat de l'efecte. No us deixeu dur: si feu massa forta la màscara de suavitzat, s'amplificarà el soroll a la imatge i crearà la impressió de relleus prop de les vores. </para>
+      <para
+>La <guilabel
+>Radi</guilabel
+> us permet establir el nombre de píxels a cada costat d'una vora que es veuran afectats per aquest efecte. Les imatges d'alta resolució permeten un radi major. Sempre serà millor definir més una imatge en la seva resolució final. </para>
+      <para
+>El control <guilabel
+>Quantitat</guilabel
+> és el percentatge de la diferència entre l'original i la imatge difuminada que s'afegeix de nou en l'original. Us permetrà establir la força de la nitidesa. </para>
+      <para
+>El control <guilabel
+>Llindar</guilabel
+> és una fracció del valor RGB màxim, necessari per aplicar la quantitat de la diferència. Us permetrà establir la diferència mínima en valors de píxel que indiquin a on s'haurà d'aplicar una vora més definida. D'aquesta manera, podreu protegir les àrees de transició tonal suau en augmentar la nitidesa, i evitar la creació de taques a la superfície de la cara, del cel o de l'aigua. </para>
+    </sect4>
+      <sect4 id="inaction-unsharp">
+        <title
+>La «Màscara de suavitzat» en acció</title>
+        <para
+>Aquest és un exemple de com la Màscara de suavitzat pot canviar-vos la vida. La imatge original és (1) i la imatge corregida és (2). La màscara de suavitzat s'ha aplicat amb <guilabel
+>Radi</guilabel
+> = 6.0, <guilabel
+>Quantitat</guilabel
+> = 0.5, <guilabel
+>Llindar</guilabel
+> = 0.0. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;unsharppreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>L'eina «Màscara de suavitzat» en acció</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+    <sect4 id="refocus">
+      <title
+>Reenfocar una fotografia</title>
+      <para
+>El <emphasis
+>reenfoc</emphasis
+> del &digikam; és una eina per enfocar una imatge mitjançant la millora de la nitidesa. Utilitza l'algoritme de <emphasis
+>filtre de deconvolució</emphasis
+> copyright d'en Ernst Lippe. </para>
+      <para
+>Aquesta eina tracta de &quot;tornar a orientar&quot; una imatge desfent el desenfocament. Això és millor que mirar d'enfocar una fotografia. Fa servir una tècnica anomenada <emphasis
+>filtre de Wiener</emphasis
+> (FIR Wiener Filtering). La tècnica tradicional per augmentar la nitidesa de les imatges és utilitzar la màscara de suavitzat. El reenfoc generalment produeix millors resultats que la màscara de suavitzat. Comenceu des del menú <menuchoice
+> <guimenu
+>Millora</guimenu
+> <guimenuitem
+>Nitidesa</guimenuitem
+> <guimenuitem
+>Reenfoc</guimenuitem
+> </menuchoice
+> de l'editor d'imatges. </para>
+      <para
+>La tècnica Reenfoc funciona de manera diferent de la <link linkend="using-unsharp"
+>màscara de suavitzat</link
+> i també que el <link linkend="using-adjustsharpness"
+>filtre Nitidesa</link
+> doncs tots dos augmenten el contrast de les vores d'una imatge. El reenfoc inverteix el procés pel qual la imatge es trona borrosa per l'obertura circular de la càmera. Aquest mètode us donarà la major quantitat possible de la imatge original &quot;enfocada&quot;. El reenfoc utilitza un poderós algorisme de deconvolució per recuperar les dades que s'han barrejat. En termes matemàtics, borrosa és generalment el resultat d'una convolució, una deconvolució invertirà el procés, això és exactament el que farà el reenfoc. D'altra banda, la tècnica de filtre FIR permet eliminar gran part del soroll i la granularitat que sovint s'accentua en el procés d'augmentar la nitidesa de tots els filtres de nitidesa. </para>
+    </sect4>
+      <sect4 id="using-refocus">
+        <title
+>Usar l'eina «Reenfoc»</title>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;refocusdialog.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>Diàleg «Reenfoc»</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+        <para
+>El plafó d'imatge i la vista prèvia original us ajudaran a desplaçar dins de la imatge. La finestra de vista prèvia mostrarà la sortida del filtre utilitzant els ajustaments actuals. </para>
+        <para
+>En la majoria dels casos (la visió borrosa de la càmera) una convolució circular causa la degradació de la imatge, però hi ha dues convolucions disponibles: <itemizedlist
+> <listitem
+> <para
+>La convolució circular: estén cada punt d'origen de manera uniforme a través d'un petit disc amb un radi fix. Tècnicament això descriu els efectes d'utilitzar una lent (ideal) que no està correctament enfocada.</para
+> </listitem
+> <listitem
+> <para
+>La convolució gaussiana: és matemàticament similar a la distribució normal, amb la seva corba en forma de campana. Més aviat origina un difuminat fingit (difuminat per programari). Des d'un punt de vista teòric, la justificació matemàtica per utilitzar la convolució gaussiana és que quan s'aplica a un gran nombre de convolucions aleatòries independents els resultats sempre s'aproparà a una convolució gaussiana.</para
+> </listitem
+> </itemizedlist
+> L'eina reenfoc implementa tant la convolució circular com la gaussiana, així com la combinació de totes dues. </para>
+        <para
+>A la pràctica, en la majoria dels casos, la convolució circular funciona molt millor que la convolució gaussiana. La convolució gaussiana té una cua molt llarga, de manera que matemàticament el resultat de la convolució també dependrà dels píxels d'origen a una gran distància del píxel font original. El filtre de Wiener invers d'una convolució gaussiana en la majoria dels casos està fortament influenciat per píxels d'origen a una gran distància, i en la majoria dels casos això produeix resultats no desitjats. </para>
+        <para
+>Per ajustar correctament el filtre de deconvolució, el connector disposa dels següents paràmetres: <itemizedlist>
+            <listitem>
+              <para
+><guilabel
+>Definició circular</guilabel
+>: Aquest és el radi del filtre de convolució circular. És el paràmetre més important per emprar amb aquest connector. Per a la majoria de les imatges el valor per omissió d'1 hauria de donar bons resultats. Seleccioneu un valor més alt quan la imatge sigui molt borrosa, però aneu amb compte de produir halos.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Correlació</guilabel
+>: Incrementar la correlació pot ajudar a reduir els defectes. L'interval de la correlació pot anar de 0 a 1. Els valor útils són 0.5 i valors propers a 1, &pex; 0.95 o 0.99. L'ús d'un valor alt a la correlació reduirà l'efecte de nitidesa del connector.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Filtre de soroll</guilabel
+>: Incrementar el paràmetre filtre de soroll ajuda a reduir els defectes. L'interval del soroll pot anar de 0 a 1 però els valors superiors a 0.1 són rarament útils. Quan el valor de soroll és molt baix, &pex;, 0 la qualitat de la imatge serà horrible. Un valor útil és 0.03. Utilitzar un valor alt per al soroll tan sols difuminarà encara més la imatge.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Gaussià de l'agudesa</guilabel
+>: Aquest és el radi per al filtre de convolució gaussiana. Utilitzeu aquest paràmetre quan el desenfocament és gaussià (probablement a causa al difuminat de l'anterior filtre). En la majoria dels casos haureu de deixar aquest paràmetre a 0, degut a que causa defectes desagradables. Utilitzant valors diferents de zero és probable que també incrementeu els paràmetres de la <guilabel
+>Correlació</guilabel
+> i/o <guilabel
+>Filtre de soroll</guilabel
+>.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Mida de la matriu</guilabel
+>: Aquest paràmetre determina la mida de la matriu de transformació. Incrementar la mida de la matriu pot donar millors resultats, sobretot quan s'han triat valors grans per a <guilabel
+>Definició circular</guilabel
+> o <guilabel
+>Gaussià de l'agudesa</guilabel
+>. Tingueu en compte que el connector es tornarà molt lent quan seleccioneu valors alts d'aquest paràmetre. En la majoria dels casos haureu de seleccionar un valor en l'interval de 3 a 10.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+>: aquests botons s'utilitzen per realitzar les accions que descriuen. Qualsevol paràmetre pel reenfoc que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant.</para>
+            </listitem>
+            <listitem>
+              <para
+><guilabel
+>Omissió</guilabel
+>: aquest botó restableix tots els ajustos als valors per omissió.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+        <para
+>A continuació podreu veure alguns consells per ajudar-vos a treballar amb el connector reenfoc: <itemizedlist>
+            <listitem>
+              <para
+>Preferiblement realitzeu totes les correccions de retall, corbes de color i intensitat sobre la imatge abans d'utilitzar aquest connector.</para>
+            </listitem>
+            <listitem>
+              <para
+>En cas contrari, utilitzeu aquest connector abans de realitzar cap altra operació sobre la imatge. La raó és que moltes de les operacions sobre la imatge deixaran límits que no seran immediatament visibles, però que deixaran defectes desagradables.</para>
+            </listitem>
+            <listitem>
+              <para
+>Quan escanegeu imatges i després les comprimiu, &pex;, a JPEG, haureu d'utilitzar el connector sobre la imatge sense comprimir.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </sect4>
+    <sect4 id="comparison-refocus">
+      <title
+>El «Reenfoc» en comparació amb altres tècniques</title>
+      <para
+>En comparació amb dues tècniques que s'utilitzen sovint per a millorar les imatges: <itemizedlist>
+          <listitem>
+            <para>
+              <link linkend="using-adjustsharpness"
+>Filtre de nitidesa</link>
+            </para>
+          </listitem>
+          <listitem>
+            <para>
+              <link linkend="using-unsharp"
+>Màscara de suavitzat</link>
+            </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>La nitidesa aplica una petita matriu de convolució que augmenta la diferència entre un píxel d'origen i els seus veïns immediats. El filtratge de Wiener és una tècnica més general, ja que permet parametritzacions veïnals més i més grans. La nitidesa només funciona quan les imatges són molt poc borroses. A més, per a valors alts del paràmetre de nitidesa els resultats sovint es veuen «amb soroll». Amb el filtratge Wiener aquest soroll es pot reduir en gran mesura seleccionant valors més alts per als paràmetres de <guilabel
+>Correlació</guilabel
+> i <guilabel
+>Filtre de soroll</guilabel
+>. </para>
+      <para
+>La màscara de suavitzat és una altra tècnica molt popular per a la millora de la imatge. Des d'un punt de vista matemàtic, la seva justificació és una mica obscura, però és del grat de molta gent. El primer pas és crear una còpia borrosa de la imatge d'origen. Llavors la diferència entre la imatge original i la imatge borrosa es resta de la imatge d'origen, d'aquí el nom màscara de suavitzat. De fet, la màscara de suavitzat més aviat és una millora del contrast sobre les característiques importants de la imatge que un augment en la nitidesa. No desfà la interferència del patró d'obertura del diafragma de la càmera com fa el reenfoc. </para>
+      <para
+>En general, la màscara de suavitzat produeix millors resultats que l'augment de la nitidesa. Això és probablement causat pel fet que la màscara de suavitzat utilitza un veïnal més gran que l'augment de la nitidesa. </para>
+      <para
+>Des d'un punt de vista teòric, la màscara de suavitzat sempre presentarà defectes. Fins i tot en circumstàncies òptimes, mai no podrà desfer per complet l'efecte de difuminat. És possible demostrar que el filtratge de Wiener és el filtre lineal òptim. A la pràctica, en tots els casos els resultats del filtre de Wiener van ser almenys tan bons com els de la màscara de suavitzat. El filtre de Wiener sovint és millor en la restauració de petits detalls. </para>
+      <para
+>A continuació, podeu veure una comparació dels diferents filtres aplicats sobre una petita imatge desenfocada: <informaltable
+> <tgroup cols="2">
+            <thead>
+              <row>
+                <entry
+>Vista prèvia</entry>
+                <entry
+>Tipus</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-notsharpened.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>La imatge original de color borrós per arreglar. La imatge ha estat presa amb una càmera fotogràfica analògica. El resultat sense definició prové d'una llum insuficient provocat per l'enfocament automàtic de la lent. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-sharped.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>La imatge corregida utilitzant un filtre d'augment de la nitidesa simple. L'ajust per augmentar la nitidesa és 80. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-unsharpmask.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>La imatge corregida utilitzant el filtre de màscara de suavitzat. Els ajustos són Radi = 50, Quantitat = 5 i Llindar = 0. </entry>
+              </row>
+              <row>
+                <entry>
+                  <para>
+                    <inlinemediaobject>
+                      <imageobject>
+                        <imagedata fileref="&path;refocus-refocus.png" format="PNG"/>
+                      </imageobject>
+                    </inlinemediaobject>
+                  </para>
+                </entry>
+                <entry
+>La imatge corregida utilitzant el filtre de reenfoc. Els ajustos són Definició circular = 1.3, Correlació = 0.5, Filtre de soroll = 0.020, Gaussià de l'agudesa = 0 i Mida de la matriu = 5. </entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </informaltable>
+      </para>
+      <note>
+        <para
+>Per obtenir més informació sobre la correcció dels mètodes de nitidesa utilitzats en les imatges digitals, podeu trobar una comparació tècnica en <ulink url="http://www.bialith.com/Research/BARclockblur.htm"
+>aquest url</ulink
+>. </para>
+      </note>
+    </sect4>
+  </sect3>
+  <sect3 id="using-redeyecorrection">
+    <title
+>Eliminar els ulls vermells en una fotografia</title>
+    <anchor id="redeyecorrectiontool.anchor"/>
+    <para
+>Els ulls vermells són causats quan s'utilitza el flaix de la càmera per prendre fotografies de persones. El vermell és el reflex des de la part posterior de l'ull que es veu perquè la pupil·la no pot reaccionar prou ràpid al flaix. Per cert, amb un llum de flaix per separat l'efecte d'ulls vermells és menys significatiu degut als diferents angles de visió del flaix i la lent. Podeu corregir alguns dels pitjors efectes d'ulls vermells seleccionant l'àrea de l'ull sobre la fotografia, de la mateixa manera com s'ha descrit anteriorment per escapçar. A continuació, seleccioneu <menuchoice
+> <guimenu
+>Millora</guimenu
+> <guimenuitem
+>Correcció d'ulls vermells</guimenuitem
+> </menuchoice
+>. </para>
+    <para
+>Com funciona <itemizedlist>
+        <listitem
+><para
+>Ajusteu el mode de vista prèvia al vostre gust</para
+></listitem>
+        <listitem
+><para
+>Establiu la <guilabel
+>Sensibilitat</guilabel
+> ajustant la quantitat d'eliminació d'ulls vermells (agressiva o no)</para
+></listitem>
+        <listitem
+><para
+>El control lliscant <guilabel
+>Suavitzat</guilabel
+> estableix el difuminat de l'àrea que s'ha enfosquit per fer la pupil·la més natural</para
+></listitem>
+        <listitem
+><para
+>El <guilabel
+>Color</guilabel
+> estableix una coloració personalitzada per a la pupil·la. Si voleu ulls blaus en lloc de foscos, aquí ho podeu fer</para
+></listitem>
+        <listitem
+><para
+>El <guilabel
+>Nivell de tint</guilabel
+> ajusta la lluminositat del color de la pupil·la</para
+></listitem>
+      </itemizedlist>
+    </para>
+    <example>
+      <title
+>L'eina «Correcció d'ulls vermells» en acció</title>
+      <screenshot>
+        <screeninfo
+>L'eina «Correcció d'ulls vermells» en acció </screeninfo>
+        <mediaobject>
+          <imageobject>
+            <imagedata fileref="&path;editor-redeyes-correction.png" format="PNG"/>
+          </imageobject>
+        </mediaobject>
+      </screenshot>
+    </example>
+  </sect3>
+  <sect3 id="inpainting">
+    <sect3info>
+      <title
+>Repintar la fotografia</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="&path;cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>Logotip de cimg</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+>L'eina de <emphasis
+>repintat fotogràfic</emphasis
+> del &digikam; és sens dubte una de les eines més avançades per eliminar defectes no desitjats amb un rendiment sense precedents. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introducció</title>
+    <para/>
+    <para
+>L'algorisme de repintat va ser desenvolupat per l'equip d'imatge del laboratori GREC CNRS de Caen/França i forma part del <ulink url="http://cimg.sourceforge.net"
+>projecte CImg</ulink
+>. </para>
+    <sect4 id="using-inpainting">
+      <title
+>Usar l'eina «Repintat»</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>El diàleg de «Repintat fotogràfic»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>L'eina ve amb diversos ajustaments preestablerts com a punts de partida i per simplificar la restauració. Els paràmetres per omissió disponibles són els següents: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Cap</guilabel
+>: Utilitza els ajustaments de filtre per omissió més comuns sense optimitzar per a un propòsit determinat.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Elimina àrea petita</guilabel
+>:</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Elimina àrea mitjana</guilabel
+>:</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Elimina àrea gran</guilabel
+>:</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Si voleu establir paràmetres de filtre per ajustos més fins, utilitzeu les pestanyes <guilabel
+>Configuració del suavitzat</guilabel
+> i <guilabel
+>Arranjament avançat</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La configuració del suavitzat del repintat</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Preservació dels detalls</guilabel
+> p [0, 100]: això controla la preservació de les curvatures (característiques). Un valor baix obliga a un suavitzat igual que el llarg de la imatge, mentre que valors més grans suavitzen preferentment les regions homogènies i deixen més nítids els detalls. Un valor de 0.9 també preservarà els detalls de manera que no es requereixi suavitzar després. Tingueu en compte que <guilabel
+>Preservació dels detalls</guilabel
+> sempre haurà de ser inferior a la <guilabel
+>Anisotropia</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotropia</guilabel
+> alfa [0, 100]: un valor baix suavitza de la mateixa manera en totes les direccions, mentre que un valor proper a 1 suavitza en una sola direcció. Si teniu gra de pel·lícula o soroll de tipus CCD, un valor alt resultarà en un patró d'ona, mentre que pels defectes JPEG són adequats valors propers a 1. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Suavitzat</guilabel
+> [0, 500]: estableix el màxim factor de suavitzat general (quan p defineix el suavitzat relatiu). Ajusteu-lo d'acord amb el nivell de soroll.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regularitat</guilabel
+> [0, 100]: aquest paràmetre es refereix a les estructures més grans. Com més alt sigui aquest valor, més suau serà el suavitzat global. Això és necessari quan hi ha present molt de soroll, ja que és difícil estimar la geometria. A més, si voleu aconseguir un efecte de turbulència a l'estil «Van Gogh», es recomana un ajust superior a 3.</para>
+          </listitem>
+          <listitem>
+            <para
+>Filtre <guilabel
+>Iteracions</guilabel
+>: nombre de vegades que s'aplicarà l'algorisme de difuminat. Normalment n'hi ha prou amb 1 o 2.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La configuració avançada del repintat</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Pas angular</guilabel
+> da [5, 90]: la integració angular de l'anisotropia alfa. Si alfa és baixa, també el «de» haurà se ser baixat. Però compte, els angles petits resulten en grans càlculs! Trieu el més gran que pugueu acceptar. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Pas Integral</guilabel
+> [0.1, 10]: amplada del pas d'integració espacial en termes de píxels. Haurà de romandre en menys que 1 (suavitzat sub-píxel) i mai més gran que 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Usa interpolació lineal</guilabel
+>: El guany en qualitat si se selecciona aquesta opció només serà marginal i es perdrà un factor de 2 en velocitat. La nostra recomanació és deixar-lo desactivat.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Els botons <guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+> s'utilitzen per realitzar les accions que descriuen. Qualsevol ajustament al repintat fotogràfic que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. </para>
+      <warning>
+        <para
+>El repintat fotogràfic és (en termes comparatius) molt ràpid en el que fa, però pot prendre molt de temps a executar-se i això causa una càrrega de la CPU. Sempre podreu cancel·lar el càlcul prement el botó <guilabel
+>Cancel·la</guilabel
+> durant la renderització. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-inpainting">
+      <title
+>L'eina «Repintat» en acció</title>
+      <para
+>A continuació, podeu veure un tipus de repintat <guilabel
+>Elimina àrea petita</guilabel
+> aplicat a una fotografia en color presa a la ciutat de Guatemala amb una càmera analògica. Mireu com hi ha uns pocs estranys defectes negres al davant de la cara, resultat d'un mal emmagatzematge de la pel·lícula durant el viatge. La imatge original és (1), la imatge corregida és (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;inpaintingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Vista prèvia del filtre «Repintat»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="noisereduction">
+    <sect3info>
+      <title
+>Reduir el soroll</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>La <emphasis
+>reducció de soroll</emphasis
+> del &digikam; és una eina poderosa per a reduir el soroll de la imatge. Utilitza un algoritme copyright d'en Peter Heckert. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Reducció de soroll</keyword>
+        <keyword
+>Difuminat</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introducció</title>
+    <para
+>Aquesta eina proporciona filtres d'imatge que es poden seleccionar per eliminar taques o altres defectes causats per la brutícia com la pols o un pèl a la lent. També es pot utilitzar per eliminar el <emphasis
+>soroll del sensor</emphasis
+> de la càmera, potser causat per ajustos ISO alts, així com els anomenats <emphasis
+>patrons de moaré</emphasis
+> sobre les imatges escanejades de llibres o revistes. </para>
+    <para
+>Si voleu més informació sobre què és el soroll del sensor de la càmera digital, si us plau, mireu aquesta <ulink url="http://www.cambridgeincolour.com/tutorials/noise.htm"
+>guia d'aprenentatge</ulink
+>. </para>
+    <sect4 id="using-noisereduction">
+      <title
+>Usar l'eina «Reducció de soroll»</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;noisereductiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>El diàleg «Reducció de soroll»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>La captura de pantalla anterior mostra una escena típica presa amb una càmera digital utilitzant un ajust ISO de sensibilitat alt. Mostra un soroll granulat que es pot reduir amb èxit amb aquesta eina. </para>
+      <para
+>El plafó d'imatges redimensionable amb la vista prèvia original us ajuda a realitzar una panoràmica dins de la imatge. Moveu el rectangle vermell per a seleccionar l'àrea que us permeti jutjar sobre l'ajustament òptim del filtre. La finestra de vista prèvia mostrarà la sortida del filtre utilitzant els ajustos actuals. Es pot reorganitzar en quatre combinacions diferents, com es mostra en les icones sota de la vista prèvia original. Aquesta captura de pantalla mostra la primera disposició en la qual es mostra, per comparació, la mateixa retallada. A la part inferior de l'àrea de vista prèvia, podeu l'ajustament <guilabel
+>Factor de zoom</guilabel
+> per ampliar una zona de la imatge. </para>
+      <para
+>Podeu veure a continuació una descripció completa de tots els paràmetres. En la majoria dels casos només es necessita la pestanya <guilabel
+>Detalls</guilabel
+> i la resta dels paràmetres disponibles a la pestanya <guilabel
+>Avançat</guilabel
+> es poden deixar amb el valor per omissió. <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Radi</guilabel
+>: aquest control selecciona la mida de la finestra lliscant utilitzada per al filtre. Els valors més grans no augmenten la quantitat de temps necessari per filtrar cada píxel en la imatge, però poden causar visió borrosa. Aquesta finestra es mou a través de la imatge, i el color se suavitza per eliminar les imperfeccions. En qualsevol cas, ha de ser aproximadament de la mateixa mida com el soroll de granularitat o una mica més. Si s'estableix més gran del necessari, llavors pot causar imatges borroses. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Llindar</guilabel
+>: utilitzeu el control lliscant per a un ajust més ampli, i els botons de selecció de valors per a un ajust fi. Això controla la sensibilitat de la detecció de llindars. Aquest valor s'ha d'ajustar de manera que els llindars i els detalls siguin clarament visibles, i se suavitzi el soroll. Aquest valor no està vinculat a cap valor d'intensitat, però el segon deriva dels valors d'intensitat. Només cal ajustar-los i veure la vista prèvia. L'ajust s'ha de fer amb compte, ja que la bretxa entre soroll, suau i borrós és molt petita. Ajusteu-la tan acuradament com ajusteu l'enfocament d'una càmera. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Textura</guilabel
+>: aquest control estableix l'exactitud de la textura. Aquest valor es pot utilitzar, per obtenir més o menys precisió de la textura. Quan es redueix, el soroll i la textura la tornaran borrosa, quan s'incrementa, la textura s'amplifica, però també s'amplifica el soroll. Gairebé no té efecte sobre els límits de la imatge, oposat al filtre <guilabel
+>Límit</guilabel
+>, el qual quan s'incrementa difumina els límits. Si <guilabel
+>Límit</guilabel
+> s'ajusta de manera que els límits són nítids, i encara hi ha molt soroll a l'àrea, llavors el detall de la <guilabel
+>Textura</guilabel
+> es podrà utilitzar per a reduir el soroll sense límits difuminats. Una altra manera seria disminuir el <guilabel
+>Radi</guilabel
+> i augmentar el <guilabel
+>Límit</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Nitidesa</guilabel
+>: aquest control ajusta el nivell de nitidesa. Aquest valor defineix la distància en píxels en la qual el filtre veurà amb antelació les variacions de luminància. Quan s'incrementa aquest valor, llavors se suprimeix el pic de soroll. Finalment, quan es canvia aquest ajustament podeu reajustar el filtre <guilabel
+>Límit</guilabel
+>. Quan aquest valor és alt, llavors el filtre adaptatiu no podrà fer un seguiment amb precisió dels detalls de la imatge, i el soroll podrà reaparèixer o ocórrer un difuminat. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Límit</guilabel
+>: aquest control ajusta la precisió dels límits per augmentar la nitidesa. Aquest valor millora la resposta de freqüència del filtre. Quan és massa fort, llavors no es podrà eliminar tot el soroll, o pot aparèixer un pic de soroll. Establiu-lo prop al màxim, si voleu eliminar soroll feble o defectes JPEG, sense perdre detall. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Erosió</guilabel
+>: aquest control ajusta el canvi de fase dels límits. Aquest valor es pot utilitzar per erosionar pics singulars i té un efecte de suavitzat en els límits, i augmenta la seva nitidesa erosionant-los, de manera que s'erosiona el soroll a les vores. L'efecte dependrà de la <guilabel
+>Nitidesa</guilabel
+>, <guilabel
+>Amortiment</guilabel
+> i <guilabel
+>Límits</guilabel
+>. Establiu-los al mínim, si voleu eliminar soroll feble o defectes JPEG. Quan s'incrementa aquest valor, llavors també serà útil incrementar <guilabel
+>Amortiment</guilabel
+>. Aquest ajust pot proporcionar nitidesa i efecte d'antialiàsing als límits quan es corregeix un pic de soroll. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Luminància</guilabel
+>: aquest control estableix la tolerància de luminància de la imatge. Es recomana utilitzar només els ajustos de tolerància <guilabel
+>Color</guilabel
+> o <guilabel
+>Luminància</guilabel
+> per fer una correcció de la imatge, no el dos alhora. Aquests ajustos no influeixen en el procés principal de suavitzat controlat pels ajustaments a <guilabel
+>Detalls</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Color</guilabel
+>: aquest control estableix la tolerància de color de la imatge. Es recomana utilitzar només els ajustos de tolerància <guilabel
+>Color</guilabel
+> o <guilabel
+>Luminància</guilabel
+> per fer una correcció de la imatge, no el dos alhora. Aquests ajustos no influeixen en el procés principal de suavitzat controlat pels ajustaments a <guilabel
+>Detalls</guilabel
+>. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Gamma</guilabel
+>: aquest control estableix la gamma de tolerància de la imatge. Aquest valor es pot utilitzar per augmentar els valors de tolerància per a les àrees més fosques (que comunament contenen més soroll). Això resulta en més difuminat per a les zones amb ombra. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Amortiment</guilabel
+>: aquest control estableix la fluctuació de fase ajustant l'amortiment. Aquest valor defineix la rapidesa amb que el filtre de radi adaptatiu reaccionarà a les variacions de luminància. Si s'incrementa, llavores els límits es veuran més suaus, si és massa alt, llavors es podria produir difuminat. Al mínim es produeix soroll i fluctuació de fase als límits. Pot eliminar el pic de soroll quan s'augmenta i aquest és el mètode preferit per eliminar-lo. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+>: aquests botons s'utilitzen per realitzar les accions que descriuen. Qualsevol paràmetre per a la reducció de soroll que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Omissió</guilabel
+>: aquest botó restableix tots els ajustos als valors per omissió. </para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+      <sect4 id="inaction-noisereduction">
+        <title
+>«Reducció de soroll» en acció</title>
+        <para
+>Aquest és un exemple de com la reducció de soroll pot canviar la vostra vida. La imatge original és (1) i la imatge corregida és (2). La reducció del soroll serà aplicada amb els ajustos per omissió. </para>
+        <para>
+          <inlinemediaobject>
+            <imageobject>
+              <imagedata fileref="&path;noisereductionpreview.png" format="PNG"/>
+            </imageobject>
+            <textobject>
+              <phrase
+>La «Reducció de soroll» en acció</phrase>
+            </textobject>
+          </inlinemediaobject>
+        </para>
+      </sect4>
+      <sect4 id="using-blurfilter">
+        <title
+>Suavitzar una fotografia</title>
+        <para
+>De vegades una imatge està massa nítida pels vostres propòsits. La solució consisteix en difuminar-la una mica: per sort difuminar una imatge és molt més fàcil que augmentar la nitidesa. Seleccioneu l'eina difuminat amb l'entrada de menú <menuchoice
+> <guimenu
+>Millora</guimenu
+> <guimenuitem
+>Difuminat</guimenuitem
+> </menuchoice
+> i experimenteu amb el nivell. La finestra de vista prèvia a la dreta del diàleg mostrarà l'efecte de l'operació sobre la vostra fotografia. </para>
+        <example>
+          <title
+>L'eina «Difuminat» en acció</title>
+          <screenshot>
+            <screeninfo
+>L'eina «Difuminat» en acció</screeninfo>
+            <mediaobject>
+              <imageobject>
+                <imagedata fileref="&path;editorblurplugin.png" format="PNG"/>
+              </imageobject>
+            </mediaobject>
+          </screenshot>
+        </example>
+      </sect4>
+  </sect3>
+  <sect3 id="restoration">
+    <sect3info>
+      <title
+>Restauració fotogràfica</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para>
+          <ulink url="http://cimg.sourceforge.net">
+            <inlinemediaobject>
+              <imageobject>
+                <imagedata fileref="&path;cimg-logo.png" format="PNG"/>
+              </imageobject>
+              <textobject>
+                <phrase
+>Logotip de cimg</phrase>
+              </textobject>
+            </inlinemediaobject>
+          </ulink>
+        </para>
+        <para
+>La <emphasis
+>restauració fotogràfica</emphasis
+> del &digikam; és sens dubte una de les eines més avançades per reduir els defectes de les fotografies. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introducció</title>
+    <para
+>Aquest fantàstic filtre de restauració és un nou desenvolupament que proporciona possibilitats inèdites en el domini públic per eliminar un munt de coses no desitjades de les vostres imatges. S'adapta molt bé per afrontar imatges degradades que pateixen de soroll gaussià, gra de pel·lícula, esgarrapades o defectes de compressió i degradacions locals que habitualment es troben en les imatges digitals (original o digitalitzada). El suavitzat succeeix al llarg de les curvatures de la imatge, preservant així el contingut significatiu d'una manera molt similar a com ho veuria l'ull humà. </para>
+    <para
+>El mateix algorisme es pot utilitzar per a la coloració i substitució de la textura, la qual està coberta per una altra eina (repintat). L'algorisme de restauració ha estat desenvolupat per l'equip d'imatge del laboratori GREC CNRS de Caen/França i forma part del <ulink url="http://cimg.sourceforge.net"
+>projecte CImg</ulink
+>. </para>
+    <sect4 id="using-restoration">
+      <title
+>Usar l'eina «Restauració»</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="r&path;estorationdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Diàleg «Restauració fotogràfica»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>L'eina ve amb diversos ajustaments preestablerts com a punts de partida i per simplificar la restauració. Els paràmetres per omissió disponibles són els següents: <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Cap</guilabel
+>: Utilitza els ajustaments de filtre per omissió més comuns sense optimitzar per a un propòsit determinat.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Reducció uniforme del soroll</guilabel
+>: Els ajustaments òptims per al soroll de la imatge, causats pels sensors de la càmera.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Reducció dels defectes del JPEG</guilabel
+>: La compressió JPEG no és perfecte, de fet, per alguns tipus d'imatges és tot el contrari. Com algorisme de compressió amb pèrdua, hi ha alguns «defectes» de compressió -petits detalls que apareixen a la imatge descomprimida-. Aquest ajust té per objecte corregir aquest problema.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Reducció de la textura</guilabel
+>: Optimitzat per eliminar defectes d'escaneig, digitalització o patrons de moaré.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Si voleu establir paràmetres de filtre per ajustos més fins, utilitzeu les pestanyes <guilabel
+>Configuració del suavitzat</guilabel
+> i <guilabel
+>Arranjament avançat</guilabel
+>:</para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationsettings1.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La configuració del suavitzat de la restauració</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Preservació dels detalls</guilabel
+> p [0, 100]: això controla la preservació de les curvatures (característiques). Un valor baix obliga a un suavitzat igual que el llarg de la imatge, mentre que valors més grans suavitzen preferentment les regions homogènies i deixen més nítids els detalls. Un valor de 0.9 també preservarà els detalls de manera que no es requereixi suavitzar després. Tingueu en compte que <guilabel
+>Preservació dels detalls</guilabel
+> sempre haurà de ser inferior a la <guilabel
+>Anisotropia</guilabel
+>.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Anisotropia</guilabel
+> alfa [0, 100]: un valor baix suavitza de la mateixa manera en totes les direccions, mentre que un valor proper a 1 suavitza en una sola direcció. Si teniu gra de pel·lícula o soroll de tipus CCD, un valor alt resultarà en un patró d'ona, mentre que pels defectes JPEG són adequats valors propers a 1. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Suavitzat</guilabel
+> [0, 500]: estableix el màxim factor de suavitzat general (quan p defineix el suavitzat relatiu). Ajusteu-lo d'acord amb el nivell de soroll.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Regularitat</guilabel
+> [0, 100]: aquest paràmetre es refereix a la uniformitat del suavitzat. Imagineu el procés de suavitzat com un pentinat de la imatge. Per tant, la regularitat es correspondria amb la mida de la pinta. Com més gran sigui aquest valor, més global serà fins i tot el suavitzat. Això és necessari quan hi ha present molt de soroll, ja que llavors és difícil d'estimar la geometria local. A més, si voleu aconseguir un efecte de turbulència a l'estil «Van Gogh», l'ajust recomanat és superior a 3.</para>
+          </listitem>
+          <listitem>
+            <para
+>Filtre <guilabel
+>Iteracions</guilabel
+>: nombre de vegades que s'aplicarà l'algorisme de difuminat. Normalment n'hi ha prou amb 1 o 2.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationsettings2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La configuració avançada de la restauració</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para>
+        <itemizedlist>
+          <listitem>
+            <para
+><guilabel
+>Pas angular</guilabel
+> da [5, 90]: la integració angular de l'anisotropia alfa. Si alfa és baixa, també el «de» haurà se ser baixat. Però compte, els angles petits resulten en grans càlculs! Trieu el més gran que pugueu acceptar. </para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Pas Integral</guilabel
+> [0.1, 10]: amplada del pas d'integració espacial en termes de píxels. Haurà de romandre en menys que 1 (suavitzat sub-píxel) i mai més gran que 2.</para>
+          </listitem>
+          <listitem>
+            <para
+><guilabel
+>Usa interpolació lineal</guilabel
+>: El guany en qualitat si se selecciona aquesta opció només serà marginal i es perdrà un factor de 2 en velocitat. La nostra recomanació és deixar-lo desactivat.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para
+>Els botons <guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+> s'utilitzen per realitzar les accions que descriuen. Qualsevol ajustament a la restauració fotogràfica que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. </para>
+      <warning>
+        <para
+>La restauració fotogràfica és (en termes comparatius) molt ràpida en el que fa, però pot prendre molt de temps a executar-se i això causa una càrrega de la CPU. Sempre podreu cancel·lar el càlcul prement el botó <guilabel
+>Cancel·la</guilabel
+> durant la renderització de la vista prèvia. </para>
+      </warning>
+    </sect4>
+    <sect4 id="inaction-restoration">
+      <title
+>L'eina «Restauració» en acció</title>
+      <para
+>A continuació, podeu veure un tipus de restauració <guilabel
+>Reducció uniforme del soroll</guilabel
+> aplicat a una fotografia en blanc i negre presa amb una càmera Minolta(tm) 700Si utilitzant una pel·lícula Ilford(tm) HP-5 amb una sensibilitat ISO de 3200. Veieu un gra de pel·lícula molt prominent en els rostres. La imatge original és (1), la imatge corregida és (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Vista prèvia de «Restauració: Reducció uniforme del soroll»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>A continuació, es pot veure un altre exemple de restauració fotogràfica utilitzant el tipus de restauració <guilabel
+>Reducció de la textura</guilabel
+> aplicat a una vella fotografia en color adquirida amb un escàner digital pla. Veieu els defectes molt importants resultants de la llum de l'escàner sobre paper fotogràfic plastificat. La imatge original és (1), la imatge corregida és (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;restorationpreview2.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Vista prèvia de «Restauració: Reducció de la textura»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="hotpixels">
+    <sect3info>
+      <title
+>Correcció dels píxels cremats</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Unai</firstname
+> <surname
+>Garro</surname
+> <affiliation
+> <address
+> <email
+>ugarro at telefonica dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>L'eina <emphasis
+>píxels cremats</emphasis
+> del &digikam; facilita l'eliminació dels píxels cremats de les fotografies preses amb una càmera CCD. Utilitza algoritmes del projecte JPEGPixi, els quals són copyright d'en Martin Dickopp. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>digiKam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introducció</title>
+    <para
+>Les càmeres digitals més actuals presenten imatges amb diversos colors brillants «píxels defectuosos» quan s'utilitzen velocitats d'obturació lentes. Amb aquests «píxels defectuosos» es poden arruïnar les imatges nocturnes. Hi ha tres tipus diferents de «píxels defectuosos»: <itemizedlist
+> <listitem
+> <para
+>Píxels blocats: són els píxels que sempre es llegeixen en un valor alt o que sempre estan a la màxima potència en totes les exposicions. Això produeix un píxel brillant generalment de color vermell, blau o verd en la imatge final. Un píxel blocat apareixerà independentment de la velocitat d'obturació, mida de l'obertura o qualsevol altra ajustament de l'usuari. Apareixerà en una exposició normal i tendeix a ser més evident en condicions de molta llum.</para
+> </listitem
+> <listitem
+> <para
+>Píxels morts: són els píxels que indiquen zero o que sempre estan apagats en totes les exposicions. Aquest estat produeix un píxel negre en la imatge final. Similar a un píxel blocat, un píxel mort apareixerà independentment de la velocitat d'obturació, mida de l'obertura o qualsevol altra ajustament de l'usuari.</para
+> </listitem
+> <listitem
+> <para
+>Píxels cremats: són els píxels que llegeixen valors alts (brillant) en exposicions més llargues com el color blanc, vermell o verd. Com més gran sigui el temps d'exposició, els píxels calents seran més visibles. Aquests píxels no són visibles en condicions de molta llum.</para
+> </listitem
+> </itemizedlist
+> Tingueu en compte que es produiran píxels blocats o morts en el mateix lloc en totes les imatges. Si la ubicació del píxel blocat o mort es produeix en diferents llocs, podria ser un píxel cremat. </para>
+    <para
+>Els píxels blocats, morts o cremats són un problema en particular, quan es dispara en mode d'alta qualitat RAW ja que moltes càmeres tenen una funció automàtica per a l'eliminació del píxel cremat quan s'utilitza la compressió JPEG (el que passa en la majoria dels casos). </para>
+    <para
+>Aquesta eina es pot utilitzar per a corregir els «píxels cremats» i «píxels blocats» sobre una fotografia utilitzant un mètode de sostracció per marc negre. Encara no hi ha un editor manual per a seleccionar els píxels defectuosos. </para>
+    <sect4 id="using-blackframecreation">
+      <title
+>Crear els marcs negres</title>
+      <para
+>El mètode de sostracció per marc negre és el més precís per eliminar els «píxels cremats» i els «píxels blocats». Primer haureu de crear un «marc negre» com a referència. Això és fàcil de fer. Quan acabeu de prendre llargues exposicions, poseu una tapa a la lent de la càmera i prendreu una imatge «fosca» amb el mateix temps d'exposició que les anteriors imatges. Aquesta imatge serà tota fosca, però amb examen minuciós veureu que té els píxels cremats i blocats (punts de colors). Aquests estan ubicats en els mateixos llocs que en les anteriors fotografies. </para>
+      <para
+>Carregueu aquest fitxer a l'estri utilitzant el botó <guilabel
+>Marc negre</guilabel
+>. L'eina processarà una detecció automàtica dels píxels cremats i blocats. Aquests seran ressaltats en les àrees de vista prèvia del plafó de control. </para>
+      <warning>
+        <para
+>Si utilitzeu una vella càmera digital, és important tornar a disparar el marc negre la propera vegada que esteu prenent una llarga exposició d'imatges per a detectar nous píxels cremats i blocats en els defectes del CCD. </para>
+      </warning>
+    </sect4>
+    <sect4 id="using-hotpixels">
+      <title
+>Usar l'eina «Píxels cremats»</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;hotpixelsdialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>El diàleg de «Píxels cremats»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>En primer lloc, com s'ha explicat a la secció anterior, cal carregar un marc negre corresponent a la imatge a corregir. Una anàlisi automàtic processarà el marc negre per trobar els píxels defectuosos. Tingueu en compte que l'estri recordarà el marc negre anterior utilitzat en l'última sessió i el tornarà a obrir automàticament amb la propera sessió. </para>
+      <para
+>El plafó d'imatge i la vista prèvia original us ajudaran a desplaçar dins de la imatge. La finestra de vista prèvia mostrarà la sortida del filtre utilitzant els ajustaments actuals. Els píxels defectuosos es ressalten en totes les àrees de vista prèvia. </para>
+      <para
+>Seleccioneu una àrea de la vista prèvia per veure els píxels defectuosos i el resultat del filtre utilitzant les opcions «Vista separada» del plafó d'imatges. Escolliu el millor mètode de <guilabel
+>Filtre</guilabel
+> per a interpolar els píxels o píxels blocats. Aquests són els filtres disponibles: <itemizedlist>
+          <listitem>
+            <para
+>Mitjana: els píxels adjacents al bloc de píxels faran la mitjana. El color resultant s'assignarà a tots els píxels en el bloc. Per a la interpolació dimensional, això es realitza separadament per a una franja de píxels en amplada, horitzontals o verticals.</para>
+          </listitem>
+          <listitem>
+            <para
+>Lineal: els píxels que tenen una distància d'1 des del bloc de píxels s'utilitzen per a calcular una superfície bilineal (2 dimensions), o un grup de corbes lineals (1 dimensió), que després s'utilitzaran per assignar colors interpolats als píxels en el bloc.</para>
+          </listitem>
+          <listitem>
+            <para
+>Quadràtic: aquest és el mètode de filtrat per omissió. Els píxels que tenen una distància de 2 des del bloc de píxels s'utilitzen per a calcular una superfície quadràtica bilineal (2 dimensions), o un grup de corbes quadràtiques lineals (1 dimensió), que després s'utilitzaran per assignar colors interpolats als píxels en el bloc.</para>
+          </listitem>
+          <listitem>
+            <para
+>Cúbic: els píxels que tenen una distància de 3 des del bloc de píxels s'utilitzen per a calcular una superfície cúbica bilineal (2 dimensions), o un grup de corbes cúbiques lineals (1 dimensió), que després s'utilitzaran per assignar colors interpolats als píxels en el bloc.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+    </sect4>
+    <sect4 id="inaction-hotpixels">
+      <title
+>L'eina «Píxels cremats» en acció</title>
+      <para
+>A continuació podeu veure l'eina per a la correcció de píxels cremats aplicada a una fotografia en color presa amb una càmera digital poc satisfactòria a una sensibilitat ISO de 200 amb una llarga exposició de la fotografia. La imatge original ampliada a 300% és (1), la imatge corregida és (2). </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;hotpixelspreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>La vista prèvia de «Correcció dels píxels»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="vignettingcorrection">
+    <sect3info>
+      <title
+>Corregir el vinyetatge</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>La <emphasis
+>correcció del vinyetatge</emphasis
+> del &digikam; és una eina per a corregir el vinyetatge de la imatge (subexposició a les cantonades). </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+        <keyword
+>Anti-vinyetatge</keyword>
+	<keyword
+>Afegir vinyetes</keyword>
+	<keyword
+>Correcció del vinyetatge</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introducció</title>
+    <para
+>Les lents de gran angular, especialment les utilitzades en la fotografia de format mitjà i gran, sovint no il·luminen de forma uniforme tot el pla del sensor. En canvi, el «vinyetatge» (ombra) de les vores i cantonades de la imatge, redueix substancialment la llum que arriba al sensor. Fins i tot els teleobjectius també poden mostrar vinyetes. </para>
+    <para
+>La solució tradicional per això és posar un «filtre central» a la lent. Aquest és un filtre de densitat neutra amb la màxima densitat a l'eix òptic de la lent, net a la perifèria, amb densitat variable inversament a la del vinyetatge de la lent. Un filtre central té molts avantatges: no només corregeix automàticament les imatges en tot el marc, ja que està fixada al davant de la lent, sinó que també compensa el vinyetatge fora del centre, que es produeix quan es mou la càmera aplicant l'ajust de perspectiva d'avió o de l'enfocament. </para>
+    <para
+>Però també hi ha desavantatges. Molts filtres centrals requereixen un factor d'ajust d'1.5 o 2 del diafragma, que al seu torn pot requerir una velocitat d'obturació tan lenta (a causa que les lents de gran angular, fins i tot amb filtres centrals, són les més utilitzades en les obertures de f/16 o més petites) que sostenir la càmera amb la mà és impossible i el difuminat del moviment es converteix en un problema quan es fotografien objectes en moviment. </para>
+    <para
+>Amb l'àmplia gamma d'exposició de les pel·lícules d'avui en dia i la profunditat de color (o escala de grisos) de les càmeres digitals o escàners de pel·lícula, és possible simular l'efecte d'un filtre central aplicant un equivalent a transformar una imatge RAW presa sense el filtre. Aquesta eina d'anti-vinyetatge aplica una transformació de filtre central a una imatge que empra un algoritme copyright d'en John Walker. </para>
+    <sect4 id="using-vignettingcorrection">
+      <title
+>Usar l'eina «Correcció del vinyetatge»</title>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;vignettingcorrectiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>El diàleg de «Correcció del vinyetatge»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Cinc controls lliscants que us permeten controlar el filtre de correcció del vinyetatge, i tres més per a corregir l'exposició de la imatge de destinació: </para>
+      <para
+><guilabel
+>Quantitat</guilabel
+>: aquesta opció controla el grau d'atenuació de la lluminositat pel filtre en el seu punt de màxima quantitat. La quantitat per omissió és de 2.0, la qual correspon a un filtre òptic amb una apertura del diafragma d'1 (o, per a cap coincidència, un factor de 2 en la lluminositat). Augmenteu la quantitat per a compensar un major grau de vinyetatge -reduir-la per menys-. </para>
+      <para
+><guilabel
+>Ploma</guilabel
+>: aquesta opció determina la velocitat a la qual decau la intensitat del filtre des del punt de màxima quantitat cap a les vores, expressat com un factor de potència. El valor per omissió d'1 produeix una reducció lineal en la quantitat de filtre amb la distància des del centre. Els factors de potència superiors a 1.0 provoquen un deteriorament més ràpid (per exemple, una potència de 2 causa que la quantitat disminueixi amb el quadrat de la distància des del centre) i fa que l'efecte del filtre es concentri a prop del centre. Les potències de menys d'1 dispersaran la quantitat del filtre cap a les vores, una potència de 0.5 causarà que la quantitat caigui com l'arrel quadrada de la distància des del centre. </para>
+      <para
+><guilabel
+>Radi</guilabel
+>: aquesta opció especifica el radi, com un múltiple de la mesura diagonal de la meitat de la imatge, en el qual la quantitat del filtre cau a zero (o, en altres paraules, es converteix en transparent). El valor per omissió d'1.0 especifica un filtre que és transparent a les cantonades. Una especificació de radi més gran que 1 estén l'efecte del filtre central més enllà de les vores de la imatge, mentre que un radi de menys d'1 limita l'acció del filtre a una regió més petita de la imatge. Per a compensar el vinyetatge de la lent utilitzat en càmeres de gran format i algunes de format mitjà, el factor de radi per omissió d'1 rares vegades és correcte! Aquestes lents sovint «cobreixen» un cercle d'imatge substancialment més gran que la pel·lícula per permetre moviments de la càmera per a controlar la perspectiva i l'enfocament, i en conseqüència tenir un patró de vinyetatge que s'estén molt més enllà de les vores de la pel·lícula, el que requereix la creació d'un radi més gran que 1 per a simular un filtre central que comprengui tot el cercle de la imatge. </para>
+      <para
+>L'única manera d'estar segur que l'ajust de <guilabel
+>Quantitat</guilabel
+>, <guilabel
+>Ploma</guilabel
+> i <guilabel
+>Radi</guilabel
+> compensen millor les característiques òptiques reals d'una lent donada exposant una escena il·luminada de manera uniforme (per exemple, una targeta grisa il·luminada per llum difusa) i que realitza la densitometria sobre la imatge resultant (per exemple, amb l'eina Ajust nivells i la seva barra de posició de l'histograma). Si això no funciona, o les especificacions per part del fabricant de la lent dóna la mesura exacta del vinyetatge a una o més obertures de treball, possiblement haureu d'experimentar amb diferents ajustaments per trobar els que funcionen millor per a cadascuna de les vostres lents. Per ajudar-vos en aquesta tasca, el diàleg de l'estri proporciona la representació en miniatura d'una màscara aplicada sobre la imatge. Afortunadament, la resposta de l'ull humà és logarítmica i no lineal, com la majoria de sensors d'imatge digital, pel que no hi ha necessitat de compensar el vinyetatge real per a crear imatges que els espectadors percebin com il·luminades de forma uniforme. </para>
+     <para
+>Ajustos <guilabel
+>Desplaçament X</guilabel
+> i <guilabel
+>Desplaçament Y</guilabel
+>: aquestes opcions mouen respectivament el centre del filtre de manera horitzontal o vertical fins a la vora de la imatge en el percentatge especificat. Un valor negatiu per al desplaçament X mourà el filtre a l'esquerra, mentre que un valor positiu el mourà cap a la dreta. Un valor negatiu per al desplaçament Y mourà el filtre amunt, i, finalment, un valor positiu el mourà cap avall. </para>
+      <para
+>Ajustos <guilabel
+>Brillantor</guilabel
+>, <guilabel
+>Contrast</guilabel
+> i <guilabel
+>Gamma</guilabel
+>: processant una imatge amb aquesta eina d'anti-vinyetatge redueix la lluminositat dels píxels. Haureu de tornar a ajustar l'exposició de la imatge de destinació amb aquestes opcions. Aquests controls lliscants només donen valors positius atès que només necessitareu augmentar aquests ajustos. </para>
+	<para
+><guilabel
+>Afegeix vinyetatge</guilabel
+>: moltes fotografies semblen poc interessants perquè tenen un fons que distreu a la gent o per un defecte en la composició. Encara que la majoria de les vegades voldreu eliminar el vinyetatge, és un fet que un vinyetatge selectiu podria millorar la llegibilitat d'una fotografia i dibuixar als ulls el subjecte pretès. Com a artista podeu triar aquesta opció, marcant la casella que invertirà el filtre per a que les cantonades de la fotografia s'enfosqueixin. </para>
+      <note>
+        <para
+>Si voleu una exposició més precisa de la imatge de destinació, deixeu els valors de Brillantor/Contrast/Gamma a zero i utilitzeu l'eina ajust de corbes de l'editor d'imatges, disponibles en el menú <menuchoice
+> <guimenu
+>Color</guimenu
+> <guimenuitem
+>Ajust de corbes</guimenuitem
+> </menuchoice
+>. </para>
+      </note>
+    </sect4>
+    <sect4 id="inaction-vignettingcorrection">
+      <title
+>L'eina «Correcció del vinyetatge» en acció</title>
+      <para
+>Aquest és un exemple d'una correcció d'anti-vinyetatge aplicada a una imatge. La imatge original (1) mostra el vinyetatge a les cantonades, la imatge corregida (2) molt menys. També s'aplica una correcció de brillantor i contrast a la imatge de destinació mitjançant aquesta eina. </para>
+      <para
+>Els valors utilitzats per a aquest exemple són: <itemizedlist>
+          <listitem>
+            <para
+>Densitat = 2.6.</para>
+          </listitem>
+          <listitem>
+            <para
+>Potència = 0.9.</para>
+          </listitem>
+          <listitem>
+            <para
+>Radi = 1.1.</para>
+          </listitem>
+          <listitem>
+            <para
+>Brillantor = 20.</para>
+          </listitem>
+          <listitem>
+            <para
+>Contrast = 50.</para>
+          </listitem>
+          <listitem>
+            <para
+>Gamma = 20.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;antivignettingpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>El diàleg de «Correcció del vinyetatge» de l'editor d'imatges en acció</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+  <sect3 id="lensdistortion">
+    <sect3info>
+      <title
+>Corregir la distorsió de la lent</title>
+      <authorgroup>
+        <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+> <address
+> <email
+>caulier_dot_gilles_at_gmail_dot_com</email>
+            </address>
+          </affiliation>
+        </author>
+        <author
+><firstname
+>Gerhard</firstname
+> <surname
+>Kulzer</surname
+> <affiliation
+> <address
+> <email
+>gerhard at kulzer dot net</email>
+            </address>
+          </affiliation>
+        </author>
+      </authorgroup>
+      <abstract>
+        <para
+>La <emphasis
+>distorsió de la lent</emphasis
+> del &digikam; és una eina per a corregir les aberracions de la lent esfèriques a les fotografies. Utilitza un algoritme copyright d'en David Hodson. </para>
+      </abstract>
+      <keywordset>
+        <keyword
+>KDE</keyword>
+        <keyword
+>Digikam</keyword>
+      </keywordset>
+    </sect3info>
+    <title
+>Introducció</title>
+    <anchor id="lensdistortion.anchor"/>
+    <para
+>La <emphasis
+>distorsió de barril</emphasis
+> està associada amb lents de gran angular (o zoom mínim). Causa que les imatges apareguin lleugerament esfèriques (corbada cap a fora) com un barril. Ho podeu notar quan tingueu característiques rectes prop de parts perifèriques de la imatge. La <emphasis
+>distorsió de coixinet</emphasis
+> és el defecte contrari i s'associa amb les lents de telescopi (zoom màxim) o imatges submarines. Les imatges apareixen pessigades (doblegada cap a dins) cap al centre. L'efecte de coixinet sovint és menys visible que el de barril, però són igualment visibles a prop de les vores. Aquestes distorsions es poden eliminar amb facilitat sense una pèrdua visible en la qualitat amb aquesta eina. </para>
+    <note>
+      <para
+>Aquesta eina tracta les distorsions geomètriques. Les aberracions cromàtiques no seran corregides per aquesta eina. </para>
+    </note>
+    <para
+>Les següents figures expliquen els principals tipus de distorsions geomètriques: <itemizedlist>
+        <listitem>
+          <para
+>(1): distorsió de coixinet.</para>
+        </listitem>
+        <listitem>
+          <para
+>(2): sense distorsió.</para>
+        </listitem>
+        <listitem>
+          <para
+>(3): distorsió de barril.</para>
+        </listitem>
+      </itemizedlist>
+    </para>
+    <para>
+      <inlinemediaobject>
+        <imageobject>
+          <imagedata fileref="&path;distortions.png" format="PNG"/>
+        </imageobject>
+        <textobject>
+          <phrase
+>Tipus de distorsió de la lent</phrase>
+        </textobject>
+      </inlinemediaobject>
+    </para>
+    <para/>
+    <sect4 id="using-lensdistortion">
+      <title
+>Usar l'eina «Distorsió de la lent»</title>
+      <note>
+        <para
+>Primer, algunes explicacions. Les correccions geomètriques utilitzen coeficients dels polinomis de quart ordre. <itemizedlist>
+            <listitem>
+              <para
+>El coeficient de primer ordre canvia la mida de la imatge. L'eina ho anomena <guilabel
+>Zoom</guilabel
+>.</para>
+            </listitem>
+            <listitem>
+              <para
+>El coeficient de segon ordre tracta la distorsió geomètrica principal de les lents i pot corregir la forma convexa o còncava de la imatge.</para>
+            </listitem>
+            <listitem>
+              <para
+>El coeficient de tercer ordre té un efecte d'arrodoniment similar, però s'anivella cap a les vores. Aquesta correcció no s'empra en l'eina.</para>
+            </listitem>
+            <listitem>
+              <para
+>El coeficient de quart ordre corregeix les vores llunyanes inversament a l'arrodoniment de segon ordre. Combinat amb la correcció de segon ordre, les distorsions geomètriques es poden eliminat gairebé per complet.</para>
+            </listitem>
+          </itemizedlist>
+        </para>
+      </note>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;lensdistortiondialog.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>El diàleg de «Correcció de la distorsió de la lent»</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+      <para
+>Quatre controls lliscants us permeten ajustar el filtre de correcció de la distorsió: </para>
+      <para
+><guilabel
+>Principal</guilabel
+>: Aquest valor controla la quantitat de distorsió de segon ordre. Els valors negatius corregeixen la distorsió de barril, mentre que els positius corregeixen la distorsió de coixí. </para>
+      <para
+><guilabel
+>Límit</guilabel
+>: aquest valor controla la quantitat de distorsió de quart ordre. Controla que té més efecte en les vores de la imatge que al centre. Per a la majoria de les lents, el paràmetre <guilabel
+>Límit</guilabel
+> té el signe oposat del paràmetre <guilabel
+>Principal</guilabel
+>. </para>
+      <para
+><guilabel
+>Zoom</guilabel
+>: aquest valor reescala la mida de tota la imatge (correcció de primer ordre). Els valors negatius allunyen de la imatge, mentre que els valors positius la fan més gran. </para>
+      <para
+><guilabel
+>Brillantor</guilabel
+>: aquest control ajusta la brillantor a les cantonades de la imatge. Els valors negatius disminueixen la brillantor a les cantonades de la imatge, mentre que els valors positius l'augmentaran. </para>
+      <para
+>Per ajudar-vos a triar els millors ajustos pels filtres, el diàleg de l'estri il·lustra amb una vista prèvia en miniatura la correcció de la distorsió aplicada a un patró de malla creuada. Els valors que apliqueu a la imatge es desaran i tornaran a aparèixer com per omissió la propera vegada que crideu a l'eina. </para>
+      <note>
+        <para
+>La correcció de barril/coixinet s'ha de fer abans de qualsevol retall o canvi de mida (inclosa la correcció de perspectiva). De fet, les correccions barril/coixinet hauran de ser el primer pas sobre la imatge original. Si retalleu la imatge i després utilitzeu la correcció de barril, l'efecte seria òbviament erroni. </para>
+      </note>
+      <para
+>Per ajudar-vos a trobar la millor correcció, l'eina proporciona una guia vertical i horitzontal. Moveu el cursor del ratolí en la imatge de vista prèvia per mostrar la guia de línies de punts. Moveu el cursor a un lloc important en la imatge com el nivell del mar o prop d'un edifici i premeu el &BER; per a congelar la posició de les línies de punts. Ara, ajusteu la correcció de barril/coixinet per alinear-se amb la guia. </para>
+      <para
+>Quan s'utilitza la correcció de coixinet la imatge resultant tindrà una vora negra a la cantonada. Haureu de tallar-la amb una eina d'escapçat disponible al menú <menuchoice
+> <guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Escapça</guimenuitem
+> </menuchoice
+> de l'editor d'imatges o mitjançant el control lliscant de zoom d'aquest diàleg. </para>
+      <para
+>En la majoria de les imatges utilitzar la correcció de barril és suficient, però, amb algunes fotografies com imatges frontals, marcs, quadres, el següent pas lògic és utilitzar la correcció de la perspectiva per fer tots els angles de 90 graus. Tingueu en compte que quan sosteniu la vostra càmera amb la mà gairebé sempre es presentarà una mena de distorsió lleu de la perspectiva. </para>
+    </sect4>
+    <sect4 id="inaction-lensdistortion">
+      <title
+>L'eina «Distorsió de la lent» en acció</title>
+      <para
+>Aquest és un exemple d'una correcció barril aplicada a l'església al nord de Noruega. La imatge original és (1), la imatge corregida és (2). </para>
+      <para
+>Els valors utilitzats per a aquest exemple són: <itemizedlist>
+          <listitem>
+            <para
+>Principal = -40.</para>
+          </listitem>
+          <listitem>
+            <para
+>Vora = 0.</para>
+          </listitem>
+          <listitem>
+            <para
+>Zoom = -20.</para>
+          </listitem>
+          <listitem>
+            <para
+>Brillantor = 0.</para>
+          </listitem>
+        </itemizedlist>
+      </para>
+      <para>
+        <inlinemediaobject>
+          <imageobject>
+            <imagedata fileref="&path;lensdistortionpreview.png" format="PNG"/>
+          </imageobject>
+          <textobject>
+            <phrase
+>Vista prèvia per a la correcció de la distorsió de la lent</phrase>
+          </textobject>
+        </inlinemediaobject>
+      </para>
+    </sect4>
+  </sect3>
+</sect2>

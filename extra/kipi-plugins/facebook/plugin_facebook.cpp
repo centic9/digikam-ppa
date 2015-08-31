@@ -54,7 +54,6 @@ extern "C"
 // Local includes
 
 #include "fbwindow.h"
-#include "facebookjob.h"
 
 namespace KIPIFacebookPlugin
 {
@@ -158,12 +157,6 @@ void Plugin_Facebook::slotImport()
     }
 
     m_dlgImport->show();
-}
-
-KJob* Plugin_Facebook::exportFiles(const QString& album)
-{
-    Interface* const interface = dynamic_cast<Interface*>(parent());
-    return new FacebookJob(album, interface->currentSelection().images());
 }
 
 } // namespace KIPIFacebookPlugin

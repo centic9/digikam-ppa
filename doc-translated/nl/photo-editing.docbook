@@ -9,74 +9,74 @@
 >              <title
 >Een standaard voorstel voor workflow</title>
       <para
->When performing a basic workflow, the primary areas for consideration are: <orderedlist
+>Bij het uitvoeren van de basis bewerkingen dient u in de eerste plaats te denken aan de volgende aspecten:<orderedlist
 > <listitem
 ><para
->Exposure: <link linkend="whitebalance"
->White Balance</link
+>Belichting: <link linkend="whitebalance"
+>Witbalans</link
 ></para
 ></listitem
 > <listitem
 ><para
->Color: <link linkend="whitebalance"
->White Balance</link
+>Kleur: <link linkend="whitebalance"
+>Wit Balans</link
 ></para
 ></listitem
 > <listitem
 ><para
->Black and white points: <link linkend="whitebalance"
->White Balance</link
-> or <link linkend="adjustlevels"
->Adjust Levels</link
+>Zwart- en witpunten: <link linkend="whitebalance"
+>Witbalans</link
+> of <link linkend="adjustlevels"
+>Aanpassen niveaus</link
 ></para
 ></listitem
 > <listitem
 ><para
 >Contrast: <link linkend="adjustcurves"
->Adjust Curves</link
+>Krommen wijzigen</link
 ></para
 ></listitem
 > <listitem
 ><para
->Saturation: <link linkend="whitebalance"
->White Balance</link
-> or <link linkend="coloreffects"
->Vivid</link
-> or <link linkend="using-correctingcolor"
->Hue/Saturation/Lightness</link
+>Verzadiging: <link linkend="whitebalance"
+>Witbalans</link
+> of <link linkend="coloreffects"
+>Levendig</link
+> of <link linkend="using-correctingcolor"
+>Tint/Verzadiging/Helderheid</link
 ></para
 ></listitem
 > <listitem
 ><para
->Resizing (interpolation) : <link linkend="resize"
->Change Size</link
+>Wijzigen bestandsgrootte (interpolatie) : <link linkend="resize"
+>Wijzig grootte</link
 ></para
 ></listitem
 > <listitem
 ><para
 ><link linkend="sharpening"
->Sharpening</link
+>Verscherpen </link
 ></para
 ></listitem
 > <listitem
 ><para
 ><ulink url="help:/digikam/inedex.html#dam"
->Digital Asset Management</ulink
-> (applying tags, captions, rating, geolocation, save under new name)</para
+>Digitaal eigendomsbeheer</ulink
+> (toekennen van tags, opschriften, waardering, geolocatie, opslaan met nieuwe naam)</para
 ></listitem
 > </orderedlist
-> We recommend this sequence of image editing steps to ensure optimum photographic quality for the end product. In particular, never do sharpening before the last step. And we recommend using a lossless format like PNG or TIFF for storing photographs. Otherwise you'll lose a bit every time you save the results. If you can afford it, use 16 bit/channel for your best shots. If you want to change color space, in particular if you want to work in CIEL*a*b, 16 bit per channel are required to avoid truncation effects. </para>
+> Wij adviseren deze volgorde van bewerken om de optimale fotografische kwaliteit voor het eindproduct te verkrijgen. Voer nooit verscherpen uit vóór de laatste bewerking. En we adviseren een verliesloos formaat zoals PNG of TIFF voor het opslaan van foto's. Anders verliest u bij elke keer opslaan een beetje van de kwaliteit. Als u de ruimte heeft, gebruik dan 16 bits/kanaal voor uw beste opnamen. Als u van kleurruimte wilt veranderen, speciaal als u in CIEL*a*b wilt werken, dan is 16 bit per kanaal vereist om afrondingseffecten te voorkomen.  </para>
         <para
->If you swap step 4 and 5, which is well possible if the initial contrast is already very good, you can do the first 4 adjustment in the same plugin, the white balance</para>
+>Als u stap 4 en 5 wilt omwisselen, dat is goed mogelijk als het originele contrast al heel goed is, dan kunt u de eerste 4 wijzigingen doen in dezelfde plug-in, de witbalans.</para>
         <para
->Many of the tools you may need for photographic editing are included with &digikam;. Their description follows here. </para>
+>Veel van de hulpmiddelen die u nodig heeft bij fotobewerking zitten in &digikam;. Hun beschrijving volgt hier:  </para>
     </sect3>
 
     <sect3
 >      <title
 >Inleiding tot algemene mogelijkheden van bewerkingshulpmiddelen</title>
       <para
->All Image Editor tools like Sharpen, Blur, Noise Reduction, Refocus, Unsharp Mask, &etc; use a common dialog style that previews the effect before applying the filter to the current image. Below you see the &quot;Apply Texture&quot; tool in action using this common dialog layout: </para>
+>Alle bewerkingshulpmiddelen zoals verscherpen, doezelen, ruisreductie, opnieuw focussen, masker voor onscherpte &etc; gebruiken een gemeenschappelijke dialoogstijl die het effect als voorbeeld toont voordat het filter wordt toegepast op de huidige afbeelding. Hieronder ziet u het hulpmiddel &quot;Pas textuur toe&quot; in actie met gebruik van de gemeenschappelijke dialoogvorm: </para>
 
       <example>
         <title
@@ -105,27 +105,27 @@
 >             </listitem>
                 <listitem>
                   <para
->Split vertically without duplication. The left area shows the original whereas the right side shows the filter applied to the continuation of the selected zoom.</para>
+>Verticaal splitsen zonder doublures. Het linker deel toont het origineel terwijl de rechterzijde het filter toont, toegepast op de voortzetting van het geselecteerde zoomgebied.</para>
                 </listitem>
                 <listitem>
                   <para
->Split horizontally without duplication. The top area shows the original whereas the lower area shows the filter applied to the continuation of the selected zoom.</para>
+>Horizontaal splitsen zonder doublures. Het bovenste gebied toont het origineel terwijl op het onderste deel het filter is toegepast op de voortzetting van het geselecteerde zoomgebied. </para>
                 </listitem>
                 <listitem>
                   <para
->Split vertically. The left area shows the original and the right one the filter effect for comparison.</para>
+>Verticaal splitsen. Het linker gebied geeft het origineel en het rechter het filtereffect ter vergelijking.</para>
                 </listitem>
                 <listitem>
                   <para
->Split horizontally. The top area shows the original and the lower one the filter effect for comparison.</para>
+>Horizontaal splitsen. Het bovenste gedeelte toont het origineel en het onderste het filtereffect ter vergelijking.</para>
                 </listitem>
                 <listitem>
                   <para
->Effect preview. This is a live effect preview without comparison.</para>
+>Effectvoorbeeld. Dit is een live-effect voorbeeld zonder vergelijking.</para>
                 </listitem>
                 <listitem>
                   <para
->'Mouse over' style: preview when mouse is off the preview (in the settings area), otherwise shows original.</para>
+>Stijl 'muis boven' stijl: voorbeeld wordt getoond wanneer de muis buiten het hoofdvenster is (in het instellingengebied), anders wordt het origineel weergegeven.</para>
                 </listitem>
               </itemizedlist>
             </para>
@@ -134,27 +134,27 @@
             <para
 ><emphasis
 >(2)</emphasis
->: There are two buttons that can be toggled to show over or underexposure. The colors can be customized in the <link linkend="setupdialog.anchor"
->general setup page</link
+>: Er zijn twee knoppen die omgeschakeld kunnen worden om over- of onderbelichting te tonen. De gewenste kleuren kunnen worden aangepast in de <link linkend="setupdialog.anchor"
+>Algemene instellingenpagina</link
 >.</para>
           </listitem>
           <listitem>
             <para
 ><emphasis
 >(3)</emphasis
->: The preview selector frame. Click and drag with the mouse on the floating frame to move it on the image. The preview area on the left of dialog is updated accordingly.</para>
+>: Het voorbeeldselectievenster. Klik en sleep metde muis op het zwevende frame om het te verplaatsen naar de afbeelding. Het voorbeeldgebied links van venster wordt dienovereenkomstig aangepast.</para>
           </listitem>
           <listitem>
             <para
 ><emphasis
 >(4)</emphasis
->: The filter or plugin settings area.</para>
+>: het instellingsgebied van filter of plug-in.</para>
           </listitem>
           <listitem>
             <para
 ><emphasis
 >(5)</emphasis
->: At the lower left corner: there is help and a reset to defaults button (all settings are remembered from the last use of the plugin).</para>
+>: in de linker onderhoek: bevindt zich een hulp- en herstelknop naar de standaard instellingen (alle instellingen worden onthouden van de laatste instellingen van de plug-in).</para>
           </listitem>
           <listitem>
             <para
@@ -336,7 +336,7 @@
       <listitem
 ><para
 ><link linkend="sheartool"
->Shearing Tool</link
+>Hulpmiddel voor schuin trekken </link
 ></para
 ></listitem>
       </itemizedlist>
@@ -345,7 +345,7 @@
 
    <listitem
 ><para
->Image Decoration <itemizedlist>
+>Verfraaien van de afbeelding <itemizedlist>
       <listitem
 ><para
 ><link linkend="border"
@@ -376,53 +376,53 @@
 
    <listitem
 ><para
->Special Effect Filters <itemizedlist>
+>Filters voor speciale effecten <itemizedlist>
       <listitem
 ><para
 ><link linkend="infrared"
->Simulate Infrared Film.</link
+>Infraroodfilm simuleren.</link
 ></para
 ></listitem>
       <listitem
 ><para
 ><link linkend="filmgrain"
->Add Film Grain.</link
+>Filmkorrel aanbrengen.</link
 ></para
 ></listitem>
       <listitem
 ><para
 ><link linkend="oilpaint"
->Simulate Oil Painting</link
+>Olieverfschilderij simuleren</link
 ></para
 ></listitem>
       <listitem
 ><para
 ><link linkend="charcoal"
->Simulate Charcoal Drawing.</link
+>Houtskooltekening simuleren.</link
 ></para
 ></listitem>
       <listitem
 ><para
 ><link linkend="emboss"
->Emboss Photograph.</link
+>Breng reliëf aan in foto.</link
 ></para
 ></listitem>
       <listitem
 ><para
 ><link linkend="distortionfx"
->Distortion FX.</link
+>FX-vervorming.</link
 ></para
 ></listitem>
       <listitem
 ><para
 ><link linkend="blurfx"
->Blur FX.</link
+>FX-vervaging.</link
 ></para
 ></listitem>
       <listitem
 ><para
 ><link linkend="raindrops"
->Add Rain Drops</link
+>Regendruppels aanbrengen</link
 ></para
 ></listitem>
       </itemizedlist>
@@ -436,11 +436,11 @@
 
             <sect2 id="raw-workflow"
 >  <title
->Processing RAW image files, RAW work-flow</title>
+>RAW-afbeeldingsbestanden bewerken, RAW bewerkingsvolgorde</title>
             <anchor id="rawprocessing.anchor"/>
 
              <para
->A typical RAW workflow with &digikam; may follow these steps:</para>
+>Een typisch RAW bewerkingsvolgorde met &digikam; kan uit de volgende stappen bestaan:</para>
              <itemizedlist>
                <listitem
 ><para
@@ -462,8 +462,8 @@
 ></listitem>
                <listitem
 ><para
->Demosaicing (includes interpolation, noise filtering and <ulink url="help:/digikam/using-setup.html#CA.anchor"
->chromatic aberration correction</ulink
+>Mozaïek verwijderen (inclusief interpolatie, ruis filteren en <ulink url="help:/digikam/using-setup.html#CA.anchor"
+>chromatische aberratie corrigeren</ulink
 >) </para
 ></listitem>
                <listitem
@@ -480,7 +480,7 @@
 > </listitem>
                <listitem
 ><para
->Dynamic range expansion (optional)</para
+>Dynamisch bereik vergroten (optioneel)</para
 ></listitem>
                <listitem
 ><para
@@ -491,7 +491,7 @@
              </itemizedlist>
 
              <para
->From there everything is simple, select a RAW image and open it in the editor. The color management widget will be displayed after the image has been processed in order to adjust color rendering. Without color management all images are very dark, this is normal. You can experiment the various profiles you have in order to select the best input profile according to your image (some tends to be very neutral, even a bit dull, some gives more saturated results, &etc;). </para>
+>Vanaf daar is alles eenvoudig, selecteer een RAW-afbeelding en open het in de bewerker. Het widget voor kleurbeheer wordt weergegeven nadat de afbeelding is verwerkt om kleurweergave aan te passen. Zonder kleurbeheer zijn alle afbeeldingen erg donker, dit is normaal. U kunt experimenteren met de verschillende profielen die u hebt om het beste invoerprofiel voor uw afbeelding te selecteren (sommige zijn zeer neutraal, zelfs een beetje saai, sommigen geven wat meer verzadigde resultaten, &etc;). </para>
             </sect2>
 &doc-editor-color; &doc-editor-enhance; &doc-editor-transform; &doc-editor-decorate; &doc-editor-filters; </sect1>
 

@@ -1,0 +1,299 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Tommi Nieminen <translator@legisign.org>, 2014.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2015-05-28 16:58+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Tommi Nieminen"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "translator@legisign.org"
+
+#: albumchooserwidget.cpp:53
+msgctxt "@title:group Header above controls for managing albums"
+msgid "Album"
+msgstr "Albumi"
+
+#: albumchooserwidget.cpp:58
+msgid "This is the VKontakte album that will be used for the transfer."
+msgstr "Tämä on siirrossa käytettävä VKontakte-albumi."
+
+#: albumchooserwidget.cpp:64
+msgid "New Album"
+msgstr "Uusi albumi"
+
+#: albumchooserwidget.cpp:64
+msgid "Create new VKontakte album"
+msgstr "Luo uusi VKontakte-albumi"
+
+#: albumchooserwidget.cpp:65
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "Päivitä"
+
+#: albumchooserwidget.cpp:66
+msgid "Reload albums list"
+msgstr "Lataa albumiluettelo uudelleen"
+
+#: albumchooserwidget.cpp:69
+msgid "Edit selected album"
+msgstr "Muuta valittua albumia"
+
+#: albumchooserwidget.cpp:74
+msgid "Delete selected album"
+msgstr "Poista valittu albumi"
+
+#: albumchooserwidget.cpp:285
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
+"in it?</qt>"
+msgstr ""
+"<qt>Haluatko varmasti poistaa albumin <b>%1</b> kaikkine kuvineen?</qt>"
+
+#: albumchooserwidget.cpp:286
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Vahvista albumin poisto"
+
+#: albumchooserwidget.cpp:385
+msgid "Internal error: Null pointer to KJob instance."
+msgstr "Sisäinen virhe: Tyhjä osoitin KJob-instanttiin."
+
+#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+msgctxt "@title:window"
+msgid "Request to VKontakte failed"
+msgstr "VKontakte-pyyntö epäonnistui"
+
+#: authinfowidget.cpp:58
+msgid "Account"
+msgstr "Tili"
+
+#: authinfowidget.cpp:63
+msgid "This account is used for authentication."
+msgstr "Valtuutuksessa käytetään tätä tiliä."
+
+#: authinfowidget.cpp:67
+msgid "Name:"
+msgstr "Nimi:"
+
+#: authinfowidget.cpp:68
+msgid "Your VKontakte login"
+msgstr "VKontakte-tunnuksesi"
+
+#: authinfowidget.cpp:71
+msgid "Change Account"
+msgstr "Vaihda tiliä"
+
+#: authinfowidget.cpp:72
+msgid "Change VKontakte account used to authenticate"
+msgstr "Vaihda valtuutuksessa käytettävää VKontakte-tiliä"
+
+#: authinfowidget.cpp:133
+#, kde-format
+msgctxt "Concatenation of first name (%1) and last name (%2)"
+msgid "%1 %2"
+msgstr "%1 %2"
+
+#: authinfowidget.cpp:150
+msgid "Unauthorized"
+msgstr "Ei valtuutettu"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_vkontakteui.rc:7
+msgid "&Export"
+msgstr "&Vie"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_vkontakteui.rc:13
+msgid "Main Toolbar"
+msgstr "Päätyökalurivi"
+
+#: plugin_vkontakte.cpp:88
+msgid "Export to &VKontakte..."
+msgstr "&Vie VKontakteen…"
+
+#: vkalbumdialog.cpp:72
+msgctxt "@title:window"
+msgid "Edit album"
+msgstr "Muuta albumia"
+
+#: vkalbumdialog.cpp:73
+msgctxt "@title:window"
+msgid "New album"
+msgstr "Uusi albumi"
+
+#: vkalbumdialog.cpp:81
+msgctxt "@title:group Header above Title and Summary fields"
+msgid "Album"
+msgstr "Albumi"
+
+#: vkalbumdialog.cpp:82
+msgid "These are basic settings for the new VKontakte album."
+msgstr "Nämä ovat uuden VKontakte-albumin perusasetukset."
+
+#: vkalbumdialog.cpp:85
+msgid "Title of the album that will be created (required)."
+msgstr "Albumin nimi (pakollinen)"
+
+#: vkalbumdialog.cpp:88
+msgid "Description of the album that will be created (optional)."
+msgstr "Albumin kuvaus (valinnainen)"
+
+#: vkalbumdialog.cpp:92
+msgid "Title:"
+msgstr "Otsikko:"
+
+#: vkalbumdialog.cpp:93
+msgid "Summary:"
+msgstr "Yhteenveto:"
+
+#: vkalbumdialog.cpp:96
+msgid "Privacy Settings"
+msgstr "Yksityisyysasetukset"
+
+# *** TARKISTA: Sijamuoto perustuu oletukseen, että ”available to:” -kentät edeltävät
+#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+msgid "Only me"
+msgstr "Vain minulle"
+
+#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+msgid "My friends"
+msgstr "Kavereilleni"
+
+#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+msgid "Friends of my friends"
+msgstr "Kaverieni kavereille"
+
+#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+msgid "Everyone"
+msgstr "Kaikille:"
+
+#: vkalbumdialog.cpp:104
+msgid "Album available to:"
+msgstr "Albumi on saatavilla:"
+
+#: vkalbumdialog.cpp:112
+msgid "Comments available to:"
+msgstr "Kommentointi on käytössä:"
+
+#: vkalbumdialog.cpp:140
+msgid "Title cannot be empty."
+msgstr "Otsikko ei voi olla tyhjä."
+
+#: vkalbumdialog.cpp:141
+msgid "Error"
+msgstr "Virhe"
+
+#: vkwindow.cpp:108
+msgid "This is the list of images to upload to your VKontakte album."
+msgstr "Tämä on VKontakte-albumiisi lähetettävien kuvien luettelo."
+
+#: vkwindow.cpp:114
+msgid ""
+"This is a clickable link to open the VKontakte service in a web browser."
+msgstr "Tästä linkistä voi napsauttaa selaimeen auki VKontakte-palvelun."
+
+#: vkwindow.cpp:132
+msgid "Destination"
+msgstr "Kohde"
+
+#: vkwindow.cpp:133
+msgid "This is the location where VKontakte images will be downloaded."
+msgstr "Tämä on sijainti, jonne VKontakte-kuvasi ladataan."
+
+#: vkwindow.cpp:141
+msgid "Options"
+msgstr "Asetukset"
+
+#: vkwindow.cpp:142
+msgid "These are options that will be applied to images before upload."
+msgstr "Nämä valinnat koskevat kuvien muokkausta ennen lähetystä."
+
+#: vkwindow.cpp:180
+msgctxt "@title:window"
+msgid "Export to VKontakte Web Service"
+msgstr "Vie VKontakte-verkkopalveluun"
+
+#: vkwindow.cpp:182
+msgid "Start Upload"
+msgstr "Aloita lähetys"
+
+#: vkwindow.cpp:183
+msgid "Start upload to VKontakte service"
+msgstr "Aloita lähetys VKontakte-palveluun"
+
+#: vkwindow.cpp:194
+msgid "VKontakte Plugin"
+msgstr "VKontakte-liitännäinen"
+
+#: vkwindow.cpp:197
+msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgstr "Kipi-liitännäinen kuvakokoelmien viemiseksi VKontakte-verkkopalveluun."
+
+#: vkwindow.cpp:199
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+msgstr ""
+"© 2007–2009 Vardhman Jain\n"
+"© 2008–2013 Gilles Caulier\n"
+"© 2009 Luka Renko\n"
+"© 2010–2013 Roman Tsisyk\n"
+"© 2011–2013 Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Alexander Potashev"
+msgstr "Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Author"
+msgstr "Tekijä"
+
+#: vkwindow.cpp:275
+msgid "Close"
+msgstr "Sulje"
+
+#: vkwindow.cpp:276
+msgid "Close window"
+msgstr "Sulje ikkuna"
+
+#: vkwindow.cpp:283
+msgid "Cancel"
+msgstr "Peru"
+
+#: vkwindow.cpp:284
+msgid "Cancel current operation"
+msgstr "Peru nykyinen toiminto"
+
+#: vkwindow.cpp:383
+msgid "VKontakte"
+msgstr "VKontakte"
+
+#: vkwindow.cpp:401
+msgid "Please select album first."
+msgstr "Valitse albumi ensin."
+
+#: vkwindow.cpp:431
+msgid "Vkontakte Export"
+msgstr "VKontakte-vienti"

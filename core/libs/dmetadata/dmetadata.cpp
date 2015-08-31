@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : image metadata interface
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -279,6 +279,16 @@ CaptionsMap DMetadata::getImageComments() const
 
     if (hasXmp())
     {
+        if (authorsMap.isEmpty() && commonAuthor.isEmpty())
+        {
+            QString xmpAuthors = getXmpTagString("Xmp.acdsee.author", false);
+
+            if (!xmpAuthors.isEmpty())
+            {
+                authorsMap.insert(QString("x-default"), xmpAuthors);
+            }
+        }
+
         commentsMap = getXmpTagStringListLangAlt("Xmp.dc.description", false);
 
         if (!commentsMap.isEmpty())
@@ -297,6 +307,15 @@ CaptionsMap DMetadata::getImageComments() const
         }
 
         xmpComment = getXmpTagStringLangAlt("Xmp.tiff.ImageDescription", QString(), false);
+
+        if (!xmpComment.isEmpty())
+        {
+            commentsMap.insert(QString("x-default"), xmpComment);
+            captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
+            return captionsMap;
+        }
+
+        xmpComment = getXmpTagString("Xmp.acdsee.notes", false);
 
         if (!xmpComment.isEmpty())
         {
@@ -369,6 +388,17 @@ bool DMetadata::setImageComments(const CaptionsMap& comments) const
             return false;
         }
 
+        QString defaultAuthor  = comments.value("x-default").author;
+
+        removeXmpTag("Xmp.acdsee.author");
+        if (!defaultAuthor.isNull())
+        {
+            if (!setXmpTagString("Xmp.acdsee.author", defaultAuthor, false))
+            {
+                return false;
+            }
+        }
+
         if (!setXmpTagStringListLangAlt("Xmp.digiKam.CaptionsDateTimeStamps", comments.datesList(), false))
         {
             return false;
@@ -415,6 +445,15 @@ bool DMetadata::setImageComments(const CaptionsMap& comments) const
         if (!defaultComment.isNull())
         {
             if (!setXmpTagStringLangAlt("Xmp.tiff.ImageDescription", defaultComment, QString(), false))
+            {
+                return false;
+            }
+        }
+
+        removeXmpTag("Xmp.acdsee.notes");
+        if (!defaultComment.isEmpty())
+        {
+            if (!setXmpTagString("Xmp.acdsee.notes", defaultComment, false))
             {
                 return false;
             }
@@ -523,6 +562,14 @@ CaptionsMap DMetadata::getImageTitles() const
             captionsMap.setData(titlesMap, authorsMap, commonAuthor, datesMap);
             return captionsMap;
         }
+
+        QString xmpTitle = getXmpTagString("Xmp.acdsee.caption" ,false);
+        if (!xmpTitle.isEmpty() && !xmpTitle.trimmed().isEmpty())
+        {
+            titlesMap.insert(QString("x-default"), xmpTitle);
+            captionsMap.setData(titlesMap, authorsMap, commonAuthor, datesMap);
+            return captionsMap;
+        }
     }
 
     // We trying to get IPTC title
@@ -547,14 +594,24 @@ bool DMetadata::setImageTitles(const CaptionsMap& titles) const
 
     QString defaultTitle = titles[QString("x-default")].caption;
 
-
     // In First we write comments into XMP. Language Alternative rule is not yet used.
 
     if (supportXmp())
     {
         // NOTE : setXmpTagStringListLangAlt remove xmp tag before to add new values
         if (!setXmpTagStringListLangAlt("Xmp.dc.title", titles.toAltLangMap(), false))
+        {
             return false;
+        }
+
+        removeXmpTag("Xmp.acdsee.caption");
+        if (!defaultTitle.isEmpty())
+        {
+            if (!setXmpTagString("Xmp.acdsee.caption", defaultTitle, false))
+            {
+                return false;
+            }
+        }
     }
     // In Second we write comments into IPTC.
     // Note that Caption IPTC tag is limited to 64 char and ASCII charset.
@@ -598,6 +655,19 @@ int DMetadata::getImageRating() const
     if (hasXmp())
     {
         QString value = getXmpTagString("Xmp.xmp.Rating", false);
+
+        if (!value.isEmpty())
+        {
+            bool ok     = false;
+            long rating = value.toLong(&ok);
+
+            if (ok && rating >= RatingMin && rating <= RatingMax)
+            {
+                return rating;
+            }
+        }
+
+        value = getXmpTagString("Xmp.acdsee.rating", false);
 
         if (!value.isEmpty())
         {
@@ -811,6 +881,11 @@ bool DMetadata::setImageRating(int rating) const
     if (supportXmp())
     {
         if (!setXmpTagString("Xmp.xmp.Rating", QString::number(rating)))
+        {
+            return false;
+        }
+
+        if (!setXmpTagString("Xmp.acdsee.rating", QString::number(rating), false))
         {
             return false;
         }
@@ -1222,6 +1297,66 @@ bool DMetadata::getImageTagsPath(QStringList& tagsPath) const
         return true;
     }
 
+    // Try to get Tags Path list from Media Pro XMP first.
+    tagsPath = getXmpTagStringBag("Xmp.mediapro.CatalogSets", false);
+
+    // There is another Media Pro tag for hierarchical subjects.
+    if (tagsPath.isEmpty())
+    {
+        tagsPath = getXmpTagStringBag("Xmp.expressionmedia.CatalogSets", false);
+    }
+
+    if (!tagsPath.isEmpty())
+    {
+        // Media Pro Catalog Sets use '|' as separator.
+        tagsPath = tagsPath.replaceInStrings("|", "/");
+        kDebug() << "Tags Path imported from Media Pro: " << tagsPath;
+        return true;
+    }
+
+    // Try to get Tags Path list from ACDSee 8 Pro categories.
+    QString xmlACDSee = getXmpTagString("Xmp.acdsee.categories", false);
+    if (!xmlACDSee.isEmpty())
+    {
+        xmlACDSee.remove("</Categories>");
+        xmlACDSee.remove("<Categories>");
+        xmlACDSee.replace("/", "\\");
+
+        QStringList xmlTags = xmlACDSee.split("<Category Assigned");
+        int category        = 0;
+
+        foreach(const QString& tags, xmlTags)
+        {
+            if (!tags.isEmpty())
+            {
+                int count  = tags.count("<\\Category>");
+                int length = tags.length() - (11 * count) - 5;
+
+                if (category == 0)
+                {
+                    tagsPath << tags.mid(5, length);
+                }
+                else
+                {
+                    tagsPath.last().append(QString("/") + tags.mid(5, length));
+                }
+
+                category = category - count + 1;
+
+                if (tags.left(5) == QString("=\"1\">") && category > 0)
+                {
+                    tagsPath << tagsPath.last().section("/", 0, category - 1);
+                }
+            }
+        }
+
+        if (!tagsPath.isEmpty())
+        {
+            kDebug() << "Tags Path imported from ACDSee: " << tagsPath;
+            return true;
+        }
+    }
+
     // Try to get Tags Path list from XMP keywords.
     tagsPath = getXmpKeywords();
     if (!tagsPath.isEmpty())
@@ -1247,6 +1382,18 @@ bool DMetadata::getImageTagsPath(QStringList& tagsPath) const
         }
 
         return true;
+    }
+
+    // Try to get Tags Path list from Exif Windows keywords.
+    QString keyWords = getExifTagString("Exif.Image.XPKeywords", false);
+    if (!keyWords.isEmpty())
+    {
+        tagsPath = keyWords.split(";");
+
+        if (!tagsPath.isEmpty())
+        {
+            return true;
+        }
     }
 
     return false;
@@ -1278,6 +1425,73 @@ bool DMetadata::setImageTagsPath(const QStringList& tagsPath) const
         if (!setXmpTagStringBag("Xmp.lr.hierarchicalSubject", LRtagsPath))
         {
             return false;
+        }
+
+        QStringList MPtagsPath = tagsPath;
+        MPtagsPath             = MPtagsPath.replaceInStrings("/", "|");
+
+        if (!setXmpTagStringBag("Xmp.mediapro.CatalogSets", MPtagsPath))
+        {
+            return false;
+        }
+
+        // Converting Tags path list to ACDSee 8 Pro categories.
+        const QString category("<Category Assigned=\"%1\">");
+        QStringList splitTags;
+        QStringList xmlTags;
+
+        foreach(const QString& tags, tagsPath)
+        {
+            splitTags   = tags.split("/");
+            int current = 0;
+
+            for(int index = 0; index < splitTags.size(); index++)
+            {
+                int tagIndex = xmlTags.indexOf(category.arg(0) + splitTags[index]);
+
+                if (tagIndex == -1)
+                {
+                    tagIndex = xmlTags.indexOf(category.arg(1) + splitTags[index]);
+                }
+
+                splitTags[index].insert(0, category.arg(index == splitTags.size() - 1 ? 1 : 0));
+
+                if (tagIndex == -1)
+                {
+                    if (index == 0)
+                    {
+                        xmlTags << splitTags[index];
+                        xmlTags << QString("</Category>");
+                        current = xmlTags.size() - 1;
+                    }
+                    else
+                    {
+                        xmlTags.insert(current, splitTags[index]);
+                        xmlTags.insert(current + 1, QString("</Category>"));
+                        current++;
+                    }
+                }
+                else
+                {
+                    if (index == splitTags.size() - 1)
+                    {
+                        xmlTags[tagIndex] = splitTags[index];
+                    }
+
+                    current = tagIndex + 1;
+                }
+            }
+        }
+
+        QString xmlACDSee = QString("<Categories>") + xmlTags.join("") + QString("</Categories>");
+
+        removeXmpTag("Xmp.acdsee.categories");
+        if (!xmlTags.isEmpty())
+        {
+            if (!setXmpTagString("Xmp.acdsee.categories", xmlACDSee, false))
+            {
+                return false;
+            }
         }
     }
 
@@ -2169,14 +2383,16 @@ QVariant DMetadata::getMetadataField(MetadataInfo::Field field) const
             return fromIptcOrXmp("Iptc.Application2.Headline", "Xmp.photoshop.Headline");
         case MetadataInfo::Title:
         {
-            QVariant var = fromXmpLangAlt("Xmp.dc.title");
+            QString str = getImageTitles()[QString("x-default")].caption;
 
-            if (!var.isNull())
+            if (str.isEmpty())
             {
-                return var;
+                return QVariant(QVariant::Map);
             }
 
-            return fromIptcEmulateLangAlt("Iptc.Application2.ObjectName");
+            QMap<QString, QVariant> map;
+            map["x-default"] = str;
+            return map;
         }
         case MetadataInfo::DescriptionWriter:
             return fromIptcOrXmp("Iptc.Application2.Writer", "Xmp.photoshop.CaptionWriter");
@@ -2206,9 +2422,15 @@ QVariant DMetadata::getMetadataField(MetadataInfo::Field field) const
             return (int)getImageOrientation();
 
         case MetadataInfo::Make:
-            return fromExifOrXmp("Exif.Image.Make", "Xmp.tiff.Make");
+        {
+            QVariant var = fromExifOrXmp("Exif.Image.Make", "Xmp.tiff.Make");
+            return QVariant(var.toString().trimmed());
+        }
         case MetadataInfo::Model:
-            return fromExifOrXmp("Exif.Image.Model", "Xmp.tiff.Model");
+        {
+            QVariant var = fromExifOrXmp("Exif.Image.Model", "Xmp.tiff.Model");
+            return QVariant(var.toString().trimmed());
+        }
         case MetadataInfo::Lens:
             return getLensDescription();
         case MetadataInfo::Aperture:

@@ -1,0 +1,299 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Franklin Weng <franklin@goodhorse.idv.tw>, 2011, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2013-02-21 08:34+0800\n"
+"Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
+"Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Frank Weng (a.k.a. Franklin)"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "franklin@goodhorse.idv.tw"
+
+#: albumchooserwidget.cpp:53
+msgctxt "@title:group Header above controls for managing albums"
+msgid "Album"
+msgstr "相簿"
+
+#: albumchooserwidget.cpp:58
+msgid "This is the VKontakte album that will be used for the transfer."
+msgstr "這是您要用來傳輸的 Vkontakte 相簿。"
+
+#: albumchooserwidget.cpp:64
+msgid "New Album"
+msgstr "新增相簿"
+
+#: albumchooserwidget.cpp:64
+msgid "Create new VKontakte album"
+msgstr "建立新的 Vkontakte 相簿"
+
+#: albumchooserwidget.cpp:65
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "重新載入"
+
+#: albumchooserwidget.cpp:66
+msgid "Reload albums list"
+msgstr "重新載入相簿清單"
+
+#: albumchooserwidget.cpp:69
+msgid "Edit selected album"
+msgstr "編輯選取的相簿"
+
+#: albumchooserwidget.cpp:74
+msgid "Delete selected album"
+msgstr "刪除選取的相簿"
+
+#: albumchooserwidget.cpp:285
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
+"in it?</qt>"
+msgstr "<qt>您確定您要移除相簿 <b>%1</b> 以及所有在裡面的相片嗎？</qt>"
+
+#: albumchooserwidget.cpp:286
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "確認刪除相簿"
+
+#: albumchooserwidget.cpp:385
+msgid "Internal error: Null pointer to KJob instance."
+msgstr ""
+
+#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+msgctxt "@title:window"
+msgid "Request to VKontakte failed"
+msgstr "送給 Vkontakte 的請求失敗"
+
+#: authinfowidget.cpp:58
+msgid "Account"
+msgstr "帳號"
+
+#: authinfowidget.cpp:63
+msgid "This account is used for authentication."
+msgstr "用來認證的帳號。"
+
+#: authinfowidget.cpp:67
+msgid "Name:"
+msgstr "名稱："
+
+#: authinfowidget.cpp:68
+msgid "Your VKontakte login"
+msgstr "您的 Vkontakte 登入名稱"
+
+#: authinfowidget.cpp:71
+msgid "Change Account"
+msgstr "變更帳號"
+
+#: authinfowidget.cpp:72
+msgid "Change VKontakte account used to authenticate"
+msgstr "變更用來認證的 Vkontakte 帳號"
+
+#: authinfowidget.cpp:133
+#, kde-format
+msgctxt "Concatenation of first name (%1) and last name (%2)"
+msgid "%1 %2"
+msgstr ""
+
+#: authinfowidget.cpp:150
+msgid "Unauthorized"
+msgstr "未授權"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_vkontakteui.rc:7
+msgid "&Export"
+msgstr "匯出(&E)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_vkontakteui.rc:13
+msgid "Main Toolbar"
+msgstr "主工具列"
+
+#: plugin_vkontakte.cpp:88
+msgid "Export to &VKontakte..."
+msgstr "匯出到 Vkontakte (&V)..."
+
+#: vkalbumdialog.cpp:72
+msgctxt "@title:window"
+msgid "Edit album"
+msgstr "編輯相簿"
+
+#: vkalbumdialog.cpp:73
+msgctxt "@title:window"
+msgid "New album"
+msgstr "新增相簿"
+
+#: vkalbumdialog.cpp:81
+msgctxt "@title:group Header above Title and Summary fields"
+msgid "Album"
+msgstr "相簿"
+
+#: vkalbumdialog.cpp:82
+msgid "These are basic settings for the new VKontakte album."
+msgstr "這些是新的 Vkontakte 相簿的基本設定。"
+
+#: vkalbumdialog.cpp:85
+msgid "Title of the album that will be created (required)."
+msgstr "要建立的相簿的標題（必須填寫）。"
+
+#: vkalbumdialog.cpp:88
+msgid "Description of the album that will be created (optional)."
+msgstr "要建立的相簿的描述（可以不填寫）。"
+
+#: vkalbumdialog.cpp:92
+msgid "Title:"
+msgstr "標題："
+
+#: vkalbumdialog.cpp:93
+msgid "Summary:"
+msgstr "摘要："
+
+#: vkalbumdialog.cpp:96
+msgid "Privacy Settings"
+msgstr "隱私設定"
+
+#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+msgid "Only me"
+msgstr "只有我"
+
+#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+msgid "My friends"
+msgstr "我的朋友"
+
+#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+msgid "Friends of my friends"
+msgstr "我朋友的朋友"
+
+#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+msgid "Everyone"
+msgstr "所有人"
+
+#: vkalbumdialog.cpp:104
+msgid "Album available to:"
+msgstr "可觀看此相簿的人："
+
+#: vkalbumdialog.cpp:112
+msgid "Comments available to:"
+msgstr "可發表意見的人："
+
+#: vkalbumdialog.cpp:140
+msgid "Title cannot be empty."
+msgstr "標題不能是空的。"
+
+#: vkalbumdialog.cpp:141
+msgid "Error"
+msgstr "錯誤"
+
+#: vkwindow.cpp:108
+msgid "This is the list of images to upload to your VKontakte album."
+msgstr "這裡是您要上傳到您的 Vkontakte 相簿的影像清單。"
+
+#: vkwindow.cpp:114
+msgid ""
+"This is a clickable link to open the VKontakte service in a web browser."
+msgstr "這是您要在瀏覽器上開啟 Vkontakte 服務的連結。"
+
+#: vkwindow.cpp:132
+msgid "Destination"
+msgstr "目的地"
+
+#: vkwindow.cpp:133
+msgid "This is the location where VKontakte images will be downloaded."
+msgstr "要將 Vkontakte 影像下載到哪個位置。"
+
+#: vkwindow.cpp:141
+msgid "Options"
+msgstr "選項"
+
+#: vkwindow.cpp:142
+msgid "These are options that will be applied to images before upload."
+msgstr "這些是影像要上傳前先套用的選項。"
+
+#: vkwindow.cpp:180
+msgctxt "@title:window"
+msgid "Export to VKontakte Web Service"
+msgstr "匯出到 Vkontakte 網頁服務"
+
+#: vkwindow.cpp:182
+msgid "Start Upload"
+msgstr "開始上傳"
+
+#: vkwindow.cpp:183
+msgid "Start upload to VKontakte service"
+msgstr "開始上傳到 Vkontakte 服務"
+
+#: vkwindow.cpp:194
+msgid "VKontakte Plugin"
+msgstr "Vkontakte 外掛程式"
+
+#: vkwindow.cpp:197
+msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgstr "用來將影像收藏匯出到 Vkontakte 網頁服務的 Kipi 外掛程式。"
+
+#: vkwindow.cpp:199
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Alexander Potashev"
+msgstr "Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Author"
+msgstr "作者"
+
+#: vkwindow.cpp:275
+msgid "Close"
+msgstr "關閉"
+
+#: vkwindow.cpp:276
+msgid "Close window"
+msgstr "關閉視窗"
+
+#: vkwindow.cpp:283
+msgid "Cancel"
+msgstr "取消"
+
+#: vkwindow.cpp:284
+msgid "Cancel current operation"
+msgstr "取消目前的操作"
+
+#: vkwindow.cpp:383
+msgid "VKontakte"
+msgstr "VKontakte"
+
+#: vkwindow.cpp:401
+msgid "Please select album first."
+msgstr "請先選擇相簿。"
+
+#: vkwindow.cpp:431
+msgid "Vkontakte Export"
+msgstr "VKontakte 匯出"
+
+#~ msgid "Handbook"
+#~ msgstr "手冊"

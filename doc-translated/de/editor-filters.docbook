@@ -1,0 +1,1229 @@
+<sect2
+>                                      <title
+>Spezialeffekte und Filter</title>
+<sect3 id="infrared">
+<sect3info>
+
+<title
+>Infrarotfilm simulieren</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Der &digikam; Filter <emphasis
+>Infrarotfilm</emphasis
+> simuliert traditionelles Infrarotfilmmaterial. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Die Simulation eines Infrarotfilms, der Effekt wird in Schwarz-Weiß erzeugt, ist ein interessanter Entfremdungseffekt der stärker und dramatischer ist als eine Konvertierung nach Schwarz-Weiß. Kontrast und eine abstrakte Struktur werden verstärkt. Dies untermauert den Eindruck, das der Fotograph ein Künstler ist. Es ist als ob Sie ein Schwarz-Weiß Foto mit einem Rotfilter auf der Linse anfertigen. Bereiche die ein bisschen rotes Licht reflektieren, &eg; der Himmel, werden zu dunklen Bereichen mit einer niedrigen Dichte. Bereich die das rote Licht gut reflektieren, &eg; die meisten grünen Folien, werden zu Bereichen mit einer hohen Dichte. Schneelandschaften werden richtig dramatisch. </para>
+
+<para
+>Der Algorithmus basiert auf eine Methode zum simulieren von Infrarotfilm der GimpGuru.org Webseite die unter <ulink url="http://www.gimpguru.org/Tutorials/SimulatedInfrared"
+>dieser URL</ulink
+> erreichbar ist. Der Filter reproduziert den bekannten Ilford(tm) SFX200 Infrarotfilm. Dieser Film hat einen Sensitivitätsbereich von 200-800 ISO. </para>
+
+<sect4 id="using-infrared">
+<title
+>Den Infrarotfilm benutzen</title>
+
+<para
+>In der linken Seite des Fensters können Sie den Bereich für die Vorschau auswählen. Wenn Sie das rote Rechteck mit der Maus verschieben können Sie den Effekt auf unterschiedlichen Teilen des Bildes betrachten. </para>
+
+<para
+>Unterhalb der Vorschau können Sie zwei Parameter einstellen Filmkörnung und Filmempfindlichkeit (ISO). Aktivieren Sie die Option <guilabel
+>Füge Filmkörnung hinzu</guilabel
+> wenn Sie die körnige Textur eines hoch empfindlichen Films simulieren wollen. Der ISO-Regler verändert die Menge der Filmkörnung und die Dominanz der Farbe Grün (Chlorophyll in der Natur) im Umwandlung. Grüne Wiesen werden weiß wie Schnee! </para>
+
+<note
+><para
+>Da der Filter Farbkanäle zum reproduzieren von Infrarotfilm mischt, besonders den Grünkanal macht es keinen Sinn den Effekt auf Schwarz/Weiß-Fotos anzuwenden, da die Farbinformationen fehlen. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-infrared">
+<title
+>Der Filter in Aktion</title>
+
+<para
+>Dies ist ein Beispiel des Infrarotfilmeffektes angewendet auf ein Landschaftsfoto aus Neuseeland. Das Originalbild ist unter (1) und das bearbeitete Bild unter (2) zu sehen. Die Empfindlichkeit des Films wurde auf ISO 400 gesetzt. Höhere ISO Werte erzeugen eine Art Aura in den Spitzlichtern. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;infraredpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Der Infrarotfilter in Aktion</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="filmgrain">
+<sect3info>
+
+<title
+>Filmkörnung</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Der &digikam; Filter <emphasis
+>Filmkörnung</emphasis
+> reproduziert traditionelle Filmkörnungstechniken von Hochgeschwindigkeitsfilmen. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Der &digikam; Filter <emphasis
+>Filmkörnung</emphasis
+> ist ein einfach zu benutzendes Werkzeug, um Filmkörnung auf Ihren Bildern zu reproduzieren. Diese ist von klassischen Hochgeschwindigkeitsfilmen wie z.B. dem B/W KodaK Tri-X, bekannt. Um die Empfindlichkeit der Filme zu erhöhen mischen die Hersteller große Silberkörner der Fotoemulsion bei. </para>
+
+<para
+>Der Filmkörnungseffekt gibt Ihrem Foto einen gewisse Stimmung oder scheint in in die Vergangenheit zurück zu verschieben. Das behandelte Bild bekommt eine zeitlose Atmosphäre losgelöst vom täglichen Leben. Falls Sie diesen speziellen, Galerie-artigen, Strassenfotografischen, körnigen Anblick speziell in Ihren monochromen Fotos wollen, so müssen Sie diesen Filter benutzen. </para>
+
+<sect4 id="using-filmgrain">
+<title
+>Den Filter zur Filmkörnung benutzen</title>
+
+<para
+>Mit dem Regler kann die ISO-Empfindlichkeit zur Kontrolle der Intensität und Granularität der Körner kalibriert werden. Der Standardwert ist, obwohl häufig höhere Werte benötigt werden, auf ISO-2400 eingestellt. Wenn Sie noch mehr Körner brauchen, so können Sie den Filter mehrmals anwenden. </para>
+
+</sect4>
+
+<sect4 id="inaction-filmgrain">
+<title
+>Der Filter in Aktion</title>
+
+<para
+>Dies ist ein Beispiel des Filmkörnungseffektes auf ein schwarz/weiß Bild angewandt. Das Original Bild ist die (1) und das bearbeitete die (2). Die benutzte Filmempfindlichkeit entspricht ISO-1600. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;filmgrainpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Der Filter zur Filmkörnung in Aktion</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="oilpaint">
+<sect3info>
+
+<title
+>Ölgemälde</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Der &digikam; Filter <emphasis
+>Ölgemälde</emphasis
+> erzeugt das Aussehen eines Ölgemäldes. Es benutzt dazu einen urheberrechtlichen geschützten Algorithmus von Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Der &digikam; Filter <emphasis
+>Ölgemälde</emphasis
+> gibt Ihren digitalen Bildern einen nettes Aussehen wie ein Ölgemälde. Naturbilder und Stilleben sind gut für diesen Effekt. </para>
+
+<sect4 id="using-oilpaint">
+<title
+>Den Filter <quote
+>Ölgemälde</quote
+> benutzen</title>
+
+<para
+>Es existieren zwei Regler um diesen Effekt zu beeinflussen. Der obere wählt die <guilabel
+>Pinselgröße</guilabel
+> zwischen eins und fünf aus. Dickere Pinsel eignen sich besser für große Bilder. <guilabel
+>Glätten</guilabel
+> kontrolliert die Glätte oder, von der anderen Seite aus betrachtet, die Schartigkeit. </para>
+
+</sect4>
+
+<sect4 id="inaction-oilpaint">
+<title
+>Der Filter <quote
+>Ölgemälde</quote
+> in Aktion</title>
+
+<para
+>Dies ist ein Beispiel für den Ölgemälde-Effekt. Das Originalbild ist mit der (1) und das Bearbeitete ist mit der (2) gekennzeichnet. <guilabel
+>Pinselgröße</guilabel
+> für dieses 640 Pixel große Bild ist 1 und <guilabel
+>Glätte</guilabel
+> 17. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;oilpaintpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Vorschau des Ölgemälde-Effektes</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="charcoal">
+<sect3info>
+
+<title
+>Kohlezeichnung</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Der &digikam; Effektfilter <emphasis
+>Kohlezeichnung</emphasis
+> erzeugt Ergebnisse wie eine Kohlezeichnung. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Der &digikam; Filter <emphasis
+>Kohlezeichnung</emphasis
+> benutzt Farb- und Intensitätsgradienten, um einen Kohleskizze zu erzeugen. Die Linien, die die Umrisse in der Zeichnung definieren, werden betont. Bilder deren Gradienten sich langsam ändern sind daher nicht ideal für diesen Effekt. Es ist hilfreich, wenn Sie sich vorstellen, welche Szene Sie selbst gewählt hätten um Sie zu skizzieren. Dies wären gute Bilder um damit anzufangen. </para>
+
+<sect4 id="using-charcoal">
+<title
+>Den Filter <quote
+>Kohlezeichnung</quote
+> benutzen</title>
+
+<para
+>Es gibt zwei Regler mit einem Wertebereich von 1 bis 100, um diesen Effekt zu kontrollieren. Der obere Regler wählt die Stiftgröße aus und der untere justiert den Kontrast (Glätte). </para>
+
+</sect4>
+
+<sect4 id="inaction-charcoal">
+<title
+>Der Filter <quote
+>Kohlezeichnung</quote
+> in Aktion</title>
+
+<para
+>Dies ist ein Beispiel des Kohlezeichnungsfilters. Das Originalbild (1) und das veränderte Bild (2). Die Standardeinstellungen von 30 und 10 wurden benutzt. Das Resultat kann durch Anpassung des Intensitätswertes noch weiter verbessert werden. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;charcoalpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Der Filter <quote
+>Kohlezeichnung</quote
+> in Aktion</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="emboss">
+<sect3info>
+
+<title
+>Bildgravur</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Der &digikam; Filter <emphasis
+>Gravur</emphasis
+> prägt Ihr Bild in 3-D, als ob es in Wachs gestempelt wurde. Es benutzt dazu einen urheberrechtlich geschützten Algorithmus von Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info
+>     <title
+>Einführung</title>
+
+<para
+>Der &digikam; Filter <emphasis
+>Gravur</emphasis
+> ist ein schnelles Werkzeug, um Ihre Bilder mit einem 3-D Effekt wieder zu geben. Er arbeitet besonders gut bei Bildern mit einer einfachen Struktur, bei denen Farbe nicht das wichtigste am Inhalt ist. Der Filter benutzt die Unterschiede zwischen Farbe und Intensität, um das Bild in eine graue, mondartige Landschaft zu verwandeln. </para>
+
+<sect4 id="using-emboss"
+>      <title
+>Den Filter <quote
+>Gravur</quote
+> benutzen</title>
+
+<para
+>Die <guilabel
+>Tiefe</guilabel
+> erlaubt es den Kontrast der Filterung einzustellen. Ein Wert von 30, entspricht 10%, ist die Standardeinstellung. </para>
+
+</sect4>
+
+<sect4 id="inaction-emboss"
+>   <title
+>Der Filter <quote
+>Gravur</quote
+> in Aktion</title>
+
+<para
+>Dies ist ein Beispiel für den Gravur-Filter. das Original (1) und das bearbeitete Bild (2). Die benutzte <guilabel
+>Tiefe</guilabel
+> ist 10%. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;embosspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Der Filter <quote
+>Gravur</quote
+> in Aktion</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="distortionfx">
+<sect3info>
+
+<title
+>Verzerrungseffekte</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+<para
+>Die &digikam; <emphasis
+>Verzerrungseffekte</emphasis
+> sind eine Gruppen von Verzerrungseffekten für Digitalbilder. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Mit dieser Filtergruppe können Sie ein normales Foto in ein Kunstwerk mittels Verzerrungseffekten transformieren. Es benutzt dazu urheberrechtlich geschützte Algorithmen von Pieter Voloshyn. </para>
+
+<sect4 id="using-distortionfx">
+<title
+>Den Filter benutzen</title>
+
+<para
+>Diese Verzerrungseffekte sind verfügbar: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Typ</entry>
+      <entry
+>Vorschau</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Fischaugen</guilabel
+>: verzerrt das Foto um eine 3D-Sphäre, um einen Fischaugeneffekt zu erzeugen. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_fisheyes.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Wirbel</guilabel
+>: dreht das Foto, um ein Wirbelmuster zu erzeugen. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_twirl.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Horizontaler Zylinder</guilabel
+>: verzerrt das Foto, um einen horizontalen Zylinder. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Vertikaler Zylinder</guilabel
+>: verzerrt das Foto, um einen vertikalen Zylinder. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Hor./Ver. Zylinder</guilabel
+>: verzerrt das Foto, um einen horizontalen zwei, einen vertikalen und einen horizontalen Zylinder. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderhv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Karrikatur</guilabel
+>: verzerrt das Foto mit einem invertierten Fischaugeneffekt. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_caricature.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Vielfache Ecken</guilabel
+>: teilt das Foto als ob es auf einer vieleckige Fläche liegt. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_corners.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Horizontale Wellen</guilabel
+>: verzerrt das Foto mit horizontalen Wellen. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+            
+   <row>
+      <entry
+><guilabel
+>Vertikale Wellen</guilabel
+>: verzerrt das Foto mit vertikalen Wellen. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Wellenblöcke 1</guilabel
+>: teilt das Bild in Zellen ein und läßt es aussehen, als ob es durch Glasblöcke betrachtet wird. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Wellenblöcke 2</guilabel
+>: analog zu den Wellenblöcken 1 wird das Bild hier miteiner anderen Version von Glasblöcken verzerrt. </entry>
+               
+      <entry>
+         <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Wellenkreise 1</guilabel
+>: verzerrt das Foto mit kreisförmigen Wellen. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Wellenkreise 2</guilabel
+>: eine weitere Variante des Wellenkreise-Effektes. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Polar-Koordinaten</guilabel
+>: konvertiert das Foto von rechteckigen zu Polar-Koordinaten. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_polarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para
+>      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Gegenpolar-Koordinaten</guilabel
+>: invertiert den Polar-Koordinaten Effekt. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_unpolarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Kacheln</guilabel
+>: teilt das Bild in Quadrate und bewegt diese zufällig innerhalb des Bildes. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_tiles.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+      
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Einige Effekte benötigen lange Zeit zur Berechnung und erzeugen eine hohe CPU Last. Sie können diese Effekte jederzeit mit dem Knopf <guilabel
+>Beenden</guilabel
+> abbrechen. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-distortionfx">
+<title
+>Der Verzerrungsfilter in Aktion</title>
+
+<para
+>Der Dialog der Verzerrungseffekte ist unten in Aktion zu sehen. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;distortionfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Die Vorschau des Dialoges der Verzerrungseffekte</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="blurfx">
+<sect3info>
+
+<title
+>Unschärfe-Effekte</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Die &digikam; <emphasis
+>Unschärfe-Effekte</emphasis
+> sind ein Gruppe von Unschärfe-Effekten für digitale Bilder. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Mit dieser Filtergruppe können Sie ein normales Foto in ein Kunstwerk mittels Unschärfe-Effekten transformieren. Es benutzt dazu urheberrechtlich geschützte Algorithmen von Pieter Voloshyn. </para>
+
+<sect4 id="using-blurfx">
+<title
+>Die Unschärfe-Effekte benutzen</title>
+
+<para
+>Die folgenden Unschärfe-Effekte stehen zur Verfügung: </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Typ</entry>
+      <entry
+>Vorschau</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Zoom Unschärfe</guilabel
+>: verwischt das Bild entlang sternförmiger Linien die von einem Mittelpunkt ausgehen. Dies simuliert die Unschärfe einen zoomenden Kamera und erzeugt dadurch einen dynamischen Ausdruck der oft in der Sportfotografie zu sehen ist. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_zoomblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Radiale Unschärfe</guilabel
+>: verwischt das Bild durch Drehung der Pixel um einen Mittelpunkt. Dies simuliert die Unschärfe einer sich drehenden Kamera. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_radialblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Entfernungsunschärfe</guilabel
+>: verwischt das Bild um den Effekt einer nicht fokussierten Kameralinse zu erzeugen. Das Objekt scheint in den Hintergrund zurück zu treten. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_farblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Bewegungsunschärfe</guilabel
+>: verwischt das Bild durch horizontale Bewegungen der Pixel. Dies simuliert die Unschärfe einer sich linear bewegenden, z:B: aus einem Auto oder Zug fotografierenden, Kamera. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_motionblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Fokus Unschärfe</guilabel
+>: verwischt die Ecken des Bildes um die Verkrümmung astigmierter Linsen zu reproduzieren. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_focusblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Weichzeichnende Unschärfe</guilabel
+>: verwischt das Bild weich in den dunklen und stark in den hellen Tönen. Dies erzeugt Fotos mit einem träumerischen und glänzenden weichen Fokuseffekt (Hamilton Effekt). Dieser ist ideal zur Erstellung von romantischen Portraits, Glamour-Fotos oder zum hinzufügen eines warmen und subtilen Glühens. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_softenerblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Schüttelunschärfe</guilabel
+>: verwischt das Bild durch zufällige Verschiebung der Pixel und simuliert dadurch die Unschärfe einer sich willkürlich bewegenden Kamera. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_shakeblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Intelligente Unschärfe</guilabel
+>: findet die Farbecken im Bild und verwischt diese ohne den Rest zu verändern. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_smartblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>      
+
+   <row>
+      <entry
+><guilabel
+>Frost-Glas</guilabel
+>: verwischt durch zufällig zerstreutes Licht das durch gefrorenes Glas fällt. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_frostglass.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+
+   <row>
+      <entry
+><guilabel
+>Mosaik</guilabel
+>: teilt das Foto in rechteckige Zellen und erstellt es dann, durch das Füllen mit einem durchschnittlichen Pixelwert, neu . </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_mosaic.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+               
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Einige Effekte benötigen lange Zeit zur Berechnung und verursachen eine hohe CPU Last. Sie können diese Berechnung daher jederzeit mit dem Knopf <guilabel
+>Beenden</guilabel
+> abbrechen. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blurfx">
+<title
+>Die Unschärfe-Effekte in Aktion</title>
+
+<para
+>Ein Beispiel für den Dialog <quote
+>Unschärfe-Effekte</quote
+> in Aktion wird unten angezeigt. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blurfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Vorschau des <quote
+>Unschärfe-Effekte</quote
+>-Dialoges</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="raindrops">
+<sect3info>
+
+<title
+>Regentropfen</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Der &digikam; Filter <emphasis
+>Regentropfen</emphasis
+> macht schöne Regentropfen auf ihr Bild. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>digiKam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Einführung</title>
+
+<para
+>Die <emphasis
+>Regentropfen</emphasis
+> sind ein nettes kleines Werkzeug, um Regentropfen auf Ihr Bild zu machen. Dadurch verleiht es natürlichen Ihren Bildern ein nasses Aussehen. Es benutzt einen von Pieter Voloshyn urheberrechtlich geschützten Algorithmus. </para>
+
+<sect4 id="using-raindrops">
+<title
+>Den Filter <quote
+>Regentropfen</quote
+> benutzen</title>
+
+<para
+>Drei Regler kontrollieren den Effekt dieses Moduls: </para>
+
+<para
+><guilabel
+>Tropfengröße</guilabel
+> erlaubt es die Größe der tropfen zu ändern. Da die Tropfengröße nicht automatisch mit der Größe des Bildes mitwächst ist es oft nötig die Größe für kleine Bilder zu verringern. <guilabel
+>Anzahl</guilabel
+> ändert die Anzahl und die Dichte der Tropfen. <guilabel
+>Fischaugen</guilabel
+> ändert den optischen Effekt der Tropfen auf dem Bild. </para>
+
+<note
+><para
+>Sie können mit der &digikam; Bildbearbeitung einen Bereich frei von Regentropfen halten. Benutzen Sie dazu das <guilabel
+>Auswahl</guilabel
+>-Werkzeug, um den Bereich, z.B. ein Gesicht, der frei bleiben soll auszuwählen. Wenn Sie danach den Filter <emphasis
+>Regentropfen</emphasis
+> starten wird der Bereich frei bleiben von Regentropfen. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-raindrops">
+<title
+>Der Filter <quote
+>Regentropfen</quote
+> in Aktion</title>
+
+<para
+>Dies ist ein Beispiel des Regentropfen Filters. Das Originalbild (1) zeigt einen ruhigen Sonnenuntergang und das bearbeitete Bild (2) deutet einen Sonnenuntergang nach einem Sturm an. Die Standardwerte wurden für dieses Beispiel benutzt. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;raindropspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Vorschau des Regentropfeneffektes</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

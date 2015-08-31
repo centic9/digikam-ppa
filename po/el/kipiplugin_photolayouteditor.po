@@ -1,0 +1,952 @@
+# kipiplugin_photolayouteditor.po translation [el]
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2011, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_photolayouteditor\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2013-04-20 22:25+0200\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stelios"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sstavra@gmail.com"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:40
+msgid "Write here some text"
+msgstr "Γράψτε εδώ κάποιο κείμενο"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:59
+#: borderplugins/solid/SolidBorderDrawer.cpp:71
+#: widgets/dialogs/CanvasSizeDialog.cpp:364
+#: widgets/dialogs/CanvasSizeWidget.cpp:147
+#: widgets/tools/CanvasEditTool.cpp:589
+msgid "Width"
+msgstr "Πλάτος"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:61
+msgid "Text"
+msgstr "Κείμενο"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:63
+#: borderplugins/solid/SolidBorderDrawer.cpp:67
+#: widgets/tools/CanvasEditTool.cpp:104 widgets/tools/CanvasEditTool.cpp:544
+#: widgets/tools/CanvasEditTool.cpp:599
+msgid "Color"
+msgstr "Χρώμα"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:65
+#: widgets/items/TextItem.cpp:812
+msgid "Font"
+msgstr "Γραμματοσειρά"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:158
+#: borderplugins/StandardBordersFactory.cpp:41
+#: borderplugins/StandardBordersFactory.cpp:49
+msgid "Polaroid border"
+msgstr "Περίγραμμα polaroid"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:54
+msgid "Miter"
+msgstr ""
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:55
+msgid "Bevel"
+msgstr ""
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:56
+msgid "Round"
+msgstr ""
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:69
+msgid "Corners style"
+msgstr "Στιλ γωνιών"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:73
+msgid "Spacing"
+msgstr "Διαστήματα"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:165
+#: borderplugins/StandardBordersFactory.cpp:42
+#: borderplugins/StandardBordersFactory.cpp:47
+msgid "Solid border"
+msgstr "Συμπαγές περίγραμμα"
+
+#: borders/BorderChangeListener.cpp:48 widgets/canvas/SceneBorder.cpp:56
+#: widgets/canvas/SceneBorder.cpp:100
+msgid "Border Change"
+msgstr "Αλλαγή περιγράμματος"
+
+#: effectplugins/blur/BlurPhotoEffect.cpp:53
+#: effectplugins/StandardEffectsFactory.cpp:42
+#: effectplugins/StandardEffectsFactory.cpp:57
+#: effects/temp/BlurPhotoEffect.cpp:122
+msgid "Blur effect"
+msgstr "Εφέ θαμπώματος"
+
+#: effectplugins/colorize/ColorizePhotoEffect.cpp:55
+#: effectplugins/StandardEffectsFactory.cpp:44
+#: effectplugins/StandardEffectsFactory.cpp:58
+msgid "Colorize effect"
+msgstr "Εφέ χρωματισμού"
+
+#: effectplugins/grayscale/GrayscalePhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:46
+#: effectplugins/StandardEffectsFactory.cpp:59
+msgid "Grayscale effect"
+msgstr "Εφέ κλίμακας γκρι"
+
+#: effectplugins/negative/NegativePhotoEffect.cpp:49
+#: effectplugins/StandardEffectsFactory.cpp:50
+#: effectplugins/StandardEffectsFactory.cpp:61
+msgid "Negative effect"
+msgstr "Εφέ αρνητικού"
+
+#: effectplugins/sepia/SepiaPhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:48
+#: effectplugins/StandardEffectsFactory.cpp:60
+msgid "Sepia effect"
+msgstr "Καστανόχρωμο εφέ"
+
+#: effects/PhotoEffectsGroup.cpp:188
+msgid "Effect name"
+msgstr "Όνομα εφέ"
+
+#: effects/PixelizePhotoEffect.cpp:94
+msgid "Pixel size"
+msgstr "Μέγεθος εικονοστοιχείου"
+
+#: effects/PixelizePhotoEffect.cpp:104
+msgid "Pixelize effect"
+msgstr "Pixelize εφέ"
+
+#: effects/PixelizePhotoEffect.cpp:142
+#, fuzzy, kde-format
+#| msgid "Pixelize ["
+msgid "Pixelize [%1 = %2]"
+msgstr "Pixelize ["
+
+#: effects/temp/BlurPhotoEffect.cpp:37
+msgid "Radius"
+msgstr "Ακτίνα"
+
+#: models/LayersModelItem.cpp:159
+msgid "Layer"
+msgstr "Επίπεδο"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_photolayoutseditorui.rc:7
+msgid "&Tools"
+msgstr "&Εργαλεία"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_photolayoutseditorui.rc:13
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: plugin/main.cpp:49
+msgid "Input file"
+msgstr "Αρχείο εισόδου"
+
+#: plugin/photolayoutseditor.cpp:103
+msgid "Canvas size change"
+msgstr "Αλλαγή μεγέθους καμβά"
+
+#: plugin/photolayoutseditor.cpp:139 plugin/PLEAboutData.h:39
+msgid "Photo Layouts Editor"
+msgstr "Photo Layouts Editor"
+
+#: plugin/photolayoutseditor.cpp:258
+msgctxt "Saves canvas as a template file..."
+msgid "Save As Template..."
+msgstr "Αποθήκευση ως πρότυπο..."
+
+#: plugin/photolayoutseditor.cpp:262
+msgctxt "Export current frame layout to image file..."
+msgid "Export..."
+msgstr "Εξαγωγή..."
+
+#: plugin/photolayoutseditor.cpp:294
+msgctxt "Adds new image(s) from file..."
+msgid "Add image(s)..."
+msgstr "Προσθήκη εικόνων..."
+
+#: plugin/photolayoutseditor.cpp:298
+msgctxt "View grid lines..."
+msgid "Show..."
+msgstr "Εμφάνιση..."
+
+#: plugin/photolayoutseditor.cpp:304
+msgctxt "Configure grid lines visibility..."
+msgid "Setup grid..."
+msgstr "Ρύθμιση καννάβου..."
+
+#: plugin/photolayoutseditor.cpp:308
+msgctxt "Configure canvas size..."
+msgid "Change canvas size..."
+msgstr "Αλλαγή μεγέθους καμβά..."
+
+#: plugin/photolayoutseditor.cpp:368 widgets/layers/LayersTreeTitleWidget.h:51
+msgid "Layers"
+msgstr "Επίπεδα"
+
+#: plugin/photolayoutseditor.cpp:432
+msgid "Cannot read image file."
+msgstr "Αδυναμία ανάγνωσης αρχείου εικόνας."
+
+#: plugin/photolayoutseditor.cpp:506 plugin/photolayoutseditor.cpp:542
+#: plugin/photolayoutseditor.cpp:557
+msgid "*.ple|Photo Layouts Editor files"
+msgstr "*.ple|Αρχεία Photo Layouts Editor"
+
+#: plugin/photolayoutseditor.cpp:569 plugin/photolayoutseditor.cpp:579
+msgid "There is nothing to save."
+msgstr "Δεν υπάρχει τίποτε για αποθήκευση."
+
+#: plugin/photolayoutseditor.cpp:602
+msgid "Image can't be saved in selected file."
+msgstr "Αδυναμία αποθήκευσης της εικόνας στο επιλεγμένο αρχείο."
+
+#: plugin/photolayoutseditor.cpp:607
+msgid "Unexpected error while saving an image."
+msgstr "Απροσδόκητο σφάλμα κατά την αποθήκευση εικόνας."
+
+#: plugin/photolayoutseditor.cpp:650
+msgid "Save changes to current frame?"
+msgstr "Να αποθηκευτούν οι αλλαγές στο τρέχον πλαίσιο;"
+
+#: plugin/photolayoutseditor.cpp:745
+msgid "Invalid image size."
+msgstr "Μη έγκυρο μέγεθος εικόνας."
+
+#. i18n: ectx: Menu (File)
+#: plugin/photolayoutseditorui.rc:8
+msgid "&File"
+msgstr "Αρ&χείο"
+
+#. i18n: ectx: Menu (Edit)
+#: plugin/photolayoutseditorui.rc:27
+msgid "&Edit"
+msgstr "&Επεξεργασία"
+
+#. i18n: ectx: Menu (Canvas)
+#: plugin/photolayoutseditorui.rc:35
+msgid "&Canvas"
+msgstr "&Καμβάς"
+
+#. i18n: ectx: Menu (grid_lines)
+#: plugin/photolayoutseditorui.rc:39
+msgid "&Grid lines"
+msgstr "&Γραμμές καννάβου"
+
+#: plugin/PLEAboutData.h:42
+msgid "A tool to create photo layouts by fusion of several images"
+msgstr ""
+"Εργαλείο για τη δημιουργία σχεδίων φωτογραφιών με τη συνένωση πολλών εικόνων"
+
+#: plugin/PLEAboutData.h:43
+msgid "(c) 2011, Lukasz Spas"
+msgstr "(c) 2011, Lukasz Spas"
+
+#: plugin/PLEAboutData.h:46
+msgid "Lukasz Spas"
+msgstr "Lukasz Spas"
+
+#: plugin/PLEAboutData.h:47
+msgid "Author and Developer"
+msgstr "Συγγραφέας και προγραμματιστής"
+
+#: plugin/plugin_photolayoutseditor.cpp:93
+msgid "Create photo layouts..."
+msgstr "Δημιουργία φωτογραφικών σχεδίων..."
+
+#. i18n: ectx: label, entry (recentFiles), group (General)
+#: settings/photolayoutseditor.kcfg:25
+msgid "Recent opened files"
+msgstr "Πρόσφατα ανοιγμένα αρχεία"
+
+#. i18n: ectx: label, entry (recentFilesCount), group (General)
+#: settings/photolayoutseditor.kcfg:28
+msgid "Maximum count of the urls saved on the recent files list"
+msgstr "Μέγιστος αριθμός url που αποθηκεύτηκαν στη λίστα με τα πρόσφατα αρχεία"
+
+#. i18n: ectx: label, entry (embedImagesData), group (Saving)
+#: settings/photolayoutseditor.kcfg:36
+msgid "Embed full-sized images"
+msgstr "Ενσωμάτωση εικόνων πλήρους μεγέθους"
+
+#. i18n: ectx: label, entry (antialiasing), group (View)
+#: settings/photolayoutseditor.kcfg:42 settings/PLEConfigViewWidget.cpp:91
+msgid "Antialiasing"
+msgstr "Εξομάλυνση"
+
+#. i18n: ectx: label, entry (horizontalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:51 settings/PLEConfigViewWidget.cpp:111
+#: widgets/dialogs/GridSetupDialog.cpp:61
+msgid "Horizontal distance"
+msgstr "Οριζόντια απόσταση"
+
+#. i18n: ectx: label, entry (verticalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:58 settings/PLEConfigViewWidget.cpp:122
+#: widgets/dialogs/GridSetupDialog.cpp:75
+msgid "Vertical distance"
+msgstr "Κατακόρυφη απόσταση"
+
+#: settings/PLEConfigDialog.cpp:46 settings/PLEConfigDialog.cpp:47
+msgid "View"
+msgstr "Προβολή"
+
+#: settings/PLEConfigViewWidget.cpp:93
+msgid "Grid"
+msgstr "Κάνναβος"
+
+#: settings/PLEConfigViewWidget.cpp:100
+msgid "Show grid lines"
+msgstr "Εμφάνιση γραμμών καννάβου"
+
+#: threads/AbstractPhotoItemLoader.cpp:76
+msgid "Reading properties..."
+msgstr "Ανάγνωση ιδιοτήτων..."
+
+#: threads/AbstractPhotoItemLoader.cpp:160
+msgid "Reading borders..."
+msgstr "Ανάγνωση περιγραμμάτων..."
+
+#: threads/AbstractPhotoItemLoader.cpp:186
+msgid "Reading effects..."
+msgstr "Ανάγνωση εφέ..."
+
+#: threads/AbstractPhotoItemLoader.cpp:203
+msgid "Reading cropping shape..."
+msgstr "Ανάγνωση αποκόμματος σχήματος..."
+
+#: threads/CanvasLoadingThread.cpp:123
+msgid "Loading background..."
+msgstr "Φόρτωση φόντου..."
+
+#: threads/CanvasLoadingThread.cpp:144
+#, kde-format
+msgid "Loading item no. %1..."
+msgstr "Φόρτωση αντικειμένου αρ. %1..."
+
+#: threads/CanvasLoadingThread.cpp:173
+msgid "Loading border..."
+msgstr "Φόρτωση περιγράμματος..."
+
+#: threads/CanvasSavingThread.cpp:84
+msgid "Creating canvas..."
+msgstr "Δημιουργία καμβά..."
+
+#: threads/CanvasSavingThread.cpp:134
+msgid "Saving scene..."
+msgstr "Αποθήκευση σκηνικού..."
+
+#: threads/CanvasSavingThread.cpp:153
+msgid "Encoding data..."
+msgstr "Κωδικοποίηση δεδομένων..."
+
+#: threads/CanvasSavingThread.cpp:164
+msgid "Writing data to file..."
+msgstr "Εγγραφή δεδομένων σε αρχείο..."
+
+#: threads/ImageLoadingThread.cpp:191 threads/ImageLoadingThread.cpp:274
+msgid "Loading "
+msgstr "Φόρτωση "
+
+#: threads/ImageLoadingThread.cpp:209 threads/ImageLoadingThread.cpp:304
+msgid "Decoding image"
+msgstr "Αποκωδικοποίηση εικόνας"
+
+#: threads/ImageLoadingThread.cpp:260 threads/ImageLoadingThread.cpp:311
+#: threads/PhotoItemLoader.cpp:129 threads/TextItemLoader.cpp:97
+msgid "Finishing..."
+msgstr "Τελείωμα..."
+
+#: threads/PhotoItemLoader.cpp:65
+msgid "Loading shape..."
+msgstr "Φόρτωση σχήματος..."
+
+#: threads/PhotoItemLoader.cpp:104
+msgid "Loading image..."
+msgstr "Φόρτωση εικόνας..."
+
+#: threads/TextItemLoader.cpp:60
+msgid "Reading text..."
+msgstr "Ανάγνωση κειμένου..."
+
+#: threads/TextItemLoader.cpp:76
+msgid "Reading color..."
+msgstr "Ανάγνωση χρώματος..."
+
+#: threads/TextItemLoader.cpp:87
+msgid "Reading fonts..."
+msgstr "Ανάγνωση γραμματοσειρών..."
+
+#: undo/UndoBorderChangeCommand.cpp:36
+msgid "Border changed"
+msgstr "Το περίγραμμα άλλαξε"
+
+#: undo/UndoMoveRowsCommand.cpp:45
+msgid "Move layers up"
+msgstr "Μετακίνηση επιπέδων επάνω"
+
+#: undo/UndoMoveRowsCommand.cpp:47
+msgid "Move layers down"
+msgstr "Μετακίνηση επιπέδων κάτω"
+
+#: undo/UndoMoveRowsCommand.cpp:50
+msgid "Change parent layer"
+msgstr "Αλλαγή προηγούμενου επιπέδου"
+
+#: widgets/canvas/Canvas.cpp:886
+msgid "Invalid image size!"
+msgstr "Μη έγκυρο μέγεθος εικόνας!"
+
+#: widgets/canvas/Canvas.cpp:963 widgets/canvas/Canvas.cpp:986
+msgid "Can't save canvas!"
+msgstr "Αδυναμία αποθήκευσης καμβά!"
+
+#: widgets/canvas/Canvas.cpp:964 widgets/canvas/Canvas.cpp:987
+msgid "Invalid file path."
+msgstr "Μη έγκυρη διαδρομή αρχείου."
+
+#: widgets/canvas/Canvas.cpp:1084
+msgid "Remove items"
+msgstr "Αφαίρεση αντικειμένων"
+
+#: widgets/canvas/CropWidgetItem.cpp:253
+msgid "Crop items"
+msgstr "Αποκοπή αντικειμένων"
+
+#: widgets/canvas/CropWidgetItem.cpp:267
+#, no-c-format, kde-format
+msgid ""
+"Bounding rectangle of the crop shape has size [%1px x %2px] and it's less "
+"than 1px x 1px"
+msgstr ""
+"Το ορθογώνιο πλαίσιο του αποκομμένου σχήματος έχει μέγεθος [%1px x %2px] και "
+"είναι μικρότερο από 1px x 1px"
+
+#: widgets/canvas/RotationWidgetItem.cpp:49
+#: widgets/canvas/RotationWidgetItem.cpp:291
+msgid "Rotate item"
+msgid_plural "Rotate items"
+msgstr[0] "Περιστροφή αντικειμένου"
+msgstr[1] "Περιστροφή αντικειμένων"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:51
+#: widgets/canvas/ScalingWidgetItem.cpp:497 widgets/canvas/Scene.cpp:353
+msgid "Move item"
+msgid_plural "Move items"
+msgstr[0] "Μετακίνηση αντικειμένου"
+msgstr[1] "Μετακίνηση αντικειμένων"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:96
+#: widgets/canvas/ScalingWidgetItem.cpp:482
+msgid "Scale item"
+msgid_plural "Scale items"
+msgstr[0] "Κλιμάκωση αντικειμένου"
+msgstr[1] "Κλιμάκωση αντικειμένων"
+
+#: widgets/canvas/Scene.cpp:302 widgets/canvas/Scene.cpp:310
+#: widgets/canvas/Scene.cpp:646
+msgid "Add item"
+msgid_plural "Add items"
+msgstr[0] "Προσθήκη αντικειμένου"
+msgstr[1] "Προσθήκη αντικειμένων"
+
+#: widgets/canvas/Scene.cpp:501
+msgid "Crop item"
+msgid_plural "Crop items"
+msgstr[0] "Αποκοπή αντικειμένου"
+msgstr[1] "Αποκοπή αντικειμένων"
+
+#: widgets/canvas/Scene.cpp:674
+msgid "Remove item"
+msgid_plural "Remove items"
+msgstr[0] "Αφαίρεση αντικειμένου"
+msgstr[1] "Αφαίρεση αντικειμένων"
+
+#: widgets/canvas/Scene.cpp:724
+msgid "Change item's image"
+msgstr "Αλλαγή εικόνας αντικειμένου"
+
+#: widgets/canvas/Scene.cpp:729
+msgid "Delete selected item"
+msgid_plural "Delete selected items"
+msgstr[0] "Διαγραφή επιλεγμένου αντικειμένου"
+msgstr[1] "Διαγραφή επιλεγμένων αντικειμένων"
+
+#: widgets/canvas/Scene.cpp:735
+msgid "Canvas background"
+msgstr "Φόντο καμβά"
+
+#: widgets/canvas/Scene.cpp:1412
+msgid "Saving background..."
+msgstr "Αποθήκευση φόντου..."
+
+#: widgets/canvas/Scene.cpp:1432
+#, kde-format
+msgid "Saving %1..."
+msgstr "Αποθήκευση %1..."
+
+#: widgets/canvas/Scene.cpp:1445
+msgid "Saving border..."
+msgstr "Αποθήκευση περιγράμματος..."
+
+#: widgets/canvas/Scene.cpp:1524
+#, fuzzy, kde-format
+#| msgid "Unable to create one element!"
+#| msgid_plural "Unable to create %1 elements!"
+msgid "Unable to create one element"
+msgid_plural "Unable to create %1 elements"
+msgstr[0] "Αδυναμία δημιουργίας ενός αντικειμένου!"
+msgstr[1] "Αδυναμία δημιουργίας %1 αντικειμένων!"
+
+#: widgets/canvas/Scene.cpp:1630
+#, kde-format
+msgid "Are you sure you want to delete selected item?"
+msgid_plural "Are you sure you want to delete %1 selected items?"
+msgstr[0] "Είστε βέβαιοι ότι θέλετε να διαγράψετε το επιλεγμένο αντικείμενο;"
+msgstr[1] "Είστε βέβαιοι ότι θέλετε να διαγράψετε %1 επιλεγμένα αντικείμενα;"
+
+#: widgets/canvas/Scene.cpp:1630
+msgid "Items deleting"
+msgstr "Αντικείμενα διαγράφονται"
+
+#: widgets/canvas/SceneBackground.cpp:58 widgets/canvas/SceneBackground.cpp:69
+#: widgets/canvas/SceneBackground.cpp:119
+#: widgets/canvas/SceneBackground.cpp:147
+#: widgets/canvas/SceneBackground.cpp:207
+#: widgets/canvas/SceneBackground.cpp:253
+#: widgets/canvas/SceneBackground.cpp:279
+msgid "Background Change"
+msgstr "Αλλαγή φόντου"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:320
+#: widgets/dialogs/CanvasSizeDialog.cpp:349
+#: widgets/dialogs/CanvasSizeWidget.cpp:132
+msgid "Canvas size"
+msgstr "Μέγεθος καμβά"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:340
+msgid "Custom"
+msgstr "Προσαρμοσμένο"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:344
+msgid "Template"
+msgstr "Πρότυπο"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:376
+#: widgets/dialogs/CanvasSizeWidget.cpp:159
+#: widgets/tools/CanvasEditTool.cpp:594
+msgid "Height"
+msgstr "Ύψος"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:398
+msgid "Orientation"
+msgstr "Προσανατολισμός"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:404
+#: widgets/dialogs/CanvasSizeWidget.cpp:174
+msgid "Advanced"
+msgstr "Για προχωρημένους"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:416
+#: widgets/dialogs/CanvasSizeWidget.cpp:186
+msgid "Resolution X"
+msgstr "Ανάλυση X"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:426
+#: widgets/dialogs/CanvasSizeWidget.cpp:196
+msgid "Resolution Y"
+msgstr "Ανάλυση Y"
+
+#: widgets/dialogs/GridSetupDialog.cpp:40
+msgid "Setup grid lines"
+msgstr "Ρύθμιση γραμμών καννάβου"
+
+#: widgets/dialogs/ImageFileDialog.cpp:74
+#, kde-format
+msgid ""
+"Currently this file type (%1) is unsupported.\n"
+"Please notify the author and ask for it in the next versions of the "
+"application."
+msgstr ""
+"Προς το παρόν αυτός ο τύπος αρχείου (%1) δεν υποστηρίζεται.\n"
+"Ειδοποιήστε τον συγγραφέα και ζητήστε του να υποστηριχθεί στην επόμενη "
+"έκδοση της εφαρμογής."
+
+#: widgets/dialogs/ImageFileDialog.cpp:75
+msgid "The image can't be saved!"
+msgstr "Αδυναμία αποθήκευσης της εικόνας!"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:295
+msgid "Empty"
+msgstr "Κενό"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:334
+msgid "Create new canvas..."
+msgstr "Δημιουργία νέου καμβά..."
+
+#: widgets/dialogs/NewCanvasDialog.cpp:348
+msgid "Paper sizes"
+msgstr "Μεγέθη χαρτιού"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:377
+msgid "Select a template"
+msgstr "Επιλογή προτύπου"
+
+#: widgets/items/AbstractPhoto.cpp:54
+msgid "Crop shape change"
+msgstr "Αλλαγή σχήματος αποκόμματος"
+
+#: widgets/items/AbstractPhoto.cpp:79
+msgid "Name Change"
+msgstr "Αλλαγή ονόματος"
+
+#: widgets/items/AbstractPhoto.cpp:109
+msgid "New layer"
+msgstr "Νέο επίπεδο"
+
+#: widgets/items/PhotoItem.cpp:62 widgets/items/PhotoItem.cpp:68
+#: widgets/items/PhotoItem.cpp:711 widgets/items/PhotoItem.cpp:724
+msgid "Image Change"
+msgstr "Αλλαγή εικόνας"
+
+#: widgets/items/PhotoItem.cpp:97
+msgid "Image Path Change"
+msgstr "Αλλαγή διαδρομής εικόνας"
+
+#: widgets/items/PhotoItem.cpp:129
+msgid "Image Shape Change"
+msgstr "Αλλαγή σχήματος εικόνας"
+
+#: widgets/items/PhotoItem.cpp:158
+msgid "Image Position Change"
+msgstr "Αλλαγή θέσης εικόνας"
+
+#: widgets/items/PhotoItem.cpp:219
+#, kde-format
+msgid ""
+"Can't find image file in this location:\n"
+"%1\n"
+"\n"
+"Would you like to set new location of this file?\n"
+"If not this image will be removed from the composition."
+msgstr ""
+"Αδυναμία εύρεσης αρχείου εικόνας στη θέση αυτή:\n"
+"%1\n"
+"\n"
+"Επιθυμείτε να ορίσετε νέα θέση για το αρχείο αυτό;\n"
+"Αν όχι, η εικόνα αυτή θα αφαιρεθεί από τη σύνθεση."
+
+#: widgets/items/PhotoItem.cpp:224
+msgid "File reading error"
+msgstr "Σφάλμα ανάγνωσης αρχείου"
+
+#: widgets/items/PhotoItem.cpp:265 widgets/items/PhotoItem.cpp:273
+#: widgets/items/PhotoItem.cpp:282
+msgid "New image"
+msgstr "Νέα εικόνα"
+
+#: widgets/items/PhotoItem.cpp:347
+#, kde-format
+msgid ""
+"Do you want to embed images data?\n"
+"Remember that when you move or rename image files on your disk or the "
+"storage device become unavailable, those images become unavailable for %1 "
+"and this layout might become broken."
+msgstr ""
+"Θέλετε να ενσωματώσετε δεδομένα εικόνων;\n"
+"Θυμηθείτε ότι όταν μετακινείτε ή μετονομάζετε αρχεία εικόνων στο δίσκο ή "
+"όταν η συσκευή αποθήκευσης καταστεί μη διαθέσιμη, οι εικόνες αυτές γίνονται "
+"μη διαθέσιμες για το %1 και το σχέδιο αυτό ίσως καταστραφεί."
+
+#: widgets/items/PhotoItem.cpp:350
+#, kde-format
+msgid "Saving: %1"
+msgstr "Αποθήκευση: %1"
+
+#: widgets/items/TextItem.cpp:52
+msgid "Text change"
+msgstr "Αλλαγή κειμένου"
+
+#: widgets/items/TextItem.cpp:75
+msgid "Text color change"
+msgstr "Αλλαγή χρώματος κειμένου"
+
+#: widgets/items/TextItem.cpp:101
+msgid "Text font change"
+msgstr "Αλλαγή γραμματοσειράς κειμένου"
+
+#: widgets/items/TextItem.cpp:129 widgets/items/TextItem.cpp:157
+#: widgets/items/TextItem.cpp:192 widgets/items/TextItem.cpp:226
+msgid "Text edit"
+msgstr "Επεξεργασία κειμένου"
+
+#: widgets/items/TextItem.cpp:407
+msgid "Text item"
+msgstr "Αντικείμενο κειμένου"
+
+#: widgets/items/TextItem.cpp:799
+msgid "Text color"
+msgstr "Χρώμα κειμένου"
+
+#: widgets/menus/LayersTreeMenu.cpp:35
+msgid "Move up"
+msgstr "Μετακίνηση επάνω"
+
+#: widgets/menus/LayersTreeMenu.cpp:37
+msgid "Move down"
+msgstr "Μετακίνηση κάτω"
+
+#: widgets/menus/LayersTreeMenu.cpp:40
+msgid "Delete selected"
+msgstr "Διαγραφή επιλεγμένων"
+
+#: widgets/tools/BorderEditTool.cpp:49
+msgid "Borders editor"
+msgstr "Επεξεργαστής περιγραμμάτων"
+
+#: widgets/tools/CanvasEditTool.cpp:105
+msgid "Image"
+msgstr "Εικόνα"
+
+#: widgets/tools/CanvasEditTool.cpp:106 widgets/tools/CanvasEditTool.cpp:613
+msgid "Pattern"
+msgstr "Μοτίβο"
+
+#: widgets/tools/CanvasEditTool.cpp:109
+msgid "Expanded"
+msgstr "Εκτεταμένο"
+
+#: widgets/tools/CanvasEditTool.cpp:110
+msgid "Scaled"
+msgstr "Σε κλίμακα"
+
+#: widgets/tools/CanvasEditTool.cpp:111
+msgid "Fixed size"
+msgstr "Σταθερό μέγεθος"
+
+#: widgets/tools/CanvasEditTool.cpp:113 widgets/tools/CanvasEditTool.cpp:117
+msgid "Center"
+msgstr "Κέντρο"
+
+#: widgets/tools/CanvasEditTool.cpp:114
+msgid "Left"
+msgstr "Αριστερά"
+
+#: widgets/tools/CanvasEditTool.cpp:115
+msgid "Right"
+msgstr "Δεξιά"
+
+#: widgets/tools/CanvasEditTool.cpp:118
+msgid "Top"
+msgstr "Κορυφή"
+
+#: widgets/tools/CanvasEditTool.cpp:119
+msgid "Bottom"
+msgstr "Βάση"
+
+#: widgets/tools/CanvasEditTool.cpp:124 widgets/tools/CanvasEditTool.cpp:129
+msgid "Click here to set an image"
+msgstr "Κάνετε κλικ εδώ για να ορίσετε εικόνα"
+
+#: widgets/tools/CanvasEditTool.cpp:369 widgets/tools/CanvasEditTool.cpp:405
+msgid "Invalid or unsupported image file."
+msgstr "Μη έγκυρο ή μη υποστηριζόμενο αρχείο εικόνας."
+
+#: widgets/tools/CanvasEditTool.cpp:509
+msgid "Border"
+msgstr "Περίγραμμα"
+
+#: widgets/tools/CanvasEditTool.cpp:523
+msgid "Background"
+msgstr "Φόντο"
+
+#: widgets/tools/CanvasEditTool.cpp:531
+msgid "Type"
+msgstr "Τύπος"
+
+#: widgets/tools/CanvasEditTool.cpp:562
+msgid "Scaling"
+msgstr "Κλιμάκωση"
+
+#: widgets/tools/CanvasEditTool.cpp:567
+msgid "Tiled"
+msgstr "Σε παράθεση"
+
+#: widgets/tools/CanvasEditTool.cpp:569
+msgid "Alignment"
+msgstr "Στοίχιση"
+
+#: widgets/tools/CanvasEditTool.cpp:575
+msgid "Horizontal"
+msgstr "Οριζόντια"
+
+#: widgets/tools/CanvasEditTool.cpp:579
+msgid "Vertical"
+msgstr "Κατακόρυφα"
+
+#: widgets/tools/CanvasEditTool.cpp:582
+msgid "Size"
+msgstr "Μέγεθος"
+
+#: widgets/tools/CanvasEditTool.cpp:608
+msgid "Color 1"
+msgstr "Χρώμα 1"
+
+#: widgets/tools/CanvasEditTool.cpp:611
+msgid "Color 2"
+msgstr "Χρώμα 2"
+
+#: widgets/tools/EffectsEditorTool.cpp:45
+msgid "Effects"
+msgstr "Εφέ"
+
+#: widgets/tools/TextEditorTool.cpp:52
+msgid "Create text item"
+msgstr "Δημιουργία αντικειμένου κειμένου"
+
+#: widgets/tools/ToolsDockWidget.cpp:98
+msgid "Tools"
+msgstr "Εργαλεία"
+
+#: widgets/tools/ToolsDockWidget.cpp:129
+msgid "Allows to select and move images on canvas"
+msgstr "Επιτρέπει την επιλογή και μετακίνηση εικόνων στον καμβά"
+
+#: widgets/tools/ToolsDockWidget.cpp:130
+msgid ""
+"Tool which allows one to select and move images on canvas. Any other "
+"operations are disabled."
+msgstr ""
+"Εργαλείο που επιτρέπει την επιλογή και μετακίνηση εικόνων στον καμβά. Κάθε "
+"άλλη λειτουργία απενεργοποιείται."
+
+#: widgets/tools/ToolsDockWidget.cpp:140
+msgid "Viewing tool"
+msgstr "Εργαλείο προβολής"
+
+#: widgets/tools/ToolsDockWidget.cpp:141
+msgid ""
+"This tool allows one to view whole canvas in read-only mode. Only scrolling "
+"and zooming are available."
+msgstr ""
+"Το εργαλείο αυτό επιτρέπει την προβολή όλου του καμβά σε λειτουργία "
+"ανάγνωσης-μόνο. Μόνο η κύληση και το ζουμ είναι διαθέσιμα."
+
+#: widgets/tools/ToolsDockWidget.cpp:151
+msgid "Zooming tool"
+msgstr "Εργαλείο για ζουμ"
+
+#: widgets/tools/ToolsDockWidget.cpp:152
+msgid ""
+"This tool allows one to zoom canvas to fit it to the application window or "
+"users preferences."
+msgstr ""
+"Το εργαλείο αυτό επιτρέπει το ζουμ στον καμβά για να ταιριάζει με το "
+"παράθυρο της εφαρμογής ή με τις προτιμήσεις των χρηστών."
+
+#: widgets/tools/ToolsDockWidget.cpp:162
+msgid "Canvas editor"
+msgstr "Επεξεργασία καμβά"
+
+#: widgets/tools/ToolsDockWidget.cpp:163
+msgid ""
+"This tool allows you to edit canvas properties like size and background."
+msgstr ""
+"Το εργαλείο αυτό σάς επιτρέπει να επεξεργαστείτε ιδιότητες του καμβά όπως το "
+"μέγεθος και το φόντο."
+
+#: widgets/tools/ToolsDockWidget.cpp:173
+msgid "Text editor"
+msgstr "Επεξεργαστής κειμένου"
+
+#: widgets/tools/ToolsDockWidget.cpp:174
+msgid ""
+"This tool allows you to write text on the canvas. It's simple - just click "
+"on the canvas where you want to add some text and write it!"
+msgstr ""
+"Το εργαλείο αυτό σάς επιτρέπει να γράψετε κείμενο στον καμβά. Είναι απλό - "
+"κάνετε κλικ στον καμβά όπου θέλετε να προσθέσετε κάποιο κείμενο και αρχίστε "
+"να γράφετε!"
+
+#: widgets/tools/ToolsDockWidget.cpp:185
+msgid "Rotation tool"
+msgstr "Εργαλείο περιστροφής"
+
+#: widgets/tools/ToolsDockWidget.cpp:186
+msgid "This tool allows you to rotate items on your canvas."
+msgstr "Το εργαλείο αυτό σάς επιτρέπει να περιστρέψετε αντικείμενα στον καμβά."
+
+#: widgets/tools/ToolsDockWidget.cpp:196
+msgid "Scaling tool"
+msgstr "Εργαλείο κλίμακας"
+
+#: widgets/tools/ToolsDockWidget.cpp:197
+msgid "This tool allows you to scale items on your canvas."
+msgstr "Το εργαλείο αυτό σάς επιτρέπει να κλιμακώσετε αντικείμενα στον καμβά."
+
+#: widgets/tools/ToolsDockWidget.cpp:207
+msgid "Crop tool"
+msgstr "Εργαλείο αποκοπής"
+
+#: widgets/tools/ToolsDockWidget.cpp:208
+msgid "This tool allows you to crop items."
+msgstr "Το εργαλείο αυτό σάς επιτρέπει να αποκόψετε αντικείμενα."
+
+#: widgets/tools/ToolsDockWidget.cpp:218
+msgid "Image effects editor"
+msgstr "Επεξεργαστής εφέ εικόνας"
+
+#: widgets/tools/ToolsDockWidget.cpp:219
+msgid ""
+"This tool allows you to edit existing effects of your photo layers and add "
+"some new one."
+msgstr ""
+"Το εργαλείο αυτό σάς επιτρέπει να επεξεργαστείτε υφιστάμενα εφέ στα επίπεδα "
+"των φωτογραφιών σας και να προσθέτετε νέα."
+
+#: widgets/tools/ZoomTool.cpp:56
+msgid "Zoom out"
+msgstr "Απομάκρυνση"
+
+#: widgets/tools/ZoomTool.cpp:59
+msgid "Zoom in"
+msgstr "Μεγέθυνση"
+
+#~ msgid "Rotate item(s)"
+#~ msgstr "Περιστροφή αντικειμένων"
+
+#~ msgid "Scale item(s)"
+#~ msgstr "Κλιμάκωση αντικειμένων"
+
+#~ msgid "Move item(s)"
+#~ msgstr "Μετακίνηση αντικειμένων"
+
+#~ msgid "Add item(s)"
+#~ msgstr "Προσθήκη αντικειμένων"
+
+#~ msgid "Crop item(s)"
+#~ msgstr "Αποκοπή αντικειμένων"
+
+#~ msgid "Finishing"
+#~ msgstr "Τελείωμα"
+
+#~ msgid "Change text font"
+#~ msgstr "Αλλαγή γραμματοσειράς κειμένου"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-06-05 01:54+0000\n"
 "PO-Revision-Date: 2013-04-09 23:38+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -116,15 +116,19 @@ msgstr ""
 msgid "Enter extra tags, separated by commas."
 msgstr "Εισαγάγετε επιπλέον ετικέτες διαχωρισμένες με κόμμα."
 
-#: flickrtalker.cpp:211
+#: flickrtalker.cpp:196
+msgid "Getting the maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:262
 msgid "Getting the Frob"
 msgstr "Λήψη του αντικειμένου"
 
-#: flickrtalker.cpp:257
+#: flickrtalker.cpp:308
 msgid "Checking if previous token is still valid"
 msgstr "Έλεγχος εγκυρότητας προηγούμενου ενδεικτικού"
 
-#: flickrtalker.cpp:283
+#: flickrtalker.cpp:334
 msgid ""
 "Please follow the instructions in the browser window, then return to press "
 "corresponding button."
@@ -132,96 +136,96 @@ msgstr ""
 "Παρακαλώ ακολουθήστε τις οδηγίες στο παράθυρο περιήγησης και έπειτα "
 "επιστρέψτε για να πιέσετε το κατάλληλο κουμπί."
 
-#: flickrtalker.cpp:285
+#: flickrtalker.cpp:336
 #, kde-format
 msgid "%1 Service Web Authorization"
 msgstr "Εξουσιοδότηση ιστού υπηρεσίας %1"
 
-#: flickrtalker.cpp:286
+#: flickrtalker.cpp:337
 msgid "I am authenticated"
 msgstr "Είμαι ταυτοποιημένος"
 
-#: flickrtalker.cpp:287
+#: flickrtalker.cpp:338
 msgid "I am not authenticated"
 msgstr "Δεν είμαι ταυτοποιημένος"
 
-#: flickrtalker.cpp:292
+#: flickrtalker.cpp:343
 msgid "Authenticating the User on web"
 msgstr "Ταυτοποίηση του χρήστη στο διαδίκτυο"
 
-#: flickrtalker.cpp:345
+#: flickrtalker.cpp:396
 msgid "Getting the Token from the server"
 msgstr "Λήψη ενδεικτικού από τον εξυπηρετητή"
 
-#: flickrtalker.cpp:731
+#: flickrtalker.cpp:787
 msgid "No photo specified"
 msgstr "Δεν καθορίστηκε φωτογραφία"
 
-#: flickrtalker.cpp:735
+#: flickrtalker.cpp:791
 msgid "General upload failure"
 msgstr "Γενική αποτυχία αποστολής"
 
-#: flickrtalker.cpp:739
+#: flickrtalker.cpp:795
 msgid "Filesize was zero"
 msgstr "Μηδενικό μέγεθος αρχείου"
 
-#: flickrtalker.cpp:743
+#: flickrtalker.cpp:799
 msgid "Filetype was not recognized"
 msgstr "Ο τύπος αρχείου δεν αναγνωρίζεται"
 
-#: flickrtalker.cpp:747
+#: flickrtalker.cpp:803
 msgid "User exceeded upload limit"
 msgstr "Υπέρβαση ορίου αποστολής του χρήστη"
 
-#: flickrtalker.cpp:751
+#: flickrtalker.cpp:807
 msgid "Invalid signature"
 msgstr "Μη έγκυρη υπογραφή"
 
-#: flickrtalker.cpp:755
+#: flickrtalker.cpp:811
 msgid "Missing signature"
 msgstr "Λείπει υπογραφή"
 
-#: flickrtalker.cpp:759
+#: flickrtalker.cpp:815
 msgid "Login Failed / Invalid auth token"
 msgstr "Αποτυχία σύνδεσης / μη έγκυρο αναγνωριστικό"
 
-#: flickrtalker.cpp:763
+#: flickrtalker.cpp:819
 msgid "Invalid API Key"
 msgstr "Μη έγκυρο κλειδί API"
 
-#: flickrtalker.cpp:767
+#: flickrtalker.cpp:823
 msgid "Service currently unavailable"
 msgstr "Μη διαθέσιμη υπηρεσία αυτήν τη στιγμή"
 
-#: flickrtalker.cpp:771
+#: flickrtalker.cpp:827
 msgid "Invalid Frob"
 msgstr "Μη έγκυρο αντικείμενο"
 
-#: flickrtalker.cpp:775
+#: flickrtalker.cpp:831
 msgid "Format \"xxx\" not found"
 msgstr "Δε βρέθηκε μορφή \"xxx\""
 
-#: flickrtalker.cpp:779
+#: flickrtalker.cpp:835
 msgid "Method \"xxx\" not found"
 msgstr "Δε βρέθηκε μέθοδος \"xxx\""
 
-#: flickrtalker.cpp:783
+#: flickrtalker.cpp:839
 msgid "Invalid SOAP envelope"
 msgstr "Μη έγκυρος φάκελος SOAP"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:843
 msgid "Invalid XML-RPC Method Call"
 msgstr "Μη έγκυρη κλήση μεθόδου XML-RPC"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:847
 msgid "The POST method is now required for all setters"
 msgstr "Η μέθοδος POST απαιτείται τώρα για όλους τους ρυθμιστές"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:851
 msgid "Unknown error"
 msgstr "Άγνωστο σφάλμα"
 
-#: flickrtalker.cpp:800
+#: flickrtalker.cpp:856
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -230,40 +234,40 @@ msgstr ""
 "Εμφάνιση σφάλματος: %1\n"
 "Αδύνατη η συνέχεια."
 
-#: flickrtalker.cpp:968
+#: flickrtalker.cpp:1076
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "εγγραφής"
 
-#: flickrtalker.cpp:972
+#: flickrtalker.cpp:1080
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "ανάγνωσης"
 
-#: flickrtalker.cpp:976
+#: flickrtalker.cpp:1084
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "διαγραφής"
 
-#: flickrtalker.cpp:1007
+#: flickrtalker.cpp:1115
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 "Το αναγνωριστικό σας δεν είναι έγκυρο. Επιθυμείτε να λάβετε ένα νέο "
 "αναγνωριστικό για τη συνέχεια;\n"
 
-#: flickrtalker.cpp:1165
+#: flickrtalker.cpp:1273
 msgid "PhotoSet creation failed: "
 msgstr "Αποτυχία δημιουργίας συνόλου φωτογραφιών: "
 
-#: flickrtalker.cpp:1260
+#: flickrtalker.cpp:1368
 msgid "Failed to fetch list of photo sets."
 msgstr "Αποτυχία προσκόμισης λίστας συνόλων φωτογραφιών."
 
-#: flickrtalker.cpp:1339
+#: flickrtalker.cpp:1448
 msgid "Failed to upload photo"
 msgstr "Αποτυχία αποστολής φωτογραφίας"
 
-#: flickrtalker.cpp:1407
+#: flickrtalker.cpp:1516
 msgid "Failed to query photo information"
 msgstr "Αποτυχία υποβολής ερώτησης για πληροφορίες φωτογραφίας"
 
@@ -337,17 +341,17 @@ msgctxt "photo safety level"
 msgid "Restricted"
 msgstr "Περιορισμένο"
 
-#: flickrwidget.cpp:153 flickrwidget.cpp:288
+#: flickrwidget.cpp:153 flickrwidget.cpp:292
 msgctxt "photo content type"
 msgid "Photo"
 msgstr "Φωτογραφία"
 
-#: flickrwidget.cpp:154 flickrwidget.cpp:289
+#: flickrwidget.cpp:154 flickrwidget.cpp:293
 msgctxt "photo content type"
 msgid "Screenshot"
 msgstr "Στιγμιότυπο"
 
-#: flickrwidget.cpp:155 flickrwidget.cpp:290
+#: flickrwidget.cpp:155 flickrwidget.cpp:294
 msgctxt "photo content type"
 msgid "Other"
 msgstr "Άλλο"
@@ -361,147 +365,153 @@ msgctxt "account settings"
 msgid "Username: "
 msgstr "Όνομα χρήστη: "
 
-#: flickrwidget.cpp:186
+#: flickrwidget.cpp:187
 msgid "Use a different account"
 msgstr "Χρήση ενός διαφορετικού λογαριασμού"
 
-#: flickrwidget.cpp:189
+#: flickrwidget.cpp:191
+#, fuzzy
+#| msgid "Account"
+msgid "Remove Account"
+msgstr "Λογαριασμός"
+
+#: flickrwidget.cpp:194
 msgid "PhotoSet:"
 msgstr "Σύνολο φωτογραφιών:"
 
-#: flickrwidget.cpp:192
+#: flickrwidget.cpp:196
 msgid "&New PhotoSet"
 msgstr "&Νέο σύνολο φωτογραφιών"
 
-#: flickrwidget.cpp:195
+#: flickrwidget.cpp:198
 msgid "&Reload"
 msgstr "Επαναφό&ρτωση"
 
-#: flickrwidget.cpp:211
+#: flickrwidget.cpp:215
 msgid "Tag options"
 msgstr "Επιλογές ετικετών"
 
-#: flickrwidget.cpp:215
+#: flickrwidget.cpp:219
 msgid "Use Host Application Tags"
 msgstr "Χρήση ετικετών εφαρμογής υπολογιστή"
 
-#: flickrwidget.cpp:217 flickrwidget.cpp:641
+#: flickrwidget.cpp:221 flickrwidget.cpp:645
 msgid "More tag options"
 msgstr "Περισσότερες επιλογές ετικετών"
 
-#: flickrwidget.cpp:231
+#: flickrwidget.cpp:235
 msgid "Added Tags: "
 msgstr "Ετικέτες που προστέθηκαν: "
 
-#: flickrwidget.cpp:233
+#: flickrwidget.cpp:237
 msgid "Enter new tags here, separated by commas."
 msgstr "Εισαγάγετε εδώ νέες ετικέτες διαχωρισμένες με κόμμα."
 
-#: flickrwidget.cpp:235
+#: flickrwidget.cpp:239
 msgid "Add tags per image"
 msgstr "Προσθήκη ετικετών ανά εικόνα"
 
-#: flickrwidget.cpp:236
+#: flickrwidget.cpp:240
 msgid "If checked, you can set extra tags for each image in the File List tab"
 msgstr ""
 "Αν επιλεγεί, σάς επιτρέπει να θέσετε επιπλέον ετικέτες για κάθε εικόνα στην "
 "καρτέλα με τη λίστα αρχείων"
 
-#: flickrwidget.cpp:240
+#: flickrwidget.cpp:244
 msgid "Strip Spaces From Tags"
 msgstr "Αφαίρεση κενών από ετικέτες"
 
-#: flickrwidget.cpp:253
+#: flickrwidget.cpp:257
 msgid "Publication Options"
 msgstr "Επιλογές δημοσίευσης"
 
-#: flickrwidget.cpp:258
+#: flickrwidget.cpp:262
 msgctxt "As in accessible for people"
 msgid "Public (anyone can see them)"
 msgstr "Δημόσιο (οποιοσδήποτε μπορεί να το δει)"
 
-#: flickrwidget.cpp:261
+#: flickrwidget.cpp:265
 msgid "Visible to Family"
 msgstr "Ορατό στην οικογένεια"
 
-#: flickrwidget.cpp:264
+#: flickrwidget.cpp:268
 msgid "Visible to Friends"
 msgstr "Ορατό σε φίλους"
 
-#: flickrwidget.cpp:267 flickrwidget.cpp:628
+#: flickrwidget.cpp:271 flickrwidget.cpp:632
 msgid "More publication options"
 msgstr "Περισσότερες επιλογές δημοσίευσης"
 
-#: flickrwidget.cpp:280
+#: flickrwidget.cpp:284
 msgid "Safety level:"
 msgstr "Επίπεδο ασφάλειας:"
 
-#: flickrwidget.cpp:282
+#: flickrwidget.cpp:286
 msgid "Safe"
 msgstr "Ασφαλές"
 
-#: flickrwidget.cpp:283
+#: flickrwidget.cpp:287
 msgid "Moderate"
 msgstr "Μέτριο"
 
-#: flickrwidget.cpp:284
+#: flickrwidget.cpp:288
 msgid "Restricted"
 msgstr "Περιορισμένο"
 
-#: flickrwidget.cpp:286
+#: flickrwidget.cpp:290
 msgid "Content type:"
 msgstr "τύπος περιεχομένου:"
 
-#: flickrwidget.cpp:307
+#: flickrwidget.cpp:311
 msgid "Resizing Options"
 msgstr "Επιλογές αλλαγής μεγέθους"
 
-#: flickrwidget.cpp:312
+#: flickrwidget.cpp:316
 msgid "Send original file (no resizing)"
 msgstr "Αποστολή του αρχικού αρχείου (χωρίς αλλαγή μεγέθους)"
 
-#: flickrwidget.cpp:316
+#: flickrwidget.cpp:320
 msgid "Resize photos before uploading"
 msgstr "Αλλαγή μεγέθους εικόνων πριν την αποστολή"
 
-#: flickrwidget.cpp:328
+#: flickrwidget.cpp:332
 msgid "Maximum dimension (pixels):"
 msgstr "Μέγιστη διάσταση (εικονοστοιχεία):"
 
-#: flickrwidget.cpp:337
+#: flickrwidget.cpp:341
 msgid "JPEG Image Quality (higher is better):"
 msgstr "Ποιότητα εικόνας JPEG (η υψηλότερη είναι η καλύτερη):"
 
-#: flickrwidget.cpp:367
+#: flickrwidget.cpp:371
 msgid "File List"
 msgstr "Λίστα αρχείων"
 
-#: flickrwidget.cpp:368
+#: flickrwidget.cpp:372
 msgid "Upload Options"
 msgstr "Επιλογές αποστολής"
 
-#: flickrwidget.cpp:624
+#: flickrwidget.cpp:628
 msgid "Fewer publication options"
 msgstr "Λιγότερες επιλογές δημοσίευσης"
 
-#: flickrwidget.cpp:646
+#: flickrwidget.cpp:650
 msgid "Fewer tag options"
 msgstr "Λιγότερες επιλογές ετικετών"
 
-#: flickrwindow.cpp:81
+#: flickrwindow.cpp:82
 #, kde-format
 msgid "Export to %1 Web Service"
 msgstr "Εξαγωγή στην υπηρεσία ιστού %1"
 
-#: flickrwindow.cpp:126
+#: flickrwindow.cpp:137
 msgid "Start Uploading"
 msgstr "Έναρξη αποστολής"
 
-#: flickrwindow.cpp:138
+#: flickrwindow.cpp:149
 msgid "Flickr/23/Zooomr Export"
 msgstr "Εξαγωγή Flickr/23/Zooomr"
 
-#: flickrwindow.cpp:141
+#: flickrwindow.cpp:152
 msgid ""
 "A Kipi plugin to export an image collection to a Flickr / 23 / Zooomr web "
 "service."
@@ -509,7 +519,7 @@ msgstr ""
 "Ένα πρόσθετο του Kipi για την εξαγωγή συλλογής εικόνων στην υπηρεσία ιστού "
 "Flickr/ 23 / Zoomr."
 
-#: flickrwindow.cpp:143
+#: flickrwindow.cpp:154
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
@@ -519,36 +529,36 @@ msgstr ""
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
-#: flickrwindow.cpp:147
+#: flickrwindow.cpp:158
 msgid "Author and maintainer"
 msgstr "Συγγραφέας και συντηρητής"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: flickrwindow.cpp:150
+#: flickrwindow.cpp:161
 msgid "Developer"
 msgstr "Προγραμματιστής"
 
-#: flickrwindow.cpp:576
+#: flickrwindow.cpp:638
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Photostream μόνο&gt;"
 
-#: flickrwindow.cpp:764
+#: flickrwindow.cpp:837
 msgid "Flickr Export"
 msgstr "Εξαγωγή Flickr"
 
-#: flickrwindow.cpp:782
+#: flickrwindow.cpp:856
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Αποτυχία προσκόμισης πληροφοριών συνόλου φωτογραφιών από το %1. %2\n"
 
-#: flickrwindow.cpp:787
+#: flickrwindow.cpp:861
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -576,17 +586,25 @@ msgstr "Όνομα χρήστη:"
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: plugin_flickrexport.cpp:103
+#: plugin_flickrexport.cpp:104
 msgid "Export to Flick&r..."
 msgstr "Εξαγωγή στο Flick&r..."
 
-#: plugin_flickrexport.cpp:113
+#: plugin_flickrexport.cpp:116
 msgid "Export to &23..."
 msgstr "Εξαγωγή στο &23..."
 
-#: plugin_flickrexport.cpp:123
+#: plugin_flickrexport.cpp:128
 msgid "Export to &Zooomr..."
 msgstr "Εξαγωγή στο &Zoomr..."
+
+#: selectuserdlg.cpp:48
+msgid "Flickr Account Selector"
+msgstr ""
+
+#: selectuserdlg.cpp:54
+msgid "Add another account"
+msgstr ""
 
 #~ msgid "Handbook"
 #~ msgstr "Εγχειρίδιο"

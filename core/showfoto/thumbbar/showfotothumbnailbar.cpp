@@ -69,6 +69,7 @@ ShowfotoThumbnailBar::ShowfotoThumbnailBar(QWidget* const parent)
     setSpacing(3);
     setUsePointingHandCursor(false);
     setScrollStepGranularity(3);
+    setScrollCurrentToCenter(true);
     setScrollBarPolicy(Qt::ScrollBarAlwaysOn);
 
     setDragEnabled(true);
@@ -167,7 +168,7 @@ void ShowfotoThumbnailBar::slotSetupChanged()
 bool ShowfotoThumbnailBar::event(QEvent* e)
 {
     // reset widget max/min sizes
-    if (e->type() == QEvent::StyleChange)
+    if (e->type() == QEvent::StyleChange || e->type() == QEvent::Show)
     {
         setFlow(flow());
     }

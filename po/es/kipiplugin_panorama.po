@@ -1,0 +1,562 @@
+# Hector Wilvert Ivan Valdez Reza <ranmaru.hibikiya@gmail.com>, 2013.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2014.
+# Aitor Morant <fromhell091@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_panorama\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-17 01:52+0000\n"
+"PO-Revision-Date: 2014-04-18 22:24+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"com>\n"
+"X-POFile-SpellExtra: pto Hugin Caulier Luminance HDR Girault Dynamic jpg\n"
+"X-POFile-SpellExtra: High RAW sRGB Gilles\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Ranmaru Hibikiya,Pablo Pita"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ranmaru.hibikiya@gmail.com,pablo.pita@gmail.com"
+
+#: importwizard/importwizarddlg.cpp:87
+msgid "Panorama Creator Wizard"
+msgstr "Asistente de creación de panoramas"
+
+#: importwizard/intropage.cpp:93
+msgid "<b>Welcome to Panorama Tool</b>"
+msgstr "<b>Bienvenido a la herramienta de Panorama</b>"
+
+#: importwizard/intropage.cpp:100
+msgid ""
+"<qt><p><h1><b>Welcome to Panorama tool</b></h1></p><p>This tool stitches "
+"several images together to create a panorama, making the seam between images "
+"not visible.</p><p>This assistant will help you to configure how to import "
+"images before stitching them into a panorama.</p><p>Images must be taken "
+"from the same point of view.</p><p>For more information, please take a look "
+"at <a href='http://hugin.sourceforge.net/tutorials/overview/en.shtml'>this "
+"page</a></p></qt>"
+msgstr ""
+"<qt><p><h1><b>Bienvenido a la herramienta de Panorama</b></h1></p><p>Esta "
+"herramienta acopla varias imágenes en conjunto para crear un panorama, "
+"haciendo invisible la transición entre imágenes.</p><p>Este asistente le "
+"ayudará a configurar la importación de las imágenes antes de acoplarlas en "
+"un panorama.</p><p>Las imágenes se deben hacer desde un único punto de vista."
+"</p><p>Para mas informaciones, por favor visite <a href='http://hugin."
+"sourceforge.net/tutorials/overview/en.shtml'>esta página</a></p></qt>"
+
+#: importwizard/intropage.cpp:114
+msgid "Panorama Binaries"
+msgstr "Binarios de Panorama"
+
+#: importwizard/intropage.cpp:147
+msgid "File Format"
+msgstr "Formato de archivo"
+
+#: importwizard/intropage.cpp:151
+msgid "JPEG output"
+msgstr "Resultado en JPEG"
+
+#: importwizard/intropage.cpp:154
+#, no-c-format
+msgid ""
+"Selects a JPEG output with 90% compression rate (lossy compression, smaller "
+"size)."
+msgstr ""
+"Selecciona un resultado en JPEG con una tasa de compresión de 90% "
+"(compresión con pérdidas, tamaño menor)."
+
+#: importwizard/intropage.cpp:156
+msgid ""
+"<b>JPEG output</b>: Using JPEG output, the panorama file will be smaller at "
+"the cost of information loss during compression. This is the easiest way to "
+"share the result, or print it online or in a shop."
+msgstr ""
+"<b>Resultado en JPEG</b>: Al usar el resultado en JPEG, el archivo de "
+"panorama será menor pero se pierde información durante a compresión. Esta es "
+"la forma mas simple de compartir el resultado, o de imprimirlo «online» o en "
+"en una tienda."
+
+#: importwizard/intropage.cpp:162
+msgid "TIFF output"
+msgstr "Resultado en TIFF"
+
+#: importwizard/intropage.cpp:163
+msgid ""
+"Selects a TIFF output compressed using the LZW algorithm (lossless "
+"compression, bigger size)."
+msgstr ""
+"Selecciona un resultado en TIFF, comprimido con el algoritmo LZW (compresión "
+"sin pérdidas, tamaño mayor)."
+
+#: importwizard/intropage.cpp:165
+msgid ""
+"<b>TIFF output</b>: Using TIFF output, you get the same color depth than "
+"your original photos using RAW images at the cost of a bigger panorama file."
+msgstr ""
+"<b>Resultado en TIFF</b>: Al usar el resultado en TIFF, obtendrá la misma "
+"profundidad de color que en sus fotos originales, usando imágenes RAW, a "
+"costa de un mayor archivo panorámico."
+
+#: importwizard/itemspage.cpp:66
+msgid "<b>Set Panorama Images</b>"
+msgstr "<b>Definir las imágenes de Panorama</b>"
+
+#: importwizard/itemspage.cpp:72
+msgid ""
+"<qt><p>Set here the list of your images to blend into a panorama. Please "
+"follow these conditions:</p><ul><li>Images are taken from the same point of "
+"view.</li><li>Images are taken with the same camera (and lens).</li><li>Do "
+"not mix images with different color depth.</li></ul><p>Note that, in the "
+"case of a 360° panorama, the first image in the list will be the image that "
+"will be in the center of the panorama.</p></qt>"
+msgstr ""
+"<qt><p>Indique aquí la lista con sus imágenes para fundirán en un panorama. "
+"Siga por favor estas condiciones:</p><ul><li>las imágenes se harán desde el "
+"mismo ponto de vista.</li><li>Las imágenes se harán con la misma máquina (y "
+"lente).</li><li>No se mezclarán imágenes con diferentes profundidades de "
+"color.</li></ul><p>Notar que en el caso de un panorama de 360°, la primera "
+"imagen de la lista será la imagen que estará en el centro del panorama.</p></"
+"qt>"
+
+#: importwizard/lastpage.cpp:75
+msgid "<b>Panorama Stitched</b>"
+msgstr "<b>Panorama acoplado</b>"
+
+#: importwizard/lastpage.cpp:88
+msgid "Save Settings"
+msgstr "Guardar la configuración"
+
+#: importwizard/lastpage.cpp:92
+msgid "File name template:"
+msgstr "Modelo de nombre de archivo:"
+
+#: importwizard/lastpage.cpp:95
+msgid "Name of the panorama file (without its extension)."
+msgstr "El nombre de archivo del panorama (sin la extensión)."
+
+#: importwizard/lastpage.cpp:96
+msgid ""
+"<b>File name template</b>: Set here the base name of the files that will be "
+"saved. For example, if your template is <i>panorama</i> and if you chose a "
+"JPEG output, then your panorama will be saved with the name <i>panorama.jpg</"
+"i>. If you choose to save also the project file, it will have the name "
+"<i>panorama.pto</i>."
+msgstr ""
+"<b>Modelo de nombre de archivo</b>: Configure aquí el nombre de base de los "
+"archivos que se guardarán. Por ejemplo, si su modelo fuera <i>panorama</i> y "
+"si escogiera un resultado en JPEG, entonces su panorama se guardará con el "
+"nombre <i>panorama.jpg</i>. Si optase por guardar tambiém el nombre del "
+"proyecto, este tendrá el nombre <i>panorama.pto</i>."
+
+#: importwizard/lastpage.cpp:102
+msgid "Save project file"
+msgstr "Guardar el archivo de projecto"
+
+#: importwizard/lastpage.cpp:104
+msgid "Save the project file for further processing within Hugin GUI."
+msgstr ""
+"Guarda el archivo de proyecto para su procesamiento posterior dentro de la "
+"GUI de Hugin."
+
+#: importwizard/lastpage.cpp:105
+msgid ""
+"<b>Save project file</b>: You can keep the project file generated to stitch "
+"your panorama for further tweaking within <a href=\"http://hugin.sourceforge."
+"net/\">Hugin</a> by checking this. This is useful if you want a different "
+"projection, modify the horizon or the center of the panorama, or modify the "
+"control points to get better results."
+msgstr ""
+"<b>Guardar el archivo de proyecto</b>: Podrá mantener el archivo de proyecto "
+"generado del panorama acoplado para realizar ajustes posteriores dentro de "
+"<a href=\"http://hugin.sourceforge.net/\">Hugin</a>, caso de marcar esta "
+"opción. Esto es útil si quisiera una proyección diferente, modificar el "
+"horizonte o el centro del panorama o modificar los puntos de control para "
+"obtener mejores resultados."
+
+#: importwizard/lastpage.cpp:187
+#, kde-format
+msgid "<qt><p><font color=\"red\"><b>Error:</b> %1</font></p></qt>"
+msgstr "<qt><p><font color=\"red\"><b>Error:</b> %1</font></p></qt>"
+
+#: importwizard/lastpage.cpp:222
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Panorama Stitching is Done</b></h1></p><p>Congratulations. "
+"Your images are stitched into a panorama.</p><p>Your panorama will be "
+"created to the directory</p><p><b>%1</b></p><p>once you press the <i>Finish</"
+"i> button, with the name set below.</p><p>If you choose to save the project "
+"file, and if your images were raw images then the converted images used "
+"during the stitching process will be copied at the same time (those are TIFF "
+"files that can be big).</p></qt>"
+msgstr ""
+"<qt><p><h1><b>El acoplamiento del panorama ha terminado</b></h1></p><p>"
+"¡Enhorabuena! Sus fotografías están acopladas en un único panorama.</p><p>Su "
+"panorama se creará en el directorio</p><p><b>%1</b></p><p>una vez que pulse "
+"el botón <i>Terminar</i>, con el nombre definido abajo.</p><p>Si opta por "
+"guardar el archivo de proyecto, en caso de que sus imágenes fueran imágenes "
+"RAW, entonces las imágenes convertidas que se hayan usado durante el proceso "
+"de acoplamiento se copiarán al mismo tiempo (son archivos TIFF que pueden "
+"ser grandes).</p></qt>"
+
+#: importwizard/lastpage.cpp:275
+msgid ""
+"<qt><p><font color=\"red\"><b>Warning:</b> This file already exists.</font></"
+"p></qt>"
+msgstr ""
+"<qt><p><font color=\"red\"><b>Atención:</b> Este archivo ya existe.</font></"
+"p></qt>"
+
+#: importwizard/optimizepage.cpp:98
+msgid "<b>Optimization</b>"
+msgstr "<b>Optimización</b>"
+
+#: importwizard/optimizepage.cpp:111
+msgid "Level horizon"
+msgstr "Nivelar el horizonte"
+
+#: importwizard/optimizepage.cpp:113
+msgid "Detect the horizon and adapt the project to make it horizontal."
+msgstr "Detectar el horizonte y adaptar el proyecto para hacerlo horizontal."
+
+#: importwizard/optimizepage.cpp:114
+msgid ""
+"<b>Level horizon</b>: Detect the horizon and adapt the projection so that "
+"the detected horizon is an horizontal line in the final panorama"
+msgstr ""
+"<b>Nivelar el horizonte</b>: Detecta el horizonte y adapta la proyección de "
+"forma que el horizonte detectado sea una línea horizontal en el panorama "
+"final"
+
+#: importwizard/optimizepage.cpp:144 importwizard/preprocessingpage.cpp:131
+#: importwizard/previewpage.cpp:99
+msgid "Details..."
+msgstr "Detalles..."
+
+#: importwizard/optimizepage.cpp:194
+msgid ""
+"<qt><p>Optimization is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>La optimización está en curso, espere por favor.</p><p>Esto puede "
+"llevar algún tiempo...</p></qt>"
+
+#: importwizard/optimizepage.cpp:276
+msgid ""
+"<qt><p>Optimization has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>Falló la optimización.</p><p>Presione sobre «Detalles» para mostrar "
+"los mensajes del procesamiento.</p></qt>"
+
+#: importwizard/optimizepage.cpp:323 importwizard/preprocessingpage.cpp:249
+msgid "Pre-Processing Messages"
+msgstr "Procesando los mensajes"
+
+#: importwizard/optimizepage.cpp:332
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Images Pre-Processing is Done</b></h1></p><p>The optimization "
+"step according to your settings is ready to be performed.</p><p>This step "
+"can include an automatic leveling of the horizon, and also an automatic "
+"projection selection and size</p><p>To perform this operation, the <b>%1</b> "
+"program from the <a href='%2'>%3</a> project will be used.</p><p>Press the "
+"\"Next\" button to run the optimization.</p></qt>"
+msgstr ""
+"<qt><p><h1><b>El preprocesamiento de las imágenes terminó</b></h1></p><p>La "
+"optimización de acuerdo con su configuración está lista para ejecutarse.</"
+"p><p>Este paso podrá incluir un nivelamiento automático del horizonte, así "
+"como una selección y un redimensionamiento de la proyección automáticos</"
+"p><p>Para efectuar esta operación  se usará el programa <b>%1</b> del "
+"proyecto <a href='%2'>%3</a>.</p><p>Presione sobre el botón «Siguiente» para "
+"ejecutar la optimización.</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:106
+msgid "<b>Pre-Processing Images</b>"
+msgstr "<b>Preprocesar las imágenes</b>"
+
+#: importwizard/preprocessingpage.cpp:119
+msgid "Detect moving skies"
+msgstr "Detectar cielos en movimento"
+
+#: importwizard/preprocessingpage.cpp:121
+msgid ""
+"Automatic detection of clouds to prevent wrong keypoints matching between "
+"images due to moving clouds."
+msgstr ""
+"Detección automática de las nubes para evitar una correspondencia inválida "
+"de los puntos clave entre las imagenes, debido a las nubes en movimiento."
+
+#: importwizard/preprocessingpage.cpp:123
+msgid ""
+"<b>Detect moving skies</b>: During the control points selection and "
+"matching, this option discards any points that are associated to a possible "
+"cloud. This is useful to prevent moving clouds from altering the control "
+"points matching process."
+msgstr ""
+"<b>Detectar los cielos en movimiento</b>: Durante la selección y "
+"correspondencia de los puntos de control, esta opción elimina los puntos que "
+"estén asociados a una posible nube. Esto es útil para evitar que las nubes "
+"en movimiento alteren el proceso de correspondencia de los puntos de control."
+
+#: importwizard/preprocessingpage.cpp:178
+msgid ""
+"<qt><p>Pre-processing is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>El préprocesamiento está en curso, por favor espere.</p><p>Esto puede "
+"llevar algún tiempo...</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:280
+msgid ""
+"<qt><p>Pre-processing has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>Falló el preprocesamiento.</p><p>Pulse sobre «Detalles» para mostrar "
+"los mensajes de procesamiento.</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:339
+#, kde-format
+msgid ""
+"<qt><p>Now, we will pre-process images before stitching them.</p><p>Pre-"
+"processing operations include Raw demosaicing. Raw images will be converted "
+"to 16-bit sRGB images with auto-gamma.</p><p>Pre-processing also include a "
+"calculation of some control points to match overlaps between images. For "
+"that purpose, the <b>%1</b> program from the <a href='%2'>%3</a> project "
+"will be used.</p><p>Press \"Next\" to start pre-processing.</p></qt>"
+msgstr ""
+"<qt><p>Ahora, preprocesaremos las imágenes antes de acoplarlas.</p><p>Las "
+"operaciones de preprocesamiento incluyen la eliminación del efecto de "
+"mosaico de RAW. Las imágenes RAW se convertirán en imágenes sRGB de 16-bits "
+"con gamma automática.</p><p>El preprocesamiento también incluye un cálculo "
+"de algunos puntos de control para conocer las superposiciones entre "
+"imágenes. Para ese fin, se usará el programa <b>%1</b> del proyecto <a "
+"href='%2'>%3</a>.</p><p>Presione en «Siguiente» para iniciar el preprocesado."
+"</p></qt>"
+
+#: importwizard/previewpage.cpp:89
+msgid "<b>Preview and Post-Processing</b>"
+msgstr "<b>Previsualización y posprocesamiento</b>"
+
+#: importwizard/previewpage.cpp:148
+msgid "Preview Processing Cancelled."
+msgstr "El procesamiento de la previsualización se ha cancelado."
+
+#: importwizard/previewpage.cpp:175
+msgid "Processing Panorama Preview..."
+msgstr "Procesando la previsualización del panorama..."
+
+#: importwizard/previewpage.cpp:233
+msgid "<qt><p><h1>Panorama Post-Processing</h1></p></qt>"
+msgstr "<qt><p><h1>Posprocesamiento del panorama</h1></p></qt>"
+
+#: importwizard/previewpage.cpp:239
+msgid "Panorama Post-Processing"
+msgstr "Postproceso del panorama"
+
+#: importwizard/previewpage.cpp:298
+#, kde-format
+msgid "<qt><h2><b>Error</b></h2><p>%1</p></qt>"
+msgstr "<qt><h2><b>Error:</b></h2><p>%1</p></qt>"
+
+#: importwizard/previewpage.cpp:315
+#, kde-format
+msgid "Processing file %1 / %2: %3"
+msgstr "Procesando archivo %1 / %2: %3"
+
+#: importwizard/previewpage.cpp:333
+#, kde-format
+msgid "Panorama compilation: %1"
+msgstr "Compilación de Panorama: %1"
+
+#: importwizard/previewpage.cpp:365
+msgid ""
+"<qt><p><h1>Panorama Preview</h1></p><p>Draw a rectangle if you want to crop "
+"the image.</p><p>Pressing the <i>Next</i> button will then launch the final "
+"stitching process.</p></qt>"
+msgstr ""
+"<qt><p><h1>Vista previa del panorama</h1></p><p>Dibuje un rectángulo si "
+"quiere recortar la imagen.</p><p>Si pulsa el botón <i>Siguiente</i> se "
+"lanzará el proceso de acoplamiento final.</p></qt>"
+
+#: importwizard/previewpage.cpp:390 importwizard/previewpage.cpp:435
+#, kde-format
+msgid "Processing file %1 / %2"
+msgstr "Procesando archivo %1 / %2"
+
+#: importwizard/previewpage.cpp:405 importwizard/previewpage.cpp:441
+msgid "Panorama compilation"
+msgstr "Compilación de Panorama"
+
+#: plugin/aboutdata.h:41
+msgid "Panorama Stitching"
+msgstr "Acoplamiento de panoramas"
+
+#: plugin/aboutdata.h:43
+msgid "A tool to automatically stitch images into panorama"
+msgstr "Una herramienta para acoplar automáticamente imágenes en un panorama"
+
+#: plugin/aboutdata.h:44
+msgid "(c) 2011-2013, Benjamin Girault"
+msgstr "(c) 2011-2013, Benjamin Girault"
+
+#: plugin/aboutdata.h:46
+msgid "Benjamin Girault"
+msgstr "Benjamin Girault"
+
+#: plugin/aboutdata.h:47
+msgid "Author"
+msgstr "Autor"
+
+#: plugin/aboutdata.h:50
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:51
+msgid "Developer"
+msgstr "Desarrollador"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_panoramaui.rc:7
+msgid "&Tools"
+msgstr "&Herramientas"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_panoramaui.rc:13
+msgid "Main Toolbar"
+msgstr "Barra de herramientas principal"
+
+#: plugin/panorama.cpp:56
+msgid "File(s) to open"
+msgstr "Archivo(s) para abrir"
+
+#: plugin/plugin_panorama.cpp:104
+msgid "Stitch images into a panorama..."
+msgstr "Acoplar imágenes en un panorama..."
+
+#: tasks/copyfilestask.cpp:85
+msgid "Temporary panorama file does not exists."
+msgstr "El archivo temporal del panorama no existe."
+
+#: tasks/copyfilestask.cpp:93 tasks/copyfilestask.cpp:109
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Ya existe un archivo llamado %1."
+
+#: tasks/copyfilestask.cpp:101
+msgid "Temporary project file does not exist."
+msgstr "El archivo temporal del proyecto no existe."
+
+#: tasks/copyfilestask.cpp:173
+#, kde-format
+msgid "Cannot move panorama from %1 to %2."
+msgstr "No se pudo mover el panorama de %1 a %2."
+
+#: tasks/copyfilestask.cpp:187
+#, kde-format
+msgid "Cannot move project file from %1 to %2."
+msgstr "No se pudo mover el archivo de proyecto de %1 a %2."
+
+#: tasks/copyfilestask.cpp:206
+#, kde-format
+msgid "Cannot copy converted image file from %1 to %2."
+msgstr "No se pudo copiar el archivo de la imagen convertida de %1 a %2."
+
+#: tasks/createfinalptotask.cpp:72 tasks/createptotask.cpp:71
+msgid "PTO file already created in the temporary directory."
+msgstr "Archivo PTO ya creado en un directorio temporal."
+
+#: tasks/createfinalptotask.cpp:79 tasks/createptotask.cpp:77
+msgid "PTO file cannot be created in the temporary directory."
+msgstr "El archivo PTO no se puede crear en el directorio temporal."
+
+#: tasks/createpreviewtask.cpp:71
+msgid "Project file parsing failed."
+msgstr "Ha fallado el análisis del archivo de proyecto."
+
+#: tasks/createpreviewtask.cpp:98
+#, kde-format
+msgid "Unknown input file in the project file: %1"
+msgstr "El archivo de entrada es desconocido en el proyecto: %1"
+
+#: tasks/preprocesstask.cpp:129
+msgid "Input image cannot be loaded for preview generation"
+msgstr ""
+"La imagen de entrada  no se puede cargar para generar la previsualización"
+
+#: tasks/preprocesstask.cpp:166
+msgid "Operation canceled."
+msgstr "Operación cancelada"
+
+#: tasks/preprocesstask.cpp:198
+msgid "Tiff image creation failed."
+msgstr "La creación de la imagen tiff falló. "
+
+#: tasks/preprocesstask.cpp:208
+msgid "Raw file conversion failed."
+msgstr "La conversión del archivo en bruto falló."
+
+#: tasks/task.cpp:66
+#, kde-format
+msgid ""
+"Cannot run %1:\n"
+"\n"
+" %2"
+msgstr ""
+"No se pudo ejecutar %1:\n"
+"\n"
+" %2"
+
+#~ msgid "Missing project file."
+#~ msgstr "Falta el archivo de proyecto."
+
+#~ msgid "Panorama Settings"
+#~ msgstr "Configuración de Panorama"
+
+#~ msgid "HDR output"
+#~ msgstr "Resultado en HDR"
+
+#~ msgid ""
+#~ "When checked, the panorama will be stitched into an High Dynamic Range "
+#~ "(HDR) image, that can be processed further with a dedicated software."
+#~ msgstr ""
+#~ "Cuando este marcado, se acoplará el panorama en una image HDR (High "
+#~ "Dynamic Range - Intervalo Dinámico Elevado), que podrá procesar después "
+#~ "con una aplicación dedicada."
+
+#~ msgid ""
+#~ "<b>HDR output</b>: Output in High Dynamic Range, meaning that every piece "
+#~ "of information contained in the original photos are preserved. Note that "
+#~ "you need another software to process the resulting panorama, like <a href="
+#~ "\"http://qtpfsgui.sourceforge.net/\">Luminance HDR</a>"
+#~ msgstr ""
+#~ "<b>Resultado en HDR</b>: Resultado en Intervalo Dimámico Elevado, lo que "
+#~ "significa que todos los pedazos de información contenidos en las fotos "
+#~ "originales serán preservados. Notar que necesitará otra aplicación para "
+#~ "procesar el panorama resultante, como <a href=\"http://qtpfsgui."
+#~ "sourceforge.net/\">Luminance HDR</a>"
+
+#~ msgid "Automatic projection"
+#~ msgstr "Proyección automática"
+
+#~ msgid ""
+#~ "Adapt the projection of the panorama and the area rendered on the "
+#~ "resulting projection so that every photo fits in the resulting panorama."
+#~ msgstr ""
+#~ "Adaptar la proyección del panorama y el área visualizada en la proyección "
+#~ "resultante para tener todas las fotos en el panorama."
+
+#~ msgid ""
+#~ "<b>Automatic projection</b>: Automatically adapt the projection and the "
+#~ "area rendered of the panorama to get every photos into the panorama."
+#~ msgstr ""
+#~ "<b>Proyección automática</b>: Adapta automáticamente la proyección y el "
+#~ "área visualizada del panorama para colocar todas las fotos en el panorama."

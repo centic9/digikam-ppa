@@ -1,0 +1,408 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Balázs Úr <urbalazs@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-02-01 02:36+0100\n"
+"PO-Revision-Date: 2013-07-22 14:26+0200\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Úr Balázs"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "urbalazs@gmail.com"
+
+#: kmlexport.cpp:79
+msgid "Generating KML file..."
+msgstr "KML fájl előállítása…"
+
+#: kmlexport.cpp:100
+#, kde-format
+msgid "Could not create '%1'"
+msgstr "Nem sikerült létrehozni: „%1”"
+
+#: kmlexport.cpp:188
+#, kde-format
+msgid "Could not read image '%1'"
+msgstr "Nem olvasható a kép: „%1”"
+
+#: kmlexport.cpp:197
+#, kde-format
+msgid "Format of image '%1' is unknown"
+msgstr "A(z) „%1” kép formátuma ismeretlen"
+
+#: kmlexport.cpp:209
+#, kde-format
+msgid "Error loading image '%1'"
+msgstr "Hiba a kép betöltésekor: „%1”"
+
+#: kmlexport.cpp:248
+#, kde-format
+msgid "Could not save image '%1' to '%2'"
+msgstr "Nem sikerült a(z) „%1” kép mentése ide: „%2”"
+
+#: kmlexport.cpp:351
+#, kde-format
+msgid "Creation of placemark '%1'"
+msgstr "A(z) „%1” helyjelző létrehozása"
+
+#: kmlexport.cpp:359
+#, kde-format
+msgid "Could not save icon for image '%1' to '%2'"
+msgstr "Nem sikerült a(z) „%1” kép ikonjának mentése ide: „%2”"
+
+#: kmlexport.cpp:391
+msgid "No GPX file chosen."
+msgstr "Nincs GPX fájl kiválasztva."
+
+#: kmlexport.cpp:400
+#, kde-format
+msgid "Cannot parse %1 GPX file."
+msgstr "Nem sikerült feldolgozni a(z) %1 GPX fájlt."
+
+#: kmlexport.cpp:406
+#, kde-format
+msgid "The %1 GPX file do not have a date-time track to use."
+msgstr "A(z) %1 GPX fájlnak nincs használandó dátum-idő nyomvonala."
+
+#: kmlexport.cpp:413
+msgid "Tracks"
+msgstr "Nyomvonalak"
+
+#: kmlexport.cpp:508
+#, kde-format
+msgid "No position data for '%1'"
+msgstr "Nincs pozícióadat ehhez: „%1”"
+
+#: kmlexport.cpp:520
+#, kde-format
+msgid "No position data for 1 picture"
+msgid_plural "No position data for %1 pictures"
+msgstr[0] "Nincs pozícióadat 1 képhez"
+msgstr[1] "Nincs pozícióadat %1 képhez"
+
+#: kmlexport.cpp:536
+msgid "Move to final directory"
+msgstr "Áthelyezés a végső könyvtárba"
+
+#: kmlexportconfig.cpp:66 kmlexportconfig.cpp:279
+msgid "KML Export"
+msgstr "KML exportálás"
+
+#: kmlexportconfig.cpp:76
+msgid "Target Preferences"
+msgstr "Cél beállításai"
+
+#: kmlexportconfig.cpp:80
+msgid "Target Type"
+msgstr "Cél típusa"
+
+#: kmlexportconfig.cpp:83
+msgid "&Local or web target used by GoogleEarth"
+msgstr "&Helyi vagy web cél a Google Föld használatával"
+
+#: kmlexportconfig.cpp:86
+msgid "Web target used by GoogleMaps"
+msgstr "Web cél a Google Térkép használatával"
+
+#: kmlexportconfig.cpp:87
+msgid ""
+"When using GoogleMaps, all images must have complete URLs, icons are "
+"squared, and when drawing a track, only line track is exported."
+msgstr ""
+"A Google Térkép használatakor minden képnek teljes URL-lel kell "
+"rendelkeznie, az ikonok négyzet alakúak és a nyomvonal rajzolásakor csak a "
+"nyomvonal vonala lesz exportálva."
+
+#: kmlexportconfig.cpp:99
+msgid "Picture Altitude:"
+msgstr "Kép magassága:"
+
+#: kmlexportconfig.cpp:101 kmlexportconfig.cpp:224
+msgid "clamp to ground"
+msgstr "rögzítés a földhöz"
+
+#: kmlexportconfig.cpp:102 kmlexportconfig.cpp:225
+msgid "relative to ground"
+msgstr "relatív a földtől"
+
+#: kmlexportconfig.cpp:103 kmlexportconfig.cpp:226
+msgid "absolute"
+msgstr "abszolút"
+
+#: kmlexportconfig.cpp:104
+msgid ""
+"<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
+"dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+"ground</dt><dd>Sets the altitude of the element relative to the actual "
+"ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets the "
+"altitude of the coordinate relative to sea level, regardless of the actual "
+"elevation of the terrain beneath the element.</dd></dl>"
+msgstr ""
+"<p>Megadja, hogy hogyan jelenjenek meg a képek<dl><dt>rögzítés a földhöz "
+"(alapértelmezett)</dt><dd>Azt jelzi, hogy figyelmen kívül hagyja a magassági "
+"specifikációt</dd><dt>relatív a földtől</dt><dd>Beállítja az elem magasságát "
+"az egyes helyek aktuális tengerszint feletti magasságához viszonyítva.</"
+"dd><dt>abszolút</dt><dd>Beállítja a koordináta magasságát a tenger "
+"szintjéhez képest függetlenül az elem alatti terep a tényleges magasságától."
+"</dd></dl>"
+
+#: kmlexportconfig.cpp:114
+msgid "Destination Directory:"
+msgstr "Célkönyvtár:"
+
+#: kmlexportconfig.cpp:118
+msgid "Select a directory in which to save the kml file and pictures"
+msgstr ""
+"Válassza ki azt a könyvtárat, amelybe a kml fájlok és képek mentésre kerülnek"
+
+#: kmlexportconfig.cpp:121
+msgid "Destination URL:"
+msgstr "Cél URL:"
+
+#: kmlexportconfig.cpp:123
+msgid "Filename:"
+msgstr "Fájlnév:"
+
+#: kmlexportconfig.cpp:142
+msgid "Sizes"
+msgstr "Méretek"
+
+#: kmlexportconfig.cpp:144
+msgid "Icon Size:"
+msgstr "Ikonméret:"
+
+#: kmlexportconfig.cpp:148
+msgid "Image Size:"
+msgstr "Képméret:"
+
+#: kmlexportconfig.cpp:163
+msgid "GPX Tracks"
+msgstr "GPX nyomvonalak"
+
+#: kmlexportconfig.cpp:167
+msgid "Draw GPX Track"
+msgstr "GPX nyomvonal rajzolása"
+
+#: kmlexportconfig.cpp:170
+msgid "GPX file:"
+msgstr "GPX fájl:"
+
+#: kmlexportconfig.cpp:173
+#, kde-format
+msgid "%1|GPS Exchange Format"
+msgstr "%1|GPS Exchange Format"
+
+#: kmlexportconfig.cpp:174
+msgid "Select GPX File to Load"
+msgstr "A betöltendő GPX fájl kiválasztása"
+
+#: kmlexportconfig.cpp:176
+msgid "Time Zone:"
+msgstr "Időzóna:"
+
+#: kmlexportconfig.cpp:178
+msgid "GMT-12:00"
+msgstr "GMT-12:00"
+
+#: kmlexportconfig.cpp:179
+msgid "GMT-11:00"
+msgstr "GMT-11:00"
+
+#: kmlexportconfig.cpp:180
+msgid "GMT-10:00"
+msgstr "GMT-10:00"
+
+#: kmlexportconfig.cpp:181
+msgid "GMT-09:00"
+msgstr "GMT-09:00"
+
+#: kmlexportconfig.cpp:182
+msgid "GMT-08:00"
+msgstr "GMT-08:00"
+
+#: kmlexportconfig.cpp:183
+msgid "GMT-07:00"
+msgstr "GMT-07:00"
+
+#: kmlexportconfig.cpp:184
+msgid "GMT-06:00"
+msgstr "GMT-06:00"
+
+#: kmlexportconfig.cpp:185
+msgid "GMT-05:00"
+msgstr "GMT-05:00"
+
+#: kmlexportconfig.cpp:186
+msgid "GMT-04:00"
+msgstr "GMT-04:00"
+
+#: kmlexportconfig.cpp:187
+msgid "GMT-03:00"
+msgstr "GMT-03:00"
+
+#: kmlexportconfig.cpp:188
+msgid "GMT-02:00"
+msgstr "GMT-02:00"
+
+#: kmlexportconfig.cpp:189
+msgid "GMT-01:00"
+msgstr "GMT-01:00"
+
+#: kmlexportconfig.cpp:190
+msgid "GMT"
+msgstr "GMT"
+
+#: kmlexportconfig.cpp:191
+msgid "GMT+01:00"
+msgstr "GMT+01:00"
+
+#: kmlexportconfig.cpp:192
+msgid "GMT+02:00"
+msgstr "GMT+02:00"
+
+#: kmlexportconfig.cpp:193
+msgid "GMT+03:00"
+msgstr "GMT+03:00"
+
+#: kmlexportconfig.cpp:194
+msgid "GMT+04:00"
+msgstr "GMT+04:00"
+
+#: kmlexportconfig.cpp:195
+msgid "GMT+05:00"
+msgstr "GMT+05:00"
+
+#: kmlexportconfig.cpp:196
+msgid "GMT+06:00"
+msgstr "GMT+06:00"
+
+#: kmlexportconfig.cpp:197
+msgid "GMT+07:00"
+msgstr "GMT+07:00"
+
+#: kmlexportconfig.cpp:198
+msgid "GMT+08:00"
+msgstr "GMT+08:00"
+
+#: kmlexportconfig.cpp:199
+msgid "GMT+09:00"
+msgstr "GMT+09:00"
+
+#: kmlexportconfig.cpp:200
+msgid "GMT+10:00"
+msgstr "GMT+10:00"
+
+#: kmlexportconfig.cpp:201
+msgid "GMT+11:00"
+msgstr "GMT+11:00"
+
+#: kmlexportconfig.cpp:202
+msgid "GMT+12:00"
+msgstr "GMT+12:00"
+
+#: kmlexportconfig.cpp:203
+msgid "GMT+13:00"
+msgstr "GMT+13:00"
+
+#: kmlexportconfig.cpp:204
+msgid "GMT+14:00"
+msgstr "GMT+14:00"
+
+#: kmlexportconfig.cpp:205
+msgid ""
+"Sets the time zone of the camera during picture shooting, so that the time "
+"stamps of the GPS can be converted to match the local time"
+msgstr ""
+"Beállítja fényképkészítés közben a fényképező időzónáját, így a GPS "
+"időbélyegei átalakíthatók a helyi idő szerint"
+
+#: kmlexportconfig.cpp:209
+msgid "Track Width:"
+msgstr "Nyomvonal szélessége:"
+
+#: kmlexportconfig.cpp:213
+msgid "Track Color:"
+msgstr "Nyomvonal színe:"
+
+#: kmlexportconfig.cpp:219
+msgid "Opacity:"
+msgstr "Átlátszatlanság:"
+
+#: kmlexportconfig.cpp:222
+msgid "Track Altitude:"
+msgstr "Nyomvonal magassága:"
+
+#: kmlexportconfig.cpp:227
+msgid ""
+"<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)</"
+"dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+"ground</dt><dd>Sets the altitude of the element relative to the actual "
+"ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets the "
+"altitude of the coordinate relative to sea level, regardless of the actual "
+"elevation of the terrain beneath the element.</dd></dl>"
+msgstr ""
+"<p>Megadja, hogy hogyan jelenjenek meg a pontok<dl><dt>rögzítés a földhöz "
+"(alapértelmezett)</dt><dd>Azt jelzi, hogy figyelmen kívül hagyja a magassági "
+"specifikációt</dd><dt>relatív a földtől</dt><dd>Beállítja az elem magasságát "
+"az egyes helyek aktuális tengerszint feletti magasságához viszonyítva.</"
+"dd><dt>abszolút</dt><dd>Beállítja a koordináta magasságát a tenger "
+"szintjéhez képest függetlenül az elem alatti terep a tényleges magasságától."
+"</dd></dl>"
+
+#: kmlexportconfig.cpp:282
+msgid "A Kipi plugin for KML exporting"
+msgstr "Egy Kipi-bővítmény KML exportáláshoz"
+
+#: kmlexportconfig.cpp:283
+msgid "(c) 2006-2007, Stéphane Pontier"
+msgstr "© Stéphane Pontier, 2006-2007."
+
+#: kmlexportconfig.cpp:285
+msgid "Stéphane Pontier"
+msgstr "Stéphane Pontier"
+
+#: kmlexportconfig.cpp:286 kmlexportconfig.cpp:290
+msgid "Developer and maintainer"
+msgstr "Fejlesztő és karbantartó"
+
+#: kmlexportconfig.cpp:289
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: kmlexportconfig.cpp:293
+msgid "Michael G. Hansen"
+msgstr "Michael G. Hansen"
+
+#: kmlexportconfig.cpp:294
+msgid "Maintainer"
+msgstr "Karbantartó"
+
+#: kmlgpsdataparser.cpp:64
+msgid "Track"
+msgstr "Nyomvonal"
+
+#: kmlgpsdataparser.cpp:90
+msgid "Points"
+msgstr "Pontok"
+
+#: kmlgpsdataparser.cpp:101
+msgid "Point"
+msgstr "Pont"
+
+#: plugin_kmlexport.cpp:98
+msgid "Export to KML..."
+msgstr "Exportálás KML-be…"
