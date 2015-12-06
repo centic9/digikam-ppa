@@ -6,7 +6,7 @@
  * Date        : 2011-02-19
  * Description : A KIPI plugin to export images to VKontakte web service.
  *
- * Copyright (C) 2011-2012 by Alexander Potashev <aspotashev at gmail dot com>
+ * Copyright (C) 2011-2012, 2015  Alexander Potashev <aspotashev@gmail.com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,6 +32,10 @@
 
 #include <libkvkontakte/albuminfo.h>
 
+// Local includes
+
+#include "vkalbumdialog.h"
+
 // TODO: share this code with `vkwindow.cpp`
 #define SLOT_JOB_DONE_INIT(JobClass)                     \
     JobClass* const job = dynamic_cast<JobClass*>(kjob); \
@@ -47,10 +51,13 @@ class QToolButton;
 class KPushButton;
 class KComboBox;
 
+namespace Vkontakte
+{
+    class VkApi;
+}
+
 namespace KIPIVkontaktePlugin
 {
-
-class VkAPI;
 
 class AlbumChooserWidget : public QGroupBox
 {
@@ -58,12 +65,13 @@ class AlbumChooserWidget : public QGroupBox
 
 public:
 
-    AlbumChooserWidget(QWidget* const parent, VkAPI* const vkapi);
+    AlbumChooserWidget(QWidget* const parent, Vkontakte::VkApi* const vkapi);
     ~AlbumChooserWidget();
 
     void clearList();
 
-    Vkontakte::AlbumInfoPtr currentAlbum();
+    bool getCurrentAlbumInfo(VkontakteAlbumDialog::AlbumInfo &out);
+    bool getCurrentAlbumId(int &out);
     void selectAlbum(int aid);
 
 protected Q_SLOTS:
@@ -73,9 +81,9 @@ protected Q_SLOTS:
     void slotDeleteAlbumRequest();
     void slotReloadAlbumsRequest();
 
-    void startAlbumCreation(Vkontakte::AlbumInfoPtr album);
-    void startAlbumEditing(Vkontakte::AlbumInfoPtr album);
-    void startAlbumDeletion(Vkontakte::AlbumInfoPtr album);
+    void startAlbumCreation(const VkontakteAlbumDialog::AlbumInfo& album);
+    void startAlbumEditing(int aid, const VkontakteAlbumDialog::AlbumInfo& album);
+    void startAlbumDeletion(int aid);
     void startAlbumsReload();
 
     void slotAlbumCreationDone(KJob *kjob);
@@ -101,7 +109,7 @@ private:
     /** album with this "aid" will be selected in slotAlbumsReloadDone() */
     int                            m_albumToSelect;
 
-    VkAPI*                         m_vkapi;
+    Vkontakte::VkApi*              m_vkapi;
 };
 
 } // namespace KIPIVkontaktePlugin

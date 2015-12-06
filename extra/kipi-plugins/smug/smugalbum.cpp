@@ -41,13 +41,13 @@
 
 // local includes
 
-#include <smugitem.h>
+#include "smugitem.h"
 
 namespace KIPISmugPlugin
 {
 
 SmugNewAlbum::SmugNewAlbum(QWidget* parent)
-            : KDialog(parent)
+    : KDialog(parent)
 {
     QString header(i18n("SmugMug New Album"));
     setWindowTitle(header);
@@ -153,15 +153,15 @@ void SmugNewAlbum::getAlbumProperties(SmugAlbum &album)
     album.title      = m_titleEdt->text();
 
     album.category   = m_categCoB->currentText();
-    album.categoryID = m_categCoB->itemData(m_categCoB->currentIndex()).toInt();
+    album.categoryID = m_categCoB->itemData(m_categCoB->currentIndex()).toLongLong();
 
     album.subCategory   = m_subCategCoB->currentText();
-    album.subCategoryID = m_subCategCoB->itemData(m_subCategCoB->currentIndex()).toInt();
+    album.subCategoryID = m_subCategCoB->itemData(m_subCategCoB->currentIndex()).toLongLong();
 
     album.description   = m_descEdt->toPlainText();
 
     album.tmpl   = m_templateCoB->currentText();
-    album.tmplID = m_templateCoB->itemData(m_templateCoB->currentIndex()).toInt();
+    album.tmplID = m_templateCoB->itemData(m_templateCoB->currentIndex()).toLongLong();
 
     album.isPublic     = m_publicRBtn->isChecked();
     album.password     = m_passwdEdt->text();

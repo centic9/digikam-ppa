@@ -2,15 +2,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Eloy Cuadra <ecuadra@eloihr.net>, 2007, 2009, 2014.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2007, 2009, 2014, 2015.
 # Santiago Fernández Sancho <santi@kde-es.org>, 2007, 2008, 2010.
 # Hector Wilvert Ivan Valdez Reza <ranmaru.hibikiya@gmail.com>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_timeadjust\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-26 01:45+0000\n"
-"PO-Revision-Date: 2014-11-27 21:25+0100\n"
+"POT-Creation-Date: 2015-06-18 01:56+0000\n"
+"PO-Revision-Date: 2015-07-01 11:07+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -23,11 +23,11 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Santiago Fernández Sancho"
+msgstr "Eloy Cuadra,Santiago Fernández Sancho"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "santi@kde-es.org"
+msgstr "ecuadra@eloihr.net,santi@kde-es.org"
 
 #: clockphotodialog.cpp:83
 msgid "Determine time difference with clock photo"
@@ -184,10 +184,8 @@ msgid "Determine difference from clock photo"
 msgstr "Determina la diferencia desde la fotografía del reloj"
 
 #: settingswidget.cpp:256
-#, fuzzy
-#| msgid "EXIF: original"
 msgid "EXIF: Thumbnail"
-msgstr "EXIF: original"
+msgstr "EXIF: miniatura"
 
 #: settingswidget.cpp:258
 msgid "XMP"
@@ -201,62 +199,68 @@ msgstr "Nombre de archivo"
 msgid "Timestamp Adjustments"
 msgstr "Ajustes de fecha y hora"
 
-#: timeadjustdialog.cpp:104 timeadjustdialog.cpp:398
+#: timeadjustdialog.cpp:105 timeadjustdialog.cpp:403
 msgid "Adjust Time & Date"
 msgstr "Ajustar fecha y hora"
 
-#: timeadjustdialog.cpp:129
+#: timeadjustdialog.cpp:109
+msgctxt "@action:button"
+msgid "&Apply"
+msgstr "&Aplicar"
+
+#: timeadjustdialog.cpp:110
+msgctxt "@info:tooltip"
+msgid "Write the corrected date and time for each image"
+msgstr "Escribir la fecha y hora corregidas para cada imagen"
+
+#: timeadjustdialog.cpp:134
 msgid "Time Adjust"
 msgstr "Ajustar hora"
 
-#: timeadjustdialog.cpp:132
+#: timeadjustdialog.cpp:137
 msgid "A Kipi plugin for adjusting the timestamp of picture files"
 msgstr ""
 "Un complemento de Kipi para ajustar marcas de tiempo de los archivos de "
 "imágenes"
 
-#: timeadjustdialog.cpp:133
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2005, Jesper K. Pedersen\n"
-#| "(c) 2006-2012, Gilles Caulier\n"
-#| "(c) 2012, Smit Mehta"
+#: timeadjustdialog.cpp:138
 msgid ""
 "(c) 2003-2005, Jesper K. Pedersen\n"
 "(c) 2006-2014, Gilles Caulier\n"
 "(c) 2012, Smit Mehta"
 msgstr ""
-"(c) 2003-2005, Jesper K. Pedersen\n"
-"(c) 2006-2012, Gilles Caulier(c) 2012, Smit Mehta"
+"© 2003-2005, Jesper K. Pedersen\n"
+"© 2006-2014, Gilles Caulier\n"
+"© 2012, Smit Mehta"
 
-#: timeadjustdialog.cpp:137
+#: timeadjustdialog.cpp:142
 msgid "Jesper K. Pedersen"
 msgstr "Jesper K. Pedersen"
 
-#: timeadjustdialog.cpp:138
+#: timeadjustdialog.cpp:143
 msgid "Author"
 msgstr "Autor"
 
-#: timeadjustdialog.cpp:141
+#: timeadjustdialog.cpp:146
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: timeadjustdialog.cpp:142 timeadjustdialog.cpp:146 timeadjustdialog.cpp:150
+#: timeadjustdialog.cpp:147 timeadjustdialog.cpp:151 timeadjustdialog.cpp:155
 msgid "Developer"
 msgstr "Desarrollador"
 
-#: timeadjustdialog.cpp:145
+#: timeadjustdialog.cpp:150
 msgid "Smit Mehta"
 msgstr "Smit Mehta"
 
-#: timeadjustdialog.cpp:149
+#: timeadjustdialog.cpp:154
 msgid "Pieter Edelman"
 msgstr "Pieter Edelman"
 
-#: timeadjustdialog.cpp:380
+#: timeadjustdialog.cpp:385
 msgid "Adjust Time and Date"
 msgstr "Ajustar fecha y hora"
 
-#: timeadjustdialog.cpp:397
+#: timeadjustdialog.cpp:402
 msgid "Select at least one option"
 msgstr "Seleccionar al menos una opción"

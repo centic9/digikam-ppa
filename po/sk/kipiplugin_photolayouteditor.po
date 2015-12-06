@@ -1,0 +1,992 @@
+# translation of kipiplugin_photolayouteditor.po to Slovak
+# Richard Frič <Richard.Fric@kdemail.net>, 2011.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_photolayouteditor\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2013-10-28 21:12+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:40
+#, fuzzy
+msgid "Write here some text"
+msgstr "Sem zadajte svoj text."
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:59
+#: borderplugins/solid/SolidBorderDrawer.cpp:71
+#: widgets/dialogs/CanvasSizeDialog.cpp:364
+#: widgets/dialogs/CanvasSizeWidget.cpp:147
+#: widgets/tools/CanvasEditTool.cpp:589
+msgid "Width"
+msgstr "Šírka"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:61
+msgid "Text"
+msgstr "Text"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:63
+#: borderplugins/solid/SolidBorderDrawer.cpp:67
+#: widgets/tools/CanvasEditTool.cpp:104 widgets/tools/CanvasEditTool.cpp:544
+#: widgets/tools/CanvasEditTool.cpp:599
+msgid "Color"
+msgstr "Farba"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:65
+#: widgets/items/TextItem.cpp:812
+msgid "Font"
+msgstr "Písmo"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:158
+#: borderplugins/StandardBordersFactory.cpp:41
+#: borderplugins/StandardBordersFactory.cpp:49
+#, fuzzy
+msgid "Polaroid border"
+msgstr "Veľkosť okraja:"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:54
+msgid "Miter"
+msgstr ""
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:55
+msgid "Bevel"
+msgstr ""
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:56
+msgid "Round"
+msgstr ""
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:69
+#, fuzzy
+msgid "Corners style"
+msgstr "Nastavenia štýlu"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:73
+msgid "Spacing"
+msgstr "Medzery"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:165
+#: borderplugins/StandardBordersFactory.cpp:42
+#: borderplugins/StandardBordersFactory.cpp:47
+#, fuzzy
+msgid "Solid border"
+msgstr "Veľkosť okraja:"
+
+#: borders/BorderChangeListener.cpp:48 widgets/canvas/SceneBorder.cpp:56
+#: widgets/canvas/SceneBorder.cpp:100
+#, fuzzy
+msgid "Border Change"
+msgstr "Zmeniť okraj"
+
+#: effectplugins/blur/BlurPhotoEffect.cpp:53
+#: effectplugins/StandardEffectsFactory.cpp:42
+#: effectplugins/StandardEffectsFactory.cpp:57
+#: effects/temp/BlurPhotoEffect.cpp:122
+#, fuzzy
+msgid "Blur effect"
+msgstr "Textový efekt"
+
+#: effectplugins/colorize/ColorizePhotoEffect.cpp:55
+#: effectplugins/StandardEffectsFactory.cpp:44
+#: effectplugins/StandardEffectsFactory.cpp:58
+#, fuzzy
+msgid "Colorize effect"
+msgstr "Textový efekt"
+
+#: effectplugins/grayscale/GrayscalePhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:46
+#: effectplugins/StandardEffectsFactory.cpp:59
+#, fuzzy
+msgid "Grayscale effect"
+msgstr "Textový efekt"
+
+#: effectplugins/negative/NegativePhotoEffect.cpp:49
+#: effectplugins/StandardEffectsFactory.cpp:50
+#: effectplugins/StandardEffectsFactory.cpp:61
+#, fuzzy
+msgid "Negative effect"
+msgstr "Textový efekt"
+
+#: effectplugins/sepia/SepiaPhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:48
+#: effectplugins/StandardEffectsFactory.cpp:60
+#, fuzzy
+msgid "Sepia effect"
+msgstr "Textový efekt"
+
+#: effects/PhotoEffectsGroup.cpp:188
+msgid "Effect name"
+msgstr "Názov efektu"
+
+#: effects/PixelizePhotoEffect.cpp:94
+msgid "Pixel size"
+msgstr "Veľkosť v bodoch"
+
+#: effects/PixelizePhotoEffect.cpp:104
+#, fuzzy
+msgid "Pixelize effect"
+msgstr "Textový efekt"
+
+#: effects/PixelizePhotoEffect.cpp:142
+#, fuzzy, kde-format
+#| msgid "Pixelize ["
+msgid "Pixelize [%1 = %2]"
+msgstr "Pixelizovať ["
+
+#: effects/temp/BlurPhotoEffect.cpp:37
+msgid "Radius"
+msgstr "Polomer"
+
+#: models/LayersModelItem.cpp:159
+msgid "Layer"
+msgstr "Vrstva"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_photolayoutseditorui.rc:7
+msgid "&Tools"
+msgstr "&Nástroje"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_photolayoutseditorui.rc:13
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: plugin/main.cpp:49
+msgid "Input file"
+msgstr "Vstupný súbor"
+
+#: plugin/photolayoutseditor.cpp:103
+#, fuzzy
+msgid "Canvas size change"
+msgstr "Zmeniť veľkosť písma?"
+
+#: plugin/photolayoutseditor.cpp:139 plugin/PLEAboutData.h:39
+#, fuzzy
+msgid "Photo Layouts Editor"
+msgstr "Prehliadač a editor fotografií"
+
+#: plugin/photolayoutseditor.cpp:258
+msgctxt "Saves canvas as a template file..."
+msgid "Save As Template..."
+msgstr "Uložiť ako šablónu..."
+
+#: plugin/photolayoutseditor.cpp:262
+msgctxt "Export current frame layout to image file..."
+msgid "Export..."
+msgstr "Exportovať..."
+
+#: plugin/photolayoutseditor.cpp:294
+#, fuzzy
+msgctxt "Adds new image(s) from file..."
+msgid "Add image(s)..."
+msgstr "Pridať obrázak..."
+
+#: plugin/photolayoutseditor.cpp:298
+msgctxt "View grid lines..."
+msgid "Show..."
+msgstr "Zobraziť..."
+
+#: plugin/photolayoutseditor.cpp:304
+#, fuzzy
+msgctxt "Configure grid lines visibility..."
+msgid "Setup grid..."
+msgstr "Plocha s mriežkou"
+
+#: plugin/photolayoutseditor.cpp:308
+#, fuzzy
+msgctxt "Configure canvas size..."
+msgid "Change canvas size..."
+msgstr "Zmeniť veľkosť písma?"
+
+#: plugin/photolayoutseditor.cpp:368 widgets/layers/LayersTreeTitleWidget.h:51
+msgid "Layers"
+msgstr "Vrstvy"
+
+#: plugin/photolayoutseditor.cpp:432
+#, fuzzy
+msgid "Cannot read image file."
+msgstr "Nemôžem prečítať súbor '%1'."
+
+#: plugin/photolayoutseditor.cpp:506 plugin/photolayoutseditor.cpp:542
+#: plugin/photolayoutseditor.cpp:557
+#, fuzzy
+msgid "*.ple|Photo Layouts Editor files"
+msgstr "Prehliadač a editor fotografií"
+
+#: plugin/photolayoutseditor.cpp:569 plugin/photolayoutseditor.cpp:579
+#, fuzzy
+msgid "There is nothing to save."
+msgstr "Nie je čo vrátiť späť."
+
+#: plugin/photolayoutseditor.cpp:602
+msgid "Image can't be saved in selected file."
+msgstr ""
+
+#: plugin/photolayoutseditor.cpp:607
+#, fuzzy
+msgid "Unexpected error while saving an image."
+msgstr ""
+"Nastala chyba pri ukladaní obrázku:\n"
+"%1"
+
+#: plugin/photolayoutseditor.cpp:650
+#, fuzzy
+msgid "Save changes to current frame?"
+msgstr "Uložiť zmeny v aktuálnom riadku"
+
+#: plugin/photolayoutseditor.cpp:745
+msgid "Invalid image size."
+msgstr "Neplatná veľkosť obrázku."
+
+#. i18n: ectx: Menu (File)
+#: plugin/photolayoutseditorui.rc:8
+msgid "&File"
+msgstr "&Súbor"
+
+#. i18n: ectx: Menu (Edit)
+#: plugin/photolayoutseditorui.rc:27
+msgid "&Edit"
+msgstr "&Upraviť"
+
+#. i18n: ectx: Menu (Canvas)
+#: plugin/photolayoutseditorui.rc:35
+msgid "&Canvas"
+msgstr "Plátno"
+
+#. i18n: ectx: Menu (grid_lines)
+#: plugin/photolayoutseditorui.rc:39
+msgid "&Grid lines"
+msgstr "Čiary mriežky"
+
+#: plugin/PLEAboutData.h:42
+msgid "A tool to create photo layouts by fusion of several images"
+msgstr ""
+
+#: plugin/PLEAboutData.h:43
+msgid "(c) 2011, Lukasz Spas"
+msgstr "(c) 2011, Lukasz Spas"
+
+#: plugin/PLEAboutData.h:46
+msgid "Lukasz Spas"
+msgstr "Lukasz Spas"
+
+#: plugin/PLEAboutData.h:47
+#, fuzzy
+msgid "Author and Developer"
+msgstr "Pôvodný autor a hlavný vývojár"
+
+#: plugin/plugin_photolayoutseditor.cpp:93
+#, fuzzy
+msgid "Create photo layouts..."
+msgstr "&Získať nové rozloženia"
+
+#. i18n: ectx: label, entry (recentFiles), group (General)
+#: settings/photolayoutseditor.kcfg:25
+#, fuzzy
+msgid "Recent opened files"
+msgstr "Zobraziť otvorené súbory"
+
+#. i18n: ectx: label, entry (recentFilesCount), group (General)
+#: settings/photolayoutseditor.kcfg:28
+msgid "Maximum count of the urls saved on the recent files list"
+msgstr ""
+
+#. i18n: ectx: label, entry (embedImagesData), group (Saving)
+#: settings/photolayoutseditor.kcfg:36
+msgid "Embed full-sized images"
+msgstr ""
+
+#. i18n: ectx: label, entry (antialiasing), group (View)
+#: settings/photolayoutseditor.kcfg:42 settings/PLEConfigViewWidget.cpp:91
+msgid "Antialiasing"
+msgstr "Vyhladzovanie"
+
+#. i18n: ectx: label, entry (horizontalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:51 settings/PLEConfigViewWidget.cpp:111
+#: widgets/dialogs/GridSetupDialog.cpp:61
+#, fuzzy
+msgid "Horizontal distance"
+msgstr "Test vzdialenosti"
+
+#. i18n: ectx: label, entry (verticalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:58 settings/PLEConfigViewWidget.cpp:122
+#: widgets/dialogs/GridSetupDialog.cpp:75
+#, fuzzy
+msgid "Vertical distance"
+msgstr "Test vzdialenosti"
+
+#: settings/PLEConfigDialog.cpp:46 settings/PLEConfigDialog.cpp:47
+msgid "View"
+msgstr "Zobrazenie"
+
+#: settings/PLEConfigViewWidget.cpp:93
+msgid "Grid"
+msgstr "Mriežka"
+
+#: settings/PLEConfigViewWidget.cpp:100
+msgid "Show grid lines"
+msgstr "Ukázať čiary mriežky"
+
+#: threads/AbstractPhotoItemLoader.cpp:76
+#, fuzzy
+msgid "Reading properties..."
+msgstr "Vlastnosti kanálu"
+
+#: threads/AbstractPhotoItemLoader.cpp:160
+#, fuzzy
+msgid "Reading borders..."
+msgstr "Použiť &okraje"
+
+#: threads/AbstractPhotoItemLoader.cpp:186
+#, fuzzy
+msgid "Reading effects..."
+msgstr "Efekty plochy"
+
+#: threads/AbstractPhotoItemLoader.cpp:203
+#, fuzzy
+msgid "Reading cropping shape..."
+msgstr "Puzzle 4x4"
+
+#: threads/CanvasLoadingThread.cpp:123
+#, fuzzy
+msgid "Loading background..."
+msgstr "Priesvitné pozadie:"
+
+#: threads/CanvasLoadingThread.cpp:144
+#, fuzzy, kde-format
+msgid "Loading item no. %1..."
+msgstr "Neexistujúca položka menu '%1'."
+
+#: threads/CanvasLoadingThread.cpp:173
+#, fuzzy
+msgid "Loading border..."
+msgstr "Veľkosť okraja:"
+
+#: threads/CanvasSavingThread.cpp:84
+#, fuzzy
+msgid "Creating canvas..."
+msgstr "Farba plátna:"
+
+#: threads/CanvasSavingThread.cpp:134
+#, fuzzy
+msgid "Saving scene..."
+msgstr "Nočná scéna"
+
+#: threads/CanvasSavingThread.cpp:153
+#, fuzzy
+msgid "Encoding data..."
+msgstr "Kódovanie dát:"
+
+#: threads/CanvasSavingThread.cpp:164
+#, fuzzy
+msgid "Writing data to file..."
+msgstr "Exportovať dáta do súboru"
+
+#: threads/ImageLoadingThread.cpp:191 threads/ImageLoadingThread.cpp:274
+msgid "Loading "
+msgstr "Načítava sa"
+
+#: threads/ImageLoadingThread.cpp:209 threads/ImageLoadingThread.cpp:304
+#, fuzzy
+msgid "Decoding image"
+msgstr "Transformovať obrázok"
+
+#: threads/ImageLoadingThread.cpp:260 threads/ImageLoadingThread.cpp:311
+#: threads/PhotoItemLoader.cpp:129 threads/TextItemLoader.cpp:97
+msgid "Finishing..."
+msgstr "Ukončujem..."
+
+#: threads/PhotoItemLoader.cpp:65
+#, fuzzy
+msgid "Loading shape..."
+msgstr "Tvar vzorca"
+
+#: threads/PhotoItemLoader.cpp:104
+msgid "Loading image..."
+msgstr "Nahráva sa obrázok..."
+
+#: threads/TextItemLoader.cpp:60
+#, fuzzy
+msgid "Reading text..."
+msgstr "Textový filter"
+
+#: threads/TextItemLoader.cpp:76
+#, fuzzy
+msgid "Reading color..."
+msgstr "Obyčajná farba"
+
+#: threads/TextItemLoader.cpp:87
+#, fuzzy
+msgid "Reading fonts..."
+msgstr "Farby a písma"
+
+#: undo/UndoBorderChangeCommand.cpp:36
+#, fuzzy
+msgid "Border changed"
+msgstr "Zmenená prezývka"
+
+#: undo/UndoMoveRowsCommand.cpp:45
+#, fuzzy
+msgid "Move layers up"
+msgstr "Presunúť uzol nahor"
+
+#: undo/UndoMoveRowsCommand.cpp:47
+#, fuzzy
+msgid "Move layers down"
+msgstr "Presunúť uzol nadol"
+
+#: undo/UndoMoveRowsCommand.cpp:50
+#, fuzzy
+msgid "Change parent layer"
+msgstr "Zobraziť alebo zmeniť vlastnosti vrstvy"
+
+#: widgets/canvas/Canvas.cpp:886
+msgid "Invalid image size!"
+msgstr "Neplatná veľkosť obrázku!"
+
+#: widgets/canvas/Canvas.cpp:963 widgets/canvas/Canvas.cpp:986
+#, fuzzy
+msgid "Can't save canvas!"
+msgstr "Prázdny diagram nie je možné uložiť"
+
+#: widgets/canvas/Canvas.cpp:964 widgets/canvas/Canvas.cpp:987
+#, fuzzy
+msgid "Invalid file path."
+msgstr "Nesprávny súbor zálohy"
+
+#: widgets/canvas/Canvas.cpp:1084
+msgid "Remove items"
+msgstr "Odstrániť položky"
+
+#: widgets/canvas/CropWidgetItem.cpp:253
+msgid "Crop items"
+msgstr "Orezať položky"
+
+#: widgets/canvas/CropWidgetItem.cpp:267
+#, no-c-format, kde-format
+msgid ""
+"Bounding rectangle of the crop shape has size [%1px x %2px] and it's less "
+"than 1px x 1px"
+msgstr ""
+
+#: widgets/canvas/RotationWidgetItem.cpp:49
+#: widgets/canvas/RotationWidgetItem.cpp:291
+msgid "Rotate item"
+msgid_plural "Rotate items"
+msgstr[0] "Otočiť položku"
+msgstr[1] "Otočiť položky"
+msgstr[2] "Otočiť položky"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:51
+#: widgets/canvas/ScalingWidgetItem.cpp:497 widgets/canvas/Scene.cpp:353
+msgid "Move item"
+msgid_plural "Move items"
+msgstr[0] "Posunúť položku"
+msgstr[1] "Presunúť položky"
+msgstr[2] "Presunúť položky"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:96
+#: widgets/canvas/ScalingWidgetItem.cpp:482
+msgid "Scale item"
+msgid_plural "Scale items"
+msgstr[0] "Mierka položky"
+msgstr[1] "Mierka položiek"
+msgstr[2] "Mierka položiek"
+
+#: widgets/canvas/Scene.cpp:302 widgets/canvas/Scene.cpp:310
+#: widgets/canvas/Scene.cpp:646
+msgid "Add item"
+msgid_plural "Add items"
+msgstr[0] "Pridať položku"
+msgstr[1] "Pridať položky"
+msgstr[2] "Pridať položky"
+
+#: widgets/canvas/Scene.cpp:501
+msgid "Crop item"
+msgid_plural "Crop items"
+msgstr[0] "Orezať položku"
+msgstr[1] "Orezať položky"
+msgstr[2] "Orezať položky"
+
+#: widgets/canvas/Scene.cpp:674
+msgid "Remove item"
+msgid_plural "Remove items"
+msgstr[0] "Odstrániť položku"
+msgstr[1] "Odstrániť položky"
+msgstr[2] "Odstrániť položky"
+
+#: widgets/canvas/Scene.cpp:724
+#, fuzzy
+msgid "Change item's image"
+msgstr "Vybrať obrázok pozadia"
+
+#: widgets/canvas/Scene.cpp:729
+msgid "Delete selected item"
+msgid_plural "Delete selected items"
+msgstr[0] "Zmazať vybranú položku."
+msgstr[1] "Odstrániť označené položky"
+msgstr[2] "Vymazať vybrané prvky"
+
+#: widgets/canvas/Scene.cpp:735
+#, fuzzy
+msgid "Canvas background"
+msgstr "Priesvitné pozadie:"
+
+#: widgets/canvas/Scene.cpp:1412
+#, fuzzy
+msgid "Saving background..."
+msgstr "Priesvitné pozadie:"
+
+#: widgets/canvas/Scene.cpp:1432
+#, kde-format
+msgid "Saving %1..."
+msgstr "Ukladá sa %1..."
+
+#: widgets/canvas/Scene.cpp:1445
+#, fuzzy
+msgid "Saving border..."
+msgstr "Veľkosť okraja:"
+
+#: widgets/canvas/Scene.cpp:1524
+#, fuzzy, kde-format
+msgid "Unable to create one element"
+msgid_plural "Unable to create %1 elements"
+msgstr[0] "Nepodarilo sa vytvoriť komponent prvkov."
+msgstr[1] ""
+msgstr[2] ""
+
+#: widgets/canvas/Scene.cpp:1630
+#, fuzzy, kde-format
+msgid "Are you sure you want to delete selected item?"
+msgid_plural "Are you sure you want to delete %1 selected items?"
+msgstr[0] "Ste si istý, že chcete odstrániť vybraný prenos?"
+msgstr[1] ""
+msgstr[2] ""
+
+#: widgets/canvas/Scene.cpp:1630
+#, fuzzy
+msgid "Items deleting"
+msgstr "Odstraňovanie písiem.."
+
+#: widgets/canvas/SceneBackground.cpp:58 widgets/canvas/SceneBackground.cpp:69
+#: widgets/canvas/SceneBackground.cpp:119
+#: widgets/canvas/SceneBackground.cpp:147
+#: widgets/canvas/SceneBackground.cpp:207
+#: widgets/canvas/SceneBackground.cpp:253
+#: widgets/canvas/SceneBackground.cpp:279
+#, fuzzy
+msgid "Background Change"
+msgstr "Zmeniť pozadie"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:320
+#: widgets/dialogs/CanvasSizeDialog.cpp:349
+#: widgets/dialogs/CanvasSizeWidget.cpp:132
+msgid "Canvas size"
+msgstr "Veľkosť plátna"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:340
+msgid "Custom"
+msgstr "Vlastné"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:344
+msgid "Template"
+msgstr "Šablóna"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:376
+#: widgets/dialogs/CanvasSizeWidget.cpp:159
+#: widgets/tools/CanvasEditTool.cpp:594
+msgid "Height"
+msgstr "Výška"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:398
+msgid "Orientation"
+msgstr "Orientácia"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:404
+#: widgets/dialogs/CanvasSizeWidget.cpp:174
+msgid "Advanced"
+msgstr "Pokročilé"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:416
+#: widgets/dialogs/CanvasSizeWidget.cpp:186
+msgid "Resolution X"
+msgstr "Rozlíšenie X"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:426
+#: widgets/dialogs/CanvasSizeWidget.cpp:196
+msgid "Resolution Y"
+msgstr "Rozlíšenie Y"
+
+#: widgets/dialogs/GridSetupDialog.cpp:40
+#, fuzzy
+msgid "Setup grid lines"
+msgstr "Ukázať čiary mriežky"
+
+#: widgets/dialogs/ImageFileDialog.cpp:74
+#, kde-format
+msgid ""
+"Currently this file type (%1) is unsupported.\n"
+"Please notify the author and ask for it in the next versions of the "
+"application."
+msgstr ""
+
+#: widgets/dialogs/ImageFileDialog.cpp:75
+#, fuzzy
+msgid "The image can't be saved!"
+msgstr "Súbor %1 sa nedá uložiť."
+
+#: widgets/dialogs/NewCanvasDialog.cpp:295
+msgid "Empty"
+msgstr "Prázdne"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:334
+#, fuzzy
+msgid "Create new canvas..."
+msgstr "Vytvoriť nový zoznam skladieb"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:348
+#, fuzzy
+msgid "Paper sizes"
+msgstr "Zobraziť veľkosti"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:377
+#, fuzzy
+msgid "Select a template"
+msgstr "Vybrať šablónu (.css) :"
+
+#: widgets/items/AbstractPhoto.cpp:54
+#, fuzzy
+msgid "Crop shape change"
+msgstr "Zmeniť tvar kurzora"
+
+#: widgets/items/AbstractPhoto.cpp:79
+#, fuzzy
+msgid "Name Change"
+msgstr "Zmeniť názov"
+
+#: widgets/items/AbstractPhoto.cpp:109
+msgid "New layer"
+msgstr "Nová vrstva"
+
+#: widgets/items/PhotoItem.cpp:62 widgets/items/PhotoItem.cpp:68
+#: widgets/items/PhotoItem.cpp:711 widgets/items/PhotoItem.cpp:724
+#, fuzzy
+msgid "Image Change"
+msgstr "Zmeniť obrázok"
+
+#: widgets/items/PhotoItem.cpp:97
+#, fuzzy
+msgid "Image Path Change"
+msgstr "Vybrať obrázok pozadia"
+
+#: widgets/items/PhotoItem.cpp:129
+#, fuzzy
+msgid "Image Shape Change"
+msgstr "Zmeniť tvar kurzora"
+
+#: widgets/items/PhotoItem.cpp:158
+#, fuzzy
+msgid "Image Position Change"
+msgstr "Vybrať obrázok pozadia"
+
+#: widgets/items/PhotoItem.cpp:219
+#, kde-format
+msgid ""
+"Can't find image file in this location:\n"
+"%1\n"
+"\n"
+"Would you like to set new location of this file?\n"
+"If not this image will be removed from the composition."
+msgstr ""
+
+#: widgets/items/PhotoItem.cpp:224
+#, fuzzy
+msgid "File reading error"
+msgstr "Chyba pri čítaní súbora %1!"
+
+#: widgets/items/PhotoItem.cpp:265 widgets/items/PhotoItem.cpp:273
+#: widgets/items/PhotoItem.cpp:282
+msgid "New image"
+msgstr "Nový obrázok"
+
+#: widgets/items/PhotoItem.cpp:347
+#, kde-format
+msgid ""
+"Do you want to embed images data?\n"
+"Remember that when you move or rename image files on your disk or the "
+"storage device become unavailable, those images become unavailable for %1 "
+"and this layout might become broken."
+msgstr ""
+
+#: widgets/items/PhotoItem.cpp:350
+#, kde-format
+msgid "Saving: %1"
+msgstr "Ukladá sa: %1"
+
+#: widgets/items/TextItem.cpp:52
+#, fuzzy
+msgid "Text change"
+msgstr "Zmeniť text"
+
+#: widgets/items/TextItem.cpp:75
+#, fuzzy
+msgid "Text color change"
+msgstr "Zmeniť farbu textu"
+
+#: widgets/items/TextItem.cpp:101
+#, fuzzy
+msgid "Text font change"
+msgstr "Zmení písmo textu v paneli"
+
+#: widgets/items/TextItem.cpp:129 widgets/items/TextItem.cpp:157
+#: widgets/items/TextItem.cpp:192 widgets/items/TextItem.cpp:226
+#, fuzzy
+msgid "Text edit"
+msgstr "Editovať text"
+
+#: widgets/items/TextItem.cpp:407
+#, fuzzy
+msgid "Text item"
+msgstr "Zmení text vybratej položky."
+
+#: widgets/items/TextItem.cpp:799
+msgid "Text color"
+msgstr "Farba textu"
+
+#: widgets/menus/LayersTreeMenu.cpp:35
+msgid "Move up"
+msgstr "Posunúť vyššie"
+
+#: widgets/menus/LayersTreeMenu.cpp:37
+msgid "Move down"
+msgstr "Posunúť nižšie"
+
+#: widgets/menus/LayersTreeMenu.cpp:40
+msgid "Delete selected"
+msgstr "Odstrániť vybrané"
+
+#: widgets/tools/BorderEditTool.cpp:49
+#, fuzzy
+msgid "Borders editor"
+msgstr "Editor záložiek"
+
+#: widgets/tools/CanvasEditTool.cpp:105
+msgid "Image"
+msgstr "Obrázok"
+
+#: widgets/tools/CanvasEditTool.cpp:106 widgets/tools/CanvasEditTool.cpp:613
+msgid "Pattern"
+msgstr "Vzorka"
+
+#: widgets/tools/CanvasEditTool.cpp:109
+msgid "Expanded"
+msgstr "Rozšírené"
+
+#: widgets/tools/CanvasEditTool.cpp:110
+msgid "Scaled"
+msgstr "Zväčšený"
+
+#: widgets/tools/CanvasEditTool.cpp:111
+#, fuzzy
+msgid "Fixed size"
+msgstr "Pevná veľkosť rolovania:"
+
+#: widgets/tools/CanvasEditTool.cpp:113 widgets/tools/CanvasEditTool.cpp:117
+msgid "Center"
+msgstr "Vycentrovať"
+
+#: widgets/tools/CanvasEditTool.cpp:114
+msgid "Left"
+msgstr "Vľavo"
+
+#: widgets/tools/CanvasEditTool.cpp:115
+msgid "Right"
+msgstr "Vpravo"
+
+#: widgets/tools/CanvasEditTool.cpp:118
+msgid "Top"
+msgstr "Hore"
+
+#: widgets/tools/CanvasEditTool.cpp:119
+msgid "Bottom"
+msgstr "Dole"
+
+#: widgets/tools/CanvasEditTool.cpp:124 widgets/tools/CanvasEditTool.cpp:129
+#, fuzzy
+msgid "Click here to set an image"
+msgstr "Tu môžete nastaviť textúru, ktorá sa použije na obrázok."
+
+#: widgets/tools/CanvasEditTool.cpp:369 widgets/tools/CanvasEditTool.cpp:405
+#, fuzzy
+msgid "Invalid or unsupported image file."
+msgstr "Pretiahnite sem obrázok alebo HTML súbor"
+
+#: widgets/tools/CanvasEditTool.cpp:509
+msgid "Border"
+msgstr "Hranica"
+
+#: widgets/tools/CanvasEditTool.cpp:523
+msgid "Background"
+msgstr "Pozadie"
+
+#: widgets/tools/CanvasEditTool.cpp:531
+msgid "Type"
+msgstr "Typ"
+
+#: widgets/tools/CanvasEditTool.cpp:562
+msgid "Scaling"
+msgstr "Škálovanie"
+
+#: widgets/tools/CanvasEditTool.cpp:567
+msgid "Tiled"
+msgstr "Vydláždiť"
+
+#: widgets/tools/CanvasEditTool.cpp:569
+msgid "Alignment"
+msgstr "Zarovnanie"
+
+#: widgets/tools/CanvasEditTool.cpp:575
+msgid "Horizontal"
+msgstr "Horizontálne"
+
+#: widgets/tools/CanvasEditTool.cpp:579
+msgid "Vertical"
+msgstr "Vertikálne"
+
+#: widgets/tools/CanvasEditTool.cpp:582
+msgid "Size"
+msgstr "Veľkosť"
+
+#: widgets/tools/CanvasEditTool.cpp:608
+msgid "Color 1"
+msgstr "Farba 1"
+
+#: widgets/tools/CanvasEditTool.cpp:611
+msgid "Color 2"
+msgstr "Farba 2"
+
+#: widgets/tools/EffectsEditorTool.cpp:45
+msgid "Effects"
+msgstr "Efekty"
+
+#: widgets/tools/TextEditorTool.cpp:52
+#, fuzzy
+msgid "Create text item"
+msgstr "Text: Vytvoriť box"
+
+#: widgets/tools/ToolsDockWidget.cpp:98
+msgid "Tools"
+msgstr "Nástroje"
+
+#: widgets/tools/ToolsDockWidget.cpp:129
+msgid "Allows to select and move images on canvas"
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:130
+msgid ""
+"Tool which allows one to select and move images on canvas. Any other "
+"operations are disabled."
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:140
+#, fuzzy
+msgid "Viewing tool"
+msgstr "Archivačný nástroj"
+
+#: widgets/tools/ToolsDockWidget.cpp:141
+msgid ""
+"This tool allows one to view whole canvas in read-only mode. Only scrolling "
+"and zooming are available."
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:151
+#, fuzzy
+msgid "Zooming tool"
+msgstr "Archivačný nástroj"
+
+#: widgets/tools/ToolsDockWidget.cpp:152
+msgid ""
+"This tool allows one to zoom canvas to fit it to the application window or "
+"users preferences."
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:162
+#, fuzzy
+msgid "Canvas editor"
+msgstr "Editor záložiek"
+
+#: widgets/tools/ToolsDockWidget.cpp:163
+msgid ""
+"This tool allows you to edit canvas properties like size and background."
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:173
+msgid "Text editor"
+msgstr "Textový editor"
+
+#: widgets/tools/ToolsDockWidget.cpp:174
+msgid ""
+"This tool allows you to write text on the canvas. It's simple - just click "
+"on the canvas where you want to add some text and write it!"
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:185
+#, fuzzy
+msgid "Rotation tool"
+msgstr "Archivačný nástroj"
+
+#: widgets/tools/ToolsDockWidget.cpp:186
+msgid "This tool allows you to rotate items on your canvas."
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:196
+#, fuzzy
+msgid "Scaling tool"
+msgstr "Archivačný nástroj"
+
+#: widgets/tools/ToolsDockWidget.cpp:197
+msgid "This tool allows you to scale items on your canvas."
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:207
+msgid "Crop tool"
+msgstr "Orezávač"
+
+#: widgets/tools/ToolsDockWidget.cpp:208
+msgid "This tool allows you to crop items."
+msgstr ""
+
+#: widgets/tools/ToolsDockWidget.cpp:218
+#, fuzzy
+msgid "Image effects editor"
+msgstr "Spustiť Editor obrázkov"
+
+#: widgets/tools/ToolsDockWidget.cpp:219
+msgid ""
+"This tool allows you to edit existing effects of your photo layers and add "
+"some new one."
+msgstr ""
+
+#: widgets/tools/ZoomTool.cpp:56
+msgid "Zoom out"
+msgstr "Oddialiť"
+
+#: widgets/tools/ZoomTool.cpp:59
+msgid "Zoom in"
+msgstr "Priblížiť"

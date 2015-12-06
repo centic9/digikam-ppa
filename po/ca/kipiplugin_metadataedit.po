@@ -1,23 +1,23 @@
 # Translation of kipiplugin_metadataedit.po to Catalan
-# Copyright (C) 2007-2014 This_file_is_part_of_KDE
+# Copyright (C) 2007-2015 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2014.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2014, 2015.
 # Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2014-11-18 22:12+0100\n"
+"POT-Creation-Date: 2015-05-31 01:58+0000\n"
+"PO-Revision-Date: 2015-06-03 21:08+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
@@ -189,7 +189,7 @@ msgid ""
 "Enter the name of the document from which this image was been scanned. This "
 "field is limited to ASCII characters."
 msgstr ""
-"Indiqueu el nom del document des del que s'ha escanejat la imatge. Aquest "
+"Indiqueu el nom del document des del qual s'ha escanejat la imatge. Aquest "
 "camp està limitat als caràcters ASCII."
 
 #: exif/exifcaption.cpp:113
@@ -274,9 +274,9 @@ msgstr "Data i hora de creació"
 
 #: exif/exifdatetime.cpp:111
 msgid "Creation sub-second"
-msgstr "Sub-segon de creació"
+msgstr "Subsegon de creació"
 
-#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:160 xmp/xmporigin.cpp:134
+#: exif/exifdatetime.cpp:114 iptc/iptcorigin.cpp:170 xmp/xmporigin.cpp:144
 #, kde-format
 msgid "Sync creation date hosted by %1"
 msgstr "Sincronitza la data de creació situada per %1"
@@ -289,7 +289,7 @@ msgstr "Sincronitza la data de creació XMP"
 msgid "Sync IPTC creation date"
 msgstr "Sincronitza la data de creació IPTC"
 
-#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:167 xmp/xmporigin.cpp:141
+#: exif/exifdatetime.cpp:122 iptc/iptcorigin.cpp:177 xmp/xmporigin.cpp:151
 msgid "Set creation date to today"
 msgstr "Assigna la data de creació a avui"
 
@@ -299,7 +299,7 @@ msgid ""
 "date and time the file was changed."
 msgstr ""
 "Indiqueu aquí la data i hora de creació de la imatge. En aquest estàndard, "
-"és la data i hora en que es va canviar el fitxer."
+"és la data i hora en què es va canviar el fitxer."
 
 #: exif/exifdatetime.cpp:129
 msgid ""
@@ -314,7 +314,7 @@ msgstr "Data i hora original"
 
 #: exif/exifdatetime.cpp:137
 msgid "Original sub-second"
-msgstr "Sub-segon original"
+msgstr "Subsegon original"
 
 #: exif/exifdatetime.cpp:143
 msgid "Set original date to today"
@@ -325,8 +325,8 @@ msgid ""
 "Set here the date and time when the original image data was generated. For a "
 "digital still camera the date and time the picture was taken are recorded."
 msgstr ""
-"Indiqueu aquí la data i hora originals en que es va generar la imatge. Per "
-"les càmeres fotogràfiques digitals es registra la data i hora en que es va "
+"Indiqueu aquí la data i hora originals en què es va generar la imatge. Per "
+"les càmeres fotogràfiques digitals es registra la data i hora en què es va "
 "prendre la fotografia."
 
 #: exif/exifdatetime.cpp:148
@@ -334,7 +334,7 @@ msgid ""
 "Set here the fractions of seconds for the date and time when the original "
 "image data was generated."
 msgstr ""
-"Indiqueu aquí la fracció de segon de la data i hora en que es van generar "
+"Indiqueu aquí la fracció de segon de la data i hora en què es van generar "
 "les dades de la imatge."
 
 #: exif/exifdatetime.cpp:155
@@ -343,9 +343,9 @@ msgstr "Data i hora de digitalització"
 
 #: exif/exifdatetime.cpp:156
 msgid "Digitization sub-second"
-msgstr "Sub-segon de digitalització"
+msgstr "Subsegon de digitalització"
 
-#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:145 xmp/xmporigin.cpp:123
+#: exif/exifdatetime.cpp:162 iptc/iptcorigin.cpp:152 xmp/xmporigin.cpp:130
 msgid "Set digitization date to today"
 msgstr "Assigna la data de digitalització a avui"
 
@@ -356,7 +356,7 @@ msgid ""
 "time the file was recorded, then Original and Digitization date and time "
 "will have the same contents."
 msgstr ""
-"Indiqueu aquí la data i hora en que la imatge es va emmagatzemar com a dades "
+"Indiqueu aquí la data i hora en què la imatge es va emmagatzemar com a dades "
 "digitals. Per exemple, si una càmera fotogràfica digital va capturar una "
 "imatge i en el mateix moment es va gravar el fitxer, llavors la data "
 "original i la data de digitalització tindran el mateix contingut."
@@ -366,7 +366,7 @@ msgid ""
 "Set here the fractions of seconds for the date and time when the image was "
 "stored as digital data."
 msgstr ""
-"Indiqueu aquí la fracció de segon per la data i hora en que la imatge es va "
+"Indiqueu aquí la fracció de segon per la data i hora en què la imatge es va "
 "emmagatzemar com a dades digitals."
 
 #: exif/exifdevice.cpp:130
@@ -595,7 +595,7 @@ msgstr "Sensibilitat (ISO):"
 #: exif/exifdevice.cpp:272
 msgid "Select here the ISO Speed of the camera which took the picture."
 msgstr ""
-"Seleccioneu aquí la velocitat ISO de la càmera amb la que es va prendre la "
+"Seleccioneu aquí la velocitat ISO de la càmera amb la qual es va prendre la "
 "fotografia."
 
 #: exif/exifdevice.cpp:277
@@ -750,7 +750,7 @@ msgid ""
 "Set here the lens focal length in millimeters used by camera to take the "
 "picture."
 msgstr ""
-"Indiqueu aquí la distància focal en mil·límetres usat per la càmera per "
+"Indiqueu aquí la distància focal en mil·límetres usada per la càmera per "
 "prendre la fotografia."
 
 #: exif/exiflens.cpp:163
@@ -1087,9 +1087,9 @@ msgid "&Replace"
 msgstr "&Substitueix"
 
 #: iptc/iptccategories.cpp:124 iptc/iptccontent.cpp:124
-#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:267
-#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:229
-#: iptc/iptcproperties.cpp:238 iptc/iptcstatus.cpp:129
+#: iptc/iptccredits.cpp:144 iptc/iptcenvelope.cpp:274
+#: iptc/iptckeywords.cpp:111 iptc/iptcorigin.cpp:241
+#: iptc/iptcproperties.cpp:251 iptc/iptcstatus.cpp:129
 #: iptc/iptcsubjects.cpp:92
 msgid ""
 "<b>Note: <b><a href='http://en.wikipedia.org/wiki/"
@@ -1112,7 +1112,7 @@ msgid ""
 "Enter here the content synopsis. This field is limited to 256 ASCII "
 "characters."
 msgstr ""
-"Indiqueu aquí la sinopsis del contingut. Aquest camp està limitat a 256 "
+"Indiqueu aquí la sinopsi del contingut. Aquest camp està limitat a 256 "
 "caràcters ASCII."
 
 #: iptc/iptccontent.cpp:103 xmp/xmpcontent.cpp:96
@@ -1313,159 +1313,159 @@ msgstr ""
 "<qt>Informació del sobre<br/><i>Useu aquest camp per a enregistrar els "
 "detalls de l'editorial</i></qt>"
 
-#: iptc/iptcenvelope.cpp:88
+#: iptc/iptcenvelope.cpp:90
 msgid "No ObjectData"
 msgstr "Sense ObjectData"
 
-#: iptc/iptcenvelope.cpp:89
+#: iptc/iptcenvelope.cpp:91
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 1)"
 msgstr "Registre de paràmetres IPTC-NAA Digital Newsphoto (versió 1)"
 
-#: iptc/iptcenvelope.cpp:90
+#: iptc/iptcenvelope.cpp:92
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 2)"
 msgstr "Registre de paràmetres IPTC-NAA Digital Newsphoto (versió 2)"
 
-#: iptc/iptcenvelope.cpp:91
+#: iptc/iptcenvelope.cpp:93
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 3)"
 msgstr "Registre de paràmetres IPTC-NAA Digital Newsphoto (versió 3)"
 
-#: iptc/iptcenvelope.cpp:92
+#: iptc/iptcenvelope.cpp:94
 msgid "IPTC-NAA Digital Newsphoto Parameter Record (version 4)"
 msgstr "Registre de paràmetres IPTC-NAA Digital Newsphoto (versió 4)"
 
-#: iptc/iptcenvelope.cpp:93
+#: iptc/iptcenvelope.cpp:95
 msgid "IPTC7901 Recommended Message Format"
 msgstr "Format de missatge recomanat IPTC7901"
 
-#: iptc/iptcenvelope.cpp:94
+#: iptc/iptcenvelope.cpp:96
 msgid "Tagged Image File Format (version 5.0)"
 msgstr "Tagged Image File Format (versió 5.0)"
 
-#: iptc/iptcenvelope.cpp:95
+#: iptc/iptcenvelope.cpp:97
 msgid "Tagged Image File Format (version 6.0)"
 msgstr "Tagged Image File Format (versió 6.0)"
 
-#: iptc/iptcenvelope.cpp:96
+#: iptc/iptcenvelope.cpp:98
 msgid "Illustrator"
 msgstr "Illustrator"
 
-#: iptc/iptcenvelope.cpp:97
+#: iptc/iptcenvelope.cpp:99
 msgid "AppleSingle"
 msgstr "AppleSingle"
 
-#: iptc/iptcenvelope.cpp:98
+#: iptc/iptcenvelope.cpp:100
 msgid "NAA 89-3 (ANPA 1312)"
 msgstr "NAA 89-3 (ANPA 1312)"
 
-#: iptc/iptcenvelope.cpp:99
+#: iptc/iptcenvelope.cpp:101
 msgid "MacBinary II"
 msgstr "MacBinary II"
 
-#: iptc/iptcenvelope.cpp:100
+#: iptc/iptcenvelope.cpp:102
 msgid "IPTC Unstructured Character Oriented File Format"
 msgstr "Format de fitxer orientat a caràcter sense estructura IPTC"
 
-#: iptc/iptcenvelope.cpp:101
+#: iptc/iptcenvelope.cpp:103
 msgid "United Press International ANPA 1312 variant"
 msgstr "Variant United Press International ANPA 1312"
 
-#: iptc/iptcenvelope.cpp:102
+#: iptc/iptcenvelope.cpp:104
 msgid "United Press International Down-Load Message"
 msgstr "Missatge de transferència United Press International"
 
-#: iptc/iptcenvelope.cpp:103
+#: iptc/iptcenvelope.cpp:105
 msgid "JPEG File Interchange"
 msgstr "Fitxer d'intercanvi JPEG File Interchange"
 
-#: iptc/iptcenvelope.cpp:104
+#: iptc/iptcenvelope.cpp:106
 msgid "Photo-CD Image-Pac"
 msgstr "Photo-CD Image-Pac"
 
-#: iptc/iptcenvelope.cpp:105
+#: iptc/iptcenvelope.cpp:107
 msgid "Microsoft Bit Mapped Graphics File [*.BMP]"
 msgstr "Fitxer de mapa de bits de Microsoft [*.BMP]"
 
-#: iptc/iptcenvelope.cpp:106
+#: iptc/iptcenvelope.cpp:108
 msgid "Digital Audio File [*.WAV]"
 msgstr "Fitxer d'àudio digital [*.WAV]"
 
-#: iptc/iptcenvelope.cpp:107
+#: iptc/iptcenvelope.cpp:109
 msgid "Audio plus Moving Video [*.AVI]"
 msgstr "Àudio amb vídeo en moviment [*.AVI]"
 
-#: iptc/iptcenvelope.cpp:108
+#: iptc/iptcenvelope.cpp:110
 msgid "PC DOS/Windows Executable Files [*.COM][*.EXE]"
 msgstr "Fitxers executables PC DOS/Windows [*.COM][*.EXE]"
 
-#: iptc/iptcenvelope.cpp:109
+#: iptc/iptcenvelope.cpp:111
 msgid "Compressed Binary File [*.ZIP]"
 msgstr "Fitxer binari comprimit [*.ZIP]"
 
-#: iptc/iptcenvelope.cpp:110
+#: iptc/iptcenvelope.cpp:112
 msgid "Audio Interchange File Format AIFF"
 msgstr "Format de fitxer d'intercanvi d'àudio AIFF"
 
-#: iptc/iptcenvelope.cpp:111
+#: iptc/iptcenvelope.cpp:113
 msgid "RIFF Wave (Microsoft Corporation)"
 msgstr "RIFF Wave (Microsoft Corporation)"
 
-#: iptc/iptcenvelope.cpp:112
+#: iptc/iptcenvelope.cpp:114
 msgid "Freehand (version 3.1)"
 msgstr "Freehand (versió 3.1)"
 
-#: iptc/iptcenvelope.cpp:113
+#: iptc/iptcenvelope.cpp:115
 msgid "Freehand (version 4.0)"
 msgstr "Freehand (versió 4.0)"
 
-#: iptc/iptcenvelope.cpp:114
+#: iptc/iptcenvelope.cpp:116
 msgid "Freehand (version 5.0)"
 msgstr "Freehand (versió 5.0)"
 
-#: iptc/iptcenvelope.cpp:115
+#: iptc/iptcenvelope.cpp:117
 msgid "Freehand (version 5.5)"
 msgstr "Freehand (versió 5.5)"
 
-#: iptc/iptcenvelope.cpp:116
+#: iptc/iptcenvelope.cpp:118
 msgid "Hypertext Markup Language \"HTML\""
 msgstr "Llenguatge de marques d'hipertext «HTML»"
 
-#: iptc/iptcenvelope.cpp:117
+#: iptc/iptcenvelope.cpp:119
 msgid "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
 msgstr "MPEG 2 Audio Layer 2 (Musicom), ISO/IEC"
 
-#: iptc/iptcenvelope.cpp:118
+#: iptc/iptcenvelope.cpp:120
 msgid "MPEG 2 Audio Layer 3, ISO/IEC"
 msgstr "MPEG 2 Audio Layer 3, ISO/IEC"
 
-#: iptc/iptcenvelope.cpp:119
+#: iptc/iptcenvelope.cpp:121
 msgid "Portable Document File [*.PDF] Adobe"
 msgstr "Portable Document File [*.PDF] Adobe"
 
-#: iptc/iptcenvelope.cpp:120
+#: iptc/iptcenvelope.cpp:122
 msgid "News Industry Text Format"
 msgstr "Format de text de la indústria de notícies"
 
-#: iptc/iptcenvelope.cpp:121
+#: iptc/iptcenvelope.cpp:123
 msgid "Tape Archive [*.TAR]"
 msgstr "Arxiu de cinta [*.TAR]"
 
-#: iptc/iptcenvelope.cpp:122
+#: iptc/iptcenvelope.cpp:124
 msgid "Tidningarnas Telegrambyra NITF version (TTNITF DTD)"
 msgstr "Tidningarnas Telegrambyra versió NITF (TTNITF DTD)"
 
-#: iptc/iptcenvelope.cpp:123
+#: iptc/iptcenvelope.cpp:125
 msgid "Ritzaus Bureau NITF version (RBNITF DTD)"
 msgstr "Ritzaus Bureau versió NITF (RBNITF DTD)"
 
-#: iptc/iptcenvelope.cpp:124
+#: iptc/iptcenvelope.cpp:126
 msgid "Corel Draw [*.CDR]"
 msgstr "Corel Draw [*.CDR]"
 
-#: iptc/iptcenvelope.cpp:171
+#: iptc/iptcenvelope.cpp:175
 msgid "Destination:"
 msgstr "Destinació:"
 
-#: iptc/iptcenvelope.cpp:175
+#: iptc/iptcenvelope.cpp:179
 msgid ""
 "Enter the envelope destination. This field is limited to 1024 ASCII "
 "characters."
@@ -1473,11 +1473,11 @@ msgstr ""
 "Indiqueu la destinació del sobre. Aquest camp està limitat a 1024 caràcters "
 "ASCII."
 
-#: iptc/iptcenvelope.cpp:180
+#: iptc/iptcenvelope.cpp:184
 msgid "U.N.O ID:"
 msgstr "U.N.O ID:"
 
-#: iptc/iptcenvelope.cpp:185
+#: iptc/iptcenvelope.cpp:189
 msgid ""
 "Set here the Unique Name of Object identifier. This field is limited to 80 "
 "ASCII characters."
@@ -1485,11 +1485,11 @@ msgstr ""
 "Indiqueu aquí l'identificador de Nom Únic d'Objecte. Aquest camp està "
 "limitat a 80 caràcters ASCII."
 
-#: iptc/iptcenvelope.cpp:190
+#: iptc/iptcenvelope.cpp:194
 msgid "Product ID:"
 msgstr "ID del producte:"
 
-#: iptc/iptcenvelope.cpp:195
+#: iptc/iptcenvelope.cpp:199
 msgid ""
 "Set here the product identifier. This field is limited to 32 ASCII "
 "characters."
@@ -1497,11 +1497,11 @@ msgstr ""
 "Indiqueu aquí l'identificador del producte. Aquest camp està limitat a 32 "
 "caràcters ASCII."
 
-#: iptc/iptcenvelope.cpp:200
+#: iptc/iptcenvelope.cpp:204
 msgid "Service ID:"
 msgstr "ID del servei:"
 
-#: iptc/iptcenvelope.cpp:205
+#: iptc/iptcenvelope.cpp:209
 msgid ""
 "Set here the service identifier. This field is limited to 10 ASCII "
 "characters."
@@ -1509,11 +1509,11 @@ msgstr ""
 "Indiqueu aquí l'identificador del servei. Aquest camp està limitat a 10 "
 "caràcters ASCII."
 
-#: iptc/iptcenvelope.cpp:210
+#: iptc/iptcenvelope.cpp:214
 msgid "Envelope ID:"
 msgstr "ID del sobre:"
 
-#: iptc/iptcenvelope.cpp:215
+#: iptc/iptcenvelope.cpp:219
 msgid ""
 "Set here the envelope identifier. This field is limited to 8 ASCII "
 "characters."
@@ -1521,68 +1521,72 @@ msgstr ""
 "Indiqueu aquí l'identificador del sobre. Aquest camp està limitat a 8 "
 "caràcters ASCII."
 
-#: iptc/iptcenvelope.cpp:220 iptc/iptcproperties.cpp:184
+#: iptc/iptcenvelope.cpp:224 iptc/iptcproperties.cpp:197
 #: xmp/xmpproperties.cpp:183
 msgid "Priority:"
 msgstr "Prioritat:"
 
-#: iptc/iptcenvelope.cpp:222
+#: iptc/iptcenvelope.cpp:226
 msgctxt "priority for the envelope"
 msgid "0: None"
 msgstr "0: cap"
 
-#: iptc/iptcenvelope.cpp:223
+#: iptc/iptcenvelope.cpp:227
 msgctxt "priority for the envelope"
 msgid "1: High"
 msgstr "1: alta"
 
-#: iptc/iptcenvelope.cpp:227
+#: iptc/iptcenvelope.cpp:231
 msgctxt "priority for the envelope"
 msgid "5: Normal"
 msgstr "5: normal"
 
-#: iptc/iptcenvelope.cpp:230
+#: iptc/iptcenvelope.cpp:234
 msgctxt "priority for the envelope"
 msgid "8: Low"
 msgstr "8: baixa"
 
-#: iptc/iptcenvelope.cpp:231 iptc/iptcproperties.cpp:195
+#: iptc/iptcenvelope.cpp:235 iptc/iptcproperties.cpp:208
 #: xmp/xmpproperties.cpp:194
 msgctxt "editorial urgency of content"
 msgid "9: User-defined"
 msgstr "9: definida per l'usuari"
 
-#: iptc/iptcenvelope.cpp:232
+#: iptc/iptcenvelope.cpp:236
 msgid "Select here the envelope priority."
 msgstr "Seleccioneu aquí la prioritat del sobre."
 
-#: iptc/iptcenvelope.cpp:236
+#: iptc/iptcenvelope.cpp:240
 msgid "Format:"
 msgstr "Format:"
 
-#: iptc/iptcenvelope.cpp:248
+#: iptc/iptcenvelope.cpp:252
 msgid "Select here envelope file format."
 msgstr "Seleccioneu aquí el format de fitxer del sobre."
 
-#: iptc/iptcenvelope.cpp:252
+#: iptc/iptcenvelope.cpp:256
 msgid "Sent date:"
 msgstr "Data d'enviament:"
 
-#: iptc/iptcenvelope.cpp:253
+#: iptc/iptcenvelope.cpp:257
 msgid "Sent time:"
 msgstr "Hora d'enviament:"
 
-#: iptc/iptcenvelope.cpp:259
+#: iptc/iptcenvelope.cpp:264
 msgid "Set envelope sent date to today"
 msgstr "Assigneu la data d'enviament del sobre a avui"
 
-#: iptc/iptcenvelope.cpp:261
+#: iptc/iptcenvelope.cpp:266
 msgid "Set here the date when the service sent the material."
 msgstr "Indiqueu aquí la data quan el servei ha enviat el material."
 
-#: iptc/iptcenvelope.cpp:262
+#: iptc/iptcenvelope.cpp:267
 msgid "Set here the time when the service sent the material."
 msgstr "Indiqueu aquí l'hora quan el servei ha enviat el material."
+
+#: iptc/iptcenvelope.cpp:268
+msgid "Set here the time zone when the service sent the material."
+msgstr "Indiqueu aquí la zona horària quan el servei ha enviat el material."
 
 #: iptc/iptckeywords.cpp:88 xmp/xmpkeywords.cpp:82
 msgid "Use information retrieval words:"
@@ -1594,55 +1598,63 @@ msgstr ""
 "Introduïu aquí una nova paraula clau. Aquest camp està limitat a 64 "
 "caràcters ASCII."
 
-#: iptc/iptcorigin.cpp:138 xmp/xmporigin.cpp:118
+#: iptc/iptcorigin.cpp:144 xmp/xmporigin.cpp:124
 msgid "Digitization date"
 msgstr "Data de digitalització"
 
-#: iptc/iptcorigin.cpp:139
+#: iptc/iptcorigin.cpp:145
 msgid "Digitization time"
 msgstr "Hora de digitalització"
 
-#: iptc/iptcorigin.cpp:147 xmp/xmporigin.cpp:125
+#: iptc/iptcorigin.cpp:154 xmp/xmporigin.cpp:132
 msgid "Set here the creation date of digital representation."
 msgstr "Indiqueu aquí la data de creació de la representació digital."
 
-#: iptc/iptcorigin.cpp:149
+#: iptc/iptcorigin.cpp:156
 msgid "Set here the creation time of digital representation."
 msgstr "Indiqueu aquí l'hora de creació de la representació digital."
 
-#: iptc/iptcorigin.cpp:156 xmp/xmporigin.cpp:132
+#: iptc/iptcorigin.cpp:158 xmp/xmporigin.cpp:134
+msgid "Set here the time zone of digital representation."
+msgstr "Indiqueu aquí la zona horària de la representació digital."
+
+#: iptc/iptcorigin.cpp:165 xmp/xmporigin.cpp:141
 msgid "Creation date"
 msgstr "Data de creació"
 
-#: iptc/iptcorigin.cpp:157
+#: iptc/iptcorigin.cpp:166
 msgid "Creation time"
 msgstr "Hora de creació"
 
-#: iptc/iptcorigin.cpp:163 xmp/xmporigin.cpp:137
+#: iptc/iptcorigin.cpp:173 xmp/xmporigin.cpp:147
 msgid "Sync EXIF creation date"
 msgstr "Sincronitza la data de creació EXIF"
 
-#: iptc/iptcorigin.cpp:169 xmp/xmporigin.cpp:143
+#: iptc/iptcorigin.cpp:179 xmp/xmporigin.cpp:153
 msgid "Set here the creation date of intellectual content."
 msgstr "Indiqueu aquí la data de creació del contingut intel·lectual."
 
-#: iptc/iptcorigin.cpp:171
+#: iptc/iptcorigin.cpp:181
 msgid "Set here the creation time of intellectual content."
 msgstr "Indiqueu aquí l'hora de creació del contingut intel·lectual."
 
-#: iptc/iptcorigin.cpp:178
+#: iptc/iptcorigin.cpp:183 xmp/xmporigin.cpp:155
+msgid "Set here the time zone of intellectual content."
+msgstr "Indiqueu aquí la zona horària del contingut intel·lectual."
+
+#: iptc/iptcorigin.cpp:190
 msgid "Location:"
 msgstr "Localització:"
 
-#: iptc/iptcorigin.cpp:179
+#: iptc/iptcorigin.cpp:191
 msgid "Set here the full country name referenced by the content."
 msgstr "Indiqueu aquí el nom sencer del país referenciat pel contingut."
 
-#: iptc/iptcorigin.cpp:183 xmp/xmpcredits.cpp:153 xmp/xmporigin.cpp:150
+#: iptc/iptcorigin.cpp:195 xmp/xmpcredits.cpp:153 xmp/xmporigin.cpp:162
 msgid "City:"
 msgstr "Ciutat:"
 
-#: iptc/iptcorigin.cpp:188
+#: iptc/iptcorigin.cpp:200
 msgid ""
 "Set here the city of content origin. This field is limited to 32 ASCII "
 "characters."
@@ -1650,11 +1662,11 @@ msgstr ""
 "Indiqueu aquí la ciutat de l'origen del contingut. Aquest camp està limitat "
 "a 32 caràcters ASCII."
 
-#: iptc/iptcorigin.cpp:193 xmp/xmporigin.cpp:157
+#: iptc/iptcorigin.cpp:205 xmp/xmporigin.cpp:169
 msgid "Sublocation:"
 msgstr "Sublocalització:"
 
-#: iptc/iptcorigin.cpp:198
+#: iptc/iptcorigin.cpp:210
 msgid ""
 "Set here the content location within city. This field is limited to 32 ASCII "
 "characters."
@@ -1662,11 +1674,11 @@ msgstr ""
 "Indiqueu aquí la localització del contingut en la ciutat. Aquest camp està "
 "limitat a 32 caràcters ASCII."
 
-#: iptc/iptcorigin.cpp:203 xmp/xmporigin.cpp:164
+#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:176
 msgid "State/Province:"
 msgstr "Estat/província:"
 
-#: iptc/iptcorigin.cpp:208
+#: iptc/iptcorigin.cpp:220
 msgid ""
 "Set here the Province or State of content origin. This field is limited to "
 "32 ASCII characters."
@@ -1674,131 +1686,144 @@ msgstr ""
 "Indiqueu aquí la província o estat de l'origen del contingut. Aquest camp "
 "està limitat a 32 caràcters ASCII."
 
-#: iptc/iptcorigin.cpp:213 xmp/xmpcredits.cpp:158 xmp/xmporigin.cpp:171
+#: iptc/iptcorigin.cpp:225 xmp/xmpcredits.cpp:158 xmp/xmporigin.cpp:183
 msgid "Country:"
 msgstr "País:"
 
-#: iptc/iptcorigin.cpp:215 xmp/xmporigin.cpp:173
+#: iptc/iptcorigin.cpp:227 xmp/xmporigin.cpp:185
 msgid "Select here country name of content origin."
 msgstr "Indiqueu aquí el país de l'origen del contingut."
 
-#: iptc/iptcproperties.cpp:132
+#: iptc/iptcproperties.cpp:138
 msgid "Release date"
 msgstr "Data de publicació"
 
-#: iptc/iptcproperties.cpp:133
+#: iptc/iptcproperties.cpp:139
 msgid "Release time"
 msgstr "Hora de publicació"
 
-#: iptc/iptcproperties.cpp:139
+#: iptc/iptcproperties.cpp:146
 msgid "Set release date to today"
 msgstr "Assigneu la data de publicació a avui"
 
-#: iptc/iptcproperties.cpp:141
+#: iptc/iptcproperties.cpp:148
 msgid "Set here the earliest intended usable date of intellectual content."
 msgstr ""
 "Indiqueu aquí la primera data proposada d'ús del contingut intel·lectual."
 
-#: iptc/iptcproperties.cpp:143
+#: iptc/iptcproperties.cpp:150
 msgid "Set here the earliest intended usable time of intellectual content."
 msgstr ""
 "Indiqueu aquí la primera hora proposada d'ús del contingut intel·lectual."
 
-#: iptc/iptcproperties.cpp:149
+#: iptc/iptcproperties.cpp:152
+msgid ""
+"Set here the earliest intended usable time zone of intellectual content."
+msgstr ""
+"Indiqueu aquí la zona horària de la primera proposta d'ús del contingut "
+"intel·lectual."
+
+#: iptc/iptcproperties.cpp:159
 msgid "Expiration date"
 msgstr "Data de venciment"
 
-#: iptc/iptcproperties.cpp:150
+#: iptc/iptcproperties.cpp:160
 msgid "Expiration time"
 msgstr "Hora de venciment"
 
-#: iptc/iptcproperties.cpp:156
+#: iptc/iptcproperties.cpp:167
 msgid "Set expiration date to today"
 msgstr "Assigna la data de venciment a avui"
 
-#: iptc/iptcproperties.cpp:158
+#: iptc/iptcproperties.cpp:169
 msgid "Set here the latest intended usable date of intellectual content."
 msgstr ""
 "Indiqueu aquí l'última data proposada d'ús del contingut intel·lectual."
 
-#: iptc/iptcproperties.cpp:160
+#: iptc/iptcproperties.cpp:171
 msgid "Set here the latest intended usable time of intellectual content."
 msgstr ""
 "Indiqueu aquí l'última hora proposada d'ús del contingut intel·lectual."
 
-#: iptc/iptcproperties.cpp:167 xmp/xmpproperties.cpp:171
+#: iptc/iptcproperties.cpp:173
+msgid "Set here the latest intended usable time zone of intellectual content."
+msgstr ""
+"Indiqueu aquí la zona horària de l'última proposta d'ús del contingut "
+"intel·lectual."
+
+#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:171
 msgid "Language:"
 msgstr "Idioma:"
 
-#: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:172
+#: iptc/iptcproperties.cpp:193 xmp/xmpproperties.cpp:172
 msgid "Select here the language of content."
 msgstr "Seleccioneu aquí l'idioma del contingut."
 
-#: iptc/iptcproperties.cpp:186 xmp/xmpproperties.cpp:185
+#: iptc/iptcproperties.cpp:199 xmp/xmpproperties.cpp:185
 msgctxt "editorial urgency of content"
 msgid "0: None"
 msgstr "0: cap"
 
-#: iptc/iptcproperties.cpp:187 xmp/xmpproperties.cpp:186
+#: iptc/iptcproperties.cpp:200 xmp/xmpproperties.cpp:186
 msgctxt "editorial urgency of content"
 msgid "1: High"
 msgstr "1: alta"
 
-#: iptc/iptcproperties.cpp:191 xmp/xmpproperties.cpp:190
+#: iptc/iptcproperties.cpp:204 xmp/xmpproperties.cpp:190
 msgctxt "editorial urgency of content"
 msgid "5: Normal"
 msgstr "5: normal"
 
-#: iptc/iptcproperties.cpp:194 xmp/xmpproperties.cpp:193
+#: iptc/iptcproperties.cpp:207 xmp/xmpproperties.cpp:193
 msgctxt "editorial urgency of content"
 msgid "8: Low"
 msgstr "8: baixa"
 
-#: iptc/iptcproperties.cpp:196 xmp/xmpproperties.cpp:195
+#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:195
 msgid "Select here the editorial urgency of content."
 msgstr "Seleccioneu aquí la urgència editorial del contingut."
 
-#: iptc/iptcproperties.cpp:200
+#: iptc/iptcproperties.cpp:213
 msgid "Cycle:"
 msgstr "Cicle:"
 
-#: iptc/iptcproperties.cpp:202
+#: iptc/iptcproperties.cpp:215
 msgid "Morning"
 msgstr "Matí"
 
-#: iptc/iptcproperties.cpp:203
+#: iptc/iptcproperties.cpp:216
 msgid "Afternoon"
 msgstr "Tarda"
 
-#: iptc/iptcproperties.cpp:204
+#: iptc/iptcproperties.cpp:217
 msgid "Evening"
 msgstr "Vespre"
 
-#: iptc/iptcproperties.cpp:205
+#: iptc/iptcproperties.cpp:218
 msgid "Select here the editorial cycle of content."
 msgstr "Seleccioneu aquí el cicle editorial del contingut."
 
-#: iptc/iptcproperties.cpp:209 xmp/xmpproperties.cpp:211
+#: iptc/iptcproperties.cpp:222 xmp/xmpproperties.cpp:211
 msgid "Type:"
 msgstr "Tipus:"
 
-#: iptc/iptcproperties.cpp:215 xmp/xmpproperties.cpp:114
+#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:114
 msgid "News"
 msgstr "Notícia"
 
-#: iptc/iptcproperties.cpp:216 xmp/xmpproperties.cpp:110
+#: iptc/iptcproperties.cpp:229 xmp/xmpproperties.cpp:110
 msgid "Data"
 msgstr "Dades"
 
-#: iptc/iptcproperties.cpp:217 xmp/xmpproperties.cpp:107
+#: iptc/iptcproperties.cpp:230 xmp/xmpproperties.cpp:107
 msgid "Advisory"
 msgstr "Avís"
 
-#: iptc/iptcproperties.cpp:218
+#: iptc/iptcproperties.cpp:231
 msgid "Select here the editorial type of content."
 msgstr "Seleccioneu aquí el tipus editorial del contingut."
 
-#: iptc/iptcproperties.cpp:219
+#: iptc/iptcproperties.cpp:232
 msgid ""
 "Set here the editorial type description of content. This field is limited to "
 "64 ASCII characters."
@@ -1806,11 +1831,11 @@ msgstr ""
 "Indiqueu aquí la descripció del tipus editorial del contingut. Aquest camp "
 "està limitat a 64 caràcters ASCII."
 
-#: iptc/iptcproperties.cpp:228 xmp/xmpproperties.cpp:255
+#: iptc/iptcproperties.cpp:241 xmp/xmpproperties.cpp:255
 msgid "Reference:"
 msgstr "Referència:"
 
-#: iptc/iptcproperties.cpp:233
+#: iptc/iptcproperties.cpp:246
 msgid ""
 "Set here the original content transmission reference. This field is limited "
 "to 32 ASCII characters."
@@ -1875,7 +1900,7 @@ msgid ""
 "Reference Code is used. This field is limited to 32 ASCII characters."
 msgstr ""
 "Introduïu aquí la Referència del Proveïdor Informativa (IPR). La IPR és un "
-"nom registrat a IPTC/NAA,que identifica el proveïdor que proporciona un "
+"nom registrat a IPTC/NAA, que identifica el proveïdor que proporciona un "
 "identificador del contingut. El valor per omissió per la IPR és «IPTC» si "
 "s'usa un codi de referència estàndard. Aquest camp està limitat a 32 "
 "caràcters ASCII."
@@ -2281,7 +2306,7 @@ msgstr "Introduïu aquí una nova categoria addicional del contingut."
 
 #: xmp/xmpcontent.cpp:92
 msgid "Enter here the content synopsis."
-msgstr "Introduïu aquí la sinopsis del contingut."
+msgstr "Introduïu aquí la sinopsi del contingut."
 
 #: xmp/xmpcontent.cpp:97
 msgid "Enter the content description."
@@ -2361,15 +2386,15 @@ msgstr "Introduïu aquí el propietari original del contingut."
 msgid "Enter here a new keyword."
 msgstr "Introduïu aquí una paraula clau nova."
 
-#: xmp/xmporigin.cpp:153
+#: xmp/xmporigin.cpp:165
 msgid "Set here the content's city of origin."
 msgstr "Indiqueu aquí la ciutat d'origen del contingut."
 
-#: xmp/xmporigin.cpp:160
+#: xmp/xmporigin.cpp:172
 msgid "Set here the content's location within the city."
 msgstr "Indiqueu aquí la localització dins la ciutat pel contingut."
 
-#: xmp/xmporigin.cpp:167
+#: xmp/xmporigin.cpp:179
 msgid "Set here the content's Province or State of origin."
 msgstr "Indiqueu aquí la província o estat d'origen del contingut."
 
@@ -2680,7 +2705,7 @@ msgid ""
 "Code is used."
 msgstr ""
 "Introduïu aquí la Referència del Proveïdor Informativa (IPR). La IPR és un "
-"nom registrat a XMP/NAA,que identifica el proveïdor que proporciona un "
+"nom registrat a XMP/NAA, que identifica el proveïdor que proporciona un "
 "identificador del contingut. El valor per omissió per la IPR és «XMP» si "
 "s'usa un codi de referència estàndard."
 

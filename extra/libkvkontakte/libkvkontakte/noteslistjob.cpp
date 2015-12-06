@@ -1,25 +1,28 @@
-/* Copyright 2011 Alexander Potashev <aspotashev@gmail.com>
+/*
+ * Copyright (C) 2011, 2015  Alexander Potashev <aspotashev@gmail.com>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) version 3, or any
+ * later version accepted by the membership of KDE e.V. (or its
+ * successor approved by the membership of KDE e.V.), which shall
+ * act as a proxy defined in Section 6 of version 3 of the license.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library.  If not, see <http://www.gnu.org/licenses/>.
+ */
 
-   This library is free software; you can redistribute it and/or modify
-   it under the terms of the GNU Library General Public License as published
-   by the Free Software Foundation; either version 2 of the License or
-   ( at your option ) version 3 or, at the discretion of KDE e.V.
-   ( which shall act as a proxy as in section 14 of the GPLv3 ), any later version.
+#include "noteslistjob.h"
 
-   This library is distributed in the hope that it will be useful,
-   but WITHOUT ANY WARRANTY; without even the implied warranty of
-   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
-   Library General Public License for more details.
-
-   You should have received a copy of the GNU Library General Public License
-   along with this library; see the file COPYING.LIB.  If not, write to
-   the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
-   Boston, MA 02110-1301, USA.
-*/
-#include "noteslistjob.moc"
+#include <qjson/qobjecthelper.h>
 
 #include <QtCore/QVariant>
-#include <qjson/qobjecthelper.h>
 
 namespace Vkontakte
 {
@@ -38,7 +41,10 @@ NotesListJob::NotesListJob(const QString &accessToken,
 {
     // Not passing "nids", because we want all notes.
 
-    addQueryItem("uid", QString::number(uid));
+    if (uid > 0) {
+        addQueryItem("user_id", QString::number(uid));
+    }
+
     addQueryItem("sort", "1"); // ascending by date
     addQueryItem("count", QString::number(count));
     addQueryItem("offset", QString::number(offset));

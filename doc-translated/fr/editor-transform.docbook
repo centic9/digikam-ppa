@@ -1,0 +1,1107 @@
+<sect2
+>                               <title
+>Outils de transformation d'image</title>
+  <sect3 id="using-rotatingflippingimage">
+     <title
+>Faire pivoter ou retourner une photo</title>
+  
+        <para
+>Si la photo n'est pas correctement orientée vous pouvez la <guilabel
+>Retourner</guilabel
+> ou effectuer une <guilabel
+>Rotation</guilabel
+> en utilisant les transformations disponibles dans les menus <menuchoice
+><guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Rotation</guimenuitem
+></menuchoice
+> et <menuchoice
+><guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Retournement</guimenuitem
+></menuchoice
+>. </para>
+     
+         <para
+>Avec les différents retournement, vous pouvez faire tourner et retourner votre image comme une carte, verticalement et horizontalement Avec les différentes rotations, vous pouvez faire pivoter l'image de 90° dans le sens horaire ou anti-horaire, ou de 180° pour changer l'orientation de Portrait à Paysage Vous pouvez également tourner plus doucement en utilisant l'outil de rotation libre. Vous pouvez y accéder via <menuchoice
+><guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Rotation libre</guimenuitem
+></menuchoice
+>. Voir la section correspondante <ulink url="using-freerotation"
+>Rotation libre</ulink
+> pour les détails. </para>
+
+     </sect3>
+
+<sect3 id="resize">
+<sect3info>
+
+<title
+>Changer la taille de l'image</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+
+<para>
+<ulink url="http://cimg.sourceforge.net"
+><inlinemediaobject>
+<imageobject
+><imagedata fileref="&path;cimg-logo.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>cimglogo</phrase
+></textobject>
+</inlinemediaobject
+></ulink>
+</para>
+
+<para
+>L'outil <emphasis
+>Blowup</emphasis
+> de &digikam; est certainement l'un des outils les plus avancés pour augmenter la taille d'une photo avec une perte minimale de qualité. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Cimg</keyword>
+<keyword
+>Greycstoration</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Redimensionner une photo pour la rendre plus petite est facile. La grande question est : Comment agrandir une image en conservant la finesse des détails ? Comment zoomer encore quand la barrière de la résolution a été atteinte ? Comment réinventer ou deviner l'information manquante après l'augmentation de taille ? Eh bien l'algorithme CImg que nous utilisons fait un excellent travail ! Essayez et vous verrez ! </para>
+
+  <sect4 id="using-resizingimage"
+>            <title
+>Redimensionner une image</title>
+
+    <anchor id="resizetool.anchor"/>
+    <para
+>Si la photo n'a pas la bonne taille vous pouvez la changer pour obtenir la taille désirée à l'aide de l'outil de redimensionnement. Sélectionnez <menuchoice
+> <guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Redimensionner</guimenuitem
+> </menuchoice
+> et ajustez les valeurs cibles. La fenêtre de redimensionnement est reproduite ci-dessous. </para>
+
+    <example
+>  <title
+>La fenêtre de l'outil de redimensionnement</title>
+        <screenshot
+><screeninfo
+>La fenêtre de l'outil de redimensionnement</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorresizetool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+    </example>
+
+    <para
+>Cet outil utilise une interpolation linéaire standard pour approcher la valeur des pixels. Si vous souhaitez agrandir une petite image et avoir une bonne qualité, essayez l'outil Blowup. </para>
+
+  </sect4>
+
+
+<sect4 id="using-blowup"
+> <title
+>Agrandir la taille d'une image (blow-up)</title>
+  <para
+>Beaucoup de logiciels de retouche d'images utilisent une interpolation comme spline pour augmenter la taille d'une image. &digikam; utilise une approche plus sophistiquée. L'algorithme sous-jacent à l'outil <emphasis
+>Blowup</emphasis
+> a été développé par l'équipe IMAGE du laboratoire CNRS GREC à Caen, en France et fait partie du <ulink url="http://cimg.sourceforge.net"
+>projet CImg</ulink
+>. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre de l'outil Blowup</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Vous devez informer l'outil du redimensionnement que vous voulez effectuer. Ces paramètres sont disponibles dans l'onglet <guilabel
+>Nouvelle taille</guilabel
+> et sont listés ci-dessous : <itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Conserver le rapport d'aspect</guilabel
+> : si cette option est activée, le rapport d'aspect de l'image originale sera préservé dans l'image finale.</para
+></listitem>
+  <listitem
+><para
+><guilabel
+>Largeur</guilabel
+> : la nouvelle largeur à donner à l'image.</para
+></listitem
+> 
+  <listitem
+><para
+><guilabel
+>Hauteur</guilabel
+> : la hauteur à donner à la nouvelle image.</para
+></listitem>
+ 
+</itemizedlist>
+</para>
+
+<para
+>Si vous voulez configurer plus finement le filtre, utilisez les onglets <guilabel
+>Paramètres de lissage</guilabel
+> et <guilabel
+>Paramètres avancés</guilabel
+> :</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings1.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Paramètres de lissage de l'outil Blowup</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+  
+     <listitem
+><para
+><guilabel
+>Préserver les détail</guilabel
+> [0, 100] : ceci contrôle la préservation des courbes (éléments). Une valeur faible force un lissage constant à travers l'image alors que les valeurs plus élevées lisseront les régions homogènes et laisseront les détails fins. Une valeur de 90 préservera les détails et il sera inutile de renforcer la photo par la suite. Notez que la valeur de <guilabel
+>Préserver les détails</guilabel
+> doit toujours être inférieure à celle de l'<guilabel
+>Anisotropie</guilabel
+>.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Anisotropie</guilabel
+> alpha [0, 100] : une valeur faible lisse de manière identique dans toutes les directions, alors qu'une valeur proche de 100 lisse dans une seule direction. Si vous avez un grain de film ou de capteur CCD, une valeur élevée produira un motif de vagues alors que les artefacts JPEG conviennent bien aux valeurs proches de 100. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Lissage</guilabel
+> [0, 500] : ceci définit le facteur total maximum de lissage (alors que la préservation des détails définit un lissage relatif). Définissez-le conformément au niveau de bruit.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Régularité</guilabel
+> [0, 100] : ce paramètre concerne les structures de grande taille. Plus cette valeur est grande, plus le lissage total sera homogène. Ceci est nécessaire lorsque beaucoup de bruit est présent, car il est alors difficile de déterminer la géométrie. Si vous voulez obtenir un effet de turbulence à la Van Gogh, il est recommandé de définir ce paramètres à une valeur plus grande que 3.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Itérations du filtre</guilabel
+> : le nombre de fois que l'algorithme de flou est appliqué. Généralement, une valeur de 1 ou 2 suffit.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings2.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Paramètres avancés de l'outil Blowup</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+
+     <listitem
+><para
+><guilabel
+>Pas angulaire</guilabel
+> [5, 90] : intégration angulaire alpha de l'anisotropie. Si alpha est choisi petit, cette valeur devrait également être petit, mais attention : des petits angles rendent le calcul long ! Prenez-le aussi large que vous pouvez l'accepter. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Pas d'intégration</guilabel
+> [0.1, 10] : pas d'intégration spatiale en nombre de pixels. Il devrait rester inférieur à 1 (lissage au niveau sous-pixel) et ne jamais dépasser 2.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Utiliser l'interpolation linéaire</guilabel
+> : le gain en qualité si vous sélectionnez cet option est marginal et fait perdre un facteur 2 en vitesse. Nous vous recommandons de ne pas l'activer.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>Les boutons <guilabel
+>Enregistrer sous...</guilabel
+> et <guilabel
+>Charger</guilabel
+> vous permettent de faire cela. Tout paramétrage de l'outil Blowup que vous avez défini peut être enregistré dans un fichier et réutilisé plus tard. </para>
+
+<warning
+><para
+>L'outil Blowup est très rapide dans ce qu'il fait, mais il peut nécessiter un temps d'exécution long et produire une forte charge CPU. Vous pouvez annuler le calcul en appuyant sur le bouton <guilabel
+>Annuler</guilabel
+> pendant le rendu. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blowup">
+<title
+>L'outil blow-up en action</title>
+
+<para
+>Vous pouvez voir ci-dessous une exemple de l'outil Blowup appliqué à une petite image agrandie d'un facteur 2. L'original est (1), le résultat de Blowup (3). Le (2) vous montre le résultat d'un outil de redimensionnement linéaire classique, pour comparaison. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowuppreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>L'aperçu du filtre photographique Blowup</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="aspect-ratio-crop"
+>        <title
+>Rogner une photo</title>
+ 
+    <sect4 id="using-manualcrop"
+>            <title
+>Rognage manuel</title>
+
+        <para
+>Rogner une photo est une opération courante et l'éditeur d'images rend cette opération facile. Pour rogner une photo, dessiner un rectangle sur l'image en tenant le &BGS; appuyé tout en déplaçant la souris. Vous verrez un cadre rectangulaire en fil de fer lorsque vous déplacez la souris. </para>
+
+        <example
+>  <title
+>La sélection actuelle dans l'éditeur d'images</title>
+          <screenshot
+><screeninfo
+>La sélection actuelle dans l'éditeur d'images</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorimageselection.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+ 
+        <para
+>Lorsque vous relâchez le bouton, la partie de l'image qui sera rognée est grisée. Cela vous permet d'avoir un bon aperçu du résultat après rognage. Vous pouvez changer la taille de la zone à rogner en faisant glisser les coins du rectangle. Pour faire une autre sélection, dessiner simplement un autre rectangle. </para>
+
+        <para
+>Une fois satisfait du rognage, cliquez sur le bouton<inlinemediaobject
+> <imageobject
+><imagedata fileref="&path;editorcropbutton.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>Bouton de rognage de l'éditeur d'images</phrase
+> </textobject
+> </inlinemediaobject
+> de la barre d'outils et la photo sera découpée (&Ctrl;+X). Utilisez les entrées <menuchoice
+><guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Enregistrer</guimenuitem
+></menuchoice
+> ou <menuchoice
+><guimenu
+>Fichier</guimenu
+> <guimenuitem
+>Enregistrer sous...</guimenuitem
+></menuchoice
+> du menu fichier pour enregistrer votre photo nouvellement rognée. </para>
+
+    </sect4>
+
+    <sect4 id="using-proportionalcrop"
+>      <title
+>Rognage proportionnel</title>
+
+        <anchor id="ratiocroptool.anchor"/>        
+        
+        <para
+>L'outil de rognage avec conservation du rapport d'aspect va plus loin. Lorsque vous modifiez des images numériques, il est souvent nécessaire de créer un format compatible avec votre album photo ou vos tirages papiers. Si vous imprimez une photo de votre appareil numérique et ensuite essayez de la ranger dans un album, vous remarquerez que l'appareil a un rapport d'aspect (le rapport largeur sur hauteur) différent de celui des photos papiers habituelles. Dès lors il vous faut rogner l'image numérique pour obtenir un rapport d'aspect prédéfini (par exemple 5:7 ou 2:3 qui sont des rapports d'aspect courants). </para>
+    
+        <example
+>  <title
+>La fenêtre de rognage avec conservation du rapport d'aspect</title>
+          <screenshot
+><screeninfo
+>La fenêtre de rognage avec conservation du rapport d'aspect</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorratiocroptool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        <para
+>Dans cette zone d'aperçu vous pouvez tailler le rectangle de rognage en déplaçant les coins avec la souris. Le rapport d'aspect choisi en bas de ce dialogue sera conservé. </para>
+        
+        <para
+>Dans les réglages de rognage selon le rapport d'aspect, il faut spécifier l'<guilabel
+>Orientation</guilabel
+><guilabel
+>Portrait</guilabel
+> ou <guilabel
+>Paysage</guilabel
+>. Un portrait a toujours une plus grande <guilabel
+>Hauteur</guilabel
+>, alors qu'un paysage a toujours une <guilabel
+>Largeur</guilabel
+> plus importante. </para>
+        
+        <para
+>L'outil rognage proportionnel se sert d'un rapport d'aspect relatif : cela veut dire que c'est le même que vous utilisiez des centimètres ou des pouces et il n'a rien à voir avec la taille physique. En complément, vous pouvez voir ci-dessous un tableau de correspondance entre des formats photos répandus et le rapport d'aspect qui y est associé. </para>
+        
+        <informaltable
+><tgroup cols="2">
+
+        <thead
+><row>
+            <entry
+>Taille de papiers photo standard</entry>
+            <entry
+>Rognage proportionnel</entry>
+          </row
+></thead>
+
+    <tbody>
+        <row>
+<entry
+>10x15cm&nbsp;20x30cm&nbsp;30x45cm 3.5x5"&nbsp;4x6"&nbsp;8x12"&nbsp;12x18"&nbsp;16x24"&nbsp;20x30" </entry>
+    
+<entry
+>2:3 </entry>
+        </row>
+
+        <row>
+<entry
+>6x8cm&nbsp;15x20cm&nbsp;18x24cm&nbsp;30x40cm 3.75x5"&nbsp;4.5x6"&nbsp;6x8"&nbsp;7.5x10"&nbsp;9x12" </entry>
+        
+<entry
+>3:4 </entry>
+        </row>
+        
+        <row>
+<entry
+>20x25cm&nbsp;40x50cm 8x10"&nbsp;16x20" </entry>
+        
+<entry
+>4:5 </entry>
+        </row>
+
+        <row>
+<entry
+>15x21cm&nbsp;30x42cm 5x7" </entry>
+        
+<entry
+>5:7 </entry>
+        </row>
+        
+        <row>
+<entry
+>21x30cm&nbsp;42x60cm </entry>
+        
+<entry
+>7:10 </entry>
+        </row>
+
+    </tbody>
+
+        </tgroup
+></informaltable>
+
+        <para
+>À l'extrême droite de ce dialogue deux boutons permettent de déplacer la sélection à rogner automatiquement aux centres verticaux et horizontaux de l'image. </para>
+        
+        <para
+>Tout en bas de ce dialogue, le bouton <guilabel
+>Ratio Max.</guilabel
+> vous permet de choisir la taille maximum possible pour la sélection à rogner tout en conservant l'orientation et le rapport d'aspect choisis. </para>
+    
+        <note
+><para
+>L'outil de rognage selon le rapport d'aspect se souvient du réglage de l'orientation de l'image (Horizontale ou Verticale). Pour chaque utilisation, l'orientation de l'image courante est utilisée pour retrouver les meilleurs réglages possibles pour l'image. </para
+></note>
+        
+    </sect4>
+
+    <sect4 id="using-compositionguides"
+>     <title
+>Guide de composition</title>
+
+        <para
+>Lorsque l'on découvre une image, l'œil se place rarement au centre de l'image, mais bouge plutôt du coin haut gauche vers la droite puis du coin bas gauche vers la droite encore. Ce schéma est plus ou moins inconscient mais largement vérifié. C'est probablement associé au sens de lecture des pays occidentaux. Du point de vue du photographe, le but est de guider le regard du spectateur sur le sujet, en étant conscient de la manière dont beaucoup de gens perçoivent une image. </para
+>        
+        
+        <para
+>Le <guilabel
+>Guide de composition</guilabel
+> fournit des éléments structurants pour mieux composer vos images. Ces guides sont : <itemizedlist>
+    
+          <listitem>
+            <para
+><guilabel
+>Règle des tiers</guilabel
+> : une grille qui divise l'image en tiers dans les deux directions (ce qui fait 9 parties). Ces proportions sont proches de la section d'or et sont issues des données sur le champ de vision humain. Elles sont souvent utilisées, éventuellement légèrement modifiées, pour un très grand nombre d'objets communs. Dans ce cadre il y a des zones précises où les parties importantes de l'image doivent être placées. Le même principe est utilisé pour déterminer la position de l'horizon et la proportion de ciel. </para>
+        
+            <para
+>Beaucoup de photographes et d'artistes connaissent cette règle, où une image est coupée en trois dans les deux directions et où les points d'intersection de cette grille sont propices pour placer des éléments visuels importants. Mettre l'horizon d'un paysage au tiers de l'image est souvent plus efficace que le placer au milieu, mais il peut aussi être placé proche du quart ou du sixième. Il n'y a bien sûr rien d'obligatoire à appliquer cette règle des tiers pour une image « efficace » ; on doit penser à d'autres facteurs tels que la couleur, la dominante, la taille et l'équilibre des proportions. Souvent une certaine dose d'équilibre ou de tension peuvent faire une composition accrocheuse. </para>
+    
+            <example
+>  <title
+>Exemple de composition avec la règle des tiers</title>
+             <screenshot
+><screeninfo
+>Exemple de composition avec la règle des tiers </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorrulethirdlinesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+           </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Triangles harmonieux</guilabel
+> : les divisions harmonieuses reposent sur le principe de similarité. Comme la règle des tiers, les triangles harmonieux sont une autre subdivision de l'image utilisant un rectangle divisé en triangles équilatéraux alignés sur la diagonale. </para>
+    
+            <example
+>  <title
+>Composition utilisant les triangles harmonieux</title>
+                <screenshot
+><screeninfo
+>Composition utilisant les triangles harmonieux </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorharmonioustrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+
+    
+        </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Moyenne d'or</guilabel
+> : la section d'or est un ratio sous-jacent à nombre de phénomènes de croissance à travers la nature (depuis la spirale du nautile aux pétales de tournesol), elle a une fâcheuse habitude d'émerger dans toutes sortes de choses que nous trouvons belles. </para>
+
+            <para
+>Le nombre d'or est le nombre irrationnel 1.618033988...., et son utilisation remonte à l'Égypte antique et aux grecs qui s'en servaient pour construire leurs temples et leurs pyramides. Les artistes et les architectes l'ont utilisé à travers les âges pour composer leurs peintures, bâtiments et même leurs photographies, pour donner à leur œuvre une impression d'ordre naturel et de beauté. </para>
+    
+            <para
+>Ce ratio se déduit de la suite de Fibonacci : 1, 1, 2, 3, 5, 8, 13, 21, 34, etc.; où chaque nombre vaut la somme des deux précédents. Le rapport construit, 1:1.618 est le nombre d'or. Une composition suivant cette règle est considérée comme harmonieuse visuellement. </para>
+    
+            <para
+>Le nombre d'or fournit des lignes de composition plus fluides lorsqu'elle utilisée pour fabriquer une image. Ces lignes de guidage sont listées ci-après : <itemizedlist
+>    
+
+        <listitem
+>        
+    
+        <para
+>La <guilabel
+>Spirale d'or</guilabel
+> augmente vos chances d'obtenir des résultats captivants pour vos photos Par opposition à la règle des tiers, la spirale d'or forme une ligne fluide pour l'œil tracée à travers l'image. Ce style de composition invite le regard le long d'une ligne en spirale, créant un flux visuel plus symétrique, et une expérience visuelle irrésistible. </para>
+        
+        <example
+>  <title
+>Exemple de composition d'image utilisant la spirale d'or</title>
+            <screenshot
+><screeninfo
+>Exemple de composition d'image utilisant la spirale d'or </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorgoldenspiralexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+
+        <listitem>
+    
+        <para
+>Une règle supplémentaire se nomme <guilabel
+>Sections en spirale d'or</guilabel
+> ou rectangles d'or. Ces rectangles sont utilisés pour construire la spirale d'or. Il peut y avoir quelque chose pour amener l'œil au centre de l'image. Ce peut être une ligne ou plusieurs sujets. Ce « quelque chose » peut être ici simplement pour guider les yeux, mais il a toute son importance. </para>
+    
+        <example
+>  <title
+>Exemple de composition d'image utilisant les sections en spirale d'or</title>
+            <screenshot
+><screeninfo
+>Exemple de composition d'image utilisant les sections en spirale d'or </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldenspiralsectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+>Les <guilabel
+>Triangles d'or</guilabel
+> sont une variation sur la spirale d'or abordée au dessus Ces sommets sont les milieux des côtés du triangle d'or. Contrairement aux triangles harmonieux, les triangles d'or ne sont pas équilatéraux. Placer des diagonales le long de ces lignes peut dynamiser un sujet a priori statique. </para>
+
+        <para
+>Lorsque vous utilisez les triangles d'or pour déstructurer votre cadre, vous créez ce que les professionnels appellent la symétrie dynamique. Essayez de conserver votre sujet principal sur une des intersections, et placez un autre point d'intérêt dans les triangles que vous avez divisés. Le résultat sera une composition très séduisante que vous n'auriez peut-être pas obtenu autrement. </para>
+
+        <example
+>  <title
+>Exemple de composition d'image utilisant les triangles d'or</title>
+            <screenshot
+><screeninfo
+>Exemple de composition d'image utilisant les triangles d'or </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldentrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+>Comme la règle des tiers les <guilabel
+>Sections d'or</guilabel
+> modifient le rapport d'aspect d'une image ainsi que le placement des sujets principaux. Ce rapport est proche de celui du 35 mm, donc vous n'aurez pas besoin de modifier la taille des photos en général. Mais considérez votre composition : le sujet principal doit se tenir sur l'une des quatre lignes ou des quatre intersections (les yeux du sujet par exemple). À proprement parler ; ces règles ne sont donc pas les mêmes. La règle des tiers est une version simplifiée de la section d'or. </para>
+        
+        <example
+>  <title
+>Exemple de composition d'image utilisant les sections d'or</title>
+            <screenshot
+><screeninfo
+>Exemple de composition d'image utilisant les sections d'or </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldensectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+    
+            </itemizedlist>
+            </para>
+    
+           </listitem>
+     
+        </itemizedlist>
+        
+        </para>
+        
+        <para
+>Les options <guilabel
+>Retournement horizontal</guilabel
+> et <guilabel
+>Retournement vertical</guilabel
+> peuvent être utilisées pour transformer les divisions harmonieuses. </para>
+        
+        <para
+>Le bouton <guilabel
+>Couleur</guilabel
+> sert à choisir la couleur des lignes de composition. Si vous avez une image à fort contraste, ces lignes peuvent devenir invisibles. Il est donc souhaitable d'adapter la couleur des lignes à l'image de travail. </para>
+    
+    </sect4>
+
+</sect3>
+
+<sect3 id="freerotation">
+<sect3info>
+
+<title
+>Rotation libre</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author
+>        
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Rotation libre</emphasis
+> de &digikam; vous permet de pivoter une image d'un angle arbitraire. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Lors de la prise de vue, il est fréquent de ne pas tenir l'appareil photo parfaitement vertical ou horizontal, ce qui fait que l'objet est pivoté d'un certain angle. Le moyen de corriger cela est d'utiliser l'outil de rotation libre de l'éditeur d'image de &digikam;. Sélectionnez <menuchoice
+><guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Rotation libre</guimenuitem
+></menuchoice
+> et ajustez l'angle voulu. </para>
+
+<sect4 id="using-freerotation"
+>    <title
+>Outil de rotation libre</title>
+
+<para
+>Faites pivoter votre image en utilisant la glissière <guilabel
+>Angle</guilabel
+> (valeur en degrés). Cliquez sur <guilabel
+>Réinitialiser</guilabel
+> pour remettre la glissière à zéro. Un aperçu de la rotation est disponible sur la droite de la fenêtre. Les dimensions de la nouvelle image, en pixels, sont affichées. </para>
+
+<para
+>Pour une meilleure orientation, l'outil de rotation libre fournit un guide vertical et horizontal. Déplacez le curseur de la souris sous l'aperçu de l'image pour afficher une grille en pointillés. Déplacez le curseur vers un détail de votre image qui devrait être vertical ou horizontal, comme l'océan ou un bâtiment et cliquez avec le &BGS; pour fixer la ligne en pointillés à cette position. À présent, ajustez l'angle en suivant le guide. </para>
+
+<warning
+><para
+>Après avoir pivoté l'image, vous vous apercevrez souvent que l'image est meilleure mais pas parfaite. Une des solutions est de pivoter encore, mais il y a un inconvénient à cela : à chaque fois que vous pivotez l'image, celle-ci est un peu plus floutée, car les pixels pivotés ne s'alignent pas avec les pixels originaux. Pour une seule rotation, le flou engendré est limité, mais deux rotations engendreront deux fois plus de flou, ce qui serait dommage. Le guide disponible dans l'aperçu peut vous aider à appliquer la rotation correctement dès la première fois. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-freerotation">
+<title
+>La rotation libre en action</title>
+
+<para
+>La fenêtre de l'outil de rotation libre en action est disponible ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;freerotationpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre de l'outil de rotation libre</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Après avoir pivoté l'image, des triangles vides apparaîtront dans les coins. Une des manières de corriger cela est d'utiliser l'outil <menuchoice
+><guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Rogner</guimenuitem
+></menuchoice
+> de l'éditeur d'images. </para>
+
+<para
+>Une manière plus élégante est d'utiliser la fonction <guilabel
+>Rognage automatique</guilabel
+>. Choisissez l'une des options ci-dessous :</para>
+
+<itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Aire la plus large</guilabel
+> : cette option rogne l'image pivotée en conservant la largeur la plus grande.</para
+></listitem>
+  
+  <listitem
+><para
+><guilabel
+>Aire la plus grande</guilabel
+> : cette option rogne l'image en cherchant à obtenir la surface la plus grande.</para
+></listitem>
+
+</itemizedlist>
+
+<para
+>Maintenez la souris sur la liste déroulante et utilisez la molette pour choisir entre les deux possibilités.</para>
+
+<para
+>L'option <guilabel
+>Anti-crénelage</guilabel
+> lissera un peu l'image après la rotation. Veuillez lire l'avertissement ci-dessus. </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="perspective">
+<sect3info>
+
+<title
+>Ajustement de perspective</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author
+>    
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Ajustement de perspective</emphasis
+> de &digikam; vous permet d'ajuster la perspective d'une image. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Cet outil vous permet de travailler sur la perspective d'une image. Ceci est très pratique lorsque vous travaillez sur une image qui contient une distortion en clé de voûte. Cette distortion apparaît lorsqu'un objet est photographié avec un angle plutôt que face à lui. Par exemple, lorsque vous prenez en photo un grand bâtiment depuis le sol, les angles du bâtiment paraissent se rejoindre à l'infini. Avec cet outil, vous pouvez également donner une perspective différente d'une vue de face, pour donner un ton créatif à votre image. </para>
+
+<sect4 id="using-perspective">
+<title
+>Utilisation de l'outil d'ajustement de perspective</title>
+
+<para
+>Toutes les transformations de perspective se font autour d'un point fixe appelé le point de référence. Ce point est au centre de l'élément que vous transformez et est signalé par un cercle rouge. </para>
+
+<para
+>Pour changer la perspective, déplacez les zones carrées aux coins de l'image. L'aperçu de la nouvelle perspective est généré automatiquement. Sur la droite de la fenêtre, vous trouverez un ensemble d'informations qui vous aideront à contrôler l'ajustement de perspective : <itemizedlist>
+    <listitem
+><para
+><guilabel
+>Nouvelle largeur</guilabel
+> : affiche la nouvelle largeur de l'image, en pixels, en incluant la zone vide autour de l'image, résultant de la transformation géométrique.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Nouvelle hauteur</guilabel
+> : affiche la nouvelle hauteur de l'image, en pixels, en incluant la zone vide autour de l'image, résultant de la transformation géométrique.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angle supérieur gauche</guilabel
+> : affiche l'angle actuel, en degrés, au niveau du coin en haut à gauche de la zone de perspective.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angle supérieur droit</guilabel
+> : affiche l'angle actuel, en degrés, au niveau du coin en haut à droite de la zone de perspective.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angle inférieur gauche</guilabel
+> : affiche l'angle actuel, en degrés, au niveau du coin en bas à gauche de la zone de perspective.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Angle inférieur droit</guilabel
+> : affiche l'angle actuel, en degrés, au niveau du coin en bas à droite de la zone de perspective.</para
+></listitem>
+</itemizedlist>
+</para>
+            
+<warning
+><para
+>Après avoir ajusté la perspective, votre image sera inévitablement légèrement floutée. Pour un ajustement simple, la quantité de flou est restreinte, mais deux ajustement produiront deux fois plus de flou, ce qui serait dommage. </para
+></warning>
+                        
+<para
+>Après avoir ajusté la perspective de l'image, des triangles vides apparaîtront dans les coins. Une des manières de corriger cela est d'utiliser l'outil <menuchoice
+><guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Rogner</guimenuitem
+></menuchoice
+> de l'éditeur d'images. </para>
+
+</sect4>
+
+<sect4 id="inaction-perspective">
+<title
+>L'outil d'ajustement de perspective en action</title>
+
+<para
+>La fenêtre de l'outil d'ajustement de perspective en action est affichée ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;perspectivepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre de l'outil d'ajustement de perspective</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="sheartool">
+<sect3info>
+
+<title
+>Cisailler l'image</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Cisaillement</emphasis
+> de &digikam; vous permet de cisailler l'image horizontalement ou verticalement. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>L'outil de cisaillement est utiliser pour déplacer une partie d'une image dans une direction et l'autre partie dans la direction opposée. Par exemple, un cisaillement horizontal peut déplacer la partie supérieure de l'image vers la droite et la partie inférieure vers la gauche. Ceci n'est pas une rotation : l'image est déformée. Autrement dit, un rectangle est transformé en parallélogramme. Cet outil est accessible à partir du menu <menuchoice
+><guimenu
+>Transformer</guimenu
+><guimenuitem
+>Cisaillement</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-sheartool">
+<title
+>Utilisation de l'outil de cisaillement</title>
+
+<para
+>Cisaillez votre image en utilisant les glissières <guilabel
+>Angle horizontal</guilabel
+> et <guilabel
+>Angle vertical</guilabel
+> (valeurs en degrés). Vous pouvez cisailler horizontalement et verticalement en même temps. Cliquez sur le bouton <guilabel
+>Réinitialiser</guilabel
+>. Un aperçu de l'effet est affiché au centre de la fenêtre. Les nouvelles dimensions de l'image, en pixels, sont affichées à droite de la fenêtre. </para>
+
+<para
+>Pour vous aider, l'outil fournit un guide vertical et horizontal. Déplacez le curseur de la souris sous l'aperçu pour afficher un guide en lignes pointillées. Déplacez le curseur vers un élément important de l'image, comme l'océan ou un bâtiment et cliquez pour placer la ligne en pointillés à cette position. À présent, ajustez le cisaillement en suivant le guide. </para>
+            
+<warning
+><para
+>Après avoir appliqué un cisaillement, votre image sera inévitablement légèrement floutée. Pour un cisaillement simple, la quantité de flou est restreinte, mais deux cisaillements produiront deux fois plus de flou, ce qui serait dommage. </para
+></warning>
+                        
+<para
+>Après avoir cisaillé l'image, des triangles vides apparaîtront dans les coins. Une des manières de corriger cela est d'utiliser l'outil <menuchoice
+><guimenu
+>Transformer</guimenu
+> <guimenuitem
+>Rogner</guimenuitem
+></menuchoice
+> de l'éditeur d'images. </para>
+
+</sect4>
+
+<sect4 id="inaction-sheartool">
+<title
+>L'outil de cisaillement en action</title>
+
+<para
+>La fenêtre de l'outil de cisaillement en action est disponible ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;sheartoolpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre de l'outil de cisaillement</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

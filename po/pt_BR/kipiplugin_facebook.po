@@ -1,24 +1,24 @@
 # Translation of kipiplugin_facebook.po to Brazilian Portuguese
-# Copyright (C) 2009-2013 This_file_is_part_of_KDE
+# Copyright (C) 2009-2015 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012, 2013.
+# André Marcelo Alvarenga <alvarenga@kde.org>, 2009, 2010, 2011, 2012, 2013, 2015.
 # Luiz Fernando Ranghetti <elchevive@opensuse.org>, 2009, 2012.
 # Marcus Gama <marcus.gama@gmail.com>, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-04-12 08:15-0300\n"
+"POT-Creation-Date: 2015-07-26 02:06+0000\n"
+"PO-Revision-Date: 2015-07-26 09:26-0300\n"
 "Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Lokalize 1.5\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -27,10 +27,6 @@ msgstr "André Marcelo Alvarenga"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org"
-
-#: facebookjob.cpp:113
-msgid "Photos taken with KDE"
-msgstr "Fotos obtidas com o KDE"
 
 #: fbalbum.cpp:47
 msgid "Facebook New Album"
@@ -92,19 +88,19 @@ msgctxt "new facebook album"
 msgid "Privacy:"
 msgstr "Privacidade:"
 
-#: fbtalker.cpp:190
+#: fbtalker.cpp:189
 msgid "Validate previous session..."
 msgstr "Validar a sessão anterior..."
 
-#: fbtalker.cpp:218
+#: fbtalker.cpp:217
 msgid "Upgrading to OAuth..."
 msgstr "Atualizando para o OAuth..."
 
-#: fbtalker.cpp:270 fbtalker.cpp:479
+#: fbtalker.cpp:268
 msgid "Facebook Application Authorization"
 msgstr "Autorização do aplicativo do Facebook"
 
-#: fbtalker.cpp:275
+#: fbtalker.cpp:273
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -112,44 +108,37 @@ msgstr ""
 "Siga as instruções na janela do navegador. Quando concluir, copie o endereço "
 "da Internet do seu navegador para o campo abaixo e clique em \"OK\"."
 
-#: fbtalker.cpp:340
+#: fbtalker.cpp:338
 msgid "Canceled by user."
 msgstr "Cancelado pelo usuário."
 
-#: fbtalker.cpp:477
-msgid ""
-"Please follow the instructions in the browser window. Press \"OK\" when done."
-msgstr ""
-"Siga as instruções na janela do navegador e pressione \"OK\" quando estiver "
-"pronto."
-
-#: fbtalker.cpp:781
+#: fbtalker.cpp:644
 msgid "The service is not available at this time."
 msgstr "O serviço não está disponível neste momento."
 
-#: fbtalker.cpp:784
+#: fbtalker.cpp:647
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "O aplicativo atingiu o número máximo de solicitações permitidas."
 
-#: fbtalker.cpp:787
+#: fbtalker.cpp:650
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "A chave da sessão é inválida ou a sessão expirou. Tente autenticar-se "
 "novamente."
 
-#: fbtalker.cpp:790
+#: fbtalker.cpp:653
 msgid "Invalid album ID."
 msgstr "ID do álbum inválida."
 
-#: fbtalker.cpp:793
+#: fbtalker.cpp:656
 msgid "Album is full."
 msgstr "O álbum está cheio."
 
-#: fbtalker.cpp:796
+#: fbtalker.cpp:659
 msgid "Missing or invalid file."
 msgstr "O arquivo não foi encontrado ou é inválido."
 
-#: fbtalker.cpp:799
+#: fbtalker.cpp:662
 msgid "Too many unapproved photos pending."
 msgstr "Existem muitas fotos pendentes de aprovação."
 
@@ -352,51 +341,69 @@ msgstr ""
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko"
+"(c) 2008-2009, Luka Renko\n"
+"(c) 2015 Shourya Singh Gupta"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko"
+"(c) 2008-2009, Luka Renko\n"
+"(c) 2015 Shourya Singh Gupta"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Author and maintainer"
 msgstr "Autor e mantenedor"
 
-#: fbwindow.cpp:386 fbwindow.cpp:438
+#: fbwindow.cpp:132
+msgid "Shourya Singh Gupta"
+msgstr "Shourya Singh Gupta"
+
+#: fbwindow.cpp:132
+msgid "Developer"
+msgstr "Desenvolvedor"
+
+#: fbwindow.cpp:389 fbwindow.cpp:441
 msgid "&lt;auto create&gt;"
 msgstr "&lt;criar automaticamente&gt;"
 
-#: fbwindow.cpp:405 fbwindow.cpp:423 fbwindow.cpp:488 fbwindow.cpp:518
+#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Falha na chamada ao Facebook: %1\n"
 
-#: fbwindow.cpp:433
+#: fbwindow.cpp:436
 msgctxt "name of special Facebook album for profile pictures"
 msgid "Profile Pictures"
 msgstr "Imagens do perfil"
 
-#: fbwindow.cpp:608 fbwindow.cpp:633
+#: fbwindow.cpp:568
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+"Depois de autenticado no navegador, clique em \"Continuar\" para se "
+"autenticar em outra conta"
+
+#: fbwindow.cpp:618 fbwindow.cpp:643
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:612
+#: fbwindow.cpp:622
 msgid "Facebook import"
 msgstr "Importação do Facebook"
 
-#: fbwindow.cpp:637
+#: fbwindow.cpp:647
 msgid "Facebook export"
 msgstr "Exportação para o Facebook"
 
-#: fbwindow.cpp:740 fbwindow.cpp:755
+#: fbwindow.cpp:750 fbwindow.cpp:765
 msgid "Cannot open file"
 msgstr "Não foi possível abrir o arquivo"
 
-#: fbwindow.cpp:779
+#: fbwindow.cpp:789
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -405,7 +412,7 @@ msgstr ""
 "Não foi possível enviar a foto para o Facebook: %1\n"
 "Deseja continuar?"
 
-#: fbwindow.cpp:841
+#: fbwindow.cpp:851
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -414,7 +421,7 @@ msgstr ""
 "Falha ao salvar a foto: %1\n"
 "Deseja continuar?"
 
-#: fbwindow.cpp:855
+#: fbwindow.cpp:865
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -423,7 +430,7 @@ msgstr ""
 "Falha ao baixar a foto: %1\n"
 "Deseja continuar?"
 
-#: fbwindow.cpp:873
+#: fbwindow.cpp:883
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Falha na chamada ao Facebook: %1"
@@ -443,10 +450,10 @@ msgstr "&Exportar"
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
 
-#: plugin_facebook.cpp:101
+#: plugin_facebook.cpp:100
 msgid "Export to &Facebook..."
 msgstr "Exportar para o &Facebook..."
 
-#: plugin_facebook.cpp:111
+#: plugin_facebook.cpp:110
 msgid "Import from &Facebook..."
 msgstr "Importar do &Facebook..."

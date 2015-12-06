@@ -38,18 +38,6 @@
 #include "kptooldialog.h"
 
 class QLabel;
-class QSpinBox;
-class QCheckBox;
-class QGroupBox;
-class QButtonGroup;
-class QCloseEvent;
-class QToolButton;
-
-class KUrl;
-class KPasswordDialog;
-class KComboBox;
-class KPushButton;
-class KLineEdit;
 class KJob;
 
 namespace KIPI
@@ -64,13 +52,17 @@ namespace KIPIPlugins
     class KPProgressWidget;
 }
 
+namespace Vkontakte
+{
+    class VkApi;
+}
+
 using namespace KIPI;
 using namespace KIPIPlugins;
 
 namespace KIPIVkontaktePlugin
 {
 
-class VkAPI;
 class AlbumChooserWidget;
 class AuthInfoWidget;
 
@@ -88,8 +80,6 @@ public:
      * to display it. This also loads the currently selected images.
      */
     void startReactivation();
-
-    QString getDestinationPath() const;
 
 Q_SIGNALS:
 
@@ -124,6 +114,8 @@ protected:
 
     void handleVkError(KJob* kjob);
 
+    void closeEvent(QCloseEvent* event);
+
 protected:
 
     /// Plugin
@@ -151,7 +143,7 @@ protected:
     /** Pointers to running jobs */
     QList<KJob*>                   m_jobs;
 
-    VkAPI*                         m_vkapi;
+    Vkontakte::VkApi*              m_vkapi;
 
     int                            m_albumToSelect;
 

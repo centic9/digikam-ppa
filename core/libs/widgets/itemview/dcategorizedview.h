@@ -60,6 +60,9 @@ public:
     void toIndex(const QModelIndex& index);
     void awayFromSelection();
 
+    /** Scroll automatically the current index to center of the view. */
+    void setScrollCurrentToCenter(bool enabled);
+
     /** Like scrollTo, but only scrolls if the index is not visible, regardless of hint. */
     void scrollToRelaxed(const QModelIndex& index, ScrollHint hint = EnsureVisible);
 
@@ -80,6 +83,7 @@ public:
     void setScrollStepGranularity(int factor);
 
     virtual QSortFilterProxyModel* filterModel() const = 0;
+    virtual void scrollTo(const QModelIndex& index, ScrollHint hint = EnsureVisible);
 
 public Q_SLOTS:
 
@@ -151,6 +155,7 @@ protected:
     void reset();
     void rowsAboutToBeRemoved(const QModelIndex& parent, int start, int end);
     void rowsInserted(const QModelIndex& parent, int start, int end);
+    void rowsRemoved(const QModelIndex& parent, int start, int end);
     void selectionChanged(const QItemSelection&, const QItemSelection&);
     bool viewportEvent(QEvent* event);
     void wheelEvent(QWheelEvent* event);

@@ -73,6 +73,8 @@ public:
 
     MyImageList*    imagesList;
     SettingsWidget* settingsWidget;
+
+    EmailSettings acceptedEmailSettings;
 };
 
 SendImagesDialog::SendImagesDialog(QWidget* const /*parent*/, const KUrl::List& urls)
@@ -81,9 +83,12 @@ SendImagesDialog::SendImagesDialog(QWidget* const /*parent*/, const KUrl::List& 
     d->urls = urls;
 
     setCaption(i18n("Email Images Options"));
-    setButtons(Help|Ok|Cancel);
-    setDefaultButton(Ok);
+    setButtons(Help | User1 | Close);
+    setDefaultButton(Close);
     setModal(false);
+
+    button(User1)->setText(i18nc("@action:button", "&Send"));
+    button(User1)->setIcon(KIcon("mail-send"));
 
     // ---------------------------------------------------------------
 
@@ -122,11 +127,11 @@ SendImagesDialog::SendImagesDialog(QWidget* const /*parent*/, const KUrl::List& 
 
     // ------------------------------------------------------------
 
-    connect(this, SIGNAL(cancelClicked()),
-            this, SLOT(slotCancel()));
+    connect(this, SIGNAL(finished(int)),
+            this, SLOT(slotFinished()));
 
-    connect(this, SIGNAL(okClicked()),
-            this, SLOT(slotOk()));
+    connect(this, SIGNAL(user1Clicked()),
+            this, SLOT(slotSubmit()));
 
     connect(d->imagesList, SIGNAL(signalImageListChanged()),
             this, SLOT(slotImagesCountChanged()));
@@ -143,30 +148,34 @@ SendImagesDialog::~SendImagesDialog()
 
 void SendImagesDialog::closeEvent(QCloseEvent *e)
 {
-    if (!e) return;
-    saveSettings();
-    d->imagesList->listView()->clear();
+    if (!e)
+    {
+        return;
+    }
+
+    slotFinished();
     e->accept();
 }
 
-void SendImagesDialog::slotCancel()
+void SendImagesDialog::slotFinished()
 {
     saveSettings();
     d->imagesList->listView()->clear();
-    reject();
 }
 
-void SendImagesDialog::slotOk()
+void SendImagesDialog::slotSubmit()
 {
-    saveSettings();
+    // Prepare acceptedEmailSettings here because the image list
+    // will be cleared by slotFinished() on accepting the dialog.
+    d->acceptedEmailSettings = d->settingsWidget->emailSettings();
+    d->acceptedEmailSettings.itemsList = d->imagesList->imagesList();
+
     accept();
 }
 
 EmailSettings SendImagesDialog::emailSettings() const
 {
-    EmailSettings settings = d->settingsWidget->emailSettings(); 
-    settings.itemsList     = d->imagesList->imagesList();
-    return settings;
+    return d->acceptedEmailSettings;
 }
 
 void SendImagesDialog::readSettings()
@@ -209,7 +218,7 @@ void SendImagesDialog::saveSettings()
 
 void SendImagesDialog::slotImagesCountChanged()
 {
-   enableButtonOk(!d->imagesList->imagesList().isEmpty());
+   enableButton(User1, !d->imagesList->imagesList().isEmpty());
 }
 
 }  // namespace KIPISendimagesPlugin

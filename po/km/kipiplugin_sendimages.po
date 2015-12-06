@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-29 01:50+0000\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
 "PO-Revision-Date: 2012-06-25 14:13+0700\n"
 "Last-Translator: Sophea <sophea@khmeros.info>\n"
 "Language-Team: Khmer <>\n"
@@ -87,19 +87,23 @@ msgstr "បាន​ផ្លាស់ប្ដូរ​ទំហំ %1 ដោ�
 msgid "Failed to resize %1: %2"
 msgstr "បាន​បរាជ័យ​ក្នុយ​ផ្លាស់ប្ដូរទំហំ %1 ៖ %2"
 
-#: sendimages.cpp:257
+#: sendimages.cpp:250
+msgid "There are no files to send"
+msgstr ""
+
+#: sendimages.cpp:268
 msgid "Build images properties file"
 msgstr "ស្ថាបនា​ឯកសារ​លក្ខណៈសម្បត្តិ​រូបភាព"
 
-#: sendimages.cpp:270
+#: sendimages.cpp:281
 msgid "no caption"
 msgstr "គ្មាន​ចំណង​ជើង"
 
-#: sendimages.cpp:273
+#: sendimages.cpp:284
 msgid "no keywords"
 msgstr "គ្មាន​ពាក្យ​គន្លឹះ"
 
-#: sendimages.cpp:275
+#: sendimages.cpp:286
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -108,30 +112,30 @@ msgstr ""
 "ឯកសារ \"%1\" ៖\n"
 "រូបភាព​ដើម ៖ %2\n"
 
-#: sendimages.cpp:278
+#: sendimages.cpp:289
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "សេចក្ដី​អធិប្បាយ ៖ %1\n"
 
-#: sendimages.cpp:281
+#: sendimages.cpp:292
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "ស្លាក ៖ %1\n"
 
-#: sendimages.cpp:284
+#: sendimages.cpp:295
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "អត្រា ៖ %1\n"
 
-#: sendimages.cpp:289
+#: sendimages.cpp:300
 msgid "properties.txt"
 msgstr "properties.txt"
 
-#: sendimages.cpp:298
+#: sendimages.cpp:309
 msgid "Image properties file done"
 msgstr "បាន​ធ្វើ​ឯកសារ​លក្ខណៈសម្បត្តិ​រូបភាព"
 
-#: sendimages.cpp:315
+#: sendimages.cpp:326
 msgid ""
 "The images listed below cannot be resized.\n"
 "Do you want them to be added as attachments (without resizing)?"
@@ -139,74 +143,79 @@ msgstr ""
 "រូបភាព​បាន​រាយ​ខាង​ក្រោម​មិន​អាច​ត្រូវ​បាន​ផ្លាស់ប្ដូរ​ទំហំ​ទេ ។\n"
 "តើ​អ្នក​ចង់​ឲ្យបន្ថែម​​ពួកវា​ជា​ឯកសារ​ភ្ជាប់ (ដោយ​មិន​ផ្លាស់ប្ដូរ​ទំហំ) ?"
 
-#: sendimages.cpp:319
+#: sendimages.cpp:330
 msgid "Failed to resize images"
 msgstr "បាន​បរាជ័យ​ក្នុងការ​ផ្លាស់ប្ដូរ​ទំហំ​រូបភាព"
 
-#: sendimages.cpp:378
+#: sendimages.cpp:389
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
 "settings"
 msgstr "ឯកសារ​ \"%1\" ​ធំ​ពេក​មិន​អាច​ផ្ញើបាន​ទេ សូម​កាត់​បន្ថយទំហំ​របស់​វា ឬ​ផ្លាស់​ប្តូរ​ការកំណត់​របស់​អ្នក"
 
-#: sendimages.cpp:426
+#: sendimages.cpp:437
 msgid "Starting default KDE email program..."
 msgstr "កំពុង​ចាប់ផ្ដើម​កម្មវិធី​​អ៊ីមែល​របស់ KDE លំនាំដើម..."
 
-#: sendimages.cpp:648
+#: sendimages.cpp:659
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "បាន​បរាជ័យ​ក្នុង​កា​រចាប់ផ្ដើម​កម្មវិធី \"%1\" ។ ពិនិត្យមើល​ប្រព័ន្ធ​របស់​អ្នក ។"
 
-#: sendimages.cpp:661
+#: sendimages.cpp:672
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "កំពុង​ចាប់ផ្ដើម​កម្មវិធី \"%1\"..."
 
-#: sendimages.cpp:671
+#: sendimages.cpp:682
 msgid "After having sent your images by email..."
 msgstr "បន្ទាប់​ពី​ត្រូវ​បាន​ផ្ញើ​រូបភាព​របស់​អ្នក​ដោយ​អ៊ីមែល..."
 
-#: sendimages.cpp:672
+#: sendimages.cpp:683
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "ចុច​ប៊ូតុង 'បិទ' ដើម្បី​ជម្រះ​ឯកសារ​បណ្ដោះ​អាសន្ន"
 
-#: sendimagesdialog.cpp:83
+#: sendimagesdialog.cpp:85
 msgid "Email Images Options"
 msgstr "ជម្រើស​រូបភាព​អ៊ីមែល"
 
-#: sendimagesdialog.cpp:105
+#: sendimagesdialog.cpp:90
+msgctxt "@action:button"
+msgid "&Send"
+msgstr ""
+
+#: sendimagesdialog.cpp:110
 msgid "Send Images"
 msgstr "ផ្ញើ​រូបភាព"
 
-#: sendimagesdialog.cpp:108
+#: sendimagesdialog.cpp:113
 msgid "A plugin to e-mail items"
 msgstr "កម្មវិធី​ជំនួយ​​សម្រាប់​ធាតុ​អ៊ីមែល"
 
-#: sendimagesdialog.cpp:109
+#: sendimagesdialog.cpp:114
 #, fuzzy
 #| msgid "(c) 2003-2012, Gilles Caulier"
 msgid "(c) 2003-2013, Gilles Caulier"
 msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៣-២០១២ ដោយ Gilles Caulier"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: sendimagesdialog.cpp:111
+#: sendimagesdialog.cpp:116
 msgid "Author and Maintainer"
 msgstr "អ្នក​និពន្ធ និង​អ្នក​ថែទាំ"
 
-#: sendimagesdialog.cpp:114
+#: sendimagesdialog.cpp:119
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
-#: sendimagesdialog.cpp:114 sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:119 sendimagesdialog.cpp:122
 msgid "Developer"
 msgstr "អ្នក​អភិវឌ្ឍន៍"
 
-#: sendimagesdialog.cpp:117
+#: sendimagesdialog.cpp:122
 msgid "Tom Albers"
 msgstr "Tom Albers"
 

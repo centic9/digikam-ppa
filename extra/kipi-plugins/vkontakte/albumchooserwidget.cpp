@@ -6,7 +6,7 @@
  * Date        : 2011-02-19
  * Description : A KIPI plugin to export images to VKontakte web service.
  *
- * Copyright (C) 2011-2012 by Alexander Potashev <aspotashev at gmail dot com>
+ * Copyright (C) 2011-2012, 2015  Alexander Potashev <aspotashev@gmail.com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -39,16 +39,17 @@
 #include <libkvkontakte/createalbumjob.h>
 #include <libkvkontakte/editalbumjob.h>
 #include <libkvkontakte/deletealbumjob.h>
+#include <libkvkontakte/vkapi.h>
 
 // Local includes
 
 #include "vkalbumdialog.h"
-#include "vkapi.h"
 
 namespace KIPIVkontaktePlugin
 {
 
-AlbumChooserWidget::AlbumChooserWidget(QWidget* const parent, VkAPI* const vkapi)
+AlbumChooserWidget::AlbumChooserWidget(QWidget* const parent,
+                                       Vkontakte::VkApi* const vkapi)
     : QGroupBox(i18nc("@title:group Header above controls for managing albums", "Album"), parent)
 {
     m_vkapi         = vkapi;
@@ -119,14 +120,42 @@ void AlbumChooserWidget::clearList()
     m_albumsCombo->clear();
 }
 
-Vkontakte::AlbumInfoPtr AlbumChooserWidget::currentAlbum()
+bool AlbumChooserWidget::getCurrentAlbumInfo(
+    VkontakteAlbumDialog::AlbumInfo &out)
 {
     int index = m_albumsCombo->currentIndex();
 
     if (index >= 0)
-        return m_albums.at(index);
+    {
+        Vkontakte::AlbumInfoPtr album = m_albums.at(index);
+        out.title = album->title();
+        out.description = album->description();
+        out.privacy = album->privacy();
+        out.commentPrivacy = album->commentPrivacy();
+
+        return true;
+    }
     else
-        return Vkontakte::AlbumInfoPtr();
+    {
+        return false;
+    }
+}
+
+bool AlbumChooserWidget::getCurrentAlbumId(int &out)
+{
+    int index = m_albumsCombo->currentIndex();
+
+    if (index >= 0)
+    {
+        Vkontakte::AlbumInfoPtr album = m_albums.at(index);
+        out = album->aid();
+
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void AlbumChooserWidget::selectAlbum(int aid)
@@ -150,23 +179,22 @@ void AlbumChooserWidget::selectAlbum(int aid)
 
 void AlbumChooserWidget::slotNewAlbumRequest()
 {
-    Vkontakte::AlbumInfoPtr album(new Vkontakte::AlbumInfo());
-    QPointer<VkontakteAlbumDialog> dlg = new VkontakteAlbumDialog(this, album);
+    QPointer<VkontakteAlbumDialog> dlg = new VkontakteAlbumDialog(this);
 
     if (dlg->exec() == QDialog::Accepted)
     {
         updateBusyStatus(true);
-        startAlbumCreation(album);
+        startAlbumCreation(dlg->album());
     }
 
     delete dlg;
 }
 
-void AlbumChooserWidget::startAlbumCreation(Vkontakte::AlbumInfoPtr album)
+void AlbumChooserWidget::startAlbumCreation(const VkontakteAlbumDialog::AlbumInfo &album)
 {
     Vkontakte::CreateAlbumJob* const job = new Vkontakte::CreateAlbumJob(m_vkapi->accessToken(),
-                                                                         album->title(), album->description(),
-                                                                         album->privacy(), album->commentPrivacy());
+                                                                         album.title, album.description,
+                                                                         album.privacy, album.commentPrivacy);
 
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(slotAlbumCreationDone(KJob*)));
@@ -176,46 +204,55 @@ void AlbumChooserWidget::startAlbumCreation(Vkontakte::AlbumInfoPtr album)
 
 void AlbumChooserWidget::slotAlbumCreationDone(KJob* kjob)
 {
-    SLOT_JOB_DONE_INIT(Vkontakte::CreateAlbumJob)
+    Vkontakte::CreateAlbumJob* const job = dynamic_cast<Vkontakte::CreateAlbumJob*>(kjob);
+    Q_ASSERT(job);
 
-    if (!job) return;
+    if (job == 0 || job->error())
+    {
+        handleVkError(job);
+        updateBusyStatus(false);
+    }
+    else
+    {
+        // Select the newly created album in the combobox later (in "slotAlbumsReloadDone()")
+        m_albumToSelect = job->album()->aid();
 
-    // Select the newly created album in the combobox later (in "slotAlbumsReloadDone()")
-    m_albumToSelect = job->album()->aid();
-
-    startAlbumsReload();
-
-    updateBusyStatus(true);
+        startAlbumsReload();
+        updateBusyStatus(true);
+    }
 }
 
 //------------------------------
 
 void AlbumChooserWidget::slotEditAlbumRequest()
 {
-    Vkontakte::AlbumInfoPtr album = currentAlbum();
-
-    if (album.isNull())
+    VkontakteAlbumDialog::AlbumInfo album;
+    int aid = 0;
+    if (!getCurrentAlbumInfo(album) || !getCurrentAlbumId(aid))
+    {
         return;
+    }
 
-    QPointer<VkontakteAlbumDialog> dlg = new VkontakteAlbumDialog(this, album, true);
+    QPointer<VkontakteAlbumDialog> dlg = new VkontakteAlbumDialog(this, album);
 
     if (dlg->exec() == QDialog::Accepted)
     {
         updateBusyStatus(true);
-        startAlbumEditing(album);
+        startAlbumEditing(aid, dlg->album());
     }
 
     delete dlg;
 }
 
-void AlbumChooserWidget::startAlbumEditing(Vkontakte::AlbumInfoPtr album)
+void AlbumChooserWidget::startAlbumEditing(
+    int aid, const VkontakteAlbumDialog::AlbumInfo &album)
 {
     // Select the same album again in the combobox later (in "slotAlbumsReloadDone()")
-    m_albumToSelect                    = album->aid();
+    m_albumToSelect                    = aid;
 
     Vkontakte::EditAlbumJob* const job = new Vkontakte::EditAlbumJob(m_vkapi->accessToken(),
-                                                                     album->aid(), album->title(), album->description(),
-                                                                     album->privacy(), album->commentPrivacy());
+                                                                     aid, album.title, album.description,
+                                                                     album.privacy, album.commentPrivacy);
 
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(slotAlbumEditingDone(KJob*)));
@@ -236,14 +273,16 @@ void AlbumChooserWidget::slotAlbumEditingDone(KJob* kjob)
 
 void AlbumChooserWidget::slotDeleteAlbumRequest()
 {
-    Vkontakte::AlbumInfoPtr album = currentAlbum();
-
-    if (album.isNull())
+    VkontakteAlbumDialog::AlbumInfo album;
+    int aid = 0;
+    if (!getCurrentAlbumInfo(album) || !getCurrentAlbumId(aid))
+    {
         return;
+    }
 
     if (KMessageBox::warningContinueCancel(
         this,
-        i18n("<qt>Are you sure you want to remove the album <b>%1</b> including all photos in it?</qt>", album->title()),
+        i18n("<qt>Are you sure you want to remove the album <b>%1</b> including all photos in it?</qt>", album.title),
         i18nc("@title:window", "Confirm Album Deletion"),
         KStandardGuiItem::del(),
         KStandardGuiItem::cancel(),
@@ -252,12 +291,13 @@ void AlbumChooserWidget::slotDeleteAlbumRequest()
         return;
     }
 
-    startAlbumDeletion(album);
+    updateBusyStatus(true);
+    startAlbumDeletion(aid);
 }
 
-void AlbumChooserWidget::startAlbumDeletion(Vkontakte::AlbumInfoPtr album)
+void AlbumChooserWidget::startAlbumDeletion(int aid)
 {
-    Vkontakte::DeleteAlbumJob* const job = new Vkontakte::DeleteAlbumJob(m_vkapi->accessToken(), album->aid());
+    Vkontakte::DeleteAlbumJob* const job = new Vkontakte::DeleteAlbumJob(m_vkapi->accessToken(), aid);
 
     connect(job, SIGNAL(result(KJob*)),
             this, SLOT(slotAlbumDeletionDone(KJob*)));
@@ -280,10 +320,11 @@ void AlbumChooserWidget::slotReloadAlbumsRequest()
 {
     updateBusyStatus(true);
 
-    Vkontakte::AlbumInfoPtr album = currentAlbum();
-
-    if (!album.isNull())
-        m_albumToSelect = album->aid();
+    int aid = 0;
+    if (getCurrentAlbumId(aid))
+    {
+        m_albumToSelect = aid;
+    }
 
     startAlbumsReload();
 }
@@ -339,7 +380,10 @@ void AlbumChooserWidget::updateBusyStatus(bool busy)
 // TODO: share this code with `vkwindow.cpp`
 void AlbumChooserWidget::handleVkError(KJob* kjob)
 {
-    KMessageBox::error(this, kjob->errorText(), i18nc("@title:window", "Request to VKontakte failed"));
+    KMessageBox::error(
+        this,
+        kjob == 0 ? i18n("Internal error: Null pointer to KJob instance.") : kjob->errorText(),
+        i18nc("@title:window", "Request to VKontakte failed"));
 }
 
 } // namespace KIPIVkontaktePlugin

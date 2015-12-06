@@ -10,17 +10,15 @@ msgstr ""
 "Project-Id-Version: kipiplugin_expoblending\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-11-26 01:44+0000\n"
-"PO-Revision-Date: 2013-10-19 12:43+0000\n"
+"PO-Revision-Date: 2014-10-20 19:24+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: bosanski <bs@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Launchpad (build 16807)\n"
-"X-Launchpad-Export-Date: 2013-10-20 05:02+0000\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-16 06:46+0000\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -320,7 +318,7 @@ msgstr ""
 
 #: importwizard/intropage.cpp:86
 msgid "Exposure Blending Binaries"
-msgstr ""
+msgstr "Binarni programi za miješanje ekspozicija"
 
 #: importwizard/itemspage.cpp:70
 msgid "<b>Set Bracketed Images</b>"
@@ -351,6 +349,11 @@ msgid ""
 "be used.</p><p>Press \"Finish\" button to fuse your items and make a pseudo "
 "HDR image.</p></qt>"
 msgstr ""
+"<qt><p><h1><b>Pred-Obrada uokvirenih slika je završena</b></h1></"
+"p><p>Čestitam. Vaše slike su spremne da da budu spojene.</p><p>Da obavite "
+"ovu operaciju, <b>%1</b> program iz <a href='%2'>Enblend</a> projekta će se "
+"koristiti.</p><p>Pritisnite \"Završi\" dugme da spojite objekte i napravite "
+"pseudo HDR sliku.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:98
 msgid "<b>Pre-Processing Bracketed Images</b>"
@@ -371,12 +374,21 @@ msgid ""
 "will be converted to 16-bit sRGB images with auto-gamma.</p><p>Press \"Next"
 "\" to start pre-processing.</p></qt>"
 msgstr ""
+"<qt><p>Sada ćemo predprocesirati uokvirene slike prije njihovog spajanja.</"
+"p><p>Da odrdimo automatsko poravnavanje<b>%1</b> program iz <a href='%2'>%3</"
+"a> projekta će se koristiti. Poravnanje se mora izvršiti ako niste koristili "
+"stativ da uokviritea slike. Operacija poravnanja može potrajati.</"
+"p><p>OPeracije predprocesiranja uključuju Raw demozaik. Raw se mogu "
+"konvertovati u 16-bit sRGB slike s auto-gamma.</p><p>Pritisnite \"Dalje\" za "
+"početak pred-obrade.</p></qt>"
 
 #: importwizard/preprocessingpage.cpp:179
 msgid ""
 "<qt><p>Pre-processing is under progress, please wait.</p><p>This can take a "
 "while...</p></qt>"
 msgstr ""
+"<qt><p>Pred-obrada je u toku, molim sačekajte.</p><p>Ovo može potrajati...</"
+"p></qt>"
 
 #: importwizard/preprocessingpage.cpp:223
 msgid "Pre-Processing Messages"
@@ -410,10 +422,8 @@ msgid "A tool to blend bracketed images"
 msgstr "Alat za miješanje uzastopnih slika"
 
 #: plugin/aboutdata.h:44
-#, fuzzy
-#| msgid "Gilles Caulier"
 msgid "(c) 2009-2014, Gilles Caulier"
-msgstr "Gilles Caulier"
+msgstr "(c) 2009-2014, Gilles Caulier"
 
 #: plugin/aboutdata.h:46
 msgid "Gilles Caulier"
@@ -433,7 +443,7 @@ msgstr "Glavni programer"
 
 #: plugin/aboutdata.h:54
 msgid "Benjamin Girault"
-msgstr ""
+msgstr "Benjamin Girault"
 
 #: plugin/expoblending.cpp:55
 msgid "File(s) to open"
@@ -451,7 +461,4 @@ msgstr "Glavna alatna traka"
 
 #: plugin/plugin_expoblending.cpp:95
 msgid "Blend Bracketed Images..."
-msgstr ""
-
-#~ msgid "Handbook"
-#~ msgstr "Priručnik"
+msgstr "Spoji uokvirene slike..."

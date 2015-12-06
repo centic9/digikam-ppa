@@ -1,0 +1,472 @@
+<sect2
+>                                      <title
+>Ajouter des éléments décoratifs</title>
+<sect3 id="texture">
+<sect3info>
+
+<title
+>Appliquer une texture</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Appliquer une texture</emphasis
+> de &digikam; permet d'appliquer une texture décorative à une image. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>En ajoutant une texture à votre image, qu'elle soit en couleurs ou en noir et blanc, nous pouvez la faire ressembler à une peinture à l'huile sur une toile, une gravure ancienne, un portrait pop art composé de points de couleurs ou même à une fresque sur un mur en briques. Le menu <menuchoice
+><guimenu
+>Image</guimenu
+> <guimenuitem
+>Appliquer une texture</guimenuitem
+></menuchoice
+> sert à cela. </para>
+
+<sect4 id="using-texture">
+<title
+>Utiliser l'outil texture</title>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;texturedialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre d'application d'une texture</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Deux options vous permettent de contrôler l'application de la texture sur l'image : </para>
+ 
+<para
+><guilabel
+>Type</guilabel
+> : cette option spécifie le style de la texture décorative à appliquer à l'image. </para>
+
+<para
+><guilabel
+>Relief</guilabel
+> : déplacer cette valeur vers la droite augmente l'impression de profondeur ou la troisième dimension de la texture appliquée à l'image. </para>
+
+</sect4>
+
+<sect4 id="inaction-texture">
+<title
+>L'outil texture en action</title>
+
+<para
+>Une texture <guilabel
+>Papier</guilabel
+> appliquée à une photo est visible ci-dessous. L'image originale est notée (1), l'image finale (2). Le facteur de <guilabel
+>Relief</guilabel
+> utilisé est 200. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;texturepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>L'aperçu de l'effet de texture</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="border">
+<sect3info>
+
+<title
+>Ajouter une bordure</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Ajouter une bordure</emphasis
+> de &digikam;est un outil permettant d'encadrer une image avec des bordures décoratives. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Conserver l'intérêt du spectateur à l'intérieur des bords d'une photo n'est pas une tâche facile. Un des moyens les plus simple pour maintenir cette attention sur une image est d'incorporer un cadre décoratif autour de l'image. Celui-ci agit comme une barrière psychologique pour l'œil. Le menu <menuchoice
+><guimenu
+>Image</guimenu
+> <guimenuitem
+>Ajouter une bordure</guimenuitem
+></menuchoice
+> de l'éditeur d'image peut être utilisé à cette fin. </para>
+
+<sect4 id="using-border">
+<title
+>Utiliser l'outil bordure</title>
+
+<para
+>Quatre options vous permettent de contrôler l'application de la bordure à l'image : </para>
+ 
+<para
+><guilabel
+>Type</guilabel
+> : cette option spécifie le style de bordure décorative à appliquer autour de l'image. Le style <guilabel
+>plein</guilabel
+> entoure juste l'image avec une ligne colorée, <guilabel
+>Niepce</guilabel
+> entoure l'image d'une ligne fine et d'une large bordure (idéale pour les images en noir et blanc), le style <guilabel
+>Beveled</guilabel
+> ajoute une troisième dimension à votre image (idéale pour créer un effet de bouton) et le style <guilabel
+>Décorative</guilabel
+> ajoute une bordure ornementale en utilisant des motifs. </para>
+
+<para
+><guilabel
+>Largeur</guilabel
+> : cette option spécifie la largeur de la bordure, en pourcentage de la taille de l'image. La bordure est ajoutée autour de l'image. La plage de variation est de 1 % à 50 %. </para>
+
+<para
+><guilabel
+>Première</guilabel
+> : cette option spécifie la première couleur à utiliser avec le type de bordure courant. </para>
+
+<para
+><guilabel
+>Seconde</guilabel
+> : cette option spécifie la deuxième couleur à utiliser avec le type de bordure courant. </para>
+
+<para
+>Cliquez sur le bouton <guilabel
+>Ok</guilabel
+> pour appliquer la bordure à l'image courante. </para>
+
+<note
+><para
+>L'image cible pour la décoration par une bordure sera plus grande que l'image originale, mais conservera le même rapport d'aspect. Ceci est important pour l'impression des images, notamment si vous avez utilisé l'outil de rognage proportionnel auparavant. </para
+></note>
+           
+</sect4>
+
+<sect4 id="inaction-border">
+<title
+>L'outil d'ajout de bordure en action</title>
+
+<para
+>La fenêtre de l'outil d'ajout de bordure en action est disponible ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;borderpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre de l'outil d'ajout de bordure en action</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="inserttext">
+<sect3info>
+
+<title
+>Insérer un texte</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Insérer un texte</emphasis
+> de &digikam; est un outil permettant d'ajouter du texte à une image. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>C'est un outil très pratique puisqu'il vous permet d'ajouter facilement du texte formaté à une image, où vous voulez, y compris à plusieurs endroits en même temps. </para>
+
+<sect4 id="using-inserttext">
+<title
+>L'outil d'insertion de texte</title>
+
+<para
+>Cet outil semble très intuitif à utiliser. Saisissez votre texte et placez-le avec la souris. Utilisez les paramètres de blocs comme vous le souhaitez. Choisissez l'orientation, la couleur depuis l'espace de couleurs et les polices avec leurs propriétés. Vous devrez choisir la taille de la police pour l'adapter à la taille de l'image. Plus l'image est grande, plus la taille de police doit être augmentée ! Choisissez enfin une bordure à ajouter autour du texte et/ou un fond semitransparent. Voilà, c'est fini ! </para>
+
+<para
+>Tout paramètre de texte que vous avez choisi peut être changé tant que vous n'avez pas cliqué sur le bouton Ok. Dans les images enregistrées et rouvertes, le texte est devenu une partie de l'image et ne peut plus être modifié. </para>
+ 
+</sect4>
+
+<sect4 id="inaction-inserttext">
+<title
+>L'outil d'insertion de texte en action</title>
+
+<para
+>La fenêtre de l'outil d'insertion de texte est affichée ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;inserttextpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre de l'outil d'insertion de texte en action</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="superimpose">
+<sect3info>
+
+<title
+>Surimprimer un modèle</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author
+>    
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Surimprimer un modèle</emphasis
+> de &digikam; permet d'ajouter un modèle en surimpression à une image. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Cet outil permet de combiner deux images par surimpression très facilement. Vous pouvez utiliser cet outil pour recadrer vos photos et l'histoire qu'elles racontent. Les images existantes ou créées artificiellement peuvent être utilisées comme fichiers PNG pour les modèles, lorsqu'elles contiennent des bordures, des cadres, des gradients ou des images composites qui peuvent être ajoutées ou surimprimées sur d'autres images. Les fichiers de modèles ne sont pas installés avec &digikam; mais peuvent être téléchargés à <ulink url="http://digikam3rdparty.free.fr/Templates/"
+>cette adresse</ulink
+>. Téléchargez le contenu vers la base de données d'albums de &digikam; et définissez l'<guilabel
+>emplacement racine des modèles</guilabel
+>. </para>
+
+<para
+>Le menu de l'éditeur d'image <menuchoice
+><guimenu
+>Image</guimenu
+> <guimenuitem
+>Surimprimer un modèle</guimenuitem
+></menuchoice
+> est utilisé pour ajouter un modèle à une image. </para>
+
+<sect4 id="using-template-creation">
+<title
+>Pour créer de nouveaux modèles</title>
+
+<para
+>De nouveaux modèles peuvent être créés en utilisant n'importe quel logiciel de dessin et les modèles doivent être stockés sur le disque dur. Les zones colorées d'une image deviendront un masque qui sera surimprimé sur une autre image. Les fichiers PNG des modèles doivent être créés en mode RVB avec un canal alpha. Le canal alpha représente les zones transparentes de l'image qui n'apparaîtront pas sur la surimpression. L'image sélectionnée sur laquelle le modèle sera surimprimé apparaîtra au niveau des zones transparentes du modèle. </para>
+
+<para
+>Il n'y a pas de restriction quant à la taille et à l'orientation du modèle, mais vous devez utiliser un ficher au format PNG avec un taux de compression maximal (9) pour réduire la taille du modèle. Si vous voulez ajouter votre modèle à la base des modèles de &digikam;, merci d'envoyer un message sur la liste de diffusion de &digikam; : <email
+>digikam-users@kde.org</email
+>. </para>
+            
+</sect4>
+
+<sect4 id="using-superimpose">
+<title
+>Utiliser l'outil de surimpression</title>
+
+<para
+>Si vous utilisez cet outil pour la première fois, vous devrez d'abord définir votre emplacement local pour les modèles, en utilisant le bouton <guilabel
+>Dossier racine</guilabel
+> de la fenêtre. Sélectionnez le dossier où bous avez copié les fichiers de modèle. Le composant graphique se souviendra de cet emplacement au prochain lancement. </para>
+
+<para
+>Lorsque l'emplacement du dossier racine des modèles est défini, une arborescence de dossiers est créée et affiche la structure du dossier des modèles. En sélectionner un mettra à jour automatiquement la barre d'aperçu. </para>
+
+<para
+>Sous la zone d'aperçu, trois boutons vous permettent de contrôler le niveau de zoom du modèle et sa position sur votre image : </para>
+
+<para
+><guilabel
+>Zoomer</guilabel
+> : ce bouton augmente le niveau de zoom de l'image sous-jacente. L'image est centrée à la position courante de la souris. Validez avec le &BGS;. </para>
+
+<para
+><guilabel
+>Dézoomer</guilabel
+> : ce bouton permet de diminuer le facteur de zoom. L'image est centrée à la position courante de la souris. Si vous voulez appliquer le modèle à toute l'image, vous devez d'abord dézoomer complètement. Validez avec le &BGS;. </para>
+
+<para
+><guilabel
+>Déplacer</guilabel
+> : utilisez ce bouton pour déplacer l'image sous-jacente. Cliquez et faites glisser l'image avec le &BDS;. </para>
+ 
+<para
+>Cliquez sur le bouton <guilabel
+>Ok</guilabel
+> pour appliquer le modèle sur l'image courante, qui sera redimensionnée automatiquement à la taille de l'aperçu. </para>
+           
+</sect4>
+
+<sect4 id="inaction-superimpose">
+<title
+>L'outil de surimpression en action</title>
+
+<para
+>La fenêtre de l'outil de surimpression de modèle en action est disponible ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;superimposepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>La fenêtre de l'outil de surimpression de modèle</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

@@ -1,0 +1,404 @@
+# Translation of kipiplugin_kmlexport to Norwegian Bokmål
+#
+# Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2013-02-01 02:36+0100\n"
+"PO-Revision-Date: 2011-05-07 14:11+0200\n"
+"Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
+"Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
+"Language: nb\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.1\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Bjørn Steensrud"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "bjornst@skogkatt.homelinux.org"
+
+#: kmlexport.cpp:79
+msgid "Generating KML file..."
+msgstr "Genererer KML-fil …"
+
+#: kmlexport.cpp:100
+#, kde-format
+msgid "Could not create '%1'"
+msgstr "Klarte ikke å opprette «%1»"
+
+#: kmlexport.cpp:188
+#, kde-format
+msgid "Could not read image '%1'"
+msgstr "Klarte ikke å lese bilde «%1»"
+
+#: kmlexport.cpp:197
+#, kde-format
+msgid "Format of image '%1' is unknown"
+msgstr "Ukjent format på bildet «%1»"
+
+#: kmlexport.cpp:209
+#, kde-format
+msgid "Error loading image '%1'"
+msgstr "Feil ved innlasting av bildet «%1»"
+
+#: kmlexport.cpp:248
+#, kde-format
+msgid "Could not save image '%1' to '%2'"
+msgstr "Klarte ikke å lagre bilde «%1» i «%2»"
+
+#: kmlexport.cpp:351
+#, kde-format
+msgid "Creation of placemark '%1'"
+msgstr "Oppretter stedsmerke «%1»"
+
+#: kmlexport.cpp:359
+#, kde-format
+msgid "Could not save icon for image '%1' to '%2'"
+msgstr "Klarte ikke lagre ikon for bilde «%1» i «%2»"
+
+#: kmlexport.cpp:391
+msgid "No GPX file chosen."
+msgstr "Ingen GPX-fil valgt."
+
+#: kmlexport.cpp:400
+#, kde-format
+msgid "Cannot parse %1 GPX file."
+msgstr "Kan ikke tolke GPX-fila %1."
+
+#: kmlexport.cpp:406
+#, kde-format
+msgid "The %1 GPX file do not have a date-time track to use."
+msgstr "GPX-fila %1 har ikke et dato-tidsspor å bruke."
+
+#: kmlexport.cpp:413
+msgid "Tracks"
+msgstr "Spor"
+
+#: kmlexport.cpp:508
+#, kde-format
+msgid "No position data for '%1'"
+msgstr "Ingen posisjonsdata for «%1»"
+
+#: kmlexport.cpp:520
+#, kde-format
+msgid "No position data for 1 picture"
+msgid_plural "No position data for %1 pictures"
+msgstr[0] "Ingen posisjonsdata for ett bilde"
+msgstr[1] "Ingen posisjonsdata for %1 bilder"
+
+#: kmlexport.cpp:536
+msgid "Move to final directory"
+msgstr "Flytt til endelig mappe"
+
+#: kmlexportconfig.cpp:66 kmlexportconfig.cpp:279
+msgid "KML Export"
+msgstr "KML-eksport"
+
+#: kmlexportconfig.cpp:76
+msgid "Target Preferences"
+msgstr "Målinnstillinger"
+
+#: kmlexportconfig.cpp:80
+msgid "Target Type"
+msgstr "Måltype"
+
+#: kmlexportconfig.cpp:83
+msgid "&Local or web target used by GoogleEarth"
+msgstr "&Lokalt eller nettmål brukt av GoogleEarth"
+
+#: kmlexportconfig.cpp:86
+msgid "Web target used by GoogleMaps"
+msgstr "Nettmål brukt av GoogleMaps"
+
+#: kmlexportconfig.cpp:87
+msgid ""
+"When using GoogleMaps, all images must have complete URLs, icons are "
+"squared, and when drawing a track, only line track is exported."
+msgstr ""
+"Når GoogleMaps brukes må alle bilder ha komplett URL, ikoner er kvadratiske "
+"og når et spor tegnes, eksporteres bare linjespor."
+
+#: kmlexportconfig.cpp:99
+msgid "Picture Altitude:"
+msgstr "Høyde der bildet er tatt:"
+
+#: kmlexportconfig.cpp:101 kmlexportconfig.cpp:224
+msgid "clamp to ground"
+msgstr "fest til bakken"
+
+#: kmlexportconfig.cpp:102 kmlexportconfig.cpp:225
+msgid "relative to ground"
+msgstr "relativt til bakken"
+
+#: kmlexportconfig.cpp:103 kmlexportconfig.cpp:226
+msgid "absolute"
+msgstr "absolutt"
+
+#: kmlexportconfig.cpp:104
+msgid ""
+"<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
+"dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+"ground</dt><dd>Sets the altitude of the element relative to the actual "
+"ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets the "
+"altitude of the coordinate relative to sea level, regardless of the actual "
+"elevation of the terrain beneath the element.</dd></dl>"
+msgstr ""
+"<p>Oppgir hvordan bilder vises <dl> <dt>fest til bakken (standard)</dt "
+"<dd>Viser at høydeangivelse skal ignoreres</dd><dt>relativt til bakken</"
+"dt><dd>Angir høyden for elementet relativt til bakkenivå på et bestemt sted."
+"</dd><dt>absolutt</dt><dd>Angir høydekoordinatet i forhold til havnivået, "
+"uansett hvor høyt bakkenivået er under elementet.</dd> </dl>"
+
+#: kmlexportconfig.cpp:114
+msgid "Destination Directory:"
+msgstr "Målmappe:"
+
+#: kmlexportconfig.cpp:118
+msgid "Select a directory in which to save the kml file and pictures"
+msgstr "Velg en mappe der bilder og kml-fila skal lagres"
+
+#: kmlexportconfig.cpp:121
+msgid "Destination URL:"
+msgstr "Mål-URL:"
+
+#: kmlexportconfig.cpp:123
+msgid "Filename:"
+msgstr "Filnavn:"
+
+#: kmlexportconfig.cpp:142
+msgid "Sizes"
+msgstr "Størrelser"
+
+#: kmlexportconfig.cpp:144
+msgid "Icon Size:"
+msgstr "Ikonstørrelse:"
+
+#: kmlexportconfig.cpp:148
+msgid "Image Size:"
+msgstr "Bildestørrelse:"
+
+#: kmlexportconfig.cpp:163
+msgid "GPX Tracks"
+msgstr "GPX-spor"
+
+#: kmlexportconfig.cpp:167
+msgid "Draw GPX Track"
+msgstr "Tegn GPX-spor"
+
+#: kmlexportconfig.cpp:170
+msgid "GPX file:"
+msgstr "GPX-fil:"
+
+#: kmlexportconfig.cpp:173
+#, kde-format
+msgid "%1|GPS Exchange Format"
+msgstr "%1|GPS Exchange Format"
+
+#: kmlexportconfig.cpp:174
+msgid "Select GPX File to Load"
+msgstr "Velg GPX-fil som skal lastes inn"
+
+#: kmlexportconfig.cpp:176
+msgid "Time Zone:"
+msgstr "Tidssone:"
+
+#: kmlexportconfig.cpp:178
+msgid "GMT-12:00"
+msgstr "GMT-12:00"
+
+#: kmlexportconfig.cpp:179
+msgid "GMT-11:00"
+msgstr "GMT-11:00"
+
+#: kmlexportconfig.cpp:180
+msgid "GMT-10:00"
+msgstr "GMT-10:00"
+
+#: kmlexportconfig.cpp:181
+msgid "GMT-09:00"
+msgstr "GMT-09:00"
+
+#: kmlexportconfig.cpp:182
+msgid "GMT-08:00"
+msgstr "GMT-08:00"
+
+#: kmlexportconfig.cpp:183
+msgid "GMT-07:00"
+msgstr "GMT-07:00"
+
+#: kmlexportconfig.cpp:184
+msgid "GMT-06:00"
+msgstr "GMT-06:00"
+
+#: kmlexportconfig.cpp:185
+msgid "GMT-05:00"
+msgstr "GMT-05:00"
+
+#: kmlexportconfig.cpp:186
+msgid "GMT-04:00"
+msgstr "GMT-04:00"
+
+#: kmlexportconfig.cpp:187
+msgid "GMT-03:00"
+msgstr "GMT-03:00"
+
+#: kmlexportconfig.cpp:188
+msgid "GMT-02:00"
+msgstr "GMT-02:00"
+
+#: kmlexportconfig.cpp:189
+msgid "GMT-01:00"
+msgstr "GMT-01:00"
+
+#: kmlexportconfig.cpp:190
+msgid "GMT"
+msgstr "GMT"
+
+#: kmlexportconfig.cpp:191
+msgid "GMT+01:00"
+msgstr "GMT+01:00"
+
+#: kmlexportconfig.cpp:192
+msgid "GMT+02:00"
+msgstr "GMT+02:00"
+
+#: kmlexportconfig.cpp:193
+msgid "GMT+03:00"
+msgstr "GMT+03:00"
+
+#: kmlexportconfig.cpp:194
+msgid "GMT+04:00"
+msgstr "GMT+04:00"
+
+#: kmlexportconfig.cpp:195
+msgid "GMT+05:00"
+msgstr "GMT+05:00"
+
+#: kmlexportconfig.cpp:196
+msgid "GMT+06:00"
+msgstr "GMT+06:00"
+
+#: kmlexportconfig.cpp:197
+msgid "GMT+07:00"
+msgstr "GMT+07:00"
+
+#: kmlexportconfig.cpp:198
+msgid "GMT+08:00"
+msgstr "GMT+08:00"
+
+#: kmlexportconfig.cpp:199
+msgid "GMT+09:00"
+msgstr "GMT+09:00"
+
+#: kmlexportconfig.cpp:200
+msgid "GMT+10:00"
+msgstr "GMT+10:00"
+
+#: kmlexportconfig.cpp:201
+msgid "GMT+11:00"
+msgstr "GMT+11:00"
+
+#: kmlexportconfig.cpp:202
+msgid "GMT+12:00"
+msgstr "GMT+12:00"
+
+#: kmlexportconfig.cpp:203
+msgid "GMT+13:00"
+msgstr "GMT+13:00"
+
+#: kmlexportconfig.cpp:204
+msgid "GMT+14:00"
+msgstr "GMT+14:00"
+
+#: kmlexportconfig.cpp:205
+msgid ""
+"Sets the time zone of the camera during picture shooting, so that the time "
+"stamps of the GPS can be converted to match the local time"
+msgstr ""
+"Angir tidssonen for kameraet mens bildene ble tatt, slik at GPS-"
+"tidsstemplene kan omgjøres til lokal tid"
+
+#: kmlexportconfig.cpp:209
+msgid "Track Width:"
+msgstr "Sporbredde:"
+
+#: kmlexportconfig.cpp:213
+msgid "Track Color:"
+msgstr "Sporfarge:"
+
+#: kmlexportconfig.cpp:219
+msgid "Opacity:"
+msgstr "Tetthet:"
+
+#: kmlexportconfig.cpp:222
+msgid "Track Altitude:"
+msgstr "Sporhøyde:"
+
+#: kmlexportconfig.cpp:227
+msgid ""
+"<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)</"
+"dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
+"ground</dt><dd>Sets the altitude of the element relative to the actual "
+"ground elevation of a particular location.</dd><dt>absolute</dt><dd>Sets the "
+"altitude of the coordinate relative to sea level, regardless of the actual "
+"elevation of the terrain beneath the element.</dd></dl>"
+msgstr ""
+"<p>Oppgir hvordan punktene vises <dl> <dt>fest til bakken (standard)</dt "
+"<dd>Viser at høydeangivelse skal ignoreres</dd><dt>relativt til bakken</"
+"dt><dd>Angir høyden for elementet relativt til bakkenivå på et bestemt sted."
+"</dd> <dt>absolutt</dt><dd>Angir høydekoordinatet i forhold til havnivået, "
+"uansett hvor høyt bakkenivået er under elementet.</dd> </dl>"
+
+#: kmlexportconfig.cpp:282
+msgid "A Kipi plugin for KML exporting"
+msgstr "Et Kipi-programtillegg for KML-eksport"
+
+#: kmlexportconfig.cpp:283
+msgid "(c) 2006-2007, Stéphane Pontier"
+msgstr "© 2006–2007 Stéphane Pontier"
+
+#: kmlexportconfig.cpp:285
+msgid "Stéphane Pontier"
+msgstr "Stéphane Pontier"
+
+#: kmlexportconfig.cpp:286 kmlexportconfig.cpp:290
+msgid "Developer and maintainer"
+msgstr "Utvikler og vedlikeholder"
+
+#: kmlexportconfig.cpp:289
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: kmlexportconfig.cpp:293
+msgid "Michael G. Hansen"
+msgstr "Michael G. Hansen"
+
+#: kmlexportconfig.cpp:294
+msgid "Maintainer"
+msgstr "Vedlikeholder"
+
+#: kmlgpsdataparser.cpp:64
+msgid "Track"
+msgstr "Spor"
+
+#: kmlgpsdataparser.cpp:90
+msgid "Points"
+msgstr "Punkter"
+
+#: kmlgpsdataparser.cpp:101
+msgid "Point"
+msgstr "Punkt"
+
+#: plugin_kmlexport.cpp:98
+msgid "Export to KML..."
+msgstr "KML-eksport …"

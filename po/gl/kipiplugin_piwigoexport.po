@@ -2,15 +2,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Xosé <xosecalvo@gmail.com>, 2010, 2012.
-# Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2012.
+# Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2012, 2015.
 # Marce Villarino <mvillarino@kde-espana.org>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-10-04 01:39+0000\n"
-"PO-Revision-Date: 2013-07-30 20:21+0200\n"
-"Last-Translator: Marce Villarino <mvillarino@kde-espana.org>\n"
+"PO-Revision-Date: 2015-05-28 19:33+0200\n"
+"Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
 "Language-Team: Galician <proxecto@trasno.net>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
@@ -96,10 +96,9 @@ msgid "Photo '%1' already exists in this album."
 msgstr "Xa existe a foto «%1»  neste álbum."
 
 #: piwigotalker.cpp:822
-#, fuzzy, kde-format
-#| msgid "Upload the chunk %1 of %2"
+#, kde-format
 msgid "Upload the chunk %1/%2 of %3"
-msgstr "Actualizar o fragmento %1 de %2"
+msgstr "Enviar o fragmento %1/%2 de %3."
 
 #: piwigotalker.cpp:858
 msgid "Warning : The full size photo cannot be uploaded."
@@ -111,10 +110,9 @@ msgid "Upload the metadata of %1"
 msgstr "Enviar os metadatos de %1"
 
 #: piwigotalker.cpp:932
-#, fuzzy, kde-format
-#| msgid "Invalid response received from remote Piwigo"
+#, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
-msgstr "Recibiuse unha resposta non válida do Piwigo remoto"
+msgstr "Recibiuse unha resposta non válida do Piwigo remoto (%1)."
 
 #: piwigowindow.cpp:135
 msgid "Albums"
@@ -155,13 +153,6 @@ msgstr ""
 "de Piwigo."
 
 #: piwigowindow.cpp:236
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2005, Renchi Raju\n"
-#| "(c) 2006-2007, Colin Guthrie\n"
-#| "(c) 2006-2013, Gilles Caulier\n"
-#| "(c) 2008, Andrea Diamantini\n"
-#| "(c) 2012, Frédéric Coiffier\n"
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
@@ -169,11 +160,11 @@ msgid ""
 "(c) 2008, Andrea Diamantini\n"
 "(c) 2010-2014, Frédéric Coiffier\n"
 msgstr ""
-"© 2003-2005, Renchi Raju\n"
-"© 2006-2007, Colin Guthrie\n"
-"© 2006-2013, Gilles Caulier\n"
-"© 2008, Andrea Diamantini\n"
-"© 2012, Frédéric Coiffier\n"
+"© 2003-2005 Renchi Raju\n"
+"© 2006-2007 Colin Guthrie\n"
+"© 2006-2013 Gilles Caulier\n"
+"© 2008 Andrea Diamantini\n"
+"© 2010-2014 Frédéric Coiffier\n"
 
 #: piwigowindow.cpp:242
 msgid "Renchi Raju"
@@ -250,10 +241,8 @@ msgid "Uploading file %1"
 msgstr "A enviar o ficheiro %1"
 
 #: piwigowindow.cpp:601
-#, fuzzy
-#| msgid "Failed to upload photo into remote piwigo. "
 msgid "Failed to upload media into remote piwigo. "
-msgstr "Non foi posíbel enviar a foto ao piwigo remoto. "
+msgstr "Non foi posíbel enviar o ficheiro ao piwigo remoto. "
 
 #: piwigowindow.cpp:604
 msgid ""

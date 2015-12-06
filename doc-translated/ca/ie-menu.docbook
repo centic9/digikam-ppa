@@ -1,0 +1,1515 @@
+<sect1 id="image-editor-menu"
+>               <title
+>L'editor d'imatges</title>
+
+    <sect2
+>        <title
+>El menú Fitxer</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>RePàg</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Enrere</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Mostra la següent anterior a l'àlbum actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="press"
+><keycap
+>AvPàg</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Endavant</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Mostra la següent imatge a l'àlbum actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Inici</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Primera</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Mostra la primera imatge a l'àlbum actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Fi</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Última</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Mostra l'última imatge a l'àlbum actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Desa</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Desa la imatge actual si ha estat modificada.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Desa com a...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Desa la imatge actual a un fitxer nou.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Reverteix</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Restaura la imatge actual des del fitxer original si ha estat modificada.</action
+></para
+></listitem>
+        </varlistentry>
+                            
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo
+>&Maj;<keycap
+>Supr</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Suprimeix el fitxer/Mou a la paperera</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Suprimeix/Mou a la paperera la imatge actual des de l'àlbum actual.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>P</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Imprimeix la imatge...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Imprimeix la imatge actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Q</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Fitxer</guimenu
+><guimenuitem
+>Surt</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Surt de l'editor d'imatges &digikam;.</action
+></para
+></listitem>
+        </varlistentry>
+            
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>El menú Edita</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>C</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Edita</guimenu
+><guimenuitem
+>Copia</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Copia la selecció de la imatge actual en el porta-retalls.</action
+></para
+></listitem>
+        </varlistentry>
+        
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Edita</guimenu
+><guimenuitem
+>Desfés</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Cancel·la l'última acció aplicada a la imatge actual utilitzant l'historial.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>Z</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Edita</guimenu
+><guimenuitem
+>Refés</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Refà l'última acció aplicada a la imatge actual utilitzant l'historial.</action
+></para
+></listitem>
+        </varlistentry>
+    
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>El menú Color</title>
+      <para>
+      <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>B</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+><guimenuitem
+>Correcció automàtica</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Corregeix automàticament el color/l'exposició de la imatge actual amb una manipulació de l'histograma <link linkend="autocolorcorrectiontool.anchor"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Balanç de blancs...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>L'eina editor d'imatges ajusta el balanç del color blanc sobre la imatge actual <link linkend="using-whitebalance"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+> <guimenuitem
+>Brillantor/Contrast/Gamma...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Corregeix l'exposició de la imatge actual per la configuració de brillantor, contrast o gamma <link linkend="bcgadjusttool.anchor"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>U</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+> <guimenuitem
+>To/Saturació/Lluminositat...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Corregeix el color de la imatge actual per la configuració de to, saturació o lluminositat <link linkend="colorbalancetool.anchor"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Efectes de color...</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Conjunt de quatre eines de l'editor d'imatges: Solaritza, Llampant (Velvia), Neó i Límits <link linkend="coloreffects"
+>(ajuda)</link
+>. </action
+></para>
+          </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>B</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+><guimenuitem
+>Equilibri de color...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Corregeix el color de la imatge actual per la configuració de vermell, verd o blau <link linkend="colorbalancetool.anchor"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Ajust de corbes</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per ajustar manualment les corbes sobre la imatge actual <link linkend="adjustcurves"
+>(ajuda)</link
+>. </action
+></para>
+             </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Ajust de nivells</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per ajustar manualment els nivells sobre la imatge actual <link linkend="adjustlevels"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Mesclador de canals</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Eina de l'editor d'imatges per mesclar els canals de color sobre la imatge actual <link linkend="using-channelmixer"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>I</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Color</guimenu
+><guimenuitem
+>Inverteix</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Inverteix els colors d'una imatge.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Blanc i negre</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Obre el diàleg de filtre <link linkend="blackandwhite-conversion"
+>Blanc i negre</link
+> per a la imatge actual.</action
+></para
+></listitem>
+        </varlistentry>
+ 
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Gestió del color</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Invoca l'editor interactiu <link linkend="using-iccprofile"
+>Gestió del color</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Color</guimenu
+><guimenuitem
+>Profunditat</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Canvia entre el format de 8 bits i 16 bits als canals de color.</action
+></para
+></listitem>
+        </varlistentry>
+
+       </variablelist>
+      </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>El menú Millora</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Aguditza</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Operació d'agudització per una imatge clàssica <link linkend="sharpening"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Difumina</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Operació de suavitzar per a un difuminat de la imatge <link linkend="using-blurfilter"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Reducció d'ulls vermells</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Eina de correcció d'ulls vermells utilitzant la selecció actual <link linkend="redeyecorrectiontool.anchor"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Repintat</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Eina de l'editor d'imatges per eliminar àrees i especificacions no desitjades <link linkend="inpainting"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Reducció de soroll</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Eina de l'editor d'imatges per reduir el soroll amb un filtre de reducció de soroll de punts <link linkend="noisereduction"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Restauració</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Eina de l'editor d'imatges per reduir els defectes sobre la imatge actual <link linkend="restoration"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Correcció dels píxels cremats</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Eina de l'editor d'imatges per eliminar els píxels cremats sobre la imatge actual <link linkend="hotpixels"
+>(ajuda)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Anti-vinyetes</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per corregir les vinyetes de la imatge actual <link linkend="vignettingcorrection"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Millora</guimenu
+><guimenuitem
+>Corregeix automàticament la distorsió de la lent</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per corregir la distorsió de la lent de la imatge actual <link linkend="lensdistortion.anchor"
+>(ajuda)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+    
+    <sect2
+>        <title
+>El menú Transforma</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keysym
+>Cursor esquerre</keysym
+></keycombo
+> </shortcut
+> <guimenu
+>Transforma</guimenu
+><guimenuitem
+>Gir</guimenuitem
+><guimenuitem
+>-90 graus</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Gira la imatge actual 90 graus cap a l'esquerra.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keysym
+>Cursor dret</keysym
+></keycombo
+> </shortcut
+> <guimenu
+>Transforma</guimenu
+><guimenuitem
+>Gir</guimenuitem
+><guimenuitem
+>90 graus</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Gira la imatge actual 90 graus cap a la dreta.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transforma</guimenu
+><guimenuitem
+>Gir lliure</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per girar la imatge actual en qualsevol angle en graus <link linkend="freerotation"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>*</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transforma</guimenu
+><guimenuitem
+>Inverteix</guimenuitem
+><guimenuitem
+>Horitzontalment</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Inverteix horitzontalment la imatge actual.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>/</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transforma</guimenu
+><guimenuitem
+>Inverteix</guimenuitem
+><guimenuitem
+>Verticalment</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Inverteix verticalment la imatge actual.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>X</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Transforma</guimenu
+><guimenuitem
+>Retalla</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Retalla la imatge a la selecció actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transforma</guimenu
+><guimenuitem
+>Redimensiona</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Canvia la mida (redueix o engrandeix) de la imatge actual al factor o a les dimensions apropiades <link linkend="resize"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transforma</guimenu
+><guimenuitem
+>Escapçat de la relació d'aspecte</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Retalla la imatge actual utilitzant una limitada relació d'aspecte <link linkend="aspect-ratio-crop"
+>(ajuda)</link
+>.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transforma</guimenu
+><guimenuitem
+>Retalla</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per retallar horitzontal o verticalment la imatge actual <link linkend="sheartool"
+>(ajuda)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Transforma</guimenu
+><guimenuitem
+>Arranjament de la perspectiva</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per ajustar la perspectiva de la imatge actual <link linkend="perspective"
+>(ajuda)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+ 
+    <sect2
+>        <title
+>El menú Decoració</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoració</guimenu
+><guimenuitem
+>Aplica una textura</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Eina de l'editor d'imatges per aplicar textures decoratives a la imatge actual. </action
+></para>
+                <para
+>Per a més informació veure el manual dedicat <link linkend="using-texture"
+>Aplicar una textura</link
+>. </para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoració</guimenu
+><guimenuitem
+>Afegeix una vora</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per afegir vores decoratives al voltant de la imatge actual <link linkend="border"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoració</guimenu
+><guimenuitem
+>Insereix text</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per inserir text a la imatge actual <link linkend="inserttext"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry
+>      
+        
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Decoració</guimenu
+><guimenuitem
+>Sobreimposa una plantilla</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Connector de l'editor d'imatges per aplicar una plantilla a la imatge actual <link linkend="superimpose"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- ********************************************************************** -->
+
+    <sect2
+>        <title
+>El menú Visualitza</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>+</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualitza</guimenu
+><guimenuitem
+>Apropa</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Incrementa el factor de zoom sobre la imatge actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;<keycap
+>-</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualitza</guimenu
+><guimenuitem
+>Allunya</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Redueix el factor de zoom sobre la imatge actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>A</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualitza</guimenu
+><guimenuitem
+>Ajusta a la finestra</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Canvia entre el zoom que s'ajusta a la finestra o a la mida de zoom 100% de la imatge.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>S</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Visualitza</guimenu
+><guimenuitem
+>Ajusta a la selecció</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Fa que la selecció s'ajusti a la finestra.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+><guimenuitem
+>Histograma</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Mostra l'histograma superposat sobre la imatge actual (Lluminositat, Vermell, Verd, Blau, Alpha).</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Visualitza</guimenu
+><guimenuitem
+>Passi de diapositives</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Inicia un passi de diapositives de l'àlbum actual.</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+    
+    <sect2 id="filters-menu"
+>    <title
+>El menú Filtre</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Pel·lícula infraroja</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges per a simular una pel·lícula infraroja <link linkend="infrared"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Afegeix gra de pel·lícula</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges per afegir gra de pel·lícula <link linkend="filmgrain"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Pintura a l'oli</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges per a simular una pintura a l'oli <link linkend="oilpaint"
+>(ajuda)</link
+>. </action
+></para>
+           </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Dibuix al carbonet</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges per a simular un dibuix al carbonet <link linkend="charcoal"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Relleu</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges per fer relleu <link linkend="emboss"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Efectes de distorsió</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges amb un conjunt d'efectes especials de distorsió <link linkend="distortionfx"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Efectes de difuminat</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges amb un conjunt d'efectes especials de difuminat <link linkend="blurfx"
+>(ajuda)</link
+>. </action
+></para>
+             </listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Filtre</guimenu
+><guimenuitem
+>Gotes de pluja</guimenuitem
+> </menuchoice
+></term>
+            <listitem>
+                <para
+><action
+>Filtre de l'editor d'imatges per afegir gotes de pluja <link linkend="raindrops"
+>(ajuda)</link
+>. </action
+></para>
+            </listitem
+>       
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+
+    <!-- *********************************************************************** -->
+
+    <sect2
+>        <title
+>El menú Arranjament</title>
+
+    <para>
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><shortcut
+><keycombo action="simul"
+>&Ctrl;&Maj;<keycap
+>F</keycap
+></keycombo
+> </shortcut
+> <guimenu
+>Arranjament</guimenu
+><guimenuitem
+>Mode de pantalla completa</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Alterna la interfície gràfica a mode de pantalla completa.</action
+></para
+></listitem>
+        </varlistentry>
+    
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+><guimenuitem
+>Configura dreceres...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Configura les dreceres de l'editor d'imatges del &digikam;.</action
+></para
+></listitem>
+        </varlistentry>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Arranjament</guimenu
+><guimenuitem
+>Configura barres d'eines...</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+><action
+>Configura les barres d'eines de l'editor d'imatges del &digikam;.</action
+></para
+></listitem>
+        </varlistentry>
+
+    </variablelist>
+    </para>
+
+    </sect2>
+        
+    <!-- *********************************************************************** -->
+            
+    <sect2
+>        <title
+>El menú Ajuda</title>
+&help.menu.documentation; <para
+>A més a més, l'editor d'imatges &digikam; ofereix aquest element:</para>
+
+    <variablelist>
+
+        <varlistentry>
+            <term
+><menuchoice
+><guimenu
+>Ajuda</guimenu
+><guimenuitem
+>Manual dels connectors Kipi</guimenuitem
+> </menuchoice
+></term>
+            <listitem
+><para
+>Llança la interfície d'ajuda del &kde; amb els manuals dels connectors de l'editor d'imatges de &digikam;.</para
+></listitem>
+        </varlistentry>
+    
+    </variablelist>
+
+    </sect2>
+            
+</sect1>

@@ -1,0 +1,1205 @@
+<sect2
+>                                      <title
+>Effets spéciaux (filtres)</title>
+<sect3 id="infrared">
+<sect3info>
+
+<title
+>Simuler un film infrarouge</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Le filtre <emphasis
+>Film infrarouge</emphasis
+> de &digikam; simule un film infrarouge traditionnel. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Simuler un filme infrarouge classique (l'effet est rendu en noir et blanc) est un effet intéressant qui est plus fort et plus dramatique qu'une simple conversion en noir et blanc. Le contraste et le côté abstrait sont améliorés, ce qui permet davantage au photographe de s'exprimer comme artiste. Cela revient à prendre une image en noir et blanc avec un filtre rouge devant l'objectif de la caméra. Les zones qui reflètent peu de lumière rouge, comme le ciel, apparaîtront comme des zones sombres de faible densité. Les zones avec d'excellents réflecteurs de lumière rouge, comme le feuillage vert, seront des zones de haute densité. Les paysages de neige sont vraiment dramatiques. </para>
+
+<para
+>L'algorithme utilise la méthode « Simuler un film infrarouge » du tutoriel du site GimpGuru.org disponible à <ulink url="http://www.gimpguru.org/Tutorials/SimulatedInfrared"
+>cette adresse</ulink
+>. Le filtre essaie de reproduire le célèbre film infrarouge Ilford(tm) SFX200. Ce film a une sensibilité de 200-800 ISO. </para>
+
+<sect4 id="using-infrared">
+<title
+>Utilisation du filtre Infrarouge</title>
+
+<para
+>La partie gauche de la fenêtre vous permet de sélectionner la région à afficher dans la zone d'aperçu. Déplacez le rectangle rouge avec la souris pour afficher l'effet sur une autre partie de l'image. </para>
+
+<para
+>La partie inférieure donne accès aux deux contrôles : grain du film et sensibilité ISO. Cochez la case <guilabel
+>Ajouter un grain de film</guilabel
+> si vous voulez simuler la texture granuleuse d'un film haute-sensibilité. Le curseur niveau ISO modifie la quantité de grain de film ajoutée et la prédominance de la couleur verte (la chlorophylle dans la nature) dans la conversion. Les tons verts deviendront blancs comme neige ! Essayez ! </para>
+
+<note
+><para
+>Du fait que le filtre mélange les canaux de couleurs pour reproduire le film infrarouge (qui accentue le canal vert), il n'est pas possible de simuler l'effet infrarouge à partir d'une image en noir et blanc, pour laquelle cette information de couleurs manque. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-infrared">
+<title
+>Le filtre en action</title>
+
+<para
+>Voici un exemple d'effet de filtre infrarouge appliqué à une photo couleur prise dans les paysages de Nouvelle-Zélande. L'image originale est la (1) et l'image convertie est la (2). La sensibilité du film infrarouge simulé est de 400 ISO. Les valeurs d'ISO plus élevées créeront une sorte d'aura dans les tons clairs. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;infraredpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Le filtre Infrarouge en action</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="filmgrain">
+<sect3info>
+
+<title
+>Grain de film</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Le filtre <emphasis
+>Grain de film</emphasis
+> de &digikam; reproduit les grains techniques des films haute vitesse. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Le filtre <emphasis
+>Grain de film</emphasis
+> est un outil pratique pour ajouter du grain de film sur vos images, comme c'est le cas des pellicules haute vitesse, comme, par exemple, le célèbre KodaK Tri-X N/B. Pour augmenter la sensibilité de la pellicule, les fabricants utilisent des grains d'argent plus gros dans l'émulsion du film. </para>
+
+<para
+>Le grain de film donnent à votre cliché une humeur particulière ou vous transporte dans le temps. L'image traitée acquiert une atmosphère hors du temps, détachée de la vie quotidienne. Si vous souhaitez cet effet granuleux, fait-maison, de photographie de rue, de filtre à grain, spécialement sur les photos monochromatiques, utilisez ce filtre. </para>
+
+<sect4 id="using-filmgrain">
+<title
+>Utilisation du filtre Grain de film</title>
+
+<para
+>Il y a un curseur gradué en sensibilités ISO pour contrôler l'intensité et la granularité du grain. Le défaut est 2400 ISO, mais des valeurs plus élevées sont souvent requises. Si vous voulez ajouter encore plus de grain, appliquez ce filtre plusieurs fois. </para>
+
+</sect4>
+
+<sect4 id="inaction-filmgrain">
+<title
+>Le filtre en action</title>
+
+<para
+>Voici un exemple de grain de film appliqué à une image en noir et blanc. L'image originale est la (1) et la corrigée la (2). La sensibilité de film utilisée pour simuler le grain est 1600 ISO. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;filmgrainpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Le filtre Grain de film en action</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="oilpaint">
+<sect3info>
+
+<title
+>Peinture à l'huile</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Le filtre <emphasis
+>Peinture à l'huile</emphasis
+> de &digikam; donne à votre image l'apparence d'une peinture à l'huile. Il utilise un algorithme dont les droits d'auteur appartiennent à Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Le filtre <emphasis
+>Peinture à l'huile</emphasis
+> de &digikam; donne à vos image une belle apparence de peinture à l'huile. Les images de la nature et les natures mortes sont bien adaptées pour recevoir cet effet. </para>
+
+<sect4 id="using-oilpaint">
+<title
+>Utilisation du filtre Peinture à l'huile</title>
+
+<para
+>Il y a deux curseurs pour cet effet. Le curseur du haut sélectionne la <guilabel
+>taille du pinceau</guilabel
+>, de 1 à 5. Les pinceaux larges conviennent mieux aux grandes images. <guilabel
+>Lissage</guilabel
+> contrôle la douceur, ou, à l'inverse, l'aspect irrégulier. </para>
+
+</sect4>
+
+<sect4 id="inaction-oilpaint">
+<title
+>Le filtre peinture à l'huile en action</title>
+
+<para
+>Voici un exemple d'effet de peinture à l'huile. L'image originale est la (1) et la transformée la (2). La <guilabel
+>Taille de brosse</guilabel
+> pour cette image de 640 pixels est de 1. Le <guilabel
+>Lissage</guilabel
+> est à 17. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;oilpaintpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Aperçu de l'effet Peinture à l'huile</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="charcoal">
+<sect3info>
+
+<title
+>Dessin au fusain</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Le filtre <emphasis
+>Fusain</emphasis
+> de &digikam; crée un effet ressemblant à un croquis au fusain. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>Le filtre <emphasis
+>Fusain</emphasis
+> de &digikam; utilise les gradients de couleur et de luminosité pour créer un effet de croquis au fusain en niveaux de gris. Les lignes qui définissent les contours de l'image sont plus prononcées. Les images avec des gradients évoluant lentement ne sont pas idéales pour cet effet. Pour choisir une image adaptée à ce filtre, demandez-vous quelle scène vous pourriez dessiner au fusain. </para>
+
+<sect4 id="using-charcoal">
+<title
+>Utilisation du filtre Fusain</title>
+
+<para
+>Il y a deux curseurs pour contrôler l'effet sur une échelle de 1 à 100. Le curseur du haut sélectionne la taille du crayon, tandis que la seconde ajuste le contraste (la douceur). </para>
+
+</sect4>
+
+<sect4 id="inaction-charcoal">
+<title
+>Le filtre Fusain en action</title>
+
+<para
+>Voici un exemple d'utilisation du filtre Fusain. L'image originale est la (1) et la transformée la (2). Les valeurs 30 et 10 ont été appliquées. Le résultat peut être amélioré en ajustant les niveaux de luminosité. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;charcoalpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Le filtre Fusain en action</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="emboss">
+<sect3info>
+
+<title
+>Mettre en relief</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Le filtre <emphasis
+>Mise en relief</emphasis
+> de &digikam; sculpte votre image en 3D comme si elle était emboutie dans de la cire. Il utilise un algorithme dont les droits d'auteur appartiennent à Pieter Voloshyn. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info
+>     <title
+>Introduction</title>
+
+<para
+>Le filtre <emphasis
+>Mise en relief</emphasis
+> de &digikam; est un outil rapide pour donner à vos images un effet 3D. Il fonctionne particulièrement bien sur les images avec une structure simple pour lesquelles la couleur n'est pas la composante principale. Le filtre utilise la différence entre les couleurs et la luminosité pour convertir l'image en un paysage lunaire gris éclairé par une lampe située à 10 h. </para>
+
+<sect4 id="using-emboss"
+>      <title
+>Utilisation du filtre Mise en relief</title>
+
+<para
+>Le paramètre <guilabel
+>Profondeur</guilabel
+> permet de définir le contraste du filtre. La valeur standard est 30 (10 %). </para>
+
+</sect4>
+
+<sect4 id="inaction-emboss"
+>   <title
+>Le filtre Bosselage en action</title>
+
+<para
+>Voici un exemple d'utilisation du filtre de mise en relief. L'image originale est la (1) et la transformée la (2). La <guilabel
+>Profondeur</guilabel
+> appliquée est 10 %. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;embosspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Le filtre Bosselage en action</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="distortionfx">
+<sect3info>
+
+<title
+>Distordre l'image</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+<para
+>L'outil <emphasis
+>Distorsion</emphasis
+> de &digikam; est une série d'effets de distorsion pour les images. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>En utilisant cet ensemble de filtres, vous pouvez transformer une photo ordinaire en une œuvre d'art qui peut être encadrée en utilisant les effets de distorsion. Il utilise des algorithmes dont les droits d'auteurs appartiennent à Pieter Voloshyn. </para>
+
+<sect4 id="using-distortionfx">
+<title
+>Utilisation du filtre</title>
+
+<para
+>Voici les effets de distorsion disponibles : </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Type</entry>
+      <entry
+>Aperçu</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Fish eyes</guilabel
+> : enroule la photo autour d'une forme sphérique 3D pour reproduire l'effet photographique bien connu « Fish Eyes ». </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_fisheyes.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Tournoiement</guilabel
+> : pivote le centre de la photographie pour produire un effet de tourbillon. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_twirl.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Cylindre horizontal</guilabel
+> : enroule la photo autour d'un cylindre horizontal. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Cylindre vertical</guilabel
+> : enroule la photo autour d'un cylindre vertical. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Cylindre H/V</guilabel
+> : enroule la photo autour de deux cylindres, un vertical et un horizontal. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_cylinderhv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Caricature</guilabel
+> : déforme la photo avec l'effet « Fish Eyes » inversé. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_caricature.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+
+   <row>
+      <entry
+><guilabel
+>Coins multiples</guilabel
+> : sépare la photo en suivant un patron à plusieurs coins. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_corners.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Ondes horizontales</guilabel
+> : déforme la photo avec des ondes horizontales. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesh.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+            
+   <row>
+      <entry
+><guilabel
+>Ondes verticales</guilabel
+> : déforme la photo avec des ondes verticales. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_wavesv.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Blocs d'ondes 1</guilabel
+> : divise l'image en cellules et les fait apparaître comme vues à travers des blocs de verre. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Blocs d'ondes 2</guilabel
+> : comme les blocs d'ondes 1 mais avec une autre version de l'algorithme de distorsion. </entry>
+               
+      <entry>
+         <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_blockwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Ondes circulaires 1</guilabel
+> : déforme la photo avec des ondes circulaires. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves1.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Ondes circulaires 2</guilabel
+> : autre variante de l'effet d'ondes circulaires. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_circularwaves2.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+   
+   <row>
+      <entry
+><guilabel
+>Coordonnées polaires</guilabel
+> : convertit la photo en passant des coordonnées rectangulaires aux coordonnées polaires. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_polarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para
+>      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Coordonnées non polaires</guilabel
+> : l'effet Coordonnées polaires inversé. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_unpolarcoord.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+
+   <row>
+      <entry
+><guilabel
+>Mosaïque</guilabel
+> : sépare la photo en blocs carrés et les déplace aléatoirement dans l'image. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;distortionfx_tiles.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+> 
+      
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Certains effets peuvent nécessiter beaucoup de temps pour être appliquées et causer une augmentation de la charge du processeur. Vous pouvez arrêter l'application d'un effet en cliquant sur <guilabel
+>Arrêter</guilabel
+> pendant le rendu de l'aperçu. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-distortionfx">
+<title
+>Le filtre Distorsion en action</title>
+
+<para
+>La fenêtre de l'outil de distorsion en action est disponible ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;distortionfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>L'aperçu de la fenêtre de l'outil de distorsion</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="blurfx">
+<sect3info>
+
+<title
+>Flouter l'image</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+> <surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author
+>  
+
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>L'outil de <emphasis
+>flou</emphasis
+> de &digikam; est une série d'effets de flou pour les images numériques. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>En utilisant cet ensemble de filtres, vous pouvez transformer une photo ordinaire en une œuvre d'art qui peut être encadrée en utilisant les effets de flou. Il utilise des algorithmes dont les droits d'auteurs appartiennent à Pieter Voloshyn. </para>
+
+<sect4 id="using-blurfx">
+<title
+>Utilisation du filtre Blurfx</title>
+
+<para
+>Voici les effets de flou disponibles : </para>
+
+<para>
+
+<informaltable
+><tgroup cols="2">
+            
+<thead>
+   <row>
+      <entry
+>Type</entry>
+      <entry
+>Aperçu</entry>
+   </row>
+</thead>
+
+<tbody>
+
+   <row>
+      <entry
+><guilabel
+>Flou de zoom</guilabel
+> : rend l'image floue le long de lignes rayonnant depuis un point central défini. Ceci simule l'effet de flou qui peut être obtenu avec le zoom d'un appareil photo, donnant à l'image une expression dynamique comme on le voit parfois dans la photographie sportive. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_zoomblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Flou radial</guilabel
+> : rend l'image floue en faisant pivoter les pixels autour d'une position centrale définie. Ceci simule l'effet d'un appareil photo pivotant. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_radialblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Flou lointain</guilabel
+> : rend l'image floue pour simuler l'effet d'un appareil photo non focalisé. Le sujet semble se fondre dans l'arrière-plan. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_farblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Flou de mouvement</guilabel
+> : rend l'image floue en déplaçant les pixels horizontalement. Ceci simule le flou d'un appareil photo se déplaçant linéairement, comme lorsque la photo est prise d'une voiture ou d'un train en mouvement. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_motionblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Flou de focus</guilabel
+> : rend l'image floue aux coins pour reproduire l'astigmatisme d'une lentille. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_focusblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Flou adoucissant</guilabel
+> : rend l'image floue de manière douce dans les tons foncés et plus fortement dans les tons lumineux. Ceci donne au photos un effet rêveur, brillant et doux (effet Hamilton). C'est idéal pour créer des portraits romantiques, des photos glamour ou ajouter un effet de lumière chaude et subtile. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_softenerblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row>
+
+   <row>
+      <entry
+><guilabel
+>Flou de secousse</guilabel
+> : rend l'image floue en déplaçant aléatoirement les pixels, pour simuler le flou d'un déplacement arbitraire d'un appareil photo. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_shakeblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>   
+   
+   <row>
+      <entry
+><guilabel
+>Flou intelligent</guilabel
+> : détecte les limites des couleurs d'une photo et les rend flous sans modifier le reste de l'image. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_smartblur.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>      
+
+   <row>
+      <entry
+><guilabel
+>Vitre givrée</guilabel
+> : rend l'image floue en simulant la dispersion aléatoire de la lumière à travers une vitre grossièrement givrée. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_frostglass.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+
+   <row>
+      <entry
+><guilabel
+>Mosaïque</guilabel
+> : rend l'image floue en la divisant en cellules rectangulaires et la recrée en remplissant chaque cellule par la couleur moyenne des pixels. </entry>
+               
+      <entry>
+        <para
+><inlinemediaobject
+><imageobject
+><imagedata fileref="&path;blurfx_mosaic.png" format="PNG"/> </imageobject
+></inlinemediaobject
+></para>
+      </entry>
+   </row
+>    
+               
+</tbody>
+
+</tgroup
+></informaltable>
+
+</para>
+
+<warning
+><para
+>Certains effets peuvent nécessiter beaucoup de temps pour être appliquées et causer une augmentation de la charge du processeur. Vous pouvez arrêter l'application d'un effet en cliquant sur <guilabel
+>Arrêter</guilabel
+> pendant le rendu de l'aperçu. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blurfx">
+<title
+>L'outil de flou en action</title>
+
+<para
+>La fenêtre de l'outil de flou est affichée ci-dessous. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blurfxpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>L'aperçu de la fenêtre de l'outil de flou</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="raindrops">
+<sect3info>
+
+<title
+>Gouttes de pluie</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>Le filtre <emphasis
+>Gouttes de pluie</emphasis
+> de &digikam; ajoute de belles gouttes de pluie à votre image. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introduction</title>
+
+<para
+>L'outil <emphasis
+>Gouttes de pluie</emphasis
+> est un outil sympathique qui vous permet de placer des gouttes de pluie sur vos images. Il donne bien sûr un aspect mouillé à vos images. Les droits d'auteur de son algorithme appartiennent à Pieter Voloshyn. </para>
+
+<sect4 id="using-raindrops">
+<title
+>Utilisation du filtre Gouttes de pluie</title>
+
+<para
+>Les trois curseurs vous permettent de contrôler l'effet du filtre : </para>
+
+<para
+><guilabel
+>Taille des gouttes</guilabel
+> qui permet comme son nom l'indique de changer la taille des gouttes. Comme la taille ne s'ajuste pas automatiquement à la taille de l'image, il est souvent nécessaire de réduire cette valeur pour les petites images. <guilabel
+>Nombre</guilabel
+> change le nombre et donc la densité des gouttes. <guilabel
+>Fish eye</guilabel
+> change l'effet optique de la goutte sur l'image. </para>
+
+<note
+><para
+>Vous pouvez conserver une zone de l'image sans goutte en utilisant l'outil de <guilabel
+>Sélectionner</guilabel
+> de l'éditeur d'images de &digikam;. Sélectionnez la zone à éviter (par exemple un visage) avant de lancer le filtre <emphasis
+>Gouttes de pluie</emphasis
+> et celui-ci n'y appliquera pas de gouttes. </para
+></note>
+
+</sect4>
+
+<sect4 id="inaction-raindrops">
+<title
+>Le filtre Gouttes de pluie en action</title>
+
+<para
+>Voici un exemple d'effet du filtre Gouttes de pluie. L'image originale (1) montre un coucher de soleil paisible et l'image transformée (2) montre un coucher de soleil après un orage. Dans cet exemple, les valeurs par défaut ont été utilisées. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;raindropspreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Aperçu de l'effet Gouttes de pluie</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

@@ -1,0 +1,520 @@
+# translation of kipiplugin_panorama.po to Icelandic
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Sveinn í Felli <sveinki@nett.is>, 2012, 2014, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_panorama\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-17 01:52+0000\n"
+"PO-Revision-Date: 2015-04-15 13:23+0000\n"
+"Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
+"Language-Team: Icelandic <kde-isl@molar.is>\n"
+"Language: is\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+"\n"
+"\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Sveinn í Felli"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sv1@fellsnet.is"
+
+#: importwizard/importwizarddlg.cpp:87
+msgid "Panorama Creator Wizard"
+msgstr "Hjálparforrit fyrir víðmyndasamsetningu"
+
+#: importwizard/intropage.cpp:93
+msgid "<b>Welcome to Panorama Tool</b>"
+msgstr "<b>Velkomin í víðmyndasamsetningaráhaldið</b>"
+
+#: importwizard/intropage.cpp:100
+msgid ""
+"<qt><p><h1><b>Welcome to Panorama tool</b></h1></p><p>This tool stitches "
+"several images together to create a panorama, making the seam between images "
+"not visible.</p><p>This assistant will help you to configure how to import "
+"images before stitching them into a panorama.</p><p>Images must be taken "
+"from the same point of view.</p><p>For more information, please take a look "
+"at <a href='http://hugin.sourceforge.net/tutorials/overview/en.shtml'>this "
+"page</a></p></qt>"
+msgstr ""
+"<qt><p><h1><b>Velkomin í víðmyndasamsetningaráhaldið</b></h1></p><p>Þetta "
+"verkfæri saumar margar myndir saman til að útbúa víðmynd, þannig að sumurinn "
+"á milli upphaflegu myndanna sjáist ekki.</p><p>Þessi leiðarvísir mun hjálpa "
+"þér við að stilla af myndirnar áður en þær verða saumaðar saman í víðmynd.</"
+"p><p>Allar myndirnar verða að vera teknar frá sama sjónarhorni.</p><p>Til að "
+"nálgast meiri upplýsingar, skoðaðu <a href='http://hugin.sourceforge.net/"
+"tutorials/overview/en.shtml'>þessa síðu.</a></p></qt>"
+
+#: importwizard/intropage.cpp:114
+msgid "Panorama Binaries"
+msgstr "Keyrsluskrár Panorama"
+
+#: importwizard/intropage.cpp:147
+msgid "File Format"
+msgstr "Skráarsnið"
+
+#: importwizard/intropage.cpp:151
+msgid "JPEG output"
+msgstr "JPEG úttak"
+
+#: importwizard/intropage.cpp:154
+#, no-c-format
+msgid ""
+"Selects a JPEG output with 90% compression rate (lossy compression, smaller "
+"size)."
+msgstr ""
+"Velur JPEG úttak með 90% þjöppunarstuðli (þjöppun með gagnatapi, minni "
+"stærð)."
+
+#: importwizard/intropage.cpp:156
+msgid ""
+"<b>JPEG output</b>: Using JPEG output, the panorama file will be smaller at "
+"the cost of information loss during compression. This is the easiest way to "
+"share the result, or print it online or in a shop."
+msgstr ""
+"<b>JPEG úttak</b>: Við að nota JPEG úttak verður víðmyndarskráin minni, en á "
+"kostnað þess að upplýsingar geta tapast við þjöppun. Þetta er hinsvegar "
+"auðveld leið til að deila útkomunni, eða til að prenta á netinu eða hjá "
+"prentþjónustu."
+
+#: importwizard/intropage.cpp:162
+msgid "TIFF output"
+msgstr "TIFF úttak"
+
+#: importwizard/intropage.cpp:163
+msgid ""
+"Selects a TIFF output compressed using the LZW algorithm (lossless "
+"compression, bigger size)."
+msgstr ""
+"Velur TIFF úttak þjappað með LZW útreikningi (þjöppun án gagnatap, meiri "
+"stærð)."
+
+#: importwizard/intropage.cpp:165
+msgid ""
+"<b>TIFF output</b>: Using TIFF output, you get the same color depth than "
+"your original photos using RAW images at the cost of a bigger panorama file."
+msgstr ""
+"<b>TIFF úttak</b>: Við að nota TIFF úttak færðu sömu litadýpt og úr RAW-"
+"myndunum, en á kostnað þess að víðmyndarskráin verður mjög stór."
+
+#: importwizard/itemspage.cpp:66
+msgid "<b>Set Panorama Images</b>"
+msgstr "<b>Velja myndir fyrir víðmynd</b>"
+
+#: importwizard/itemspage.cpp:72
+msgid ""
+"<qt><p>Set here the list of your images to blend into a panorama. Please "
+"follow these conditions:</p><ul><li>Images are taken from the same point of "
+"view.</li><li>Images are taken with the same camera (and lens).</li><li>Do "
+"not mix images with different color depth.</li></ul><p>Note that, in the "
+"case of a 360° panorama, the first image in the list will be the image that "
+"will be in the center of the panorama.</p></qt>"
+msgstr ""
+"<qt><p>Settu hér lista yfir myndirnar sem þú vilt gera að víðmynd. Virtu "
+"þessi skilyrði:</p><ul><li>Myndirnar eru teknar frá sama sjónarhorni.</"
+"li><li>Myndirnar eru teknar með sömu myndavél (og linsu).</li><li>Ekki "
+"blanda saman myndum með mismunandi litadýpt.</li></ul><p>Athugaðu að ef um "
+"er að ræða 360° víðmynd, þá verður fyrsta myndin á listanum sú mynd sem "
+"verður í miðjunni á víðmyndinni.</p></qt>"
+
+#: importwizard/lastpage.cpp:75
+msgid "<b>Panorama Stitched</b>"
+msgstr "<b>Víðmynd samsett</b>"
+
+#: importwizard/lastpage.cpp:88
+msgid "Save Settings"
+msgstr "Vista stillingar"
+
+#: importwizard/lastpage.cpp:92
+msgid "File name template:"
+msgstr "Forsnið fyrir skráaheiti: "
+
+#: importwizard/lastpage.cpp:95
+msgid "Name of the panorama file (without its extension)."
+msgstr "Skráarheiti víðmyndarinnar (án endingar)."
+
+#: importwizard/lastpage.cpp:96
+msgid ""
+"<b>File name template</b>: Set here the base name of the files that will be "
+"saved. For example, if your template is <i>panorama</i> and if you chose a "
+"JPEG output, then your panorama will be saved with the name <i>panorama.jpg</"
+"i>. If you choose to save also the project file, it will have the name "
+"<i>panorama.pto</i>."
+msgstr ""
+"<b>Sniðmát fyrir skráaheiti</b>: Settu hér grunnnafn fyrir skrárnar sem "
+"verða vistaðar. Sem dæmi, ef sniðmátið er <i>Víðmynd</i> og þú velur JPEG "
+"úttak, þá verður víðmyndin þín vistuð með nafninu <i>Víðmynd.jpg</i>. Ef þú "
+"velur einnig að vista verkefnisskrána, mun hún þá bera nafnið <i>Víðmynd."
+"pto</i>."
+
+#: importwizard/lastpage.cpp:102
+msgid "Save project file"
+msgstr "Vista verkefnisskrá"
+
+#: importwizard/lastpage.cpp:104
+msgid "Save the project file for further processing within Hugin GUI."
+msgstr "Vista verkefnisskrá til áframhaldandi vinnslu með Hugin viðmótinu."
+
+#: importwizard/lastpage.cpp:105
+msgid ""
+"<b>Save project file</b>: You can keep the project file generated to stitch "
+"your panorama for further tweaking within <a href=\"http://hugin.sourceforge."
+"net/\">Hugin</a> by checking this. This is useful if you want a different "
+"projection, modify the horizon or the center of the panorama, or modify the "
+"control points to get better results."
+msgstr ""
+"<b>Vista verkefnisskrá</b>: Þú getur haldið uppá verkefnisskrána sem varð "
+"til við að sauma saman myndirnar og notað hana til áframhaldandi vinnslu með "
+"<a href=\"http://hugin.sourceforge.net/\">Hugin</a> með því að haka við "
+"þetta. Það er gagnlegt ef þú vilt nota einhverja aðra vörpun, laga til "
+"sjóndeildarhringeða miðju víðmyndarinnar, nú eða breyta og bæta stýripunkta "
+"svo útkoman verði betri."
+
+#: importwizard/lastpage.cpp:187
+#, kde-format
+msgid "<qt><p><font color=\"red\"><b>Error:</b> %1</font></p></qt>"
+msgstr "<qt><p><font color=\"red\"><b>Villa:</b> %1</font></p></qt>"
+
+#: importwizard/lastpage.cpp:222
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Panorama Stitching is Done</b></h1></p><p>Congratulations. "
+"Your images are stitched into a panorama.</p><p>Your panorama will be "
+"created to the directory</p><p><b>%1</b></p><p>once you press the <i>Finish</"
+"i> button, with the name set below.</p><p>If you choose to save the project "
+"file, and if your images were raw images then the converted images used "
+"during the stitching process will be copied at the same time (those are TIFF "
+"files that can be big).</p></qt>"
+msgstr ""
+"<qt><p><h1><b>Samsaumun víðmyndar er lokið</b></h1></p><p>Til hamingju. Búið "
+"er að sauma myndirnar þínar í eina víðmynd.</p><p>Víðmyndin verður vistuð í "
+"möppunni</p><p><b>%1</b></p><p>um leið og þú ýtir á  <i>Ljúka</i> hnappinn, "
+"með heitinu sem sett er hér fyrir neðan.</p><p>Ef þú ákveður að vista "
+"verkefnisskrána, og ef upprunalegu myndirnar voru RAW-myndir; þá munu "
+"umbreyttu millistigsmyndirnar sem notaðar voru í ferlinu einnig verða "
+"afritaðar á sama tíma (þær eru TIFF skrár sem geta verið ansi stórar).</p></"
+"qt>"
+
+#: importwizard/lastpage.cpp:275
+msgid ""
+"<qt><p><font color=\"red\"><b>Warning:</b> This file already exists.</font></"
+"p></qt>"
+msgstr ""
+"<qt><p><font color=\"red\"><b>Aðvörun:</b> Þessi skrá er þegar til.</font></"
+"p></qt>"
+
+#: importwizard/optimizepage.cpp:98
+msgid "<b>Optimization</b>"
+msgstr "<b>Bestun</b>"
+
+#: importwizard/optimizepage.cpp:111
+msgid "Level horizon"
+msgstr "Rétta af sjóndeildarhring"
+
+#: importwizard/optimizepage.cpp:113
+msgid "Detect the horizon and adapt the project to make it horizontal."
+msgstr ""
+"Skynja sjóndeildarhring og aðlaga verkið þannig að hann verði láréttur."
+
+#: importwizard/optimizepage.cpp:114
+msgid ""
+"<b>Level horizon</b>: Detect the horizon and adapt the projection so that "
+"the detected horizon is an horizontal line in the final panorama"
+msgstr ""
+"<b>Rétta af sjóndeildarhring</b>: Skynja sjóndeildarhring og aðlaga "
+"vörpunina þannig að sjóndeildarhringurinn verði að beinni láréttri línu í "
+"endanlegri víðmynd"
+
+#: importwizard/optimizepage.cpp:144 importwizard/preprocessingpage.cpp:131
+#: importwizard/previewpage.cpp:99
+msgid "Details..."
+msgstr "Nánar..."
+
+#: importwizard/optimizepage.cpp:194
+msgid ""
+"<qt><p>Optimization is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>Bestun er í gangi, bíddu aðeins.</p><p>Þetta getur tekið dálítinn "
+"tíma...</p></qt>"
+
+#: importwizard/optimizepage.cpp:276
+msgid ""
+"<qt><p>Optimization has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>Bestun mistókst.</p><p>Ýttu á \"Nánar\" til að skoða þau skilaboð sem "
+"komu upp í vinnslunni.</p></qt>"
+
+#: importwizard/optimizepage.cpp:323 importwizard/preprocessingpage.cpp:249
+msgid "Pre-Processing Messages"
+msgstr "Skilaboð úr forvinnslu"
+
+#: importwizard/optimizepage.cpp:332
+#, kde-format
+msgid ""
+"<qt><p><h1><b>Images Pre-Processing is Done</b></h1></p><p>The optimization "
+"step according to your settings is ready to be performed.</p><p>This step "
+"can include an automatic leveling of the horizon, and also an automatic "
+"projection selection and size</p><p>To perform this operation, the <b>%1</b> "
+"program from the <a href='%2'>%3</a> project will be used.</p><p>Press the "
+"\"Next\" button to run the optimization.</p></qt>"
+msgstr ""
+"<qt><p><h1><b>Forvinnslu mynda er lokið</b></h1></p><p>Allt er tilbúið til "
+"að besta verkið samkvæmt þeim stillingum sem þú valdir.</p><p>Þetta þrep "
+"getur innifalið afréttingu á sjóndeildarhring, auk vals á sjálfvirkri vörpun "
+"og stærð.</p><p>Við þessa aðgerð er notað <b>%1</b> forritið úr <a href='%2'>"
+"%3</a> verkefninu.</p><p>Ýttu á \"Næst\" hnappinn til að keyra "
+"bestunarferlin.</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:106
+msgid "<b>Pre-Processing Images</b>"
+msgstr "<b>Forvinnsla mynda</b>"
+
+#: importwizard/preprocessingpage.cpp:119
+msgid "Detect moving skies"
+msgstr "Skynja skýjahreyfingar"
+
+#: importwizard/preprocessingpage.cpp:121
+msgid ""
+"Automatic detection of clouds to prevent wrong keypoints matching between "
+"images due to moving clouds."
+msgstr ""
+"Sjálfvirk skynjun á skýjum til að hindra ranga samsvörun stýripunkta vegna "
+"skýjahreyfinga."
+
+#: importwizard/preprocessingpage.cpp:123
+msgid ""
+"<b>Detect moving skies</b>: During the control points selection and "
+"matching, this option discards any points that are associated to a possible "
+"cloud. This is useful to prevent moving clouds from altering the control "
+"points matching process."
+msgstr ""
+"<b>Skynja skýjahreyfingar</b>: Á meðan val og samræming stýripunkta fer "
+"fram, hendir þessi möguleiki út öllum punktum sem tengjast skýjum á einhvern "
+"hátt. Þetta er gagnlegt til að koma í veg fyrir að tilfærsla á skýjum skekki "
+"niðurstöður samræmingarferlisins."
+
+#: importwizard/preprocessingpage.cpp:178
+msgid ""
+"<qt><p>Pre-processing is in progress, please wait.</p><p>This can take a "
+"while...</p></qt>"
+msgstr ""
+"<qt><p>Forvinnsla er í gangi, bíddu aðeins.</p><p>Þetta getur tekið dálítinn "
+"tíma...</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:280
+msgid ""
+"<qt><p>Pre-processing has failed.</p><p>Press \"Details\" to show processing "
+"messages.</p></qt>"
+msgstr ""
+"<qt><p>Forvinnslan mistókst.</p><p>Ýttu á \"Nánar\" til að skoða þau "
+"skilaboð sem komu upp í forvinnslunni.</p></qt>"
+
+#: importwizard/preprocessingpage.cpp:339
+#, kde-format
+msgid ""
+"<qt><p>Now, we will pre-process images before stitching them.</p><p>Pre-"
+"processing operations include Raw demosaicing. Raw images will be converted "
+"to 16-bit sRGB images with auto-gamma.</p><p>Pre-processing also include a "
+"calculation of some control points to match overlaps between images. For "
+"that purpose, the <b>%1</b> program from the <a href='%2'>%3</a> project "
+"will be used.</p><p>Press \"Next\" to start pre-processing.</p></qt>"
+msgstr ""
+"<qt><p>Núna verða myndirnar forunnar áður en þær eru saumaðar saman.</"
+"p><p>Forvinnslan felur í sér meðal annars  RAW-aftiglun. RAW-myndum verður "
+"umbreytt í 16-bita sRGB myndir með sjálfvirku litrófi (gamma).</"
+"p><p>Forvinnslan felur einnig í sér útreikning á nokkrum stýripunktum til "
+"samsvörunar á skörun myndanna. Í þessum tilgangi notum við <b>%1</b> "
+"forritið úr <a href='%2'>%3</a> verkefninu.</p><p>Ýttu á \"Næst\" til að "
+"hefja forvinnsluna.</p></qt>"
+
+#: importwizard/previewpage.cpp:89
+msgid "<b>Preview and Post-Processing</b>"
+msgstr "<b>Forskoðun og eftirvinnsla</b>"
+
+#: importwizard/previewpage.cpp:148
+msgid "Preview Processing Cancelled."
+msgstr "Hætt við vinnslu forskoðunar."
+
+#: importwizard/previewpage.cpp:175
+msgid "Processing Panorama Preview..."
+msgstr "Vinn forskoðun víðmyndar..."
+
+#: importwizard/previewpage.cpp:233
+msgid "<qt><p><h1>Panorama Post-Processing</h1></p></qt>"
+msgstr "<qt><p><h1>Eftirvinnsla víðmyndar</h1></p></qt>"
+
+#: importwizard/previewpage.cpp:239
+msgid "Panorama Post-Processing"
+msgstr "Eftirvinnsla víðmyndar"
+
+#: importwizard/previewpage.cpp:298
+#, kde-format
+msgid "<qt><h2><b>Error</b></h2><p>%1</p></qt>"
+msgstr "<qt><h2><b>Villa</b></h2><p>%1</p></qt>"
+
+#: importwizard/previewpage.cpp:315
+#, kde-format
+msgid "Processing file %1 / %2: %3"
+msgstr "Vinn með skrá %1 / %2: %3"
+
+#: importwizard/previewpage.cpp:333
+#, kde-format
+msgid "Panorama compilation: %1"
+msgstr "Frágangur víðmyndar: %1"
+
+#: importwizard/previewpage.cpp:365
+msgid ""
+"<qt><p><h1>Panorama Preview</h1></p><p>Draw a rectangle if you want to crop "
+"the image.</p><p>Pressing the <i>Next</i> button will then launch the final "
+"stitching process.</p></qt>"
+msgstr ""
+"<qt><p><h1>Forskoðun víðmyndar</h1></p><p>Dragðu upp ferhyrning ef þú vilt "
+"skera utan af myndinni.</p><p>Þegar ýtt er á <i>Næst</i> hnappinn verður "
+"ræst aðgerðin við að sauma myndirnar endanlega saman.</p></qt>"
+
+#: importwizard/previewpage.cpp:390 importwizard/previewpage.cpp:435
+#, kde-format
+msgid "Processing file %1 / %2"
+msgstr "Vinn með skrá %1 / %2"
+
+#: importwizard/previewpage.cpp:405 importwizard/previewpage.cpp:441
+msgid "Panorama compilation"
+msgstr "Frágangur víðmyndar"
+
+#: plugin/aboutdata.h:41
+msgid "Panorama Stitching"
+msgstr "Víðmyndasamsetning"
+
+#: plugin/aboutdata.h:43
+msgid "A tool to automatically stitch images into panorama"
+msgstr "Áhald til að sauma margar myndir saman í eina víðmynd"
+
+#: plugin/aboutdata.h:44
+msgid "(c) 2011-2013, Benjamin Girault"
+msgstr "(c) 2011-2013, Benjamin Girault"
+
+#: plugin/aboutdata.h:46
+msgid "Benjamin Girault"
+msgstr "Benjamin Girault"
+
+#: plugin/aboutdata.h:47
+msgid "Author"
+msgstr "Höfundur"
+
+#: plugin/aboutdata.h:50
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: plugin/aboutdata.h:51
+msgid "Developer"
+msgstr "Forritari"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_panoramaui.rc:7
+msgid "&Tools"
+msgstr "Á&höld"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_panoramaui.rc:13
+msgid "Main Toolbar"
+msgstr "Aðalverkfæraslá"
+
+#: plugin/panorama.cpp:56
+msgid "File(s) to open"
+msgstr "Skrá(r) til að opna"
+
+#: plugin/plugin_panorama.cpp:104
+msgid "Stitch images into a panorama..."
+msgstr "Sauma margar myndir saman í eina víðmynd..."
+
+#: tasks/copyfilestask.cpp:85
+msgid "Temporary panorama file does not exists."
+msgstr "Bráðabirgðavíðmyndarskrá er ekki til staðar."
+
+#: tasks/copyfilestask.cpp:93 tasks/copyfilestask.cpp:109
+#, kde-format
+msgid "A file named %1 already exists."
+msgstr "Nú þegar er til skrá sem heitir %1."
+
+#: tasks/copyfilestask.cpp:101
+msgid "Temporary project file does not exist."
+msgstr "Bráðabirgða verkefniskrá er ekki til."
+
+#: tasks/copyfilestask.cpp:173
+#, kde-format
+msgid "Cannot move panorama from %1 to %2."
+msgstr "Get ekki fært víðmynd úr %1 í %2."
+
+#: tasks/copyfilestask.cpp:187
+#, kde-format
+msgid "Cannot move project file from %1 to %2."
+msgstr "Get ekki fært verkefnisskrá úr %1 í %2."
+
+#: tasks/copyfilestask.cpp:206
+#, kde-format
+msgid "Cannot copy converted image file from %1 to %2."
+msgstr "Get ekki afritað umbreytta myndskrá frá %1 til %2."
+
+#: tasks/createfinalptotask.cpp:72 tasks/createptotask.cpp:71
+msgid "PTO file already created in the temporary directory."
+msgstr "PTO-skrá hefur þegar verið búin til í bráðabirgðamöppunni."
+
+#: tasks/createfinalptotask.cpp:79 tasks/createptotask.cpp:77
+msgid "PTO file cannot be created in the temporary directory."
+msgstr "Ekki tókst að búa til PTO-skrá í bráðabirgðamöppunni."
+
+#: tasks/createpreviewtask.cpp:71
+msgid "Project file parsing failed."
+msgstr "Þáttun verkefnisskrár mistókst."
+
+#: tasks/createpreviewtask.cpp:98
+#, kde-format
+msgid "Unknown input file in the project file: %1"
+msgstr "Óþekkt inntaksskrá í verkefnisskránni: %1"
+
+#: tasks/preprocesstask.cpp:129
+msgid "Input image cannot be loaded for preview generation"
+msgstr "Ekki er hægt að hlaða inntaksmynd fyrir gerð forskoðunar"
+
+#: tasks/preprocesstask.cpp:166
+msgid "Operation canceled."
+msgstr "Hætt var við aðgerð."
+
+#: tasks/preprocesstask.cpp:198
+msgid "Tiff image creation failed."
+msgstr "Það mistókst að búa til TIFF-mynd."
+
+#: tasks/preprocesstask.cpp:208
+msgid "Raw file conversion failed."
+msgstr "Umbreyting RAW-skrár mistókst."
+
+#: tasks/task.cpp:66
+#, kde-format
+msgid ""
+"Cannot run %1:\n"
+"\n"
+" %2"
+msgstr ""
+"Get ekki keyrt %1 :\n"
+"\n"
+" %2"
+
+#~ msgid "Missing project file."
+#~ msgstr "Verkefnisskrá skrá finnst ekki."
+
+#~ msgid "HDR output"
+#~ msgstr "HDR úttak"
+
+#~ msgid "Cannot read project file."
+#~ msgstr "Get ekki lesið verkefnisskrá."

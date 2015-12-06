@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-07-26 02:06+0000\n"
 "PO-Revision-Date: 2010-03-03 21:24+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -24,12 +24,6 @@ msgstr "ถนอมทรัพย์ นพบูรณ์"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "donga.nb@gmail.com"
-
-#: facebookjob.cpp:113
-#, fuzzy
-#| msgid "Photos taken with the webcam"
-msgid "Photos taken with KDE"
-msgstr "ภาพถ่ายต่าง ๆ ที่ถูกถ่ายด้วยกล้องเว็บแคม"
 
 #: fbalbum.cpp:47
 msgid "Facebook New Album"
@@ -93,19 +87,19 @@ msgctxt "new facebook album"
 msgid "Privacy:"
 msgstr "ความเป็นส่วนตัว:"
 
-#: fbtalker.cpp:190
+#: fbtalker.cpp:189
 msgid "Validate previous session..."
 msgstr "ตรวจความถูกต้องของวาระก่อนหน้า..."
 
-#: fbtalker.cpp:218
+#: fbtalker.cpp:217
 msgid "Upgrading to OAuth..."
 msgstr ""
 
-#: fbtalker.cpp:270 fbtalker.cpp:479
+#: fbtalker.cpp:268
 msgid "Facebook Application Authorization"
 msgstr "การอนุญาตใช้งานเว็บบริการ Facebook"
 
-#: fbtalker.cpp:275
+#: fbtalker.cpp:273
 #, fuzzy
 #| msgid ""
 #| "Please follow the instructions in the browser window. Press \"Yes\" if "
@@ -117,40 +111,35 @@ msgstr ""
 "โปรดทำขั้นตอนต่อไปนี้ในหน้าต่างเว็บเบราว์เซอร์ และกดที่ปุ่ม \"ใช่\" "
 "หากคุณได้ผ่านการตรวจสอบสิทธิ์แล้ว และคลิกที่ \"ไม่ใช่\" หากล้มเหลว"
 
-#: fbtalker.cpp:340
+#: fbtalker.cpp:338
 msgid "Canceled by user."
 msgstr "ถูกยกเลิกโดยผู้ใช้งาน"
 
-#: fbtalker.cpp:477
-msgid ""
-"Please follow the instructions in the browser window. Press \"OK\" when done."
-msgstr "โปรดทำขั้นตอนต่อไปนี้ในหน้าต่างเว็บเบราว์เซอร์ และกดที่ปุ่ม \"ตกลง\" เมื่อเสร็จสิ้นแล้ว"
-
-#: fbtalker.cpp:781
+#: fbtalker.cpp:644
 msgid "The service is not available at this time."
 msgstr "ยังไม่สามารถใช้งานบริการได้ในตอนนี้"
 
-#: fbtalker.cpp:784
+#: fbtalker.cpp:647
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "โปรแกรมพบว่ามีการอนุญาตต่อการร้องขอเข้ามาเกินค่าสูงสุดที่จะอนุญาตได้แล้ว"
 
-#: fbtalker.cpp:787
+#: fbtalker.cpp:650
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "กุญแจของวาระใช้ไม่ได้หรือวาระอาจจะหมดอายุแล้ว โปรดทำการล็อกอินใหม่อีกครั้ง"
 
-#: fbtalker.cpp:790
+#: fbtalker.cpp:653
 msgid "Invalid album ID."
 msgstr "เลขประจำตัวของอัลบั้มใช้งานไม่ได้"
 
-#: fbtalker.cpp:793
+#: fbtalker.cpp:656
 msgid "Album is full."
 msgstr "อัลบั้มเต็มแล้ว"
 
-#: fbtalker.cpp:796
+#: fbtalker.cpp:659
 msgid "Missing or invalid file."
 msgstr "แฟ้มหายไปหรือใช้งานไม่ได้"
 
-#: fbtalker.cpp:799
+#: fbtalker.cpp:662
 msgid "Too many unapproved photos pending."
 msgstr "มีภาพถ่ายต่าง ๆ ที่ถูกพักไว้เนื่องจากยังไม่ได้รับการยินยอมอยู่มากเกินไป"
 
@@ -352,55 +341,70 @@ msgstr "ส่วนเสริมของ Kipi สำหรับส่งอ
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko"
+"(c) 2008-2009, Luka Renko\n"
+"(c) 2015 Shourya Singh Gupta"
 msgstr ""
 "สงวนลิขสิทธิ์ (c) 2005-2008, Vardhman Jain\n"
 "สงวนลิขสิทธิ์ (c) 2008-2009, Gilles Caulier\n"
 "สงวนลิขสิทธิ์ (c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Author and maintainer"
 msgstr "ผู้เขียนและผู้ดูแล"
 
-#: fbwindow.cpp:386 fbwindow.cpp:438
+#: fbwindow.cpp:132
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: fbwindow.cpp:132
+msgid "Developer"
+msgstr ""
+
+#: fbwindow.cpp:389 fbwindow.cpp:441
 msgid "&lt;auto create&gt;"
 msgstr "&lt;สร้างอัตโนมัติ&gt;"
 
-#: fbwindow.cpp:405 fbwindow.cpp:423 fbwindow.cpp:488 fbwindow.cpp:518
+#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "ล้มเหลวในการเรียกใช้บริการ Facebook: %1\n"
 
-#: fbwindow.cpp:433
+#: fbwindow.cpp:436
 msgctxt "name of special Facebook album for profile pictures"
 msgid "Profile Pictures"
 msgstr "โพรไฟล์ภาพต่าง ๆ"
 
-#: fbwindow.cpp:608 fbwindow.cpp:633
+#: fbwindow.cpp:568
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#: fbwindow.cpp:618 fbwindow.cpp:643
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:612
+#: fbwindow.cpp:622
 #, fuzzy
 #| msgid "Facebook Import/Export"
 msgid "Facebook import"
 msgstr "นำเข้า/ส่งออก ไปยังบริการ Facebook"
 
-#: fbwindow.cpp:637
+#: fbwindow.cpp:647
 #, fuzzy
 #| msgid "Facebook Import/Export"
 msgid "Facebook export"
 msgstr "นำเข้า/ส่งออก ไปยังบริการ Facebook"
 
-#: fbwindow.cpp:740 fbwindow.cpp:755
+#: fbwindow.cpp:750 fbwindow.cpp:765
 msgid "Cannot open file"
 msgstr "ไม่สามารถเปิดแฟ้มได้"
 
-#: fbwindow.cpp:779
+#: fbwindow.cpp:789
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -409,7 +413,7 @@ msgstr ""
 "ล้มเหลวในการอัปโหลดไปยังบริการ Facebook: %1 \n"
 "คุณต้องการจะทำต่อไปหรือไม่ ?"
 
-#: fbwindow.cpp:841
+#: fbwindow.cpp:851
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -418,7 +422,7 @@ msgstr ""
 "ล้มเหลวในบันทึกภาพถ่าย: %1\n"
 "คุณต้องการจะทำต่อไปหรือไม่ ?"
 
-#: fbwindow.cpp:855
+#: fbwindow.cpp:865
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -427,7 +431,7 @@ msgstr ""
 "ล้มเหลวในการดาวน์โหลดภาพถ่าย: %1\n"
 "คุณต้องการจะทำต่อไปหรือไม่ ?"
 
-#: fbwindow.cpp:873
+#: fbwindow.cpp:883
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "ล้มเหลวในการเรียกใช้บริการ Facebook: %1"
@@ -447,13 +451,23 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_facebook.cpp:101
+#: plugin_facebook.cpp:100
 msgid "Export to &Facebook..."
 msgstr "ส่งออกไปยังบริการ &Facebook..."
 
-#: plugin_facebook.cpp:111
+#: plugin_facebook.cpp:110
 msgid "Import from &Facebook..."
 msgstr "นำเข้าจากบริการ &Facebook..."
+
+#~ msgid ""
+#~ "Please follow the instructions in the browser window. Press \"OK\" when "
+#~ "done."
+#~ msgstr "โปรดทำขั้นตอนต่อไปนี้ในหน้าต่างเว็บเบราว์เซอร์ และกดที่ปุ่ม \"ตกลง\" เมื่อเสร็จสิ้นแล้ว"
+
+#, fuzzy
+#~| msgid "Photos taken with the webcam"
+#~ msgid "Photos taken with KDE"
+#~ msgstr "ภาพถ่ายต่าง ๆ ที่ถูกถ่ายด้วยกล้องเว็บแคม"
 
 #~ msgid "Handbook"
 #~ msgstr "คู่มือการใช้งาน"

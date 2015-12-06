@@ -175,7 +175,6 @@ endif()
 set(CMAKE_MODULE_PATH
     ${CMAKE_SOURCE_DIR}/extra/libkgeomap/cmake/modules
     ${CMAKE_SOURCE_DIR}/extra/libmediawiki/cmake/modules
-    ${CMAKE_SOURCE_DIR}/extra/libkvkontakte/cmake/modules
     ${CMAKE_SOURCE_DIR}/cmake/modules
     ${CMAKE_MODULE_PATH}
    )
@@ -210,6 +209,7 @@ if(ENABLE_COMPILE_LIBMEDIAWIKI)
 endif()
 
 if(ENABLE_COMPILE_LIBKVKONTAKTE)
+    set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules/digikamsc-compile-libkvkontakte ${CMAKE_MODULE_PATH})
     set(LIBKVKONTAKTE_LOCAL_DIR extra/libkvkontakte)
 endif()
 
@@ -220,6 +220,7 @@ add_subdirectory(core)
 
 if(ENABLE_COMPILE_DOC)
     MACRO_OPTIONAL_ADD_SUBDIRECTORY(doc)
+    MACRO_OPTIONAL_ADD_SUBDIRECTORY(doc-translated)
 endif()
 
 if(ENABLE_COMPILE_PO)

@@ -6,7 +6,7 @@
  * Date        : 2009-02-06
  * Description : Thread actions task.
  *
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Pankaj Kumar <me at panks dot me>
  *
  * This program is free software; you can redistribute it
@@ -78,7 +78,8 @@ public:
 // -------------------------------------------------------
 
 Task::Task()
-    : Job(0), d(new Private)
+    : Job(0),
+      d(new Private)
 {
 }
 
@@ -104,7 +105,6 @@ void Task::slotCancel()
         d->tool->cancel();
 
     d->cancel = true;
-
 }
 
 void Task::emitActionData(ActionData::ActionStatus st, const QString& mess, const KUrl& dest)
@@ -119,7 +119,7 @@ void Task::emitActionData(ActionData::ActionStatus st, const QString& mess, cons
 
 void Task::run()
 {
-    if(d->cancel)
+    if (d->cancel)
     {
         return;
     }
@@ -152,6 +152,7 @@ void Task::run()
         d->tool->setInputUrl(inUrl);
         d->tool->setWorkingUrl(workUrl);
         d->tool->setSettings(set.settings);
+        d->tool->setIOFileSettings(d->settings.ioFileSettings);
         d->tool->setRawLoadingRules(d->settings.rawLoadingRule);
         d->tool->setRawDecodingSettings(d->settings.rawDecodingSettings);
         d->tool->setResetExifOrientationAllowed(d->settings.exifSetOrientation);

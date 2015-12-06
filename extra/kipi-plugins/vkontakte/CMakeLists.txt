@@ -4,8 +4,6 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-subdirs(icons)
-
 include_directories(${LIBKVKONTAKTE_INCLUDES})
 
 set(kipiplugin_vkontakte_PART_SRCS
@@ -14,7 +12,6 @@ set(kipiplugin_vkontakte_PART_SRCS
     vkalbumdialog.cpp
     albumchooserwidget.cpp
     authinfowidget.cpp
-    vkapi.cpp
    )
 
 KDE4_ADD_PLUGIN(kipiplugin_vkontakte ${kipiplugin_vkontakte_PART_SRCS})
@@ -22,8 +19,6 @@ KDE4_ADD_PLUGIN(kipiplugin_vkontakte ${kipiplugin_vkontakte_PART_SRCS})
 target_link_libraries(kipiplugin_vkontakte
                       kipiplugins
                       ${KIPI_LIBRARIES}
-#                      ${KDCRAW_LIBRARIES}
-#                      ${KEXIV2_LIBRARIES}
                       ${KDE4_KDEUI_LIBS}
                       ${KDE4_KIO_LIBS}
                       ${LIBKVKONTAKTE_LIBRARIES}

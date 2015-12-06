@@ -8,17 +8,15 @@ msgstr ""
 "Project-Id-Version: kipi-plugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-10-04 01:39+0000\n"
-"PO-Revision-Date: 2013-12-15 11:27+0000\n"
+"PO-Revision-Date: 2014-10-20 19:22+0000\n"
 "Last-Translator: Nermina Ahmić <nahmic1@etf.unsa.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
 "Language: bs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Launchpad (build 16869)\n"
-"X-Launchpad-Export-Date: 2013-12-16 05:34+0000\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-16 06:45+0000\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -26,7 +24,7 @@ msgstr "Samir Ribić,Nermina Ahmić"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "samir.ribic@etf.unsa.ba,nahmic1@etf.unsa.ba"
+msgstr "Samir.ribic@etf.unsa.ba,nahmic1@etf.unsa.ba"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_piwigoexportui.rc:7
@@ -68,7 +66,7 @@ msgstr "Navedeno je neispravno korisničko ime ili lozinka"
 
 #: piwigotalker.cpp:480 piwigotalker.cpp:661
 msgid "Upload to Piwigo version < 2.4 is no longer supported"
-msgstr ""
+msgstr "Slanje na Piwigo verziju < 2.4 nije više podržano"
 
 #: piwigotalker.cpp:552 piwigotalker.cpp:637 piwigotalker.cpp:706
 #: piwigotalker.cpp:778
@@ -94,10 +92,9 @@ msgid "Photo '%1' already exists in this album."
 msgstr "Fotografija '%1' već postoji u ovom albumu."
 
 #: piwigotalker.cpp:822
-#, fuzzy, kde-format
-#| msgid "Upload the chunk %1 of %2"
+#, kde-format
 msgid "Upload the chunk %1/%2 of %3"
-msgstr "Slanje komada %1 od %2"
+msgstr "Slanje komada %1/%2 od %3"
 
 #: piwigotalker.cpp:858
 msgid "Warning : The full size photo cannot be uploaded."
@@ -109,14 +106,13 @@ msgid "Upload the metadata of %1"
 msgstr "Slanje metapodataka za %1"
 
 #: piwigotalker.cpp:932
-#, fuzzy, kde-format
-#| msgid "Invalid response received from remote Piwigo"
+#, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
-msgstr "Neispravan odgovor dobjen od udaljenog Piwigo"
+msgstr "Neispravan odgovor primljen od udaljenog Piwigo (%1)"
 
 #: piwigowindow.cpp:135
 msgid "Albums"
-msgstr "albumi"
+msgstr "Albumi"
 
 #: piwigowindow.cpp:144
 msgid "Change Account"
@@ -140,7 +136,7 @@ msgstr "Maksimalna visina:"
 
 #: piwigowindow.cpp:167
 msgid "Resized JPEG quality:"
-msgstr ""
+msgstr "Kvalitet JPEG promijenjene veličine:"
 
 #: piwigowindow.cpp:227 piwigowindow.cpp:232
 msgid "Piwigo Export"
@@ -151,13 +147,6 @@ msgid "A Kipi plugin to export image collections to a remote Piwigo server."
 msgstr "Kipi dodatak za izvoz zbirke slika na udaljeni poslužitelj Piwigo."
 
 #: piwigowindow.cpp:236
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2005, Renchi Raju\n"
-#| "(c) 2006-2007, Colin Guthrie\n"
-#| "(c) 2006-2013, Gilles Caulier\n"
-#| "(c) 2008, Andrea Diamantini\n"
-#| "(c) 2012, Frédéric Coiffier\n"
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
@@ -169,7 +158,7 @@ msgstr ""
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 
 #: piwigowindow.cpp:242
 msgid "Renchi Raju"
@@ -238,7 +227,7 @@ msgstr "Ništa za slanje - molimo odaberite fotografije za slanje."
 #: piwigowindow.cpp:578
 #, kde-format
 msgid "The file %1 is not a supported image or video format"
-msgstr ""
+msgstr "Datoteka %1 nije podržani format slike ili video"
 
 #: piwigowindow.cpp:582
 #, kde-format
@@ -246,10 +235,8 @@ msgid "Uploading file %1"
 msgstr "Slanje datoteke %1"
 
 #: piwigowindow.cpp:601
-#, fuzzy
-#| msgid "Failed to upload photo into remote piwigo. "
 msgid "Failed to upload media into remote piwigo. "
-msgstr "Nije uspjelo poslati sliku na udaljeni Piwigo. "
+msgstr "Neuspjelo slanje medija u udaljeni piwigo. "
 
 #: piwigowindow.cpp:604
 msgid ""
@@ -262,36 +249,3 @@ msgstr ""
 #: plugin_piwigoexport.cpp:98
 msgid "Export to &Piwigo..."
 msgstr "Izvoz u &Piwigo..."
-
-#~ msgid "Upload resized version of %1"
-#~ msgstr "Slanje raširene verzije %1"
-
-#~ msgid "Upload the thumbnail of %1"
-#~ msgstr "Slanje sličice %1"
-
-#~ msgid "Maximum thumbnail dimension:"
-#~ msgstr "Maksimalna dimenzija sličice:"
-
-#~ msgid "Thumbnail size is ignored with Piwigo > 2.4"
-#~ msgstr "Veličina ikona je zanemarena sa Piwigo > 2.4"
-
-#~ msgid "&Add Selected Photos"
-#~ msgstr "&Dodaj izabrane slike"
-
-#~ msgid "Override Default Options"
-#~ msgstr "Pregazi podrazumijevane opcije"
-
-#~ msgid "EXIF Comment (instead of file name) sets Title"
-#~ msgstr "EXIF komentar (umjesto imena datoteke) postavlja naslov"
-
-#~ msgid "EXIF Comment (instead of file name) sets Comment"
-#~ msgstr "EXIF komentar (umjesto imena datoteke) postavlja komentar"
-
-#~ msgid "Also download the full size version"
-#~ msgstr "Također preuzmi verziju u punoj veličinu"
-
-#~ msgid "Handbook"
-#~ msgstr "Priručnik"
-
-#~ msgid "Settings"
-#~ msgstr "Postavke"

@@ -1,0 +1,306 @@
+# translation of kipiplugin_vkontakte.po to Khmer
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_vkontakte\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2012-07-06 10:18+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+"ratanak@khmeros.info,sophea@khmeros.info"
+
+#: albumchooserwidget.cpp:53
+msgctxt "@title:group Header above controls for managing albums"
+msgid "Album"
+msgstr "អាល់ប៊ុម"
+
+#: albumchooserwidget.cpp:58
+msgid "This is the VKontakte album that will be used for the transfer."
+msgstr "នេះ​ជា​អាល់ប៊ុម VKontakte ដែល​នឹង​ត្រូវ​បាន​ប្រើ​សម្រាប់​ផ្ទេរ ។"
+
+#: albumchooserwidget.cpp:64
+msgid "New Album"
+msgstr "អាល់ប៊ុម​ថ្មី"
+
+#: albumchooserwidget.cpp:64
+msgid "Create new VKontakte album"
+msgstr "បង្កើត​អាល់ប៊ុម VKontakte ថ្មី"
+
+#: albumchooserwidget.cpp:65
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "ផ្ទុក​ឡើង​វិញ"
+
+#: albumchooserwidget.cpp:66
+msgid "Reload albums list"
+msgstr "ផ្ទុក​បញ្ជី​អាល់ប៊ុម​ឡើង​វិញ"
+
+#: albumchooserwidget.cpp:69
+msgid "Edit selected album"
+msgstr "កែសម្រួល​អាល់ប៊ុម​ដែល​បាន​ជ្រើស"
+
+#: albumchooserwidget.cpp:74
+msgid "Delete selected album"
+msgstr "លុប​អាល់ប៊ុម​ដែល​បាន​ជ្រើស"
+
+#: albumchooserwidget.cpp:285
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
+"in it?</qt>"
+msgstr "<qt>តើ​អ្នក​ប្រាកដ​ជា​ចង់​យក​អាល់ប៊ុម <b>%1</b> រួម​ទាំង​រូបថត​ទាំងអស់​ក្នុង​វា​ចេញឬ ?</qt>"
+
+#: albumchooserwidget.cpp:286
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "បញ្ជាក់​ការ​លុប​អាល់ប៊ុម"
+
+#: albumchooserwidget.cpp:385
+msgid "Internal error: Null pointer to KJob instance."
+msgstr ""
+
+#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+msgctxt "@title:window"
+msgid "Request to VKontakte failed"
+msgstr "បាន​បរាជ័យ​ក្នុងកា​រស្នើ VKontakte"
+
+#: authinfowidget.cpp:58
+msgid "Account"
+msgstr "គណនី"
+
+#: authinfowidget.cpp:63
+msgid "This account is used for authentication."
+msgstr "គណនី​នេះ​ត្រូវ​បាន​ប្រើ​សម្រាប់​ផ្ទៀងផ្ទាត់ ។"
+
+#: authinfowidget.cpp:67
+msgid "Name:"
+msgstr "ឈ្មោះ ៖"
+
+#: authinfowidget.cpp:68
+msgid "Your VKontakte login"
+msgstr "ការ​ចូល VKontakte របស់​អ្នក"
+
+#: authinfowidget.cpp:71
+msgid "Change Account"
+msgstr "ផ្លាស់ប្ដូរ​គណនី"
+
+#: authinfowidget.cpp:72
+msgid "Change VKontakte account used to authenticate"
+msgstr "ផ្លាស់ប្ដូរ​គណនី VKontakte បាន​ប្រើ​ ដើម្បី​ផ្ទៀងផ្ទាត់"
+
+#: authinfowidget.cpp:133
+#, kde-format
+msgctxt "Concatenation of first name (%1) and last name (%2)"
+msgid "%1 %2"
+msgstr ""
+
+#: authinfowidget.cpp:150
+msgid "Unauthorized"
+msgstr "មិន​បាន​អនុញ្ញាត"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_vkontakteui.rc:7
+msgid "&Export"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_vkontakteui.rc:13
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_vkontakte.cpp:88
+msgid "Export to &VKontakte..."
+msgstr "នាំចេញ​ទៅ VKontakte..."
+
+#: vkalbumdialog.cpp:72
+msgctxt "@title:window"
+msgid "Edit album"
+msgstr "កែសម្រួល​អាល់ប៊ុម"
+
+#: vkalbumdialog.cpp:73
+msgctxt "@title:window"
+msgid "New album"
+msgstr "អាល់ប៊ុម​ថ្មី"
+
+#: vkalbumdialog.cpp:81
+msgctxt "@title:group Header above Title and Summary fields"
+msgid "Album"
+msgstr "អាល់ប៊ុម"
+
+#: vkalbumdialog.cpp:82
+msgid "These are basic settings for the new VKontakte album."
+msgstr "មាន​កា​រកំណត់​មូលដ្ឋាន​សម្រាប់​អាល់ប៊ុម VKontakte ថ្មី ។"
+
+#: vkalbumdialog.cpp:85
+msgid "Title of the album that will be created (required)."
+msgstr "ចំណង​ជើង​​អាល់ប៊ុម​នឹង​ត្រូវ​បាន​បង្កើត (ទាមទារ) ។"
+
+#: vkalbumdialog.cpp:88
+msgid "Description of the album that will be created (optional)."
+msgstr "សេចក្ដីពណ៌នា​អាល់ប៊ុម​នឹង​ត្រូវ​បាន​បង្កើត (ជាជម្រើស) ។"
+
+#: vkalbumdialog.cpp:92
+msgid "Title:"
+msgstr "ចំណង​ជើង ៖"
+
+#: vkalbumdialog.cpp:93
+msgid "Summary:"
+msgstr "សេចក្ដី​សង្ខេប ៖"
+
+#: vkalbumdialog.cpp:96
+msgid "Privacy Settings"
+msgstr "កា​រកំណត់​ភាព​ឯកជន"
+
+#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+msgid "Only me"
+msgstr "តែ​ខ្ញុំ"
+
+#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+msgid "My friends"
+msgstr "មិត្ត​ភក្ដិ​របស់​ខ្ញុំ"
+
+#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+msgid "Friends of my friends"
+msgstr "មិតភក្ដិ របស់​មិត្តភក្ដិ​ខ្ញុំ"
+
+#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+msgid "Everyone"
+msgstr "អ្នក​រាល់​គ្នា"
+
+#: vkalbumdialog.cpp:104
+msgid "Album available to:"
+msgstr "អាល់ប៊ុម​អាច​ប្រើបាន​ចំពោះ ៖"
+
+#: vkalbumdialog.cpp:112
+msgid "Comments available to:"
+msgstr "មតិយោបល់​អាច​ប្រើបាន​ចំពោះ ៖"
+
+#: vkalbumdialog.cpp:140
+msgid "Title cannot be empty."
+msgstr "ចំណង​ជើង​មិន​អាច​ទទេរ​បាន​ទេ ។"
+
+#: vkalbumdialog.cpp:141
+msgid "Error"
+msgstr "កំហុស"
+
+#: vkwindow.cpp:108
+msgid "This is the list of images to upload to your VKontakte album."
+msgstr "នេះ​ជា​បញ្ជី​រូបភាព​ ត្រូវ​ផ្ទុក​ឡើង​ទៅ​អាល់ប៊ុម VKontakte របស់​អ្ន​ក ។"
+
+#: vkwindow.cpp:114
+msgid ""
+"This is a clickable link to open the VKontakte service in a web browser."
+msgstr "នេះ​ជា​​តំណ​ដែល​អាច​ចុច​បាន ដើម្បី​បើក​សេវាកម្ម VKontakte នៅ​ក្នុង​កម្មវិធី​រុករក​បណ្ដាញ ។"
+
+#: vkwindow.cpp:132
+msgid "Destination"
+msgstr "ទិសដៅ"
+
+#: vkwindow.cpp:133
+msgid "This is the location where VKontakte images will be downloaded."
+msgstr "នេះ​ជា​ទីតាំង​ ដែល​រូបភាព VKontakte នឹង​ត្រូវ​បាន​ទាញយក ។"
+
+#: vkwindow.cpp:141
+msgid "Options"
+msgstr "ជម្រើស"
+
+#: vkwindow.cpp:142
+msgid "These are options that will be applied to images before upload."
+msgstr "ទាំង​នេះ​ជា​ជម្រើស​ ដែល​នឹង​ត្រូវ​បាន​អនុវត្ត​ទៅ​រូបភាព មុន​នឹង​ផ្ទុក​ឡើង ។"
+
+#: vkwindow.cpp:180
+msgctxt "@title:window"
+msgid "Export to VKontakte Web Service"
+msgstr "នាំចេញ​ទៅ​​សេវាកម្ម​បណ្ដាញ VKontakte"
+
+#: vkwindow.cpp:182
+msgid "Start Upload"
+msgstr "ចាប់ផ្ដើម​ផ្ទុក​ឡើង"
+
+#: vkwindow.cpp:183
+msgid "Start upload to VKontakte service"
+msgstr "ចាប់ផ្ដើម​ផ្ទុក​ឡើង​ទៅ​សេវាកម្ម VKontakte"
+
+#: vkwindow.cpp:194
+msgid "VKontakte Plugin"
+msgstr "កម្មវិធី​ជំនួយ VKontakte"
+
+#: vkwindow.cpp:197
+msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgstr "កម្មវិធី​ជំនួយ Kipi ដើម្បី​នាំចេញ​សម្រាំង​រូបភាព​ទៅ​សេវាកម្ម​បណ្ដាញ VKontakte ។"
+
+#: vkwindow.cpp:199
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2010, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010, Roman Tsisyk\n"
+#| "(c) 2011, Alexander Potashev"
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+msgstr ""
+"រក្សាសិទ្ធិ​ឆ្នាំ ២០០៧-២០០៩ ដោយ Vardhman Jain\n"
+"រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨-២០១០ ដោយ Gilles Caulier\n"
+"រក្សាសិទ្ធិ​ឆ្នាំ ២០០៩ ដោយ Luka Renko\n"
+"រក្សាសិទ្ធិ​ឆ្នាំ ២០១០ ដោយ Roman Tsisyk\n"
+"រក្សាសិទ្ធិ​ឆ្នាំ ២០១១ ដោយ Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Alexander Potashev"
+msgstr "Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Author"
+msgstr "អ្នកនិពន្ធ"
+
+#: vkwindow.cpp:275
+msgid "Close"
+msgstr "បិទ"
+
+#: vkwindow.cpp:276
+msgid "Close window"
+msgstr "បិទ​បង្អួច"
+
+#: vkwindow.cpp:283
+msgid "Cancel"
+msgstr "បោះបង់"
+
+#: vkwindow.cpp:284
+msgid "Cancel current operation"
+msgstr "បោះបង់​ប្រតិបត្តិការ​បច្ចុប្បន្ន"
+
+#: vkwindow.cpp:383
+msgid "VKontakte"
+msgstr "VKontakte"
+
+#: vkwindow.cpp:401
+msgid "Please select album first."
+msgstr "សូម​ជ្រើស​អាល់ប៊ុម​សិន ។"
+
+#: vkwindow.cpp:431
+msgid "Vkontakte Export"
+msgstr "ការ​នាំចេញ Vkontakte"

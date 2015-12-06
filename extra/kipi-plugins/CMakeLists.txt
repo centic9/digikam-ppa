@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -14,11 +14,11 @@ message(STATUS "Starting CMake configuration for: kipi-plugins")
 
 # kipi-plugins version
 set(KIPIPLUGINS_MAJOR_VERSION "4")
-set(KIPIPLUGINS_MINOR_VERSION "7")
+set(KIPIPLUGINS_MINOR_VERSION "12")
 set(KIPIPLUGINS_PATCH_VERSION "0")
 
 # kipi-plugins release date
-set(KIPIPLUGINS_RELEASE_DATE "2015-01-25")
+set(KIPIPLUGINS_RELEASE_DATE "2015-07-26")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -105,7 +105,7 @@ if(KIPI_FOUND)
     MACRO_OPTIONAL_FIND_PACKAGE(KdepimLibs)                                  # For Calendar (libkcal).
     MACRO_OPTIONAL_FIND_PACKAGE(QCA2)                                        # For Shwup and YandexFotki.
     MACRO_OPTIONAL_FIND_PACKAGE(KSane)                                       # For AcquireImages.
-    MACRO_OPTIONAL_FIND_PACKAGE(QJSON)                                       # For Debian Screenshots Facebook, GoogleDrive, Dropbox and Imgur.
+    MACRO_OPTIONAL_FIND_PACKAGE(QJSON)                                       # For Debian Screenshots Facebook, GoogleServices, Dropbox and Imgur.
     MACRO_OPTIONAL_FIND_PACKAGE(KGeoMap)                                     # For GPSSync.
     MACRO_OPTIONAL_FIND_PACKAGE(Mediawiki)                                   # For Mediawiki.
     MACRO_OPTIONAL_FIND_PACKAGE(LibKVkontakte)                               # For VKontakte.
@@ -131,6 +131,26 @@ if(KIPI_FOUND)
         message(WARNING "libkgeomap: Version information not found, your version is probably too old.")
         set(KGEOMAP_FOUND FALSE)
 
+    endif()
+
+    # -- check the libkvkontakte version -----------------------------------------------------------------
+
+    if (NOT DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
+        set(LIBKVKONTAKTE_MIN_VERSION "4.12.0")
+
+        if(LIBKVKONTAKTE_VERSION)
+
+            message(STATUS "libkvkontakte: Found version ${LIBKVKONTAKTE_VERSION} (required: ${LIBKVKONTAKTE_MIN_VERSION})")
+            if(${LIBKVKONTAKTE_VERSION} VERSION_LESS ${LIBKVKONTAKTE_MIN_VERSION})
+                set(LIBKVKONTAKTE_FOUND FALSE)
+            endif()
+
+        else()
+
+            message(WARNING "libkvkontakte: Version information not found, your version is probably too old.")
+            set(LIBKVKONTAKTE_FOUND FALSE)
+
+        endif()
     endif()
 
     # -- X11 check, LINUX Only -------------------------------------------------------------------------
@@ -178,12 +198,12 @@ if(KIPI_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libqca"         "http://delta.affinix.com/qca"                                    "(version >= 2.0.0"                   "Kipi-plugins will be compiled without libqca support."         QCA2_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libkgeomap"     "https://projects.kde.org/projects/extragear/libs/libkgeomap"     "(version >= ${KGEOMAP_MIN_VERSION})" "Kipi-plugins will be compiled without libkgeomap support."     KGEOMAP_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libmediawiki"   "https://projects.kde.org/projects/extragear/libs/libmediawiki"   "(version >= 1.0.0)"                  "Kipi-plugins will be compiled without libmediawiki support."   MEDIAWIKI_FOUND)
-    PRINT_OPTIONAL_LIBRARY_STATUS("libkvkontakte"  "https://projects.kde.org/projects/extragear/libs/libkvkontakte"  "(version >= 0.1.0)"                  "Kipi-plugins will be compiled without libkvkontakte support."  LIBKVKONTAKTE_FOUND)
+    PRINT_OPTIONAL_LIBRARY_STATUS("libkvkontakte"  "https://projects.kde.org/projects/extragear/libs/libkvkontakte"  "(version >= ${LIBKVKONTAKTE_MIN_VERSION})" "Kipi-plugins will be compiled without libkvkontakte support."  LIBKVKONTAKTE_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libimagemagick" "http://www.imagemagick.org"                                      "(version >= 5.5.4)"                  "Kipi-plugins will be compiled without libimagemagick support." ImageMagick_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libqtgstreamer" "http://gstreamer.freedesktop.org/modules/qt-gstreamer.html"      "(version >= 0.9.0)"                  "Kipi-plugins will be compiled without libqtgstreamer support." QTGSTREAMER_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libgpod"        "http://www.gtkpod.org/libgpod.html"                              "(version >= 0.7.0)"                  "Kipi-plugins will be compiled without libgpod support."        IPOD_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libgdk"         "http://library.gnome.org/devel/gdk-pixbuf"                       "(version >= 2.0.0)"                  "Kipi-plugins will be compiled without libgdk support."         GDK_FOUND)
-    PRINT_OPTIONAL_LIBRARY_STATUS("libqtkoauth"    "http://gitorious.org/kqoauth"                                    "(version >= 0.97)"                   "Kipi-plugins will be compiled without libqtkoauth support."    QTKOAUTH_FOUND)
+    PRINT_OPTIONAL_LIBRARY_STATUS("libqtkoauth"    "https://github.com/kypeli/kQOAuth"                               "(version >= 0.97)"                   "Kipi-plugins will be compiled without libqtkoauth support."    QTKOAUTH_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libksane"       "https://projects.kde.org/projects/kde/kdegraphics/libs/libksane" "(version >= 0.3.0)"                  "Kipi-plugins will be compiled without libksane support."       KSANE_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libhupnp"       "http://www.herqq.org"                                            "(version >= 2.0.0)"                  "Internal version used instead"                                 HUPNP_FOUND AND HUPNPAV_FOUND)
     PRINT_OPTIONAL_LIBRARY_STATUS("libqtsoap"      "https://github.com/commontk/QtSOAP"                              "(version >= 2.7.0)"                  "Kipi-plugins will be compiled without libqtsoap support."      QTSOAP_FOUND)
@@ -223,38 +243,32 @@ if(KIPI_FOUND)
             set(BUILD_VIEWERS FALSE)
         endif()
     else()
-        if(OPENGL_FOUND AND OPENGL_GLU_FOUND AND QT_QTOPENGL_FOUND AND QT_QTOPENGL_FOUND)
+        if(OPENGL_FOUND AND OPENGL_GLU_FOUND AND QT_QTOPENGL_FOUND)
             set(BUILD_VIEWERS TRUE)
         elseif()
             set(BUILD_VIEWERS FALSE)
         endif()
     endif()
 
-    # Decide if wallpaper plugin can be built
-    # NOTE: See relevant patch which must be applied to KDE Plasma API :
-    # https://git.reviewboard.kde.org/r/105319/
-    # Relevant Bugzilla entry :
-    # https://bugs.kde.org/show_bug.cgi?id=217950
-    set(WALLPAPER_KDE_REQ_VER "5.0.0")
-
-    if(KDE_VERSION)
-        if(${KDE_VERSION} VERSION_LESS ${WALLPAPER_KDE_REQ_VER})
-            set(BUILD_WALLPAPER FALSE)
+    # Rules about DNGConverter
+    if(EXPAT_FOUND)
+        if(CMAKE_USE_PTHREADS_INIT OR CMAKE_USE_WIN32_THREADS_INIT)
+             set(BUILD_DNGCONVERTER TRUE)
         else()
-            set(BUILD_WALLPAPER TRUE)
+             set(BUILD_DNGCONVERTER FALSE)
         endif()
     endif()
 
     PRINT_COMPONENT_COMPILE_STATUS("AdvancedSlideshow"  BUILD_VIEWERS)
     PRINT_COMPONENT_COMPILE_STATUS("ImageViewer"        BUILD_VIEWERS)
     PRINT_COMPONENT_COMPILE_STATUS("AcquireImages"      KSANE_FOUND)
-    PRINT_COMPONENT_COMPILE_STATUS("DNGConverter"       EXPAT_FOUND)
+    PRINT_COMPONENT_COMPILE_STATUS("DNGConverter"       BUILD_DNGCONVERTER)
     PRINT_COMPONENT_COMPILE_STATUS("DLNAExport"         (HUPNP_FOUND AND HUPNPAV_FOUND) OR (NOT (HUPNP_FOUND AND HUPNPAV_FOUND) AND QTSOAP_FOUND))
     PRINT_COMPONENT_COMPILE_STATUS("RemoveRedEyes"      OpenCV_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("Debian Screenshots" QJSON_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("Facebook"           QJSON_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("Imgur"              QJSON_FOUND)
-    PRINT_COMPONENT_COMPILE_STATUS("GoogleDrive"        QJSON_FOUND)
+    PRINT_COMPONENT_COMPILE_STATUS("GoogleServices"     QJSON_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("Dropbox"            QJSON_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("VKontakte"          LIBKVKONTAKTE_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("IpodExport"         IPOD_FOUND AND GLIB2_FOUND AND GOBJECT_FOUND AND GDK_FOUND)
@@ -263,8 +277,6 @@ if(KIPI_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("Mediawiki"          MEDIAWIKI_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("Panorama"           FLEX_FOUND AND BISON_FOUND)
     PRINT_COMPONENT_COMPILE_STATUS("VideoSlideshow"     ImageMagick_FOUND AND QTGSTREAMER_FOUND)
-    PRINT_COMPONENT_COMPILE_STATUS("Wallpaper"          BUILD_WALLPAPER)
-
 
     # Set QtGStreamer API version --------------------------------------------------------------------------
 
@@ -367,7 +379,6 @@ if(KIPI_FOUND)
         add_subdirectory(galleryexport)
         add_subdirectory(piwigoexport)
         add_subdirectory(kioexportimport)
-        add_subdirectory(picasawebexport)
         add_subdirectory(smug)
         add_subdirectory(printimages)
         add_subdirectory(expoblending)
@@ -378,9 +389,6 @@ if(KIPI_FOUND)
         add_subdirectory(imageshackexport)
         add_subdirectory(photolayoutseditor)
         add_subdirectory(jalbumexport)
-
-        # Plugin not yet ready for production
-        #add_subdirectory(photivointegration)
 
         # Plugins which are optional dependencies.
 
@@ -409,7 +417,7 @@ if(KIPI_FOUND)
             add_subdirectory(debianscreenshots)
             add_subdirectory(facebook)
             add_subdirectory(imgurexport)
-            add_subdirectory(googledrive)
+            add_subdirectory(googleservices)
             add_subdirectory(dropbox)
         endif()
 
@@ -437,10 +445,8 @@ if(KIPI_FOUND)
             add_subdirectory(imageviewer)
         endif()
 
-        if(EXPAT_FOUND)
-            if(CMAKE_USE_PTHREADS_INIT OR CMAKE_USE_WIN32_THREADS_INIT)
-                add_subdirectory(dngconverter)
-            endif()
+        if(BUILD_DNGCONVERTER)
+            add_subdirectory(dngconverter)
         endif()
 
         if(KGEOMAP_FOUND)
@@ -457,10 +463,6 @@ if(KIPI_FOUND)
 
         if(ImageMagick_FOUND AND QTGSTREAMER_FOUND)
             add_subdirectory(videoslideshow)
-        endif()
-
-        if(BUILD_WALLPAPER)
-            add_subdirectory(wallpaper)
         endif()
 
         if(NOT WIN32)

@@ -95,6 +95,7 @@ public:
         writeXMPSidecarBox(0),
         readXMPSidecarBox(0),
         updateFileTimeStampBox(0),
+        rescanImageIfModifiedBox(0),
         writingModeCombo(0),
         rotateByFlag(0),
         rotateByContents(0),
@@ -104,7 +105,7 @@ public:
         exifSetOrientationBox(0),
         saveToBalooBox(0),
         readFromBalooBox(0),
-        resyncButton(0),
+        // resyncButton(0),
         tab(0),
         displaySubTab(0),
         tagsCfgPanel(0)
@@ -132,6 +133,7 @@ public:
     QCheckBox*     writeXMPSidecarBox;
     QCheckBox*     readXMPSidecarBox;
     QCheckBox*     updateFileTimeStampBox;
+    QCheckBox*     rescanImageIfModifiedBox;
     KComboBox*     writingModeCombo;
 
     QRadioButton*  rotateByFlag;
@@ -143,7 +145,7 @@ public:
 
     QCheckBox*     saveToBalooBox;
     QCheckBox*     readFromBalooBox;
-    QToolButton*   resyncButton;
+    // QToolButton*   resyncButton;
 
     KTabWidget*    tab;
     KTabWidget*    displaySubTab;
@@ -279,13 +281,21 @@ SetupMetadata::SetupMetadata(QWidget* const parent)
                                                   "Note: disabling this option can introduce some dysfunctions with applications which use file timestamps properties to "
                                                   "detect file modifications automatically."));
 
-    readWriteLayout->addWidget(readWriteIconLabel,        0, 0);
-    readWriteLayout->addWidget(readWriteLabel,            0, 1);
-    readWriteLayout->addWidget(d->readXMPSidecarBox,      1, 0, 1, 3);
-    readWriteLayout->addWidget(d->writeXMPSidecarBox,     2, 0, 1, 3);
-    readWriteLayout->addWidget(d->writingModeCombo,       3, 1, 1, 2);
-    readWriteLayout->addWidget(d->writeRawFilesBox,       4, 0, 1, 3);
-    readWriteLayout->addWidget(d->updateFileTimeStampBox, 5, 0, 1, 3);
+    d->rescanImageIfModifiedBox = new QCheckBox;
+    d->rescanImageIfModifiedBox->setText(i18nc("@option:check", "&Rescan file when files are modified"));
+    d->rescanImageIfModifiedBox->setWhatsThis(i18nc("@info:whatsthis",
+                                                  "Turning this option on, will force digiKam to rescan files that has been modified outside digiKam. "
+                                                  "If a file has changed it's file size or if the last modified timestamp has changed, a rescan of that "
+                                                  "file will be performed when digiKam starts."));
+
+    readWriteLayout->addWidget(readWriteIconLabel,          0, 0);
+    readWriteLayout->addWidget(readWriteLabel,              0, 1);
+    readWriteLayout->addWidget(d->readXMPSidecarBox,        1, 0, 1, 3);
+    readWriteLayout->addWidget(d->writeXMPSidecarBox,       2, 0, 1, 3);
+    readWriteLayout->addWidget(d->writingModeCombo,         3, 1, 1, 2);
+    readWriteLayout->addWidget(d->writeRawFilesBox,         4, 0, 1, 3);
+    readWriteLayout->addWidget(d->updateFileTimeStampBox,   5, 0, 1, 3);
+    readWriteLayout->addWidget(d->rescanImageIfModifiedBox, 6, 0, 1, 3);
     readWriteLayout->setColumnStretch(3, 1);
     d->readWriteGroup->setLayout(readWriteLayout);
 
@@ -524,7 +534,7 @@ SetupMetadata::SetupMetadata(QWidget* const parent)
     balooLayout->addWidget(balooGroup);
     balooLayout->addSpacing(KDialog::spacingHint());
     balooLayout->addWidget(balooBox);
-    balooLayout->addWidget(d->resyncButton, 0, Qt::AlignRight);
+    // balooLayout->addWidget(d->resyncButton, 0, Qt::AlignRight);
     balooLayout->addStretch();
 
 #endif // HAVE_BALOO
@@ -616,6 +626,7 @@ void SetupMetadata::applySettings()
     }
 
     set.updateFileTimeStamp   = d->updateFileTimeStampBox->isChecked();
+    set.rescanImageIfModified = d->rescanImageIfModifiedBox->isChecked();
 
     mSettings->setSettings(set);
 
@@ -676,6 +687,7 @@ void SetupMetadata::readSettings()
     d->writeRawFilesBox->setChecked(set.writeRawFiles);
     d->readXMPSidecarBox->setChecked(set.useXMPSidecar4Reading);
     d->updateFileTimeStampBox->setChecked(set.updateFileTimeStamp);
+    d->rescanImageIfModifiedBox->setChecked(set.rescanImageIfModified);
 
     if (set.metadataWritingMode == KExiv2::WRITETOIMAGEONLY)
     {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-07-26 02:06+0000\n"
 "PO-Revision-Date: 2010-06-26 15:29+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -26,12 +26,6 @@ msgstr "Iñaki Larrañaga Murgoitio"
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "dooteo@euskalgnu.org"
-
-#: facebookjob.cpp:113
-#, fuzzy
-#| msgid "Photos taken with the webcam"
-msgid "Photos taken with KDE"
-msgstr "Web kamerarekin hartutako argazkiak"
 
 #: fbalbum.cpp:47
 msgid "Facebook New Album"
@@ -95,19 +89,19 @@ msgctxt "new facebook album"
 msgid "Privacy:"
 msgstr "Pribatutasuna:"
 
-#: fbtalker.cpp:190
+#: fbtalker.cpp:189
 msgid "Validate previous session..."
 msgstr "Balidatu aurreko saioa..."
 
-#: fbtalker.cpp:218
+#: fbtalker.cpp:217
 msgid "Upgrading to OAuth..."
 msgstr ""
 
-#: fbtalker.cpp:270 fbtalker.cpp:479
+#: fbtalker.cpp:268
 msgid "Facebook Application Authorization"
 msgstr "Facebook aplikazioaren autentifikazioa"
 
-#: fbtalker.cpp:275
+#: fbtalker.cpp:273
 #, fuzzy
 #| msgid ""
 #| "Please follow the instructions in the browser window. Press \"Yes\" if "
@@ -119,44 +113,37 @@ msgstr ""
 "Jarraitu web arakatzaileko instrukzioak. Egin klik \"Bai\" botoian "
 "autentifikatu bazara, eta \"Ez\" botoian huts egin baduzu."
 
-#: fbtalker.cpp:340
+#: fbtalker.cpp:338
 msgid "Canceled by user."
 msgstr "Erabiltzaileak bertan behera utzita."
 
-#: fbtalker.cpp:477
-msgid ""
-"Please follow the instructions in the browser window. Press \"OK\" when done."
-msgstr ""
-"Jarraitu web arakatzaileko instrukzioak. Egin klik \"Ados\" botoian "
-"amaitutakoan."
-
-#: fbtalker.cpp:781
+#: fbtalker.cpp:644
 msgid "The service is not available at this time."
 msgstr "Zerbitzua ez dago erabilgarri une honetan."
 
-#: fbtalker.cpp:784
+#: fbtalker.cpp:647
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Aplikazioak gehienezko baimendutako eskaera kopurura iritsi da."
 
-#: fbtalker.cpp:787
+#: fbtalker.cpp:650
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "Saioaren gakoa baliogabea, edo saioa iraungituta. Saiatu saioan berriro "
 "sartzen."
 
-#: fbtalker.cpp:790
+#: fbtalker.cpp:653
 msgid "Invalid album ID."
 msgstr "Albumaren IDa baliogabea."
 
-#: fbtalker.cpp:793
+#: fbtalker.cpp:656
 msgid "Album is full."
 msgstr "Albuma beteta dago."
 
-#: fbtalker.cpp:796
+#: fbtalker.cpp:659
 msgid "Missing or invalid file."
 msgstr "Fitxategia falta da edo ez da baliozkoa."
 
-#: fbtalker.cpp:799
+#: fbtalker.cpp:662
 msgid "Too many unapproved photos pending."
 msgstr "Argazki gehiegi daude onartzeko zain."
 
@@ -363,55 +350,70 @@ msgstr ""
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko"
+"(c) 2008-2009, Luka Renko\n"
+"(c) 2015 Shourya Singh Gupta"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2009, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Author and maintainer"
 msgstr "Egilea eta mantentzailea"
 
-#: fbwindow.cpp:386 fbwindow.cpp:438
+#: fbwindow.cpp:132
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: fbwindow.cpp:132
+msgid "Developer"
+msgstr ""
+
+#: fbwindow.cpp:389 fbwindow.cpp:441
 msgid "&lt;auto create&gt;"
 msgstr "&lt;sortu automatikoki&gt;"
 
-#: fbwindow.cpp:405 fbwindow.cpp:423 fbwindow.cpp:488 fbwindow.cpp:518
+#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Huts egin du Facebook-i deitzean: %1\n"
 
-#: fbwindow.cpp:433
+#: fbwindow.cpp:436
 msgctxt "name of special Facebook album for profile pictures"
 msgid "Profile Pictures"
 msgstr "Profilaren irudiak"
 
-#: fbwindow.cpp:608 fbwindow.cpp:633
+#: fbwindow.cpp:568
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#: fbwindow.cpp:618 fbwindow.cpp:643
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:612
+#: fbwindow.cpp:622
 #, fuzzy
 #| msgid "Facebook Import/Export"
 msgid "Facebook import"
 msgstr "Facebook-eko inportazioa/esportazioa"
 
-#: fbwindow.cpp:637
+#: fbwindow.cpp:647
 #, fuzzy
 #| msgid "Facebook Import/Export"
 msgid "Facebook export"
 msgstr "Facebook-eko inportazioa/esportazioa"
 
-#: fbwindow.cpp:740 fbwindow.cpp:755
+#: fbwindow.cpp:750 fbwindow.cpp:765
 msgid "Cannot open file"
 msgstr "Ezin da fitxategia ireki"
 
-#: fbwindow.cpp:779
+#: fbwindow.cpp:789
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -420,7 +422,7 @@ msgstr ""
 "Huts egin du argazkia Facebook-era igotzean: %1\n"
 "Jarraitzea nahi duzu?"
 
-#: fbwindow.cpp:841
+#: fbwindow.cpp:851
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -429,7 +431,7 @@ msgstr ""
 "Huts egin du argazkia gordetzean: %1\n"
 "Jarraitzea nahi duzu?"
 
-#: fbwindow.cpp:855
+#: fbwindow.cpp:865
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -438,7 +440,7 @@ msgstr ""
 "Huts egin du argazkia deskargatzean: %1\n"
 "Jarraitzea nahi duzu?"
 
-#: fbwindow.cpp:873
+#: fbwindow.cpp:883
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Huts egin du Facebook-i deitzean: %1"
@@ -458,13 +460,25 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_facebook.cpp:101
+#: plugin_facebook.cpp:100
 msgid "Export to &Facebook..."
 msgstr "&Esportatu Facebook-era..."
 
-#: plugin_facebook.cpp:111
+#: plugin_facebook.cpp:110
 msgid "Import from &Facebook..."
 msgstr "&Inportatu Facebook-etik..."
+
+#~ msgid ""
+#~ "Please follow the instructions in the browser window. Press \"OK\" when "
+#~ "done."
+#~ msgstr ""
+#~ "Jarraitu web arakatzaileko instrukzioak. Egin klik \"Ados\" botoian "
+#~ "amaitutakoan."
+
+#, fuzzy
+#~| msgid "Photos taken with the webcam"
+#~ msgid "Photos taken with KDE"
+#~ msgstr "Web kamerarekin hartutako argazkiak"
 
 #~ msgid "Handbook"
 #~ msgstr "Eskuliburua"

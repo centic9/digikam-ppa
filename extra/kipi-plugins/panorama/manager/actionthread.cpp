@@ -175,14 +175,14 @@ void ActionThread::optimizeProject(KUrl& ptoUrl, KUrl& optimizePtoUrl, KUrl& vie
                                    bool levelHorizon, bool buildGPano,
                                    const QString& autooptimiserPath, const QString& panoModifyPath)
 {
-    JobSequence       *jobs                       = new JobSequence();
+    JobSequence* const jobs     = new JobSequence();
 
-    OptimisationTask *ot = new OptimisationTask(d->preprocessingTmpDir->name(),
-                                               ptoUrl,
-                                               optimizePtoUrl,
-                                               levelHorizon,
-//                                                buildGPano,
-                                               autooptimiserPath);
+    OptimisationTask * const ot = new OptimisationTask(d->preprocessingTmpDir->name(),
+                                                       ptoUrl,
+                                                       optimizePtoUrl,
+                                                       levelHorizon,
+                                                       buildGPano,
+                                                       autooptimiserPath);
 
     connect(ot, SIGNAL(started(ThreadWeaver::Job*)),
             this, SLOT(slotStarting(ThreadWeaver::Job*)));
@@ -191,11 +191,11 @@ void ActionThread::optimizeProject(KUrl& ptoUrl, KUrl& optimizePtoUrl, KUrl& vie
 
     jobs->addJob(ot);
 
-    AutoCropTask *act = new AutoCropTask(d->preprocessingTmpDir->name(),
-                                         optimizePtoUrl,
-                                         viewCropPtoUrl,
-                                         buildGPano,
-                                         panoModifyPath);
+    AutoCropTask* const act = new AutoCropTask(d->preprocessingTmpDir->name(),
+                                               optimizePtoUrl,
+                                               viewCropPtoUrl,
+                                               buildGPano,
+                                               panoModifyPath);
 
     connect(act, SIGNAL(started(ThreadWeaver::Job*)),
             this, SLOT(slotStarting(ThreadWeaver::Job*)));
@@ -281,18 +281,19 @@ void ActionThread::compileProject(const PTOType& basePtoData, KUrl& panoPtoUrl, 
 void ActionThread::copyFiles(const KUrl& ptoUrl, const KUrl& panoUrl, const KUrl& finalPanoUrl,
                              const ItemUrlsMap& preProcessedUrlsMap, bool savePTO, bool addGPlusMetadata)
 {
-    JobCollection   *jobs           = new JobCollection();
+    JobCollection* const jobs = new JobCollection();
 
-    CopyFilesTask *t = new CopyFilesTask(d->preprocessingTmpDir->name(),
-                                         panoUrl,
-                                         finalPanoUrl,
-                                         ptoUrl,
-                                         preProcessedUrlsMap,
-                                         savePTO,
-                                         addGPlusMetadata);
+    CopyFilesTask* const t    = new CopyFilesTask(d->preprocessingTmpDir->name(),
+                                                  panoUrl,
+                                                  finalPanoUrl,
+                                                  ptoUrl,
+                                                  preProcessedUrlsMap,
+                                                  savePTO,
+                                                  addGPlusMetadata);
 
     connect(t, SIGNAL(started(ThreadWeaver::Job*)),
             this, SLOT(slotStarting(ThreadWeaver::Job*)));
+
     connect(t, SIGNAL(done(ThreadWeaver::Job*)),
             this, SLOT(slotDone(ThreadWeaver::Job*)));
 

@@ -66,11 +66,7 @@
 // libkvkontakte includes
 
 #include <libkvkontakte/uploadphotosjob.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/version.h>
-#include <libkdcraw/kdcraw.h>
+#include <libkvkontakte/vkapi.h>
 
 // LibKIPI includes
 
@@ -84,20 +80,8 @@
 #include "kpversion.h"
 #include "kpimageslist.h"
 #include "kpprogresswidget.h"
-#include "vkapi.h"
 #include "albumchooserwidget.h"
 #include "authinfowidget.h"
-
-#undef SLOT_JOB_DONE_INIT
-#define SLOT_JOB_DONE_INIT(JobClass)                     \
-    JobClass* const job = dynamic_cast<JobClass*>(kjob); \
-    Q_ASSERT(job);                                       \
-    m_jobs.removeAll(job);                               \
-    if (job && job->error())                             \
-    {                                                    \
-        handleVkError(job);                              \
-        return;                                          \
-    }
 
 namespace KIPIVkontaktePlugin
 {
@@ -106,12 +90,12 @@ VkontakteWindow::VkontakteWindow(bool import, QWidget* const parent)
     : KPToolDialog(parent)
 {
     m_albumsBox = NULL;
-    m_vkapi     = new VkAPI(this);
+    m_vkapi     = new Vkontakte::VkApi(this);
 
     // read settings from file
     readSettings();
 
-    connect(this, SIGNAL(finished()),
+    connect(this, SIGNAL(finished(int)),
             this, SLOT(slotFinished()));
 
     m_import                      = import;
@@ -186,7 +170,7 @@ VkontakteWindow::VkontakteWindow(bool import, QWidget* const parent)
     mainLayout->setMargin(0);
 
     setMainWidget(m_mainWidget);
-    setWindowIcon(KIcon("vkontakte"));
+    setWindowIcon(KIcon("kipi"));
     setButtons(KDialog::Help | KDialog::User1 | KDialog::Close);
     setDefaultButton(Close);
     setModal(false);
@@ -316,6 +300,7 @@ void VkontakteWindow::readSettings()
     m_appId         = grp.readEntry("VkAppId", "2446321");
     m_albumToSelect = grp.readEntry("SelectedAlbumId", -1);
     m_vkapi->setAppId(m_appId);
+    m_vkapi->setRequiredPermissions(Vkontakte::AppPermissions::Photos);
     m_vkapi->setInitialAccessToken(grp.readEntry("AccessToken", ""));
 }
 
@@ -329,19 +314,28 @@ void VkontakteWindow::writeSettings()
     if (!m_vkapi->accessToken().isEmpty())
         grp.writeEntry("AccessToken", m_vkapi->accessToken());
 
-    Vkontakte::AlbumInfoPtr album = m_albumsBox->currentAlbum();
-
-    if (album.isNull())
+    int aid = 0;
+    if (!m_albumsBox->getCurrentAlbumId(aid))
+    {
         grp.deleteEntry("SelectedAlbumId");
+    }
     else
-        grp.writeEntry("SelectedAlbumId", album->aid());
+    {
+        grp.writeEntry("SelectedAlbumId", aid);
+    }
 }
 
 //---------------------------------------------------------------------------
 
-QString VkontakteWindow::getDestinationPath() const
+void VkontakteWindow::closeEvent(QCloseEvent* event)
 {
-    return m_uploadWidget->selectedImageCollection().uploadPath().path();
+    if (!event)
+    {
+        return;
+    }
+
+    slotFinished();
+    event->accept();
 }
 
 void VkontakteWindow::slotFinished()
@@ -360,6 +354,7 @@ void VkontakteWindow::slotButtonClicked(int button)
         case KDialog::Close:
             // TODO: grab better code from picasawebexport/picasawebwindow.cpp:219
             reset();
+            done(KDialog::Close);
             break;
         default:
             KDialog::slotButtonClicked(button);
@@ -399,9 +394,8 @@ void VkontakteWindow::handleVkError(KJob* kjob)
 
 void VkontakteWindow::slotStartTransfer()
 {
-    Vkontakte::AlbumInfoPtr album = m_albumsBox->currentAlbum();
-
-    if (album.isNull())
+    int aid = 0;
+    if (!m_albumsBox->getCurrentAlbumId(aid))
     {
         // TODO: offer the user to create an album if there are no albums yet
         KMessageBox::information(this, i18n("Please select album first."));
@@ -421,7 +415,7 @@ void VkontakteWindow::slotStartTransfer()
         Vkontakte::UploadPhotosJob* const job = new Vkontakte::UploadPhotosJob(m_vkapi->accessToken(),
                                                                                files, 
                                                                                false /*m_checkKeepOriginal->isChecked()*/,
-                                                                               album->aid());
+                                                                               aid);
 
         connect(job, SIGNAL(result(KJob*)),
                 this, SLOT(slotPhotoUploadDone(KJob*)));
@@ -440,7 +434,14 @@ void VkontakteWindow::slotStartTransfer()
 
 void VkontakteWindow::slotPhotoUploadDone(KJob *kjob)
 {
-    SLOT_JOB_DONE_INIT(Vkontakte::UploadPhotosJob)
+    Vkontakte::UploadPhotosJob* const job = dynamic_cast<Vkontakte::UploadPhotosJob*>(kjob);
+    Q_ASSERT(job);
+    m_jobs.removeAll(job);
+
+    if (job == 0 || job->error())
+    {
+        handleVkError(job);
+    }
 
     m_progressBar->hide();
     m_progressBar->progressCompleted();

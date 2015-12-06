@@ -1,15 +1,16 @@
-cmake_minimum_required(VERSION 2.6.4)
+cmake_minimum_required(VERSION 2.8.12)
 project(kvkontakte)
 
 # the version number, needed for
 # - the library version
 # - version detection by cmake
-set(LIBKVKONTAKTE_VERSION_MAJOR 1)
-set(LIBKVKONTAKTE_VERSION_MINOR 0)
+set(LIBKVKONTAKTE_VERSION_MAJOR 4)
+set(LIBKVKONTAKTE_VERSION_MINOR 12)
 set(LIBKVKONTAKTE_VERSION_PATCH 0)
-set(LIBKVKONTAKTE_VERSION ${LIBKVKONTAKTE_VERSION_MAJOR}.${LIBKVKONTAKTE_VERSION_MINOR}.${LIBKVKONTAKTE_VERSION_PATCH} )
-# TODO: calculate the version id properly (here is currently a hack that won't work for 1.10.0):
-set(LIBKVKONTAKTE_VERSION_ID "0x0${LIBKVKONTAKTE_VERSION_MAJOR}0${LIBKVKONTAKTE_VERSION_MINOR}0${LIBKVKONTAKTE_VERSION_PATCH}")
+set(LIBKVKONTAKTE_VERSION "${LIBKVKONTAKTE_VERSION_MAJOR}.${LIBKVKONTAKTE_VERSION_MINOR}.${LIBKVKONTAKTE_VERSION_PATCH}")
+
+# ABI in 4.x releases did not break since the very first version from digiKam SC 2.1.0
+set(LIBKVKONTAKTE_SOVERSION 1)
 
 if(NOT LIB_INSTALL_DIR)
 	set(LIB_INSTALL_DIR lib${LIB_SUFFIX})
@@ -22,7 +23,12 @@ set(INCLUDE_INSTALL_DIR include )
 
 # === Closer to the code, close to the body ===
 SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules)
-find_package(KDE4 REQUIRED)
+
+set(QT_MIN_VERSION  "4.8.0") # Qt 4.8 required for QHttpMultiPart
+set(KDE_MIN_VERSION "4.4.0")
+find_package(Qt4  ${QT_MIN_VERSION}  REQUIRED)
+find_package(KDE4 ${KDE_MIN_VERSION} REQUIRED)
+
 include(KDE4Defaults)
 include(MacroLibrary)
 
@@ -74,3 +80,6 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/LibKVkontakteConfig.cmake ${CMAKE_CURR
 
 macro_display_feature_log()
 
+if (BUILD_TESTING)
+    add_subdirectory(autotests)
+endif (BUILD_TESTING)

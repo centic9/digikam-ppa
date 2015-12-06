@@ -1,0 +1,472 @@
+# translation of kipiplugin_mediawiki.po to Khmer
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_mediawiki\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-05-24 01:57+0000\n"
+"PO-Revision-Date: 2012-07-11 09:55+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+"ratanak@khmeros.info,sophea@khmeros.info"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_wikimediaui.rc:7
+msgid "&Export"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_wikimediaui.rc:13
+msgid "Main Toolbar"
+msgstr ""
+
+#: plugin_wikimedia.cpp:116
+#, fuzzy
+#| msgid "Export to &WikiMedia Commons..."
+msgid "Export to MediaWiki..."
+msgstr "នាំចេញ​ទៅ​ WikiMedia Commons..."
+
+#: wikimediajob.cpp:121
+#, kde-format
+msgid "Error on file '%1'\n"
+msgstr "កំហុស​​​ក្នុង​ឯកសារ '%1'\n"
+
+#: wikimediajob.cpp:125
+#, kde-format
+msgid "Error on file '%1': %2\n"
+msgstr "កំហុស​ក្នុង​ឯកសារ '%1': %2\n"
+
+#: wikimediajob.cpp:156
+msgid "Uploaded via KIPI uploader"
+msgstr ""
+
+#: wmwidget.cpp:127
+#, fuzzy
+#| msgid "Select image"
+msgid "Select an image"
+msgstr "ជ្រើស​រូបភាព"
+
+#: wmwidget.cpp:196
+#, fuzzy
+#| msgid ""
+#| "This is a clickable link to open the Wikimedia home page in a web browser."
+msgid ""
+"This is a clickable link to open the MediaWiki home page in a web browser."
+msgstr "នេះជា​តំណ​ដែល​អាច​ចុច​បាន ដើម្បី​បើក​គេហទំព័រ Wikimedia នៅ​ក្នុង​កម្មវិធីរុករក​បណ្ដាញ​របស់​អ្នក ។"
+
+#: wmwidget.cpp:204
+#, fuzzy
+#| msgid "This is the list of images to upload to your Wikimedia account."
+msgid "This is the list of images to upload to the wiki."
+msgstr "នេះជា​បញ្ជី​រូបភាព​ ត្រូវ​ផ្ទុក​ឡើង​ទៅ​គនណី Wikimedia របស់​អ្នក ។"
+
+#: wmwidget.cpp:229 wmwidget.cpp:397
+#, fuzzy
+#| msgid "This is the login form to your Wikimedia account."
+msgid "This is the login form to your account on the chosen wiki."
+msgstr "នេះ​ជា​ទម្រង់​ចូល​គណនី Wikimedia របស់​អ្នក ។"
+
+#: wmwidget.cpp:250
+msgid "Title:"
+msgstr "ចំណង​ជើង ៖"
+
+#: wmwidget.cpp:252
+msgid "Date:"
+msgstr "កាលបរិច្ឆេទ ៖"
+
+#: wmwidget.cpp:254
+msgid "Description:"
+msgstr "សេចក្ដី​ពណ៌នា ៖"
+
+#: wmwidget.cpp:256
+msgid "Categories:"
+msgstr "ប្រភេទ ៖"
+
+#: wmwidget.cpp:258
+msgid "Latitude:"
+msgstr "រយៈ​ទទឹង ៖"
+
+#: wmwidget.cpp:260
+msgid "Longitude:"
+msgstr "រយៈ​បណ្ដោយ ៖"
+
+#: wmwidget.cpp:290
+#, fuzzy
+#| msgid "This is the login form to your Wikimedia account."
+msgid "This is the login form to your MediaWiki account."
+msgstr "នេះ​ជា​ទម្រង់​ចូល​គណនី Wikimedia របស់​អ្នក ។"
+
+#: wmwidget.cpp:294
+msgid "New"
+msgstr "ថ្មី"
+
+#: wmwidget.cpp:294
+msgid "Add a wiki to this list"
+msgstr ""
+
+#: wmwidget.cpp:299
+#, fuzzy
+#| msgid "Wikimedia commons"
+msgid "Wikimedia Commons"
+msgstr "Wikimedia commons"
+
+#: wmwidget.cpp:300
+#, fuzzy
+#| msgid "Wikimedia:meta"
+msgid "Wikimedia Meta"
+msgstr "Wikimedia:meta"
+
+#: wmwidget.cpp:301
+msgid "Wikipedia"
+msgstr "Wikipedia"
+
+#: wmwidget.cpp:302
+msgid "Wikibooks"
+msgstr "Wikibooks"
+
+#: wmwidget.cpp:303
+msgid "Wikinews"
+msgstr "Wikinews"
+
+#: wmwidget.cpp:304
+msgid "Wikiquote"
+msgstr "Wikiquote"
+
+#: wmwidget.cpp:305
+msgid "Wikisource"
+msgstr "Wikisource"
+
+#: wmwidget.cpp:306
+msgid "Wiktionary"
+msgstr "Wiktionary"
+
+#: wmwidget.cpp:307
+msgid "MediaWiki"
+msgstr "MediaWiki"
+
+#: wmwidget.cpp:308
+#, fuzzy
+#| msgid "Wikia:foto"
+msgid "Wikia Foto"
+msgstr "Wikia:foto"
+
+#: wmwidget.cpp:309
+#, fuzzy
+#| msgid "Wikia:uncyclopedia"
+msgid "Wikia Uncyclopedia"
+msgstr "Wikia:uncyclopedia"
+
+#: wmwidget.cpp:314
+msgid "Wiki:"
+msgstr "Wiki:"
+
+#: wmwidget.cpp:325
+msgid "These are options for adding a Wiki."
+msgstr "ទាំង​នេះ​ជា​ជម្រើស​សម្រាប់​​បន្ថែម​វីគី ។"
+
+#: wmwidget.cpp:330
+msgid "Name:"
+msgstr ""
+
+#: wmwidget.cpp:334
+msgid "API URL:"
+msgstr ""
+
+#: wmwidget.cpp:339
+msgid "Add"
+msgstr "បន្ថែម"
+
+#: wmwidget.cpp:339
+msgid "Add a new wiki"
+msgstr "បន្ថែម​វីគី​ថ្មី"
+
+#: wmwidget.cpp:348
+msgid "Login:"
+msgstr "ចូល ៖"
+
+#: wmwidget.cpp:351
+msgid "Password:"
+msgstr "ពាក្យសម្ងាត់ ៖"
+
+#: wmwidget.cpp:356
+msgid "&Log in"
+msgstr "ចូល"
+
+#: wmwidget.cpp:373
+#, fuzzy
+#| msgctxt "Wikimedia account settings"
+#| msgid "Logged as: "
+msgctxt "Name of the wiki the user is currently logged on"
+msgid "Logged on: "
+msgstr "បាន​ចូល​ជា ៖"
+
+#: wmwidget.cpp:377
+#, fuzzy
+#| msgctxt "Wikimedia account settings"
+#| msgid "Logged as: "
+msgctxt "Username which is used to connect to the wiki"
+msgid "Logged as: "
+msgstr "បាន​ចូល​ជា ៖"
+
+#: wmwidget.cpp:380
+msgid "Change Account"
+msgstr "ផ្លាស់ប្ដូរ​គណនី"
+
+#: wmwidget.cpp:381
+#, fuzzy
+#| msgid "Logout and change Wikimedia Account used for transfer"
+msgid "Logout and change the account used for transfer"
+msgstr "ចេញ ហើយ​ផ្លាស់ប្ដូរ​គណនី Wikimedia ដែល​បាន​ប្រើ​សម្រាប់​ផ្ទេរ"
+
+#: wmwidget.cpp:391
+msgid "Account"
+msgstr "គណនី"
+
+#: wmwidget.cpp:400
+msgid "Author:"
+msgstr "អ្នក​និពន្ធ ៖"
+
+#: wmwidget.cpp:403
+msgid "Source:"
+msgstr ""
+
+#: wmwidget.cpp:406
+msgid "License:"
+msgstr "អាជ្ញាប័ណ្ណ ៖"
+
+#: wmwidget.cpp:409
+msgid "Own work, multi-license with CC-BY-SA-3.0 and GFDL"
+msgstr "ការងារ​​ផ្ទាល់​ខ្លួន អាជ្ញាប័ណ្ណ​ច្រើន​ជា​មួយ CC-BY-SA-3.0 និង GFDL"
+
+#: wmwidget.cpp:411
+msgid "Own work, multi-license with CC-BY-SA-3.0 and older"
+msgstr "ការ​ផ្ទាល់ខ្លួន អាជ្ញាប័ណ្ណ​ច្រើន​ជា​មួយ CC-BY-SA-3.0 និង​កំណែ​ចាស់ៗ"
+
+#: wmwidget.cpp:413
+msgid "Creative Commons Attribution-Share Alike 3.0"
+msgstr "Creative Commons Attribution-Share Alike 3.0"
+
+#: wmwidget.cpp:415
+msgid "Own work, Creative Commons Attribution 3.0"
+msgstr "ការ​ផ្ទាល់​ខ្លួន Creative Commons Attribution 3.0"
+
+#: wmwidget.cpp:417
+msgid "Own work, release into public domain under the CC-Zero license"
+msgstr "ការ​ងារ​ផ្ទាល់​ខ្លួន ចេញ​ផ្សារ​ក្នុង​ដែន​សាធារណៈ ក្រោម​អាជ្ញាប័ណ្ណ CC-Zero"
+
+#: wmwidget.cpp:419
+msgid "Author died more than 100 years ago"
+msgstr "អ្នកនិពន្ធ​ដែល​បាន​ស្លាប់​ជាង ១០០ ឆ្នាំ​មក​ហើយ"
+
+#: wmwidget.cpp:421
+msgid ""
+"Photo of a two-dimensional work whose author died more than 100 years ago"
+msgstr "រូបថត​ការងារ​ពីរ​វិមាត្រ​ដែល​អ្នក​និពន្ធ​របស់​វា​បាន​ស្លាប់​ជាង ១០០ មក​ហើយ"
+
+#: wmwidget.cpp:423
+msgid "First published in the United States before 1923"
+msgstr "បាន​បោះពុម្ពផ្សាយ​លើក​ដំបូង​ក្នុង​សហរដ្ឋអាមេរិក​មុន​ឆ្នាំ ១៩២៣"
+
+#: wmwidget.cpp:425
+msgid "Work of a U.S. government agency"
+msgstr "ការងារ​របស់​ភ្នាក់ងារ​រដ្ឋាភិបាល​របស់​អាមេរិក"
+
+#: wmwidget.cpp:427
+msgid "Simple typefaces, individual words or geometric shapes"
+msgstr "ផ្ទៃ​មុខ​ធម្មតា ពាក្យ​នីមួយៗ ឬ​រាង​ធរណីមាត្រ"
+
+#: wmwidget.cpp:429
+msgid "Logos with only simple typefaces, individual words or geometric shapes"
+msgstr "រូបសញ្ញា​​មាន​តែ​ផ្ទៃមុខ​ធម្មតា ពាក្យ​នីមួយៗ​ ឬ​រាង​ធរណីមាត្រ"
+
+#: wmwidget.cpp:431
+msgid "No license specified (not recommended for public wiki sites)"
+msgstr ""
+
+#: wmwidget.cpp:434
+#, fuzzy
+#| msgid "Categories:"
+msgid "Generic categories:"
+msgstr "ប្រភេទ ៖"
+
+#: wmwidget.cpp:437
+msgid ""
+"This is a place to enter categories that will be added to all the files."
+msgstr ""
+
+#: wmwidget.cpp:440
+msgid "Generic text:"
+msgstr ""
+
+#: wmwidget.cpp:443
+msgid ""
+"This is a place to enter text that will be added to all the files, below the "
+"Information template."
+msgstr ""
+
+#: wmwidget.cpp:447
+#, fuzzy
+#| msgid "Upload Settings"
+msgid "Upload comments:"
+msgstr "កំណត់​ការ​ផ្ទុក​ឡើង"
+
+#: wmwidget.cpp:450
+msgid ""
+"This is a place to enter text that will be used as upload comments. The "
+"default of 'Uploaded via KIPI uploader' will be used if empty."
+msgstr ""
+
+#: wmwidget.cpp:469
+msgid "Information"
+msgstr "ព័ត៌មាន"
+
+#: wmwidget.cpp:475
+msgid "These are options that will be applied to photos before upload."
+msgstr "មាន​​ជម្រើស​ដែល​នឹង​ត្រូវបាន​អនុវត្ត​ទៅ​រូបថត​មុន​នឹង​ផ្ទុក​ឡើង ​។"
+
+#: wmwidget.cpp:479
+msgid "Resize photos before uploading"
+msgstr "ផ្លាស់ប្ដូរ​ទំហំ​រូបថត​មុន​នឹង​ផ្ទុក​ឡើង"
+
+#: wmwidget.cpp:489
+msgid "Maximum size:"
+msgstr "ទំហំ​អតិបរមា ៖"
+
+#: wmwidget.cpp:497
+msgid "JPEG quality:"
+msgstr "គុណភាព JPEG ៖"
+
+#: wmwidget.cpp:500
+msgid "Remove metadata from file"
+msgstr ""
+
+#: wmwidget.cpp:504
+msgid "Remove coordinates from file"
+msgstr ""
+
+#: wmwidget.cpp:518
+msgid "Options"
+msgstr "ជម្រើស"
+
+#: wmwidget.cpp:524
+msgid "Items Properties"
+msgstr "លក្ខណសម្បត្តិ​ធាតុ"
+
+#: wmwidget.cpp:525
+msgid "Upload Settings"
+msgstr "កំណត់​ការ​ផ្ទុក​ឡើង"
+
+#: wmwindow.cpp:112
+#, fuzzy
+#| msgid "MediaWiki"
+msgid "Export to MediaWiki"
+msgstr "MediaWiki"
+
+#: wmwindow.cpp:113
+msgid "Start Upload"
+msgstr "ចាប់ផ្ដើម​ផ្ទុក​ឡើង"
+
+#: wmwindow.cpp:114
+#, fuzzy
+#| msgid "Start upload to Wikimedia Commons"
+msgid "Start upload to MediaWiki"
+msgstr "ចាប់ផ្ដើម​ផ្ទុក​ឡើង​ទៅ Wikimedia Commons"
+
+#: wmwindow.cpp:119 wmwindow.cpp:311
+#, fuzzy
+#| msgid "Wiki Export"
+msgid "MediaWiki export"
+msgstr "នាំចេញ Wiki"
+
+#: wmwindow.cpp:121
+#, fuzzy, kde-format
+#| msgid ""
+#| "A Kipi plugin to export image collection to Wikimedia Commons.\n"
+#| "Using libmediawiki version %1"
+msgid ""
+"A Kipi plugin to export image collection to a MediaWiki installation.\n"
+"Using libmediawiki version %1"
+msgstr ""
+"កម្មវិធី​ជំនួយ Kipi ត្រូវ​នាំចេញ​​សម្រាំង​រូបភាព​ទៅ Wikimedia Commons ។\n"
+"ប្រើកំណែ libmediawiki %1"
+
+#: wmwindow.cpp:124
+msgid "(c) 2011, Alexandre Mendes"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០១១ ដោយ Alexandre Mendes"
+
+#: wmwindow.cpp:126
+msgid "Alexandre Mendes"
+msgstr "Alexandre Mendes"
+
+#: wmwindow.cpp:126
+msgid "Author"
+msgstr "អ្នក​និពន្ធ"
+
+#: wmwindow.cpp:129
+msgid "Guillaume Hormiere"
+msgstr "Guillaume Hormiere"
+
+#: wmwindow.cpp:129 wmwindow.cpp:132 wmwindow.cpp:135
+msgid "Developer"
+msgstr "អ្នក​អភិវឌ្ឍន៍"
+
+#: wmwindow.cpp:132
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: wmwindow.cpp:135
+msgid "Peter Potrowl"
+msgstr "Peter Potrowl"
+
+#: wmwindow.cpp:347
+msgid ""
+"Login error\n"
+"Please check your credentials and try again."
+msgstr ""
+"កំហុស​ក្នុងការ​ចូល\n"
+"សូម​ពិនិត្យ​មើល​ព័ត៌មាន​​ពាក្យ​សម្ងាត់​របស់​អ្នក​ ហើយ​ព្យាយាម​ម្ដ​ងទៀត"
+
+#: wmwindow.cpp:368
+msgid "Upload finished with no errors."
+msgstr "បានបញ្ចប់​ការ​ផ្ទុកឡើង​ដោយ​​គ្មាន​កំហុស ។"
+
+#~ msgid "Url:"
+#~ msgstr "Url ៖"
+
+#, fuzzy
+#~| msgid "This is the Wikimedia account that is currently logged in."
+#~ msgid "This is the account that is currently logged in."
+#~ msgstr "នេះជា​គណនី​ Wikimedia ដែល​បច្ចុប្បន្ន​បាន​ចូល ។"
+
+#~ msgid "Create new wiki"
+#~ msgstr "បង្កើត​វីគី​ថ្មី"
+
+#~ msgid "kamelopedia"
+#~ msgstr "kamelopedia"
+
+#~ msgid "Wikimedia:commons"
+#~ msgstr "Wikimedia:commons"
+
+#~ msgid "Export to Wikimedia Commons"
+#~ msgstr "នាំចេញ​ទៅ Wikimedia Commons"
+
+#~ msgid "Wikimedia Commons Export"
+#~ msgstr "កា​រនាំចេញ​របស់ Wikimedia Commons"

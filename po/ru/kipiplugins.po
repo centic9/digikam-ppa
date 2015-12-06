@@ -3,21 +3,21 @@
 #
 # Шмелёв Артемий Геннадьевич <sgartjom@mail.ru>, 2008.
 # Nick Shaforostoff <shaforostoff@kde.ru>, 2009.
-# Alexander Potashev <aspotashev@gmail.com>, 2009, 2010, 2011.
+# Alexander Potashev <aspotashev@gmail.com>, 2009, 2010, 2011, 2015.
 # Yuri Efremov <yur.arh@gmail.com>, 2010, 2011, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-01-01 01:44+0000\n"
-"PO-Revision-Date: 2013-03-28 23:20+0400\n"
-"Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
+"POT-Creation-Date: 2015-06-02 01:59+0000\n"
+"PO-Revision-Date: 2015-05-10 00:03+0300\n"
+"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -99,10 +99,8 @@ msgid "Handbook"
 msgstr "Руководство пользователя"
 
 #: libkipiplugins/tools/kpaboutdata.h:54
-#, fuzzy
-#| msgid "Copyright 2003-2013, kipi-plugins team"
 msgid "Copyright 2003-2015, digiKam developers team"
-msgstr "© Команда KIPI Plugins, 2003-2013"
+msgstr "© Команда разработчиков digiKam, 2003-2015"
 
 #: libkipiplugins/tools/kpbinaryiface.cpp:150
 #, kde-format
@@ -221,11 +219,11 @@ msgstr "Загрузить сохранённый список."
 msgid "Save the list."
 msgstr "Сохранить список."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:938
+#: libkipiplugins/widgets/kpimageslist.cpp:980
 msgid "Select the image file list to load"
 msgstr "Выберите список файлов изображений для загрузки"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:994
+#: libkipiplugins/widgets/kpimageslist.cpp:1036
 msgid "Select the image file list to save"
 msgstr "Выберите список файлов изображений для сохранения"
 
@@ -343,7 +341,7 @@ msgstr ""
 "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
 "</td>\n"
 "<td>\n"
-"Знаете ли вы, что можно прервать слайд-шоу нажатием клавиши <b>ESC</b>?\n"
+"Знаете ли вы, что можно прервать слайд-шоу нажатием клавиши <b>Esc</b>?\n"
 "</td>\n"
 "</tr>\n"
 "</table>\n"
@@ -700,22 +698,6 @@ msgstr ""
 
 #. i18n: ectx: @info:tipoftheday
 #: tips:224
-#, fuzzy
-#| msgid ""
-#| "<p>\n"
-#| "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
-#| "\">\n"
-#| "<tr>\n"
-#| "<td>\n"
-#| "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-#| "</td>\n"
-#| "<td>\n"
-#| "Did you know that Kipi plugins can also be used in Digikam, Kimdaba, "
-#| "Showimg, and Gwenview programs?\n"
-#| "</td>\n"
-#| "</tr>\n"
-#| "</table>\n"
-#| "</p>\n"
 msgid ""
 "<p>\n"
 "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
@@ -739,7 +721,7 @@ msgstr ""
 "</td>\n"
 "<td>\n"
 "Знаете ли вы, что модули расширения KIPI можно использовать в Digikam, "
-"Kimdaba, Showimg и Gwenview?\n"
+"KPhotoAlbum, Showfoto и Gwenview?\n"
 "</td>\n"
 "</tr>\n"
 "</table>\n"

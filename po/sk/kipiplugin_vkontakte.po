@@ -1,0 +1,300 @@
+# translation of kipiplugin_vkontakte.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2011.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_vkontakte\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"PO-Revision-Date: 2013-10-27 23:05+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: albumchooserwidget.cpp:53
+msgctxt "@title:group Header above controls for managing albums"
+msgid "Album"
+msgstr "Album"
+
+#: albumchooserwidget.cpp:58
+msgid "This is the VKontakte album that will be used for the transfer."
+msgstr "Toto je album Vkontakte, ktorý sa použije na prenos."
+
+#: albumchooserwidget.cpp:64
+msgid "New Album"
+msgstr "Nový album"
+
+#: albumchooserwidget.cpp:64
+msgid "Create new VKontakte album"
+msgstr "Vytvoriť nový album Vkontakte"
+
+#: albumchooserwidget.cpp:65
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "Znovu načítať"
+
+#: albumchooserwidget.cpp:66
+msgid "Reload albums list"
+msgstr "Obnoviť zoznam albumov"
+
+#: albumchooserwidget.cpp:69
+msgid "Edit selected album"
+msgstr "Upraviť vybraný album"
+
+#: albumchooserwidget.cpp:74
+msgid "Delete selected album"
+msgstr "Vymazať vybraný album"
+
+#: albumchooserwidget.cpp:285
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
+"in it?</qt>"
+msgstr ""
+"<qt>Určite chcete odstrániť album <b>%1</b> vrátane všetkých fotiek v ňom?</"
+"qt>"
+
+#: albumchooserwidget.cpp:286
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Potvrdenie vymazania albumu"
+
+#: albumchooserwidget.cpp:385
+msgid "Internal error: Null pointer to KJob instance."
+msgstr ""
+
+#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+msgctxt "@title:window"
+msgid "Request to VKontakte failed"
+msgstr "Požiadavka na Vkontakte zlyhala"
+
+#: authinfowidget.cpp:58
+msgid "Account"
+msgstr "Účet"
+
+#: authinfowidget.cpp:63
+msgid "This account is used for authentication."
+msgstr "Tento účet sa používa na overenie."
+
+#: authinfowidget.cpp:67
+msgid "Name:"
+msgstr "Názov:"
+
+#: authinfowidget.cpp:68
+msgid "Your VKontakte login"
+msgstr "Váš login Vkontakte"
+
+#: authinfowidget.cpp:71
+msgid "Change Account"
+msgstr "Zmeniť účet"
+
+#: authinfowidget.cpp:72
+msgid "Change VKontakte account used to authenticate"
+msgstr "Zmeniť účet Vkontakte použitý na overenie"
+
+#: authinfowidget.cpp:133
+#, kde-format
+msgctxt "Concatenation of first name (%1) and last name (%2)"
+msgid "%1 %2"
+msgstr ""
+
+#: authinfowidget.cpp:150
+msgid "Unauthorized"
+msgstr "Neautorizovaný"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_vkontakteui.rc:7
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_vkontakteui.rc:13
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: plugin_vkontakte.cpp:88
+msgid "Export to &VKontakte..."
+msgstr "Exportovať do &VKontakte..."
+
+#: vkalbumdialog.cpp:72
+msgctxt "@title:window"
+msgid "Edit album"
+msgstr "Upraviť album"
+
+#: vkalbumdialog.cpp:73
+msgctxt "@title:window"
+msgid "New album"
+msgstr "Nový album"
+
+#: vkalbumdialog.cpp:81
+msgctxt "@title:group Header above Title and Summary fields"
+msgid "Album"
+msgstr "Album"
+
+#: vkalbumdialog.cpp:82
+msgid "These are basic settings for the new VKontakte album."
+msgstr "Toto sú základné nastavenia pre nový album Vkontakte."
+
+#: vkalbumdialog.cpp:85
+msgid "Title of the album that will be created (required)."
+msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
+
+#: vkalbumdialog.cpp:88
+msgid "Description of the album that will be created (optional)."
+msgstr "Popis albumu, ktorý bude vytvorený (voliteľné)."
+
+#: vkalbumdialog.cpp:92
+msgid "Title:"
+msgstr "Titul:"
+
+#: vkalbumdialog.cpp:93
+msgid "Summary:"
+msgstr "Súhrn:"
+
+#: vkalbumdialog.cpp:96
+msgid "Privacy Settings"
+msgstr "Nastavenie súkromia"
+
+#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+msgid "Only me"
+msgstr "Iba ja"
+
+#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+msgid "My friends"
+msgstr "Moji priatelia"
+
+#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+msgid "Friends of my friends"
+msgstr "Priatelia mojich priateľov"
+
+#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+msgid "Everyone"
+msgstr "Všetci"
+
+#: vkalbumdialog.cpp:104
+msgid "Album available to:"
+msgstr "Album dostupný do:"
+
+#: vkalbumdialog.cpp:112
+msgid "Comments available to:"
+msgstr "Komentáre dostupné pre:"
+
+#: vkalbumdialog.cpp:140
+msgid "Title cannot be empty."
+msgstr "Titulok nemôže byť prázdny."
+
+#: vkalbumdialog.cpp:141
+msgid "Error"
+msgstr "Chyba"
+
+#: vkwindow.cpp:108
+msgid "This is the list of images to upload to your VKontakte album."
+msgstr "Toto je zoznam obrázkov na nahranie do vášho albumu Vkontakte."
+
+#: vkwindow.cpp:114
+msgid ""
+"This is a clickable link to open the VKontakte service in a web browser."
+msgstr ""
+"Toto je klikateľný odkaz na otvorenie služby Vkontakte vo webovom "
+"prehliadači."
+
+#: vkwindow.cpp:132
+msgid "Destination"
+msgstr "Cieľ"
+
+#: vkwindow.cpp:133
+msgid "This is the location where VKontakte images will be downloaded."
+msgstr "Toto je umiestnenie, kam sa stiahnu obrázky Vkontakte."
+
+#: vkwindow.cpp:141
+msgid "Options"
+msgstr "Možnosti"
+
+#: vkwindow.cpp:142
+msgid "These are options that will be applied to images before upload."
+msgstr "Toto sú voľby, ktoré sa použijú na obrázky pred nahraním."
+
+#: vkwindow.cpp:180
+msgctxt "@title:window"
+msgid "Export to VKontakte Web Service"
+msgstr "Exportovať na webovú službu Vkontakte"
+
+#: vkwindow.cpp:182
+msgid "Start Upload"
+msgstr "Spustiť odoslanie"
+
+#: vkwindow.cpp:183
+msgid "Start upload to VKontakte service"
+msgstr "Spustiť nahrávanie na službu Vkontakte"
+
+#: vkwindow.cpp:194
+msgid "VKontakte Plugin"
+msgstr "VKontakte Plugin"
+
+#: vkwindow.cpp:197
+msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgstr ""
+"Kopi plugin na export obrázkov kolekcií obrázkov na webovú služby Vkontakte."
+
+#: vkwindow.cpp:199
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2013, Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Alexander Potashev"
+msgstr "Alexander Potashev"
+
+#: vkwindow.cpp:205
+msgid "Author"
+msgstr "Autor"
+
+#: vkwindow.cpp:275
+msgid "Close"
+msgstr "Zavrieť"
+
+#: vkwindow.cpp:276
+msgid "Close window"
+msgstr "Zavrieť okno"
+
+#: vkwindow.cpp:283
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: vkwindow.cpp:284
+msgid "Cancel current operation"
+msgstr "Zrušiť aktuálnu operáciu"
+
+#: vkwindow.cpp:383
+msgid "VKontakte"
+msgstr "Vkontakte"
+
+#: vkwindow.cpp:401
+msgid "Please select album first."
+msgstr "Prosím, najprv vyberte album"
+
+#: vkwindow.cpp:431
+msgid "Vkontakte Export"
+msgstr "Vkontakte Export"

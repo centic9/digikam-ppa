@@ -1,0 +1,219 @@
+# translation of kipiplugin_imgurexport.po to Slovak
+# Roman Paholík <wizzardsk@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_imgurexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2013-10-27 12:16+0100\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Roman Paholík"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "wizzardsk@gmail.com"
+
+#: imgurimageslist.cpp:50
+msgid "Thumbnail"
+msgstr "Miniatúra"
+
+#: imgurimageslist.cpp:55
+msgid "Submission title"
+msgstr "Názov podania"
+
+#: imgurimageslist.cpp:58
+msgid "Submission description"
+msgstr "Popis podania"
+
+#: imgurimageslist.cpp:61
+msgid "Imgur URL"
+msgstr "Imgur URL"
+
+#: imgurimageslist.cpp:64
+msgid "Imgur Delete URL"
+msgstr "Imgur vymazať URL"
+
+#: imgurtalker.cpp:149
+msgid "Unexpected response from the web service"
+msgstr "Neočakávaná odpoveď z webovej služby"
+
+#: imgurtalker.cpp:166
+msgid "Upload failed"
+msgstr "Odoslanie zlyhalo"
+
+#: imgurtalker.cpp:407
+msgid "Parse error"
+msgstr "Chyba spracovania"
+
+#: imgurtalkerauth.cpp:94
+msgid "Network error: timeout, cannot connect."
+msgstr "Chyba siete: timeout, nemôžem pripojiť."
+
+#: imgurtalkerauth.cpp:97
+msgid "Request endpoint is not valid."
+msgstr "Koncový bod požiadavky nie je platný."
+
+#: imgurtalkerauth.cpp:100
+msgid "Request is not valid: some parameter missing?"
+msgstr "Požiadavka nie je platná: chýbajú nejaké parametre?"
+
+#: imgurtalkerauth.cpp:103
+msgid "Authorization error: trying to access a resource without tokens."
+msgstr "Chyba overenia: pokus o prístup k zdroju bez tokenov."
+
+#: imgurtalkerauth.cpp:106
+msgid "The given request is invalid."
+msgstr "Daná požiadavka je neplatná."
+
+#: imgurtalkerauth.cpp:109
+msgid "Manager error, cannot use for sending requests."
+msgstr "Chyba správcu, nemôžem použiť na posielanie požiadaviek."
+
+#: imgurtalkerauth.cpp:113
+msgid "No error"
+msgstr "Žiadna chyba"
+
+#: imgurtalkerauth.cpp:249
+msgid "OK"
+msgstr "OK"
+
+#: imgurwidget.cpp:86
+msgid "This is a clickable link to open the Imgur home page in a web browser"
+msgstr ""
+"Toto je klikateľný odkaz na otvorenie domovskej stránky vo webovom "
+"prehliadači"
+
+#: imgurwidget.cpp:103
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: imgurwidget.cpp:104
+msgid "Export to Imgur"
+msgstr "Export do Imgur"
+
+#: imgurwidget.cpp:112
+msgid "Imgur authorization"
+msgstr "Overenie Imgur"
+
+#: imgurwidget.cpp:113
+msgid ""
+"Requesting Imgur for authorization to upload images with the KIPI Imgur "
+"Exporter plugin."
+msgstr ""
+"Vyžaduje sa overenie Imgur na nahranie obrázkov s pluginom KIPI Imgur "
+"Exporter."
+
+#: imgurwidget.cpp:120
+msgid "Request authorization"
+msgstr "Požadovať overenie "
+
+#: imgurwidget.cpp:121
+msgid "Set permissions for the current application to upload images to Imgur."
+msgstr "Nastaviť práva pre aktuálnu aplikáciu na nahranie obrázkov do Imgur."
+
+#: imgurwidget.cpp:229
+#, kde-format
+msgid "Processing %1"
+msgstr "Spracúva sa %1"
+
+#: imgurwidget.cpp:275
+msgid "Authenticated"
+msgstr "Overený"
+
+#: imgurwindow.cpp:76
+msgid "Export to imgur.com"
+msgstr "Export do imgur.com"
+
+#: imgurwindow.cpp:80
+msgid "Upload"
+msgstr "Odoslať"
+
+#: imgurwindow.cpp:80
+msgid "Start upload to Imgur"
+msgstr "Spustiť upload do Imgur"
+
+#: imgurwindow.cpp:88
+msgid "Imgur Export"
+msgstr "Imgur Export"
+
+#: imgurwindow.cpp:91
+msgid "A tool to export images to Imgur web service"
+msgstr "Nástroj na export obrázkov do webovej služby Imgur"
+
+#: imgurwindow.cpp:92
+msgid "(c) 2012-2013, Marius Orcsik"
+msgstr "(c) 2012-2013, Marius Orcsik"
+
+#: imgurwindow.cpp:94
+msgid "Marius Orcsik"
+msgstr "Marius Orcsik"
+
+#: imgurwindow.cpp:94
+msgid "Author and Maintainer"
+msgstr "Autor a správca"
+
+#: imgurwindow.cpp:97
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: imgurwindow.cpp:97
+msgid "Developer"
+msgstr "Vývojár"
+
+#: imgurwindow.cpp:206
+#, kde-format
+msgid ""
+"Failed to upload photo to Imgur: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Zlyhalo nahranie fotky do Imgur: %1\n"
+"Chcete pokračovať?"
+
+#: imgurwindow.cpp:220
+#, kde-format
+msgid "Failed to upload photo to Imgur: %1\n"
+msgstr "Zlyhalo nahranie fotky do Imgur: %1\n"
+
+#: imgurwindow.cpp:238
+#, kde-format
+msgctxt "%1 is the error string"
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"%1\n"
+"Do you want to continue?"
+msgstr ""
+"Zlyhalo overenie do Imgur.\n"
+"%1\n"
+"Chcete pokračovať?"
+
+#: imgurwindow.cpp:243
+msgid ""
+"Failed to authenticate to Imgur.\n"
+"Do you want to continue?"
+msgstr ""
+"Zlyhalo overenie do Imgur.\n"
+"Chcete pokračovať?"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_imgurexportui.rc:7
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_imgurexportui.rc:13
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: plugin_imgurexport.cpp:104
+msgid "Export to &Imgur..."
+msgstr "Export do &Imgur..."

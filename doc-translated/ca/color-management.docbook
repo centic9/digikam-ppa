@@ -1,0 +1,957 @@
+ <sect1 id="raw-decoding"
+>           <title
+>Gestió del color i tractament de fitxers RAW</title>
+
+     <note
+><para
+>Aquest article/guia d'aprenentatge sobre tot ha estat escrit per Elle Stone, gràcies per aquesta contribució. Simplement el vaig adaptar a la implementació concreta del &digikam;.</para
+></note>
+    <sect2 id="CM-intro"
+>            <title
+>Introducció</title>
+      <para
+>El punt d'un flux de treball per a la gestió del color és garantir que els colors que vénen de la càmera o escàner tenen una relació predictible amb els colors que realment heu fotografiat o escanejat, que els colors que es mostren en el monitor coincideixin amb els colors que vénen de la càmera o escàner, i que els colors que imprimiu o mostreu al web coincideixen amb els colors que es produeixen a la cambra fosca digital.</para>
+
+      <sect3 id="buttons-to-push"
+>     <title
+>Quins botons premo?</title>
+         <para
+>Quan es tracta de la gestió del color, tothom vol saber, «quins botons haig de prémer per obtenir els resultats que vull». Malauradament, la gestió del color de necessitat implica fer eleccions informades en cada pas al llarg del flux de treball del processament d'imatges. El propòsit d'aquesta guia d'aprenentatge és proporcionar prou informació bàsica sobre la gestió del color, juntament amb enllaços a més informació en profunditat, per a que pugueu començar prendre les vostres pròpies decisions, en funció dels vostres resultats desitjats.</para>
+      </sect3>
+
+      <sect3 id="CM-needed"
+>     <title
+>Hi ha algú que no hagi de preocupar-se sobre la gestió del color?</title>
+        <para
+>Si el flux de treball amb les imatges compleix els sis criteris enumerats a continuació, llavors no haureu de preocupar-vos per la gestió del color. </para>
+        <orderedlist>
+            <listitem
+><para
+>esteu treballant en un monitor calibrat correctament a l'espai de color sRGB (més sobre això més endavant)</para
+></listitem>
+            <listitem
+><para
+>el vostre flux de treball amb les imatges comença amb una càmera que produeix JPEG en l'espai de color sRGB</para
+></listitem>
+            <listitem
+><para
+>treballeu exclusivament en l'espai de color sRGB per a l'edició</para
+></listitem>
+            <listitem
+><para
+>la vostra impressora vol imatges en l'espai de color sRGB</para
+></listitem>
+            <listitem
+><para
+>el vostre escàner produeix imatges en l'espai de color sRGB</para
+></listitem>
+            <listitem
+><para
+>la vostra única altre sortida de la imatge és a través de correu electrònic o el web, on sRGB és l'estàndard de facto</para
+></listitem>
+       </orderedlist>
+
+      </sect3>
+     </sect2>
+
+     <sect2 id="sRGB"
+>            <title
+>L'espai de color sRGB</title>
+       <sect3
+>                   <title
+>Què té d'especial l'espai de color sRGB?</title>
+         <para
+>sRGB és àmpliament acceptat com un perfil de color estàndard per gairebé tothom involucrat amb les imatges orientades al consumidor. sRGB va ser proposat al 1996 per Hewlett Packard i Microsoft com un espai de color estàndard per a aplicacions orientades al consumidor. Com s'indica en la proposta inicial d'HP/MS: <blockquote
+><para
+>Hewlett-Packard i Microsoft proposaren afegir el suport per a un espai de color estàndard, sRGB, dins dels sistemes operatius de Microsoft, els productes d'HP, Internet, i tots els altres proveïdors interessats. L'objectiu d'aquest espai de color és complementar les estratègies actuals de gestió del color permetent un tercer mètode de gestió del color en els sistemes operatius, controladors de dispositiu i Internet que utilitza una simple i robusta definició del color independent del dispositiu. Això proporcionarà bona qualitat i compatibilitat enrere amb la transmissió mínima i la sobrecàrrega del sistema. Sobre la base d'un espai de color RGB colorimètric calibrat adequadament per a un tub de raigs catòdics (Cathode Ray Tube -CRT-), televisió, escàners, càmeres digitals i sistemes d'impressió, com un espai pot estar suportat amb un cost mínim pels distribuïdors de programari i maquinari...</para
+></blockquote
+> <blockquote
+><para
+>En l'actualitat, l'ICC [International Color Consortium]... segueix i assegura que un color està correctament assignat des de l'entrada fins a l'espai de color de sortida... adjuntant un perfil per a l'espai de color d'entrada a la imatge en qüestió. Això és apropiat per a usuaris avançats. No obstant, hi ha una àmplia varietat d'usuaris que no requereixen aquest nivell de flexibilitat i control. A més, els formats de fitxer més actuals no ho fan, i no poden suportar el perfil de color incrustat, i finalment, hi ha una àmplia varietat d'usos que realment dissuadeixen a la gent d'afegir dades addicionals als seus fitxers. Un espai de color RGB estàndard comú s'ocupa d'aquestes qüestions... fusionant les nombroses normes i espais RGB del monitor no estàndard en un únic espai de color RGB estàndard. La norma podria millorar extraordinàriament la fidelitat del color en l'entorn d'escriptori. Per exemple, si els distribuïdors de sistemes operatius proporcionen suport per a un espai de color RGB estàndard, els fabricants de dispositius d'entrada i sortida que admeten aquest espai de color estàndard podran comunicar els colors amb facilitat i confidencialitat sense més despeses en la gestió del color en les situacions més comunes. (<ulink url="http://www.w3.org/Graphics/Color/sRGB"
+>còpia arxivada</ulink
+>)</para
+></blockquote
+> En resum, el motiu pel que s'adopta universalment l'espai de color sRGB era i és fer més fàcil la vida als consumidors (no hi ha necessitat de preocupar-se per la gestió del color), menys costós pels fabricants (no és necessari preocupar-se per la compatibilitat a nivell del consumidor de càmeres o escàners digitals, monitors, impressores, i així successivament), i més convenient per a mostrar imatges a Internet (no haureu de preocupar-vos per l'incrustat i lectura dels perfils ICC -simplement assumiu sRGB-).</para>
+       <para
+><emphasis
+>Així que si sRGB funciona tan bé i fa la vida més fàcil per a tothom, per què utilitzar qualsevol altre espai de color i d'aquesta manera veure's obligat a preocupar-se pels assumptes de la gestió del color?</emphasis
+></para>
+       <para
+>sRGB es va dissenyar per contenir colors mostrats amb facilitat en monitors i impressores orientades al consumidor i impressores orientades al consumidor fabricades el 1996. Aquest conjunt denominador comú mínim dels colors visibles i imprimibles -el terme tècnic és «gamma de colors»- és molt més petit que el conjunt de colors que podem veure en el món real, molt més petit que el conjunt de colors que poden capturar les càmeres digitals d'avui en dia, molt més petit que el conjunt de colors que poden imprimir les impressores d'avui en dia, i molt menor que la gamma de colors que els nous monitors de gamma expandida que estan començant a entrar en el mercat de consum. Per a qualsevol que vulgui utilitzar les més àmplies gammes de colors disponibles en l'actualitat, fins i tot a nivell de consumidor, la gamma sRGB és massa petita. Per contra, si no teniu la intenció d'utilitzar una gamma més àmplia de colors en qualsevol punt del vostre flux de treball amb les imatges digitals, llavors no heu de preocupar-vos sobre els espais de color que no siguin sRGB i totes les complexitats que acompanyen a la gestió del color.</para>
+       </sect3>
+       <sect3
+>                   <title
+>Com de petit és sRGB?</title
+> 
+          <para
+>A continuació es mostra una representació visual de les limitacions de sRGB comparada amb els colors que realment veiem al món real. Es mostra una representació bidimensional de tots els colors que podem veure (la regió en forma de ferradura) i els colors continguts en l'espai sRGB (la regió triangular més petita).</para>
+          <para>
+          <screenshot>
+          <screeninfo
+></screeninfo>
+          <mediaobject>
+           <imageobject>
+            <imagedata fileref="&path;542px-CIExy1931_sRGB_svg.png" format="PNG"/>
+           </imageobject>
+           <textobject>
+            <phrase
+></phrase>
+           </textobject>
+          </mediaobject>
+          </screenshot>
+          </para>
+          <para
+>Si voleu veure una representació bidimensional de sRGB comparada amb alguns dels espais de color de treball més grans, veure l'excel·lent <ulink url="http://www.brucelindbloom.com/"
+>lloc</ulink
+> d'en Bruce Lindbloom, feu clic a «Info» i després a «Informació sobre els espais de treball RGB».</para>
+       </sect3>
+     </sect2>
+
+     <sect2 id="profile-monitor"
+> <title
+>Calibrar i ajustar el perfil del vostre monitorRGB?</title
+> 
+          <sect3
+> <title
+>Si trio treballar exclusivament en l'espai de color sRGB, haig de calibrar el meu monitor? </title>
+          <para
+>Sí! Si us trobeu o no dins de la gamma de colors proporcionada per sRGB, necessitareu un monitor calibrat correctament doncs sRGB assumeix que el vostre monitor està calibrat per a sRGB. El calibratge del vostre monitor tanca el bucle. Si treballeu dins de la gamma de colors proporcionada per sRGB llavors necessitareu calibrar el monitor amb l'estàndard sRGB (o generar i utilitzar un perfil del monitor precís, o ambdós). </para>
+          </sect3>
+          <sect3
+> <title
+>Quines són les conseqüències de treballar amb un monitor sense calibrar?</title>
+          <para
+>Hi ha diverses conseqüències possibles, cap d'elles bona. Cada monitor, calibrat o d'altra manera, té un punt blanc natiu (sense calibrar), expressat com una temperatura en graus Kelvin. El punt blanc d'un monitor (calibrat o no) és el color que veieu quan esteu observant un tros de color blanc pur a la vostra pantalla. El blanc pur és quan els valors RGB en la vostra són tots iguals que 255 (expressat en 8 bits), com el fons blanc d'una pàgina web o d'un document d'oficina. Esteu pensant, «el blanc és blanc», però si sou capaç d'alinear diversos monitors calibrats per a diferents punts blancs, us adonareu que com més gran sigui la temperatura del punt blanc al monitor, més blava es veurà la pantalla en comparació amb monitors amb punts blancs més baixos. Si podeu trobar els controls del vostre propi monitor, canvieu la temperatura amunt i avall (recordant establir-ho a la posició inicial quan hagueu acabat, llevat que decidiu que voleu un punt blanc diferent). Els vostres ulls, s'adaptaran ràpidament a un punt blanc constant, i percebran que la pantalla és més blava i groga a mesura que moveu el punt blanc amunt i avall. Si el vostre monitor sense calibrar és massa blau (la temperatura del color CRT nativa sol ser 9300K i sRGB assumeix 6500K), quan editeu la vostra imatge es compensarà en excés i es presentaran imatges que es veuran de color groguenc i molt calentes en un monitor calibrat correctament. Per contra, si el monitor és massa grog perquè la temperatura del color és massa baixa (crec que la temperatura de color natiu de LCD està al voltant de 5500K), les vostres imatges es veuran blavoses/massa fredes en un monitor calibrat correctament. </para>
+          <para
+>Establir un punt blanc adequat és només una part del calibratge del monitor. També necessitareu un punt negre apropiat, la brillantor (luminància), i la funció gamma (transferència). Si el vostre monitor és massa fosc a causa que el punt negre és massa baix, compensarà en excés i presentarà imatges que es veuran esvaïdes en un monitor calibrat correctament. Per contra, si el punt negre de la pantalla és massa alt, les imatges es veuran fosques i excessivament saturades en un monitor calibrat correctament. </para>
+          <para
+>Si la brillantor/contrast és massa alta, assumireu que les vostres imatges tenen molt més «pop» del que realment tenen quan es veuen en un monitor calibrat correctament, a més que els vostres ulls es feriran i la pantalla LCD es cremarà més ràpidament. </para>
+          <para
+>Si la gamma del vostre monitor està establerta de forma inadequada, les seves variacions tonals de més fosc a més clar estaran desactivades. És a dir, les ombres o reflexos poden ser excessivament comprimides o esteses, el que permet compensar en la direcció oposada. De manera que quan es veu sobre un monitor calibrat correctament, les ombres poden ser massa brillants o fosques (o els reflexos massa foscs o brillants), amb la resta de la imatge patint excés de compressió tonal. I que el cel us ajudi si les armes R, G i B internes (o equivalent LCD) del vostre monitor estan adequadament establertes (cada arma té el seu propi punt negre i guany), a causa que els matisos de color resultant -molt verd, molt magenta, molt taronja, &etc;, que inevitablement heu creat per «corregir» la vostra imatge durant l'edició- són molt evidents quan s'observa en un monitor calibrat correctament. </para>
+          <para
+>Independentment de si el vostre monitor està calibrat correctament, us podeu sorprendre amb els resultats de comparar la imatge que heu editat en el vostre monitor de casa a la mateixa imatge mostrada en altres monitors a casa vostra, a la d'un amic i en els monitors dels veïns. Sens dubte eren -tenim dos monitors Trinitron de Sony a casa nostra, un amb una arma verda errònia (massa alta) i un altre amb una arma blava errònia (massa alta). Cada imatge editada en qualsevol dels monitors es veia molt malament en un altre monitor, fins que vam comprar un espectrofotòmetre per calibrar i ajustar el perfil dels dos monitors. Malauradament, en aquest moment cap dels dos monitors es pot calibrar per mostrar un punt negre adequat, pel que ja no els utilitzem per a l'edició d'imatges -el punt està en que un benefici addicional d'utilitzar un espectrofotòmetre és saber quan és el moment de substituir el vostre monitor-.</para>
+         </sect3>
+          <sect3
+> <title
+>El significat de «punt negre» i «brillantor» sembla força clar, però què vol dir «gamma»?</title>
+          <para
+>Veure <ulink url="http://en.wikipedia.org/wiki/Gamma_correction"
+>aquest article de la Wikipedia</ulink
+> per a un resum del paper de la gamma en els monitors i la fotografia. Els enllaços a la part inferior d'aquest article són tots excel·lents fonts d'informació addicional. La Wikipedia diu «compressió de gamma, també coneguda com a codificació de gamma, s'utilitza per a codificar la luminància lineal o valors RGB en senyals de vídeo o valors de fitxers de vídeo digital. Expansió gamma és el procés invers, o de descodificació... La codificació gamma ajuda a crear mapes de dades (tant analògics com digitals) en un domini perceptivament més uniforme». Sí, ho sé, clar com el fang. Llegir l'article de la Wikipedia i estudiar les imatges. Finalment això s'enfonsarà. Si aprofundiu molt en l'edició d'imatges i la gestió del color, amb el temps haureu de prendre decisions sobre la gamma (o una altra funció de codificació/descodificació) que voleu utilitzar quan calibreu el vostre monitor, ajusteu el perfil de la vostra càmera digital, i escolliu un espai de color de treball. En cas de dubte (per a aquells que només volen saber quin botó prémer!), gamma=2.2 és un valor molt utilitzat, tant pel calibratge del monitor com pels espais de color de treball.</para>
+         </sect3>
+          <sect3
+> <title
+>Quina és la diferència entre calibrar un monitor i ajustar el perfil d'un monitor? </title>
+          <para
+>Quan aprenem per primera vegada sobre la gestió del color, moltes persones estan confoses sobre la diferència entre el calibratge i l'ajustament del perfil d'un monitor (ho sé, em va passar). Citant l'excel·lent debat d'en Hal Engel en el fòrum d'usuaris de &digikam;:</para>
+             <blockquote
+><para
+>El calibratge és un procés en el qual un dispositiu es posa en algun estat definit per fer ajustos als seus controls o algun altre mitjà físic. Per exemple, l'acte de calibrar un monitor consisteix en ajustar el punt blanc, el nivell negre, lluminositat i gamma als valors predeterminats o estàndard que utilitzen els controls del monitor i alterant el desnivell de gamma de la targeta de vídeo... En contrast amb el calibratge, el procés de crear un perfil és una caracterització del dispositiu que no implica fer canvis o ajustos en el dispositiu. Més aviat es tracta d'un procés de mesurament que es tradueix en un fitxer que conté una precisa descripció matemàtica del color al dispositiu i les característiques de tonalitat. Aquest fitxer és un perfil ICC. Aquestes característiques inclouen la funció de transferència des de l'espai de color del dispositiu a un espai de color absolut estàndard (això s'anomena Perfil de l'espai de color, PCS, en un perfil ICC), el punt blanc del dispositiu, punt negre, eleccions prèvies i altra informació. Les pantalles normalment es caracteritzen (ajusten el perfil) en el seu estat de calibratge. En resum, el calibratge realitza canvis en el dispositiu per alterar les seves característiques de reproducció del color per adaptar-se a un estat predeterminat. Ajustar el perfil o caracteritzar és un procés de mesura que es tradueix en una descripció detallada de les característiques de reproducció de color del dispositiu (normalment calibrat). (citat des d'<ulink url="http://digikam.1695700.n4.nabble.com/Re-Color-Managed-View-How-td1739136.html#a14160285"
+>aquí</ulink
+>)</para
+></blockquote>
+
+          <para
+>Tècnicament, el calibratge del vostre monitor no és realment part de la gestió del color. Però, òbviament, un monitor calibrat i/o ajustat el perfil correctament és un requisit previ per a un flux de treball amb la gestió del color. Aquesta guia d'aprenentatge no cobreix els temes importants sobre com calibrar i ajustar el perfil d'un monitor. La documentació de <ulink url="http://www.argyllcms.com/"
+>ArgyllCMS </ulink
+> i <ulink url="http://lprof.sourceforge.net/"
+>LProf </ulink
+> és molt bona i de lectura recomanable. Per utilitzar qualsevol d'aquest programari per calibrar i/o ajustar el perfil del vostre monitor, necessitareu un espectrofotòmetre. Un espectrofotòmetre (de vegades anomenat «aranya») és un dispositiu per a mesurar els valors RGB de mostres de color projectades sobre la pantalla del monitor pel programari de calibratge/perfil com «Argyll» i «LProf». El lloc web de «Argyll» manté una llista actualitzada dels espectrofotòmetres admesos. Crec que «LProf» pot utilitzar totes els espectrofotòmetres que pot utilitzar «Argyll», ja que els dos programes comparteixen les seccions apropiades del codi. </para>
+         </sect3>
+          <sect3
+> <title
+>Puc calibrar el meu monitor sense un espectrofotòmetre? </title>
+          <para
+>Hi ha diversos mètodes a Internet que indiquen el calibratge d'un monitor sense necessitat d'utilitzar un espectrofotòmetre. Aquests mètodes de «a ull» són millor que no calibrar el monitor en absolut, i depenent del vostre globus ocular i monitor, podeu presentar resultats molt útils. Però els mètodes a ull no són un substitut d'un monitor correctament calibrat i amb el perfil ajustat. Per a registrar, calibrar i ajustar el perfil d'un monitor amb un espectrofotòmetre, encara intimidatori al començament, no és difícil. Els espectrofotòmetres es poden obtenir per menys de 100 dòlars dels EUA (si opteu per un model més car, assegureu-vos que esteu pagant per un peça de maquinari millor, i no només una mica d'acompanyament amb totes les funcions més el programari del fabricant que no s'executa a Linux). La documentació de «Argyll» i/o «LProf» us guiarà a través del procés de calibratge i ajustament del perfil del monitor, sense que hagueu d'aprendre molt sobre la teoria de la gestió del color. I si/quan apreneu prou sobre la gestió del color us adonareu que voleu o necessiteu un perfil del monitor més detallat d'un tipus en particular, per a un propòsit en particular, aquests dos programaris tenen totes les capacitats avançades que calia esperar.</para>
+         </sect3>
+          <sect3
+> <title
+>Suposant que he decidit treballar exclusivament en l'espai de color sRGB, quins «botons de &digikam;» hauré de prémer per a calibrar el meu monitor? </title>
+          <para
+>Si el vostre monitor està calibrat a l'estàndard sRGB i treballeu exclusivament en l'espai de color sRGB, llavors podeu desactivar la gestió del color en el &digikam;. No us caldrà dir-li al &digikam; quin perfil del monitor utilitzar, atès que per omissió utilitza l'espai de color sRGB com a perfil d'espai de color del monitor. I no us caldrà dir-li al &digikam; que utilitzi un flux de treball amb gestió del color, atès que per omissió utilitza sRGB per a la vostra càmera, impressora, i espai de treball, tal com fou dissenyat per HP i MS l'any 1996. </para>
+          <para
+>Però si voleu realitzar els primers passos cap a un flux de treball amb gestió del color, llavors referiu-vos a la <ulink url="help:/digikam/using-setup.html#setup-iccprofiles"
+>pàgina corresponent de configuració</ulink
+>, activeu la gestió del color, i seleccioneu sRGB com el vostre perfil del monitor, de la càmera, de l'espai de treball i de la impressora. Si també heu utilitzat «Argyll» o «LProf» per presentar un perfil del monitor després de calibrar el monitor -potser anomenat «perfil-del-meu-monitor.icc»- dieu-li a &digikam; que utilitzi «perfil-del-meu-monitor.icc» en lloc de sRGB com a perfil del monitor.</para>
+         </sect3>
+          <sect3
+> <title
+>On són tots els perfils ICC en el meu ordinador? </title>
+          <para
+>Bé, això és Linux i que depèn d'on els poseu. Vaig posar tots els meus perfils ICC a la carpeta /usr/share/color/icc, el qual és el més semblant que hi ha en aquest moment a una ubicació estàndard de Linux pels perfils ICC. Si utilitzeu aquesta carpeta pels perfils ICC, probablement haureu de canviar els permisos de la carpeta per permetre a l'usuari lectura/escriptura. Després dieu-li al &digikam; <ulink url="help:/digikam/using-setup.html#setup-iccprofiles"
+>on es troben els vostres perfils</ulink
+>.</para>
+         </sect3>
+          <sect3
+> <title
+>La il·luminació i els colors de les parets/sostre/cortines/mobiliari prop del meu monitor són d'interès? </title>
+          <para
+>Sí! Una bona il·luminació és un requisit previ per a l'edició adequada d'imatges i per a comparar les impressions de la imatge a la pantalla. Si la il·luminació a prop de l'estació de treball és massa brillant, els colors de la pantalla es veuran massa foscos, i viceversa. Si la llum a la vostra cambra de treball tenen un baix CRI (índex de reproducció del color, el qual significa que no hi ha bombetes que abastin tot l'espectre), o si la llum a la vostra sala de treball prové d'una finestra i que varia segons el clima i l'hora del dia (o pitjor, es filtra a través de cortines de color), o si les parets i el sostre estan creant matisos de color en el monitor, a continuació, el procés d'edició serà «corregir» els matisos de color que en realitat no existeixen. Un bon consell, que sigui compatible amb el manteniment de l'harmonia en la família: parets i sostres en gris neutre, cobriu les finestres, utilitzeu roba neutre, ajusteu els nivells de llum adequats, utilitzeu bombetes i accessoris adequats. Per obtenir més informació sobre quins són els nivells de llum adequats, bombetes i accessoris per a l'edició d'imatges i la visualització d'impressions, consulteu els següents articles:</para>
+          <itemizedlist>
+          <listitem
+><para
+><ulink url="http://www.creativepro.com/article/the-darkroom-makes-a-comeback"
+></ulink
+></para
+></listitem>
+          <listitem
+><para
+><ulink url="http://www.creativepro.com/article/the-darkroom-makes-a-comeback-part-2-"
+></ulink
+></para
+></listitem>
+          <listitem
+><para
+><ulink url="http://www.lrc.rpi.edu/programs/nlpip/lightingAnswers/fullSpectrum/abstract.asp"
+></ulink
+></para
+></listitem>
+          </itemizedlist>
+         </sect3>
+    </sect2>
+
+     <sect2 id="camera-rawfile"
+>            <title
+>El perfil de la càmera i els problemes amb el desenvolupament del fitxer RAW</title>
+          <sect3
+> <title
+>Quin és el següent pas en la gestió del color? </title>
+          <para
+>En primer lloc i perquè consti, molts excel·lents fotògrafs professionals i aficionats desen totes les seves imatges com fitxers JPEG a la càmera i treballen exclusivament en l'espai de color sRGB. Però si voleu treballar en un espai de color més gran, o si voleu treballar amb fitxers RAW (fins i tot si els fitxers d'imatge de sortida RAW són sRGB), seguiu llegint.</para>
+          <para
+>A jutjar per les preguntes en el fòrum d'usuaris de &digikam;, si esteu llegint aquesta guia d'aprenentatge probablement preneu imatges RAW amb una rèflex digital i teniu l'esperança que en algun lloc de les aigües misterioses de la gestió del color trobareu la resposta a com obtenir una bona fotografia a partir del fitxer d'imatge RAW. I teniu raó! El següent que necessiteu és el perfil de la càmera adequat per a desenvolupar la vostra imatge RAW. Però primer respondrem a la pregunta que realment podríeu haver demanat:</para>
+         </sect3>
+          <sect3
+> <title
+>Per què la imatge produïda pels convertidors RAW com «dcraw» o «ufraw» s'assembla a la vista prèvia incrustada mostrada per &digikam;?</title>
+          <para
+>Bona pregunta. Totes les imatges de càmeres digitals comencen com a fitxers RAW, si la càmera permet a l'usuari l'opció de desar la imatge com un fitxer RAW. Quan li dieu a la càmera que desi imatges JPEG en lloc de fitxers RAW, la càmera utilitzarà el seu processador integrat per a convertir el fitxer RAW a un JPEG. Aquesta vista prèvia incrustada és al que s'hauria de semblar la vostra imatge final si heu configurat la vostra càmera per desar imatges JPEG en lloc de fitxers RAW. </para>
+          <para
+>A partir d'aquí parlaré de la meva experiència com a usuari de Canon, però m'imagino que la majoria de totes les rèflex digitals de gamma mitjana es comporten de manera similar. La Canon ofereix als usuaris diversos estils de fotografia -neutral, estàndard, retrat, paisatge i així successivament- que determinen quin tipus de tractament es durà a terme en el fitxer d'imatge RAW per presentar la imatge final, si el processament es realitza «a la càmera» o posterior, utilitzant el programari propietari DPP de Canon. El programari de processament RAW DPP de Canon li dóna a l'usuari un control addicional, però encara manipula el fitxer d'imatge RAW d'acord amb l'estil de fotografia triat. La majoria dels estils de fotografia de Canon afegeixen una forta corba S i saturació de color addicional per donar una mica més «d'encant» a la fotografia. Fins i tot si escolliu l'estil de fotografia «neutral» (l'estil de fotografia de Canon us donarà la tonalitat menys modificada). I seleccioneu «menys contrast», «menys saturació», «sense reducció de soroll» i «sense nitidesa» al diàleg de desenvolupament RAW DPP, es troba, si sabeu el que voleu, aplicat a la corba S i també una reducció de les ombres a la vostra imatge.</para>
+          <para
+>«Dcraw» (el qual &digikam; utilitza per convertir els fitxers RAW en fitxers d'imatge) no afegeix una corba S a la tonalitat de la vostra imatge. «Dcraw» dóna les llums i ombres que queden gravades pel sensor de la càmera. Segons <ulink url="http://21stcenturyshoebox.com/essays/scenereferredworkflow.html"
+>Tindeman</ulink
+>, una excel·lent lectura i font de bons consells, amb enllaços a altres bones fonts d'informació addicional), «dcraw» només és un grapat de desenvolupadors RAW que en realitat us dóna la tonalitat «en referència a l'escena». «Ufraw» també produeix per omissió una imatge en referència a l'escena (tot i que «ufraw» dóna a l'usuari l'opció de modificar la imatge en referència a l'escena canviant la distribució tonal i saturació). I la imatge en referència a l'escena de «dcraw»/«ufraw» tenen un aspecte pla, a causa que el sensor de la càmera registra la llum de forma lineal, mentre que els nostres ulls estan constantment interactuant amb el nostre cervell per donar cabuda a les àrees fosques i brillants en una escena, el qual significa que el nostre cervell, en certa mesura «aplica una corba S» a l'escena de manera que ens puguem centrar millor en les zones d'especial interès com quan mirem al nostre voltant.</para>
+         </sect3>
+          <sect3
+> <title
+>La vista prèvia JPEG incrustada es veu molt millor que la sortida de «dcraw». Quin és el valor de la tonalitat en referència a l'escena? </title>
+          <para
+>Quan preneu una fotografia, probablement teniu una idea del que voleu a la imatge final. És molt més fàcil aconseguir aquesta imatge final, si no heu de «desfer» coses que ja heu fet a la vostra imatge. Un vegada Canon (Nikon, Bibble o &etc;) ha aplicat les seves pròpies corbes S i eliminació del soroll de les ombres, nitidesa, &etc; a la vostra imatge, a continuació, les vostres ombres, reflexos, detall dels límits, &etc;, ja s'aixafen, tallen, piquen, i d'altra manera alteren i mutilen. Heu llançat informació de distància i no es pot recuperar. Especialment en les ombres, fins i tot amb imatges de 16 bits (en realitat, 12 o 14 bits, depenent de la càmera, però està codificat com a 16 bits per a major comoditat a l'ordinador), simplement no hi ha molta informació per on començar. </para>
+          <para
+>Sembla que el cor i l'ànima del processament d'imatges és la manipulació deliberada de la tonalitat de la imatge, color, nitidesa selectiva, i així successivament, de manera que l'espectador se centra en el que, el fotògraf, va trobar d'especial interès quan va prendre la fotografia. Per què donar l'art del processament d'imatges a algun tipus de programari propietari de processament RAW? En altres paraules, «el pla és bo» si preferiu donar a les imatges la vostra pròpia interpretació artística. L'alternativa és permetre que els enllaunats, algoritmes propietaris produïts per Canon, Nikon, Bibble, &etc; interpretin les vostres imatges. (D'altra banda, no es pot negar que per a moltes imatges, aquests algoritmes enllaunats són realment bons!)</para>
+         </sect3>
+          <sect3
+> <title
+>Bé, tot això és molt interessant. Puc veure el valor en l'inici de la meva edició d'imatges amb una representació en referència a l'escena en lloc de la representació de vista força al·lucinant que veig en el JPEG incrustat. Però, us dic, les imatges produïdes per &digikam;/«dcraw» es veuen realment molt malament! Per què? </title>
+          <para
+>Bé, això depèn. Si la imatge es veu molt fosca, llavors vau demanar a «dcraw» donar sortida a un fitxer de 16 bits i us heu topat amb el problema que «dcraw» no aplica una transformació de gamma abans de presentar el fitxer d'imatge. Podeu utilitzar «imagemagick» per aplicar la transformació de gamma apropiada pel fitxer d'imatge produït per «dcraw». O podeu trobar o crear un perfil de la càmera amb una gamma d'1. O podeu utilitzar «ufraw», el qual aplica la transformació de gamma. </para>
+          <para
+>Si la imatge té reflexos rosats, hi ha una solució. Per una explicació del problema, juntament amb la cura de línia d'ordres per aquest problema, veure <ulink url="http://www.luminous-landscape.com/forum/index.php?topic=23430.0"
+>aquest missatge al fòrum «Luminous Landscape»</ulink
+>.</para>
+          <para
+>Si la imatge no és fosca però es veu molt estranya, probablement vau prendre algunes decisions imprudents en la interfície d'usuari de &digikam;/«dcraw». La interfície de &digikam;/«dcraw» convenientment us permet «marcar» les opcions que d'altra manera haureu d'especificar a la línia d'ordres. No obstant, la comoditat sempre té un preu. En primer lloc, la interfície no pot proporcionar accés a totes les opcions que estan disponibles a la línia d'ordres (a partir de &digikam; 0.9.4, només estan disponibles algunes de les opcions de la línia d'ordres de «dcraw»). I en segon lloc, per obtenir el màxim rendiment de la interfície de &digikam;/«dcraw», haureu de saber què fan realment els botons, controls lliscants, &etc; El que significa que us cal conèixer el que passa a la línia d'ordres per obtenir els millors resultats utilitzant la interfície. (Aquesta guia d'aprenentatge no tractarà de documentar com utilitzar la interfície d'usuari de &digikam;/«dcraw». El &digikam; s'està desenvolupant a un ritme ràpid i tot el que podria escriure sobre la interfície de &digikam;/«dcraw» segurament serà obsolet en un futur pròxim).</para>
+          <!--[[Gerhard, I could provide a couple of sample images here if desired]]-->
+          <para
+>Per exemple, si el vostre JPEG incrustat té molt bones ombres, riques i profundes, però el JPEG o TIFF produït per &digikam; /«dcraw» té patrons de línia vermella tacades a les àrees d'ombra, llavors probablement heu marcat l'opció «Avançat, Punt negre», amb el control lliscant establert a 0. Desmarqueu la casella de «Punt negre» i torneu-ho a intentar. Aquesta casella de la interfície de &digikam; /«dcraw» correspon amb l'opció «-k» quan s'utilitza «dcraw» en la línia d'ordres. L'opció «-k» permet anul·lar les millors estimacions de «dcraw», en els tons d'ombra de la imatge, inicia el senyal digital per anul·lar el soroll de fons. Si no utilitzeu l'opció «-k» en la línia d'ordres, «dcraw» calcularà un valor adequat, basat en la seva estimació del soroll de fons. Per a la meva Canon 400d/xti, el valor del soroll de fons calculat per «dcraw» generalment és al voltant de 256 (l'opció de línia d'ordres «-v» farà que «dcraw» us digui el que està fent mentre processa el fitxer RAW). No obstant, si utilitzo l'opció «-K /ubicació_del_marc_negre.pgm» li direu a «dcraw» que elimini un marc negre, i després «dcraw» informarà el punt negre com «0», ja que ara no hi ha necessitat d'establir un nivell més alt per evitar les ombres fosques de la imatge, on el soroll típicament ofega el senyal. (Un «marc negre» és una exposició presa amb la tapa de la lent coberta, amb els mateixos paràmetres d'exposició com, i l'ideal és just després, prendre la imatge que s'està processant. L'opció «-K» permet a «dcraw» eliminar el soroll de fons de la imatge).</para>
+         </sect3>
+          <sect3
+> <title
+>On puc trobar bona informació sobre el soroll digital? </title>
+          <para
+>Veure els següents articles excel·lents:</para>
+          <itemizedlist>
+           <listitem
+><para
+><ulink url="http://www.ronbigelow.com/articles/noise-1/noise-1.htm"
+></ulink
+></para
+></listitem>
+           <listitem
+><para
+><ulink url="http://www.cambridgeincolour.com/tutorials/noise.htm"
+></ulink
+></para
+></listitem>
+           <listitem
+><para
+><ulink url="http://www.clarkvision.com/imagedetail/digital.signal.to.noise/"
+></ulink
+></para
+></listitem>
+          </itemizedlist>
+         </sect3>
+          <sect3
+> <title
+>On puc trobar bona informació sobre les opcions de la línia d'ordres de «dcraw»? </title>
+          <para
+>La millor font d'informació sobre com processa «dcraw» els fitxers RAW es troba <ulink url="http://www.guillermoluijk.com/tutorial/dcraw/index_en.htm"
+>aquí</ulink
+>. </para>
+          <para
+>Si voleu treballar amb fitxers RAW, us recomano que llegiu l'article d'en Guillermo dues o tres vegades. En Guillem creu que «dcraw» genera una sortida superior en comparació amb el processament RAW realitzat pels processadors RAW comercials. Després de provar tots els programes comercials de processament RAW que vaig poder trobar, finalment, també vaig acabar concloent que «dcraw» produeix resultats superiors.</para>
+          <para
+>La pàgina de manual de «dcraw» que explica totes les opcions de la línia d'ordres és <ulink url="http://www.cybercom.net/~dcoffin/dcraw/dcraw.1.html"
+>aquí</ulink
+>.</para>
+         </sect3>
+          <sect3
+> <title
+>Per què els colors de Canon i Nikon són millors que els colors produïts per «dcraw»? </title>
+          <para
+>La reproducció del color és un lloc on el programari propietari de Canon (i presumiblement de Nikon) pel desenvolupament RAW fa una molt, molt bona feina. Per què? Com que el programari propietari de processament RAW ve juntament amb els perfils de la càmera, els quals són específics per a imatges RAW coincidint amb la marca i model de la vostra càmera, quan es processa utilitzant el programari propietari de processament RAW de la marca i model de la càmera. He comprovat extensivament, utilitzant un «comptagotes» per comparar els resultats de diversos desenvolupadors RAW utilitzant diversos perfils de càmera des de diferents fonts -un procés molt tediós, encara que instructiu-. Amb «ufraw» i «dcraw» (des de la línia d'ordres si no des de la interfície d'usuari de «dcraw» de &digikam;), podeu aplicar els perfils de color específics de l'estil de la fotografia i pel model de càmera de Canon a la sortida de «dcraw» durant el procés de desenvolupament RAW, i els colors encara NO seran exactament els mateixos que el produïts per la Canon. De la mateixa manera, els perfils de Bibble funcionen força bé amb el programari de Bibble, però que no funcionen tan bé, al meu entendre, amb «dcraw» com ho fan amb el propi programari de Bibble. El mateix s'aplica a altres casos. </para>
+         </sect3>
+          <sect3
+> <title
+>Per què un perfil de la càmera és específic per a una marca i model específic de càmera? </title>
+          <para
+>Les càmeres digitals tenen una matriu de milions de petits sensors de llum a l'interior, ho fa un xip CCD o CMOS. Aquests píxels sensibles a la llum són daltònics -només registren la quantitat, no el color, de la llum que incideix sobre seu-. Per a permetre que aquests píxels gravin la informació del color, cada píxel està cobert per una lent transparent vermella, verda o blava, en general alternades en el que s'anomena una matriu Bayer (excepte pels sensors Faveon, que funcionen de manera diferent). Una imatge RAW no és més que un conjunt de valors que indiquen «la quantitat de llum» que ha passat a través de la lent vermella, blava o verda fins arribar al sensor. </para>
+          <para
+>Clarament, la resposta dels píxels a la llum és el resultat d'un munt de factors específics de la càmera, inclosos: la naturalesa de la pròpia matriu de sensors, les qualitats de color/transmissores precises de les tapes de la lent, i la conversió analògica a digital en particular i després del procés de post-conversió que passa a l'interior de la càmera per presentar la imatge RAW que s'emmagatzema a la targeta. </para>
+         </sect3>
+          <sect3
+> <title
+>Què significa «conversió d'analògic a digital»?</title>
+          <para
+>«Analògic» vol dir variació contínua, igual que la quantitat d'aigua que podeu posar en un got. «Digitalitzar» un senyal analògic vol dir que els nivells de canvis continus des de la font de senyal analògic són «arrodonits» a convenients quantitats discretes als nombres binaris utilitzats pels ordinadors. La conversió d'analògic a digital que es porta a terme dins de la càmera, és necessari perquè els píxels sensibles a la llum són de naturalesa analògica -recullen una càrrega proporcional a la quantitat de llum que els arriba-. La càrrega acumulada en cada píxel és convertida en una quantitat digital discreta pel convertidor analògic a digital de la càmera. El qual, per cert, explica per què un convertidor de 14 bits és millor que un convertidor de 12 bits -més precisió a la sortida de la conversió significa que es llença menys informació en el procés de conversió-.</para>
+         </sect3>
+          <sect3
+> <title
+>Per què un perfil de la càmera és específic pel programa de processament RAW utilitzat per desenvolupar el fitxer RAW?</title>
+          <para
+>El punt central de la interpolació utilitzant algorismes de reconstrucció com AHD per omissió de «dcraw» és endevinar quin color i la intensitat de la llum que en realitat va caure sobre qualsevol píxel interpolant la informació obtinguda d'aquest píxel individual i els seus píxels veïns (veure <ulink url="http://en.wikipedia.org/wiki/Demosaic"
+>l'article de la Wikipedia</ulink
+>). Cada programa de processament RAW fa suposicions addicionals, com ara «quin és el senyal i quan és el soroll de fons?», «en quin moment el sensor arriba a la saturació completa?», i així successivament. La sortida resultant de tots aquests algoritmes i presa de decisions que fa el programari de processament RAW és un trio de valors RGB per a cada píxel de la imatge. Donat el mateix fitxer RAW, diferents processadors RAW donaran diferents valors RGB. </para>
+         </sect3>
+          <sect3
+> <title
+>On trobo un perfil genèric per a la meva càmera? </title>
+          <para
+>La pàgina web de «ufraw» sobre la <ulink url="http://ufraw.sourceforge.net/Colors.html"
+>gestió del color</ulink
+> té informació sobre on trobar perfils de càmera ja fets. Si feu un cop d'ull a l'arxiu del fòrum d'usuaris de &digikam;, trobareu consells addicionals. Si manteniu la cerca i experimentació, probablement trobareu un perfil genèric que funcioni «força bé». No obstant, com hem dit, és un fet desafortunat de la imatge digital que els perfils de càmera subministrats per Canon, Nikon, i similars no funcionen tan bé amb convertidors RAW diferents del convertidor RAW propietari de cada fabricant. Per això Bibble i Phase One, per exemple, han de crear els seus propis perfils per a totes les càmeres a les que donen suport. Així que a final podeu decidir que voleu un perfil de la càmera que sigui específic per a la vostra càmera, les vostres condicions d'il·luminació, i el vostre flux de treball de processament RAW. </para>
+         </sect3>
+          <sect3
+> <title
+>Com puc obtenir un perfil de la càmera específic per a la meva càmera, condicions d'il·luminació i flux de treball RAW? </title>
+          <para
+>Molts serveis comercials ofereixen serveis de perfils, per un preu, és clar. O podeu utilitzar «LPRof» per a ajustar el perfil de la vostra càmera. Si voleu ajustar el perfil de la vostra pròpia càmera, necessitareu un «objectiu IT8», és a dir, una imatge que contingui quadrats de colors coneguts. Juntament amb l'objectiu IT8, rebreu el conjunt apropiat de valors coneguts per a cada quadrat de color a l'objectiu. </para>
+          <para
+>Si teniu previst utilitzar «LProf» per a ajustar el perfil de la vostra càmera, comproveu la documentació per a una llista d'objectius recomanats. Per a ajustar el perfil de la vostra càmera, haureu de fotografiar amb l'objectiu IT8 en condicions d'il·luminació específiques (per exemple, la llum del dia, el que correspon a prendre la fotografia a prop del migdia en un dia assolellat a l'estiu, sense res al voltant que pogués projectar ombres o reflectir canvis en els matisos de color) i desar la imatge com un fitxer RAW. Després processeu el fitxer RAW amb el programari+paràmetres de processament RAW en particular i executar el fitxer d'imatge resultant a través del programari d'ajustament de perfils. El programari d'ajustament de perfils compararà els valors RGB en la imatge produïda per la càmera+condicions d'il·luminació+ rutina de processament RAW amb els valors RGB en l'objectiu original i presentarà el perfil (icc) de la vostra càmera. </para>
+          <para
+>Ajustar el perfil d'una càmera és exactament anàleg a ajustar el perfil d'un monitor. Quan s'ajusta el perfil d'un monitor, el programari d'ajustament de perfils li diu a la targeta gràfica que enviï els quadrats de color amb determinats valors RGB a la pantalla. L'espectrofotòmetre mesura el color real que es produeix a la pantalla. Quan s'ajusta el perfil d'una càmera, els colors coneguts seran els colors RGB en les mostres originals en el blanc IT8, que el programari d'ajustament de perfils compararà amb els colors produïts per la imatge digital del blanc, la qual va ser fotografiada en condicions d'il·luminació seleccionades, desada com a RAW, després processada amb el programari+paràmetres de processament RAW específics. </para>
+          <para
+><ulink url="http://lprof.sourceforge.net/help/ufraw.html"
+>Aquí</ulink
+> teniu un enllaç a un «com es fa» per a l'ús de «LProf v1.11» i «ufraw» (i per analogia, qualsevol altre processador RAW) per presentar un perfil de la càmera. «Debian Lenny» té «LProf 1.11.4» en els repositoris APT. Les versions més recents es poden construir des del CVS. I aquí hi ha un enllaç a un, assequible i ben considerat <ulink url="http://www.targets.coloraid.de/"
+>objectiu IT8</ulink
+>.</para>
+         </sect3>
+          <sect3
+> <title
+>Com puc aplicar un perfil de la càmera pel fitxer d'imatge de 16 bits produït pel meu programari de codi obert pel processament RAW? </title>
+          <para
+>Si esteu utilitzant la interfície &digikam;/«dcraw», <ulink url="help:/digikam/using-setup.html#setup-iccprofiles"
+>aquí</ulink
+> s'explica com dir-li al &digikam; quin perfil de la càmera utilitzar. Si utilitzeu «dcraw» des de la línia d'ordres, tindreu l'opció de donar sortida al vostre fitxer d'imatge de 16 bits amb o sense aplicar el perfil de la càmera. Si li dieu a «dcraw» que doni sortida al fitxer sense aplicar el perfil de la càmera, podreu utilitzar la utilitat «tifficc» de «LCMS» (també a la línia d'ordres) per aplicar el perfil de la càmera. L'avantatge d'utilitzar «tifficc» és que podreu dir-li a «LCMS» que utilitzi conversió d'alta qualitat («dcraw» sembla utilitzar la qualitat mitjana per omissió de «LCMS»). El desavantatge, per descomptat, és que aplicar el vostre perfil de la càmera des de la línia d'ordres afegeix un pas addicional al vostre flux de treball RAW. Si utilitzeu «ufraw», consulteu la guia de l'usuari de «ufraw».</para>
+       </sect3>
+     </sect2>
+
+     <sect2 id="PCS"
+>             <title
+>El PCS: els perfils de color apunten als colors reals en el món real</title>
+        <sect3
+> <title
+>Càmera, escàner, espai de treball, monitor, impressora: què fan realment tots aquests perfils de color?</title>
+          <para
+>Un perfil de color descriu la gamma de colors del dispositiu o l'espai al què pertanyen, especificant quin color real en el món real correspon a cada trio de valors RGB en l'espai de color del dispositiu (càmera, monitor, impressora) o espai de treball. </para>
+          <para
+>El perfil de la càmera essencialment diu, «per a cada trio RGB de valors associats a cada píxel en el fitxer d'imatge produït des del fitxer RAW amb el programari de processament RAW», «aquest trio de fitxer d'imatge RGB» es correspon «al color veritable vist per un observador en el món real» (o més aviat, com es mostra en l'objectiu IT8 si heu produït el vostre propi perfil de la càmera, però ve a ser el mateix -l'objectiu d'ajustar el perfil de la vostra càmera és crear la fotografia de destinació el més semblant a la de l'objectiu-). </para>
+          <para
+>No podeu veure una imatge mirant als seus valors RGB. La veureu millor mostrant-la a un monitor o imprimint-la. Quan perfileu el vostre monitor, presentareu un perfil del monitor que diu «aquest trio RGB dels valors que la targeta gràfica envia a la pantalla» presentarà a la pantalla «el color real tal com l'ha vist un observador en el món real». </para>
+          <para
+>Què tenen en comú el perfil del monitor i el de la càmera és la part (en cursiva a sobre) sobre «que el color veritable que veu un observador en el món real». Diferents trios de nombres RGB en el monitor i la càmera, respectivament, els espais de color apunten al mateix color veritable, el color visible al món real. Els colors veritables en el món real són el punt de referència per a la traducció entre tots els perfils de color que la vostra imatge pugui trobar-se en el seu camí des de la càmera a la pantalla en el programa d'edició, impressió o a la web. </para>
+       </sect3>
+        <sect3
+> <title
+>Com pot un perfil de color apuntar a un color real en el món real? </title>
+          <para
+>La gent real no arriba a veure els mateixos colors quan miren el món, oi? </para>
+          <para
+>Fa molt temps (el 1931, tot i que encara s'hi segueixen fent millores), el «International Color Consortium» va decidir traçar i descriure matemàticament tots els colors visibles per la gent real en el món real. De manera que van mostrar a un munt de gent tot un seguit de colors colors i els van demanar que diguessin quan «aquest» color coincidia amb «aquest» altre, on els dos colors coincidien visualment però de fet havien estat produïts amb diferents combinacions de longituds d'ona. Quin era el valor d'un procediment tan estrany? La percepció humana del color depèn del fet que tenim tres tipus de receptors del con amb el pic de sensibilitat a la llum en longituds d'ona d'aproximadament 430, 540 i 570 nm, però amb un més que considerable solapament en la sensibilitat entre els diferents tipus de cons. Una conseqüència de la forma en que veiem el color és que moltes combinacions diferents de longituds d'ona diferents de la llum es veuran com «el mateix color».</para>
+          <para
+>Després d'extenses proves, l'ICC va presentar l'espai de color CIE-XYZ, el qual descriu matemàticament i els models de tots els colors visibles per a un observador humà ideal («ideal» en el sentit que els models van provar les respostes de grups d'humans individualment). Aquest espai de color no és un perfil de color en el sentit normal de la paraula. Més aviat proporciona un «Profile Connecting Space -PCS-» absolut per a la traducció dels valors RGB dels colors des d'un espai de color a un altre. (Veure <ulink url="http://en.wikipedia.org/wiki/Tristimulus#Tristimulus_values"
+>aquí</ulink
+> i <ulink url="http://en.wikipedia.org/wiki/Color_vision"
+>aquí</ulink
+>).</para>
+          <para
+>CIE-XYZ no és l'únic PCS. Un altre PCS comunament utilitzat és CIE-Lab, el qual es deriva matemàticament des de l'espai CIE-XYZ. CIE-Lab pretén ser «uniforme a nivell de la percepció», el qual significa «un canvi de la mateixa quantitat en un valor de color ha de presentar un canvi similar de la mateixa importància visual» (citat de l'<ulink url="http://ca.wikipedia.org/wiki/Espai_de_color_LAB"
+>article de Viquipèdia</ulink
+>). La Wikipedia diu: «Les tres coordenades CIELAB representen la lluminositat del color (L* = 0 obté negre i L* = 100 indica blanc difús, un blanc net pot ser major), la seva posició entre el vermell, magenta i verd (a*, els valors negatius indiquen verd mentre que els valors positius indiquen magenta) i la seva posició entre el groc i el blau (b*, els valors negatius indiquen blau i els positius indiquen groc)» (citat de l'<ulink url="http://ca.wikipedia.org/wiki/Espai_de_color_LAB"
+>article de Viquipèdia</ulink
+>). </para>
+          <para
+>Per a ser útils, els perfils de color s'han de complementar amb el programari que realitza la traducció d'un espai de color a un altre a través dels PCS. En el món del programari de codi obert de Linux (i també a molt programari de codi tancat o comercial), la traducció d'un espai de color a un altre, en general el fa <ulink url="http://www.littlecms.com/"
+>LCMS</ulink
+>, el «petit programari de gestió del color». Per si serveix d'alguna cosa, les meves proves han demostrat que LCMS fa conversions d'espai de color més precises que el motor de conversió de color propietari d'Adobe. </para>
+       </sect3>
+     </sect2>
+
+     <sect2 id="working-space"
+>   <title
+>L'espai de treball</title>
+        <sect3
+> <title
+>De manera que li vaig dir al &digikam; on trobar el meu perfil del monitor i tinc un perfil de la càmera que vaig aplicar al fitxer d'imatge produït pel meu programari de processament RAW. Quin és el següent pas en la gestió del color? </title>
+          <para
+>Haureu de triar un espai de color de treball per a poder editar la vostra imatge. LCMS transformarà la vostra imatge des de l'espai de color de la càmera a l'espai de treball que heu triat, a través del PCS especificat pel perfil de color de la càmera.</para>
+       </sect3>
+        <sect3
+> <title
+>Per què no puc editar les meves imatges en l'espai de color descrit pel perfil de la càmera? </title>
+          <para
+>Després de tot, el perfil de la càmera ha de proveir el millor «ajust» als colors registrats per la meva càmera, ja processats pel meu procediment de processament RAW, oi? La Wikipedia diu: «Els espais de treball, com sRGB o Adobe RGB, són espais de color que faciliten bons resultats durant l'edició. Per exemple, els píxels amb valors iguals de RGB han d'aparèixer neutral». «Els píxels amb els mateixos valors de RGB han d'aparèixer neutral» simplement vol dir que per a qualsevol píxel en una imatge que s'ha convertit a un espai de treball adequat, si R=G=B hauríeu de consultar el gris, negre o blanc a la vostra pantalla. Molts perfils de càmera infringeixen aquesta condició «neutral». No tinc coneixement d'una llista d'altres requisits tècnics per a un espai de treball adequat. No obstant, hi ha una altra bona raó per la qual potser no voldreu editar la imatge en el perfil de l'espai de color de la vostra càmera. Si ens fixem en la mida d'un perfil de la càmera típic, és de l'ordre d'un quart a la meitat d'un megabyte o més. Té un munt d'informació sobre tots els canvis que s'han de fer en diferents regions de color i la tonalitat de l'escena original, per aconseguir una precisa reproducció del color dels valors RGB que surten del processador RAW. El perfil de la càmera és precís (almenys pels colors en l'objectiu original), però no és especialment suau des d'un punt de vista matemàtic. Els perfils de color de l'espai de treball, d'altra banda, són molt petits en grandària (la meitat d'un kilobyte en lloc de la meitat d'un megabyte) atès que descriuen una gamma de colors en termes de funcions matemàtiques contínues i llises. Els perfils dels espais de treball no han de fer concessions per a la «confusió» dels sensors al món real, de manera que les manipulacions matemàtiques realitzades durant l'edició d'imatges aniran molt més suaument i amb precisió que si intenteu editar la vostra imatge, mentre que encara està a l'espai de color de la càmera.</para>
+       </sect3>
+        <sect3
+> <title
+>Quin espai de treball hauria de triar? </title>
+          <para
+>Tothom té una opinió. Jo només exposaré alguns bits d'informació necessària per prendre una decisió informada. Els perfils dels espais de treball es caracteritzen per: </para>
+          <orderedlist>
+              <listitem
+><para
+>La gamma (o una altra funció de transferència), dicta la quantitat dels valors d'intensitat lineals originals capturats pel sensor de la càmera (i sotmesos a la conversió A a D dins de la càmera, després interpolats pel programa de processament RAW per presentar el fitxer d'imatge) i que són alterats per fer més fàcil o precisa l'edició.</para
+></listitem>
+              <listitem
+><para
+>Els primaris RGB que dicten l'interval de colors, és a dir, la gamma de colors coberta per un perfil donat.</para
+></listitem>
+              <listitem
+><para
+>El punt blanc (en general D50 o D65, encara que es poden utilitzar altres valors), el qual especifica la temperatura del color del punt blanc de l'espai de treball. </para
+></listitem>
+          </orderedlist>
+       </sect3>
+        <sect3
+> <title
+>Quina gamma hauria de tenir el meu espai de treball? </title>
+          <para
+>La gamma d'un perfil de color dicta quin poder de transformació s'ha de dur a terme per a convertir correctament des d'un perfil de color incrustat en una imatge (potser el vostre espai de color de treball o el perfil de color de la vostra càmera) a un altre perfil de color amb una gamma diferent, com per exemple l'espai de treball seleccionat o el perfil de la pantalla utilitzat per mostrar la imatge a la pantalla o potser des d'un espai de treball a un altre, o potser des del vostre espai de treball a l'espai de color de la impressora. «Dcraw» genera una imatge de 16 bits amb una gamma lineal, el qual significa que un histograma del fitxer d'imatge resultant mostrarà la quantitat real de llum que va captar cada píxel al sensor de la càmera durant l'exposició (parafrasejant <ulink url="http://www.guillermoluijk.com/tutorial/dcraw/index_en.htm"
+>aquesta pàgina</ulink
+>). (És per això que en l'actualitat l'aplicació d'un perfil de la càmera a la sortida de «dcraw» també requereix l'aplicació d'una transformació de gamma apropiada per obtenir l'espai de treball desitjat, llevat que el perfil de la càmera també utilitzi gamma=1). </para>
+          <para
+>Una conseqüència pràctica de la gamma d'un espai de treball és que com més gran sigui la gamma, estaran disponibles tons més discrets per editar les ombres, amb el consegüent menor nombre de tons disponibles en les llums intenses. Canviant la gamma d'una imatge es redistribueix el nombre de tons disponibles a les zones més clares i fosques d'una imatge. Teòricament, si esteu treballant sobre una imatge amb tons molt foscos (de perfil baix) és possible que vulgueu tenir un espai de treball amb una gamma més alta. I si esteu treballant sobre una imatge de perfil alt, per exemple una fotografia presa a la llum del sol del migdia, amb un vestit de núvia i amb la neu com a teló de fons, possiblement voldreu triar un espai de treball amb una gamma més baixa, per a la qual disposi més gradacions tonals en les llums intenses. </para>
+          <para
+>Teoria a part, el problema en el món real de l'edició d'imatges, gairebé tothom utilitza espais de treball, ja sigui amb un gamma de 1.8 o bé 2.2. sRGB i L*-RGB són dues excepcions notables. </para>
+          <para
+>sRGB utilitza una funció de transferència propera a la d'un CRT (i per tant no necessàriament apropiada per a l'edició d'imatges o per a la seva representació en una pantalla LCD). Com assenyala la Wikipedia, «A diferència de la majoria dels espais de color RGB, la gamma sRGB no pot expressar-se com un valor numèric únic. La gamma en general és d'aproximadament 2.2, consisteix d'una secció lineal (gamma 1.0) prop del negre, i d'una secció no lineal en altres llocs que implica un exponent de 2.4 i una gamma (pendent de la sortida del registre davant de l'entrada del registre) que canvia de 1.0 a prop de 2.3» (citat d'<ulink url="http://en.wikipedia.org/wiki/SRGB"
+>aquesta pàgina</ulink
+>), el qual requereix una mica de matemàtica complicada durant el processament de les imatges. </para>
+          <para
+>L*-RGB utilitza com una funció de transferència de la mateixa funció de transferència com l'espai de color CIELab perceptivament uniforme. «En emmagatzemar els colors en valors de precisió limitada» utilitzant una funció de transferència perceptivament uniforme «pot millorar la reproducció dels tons» (citat d'<ulink url="http://en.wikipedia.org/wiki/Lab_color_space"
+>aquesta pàgina</ulink
+>).</para>
+          <para
+>A més de la gamma=1.8 i gamma=2.2, l'única altra gamma per a un espai de treball que aconsegueix molta menció o ús és la gamma lineal, o gamma=1.0. Com s'ha assenyalat anteriorment, «dcraw» genera fitxers de gamma lineal si li demaneu sortida de 16 bits. La gamma lineal s'utilitza en la creació d'imatges HDR (marge dinàmic elevat -high dynamic range-) i també si voleu evitar la introducció d'errors induïts per la gamma en una edició de marge dinàmic baix normal. </para>
+          <para
+>Els «errors induïts per la gamma» és un tema fora de l'abast d'aquesta guia d'aprenentatge. No obstant, veure «Gamma errors in picture scaling -Errors de gamma en escalar la fotografia» (citat d'<ulink url="http://www.4p8.com/eric.brasseur/gamma.html"
+>aquesta pàgina</ulink
+>) per a veure les desviacions de tonalitat induïdes per la gamma, i per descomptat veure el lloc web informatiu d'en Timo Autiokari (encara que una mica infame) per tal d'obtenir una complerta explicació sobre la utilització dels espais de treball de gamma lineal (actualment el lloc web d'en Timo sembla estar caigut, tot i que les còpies arxivades dels seus articles estan encara disponibles a través de google). En Bruce Lindbloom esmenta un error comú induït per la gamma que és causat per un càlcul incorrecte de la luminància en un espai de treball RGB no lineal (veure <ulink url="http://www.brucelindbloom.com/index.html?WorkingSpaceInfo.html"
+>aquesta pàgina</ulink
+>, nota al peu 1). Seguint la mateixa direcció, els càlculs que intervenen en la barreja de colors per presentar nous colors (com ara utilitzar un filtre digital per afegir calor a una imatge) resulten en errors de gamma, tret que els nous colors es calculen transformant primer tots els valors apropiats de nou als seus valors lineals.</para>
+          <para
+>Per desgràcia, i malgrat els seus innegables avantatges matemàtics, els espais de treball de gamma lineal tenen tan pocs tons en les ombres que (al meu entendre) és impossible utilitzar-los per a l'edició, si treballeu en 8 bits, i seguirà sent problemàtics en els 16 bits. Quan arribi el dia en el què fem la nostra edició de fitxers sobre 32 bits, produïts per les nostres càmeres HDR en els nostres super-ordinadors personals, puc predir que tots utilitzarem espais de treball amb gamma=1. Adobe Lightroom ja està utilitzant un espai de treball de gamma lineal «entre bastidors», CS2 permet l'opció d'utilitzar gamma lineal per a la barreja de colors, i Lightzone sempre ha utilitzat un espai de treball de gamma lineal.</para>
+       </sect3>
+        <sect3
+> <title
+>Quants passos tonals discrets hi ha en una imatge digital?</title>
+          <para
+>En una imatge de 8 bits té 256 passos tonals, des del negre pur al blanc pur. En una imatge de 16 bits teòricament té 65.536 passos. Però recordeu, aquests 16 bits comencen com qualsevol de 10 bits (=1.024 passos ), 12 bits (=4.096 passos) o 14 bits (=16.384 passos), com els produeix el convertidor A a D de la càmera -els bits addicionals per arribar a 16 bits comencen a ser només de farciment. Els tons disponibles no estan distribuïts de manera uniforme dels clars als foscos. En el mode de gamma lineal (com veu les coses el sensor de la càmera), hi ha molts més tons en els clars que entre els foscos. D'aquí el consell, si fotografieu en RAW, «exposeu a la dreta, però no exploteu els tons més clars». Veure els <ulink url="http://www.ronbigelow.com/articles/articles.htm"
+>articles sobre «why raw»</ulink
+> d'en Ron Bigelow, per a un debat complet sobre la distribució dels tons disponibles en una imatge RAW. </para>
+       </sect3>
+        <sect3
+> <title
+>Haig d'usar un espai de treball de gamma petita o estreta? </title>
+          <para
+>Una consideració important en l'elecció d'un espai de treball és que alguns espais de treball són més grans que altres, és a dir, que cobreixen més de l'espectre visible (i com a conseqüència inclouen alguns colors imaginaris -construccions matemàtiques que en realitat no existeixen-). Aquests grans espais tenen l'avantatge de permetre-us mantenir tots els colors capturats i conservats per la conversió «lcms» des del perfil de la càmera a l'espai de connexió del perfil de gamma súper àmplia i de nou al vostre espai de treball triat. </para>
+          <para
+>Però mantenir tots els colors possibles té un preu, com s'explica a continuació. I sembla que qualsevol imatge digital només conté un petit subconjunt de tots els possibles colors visibles que la càmera és capaç de capturar. Aquest petit subconjunt és fàcilment contingut en un dels espais de treball més petits (una excepció que requereix una major gamma de colors seria una fotografia d'un objecte molt saturat com un groc calèndula).</para>
+          <para
+>L'ús d'un gran espai de treball significa que l'edició de la imatge (aplicació de les corbes, augment de la saturació, &etc;) pot presentar amb facilitat colors que el dispositiu de sortida final (impressora, monitor) simplement no podrà reproduir (tampoc podreu veure aquests colors mentre esteu editant). De manera que per a la conversió des del vostre espai de treball a l'espai del dispositiu de sortida (per exemple la impressora) haureu de tornar a assignar els colors fora de la gamma en la imatge editada, alguns podrien fins i tot ser totalment imaginaris, a l'espai de color de la impressora amb la seva molt petita gamma de colors. Aquest procés de reassignació donarà lloc a colors imprecisos i pèrdua de la saturació. Pitjor encara, la reassignació pot portar fàcilment a un efecte de pòster (llacunes en el que hauria de ser una transició de color suau, per exemple, a través d'una extensió de cel blau) i retallada (&pex;, les vostres transicions en delicades ombres de vermell es poden reassignar a un bloc sòlid de vermell apagat després de la conversió a l'espai de color de la impressora). De la mateixa manera, els experts diuen que les imatges de 8 bits simplement no tenen prou tons per a desplaçar-se des d'un espai de treball de gamma gran sense aquest efecte de cartell i pèrdua de la saturació, fins i tot abans de la conversió a un espai de sortida. Així que si escolliu un espai de treball gamma gran, assegureu-vos que comenceu amb una imatge de 16 bits.</para>
+          <para
+>En resum, els espais de treball de gamma gran, utilitzats de forma inadequada, poden ocasionar la pèrdua d'informació a la sortida. Els espais de treball de gamma petita poden reduir la informació sobre l'entrada. Els espais de treball de gamma mitjana intenten trobar un terme mig. Com diu la Wikipedia, tot és una qüestió de compromís.</para>
+          <para
+>Aquests són alguns dels consells més repetits sobre com triar un espai de treball: </para>
+          <para>
+          <orderedlist>
+              <listitem
+><para
+>Per a les imatges destinades a la web, utilitzeu (o, almenys, convertiu la imatge final) sRGB. </para
+></listitem>
+              <listitem
+><para
+>Per a una major precisió en la vostra edició d'imatges (això és, treure el màxim profit dels vostres «bits» limitats amb el menor risc d'efecte de cartell o retallar en convertir la imatge des del vostre espai de treball a un espai de sortida), utilitzeu l'espai de treball més petit que inclou tots els colors de l'escena fotografiada, a més d'una mica més d'espai per a aquests nous colors que es produeixen intencionadament durant la vostra edició. </para
+></listitem>
+              <listitem
+><para
+>Si esteu treballant en 8 bits en lloc de 16 bits, escolliu un espai de treball més petit per evitar retalls i l'efecte de cartell. </para
+></listitem>
+              <listitem
+><para
+>Per a fins d'arxiu, convertiu el vostre fitxer RAW a un TIFF de 16 bits amb un espai de treball de gamma gran per evitar la pèrdua d'informació del color. A continuació, convertiu aquest arxiu TIFF a l'espai de treball de gamma mitja o gran de la vostra elecció (desant el TIFF convertit amb un nou nom, és clar). </para
+></listitem>
+          </orderedlist
+></para>
+          <para
+>Per obtenir més informació sobre com triar un espai de treball, veure <ulink url="http://www.brucelindbloom.com/"
+>aquesta pàgina</ulink
+>, informació sobre els espais de treball RGB per a una comparació visual de la gamma (llista de colors inclosos) dels diferents espais de color de treball. Veure <ulink url="http://www.luminous-landscape.com/tutorials/prophoto-rgb.shtml"
+>aquí</ulink
+> i <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
+>aquí</ulink
+> per a una presentació dels pros i els contres, respectivament, de la possibilitat d'utilitzar espais de treball de gamma gran. I mentre vostè esteu al lloc web cambridgeincolour.com, feu un cop d'ull a la guia d'aprenentatge sobre la gestió del color. </para>
+       </sect3>
+     </sect2>
+
+     <sect2 id="rendering"
+>       <title
+>Perfils de la impressora, propòsits de representació i provatura suau</title>
+      <sect3
+>   <title
+>On puc obtenir un perfil de la impressora?</title>
+          <para
+>Sort! Hem recorregut un llarg camí. Esteu gairebé a punt per imprimir aquesta imatge! On puc aconseguir un perfil d'impressora? Bé, ja coneixeu la resposta. Podeu utilitzar el perfil genèric que ve amb la impressora. Podeu adquirir un perfil de producció professional. Si pregunteu, alguns establiments d'impressió comercial us enviaran els seus perfils d'impressora (els quals no funcionaran amb la vostra impressora!). Podeu crear el vostre propi perfil d'impressora mitjançant Argyll, en aquest cas el vostre perfil es podrà adaptar al vostre paper, tinta, i fins i tot característiques de la imatge en particular (si voleu imprimir una sèrie d'imatges amb una paleta de colors limitada a tons de marró, no us caldrà tenir un perfil d'impressora que miri de donar cabuda a cians i blaus saturats). No puc oferir més assessorament o enllaços a més informació sobre aquest tema perquè acabo de començar a aprendre sobre la impressió d'imatges (tot i que ja havia vist i compartit les meves imatges al monitor). Però mireu <ulink url="http://www.luminous-landscape.com/essays/fancy-graphics2.shtml"
+>aquesta pàgina</ulink
+> per a una excel·lent presentació dels beneficis de produir el vostre propi perfil de la impressora, a més d'una recomanació molt positiva per a utilitzar Argyll per a crear el vostre perfil de la impressora.</para>
+       </sect3>
+        <sect3
+> <title
+>Què passa amb els propòsits de representació? </title>
+          <para
+>Un «propòsit de representació» es refereix a la forma com es tracten les gammes de colors quan l'espai de color de destinació desitjat (per exemple, el monitor o la impressora) no pot gestionar tota la gamma de l'espai de color d'origen (per exemple, l'espai de treball).</para>
+          <para
+>Hi ha quatre propòsits de representació d'ús comú: colorimetria perceptiva, colorimetria relativa, colorimetria absoluta i la saturació. He cercat a Internet buscant el millor reportatge sobre els propòsits de representació i els compromisos que participen en l'elecció d'un propòsits de representació de destinació sobre un altre. Crec que vaig trobar aquest article. Veure <ulink url="http://www.cambridgeincolour.com/tutorials/color-space-conversion.htm"
+>aquesta pàgina</ulink
+>. Una breu cita de l'article «Cambridge in Color» sobre la conversió d'espais de color:</para>
+          <blockquote
+><para
+>La representació de la colorimetria perceptiva i relativa són probablement els tipus de conversió més útils per a la fotografia digital. Cadascun posa una prioritat diferent en la forma en què es renderitzen els colors dins de la regió coincident de la gamma. </para>
+          <para
+>Una colorimetria relativa manté una relació gairebé exacta entre els colors de la gamma, encara que això tregui colors de la gamma. </para>
+          <para
+>Per contra, la representació perceptiva també intenta conservar una certa relació entre els colors fora de la gamma, fins i tot si això dóna lloc a imprecisions en els colors de la gamma... </para>
+          <para
+>La colorimetria absoluta és similar a la relativa en la mesura que conserva els colors de la gamma i retalla els que estan fora de la gamma, però difereixen en la forma en que gestionen el punt blanc... La colorimetria relativa canvia els colors dins de la gamma de manera que el punt blanc d'un espai s'alinearà amb la de l'altra, mentre que la colorimetria absoluta conservarà els colors exactes (sense tenir en compte el canvi del punt blanc). «...» </para>
+          <para
+>El propòsit de representació de la saturació tracta de preservar els colors saturats.</para
+></blockquote
+> 
+          <para
+>Citaria l'article complet (és molt bo), però això implicaria un «mal ús», n'estic segur. Per tant, feu un cop d'ull a aquest article. Les il·lustracions en l'article realment ajuden a aclarir que fan realment els diferents propòsits de representació i els compromisos que intervenen en l'elecció d'un sobre un altre. </para>
+          <para
+>Per a una altra excel·lent font d'informació sobre els propòsits de representació amb il·lustracions, veure <ulink url="http://www.normankoren.com/color_management.html#Rendering_intent"
+>aquesta pàgina</ulink
+>.</para>
+       </sect3>
+        <sect3
+> <title
+>Quin propòsit de representació hauria d'utilitzar per mostrar imatges al meu monitor? </title>
+          <para
+>L'opció més habitual és la colorimetria relativa. Jo suggeriria que no utilitzeu colorimetria absoluta (&pex; amb «ufraw») llevat que vulgueu resultats molt estranys.</para>
+       </sect3>
+        <sect3
+> <title
+>Què és una provatura suau? </title>
+          <para
+>La provatura suau us mostrarà les diferències que es poden esperar entre el que es veu a la pantalla i el que veureu quan vostè feu una impressió. Per a realitzar una provatura suau, es necessita un perfil per a la impressora (en realitat, per a la vostra combinació d'impressora i paper, com el paper utilitzat afecta els colors de la tinta i al punt blanc). Si no us agrada la imatge de la provatura suau, podeu fer canvis (en el vostre espai de treball, no després de convertir la imatge a l'espai de la impressora!) per alinear la imatge de la provatura suau més d'acord amb la forma en què desitgeu que aparegui a la impressió final. </para>
+       </sect3>
+        <sect3
+> <title
+>Quin propòsit de representació hauria d'utilitzar en una provatura suau? </title>
+          <para
+>Sempre he sentit que hauríeu d'utilitzar «propòsit perceptiu» en transformar una imatge des d'un espai de treball més gran cap a un petit espai d'impressora més petit. sobretot després de la lectura de l'article «Cambridge in Color», esmentada anteriorment, sembla que el propòsit perceptiu pot o no donar els millors resultats, en funció de les respectives gammes de la imatge i la combinació d'impressora/paper en qüestió. He estat experimentant una mica últimament amb els intents de sortida per a la impressió. Em sembla que per a les meves imatges, els propòsits de colorimetria donen colors més clars i brillants, encara que a costa d'haver de tornar a editar la imatge per evitar la retallada de les llums i les ombres. La lectura de diversos fòrums de fotografia i articles disponibles a Internet indica que el «propòsit perceptiu» només és una opció, el que no significa en absolut que sigui «la millor» opció. </para>
+       </sect3>
+        <sect3
+> <title
+>I què passa amb la compensació del punt negre?</title>
+          <para
+>La definició més clara del que vaig poder trobar sobre la compensació del punt negre és la següent: «BPC és una manera de fer ajustos entre els nivells de negre màxim dels fitxers digitals i les capacitats negres de diversos dispositius digitals [com una impressora]» (citat d'<ulink url="http://www.newsandtech.com/issues/2004/05-04/pt/05-04_blackpoint.htm"
+>aquesta pàgina</ulink
+>). </para>
+          <para
+>L'article del que prové aquesta definició ofereix una explicació molt clara (encara que centrat en Adobe) de com funciona la compensació del punt negre i les conseqüències pràctiques d'utilitzar-la o no. L'avís de la línia a peu de pàgina és, depèn. Intenteu la provatura suau amb compensació del punt negre. Si us agrada, feu-la servir. En cas contrari, no l'utilitzeu.</para>
+       </sect3>
+        <sect3
+> <title
+>Es poden utilitzar tots els propòsits de representació quan es converteix des d'un espai de color a un altre? </title>
+          <para
+>En una paraula, no. Quins propòsits de representació estaran disponibles quan es converteix des d'un perfil a un altre dependrà del perfil de destinació. No tots els perfils suporten cada propòsit de representació. El que passa quan seleccioneu un propòsit de reproducció sense suport és que LCMS utilitzarà silenciosament el propòsit de representació per omissió del perfil. </para>
+          <para
+>Per a un debat informatiu i amb humor dels mites que envolten l'ús de diversos propòsits de representació, veure <ulink url="http://www.colorwiki.com/wiki/Color_Management_Myths_21-25#Myth_.2321:_There_are_perceptual_rendering_intents_available_when_converting_from_scanner.2Fcamera-.3Eworkspace_or_workspace-.3Eworkspace."
+>aquí</ulink
+> i <ulink url="http://www.colorwiki.com/wiki/Color_Management_Myths_6-10"
+>aquí</ulink
+>.</para>
+       </sect3>
+        <sect3
+> <title
+>Per què es recomana sovint el propòsit de representació perceptiu com a propòsit de representació «fotogràfic»? </title>
+          <para
+>És una opció més segura, ja que evita la retallada de les ombres i les llums, encara que possiblement a costa de dessaturar tots els colors. Així que si no voleu preocupar-vos de fer cap provatura suau, escolliu el propòsit de representació perceptiva (si no voleu fer una provatura suau, probablement també haureu de seguir amb sRGB).</para>
+       </sect3>
+     </sect2>
+
+     <sect2 id="CM-defionitions"
+>  <title
+>Algunes definicions i comentaris</title>
+      <para
+>Heu arribat al final d'aquesta guia d'aprenentatge sobre la gestió del color. Hem fet una «gestió del color» des de la càmera i el monitor, fins a l'espai de treball i la impressora. He après molt i espero que vosaltres també. El que segueix són alguns comentaris i definicions addicionals:</para>
+          <para
+><emphasis
+>Assignar</emphasis
+> un perfil significa canviar el significat dels números RGB en una imatge mitjançant l'incrustat d'un nou perfil sense canviar els números RGB reals associats amb cada píxel a la imatge. «Convertir» a un perfil vol dir inserir un nou perfil, però també canviar alhora els números RGB de manera que el significat dels valors RGB -és a dir, el color visible del món real representat pel trio de números RGB associats amb cada píxel en una imatge- segueixi sent el mateix abans i després de la conversió d'un espai a un altre.</para>
+          <para
+>D'altra banda, cada vegada que assigneu un nou perfil de l'espai de treball en lloc de convertir a un nou espai de treball (excepte quan s'assigna inicialment un perfil de la càmera al fitxer d'imatge que rebeu des del vostre programari de processament RAW), l'aparença de la imatge canviarà més o menys dràsticament (en general a pitjor, llevat que prèviament el perfil equivocat hagi estat inadvertidament incrustat a la imatge).</para>
+          <para
+>En teoria, hauríeu de ser capaç de fer múltiples conversions d'una imatge des d'un espai de treball a un altre, i si esteu utilitzant un editor d'imatges amb gestió del color, tot i que tots els números RGB de la imatge canviaran amb cada conversió, la imatge que aparegui a la pantalla haurà de ser la mateixa. En realitat, degut als errors d'arrodoniment sobre cada conversió, per no mencionar el retallat de la gamma quan es passa d'un espai de treball més gran a un de més petit, cada vegada que convertiu des d'un espai a un altre, la imatge es degradarà una mica. </para>
+          <para
+>Perfils <emphasis
+>dependents del dispositiu</emphasis
+> i el <emphasis
+>independents del dispositiu</emphasis
+>: El perfil de la càmera, un perfil de l'escàner, el perfil del monitor i el perfil de color de la impressora tots són perfils que depenen del dispositiu -aquests perfils només funcionen amb el dispositiu específic per al qual van ser produïts per mitjà d'ajustament del perfil-. Els perfils de l'espai de treball i el del PCS són «independents del dispositiu». Una vegada, un fitxer d'imatge ha estat traduït per LCMS a través d'un PCS cap a un espai de treball independent del dispositiu, en certa manera ja no importa quin dispositiu va produir originalment la imatge. Però tan aviat com vulgueu visualitzar o imprimir la imatge, llavors el dispositiu utilitzat (monitor, impressora) tindrà una gran importància i requerirà d'un perfil dependent del dispositiu.</para>
+          <para
+>Un <emphasis
+>fitxer RAW interpolat</emphasis
+> no és un fitxer RAW. Per alguna raó, aquest simple punt provoca una gran confusió. No obstant, després que un fitxer RAW hagi estat interpolat pel programari de processament RAW i després la sortida com a TIFF o JPEG, el fitxer RAW original seguirà sent un fitxer RAW, per descomptat, però el fitxer interpolat només serà un fitxer d'imatge. No serà un fitxer RAW. </para>
+          <para
+><emphasis
+>Lineal</emphasis
+> té dues definicions relacionades i fàcilment confuses. «Lineal» pot significar que la tonalitat de la imatge reflecteix la tonalitat en l'escena original com es va fotografiar en comptes de ser alterada per l'aplicació d'una corba S o altres mitjans de canvi de la tonalitat local i global. També pot significar que una corba de transferència de la gamma de l'espai de color és lineal. Una imatge pot ser «lineal» en qualsevol, ambdós, o cap dels dos sentits. Una imatge RAW desenvolupada per «dcraw» és lineal en ambdós sentits. La mateixa imatge desenvolupada pel DPP de Canon no serà lineal en cap sentit.</para>
+          <para
+><emphasis
+>HDR i LDR</emphasis
+> no es refereixen a la profunditat de bits de la imatge. «Marge dinàmic elevat -High dynamic range-» i «marge dinàmic baix -low dynamic range-» es refereixen a la gamma dinàmica total abastada per una imatge. Una imatge de marge dinàmic baix normal, diu que abasta unes 5 «parades» (la càmera digital mitjana en aquests dies pot acomodar fàcilment 8 o 9 parades), es poden desar com una imatge de 8-, 16-, 32-, o fins i tot de 64 bits, depenent del vostre programari, però el marge dinàmic de la imatge no es veu alterada per aquest fet. Només canviaran el nombre de passos discrets des dels tons més brillants als tons més foscos de la imatge. Per contra, una escena de 22 parades (molt més enllà de la capacitat d'una càmera digital orientada al consumidor sense utilitzar múltiples exposicions) es pot guardar com una imatge de 8- o de 16 bits, però la imatge resultant exhibirà un efecte de cartell extrem (és a dir, mostrarà un efecte de cartell en qualsevol abast tonal donat ja que en realitat es pot visualitzar en un monitor típic d'una sola vegada), a causa dels relativament pocs passos tonals discrets disponibles des del to més brillant al més fosc de la imatge.</para>
+          <para
+><emphasis
+>Les imatges JPEG produïdes a la càmera no necessiten un perfil de la càmera</emphasis
+>. Tots els fitxers JPEG (o TIFF, si teniu una vella càmera «Minolta Dimage») que vénen directament d'una càmera (fins i tot si són produïts per càmeres instantànies que no permeten desar un fitxer RAW) comencen la seva vida a l'interior de la càmera com un fitxer RAW produït pel convertidor A a D de la càmera. Si deseu les imatges com a fitxers JPEG, el processador dins de la càmera interpolarà el fitxer RAW, assignant un perfil de la càmera, traduint els números RGB resultants a un espai de treball (normalment sRGB, però de vegades podeu triar AdobeRGB, depenent de la càmera), realitzarà la compressió JPEG, i emmagatzemarà el fitxer JPEG a la targeta de la vostra càmera. De manera que pels fitxers JPEG (o TIFF) de la càmera no serà necessari assignar-lis un perfil de la càmera al que traduir a un espai de treball a través d'un PCS. Els JPEG d'una càmera ja es troben en un espai de treball. </para>
+          <para
+><emphasis
+>Informació matemàtica útil</emphasis
+> si negocieu amb la sortida de gamma lineal de «dcraw»: Matemàticament parlant, quan es realitza una transformació de gamma esteu normalitzant (és a dir, dividiu per 256 si esteu treballant amb valors de 8 bits) els números RGB i elevant els números resultants a una potència apropiada en funció de les respectives gammes de l'espai de color d'inici i final, a continuació, torneu a normalitzar els resultats a un nou conjunt de números RGB. No és difícil, i és molt instructiu, fer això amb una calculadora per uns quants conjunts de números RGB espaiats des de (0,0,0) fins a (255,255,255) per veure com canvien els números RGB d'una codificació de gamma a una altra. LCMS ho fa per vosaltres quan li dieu que converteixi d'un espai de color a un altre. No obstant, si tot el que estem fent és convertir d'un espai de color al mateix espai de color a excepció d'una gamma diferent, utilitzeu «imagemagick» en lloc de «LCMS» i simplement manipuleu directament els números RGB, després assigneu el nou espai de treball a la imatge -els resultats seran més exactes si se sotmeten a una transformació de l'espai de color-.</para>
+          <para
+><emphasis
+>Drets d'autor i espais de treball lliures de còpia</emphasis
+>: donaré per fet que tots els espais de treball que es troben normalment, com ara: </para>
+          <orderedlist>
+              <listitem
+><para
+>les diverses variants de sRGB (veure color.org) </para
+></listitem>
+              <listitem
+><para
+>BruceRGB o BestRGB </para
+></listitem>
+              <listitem
+><para
+>els diversos perfils de l'espai de treball ECI (iniciativa de color europea) </para
+></listitem>
+              <listitem
+><para
+>AdobeRGB, Adobe WideGamutRGB i Kodak/Adobe ProPhotoRGB (Kodak i Adobe ProPhoto són els mateixos, sols és diferent la marca) i les seves sense marca, equivalent a sense drets d'autor (Oyranos inclou una versió sense marca d'AdobeRGB) </para
+></listitem>
+          </orderedlist>
+          <para
+>i un bon nombre d'altres espais de treball que es podrien afegir a aquesta llista, són tots més o menys adequats com a espais de treball. Quin espai de treball utilitzar depèn única i exclusivament de vosaltres, de les vostres necessitats com editor de les vostres imatges digitals amb els vostres eventuals intencions de sortida (web, impressió artística, &etc;) No obstant, com un efecte secundari important, si esteu utilitzant Adobe o altres perfils de l'espai de treball amb drets d'autor, aquests perfils contenen informació de drets d'autor que apareixerà a la informació EXIF de la imatge. Darrerament he estat fullejant les llistes de correu openicc. Aparentment LCMS es pot utilitzar per a presentar perfils de l'espai de treball lliures de còpia que són el mateix -de fet, difícils de distingir- que els perfils de l'espai de treball amb marca i drets d'autor. Seria un afegit meravellós al &digikam; si un conjunt de perfils de l'espai de treball «lliures de còpia», incloent les versions sense marca i que estigui degudament etiquetat de ProPhotoRGB, AdobeRGB i Adobe WidegamutRGB (potser en dos sabors cadascun: la gamma lineal i la gamma de costum), es podrien incloure com a part del paquet &digikam;. </para>
+     </sect2>
+
+     <sect2 id="profile-connection"
+>  <title
+>El traductor universal: el vostre perfil de la càmera, l'espai de connexió del perfil i LCMS</title>
+
+         <para
+>Per tant, la pregunta per a cada trio RGB de valors en el format TIFF de 16 bits (suposem) produït per «dcraw» esdevé: «Què fa un trio particular de valors RGB pels píxels que componen les imatges produïdes per aquesta càmera en particular (marca i model), en realitat significa en termes d'algun estàndard absolut que referencia algun observador ideal». Aquest estàndard absolut que referencia algun observador ideal és més comunament anomenat un <emphasis
+>espai de connexió del perfil</emphasis
+> (Profile Connection Space -PCS-). Es necessita un perfil de la càmera per a caracteritzar o descriure amb precisió la resposta dels píxels d'una càmera donada a la llum que entra en aquesta càmera, de manera que els valors RGB en el fitxer de sortida produït pel convertidor RAW es poden traduir primer en un espai de connexió del perfil absolut (PCS) i després des del PCS al vostre espai de treball triat. Com a efecte secundari molt important, per a la majoria del món del codi obert (incloent &digikam;), el programari utilitzat per traduir des del perfil de la càmera al PCS i des del PCS a l'espai de treball que heu triat i, finalment, al vostre espai de sortida triat (per a imprimir o potser visualitzar al monitor) es basa en «lcms» (el <ulink url="http://littlecms.com"
+>petit motor per a la gestió del color</ulink
+>). Per si serveix d'alguna cosa, les meves pròpies proves han demostrat que «lcms» realitza conversions més exactes que el motor de conversió del color propietari d'Adobe. A més, en gairebé tots els programes de conversió RAW, incloent el programari comercial de codi tancat, com Adobe Photoshop, la conversió RAW normalment es basa en la descodificació del fitxer RAW propietari realitzada per «dcraw». En David Coffin, autor de «dcraw», és l'heroi de la conversió RAW -sense ell estaríem tots atrapats utilitzant l'únic programari propietari windows/mac que ve amb les nostres càmeres digitals-. Els algorismes d'interpolació de «dcraw» (no confondre amb l'anterior descodificació propietària del fitxer RAW) que formen part de &digikam;, si s'utilitzen correctament, produeixen resultats iguals o superiors al programari comercial i de codi tancat. Ens trobem al món de Linux i el programari de codi obert, els quals no són ciutadans de segona classe quan es tracta de la imatge digital. Ben lluny d'això. </para>
+
+         <para
+>Hi ha dos espais d'ús comú que utilitzen espais de connexió del perfil: CIELAB i CIEXYZ (veure <ulink url="http://en.wikipedia.org/wiki/Color_management"
+>Gestió del color</ulink
+>, la secció sobre traducció del color, mireu CIELAB i CIEXYZ a la wikipedia). «Lcms» utilitza el perfil de la càmera per traduir els valors RGB des del fitxer RAW interpolat, és a dir, el TIFF produït per «dcraw», a l'espai de connexió del perfil apropiat (normalment CIEXYZ -Perquè CIEXYZ?- no he tingut temps per aprendre altres). Un espai de connexió del perfil no és en si mateix un espai de treball. Més aviat, un PCS és un espai de referència absoluta utilitzat només per a traduir des d'un espai de color a un altre. Penseu en un PCS com un traductor universal per a tots els perfils de color d'una imatge que podeu trobar durant el viatge des del fitxer RAW de la càmera fins al resultat final:</para>
+         <orderedlist>
+            <listitem
+><para
+>«Lcms» utilitza el perfil de la càmera, també anomenat un perfil d'entrada, per traduir els números RGB interpolats produïts per «dcraw», els quals només tenen sentit en relació amb la vostra càmera (marca i model), a un segon conjunt de números RGB que només tenen sentit a l'espai de connexió del perfil.</para
+></listitem>
+            <listitem
+><para
+>«Lcms» tradueix els números RGB de l'espai de connexió del perfil als números corresponents en el vostre espai de treball triat de manera que pugueu editar la imatge. I una vegada més, aquests números d'espai de treball NOMÉS tenen sentit en relació amb un espai de treball determinat. El mateix vermell, parlant a un nivell visual, és representat per diferents trios de números RGB en diferents espais de treball; i si assigneu el perfil equivocat, la imatge es veurà malament, una mica malament o molt malament en funció de les diferències entre els dos perfils.</para
+></listitem>
+            <listitem
+><para
+>Quan editeu la vostra imatge a l'espai de treball triat, llavors «lcms» haurà de traduir tots els números RGB de l'espai de treball cap al PCS, i després als números RGB correctes que permeti el vostre monitor (el dispositiu de visualització) per donar-vos la representació més exacta possible de la imatge que esteu editant. Aquesta traducció per a la pantalla es realitza sobre la marxa i ni tan sols us n'hauríeu d'adonar, llevat que no es realitzi correctament -després del qual, la imatge mostrada es veurà malament, potser una mica malament, potser molt, molt, molt malament-. </para
+></listitem>
+            <listitem
+><para
+>Quan estigueu satisfet amb la vostra imatge editada estareu a punt per compartir-la amb el món, «lcms» tradueix els números RGB de l'espai de treball cap a l'espai del PCS i de nou a un espai de color de la impressora utilitzant un perfil de la impressora que caracteritzi la vostra combinació d'impressora/paper (si penseu en imprimir la imatge) o sRGB (si penseu en mostrar la imatge al web o enviar-la en un correu electrònic a amics o potser crear un passi de diapositives per a reproduir-la en diferents monitors).</para
+></listitem>
+       </orderedlist>
+
+       <para
+>Per a retrocedir una mica i mirar el primer perfil de color d'una imatge trobada, és a dir, el perfil de la càmera (veure (1) immediatament a sobre) -«dcraw» pot, de fet, aplicar el perfil de la càmera per a vosaltres («dcraw» utilitza «lcms» internament)-. No obstant, (i) la generació del TIFF compost pels valors RGB interpolats que deriven del fitxer RAW de la càmera, i (ii) l'aplicació del perfil de la càmera al fitxer interpolat, són dos passos molt diferents i totalment fàcils de separar (separats en la teoria i a la pràctica per «dcraw»; en la teoria només per a la majoria dels convertidors RAW). Les opcions de sortida de la línia d'ordres de «dcraw» «-o 0 [Color RAW (única per a cada càmera)] -4 [16 bits lineals] -T [TIFF]» li diuen a «dcraw» que doni sortida als números RGB des de la interpolació RAW dins d'un TIFF «SENSE» aplicar un perfil d'entrada de la càmera (les paraules entre claudàtors expliquen les opcions, però no s'han d'introduir a la línia d'ordres). Llavors, si realment gaudiu treballant des de la línia d'ordres, podeu utilitzar la utilitat «tifficc» de «lcms» per aplicar el perfil de la càmera. L'avantatge de fer-ho és que es podreu indicar a «lcms» que utilitzi conversió d'alta qualitat («dcraw» sembla utilitzar la qualitat mitja de «lcms» per omissió). El desavantatge, per descomptat, és que aplicar el vostre perfil de la càmera des de la línia d'ordres afegeix un pas addicional al vostre flux de treball RAW.</para>
+
+      <sect3 id="using-iccprofile"
+>   <title
+>On trobar els perfils de la càmera</title>
+
+        <para
+>D'on traiem aquests perfils específics de la càmera esquius i tan necessaris per a traduir els nostres fitxers RAW interpolats a un espai de color de treball? La secció sobre gestió del color al <ulink url="http://ufraw.sourceforge.net/Colors.html"
+>lloc web de UFRAW</ulink
+> disposa d'una mica d'informació sobre on trobar perfils de la càmera ja llestos. És un fet desafortunat de la imatge digital que els perfils de la càmera subministrats per Canon, Nikon, i similars no funcionen tan bé amb els convertidors RAW que no siguin propis del fabricant de la càmera. És per això que «Bibble» i «Phase One» (i Adobe, però ACR oculta els perfils fets per Adobe dins del codi del programa), per exemple, han de crear els seus propis perfils per a totes les càmeres que suporten -tingueu en compte aquesta tendència propietària del fabricant de la vostra càmera quan la propera vegada que compreu una càmera digital-. </para>
+        <para
+>Però tornem a la recerca d'un perfil de la càmera per la VOSTRA càmera. La resposta real (suposant que no trobeu un perfil ja creat que us faci feliç) és crear el vostre propi perfil de la càmera o tenir-ne un de fet. Hi ha un bon nombre de serveis comercials que presten serveis d'ajustament de perfil (per una tarifa, és clar). O podeu utilitzar «LPRof» o «Argyll» per a ajustar el perfil de la vostra càmera vosaltres mateixos. Encara no he fet aquest camí, així que no puc parlar sobre com de fàcil o difícil pot resultar el procés d'ajustar el perfil d'una càmera. Però m'imagino que, sabent el molt meticulosos que és la gent al darrere de «Argyll», «LPRof» i «lcms» sobre la gestió del color, el crear el vostre propi perfil de la càmera serà, i en aquest cas, que els resultats siguin millors que qualsevol altre perfil propietari. Després de tot, Canon (i també «Bibble» i «Phase One» en aquest sentit) encara no han creat un perfil per a la meva càmera -acaben de crear el perfil d'una càmera com la meva-.</para>
+        <para
+>Espais de treball:</para>
+
+        <para
+>Així que ara el vostre fitxer RAW ha estat interpolat per «dcraw» i heu obtingut un perfil de la càmera i utilitzeu «tifficc» de «lcms» per aplicar el perfil de la càmera al TIFF produït per «dcraw» (o li dieu a «dcraw» que l'apliqui). Què vol dir tot això? La resposta veritable implica una gran quantitat de matemàtiques i ciència del color que està fora de l'abast de l'autor i probablement del lector. La resposta curta i pràctica, és que ni l'espai del perfil de la càmera ni l'espai de connexió del perfil és un espai adequat per a l'edició d'imatges. El següent pas és triar un espai de treball per a l'edició d'imatges. I després vosaltres (o més aviat el motor de gestió del color «lcms» que utilitza el vostre programari d'imatge digital de codi obert) realitzareu una doble traducció. Primer «lcms» utilitza el perfil de la càmera per a traduir els valors RGB de cada píxel a la imatge de sortida de «dcraw» sense perfil aplicat abans esmentada a l'espai de connexió del perfil. A continuació, tradueix els valors RGB de cada píxel des dels PCS al vostre espai de treball triat.</para>
+
+        <para
+>Confusions i terminologia confusa:</para>
+        <para
+>Abans de parlar més sobre els espais de treball, cal aclarir algunes confusions i terminologia confusa: </para>
+        <para
+>En primer lloc, sRGB és alhora un espai de color de treball i un espai de color de sortida per a les imatges destinades al web i per a visualitzar a un monitor (si teniu un fenomenal monitor nou amb una gamma més llarga que la gamma coberta per sRGB, òbviament, és possible que vulgueu reconsiderar el perfil de sortida que s'utilitzarà per treure el millor profit del vostre meravellós monitor i espero que calibrat i amb el perfil ajustat, però si us plau, convertiu la imatge a sRGB abans d'enviar-la als vostres amics!). sRGB també és l'espai de color que moltes moltes impressores domèstiques i comercials de producció en massa esperen trobar als fitxers d'imatge quan s'envien a la impressora. També és l'espai de color que la majoria dels programes assumeixen si una imatge no té un perfil de color incrustat que indiqui al programa quin espai de color s'ha d'utilitzar per interpretar (traduir) els números RGB. De manera que si decidiu no utilitzar la gestió del color, les opcions sobre la gestió del color seran simples. Establiu-ho tot per a sRGB. </para>
+        <para
+>En segon lloc, tots els fitxers JPEG (o TIFF, si teniu una vella càmera «Minolta Dimage») que vénen directament d'una càmera (fins i tot si són produïts per càmeres instantànies que no permeten desar un fitxer RAW) comencen la seva vida a l'interior de la càmera com un fitxer RAW produït pel convertidor A a D de la càmera. El processador dins de la càmera interpolarà el fitxer RAW, assignant un perfil de la càmera, traduint els números RGB resultants a un espai de treball (normalment sRGB, però de vegades podeu triar AdobeRGB, depenent de la càmera), realitzarà la compressió JPEG, i emmagatzemarà el fitxer JPEG a la targeta de la vostra càmera. De manera que pels fitxers JPEG (o TIFF) de la càmera NO serà necessari assignar-lis un perfil de la càmera o d'entrada al que traduir a un espai de treball a través d'un PCS. Els JPEG d'una càmera ja es troben en un espai de treball.</para>
+        <para
+>En tercer lloc, per si algú no està segur sobre aquest punt, tingueu en compte que un fitxer RAW interpolat ja no és un fitxer RAW -es va interpolar i després surt com a TIFF, els valors RGB s'hauran de traduir a un espai de treball, utilitzant el perfil de la càmera, el PCS, i «lcms». En quart lloc (estrictament per a referències futures), per presentar una mica de la terminologia comuna sobre la gestió del color -el perfil de la càmera i el perfil de color de la impressora són alhora dependents del dispositiu, mentre que l'espai de treball serà independent del dispositiu-, es podrà utilitzar amb qualsevol imatge, amb el programari per a la gestió del color adequat, sense tenir en compte on es va originar la imatge.</para>
+        <para
+>En cinquè lloc, per sobre de les paraules que he utilitzat «traduir» i «traducció» com una metàfora descriptiva, el que fa «lcms» és traduir els valors RGB des d'un espai de color a un altre a través del PCS. La terminologia habitual i correcta és «convertir» i «conversió», la qual s'utilitzarà a continuació. Els quatre mètodes de conversió des d'un espai de color a un altre són: perceptiva, colorimetria relativa, colorimetria absoluta i saturació. Quin mètode de conversió s'ha d'utilitzar per a qualsevol etapa del processament de la imatge des del fitxer RAW fins a la imatge de sortida final està més enllà de l'abast d'aquesta guia d'aprenentatge. El consell estàndard és: en cas de dubte, utilitzeu perceptiva.</para>
+        <para
+>En sisè lloc (i de nou, estrictament per a futures referències), assignar un perfil vol dir canviar el significat dels nombres RGB en una imatge incrustant un nou perfil sense canviar els números RGB reals associats amb cada píxel a la imatge; convertir vol dir incrustar un nou perfil, però alhora també canvia els números RGB de manera que el significat dels valors RGB -és a dir, el color visible al món real representat per un trio de números RGB associats a cada píxel d'una imatge- segueix sent el mateix que abans i després de la conversió des d'un espai a un altre. Haureu de ser capaç de realitzar múltiples conversions d'una imatge des d'un espai de treball a un altre, i amb un editor d'imatges amb una gestió del color adequada, tot i que tots els números RGB de la imatge canviaran amb cada conversió, la imatge a la pantalla semblarà la mateixa (deixant de banda els petits però inevitables i generalment imperceptibles canvis generats per desajustos de gamma acumulats i errors d'arrodoniment matemàtics). No obstant, cada vegada que s'assigna un nou perfil de l'espai de treball en lloc de convertir a un nou espai de treball, l'aparença de la imatge canviarà més o menys dràsticament (generalment a pitjor).</para>
+        <para
+>Finalment, (i aquest és un punt de crucial importància), la gestió del color no només és apropiada si es dispara en format RAW. La gestió del color afecta a cada etapa de la línia de processament de la imatge, quan comenceu amb un fitxer RAW que heu interpolat i traduït en un TIFF, o si comenceu amb un JPEG o TIFF produït per la càmera.</para>
+
+        <para
+>Drets d'autor i espais de treball lliures de còpia:</para>
+        <para
+>Donaré per fet que TOTS els espais de treball normals trobats, com ara:</para>
+        <orderedlist>
+          <listitem
+><para
+>les diverses variants de sRGB (veure <ulink url="http://www.color.org/v4spec.xalter"
+>color.org</ulink
+>) </para
+></listitem>
+          <listitem
+><para
+><ulink url="http://www.brucelindbloom.com"
+>BruceRGB</ulink
+></para
+></listitem>
+          <listitem
+><para
+>els diversos <ulink url="http://www.eci.org/doku.php?id=en:colourstandards:workingcolorspaces"
+>perfils</ulink
+> d'espai de treball ECI (iniciativa de color europea)</para
+></listitem>
+          <listitem
+><para
+>AdobeRGB, Adobe WideGamutRGB i Kodak/Adobe ProPhotoRGB (Kodak i Adobe ProPhoto són els mateixos, sols és diferent la marca) i les seves <ulink url="http://www.behrmann.name/index.php?option=com_content&amp;task=view&amp;id=34&amp;Itemid=68"
+>sense marca, equivalent a sense drets d'autor</ulink
+> (Oyranos inclou una versió sense marca d'AdobeRGB</para
+></listitem>
+          <listitem
+><para
+>i un bon nombre d'altres que podrien afegir-se a aquesta llista, tot són més o menys adequats com a espais de treball. Quin espai de treball hauríeu d'utilitzar dependrà única i exclusivament de vosaltres, de les vostres necessitats com editor d'imatges digitals amb la vostra eventual intenció de sortida (web, impressió artística, &etc;)</para
+></listitem>
+        </orderedlist>
+        <para
+>No obstant, com un efecte secundari important, si esteu utilitzant Adobe o altres perfils de l'espai de treball amb drets d'autor, aquests perfils contenen informació de drets d'autor que apareixerà a la informació EXIF de la imatge. Darrerament he estat fullejant les llistes de correu openicc. Aparentment «lcms» es pot utilitzar per a presentar perfils de l'espai de treball lliures de còpia que són el mateix -de fet, difícils de distingir- que els perfils de l'espai de treball amb marca i drets d'autor. Seria un afegit meravellós al &digikam; si un conjunt de perfils de l'espai de treball «lliures de còpia», incloent les versions sense marca i que estigui degudament etiquetat de ProPhotoRGB, AdobeRGB i Adobe WidegamutRGB (potser en dos sabors cadascun: la gamma lineal i la gamma de costum), es podrien incloure com a part del paquet &digikam;. </para>
+
+        <para
+>Quin espai de treball: gamma</para
+> 
+        <para
+>Ara, la pregunta és: Quin espai de treball haig d'utilitzar? La <ulink url="http://en.wikipedia.org/wiki/Color_management#Working_spaces"
+>Wikipedia diu</ulink
+>: <blockquote
+><para
+>Els espais de treball, com sRGB o Adobe RGB, són espais de color que faciliten bons resultats durant l'edició. Per exemple, els píxels amb valors iguals de RGB han d'aparèixer neutrals. L'ús d'un gran espai de treball (gamma) donarà lloc a l'efecte cartell, mentre que l'ús d'un petit espai de treball donarà lloc a retallades. Aquest compromís és una factor crític per a l'editor d'imatges.</para
+></blockquote
+> </para>
+        <para
+>Bé, aquesta cita de la wikipedia és molt clara, i seria difícil explicar-ho de forma més clara, però ho intentaré. «Els [p]íxels amb valors iguals de RGB han d'aparèixer neutrals» simplement vol dir que per a qualsevol píxel en una imatge que s'ha convertit en un espai de treball adequat, si R=G=B s'hauria de veure gris o negre o blanc a la vostra pantalla. </para>
+        <para
+>No tinc coneixement d'una llista d'altres requisits tècnics per a un espai de treball adequat, tot i que, sens dubte, algú ha elaborat una llista. Però la majoria dels perfils de l'espai de treball es caracteritzen per: </para>
+        <orderedlist>
+           <listitem
+><para
+>els primaris RGB que dicten el rang de colors, és a dir, la gamma coberta per un perfil donat</para
+></listitem>
+           <listitem
+><para
+>un punt blanc, normalment D50 o D65, dicta l'interval dinàmic total de l'espai de treball, des de 0,0,0 (negre total) fins al blanc més brillant possible</para
+></listitem>
+           <listitem
+><para
+>gamma</para
+></listitem>
+        </orderedlist
+> 
+        <para
+>Les conseqüències pràctiques que es deriven de l'ús de diferents primaris RGB, que condueixen a espais de treball més grans o més petits, s'analitza a continuació. Les conseqüències pràctiques per a les diferents opcions per a l'espai de treball del punt blanc estan més enllà de l'abast d'aquests guia d'aprenentatge. Aquí parlaré una mica sobre les conseqüències pràctiques de la gamma de l'espai de treball (per a un excel·lent article i les referències, consulteu «gamma» a la wikipedia). </para>
+        <para
+>La gamma d'un perfil de color dicta on es necessita la potència de transformació per a convertir adequadament des d'un perfil de color incrustat a una imatge (potser el vostre espai de color de treball) a un altre perfil de color amb una gamma diferent, com ara (i) el perfil de la pantalla utilitzat per a mostrar la imatge a la pantalla, o (ii) potser per a un nou espai de treball, o (iii) potser des del vostre espai de treball a l'espai de color de la impressora. </para>
+
+        <tip
+><para
+>Matemàticament parlant, per a una transformació potent normalitzeu els números RGB i eleveu les xifres resultants a una potència adequada en funció de les respectives gammes de l'espai de color d'inici i final, i després torneu a normalitzar els resultats a un nou conjunt de números RGB. «Lcms» ho fa per vos quan li demaneu que converteixi des d'un espai de color a un altre, però, si TOT el que esteu fent és una transformació potent, utilitzeu «imagemagick» en lloc de «lcms» i simplement manipuleu directament els números RGB -els resultats seran més precisos-.</para
+></tip>
+
+        <para
+>Una conseqüència pràctica de la gamma d'un espai de treball és que com més gran sigui la gamma, més tons estaran disponibles per a l'edició de les ombres, amb el consegüent menor nombre de tons disponibles a les altes llums. Així que, en teoria, si esteu treballant sobre una imatge de to molt fosc (de perfil baix) és possible que vulgueu un espai de treball amb una gamma més alta. I si esteu treballant sobre una imatge de perfil alt, per exemple una fotografia presa a la llum del sol del migdia amb un vestit de núvia amb la neu com a teló de fons, és possible que vulgueu triar un espai de treball amb una gamma més baixa, pel que té disponibles més gradacions tonals pels tints de les llums intenses. Però en el món real de l'edició d'imatges, gairebé tothom utilitza els espais de treball amb gamma 1.8 o 2.2. </para>
+        <para
+>Algunes persones estan tractant d'estandarditzar la gamma 2.0. sRGB i LStar-RGB no són espais de treball basats en la gamma. Més aviat, sRGB utilitza una <ulink url="http://en.wikipedia.org/wiki/SRGB"
+>gamma híbrida</ulink
+> i LStar-RGB utilitza una corba de resposta tonal basada en la lluminositat en comptes d'un valor de gamma -per a més informació veure <ulink url="http://www.colormanagement.org/en/workingspaces.html"
+>aquí</ulink
+>, i després feu una volta a google per a informació en més profunditat. </para>
+        <para
+>A més de les gammes 1.8 i 2.2, l'única altra gamma per a un espai de treball que val la pena esmentar o utilitzar és la gamma 1.0, també anomenada gamma lineal. La <emphasis
+>gamma lineal</emphasis
+> s'utilitza en imatges HDR (marge dinàmic elevat -high dynamic range-) i també si voleu evitar la introducció d'errors induïts per la gamma en una edició de marge dinàmic baix normal. Els errors induïts per la gamma són un tema fora de l'abast d'aquesta guia d'aprenentatge, però veure els <ulink url="http://www.4p8.com/eric.brasseur/gamma.html"
+>errors de gamma</ulink
+> en <ulink url="http://www.21stcenturyshoebox.com/essays/color_reproduction.html"
+>canviar una imatge</ulink
+>, pel que fa als canvis de color induïts per la gamma. </para>
+        <para
+>Per desgràcia, i malgrat els seus innegables avantatges matemàtics, els espais de treball de gamma lineal tenen tan pocs tons en les ombres que (al meu entendre) és impossible utilitzar-los per a l'edició, si esteu treballant en 8 bits, i seguirà sent problemàtic en els 16 bits. Quan arribi el dia en el què fem la nostra edició de fitxers sobre 32 bits, produïts per les nostres càmeres HDR en els nostres super-ordinadors personals, puc predir que tots utilitzarem espais de treball amb gamma 1. Adobe Lightroom ja està utilitzant un espai de treball de gamma lineal «entre bastidors» i Lightzone sempre ha utilitzat un espai de treball de gamma lineal. </para>
+
+        <para
+>Quin espai de treball: <emphasis
+>gamma gran</emphasis
+> o <emphasis
+>gamma petita</emphasis
+></para>
+        <para
+>Una consideració IMPORTANT en l'elecció d'un espai de treball és que alguns espais de treball són més grans que altres, és a dir, que cobreixen més de l'espectre visible (potser fins i tot inclouen alguns colors imaginaris -construccions matemàtiques que en realitat no existeixen-). Aquests grans espais tenen l'avantatge de permetre-us mantenir tots els colors capturats i conservats per la conversió «lcms» des del perfil de la càmera al gran espai de connexió del perfil actual. </para>
+        <para
+>Però mantenir tots els colors possibles té un preu. Sembla que qualsevol imatge digital donada (fotografies de calèndules amb grocs molt saturats són una excepció comuna) és probable que només contingui un petit subconjunt de tots els possibles colors visibles que la vostra càmera és capaç de capturar. Aquest petit subconjunt és fàcilment contingut en un dels espais de treball més petits. L'ús d'un gran espai de treball significa que l'edició de la imatge (corbes aplicables, saturació, &etc;) pot presentar fàcilment colors que el dispositiu de sortida final (impressora, monitor) simplement no podrà mostrar. Així que la conversió des del vostre espai de treball a l'espai del dispositiu de sortida (com la impressora) haurà de tornar a assignar la gamma de colors en la imatge editada, alguns dels quals podrien fins i tot ser totalment imaginaris, l'espai de color de la impressora amb la seva gamma molt petita, donarà colors incorrectes en el millor dels casos i en el pitjor un efecte de cartell (llacunes en el que hauria de ser una transició de color suau, per exemple, a través d'una extensió de cel blau) i retallada (&pex;, les vostres transicions en delicades ombres de vermell es poden reassignar a un bloc sòlid de vermell apagat després de la conversió a l'espai de color de la impressora).</para>
+        <para
+>En altres paraules, els espais de treball de gamma gran, utilitzats de forma inadequada, poden ocasionar la pèrdua d'informació a la sortida Els espais de treball de gamma petita poden reduir la informació sobre l'entrada. Com diu la Wikipedia, tot és una qüestió de compromís. Heus aquí alguns dels consells més repetits:</para>
+        <orderedlist>
+          <listitem
+><para
+>Per a les imatges destinades a la web, utilitzeu (una de les) sRGB (variants -n'hi ha diverses-). </para
+></listitem>
+          <listitem
+><para
+>Per a una major precisió en la vostra edició d'imatges (això és, treure el màxim profit dels vostres «bits» amb el menor risc d'efecte de cartell o retallar en convertir la imatge des del vostre espai de treball a un espai de sortida), utilitzeu l'espai de treball més petit que inclou tots els colors de l'escena fotografiada, a més d'una mica més d'espai per a aquests nous colors que es produeixen intencionadament durant la vostra edició. </para
+></listitem>
+          <listitem
+><para
+>Si esteu treballant en 8 bits en lloc de 16 bits, escolliu un espai de treball més petit en lloc d'un espai més gran.</para
+></listitem>
+          <listitem
+><para
+>Per a fins d'arxiu, convertiu el vostre fitxer RAW a un TIFF de 16 bits amb un espai de treball de gamma gran per evitar la pèrdua d'informació del color. A continuació, convertiu aquest arxiu TIFF a l'espai de treball de la vostra elecció (desant el TIFF convertit amb un nou nom, és clar). Veure <ulink url="http://simon.tindemans.eu/essays/scenereferredworkflow"
+>aquí</ulink
+> per a més detalls.</para
+></listitem>
+        </orderedlist>
+
+        <para
+>Els perquès d'aquests petits consells sobre quin espai de treball estan més enllà de l'abast d'aquesta guia d'aprenentatge. Veure l'excel·lent lloc web d'en Bruce Lindbloom (<ulink url="http://www.brucelindbloom.com/"
+>Info, Informació sobre els espais de treball RGB</ulink
+>) per a una comparació visual de la gamma (gamma de colors inclosos) dels diferents espais de color de treball. Veure <ulink url="http://www.luminous-landscape.com/tutorials/prophoto-rgb.shtml"
+>aquí</ulink
+> i <ulink url="http://www.cambridgeincolour.com/tutorials/sRGB-AdobeRGB1998.htm"
+>aquí</ulink
+> per a una presentació dels pros i els contres, respectivament, dels avantatges de la utilització d'espais de treball de gamma gran. I mentre esteu al lloc web cambridgeincolour.com, feu un cop d'ull a la guia d'aprenentatge sobre la gestió del color. </para>
+    </sect3>
+
+            <sect3 id="softproofing"
+>                  <title
+>Provatura suau</title>
+                <para
+>La provatura suau és una manera d'obtenir una vista prèvia a la pantalla (monitor) del resultat que s'espera d'una sortida en un altre dispositiu, en general una impressora. La provatura suau mostrarà la diferència esperada abans d'aplicar els canvis (i malbaratar la vostra costosa tinta). D'aquesta manera podreu millorar els vostres ajustos sense perdre temps ni diners. </para>
+
+            </sect3>
+
+            <sect3 id="rendering-intention"
+>          <title
+>Propòsit de representació</title>
+
+                <para
+>El propòsit de representació es refereix a la manera com són gestionades les gammes quan l'espai de color de destinació no pot gestionar tota la gamma.</para>
+                <itemizedlist>
+
+                    <listitem
+><para
+><emphasis
+>Perceptiva</emphasis
+>, també anomenada «imatge» o «Mantén la gamma completa». En general, això es recomana per a imatges fotogràfiques. La gamma de colors s'expandeix o comprimeix quan es mou entre els espais de color per mantenir una aparença general compatible. Els colors de baixa saturació es canvien molt poc. Els colors més saturats dins de les gammes dels dos espais es poden alterar per a diferenciar-los dels colors saturats fora de l'espai de gamma més petit. La representació perceptiva aplica la mateixa gamma de compressió a totes les imatges, fins i tot quan la imatge no conté colors significatius fora de la gamma.</para>
+                    </listitem>
+
+                    <listitem
+><para
+><emphasis
+>Colorimetria relativa</emphasis
+>, també anomenada «provatura» o «preserva el color idèntic» i «punt blanc». Reprodueix els colors a la gamma amb exactitud i retalla els colors fora de la gamma per a la tonalitat reproduïble més propera.</para>
+                    </listitem>
+
+                    <listitem
+><para
+><emphasis
+>Colorimetria absoluta</emphasis
+>, també anomenada «coincident» o «preserva el color idèntic». Reprodueix els colors a la gamma amb exactitud i retalla els colors fora de la gamma per a la tonalitat reproduïble més propera, sacrificant la saturació i possiblement la lluminositat. En els papers tintats, els blancs es poden enfosquir per a mantenir el to idèntic a l'original. Per exemple, es pot afegir cian al blanc d'un paper de color crema, enfosquint la imatge. Rares vegades és d'interès pels fotògrafs.</para>
+                    </listitem>
+
+                    <listitem
+><para
+><emphasis
+>Saturació</emphasis
+>, també anomenada «gràfic» o «preserva la saturació». Mapes dels colors primaris saturats a la font cap als colors primaris saturats a la destinació, descuidant les diferències de to, saturació i lluminositat. Per a gràfics de bloc, poques vegades d'interès pels fotògrafs.</para>
+                    </listitem>
+
+                </itemizedlist>
+
+           </sect3>
+
+           <sect3 id="iccprofile-links"
+>            <title
+>Enllaços</title>
+               <itemizedlist>
+               <listitem
+><para
+><ulink url="http://www.oyranos.org/wiki/index.php?title=Main_Page"
+>Wiki de colors</ulink
+></para
+></listitem>
+               <listitem
+><para
+><ulink url="http://en.wikipedia.org/wiki/CIELAB"
+>CIELab</ulink
+></para
+></listitem>
+               <listitem
+><para
+><ulink url="http://en.wikipedia.org/wiki/Gamut"
+>La gamma explicada</ulink
+></para
+></listitem>
+               </itemizedlist>
+           </sect3>
+
+      </sect2>
+
+ </sect1>
+

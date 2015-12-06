@@ -6,12 +6,12 @@
 >&digikam; maakt gebruik van een aantal bibliotheken en ondersteunende pakketten om afbeeldingsformaten te laden en op te slaan. Welke afbeeldingsformaten beschikbaar zijn is afhankelijk van de beschikbaarheid van deze bibliotheken op uw systeem en, in zeldzame gevallen, ook van de wijze waarop deze zijn gecompileerd. Op de meeste Linux-distributies kunt u een groot aantal afbeeldingsformaten gebruiken in &digikam;. </para>
 
         <para
->This dependence on other libraries means that it is not possible to give a definitive list of all of the formats that will be available on your system. At the very least JPEG, PNG, and TIFF should be available. </para>
+>Deze afhankelijkheid van andere bibliotheken betekent dat het niet mogelijk is om een definitieve lijst van alle beschikbare formaten op uw systeem weer te geven. JPEG, PNG en TIFF moeten in ieder geval wel beschikbaar zijn. </para>
 
         <para
->&digikam; only displays files that are in formats that it understands. It does this by looking at the file extension on the files and checking this against a predefined list. If the file extension is in the list &digikam; will show the file in the Image View. You can change the list of file extensions that &digikam; will accept, see the <link linkend="using-setup"
->Configuration</link
-> section for more details. </para>
+>&digikam; geeft alleen bestanden weer in formaten die het begrijpt. Hetdoet dit door te kijken naar de extensie van de bestanden en deze te vergelijken met een vooraf gedefinieerde lijst. Als de bestandsextensie in de lijst van &digikam; voor komt zal het bestand in de afbeeldingsweergave getoond worden. U kunt de lijst met bestandsextensies, die &digikam; accepteert, zelf wijzigen. Zie de sectie <link linkend="using-setup"
+>Configuratie</link
+> voor meer details. </para>
 
         <sect2
 >        <title
@@ -44,9 +44,9 @@
 >            <title
 >JPEG</title>
                 <para
->JPEG is a compressed format, that trades some of the image quality to keep file sizes small. In fact, most cameras save their images in this format unless you specify otherwise. A JPEG image is stored using lossy compression and you can vary the amount of compression. This allows you to choose between lower compression and higher image quality or greater compression and poorer quality. The only reason to choose higher compression is because it creates smaller file so you can store more images, and it's easier to send them by e-mail, or post them on the Web. Most cameras give you two or three choices equivalent to good, better, best although the names vary. </para>
+>JPEG is een gecomprimeerd formaat, dat een deel van de beeldkwaliteit opgeeft om het bestand klein te houden. In feite slaan de meeste camera's hun beelden op in dit formaat tenzij u anders aangeeft. Een JPEG-beeld wordt opgeslagen met behulp van compressie met verlies en je kunt de mate van compressie variëren. Dit stelt u in staat om te kiezen tussen lagere compressie en een hogere beeldkwaliteit of hogere compressie en een slechtere kwaliteit. De enige reden om hogere compressie te kiezen is dat het een kleiner bestand oplevert, zodat u meer foto's kunt opslaan en het gemakkelijker is om ze via e-mail te versturen of op het web te plaatsen. De meeste camera's geven je twee of drie gelijkwaardige keuzes, goed, beter, best hoewel de gebruikte namen kunnen verschillen.  </para>
 		<para
->JPEG 2000 is supported as well. It provides for the same compression ratio the better (smoother) results compared to JPEG. The 2000 version has the option of being lossless if so specified in the settings. </para>
+>JPEG 2000 wordt ook ondersteund. Het biedt bij dezelfde compressieverhouding een beter (gladder) resultaat dan met JPEG. De 2000-versie beschikt over demogelijkheid van 'verliesloos' indien dit wordt ingesteld.  </para>
 
             </sect3>
 
@@ -54,7 +54,7 @@
 >            <title
 >TIFF</title>
                 <para
->TIFF has been widely accepted and widely supported as an image format. Commonly, TIFF may be stored by the camera in uncompressed form or using lossless compression algorithm (Deflate). It maintains higher image quality but at the expense of much larger file sizes. Some cameras let you save your images in this format and it is a popular format because of its lossless compression algorithm. The problem is that the format has been altered by so many people that there are now 50 or more flavors and not all are recognizable by programs. </para>
+>TIFF wordt algemeen aanvaard en breed ondersteund als beeldformaat. Gewoonlijk kan TIFF door de camera worden opgeslagen in ongecomprimeerde vorm of met behulp van een compressie-algoritme zonder verlies (deflate). Het handhaaft een hogere beeldkwaliteit maar ten koste van veel grotere bestanden. Sommige camera's laten toe dat u uw beelden in dat formaat opslaat en het is een populaire vorm vanwege het compressiealgoritme zonder verlies. Het probleem is dat het formaat door zoveel mensen is veranderd dat er nu 50 of meer varianten zijn die niet allen door alle programma's worden herkend.  </para>
 
             </sect3>
 
@@ -62,9 +62,9 @@
 >            <title
 >PNG</title>
                 <para
->PNG is an image format that was developed as a replacement for a number of older, in the 1990's widely used, image file formats. It is a lossless format like TIFF but it is much more compact and saves disk space. Although your camera is unlikely to support PNG, some people like to convert their photographs to PNG as soon as they get them on their computer. Unlike JPEG, PNG images do not lose quality every time you re-encode them after modification. &digikam; fully supports PNG images and the Batch Processing Images Plugin can convert a batch of images from any supported format to PNG in one step. See the <link linkend="using-setup"
->Configuration</link
-> section for information about using plugins with &digikam;. </para>
+>PNG is een afbeeldingsformaat dat werd ontwikkeld als vervanger voor een aantal oudere, in de jaren 1990 op grote schaal gebruikte, afbeeldingsbestandsformaten. Het is een verliesloos formaat zoals TIFF, maar het is veel compacter en bespaart schijfruimte. Hoewel het onwaarschijnlijk is dat je camera PNG ondersteund, zetten sommige mensen hun beelden om naar PNG zodra ze die op hun computer op slaan. In tegenstelling tot JPEG, verliezen PNG-afbeeldingen niet, na elke bewerking, aan kwaliteit in het fotobewerkingsprogramma. &digikam;  biedt volledige ondersteuning voor PNG-afbeeldingen. De batchverwerkingsplug-in kan in één stap een partij beelden omzetten van een ondersteund formaat naar PNG. Zie het gedeelte <link linkend="using-setup"
+>Configuratie</link
+> voor informatie over het gebruik van plug-ins met &digikam;. </para>
 
                 <para
 >PNG is een uitbreidbaar bestandsformaat voor zonder verlies, overdraagbare, goed gecomprimeerde opslag van rasterafbeeldingen. PNG levert een patentvrije vervanging voor &GIF; en kan ook de meeste toepassingen van TIFF vervangen. PNG is ontworpen om goed te werken in online weergavetoepassingen, zoals het World Wide Web. Het is dus een volledig te stromen formaat met de mogelijkheid voor progressieve weergave. Daarnaast kan PNG gamma en kleur-gegevens opslaan voor verbeterde kleurovereenkomst op heterogene platformen. PNG biedt ondersteuning voor 8- en 16-bits / kleuren /pixeldiepte. Het is het ideale formaat voor het archiveren van uw foto's. Voor meer informatie over PNG kunt u terecht op de <ulink url="http://www.libpng.org/pub/png/"
@@ -77,8 +77,8 @@
 >            <title
 >PGF</title>
 	       <para
->"Progressive Graphics File" is another not so known but open file image format. Wavelet-based, it allows lossless and lossy data compression. PGF compares well with JPEG 2000 but it was developed for speed (compression/decompression) rather than to be the best at compression ratio. At the same file size a PGF file looks significantly better than a JPEG one, while remaining very good at progressive display too. Thus it should be well-suited to the web but at the moment few browsers can display it. For more information about the PGF format see the <ulink url="http://www.libpgf.org/"
->libPGF homepage</ulink
+>"Progressieve grafische bestanden" (PGF) een ander niet zo bekend, maar open afbeeldingsbestandsformaat. Wavelet-gebaseerd, staat het zowel verliesloos als datacompressie met verlies toe. PGF is goed te vergelijken met JPEG 2000, maar het werd meer ontwikkeld voor snelheid (compressie / decompressie) dan voor de kwaliteit van de compressieverhouding. Bij dezelfde bestandsgrootte ziet een PGF-bestand er beduidend beter uit dan een JPEG-, terwijl het ook erg goed is bij gecomprimeerde weergave. Het is daarom zeer geschikt voor het web, maar op dit moment kunnen weinig browsers het weergeven. Voor meer informatie over de PGF formaat zie de <ulink url="http://www.libpgf.org/"
+>homepagina van libPGF</ulink
 >. </para
 > 
 
@@ -92,24 +92,24 @@
 >Sommige, meestal dure, camera's bieden de mogelijkheid om de afbeeldingen in een rauw formaat (RAW format) op te slaan. RAW is niet een afbeeldingsstandaard. Elke camera heeft zijn eigen opmaak. Raw-afbeeldingen bevatten alle gegevens die direct zijn genomen van de afbeeldingssensor van de camera, voordat de software in de camera filters toepast, zoals balans, scherpheid, etc. Door afbeeldingen in een rauw formaat op te slaan kunt u achteraf de instellingen, zoals de witbalans, wijzigen. De meeste professionele fotografen gebruiken raw-afbeeldingen omdat deze hun de meeste flexibiliteit bieden. Het nadeel is dat dit soort afbeeldingen erg groot zijn. </para>
 
                 <para
->If you want to learn more about RAW image format visit the very helpful guides<ulink url="http://en.wikipedia.org/wiki/RAW_image_format"
+>Als u meer wilt leren over RAW afbeeldingsbestanden bekijk dan de nuttige leidraad<ulink url="http://en.wikipedia.org/wiki/RAW_image_format"
 > Wikipedia,</ulink
 > <ulink url="http://www.luminous-landscape.com/tutorials/understanding-series/u-raw-files.shtml"
 > The Luminous Landscape,</ulink
-> and <ulink url="http://www.cambridgeincolour.com/tutorials/RAW-file-format.htm"
+> en <ulink url="http://www.cambridgeincolour.com/tutorials/RAW-file-format.htm"
 > Cambridge in Colour</ulink
->. You can convert RAW format images into JPEG or TIFF in &digikam; using the <ulink url="help:/kipi-plugins/rawconverter.html"
->RAW Image Converter plugin</ulink
->. See the <link linkend="using-setup"
->Configuration</link
-> section for information about using plugins with &digikam;. </para>
+>. U kunt RAW-formaat afbeeldingen omzetten naar JPEG of TIFF in &digikam; met gebruik van de <ulink url="help:/kipi-plugins/rawconverter.html"
+>RAW-image converterplug-in</ulink
+>. Zie ook de sectie <link linkend="using-setup"
+>Configuratie</link
+> voor informatie over gebruik van plug-ins met &digikam;. </para>
 
                 <para
->&digikam; supports RAW image loading only; relying on the <ulink url="http://www.cybercom.net/~dcoffin/dcraw"
-> DCRAW program</ulink
-> which is included in &digikam; core and supports over 200 RAW file formats. All supported cameras are listed at the bottom of <ulink url="http://www.cybercom.net/~dcoffin/dcraw"
-> Dave Coffin's</ulink
-> web page. The table below shows a short list of camera RAW files supported by &digikam;: <informaltable
+>&digikam; ondersteunt alleen RAW afbeeldingen laden; het vertrouwt op het <ulink url="http://www.cybercom.net/~dcoffin/dcraw"
+>DCRAW programma</ulink
+> dat in &digikam; is ingebouwd in de kern van &digikam; en wat meer dan 200 RAW-formaten ondersteunt. Alle ondersteunde camera's worden weergegeven onderaan de webpagina van <ulink url="http://www.cybercom.net/~dcoffin/dcraw"
+>Dave Coffin's</ulink
+>. De volgende tabel toont een kort overzicht van RAW-bestanden van camera's ondersteund door &digikam;: <informaltable
 ><tgroup cols="2">
 
                     <thead
@@ -160,7 +160,7 @@
 ><entry
 >RWL </entry
 ><entry
->Leica camera RAW file format </entry
+>Leica camera RAW-bestandsformaat </entry
 ></row>
 
                          <!-- ************************ -->
@@ -196,7 +196,7 @@
 ><entry
 >SRF, ARW, MRW, MDC </entry
 ><entry
->Sony/Minolta digital camera RAW file format </entry
+>Sony/Minolta digitale camera RAW-bestandsformaat </entry
 ></row>
 
                         <!-- ************************ -->
@@ -214,7 +214,7 @@
 ><entry
 >DNG (CS1, HDR) </entry
 ><entry
->Adobe RAW file format (Digital Negative) </entry
+>Adobe RAW-bestandsformaat (digitaal negatief) </entry
 ></row>
 
                         <!-- ************************ -->
@@ -232,7 +232,7 @@
 ><entry
 >ERF </entry
 ><entry
->Epson digital camera RAW file format </entry
+>Epson digitale camera RAW-bestandsformaat </entry
 ></row>
 
                         <!-- ************************ -->
@@ -241,7 +241,7 @@
 ><entry
 >FFF </entry
 ><entry
->Imacon/Hasselblad RAW format </entry
+>Imacon/Hasselblad RAW-formaat </entry
 ></row>
 
                         <!-- ************************ -->
@@ -250,7 +250,7 @@
 ><entry
 >MOS </entry
 ><entry
->CREO Photo RAW </entry
+>CREO foto RAW </entry
 ></row>
 
                         <!-- ************************ -->
@@ -266,7 +266,7 @@
 ><entry
 >RDC </entry
 ><entry
->Ricoh RAW format </entry
+>Ricoh RAW-formaat </entry
 ></row>
 
 
@@ -283,7 +283,7 @@
 
         <sect2
 >        <title
->Moving Image Formats (Videos)</title>
+>Formaten van bewegende beelden (video's)</title>
 
         <para
 >Met veel digitale camera's kunt u een korte filmclip opnemen. Deze clips worden meestal opgeslagen in AVI- of MPEG-formaat. &digikam; kent deze formaten en zal miniaturen voor deze filmbestanden aanmaken. &digikam; is echter geen filmbewerkingsprogramma en heeft geen faciliteiten voor het bekijken of bewerken van filmbestanden. Als u dubbelklikt op een filmbestand zal &digikam; het externe filmprogramma starten dat u standaard in KDE gebruikt. </para>

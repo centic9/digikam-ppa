@@ -1,0 +1,1107 @@
+<sect2
+>                               <title
+>Eines per a transformar la imatge</title>
+  <sect3 id="using-rotatingflippingimage">
+     <title
+>Girar o retallar una fotografia</title>
+  
+        <para
+>Si la fotografia mostra una orientació errònia, podeu fer <guilabel
+>Inverteix</guilabel
+> o <guilabel
+>Gira</guilabel
+> cap a l'orientació que us agradaria utilitzant les eines inverteix/gira de transformació disponibles a <menuchoice
+><guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Gira</guimenuitem
+></menuchoice
+> i <menuchoice
+><guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Inverteix</guimenuitem
+></menuchoice
+>. </para>
+     
+         <para
+>Amb les opcions d'invertir, podeu invertir la imatge horitzontal o verticalment com una baralla de cartes. Amb les opcions de gir, podeu girar la imatge 90 graus en sentit horari. Es pot utilitzar per a canviar el mode de visualització en impressió vertical o horitzontal. Tingueu en compte que aquest gir és sense pèrdua quan s'utilitza el format JPEG. També podeu girar amb més precisió utilitzant l'eina de gir lliure. Hi podeu accedir des de l'entrada de menú <menuchoice
+><guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Gir lliure</guimenuitem
+></menuchoice
+>. Per a més informació veure la <link linkend="using-freerotation"
+>secció dedicada del manual «Gir lliure»</link
+>. </para>
+
+     </sect3>
+
+<sect3 id="resize">
+<sect3info>
+
+<title
+>Canviar la mida d'una imatge</title>
+
+<authorgroup>
+    
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author>
+    
+</authorgroup>
+
+<abstract>
+
+<para>
+<ulink url="http://cimg.sourceforge.net"
+><inlinemediaobject>
+<imageobject
+><imagedata fileref="&path;cimg-logo.png" format="PNG"/></imageobject>
+<textobject
+><phrase
+>cimglogo</phrase
+></textobject>
+</inlinemediaobject
+></ulink>
+</para>
+
+<para
+>L'<emphasis
+>engrandir la fotografia</emphasis
+> del &digikam; és sens dubte una de les eines més avançades per augmentar la mida d'una fotografia amb una mínima pèrdua en la qualitat de la imatge. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+<keyword
+>Cimg</keyword>
+<keyword
+>Greycstoration</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>El tornar a escalar una imatge per fer-la més petita és fàcil. La gran pregunta és: com es pot engrandir una imatge i mantenir els detalls de la nitidesa? Com es pot fer zoom quan s'ha abastat el límit de la resolució? Com es pot reinventar o endevinar la informació que falta per omplir en l'aspra imatge necessàriament després de fer zoom? Bé, l'algorisme CImg que fem servir aquí fa un treball excel·lent, proveu i veieu-ho vosaltres mateixos! </para>
+
+  <sect4 id="using-resizingimage"
+>            <title
+>Canviar la mida d'una fotografia</title>
+
+    <anchor id="resizetool.anchor"/>
+    <para
+>Si la fotografia té la mida incorrecta, podeu escalar-la a la mida que voleu utilitzant l'eina reamida de transformació. Seleccioneu <menuchoice
+><guimenu
+>Transforma</guimenu
+><guimenuitem
+>Reamida</guimenuitem
+></menuchoice
+> i ajusteu els valors objectiu. El diàleg de l'eina reamida estan disponibles a sota. </para>
+
+    <example
+>  <title
+>El diàleg de l'eina «Redimensiona»</title>
+        <screenshot
+><screeninfo
+>El diàleg de l'eina «Redimensiona»</screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorresizetool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+    </example>
+
+    <para
+>Aquesta eina canvia la mida de la imatge utilitzant un mètode d'interpolació lineal estàndard per aproximar els píxels. Si voleu augmentar una imatge petita amb una millor qualitat, proveu l'eina Explosió. </para>
+
+  </sect4>
+
+
+<sect4 id="using-blowup"
+> <title
+>Augmentar la mida de la imatge (engrandir)</title>
+  <para
+>Molts programes d'edició d'imatges utilitzen algun tipus d'interpolació, &pex;, interpolació amb corbes per augmentar l'escala d'una imatge. &digikam; utilitza un enfocament més sofisticat. L'algorisme subjacent <emphasis
+>engrandir la fotografia</emphasis
+> ha estat desenvolupat per l'equip IMAGE del laboratori GREC CNRS a Caen/França i és una part del <ulink url="http://cimg.sourceforge.net"
+>projecte CImg</ulink
+>. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupdialog.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Diàleg per engrandir la fotografia</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Heu de dir-li a l'eina el canvi de mida que voleu realitzar. Aquests ajustaments estan disponibles a la pestanya <guilabel
+>Mida nova</guilabel
+> i s'enumeren a continuació: <itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Mantén la relació d'aspecte</guilabel
+>: si aquesta opció està activada, els ajustos per a la creació de la nova mida de la imatge seran conservar la relació d'aspecte de la imatge original.</para
+></listitem>
+  <listitem
+><para
+><guilabel
+>Amplada</guilabel
+>: la nova amplada de la imatge que s'utilitzarà per engrandir.</para
+></listitem
+> 
+  <listitem
+><para
+><guilabel
+>Alçada</guilabel
+>: la nova alçada de la imatge que s'utilitzarà per engrandir.</para
+></listitem>
+ 
+</itemizedlist>
+</para>
+
+<para
+>Si voleu establir paràmetres de filtre per ajustos més fins, utilitzeu les pestanyes <guilabel
+>Configuració del suavitzat</guilabel
+> i <guilabel
+>Arranjament avançat</guilabel
+>:</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings1.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Configuració del suavitzat per engrandir la fotografia</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+  
+     <listitem
+><para
+><guilabel
+>Preservació dels detalls</guilabel
+> p [0, 100]: això controla la preservació de les curvatures (característiques). Un valor baix obliga a un suavitzat igual que el llarg de la imatge, mentre que valors més grans suavitzen preferentment les regions homogènies i deixen més nítids els detalls. Un valor de 0.9 també preservarà els detalls de manera que no es requereixi suavitzar després. Tingueu en compte que <guilabel
+>Preservació dels detalls</guilabel
+> sempre haurà de ser inferior a la <guilabel
+>Anisotropia</guilabel
+>.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Anisotropia</guilabel
+> alfa [0, 100]: un valor baix suavitza de la mateixa manera en totes les direccions, mentre que un valor proper a 1 suavitza en una sola direcció. Si teniu gra de pel·lícula o soroll de tipus CCD, un valor alt resultarà en un patró d'ona, mentre que pels defectes JPEG són adequats valors propers a 1. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Suavitzat</guilabel
+> [0, 500]: estableix el màxim factor de suavitzat general (quan p defineix el suavitzat relatiu). Ajusteu-lo d'acord amb el nivell de soroll.</para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Regularitat</guilabel
+> [0, 100]: aquest paràmetre es refereix a les estructures més grans. Com més alt sigui aquest valor, més suau serà el suavitzat global. Això és necessari quan hi ha present molt de soroll, ja que és difícil estimar la geometria. A més, si voleu aconseguir un efecte de turbulència a l'estil «Van Gogh», es recomana un ajust superior a 3.</para
+></listitem>
+     <listitem
+><para
+>Filtre <guilabel
+>Iteracions</guilabel
+>: nombre de vegades que s'aplicarà l'algorisme de difuminat. Normalment n'hi ha prou amb 1 o 2.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowupsettings2.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Configuració avançada per engrandir la fotografia</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para>
+<itemizedlist>
+
+     <listitem
+><para
+><guilabel
+>Pas angular</guilabel
+> da [5, 90]: la integració angular de l'anisotropia alfa. Si alfa és baixa, també el «de» haurà se ser baixat. Però compte, els angles petits resulten en grans càlculs! Trieu el més gran que pugueu acceptar. </para
+></listitem>
+     <listitem
+><para
+><guilabel
+>Pas Integral</guilabel
+> [0.1, 10]: amplada del pas d'integració espacial en termes de píxels. Haurà de romandre en menys que 1 (suavitzat sub-píxel) i mai més gran que 2.</para
+></listitem>
+<listitem
+><para
+><guilabel
+>Usa interpolació lineal</guilabel
+>: El guany en qualitat si se selecciona aquesta opció només serà marginal i es perdrà un factor de 2 en velocitat. La nostra recomanació és deixar-lo desactivat.</para
+></listitem>
+
+</itemizedlist>
+
+</para>
+
+<para
+>Els botons <guilabel
+>Desa com a</guilabel
+> i <guilabel
+>Carrega</guilabel
+> s'utilitzen per realitzar les accions que descriuen. Qualsevol ajustament al filtre per engrandir la fotografia que establiu es podrà desar al sistema de fitxers en un fitxer de text i carregar-lo més endavant. </para>
+
+<warning
+><para
+>Engrandir la fotografia és molt ràpid en el que fa, però pot prendre molt de temps a executar-se i això causa una càrrega de la CPU. Sempre podreu cancel·lar el càlcul prement el botó <guilabel
+>Cancel·la</guilabel
+> durant la renderització. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-blowup">
+<title
+>L'eina engrandir en acció</title>
+
+<para
+>A continuació podeu veure un exemple d'engrandir la fotografia aplicat a una petita àrea de color de la imatge redimensionada a x2. L'original és (1), el resultat explosió és (3). La vista prèvia (2) és el resultat determinat amb el mètode de canvi de mida lineal estàndard per a que compareu. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;blowuppreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>Vista prèvia del filtre engrandir la fotografia</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="aspect-ratio-crop"
+>        <title
+>Retallar una fotografia</title>
+ 
+    <sect4 id="using-manualcrop"
+>            <title
+>Retallat manual</title>
+
+        <para
+>El retallat d'una fotografia no és només una operació comuna, però sovint és una eina menyspreada pels fotògrafs per editar una imatge. L'editor d'imatges fa que sigui molt fàcil. Per a retallar una fotografia, simplement arrossegueu un rectangle sobre la imatge, mantenint premut el &BER; i moveu el ratolí. A mesura que moveu el ratolí veureu un marc rectangular. </para>
+
+        <example
+>  <title
+>La selecció d'una imatge a l'editor d'imatges</title>
+          <screenshot
+><screeninfo
+>La selecció d'una imatge a l'editor d'imatges</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorimageselection.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+ 
+        <para
+>En deixar anar el botó, s'enfosquirà amb color gris l'àrea de la fotografia que s'eliminarà mitjançant una operació de retallat. Això us permetrà obtenir una bona visió de com es veurà la vostra fotografia una vegada l'hagueu retallat. Podeu canviar la mida de l'àrea a retallar arrossegant les cantonades del rectangle, i podeu crear una nova àrea de retallat simplement arrossegant un altre rectangle. </para>
+
+        <para
+>Una vegada esteu satisfet amb el retallat, feu clic sobre <inlinemediaobject
+> <imageobject
+><imagedata fileref="&path;editorcropbutton.png" format="PNG"/></imageobject
+> <textobject
+> <phrase
+>El botó Retalla de l'editor d'imatges</phrase
+> </textobject
+> </inlinemediaobject
+> a la barra d'eines i la fotografia es retallarà (&Ctrl;+X). Utilitzeu les entrades de menú <menuchoice
+><guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Desa</guimenuitem
+></menuchoice
+> o <menuchoice
+><guimenu
+>Fitxer</guimenu
+> <guimenuitem
+>Desa com a</guimenuitem
+></menuchoice
+> per a desar la nova fotografia retallada. </para>
+
+    </sect4>
+
+    <sect4 id="using-proportionalcrop"
+>      <title
+>Retallat proporcional</title>
+
+        <anchor id="ratiocroptool.anchor"/>        
+        
+        <para
+>L'eina Retalla amb la relació d'aspecte va més enllà. En editar imatges digitals, sovint és necessari crear un format compatible, per exemple, el vostre àlbum de fotografies o formats de paper. Si imprimiu una imatge des de la vostra càmera digital i després tracteu de posar-la al vostre àlbum de fotografies, notareu que la càmera té una relació diferent entre amplada o alçada que un format de pel·lícula fotogràfica normal, per la qual cosa necessitareu retallar les vostres imatges digitals en una relació predefinida (per exemple 5:7 o 2:3, les quals són una relació de fotografia estàndard). </para>
+    
+        <example
+>  <title
+>El diàleg de l'eina «Retalla amb la relació d'aspecte»</title>
+          <screenshot
+><screeninfo
+>El diàleg de l'eina «Retalla amb la relació d'aspecte»</screeninfo>
+          <mediaobject
+><imageobject
+> <imagedata fileref="&path;editorratiocroptool.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        <para
+>A l'àrea de vista prèvia podeu canviar la mida del rectangle de retallat movent les cantonades amb el ratolí. Així mateix, mantindrà el valor de la relació establerta a la part inferior del diàleg. </para>
+        
+        <para
+>A la configuració de l'eina retalla amb la relació d'aspecte, especifiqueu <guilabel
+>Orientació</guilabel
+> com <guilabel
+>Vertical</guilabel
+> o <guilabel
+>Horitzontal</guilabel
+>. Vertical sempre tindrà la mida més gran assignada a <guilabel
+>Alçada</guilabel
+> i horitzontal a <guilabel
+>Amplada</guilabel
+>. </para>
+        
+        <para
+>L'eina retalla amb la relació d'aspecte utilitza una relació relativa. Això vol dir que és la mateixa si utilitzeu centímetres o polzades i no especifiqueu la mida física. Per exemple, a continuació podeu veure una llista de correspondència entre les mides de paper fotogràfic tradicional i retalla amb la relació d'aspecte. </para>
+        
+        <informaltable
+><tgroup cols="2">
+
+        <thead
+><row>
+            <entry
+>Mida de paper de fotografia estàndard</entry>
+            <entry
+>Retalla amb la relació d'aspecte</entry>
+          </row
+></thead>
+
+    <tbody>
+        <row>
+<entry
+>10x15cm&nbsp;20x30cm&nbsp;30x45cm 3.5x5"&nbsp;4x6"&nbsp;8x12"&nbsp;12x18"&nbsp;16x24"&nbsp;20x30" </entry>
+    
+<entry
+>2:3 </entry>
+        </row>
+
+        <row>
+<entry
+>6x8cm&nbsp;15x20cm&nbsp;18x24cm&nbsp;30x40cm 3.75x5"&nbsp;4.5x6"&nbsp;6x8"&nbsp;7.5x10"&nbsp;9x12" </entry>
+        
+<entry
+>3:4 </entry>
+        </row>
+        
+        <row>
+<entry
+>20x25cm&nbsp;40x50cm 8x10"&nbsp;16x20" </entry>
+        
+<entry
+>4:5 </entry>
+        </row>
+
+        <row>
+<entry
+>15x21cm&nbsp;30x42cm 5x7" </entry>
+        
+<entry
+>5:7 </entry>
+        </row>
+        
+        <row>
+<entry
+>21x30cm&nbsp;42x60cm </entry>
+        
+<entry
+>7:10 </entry>
+        </row>
+
+    </tbody>
+
+        </tgroup
+></informaltable>
+
+        <para
+>A la dreta del diàleg hi ha disponibles dos botons per moure la selecció de retallat automàticament al centre horitzontal o vertical de la imatge. </para>
+        
+        <para
+>A l'última línia del diàleg, el botó <guilabel
+>Rati màxim</guilabel
+> us permetrà ajustar la mida de la de l'àrea de retallat a la mida màxima d'acord amb els ajustaments de la relació d'aspecte i orientació actuals. </para>
+    
+        <note
+><para
+>L'eina retalla amb la relació d'aspecte recorda els ajustos en funció de l'orientació de la imatge (horitzontal o vertical). Quan utilitzeu l'eina de retallat la propera vegada, aquests valors s'utilitzaran com a valors per omissió en funció de l'orientació de la imatge. Les dimensions d'imatge modificades s'emmagatzemaran dins les taules EXIF ​​de manera que les dades EXIF ​​reflecteixin la imatge retallada i no l'original. </para
+></note>
+        
+    </sect4>
+
+    <sect4 id="using-compositionguides"
+>     <title
+>Guia d'edició</title>
+
+        <para
+>Quan es mira per primera vegada una imatge, l'ull de l'espectador poques vegades s'instal·la al centre de la imatge, sinó que es mou des de la part superior esquerra cap a la dreta, i després des de la part inferior esquerra cap a la dreta de nou. Aquest patró és inconscient, però està ben documentat. Probablement està associat amb el patró de lectura occidental. Des del punt de vista del fotògraf, es converteix en objectiu el guiar la mirada de l'espectador sobre el tema, sent conscients de la manera en què moltes persones perceben una imatge. </para
+>        
+        
+        <para
+>L'arranjament de <guilabel
+>Guia d'edició</guilabel
+> proporciona elements de guia per editar millor les vostres imatges. Aquestes guies són: <itemizedlist>
+    
+          <listitem>
+            <para
+><guilabel
+>Regla dels terços</guilabel
+>: una graella que divideix la imatge en terços en cada direcció (&ead;, en 9 parts). Aquestes proporcions són a prop de la regla d'or, i deriven del camp de visió de l'ull humà. S'utilitzen sovint amb lleugeres variacions per a un gran nombre d'objectes d'ús comú. Dins d'aquest marc hi ha àrees concretes on s'han de col·locar les parts importants de la imatge. El mateix principi s'utilitza per a determinar la posició de l'horitzó i la proporció entre la terra i el cel. </para>
+        
+            <para
+>Molts fotògrafs i artistes són conscients de la regla dels terços, en què una imatge es divideix en tres seccions verticals i horitzontals i els punts d'intersecció representen llocs on posar els elements visuals importants. El moure un horitzó en un paisatge cap a la posició d'una tercera sovint és més eficaç que situar-lo al centre, però també podria situar-se a prop d'una quarta o sisena inferior. No hi ha res obligatori quan apliqueu la regla dels terços. En situar elements visuals per a una edició eficaç, cal avaluar molts factors com el color, la prevalença, la mida i l'equilibri amb la proporció. Sovint, una certa quantitat d'equilibri o tensió de la imatge poden fer més eficaç una edició. </para>
+    
+            <example
+>  <title
+>Exemple de l'edició d'una imatge utilitzant la regla dels terços</title>
+             <screenshot
+><screeninfo
+>Exemple de l'edició d'una imatge utilitzant la regla dels terços </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorrulethirdlinesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+           </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Triangles harmoniosos</guilabel
+>: Les divisions harmonioses es basen en el principi de similitud. Igual que la regla dels terços, els triangles harmoniosos són una altra divisió de la imatge utilitzant un rectangle en triangles harmonioses equiangulars alineats amb la diagonal. </para>
+    
+            <example
+>  <title
+>Exemple de l'edició d'una fotografia utilitzant «Triangles harmoniosos»</title>
+                <screenshot
+><screeninfo
+>Exemple de l'edició d'una fotografia utilitzant «Triangles harmoniosos» </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorharmonioustrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+            </example>
+
+    
+        </listitem>
+    
+        <listitem>
+
+            <para
+><guilabel
+>Secció àuria</guilabel
+>: la secció àuria és una relació que subjau amb nombrosos patrons de creixement en tota la naturalesa (des de l'espiral d'una petxina Nautilus fins als pètals d'un gira-sol), té una estranya manera d'aparèixer en tot tipus de coses que considerem belles. </para>
+
+            <para
+>La secció àuria és el número irracional 1.618033988... i el seu ús es remunta als antics egipcis i grecs, que el van utilitzar en la construcció dels seus temples i piràmides. Artistes i arquitectes han utilitzat la secció àuria a través del temps per compondre les seves pintures, edificis, i fins i tot fotografies, per tal de donar a les seves creacions un sentit d'ordre i bellesa natural. </para>
+    
+            <para
+>La relació és inherent a la sèrie de Fibonacci: 1, 1, 2, 3, 5, 8, 13, 21, 34, &etc;, on cada número després de l'1 és igual que la suma dels dos nombres precedents. La relació formada 1:1.618 és la secció àuria. Una composició seguint aquesta regla es considera visualment harmoniosa. </para>
+    
+            <para
+>La secció àuria proporciona directrius més fluides quan s'utilitza per compondre una imatge. Aquestes guies són les següents: <itemizedlist
+>    
+
+        <listitem
+>        
+    
+        <para
+>La guia <guilabel
+>espiral àuria</guilabel
+> augmentarà les vostres probabilitats d'aconseguir resultats captivadors amb les vostres fotografies. A diferència de la regla dels terços, l'espiral àuria forma una línia fluida per l'ull per traçar a través de la imatge. Aquest estil de composició convidarà la mirada de l'espectador en la imatge al llarg de la línia de l'espiral, creant un flux visual més simètric i la impressió visual d'un conjunt agradable. </para>
+        
+        <example
+>  <title
+>Exemple de la composició d'una imatge utilitzant «Espiral àuria»</title>
+            <screenshot
+><screeninfo
+>Exemple de la composició d'una imatge utilitzant «Espiral àuria» </screeninfo
+><mediaobject
+><imageobject
+> <imagedata fileref="&path;editorgoldenspiralexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+
+        <listitem>
+    
+        <para
+>Una altra regla és <guilabel
+>Seccions de l'espiral àuria</guilabel
+> (o rectangles auris). Aquests rectangles s'utilitzen per construir l'espiral àuria. Hi haurà d'haver quelcom que condueixi a l'ull fins al centre de la composició. Podria ser una línia o diversos objectes. Aquest «quelcom» hi podria estar sense conduir als ulls, però faria igualment el seu treball. </para>
+    
+        <example
+>  <title
+>Exemple de la composició d'una imatge utilitzant «Seccions de l'espiral àuria»</title>
+            <screenshot
+><screeninfo
+>Exemple de la composició d'una imatge utilitzant «Seccions de l'espiral àuria» </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldenspiralsectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+>Els <guilabel
+>Triangles auris</guilabel
+> són un derivat de l'espiral àuria exposada anteriorment. Els seus vèrtexs són els punts mitjans dels costats del rectangle auri. Tingueu en compte que a diferència dels triangles harmoniosos, els triangles auris no són triangles equiangulars. El col·locar les diagonals al llarg d'aquestes línies pot fer que un tema estàtic sembli més dinàmic. </para>
+
+        <para
+>Quan utilitzeu els triangles auris per a trencar el marc, creareu un efecte que els experts fotogràfics professionals anomenen simetria dinàmica. Intenteu mantenir el tema enfocat sobre un dels punts d'intersecció, i situeu la resta d'informació visual en els triangles que ja heu dividit. El resultat serà una composició molt atractiva que d'altra manera no serieu capaç de crear. </para>
+
+        <example
+>  <title
+>Exemple de la composició d'una fotografia utilitzant «Triangle auri»</title>
+            <screenshot
+><screeninfo
+>Exemple de la composició d'una fotografia utilitzant «Triangles auris» </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldentrianglesexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+        
+        </listitem>
+        
+        <listitem>
+
+        <para
+>Igual que la regla dels terços, les <guilabel
+>Seccions àuries</guilabel
+> afecten a la relació entre la mida d'una imatge, així com la ubicació dels principals assumptes de la fotografia. Aquesta proporció és propera a una pel·lícula de 35 mm, pel que en la majoria dels casos no caldrà canviar la mida de la fotografia. Però haureu de tenir en compte la composició: el tema principal ha d'estar en una de les quatre línies o interseccions (els ulls del subjecte, per exemple). Parlant amb sinceritat, aquestes regles no són exactament el mateix. La regla dels terços és una versió simplificada de la secció àuria. </para>
+        
+        <example
+>  <title
+>Exemple de la composició d'una imatge utilitzant «Seccions àuries»</title>
+            <screenshot
+><screeninfo
+>Exemple de la composició d'una fotografia utilitzant «Seccions àuries» </screeninfo
+><mediaobject
+><imageobject
+><imagedata fileref="&path;editorgoldensectionsexample.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot
+> 
+        </example>
+
+        </listitem>
+    
+            </itemizedlist>
+            </para>
+    
+           </listitem>
+     
+        </itemizedlist>
+        
+        </para>
+        
+        <para
+>Les opcions <guilabel
+>Inverteix horitzontalment</guilabel
+> i <guilabel
+>Inverteix verticalment</guilabel
+> es poden utilitzar per aplicar una transformació inverteix a les divisions harmòniques. </para>
+        
+        <para
+>El botó <guilabel
+>Color</guilabel
+> us permet ajustar les directrius de color. Si teniu una imatge d'alt contrast de color, les directrius poden ser invisibles. D'aquesta manera, podreu adaptar el color de la guia a la imatge actual. </para>
+    
+    </sect4>
+
+</sect3>
+
+<sect3 id="freerotation">
+<sect3info>
+
+<title
+>Gir lliure</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author
+>        
+</authorgroup>
+
+<abstract>
+<para
+>El <emphasis
+>gir lliure</emphasis
+> del &digikam; és una eina per a girar la imatge en qualsevol angle arbitrari. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>Quan preneu una fotografia és molt fàcil el no mantenir la càmera perfectament vertical o horitzontal, el qual resultarà en una imatge on les coses s'inclinen en un angle. La manera de solucionar aquest problema amb l'editor d'imatges del &digikam; és emprant l'eina de gir lliure. Seleccioneu <menuchoice
+><guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Gir lliure</guimenuitem
+></menuchoice
+> i ajusteu l'angle final. </para>
+
+<sect4 id="using-freerotation"
+>    <title
+>Eina «Gir lliure»</title>
+
+<para
+>Gireu la imatge utilitzant el control lliscant <guilabel
+>Angle</guilabel
+> (valor en graus). Premeu <guilabel
+>Restableix els valors</guilabel
+> per a restablir els valors del control lliscant a zero. Al costat dret del diàleg hi ha disponible una vista prèvia de l'efecte de gir. Es mostra en píxels les noves dimensions de la imatge de destinació. </para>
+
+<para
+>Per a una millor orientació, l'eina de gir lliure proporciona una guia vertical i horitzontal. Moveu el cursor del ratolí sota vista prèvia de la imatge per a visualitzar la guia de línia de punts. Moveu el cursor a una característica suposadament vertical o horitzontal de la imatge, com l'horitzó del mar o la vora d'un edifici i premeu el &BER; per a congelar la posició de les línies de punts. Ara, ajusteu l'angle segons correspongui amb la guia. </para>
+
+<warning
+><para
+>Després de girar la imatge, sovint us adonareu que les coses estan millor, però no és perfecte. Una solució consisteix a fer girar una mica més, però hi ha un desavantatge en aquest enfocament. Cada vegada que es gira una imatge, atès que els píxels girats no s'alineen amb precisió amb els píxels originals, la imatge, inevitablement, es difumina una mica. Per a un sol gir, la quantitat de difuminat és molt petita, però dos girs causes el doble de difuminat, i no hi ha raó per difuminar les coses més del necessari. Sens dubte, l'eina de guia disponible a la vista prèvia de gir lliure pot ajudar a aplicar correctament a la primera l'ajust de l'angle d'una imatge. </para
+></warning>
+
+</sect4>
+
+<sect4 id="inaction-freerotation">
+<title
+>«Gir lliure» en acció</title>
+
+<para
+>El diàleg de l'eina «Gir lliure» en acció està disponible a continuació. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;freerotationpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El diàleg de l'eina «Gir lliure»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+<para
+>Després d'haver girat la imatge, hi haurà desagradables «forats» triangulars a les cantonades. Una manera de solucionar-ho és retallant la imatge amb el menú <menuchoice
+><guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Retalla</guimenuitem
+></menuchoice
+> de l'editor d'imatges. </para>
+
+<para
+>Una manera més elegant de retallar la imatge girada és utilitzar la característica <guilabel
+>Auto-retalla</guilabel
+>. Escolliu qualsevol de les següents opcions des del quadre combinat amb les vostres preferències:</para>
+
+<itemizedlist>
+
+  <listitem
+><para
+><guilabel
+>Àrea més ampla</guilabel
+>: Aquesta opció retalla la imatge girada a l'àrea rectangular més àmplia possible (amplada).</para
+></listitem>
+  
+  <listitem
+><para
+><guilabel
+>Àrea més gran</guilabel
+>: Aquesta opció retalla la imatge girada a la superfície més gran.</para
+></listitem>
+
+</itemizedlist>
+
+<para
+>Manteniu el punter del ratolí sobre el quadre combinat i desplaceu-vos amb la roda entre les dues possibilitats.</para>
+
+<para
+>La casella de selecció <guilabel
+>Antialiàsing</guilabel
+> suavitzarà la imatge una mica després del gir. Llegiu l'anterior advertència. </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="perspective">
+<sect3info>
+
+<title
+>Arranjament de la perspectiva</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+    
+    <author
+><firstname
+>Gerhard</firstname
+><surname
+>Kulzer</surname
+> <affiliation
+><address
+><email
+>gerhard at kulzer dot net</email
+></address
+></affiliation>
+    </author
+>    
+</authorgroup>
+
+<abstract>
+<para
+>L'<emphasis
+>arranjament de la perspectiva</emphasis
+> del &digikam; és una eina per ajustar la perspectiva de la imatge. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>Amb aquesta eina podreu treballar sobre la perspectiva d'una fotografia. És molt útil quan es treballa amb fotografies que contenen distorsió trapezoïdal. La distorsió trapezoïdal es produeix quan un objecte és fotografiat des d'un angle en lloc de des del davant. Per exemple, si preneu una imatge d'un edifici alt des del terra, les vores de l'edifici semblaran trobar-se en l'altre extrem. D'altra banda podeu utilitzar aquesta eina per a presentar una nova perspectiva que no sigui una vista frontal sinó per donar a la imatge un gir creatiu. </para>
+
+<sect4 id="using-perspective">
+<title
+>Usar l'«Arranjament de la perspectiva»</title>
+
+<para
+>Totes les transformacions de perspectiva es realitzen al voltant d'un punt fix anomenat punt de referència. Aquest punt està al centre de l'element que esteu transformant i es mostra amb un cercle vermell. </para>
+
+<para
+>Per canviar la perspectiva, utilitzeu les àrees quadrades a les cantonades de la imatge arrossegant-les. La vista prèvia de la perspectiva es renderitza automàticament. A la dreta del diàleg trobareu un conjunt d'informació que us ajudarà a controlar el canvi de perspectiva: <itemizedlist>
+    <listitem
+><para
+><guilabel
+>Nova amplada</guilabel
+>: mostra la nova amplada de la imatge en píxels incloent l'àrea buida al voltant de la imatge resultant de la transformació geomètrica.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Nova alçada</guilabel
+>: mostra la nova alçada de la imatge en píxels incloent l'àrea buida al voltant de la imatge resultant de la transformació geomètrica.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Superior esquerra</guilabel
+>: mostra l'angle actual en graus a la cantonada superior esquerra de l'àrea de la perspectiva.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Superior dreta</guilabel
+>: mostra l'angle actual en graus a la cantonada superior dreta de l'àrea de la perspectiva.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Inferior esquerra</guilabel
+>: mostra l'angle actual en graus a la cantonada inferior esquerra de l'àrea de la perspectiva.</para
+></listitem>
+    <listitem
+><para
+><guilabel
+>Inferior dreta</guilabel
+>: mostra l'angle actual en graus a la cantonada inferior dreta de l'àrea de la perspectiva.</para
+></listitem>
+</itemizedlist>
+</para>
+            
+<warning
+><para
+>Després d'aplicar l'ajust de la perspectiva, la imatge, inevitablement, es difuminarà una mica. Per a un sol ajust, la quantitat de difuminat serà molt petita, però dos ajustaments causaran el doble de difuminat, i no hi ha raó per a difuminar les coses més del necessari. </para
+></warning>
+                        
+<para
+>Després d'haver ajustat la perspectiva de la imatge, hi haurà desagradables «forats» triangulars a les cantonades. Una manera de solucionar-ho és retallant la imatge amb el menú <menuchoice
+><guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Retalla</guimenuitem
+></menuchoice
+> de l'editor d'imatges. </para>
+
+</sect4>
+
+<sect4 id="inaction-perspective">
+<title
+>L'Arranjament de la perspectiva en acció</title>
+
+<para
+>El diàleg «Arranjament de la perspectiva» en acció es mostra a continuació. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;perspectivepreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El diàleg «Arranjament de la perspectiva»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+<sect3 id="sheartool">
+<sect3info>
+
+<title
+>Retallar una imatge</title>
+
+<authorgroup>
+    <author
+><firstname
+>Gilles</firstname
+><surname
+>Caulier</surname
+> <affiliation
+><address
+><email
+>caulier_dot_gilles_at_gmail_dot_com</email
+></address
+></affiliation>
+    </author>
+</authorgroup>
+
+<abstract>
+<para
+>La <emphasis
+>inclinació de la imatge</emphasis
+> del &digikam; és una eina per a inclinar una imatge horitzontal o verticalment. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>KDE</keyword>
+<keyword
+>Digikam</keyword>
+</keywordset>
+
+</sect3info>
+
+<title
+>Introducció</title>
+
+<para
+>L'eina d'inclinació s'utilitza per a moure una part d'una imatge en una direcció i l'altra part en la direcció oposada. Per exemple, una inclinació horitzontal mourà la part superior cap a la dreta i la part inferior cap a l'esquerra. Això no és un gir: la imatge està distorsionada. En altres paraules, transformarà un rectangle en un paral·lelogram. Aquesta eina està disponible de del menú <menuchoice
+><guimenu
+>Transforma</guimenu
+><guimenuitem
+>Inclina</guimenuitem
+></menuchoice
+>. </para>
+
+<sect4 id="using-sheartool">
+<title
+>Usar l'eina «Inclina»</title>
+
+<para
+>Inclineu la vostra imatge utilitzant els controls lliscants <guilabel
+>Angle horitzontal</guilabel
+> i <guilabel
+>Angle vertical</guilabel
+> (valors en graus). Podeu inclinar tant horitzontal com verticalment alhora. Feu clic al botó <guilabel
+>Restableix els valors</guilabel
+>. Al centre de la finestra de diàleg hi haurà disponible una vista prèvia de l'efecte inclinació. Les noves dimensions de la imatge de destinació en píxels es mostren a la part dreta del diàleg. </para>
+
+<para
+>Per ajudar en l'alineació, l'eina proporciona una guia vertical i horitzontal. Moveu el cursor del ratolí sota la vista prèvia de la imatge per a mostrar la guia de les línies de punts. Moveu el cursor a un lloc important en la imatge com el mar o la vora d'un edifici i premeu el &BER; per a congelar la posició de les línies de punts. Ara, ajusteu la correcció de la inclinació d'acord amb la guia. </para>
+            
+<warning
+><para
+>Després d'aplicar l'ajust de la inclinació, la imatge, inevitablement, es difuminarà una mica. Per a una sola inclinació, la quantitat de difuminat serà molt petita, però dos inclinacions causaran el doble de difuminat, i no hi ha raó per a difuminar les coses més del necessari. </para
+></warning>
+                        
+<para
+>Després d'haver inclinat la imatge, hi haurà desagradables «forats» triangulars a les cantonades. Una manera de solucionar-ho és retallant la imatge amb el menú <menuchoice
+><guimenu
+>Transforma</guimenu
+> <guimenuitem
+>Retalla</guimenuitem
+></menuchoice
+> de l'editor d'imatges. </para>
+
+</sect4>
+
+<sect4 id="inaction-sheartool">
+<title
+>L'eina «Inclina» en acció</title>
+
+<para
+>El diàleg de l'eina «Inclina» en acció està disponible a continuació. </para>
+
+   <para
+><inlinemediaobject
+><imageobject
+> 
+      <imagedata fileref="&path;sheartoolpreview.png" format="PNG"/> </imageobject>
+      <textobject
+><phrase
+>El diàleg de l'eina «Inclina»</phrase
+></textobject
+></inlinemediaobject>
+   </para>
+
+</sect4>
+
+</sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

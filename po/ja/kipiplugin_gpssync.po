@@ -1,14 +1,14 @@
 # Translation of kipiplugin_gpssync into Japanese.
 # This file is distributed under the same license as the kipi-plugins package.
 # Yukiko Bando <ybando@k6.dion.ne.jp>, 2006, 2007, 2008.
-#
+# Fumiaki Okushi <fumiaki.okushi@gmail.com>, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-11-10 01:36+0000\n"
-"PO-Revision-Date: 2008-12-21 22:06+0900\n"
-"Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
+"PO-Revision-Date: 2015-06-14 15:58-0700\n"
+"Last-Translator: Fumiaki Okushi <fumiaki.okushi@gmail.com>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
+"X-Language: C\n"
+"X-Source-Language: C\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -65,6 +67,8 @@ msgid ""
 "Use this option if the timezone of the camera is the same as the timezone of "
 "this system. The conversion to GMT will be done automatically."
 msgstr ""
+"カメラのタイムゾーンがこのコンピュータと同じ場合、このオプションを使用してく"
+"ださい。GMT への変換は自動的に行われます。"
 
 #: gpscorrelatorwidget.cpp:195
 msgctxt "manual time zone selection for gps syncing"
@@ -76,6 +80,8 @@ msgid ""
 "Use this option if the timezone of the camera is different from this system "
 "and you have to specify the difference to GMT manually."
 msgstr ""
+"カメラのタイムゾーンがこのコンピュータと異なる場合、このオプションを使用して"
+"ください。GMT との時差を手動で指定する必要があります。"
 
 #: gpscorrelatorwidget.cpp:249
 msgid ""
@@ -270,10 +276,8 @@ msgid "Details changed"
 msgstr ""
 
 #: gpslistviewcontextmenu.cpp:112 searchwidget.cpp:192
-#, fuzzy
-#| msgid "Remove Coordinates..."
 msgid "Copy coordinates"
-msgstr "座標を削除..."
+msgstr "座標をコピー"
 
 #: gpslistviewcontextmenu.cpp:114
 #, fuzzy
@@ -309,7 +313,7 @@ msgstr ""
 
 #: gpslistviewcontextmenu.cpp:146 searchwidget.cpp:224
 msgid "Bookmarks"
-msgstr ""
+msgstr "ブックマーク"
 
 #: gpslistviewcontextmenu.cpp:419 gpslistviewcontextmenu.cpp:477
 #: gpslistviewcontextmenu.cpp:747 gpssyncdialog.cpp:443
@@ -339,10 +343,8 @@ msgid "Bookmark selected"
 msgstr "場所に移動"
 
 #: gpslistviewcontextmenu.cpp:622
-#, fuzzy
-#| msgid "Remove Coordinates..."
 msgid "Remove coordinates information"
-msgstr "座標を削除..."
+msgstr "座標情報を削除"
 
 #: gpslistviewcontextmenu.cpp:627
 msgid "Remove altitude information"
@@ -374,7 +376,7 @@ msgstr "高度"
 
 #: gpsreversegeocodingwidget.cpp:250
 msgid "Add country tag"
-msgstr ""
+msgstr "国タグを追加"
 
 #: gpsreversegeocodingwidget.cpp:252
 msgid "Add state tag"
@@ -434,11 +436,11 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:280
 msgid "Add new tag"
-msgstr ""
+msgstr "新しいタグを追加"
 
 #: gpsreversegeocodingwidget.cpp:281
 msgid "Remove selected tag"
-msgstr ""
+msgstr "選択したタグを削除"
 
 #: gpsreversegeocodingwidget.cpp:282
 msgid "Remove all control tags below this tag"
@@ -450,15 +452,15 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:288
 msgid "Select language:"
-msgstr ""
+msgstr "言語を選択:"
 
 #: gpsreversegeocodingwidget.cpp:292
 msgid "English"
-msgstr ""
+msgstr "英語"
 
 #: gpsreversegeocodingwidget.cpp:293
 msgid "Arabic"
-msgstr ""
+msgstr "アラビア語"
 
 #: gpsreversegeocodingwidget.cpp:294
 msgid "Assamese"
@@ -470,7 +472,7 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:296
 msgid "Bulgarian"
-msgstr ""
+msgstr "ブルガリア語"
 
 #: gpsreversegeocodingwidget.cpp:297
 msgid "Bengali"
@@ -478,39 +480,39 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:298
 msgid "Chinese"
-msgstr ""
+msgstr "中国語"
 
 #: gpsreversegeocodingwidget.cpp:299
 msgid "Czech"
-msgstr ""
+msgstr "チェコ語"
 
 #: gpsreversegeocodingwidget.cpp:300
 msgid "Croatian"
-msgstr ""
+msgstr "クロアチア語"
 
 #: gpsreversegeocodingwidget.cpp:301
 msgid "Dutch"
-msgstr ""
+msgstr "オランダ語"
 
 #: gpsreversegeocodingwidget.cpp:302
 msgid "German"
-msgstr ""
+msgstr "ドイツ語"
 
 #: gpsreversegeocodingwidget.cpp:303
 msgid "Greek"
-msgstr ""
+msgstr "ギリシャ語"
 
 #: gpsreversegeocodingwidget.cpp:304
 msgid "Estonian"
-msgstr ""
+msgstr "エストニア語"
 
 #: gpsreversegeocodingwidget.cpp:305
 msgid "Finnish"
-msgstr ""
+msgstr "フィンランド語"
 
 #: gpsreversegeocodingwidget.cpp:306
 msgid "French"
-msgstr ""
+msgstr "フランス語"
 
 #: gpsreversegeocodingwidget.cpp:307
 msgid "Georgian"
@@ -518,7 +520,7 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:308
 msgid "Hebrew"
-msgstr ""
+msgstr "ヘブライ語"
 
 #: gpsreversegeocodingwidget.cpp:309
 msgid "Hindi"
@@ -526,39 +528,39 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:310
 msgid "Hungarian"
-msgstr ""
+msgstr "ハンガリー語"
 
 #: gpsreversegeocodingwidget.cpp:311
 msgid "Indonesian"
-msgstr ""
+msgstr "インドネシア語"
 
 #: gpsreversegeocodingwidget.cpp:312
 msgid "Icelandic"
-msgstr ""
+msgstr "アイスランド語"
 
 #: gpsreversegeocodingwidget.cpp:313
 msgid "Italian"
-msgstr ""
+msgstr "イタリア語"
 
 #: gpsreversegeocodingwidget.cpp:314
 msgid "Japanese"
-msgstr ""
+msgstr "日本語"
 
 #: gpsreversegeocodingwidget.cpp:315
 msgid "Korean"
-msgstr ""
+msgstr "韓国語"
 
 #: gpsreversegeocodingwidget.cpp:316
 msgid "Lithuanian"
-msgstr ""
+msgstr "リトアニア語"
 
 #: gpsreversegeocodingwidget.cpp:317
 msgid "Macedonian"
-msgstr ""
+msgstr "マケドニア語"
 
 #: gpsreversegeocodingwidget.cpp:318
 msgid "Mongolian"
-msgstr ""
+msgstr "モンゴル語"
 
 #: gpsreversegeocodingwidget.cpp:319
 msgid "Moldavian"
@@ -569,30 +571,28 @@ msgid "Nepali"
 msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:321
-#, fuzzy
-#| msgid "Points"
 msgid "Polish"
-msgstr "ポイント"
+msgstr "ポーランド語"
 
 #: gpsreversegeocodingwidget.cpp:322
 msgid "Portuguese"
-msgstr ""
+msgstr "ポルトガル語"
 
 #: gpsreversegeocodingwidget.cpp:323
 msgid "Romanian"
-msgstr ""
+msgstr "ルーマニア語"
 
 #: gpsreversegeocodingwidget.cpp:324
 msgid "Russian"
-msgstr ""
+msgstr "ロシア語"
 
 #: gpsreversegeocodingwidget.cpp:325
 msgid "Slovak"
-msgstr ""
+msgstr "スロバキア語"
 
 #: gpsreversegeocodingwidget.cpp:326
 msgid "Slovenian"
-msgstr ""
+msgstr "スロベニア語"
 
 #: gpsreversegeocodingwidget.cpp:327
 msgid "Samoan"
@@ -600,7 +600,7 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:328
 msgid "Serbian"
-msgstr ""
+msgstr "セルビア語"
 
 #: gpsreversegeocodingwidget.cpp:329
 msgid "Sudanese"
@@ -608,25 +608,23 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:330
 msgid "Spanish"
-msgstr ""
+msgstr "スペイン語"
 
 #: gpsreversegeocodingwidget.cpp:331
 msgid "Swedish"
-msgstr ""
+msgstr "スウェーデン語"
 
 #: gpsreversegeocodingwidget.cpp:332
 msgid "Thai"
-msgstr ""
+msgstr "タイ語"
 
 #: gpsreversegeocodingwidget.cpp:333
-#, fuzzy
-#| msgid "Tracks"
 msgid "Turkish"
-msgstr "トラック"
+msgstr "トルコ語"
 
 #: gpsreversegeocodingwidget.cpp:334
 msgid "Ukrainian"
-msgstr ""
+msgstr "ウクライナ語"
 
 #: gpsreversegeocodingwidget.cpp:335
 #, fuzzy
@@ -656,7 +654,7 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:364
 msgid "Write tags to XMP"
-msgstr ""
+msgstr "タグを XMP に書き込み"
 
 #: gpsreversegeocodingwidget.cpp:370
 msgid "Apply reverse geocoding"
@@ -703,7 +701,7 @@ msgstr ""
 
 #: gpsreversegeocodingwidget.cpp:1012
 msgid "Continue"
-msgstr ""
+msgstr "続行"
 
 #: gpssyncdialog.cpp:281
 msgid "Geolocation"
@@ -711,7 +709,7 @@ msgstr "ジオロケーション"
 
 #: gpssyncdialog.cpp:309
 msgid "Display bookmarked positions on the map."
-msgstr ""
+msgstr "ブックマークした位置を地図に表示します。"
 
 #: gpssyncdialog.cpp:369
 #, fuzzy
@@ -721,15 +719,15 @@ msgstr "設定"
 
 #: gpssyncdialog.cpp:376
 msgid "Show oldest first"
-msgstr ""
+msgstr "古い順に表示"
 
 #: gpssyncdialog.cpp:380
 msgid "Show youngest first"
-msgstr ""
+msgstr "新しい順に表示"
 
 #: gpssyncdialog.cpp:419
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 #: gpssyncdialog.cpp:420
 #, fuzzy
@@ -747,7 +745,7 @@ msgstr ""
 
 #: gpssyncdialog.cpp:423
 msgid "Search"
-msgstr ""
+msgstr "検索"
 
 #: gpssyncdialog.cpp:446
 #, fuzzy
@@ -763,7 +761,7 @@ msgstr "(c) 2006-2009, Gilles Caulier"
 
 #: gpssyncdialog.cpp:449
 msgid "Michael G. Hansen"
-msgstr ""
+msgstr "Michael G. Hansen"
 
 #: gpssyncdialog.cpp:450
 msgid "Developer and maintainer"
@@ -771,11 +769,11 @@ msgstr "開発者およびメンテナ"
 
 #: gpssyncdialog.cpp:453
 msgid "Gabriel Voicu"
-msgstr ""
+msgstr "Gabriel Voicu"
 
 #: gpssyncdialog.cpp:454 gpssyncdialog.cpp:458
 msgid "Developer"
-msgstr ""
+msgstr "開発者"
 
 #: gpssyncdialog.cpp:457
 msgid "Gilles Caulier"
@@ -783,7 +781,7 @@ msgstr "Gilles Caulier"
 
 #: gpssyncdialog.cpp:461
 msgid "Justus Schwartz"
-msgstr ""
+msgstr "Justus Schwartz"
 
 #: gpssyncdialog.cpp:462
 msgid "Patch for displaying tracks on the map."
@@ -791,7 +789,7 @@ msgstr ""
 
 #: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
-msgstr ""
+msgstr "メタデータを読み込み中 - %p%"
 
 #: gpssyncdialog.cpp:819
 #, kde-format
@@ -807,11 +805,11 @@ msgstr ""
 
 #: gpssyncdialog.cpp:826
 msgid "Unsaved changes"
-msgstr ""
+msgstr "未保存の変更"
 
 #: gpssyncdialog.cpp:827
 msgid "Save changes"
-msgstr ""
+msgstr "変更を保存"
 
 #: gpssyncdialog.cpp:828
 msgid "Close and discard changes"
@@ -826,7 +824,7 @@ msgstr[1] ""
 
 #: gpssyncdialog.cpp:1086
 msgid "Saving changes - %p%"
-msgstr ""
+msgstr "変更を保存中 - %p%"
 
 #: gpssyncdialog.cpp:1131
 msgid "Failed to save some information:"
@@ -834,11 +832,9 @@ msgstr ""
 
 #: gpssyncdialog.cpp:1131
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: gpssyncdialog.cpp:1159
-#, fuzzy
-#| msgid "GPS Sync"
 msgid "GPS sync"
 msgstr "GPS 同期"
 
@@ -872,13 +868,11 @@ msgstr ""
 
 #: kipiimageitem.cpp:529
 msgid "Thumbnail"
-msgstr ""
+msgstr "サムネイル"
 
 #: kipiimageitem.cpp:530 track_listmodel.cpp:224
-#, fuzzy
-#| msgid "File Name:"
 msgid "Filename"
-msgstr "ファイル名:"
+msgstr "ファイル名"
 
 #: kipiimageitem.cpp:531
 msgid "Date and time"
@@ -886,25 +880,23 @@ msgstr ""
 
 #: kipiimageitem.cpp:535
 msgid "Accuracy"
-msgstr ""
+msgstr "精度"
 
 #: kipiimageitem.cpp:540
 msgid "Status"
 msgstr "状態"
 
 #: kipiimageitem.cpp:541
-#, fuzzy
-#| msgid "Tracks"
 msgid "Tags"
-msgstr "トラック"
+msgstr "タグ"
 
 #: kipiimageitem.cpp:728
 msgid "Failed to open file."
-msgstr ""
+msgstr "画像を開けませんでした。"
 
 #: kipiimageitem.cpp:789
 msgid "Failed to add GPS info to image."
-msgstr ""
+msgstr "GPS 情報を画像に追加できませんでした。"
 
 #: kipiimageitem.cpp:799
 msgid "Failed to remove GPS info from image"
@@ -912,7 +904,7 @@ msgstr ""
 
 #: kipiimageitem.cpp:826 kipiimageitem.cpp:833
 msgid "Failed to save tags to file."
-msgstr ""
+msgstr "タグをファイルに保存できませんでした。"
 
 #: kipiimageitem.cpp:848
 msgid "Unable to save changes to file"
@@ -921,12 +913,12 @@ msgstr ""
 #. i18n: ectx: Menu (Image)
 #: kipiplugin_gpssyncui.rc:7
 msgid "&Image"
-msgstr ""
+msgstr "画像(&I)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_gpssyncui.rc:13
 msgid "Main Toolbar"
-msgstr ""
+msgstr "メインツールバー"
 
 #: plugin_gpssync.cpp:100
 #, fuzzy
@@ -993,7 +985,7 @@ msgstr ""
 #: searchwidget.cpp:166
 msgctxt "Start the search"
 msgid "Search"
-msgstr ""
+msgstr "検索"
 
 #: searchwidget.cpp:173
 msgid "Clear the search results."
@@ -1044,7 +1036,7 @@ msgstr ""
 #: setup.cpp:128
 msgctxt "General setup"
 msgid "General"
-msgstr ""
+msgstr "全般"
 
 #: setup_general.cpp:64
 msgid "One map"
@@ -1060,11 +1052,11 @@ msgstr ""
 
 #: setup_general.cpp:68
 msgid "Layout:"
-msgstr ""
+msgstr "レイアウト:"
 
 #: track_listmodel.cpp:222
 msgid "Color"
-msgstr ""
+msgstr "色"
 
 #: track_listmodel.cpp:226
 #, fuzzy

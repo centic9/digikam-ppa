@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-07-26 02:06+0000\n"
 "PO-Revision-Date: 2012-06-25 09:46+0700\n"
 "Last-Translator: Sophea <sophea@khmeros.info>\n"
 "Language-Team: Khmer <>\n"
@@ -28,10 +28,6 @@ msgid "Your emails"
 msgstr ""
 "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
 "ratanak@khmeros.info,sophea@khmeros.info"
-
-#: facebookjob.cpp:113
-msgid "Photos taken with KDE"
-msgstr "រូបថត​យក​តាម​​ KDE"
 
 #: fbalbum.cpp:47
 msgid "Facebook New Album"
@@ -95,19 +91,19 @@ msgctxt "new facebook album"
 msgid "Privacy:"
 msgstr "ភាព​ឯកជន​ ៖"
 
-#: fbtalker.cpp:190
+#: fbtalker.cpp:189
 msgid "Validate previous session..."
 msgstr "​ធ្វើ​ឲ្យ​សម័យ​មុន​មាន​សុពលភាព​​...​​"
 
-#: fbtalker.cpp:218
+#: fbtalker.cpp:217
 msgid "Upgrading to OAuth..."
 msgstr "កំពុង​ធ្វើឲ្យ​ប្រសើ​ឡើង​ទៅកាន់ OAuth..."
 
-#: fbtalker.cpp:270 fbtalker.cpp:479
+#: fbtalker.cpp:268
 msgid "Facebook Application Authorization"
 msgstr "សេចក្ដី​អនុញ្ញាត​កម្មវិធី​របស់​ Facebook ​"
 
-#: fbtalker.cpp:275
+#: fbtalker.cpp:273
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -115,40 +111,35 @@ msgstr ""
 "សូម​អនុវត្ត​តាម​សេចក្ដី​ណែនាំ​នៅ​ក្នុង​បង្អួច​កម្មវិធី​រុករក​ ។ ពេល​ធ្វើ​រួច ចម្លង​អាសយដ្ឋាន​អ៊ីនធឺណិត​ពី​កម្មវិធី​រុករក​"
 "របស់​អ្នក​ចូល​ក្នុង​ប្រអប់​អត្ថបទ​ខាងក្រោម រួច​ចុច \"យល់ព្រម\" ។"
 
-#: fbtalker.cpp:340
+#: fbtalker.cpp:338
 msgid "Canceled by user."
 msgstr "បាន​បោះបង់​ដោយ​​អ្នក​ប្រើ​ ។"
 
-#: fbtalker.cpp:477
-msgid ""
-"Please follow the instructions in the browser window. Press \"OK\" when done."
-msgstr "សូម​បំពេញ​តាម​សេចក្ដី​ណែនាំ​ក្នុង​បង្អួច​កម្ម​វិធី​រុករក​ ។ ចុច​ \"យល់​ព្រម​​\" នៅ​ពេល​ធ្វើ​រួច​ ។"
-
-#: fbtalker.cpp:781
+#: fbtalker.cpp:644
 msgid "The service is not available at this time."
 msgstr "នៅ​ពេល​នេះ​មិន​មាន​សេវា​ឡើយ​ ។"
 
-#: fbtalker.cpp:784
+#: fbtalker.cpp:647
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "កម្មវិធី​ដែល​ត្រូវ​បាន​ដល់​ចំនួន​អតិបរមា​​នៃ​សំណើ​ដែល​បាន​អនុញ្ញាត​ ។"
 
-#: fbtalker.cpp:787
+#: fbtalker.cpp:650
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "សោ​សម័យ​មិន​ត្រឹមត្រូវ​ ឬ​សម័យ​ដែល​ផុត​កំណត់​ ។​ សាកល្បង​ចូល​ម្ដងទៀត​ ។​"
 
-#: fbtalker.cpp:790
+#: fbtalker.cpp:653
 msgid "Invalid album ID."
 msgstr "លេខ​សម្គាល់​អាល់ប៊ុម​មិន​ត្រឹមត្រូវ​ឡើយ​ ។​"
 
-#: fbtalker.cpp:793
+#: fbtalker.cpp:656
 msgid "Album is full."
 msgstr "អាល់ប៊ុម​​ពេញ​"
 
-#: fbtalker.cpp:796
+#: fbtalker.cpp:659
 msgid "Missing or invalid file."
 msgstr "បាត់​ ឬ​ឯកសារ​មិន​ត្រឹមត្រូវ​ ។"
 
-#: fbtalker.cpp:799
+#: fbtalker.cpp:662
 msgid "Too many unapproved photos pending."
 msgstr "មាន​រូបថត​មិន​ទាន់​អនុម័ត​ច្រើន​ ។"
 
@@ -342,54 +333,74 @@ msgid ""
 msgstr "កម្មវិធី​ជំនួយ​ Kipi ​ដើម្បី​នាំចូល​​/​នាំចេញ​រូបភាព​សម្រាំង​​ ទៅ/​ពី​ សេវា​បណ្ដាញ​របស់​ Facebook ។"
 
 #: fbwindow.cpp:125
+#, fuzzy
+#| msgid ""
+#| "(c) 2005-2008, Vardhman Jain\n"
+#| "(c) 2008-2012, Gilles Caulier\n"
+#| "(c) 2008-2009, Luka Renko"
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko"
+"(c) 2008-2009, Luka Renko\n"
+"(c) 2015 Shourya Singh Gupta"
 msgstr ""
 "រក្សាសិទ្ធិ​ឆ្នាំ​ ២០០៥​​-២០០៨ ដោយ​ Vardhman Jain\n"
 "រក្សាសិទ្ធិ​ឆ្នាំ​ ២០០៨​-២០១២ ដោយ Gilles Caulier\n"
 "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨​-២០០៩ ដោយ Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:129
+#: fbwindow.cpp:130
 msgid "Author and maintainer"
 msgstr "អ្នក​និពន្ធ​ និង​អ្នក​ថែទាំ​"
 
-#: fbwindow.cpp:386 fbwindow.cpp:438
+#: fbwindow.cpp:132
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: fbwindow.cpp:132
+msgid "Developer"
+msgstr ""
+
+#: fbwindow.cpp:389 fbwindow.cpp:441
 msgid "&lt;auto create&gt;"
 msgstr "&lt;បង្កើត​ស្វ័យ​ប្រវត្តិ​​&gt;"
 
-#: fbwindow.cpp:405 fbwindow.cpp:423 fbwindow.cpp:488 fbwindow.cpp:518
+#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "បាន​បរាជ័យ​​ក្នុង​ការ​ហៅ​ Facebook ៖ %1\n"
 
-#: fbwindow.cpp:433
+#: fbwindow.cpp:436
 msgctxt "name of special Facebook album for profile pictures"
 msgid "Profile Pictures"
 msgstr "ទម្រង់​រូបភាព​"
 
-#: fbwindow.cpp:608 fbwindow.cpp:633
+#: fbwindow.cpp:568
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#: fbwindow.cpp:618 fbwindow.cpp:643
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:612
+#: fbwindow.cpp:622
 msgid "Facebook import"
 msgstr "ការ​នាំចូល Facebook ​"
 
-#: fbwindow.cpp:637
+#: fbwindow.cpp:647
 msgid "Facebook export"
 msgstr "ការ​នាំចេញ Facebook ​"
 
-#: fbwindow.cpp:740 fbwindow.cpp:755
+#: fbwindow.cpp:750 fbwindow.cpp:765
 msgid "Cannot open file"
 msgstr "មិន​អាច​បើក​ឯកសារ​បាន​ឡើយ​"
 
-#: fbwindow.cpp:779
+#: fbwindow.cpp:789
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -398,7 +409,7 @@ msgstr ""
 "បាន​បរាជ័យ​ផ្ទុក​​រូប​ថត​ក្នុង​​​ Facebook ៖​ %1\n"
 "តើ​អ្នក​ចង់​បន្ត​ឬ ?​"
 
-#: fbwindow.cpp:841
+#: fbwindow.cpp:851
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -407,7 +418,7 @@ msgstr ""
 "បាន​បរាជ័យ​រក្សាទុក​រូបថត​ ៖​​ %1\n"
 "​តើ​អ្នក​ចង់​បន្ត​ឬ​ ?​"
 
-#: fbwindow.cpp:855
+#: fbwindow.cpp:865
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -416,7 +427,7 @@ msgstr ""
 "បាន​បរាជ័យ​ទាញ​យក​រូបថត​ ៖​​ %1\n"
 "តើ​អ្នក​ចង់​បន្ត​ឬ​ ?"
 
-#: fbwindow.cpp:873
+#: fbwindow.cpp:883
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "បាន​បរាជ័យ​ក្នុង​ការ​​ហៅ​ Facebook ៖​ %1"
@@ -436,13 +447,21 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_facebook.cpp:101
+#: plugin_facebook.cpp:100
 msgid "Export to &Facebook..."
 msgstr "នាំ​ចេញ​ទៅ​កាន់​ Facebook..."
 
-#: plugin_facebook.cpp:111
+#: plugin_facebook.cpp:110
 msgid "Import from &Facebook..."
 msgstr "នាំចេញ​ពី​ Facebook..."
+
+#~ msgid ""
+#~ "Please follow the instructions in the browser window. Press \"OK\" when "
+#~ "done."
+#~ msgstr "សូម​បំពេញ​តាម​សេចក្ដី​ណែនាំ​ក្នុង​បង្អួច​កម្ម​វិធី​រុករក​ ។ ចុច​ \"យល់​ព្រម​​\" នៅ​ពេល​ធ្វើ​រួច​ ។"
+
+#~ msgid "Photos taken with KDE"
+#~ msgstr "រូបថត​យក​តាម​​ KDE"
 
 #~ msgid "Handbook"
 #~ msgstr "សៀវភៅ​ដៃ"

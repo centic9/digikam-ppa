@@ -1,0 +1,939 @@
+# Burkhard Lück <lueck@hube-lueck.de>, 2011, 2012, 2013, 2014.
+# Frederik Schwarzer <schwarzer@kde.org>, 2012, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_photolayouteditor\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"PO-Revision-Date: 2014-04-01 07:39+0200\n"
+"Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
+"Language-Team: German <kde-i18n-de@kde.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Burkhard Lück"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lueck@hube-lueck.de"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:40
+msgid "Write here some text"
+msgstr "Schreiben Sie hier Text"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:59
+#: borderplugins/solid/SolidBorderDrawer.cpp:71
+#: widgets/dialogs/CanvasSizeDialog.cpp:364
+#: widgets/dialogs/CanvasSizeWidget.cpp:147
+#: widgets/tools/CanvasEditTool.cpp:589
+msgid "Width"
+msgstr "Breite"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:61
+msgid "Text"
+msgstr "Text"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:63
+#: borderplugins/solid/SolidBorderDrawer.cpp:67
+#: widgets/tools/CanvasEditTool.cpp:104 widgets/tools/CanvasEditTool.cpp:544
+#: widgets/tools/CanvasEditTool.cpp:599
+msgid "Color"
+msgstr "Farbe"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:65
+#: widgets/items/TextItem.cpp:812
+msgid "Font"
+msgstr "Schriftart"
+
+#: borderplugins/polaroid/PolaroidBorderDrawer.cpp:158
+#: borderplugins/StandardBordersFactory.cpp:41
+#: borderplugins/StandardBordersFactory.cpp:49
+msgid "Polaroid border"
+msgstr "Polaroid-Rahmen"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:54
+msgid "Miter"
+msgstr "Gehrung"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:55
+msgid "Bevel"
+msgstr "Fase"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:56
+msgid "Round"
+msgstr "Rund"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:69
+msgid "Corners style"
+msgstr "Eckenstil"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:73
+msgid "Spacing"
+msgstr "Abstände"
+
+#: borderplugins/solid/SolidBorderDrawer.cpp:165
+#: borderplugins/StandardBordersFactory.cpp:42
+#: borderplugins/StandardBordersFactory.cpp:47
+msgid "Solid border"
+msgstr "Einfarbiger Rahmen"
+
+#: borders/BorderChangeListener.cpp:48 widgets/canvas/SceneBorder.cpp:56
+#: widgets/canvas/SceneBorder.cpp:100
+msgid "Border Change"
+msgstr "Rand ändern"
+
+#: effectplugins/blur/BlurPhotoEffect.cpp:53
+#: effectplugins/StandardEffectsFactory.cpp:42
+#: effectplugins/StandardEffectsFactory.cpp:57
+#: effects/temp/BlurPhotoEffect.cpp:122
+msgid "Blur effect"
+msgstr "Unschärfe-Effekt"
+
+#: effectplugins/colorize/ColorizePhotoEffect.cpp:55
+#: effectplugins/StandardEffectsFactory.cpp:44
+#: effectplugins/StandardEffectsFactory.cpp:58
+msgid "Colorize effect"
+msgstr "Einfärbungseffekt"
+
+#: effectplugins/grayscale/GrayscalePhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:46
+#: effectplugins/StandardEffectsFactory.cpp:59
+msgid "Grayscale effect"
+msgstr "Graustufen-Effekt"
+
+#: effectplugins/negative/NegativePhotoEffect.cpp:49
+#: effectplugins/StandardEffectsFactory.cpp:50
+#: effectplugins/StandardEffectsFactory.cpp:61
+msgid "Negative effect"
+msgstr "Negativ-Effekt"
+
+#: effectplugins/sepia/SepiaPhotoEffect.cpp:51
+#: effectplugins/StandardEffectsFactory.cpp:48
+#: effectplugins/StandardEffectsFactory.cpp:60
+msgid "Sepia effect"
+msgstr "Sepia-Effekt"
+
+#: effects/PhotoEffectsGroup.cpp:188
+msgid "Effect name"
+msgstr "Effektname"
+
+#: effects/PixelizePhotoEffect.cpp:94
+msgid "Pixel size"
+msgstr "Pixelgröße"
+
+#: effects/PixelizePhotoEffect.cpp:104
+msgid "Pixelize effect"
+msgstr "Verpixelungseffekt"
+
+#: effects/PixelizePhotoEffect.cpp:142
+#, kde-format
+msgid "Pixelize [%1 = %2]"
+msgstr "Pixeln [%1 = %2]"
+
+#: effects/temp/BlurPhotoEffect.cpp:37
+msgid "Radius"
+msgstr "Radius"
+
+#: models/LayersModelItem.cpp:159
+msgid "Layer"
+msgstr "Ebene"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_photolayoutseditorui.rc:7
+msgid "&Tools"
+msgstr "E&xtras"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_photolayoutseditorui.rc:13
+msgid "Main Toolbar"
+msgstr "Haupt-Werkzeugleiste"
+
+#: plugin/main.cpp:49
+msgid "Input file"
+msgstr "Eingabedatei"
+
+#: plugin/photolayoutseditor.cpp:103
+msgid "Canvas size change"
+msgstr "Änderung der Seitengröße"
+
+#: plugin/photolayoutseditor.cpp:139 plugin/PLEAboutData.h:39
+msgid "Photo Layouts Editor"
+msgstr "Fotolayout-Editor"
+
+#: plugin/photolayoutseditor.cpp:258
+msgctxt "Saves canvas as a template file..."
+msgid "Save As Template..."
+msgstr "Als Vorlage speichern ..."
+
+#: plugin/photolayoutseditor.cpp:262
+msgctxt "Export current frame layout to image file..."
+msgid "Export..."
+msgstr "Exportieren ..."
+
+#: plugin/photolayoutseditor.cpp:294
+msgctxt "Adds new image(s) from file..."
+msgid "Add image(s)..."
+msgstr "Bild(er) hinzufügen ..."
+
+#: plugin/photolayoutseditor.cpp:298
+msgctxt "View grid lines..."
+msgid "Show..."
+msgstr "Anzeigen ..."
+
+#: plugin/photolayoutseditor.cpp:304
+msgctxt "Configure grid lines visibility..."
+msgid "Setup grid..."
+msgstr "Gitter einrichten ..."
+
+#: plugin/photolayoutseditor.cpp:308
+msgctxt "Configure canvas size..."
+msgid "Change canvas size..."
+msgstr "Seitengröße ändern ..."
+
+#: plugin/photolayoutseditor.cpp:368 widgets/layers/LayersTreeTitleWidget.h:51
+msgid "Layers"
+msgstr "Ebenen"
+
+#: plugin/photolayoutseditor.cpp:432
+msgid "Cannot read image file."
+msgstr "Die Bilddatei kann nicht gelesen werden."
+
+#: plugin/photolayoutseditor.cpp:506 plugin/photolayoutseditor.cpp:542
+#: plugin/photolayoutseditor.cpp:557
+msgid "*.ple|Photo Layouts Editor files"
+msgstr "*.ple|Fotolayout-Editordateien"
+
+#: plugin/photolayoutseditor.cpp:569 plugin/photolayoutseditor.cpp:579
+msgid "There is nothing to save."
+msgstr "Es gibt nichts zu speichern."
+
+#: plugin/photolayoutseditor.cpp:602
+msgid "Image can't be saved in selected file."
+msgstr "Das Bild kann nicht in der ausgewählten Datei gespeichert werden."
+
+#: plugin/photolayoutseditor.cpp:607
+msgid "Unexpected error while saving an image."
+msgstr "Unerwarteter Fehler beim Speichern eines Bildes."
+
+#: plugin/photolayoutseditor.cpp:650
+msgid "Save changes to current frame?"
+msgstr "Änderungen am aktuellen Rahmen speichern?"
+
+#: plugin/photolayoutseditor.cpp:745
+msgid "Invalid image size."
+msgstr "Ungültige Bildgröße."
+
+#. i18n: ectx: Menu (File)
+#: plugin/photolayoutseditorui.rc:8
+msgid "&File"
+msgstr "&Datei"
+
+#. i18n: ectx: Menu (Edit)
+#: plugin/photolayoutseditorui.rc:27
+msgid "&Edit"
+msgstr "&Bearbeiten"
+
+#. i18n: ectx: Menu (Canvas)
+#: plugin/photolayoutseditorui.rc:35
+msgid "&Canvas"
+msgstr "Sei&te"
+
+#. i18n: ectx: Menu (grid_lines)
+#: plugin/photolayoutseditorui.rc:39
+msgid "&Grid lines"
+msgstr "&Gitterlinien"
+
+#: plugin/PLEAboutData.h:42
+msgid "A tool to create photo layouts by fusion of several images"
+msgstr ""
+"Ein Werkzeug zum Erstellen von Fotolayouts durch Zusammenfügen mehrerer "
+"Bilder"
+
+#: plugin/PLEAboutData.h:43
+msgid "(c) 2011, Lukasz Spas"
+msgstr "(c) 2011, Lukasz Spas"
+
+#: plugin/PLEAboutData.h:46
+msgid "Lukasz Spas"
+msgstr "Lukasz Spas"
+
+#: plugin/PLEAboutData.h:47
+msgid "Author and Developer"
+msgstr "Autor und Entwickler"
+
+#: plugin/plugin_photolayoutseditor.cpp:93
+msgid "Create photo layouts..."
+msgstr "Fotolayout erstellen ..."
+
+#. i18n: ectx: label, entry (recentFiles), group (General)
+#: settings/photolayoutseditor.kcfg:25
+msgid "Recent opened files"
+msgstr "Zuletzt geöffnete Dateien"
+
+#. i18n: ectx: label, entry (recentFilesCount), group (General)
+#: settings/photolayoutseditor.kcfg:28
+msgid "Maximum count of the urls saved on the recent files list"
+msgstr ""
+"Maximale Anzahl der Einträge von Adressen (URLs) in der Liste der zuletzt "
+"geöffneten Dateien"
+
+#. i18n: ectx: label, entry (embedImagesData), group (Saving)
+#: settings/photolayoutseditor.kcfg:36
+msgid "Embed full-sized images"
+msgstr "Bilder in Originalgröße einbetten"
+
+#. i18n: ectx: label, entry (antialiasing), group (View)
+#: settings/photolayoutseditor.kcfg:42 settings/PLEConfigViewWidget.cpp:91
+msgid "Antialiasing"
+msgstr "Antialiasing"
+
+#. i18n: ectx: label, entry (horizontalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:51 settings/PLEConfigViewWidget.cpp:111
+#: widgets/dialogs/GridSetupDialog.cpp:61
+msgid "Horizontal distance"
+msgstr "Waagerechter Abstand"
+
+#. i18n: ectx: label, entry (verticalGrid), group (View)
+#: settings/photolayoutseditor.kcfg:58 settings/PLEConfigViewWidget.cpp:122
+#: widgets/dialogs/GridSetupDialog.cpp:75
+msgid "Vertical distance"
+msgstr "Senkrechter Abstand"
+
+#: settings/PLEConfigDialog.cpp:46 settings/PLEConfigDialog.cpp:47
+msgid "View"
+msgstr "Ansicht"
+
+#: settings/PLEConfigViewWidget.cpp:93
+msgid "Grid"
+msgstr "Gitter"
+
+#: settings/PLEConfigViewWidget.cpp:100
+msgid "Show grid lines"
+msgstr "Gitterlinien anzeigen"
+
+#: threads/AbstractPhotoItemLoader.cpp:76
+msgid "Reading properties..."
+msgstr "Eigenschaften werden gelesen ..."
+
+#: threads/AbstractPhotoItemLoader.cpp:160
+msgid "Reading borders..."
+msgstr "Ränder werden gelesen ..."
+
+#: threads/AbstractPhotoItemLoader.cpp:186
+msgid "Reading effects..."
+msgstr "Effekte werden gelesen ..."
+
+#: threads/AbstractPhotoItemLoader.cpp:203
+msgid "Reading cropping shape..."
+msgstr "Zuschnittobjekt wird gelesen ..."
+
+#: threads/CanvasLoadingThread.cpp:123
+msgid "Loading background..."
+msgstr "Hintergrund wird geladen ..."
+
+#: threads/CanvasLoadingThread.cpp:144
+#, kde-format
+msgid "Loading item no. %1..."
+msgstr "Element Nr. %1 wird geladen ..."
+
+#: threads/CanvasLoadingThread.cpp:173
+msgid "Loading border..."
+msgstr "Rand wird gelesen ..."
+
+#: threads/CanvasSavingThread.cpp:84
+msgid "Creating canvas..."
+msgstr "Seite wird erstellt ..."
+
+#: threads/CanvasSavingThread.cpp:134
+msgid "Saving scene..."
+msgstr "Szene wird gespeichert ..."
+
+#: threads/CanvasSavingThread.cpp:153
+msgid "Encoding data..."
+msgstr "Daten werden kodiert ..."
+
+#: threads/CanvasSavingThread.cpp:164
+msgid "Writing data to file..."
+msgstr "Daten werden in Datei geschrieben ..."
+
+#: threads/ImageLoadingThread.cpp:191 threads/ImageLoadingThread.cpp:274
+msgid "Loading "
+msgstr "Wird geladen "
+
+#: threads/ImageLoadingThread.cpp:209 threads/ImageLoadingThread.cpp:304
+msgid "Decoding image"
+msgstr "Bild wird dekodiert"
+
+#: threads/ImageLoadingThread.cpp:260 threads/ImageLoadingThread.cpp:311
+#: threads/PhotoItemLoader.cpp:129 threads/TextItemLoader.cpp:97
+msgid "Finishing..."
+msgstr "Fertigstellen ..."
+
+#: threads/PhotoItemLoader.cpp:65
+msgid "Loading shape..."
+msgstr "Objekt wird geladen ..."
+
+#: threads/PhotoItemLoader.cpp:104
+msgid "Loading image..."
+msgstr "Bild wird geladen ..."
+
+#: threads/TextItemLoader.cpp:60
+msgid "Reading text..."
+msgstr "Text wird gelesen ..."
+
+#: threads/TextItemLoader.cpp:76
+msgid "Reading color..."
+msgstr "Farbe wird gelesen ..."
+
+#: threads/TextItemLoader.cpp:87
+msgid "Reading fonts..."
+msgstr "Schriften werden gelesen ..."
+
+#: undo/UndoBorderChangeCommand.cpp:36
+msgid "Border changed"
+msgstr "Der Rand wurde geändert"
+
+#: undo/UndoMoveRowsCommand.cpp:45
+msgid "Move layers up"
+msgstr "Ebenen nach oben schieben"
+
+#: undo/UndoMoveRowsCommand.cpp:47
+msgid "Move layers down"
+msgstr "Ebenen nach unten schieben"
+
+#: undo/UndoMoveRowsCommand.cpp:50
+msgid "Change parent layer"
+msgstr "Übergeordnete Ebene ändern"
+
+#: widgets/canvas/Canvas.cpp:886
+msgid "Invalid image size!"
+msgstr "Ungültige Bildgröße."
+
+#: widgets/canvas/Canvas.cpp:963 widgets/canvas/Canvas.cpp:986
+msgid "Can't save canvas!"
+msgstr "Seite kann nicht gespeichert werden."
+
+#: widgets/canvas/Canvas.cpp:964 widgets/canvas/Canvas.cpp:987
+msgid "Invalid file path."
+msgstr "Ungültiger Dateipfad."
+
+#: widgets/canvas/Canvas.cpp:1084
+msgid "Remove items"
+msgstr "Elemente entfernen"
+
+#: widgets/canvas/CropWidgetItem.cpp:253
+msgid "Crop items"
+msgstr "Elemente zuschneiden"
+
+#: widgets/canvas/CropWidgetItem.cpp:267
+#, no-c-format, kde-format
+msgid ""
+"Bounding rectangle of the crop shape has size [%1px x %2px] and it's less "
+"than 1px x 1px"
+msgstr ""
+"Der umfassende Rahmen des Zuschnittobjekts hat die Größe %1 px x %2 px und "
+"ist kleiner als 1px x 1px"
+
+#: widgets/canvas/RotationWidgetItem.cpp:49
+#: widgets/canvas/RotationWidgetItem.cpp:291
+msgid "Rotate item"
+msgid_plural "Rotate items"
+msgstr[0] "Element drehen"
+msgstr[1] "Elemente drehen"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:51
+#: widgets/canvas/ScalingWidgetItem.cpp:497 widgets/canvas/Scene.cpp:353
+msgid "Move item"
+msgid_plural "Move items"
+msgstr[0] "Element verschieben"
+msgstr[1] "Elemente verschieben"
+
+#: widgets/canvas/ScalingWidgetItem.cpp:96
+#: widgets/canvas/ScalingWidgetItem.cpp:482
+msgid "Scale item"
+msgid_plural "Scale items"
+msgstr[0] "Element skalieren"
+msgstr[1] "Elemente skalieren"
+
+#: widgets/canvas/Scene.cpp:302 widgets/canvas/Scene.cpp:310
+#: widgets/canvas/Scene.cpp:646
+msgid "Add item"
+msgid_plural "Add items"
+msgstr[0] "Element hinzufügen"
+msgstr[1] "Elemente hinzufügen"
+
+#: widgets/canvas/Scene.cpp:501
+msgid "Crop item"
+msgid_plural "Crop items"
+msgstr[0] "Element zuschneiden"
+msgstr[1] "Elemente zuschneiden"
+
+#: widgets/canvas/Scene.cpp:674
+msgid "Remove item"
+msgid_plural "Remove items"
+msgstr[0] "Element entfernen"
+msgstr[1] "Elemente entfernen"
+
+#: widgets/canvas/Scene.cpp:724
+msgid "Change item's image"
+msgstr "Bild des Elements ändern"
+
+#: widgets/canvas/Scene.cpp:729
+msgid "Delete selected item"
+msgid_plural "Delete selected items"
+msgstr[0] "Ausgewähltes Element löschen"
+msgstr[1] "Ausgewählte Elemente löschen"
+
+#: widgets/canvas/Scene.cpp:735
+msgid "Canvas background"
+msgstr "Seitenhintergrund"
+
+#: widgets/canvas/Scene.cpp:1412
+msgid "Saving background..."
+msgstr "Hintergrund wird gespeichert ..."
+
+#: widgets/canvas/Scene.cpp:1432
+#, kde-format
+msgid "Saving %1..."
+msgstr "%1 wird gespeichert ..."
+
+#: widgets/canvas/Scene.cpp:1445
+msgid "Saving border..."
+msgstr "Rand wird gespeichert ..."
+
+#: widgets/canvas/Scene.cpp:1524
+#, kde-format
+msgid "Unable to create one element"
+msgid_plural "Unable to create %1 elements"
+msgstr[0] "Ein Element kann nicht erstellt werden"
+msgstr[1] "%1 Elemente können nicht erstellt werden"
+
+#: widgets/canvas/Scene.cpp:1630
+#, kde-format
+msgid "Are you sure you want to delete selected item?"
+msgid_plural "Are you sure you want to delete %1 selected items?"
+msgstr[0] "Sind Sie sicher, dass Sie das ausgewählte Element löschen möchten?"
+msgstr[1] ""
+"Sind Sie sicher, dass Sie die %1 ausgewählte Elemente löschen möchten?"
+
+#: widgets/canvas/Scene.cpp:1630
+msgid "Items deleting"
+msgstr "Elemente werden gelöscht"
+
+#: widgets/canvas/SceneBackground.cpp:58 widgets/canvas/SceneBackground.cpp:69
+#: widgets/canvas/SceneBackground.cpp:119
+#: widgets/canvas/SceneBackground.cpp:147
+#: widgets/canvas/SceneBackground.cpp:207
+#: widgets/canvas/SceneBackground.cpp:253
+#: widgets/canvas/SceneBackground.cpp:279
+msgid "Background Change"
+msgstr "Änderung des Hintergrunds"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:320
+#: widgets/dialogs/CanvasSizeDialog.cpp:349
+#: widgets/dialogs/CanvasSizeWidget.cpp:132
+msgid "Canvas size"
+msgstr "Seitengröße"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:340
+msgid "Custom"
+msgstr "Benutzerdefiniert"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:344
+msgid "Template"
+msgstr "Vorlage"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:376
+#: widgets/dialogs/CanvasSizeWidget.cpp:159
+#: widgets/tools/CanvasEditTool.cpp:594
+msgid "Height"
+msgstr "Höhe"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:398
+msgid "Orientation"
+msgstr "Ausrichtung"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:404
+#: widgets/dialogs/CanvasSizeWidget.cpp:174
+msgid "Advanced"
+msgstr "Erweitert"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:416
+#: widgets/dialogs/CanvasSizeWidget.cpp:186
+msgid "Resolution X"
+msgstr "Auflösung X"
+
+#: widgets/dialogs/CanvasSizeDialog.cpp:426
+#: widgets/dialogs/CanvasSizeWidget.cpp:196
+msgid "Resolution Y"
+msgstr "Auflösung Y"
+
+#: widgets/dialogs/GridSetupDialog.cpp:40
+msgid "Setup grid lines"
+msgstr "Gitterlinien einrichten"
+
+#: widgets/dialogs/ImageFileDialog.cpp:74
+#, kde-format
+msgid ""
+"Currently this file type (%1) is unsupported.\n"
+"Please notify the author and ask for it in the next versions of the "
+"application."
+msgstr ""
+"Dieser Dateityp (%1) wird zurzeit nicht unterstützt.\n"
+"Bitte benachrichtigen Sie den Autor und fragen nach Unterstützung dieses "
+"Typs in der nächsten Version des Programms."
+
+#: widgets/dialogs/ImageFileDialog.cpp:75
+msgid "The image can't be saved!"
+msgstr "Das Bild kann nicht gespeichert werden."
+
+#: widgets/dialogs/NewCanvasDialog.cpp:295
+msgid "Empty"
+msgstr "Leer"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:334
+msgid "Create new canvas..."
+msgstr "Neue Seite erstellen ..."
+
+#: widgets/dialogs/NewCanvasDialog.cpp:348
+msgid "Paper sizes"
+msgstr "Papiergrößen"
+
+#: widgets/dialogs/NewCanvasDialog.cpp:377
+msgid "Select a template"
+msgstr "Wählen Sie eine Vorlage"
+
+#: widgets/items/AbstractPhoto.cpp:54
+msgid "Crop shape change"
+msgstr "Änderung des Zuschnittobjekts"
+
+#: widgets/items/AbstractPhoto.cpp:79
+msgid "Name Change"
+msgstr "Änderung des Namens"
+
+#: widgets/items/AbstractPhoto.cpp:109
+msgid "New layer"
+msgstr "Neue Ebene"
+
+#: widgets/items/PhotoItem.cpp:62 widgets/items/PhotoItem.cpp:68
+#: widgets/items/PhotoItem.cpp:711 widgets/items/PhotoItem.cpp:724
+msgid "Image Change"
+msgstr "Bildänderung"
+
+#: widgets/items/PhotoItem.cpp:97
+msgid "Image Path Change"
+msgstr "Änderung des Bildpfades"
+
+#: widgets/items/PhotoItem.cpp:129
+msgid "Image Shape Change"
+msgstr "Änderung des Bildobjekts"
+
+#: widgets/items/PhotoItem.cpp:158
+msgid "Image Position Change"
+msgstr "Änderung der Bildposition"
+
+#: widgets/items/PhotoItem.cpp:219
+#, kde-format
+msgid ""
+"Can't find image file in this location:\n"
+"%1\n"
+"\n"
+"Would you like to set new location of this file?\n"
+"If not this image will be removed from the composition."
+msgstr ""
+"Es wurde keine Bilddatei am angegebenen Speicherort gefunden:\n"
+"%1\n"
+"\n"
+"Möchten Sie einen neuen Speicherort für diese Datei eingeben?\n"
+"Falls nicht, wird dieses Bild aus der Zusammenstellung entfernt."
+
+#: widgets/items/PhotoItem.cpp:224
+msgid "File reading error"
+msgstr "Datei-Lesefehler"
+
+#: widgets/items/PhotoItem.cpp:265 widgets/items/PhotoItem.cpp:273
+#: widgets/items/PhotoItem.cpp:282
+msgid "New image"
+msgstr "Neues Bild"
+
+#: widgets/items/PhotoItem.cpp:347
+#, kde-format
+msgid ""
+"Do you want to embed images data?\n"
+"Remember that when you move or rename image files on your disk or the "
+"storage device become unavailable, those images become unavailable for %1 "
+"and this layout might become broken."
+msgstr ""
+"Möchten Sie die Bilddaten einbetten?\n"
+"Hinweis: Wenn Sie Bilder auf Ihrer Festplatte verschieben oder umbenennen "
+"oder ein externes Speichergerät nicht angeschlossen ist, sind die Bilder "
+"nicht mehr für %1 verfügbar und das Layout kann dann fehlerhaft sein."
+
+#: widgets/items/PhotoItem.cpp:350
+#, kde-format
+msgid "Saving: %1"
+msgstr "Speichern: %1"
+
+#: widgets/items/TextItem.cpp:52
+msgid "Text change"
+msgstr "Textänderung"
+
+#: widgets/items/TextItem.cpp:75
+msgid "Text color change"
+msgstr "Änderung der Textfarbe"
+
+#: widgets/items/TextItem.cpp:101
+msgid "Text font change"
+msgstr "Änderung der Schriftart"
+
+#: widgets/items/TextItem.cpp:129 widgets/items/TextItem.cpp:157
+#: widgets/items/TextItem.cpp:192 widgets/items/TextItem.cpp:226
+msgid "Text edit"
+msgstr "Textbearbeitung"
+
+#: widgets/items/TextItem.cpp:407
+msgid "Text item"
+msgstr "Textelement"
+
+#: widgets/items/TextItem.cpp:799
+msgid "Text color"
+msgstr "Textfarbe"
+
+#: widgets/menus/LayersTreeMenu.cpp:35
+msgid "Move up"
+msgstr "Nach oben"
+
+#: widgets/menus/LayersTreeMenu.cpp:37
+msgid "Move down"
+msgstr "Nach unten"
+
+#: widgets/menus/LayersTreeMenu.cpp:40
+msgid "Delete selected"
+msgstr "Auswahl löschen"
+
+#: widgets/tools/BorderEditTool.cpp:49
+msgid "Borders editor"
+msgstr "Rand-Editor"
+
+#: widgets/tools/CanvasEditTool.cpp:105
+msgid "Image"
+msgstr "Bild"
+
+#: widgets/tools/CanvasEditTool.cpp:106 widgets/tools/CanvasEditTool.cpp:613
+msgid "Pattern"
+msgstr "Muster"
+
+#: widgets/tools/CanvasEditTool.cpp:109
+msgid "Expanded"
+msgstr "Erweitert"
+
+#: widgets/tools/CanvasEditTool.cpp:110
+msgid "Scaled"
+msgstr "Skaliert"
+
+#: widgets/tools/CanvasEditTool.cpp:111
+msgid "Fixed size"
+msgstr "Feste Größe"
+
+#: widgets/tools/CanvasEditTool.cpp:113 widgets/tools/CanvasEditTool.cpp:117
+msgid "Center"
+msgstr "Zentriert"
+
+#: widgets/tools/CanvasEditTool.cpp:114
+msgid "Left"
+msgstr "Links"
+
+#: widgets/tools/CanvasEditTool.cpp:115
+msgid "Right"
+msgstr "Rechts"
+
+#: widgets/tools/CanvasEditTool.cpp:118
+msgid "Top"
+msgstr "Oben"
+
+#: widgets/tools/CanvasEditTool.cpp:119
+msgid "Bottom"
+msgstr "Unten"
+
+#: widgets/tools/CanvasEditTool.cpp:124 widgets/tools/CanvasEditTool.cpp:129
+msgid "Click here to set an image"
+msgstr "Klicken Sie hier, um ein Bild festzulegen"
+
+#: widgets/tools/CanvasEditTool.cpp:369 widgets/tools/CanvasEditTool.cpp:405
+msgid "Invalid or unsupported image file."
+msgstr "Ungültige oder nicht unterstützte Bilddatei."
+
+#: widgets/tools/CanvasEditTool.cpp:509
+msgid "Border"
+msgstr "Rand"
+
+#: widgets/tools/CanvasEditTool.cpp:523
+msgid "Background"
+msgstr "Hintergrund"
+
+#: widgets/tools/CanvasEditTool.cpp:531
+msgid "Type"
+msgstr "Typ"
+
+#: widgets/tools/CanvasEditTool.cpp:562
+msgid "Scaling"
+msgstr "Skalierung"
+
+#: widgets/tools/CanvasEditTool.cpp:567
+msgid "Tiled"
+msgstr "Gekachelt"
+
+#: widgets/tools/CanvasEditTool.cpp:569
+msgid "Alignment"
+msgstr "Ausrichtung"
+
+#: widgets/tools/CanvasEditTool.cpp:575
+msgid "Horizontal"
+msgstr "Waagerecht"
+
+#: widgets/tools/CanvasEditTool.cpp:579
+msgid "Vertical"
+msgstr "Senkrecht"
+
+#: widgets/tools/CanvasEditTool.cpp:582
+msgid "Size"
+msgstr "Größe"
+
+#: widgets/tools/CanvasEditTool.cpp:608
+msgid "Color 1"
+msgstr "Farbe 1"
+
+#: widgets/tools/CanvasEditTool.cpp:611
+msgid "Color 2"
+msgstr "Farbe 2"
+
+#: widgets/tools/EffectsEditorTool.cpp:45
+msgid "Effects"
+msgstr "Effekte"
+
+#: widgets/tools/TextEditorTool.cpp:52
+msgid "Create text item"
+msgstr "Textelement erstellen"
+
+#: widgets/tools/ToolsDockWidget.cpp:98
+msgid "Tools"
+msgstr "Werkzeuge"
+
+#: widgets/tools/ToolsDockWidget.cpp:129
+msgid "Allows to select and move images on canvas"
+msgstr "Ermöglicht die Auswahl und das Verschieben von Bildern auf Seiten"
+
+#: widgets/tools/ToolsDockWidget.cpp:130
+msgid ""
+"Tool which allows one to select and move images on canvas. Any other "
+"operations are disabled."
+msgstr ""
+"Werkzeug zur Auswahl und das Verschieben von Bildern auf Seiten. Alle "
+"anderen Aktionen sind deaktiviert."
+
+#: widgets/tools/ToolsDockWidget.cpp:140
+msgid "Viewing tool"
+msgstr "Ansichts-Werkzeug"
+
+#: widgets/tools/ToolsDockWidget.cpp:141
+msgid ""
+"This tool allows one to view whole canvas in read-only mode. Only scrolling "
+"and zooming are available."
+msgstr ""
+"Dieses Werkzeug ermöglicht die Anzeige der gesamten Seiten im Nur-Lesen-"
+"Modus. Nur das Blättern und Vergrößerung sind möglich."
+
+#: widgets/tools/ToolsDockWidget.cpp:151
+msgid "Zooming tool"
+msgstr "Vergrößerungs-Werkzeug"
+
+#: widgets/tools/ToolsDockWidget.cpp:152
+msgid ""
+"This tool allows one to zoom canvas to fit it to the application window or "
+"users preferences."
+msgstr ""
+"Mit diesem Werkzeug können Sie die Vergrößerung der Ansicht an das "
+"Programmfenster oder eigene Einstellungen anpassen."
+
+#: widgets/tools/ToolsDockWidget.cpp:162
+msgid "Canvas editor"
+msgstr "Seiteneditor"
+
+#: widgets/tools/ToolsDockWidget.cpp:163
+msgid ""
+"This tool allows you to edit canvas properties like size and background."
+msgstr ""
+"Mit diesem Werkzeug können Sie die Seiteneigenschaften wie Größe und "
+"Hintergrund einstellen."
+
+#: widgets/tools/ToolsDockWidget.cpp:173
+msgid "Text editor"
+msgstr "Texteditor"
+
+#: widgets/tools/ToolsDockWidget.cpp:174
+msgid ""
+"This tool allows you to write text on the canvas. It's simple - just click "
+"on the canvas where you want to add some text and write it!"
+msgstr ""
+"Mit diesem Werkzeug können Sie Text auf den Seiten eintragen. Klicken Sie "
+"auf die Stelle auf der Seite, wo Sie Text einfügen möchten und beginnen Sie "
+"mit der Eingabe."
+
+#: widgets/tools/ToolsDockWidget.cpp:185
+msgid "Rotation tool"
+msgstr "Drehungs-Werkzeug"
+
+#: widgets/tools/ToolsDockWidget.cpp:186
+msgid "This tool allows you to rotate items on your canvas."
+msgstr "Dieses Werkzeug ermöglicht das Drehen von Elementen auf Ihren Seiten."
+
+#: widgets/tools/ToolsDockWidget.cpp:196
+msgid "Scaling tool"
+msgstr "Skalierungs-Werkzeug"
+
+#: widgets/tools/ToolsDockWidget.cpp:197
+msgid "This tool allows you to scale items on your canvas."
+msgstr "Mit diesem Werkzeug können Sie Elemente auf der Seite skalieren."
+
+#: widgets/tools/ToolsDockWidget.cpp:207
+msgid "Crop tool"
+msgstr "Zuschneidewerkzeug"
+
+#: widgets/tools/ToolsDockWidget.cpp:208
+msgid "This tool allows you to crop items."
+msgstr "Mit diesem Werkzeug können Sie Elemente auf der Seite zuschneiden."
+
+#: widgets/tools/ToolsDockWidget.cpp:218
+msgid "Image effects editor"
+msgstr "Bildeffekt-Editor"
+
+#: widgets/tools/ToolsDockWidget.cpp:219
+msgid ""
+"This tool allows you to edit existing effects of your photo layers and add "
+"some new one."
+msgstr ""
+"Mit diesem Werkzeug können Sie vorhandene Effekte auf den Fotoebenen "
+"bearbeiten und einige neue hinzufügen."
+
+#: widgets/tools/ZoomTool.cpp:56
+msgid "Zoom out"
+msgstr "Verkleinern"
+
+#: widgets/tools/ZoomTool.cpp:59
+msgid "Zoom in"
+msgstr "Vergrößern"
+
+#, fuzzy
+#~| msgctxt "Adds new image(s) from file"
+#~| msgid "Add image(s)..."
+#~ msgid "Add item(s)"
+#~ msgstr "Bild(er) hinzufügen ..."
+
+#~ msgid "Finishing"
+#~ msgstr "Fertigstellen "

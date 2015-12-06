@@ -2137,7 +2137,7 @@ PAlbum* AlbumManager::createPAlbum(const CollectionLocation& location, const QSt
 
     if (!album)
     {
-        errMsg = "No album for collection location: Internal error";
+        errMsg = i18n("No album for collection location: Internal error");
         return 0;
     }
 
@@ -2524,7 +2524,7 @@ bool AlbumManager::moveTAlbum(TAlbum* album, TAlbum* newParent, QString& errMsg)
 
     if (!newParent)
     {
-        errMsg = "Attempt to move TAlbum to nowhere";
+        errMsg = i18n("Attempt to move TAlbum to nowhere");
         return false;
     }
 
