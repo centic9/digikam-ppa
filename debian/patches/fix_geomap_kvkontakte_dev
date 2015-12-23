@@ -1,7 +1,7 @@
 Index: git/extra/libkgeomap/libkgeomap/CMakeLists.txt
 ===================================================================
---- git.orig/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
-+++ git/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-02-07 20:17:07.693613874 +0100
+--- git.orig/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-12-23 22:45:13.086493802 +0100
++++ git/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-12-23 22:45:13.070493635 +0100
 @@ -74,7 +74,7 @@
  install(TARGETS kgeomap ${INSTALL_TARGETS_DEFAULT_ARGS})
  
@@ -32,29 +32,27 @@ Index: git/extra/libkgeomap/libkgeomap/CMakeLists.txt
 +#endif()
 Index: git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt
 ===================================================================
---- git.orig/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
-+++ git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
-@@ -67,7 +67,7 @@
- 	EXPORT LibKVkontakteExport
- 	${INSTALL_TARGETS_DEFAULT_ARGS})
+--- git.orig/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-12-23 22:45:13.086493802 +0100
++++ git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-12-23 22:45:40.226777729 +0100
+@@ -69,7 +69,7 @@
+     ${INSTALL_TARGETS_DEFAULT_ARGS}
+ )
  
 -if (NOT DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
 +#if (NOT DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
  
      install(FILES
          ${CMAKE_CURRENT_BINARY_DIR}/version.h
-@@ -105,4 +105,4 @@
-         grouplistjob.h
+@@ -109,4 +109,4 @@
+         vkapi.h
          DESTINATION ${INCLUDE_INSTALL_DIR}/libkvkontakte COMPONENT Devel)
  
 -endif()
-\ No newline at end of file
 +#endif()
-\ No newline at end of file
 Index: git/extra/libmediawiki/libmediawiki/CMakeLists.txt
 ===================================================================
---- git.orig/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-07 20:16:55.181490389 +0100
-+++ git/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-02-07 20:17:17.025705958 +0100
+--- git.orig/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-12-23 22:45:13.086493802 +0100
++++ git/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-12-23 22:45:13.082493766 +0100
 @@ -42,7 +42,7 @@
  install(TARGETS mediawiki ${INSTALL_TARGETS_DEFAULT_ARGS})
  
