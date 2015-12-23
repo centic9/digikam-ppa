@@ -13,7 +13,7 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libkqoauth-dev,
  libqtwebkit-dev, libqtgstreamer-dev,
  libmagickcore-dev, imagemagick,
- libhupnp-dev,
+ libhupnp-dev, libqtsolutions-soap-dev,
  libgtk2.0-dev,
  libxslt1-dev | libxslt-dev, libxml2-dev,
  libgpod-nogtk-dev,
@@ -323,6 +323,16 @@ Description: KDE C++ interface for MediaWiki based web services (runtime)
  .
  This package contains the shared library to be used by applications
 
+Package: libmediawiki-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, libmediawiki1 (= ${binary:Version})
+Description: Development files for libmediawiki
+ libmediawiki is a KDE C++ interface for MediaWiki based web service as wikipedia.org
+ .
+ This package contains the development headers and files needed to create
+ applications that use the mediawiki library
+
 Package: libkvkontakte1
 Architecture: any
 Section: libs
@@ -332,3 +342,14 @@ Description: vkontakte.ru library
  vkontakte.ru social network via its open API.
  .
  This package contains the shared library to be used by applications.
+
+Package: libkvkontakte-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, libkvkontakte1 (= ${binary:Version})
+Description: Development files for libkvkontakte
+ libkvkontakte1 is a KDE C++ library for asynchronous interaction with the
+ vkontakte.ru social network via its open API.
+ .
+ This package contains the development headers and files needed to create
+ applications that use the kvkontakte library
