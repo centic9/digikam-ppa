@@ -21,7 +21,7 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libqjson-dev,
  libpng-dev, libtiff-dev, libjpeg-dev,
  shared-desktop-ontologies,
- mysql-server-core-5.6 | mysql-server-core,
+ mysql-server-core-5.6 | mysql-server-core-5.5 | mysql-server-core,
  libglib2.0-dev, libgphoto2-dev (>= 2.4),
  libusb-dev [!kfreebsd-any], libusb2-dev [kfreebsd-any],
  liblcms2-dev, liblqr-1-0-dev,
@@ -42,7 +42,9 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  valgrind,
  libkface-dev,
  baloo-dev,
- libkfilemetadata-dev
+ libkfilemetadata-dev,
+ libusb-dev, 
+ libhupnp-dev, libgupnp-av-1.0-dev
 Build-Conflicts: libgraphicsmagick1-dev
 Standards-Version: 3.9.5
 Vcs-Bzr: https://code.launchpad.net/~kubuntu-packagers/kubuntu-packaging/digikam
@@ -233,6 +235,83 @@ Description: kipi-plugins architecture-independent data
  Its aim is to share image plugins among graphic applications.
  .
  The architecture independent data needed for the kipi-plugins package.
+
+#Package: libkface3
+#Architecture: any
+#Section: libs
+#Depends: ${misc:Depends}, ${shlibs:Depends}, libkface-data, libopencv-photo2.4
+#Description: LibFace wrapper for Qt/C++
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the shared library to be used by applications.
+
+#Package: libkface-data
+#Architecture: all
+#Section: libs
+#Depends: ${misc:Depends}
+#Description: Data files for libkface
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the data files of the LibKFace library
+
+#Package: libkface-dev
+#Architecture: any
+#Section: libdevel
+#Depends: ${misc:Depends}, libkface3 (= ${binary:Version})
+#Description: Development files for libkface
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the development headers and files needed to create
+# applications that use the LibKFace library
+
+Package: libkgeomap2
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap-data
+Description: World-map wrapper to browse and arrange photos over a map
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the shared library to be used by applications.
+
+Package: libkgeomap-data
+Architecture: all
+Section: libs
+Depends: ${misc:Depends}
+Description: Data files for libkgeomap
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the data files of the libkgeomap library
+
+Package: libkgeomap-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap2 (= ${binary:Version})
+Description: Development files for libkgeomap
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the development headers and files needed to create
+ applications that use the KGeoMap library
 
 Package: libmediawiki1
 Architecture: any
