@@ -50,8 +50,14 @@ override_dh_shlibdeps:
 	dh_shlibdeps -l$(CURDIR)/debian/digikam-private-libs/$(PRIVATE_LIBDIR):$(CURDIR)/debian/kipi-plugins/$(PRIVATE_LIBDIR)
 
 override_dh_gencontrol:
+	dh_gencontrol -plibkface2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkgeomap2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkgeomap-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkgeomap-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibmediawiki1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibmediawiki-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkvkontakte1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkvkontakte-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol --remaining-packages -- -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 
 override_dh_strip:
@@ -66,17 +72,6 @@ override_dh_makeshlibs:
 	dh_makeshlibs -plibmediawiki1 -V 'libmediawiki1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkvkontakte1 -V 'libkvkontakte1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs --remaining-packages
-
-override_dh_gencontrol:
-	dh_gencontrol -plibkface2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkgeomap2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkgeomap-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkgeomap-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibmediawiki1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibmediawiki-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkvkontakte1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol -plibkvkontakte-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
-	dh_gencontrol --remaining-packages -- -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 
 # auto tests require user interaction - override
 override_dh_auto_test:
