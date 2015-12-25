@@ -16,7 +16,7 @@ DEB_VERSION_UPSTREAM_REVISION := $(shell dpkg-parsechangelog | awk '/^Version: /
 DEB_VERSION_UPSTREAM := $(shell dpkg-parsechangelog | awk '/^Version: / { print $$2 }' | sed -e 's/-[^-]*$$//' | sed -e 's/^[0-9]*://')
 
 %:
-	dh $@ --with kde --parallel
+	dh $@ --with kde
 
 override_dh_auto_configure:
 	dh_auto_configure --buildsystem=kde -- \
