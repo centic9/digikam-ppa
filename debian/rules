@@ -33,6 +33,8 @@ override_dh_auto_configure:
 	  -DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=ON \
 	  -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=ON \
 	  -DDIGIKAMSC_COMPILE_LIBKFACE=ON \
+	  -DMarbleWidget_DIR=/usr/share/marble/cmake \
+	  -DCMAKE_MODULE_PATH=/usr/share/marble/cmake \
 	  $(EXTRA_CMAKE_ARGS)
 
 override_dh_installchangelogs:
