@@ -1,11 +1,9 @@
-# Translation of kipiplugin_imgurexport to Norwegian Bokmål
-#
 # Bjørn Steensrud <bjornst@skogkatt.homelinux.org>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
+"POT-Creation-Date: 2015-08-07 01:56+0000\n"
 "PO-Revision-Date: 2013-11-29 09:49+0100\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -27,23 +25,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "bjornst@skogkatt.homelinux.org"
 
-#: imgurimageslist.cpp:50
+#: imgurimageslist.cpp:49
 msgid "Thumbnail"
 msgstr "Miniatyrbilde"
 
-#: imgurimageslist.cpp:55
+#: imgurimageslist.cpp:54
 msgid "Submission title"
 msgstr "Tittel på opplasting"
 
-#: imgurimageslist.cpp:58
+#: imgurimageslist.cpp:57
 msgid "Submission description"
 msgstr "Beskrivelse av opplasting"
 
-#: imgurimageslist.cpp:61
+#: imgurimageslist.cpp:60
 msgid "Imgur URL"
 msgstr "Imgur URL"
 
-#: imgurimageslist.cpp:64
+#: imgurimageslist.cpp:63
 msgid "Imgur Delete URL"
 msgstr "Imgur slett URL"
 
@@ -55,39 +53,39 @@ msgstr "Uventet svar fra nettjeneren"
 msgid "Upload failed"
 msgstr "Opplasting mislyktes"
 
-#: imgurtalker.cpp:407
+#: imgurtalker.cpp:410
 msgid "Parse error"
 msgstr "Tolkingsfeil"
 
-#: imgurtalkerauth.cpp:94
+#: imgurtalkerauth.cpp:93
 msgid "Network error: timeout, cannot connect."
 msgstr "Nettverksfeil: tidsavbrudd, kan ikke koble til."
 
-#: imgurtalkerauth.cpp:97
+#: imgurtalkerauth.cpp:96
 msgid "Request endpoint is not valid."
 msgstr "Endepunkt for forespørselen er ikke gyldig."
 
-#: imgurtalkerauth.cpp:100
+#: imgurtalkerauth.cpp:99
 msgid "Request is not valid: some parameter missing?"
 msgstr "Forespørselen er ikke gyldig: mangler det en parameter?"
 
-#: imgurtalkerauth.cpp:103
+#: imgurtalkerauth.cpp:102
 msgid "Authorization error: trying to access a resource without tokens."
 msgstr "Autoriseringsfeil: forsøker å få tilgang til en ressurs uten symboler."
 
-#: imgurtalkerauth.cpp:106
+#: imgurtalkerauth.cpp:105
 msgid "The given request is invalid."
 msgstr "Den gitte forespørselen er ugyldig."
 
-#: imgurtalkerauth.cpp:109
+#: imgurtalkerauth.cpp:108
 msgid "Manager error, cannot use for sending requests."
 msgstr "Behandlerfeil, kan ikke brukes til å sende forespørsler."
 
-#: imgurtalkerauth.cpp:113
+#: imgurtalkerauth.cpp:112
 msgid "No error"
 msgstr "Ingen feil"
 
-#: imgurtalkerauth.cpp:249
+#: imgurtalkerauth.cpp:248
 msgid "OK"
 msgstr "OK"
 
@@ -125,56 +123,56 @@ msgid "Set permissions for the current application to upload images to Imgur."
 msgstr ""
 "Sett tillatelser for gjeldende program til å laste opp bilder til Imgur."
 
-#: imgurwidget.cpp:229
+#: imgurwidget.cpp:231
 #, kde-format
 msgid "Processing %1"
 msgstr "Behandler %1"
 
-#: imgurwidget.cpp:275
+#: imgurwidget.cpp:277
 msgid "Authenticated"
 msgstr "Autentisert"
 
-#: imgurwindow.cpp:76
+#: imgurwindow.cpp:78
 msgid "Export to imgur.com"
 msgstr "Eksporter til Imgur.com"
 
-#: imgurwindow.cpp:80
+#: imgurwindow.cpp:82
 msgid "Upload"
 msgstr "Last opp"
 
-#: imgurwindow.cpp:80
+#: imgurwindow.cpp:82
 msgid "Start upload to Imgur"
 msgstr "Begynn opplastingen til Imgur"
 
-#: imgurwindow.cpp:88
+#: imgurwindow.cpp:90
 msgid "Imgur Export"
 msgstr "Imgur-eksport"
 
-#: imgurwindow.cpp:91
+#: imgurwindow.cpp:93
 msgid "A tool to export images to Imgur web service"
 msgstr "Et verktøy for å eksportere bilder til Imgur-nettjenesten"
 
-#: imgurwindow.cpp:92
+#: imgurwindow.cpp:94
 msgid "(c) 2012-2013, Marius Orcsik"
 msgstr "© 2012–2013 Marius Orcsik"
 
-#: imgurwindow.cpp:94
+#: imgurwindow.cpp:96
 msgid "Marius Orcsik"
 msgstr "Marius Orcsik"
 
-#: imgurwindow.cpp:94
-msgid "Author and Maintainer"
-msgstr "Utvikler og vedlikeholder"
-
 #: imgurwindow.cpp:97
+msgid "Author"
+msgstr ""
+
+#: imgurwindow.cpp:100
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: imgurwindow.cpp:97
+#: imgurwindow.cpp:101
 msgid "Developer"
 msgstr "Utvikler"
 
-#: imgurwindow.cpp:206
+#: imgurwindow.cpp:210
 #, kde-format
 msgid ""
 "Failed to upload photo to Imgur: %1\n"
@@ -183,12 +181,12 @@ msgstr ""
 "Klarte ikke å laste opp fotoet til  Imgur: %1\n"
 "Vil du fortsette?"
 
-#: imgurwindow.cpp:220
+#: imgurwindow.cpp:224
 #, kde-format
 msgid "Failed to upload photo to Imgur: %1\n"
 msgstr "Klarte ikke å laste opp fotoet til  Imgur: %1\n"
 
-#: imgurwindow.cpp:238
+#: imgurwindow.cpp:242
 #, kde-format
 msgctxt "%1 is the error string"
 msgid ""
@@ -200,7 +198,7 @@ msgstr ""
 "%1\n"
 "Vil du fortsette?"
 
-#: imgurwindow.cpp:243
+#: imgurwindow.cpp:247
 msgid ""
 "Failed to authenticate to Imgur.\n"
 "Do you want to continue?"

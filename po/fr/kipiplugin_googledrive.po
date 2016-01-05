@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Vincent PINON <vpinon@kde.org>, 2013.
-# Peter Potrowl <peter.potrowl@gmail.com>, 2014.
+# Peter Potrowl <peter.potrowl@gmail.com>, 2014, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-12 01:57+0000\n"
-"PO-Revision-Date: 2015-06-11 15:35+0200\n"
-"Last-Translator: Peter Potrowl <peter.potrowl@gmail.com>\n"
+"POT-Creation-Date: 2015-09-19 02:00+0000\n"
+"PO-Revision-Date: 2015-08-23 15:47+0200\n"
+"Last-Translator:  <peter.potrowl@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -43,15 +43,15 @@ msgstr ""
 "l'autorisation de l'application, copiez le code depuis le navigateur dans la "
 "boîte de texte ci-dessous, et cliquez sur Ok."
 
-#: gdtalker.cpp:344
+#: gdtalker.cpp:350
 msgid "Failed to list folders"
 msgstr "Le listage des dossiers a échoué"
 
-#: gdtalker.cpp:415
+#: gdtalker.cpp:421
 msgid "Failed to create folder"
 msgstr "La création du dossier a échoué"
 
-#: gdtalker.cpp:449 picasawebtalker.cpp:837
+#: gdtalker.cpp:455 picasawebtalker.cpp:890
 msgid "Failed to upload photo"
 msgstr "L'envoi de la photo a échoué"
 
@@ -60,11 +60,11 @@ msgid "This is the list of images to upload to your Google Drive account."
 msgstr "Ceci est la liste des images à envoyer à votre compte Google Drive."
 
 #: gswidget.cpp:88
-#, fuzzy
-#| msgid "This is the list of images to upload to your Google Drive account."
 msgid ""
 "This is the list of images to upload to your Google Photos/PicasaWeb account."
-msgstr "Ceci est la liste des images à envoyer à votre compte Google Drive."
+msgstr ""
+"Ceci est la liste des images à envoyer à votre compte Google Photos/"
+"PicasaWeb."
 
 #: gswidget.cpp:96
 msgid "This is a clickable link to open Google Drive in a browser."
@@ -72,11 +72,10 @@ msgstr ""
 "Ceci est un lien cliquable pour ouvrir Google Drive dans un navigateur."
 
 #: gswidget.cpp:98
-#, fuzzy
-#| msgid "This is a clickable link to open Google Drive in a browser."
 msgid "This is a clickable link to open Google Photos/PicasaWeb in a browser."
 msgstr ""
-"Ceci est un lien cliquable pour ouvrir Google Drive dans un navigateur."
+"Ceci est un lien cliquable pour ouvrir Google Photos/PicasaWeb dans un "
+"navigateur."
 
 #: gswidget.cpp:105
 msgid "Account"
@@ -87,11 +86,10 @@ msgid "This is the Google Drive account that is currently logged in."
 msgstr "Ceci est le compte Google Drive qui est actuellement connecté."
 
 #: gswidget.cpp:110
-#, fuzzy
-#| msgid "This is the Google Drive account that is currently logged in."
 msgid ""
 "This is the Google Photos/PicasaWeb account that is currently logged in."
-msgstr "Ceci est le compte Google Drive qui est actuellement connecté."
+msgstr ""
+"Ceci est le compte Google Photos/PicasaWeb qui est actuellement connecté."
 
 #: gswidget.cpp:114
 msgctxt "account settings"
@@ -107,16 +105,12 @@ msgid "Change Google Drive account for transfer"
 msgstr "Changer de compte Google Drive pour le transfert"
 
 #: gswidget.cpp:122
-#, fuzzy
-#| msgid "Change Google Drive account for transfer"
 msgid "Change Google Photos/PicasaWeb account for transfer"
-msgstr "Changer de compte Google Drive pour le transfert"
+msgstr "Changer de compte Google Photos/PicasaWeb pour le transfert"
 
 #: gswidget.cpp:133 newalbumdlg.cpp:76
-#, fuzzy
-#| msgid "Album:"
 msgid "Album"
-msgstr "Album :"
+msgstr "Album"
 
 #: gswidget.cpp:137
 msgid ""
@@ -126,26 +120,20 @@ msgstr ""
 "transférées."
 
 #: gswidget.cpp:141
-#, fuzzy
-#| msgid ""
-#| "This is the Google Drive folder to which selected photos will be uploaded."
 msgid ""
 "This is the Google Photos/PicasaWeb folder to which selected photos will be "
 "uploaded."
 msgstr ""
-"Ceci est le dossier Google Drive dans lequel les photos sélectionnées seront "
-"transférées."
+"Ceci est le dossier Google Photos/PicasaWeb dans lequel les photos "
+"sélectionnées seront transférées."
 
 #: gswidget.cpp:145
-#, fuzzy
-#| msgid ""
-#| "This is the Google Drive folder to which selected photos will be uploaded."
 msgid ""
 "This is the Google Photos/PicasaWeb folder from which selected photos will "
 "be downloaded."
 msgstr ""
-"Ceci est le dossier Google Drive dans lequel les photos sélectionnées seront "
-"transférées."
+"Ceci est le dossier Google Photos/PicasaWeb dans lequel les photos "
+"sélectionnées seront transférées."
 
 #: gswidget.cpp:150
 msgid "Album:"
@@ -160,10 +148,8 @@ msgid "Create new Google Drive folder"
 msgstr "Créer un nouveau dossier Google Drive"
 
 #: gswidget.cpp:162
-#, fuzzy
-#| msgid "Create new Google Drive folder"
 msgid "Create new Google Photos/PicasaWeb folder"
-msgstr "Créer un nouveau dossier Google Drive"
+msgstr "Créer un nouveau dossier Google Photos/PicasaWeb"
 
 #: gswidget.cpp:165
 msgctxt "album list"
@@ -175,46 +161,38 @@ msgid "Reload album list"
 msgstr "Recharger la liste de l'album"
 
 #: gswidget.cpp:175
-#, fuzzy
-#| msgid "Maximum Dimension:"
 msgid "Max Dimension"
-msgstr "Dimension maximum :"
+msgstr "Dimension maximale"
 
 #: gswidget.cpp:176
-#, fuzzy
-#| msgid "This is the title of the folder that will be created."
 msgid ""
 "This is the maximum dimension of the images. Images larger than this will be "
 "scaled down."
-msgstr "Nom du dossier à créer."
+msgstr ""
+"Ceci est la dimension maximale des images. Les images plus grandes seront "
+"réduites."
 
 #: gswidget.cpp:179
-#, fuzzy
 msgid "Original Size"
 msgstr "Taille originale"
 
 #: gswidget.cpp:180
-#, fuzzy
 msgid "1600 px"
 msgstr "1600 px"
 
 #: gswidget.cpp:181
-#, fuzzy
 msgid "1440 px"
 msgstr "1440 px"
 
 #: gswidget.cpp:182
-#, fuzzy
 msgid "1280 px"
 msgstr "1280 px"
 
 #: gswidget.cpp:183
-#, fuzzy
 msgid "1152 px"
 msgstr "1152 px"
 
 #: gswidget.cpp:184
-#, fuzzy
 msgid "1024 px"
 msgstr "1024 px"
 
@@ -223,11 +201,11 @@ msgid "Destination"
 msgstr "Destination"
 
 #: gswidget.cpp:191
-#, fuzzy
-#| msgid "This is the title of the folder that will be created."
 msgid ""
 "This is the location where Google Photos/PicasaWeb images will be downloaded."
-msgstr "Nom du dossier à créer."
+msgstr ""
+"Ceci est le dossier Google Photos/PicasaWeb dans lequel les photos "
+"sélectionnées seront transférées."
 
 #: gswidget.cpp:198
 msgid "Options"
@@ -252,102 +230,92 @@ msgstr "Qualité JPEG :"
 
 #: gswidget.cpp:236
 msgid "Tag path behavior :"
-msgstr ""
+msgstr "Comportement du parcours des étiquettes :"
 
 #: gswidget.cpp:238
-#, fuzzy
 msgid "Leaf tags only"
-msgstr "Étiquette de balise uniquement"
+msgstr "Feuilles seulement"
 
 #: gswidget.cpp:239
-#, fuzzy
 msgid "Export only the leaf tags of tag hierarchies"
-msgstr ""
-"Exporter uniquement les étiquettes de balises de la hiérarchie des balises"
+msgstr "N'exporte que les étiquettes feuilles (fin de chemin)"
 
 #: gswidget.cpp:240
-#, fuzzy
 msgid "Split tags"
-msgstr "Diviser les balises"
+msgstr "Séparer les étiquettes"
 
 #: gswidget.cpp:241
-#, fuzzy
 msgid "Export the leaf tag and all ancestors as single tags."
 msgstr ""
-"Exporter les étiquettes de balise et tous les ancêtres comme des balises "
-"uniques."
+"Exporte les étiquettes feuilles et leurs ascendants comme des étiquettes "
+"séparées. "
 
 #: gswidget.cpp:242
-#, fuzzy
 msgid "Combined String"
-msgstr "Chaîne combinée"
+msgstr "Chaînes combinées"
 
 #: gswidget.cpp:243
-#, fuzzy
 msgid "Build a combined tag string."
-msgstr "Construire une chaîne combinée de balises."
+msgstr "Construit une étiquette en concaténant les chaînes."
 
-#: gswindow.cpp:114
+#: gswindow.cpp:123
 msgid "Google Drive Export"
 msgstr "Export vers Google Drive"
 
-#: gswindow.cpp:116
+#: gswindow.cpp:125
 msgid "A Kipi-plugin to export images to Google Drive"
 msgstr "Un module Kipi pour exporter les images vers Google Drive"
 
-#: gswindow.cpp:118
-#, fuzzy
-#| msgid "(c) 2013, Saurabh Patel"
+#: gswindow.cpp:127
 msgid ""
 "(c) 2013, Saurabh Patel\n"
 "(c) 2015, Shourya Singh Gupta"
-msgstr "(c) 2013, Saurabh Patel"
+msgstr ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
 
-#: gswindow.cpp:121
+#: gswindow.cpp:130
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: gswindow.cpp:121 gswindow.cpp:148
+#: gswindow.cpp:130 gswindow.cpp:157
 msgid "Author and maintainer"
 msgstr "Auteur et mainteneur"
 
-#: gswindow.cpp:124 gswindow.cpp:160
+#: gswindow.cpp:133 gswindow.cpp:169
 msgid "Shourya Singh Gupta"
-msgstr ""
+msgstr "Shourya Singh Gupta"
 
-#: gswindow.cpp:124 gswindow.cpp:151 gswindow.cpp:154 gswindow.cpp:157
-#: gswindow.cpp:160
-#, fuzzy
+#: gswindow.cpp:133 gswindow.cpp:160 gswindow.cpp:163 gswindow.cpp:166
+#: gswindow.cpp:169
 msgid "Developer"
 msgstr "Développeur"
 
-#: gswindow.cpp:131
+#: gswindow.cpp:140
 msgid "Export to Google Drive"
 msgstr "Exporter vers Google Drive"
 
-#: gswindow.cpp:132 gswindow.cpp:170
+#: gswindow.cpp:141 gswindow.cpp:179
 msgid "Start Upload"
 msgstr "Lancer la transmission"
 
-#: gswindow.cpp:132
+#: gswindow.cpp:141
 msgid "Start upload to Google Drive"
 msgstr "Lancer la transmission vers Google Drive"
 
-#: gswindow.cpp:137
-#, fuzzy
-#| msgid "Google Drive Export"
+#: gswindow.cpp:146
 msgid "Google Photos/PicasaWeb Export"
-msgstr "Export vers Google Drive"
+msgstr "Export vers Google Photos/PicasaWeb"
 
-#: gswindow.cpp:140
-#, fuzzy
-#| msgid "A Kipi-plugin to export images to Google Drive"
+#: gswindow.cpp:149
 msgid ""
 "A Kipi plugin to export image collections to Google Photos/Picasa web "
 "service."
-msgstr "Un module Kipi pour exporter les images vers Google Drive"
+msgstr ""
+"Un module Kipi pour exporter les images vers le service Google Photos/"
+"PicasaWeb."
 
-#: gswindow.cpp:142
+#: gswindow.cpp:151
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
@@ -355,78 +323,62 @@ msgid ""
 "(c) 2010, Jens Mueller\n"
 "(c) 2015, Shourya Singh Gupta"
 msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
 
-#: gswindow.cpp:148
-#, fuzzy
+#: gswindow.cpp:157
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
-#: gswindow.cpp:151
-#, fuzzy
+#: gswindow.cpp:160
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: gswindow.cpp:154
-#, fuzzy
+#: gswindow.cpp:163
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: gswindow.cpp:157
-#, fuzzy
+#: gswindow.cpp:166
 msgid "Jens Mueller"
 msgstr "Jens Mueller"
 
-#: gswindow.cpp:169
-#, fuzzy
-#| msgid "Export to Google Drive"
+#: gswindow.cpp:178
 msgid "Export to Google Photos/PicasaWeb Service"
-msgstr "Exporter vers Google Drive"
+msgstr "Exporter vers Google Photos/PicasaWeb"
 
-#: gswindow.cpp:170
-#, fuzzy
-#| msgid "Start upload to Google Drive"
+#: gswindow.cpp:179
 msgid "Start upload to Google Photos/PicasaWeb Service"
-msgstr "Lancer la transmission vers Google Drive"
+msgstr "Lancer la transmission vers le service Google Photos/PicasaWeb"
 
-#: gswindow.cpp:175
-#, fuzzy
-#| msgid "Export to Google Drive"
+#: gswindow.cpp:184
 msgid "Import from Google Photos/PicasaWeb Service"
-msgstr "Exporter vers Google Drive"
+msgstr "Importer depuis le service Google Photos/PicasaWeb"
 
-#: gswindow.cpp:176
-#, fuzzy
-#| msgid "Start Upload"
+#: gswindow.cpp:185
 msgid "Start Download"
-msgstr "Lancer la transmission"
+msgstr "Démarrer le téléchargement"
 
-#: gswindow.cpp:176
-#, fuzzy
-#| msgid "Start upload to Google Drive"
+#: gswindow.cpp:185
 msgid "Start download from Google Photos/PicasaWeb service"
-msgstr "Lancer la transmission vers Google Drive"
+msgstr "Lancer le téléchargement depuis le service Google Photos/PicasaWeb"
 
-#: gswindow.cpp:404 gswindow.cpp:441 gswindow.cpp:545
-#, fuzzy, kde-format
-#| msgid ""
-#| "Google Drive call failed:\n"
-#| "%1"
+#: gswindow.cpp:413 gswindow.cpp:450 gswindow.cpp:554
+#, kde-format
 msgid "Google Photos/PicasaWeb Call Failed: %1\n"
-msgstr ""
-"L'appel de Google Drive a échoué :\n"
-"%1"
+msgstr "L'appel de Google Photos/PicasaWeb a échoué : %1\n"
 
-#: gswindow.cpp:424 gswindow.cpp:502 gswindow.cpp:701
+#: gswindow.cpp:433 gswindow.cpp:511 gswindow.cpp:710
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: gswindow.cpp:506
-#, fuzzy
-#| msgid "&Export"
+#: gswindow.cpp:515
 msgid "Picasa Export"
-msgstr "&Exporter"
+msgstr "Export Picasa"
 
-#: gswindow.cpp:520 gswindow.cpp:1192
+#: gswindow.cpp:529 gswindow.cpp:1187
 #, kde-format
 msgid ""
 "Google Drive call failed:\n"
@@ -435,7 +387,7 @@ msgstr ""
 "L'appel de Google Drive a échoué :\n"
 "%1"
 
-#: gswindow.cpp:617
+#: gswindow.cpp:626
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -445,107 +397,78 @@ msgstr ""
 "navigateur. Pour compléter l'authentification cliquez sur « changer de "
 "compte » ou « lancer la transmission » pour vous authentifier à nouveau."
 
-#: gswindow.cpp:628
+#: gswindow.cpp:637
 msgid "No image selected. Please select which images should be uploaded."
 msgstr ""
 "Aucune image sélectionné. Veuillez sélectionner quelles images devraient "
 "être transférées."
 
-#: gswindow.cpp:641 gswindow.cpp:657
+#: gswindow.cpp:650 gswindow.cpp:666
 msgid "Authentication failed. Click \"Continue\" to authenticate."
 msgstr ""
 "L'authentification a échoué. Cliquez sur « Continuer » pour vous "
 "authentifier."
 
-#: gswindow.cpp:705
+#: gswindow.cpp:714
 msgid "Google Drive export"
 msgstr "Export vers Google Drive"
 
-#: gswindow.cpp:940
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to upload photo to Google Drive.\n"
-#| "%1\n"
-#| "Do you want to continue?"
+#: gswindow.cpp:953
+#, kde-format
 msgid ""
 "Failed to save photo: %1\n"
 "Do you want to continue?"
 msgstr ""
-"La transmission de la photo vers Google Drive a échoué\n"
-"%1\n"
+"La transmission de la photo vers Google Drive a échoué : %1\n"
 "Voulez-vous continuer ?"
 
-#: gswindow.cpp:952
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to upload photo to Google Drive.\n"
-#| "%1\n"
-#| "Do you want to continue?"
+#: gswindow.cpp:965
+#, kde-format
 msgid ""
 "Failed to download photo: %1\n"
 "Do you want to continue?"
 msgstr ""
-"La transmission de la photo vers Google Drive a échoué\n"
-"%1\n"
+"Le téléchargement de la photo a échoué : %1\n"
 "Voulez-vous continuer ?"
 
-#: gswindow.cpp:979
-#, fuzzy, kde-format
+#: gswindow.cpp:992
+#, kde-format
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
 msgstr "Un fichier nommé « %1 » existe déjà. Voulez-vous vraiment l'écraser ?"
 
-#: gswindow.cpp:1041
-#, fuzzy, kde-format
-#| msgid "Failed to create folder"
+#: gswindow.cpp:1054
+#, kde-format
 msgid "Failed to save image to %1"
-msgstr "La création du dossier a échoué"
+msgstr "Il est impossible d'enregistrer une image dans %1"
 
-#: gswindow.cpp:1066
+#: gswindow.cpp:1080
 #, kde-format
 msgid ""
-"Failed to upload photo to Google Drive.\n"
-"%1\n"
+"Failed to upload photo to %1.\n"
+"%2\n"
 "Do you want to continue?"
 msgstr ""
-"La transmission de la photo vers Google Drive a échoué\n"
-"%1\n"
+"La transmission de la photo vers %1 a échoué.\n"
+"%2\n"
 "Voulez-vous continuer ?"
 
-#: gswindow.cpp:1083
-#, fuzzy, kde-format
-#| msgid ""
-#| "Failed to upload photo to Google Drive.\n"
-#| "%1\n"
-#| "Do you want to continue?"
-msgid ""
-"Failed to upload photo to Google Photos/PicasaWeb.\n"
-"%1\n"
-"Do you want to continue?"
-msgstr ""
-"La transmission de la photo vers Google Drive a échoué\n"
-"%1\n"
-"Voulez-vous continuer ?"
-
-#: gswindow.cpp:1161
+#: gswindow.cpp:1156
 #, kde-format
 msgctxt "%1 is the error string, %2 is the error code"
 msgid "An authentication error occurred: %1 (%2)"
 msgstr "Une erreur est survenue à l'authentification : %1 (%2)"
 
-#: gswindow.cpp:1199
-#, fuzzy, kde-format
-#| msgid ""
-#| "Google Drive call failed:\n"
-#| "%1"
+#: gswindow.cpp:1194
+#, kde-format
 msgid ""
 "Google Photos/PicasaWeb call failed:\n"
 "%1"
 msgstr ""
-"L'appel de Google Drive a échoué :\n"
+"L'appel de Google Photos/PicasaWeb a échoué :\n"
 "%1"
 
-#: gswindow.cpp:1224
+#: gswindow.cpp:1219
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -560,10 +483,8 @@ msgstr "&Exporter"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_googleservicesui.rc:11
-#, fuzzy
-#| msgid "&Export"
 msgid "&Import"
-msgstr "&Exporter"
+msgstr "&Importer"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_googleservicesui.rc:21
@@ -571,32 +492,25 @@ msgid "Main Toolbar"
 msgstr "Barre principale"
 
 #: newalbumdlg.cpp:67
-#, fuzzy
-#| msgid "This is the title of the folder that will be created."
 msgid "Title of the album that will be created (required)."
-msgstr "Nom du dossier à créer."
+msgstr "Titre de l'album à créer (requis)."
 
 #: newalbumdlg.cpp:78
 msgid "These are basic settings for the new Google Photos/Picasaweb album."
 msgstr ""
+"Voici les paramètres essentiels pour le nouvel album Google Photos/PicasaWeb."
 
 #: newalbumdlg.cpp:82
-#, fuzzy
-#| msgid "This is the title of the folder that will be created."
 msgid "Date and Time of the album that will be created (optional)."
-msgstr "Nom du dossier à créer."
+msgstr "Date et heure de l'album à créer (optionnel)."
 
 #: newalbumdlg.cpp:85
-#, fuzzy
-#| msgid "This is the title of the folder that will be created."
 msgid "Description of the album that will be created (optional)."
-msgstr "Nom du dossier à créer."
+msgstr "Description de l'album à créer (optionnel)."
 
 #: newalbumdlg.cpp:88
-#, fuzzy
-#| msgid "This is the title of the folder that will be created."
 msgid "Location of the album that will be created (optional)."
-msgstr "Nom du dossier à créer."
+msgstr "Emplacement de l'album à créer (optionnel)."
 
 #: newalbumdlg.cpp:92
 msgid "This is the title of the folder that will be created."
@@ -608,9 +522,6 @@ msgid "Title:"
 msgstr "Titre :"
 
 #: newalbumdlg.cpp:98
-#, fuzzy
-#| msgctxt "folder edit"
-#| msgid "Title:"
 msgctxt "new google photos/picasaweb album dialog"
 msgid "Title:"
 msgstr "Titre :"
@@ -618,22 +529,19 @@ msgstr "Titre :"
 #: newalbumdlg.cpp:99
 msgctxt "new google photos/picasaweb album dialog"
 msgid "Date & Time:"
-msgstr ""
+msgstr "Date et heure :"
 
 #: newalbumdlg.cpp:100
-#, fuzzy
-#| msgid "Destination"
 msgctxt "new google photos/picasaweb album dialog"
 msgid "Description:"
-msgstr "Destination"
+msgstr "Description :"
 
 #: newalbumdlg.cpp:101
 msgctxt "new google photos/picasaweb album dialog"
 msgid "Location:"
-msgstr ""
+msgstr "Emplacement :"
 
 #: newalbumdlg.cpp:111
-#, fuzzy
 msgid "Access Level"
 msgstr "Niveau d'accès"
 
@@ -642,128 +550,111 @@ msgid ""
 "These are security and privacy settings for the new Google Photos/PicasaWeb "
 "album."
 msgstr ""
+"Voici les paramètres de sécurité et de confidentialité pour le nouvel album "
+"Google Photos/PicasaWeb."
 
 #: newalbumdlg.cpp:114
 msgctxt "google photos/picasaweb album privacy"
 msgid "Public"
-msgstr ""
+msgstr "Public"
 
 #: newalbumdlg.cpp:116
 msgid "Public album is listed on your public Google Photos/PicasaWeb page."
 msgstr ""
+"Un album public apparaît dans votre page publique Google Photos/PicasaWeb."
 
 #: newalbumdlg.cpp:117
 msgctxt "google photos/picasaweb album privacy"
 msgid "Unlisted / Private"
-msgstr ""
+msgstr "Non-listé / Privé"
 
 #: newalbumdlg.cpp:118
-#, fuzzy
 msgid "Unlisted album is only accessible via URL."
-msgstr "Un album non répertorié est uniquement accessible via une URL."
+msgstr "Les albums non-listés ne sont accessibles que par leur URL."
 
 #: newalbumdlg.cpp:119
 msgctxt "google photos/picasaweb album privacy"
 msgid "Sign-In Required to View"
-msgstr ""
+msgstr "Identification requise pour la consultation"
 
 #: newalbumdlg.cpp:120
-#, fuzzy
 msgid "Unlisted album require Sign-In to View"
-msgstr "Un album non répertorié requiert une connexion pour être affiché"
+msgstr "Album non-listé nécessitant une authentification pour l'affichage"
 
 #: newalbumdlg.cpp:128
-#, fuzzy
 msgid "Privacy:"
 msgstr "Confidentialité :"
 
-#: picasawebtalker.cpp:510
-#, fuzzy
+#: picasawebtalker.cpp:556
 msgid "No photo specified"
-msgstr "Aucune photo spécifiée"
+msgstr "No photo specified"
 
-#: picasawebtalker.cpp:512
-#, fuzzy
+#: picasawebtalker.cpp:558
 msgid "General upload failure"
-msgstr "Échec du transfert général"
+msgstr "General upload failure"
 
-#: picasawebtalker.cpp:514
-#, fuzzy
+#: picasawebtalker.cpp:560
 msgid "File-size was zero"
-msgstr "La taille du fichier était à zéro"
+msgstr "La taille du fichier était nulle"
 
-#: picasawebtalker.cpp:516
-#, fuzzy
+#: picasawebtalker.cpp:562
 msgid "File-type was not recognized"
-msgstr "Le type de fichier n'a pas été reconnu"
+msgstr "Impossible de déterminer le type de fichier"
 
-#: picasawebtalker.cpp:518
-#, fuzzy
+#: picasawebtalker.cpp:564
 msgid "User exceeded upload limit"
-msgstr "La limite de transfert a été atteinte par l'utilisateur"
+msgstr "L'utilisateur a dépassé sa limite d'envoi"
 
-#: picasawebtalker.cpp:520
-#, fuzzy
+#: picasawebtalker.cpp:566
 msgid "Invalid signature"
 msgstr "Signature non valable"
 
-#: picasawebtalker.cpp:522
-#, fuzzy
+#: picasawebtalker.cpp:568
 msgid "Missing signature"
 msgstr "Signature manquante"
 
-#: picasawebtalker.cpp:524
-#, fuzzy
+#: picasawebtalker.cpp:570
 msgid "Login failed / Invalid auth token"
-msgstr "Échec de l'identification / Clé d'authentification non valable"
+msgstr "Échec de la connexion / Jeton d'authentification non valable"
 
-#: picasawebtalker.cpp:526
-#, fuzzy
+#: picasawebtalker.cpp:572
 msgid "Invalid API Key"
 msgstr "Clé API non valable"
 
-#: picasawebtalker.cpp:528
-#, fuzzy
+#: picasawebtalker.cpp:574
 msgid "Service currently unavailable"
 msgstr "Service actuellement indisponible"
 
-#: picasawebtalker.cpp:530
-#, fuzzy
+#: picasawebtalker.cpp:576
 msgid "Invalid Frob"
 msgstr "Frob non valable"
 
-#: picasawebtalker.cpp:532
-#, fuzzy
+#: picasawebtalker.cpp:578
 msgid "Format \"xxx\" not found"
-msgstr "Impossible de trouver le format « xxx »"
+msgstr "Format « xxx » introuvable"
 
-#: picasawebtalker.cpp:534
-#, fuzzy
+#: picasawebtalker.cpp:580
 msgid "Method \"xxx\" not found"
-msgstr "Impossible de trouver la méthode « xxx »"
+msgstr "Méthode « xxx » introuvable"
 
-#: picasawebtalker.cpp:536
-#, fuzzy
+#: picasawebtalker.cpp:582
 msgid "Invalid SOAP envelope"
 msgstr "Enveloppe SOAP non valable"
 
-#: picasawebtalker.cpp:538
-#, fuzzy
+#: picasawebtalker.cpp:584
 msgid "Invalid XML-RPC Method Call"
-msgstr "Méthode d'appel « XML-RPC » non valable"
+msgstr "Appel de méthode XML-RPC non valable"
 
-#: picasawebtalker.cpp:540
-#, fuzzy
+#: picasawebtalker.cpp:586
 msgid "The POST method is now required for all setters."
-msgstr "La méthode « POST » est maintenant requise pour toutes les procédures."
+msgstr "La méthode POST est maintenant requise pour tous les mutateurs."
 
-#: picasawebtalker.cpp:542
-#, fuzzy
+#: picasawebtalker.cpp:588
 msgid "Unknown error"
 msgstr "Erreur inconnue"
 
-#: picasawebtalker.cpp:545
-#, fuzzy, kde-format
+#: picasawebtalker.cpp:591
+#, kde-format
 msgid ""
 "Error occurred: %1\n"
 "Unable to proceed further."
@@ -771,90 +662,95 @@ msgstr ""
 "Une erreur est survenue : %1\n"
 "Impossible de continuer."
 
-#: picasawebtalker.cpp:603 picasawebtalker.cpp:669
-#, fuzzy
-#| msgid "Failed to upload photo"
+#: picasawebtalker.cpp:649 picasawebtalker.cpp:715
 msgid "Failed to fetch photo-set list"
-msgstr "L'envoi de la photo a échoué"
+msgstr "Impossible d'obtenir la liste des ensembles de photos"
 
-#: picasawebtalker.cpp:795 picasawebtalker.cpp:827
-#, fuzzy
-#| msgid "Failed to create folder"
+#: picasawebtalker.cpp:848 picasawebtalker.cpp:880
 msgid "Failed to create album"
-msgstr "La création du dossier a échoué"
+msgstr "La création de l'album a échoué"
 
 #: plugin_googleservices.cpp:98
 msgid "Export to &Google Drive..."
 msgstr "Exporter vers &Google Drive..."
 
 #: plugin_googleservices.cpp:108
-#, fuzzy
-#| msgid "Export to &Google Drive..."
 msgid "Export to &Google Photos/PicasaWeb..."
-msgstr "Exporter vers &Google Drive..."
+msgstr "Exporter vers &Google Photos/PicasaWeb..."
 
 #: plugin_googleservices.cpp:118
-#, fuzzy
-#| msgid "Export to &Google Drive..."
 msgid "Import from &Google Photos/PicasaWeb..."
-msgstr "Exporter vers &Google Drive..."
+msgstr "Importer depuis Google Photos/PicasaWeb..."
 
 #: replacedialog.cpp:95
-#, fuzzy
 msgid "&Add As New"
-msgstr "&Ajouter en tant que nouvelle"
+msgstr "&Ajouter comme nouveau"
 
 #: replacedialog.cpp:96
-#, fuzzy
 msgid "Item will be added alongside the linked version."
-msgstr "L'objet sera ajouté à coté de la version en ligne."
+msgstr "L'élément sera ajouté à côté de la version liée."
 
 #: replacedialog.cpp:100
-#, fuzzy
 msgid "&Add All"
-msgstr "Tout &ajouter"
+msgstr "&Ajouter tous"
 
 #: replacedialog.cpp:101
-#, fuzzy
 msgid ""
 "Items will be added alongside the linked version. You will not be prompted "
 "again."
 msgstr ""
-"Les objets seront ajoutés à coté de la version en ligne. Aucune confirmation "
-"ne vous sera plus demandée."
+"Les éléments seront ajoutés à côté de la version liée. La question ne vous "
+"sera plus posée."
 
 #: replacedialog.cpp:105
-#, fuzzy
 msgid "&Replace"
 msgstr "&Remplacer"
 
 #: replacedialog.cpp:106
-#, fuzzy
 msgid "Item will be replacing the linked version."
-msgstr "L'objet remplacera celui de la version en ligne."
+msgstr "L'élément remplacera la version liée."
 
 #: replacedialog.cpp:110
-#, fuzzy
 msgid "&Replace All"
-msgstr "Tout &remplacer"
+msgstr "&Remplacer tous"
 
 #: replacedialog.cpp:111
-#, fuzzy
 msgid ""
 "Items will be replacing the linked version. You will not be prompted again."
 msgstr ""
-"Les objets seront remplacés dans la version en ligne. Aucune confirmation ne "
-"vous sera plus demandée."
+"Les éléments remplaceront la version liée. La question ne vous sera plus "
+"posée."
 
 #: replacedialog.cpp:121
-#, fuzzy
 msgid "A linked item already exists."
 msgstr "Un élément lié existe déjà."
 
 #: replacedialog.cpp:142
-#, fuzzy
 msgid "Source"
 msgstr "Source"
+
+#~ msgid ""
+#~ "Failed to upload photo to Google Drive.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "La transmission de la photo vers Google Drive a échoué\n"
+#~ "%1\n"
+#~ "Voulez-vous continuer ?"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to upload photo to Google Drive.\n"
+#~| "%1\n"
+#~| "Do you want to continue?"
+#~ msgid ""
+#~ "Failed to upload photo to Google Photos/PicasaWeb.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "La transmission de la photo vers Google Drive a échoué\n"
+#~ "%1\n"
+#~ "Voulez-vous continuer ?"
 
 #, fuzzy
 #~| msgctxt "folder edit"

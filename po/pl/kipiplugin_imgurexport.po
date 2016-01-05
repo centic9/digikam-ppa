@@ -1,15 +1,15 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2013.
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2013, 2015.
 # Marta Rybczyńska <kde-i18n@rybczynska.net>, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2013-06-22 20:41+0200\n"
-"Last-Translator: Marta Rybczyńska <kde-i18n@rybczynska.net>\n"
+"POT-Creation-Date: 2015-08-07 01:56+0000\n"
+"PO-Revision-Date: 2015-08-15 11:49+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 2.0\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -27,23 +27,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "lukasz.wojnilowicz@gmail.com"
 
-#: imgurimageslist.cpp:50
+#: imgurimageslist.cpp:49
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: imgurimageslist.cpp:55
+#: imgurimageslist.cpp:54
 msgid "Submission title"
 msgstr "Tytuł zgłoszenia"
 
-#: imgurimageslist.cpp:58
+#: imgurimageslist.cpp:57
 msgid "Submission description"
 msgstr "Opis zgłoszenia"
 
-#: imgurimageslist.cpp:61
+#: imgurimageslist.cpp:60
 msgid "Imgur URL"
 msgstr "Adres URL Imgur"
 
-#: imgurimageslist.cpp:64
+#: imgurimageslist.cpp:63
 msgid "Imgur Delete URL"
 msgstr "Adres usunięcia z Imgur"
 
@@ -55,39 +55,39 @@ msgstr "Nieoczekiwana odpowiedź z usługi sieciowej"
 msgid "Upload failed"
 msgstr "Nieudane wysyłanie"
 
-#: imgurtalker.cpp:407
+#: imgurtalker.cpp:410
 msgid "Parse error"
 msgstr "Błąd przetwarzania składni"
 
-#: imgurtalkerauth.cpp:94
+#: imgurtalkerauth.cpp:93
 msgid "Network error: timeout, cannot connect."
 msgstr "Błąd sieci: przekroczono czas, nie można się połączyć."
 
-#: imgurtalkerauth.cpp:97
+#: imgurtalkerauth.cpp:96
 msgid "Request endpoint is not valid."
 msgstr "Żądany punk końcowy nie jest prawidłowy."
 
-#: imgurtalkerauth.cpp:100
+#: imgurtalkerauth.cpp:99
 msgid "Request is not valid: some parameter missing?"
 msgstr "Żądanie nie jest prawidłowe: brakuje pewnych parametrów?"
 
-#: imgurtalkerauth.cpp:103
+#: imgurtalkerauth.cpp:102
 msgid "Authorization error: trying to access a resource without tokens."
 msgstr "Błąd uwierzytelniania: próba dostępu do zasobu bez tokenów."
 
-#: imgurtalkerauth.cpp:106
+#: imgurtalkerauth.cpp:105
 msgid "The given request is invalid."
 msgstr "Podane żądanie jest nieprawidłowe."
 
-#: imgurtalkerauth.cpp:109
+#: imgurtalkerauth.cpp:108
 msgid "Manager error, cannot use for sending requests."
 msgstr "Błąd menadżera, nie można użyć do żądań wysłania."
 
-#: imgurtalkerauth.cpp:113
+#: imgurtalkerauth.cpp:112
 msgid "No error"
 msgstr "Bez błędu"
 
-#: imgurtalkerauth.cpp:249
+#: imgurtalkerauth.cpp:248
 msgid "OK"
 msgstr "OK"
 
@@ -126,56 +126,56 @@ msgid "Set permissions for the current application to upload images to Imgur."
 msgstr ""
 "Ustaw uprawnienie dla bieżącego programu na wysyłanie obrazów do Imgur."
 
-#: imgurwidget.cpp:229
+#: imgurwidget.cpp:231
 #, kde-format
 msgid "Processing %1"
 msgstr "Przetwarzanie %1"
 
-#: imgurwidget.cpp:275
+#: imgurwidget.cpp:277
 msgid "Authenticated"
 msgstr "Uwierzytelniono"
 
-#: imgurwindow.cpp:76
+#: imgurwindow.cpp:78
 msgid "Export to imgur.com"
 msgstr "Eksportuj do imgur.com"
 
-#: imgurwindow.cpp:80
+#: imgurwindow.cpp:82
 msgid "Upload"
 msgstr "Wyślij"
 
-#: imgurwindow.cpp:80
+#: imgurwindow.cpp:82
 msgid "Start upload to Imgur"
 msgstr "Rozpocznij wysyłanie do Imgur"
 
-#: imgurwindow.cpp:88
+#: imgurwindow.cpp:90
 msgid "Imgur Export"
 msgstr "Eksport Imgur"
 
-#: imgurwindow.cpp:91
+#: imgurwindow.cpp:93
 msgid "A tool to export images to Imgur web service"
 msgstr "Narzędzie do eksportowania obrazów do usługi sieciowej Imgur"
 
-#: imgurwindow.cpp:92
+#: imgurwindow.cpp:94
 msgid "(c) 2012-2013, Marius Orcsik"
 msgstr "(c) 2012-2013, Marius Orcsik"
 
-#: imgurwindow.cpp:94
+#: imgurwindow.cpp:96
 msgid "Marius Orcsik"
 msgstr "Marius Orcsik"
 
-#: imgurwindow.cpp:94
-msgid "Author and Maintainer"
-msgstr "Autor i opiekun"
-
 #: imgurwindow.cpp:97
+msgid "Author"
+msgstr "Autor"
+
+#: imgurwindow.cpp:100
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: imgurwindow.cpp:97
+#: imgurwindow.cpp:101
 msgid "Developer"
 msgstr "Programista"
 
-#: imgurwindow.cpp:206
+#: imgurwindow.cpp:210
 #, kde-format
 msgid ""
 "Failed to upload photo to Imgur: %1\n"
@@ -184,12 +184,12 @@ msgstr ""
 "Nie można wysłać zdjęcia do Imgur: %1 \n"
 "Czy chcesz kontynuować?"
 
-#: imgurwindow.cpp:220
+#: imgurwindow.cpp:224
 #, kde-format
 msgid "Failed to upload photo to Imgur: %1\n"
 msgstr "Nie można wysłać zdjęcia do Imgur: %1 \n"
 
-#: imgurwindow.cpp:238
+#: imgurwindow.cpp:242
 #, kde-format
 msgctxt "%1 is the error string"
 msgid ""
@@ -201,7 +201,7 @@ msgstr ""
 "%1\n"
 "Czy chcesz kontynuować?"
 
-#: imgurwindow.cpp:243
+#: imgurwindow.cpp:247
 msgid ""
 "Failed to authenticate to Imgur.\n"
 "Do you want to continue?"
@@ -222,3 +222,6 @@ msgstr "Główny pasek narzędzi"
 #: plugin_imgurexport.cpp:104
 msgid "Export to &Imgur..."
 msgstr "Eksportuj do &Imgur..."
+
+#~ msgid "Author and Maintainer"
+#~ msgstr "Autor i opiekun"

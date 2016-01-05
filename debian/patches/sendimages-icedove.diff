@@ -1,6 +1,8 @@
---- a/extra/kipi-plugins/sendimages/sendimages.cpp
-+++ b/extra/kipi-plugins/sendimages/sendimages.cpp
-@@ -593,6 +593,7 @@
+Index: digikam-4.0.0~rc/extra/kipi-plugins/sendimages/sendimages.cpp
+===================================================================
+--- digikam-4.0.0~rc.orig/extra/kipi-plugins/sendimages/sendimages.cpp	2014-04-28 07:20:41.000000000 +1000
++++ digikam-4.0.0~rc/extra/kipi-plugins/sendimages/sendimages.cpp	2014-05-02 21:46:38.989248687 +1000
+@@ -582,6 +582,7 @@
  
                  case EmailSettings::NETSCAPE:
                  case EmailSettings::THUNDERBIRD:
@@ -8,7 +10,7 @@
                  case EmailSettings::GMAILAGENT:
                  {
                      QString prog;
-@@ -605,6 +606,10 @@
+@@ -594,6 +595,10 @@
                      {
                          prog = QString("thunderbird");
                      }
@@ -19,8 +21,10 @@
                      else
                      {
                          prog = QString("gmailagent");
---- a/extra/kipi-plugins/sendimages/emailsettings.h
-+++ b/extra/kipi-plugins/sendimages/emailsettings.h
+Index: digikam-4.0.0~rc/extra/kipi-plugins/sendimages/emailsettings.h
+===================================================================
+--- digikam-4.0.0~rc.orig/extra/kipi-plugins/sendimages/emailsettings.h	2014-04-28 07:20:41.000000000 +1000
++++ digikam-4.0.0~rc/extra/kipi-plugins/sendimages/emailsettings.h	2014-05-02 21:46:38.989248687 +1000
 @@ -70,6 +70,7 @@
          NETSCAPE,
          SYLPHEED,
@@ -29,8 +33,10 @@
          THUNDERBIRD
      };
  
---- a/extra/kipi-plugins/sendimages/settingswidget.cpp
-+++ b/extra/kipi-plugins/sendimages/settingswidget.cpp
+Index: digikam-4.0.0~rc/extra/kipi-plugins/sendimages/settingswidget.cpp
+===================================================================
+--- digikam-4.0.0~rc.orig/extra/kipi-plugins/sendimages/settingswidget.cpp	2014-04-28 07:20:41.000000000 +1000
++++ digikam-4.0.0~rc/extra/kipi-plugins/sendimages/settingswidget.cpp	2014-05-02 21:46:38.993248621 +1000
 @@ -100,6 +100,7 @@
      d->mailAgentName->insertItem(EmailSettings::SYLPHEED,      "Sylpheed");
      d->mailAgentName->insertItem(EmailSettings::SYLPHEEDCLAWS, "Sylpheed-Claws");

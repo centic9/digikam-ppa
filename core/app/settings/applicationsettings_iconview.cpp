@@ -7,7 +7,7 @@
  * Description : application settings interface
  *
  * Copyright (C) 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  * Copyright (C) 2014      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
@@ -231,6 +231,16 @@ void ApplicationSettings::setIconShowOverlays(bool val)
 bool ApplicationSettings::getIconShowOverlays() const
 {
     return d->iconShowOverlays;
+}
+
+void ApplicationSettings::setIconShowFullscreen(bool val)
+{
+   d->iconShowFullscreen = val;
+}
+
+bool ApplicationSettings::getIconShowFullscreen() const
+{
+   return d->iconShowFullscreen;
 }
 
 void ApplicationSettings::setPreviewSettings(const PreviewSettings& settings)

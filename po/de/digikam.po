@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-22 01:50+0000\n"
-"PO-Revision-Date: 2015-07-13 22:04+0200\n"
+"POT-Creation-Date: 2015-10-13 01:55+0000\n"
+"PO-Revision-Date: 2015-10-03 22:02+0200\n"
 "Last-Translator: Burkhard Lück <lueck@hube-lueck.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
 "Language: de\n"
@@ -123,7 +123,7 @@ msgstr "Keine Farbe"
 
 #: app/album/albumlabelstreeview.cpp:413 app/album/albumlabelstreeview.cpp:740
 #: app/views/tableview/tableview_column_digikam.cpp:318
-#: libs/dimg/filters/bw/mixersettings.cpp:137
+#: libs/dimg/filters/bw/mixersettings.cpp:139
 #: libs/dimg/filters/cb/cbsettings.cpp:97
 #: libs/widgets/metadata/colorlabelwidget.cpp:422
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:71
@@ -145,7 +145,7 @@ msgstr "Gelb"
 
 #: app/album/albumlabelstreeview.cpp:414 app/album/albumlabelstreeview.cpp:749
 #: app/views/tableview/tableview_column_digikam.cpp:330
-#: libs/dimg/filters/bw/mixersettings.cpp:138
+#: libs/dimg/filters/bw/mixersettings.cpp:140
 #: libs/dimg/filters/cb/cbsettings.cpp:111
 #: libs/widgets/metadata/colorlabelwidget.cpp:431
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:72
@@ -154,7 +154,7 @@ msgstr "Grün"
 
 #: app/album/albumlabelstreeview.cpp:415 app/album/albumlabelstreeview.cpp:752
 #: app/views/tableview/tableview_column_digikam.cpp:334
-#: libs/dimg/filters/bw/mixersettings.cpp:139
+#: libs/dimg/filters/bw/mixersettings.cpp:141
 #: libs/dimg/filters/cb/cbsettings.cpp:119
 #: libs/widgets/metadata/colorlabelwidget.cpp:434
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:73
@@ -463,63 +463,63 @@ msgstr "Sammlung nicht gefunden"
 msgid "Searches"
 msgstr "Suchen"
 
-#: app/album/albummanager.cpp:2132
+#: app/album/albummanager.cpp:2133
 msgid "The collection location supplied is invalid or currently not available."
 msgstr ""
 "Der angegebene Ort der Sammlung ist ungültig oder zurzeit nicht verfügbar."
 
-#: app/album/albummanager.cpp:2140
+#: app/album/albummanager.cpp:2141
 msgid "No album for collection location: Internal error"
 msgstr "Es wurde keine Alben-Sammlung geladen: Interner Fehler"
 
-#: app/album/albummanager.cpp:2156
+#: app/album/albummanager.cpp:2157
 msgid "No parent found for album."
 msgstr "Es ist kein übergeordnetes Album auffindbar."
 
-#: app/album/albummanager.cpp:2163
+#: app/album/albummanager.cpp:2164
 msgid "Album name cannot be empty."
 msgstr "Der Albumname darf nicht leer sein."
 
-#: app/album/albummanager.cpp:2169
+#: app/album/albummanager.cpp:2170
 msgid "Album name cannot contain '/'."
 msgstr "Der Albumname darf keinen Schrägstrich („/“) enthalten."
 
-#: app/album/albummanager.cpp:2175
+#: app/album/albummanager.cpp:2176
 msgid "createPAlbum does not accept the root album as parent."
 msgstr ""
 "createPAlbum akzeptiert den Basisordner nicht als übergeordneten Ordner."
 
-#: app/album/albummanager.cpp:2189
+#: app/album/albummanager.cpp:2190
 msgid "An existing album has the same name."
 msgstr "Es existiert bereits ein Album dieses Namens."
 
-#: app/album/albummanager.cpp:2202
+#: app/album/albummanager.cpp:2203
 msgid "Failed to create directory."
 msgstr "Fehler beim Erstellen des Ordners."
 
-#: app/album/albummanager.cpp:2211
+#: app/album/albummanager.cpp:2212
 msgid "Failed to add album to database"
 msgstr "Das Hinzufügen des Albums zur Datenbank ist fehlgeschlagen."
 
-#: app/album/albummanager.cpp:2238 app/album/albummanager.cpp:2331
-#: app/album/albummanager.cpp:2430 app/album/albummanager.cpp:2485
-#: app/album/albummanager.cpp:2521
+#: app/album/albummanager.cpp:2239 app/album/albummanager.cpp:2332
+#: app/album/albummanager.cpp:2431 app/album/albummanager.cpp:2486
+#: app/album/albummanager.cpp:2522
 msgid "No such album"
 msgstr "Album nicht gefunden"
 
-#: app/album/albummanager.cpp:2244
+#: app/album/albummanager.cpp:2245
 msgid "Cannot rename root album"
 msgstr "Das Album lässt sich nicht umbenennen."
 
-#: app/album/albummanager.cpp:2250
+#: app/album/albummanager.cpp:2251
 msgid "Cannot rename album root album"
 msgstr "Das Basis-Album lässt sich nicht umbenennen."
 
-#: app/album/albummanager.cpp:2256
+#: app/album/albummanager.cpp:2257
 msgid "Album name cannot contain '/'"
 msgstr "Der Albumname darf keinen Schrägstrich („/“) enthalten."
 
-#: app/album/albummanager.cpp:2263
+#: app/album/albummanager.cpp:2264
 msgid ""
 "Another album with the same name already exists.\n"
 "Please choose another name."
@@ -527,43 +527,43 @@ msgstr ""
 "Es existiert bereits ein Album mit diesem Namen.\n"
 "Bitte wählen Sie einen anderen Namen."
 
-#: app/album/albummanager.cpp:2283
+#: app/album/albummanager.cpp:2284
 msgid "Failed to rename Album"
 msgstr "Fehler beim Umbenennen des Albums."
 
-#: app/album/albummanager.cpp:2337
+#: app/album/albummanager.cpp:2338
 msgid "Cannot edit root album"
 msgstr "Das Basis-Album kann nicht bearbeitet werden."
 
-#: app/album/albummanager.cpp:2358
+#: app/album/albummanager.cpp:2359
 msgid "No parent found for tag"
 msgstr "Kein übergeordnetes Stichwort gefunden."
 
-#: app/album/albummanager.cpp:2365
+#: app/album/albummanager.cpp:2366
 msgid "Tag name cannot be empty"
 msgstr "Der Name des Stichwortes darf nicht leer sein."
 
-#: app/album/albummanager.cpp:2371 app/album/albummanager.cpp:2497
+#: app/album/albummanager.cpp:2372 app/album/albummanager.cpp:2498
 msgid "Tag name cannot contain '/'"
 msgstr "Der Name des Stichwortes darf keinen Schrägstrich („/“) enthalten."
 
-#: app/album/albummanager.cpp:2378 app/tags/tageditdlg.cpp:435
+#: app/album/albummanager.cpp:2379 app/tags/tageditdlg.cpp:435
 msgid "Tag name already exists"
 msgstr "Ein Stichwort mit diesem Namen ist bereits vorhanden."
 
-#: app/album/albummanager.cpp:2387
+#: app/album/albummanager.cpp:2388
 msgid "Failed to add tag to database"
 msgstr "Das Hinzufügen des Stichwortes zur Datenbank ist fehlgeschlagen."
 
-#: app/album/albummanager.cpp:2436
+#: app/album/albummanager.cpp:2437
 msgid "Cannot delete Root Tag"
 msgstr "Das Basis-Stichwort kann nicht gelöscht werden."
 
-#: app/album/albummanager.cpp:2491 app/album/albummanager.cpp:2589
+#: app/album/albummanager.cpp:2492 app/album/albummanager.cpp:2590
 msgid "Cannot edit root tag"
 msgstr "Das Basis-Stichwort kann nicht bearbeitet werden."
 
-#: app/album/albummanager.cpp:2504
+#: app/album/albummanager.cpp:2505
 msgid ""
 "Another tag with the same name already exists.\n"
 "Please choose another name."
@@ -571,15 +571,15 @@ msgstr ""
 "Es existiert bereits ein Stichwort mit diesem Namen.\n"
 "Bitte wählen Sie einen anderen Namen."
 
-#: app/album/albummanager.cpp:2527
+#: app/album/albummanager.cpp:2528
 msgid "Attempt to move TAlbum to nowhere"
 msgstr ""
 
-#: app/album/albummanager.cpp:2533
+#: app/album/albummanager.cpp:2534
 msgid "Cannot move root tag"
 msgstr "Das Basis-Stichwort kann nicht verschoben werden."
 
-#: app/album/albummanager.cpp:2539
+#: app/album/albummanager.cpp:2540
 msgid ""
 "Another tag with the same name already exists.\n"
 "Please rename the tag before moving it."
@@ -587,12 +587,12 @@ msgstr ""
 "Ein anderes Stichwort mit diesem Namen existiert bereits.\n"
 "Bitte wählen Sie vor dem Verschieben einen anderen Namen."
 
-#: app/album/albummanager.cpp:2583
+#: app/album/albummanager.cpp:2584
 msgid "No such tag"
 msgstr "Das Stichwort wurde nicht gefunden."
 
-#: app/album/albummanager.cpp:3026 app/album/albummanager.cpp:3056
-#: app/album/albummanager.cpp:3099 app/album/albummanager.cpp:3129
+#: app/album/albummanager.cpp:3030 app/album/albummanager.cpp:3060
+#: app/album/albummanager.cpp:3103 app/album/albummanager.cpp:3133
 #: app/main/main.cpp:74 app/views/welcomepageview.cpp:241
 msgid "digiKam"
 msgstr "digiKam"
@@ -990,15 +990,15 @@ msgid "%1 %2"
 msgstr "%1 %2"
 
 #: app/dragdrop/albumdragdrop.cpp:91 app/dragdrop/albumdragdrop.cpp:197
-#: app/dragdrop/albumdragdrop.cpp:301 app/dragdrop/imagedragdrop.cpp:107
+#: app/dragdrop/albumdragdrop.cpp:301 app/dragdrop/imagedragdrop.cpp:108
 #: app/dragdrop/importdragdrop.cpp:99 app/dragdrop/tagdragdrop.cpp:76
 msgid "&Move Here"
 msgstr "Hierhin &verschieben"
 
 #: app/dragdrop/albumdragdrop.cpp:93 app/dragdrop/albumdragdrop.cpp:163
 #: app/dragdrop/albumdragdrop.cpp:207 app/dragdrop/albumdragdrop.cpp:262
-#: app/dragdrop/albumdragdrop.cpp:304 app/dragdrop/imagedragdrop.cpp:74
-#: app/dragdrop/imagedragdrop.cpp:527 app/dragdrop/importdragdrop.cpp:65
+#: app/dragdrop/albumdragdrop.cpp:304 app/dragdrop/imagedragdrop.cpp:75
+#: app/dragdrop/imagedragdrop.cpp:537 app/dragdrop/importdragdrop.cpp:65
 #: app/dragdrop/importdragdrop.cpp:162 app/dragdrop/tagdragdrop.cpp:78
 #: app/dragdrop/tagdragdrop.cpp:165 app/dragdrop/tagdragdrop.cpp:220
 #: showfoto/thumbbar/showfotodragdrophandler.cpp:60
@@ -1011,45 +1011,45 @@ msgid "Set as Album Thumbnail"
 msgstr "Als Albumvorschau einstellen"
 
 #: app/dragdrop/albumdragdrop.cpp:198 app/dragdrop/albumdragdrop.cpp:302
-#: app/dragdrop/imagedragdrop.cpp:110 app/dragdrop/importdragdrop.cpp:102
+#: app/dragdrop/imagedragdrop.cpp:111 app/dragdrop/importdragdrop.cpp:102
 msgid "&Copy Here"
 msgstr "Hierher &kopieren"
 
-#: app/dragdrop/albumdragdrop.cpp:258 app/dragdrop/imagedragdrop.cpp:523
+#: app/dragdrop/albumdragdrop.cpp:258 app/dragdrop/imagedragdrop.cpp:533
 msgid "Download From Camera"
 msgstr "Von der Kamera herunterladen"
 
-#: app/dragdrop/albumdragdrop.cpp:260 app/dragdrop/imagedragdrop.cpp:525
+#: app/dragdrop/albumdragdrop.cpp:260 app/dragdrop/imagedragdrop.cpp:535
 msgid "Download && Delete From Camera"
 msgstr "Von der Kamera herunterladen && Originaldateien löschen"
 
-#: app/dragdrop/imagedragdrop.cpp:69 app/dragdrop/importdragdrop.cpp:60
+#: app/dragdrop/imagedragdrop.cpp:70 app/dragdrop/importdragdrop.cpp:60
 #: showfoto/thumbbar/showfotodragdrophandler.cpp:55
 msgctxt "@action:inmenu Group images with this image"
 msgid "Group here"
 msgstr "Hier gruppieren"
 
-#: app/dragdrop/imagedragdrop.cpp:145
+#: app/dragdrop/imagedragdrop.cpp:146
 msgid "Assign Tag to Dropped Items"
 msgstr "Stichwörter den hinzugefügten Einträgen zuordnen"
 
-#: app/dragdrop/imagedragdrop.cpp:470
+#: app/dragdrop/imagedragdrop.cpp:480
 msgid "Assign Tags to &Selected Items"
 msgstr "Stichwörter den &ausgewählten Einträgen zuordnen"
 
-#: app/dragdrop/imagedragdrop.cpp:477 app/views/imagepreviewview.cpp:598
+#: app/dragdrop/imagedragdrop.cpp:487 app/views/imagepreviewview.cpp:609
 msgid "Assign Tags to &This Item"
 msgstr "Stichwörter &diesem Eintrag zuordnen"
 
-#: app/dragdrop/imagedragdrop.cpp:480
+#: app/dragdrop/imagedragdrop.cpp:490
 msgid "Assign Tags to &All Items"
 msgstr "Stichwörter &allen Einträgen zuordnen"
 
-#: app/dragdrop/imagedragdrop.cpp:483 app/views/imagepreviewview.cpp:600
+#: app/dragdrop/imagedragdrop.cpp:493 app/views/imagepreviewview.cpp:611
 msgid "&Cancel"
 msgstr "&Abbrechen"
 
-#: app/dragdrop/imagedragdrop.cpp:521
+#: app/dragdrop/imagedragdrop.cpp:531
 msgid "Importing"
 msgstr "Import läuft"
 
@@ -1488,7 +1488,7 @@ msgstr "Alles löschen"
 msgid "Select All"
 msgstr "Alle auswählen"
 
-#: app/items/digikamimageview.cpp:376 app/views/tableview/tableview.cpp:228
+#: app/items/digikamimageview.cpp:378 app/views/tableview/tableview.cpp:248
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "Vorschau"
@@ -1565,9 +1565,9 @@ msgstr ""
 "Bilder importiert werden sollen.</p>"
 
 #: app/items/imageviewutilities.cpp:292
-#: utilities/imageeditor/main/imagewindow.cpp:1496
-#: utilities/imageeditor/main/imagewindow.cpp:1520
-#: utilities/imageeditor/main/imagewindow.cpp:1551
+#: utilities/imageeditor/main/imagewindow.cpp:1504
+#: utilities/imageeditor/main/imagewindow.cpp:1528
+#: utilities/imageeditor/main/imagewindow.cpp:1559
 #, kde-format
 msgid "Album \"%1\""
 msgstr "Album „%1“"
@@ -1600,8 +1600,13 @@ msgctxt "@info:tooltip"
 msgid "This item has geolocation information."
 msgstr "Dieser Eintrag hat keine Geolokalisierungs-Informationen"
 
+#: app/items/overlays/imagefsoverlay.cpp:59
+msgctxt "@info:tooltip"
+msgid "Show Fullscreen"
+msgstr "Vollbildmodus anzeigen"
+
 #: app/items/overlays/imagerotationoverlay.cpp:68
-#: app/views/imagepreviewview.cpp:170
+#: app/views/imagepreviewview.cpp:177
 #: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
@@ -1609,7 +1614,7 @@ msgid "Rotate Left"
 msgstr "Nach links drehen"
 
 #: app/items/overlays/imagerotationoverlay.cpp:72
-#: app/views/imagepreviewview.cpp:171
+#: app/views/imagepreviewview.cpp:178
 #: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:193
 msgctxt "@info:tooltip"
@@ -1673,8 +1678,8 @@ msgid "Next Image"
 msgstr "Nächstes Bild"
 
 #: app/main/digikamapp.cpp:647 app/main/digikamapp.cpp:653
-#: utilities/imageeditor/editor/editorwindow.cpp:648
-#: utilities/lighttable/lighttablewindow.cpp:656
+#: utilities/imageeditor/editor/editorwindow.cpp:659
+#: utilities/lighttable/lighttablewindow.cpp:660
 msgid "Previous Image"
 msgstr "Vorheriges Bild"
 
@@ -1792,7 +1797,7 @@ msgstr "N&eu ..."
 
 #: app/main/digikamapp.cpp:869 app/tags/tagmodificationhelper.cpp:285
 #: app/tags/tagmodificationhelper.cpp:390
-#: app/tags/tagsmanager/tagsmanager.cpp:404
+#: app/tags/tagsmanager/tagsmanager.cpp:409
 #: app/utils/editablesearchtreeview.cpp:71
 #: app/utils/searchmodificationhelper.cpp:82
 #: utilities/importui/main/importui.cpp:1996
@@ -1838,8 +1843,8 @@ msgid "Open the selected item."
 msgstr "Öffnet den ausgewählten Eintrag."
 
 #: app/main/digikamapp.cpp:920
-#: utilities/imageeditor/editor/editorwindow.cpp:440
-#: utilities/lighttable/lighttablewindow.cpp:501
+#: utilities/imageeditor/editor/editorwindow.cpp:449
+#: utilities/lighttable/lighttablewindow.cpp:505
 msgid "Open With Default Application"
 msgstr "Mit Standard-Anwendung öffnen"
 
@@ -1856,8 +1861,8 @@ msgstr "Bildbearbeitung"
 msgid "Open the image editor."
 msgstr "Bild-Editor öffnen."
 
-#: app/main/digikamapp.cpp:933 utilities/lighttable/lighttablewindow.cpp:131
-#: utilities/lighttable/lighttablewindow.cpp:1399
+#: app/main/digikamapp.cpp:933 utilities/lighttable/lighttablewindow.cpp:132
+#: utilities/lighttable/lighttablewindow.cpp:1403
 #: utilities/setup/setup.cpp:277
 msgid "Light Table"
 msgstr "Leuchttisch"
@@ -1934,8 +1939,8 @@ msgid "Change the filename of the currently selected item."
 msgstr "Den Dateinamen des ausgewählten Eintrags umbenennen."
 
 #: app/main/digikamapp.cpp:1024 showfoto/main/showfoto.cpp:507
-#: utilities/imageeditor/editor/editorwindow.cpp:446
-#: utilities/lighttable/lighttablewindow.cpp:519
+#: utilities/imageeditor/editor/editorwindow.cpp:456
+#: utilities/lighttable/lighttablewindow.cpp:523
 msgctxt "Non-pluralized"
 msgid "Move to Trash"
 msgstr "In den Papierkorb werfen"
@@ -2080,13 +2085,13 @@ msgid "The sort order of images groups"
 msgstr "Sortierreihenfolge für Bildergruppen"
 
 #: app/main/digikamapp.cpp:1189
-#: utilities/imageeditor/editor/editorwindow.cpp:500
+#: utilities/imageeditor/editor/editorwindow.cpp:511
 msgid "Select None"
 msgstr "Auswahl aufheben"
 
 #: app/main/digikamapp.cpp:1196 app/tags/tagsmanager/tagmngrtreeview.cpp:149
-#: app/tags/tagsmanager/tagsmanager.cpp:702
-#: app/utils/contextmenuhelper.cpp:883
+#: app/tags/tagsmanager/tagsmanager.cpp:707
+#: app/utils/contextmenuhelper.cpp:893
 msgid "Invert Selection"
 msgstr "Auswahl umkehren"
 
@@ -2095,22 +2100,22 @@ msgid "Show Thumbbar"
 msgstr "Vorschauleiste anzeigen"
 
 #: app/main/digikamapp.cpp:1239
-#: utilities/imageeditor/editor/editorwindow.cpp:519
-#: utilities/lighttable/lighttablewindow.cpp:584
-#: utilities/lighttable/lighttablewindow.cpp:612
+#: utilities/imageeditor/editor/editorwindow.cpp:530
+#: utilities/lighttable/lighttablewindow.cpp:588
+#: utilities/lighttable/lighttablewindow.cpp:616
 msgid "Zoom to 100%"
 msgstr "In Originalgröße anzeigen"
 
 #: app/main/digikamapp.cpp:1246
-#: utilities/imageeditor/editor/editorwindow.cpp:524
-#: utilities/lighttable/lighttablewindow.cpp:589
-#: utilities/lighttable/lighttablewindow.cpp:617
+#: utilities/imageeditor/editor/editorwindow.cpp:535
+#: utilities/lighttable/lighttablewindow.cpp:593
+#: utilities/lighttable/lighttablewindow.cpp:621
 msgid "Fit to &Window"
 msgstr "Dem &Fenster anpassen"
 
 #: app/main/digikamapp.cpp:1258
-#: utilities/imageeditor/editor/editorwindow.cpp:542
-#: utilities/lighttable/lighttablewindow.cpp:563
+#: utilities/imageeditor/editor/editorwindow.cpp:553
+#: utilities/lighttable/lighttablewindow.cpp:567
 #: utilities/slideshow/slideshow.cpp:98
 msgid "Slideshow"
 msgstr "Diaschau"
@@ -2128,9 +2133,9 @@ msgid "With All Sub-Albums"
 msgstr "Mit allen Unteralben"
 
 #: app/main/digikamapp.cpp:1282
-#: utilities/imageeditor/editor/editorwindow.cpp:563
+#: utilities/imageeditor/editor/editorwindow.cpp:574
 #: utilities/importui/main/importui.cpp:595
-#: utilities/lighttable/lighttablewindow.cpp:624
+#: utilities/lighttable/lighttablewindow.cpp:628
 msgid "Color-Managed View"
 msgstr "Farbverwaltete Ansicht"
 
@@ -2162,173 +2167,173 @@ msgstr "Kamera manuell hinzufügen ..."
 msgid "Loading cameras..."
 msgstr "Kameras werden geladen ..."
 
-#: app/main/digikamapp.cpp:1529
+#: app/main/digikamapp.cpp:1533
 #, kde-format
 msgid "No item selected (%1 item)"
 msgid_plural "No item selected (%1 items)"
 msgstr[0] "Kein Eintrag ausgewählt (%1 Eintrag)"
 msgstr[1] "Kein Eintrag ausgewählt (%1 Einträge)"
 
-#: app/main/digikamapp.cpp:1541
+#: app/main/digikamapp.cpp:1545
 #, kde-format
 msgid " (%1 of %2)"
 msgstr " (%1 von %2)"
 
-#: app/main/digikamapp.cpp:1546
+#: app/main/digikamapp.cpp:1550
 #, kde-format
 msgid "%2/%1 item selected"
 msgid_plural "%2/%1 items selected"
 msgstr[0] "%2/%1 Eintrag ausgewählt"
 msgstr[1] "%2/%1 Einträge ausgewählt"
 
-#: app/main/digikamapp.cpp:1582
+#: app/main/digikamapp.cpp:1588
 msgid "Write Metadata to Image"
 msgid_plural "Write Metadata to Selected Images"
 msgstr[0] "Metadaten in das Bild schreiben"
 msgstr[1] "Metadaten in die ausgewählten Bilder schreiben"
 
-#: app/main/digikamapp.cpp:1584
+#: app/main/digikamapp.cpp:1590
 msgid "Reread Metadata From Image"
 msgid_plural "Reread Metadata From Selected Images"
 msgstr[0] "Metadaten aus dem Bild neu einlesen"
 msgstr[1] "Metadaten aus den ausgewählten Bildern neu einlesen"
 
-#: app/main/digikamapp.cpp:1627 utilities/setup/setup.cpp:294
+#: app/main/digikamapp.cpp:1633 utilities/setup/setup.cpp:294
 msgid "Cameras"
 msgstr "Kameras"
 
-#: app/main/digikamapp.cpp:1629
+#: app/main/digikamapp.cpp:1635
 msgid "USB Storage Devices"
 msgstr "USB-Speichergeräte"
 
-#: app/main/digikamapp.cpp:1631
+#: app/main/digikamapp.cpp:1637
 msgid "Card Readers"
 msgstr "Kartenleser"
 
-#: app/main/digikamapp.cpp:1640
+#: app/main/digikamapp.cpp:1646
 msgid "Add Images..."
 msgstr "Bilder hinzufügen ..."
 
-#: app/main/digikamapp.cpp:1642
+#: app/main/digikamapp.cpp:1648
 msgid "Adds new items to an Album."
 msgstr "Fügt dem aktuellen Album neue Einträge hinzu."
 
-#: app/main/digikamapp.cpp:1648
+#: app/main/digikamapp.cpp:1654
 msgid "Add Folders..."
 msgstr "Ordner hinzufügen ..."
 
-#: app/main/digikamapp.cpp:1649
+#: app/main/digikamapp.cpp:1655
 msgid "Adds new folders to Album library."
 msgstr "Fügt der Albenbibliothek neue Ordner hinzu."
 
-#: app/main/digikamapp.cpp:1731
+#: app/main/digikamapp.cpp:1737
 #, kde-format
 msgid "Images found in %1"
 msgstr "Bilder gefunden in %1"
 
-#: app/main/digikamapp.cpp:1780
+#: app/main/digikamapp.cpp:1786
 #, kde-format
 msgid "The specified device (\"%1\") is not valid."
 msgstr "Das angegebene Gerät „%1“ ist ungültig."
 
-#: app/main/digikamapp.cpp:1792
+#: app/main/digikamapp.cpp:1798
 #, kde-format
 msgid "The specified camera (\"%1\") is not supported."
 msgstr "Die angegebene Kamera „%1“ wird nicht unterstützt."
 
-#: app/main/digikamapp.cpp:1953
+#: app/main/digikamapp.cpp:1959
 #, kde-format
 msgid "Images on %1"
 msgstr "Bilder auf %1"
 
-#: app/main/digikamapp.cpp:1977
+#: app/main/digikamapp.cpp:1983
 msgid "Cannot access the storage device.\n"
 msgstr "Auf das Speichergerät kann nicht zugegriffen werden.\n"
 
-#: app/main/digikamapp.cpp:2183
+#: app/main/digikamapp.cpp:2189
 msgid "CompactFlash Card Reader"
 msgstr "Lesegerät (CompactFlash)"
 
-#: app/main/digikamapp.cpp:2186
+#: app/main/digikamapp.cpp:2192
 msgid "Memory Stick Reader"
 msgstr "Lesegerät (Memory Stick)"
 
-#: app/main/digikamapp.cpp:2189
+#: app/main/digikamapp.cpp:2195
 msgid "SmartMedia Card Reader"
 msgstr "Lesegerät (SmartMedia)"
 
-#: app/main/digikamapp.cpp:2192
+#: app/main/digikamapp.cpp:2198
 msgid "SD / MMC Card Reader"
 msgstr "Lesegerät (SD/MMC)"
 
-#: app/main/digikamapp.cpp:2195
+#: app/main/digikamapp.cpp:2201
 msgid "xD Card Reader"
 msgstr "Lesegerät (xD)"
 
-#: app/main/digikamapp.cpp:2207
+#: app/main/digikamapp.cpp:2213
 msgid "USB Disk"
 msgstr "USB-Datenträger"
 
-#: app/main/digikamapp.cpp:2211
+#: app/main/digikamapp.cpp:2217
 msgctxt "non-USB removable storage device"
 msgid "Disk"
 msgstr "Festplatte"
 
-#: app/main/digikamapp.cpp:2279
+#: app/main/digikamapp.cpp:2285
 #, kde-format
 msgctxt "<drive type> \"<device name or label>\" at <mount path>"
 msgid "%1 \"%2\" at %3"
 msgstr "%1 „%2“ unter %3"
 
-#: app/main/digikamapp.cpp:2282
+#: app/main/digikamapp.cpp:2288
 #, kde-format
 msgctxt "<drive type> \"<device name or label>\""
 msgid "%1 \"%2\""
 msgstr "%1 „%2“"
 
-#: app/main/digikamapp.cpp:2288
+#: app/main/digikamapp.cpp:2294
 #, kde-format
 msgctxt "<drive type> at <mount path>"
 msgid "%1 at %2"
 msgstr "%1 unter %2"
 
-#: app/main/digikamapp.cpp:2297
+#: app/main/digikamapp.cpp:2303
 #, kde-format
 msgctxt "device label etc... (<formatted byte size>)"
 msgid " (%1)"
 msgstr " (%1)"
 
-#: app/main/digikamapp.cpp:2444
+#: app/main/digikamapp.cpp:2450
 msgctxt "general keyboard shortcuts"
 msgid "General"
 msgstr "Allgemein"
 
-#: app/main/digikamapp.cpp:2448
+#: app/main/digikamapp.cpp:2454
 msgctxt "KIPI-Plugins keyboard shortcuts"
 msgid "KIPI-Plugins"
 msgstr "KIPI-Module"
 
-#: app/main/digikamapp.cpp:2513 showfoto/main/showfoto.cpp:189
+#: app/main/digikamapp.cpp:2519 showfoto/main/showfoto.cpp:189
 msgid "Loading themes..."
 msgstr "Designs werden geladen ..."
 
-#: app/main/digikamapp.cpp:2516 showfoto/main/showfoto.cpp:424
+#: app/main/digikamapp.cpp:2522 showfoto/main/showfoto.cpp:424
 msgid "&Themes"
 msgstr "&Design"
 
-#: app/main/digikamapp.cpp:2533
+#: app/main/digikamapp.cpp:2539
 msgid "Loading tools..."
 msgstr "Werkzeuge werden geladen ..."
 
-#: app/main/digikamapp.cpp:2628
+#: app/main/digikamapp.cpp:2634
 msgid "Select folder to parse"
 msgstr "Wählen Sie den zu verarbeitenden Ordner aus"
 
-#: app/main/digikamapp.cpp:2642
+#: app/main/digikamapp.cpp:2648
 msgid "Select folders to import into album"
 msgstr "Wählen Sie die in das Album zu importierenden Ordner aus"
 
-#: app/main/digikamapp.cpp:2672
+#: app/main/digikamapp.cpp:2678
 msgid ""
 "<p>Please select the destination album from the digiKam library to import "
 "folders into.</p>"
@@ -2336,72 +2341,72 @@ msgstr ""
 "<p>Wählen Sie bitte das Zielalbum aus der digiKam-Bibliothek, in das die "
 "Ordner importiert werden sollen.</p>"
 
-#: app/main/digikamapp.cpp:2797
+#: app/main/digikamapp.cpp:2803
 msgid "Adjust Exif Orientation Tag"
 msgstr "Exif-Ausrichtung justieren"
 
-#: app/main/digikamapp.cpp:2801
+#: app/main/digikamapp.cpp:2807
 msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Normal"
 
-#: app/main/digikamapp.cpp:2802 libs/dmetadata/dmetadata.cpp:2720
+#: app/main/digikamapp.cpp:2808 libs/dmetadata/dmetadata.cpp:2720
 msgid "Flipped Horizontally"
 msgstr "Horizontal gespiegelt"
 
-#: app/main/digikamapp.cpp:2803
+#: app/main/digikamapp.cpp:2809
 msgid "Rotated Upside Down"
 msgstr "Auf den Kopf drehen"
 
-#: app/main/digikamapp.cpp:2804 libs/dmetadata/dmetadata.cpp:2724
+#: app/main/digikamapp.cpp:2810 libs/dmetadata/dmetadata.cpp:2724
 msgid "Flipped Vertically"
 msgstr "Vertikal gespiegelt"
 
-#: app/main/digikamapp.cpp:2805
+#: app/main/digikamapp.cpp:2811
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Nach rechts drehen / horizontal spiegeln"
 
-#: app/main/digikamapp.cpp:2806 libs/dmetadata/dmetadata.cpp:2732
+#: app/main/digikamapp.cpp:2812 libs/dmetadata/dmetadata.cpp:2732
 msgid "Rotated Right"
 msgstr "Nach rechts gedreht"
 
-#: app/main/digikamapp.cpp:2807
+#: app/main/digikamapp.cpp:2813
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Nach rechts drehen / vertikal spiegeln"
 
-#: app/main/digikamapp.cpp:2808 libs/dmetadata/dmetadata.cpp:2728
+#: app/main/digikamapp.cpp:2814 libs/dmetadata/dmetadata.cpp:2728
 msgid "Rotated Left"
 msgstr "Nach links gedreht"
 
-#: app/main/digikamapp.cpp:2933
+#: app/main/digikamapp.cpp:2939
 #: utilities/queuemanager/basetools/transform/rotate.cpp:85
 msgid "Rotate"
 msgstr "Drehen"
 
-#: app/main/digikamapp.cpp:2937
+#: app/main/digikamapp.cpp:2943
 msgctxt "rotate image left"
 msgid "Left"
 msgstr "Links"
 
-#: app/main/digikamapp.cpp:2944
+#: app/main/digikamapp.cpp:2950
 msgctxt "rotate image right"
 msgid "Right"
 msgstr "Rechts"
 
-#: app/main/digikamapp.cpp:2954
+#: app/main/digikamapp.cpp:2960
 #: utilities/queuemanager/basetools/transform/flip.cpp:53
 msgid "Flip"
 msgstr "Spiegeln"
 
-#: app/main/digikamapp.cpp:2958
+#: app/main/digikamapp.cpp:2964
 msgid "Horizontally"
 msgstr "Waagerecht"
 
-#: app/main/digikamapp.cpp:2965
+#: app/main/digikamapp.cpp:2971
 msgid "Vertically"
 msgstr "Senkrecht"
 
-#: app/main/digikamapp.cpp:2975
+#: app/main/digikamapp.cpp:2981
 msgid "Auto Rotate/Flip Using Exif Information"
 msgstr "Automatisches Drehen/Spiegeln nach Exif-Informationen"
 
@@ -2540,35 +2545,35 @@ msgstr ""
 "installieren Sie eines der beiden.\n"
 "Folgende Datenbankmodule sind zurzeit installiert:"
 
-#: app/settings/applicationsettings_p.cpp:219
+#: app/settings/applicationsettings_p.cpp:223
 msgid "Category"
 msgstr "Kategorie"
 
-#: app/settings/applicationsettings_p.cpp:220
+#: app/settings/applicationsettings_p.cpp:224
 msgid "Travel"
 msgstr "Reisen"
 
-#: app/settings/applicationsettings_p.cpp:221
+#: app/settings/applicationsettings_p.cpp:225
 msgid "Holidays"
 msgstr "Urlaub"
 
-#: app/settings/applicationsettings_p.cpp:222
+#: app/settings/applicationsettings_p.cpp:226
 msgid "Friends"
 msgstr "Freunde"
 
-#: app/settings/applicationsettings_p.cpp:223
+#: app/settings/applicationsettings_p.cpp:227
 msgid "Nature"
 msgstr "Natur"
 
-#: app/settings/applicationsettings_p.cpp:224
+#: app/settings/applicationsettings_p.cpp:228
 msgid "Party"
 msgstr "Feiern"
 
-#: app/settings/applicationsettings_p.cpp:225
+#: app/settings/applicationsettings_p.cpp:229
 msgid "Todo"
 msgstr "Zu erledigen"
 
-#: app/settings/applicationsettings_p.cpp:226
+#: app/settings/applicationsettings_p.cpp:230
 #: showfoto/setup/showfotosetup.cpp:154 utilities/setup/setup.cpp:319
 msgid "Miscellaneous"
 msgstr "Verschiedene Einstellungen"
@@ -2696,7 +2701,7 @@ msgid "Reset Tag Icon"
 msgstr "Stichwortsymbol zurücksetzen"
 
 #: app/tags/tagfolderview.cpp:114 app/tags/tagsmanager/tagmngrtreeview.cpp:155
-#: app/tags/tagsmanager/tagsmanager.cpp:708
+#: app/tags/tagsmanager/tagsmanager.cpp:713
 msgid "Expand Selected Nodes"
 msgstr "Ausgewählte Knoten ausklappen"
 
@@ -2787,7 +2792,7 @@ msgid "Assign Tag \"%1\""
 msgstr "Stichwort \"%1\" zuweisen"
 
 #: app/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: app/utils/contextmenuhelper.cpp:861
+#: app/utils/contextmenuhelper.cpp:870
 msgid "All Tags"
 msgstr "Alle Stichwörter"
 
@@ -2813,22 +2818,22 @@ msgid "Delete Tags"
 msgstr "Stichwörter löschen"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:146
-#: app/tags/tagsmanager/tagsmanager.cpp:696
+#: app/tags/tagsmanager/tagsmanager.cpp:701
 msgid "Reset tag Icon"
 msgstr "Stichwortsymbol zurücksetzen"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:152
-#: app/tags/tagsmanager/tagsmanager.cpp:705
+#: app/tags/tagsmanager/tagsmanager.cpp:710
 msgid "Expand Tag Tree"
 msgstr "Stichwortbaum ausklappen"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:158
-#: app/tags/tagsmanager/tagsmanager.cpp:710
+#: app/tags/tagsmanager/tagsmanager.cpp:715
 msgid "Remove Tag from Images"
 msgstr "Stichwort von Bildern entfernen"
 
 #: app/tags/tagsmanager/tagpropwidget.cpp:94
-#: app/tags/tagsmanager/tagsmanager.cpp:821
+#: app/tags/tagsmanager/tagsmanager.cpp:826
 msgid "Tag Properties"
 msgstr "Stichworteigenschaften"
 
@@ -2863,7 +2868,7 @@ msgstr ""
 msgid "Tags Manager"
 msgstr "Stichwortverwaltung"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:356
+#: app/tags/tagsmanager/tagsmanager.cpp:361
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid ""
@@ -2881,7 +2886,7 @@ msgstr[1] ""
 "gelöscht wird, werden die Unterstichwörter ebenfalls gelöscht. Sind Sie "
 "sicher, dass Sie fortfahren möchten?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:381
+#: app/tags/tagsmanager/tagsmanager.cpp:386
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Tag %2 is assigned to one or more items. Do you want to delete it?"
@@ -2894,7 +2899,7 @@ msgstr[1] ""
 "Die Stichwörter „%2“ sind einem oder mehreren Einträgen zugewiesen. Möchten "
 "Sie sie löschen?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:393
+#: app/tags/tagsmanager/tagsmanager.cpp:398
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Delete tag %2?"
@@ -2902,21 +2907,21 @@ msgid_plural "Delete tags %2?"
 msgstr[0] "Stichwort %2 löschen?"
 msgstr[1] "Stichwörter %2 löschen?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:403
+#: app/tags/tagsmanager/tagsmanager.cpp:408
 msgid "Delete tag"
 msgid_plural "Delete tags"
 msgstr[0] "Stichwort löschen"
 msgstr[1] "Stichwörter löschen"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:510
+#: app/tags/tagsmanager/tagsmanager.cpp:515
 msgid ""
 "digiKam will clean up tag metadata before setting tags from database.<br> "
 "You may <b>lose tags</b> if you did not read tags before (by calling Read "
 "Tags from Image).<br> Do you want to continue?"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:525
-#: app/tags/tagsmanager/tagsmanager.cpp:547
+#: app/tags/tagsmanager/tagsmanager.cpp:530
+#: app/tags/tagsmanager/tagsmanager.cpp:552
 msgid ""
 "This operation can take long time depending on collection size.\n"
 "Do you want to continue?"
@@ -2925,7 +2930,7 @@ msgstr ""
 "Ausführung.\n"
 "Möchten Sie dennoch fortfahren?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:570
+#: app/tags/tagsmanager/tagsmanager.cpp:575
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
@@ -2936,7 +2941,7 @@ msgstr ""
 "Metadaten in die Datei auswählen.\n"
 "Möchten Sie fortfahren?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:633
+#: app/tags/tagsmanager/tagsmanager.cpp:638
 msgid "Do you really want to remove the selected tag from all images?"
 msgid_plural "Do you really want to remove the selected tags from all images?"
 msgstr[0] ""
@@ -2945,26 +2950,26 @@ msgstr[1] ""
 "Möchten Sie die ausgewählten Stichwörter wirklich von allen Bildern "
 "entfernen?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:692
+#: app/tags/tagsmanager/tagsmanager.cpp:697
 msgctxt "@title:menu"
 msgid "Organize"
 msgstr "Organisieren"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:699
+#: app/tags/tagsmanager/tagsmanager.cpp:704
 msgid "Create Tag from Address Book"
 msgstr "Stichwort aus dem Adressbuch erstellen"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:713
+#: app/tags/tagsmanager/tagsmanager.cpp:718
 msgid "Delete Unassigned Tags"
 msgstr "Nicht zugewiesene Stichwörter löschen"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:717
+#: app/tags/tagsmanager/tagsmanager.cpp:722
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 "Fügt ein neues Stichwort zum aktuellen Stichwort hinzu. Das aktuelle "
 "Stichwort ist das zuletzt ausgewählte Stichwort."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:720
+#: app/tags/tagsmanager/tagsmanager.cpp:725
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
@@ -2972,63 +2977,63 @@ msgstr ""
 "Ausgewählte Elemente löschen. Funktioniert auch mir mehreren Elementen, "
 "löscht aber nicht das oberste Stichwort."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:724
+#: app/tags/tagsmanager/tagsmanager.cpp:729
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr ""
 "Symbol auf gewählte Stichwörter zurücksetzen. Funktioniert mit mehreren "
 "ausgewählten Elementen."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:727
+#: app/tags/tagsmanager/tagsmanager.cpp:732
 msgid "Invert selection. Only visible items will be selected"
 msgstr "Auswahl umkehren. Nur sichtbare Einträge werden ausgewählt"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:730
+#: app/tags/tagsmanager/tagsmanager.cpp:735
 msgid "Expand tag tree by one level"
 msgstr "Stichwortbaum um eine Ebene ausklappen"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:732
+#: app/tags/tagsmanager/tagsmanager.cpp:737
 msgid "Selected items will be expanded"
 msgstr "Die ausgewählten Elemente werden ausgeklappt"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:734
+#: app/tags/tagsmanager/tagsmanager.cpp:739
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr ""
 "Löscht ausgewählte Stichwörter von Bildern. Das funktioniert auch mit "
 "mehreren ausgewählten Bildern."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:736
+#: app/tags/tagsmanager/tagsmanager.cpp:741
 msgid "Delete all tags that are not assigned to images. Use with caution."
 msgstr ""
 "Alle Stichwörter löschen, die keinem Bild zugewiesen sind. Benutzen Sie "
 "diese Funktion, nur wenn Sie wissen, was Sie tun."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:770
+#: app/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync &Export"
 msgstr "Abgleich &Exportieren"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:774
+#: app/tags/tagsmanager/tagsmanager.cpp:779
 msgid "Write Tags from Database to Image"
 msgstr "Stichwörter aus der Datenbank in das Bild schreiben"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:778
+#: app/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Read Tags from Image"
 msgstr "Stichwörter aus dem Bild einlesen"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:781
+#: app/tags/tagsmanager/tagsmanager.cpp:786
 msgid "Wipe all tags from Database only"
 msgstr "Alle Stichwörter nur aus der Datenbank löschen"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:785
+#: app/tags/tagsmanager/tagsmanager.cpp:790
 msgid "Write Tags Metadata to Image."
 msgstr "Stichwort-Metadaten in das Bild schreiben"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:787
+#: app/tags/tagsmanager/tagsmanager.cpp:792
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 "Stichwörter von Bildern in die Datenbank übertragen. Vorhandene Stichwörter "
 "werden nicht überschrieben"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:790
+#: app/tags/tagsmanager/tagsmanager.cpp:795
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
@@ -3036,7 +3041,7 @@ msgstr ""
 "Alle Stichwörter aus der Datenbank löschen. Dies wird nicht mit den Dateien "
 "abgeglichen. Benutzen Sie diese Funktion, nur wenn Sie wissen, was Sie tun."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:862
+#: app/tags/tagsmanager/tagsmanager.cpp:867
 msgid ""
 "This option will remove all tags which\n"
 "are not assigned to any image.\n"
@@ -3089,12 +3094,12 @@ msgstr "Unterstützung für LibGphoto2"
 #: libs/dialogs/libsinfodlg.cpp:125 libs/dialogs/libsinfodlg.cpp:146
 #: libs/dialogs/libsinfodlg.cpp:152 libs/dialogs/libsinfodlg.cpp:165
 #: libs/dialogs/libsinfodlg.cpp:172
-#: utilities/importui/backend/gpcamera.cpp:1395
-#: utilities/importui/backend/gpcamera.cpp:1396
-#: utilities/importui/backend/gpcamera.cpp:1397
-#: utilities/importui/backend/gpcamera.cpp:1398
-#: utilities/importui/backend/gpcamera.cpp:1399
-#: utilities/importui/backend/gpcamera.cpp:1400
+#: utilities/importui/backend/gpcamera.cpp:1406
+#: utilities/importui/backend/gpcamera.cpp:1407
+#: utilities/importui/backend/gpcamera.cpp:1408
+#: utilities/importui/backend/gpcamera.cpp:1409
+#: utilities/importui/backend/gpcamera.cpp:1410
+#: utilities/importui/backend/gpcamera.cpp:1411
 #: utilities/importui/backend/umscamera.cpp:600
 #: utilities/importui/backend/umscamera.cpp:601
 #: utilities/importui/backend/umscamera.cpp:602
@@ -3141,18 +3146,18 @@ msgid "LibOpenCV"
 msgstr "LibOpenCV"
 
 #: app/utils/contextmenuhelper.cpp:285
-#: utilities/imageeditor/editor/editorwindow.cpp:2998
+#: utilities/imageeditor/editor/editorwindow.cpp:3044
 msgid "Open With"
 msgstr "Öffnen mit"
 
 #: app/utils/contextmenuhelper.cpp:297
 #: imageplugins/color/imageplugin_color.cpp:344
-#: utilities/imageeditor/editor/editorwindow.cpp:3010
+#: utilities/imageeditor/editor/editorwindow.cpp:3056
 msgid "Other..."
 msgstr "Weitere ..."
 
 #: app/utils/contextmenuhelper.cpp:306
-#: utilities/imageeditor/editor/editorwindow.cpp:3019
+#: utilities/imageeditor/editor/editorwindow.cpp:3065
 msgid "Open With..."
 msgstr "Öffnen mit ..."
 
@@ -3242,79 +3247,84 @@ msgstr "An vorhandene Warteschlange anhängen"
 msgid "All Albums"
 msgstr "Alle Alben"
 
-#: app/utils/contextmenuhelper.cpp:863
+#: app/utils/contextmenuhelper.cpp:873
 msgctxt "select tags menu"
 msgid "Select"
 msgstr "Auswählen"
 
-#: app/utils/contextmenuhelper.cpp:868 app/utils/contextmenuhelper.cpp:878
+#: app/utils/contextmenuhelper.cpp:878 app/utils/contextmenuhelper.cpp:888
 msgid "Children"
 msgstr "Kinder"
 
-#: app/utils/contextmenuhelper.cpp:869 app/utils/contextmenuhelper.cpp:879
+#: app/utils/contextmenuhelper.cpp:879 app/utils/contextmenuhelper.cpp:889
 msgid "Parents"
 msgstr "Eltern"
 
-#: app/utils/contextmenuhelper.cpp:873
+#: app/utils/contextmenuhelper.cpp:883
 msgctxt "deselect tags menu"
 msgid "Deselect"
 msgstr "Auswahl aufheben"
 
-#: app/utils/contextmenuhelper.cpp:952
+#: app/utils/contextmenuhelper.cpp:962
 msgid "Group"
 msgstr "Gruppe"
 
-#: app/utils/contextmenuhelper.cpp:987
+#: app/utils/contextmenuhelper.cpp:997
 msgctxt "@action:inmenu"
 msgid "Open All Groups"
 msgstr "Alle Gruppen öffnen"
 
-#: app/utils/contextmenuhelper.cpp:993
+#: app/utils/contextmenuhelper.cpp:1003
 msgctxt "@action:inmenu"
 msgid "Close All Groups"
 msgstr "Alle Gruppen schließen"
 
-#: app/utils/contextmenuhelper.cpp:1012 app/utils/contextmenuhelper.cpp:1057
+#: app/utils/contextmenuhelper.cpp:1022 app/utils/contextmenuhelper.cpp:1071
 msgctxt "@action:inmenu"
 msgid "Show Grouped Images"
 msgstr "Gruppierte Bilder anzeigen"
 
-#: app/utils/contextmenuhelper.cpp:1018 app/utils/contextmenuhelper.cpp:1061
+#: app/utils/contextmenuhelper.cpp:1028 app/utils/contextmenuhelper.cpp:1075
 msgctxt "@action:inmenu"
 msgid "Hide Grouped Images"
 msgstr "Gruppierte Bilder ausblenden"
 
-#: app/utils/contextmenuhelper.cpp:1028
+#: app/utils/contextmenuhelper.cpp:1038
 msgctxt "@action:inmenu"
 msgid "Ungroup"
 msgstr "Gruppierung aufheben"
 
-#: app/utils/contextmenuhelper.cpp:1034
+#: app/utils/contextmenuhelper.cpp:1044
 msgctxt "@action:inmenu"
 msgid "Remove From Group"
 msgstr "Aus Gruppe entfernen"
 
-#: app/utils/contextmenuhelper.cpp:1043
+#: app/utils/contextmenuhelper.cpp:1053
 msgctxt "@action:inmenu"
 msgid "Group Selected Here"
 msgstr "Ausgewählte hier gruppieren"
 
-#: app/utils/contextmenuhelper.cpp:1047
+#: app/utils/contextmenuhelper.cpp:1057
 msgctxt "@action:inmenu"
 msgid "Group Selected By Time"
 msgstr "Ausgewählte nach Zeit gruppieren"
 
-#: app/utils/contextmenuhelper.cpp:1070
+#: app/utils/contextmenuhelper.cpp:1061
+msgctxt "@action:inmenu"
+msgid "Group Selected By Type"
+msgstr "Ausgewählte nach Typ gruppieren"
+
+#: app/utils/contextmenuhelper.cpp:1084
 msgctxt "@action:inmenu"
 msgid "Remove Selected From Groups"
 msgstr "Ausgewählte aus Gruppe entfernen"
 
-#: app/utils/contextmenuhelper.cpp:1074
+#: app/utils/contextmenuhelper.cpp:1088
 msgctxt "@action:inmenu"
 msgid "Ungroup Selected"
 msgstr "Ausgewählte Gruppe auflösen"
 
-#: app/utils/contextmenuhelper.cpp:1163
+#: app/utils/contextmenuhelper.cpp:1177
 #, kde-format
 msgctxt "@action:inmenu Pluralized"
 msgid "Move to Trash"
@@ -3347,7 +3357,7 @@ msgstr ""
 msgid "Name exists"
 msgstr "Name bereits vorhanden"
 
-#: app/utils/slideshowbuilder.cpp:93
+#: app/utils/slideshowbuilder.cpp:107
 msgid "Preparing slideshow"
 msgstr "Diaschau wird vorbereitet"
 
@@ -3697,45 +3707,49 @@ msgstr "Zeitleiste"
 msgid "Filters"
 msgstr "Filter"
 
-#: app/views/digikamview.cpp:1265
+#: app/views/digikamview.cpp:1271
 msgid "Cannot open the root album. It is not a physical location."
 msgstr ""
 "Das Basisalbum kann nicht geöffnet werden. Dies ist kein physikalischer Ort."
 
-#: app/views/digikamview.cpp:1288
+#: app/views/digikamview.cpp:1294
 msgid "Cannot open the root. It is not a physical location."
 msgstr ""
 "Die Basis kann nicht geöffnet werden. Dies ist kein physikalischer Ort."
 
-#: app/views/digikamview.cpp:1701
+#: app/views/digikamview.cpp:1707
 msgctxt "@info"
 msgid ""
 "<i>The storage location of this image<br/>is currently not available</i>"
 msgstr "<i>Der Speicherort dieses Bilds<br/>ist zurzeit nicht verfügbar</i>"
 
-#: app/views/imagepreviewview.cpp:168 app/views/mediaplayerview.cpp:141
+#: app/views/imagepreviewview.cpp:175 app/views/mediaplayerview.cpp:141
 #: utilities/importui/views/importpreviewview.cpp:190
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Zurück"
 
-#: app/views/imagepreviewview.cpp:169 app/views/mediaplayerview.cpp:142
+#: app/views/imagepreviewview.cpp:176 app/views/mediaplayerview.cpp:142
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "Weiter"
 
-#: app/views/imagepreviewview.cpp:174
+#: app/views/imagepreviewview.cpp:181
 msgid "Add a Face Tag"
 msgstr "Neue Gesichtsmarkierung hinzufügen"
 
-#: app/views/imagepreviewview.cpp:175
+#: app/views/imagepreviewview.cpp:182
 msgid "Clear all faces on this image"
 msgstr "Alle Gesichtsmarkierungen auf diesem Bild löschen"
 
-#: app/views/imagepreviewview.cpp:176
+#: app/views/imagepreviewview.cpp:183
 msgid "Show Face Tags"
 msgstr "Gesichtsmarkierungen anzeigen"
+
+#: app/views/imagepreviewview.cpp:187
+msgid "Show Fullscreen"
+msgstr "Vollbildmodus anzeigen"
 
 #: app/views/leftsidebarwidgets.cpp:226
 msgid "No Tags"
@@ -3889,15 +3903,15 @@ msgstr "Personen"
 msgid "An error has occurred with the media player...."
 msgstr "Mit dem Medienspieler ist ein Fehler aufgetreten ..."
 
-#: app/views/tableview/tableview.cpp:511
+#: app/views/tableview/tableview.cpp:540
 msgid "Hide grouped items"
 msgstr "Gruppierte Elemente ausblenden"
 
-#: app/views/tableview/tableview.cpp:521
+#: app/views/tableview/tableview.cpp:550
 msgid "Ignore grouping"
 msgstr "Gruppierung ignorieren"
 
-#: app/views/tableview/tableview.cpp:531
+#: app/views/tableview/tableview.cpp:560
 msgid "Show grouping in tree"
 msgstr "Gruppierung in Baumansicht anzeigen"
 
@@ -4590,7 +4604,7 @@ msgstr ""
 
 #: imageplugins/color/adjustlevelstool.cpp:315
 #: imageplugins/color/filmtool.cpp:257
-#: libs/dimg/filters/bw/mixersettings.cpp:167
+#: libs/dimg/filters/bw/mixersettings.cpp:169
 #: libs/dimg/filters/curves/curvesbox.cpp:216
 msgid "&Reset"
 msgstr "Zu&rücksetzen"
@@ -5287,7 +5301,7 @@ msgstr ""
 "wird."
 
 #: imageplugins/enhance/hotpixels/hotpixelstool.cpp:188
-#: utilities/imageeditor/editor/editorwindow.cpp:1650
+#: utilities/imageeditor/editor/editorwindow.cpp:1696
 msgid "Loading: "
 msgstr "Wird geladen: "
 
@@ -5851,22 +5865,22 @@ msgstr "Farbeffekte"
 msgid "This is the color effects preview"
 msgstr "Dies ist die Vorschau der Farbeffekte."
 
-#: imageplugins/filters/colorfxtool.cpp:220
+#: imageplugins/filters/colorfxtool.cpp:229
 #: libs/dimg/filters/fx/colorfxsettings.cpp:84
 msgid "Solarize"
 msgstr "Solarisieren"
 
-#: imageplugins/filters/colorfxtool.cpp:224
+#: imageplugins/filters/colorfxtool.cpp:233
 #: libs/dimg/filters/fx/colorfxsettings.cpp:85
 msgid "Vivid"
 msgstr "Vivid"
 
-#: imageplugins/filters/colorfxtool.cpp:228
+#: imageplugins/filters/colorfxtool.cpp:237
 #: libs/dimg/filters/fx/colorfxsettings.cpp:86
 msgid "Neon"
 msgstr "Neon"
 
-#: imageplugins/filters/colorfxtool.cpp:232
+#: imageplugins/filters/colorfxtool.cpp:241
 #: libs/dimg/filters/fx/colorfxsettings.cpp:87
 msgid "Find Edges"
 msgstr "Kanten finden"
@@ -7951,12 +7965,12 @@ msgid "LibLqr support"
 msgstr "Unterstützung für LibLqr"
 
 #: libs/dialogs/libsinfodlg.cpp:150
-#: utilities/importui/backend/gpcamera.cpp:1395
-#: utilities/importui/backend/gpcamera.cpp:1396
-#: utilities/importui/backend/gpcamera.cpp:1397
-#: utilities/importui/backend/gpcamera.cpp:1398
-#: utilities/importui/backend/gpcamera.cpp:1399
-#: utilities/importui/backend/gpcamera.cpp:1400
+#: utilities/importui/backend/gpcamera.cpp:1406
+#: utilities/importui/backend/gpcamera.cpp:1407
+#: utilities/importui/backend/gpcamera.cpp:1408
+#: utilities/importui/backend/gpcamera.cpp:1409
+#: utilities/importui/backend/gpcamera.cpp:1410
+#: utilities/importui/backend/gpcamera.cpp:1411
 #: utilities/importui/backend/umscamera.cpp:600
 #: utilities/importui/backend/umscamera.cpp:601
 #: utilities/importui/backend/umscamera.cpp:602
@@ -8044,7 +8058,7 @@ msgid "Migrate ->"
 msgstr "Migrieren ->"
 
 #: libs/dialogs/migrationdlg.cpp:137
-#: utilities/imageeditor/editor/editorwindow.cpp:669
+#: utilities/imageeditor/editor/editorwindow.cpp:680
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -8662,53 +8676,53 @@ msgstr "Infrarot-Filter"
 msgid "Channel Mixer Tool"
 msgstr "Farbkanal-Mixer"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:135
+#: libs/dimg/filters/bw/mixersettings.cpp:137
 msgid "Output Channel:"
 msgstr "Ausgabekanal:"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:141
+#: libs/dimg/filters/bw/mixersettings.cpp:143
 msgid "Red (%):"
 msgstr "Rot (%):"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:146
+#: libs/dimg/filters/bw/mixersettings.cpp:148
 msgid "Select the red color gain, as a percentage, for the current channel."
 msgstr "Wählen Sie die Rot-Zunahme als Prozentwert für den aktuellen Kanal."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:149
+#: libs/dimg/filters/bw/mixersettings.cpp:151
 msgid "Green (%):"
 msgstr "Grün (%):"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:154
+#: libs/dimg/filters/bw/mixersettings.cpp:156
 msgid "Select the green color gain, as a percentage, for the current channel."
 msgstr "Wählen Sie die Grün-Zunahme als Prozentwert für den aktuellen Kanal."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:157
+#: libs/dimg/filters/bw/mixersettings.cpp:159
 msgid "Blue (%):"
 msgstr "Blau (%):"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:162
+#: libs/dimg/filters/bw/mixersettings.cpp:164
 msgid "Select the blue color gain, as a percentage, for the current channel."
 msgstr "Wählen Sie die Blau-Zunahme als Prozentwert für den aktuellen Kanal."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:169
+#: libs/dimg/filters/bw/mixersettings.cpp:171
 msgid ""
 "Reset color channels' gains settings from the currently selected channel."
 msgstr "Setzt die Farbwerte des ausgewählten Kanals zurück."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:177
+#: libs/dimg/filters/bw/mixersettings.cpp:179
 msgid "Preserve luminosity"
 msgstr "Leuchtkraft bewahren"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:178
+#: libs/dimg/filters/bw/mixersettings.cpp:180
 msgid "Enable this option is you want preserve the image luminosity."
 msgstr ""
 "Wenn diese Einstellung aktiviert ist, wird die Leuchtkraft beibehalten."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:183
+#: libs/dimg/filters/bw/mixersettings.cpp:185
 msgid "Monochrome"
 msgstr "Monochrom"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:184
+#: libs/dimg/filters/bw/mixersettings.cpp:186
 msgid ""
 "<p>Use <b>Monochrome</b> mode to convert color picture to Black and White:</"
 "p><p>The <qt><font color=\"red\">red channel</font></qt> modifies <a "
@@ -8729,24 +8743,24 @@ msgstr ""
 "p><p><u>Hinweis:</u> In diesem Modus zeigt das Histogramm nur Werte für "
 "Leuchtkraft an.</p>"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:354
+#: libs/dimg/filters/bw/mixersettings.cpp:356
 #, kde-format
 msgid "Total: %1 (%)"
 msgstr "Gesamt: %1 (%)"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:550
+#: libs/dimg/filters/bw/mixersettings.cpp:552
 msgid "Select Gimp Gains Mixer File to Load"
 msgstr "Wählen Sie die Gimp-Verstärkungsdatei, die geladen werden soll"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:646
+#: libs/dimg/filters/bw/mixersettings.cpp:622
 msgid "Cannot load settings from the Gains Mixer text file."
 msgstr "Die Einstellungen aus der Gimp-Datei lassen sich nicht laden."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:658
+#: libs/dimg/filters/bw/mixersettings.cpp:634
 msgid "Gimp Gains Mixer File to Save"
 msgstr "Zu speichernde GIMP-Verstärkungsdatei"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:727
+#: libs/dimg/filters/bw/mixersettings.cpp:703
 msgid "Cannot save settings to the Gains Mixer text file."
 msgstr "Die Einstellungen lassen sich nicht speichern."
 
@@ -9041,7 +9055,7 @@ msgid "Texture Filter"
 msgstr "Texturenfilter"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:335
-#: utilities/imageeditor/editor/editorwindow.cpp:614
+#: utilities/imageeditor/editor/editorwindow.cpp:625
 msgid "Rotate Right"
 msgstr "Nach rechts drehen"
 
@@ -9050,17 +9064,17 @@ msgid "Rotate 180°"
 msgstr "Um 180 Grad drehen"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:341
-#: utilities/imageeditor/editor/editorwindow.cpp:608
+#: utilities/imageeditor/editor/editorwindow.cpp:619
 msgid "Rotate Left"
 msgstr "Nach links drehen"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:344
-#: utilities/imageeditor/editor/editorwindow.cpp:594
+#: utilities/imageeditor/editor/editorwindow.cpp:605
 msgid "Flip Horizontally"
 msgstr "Waagerecht spiegeln"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:347
-#: utilities/imageeditor/editor/editorwindow.cpp:600
+#: utilities/imageeditor/editor/editorwindow.cpp:611
 msgid "Flip Vertically"
 msgstr "Senkrecht spiegeln"
 
@@ -9289,7 +9303,7 @@ msgid "Greycstoration Filter"
 msgstr "Greycstoration-Filter"
 
 #: libs/dimg/filters/greycstoration/greycstorationsettings.cpp:134
-#: utilities/lighttable/lighttablewindow.cpp:1489
+#: utilities/lighttable/lighttablewindow.cpp:1491
 #: utilities/queuemanager/main/queuemgrwindow.cpp:569
 msgid "General"
 msgstr "Allgemein"
@@ -13386,15 +13400,16 @@ msgstr ""
 "Sind Sie sicher?"
 
 #: showfoto/main/showfoto.cpp:972
-#: utilities/imageeditor/editor/editorwindow.cpp:1246
+#: utilities/imageeditor/editor/editorwindow.cpp:1259
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
 #: utilities/importui/main/importui.cpp:1995
 msgid "Warning"
 msgstr "Warnung"
 
 #: showfoto/main/showfoto.cpp:1050
-#: utilities/imageeditor/main/imagewindow.cpp:1373
-#: utilities/lighttable/lighttablewindow.cpp:1431
+#: utilities/imageeditor/main/imagewindow.cpp:1381
+#: utilities/lighttable/lighttablewindow.cpp:1422
+#: utilities/lighttable/lighttablewindow.cpp:1447
 msgid "Preparing slideshow. Please wait..."
 msgstr "Diaschau wird vorbereitet. Bitte warten ..."
 
@@ -13549,94 +13564,98 @@ msgstr ""
 "p>"
 
 #: showfoto/setup/showfotosetupmetadata.cpp:158
-#: showfoto/setup/showfotosetupmisc.cpp:103
+#: showfoto/setup/showfotosetupmisc.cpp:105
 #: utilities/queuemanager/views/queuesettingsview.cpp:261
 #: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:512
 msgid "Behavior"
 msgstr "Verhalten"
 
-#: showfoto/setup/showfotosetupmisc.cpp:106
+#: showfoto/setup/showfotosetupmisc.cpp:108
 msgid "&Deleted items should go to the trash"
 msgstr "Einträge &löschen verschiebt diese in den Papierkorb"
 
-#: showfoto/setup/showfotosetupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/showfotosetupmisc.cpp:109 utilities/setup/setupmisc.cpp:98
+msgid "Scroll current item to center of thumbbar"
+msgstr ""
+
+#: showfoto/setup/showfotosetupmisc.cpp:110 utilities/setup/setupmisc.cpp:99
 msgid "&Show splash screen at startup"
 msgstr "&Startbild anzeigen"
 
-#: showfoto/setup/showfotosetupmisc.cpp:108
+#: showfoto/setup/showfotosetupmisc.cpp:111
 msgid "&Show image Format"
 msgstr "&Bildformat anzeigen"
 
-#: showfoto/setup/showfotosetupmisc.cpp:109
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:439
+#: showfoto/setup/showfotosetupmisc.cpp:112
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:439
 msgid "Set this option to show image format over image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um das Bildformat über der Vorschau "
 "anzuzeigen."
 
-#: showfoto/setup/showfotosetupmisc.cpp:110
+#: showfoto/setup/showfotosetupmisc.cpp:113
 msgid "&Show Geolocation Indicator"
 msgstr "Geolokalisierung&s-Anzeige einblenden"
 
-#: showfoto/setup/showfotosetupmisc.cpp:111
-#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:442
+#: showfoto/setup/showfotosetupmisc.cpp:114
+#: utilities/setup/setupalbumview.cpp:194 utilities/setup/setupcamera.cpp:442
 msgid "Set this option to indicate if image has geolocation information."
 msgstr ""
 "Benutzen Sie diese Einstellung zur Anzeige, ob Bilder Geolokalisierungs-"
 "Informationen enthalten."
 
-#: showfoto/setup/showfotosetupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/showfotosetupmisc.cpp:117 utilities/setup/setupmisc.cpp:104
 msgid "Sidebar tab title:"
 msgstr "Titel der Seitenleisten-Reiter anzeigen:"
 
-#: showfoto/setup/showfotosetupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/showfotosetupmisc.cpp:119 utilities/setup/setupmisc.cpp:106
 msgid "Only For Active Tab"
 msgstr "Nur für aktive Reiter"
 
-#: showfoto/setup/showfotosetupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/showfotosetupmisc.cpp:120 utilities/setup/setupmisc.cpp:107
 msgid "For All Tabs"
 msgstr "Für alle Reiter"
 
-#: showfoto/setup/showfotosetupmisc.cpp:118
+#: showfoto/setup/showfotosetupmisc.cpp:121
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr ""
 "Benutzen Sie diese Einstellung, um einzustellen wie die Titel der Reiter in "
 "der Seitenleiste sichtbar sind."
 
-#: showfoto/setup/showfotosetupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/showfotosetupmisc.cpp:124 utilities/setup/setupmisc.cpp:128
 msgid "Widget style:"
 msgstr "Stil der Bedienelemente:"
 
-#: showfoto/setup/showfotosetupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/showfotosetupmisc.cpp:126 utilities/setup/setupmisc.cpp:130
 msgid "Set this option to choose the default window decoration and looks."
 msgstr ""
 "Benutzen Sie diese Einstellung, um das Verhalten und Aussehen des "
 "Standardfensters festzulegen."
 
-#: showfoto/setup/showfotosetupmisc.cpp:142
+#: showfoto/setup/showfotosetupmisc.cpp:146
 msgid "Sort order for images"
 msgstr "Sortierordnung für Bilder"
 
-#: showfoto/setup/showfotosetupmisc.cpp:146
+#: showfoto/setup/showfotosetupmisc.cpp:150
 msgid "Sort images by:"
 msgstr "Bilder sortieren nach:"
 
-#: showfoto/setup/showfotosetupmisc.cpp:148
+#: showfoto/setup/showfotosetupmisc.cpp:152
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "Datum"
 
-#: showfoto/setup/showfotosetupmisc.cpp:149
+#: showfoto/setup/showfotosetupmisc.cpp:153
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "Name"
 
-#: showfoto/setup/showfotosetupmisc.cpp:150
+#: showfoto/setup/showfotosetupmisc.cpp:154
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "Dateigröße"
 
-#: showfoto/setup/showfotosetupmisc.cpp:151
+#: showfoto/setup/showfotosetupmisc.cpp:155
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -13644,11 +13663,11 @@ msgstr ""
 "Wählen Sie hier aus, ob neu geladene Bilder nach dem Dateidatum, dem "
 "Dateinamen oder der Dateigröße sortiert werden."
 
-#: showfoto/setup/showfotosetupmisc.cpp:154
+#: showfoto/setup/showfotosetupmisc.cpp:158
 msgid "Reverse ordering"
 msgstr "Umgekehrte Sortierung"
 
-#: showfoto/setup/showfotosetupmisc.cpp:155
+#: showfoto/setup/showfotosetupmisc.cpp:159
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -15424,19 +15443,19 @@ msgctxt "@title:tab"
 msgid "Advanced"
 msgstr "Erweitert"
 
-#: utilities/firstrun/collectionpage.cpp:76
+#: utilities/firstrun/collectionpage.cpp:77
 msgid "<b>Configure where you keep your images and you will store database</b>"
 msgstr ""
 "<b>Stellen Sie ein, wo Sie Ihre Bilder ablegen und die Datenbank speichern</"
 "b>"
 
-#: utilities/firstrun/collectionpage.cpp:97
+#: utilities/firstrun/collectionpage.cpp:98
 msgctxt ""
 "This is a path name so you should include the slash in the translation"
 msgid "/Pictures"
 msgstr "/Bilder"
 
-#: utilities/firstrun/collectionpage.cpp:103
+#: utilities/firstrun/collectionpage.cpp:104
 msgid ""
 "<p>Please enter a location where you keep your images.</p> <p>You can choose "
 "any local folder, even one that already contains images.<br/> More folders "
@@ -15447,7 +15466,7 @@ msgstr ""
 "dieser bereits Bilder enthält.<br/>Weitere Ordner können Sie im Menü "
 "<i>Einstellungen</i> hinzufügen.</p>"
 
-#: utilities/firstrun/collectionpage.cpp:110
+#: utilities/firstrun/collectionpage.cpp:111
 msgid ""
 "<p><i>Note:</i> removable media (such as USB drives or DVDs) and remote file "
 "systems (such as NFS, or Samba mounted with cifs/smbfs) are supported.</p>"
@@ -15456,7 +15475,7 @@ msgstr ""
 "entfernte Dateisysteme (wie NFS oder Samba, über CIFS/smbfs eingebunden), "
 "werden unterstützt.</p>"
 
-#: utilities/firstrun/collectionpage.cpp:122
+#: utilities/firstrun/collectionpage.cpp:123
 msgid ""
 "<p>digiKam stores information and metadata about your images in a database "
 "file. Please set the location of this file or accept the default.</"
@@ -15470,7 +15489,7 @@ msgstr ""
 "Schreibrechte für diesen Ordner. Entfernte Dateisysteme wie NFS oder Samba "
 "können Sie hierfür nicht benutzen.</p>"
 
-#: utilities/firstrun/collectionpage.cpp:205
+#: utilities/firstrun/collectionpage.cpp:206
 msgid ""
 "You must select a folder for digiKam to use as the root album. All of your "
 "images will go there."
@@ -15478,7 +15497,7 @@ msgstr ""
 "Sie müssen einen Ordner als Basisalbenpfad in digiKam auswählen. Alle Ihre "
 "Bilder werden hierunter gespeichert."
 
-#: utilities/firstrun/collectionpage.cpp:233
+#: utilities/firstrun/collectionpage.cpp:234
 #, kde-format
 msgid ""
 "<p>The folder to use as the root album path does not exist:</p><p><b>%1</b></"
@@ -15487,11 +15506,11 @@ msgstr ""
 "<p>Der gewählte Basisordner ist nicht vorhanden:</p><p><b>%1</b></p>Soll der "
 "Ordner erstellt werden?"
 
-#: utilities/firstrun/collectionpage.cpp:237
+#: utilities/firstrun/collectionpage.cpp:238
 msgid "Create Root Album Folder?"
 msgstr "Basisordner erstellen?"
 
-#: utilities/firstrun/collectionpage.cpp:247
+#: utilities/firstrun/collectionpage.cpp:248
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to use as the root album.\n"
@@ -15501,11 +15520,11 @@ msgstr ""
 "erstellen.\n"
 "Bitte wählen Sie einen anderen Speicherort.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:250
+#: utilities/firstrun/collectionpage.cpp:251
 msgid "Create Root Album Folder Failed"
 msgstr "Das Erstellen des Basisordners ist fehlgeschlagen."
 
-#: utilities/firstrun/collectionpage.cpp:267
+#: utilities/firstrun/collectionpage.cpp:268
 msgid ""
 "You do not seem to have write access for the folder selected to be the root "
 "album.\n"
@@ -15514,7 +15533,7 @@ msgstr ""
 "Sie haben keine Schreibrechte für den Pfad des Basisordners.\n"
 "Achtung: Ohne Schreibrechte können Einträge nicht bearbeitet werden."
 
-#: utilities/firstrun/collectionpage.cpp:282
+#: utilities/firstrun/collectionpage.cpp:283
 msgid ""
 "You must select a folder for digiKam to store information and metadata in a "
 "database file."
@@ -15522,7 +15541,7 @@ msgstr ""
 "Sie müssen einen Ordner auswählen, in dem digiKam Informationen und "
 "Metadaten in einer Datenbankdatei speichern kann."
 
-#: utilities/firstrun/collectionpage.cpp:310
+#: utilities/firstrun/collectionpage.cpp:311
 #, kde-format
 msgid ""
 "<p>The folder to put your database in does not seem to exist:</p><p><b>%1</"
@@ -15531,11 +15550,11 @@ msgstr ""
 "<p>Der für die Datenbank gewählte Ordner ist nicht vorhanden:</p><p><b>%1</"
 "b></p>Soll der Ordner erstellen werden?"
 
-#: utilities/firstrun/collectionpage.cpp:314
+#: utilities/firstrun/collectionpage.cpp:315
 msgid "Create Database Folder?"
 msgstr "Datenbankordner erstellen?"
 
-#: utilities/firstrun/collectionpage.cpp:324
+#: utilities/firstrun/collectionpage.cpp:325
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to host your database file.\n"
@@ -15544,11 +15563,11 @@ msgstr ""
 "<p>Der unten angezeigte Datenbank-Ordner lässt sich nicht erstellen.\n"
 "Bitte wählen Sie einen anderen Speicherort.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:327
+#: utilities/firstrun/collectionpage.cpp:328
 msgid "Create Database Folder Failed"
 msgstr "Das Erstellen des Datenbank-Ordners ist fehlgeschlagen."
 
-#: utilities/firstrun/collectionpage.cpp:344
+#: utilities/firstrun/collectionpage.cpp:345
 #, kde-format
 msgid ""
 "<p>You do not seem to have write access for the folder to host the database "
@@ -15557,7 +15576,7 @@ msgstr ""
 "<p>Sie haben keine Schreibrechte auf den Datenbank-Ordner.<br/>Bitte wählen "
 "Sie einen anderen Speicherort.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:348
+#: utilities/firstrun/collectionpage.cpp:349
 msgid "No Database Write Access"
 msgstr "Kein Schreibzugriff auf die Datenbank"
 
@@ -16299,50 +16318,50 @@ msgstr "Ausprobieren"
 msgid "Try all settings."
 msgstr "Alle Einstellungen versuchen."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:352
-#: utilities/lighttable/lighttablewindow.cpp:469
+#: utilities/imageeditor/editor/editorwindow.cpp:358
+#: utilities/lighttable/lighttablewindow.cpp:473
 msgid "&First"
 msgstr "Er&stes Bild"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:357
-#: utilities/lighttable/lighttablewindow.cpp:475
+#: utilities/imageeditor/editor/editorwindow.cpp:364
+#: utilities/lighttable/lighttablewindow.cpp:479
 msgid "&Last"
 msgstr "&Letztes Bild"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:363
+#: utilities/imageeditor/editor/editorwindow.cpp:371
 msgctxt "@action"
 msgid "Open Original"
 msgstr "Original öffnen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:372
+#: utilities/imageeditor/editor/editorwindow.cpp:380
 msgctxt "@action Save changes to current version"
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:373
+#: utilities/imageeditor/editor/editorwindow.cpp:381
 msgctxt "@info:tooltip"
 msgid "Save the modifications to the current version of the file"
 msgstr "Die Veränderungen in die aktuelle Version der Datei speichern"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:378
+#: utilities/imageeditor/editor/editorwindow.cpp:386
 msgctxt "@action Save changes to a newly created version"
 msgid "Save As New Version"
 msgstr "Als neue Version speichern"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:379
+#: utilities/imageeditor/editor/editorwindow.cpp:387
 msgctxt "@info:tooltip"
 msgid "Save the current modifications to a new version of the file"
 msgstr ""
 "Die aktuellen Änderungen in einer neuen Version dieser Datei speichern."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:385
+#: utilities/imageeditor/editor/editorwindow.cpp:393
 msgctxt ""
 "@action Save changes to a newly created version, specifying the filename and "
 "format"
 msgid "Save New Version As..."
 msgstr "Neue Version speichern unter ..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:386
+#: utilities/imageeditor/editor/editorwindow.cpp:394
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current modifications to a new version of the file, specifying the "
@@ -16351,94 +16370,94 @@ msgstr ""
 "Die aktuellen Änderungen in einer neuen Version dieser Datei speichern, "
 "unter Angabe des Dateinamens und -formats."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:393
+#: utilities/imageeditor/editor/editorwindow.cpp:401
 msgctxt "@action Save As New Version...Save in format..."
 msgid "Save in Format"
 msgstr "In Format speichern"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:394
+#: utilities/imageeditor/editor/editorwindow.cpp:402
 msgctxt "@action:inmenu"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:395
+#: utilities/imageeditor/editor/editorwindow.cpp:403
 msgctxt "@action:inmenu"
 msgid "TIFF"
 msgstr "TIFF"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:396
+#: utilities/imageeditor/editor/editorwindow.cpp:404
 msgctxt "@action:inmenu"
 msgid "PNG"
 msgstr "PNG"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:397
+#: utilities/imageeditor/editor/editorwindow.cpp:405
 msgctxt "@action:inmenu"
 msgid "PGF"
 msgstr "PGF"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:399
+#: utilities/imageeditor/editor/editorwindow.cpp:407
 msgctxt "@action:inmenu"
 msgid "JPEG 2000"
 msgstr "JPEG 2000"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:412
+#: utilities/imageeditor/editor/editorwindow.cpp:420
 msgctxt "@action"
 msgid "Export"
 msgstr "Exportieren"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:413
+#: utilities/imageeditor/editor/editorwindow.cpp:421
 msgctxt "@info:tooltip"
 msgid "Save the file in a folder outside your collection"
 msgstr "Die Datei in einen Ordner außerhalb Ihrer Sammlung speichern"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:422
+#: utilities/imageeditor/editor/editorwindow.cpp:430
 msgctxt "@action"
 msgid "Discard Changes"
 msgstr "Änderungen verwerfen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:423
+#: utilities/imageeditor/editor/editorwindow.cpp:431
 msgctxt "@info:tooltip"
 msgid "Discard all current changes to this file"
 msgstr "Alle aktuellen Änderungen dieser Datei verwerfen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:435
+#: utilities/imageeditor/editor/editorwindow.cpp:443
 msgid "Print Image..."
 msgstr "Bild drucken ..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:442
-#: utilities/lighttable/lighttablewindow.cpp:503
+#: utilities/imageeditor/editor/editorwindow.cpp:451
+#: utilities/lighttable/lighttablewindow.cpp:507
 msgid "Open the item with default assigned application."
 msgstr "Eintrag mit der zugeordneten Standard-Anwendung öffnen."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:460
+#: utilities/imageeditor/editor/editorwindow.cpp:471
 msgid "Undo"
 msgstr "Rückgängig"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:479
+#: utilities/imageeditor/editor/editorwindow.cpp:490
 msgid "Redo"
 msgstr "Wiederherstellen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:495
+#: utilities/imageeditor/editor/editorwindow.cpp:506
 msgctxt "Create a selection containing the full image"
 msgid "Select All"
 msgstr "Alle auswählen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:529
+#: utilities/imageeditor/editor/editorwindow.cpp:540
 msgid "Fit to &Selection"
 msgstr "An &Auswahl anpassen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:534
+#: utilities/imageeditor/editor/editorwindow.cpp:545
 msgid ""
 "This option can be used to zoom the image to the current selection area."
 msgstr ""
 "Diese Einstellung kann benutzt werden, um das Bild auf den ausgewählten "
 "Bereich zu zoomen."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:547
+#: utilities/imageeditor/editor/editorwindow.cpp:558
 msgid "Under-Exposure Indicator"
 msgstr "Unterbelichtungsindikator"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:549
+#: utilities/imageeditor/editor/editorwindow.cpp:560
 msgid ""
 "Set this option to display black overlaid on the image. This will help you "
 "to avoid under-exposing the image."
@@ -16446,11 +16465,11 @@ msgstr ""
 "Benutzen Sie diese Option, um eine schwarze Überlagerung auf dem Bild "
 "anzuzeigen. Dies hilft Ihnen, unterbelichtete Bilder zu vermeiden."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:555
+#: utilities/imageeditor/editor/editorwindow.cpp:566
 msgid "Over-Exposure Indicator"
 msgstr "Überbelichtungsindikator"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:557
+#: utilities/imageeditor/editor/editorwindow.cpp:568
 msgid ""
 "Set this option to display white overlaid on the image. This will help you "
 "to avoid over-exposing the image."
@@ -16458,20 +16477,20 @@ msgstr ""
 "Benutzen Sie diese Option, um eine weiße Überlagerung auf dem Bild "
 "anzuzeigen. Dies hilft Ihnen, überbelichtete Bilder zu vermeiden."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:568
+#: utilities/imageeditor/editor/editorwindow.cpp:579
 msgid "Soft Proofing Options..."
 msgstr "Druckproben-Einstellungen ..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:572
+#: utilities/imageeditor/editor/editorwindow.cpp:583
 msgid "Soft Proofing View"
 msgstr "Druckprobenansicht"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:578
+#: utilities/imageeditor/editor/editorwindow.cpp:589
 msgctxt "@action"
 msgid "Crop to Selection"
 msgstr "Auf Auswahl zuschneiden"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:583
+#: utilities/imageeditor/editor/editorwindow.cpp:594
 msgid ""
 "This option can be used to crop the image. Select a region of the image to "
 "enable this action."
@@ -16479,58 +16498,58 @@ msgstr ""
 "Mit diesem Filter können Sie das Bild zuschneiden. Wählen Sie einen Bereich "
 "im Bild aus, um den Filter anzuwenden."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:586
+#: utilities/imageeditor/editor/editorwindow.cpp:597
 msgctxt "@action"
 msgid "Auto-Crop"
 msgstr "Automatisch zuschneiden"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:590
+#: utilities/imageeditor/editor/editorwindow.cpp:601
 msgid "This option can be used to crop automatically the image."
 msgstr ""
 "Diese Einstellung kann benutzt werden, um das Bild automatisch zu "
 "zuschneiden."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:658
+#: utilities/imageeditor/editor/editorwindow.cpp:669
 msgctxt "@action Select image editor tool/filter"
 msgid "Select Tool"
 msgstr "Werkzeug auswählen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:664
+#: utilities/imageeditor/editor/editorwindow.cpp:675
 msgid "OK"
 msgstr "OK"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:684
-#: utilities/imageeditor/editor/editorwindow.cpp:1631
+#: utilities/imageeditor/editor/editorwindow.cpp:695
+#: utilities/imageeditor/editor/editorwindow.cpp:1677
 msgid "No selection"
 msgstr "Keine Auswahl"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:687
+#: utilities/imageeditor/editor/editorwindow.cpp:698
 msgid "Information about current image selection"
 msgstr "Informationen über die aktuelle Bildauswahl"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:692
+#: utilities/imageeditor/editor/editorwindow.cpp:703
 msgid "Information about image size"
 msgstr "Informationen über die Bildgröße"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:766
+#: utilities/imageeditor/editor/editorwindow.cpp:777
 msgctxt "general editor shortcuts"
 msgid "General"
 msgstr "Allgemein"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:767
+#: utilities/imageeditor/editor/editorwindow.cpp:778
 msgctxt "imageplugins shortcuts"
 msgid "Image Plugins"
 msgstr "Bildmodule"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1223
+#: utilities/imageeditor/editor/editorwindow.cpp:1236
 msgid "Saving image..."
 msgstr "Bild wird gespeichert ..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1224
+#: utilities/imageeditor/editor/editorwindow.cpp:1237
 msgid "Please wait for the image to be saved..."
 msgstr "Bitte warten Sie, während das Bild gespeichert wird ..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1243
+#: utilities/imageeditor/editor/editorwindow.cpp:1256
 #, kde-format
 msgid ""
 "About to overwrite file \"%1\"\n"
@@ -16539,16 +16558,16 @@ msgstr ""
 "Die Datei „%1“ wird überschrieben.\n"
 "Sind Sie sicher?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1247
+#: utilities/imageeditor/editor/editorwindow.cpp:1260
 msgid "Overwrite"
 msgstr "Überschreiben"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1321
+#: utilities/imageeditor/editor/editorwindow.cpp:1334
 msgctxt "@title:window"
 msgid "Save?"
 msgstr "Speichern?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1333
+#: utilities/imageeditor/editor/editorwindow.cpp:1346
 msgctxt "@label"
 msgid ""
 "The current image has been changed.<nl/>Do you wish to save your changes?"
@@ -16556,12 +16575,12 @@ msgstr ""
 "Das aktuelle Bild wurde verändert.\n"
 "Möchten Sie Ihre Änderungen speichern?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1343
+#: utilities/imageeditor/editor/editorwindow.cpp:1356
 msgctxt "@action:button"
 msgid "Save Changes"
 msgstr "Änderungen speichern"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1345
+#: utilities/imageeditor/editor/editorwindow.cpp:1358
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current changes. Note: The original image will never be overwritten."
@@ -16569,12 +16588,12 @@ msgstr ""
 "Die aktuellen Änderungen speichern. Hinweis: Das Originalbild wird nie "
 "überschrieben."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1347
+#: utilities/imageeditor/editor/editorwindow.cpp:1360
 msgctxt "@action:button"
 msgid "Save Changes as a New Version"
 msgstr "Änderungen als neue Version speichern"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1349
+#: utilities/imageeditor/editor/editorwindow.cpp:1362
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current changes as a new version. The loaded file will remain "
@@ -16583,17 +16602,17 @@ msgstr ""
 "Die aktuellen Änderungen als eine neue Version speichern. Das geladene Bild "
 "wird dabei nicht verändert, sondern eine neue Datei erstellt."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1352
+#: utilities/imageeditor/editor/editorwindow.cpp:1365
 msgctxt "@action:button"
 msgid "Discard Changes"
 msgstr "Änderungen verwerfen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1354
+#: utilities/imageeditor/editor/editorwindow.cpp:1367
 msgctxt "@info:tooltip"
 msgid "Discard the changes applied to the image during this editing session."
 msgstr "Änderungen dieses Bildes in dieser Bearbeitungssitzung verwerfen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1429
+#: utilities/imageeditor/editor/editorwindow.cpp:1442
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -16603,7 +16622,17 @@ msgstr ""
 "Das Bild <filename>%1</filename> wurde verändert.\n"
 "Soll es gespeichert werden?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1711
+#: utilities/imageeditor/editor/editorwindow.cpp:1591
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The image <filename>%1</filename> has been modified.<nl/>All changes will be "
+"lost."
+msgstr ""
+"Das Bild <filename>%1</filename> wurde verändert.\n"
+"Alle Änderungen werden verworfen."
+
+#: utilities/imageeditor/editor/editorwindow.cpp:1757
 #, kde-format
 msgid ""
 "Cannot open the specified working space profile (\"%1\"). No color "
@@ -16614,11 +16643,11 @@ msgstr ""
 "keine Farbumwandlung durchgeführt. Überprüfen Sie bitte die Einrichtung der "
 "Farbverwaltung in den digiKam-Einstellungen."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1767
+#: utilities/imageeditor/editor/editorwindow.cpp:1813
 msgid "Saving: "
 msgstr "Wird gespeichert: "
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1785
+#: utilities/imageeditor/editor/editorwindow.cpp:1831
 #, kde-format
 msgid ""
 "Failed to save file\n"
@@ -16631,37 +16660,37 @@ msgstr ""
 "nach\n"
 "„%2“."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1913
+#: utilities/imageeditor/editor/editorwindow.cpp:1959
 #, kde-format
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "Im Ordner „%1“ kann keine temporäre Datei geöffnet werden: %2 (%3)"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1967
+#: utilities/imageeditor/editor/editorwindow.cpp:2013
 msgid "New Image File Name"
 msgstr "Neuer Dateiname des Bildes"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2079
+#: utilities/imageeditor/editor/editorwindow.cpp:2125
 msgid "Unable to determine the format to save the target image with."
 msgstr ""
 "Das Format, mit dem das Zielbild gespeichert werden soll, lässt sich nicht "
 "ermitteln."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2085
+#: utilities/imageeditor/editor/editorwindow.cpp:2131
 #, kde-format
 msgid "Cannot Save: Found file path <filename>%1</filename> is invalid."
 msgstr ""
 "Speichern nicht möglich: Der gefundene Pfad <filename>%1</filename> ist "
 "ungültig."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2108
+#: utilities/imageeditor/editor/editorwindow.cpp:2154
 msgid "JPEG 2000 image"
 msgstr "JPEG-2000-Bild"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2114
+#: utilities/imageeditor/editor/editorwindow.cpp:2160
 msgid "Progressive Graphics File"
 msgstr "Progressive-Graphics-Datei"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2446
+#: utilities/imageeditor/editor/editorwindow.cpp:2492
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -16671,7 +16700,7 @@ msgstr ""
 "Die Datei <filename>%1</filename> kann nicht in den vorgeschlagenen "
 "Versionsdateinamen <filename>%2</filename> gespeichert werden."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2517
+#: utilities/imageeditor/editor/editorwindow.cpp:2563
 #, kde-format
 msgid ""
 "You do not have write permissions for the file named \"%1\". Are you sure "
@@ -16680,12 +16709,12 @@ msgstr ""
 "Sie haben keine Schreibberechtigung für die Datei „%1“. Sind Sie sicher, "
 "dass sie überschrieben werden soll?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2522
-#: utilities/imageeditor/editor/editorwindow.cpp:2543
+#: utilities/imageeditor/editor/editorwindow.cpp:2568
+#: utilities/imageeditor/editor/editorwindow.cpp:2589
 msgid "Overwrite File?"
 msgstr "Datei überschreiben?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2539
+#: utilities/imageeditor/editor/editorwindow.cpp:2585
 #, kde-format
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
@@ -16693,29 +16722,29 @@ msgstr ""
 "Eine Datei mit dem Namen „%1“ existiert bereits. Soll sie überschrieben "
 "werden?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2568
+#: utilities/imageeditor/editor/editorwindow.cpp:2614
 msgid "Failed to overwrite original file"
 msgstr "Überschreiben der Originaldatei fehlgeschlagen"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2569
-#: utilities/imageeditor/editor/editorwindow.cpp:2641
+#: utilities/imageeditor/editor/editorwindow.cpp:2615
+#: utilities/imageeditor/editor/editorwindow.cpp:2687
 msgid "Error Saving File"
 msgstr "Fehler beim Speichern der Datei"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2640
+#: utilities/imageeditor/editor/editorwindow.cpp:2686
 #, kde-format
 msgid "Failed to save file: %1"
 msgstr "Das Speichern der Datei ist fehlgeschlagen: %1."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2682
+#: utilities/imageeditor/editor/editorwindow.cpp:2728
 msgid "Color-Managed View is enabled."
 msgstr "Die farbverwaltete Ansicht ist eingeschaltet"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2686
+#: utilities/imageeditor/editor/editorwindow.cpp:2732
 msgid "Color-Managed View is disabled."
 msgstr "Die farbverwaltete Ansicht ist ausgeschaltet"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2691
+#: utilities/imageeditor/editor/editorwindow.cpp:2737
 msgid ""
 "Color Management is not configured, so the Color-Managed View is not "
 "available."
@@ -16723,23 +16752,23 @@ msgstr ""
 "Die Farbverwaltung ist nicht eingerichtet. Daher steht die farbverwaltete "
 "Ansicht nicht zur Verfügung."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2726
+#: utilities/imageeditor/editor/editorwindow.cpp:2772
 msgid "Under-Exposure indicator is enabled"
 msgstr "Unterbelichtungsindikator ist eingeschaltet"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2727
+#: utilities/imageeditor/editor/editorwindow.cpp:2773
 msgid "Under-Exposure indicator is disabled"
 msgstr "Unterbelichtungsindikator ist ausgeschaltet"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2741
+#: utilities/imageeditor/editor/editorwindow.cpp:2787
 msgid "Over-Exposure indicator is enabled"
 msgstr "Überbelichtungsindikator ist eingeschaltet"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2742
+#: utilities/imageeditor/editor/editorwindow.cpp:2788
 msgid "Over-Exposure indicator is disabled"
 msgstr "Überbelichtungsindikator ist ausgeschaltet"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2840
+#: utilities/imageeditor/editor/editorwindow.cpp:2886
 msgctxt "@title Image transformations"
 msgid "Basic Transformations"
 msgstr "Grundlegende Umwandlungen"
@@ -16766,7 +16795,7 @@ msgstr "Ohne Nachfrage in den Papierkorb werfen"
 msgid "Image Editor - %1"
 msgstr "Bildbearbeitung – %1"
 
-#: utilities/imageeditor/main/imagewindow.cpp:1240
+#: utilities/imageeditor/main/imagewindow.cpp:1248
 msgid ""
 "There is no image to show in the current album.\n"
 "The image editor will be closed."
@@ -16774,18 +16803,18 @@ msgstr ""
 "Es befindet sich kein Bild im aktuellen Album.\n"
 "Die digiKam-Bildbearbeitung wird geschlossen."
 
-#: utilities/imageeditor/main/imagewindow.cpp:1242
+#: utilities/imageeditor/main/imagewindow.cpp:1250
 msgid "No Image in Current Album"
 msgstr "Kein Bild im aktuellen Album"
 
-#: utilities/imageeditor/main/imagewindow.cpp:1596
+#: utilities/imageeditor/main/imagewindow.cpp:1604
 #, kde-format
 msgctxt "@info"
 msgid "The original file (<filename>%1</filename>) is currently not available"
 msgstr ""
 "Die Originaldatei (<filename>%1</filename>) ist momentan nicht verfügbar."
 
-#: utilities/imageeditor/main/imagewindow.cpp:1599
+#: utilities/imageeditor/main/imagewindow.cpp:1607
 msgctxt "@title"
 msgid "File Not Available"
 msgstr "Datei nicht verfügbar"
@@ -17241,7 +17270,7 @@ msgstr ""
 "Das Umschalten der Sperrdatei <filename>%1</filename> ist fehlgeschlagen. "
 "Möchten Sie fortfahren?"
 
-#: utilities/importui/backend/gpcamera.cpp:1379
+#: utilities/importui/backend/gpcamera.cpp:1390
 #, kde-format
 msgctxt "@info List of device properties"
 msgid ""
@@ -17251,7 +17280,7 @@ msgstr ""
 "Titel: <b>%1</b><br/>Modell: <b>%2</b><br/>Anschluss: <b>%3</b><br/>Pfad: <b>"
 "%4</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1389
+#: utilities/importui/backend/gpcamera.cpp:1400
 #, kde-format
 msgctxt "@info List of supported device operations"
 msgid ""
@@ -17767,7 +17796,7 @@ msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Datei bereits vorhanden"
 
-#: utilities/importui/main/importui.cpp:1451
+#: utilities/importui/main/importui.cpp:1453
 msgctxt "@info"
 msgid ""
 "Your custom target album date format is not valid. Please check your "
@@ -17847,17 +17876,17 @@ msgstr[1] ""
 "Diese %1 Bilder sollen gelöscht werden. <warning>Gelöschte Dateien können "
 "nicht wiederhergestellt werden</warning>. Sind Sie sicher?"
 
-#: utilities/importui/main/importui.cpp:2034
+#: utilities/importui/main/importui.cpp:2037
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Trotzdem versuchen"
 
-#: utilities/importui/main/importui.cpp:2036
+#: utilities/importui/main/importui.cpp:2039
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "Herunterladen abbrechen"
 
-#: utilities/importui/main/importui.cpp:2038
+#: utilities/importui/main/importui.cpp:2041
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17874,13 +17903,13 @@ msgstr ""
 "Ungefähr benötigter Speicherplatz: %1\n"
 "Verfügbarer Speicher: %2"
 
-#: utilities/importui/main/importui.cpp:2044
+#: utilities/importui/main/importui.cpp:2047
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Unzureichender Plattenplatz"
 
-#: utilities/importui/main/importui.cpp:2338
-#: utilities/importui/main/importui.cpp:2362
+#: utilities/importui/main/importui.cpp:2347
+#: utilities/importui/main/importui.cpp:2371
 #, kde-format
 msgctxt "@info:status"
 msgid "No item selected (%1 item)"
@@ -17888,13 +17917,13 @@ msgid_plural "No item selected (%1 items)"
 msgstr[0] "Kein Eintrag ausgewählt (%1 Eintrag)"
 msgstr[1] "Kein Eintrag ausgewählt (%1 Einträge)"
 
-#: utilities/importui/main/importui.cpp:2355
+#: utilities/importui/main/importui.cpp:2364
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr "<filename>%1</filename> (%2 von %3)"
 
-#: utilities/importui/main/importui.cpp:2371
+#: utilities/importui/main/importui.cpp:2380
 #, kde-format
 msgctxt "@info:status"
 msgid "%2/%1 item selected"
@@ -17902,7 +17931,7 @@ msgid_plural "%2/%1 items selected"
 msgstr[0] "%2/%1 Eintrag ausgewählt"
 msgstr[1] "%2/%1 Einträge ausgewählt"
 
-#: utilities/importui/main/importui.cpp:2445
+#: utilities/importui/main/importui.cpp:2454
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17912,13 +17941,13 @@ msgstr ""
 "Es existiert bereits ein Album mit dem gleichen Namen <filename>%1</"
 "filename> im Ordner <resource>%2</resource>."
 
-#: utilities/importui/main/importui.cpp:2457
+#: utilities/importui/main/importui.cpp:2466
 #, kde-format
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "Album im Pfad <filename>%1</filename> nicht gefunden."
 
-#: utilities/importui/main/importui.cpp:2485
+#: utilities/importui/main/importui.cpp:2494
 msgctxt "@title"
 msgid "General"
 msgstr "Allgemein"
@@ -18338,7 +18367,7 @@ msgid "Show on right panel"
 msgstr "Im rechten Fensterbereich anzeigen"
 
 #: utilities/lighttable/lighttablethumbbar.cpp:261
-#: utilities/lighttable/lighttablewindow.cpp:495
+#: utilities/lighttable/lighttablewindow.cpp:499
 msgid "Edit"
 msgstr "Bearbeiten"
 
@@ -18354,87 +18383,87 @@ msgstr "Alle Einträge entfernen"
 msgid "Drag and drop images here"
 msgstr "Ziehen Sie Bilder und legen Sie sie hier ab"
 
-#: utilities/lighttable/lighttablewindow.cpp:481
+#: utilities/lighttable/lighttablewindow.cpp:485
 msgid "On left"
 msgstr "Links"
 
-#: utilities/lighttable/lighttablewindow.cpp:484
+#: utilities/lighttable/lighttablewindow.cpp:488
 msgid "Show item on left panel"
 msgstr "Eintrag im linken Fensterbereich anzeigen"
 
-#: utilities/lighttable/lighttablewindow.cpp:488
+#: utilities/lighttable/lighttablewindow.cpp:492
 msgid "On right"
 msgstr "Rechts"
 
-#: utilities/lighttable/lighttablewindow.cpp:491
+#: utilities/lighttable/lighttablewindow.cpp:495
 msgid "Show item on right panel"
 msgstr "Eintrag im rechten Fensterbereich anzeigen"
 
-#: utilities/lighttable/lighttablewindow.cpp:507
+#: utilities/lighttable/lighttablewindow.cpp:511
 msgid "Remove item from LightTable"
 msgstr "Eintrag vom Leuchttisch entfernen"
 
-#: utilities/lighttable/lighttablewindow.cpp:513
+#: utilities/lighttable/lighttablewindow.cpp:517
 msgid "Remove all items from LightTable"
 msgstr "Alle Einträge vom Leuchttisch entfernen"
 
-#: utilities/lighttable/lighttablewindow.cpp:525
+#: utilities/lighttable/lighttablewindow.cpp:529
 msgid "Delete immediately"
 msgstr "Sofort löschen"
 
-#: utilities/lighttable/lighttablewindow.cpp:536
+#: utilities/lighttable/lighttablewindow.cpp:540
 msgid "Synchronize"
 msgstr "Abgleichen"
 
-#: utilities/lighttable/lighttablewindow.cpp:539
+#: utilities/lighttable/lighttablewindow.cpp:543
 msgid "Synchronize preview from left and right panels"
 msgstr "Vorschau im linken und rechten Bereich abgleichen"
 
-#: utilities/lighttable/lighttablewindow.cpp:543
+#: utilities/lighttable/lighttablewindow.cpp:547
 msgid "By Pair"
 msgstr "Paarweise"
 
-#: utilities/lighttable/lighttablewindow.cpp:546
+#: utilities/lighttable/lighttablewindow.cpp:550
 msgid "Navigate by pairs with all items"
 msgstr "Durch alle Einträge paarweise navigieren"
 
-#: utilities/lighttable/lighttablewindow.cpp:550
+#: utilities/lighttable/lighttablewindow.cpp:554
 msgid "Clear On Close"
 msgstr "Beim Schließen „aufräumen“"
 
-#: utilities/lighttable/lighttablewindow.cpp:553
+#: utilities/lighttable/lighttablewindow.cpp:557
 msgid "Clear light table when it is closed"
 msgstr "Leuchttisch beim Schließen „aufräumen“"
 
-#: utilities/lighttable/lighttablewindow.cpp:554
+#: utilities/lighttable/lighttablewindow.cpp:558
 msgid "Remove all images from the light table when it is closed"
 msgstr "Alle Bilder vom Leuchttisch entfernen, wenn er geschlossen wird"
 
-#: utilities/lighttable/lighttablewindow.cpp:664
+#: utilities/lighttable/lighttablewindow.cpp:668
 msgid "Edit Titles on the Right"
 msgstr "Titel rechts bearbeiten"
 
-#: utilities/lighttable/lighttablewindow.cpp:669
+#: utilities/lighttable/lighttablewindow.cpp:673
 msgid "Edit Comments on the Right"
 msgstr "Kommentare rechts bearbeiten"
 
-#: utilities/lighttable/lighttablewindow.cpp:674
+#: utilities/lighttable/lighttablewindow.cpp:678
 msgid "Edit Titles on the Left"
 msgstr "Titel links bearbeiten"
 
-#: utilities/lighttable/lighttablewindow.cpp:679
+#: utilities/lighttable/lighttablewindow.cpp:683
 msgid "Edit Comments on the Left"
 msgstr "Kommentare links bearbeiten"
 
-#: utilities/lighttable/lighttablewindow.cpp:684
+#: utilities/lighttable/lighttablewindow.cpp:688
 msgid "Show Assigned Tags on the Right"
 msgstr "Zugewiesene Stichwörter rechts anzeigen"
 
-#: utilities/lighttable/lighttablewindow.cpp:689
+#: utilities/lighttable/lighttablewindow.cpp:693
 msgid "Show Assigned Tags on the Left"
 msgstr "Zugewiesene Stichwörter links anzeigen"
 
-#: utilities/lighttable/lighttablewindow.cpp:759
+#: utilities/lighttable/lighttablewindow.cpp:763
 #, kde-format
 msgid "%1 item on Light Table"
 msgid_plural "%1 items on Light Table"
@@ -19256,7 +19285,7 @@ msgstr "Die Stapelverarbeitung ist beendet"
 msgid "&Queues"
 msgstr "&Warteschlangen"
 
-#: utilities/queuemanager/manager/batchtool.cpp:537
+#: utilities/queuemanager/manager/batchtool.cpp:541
 msgid "No setting available"
 msgstr "Keine Einstellung verfügbar"
 
@@ -20415,125 +20444,125 @@ msgstr ""
 "Beachten Sie, dass dies einige Zeit dauert. Sie können die Aktualisierung "
 "auch später über das Menü „Extras->Wartung“ starten."
 
-#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:419
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:419
 msgid "Icon-View Options"
 msgstr "Einstellungen für die Vorschauansicht"
 
-#: utilities/setup/setupalbumview.cpp:141 utilities/setup/setupcamera.cpp:422
+#: utilities/setup/setupalbumview.cpp:143 utilities/setup/setupcamera.cpp:422
 msgid "Show file&name"
 msgstr "Datei&namen anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setupcamera.cpp:423
+#: utilities/setup/setupalbumview.cpp:144 utilities/setup/setupcamera.cpp:423
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um den Dateinamen unter der Vorschau "
 "anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:144 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:425
 msgid "Show file si&ze"
 msgstr "Datei&größe anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:145 utilities/setup/setupcamera.cpp:426
+#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:426
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um die Dateigröße unter der Vorschau "
 "anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:149 utilities/setup/setupcamera.cpp:428
 msgid "Show camera creation &date"
 msgstr "Kameraerstellungs&datum anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:148
+#: utilities/setup/setupalbumview.cpp:150
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um das Erstellungsdatum der Kamera unter der "
 "Vorschau anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:151
+#: utilities/setup/setupalbumview.cpp:153
 msgid "Show file &modification date (if different than creation date)"
 msgstr ""
 "Änderungsdatu&m der Datei anzeigen, wenn es sich vom Aufnahmedatum "
 "unterscheidet"
 
-#: utilities/setup/setupalbumview.cpp:152
+#: utilities/setup/setupalbumview.cpp:154
 msgid ""
 "Set this option to show the file modification date below the image thumbnail "
 "if it's different than camera creation date. This option is useful to "
 "identify quickly which items have been modified."
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:156
+#: utilities/setup/setupalbumview.cpp:158
 msgid "Show ima&ge dimensions"
 msgstr "Bildabmessun&gen anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupalbumview.cpp:159
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um die Abmessungen des Bildes in Pixeln "
 "unter der Vorschau anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:160 utilities/setup/setuptooltip.cpp:217
+#: utilities/setup/setupalbumview.cpp:162 utilities/setup/setuptooltip.cpp:217
 msgid "Show image aspect ratio"
 msgstr "Bild-Seitenverhältnis anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:163
 msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um das Seitenverhältnis unter der Vorschau "
 "der Bilder anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:164 utilities/setup/setupcamera.cpp:438
+#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:438
 msgid "Show image Format"
 msgstr "Bildformat anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:167
+#: utilities/setup/setupalbumview.cpp:169
 msgid "Show digiKam tit&le"
 msgstr "digiKam-Tite&l anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:168
+#: utilities/setup/setupalbumview.cpp:170
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um die digiKam-Titel unter der Vorschau "
 "anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:171
+#: utilities/setup/setupalbumview.cpp:173
 msgid "Show digiKam &captions"
 msgstr "digiKam-Bes&chriftungen anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:172
+#: utilities/setup/setupalbumview.cpp:174
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um die digiKam-Beschriftungen unter der "
 "Vorschau anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:177 utilities/setup/setupcamera.cpp:444
 msgid "Show digiKam &tags"
 msgstr "&digiKam-Stichwörter anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:445
+#: utilities/setup/setupalbumview.cpp:178 utilities/setup/setupcamera.cpp:445
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um die digiKam-Stichwörter unter der "
 "Vorschau anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:179
+#: utilities/setup/setupalbumview.cpp:181
 msgid "Show digiKam &rating"
 msgstr "digiKam-Bewertung anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupalbumview.cpp:182
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr ""
 "Benutzen Sie diese Einstellung, um die digiKam-Bewertung unter der Vorschau "
 "anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:183 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:452
 msgid "Show rotation overlay buttons"
 msgstr "Knöpfe zum Drehen der Bilder anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:453
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:453
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
@@ -20541,41 +20570,59 @@ msgstr ""
 "Aktivieren Sie diese Einstellung, um auf den Vorschaubildern Knöpfe zum "
 "Drehen der Bilder anzuzeigen."
 
-#: utilities/setup/setupalbumview.cpp:187 utilities/setup/setupcamera.cpp:441
+#: utilities/setup/setupalbumview.cpp:189
+#, fuzzy
+#| msgid "Show rotation overlay buttons"
+msgid "Show fullscreen overlay button"
+msgstr "Knöpfe zum Drehen der Bilder anzeigen"
+
+#: utilities/setup/setupalbumview.cpp:190
+#, fuzzy
+#| msgid ""
+#| "Set this option to show overlay buttons on the image thumbnail for image "
+#| "rotation."
+msgid ""
+"Set this option to show an overlay button on the image thumbnail to open it "
+"in fullscreen."
+msgstr ""
+"Aktivieren Sie diese Einstellung, um auf den Vorschaubildern Knöpfe zum "
+"Drehen der Bilder anzuzeigen."
+
+#: utilities/setup/setupalbumview.cpp:193 utilities/setup/setupcamera.cpp:441
 msgid "Show Geolocation Indicator"
 msgstr "Geolokalisierungs-Anzeige einblenden"
 
-#: utilities/setup/setupalbumview.cpp:190 utilities/setup/setupcamera.cpp:456
+#: utilities/setup/setupalbumview.cpp:196 utilities/setup/setupcamera.cpp:456
 msgid "Thumbnail click action:"
 msgstr "Aktion beim Auswählen einer Bildvorschau:"
 
-#: utilities/setup/setupalbumview.cpp:192
+#: utilities/setup/setupalbumview.cpp:198
 msgid "Show embedded view"
 msgstr "Eingebettete Ansicht anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:193 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:199 utilities/setup/setupcamera.cpp:459
 msgid "Start image editor"
 msgstr "Bildbearbeitung starten"
 
-#: utilities/setup/setupalbumview.cpp:194 utilities/setup/setupcamera.cpp:460
+#: utilities/setup/setupalbumview.cpp:200 utilities/setup/setupcamera.cpp:460
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr ""
 "Wählen Sie die Aktion aus, die bei einem Mausklick auf eine Bildvorschau "
 "durchgeführt werden soll."
 
-#: utilities/setup/setupalbumview.cpp:196 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:202 utilities/setup/setupcamera.cpp:462
 msgid "Icon View font:"
 msgstr "Schriftart der Symbolansicht:"
 
-#: utilities/setup/setupalbumview.cpp:197 utilities/setup/setupcamera.cpp:463
+#: utilities/setup/setupalbumview.cpp:203 utilities/setup/setupcamera.cpp:463
 msgid "Select here the font used to display text in Icon Views."
 msgstr "Legen Sie hier die Schriftart für den Text in der Symbolansicht fest."
 
-#: utilities/setup/setupalbumview.cpp:199
+#: utilities/setup/setupalbumview.cpp:205
 msgid "Use large thumbnail size for high screen resolution"
 msgstr "Große Vorschaubilder für hohe Bildschirmauflösung verwenden"
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:206
 msgid ""
 "Set this option to render icon-view with large thumbnail size, for example "
 "in case of 4K monitor is used.\n"
@@ -20588,15 +20635,15 @@ msgid ""
 "collections."
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:231
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Folder View Options"
 msgstr "Einstellungen zur Ordneransicht"
 
-#: utilities/setup/setupalbumview.cpp:234
+#: utilities/setup/setupalbumview.cpp:241
 msgid "Tree View thumbnail size:"
 msgstr "Vorschaubildgröße in der Baumansicht:"
 
-#: utilities/setup/setupalbumview.cpp:240
+#: utilities/setup/setupalbumview.cpp:247
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
@@ -20604,65 +20651,65 @@ msgstr ""
 "Benutzen Sie diese Einstellung, um die Größe der Vorschaubilder in der "
 "Baumansicht der Seitenleiste in Pixel zu setzen."
 
-#: utilities/setup/setupalbumview.cpp:243
+#: utilities/setup/setupalbumview.cpp:250
 msgid "Tree View font:"
 msgstr "Schriftart der Baumansicht:"
 
-#: utilities/setup/setupalbumview.cpp:244
+#: utilities/setup/setupalbumview.cpp:251
 msgid "Select here the font used to display text in Tree Views."
 msgstr "Legen Sie hier die Schriftart für den Text in der Baumansicht fest."
 
-#: utilities/setup/setupalbumview.cpp:246
+#: utilities/setup/setupalbumview.cpp:253
 msgid "Show a count of items in Tree Views"
 msgstr "Anzahl der Einträge in allen Baumansichten anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:257 utilities/setup/setupcamera.cpp:483
+#: utilities/setup/setupalbumview.cpp:264 utilities/setup/setupcamera.cpp:483
 msgid "Preview Options"
 msgstr "Einstellungen zur Vorschau"
 
-#: utilities/setup/setupalbumview.cpp:261
+#: utilities/setup/setupalbumview.cpp:268
 msgctxt "@option:radio"
 msgid "Embedded view shows a small, quick preview"
 msgstr "Eingebettete Ansicht zeigt eine verkleinerte schnelle Vorschau"
 
-#: utilities/setup/setupalbumview.cpp:263
+#: utilities/setup/setupalbumview.cpp:270
 msgctxt "@option:radio"
 msgid "Embedded view shows the full image"
 msgstr "Eingebaute Ansicht zeigt das vollständige Bild"
 
-#: utilities/setup/setupalbumview.cpp:265
+#: utilities/setup/setupalbumview.cpp:272
 msgctxt "@label:listbox Mode of RAW preview decoding:"
 msgid "Raw images:"
 msgstr "Rohbilder:"
 
-#: utilities/setup/setupalbumview.cpp:268
+#: utilities/setup/setupalbumview.cpp:275
 msgctxt "@option:inlistbox Automatic choice of RAW image preview source"
 msgid "Automatic"
 msgstr "Automatisch"
 
-#: utilities/setup/setupalbumview.cpp:270
+#: utilities/setup/setupalbumview.cpp:277
 msgctxt "@option:inlistbox Embedded preview as RAW image preview source"
 msgid "Embedded preview"
 msgstr "Eingebettete Vorschau"
 
-#: utilities/setup/setupalbumview.cpp:272
+#: utilities/setup/setupalbumview.cpp:279
 msgctxt ""
 "@option:inlistbox Original, half-size data as RAW image preview source"
 msgid "Raw data in half size"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:274 utilities/setup/setupcamera.cpp:497
+#: utilities/setup/setupalbumview.cpp:281 utilities/setup/setupcamera.cpp:497
 msgid "Show icons and text over preview"
 msgstr "Symbole und Text in der Vorschau anzeigen"
 
-#: utilities/setup/setupalbumview.cpp:275
+#: utilities/setup/setupalbumview.cpp:282
 msgid ""
 "Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 "Deaktivieren Sie diese Einstellung, wenn in der Bildervorschau keine Symbole "
 "und kein Text angezeigt werden soll."
 
-#: utilities/setup/setupalbumview.cpp:446
+#: utilities/setup/setupalbumview.cpp:455
 msgctxt "@info"
 msgid ""
 "This option changes the size in which thumbnails are generated. You need to "
@@ -22220,39 +22267,39 @@ msgstr ""
 "<p>Dateien mit diesen Erweiterungen werden als Audiodateien erkannt und in "
 "die Datenbank aufgenommen:<br/> <code>%1</code></p>"
 
-#: utilities/setup/setupmisc.cpp:92
+#: utilities/setup/setupmisc.cpp:95
 msgid "Confirm when moving items to the &trash"
 msgstr "Verschieben von Einträgen in den &Papierkorb bestätigen"
 
-#: utilities/setup/setupmisc.cpp:93
+#: utilities/setup/setupmisc.cpp:96
 msgid "Confirm when permanently deleting items"
 msgstr "Unwiderrufliches Löschen von Einträgen bestätigen"
 
-#: utilities/setup/setupmisc.cpp:94
+#: utilities/setup/setupmisc.cpp:97
 msgid "Do not confirm when applying changes in the &right sidebar"
 msgstr "Änderungen in der &rechten Seitenleiste ohne Rückfrage anwenden"
 
-#: utilities/setup/setupmisc.cpp:104
+#: utilities/setup/setupmisc.cpp:108
 msgid "Set this option to configure how sidebar tab titles are visible."
 msgstr ""
 "Benutzen Sie diese Einstellung, um einzustellen wie die Titel der Reiter in "
 "der Seitenleiste sichtbar sind."
 
-#: utilities/setup/setupmisc.cpp:109
+#: utilities/setup/setupmisc.cpp:113
 msgid "String comparison type:"
 msgstr "Art des Zeichenkettenvergleichs:"
 
-#: utilities/setup/setupmisc.cpp:111
+#: utilities/setup/setupmisc.cpp:115
 msgctxt "method to compare strings"
 msgid "Natural"
 msgstr "Natürlich"
 
-#: utilities/setup/setupmisc.cpp:112
+#: utilities/setup/setupmisc.cpp:116
 msgctxt "method to compare strings"
 msgid "Normal"
 msgstr "Normal"
 
-#: utilities/setup/setupmisc.cpp:113
+#: utilities/setup/setupmisc.cpp:117
 msgid ""
 "<qt>Sets the way in which strings are compared inside digiKam. This eg. "
 "influences the sorting of the tree views.<br/><b>Natural</b> tries to "
@@ -23016,11 +23063,11 @@ msgctxt ""
 msgid "Giving a slideshow"
 msgstr "Eine Diaschau wird vorgeführt"
 
-#: utilities/slideshow/slidetoolbar.cpp:112
+#: utilities/slideshow/slidetoolbar.cpp:115
 msgid "Switch Screen"
 msgstr "Bildschirm wechseln"
 
-#: utilities/slideshow/slidetoolbar.cpp:124
+#: utilities/slideshow/slidetoolbar.cpp:127
 #, kde-format
 msgctxt "%1 is the screen number (0, 1, ...)"
 msgid "Screen %1"
@@ -27455,9 +27502,6 @@ msgstr "Bildschirm %1"
 #~ msgid "Set orientation tag to normal after rotate/flip"
 #~ msgstr ""
 #~ "EXIF-Ausrichtung nach dem Drehen/Spiegeln des Bildes auf Normal setzen"
-
-#~ msgid "Exit Full Screen"
-#~ msgstr "Vollbildmodus beenden"
 
 #~ msgid "Exit Fullscreen mode"
 #~ msgstr "Vollbildmodus beenden"

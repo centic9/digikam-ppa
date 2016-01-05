@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_imgurexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-08-20 01:41+0000\n"
-"PO-Revision-Date: 2015-05-16 13:44-0300\n"
+"POT-Creation-Date: 2015-08-07 01:56+0000\n"
+"PO-Revision-Date: 2015-08-07 07:57-0300\n"
 "Last-Translator: André Marcelo Alvarenga <alvarenga@kde.org>\n"
 "Language-Team: Brazilian Portuguese <kde-i18n-pt_br@kde.org>\n"
 "Language: pt_BR\n"
@@ -26,23 +26,23 @@ msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "alvarenga@kde.org"
 
-#: imgurimageslist.cpp:50
+#: imgurimageslist.cpp:49
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: imgurimageslist.cpp:55
+#: imgurimageslist.cpp:54
 msgid "Submission title"
 msgstr "Título do envio"
 
-#: imgurimageslist.cpp:58
+#: imgurimageslist.cpp:57
 msgid "Submission description"
 msgstr "Descrição do envio"
 
-#: imgurimageslist.cpp:61
+#: imgurimageslist.cpp:60
 msgid "Imgur URL"
 msgstr "URL do Imgur"
 
-#: imgurimageslist.cpp:64
+#: imgurimageslist.cpp:63
 msgid "Imgur Delete URL"
 msgstr "URL de exclusão do Imgur"
 
@@ -54,39 +54,39 @@ msgstr "Foi recebida uma resposta inesperada do serviço Web"
 msgid "Upload failed"
 msgstr "Falha no envio"
 
-#: imgurtalker.cpp:407
+#: imgurtalker.cpp:410
 msgid "Parse error"
 msgstr "Erro de análise"
 
-#: imgurtalkerauth.cpp:94
+#: imgurtalkerauth.cpp:93
 msgid "Network error: timeout, cannot connect."
 msgstr "Erro de rede: expirou o tempo-limite, não foi possível conectar."
 
-#: imgurtalkerauth.cpp:97
+#: imgurtalkerauth.cpp:96
 msgid "Request endpoint is not valid."
 msgstr "O destino do pedido não é válido."
 
-#: imgurtalkerauth.cpp:100
+#: imgurtalkerauth.cpp:99
 msgid "Request is not valid: some parameter missing?"
 msgstr "A solicitação não é válida: falta algum parâmetro?"
 
-#: imgurtalkerauth.cpp:103
+#: imgurtalkerauth.cpp:102
 msgid "Authorization error: trying to access a resource without tokens."
 msgstr "Erro de autorização: Tentando acessar um recurso sem parâmetros."
 
-#: imgurtalkerauth.cpp:106
+#: imgurtalkerauth.cpp:105
 msgid "The given request is invalid."
 msgstr "A solicitação efetuada é inválida."
 
-#: imgurtalkerauth.cpp:109
+#: imgurtalkerauth.cpp:108
 msgid "Manager error, cannot use for sending requests."
 msgstr "Erro do gerenciador: Não possível usar para enviar as solicitações."
 
-#: imgurtalkerauth.cpp:113
+#: imgurtalkerauth.cpp:112
 msgid "No error"
 msgstr "Nenhum erro"
 
-#: imgurtalkerauth.cpp:249
+#: imgurtalkerauth.cpp:248
 msgid "OK"
 msgstr "OK"
 
@@ -123,56 +123,56 @@ msgid "Set permissions for the current application to upload images to Imgur."
 msgstr ""
 "Defina as permissões do aplicativo atual para envio de imagens ao Imgur."
 
-#: imgurwidget.cpp:229
+#: imgurwidget.cpp:231
 #, kde-format
 msgid "Processing %1"
 msgstr "Processando %1"
 
-#: imgurwidget.cpp:275
+#: imgurwidget.cpp:277
 msgid "Authenticated"
 msgstr "Autenticado"
 
-#: imgurwindow.cpp:76
+#: imgurwindow.cpp:78
 msgid "Export to imgur.com"
 msgstr "Exportar para o imgur.com"
 
-#: imgurwindow.cpp:80
+#: imgurwindow.cpp:82
 msgid "Upload"
 msgstr "Enviar"
 
-#: imgurwindow.cpp:80
+#: imgurwindow.cpp:82
 msgid "Start upload to Imgur"
 msgstr "Iniciar o envio para o Imgur"
 
-#: imgurwindow.cpp:88
+#: imgurwindow.cpp:90
 msgid "Imgur Export"
 msgstr "Exportação para o Imgur"
 
-#: imgurwindow.cpp:91
+#: imgurwindow.cpp:93
 msgid "A tool to export images to Imgur web service"
 msgstr "Ferramenta para exportar imagens para o serviço web Imgur"
 
-#: imgurwindow.cpp:92
+#: imgurwindow.cpp:94
 msgid "(c) 2012-2013, Marius Orcsik"
 msgstr "(c) 2012-2013, Marius Orcsik"
 
-#: imgurwindow.cpp:94
+#: imgurwindow.cpp:96
 msgid "Marius Orcsik"
 msgstr "Marius Orcsik"
 
-#: imgurwindow.cpp:94
-msgid "Author and Maintainer"
-msgstr "Autor e mantenedor"
-
 #: imgurwindow.cpp:97
+msgid "Author"
+msgstr "Autor"
+
+#: imgurwindow.cpp:100
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: imgurwindow.cpp:97
+#: imgurwindow.cpp:101
 msgid "Developer"
 msgstr "Desenvolvedor"
 
-#: imgurwindow.cpp:206
+#: imgurwindow.cpp:210
 #, kde-format
 msgid ""
 "Failed to upload photo to Imgur: %1\n"
@@ -181,12 +181,12 @@ msgstr ""
 "Ocorreu uma falha no envio da foto para o Imgur: %1\n"
 "Deseja continuar?"
 
-#: imgurwindow.cpp:220
+#: imgurwindow.cpp:224
 #, kde-format
 msgid "Failed to upload photo to Imgur: %1\n"
 msgstr "Ocorreu uma falha no envio da foto para o Imgur: %1\n"
 
-#: imgurwindow.cpp:238
+#: imgurwindow.cpp:242
 #, kde-format
 msgctxt "%1 is the error string"
 msgid ""
@@ -198,7 +198,7 @@ msgstr ""
 "%1\n"
 "Deseja continuar?"
 
-#: imgurwindow.cpp:243
+#: imgurwindow.cpp:247
 msgid ""
 "Failed to authenticate to Imgur.\n"
 "Do you want to continue?"

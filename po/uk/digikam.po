@@ -10,8 +10,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-22 01:50+0000\n"
-"PO-Revision-Date: 2015-06-25 19:39+0300\n"
+"POT-Creation-Date: 2015-10-13 01:55+0000\n"
+"PO-Revision-Date: 2015-09-22 09:19+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -123,7 +123,7 @@ msgstr "Без кольору"
 
 #: app/album/albumlabelstreeview.cpp:413 app/album/albumlabelstreeview.cpp:740
 #: app/views/tableview/tableview_column_digikam.cpp:318
-#: libs/dimg/filters/bw/mixersettings.cpp:137
+#: libs/dimg/filters/bw/mixersettings.cpp:139
 #: libs/dimg/filters/cb/cbsettings.cpp:97
 #: libs/widgets/metadata/colorlabelwidget.cpp:422
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:71
@@ -145,7 +145,7 @@ msgstr "Жовтий"
 
 #: app/album/albumlabelstreeview.cpp:414 app/album/albumlabelstreeview.cpp:749
 #: app/views/tableview/tableview_column_digikam.cpp:330
-#: libs/dimg/filters/bw/mixersettings.cpp:138
+#: libs/dimg/filters/bw/mixersettings.cpp:140
 #: libs/dimg/filters/cb/cbsettings.cpp:111
 #: libs/widgets/metadata/colorlabelwidget.cpp:431
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:72
@@ -154,7 +154,7 @@ msgstr "Зелений"
 
 #: app/album/albumlabelstreeview.cpp:415 app/album/albumlabelstreeview.cpp:752
 #: app/views/tableview/tableview_column_digikam.cpp:334
-#: libs/dimg/filters/bw/mixersettings.cpp:139
+#: libs/dimg/filters/bw/mixersettings.cpp:141
 #: libs/dimg/filters/cb/cbsettings.cpp:119
 #: libs/widgets/metadata/colorlabelwidget.cpp:434
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:73
@@ -449,61 +449,61 @@ msgstr "Збірки не знайдено"
 msgid "Searches"
 msgstr "Результати пошуку"
 
-#: app/album/albummanager.cpp:2132
+#: app/album/albummanager.cpp:2133
 msgid "The collection location supplied is invalid or currently not available."
 msgstr "Вказаної адреси збірки не існує або ця адреса зараз не є доступною."
 
-#: app/album/albummanager.cpp:2140
+#: app/album/albummanager.cpp:2141
 msgid "No album for collection location: Internal error"
 msgstr "Не вказано розташування альбому для збірки: внутрішня помилка"
 
-#: app/album/albummanager.cpp:2156
+#: app/album/albummanager.cpp:2157
 msgid "No parent found for album."
 msgstr "Не знайдено батьківський альбом."
 
-#: app/album/albummanager.cpp:2163
+#: app/album/albummanager.cpp:2164
 msgid "Album name cannot be empty."
 msgstr "Назва альбому не може бути порожньою."
 
-#: app/album/albummanager.cpp:2169
+#: app/album/albummanager.cpp:2170
 msgid "Album name cannot contain '/'."
 msgstr "Назва альбому не може містити «/»."
 
-#: app/album/albummanager.cpp:2175
+#: app/album/albummanager.cpp:2176
 msgid "createPAlbum does not accept the root album as parent."
 msgstr "createPAlbum не приймає кореневий альбом як батьківську теку."
 
-#: app/album/albummanager.cpp:2189
+#: app/album/albummanager.cpp:2190
 msgid "An existing album has the same name."
 msgstr "Вже існуючий альбом має ту ж назву."
 
-#: app/album/albummanager.cpp:2202
+#: app/album/albummanager.cpp:2203
 msgid "Failed to create directory."
 msgstr "Не вдалося створити каталог."
 
-#: app/album/albummanager.cpp:2211
+#: app/album/albummanager.cpp:2212
 msgid "Failed to add album to database"
 msgstr "Не вдалося додати альбом до бази даних"
 
-#: app/album/albummanager.cpp:2238 app/album/albummanager.cpp:2331
-#: app/album/albummanager.cpp:2430 app/album/albummanager.cpp:2485
-#: app/album/albummanager.cpp:2521
+#: app/album/albummanager.cpp:2239 app/album/albummanager.cpp:2332
+#: app/album/albummanager.cpp:2431 app/album/albummanager.cpp:2486
+#: app/album/albummanager.cpp:2522
 msgid "No such album"
 msgstr "Такого альбому не існує"
 
-#: app/album/albummanager.cpp:2244
+#: app/album/albummanager.cpp:2245
 msgid "Cannot rename root album"
 msgstr "Неможливо перейменувати кореневий альбом"
 
-#: app/album/albummanager.cpp:2250
+#: app/album/albummanager.cpp:2251
 msgid "Cannot rename album root album"
 msgstr "Неможливо перейменувати кореневий альбом"
 
-#: app/album/albummanager.cpp:2256
+#: app/album/albummanager.cpp:2257
 msgid "Album name cannot contain '/'"
 msgstr "Назва альбому не може містити «/»"
 
-#: app/album/albummanager.cpp:2263
+#: app/album/albummanager.cpp:2264
 msgid ""
 "Another album with the same name already exists.\n"
 "Please choose another name."
@@ -511,43 +511,43 @@ msgstr ""
 "Вже існує альбом з тією ж назвою.\n"
 "Будь ласка, виберіть іншу назву."
 
-#: app/album/albummanager.cpp:2283
+#: app/album/albummanager.cpp:2284
 msgid "Failed to rename Album"
 msgstr "Не вдалося перейменувати альбом"
 
-#: app/album/albummanager.cpp:2337
+#: app/album/albummanager.cpp:2338
 msgid "Cannot edit root album"
 msgstr "Неможливо змінити кореневий альбом"
 
-#: app/album/albummanager.cpp:2358
+#: app/album/albummanager.cpp:2359
 msgid "No parent found for tag"
 msgstr "Для цієї мітки не знайдено батьківської"
 
-#: app/album/albummanager.cpp:2365
+#: app/album/albummanager.cpp:2366
 msgid "Tag name cannot be empty"
 msgstr "Назва мітки не може бути порожньою"
 
-#: app/album/albummanager.cpp:2371 app/album/albummanager.cpp:2497
+#: app/album/albummanager.cpp:2372 app/album/albummanager.cpp:2498
 msgid "Tag name cannot contain '/'"
 msgstr "Назва мітки не може містити «/»"
 
-#: app/album/albummanager.cpp:2378 app/tags/tageditdlg.cpp:435
+#: app/album/albummanager.cpp:2379 app/tags/tageditdlg.cpp:435
 msgid "Tag name already exists"
 msgstr "Вже існує мітка з такою назвою"
 
-#: app/album/albummanager.cpp:2387
+#: app/album/albummanager.cpp:2388
 msgid "Failed to add tag to database"
 msgstr "Не вдалося додати мітку до бази даних"
 
-#: app/album/albummanager.cpp:2436
+#: app/album/albummanager.cpp:2437
 msgid "Cannot delete Root Tag"
 msgstr "Неможливо вилучити кореневу мітку"
 
-#: app/album/albummanager.cpp:2491 app/album/albummanager.cpp:2589
+#: app/album/albummanager.cpp:2492 app/album/albummanager.cpp:2590
 msgid "Cannot edit root tag"
 msgstr "Неможливо змінити кореневу мітку"
 
-#: app/album/albummanager.cpp:2504
+#: app/album/albummanager.cpp:2505
 msgid ""
 "Another tag with the same name already exists.\n"
 "Please choose another name."
@@ -555,15 +555,15 @@ msgstr ""
 "Вже існує мітка з тією ж назвою.\n"
 "Будь ласка, виберіть іншу назву."
 
-#: app/album/albummanager.cpp:2527
+#: app/album/albummanager.cpp:2528
 msgid "Attempt to move TAlbum to nowhere"
 msgstr "Спроба пересунути TAlbum у нікуди"
 
-#: app/album/albummanager.cpp:2533
+#: app/album/albummanager.cpp:2534
 msgid "Cannot move root tag"
 msgstr "Неможливо пересунути кореневу мітку"
 
-#: app/album/albummanager.cpp:2539
+#: app/album/albummanager.cpp:2540
 msgid ""
 "Another tag with the same name already exists.\n"
 "Please rename the tag before moving it."
@@ -571,12 +571,12 @@ msgstr ""
 "Існує інша мітка з тією ж назвою.\n"
 "Будь ласка, змініть назву мітки до пересування."
 
-#: app/album/albummanager.cpp:2583
+#: app/album/albummanager.cpp:2584
 msgid "No such tag"
 msgstr "Такої мітки не існує"
 
-#: app/album/albummanager.cpp:3026 app/album/albummanager.cpp:3056
-#: app/album/albummanager.cpp:3099 app/album/albummanager.cpp:3129
+#: app/album/albummanager.cpp:3030 app/album/albummanager.cpp:3060
+#: app/album/albummanager.cpp:3103 app/album/albummanager.cpp:3133
 #: app/main/main.cpp:74 app/views/welcomepageview.cpp:241
 msgid "digiKam"
 msgstr "digiKam"
@@ -982,15 +982,15 @@ msgid "%1 %2"
 msgstr "%1 %2"
 
 #: app/dragdrop/albumdragdrop.cpp:91 app/dragdrop/albumdragdrop.cpp:197
-#: app/dragdrop/albumdragdrop.cpp:301 app/dragdrop/imagedragdrop.cpp:107
+#: app/dragdrop/albumdragdrop.cpp:301 app/dragdrop/imagedragdrop.cpp:108
 #: app/dragdrop/importdragdrop.cpp:99 app/dragdrop/tagdragdrop.cpp:76
 msgid "&Move Here"
 msgstr "Пере&сунути сюди"
 
 #: app/dragdrop/albumdragdrop.cpp:93 app/dragdrop/albumdragdrop.cpp:163
 #: app/dragdrop/albumdragdrop.cpp:207 app/dragdrop/albumdragdrop.cpp:262
-#: app/dragdrop/albumdragdrop.cpp:304 app/dragdrop/imagedragdrop.cpp:74
-#: app/dragdrop/imagedragdrop.cpp:527 app/dragdrop/importdragdrop.cpp:65
+#: app/dragdrop/albumdragdrop.cpp:304 app/dragdrop/imagedragdrop.cpp:75
+#: app/dragdrop/imagedragdrop.cpp:537 app/dragdrop/importdragdrop.cpp:65
 #: app/dragdrop/importdragdrop.cpp:162 app/dragdrop/tagdragdrop.cpp:78
 #: app/dragdrop/tagdragdrop.cpp:165 app/dragdrop/tagdragdrop.cpp:220
 #: showfoto/thumbbar/showfotodragdrophandler.cpp:60
@@ -1003,45 +1003,45 @@ msgid "Set as Album Thumbnail"
 msgstr "Встановити як мініатюру альбому"
 
 #: app/dragdrop/albumdragdrop.cpp:198 app/dragdrop/albumdragdrop.cpp:302
-#: app/dragdrop/imagedragdrop.cpp:110 app/dragdrop/importdragdrop.cpp:102
+#: app/dragdrop/imagedragdrop.cpp:111 app/dragdrop/importdragdrop.cpp:102
 msgid "&Copy Here"
 msgstr "С&копіювати сюди"
 
-#: app/dragdrop/albumdragdrop.cpp:258 app/dragdrop/imagedragdrop.cpp:523
+#: app/dragdrop/albumdragdrop.cpp:258 app/dragdrop/imagedragdrop.cpp:533
 msgid "Download From Camera"
 msgstr "Отримати з фотоапарата"
 
-#: app/dragdrop/albumdragdrop.cpp:260 app/dragdrop/imagedragdrop.cpp:525
+#: app/dragdrop/albumdragdrop.cpp:260 app/dragdrop/imagedragdrop.cpp:535
 msgid "Download && Delete From Camera"
 msgstr "Отримати і вилучити з фотоапарата"
 
-#: app/dragdrop/imagedragdrop.cpp:69 app/dragdrop/importdragdrop.cpp:60
+#: app/dragdrop/imagedragdrop.cpp:70 app/dragdrop/importdragdrop.cpp:60
 #: showfoto/thumbbar/showfotodragdrophandler.cpp:55
 msgctxt "@action:inmenu Group images with this image"
 msgid "Group here"
 msgstr "Групувати з цим"
 
-#: app/dragdrop/imagedragdrop.cpp:145
+#: app/dragdrop/imagedragdrop.cpp:146
 msgid "Assign Tag to Dropped Items"
 msgstr "Призначення мітки скинутим об’єктам"
 
-#: app/dragdrop/imagedragdrop.cpp:470
+#: app/dragdrop/imagedragdrop.cpp:480
 msgid "Assign Tags to &Selected Items"
 msgstr "Призначити мітки виб&раним зображенням"
 
-#: app/dragdrop/imagedragdrop.cpp:477 app/views/imagepreviewview.cpp:598
+#: app/dragdrop/imagedragdrop.cpp:487 app/views/imagepreviewview.cpp:609
 msgid "Assign Tags to &This Item"
 msgstr "Призначити мітки &цьому елементу"
 
-#: app/dragdrop/imagedragdrop.cpp:480
+#: app/dragdrop/imagedragdrop.cpp:490
 msgid "Assign Tags to &All Items"
 msgstr "Призначити мітки всі&м зображенням"
 
-#: app/dragdrop/imagedragdrop.cpp:483 app/views/imagepreviewview.cpp:600
+#: app/dragdrop/imagedragdrop.cpp:493 app/views/imagepreviewview.cpp:611
 msgid "&Cancel"
 msgstr "&Скасувати"
 
-#: app/dragdrop/imagedragdrop.cpp:521
+#: app/dragdrop/imagedragdrop.cpp:531
 msgid "Importing"
 msgstr "Імпортування"
 
@@ -1479,7 +1479,7 @@ msgstr "Спорожнити все"
 msgid "Select All"
 msgstr "Вибрати все"
 
-#: app/items/digikamimageview.cpp:376 app/views/tableview/tableview.cpp:228
+#: app/items/digikamimageview.cpp:378 app/views/tableview/tableview.cpp:248
 msgctxt "View the selected image"
 msgid "Preview"
 msgstr "Перегляд"
@@ -1570,9 +1570,9 @@ msgstr ""
 "пересунути до нього вибрані зображення.</p>"
 
 #: app/items/imageviewutilities.cpp:292
-#: utilities/imageeditor/main/imagewindow.cpp:1496
-#: utilities/imageeditor/main/imagewindow.cpp:1520
-#: utilities/imageeditor/main/imagewindow.cpp:1551
+#: utilities/imageeditor/main/imagewindow.cpp:1504
+#: utilities/imageeditor/main/imagewindow.cpp:1528
+#: utilities/imageeditor/main/imagewindow.cpp:1559
 #, kde-format
 msgid "Album \"%1\""
 msgstr "Альбом «%1»"
@@ -1607,8 +1607,13 @@ msgctxt "@info:tooltip"
 msgid "This item has geolocation information."
 msgstr "Для цього пункту маємо дані щодо геопозиціювання."
 
+#: app/items/overlays/imagefsoverlay.cpp:59
+msgctxt "@info:tooltip"
+msgid "Show Fullscreen"
+msgstr "Показати на весь екран"
+
 #: app/items/overlays/imagerotationoverlay.cpp:68
-#: app/views/imagepreviewview.cpp:170
+#: app/views/imagepreviewview.cpp:177
 #: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
@@ -1616,7 +1621,7 @@ msgid "Rotate Left"
 msgstr "Повернути ліворуч"
 
 #: app/items/overlays/imagerotationoverlay.cpp:72
-#: app/views/imagepreviewview.cpp:171
+#: app/views/imagepreviewview.cpp:178
 #: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:193
 msgctxt "@info:tooltip"
@@ -1681,8 +1686,8 @@ msgid "Next Image"
 msgstr "Наступне зображення"
 
 #: app/main/digikamapp.cpp:647 app/main/digikamapp.cpp:653
-#: utilities/imageeditor/editor/editorwindow.cpp:648
-#: utilities/lighttable/lighttablewindow.cpp:656
+#: utilities/imageeditor/editor/editorwindow.cpp:659
+#: utilities/lighttable/lighttablewindow.cpp:660
 msgid "Previous Image"
 msgstr "Попереднє зображення"
 
@@ -1798,7 +1803,7 @@ msgstr "С&творити…"
 
 #: app/main/digikamapp.cpp:869 app/tags/tagmodificationhelper.cpp:285
 #: app/tags/tagmodificationhelper.cpp:390
-#: app/tags/tagsmanager/tagsmanager.cpp:404
+#: app/tags/tagsmanager/tagsmanager.cpp:409
 #: app/utils/editablesearchtreeview.cpp:71
 #: app/utils/searchmodificationhelper.cpp:82
 #: utilities/importui/main/importui.cpp:1996
@@ -1844,8 +1849,8 @@ msgid "Open the selected item."
 msgstr "Відкрити позначений елемент."
 
 #: app/main/digikamapp.cpp:920
-#: utilities/imageeditor/editor/editorwindow.cpp:440
-#: utilities/lighttable/lighttablewindow.cpp:501
+#: utilities/imageeditor/editor/editorwindow.cpp:449
+#: utilities/lighttable/lighttablewindow.cpp:505
 msgid "Open With Default Application"
 msgstr "Відкрити за допомогою типової програми"
 
@@ -1864,8 +1869,8 @@ msgstr "Редактор зображень"
 msgid "Open the image editor."
 msgstr "Відкрити у редакторі зображень."
 
-#: app/main/digikamapp.cpp:933 utilities/lighttable/lighttablewindow.cpp:131
-#: utilities/lighttable/lighttablewindow.cpp:1399
+#: app/main/digikamapp.cpp:933 utilities/lighttable/lighttablewindow.cpp:132
+#: utilities/lighttable/lighttablewindow.cpp:1403
 #: utilities/setup/setup.cpp:277
 msgid "Light Table"
 msgstr "Стіл з підсвічуванням"
@@ -1935,8 +1940,8 @@ msgid "Change the filename of the currently selected item."
 msgstr "Змінити назву файла вибраного елемента."
 
 #: app/main/digikamapp.cpp:1024 showfoto/main/showfoto.cpp:507
-#: utilities/imageeditor/editor/editorwindow.cpp:446
-#: utilities/lighttable/lighttablewindow.cpp:519
+#: utilities/imageeditor/editor/editorwindow.cpp:456
+#: utilities/lighttable/lighttablewindow.cpp:523
 msgctxt "Non-pluralized"
 msgid "Move to Trash"
 msgstr "Пересунути до смітника"
@@ -2081,13 +2086,13 @@ msgid "The sort order of images groups"
 msgstr "Порядок записів груп зображень"
 
 #: app/main/digikamapp.cpp:1189
-#: utilities/imageeditor/editor/editorwindow.cpp:500
+#: utilities/imageeditor/editor/editorwindow.cpp:511
 msgid "Select None"
 msgstr "Зняти вибір"
 
 #: app/main/digikamapp.cpp:1196 app/tags/tagsmanager/tagmngrtreeview.cpp:149
-#: app/tags/tagsmanager/tagsmanager.cpp:702
-#: app/utils/contextmenuhelper.cpp:883
+#: app/tags/tagsmanager/tagsmanager.cpp:707
+#: app/utils/contextmenuhelper.cpp:893
 msgid "Invert Selection"
 msgstr "Інвертувати вибір"
 
@@ -2096,22 +2101,22 @@ msgid "Show Thumbbar"
 msgstr "Показати панель мініатюр"
 
 #: app/main/digikamapp.cpp:1239
-#: utilities/imageeditor/editor/editorwindow.cpp:519
-#: utilities/lighttable/lighttablewindow.cpp:584
-#: utilities/lighttable/lighttablewindow.cpp:612
+#: utilities/imageeditor/editor/editorwindow.cpp:530
+#: utilities/lighttable/lighttablewindow.cpp:588
+#: utilities/lighttable/lighttablewindow.cpp:616
 msgid "Zoom to 100%"
 msgstr "Масштаб у 100%"
 
 #: app/main/digikamapp.cpp:1246
-#: utilities/imageeditor/editor/editorwindow.cpp:524
-#: utilities/lighttable/lighttablewindow.cpp:589
-#: utilities/lighttable/lighttablewindow.cpp:617
+#: utilities/imageeditor/editor/editorwindow.cpp:535
+#: utilities/lighttable/lighttablewindow.cpp:593
+#: utilities/lighttable/lighttablewindow.cpp:621
 msgid "Fit to &Window"
 msgstr "Вмістити у &вікно"
 
 #: app/main/digikamapp.cpp:1258
-#: utilities/imageeditor/editor/editorwindow.cpp:542
-#: utilities/lighttable/lighttablewindow.cpp:563
+#: utilities/imageeditor/editor/editorwindow.cpp:553
+#: utilities/lighttable/lighttablewindow.cpp:567
 #: utilities/slideshow/slideshow.cpp:98
 msgid "Slideshow"
 msgstr "Перегляд слайдів"
@@ -2129,9 +2134,9 @@ msgid "With All Sub-Albums"
 msgstr "З усіма підальбомами"
 
 #: app/main/digikamapp.cpp:1282
-#: utilities/imageeditor/editor/editorwindow.cpp:563
+#: utilities/imageeditor/editor/editorwindow.cpp:574
 #: utilities/importui/main/importui.cpp:595
-#: utilities/lighttable/lighttablewindow.cpp:624
+#: utilities/lighttable/lighttablewindow.cpp:628
 msgid "Color-Managed View"
 msgstr "Перегляд з керуванням кольорами"
 
@@ -2163,7 +2168,7 @@ msgstr "Додати фотоапарат вручну…"
 msgid "Loading cameras..."
 msgstr "Завантаження фотоапаратів…"
 
-#: app/main/digikamapp.cpp:1529
+#: app/main/digikamapp.cpp:1533
 #, kde-format
 msgid "No item selected (%1 item)"
 msgid_plural "No item selected (%1 items)"
@@ -2172,12 +2177,12 @@ msgstr[1] "Нічого не вибрано (%1 пункти)"
 msgstr[2] "Нічого не вибрано (%1 пунктів)"
 msgstr[3] "Нічого не вибрано (1 пункт)"
 
-#: app/main/digikamapp.cpp:1541
+#: app/main/digikamapp.cpp:1545
 #, kde-format
 msgid " (%1 of %2)"
 msgstr " (%1 з %2)"
 
-#: app/main/digikamapp.cpp:1546
+#: app/main/digikamapp.cpp:1550
 #, kde-format
 msgid "%2/%1 item selected"
 msgid_plural "%2/%1 items selected"
@@ -2186,7 +2191,7 @@ msgstr[1] "Вибрано %2 з %1 об’єктів"
 msgstr[2] "Вибрано %2 з %1 об’єктів"
 msgstr[3] "Вибрано %2 з %1 об’єкта"
 
-#: app/main/digikamapp.cpp:1582
+#: app/main/digikamapp.cpp:1588
 msgid "Write Metadata to Image"
 msgid_plural "Write Metadata to Selected Images"
 msgstr[0] "Записати метадані до позначених файлів зображень"
@@ -2194,7 +2199,7 @@ msgstr[1] "Записати метадані до позначених файл�
 msgstr[2] "Записати метадані до позначених файлів зображень"
 msgstr[3] "Записати метадані до файла зображення"
 
-#: app/main/digikamapp.cpp:1584
+#: app/main/digikamapp.cpp:1590
 msgid "Reread Metadata From Image"
 msgid_plural "Reread Metadata From Selected Images"
 msgstr[0] "Повторно прочитати метадані з позначених зображень"
@@ -2202,142 +2207,142 @@ msgstr[1] "Повторно прочитати метадані з познач�
 msgstr[2] "Повторно прочитати метадані з позначених зображень"
 msgstr[3] "Повторно прочитати метадані з зображення"
 
-#: app/main/digikamapp.cpp:1627 utilities/setup/setup.cpp:294
+#: app/main/digikamapp.cpp:1633 utilities/setup/setup.cpp:294
 msgid "Cameras"
 msgstr "Фотоапарати"
 
-#: app/main/digikamapp.cpp:1629
+#: app/main/digikamapp.cpp:1635
 msgid "USB Storage Devices"
 msgstr "Пристрої зберігання інформації USB"
 
-#: app/main/digikamapp.cpp:1631
+#: app/main/digikamapp.cpp:1637
 msgid "Card Readers"
 msgstr "Зчитувачі карток"
 
-#: app/main/digikamapp.cpp:1640
+#: app/main/digikamapp.cpp:1646
 msgid "Add Images..."
 msgstr "Додати зображення…"
 
-#: app/main/digikamapp.cpp:1642
+#: app/main/digikamapp.cpp:1648
 msgid "Adds new items to an Album."
 msgstr "Додає нові елементи до альбому."
 
-#: app/main/digikamapp.cpp:1648
+#: app/main/digikamapp.cpp:1654
 msgid "Add Folders..."
 msgstr "Додати теки…"
 
-#: app/main/digikamapp.cpp:1649
+#: app/main/digikamapp.cpp:1655
 msgid "Adds new folders to Album library."
 msgstr "Додає нові теки до бібліотеки альбомів."
 
-#: app/main/digikamapp.cpp:1731
+#: app/main/digikamapp.cpp:1737
 #, kde-format
 msgid "Images found in %1"
 msgstr "Зображення, які знайдено в %1"
 
-#: app/main/digikamapp.cpp:1780
+#: app/main/digikamapp.cpp:1786
 #, kde-format
 msgid "The specified device (\"%1\") is not valid."
 msgstr "Вами вказано некоректний пристрій («%1»)."
 
-#: app/main/digikamapp.cpp:1792
+#: app/main/digikamapp.cpp:1798
 #, kde-format
 msgid "The specified camera (\"%1\") is not supported."
 msgstr "Вказаний вами фотоапарат («%1») не підтримується."
 
-#: app/main/digikamapp.cpp:1953
+#: app/main/digikamapp.cpp:1959
 #, kde-format
 msgid "Images on %1"
 msgstr "Зображення, які знайдено на %1"
 
-#: app/main/digikamapp.cpp:1977
+#: app/main/digikamapp.cpp:1983
 msgid "Cannot access the storage device.\n"
 msgstr "Не вдалося отримати доступ до пристрою зберігання інформації.\n"
 
-#: app/main/digikamapp.cpp:2183
+#: app/main/digikamapp.cpp:2189
 msgid "CompactFlash Card Reader"
 msgstr "Зчитувач карток CompactFlash"
 
-#: app/main/digikamapp.cpp:2186
+#: app/main/digikamapp.cpp:2192
 msgid "Memory Stick Reader"
 msgstr "Зчитувач карток флеш-пам’яті"
 
-#: app/main/digikamapp.cpp:2189
+#: app/main/digikamapp.cpp:2195
 msgid "SmartMedia Card Reader"
 msgstr "Зчитувач карток SmartMedia"
 
-#: app/main/digikamapp.cpp:2192
+#: app/main/digikamapp.cpp:2198
 msgid "SD / MMC Card Reader"
 msgstr "Зчитувач карток SD / MMC"
 
-#: app/main/digikamapp.cpp:2195
+#: app/main/digikamapp.cpp:2201
 msgid "xD Card Reader"
 msgstr "Зчитувачі карток xD"
 
-#: app/main/digikamapp.cpp:2207
+#: app/main/digikamapp.cpp:2213
 msgid "USB Disk"
 msgstr "Диск USB"
 
-#: app/main/digikamapp.cpp:2211
+#: app/main/digikamapp.cpp:2217
 msgctxt "non-USB removable storage device"
 msgid "Disk"
 msgstr "Диск"
 
-#: app/main/digikamapp.cpp:2279
+#: app/main/digikamapp.cpp:2285
 #, kde-format
 msgctxt "<drive type> \"<device name or label>\" at <mount path>"
 msgid "%1 \"%2\" at %3"
 msgstr "%1 «%2» з %3"
 
-#: app/main/digikamapp.cpp:2282
+#: app/main/digikamapp.cpp:2288
 #, kde-format
 msgctxt "<drive type> \"<device name or label>\""
 msgid "%1 \"%2\""
 msgstr "%1 «%2»"
 
-#: app/main/digikamapp.cpp:2288
+#: app/main/digikamapp.cpp:2294
 #, kde-format
 msgctxt "<drive type> at <mount path>"
 msgid "%1 at %2"
 msgstr "%1 з %2"
 
-#: app/main/digikamapp.cpp:2297
+#: app/main/digikamapp.cpp:2303
 #, kde-format
 msgctxt "device label etc... (<formatted byte size>)"
 msgid " (%1)"
 msgstr " (%1)"
 
-#: app/main/digikamapp.cpp:2444
+#: app/main/digikamapp.cpp:2450
 msgctxt "general keyboard shortcuts"
 msgid "General"
 msgstr "Загальні"
 
-#: app/main/digikamapp.cpp:2448
+#: app/main/digikamapp.cpp:2454
 msgctxt "KIPI-Plugins keyboard shortcuts"
 msgid "KIPI-Plugins"
 msgstr "Додатки Kipi"
 
-#: app/main/digikamapp.cpp:2513 showfoto/main/showfoto.cpp:189
+#: app/main/digikamapp.cpp:2519 showfoto/main/showfoto.cpp:189
 msgid "Loading themes..."
 msgstr "Завантаження тем…"
 
-#: app/main/digikamapp.cpp:2516 showfoto/main/showfoto.cpp:424
+#: app/main/digikamapp.cpp:2522 showfoto/main/showfoto.cpp:424
 msgid "&Themes"
 msgstr "&Теми"
 
-#: app/main/digikamapp.cpp:2533
+#: app/main/digikamapp.cpp:2539
 msgid "Loading tools..."
 msgstr "Завантаження інструментів…"
 
-#: app/main/digikamapp.cpp:2628
+#: app/main/digikamapp.cpp:2634
 msgid "Select folder to parse"
 msgstr "Виберіть теку для обробки"
 
-#: app/main/digikamapp.cpp:2642
+#: app/main/digikamapp.cpp:2648
 msgid "Select folders to import into album"
 msgstr "Виберіть теки для імпортування до альбому"
 
-#: app/main/digikamapp.cpp:2672
+#: app/main/digikamapp.cpp:2678
 msgid ""
 "<p>Please select the destination album from the digiKam library to import "
 "folders into.</p>"
@@ -2345,72 +2350,72 @@ msgstr ""
 "<p>Будь ласка, виберіть альбом призначення з бібліотеки digiKam, щоб "
 "імпортувати до нього теки.</p>"
 
-#: app/main/digikamapp.cpp:2797
+#: app/main/digikamapp.cpp:2803
 msgid "Adjust Exif Orientation Tag"
 msgstr "Встановити мітку орієнтації Exif"
 
-#: app/main/digikamapp.cpp:2801
+#: app/main/digikamapp.cpp:2807
 msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Нормальна"
 
-#: app/main/digikamapp.cpp:2802 libs/dmetadata/dmetadata.cpp:2720
+#: app/main/digikamapp.cpp:2808 libs/dmetadata/dmetadata.cpp:2720
 msgid "Flipped Horizontally"
 msgstr "Віддзеркалене горизонтально"
 
-#: app/main/digikamapp.cpp:2803
+#: app/main/digikamapp.cpp:2809
 msgid "Rotated Upside Down"
 msgstr "Повернуте догори низом"
 
-#: app/main/digikamapp.cpp:2804 libs/dmetadata/dmetadata.cpp:2724
+#: app/main/digikamapp.cpp:2810 libs/dmetadata/dmetadata.cpp:2724
 msgid "Flipped Vertically"
 msgstr "Віддзеркалене вертикально"
 
-#: app/main/digikamapp.cpp:2805
+#: app/main/digikamapp.cpp:2811
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Повернуте прав. / Гор. віддзерк."
 
-#: app/main/digikamapp.cpp:2806 libs/dmetadata/dmetadata.cpp:2732
+#: app/main/digikamapp.cpp:2812 libs/dmetadata/dmetadata.cpp:2732
 msgid "Rotated Right"
 msgstr "Повернуте праворуч"
 
-#: app/main/digikamapp.cpp:2807
+#: app/main/digikamapp.cpp:2813
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Повернуте прав. / Верт. віддзерк."
 
-#: app/main/digikamapp.cpp:2808 libs/dmetadata/dmetadata.cpp:2728
+#: app/main/digikamapp.cpp:2814 libs/dmetadata/dmetadata.cpp:2728
 msgid "Rotated Left"
 msgstr "Повернуте ліворуч"
 
-#: app/main/digikamapp.cpp:2933
+#: app/main/digikamapp.cpp:2939
 #: utilities/queuemanager/basetools/transform/rotate.cpp:85
 msgid "Rotate"
 msgstr "Обертати"
 
-#: app/main/digikamapp.cpp:2937
+#: app/main/digikamapp.cpp:2943
 msgctxt "rotate image left"
 msgid "Left"
 msgstr "Ліворуч"
 
-#: app/main/digikamapp.cpp:2944
+#: app/main/digikamapp.cpp:2950
 msgctxt "rotate image right"
 msgid "Right"
 msgstr "Праворуч"
 
-#: app/main/digikamapp.cpp:2954
+#: app/main/digikamapp.cpp:2960
 #: utilities/queuemanager/basetools/transform/flip.cpp:53
 msgid "Flip"
 msgstr "Віддзеркалити"
 
-#: app/main/digikamapp.cpp:2958
+#: app/main/digikamapp.cpp:2964
 msgid "Horizontally"
 msgstr "Горизонтально"
 
-#: app/main/digikamapp.cpp:2965
+#: app/main/digikamapp.cpp:2971
 msgid "Vertically"
 msgstr "Вертикально"
 
-#: app/main/digikamapp.cpp:2975
+#: app/main/digikamapp.cpp:2981
 msgid "Auto Rotate/Flip Using Exif Information"
 msgstr "Автоматичне обертання або віддзеркалення за даними Exif"
 
@@ -2550,35 +2555,35 @@ msgstr ""
 "встановіть його.\n"
 "Список встановлених у вашій системі додатків баз даних:"
 
-#: app/settings/applicationsettings_p.cpp:219
+#: app/settings/applicationsettings_p.cpp:223
 msgid "Category"
 msgstr "Категорія"
 
-#: app/settings/applicationsettings_p.cpp:220
+#: app/settings/applicationsettings_p.cpp:224
 msgid "Travel"
 msgstr "Подорожі"
 
-#: app/settings/applicationsettings_p.cpp:221
+#: app/settings/applicationsettings_p.cpp:225
 msgid "Holidays"
 msgstr "Свята"
 
-#: app/settings/applicationsettings_p.cpp:222
+#: app/settings/applicationsettings_p.cpp:226
 msgid "Friends"
 msgstr "Друзі"
 
-#: app/settings/applicationsettings_p.cpp:223
+#: app/settings/applicationsettings_p.cpp:227
 msgid "Nature"
 msgstr "Природа"
 
-#: app/settings/applicationsettings_p.cpp:224
+#: app/settings/applicationsettings_p.cpp:228
 msgid "Party"
 msgstr "Вечірки"
 
-#: app/settings/applicationsettings_p.cpp:225
+#: app/settings/applicationsettings_p.cpp:229
 msgid "Todo"
 msgstr "Несортоване"
 
-#: app/settings/applicationsettings_p.cpp:226
+#: app/settings/applicationsettings_p.cpp:230
 #: showfoto/setup/showfotosetup.cpp:154 utilities/setup/setup.cpp:319
 msgid "Miscellaneous"
 msgstr "Різне"
@@ -2706,7 +2711,7 @@ msgid "Reset Tag Icon"
 msgstr "Скинути піктограму мітки"
 
 #: app/tags/tagfolderview.cpp:114 app/tags/tagsmanager/tagmngrtreeview.cpp:155
-#: app/tags/tagsmanager/tagsmanager.cpp:708
+#: app/tags/tagsmanager/tagsmanager.cpp:713
 msgid "Expand Selected Nodes"
 msgstr "Розгорнути позначені пункти"
 
@@ -2803,7 +2808,7 @@ msgid "Assign Tag \"%1\""
 msgstr "Призначити мітку «%1»"
 
 #: app/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: app/utils/contextmenuhelper.cpp:861
+#: app/utils/contextmenuhelper.cpp:870
 msgid "All Tags"
 msgstr "Всі мітки"
 
@@ -2829,22 +2834,22 @@ msgid "Delete Tags"
 msgstr "Вилучити мітки"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:146
-#: app/tags/tagsmanager/tagsmanager.cpp:696
+#: app/tags/tagsmanager/tagsmanager.cpp:701
 msgid "Reset tag Icon"
 msgstr "Встановити типову піктограму мітки"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:152
-#: app/tags/tagsmanager/tagsmanager.cpp:705
+#: app/tags/tagsmanager/tagsmanager.cpp:710
 msgid "Expand Tag Tree"
 msgstr "Розгорнути ієрархію міток"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:158
-#: app/tags/tagsmanager/tagsmanager.cpp:710
+#: app/tags/tagsmanager/tagsmanager.cpp:715
 msgid "Remove Tag from Images"
 msgstr "Вилучити мітку з зображень"
 
 #: app/tags/tagsmanager/tagpropwidget.cpp:94
-#: app/tags/tagsmanager/tagsmanager.cpp:821
+#: app/tags/tagsmanager/tagsmanager.cpp:826
 msgid "Tag Properties"
 msgstr "Властивості міток"
 
@@ -2877,7 +2882,7 @@ msgstr "До міток було внесено зміни. Зберегти ц�
 msgid "Tags Manager"
 msgstr "Керування мітками"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:356
+#: app/tags/tagsmanager/tagsmanager.cpp:361
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid ""
@@ -2899,7 +2904,7 @@ msgstr[3] ""
 "Мітка %2 містить одну або декілька підміток. Вилучення мітки призведе до "
 "вилучення підміток. Продовжити виконання дії?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:381
+#: app/tags/tagsmanager/tagsmanager.cpp:386
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Tag %2 is assigned to one or more items. Do you want to delete it?"
@@ -2918,7 +2923,7 @@ msgstr[3] ""
 "Мітку %2 призначено до одного або декількох зображень. Продовжити виконання "
 "дії?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:393
+#: app/tags/tagsmanager/tagsmanager.cpp:398
 #, kde-format
 msgctxt "%2 is a comma separated list of tags to be deleted."
 msgid "Delete tag %2?"
@@ -2928,7 +2933,7 @@ msgstr[1] "Вилучити мітки %2?"
 msgstr[2] "Вилучити мітки %2?"
 msgstr[3] "Вилучити мітку %2?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:403
+#: app/tags/tagsmanager/tagsmanager.cpp:408
 msgid "Delete tag"
 msgid_plural "Delete tags"
 msgstr[0] "Вилучити мітки"
@@ -2936,7 +2941,7 @@ msgstr[1] "Вилучити мітки"
 msgstr[2] "Вилучити мітки"
 msgstr[3] "Вилучити мітку"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:510
+#: app/tags/tagsmanager/tagsmanager.cpp:515
 msgid ""
 "digiKam will clean up tag metadata before setting tags from database.<br> "
 "You may <b>lose tags</b> if you did not read tags before (by calling Read "
@@ -2948,8 +2953,8 @@ msgstr ""
 "мітки» з меню «Зображення»).<br> Виконати встановлення міток на основі бази "
 "даних?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:525
-#: app/tags/tagsmanager/tagsmanager.cpp:547
+#: app/tags/tagsmanager/tagsmanager.cpp:530
+#: app/tags/tagsmanager/tagsmanager.cpp:552
 msgid ""
 "This operation can take long time depending on collection size.\n"
 "Do you want to continue?"
@@ -2957,7 +2962,7 @@ msgstr ""
 "Виконання цієї дії може бути тривалим у великих збірках.\n"
 "Хочете продовжити?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:570
+#: app/tags/tagsmanager/tagsmanager.cpp:575
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
@@ -2968,7 +2973,7 @@ msgstr ""
 "програми записати метадані до файлів.\n"
 "Продовжити виконання цієї дії?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:633
+#: app/tags/tagsmanager/tagsmanager.cpp:638
 msgid "Do you really want to remove the selected tag from all images?"
 msgid_plural "Do you really want to remove the selected tags from all images?"
 msgstr[0] "Ви справді хочете вилучити позначені мітки з усіх зображень?"
@@ -2976,26 +2981,26 @@ msgstr[1] "Ви справді хочете вилучити позначені 
 msgstr[2] "Ви справді хочете вилучити позначені мітки з усіх зображень?"
 msgstr[3] "Ви справді хочете вилучити позначену мітку з усіх зображень?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:692
+#: app/tags/tagsmanager/tagsmanager.cpp:697
 msgctxt "@title:menu"
 msgid "Organize"
 msgstr "Впорядковування"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:699
+#: app/tags/tagsmanager/tagsmanager.cpp:704
 msgid "Create Tag from Address Book"
 msgstr "Створити мітку з адресної книги"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:713
+#: app/tags/tagsmanager/tagsmanager.cpp:718
 msgid "Delete Unassigned Tags"
 msgstr "Вилучити непризначені мітки"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:717
+#: app/tags/tagsmanager/tagsmanager.cpp:722
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 "Додати нову мітку до поточної мітки. Поточною є мітка, яку було натиснуто "
 "останньою."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:720
+#: app/tags/tagsmanager/tagsmanager.cpp:725
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
@@ -3003,60 +3008,60 @@ msgstr ""
 "Вилучити позначені записи. Працює для декількох записів, але не зможе "
 "вилучити кореневу мітку."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:724
+#: app/tags/tagsmanager/tagsmanager.cpp:729
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr ""
 "Відновити типову піктограму для позначених міток. Цю дію можна виконувати "
 "над декількома мітками одночасно."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:727
+#: app/tags/tagsmanager/tagsmanager.cpp:732
 msgid "Invert selection. Only visible items will be selected"
 msgstr "Інвертувати позначення. Буде позначено лише видимі записи."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:730
+#: app/tags/tagsmanager/tagsmanager.cpp:735
 msgid "Expand tag tree by one level"
 msgstr "Розгорнути ієрархію міток на один рівень."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:732
+#: app/tags/tagsmanager/tagsmanager.cpp:737
 msgid "Selected items will be expanded"
 msgstr "Позначені пункти буде розгорнуто"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:734
+#: app/tags/tagsmanager/tagsmanager.cpp:739
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr ""
 "Вилучити позначені мітки з зображень. Цю дію можна виконувати над декількома "
 "зображенням одночасно."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:736
+#: app/tags/tagsmanager/tagsmanager.cpp:741
 msgid "Delete all tags that are not assigned to images. Use with caution."
 msgstr "Вилучити усі мітки, які не пов’язано із зображеннями. Будьте обережні!"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:770
+#: app/tags/tagsmanager/tagsmanager.cpp:775
 msgid "Sync &Export"
 msgstr "Синхронізувати &експортовані дані"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:774
+#: app/tags/tagsmanager/tagsmanager.cpp:779
 msgid "Write Tags from Database to Image"
 msgstr "Записати мітки з бази даних до зображень"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:778
+#: app/tags/tagsmanager/tagsmanager.cpp:783
 msgid "Read Tags from Image"
 msgstr "Прочитати мітки з файлів зображень"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:781
+#: app/tags/tagsmanager/tagsmanager.cpp:786
 msgid "Wipe all tags from Database only"
 msgstr "Витерти усі мітки лише з бази даних"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:785
+#: app/tags/tagsmanager/tagsmanager.cpp:790
 msgid "Write Tags Metadata to Image."
 msgstr "Записати метадані міток до зображень."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:787
+#: app/tags/tagsmanager/tagsmanager.cpp:792
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 "Прочитати мітки з зображень до бази даних. Наявні мітки змінено не буде."
 
-#: app/tags/tagsmanager/tagsmanager.cpp:790
+#: app/tags/tagsmanager/tagsmanager.cpp:795
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
@@ -3064,7 +3069,7 @@ msgstr ""
 "Вилучити усі мітки лише з бази даних. Синхронізація з файлами не "
 "виконуватиметься. Будьте обережні!"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:862
+#: app/tags/tagsmanager/tagsmanager.cpp:867
 msgid ""
 "This option will remove all tags which\n"
 "are not assigned to any image.\n"
@@ -3117,12 +3122,12 @@ msgstr "Підтримка LibGphoto2"
 #: libs/dialogs/libsinfodlg.cpp:125 libs/dialogs/libsinfodlg.cpp:146
 #: libs/dialogs/libsinfodlg.cpp:152 libs/dialogs/libsinfodlg.cpp:165
 #: libs/dialogs/libsinfodlg.cpp:172
-#: utilities/importui/backend/gpcamera.cpp:1395
-#: utilities/importui/backend/gpcamera.cpp:1396
-#: utilities/importui/backend/gpcamera.cpp:1397
-#: utilities/importui/backend/gpcamera.cpp:1398
-#: utilities/importui/backend/gpcamera.cpp:1399
-#: utilities/importui/backend/gpcamera.cpp:1400
+#: utilities/importui/backend/gpcamera.cpp:1406
+#: utilities/importui/backend/gpcamera.cpp:1407
+#: utilities/importui/backend/gpcamera.cpp:1408
+#: utilities/importui/backend/gpcamera.cpp:1409
+#: utilities/importui/backend/gpcamera.cpp:1410
+#: utilities/importui/backend/gpcamera.cpp:1411
 #: utilities/importui/backend/umscamera.cpp:600
 #: utilities/importui/backend/umscamera.cpp:601
 #: utilities/importui/backend/umscamera.cpp:602
@@ -3169,18 +3174,18 @@ msgid "LibOpenCV"
 msgstr "LibOpenCV"
 
 #: app/utils/contextmenuhelper.cpp:285
-#: utilities/imageeditor/editor/editorwindow.cpp:2998
+#: utilities/imageeditor/editor/editorwindow.cpp:3044
 msgid "Open With"
 msgstr "Відкрити за допомогою"
 
 #: app/utils/contextmenuhelper.cpp:297
 #: imageplugins/color/imageplugin_color.cpp:344
-#: utilities/imageeditor/editor/editorwindow.cpp:3010
+#: utilities/imageeditor/editor/editorwindow.cpp:3056
 msgid "Other..."
 msgstr "Інше…"
 
 #: app/utils/contextmenuhelper.cpp:306
-#: utilities/imageeditor/editor/editorwindow.cpp:3019
+#: utilities/imageeditor/editor/editorwindow.cpp:3065
 msgid "Open With..."
 msgstr "Відкрити за допомогою…"
 
@@ -3270,79 +3275,84 @@ msgstr "Додати до існуючої черги"
 msgid "All Albums"
 msgstr "Всі альбоми"
 
-#: app/utils/contextmenuhelper.cpp:863
+#: app/utils/contextmenuhelper.cpp:873
 msgctxt "select tags menu"
 msgid "Select"
 msgstr "Вибрати"
 
-#: app/utils/contextmenuhelper.cpp:868 app/utils/contextmenuhelper.cpp:878
+#: app/utils/contextmenuhelper.cpp:878 app/utils/contextmenuhelper.cpp:888
 msgid "Children"
 msgstr "Діти"
 
-#: app/utils/contextmenuhelper.cpp:869 app/utils/contextmenuhelper.cpp:879
+#: app/utils/contextmenuhelper.cpp:879 app/utils/contextmenuhelper.cpp:889
 msgid "Parents"
 msgstr "Батьки"
 
-#: app/utils/contextmenuhelper.cpp:873
+#: app/utils/contextmenuhelper.cpp:883
 msgctxt "deselect tags menu"
 msgid "Deselect"
 msgstr "Скасувати вибір"
 
-#: app/utils/contextmenuhelper.cpp:952
+#: app/utils/contextmenuhelper.cpp:962
 msgid "Group"
 msgstr "Групувати"
 
-#: app/utils/contextmenuhelper.cpp:987
+#: app/utils/contextmenuhelper.cpp:997
 msgctxt "@action:inmenu"
 msgid "Open All Groups"
 msgstr "Відкрити всі групи"
 
-#: app/utils/contextmenuhelper.cpp:993
+#: app/utils/contextmenuhelper.cpp:1003
 msgctxt "@action:inmenu"
 msgid "Close All Groups"
 msgstr "Закрити всі групи"
 
-#: app/utils/contextmenuhelper.cpp:1012 app/utils/contextmenuhelper.cpp:1057
+#: app/utils/contextmenuhelper.cpp:1022 app/utils/contextmenuhelper.cpp:1071
 msgctxt "@action:inmenu"
 msgid "Show Grouped Images"
 msgstr "Показати згруповані зображення"
 
-#: app/utils/contextmenuhelper.cpp:1018 app/utils/contextmenuhelper.cpp:1061
+#: app/utils/contextmenuhelper.cpp:1028 app/utils/contextmenuhelper.cpp:1075
 msgctxt "@action:inmenu"
 msgid "Hide Grouped Images"
 msgstr "Приховати згруповані зображення"
 
-#: app/utils/contextmenuhelper.cpp:1028
+#: app/utils/contextmenuhelper.cpp:1038
 msgctxt "@action:inmenu"
 msgid "Ungroup"
 msgstr "Розгрупувати"
 
-#: app/utils/contextmenuhelper.cpp:1034
+#: app/utils/contextmenuhelper.cpp:1044
 msgctxt "@action:inmenu"
 msgid "Remove From Group"
 msgstr "Вилучити з групи"
 
-#: app/utils/contextmenuhelper.cpp:1043
+#: app/utils/contextmenuhelper.cpp:1053
 msgctxt "@action:inmenu"
 msgid "Group Selected Here"
 msgstr "Згрупувати позначені тут"
 
-#: app/utils/contextmenuhelper.cpp:1047
+#: app/utils/contextmenuhelper.cpp:1057
 msgctxt "@action:inmenu"
 msgid "Group Selected By Time"
 msgstr "Згрупувати позначені за часом"
 
-#: app/utils/contextmenuhelper.cpp:1070
+#: app/utils/contextmenuhelper.cpp:1061
+msgctxt "@action:inmenu"
+msgid "Group Selected By Type"
+msgstr "Згрупувати позначені за типом"
+
+#: app/utils/contextmenuhelper.cpp:1084
 msgctxt "@action:inmenu"
 msgid "Remove Selected From Groups"
 msgstr "Вилучити позначені з груп"
 
-#: app/utils/contextmenuhelper.cpp:1074
+#: app/utils/contextmenuhelper.cpp:1088
 msgctxt "@action:inmenu"
 msgid "Ungroup Selected"
 msgstr "Розгрупувати позначені"
 
-#: app/utils/contextmenuhelper.cpp:1163
+#: app/utils/contextmenuhelper.cpp:1177
 #, kde-format
 msgctxt "@action:inmenu Pluralized"
 msgid "Move to Trash"
@@ -3377,7 +3387,7 @@ msgstr ""
 msgid "Name exists"
 msgstr "Назва вже існує"
 
-#: app/utils/slideshowbuilder.cpp:93
+#: app/utils/slideshowbuilder.cpp:107
 msgid "Preparing slideshow"
 msgstr "Приготування до показу слайдів"
 
@@ -3727,44 +3737,48 @@ msgstr "Шкала часу"
 msgid "Filters"
 msgstr "Фільтри"
 
-#: app/views/digikamview.cpp:1265
+#: app/views/digikamview.cpp:1271
 msgid "Cannot open the root album. It is not a physical location."
 msgstr ""
 "Не вдалося відкрити кореневий альбом. Цей альбом немає фізичної адреси."
 
-#: app/views/digikamview.cpp:1288
+#: app/views/digikamview.cpp:1294
 msgid "Cannot open the root. It is not a physical location."
 msgstr "Не вдалося відкрити кореневу теку. Ця тека немає фізичної адреси."
 
-#: app/views/digikamview.cpp:1701
+#: app/views/digikamview.cpp:1707
 msgctxt "@info"
 msgid ""
 "<i>The storage location of this image<br/>is currently not available</i>"
 msgstr "<i>Місце зберігання цього зображення<br/>зараз недоступне</i>"
 
-#: app/views/imagepreviewview.cpp:168 app/views/mediaplayerview.cpp:141
+#: app/views/imagepreviewview.cpp:175 app/views/mediaplayerview.cpp:141
 #: utilities/importui/views/importpreviewview.cpp:190
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Назад"
 
-#: app/views/imagepreviewview.cpp:169 app/views/mediaplayerview.cpp:142
+#: app/views/imagepreviewview.cpp:176 app/views/mediaplayerview.cpp:142
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "Вперед"
 
-#: app/views/imagepreviewview.cpp:174
+#: app/views/imagepreviewview.cpp:181
 msgid "Add a Face Tag"
 msgstr "Додати мітку обличчя"
 
-#: app/views/imagepreviewview.cpp:175
+#: app/views/imagepreviewview.cpp:182
 msgid "Clear all faces on this image"
 msgstr "Вилучити всі прив’язки до облич на цьому зображенні"
 
-#: app/views/imagepreviewview.cpp:176
+#: app/views/imagepreviewview.cpp:183
 msgid "Show Face Tags"
 msgstr "Показати мітки облич"
+
+#: app/views/imagepreviewview.cpp:187
+msgid "Show Fullscreen"
+msgstr "Показати на весь екран"
 
 #: app/views/leftsidebarwidgets.cpp:226
 msgid "No Tags"
@@ -3916,15 +3930,15 @@ msgstr "Люди"
 msgid "An error has occurred with the media player...."
 msgstr "З програвачем сталася помилка…"
 
-#: app/views/tableview/tableview.cpp:511
+#: app/views/tableview/tableview.cpp:540
 msgid "Hide grouped items"
 msgstr "Приховати згруповані пункти"
 
-#: app/views/tableview/tableview.cpp:521
+#: app/views/tableview/tableview.cpp:550
 msgid "Ignore grouping"
 msgstr "Ігнорувати групування"
 
-#: app/views/tableview/tableview.cpp:531
+#: app/views/tableview/tableview.cpp:560
 msgid "Show grouping in tree"
 msgstr "Показувати ієрархію групування"
 
@@ -4623,7 +4637,7 @@ msgstr ""
 
 #: imageplugins/color/adjustlevelstool.cpp:315
 #: imageplugins/color/filmtool.cpp:257
-#: libs/dimg/filters/bw/mixersettings.cpp:167
+#: libs/dimg/filters/bw/mixersettings.cpp:169
 #: libs/dimg/filters/curves/curvesbox.cpp:216
 msgid "&Reset"
 msgstr "&Скинути"
@@ -5315,7 +5329,7 @@ msgstr ""
 "використання його у фільтрі виправлення яскравих точок."
 
 #: imageplugins/enhance/hotpixels/hotpixelstool.cpp:188
-#: utilities/imageeditor/editor/editorwindow.cpp:1650
+#: utilities/imageeditor/editor/editorwindow.cpp:1696
 msgid "Loading: "
 msgstr "Завантаження: "
 
@@ -5885,22 +5899,22 @@ msgstr "Ефекти кольорів"
 msgid "This is the color effects preview"
 msgstr "Це попередній перегляд результатів застосування ефекту кольорів"
 
-#: imageplugins/filters/colorfxtool.cpp:220
+#: imageplugins/filters/colorfxtool.cpp:229
 #: libs/dimg/filters/fx/colorfxsettings.cpp:84
 msgid "Solarize"
 msgstr "Вигорання"
 
-#: imageplugins/filters/colorfxtool.cpp:224
+#: imageplugins/filters/colorfxtool.cpp:233
 #: libs/dimg/filters/fx/colorfxsettings.cpp:85
 msgid "Vivid"
 msgstr "Чіткість"
 
-#: imageplugins/filters/colorfxtool.cpp:228
+#: imageplugins/filters/colorfxtool.cpp:237
 #: libs/dimg/filters/fx/colorfxsettings.cpp:86
 msgid "Neon"
 msgstr "Неон"
 
-#: imageplugins/filters/colorfxtool.cpp:232
+#: imageplugins/filters/colorfxtool.cpp:241
 #: libs/dimg/filters/fx/colorfxsettings.cpp:87
 msgid "Find Edges"
 msgstr "Пошук країв"
@@ -7975,12 +7989,12 @@ msgid "LibLqr support"
 msgstr "Підтримка LibLqr"
 
 #: libs/dialogs/libsinfodlg.cpp:150
-#: utilities/importui/backend/gpcamera.cpp:1395
-#: utilities/importui/backend/gpcamera.cpp:1396
-#: utilities/importui/backend/gpcamera.cpp:1397
-#: utilities/importui/backend/gpcamera.cpp:1398
-#: utilities/importui/backend/gpcamera.cpp:1399
-#: utilities/importui/backend/gpcamera.cpp:1400
+#: utilities/importui/backend/gpcamera.cpp:1406
+#: utilities/importui/backend/gpcamera.cpp:1407
+#: utilities/importui/backend/gpcamera.cpp:1408
+#: utilities/importui/backend/gpcamera.cpp:1409
+#: utilities/importui/backend/gpcamera.cpp:1410
+#: utilities/importui/backend/gpcamera.cpp:1411
 #: utilities/importui/backend/umscamera.cpp:600
 #: utilities/importui/backend/umscamera.cpp:601
 #: utilities/importui/backend/umscamera.cpp:602
@@ -8070,7 +8084,7 @@ msgid "Migrate ->"
 msgstr "Міграція ->"
 
 #: libs/dialogs/migrationdlg.cpp:137
-#: utilities/imageeditor/editor/editorwindow.cpp:669
+#: utilities/imageeditor/editor/editorwindow.cpp:680
 msgid "Cancel"
 msgstr "Скасувати"
 
@@ -8702,59 +8716,59 @@ msgstr "Фільтр інфрачервоних"
 msgid "Channel Mixer Tool"
 msgstr "Змішувач каналів"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:135
+#: libs/dimg/filters/bw/mixersettings.cpp:137
 msgid "Output Channel:"
 msgstr "Вихідний канал:"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:141
+#: libs/dimg/filters/bw/mixersettings.cpp:143
 msgid "Red (%):"
 msgstr "Червоний (у %):"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:146
+#: libs/dimg/filters/bw/mixersettings.cpp:148
 msgid "Select the red color gain, as a percentage, for the current channel."
 msgstr ""
 "Тут ви можете вибрати приріст червоного кольору у відсотках для поточного "
 "каналу."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:149
+#: libs/dimg/filters/bw/mixersettings.cpp:151
 msgid "Green (%):"
 msgstr "Зелений (у %):"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:154
+#: libs/dimg/filters/bw/mixersettings.cpp:156
 msgid "Select the green color gain, as a percentage, for the current channel."
 msgstr ""
 "Тут ви можете вибрати приріст зеленого кольору у відсотках для поточного "
 "каналу."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:157
+#: libs/dimg/filters/bw/mixersettings.cpp:159
 msgid "Blue (%):"
 msgstr "Синій (у %):"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:162
+#: libs/dimg/filters/bw/mixersettings.cpp:164
 msgid "Select the blue color gain, as a percentage, for the current channel."
 msgstr ""
 "Тут ви можете вибрати приріст синього кольору у відсотках для поточного "
 "каналу."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:169
+#: libs/dimg/filters/bw/mixersettings.cpp:171
 msgid ""
 "Reset color channels' gains settings from the currently selected channel."
 msgstr "Скинути параметри приростів каналів кольорів для вибраного каналу."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:177
+#: libs/dimg/filters/bw/mixersettings.cpp:179
 msgid "Preserve luminosity"
 msgstr "Зберігати яскравість світла"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:178
+#: libs/dimg/filters/bw/mixersettings.cpp:180
 msgid "Enable this option is you want preserve the image luminosity."
 msgstr ""
 "Позначте цей пункт, якщо ви бажаєте зберегти яскравість світла зображення."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:183
+#: libs/dimg/filters/bw/mixersettings.cpp:185
 msgid "Monochrome"
 msgstr "Чорно-біле"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:184
+#: libs/dimg/filters/bw/mixersettings.cpp:186
 msgid ""
 "<p>Use <b>Monochrome</b> mode to convert color picture to Black and White:</"
 "p><p>The <qt><font color=\"red\">red channel</font></qt> modifies <a "
@@ -8774,25 +8788,25 @@ msgstr ""
 "org/wiki/Image_noise'>рівень шумності</a> фотографії.</p><p><u>Зауваження:</"
 "u> у цьому режимі на гістограмі буде показано лише значення освітленості.</p>"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:354
+#: libs/dimg/filters/bw/mixersettings.cpp:356
 #, kde-format
 msgid "Total: %1 (%)"
 msgstr "Загалом: %1 (у %)"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:550
+#: libs/dimg/filters/bw/mixersettings.cpp:552
 msgid "Select Gimp Gains Mixer File to Load"
 msgstr "Виберіть файл приростів змішувача Gimp для завантаження"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:646
+#: libs/dimg/filters/bw/mixersettings.cpp:622
 msgid "Cannot load settings from the Gains Mixer text file."
 msgstr ""
 "Не вдалося завантажити параметри з текстового файла приростів змішувача."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:658
+#: libs/dimg/filters/bw/mixersettings.cpp:634
 msgid "Gimp Gains Mixer File to Save"
 msgstr "Файл приростів змішувача Gimp, який слід зберегти"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:727
+#: libs/dimg/filters/bw/mixersettings.cpp:703
 msgid "Cannot save settings to the Gains Mixer text file."
 msgstr "Не вдалося зберегти тестовий файл приростів змішувача."
 
@@ -9096,7 +9110,7 @@ msgid "Texture Filter"
 msgstr "Фільтр текстури"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:335
-#: utilities/imageeditor/editor/editorwindow.cpp:614
+#: utilities/imageeditor/editor/editorwindow.cpp:625
 msgid "Rotate Right"
 msgstr "Повернути праворуч"
 
@@ -9105,17 +9119,17 @@ msgid "Rotate 180°"
 msgstr "Повернути на 180°"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:341
-#: utilities/imageeditor/editor/editorwindow.cpp:608
+#: utilities/imageeditor/editor/editorwindow.cpp:619
 msgid "Rotate Left"
 msgstr "Повернути ліворуч"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:344
-#: utilities/imageeditor/editor/editorwindow.cpp:594
+#: utilities/imageeditor/editor/editorwindow.cpp:605
 msgid "Flip Horizontally"
 msgstr "Віддзеркалити горизонтально"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:347
-#: utilities/imageeditor/editor/editorwindow.cpp:600
+#: utilities/imageeditor/editor/editorwindow.cpp:611
 msgid "Flip Vertically"
 msgstr "Віддзеркалити вертикально"
 
@@ -9342,7 +9356,7 @@ msgid "Greycstoration Filter"
 msgstr "Фільтр відновлення кольорів за відтінками сірого"
 
 #: libs/dimg/filters/greycstoration/greycstorationsettings.cpp:134
-#: utilities/lighttable/lighttablewindow.cpp:1489
+#: utilities/lighttable/lighttablewindow.cpp:1491
 #: utilities/queuemanager/main/queuemgrwindow.cpp:569
 msgid "General"
 msgstr "Загальне"
@@ -13447,15 +13461,16 @@ msgstr ""
 "Ви впевнені, що цього бажаєте?"
 
 #: showfoto/main/showfoto.cpp:972
-#: utilities/imageeditor/editor/editorwindow.cpp:1246
+#: utilities/imageeditor/editor/editorwindow.cpp:1259
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
 #: utilities/importui/main/importui.cpp:1995
 msgid "Warning"
 msgstr "Попередження"
 
 #: showfoto/main/showfoto.cpp:1050
-#: utilities/imageeditor/main/imagewindow.cpp:1373
-#: utilities/lighttable/lighttablewindow.cpp:1431
+#: utilities/imageeditor/main/imagewindow.cpp:1381
+#: utilities/lighttable/lighttablewindow.cpp:1422
+#: utilities/lighttable/lighttablewindow.cpp:1447
 msgid "Preparing slideshow. Please wait..."
 msgstr "Підготовка до показу слайда. Будь ласка, зачекайте…"
 
@@ -13613,94 +13628,98 @@ msgstr ""
 "має замінити IPTC.</p>"
 
 #: showfoto/setup/showfotosetupmetadata.cpp:158
-#: showfoto/setup/showfotosetupmisc.cpp:103
+#: showfoto/setup/showfotosetupmisc.cpp:105
 #: utilities/queuemanager/views/queuesettingsview.cpp:261
 #: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:512
 msgid "Behavior"
 msgstr "Поведінка"
 
-#: showfoto/setup/showfotosetupmisc.cpp:106
+#: showfoto/setup/showfotosetupmisc.cpp:108
 msgid "&Deleted items should go to the trash"
 msgstr "&Вилучення файлів надсилає їх до смітника"
 
-#: showfoto/setup/showfotosetupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/showfotosetupmisc.cpp:109 utilities/setup/setupmisc.cpp:98
+msgid "Scroll current item to center of thumbbar"
+msgstr "Розташовувати поточний пункт у центрі панелі мініатюр"
+
+#: showfoto/setup/showfotosetupmisc.cpp:110 utilities/setup/setupmisc.cpp:99
 msgid "&Show splash screen at startup"
 msgstr "Показувати ві&кно вітання під час запуску"
 
-#: showfoto/setup/showfotosetupmisc.cpp:108
+#: showfoto/setup/showfotosetupmisc.cpp:111
 msgid "&Show image Format"
 msgstr "По&казувати формат зображень"
 
-#: showfoto/setup/showfotosetupmisc.cpp:109
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:439
+#: showfoto/setup/showfotosetupmisc.cpp:112
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:439
 msgid "Set this option to show image format over image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано назву "
 "формату даних файла."
 
-#: showfoto/setup/showfotosetupmisc.cpp:110
+#: showfoto/setup/showfotosetupmisc.cpp:113
 msgid "&Show Geolocation Indicator"
 msgstr "По&казувати індикатор геопозиціювання"
 
-#: showfoto/setup/showfotosetupmisc.cpp:111
-#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:442
+#: showfoto/setup/showfotosetupmisc.cpp:114
+#: utilities/setup/setupalbumview.cpp:194 utilities/setup/setupcamera.cpp:442
 msgid "Set this option to indicate if image has geolocation information."
 msgstr ""
 "Позначте цей пункт для показу індикатора наявності у зображенні даних щодо "
 "геопозиціювання."
 
-#: showfoto/setup/showfotosetupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/showfotosetupmisc.cpp:117 utilities/setup/setupmisc.cpp:104
 msgid "Sidebar tab title:"
 msgstr "Заголовок бічної вкладки:"
 
-#: showfoto/setup/showfotosetupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/showfotosetupmisc.cpp:119 utilities/setup/setupmisc.cpp:106
 msgid "Only For Active Tab"
 msgstr "Лише для активної вкладки"
 
-#: showfoto/setup/showfotosetupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/showfotosetupmisc.cpp:120 utilities/setup/setupmisc.cpp:107
 msgid "For All Tabs"
 msgstr "Для всіх вкладок"
 
-#: showfoto/setup/showfotosetupmisc.cpp:118
+#: showfoto/setup/showfotosetupmisc.cpp:121
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr ""
 "Позначте цей пункт, щоб налаштувати спосіб, у який буде показано заголовки "
 "бічних вкладок."
 
-#: showfoto/setup/showfotosetupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/showfotosetupmisc.cpp:124 utilities/setup/setupmisc.cpp:128
 msgid "Widget style:"
 msgstr "Стиль віджетів:"
 
-#: showfoto/setup/showfotosetupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/showfotosetupmisc.cpp:126 utilities/setup/setupmisc.cpp:130
 msgid "Set this option to choose the default window decoration and looks."
 msgstr ""
 "Встановіть значення цього параметра, щоб змінити типове обрамлення і вигляд "
 "вікон."
 
-#: showfoto/setup/showfotosetupmisc.cpp:142
+#: showfoto/setup/showfotosetupmisc.cpp:146
 msgid "Sort order for images"
 msgstr "Порядок зображень"
 
-#: showfoto/setup/showfotosetupmisc.cpp:146
+#: showfoto/setup/showfotosetupmisc.cpp:150
 msgid "Sort images by:"
 msgstr "Впорядкувати зображення за:"
 
-#: showfoto/setup/showfotosetupmisc.cpp:148
+#: showfoto/setup/showfotosetupmisc.cpp:152
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "За датою"
 
-#: showfoto/setup/showfotosetupmisc.cpp:149
+#: showfoto/setup/showfotosetupmisc.cpp:153
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "За назвою"
 
-#: showfoto/setup/showfotosetupmisc.cpp:150
+#: showfoto/setup/showfotosetupmisc.cpp:154
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "За розміром файла"
 
-#: showfoto/setup/showfotosetupmisc.cpp:151
+#: showfoto/setup/showfotosetupmisc.cpp:155
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -13708,11 +13727,11 @@ msgstr ""
 "Тут ви можете вибрати спосіб впорядкування тільки-но завантажених зображень "
 "(за датою, назвою або розміром файла)."
 
-#: showfoto/setup/showfotosetupmisc.cpp:154
+#: showfoto/setup/showfotosetupmisc.cpp:158
 msgid "Reverse ordering"
 msgstr "Зворотний порядок"
 
-#: showfoto/setup/showfotosetupmisc.cpp:155
+#: showfoto/setup/showfotosetupmisc.cpp:159
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -15471,17 +15490,17 @@ msgctxt "@title:tab"
 msgid "Advanced"
 msgstr "Додатково"
 
-#: utilities/firstrun/collectionpage.cpp:76
+#: utilities/firstrun/collectionpage.cpp:77
 msgid "<b>Configure where you keep your images and you will store database</b>"
 msgstr "<b>Вкажіть, куди буде збережено збережено зображення та базу даних</b>"
 
-#: utilities/firstrun/collectionpage.cpp:97
+#: utilities/firstrun/collectionpage.cpp:98
 msgctxt ""
 "This is a path name so you should include the slash in the translation"
 msgid "/Pictures"
 msgstr "/Картинки"
 
-#: utilities/firstrun/collectionpage.cpp:103
+#: utilities/firstrun/collectionpage.cpp:104
 msgid ""
 "<p>Please enter a location where you keep your images.</p> <p>You can choose "
 "any local folder, even one that already contains images.<br/> More folders "
@@ -15492,7 +15511,7 @@ msgstr ""
 "зберігаються зображення.<br/>Пізніше ви зможете вказати нові теки за "
 "допомогою меню <i>Параметри</i>.</p>"
 
-#: utilities/firstrun/collectionpage.cpp:110
+#: utilities/firstrun/collectionpage.cpp:111
 msgid ""
 "<p><i>Note:</i> removable media (such as USB drives or DVDs) and remote file "
 "systems (such as NFS, or Samba mounted with cifs/smbfs) are supported.</p>"
@@ -15501,7 +15520,7 @@ msgstr ""
 "віддалені файлові системи (зокрема NFS або Samba, змонтовані за допомогою "
 "cifs/smbfs).</p>"
 
-#: utilities/firstrun/collectionpage.cpp:122
+#: utilities/firstrun/collectionpage.cpp:123
 msgid ""
 "<p>digiKam stores information and metadata about your images in a database "
 "file. Please set the location of this file or accept the default.</"
@@ -15515,7 +15534,7 @@ msgstr ""
 "доступ на запис до цієї теки, а також, що не можна використовувати віддалену "
 "файлову систему, наприклад NFS або Samba.</p>"
 
-#: utilities/firstrun/collectionpage.cpp:205
+#: utilities/firstrun/collectionpage.cpp:206
 msgid ""
 "You must select a folder for digiKam to use as the root album. All of your "
 "images will go there."
@@ -15523,7 +15542,7 @@ msgstr ""
 "Ви маєте вибрати теку, яку digiKam буде використовувати як кореневу теку "
 "альбому. Там зберігатимуться всі ваші зображення."
 
-#: utilities/firstrun/collectionpage.cpp:233
+#: utilities/firstrun/collectionpage.cpp:234
 #, kde-format
 msgid ""
 "<p>The folder to use as the root album path does not exist:</p><p><b>%1</b></"
@@ -15532,11 +15551,11 @@ msgstr ""
 "<p>Теки, яку ви вибрали для кореневої теки альбому, не існує:</p> <p><b>%1</"
 "b></p>Чи бажаєте ви, щоб digiKam створив її?"
 
-#: utilities/firstrun/collectionpage.cpp:237
+#: utilities/firstrun/collectionpage.cpp:238
 msgid "Create Root Album Folder?"
 msgstr "Створити кореневу теку альбому?"
 
-#: utilities/firstrun/collectionpage.cpp:247
+#: utilities/firstrun/collectionpage.cpp:248
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to use as the root album.\n"
@@ -15546,11 +15565,11 @@ msgstr ""
 "кореневу теку альбому.\n"
 "Будь ласка, виберіть інше місце.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:250
+#: utilities/firstrun/collectionpage.cpp:251
 msgid "Create Root Album Folder Failed"
 msgstr "Створення кореневої теки альбому зазнало невдачі"
 
-#: utilities/firstrun/collectionpage.cpp:267
+#: utilities/firstrun/collectionpage.cpp:268
 msgid ""
 "You do not seem to have write access for the folder selected to be the root "
 "album.\n"
@@ -15560,7 +15579,7 @@ msgstr ""
 "кореневу теку альбому.\n"
 "Попередження: без доступу на запис ви не зможете змінювати записи."
 
-#: utilities/firstrun/collectionpage.cpp:282
+#: utilities/firstrun/collectionpage.cpp:283
 msgid ""
 "You must select a folder for digiKam to store information and metadata in a "
 "database file."
@@ -15568,7 +15587,7 @@ msgstr ""
 "Ви маєте вибрати теку, яку digiKam буде використовувати для зберігання "
 "відомостей і метаданих у файлі бази даних."
 
-#: utilities/firstrun/collectionpage.cpp:310
+#: utilities/firstrun/collectionpage.cpp:311
 #, kde-format
 msgid ""
 "<p>The folder to put your database in does not seem to exist:</p><p><b>%1</"
@@ -15577,11 +15596,11 @@ msgstr ""
 "<p>Теки, де має зберігатися файл бази даних, не існує:</p> <p><b>%1</b></"
 "p>Чи бажаєте ви, щоб digiKam створив її?"
 
-#: utilities/firstrun/collectionpage.cpp:314
+#: utilities/firstrun/collectionpage.cpp:315
 msgid "Create Database Folder?"
 msgstr "Створити теку бази даних?"
 
-#: utilities/firstrun/collectionpage.cpp:324
+#: utilities/firstrun/collectionpage.cpp:325
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to host your database file.\n"
@@ -15591,11 +15610,11 @@ msgstr ""
 "даних.\n"
 "Будь ласка, виберіть інше місце.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:327
+#: utilities/firstrun/collectionpage.cpp:328
 msgid "Create Database Folder Failed"
 msgstr "Створення теки бази даних зазнало невдачі"
 
-#: utilities/firstrun/collectionpage.cpp:344
+#: utilities/firstrun/collectionpage.cpp:345
 #, kde-format
 msgid ""
 "<p>You do not seem to have write access for the folder to host the database "
@@ -15604,7 +15623,7 @@ msgstr ""
 "<p>Запис до теки, де зберігається файл бази даних, заборонено.<br/>Будь "
 "ласка, оберіть інше місце на диску.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:348
+#: utilities/firstrun/collectionpage.cpp:349
 msgid "No Database Write Access"
 msgstr "Немає доступу до бази даних для запису"
 
@@ -16349,49 +16368,49 @@ msgstr "Спробувати"
 msgid "Try all settings."
 msgstr "Спробувати всі параметри."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:352
-#: utilities/lighttable/lighttablewindow.cpp:469
+#: utilities/imageeditor/editor/editorwindow.cpp:358
+#: utilities/lighttable/lighttablewindow.cpp:473
 msgid "&First"
 msgstr "&Перше"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:357
-#: utilities/lighttable/lighttablewindow.cpp:475
+#: utilities/imageeditor/editor/editorwindow.cpp:364
+#: utilities/lighttable/lighttablewindow.cpp:479
 msgid "&Last"
 msgstr "&Останнє"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:363
+#: utilities/imageeditor/editor/editorwindow.cpp:371
 msgctxt "@action"
 msgid "Open Original"
 msgstr "Відкрити початкове"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:372
+#: utilities/imageeditor/editor/editorwindow.cpp:380
 msgctxt "@action Save changes to current version"
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:373
+#: utilities/imageeditor/editor/editorwindow.cpp:381
 msgctxt "@info:tooltip"
 msgid "Save the modifications to the current version of the file"
 msgstr "Зберегти зміни до поточної версії файла"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:378
+#: utilities/imageeditor/editor/editorwindow.cpp:386
 msgctxt "@action Save changes to a newly created version"
 msgid "Save As New Version"
 msgstr "Зберегти у новій версії"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:379
+#: utilities/imageeditor/editor/editorwindow.cpp:387
 msgctxt "@info:tooltip"
 msgid "Save the current modifications to a new version of the file"
 msgstr "Зберегти поточні зміни до нової версії файла"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:385
+#: utilities/imageeditor/editor/editorwindow.cpp:393
 msgctxt ""
 "@action Save changes to a newly created version, specifying the filename and "
 "format"
 msgid "Save New Version As..."
 msgstr "Зберегти нову версію як…"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:386
+#: utilities/imageeditor/editor/editorwindow.cpp:394
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current modifications to a new version of the file, specifying the "
@@ -16400,96 +16419,96 @@ msgstr ""
 "Зберегти поточні зміни до файла нової версії з визначенням назви цього файла "
 "та його формату"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:393
+#: utilities/imageeditor/editor/editorwindow.cpp:401
 msgctxt "@action Save As New Version...Save in format..."
 msgid "Save in Format"
 msgstr "Зберегти у форматі"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:394
+#: utilities/imageeditor/editor/editorwindow.cpp:402
 msgctxt "@action:inmenu"
 msgid "JPEG"
 msgstr "JPEG"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:395
+#: utilities/imageeditor/editor/editorwindow.cpp:403
 msgctxt "@action:inmenu"
 msgid "TIFF"
 msgstr "TIFF"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:396
+#: utilities/imageeditor/editor/editorwindow.cpp:404
 msgctxt "@action:inmenu"
 msgid "PNG"
 msgstr "PNG"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:397
+#: utilities/imageeditor/editor/editorwindow.cpp:405
 msgctxt "@action:inmenu"
 msgid "PGF"
 msgstr "PGF"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:399
+#: utilities/imageeditor/editor/editorwindow.cpp:407
 msgctxt "@action:inmenu"
 msgid "JPEG 2000"
 msgstr "JPEG 2000"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:412
+#: utilities/imageeditor/editor/editorwindow.cpp:420
 msgctxt "@action"
 msgid "Export"
 msgstr "Експортувати"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:413
+#: utilities/imageeditor/editor/editorwindow.cpp:421
 msgctxt "@info:tooltip"
 msgid "Save the file in a folder outside your collection"
 msgstr "Зберегти файл у теці поза межами вашої збірки"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:422
+#: utilities/imageeditor/editor/editorwindow.cpp:430
 msgctxt "@action"
 msgid "Discard Changes"
 msgstr "Відкинути зміни"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:423
+#: utilities/imageeditor/editor/editorwindow.cpp:431
 msgctxt "@info:tooltip"
 msgid "Discard all current changes to this file"
 msgstr "Відкинути всі поточні зміни цього файла"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:435
+#: utilities/imageeditor/editor/editorwindow.cpp:443
 msgid "Print Image..."
 msgstr "Друкувати зображення…"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:442
-#: utilities/lighttable/lighttablewindow.cpp:503
+#: utilities/imageeditor/editor/editorwindow.cpp:451
+#: utilities/lighttable/lighttablewindow.cpp:507
 msgid "Open the item with default assigned application."
 msgstr ""
 "Відкрити позначений елемент за допомогою типової програми, пов’язаної з "
 "елементами цього типу."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:460
+#: utilities/imageeditor/editor/editorwindow.cpp:471
 msgid "Undo"
 msgstr "Вернути"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:479
+#: utilities/imageeditor/editor/editorwindow.cpp:490
 msgid "Redo"
 msgstr "Повторити"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:495
+#: utilities/imageeditor/editor/editorwindow.cpp:506
 msgctxt "Create a selection containing the full image"
 msgid "Select All"
 msgstr "Вибрати все"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:529
+#: utilities/imageeditor/editor/editorwindow.cpp:540
 msgid "Fit to &Selection"
 msgstr "Вмістити &вибране"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:534
+#: utilities/imageeditor/editor/editorwindow.cpp:545
 msgid ""
 "This option can be used to zoom the image to the current selection area."
 msgstr ""
 "Цей параметр можна використовувати для зміни розмірів зображення до поточної "
 "вибраної області."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:547
+#: utilities/imageeditor/editor/editorwindow.cpp:558
 msgid "Under-Exposure Indicator"
 msgstr "Індикатор недостатньої експозиції"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:549
+#: utilities/imageeditor/editor/editorwindow.cpp:560
 msgid ""
 "Set this option to display black overlaid on the image. This will help you "
 "to avoid under-exposing the image."
@@ -16497,11 +16516,11 @@ msgstr ""
 "Позначте цей пункт, щоб програма показувала чорну накладку на зображення. Це "
 "допоможе вам уникнути ефекту недоекспонованого зображення."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:555
+#: utilities/imageeditor/editor/editorwindow.cpp:566
 msgid "Over-Exposure Indicator"
 msgstr "Індикатор надмірної експозиції"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:557
+#: utilities/imageeditor/editor/editorwindow.cpp:568
 msgid ""
 "Set this option to display white overlaid on the image. This will help you "
 "to avoid over-exposing the image."
@@ -16509,20 +16528,20 @@ msgstr ""
 "Позначте цей пункт, щоб програма показувала білу накладку на зображення. Це "
 "допоможе вам уникнути ефекту переекспонованого зображення."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:568
+#: utilities/imageeditor/editor/editorwindow.cpp:579
 msgid "Soft Proofing Options..."
 msgstr "Параметри проби…"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:572
+#: utilities/imageeditor/editor/editorwindow.cpp:583
 msgid "Soft Proofing View"
 msgstr "Перегляд проби кольорів"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:578
+#: utilities/imageeditor/editor/editorwindow.cpp:589
 msgctxt "@action"
 msgid "Crop to Selection"
 msgstr "Обрізати за позначеним"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:583
+#: utilities/imageeditor/editor/editorwindow.cpp:594
 msgid ""
 "This option can be used to crop the image. Select a region of the image to "
 "enable this action."
@@ -16530,56 +16549,56 @@ msgstr ""
 "Цей параметр можна використовувати для обрізання зображення. Виберіть "
 "область зображення, щоб дозволити цю дію."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:586
+#: utilities/imageeditor/editor/editorwindow.cpp:597
 msgctxt "@action"
 msgid "Auto-Crop"
 msgstr "Автообрізання"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:590
+#: utilities/imageeditor/editor/editorwindow.cpp:601
 msgid "This option can be used to crop automatically the image."
 msgstr "Цим пунктом можна скористатися для автоматичного обрізання зображення."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:658
+#: utilities/imageeditor/editor/editorwindow.cpp:669
 msgctxt "@action Select image editor tool/filter"
 msgid "Select Tool"
 msgstr "Інструмент позначення"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:664
+#: utilities/imageeditor/editor/editorwindow.cpp:675
 msgid "OK"
 msgstr "Гаразд"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:684
-#: utilities/imageeditor/editor/editorwindow.cpp:1631
+#: utilities/imageeditor/editor/editorwindow.cpp:695
+#: utilities/imageeditor/editor/editorwindow.cpp:1677
 msgid "No selection"
 msgstr "Нічого не вибрано"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:687
+#: utilities/imageeditor/editor/editorwindow.cpp:698
 msgid "Information about current image selection"
 msgstr "Інформація щодо поточної ділянки зображення"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:692
+#: utilities/imageeditor/editor/editorwindow.cpp:703
 msgid "Information about image size"
 msgstr "Інформація щодо розміру зображення"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:766
+#: utilities/imageeditor/editor/editorwindow.cpp:777
 msgctxt "general editor shortcuts"
 msgid "General"
 msgstr "Загальне"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:767
+#: utilities/imageeditor/editor/editorwindow.cpp:778
 msgctxt "imageplugins shortcuts"
 msgid "Image Plugins"
 msgstr "Додатки роботи з зображеннями"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1223
+#: utilities/imageeditor/editor/editorwindow.cpp:1236
 msgid "Saving image..."
 msgstr "Збереження зображення…"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1224
+#: utilities/imageeditor/editor/editorwindow.cpp:1237
 msgid "Please wait for the image to be saved..."
 msgstr "Будь ласка, зачекайте на завершення збереження зображення…"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1243
+#: utilities/imageeditor/editor/editorwindow.cpp:1256
 #, kde-format
 msgid ""
 "About to overwrite file \"%1\"\n"
@@ -16588,27 +16607,27 @@ msgstr ""
 "Ви перезаписуєте файл «%1»\n"
 "Ви справді хочете виконати цю дію?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1247
+#: utilities/imageeditor/editor/editorwindow.cpp:1260
 msgid "Overwrite"
 msgstr "Перезаписати"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1321
+#: utilities/imageeditor/editor/editorwindow.cpp:1334
 msgctxt "@title:window"
 msgid "Save?"
 msgstr "Зберегти?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1333
+#: utilities/imageeditor/editor/editorwindow.cpp:1346
 msgctxt "@label"
 msgid ""
 "The current image has been changed.<nl/>Do you wish to save your changes?"
 msgstr "Поточне зображення було змінено.<nl/>Бажаєте зберегти внесені зміни?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1343
+#: utilities/imageeditor/editor/editorwindow.cpp:1356
 msgctxt "@action:button"
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1345
+#: utilities/imageeditor/editor/editorwindow.cpp:1358
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current changes. Note: The original image will never be overwritten."
@@ -16616,12 +16635,12 @@ msgstr ""
 "Зберегти поточні зміни. Зауваження: програма ніколи не перезаписуватиме "
 "початкове зображення."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1347
+#: utilities/imageeditor/editor/editorwindow.cpp:1360
 msgctxt "@action:button"
 msgid "Save Changes as a New Version"
 msgstr "Зберегти зміни до нової версії"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1349
+#: utilities/imageeditor/editor/editorwindow.cpp:1362
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current changes as a new version. The loaded file will remain "
@@ -16630,18 +16649,18 @@ msgstr ""
 "Зберегти дані з внесеними змінами до файла нової версії. Зміни не "
 "вноситимуться до завантаженого файла, програма створить новий файл."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1352
+#: utilities/imageeditor/editor/editorwindow.cpp:1365
 msgctxt "@action:button"
 msgid "Discard Changes"
 msgstr "Відкинути зміни"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1354
+#: utilities/imageeditor/editor/editorwindow.cpp:1367
 msgctxt "@info:tooltip"
 msgid "Discard the changes applied to the image during this editing session."
 msgstr ""
 "Відкинути зміни, внесені до зображення під час цього сеансу редагування."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1429
+#: utilities/imageeditor/editor/editorwindow.cpp:1442
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -16650,7 +16669,17 @@ msgid ""
 msgstr ""
 "Зображення <filename>%1</filename>» було змінено.<nl/>Хочете його зберегти?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1711
+#: utilities/imageeditor/editor/editorwindow.cpp:1591
+#, kde-format
+msgctxt "@info"
+msgid ""
+"The image <filename>%1</filename> has been modified.<nl/>All changes will be "
+"lost."
+msgstr ""
+"Зображення <filename>%1</filename>» було змінено.<nl/>Усі зміни буде "
+"втрачено."
+
+#: utilities/imageeditor/editor/editorwindow.cpp:1757
 #, kde-format
 msgid ""
 "Cannot open the specified working space profile (\"%1\"). No color "
@@ -16661,11 +16690,11 @@ msgstr ""
 "кольорів виконано не буде. Будь ласка, перевірте налаштування керування "
 "кольорами у налаштуваннях digiKam."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1767
+#: utilities/imageeditor/editor/editorwindow.cpp:1813
 msgid "Saving: "
 msgstr "Збереження: "
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1785
+#: utilities/imageeditor/editor/editorwindow.cpp:1831
 #, kde-format
 msgid ""
 "Failed to save file\n"
@@ -16678,33 +16707,33 @@ msgstr ""
 "до\n"
 "«%2»."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1913
+#: utilities/imageeditor/editor/editorwindow.cpp:1959
 #, kde-format
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "Не вдалося відкрити тимчасовий файл у теці «%1»: %2 (%3)"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1967
+#: utilities/imageeditor/editor/editorwindow.cpp:2013
 msgid "New Image File Name"
 msgstr "Нова назва файла зображення"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2079
+#: utilities/imageeditor/editor/editorwindow.cpp:2125
 msgid "Unable to determine the format to save the target image with."
 msgstr "Не вдалося визначити формат для збереження даних зміненого зображення."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2085
+#: utilities/imageeditor/editor/editorwindow.cpp:2131
 #, kde-format
 msgid "Cannot Save: Found file path <filename>%1</filename> is invalid."
 msgstr "Не вдалося зберегти: адреса <filename>%1</filename> є некоректною."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2108
+#: utilities/imageeditor/editor/editorwindow.cpp:2154
 msgid "JPEG 2000 image"
 msgstr "Зображення JPEG 2000"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2114
+#: utilities/imageeditor/editor/editorwindow.cpp:2160
 msgid "Progressive Graphics File"
 msgstr "Файл поступальної графіки"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2446
+#: utilities/imageeditor/editor/editorwindow.cpp:2492
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -16714,7 +16743,7 @@ msgstr ""
 "Не вдалося зберегти файл <filename>%1</filename> з запропонованою назвою "
 "файла версії <filename>%2</filename>"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2517
+#: utilities/imageeditor/editor/editorwindow.cpp:2563
 #, kde-format
 msgid ""
 "You do not have write permissions for the file named \"%1\". Are you sure "
@@ -16723,40 +16752,40 @@ msgstr ""
 "Ви не маєте прав на запис до файла «%1». Ви впевнені, що хочете його "
 "перезаписати?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2522
-#: utilities/imageeditor/editor/editorwindow.cpp:2543
+#: utilities/imageeditor/editor/editorwindow.cpp:2568
+#: utilities/imageeditor/editor/editorwindow.cpp:2589
 msgid "Overwrite File?"
 msgstr "Перезаписати файл?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2539
+#: utilities/imageeditor/editor/editorwindow.cpp:2585
 #, kde-format
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
 msgstr "Файл з назвою «%1» вже існує. Ви справді хочете його перезаписати?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2568
+#: utilities/imageeditor/editor/editorwindow.cpp:2614
 msgid "Failed to overwrite original file"
 msgstr "Не вдалося перезаписати початковий файл"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2569
-#: utilities/imageeditor/editor/editorwindow.cpp:2641
+#: utilities/imageeditor/editor/editorwindow.cpp:2615
+#: utilities/imageeditor/editor/editorwindow.cpp:2687
 msgid "Error Saving File"
 msgstr "Помилка під час збереження файла"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2640
+#: utilities/imageeditor/editor/editorwindow.cpp:2686
 #, kde-format
 msgid "Failed to save file: %1"
 msgstr "Не вдалося зберегти файл: %1"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2682
+#: utilities/imageeditor/editor/editorwindow.cpp:2728
 msgid "Color-Managed View is enabled."
 msgstr "Перегляд з керуванням кольорами увімкнено."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2686
+#: utilities/imageeditor/editor/editorwindow.cpp:2732
 msgid "Color-Managed View is disabled."
 msgstr "Перегляд з керуванням кольорами вимкнено."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2691
+#: utilities/imageeditor/editor/editorwindow.cpp:2737
 msgid ""
 "Color Management is not configured, so the Color-Managed View is not "
 "available."
@@ -16764,23 +16793,23 @@ msgstr ""
 "Керування кольорами не налаштовано, отже, Перегляд з керуванням кольорами не "
 "буде доступним."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2726
+#: utilities/imageeditor/editor/editorwindow.cpp:2772
 msgid "Under-Exposure indicator is enabled"
 msgstr "Індикатор недоекспонування увімкнено"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2727
+#: utilities/imageeditor/editor/editorwindow.cpp:2773
 msgid "Under-Exposure indicator is disabled"
 msgstr "Індикатор недоекспонування вимкнено"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2741
+#: utilities/imageeditor/editor/editorwindow.cpp:2787
 msgid "Over-Exposure indicator is enabled"
 msgstr "Індикатор переекспонування увімкнено"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2742
+#: utilities/imageeditor/editor/editorwindow.cpp:2788
 msgid "Over-Exposure indicator is disabled"
 msgstr "Індикатор переекспонування вимкнено"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2840
+#: utilities/imageeditor/editor/editorwindow.cpp:2886
 msgctxt "@title Image transformations"
 msgid "Basic Transformations"
 msgstr "Базові перетворення"
@@ -16807,7 +16836,7 @@ msgstr "Пересунути до смітника без підтверджен
 msgid "Image Editor - %1"
 msgstr "Редактор зображень — %1"
 
-#: utilities/imageeditor/main/imagewindow.cpp:1240
+#: utilities/imageeditor/main/imagewindow.cpp:1248
 msgid ""
 "There is no image to show in the current album.\n"
 "The image editor will be closed."
@@ -16815,17 +16844,17 @@ msgstr ""
 "В поточному альбомі немає зображень для показу.\n"
 "Редактор зображень буде закрито."
 
-#: utilities/imageeditor/main/imagewindow.cpp:1242
+#: utilities/imageeditor/main/imagewindow.cpp:1250
 msgid "No Image in Current Album"
 msgstr "У поточному альбомі відсутні зображення"
 
-#: utilities/imageeditor/main/imagewindow.cpp:1596
+#: utilities/imageeditor/main/imagewindow.cpp:1604
 #, kde-format
 msgctxt "@info"
 msgid "The original file (<filename>%1</filename>) is currently not available"
 msgstr "Зараз початковий файл (<filename>%1</filename>) недоступний"
 
-#: utilities/imageeditor/main/imagewindow.cpp:1599
+#: utilities/imageeditor/main/imagewindow.cpp:1607
 msgctxt "@title"
 msgid "File Not Available"
 msgstr "Файл недоступний"
@@ -17279,7 +17308,7 @@ msgstr ""
 "Мітки <filename>%1</filename> призначено до одного або декількох зображень. "
 "Продовжити виконання дії?"
 
-#: utilities/importui/backend/gpcamera.cpp:1379
+#: utilities/importui/backend/gpcamera.cpp:1390
 #, kde-format
 msgctxt "@info List of device properties"
 msgid ""
@@ -17289,7 +17318,7 @@ msgstr ""
 "Назва: <b>%1</b><br/>Модель: <b>%2</b><br/> Порт: <b>%3</b><br/>Шлях: <b></b>"
 "%4<br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1389
+#: utilities/importui/backend/gpcamera.cpp:1400
 #, kde-format
 msgctxt "@info List of supported device operations"
 msgid ""
@@ -17802,7 +17831,7 @@ msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Файл вже існує"
 
-#: utilities/importui/main/importui.cpp:1451
+#: utilities/importui/main/importui.cpp:1453
 msgctxt "@info"
 msgid ""
 "Your custom target album date format is not valid. Please check your "
@@ -17888,17 +17917,17 @@ msgstr[3] ""
 "Ви намагаєтеся вилучити це зображення. <warning>Вилучений файл не можна буде "
 "потім відновити.</warning> Ви справді бажаєте вилучити файл?"
 
-#: utilities/importui/main/importui.cpp:2034
+#: utilities/importui/main/importui.cpp:2037
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Виконати отримання"
 
-#: utilities/importui/main/importui.cpp:2036
+#: utilities/importui/main/importui.cpp:2039
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "Скасувати отримання"
 
-#: utilities/importui/main/importui.cpp:2038
+#: utilities/importui/main/importui.cpp:2041
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17914,13 +17943,13 @@ msgstr ""
 "Оцінка потрібного простору: %1\n"
 "Доступно вільного простору: %2"
 
-#: utilities/importui/main/importui.cpp:2044
+#: utilities/importui/main/importui.cpp:2047
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Недостатньо місця на диску"
 
-#: utilities/importui/main/importui.cpp:2338
-#: utilities/importui/main/importui.cpp:2362
+#: utilities/importui/main/importui.cpp:2347
+#: utilities/importui/main/importui.cpp:2371
 #, kde-format
 msgctxt "@info:status"
 msgid "No item selected (%1 item)"
@@ -17930,13 +17959,13 @@ msgstr[1] "Нічого не вибрано (%1 пункти)"
 msgstr[2] "Нічого не вибрано (%1 пунктів)"
 msgstr[3] "Нічого не вибрано (1 пункт)"
 
-#: utilities/importui/main/importui.cpp:2355
+#: utilities/importui/main/importui.cpp:2364
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr "<filename>%1</filename> (%2 з %3)"
 
-#: utilities/importui/main/importui.cpp:2371
+#: utilities/importui/main/importui.cpp:2380
 #, kde-format
 msgctxt "@info:status"
 msgid "%2/%1 item selected"
@@ -17946,7 +17975,7 @@ msgstr[1] "Вибрано %2 з %1 об’єктів"
 msgstr[2] "Вибрано %2 з %1 об’єктів"
 msgstr[3] "Вибрано %2 з %1 об’єкта"
 
-#: utilities/importui/main/importui.cpp:2445
+#: utilities/importui/main/importui.cpp:2454
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17956,13 +17985,13 @@ msgstr ""
 "Файл з цією назвою (<filename>%1</filename>) вже існує у теці <resource>%2</"
 "resource>."
 
-#: utilities/importui/main/importui.cpp:2457
+#: utilities/importui/main/importui.cpp:2466
 #, kde-format
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "Не вдалось знайти альбом для шляху <filename>%1</filename>."
 
-#: utilities/importui/main/importui.cpp:2485
+#: utilities/importui/main/importui.cpp:2494
 msgctxt "@title"
 msgid "General"
 msgstr "Загальне"
@@ -18382,7 +18411,7 @@ msgid "Show on right panel"
 msgstr "Показ на правій панелі"
 
 #: utilities/lighttable/lighttablethumbbar.cpp:261
-#: utilities/lighttable/lighttablewindow.cpp:495
+#: utilities/lighttable/lighttablewindow.cpp:499
 msgid "Edit"
 msgstr "Змінити"
 
@@ -18398,88 +18427,88 @@ msgstr "Очистити все"
 msgid "Drag and drop images here"
 msgstr "Перетягніть і скиньте зображення тут"
 
-#: utilities/lighttable/lighttablewindow.cpp:481
+#: utilities/lighttable/lighttablewindow.cpp:485
 msgid "On left"
 msgstr "Ліворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:484
+#: utilities/lighttable/lighttablewindow.cpp:488
 msgid "Show item on left panel"
 msgstr "Показати елемент на лівій панелі"
 
-#: utilities/lighttable/lighttablewindow.cpp:488
+#: utilities/lighttable/lighttablewindow.cpp:492
 msgid "On right"
 msgstr "Праворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:491
+#: utilities/lighttable/lighttablewindow.cpp:495
 msgid "Show item on right panel"
 msgstr "Показувати елемент на правій панелі"
 
-#: utilities/lighttable/lighttablewindow.cpp:507
+#: utilities/lighttable/lighttablewindow.cpp:511
 msgid "Remove item from LightTable"
 msgstr "Вилучити елемент зі стола з підсвічуванням"
 
-#: utilities/lighttable/lighttablewindow.cpp:513
+#: utilities/lighttable/lighttablewindow.cpp:517
 msgid "Remove all items from LightTable"
 msgstr "Вилучити всі елементи зі стола з підсвічуванням"
 
-#: utilities/lighttable/lighttablewindow.cpp:525
+#: utilities/lighttable/lighttablewindow.cpp:529
 msgid "Delete immediately"
 msgstr "Вилучити негайно"
 
-#: utilities/lighttable/lighttablewindow.cpp:536
+#: utilities/lighttable/lighttablewindow.cpp:540
 msgid "Synchronize"
 msgstr "Синхронізувати"
 
-#: utilities/lighttable/lighttablewindow.cpp:539
+#: utilities/lighttable/lighttablewindow.cpp:543
 msgid "Synchronize preview from left and right panels"
 msgstr "Синхронізувати перегляд з лівої та правої панелей"
 
-#: utilities/lighttable/lighttablewindow.cpp:543
+#: utilities/lighttable/lighttablewindow.cpp:547
 msgid "By Pair"
 msgstr "Парами"
 
-#: utilities/lighttable/lighttablewindow.cpp:546
+#: utilities/lighttable/lighttablewindow.cpp:550
 msgid "Navigate by pairs with all items"
 msgstr "Пересуватися парами за всіма елементами"
 
-#: utilities/lighttable/lighttablewindow.cpp:550
+#: utilities/lighttable/lighttablewindow.cpp:554
 msgid "Clear On Close"
 msgstr "Спорожняти при закритті"
 
-#: utilities/lighttable/lighttablewindow.cpp:553
+#: utilities/lighttable/lighttablewindow.cpp:557
 msgid "Clear light table when it is closed"
 msgstr "Спорожняти стіл з підсвічуванням при закритті"
 
-#: utilities/lighttable/lighttablewindow.cpp:554
+#: utilities/lighttable/lighttablewindow.cpp:558
 msgid "Remove all images from the light table when it is closed"
 msgstr ""
 "Вилучити всі зображення зі стола з підсвічуванням під час закриття його вікна"
 
-#: utilities/lighttable/lighttablewindow.cpp:664
+#: utilities/lighttable/lighttablewindow.cpp:668
 msgid "Edit Titles on the Right"
 msgstr "Редагувати заголовки праворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:669
+#: utilities/lighttable/lighttablewindow.cpp:673
 msgid "Edit Comments on the Right"
 msgstr "Редагувати коментарі праворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:674
+#: utilities/lighttable/lighttablewindow.cpp:678
 msgid "Edit Titles on the Left"
 msgstr "Редагувати заголовки ліворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:679
+#: utilities/lighttable/lighttablewindow.cpp:683
 msgid "Edit Comments on the Left"
 msgstr "Редагувати коментарі ліворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:684
+#: utilities/lighttable/lighttablewindow.cpp:688
 msgid "Show Assigned Tags on the Right"
 msgstr "Показувати пов’язані мітки праворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:689
+#: utilities/lighttable/lighttablewindow.cpp:693
 msgid "Show Assigned Tags on the Left"
 msgstr "Показувати пов’язані мітки ліворуч"
 
-#: utilities/lighttable/lighttablewindow.cpp:759
+#: utilities/lighttable/lighttablewindow.cpp:763
 #, kde-format
 msgid "%1 item on Light Table"
 msgid_plural "%1 items on Light Table"
@@ -19314,7 +19343,7 @@ msgstr "Всі завдання з черги виконано"
 msgid "&Queues"
 msgstr "&Черги"
 
-#: utilities/queuemanager/manager/batchtool.cpp:537
+#: utilities/queuemanager/manager/batchtool.cpp:541
 msgid "No setting available"
 msgstr "Без параметрів"
 
@@ -20464,44 +20493,44 @@ msgstr ""
 "Зауваження: обробка мініатюр може тривати деякий час. Ви можете розпочати "
 "цей процес за допомогою меню «Інструменти → Супровід»."
 
-#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:419
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:419
 msgid "Icon-View Options"
 msgstr "Параметри перегляду піктограмами"
 
-#: utilities/setup/setupalbumview.cpp:141 utilities/setup/setupcamera.cpp:422
+#: utilities/setup/setupalbumview.cpp:143 utilities/setup/setupcamera.cpp:422
 msgid "Show file&name"
 msgstr "Показати &назву файла"
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setupcamera.cpp:423
+#: utilities/setup/setupalbumview.cpp:144 utilities/setup/setupcamera.cpp:423
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано назву файла."
 
-#: utilities/setup/setupalbumview.cpp:144 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:425
 msgid "Show file si&ze"
 msgstr "Показати &розмір файла"
 
-#: utilities/setup/setupalbumview.cpp:145 utilities/setup/setupcamera.cpp:426
+#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:426
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано розмір файла."
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:149 utilities/setup/setupcamera.cpp:428
 msgid "Show camera creation &date"
 msgstr "Показувати дату &створення з фотоапарата"
 
-#: utilities/setup/setupalbumview.cpp:148
+#: utilities/setup/setupalbumview.cpp:150
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано дату "
 "створення зображення з фотоапарата."
 
-#: utilities/setup/setupalbumview.cpp:151
+#: utilities/setup/setupalbumview.cpp:153
 msgid "Show file &modification date (if different than creation date)"
 msgstr "Показувати час зм&іни файлів (якщо відрізняється від дати створення)"
 
-#: utilities/setup/setupalbumview.cpp:152
+#: utilities/setup/setupalbumview.cpp:154
 msgid ""
 "Set this option to show the file modification date below the image thumbnail "
 "if it's different than camera creation date. This option is useful to "
@@ -20512,77 +20541,77 @@ msgstr ""
 "яку було записано фотоапаратом. Цей пункт корисний для пришвидшення "
 "виявлення записів, до яких було внесено зміни."
 
-#: utilities/setup/setupalbumview.cpp:156
+#: utilities/setup/setupalbumview.cpp:158
 msgid "Show ima&ge dimensions"
 msgstr "Показувати р&озміри зображення"
 
-#: utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupalbumview.cpp:159
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано розмір "
 "зображення у пікселях."
 
-#: utilities/setup/setupalbumview.cpp:160 utilities/setup/setuptooltip.cpp:217
+#: utilities/setup/setupalbumview.cpp:162 utilities/setup/setuptooltip.cpp:217
 msgid "Show image aspect ratio"
 msgstr "Показувати співвідношення розмірів зображення"
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:163
 msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано "
 "співвідношення розмірів зображення."
 
-#: utilities/setup/setupalbumview.cpp:164 utilities/setup/setupcamera.cpp:438
+#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:438
 msgid "Show image Format"
 msgstr "Показувати формат зображень"
 
-#: utilities/setup/setupalbumview.cpp:167
+#: utilities/setup/setupalbumview.cpp:169
 msgid "Show digiKam tit&le"
 msgstr "Показати &назву digiKam"
 
-#: utilities/setup/setupalbumview.cpp:168
+#: utilities/setup/setupalbumview.cpp:170
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано назву "
 "digiKam."
 
-#: utilities/setup/setupalbumview.cpp:171
+#: utilities/setup/setupalbumview.cpp:173
 msgid "Show digiKam &captions"
 msgstr "Показувати &підписи digiKam"
 
-#: utilities/setup/setupalbumview.cpp:172
+#: utilities/setup/setupalbumview.cpp:174
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано підпис "
 "digiKam."
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:177 utilities/setup/setupcamera.cpp:444
 msgid "Show digiKam &tags"
 msgstr "Показувати мі&тки digiKam"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:445
+#: utilities/setup/setupalbumview.cpp:178 utilities/setup/setupcamera.cpp:445
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано мітки "
 "digiKam."
 
-#: utilities/setup/setupalbumview.cpp:179
+#: utilities/setup/setupalbumview.cpp:181
 msgid "Show digiKam &rating"
 msgstr "Показати &оцінку digiKam"
 
-#: utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupalbumview.cpp:182
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr ""
 "Позначте цей пункт, щоб під мініатюрою зображення було показано оцінку "
 "digiKam."
 
-#: utilities/setup/setupalbumview.cpp:183 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:452
 msgid "Show rotation overlay buttons"
 msgstr "Показувати накладні кнопки обертання"
 
-#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:453
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:453
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
@@ -20590,44 +20619,56 @@ msgstr ""
 "Позначення цього пункту призведе до показу накладних кнопок обертання на "
 "мініатюрі зображення."
 
-#: utilities/setup/setupalbumview.cpp:187 utilities/setup/setupcamera.cpp:441
+#: utilities/setup/setupalbumview.cpp:189
+msgid "Show fullscreen overlay button"
+msgstr "Показувати кнопку повноекранного режиму"
+
+#: utilities/setup/setupalbumview.cpp:190
+msgid ""
+"Set this option to show an overlay button on the image thumbnail to open it "
+"in fullscreen."
+msgstr ""
+"Позначення цього пункту призведе до показу накладної кнопки відкриття "
+"мініатюри у повноекранному режимі."
+
+#: utilities/setup/setupalbumview.cpp:193 utilities/setup/setupcamera.cpp:441
 msgid "Show Geolocation Indicator"
 msgstr "Показувати індикатор геопозиціювання"
 
-#: utilities/setup/setupalbumview.cpp:190 utilities/setup/setupcamera.cpp:456
+#: utilities/setup/setupalbumview.cpp:196 utilities/setup/setupcamera.cpp:456
 msgid "Thumbnail click action:"
 msgstr "Дія за натисканням мініатюри:"
 
-#: utilities/setup/setupalbumview.cpp:192
+#: utilities/setup/setupalbumview.cpp:198
 msgid "Show embedded view"
 msgstr "Показати вбудований перегляд"
 
-#: utilities/setup/setupalbumview.cpp:193 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:199 utilities/setup/setupcamera.cpp:459
 msgid "Start image editor"
 msgstr "Запустити редактор зображень"
 
-#: utilities/setup/setupalbumview.cpp:194 utilities/setup/setupcamera.cpp:460
+#: utilities/setup/setupalbumview.cpp:200 utilities/setup/setupcamera.cpp:460
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr ""
 "Тут ви можете вибрати дію, яка виконуватиметься, якщо ви натиснете на "
 "мініатюру."
 
-#: utilities/setup/setupalbumview.cpp:196 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:202 utilities/setup/setupcamera.cpp:462
 msgid "Icon View font:"
 msgstr "Шрифт перегляду піктограмами:"
 
-#: utilities/setup/setupalbumview.cpp:197 utilities/setup/setupcamera.cpp:463
+#: utilities/setup/setupalbumview.cpp:203 utilities/setup/setupcamera.cpp:463
 msgid "Select here the font used to display text in Icon Views."
 msgstr ""
 "Тут ви можете вказати шрифт, який буде використано для тексту у всіх "
 "переглядах піктограмами."
 
-#: utilities/setup/setupalbumview.cpp:199
+#: utilities/setup/setupalbumview.cpp:205
 msgid "Use large thumbnail size for high screen resolution"
 msgstr ""
 "Використовувати мініатюри великих розмірів для екранів з високою роздільністю"
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:206
 msgid ""
 "Set this option to render icon-view with large thumbnail size, for example "
 "in case of 4K monitor is used.\n"
@@ -20651,15 +20692,15 @@ msgstr ""
 "скористатися пунктом повторної побудови мініатюр інструмента супроводу "
 "збірки для усіх ваших збірок."
 
-#: utilities/setup/setupalbumview.cpp:231
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Folder View Options"
 msgstr "Параметри перегляду тек"
 
-#: utilities/setup/setupalbumview.cpp:234
+#: utilities/setup/setupalbumview.cpp:241
 msgid "Tree View thumbnail size:"
 msgstr "Розмір мініатюри перегляду деревом:"
 
-#: utilities/setup/setupalbumview.cpp:240
+#: utilities/setup/setupalbumview.cpp:247
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
@@ -20667,67 +20708,67 @@ msgstr ""
 "Тут можна вказати розмір у пікселях мініатюр у перегляді деревом на бічних "
 "панелях digiKam."
 
-#: utilities/setup/setupalbumview.cpp:243
+#: utilities/setup/setupalbumview.cpp:250
 msgid "Tree View font:"
 msgstr "Шрифт перегляду деревом:"
 
-#: utilities/setup/setupalbumview.cpp:244
+#: utilities/setup/setupalbumview.cpp:251
 msgid "Select here the font used to display text in Tree Views."
 msgstr ""
 "Тут ви можете встановити шрифт, який буде використано для показу тексту "
 "перегляді деревом."
 
-#: utilities/setup/setupalbumview.cpp:246
+#: utilities/setup/setupalbumview.cpp:253
 msgid "Show a count of items in Tree Views"
 msgstr "Показувати кількість елементів у дереві"
 
-#: utilities/setup/setupalbumview.cpp:257 utilities/setup/setupcamera.cpp:483
+#: utilities/setup/setupalbumview.cpp:264 utilities/setup/setupcamera.cpp:483
 msgid "Preview Options"
 msgstr "Параметри попереднього перегляду"
 
-#: utilities/setup/setupalbumview.cpp:261
+#: utilities/setup/setupalbumview.cpp:268
 msgctxt "@option:radio"
 msgid "Embedded view shows a small, quick preview"
 msgstr "На вбудованій панелі буде показано маленький, швидко побудований ескіз"
 
-#: utilities/setup/setupalbumview.cpp:263
+#: utilities/setup/setupalbumview.cpp:270
 msgctxt "@option:radio"
 msgid "Embedded view shows the full image"
 msgstr "На вбудованій панелі буде показано зображення повністю"
 
-#: utilities/setup/setupalbumview.cpp:265
+#: utilities/setup/setupalbumview.cpp:272
 msgctxt "@label:listbox Mode of RAW preview decoding:"
 msgid "Raw images:"
 msgstr "Зображення негативів:"
 
-#: utilities/setup/setupalbumview.cpp:268
+#: utilities/setup/setupalbumview.cpp:275
 msgctxt "@option:inlistbox Automatic choice of RAW image preview source"
 msgid "Automatic"
 msgstr "Автоматично"
 
-#: utilities/setup/setupalbumview.cpp:270
+#: utilities/setup/setupalbumview.cpp:277
 msgctxt "@option:inlistbox Embedded preview as RAW image preview source"
 msgid "Embedded preview"
 msgstr "Вбудований ескіз"
 
-#: utilities/setup/setupalbumview.cpp:272
+#: utilities/setup/setupalbumview.cpp:279
 msgctxt ""
 "@option:inlistbox Original, half-size data as RAW image preview source"
 msgid "Raw data in half size"
 msgstr "Негатив у половину розміру"
 
-#: utilities/setup/setupalbumview.cpp:274 utilities/setup/setupcamera.cpp:497
+#: utilities/setup/setupalbumview.cpp:281 utilities/setup/setupcamera.cpp:497
 msgid "Show icons and text over preview"
 msgstr "Показувати піктограми і текст над попереднім переглядом"
 
-#: utilities/setup/setupalbumview.cpp:275
+#: utilities/setup/setupalbumview.cpp:282
 msgid ""
 "Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 "Зніміть позначку з цього пункту, якщо ви не хочете бачити піктограми і текст "
 "на панелі попереднього перегляду зображення."
 
-#: utilities/setup/setupalbumview.cpp:446
+#: utilities/setup/setupalbumview.cpp:455
 msgctxt "@info"
 msgid ""
 "This option changes the size in which thumbnails are generated. You need to "
@@ -22288,39 +22329,39 @@ msgstr ""
 "<p>Файли з цими суфіксами будуть вважатися звуковими файлами і додаватися у "
 "базу даних:<br/> <code>%1</code></p>"
 
-#: utilities/setup/setupmisc.cpp:92
+#: utilities/setup/setupmisc.cpp:95
 msgid "Confirm when moving items to the &trash"
 msgstr "Підтверджувати пересування об’єктів до &смітника"
 
-#: utilities/setup/setupmisc.cpp:93
+#: utilities/setup/setupmisc.cpp:96
 msgid "Confirm when permanently deleting items"
 msgstr "Підтверджувати остаточне вилучення об’єктів"
 
-#: utilities/setup/setupmisc.cpp:94
+#: utilities/setup/setupmisc.cpp:97
 msgid "Do not confirm when applying changes in the &right sidebar"
 msgstr "Застосовувати без підтвердження зміни на &правій бічній панелі"
 
-#: utilities/setup/setupmisc.cpp:104
+#: utilities/setup/setupmisc.cpp:108
 msgid "Set this option to configure how sidebar tab titles are visible."
 msgstr ""
 "Позначте цей пункт, щоб налаштувати спосіб, у який буде показано заголовки "
 "бічних вкладок."
 
-#: utilities/setup/setupmisc.cpp:109
+#: utilities/setup/setupmisc.cpp:113
 msgid "String comparison type:"
 msgstr "Тип порівняння сторінок:"
 
-#: utilities/setup/setupmisc.cpp:111
+#: utilities/setup/setupmisc.cpp:115
 msgctxt "method to compare strings"
 msgid "Natural"
 msgstr "Природній"
 
-#: utilities/setup/setupmisc.cpp:112
+#: utilities/setup/setupmisc.cpp:116
 msgctxt "method to compare strings"
 msgid "Normal"
 msgstr "Звичайний"
 
-#: utilities/setup/setupmisc.cpp:113
+#: utilities/setup/setupmisc.cpp:117
 msgid ""
 "<qt>Sets the way in which strings are compared inside digiKam. This eg. "
 "influences the sorting of the tree views.<br/><b>Natural</b> tries to "
@@ -23103,11 +23144,11 @@ msgctxt ""
 msgid "Giving a slideshow"
 msgstr "Показ слайдів"
 
-#: utilities/slideshow/slidetoolbar.cpp:112
+#: utilities/slideshow/slidetoolbar.cpp:115
 msgid "Switch Screen"
 msgstr "Перемкнути екран"
 
-#: utilities/slideshow/slidetoolbar.cpp:124
+#: utilities/slideshow/slidetoolbar.cpp:127
 #, kde-format
 msgctxt "%1 is the screen number (0, 1, ...)"
 msgid "Screen %1"

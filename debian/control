@@ -1,16 +1,15 @@
 Source: digikam
 Section: graphics
 Priority: optional
-Maintainer: Kubuntu Developers <kubuntu-devel@lists.ubuntu.com>
-XSBC-Original-Maintainer: Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
-Uploaders: Achim Bohnet <ach@mpe.mpg.de>, Mark Purcell <msp@debian.org>, Fathi Boudra <fabo@debian.org>
-Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2.6.2),
+Maintainer: Debian KDE Extras Team <pkg-kde-extras@lists.alioth.debian.org>
+Uploaders: Mark Purcell <msp@debian.org>, Fathi Boudra <fabo@debian.org>, Pino Toscano <pino@debian.org>, Steve M. Robbins <smr@debian.org>
+Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2.8.0),
  doxygen,
- kdelibs5-dev (>= 4:4.10), kdepimlibs5-dev (>= 4:4.10),
- libmarble-dev (>= 4:4.10),
- libkipi-dev (>= 4:4.10), libkexiv2-dev (>= 4:4.10), libkdcraw-dev (>= 4:4.10), libksane-dev (>= 4:4.10),
- libqt4-dev, libqt4-opengl-dev [!armhf], libgl1-mesa-dev [!armhf], libglu1-mesa-dev [!armhf],
- libkqoauth-dev,
+ kdelibs5-dev, kdepimlibs5-dev,
+ libmarble-dev,
+ libkipi-dev (>= 4:4.12), libkexiv2-dev (>= 4:4.12), libkdcraw-dev (>= 4:4.12), libksane-dev,
+ baloo-dev, libkfilemetadata-dev,
+ libqt4-dev, libqt4-opengl-dev, libgl1-mesa-dev, libglu1-mesa-dev,
  libqtwebkit-dev, libqtgstreamer-dev,
  libmagickcore-dev, imagemagick,
  libhupnp-dev,
@@ -20,12 +19,11 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libqca2-dev,
  libqjson-dev,
  libpng-dev, libtiff-dev, libjpeg-dev,
- shared-desktop-ontologies,
- mysql-server-core-5.7 | virtual-mysql-server-core,
+ mysql-server-core-5.5 | mysql-server-core,
  libglib2.0-dev, libgphoto2-dev (>= 2.4),
  libusb-dev [!kfreebsd-any], libusb2-dev [kfreebsd-any],
  liblcms2-dev, liblqr-1-0-dev,
- libopencv-dev (>= 2.4.5),
+ libopencv-dev (>= 2.4.9),
  libjasper-dev,
  liblensfun-dev (>= 0.2.7),
  libsqlite3-dev,
@@ -33,29 +31,35 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libpgf-dev,
  flex, bison, libeigen3-dev (>= 3.1.2),
  libboost-graph-dev,
- libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev,
-# for libksane:
- libsane-dev,
-# for libkexiv2:
- libexiv2-dev,
- dh-apparmor,
- valgrind,
- libkface-dev,
- baloo-dev,
- libkfilemetadata-dev
+ libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev
+#
+# Missing optional build-deps:
+#   libkgeomap -- not packaged (2015-12-19)
+#   libmediawiki
+#   libkvkontatke
+#
 Build-Conflicts: libgraphicsmagick1-dev
-Standards-Version: 3.9.5
-Vcs-Bzr: https://code.launchpad.net/~kubuntu-packagers/kubuntu-packaging/digikam
-Vcs-Browser: http://bazaar.launchpad.net/~kubuntu-packagers/kubuntu-packaging/digikam
-X-Debian-Vcs-Svn: svn://anonscm.debian.org/svn/pkg-kde/kde-extras/digikam/trunk
-X-Debian-Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-kde/kde-extras/digikam/trunk/
+Standards-Version: 3.9.6
+Vcs-Svn: svn://anonscm.debian.org/pkg-kde/kde-extras/digikam/trunk
+Vcs-Browser: http://anonscm.debian.org/viewvc/pkg-kde/kde-extras/digikam/trunk/
 Homepage: http://www.digikam.org
+
+Package: digikam-private-libs
+Section: libs
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: private libraries for digiKam and kipi plugins
+ This package contains private libraries to be used by digikam and
+ kipi-plugins.
+ .
+ This has no use for anything else than digikam, since the libraries are
+ installed in a private library path.
 
 Package: digikam
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, libqt4-sql-sqlite, digikam-data (= ${source:Version})
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${perl:Depends}, digikam-private-libs (= ${binary:Version}), libqt4-sql-sqlite, digikam-data (= ${source:Version})
 Recommends: www-browser, kipi-plugins, ffmpegthumbs | mplayerthumbs
-Suggests: digikam-doc, systemsettings, libqt4-sql-mysql
+Suggests: digikam-doc, systemsettings
 Conflicts: ${digikam:Conflicts}
 Description: digital photo management application for KDE
  Digital photo management program designed to import, organize, enhance, search
@@ -112,27 +116,15 @@ Description: digital photo management application for KDE
 
 Package: showfoto
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, digikam-private-libs (= ${binary:Version})
 Recommends: dolphin, kipi-plugins
-Breaks: kipi-plugins-common (<< 4:3.1.0-2~)
-Replaces: kipi-plugins-common (<< 4:3.1.0-2~)
+Breaks: digikam-doc (<< 2:2.0.0-1), kipi-plugins-common (<< 4:3.1.0-2~)
+Replaces: digikam-doc (<< 2:2.0.0-1), kipi-plugins-common (<< 4:3.1.0-2~)
 Description: image viewer/editor for KDE
  showFoto is the standalone image editor of the digiKam project.
  .
  It runs without digiKam images database support, but provides all Image Editor
  functions.
-
-Package: digikam-dbg
-Architecture: any
-Section: debug
-Depends: ${shlibs:Depends}, ${misc:Depends}, digikam (= ${binary:Version}), showfoto (= ${binary:Version}), kdelibs5-dbg
-Priority: extra
-Description: debugging symbols for digiKam
- The debugging symbols associated with digiKam and showFoto. They will
- automatically be used by GDB for debugging digiKam-related issues.
- .
- This package should be installed if you wish to obtain a backtrace with 
- symbols.
 
 Package: digikam-data
 Architecture: all
@@ -149,7 +141,7 @@ Description: digiKam architecture-independant data
 
 Package: digikam-doc
 Architecture: all
-Depends: ${misc:Depends}, khelpcenter4 | khelpcenter
+Depends: ${misc:Depends}, khelpcenter4
 Recommends: digikam
 Section: doc
 Description: handbook for digiKam 
@@ -160,11 +152,12 @@ Description: handbook for digiKam
 
 Package: kipi-plugins
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}, kipi-plugins-common (= ${source:Version})
-Breaks: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
-Replaces: digikam (<< 4:3.4.0), kipi-plugins-common (<< 4:3.1.0-3ubuntu1~)
-Recommends: imagemagick, hugin, enblend, enfuse, minidlna
-Suggests: gallery, gimp, kmail, vorbis-tools
+Depends: ${shlibs:Depends}, ${misc:Depends}, kipi-plugins-common (= ${source:Version}),
+ digikam-private-libs (= ${binary:Version})
+Breaks: digikam (<< 4:2.3.0-2~), kipi-plugins-common (<< 4:3.1.0-2~)
+Replaces: digikam (<< 4:2.3.0-2~), kipi-plugins-common (<< 4:3.1.0-2~)
+Recommends: konqueror, imagemagick, hugin, enblend, enfuse, minidlna
+Suggests: gimp, kmail, vorbis-tools
 Enhances: digikam, gwenview, kphotoalbum, showimg
 Description: image manipulation/handling plugins for KIPI aware programs
  KIPI plugins (KDE Image Plugin Interface) is an effort to develop a
@@ -223,8 +216,8 @@ Description: image manipulation/handling plugins for KIPI aware programs
 Package: kipi-plugins-common
 Architecture: all
 Depends: ${misc:Depends}
-Breaks: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-3ubuntu1~)
-Replaces: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-3ubuntu1~)
+Breaks: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-2~)
+Replaces: digikam (<< 4:2.3.0-2~), digikam-data (<< 4:3.1.0-2~)
 Conflicts: ${digikam:Conflicts}
 Description: kipi-plugins architecture-independent data
  KIPI plugins (KDE Image Plugin Interface) is an effort to develop a
@@ -233,23 +226,3 @@ Description: kipi-plugins architecture-independent data
  Its aim is to share image plugins among graphic applications.
  .
  The architecture independent data needed for the kipi-plugins package.
-
-Package: libmediawiki1
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: KDE C++ interface for MediaWiki based web services (runtime)
- libmediawiki is a KDE C++ interface for MediaWiki based web service as 
- wikipedia.org
- .
- This package contains the shared library to be used by applications
-
-Package: libkvkontakte1
-Architecture: any
-Section: libs
-Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: vkontakte.ru library
- libkvkontakte1 is a KDE C++ library for asynchronous interaction with the
- vkontakte.ru social network via its open API.
- .
- This package contains the shared library to be used by applications.

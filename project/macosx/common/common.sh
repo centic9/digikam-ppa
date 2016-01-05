@@ -166,7 +166,6 @@ for i in "$@" ; do
     elif [[ $i == "DISABLE_OPENCV" ]]; then
         echo "---------- OpenCV will not installed through Macports"
         DISABLE_OPENCV=1
-    elif [[ $i == "CONTINUE_INSTALL" ]]; then
         echo "---------- Continue aborted previous installation"
         CONTINUE_INSTALL=1
     fi
@@ -197,6 +196,19 @@ port install clang-3.4
 port select --set clang mp-clang-3.4
 
 if [[ $MAJOR_OSX_VERSION -lt 8 ]]; then
+    # ncurses do not link fine with cxx_stdlib option
+    NCURSES_PORT_TMP=$INSTALL_PREFIX/var/tmp_ncurses
+    if [ -d "$NCURSES_PORT_TMP" ] ; then
+        rm -fr $NCURSES_PORT_TMP
+    fi
+    mkdir $NCURSES_PORT_TMP
+    chown -R 777 $NCURSES_PORT_TMP
+    cd $NCURSES_PORT_TMP
+
+    svn co -r 131830 http://svn.macports.org/repository/macports/trunk/dports/devel/ncurses
+    cd ncurses
+    port install
+
     port install icu configure.compiler=macports-clang-3.4
 fi
 
@@ -254,6 +266,10 @@ port install eigen3
 if [[ $DISABLE_LENSFUN == 0 ]]; then
     port install lensfun
 fi
+
+# For Hugin
+
+#port install wxWidgets-2.8
 
 # For Kipi-plugins
 

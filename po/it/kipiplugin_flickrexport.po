@@ -1,20 +1,21 @@
 # translation of kipiplugin_flickrexport.po to Italian
 #
 # Federico Zenith <federico.zenith@member.fsf.org>, 2005, 2006, 2007, 2008, 2009, 2010.
-# Federico Zenith <federico.zenith@member.fsf.org>, 2008, 2011, 2012, 2013.
+# Federico Zenith <federico.zenith@member.fsf.org>, 2008, 2011, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
-"PO-Revision-Date: 2013-04-13 12:38+0200\n"
-"Last-Translator: Federico Zenith <federico.zenith@member.fsf.org>\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
+"PO-Revision-Date: 2015-09-28 09:53+0100\n"
+"Last-Translator: Federico Zenith <zenith.federico@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -111,11 +112,11 @@ msgstr "Inserisci le etichette aggiuntive, separate da virgole."
 
 #: flickrtalker.cpp:196
 msgid "Getting the maximum allowed file size."
-msgstr ""
+msgstr "Recupero della massima dimensione di file permessa."
 
 #: flickrtalker.cpp:262
 msgid "Getting the Frob"
-msgstr "Ottenimento del Frob"
+msgstr "Recupero del Frob"
 
 #: flickrtalker.cpp:308
 msgid "Checking if previous token is still valid"
@@ -150,75 +151,79 @@ msgstr "Autenticazione dell'utente sul Web"
 msgid "Getting the Token from the server"
 msgstr "Ottenimento del gettone dal server"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr "La dimensione del file supera la massima permessa."
+
+#: flickrtalker.cpp:799
 msgid "No photo specified"
 msgstr "Nessuna foto specificata"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 msgid "General upload failure"
 msgstr "Errore di invio generico"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 msgid "Filesize was zero"
 msgstr "La dimensione del file era zero"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 msgid "Filetype was not recognized"
 msgstr "Il tipo di file non è stato riconosciuto"
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 msgid "User exceeded upload limit"
 msgstr "L'utente ha passato il limite di caricamento"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "Firma non valida"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 msgid "Missing signature"
 msgstr "Firma mancante"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr "Accesso non riuscito / Gettone di autenticazione non valido"
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 msgid "Invalid API Key"
 msgstr "Chiave API non valida"
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 msgid "Service currently unavailable"
 msgstr "Servizio attualmente non disponibile"
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 msgid "Invalid Frob"
 msgstr "Frob non valido"
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 msgid "Format \"xxx\" not found"
 msgstr "Formato «xxx» non trovato"
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 msgid "Method \"xxx\" not found"
 msgstr "Metodo «xxx» non trovato"
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 msgid "Invalid SOAP envelope"
 msgstr "Blocco SOAP non valido"
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr "Chiamata a metodo XML-RPC non valida"
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr "Il metodo POST è ora obbligatorio per tutte le impostazioni"
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "Errore sconosciuto"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -227,39 +232,39 @@ msgstr ""
 "Si è verificato un errore: %1\n"
 "Impossibile procedere."
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "scrittura"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "lettura"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "eliminazione"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 "Il tuo gettone non è valido. Vuoi ottenerne uno nuovo per proseguire?\n"
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr "Creazione del gruppo di foto non riuscita: "
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr "Recupero dell'elenco dei gruppi di foto non riuscito."
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "Invio foto non riuscito"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr "Interrogazione delle informazioni della foto non riuscita"
 
@@ -362,10 +367,8 @@ msgid "Use a different account"
 msgstr "Usa un altro account"
 
 #: flickrwidget.cpp:191
-#, fuzzy
-#| msgid "Account"
 msgid "Remove Account"
-msgstr "Account"
+msgstr "Rimuovi account"
 
 #: flickrwidget.cpp:194
 msgid "PhotoSet:"
@@ -541,17 +544,17 @@ msgstr "Sviluppatore"
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Solo flusso di foto&gt;"
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 msgid "Flickr Export"
 msgstr "Esportazione a Flickr"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 "Recupero delle informazioni sui gruppi di foto da %1 non riuscito. %2\n"
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -593,11 +596,11 @@ msgstr "Esporta su &Zoomr..."
 
 #: selectuserdlg.cpp:48
 msgid "Flickr Account Selector"
-msgstr ""
+msgstr "Selettore di account di Flickr"
 
 #: selectuserdlg.cpp:54
 msgid "Add another account"
-msgstr ""
+msgstr "Aggiungi un altro account"
 
 #~ msgid "Handbook"
 #~ msgstr "Manuale"

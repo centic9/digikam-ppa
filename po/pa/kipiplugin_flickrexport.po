@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
 "PO-Revision-Date: 2008-11-22 23:16+0530\n"
 "Last-Translator: \n"
 "Language-Team: Panjabi <pa@li.org>\n"
@@ -140,82 +140,86 @@ msgstr "ਵੈੱਬ ਉੱਤੇ ਯੂਜ਼ਰ ਦੀ ਪਰਮਾਣਕਿ�
 msgid "Getting the Token from the server"
 msgstr "ਸਰਵਰ ਤੋਂ ਟੋਕਨ ਲਿਆ ਜਾ ਰਿਹਾ ਹੈ"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:799
 msgid "No photo specified"
 msgstr "ਕੋਈ ਫੋਟੋ ਨਹੀਂ ਦਿੱਤੀ"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 msgid "General upload failure"
 msgstr "ਆਮ ਅੱਪਲੋਡ ਫੇਲ੍ਹ"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 msgid "Filesize was zero"
 msgstr "ਫਾਇਲ-ਸਾਈਜ਼ ਸਿਫ਼ਰ ਹੈ"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 msgid "Filetype was not recognized"
 msgstr ""
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 msgid "User exceeded upload limit"
 msgstr "ਯੂਜ਼ਰ ਅੱਪਲੋਡ ਲਿਮਟ ਤੋਂ ਵੱਧ ਗਿਆ"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "ਗਲਤ ਦਸਤਖਤ"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 msgid "Missing signature"
 msgstr "ਦਸਤਖਤ ਗੁੰਮ"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr ""
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 msgid "Invalid API Key"
 msgstr ""
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 msgid "Service currently unavailable"
 msgstr "ਸਰਵਿਸ ਹੁਣ ਉਪਲੱਬਧ ਨਹੀਂ ਹੈ"
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 msgid "Invalid Frob"
 msgstr ""
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 msgid "Format \"xxx\" not found"
 msgstr ""
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 msgid "Method \"xxx\" not found"
 msgstr ""
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 msgid "Invalid SOAP envelope"
 msgstr ""
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr ""
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr ""
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "ਅਣਜਾਣ ਗਲਤੀ"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
 "Cannot proceed any further."
 msgstr ""
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 #, fuzzy
 #| msgctxt "As in the persmission to"
 #| msgid "write"
@@ -223,33 +227,33 @@ msgctxt "As in the permission to"
 msgid "write"
 msgstr "ਲਿਖਣ"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "ਪੜ੍ਹਨ"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "ਹਟਾਉਣ"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr ""
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr ""
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr ""
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr ""
 
@@ -563,18 +567,18 @@ msgstr "ਡਿਵੈਲਪਰ"
 msgid "&lt;Photostream Only&gt;"
 msgstr ""
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 #, fuzzy
 #| msgid "Flickr Export"
 msgid "Flickr Export"
 msgstr "ਫਲਿੱਕਰ ਐਕਸਪੋਰਟ"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

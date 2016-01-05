@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
 "PO-Revision-Date: 2013-10-28 21:13+0100\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -145,126 +145,130 @@ msgstr "%1 je používateľ na kanáloch: %2"
 msgid "Getting the Token from the server"
 msgstr "Neznáma odpoveď zo servera"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:799
 #, fuzzy
 msgid "No photo specified"
 msgstr "Nezadaný žiadny názov"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 #, fuzzy
 msgid "General upload failure"
 msgstr "Nepodarilo sa nájsť informáciu"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 #, fuzzy
 msgid "Filesize was zero"
 msgstr "nula alebo jedna"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 #, fuzzy
 msgid "Filetype was not recognized"
 msgstr "Formát súboru sa nedá rozoznať."
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 #, fuzzy
 msgid "User exceeded upload limit"
 msgstr "Obmedzenie odosielania na prenos:"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "Neplatný podpis"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 #, fuzzy
 msgid "Missing signature"
 msgstr "Chýbajúci GPG podpis"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr ""
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 #, fuzzy
 msgid "Invalid API Key"
 msgstr "Kľúč nie je platný."
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 #, fuzzy
 msgid "Service currently unavailable"
 msgstr "Požadovaná služba momentálne nie je k dispozícii."
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 #, fuzzy
 msgid "Invalid Frob"
 msgstr "Neplatné heslo"
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 #, fuzzy
 msgid "Format \"xxx\" not found"
 msgstr "Kanál nebol nájdený na %1."
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 #, fuzzy
 msgid "Method \"xxx\" not found"
 msgstr "Kanál nebol nájdený na %1."
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 #, fuzzy
 msgid "Invalid SOAP envelope"
 msgstr "Obálka US #10"
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr ""
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr ""
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "Neznáma chyba"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
 "Cannot proceed any further."
 msgstr ""
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "zápis"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "čítanie"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "odstrániť"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 #, fuzzy
 msgid "PhotoSet creation failed: "
 msgstr "Nepodarilo sa vytvoriť zložku"
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr ""
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "Zlyhalo nahratie fotky"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr ""
 
@@ -559,17 +563,17 @@ msgstr "Vývojár"
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Všetci interpreti&gt;"
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 #, fuzzy
 msgid "Flickr Export"
 msgstr "Flickr/23/Zooomr export"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
