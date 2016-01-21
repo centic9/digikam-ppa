@@ -1,0 +1,83 @@
+Index: git/extra/libkgeomap/libkgeomap/CMakeLists.txt
+===================================================================
+--- git.orig/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-12-23 22:45:13.086493802 +0100
++++ git/extra/libkgeomap/libkgeomap/CMakeLists.txt	2015-12-23 22:45:13.070493635 +0100
+@@ -74,7 +74,7 @@
+ install(TARGETS kgeomap ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+ # Check if compilation is done through digiKam SC or not. If yes, do not install header files.
+-if(NOT DIGIKAMSC_COMPILE_LIBKGEOMAP)
++#if(NOT DIGIKAMSC_COMPILE_LIBKGEOMAP)
+ 
+     install(FILES libkgeomap_export.h
+                   abstractmarkertiler.h
+@@ -94,14 +94,14 @@
+            )
+ 
+     if(NOT WIN32)
+-        configure_file(${CMAKE_SOURCE_DIR}/cmake/templates/libkgeomap.pc.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libkgeomap.pc)
+-        configure_file(${CMAKE_SOURCE_DIR}/cmake/templates/libkgeomap.lsm.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libkgeomap.lsm)
++        configure_file(../cmake/templates/libkgeomap.pc.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libkgeomap.pc)
++        configure_file(../cmake/templates/libkgeomap.lsm.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libkgeomap.lsm)
+         install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libkgeomap.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig )
+     endif()
+ 
+     # Install find cmake script to the system for client applications.
+ 
+-    install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindKGeoMap.cmake
++    install(FILES ../cmake/modules/FindKGeoMap.cmake
+             DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
+ 
+-endif()
++#endif()
+Index: git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt
+===================================================================
+--- git.orig/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-12-23 22:45:13.086493802 +0100
++++ git/extra/libkvkontakte/libkvkontakte/CMakeLists.txt	2015-12-23 22:45:40.226777729 +0100
+@@ -69,7 +69,7 @@
+     ${INSTALL_TARGETS_DEFAULT_ARGS}
+ )
+ 
+-if (NOT DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
++#if (NOT DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
+ 
+     install(FILES
+         ${CMAKE_CURRENT_BINARY_DIR}/version.h
+@@ -109,4 +109,4 @@
+         vkapi.h
+         DESTINATION ${INCLUDE_INSTALL_DIR}/libkvkontakte COMPONENT Devel)
+ 
+-endif()
++#endif()
+Index: git/extra/libmediawiki/libmediawiki/CMakeLists.txt
+===================================================================
+--- git.orig/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-12-23 22:45:13.086493802 +0100
++++ git/extra/libmediawiki/libmediawiki/CMakeLists.txt	2015-12-23 22:45:13.082493766 +0100
+@@ -42,7 +42,7 @@
+ install(TARGETS mediawiki ${INSTALL_TARGETS_DEFAULT_ARGS})
+ 
+ # Check if compilation is done through digiKam SC or not. If yes, do not install header files.
+-if(NOT DIGIKAMSC_COMPILE_LIBMEDIAWIKI)
++#if(NOT DIGIKAMSC_COMPILE_LIBMEDIAWIKI)
+ 
+     install(FILES image.h
+                   imageinfo.h
+@@ -69,14 +69,14 @@
+         DESTINATION ${INCLUDE_INSTALL_DIR}/libmediawiki COMPONENT Devel)
+ 
+     if(NOT WIN32)
+-        configure_file(${CMAKE_SOURCE_DIR}/cmake/templates/libmediawiki.pc.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libmediawiki.pc)
+-        configure_file(${CMAKE_SOURCE_DIR}/cmake/templates/libmediawiki.lsm.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libmediawiki.lsm)
++        configure_file(../cmake/templates/libmediawiki.pc.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libmediawiki.pc)
++        configure_file(../cmake/templates/libmediawiki.lsm.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/libmediawiki.lsm)
+         install(FILES ${CMAKE_CURRENT_BINARY_DIR}/libmediawiki.pc DESTINATION ${LIB_INSTALL_DIR}/pkgconfig )
+     endif()
+ 
+     # Install find cmake script to the system for client applications.
+ 
+-    install(FILES ${CMAKE_SOURCE_DIR}/cmake/modules/FindMediawiki.cmake
++    install(FILES ../cmake/modules/FindMediawiki.cmake
+             DESTINATION ${DATA_INSTALL_DIR}/cmake/modules)
+ 
+-endif()
++#endif()

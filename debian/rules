@@ -16,18 +16,25 @@ DEB_VERSION_UPSTREAM_REVISION := $(shell dpkg-parsechangelog | awk '/^Version: /
 DEB_VERSION_UPSTREAM := $(shell dpkg-parsechangelog | awk '/^Version: / { print $$2 }' | sed -e 's/-[^-]*$$//' | sed -e 's/^[0-9]*://')
 
 %:
-	dh $@ --with kde --parallel
+	dh $@ --with kde
 
 override_dh_auto_configure:
 	dh_auto_configure --buildsystem=kde -- \
 	  -DCMAKE_INSTALL_RPATH="$(PRIVATE_LIBDIR)" \
-	  -DDIGIKAMSC_COMPILE_DOC=on \
-	  -DDIGIKAMSC_COMPILE_PO=on \
+	  -DDIGIKAMSC_COMPILE_DOC=ON \
+	  -DDIGIKAMSC_COMPILE_PO=ON \
+	  -DENABLE_KDEPIMLIBSSUPPORT=ON \
+	  -DENABLE_INTERNALMYSQL=ON \
+	  -DENABLE_MYSQLSUPPORT=ON \
 	  -DENABLE_LCMS2=ON \
+	  -DENABLE_BALOOSUPPORT=ON \
 	  -DKDE4_BUILD_TESTS=OFF \
-	  -DDIGIKAMSC_COMPILE_LIBKGEOMAP=OFF \
+	  -DDIGIKAMSC_COMPILE_LIBKGEOMAP=ON \
 	  -DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=ON \
 	  -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=ON \
+	  -DDIGIKAMSC_COMPILE_LIBKFACE=ON \
+	  -DMarbleWidget_DIR=/usr/share/marble/cmake \
+	  -DCMAKE_MODULE_PATH=/usr/share/marble/cmake \
 	  $(EXTRA_CMAKE_ARGS)
 
 override_dh_installchangelogs:
@@ -50,8 +57,13 @@ override_dh_shlibdeps:
 	dh_shlibdeps -l$(CURDIR)/debian/digikam-private-libs/$(PRIVATE_LIBDIR):$(CURDIR)/debian/kipi-plugins/$(PRIVATE_LIBDIR)
 
 override_dh_gencontrol:
+	dh_gencontrol -plibkgeomap2 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkgeomap-data -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkgeomap-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibmediawiki1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibmediawiki-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol -plibkvkontakte1 -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
+	dh_gencontrol -plibkvkontakte-dev -- -v1.0~digikam$(DEB_VERSION_UPSTREAM_REVISION) -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 	dh_gencontrol --remaining-packages -- -Vdigikam:Conflicts='$(CONFLICTS_SUBSTVAR)'
 
 override_dh_strip:
@@ -62,6 +74,7 @@ override_dh_strip:
 
 override_dh_makeshlibs:
 	dh_makeshlibs -plibkface2 -V 'libkface2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
+	dh_makeshlibs -plibkgeomap2 -V 'libkgeomap2 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibmediawiki1 -V 'libmediawiki1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs -plibkvkontakte1 -V 'libkvkontakte1 (>= 1.0~digikam$(DEB_VERSION_UPSTREAM))'
 	dh_makeshlibs --remaining-packages

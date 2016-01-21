@@ -1,0 +1,23 @@
+Index: git/core/CMakeLists.txt
+===================================================================
+--- git.orig/core/CMakeLists.txt	2015-12-23 21:19:12.261824798 +0100
++++ git/core/CMakeLists.txt	2015-12-23 21:19:12.257824749 +0100
+@@ -226,17 +226,7 @@
+ 
+     # Check MySQL executables
+ 
+-    find_program(SERVERCMD_MYSQL mysqld
+-                 PATHS /usr/sbin
+-                       /usr/local/sbin
+-                       /usr/libexec
+-                       /usr/local/libexec
+-                       /opt/local/libexec
+-                       /opt/mysql/libexec
+-                       /usr/mysql/bin
+-                       /opt/mysql/sbin
+-                       ${MYSQLD_PATH}
+-                 ENV MYSQLD_PATH )
++    SET( SERVERCMD_MYSQL /usr/sbin/mysqld-digikam )
+     message(STATUS "Found MySQL server executable at: ${SERVERCMD_MYSQL}")
+ 
+     # NOTE: under windows, mysql_install_db PERL script is named "mysql_install_db.pl"
