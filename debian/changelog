@@ -1,21 +1,10 @@
-digikam (4:4.14.0-4ubuntu5) yakkety; urgency=medium
+digikam (4:4.14.0-5) unstable; urgency=medium
 
-  * Rebuild against libopencv-highgui2.4-deb0.
+  * Remove jasper support and build-dep.  Closes: #818219.
+    - patches/cmake-remove-jasper.patch: New.  Disable cmake probe for
+      jasper, in case jasper dev is accidentally present.
 
- -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 27 Jun 2016 21:42:57 +0200
-
-digikam (4:4.14.0-4ubuntu4) yakkety; urgency=medium
-
-  * Drop Ubuntu changes, merge with Debian; remaining changes:
-    - Remove reference to build-dep on libusb2-dev which seems to confuse
-      soyuz
-    - mysql-server-core does not exist; it is virtual-mysql-server-core.
-      So fix that so the Build-Depends alternative will work, and while
-      we're there also switch from 5.6 to 5.7 since 5.6 will cease to
-      exist in Xenial soon.
-    - Don't build with openGL on armhf as it's not available there.
-
- -- Matthias Klose <doko@ubuntu.com>  Wed, 04 May 2016 14:09:33 +0200
+ -- Steve M. Robbins <smr@debian.org>  Mon, 27 Jun 2016 22:54:51 -0500
 
 digikam (4:4.14.0-4) unstable; urgency=medium
 
@@ -74,66 +63,6 @@ digikam (4:4.12.0-1~) UNRELEASED; urgency=medium
   * New upstream release (4.12.0).
 
  -- Maximiliano Curia <maxy@debian.org>  Wed, 05 Aug 2015 15:48:48 +0200
-
-digikam (4:4.12.0-0ubuntu9) yakkety; urgency=medium
-
-  * No-change rebuild for lensfun soname change.
-
- -- Matthias Klose <doko@ubuntu.com>  Thu, 28 Apr 2016 12:57:42 +0000
-
-digikam (4:4.12.0-0ubuntu8) yakkety; urgency=medium
-
-  * No-change rebuild for libpng soname change.
-
- -- Matthias Klose <doko@ubuntu.com>  Sat, 23 Apr 2016 00:02:31 +0000
-
-digikam (4:4.12.0-0ubuntu7) xenial; urgency=medium
-
-  * mysql-server-core does not exist; it is virtual-mysql-server-core.
-    So fix that so the Build-Depends alternative will work, and while
-    we're there also switch from 5.6 to 5.7 since 5.6 will cease to
-    exist in Xenial soon.
-
- -- Robie Basak <robie.basak@ubuntu.com>  Wed, 13 Apr 2016 11:57:32 +0000
-
-digikam (4:4.12.0-0ubuntu6) xenial; urgency=medium
-
-  * No-change rebuild for qca2 soname change.
-
- -- Matthias Klose <doko@ubuntu.com>  Thu, 07 Jan 2016 15:27:47 +0000
-
-digikam (4:4.12.0-0ubuntu5) wily; urgency=medium
-
-  * No change rebuild for libkexiv2-11v5
-
- -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 31 Aug 2015 22:51:14 +0100
-
-digikam (4:4.12.0-0ubuntu4) wily; urgency=medium
-
-  * Fix libkvkontakte1 to include library file
-  * In override_dh_shlibdeps don't exclude usr/lib/kde4 from paths for
-    shlibs LP: #1483620
-
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Aug 2015 16:24:53 +0100
-
-digikam (4:4.12.0-0ubuntu3) wily; urgency=medium
-
-  * Unversioned boost build dependency
-
- -- Matthias Klose <doko@ubuntu.com>  Sat, 08 Aug 2015 15:05:06 +0000
-
-digikam (4:4.12.0-0ubuntu2) wily; urgency=medium
-
-  * Remove reference to build-dep on libusb2-dev which seems to confuse
-    soyuz
-
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 05 Aug 2015 10:47:56 +0200
-
-digikam (4:4.12.0-0ubuntu1) wily; urgency=medium
-
-  * New upstream release
-
- -- Clive Johnston <clivejo@aol.com>  Mon, 03 Aug 2015 21:11:53 +0100
 
 digikam (4:4.4.0-1.1) unstable; urgency=medium
 

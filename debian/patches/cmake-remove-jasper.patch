@@ -1,0 +1,11 @@
+--- digikam-4.14.0.orig/core/CMakeLists.txt
++++ digikam-4.14.0/core/CMakeLists.txt
+@@ -117,7 +117,7 @@
+ find_package(Kface)
+ find_package(KGeoMap)
+ find_package(PkgConfig)
+-find_package(Jasper)
++#find_package(Jasper) -- disabled by Debian
+ find_package(Eigen3)
+ find_package(Boost)
+ 
