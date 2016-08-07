@@ -267,7 +267,7 @@ Description: kipi-plugins architecture-independent data
 # This package contains the development headers and files needed to create
 # applications that use the LibKFace library
 
-Package: libkgeomap2
+Package: libkgeomap3
 Architecture: any
 Section: libs
 Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap-data
@@ -300,7 +300,7 @@ Description: Data files for libkgeomap
 Package: libkgeomap-dev
 Architecture: any
 Section: libdevel
-Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap2 (= ${binary:Version})
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap3 (= ${binary:Version})
 Description: Development files for libkgeomap
  Libkgeomap is a wrapper around different world-map components, to browse and
  arrange photos over a map.
