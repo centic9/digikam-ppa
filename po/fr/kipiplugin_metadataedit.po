@@ -5,14 +5,15 @@
 # Bruno Patri <bruno.patri@gmail.com>, 2007, 2008.
 # Etienne Biardeaud <etienne@cyteen.net>, 2008, 2009.
 # Joëlle Cornavin <jcorn@free.fr>, 2010, 2011, 2012, 2013.
+# Peter Potrowl <peter.potrowl@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_metadataedit\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2015-05-31 01:58+0000\n"
-"PO-Revision-Date: 2013-09-01 15:15+0200\n"
-"Last-Translator: Joëlle Cornavin <jcorn@free.fr>\n"
+"PO-Revision-Date: 2015-08-23 15:51+0200\n"
+"Last-Translator:  <peter.potrowl@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -26,11 +27,13 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Étienne Biardeaud,Joëlle Cornavin,Bruno Patri"
+msgstr "Étienne Biardeaud, Joëlle Cornavin, Bruno Patri, Peter Potrowl"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "etienne@cyteen.net,jcorn@free.fr,bruno.patri@gmail.com"
+msgstr ""
+"etienne@cyteen.net, jcorn@free.fr, bruno.patri@gmail.com, peter."
+"potrowl@gmail.com"
 
 #: exif/exifadjust.cpp:94
 msgid "Brightness (APEX):"
@@ -214,7 +217,7 @@ msgstr "Artiste (*) :"
 msgid ""
 "Enter the image author's name. This field is limited to ASCII characters."
 msgstr ""
-"Saisissez  le nom de l'auteur de l'image. Ce champ est limité aux caractères "
+"Saisissez le nom de l'auteur de l'image. Ce champ est limité aux caractères "
 "ASCII."
 
 #: exif/exifcaption.cpp:131
@@ -1591,10 +1594,8 @@ msgid "Set here the time when the service sent the material."
 msgstr "Définissez ici l'heure d'envoi des éléments par le service."
 
 #: iptc/iptcenvelope.cpp:268
-#, fuzzy
-#| msgid "Set here the time when the service sent the material."
 msgid "Set here the time zone when the service sent the material."
-msgstr "Définissez ici l'heure d'envoi des éléments par le service."
+msgstr "Définissez ici le fuseau horaire d'envoi des éléments par le service."
 
 #: iptc/iptckeywords.cpp:88 xmp/xmpkeywords.cpp:82
 msgid "Use information retrieval words:"
@@ -1622,10 +1623,8 @@ msgid "Set here the creation time of digital representation."
 msgstr "Définissez ici l'heure de création de la représentation numérique."
 
 #: iptc/iptcorigin.cpp:158 xmp/xmporigin.cpp:134
-#, fuzzy
-#| msgid "Set here the creation time of digital representation."
 msgid "Set here the time zone of digital representation."
-msgstr "Définissez ici l'heure de création de la représentation numérique."
+msgstr "Définissez ici le fuseau horaire de la représentation numérique."
 
 #: iptc/iptcorigin.cpp:165 xmp/xmporigin.cpp:141
 msgid "Creation date"
@@ -1648,10 +1647,8 @@ msgid "Set here the creation time of intellectual content."
 msgstr "Définissez ici l'heure de création du contenu intellectuel."
 
 #: iptc/iptcorigin.cpp:183 xmp/xmporigin.cpp:155
-#, fuzzy
-#| msgid "Set here the creation time of intellectual content."
 msgid "Set here the time zone of intellectual content."
-msgstr "Définissez ici l'heure de création du contenu intellectuel."
+msgstr "Définissez ici le fuseau horaire du contenu intellectuel."
 
 #: iptc/iptcorigin.cpp:190
 msgid "Location:"
@@ -1730,13 +1727,11 @@ msgstr ""
 "contenu intellectuel pourra être utilisé."
 
 #: iptc/iptcproperties.cpp:152
-#, fuzzy
-#| msgid "Set here the earliest intended usable time of intellectual content."
 msgid ""
 "Set here the earliest intended usable time zone of intellectual content."
 msgstr ""
-"Définissez ici la toute première heure prévue à partir de laquelle le "
-"contenu intellectuel pourra être utilisé."
+"Définissez ici le premier fuseau horaire à partir duquel le contenu "
+"intellectuel pourra être utilisé."
 
 #: iptc/iptcproperties.cpp:159
 msgid "Expiration date"
@@ -1763,11 +1758,9 @@ msgstr ""
 "intellectuel pourra être utilisé."
 
 #: iptc/iptcproperties.cpp:173
-#, fuzzy
-#| msgid "Set here the latest intended usable time of intellectual content."
 msgid "Set here the latest intended usable time zone of intellectual content."
 msgstr ""
-"Définissez ici la toute dernière heure prévue jusqu'à laquelle le contenu "
+"Définissez ici le dernier fuseau horaire jusqu'auquel le contenu "
 "intellectuel pourra être utilisé."
 
 #: iptc/iptcproperties.cpp:180 xmp/xmpproperties.cpp:171
@@ -1986,7 +1979,7 @@ msgstr "Barre principale"
 
 #: plugin/metadataedit.cpp:97
 msgid "Metadata edit dialog"
-msgstr "Boite de dialogue de modification des métadonnées"
+msgstr "Boîte de dialogue de modification des métadonnées"
 
 #: plugin/metadataedit.cpp:102
 msgid "Edit EXIF"

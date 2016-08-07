@@ -88,11 +88,20 @@ GSWindow::GSWindow(const QString& tmpFolder,QWidget* const /*parent*/, const QSt
     m_picasaImport = false;
     
     if(QString::compare(m_serviceName, QString("googledriveexport"), Qt::CaseInsensitive) == 0)
+    {
         m_gdrive = true;
+        m_pluginName = QString("Google Drive");
+    }
     else if(QString::compare(m_serviceName, QString("picasawebexport"), Qt::CaseInsensitive) == 0)
+    {
         m_picasaExport = true;
+        m_pluginName = QString("Google Photos/PicasaWeb");
+    }
     else
+    {
         m_picasaImport = true;
+        m_pluginName = QString("Google Photos/PicasaWeb");
+    }
     
     kDebug()<<"GDrive is "<<m_gdrive<<" Picasa Export is "<<m_picasaExport<<" Picasa Import is "<<m_picasaImport;
     
@@ -623,7 +632,7 @@ void GSWindow::slotStartTransfer()
 {
     m_widget->m_imgList->clearProcessedStatus();
 
-    if(m_widget->m_imgList->imageUrls().isEmpty())
+    if((m_gdrive || m_picasaExport) && m_widget->m_imgList->imageUrls().isEmpty())
     {
         if (KMessageBox::warningContinueCancel(this, i18n("No image selected. Please select which images should be uploaded."))
             == KMessageBox::Continue)
@@ -722,6 +731,7 @@ void GSWindow::uploadNextPhoto()
     typedef QPair<KUrl,GSPhoto> Pair;
     Pair pathComments = m_transferQueue.first();
     GSPhoto info      = pathComments.second;
+    m_widget->imagesList()->processing(pathComments.first);
     bool res;
     
     if(m_gdrive)
@@ -849,7 +859,10 @@ void GSWindow::uploadNextPhoto()
             }
             else
             {
-                res = m_picsasa_talker->updatePhoto(pathComments.first.toLocalFile(), info);
+                res = m_picsasa_talker->updatePhoto(pathComments.first.toLocalFile(), info,
+                                                    m_widget->m_resizeChB->isChecked(),
+                                                    m_widget->m_dimensionSpB->value(),
+                                                    m_widget->m_imageQualitySpB->value());
             }
         }
 
@@ -1043,7 +1056,8 @@ void GSWindow::slotGetPhotoDone(int errCode, const QString& errMsg, const QByteA
         else
         {
             KPImageInfo info(newUrl);
-            info.setName(item.description);
+            info.setName(item.title);
+            info.setDescription(item.description);
             info.setTagsPath(item.tags);
 
             if (!item.gpsLat.isEmpty() && !item.gpsLon.isEmpty())
@@ -1061,40 +1075,21 @@ void GSWindow::slotAddPhotoDone(int err, const QString& msg, const QString& phot
 {
     if(err == 0)
     {
-        if(m_gdrive)
+        m_widget->imagesList()->processed(m_transferQueue.first().first,false);
+        
+        if (KMessageBox::warningContinueCancel(this, i18n("Failed to upload photo to %1.\n%2\nDo you want to continue?",m_pluginName,msg))
+            != KMessageBox::Continue)
         {
-            if (KMessageBox::warningContinueCancel(this, i18n("Failed to upload photo to Google Drive.\n%1\nDo you want to continue?",msg))
-                != KMessageBox::Continue)
-            {
-                m_transferQueue.clear();
-                m_widget->progressBar()->hide();
-            }
-            else
-            {
-                m_transferQueue.pop_front();
-                m_imagesTotal--;
-                m_widget->progressBar()->setMaximum(m_imagesTotal);
-                m_widget->progressBar()->setValue(m_imagesCount);
-                uploadNextPhoto();
-            }  
+            slotTransferCancel();
         }
         else
         {
-            if (KMessageBox::warningContinueCancel(this, i18n("Failed to upload photo to Google Photos/PicasaWeb.\n%1\nDo you want to continue?",msg))
-                != KMessageBox::Continue)
-            {
-                m_transferQueue.clear();
-                m_widget->progressBar()->hide();
-            }
-            else
-            {
-                m_transferQueue.pop_front();
-                m_imagesTotal--;
-                m_widget->progressBar()->setMaximum(m_imagesTotal);
-                m_widget->progressBar()->setValue(m_imagesCount);
-                uploadNextPhoto();
-            }   
-        }  
+            m_transferQueue.pop_front();
+            m_imagesTotal--;
+            m_widget->progressBar()->setMaximum(m_imagesTotal);
+            m_widget->progressBar()->setValue(m_imagesCount);
+            uploadNextPhoto();
+        }
     }
     else
     {
@@ -1209,7 +1204,7 @@ void GSWindow::slotCreateFolderDone(int code, const QString& msg, const QString&
 void GSWindow::slotTransferCancel()
 {
     m_transferQueue.clear();
-    m_progressDlg->hide();
+    m_widget->progressBar()->hide();
     if(m_gdrive)
         m_talker->cancel();
     else

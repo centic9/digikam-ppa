@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
 "PO-Revision-Date: 2010-11-16 10:24+0800\n"
 "Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
 "Language-Team: Chinese Simplified <kde-china@kde.org>\n"
@@ -142,75 +142,79 @@ msgstr "正在验证网络用户"
 msgid "Getting the Token from the server"
 msgstr "正在获取服务器令牌"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:799
 msgid "No photo specified"
 msgstr "未指定照片"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 msgid "General upload failure"
 msgstr "常规上传失败"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 msgid "Filesize was zero"
 msgstr "文件大小为零"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 msgid "Filetype was not recognized"
 msgstr "文件类型不可识别"
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 msgid "User exceeded upload limit"
 msgstr "用户超出上传限制"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "无效的签名"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 msgid "Missing signature"
 msgstr "缺失的签名"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr "登录失败 / 无效的验证令牌"
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 msgid "Invalid API Key"
 msgstr "无效的 API 密钥"
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 msgid "Service currently unavailable"
 msgstr "服务当前不可用"
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 msgid "Invalid Frob"
 msgstr "无效的 Frob(临时密钥)"
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 msgid "Format \"xxx\" not found"
 msgstr "没有找到格式“xxx”"
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 msgid "Method \"xxx\" not found"
 msgstr "没有找到方法“xxx”"
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 msgid "Invalid SOAP envelope"
 msgstr "无效的 SOAP 信封"
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr "无效的 XML-PRC 方法调用"
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr "POST 方法现在对所有设置者都需要"
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "未知错误"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -219,38 +223,38 @@ msgstr ""
 "发生错误：%1\n"
 "无法进一步处理。"
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "写入"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "读取"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "删除"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr "您的令牌无效。您想要获取一个新令牌以继续进行吗？\n"
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr "照片专辑创建失败："
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr "获取照片专辑列表失败。"
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "上传照片失败"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr "查询照片信息失败"
 
@@ -537,18 +541,18 @@ msgstr "开发者"
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;仅照片数据流&gt;"
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 #, fuzzy
 #| msgid "Flickr/23/Zooomr Export"
 msgid "Flickr Export"
 msgstr "Flickr/23/Zooomr 导出"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "从 %1 获取照片专辑信息失败。%2\n"
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

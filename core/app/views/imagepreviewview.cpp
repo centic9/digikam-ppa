@@ -105,6 +105,8 @@ public:
         addPersonAction     = 0;
         forgetFacesAction   = 0;
 #endif /* HAVE_KFACE */
+
+        fullscreenAction    = 0;
     }
 
     bool                   fullSize;
@@ -129,6 +131,8 @@ public:
     QAction*               addPersonAction;
     QAction*               forgetFacesAction;
 #endif /* HAVE_KFACE */
+
+    QAction*               fullscreenAction;
 };
 
 ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
@@ -150,6 +154,9 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
 
     connect(d->item, SIGNAL(loadingFailed()),
             this, SLOT(imageLoadingFailed()));
+
+    connect(d->item, SIGNAL(imageChanged()),
+            this, SLOT(slotUpdateFaces()));
 
     connect(d->item, SIGNAL(showContextMenu(QGraphicsSceneContextMenuEvent*)),
             this, SLOT(slotShowContextMenu(QGraphicsSceneContextMenuEvent*)));
@@ -177,6 +184,8 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     d->peopleToggleAction->setIcon(SmallIcon("user-identity"));
 #endif /* HAVE_KFACE */
 
+    d->fullscreenAction    = new QAction(SmallIcon("media-playback-start"), i18n("Show Fullscreen"), this);
+
     d->toolBar             = new QToolBar(this);
 
     if (mode == IconViewPreview)
@@ -192,6 +201,8 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     d->toolBar->addAction(d->peopleToggleAction);
     d->toolBar->addAction(d->addPersonAction);
 #endif /* HAVE_KFACE */
+
+    d->toolBar->addAction(d->fullscreenAction);
 
     connect(d->prevAction, SIGNAL(triggered()),
             this, SIGNAL(toPreviousImage()));
@@ -215,6 +226,9 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     connect(d->forgetFacesAction, SIGNAL(triggered()),
             d->faceGroup, SLOT(rejectAll()));
 #endif /* HAVE_KFACE */
+
+    connect(d->fullscreenAction, SIGNAL(triggered()),
+            this, SIGNAL(signalSlideShowCurrent()));
 
     // ------------------------------------------------------------
 
@@ -256,9 +270,6 @@ void ImagePreviewView::imageLoaded()
 #ifdef HAVE_KFACE
     d->faceGroup->setInfo(d->item->imageInfo());
 #endif /* HAVE_KFACE */
-
-    connect(d->item, SIGNAL(imageChanged()),
-            this, SLOT(slotUpdateFaces()));
 }
 
 void ImagePreviewView::imageLoadingFailed()

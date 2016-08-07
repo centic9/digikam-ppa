@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_gpssync\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-10 01:36+0000\n"
+"POT-Creation-Date: 2015-09-21 01:47+0000\n"
 "PO-Revision-Date: 2014-06-25 09:15+0200\n"
 "Last-Translator: Federico Zenith <federico.zenith@member.fsf.org>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -731,7 +731,8 @@ msgstr "Cerca"
 #: gpssyncdialog.cpp:446
 msgid "A Plugin to synchronize pictures' metadata with a GPS device"
 msgstr ""
-"Un'estensione per sincronizzare i dati delle immagini con un dispositivo GPS"
+"Un'estensione per sincronizzare i metadati delle immagini con un dispositivo "
+"GPS"
 
 #: gpssyncdialog.cpp:447
 msgid "(c) 2006-2013, Gilles Caulier"
@@ -767,7 +768,7 @@ msgstr "Modifica per mostrare le tracce sulla mappa."
 
 #: gpssyncdialog.cpp:637
 msgid "Loading metadata - %p%"
-msgstr "Caricamento dei dati aggiuntivi - %p%"
+msgstr "Caricamento dei metadati - %p%"
 
 #: gpssyncdialog.cpp:819
 #, kde-format
@@ -793,26 +794,26 @@ msgstr "Salva modifiche"
 msgid "Close and discard changes"
 msgstr "Chiudi e scarta le modifiche"
 
-#: gpssyncdialog.cpp:1052
+#: gpssyncdialog.cpp:1053
 #, kde-format
 msgid "1 image moved"
 msgid_plural "%1 images moved"
 msgstr[0] "1 immagine spostata"
 msgstr[1] "%1 immagini spostate"
 
-#: gpssyncdialog.cpp:1086
+#: gpssyncdialog.cpp:1087
 msgid "Saving changes - %p%"
 msgstr "Salvataggio delle modifiche - %p%"
 
-#: gpssyncdialog.cpp:1131
+#: gpssyncdialog.cpp:1132
 msgid "Failed to save some information:"
 msgstr "Salvataggio di alcune informazioni non riuscito:"
 
-#: gpssyncdialog.cpp:1131
+#: gpssyncdialog.cpp:1132
 msgid "Error"
 msgstr "Errore"
 
-#: gpssyncdialog.cpp:1159
+#: gpssyncdialog.cpp:1160
 msgid "GPS sync"
 msgstr "Sincronizzazione GPS"
 
@@ -901,11 +902,11 @@ msgstr "&Immagine"
 msgid "Main Toolbar"
 msgstr "Barra principale"
 
-#: plugin_gpssync.cpp:100
+#: plugin_gpssync.cpp:103
 msgid "Geo-location"
 msgstr "Geolocalizzazione"
 
-#: plugin_gpssync.cpp:120
+#: plugin_gpssync.cpp:123
 msgid ""
 "You have enabled writing to sidecar files for metadata storage in the host "
 "application, but not for reading. This means that any metadata stored in the "
@@ -913,14 +914,13 @@ msgid ""
 "Please enable reading of sidecar files in the host application or continue "
 "at your own risk."
 msgstr ""
-"Hai abilitato la scrittura su file ausiliari per la memorizzazione dei dati "
-"aggiuntivi dell'applicazione ospite, ma non la lettura. Questo vuol dire che "
-"tutti i dati aggiuntivi memorizzati nei file ausiliari verranno "
-"sovrascritti.\n"
+"Hai abilitato la scrittura su file ausiliari per la memorizzazione dei "
+"metadati dell'applicazione ospite, ma non la lettura. Questo vuol dire che "
+"tutti i metadati memorizzati nei file ausiliari verranno sovrascritti.\n"
 "Abilita la lettura dei file ausiliari nell'applicazione ospite o continua a "
 "tuo rischio e pericolo."
 
-#: plugin_gpssync.cpp:125
+#: plugin_gpssync.cpp:128
 msgid "Warning: Sidecar settings"
 msgstr "Avviso: impostazioni dei file ausiliari"
 

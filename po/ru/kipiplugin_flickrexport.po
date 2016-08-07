@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
 "PO-Revision-Date: 2015-05-08 20:21+0300\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -144,75 +144,79 @@ msgstr "Аутентификация пользователя в сети"
 msgid "Getting the Token from the server"
 msgstr "Получение маркера от сервера"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:799
 msgid "No photo specified"
 msgstr "снимок неопределён"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 msgid "General upload failure"
 msgstr "Общая ошибка загрузки"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 msgid "Filesize was zero"
 msgstr "Нулевой размер файла"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 msgid "Filetype was not recognized"
 msgstr "Неподдерживаемый тип файла"
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 msgid "User exceeded upload limit"
 msgstr "Пользователь достиг лимита загрузок"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "Недействительная подпись"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 msgid "Missing signature"
 msgstr "Подпись отсутствует"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr "Вход не удался / недействительный маркер аутентификации"
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 msgid "Invalid API Key"
 msgstr "Недействительный ключ API"
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 msgid "Service currently unavailable"
 msgstr "В данный момент служба недоступна."
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 msgid "Invalid Frob"
 msgstr "Недействительный Frob"
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 msgid "Format \"xxx\" not found"
 msgstr "Формат «ххх» не найден"
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 msgid "Method \"xxx\" not found"
 msgstr "Метод «ххх» не найден"
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 msgid "Invalid SOAP envelope"
 msgstr "Неверное окружение SOAP"
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr "Недействительный вызов метода XML-RPC"
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr "Метод POST теперь обязателен для всех"
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "Неизвестная ошибка"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -221,41 +225,41 @@ msgstr ""
 "Произошла ошибка: %1\n"
 "Продолжение работы невозможно."
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "запись"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "чтение"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "удаление"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 #, fuzzy
 #| msgid ""
 #| "Your token is invalid. Would you like to get a new token to proceed ?\n"
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr "Ваш маркер недействителен. Вы хотите получить новый?\n"
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr "Не удалось создать набор фотографий: "
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr "Не удалось получить список набора фотографий."
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "Ошибка загрузки фотографии"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr "Ошибка запроса информации о фотографии"
 
@@ -545,17 +549,17 @@ msgstr "Разработчик"
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;только в ленте фотографий&gt;"
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 msgid "Flickr Export"
 msgstr "Экспорт в Flickr"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, fuzzy, kde-format
 #| msgid "Failed to query photo information"
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Ошибка запроса информации о фотографии"
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

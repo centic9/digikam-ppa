@@ -71,6 +71,7 @@
 #include "imagealbummodel.h"
 #include "imagedragdrop.h"
 #include "imageratingoverlay.h"
+#include "imagefsoverlay.h"
 #include "imagecoordinatesoverlay.h"
 #include "tagslineeditoverlay.h"
 #include "imageviewutilities.h"
@@ -136,6 +137,7 @@ DigikamImageView::DigikamImageView(QWidget* const parent)
     // rotation overlays
     d->rotateLeftOverlay  = ImageRotateOverlay::left(this);
     d->rotateRightOverlay = ImageRotateOverlay::right(this);
+    d->fullscreenOverlay  = ImageFsOverlay::instance(this);
     d->updateOverlays();
 
     // rating overlay
@@ -460,6 +462,9 @@ void DigikamImageView::showContextMenuOnInfo(QContextMenuEvent* event, const Ima
     connect(&cmhelper, SIGNAL(signalCreateGroupByTime()),
             this, SLOT(createGroupByTimeFromSelection()));
 
+    connect(&cmhelper, SIGNAL(signalCreateGroupByType()),
+            this, SLOT(createGroupByTypeFromSelection()));
+
     connect(&cmhelper, SIGNAL(signalUngroup()),
             this, SLOT(ungroupSelected()));
 
@@ -499,6 +504,9 @@ void DigikamImageView::showGroupContextMenu(const QModelIndex& index, QContextMe
 
     connect(&cmhelper, SIGNAL(signalCreateGroupByTime()),
             this, SLOT(createGroupByTimeFromSelection()));
+
+    connect(&cmhelper, SIGNAL(signalCreateGroupByType()),
+            this, SLOT(createGroupByTypeFromSelection()));
 
     connect(&cmhelper, SIGNAL(signalUngroup()),
             this, SLOT(ungroupSelected()));
@@ -665,6 +673,12 @@ void DigikamImageView::createGroupByTimeFromSelection()
     d->utilities->createGroupByTimeFromInfoList(selectedInfos);
 }
 
+void DigikamImageView::createGroupByTypeFromSelection()
+{
+    const QList<ImageInfo> selectedInfos = selectedImageInfos();
+    d->utilities->createGroupByTypeFromInfoList(selectedInfos);
+}
+
 void DigikamImageView::ungroupSelected()
 {
     FileActionMngr::instance()->ungroup(selectedImageInfos());
@@ -711,6 +725,21 @@ void DigikamImageView::slotRotateRight(const QList<QModelIndex>& indexes)
 {
     FileActionMngr::instance()->transform(QList<ImageInfo>() << imageFilterModel()->imageInfos(indexes),
                                           KExiv2Iface::RotationMatrix::Rotate90);
+}
+
+void DigikamImageView::slotFullscreen(const QList<QModelIndex>& indexes)
+{
+   QList<ImageInfo> infos = imageFilterModel()->imageInfos(indexes);
+
+   if (infos.isEmpty())
+   {
+        return;
+   }
+
+   // Just fullscreen the first.
+   const ImageInfo& info = infos.at(0);
+
+   emit fullscreenRequested(info);
 }
 
 void DigikamImageView::slotInitProgressIndicator()

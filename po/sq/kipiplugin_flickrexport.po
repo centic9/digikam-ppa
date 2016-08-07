@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipi-plugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
 "PO-Revision-Date: 2009-04-30 13:18+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -141,113 +141,117 @@ msgstr ""
 msgid "Getting the Token from the server"
 msgstr ""
 
-#: flickrtalker.cpp:787
-msgid "No photo specified"
-msgstr ""
-
-#: flickrtalker.cpp:791
-msgid "General upload failure"
-msgstr ""
-
-#: flickrtalker.cpp:795
-msgid "Filesize was zero"
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
 msgstr ""
 
 #: flickrtalker.cpp:799
-msgid "Filetype was not recognized"
+msgid "No photo specified"
 msgstr ""
 
 #: flickrtalker.cpp:803
-msgid "User exceeded upload limit"
+msgid "General upload failure"
 msgstr ""
 
 #: flickrtalker.cpp:807
-msgid "Invalid signature"
-msgstr "Firmë e pavlefshme"
+msgid "Filesize was zero"
+msgstr ""
 
 #: flickrtalker.cpp:811
-msgid "Missing signature"
+msgid "Filetype was not recognized"
 msgstr ""
 
 #: flickrtalker.cpp:815
-msgid "Login Failed / Invalid auth token"
+msgid "User exceeded upload limit"
 msgstr ""
 
 #: flickrtalker.cpp:819
-msgid "Invalid API Key"
-msgstr ""
+msgid "Invalid signature"
+msgstr "Firmë e pavlefshme"
 
 #: flickrtalker.cpp:823
-msgid "Service currently unavailable"
+msgid "Missing signature"
 msgstr ""
 
 #: flickrtalker.cpp:827
-msgid "Invalid Frob"
+msgid "Login Failed / Invalid auth token"
 msgstr ""
 
 #: flickrtalker.cpp:831
-msgid "Format \"xxx\" not found"
+msgid "Invalid API Key"
 msgstr ""
 
 #: flickrtalker.cpp:835
-msgid "Method \"xxx\" not found"
+msgid "Service currently unavailable"
 msgstr ""
 
 #: flickrtalker.cpp:839
-msgid "Invalid SOAP envelope"
+msgid "Invalid Frob"
 msgstr ""
 
 #: flickrtalker.cpp:843
-msgid "Invalid XML-RPC Method Call"
+msgid "Format \"xxx\" not found"
 msgstr ""
 
 #: flickrtalker.cpp:847
-msgid "The POST method is now required for all setters"
+msgid "Method \"xxx\" not found"
 msgstr ""
 
 #: flickrtalker.cpp:851
+msgid "Invalid SOAP envelope"
+msgstr ""
+
+#: flickrtalker.cpp:855
+msgid "Invalid XML-RPC Method Call"
+msgstr ""
+
+#: flickrtalker.cpp:859
+msgid "The POST method is now required for all setters"
+msgstr ""
+
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "Gabim i panjohur"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
 "Cannot proceed any further."
 msgstr ""
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "shkruaj"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "lexo"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "fshije"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr ""
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr ""
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "Dështuam në ngarkimin e fotos"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr ""
 
@@ -516,16 +520,16 @@ msgstr "Krijues"
 msgid "&lt;Photostream Only&gt;"
 msgstr ""
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 msgid "Flickr Export"
 msgstr ""
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

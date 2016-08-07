@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
 "PO-Revision-Date: 2015-01-29 09:07+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <kde-isl@molar.is>\n"
@@ -159,75 +159,79 @@ msgstr "Aukenni notanda á vefnum"
 msgid "Getting the Token from the server"
 msgstr "Næ í auðkennistákn frá þjóninum"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:799
 msgid "No photo specified"
 msgstr "Engin mynd tilgreind"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 msgid "General upload failure"
 msgstr "Almenn villa við sendingu"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 msgid "Filesize was zero"
 msgstr "Skráarstærð var engin"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 msgid "Filetype was not recognized"
 msgstr "Skráartegund var ekki þekkt"
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 msgid "User exceeded upload limit"
 msgstr "Notandi fór fram yfir upphleðslutakmarkanir"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "Ógild undirskrift"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 msgid "Missing signature"
 msgstr "Vantar undirskrift"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr "Innskráning mistókst / Ógilt auðkennistákn"
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 msgid "Invalid API Key"
 msgstr "Ógildur API lykill"
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 msgid "Service currently unavailable"
 msgstr "Þjónustan er tímabundið ekki tiltæk"
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 msgid "Invalid Frob"
 msgstr "Ógilt Frob"
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 msgid "Format \"xxx\" not found"
 msgstr "Sniðið \"xxx\" finnst ekki"
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 msgid "Method \"xxx\" not found"
 msgstr "Aðferðin \"xxx\" finnst ekki"
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 msgid "Invalid SOAP envelope"
 msgstr "Ógilt SOAP umslag"
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr "Ógilt XML-RPC Method Call"
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr "POST-aðferðarinnar er núna krafist fyrir alla"
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "Óþekkt villa"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -236,40 +240,40 @@ msgstr ""
 "Villa kom upp: %1\n"
 "Get ekki haldið áfram."
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "skrifa"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "lestur"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "eyða"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 "Aðgangstáknið þitt er ógilt. Viltu nálgast nýtt aðgangstákn til að geta "
 "haldið áfram?\n"
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr "Mistókst að búa til myndasett: "
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr "Mistókst að ná í lista með myndasettum."
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "Mistókst að senda ljósmynd"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr "Mistókst að ná í ljósmyndaupplýsingar"
 
@@ -551,16 +555,16 @@ msgstr "Forritari"
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Einungis Photostream&gt;"
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 msgid "Flickr Export"
 msgstr "Útflutningur á Flickr"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Tókst ekki að ná í upplýsingar um myndasett frá %1. %2\n"
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

@@ -2,32 +2,33 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Joëlle Cornavin <jcorn@free.fr>, 2010, 2012, 2013.
+# Peter Potrowl <peter.potrowl@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_batchprocessimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-11-23 01:54+0000\n"
-"PO-Revision-Date: 2013-02-18 19:00+0100\n"
-"Last-Translator: Joëlle Cornavin <jcorn@free.fr>\n"
+"PO-Revision-Date: 2015-08-23 15:28+0200\n"
+"Last-Translator:  <peter.potrowl@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Joëlle Cornavin"
+msgstr "Joëlle Cornavin, Peter Potrowl"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "jcorn@free.fr"
+msgstr "jcorn@free.fr, peter.potrowl@gmail.com"
 
 #: common/batchprocessimagesdialog.cpp:105
 #: common/batchprocessimagesdialog.cpp:907 tools/renameimagesdialog.cpp:54
@@ -226,7 +227,7 @@ msgid ""
 "Cannot start 'convert' program from 'ImageMagick' package;\n"
 "please check your installation."
 msgstr ""
-"Impossible de démarrer le programme « Convert » provenant du paquetage "
+"Impossible de démarrer le programme « Convert » provenant du paquet "
 "« ImageMagick ».\n"
 "Veuillez vérifier votre installation."
 
@@ -234,8 +235,8 @@ msgstr ""
 msgid ""
 "The 'convert' program from 'ImageMagick' package has been stopped abnormally"
 msgstr ""
-"Le programme « Convert » provenant du paquetage « ImageMagick » s'est arrêté "
-"de façon anormale"
+"Le programme « Convert » provenant du paquet « ImageMagick » s'est arrêté de "
+"façon anormale"
 
 #: common/batchprocessimagesdialog.cpp:585
 msgid "Error running 'convert'"
@@ -245,8 +246,8 @@ msgstr "Problème lors de l'exécution de « Convert »"
 msgid ""
 "'convert' program from 'ImageMagick' package has been stopped abnormally."
 msgstr ""
-"Le programme « Convert » provenant du paquetage « ImageMagick » s'est arrêté "
-"de façon anormale."
+"Le programme « Convert » provenant du paquet « ImageMagick » s'est arrêté de "
+"façon anormale."
 
 #: common/batchprocessimagesdialog.cpp:615
 msgid "OK"
@@ -306,7 +307,7 @@ msgstr ""
 msgid "Cannot run properly 'convert' program from 'ImageMagick' package."
 msgstr ""
 "Impossible d'exécuter correctement le programme « Convert » provenant du "
-"paquetage « ImageMagick »."
+"paquet « ImageMagick »."
 
 #: common/batchprocessimagesdialog.cpp:792
 msgid " - small preview"
@@ -729,7 +730,7 @@ msgstr ""
 "plutôt ancien, encore très apprécié aujourd'hui. Format extrêmement souple "
 "et indépendant de la plate-forme, il est pris en charge par de nombreuses "
 "applications de traitement de l'image et pratiquement tous les logiciels de "
-"pré-presse présents sur le marché.</p>"
+"prépresse présents sur le marché.</p>"
 
 #: tools/convertimagesdialog.cpp:89
 msgid ""
@@ -762,12 +763,6 @@ msgstr ""
 "charge une vaste gamme de données d'images RVB.</p>"
 
 #: tools/convertimagesdialog.cpp:100
-#, fuzzy
-#| msgid ""
-#| "<p><b>TGA</b>: the TarGA image file format is one of the most widely used "
-#| "bitmap file formats for storage of 24 and 32 bits truecolor images.  TGA "
-#| "supports colormaps, alpha channel, gamma value, postage stamp image, "
-#| "textual information, and developer-definable data.</p>"
 msgid ""
 "<p><b>TGA</b>: the TarGA image file format is one of the most widely used "
 "bitmap file formats for storage of 24 and 32 bits truecolor images. TGA "
@@ -782,20 +777,14 @@ msgstr ""
 "développeur.</p>"
 
 #: tools/convertimagesdialog.cpp:104
-#, fuzzy
-#| msgid ""
-#| "<p><b>EPS</b>: the  Adobe Encapsulated PostScript image file format is a "
-#| "PostScript language program describing the appearance of a single page. "
-#| "Usually, the purpose of the EPS file is to be embedded inside another "
-#| "PostScript language page description.</p>"
 msgid ""
 "<p><b>EPS</b>: the Adobe Encapsulated PostScript image file format is a "
 "PostScript language program describing the appearance of a single page. "
 "Usually, the purpose of the EPS file is to be embedded inside another "
 "PostScript language page description.</p>"
 msgstr ""
-"<p><b>EPS</b> : le format de fichier image EPS ( Encapsulated PostScript) de "
-"Adobe est un programme pour le langage PostScript décrivant l'apparence "
+"<p><b>EPS</b> : le format de fichier image EPS (Encapsulated PostScript) "
+"d'Adobe est un programme pour le langage PostScript décrivant l'apparence "
 "d'une seule page. Habituellement, le but du fichier EPS est d'être intégré "
 "au sein de la description d'une page de langage PostScript.</p>"
 
@@ -1152,7 +1141,7 @@ msgstr "Ajout de bruit"
 #: tools/filterimagesdialog.cpp:66
 msgctxt "image filter"
 msgid "Antialias"
-msgstr "Anti-crénelage"
+msgstr "Anticrénelage"
 
 #: tools/filterimagesdialog.cpp:67
 msgctxt "image filter"

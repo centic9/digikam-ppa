@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-22 01:50+0000\n"
+"POT-Creation-Date: 2015-10-13 01:55+0000\n"
 "PO-Revision-Date: 2010-01-18 21:26+0200\n"
 "Last-Translator: Einars Sprugis <einars8@gmail.com>\n"
 "Language-Team: Latvian <locale@laka.lv>\n"
@@ -147,7 +147,7 @@ msgstr "Krāsas"
 
 #: app/album/albumlabelstreeview.cpp:413 app/album/albumlabelstreeview.cpp:740
 #: app/views/tableview/tableview_column_digikam.cpp:318
-#: libs/dimg/filters/bw/mixersettings.cpp:137
+#: libs/dimg/filters/bw/mixersettings.cpp:139
 #: libs/dimg/filters/cb/cbsettings.cpp:97
 #: libs/widgets/metadata/colorlabelwidget.cpp:422
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:71
@@ -171,7 +171,7 @@ msgstr "Dzeltens"
 
 #: app/album/albumlabelstreeview.cpp:414 app/album/albumlabelstreeview.cpp:749
 #: app/views/tableview/tableview_column_digikam.cpp:330
-#: libs/dimg/filters/bw/mixersettings.cpp:138
+#: libs/dimg/filters/bw/mixersettings.cpp:140
 #: libs/dimg/filters/cb/cbsettings.cpp:111
 #: libs/widgets/metadata/colorlabelwidget.cpp:431
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:72
@@ -180,7 +180,7 @@ msgstr "Zaļš"
 
 #: app/album/albumlabelstreeview.cpp:415 app/album/albumlabelstreeview.cpp:752
 #: app/views/tableview/tableview_column_digikam.cpp:334
-#: libs/dimg/filters/bw/mixersettings.cpp:139
+#: libs/dimg/filters/bw/mixersettings.cpp:141
 #: libs/dimg/filters/cb/cbsettings.cpp:119
 #: libs/widgets/metadata/colorlabelwidget.cpp:434
 #: utilities/queuemanager/basetools/color/curvesadjust.cpp:73
@@ -515,64 +515,64 @@ msgstr "Kolekcija nav atrasta"
 msgid "Searches"
 msgstr "Meklēšanas"
 
-#: app/album/albummanager.cpp:2132
+#: app/album/albummanager.cpp:2133
 msgid "The collection location supplied is invalid or currently not available."
 msgstr ""
 "Norādītā kolekcijas atrašanās vieta nav derīga vai šobrīd nav pieejama."
 
-#: app/album/albummanager.cpp:2140
+#: app/album/albummanager.cpp:2141
 msgid "No album for collection location: Internal error"
 msgstr ""
 
-#: app/album/albummanager.cpp:2156
+#: app/album/albummanager.cpp:2157
 msgid "No parent found for album."
 msgstr "Netika atrasts albuma vecāks."
 
-#: app/album/albummanager.cpp:2163
+#: app/album/albummanager.cpp:2164
 msgid "Album name cannot be empty."
 msgstr "Albuma nosaukums nedrīkst būt tukšs."
 
-#: app/album/albummanager.cpp:2169
+#: app/album/albummanager.cpp:2170
 msgid "Album name cannot contain '/'."
 msgstr "Albuma nosaukums nedrīkst saturēt '/'."
 
-#: app/album/albummanager.cpp:2175
+#: app/album/albummanager.cpp:2176
 msgid "createPAlbum does not accept the root album as parent."
 msgstr "createPAlbum nepieņem saknes albumu kā vecāku."
 
-#: app/album/albummanager.cpp:2189
+#: app/album/albummanager.cpp:2190
 msgid "An existing album has the same name."
 msgstr "Šis nosaukums jau ir kādam albumam."
 
-#: app/album/albummanager.cpp:2202
+#: app/album/albummanager.cpp:2203
 #, fuzzy
 #| msgid "Failed to create directory,"
 msgid "Failed to create directory."
 msgstr "Neizdevās izveidot mapi,"
 
-#: app/album/albummanager.cpp:2211
+#: app/album/albummanager.cpp:2212
 msgid "Failed to add album to database"
 msgstr "Neizdevās pievienot albumu datubāzei"
 
-#: app/album/albummanager.cpp:2238 app/album/albummanager.cpp:2331
-#: app/album/albummanager.cpp:2430 app/album/albummanager.cpp:2485
-#: app/album/albummanager.cpp:2521
+#: app/album/albummanager.cpp:2239 app/album/albummanager.cpp:2332
+#: app/album/albummanager.cpp:2431 app/album/albummanager.cpp:2486
+#: app/album/albummanager.cpp:2522
 msgid "No such album"
 msgstr "Nav tāda albuma"
 
-#: app/album/albummanager.cpp:2244
+#: app/album/albummanager.cpp:2245
 msgid "Cannot rename root album"
 msgstr "Nevar pārdēvēt saknes albumu"
 
-#: app/album/albummanager.cpp:2250
+#: app/album/albummanager.cpp:2251
 msgid "Cannot rename album root album"
 msgstr "Nevar pārdēvēt albumu saknes albumu"
 
-#: app/album/albummanager.cpp:2256
+#: app/album/albummanager.cpp:2257
 msgid "Album name cannot contain '/'"
 msgstr "Albuma nosaukums nedrīkst saturēt '/'"
 
-#: app/album/albummanager.cpp:2263
+#: app/album/albummanager.cpp:2264
 msgid ""
 "Another album with the same name already exists.\n"
 "Please choose another name."
@@ -580,43 +580,43 @@ msgstr ""
 "Pastāv cits albums ar šādu nosaukumu.\n"
 "Lūdzu, izvēlieties citu nosaukumu."
 
-#: app/album/albummanager.cpp:2283
+#: app/album/albummanager.cpp:2284
 msgid "Failed to rename Album"
 msgstr "Neizdevās pārdēvēt albumu"
 
-#: app/album/albummanager.cpp:2337
+#: app/album/albummanager.cpp:2338
 msgid "Cannot edit root album"
 msgstr "Nevar rediģēt saknes albumu"
 
-#: app/album/albummanager.cpp:2358
+#: app/album/albummanager.cpp:2359
 msgid "No parent found for tag"
 msgstr "Netika atrasts taga vecāks"
 
-#: app/album/albummanager.cpp:2365
+#: app/album/albummanager.cpp:2366
 msgid "Tag name cannot be empty"
 msgstr "Taga nosaukums nedrīkst būt tukšs"
 
-#: app/album/albummanager.cpp:2371 app/album/albummanager.cpp:2497
+#: app/album/albummanager.cpp:2372 app/album/albummanager.cpp:2498
 msgid "Tag name cannot contain '/'"
 msgstr "Taga nosaukums nedrīkst saturēt '/'"
 
-#: app/album/albummanager.cpp:2378 app/tags/tageditdlg.cpp:435
+#: app/album/albummanager.cpp:2379 app/tags/tageditdlg.cpp:435
 msgid "Tag name already exists"
 msgstr "Tags ar šādu nosaukumu jau pastāv"
 
-#: app/album/albummanager.cpp:2387
+#: app/album/albummanager.cpp:2388
 msgid "Failed to add tag to database"
 msgstr "Neizdevās pievienot tagu datubāzei"
 
-#: app/album/albummanager.cpp:2436
+#: app/album/albummanager.cpp:2437
 msgid "Cannot delete Root Tag"
 msgstr "Nevar izdzēst saknes tagu"
 
-#: app/album/albummanager.cpp:2491 app/album/albummanager.cpp:2589
+#: app/album/albummanager.cpp:2492 app/album/albummanager.cpp:2590
 msgid "Cannot edit root tag"
 msgstr "Nevar rediģēt saknes tagu"
 
-#: app/album/albummanager.cpp:2504
+#: app/album/albummanager.cpp:2505
 #, fuzzy
 #| msgid ""
 #| "Another album with the same name already exists.\n"
@@ -628,15 +628,15 @@ msgstr ""
 "Pastāv cits albums ar šādu nosaukumu.\n"
 "Lūdzu, izvēlieties citu nosaukumu."
 
-#: app/album/albummanager.cpp:2527
+#: app/album/albummanager.cpp:2528
 msgid "Attempt to move TAlbum to nowhere"
 msgstr ""
 
-#: app/album/albummanager.cpp:2533
+#: app/album/albummanager.cpp:2534
 msgid "Cannot move root tag"
 msgstr "Nevar pārvietot saknes tagu"
 
-#: app/album/albummanager.cpp:2539
+#: app/album/albummanager.cpp:2540
 #, fuzzy
 #| msgid ""
 #| "Another tag with the same name already exists.\n"
@@ -648,12 +648,12 @@ msgstr ""
 "Pastāv cits tags ar šādu nosaukumu.\n"
 "Lūdzu, izvēlieties citu nosaukumu."
 
-#: app/album/albummanager.cpp:2583
+#: app/album/albummanager.cpp:2584
 msgid "No such tag"
 msgstr "Nav tāda taga"
 
-#: app/album/albummanager.cpp:3026 app/album/albummanager.cpp:3056
-#: app/album/albummanager.cpp:3099 app/album/albummanager.cpp:3129
+#: app/album/albummanager.cpp:3030 app/album/albummanager.cpp:3060
+#: app/album/albummanager.cpp:3103 app/album/albummanager.cpp:3133
 #: app/main/main.cpp:74 app/views/welcomepageview.cpp:241
 msgid "digiKam"
 msgstr "digiKam"
@@ -1104,15 +1104,15 @@ msgid "%1 %2"
 msgstr "%1 %2"
 
 #: app/dragdrop/albumdragdrop.cpp:91 app/dragdrop/albumdragdrop.cpp:197
-#: app/dragdrop/albumdragdrop.cpp:301 app/dragdrop/imagedragdrop.cpp:107
+#: app/dragdrop/albumdragdrop.cpp:301 app/dragdrop/imagedragdrop.cpp:108
 #: app/dragdrop/importdragdrop.cpp:99 app/dragdrop/tagdragdrop.cpp:76
 msgid "&Move Here"
 msgstr "&Pārvietot šeit"
 
 #: app/dragdrop/albumdragdrop.cpp:93 app/dragdrop/albumdragdrop.cpp:163
 #: app/dragdrop/albumdragdrop.cpp:207 app/dragdrop/albumdragdrop.cpp:262
-#: app/dragdrop/albumdragdrop.cpp:304 app/dragdrop/imagedragdrop.cpp:74
-#: app/dragdrop/imagedragdrop.cpp:527 app/dragdrop/importdragdrop.cpp:65
+#: app/dragdrop/albumdragdrop.cpp:304 app/dragdrop/imagedragdrop.cpp:75
+#: app/dragdrop/imagedragdrop.cpp:537 app/dragdrop/importdragdrop.cpp:65
 #: app/dragdrop/importdragdrop.cpp:162 app/dragdrop/tagdragdrop.cpp:78
 #: app/dragdrop/tagdragdrop.cpp:165 app/dragdrop/tagdragdrop.cpp:220
 #: showfoto/thumbbar/showfotodragdrophandler.cpp:60
@@ -1125,19 +1125,19 @@ msgid "Set as Album Thumbnail"
 msgstr "Uzlikt par albuma sīktēlu"
 
 #: app/dragdrop/albumdragdrop.cpp:198 app/dragdrop/albumdragdrop.cpp:302
-#: app/dragdrop/imagedragdrop.cpp:110 app/dragdrop/importdragdrop.cpp:102
+#: app/dragdrop/imagedragdrop.cpp:111 app/dragdrop/importdragdrop.cpp:102
 msgid "&Copy Here"
 msgstr "&Kopēt šeit"
 
-#: app/dragdrop/albumdragdrop.cpp:258 app/dragdrop/imagedragdrop.cpp:523
+#: app/dragdrop/albumdragdrop.cpp:258 app/dragdrop/imagedragdrop.cpp:533
 msgid "Download From Camera"
 msgstr "Ielādēt no fotoaparāta"
 
-#: app/dragdrop/albumdragdrop.cpp:260 app/dragdrop/imagedragdrop.cpp:525
+#: app/dragdrop/albumdragdrop.cpp:260 app/dragdrop/imagedragdrop.cpp:535
 msgid "Download && Delete From Camera"
 msgstr "Ielādēt no fotoaparāta un izdzēst no tā"
 
-#: app/dragdrop/imagedragdrop.cpp:69 app/dragdrop/importdragdrop.cpp:60
+#: app/dragdrop/imagedragdrop.cpp:70 app/dragdrop/importdragdrop.cpp:60
 #: showfoto/thumbbar/showfotodragdrophandler.cpp:55
 #, fuzzy
 #| msgid "Group of the file"
@@ -1145,29 +1145,29 @@ msgctxt "@action:inmenu Group images with this image"
 msgid "Group here"
 msgstr "Faila grupa"
 
-#: app/dragdrop/imagedragdrop.cpp:145
+#: app/dragdrop/imagedragdrop.cpp:146
 #, fuzzy
 #| msgid "Assign Tags to &Selected Items"
 msgid "Assign Tag to Dropped Items"
 msgstr "Piešķirt tagus &izvēlētajām vienībām"
 
-#: app/dragdrop/imagedragdrop.cpp:470
+#: app/dragdrop/imagedragdrop.cpp:480
 msgid "Assign Tags to &Selected Items"
 msgstr "Piešķirt tagus &izvēlētajām vienībām"
 
-#: app/dragdrop/imagedragdrop.cpp:477 app/views/imagepreviewview.cpp:598
+#: app/dragdrop/imagedragdrop.cpp:487 app/views/imagepreviewview.cpp:609
 msgid "Assign Tags to &This Item"
 msgstr "Piešķirt tagus š&ai vienībai"
 
-#: app/dragdrop/imagedragdrop.cpp:480
+#: app/dragdrop/imagedragdrop.cpp:490
 msgid "Assign Tags to &All Items"
 msgstr "Piešķirt tagus &visām vienībām"
 
-#: app/dragdrop/imagedragdrop.cpp:483 app/views/imagepreviewview.cpp:600
+#: app/dragdrop/imagedragdrop.cpp:493 app/views/imagepreviewview.cpp:611
 msgid "&Cancel"
 msgstr "At&celt"
 
-#: app/dragdrop/imagedragdrop.cpp:521
+#: app/dragdrop/imagedragdrop.cpp:531
 #, fuzzy
 #| msgid "Import"
 msgid "Importing"
@@ -1711,7 +1711,7 @@ msgstr "Notīrīt visu"
 msgid "Select All"
 msgstr "Izvēlēties visus"
 
-#: app/items/digikamimageview.cpp:376 app/views/tableview/tableview.cpp:228
+#: app/items/digikamimageview.cpp:378 app/views/tableview/tableview.cpp:248
 #, fuzzy
 #| msgid "Preview"
 msgctxt "View the selected image"
@@ -1797,9 +1797,9 @@ msgstr ""
 "izvēlētos attēlus.</p>"
 
 #: app/items/imageviewutilities.cpp:292
-#: utilities/imageeditor/main/imagewindow.cpp:1496
-#: utilities/imageeditor/main/imagewindow.cpp:1520
-#: utilities/imageeditor/main/imagewindow.cpp:1551
+#: utilities/imageeditor/main/imagewindow.cpp:1504
+#: utilities/imageeditor/main/imagewindow.cpp:1528
+#: utilities/imageeditor/main/imagewindow.cpp:1559
 #, kde-format
 msgid "Album \"%1\""
 msgstr "Albums \"%1\""
@@ -1836,8 +1836,15 @@ msgctxt "@info:tooltip"
 msgid "This item has geolocation information."
 msgstr "Rediģēt albuma īpašības un tēmas informāciju."
 
+#: app/items/overlays/imagefsoverlay.cpp:59
+#, fuzzy
+#| msgid "Exit Fullscreen mode"
+msgctxt "@info:tooltip"
+msgid "Show Fullscreen"
+msgstr "Iziet no pilnekrāna režīma"
+
 #: app/items/overlays/imagerotationoverlay.cpp:68
-#: app/views/imagepreviewview.cpp:170
+#: app/views/imagepreviewview.cpp:177
 #: utilities/importui/items/importoverlays.cpp:438
 #: utilities/importui/views/importpreviewview.cpp:192
 msgctxt "@info:tooltip"
@@ -1845,7 +1852,7 @@ msgid "Rotate Left"
 msgstr "Griezt pa kreisi"
 
 #: app/items/overlays/imagerotationoverlay.cpp:72
-#: app/views/imagepreviewview.cpp:171
+#: app/views/imagepreviewview.cpp:178
 #: utilities/importui/items/importoverlays.cpp:442
 #: utilities/importui/views/importpreviewview.cpp:193
 msgctxt "@info:tooltip"
@@ -1921,8 +1928,8 @@ msgid "Next Image"
 msgstr "Nākamais attēls"
 
 #: app/main/digikamapp.cpp:647 app/main/digikamapp.cpp:653
-#: utilities/imageeditor/editor/editorwindow.cpp:648
-#: utilities/lighttable/lighttablewindow.cpp:656
+#: utilities/imageeditor/editor/editorwindow.cpp:659
+#: utilities/lighttable/lighttablewindow.cpp:660
 msgid "Previous Image"
 msgstr "Iepriekšējais attēls"
 
@@ -2051,7 +2058,7 @@ msgstr "&Jauns..."
 
 #: app/main/digikamapp.cpp:869 app/tags/tagmodificationhelper.cpp:285
 #: app/tags/tagmodificationhelper.cpp:390
-#: app/tags/tagsmanager/tagsmanager.cpp:404
+#: app/tags/tagsmanager/tagsmanager.cpp:409
 #: app/utils/editablesearchtreeview.cpp:71
 #: app/utils/searchmodificationhelper.cpp:82
 #: utilities/importui/main/importui.cpp:1996
@@ -2110,8 +2117,8 @@ msgid "Open the selected item."
 msgstr "Atvērt izvēlēto attēlu attēlu redaktorā."
 
 #: app/main/digikamapp.cpp:920
-#: utilities/imageeditor/editor/editorwindow.cpp:440
-#: utilities/lighttable/lighttablewindow.cpp:501
+#: utilities/imageeditor/editor/editorwindow.cpp:449
+#: utilities/lighttable/lighttablewindow.cpp:505
 msgid "Open With Default Application"
 msgstr ""
 
@@ -2132,8 +2139,8 @@ msgstr "Attēlu redaktors"
 msgid "Open the image editor."
 msgstr "Atvērt redaktorā"
 
-#: app/main/digikamapp.cpp:933 utilities/lighttable/lighttablewindow.cpp:131
-#: utilities/lighttable/lighttablewindow.cpp:1399
+#: app/main/digikamapp.cpp:933 utilities/lighttable/lighttablewindow.cpp:132
+#: utilities/lighttable/lighttablewindow.cpp:1403
 #: utilities/setup/setup.cpp:277
 msgid "Light Table"
 msgstr "Gaismas galds"
@@ -2207,8 +2214,8 @@ msgid "Change the filename of the currently selected item."
 msgstr "Pārdēvēt izvēlētās vienības faila nosaukumu."
 
 #: app/main/digikamapp.cpp:1024 showfoto/main/showfoto.cpp:507
-#: utilities/imageeditor/editor/editorwindow.cpp:446
-#: utilities/lighttable/lighttablewindow.cpp:519
+#: utilities/imageeditor/editor/editorwindow.cpp:456
+#: utilities/lighttable/lighttablewindow.cpp:523
 msgctxt "Non-pluralized"
 msgid "Move to Trash"
 msgstr "Pārvietot uz Miskasti"
@@ -2357,13 +2364,13 @@ msgid "The sort order of images groups"
 msgstr "Attēlu kārtošanas kārtība"
 
 #: app/main/digikamapp.cpp:1189
-#: utilities/imageeditor/editor/editorwindow.cpp:500
+#: utilities/imageeditor/editor/editorwindow.cpp:511
 msgid "Select None"
 msgstr "Notīrīt iezīmējumu"
 
 #: app/main/digikamapp.cpp:1196 app/tags/tagsmanager/tagmngrtreeview.cpp:149
-#: app/tags/tagsmanager/tagsmanager.cpp:702
-#: app/utils/contextmenuhelper.cpp:883
+#: app/tags/tagsmanager/tagsmanager.cpp:707
+#: app/utils/contextmenuhelper.cpp:893
 msgid "Invert Selection"
 msgstr "Invertēt iezīmējumu"
 
@@ -2372,22 +2379,22 @@ msgid "Show Thumbbar"
 msgstr "Rādīt sīktēlu joslu"
 
 #: app/main/digikamapp.cpp:1239
-#: utilities/imageeditor/editor/editorwindow.cpp:519
-#: utilities/lighttable/lighttablewindow.cpp:584
-#: utilities/lighttable/lighttablewindow.cpp:612
+#: utilities/imageeditor/editor/editorwindow.cpp:530
+#: utilities/lighttable/lighttablewindow.cpp:588
+#: utilities/lighttable/lighttablewindow.cpp:616
 msgid "Zoom to 100%"
 msgstr "Mērogot uz 100%"
 
 #: app/main/digikamapp.cpp:1246
-#: utilities/imageeditor/editor/editorwindow.cpp:524
-#: utilities/lighttable/lighttablewindow.cpp:589
-#: utilities/lighttable/lighttablewindow.cpp:617
+#: utilities/imageeditor/editor/editorwindow.cpp:535
+#: utilities/lighttable/lighttablewindow.cpp:593
+#: utilities/lighttable/lighttablewindow.cpp:621
 msgid "Fit to &Window"
 msgstr "Ietilpināt &logā"
 
 #: app/main/digikamapp.cpp:1258
-#: utilities/imageeditor/editor/editorwindow.cpp:542
-#: utilities/lighttable/lighttablewindow.cpp:563
+#: utilities/imageeditor/editor/editorwindow.cpp:553
+#: utilities/lighttable/lighttablewindow.cpp:567
 #: utilities/slideshow/slideshow.cpp:98
 msgid "Slideshow"
 msgstr "Slīdrāde"
@@ -2405,9 +2412,9 @@ msgid "With All Sub-Albums"
 msgstr "Ar visiem apakšalbumiem"
 
 #: app/main/digikamapp.cpp:1282
-#: utilities/imageeditor/editor/editorwindow.cpp:563
+#: utilities/imageeditor/editor/editorwindow.cpp:574
 #: utilities/importui/main/importui.cpp:595
-#: utilities/lighttable/lighttablewindow.cpp:624
+#: utilities/lighttable/lighttablewindow.cpp:628
 msgid "Color-Managed View"
 msgstr "Krāsu pārvaldīts skats"
 
@@ -2445,7 +2452,7 @@ msgstr "Pievienot fotoaparātu pašrocīgi..."
 msgid "Loading cameras..."
 msgstr "Ielādē fotoaparātus"
 
-#: app/main/digikamapp.cpp:1529
+#: app/main/digikamapp.cpp:1533
 #, fuzzy, kde-format
 #| msgid "No item selected"
 msgid "No item selected (%1 item)"
@@ -2454,12 +2461,12 @@ msgstr[0] "Nekas nav izvēlēts"
 msgstr[1] "Nekas nav izvēlēts"
 msgstr[2] "Nekas nav izvēlēts"
 
-#: app/main/digikamapp.cpp:1541
+#: app/main/digikamapp.cpp:1545
 #, kde-format
 msgid " (%1 of %2)"
 msgstr " (%1 no %2)"
 
-#: app/main/digikamapp.cpp:1546
+#: app/main/digikamapp.cpp:1550
 #, kde-format
 msgid "%2/%1 item selected"
 msgid_plural "%2/%1 items selected"
@@ -2467,102 +2474,102 @@ msgstr[0] "izvēlēts %1/%2"
 msgstr[1] "izvēlēti %1/%2"
 msgstr[2] "izvēlēti %1/%2"
 
-#: app/main/digikamapp.cpp:1582
+#: app/main/digikamapp.cpp:1588
 msgid "Write Metadata to Image"
 msgid_plural "Write Metadata to Selected Images"
 msgstr[0] "Ierakstīt metadatus attēlā"
 msgstr[1] "Ierakstīt metadatus izvēlētajos attēlos"
 msgstr[2] "Ierakstīt metadatus izvēlētajos attēlos"
 
-#: app/main/digikamapp.cpp:1584
+#: app/main/digikamapp.cpp:1590
 msgid "Reread Metadata From Image"
 msgid_plural "Reread Metadata From Selected Images"
 msgstr[0] "Pārielasīt metadatus no attēla"
 msgstr[1] "Pārielasīt metadatus no izvēlētajiem attēliem"
 msgstr[2] "Pārielasīt metadatus no izvēlētajiem attēliem"
 
-#: app/main/digikamapp.cpp:1627 utilities/setup/setup.cpp:294
+#: app/main/digikamapp.cpp:1633 utilities/setup/setup.cpp:294
 msgid "Cameras"
 msgstr "Fotoaparāti"
 
-#: app/main/digikamapp.cpp:1629
+#: app/main/digikamapp.cpp:1635
 msgid "USB Storage Devices"
 msgstr "USB datu nesēji"
 
-#: app/main/digikamapp.cpp:1631
+#: app/main/digikamapp.cpp:1637
 msgid "Card Readers"
 msgstr "Karšu lasītāji"
 
-#: app/main/digikamapp.cpp:1640
+#: app/main/digikamapp.cpp:1646
 msgid "Add Images..."
 msgstr "Pievienot attēlus..."
 
-#: app/main/digikamapp.cpp:1642
+#: app/main/digikamapp.cpp:1648
 msgid "Adds new items to an Album."
 msgstr "Pievienot albumam jaunus attēlus."
 
-#: app/main/digikamapp.cpp:1648
+#: app/main/digikamapp.cpp:1654
 msgid "Add Folders..."
 msgstr "Pievienot mapes..."
 
-#: app/main/digikamapp.cpp:1649
+#: app/main/digikamapp.cpp:1655
 msgid "Adds new folders to Album library."
 msgstr "Pievienot albuma bibliotēkai jaunas mapes."
 
-#: app/main/digikamapp.cpp:1731
+#: app/main/digikamapp.cpp:1737
 #, kde-format
 msgid "Images found in %1"
 msgstr "Atrasti attēli iekš %1"
 
-#: app/main/digikamapp.cpp:1780
+#: app/main/digikamapp.cpp:1786
 #, kde-format
 msgid "The specified device (\"%1\") is not valid."
 msgstr "Norādītā ierīce (\"%1\") nav derīga."
 
-#: app/main/digikamapp.cpp:1792
+#: app/main/digikamapp.cpp:1798
 #, kde-format
 msgid "The specified camera (\"%1\") is not supported."
 msgstr "Norādītais fotoaparāts (\"%1\") nav derīgs."
 
-#: app/main/digikamapp.cpp:1953
+#: app/main/digikamapp.cpp:1959
 #, kde-format
 msgid "Images on %1"
 msgstr "Attēli no %1"
 
-#: app/main/digikamapp.cpp:1977
+#: app/main/digikamapp.cpp:1983
 msgid "Cannot access the storage device.\n"
 msgstr "Neizdevās piekļūt glabāšanas ierīcei.\n"
 
-#: app/main/digikamapp.cpp:2183
+#: app/main/digikamapp.cpp:2189
 msgid "CompactFlash Card Reader"
 msgstr "CompactFlash karšu lasītājs"
 
-#: app/main/digikamapp.cpp:2186
+#: app/main/digikamapp.cpp:2192
 msgid "Memory Stick Reader"
 msgstr "Memory Stick lasītājs"
 
-#: app/main/digikamapp.cpp:2189
+#: app/main/digikamapp.cpp:2195
 msgid "SmartMedia Card Reader"
 msgstr "SmartMedia karšu lasītājs"
 
-#: app/main/digikamapp.cpp:2192
+#: app/main/digikamapp.cpp:2198
 msgid "SD / MMC Card Reader"
 msgstr "SD / MMC karšu lasītājs"
 
-#: app/main/digikamapp.cpp:2195
+#: app/main/digikamapp.cpp:2201
 msgid "xD Card Reader"
 msgstr "xD laršu lasītājs"
 
-#: app/main/digikamapp.cpp:2207
+#: app/main/digikamapp.cpp:2213
 msgid "USB Disk"
 msgstr ""
 
-#: app/main/digikamapp.cpp:2211
+#: app/main/digikamapp.cpp:2217
 msgctxt "non-USB removable storage device"
 msgid "Disk"
 msgstr ""
 
-#: app/main/digikamapp.cpp:2279
+#: app/main/digikamapp.cpp:2285
 #, fuzzy, kde-format
 #| msgctxt "<Image file name> (<Image number> of <Images in album>)"
 #| msgid "%1 (%2 of %3)"
@@ -2570,7 +2577,7 @@ msgctxt "<drive type> \"<device name or label>\" at <mount path>"
 msgid "%1 \"%2\" at %3"
 msgstr "%1 (%2 no %3)"
 
-#: app/main/digikamapp.cpp:2282
+#: app/main/digikamapp.cpp:2288
 #, fuzzy, kde-format
 #| msgctxt "Month String - Year String"
 #| msgid "%1 %2"
@@ -2578,7 +2585,7 @@ msgctxt "<drive type> \"<device name or label>\""
 msgid "%1 \"%2\""
 msgstr "%1 %2"
 
-#: app/main/digikamapp.cpp:2288
+#: app/main/digikamapp.cpp:2294
 #, fuzzy, kde-format
 #| msgctxt "<Problem> - <filename>"
 #| msgid "%1 - %2"
@@ -2586,48 +2593,48 @@ msgctxt "<drive type> at <mount path>"
 msgid "%1 at %2"
 msgstr "%1 - %2"
 
-#: app/main/digikamapp.cpp:2297
+#: app/main/digikamapp.cpp:2303
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgctxt "device label etc... (<formatted byte size>)"
 msgid " (%1)"
 msgstr "%1 (%2)"
 
-#: app/main/digikamapp.cpp:2444
+#: app/main/digikamapp.cpp:2450
 msgctxt "general keyboard shortcuts"
 msgid "General"
 msgstr "Pamata"
 
-#: app/main/digikamapp.cpp:2448
+#: app/main/digikamapp.cpp:2454
 msgctxt "KIPI-Plugins keyboard shortcuts"
 msgid "KIPI-Plugins"
 msgstr "KIPI-Plugins"
 
-#: app/main/digikamapp.cpp:2513 showfoto/main/showfoto.cpp:189
+#: app/main/digikamapp.cpp:2519 showfoto/main/showfoto.cpp:189
 #, fuzzy
 #| msgid "Loading themes"
 msgid "Loading themes..."
 msgstr "Ielādē tēmas"
 
-#: app/main/digikamapp.cpp:2516 showfoto/main/showfoto.cpp:424
+#: app/main/digikamapp.cpp:2522 showfoto/main/showfoto.cpp:424
 msgid "&Themes"
 msgstr "&Tēmas"
 
-#: app/main/digikamapp.cpp:2533
+#: app/main/digikamapp.cpp:2539
 #, fuzzy
 #| msgid "Loading themes"
 msgid "Loading tools..."
 msgstr "Ielādē tēmas"
 
-#: app/main/digikamapp.cpp:2628
+#: app/main/digikamapp.cpp:2634
 msgid "Select folder to parse"
 msgstr "Izvēlieties analizējamo mapi"
 
-#: app/main/digikamapp.cpp:2642
+#: app/main/digikamapp.cpp:2648
 msgid "Select folders to import into album"
 msgstr "Izvēlieties mapies, ko importēt albumā"
 
-#: app/main/digikamapp.cpp:2672
+#: app/main/digikamapp.cpp:2678
 msgid ""
 "<p>Please select the destination album from the digiKam library to import "
 "folders into.</p>"
@@ -2635,78 +2642,78 @@ msgstr ""
 "<p>Lūdzu, no digiKam bibliotēkas izvēlieties mērķa albumu, kurā importēt "
 "mapes.</p>"
 
-#: app/main/digikamapp.cpp:2797
+#: app/main/digikamapp.cpp:2803
 msgid "Adjust Exif Orientation Tag"
 msgstr "Mainīt Exif orientācijas tagu"
 
-#: app/main/digikamapp.cpp:2801
+#: app/main/digikamapp.cpp:2807
 msgctxt "normal exif orientation"
 msgid "Normal"
 msgstr "Normāla"
 
-#: app/main/digikamapp.cpp:2802 libs/dmetadata/dmetadata.cpp:2720
+#: app/main/digikamapp.cpp:2808 libs/dmetadata/dmetadata.cpp:2720
 msgid "Flipped Horizontally"
 msgstr "Horizontāls spoguļattēls"
 
-#: app/main/digikamapp.cpp:2803
+#: app/main/digikamapp.cpp:2809
 msgid "Rotated Upside Down"
 msgstr "Pagriezts kājām gaisā"
 
-#: app/main/digikamapp.cpp:2804 libs/dmetadata/dmetadata.cpp:2724
+#: app/main/digikamapp.cpp:2810 libs/dmetadata/dmetadata.cpp:2724
 msgid "Flipped Vertically"
 msgstr "Vertikāls spoguļattēls"
 
-#: app/main/digikamapp.cpp:2805
+#: app/main/digikamapp.cpp:2811
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Pagriezts pa labi / Apmests horizontāli"
 
-#: app/main/digikamapp.cpp:2806 libs/dmetadata/dmetadata.cpp:2732
+#: app/main/digikamapp.cpp:2812 libs/dmetadata/dmetadata.cpp:2732
 msgid "Rotated Right"
 msgstr "Pagriezts pa labi"
 
-#: app/main/digikamapp.cpp:2807
+#: app/main/digikamapp.cpp:2813
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Pagriezts pa labi / Apmests vertikāli"
 
-#: app/main/digikamapp.cpp:2808 libs/dmetadata/dmetadata.cpp:2728
+#: app/main/digikamapp.cpp:2814 libs/dmetadata/dmetadata.cpp:2728
 msgid "Rotated Left"
 msgstr "Pagriezts pa kreisi"
 
-#: app/main/digikamapp.cpp:2933
+#: app/main/digikamapp.cpp:2939
 #: utilities/queuemanager/basetools/transform/rotate.cpp:85
 msgid "Rotate"
 msgstr "Pagriezt"
 
-#: app/main/digikamapp.cpp:2937
+#: app/main/digikamapp.cpp:2943
 msgctxt "rotate image left"
 msgid "Left"
 msgstr ""
 
-#: app/main/digikamapp.cpp:2944
+#: app/main/digikamapp.cpp:2950
 #, fuzzy
 #| msgid "Rights"
 msgctxt "rotate image right"
 msgid "Right"
 msgstr "Atļaujas"
 
-#: app/main/digikamapp.cpp:2954
+#: app/main/digikamapp.cpp:2960
 #: utilities/queuemanager/basetools/transform/flip.cpp:53
 msgid "Flip"
 msgstr "Apmest"
 
-#: app/main/digikamapp.cpp:2958
+#: app/main/digikamapp.cpp:2964
 #, fuzzy
 #| msgid "Horizontal"
 msgid "Horizontally"
 msgstr "Horizontāli"
 
-#: app/main/digikamapp.cpp:2965
+#: app/main/digikamapp.cpp:2971
 #, fuzzy
 #| msgid "Vertical"
 msgid "Vertically"
 msgstr "Vertikāli"
 
-#: app/main/digikamapp.cpp:2975
+#: app/main/digikamapp.cpp:2981
 msgid "Auto Rotate/Flip Using Exif Information"
 msgstr ""
 
@@ -2855,35 +2862,35 @@ msgstr ""
 "Nav pieejams Qt4 SQLite datubāzes spraudnis - lūdzu, instalējiet to.\n"
 "Ir instalēti šādi datubāzes spraudņi:"
 
-#: app/settings/applicationsettings_p.cpp:219
+#: app/settings/applicationsettings_p.cpp:223
 msgid "Category"
 msgstr "Kategorija"
 
-#: app/settings/applicationsettings_p.cpp:220
+#: app/settings/applicationsettings_p.cpp:224
 msgid "Travel"
 msgstr "Ceļojumi"
 
-#: app/settings/applicationsettings_p.cpp:221
+#: app/settings/applicationsettings_p.cpp:225
 msgid "Holidays"
 msgstr "Brīvdienas"
 
-#: app/settings/applicationsettings_p.cpp:222
+#: app/settings/applicationsettings_p.cpp:226
 msgid "Friends"
 msgstr "Draugi"
 
-#: app/settings/applicationsettings_p.cpp:223
+#: app/settings/applicationsettings_p.cpp:227
 msgid "Nature"
 msgstr "Daba"
 
-#: app/settings/applicationsettings_p.cpp:224
+#: app/settings/applicationsettings_p.cpp:228
 msgid "Party"
 msgstr "Tusiņi"
 
-#: app/settings/applicationsettings_p.cpp:225
+#: app/settings/applicationsettings_p.cpp:229
 msgid "Todo"
 msgstr "Izdarīt"
 
-#: app/settings/applicationsettings_p.cpp:226
+#: app/settings/applicationsettings_p.cpp:230
 #: showfoto/setup/showfotosetup.cpp:154 utilities/setup/setup.cpp:319
 msgid "Miscellaneous"
 msgstr "Dažādi"
@@ -3014,7 +3021,7 @@ msgid "Reset Tag Icon"
 msgstr "Nomest taga ikonu"
 
 #: app/tags/tagfolderview.cpp:114 app/tags/tagsmanager/tagmngrtreeview.cpp:155
-#: app/tags/tagsmanager/tagsmanager.cpp:708
+#: app/tags/tagsmanager/tagsmanager.cpp:713
 #, fuzzy
 #| msgid "Select None"
 msgid "Expand Selected Nodes"
@@ -3119,7 +3126,7 @@ msgid "Assign Tag \"%1\""
 msgstr "Piesķirt tagu"
 
 #: app/tags/tagsmanager/models/tagmngrlistitem.cpp:159
-#: app/utils/contextmenuhelper.cpp:861
+#: app/utils/contextmenuhelper.cpp:870
 msgid "All Tags"
 msgstr "Visi tagi"
 
@@ -3151,28 +3158,28 @@ msgid "Delete Tags"
 msgstr "Dzēst tagu"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:146
-#: app/tags/tagsmanager/tagsmanager.cpp:696
+#: app/tags/tagsmanager/tagsmanager.cpp:701
 #, fuzzy
 #| msgid "Reset Tag Icon"
 msgid "Reset tag Icon"
 msgstr "Nomest taga ikonu"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:152
-#: app/tags/tagsmanager/tagsmanager.cpp:705
+#: app/tags/tagsmanager/tagsmanager.cpp:710
 #, fuzzy
 #| msgid "Include Tag Sub-Tree"
 msgid "Expand Tag Tree"
 msgstr "Iekļaut tagu apakškoku"
 
 #: app/tags/tagsmanager/tagmngrtreeview.cpp:158
-#: app/tags/tagsmanager/tagsmanager.cpp:710
+#: app/tags/tagsmanager/tagsmanager.cpp:715
 #, fuzzy
 #| msgid "Reread Metadata From Images"
 msgid "Remove Tag from Images"
 msgstr "Pārielasīt metadatus no attēliem"
 
 #: app/tags/tagsmanager/tagpropwidget.cpp:94
-#: app/tags/tagsmanager/tagsmanager.cpp:821
+#: app/tags/tagsmanager/tagsmanager.cpp:826
 #, fuzzy
 #| msgid "Properties"
 msgid "Tag Properties"
@@ -3212,7 +3219,7 @@ msgstr ""
 msgid "Tags Manager"
 msgstr "Tiesību pārvaldība"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:356
+#: app/tags/tagsmanager/tagsmanager.cpp:361
 #, fuzzy, kde-format
 #| msgid ""
 #| "Tag '%2' has one subtag. Deleting this will also delete the subtag. Do "
@@ -3237,7 +3244,7 @@ msgstr[2] ""
 "Tags '%2' satur %1 apakštagu. Tā dzēšana izdzēsīs arī visus apakštagus. Vai "
 "vēlaties turpināt?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:381
+#: app/tags/tagsmanager/tagsmanager.cpp:386
 #, fuzzy, kde-format
 #| msgid "Tag '%2' is assigned to one item. Do you want to continue?"
 #| msgid_plural "Tag '%2' is assigned to %1 items. Do you want to continue?"
@@ -3249,7 +3256,7 @@ msgstr[0] "Tags '%2' piešķirts %1 failam. Vai vēlaties turpināt?"
 msgstr[1] "Tags '%2' piešķirts %1 failam. Vai vēlaties turpināt?"
 msgstr[2] "Tags '%2' piešķirts %1 failam. Vai vēlaties turpināt?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:393
+#: app/tags/tagsmanager/tagsmanager.cpp:398
 #, fuzzy, kde-format
 #| msgid "Delete Tag"
 msgctxt "%2 is a comma separated list of tags to be deleted."
@@ -3259,7 +3266,7 @@ msgstr[0] "Dzēst tagu"
 msgstr[1] "Dzēst tagu"
 msgstr[2] "Dzēst tagu"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:403
+#: app/tags/tagsmanager/tagsmanager.cpp:408
 #, fuzzy
 #| msgid "Delete Tag"
 msgid "Delete tag"
@@ -3268,15 +3275,15 @@ msgstr[0] "Dzēst tagu"
 msgstr[1] "Dzēst tagu"
 msgstr[2] "Dzēst tagu"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:510
+#: app/tags/tagsmanager/tagsmanager.cpp:515
 msgid ""
 "digiKam will clean up tag metadata before setting tags from database.<br> "
 "You may <b>lose tags</b> if you did not read tags before (by calling Read "
 "Tags from Image).<br> Do you want to continue?"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:525
-#: app/tags/tagsmanager/tagsmanager.cpp:547
+#: app/tags/tagsmanager/tagsmanager.cpp:530
+#: app/tags/tagsmanager/tagsmanager.cpp:552
 #, fuzzy
 #| msgid ""
 #| "Performing this operation will reduce image color quality. Do you want to "
@@ -3286,14 +3293,14 @@ msgid ""
 "Do you want to continue?"
 msgstr "Šī darbība samazinās attēla krāsu kvalitāti. Vai vēlaties turpināt?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:570
+#: app/tags/tagsmanager/tagsmanager.cpp:575
 msgid ""
 "This operation will wipe all tags from database only.\n"
 "To apply changes to files, you must choose write metadata to file later.\n"
 "Do you want to continue?"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:633
+#: app/tags/tagsmanager/tagsmanager.cpp:638
 #, fuzzy
 #| msgid ""
 #| "Do you want to remove the collection \"%1\" from your list of collections?"
@@ -3303,102 +3310,102 @@ msgstr[0] "Vai vēlaties izņemt kolekciju \"%1\" no jūsu kolekciju saraksta?"
 msgstr[1] "Vai vēlaties izņemt kolekciju \"%1\" no jūsu kolekciju saraksta?"
 msgstr[2] "Vai vēlaties izņemt kolekciju \"%1\" no jūsu kolekciju saraksta?"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:692
+#: app/tags/tagsmanager/tagsmanager.cpp:697
 msgctxt "@title:menu"
 msgid "Organize"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:699
+#: app/tags/tagsmanager/tagsmanager.cpp:704
 #, fuzzy
 #| msgid "Create Tag From Address Book"
 msgid "Create Tag from Address Book"
 msgstr "Izveidot tagu no adrešu grāmatas"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:713
+#: app/tags/tagsmanager/tagsmanager.cpp:718
 #, fuzzy
 #| msgid "No Recently Assigned Tags"
 msgid "Delete Unassigned Tags"
 msgstr "Nav nesen piešķirtu tagu"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:717
+#: app/tags/tagsmanager/tagsmanager.cpp:722
 msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:720
+#: app/tags/tagsmanager/tagsmanager.cpp:725
 msgid ""
 "Delete selected items. Also work with multiple items, but won't delete the "
 "root tag."
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:724
+#: app/tags/tagsmanager/tagsmanager.cpp:729
 msgid "Reset icon to selected tags. Works with multiple selection."
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:727
+#: app/tags/tagsmanager/tagsmanager.cpp:732
 msgid "Invert selection. Only visible items will be selected"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:730
+#: app/tags/tagsmanager/tagsmanager.cpp:735
 msgid "Expand tag tree by one level"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:732
+#: app/tags/tagsmanager/tagsmanager.cpp:737
 msgid "Selected items will be expanded"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:734
+#: app/tags/tagsmanager/tagsmanager.cpp:739
 msgid "Delete selected tag(s) from images. Works with multiple selection."
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:736
+#: app/tags/tagsmanager/tagsmanager.cpp:741
 msgid "Delete all tags that are not assigned to images. Use with caution."
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:770
+#: app/tags/tagsmanager/tagsmanager.cpp:775
 #, fuzzy
 #| msgid "&Export"
 msgid "Sync &Export"
 msgstr "&Eksportēt"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:774
+#: app/tags/tagsmanager/tagsmanager.cpp:779
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags from Database to Image"
 msgstr "Ierakstīt metadatus attēlā"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:778
+#: app/tags/tagsmanager/tagsmanager.cpp:783
 #, fuzzy
 #| msgid "Reread Metadata From Image"
 #| msgid_plural "Reread Metadata From Selected Images"
 msgid "Read Tags from Image"
 msgstr "Pārielasīt metadatus no attēla"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:781
+#: app/tags/tagsmanager/tagsmanager.cpp:786
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Wipe all tags from Database only"
 msgstr "Ierakstīt metadatus attēlā"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:785
+#: app/tags/tagsmanager/tagsmanager.cpp:790
 #, fuzzy
 #| msgid "Write Metadata to Image"
 #| msgid_plural "Write Metadata to Selected Images"
 msgid "Write Tags Metadata to Image."
 msgstr "Ierakstīt metadatus attēlā"
 
-#: app/tags/tagsmanager/tagsmanager.cpp:787
+#: app/tags/tagsmanager/tagsmanager.cpp:792
 msgid "Read tags from Images into Database. Existing tags won't be affected"
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:790
+#: app/tags/tagsmanager/tagsmanager.cpp:795
 msgid ""
 "Delete all tags from database only. Will not sync with files. Proceed with "
 "caution."
 msgstr ""
 
-#: app/tags/tagsmanager/tagsmanager.cpp:862
+#: app/tags/tagsmanager/tagsmanager.cpp:867
 #, fuzzy
 #| msgid ""
 #| "Performing this operation will reduce image color quality. Do you want to "
@@ -3458,12 +3465,12 @@ msgstr "LibGphoto2"
 #: libs/dialogs/libsinfodlg.cpp:125 libs/dialogs/libsinfodlg.cpp:146
 #: libs/dialogs/libsinfodlg.cpp:152 libs/dialogs/libsinfodlg.cpp:165
 #: libs/dialogs/libsinfodlg.cpp:172
-#: utilities/importui/backend/gpcamera.cpp:1395
-#: utilities/importui/backend/gpcamera.cpp:1396
-#: utilities/importui/backend/gpcamera.cpp:1397
-#: utilities/importui/backend/gpcamera.cpp:1398
-#: utilities/importui/backend/gpcamera.cpp:1399
-#: utilities/importui/backend/gpcamera.cpp:1400
+#: utilities/importui/backend/gpcamera.cpp:1406
+#: utilities/importui/backend/gpcamera.cpp:1407
+#: utilities/importui/backend/gpcamera.cpp:1408
+#: utilities/importui/backend/gpcamera.cpp:1409
+#: utilities/importui/backend/gpcamera.cpp:1410
+#: utilities/importui/backend/gpcamera.cpp:1411
 #: utilities/importui/backend/umscamera.cpp:600
 #: utilities/importui/backend/umscamera.cpp:601
 #: utilities/importui/backend/umscamera.cpp:602
@@ -3518,18 +3525,18 @@ msgid "LibOpenCV"
 msgstr ""
 
 #: app/utils/contextmenuhelper.cpp:285
-#: utilities/imageeditor/editor/editorwindow.cpp:2998
+#: utilities/imageeditor/editor/editorwindow.cpp:3044
 msgid "Open With"
 msgstr "Atvērt ar"
 
 #: app/utils/contextmenuhelper.cpp:297
 #: imageplugins/color/imageplugin_color.cpp:344
-#: utilities/imageeditor/editor/editorwindow.cpp:3010
+#: utilities/imageeditor/editor/editorwindow.cpp:3056
 msgid "Other..."
 msgstr "Cits..."
 
 #: app/utils/contextmenuhelper.cpp:306
-#: utilities/imageeditor/editor/editorwindow.cpp:3019
+#: utilities/imageeditor/editor/editorwindow.cpp:3065
 msgid "Open With..."
 msgstr "Atvērt ar..."
 
@@ -3629,56 +3636,56 @@ msgstr "Pievienot esošai rindai"
 msgid "All Albums"
 msgstr "Albumi"
 
-#: app/utils/contextmenuhelper.cpp:863
+#: app/utils/contextmenuhelper.cpp:873
 msgctxt "select tags menu"
 msgid "Select"
 msgstr "Iezīmēt"
 
-#: app/utils/contextmenuhelper.cpp:868 app/utils/contextmenuhelper.cpp:878
+#: app/utils/contextmenuhelper.cpp:878 app/utils/contextmenuhelper.cpp:888
 msgid "Children"
 msgstr "Bērni"
 
-#: app/utils/contextmenuhelper.cpp:869 app/utils/contextmenuhelper.cpp:879
+#: app/utils/contextmenuhelper.cpp:879 app/utils/contextmenuhelper.cpp:889
 msgid "Parents"
 msgstr "Vecāki"
 
-#: app/utils/contextmenuhelper.cpp:873
+#: app/utils/contextmenuhelper.cpp:883
 msgctxt "deselect tags menu"
 msgid "Deselect"
 msgstr "Noņemt iezīmējumu"
 
-#: app/utils/contextmenuhelper.cpp:952
+#: app/utils/contextmenuhelper.cpp:962
 #, fuzzy
 #| msgctxt "Group of the file"
 #| msgid "Group"
 msgid "Group"
 msgstr "Grupa"
 
-#: app/utils/contextmenuhelper.cpp:987
+#: app/utils/contextmenuhelper.cpp:997
 msgctxt "@action:inmenu"
 msgid "Open All Groups"
 msgstr ""
 
-#: app/utils/contextmenuhelper.cpp:993
+#: app/utils/contextmenuhelper.cpp:1003
 msgctxt "@action:inmenu"
 msgid "Close All Groups"
 msgstr ""
 
-#: app/utils/contextmenuhelper.cpp:1012 app/utils/contextmenuhelper.cpp:1057
+#: app/utils/contextmenuhelper.cpp:1022 app/utils/contextmenuhelper.cpp:1071
 #, fuzzy
 #| msgid "&Group Images"
 msgctxt "@action:inmenu"
 msgid "Show Grouped Images"
 msgstr "&Grupēt attēlus"
 
-#: app/utils/contextmenuhelper.cpp:1018 app/utils/contextmenuhelper.cpp:1061
+#: app/utils/contextmenuhelper.cpp:1028 app/utils/contextmenuhelper.cpp:1075
 #, fuzzy
 #| msgid "&Group Images"
 msgctxt "@action:inmenu"
 msgid "Hide Grouped Images"
 msgstr "&Grupēt attēlus"
 
-#: app/utils/contextmenuhelper.cpp:1028
+#: app/utils/contextmenuhelper.cpp:1038
 #, fuzzy
 #| msgctxt "Group of the file"
 #| msgid "Group"
@@ -3686,42 +3693,49 @@ msgctxt "@action:inmenu"
 msgid "Ungroup"
 msgstr "Grupa"
 
-#: app/utils/contextmenuhelper.cpp:1034
+#: app/utils/contextmenuhelper.cpp:1044
 #, fuzzy
 #| msgid "Remove Group"
 msgctxt "@action:inmenu"
 msgid "Remove From Group"
 msgstr "Noņemt grupu"
 
-#: app/utils/contextmenuhelper.cpp:1043
+#: app/utils/contextmenuhelper.cpp:1053
 #, fuzzy
 #| msgid "No Album Selected"
 msgctxt "@action:inmenu"
 msgid "Group Selected Here"
 msgstr "Nav izvēlēts albums"
 
-#: app/utils/contextmenuhelper.cpp:1047
+#: app/utils/contextmenuhelper.cpp:1057
 #, fuzzy
 #| msgid "No Album Selected"
 msgctxt "@action:inmenu"
 msgid "Group Selected By Time"
 msgstr "Nav izvēlēts albums"
 
-#: app/utils/contextmenuhelper.cpp:1070
+#: app/utils/contextmenuhelper.cpp:1061
+#, fuzzy
+#| msgid "No Album Selected"
+msgctxt "@action:inmenu"
+msgid "Group Selected By Type"
+msgstr "Nav izvēlēts albums"
+
+#: app/utils/contextmenuhelper.cpp:1084
 #, fuzzy
 #| msgid "Remove Group"
 msgctxt "@action:inmenu"
 msgid "Remove Selected From Groups"
 msgstr "Noņemt grupu"
 
-#: app/utils/contextmenuhelper.cpp:1074
+#: app/utils/contextmenuhelper.cpp:1088
 #, fuzzy
 #| msgid "No Album Selected"
 msgctxt "@action:inmenu"
 msgid "Ungroup Selected"
 msgstr "Nav izvēlēts albums"
 
-#: app/utils/contextmenuhelper.cpp:1163
+#: app/utils/contextmenuhelper.cpp:1177
 #, kde-format
 msgctxt "@action:inmenu Pluralized"
 msgid "Move to Trash"
@@ -3755,7 +3769,7 @@ msgstr ""
 msgid "Name exists"
 msgstr "Nosaukums pastāv"
 
-#: app/utils/slideshowbuilder.cpp:93
+#: app/utils/slideshowbuilder.cpp:107
 #, fuzzy
 #| msgid "Preparing slideshow. Please wait..."
 msgid "Preparing slideshow"
@@ -4131,15 +4145,15 @@ msgstr "Laika līnija"
 msgid "Filters"
 msgstr "F&iltri"
 
-#: app/views/digikamview.cpp:1265
+#: app/views/digikamview.cpp:1271
 msgid "Cannot open the root album. It is not a physical location."
 msgstr ""
 
-#: app/views/digikamview.cpp:1288
+#: app/views/digikamview.cpp:1294
 msgid "Cannot open the root. It is not a physical location."
 msgstr ""
 
-#: app/views/digikamview.cpp:1701
+#: app/views/digikamview.cpp:1707
 #, fuzzy
 #| msgid ""
 #| "The collection location supplied is invalid or currently not available."
@@ -4149,35 +4163,41 @@ msgid ""
 msgstr ""
 "Norādītā kolekcijas atrašanās vieta nav derīga vai šobrīd nav pieejama."
 
-#: app/views/imagepreviewview.cpp:168 app/views/mediaplayerview.cpp:141
+#: app/views/imagepreviewview.cpp:175 app/views/mediaplayerview.cpp:141
 #: utilities/importui/views/importpreviewview.cpp:190
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Atpakaļ"
 
-#: app/views/imagepreviewview.cpp:169 app/views/mediaplayerview.cpp:142
+#: app/views/imagepreviewview.cpp:176 app/views/mediaplayerview.cpp:142
 #: utilities/importui/views/importpreviewview.cpp:191
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "Uz priekšu"
 
-#: app/views/imagepreviewview.cpp:174
+#: app/views/imagepreviewview.cpp:181
 #, fuzzy
 #| msgid "Add New Tag..."
 msgid "Add a Face Tag"
 msgstr "Pievienot jaunu tagu..."
 
-#: app/views/imagepreviewview.cpp:175
+#: app/views/imagepreviewview.cpp:182
 #, fuzzy
 #| msgid "Apply all changes to images"
 msgid "Clear all faces on this image"
 msgstr "Pielietot attēliem visas izmaiņas"
 
-#: app/views/imagepreviewview.cpp:176
+#: app/views/imagepreviewview.cpp:183
 #, fuzzy
 #| msgid "Show image tags"
 msgid "Show Face Tags"
 msgstr "Rādīt attēla tagus"
+
+#: app/views/imagepreviewview.cpp:187
+#, fuzzy
+#| msgid "Exit Fullscreen mode"
+msgid "Show Fullscreen"
+msgstr "Iziet no pilnekrāna režīma"
 
 #: app/views/leftsidebarwidgets.cpp:226
 #, fuzzy
@@ -4351,19 +4371,19 @@ msgstr "&Aizvietot"
 msgid "An error has occurred with the media player...."
 msgstr "Gadījās kļūda multivides atskaņotājā..."
 
-#: app/views/tableview/tableview.cpp:511
+#: app/views/tableview/tableview.cpp:540
 #, fuzzy
 #| msgid "&Group Images"
 msgid "Hide grouped items"
 msgstr "&Grupēt attēlus"
 
-#: app/views/tableview/tableview.cpp:521
+#: app/views/tableview/tableview.cpp:550
 #, fuzzy
 #| msgid "Assign this Tag"
 msgid "Ignore grouping"
 msgstr "Piešķirt šo tagu"
 
-#: app/views/tableview/tableview.cpp:531
+#: app/views/tableview/tableview.cpp:560
 #, fuzzy
 #| msgid "Show youngest first"
 msgid "Show grouping in tree"
@@ -5109,7 +5129,7 @@ msgstr "Nospiežot šo pogu, visu kanālu līmeņi tiks automātiski koriģēti.
 
 #: imageplugins/color/adjustlevelstool.cpp:315
 #: imageplugins/color/filmtool.cpp:257
-#: libs/dimg/filters/bw/mixersettings.cpp:167
+#: libs/dimg/filters/bw/mixersettings.cpp:169
 #: libs/dimg/filters/curves/curvesbox.cpp:216
 msgid "&Reset"
 msgstr "&Atstatīt"
@@ -5782,7 +5802,7 @@ msgstr ""
 "filtrs."
 
 #: imageplugins/enhance/hotpixels/hotpixelstool.cpp:188
-#: utilities/imageeditor/editor/editorwindow.cpp:1650
+#: utilities/imageeditor/editor/editorwindow.cpp:1696
 msgid "Loading: "
 msgstr "Ielādē: "
 
@@ -6296,22 +6316,22 @@ msgstr "Krāsu efekti"
 msgid "This is the color effects preview"
 msgstr "Šis ir krāsu efekta priekšskatījums"
 
-#: imageplugins/filters/colorfxtool.cpp:220
+#: imageplugins/filters/colorfxtool.cpp:229
 #: libs/dimg/filters/fx/colorfxsettings.cpp:84
 msgid "Solarize"
 msgstr "Solarizēt"
 
-#: imageplugins/filters/colorfxtool.cpp:224
+#: imageplugins/filters/colorfxtool.cpp:233
 #: libs/dimg/filters/fx/colorfxsettings.cpp:85
 msgid "Vivid"
 msgstr "Spilgts"
 
-#: imageplugins/filters/colorfxtool.cpp:228
+#: imageplugins/filters/colorfxtool.cpp:237
 #: libs/dimg/filters/fx/colorfxsettings.cpp:86
 msgid "Neon"
 msgstr "Neons"
 
-#: imageplugins/filters/colorfxtool.cpp:232
+#: imageplugins/filters/colorfxtool.cpp:241
 #: libs/dimg/filters/fx/colorfxsettings.cpp:87
 msgid "Find Edges"
 msgstr "Atrast robežas"
@@ -8349,12 +8369,12 @@ msgid "LibLqr support"
 msgstr "LibLCMS"
 
 #: libs/dialogs/libsinfodlg.cpp:150
-#: utilities/importui/backend/gpcamera.cpp:1395
-#: utilities/importui/backend/gpcamera.cpp:1396
-#: utilities/importui/backend/gpcamera.cpp:1397
-#: utilities/importui/backend/gpcamera.cpp:1398
-#: utilities/importui/backend/gpcamera.cpp:1399
-#: utilities/importui/backend/gpcamera.cpp:1400
+#: utilities/importui/backend/gpcamera.cpp:1406
+#: utilities/importui/backend/gpcamera.cpp:1407
+#: utilities/importui/backend/gpcamera.cpp:1408
+#: utilities/importui/backend/gpcamera.cpp:1409
+#: utilities/importui/backend/gpcamera.cpp:1410
+#: utilities/importui/backend/gpcamera.cpp:1411
 #: utilities/importui/backend/umscamera.cpp:600
 #: utilities/importui/backend/umscamera.cpp:601
 #: utilities/importui/backend/umscamera.cpp:602
@@ -8451,7 +8471,7 @@ msgid "Migrate ->"
 msgstr ""
 
 #: libs/dialogs/migrationdlg.cpp:137
-#: utilities/imageeditor/editor/editorwindow.cpp:669
+#: utilities/imageeditor/editor/editorwindow.cpp:680
 msgid "Cancel"
 msgstr "Atcelt"
 
@@ -9097,60 +9117,60 @@ msgstr "Infrasarkanā filma..."
 msgid "Channel Mixer Tool"
 msgstr "Kanālu maisītājs"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:135
+#: libs/dimg/filters/bw/mixersettings.cpp:137
 #, fuzzy
 #| msgid "Channel:"
 msgid "Output Channel:"
 msgstr "Kanāls:"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:141
+#: libs/dimg/filters/bw/mixersettings.cpp:143
 #, fuzzy
 #| msgid "Size:"
 msgid "Red (%):"
 msgstr "Izmērs:"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:146
+#: libs/dimg/filters/bw/mixersettings.cpp:148
 msgid "Select the red color gain, as a percentage, for the current channel."
 msgstr "Šeit izvēlieties sarkanās krāsas stiprumu, procentos no šobrīdējā."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:149
+#: libs/dimg/filters/bw/mixersettings.cpp:151
 #, fuzzy
 #| msgid "Green:"
 msgid "Green (%):"
 msgstr "Zaļš:"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:154
+#: libs/dimg/filters/bw/mixersettings.cpp:156
 msgid "Select the green color gain, as a percentage, for the current channel."
 msgstr "Šeit izvēlieties zilās krāsas stiprumu, procentos no šobrīdējā."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:157
+#: libs/dimg/filters/bw/mixersettings.cpp:159
 #, fuzzy
 #| msgid "Blue:"
 msgid "Blue (%):"
 msgstr "Zils:"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:162
+#: libs/dimg/filters/bw/mixersettings.cpp:164
 msgid "Select the blue color gain, as a percentage, for the current channel."
 msgstr "Šeit izvēlieties zaļās krāsas stiprumu, procentos no šobrīdējā."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:169
+#: libs/dimg/filters/bw/mixersettings.cpp:171
 msgid ""
 "Reset color channels' gains settings from the currently selected channel."
 msgstr "Atstatīt krāsu kanālu stiprumus šobrīd izvēlētajam kanālam."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:177
+#: libs/dimg/filters/bw/mixersettings.cpp:179
 msgid "Preserve luminosity"
 msgstr "Saglabāt spilgtumu"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:178
+#: libs/dimg/filters/bw/mixersettings.cpp:180
 msgid "Enable this option is you want preserve the image luminosity."
 msgstr "Ieslēdziet šo iespēju, ja vēlaties saglabāt attēla kopējo spilgtumu."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:183
+#: libs/dimg/filters/bw/mixersettings.cpp:185
 msgid "Monochrome"
 msgstr "Pelēktoņu"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:184
+#: libs/dimg/filters/bw/mixersettings.cpp:186
 msgid ""
 "<p>Use <b>Monochrome</b> mode to convert color picture to Black and White:</"
 "p><p>The <qt><font color=\"red\">red channel</font></qt> modifies <a "
@@ -9162,25 +9182,25 @@ msgid ""
 "this mode, the histogram will display only luminosity values.</p>"
 msgstr ""
 
-#: libs/dimg/filters/bw/mixersettings.cpp:354
+#: libs/dimg/filters/bw/mixersettings.cpp:356
 #, fuzzy, kde-format
 #| msgid "%1 (%2)"
 msgid "Total: %1 (%)"
 msgstr "%1 (%2)"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:550
+#: libs/dimg/filters/bw/mixersettings.cpp:552
 msgid "Select Gimp Gains Mixer File to Load"
 msgstr "Izvēlēties ielādējamo Gimp Gains maisīšanas failu"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:646
+#: libs/dimg/filters/bw/mixersettings.cpp:622
 msgid "Cannot load settings from the Gains Mixer text file."
 msgstr "Neizdevās ielādēt iestatījumus no Gains maisītāja teksta faila."
 
-#: libs/dimg/filters/bw/mixersettings.cpp:658
+#: libs/dimg/filters/bw/mixersettings.cpp:634
 msgid "Gimp Gains Mixer File to Save"
 msgstr "Gimp Gains maisīšanas fails, kurā saglabāt"
 
-#: libs/dimg/filters/bw/mixersettings.cpp:727
+#: libs/dimg/filters/bw/mixersettings.cpp:703
 msgid "Cannot save settings to the Gains Mixer text file."
 msgstr "Neizdevās saglabāt iestatījumus Gains masītāja teksta failā."
 
@@ -9474,7 +9494,7 @@ msgid "Texture Filter"
 msgstr "Zils filtrs"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:335
-#: utilities/imageeditor/editor/editorwindow.cpp:614
+#: utilities/imageeditor/editor/editorwindow.cpp:625
 msgid "Rotate Right"
 msgstr "Griezt pa labi"
 
@@ -9485,17 +9505,17 @@ msgid "Rotate 180°"
 msgstr "Pagriezt par 180 grādiem"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:341
-#: utilities/imageeditor/editor/editorwindow.cpp:608
+#: utilities/imageeditor/editor/editorwindow.cpp:619
 msgid "Rotate Left"
 msgstr "Griezt pa kreisi"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:344
-#: utilities/imageeditor/editor/editorwindow.cpp:594
+#: utilities/imageeditor/editor/editorwindow.cpp:605
 msgid "Flip Horizontally"
 msgstr "Apmest horizontāli"
 
 #: libs/dimg/filters/dimgbuiltinfilter.cpp:347
-#: utilities/imageeditor/editor/editorwindow.cpp:600
+#: utilities/imageeditor/editor/editorwindow.cpp:611
 msgid "Flip Vertically"
 msgstr "Apmest vertikāli"
 
@@ -9773,7 +9793,7 @@ msgid "Greycstoration Filter"
 msgstr "Zaļš filtrs"
 
 #: libs/dimg/filters/greycstoration/greycstorationsettings.cpp:134
-#: utilities/lighttable/lighttablewindow.cpp:1489
+#: utilities/lighttable/lighttablewindow.cpp:1491
 #: utilities/queuemanager/main/queuemgrwindow.cpp:569
 msgid "General"
 msgstr "Pamata"
@@ -13920,15 +13940,16 @@ msgstr ""
 "Vai tiešām dzēst?"
 
 #: showfoto/main/showfoto.cpp:972
-#: utilities/imageeditor/editor/editorwindow.cpp:1246
+#: utilities/imageeditor/editor/editorwindow.cpp:1259
 #: utilities/importui/dialogs/cameramessagebox.cpp:252
 #: utilities/importui/main/importui.cpp:1995
 msgid "Warning"
 msgstr "Brīdinājums"
 
 #: showfoto/main/showfoto.cpp:1050
-#: utilities/imageeditor/main/imagewindow.cpp:1373
-#: utilities/lighttable/lighttablewindow.cpp:1431
+#: utilities/imageeditor/main/imagewindow.cpp:1381
+#: utilities/lighttable/lighttablewindow.cpp:1422
+#: utilities/lighttable/lighttablewindow.cpp:1447
 msgid "Preparing slideshow. Please wait..."
 msgstr "Sagatavo slīdrādi. Lūdzu, uzgaidiet..."
 
@@ -14081,97 +14102,101 @@ msgstr ""
 "aizstātu IPTC.</p>"
 
 #: showfoto/setup/showfotosetupmetadata.cpp:158
-#: showfoto/setup/showfotosetupmisc.cpp:103
+#: showfoto/setup/showfotosetupmisc.cpp:105
 #: utilities/queuemanager/views/queuesettingsview.cpp:261
 #: utilities/setup/setupcamera.cpp:352 utilities/setup/setupicc.cpp:512
 msgid "Behavior"
 msgstr "Izturēšanās"
 
-#: showfoto/setup/showfotosetupmisc.cpp:106
+#: showfoto/setup/showfotosetupmisc.cpp:108
 msgid "&Deleted items should go to the trash"
 msgstr "&Dzēstās vienības pārvietot uz miskasti"
 
-#: showfoto/setup/showfotosetupmisc.cpp:107 utilities/setup/setupmisc.cpp:95
+#: showfoto/setup/showfotosetupmisc.cpp:109 utilities/setup/setupmisc.cpp:98
+msgid "Scroll current item to center of thumbbar"
+msgstr ""
+
+#: showfoto/setup/showfotosetupmisc.cpp:110 utilities/setup/setupmisc.cpp:99
 msgid "&Show splash screen at startup"
 msgstr "Palaižot &rādīt šļaksta ekrānu"
 
-#: showfoto/setup/showfotosetupmisc.cpp:108
+#: showfoto/setup/showfotosetupmisc.cpp:111
 #, fuzzy
 #| msgid "Show image rating"
 msgid "&Show image Format"
 msgstr "Rādīt attēla vērtējumu"
 
-#: showfoto/setup/showfotosetupmisc.cpp:109
-#: utilities/setup/setupalbumview.cpp:165 utilities/setup/setupcamera.cpp:439
+#: showfoto/setup/showfotosetupmisc.cpp:112
+#: utilities/setup/setupalbumview.cpp:167 utilities/setup/setupcamera.cpp:439
 #, fuzzy
 #| msgid "Set this option to show the filename below the image thumbnail."
 msgid "Set this option to show image format over image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu faila nosaukumu zem sīktēliem."
 
-#: showfoto/setup/showfotosetupmisc.cpp:110
+#: showfoto/setup/showfotosetupmisc.cpp:113
 #, fuzzy
 #| msgid "Green Filter"
 msgid "&Show Geolocation Indicator"
 msgstr "Zaļš filtrs"
 
-#: showfoto/setup/showfotosetupmisc.cpp:111
-#: utilities/setup/setupalbumview.cpp:188 utilities/setup/setupcamera.cpp:442
+#: showfoto/setup/showfotosetupmisc.cpp:114
+#: utilities/setup/setupalbumview.cpp:194 utilities/setup/setupcamera.cpp:442
 #, fuzzy
 #| msgid "Set this option to display the image captions."
 msgid "Set this option to indicate if image has geolocation information."
 msgstr "Ieslēdziet šo iespēju, lai rādītu attēla aprakstu."
 
-#: showfoto/setup/showfotosetupmisc.cpp:114 utilities/setup/setupmisc.cpp:100
+#: showfoto/setup/showfotosetupmisc.cpp:117 utilities/setup/setupmisc.cpp:104
 msgid "Sidebar tab title:"
 msgstr "Sānjoslas cilnes nosaukums"
 
-#: showfoto/setup/showfotosetupmisc.cpp:116 utilities/setup/setupmisc.cpp:102
+#: showfoto/setup/showfotosetupmisc.cpp:119 utilities/setup/setupmisc.cpp:106
 msgid "Only For Active Tab"
 msgstr "Tikai aktīvajai cilnei"
 
-#: showfoto/setup/showfotosetupmisc.cpp:117 utilities/setup/setupmisc.cpp:103
+#: showfoto/setup/showfotosetupmisc.cpp:120 utilities/setup/setupmisc.cpp:107
 msgid "For All Tabs"
 msgstr "Visām cilnēm"
 
-#: showfoto/setup/showfotosetupmisc.cpp:118
+#: showfoto/setup/showfotosetupmisc.cpp:121
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr ""
 "Ieslēdziet šo iespēju, lai mainītu, kā tiek rādīti sānjoslu cilņu nosaukumi."
 
-#: showfoto/setup/showfotosetupmisc.cpp:121 utilities/setup/setupmisc.cpp:124
+#: showfoto/setup/showfotosetupmisc.cpp:124 utilities/setup/setupmisc.cpp:128
 msgid "Widget style:"
 msgstr ""
 
-#: showfoto/setup/showfotosetupmisc.cpp:123 utilities/setup/setupmisc.cpp:126
+#: showfoto/setup/showfotosetupmisc.cpp:126 utilities/setup/setupmisc.cpp:130
 #, fuzzy
 #| msgid "Set this option to display the album collection."
 msgid "Set this option to choose the default window decoration and looks."
 msgstr "Ieslēdziet šo iespēju, lai rādītu albuma kolekciju"
 
-#: showfoto/setup/showfotosetupmisc.cpp:142
+#: showfoto/setup/showfotosetupmisc.cpp:146
 msgid "Sort order for images"
 msgstr "Attēlu kārtošanas kārtība"
 
-#: showfoto/setup/showfotosetupmisc.cpp:146
+#: showfoto/setup/showfotosetupmisc.cpp:150
 msgid "Sort images by:"
 msgstr "Kārtot attēlus pēc:"
 
-#: showfoto/setup/showfotosetupmisc.cpp:148
+#: showfoto/setup/showfotosetupmisc.cpp:152
 msgctxt "sort images by date"
 msgid "Date"
 msgstr "Datums"
 
-#: showfoto/setup/showfotosetupmisc.cpp:149
+#: showfoto/setup/showfotosetupmisc.cpp:153
 msgctxt "sort images by name"
 msgid "Name"
 msgstr "Nosaukums"
 
-#: showfoto/setup/showfotosetupmisc.cpp:150
+#: showfoto/setup/showfotosetupmisc.cpp:154
 msgctxt "sort images by size"
 msgid "File Size"
 msgstr "Faila izmērs"
 
-#: showfoto/setup/showfotosetupmisc.cpp:151
+#: showfoto/setup/showfotosetupmisc.cpp:155
 msgid ""
 "Here, select whether newly-loaded images are sorted by their date, name, or "
 "size on disk."
@@ -14179,11 +14204,11 @@ msgstr ""
 "Šeit norādiet, vai svaigi ielādētus attēlus kārtot pēc datuma, nosaukuma vai "
 "izmēra."
 
-#: showfoto/setup/showfotosetupmisc.cpp:154
+#: showfoto/setup/showfotosetupmisc.cpp:158
 msgid "Reverse ordering"
 msgstr "Pretēja kārtība"
 
-#: showfoto/setup/showfotosetupmisc.cpp:155
+#: showfoto/setup/showfotosetupmisc.cpp:159
 msgid ""
 "If this option is enabled, newly-loaded images will be sorted in descending "
 "order."
@@ -16090,19 +16115,19 @@ msgctxt "@title:tab"
 msgid "Advanced"
 msgstr "Paplašināti"
 
-#: utilities/firstrun/collectionpage.cpp:76
+#: utilities/firstrun/collectionpage.cpp:77
 #, fuzzy
 #| msgid "<b>Configure where images and metadata are stored</b>"
 msgid "<b>Configure where you keep your images and you will store database</b>"
 msgstr "<p>Konfigurēt vietu, kur glabāt attēlus un medatatus</p>"
 
-#: utilities/firstrun/collectionpage.cpp:97
+#: utilities/firstrun/collectionpage.cpp:98
 msgctxt ""
 "This is a path name so you should include the slash in the translation"
 msgid "/Pictures"
 msgstr "/Attēli"
 
-#: utilities/firstrun/collectionpage.cpp:103
+#: utilities/firstrun/collectionpage.cpp:104
 #, fuzzy
 #| msgid ""
 #| "<p>Please enter a location where you want to store your images.</p> "
@@ -16118,7 +16143,7 @@ msgstr ""
 "izvēlēties jebkuru lokālu mapi - arī tad, ja tā jau satur attēlus.<br/"
 ">Vairāk mapju var pievienot izvēlnē <i>Iestatījumi</i>.</p> "
 
-#: utilities/firstrun/collectionpage.cpp:110
+#: utilities/firstrun/collectionpage.cpp:111
 #, fuzzy
 #| msgid ""
 #| "<p>Below are the locations of your root albums used to store your images. "
@@ -16136,7 +16161,7 @@ msgstr ""
 "attālinātas failu sistēmas (piem., NFS vai Samba, kas montēta ar cifs/smbfs)."
 "</p><p></p>"
 
-#: utilities/firstrun/collectionpage.cpp:122
+#: utilities/firstrun/collectionpage.cpp:123
 msgid ""
 "<p>digiKam stores information and metadata about your images in a database "
 "file. Please set the location of this file or accept the default.</"
@@ -16149,7 +16174,7 @@ msgstr ""
 "jums nepieciešamas rakstīšanas atļaujas šai mapei, un jūs nevarat izmantot "
 "attālinātu mapi uz tīkla servera, kas lieto NFS vai Samba.</p>"
 
-#: utilities/firstrun/collectionpage.cpp:205
+#: utilities/firstrun/collectionpage.cpp:206
 msgid ""
 "You must select a folder for digiKam to use as the root album. All of your "
 "images will go there."
@@ -16157,7 +16182,7 @@ msgstr ""
 "Jums jānorāda mape, ko digiKam izmantot par saknes albumu. Tur tiks "
 "saglabāti visi jūsu attēli."
 
-#: utilities/firstrun/collectionpage.cpp:233
+#: utilities/firstrun/collectionpage.cpp:234
 #, kde-format
 msgid ""
 "<p>The folder to use as the root album path does not exist:</p><p><b>%1</b></"
@@ -16166,11 +16191,11 @@ msgstr ""
 "<p>Albumu saknes albuma mape nepastāv:</p><p><b>%1</b></p>Vai vēlaties, lai "
 "digiKam izveido to?"
 
-#: utilities/firstrun/collectionpage.cpp:237
+#: utilities/firstrun/collectionpage.cpp:238
 msgid "Create Root Album Folder?"
 msgstr "Izveidot albumu saknes mapi?"
 
-#: utilities/firstrun/collectionpage.cpp:247
+#: utilities/firstrun/collectionpage.cpp:248
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to use as the root album.\n"
@@ -16179,11 +16204,11 @@ msgstr ""
 "<p>digiKam neizdevās izveidot albumu saknes mapi.\n"
 "Lūdzu, izvēlieties citu vietu.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:250
+#: utilities/firstrun/collectionpage.cpp:251
 msgid "Create Root Album Folder Failed"
 msgstr "Neizdevās izveidot albumu saknes mapi"
 
-#: utilities/firstrun/collectionpage.cpp:267
+#: utilities/firstrun/collectionpage.cpp:268
 msgid ""
 "You do not seem to have write access for the folder selected to be the root "
 "album.\n"
@@ -16192,7 +16217,7 @@ msgstr ""
 "Jums nav rakstīšanas atļauju saknes albuma mapē.\n"
 "Brīdinājums: bez rakstīšanas atļaujām nebūs iespējama failu rediģēšana."
 
-#: utilities/firstrun/collectionpage.cpp:282
+#: utilities/firstrun/collectionpage.cpp:283
 msgid ""
 "You must select a folder for digiKam to store information and metadata in a "
 "database file."
@@ -16200,7 +16225,7 @@ msgstr ""
 "Jums jānorāda mape, kur digiKam glabāt informāciju un metadatus datubāzes "
 "failā."
 
-#: utilities/firstrun/collectionpage.cpp:310
+#: utilities/firstrun/collectionpage.cpp:311
 #, kde-format
 msgid ""
 "<p>The folder to put your database in does not seem to exist:</p><p><b>%1</"
@@ -16209,11 +16234,11 @@ msgstr ""
 "<p>Datubāzes glabāšanas mape nepastāv:</p><p><b>%1</b></p>Vai vēlaties, lai "
 "digiKam izveido to?"
 
-#: utilities/firstrun/collectionpage.cpp:314
+#: utilities/firstrun/collectionpage.cpp:315
 msgid "Create Database Folder?"
 msgstr "Izveidot datubāzes mapi?"
 
-#: utilities/firstrun/collectionpage.cpp:324
+#: utilities/firstrun/collectionpage.cpp:325
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to host your database file.\n"
@@ -16222,11 +16247,11 @@ msgstr ""
 "<p>digiKam neizdevās izveidot mapi datubāzes glabāšanai.\n"
 "Lūdzu, izvēlieties citu vietu.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:327
+#: utilities/firstrun/collectionpage.cpp:328
 msgid "Create Database Folder Failed"
 msgstr "Neizdevās izveidot datubāzes mapi"
 
-#: utilities/firstrun/collectionpage.cpp:344
+#: utilities/firstrun/collectionpage.cpp:345
 #, kde-format
 msgid ""
 "<p>You do not seem to have write access for the folder to host the database "
@@ -16235,7 +16260,7 @@ msgstr ""
 "<p>Jums nav rakstīšanas atļauju mapē, lai varētu tur glabāt datubāzes failu."
 "<br/> Lūdzu, izvēlieties citu vietu.</p><p><b>%1</b></p>"
 
-#: utilities/firstrun/collectionpage.cpp:348
+#: utilities/firstrun/collectionpage.cpp:349
 msgid "No Database Write Access"
 msgstr "Nav rakstīšanas atļauju datubāzē"
 
@@ -16913,167 +16938,167 @@ msgstr "Mēģināt"
 msgid "Try all settings."
 msgstr "Izmēģināt visus iestatījumus."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:352
-#: utilities/lighttable/lighttablewindow.cpp:469
+#: utilities/imageeditor/editor/editorwindow.cpp:358
+#: utilities/lighttable/lighttablewindow.cpp:473
 msgid "&First"
 msgstr "&Pirmais"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:357
-#: utilities/lighttable/lighttablewindow.cpp:475
+#: utilities/imageeditor/editor/editorwindow.cpp:364
+#: utilities/lighttable/lighttablewindow.cpp:479
 msgid "&Last"
 msgstr "Pē&dējais"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:363
+#: utilities/imageeditor/editor/editorwindow.cpp:371
 #, fuzzy
 #| msgid "Original"
 msgctxt "@action"
 msgid "Open Original"
 msgstr "Oriģināls"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:372
+#: utilities/imageeditor/editor/editorwindow.cpp:380
 #, fuzzy
 #| msgid "Save Images"
 msgctxt "@action Save changes to current version"
 msgid "Save Changes"
 msgstr "Attēlu saglabāšana"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:373
+#: utilities/imageeditor/editor/editorwindow.cpp:381
 msgctxt "@info:tooltip"
 msgid "Save the modifications to the current version of the file"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:378
+#: utilities/imageeditor/editor/editorwindow.cpp:386
 msgctxt "@action Save changes to a newly created version"
 msgid "Save As New Version"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:379
+#: utilities/imageeditor/editor/editorwindow.cpp:387
 #, fuzzy
 #| msgid "Save current selection to a new virtual Album"
 msgctxt "@info:tooltip"
 msgid "Save the current modifications to a new version of the file"
 msgstr "Saglabāt aktīvo izvēli jaunā virtuālajā albumā."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:385
+#: utilities/imageeditor/editor/editorwindow.cpp:393
 msgctxt ""
 "@action Save changes to a newly created version, specifying the filename and "
 "format"
 msgid "Save New Version As..."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:386
+#: utilities/imageeditor/editor/editorwindow.cpp:394
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current modifications to a new version of the file, specifying the "
 "filename and format"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:393
+#: utilities/imageeditor/editor/editorwindow.cpp:401
 #, fuzzy
 #| msgid "File Format"
 msgctxt "@action Save As New Version...Save in format..."
 msgid "Save in Format"
 msgstr "Faila formāts"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:394
+#: utilities/imageeditor/editor/editorwindow.cpp:402
 #, fuzzy
 #| msgid "LibJPEG"
 msgctxt "@action:inmenu"
 msgid "JPEG"
 msgstr "LibJPEG"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:395
+#: utilities/imageeditor/editor/editorwindow.cpp:403
 #, fuzzy
 #| msgid "LibTIFF"
 msgctxt "@action:inmenu"
 msgid "TIFF"
 msgstr "LibTIFF"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:396
+#: utilities/imageeditor/editor/editorwindow.cpp:404
 #, fuzzy
 #| msgid "LibPNG"
 msgctxt "@action:inmenu"
 msgid "PNG"
 msgstr "LibPNG"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:397
+#: utilities/imageeditor/editor/editorwindow.cpp:405
 #, fuzzy
 #| msgid "LibPGF"
 msgctxt "@action:inmenu"
 msgid "PGF"
 msgstr "LibPGF"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:399
+#: utilities/imageeditor/editor/editorwindow.cpp:407
 #, fuzzy
 #| msgid "JPEG 2000 image"
 msgctxt "@action:inmenu"
 msgid "JPEG 2000"
 msgstr "JPEG 2000 attēls"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:412
+#: utilities/imageeditor/editor/editorwindow.cpp:420
 #, fuzzy
 #| msgid "Export"
 msgctxt "@action"
 msgid "Export"
 msgstr "Eksportēt"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:413
+#: utilities/imageeditor/editor/editorwindow.cpp:421
 #, fuzzy
 #| msgid "Choose the folder containing your collection"
 msgctxt "@info:tooltip"
 msgid "Save the file in a folder outside your collection"
 msgstr "Izvēlieties mapi, kas satur jūsu kolekciju"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:422
+#: utilities/imageeditor/editor/editorwindow.cpp:430
 msgctxt "@action"
 msgid "Discard Changes"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:423
+#: utilities/imageeditor/editor/editorwindow.cpp:431
 msgctxt "@info:tooltip"
 msgid "Discard all current changes to this file"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:435
+#: utilities/imageeditor/editor/editorwindow.cpp:443
 msgid "Print Image..."
 msgstr "Drukāt attēlu..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:442
-#: utilities/lighttable/lighttablewindow.cpp:503
+#: utilities/imageeditor/editor/editorwindow.cpp:451
+#: utilities/lighttable/lighttablewindow.cpp:507
 #, fuzzy
 #| msgid "Open the selected item in the image editor."
 msgid "Open the item with default assigned application."
 msgstr "Atvērt izvēlēto attēlu attēlu redaktorā."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:460
+#: utilities/imageeditor/editor/editorwindow.cpp:471
 msgid "Undo"
 msgstr "Atsaukt"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:479
+#: utilities/imageeditor/editor/editorwindow.cpp:490
 msgid "Redo"
 msgstr "Pārdarīt"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:495
+#: utilities/imageeditor/editor/editorwindow.cpp:506
 #, fuzzy
 #| msgid "Select All"
 msgctxt "Create a selection containing the full image"
 msgid "Select All"
 msgstr "Izvēlēties visus"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:529
+#: utilities/imageeditor/editor/editorwindow.cpp:540
 msgid "Fit to &Selection"
 msgstr "&Ietilpināt iezīmēto"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:534
+#: utilities/imageeditor/editor/editorwindow.cpp:545
 msgid ""
 "This option can be used to zoom the image to the current selection area."
 msgstr "Šī iespēja ļauj palielināt attēlu, parādot šobrīd iezīmēto apgabalu."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:547
+#: utilities/imageeditor/editor/editorwindow.cpp:558
 msgid "Under-Exposure Indicator"
 msgstr "Nepietiekamas izgaismošanas indikators"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:549
+#: utilities/imageeditor/editor/editorwindow.cpp:560
 msgid ""
 "Set this option to display black overlaid on the image. This will help you "
 "to avoid under-exposing the image."
@@ -17081,11 +17106,11 @@ msgstr ""
 "Ieslēdzot šo iespēju, tiks izcelta pilnīgi melna krāsa attēlā. Tas palīdz "
 "izvairīties no attēla pārāk lielas aptumšošanas."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:555
+#: utilities/imageeditor/editor/editorwindow.cpp:566
 msgid "Over-Exposure Indicator"
 msgstr "Pārliekas izgaismošanas indikators"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:557
+#: utilities/imageeditor/editor/editorwindow.cpp:568
 msgid ""
 "Set this option to display white overlaid on the image. This will help you "
 "to avoid over-exposing the image."
@@ -17093,91 +17118,91 @@ msgstr ""
 "Ieslēdzot šo iespēju, tiks izcelta pilnīgi balta krāsa attēlā. Tas palīdz "
 "izvairīties no attēla pārāk lielas izgaismošanas."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:568
+#: utilities/imageeditor/editor/editorwindow.cpp:579
 msgid "Soft Proofing Options..."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:572
+#: utilities/imageeditor/editor/editorwindow.cpp:583
 msgid "Soft Proofing View"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:578
+#: utilities/imageeditor/editor/editorwindow.cpp:589
 #, fuzzy
 #| msgid "Fit to &Selection"
 msgctxt "@action"
 msgid "Crop to Selection"
 msgstr "&Ietilpināt iezīmēto"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:583
+#: utilities/imageeditor/editor/editorwindow.cpp:594
 msgid ""
 "This option can be used to crop the image. Select a region of the image to "
 "enable this action."
 msgstr ""
 "Šī iespēja apcērt attēlu. Izvēlieties attēla apgabalu, lai varētu apcirst."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:586
+#: utilities/imageeditor/editor/editorwindow.cpp:597
 #, fuzzy
 #| msgid "Auto-crop:"
 msgctxt "@action"
 msgid "Auto-Crop"
 msgstr "Automātiska apciršana:"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:590
+#: utilities/imageeditor/editor/editorwindow.cpp:601
 #, fuzzy
 #| msgid ""
 #| "This option can be used to zoom the image to the current selection area."
 msgid "This option can be used to crop automatically the image."
 msgstr "Šī iespēja ļauj palielināt attēlu, parādot šobrīd iezīmēto apgabalu."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:658
+#: utilities/imageeditor/editor/editorwindow.cpp:669
 #, fuzzy
 #| msgid "Select All"
 msgctxt "@action Select image editor tool/filter"
 msgid "Select Tool"
 msgstr "Izvēlēties visus"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:664
+#: utilities/imageeditor/editor/editorwindow.cpp:675
 msgid "OK"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:684
-#: utilities/imageeditor/editor/editorwindow.cpp:1631
+#: utilities/imageeditor/editor/editorwindow.cpp:695
+#: utilities/imageeditor/editor/editorwindow.cpp:1677
 msgid "No selection"
 msgstr "Nav iezīmēts"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:687
+#: utilities/imageeditor/editor/editorwindow.cpp:698
 #, fuzzy
 #| msgid "Information about current selection area"
 msgid "Information about current image selection"
 msgstr "Informācija par pašreiz iezīmēto apgabalu"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:692
+#: utilities/imageeditor/editor/editorwindow.cpp:703
 msgid "Information about image size"
 msgstr "Informācija par attēla izmēru"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:766
+#: utilities/imageeditor/editor/editorwindow.cpp:777
 msgctxt "general editor shortcuts"
 msgid "General"
 msgstr "Pamata"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:767
+#: utilities/imageeditor/editor/editorwindow.cpp:778
 msgctxt "imageplugins shortcuts"
 msgid "Image Plugins"
 msgstr "Attēlu spraudņi"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1223
+#: utilities/imageeditor/editor/editorwindow.cpp:1236
 #, fuzzy
 #| msgid "Loading image..."
 msgid "Saving image..."
 msgstr "Ielādē attēlu..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1224
+#: utilities/imageeditor/editor/editorwindow.cpp:1237
 #, fuzzy
 #| msgid "Please wait while the image is being saved..."
 msgid "Please wait for the image to be saved..."
 msgstr "Lūdzu, uzgaidiet, kamēr saglabā attēlu..."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1243
+#: utilities/imageeditor/editor/editorwindow.cpp:1256
 #, kde-format
 msgid ""
 "About to overwrite file \"%1\"\n"
@@ -17186,11 +17211,11 @@ msgstr ""
 "Grasās pārrakstīt failu \"%1\"\n"
 "Vai esat pārliecināts?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1247
+#: utilities/imageeditor/editor/editorwindow.cpp:1260
 msgid "Overwrite"
 msgstr "Pārrakstīt"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1321
+#: utilities/imageeditor/editor/editorwindow.cpp:1334
 #, fuzzy
 #| msgctxt "save theme"
 #| msgid "&Save"
@@ -17198,7 +17223,7 @@ msgctxt "@title:window"
 msgid "Save?"
 msgstr "&Saglabāt"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1333
+#: utilities/imageeditor/editor/editorwindow.cpp:1346
 #, fuzzy
 #| msgid ""
 #| "The image '%1' has been modified.\n"
@@ -17210,44 +17235,44 @@ msgstr ""
 "Attēls '%1' ir izmainīts.\n"
 "Vai vēlaties to saglabāt?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1343
+#: utilities/imageeditor/editor/editorwindow.cpp:1356
 #, fuzzy
 #| msgid "Save Images"
 msgctxt "@action:button"
 msgid "Save Changes"
 msgstr "Attēlu saglabāšana"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1345
+#: utilities/imageeditor/editor/editorwindow.cpp:1358
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current changes. Note: The original image will never be overwritten."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1347
+#: utilities/imageeditor/editor/editorwindow.cpp:1360
 #, fuzzy
 #| msgid "Move to trash without confirmation"
 msgctxt "@action:button"
 msgid "Save Changes as a New Version"
 msgstr "Pārvietot uz miskasti bez apstiprināšanas"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1349
+#: utilities/imageeditor/editor/editorwindow.cpp:1362
 msgctxt "@info:tooltip"
 msgid ""
 "Save the current changes as a new version. The loaded file will remain "
 "unchanged, a new file will be created."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1352
+#: utilities/imageeditor/editor/editorwindow.cpp:1365
 msgctxt "@action:button"
 msgid "Discard Changes"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1354
+#: utilities/imageeditor/editor/editorwindow.cpp:1367
 msgctxt "@info:tooltip"
 msgid "Discard the changes applied to the image during this editing session."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1429
+#: utilities/imageeditor/editor/editorwindow.cpp:1442
 #, fuzzy, kde-format
 #| msgid ""
 #| "The image '%1' has been modified.\n"
@@ -17260,7 +17285,20 @@ msgstr ""
 "Attēls '%1' ir izmainīts.\n"
 "Vai vēlaties to saglabāt?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1711
+#: utilities/imageeditor/editor/editorwindow.cpp:1591
+#, fuzzy, kde-format
+#| msgid ""
+#| "The image '%1' has been modified.\n"
+#| "Do you want to save it?"
+msgctxt "@info"
+msgid ""
+"The image <filename>%1</filename> has been modified.<nl/>All changes will be "
+"lost."
+msgstr ""
+"Attēls '%1' ir izmainīts.\n"
+"Vai vēlaties to saglabāt?"
+
+#: utilities/imageeditor/editor/editorwindow.cpp:1757
 #, kde-format
 msgid ""
 "Cannot open the specified working space profile (\"%1\"). No color "
@@ -17268,11 +17306,11 @@ msgid ""
 "configuration in digiKam's setup."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1767
+#: utilities/imageeditor/editor/editorwindow.cpp:1813
 msgid "Saving: "
 msgstr "Saglabā: "
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1785
+#: utilities/imageeditor/editor/editorwindow.cpp:1831
 #, kde-format
 msgid ""
 "Failed to save file\n"
@@ -17285,33 +17323,33 @@ msgstr ""
 "iekš\n"
 "\"%2\"."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1913
+#: utilities/imageeditor/editor/editorwindow.cpp:1959
 #, kde-format
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "Neizdevās atvērt pagaidu failu mapē \"%1\": %2 (%3)"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:1967
+#: utilities/imageeditor/editor/editorwindow.cpp:2013
 msgid "New Image File Name"
 msgstr "Jaunā attēla faila nosaukums"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2079
+#: utilities/imageeditor/editor/editorwindow.cpp:2125
 msgid "Unable to determine the format to save the target image with."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2085
+#: utilities/imageeditor/editor/editorwindow.cpp:2131
 #, kde-format
 msgid "Cannot Save: Found file path <filename>%1</filename> is invalid."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2108
+#: utilities/imageeditor/editor/editorwindow.cpp:2154
 msgid "JPEG 2000 image"
 msgstr "JPEG 2000 attēls"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2114
+#: utilities/imageeditor/editor/editorwindow.cpp:2160
 msgid "Progressive Graphics File"
 msgstr "Progressive Graphics fails"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2446
+#: utilities/imageeditor/editor/editorwindow.cpp:2492
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -17319,7 +17357,7 @@ msgid ""
 "<filename>%2</filename>"
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2517
+#: utilities/imageeditor/editor/editorwindow.cpp:2563
 #, kde-format
 msgid ""
 "You do not have write permissions for the file named \"%1\". Are you sure "
@@ -17328,63 +17366,63 @@ msgstr ""
 "Jums nav rakstīšanas tiesību failam ar nosaukumu \"%1\". Vai tiešām vēlaties "
 "to pārrakstīt?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2522
-#: utilities/imageeditor/editor/editorwindow.cpp:2543
+#: utilities/imageeditor/editor/editorwindow.cpp:2568
+#: utilities/imageeditor/editor/editorwindow.cpp:2589
 msgid "Overwrite File?"
 msgstr "Pārrakstīt failu?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2539
+#: utilities/imageeditor/editor/editorwindow.cpp:2585
 #, kde-format
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
 msgstr "Fails ar nosaukumu \"%1\" jau pastāv. Vai vēlaties to pārrakstīt?"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2568
+#: utilities/imageeditor/editor/editorwindow.cpp:2614
 msgid "Failed to overwrite original file"
 msgstr "Neizdevās pārrakstīt oriģinālo failu"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2569
-#: utilities/imageeditor/editor/editorwindow.cpp:2641
+#: utilities/imageeditor/editor/editorwindow.cpp:2615
+#: utilities/imageeditor/editor/editorwindow.cpp:2687
 msgid "Error Saving File"
 msgstr "Kļūda saglabājot failu"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2640
+#: utilities/imageeditor/editor/editorwindow.cpp:2686
 #, fuzzy, kde-format
 #| msgid "Failed to save file: %1"
 msgid "Failed to save file: %1"
 msgstr "Neizdevās saglabāt failu: %."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2682
+#: utilities/imageeditor/editor/editorwindow.cpp:2728
 msgid "Color-Managed View is enabled."
 msgstr "Ir ieslēgts krāsu pārvaldīts skats."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2686
+#: utilities/imageeditor/editor/editorwindow.cpp:2732
 msgid "Color-Managed View is disabled."
 msgstr "Krāsu pārvaldīts skats izslēgts."
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2691
+#: utilities/imageeditor/editor/editorwindow.cpp:2737
 msgid ""
 "Color Management is not configured, so the Color-Managed View is not "
 "available."
 msgstr ""
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2726
+#: utilities/imageeditor/editor/editorwindow.cpp:2772
 msgid "Under-Exposure indicator is enabled"
 msgstr "Nepietiekamas izgaismošanas indikators ieslēgts"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2727
+#: utilities/imageeditor/editor/editorwindow.cpp:2773
 msgid "Under-Exposure indicator is disabled"
 msgstr "Nepietiekamas izgaismošanas indikators izslēgts"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2741
+#: utilities/imageeditor/editor/editorwindow.cpp:2787
 msgid "Over-Exposure indicator is enabled"
 msgstr "Pārliekas izgaismošanas indikators ieslēgts"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2742
+#: utilities/imageeditor/editor/editorwindow.cpp:2788
 msgid "Over-Exposure indicator is disabled"
 msgstr "Pārliekas izgaismošanas indikators izslēgts"
 
-#: utilities/imageeditor/editor/editorwindow.cpp:2840
+#: utilities/imageeditor/editor/editorwindow.cpp:2886
 #, fuzzy
 #| msgid "Inverse transformation"
 msgctxt "@title Image transformations"
@@ -17415,7 +17453,7 @@ msgstr "Pārvietot uz miskasti, bez apstiprināšanas"
 msgid "Image Editor - %1"
 msgstr "Attēlu redaktors - %1"
 
-#: utilities/imageeditor/main/imagewindow.cpp:1240
+#: utilities/imageeditor/main/imagewindow.cpp:1248
 msgid ""
 "There is no image to show in the current album.\n"
 "The image editor will be closed."
@@ -17423,18 +17461,18 @@ msgstr ""
 "Šajā albumā nav neviena attēla.\n"
 "Attēlu redaktors tiks aizvērts."
 
-#: utilities/imageeditor/main/imagewindow.cpp:1242
+#: utilities/imageeditor/main/imagewindow.cpp:1250
 msgid "No Image in Current Album"
 msgstr "Nav attēlu šajā albumā"
 
-#: utilities/imageeditor/main/imagewindow.cpp:1596
+#: utilities/imageeditor/main/imagewindow.cpp:1604
 #, fuzzy, kde-format
 #| msgid "This collection is currently not available."
 msgctxt "@info"
 msgid "The original file (<filename>%1</filename>) is currently not available"
 msgstr "Šī kolekcija šobrīd nav pieejama."
 
-#: utilities/imageeditor/main/imagewindow.cpp:1599
+#: utilities/imageeditor/main/imagewindow.cpp:1607
 #, fuzzy
 #| msgid "No Profile Available"
 msgctxt "@title"
@@ -17929,7 +17967,7 @@ msgid ""
 "Failed to toggle lock file <filename>%1</filename>. Do you want to continue?"
 msgstr "Tags '%2' piešķirts %1 failam. Vai vēlaties turpināt?"
 
-#: utilities/importui/backend/gpcamera.cpp:1379
+#: utilities/importui/backend/gpcamera.cpp:1390
 #, fuzzy, kde-format
 #| msgid ""
 #| "Title: <b>%1</b><br/>Model: <b>%2</b><br/>Port: <b>%3</b><br/>Path: <b>"
@@ -17942,7 +17980,7 @@ msgstr ""
 "Nosaukums: <b>%1</b><br/>Modelis: <b>%2</b><br/>Ports: <b>%3</b><br/>Ceļš: "
 "<b>%4</b><br/><br/>"
 
-#: utilities/importui/backend/gpcamera.cpp:1389
+#: utilities/importui/backend/gpcamera.cpp:1400
 #, fuzzy, kde-format
 #| msgid ""
 #| "Thumbnails: <b>%1</b><br/>Capture image: <b>%2</b><br/>Delete items: <b>"
@@ -18615,7 +18653,7 @@ msgctxt "@title:window"
 msgid "File already exists"
 msgstr "Fails jau pastāv"
 
-#: utilities/importui/main/importui.cpp:1451
+#: utilities/importui/main/importui.cpp:1453
 msgctxt "@info"
 msgid ""
 "Your custom target album date format is not valid. Please check your "
@@ -18700,21 +18738,21 @@ msgstr[1] ""
 msgstr[2] ""
 "Grasās dzēst šos %1 failus. Tos vairs nevarēs atgūt. Vai tiešām dzēst?"
 
-#: utilities/importui/main/importui.cpp:2034
+#: utilities/importui/main/importui.cpp:2037
 #, fuzzy
 #| msgid "Try Anyway"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Try Anyway"
 msgstr "Vienalga mēģināt"
 
-#: utilities/importui/main/importui.cpp:2036
+#: utilities/importui/main/importui.cpp:2039
 #, fuzzy
 #| msgid "Cancel Download"
 msgctxt "@action:button Not enough disk-space warning"
 msgid "Cancel Download"
 msgstr "Atcelt lejupielādi"
 
-#: utilities/importui/main/importui.cpp:2038
+#: utilities/importui/main/importui.cpp:2041
 #, fuzzy, kde-format
 #| msgid ""
 #| "There is not enough free space on the disk of the album you selected to "
@@ -18736,15 +18774,15 @@ msgstr ""
 "Nepieciešama apmēram: %1\n"
 "Pieejama: %2"
 
-#: utilities/importui/main/importui.cpp:2044
+#: utilities/importui/main/importui.cpp:2047
 #, fuzzy
 #| msgid "Insufficient Disk Space"
 msgctxt "@title:window"
 msgid "Insufficient Disk Space"
 msgstr "Nepietiek diska vietas"
 
-#: utilities/importui/main/importui.cpp:2338
-#: utilities/importui/main/importui.cpp:2362
+#: utilities/importui/main/importui.cpp:2347
+#: utilities/importui/main/importui.cpp:2371
 #, fuzzy, kde-format
 #| msgid "No item selected"
 msgctxt "@info:status"
@@ -18754,13 +18792,13 @@ msgstr[0] "Nekas nav izvēlēts"
 msgstr[1] "Nekas nav izvēlēts"
 msgstr[2] "Nekas nav izvēlēts"
 
-#: utilities/importui/main/importui.cpp:2355
+#: utilities/importui/main/importui.cpp:2364
 #, kde-format
 msgctxt "@info:status Filename of first selected item of number of items"
 msgid "<filename>%1</filename> (%2 of %3)"
 msgstr ""
 
-#: utilities/importui/main/importui.cpp:2371
+#: utilities/importui/main/importui.cpp:2380
 #, fuzzy, kde-format
 #| msgid "%2/%1 item selected"
 #| msgid_plural "%2/%1 items selected"
@@ -18771,7 +18809,7 @@ msgstr[0] "izvēlēts %1/%2"
 msgstr[1] "izvēlēti %1/%2"
 msgstr[2] "izvēlēti %1/%2"
 
-#: utilities/importui/main/importui.cpp:2445
+#: utilities/importui/main/importui.cpp:2454
 #, fuzzy, kde-format
 #| msgid "A file with the same name (%1) already exists in folder %2."
 msgctxt "@info"
@@ -18780,14 +18818,14 @@ msgid ""
 "<resource>%2</resource>."
 msgstr "Fails ar tādu pašu nosaukumu (%1) jau pastāv mapē %2."
 
-#: utilities/importui/main/importui.cpp:2457
+#: utilities/importui/main/importui.cpp:2466
 #, fuzzy, kde-format
 #| msgid "Failed to find Album for path '%1'."
 msgctxt "@info"
 msgid "Failed to find Album for path <filename>%1</filename>."
 msgstr "Neizdevās atrast albumu ceļam '%1'."
 
-#: utilities/importui/main/importui.cpp:2485
+#: utilities/importui/main/importui.cpp:2494
 #, fuzzy
 #| msgid "General"
 msgctxt "@title"
@@ -19242,7 +19280,7 @@ msgid "Show on right panel"
 msgstr "Rādīt labajā panelī"
 
 #: utilities/lighttable/lighttablethumbbar.cpp:261
-#: utilities/lighttable/lighttablewindow.cpp:495
+#: utilities/lighttable/lighttablewindow.cpp:499
 msgid "Edit"
 msgstr "Rediģēt"
 
@@ -19258,99 +19296,99 @@ msgstr "Notīrīt visu"
 msgid "Drag and drop images here"
 msgstr "Velciet un nometiet attēlus šeit"
 
-#: utilities/lighttable/lighttablewindow.cpp:481
+#: utilities/lighttable/lighttablewindow.cpp:485
 msgid "On left"
 msgstr "Keisajā pusē"
 
-#: utilities/lighttable/lighttablewindow.cpp:484
+#: utilities/lighttable/lighttablewindow.cpp:488
 msgid "Show item on left panel"
 msgstr "Rādīt attēlu kreisajā panelī"
 
-#: utilities/lighttable/lighttablewindow.cpp:488
+#: utilities/lighttable/lighttablewindow.cpp:492
 msgid "On right"
 msgstr "Labajā pusē"
 
-#: utilities/lighttable/lighttablewindow.cpp:491
+#: utilities/lighttable/lighttablewindow.cpp:495
 msgid "Show item on right panel"
 msgstr "Rādīt attēlu labajā panelī"
 
-#: utilities/lighttable/lighttablewindow.cpp:507
+#: utilities/lighttable/lighttablewindow.cpp:511
 msgid "Remove item from LightTable"
 msgstr "Noņemt no gaismas galda"
 
-#: utilities/lighttable/lighttablewindow.cpp:513
+#: utilities/lighttable/lighttablewindow.cpp:517
 msgid "Remove all items from LightTable"
 msgstr "Noņemt visus attēlus no gaismas galda"
 
-#: utilities/lighttable/lighttablewindow.cpp:525
+#: utilities/lighttable/lighttablewindow.cpp:529
 msgid "Delete immediately"
 msgstr "Dzēst neatgriezeniski"
 
-#: utilities/lighttable/lighttablewindow.cpp:536
+#: utilities/lighttable/lighttablewindow.cpp:540
 msgid "Synchronize"
 msgstr "Sinhronizēt"
 
-#: utilities/lighttable/lighttablewindow.cpp:539
+#: utilities/lighttable/lighttablewindow.cpp:543
 msgid "Synchronize preview from left and right panels"
 msgstr "Sinhronizēt kreisā un labā paneļa priekšskatījumu"
 
-#: utilities/lighttable/lighttablewindow.cpp:543
+#: utilities/lighttable/lighttablewindow.cpp:547
 msgid "By Pair"
 msgstr "Pa pāriem"
 
-#: utilities/lighttable/lighttablewindow.cpp:546
+#: utilities/lighttable/lighttablewindow.cpp:550
 msgid "Navigate by pairs with all items"
 msgstr "Navigēt visus attēlus pa pāriem"
 
-#: utilities/lighttable/lighttablewindow.cpp:550
+#: utilities/lighttable/lighttablewindow.cpp:554
 msgid "Clear On Close"
 msgstr "Aizverot notīrīt"
 
-#: utilities/lighttable/lighttablewindow.cpp:553
+#: utilities/lighttable/lighttablewindow.cpp:557
 msgid "Clear light table when it is closed"
 msgstr "Notīrīt gaismas galdu, kad tas tiek aizvērts"
 
-#: utilities/lighttable/lighttablewindow.cpp:554
+#: utilities/lighttable/lighttablewindow.cpp:558
 msgid "Remove all images from the light table when it is closed"
 msgstr "Noņemt visus attēlus no gaismas galda, kad tas tiek aizvērts"
 
-#: utilities/lighttable/lighttablewindow.cpp:664
+#: utilities/lighttable/lighttablewindow.cpp:668
 #, fuzzy
 #| msgid "Align text to the right"
 msgid "Edit Titles on the Right"
 msgstr "Izlīdzināt tekstu pie labās malas"
 
-#: utilities/lighttable/lighttablewindow.cpp:669
+#: utilities/lighttable/lighttablewindow.cpp:673
 #, fuzzy
 #| msgid "Set here the hue adjustment of the image."
 msgid "Edit Comments on the Right"
 msgstr "Šeit norādiet attēla toņa korekciju."
 
-#: utilities/lighttable/lighttablewindow.cpp:674
+#: utilities/lighttable/lighttablewindow.cpp:678
 #, fuzzy
 #| msgid "Align text to the left"
 msgid "Edit Titles on the Left"
 msgstr "Izlīdzināt tekstu pie kreisās malas"
 
-#: utilities/lighttable/lighttablewindow.cpp:679
+#: utilities/lighttable/lighttablewindow.cpp:683
 #, fuzzy
 #| msgid "Set here the hue adjustment of the image."
 msgid "Edit Comments on the Left"
 msgstr "Šeit norādiet attēla toņa korekciju."
 
-#: utilities/lighttable/lighttablewindow.cpp:684
+#: utilities/lighttable/lighttablewindow.cpp:688
 #, fuzzy
 #| msgid "Assign Tags to &This Item"
 msgid "Show Assigned Tags on the Right"
 msgstr "Piešķirt tagus š&ai vienībai"
 
-#: utilities/lighttable/lighttablewindow.cpp:689
+#: utilities/lighttable/lighttablewindow.cpp:693
 #, fuzzy
 #| msgid "Assign Tags to &This Item"
 msgid "Show Assigned Tags on the Left"
 msgstr "Piešķirt tagus š&ai vienībai"
 
-#: utilities/lighttable/lighttablewindow.cpp:759
+#: utilities/lighttable/lighttablewindow.cpp:763
 #, kde-format
 msgid "%1 item on Light Table"
 msgid_plural "%1 items on Light Table"
@@ -20333,7 +20371,7 @@ msgstr "Masveida ierindošana pabeigta..."
 msgid "&Queues"
 msgstr "&Rindas"
 
-#: utilities/queuemanager/manager/batchtool.cpp:537
+#: utilities/queuemanager/manager/batchtool.cpp:541
 #, fuzzy
 #| msgid "No options available"
 msgid "No setting available"
@@ -21566,65 +21604,65 @@ msgid ""
 "from the \"Tools-Maintenance\" menu."
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:138 utilities/setup/setupcamera.cpp:419
+#: utilities/setup/setupalbumview.cpp:140 utilities/setup/setupcamera.cpp:419
 msgid "Icon-View Options"
 msgstr "Ikonu skata opcijas"
 
-#: utilities/setup/setupalbumview.cpp:141 utilities/setup/setupcamera.cpp:422
+#: utilities/setup/setupalbumview.cpp:143 utilities/setup/setupcamera.cpp:422
 msgid "Show file&name"
 msgstr "Rādīt faila &nosaukumu"
 
-#: utilities/setup/setupalbumview.cpp:142 utilities/setup/setupcamera.cpp:423
+#: utilities/setup/setupalbumview.cpp:144 utilities/setup/setupcamera.cpp:423
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu faila nosaukumu zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:144 utilities/setup/setupcamera.cpp:425
+#: utilities/setup/setupalbumview.cpp:146 utilities/setup/setupcamera.cpp:425
 msgid "Show file si&ze"
 msgstr "Rādīt faila i&zmēru"
 
-#: utilities/setup/setupalbumview.cpp:145 utilities/setup/setupcamera.cpp:426
+#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:426
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu faila izmēru zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:147 utilities/setup/setupcamera.cpp:428
+#: utilities/setup/setupalbumview.cpp:149 utilities/setup/setupcamera.cpp:428
 msgid "Show camera creation &date"
 msgstr "Rādīt uzņemšanas &datumu"
 
-#: utilities/setup/setupalbumview.cpp:148
+#: utilities/setup/setupalbumview.cpp:150
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu uzņemšanas datumu zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:151
+#: utilities/setup/setupalbumview.cpp:153
 #, fuzzy
 #| msgid "Show file &modification date"
 msgid "Show file &modification date (if different than creation date)"
 msgstr "Rādīt iz&mainīšanas datumu"
 
-#: utilities/setup/setupalbumview.cpp:152
+#: utilities/setup/setupalbumview.cpp:154
 msgid ""
 "Set this option to show the file modification date below the image thumbnail "
 "if it's different than camera creation date. This option is useful to "
 "identify quickly which items have been modified."
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:156
+#: utilities/setup/setupalbumview.cpp:158
 msgid "Show ima&ge dimensions"
 msgstr "Rādīt attēlu izmēr&us"
 
-#: utilities/setup/setupalbumview.cpp:157
+#: utilities/setup/setupalbumview.cpp:159
 msgid ""
 "Set this option to show the image size in pixels below the image thumbnail."
 msgstr ""
 "Ieslēdziet šo iespēju, lai rādītu attēlu izmērus pikseļos zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:160 utilities/setup/setuptooltip.cpp:217
+#: utilities/setup/setupalbumview.cpp:162 utilities/setup/setuptooltip.cpp:217
 #, fuzzy
 #| msgid "Preserve Aspect Ratio"
 msgid "Show image aspect ratio"
 msgstr "Saglabāt malu attiecību"
 
-#: utilities/setup/setupalbumview.cpp:161
+#: utilities/setup/setupalbumview.cpp:163
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
@@ -21632,54 +21670,54 @@ msgid ""
 "Set this option to show the image aspect ratio below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu digiKam vērtējumu zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:164 utilities/setup/setupcamera.cpp:438
+#: utilities/setup/setupalbumview.cpp:166 utilities/setup/setupcamera.cpp:438
 #, fuzzy
 #| msgid "Show image rating"
 msgid "Show image Format"
 msgstr "Rādīt attēla vērtējumu"
 
-#: utilities/setup/setupalbumview.cpp:167
+#: utilities/setup/setupalbumview.cpp:169
 #, fuzzy
 #| msgid "Show digiKam &rating"
 msgid "Show digiKam tit&le"
 msgstr "Rādīt digiKam &vērtējumu"
 
-#: utilities/setup/setupalbumview.cpp:168
+#: utilities/setup/setupalbumview.cpp:170
 #, fuzzy
 #| msgid ""
 #| "Set this option to show the digiKam rating below the image thumbnail."
 msgid "Set this option to show the digiKam title below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu digiKam vērtējumu zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:171
+#: utilities/setup/setupalbumview.cpp:173
 msgid "Show digiKam &captions"
 msgstr "Rādīt digiKam a&prakstus"
 
-#: utilities/setup/setupalbumview.cpp:172
+#: utilities/setup/setupalbumview.cpp:174
 msgid "Set this option to show the digiKam captions below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu digiKam aprakstus zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:175 utilities/setup/setupcamera.cpp:444
+#: utilities/setup/setupalbumview.cpp:177 utilities/setup/setupcamera.cpp:444
 msgid "Show digiKam &tags"
 msgstr "Rādīt digiKam &tagus"
 
-#: utilities/setup/setupalbumview.cpp:176 utilities/setup/setupcamera.cpp:445
+#: utilities/setup/setupalbumview.cpp:178 utilities/setup/setupcamera.cpp:445
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu digiKam tagus zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:179
+#: utilities/setup/setupalbumview.cpp:181
 msgid "Show digiKam &rating"
 msgstr "Rādīt digiKam &vērtējumu"
 
-#: utilities/setup/setupalbumview.cpp:180
+#: utilities/setup/setupalbumview.cpp:182
 msgid "Set this option to show the digiKam rating below the image thumbnail."
 msgstr "Ieslēdziet šo iespēju, lai rādītu digiKam vērtējumu zem sīktēliem."
 
-#: utilities/setup/setupalbumview.cpp:183 utilities/setup/setupcamera.cpp:452
+#: utilities/setup/setupalbumview.cpp:185 utilities/setup/setupcamera.cpp:452
 msgid "Show rotation overlay buttons"
 msgstr "Rādīt pārklātās pagriešanas pogas"
 
-#: utilities/setup/setupalbumview.cpp:184 utilities/setup/setupcamera.cpp:453
+#: utilities/setup/setupalbumview.cpp:186 utilities/setup/setupcamera.cpp:453
 msgid ""
 "Set this option to show overlay buttons on the image thumbnail for image "
 "rotation."
@@ -21687,43 +21725,61 @@ msgstr ""
 "Ieslēdziet šo iespēju, lai uz attēla rādītu pārklātās pogas attēla "
 "pagriešanai."
 
-#: utilities/setup/setupalbumview.cpp:187 utilities/setup/setupcamera.cpp:441
+#: utilities/setup/setupalbumview.cpp:189
+#, fuzzy
+#| msgid "Show rotation overlay buttons"
+msgid "Show fullscreen overlay button"
+msgstr "Rādīt pārklātās pagriešanas pogas"
+
+#: utilities/setup/setupalbumview.cpp:190
+#, fuzzy
+#| msgid ""
+#| "Set this option to show overlay buttons on the image thumbnail for image "
+#| "rotation."
+msgid ""
+"Set this option to show an overlay button on the image thumbnail to open it "
+"in fullscreen."
+msgstr ""
+"Ieslēdziet šo iespēju, lai uz attēla rādītu pārklātās pogas attēla "
+"pagriešanai."
+
+#: utilities/setup/setupalbumview.cpp:193 utilities/setup/setupcamera.cpp:441
 #, fuzzy
 #| msgid "Green Filter"
 msgid "Show Geolocation Indicator"
 msgstr "Zaļš filtrs"
 
-#: utilities/setup/setupalbumview.cpp:190 utilities/setup/setupcamera.cpp:456
+#: utilities/setup/setupalbumview.cpp:196 utilities/setup/setupcamera.cpp:456
 msgid "Thumbnail click action:"
 msgstr "Klikšķa uz sīktēla darbība:"
 
-#: utilities/setup/setupalbumview.cpp:192
+#: utilities/setup/setupalbumview.cpp:198
 #, fuzzy
 #| msgid "Show embedded preview"
 msgid "Show embedded view"
 msgstr "Parādīt iegulto priekšapskati"
 
-#: utilities/setup/setupalbumview.cpp:193 utilities/setup/setupcamera.cpp:459
+#: utilities/setup/setupalbumview.cpp:199 utilities/setup/setupcamera.cpp:459
 msgid "Start image editor"
 msgstr "Palaist attēlu redaktoru"
 
-#: utilities/setup/setupalbumview.cpp:194 utilities/setup/setupcamera.cpp:460
+#: utilities/setup/setupalbumview.cpp:200 utilities/setup/setupcamera.cpp:460
 msgid "Choose what should happen when you click on a thumbnail."
 msgstr "Izvēlieties, kas notiek, noklikšķinot uz sīktēla."
 
-#: utilities/setup/setupalbumview.cpp:196 utilities/setup/setupcamera.cpp:462
+#: utilities/setup/setupalbumview.cpp:202 utilities/setup/setupcamera.cpp:462
 msgid "Icon View font:"
 msgstr "Ikonu skata fonts:"
 
-#: utilities/setup/setupalbumview.cpp:197 utilities/setup/setupcamera.cpp:463
+#: utilities/setup/setupalbumview.cpp:203 utilities/setup/setupcamera.cpp:463
 msgid "Select here the font used to display text in Icon Views."
 msgstr "Šeit norādiet fontu, ar kādu attēlot tekstu ikonu skatos."
 
-#: utilities/setup/setupalbumview.cpp:199
+#: utilities/setup/setupalbumview.cpp:205
 msgid "Use large thumbnail size for high screen resolution"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:200
+#: utilities/setup/setupalbumview.cpp:206
 msgid ""
 "Set this option to render icon-view with large thumbnail size, for example "
 "in case of 4K monitor is used.\n"
@@ -21736,88 +21792,88 @@ msgid ""
 "collections."
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:231
+#: utilities/setup/setupalbumview.cpp:238
 msgid "Folder View Options"
 msgstr "Mapju skata iestatījumi"
 
-#: utilities/setup/setupalbumview.cpp:234
+#: utilities/setup/setupalbumview.cpp:241
 msgid "Tree View thumbnail size:"
 msgstr "Koka skata sīktēla izmērs:"
 
-#: utilities/setup/setupalbumview.cpp:240
+#: utilities/setup/setupalbumview.cpp:247
 msgid ""
 "Set this option to configure the size in pixels of the Tree View thumbnails "
 "in digiKam's sidebars."
 msgstr ""
 "Šeit varat konfigurēt digiKam sānjoslu koku skatu sīktēlu izmēru, pikseļos."
 
-#: utilities/setup/setupalbumview.cpp:243
+#: utilities/setup/setupalbumview.cpp:250
 msgid "Tree View font:"
 msgstr "Koka skata fonts:"
 
-#: utilities/setup/setupalbumview.cpp:244
+#: utilities/setup/setupalbumview.cpp:251
 msgid "Select here the font used to display text in Tree Views."
 msgstr "Šeit varat norādīt koku skatu fontu."
 
-#: utilities/setup/setupalbumview.cpp:246
+#: utilities/setup/setupalbumview.cpp:253
 msgid "Show a count of items in Tree Views"
 msgstr "Koku skatos rādīt elementu skaitu"
 
-#: utilities/setup/setupalbumview.cpp:257 utilities/setup/setupcamera.cpp:483
+#: utilities/setup/setupalbumview.cpp:264 utilities/setup/setupcamera.cpp:483
 #, fuzzy
 #| msgid "Folder View Options"
 msgid "Preview Options"
 msgstr "Mapju skata iestatījumi"
 
-#: utilities/setup/setupalbumview.cpp:261
+#: utilities/setup/setupalbumview.cpp:268
 msgctxt "@option:radio"
 msgid "Embedded view shows a small, quick preview"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:263
+#: utilities/setup/setupalbumview.cpp:270
 #, fuzzy
 #| msgid "Embedded preview loads full-sized images."
 msgctxt "@option:radio"
 msgid "Embedded view shows the full image"
 msgstr "Iegultais priekšskatījums ielādē pilna izmēra attēlus."
 
-#: utilities/setup/setupalbumview.cpp:265
+#: utilities/setup/setupalbumview.cpp:272
 #, fuzzy
 #| msgid "Ref. images"
 msgctxt "@label:listbox Mode of RAW preview decoding:"
 msgid "Raw images:"
 msgstr "Par. attēli"
 
-#: utilities/setup/setupalbumview.cpp:268
+#: utilities/setup/setupalbumview.cpp:275
 #, fuzzy
 #| msgid "Automatic Adjustment"
 msgctxt "@option:inlistbox Automatic choice of RAW image preview source"
 msgid "Automatic"
 msgstr "Automātiska koriģēšana"
 
-#: utilities/setup/setupalbumview.cpp:270
+#: utilities/setup/setupalbumview.cpp:277
 #, fuzzy
 #| msgid "Show embedded preview"
 msgctxt "@option:inlistbox Embedded preview as RAW image preview source"
 msgid "Embedded preview"
 msgstr "Parādīt iegulto priekšapskati"
 
-#: utilities/setup/setupalbumview.cpp:272
+#: utilities/setup/setupalbumview.cpp:279
 msgctxt ""
 "@option:inlistbox Original, half-size data as RAW image preview source"
 msgid "Raw data in half size"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:274 utilities/setup/setupcamera.cpp:497
+#: utilities/setup/setupalbumview.cpp:281 utilities/setup/setupcamera.cpp:497
 msgid "Show icons and text over preview"
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:275
+#: utilities/setup/setupalbumview.cpp:282
 msgid ""
 "Uncheck this if you do not want to see icons and text in the image preview."
 msgstr ""
 
-#: utilities/setup/setupalbumview.cpp:446
+#: utilities/setup/setupalbumview.cpp:455
 msgctxt "@info"
 msgid ""
 "This option changes the size in which thumbnails are generated. You need to "
@@ -23281,41 +23337,41 @@ msgstr ""
 "<p>Faili ar šiem paplašinājumiem tika atpazīti kā audio faili un automātiski "
 "iekļauti datubāzē:<br/> <code>%1</code></p>"
 
-#: utilities/setup/setupmisc.cpp:92
+#: utilities/setup/setupmisc.cpp:95
 #, fuzzy
 #| msgid "Confirm when moving items to the &trash."
 msgid "Confirm when moving items to the &trash"
 msgstr "Prasīt apstiprinājumu, pārvie&tojot failus uz miskasti."
 
-#: utilities/setup/setupmisc.cpp:93
+#: utilities/setup/setupmisc.cpp:96
 #, fuzzy
 #| msgid "Confirm when permanently deleting items."
 msgid "Confirm when permanently deleting items"
 msgstr "Prasīt apstiprinājumu, neatgriezeniski dzēšot failus."
 
-#: utilities/setup/setupmisc.cpp:94
+#: utilities/setup/setupmisc.cpp:97
 #, fuzzy
 #| msgid "Do not confirm when applying changes in the &right sidebar."
 msgid "Do not confirm when applying changes in the &right sidebar"
 msgstr "Neprasīt apstiprinājumu, pielietojot izmaiņas &labajā sānjoslā."
 
-#: utilities/setup/setupmisc.cpp:104
+#: utilities/setup/setupmisc.cpp:108
 msgid "Set this option to configure how sidebar tab titles are visible."
 msgstr ""
 "Iestatiet šo iespēju, lai konfigurētu, kā rādīt sānjoslu ciļņu nosaukumus."
 
-#: utilities/setup/setupmisc.cpp:109
+#: utilities/setup/setupmisc.cpp:113
 msgid "String comparison type:"
 msgstr ""
 
-#: utilities/setup/setupmisc.cpp:111
+#: utilities/setup/setupmisc.cpp:115
 #, fuzzy
 #| msgid "Nature"
 msgctxt "method to compare strings"
 msgid "Natural"
 msgstr "Daba"
 
-#: utilities/setup/setupmisc.cpp:112
+#: utilities/setup/setupmisc.cpp:116
 #, fuzzy
 #| msgctxt "Rotation of an unrotated image"
 #| msgid "Normal"
@@ -23323,7 +23379,7 @@ msgctxt "method to compare strings"
 msgid "Normal"
 msgstr "Normāls"
 
-#: utilities/setup/setupmisc.cpp:113
+#: utilities/setup/setupmisc.cpp:117
 msgid ""
 "<qt>Sets the way in which strings are compared inside digiKam. This eg. "
 "influences the sorting of the tree views.<br/><b>Natural</b> tries to "
@@ -24111,13 +24167,13 @@ msgctxt ""
 msgid "Giving a slideshow"
 msgstr "Sagatavo slīdrādi. Lūdzu, uzgaidiet..."
 
-#: utilities/slideshow/slidetoolbar.cpp:112
+#: utilities/slideshow/slidetoolbar.cpp:115
 #, fuzzy
 #| msgid "Exit Full Screen"
 msgid "Switch Screen"
 msgstr "Iziet no pilnekrāna"
 
-#: utilities/slideshow/slidetoolbar.cpp:124
+#: utilities/slideshow/slidetoolbar.cpp:127
 #, fuzzy, kde-format
 #| msgid "Green:"
 msgctxt "%1 is the screen number (0, 1, ...)"
@@ -27847,9 +27903,6 @@ msgstr "Zaļš:"
 
 #~ msgid "Set orientation tag to normal after rotate/flip"
 #~ msgstr "Pēc pagriešanas uzstādīt orientācijas tagus uz normālu orientāciju"
-
-#~ msgid "Exit Fullscreen mode"
-#~ msgstr "Iziet no pilnekrāna režīma"
 
 #, fuzzy
 #~| msgid "Set here the color saturation correction."

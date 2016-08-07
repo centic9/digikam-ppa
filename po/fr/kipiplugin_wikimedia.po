@@ -4,14 +4,15 @@
 # Joëlle Cornavin <jcorn@free.fr>, 2011, 2012, 2013.
 # xavier <xavier.besnard@neuf.fr>, 2013.
 # Vincent PINON <vincent.pinon@st.com>, 2013.
+# Peter Potrowl <peter.potrowl@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_mediawiki\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2015-05-24 01:57+0000\n"
-"PO-Revision-Date: 2013-12-06 13:56+0100\n"
-"Last-Translator: Vincent PINON <vincent.pinon@st.com>\n"
+"PO-Revision-Date: 2015-08-25 23:42+0200\n"
+"Last-Translator: Peter Potrowl <peter.potrowl@gmail.com>\n"
 "Language-Team: French <kde-francophone@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -25,11 +26,11 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Joëlle Cornavin"
+msgstr "Joëlle Cornavin, Peter Potrowl"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "jcorn@free.fr"
+msgstr "jcorn@free.fr, peter.potrowl@gmail.com"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_wikimediaui.rc:7
@@ -57,7 +58,7 @@ msgstr "Erreur sur le fichier « %1 » : %2\n"
 
 #: wikimediajob.cpp:156
 msgid "Uploaded via KIPI uploader"
-msgstr ""
+msgstr "Importé avec l'outil KIPI"
 
 #: wmwidget.cpp:127
 msgid "Select an image"
@@ -285,7 +286,7 @@ msgstr ""
 
 #: wmwidget.cpp:431
 msgid "No license specified (not recommended for public wiki sites)"
-msgstr ""
+msgstr "Aucune licence spécifiée (non recommandé pour les wikis publics)"
 
 #: wmwidget.cpp:434
 msgid "Generic categories:"
@@ -311,22 +312,17 @@ msgstr ""
 "sous le modèle d'informations."
 
 #: wmwidget.cpp:447
-#, fuzzy
-#| msgid "Upload Settings"
 msgid "Upload comments:"
-msgstr "Paramètres d'envoi"
+msgstr "Commentaires d'envoi :"
 
 #: wmwidget.cpp:450
-#, fuzzy
-#| msgid ""
-#| "This is a place to enter text that will be added to all the files, below "
-#| "the Information template."
 msgid ""
 "This is a place to enter text that will be used as upload comments. The "
 "default of 'Uploaded via KIPI uploader' will be used if empty."
 msgstr ""
-"Il s'agit d'une zone de saisie pour du texte à ajouter à tous les fichiers, "
-"sous le modèle d'informations."
+"Il s'agit d'une zone de saisie pour du texte qui sera utilisé comme "
+"commentaire de l'import. La chaîne par défaut « Importé avec l'outil KIPI » "
+"sera utilisée si ceci est laissé vide."
 
 #: wmwidget.cpp:469
 msgid "Information"

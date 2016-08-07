@@ -1,0 +1,397 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-06-04 01:56+0000\n"
+"PO-Revision-Date: 2015-07-27 17:58+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Shinjo Park"
+
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: detection/locators/haarclassifier/widgets/blobsettingsbox.cpp:53
+msgid "Blob Extraction Settings"
+msgstr "덩어리 추출 설정"
+
+#: detection/locators/haarclassifier/widgets/blobsettingsbox.cpp:56
+msgid "Minimum &blob size:"
+msgstr "최소 덩어리 크기(&B):"
+
+#: detection/locators/haarclassifier/widgets/blobsettingsbox.cpp:61
+msgid "Minimum &roundness:"
+msgstr "최소 곡률(&R):"
+
+#: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:60
+msgid "Classifier Settings"
+msgstr "분류기 설정"
+
+#: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:62
+msgid "Use &standard classifier"
+msgstr "표준 분류기 사용(&S)"
+
+#: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:65
+msgid ""
+"If checked, the standard classifier shipped with this KIPI plugin is used."
+msgstr "선택하면 KIPI 플러그인의 기본 분류기를 사용합니다."
+
+#: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:67
+msgid "Enter the location of the classifier here."
+msgstr "분류기 위치를 입력하십시오."
+
+#: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:70
+msgid "&Neighbor groups:"
+msgstr "이웃 그룹(&N):"
+
+#: detection/locators/haarclassifier/widgets/classifiersettingsbox.cpp:75
+msgid "&Scaling factor:"
+msgstr "크기 조절 인자(&S):"
+
+#: detection/locators/haarclassifier/widgets/haarsettingswidget.cpp:127
+msgid "&Advanced Mode"
+msgstr "고급 모드(&A)"
+
+#: detection/locators/haarclassifier/widgets/haarsettingswidget.cpp:133
+msgid "&Simple Mode"
+msgstr "단순 모드(&S)"
+
+#: detection/locators/haarclassifier/widgets/simplesettings.cpp:87
+msgid ""
+"<p><b>Slower<br/>(low-res / slightly blurred images)</b></p><p>In this mode "
+"the automatic detection and correction of red-eye is the most reliable. The "
+"drawback of the higher detection rate is a much slower computation.</p>"
+msgstr ""
+"<p><b>느리게<br/> (저해상도 및 약간 흐려진 그림)</b></p> <p>이 모드에서는 적"
+"목 자동 감지 및 교정이 가장 신뢰성 있게 작동합니다. 감지 가능성은 높아지나 연"
+"산 속도는 느려집니다.</p>"
+
+#: detection/locators/haarclassifier/widgets/simplesettings.cpp:92
+msgid ""
+"<p><b>Standard</b></p><p>This mode is adequate for most image resolutions. "
+"Always try this mode first.</p>"
+msgstr ""
+"<p><b>표준</b></p> <p>이 모드는 대부분 그림 해상도에 적절합니다. 먼저 이 모드"
+"를 시도해 보십시오.</p>"
+
+#: detection/locators/haarclassifier/widgets/simplesettings.cpp:96
+msgid ""
+"<p><b>Faster<br/>(high-res images)</b></p><p>In this mode the automatic "
+"detection will be faster, but more false positives may occur. Use this mode "
+"only for very high-resolution and sharp images.</p>"
+msgstr ""
+"<p><b>빠르게<br/> (고해상도 그림)</b></p> <p>이 모드에서는 자동 감지가 더 빨"
+"라지지만 잘못 감지할 수 있는 확률도 높아집니다. 고해상도 및 고선명 사진에만 "
+"사용하십시오.</p>"
+
+#. i18n: ectx: Menu (Tools)
+#: plugin/kipiplugin_removeredeyesui.rc:7
+msgid "&Tools"
+msgstr "도구(&T)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: plugin/kipiplugin_removeredeyesui.rc:13
+msgid "Main Toolbar"
+msgstr "주 도구 모음"
+
+#: plugin/plugin_removeredeyes.cpp:90
+msgid "&Red-Eye Removal..."
+msgstr "적목 현상 제거(&R)..."
+
+#: plugin/removeredeyeswindow.cpp:157
+msgid "Automatic Red-Eye Removal"
+msgstr "자동 적목 현상 제거"
+
+#: plugin/removeredeyeswindow.cpp:182
+msgid "Remove Red-Eye"
+msgstr "적목 제거"
+
+#: plugin/removeredeyeswindow.cpp:185
+msgid "A plugin to automatically detect and remove red-eye effect."
+msgstr "자동으로 적목 현상을 감지하고 제거하는 플러그인입니다."
+
+#: plugin/removeredeyeswindow.cpp:187
+msgid "(c) 2008-2013, Andi Clemens"
+msgstr "(c) 2008-2013, Andi Clemens"
+
+#: plugin/removeredeyeswindow.cpp:189
+msgid "Andi Clemens"
+msgstr "Andi Clemens"
+
+#: plugin/removeredeyeswindow.cpp:189
+msgid "Author and Maintainer"
+msgstr "작성자와 관리자"
+
+#: plugin/removeredeyeswindow.cpp:198
+msgid "Correct &Photos"
+msgstr "사진 수정(&P)"
+
+#: plugin/removeredeyeswindow.cpp:199
+msgid "Start correcting the listed images"
+msgstr "목록에 있는 사진 수정 시작"
+
+#: plugin/removeredeyeswindow.cpp:203
+msgid "&Test-Run"
+msgstr "시험 시행(&T)"
+
+#: plugin/removeredeyeswindow.cpp:204
+msgid "Simulate the correction process, without saving the results."
+msgstr "결과를 저장하지 않고 교정 과정을 시험합니다."
+
+#: plugin/removeredeyeswindow.cpp:234
+msgctxt "The total number of images in the list"
+msgid "Total:"
+msgstr "합계:"
+
+#: plugin/removeredeyeswindow.cpp:235
+msgctxt "number of images successfully processed"
+msgid "Success:"
+msgstr "성공:"
+
+#: plugin/removeredeyeswindow.cpp:236
+msgctxt "number of images failed to process"
+msgid "Failed:"
+msgstr "실패:"
+
+#: plugin/removeredeyeswindow.cpp:269
+msgid "File List"
+msgstr "파일 목록"
+
+#: plugin/removeredeyeswindow.cpp:270
+msgid "Settings"
+msgstr "설정"
+
+#: plugin/removeredeyeswindow.cpp:404
+msgid ""
+"<p>You chose the <b>'overwrite' correction mode</b>.<br/>Are you sure you "
+"want to lose your original image files?</p>"
+msgstr ""
+"<p><b>덮어쓰기 보정 모드</b>를 선택하셨습니다.<br/> 원본 사진 파일을 삭제하시"
+"겠습니까?</p>"
+
+#: plugin/removeredeyeswindow.cpp:407
+msgid "Overwrite mode"
+msgstr "덮어쓰기 모드"
+
+#: plugin/removeredeyeswindow.cpp:610
+msgid ""
+"<p>Some of the images could not be analyzed with the current settings, or "
+"they do not contain any red-eye at all.</p><p><b>Would you like to remove "
+"these images from the list?</b></p>"
+msgstr ""
+"<p>일부 사진은 현재 설정으로 분석할 수 없거나, 적목을 포함하고 있지 않습니다."
+"</p> <p><b>해당하는 사진을 목록에서 삭제하시겠습니까?</b></p>"
+
+#: plugin/removeredeyeswindow.cpp:616
+msgid "Remove unprocessed images?"
+msgstr "처리되지 않은 사진 삭제?"
+
+#: plugin/removeredeyeswindow.cpp:651
+msgid ""
+"<p>You tried to add <b>RAW images</b> to the plugin,<br/>but those file-"
+"types are not supported.</p><p><b>They were automatically removed from the "
+"list.</b></p>"
+msgstr ""
+"<p>플러그인에 <b>RAW 사진</b>을 추가하였지만<br/> 현재 RAW 사진은 지원하지 않"
+"습니다.</p> <p><b>해당하는 사진은 목록에서 삭제되었습니다.</b></p>"
+
+#: plugin/removeredeyeswindow.cpp:655
+msgid "RAW images found"
+msgstr "RAW 사진 찾음"
+
+#: plugin/removeredeyeswindow.cpp:733
+#, kde-format
+msgid "<p>%1 image has been successfully processed.</p>"
+msgid_plural "<p>%1 images have been successfully processed.</p>"
+msgstr[0] "<p>사진 %1장을 수정하였습니다.</p>"
+
+#: plugin/removeredeyeswindow.cpp:736
+msgid "<h2>Correction Complete</h2>"
+msgstr "<h2>수정 완료</h2>"
+
+#: plugin/removeredeyeswindow.cpp:738
+msgid "Correction Complete"
+msgstr "수정 완료"
+
+#: plugin/removeredeyeswindow.cpp:775
+msgid ""
+"<h2>Could not load classifier options.<br/>The plugin is not executable.</h2>"
+msgstr ""
+"<h2>분류기 옵션을 불러올 수 없습니다.<br/> 플러그인을 실행할 수 없습니다.</"
+"h2>"
+
+#: widgets/myimageslist.cpp:58
+msgid "Corrected Eyes"
+msgstr "수정된 눈"
+
+#: widgets/myimageslist.cpp:60
+msgid "This is the list of images from which to remove red-eye."
+msgstr "적목 현상을 수정할 그림 목록입니다."
+
+#: widgets/previewwidget.cpp:80
+msgid ""
+"<p>This widget will display a correction preview for the currently selected "
+"image.</p><p><ul><li>Move the mouse <b>over</b> the preview to display the "
+"original image.</li><li>Move the mouse <b>out of</b> the preview to display "
+"the corrected image.</li><li><b>Click on</b> the preview to display the "
+"correction mask.</li></ul></p><p>The zoom buttons and panning widget allow "
+"you to view certain parts of the image more closely.</p>"
+msgstr ""
+"<p>이 위젯은 현재 선택한 사진의 수정본을 미리 보여 줍니다.</p> <p> <ul> <li>"
+"미리 보기 <b>위로</b> 마우스를 움직이면 원본 그림을 표시합니다.</li> <li>미"
+"리 보기 <b>밖으로</b> 마우스를 움직이면 수정된 그림을 표시합니다.</li> <li>미"
+"리 보기를 <b>누르면</b> 수정 마스크를 표시합니다.</li> </ul> </p> <p>확대/축"
+"소 단추와 패닝 위젯을 사용하여 그림의 특정 부분을 확대하여 볼 수 있습니다.</"
+"p>"
+
+#: widgets/previewwidget.cpp:113
+msgid "<h2>generating preview...</h2>"
+msgstr "<h2>미리 보기 만드는 중...</h2>"
+
+#: widgets/previewwidget.cpp:214
+#, kde-format
+msgid "<p>Can not open preview image<br/>'%1'</p>."
+msgstr "<p>미리 보기 그림을 열 수 없음<br/> '%1'</p>"
+
+#: widgets/previewwidget.cpp:216
+msgid "Error loading preview file"
+msgstr "미리 보기 파일을 불러오는 중 오류 발생"
+
+#: widgets/previewwidget.cpp:276
+msgid "Original Image"
+msgstr "원본 사진"
+
+#: widgets/previewwidget.cpp:282
+msgid "Corrected Image"
+msgstr "수정된 사진"
+
+#: widgets/previewwidget.cpp:288
+msgid "Correction Mask"
+msgstr "수정 마스크"
+
+#: widgets/previewwidget.cpp:294
+msgid "No image selected"
+msgstr "사진을 선택하지 않았음"
+
+#: widgets/storagesettingsbox.cpp:65
+msgid "Storage Settings"
+msgstr "저장소 설정"
+
+#: widgets/storagesettingsbox.cpp:67
+msgid ""
+"<p>These settings control the storage of the corrected images. There are "
+"three modes to choose from:</p><p><ul><li><b>Subfolder:</b> The corrected "
+"images will be saved in a subfolder under the current album path.</"
+"li><li><b>Prefix:</b> A custom prefix will be added to the corrected image.</"
+"li><li><b>Suffix:</b> A custom suffix will be added to the corrected image.</"
+"li><li><b>Overwrite:</b> All original images will be replaced.</li></ul></"
+"p><p>Each of the three modes allows you to add an optional keyword to the "
+"image metadata.</p>"
+msgstr ""
+"<p>이 설정은 수정된 사진의 저장 방식을 결정합니다. 다음 모드를 선택할 수 있습"
+"니다:</p> <p> <ul> <li><b>하위 폴더:</b> 현재 앨범 경로 아래의 하위 폴더에 수"
+"정된 사진을 저장합니다.</li> <li><b>접두사:</b> 수정된 사진 파일 이름에 접두"
+"사를 추가합니다.</li> <li><b>접미사:</b> 수정된 사진 파일 이름에 접미사를 추"
+"가합니다.</li> <li><b>덮어쓰기:</b> 원본 사진 파일을 덮어씁니다.</li> </ul> "
+"</p> <p>각각 모드에서는 사진 메타데이터에 키워드를 추가할 수 있습니다.</p>"
+
+#: widgets/storagesettingsbox.cpp:83
+msgid "Save in Subfolder"
+msgstr "하위 폴더에 저장"
+
+#: widgets/storagesettingsbox.cpp:84
+msgid "Add Prefix"
+msgstr "접두사 추가"
+
+#: widgets/storagesettingsbox.cpp:85
+msgid "Add Suffix"
+msgstr "접미사 추가"
+
+#: widgets/storagesettingsbox.cpp:86
+msgid "Overwrite"
+msgstr "덮어쓰기"
+
+#: widgets/storagesettingsbox.cpp:89
+msgid ""
+"Enter the name of the subfolder, prefix or suffix to use for the corrected "
+"images."
+msgstr "수정된 사진에 사용할 하위 폴더, 접두사, 접미사 이름을 입력하십시오."
+
+#: widgets/storagesettingsbox.cpp:91
+msgid "Add &metadata keyword"
+msgstr "메타데이터 키워드 추가(&M)"
+
+#: widgets/storagesettingsbox.cpp:93
+msgid "If checked, a custom keyword will be applied to the image metadata."
+msgstr "선택하면 사진 메타데이터에 사용자 정의 키워드를 추가합니다."
+
+#: widgets/storagesettingsbox.cpp:96
+msgid "Enter the name of the custom keyword here..."
+msgstr "사용자 정의 키워드 이름을 입력하십시오..."
+
+#: widgets/unprocessedsettingsbox.cpp:56
+msgid "Unprocessed Image Handling"
+msgstr "처리되지 않은 사진 처리"
+
+#: widgets/unprocessedsettingsbox.cpp:58
+msgid ""
+"<p>These settings control the handling of unprocessed images when running in "
+"test-mode. To speed up the final correction, unprocessed images can be "
+"removed from the list, so that they are not analyzed again. There are three "
+"modes to choose from:</p><p><ul><li><b>Ask the user:</b> A popup window will "
+"appear to ask for further actions.</li><li><b>Keep in file list:</b> All "
+"unprocessed images will be kept in the list.</li><li><b>Remove from file "
+"list:</b> All unprocessed images are removed after the test run.</li></ul></"
+"p>"
+msgstr ""
+"<p>이 설정은 테스트 모드 실행 후 처리되지 않은 사진 처리 방법을 결정합니다. "
+"최종 보정의 속도를 빠르게 하기 위해서 처리되지 않은 사진을 목록에서 제외하여 "
+"다시 분석되지 않도록 할 수 있습니다. 다음 모드 중에서 선택할 수 있습니다:</"
+"p> <p> <ul> <li><b>사용자에게 묻기:</b> 이후 동작을 결정할 팝업 창을 표시합니"
+"다.</li> <li><b>파일 목록에 유지:</b> 모든 처리되지 않은 사진을 목록에 그대"
+"로 둡니다.</li> <li><b>목록에서 삭제:</b> 테스트 모드에서 처리되지 않은 사진"
+"을 목록에서 삭제합니다.</li> </ul> </p>"
+
+#: widgets/unprocessedsettingsbox.cpp:76
+msgid "&Ask the user"
+msgstr "사용자에게 묻기(&A)"
+
+#: widgets/unprocessedsettingsbox.cpp:77
+msgid ""
+"If checked, the user will be asked to keep or remove unprocessed images."
+msgstr "선택하면 처리되지 않은 사진 처리 방법을 사용자에게 물어 봅니다."
+
+#: widgets/unprocessedsettingsbox.cpp:81
+msgid "&Keep in file list"
+msgstr "파일 목록에 유지(&K)"
+
+#: widgets/unprocessedsettingsbox.cpp:82
+msgid ""
+"If checked, unprocessed images will be kept in the file list after the test-"
+"run."
+msgstr "선택하면 테스트 실행 이후 처리되지 않은 사진을 파일 목록에 유지합니다."
+
+#: widgets/unprocessedsettingsbox.cpp:86
+msgid "&Remove from file list"
+msgstr "목록에서 삭제(&R)"
+
+#: widgets/unprocessedsettingsbox.cpp:87
+msgid ""
+"If checked, unprocessed images will be removed from the file list after the "
+"test-run."
+msgstr ""
+"선택하면 테스트 실행 이후 처리되지 않은 사진을 파일 목록에서 삭제합니다."

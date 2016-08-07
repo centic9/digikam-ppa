@@ -258,9 +258,14 @@ void TagsManager::slotItemChanged()
 
 void TagsManager::slotAddAction()
 {
-    TAlbum* const parent = d->tagMngrView->currentAlbum();
+    TAlbum*       parent = d->tagMngrView->currentAlbum();
     QString       title, icon;
     QKeySequence  ks;
+
+    if(!parent)
+    {
+        parent = static_cast<TAlbum*>(d->tagMngrView->albumForIndex(d->tagMngrView->model()->index(0,0)));
+    }
 
     if (!TagEditDlg::tagCreate(kapp->activeWindow(), parent, title, icon, ks))
     {

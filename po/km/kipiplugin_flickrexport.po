@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
 "PO-Revision-Date: 2012-07-09 11:16+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -146,75 +146,79 @@ msgstr "ផ្ទៀង​ផ្ទាត់​ភាព​ត្រឹមត្
 msgid "Getting the Token from the server"
 msgstr "ទទួល​យក​ថូខឹន​ពី​ម៉ាស៊ីន​បម្រើ​​"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr ""
+
+#: flickrtalker.cpp:799
 msgid "No photo specified"
 msgstr "គ្មាន​រូបថត​ដែល​បាន​បញ្ជាក់​​ឡើយ​"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 msgid "General upload failure"
 msgstr "ភាព​បរាជ័យ​ផ្ទុក​ឡើង​ទូទៅ​​"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 msgid "Filesize was zero"
 msgstr "ទំហំ​ឯកសារ​សូន្យ​"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 msgid "Filetype was not recognized"
 msgstr "ប្រភេទ​ឯកសារ​មិន​ត្រូវ​បាន​ទទួល​ស្គាល់​​"
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 msgid "User exceeded upload limit"
 msgstr "ព្រំដែន​ផ្ទុក​ឡើង​លើស​អ្នក​ប្រើ​"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "ហត្ថលេខា​មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 msgid "Missing signature"
 msgstr "បាត់​ហត្ថលេខា​"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr "ចូល​បាន​បរាជ័យ​​ / ផ្ទៀង​ផ្ទាត់​​ថូខឹន​មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 msgid "Invalid API Key"
 msgstr "សោ​​ API ​មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 msgid "Service currently unavailable"
 msgstr "គ្មាន​សេវា​ពេល​បច្ចុប្បន្ន​​"
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 msgid "Invalid Frob"
 msgstr "Frob មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 msgid "Format \"xxx\" not found"
 msgstr "រក​មិន​ឃើញ​​ទ្រង់ទ្រាយ​​ \"xxx\" ​"
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 msgid "Method \"xxx\" not found"
 msgstr "រក​មិន​ឃើញ​​វិធីសាស្ត្រ​ \"xxx\"​"
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 msgid "Invalid SOAP envelope"
 msgstr "​SOAP envelope មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr "ហៅ​វិធីសាស្ត្រ​ XML-RPC មិន​ត្រឹមត្រូវ​"
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr "ឥឡូវ​ វិធីសាស្ត្រ​ POST ត្រូវ​បាន​ទាមទារ​ សម្រាប់ setters ទាំងអស់​"
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "មិន​ស្គាល់​កំហុស​"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -223,38 +227,38 @@ msgstr ""
 "កំហុស​បាន​កើត​ឡើង​ ៖​​ %1\n"
 "មិន​អាច​ធ្វើ​បន្ត​ទៀត​ឡើយ​ ។"
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "សរសេរ​"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "អាន​"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "លុប​"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr "Your token is invalid. Would you like to get a new token to proceed?\n"
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr "បាន​បរាជ័យ​​ការ​បង្កើត​ PhotoSet ៖"
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr "បាន​បរាជ័យ​ ដើម្បី​ប្រ​មូល​យក​​បញ្ជី​សំណុំ​រូប​ថត​ ។​"
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "បាន​បរាជ័យ​ ដើម្បី​ផ្ទុក​រូបថត​ឡើង​​"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr "បាន​បរាជ័យ​ ដើម្បី​សួរ​ព័ត៌មាន​រូបថត​"
 
@@ -538,16 +542,16 @@ msgstr "អ្នក​អភិវឌ្ឍន៍​​​"
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;ស្ទ្រីម​រូប​ថត​តែ​ប៉ុណ្ណោះ​​&gt;​"
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 msgid "Flickr Export"
 msgstr "ការ​នាំចេញ​ Flickr"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Failed to Fetch Photoset information from %1. %2\n"
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

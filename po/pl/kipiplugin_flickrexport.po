@@ -10,15 +10,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-05 01:54+0000\n"
-"PO-Revision-Date: 2015-05-23 08:18+0200\n"
+"POT-Creation-Date: 2015-09-14 01:52+0000\n"
+"PO-Revision-Date: 2015-09-19 06:37+0100\n"
 "Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
 "Language-Team: Polish <kde-i18n-doc@kde.org>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2);\n"
 
@@ -156,75 +156,79 @@ msgstr "Uwierzytelnianie użytkownika w sieci"
 msgid "Getting the Token from the server"
 msgstr "Odbieranie tokena z serwera"
 
-#: flickrtalker.cpp:787
+#: flickrtalker.cpp:728
+msgid "File Size exceeds maximum allowed file size."
+msgstr "Rozmiar pliku przekracza dopuszczalny rozmiar."
+
+#: flickrtalker.cpp:799
 msgid "No photo specified"
 msgstr "Brak zaznaczonych zdjęć"
 
-#: flickrtalker.cpp:791
+#: flickrtalker.cpp:803
 msgid "General upload failure"
 msgstr "Ogólny błąd wysyłania"
 
-#: flickrtalker.cpp:795
+#: flickrtalker.cpp:807
 msgid "Filesize was zero"
 msgstr "Rozmiar pliku wynosi zero"
 
-#: flickrtalker.cpp:799
+#: flickrtalker.cpp:811
 msgid "Filetype was not recognized"
 msgstr "Nierozpoznany typ pliku"
 
-#: flickrtalker.cpp:803
+#: flickrtalker.cpp:815
 msgid "User exceeded upload limit"
 msgstr "Użytkownik przekroczył limit wysyłania"
 
-#: flickrtalker.cpp:807
+#: flickrtalker.cpp:819
 msgid "Invalid signature"
 msgstr "Nieprawidłowa sygnatura"
 
-#: flickrtalker.cpp:811
+#: flickrtalker.cpp:823
 msgid "Missing signature"
 msgstr "Brak sygnatury"
 
-#: flickrtalker.cpp:815
+#: flickrtalker.cpp:827
 msgid "Login Failed / Invalid auth token"
 msgstr "Logowanie nieudane / Nieprawidłowy znacznik autoryzacji"
 
-#: flickrtalker.cpp:819
+#: flickrtalker.cpp:831
 msgid "Invalid API Key"
 msgstr "Nieprawidłowy klucz API"
 
-#: flickrtalker.cpp:823
+#: flickrtalker.cpp:835
 msgid "Service currently unavailable"
 msgstr "Usługa aktualnie niedostępna"
 
-#: flickrtalker.cpp:827
+#: flickrtalker.cpp:839
 msgid "Invalid Frob"
 msgstr "Nieprawidłowy Frob"
 
-#: flickrtalker.cpp:831
+#: flickrtalker.cpp:843
 msgid "Format \"xxx\" not found"
 msgstr "Format \"xxx\" nie znaleziony"
 
-#: flickrtalker.cpp:835
+#: flickrtalker.cpp:847
 msgid "Method \"xxx\" not found"
 msgstr "Metoda \"xxx\" nie znaleziona"
 
-#: flickrtalker.cpp:839
+#: flickrtalker.cpp:851
 msgid "Invalid SOAP envelope"
 msgstr "Nieprawidłowa otoczka SOAP"
 
-#: flickrtalker.cpp:843
+#: flickrtalker.cpp:855
 msgid "Invalid XML-RPC Method Call"
 msgstr "Nieprawidłowa metoda wywołania XML-RPC"
 
-#: flickrtalker.cpp:847
+#: flickrtalker.cpp:859
 msgid "The POST method is now required for all setters"
 msgstr "Metoda POST jest teraz wymagana dla wszystkich użytkowników"
 
-#: flickrtalker.cpp:851
+#: flickrtalker.cpp:863
 msgid "Unknown error"
 msgstr "Nieznany błąd"
 
-#: flickrtalker.cpp:856
+#: flickrtalker.cpp:868
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -233,40 +237,40 @@ msgstr ""
 "Wystąpił błąd: %1\n"
 "Nie można kontynuować."
 
-#: flickrtalker.cpp:1076
+#: flickrtalker.cpp:1088
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "zapis"
 
-#: flickrtalker.cpp:1080
+#: flickrtalker.cpp:1092
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "odczyt"
 
-#: flickrtalker.cpp:1084
+#: flickrtalker.cpp:1096
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "usunięcie"
 
-#: flickrtalker.cpp:1115
+#: flickrtalker.cpp:1127
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 "Twój token jest niewłaściwy. Czy chcesz odebrać nowy token, aby "
 "kontynuować?\n"
 
-#: flickrtalker.cpp:1273
+#: flickrtalker.cpp:1285
 msgid "PhotoSet creation failed: "
 msgstr "Tworzenie zbioru zdjęć nie powiodło się: "
 
-#: flickrtalker.cpp:1368
+#: flickrtalker.cpp:1380
 msgid "Failed to fetch list of photo sets."
 msgstr "Nie udało się pobrać listy zbiorów zdjęć."
 
-#: flickrtalker.cpp:1448
+#: flickrtalker.cpp:1460
 msgid "Failed to upload photo"
 msgstr "Nie udało się przesłać zdjęcia"
 
-#: flickrtalker.cpp:1516
+#: flickrtalker.cpp:1528
 msgid "Failed to query photo information"
 msgstr "Błąd podczas sprawdzania informacji o zdjęciu"
 
@@ -546,16 +550,16 @@ msgstr "Programista"
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Tylko strumień zdjęć&gt;"
 
-#: flickrwindow.cpp:837
+#: flickrwindow.cpp:830
 msgid "Flickr Export"
 msgstr "Eksport do Flickr"
 
-#: flickrwindow.cpp:856
+#: flickrwindow.cpp:848
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Nie można pobrać informacji ze zbioru zdjęć %1. %2\n"
 
-#: flickrwindow.cpp:861
+#: flickrwindow.cpp:853
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"

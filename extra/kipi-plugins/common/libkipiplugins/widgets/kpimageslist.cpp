@@ -6,7 +6,7 @@
  * Date        : 2008-05-21
  * Description : widget to display an imagelist
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2010 by Andi Clemens <andi dot clemens at googlemail dot com>
  * Copyright (C) 2009-2010 by Luka Renko <lure at kubuntu dot org>
  *
@@ -841,9 +841,9 @@ void KPImagesList::slotAddImages(const KUrl::List& list)
 
         while (*iter)
         {
-            KPImagesListViewItem* item = dynamic_cast<KPImagesListViewItem*>(*iter);
+            KPImagesListViewItem* const item = dynamic_cast<KPImagesListViewItem*>(*iter);
 
-            if (item->url() == imageUrl)
+            if (item && item->url() == imageUrl)
             {
                 found = true;
             }
@@ -955,10 +955,14 @@ void KPImagesList::slotMoveDownItems()
         return;
     }
 
-    QTreeWidgetItem* temp = listView()->takeTopLevelItem(belowIndex.row());
+    QTreeWidgetItem* const temp = listView()->takeTopLevelItem(belowIndex.row());
     listView()->insertTopLevelItem(curIndex.row(), temp);
-    // this is a quick fix. We loose the extra tags in flickr upload, but at list we don't get a crash
-    dynamic_cast<KIPIPlugins::KPImagesListViewItem*>(temp)->updateItemWidgets();
+
+    // This is a quick fix. We can loose extra tags in uploader, but at least we don't get a crash
+    KIPIPlugins::KPImagesListViewItem* const uw = dynamic_cast<KIPIPlugins::KPImagesListViewItem*>(temp);
+
+    if (uw)
+        uw->updateItemWidgets();
 
     emit signalImageListChanged();
     emit signalMoveDownItem();
@@ -1092,9 +1096,9 @@ void KPImagesList::removeItemByUrl(const KUrl& url)
 
         while (*it)
         {
-            KPImagesListViewItem* item = dynamic_cast<KPImagesListViewItem*>(*it);
+            KPImagesListViewItem* const item = dynamic_cast<KPImagesListViewItem*>(*it);
 
-            if (item->url() == url)
+            if (item && item->url() == url)
             {
                 emit signalRemovingItem(item);
 
@@ -1123,11 +1127,14 @@ KUrl::List KPImagesList::imageUrls(bool onlyUnprocessed) const
 
     while (*it)
     {
-        KPImagesListViewItem* item = dynamic_cast<KPImagesListViewItem*>(*it);
+        KPImagesListViewItem* const item = dynamic_cast<KPImagesListViewItem*>(*it);
 
-        if ((onlyUnprocessed == false) || (item->state() != KPImagesListViewItem::Success))
+        if (item)
         {
-            list.append(item->url());
+            if ((onlyUnprocessed == false) || (item->state() != KPImagesListViewItem::Success))
+            {
+                list.append(item->url());
+            }
         }
 
         ++it;

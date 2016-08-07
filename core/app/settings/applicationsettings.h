@@ -7,7 +7,7 @@
  * Description : application settings interface
  *
  * Copyright (C) 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  *
@@ -242,6 +242,9 @@ public:
      */
     bool getIconShowOverlays() const;
 
+    void setIconShowFullscreen(bool val);
+    bool getIconShowFullscreen() const;
+
     void setPreviewSettings(const PreviewSettings& settings);
     PreviewSettings getPreviewSettings() const;
 
@@ -378,6 +381,9 @@ public:
 
     void setApplySidebarChangesDirectly(bool val);
     bool getApplySidebarChangesDirectly() const;
+
+    void setScrollItemToCenter(bool val);
+    bool getScrollItemToCenter() const;
 
     /**
      * Defines the way in which string comparisons are performed.

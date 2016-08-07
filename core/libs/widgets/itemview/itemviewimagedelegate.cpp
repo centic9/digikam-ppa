@@ -451,14 +451,14 @@ void ItemViewImageDelegate::drawImageFormat(QPainter* p, const QRect& r, const Q
         p->setPen(QPen(Qt::gray));
         p->setOpacity(0.50);
 
-        QRect bRect = p->boundingRect(r, Qt::AlignTop | Qt::AlignHCenter, f.toUpper());
-        bRect.adjust(-1, -1, 1, 1);
+        QRect bRect = p->boundingRect(r, Qt::AlignBottom | Qt::AlignHCenter, f.toUpper());
+        bRect.adjust(1, 1, -1, -1);
         bRect.translate(0, 1);
 
         p->fillRect(bRect, Qt::SolidPattern);
         p->setPen(QPen(Qt::white));
         p->setOpacity(1.0);
-        p->drawText(bRect, Qt::AlignTop | Qt::AlignHCenter, f.toUpper());
+        p->drawText(bRect, Qt::AlignBottom | Qt::AlignHCenter, f.toUpper());
 
         p->restore();
     }
@@ -492,7 +492,7 @@ void ItemViewImageDelegate::drawPanelSideIcon(QPainter* p, bool left, bool right
 {
     Q_D(const ItemViewImageDelegate);
 
-    int iconSize = KIconLoader::SizeSmall;
+    const int iconSize = qBound(16, d->rect.width() / 8 - 2, 48);
 
     if (left)
     {
@@ -513,7 +513,7 @@ void ItemViewImageDelegate::drawGeolocationIndicator(QPainter* p, const QRect& r
 {
     if (!r.isNull())
     {
-        QIcon icon = KIconLoader::global()->loadIcon("applications-internet", KIconLoader::NoGroup, KIconLoader::SizeSmall);
+        QIcon icon = KIconLoader::global()->loadIcon("applications-internet", KIconLoader::NoGroup, r.width());
         qreal op   = p->opacity();
         p->setOpacity(0.5);
         icon.paint(p, r);

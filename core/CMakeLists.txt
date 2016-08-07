@@ -4,6 +4,7 @@
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
+cmake_minimum_required(VERSION 2.8.9)
 project(digikam)
 
 message(STATUS "----------------------------------------------------------------------------------")
@@ -11,6 +12,7 @@ message(STATUS "Starting CMake configuration for: digiKam")
 
 option(ENABLE_INTERNALMYSQL     "Build digiKam with internal MySQL server executable (default=OFF)"              OFF)
 option(ENABLE_LCMS2             "Build digiKam with LCMS2 instead LCMS1 (default=OFF)"                           OFF)
+option(ENABLE_OPENCV3           "Build digiKam with OpenCV3 instead OpenCV2 (default=OFF)"                       OFF)
 option(ENABLE_BALOOSUPPORT      "Build digiKam with Baloo support (default=ON)"                                  ON)
 option(ENABLE_KDEPIMLIBSSUPPORT "Build digiKam with Kdepimlibs support (default=OFF)"                            OFF)
 
@@ -27,11 +29,11 @@ option(ENABLE_IMGLOADERDEBUGMSG "Build digiKam with more internal debug message 
 
 # digiKam version
 set(DIGIKAM_MAJOR_VERSION "4")
-set(DIGIKAM_MINOR_VERSION "12")
+set(DIGIKAM_MINOR_VERSION "14")
 set(DIGIKAM_PATCH_VERSION "0")
 
 #digiKam release date
-set(DIGIKAM_RELEASE_DATE "2015-07-26")
+set(DIGIKAM_RELEASE_DATE "2015-10-11")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -121,8 +123,27 @@ find_package(Boost)
 
 # -- check OpenCV --------------------------------------------------------------------------------
 
-set(OPENCV_MIN_VERSION "2.4.9")
-DETECT_OPENCV(${OPENCV_MIN_VERSION}  core highgui objdetect contrib legacy imgproc)
+if(ENABLE_OPENCV3)
+
+    set(OPENCV_MIN_VERSION "3.0.0")
+    DETECT_OPENCV(${OPENCV_MIN_VERSION} core face highgui objdetect imgproc)
+
+    if(${OpenCV_FOUND} AND ${OpenCV_VERSION} VERSION_LESS 3.0.0)
+        message(STATUS "ENABLE_OPENCV3 option is enabled and OpenCV < 3.0.0 have been found. Disabled ENABLE_OPENCV3")
+        set(OpenCV_FOUND FALSE)
+    endif()
+
+else()
+
+    set(OPENCV_MIN_VERSION "2.4.9")
+    DETECT_OPENCV(${OPENCV_MIN_VERSION} core highgui objdetect contrib legacy imgproc)
+
+    if(${OpenCV_FOUND} AND ${OpenCV_VERSION} VERSION_GREATER 2.4.99)
+        message(STATUS "ENABLE_OPENCV3 option is disabled and OpenCV >= 3.0.0 have been found. Enabled ENABLE_OPENCV3")
+        set(OpenCV_FOUND FALSE)
+    endif()
+
+endif()
 
 # -- check the libkdcraw version -----------------------------------------------------------------
 
@@ -1307,6 +1328,7 @@ if(DIGIKAM_CAN_BE_COMPILED)
         ${CMAKE_CURRENT_SOURCE_DIR}/app/items/overlays/groupindicatoroverlay.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/app/items/overlays/imageratingoverlay.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/app/items/overlays/imagerotationoverlay.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/app/items/overlays/imagefsoverlay.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/app/items/overlays/imagecoordinatesoverlay.cpp
         ${CMAKE_CURRENT_SOURCE_DIR}/app/items/overlays/imageselectionoverlay.cpp
 

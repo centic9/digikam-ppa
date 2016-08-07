@@ -4,14 +4,15 @@
 # Sebastien Renard <Sebastien.Renard@digitalfox.org>, 2010.
 # Joëlle Cornavin <jcorn@free.fr>, 2010, 2011, 2012, 2013.
 # xavier <xavier.besnard@neuf.fr>, 2013.
+# Peter Potrowl <peter.potrowl@gmail.com>, 2015.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_piwigoexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
 "POT-Creation-Date: 2014-10-04 01:39+0000\n"
-"PO-Revision-Date: 2013-07-03 10:51+0200\n"
-"Last-Translator: xavier <xavier.besnard@neuf.fr>\n"
+"PO-Revision-Date: 2015-08-23 15:54+0200\n"
+"Last-Translator:  <peter.potrowl@gmail.com>\n"
 "Language-Team: French <kde-i18n-doc@kde.org>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
@@ -25,11 +26,11 @@ msgstr ""
 
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
-msgstr "Joëlle Cornavin"
+msgstr "Joëlle Cornavin, Peter Potrowl"
 
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
-msgstr "jcorn@free.fr"
+msgstr "jcorn@free.fr, peter.potrowl@gmail.com"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_piwigoexportui.rc:7
@@ -71,7 +72,7 @@ msgstr "Nom d'utilisateur ou mot de passe fourni incorrect"
 
 #: piwigotalker.cpp:480 piwigotalker.cpp:661
 msgid "Upload to Piwigo version < 2.4 is no longer supported"
-msgstr ""
+msgstr "L'import vers les versions < 2.4 de Piwigo n'est plus géré"
 
 #: piwigotalker.cpp:552 piwigotalker.cpp:637 piwigotalker.cpp:706
 #: piwigotalker.cpp:778
@@ -97,10 +98,9 @@ msgid "Photo '%1' already exists in this album."
 msgstr "La photo « %1 » existe déjà dans cet album."
 
 #: piwigotalker.cpp:822
-#, fuzzy, kde-format
-#| msgid "Upload the chunk %1 of %2"
+#, kde-format
 msgid "Upload the chunk %1/%2 of %3"
-msgstr "Envoyer le morceau %1 sur %2"
+msgstr "Envoyer le morceau %1/%2 sur %3"
 
 #: piwigotalker.cpp:858
 msgid "Warning : The full size photo cannot be uploaded."
@@ -112,10 +112,9 @@ msgid "Upload the metadata of %1"
 msgstr "Envoyer les métadonnées de %1"
 
 #: piwigotalker.cpp:932
-#, fuzzy, kde-format
-#| msgid "Invalid response received from remote Piwigo"
+#, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
-msgstr "Réponse non valable reçue du serveur distant « Piwigo »"
+msgstr "Réponse non valable reçue du serveur distant « Piwigo » (%1)"
 
 #: piwigowindow.cpp:135
 msgid "Albums"
@@ -143,7 +142,7 @@ msgstr "Hauteur maximale :"
 
 #: piwigowindow.cpp:167
 msgid "Resized JPEG quality:"
-msgstr ""
+msgstr "Qualité JPEG après redimensionnement"
 
 #: piwigowindow.cpp:227 piwigowindow.cpp:232
 msgid "Piwigo Export"
@@ -156,13 +155,6 @@ msgstr ""
 "serveur distant « Piwigo »."
 
 #: piwigowindow.cpp:236
-#, fuzzy
-#| msgid ""
-#| "(c) 2003-2005, Renchi Raju\n"
-#| "(c) 2006-2007, Colin Guthrie\n"
-#| "(c) 2006-2013, Gilles Caulier\n"
-#| "(c) 2008, Andrea Diamantini\n"
-#| "(c) 2012, Frédéric Coiffier\n"
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
@@ -174,7 +166,7 @@ msgstr ""
 "(c) 2006-2007, Colin Guthrie\n"
 "(c) 2006-2013, Gilles Caulier\n"
 "(c) 2008, Andrea Diamantini\n"
-"(c) 2012, Frédéric Coiffier\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
 
 #: piwigowindow.cpp:242
 msgid "Renchi Raju"
@@ -243,7 +235,7 @@ msgstr "Rien à envoyer - veuillez sélectionner des photos à envoyer."
 #: piwigowindow.cpp:578
 #, kde-format
 msgid "The file %1 is not a supported image or video format"
-msgstr ""
+msgstr "Le fichier %1 n'a pas un format image ou vidéo géré"
 
 #: piwigowindow.cpp:582
 #, kde-format
@@ -251,10 +243,8 @@ msgid "Uploading file %1"
 msgstr "Envoi du fichier %1"
 
 #: piwigowindow.cpp:601
-#, fuzzy
-#| msgid "Failed to upload photo into remote piwigo. "
 msgid "Failed to upload media into remote piwigo. "
-msgstr "Impossible d'envoyer la photo vers le serveur distant « Piwigo ». "
+msgstr "Impossible d'envoyer le média vers le piwigo distant."
 
 #: piwigowindow.cpp:604
 msgid ""

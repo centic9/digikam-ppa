@@ -7,7 +7,7 @@
  * Description : application settings interface
  *
  * Copyright (C) 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
  * Copyright (C) 2014      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
@@ -155,6 +155,7 @@ void ApplicationSettings::readSettings()
     d->iconShowComments                 = group.readEntry(d->configIconShowCommentsEntry,             true);
     d->iconShowTags                     = group.readEntry(d->configIconShowTagsEntry,                 true);
     d->iconShowOverlays                 = group.readEntry(d->configIconShowOverlaysEntry,             true);
+    d->iconShowFullscreen               = group.readEntry(d->configIconShowFullscreenEntry,           true);
     d->iconShowRating                   = group.readEntry(d->configIconShowRatingEntry,               true);
     d->iconShowImageFormat              = group.readEntry(d->configIconShowImageFormatEntry,          false);
     d->iconShowCoordinates              = group.readEntry(d->configIconShowCoordinatesEntry,          false);
@@ -216,9 +217,9 @@ void ApplicationSettings::readSettings()
     {
         d->previewSettings.quality = PreviewSettings::FastPreview;
     }
+
     d->previewShowIcons                 = group.readEntry(d->configPreviewShowIconsEntry,             true);
     d->showThumbbar                     = group.readEntry(d->configShowThumbbarEntry,                 true);
-
     d->showFolderTreeViewItemsCount     = group.readEntry(d->configShowFolderTreeViewItemsCountEntry, false);
 
     // ---------------------------------------------------------------------
@@ -230,6 +231,7 @@ void ApplicationSettings::readSettings()
     d->showTrashDeleteDialog            = group.readEntry(d->configShowTrashDeleteDialogEntry,                       true);
     d->showPermanentDeleteDialog        = group.readEntry(d->configShowPermanentDeleteDialogEntry,                   true);
     d->sidebarApplyDirectly             = group.readEntry(d->configApplySidebarChangesDirectlyEntry,                 false);
+    d->scrollItemToCenter               = group.readEntry(d->configScrollItemToCenterEntry,                          false);
     d->stringComparisonType             = (StringComparisonType) group.readEntry(d->configStringComparisonTypeEntry, (int) Natural);
     setApplicationStyle(group.readEntry(d->configApplicationStyleEntry, kapp->style()->objectName()));
 
@@ -298,6 +300,7 @@ void ApplicationSettings::saveSettings()
     group.writeEntry(d->configIconShowCommentsEntry,                   d->iconShowComments);
     group.writeEntry(d->configIconShowTagsEntry,                       d->iconShowTags);
     group.writeEntry(d->configIconShowOverlaysEntry,                   d->iconShowOverlays);
+    group.writeEntry(d->configIconShowFullscreenEntry,                 d->iconShowFullscreen);
     group.writeEntry(d->configIconShowRatingEntry,                     d->iconShowRating);
     group.writeEntry(d->configIconShowImageFormatEntry,                d->iconShowImageFormat);
     group.writeEntry(d->configIconShowCoordinatesEntry,                d->iconShowCoordinates);
@@ -342,6 +345,7 @@ void ApplicationSettings::saveSettings()
     if (d->previewSettings.quality == PreviewSettings::HighQualityPreview)
     {
         group.writeEntry(d->configPreviewLoadFullImageSizeEntry, true);
+
         switch (d->previewSettings.rawLoading)
         {
             case PreviewSettings::RawPreviewAutomatic:
@@ -362,6 +366,7 @@ void ApplicationSettings::saveSettings()
     {
         group.writeEntry(d->configPreviewLoadFullImageSizeEntry, false);
     }
+
     group.writeEntry(d->configPreviewShowIconsEntry,                   d->previewShowIcons);
     group.writeEntry(d->configShowThumbbarEntry,                       d->showThumbbar);
 
@@ -376,6 +381,7 @@ void ApplicationSettings::saveSettings()
     group.writeEntry(d->configShowTrashDeleteDialogEntry,              d->showTrashDeleteDialog);
     group.writeEntry(d->configShowPermanentDeleteDialogEntry,          d->showPermanentDeleteDialog);
     group.writeEntry(d->configApplySidebarChangesDirectlyEntry,        d->sidebarApplyDirectly);
+    group.writeEntry(d->configScrollItemToCenterEntry,                 d->scrollItemToCenter);
     group.writeEntry(d->configStringComparisonTypeEntry,               (int) d->stringComparisonType);
     group.writeEntry(d->configApplicationStyleEntry,                   d->applicationStyle);
 

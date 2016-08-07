@@ -81,6 +81,7 @@ const QString ApplicationSettings::Private::configIconShowImageFormatEntry("Icon
 const QString ApplicationSettings::Private::configIconShowCoordinatesEntry("Icon Show Coordinates");
 const QString ApplicationSettings::Private::configIconShowAspectRatioEntry("Icon Show Aspect Ratio");
 const QString ApplicationSettings::Private::configIconShowOverlaysEntry("Icon Show Overlays");
+const QString ApplicationSettings::Private::configIconShowFullscreenEntry("Icon Show Fullscreen");
 const QString ApplicationSettings::Private::configIconViewFontEntry("IconView Font");
 const QString ApplicationSettings::Private::configToolTipsFontEntry("ToolTips Font");
 const QString ApplicationSettings::Private::configShowToolTipsEntry("Show ToolTips");
@@ -127,6 +128,7 @@ const QString ApplicationSettings::Private::configUseTrashEntry("Use Trash");
 const QString ApplicationSettings::Private::configShowTrashDeleteDialogEntry("Show Trash Delete Dialog");
 const QString ApplicationSettings::Private::configShowPermanentDeleteDialogEntry("Show Permanent Delete Dialog");
 const QString ApplicationSettings::Private::configApplySidebarChangesDirectlyEntry("Apply Sidebar Changes Directly");
+const QString ApplicationSettings::Private::configScrollItemToCenterEntry("Scroll Current Item To Center");
 const QString ApplicationSettings::Private::configSyncBalootoDigikamEntry("Sync Baloo to Digikam");
 const QString ApplicationSettings::Private::configSyncDigikamtoBalooEntry("Sync Digikam to Baloo");
 const QString ApplicationSettings::Private::configStringComparisonTypeEntry("String Comparison Type");
@@ -139,6 +141,7 @@ ApplicationSettings::Private::Private(ApplicationSettings* const q)
       showTrashDeleteDialog(false),
       showPermanentDeleteDialog(false),
       sidebarApplyDirectly(false),
+      scrollItemToCenter(false),
       iconShowName(false),
       iconShowSize(false),
       iconShowDate(false),
@@ -148,6 +151,7 @@ ApplicationSettings::Private::Private(ApplicationSettings* const q)
       iconShowResolution(false),
       iconShowTags(false),
       iconShowOverlays(false),
+      iconShowFullscreen(false),
       iconShowRating(false),
       iconShowImageFormat(false),
       iconShowCoordinates(false),
@@ -246,6 +250,7 @@ void ApplicationSettings::Private::init()
     showTrashDeleteDialog               = true;
     showPermanentDeleteDialog           = true;
     sidebarApplyDirectly                = false;
+    scrollItemToCenter                  = true;
 
     iconShowName                        = false;
     iconShowSize                        = false;
@@ -257,6 +262,7 @@ void ApplicationSettings::Private::init()
     iconShowAspectRatio                 = false;
     iconShowTags                        = true;
     iconShowOverlays                    = true;
+    iconShowFullscreen                  = true;
     iconShowRating                      = true;
     iconShowImageFormat                 = false;
     iconShowCoordinates                 = false;
