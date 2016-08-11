@@ -9,7 +9,7 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libmarble-dev,
  libkipi-dev (>= 4:4.12), libkexiv2-dev (>= 4:4.12), libkdcraw-dev (>= 4:4.12), libksane-dev,
  baloo-dev, libkfilemetadata-dev,
- libqt4-dev, libqt4-opengl-dev, libgl1-mesa-dev, libglu1-mesa-dev,
+ libqt4-dev, libqt4-opengl-dev [!armhf], libgl1-mesa-dev [!armhf], libglu1-mesa-dev [!armhf],
  libqtwebkit-dev, libqtgstreamer-dev,
  libmagickcore-dev, imagemagick,
  libhupnp-dev,
@@ -19,11 +19,12 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libqca2-dev,
  libqjson-dev,
  libpng-dev, libtiff-dev, libjpeg-dev,
- mysql-server-core-5.6 | virtual-mysql-server-core,
+ mysql-server-core-5.7 | virtual-mysql-server-core,
  libglib2.0-dev, libgphoto2-dev (>= 2.4),
- libusb-1.0-0-dev [!kfreebsd-any], libusb2-dev [kfreebsd-any],
+ libusb-1.0-0-dev [!kfreebsd-any],
  liblcms2-dev, liblqr-1-0-dev,
  libopencv-dev (>= 2.4.9),
+ libjasper-dev,
  liblensfun-dev (>= 0.2.7),
  libsqlite3-dev,
  libsqlite0-dev,
@@ -128,8 +129,8 @@ Description: image viewer/editor for KDE
 Package: digikam-data
 Architecture: all
 Depends: ${misc:Depends}, opencv-data
-Breaks: kipi-plugins-common (<< 4:3.1.0-2~)
-Replaces: kipi-plugins-common (<< 4:3.1.0-2~)
+Breaks: kipi-plugins-common (<< 4:3.1.0-2~), libkface-data (<< 4:15.12~)
+Replaces: kipi-plugins-common (<< 4:3.1.0-2~), libkface-data (<< 4:15.12~)
 Conflicts: ${digikam:Conflicts}
 Description: digiKam architecture-independant data
  Contains the significant amount of architecture-independent data that is
