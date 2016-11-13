@@ -19,7 +19,8 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libqca2-dev,
  libqjson-dev,
  libpng-dev, libtiff-dev, libjpeg-dev,
- mysql-server-core-5.7 | virtual-mysql-server-core,
+ mysql-server-core-5.7 | mysql-server-core | virtual-mysql-server-core,
+ shared-desktop-ontologies,
  libglib2.0-dev, libgphoto2-dev (>= 2.4),
  libusb-1.0-0-dev [!kfreebsd-any],
  liblcms2-dev, liblqr-1-0-dev,
@@ -31,13 +32,18 @@ Build-Depends: debhelper (>= 9), pkg-kde-tools (>= 0.9), pkg-config, cmake (>= 2
  libpgf-dev,
  flex, bison, libeigen3-dev (>= 3.1.2),
  libboost-graph-dev,
- libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev
-#
-# Missing optional build-deps:
-#   libkgeomap -- not packaged (2015-12-19)
-#   libmediawiki
-#   libkvkontatke
-#
+ libx11-dev, libxrandr-dev, libexpat1-dev | libexpat-dev,
+# for libksane:
+ libsane-dev,
+# for libkexiv2:
+ libexiv2-dev,
+ dh-apparmor,
+ valgrind,
+ libkface-dev,
+ baloo-dev,
+ libkfilemetadata-dev,
+ libusb-dev, 
+ libgupnp-av-1.0-dev
 Build-Conflicts: libgraphicsmagick1-dev
 Standards-Version: 3.9.6
 Vcs-Svn: svn://anonscm.debian.org/pkg-kde/kde-extras/digikam/trunk
@@ -226,3 +232,121 @@ Description: kipi-plugins architecture-independent data
  Its aim is to share image plugins among graphic applications.
  .
  The architecture independent data needed for the kipi-plugins package.
+
+#Package: libkface3
+#Architecture: any
+#Section: libs
+#Depends: ${misc:Depends}, ${shlibs:Depends}, libkface-data, libopencv-photo2.4
+#Description: LibFace wrapper for Qt/C++
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the shared library to be used by applications.
+
+#Package: libkface-data
+#Architecture: all
+#Section: libs
+#Depends: ${misc:Depends}
+#Description: Data files for libkface
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the data files of the LibKFace library
+
+#Package: libkface-dev
+#Architecture: any
+#Section: libdevel
+#Depends: ${misc:Depends}, libkface3 (= ${binary:Version})
+#Description: Development files for libkface
+# Libkface is a Qt/C++ wrapper around LibFace library to perform face 
+# recognition and detection over pictures
+# .
+# This package contains the development headers and files needed to create
+# applications that use the LibKFace library
+
+Package: libkgeomap3
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap-data
+Description: World-map wrapper to browse and arrange photos over a map
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the shared library to be used by applications.
+
+Package: libkgeomap-data
+Architecture: all
+Section: libs
+Depends: ${misc:Depends}
+Description: Data files for libkgeomap
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the data files of the libkgeomap library
+
+Package: libkgeomap-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, ${shlibs:Depends}, libkgeomap3 (= ${binary:Version})
+Description: Development files for libkgeomap
+ Libkgeomap is a wrapper around different world-map components, to browse and
+ arrange photos over a map.
+ .
+ Currently supported map engines are:
+  - Marble
+  - OpenstreetMap (via Marble)
+  - GoogleMap
+ .
+ This package contains the development headers and files needed to create
+ applications that use the KGeoMap library
+
+Package: libmediawiki1
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: KDE C++ interface for MediaWiki based web services (runtime)
+ libmediawiki is a KDE C++ interface for MediaWiki based web service as 
+ wikipedia.org
+ .
+ This package contains the shared library to be used by applications
+
+Package: libmediawiki-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, libmediawiki1 (= ${binary:Version})
+Description: Development files for libmediawiki
+ libmediawiki is a KDE C++ interface for MediaWiki based web service as wikipedia.org
+ .
+ This package contains the development headers and files needed to create
+ applications that use the mediawiki library
+
+Package: libkvkontakte1
+Architecture: any
+Section: libs
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: vkontakte.ru library
+ libkvkontakte1 is a KDE C++ library for asynchronous interaction with the
+ vkontakte.ru social network via its open API.
+ .
+ This package contains the shared library to be used by applications.
+
+Package: libkvkontakte-dev
+Architecture: any
+Section: libdevel
+Depends: ${misc:Depends}, libkvkontakte1 (= ${binary:Version})
+Description: Development files for libkvkontakte
+ libkvkontakte1 is a KDE C++ library for asynchronous interaction with the
+ vkontakte.ru social network via its open API.
+ .
+ This package contains the development headers and files needed to create
+ applications that use the kvkontakte library
