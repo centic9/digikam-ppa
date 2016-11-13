@@ -6,7 +6,7 @@
  * Date        : 2005-04-02
  * Description : showFoto setup dialog.
  *
- * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,17 +21,19 @@
  *
  * ============================================================ */
 
-#ifndef SETUP_H
-#define SETUP_H
+#ifndef SHOWFOTOSETUP_H
+#define SHOWFOTOSETUP_H
 
-// KDE includes
+// Local includes
 
-#include <kpagedialog.h>
+#include "dconfigdlg.h"
+
+using namespace Digikam;
 
 namespace ShowFoto
 {
 
-class Setup : public KPageDialog
+class Setup : public DConfigDlg
 {
     Q_OBJECT
 
@@ -63,6 +65,7 @@ public:
 private Q_SLOTS:
 
     void slotOkClicked();
+    void slotHelp();
 
 private:
 
@@ -77,4 +80,4 @@ private:
 
 }   // namespace ShowFoto
 
-#endif  /* SETUP_H  */
+#endif // SHOWFOTOSETUP_H

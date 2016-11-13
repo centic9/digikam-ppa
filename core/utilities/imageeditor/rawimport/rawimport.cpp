@@ -6,7 +6,7 @@
  * Date        : 2008-08-20
  * Description : Raw import tool
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,21 +20,17 @@
  *
  * ============================================================ */
 
-#include "rawimport.moc"
+#include "rawimport.h"
 
 // Qt includes
 
 #include <QString>
 #include <QLayout>
+#include <QIcon>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kcursor.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -67,14 +63,14 @@ public:
     DImg            postProcessedImage;
 };
 
-RawImport::RawImport(const KUrl& url, QObject* const parent)
+RawImport::RawImport(const QUrl& url, QObject* const parent)
     : EditorToolThreaded(parent), d(new Private)
 {
     d->previewWidget = new RawPreview(url, 0);
     d->settingsBox   = new RawSettingsBox(url, 0);
 
     setToolName(i18n("Raw Import"));
-    setToolIcon(SmallIcon("kdcraw"));
+    setToolIcon(QIcon::fromTheme(QLatin1String("image-x-adobe-dng")));
     setProgressMessage(i18n("Post Processing"));
     setToolView(d->previewWidget);
     setToolSettings(d->settingsBox);

@@ -8,7 +8,7 @@
  *               (icon view, items preview, media view)
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,22 +32,26 @@
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "importthumbnailbar.h"
 #include "importpreviewview.h"
 #include "thumbbardock.h"
 #include "camiteminfo.h"
 #include "importiconview.h"
-#include "mediaplayerview.h"
+#include "digikam_export.h"
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MEDIAPLAYER
+#include "mediaplayerview.h"
+#endif //HAVE_MEDIAPLAYER
+
+#ifdef HAVE_MARBLE
 #include "mapwidgetview.h"
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 namespace Digikam
 {
 
-class ImportStackedView : public QStackedWidget
+class DIGIKAM_EXPORT ImportStackedView : public QStackedWidget
 {
     Q_OBJECT
 
@@ -57,8 +61,13 @@ public:
     {
         PreviewCameraMode = 0, // previewing the set of items on the camera
         PreviewImageMode,
+#ifdef HAVE_MARBLE
+        MapWidgetMode,
+        MediaPlayerMode
+#else
         MediaPlayerMode,
         MapWidgetMode
+#endif // HAVE_MARBLE
     };
 
 public:
@@ -72,11 +81,14 @@ public:
     ImportThumbnailBar* thumbBar()          const;
     ImportIconView*     importIconView()    const;
     ImportPreviewView*  importPreviewView() const;
-    MediaPlayerView*    mediaPlayerView()   const;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     MapWidgetView*      mapWidgetView()     const;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
+
+#ifdef HAVE_MEDIAPLAYER
+    MediaPlayerView*    mediaPlayerView()   const;
+#endif //HAVE_MEDIAPLAYER
 
     bool isInSingleFileMode()   const;
     bool isInMultipleFileMode() const;

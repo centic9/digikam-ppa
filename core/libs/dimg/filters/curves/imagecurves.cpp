@@ -6,7 +6,7 @@
  * Date        : 2004-12-01
  * Description : image curves manipulation methods.
  *
- * Copyright (C) 2004-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -35,23 +35,17 @@
 
 #include <QFile>
 #include <QSharedData>
-
-// KDE includes
-
-#include <kdebug.h>
+#include <QDataStream>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "curvescontainer.h"
 #include "filteraction.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
-
-const int ImageCurves::NUM_POINTS       = 17;
-const int ImageCurves::NUM_CHANNELS     = 5;
-const int ImageCurves::MULTIPLIER_16BIT = 255;
 
 class ImageCurves::Private : public QSharedData
 {
@@ -181,20 +175,20 @@ ImageCurves& ImageCurves::operator=(const ImageCurves& other)
 
 void ImageCurves::fillFromOtherCurves(ImageCurves* const otherCurves)
 {
-    //kDebug() << "Filling this curve from other curve " << otherCurves;
+    //qCDebug(DIGIKAM_DIMG_LOG) << "Filling this curve from other curve " << otherCurves;
 
     curvesReset();
 
     // if the other curves have the same bit depth, simply copy their data
     if (isSixteenBits() == otherCurves->isSixteenBits())
     {
-        //kDebug() << "Both curves have same type: isSixteenBits = " << isSixteenBits();
+        //qCDebug(DIGIKAM_DIMG_LOG) << "Both curves have same type: isSixteenBits = " << isSixteenBits();
 
         for (int channel = 0; channel < NUM_CHANNELS; ++channel)
         {
             if (otherCurves->getCurveType(channel) == CURVE_SMOOTH)
             {
-                //kDebug() << "Other is CURVE_SMOOTH";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "Other is CURVE_SMOOTH";
                 setCurveType(channel, CURVE_SMOOTH);
 
                 for (int point = 0; point < NUM_POINTS; ++point)
@@ -209,7 +203,7 @@ void ImageCurves::fillFromOtherCurves(ImageCurves* const otherCurves)
             }
             else
             {
-                //kDebug() << "Other is CURVE_FREE";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "Other is CURVE_FREE";
                 setCurveType(channel, CURVE_FREE);
 
                 for (int i = 0 ; i <= d->segmentMax ; ++i)
@@ -222,13 +216,13 @@ void ImageCurves::fillFromOtherCurves(ImageCurves* const otherCurves)
     // other curve is 8 bit and this curve is 16 bit
     else if (isSixteenBits() && !otherCurves->isSixteenBits())
     {
-        //kDebug() << "This curve is 16 bit and the other is 8 bit";
+        //qCDebug(DIGIKAM_DIMG_LOG) << "This curve is 16 bit and the other is 8 bit";
 
         for (int channel = 0; channel < NUM_CHANNELS; ++channel)
         {
             if (otherCurves->getCurveType(channel) == CURVE_SMOOTH)
             {
-                //kDebug() << "Other is CURVE_SMOOTH";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "Other is CURVE_SMOOTH";
                 setCurveType(channel, CURVE_SMOOTH);
 
                 for (int point = 0; point < NUM_POINTS; ++point)
@@ -245,7 +239,7 @@ void ImageCurves::fillFromOtherCurves(ImageCurves* const otherCurves)
             }
             else
             {
-                //kDebug() << "Other is CURVE_FREE";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "Other is CURVE_FREE";
                 setCurveType(channel, CURVE_FREE);
 
                 for (int i = 0 ; i <= d->segmentMax ; ++i)
@@ -258,37 +252,37 @@ void ImageCurves::fillFromOtherCurves(ImageCurves* const otherCurves)
     // other curve is 16 bit and this is 8 bit
     else if (!isSixteenBits() && otherCurves->isSixteenBits())
     {
-        //kDebug() << "This curve is 8 bit and the other is 16 bit";
+        //qCDebug(DIGIKAM_DIMG_LOG) << "This curve is 8 bit and the other is 16 bit";
 
         for (int channel = 0; channel < NUM_CHANNELS; ++channel)
         {
             if (otherCurves->getCurveType(channel) == CURVE_SMOOTH)
             {
-                //kDebug() << "Other is CURVE_SMOOTH";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "Other is CURVE_SMOOTH";
                 setCurveType(channel, CURVE_SMOOTH);
 
-                //kDebug() << "Adopting points of channel " << channel;
+                //qCDebug(DIGIKAM_DIMG_LOG) << "Adopting points of channel " << channel;
                 for (int point = 0; point < NUM_POINTS; ++point)
                 {
                     QPoint p = otherCurves->getCurvePoint(channel, point);
 
-                    //kDebug() << "Point " << point << " in original is " << p;
+                    //qCDebug(DIGIKAM_DIMG_LOG) << "Point " << point << " in original is " << p;
                     if (d->isPointEnabled(p))
                     {
                         p.setX(p.x() / MULTIPLIER_16BIT);
                         p.setY(p.y() / MULTIPLIER_16BIT);
                         setCurvePoint(channel, point, p);
-                        //kDebug() << "Setting curve point " << point << " to " << getCurvePoint(channel, point);
+                        //qCDebug(DIGIKAM_DIMG_LOG) << "Setting curve point " << point << " to " << getCurvePoint(channel, point);
                     }
                     else
                     {
-                        //kDebug() << "ignoring this point";
+                        //qCDebug(DIGIKAM_DIMG_LOG) << "ignoring this point";
                     }
                 }
             }
             else
             {
-                //kDebug() << "Other is CURVE_FREE";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "Other is CURVE_FREE";
                 setCurveType(channel, CURVE_FREE);
 
                 for (int i = 0 ; i <= d->segmentMax ; ++i)
@@ -300,7 +294,7 @@ void ImageCurves::fillFromOtherCurves(ImageCurves* const otherCurves)
     }
     else
     {
-        kError() << "Bad logic error, could not fill one curve into another";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Bad logic error, could not fill one curve into another";
     }
 
     // invoke calculations once
@@ -968,14 +962,14 @@ void ImageCurves::setCurveValue(int channel, int bin, int val)
 
 void ImageCurves::setCurveValues(int channel, const QPolygon& vals)
 {
-    //kDebug() << "vals size: " << vals.size();
-    //kDebug() << "segmentMax: " << d->segmentMax + 1;
+    //qCDebug(DIGIKAM_DIMG_LOG) << "vals size: " << vals.size();
+    //qCDebug(DIGIKAM_DIMG_LOG) << "segmentMax: " << d->segmentMax + 1;
 
     if (d->curves && channel >= 0 && channel < NUM_CHANNELS)
     {
         if (vals.isEmpty())
         {
-            //kDebug() << "No curves values to assign: reset";
+            //qCDebug(DIGIKAM_DIMG_LOG) << "No curves values to assign: reset";
             curvesChannelReset(channel);
         }
         // Bits depth are different ?
@@ -985,7 +979,7 @@ void ImageCurves::setCurveValues(int channel, const QPolygon& vals)
 
             if (vals.size() == 256)
             {
-                //kDebug() << "8 to 16 bits curves transform";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "8 to 16 bits curves transform";
 
                 // 8 to 16 bits.
                 ImageCurves curve8(false);
@@ -1007,7 +1001,7 @@ void ImageCurves::setCurveValues(int channel, const QPolygon& vals)
             }
             else
             {
-                //kDebug() << "16 to 8 bits curves transform";
+                //qCDebug(DIGIKAM_DIMG_LOG) << "16 to 8 bits curves transform";
 
                 // 16 to 8 bits.
                 ImageCurves curve8(false);
@@ -1030,7 +1024,7 @@ void ImageCurves::setCurveValues(int channel, const QPolygon& vals)
         }
         else
         {
-            //kDebug() << "Assign curves values directly";
+            //qCDebug(DIGIKAM_DIMG_LOG) << "Assign curves values directly";
 
             for (int j = 0 ; j <= d->segmentMax ; ++j)
             {
@@ -1092,7 +1086,7 @@ void ImageCurves::setCurvePoints(int channel, const QPolygon& vals)
     }
     else
     {
-        kDebug() << "Curves points list not applied (nb pts " << vals.size() << " - Channel " << channel << ")";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Curves points list not applied (nb pts " << vals.size() << " - Channel " << channel << ")";
     }
 }
 
@@ -1138,9 +1132,9 @@ void ImageCurves::setCurveType(ImageCurves::CurveType type)
     }
 }
 
-bool ImageCurves::loadCurvesFromGimpCurvesFile(const KUrl& fileUrl)
+bool ImageCurves::loadCurvesFromGimpCurvesFile(const QUrl& fileUrl)
 {
-    // TODO : support KUrl !
+    // TODO : support QUrl !
 
     FILE* file = 0;
     int   i, j;
@@ -1149,7 +1143,7 @@ bool ImageCurves::loadCurvesFromGimpCurvesFile(const KUrl& fileUrl)
     int   index[NUM_CHANNELS][NUM_POINTS];
     int   value[NUM_CHANNELS][NUM_POINTS];
 
-    file = fopen(QFile::encodeName(fileUrl.toLocalFile()), "r");
+    file = fopen(QFile::encodeName(fileUrl.toLocalFile()).constData(), "r");
 
     if (!file)
     {
@@ -1177,7 +1171,7 @@ bool ImageCurves::loadCurvesFromGimpCurvesFile(const KUrl& fileUrl)
 
             if (fields != 2)
             {
-                kWarning() <<  "Invalid Gimp curves file!";
+                qCWarning(DIGIKAM_DIMG_LOG) <<  "Invalid Gimp curves file!";
                 fclose(file);
                 return false;
             }
@@ -1213,15 +1207,15 @@ void ImageCurves::curvesCalculateAllCurves()
     }
 }
 
-bool ImageCurves::saveCurvesToGimpCurvesFile(const KUrl& fileUrl) const
+bool ImageCurves::saveCurvesToGimpCurvesFile(const QUrl& fileUrl) const
 {
-    // TODO : support KUrl !
+    // TODO : support QUrl !
 
     FILE* file = 0;
     int   i, j;
     int   index;
 
-    file = fopen(QFile::encodeName(fileUrl.toLocalFile()), "w");
+    file = fopen(QFile::encodeName(fileUrl.toLocalFile()).constData(), "w");
 
     if (!file)
     {

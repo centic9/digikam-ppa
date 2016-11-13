@@ -1,13 +1,13 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013, 2014.
+# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-23 01:54+0000\n"
-"PO-Revision-Date: 2014-11-24 19:49+0100\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-29 20:37+0200\n"
 "Last-Translator: Andrej Mernik <andrejm@ubuntu.si>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -18,32 +18,23 @@ msgstr ""
 "%100==4 ? 3 : 0);\n"
 "X-Generator: Lokalize 1.5\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Andrej Mernik"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "andrejm@ubuntu.si"
-
-#: aboutdata.h:41
+#: aboutdata.h:42
 msgid "Flash Export"
 msgstr "Izvoz v Flash"
 
 #: aboutdata.h:43
-msgid ""
-"A Kipi plugin to export images to Flash using the SimpleViewer's components."
-msgstr "Vstavek Kipi za izvoz slik v Flash z uporabo enot SimpleViewer."
+msgid "A tool to export images to Flash using the SimpleViewer's components."
+msgstr "Orodje za izvoz slik v Flash z uporabo enot SimpleViewer."
 
 #: aboutdata.h:44
 msgid ""
 "(c) 2005-2006, Joern Ahrens\n"
-"(c) 2008-2012, Gilles Caulier\n"
-"(c) 2011, Veaceslav Munteanu"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2011-2013, Veaceslav Munteanu"
 msgstr ""
 "(c) 2005-2006, Joern Ahrens\n"
-"(c) 2008-2012, Gilles Caulier\n"
-"(c) 2011, Veaceslav Munteanu"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2011-2013, Veaceslav Munteanu"
 
 #: aboutdata.h:51
 msgid "Joern Ahrens"
@@ -66,26 +57,18 @@ msgid "Veaceslav Munteanu"
 msgstr "Veaceslav Munteanu"
 
 #: aboutdata.h:63
-msgid "Felix Turner"
-msgstr "Felix Turner"
-
-#: aboutdata.h:64
-msgid "Author of the Simple Viewer Flash component"
-msgstr "Avtor enote Flash za Simple Viewer"
-
-#: aboutdata.h:68
 msgid "Mikkel B. Stegmann"
 msgstr "Mikkel B. Stegmann"
 
-#: aboutdata.h:69
+#: aboutdata.h:64
 msgid "Basis for the index.html template"
 msgstr "Osnova za predlogo index.html"
 
-#: importWizard/firstrunpage.cpp:70
+#: importWizard/firstrunpage.cpp:68
 msgid "First Run"
 msgstr "Prvi zagon"
 
-#: importWizard/firstrunpage.cpp:77
+#: importWizard/firstrunpage.cpp:74
 msgid ""
 "<p>SimpleViewer's plugins are Flash components which are free to use, but "
 "use a license which comes into conflict with several distributions. Due to "
@@ -103,48 +86,52 @@ msgstr ""
 "nadaljnjo uporabo.</p><p><b>Opomba: prejmite vstavek, ki ste ga izbrali na "
 "prvi strani.</b></p>"
 
-#: importWizard/firstrunpage.cpp:86
+#: importWizard/firstrunpage.cpp:83
 msgid "<p>1.) Download plugin from the following url:</p>"
 msgstr "<p>1.) Prejmite vstavek iz naslednjega naslova URL:</p>"
 
-#: importWizard/firstrunpage.cpp:96
+#: importWizard/firstrunpage.cpp:95
 msgid "<p>2.) Point this tool to the downloaded archive</p>"
 msgstr "<p>2.) Pokažite temu orodju kje se nahaja prejet arhiv</p>"
 
-#: importWizard/generalpage.cpp:84
+#: importWizard/firstrunpage.cpp:99
+msgid "Select downloaded archive"
+msgstr "Izberite prejet arhiv"
+
+#: importWizard/generalpage.cpp:85
 msgid "General Settings"
 msgstr "Splošne nastavitve"
 
-#: importWizard/generalpage.cpp:91
+#: importWizard/generalpage.cpp:93
 msgid "Gallery &Title"
 msgstr "&Naslov galerije"
 
-#: importWizard/generalpage.cpp:94
+#: importWizard/generalpage.cpp:96
 msgid "Enter here the gallery title"
 msgstr "Sem vnesite naslov galerije"
 
-#: importWizard/generalpage.cpp:102
+#: importWizard/generalpage.cpp:104
 msgid "Save Gallery To"
 msgstr "Shrani galerijo v"
 
-#: importWizard/generalpage.cpp:113
+#: importWizard/generalpage.cpp:116
 msgid "Image Properties"
 msgstr "Lastnosti slike"
 
-#: importWizard/generalpage.cpp:115
+#: importWizard/generalpage.cpp:118
 msgid "Resize Target Images"
 msgstr "Spremeni velikost ciljnih slik"
 
-#: importWizard/generalpage.cpp:117
+#: importWizard/generalpage.cpp:120
 msgid "If you enable this option, all target images can be resized."
 msgstr "Če omogočite to možnost, bo vsem ciljnim slikam spremenjena velikost."
 
-#: importWizard/generalpage.cpp:121
+#: importWizard/generalpage.cpp:124
 msgid "Auto-Rotate/Flip Images"
 msgstr "Samodejno zavrti/obrni slike"
 
-#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
-#: importWizard/lookpage.cpp:335
+#: importWizard/generalpage.cpp:126 importWizard/lookpage.cpp:339
+#: importWizard/lookpage.cpp:344
 msgid ""
 "If you enable this option, the images' orientations will be set according to "
 "their Exif information."
@@ -152,11 +139,11 @@ msgstr ""
 "Če omogočite to možnost, bo orientacija slik nastavljena s pomočjo njihovih "
 "podatkov EXIF."
 
-#: importWizard/generalpage.cpp:128
+#: importWizard/generalpage.cpp:131
 msgid "&Target Images' Size:"
 msgstr "Velikos&t ciljnih slik:"
 
-#: importWizard/generalpage.cpp:132
+#: importWizard/generalpage.cpp:136
 msgid ""
 "The new size of the exported images, in pixels. SimpleViewer resizes the "
 "images too, but this resizes the images before they are uploaded to your "
@@ -166,11 +153,11 @@ msgstr ""
 "spremeniti velikost, bo to spremenilo velikost preden jih pošljete na vaš "
 "strežnik."
 
-#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+#: importWizard/generalpage.cpp:148
 msgid "&Displayed Images' Size:"
 msgstr "Velikost p&rikazanih slik:"
 
-#: importWizard/generalpage.cpp:149
+#: importWizard/generalpage.cpp:153
 msgid ""
 "Scales the displayed images to this size. Normally, use the height or width "
 "of your largest image (in pixels). Images will not be scaled up above this "
@@ -180,31 +167,31 @@ msgstr ""
 "širino vaše največje slike (v slikovnih točkah). Slike ne bodo umerjene na "
 "večjo velikost, da se bo ohranila njihova kakovost."
 
-#: importWizard/generalpage.cpp:165
+#: importWizard/generalpage.cpp:169
 msgid "Misc"
 msgstr "Razno"
 
-#: importWizard/generalpage.cpp:168
+#: importWizard/generalpage.cpp:172
 msgid "Display Captions"
 msgstr "Prikaži naslove"
 
-#: importWizard/generalpage.cpp:170
+#: importWizard/generalpage.cpp:174
 msgid "If this option is enabled, the images' captions will be shown."
 msgstr "Če je ta možnost omogočena, bodo prikazani naslovi slik."
 
-#: importWizard/generalpage.cpp:172
+#: importWizard/generalpage.cpp:176
 msgid "Display Keywords"
 msgstr "Prikaži ključne besede"
 
-#: importWizard/generalpage.cpp:174
+#: importWizard/generalpage.cpp:178
 msgid "If this option is enabled, the images' keywords will be shown."
 msgstr "Če je ta možnost omogočena, bodo prikazane ključne besede slik."
 
-#: importWizard/generalpage.cpp:177
+#: importWizard/generalpage.cpp:181
 msgid "Open Image with Right Click"
 msgstr "Sliko odpri z desnim klikom"
 
-#: importWizard/generalpage.cpp:179
+#: importWizard/generalpage.cpp:183
 msgid ""
 "If this option is enabled, the user will be able to open the target image in "
 "a separate window using the right mouse button."
@@ -212,36 +199,48 @@ msgstr ""
 "Če je ta možnost omogočena, bo lahko uporabnik v ločenem oknu z desnim "
 "klikom odprl ciljno sliko."
 
-#: importWizard/generalpage.cpp:183
+#: importWizard/generalpage.cpp:187
 msgid "Open gallery in Browser"
 msgstr "Odpri galerijo v brskalniku"
 
-#: importWizard/generalpage.cpp:185
+#: importWizard/generalpage.cpp:189
 msgid ""
 "If this option is enabled, the gallery will be opened in Konqueror "
 "automatically."
 msgstr ""
 "Če je ta možnost omogočena, bo galerija samodejno odprta v Konquerorju."
 
-#: importWizard/importwizarddlg.cpp:90
+#: importWizard/importwizarddlg.cpp:95
 msgid "Flash Export Wizard"
 msgstr "Čarovnik za izvoz Flasha"
 
-#: importWizard/importwizarddlg.cpp:135
+#: importWizard/importwizarddlg.cpp:148
+msgid "SimpleViewer installation failed"
+msgstr "Namestitev SimpleViewer-ja je spodletela"
+
+#: importWizard/importwizarddlg.cpp:149
 msgid ""
-"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"<p>Failed to install SimpleViewer. </p><p>Please check if:</p><p>- archive "
 "corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
 "date and is not corrupted.</p>"
 msgstr ""
-"<p>Namestitev SimpleViewer-ja je spodletela. </p><p>Preverite, če:</p><p>- "
-"se arhiv ujema z vstavkom izbranim na prejšnji strani.</p><p>- je arhiv "
+"<p>Namestitev SimpleViewer-ja je spodletela.</p><p>Preverite, če:</p><p>- se "
+"arhiv ujema z vstavkom izbranim na prejšnji strani.</p><p>- je arhiv "
 "posodobljen in ni pokvarjen.</p>"
 
-#: importWizard/importwizarddlg.cpp:180
+#: importWizard/importwizarddlg.cpp:183
+msgid "Problem to export collection"
+msgstr "Težava med izvažanjem zbirke"
+
+#: importWizard/importwizarddlg.cpp:184
 msgid "You must select at least one collection to export."
 msgstr "Izbrati morati vsaj eno zbirko za izvoz."
 
-#: importWizard/importwizarddlg.cpp:216
+#: importWizard/importwizarddlg.cpp:242
+msgid "Target Folder Exists"
+msgstr "Ciljna mapa obstaja"
+
+#: importWizard/importwizarddlg.cpp:243
 #, kde-format
 msgid ""
 "Target folder %1 already exists.\n"
@@ -250,7 +249,11 @@ msgstr ""
 "Ciljna mapa %1 že obstaja.\n"
 "Ali jo želite prepisati? Vsi podatki v tej mapi bodo izgubljeni."
 
-#: importWizard/importwizarddlg.cpp:225
+#: importWizard/importwizarddlg.cpp:257
+msgid "Cannot Delete Folder"
+msgstr "Mape ni mogoče izbrisati"
+
+#: importWizard/importwizarddlg.cpp:258
 #, kde-format
 msgid ""
 "Could not delete %1.\n"
@@ -259,11 +262,11 @@ msgstr ""
 "Ni bilo mogoče izbrisati %1.\n"
 "Izberite drugo mapo za izvoz."
 
-#: importWizard/intropage.cpp:60
+#: importWizard/intropage.cpp:61
 msgid "Welcome to FlashExport Tool"
 msgstr "Dobrodošli v orodje Izvoz v Flash"
 
-#: importWizard/intropage.cpp:68
+#: importWizard/intropage.cpp:69
 msgid ""
 "<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
 "href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
@@ -282,50 +285,50 @@ msgstr ""
 "procesorske moči</p><p>3. Postcardviewer je zasnovan le za manjšo količino "
 "slik</p></qt>"
 
-#: importWizard/intropage.cpp:81
+#: importWizard/intropage.cpp:82
 msgid "Select &Plugin:"
 msgstr "Izbor &vstavka:"
 
-#: importWizard/intropage.cpp:84
+#: importWizard/intropage.cpp:85
 msgctxt "SimpleViewer"
 msgid "SimpleViewer"
 msgstr "SimpleViewer"
 
-#: importWizard/intropage.cpp:85
+#: importWizard/intropage.cpp:86
 msgctxt "TiltViewer"
 msgid "TiltViewer"
 msgstr "TiltViewer"
 
-#: importWizard/intropage.cpp:86
+#: importWizard/intropage.cpp:87
 msgctxt "AutoViewer"
 msgid "AutoViewer"
 msgstr "AutoViewer"
 
-#: importWizard/intropage.cpp:87
+#: importWizard/intropage.cpp:88
 msgctxt "PostcardViewer"
 msgid "PostcardViewer"
 msgstr "PostcardViewer"
 
-#: importWizard/intropage.cpp:99
+#: importWizard/intropage.cpp:100
 msgid "&Choose image selection method:"
 msgstr "&Izberite način izbora slike:"
 
-#: importWizard/intropage.cpp:101
+#: importWizard/intropage.cpp:102
 msgctxt "Collections"
 msgid "Collections"
 msgstr "Zbirke"
 
-#: importWizard/intropage.cpp:102
-msgctxt "Image Dialog"
-msgid "Image Dialog"
-msgstr "Pogovorno okno"
+#: importWizard/intropage.cpp:103
+msgctxt "Images"
+msgid "Images"
+msgstr "Slike"
 
-#: importWizard/lookpage.cpp:111
+#: importWizard/lookpage.cpp:108
 msgid "Configure appearance"
 msgstr "Nastavite videz"
 
-#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
-#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:244
+#: importWizard/lookpage.cpp:316 importWizard/lookpage.cpp:400
 msgctxt "Settings for flash export navigation"
 msgid "Navigation"
 msgstr "Krmarjenje"
@@ -334,168 +337,168 @@ msgstr "Krmarjenje"
 msgid "Thumbnail &Rows:"
 msgstr "V&rstic s sličicami:"
 
-#: importWizard/lookpage.cpp:147
+#: importWizard/lookpage.cpp:148
 msgid "Number of thumbnails rows"
 msgstr "Število vrstic s sličicami"
 
-#: importWizard/lookpage.cpp:151
+#: importWizard/lookpage.cpp:152
 msgid "Thumbnail &Columns:"
 msgstr "&Stolpci s sličicami:"
 
-#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+#: importWizard/lookpage.cpp:157 importWizard/lookpage.cpp:418
 msgid "Number of thumbnails columns"
 msgstr "Število stolpcev s sličicami"
 
-#: importWizard/lookpage.cpp:159
+#: importWizard/lookpage.cpp:161
 msgid "Thumbnail &Position:"
 msgstr "&Položaj sličic:"
 
-#: importWizard/lookpage.cpp:161
+#: importWizard/lookpage.cpp:163
 msgctxt "thumbnail position: right"
 msgid "Right"
 msgstr "Desno"
 
-#: importWizard/lookpage.cpp:162
+#: importWizard/lookpage.cpp:164
 msgctxt "thumbnail position: left"
 msgid "Left"
 msgstr "Levo"
 
-#: importWizard/lookpage.cpp:163
+#: importWizard/lookpage.cpp:165
 msgctxt "thumbnail position: top"
 msgid "Top"
 msgstr "Zgoraj"
 
-#: importWizard/lookpage.cpp:164
+#: importWizard/lookpage.cpp:166
 msgctxt "thumbnail position: bottom"
 msgid "Bottom"
 msgstr "Spodaj"
 
-#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
-#: importWizard/lookpage.cpp:418
+#: importWizard/lookpage.cpp:182 importWizard/lookpage.cpp:262
+#: importWizard/lookpage.cpp:429
 msgid "Colors"
 msgstr "Barve"
 
-#: importWizard/lookpage.cpp:184
+#: importWizard/lookpage.cpp:186
 msgid "&Text Color:"
 msgstr "Ba&rva besedila:"
 
-#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+#: importWizard/lookpage.cpp:189 importWizard/lookpage.cpp:436
 msgid "Color of title and caption text"
 msgstr "Barva besedila naslova in naslovov slik"
 
-#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
-#: importWizard/lookpage.cpp:429
+#: importWizard/lookpage.cpp:193 importWizard/lookpage.cpp:266
+#: importWizard/lookpage.cpp:440
 msgid "&Background Color:"
 msgstr "&Barva ozadja:"
 
-#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
-#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+#: importWizard/lookpage.cpp:199 importWizard/lookpage.cpp:272
+#: importWizard/lookpage.cpp:361 importWizard/lookpage.cpp:446
 msgid "&Frame Color:"
 msgstr "Barva &okvirja:"
 
-#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
-#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+#: importWizard/lookpage.cpp:202 importWizard/lookpage.cpp:275
+#: importWizard/lookpage.cpp:364 importWizard/lookpage.cpp:449
 msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
 msgstr ""
 "Barva okvirja okrog slike, ikone za ogled, nalagalnih vrstic in puščic na "
 "sličicah"
 
-#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
-#: importWizard/lookpage.cpp:449
+#: importWizard/lookpage.cpp:213 importWizard/lookpage.cpp:285
+#: importWizard/lookpage.cpp:460
 msgid "Style"
 msgstr "Slog"
 
-#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
-#: importWizard/lookpage.cpp:469
+#: importWizard/lookpage.cpp:217 importWizard/lookpage.cpp:289
+#: importWizard/lookpage.cpp:482
 msgid "&Frame Width:"
 msgstr "Širina &okvirja:"
 
-#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+#: importWizard/lookpage.cpp:222 importWizard/lookpage.cpp:294
 msgid "Width of image frame in pixels."
 msgstr "Širina okvirja v slikovnih točkah."
 
-#: importWizard/lookpage.cpp:223
+#: importWizard/lookpage.cpp:226
 msgid "&Stage Padding:"
 msgstr "&Blazinjenje prikaza:"
 
-#: importWizard/lookpage.cpp:227
+#: importWizard/lookpage.cpp:231
 msgid "Distance between image and thumbnails in pixels."
 msgstr "Razdalja med sliko in sličicami v slikovnih točkah."
 
-#: importWizard/lookpage.cpp:244
+#: importWizard/lookpage.cpp:248
 msgid "&Display Time:"
 msgstr "Čas &prikaza:"
 
-#: importWizard/lookpage.cpp:248
+#: importWizard/lookpage.cpp:253
 msgid "Number of seconds each image will display in auto-play mode."
 msgstr "Koliko sekund bo prikazana vsaka slika v samodejnem načinu."
 
-#: importWizard/lookpage.cpp:292
+#: importWizard/lookpage.cpp:298
 msgid "&Image Padding:"
 msgstr "Blazinjenje sl&ike:"
 
-#: importWizard/lookpage.cpp:296
+#: importWizard/lookpage.cpp:303
 msgid "Distance between images in pixels"
 msgstr "Razdalja med slikami v slikovnih točkah"
 
-#: importWizard/lookpage.cpp:313
+#: importWizard/lookpage.cpp:320
 msgid " &Rows:"
 msgstr " &Vrstic:"
 
-#: importWizard/lookpage.cpp:317
+#: importWizard/lookpage.cpp:325
 msgid "Number of rows of images to display."
 msgstr "Število vrstic slik, ki bodo prikazane."
 
-#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+#: importWizard/lookpage.cpp:329 importWizard/lookpage.cpp:413
 msgid " &Columns:"
 msgstr " &Stolpcev:"
 
-#: importWizard/lookpage.cpp:325
+#: importWizard/lookpage.cpp:334
 msgid "Number of columns of images to display."
 msgstr "Število stolpcev slik, ki bodo prikazane."
 
-#: importWizard/lookpage.cpp:328
+#: importWizard/lookpage.cpp:337
 msgid "Show Flip Button"
 msgstr "Pokaži gumb za obračanje"
 
-#: importWizard/lookpage.cpp:333
+#: importWizard/lookpage.cpp:342
 msgid "Use reload button"
 msgstr "Uporabi gumb za ponovno nalaganje"
 
-#: importWizard/lookpage.cpp:348
+#: importWizard/lookpage.cpp:357
 msgctxt "Settings for flash export navigation"
 msgid "Colors"
 msgstr "Barve"
 
-#: importWizard/lookpage.cpp:359
+#: importWizard/lookpage.cpp:368
 msgid "Background &Inner Color:"
 msgstr "Barva &notranjega ozadja:"
 
-#: importWizard/lookpage.cpp:362
+#: importWizard/lookpage.cpp:371
 msgid "Color of the stage background gradient center."
 msgstr "Barva sredinskega preliva ozadja prikaza."
 
-#: importWizard/lookpage.cpp:366
+#: importWizard/lookpage.cpp:375
 msgid "Background &Outer Color:"
 msgstr "Barva &zunanjega ozadja:"
 
-#: importWizard/lookpage.cpp:369
+#: importWizard/lookpage.cpp:378
 msgid "Color of the stage background gradient edge."
 msgstr "Barva robnega preliva ozadja prikaza."
 
-#: importWizard/lookpage.cpp:373
+#: importWizard/lookpage.cpp:382
 msgid "Image Back Color:"
 msgstr "Barva ozadja slike:"
 
-#: importWizard/lookpage.cpp:376
+#: importWizard/lookpage.cpp:385
 msgid "Image's back color when pressing flip button"
 msgstr "Barva ozadja slike, ko pritisnete gumb obrni"
 
-#: importWizard/lookpage.cpp:395
+#: importWizard/lookpage.cpp:404
 msgid "Cell Dimension:"
 msgstr "Mere celice:"
 
-#: importWizard/lookpage.cpp:399
+#: importWizard/lookpage.cpp:409
 msgid ""
 "Dimension of displayed image cells. Please use a higher value if you set "
 "high image size"
@@ -503,35 +506,35 @@ msgstr ""
 "Mere prikazanih celic slik. Če nastavite veliko velikost slik, uporabite "
 "višjo vrednost"
 
-#: importWizard/lookpage.cpp:422
+#: importWizard/lookpage.cpp:433
 msgid "&Caption Color:"
 msgstr "Barva &napisov:"
 
-#: importWizard/lookpage.cpp:453
+#: importWizard/lookpage.cpp:464
 msgid "&Zoom In Percentage:"
 msgstr "Odstotek pri&bližanja:"
 
-#: importWizard/lookpage.cpp:457
+#: importWizard/lookpage.cpp:469
 msgid "The amount of scale when zoomed in (percentage)"
 msgstr "Velikost umerjanja ob približevanju (odstotki)"
 
-#: importWizard/lookpage.cpp:461
+#: importWizard/lookpage.cpp:473
 msgid "&Zoom Out Percentage:"
 msgstr "Odstotek od&daljitve:"
 
-#: importWizard/lookpage.cpp:465
+#: importWizard/lookpage.cpp:478
 msgid "The amount of scale when zoomed out (percentage)"
 msgstr "Velikost umerjanja ob oddaljevanju (odstotki)"
 
-#: importWizard/lookpage.cpp:473
+#: importWizard/lookpage.cpp:487
 msgid "The frame width"
 msgstr "Širina okvirja"
 
-#: importWizard/progresspage.cpp:49
+#: importWizard/progresspage.cpp:48
 msgid "Exporting..."
 msgstr "Izvažanje ..."
 
-#: importWizard/selectionpage.cpp:68
+#: importWizard/selectionpage.cpp:67
 msgid "Select Image Collections"
 msgstr "Izberite zbirke slik"
 
@@ -545,109 +548,127 @@ msgstr "&Izvozi"
 msgid "Main Toolbar"
 msgstr "Glavna orodna vrstica"
 
-#: plugin_flashexport.cpp:94
+#: plugin_flashexport.cpp:91
 msgid "Export to F&lash..."
 msgstr "Izvozi v F&lash ..."
 
-#: simpleviewer.cpp:184
+#: simpleviewer.cpp:193
 msgid "Initialising..."
 msgstr "Začenjanje ..."
 
-#: simpleviewer.cpp:212
+#: simpleviewer.cpp:221
 msgid "Export canceled"
 msgstr "Izvoz je bil preklican"
 
-#: simpleviewer.cpp:223
+#: simpleviewer.cpp:232
 msgid "Failed to create export directories"
 msgstr "Map za izvoz ni bilo mogoče ustvariti"
 
-#: simpleviewer.cpp:230
+#: simpleviewer.cpp:239
 msgid "Failed to export the images"
 msgstr "Slik ni bilo mogoče izvoziti"
 
-#: simpleviewer.cpp:237
+#: simpleviewer.cpp:246
 msgid "Failed to create index.html"
 msgstr "Ni bilo mogoče ustvariti index.html"
 
-#: simpleviewer.cpp:244
+#: simpleviewer.cpp:253
 msgid "Failed to copy SimpleViewer files"
 msgstr "Datotek SimpleViewer-ja ni bilo mogoče kopirati"
 
-#: simpleviewer.cpp:251
+#: simpleviewer.cpp:260
 msgid "Failed to upload the gallery"
 msgstr "Galerije ni bilo mogoče poslati"
 
-#: simpleviewer.cpp:260
-#, kde-format
-msgid ""
-"Export was canceled.\n"
-"Do you want to delete files in %1 that have already been created?"
-msgstr ""
-"Izvoz je bil preklican.\n"
-"Ali želite izbrisati datoteke v %1, ki so že bile ustvarjene?"
+#: simpleviewer.cpp:269
+msgid "Export was canceled"
+msgstr "Izvoz je bil preklican"
 
-#: simpleviewer.cpp:271
+#: simpleviewer.cpp:270
+#, kde-format
+msgid "Do you want to delete files in %1 that have already been created?"
+msgstr "Ali želite izbrisati datoteke v %1, ki so že bile ustvarjene?"
+
+#: simpleviewer.cpp:282
 msgctxt "Flash export has finished"
 msgid "Finished..."
 msgstr "Zaključeno ..."
 
-#: simpleviewer.cpp:285
+#: simpleviewer.cpp:300
 msgid "Creating directories..."
 msgstr "Ustvarjanje map ..."
 
-#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#: simpleviewer.cpp:307 simpleviewer.cpp:319 simpleviewer.cpp:330
 #, kde-format
 msgid "Could not create folder '%1'"
 msgstr "Ni bilo mogoče ustvariti mape '%1'"
 
-#: simpleviewer.cpp:320
+#: simpleviewer.cpp:335
 msgid "Finished Creating directories..."
 msgstr "Ustvarjanje map je zaključeno ..."
 
-#: simpleviewer.cpp:353
+#: simpleviewer.cpp:388
 msgid "Creating images and thumbnails..."
 msgstr "Ustvarjanje slik in sličic ..."
 
-#: simpleviewer.cpp:483
+#: simpleviewer.cpp:542
 #, kde-format
 msgid "Processing %1"
 msgstr "Obdelovanje %1"
 
-#: simpleviewer.cpp:493
+#: simpleviewer.cpp:559
 #, kde-format
 msgid "Could not open image '%1'"
 msgstr "Slike '%1' ni bilo mogoče odpreti"
 
-#: simpleviewer.cpp:504
+#: simpleviewer.cpp:570
 #, kde-format
 msgid "Could not create thumbnail from '%1'"
 msgstr "Ni bilo mogoče ustvariti sličice iz '%1'"
 
-#: simpleviewer.cpp:512
+#: simpleviewer.cpp:578
 #, kde-format
 msgid "Could not resize image '%1'"
 msgstr "Sliki '%1' ni bilo mogoče spremeniti velikosti"
 
-#: simpleviewer.cpp:739
+#: simpleviewer.cpp:809
 msgid "Creating index.html..."
 msgstr "Ustvarjanje index.html ..."
 
-#: simpleviewer.cpp:878
+#: simpleviewer.cpp:965
 msgid "index.html created..."
 msgstr "index.html je bil ustvarjen ..."
 
-#: simpleviewer.cpp:888
+#: simpleviewer.cpp:975
 msgid "Copying flash files..."
 msgstr "Kopiranje datotek Flash ..."
 
-#: simpleviewer.cpp:906
+#: simpleviewer.cpp:995
 msgid "Flash files copied..."
 msgstr "Datoteke Flash so bile kopirane ..."
 
-#: simpleviewer.cpp:916
-msgid "Uploading gallery..."
-msgstr "Pošiljanje galerije ..."
+#: simpleviewer.cpp:1005
+msgid "Copying gallery..."
+msgstr "Kopiranje galerije ..."
 
-#: simpleviewer.cpp:921
-msgid "Gallery uploaded..."
-msgstr "Galerija je bila poslana ..."
+#: simpleviewer.cpp:1010
+msgid "Gallery copied..."
+msgstr "Galerija kopirana ..."
+
+#~ msgid "Felix Turner"
+#~ msgstr "Felix Turner"
+
+#~ msgid "Author of the Simple Viewer Flash component"
+#~ msgstr "Avtor enote Flash za Simple Viewer"
+
+#~ msgctxt "Image Dialog"
+#~ msgid "Image Dialog"
+#~ msgstr "Pogovorno okno"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Andrej Mernik"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "andrejm@ubuntu.si"

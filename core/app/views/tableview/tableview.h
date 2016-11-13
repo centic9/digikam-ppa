@@ -27,20 +27,15 @@
 
 #include <QWidget>
 
-// KDE includes
+// Local includes
 
-#include <kcategorizedsortfilterproxymodel.h>
-#include <kdialog.h>
-
-// local includes
-
-/// @todo clean up includes and use forward-declarations where possible
+#include "dcategorizedsortfilterproxymodel.h"
 #include "digikam_export.h"
 #include "imageviewutilities.h"
 #include "imageinfo.h"
 #include "statesavingobject.h"
 
-class KMenu;
+class QMenu;
 class QContextMenuEvent;
 class QItemDelegate;
 class QItemSelectionModel;
@@ -60,7 +55,7 @@ class TableView : public QWidget, public StateSavingObject
 public:
 
     explicit TableView(QItemSelectionModel* const selectionModel,
-                       KCategorizedSortFilterProxyModel* const imageFilterModel,
+                       DCategorizedSortFilterProxyModel* const imageFilterModel,
                        QWidget* const parent);
 
     virtual ~TableView();
@@ -72,8 +67,8 @@ public:
     QList<ImageInfo> selectedImageInfosCurrentFirst() const;
     ImageInfo currentInfo();
     ImageInfoList allInfo()     const;
-    KUrl::List allUrls()        const;
-    KUrl::List selectedUrls()   const;
+    QList<QUrl> allUrls()        const;
+    QList<QUrl> selectedUrls()   const;
     int numberOfSelectedItems() const;
     ImageInfo nextInfo()        const;
     ImageInfo previousInfo()    const;

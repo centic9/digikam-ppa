@@ -7,7 +7,7 @@
  * Description : Qt item view for images - the delegate
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,23 +22,20 @@
  *
  * ============================================================ */
 
-#include "importdelegate.moc"
+#include "importdelegate.h"
 #include "importdelegatepriv.h"
 
 // C++ includes
 
-#include <cmath>  
+#include <cmath>
 
 // Qt includes
 
+#include <QApplication>
 #include <QCache>
 #include <QPainter>
 #include <QRect>
-
-// KDE includes
-
-#include <kapplication.h>
-#include <kiconloader.h>
+#include <QApplication>
 
 // Local includes
 
@@ -165,11 +162,13 @@ ImportCategoryDrawer* ImportDelegate::categoryDrawer() const
     return d->categoryDrawer;
 }
 
-//QRect ImportDelegate::commentsRect() const
-//{
-//    Q_D(const ImportDelegate);
-//    return d->commentsRect;
-//}
+/*
+QRect ImportDelegate::commentsRect() const
+{
+   Q_D(const ImportDelegate);
+   return d->commentsRect;
+}
+*/
 
 QRect ImportDelegate::tagsRect() const
 {
@@ -274,16 +273,17 @@ void ImportDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, cons
     // Draw Color Label rectangle
     drawColorLabelRect(p, option, isSelected, info.colorLabel);
 
-    p->setPen(isSelected ? kapp->palette().color(QPalette::HighlightedText)
-                         : kapp->palette().color(QPalette::Text));
+    p->setPen(isSelected ? qApp->palette().color(QPalette::HighlightedText)
+                         : qApp->palette().color(QPalette::Text));
 
-    /*
+/*
     // If there is ImageHistory present, paint a small icon over the thumbnail to indicate that this is derived image
-    if (info.hasImageHistory())
+
+ if (info.hasImageHistory())
     {
-        p->drawPixmap(d->pixmapRect.right()-24, d->pixmapRect.bottom()-24, KIcon("svn_switch").pixmap(22, 22));
+        p->drawPixmap(d->pixmapRect.right()-24, d->pixmapRect.bottom()-24, QIcon::fromTheme(QLatin1String("svn_switch")).pixmap(22));
     }
-    */
+*/
 
     if (!d->nameRect.isNull())
     {
@@ -317,17 +317,19 @@ void ImportDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, cons
     }
 
     //TODO: Implement grouping in import tool.
-    /*if (!d->groupRect.isNull())
+/*
+    if (!d->groupRect.isNull())
     {
         drawGroupIndicator(p, d->groupRect, info.numberOfGroupedImages(),
                            index.data(ImportFilterModel::GroupIsOpenRole).toBool());
-    }*/
+    }
+*/
 
     if (!d->tagRect.isNull())
     {
         QStringList tagsList = AlbumManager::instance()->tagNames(info.tagIds);
         tagsList.sort();
-        QString tags         = tagsList.join(", ");
+        QString tags         = tagsList.join(QLatin1String(", "));
         drawTags(p, d->tagRect, tags, isSelected);
     }
 
@@ -772,11 +774,13 @@ void ImportNormalDelegate::updateRects()
     }
 
     //TODO: Add resolution entry in importSettings.
-    /*if (importSettings->getIconShowResolution())
+/*
+    if (importSettings->getIconShowResolution())
     {
         d->resolutionRect = QRect(d->margin, y, d->contentWidth, d->oneRowXtraRect.height());
         y                 = d->resolutionRect.bottom() ;
-    }*/
+    }
+*/
 
     if (importSettings->getIconShowSize())
     {

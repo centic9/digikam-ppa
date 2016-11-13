@@ -7,7 +7,7 @@
  * Description : image file IO threaded interface.
  *
  * Copyright (C) 2005-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2005-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -63,6 +63,8 @@ public:
     virtual void imageSaved(const QString& filePath, bool success) = 0;
     virtual void thumbnailLoaded(const LoadingDescription& loadingDescription, const QImage& img) = 0;
 };
+
+// -------------------------------------------------------------------------------------------------------
 
 class DIGIKAM_EXPORT LoadSaveFileInfoProvider
 {
@@ -216,10 +218,10 @@ protected:
 
 private:
 
-    class LoadSaveThreadPriv;
-    LoadSaveThreadPriv* const d;
+    class Private;
+    Private* const d;
 };
 
-}      // namespace Digikam
+} // namespace Digikam
 
 #endif // LOAD_SAVE_THREAD_H

@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : filter to add Film Grain to image.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2005-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -30,7 +30,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 #include "dcolor.h"
 
 namespace Digikam
@@ -117,12 +117,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:FilmGrainFilter";
+        return QLatin1String("digikam:FilmGrainFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Film Grain Effect");
+        return QString::fromUtf8(I18N_NOOP("Film Grain Effect"));
     }
 
     static QList<int>       SupportedVersions()

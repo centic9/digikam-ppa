@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Antivignetting threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Julien Narboux <julien at narboux dot fr>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -35,10 +35,6 @@
 #include <cmath>
 #include <cstdlib>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
 #include "dimg.h"
@@ -54,9 +50,9 @@ AntiVignettingFilter::AntiVignettingFilter(QObject* const parent)
 
 AntiVignettingFilter::AntiVignettingFilter(DImg* const orgImage, QObject* const parent,
                                            const AntiVignettingContainer& settings)
-    : DImgThreadedFilter(orgImage, parent, "AntiVignettingFilter")
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("AntiVignettingFilter")),
+      m_settings(settings)
 {
-    m_settings = settings;
     initFilter();
 }
 
@@ -84,7 +80,7 @@ void AntiVignettingFilter::filterImage()
 
     // Determine the shift in pixels from the shift in percentage.
     m_settings.yshift         = m_settings.yshift * Height / 200.0;
-    m_settings.xshift         = m_settings.xshift * Width / 200.0;
+    m_settings.xshift         = m_settings.xshift * Width  / 200.0;
 
     // Determine the outer radius of the filter.  This is the half diagonal
     // measure of the image multiplied by the radius factor.
@@ -209,26 +205,26 @@ FilterAction AntiVignettingFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("addvignetting", m_settings.addvignetting);
-    action.addParameter("density", m_settings.density);
-    action.addParameter("innerradius", m_settings.innerradius);
-    action.addParameter("outerradius", m_settings.outerradius);
-    action.addParameter("power", m_settings.power);
-    action.addParameter("xshift", m_settings.xshift);
-    action.addParameter("yshift", m_settings.yshift);
+    action.addParameter(QLatin1String("addvignetting"), m_settings.addvignetting);
+    action.addParameter(QLatin1String("density"),       m_settings.density);
+    action.addParameter(QLatin1String("innerradius"),   m_settings.innerradius);
+    action.addParameter(QLatin1String("outerradius"),   m_settings.outerradius);
+    action.addParameter(QLatin1String("power"),         m_settings.power);
+    action.addParameter(QLatin1String("xshift"),        m_settings.xshift);
+    action.addParameter(QLatin1String("yshift"),        m_settings.yshift);
 
     return action;
 }
 
 void AntiVignettingFilter::readParameters(const Digikam::FilterAction& action)
 {
-    m_settings.addvignetting = action.parameter("addvignetting").toBool();
-    m_settings.density = action.parameter("density").toDouble();
-    m_settings.innerradius = action.parameter("innerradius").toDouble();
-    m_settings.outerradius = action.parameter("outerradius").toDouble();
-    m_settings.power = action.parameter("power").toDouble();
-    m_settings.xshift = action.parameter("xshift").toDouble();
-    m_settings.yshift = action.parameter("yshift").toDouble();
+    m_settings.addvignetting = action.parameter(QLatin1String("addvignetting")).toBool();
+    m_settings.density       = action.parameter(QLatin1String("density")).toDouble();
+    m_settings.innerradius   = action.parameter(QLatin1String("innerradius")).toDouble();
+    m_settings.outerradius   = action.parameter(QLatin1String("outerradius")).toDouble();
+    m_settings.power         = action.parameter(QLatin1String("power")).toDouble();
+    m_settings.xshift        = action.parameter(QLatin1String("xshift")).toDouble();
+    m_settings.yshift        = action.parameter(QLatin1String("yshift")).toDouble();
 }
 
 }  // namespace Digikam

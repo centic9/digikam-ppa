@@ -6,7 +6,7 @@
  * Date        : 2008-07-03
  * Description : A wrapper send desktop notifications
  *
- * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Michael G. Hansen <mike at mghansen dot de>
  *
  * This program is free software; you can redistribute it
@@ -23,37 +23,46 @@
  * ============================================================ */
 
 #include "dnotificationwrapper.h"
+#include "digikam_config.h"
 
 // Qt includes
 
-#include <QDBusConnection>
-#include <QDBusConnectionInterface>
 #include <QProcess>
+#include <QApplication>
+#include <QStandardPaths>
+#include <QIcon>
+
+#ifdef HAVE_DBUS
+#   include <QDBusConnection>
+#   include <QDBusConnectionInterface>
+#endif
 
 // KDE includes
 
-#include <kglobalsettings.h>
-#include <kaboutdata.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
-#include <knotification.h>
-#include <kpassivepopup.h>
-#include <kdebug.h>
+#ifdef HAVE_KNOTIFICATIONS
+#    include <knotification.h>
+#endif
+
+// Local includes
+
+#include "digikam_debug.h"
+#include "dnotificationpopup.h"
 
 namespace Digikam
 {
 
-/** Re-implementation of KPassivePopup to move pop-up notification
+/** Re-implementation of DNotificationPopup to move pop-up notification
     window on the bottom right corner of parent window. The goal is to simulate
     the position of KDE notifier pop-up from task bar if this one is not available,
     as for ex under Windows, Gnome, or using a remote connection through ssh.
  */
-class NotificationPassivePopup : public KPassivePopup
+class NotificationPassivePopup : public DNotificationPopup
 {
 public:
 
     explicit NotificationPassivePopup(QWidget* const parent)
-        : KPassivePopup(parent), m_parent(parent)
+        : DNotificationPopup(parent),
+          m_parent(parent)
     {
     }
 
@@ -75,20 +84,28 @@ private:
 
 // ----------------------------------------------------------------------------------------------
 
+#ifdef HAVE_KNOTIFICATIONS
+
 static inline bool detectKDEDesktopIsRunning()
 {
     const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP");
 
     if (!xdgCurrentDesktop.isEmpty())
+    {
         return (xdgCurrentDesktop.toUpper() == "KDE");
+    }
 
     // Classic fallbacks
 
     if (!qgetenv("KDE_FULL_SESSION").isEmpty())
+    {
         return true;
+    }
 
     return false;
 }
+
+#endif
 
 // ----------------------------------------------------------------------------------------------
 
@@ -100,25 +117,25 @@ void DNotificationWrapper(const QString& eventId, const QString& message,
 
     if (logoPixmap.isNull())
     {
-        if (KGlobal::mainComponent().aboutData()->appName() == QString("digikam"))
+        if (QApplication::applicationName() == QLatin1String("digikam"))
         {
-            logoPixmap = QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                         .scaled(48, 48, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+            logoPixmap = QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48));
         }
         else
         {
-            logoPixmap = QPixmap(KStandardDirs::locate("data", "showfoto/data/logo-showfoto.png"))
-                         .scaled(48, 48, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+            logoPixmap = QIcon::fromTheme(QLatin1String("showfoto")).pixmap(QSize(48,48));
         }
     }
+
+#if defined HAVE_KNOTIFICATIONS && defined HAVE_DBUS
 
     // NOTE: This detection of KDE desktop is not perfect because KNotify may never be started.
     //       But in a regular KDE session, KNotify should be running already.
 
     if (detectKDEDesktopIsRunning() &&
-        QDBusConnection::sessionBus().interface()->isServiceRegistered("org.kde.knotify"))
+        QDBusConnection::sessionBus().interface()->isServiceRegistered(QLatin1String("org.kde.knotify")))
     {
-        kDebug() << "Event is dispatched to KDE desktop notifier";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Event is dispatched to KDE desktop notifier";
 
         if (eventId.isEmpty())
         {
@@ -129,29 +146,37 @@ void DNotificationWrapper(const QString& eventId, const QString& message,
             KNotification::event(eventId, message, logoPixmap, parent);
         }
     }
+    else
+
+#else
+
+    Q_UNUSED(eventId);
+
+#endif
 
 #ifdef Q_OS_DARWIN
 
     // OSX support
 
-    else if (MacNativeDispatchNotify(windowTitle, message))
+    if (MacNativeDispatchNotify(windowTitle, message))
     {
-        kDebug() << "Event is dispatched to OSX desktop notifier";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Event is dispatched to OSX desktop notifier";
         return;
     }
+    else
 
 #endif // Q_OS_DARWIN
 
     // Other Linux Desktops
 
-    else if (QProcess::execute("notify-send",
+    if (QProcess::execute(QLatin1String("notify-send"),
                                QStringList() << windowTitle
                                              << message
-                                             << "-a"
-                                             << KGlobal::mainComponent().aboutData()->appName())
+                                             << QLatin1String("-a")
+                                             << QApplication::applicationName())
              == 0)
     {
-        kDebug() << "Event is dispatched to desktop notifier through DBUS";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Event is dispatched to desktop notifier through DBUS";
         return;
     }
 
@@ -159,11 +184,11 @@ void DNotificationWrapper(const QString& eventId, const QString& message,
     {
         if (!parent)
         {
-            kWarning() << "parent is null";
+            qCWarning(DIGIKAM_GENERAL_LOG) << "parent is null";
             return;
         }
 
-        kDebug() << "Event is dispatched through a passive pop-up";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Event is dispatched through a passive pop-up";
 
         NotificationPassivePopup* const popup = new NotificationPassivePopup(parent);
         popup->showNotification(windowTitle, message, logoPixmap);

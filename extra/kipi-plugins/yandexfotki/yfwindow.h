@@ -10,7 +10,7 @@
  *
  * GUI based on PicasaWeb KIPI Plugin
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -35,7 +35,6 @@
 // Local includes
 
 #include "kptooldialog.h"
-#include "logindialog.h"
 #include "yftalker.h"
 
 class QLabel;
@@ -45,17 +44,12 @@ class QGroupBox;
 class QButtonGroup;
 class QCloseEvent;
 class QProgressBar;
-
-class KUrl;
-class KProgressDialog;
-class KPasswordDialog;
-class KComboBox;
-class KPushButton;
-class KLineEdit;
+class QComboBox;
 
 namespace KIPI
 {
     class UploadWidget;
+    class MetadataProcessor;
 }
 
 namespace KIPIPlugins
@@ -68,6 +62,8 @@ using namespace KIPIPlugins;
 
 namespace KIPIYandexFotkiPlugin
 {
+
+class YandexFotkiWidget;
 
 class YandexFotkiWindow : public KPToolDialog
 {
@@ -90,7 +86,6 @@ protected Q_SLOTS:
 
     // ui slots
     void slotChangeUserClicked();
-    void slotResizeChecked();
 
     void slotError();
     void slotGetSessionDone();
@@ -108,8 +103,8 @@ protected Q_SLOTS:
     void slotReloadAlbumsRequest();
 
     void slotStartTransfer();
-
-    void slotButtonClicked(int button);
+    void slotCancelClicked();
+    void slotFinished();
 
 protected:
 
@@ -127,62 +122,46 @@ protected:
 
 protected:
 
-    enum UpdatePolicy
-    {
-        POLICY_UPDATE_MERGE = 0,
-        POLICY_UPDATE_KEEP, // is not used in GUI
-        POLICY_SKIP,
-        POLICY_ADDNEW
-    };
+    // Plugin
+    bool                        m_import;
+    YandexFotkiWidget*          m_widget;
 
-    /*
-     * Plugin
-     */
-
-    bool                     m_import;
-
-    /*
-     * User interface
-     */
-
-    QWidget*                 m_mainWidget;
-    // accounts
-    QGroupBox*               m_accountBox;
-    QLabel*                  m_loginLabel;
-    QLabel*                  m_headerLabel;
-    KPushButton*             m_changeUserButton;
+    // User interface
+    QLabel*                     m_loginLabel;
+    QLabel*                     m_headerLabel;
+    QPushButton*                m_changeUserButton;
 
     // albums
-    QGroupBox*               m_albumsBox;
-    KPushButton*             m_newAlbumButton;
-    KPushButton*             m_reloadAlbumsButton;
-    KComboBox*               m_albumsCombo;
+    QGroupBox*                  m_albumsBox;
+    QPushButton*                m_newAlbumButton;
+    QPushButton*                m_reloadAlbumsButton;
+    QComboBox*                  m_albumsCombo;
 
     // upload settings
-    KComboBox*               m_accessCombo;
-    QCheckBox*               m_hideOriginalCheck;
-    QCheckBox*               m_disableCommentsCheck;
-    QCheckBox*               m_adultCheck;
-    QCheckBox*               m_resizeCheck;
-    QSpinBox*                m_dimensionSpin;
-    QSpinBox*                m_imageQualitySpin;
-    QButtonGroup*            m_policyGroup;
+    QComboBox*                  m_accessCombo;
+    QCheckBox*                  m_hideOriginalCheck;
+    QCheckBox*                  m_disableCommentsCheck;
+    QCheckBox*                  m_adultCheck;
+    QCheckBox*                  m_resizeCheck;
+    QSpinBox*                   m_dimensionSpin;
+    QSpinBox*                   m_imageQualitySpin;
+    QButtonGroup*               m_policyGroup;
 
-    KPImagesList*            m_imgList;
-    UploadWidget*            m_uploadWidget;
+    KPImagesList*               m_imgList;
+//  UploadWidget*               m_uploadWidget;
 
-    QProgressBar*            m_progressBar;
+    QProgressBar*               m_progressBar;
 
-    /*
-     * Backend
-     */
-    QString                  m_tmpDir;
-    YandexFotkiTalker        m_talker;
+    // Backend
+    QString                     m_tmpDir;
+    YandexFotkiTalker           m_talker;
 
-    QStack<YandexFotkiPhoto> m_transferQueue;
+    QStack<YandexFotkiPhoto>    m_transferQueue;
+
+    QPointer<MetadataProcessor> m_meta;
 
     // XMP id const for images
-    static const char*       XMP_SERVICE_ID;
+    static const char*          XMP_SERVICE_ID;
 };
 
 } // namespace KIPIYandexFotkiPlugin

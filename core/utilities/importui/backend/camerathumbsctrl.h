@@ -6,7 +6,7 @@
  * Date        : 2011-08-03
  * Description : digital camera thumbnails controller
  *
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,14 +30,12 @@
 #include <QString>
 #include <QImage>
 #include <QPixmap>
+#include <QUrl>
 
 // Local includes
 
 #include "camiteminfo.h"
-
-class KFileItem;
-class KJob;
-class KUrl;
+#include "digikam_export.h"
 
 namespace Digikam
 {
@@ -46,7 +44,7 @@ class CameraController;
 
 typedef QPair<CamItemInfo, QPixmap> CachedItem;
 
-class CameraThumbsCtrl : public QObject
+class DIGIKAM_EXPORT CameraThumbsCtrl : public QObject
 {
     Q_OBJECT
 
@@ -80,21 +78,19 @@ private Q_SLOTS:
 
     void slotThumbInfo(const QString&, const QString&, const CamItemInfo&, const QImage&);
     void slotThumbInfoFailed(const QString&, const QString&, const CamItemInfo&);
-    void slotGotKDEPreview(const KFileItem&, const QPixmap&);
-    void slotFailedKDEPreview(const KFileItem&);
-    void slotKdePreviewFinished(KJob*);
+    void slotVideoThumbnailDone(const QString&, const QImage&);
+    void slotVideoThumbnailFailed(const QString&);
+    void slotVideoThumbnailFinished();
 
 private:
 
-    void loadWithKDE(const CamItemInfo& info);
-    void startKdePreviewJob();
-    void procressKDEPreview(const KFileItem& item, const QPixmap& pix);
+    void procressVideoPreview(const QUrl& item, const QPixmap& pix);
 
     /// Cache management methods.
-    void removeItemFromCache(const KUrl& url);
-    void putItemToCache(const KUrl& url, const CamItemInfo&, const QPixmap& thumb);
-    bool hasItemFromCache(const KUrl& url) const;
-    const CachedItem* retrieveItemFromCache(const KUrl& url) const;
+    void removeItemFromCache(const QUrl& url);
+    void putItemToCache(const QUrl& url, const CamItemInfo&, const QPixmap& thumb);
+    bool hasItemFromCache(const QUrl& url) const;
+    const CachedItem* retrieveItemFromCache(const QUrl& url) const;
 
 private:
 

@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2008-12-01
- * Description : a kipi plugin to import/export images to/from 
+ * Description : a kipi plugin to import/export images to/from
                  SmugMug web service
  *
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
@@ -32,9 +32,9 @@ class QLabel;
 class QSpinBox;
 class QCheckBox;
 class QRadioButton;
-class KPushButton;
-class KComboBox;
-class KLineEdit;
+class QPushButton;
+class QComboBox;
+class QLineEdit;
 
 namespace KIPI
 {
@@ -60,8 +60,8 @@ public:
     SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool import);
     ~SmugWidget();
 
-    void updateLabels(const QString& email = "", const QString& name = "", 
-                      const QString& nick = "");
+    void updateLabels(const QString& email = QString(), const QString& name = QString(),
+                      const QString& nick = QString());
 
     bool isAnonymous() const;
     void setAnonymous(bool checked);
@@ -89,36 +89,36 @@ private Q_SLOTS:
 
 private:
 
-    QLabel*                    m_headerLbl;
-    QLabel*                    m_userNameLbl;
-    QLabel*                    m_userName;
-    QLabel*                    m_emailLbl;
-    QLabel*                    m_email;
-    QLabel*                    m_nickNameLbl;
-    QLabel*                    m_sitePasswordLbl;
-    QLabel*                    m_albumPasswordLbl;
+    QLabel*                        m_headerLbl;
+    QLabel*                        m_userNameLbl;
+    QLabel*                        m_userName;
+    QLabel*                        m_emailLbl;
+    QLabel*                        m_email;
+    QLabel*                        m_nickNameLbl;
+    QLabel*                        m_sitePasswordLbl;
+    QLabel*                        m_albumPasswordLbl;
 
-    QRadioButton*              m_anonymousRBtn;
-    QRadioButton*              m_accountRBtn;
+    QRadioButton*                  m_anonymousRBtn;
+    QRadioButton*                  m_accountRBtn;
 
-    QCheckBox*                 m_resizeChB;
+    QCheckBox*                     m_resizeChB;
 
-    QSpinBox*                  m_dimensionSpB;
-    QSpinBox*                  m_imageQualitySpB;
+    QSpinBox*                      m_dimensionSpB;
+    QSpinBox*                      m_imageQualitySpB;
 
-    KComboBox*                 m_albumsCoB;
+    QComboBox*                     m_albumsCoB;
 
-    KPushButton*               m_newAlbumBtn;
-    KPushButton*               m_reloadAlbumsBtn;
-    KPushButton*               m_changeUserBtn;
+    QPushButton*                   m_newAlbumBtn;
+    QPushButton*                   m_reloadAlbumsBtn;
+    QPushButton*                   m_changeUserBtn;
 
-    KLineEdit*                 m_albumPasswordEdt;
-    KLineEdit*                 m_nickNameEdt;
-    KLineEdit*                 m_sitePasswordEdt;
+    QLineEdit*                     m_albumPasswordEdt;
+    QLineEdit*                     m_nickNameEdt;
+    QLineEdit*                     m_sitePasswordEdt;
 
     KIPIPlugins::KPProgressWidget* m_progressBar;
-    KIPIPlugins::KPImagesList* m_imgList;
-    KIPI::UploadWidget*        m_uploadWidget;
+    KIPIPlugins::KPImagesList*     m_imgList;
+    KIPI::UploadWidget*            m_uploadWidget;
 
     friend class SmugWindow;
 };

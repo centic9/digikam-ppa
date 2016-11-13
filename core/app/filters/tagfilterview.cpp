@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "tagfilterview.moc"
+#include "tagfilterview.h"
 
 // Qt includes
 
@@ -32,10 +32,10 @@
 // KDE includes
 
 #include <kselectaction.h>
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummodel.h"
 #include "contextmenuhelper.h"
 
@@ -81,8 +81,8 @@ TagFilterView::TagFilterView(QWidget* const parent, TagModel* const tagFilterMod
 
     d->tagFilterModeAction        = new KSelectAction(i18n("Tag Filter Mode"), this);
     d->ignoreTagAction            = d->tagFilterModeAction->addAction(i18n("Ignore This Tag"));
-    d->includeTagAction           = d->tagFilterModeAction->addAction(KIcon("list-add"), i18n("Must Have This Tag"));
-    d->excludeTagAction           = d->tagFilterModeAction->addAction(KIcon("list-remove"), i18n("Must Not Have This Tag"));
+    d->includeTagAction           = d->tagFilterModeAction->addAction(QIcon::fromTheme(QLatin1String("list-add")),    i18n("Must Have This Tag"));
+    d->excludeTagAction           = d->tagFilterModeAction->addAction(QIcon::fromTheme(QLatin1String("list-remove")), i18n("Must Not Have This Tag"));
 }
 
 TagFilterView::~TagFilterView()

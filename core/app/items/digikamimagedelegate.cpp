@@ -7,7 +7,7 @@
  * Description : Qt item view for images - the delegate
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
@@ -24,18 +24,12 @@
  *
  * ============================================================ */
 
-#include "digikamimagedelegate.moc"
+#include "digikamimagedelegate.h"
 #include "imagedelegatepriv.h"
-
-// Qt includes
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kiconloader.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "applicationsettings.h"
 #include "imagecategorydrawer.h"
 #include "imagecategorizedview.h"
@@ -47,7 +41,7 @@
 namespace Digikam
 {
 
-void DigikamImageDelegatePrivate::init(DigikamImageDelegate* q, ImageCategorizedView* parent)
+void DigikamImageDelegatePrivate::init(DigikamImageDelegate* const q, ImageCategorizedView* const parent)
 {
     categoryDrawer = new ImageCategoryDrawer(parent);
 
@@ -84,18 +78,17 @@ void DigikamImageDelegate::updateRects()
 {
     Q_D(DigikamImageDelegate);
 
-    int y                              = d->margin;
-    d->pixmapRect                      = QRect(d->margin, y, d->contentWidth, d->contentWidth);
-    y                                  = d->pixmapRect.bottom();
-    d->imageInformationRect            = QRect(d->margin, y, d->contentWidth, 0);
-    const ApplicationSettings* albumSettings = ApplicationSettings::instance();
-    d->drawImageFormat                 = albumSettings->getIconShowImageFormat();
-    d->drawCoordinates                 = ApplicationSettings::instance()->getIconShowCoordinates();
-
-    const int iconSize = qBound(16, (d->contentWidth + 2*d->margin) / 8 - 2, 48);
-    d->pickLabelRect   = QRect(d->margin, y, iconSize, iconSize);
-    d->groupRect       = QRect(d->contentWidth - iconSize, y, iconSize, iconSize);
-    d->coordinatesRect = QRect(d->contentWidth - iconSize+2, d->pixmapRect.top(), iconSize, iconSize);
+    int y                                          = d->margin;
+    d->pixmapRect                                  = QRect(d->margin, y, d->contentWidth, d->contentWidth);
+    y                                              = d->pixmapRect.bottom();
+    d->imageInformationRect                        = QRect(d->margin, y, d->contentWidth, 0);
+    const ApplicationSettings* const albumSettings = ApplicationSettings::instance();
+    d->drawImageFormat                             = albumSettings->getIconShowImageFormat();
+    d->drawCoordinates                             = ApplicationSettings::instance()->getIconShowCoordinates();
+    const int iconSize                             = qBound(16, (d->contentWidth + 2*d->margin) / 8 - 2, 48);
+    d->pickLabelRect                               = QRect(d->margin, y, iconSize, iconSize);
+    d->groupRect                                   = QRect(d->contentWidth - iconSize, y, iconSize, iconSize);
+    d->coordinatesRect                             = QRect(d->contentWidth - iconSize+2, d->pixmapRect.top(), iconSize, iconSize);
 
     if (albumSettings->getIconShowRating())
     {

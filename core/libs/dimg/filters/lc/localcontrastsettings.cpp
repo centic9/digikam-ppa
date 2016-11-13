@@ -7,7 +7,7 @@
  * Description : Local Contrast settings view.
  *               LDR ToneMapper <http://zynaddsubfx.sourceforge.net/other/tonemapping>
  *
- * Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "localcontrastsettings.moc"
+#include "localcontrastsettings.h"
 
 // Qt includes
 
@@ -38,31 +38,24 @@
 #include <QTextStream>
 #include <QToolButton>
 #include <QVBoxLayout>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QStyle>
+#include <QUrl>
+#include <QFileDialog>
+#include <QIcon>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kcombobox.h>
-#include <kseparator.h>
-#include <kiconloader.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rcombobox.h>
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
-#include <libkdcraw/version.h>
-
-using namespace KDcrawIface;
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
+#include "dcombobox.h"
 
 namespace Digikam
 {
@@ -125,39 +118,39 @@ public:
     QLabel*               label10;
     QLabel*               label11;
 
-    RIntNumInput*         lowSaturationInput;
-    RIntNumInput*         highSaturationInput;
+    DIntNumInput*         lowSaturationInput;
+    DIntNumInput*         highSaturationInput;
 
-    RComboBox*            functionInput;
+    DComboBox*            functionInput;
 
-    RDoubleNumInput*      powerInput1;
-    RDoubleNumInput*      blurInput1;
-    RDoubleNumInput*      powerInput2;
-    RDoubleNumInput*      blurInput2;
-    RDoubleNumInput*      powerInput3;
-    RDoubleNumInput*      blurInput3;
-    RDoubleNumInput*      powerInput4;
-    RDoubleNumInput*      blurInput4;
+    DDoubleNumInput*      powerInput1;
+    DDoubleNumInput*      blurInput1;
+    DDoubleNumInput*      powerInput2;
+    DDoubleNumInput*      blurInput2;
+    DDoubleNumInput*      powerInput3;
+    DDoubleNumInput*      blurInput3;
+    DDoubleNumInput*      powerInput4;
+    DDoubleNumInput*      blurInput4;
 
-    RExpanderBox*         expanderBox;
+    DExpanderBox*         expanderBox;
 };
 
-const QString LocalContrastSettings::Private::configLowSaturationEntry("LowSaturation");
-const QString LocalContrastSettings::Private::configHighSaturationEntry("HighSaturation");
-const QString LocalContrastSettings::Private::configPower1Entry("Power1");
-const QString LocalContrastSettings::Private::configBlur1Entry("Blur1");
-const QString LocalContrastSettings::Private::configPower2Entry("Power2");
-const QString LocalContrastSettings::Private::configBlur2Entry("Blur2");
-const QString LocalContrastSettings::Private::configPower3Entry("Power3");
-const QString LocalContrastSettings::Private::configBlur3Entry("Blur3");
-const QString LocalContrastSettings::Private::configPower4Entry("Power4");
-const QString LocalContrastSettings::Private::configBlur4Entry("Blur4");
-const QString LocalContrastSettings::Private::configStretchContrastEntry("StretchContrast");
-const QString LocalContrastSettings::Private::configStageOneEntry("StageOne");
-const QString LocalContrastSettings::Private::configStageTwoEntry("StageTwo");
-const QString LocalContrastSettings::Private::configStageThreeEntry("StageThree");
-const QString LocalContrastSettings::Private::configStageFourEntry("StageFour");
-const QString LocalContrastSettings::Private::configFunctionInputEntry("FunctionInput");
+const QString LocalContrastSettings::Private::configLowSaturationEntry(QLatin1String("LowSaturation"));
+const QString LocalContrastSettings::Private::configHighSaturationEntry(QLatin1String("HighSaturation"));
+const QString LocalContrastSettings::Private::configPower1Entry(QLatin1String("Power1"));
+const QString LocalContrastSettings::Private::configBlur1Entry(QLatin1String("Blur1"));
+const QString LocalContrastSettings::Private::configPower2Entry(QLatin1String("Power2"));
+const QString LocalContrastSettings::Private::configBlur2Entry(QLatin1String("Blur2"));
+const QString LocalContrastSettings::Private::configPower3Entry(QLatin1String("Power3"));
+const QString LocalContrastSettings::Private::configBlur3Entry(QLatin1String("Blur3"));
+const QString LocalContrastSettings::Private::configPower4Entry(QLatin1String("Power4"));
+const QString LocalContrastSettings::Private::configBlur4Entry(QLatin1String("Blur4"));
+const QString LocalContrastSettings::Private::configStretchContrastEntry(QLatin1String("StretchContrast"));
+const QString LocalContrastSettings::Private::configStageOneEntry(QLatin1String("StageOne"));
+const QString LocalContrastSettings::Private::configStageTwoEntry(QLatin1String("StageTwo"));
+const QString LocalContrastSettings::Private::configStageThreeEntry(QLatin1String("StageThree"));
+const QString LocalContrastSettings::Private::configStageFourEntry(QLatin1String("StageFour"));
+const QString LocalContrastSettings::Private::configFunctionInputEntry(QLatin1String("FunctionInput"));
 
 // --------------------------------------------------------
 
@@ -165,13 +158,15 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
     : QWidget(parent),
       d(new Private)
 {
-    QGridLayout* grid = new QGridLayout(parent);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
-    QWidget* firstPage = new QWidget();
-    QGridLayout* grid1 = new QGridLayout(firstPage);
+    QGridLayout* const grid = new QGridLayout(parent);
 
-    QLabel* label1     = new QLabel(i18n("Function:"), firstPage);
-    d->functionInput   = new RComboBox(firstPage);
+    QWidget* const firstPage = new QWidget();
+    QGridLayout* const grid1 = new QGridLayout(firstPage);
+
+    QLabel* const label1 = new QLabel(i18n("Function:"), firstPage);
+    d->functionInput     = new DComboBox(firstPage);
     d->functionInput->addItem(i18n("Power"));
     d->functionInput->addItem(i18n("Linear"));
     d->functionInput->setDefaultIndex(0);
@@ -190,24 +185,22 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
 
     // -------------------------------------------------------------
 
-    QLabel* label2         = new QLabel(i18n("Highlights saturation:"), firstPage);
-    d->highSaturationInput = new RIntNumInput(firstPage);
+    QLabel* const label2   = new QLabel(i18n("Highlights saturation:"), firstPage);
+    d->highSaturationInput = new DIntNumInput(firstPage);
     d->highSaturationInput->setRange(0, 100, 1);
     d->highSaturationInput->setDefaultValue(100);
-    d->highSaturationInput->setSliderEnabled(true);
-    d->highSaturationInput->setObjectName("highSaturationInput");
+    d->highSaturationInput->setObjectName(QLatin1String("highSaturationInput"));
     d->highSaturationInput->setWhatsThis(i18n("<b>Highlights saturation</b>: Usually the (perceived) saturation is "
                                               "increased. The user can choose to lower the saturation on original highlight "
                                               "and shadows from the image with these parameters."));
 
     // -------------------------------------------------------------
 
-    QLabel* label3        = new QLabel(i18n("Shadow saturation:"), firstPage);
-    d->lowSaturationInput = new RIntNumInput(firstPage);
+    QLabel* const label3  = new QLabel(i18n("Shadow saturation:"), firstPage);
+    d->lowSaturationInput = new DIntNumInput(firstPage);
     d->lowSaturationInput->setRange(0, 100, 1);
     d->lowSaturationInput->setDefaultValue(100);
-    d->lowSaturationInput->setSliderEnabled(true);
-    d->lowSaturationInput->setObjectName("lowSaturationInput");
+    d->lowSaturationInput->setObjectName(QLatin1String("lowSaturationInput"));
     d->lowSaturationInput->setWhatsThis(i18n("<b>Shadow saturation</b>: Usually the (perceived) saturation is "
                                              "increased. The user can choose to lower the saturation on original highlight "
                                              "and shadows from the image with these parameters."));
@@ -221,30 +214,30 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
     grid1->addWidget(d->highSaturationInput,  3, 0, 1, 2);
     grid1->addWidget(label3,                  4, 0, 1, 2);
     grid1->addWidget(d->lowSaturationInput,   5, 0, 1, 2);
-    grid1->setMargin(KDialog::spacingHint());
-    grid1->setSpacing(KDialog::spacingHint());
+    grid1->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid1->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    QWidget* secondPage = new QWidget();
-    QGridLayout* grid2  = new QGridLayout(secondPage);
+    QWidget* const secondPage = new QWidget();
+    QGridLayout* const grid2  = new QGridLayout(secondPage);
 
     // -------------------------------------------------------------
 
     d->label4      = new QLabel(i18n("Power:"), secondPage);
-    d->powerInput1 = new RDoubleNumInput(firstPage);
-    d->powerInput1->input()->setRange(0.0, 100.0, 1.0, true);
+    d->powerInput1 = new DDoubleNumInput(firstPage);
+    d->powerInput1->setRange(0.0, 100.0, 1.0);
     d->powerInput1->setDefaultValue(30.0);
-    d->powerInput1->setObjectName("powerInput1");
+    d->powerInput1->setObjectName(QLatin1String("powerInput1"));
     d->powerInput1->setWhatsThis(i18n("<b>Power</b>: How strong the effect is applied."));
 
     // -------------------------------------------------------------
 
     d->label5      = new QLabel(i18n("Blur:"), secondPage);
-    d->blurInput1  = new RDoubleNumInput(firstPage);
-    d->blurInput1->input()->setRange(0.0, 1000.0, 1.0, true);
+    d->blurInput1  = new DDoubleNumInput(firstPage);
+    d->blurInput1->setRange(0.0, 1000.0, 1.0);
     d->blurInput1->setDefaultValue(80.0);
-    d->blurInput1->setObjectName("blurInput1");
+    d->blurInput1->setObjectName(QLatin1String("blurInput1"));
     d->blurInput1->setWhatsThis(i18n("<b>Blur</b>: How strong the image is blurred before combining with the original "
                                      "image and with the tonemapping function."));
 
@@ -252,30 +245,30 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
     grid2->addWidget(d->powerInput1, 0, 1, 1, 1);
     grid2->addWidget(d->label5,      1, 0, 1, 1);
     grid2->addWidget(d->blurInput1,  1, 1, 1, 1);
-    grid2->setMargin(KDialog::spacingHint());
-    grid2->setSpacing(KDialog::spacingHint());
+    grid2->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid2->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    QWidget* thirdPage = new QWidget();
-    QGridLayout* grid3 = new QGridLayout(thirdPage);
+    QWidget* const thirdPage = new QWidget();
+    QGridLayout* const grid3 = new QGridLayout(thirdPage);
 
     // -------------------------------------------------------------
 
     d->label6      = new QLabel(i18n("Power:"), thirdPage);
-    d->powerInput2 = new RDoubleNumInput(thirdPage);
-    d->powerInput2->input()->setRange(0.0, 100.0, 1.0, true);
+    d->powerInput2 = new DDoubleNumInput(thirdPage);
+    d->powerInput2->setRange(0.0, 100.0, 1.0);
     d->powerInput2->setDefaultValue(30.0);
-    d->powerInput2->setObjectName("powerInput2");
+    d->powerInput2->setObjectName(QLatin1String("powerInput2"));
     d->powerInput2->setWhatsThis(i18n("<b>Power</b>: How strong the effect is applied."));
 
     // -------------------------------------------------------------
 
     d->label7     = new QLabel(i18n("Blur:"), thirdPage);
-    d->blurInput2 = new RDoubleNumInput(thirdPage);
-    d->blurInput2->input()->setRange(0.0, 1000.0, 1.0, true);
+    d->blurInput2 = new DDoubleNumInput(thirdPage);
+    d->blurInput2->setRange(0.0, 1000.0, 1.0);
     d->blurInput2->setDefaultValue(80.0);
-    d->blurInput2->setObjectName("blurInput2");
+    d->blurInput2->setObjectName(QLatin1String("blurInput2"));
     d->blurInput2->setWhatsThis(i18n("<b>Blur</b>: How strong the image is blurred before combining with the original "
                                      "image and with the tonemapping function."));
 
@@ -283,30 +276,30 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
     grid3->addWidget(d->powerInput2, 0, 1, 1, 1);
     grid3->addWidget(d->label7,      1, 0, 1, 1);
     grid3->addWidget(d->blurInput2,  1, 1, 1, 1);
-    grid3->setMargin(KDialog::spacingHint());
-    grid3->setSpacing(KDialog::spacingHint());
+    grid3->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid3->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    QWidget* fourthPage = new QWidget();
-    QGridLayout* grid4  = new QGridLayout(fourthPage);
+    QWidget* const fourthPage = new QWidget();
+    QGridLayout* const grid4  = new QGridLayout(fourthPage);
 
     // -------------------------------------------------------------
 
     d->label8      = new QLabel(i18n("Power:"), fourthPage);
-    d->powerInput3 = new RDoubleNumInput(fourthPage);
-    d->powerInput3->input()->setRange(0.0, 100.0, 1.0, true);
+    d->powerInput3 = new DDoubleNumInput(fourthPage);
+    d->powerInput3->setRange(0.0, 100.0, 1.0);
     d->powerInput3->setDefaultValue(30.0);
-    d->powerInput3->setObjectName("powerInput3");
+    d->powerInput3->setObjectName(QLatin1String("powerInput3"));
     d->powerInput3->setWhatsThis(i18n("<b>Power</b>: How strong the effect is applied."));
 
     // -------------------------------------------------------------
 
     d->label9     = new QLabel(i18n("Blur:"), fourthPage);
-    d->blurInput3 = new RDoubleNumInput(fourthPage);
-    d->blurInput3->input()->setRange(0.0, 1000.0, 1.0, true);
+    d->blurInput3 = new DDoubleNumInput(fourthPage);
+    d->blurInput3->setRange(0.0, 1000.0, 1.0);
     d->blurInput3->setDefaultValue(80.0);
-    d->blurInput3->setObjectName("blurInput3");
+    d->blurInput3->setObjectName(QLatin1String("blurInput3"));
     d->blurInput3->setWhatsThis(i18n("<b>Blur</b>: How strong the image is blurred before combining with the original "
                                      "image and with the tonemapping function."));
 
@@ -314,30 +307,30 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
     grid4->addWidget(d->powerInput3, 0, 1, 1, 1);
     grid4->addWidget(d->label9,      1, 0, 1, 1);
     grid4->addWidget(d->blurInput3,  1, 1, 1, 1);
-    grid4->setMargin(KDialog::spacingHint());
-    grid4->setSpacing(KDialog::spacingHint());
+    grid4->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid4->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    QWidget* fifthPage = new QWidget();
-    QGridLayout* grid5 = new QGridLayout(fifthPage);
+    QWidget* const fifthPage = new QWidget();
+    QGridLayout* const grid5 = new QGridLayout(fifthPage);
 
     // -------------------------------------------------------------
 
     d->label10     = new QLabel(i18n("Power:"), fifthPage);
-    d->powerInput4 = new RDoubleNumInput(fifthPage);
-    d->powerInput4->input()->setRange(0.0, 100.0, 1.0, true);
+    d->powerInput4 = new DDoubleNumInput(fifthPage);
+    d->powerInput4->setRange(0.0, 100.0, 1.0);
     d->powerInput4->setDefaultValue(30.0);
-    d->powerInput4->setObjectName("powerInput4");
+    d->powerInput4->setObjectName(QLatin1String("powerInput4"));
     d->powerInput4->setWhatsThis(i18n("<b>Power</b>: How strong the effect is applied."));
 
     // -------------------------------------------------------------
 
     d->label11    = new QLabel(i18n("Blur:"), fifthPage);
-    d->blurInput4 = new RDoubleNumInput(fifthPage);
-    d->blurInput4->input()->setRange(0.0, 1000.0, 1.0, true);
+    d->blurInput4 = new DDoubleNumInput(fifthPage);
+    d->blurInput4->setRange(0.0, 1000.0, 1.0);
     d->blurInput4->setDefaultValue(80.0);
-    d->blurInput4->setObjectName("blurInput4");
+    d->blurInput4->setObjectName(QLatin1String("blurInput4"));
     d->blurInput4->setWhatsThis(i18n("<b>Blur</b>: How strong the image is blurred before combining with the original "
                                      "image and with the tonemapping function."));
 
@@ -345,23 +338,23 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
     grid5->addWidget(d->powerInput4, 0, 1, 1, 1);
     grid5->addWidget(d->label11,     1, 0, 1, 1);
     grid5->addWidget(d->blurInput4,  1, 1, 1, 1);
-    grid5->setMargin(KDialog::spacingHint());
-    grid5->setSpacing(KDialog::spacingHint());
+    grid5->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid5->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    d->expanderBox = new RExpanderBox;
-    d->expanderBox->setObjectName("LocalContrastTool Expander");
-    d->expanderBox->addItem(firstPage, SmallIcon("contrast"), i18n("General settings"),
-                            QString("GeneralSettingsContainer"), true);
-    d->expanderBox->addItem(secondPage, SmallIcon("contrast"), i18n("Stage 1"),
-                            QString("Stage1SettingsContainer"), true);
-    d->expanderBox->addItem(thirdPage, SmallIcon("contrast"), i18n("Stage 2"),
-                            QString("Stage2SettingsContainer"), true);
-    d->expanderBox->addItem(fourthPage, SmallIcon("contrast"), i18n("Stage 3"),
-                            QString("Stage3SettingsContainer"), true);
-    d->expanderBox->addItem(fifthPage, SmallIcon("contrast"), i18n("Stage 4"),
-                            QString("Stage4SettingsContainer"), true);
+    d->expanderBox = new DExpanderBox;
+    d->expanderBox->setObjectName(QLatin1String("LocalContrastTool Expander"));
+    d->expanderBox->addItem(firstPage, QIcon::fromTheme(QLatin1String("contrast")), i18n("General settings"),
+                            QLatin1String("GeneralSettingsContainer"), true);
+    d->expanderBox->addItem(secondPage, QIcon::fromTheme(QLatin1String("contrast")), i18n("Stage 1"),
+                            QLatin1String("Stage1SettingsContainer"), true);
+    d->expanderBox->addItem(thirdPage, QIcon::fromTheme(QLatin1String("contrast")), i18n("Stage 2"),
+                            QLatin1String("Stage2SettingsContainer"), true);
+    d->expanderBox->addItem(fourthPage, QIcon::fromTheme(QLatin1String("contrast")), i18n("Stage 3"),
+                            QLatin1String("Stage3SettingsContainer"), true);
+    d->expanderBox->addItem(fifthPage, QIcon::fromTheme(QLatin1String("contrast")), i18n("Stage 4"),
+                            QLatin1String("Stage4SettingsContainer"), true);
     d->expanderBox->addStretch();
     d->expanderBox->setCheckBoxVisible(1, true);
     d->expanderBox->setCheckBoxVisible(2, true);
@@ -370,8 +363,8 @@ LocalContrastSettings::LocalContrastSettings(QWidget* const parent)
 
     grid->addWidget(d->expanderBox, 0, 0, 1, 1);
     grid->setRowStretch(0, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
@@ -613,11 +606,7 @@ void LocalContrastSettings::readSettings(KConfigGroup& group)
 
     setSettings(prm);
 
-#if KDCRAW_VERSION >= 0x020000
     d->expanderBox->readSettings(group);
-#else
-    d->expanderBox->readSettings();
-#endif
 
     d->expanderBox->setEnabled(true);
 }
@@ -647,18 +636,14 @@ void LocalContrastSettings::writeSettings(KConfigGroup& group)
     group.writeEntry(d->configPower4Entry,          prm.stage[3].power);
     group.writeEntry(d->configBlur4Entry,           prm.stage[3].blur);
 
-#if KDCRAW_VERSION >= 0x020000
     d->expanderBox->writeSettings(group);
-#else
-    d->expanderBox->writeSettings();
-#endif
 }
 
 void LocalContrastSettings::loadSettings()
 {
-    KUrl loadFile = KFileDialog::getOpenUrl(KGlobalSettings::documentPath(),
-                                            QString("*"), kapp->activeWindow(),
-                                            QString(i18n("Photograph Local Contrast Settings File to Load")));
+    QUrl loadFile = QFileDialog::getOpenFileUrl(qApp->activeWindow(), i18n("Photograph Local Contrast Settings File to Load"),
+                                                QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                QLatin1String("*"));
 
     if (loadFile.isEmpty())
     {
@@ -671,11 +656,11 @@ void LocalContrastSettings::loadSettings()
     {
         QTextStream stream(&file);
 
-        if (stream.readLine() != "# Photograph Local Contrast Configuration File")
+        if (stream.readLine() != QLatin1String("# Photograph Local Contrast Configuration File"))
         {
-            KMessageBox::error(kapp->activeWindow(),
-                               i18n("\"%1\" is not a Photograph Local Contrast settings text file.",
-                                    loadFile.fileName()));
+            QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                                  i18n("\"%1\" is not a Photograph Local Contrast settings text file.",
+                                       loadFile.fileName()));
             file.close();
             return;
         }
@@ -701,8 +686,8 @@ void LocalContrastSettings::loadSettings()
     }
     else
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("Cannot load settings from the Photograph Local Contrast text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot load settings from the Photograph Local Contrast text file."));
     }
 
     file.close();
@@ -710,9 +695,9 @@ void LocalContrastSettings::loadSettings()
 
 void LocalContrastSettings::saveAsSettings()
 {
-    KUrl saveFile = KFileDialog::getSaveUrl(KGlobalSettings::documentPath(),
-                                            QString("*"), kapp->activeWindow(),
-                                            QString(i18n("Photograph Local Contrast Settings File to Save")));
+    QUrl saveFile = QFileDialog::getSaveFileUrl(qApp->activeWindow(), i18n("Photograph Local Contrast Settings File to Save"),
+                                                QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                QLatin1String("*"));
 
     if (saveFile.isEmpty())
     {
@@ -724,29 +709,29 @@ void LocalContrastSettings::saveAsSettings()
     if (file.open(QIODevice::WriteOnly))
     {
         QTextStream stream(&file);
-        stream << "# Photograph Local Contrast Configuration File\n";
+        stream << QLatin1String("# Photograph Local Contrast Configuration File\n");
 
-        stream << d->stretchContrastCheck->isChecked() << "\n";
-        stream << d->expanderBox->isChecked(1) << "\n";
-        stream << d->expanderBox->isChecked(2) << "\n";
-        stream << d->expanderBox->isChecked(3) << "\n";
-        stream << d->expanderBox->isChecked(4) << "\n";
-        stream << d->lowSaturationInput->value() << "\n";
-        stream << d->highSaturationInput->value() << "\n";
-        stream << d->functionInput->currentIndex() << "\n";
-        stream << d->powerInput1->value() << "\n";
-        stream << d->blurInput1->value() << "\n";
-        stream << d->powerInput2->value() << "\n";
-        stream << d->blurInput2->value() << "\n";
-        stream << d->powerInput3->value() << "\n";
-        stream << d->blurInput3->value() << "\n";
-        stream << d->powerInput4->value() << "\n";
-        stream << d->blurInput4->value() << "\n";
+        stream << d->stretchContrastCheck->isChecked() << QLatin1String("\n");
+        stream << d->expanderBox->isChecked(1) << QLatin1String("\n");
+        stream << d->expanderBox->isChecked(2) << QLatin1String("\n");
+        stream << d->expanderBox->isChecked(3) << QLatin1String("\n");
+        stream << d->expanderBox->isChecked(4) << QLatin1String("\n");
+        stream << d->lowSaturationInput->value() << QLatin1String("\n");
+        stream << d->highSaturationInput->value() << QLatin1String("\n");
+        stream << d->functionInput->currentIndex() << QLatin1String("\n");
+        stream << d->powerInput1->value() << QLatin1String("\n");
+        stream << d->blurInput1->value() << QLatin1String("\n");
+        stream << d->powerInput2->value() << QLatin1String("\n");
+        stream << d->blurInput2->value() << QLatin1String("\n");
+        stream << d->powerInput3->value() << QLatin1String("\n");
+        stream << d->blurInput3->value() << QLatin1String("\n");
+        stream << d->powerInput4->value() << QLatin1String("\n");
+        stream << d->blurInput4->value() << QLatin1String("\n");
     }
     else
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("Cannot save settings to the Photograph Local Contrast text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot save settings to the Photograph Local Contrast text file."));
     }
 
     file.close();

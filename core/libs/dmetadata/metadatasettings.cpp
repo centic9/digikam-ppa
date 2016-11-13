@@ -6,7 +6,7 @@
  * Date        : 2010-08-20
  * Description : central place for Metadata settings
  *
- * Copyright (C) 2010-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,22 +21,22 @@
  *
  * ============================================================ */
 
-#include "metadatasettings.moc"
+#include "metadatasettings.h"
 
 // Qt includes
 
-#include <QApplication>
 #include <QDir>
 #include <QFileInfo>
 #include <QMutex>
 
 // KDE includes
 
-#include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kglobal.h>
 #include <ksharedconfig.h>
-#include <kdebug.h>
+
+// Local includes
+
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -46,8 +46,8 @@ class MetadataSettings::Private
 public:
 
     Private()
-        : mutex(QMutex::Recursive),
-          configGroup("Metadata Settings")
+        : mutex(),
+          configGroup(QLatin1String("Metadata Settings"))
     {
     }
 
@@ -66,7 +66,7 @@ public:
 MetadataSettingsContainer MetadataSettings::Private::readFromConfig() const
 {
     MetadataSettingsContainer s;
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroup);
     s.readFromConfig(group);
     return s;
@@ -74,7 +74,7 @@ MetadataSettingsContainer MetadataSettings::Private::readFromConfig() const
 
 void MetadataSettings::Private::writeToConfig() const
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroup);
     settings.writeToConfig(group);
 }
@@ -97,7 +97,7 @@ public:
     MetadataSettings object;
 };
 
-K_GLOBAL_STATIC(MetadataSettingsCreator, metatadaSettingsCreator)
+Q_GLOBAL_STATIC(MetadataSettingsCreator, metatadaSettingsCreator)
 
 // -----------------------------------------------------------------------------------------------
 

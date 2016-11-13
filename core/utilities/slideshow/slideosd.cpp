@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow OSD widget
  *
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "slideosd.moc"
+#include "slideosd.h"
 
 // Qt includes
 
@@ -29,23 +29,19 @@
 #include <QLayout>
 #include <QDesktopWidget>
 #include <QEvent>
+#include <QStyle>
+#include <QApplication>
 #include <QProgressBar>
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kapplication.h>
-#include <khbox.h>
-#include <kdialog.h>
 
 // Windows includes
 
-#ifdef Q_OS_WIN32
+#ifdef Q_OS_WIN
 #include <windows.h>
 #endif
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "slideshow.h"
 #include "slidetoolbar.h"
 #include "slideproperties.h"
@@ -88,8 +84,8 @@ public:
     QTimer*             progressTimer;
     QTimer*             slideTimer;
 
-    KHBox*              labelsBox;
-    KHBox*              progressBox;
+    DHBox*              labelsBox;
+    DHBox*              progressBox;
 
     SlideShow*          parent;
     SlideProperties*    slideProps;
@@ -109,18 +105,17 @@ SlideOSD::SlideOSD(const SlideShowSettings& settings, SlideShow* const parent)
 
     setWindowFlags(flags);
     setAttribute(Qt::WA_TranslucentBackground, true);
-    setAttribute(Qt::WA_X11NetWmWindowTypeNotification, true);
     setAttribute(Qt::WA_ShowWithoutActivating, true);
     setMouseTracking(true);
-
-#ifdef Q_OS_WIN32
+/*
+#ifdef Q_OS_WIN
     // Don't show the window in the taskbar.  Qt::ToolTip does this too, but it
     // adds an extra ugly shadow.
-    int ex_style = GetWindowLong(winId(), GWL_EXSTYLE);
+    int ex_style = GetWindowLong((HWND)winId(), GWL_EXSTYLE);
     ex_style    |= WS_EX_NOACTIVATE;
-    SetWindowLong(winId(), GWL_EXSTYLE, ex_style);
+    SetWindowLong((HWND)winId(), GWL_EXSTYLE, ex_style);
 #endif
-
+*/
     d->settings   = settings;
     d->parent     = parent;
     d->slideProps = new SlideProperties(d->settings, this);
@@ -128,7 +123,7 @@ SlideOSD::SlideOSD(const SlideShowSettings& settings, SlideShow* const parent)
 
     // ---------------------------------------------------------------
 
-    d->labelsBox    = new KHBox(this);
+    d->labelsBox    = new DHBox(this);
 
     d->clWidget     = new ColorLabelSelector(d->labelsBox);
     d->clWidget->installEventFilter(this);
@@ -168,7 +163,7 @@ SlideOSD::SlideOSD(const SlideShowSettings& settings, SlideShow* const parent)
 
     // ---------------------------------------------------------------
 
-    d->progressBox   = new KHBox(this);
+    d->progressBox   = new DHBox(this);
     d->progressBox->setVisible(d->settings.showProgressIndicator);
     d->progressBox->installEventFilter(d->parent);
     d->progressBox->setMouseTracking(true);
@@ -210,8 +205,8 @@ SlideOSD::SlideOSD(const SlideShowSettings& settings, SlideShow* const parent)
     grid->addWidget(d->progressBox, 3, 0, 1, 1);
     grid->setRowStretch(0, 10);
     grid->setColumnStretch(1, 10);
-    grid->setSpacing(KDialog::spacingHint());
-    grid->setMargin(0);
+    grid->setContentsMargins(QMargins());
+    grid->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
 
     // ---------------------------------------------------------------
 
@@ -245,7 +240,7 @@ SlideToolBar* SlideOSD::toolBar() const
     return d->toolBar;
 }
 
-void SlideOSD::setCurrentInfo(const SlidePictureInfo& info, const KUrl& url)
+void SlideOSD::setCurrentInfo(const SlidePictureInfo& info, const QUrl& url)
 {
     // Update info text.
 
@@ -314,7 +309,7 @@ void SlideOSD::slotSlideTimer()
 
 void SlideOSD::slotProgressTimer()
 {
-    QString str = QString("(%1/%2)")
+    QString str = QString::fromUtf8("(%1/%2)")
                     .arg(QString::number(d->settings.fileList.indexOf(d->parent->currentItem()) + 1))
                     .arg(QString::number(d->settings.fileList.count()));
 

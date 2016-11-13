@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Raindrop threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -36,8 +36,8 @@
 
 #include <QDateTime>
 #include <QRect>
-#include <qmath.h>
-#include <QtConcurrentRun>
+#include <QtMath>
+#include <QtConcurrent>
 
 // Local includes
 
@@ -71,14 +71,16 @@ public:
 };
 
 RainDropFilter::RainDropFilter(QObject* const parent)
-    : DImgThreadedFilter(parent), d(new Private)
+    : DImgThreadedFilter(parent),
+      d(new Private)
 {
     initFilter();
 }
 
 RainDropFilter::RainDropFilter(DImg* const orgImage, QObject* const parent, int drop,
                                int amount, int coeff, const QRect& selection)
-    : DImgThreadedFilter(orgImage, parent, "RainDrop"), d(new Private)
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("RainDrop")),
+      d(new Private)
 {
     d->drop      = drop;
     d->amount    = amount;
@@ -253,7 +255,7 @@ bool RainDropFilter::CreateRainDrop(uchar* const pBits, int Width, int Height, b
 {
     if (CanBeDropped(Width, Height, pStatusBits, X, Y, DropSize, bLimitRange))
     {
-        register int w, h, nw1, nh1, nw2, nh2;
+       int w, h, nw1, nh1, nw2, nh2;
         int          nBright;
         double       lfRadius, lfOldRadius, lfAngle;
         DColor       imageData;
@@ -481,7 +483,7 @@ bool RainDropFilter::CreateRainDrop(uchar* const pBits, int Width, int Height, b
 bool RainDropFilter::CanBeDropped(int Width, int Height, uchar* const pStatusBits, int X, int Y,
                                   int DropSize, bool bLimitRange)
 {
-    register int w, h, i = 0;
+   int w, h, i = 0;
     int          nHalfSize = DropSize / 2;
 
     if (!pStatusBits)
@@ -518,7 +520,7 @@ bool RainDropFilter::CanBeDropped(int Width, int Height, uchar* const pStatusBit
 bool RainDropFilter::SetDropStatusBits(int Width, int Height, uchar* const pStatusBits,
                                        int X, int Y, int DropSize)
 {
-    register int w, h, i = 0;
+   int w, h, i = 0;
     int nHalfSize = DropSize / 2;
 
     if (!pStatusBits)
@@ -546,14 +548,14 @@ FilterAction RainDropFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("amount",     d->amount);
-    action.addParameter("coeff",      d->coeff);
-    action.addParameter("drop",       d->drop);
-    action.addParameter("selectedH",  d->selection.height());
-    action.addParameter("selectedW",  d->selection.width());
-    action.addParameter("selectedX",  d->selection.x());
-    action.addParameter("selectedY",  d->selection.y());
-    action.addParameter("randomSeed", d->generator.currentSeed());
+    action.addParameter(QLatin1String("amount"),     d->amount);
+    action.addParameter(QLatin1String("coeff"),      d->coeff);
+    action.addParameter(QLatin1String("drop"),       d->drop);
+    action.addParameter(QLatin1String("selectedH"),  d->selection.height());
+    action.addParameter(QLatin1String("selectedW"),  d->selection.width());
+    action.addParameter(QLatin1String("selectedX"),  d->selection.x());
+    action.addParameter(QLatin1String("selectedY"),  d->selection.y());
+    action.addParameter(QLatin1String("randomSeed"), d->generator.currentSeed());
 
     return action;
 }
@@ -561,15 +563,15 @@ FilterAction RainDropFilter::filterAction()
 void RainDropFilter::readParameters(const FilterAction& action)
 {
     int x=0, y=0, w=0, h=0;
-    d->amount    = action.parameter("amount").toInt();
-    d->coeff     = action.parameter("coeff").toInt();
-    d->drop      = action.parameter("drop").toInt();
-    h            = action.parameter("selectedH").toInt();
-    w            = action.parameter("selectedW").toInt();
-    x            = action.parameter("selectedX").toInt();
-    y            = action.parameter("selectedY").toInt();
+    d->amount    = action.parameter(QLatin1String("amount")).toInt();
+    d->coeff     = action.parameter(QLatin1String("coeff")).toInt();
+    d->drop      = action.parameter(QLatin1String("drop")).toInt();
+    h            = action.parameter(QLatin1String("selectedH")).toInt();
+    w            = action.parameter(QLatin1String("selectedW")).toInt();
+    x            = action.parameter(QLatin1String("selectedX")).toInt();
+    y            = action.parameter(QLatin1String("selectedY")).toInt();
     d->selection = QRect(x, y, w, h);
-    d->generator.seed(action.parameter("randomSeed").toUInt());
+    d->generator.seed(action.parameter(QLatin1String("randomSeed")).toUInt());
 }
 
 int RainDropFilter::limitValues8(int ColorValue)

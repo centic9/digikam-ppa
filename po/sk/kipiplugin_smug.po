@@ -1,28 +1,20 @@
 # translation of kipiplugin_smug.po to Slovak
 # Richard Fric <Richard.Fric@kdemail.net>, 2009.
-# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_smug\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-05-10 01:54+0000\n"
-"PO-Revision-Date: 2013-10-28 21:14+0100\n"
-"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-31 23:07+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Roman Paholík"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "wizzardsk@gmail.com"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_smugui.rc:7
@@ -39,142 +31,147 @@ msgstr "&Exportovať"
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
-#: plugin_smug.cpp:107
+#: plugin_smug.cpp:98
 #, fuzzy
 msgid "Export to &SmugMug..."
 msgstr "SmugMug import a export"
 
-#: plugin_smug.cpp:118
+#: plugin_smug.cpp:109
 #, fuzzy
 msgid "Import from &SmugMug..."
 msgstr "SmugMug import a export"
 
-#: smugalbum.cpp:52
+#: smugalbum.cpp:54
 #, fuzzy
 msgid "SmugMug New Album"
 msgstr "Vytvoriť nový album"
 
-#: smugalbum.cpp:64 smugwidget.cpp:119
+#: smugalbum.cpp:64 smugwidget.cpp:118
 msgid "Album"
 msgstr "Album"
 
-#: smugalbum.cpp:66
+#: smugalbum.cpp:65
 msgid "These are basic settings for the new SmugMug album."
 msgstr ""
 
-#: smugalbum.cpp:70
+#: smugalbum.cpp:68
 msgid "Title of the album that will be created (required)."
 msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
 
-#: smugalbum.cpp:75
+#: smugalbum.cpp:72
 msgid "Category of the album that will be created (required)."
 msgstr ""
 
-#: smugalbum.cpp:80
+#: smugalbum.cpp:76
 msgid "Subcategory of the album that will be created (optional)."
 msgstr ""
 
-#: smugalbum.cpp:84
+#: smugalbum.cpp:79
 msgid "Description of the album that will be created (optional)."
 msgstr "Popis albumu, ktorý bude vytvorený (voliteľné)."
 
-#: smugalbum.cpp:89
+#: smugalbum.cpp:83
 msgid "Album template for the new album (optional)."
 msgstr ""
 
-#: smugalbum.cpp:92
+#: smugalbum.cpp:86
 msgctxt "new smug album dialog"
 msgid "Title:"
 msgstr "Titul:"
 
-#: smugalbum.cpp:93
+#: smugalbum.cpp:87
 msgctxt "new smug album dialog"
 msgid "Category:"
 msgstr "Kategória:"
 
-#: smugalbum.cpp:94
+#: smugalbum.cpp:88
 msgctxt "new smug album dialog"
 msgid "Subcategory:"
 msgstr "Podkategória:"
 
-#: smugalbum.cpp:95
+#: smugalbum.cpp:89
 msgctxt "new smug album dialog"
 msgid "Description:"
 msgstr "Popis:"
 
-#: smugalbum.cpp:96
+#: smugalbum.cpp:90
 msgctxt "new smug album dialog"
 msgid "Template:"
 msgstr "Šablóna:"
 
-#: smugalbum.cpp:104
+#: smugalbum.cpp:98
 #, fuzzy
 msgid "Security && Privacy"
 msgstr "Nastavenie zabezpečenia a súkromia"
 
-#: smugalbum.cpp:106
+#: smugalbum.cpp:99
 msgid "These are security and privacy settings for the new SmugMug album."
 msgstr ""
 
-#: smugalbum.cpp:108
+#: smugalbum.cpp:101
 msgctxt "smug album privacy"
 msgid "Public"
 msgstr "Verejné"
 
-#: smugalbum.cpp:111
+#: smugalbum.cpp:103
 msgid "Public album is listed on your public SmugMug page."
 msgstr ""
 
-#: smugalbum.cpp:112
+#: smugalbum.cpp:104
 msgctxt "smug album privacy"
 msgid "Unlisted"
 msgstr "Neuvedené"
 
-#: smugalbum.cpp:114
+#: smugalbum.cpp:105
 msgid "Unlisted album is only accessible via URL."
 msgstr ""
 
-#: smugalbum.cpp:122
+#: smugalbum.cpp:112
 msgid "Require password to access the album (optional)."
 msgstr ""
 
-#: smugalbum.cpp:126
+#: smugalbum.cpp:115
 msgid "Password hint to present to users in the password prompt (optional)."
 msgstr ""
 
-#: smugalbum.cpp:129
+#: smugalbum.cpp:118
 msgid "Privacy:"
 msgstr "Súkromie:"
 
-#: smugalbum.cpp:130
+#: smugalbum.cpp:119
 msgid "Password:"
 msgstr "Heslo:"
 
-#: smugalbum.cpp:131
+#: smugalbum.cpp:120
 #, fuzzy
 msgid "Password Hint:"
 msgstr "   Existuje rada   "
 
-#: smugtalker.cpp:101
+#: smugtalker.cpp:111
 #, fuzzy
 msgid "Logging in to SmugMug service..."
 msgstr "Prihlásenie sa do %1 zlyhalo: autentifikácia potrebná"
 
-#: smugtalker.cpp:497
+#: smugtalker.cpp:464
 msgid "Login failed"
 msgstr "Prihlásenie zlyhalo"
 
-#: smugtalker.cpp:500
+#: smugtalker.cpp:467
 #, fuzzy
 msgid "Invalid user/nick/password"
 msgstr "Zmeniť heslo tohto užívateľa"
 
-#: smugtalker.cpp:503
+#: smugtalker.cpp:470
 #, fuzzy
 msgid "Invalid API key"
 msgstr "Kľúč nie je platný."
 
-#: smugwidget.cpp:73
+#: smugtalker.cpp:512 smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451
+#: smugwindow.cpp:484 smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
+msgid "Error"
+msgstr "Chyba"
+
+#: smugwidget.cpp:74
 msgid "This is the list of images to upload to your SmugMug account."
 msgstr ""
 
@@ -187,39 +184,39 @@ msgstr ""
 msgid "Account"
 msgstr "Účet"
 
-#: smugwidget.cpp:88
+#: smugwidget.cpp:87
 msgid "This is the SmugMug account that will be used to authenticate."
 msgstr ""
 
-#: smugwidget.cpp:91
+#: smugwidget.cpp:90
 msgctxt "smug account login"
 msgid "Anonymous"
 msgstr "Anonym"
 
-#: smugwidget.cpp:93
+#: smugwidget.cpp:91
 msgid "Login as anonymous to SmugMug web service."
 msgstr ""
 
-#: smugwidget.cpp:95
+#: smugwidget.cpp:93
 #, fuzzy
 msgid "SmugMug Account"
 msgstr "Detaily účtu"
 
-#: smugwidget.cpp:97
+#: smugwidget.cpp:94
 msgid "Login to SmugMug web service using email and password."
 msgstr ""
 
-#: smugwidget.cpp:99
+#: smugwidget.cpp:96
 msgctxt "smug account settings"
 msgid "Name:"
 msgstr "Názov:"
 
-#: smugwidget.cpp:101
+#: smugwidget.cpp:98
 msgctxt "smug account settings"
 msgid "Email:"
 msgstr "E-mail:"
 
-#: smugwidget.cpp:103
+#: smugwidget.cpp:102
 msgid "Change Account"
 msgstr "Zmeniť účet"
 
@@ -227,42 +224,42 @@ msgstr "Zmeniť účet"
 msgid "Change SmugMug Account used to authenticate"
 msgstr ""
 
-#: smugwidget.cpp:120
+#: smugwidget.cpp:119
 msgid "This is the SmugMug album that will be used for transfer."
 msgstr ""
 
-#: smugwidget.cpp:125
+#: smugwidget.cpp:124
 msgid "Nickname:"
 msgstr "Prezývka:"
 
-#: smugwidget.cpp:128
+#: smugwidget.cpp:126
 msgid "Nickname of SmugMug user to list albums."
 msgstr ""
 
-#: smugwidget.cpp:129
+#: smugwidget.cpp:127
 #, fuzzy
 msgid "Site Password:"
 msgstr "Nesprávne heslo."
 
-#: smugwidget.cpp:132
+#: smugwidget.cpp:129
 msgid "Site-wide password for specified SmugMug nick/user."
 msgstr ""
 
-#: smugwidget.cpp:133
+#: smugwidget.cpp:130
 #, fuzzy
 msgid "Album Password:"
 msgstr "Nesprávne heslo."
 
-#: smugwidget.cpp:136
+#: smugwidget.cpp:132
 #, fuzzy
 msgid "Password for SmugMug album."
 msgstr "Odstrániť heslo pre formulár %1"
 
-#: smugwidget.cpp:138
+#: smugwidget.cpp:135
 msgid "New Album"
 msgstr "Nový album"
 
-#: smugwidget.cpp:139
+#: smugwidget.cpp:137
 #, fuzzy
 msgid "Create new SmugMug album"
 msgstr "<qt><b>Vytvoriť nový album v<br/>\"<i>%1</i>\"</b></qt>"
@@ -272,60 +269,60 @@ msgctxt "reload album list"
 msgid "Reload"
 msgstr "Znovu načítať"
 
-#: smugwidget.cpp:141
+#: smugwidget.cpp:142
 msgid "Reload album list"
 msgstr "Obnoviť zoznam albumov"
 
-#: smugwidget.cpp:155
+#: smugwidget.cpp:156
 msgid "Destination"
 msgstr "Cieľ"
 
-#: smugwidget.cpp:156
+#: smugwidget.cpp:157
 msgid "This is the location where SmugMug images will be downloaded."
 msgstr ""
 
-#: smugwidget.cpp:163
+#: smugwidget.cpp:164
 msgid "Options"
 msgstr "Možnosti"
 
-#: smugwidget.cpp:164
+#: smugwidget.cpp:165
 msgid "These are options that will be applied to images before upload."
 msgstr "Toto sú voľby, ktoré sa použijú na obrázky pred nahraním."
 
-#: smugwidget.cpp:168
+#: smugwidget.cpp:169
 msgid "Resize photos before uploading"
 msgstr "Zmeniť veľkosť fotiek pred nahraním"
 
-#: smugwidget.cpp:178
+#: smugwidget.cpp:179
 msgid "Maximum dimension:"
 msgstr "Maximálne rozmery:"
 
-#: smugwidget.cpp:186
+#: smugwidget.cpp:187
 msgid "JPEG quality:"
 msgstr "Kvalita JPEG:"
 
-#: smugwindow.cpp:94
+#: smugwindow.cpp:86
 msgid "Import from SmugMug Web Service"
 msgstr ""
 
-#: smugwindow.cpp:96
+#: smugwindow.cpp:88
 #, fuzzy
 msgid "Start Download"
 msgstr "Poradie sťahovania"
 
-#: smugwindow.cpp:97
+#: smugwindow.cpp:89
 msgid "Start download from SmugMug web service"
 msgstr ""
 
-#: smugwindow.cpp:102
+#: smugwindow.cpp:95
 msgid "Export to SmugMug Web Service"
 msgstr ""
 
-#: smugwindow.cpp:104
+#: smugwindow.cpp:97
 msgid "Start Upload"
 msgstr "Spustiť odoslanie"
 
-#: smugwindow.cpp:105
+#: smugwindow.cpp:98
 msgid "Start upload to SmugMug web service"
 msgstr ""
 
@@ -334,13 +331,12 @@ msgstr ""
 msgid "Smug Import/Export"
 msgstr "Facebook import/export"
 
-#: smugwindow.cpp:129
+#: smugwindow.cpp:128
 msgid ""
-"A Kipi plugin to import/export image collections from/to the SmugMug web "
-"service."
+"A tool to import/export image collections from/to the SmugMug web service."
 msgstr ""
 
-#: smugwindow.cpp:131
+#: smugwindow.cpp:130
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
@@ -350,7 +346,7 @@ msgstr ""
 "(c) 2008-2012, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: smugwindow.cpp:135
+#: smugwindow.cpp:134
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
@@ -364,41 +360,52 @@ msgid ""
 "\"http://www.smugmug.com\">SmugMug</a> account</qt>"
 msgstr ""
 
-#: smugwindow.cpp:403 smugwindow.cpp:412 smugwindow.cpp:441 smugwindow.cpp:473
-#: smugwindow.cpp:504 smugwindow.cpp:533 smugwindow.cpp:901
+#: smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451 smugwindow.cpp:484
+#: smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
 #, fuzzy, kde-format
 msgid "SmugMug Call Failed: %1\n"
 msgstr "Volanie D-Bus zlyhalo"
 
-#: smugwindow.cpp:469 smugwindow.cpp:529
+#: smugwindow.cpp:480 smugwindow.cpp:542
 #, fuzzy
 msgid "&lt;none&gt;"
 msgstr "[Zvýraznenie] (%1) &lt;%2&gt;"
 
-#: smugwindow.cpp:655 smugwindow.cpp:688
+#: smugwindow.cpp:668 smugwindow.cpp:701
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: smugwindow.cpp:659
+#: smugwindow.cpp:671
 msgid "Smug Import"
 msgstr "Smug Import"
 
-#: smugwindow.cpp:692
+#: smugwindow.cpp:704
 msgid "Smug Export"
 msgstr "Smug Export"
 
-#: smugwindow.cpp:771 smugwindow.cpp:784
+#: smugwindow.cpp:788 smugwindow.cpp:802
 msgid "Cannot open file"
 msgstr "Nie je možné otvoriť súbor"
 
-#: smugwindow.cpp:808
-#, kde-format
+#: smugwindow.cpp:825
+msgid "Uploading Failed"
+msgstr "Odoslanie zlyhalo"
+
+#: smugwindow.cpp:826
+#, fuzzy, kde-format
 msgid ""
-"Failed to upload photo into SmugMug: %1\n"
+"Failed to upload photo to SmugMug.\n"
+"%1\n"
 "Do you want to continue?"
 msgstr ""
+"Zlyhalo ukladanie súboru '%1'.\n"
+"Chcete použiť iné meno súboru?"
 
-#: smugwindow.cpp:868
+#: smugwindow.cpp:887 smugwindow.cpp:900
+msgid "Processing Failed"
+msgstr "Spracovanie zlyhalo"
+
+#: smugwindow.cpp:888
 #, fuzzy, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -407,9 +414,17 @@ msgstr ""
 "Zlyhalo ukladanie súboru '%1'.\n"
 "Chcete použiť iné meno súboru?"
 
-#: smugwindow.cpp:882
+#: smugwindow.cpp:901
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
 "Do you want to continue?"
 msgstr ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Roman Paholík"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "wizzardsk@gmail.com"

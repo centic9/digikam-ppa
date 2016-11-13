@@ -1,0 +1,201 @@
+<sect2 id="using-camera-basis">
+<title
+>Basis camera-interface bewerkingen</title>
+
+    <sect3 id="using-camera-info">
+    <title
+>Verkrijgen van informatie over foto's van de camera</title>
+
+        <para
+>Alvorens foto's te downloaden naar uw computer, wilt u misschien camera-informatie over de foto's bekijken. Met behulp van <menuchoice
+><guimenuitem
+>Eigenschappen</guimenuitem
+></menuchoice
+> en <menuchoice
+><guimenuitem
+>Metagegevens</guimenuitem
+></menuchoice
+> zullen de tabbladen in de zijpaneel van het Camera-interface Camera-item-eigenschappen en metagegevensinformatie starten. </para>
+
+        <example>
+
+            <title
+>Het tabblad Camera-item-eigenschappen in het zijpaneel</title>
+            <screenshot>
+                <screeninfo
+>Het tabblad Camera-item-eigenschappen in het zijpaneel</screeninfo>
+                <mediaobject
+><imageobject>
+                    <imagedata fileref="&path;using-camera-itemproperties.png" format="PNG"/>
+                </imageobject
+></mediaobject>
+            </screenshot>
+
+        </example>
+
+        <para
+>Het tabblad Eigenschappen toont bestandsinformatie opgenomen met de camera en een samenvatting van informatie over de fotograaf, die beschrijft hoe de afbeelding is genomen. Een vlag geeft aan of de afbeelding nog niet is gedownload naar de computer. Let op, al deze informatie is mogelijk niet beschikbaar met sommige digitale camera's. </para>
+
+        <para
+>Het tabblad Metagegevens toont interne metagegevens van de afbeelding, zoals EXIF, Makernotities, GPS, &etc; Deze informatie is hetzelfde als <link linkend="using-sidebar-metadata"
+>Metagegevens in het zijpaneel</link
+> uit het hoofdinterface van &digikam; of afbeeldingsbewerker. Merk op dat al deze metagegevens niet beschikbaar kunnen zijn bij sommige digitale camera's. </para>
+
+    </sect3>
+
+    <sect3 id="using-camera-target">
+    <title
+>Het doelalbum selecteren</title>
+
+    <anchor id="targetalbumdialog.anchor"/>
+
+        <para
+>Met behulp de knoppen <guilabel
+>Alles downloaden</guilabel
+> of <guilabel
+>Geselecteerden downloaden</guilabel
+> verschijnt een dialoogvenster dat u in staat stelt om een doelalbum te selecteren waarin de foto's worden gedownload. De lijst met bestaande Albums wordt weergegeven, geordend volgens de Mappenmethode (zie <link linkend="using-mainwindow-albumsview"
+>Albumweergave</link
+> voor meer informatie over ordening van albums). U kunt het album selecteren uit deze lijst en op OK klikken. </para>
+
+        <example>
+
+            <title
+>De keuzedialoog voor het doelalbum</title>
+            <screenshot>
+                <screeninfo
+>De keuzedialoog voor het doelalbum</screeninfo>
+                <mediaobject
+><imageobject>
+                    <imagedata fileref="&path;using-camera-targetalbumdialog.png" format="PNG"/>
+                </imageobject
+></mediaobject>
+            </screenshot>
+
+        </example>
+
+        <para
+>Als u een nieuw album wilt maken waarin u foto's kunt downloaden klik dan op de knop <guilabel
+>Nieuw album</guilabel
+>. Het nieuwe album zal worden gemaakt als een submap van het album dat is geselecteerd in de bestaande Albumlijst. Dit betekent dat, als u niet wilt dat uw nieuwe album in een submap van een bestaande map komt, u eerst het item "Mijn albums" moet selecteren helemaal bovenaan in de lijst met albums voordat u een nieuw album maakt.   </para>
+
+        <para
+>Als u het doelalbum hebt geselecteerd, klik op OK en &digikam; zal de foto's van de camera opslaan in dat album. </para>
+
+        <para>
+
+            <inlinemediaobject>
+                <imageobject>
+                    <imagedata fileref="&path;using-camera-download.png" format="PNG"/>
+                </imageobject>
+                <textobject>
+                    <phrase
+>Het downloaden in werking</phrase>
+                </textobject>
+            </inlinemediaobject>
+
+        </para>
+
+    </sect3>
+
+    <sect3 id="using-camera-download">
+    <title
+>Foto's downloaden naar uw computer</title>
+
+        <para
+>De eenvoudigste manier om foto's te downloaden van uw camera naar uw computer is om te klikken op de knop <guilabel
+>Downloaden</guilabel
+> en vervolgens op <guilabel
+>Alles downloaden</guilabel
+>. Dit zal alle foto's downloaden van de camera naar een enkel album van &digikam;. Het downloadproces zal de foto's niet uit de camera verwijderen. Het is altijd raadzaam om te controleren of de foto's veilig in het album zijn gedownload zoals u verwachtte alvorens ze te verwijderen uit de camera. </para>
+
+        <para
+>Als u niet alle foto's wilt downloaden kunt u met behulp van de standaard selectiemethoden gewoon kiezen welke u nodig hebt. Zodra u de foto's hebt geselecteerd, klikt u op <guilabel
+>Downloaden</guilabel
+> en daarna op <guilabel
+>Geselecteerden downloaden</guilabel
+>. De knop <guilabel
+>Geselecteerden downloaden</guilabel
+> wordt grijs weergegeven totdat u een aantal foto's hebt geselecteerd. </para>
+
+        <note
+><para
+>Een optie <guilabel
+>Nieuwe downloaden</guilabel
+> is beschikbaar als uw camera dat ondersteunt. Dat zijn beelden die door &digikam; nog niet zijn gedownload. In dat geval worden de nieuwe beelden gemarkeerd met een ster in het venster met miniaturen. Als u deze handige optie kiest, zullen alleen de nieuwe opnamen worden gedownload. </para
+></note>
+
+    </sect3>
+
+    <sect3 id="using-camera-upload">
+    <title
+>Uploaden van foto's naar uw camera</title>
+
+        <para
+>De eenvoudigste manier om foto's te uploaden van uw computer naar uw camerais om te klikken op de knop <guilabel
+>Download</guilabel
+> en vervolgens op <guilabel
+>Uploaden</guilabel
+>. Een standaard dialoog voor selectie van bestanden zal verschijnen om de bestanden van uw computer te selecteren om deze naar uw camera te kopiëren . U kunt meer dan één bestand selecteren met behulp van de standaard selectiemethoden. </para>
+
+        <para
+>Wanneer de selectie van afbeeldingen gereed is, zal &digikam; u vragen waarnaartoe in uw camera u de bestanden wilt uploaden. Een dialoogvenster voor selectie van de map op de camera zal verschijnen. Selecteer eenvoudig een map en druk op OK om te beginnen met uploaden. Er zullen geen afbeeldingen van uw computer worden verwijderd. </para>
+
+        <example>
+
+            <title
+>De dialoog voor selectie van de map op de camera</title>
+            <screenshot>
+                <screeninfo
+>De dialoog voor selectie van de map op de camera</screeninfo>
+                    <mediaobject
+><imageobject>
+                        <imagedata fileref="&path;using-camera-folderselectiondialog.png" format="PNG"/>
+                    </imageobject
+></mediaobject>
+            </screenshot>
+
+        </example>
+
+        <note
+><para
+>Een mogelijkheid tot uploaden wordt niet door alle stuurprogramma's van camera's ondersteund. </para
+></note>
+
+    </sect3>
+
+    <sect3 id="using-camera-delete">
+    <title
+>Verwijderen foto's van de camera </title>
+
+        <para
+>Zodra u tevreden bent met de gewenste, gedownloade foto's, bent u klaar om foto's uit de camera te verwijderen. U kunt alle foto's in een keer verwijden door te klikken op de knop <menuchoice
+> <guimenu
+>Verwijderen</guimenu
+> <guimenuitem
+>Alles verwijderen</guimenuitem
+> </menuchoice
+>. Als u slechts een ​​selectie van de foto's wilt verwijderen, moet u de foto's die u wilt verwijderen eerst selecteren en dan klikken op <menuchoice
+><guimenu
+>Verwijderen</guimenu
+><guimenuitem
+>Geselecteerde verwijderen</guimenuitem
+></menuchoice
+> </para>
+
+        <caution
+><para
+>Let op: er is geen manier om een ​​foto die u hebt verwijderd van de camera te herstellen. De foto's worden niet verplaatst naar de interne Prullenbak, ze worden volledig verwijderd. Het is het beste om te controleren of u met succes een foto hebt gedownload in een album van &digikam; voordat u die foto verwijdert uit de camera. Hoe dan ook, als u van plan om de camera-kaart leeg te maken, dan kunt u dat beter doen vanuit het menu van de camera, omdat dat veel sneller gaat. </para
+></caution>
+
+    </sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

@@ -25,23 +25,34 @@
 
 // Qt includes
 
+#include <QUrl>
 #include <QString>
 
 namespace KIPIGoogleServicesPlugin
 {
 
+enum PluginName
+{
+    GDrive = 1,
+    GPhotoExport,
+    GPhotoImport
+};
+
+// -----------------------------------------------------------
+
 class GSPhoto
 {
-
 public:
 
     GSPhoto()
     {
-        id         = QString("-1");
+        id         = QLatin1String("-1");
         canComment = true;
-        gpsLon     = "";
-        gpsLat     = "";
+        gpsLon     = QLatin1String("");
+        gpsLat     = QLatin1String("");
     }
+
+public:
 
     QString     id;
     QString     title;
@@ -54,31 +65,35 @@ public:
     QString     mimeType;
     QString     gpsLon;
     QString     gpsLat;
-    KUrl        originalURL;
-    KUrl        thumbURL;
-    KUrl        editUrl;
+    QUrl        originalURL;
+    QUrl        thumbURL;
+    QUrl        editUrl;
 };
+
+// -----------------------------------------------------------
 
 class GSFolder
 {
-
 public:
+
     GSFolder()
     {
-        id         = QString("-1");
+        id         = QLatin1String("-1");
         canComment = true;
     }
 
-    QString   id;
-    QString   title;
-    QString   timestamp;
-    QString   description;
-    QString   location;
-    QString   access;
-    bool      canComment;
+public:
+
+    QString     id;
+    QString     title;
+    QString     timestamp;
+    QString     description;
+    QString     location;
+    QString     access;
+    bool        canComment;
     QStringList tags;
 };
 
 } // namespace KIPIGoogleServicesPlugin
 
-#endif /* GSITEM_H */
+#endif // GSITEM_H

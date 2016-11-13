@@ -7,7 +7,7 @@
  * Description : Wavelets Noise Reduction threaded image filter.
  *               This filter work in YCrCb color space.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -55,7 +55,7 @@ public:
     double softness[3];      // Y, Cb, Cr softness.
 };
 
-//! kDebug() stream operator. Writes property @a inf to the debug output in a nicely formatted way.
+//! qDebug() stream operator. Writes property @a inf to the debug output in a nicely formatted way.
 DIGIKAM_EXPORT QDebug operator<<(QDebug dbg, const NRContainer& inf);
 
 // --------------------------------------------------------------------------

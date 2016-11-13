@@ -21,19 +21,20 @@
  *
  * ============================================================ */
 
-#include "iccprofilescombobox.moc"
+#include "iccprofilescombobox.h"
 
 // Qt includes
 
 #include <QFileInfo>
 #include <QSignalMapper>
 #include <QSet>
+#include <QMenu>
+#include <QIcon>
+#include <QAction>
 
 // KDE includes
 
-#include <kactionmenu.h>
-#include <klocale.h>
-#include <kmenu.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -43,7 +44,7 @@ namespace Digikam
 {
 
 IccProfilesComboBox::IccProfilesComboBox(QWidget* const parent)
-    : KDcrawIface::SqueezedComboBox( parent )
+    : SqueezedComboBox( parent )
 {
 }
 
@@ -80,7 +81,7 @@ static QString profileUserString(const IccProfile& p)
 }
 
 // if needed outside this class, make it a public static method in a namespace
-static void formatProfiles(const QList<IccProfile>& givenProfiles, QList<IccProfile>* returnedProfiles, QStringList* userText)
+static void formatProfiles(const QList<IccProfile>& givenProfiles, QList<IccProfile>* const returnedProfiles, QStringList* const userText)
 {
     QList<IccProfile> profiles;
     QSet<QString>     filePaths;
@@ -169,7 +170,7 @@ void IccProfilesComboBox::setCurrentProfile(const IccProfile& profile)
 
     const int size = count();
 
-    for (int i=0; i<size; ++i)
+    for (int i = 0; i < size; ++i)
     {
         if (itemData(i).value<IccProfile>() == profile)
         {
@@ -183,33 +184,31 @@ void IccProfilesComboBox::setCurrentProfile(const IccProfile& profile)
 
 // ------------------------------------------------------------------------------------------
 
-IccProfilesMenuAction::IccProfilesMenuAction(const KIcon& icon, const QString& text, QObject* const parent)
-    : KActionMenu(icon, text, parent),
+IccProfilesMenuAction::IccProfilesMenuAction(const QIcon& icon, const QString& text, QObject* const parent)
+    : QMenu(text),
       m_parent(parent)
 {
+    setIcon(icon);
     m_mapper = new QSignalMapper(this);
+
     connect(m_mapper, SIGNAL(mapped(QObject*)),
             this, SLOT(slotTriggered(QObject*)));
 }
 
 IccProfilesMenuAction::IccProfilesMenuAction(const QString& text, QObject* const parent)
-    : KActionMenu(text, parent),
+    : QMenu(text),
       m_parent(parent)
 {
     m_mapper = new QSignalMapper(this);
+
     connect(m_mapper, SIGNAL(mapped(QObject*)),
             this, SLOT(slotTriggered(QObject*)));
 }
 
 void IccProfilesMenuAction::replaceProfiles(const QList<IccProfile>& profiles)
 {
-    menu()->clear();
+    clear();
     addProfiles(profiles);
-}
-
-void IccProfilesMenuAction::clear()
-{
-    menu()->clear();
 }
 
 void IccProfilesMenuAction::addProfiles(const QList<IccProfile>& givenProfiles)
@@ -233,7 +232,7 @@ void IccProfilesMenuAction::addProfile(const IccProfile& profile, const QString&
         description = profileUserString(profile);
     }
 
-    KAction* action = new KAction(d.left(50), m_parent);
+    QAction* const action = new QAction(d.left(50), m_parent);
     action->setData(QVariant::fromValue(profile));
     addAction(action);
 
@@ -245,7 +244,7 @@ void IccProfilesMenuAction::addProfile(const IccProfile& profile, const QString&
 
 void IccProfilesMenuAction::disableIfEmpty()
 {
-    if (menu()->isEmpty())
+    if (isEmpty())
     {
         setEnabled(false);
     }
@@ -253,8 +252,8 @@ void IccProfilesMenuAction::disableIfEmpty()
 
 void IccProfilesMenuAction::slotTriggered(QObject* obj)
 {
-    KAction* action = static_cast<KAction*>(obj);
-    IccProfile profile = action->data().value<IccProfile>();
+    QAction* const action = static_cast<QAction*>(obj);
+    IccProfile profile    = action->data().value<IccProfile>();
 
     if (!profile.isNull())
     {
@@ -265,12 +264,12 @@ void IccProfilesMenuAction::slotTriggered(QObject* obj)
 // ------------------------------------------------------------------------------------------
 
 IccRenderingIntentComboBox::IccRenderingIntentComboBox(QWidget* const parent)
-    : KComboBox(parent)
+    : QComboBox(parent)
 {
-    addItem("Perceptual", IccTransform::Perceptual);
-    addItem("Relative Colorimetric", IccTransform::RelativeColorimetric);
-    addItem("Absolute Colorimetric", IccTransform::AbsoluteColorimetric);
-    addItem("Saturation", IccTransform::Saturation);
+    addItem(QLatin1String("Perceptual"), IccTransform::Perceptual);
+    addItem(QLatin1String("Relative Colorimetric"), IccTransform::RelativeColorimetric);
+    addItem(QLatin1String("Absolute Colorimetric"), IccTransform::AbsoluteColorimetric);
+    addItem(QLatin1String("Saturation"), IccTransform::Saturation);
     setWhatsThis( i18n("<ul><li><p><b>Perceptual intent</b> causes the full gamut of the image to be "
                        "compressed or expanded to fill the gamut of the destination device, so that gray balance is "
                        "preserved but colorimetric accuracy may not be preserved.</p>"

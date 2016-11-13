@@ -6,7 +6,7 @@
  * Date        : 2010-03-01
  * Description : Curves settings view.
  *
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "curvessettings.moc"
+#include "curvessettings.h"
 
 // Qt includes
 
@@ -37,34 +37,26 @@
 #include <QTextStream>
 #include <QToolButton>
 #include <QVBoxLayout>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QStyle>
+#include <QFileDialog>
+#include <QUrl>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kcombobox.h>
-#include <kseparator.h>
-#include <kiconloader.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rcombobox.h>
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
+#include "dcombobox.h"
 #include "colorgradientwidget.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
@@ -85,7 +77,7 @@ public:
     CurvesBox*           curvesBox;
 };
 
-const QString CurvesSettings::Private::configCurveEntry("AdjustCurves");
+const QString CurvesSettings::Private::configCurveEntry(QLatin1String("AdjustCurves"));
 
 // --------------------------------------------------------
 
@@ -114,8 +106,8 @@ CurvesSettings::CurvesSettings(QWidget* const parent, DImg* const img)
 
     grid->addWidget(d->curvesBox, 0, 0, 1, 1);
     grid->setRowStretch(1, 10);
-    grid->setMargin(0);
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(QMargins());
+    grid->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
 
     // -------------------------------------------------------------
 
@@ -250,11 +242,11 @@ void CurvesSettings::writeSettings(KConfigGroup& group)
 
 void CurvesSettings::loadSettings()
 {
-    KUrl loadCurvesFile;
+    QUrl loadCurvesFile;
 
-    loadCurvesFile = KFileDialog::getOpenUrl(KGlobalSettings::documentPath(),
-                                             QString("*"), kapp->activeWindow(),
-                                             QString(i18n("Select Gimp Curves File to Load")));
+    loadCurvesFile = QFileDialog::getOpenFileUrl(qApp->activeWindow(), i18n("Select Gimp Curves File to Load"),
+                                                 QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                 QLatin1String("*"));
 
     if (loadCurvesFile.isEmpty())
     {
@@ -263,19 +255,19 @@ void CurvesSettings::loadSettings()
 
     if (d->curvesBox->curves()->loadCurvesFromGimpCurvesFile(loadCurvesFile) == false)
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("Cannot load from the Gimp curves text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot load from the Gimp curves text file."));
         return;
     }
 }
 
 void CurvesSettings::saveAsSettings()
 {
-    KUrl saveCurvesFile;
+    QUrl saveCurvesFile;
 
-    saveCurvesFile = KFileDialog::getSaveUrl(KGlobalSettings::documentPath(),
-                                             QString("*"), kapp->activeWindow(),
-                                             QString(i18n("Gimp Curves File to Save")));
+    saveCurvesFile = QFileDialog::getSaveFileUrl(qApp->activeWindow(), i18n("Gimp Curves File to Save"),
+                                                 QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                 QLatin1String("*"));
 
     if (saveCurvesFile.isEmpty())
     {
@@ -284,8 +276,8 @@ void CurvesSettings::saveAsSettings()
 
     if (d->curvesBox->curves()->saveCurvesToGimpCurvesFile(saveCurvesFile) == false)
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("Cannot save to the Gimp curves text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot save to the Gimp curves text file."));
         return;
     }
 }

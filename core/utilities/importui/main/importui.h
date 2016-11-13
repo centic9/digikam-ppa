@@ -7,7 +7,7 @@
  * Description : Camera interface
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
  *
@@ -35,10 +35,7 @@
 #include <QKeyEvent>
 #include <QCloseEvent>
 #include <QMultiMap>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -48,19 +45,20 @@
 #include "camerahistoryupdater.h"
 #include "downloadsettings.h"
 #include "importiconview.h"
-#include "importview.h"
 #include "dxmlguiwindow.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
 class Album;
+class PAlbum;
 class CollectionLocation;
 class CameraHistoryUpdater;
 class ImportIconView;
 class CameraThumbsCtrl;
 
-class ImportUI : public DXmlGuiWindow
+class DIGIKAM_EXPORT ImportUI : public DXmlGuiWindow
 {
     Q_OBJECT
 
@@ -94,15 +92,16 @@ public:
 
 Q_SIGNALS:
 
-    void signalLastDestination(const KUrl&);
+    void signalLastDestination(const QUrl&);
     void signalWindowHasMoved();
     void signalEscapePressed();
-    void signalPreviewRequested(CamItemInfo, bool);
+    void signalPreviewRequested(const CamItemInfo&, bool);
     void signalNewSelection(bool);
 
 public Q_SLOTS:
+
     void slotDownload(bool onlySelected, bool deleteAfter, Album* pAlbum = 0);
-    void slotUploadItems(const KUrl::List&); // public to be used in drag'n'drop
+    void slotUploadItems(const QList<QUrl>&); // public to be used in drag'n'drop
 
 protected:
 
@@ -121,7 +120,7 @@ private:
 
     void readSettings();
     void saveSettings();
-    bool createAutoAlbum(const KUrl& parentURL, const QString& sub,
+    bool createAutoAlbum(const QUrl& parentURL, const QString& sub,
                          const QDate& date, QString& errMsg) const;
 
     bool dialogClosed();
@@ -141,10 +140,10 @@ private:
 
     bool checkDiskSpace(PAlbum* pAlbum);
     bool downloadCameraItems(PAlbum* pAlbum, bool onlySelected, bool deleteAfter);
-    bool createSubAlbums(KUrl& downloadUrl, const CamItemInfo& info);
-    bool createSubAlbum(KUrl& downloadUrl, const QString& subalbum, const QDate& date);
-    bool createDateBasedSubAlbum(KUrl& downloadUrl, const CamItemInfo& info);
-    bool createExtBasedSubAlbum(KUrl& downloadUrl, const CamItemInfo& info);
+    bool createSubAlbums(QUrl& downloadUrl, const CamItemInfo& info);
+    bool createSubAlbum(QUrl& downloadUrl, const QString& subalbum, const QDate& date);
+    bool createDateBasedSubAlbum(QUrl& downloadUrl, const CamItemInfo& info);
+    bool createExtBasedSubAlbum(QUrl& downloadUrl, const CamItemInfo& info);
 
     void showThumbBar(bool visible);
     void showSideBars(bool visible);
@@ -173,7 +172,6 @@ private Q_SLOTS:
     void slotHistoryEntryClicked(const QVariant&);
 
     void slotFolderList(const QStringList& folderList);
-    void slotFileList(const CamItemInfoList& fileList);
 
     void slotZoomSliderChanged(int size);
     void slotZoomChanged(double zoom);
@@ -220,12 +218,7 @@ private Q_SLOTS:
 
     void setFilter(Filter *);
 
-    void slotEditKeys();
     void slotToggleShowBar();
-    void slotShowMenuBar();
-    void slotConfToolbars();
-    void slotConfNotifications();
-    void slotNewToolbarConfig();
     void slotSetup();
     void slotColorManagementOptionsChanged();
     void slotToggleColorManagedView();

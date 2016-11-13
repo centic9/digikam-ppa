@@ -1,0 +1,537 @@
+# Translation of kipiplugin_googleservices.po to Catalan
+# Copyright (C) 2014-2016 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2014, 2015, 2016.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_googleservices\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"PO-Revision-Date: 2016-08-26 19:31+0200\n"
+"Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: authorize.cpp:116
+msgid "Google Drive Authorization"
+msgstr "Autorització de Google Drive"
+
+#: authorize.cpp:129
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+"Si us plau, seguiu les instruccions del navegador. Després d'iniciar la "
+"sessió i autoritzar l'aplicació, copieu el codi des del navegador, i "
+"enganxeu-lo en el quadre de text següent, i premeu «Bé»."
+
+#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+msgid "Error"
+msgstr "Error"
+
+#: gdtalker.cpp:336
+msgid "Failed to list folders"
+msgstr "Ha fallat en llistar les carpetes"
+
+#: gdtalker.cpp:384
+msgid "Failed to create folder"
+msgstr "No s'ha pogut crear la carpeta"
+
+#: gdtalker.cpp:415 gptalker.cpp:929
+msgid "Failed to upload photo"
+msgstr "Ha fallat en pujar la foto"
+
+#: gptalker.cpp:561
+msgid "No photo specified"
+msgstr "No s'ha especificat cap foto"
+
+#: gptalker.cpp:564
+msgid "General upload failure"
+msgstr "Error general de pujada"
+
+#: gptalker.cpp:567
+msgid "File-size was zero"
+msgstr "La mida del fitxer és zero"
+
+#: gptalker.cpp:570
+msgid "File-type was not recognized"
+msgstr "No s'ha reconegut el tipus de fitxer"
+
+#: gptalker.cpp:573
+msgid "User exceeded upload limit"
+msgstr "L'usuari ha excedit el límit de pujada"
+
+#: gptalker.cpp:576
+msgid "Invalid signature"
+msgstr "Signatura no vàlida"
+
+#: gptalker.cpp:579
+msgid "Missing signature"
+msgstr "Manca la signatura"
+
+#: gptalker.cpp:582
+msgid "Login failed / Invalid auth token"
+msgstr "Ha fallat l'inici de sessió / Testimoni d'autorització no vàlid"
+
+#: gptalker.cpp:585
+msgid "Invalid API Key"
+msgstr "Clau de l'API no vàlida"
+
+#: gptalker.cpp:588
+msgid "Service currently unavailable"
+msgstr "Servei actualment no disponible"
+
+#: gptalker.cpp:591
+msgid "Invalid Frob"
+msgstr "«Frob» no vàlid"
+
+#: gptalker.cpp:594
+msgid "Format \"xxx\" not found"
+msgstr "No s'ha trobat el format «xxx»"
+
+#: gptalker.cpp:597
+msgid "Method \"xxx\" not found"
+msgstr "No s'ha trobat el mètode «xxx»"
+
+#: gptalker.cpp:600
+msgid "Invalid SOAP envelope"
+msgstr "Embolcall SOAP no vàlid"
+
+#: gptalker.cpp:603
+msgid "Invalid XML-RPC Method Call"
+msgstr "Crida no vàlida al mètode XML-RPC"
+
+#: gptalker.cpp:606
+msgid "The POST method is now required for all setters."
+msgstr "Ara es requereix el mètode POST per tots els dissenys."
+
+#: gptalker.cpp:609
+msgid "Unknown error"
+msgstr "Error desconegut"
+
+#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
+#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Error"
+
+#: gptalker.cpp:613
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+"S'ha trobat un error: %1\n"
+"No es pot continuar."
+
+#: gptalker.cpp:683 gptalker.cpp:750
+msgid "Failed to fetch photo-set list"
+msgstr "Ha fallat en recuperar la llista de conjunts de fotos"
+
+#: gptalker.cpp:886 gptalker.cpp:919
+msgid "Failed to create album"
+msgstr "Ha fallat en crear l'àlbum"
+
+#: gswidget.cpp:60
+msgid "Tag path behavior :"
+msgstr "Comportament del camí d'etiquetes:"
+
+#: gswidget.cpp:62
+msgid "Leaf tags only"
+msgstr "Només les etiquetes finals"
+
+#: gswidget.cpp:63
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr "Exporta només les etiquetes finals de les jerarquies d'etiquetes"
+
+#: gswidget.cpp:64
+msgid "Split tags"
+msgstr "Divisió d'etiquetes"
+
+#: gswidget.cpp:65
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr ""
+"Exporta les etiquetes finals i tots els antecessors com a etiquetes simples."
+
+#: gswidget.cpp:66
+msgid "Combined String"
+msgstr "Cadenes combinades"
+
+#: gswidget.cpp:67
+msgid "Build a combined tag string."
+msgstr "Construeix una cadena d'etiquetes combinades."
+
+#: gswindow.cpp:116
+msgid "Google Drive Export"
+msgstr "Exportador a Google Drive"
+
+#: gswindow.cpp:117
+msgid "A tool to export images to Google Drive"
+msgstr "Una eina per exportar imatges al Google Drive"
+
+#: gswindow.cpp:119
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+
+#: gswindow.cpp:122
+msgid "Saurabh Patel"
+msgstr "Saurabh Patel"
+
+#: gswindow.cpp:122 gswindow.cpp:195
+msgid "Author and maintainer"
+msgstr "Autor i mantenidor"
+
+#: gswindow.cpp:125 gswindow.cpp:207
+msgid "Shourya Singh Gupta"
+msgstr "Shourya Singh Gupta"
+
+#: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
+#: gswindow.cpp:207
+msgid "Developer"
+msgstr "Desenvolupador"
+
+#: gswindow.cpp:132
+msgid "Export to Google Drive"
+msgstr "Exporta al Google Drive"
+
+#: gswindow.cpp:134 gswindow.cpp:219
+msgid "Start Upload"
+msgstr "Comença la pujada"
+
+#: gswindow.cpp:135
+msgid "Start upload to Google Drive"
+msgstr "Comença la pujada a Google Drive"
+
+#: gswindow.cpp:186
+msgid "Google Photos/PicasaWeb Export"
+msgstr "Exporta a Google Photos/PicasaWeb"
+
+#: gswindow.cpp:187
+msgid "A tool to export image collections to Google Photos/Picasa web service."
+msgstr ""
+"Una eina per exportar col·leccions d'imatges al servei web del Google Photos/"
+"Picasa."
+
+#: gswindow.cpp:189
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+
+#: gswindow.cpp:195
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:198
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:201
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:204
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: gswindow.cpp:217
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr "Exporta al Google Photos/PicasaWeb Service"
+
+#: gswindow.cpp:220
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr "Comença la pujada al Google Photos/PicasaWeb Service"
+
+#: gswindow.cpp:226
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr "Importa des del Google Photos/PicasaWeb Service"
+
+#: gswindow.cpp:228
+msgid "Start Download"
+msgstr "Comença la baixada"
+
+#: gswindow.cpp:229
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr "Comença la baixada des del servei web del Google Photos/PicasaWeb"
+
+#: gswindow.cpp:428 gswindow.cpp:467 gswindow.cpp:577
+#, kde-format
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr "La crida al Google Photos/PicasaWeb ha fallat: %1\n"
+
+#: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: gswindow.cpp:531
+msgid "Google Photo Export"
+msgstr "Exporta a Google Photo"
+
+#: gswindow.cpp:549
+#, kde-format
+msgid "Google Drive Call Failed: %1\n"
+msgstr "La crida al Google Drive ha fallat: %1\n"
+
+#: gswindow.cpp:653
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+"El quadre de text és buit, introduïu el codi des del navegador en el quadre "
+"de text. Per completar l'autenticació cliqueu «Canvia el compte», o «Comença "
+"la pujada» per tornar a autenticar-se."
+
+#: gswindow.cpp:669
+msgid "No image selected. Please select which images should be uploaded."
+msgstr ""
+"No s'ha seleccionat cap imatge. Si us plau, seleccioneu les imatges que "
+"s'haurien de pujar."
+
+#: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
+#: gswindow.cpp:1105
+msgid "Warning"
+msgstr "Avís"
+
+#: gswindow.cpp:684 gswindow.cpp:707
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr "Ha fallat l'autenticació. Cliqueu a «Continua» per autenticar."
+
+#: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
+#: gswindow.cpp:1109 gswindow.cpp:1286
+msgid "Continue"
+msgstr "Continua"
+
+#: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
+#: gswindow.cpp:1110 gswindow.cpp:1287
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: gswindow.cpp:762
+msgid "Google Drive export"
+msgstr "Exportador a Google Drive"
+
+#: gswindow.cpp:1015
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Ha fallat en desar la foto: %1\n"
+"Voleu continuar?"
+
+#: gswindow.cpp:1033
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Ha fallat en baixar la foto: %1\n"
+"Voleu continuar?"
+
+#: gswindow.cpp:1079
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr "Ha fallat en desar la imatge a %1"
+
+#: gswindow.cpp:1106
+#, kde-format
+msgid ""
+"Failed to upload photo to %1.\n"
+"%2\n"
+"Do you want to continue?"
+msgstr ""
+"Ha fallat en pujar la foto a %1.\n"
+"%2\n"
+"Voleu continuar?"
+
+#: gswindow.cpp:1198
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr "S'ha produït un error d'autenticació: %1 (%2)"
+
+#: gswindow.cpp:1240
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+"La crida al Google Drive ha fallat:\n"
+"%1"
+
+#: gswindow.cpp:1248
+#, kde-format
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr ""
+"La crida al Google Photos/PicasaWeb ha fallat:\n"
+"%1"
+
+#: gswindow.cpp:1281
+msgctxt "@title:window"
+msgid "Warning"
+msgstr "Avís"
+
+#: gswindow.cpp:1282
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+"Després de finalitzar la sessió en el navegador, cliqueu a «Continua» per "
+"autenticar-vos en un altre compte."
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+msgid "&Export"
+msgstr "&Exporta"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+msgid "&Import"
+msgstr "&Importa"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr "Barra d'eines principal"
+
+#: newalbumdlg.cpp:54
+msgid "Access Level"
+msgstr "Nivell d'accés"
+
+#: newalbumdlg.cpp:55
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr ""
+"Aquest és l'arranjament de seguretat i privadesa del nou àlbum de Google "
+"Photos/PicasaWeb."
+
+#: newalbumdlg.cpp:57
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr "Públic"
+
+#: newalbumdlg.cpp:59
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr ""
+"Un àlbum públic es llista a la vostra pàgina pública del Google Photos/"
+"PicasaWeb."
+
+#: newalbumdlg.cpp:60
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr "No llistat / Privat"
+
+#: newalbumdlg.cpp:61
+msgid "Unlisted album is only accessible via URL."
+msgstr "Un àlbum no llistat només és accessible via URL."
+
+#: newalbumdlg.cpp:62
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr "Es requereix iniciar la sessió per a visualitzar"
+
+#: newalbumdlg.cpp:63
+msgid "Unlisted album require Sign-In to View"
+msgstr "Un àlbum no llistat requereix iniciar la sessió per a visualitzar"
+
+#: newalbumdlg.cpp:71
+msgid "Privacy:"
+msgstr "Privadesa:"
+
+#: plugin_googleservices.cpp:100
+msgid "Export to &Google Drive..."
+msgstr "Exporta al &Google Drive..."
+
+#: plugin_googleservices.cpp:110
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr "Exporta a &Google Photos/PicasaWeb..."
+
+#: plugin_googleservices.cpp:120
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr "Importa des de &Google Photos/PicasaWeb..."
+
+#: replacedialog.cpp:112
+msgid "Add As New"
+msgstr "Afegeix com a nou"
+
+#: replacedialog.cpp:113
+msgid "Item will be added alongside the linked version."
+msgstr "L'element s'afegirà conjuntament amb la versió enllaçada."
+
+#: replacedialog.cpp:119
+msgid "Add All"
+msgstr "Afegeix-ho tot"
+
+#: replacedialog.cpp:120
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+"Els elements s'afegiran conjuntament amb la versió enllaçada. No se us "
+"tornarà a preguntar."
+
+#: replacedialog.cpp:126
+msgid "Replace"
+msgstr "Substitueix"
+
+#: replacedialog.cpp:127
+msgid "Item will be replacing the linked version."
+msgstr "L'element substituirà la versió enllaçada."
+
+#: replacedialog.cpp:133
+msgid "Replace All"
+msgstr "Substitueix-ho tot"
+
+#: replacedialog.cpp:134
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+"Els elements substituiran la versió enllaçada. No se us tornarà a preguntar."
+
+#: replacedialog.cpp:157
+msgid "A linked item already exists."
+msgstr "Ja existeix un element enllaçat."
+
+#: replacedialog.cpp:177
+msgid "Destination"
+msgstr "Destinació"
+
+#: replacedialog.cpp:182
+msgid "Source"
+msgstr "Origen"
+
+#~ msgid ""
+#~ "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+#~ msgstr ""
+#~ "Ja existeix un fitxer anomenat «%1». Esteu segur que el voleu "
+#~ "sobreescriure?"
+
+#~ msgid "Picasa Export"
+#~ msgstr "Exporta a Picasa"

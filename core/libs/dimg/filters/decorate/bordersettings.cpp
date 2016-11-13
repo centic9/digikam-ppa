@@ -6,7 +6,7 @@
  * Date        : 2010-03-17
  * Description : Border settings view.
  *
- * Copyright (C) 2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "bordersettings.moc"
+#include "bordersettings.h"
 
 // Qt includes
 
@@ -31,38 +31,33 @@
 #include <QFile>
 #include <QTextStream>
 #include <QCheckBox>
+#include <QUrl>
+#include <QApplication>
+#include <QStyle>
+#include <QStandardPaths>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kcolorbutton.h>
-#include <kseparator.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rcombobox.h>
-#include <libkdcraw/rexpanderbox.h>
+#include "dwidgetutils.h"
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "dcombobox.h"
+#include "digikam_debug.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
 
-class BorderSettingsPriv
+class Private
 {
 public:
 
-    BorderSettingsPriv() :
+    Private() :
         preserveAspectRatio(0),
         labelBackground(0),
         labelBorderPercent(0),
@@ -102,38 +97,41 @@ public:
     QColor               niepceLineColor;
     QColor               solidColor;
 
-    KColorButton*        firstColorButton;
-    KColorButton*        secondColorButton;
+    DColorSelector*      firstColorButton;
+    DColorSelector*      secondColorButton;
 
-    RComboBox*           borderType;
-    RIntNumInput*        borderPercent;
-    RIntNumInput*        borderWidth;
+    DComboBox*           borderType;
+    DIntNumInput*        borderPercent;
+    DIntNumInput*        borderWidth;
 };
-const QString BorderSettingsPriv::configBorderTypeEntry("Border Type");
-const QString BorderSettingsPriv::configBorderPercentEntry("Border Percent");
-const QString BorderSettingsPriv::configBorderWidthEntry("Border Width");
-const QString BorderSettingsPriv::configPreserveAspectRatioEntry("Preserve Aspect Ratio");
-const QString BorderSettingsPriv::configSolidColorEntry("Solid Color");
-const QString BorderSettingsPriv::configNiepceBorderColorEntry("Niepce Border Color");
-const QString BorderSettingsPriv::configNiepceLineColorEntry("Niepce Line Color");
-const QString BorderSettingsPriv::configBevelUpperLeftColorEntry("Bevel Upper Left Color");
-const QString BorderSettingsPriv::configBevelLowerRightColorEntry("Bevel Lower Right Color");
-const QString BorderSettingsPriv::configDecorativeFirstColorEntry("Decorative First Color");
-const QString BorderSettingsPriv::configDecorativeSecondColorEntry("Decorative Second Color");
+
+const QString Private::configBorderTypeEntry(QLatin1String("Border Type"));
+const QString Private::configBorderPercentEntry(QLatin1String("Border Percent"));
+const QString Private::configBorderWidthEntry(QLatin1String("Border Width"));
+const QString Private::configPreserveAspectRatioEntry(QLatin1String("Preserve Aspect Ratio"));
+const QString Private::configSolidColorEntry(QLatin1String("Solid Color"));
+const QString Private::configNiepceBorderColorEntry(QLatin1String("Niepce Border Color"));
+const QString Private::configNiepceLineColorEntry(QLatin1String("Niepce Line Color"));
+const QString Private::configBevelUpperLeftColorEntry(QLatin1String("Bevel Upper Left Color"));
+const QString Private::configBevelLowerRightColorEntry(QLatin1String("Bevel Lower Right Color"));
+const QString Private::configDecorativeFirstColorEntry(QLatin1String("Decorative First Color"));
+const QString Private::configDecorativeSecondColorEntry(QLatin1String("Decorative Second Color"));
 
 // --------------------------------------------------------
 
 BorderSettings::BorderSettings(QWidget* parent)
     : QWidget(parent),
-      d(new BorderSettingsPriv)
+      d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QGridLayout* grid = new QGridLayout(parent);
 
     QLabel* label1 = new QLabel(i18n("Type:"));
-    d->borderType  = new RComboBox();
+    d->borderType  = new DComboBox();
     d->borderType->addItem(i18nc("solid border type", "Solid"));
     // NOTE: Niepce is a real name. This is the first guy in the world to have built a camera.
-    d->borderType->addItem("Niepce");
+    d->borderType->addItem(QLatin1String("Niepce"));
     d->borderType->addItem(i18nc("beveled border type", "Beveled"));
     d->borderType->addItem(i18n("Decorative Pine"));
     d->borderType->addItem(i18n("Decorative Wood"));
@@ -154,7 +152,7 @@ BorderSettings::BorderSettings(QWidget* parent)
     d->borderType->setDefaultIndex(BorderContainer::SolidBorder);
     d->borderType->setWhatsThis(i18n("Select the border type to add around the image here."));
 
-    KSeparator* line1 = new KSeparator(Qt::Horizontal);
+    DLineWidget* line1 = new DLineWidget(Qt::Horizontal);
 
     // -------------------------------------------------------------------
 
@@ -166,27 +164,27 @@ BorderSettings::BorderSettings(QWidget* parent)
                                               "in pixels."));
 
     d->labelBorderPercent  = new QLabel(i18n("Width (%):"));
-    d->borderPercent       = new RIntNumInput();
+    d->borderPercent       = new DIntNumInput();
     d->borderPercent->setRange(1, 50, 1);
-    d->borderPercent->setSliderEnabled(true);
     d->borderPercent->setDefaultValue(10);
     d->borderPercent->setWhatsThis(i18n("Set here the border width as a percentage of the image size."));
 
     d->labelBorderWidth = new QLabel(i18n("Width (pixels):"));
-    d->borderWidth      = new RIntNumInput();
+    d->borderWidth      = new DIntNumInput();
     d->borderWidth->setRange(1, 1000, 1);
-    d->borderWidth->setSliderEnabled(true);
     d->borderWidth->setDefaultValue(100);
     d->borderWidth->setWhatsThis(i18n("Set here the border width in pixels to add around the image."));
 
-    KSeparator* line2 = new KSeparator(Qt::Horizontal);
+    DLineWidget* line2 = new DLineWidget(Qt::Horizontal);
 
     // -------------------------------------------------------------------
 
     d->labelForeground   = new QLabel();
-    d->firstColorButton  = new KColorButton(QColor(192, 192, 192));
+    d->firstColorButton  = new DColorSelector();
+    d->firstColorButton->setColor(QColor(192, 192, 192));
     d->labelBackground   = new QLabel();
-    d->secondColorButton = new KColorButton(QColor(128, 128, 128));
+    d->secondColorButton = new DColorSelector();
+    d->secondColorButton->setColor(QColor(128, 128, 128));
 
     // -------------------------------------------------------------------
 
@@ -204,8 +202,8 @@ BorderSettings::BorderSettings(QWidget* parent)
     grid->addWidget(d->labelBackground,     10, 0, 1, 1);
     grid->addWidget(d->secondColorButton,   10, 1, 1, 2);
     grid->setRowStretch(11, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
@@ -221,10 +219,10 @@ BorderSettings::BorderSettings(QWidget* parent)
     connect(d->borderWidth, SIGNAL(valueChanged(int)),
             this, SIGNAL(signalSettingsChanged()));
 
-    connect(d->firstColorButton, SIGNAL(changed(QColor)),
+    connect(d->firstColorButton, SIGNAL(signalColorSelected(QColor)),
             this, SLOT(slotColorForegroundChanged(QColor)));
 
-    connect(d->secondColorButton, SIGNAL(changed(QColor)),
+    connect(d->secondColorButton, SIGNAL(signalColorSelected(QColor)),
             this, SLOT(slotColorBackgroundChanged(QColor)));
 }
 
@@ -476,67 +474,67 @@ QString BorderSettings::getBorderPath(int border)
     switch (border)
     {
         case BorderContainer::PineBorder:
-            pattern = "pine-pattern";
+            pattern = QLatin1String("pine-pattern");
             break;
 
         case BorderContainer::WoodBorder:
-            pattern = "wood-pattern";
+            pattern = QLatin1String("wood-pattern");
             break;
 
         case BorderContainer::PaperBorder:
-            pattern = "paper-pattern";
+            pattern = QLatin1String("paper-pattern");
             break;
 
         case BorderContainer::ParqueBorder:
-            pattern = "parque-pattern";
+            pattern = QLatin1String("parque-pattern");
             break;
 
         case BorderContainer::IceBorder:
-            pattern = "ice-pattern";
+            pattern = QLatin1String("ice-pattern");
             break;
 
         case BorderContainer::LeafBorder:
-            pattern = "leaf-pattern";
+            pattern = QLatin1String("leaf-pattern");
             break;
 
         case BorderContainer::MarbleBorder:
-            pattern = "marble-pattern";
+            pattern = QLatin1String("marble-pattern");
             break;
 
         case BorderContainer::RainBorder:
-            pattern = "rain-pattern";
+            pattern = QLatin1String("rain-pattern");
             break;
 
         case BorderContainer::CratersBorder:
-            pattern = "craters-pattern";
+            pattern = QLatin1String("craters-pattern");
             break;
 
         case BorderContainer::DriedBorder:
-            pattern = "dried-pattern";
+            pattern = QLatin1String("dried-pattern");
             break;
 
         case BorderContainer::PinkBorder:
-            pattern = "pink-pattern";
+            pattern = QLatin1String("pink-pattern");
             break;
 
         case BorderContainer::StoneBorder:
-            pattern = "stone-pattern";
+            pattern = QLatin1String("stone-pattern");
             break;
 
         case BorderContainer::ChalkBorder:
-            pattern = "chalk-pattern";
+            pattern = QLatin1String("chalk-pattern");
             break;
 
         case BorderContainer::GraniteBorder:
-            pattern = "granit-pattern";
+            pattern = QLatin1String("granit-pattern");
             break;
 
         case BorderContainer::RockBorder:
-            pattern = "rock-pattern";
+            pattern = QLatin1String("rock-pattern");
             break;
 
         case BorderContainer::WallBorder:
-            pattern = "wall-pattern";
+            pattern = QLatin1String("wall-pattern");
             break;
 
         default:
@@ -544,7 +542,7 @@ QString BorderSettings::getBorderPath(int border)
             break;
     }
 
-    return (KStandardDirs::locate("data", QString("digikam/data/") + pattern + QString(".png")));
+    return (QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/") + pattern + QLatin1String(".png")));
 }
 
 void BorderSettings::toggleBorderSlider(bool b)

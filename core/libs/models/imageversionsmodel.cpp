@@ -21,25 +21,25 @@
  *
  * ============================================================ */
 
-#include "imageversionsmodel.moc"
+#include "imageversionsmodel.h"
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "workingwidget.h"
 
 namespace Digikam
 {
 
-class ImageVersionsModel::ImageVersionsModelPriv
+class ImageVersionsModel::Private
 {
 public:
 
-    ImageVersionsModelPriv()
+    Private()
     {
         data      = 0;
         paintTree = false;
@@ -55,7 +55,8 @@ public:
 };
 
 ImageVersionsModel::ImageVersionsModel(QObject* parent)
-    : QAbstractListModel(parent), d(new ImageVersionsModelPriv)
+    : QAbstractListModel(parent),
+      d(new Private)
 {
     d->data = new QList<QPair<QString, int> >;
 }

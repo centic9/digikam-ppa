@@ -7,7 +7,7 @@
  * Description : perform lossless rotation/flip to JPEG file
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -31,18 +31,11 @@
 #include <QString>
 #include <QImage>
 
-class QFile;
-
-// KExiv2 includes
-
-#include <libkexiv2/rotationmatrix.h>
-
 // Local includes
 
 #include "dmetadata.h"
 #include "digikam_export.h"
-
-using namespace KExiv2Iface;
+#include "metaengine_rotation.h"
 
 namespace Digikam
 {
@@ -50,7 +43,7 @@ namespace Digikam
 namespace JPEGUtils
 {
 
-typedef RotationMatrix::TransformationAction TransformAction;
+typedef MetaEngineRotation::TransformationAction TransformAction;
 
 class DIGIKAM_EXPORT JpegRotator
 {
@@ -66,7 +59,7 @@ public:
      * Per default, the orientation is read from the metadata of the file.
      * You can override this value
      */
-    void setCurrentOrientation(KExiv2::ImageOrientation orientation);
+    void setCurrentOrientation(MetaEngine::ImageOrientation orientation);
 
     /**
      * Set the Exif document name of the destination file.
@@ -98,7 +91,7 @@ public:
      * The matrix describes the final transformation,
      * it is not adjusted by current rotation.
      */
-    bool exifTransform(const RotationMatrix& matrix);
+    bool exifTransform(const MetaEngineRotation& matrix);
 
 protected:
 
@@ -107,16 +100,16 @@ protected:
     QString                  m_documentName;
     QSize                    m_originalSize;
     DMetadata                m_metadata;
-    KExiv2::ImageOrientation m_orientation;
+    MetaEngine::ImageOrientation m_orientation;
 
 protected:
 
-    void updateMetadata(const QString& fileName, const RotationMatrix& matrix);
+    void updateMetadata(const QString& fileName, const MetaEngineRotation& matrix);
     bool performJpegTransform(TransformAction action, const QString& src, const QString& dest);
 };
 
 DIGIKAM_EXPORT bool loadJPEGScaled(QImage& image, const QString& path, int maximumSize);
-DIGIKAM_EXPORT bool jpegConvert(const QString& src, const QString& dest, const QString& documentName, const QString& format=QString("PNG"));
+DIGIKAM_EXPORT bool jpegConvert(const QString& src, const QString& dest, const QString& documentName, const QString& format=QLatin1String("PNG"));
 DIGIKAM_EXPORT bool isJpegImage(const QString& file);
 DIGIKAM_EXPORT bool copyFile(const QString& src, const QString& dst);
 DIGIKAM_EXPORT int  getJpegQuality(const QString& file);

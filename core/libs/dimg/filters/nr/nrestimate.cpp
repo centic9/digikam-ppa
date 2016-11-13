@@ -41,12 +41,9 @@
 #include <QTextStream>
 #include <QFile>
 
-// Kde include
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "nrestimate.h"
 #include "nrfilter.h"
 
@@ -77,7 +74,7 @@ public:
 };
 
 NREstimate::NREstimate(DImg* const img, QObject* const parent)
-    : DImgThreadedAnalyser(parent, "NREstimate"),
+    : DImgThreadedAnalyser(parent, QLatin1String("NREstimate")),
       d(new Private)
 {
     // Use the Top/Left corner of 256x256 pixels to analys noise contents from image.
@@ -156,18 +153,18 @@ void NREstimate::startAnalyse()
     // Array to store the centers of the clusters
     CvArr* centers = 0;
 
-    kDebug() << "Everything ready for the cvKmeans2 or as it seems to";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Everything ready for the cvKmeans2 or as it seems to";
     postProgress(10);
 
     //-- KMEANS ---------------------------------------------------------------------------------------------
 
     if (runningFlag())
     {
-        cvKMeans2(points, d->clusterCount, clusters, 
+        cvKMeans2(points, d->clusterCount, clusters,
                   cvTermCriteria(CV_TERMCRIT_EPS + CV_TERMCRIT_ITER, 10, 1.0), 3, 0, 0, centers, 0);
     }
 
-    kDebug() << "cvKmeans2 successfully run";
+    qCDebug(DIGIKAM_DIMG_LOG) << "cvKmeans2 successfully run";
     postProgress(15);
 
     //-- Divide into cluster->columns, sample->rows, in matrix standard deviation ---------------------------
@@ -191,15 +188,15 @@ void NREstimate::startAnalyse()
     }
 
 /*
-    kDebug() << "Lets see what the rowPosition array looks like : ";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Lets see what the rowPosition array looks like : ";
 
     for(uint i=0 ; runningFlag() && (i < d->clusterCount) ; i++)
     {
-        kDebug() << "Cluster : "<< i << " the count is :" << rowPosition[i];
+        qCDebug(DIGIKAM_DIMG_LOG) << "Cluster : "<< i << " the count is :" << rowPosition[i];
     }
 */
 
-    kDebug() << "array indexed, and ready to find maximum";
+    qCDebug(DIGIKAM_DIMG_LOG) << "array indexed, and ready to find maximum";
     postProgress(20);
 
     //-- Finding maximum of the rowPosition array ------------------------------------------------------------
@@ -217,7 +214,7 @@ void NREstimate::startAnalyse()
     QString maxString;
     maxString.append(QString::number(max));
 
-    kDebug() << QString("maximum declared = %1").arg(maxString);
+    qCDebug(DIGIKAM_DIMG_LOG) << QString::fromLatin1("maximum declared = %1").arg(maxString);
     postProgress(25);
 
     //-- Divide and conquer ---------------------------------------------------------------------------------
@@ -242,7 +239,7 @@ void NREstimate::startAnalyse()
 
     float* ptr = 0;
 
-    kDebug() << "The rowPosition array is ready!";
+    qCDebug(DIGIKAM_DIMG_LOG) << "The rowPosition array is ready!";
     postProgress(40);
 
     for (uint i=0 ; runningFlag() && (i < m_orgImage.numPixels()) ; i++)
@@ -270,7 +267,7 @@ void NREstimate::startAnalyse()
         rPosition[columnIndex] = rPosition[columnIndex] + 1;
     }
 
-    kDebug() << "sd matrix creation over!";
+    qCDebug(DIGIKAM_DIMG_LOG) << "sd matrix creation over!";
     postProgress(50);
 
     //-- This part of the code would involve the sd matrix and make the mean and the std of the data -------------------
@@ -311,7 +308,7 @@ void NREstimate::startAnalyse()
         }
     }
 
-    kDebug() << "Make the mean and the std of the data";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Make the mean and the std of the data";
     postProgress(60);
 
     // -----------------------------------------------------------------------------------------------------------------
@@ -322,12 +319,12 @@ void NREstimate::startAnalyse()
         stdStorePtr  = reinterpret_cast<float*>(stdStore->data.ptr);
     }
 
-    if (!d->path.isEmpty() && runningFlag())
+    if (runningFlag() && !d->path.isEmpty())
     {
         QString logFile = d->path;
-        logFile         = logFile.section('/', -1);
-        logFile         = logFile.left(logFile.indexOf('.'));
-        logFile.append("logMeanStd.txt");
+        logFile         = logFile.section(QLatin1Char('/'), -1);
+        logFile         = logFile.left(logFile.indexOf(QLatin1Char('.')));
+        logFile.append(QLatin1String("logMeanStd.txt"));
 
         QFile filems(logFile);
 
@@ -362,7 +359,7 @@ void NREstimate::startAnalyse()
 
             filems.close();
 
-            kDebug() << "Done with the basic work of storing the mean and the std";
+            qCDebug(DIGIKAM_DIMG_LOG) << "Done with the basic work of storing the mean and the std";
         }
     }
 
@@ -373,12 +370,12 @@ void NREstimate::startAnalyse()
     QTextStream owms;
     QFile       filewms;
 
-    if (!d->path.isEmpty() && runningFlag())
+    if (runningFlag() && !d->path.isEmpty())
     {
         QString logFile2 = d->path;
-        logFile2         = logFile2.section('/', -1);
-        logFile2         = logFile2.left(logFile2.indexOf('.'));
-        logFile2.append("logWeightedMeanStd.txt");
+        logFile2         = logFile2.section(QLatin1Char('/'), -1);
+        logFile2         = logFile2.left(logFile2.indexOf(QLatin1Char('.')));
+        logFile2.append(QLatin1String("logWeightedMeanStd.txt"));
 
         filewms.setFileName(logFile2);
 
@@ -419,25 +416,25 @@ void NREstimate::startAnalyse()
 
         if (!d->path.isEmpty())
         {
-            owms << "\nChannel : " << j << "\n";
-            owms << "Weighted Mean : " << weightedMean << "\n";
-            owms << "Weighted Std  : " << weightedStd << "\n";
+            owms << QLatin1String("\nChannel : ")     << j            << QLatin1String("\n");
+            owms << QLatin1String("Weighted Mean : ") << weightedMean << QLatin1String("\n");
+            owms << QLatin1String("Weighted Std  : ") << weightedStd  << QLatin1String("\n");
         }
 
-        info.append("\n\nChannel: ");
+        info.append(QLatin1String("\n\nChannel: "));
         info.append(QString::number(j));
-        info.append("\nWeighted Mean: ");
+        info.append(QLatin1String("\nWeighted Mean: "));
         info.append(QString::number(weightedMean));
-        info.append("\nWeighted Standard Deviation: ");
+        info.append(QLatin1String("\nWeighted Standard Deviation: "));
         info.append(QString::number(weightedStd));
     }
 
-    if (!d->path.isEmpty() && runningFlag())
+    if (runningFlag() && !d->path.isEmpty())
     {
         filewms.close();
     }
 
-    kDebug() << "Info : " << info;
+    qCDebug(DIGIKAM_DIMG_LOG) << "Info : " << info;
     postProgress(80);
 
     // -- adaptation ---------------------------------------------------------------------------------------
@@ -498,7 +495,7 @@ void NREstimate::startAnalyse()
     d->prm.softness[1]   = CbSoft;
     d->prm.softness[2]   = CrSoft;
 
-    kDebug() << "All is completed";
+    qCDebug(DIGIKAM_DIMG_LOG) << "All is completed";
     postProgress(90);
 
     //-- releasing matrices and closing files ----------------------------------------------------------------------

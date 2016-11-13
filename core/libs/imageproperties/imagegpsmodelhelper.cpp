@@ -21,11 +21,8 @@
  *
  * ============================================================ */
 
-#include "imagegpsmodelhelper.moc"
-
-// local includes
-
-#include "digikam2kgeomap.h"
+#include "imagegpsmodelhelper.h"
+#include "gpsimageinfosorter.h"
 
 namespace Digikam
 {
@@ -47,7 +44,8 @@ public:
 };
 
 ImageGPSModelHelper::ImageGPSModelHelper(QStandardItemModel* const itemModel, QObject* const parent)
-    : KGeoMap::ModelHelper(parent), d(new Private())
+    : GeoIface::ModelHelper(parent),
+      d(new Private())
 {
 
     d->itemModel           = itemModel;
@@ -76,7 +74,7 @@ QItemSelectionModel* ImageGPSModelHelper::selectionModel() const
     return d->itemSelectionModel;
 }
 
-bool ImageGPSModelHelper::itemCoordinates(const QModelIndex& index, KGeoMap::GeoCoordinates* const coordinates) const
+bool ImageGPSModelHelper::itemCoordinates(const QModelIndex& index, GeoIface::GeoCoordinates* const coordinates) const
 {
     const GPSImageInfo currentGPSImageInfo = index.data(RoleGPSImageInfo).value<GPSImageInfo>();
     *coordinates                           = currentGPSImageInfo.coordinates;
@@ -103,11 +101,12 @@ QPixmap ImageGPSModelHelper::pixmapFromRepresentativeIndex(const QPersistentMode
 
     QPixmap thumbnail;
     ThumbnailIdentifier thumbId;
-    thumbId.filePath = currentGPSImageInfo.url.path();
+    thumbId.filePath = currentGPSImageInfo.url.toLocalFile();
     thumbId.id       = currentGPSImageInfo.id;
+
     if (d->thumbnailLoadThread->find(thumbId, thumbnail, qMax(size.width(), size.height())))
     {
-        // digikam returns thumbnails with a border around them, but libkgeomap expects them without a border
+        // digikam returns thumbnails with a border around them, but GeoIface expects them without a border
         return thumbnail.copy(1, 1, thumbnail.size().width()-2, thumbnail.size().height()-2);
     }
     else
@@ -121,15 +120,15 @@ QPersistentModelIndex ImageGPSModelHelper::bestRepresentativeIndexFromList(const
     QModelIndex bestIndex         = list.first();
     GPSImageInfo bestGPSImageInfo = bestIndex.data(RoleGPSImageInfo).value<GPSImageInfo>();
 
-    for (int i=1; i<list.count(); ++i)
+    for (int i = 1; i < list.count(); ++i)
     {
         const QModelIndex currentIndex(list.at(i));
         const GPSImageInfo currentGPSImageInfo = currentIndex.data(RoleGPSImageInfo).value<GPSImageInfo>();
         const bool currentFitsBetter           = GPSImageInfoSorter::fitsBetter(bestGPSImageInfo,
-                                                                                KGeoMap::KGeoMapSelectedNone,
+                                                                                GeoIface::SelectedNone,
                                                                                 currentGPSImageInfo,
-                                                                                KGeoMap::KGeoMapSelectedNone,
-                                                                                KGeoMap::KGeoMapSelectedNone,
+                                                                                GeoIface::SelectedNone,
+                                                                                GeoIface::SelectedNone,
                                                                                 GPSImageInfoSorter::SortOptions(sortKey));
 
         if (currentFitsBetter)
@@ -144,12 +143,12 @@ QPersistentModelIndex ImageGPSModelHelper::bestRepresentativeIndexFromList(const
 
 void ImageGPSModelHelper::slotThumbnailLoaded(const LoadingDescription& loadingDescription, const QPixmap& thumb)
 {
-    for (int i=0; i<d->itemModel->rowCount(); ++i)
+    for (int i = 0; i < d->itemModel->rowCount(); ++i)
     {
         const QStandardItem* const item        = static_cast<QStandardItem*>(d->itemModel->item(i));
         const GPSImageInfo currentGPSImageInfo = item->data(RoleGPSImageInfo).value<GPSImageInfo>();
 
-        if (currentGPSImageInfo.url.path() == loadingDescription.filePath)
+        if (currentGPSImageInfo.url.toLocalFile() == loadingDescription.filePath)
         {
             const QPersistentModelIndex goodIndex(d->itemModel->index(i,0));
 

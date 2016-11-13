@@ -6,7 +6,7 @@
  * Date        : 2012-04-04
  * Description : Tool dialog
  *
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,25 +22,28 @@
 
 #include "kptooldialog.h"
 
+// Qt includes
+
+#include <QIcon>
+#include <QAction>
+#include <QDialog>
+#include <QMenu>
+#include <QVBoxLayout>
+#include <QPushButton>
+
 // KDE includes
 
-#include <kdialog.h>
-#include <kaction.h>
-#include <khelpmenu.h>
-#include <kicon.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kpushbutton.h>
-#include <ktoolinvocation.h>
+#include <klocalizedstring.h>
 
 // Libkipi includes
 
-#include <libkipi/interface.h>
-#include <libkipi/pluginloader.h>
+#include <KIPI/Interface>
+#include <KIPI/PluginLoader>
 
 // Local includes
 
 #include "kpaboutdata.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIPlugins
 {
@@ -65,12 +68,13 @@ public:
 
     }
 
+    QDialog*     dialog;
+
     Interface*   iface;
     KPAboutData* about;
-    KDialog*     dialog;
 };
 
-KPDialogBase::KPDialogBase(KDialog* const dlg)
+KPDialogBase::KPDialogBase(QDialog* const dlg)
     : d(new Private)
 {
     d->dialog = dlg;
@@ -87,50 +91,183 @@ Interface* KPDialogBase::iface() const
     return d->iface;
 }
 
-void KPDialogBase::setAboutData(KPAboutData* const data, KPushButton* help)
+QPushButton* KPDialogBase::getHelpButton() const
 {
-    if (!data || !d->dialog) return;
+    if (!d->dialog)
+    {
+        return nullptr;
+    }
 
-    if (!help) help = d->dialog->button(KDialog::Help);
-    if (!help) return;
+    {
+        KPToolDialog* const dlg = dynamic_cast<KPToolDialog*>(d->dialog);
 
-    d->about = data;
-    d->about->setHelpButton(help);
+        if (dlg)
+        {
+            return dlg->helpButton();
+        }
+    }
+
+    {
+        KPWizardDialog* const dlg = dynamic_cast<KPWizardDialog*>(d->dialog);
+
+        if (dlg)
+        {
+            return dlg->helpButton();
+        }
+    }
+
+    return 0;
+}
+
+void KPDialogBase::setAboutData(KPAboutData* const data, QPushButton* help)
+{
+    if (!data)
+    {
+        return;
+    }
+
+    if (!help)
+    {
+        help = getHelpButton();
+    }
+
+    if (help)
+    {
+        d->about = data;
+        d->about->setHelpButton(help);
+    }
 }
 
 // -----------------------------------------------------------------------------------
 
-KPToolDialog::KPToolDialog(QWidget* const parent)
-    : KDialog(parent), KPDialogBase(this)
+class KPToolDialog::Private
 {
-    setButtons(Help | Ok);
+public:
+    Private()
+        : buttonBox(0),
+          startButton(0),
+          mainWidget(0),
+         propagateReject(true)
+    {
+    }
+
+    QDialogButtonBox* buttonBox;
+    QPushButton*      startButton;
+    QWidget*          mainWidget;
+
+    bool              propagateReject;
+};
+
+KPToolDialog::KPToolDialog(QWidget* const parent)
+    : QDialog(parent),
+      KPDialogBase(this),
+      d(new Private)
+{
+    d->buttonBox   = new QDialogButtonBox(QDialogButtonBox::Close | QDialogButtonBox::Help, this);
+    d->startButton = new QPushButton(i18nc("@action:button", "&Start"), this);
+    d->startButton->setIcon(QIcon::fromTheme(QString::fromLatin1("media-playback-start")));
+    d->buttonBox->addButton(d->startButton, QDialogButtonBox::ActionRole);
+    d->buttonBox->button(QDialogButtonBox::Close)->setDefault(true);
+
+    QVBoxLayout* const mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(d->buttonBox);
+    setLayout(mainLayout);
+
+    connect(d->buttonBox, &QDialogButtonBox::rejected,
+            this, &KPToolDialog::slotCloseClicked);
 }
 
 KPToolDialog::~KPToolDialog()
 {
+    delete d;
+}
+
+void KPToolDialog::setMainWidget(QWidget* const widget)
+{
+    if (d->mainWidget == widget)
+    {
+        return;
+    }
+
+    layout()->removeWidget(d->buttonBox);
+
+    if (d->mainWidget)
+    {
+        // Replace existing widget
+        layout()->removeWidget(d->mainWidget);
+        delete d->mainWidget;
+    }
+
+    d->mainWidget = widget;
+    layout()->addWidget(d->mainWidget);
+    layout()->addWidget(d->buttonBox);
+}
+
+void KPToolDialog::setRejectButtonMode(QDialogButtonBox::StandardButton button)
+{
+    if (button == QDialogButtonBox::Close)
+    {
+        d->buttonBox->button(QDialogButtonBox::Close)->setText(i18n("Close"));
+        d->buttonBox->button(QDialogButtonBox::Close)->setIcon(QIcon::fromTheme(QString::fromLatin1("window-close")));
+        d->buttonBox->button(QDialogButtonBox::Close)->setToolTip(i18n("Close window"));
+        d->propagateReject = true;
+    }
+    else if (button == QDialogButtonBox::Cancel)
+    {
+        d->buttonBox->button(QDialogButtonBox::Close)->setText(i18n("Cancel"));
+        d->buttonBox->button(QDialogButtonBox::Close)->setIcon(QIcon::fromTheme(QString::fromLatin1("dialog-cancel")));
+        d->buttonBox->button(QDialogButtonBox::Close)->setToolTip(i18n("Cancel current operation"));
+        d->propagateReject = false;
+    }
+    else
+    {
+        qCDebug(KIPIPLUGINS_LOG) << "Unexpected button mode passed";
+    }
+}
+
+QPushButton* KPToolDialog::startButton() const
+{
+    return d->startButton;
+}
+
+QPushButton* KPToolDialog::helpButton() const
+{
+    return d->buttonBox->button(QDialogButtonBox::Help);
+}
+
+void KPToolDialog::addButton(QAbstractButton* button, QDialogButtonBox::ButtonRole role)
+{
+    d->buttonBox->addButton(button, role);
+}
+
+void KPToolDialog::slotCloseClicked()
+{
+    if (d->propagateReject)
+    {
+        reject();
+    }
+    else
+    {
+        emit cancelClicked();
+    }
 }
 
 // -----------------------------------------------------------------------------------
 
 KPWizardDialog::KPWizardDialog(QWidget* const parent)
-    : KAssistantDialog(parent), KPDialogBase(this)
+    : QWizard(parent),
+      KPDialogBase(this)
 {
+    setOption(QWizard::HaveHelpButton, true);
 }
 
 KPWizardDialog::~KPWizardDialog()
 {
 }
 
-// -----------------------------------------------------------------------------------
-
-KPPageDialog::KPPageDialog(QWidget* const parent)
-    : KPageDialog(parent), KPDialogBase(this)
+QPushButton* KPWizardDialog::helpButton() const
 {
-    setButtons(Help | Ok);
-}
-
-KPPageDialog::~KPPageDialog()
-{
+    return dynamic_cast<QPushButton*>(button(QWizard::HelpButton));
 }
 
 } // namespace KIPIPlugins

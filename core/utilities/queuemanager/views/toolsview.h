@@ -6,7 +6,7 @@
  * Date        : 2009-04-20
  * Description : a view to available tools in tab view.
  *
- * Copyright (C) 2009-2012 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,10 +24,6 @@
 #ifndef TOOLS_VIEW_H
 #define TOOLS_VIEW_H
 
-// KDE includes
-
-#include <ktabwidget.h>
-
 // Local includes
 
 #include "dhistoryview.h"
@@ -37,7 +33,7 @@ namespace Digikam
 
 class BatchTool;
 
-class ToolsView : public KTabWidget
+class ToolsView : public QTabWidget
 {
     Q_OBJECT
 

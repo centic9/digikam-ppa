@@ -6,7 +6,7 @@
  * Date        : 2010-02-23
  * Description : black and white settings view.
  *
- * Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "bwsepiasettings.moc"
+#include "bwsepiasettings.h"
 
 // Qt includes
 
@@ -31,35 +31,30 @@
 #include <QFile>
 #include <QTextStream>
 #include <QCheckBox>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QStyle>
+#include <QUrl>
+#include <QMessageBox>
+#include <QFileDialog>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kiconloader.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rexpanderbox.h>
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/version.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
 #include "previewlist.h"
 #include "curvesbox.h"
 #include "curveswidget.h"
 #include "imagecurves.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
@@ -102,10 +97,10 @@ public:
     PreviewList*               bwFilm;
     PreviewList*               bwTone;
 
-    RExpanderBoxExclusive*     tab;
+    DExpanderBoxExclusive*     tab;
 
-    KDcrawIface::RIntNumInput* cInput;
-    KDcrawIface::RIntNumInput* strengthInput;
+    DIntNumInput*              cInput;
+    DIntNumInput*              strengthInput;
 
     CurvesBox*                 curvesBox;
 
@@ -117,17 +112,17 @@ public:
                              BWSepiaContainer::BlackWhiteConversionType type);
 };
 
-const QString BWSepiaSettings::Private::configSettingsTabEntry("Settings Tab");
-const QString BWSepiaSettings::Private::configBWFilterEntry("BW Filter");
-const QString BWSepiaSettings::Private::configBWFilmEntry("BW Film");
-const QString BWSepiaSettings::Private::configBWToneEntry("BW Tone");
-const QString BWSepiaSettings::Private::configContrastAdjustmentEntry("ContrastValueAdjustment");
-const QString BWSepiaSettings::Private::configStrengthAdjustmentEntry("StrengthAdjustment");
-const QString BWSepiaSettings::Private::configCurveEntry("BWSepiaCurve");
+const QString BWSepiaSettings::Private::configSettingsTabEntry(QLatin1String("Settings Tab"));
+const QString BWSepiaSettings::Private::configBWFilterEntry(QLatin1String("BW Filter"));
+const QString BWSepiaSettings::Private::configBWFilmEntry(QLatin1String("BW Film"));
+const QString BWSepiaSettings::Private::configBWToneEntry(QLatin1String("BW Tone"));
+const QString BWSepiaSettings::Private::configContrastAdjustmentEntry(QLatin1String("ContrastValueAdjustment"));
+const QString BWSepiaSettings::Private::configStrengthAdjustmentEntry(QLatin1String("StrengthAdjustment"));
+const QString BWSepiaSettings::Private::configCurveEntry(QLatin1String("BWSepiaCurve"));
 
 PreviewListItem* BWSepiaSettings::Private::addItem(PreviewList* const list,
-                                                               const QString& name,
-                                                               BWSepiaContainer::BlackWhiteConversionType type)
+                                                   const QString& name,
+                                                   BWSepiaContainer::BlackWhiteConversionType type)
 {
     BWSepiaFilter* const filter = new BWSepiaFilter(&thumbImage, 0, BWSepiaContainer(type));
     PreviewListItem* const item = list->addItem(filter, name, type);
@@ -146,12 +141,14 @@ BWSepiaSettings::BWSepiaSettings(QWidget* const parent, DImg* const img)
     }
     else
     {
-        d->thumbImage = DImg(DesktopIcon("image-x-generic", 128).toImage());
+        d->thumbImage = DImg(QIcon::fromTheme(QLatin1String("image-x-generic")).pixmap(128).toImage());
     }
 
-    QGridLayout* grid = new QGridLayout(parent);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
-    d->tab = new RExpanderBoxExclusive(this);
+    QGridLayout* const grid = new QGridLayout(parent);
+
+    d->tab = new DExpanderBoxExclusive(this);
 
     PreviewListItem* item;
     d->bwFilm = new PreviewList;
@@ -281,17 +278,19 @@ BWSepiaSettings::BWSepiaSettings(QWidget* const parent, DImg* const img)
                             "<p>Simulate black and white film exposure using a blue filter. "
                             "This accentuates haze and fog. Used for dye transfer and contrast effects.</p>"));
 
-    d->strengthInput = new RIntNumInput(vbox);
-    d->strengthInput->input()->setLabel(i18n("Strength:"), Qt::AlignLeft | Qt::AlignVCenter);
+    DHBox* const hbox1   = new DHBox(vbox);
+    QLabel* const label1 = new QLabel(i18n("Strength:"), hbox1);
+    label1->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+
+    d->strengthInput     = new DIntNumInput(hbox1);
     d->strengthInput->setRange(1, 5, 1);
-    d->strengthInput->setSliderEnabled(true);
     d->strengthInput->setDefaultValue(1);
     d->strengthInput->setWhatsThis(i18n("Here, set the strength adjustment of the lens filter."));
 
     vlay->addWidget(d->bwFilters);
-    vlay->addWidget(d->strengthInput);
-    vlay->setSpacing(KDialog::spacingHint());
-    vlay->setMargin(0);
+    vlay->addWidget(hbox1);
+    vlay->setContentsMargins(QMargins());
+    vlay->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
@@ -352,37 +351,39 @@ BWSepiaSettings::BWSepiaSettings(QWidget* const parent, DImg* const img)
 
     // -------------------------------------------------------------
 
-    d->cInput = new RIntNumInput(lumBox);
-    d->cInput->input()->setLabel(i18n("Contrast:"), Qt::AlignLeft | Qt::AlignVCenter);
+    DHBox* const hbox2   = new DHBox(lumBox);
+    QLabel* const label2 = new QLabel(i18n("Contrast:"), hbox2);
+    label2->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
+
+    d->cInput = new DIntNumInput(hbox2);
     d->cInput->setRange(-100, 100, 1);
-    d->cInput->setSliderEnabled(true);
     d->cInput->setDefaultValue(0);
     d->cInput->setWhatsThis(i18n("Set here the contrast adjustment of the image."));
 
     QGridLayout* gridTab2 = new QGridLayout(lumBox);
     gridTab2->addWidget(d->curvesBox, 0, 0, 1, 1);
-    gridTab2->addWidget(d->cInput,    1, 0, 1, 1);
+    gridTab2->addWidget(hbox2,        1, 0, 1, 1);
     gridTab2->setRowStretch(2, 10);
-    gridTab2->setMargin(KDialog::spacingHint());
+    gridTab2->setContentsMargins(spacing, spacing, spacing, spacing);
     gridTab2->setSpacing(0);
 
     // -------------------------------------------------------------
 
     // Some new icons may be needed : a film roll, a lens filter and ?
-    d->tab->addItem(d->bwFilm, SmallIcon("filmgrain"),
-                    i18n("Film"), QString("Film"), true);
-    d->tab->addItem(vbox, SmallIcon("lensautofix"),
-                    i18n("Lens Filters"), QString("Lens Filters"), false);
-    d->tab->addItem(d->bwTone, SmallIcon("fill-color"),
-                    i18n("Tone"), QString("Tone"), false);
-    d->tab->addItem(lumBox, SmallIcon("adjustcurves"),
-                    i18n("Luminosity"), QString("Luminosity"), false);
+    d->tab->addItem(d->bwFilm, QIcon::fromTheme(QLatin1String("filmgrain")),
+                    i18n("Film"), QLatin1String("Film"), true);
+    d->tab->addItem(vbox, QIcon::fromTheme(QLatin1String("lensautofix")),
+                    i18n("Lens Filters"), QLatin1String("Lens Filters"), false);
+    d->tab->addItem(d->bwTone, QIcon::fromTheme(QLatin1String("fill-color")),
+                    i18n("Tone"), QLatin1String("Tone"), false);
+    d->tab->addItem(lumBox, QIcon::fromTheme(QLatin1String("adjustcurves")),
+                    i18n("Luminosity"), QLatin1String("Luminosity"), false);
     d->tab->addStretch();
 
     grid->addWidget(d->tab, 0, 0, 1, 10);
     grid->setRowStretch(0, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
@@ -498,11 +499,7 @@ void BWSepiaSettings::readSettings(KConfigGroup& group)
     BWSepiaContainer prm;
     BWSepiaContainer defaultPrm = defaultSettings();
 
-#if KDCRAW_VERSION >= 0x020000
     d->tab->readSettings(group);
-#else
-    d->tab->readSettings();
-#endif
 
     prm.filmType        = group.readEntry(d->configBWFilmEntry,             defaultPrm.filmType);
     prm.filterType      = group.readEntry(d->configBWFilterEntry,           defaultPrm.filterType);
@@ -520,11 +517,7 @@ void BWSepiaSettings::writeSettings(KConfigGroup& group)
 {
     BWSepiaContainer prm = settings();
 
-#if KDCRAW_VERSION >= 0x020000
     d->tab->writeSettings(group);
-#else
-    d->tab->writeSettings();
-#endif
 
     group.writeEntry(d->configBWFilmEntry,             prm.filmType);
     group.writeEntry(d->configBWFilterEntry,           prm.filterType);
@@ -537,9 +530,9 @@ void BWSepiaSettings::writeSettings(KConfigGroup& group)
 
 void BWSepiaSettings::loadSettings()
 {
-    KUrl loadFile = KFileDialog::getOpenUrl(KGlobalSettings::documentPath(),
-                                            QString("*"), kapp->activeWindow(),
-                                            QString(i18n("Black & White Settings File to Load")));
+    QUrl loadFile = QFileDialog::getOpenFileUrl(qApp->activeWindow(), i18n("Black & White Settings File to Load"),
+                                                QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                QLatin1String("*"));
 
     if (loadFile.isEmpty())
     {
@@ -552,11 +545,10 @@ void BWSepiaSettings::loadSettings()
     {
         QTextStream stream(&file);
 
-        if (stream.readLine() != "# Black & White Configuration File")
+        if (stream.readLine() != QLatin1String("# Black & White Configuration File"))
         {
-            KMessageBox::error(kapp->activeWindow(),
-                               i18n("\"%1\" is not a Black & White settings text file.",
-                                    loadFile.fileName()));
+            QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                                  i18n("\"%1\" is not a Black & White settings text file.", loadFile.fileName()));
             file.close();
             return;
         }
@@ -600,7 +592,8 @@ void BWSepiaSettings::loadSettings()
     }
     else
     {
-        KMessageBox::error(kapp->activeWindow(), i18n("Cannot load settings from the Black & White text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot load settings from the Black & White text file."));
     }
 
     file.close();
@@ -608,9 +601,9 @@ void BWSepiaSettings::loadSettings()
 
 void BWSepiaSettings::saveAsSettings()
 {
-    KUrl saveFile = KFileDialog::getSaveUrl(KGlobalSettings::documentPath(),
-                                            QString("*"), kapp->activeWindow(),
-                                            QString(i18n("Black & White Settings File to Save")));
+    QUrl saveFile = QFileDialog::getSaveFileUrl(qApp->activeWindow(), i18n("Black & White Settings File to Save"),
+                                                QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                QLatin1String("*"));
 
     if (saveFile.isEmpty())
     {
@@ -622,7 +615,7 @@ void BWSepiaSettings::saveAsSettings()
     if (file.open(QIODevice::WriteOnly))
     {
         QTextStream stream(&file);
-        stream << "# Black & White Configuration File\n";
+        stream << QLatin1String("# Black & White Configuration File\n");
         stream << d->bwFilm->currentId() << "\n";
         stream << d->bwFilters->currentId() << "\n";
         stream << d->bwTone->currentId() << "\n";
@@ -645,8 +638,8 @@ void BWSepiaSettings::saveAsSettings()
     }
     else
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("Cannot save settings to the Black & White text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot save settings to the Black & White text file."));
     }
 
     file.close();

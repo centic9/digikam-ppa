@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2008-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009      by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,17 +30,18 @@
 
 #include <QPointer>
 #include <QSortFilterProxyModel>
+#include <QTreeView>
 
 // Local includes
 
 #include "albummodel.h"
 #include "searchtextbar.h"
-#include "KStringHandler"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
-class AlbumFilterModel : public QSortFilterProxyModel
+class DIGIKAM_EXPORT AlbumFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -76,7 +77,7 @@ public:
 
 public:
 
-    explicit AlbumFilterModel(QObject* parent = 0);
+    explicit AlbumFilterModel(QObject* const parent = 0);
 
     /**
      * Sets the source model.
@@ -101,7 +102,7 @@ public:
     Album*      albumForIndex(const QModelIndex& index) const;
     QModelIndex indexForAlbum(Album* album) const;
     QModelIndex rootAlbumIndex() const;
-    QVariant    dataForCurrentSortRole(const QModelIndex& index) const;
+    QVariant    dataForCurrentSortRole(Album* album) const;
 
     /**
      * Returns the settings currently used for filtering.
@@ -255,6 +256,7 @@ protected:
     FilterBehavior             m_filterBehavior;
     SearchTextSettings         m_settings;
     QPointer<AlbumFilterModel> m_chainedModel;
+    QObject*                   m_parent;
 
 private:
 
@@ -264,8 +266,7 @@ private:
      * @return <code>true</code> if the provided settings result in filtering
      *         the model
      */
-    bool settingsFilter(const SearchTextSettings& settings) const;    
-
+    bool settingsFilter(const SearchTextSettings& settings) const;
 };
 
 // -----------------------------------------------------------------------------------
@@ -274,13 +275,13 @@ private:
  * Filter model for checkable album models that allows more filtering options
  * based on check state.
  */
-class CheckableAlbumFilterModel : public AlbumFilterModel
+class DIGIKAM_EXPORT CheckableAlbumFilterModel : public AlbumFilterModel
 {
     Q_OBJECT
 
 public:
 
-    explicit CheckableAlbumFilterModel(QObject* parent = 0);
+    explicit CheckableAlbumFilterModel(QObject* const parent = 0);
 
     void                         setSourceAlbumModel(AbstractCheckableAlbumModel* source);
     AbstractCheckableAlbumModel* sourceAlbumModel() const;
@@ -305,13 +306,13 @@ protected:
 /**
  * Filter model for searches that can filter by search type
  */
-class SearchFilterModel : public CheckableAlbumFilterModel
+class DIGIKAM_EXPORT SearchFilterModel : public CheckableAlbumFilterModel
 {
     Q_OBJECT
 
 public:
 
-    explicit SearchFilterModel(QObject* parent = 0);
+    explicit SearchFilterModel(QObject* const parent = 0);
 
     void         setSourceSearchModel(SearchModel* source);
     SearchModel* sourceSearchModel() const;
@@ -350,13 +351,13 @@ protected:
 /**
  * Filter model for tags that can filter by tag property
  */
-class TagPropertiesFilterModel : public CheckableAlbumFilterModel
+class DIGIKAM_EXPORT TagPropertiesFilterModel : public CheckableAlbumFilterModel
 {
     Q_OBJECT
 
 public:
 
-    explicit TagPropertiesFilterModel(QObject* parent = 0);
+    explicit TagPropertiesFilterModel(QObject* const parent = 0);
 
     void      setSourceAlbumModel(TagModel* source);
     TagModel* sourceTagModel() const;
@@ -384,17 +385,21 @@ protected:
 
 // -----------------------------------------------------------------------------------
 
-class TagsManagerFilterModel : public TagPropertiesFilterModel
+class DIGIKAM_EXPORT TagsManagerFilterModel : public TagPropertiesFilterModel
 {
     Q_OBJECT
 
 public:
-    explicit TagsManagerFilterModel(QObject* data = 0);
+
+    explicit TagsManagerFilterModel(QObject* const data = 0);
 
     void setQuickListTags(QList<int> tags);
+
 protected:
 
     virtual bool matches(Album* album) const;
+
+protected:
 
     QSet<int> m_keywords;
 };

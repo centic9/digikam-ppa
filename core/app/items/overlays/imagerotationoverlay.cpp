@@ -6,7 +6,7 @@
  * Date        : 2009-05-31
  * Description : rotate icon view item at mouse hover
  *
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,12 +21,11 @@
  *
  * ============================================================ */
 
-#include "imagerotationoverlay.moc"
+#include "imagerotationoverlay.h"
 
 // KDE includes
 
-#include <kiconloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -49,15 +48,15 @@ QSize ImageRotateOverlayButton::sizeHint() const
     return QSize(32, 32);
 }
 
-QPixmap ImageRotateOverlayButton::icon()
+QIcon ImageRotateOverlayButton::icon()
 {
     if (m_direction == ImageRotateOverlayLeft)
     {
-        return KIconLoader::global()->loadIcon("object-rotate-left", KIconLoader::NoGroup, KIconLoader::SizeMedium);
+        return QIcon::fromTheme(QLatin1String("object-rotate-left"));
     }
     else
     {
-        return KIconLoader::global()->loadIcon("object-rotate-right", KIconLoader::NoGroup, KIconLoader::SizeMedium);
+        return QIcon::fromTheme(QLatin1String("object-rotate-right"));
     }
 }
 

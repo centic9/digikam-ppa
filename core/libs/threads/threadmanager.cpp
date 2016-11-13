@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "threadmanager.moc"
+#include "threadmanager.h"
 
 // Qt includes
 
@@ -33,13 +33,9 @@
 #include <QThreadPool>
 #include <QWaitCondition>
 
-// KDE includes
-
-#include <kdebug.h>
-#include <kglobal.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "dynamicthread.h"
 #include "workerobject.h"
 
@@ -238,7 +234,7 @@ class ThreadManagerCreator
 public:
     ThreadManager object;
 };
-K_GLOBAL_STATIC(ThreadManagerCreator, creator)
+Q_GLOBAL_STATIC(ThreadManagerCreator, creator)
 
 ThreadManager* ThreadManager::instance()
 {

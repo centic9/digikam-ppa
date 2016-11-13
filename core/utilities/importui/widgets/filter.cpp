@@ -6,7 +6,7 @@
  * Date        : 2010-12-16
  * Description : Filter for filter combobox
  *
- * Copyright (C) 2010-2011 by Petri Damstén <petri.damsten@iki.fi>
+ * Copyright (C) 2010-2011 by Petri Damstén <petri dot damsten at iki dot fi>
  * Copyright (C) 2014      by Teemu Rytilahti <tpr@iki.fi>
  *
  * This program is free software; you can redistribute it
@@ -22,9 +22,10 @@
  *
  * ============================================================ */
 
-// KDE includes
+// Qt includes
 
-#include <KMimeType>
+#include <QMimeType>
+#include <QMimeDatabase>
 
 // Local includes
 
@@ -45,28 +46,28 @@ Filter::~Filter()
 
 QString Filter::toString()
 {
-    return QString("%1|%2|%3|%4|%5")
+    return QString::fromUtf8("%1|%2|%3|%4|%5")
            .arg(name)
-           .arg(onlyNew ? "true" : "false")
-           .arg(fileFilter.join(";"))
-           .arg(pathFilter.join(";"))
+           .arg(onlyNew ? QLatin1String("true") : QLatin1String("false"))
+           .arg(fileFilter.join(QLatin1String(";")))
+           .arg(pathFilter.join(QLatin1String(";")))
            .arg(mimeFilter);
 }
 
 void Filter::fromString(const QString& filter)
 {
-    QStringList s = filter.split('|');
+    QStringList s = filter.split(QLatin1Char('|'));
     name          = s.value(0);
-    onlyNew       = (s.value(1) == "true");
+    onlyNew       = (s.value(1) == QLatin1String("true"));
 
     if (!s.value(2).isEmpty())
     {
-        fileFilter = s.value(2).split(';');
+        fileFilter = s.value(2).split(QLatin1Char(';'));
     }
 
     if (!s.value(3).isEmpty())
     {
-        pathFilter = s.value(3).split(';');
+        pathFilter = s.value(3).split(QLatin1Char(';'));
     }
 
     if (!s.value(4).isEmpty())
@@ -94,7 +95,8 @@ bool Filter::match(const QStringList& wildcards, const QString& name)
     foreach(const QString& wildcard, wildcards)
     {
         match = regexp(wildcard).exactMatch(name);
-        //kDebug() << "**" << wildcard << name << match;
+        //qCDebug(DIGIKAM_IMPORTUI_LOG) << "**" << wildcard << name << match;
+
         if (match)
         {
             break;
@@ -109,18 +111,18 @@ const QStringList& Filter::mimeWildcards(const QString& mime)
     if (!mimeHash.contains(mime))
     {
         QStringList& wc  = mimeHash[mime];
-        QStringList list = mime.split(';');
+        QStringList list = mime.split(QLatin1Char(';'));
 
         foreach(const QString& m, list)
         {
-            KMimeType::Ptr mime = KMimeType::mimeType(m);
+            QMimeType mime = QMimeDatabase().mimeTypeForName(m);
 
-            if (!mime)
+            if (!mime.isValid())
             {
                 continue;
             }
 
-            foreach(const QString& pattern, mime->patterns())
+            foreach(const QString& pattern, mime.globPatterns())
             {
                 wc.append(pattern);
             }

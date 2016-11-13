@@ -24,11 +24,11 @@
 
 #include "importrenameparser.h"
 
-// local includes
+// Local includes
 
+#include "databaseoption.h"
 #include "cameranameoption.h"
 #include "metadataoption.h"
-#include "databaseoption.h"
 
 namespace Digikam
 {
@@ -36,10 +36,10 @@ namespace Digikam
 ImportRenameParser::ImportRenameParser()
     : Parser()
 {
-    // unregister options that are not suitable during import
+    // unregister options that are not suitable while import
     RulesList oplist = options();
 
-    foreach(Rule* option, oplist)
+    foreach(Rule* const option, oplist)
     {
         if (dynamic_cast<DatabaseOption*>(option) ||
             dynamic_cast<MetadataOption*>(option) ||

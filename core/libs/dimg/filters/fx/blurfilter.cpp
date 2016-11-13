@@ -6,7 +6,7 @@
  * Date        : 2005-17-07
  * Description : A Gaussian Blur threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -27,13 +27,13 @@
 
 // Qt includes
 
-#include <qmath.h>
-#include <QtConcurrentRun>
+#include <QtConcurrent>
+#include <QtMath>
 #include <QMutex>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -62,7 +62,7 @@ BlurFilter::BlurFilter(QObject* const parent)
 }
 
 BlurFilter::BlurFilter(DImg* const orgImage, QObject* const parent, int radius)
-    : DImgThreadedFilter(orgImage, parent, "GaussianBlur"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("GaussianBlur")),
       d(new Private)
 {
     d->radius = radius;
@@ -73,7 +73,7 @@ BlurFilter::BlurFilter(DImgThreadedFilter* const parentFilter,
                        const DImg& orgImage, const DImg& destImage,
                        int progressBegin, int progressEnd, int radius)
     : DImgThreadedFilter(parentFilter, orgImage, destImage, progressBegin, progressEnd,
-                         parentFilter->filterName() + ": GaussianBlur"),
+                         parentFilter->filterName() + QLatin1String(": GaussianBlur")),
       d(new Private)
 {
     d->radius = radius;
@@ -88,22 +88,27 @@ BlurFilter::~BlurFilter()
 
 void BlurFilter::blurMultithreaded(uint start, uint stop)
 {
-    int  oldProgress=0, progress=0;
-    int  a, r, g, b;
+    bool sixteenBit  = m_orgImage.sixteenBit();
+    int  height      = m_orgImage.height();
+    int  width       = m_orgImage.width();
+    int  radius      = d->radius;
+    int  oldProgress = 0;
+    int  progress    = 0;
+    uint a, r, g, b;
     int  mx;
     int  my;
     int  mw;
     int  mh;
     int  mt;
-    int* as = new int[m_orgImage.width()];
-    int* rs = new int[m_orgImage.width()];
-    int* gs = new int[m_orgImage.width()];
-    int* bs = new int[m_orgImage.width()];
+    int* as = new int[width];
+    int* rs = new int[width];
+    int* gs = new int[width];
+    int* bs = new int[width];
 
     for (uint y = start ; runningFlag() && (y < stop) ; ++y)
     {
-        my = y - d->radius;
-        mh = (d->radius << 1) + 1;
+        my = y - radius;
+        mh = (radius << 1) + 1;
 
         if (my < 0)
         {
@@ -111,26 +116,28 @@ void BlurFilter::blurMultithreaded(uint start, uint stop)
             my = 0;
         }
 
-        if ((my + mh) > (int)m_orgImage.height())
-            mh = m_orgImage.height() - my;
+        if ((my + mh) > height)
+        {
+            mh = height - my;
+        }
 
         uchar* pDst8           = m_destImage.scanLine(y);
         unsigned short* pDst16 = reinterpret_cast<unsigned short*>(m_destImage.scanLine(y));
 
-        memset(as, 0, m_orgImage.width() * sizeof(int));
-        memset(rs, 0, m_orgImage.width() * sizeof(int));
-        memset(gs, 0, m_orgImage.width() * sizeof(int));
-        memset(bs, 0, m_orgImage.width() * sizeof(int));
+        memset(as, 0, width * sizeof(int));
+        memset(rs, 0, width * sizeof(int));
+        memset(gs, 0, width * sizeof(int));
+        memset(bs, 0, width * sizeof(int));
 
         for (int yy = 0; yy < mh; yy++)
         {
             uchar* pSrc8           = m_orgImage.scanLine(yy + my);
             unsigned short* pSrc16 = reinterpret_cast<unsigned short*>(m_orgImage.scanLine(yy + my));
 
-            for (int x = 0; x < (int)m_orgImage.width(); x++)
+            for (int x = 0; x < width; x++)
             {
-                if (m_orgImage.sixteenBit())
-                {  
+                if (sixteenBit)
+                {
                     bs[x]  += pSrc16[0];
                     gs[x]  += pSrc16[1];
                     rs[x]  += pSrc16[2];
@@ -138,7 +145,7 @@ void BlurFilter::blurMultithreaded(uint start, uint stop)
                     pSrc16 += 4;
                 }
                 else
-                {  
+                {
                     bs[x] += pSrc8[0];
                     gs[x] += pSrc8[1];
                     rs[x] += pSrc8[2];
@@ -148,13 +155,13 @@ void BlurFilter::blurMultithreaded(uint start, uint stop)
             }
         }
 
-        if ((int)m_orgImage.width() > ((d->radius << 1) + 1))
+        if (width > ((radius << 1) + 1))
         {
-            for (int x = 0; x < (int)m_orgImage.width(); x++)
+            for (int x = 0; x < width; x++)
             {
                 a  = r = g = b = 0;
-                mx = x - d->radius;
-                mw = (d->radius << 1) + 1;
+                mx = x - radius;
+                mw = (radius << 1) + 1;
 
                 if (mx < 0)
                 {
@@ -162,8 +169,10 @@ void BlurFilter::blurMultithreaded(uint start, uint stop)
                     mx = 0;
                 }
 
-                if ((mx + mw) > (int)m_orgImage.width())
-                    mw = m_orgImage.width() - mx;
+                if ((mx + mw) > width)
+                {
+                    mw = width - mx;
+                }
 
                 mt = mw * mh;
 
@@ -180,7 +189,7 @@ void BlurFilter::blurMultithreaded(uint start, uint stop)
                 g = g / mt;
                 b = b / mt;
 
-                if (m_orgImage.sixteenBit())
+                if (sixteenBit)
                 {
                     pDst16[0] = b;
                     pDst16[1] = g;
@@ -200,7 +209,7 @@ void BlurFilter::blurMultithreaded(uint start, uint stop)
         }
         else
         {
-            kDebug() << "Radius too small..."; 
+            qCDebug(DIGIKAM_DIMG_LOG) << "Radius too small...";
         }
 
         progress = (int)( ( (double)y * (100.0 / QThreadPool::globalInstance()->maxThreadCount()) ) / (stop-start));
@@ -225,7 +234,8 @@ void BlurFilter::filterImage()
 {
     if (d->radius < 1)
     {
-        kDebug() << "Radius out of range..."; 
+        qCDebug(DIGIKAM_DIMG_LOG) << "Radius out of range...";
+        m_destImage = m_orgImage;
         return;
     }
 
@@ -250,14 +260,14 @@ FilterAction BlurFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("radius", d->radius);
+    action.addParameter(QLatin1String("radius"), d->radius);
 
     return action;
 }
 
 void BlurFilter::readParameters(const FilterAction& action)
 {
-    d->radius = action.parameter("radius").toInt();
+    d->radius = action.parameter(QLatin1String("radius")).toInt();
 }
 
 }  // namespace Digikam

@@ -5,10 +5,10 @@
  *
  * Date        : 2008-08-06
  * Description : Raw decoding settings for digiKam:
- *               standard libkdcraw parameters plus
+ *               standard RawEngine parameters plus
  *               few customized for post processing.
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,22 +30,18 @@
 
 #include <QList>
 #include <QMetaType>
-#include <QPolygon>
-#include <QDomElement>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rawdecodingsettings.h>
-#include <libkdcraw/version.h>
 
 // Local includes
 
+#include "drawdecodersettings.h"
 #include "digikam_export.h"
 #include "bcgcontainer.h"
 #include "wbcontainer.h"
 #include "curvescontainer.h"
 
-using namespace KDcrawIface;
+class QDomElement;
+
+using namespace RawEngine;
 
 namespace Digikam
 {
@@ -59,9 +55,9 @@ public:
      */
     DRawDecoding();
 
-    /** Copy constructor. Creates a copy of a RawDecodingSettings object.
+    /** Copy constructor. Creates a copy of a DRawDecoderSettings object.
      */
-    explicit DRawDecoding(const RawDecodingSettings& prm);
+    explicit DRawDecoding(const DRawDecoderSettings& prm);
 
     /** Standard destructor
      */
@@ -91,14 +87,14 @@ public:
 
     /** Used by BQM to read/store Queue Raw decoding settings from/to configuration file
      */
-    static void decodingSettingsToXml(const RawDecodingSettings& prm, QDomElement& elm);
-    static void decodingSettingsFromXml(const QDomElement& elm, RawDecodingSettings& prm);
+    static void decodingSettingsToXml(const DRawDecoderSettings& prm, QDomElement& elm);
+    static void decodingSettingsFromXml(const QDomElement& elm, DRawDecoderSettings& prm);
 
 public:
 
-    /** All Raw decoding settings provided by libkdcraw.
+    /** All Raw decoding settings provided by RawEngine.
      */
-    RawDecodingSettings rawPrm;
+    DRawDecoderSettings rawPrm;
 
     /// Post Processing settings ----------------------------------------------------
 

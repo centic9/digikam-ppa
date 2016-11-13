@@ -8,7 +8,7 @@
  *               progress or a text in status bar.
  *               Progress events are dispatched to ProgressManager.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "statusprogressbar.moc"
+#include "statusprogressbar.h"
 
 // Qt includes
 
@@ -31,18 +31,13 @@
 #include <QPushButton>
 #include <QHBoxLayout>
 #include <QProgressBar>
-
-// KDE includes
-
-#include <ksqueezedtextlabel.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kcursor.h>
-#include <kdebug.h>
+#include <QIcon>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "progressmanager.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -71,29 +66,30 @@ public:
     bool                notify;
     QString             progressId;
     QString             title;
-    QPixmap             icon;
+    QIcon               icon;
 
     QWidget*            progressWidget;
     QPushButton*        cancelButton;
     QProgressBar*       progressBar;
 
-    KSqueezedTextLabel* textLabel;
+    DAdjustableLabel*   textLabel;
 };
 
 StatusProgressBar::StatusProgressBar(QWidget* const parent)
-    : QStackedWidget(parent), d(new Private)
+    : QStackedWidget(parent),
+      d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setFocusPolicy(Qt::NoFocus);
 
-    d->textLabel            = new KSqueezedTextLabel(this);
+    d->textLabel            = new DAdjustableLabel(this);
     d->progressWidget       = new QWidget(this);
     QHBoxLayout* const hBox = new QHBoxLayout(d->progressWidget);
     d->progressBar          = new QProgressBar(d->progressWidget);
     d->cancelButton         = new QPushButton(d->progressWidget);
-    d->cancelButton->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+    d->cancelButton->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     d->cancelButton->setFocusPolicy(Qt::NoFocus);
-    d->cancelButton->setIcon(SmallIcon("dialog-cancel"));
+    d->cancelButton->setIcon(QIcon::fromTheme(QLatin1String("dialog-cancel")));
     setProgressTotalSteps(100);
 
     // Parent widget will probably have the wait cursor set.
@@ -102,7 +98,7 @@ StatusProgressBar::StatusProgressBar(QWidget* const parent)
 
     hBox->addWidget(d->progressBar);
     hBox->addWidget(d->cancelButton);
-    hBox->setMargin(0);
+    hBox->setContentsMargins(QMargins());
     hBox->setSpacing(0);
 
     insertWidget(Private::TextLabel,   d->textLabel);
@@ -111,7 +107,7 @@ StatusProgressBar::StatusProgressBar(QWidget* const parent)
     connect(d->cancelButton, SIGNAL(clicked()),
             this, SIGNAL(signalCancelButtonPressed()) );
 
-    progressBarMode(TextMode);
+    setProgressBarMode(TextMode);
 }
 
 StatusProgressBar::~StatusProgressBar()
@@ -124,7 +120,7 @@ void StatusProgressBar::setNotify(bool b)
     d->notify = b;
 }
 
-void StatusProgressBar::setNotificationTitle(const QString& title, const QPixmap& icon)
+void StatusProgressBar::setNotificationTitle(const QString& title, const QIcon& icon)
 {
     d->title = title;
     d->icon  = icon;
@@ -132,7 +128,7 @@ void StatusProgressBar::setNotificationTitle(const QString& title, const QPixmap
 
 void StatusProgressBar::setText(const QString& text)
 {
-    d->textLabel->setText(text);
+    d->textLabel->setAdjustedText(text);
 }
 
 void StatusProgressBar::setAlignment(Qt::Alignment a)
@@ -152,6 +148,7 @@ void StatusProgressBar::setProgressValue(int v)
     if (d->notify)
     {
         ProgressItem* const item = currentProgressItem();
+
         if (item)
         {
             item->setCompletedItems(v);
@@ -172,6 +169,7 @@ void StatusProgressBar::setProgressTotalSteps(int v)
     if (d->notify)
     {
         ProgressItem* const item = currentProgressItem();
+
         if (item)
             item->setTotalItems(v);
     }
@@ -179,18 +177,19 @@ void StatusProgressBar::setProgressTotalSteps(int v)
 
 void StatusProgressBar::setProgressText(const QString& text)
 {
-    d->progressBar->setFormat(text + QString("%p%"));
+    d->progressBar->setFormat(text + QLatin1String(" %p%"));
     d->progressBar->update();
 
     if (d->notify)
     {
         ProgressItem* const item = currentProgressItem();
+
         if (item)
             item->setStatus(text);
     }
 }
 
-void StatusProgressBar::progressBarMode(int mode, const QString& text)
+void StatusProgressBar::setProgressBarMode(int mode, const QString& text)
 {
     if (mode == TextMode)
     {
@@ -201,6 +200,7 @@ void StatusProgressBar::progressBarMode(int mode, const QString& text)
         if (d->notify)
         {
             ProgressItem* const item = currentProgressItem();
+
             if (item)
                 item->setComplete();
         }
@@ -216,13 +216,13 @@ void StatusProgressBar::progressBarMode(int mode, const QString& text)
             ProgressItem* const item = ProgressManager::createProgressItem(d->title, QString(), false, !d->icon.isNull());
             item->setTotalItems(d->progressBar->maximum());
             item->setCompletedItems(d->progressBar->value());
-            
+
             if (!d->icon.isNull())
                 item->setThumbnail(d->icon);
-            
+
             connect(item, SIGNAL(progressItemCanceled(ProgressItem*)),
                     this, SIGNAL(signalCancelButtonPressed()));
-            
+
             d->progressId = item->id();
         }
     }
@@ -237,13 +237,13 @@ void StatusProgressBar::progressBarMode(int mode, const QString& text)
             ProgressItem* const item = ProgressManager::createProgressItem(d->title, QString(), true, !d->icon.isNull());
             item->setTotalItems(d->progressBar->maximum());
             item->setCompletedItems(d->progressBar->value());
-            
+
             if (!d->icon.isNull())
                 item->setThumbnail(d->icon);
-            
+
             connect(item, SIGNAL(progressItemCanceled(ProgressItem*)),
                     this, SIGNAL(signalCancelButtonPressed()));
-            
+
             d->progressId = item->id();
         }
     }

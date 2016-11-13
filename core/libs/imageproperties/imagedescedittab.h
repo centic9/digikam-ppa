@@ -7,7 +7,7 @@
  * Description : Captions, Tags, and Rating properties editor
  *
  * Copyright (C) 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -32,12 +32,9 @@
 #include <QPixmap>
 #include <QEvent>
 
-// KDE includes
-
-#include <kvbox.h>
-
 // Local includes
 
+#include "dwidgetutils.h"
 #include "digikam_export.h"
 #include "imageinfolist.h"
 #include "albummanager.h"
@@ -45,13 +42,14 @@
 #include "metadatahub.h"
 #include "searchtextbar.h"
 #include "addtagslineedit.h"
+#include "disjointmetadata.h"
 
 namespace Digikam
 {
 class ImageInfo;
 class TaggingAction;
 
-class ImageDescEditTab : public KVBox
+class ImageDescEditTab : public DVBox
 {
     Q_OBJECT
 
@@ -94,8 +92,7 @@ protected:
 private:
 
     void reset();
-    void initializeTags(QModelIndex& parent);
-    void setTagState(TAlbum* const tag, MetadataHub::TagStatus status);
+    void setTagState(TAlbum* const tag, DisjointMetadata::Status status);
 
     void setInfos(const ImageInfoList& infos);
     void setFocusToLastSelectedWidget();
@@ -117,7 +114,7 @@ private:
 
 Q_SIGNALS:
 
-    void askToApplyChanges(const QList<ImageInfo>& infos, MetadataHubOnTheRoad* hub);
+    void askToApplyChanges(const QList<ImageInfo>& infos, DisjointMetadata* hub);
 
 private Q_SLOTS:
 
@@ -153,7 +150,7 @@ private Q_SLOTS:
     void slotReadFromFileMetadataToDatabase();
     void slotWriteToFileMetadataFromDatabase();
 
-    void slotAskToApplyChanges(const QList<ImageInfo>& infos, MetadataHubOnTheRoad* hub);
+    void slotAskToApplyChanges(const QList<ImageInfo>& infos, DisjointMetadata* hub);
 
 private:
 

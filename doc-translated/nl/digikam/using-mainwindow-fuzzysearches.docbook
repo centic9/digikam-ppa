@@ -1,0 +1,69 @@
+<sect2 id="using-mainwindow-fuzzysearches">
+    <title
+>Vage weergave</title>
+
+    <para
+>&digikam; karakteriseert elk beeld door een lang nummer met een speciale techniek (Haar-algoritme) die het mogelijk maakt om beelden te vergelijken met het vergelijken van deze berekende handtekening. Hoe minder numeriek verschil er is tussen twee beeldhandtekeningen, hoe meer ze op elkaar lijken. Deze techniek heeft drie implementaties in &digikam;: </para>
+
+    <itemizedlist>
+
+        <listitem>
+            <para
+>Duplicates: voordat u &digikam; kunt laten zoeken naar duplicaten moeten de handtekeningen (of vingerafdrukken) berekend zijn. U kunt dat proces beginnen met de knop <guilabel
+>Vingerafdrukken bijwerken</guilabel
+> die een totaal opnieuw bouwen van de handtekeningen van de afbeeldingen initieert (kan uren duren als u een grote verzameling hebt, en benadering is 2 uur voor 10,000 afbeeldingen). Nadat de vingerafdrukken zijn berekend kunt u <guilabel
+>Naar duplicaten zoeken</guilabel
+> gebruiken, maar het zal ook lang duren omdat het elke afbeelding met elke andere afbeelding moet vergelijken. Dus is de manier om dir te doen in beide gevallen om uw zoeken te beperken tot bepaalde albums en/of tags. Met de Drempel voor gelijkheid kunt u het zoekresultaat verkleinen of vergroten. </para>
+
+            <example>
+                <title
+>Duplicaten zoeken binnen een album</title>
+                <mediaobject>
+                    <imageobject
+><imagedata fileref="&path;using-mainwindow-duplicates-albumsfilter.png" format="PNG"/></imageobject>
+                </mediaobject>
+            </example>
+        </listitem>
+
+        <listitem>
+            <para
+>Afbeelding (Gelijkende items): Dit is een slepen&amp;loslaten-zone waar u elke afbeelding kunt loslaten om een gelijkende te vinden. Sleep een afbeelding ergens vandaan over het pictogram voor vaag zoeken in de linker zijbalk, het zal openen en u laat het daar los of gebruikt <guilabel
+>Gelijkende zoeken...</guilabel
+> uit het contextmenu van een miniatuur in elke andere weergave. U kunt de resulterende selectie hier ook verkleinen of vergroten met een drempel. In het onderstaande veld kunt u een naam invoeren voor de zoekopdracht en deze opslaan. In de onderstaande lijst met zoekopdrachten vindt u uw opgeslagen zoekopdrachten. Klikken op de titelbalk van die list schakelt de sorteervolgorde om naar oplopend en aflopend. Onderaan vindt u een aan te passen zoekveld dat kan u helpen om een specifieke zoekopdracht te vinden. </para>
+
+            <example>
+                <title
+>Vaag zoeken naar gelijkende afbeelding</title>
+                <mediaobject
+><imageobject
+><imagedata fileref="&path;using-mainwindow-searchsimilar.png" format="PNG"/></imageobject
+></mediaobject>
+            </example>
+        </listitem>
+
+        <listitem>
+            <para
+>Schets: in kleur schetsen uit de vrije hand: teken een snelle schets en &digikam; zal een overeenkomend beeld zoeken. U kunt hetzelfde middel gebruiken om uw zoekopdracht op te slaan als in het tabblad <guilabel
+>Afbeelding</guilabel
+>. </para>
+
+            <example>
+                <title
+>Vaag zoeken met een schets</title>
+                <mediaobject>
+                    <imageobject
+><imagedata fileref="&path;using-mainwindow-searchsketch.png" format="PNG"/></imageobject>
+                </mediaobject>
+            </example>
+        </listitem>
+
+    </itemizedlist>
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

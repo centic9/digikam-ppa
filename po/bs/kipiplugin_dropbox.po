@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: $2\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-20 01:52+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2014-12-19 00:41+0000\n"
 "Last-Translator: Mirza Bulbulusic <mbulbulusic@gmail.com>\n"
 "Language-Team: none\n"
@@ -18,33 +18,14 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Launchpad (build 17341)\n"
 "X-Launchpad-Export-Date: 2015-02-15 06:27+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Samir Ribić,Mirza Bulbulusić"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "Samir.ribic@etf.unsa.ba,mbulbulusic@gmail.com"
-
-#: dbalbum.cpp:46
-msgid "Dropbox New Folder"
-msgstr "Dropbox Nova Fascikla"
-
-#: dbalbum.cpp:59
-msgid "The name of the folder that will be created"
-msgstr "Ime foldera koje će biti kreirano"
-
-#: dbalbum.cpp:63
-msgctxt "album edit"
-msgid "Title:"
-msgstr "Naslov:"
-
-#: dbtalker.cpp:173
+#: dbtalker.cpp:184
 msgid "Authorize Dropbox"
 msgstr "Odobrite Dropbox"
 
-#: dbtalker.cpp:180
+#: dbtalker.cpp:194
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
@@ -52,137 +33,55 @@ msgstr ""
 "Molimo slijedite instrukcije u pretraživaču.  Poslije prijavljivanja i "
 "odobrenja aplikacije, pritisnite OK."
 
-#: dbtalker.cpp:497
+#: dbtalker.cpp:422
+msgid "Error"
+msgstr ""
+
+#: dbtalker.cpp:473
 msgid "Failed to upload photo"
 msgstr "Neuspjelo učitavanje slike"
 
-#: dbtalker.cpp:571
+#: dbtalker.cpp:534
 msgid "Failed to list folders"
 msgstr "Nisam uspio da preuzmem listu direktorija"
 
-#: dbwidget.cpp:71
-msgid "This is the list of images to upload to your Dropbox account."
-msgstr "Ovo je lista slika koja će biti učitana na vaš Dropbox račun."
-
-#: dbwidget.cpp:77
-msgid "This is a clickable link to open Dropbox in a browser."
-msgstr "Ovo je klik link za otvaranje Dropboxa u pretraživaču."
-
-#: dbwidget.cpp:83
-msgid "Account"
-msgstr "Nalog"
-
-#: dbwidget.cpp:84
-msgid "This is the Dropbox account that is currently logged in."
-msgstr "Ovo je Dropbox račun koji je trenutno prijavljen."
-
-#: dbwidget.cpp:87
-msgctxt "account settings"
-msgid "Name:"
-msgstr "Ime:"
-
-#: dbwidget.cpp:90
-msgid "Change Account"
-msgstr "Promijeni račun"
-
-#: dbwidget.cpp:90
-msgid "Change Dropbox account for transfer"
-msgstr "Promijenite Dropbox račun za prijenos."
-
-#: dbwidget.cpp:101
-msgid "Destination"
-msgstr "Odredište"
-
-#: dbwidget.cpp:102
-msgid "This is the Dropbox folder to which selected photos will be uploaded."
-msgstr "Ovo je Dropbox folder za koji će odabrane slike biti učitane."
-
-#: dbwidget.cpp:105
-msgid "Folder:"
-msgstr "Direktorij:"
-
-#: dbwidget.cpp:109
-msgid "New Folder"
-msgstr "Novi direktorij"
-
-#: dbwidget.cpp:110
-msgid "Create new Dropbox folder"
-msgstr "Napravi novi direktorij Dropbox"
-
-#: dbwidget.cpp:111
-msgctxt "album list"
-msgid "Reload"
-msgstr "Ponovo učitaj"
-
-#: dbwidget.cpp:112
-msgid "Reload album list"
-msgstr "Ponovo učitaj popis albuma"
-
-#: dbwidget.cpp:121
-msgid "Options"
-msgstr "Opcije"
-
-#: dbwidget.cpp:122
-msgid "These are the options that would be applied to photos before upload."
-msgstr "Ovo su opcije koje će biti prihvaćene za slike prije učitavanja."
-
-#: dbwidget.cpp:126
-msgid "Resize photos before uploading"
-msgstr "Promijeni veličinu slika prije učitavanja"
-
-#: dbwidget.cpp:137
-msgid "Maximum Dimension:"
-msgstr "Maksimalna dimenzija:"
-
-#: dbwidget.cpp:146
-msgid "JPEG Quality:"
-msgstr "JPEG kvalitet:"
-
-#: dbwindow.cpp:88
+#: dbwindow.cpp:79
 msgid "Export to Dropbox"
 msgstr "Izvoz u Dropbox"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:81
 msgid "Start Upload"
 msgstr "Počni otpremanje"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:82
 msgid "Start upload to Dropbox"
 msgstr "Počni slati na Dropbox"
 
-#: dbwindow.cpp:107
+#: dbwindow.cpp:101
 msgid "Dropbox Export"
 msgstr "Dropbox izvoz"
 
-#: dbwindow.cpp:109
-msgid "A Kipi-plugin to export images to Dropbox"
+#: dbwindow.cpp:102
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Dropbox"
+msgid "A tool to export images to Dropbox"
 msgstr "Kipi plugin za izvoz slika iz Dropboxa"
 
-#: dbwindow.cpp:111
+#: dbwindow.cpp:104
 #, fuzzy
-#| msgid "(c) 2013, Saurabh Patel"
-msgid ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
-msgstr "(c) 2013, Saurabh Patel"
+#| msgid "Saurabh Patel"
+msgid "(c) 2013, Saurabh Patel"
+msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
+#: dbwindow.cpp:106
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
-msgid "Author and maintainer"
-msgstr "Autor i održavalac"
-
-#: dbwindow.cpp:116
-msgid "Shourya Singh Gupta"
+#: dbwindow.cpp:107
+msgid "Author"
 msgstr ""
 
-#: dbwindow.cpp:116
-msgid "Developer"
-msgstr ""
-
-#: dbwindow.cpp:282
+#: dbwindow.cpp:281
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -192,24 +91,39 @@ msgstr ""
 "tekstualni okvir. Da bi potvrdili ispravnost kliknite \"Promjena Računa\" "
 "ili \"Započni Učitavanje\" da potvrdite opet."
 
+#: dbwindow.cpp:293
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
 #: dbwindow.cpp:294
 msgid "No image selected. Please select which images should be uploaded."
 msgstr ""
 "Ni jedna slika nije odabrana. Molimo odaberite koje slike će biti učitane."
 
-#: dbwindow.cpp:304 dbwindow.cpp:419
-msgid "Authentication failed. Click \"Continue\" to authenticate."
+#: dbwindow.cpp:300 dbwindow.cpp:420
+msgid "Login Failed"
+msgstr ""
+
+#: dbwindow.cpp:301 dbwindow.cpp:421
+#, fuzzy
+#| msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgid "Authentication failed. Do you want to try again?"
 msgstr "Ovjera neuspjela. Kliknite \"Nastavi\" da ovjerite ponovo."
 
-#: dbwindow.cpp:328
+#: dbwindow.cpp:325
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: dbwindow.cpp:332
+#: dbwindow.cpp:329
 msgid "Dropbox export"
 msgstr "Dropbox izvoz"
 
-#: dbwindow.cpp:364
+#: dbwindow.cpp:362
+msgid "Uploading Failed"
+msgstr ""
+
+#: dbwindow.cpp:363
 #, kde-format
 msgid ""
 "Failed to upload photo to Dropbox.\n"
@@ -220,7 +134,7 @@ msgstr ""
 "%1\n"
 "Želite li nastaviti?"
 
-#: dbwindow.cpp:443 dbwindow.cpp:449
+#: dbwindow.cpp:445 dbwindow.cpp:450
 #, kde-format
 msgid ""
 "Dropbox call failed:\n"
@@ -239,6 +153,94 @@ msgstr "&Izvezi"
 msgid "Main Toolbar"
 msgstr "Glavna traka alata"
 
-#: plugin_dropbox.cpp:96
+#: plugin_dropbox.cpp:90
 msgid "Export to &Dropbox..."
 msgstr "Izvoz u &Dropbox..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Samir Ribić,Mirza Bulbulusić"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "Samir.ribic@etf.unsa.ba,mbulbulusic@gmail.com"
+
+#~ msgid "Dropbox New Folder"
+#~ msgstr "Dropbox Nova Fascikla"
+
+#~ msgid "The name of the folder that will be created"
+#~ msgstr "Ime foldera koje će biti kreirano"
+
+#~ msgctxt "album edit"
+#~ msgid "Title:"
+#~ msgstr "Naslov:"
+
+#~ msgid "This is the list of images to upload to your Dropbox account."
+#~ msgstr "Ovo je lista slika koja će biti učitana na vaš Dropbox račun."
+
+#~ msgid "This is a clickable link to open Dropbox in a browser."
+#~ msgstr "Ovo je klik link za otvaranje Dropboxa u pretraživaču."
+
+#~ msgid "Account"
+#~ msgstr "Nalog"
+
+#~ msgid "This is the Dropbox account that is currently logged in."
+#~ msgstr "Ovo je Dropbox račun koji je trenutno prijavljen."
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Ime:"
+
+#~ msgid "Change Account"
+#~ msgstr "Promijeni račun"
+
+#~ msgid "Change Dropbox account for transfer"
+#~ msgstr "Promijenite Dropbox račun za prijenos."
+
+#~ msgid "Destination"
+#~ msgstr "Odredište"
+
+#~ msgid ""
+#~ "This is the Dropbox folder to which selected photos will be uploaded."
+#~ msgstr "Ovo je Dropbox folder za koji će odabrane slike biti učitane."
+
+#~ msgid "Folder:"
+#~ msgstr "Direktorij:"
+
+#~ msgid "New Folder"
+#~ msgstr "Novi direktorij"
+
+#~ msgid "Create new Dropbox folder"
+#~ msgstr "Napravi novi direktorij Dropbox"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Ponovo učitaj"
+
+#~ msgid "Reload album list"
+#~ msgstr "Ponovo učitaj popis albuma"
+
+#~ msgid "Options"
+#~ msgstr "Opcije"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr "Ovo su opcije koje će biti prihvaćene za slike prije učitavanja."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Promijeni veličinu slika prije učitavanja"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Maksimalna dimenzija:"
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "JPEG kvalitet:"
+
+#, fuzzy
+#~| msgid "(c) 2013, Saurabh Patel"
+#~ msgid ""
+#~ "(c) 2013, Saurabh Patel\n"
+#~ "(c) 2015, Shourya Singh Gupta"
+#~ msgstr "(c) 2013, Saurabh Patel"
+
+#~ msgid "Author and maintainer"
+#~ msgstr "Autor i održavalac"

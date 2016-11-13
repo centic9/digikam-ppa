@@ -6,7 +6,7 @@
  * Date        : 2006-02-22
  * Description : a generic widget to display metadata
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,13 +21,12 @@
  *
  * ============================================================ */
 
-#include "metadatawidget.moc"
+#include "metadatawidget.h"
 
 // Qt includes
 
 #include <QButtonGroup>
 #include <QClipboard>
-#include <QColorGroup>
 #include <QDataStream>
 #include <QFile>
 #include <QFrame>
@@ -45,24 +44,19 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 #include <QActionGroup>
+#include <QStandardPaths>
+#include <QMenu>
+#include <QApplication>
+#include <QStyle>
+#include <QFileDialog>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <kmenu.h>
-
-// Libkexiv2 includes
-
-#include <libkexiv2/version.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "metadatalistview.h"
 #include "metadatalistviewitem.h"
 #include "mdkeylistviewitem.h"
@@ -105,7 +99,7 @@ public:
 
     QStringList            tagsFilter;
 
-    KMenu*                 optionsMenu;
+    QMenu*                 optionsMenu;
 
     MetadataListView*      view;
 
@@ -115,10 +109,13 @@ public:
     DMetadata::MetaDataMap metaDataMap;
 };
 
-MetadataWidget::MetadataWidget(QWidget* const parent, const char* name)
-    : QWidget(parent), d(new Private)
+MetadataWidget::MetadataWidget(QWidget* const parent, const QString& name)
+    : QWidget(parent),
+      d(new Private)
 {
     setObjectName(name);
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     d->mainLayout = new QGridLayout(this);
 
@@ -126,11 +123,11 @@ MetadataWidget::MetadataWidget(QWidget* const parent, const char* name)
 
     d->filterBtn  = new QToolButton(this);
     d->filterBtn->setToolTip(i18n("Tags filter options"));
-    d->filterBtn->setIcon(KIconLoader::global()->loadIcon("view-filter", KIconLoader::Toolbar));
+    d->filterBtn->setIcon(QIcon::fromTheme(QLatin1String("view-filter")));
     d->filterBtn->setPopupMode(QToolButton::InstantPopup);
     d->filterBtn->setWhatsThis(i18n("Apply tags filter over metadata."));
 
-    d->optionsMenu                  = new KMenu(d->filterBtn);
+    d->optionsMenu                  = new QMenu(d->filterBtn);
     QActionGroup* const filterGroup = new QActionGroup(this);
 
     d->noneAction     = d->optionsMenu->addAction(i18n("No filter"));
@@ -153,11 +150,11 @@ MetadataWidget::MetadataWidget(QWidget* const parent, const char* name)
 
     d->toolBtn = new QToolButton(this);
     d->toolBtn->setToolTip(i18n("Tools"));
-    d->toolBtn->setIcon(KIconLoader::global()->loadIcon("system-run", KIconLoader::Toolbar));
+    d->toolBtn->setIcon(QIcon::fromTheme(QLatin1String("system-run")));
     d->toolBtn->setPopupMode(QToolButton::InstantPopup);
     d->toolBtn->setWhatsThis(i18n("Run tool over metadata tags."));
 
-    KMenu* const toolMenu         = new KMenu(d->toolBtn);
+    QMenu* const toolMenu         = new QMenu(d->toolBtn);
     QAction* const saveMetadata   = toolMenu->addAction(i18nc("@action:inmenu", "Save in file"));
     QAction* const printMetadata  = toolMenu->addAction(i18nc("@action:inmenu", "Print"));
     QAction* const copy2ClipBoard = toolMenu->addAction(i18nc("@action:inmenu", "Copy to Clipboard"));
@@ -165,19 +162,19 @@ MetadataWidget::MetadataWidget(QWidget* const parent, const char* name)
 
     d->view         = new MetadataListView(this);
 
-    QString barName = QString(name) + "SearchBar";
-    d->searchBar    = new SearchTextBar(this, barName.toAscii());
+    QString barName = name + QLatin1String("SearchBar");
+    d->searchBar    = new SearchTextBar(this, barName);
 
     // -----------------------------------------------------------------
 
     d->mainLayout->addWidget(d->filterBtn, 0, 0, 1, 1);
     d->mainLayout->addWidget(d->searchBar, 0, 1, 1, 3);
-    d->mainLayout->addWidget(d->toolBtn, 0, 4, 1, 1);
+    d->mainLayout->addWidget(d->toolBtn,   0, 4, 1, 1);
     d->mainLayout->addWidget(d->view,      1, 0, 1, 5);
     d->mainLayout->setColumnStretch(2, 10);
     d->mainLayout->setRowStretch(1, 10);
+    d->mainLayout->setContentsMargins(spacing, spacing, spacing, spacing);
     d->mainLayout->setSpacing(0);
-    d->mainLayout->setMargin(KDialog::spacingHint());
 
     // -----------------------------------------------------------------
 
@@ -280,7 +277,7 @@ const DMetadata& MetadataWidget::getMetadata()
     return d->metadata;
 }
 
-bool MetadataWidget::storeMetadataToFile(const KUrl& url, const QByteArray& metaData)
+bool MetadataWidget::storeMetadataToFile(const QUrl& url, const QByteArray& metaData)
 {
     if ( url.isEmpty() )
     {
@@ -334,9 +331,9 @@ void MetadataWidget::slotCopy2Clipboard()
 
         if (lvItem)
         {
-            textmetadata.append("\n\n>>> ");
+            textmetadata.append(QLatin1String("\n\n>>> "));
             textmetadata.append(lvItem->getDecryptedKey());
-            textmetadata.append(" <<<\n\n");
+            textmetadata.append(QLatin1String(" <<<\n\n"));
 
             int j                  = 0;
             QTreeWidgetItem* item2 = 0;
@@ -349,9 +346,9 @@ void MetadataWidget::slotCopy2Clipboard()
                 if (lvItem2)
                 {
                     textmetadata.append(lvItem2->text(0));
-                    textmetadata.append(" : ");
+                    textmetadata.append(QLatin1String(" : "));
                     textmetadata.append(lvItem2->text(1));
-                    textmetadata.append("\n");
+                    textmetadata.append(QLatin1String("\n"));
                 }
 
                 ++j;
@@ -383,9 +380,9 @@ void MetadataWidget::slotPrintMetadata()
 
         if (lvItem)
         {
-            textmetadata.append("<br/><br/><b>");
+            textmetadata.append(QLatin1String("<br/><br/><b>"));
             textmetadata.append(lvItem->getDecryptedKey());
-            textmetadata.append("</b><br/><br/>");
+            textmetadata.append(QLatin1String("</b><br/><br/>"));
 
             int j                  = 0;
             QTreeWidgetItem* item2 = 0;
@@ -398,9 +395,9 @@ void MetadataWidget::slotPrintMetadata()
                 if (lvItem2)
                 {
                     textmetadata.append(lvItem2->text(0));
-                    textmetadata.append(" : <i>");
+                    textmetadata.append(QLatin1String(" : <i>"));
                     textmetadata.append(lvItem2->text(1));
-                    textmetadata.append("</i><br/>");
+                    textmetadata.append(QLatin1String("</i><br/>"));
                 }
 
                 ++j;
@@ -412,18 +409,18 @@ void MetadataWidget::slotPrintMetadata()
     }
     while (item);
 
-    textmetadata.append("</p>");
+    textmetadata.append(QLatin1String("</p>"));
 
     QPrinter printer;
     printer.setFullPage(true);
 
-    QPointer<QPrintDialog> dialog = new QPrintDialog(&printer, kapp->activeWindow());
+    QPointer<QPrintDialog> dialog = new QPrintDialog(&printer, qApp->activeWindow());
 
     if (dialog->exec())
     {
         QTextDocument doc;
         doc.setHtml(textmetadata);
-        QFont font(KApplication::font());
+        QFont font(QApplication::font());
         font.setPointSize(10);                // we define 10pt to be a nice base size for printing.
         doc.setDefaultFont(font);
         doc.print(&printer);
@@ -432,25 +429,24 @@ void MetadataWidget::slotPrintMetadata()
     delete dialog;
 }
 
-KUrl MetadataWidget::saveMetadataToFile(const QString& caption, const QString& fileFilter)
+QUrl MetadataWidget::saveMetadataToFile(const QString& caption, const QString& fileFilter)
 {
-    QPointer<KFileDialog> fileSaveDialog = new KFileDialog(KUrl(KGlobalSettings::documentPath()), QString(), this);
-    fileSaveDialog->setOperationMode(KFileDialog::Saving);
-    fileSaveDialog->setMode(KFile::File);
-    fileSaveDialog->setSelection(d->fileName);
-    fileSaveDialog->setCaption(caption);
-    fileSaveDialog->setFilter(fileFilter);
+    QPointer<QFileDialog> fileSaveDialog = new QFileDialog(this, caption, QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation));
+    fileSaveDialog->setAcceptMode(QFileDialog::AcceptSave);
+    fileSaveDialog->setFileMode(QFileDialog::AnyFile);
+    fileSaveDialog->selectFile(d->fileName);
+    fileSaveDialog->setNameFilter(fileFilter);
+
+    QList<QUrl> urls;
 
     // Check for cancel.
-    if ( fileSaveDialog->exec() == KFileDialog::Accepted )
+    if (fileSaveDialog->exec() == QDialog::Accepted)
     {
-        KUrl selUrl = fileSaveDialog->selectedUrl();
-        delete fileSaveDialog;
-        return selUrl;
+        urls = fileSaveDialog->selectedUrls();
     }
 
     delete fileSaveDialog;
-    return KUrl();
+    return (!urls.isEmpty() ? urls[0] : QUrl());
 }
 
 void MetadataWidget::setMode(int mode)
@@ -514,7 +510,7 @@ void MetadataWidget::setFileName(const QString& fileName)
 void MetadataWidget::setUserAreaWidget(QWidget* const w)
 {
     QVBoxLayout* const vLayout = new QVBoxLayout();
-    vLayout->setSpacing(KDialog::spacingHint());
+    vLayout->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
     vLayout->addWidget(w);
     vLayout->addStretch();
     d->mainLayout->addLayout(vLayout, 3, 0, 1, 5);

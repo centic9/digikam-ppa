@@ -27,11 +27,9 @@
 
 #include <QApplication>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
+
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -137,7 +135,7 @@ bool ItemViewToolTip::eventFilter(QObject* o, QEvent* e)
     switch (e->type())
     {
 
-#ifdef Q_WS_MAC
+#ifdef Q_OS_OSX
         case QEvent::KeyPress:
         case QEvent::KeyRelease:
         {
@@ -155,7 +153,7 @@ bool ItemViewToolTip::eventFilter(QObject* o, QEvent* e)
 
             break;
         }
-#endif // Q_WS_MAC
+#endif // Q_OS_OSX
 
         case QEvent::Leave:
             hide(); // could add a 300ms timer here, like Qt

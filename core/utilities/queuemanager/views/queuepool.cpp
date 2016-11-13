@@ -6,7 +6,7 @@
  * Date        : 2009-02-13
  * Description : tabbed queue items list.
  *
- * Copyright (C) 2009-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,23 +21,22 @@
  *
  * ============================================================ */
 
-#include "queuepool.moc"
+#include "queuepool.h"
 
 // Qt includes
 
 #include <QTabBar>
+#include <QApplication>
+#include <QIcon>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kdeversion.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
+#include "dmessagebox.h"
 #include "applicationsettings.h"
 #include "iccsettings.h"
 #include "metadatasettings.h"
@@ -51,25 +50,69 @@
 namespace Digikam
 {
 
-QueuePool::QueuePool(QWidget* const parent)
-    : KTabWidget(parent)
+QueuePoolBar::QueuePoolBar(QWidget* const parent)
+    : QTabBar(parent)
 {
-    setTabBarHidden(false);
-#if KDE_IS_VERSION(4,3,0)
+  setAcceptDrops(true);
+  setMouseTracking(true);
+}
+
+QueuePoolBar::~QueuePoolBar()
+{
+}
+
+void QueuePoolBar::dragEnterEvent(QDragEnterEvent* e)
+{
+    int tab = tabAt(e->pos());
+
+    if ( tab != -1 )
+    {
+        bool accept = false;
+        // The receivers of the testCanDecode() signal has to adjust 'accept' accordingly.
+        emit signalTestCanDecode(e, accept);
+
+        e->setAccepted(accept);
+        return;
+    }
+
+    QTabBar::dragEnterEvent(e);
+}
+
+void QueuePoolBar::dragMoveEvent(QDragMoveEvent* e)
+{
+    int tab = tabAt(e->pos());
+
+    if ( tab != -1 )
+    {
+        bool accept = false;
+        // The receivers of the testCanDecode() signal has to adjust 'accept' accordingly.
+        emit signalTestCanDecode(e, accept);
+
+        e->setAccepted(accept);
+        return;
+    }
+
+    QTabBar::dragMoveEvent(e);
+}
+
+// --------------------------------------------------------------------------------------------
+
+QueuePool::QueuePool(QWidget* const parent)
+    : QTabWidget(parent)
+{
+    setTabBar(new QueuePoolBar(this));
     setTabsClosable(false);
-#else
-    setCloseButtonEnabled(false);
-#endif
+    setAcceptDrops(true);
     slotAddQueue();
 
     connect(this, SIGNAL(currentChanged(int)),
             this, SLOT(slotQueueSelected(int)));
 
-    connect(this, SIGNAL(closeRequest(QWidget*)),
-            this, SLOT(slotCloseQueueRequest(QWidget*)));
+    connect(this, SIGNAL(tabCloseRequested(int)),
+            this, SLOT(slotCloseQueueRequest(int)));
 
-    connect(this, SIGNAL(testCanDecode(const QDragMoveEvent*,bool&)),
-            this, SLOT(slotTestCanDecode(const QDragMoveEvent*,bool&)));
+    connect(tabBar(), SIGNAL(signalTestCanDecode(const QDragMoveEvent*, bool&)),
+            this, SLOT(slotTestCanDecode(const QDragMoveEvent*, bool&)));
 
     // -- FileWatch connections ------------------------------
 
@@ -88,7 +131,7 @@ void QueuePool::keyPressEvent(QKeyEvent* event)
     }
     else
     {
-        KTabWidget::keyPressEvent(event);
+        QTabWidget::keyPressEvent(event);
     }
 }
 
@@ -152,9 +195,9 @@ QMap<int, QString> QueuePool::queuesMap() const
 
 QString QueuePool::queueTitle(int index) const
 {
-    // NOTE: clean up tab title. With KTabWidget, it sound like mistake is added, as '&' and space.
+    // NOTE: clean up tab title. With QTabWidget, it sound like mistake is added, as '&' and space.
     // NOTE update, & is an usability helper to allow keyboard access -teemu
-    return (tabText(index).remove('&').remove(' '));
+    return (tabText(index).remove(QLatin1Char('&')).remove(QLatin1Char(' ')));
 }
 
 void QueuePool::slotAddQueue()
@@ -164,7 +207,7 @@ void QueuePool::slotAddQueue()
     if (!queue)
         return;
 
-    int index = addTab(queue, SmallIcon("bqm-diff"), QString("#%1").arg(count() + 1));
+    int index = addTab(queue, QIcon::fromTheme(QLatin1String("run-build")), QString::fromUtf8("#%1").arg(count() + 1));
 
     connect(queue, SIGNAL(signalQueueContentsChanged()),
             this, SIGNAL(signalQueueContentsChanged()));
@@ -247,7 +290,7 @@ void QueuePool::slotRemoveCurrentQueue()
     {
         for (int i = 0; i < count(); ++i)
         {
-            setTabText(i, QString("#%1").arg(i + 1));
+            setTabText(i, QString::fromUtf8("#%1").arg(i + 1));
         }
     }
 
@@ -337,9 +380,9 @@ void QueuePool::slotQueueSelected(int index)
     }
 }
 
-void QueuePool::slotCloseQueueRequest(QWidget* w)
+void QueuePool::slotCloseQueueRequest(int index)
 {
-    removeTab(indexOf(w));
+    removeTab(index);
 
     if (count() == 0)
     {
@@ -360,18 +403,19 @@ void QueuePool::removeTab(int index)
 
     if (count > 0)
     {
-        int ret = KMessageBox::questionYesNo(this,
-                                             i18np("There is still 1 unprocessed item in \"%2\". Do you want to close this queue?",
-                                                   "There are still %1 unprocessed items in \"%2\". Do you want to close this queue?",
-                                                   count, queueTitle(index)));
+        int ret = QMessageBox::question(this, qApp->applicationName(),
+                                        i18np("There is still 1 unprocessed item in \"%2\".\nDo you want to close this queue?",
+                                              "There are still %1 unprocessed items in \"%2\".\nDo you want to close this queue?",
+                                              count, queueTitle(index)),
+                                        QMessageBox::Yes | QMessageBox::No);
 
-        if (ret == KMessageBox::No)
+        if (ret == QMessageBox::No)
         {
             return;
         }
     }
 
-    KTabWidget::removeTab(index);
+    QTabWidget::removeTab(index);
 }
 
 void QueuePool::slotTestCanDecode(const QDragMoveEvent* e, bool& accept)
@@ -379,8 +423,8 @@ void QueuePool::slotTestCanDecode(const QDragMoveEvent* e, bool& accept)
     int              albumID;
     QList<int>       albumIDs;
     QList<qlonglong> imageIDs;
-    KUrl::List       urls;
-    KUrl::List       kioURLs;
+    QList<QUrl>      urls;
+    QList<QUrl>      kioURLs;
 
     if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs) ||
         DAlbumDrag::decode(e->mimeData(), urls, albumID)                    ||
@@ -423,9 +467,12 @@ bool QueuePool::customRenamingRulesAreValid() const
 
     if (!list.isEmpty())
     {
-        KMessageBox::errorList(kapp->activeWindow(),
-                               i18n("Custom renaming rules are invalid for Queues listed below. "
-                                    "Please fix them."), list);
+        DMessageBox::showInformationList(QMessageBox::Critical,
+                                         qApp->activeWindow(),
+                                         qApp->applicationName(),
+                                         i18n("Custom renaming rules are invalid for Queues listed below. "
+                                              "Please fix them."),
+                                         list);
         return false;
     }
 
@@ -451,9 +498,12 @@ bool QueuePool::assignedBatchToolsListsAreValid() const
 
     if (!list.isEmpty())
     {
-        KMessageBox::errorList(kapp->activeWindow(),
-                               i18n("Assigned batch tools list is empty for Queues listed below. "
-                                    "Please assign tools."), list);
+        DMessageBox::showInformationList(QMessageBox::Critical,
+                                         qApp->activeWindow(),
+                                         qApp->applicationName(),
+                                         i18n("Assigned batch tools list is empty for Queues listed below. "
+                                              "Please assign tools."),
+                                         list);
         return false;
     }
 
@@ -468,7 +518,7 @@ void QueuePool::slotFileChanged(const QString& filePath)
 
         if (queue)
         {
-            queue->reloadThumbs(KUrl::fromPath(filePath));
+            queue->reloadThumbs(QUrl::fromLocalFile(filePath));
         }
     }
 }
@@ -499,17 +549,17 @@ void QueuePool::applySettings()
             {
                 if (ICCSettings.defaultUncalibratedBehavior & ICCSettingsContainer::AutomaticColors)
                 {
-                    prm.rawDecodingSettings.outputColorSpace = RawDecodingSettings::CUSTOMOUTPUTCS;
+                    prm.rawDecodingSettings.outputColorSpace = DRawDecoderSettings::CUSTOMOUTPUTCS;
                     prm.rawDecodingSettings.outputProfile    = ICCSettings.workspaceProfile;
                 }
                 else
                 {
-                    prm.rawDecodingSettings.outputColorSpace = RawDecodingSettings::RAWCOLOR;
+                    prm.rawDecodingSettings.outputColorSpace = DRawDecoderSettings::RAWCOLOR;
                 }
             }
             else
             {
-                prm.rawDecodingSettings.outputColorSpace = RawDecodingSettings::SRGB;
+                prm.rawDecodingSettings.outputColorSpace = DRawDecoderSettings::SRGB;
             }
 
             queue->setSettings(prm);

@@ -38,8 +38,7 @@
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdeprintdialog.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -171,13 +170,12 @@ void PrintHelper::print(DImg& doc)
     //doc.waitUntilLoaded();
     QPrinter printer;
 
-    PrintOptionsPage* const optionsPage = new PrintOptionsPage(d->parent, doc.size());
-    optionsPage->loadConfig();
-
-    std::auto_ptr<QPrintDialog> dialog(KdePrint::createPrintDialog(&printer,
-                                       QList<QWidget*>() << optionsPage,
-                                       d->parent));
+    QPrintDialog* const dialog          = new QPrintDialog(&printer, d->parent);
     dialog->setWindowTitle(i18n("Print Image"));
+    PrintOptionsPage* const optionsPage = new PrintOptionsPage(dialog, doc.size());
+    optionsPage->loadConfig();
+    dialog->setOptionTabs(QList<QWidget*>() << optionsPage);
+
     bool wantToPrint = (dialog->exec() == QDialog::Accepted);
 
     optionsPage->saveConfig();

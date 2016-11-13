@@ -6,7 +6,7 @@
  * Date        : 2007-07-19
  * Description : A widget to display XMP metadata
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "xmpwidget.moc"
+#include "xmpwidget.h"
 
 // Qt includes
 
@@ -30,8 +30,7 @@
 
 // KDE includes
 
-
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -68,12 +67,12 @@ static const char* StandardXmpEntryList[] =
     "-1"
 };
 
-XmpWidget::XmpWidget(QWidget* const parent, const char* name)
+XmpWidget::XmpWidget(QWidget* const parent, const QString& name)
     : MetadataWidget(parent, name)
 {
-    for (int i=0 ; QString(StandardXmpEntryList[i]) != QString("-1") ; ++i)
+    for (int i=0 ; QLatin1String(StandardXmpEntryList[i]) != QLatin1String("-1") ; ++i)
     {
-        m_keysFilter << StandardXmpEntryList[i];
+        m_keysFilter << QLatin1String(StandardXmpEntryList[i]);
     }
 }
 
@@ -86,7 +85,7 @@ QString XmpWidget::getMetadataTitle()
     return i18n("XMP Schema");
 }
 
-bool XmpWidget::loadFromURL(const KUrl& url)
+bool XmpWidget::loadFromURL(const QUrl& url)
 {
     setFileName(url.fileName());
 
@@ -136,7 +135,7 @@ void XmpWidget::buildView()
             break;
 
         case PHOTO:
-            setIfdList(getMetadataMap(), m_keysFilter, QStringList() << QString("FULL"));
+            setIfdList(getMetadataMap(), m_keysFilter, QStringList() << QLatin1String("FULL"));
             break;
 
         default: // NONE
@@ -150,11 +149,11 @@ void XmpWidget::buildView()
 QString XmpWidget::getTagTitle(const QString& key)
 {
     DMetadata metadataIface;
-    QString title = metadataIface.getXmpTagTitle(key.toAscii());
+    QString title = metadataIface.getXmpTagTitle(key.toLatin1().constData());
 
     if (title.isEmpty())
     {
-        return key.section('.', -1);
+        return key.section(QLatin1Char('.'), -1);
     }
 
     return title;
@@ -163,7 +162,7 @@ QString XmpWidget::getTagTitle(const QString& key)
 QString XmpWidget::getTagDescription(const QString& key)
 {
     DMetadata metadataIface;
-    QString desc = metadataIface.getXmpTagDescription(key.toAscii());
+    QString desc = metadataIface.getXmpTagDescription(key.toLatin1().constData());
 
     if (desc.isEmpty())
     {
@@ -175,8 +174,8 @@ QString XmpWidget::getTagDescription(const QString& key)
 
 void XmpWidget::slotSaveMetadataToFile()
 {
-    KUrl url = saveMetadataToFile(i18n("XMP File to Save"),
-                                  QString("*.xmp|"+i18n("XMP text Files (*.xmp)")));
+    QUrl url = saveMetadataToFile(i18n("XMP File to Save"),
+                                  QString(QLatin1String("*.xmp|") + i18n("XMP text Files (*.xmp)")));
     storeMetadataToFile(url, getMetadata().getXmp());
 }
 

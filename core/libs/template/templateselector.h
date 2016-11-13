@@ -6,7 +6,7 @@
  * Date        : 2009-06-23
  * Description : a widget to select metadata template.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,16 +24,17 @@
 #ifndef TEMPLATESELECTOR_H
 #define TEMPLATESELECTOR_H
 
-// KDE includes
+// Local includes
 
-#include <khbox.h>
+#include "dwidgetutils.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
 class Template;
 
-class TemplateSelector : public KHBox
+class DIGIKAM_EXPORT TemplateSelector : public DHBox
 {
     Q_OBJECT
 

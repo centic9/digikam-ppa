@@ -6,7 +6,7 @@
  * Date        : 2009-15-08
  * Description : A floatable/dockable widget for thumbnail bars,
  *               providing i drag handle similar to the
- *               one on toolbars and a standard KToggleAction to show/hide the
+ *               one on toolbars and a standard QAction to show/hide the
  *               thumbnail bar. It inherits QDockWidget and can be used in
  *               the dock area's of a QMainWindow.
  *
@@ -25,7 +25,11 @@
  *
  * ============================================================ */
 
-#include "thumbbardock.moc"
+#include "thumbbardock.h"
+
+// Qt includes
+
+#include <QKeySequence>
 
 namespace Digikam
 {
@@ -158,12 +162,11 @@ void ThumbBarDock::reInitialize()
     update();
 }
 
-KToggleAction* ThumbBarDock::getToggleAction(QObject* const parent, const QString& caption) const
+QAction* ThumbBarDock::getToggleAction(QObject* const parent, const QString& caption) const
 {
-    KToggleAction* action = new KToggleAction(KIcon("view-choose"), caption, parent);
+    QAction* const action = new QAction(QIcon::fromTheme(QLatin1String("view-choose")), caption, parent);
 
-    // Default shortcut is Ctrl+T.
-    action->setShortcut(KShortcut(Qt::CTRL+Qt::Key_T));
+    action->setCheckable(true);
 
     // Connect the triggered signal, which is only emitted after a user action
     // and not programmatically, to the show/hide method.

@@ -6,7 +6,7 @@
  * Date        : 2013-04-29
  * Description : digiKam XML GUI window
  *
- * Copyright (C) 2013-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "dxmlguiwindow.moc"
+#include "dxmlguiwindow.h"
 
 // Qt includes
 
@@ -33,23 +33,42 @@
 #include <QToolButton>
 #include <QEvent>
 #include <QHoverEvent>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QKeySequence>
+#include <QMenuBar>
+#include <QStatusBar>
+#include <QMenu>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QDesktopServices>
+#include <QIcon>
+#include <QDir>
+#include <QFileInfo>
+#include <QResource>
+#include <QStandardPaths>
 
 // KDE includes
 
-#include <kxmlguiwindow.h>
 #include <ktogglefullscreenaction.h>
-#include <kglobalsettings.h>
-#include <kmenubar.h>
-#include <kstatusbar.h>
 #include <ktoolbar.h>
+#include <ktoggleaction.h>
 #include <kstandardaction.h>
 #include <kactioncollection.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
+#include <kwindowconfig.h>
+#include <ksharedconfig.h>
+#include <kshortcutsdialog.h>
+#include <kedittoolbar.h>
+
+#ifdef HAVE_KNOTIFYCONFIG
+#   include <knotifyconfigwidget.h>
+#endif
 
 // Local includes
 
+#include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "daboutdata.h"
 
 namespace Digikam
@@ -72,6 +91,8 @@ public:
         menubarVisibility      = true;
         statusbarVisibility    = true;
         libsInfoAction         = 0;
+        showMenuBarAction      = 0;
+        showStatusBarAction    = 0;
         about                  = 0;
         dbStatAction           = 0;
         anim                   = 0;
@@ -79,67 +100,102 @@ public:
 
 public:
 
-    /** Settings taken from managed window configuration to handle toolbar visibility  in full-screen mode
+    /**
+     * Settings taken from managed window configuration to handle toolbar visibility  in full-screen mode
      */
     bool                     fullScreenHideToolBars;
 
-    /** Settings taken from managed window configuration to handle thumbbar visibility in full-screen mode
+    /**
+     * Settings taken from managed window configuration to handle thumbbar visibility in full-screen mode
      */
     bool                     fullScreenHideThumbBar;
 
-    /** Settings taken from managed window configuration to handle toolbar visibility  in full-screen mode
+    /**
+     * Settings taken from managed window configuration to handle toolbar visibility  in full-screen mode
      */
     bool                     fullScreenHideSideBars;
 
-    /** Full-Screen options. See FullScreenOptions enum and setFullScreenOptions() for details.
+    /**
+     * Full-Screen options. See FullScreenOptions enum and setFullScreenOptions() for details.
      */
     int                      fsOptions;
 
-    /** Action plug in managed window to switch fullscreen state */
+    /**
+     * Action plug in managed window to switch fullscreen state
+     */
     KToggleFullScreenAction* fullScreenAction;
 
-    /** Show only if toolbar is hidden */
+    /**
+     * Show only if toolbar is hidden
+     */
     QToolButton*             fullScreenBtn;
 
-    /** Used by slotToggleFullScreen() to manage state of full-screen button on managed window
+    /**
+     * Used by slotToggleFullScreen() to manage state of full-screen button on managed window
      */
     bool                     dirtyMainToolBar;
 
-    /** Store previous visibility of toolbars before ful-screen mode.
+    /**
+     * Store previous visibility of toolbars before ful-screen mode.
      */
     QMap<KToolBar*, bool>    toolbarsVisibility;
 
-    /** Store previous visibility of thumbbar before ful-screen mode.
+    /**
+     * Store previous visibility of thumbbar before ful-screen mode.
      */
     bool                     thumbbarVisibility;
 
-    /** Store previous visibility of menubar before ful-screen mode.
+    /**
+     * Store previous visibility of menubar before ful-screen mode.
      */
     bool                     menubarVisibility;
 
-    /** Store previous visibility of statusbar before ful-screen mode.
+    /**
+     * Store previous visibility of statusbar before ful-screen mode.
      */
     bool                     statusbarVisibility;
 
     // Common Help actions
-    KAction*                 dbStatAction;
-    KAction*                 libsInfoAction;
+    QAction*                 dbStatAction;
+    QAction*                 libsInfoAction;
+    QAction*                 showMenuBarAction;
+    QAction*                 showStatusBarAction;
     DAboutData*              about;
     DLogoAction*             anim;
+
+    QString                  configGroupName;
 };
 
 // --------------------------------------------------------------------------------------------------------
 
 DXmlGuiWindow::DXmlGuiWindow(QWidget* const parent, Qt::WindowFlags f)
-    : KXmlGuiWindow(parent, f), d(new Private)
+    : KXmlGuiWindow(parent, f),
+      d(new Private)
 {
-    m_animLogo = 0;
+    m_metadataEditAction    = 0;
+    m_geolocationEditAction = 0;
+    m_animLogo              = 0;
+
+#ifdef HAVE_KSANE
+    m_ksaneAction           = 0;
+#endif
+
     installEventFilter(this);
 }
 
 DXmlGuiWindow::~DXmlGuiWindow()
 {
     delete d;
+}
+
+void DXmlGuiWindow::setConfigGroupName(const QString& name)
+{
+    d->configGroupName = name;
+}
+
+QString DXmlGuiWindow::configGroupName() const
+{
+    return d->configGroupName;
 }
 
 void DXmlGuiWindow::closeEvent(QCloseEvent* e)
@@ -157,62 +213,213 @@ void DXmlGuiWindow::setFullScreenOptions(int options)
 
 void DXmlGuiWindow::createHelpActions(bool coreOptions)
 {
-    d->libsInfoAction = new KAction(KIcon("help-about"), i18n("Components Information"), this);
+    d->libsInfoAction = new QAction(QIcon::fromTheme(QLatin1String("help-about")), i18n("Components Information"), this);
     connect(d->libsInfoAction, SIGNAL(triggered()), this, SLOT(slotComponentsInfo()));
-    actionCollection()->addAction("help_librariesinfo", d->libsInfoAction);
+    actionCollection()->addAction(QLatin1String("help_librariesinfo"), d->libsInfoAction);
 
-    d->about = new DAboutData(this);
-    d->about->registerHelpActions();
+    d->about          = new DAboutData(this);
+
+    QAction* const rawCameraListAction = new QAction(QIcon::fromTheme(QLatin1String("image-x-adobe-dng")), i18n("Supported RAW Cameras"), this);
+    connect(rawCameraListAction, SIGNAL(triggered()), this, SLOT(slotRawCameraList()));
+    actionCollection()->addAction(QLatin1String("help_rawcameralist"), rawCameraListAction);
+
+    QAction* const donateMoneyAction   = new QAction(QIcon::fromTheme(QLatin1String("folder-html")), i18n("Donate..."), this);
+    connect(donateMoneyAction, SIGNAL(triggered()), this, SLOT(slotDonateMoney()));
+    actionCollection()->addAction(QLatin1String("help_donatemoney"), donateMoneyAction);
+
+
+    QAction* const recipesBookAction   = new QAction(QIcon::fromTheme(QLatin1String("folder-html")), i18n("Recipes Book..."), this);
+    connect(recipesBookAction, SIGNAL(triggered()), this, SLOT(slotRecipesBook()));
+    actionCollection()->addAction(QLatin1String("help_recipesbook"), recipesBookAction);
+
+    QAction* const contributeAction    = new QAction(QIcon::fromTheme(QLatin1String("folder-html")), i18n("Contribute..."), this);
+    connect(contributeAction, SIGNAL(triggered()), this, SLOT(slotContribute()));
+    actionCollection()->addAction(QLatin1String("help_contribute"), contributeAction);
 
     m_animLogo = new DLogoAction(this);
-    actionCollection()->addAction("logo_action", m_animLogo);
+    actionCollection()->addAction(QLatin1String("logo_action"), m_animLogo);
 
     // Add options only for core components (typically all excepted Showfoto)
     if (coreOptions)
     {
-        d->dbStatAction = new KAction(KIcon("network-server-database"), i18n("Database Statistics"), this);
+        d->dbStatAction = new QAction(QIcon::fromTheme(QLatin1String("network-server-database")), i18n("Database Statistics"), this);
         connect(d->dbStatAction, SIGNAL(triggered()), this, SLOT(slotDBStat()));
-        actionCollection()->addAction("help_dbstat", d->dbStatAction);
+        actionCollection()->addAction(QLatin1String("help_dbstat"), d->dbStatAction);
     }
+}
+
+void DXmlGuiWindow::cleanupActions()
+{
+    QAction* ac = actionCollection()->action(QLatin1String("help_about_kde"));
+    if (ac) actionCollection()->removeAction(ac);
+
+    ac          = actionCollection()->action(QLatin1String("help_donate"));
+    if (ac) actionCollection()->removeAction(ac);
+
+    ac          = actionCollection()->action(QLatin1String("help_about_kde"));
+    if (ac) actionCollection()->removeAction(ac);
+
+/*
+    QList<QAction*> lst = actionCollection()->actions();
+
+    foreach(QAction* const act, lst)
+        qCDebug(DIGIKAM_WIDGETS_LOG) << "action: " << act->objectName();
+*/
 }
 
 void DXmlGuiWindow::createSidebarActions()
 {
-    KAction* const tlsb = new KAction(i18n("Toggle Left Side-bar"), this);
-    tlsb->setShortcut(KShortcut(Qt::CTRL + Qt::META + Qt::Key_Left));
-    tlsb->setShortcutConfigurable(true);
+    KActionCollection* const ac = actionCollection();
+    QAction* const tlsb = new QAction(i18n("Toggle Left Side-bar"), this);
     connect(tlsb, SIGNAL(triggered()), this, SLOT(slotToggleLeftSideBar()));
-    actionCollection()->addAction("toggle-left-sidebar", tlsb);
+    ac->addAction(QLatin1String("toggle-left-sidebar"), tlsb);
+    ac->setDefaultShortcut(tlsb, Qt::CTRL + Qt::META + Qt::Key_Left);
 
-    KAction* const trsb = new KAction(i18n("Toggle Right Side-bar"), this);
-    trsb->setShortcut(KShortcut(Qt::CTRL + Qt::META + Qt::Key_Right));
-    trsb->setShortcutConfigurable(true);
+    QAction* const trsb = new QAction(i18n("Toggle Right Side-bar"), this);
     connect(trsb, SIGNAL(triggered()), this, SLOT(slotToggleRightSideBar()));
-    actionCollection()->addAction("toggle-right-sidebar", trsb);
+    ac->addAction(QLatin1String("toggle-right-sidebar"), trsb);
+    ac->setDefaultShortcut(trsb, Qt::CTRL + Qt::META + Qt::Key_Right);
 
-    KAction* const plsb = new KAction(i18n("Previous Left Side-bar Tab"), this);
-    plsb->setShortcut(KShortcut(Qt::CTRL + Qt::META + Qt::Key_Home));
-    plsb->setShortcutConfigurable(true);
+    QAction* const plsb = new QAction(i18n("Previous Left Side-bar Tab"), this);
     connect(plsb, SIGNAL(triggered()), this, SLOT(slotPreviousLeftSideBarTab()));
-    actionCollection()->addAction("previous-left-sidebar-tab", plsb);
+    ac->addAction(QLatin1String("previous-left-sidebar-tab"), plsb);
+    ac->setDefaultShortcut(plsb, Qt::CTRL + Qt::META + Qt::Key_Home);
 
-    KAction* const nlsb = new KAction(i18n("Next Left Side-bar Tab"), this);
-    nlsb->setShortcut(KShortcut(Qt::CTRL + Qt::META + Qt::Key_End));
-    nlsb->setShortcutConfigurable(true);
+    QAction* const nlsb = new QAction(i18n("Next Left Side-bar Tab"), this);
     connect(nlsb, SIGNAL(triggered()), this, SLOT(slotNextLeftSideBarTab()));
-    actionCollection()->addAction("next-left-sidebar-tab", nlsb);
+    ac->addAction(QLatin1String("next-left-sidebar-tab"), nlsb);
+    ac->setDefaultShortcut(nlsb, Qt::CTRL + Qt::META + Qt::Key_End);
 
-    KAction* const prsb = new KAction(i18n("Previous Right Side-bar Tab"), this);
-    prsb->setShortcut(KShortcut(Qt::CTRL + Qt::META + Qt::Key_PageUp));
-    prsb->setShortcutConfigurable(true);
+    QAction* const prsb = new QAction(i18n("Previous Right Side-bar Tab"), this);
     connect(prsb, SIGNAL(triggered()), this, SLOT(slotPreviousRightSideBarTab()));
-    actionCollection()->addAction("previous-right-sidebar-tab", prsb);
+    ac->addAction(QLatin1String("previous-right-sidebar-tab"), prsb);
+    ac->setDefaultShortcut(prsb, Qt::CTRL + Qt::META + Qt::Key_PageUp);
 
-    KAction* const nrsb = new KAction(i18n("Next Right Side-bar Tab"), this);
-    nrsb->setShortcut(KShortcut(Qt::CTRL + Qt::META + Qt::Key_PageDown));
-    nrsb->setShortcutConfigurable(true);
+    QAction* const nrsb = new QAction(i18n("Next Right Side-bar Tab"), this);
     connect(nrsb, SIGNAL(triggered()), this, SLOT(slotNextRightSideBarTab()));
-    actionCollection()->addAction("next-right-sidebar-tab", nrsb);
+    ac->addAction(QLatin1String("next-right-sidebar-tab"), nrsb);
+    ac->setDefaultShortcut(nrsb, Qt::CTRL + Qt::META + Qt::Key_PageDown);
+}
+
+void DXmlGuiWindow::createSettingsActions()
+{
+    d->showMenuBarAction   = KStandardAction::showMenubar(this, SLOT(slotShowMenuBar()), actionCollection());
+#ifdef Q_OS_OSX
+    // Under MacOS the menu bar visibility is managed by desktop.
+    d->showMenuBarAction->setVisible(false);
+#endif
+
+    d->showStatusBarAction = actionCollection()->action(QLatin1String("options_show_statusbar"));
+
+    if (!d->showStatusBarAction)
+    {
+        qCWarning(DIGIKAM_WIDGETS_LOG) << "Status bar menu action cannot be found in action collection";
+
+        d->showStatusBarAction = new QAction(i18n("Show Statusbar"), this);
+        d->showStatusBarAction->setCheckable(true);
+        d->showStatusBarAction->setChecked(true);
+        connect(d->showStatusBarAction, SIGNAL(toggled(bool)), this, SLOT(slotShowStatusBar()));
+        actionCollection()->addAction(QLatin1String("options_show_statusbar"), d->showStatusBarAction);
+    }
+
+    KStandardAction::keyBindings(this,            SLOT(slotEditKeys()),          actionCollection());
+    KStandardAction::preferences(this,            SLOT(slotSetup()),             actionCollection());
+    KStandardAction::configureToolbars(this,      SLOT(slotConfToolbars()),      actionCollection());
+
+#ifdef HAVE_KNOTIFYCONFIG
+    KStandardAction::configureNotifications(this, SLOT(slotConfNotifications()), actionCollection());
+#endif
+}
+
+QAction* DXmlGuiWindow::showMenuBarAction() const
+{
+    return d->showMenuBarAction;
+}
+
+QAction* DXmlGuiWindow::showStatusBarAction() const
+{
+    return d->showStatusBarAction;
+}
+
+void DXmlGuiWindow::slotShowMenuBar()
+{
+    menuBar()->setVisible(d->showMenuBarAction->isChecked());
+}
+
+void DXmlGuiWindow::slotShowStatusBar()
+{
+    statusBar()->setVisible(d->showStatusBarAction->isChecked());
+}
+
+void DXmlGuiWindow::slotConfNotifications()
+{
+#ifdef HAVE_KNOTIFYCONFIG
+    KNotifyConfigWidget::configure(this);
+#endif
+}
+
+void DXmlGuiWindow::editKeyboardShortcuts(KActionCollection* const extraac, const QString& actitle)
+{
+    KShortcutsDialog dialog(KShortcutsEditor::AllActions,
+                            KShortcutsEditor::LetterShortcutsAllowed, this);
+    dialog.addCollection(actionCollection(), i18nc("general keyboard shortcuts", "General"));
+
+    if (extraac)
+        dialog.addCollection(extraac, actitle);
+
+    dialog.configure();
+}
+
+void DXmlGuiWindow::slotConfToolbars()
+{
+    KConfigGroup group = KSharedConfig::openConfig()->group(configGroupName());
+    saveMainWindowSettings(group);
+
+    KEditToolBar dlg(factory(), this);
+
+    connect(&dlg, SIGNAL(newToolbarConfig()),
+            this, SLOT(slotNewToolbarConfig()));
+
+    dlg.exec();
+}
+
+void DXmlGuiWindow::slotNewToolbarConfig()
+{
+    KConfigGroup group = KSharedConfig::openConfig()->group(configGroupName());
+    applyMainWindowSettings(group);
+}
+
+void DXmlGuiWindow::createGeolocationEditAction()
+{
+#ifdef HAVE_MARBLE
+    m_geolocationEditAction = new QAction(QIcon::fromTheme(QLatin1String("folder-html")), i18n("Edit Geolocation..."), this);
+    actionCollection()->addAction(QLatin1String("geolocation_edit"), m_geolocationEditAction);
+    actionCollection()->setDefaultShortcut(m_geolocationEditAction, Qt::CTRL + Qt::SHIFT + Qt::Key_G);
+
+    connect(m_geolocationEditAction, SIGNAL(triggered(bool)),
+            this, SLOT(slotEditGeolocation()));
+#endif
+}
+
+void DXmlGuiWindow::createMetadataEditAction()
+{
+    m_metadataEditAction = new QAction(QIcon::fromTheme(QLatin1String("format-text-code")), i18n("Edit Metadata..."), this);
+    actionCollection()->addAction(QLatin1String("metadata_edit"), m_metadataEditAction);
+    actionCollection()->setDefaultShortcut(m_metadataEditAction, Qt::CTRL + Qt::SHIFT + Qt::Key_M);
+
+    connect(m_metadataEditAction, SIGNAL(triggered(bool)),
+            this, SLOT(slotEditMetadata()));
+}
+
+void DXmlGuiWindow::createKSaneAction()
+{
+#ifdef HAVE_KSANE
+    m_ksaneAction = new KSaneAction(this);
+    actionCollection()->addAction(QLatin1String("import_scan"), m_ksaneAction);
+
+    connect(m_ksaneAction, SIGNAL(triggered(bool)),
+            this, SLOT(slotImportFromScanner()));
+#endif
 }
 
 void DXmlGuiWindow::createFullScreenAction(const QString& name)
@@ -247,17 +454,17 @@ void DXmlGuiWindow::slotToggleFullScreen(bool set)
 
     if (!set)
     {
-        kDebug() << "TURN OFF fullscreen";
+        qCDebug(DIGIKAM_WIDGETS_LOG) << "TURN OFF fullscreen";
 
         // restore menubar
 
         if (d->menubarVisibility)
-            menuBar()->show();
+            menuBar()->setVisible(true);
 
         // restore statusbar
 
         if (d->statusbarVisibility)
-            statusBar()->show();
+            statusBar()->setVisible(true);
 
         // restore sidebars
 
@@ -286,17 +493,25 @@ void DXmlGuiWindow::slotToggleFullScreen(bool set)
     }
     else
     {
-        kDebug() << "TURN ON fullscreen";
+        qCDebug(DIGIKAM_WIDGETS_LOG) << "TURN ON fullscreen";
 
         // hide menubar
 
+#ifdef Q_OS_WIN
+        d->menubarVisibility = d->showMenuBarAction->isChecked();
+#else
         d->menubarVisibility = menuBar()->isVisible();
-        menuBar()->hide();
+#endif
+        menuBar()->setVisible(false);
 
         // hide statusbar
 
+#ifdef Q_OS_WIN
+        d->statusbarVisibility = d->showStatusBarAction->isChecked();
+#else
         d->statusbarVisibility = statusBar()->isVisible();
-        statusBar()->hide();
+#endif
+        statusBar()->setVisible(false);
 
         // hide sidebars
 
@@ -352,13 +567,13 @@ bool DXmlGuiWindow::fullScreenIsActive() const
     if (d->fullScreenAction)
         return d->fullScreenAction->isChecked();
 
-    kDebug() << "FullScreenAction is not initialized";
+    qCDebug(DIGIKAM_WIDGETS_LOG) << "FullScreenAction is not initialized";
     return false;
 }
 
 bool DXmlGuiWindow::eventFilter(QObject* obj, QEvent* ev)
 {
-    if (this && (obj == this))
+    if (obj == this)
     {
         if (ev && (ev->type() == QEvent::HoverMove) && fullScreenIsActive())
         {
@@ -376,20 +591,20 @@ bool DXmlGuiWindow::eventFilter(QObject* obj, QEvent* ev)
                     if (mev)
                     {
                         QPoint pos(mev->pos());
-                        QRect  desktopRect = KGlobalSettings::desktopGeometry(this);
+                        QRect  desktopRect = QApplication::desktop()->screenGeometry(this);
 
                         QRect sizeRect(QPoint(0, 0), d->fullScreenBtn->size());
                         QRect topLeft, topRight;
                         QRect topRightLarger;
 
-                        desktopRect       = QRect(desktopRect.y(), desktopRect.y(), desktopRect.width(), desktopRect.height());
-                        topLeft           = sizeRect;
-                        topRight          = sizeRect;
+                        desktopRect        = QRect(desktopRect.y(), desktopRect.y(), desktopRect.width(), desktopRect.height());
+                        topLeft            = sizeRect;
+                        topRight           = sizeRect;
 
                         topLeft.moveTo(desktopRect.x(), desktopRect.y());
                         topRight.moveTo(desktopRect.x() + desktopRect.width() - sizeRect.width() - 1, topLeft.y());
 
-                        topRightLarger    = topRight.adjusted(-25, 0, 0, 10);
+                        topRightLarger     = topRight.adjusted(-25, 0, 0, 10);
 
                         if (topRightLarger.contains(pos))
                         {
@@ -430,7 +645,7 @@ KToolBar* DXmlGuiWindow::mainToolBar() const
 
     foreach(KToolBar* const toolbar, toolbars)
     {
-        if (toolbar && (toolbar->objectName() == "mainToolBar"))
+        if (toolbar && (toolbar->objectName() == QLatin1String("mainToolBar")))
         {
             mainToolbar = toolbar;
             break;
@@ -458,7 +673,6 @@ void DXmlGuiWindow::showToolBars(bool visible)
     }
 
     // Switch toolbars visibility
-
     for (QMap<KToolBar*, bool>::const_iterator it = d->toolbarsVisibility.constBegin(); it != d->toolbarsVisibility.constEnd(); ++it)
     {
         KToolBar* const toolbar = it.key();
@@ -489,19 +703,6 @@ void DXmlGuiWindow::showToolBars(bool visible)
     }
 }
 
-QAction* DXmlGuiWindow::statusBarMenuAction() const
-{
-    QList<QAction*> lst = actionCollection()->actions();
-
-    foreach(QAction* const act, lst)
-    {
-        if (act && QString(act->objectName()) == QString("options_show_statusbar"))
-            return act;
-    }
-
-    return 0;
-}
-
 void DXmlGuiWindow::showSideBars(bool visible)
 {
     Q_UNUSED(visible);
@@ -520,6 +721,121 @@ void DXmlGuiWindow::customizedFullScreenMode(bool set)
 bool DXmlGuiWindow::thumbbarVisibility() const
 {
     return true;
+}
+
+void DXmlGuiWindow::openHandbook(const QString& anchor, const QString& appname)
+{
+    QUrl url = QUrl(QString::fromUtf8("help:/%1/index.html").arg(appname));
+
+    if (!anchor.isEmpty())
+    {
+        QUrlQuery query(url);
+        query.addQueryItem(QStringLiteral("anchor"), anchor);
+        url.setQuery(query);
+    }
+
+    QDesktopServices::openUrl(url);
+}
+
+void DXmlGuiWindow::restoreWindowSize(QWindow* const win, const KConfigGroup& group)
+{
+    KWindowConfig::restoreWindowSize(win, group);
+}
+
+void DXmlGuiWindow::saveWindowSize(QWindow* const win, KConfigGroup& group)
+{
+    KWindowConfig::saveWindowSize(win, group);
+}
+
+QAction* DXmlGuiWindow::buildStdAction(StdActionType type, const QObject* const recvr,
+                                       const char* const slot, QObject* const parent)
+{
+    switch(type)
+    {
+        case StdCopyAction:
+            return KStandardAction::copy(recvr, slot, parent);
+            break;
+        case StdPasteAction:
+            return KStandardAction::paste(recvr, slot, parent);
+            break;
+        case StdCutAction:
+            return KStandardAction::cut(recvr, slot, parent);
+            break;
+        case StdQuitAction:
+            return KStandardAction::quit(recvr, slot, parent);
+            break;
+        case StdCloseAction:
+            return KStandardAction::close(recvr, slot, parent);
+            break;
+        case StdZoomInAction:
+            return KStandardAction::zoomIn(recvr, slot, parent);
+            break;
+        case StdZoomOutAction:
+            return KStandardAction::zoomOut(recvr, slot, parent);
+            break;
+        case StdOpenAction:
+            return KStandardAction::open(recvr, slot, parent);
+            break;
+        case StdSaveAction:
+            return KStandardAction::save(recvr, slot, parent);
+            break;
+        case StdSaveAsAction:
+            return KStandardAction::saveAs(recvr, slot, parent);
+            break;
+        case StdRevertAction:
+            return KStandardAction::revert(recvr, slot, parent);
+            break;
+        case StdBackAction:
+            return KStandardAction::back(recvr, slot, parent);
+            break;
+        case StdForwardAction:
+            return KStandardAction::forward(recvr, slot, parent);
+            break;
+        default:
+            return 0;
+            break;
+    }
+}
+
+void DXmlGuiWindow::slotRawCameraList()
+{
+    showRawCameraList();
+}
+
+void DXmlGuiWindow::slotDonateMoney()
+{
+    QDesktopServices::openUrl(QUrl(QLatin1String("https://www.digikam.org/?q=donation")));
+}
+
+void DXmlGuiWindow::slotRecipesBook()
+{
+    QDesktopServices::openUrl(QUrl(QLatin1String("https://www.digikam.org/node/543")));
+}
+
+void DXmlGuiWindow::slotContribute()
+{
+    QDesktopServices::openUrl(QUrl(QLatin1String("https://www.digikam.org/?q=contrib")));
+}
+
+void DXmlGuiWindow::setupIconTheme()
+{
+    /**
+     * let QStandardPaths handle this, it will look for app local stuff
+     * this means e.g. for mac: "<APPDIR>/../Resources" and for win: "<APPDIR>/data"
+     */
+    const QString breezeIcons = QStandardPaths::locate(QStandardPaths::DataLocation, QLatin1String("breeze.rcc"));
+
+    if (!breezeIcons.isEmpty() && QFile::exists(breezeIcons) && QResource::registerResource(breezeIcons))
+    {
+        // Tell Qt about the theme
+        QIcon::setThemeSearchPaths(QStringList() << QLatin1String(":/icons"));
+        QIcon::setThemeName(QLatin1String("breeze"));
+
+        // Tell icons loader an co. about the theme
+        KConfigGroup cg(KSharedConfig::openConfig(), "Icons");
+        cg.writeEntry("Theme", "breeze");
+        cg.sync();
+    }
 }
 
 } // namespace Digikam

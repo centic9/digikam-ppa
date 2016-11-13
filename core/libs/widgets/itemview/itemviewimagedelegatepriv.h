@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -34,19 +34,14 @@
 #include <QPainter>
 #include <QPolygon>
 
-// KDE includes
-
-#include <klocale.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "digikam_export.h"
 
 namespace Digikam
 {
 
-class ImageDelegateOverlay;
 class ItemViewImageDelegate;
 
 class DIGIKAM_EXPORT ItemViewImageDelegatePrivate

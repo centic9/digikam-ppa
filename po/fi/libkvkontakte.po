@@ -1,0 +1,114 @@
+# Finnish messages for libkvkontakte.
+# Copyright © 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the extragear-libs package.
+# Jorma Karvonen <karvonen.jorma@gmail.com>, 2012.
+# Lasse Liehu <lasse.liehu@gmail.com>, 2013.
+#
+# KDE Finnish translation sprint participants:
+msgid ""
+msgstr ""
+"Project-Id-Version: libkvkontakte\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-10-13 10:04+0000\n"
+"PO-Revision-Date: 2013-02-11 21:24+0200\n"
+"Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
+"Language-Team: Finnish <lokalisointi@lists.coss.fi>\n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-POT-Import-Date: 2012-12-01 22:20:34+0000\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: allmessageslistjob.cpp:117
+msgid "The number of outgoing messages has changed between requests."
+msgstr "Lähtevien viestien lukumäärä on vaihtunut pyyntöjen välillä."
+
+#: allmessageslistjob.cpp:121
+msgid "The number of incoming messages has changed between requests."
+msgstr "Tulevien viestien lukumäärä on vaihtunut pyyntöjen välillä."
+
+#: allnoteslistjob.cpp:92
+msgid "The number of notes has changed between requests."
+msgstr "Merkintöjen lukumäärä on vaihtunut pyyntöjen välillä."
+
+#: authenticationdialog.cpp:61
+msgctxt "@title:window"
+msgid "Authenticate with VKontakte"
+msgstr "Todennus VKontaktella"
+
+#: authenticationdialog.cpp:71
+msgid "Loading Page:"
+msgstr "Ladataan sivu:"
+
+#: authenticationdialog.cpp:138
+#, kde-format
+msgid ""
+"<b>VKontakte Error Description:</b> %1<br><b>VKontakte Error:</b> %2<br>"
+msgstr "<b>VKontakte-virhekuvaus:</b> %1<br /><b>VKontakte-virhe:</b> %2<br />"
+
+#: authenticationdialog.cpp:140
+msgid "Authentication with VKontakte was not successful."
+msgstr "Todennus VKontaktella ei onnistunut."
+
+#: authenticationdialog.cpp:141
+msgctxt "@title:window"
+msgid "Authentication Problem"
+msgstr "Todennusongelma"
+
+#: authenticationdialog.cpp:182
+msgid ""
+"There was a network error when trying to authenticate with VKontakte web "
+"service."
+msgstr "Tapahtui verkkovirhe yritettäessä todentaa webbipalvelua VKontaktella."
+
+#: authenticationdialog.cpp:183
+msgctxt "@title:window"
+msgid "Network Error"
+msgstr "Verkkovirhe"
+
+#: deletealbumjob.cpp:43
+msgid "Failed to delete album"
+msgstr "Albumin poistaminen epäonnistui"
+
+#: editalbumjob.cpp:52
+msgid "Failed to edit album"
+msgstr "Albumin muokkaus epäonnistui"
+
+#: photopostjob.cpp:76 vkontaktejobs.cpp:112
+#, kde-format
+msgid ""
+"Response from the VKontakte server has unexpected format. Please report this "
+"problem against product libkvkontakte at the <a href=\"%1\">KDE bug tracker</"
+"b>."
+msgstr ""
+
+#: photopostjob.cpp:84
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to "
+"uploading to URL %2: <i>%3</i>"
+msgstr ""
+"VKontakte-palvelin palautti <i>%1</i>-tyyppisen virheen vastauksessa "
+"kopioitaessa verkko-osoitteeseen %2: <i>%3</i>"
+
+#: photopostjob.cpp:206 vkontaktejobs.cpp:224
+#, kde-format
+msgid "Unable to parse data returned by the VKontakte server: %1"
+msgstr "Ei kyetä jäsentämään tietoja, jotka VKontakte-palvelin palautti: %1"
+
+#: vkontaktejobs.cpp:120
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to method "
+"%2: <i>%3</i>"
+msgstr ""
+"VKontakte-palvelin palautti <i>%1</i>-tyyppisen virheen vastauksessa "
+"metodille %2: <i>%3</i>"
+
+#: vkontaktejobs.cpp:181
+msgid ""
+"Internal error: No valid instance of KIO::StoredTransferJob passed into "
+"VkontakteJob::jobFinished."
+msgstr ""

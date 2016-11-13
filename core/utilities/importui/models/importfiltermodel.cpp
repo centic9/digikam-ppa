@@ -21,18 +21,17 @@
  *
  * ============================================================ */
 
-#include "importfiltermodel.moc"
+#include "importfiltermodel.h"
 #include "camiteminfo.h"
 #include "filtercombo.h"
 #include "filter.h"
 #include "importimagemodel.h"
-#include <KDebug>
 
 namespace Digikam
 {
 
 ImportSortFilterModel::ImportSortFilterModel(QObject* const parent)
-    : KCategorizedSortFilterProxyModel(parent),
+    : DCategorizedSortFilterProxyModel(parent),
       m_chainedModel(0)
 {
 }
@@ -174,8 +173,7 @@ QList<qlonglong> ImportSortFilterModel::camItemIds(const QList<QModelIndex>& ind
 
 QModelIndex ImportSortFilterModel::indexForPath(const QString& filePath) const
 {
-    KUrl fileUrl;
-    fileUrl.setPath(filePath);
+    QUrl fileUrl = QUrl::fromLocalFile(filePath);
     return mapFromSourceImportModel(sourceImportModel()->indexForUrl(fileUrl));
 }
 
@@ -214,7 +212,7 @@ ImportFilterModel* ImportSortFilterModel::importFilterModel() const
 
 void ImportSortFilterModel::setSourceModel(QAbstractItemModel* sourceModel)
 {
-    KCategorizedSortFilterProxyModel::setSourceModel(sourceModel);
+    DCategorizedSortFilterProxyModel::setSourceModel(sourceModel);
 }
 
 void ImportSortFilterModel::setDirectSourceImportModel(ImportImageModel* const sourceModel)
@@ -280,7 +278,7 @@ QVariant ImportFilterModel::data(const QModelIndex& index, int role) const
 
     switch (role)
     {
-        case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
+        case DCategorizedSortFilterProxyModel::CategoryDisplayRole:
             return categoryIdentifier(d->importImageModel->camItemInfoRef(mapToSource(index)));
 
         case CategorizationModeRole:
@@ -292,11 +290,14 @@ QVariant ImportFilterModel::data(const QModelIndex& index, int role) const
         case CategoryFormatRole:
             return d->importImageModel->camItemInfoRef(mapToSource(index)).mime;
 
+        case CategoryDateRole:
+            return d->importImageModel->camItemInfoRef(mapToSource(index)).ctime;
+
         case ImportFilterModelPointerRole:
             return QVariant::fromValue(const_cast<ImportFilterModel*>(this));
     }
 
-    return KCategorizedSortFilterProxyModel::data(index, role);
+    return DCategorizedSortFilterProxyModel::data(index, role);
 }
 
 ImportFilterModel* ImportFilterModel::importFilterModel() const
@@ -332,6 +333,13 @@ void ImportFilterModel::setSortOrder(CamItemSortSettings::SortOrder order)
 {
     Q_D(ImportFilterModel);
     d->sorter.setSortOrder(order);
+    setCamItemSortSettings(d->sorter);
+}
+
+void ImportFilterModel::setStringTypeNatural(bool natural)
+{
+    Q_D(ImportFilterModel);
+    d->sorter.setStringTypeNatural(natural);
     setCamItemSortSettings(d->sorter);
 }
 
@@ -493,6 +501,8 @@ QString ImportFilterModel::categoryIdentifier(const CamItemInfo& info) const
             return info.folder;
         case CamItemSortSettings::CategoryByFormat:
             return info.mime;
+        case CamItemSortSettings::CategoryByDate:
+            return info.ctime.date().toString(Qt::ISODate);
         default:
             return QString();
     }
@@ -501,7 +511,7 @@ QString ImportFilterModel::categoryIdentifier(const CamItemInfo& info) const
 bool ImportFilterModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
 {
     Q_D(const ImportFilterModel);
-    
+
     if(!d->filter) {
         return true;
     }
@@ -512,10 +522,9 @@ bool ImportFilterModel::filterAcceptsRow(int source_row, const QModelIndex& sour
     if(d->filter->matchesCurrentFilter(info)) {
         return true;
     }
-    
+
     return false;
 }
-
 
 // -------------------------------------------------------------------------------------------------------
 

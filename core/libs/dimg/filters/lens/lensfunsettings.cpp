@@ -4,7 +4,7 @@
  * Description : a tool to fix automatically camera lens aberrations
  *
  * Copyright (C) 2008      by Adrian Schroeter <adrian at suse dot de>
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -18,7 +18,7 @@
  *
  * ============================================================ */
 
-#include "lensfunsettings.moc"
+#include "lensfunsettings.h"
 
 // Qt includes
 
@@ -27,13 +27,17 @@
 #include <QLabel>
 #include <QString>
 #include <QWidget>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
+#include <kconfiggroup.h>
+
+// Local includes
+
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -47,7 +51,8 @@ public:
         filterVIG(0),
         filterDST(0),
         filterGEO(0)
-    {}
+    {
+    }
 
     static const QString configCCAEntry;
     static const QString configVignettingEntry;
@@ -60,10 +65,10 @@ public:
     QCheckBox*           filterGEO;
 };
 
-const QString LensFunSettings::Private::configCCAEntry("CCA");
-const QString LensFunSettings::Private::configVignettingEntry("Vignetting");
-const QString LensFunSettings::Private::configDistortionEntry("Distortion");
-const QString LensFunSettings::Private::configGeometryEntry("Geometry");
+const QString LensFunSettings::Private::configCCAEntry(QLatin1String("CCA"));
+const QString LensFunSettings::Private::configVignettingEntry(QLatin1String("Vignetting"));
+const QString LensFunSettings::Private::configDistortionEntry(QLatin1String("Distortion"));
+const QString LensFunSettings::Private::configGeometryEntry(QLatin1String("Geometry"));
 
 // --------------------------------------------------------
 
@@ -71,6 +76,8 @@ LensFunSettings::LensFunSettings(QWidget* const parent)
     : QWidget(parent),
       d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QGridLayout* const grid = new QGridLayout(this);
 
     QLabel* const title     = new QLabel(i18n("Lens Corrections to Apply:"));
@@ -103,8 +110,8 @@ LensFunSettings::LensFunSettings(QWidget* const parent)
     grid->addWidget(d->filterGEO, 5, 0, 1, 2);
     grid->addWidget(note,         6, 0, 1, 2);
     grid->setRowStretch(7, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     connect(d->filterCCA, SIGNAL(toggled(bool)),
             this, SIGNAL(signalSettingsChanged()));
@@ -170,6 +177,16 @@ void LensFunSettings::resetToDefault()
 LensFunContainer LensFunSettings::defaultSettings() const
 {
     LensFunContainer prm;
+    return prm;
+}
+
+LensFunContainer LensFunSettings::settings() const
+{
+    LensFunContainer prm;
+    prm.filterCCA = d->filterCCA->isChecked();
+    prm.filterVIG = d->filterVIG->isChecked();
+    prm.filterDST = d->filterDST->isChecked();
+    prm.filterGEO = d->filterGEO->isChecked();
     return prm;
 }
 

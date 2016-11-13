@@ -6,7 +6,7 @@
  * Date        : 2009-06-20
  * Description : Template information container.
  *
- * Copyright (C) 2009-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,16 +31,13 @@
 #include <QStringList>
 #include <QDebug>
 
-// LibKExiv2 includes
-
-#include <libkexiv2/kexiv2.h>
-
 // Local includes
 
 #include "metadatainfo.h"
 #include "digikam_export.h"
+#include "metaengine.h"
 
-using namespace KExiv2Iface;
+using namespace Digikam;
 
 namespace Digikam
 {
@@ -72,8 +69,8 @@ public:
     void setAuthors(const QStringList& authors);
     void setAuthorsPosition(const QString& authorPosition);
     void setCredit(const QString& credit);
-    void setCopyright(const KExiv2::AltLangMap& copyright);
-    void setRightUsageTerms(const KExiv2::AltLangMap& rightUsageTerms);
+    void setCopyright(const MetaEngine::AltLangMap& copyright);
+    void setRightUsageTerms(const MetaEngine::AltLangMap& rightUsageTerms);
     void setSource(const QString& source);
     void setInstructions(const QString& instructions);
     void setLocationInfo(const IptcCoreLocationInfo& inf);
@@ -83,8 +80,8 @@ public:
     QStringList          authors()         const;
     QString              authorsPosition() const;
     QString              credit()          const;
-    KExiv2::AltLangMap   copyright()       const;
-    KExiv2::AltLangMap   rightUsageTerms() const;
+    MetaEngine::AltLangMap   copyright()       const;
+    MetaEngine::AltLangMap   rightUsageTerms() const;
     QString              source()          const;
     QString              instructions()    const;
     IptcCoreLocationInfo locationInfo()    const;
@@ -93,7 +90,7 @@ public:
 
     static QString removeTemplateTitle()
     {
-        return QString("_REMOVE_TEMPLATE_");
+        return QLatin1String("_REMOVE_TEMPLATE_");
     };
 
 protected:
@@ -116,11 +113,11 @@ protected:
 
     /** Language alternative copyright notices.
      */
-    KExiv2::AltLangMap   m_copyright;
+    MetaEngine::AltLangMap   m_copyright;
 
     /** Language alternative right term usages.
      */
-    KExiv2::AltLangMap   m_rightUsageTerms;
+    MetaEngine::AltLangMap   m_rightUsageTerms;
 
     /** Descriptions of contents source.
      */
@@ -143,7 +140,7 @@ protected:
     QStringList          m_subjects;
 };
 
-//! kDebug() stream operator. Writes property @a t to the debug output in a nicely formatted way.
+//! qDebug() stream operator. Writes property @a t to the debug output in a nicely formatted way.
 DIGIKAM_EXPORT QDebug operator<<(QDebug dbg, const Template& t);
 
 }  // namespace Digikam

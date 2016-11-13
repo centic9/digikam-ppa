@@ -21,24 +21,20 @@
  *
  * ============================================================ */
 
-#include "metadataoption.moc"
+#include "metadataoption.h"
 
 // Qt includes
 
 #include <QGridLayout>
 #include <QLabel>
 #include <QPointer>
+#include <QLineEdit>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <klineedit.h>
-#include <klocale.h>
-#include <ktabwidget.h>
-
-// LibKExiv2 includes
-
-#include <libkexiv2/kexiv2.h>
-#include <libkexiv2/version.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -49,23 +45,23 @@
 namespace Digikam
 {
 
-MetadataOptionDialog::MetadataOptionDialog(Rule* parent) :
+MetadataOptionDialog::MetadataOptionDialog(Rule* const parent) :
     RuleDialog(parent),
     metadataPanel(0),
     separatorLineEdit(0)
 {
-    QWidget* mainWidget  = new QWidget(this);
-    KTabWidget* tab      = new KTabWidget(this);
-    metadataPanel        = new MetadataPanel(tab);
-    QLabel* customLabel  = new QLabel(i18n("Keyword separator:"));
-    separatorLineEdit    = new KLineEdit(this);
-    separatorLineEdit->setText("_");
+    QWidget* const mainWidget = new QWidget(this);
+    QTabWidget* const tab     = new QTabWidget(this);
+    metadataPanel             = new MetadataPanel(tab);
+    QLabel* const customLabel = new QLabel(i18n("Keyword separator:"));
+    separatorLineEdit         = new QLineEdit(this);
+    separatorLineEdit->setText(QLatin1String("_"));
 
     // --------------------------------------------------------
 
     // We only need the "SearchBar" control element.
     // We also need to reset the default selections.
-    foreach(MetadataSelectorView* viewer, metadataPanel->viewers())
+    foreach(MetadataSelectorView* const viewer, metadataPanel->viewers())
     {
         viewer->setControlElements(MetadataSelectorView::SearchBar);
         viewer->clearSelection();
@@ -79,13 +75,13 @@ MetadataOptionDialog::MetadataOptionDialog(Rule* parent) :
     for (int i = 0; i < tabs; ++i)
     {
         QString text = tab->tabText(i);
-        text.remove("viewer", Qt::CaseInsensitive);
+        text.remove(QLatin1String("viewer"), Qt::CaseInsensitive);
         tab->setTabText(i, text.simplified());
     }
 
     // --------------------------------------------------------
 
-    QGridLayout* mainLayout = new QGridLayout(this);
+    QGridLayout* const mainLayout = new QGridLayout(this);
     mainLayout->addWidget(customLabel,       0, 0, 1, 1);
     mainLayout->addWidget(separatorLineEdit, 0, 1, 1, 1);
     mainLayout->addWidget(tab,               1, 0, 1, -1);
@@ -104,26 +100,18 @@ MetadataOptionDialog::~MetadataOptionDialog()
 // --------------------------------------------------------
 
 MetadataOption::MetadataOption()
-    : Option(i18n("Metadata..."), i18n("Add metadata information"))
+    : Option(i18n("Metadata..."),
+             i18n("Add metadata information"))
 {
-    QString iconName("metadataedit");
-
-    // metadataedit icon can be missing if KIPI plugins are not installed, load different icon in this case
-    QPixmap icon = KIconLoader::global()->loadIcon(iconName, KIconLoader::Small, 0,
-                                                   KIconLoader::DefaultState, QStringList(), 0L, true);
-
-    if (icon.isNull())
-    {
-        iconName = QString("editimage");
-    }
-
+    QString iconName(QLatin1String("format-text-code"));
+    QPixmap icon = QIcon::fromTheme(iconName).pixmap(QApplication::style()->pixelMetric(QStyle::PM_SmallIconSize));
     setIcon(iconName);
 
     // --------------------------------------------------------
 
-    addToken("[meta:||key||]", description());
+    addToken(QLatin1String("[meta:||key||]"), description());
 
-    QRegExp reg("\\[meta(:(.*))\\]");
+    QRegExp reg(QLatin1String("\\[meta(:(.*))\\]"));
     reg.setMinimal(true);
     setRegExp(reg);
 }
@@ -136,13 +124,13 @@ void MetadataOption::slotTokenTriggered(const QString& token)
 
     QPointer<MetadataOptionDialog> dlg = new MetadataOptionDialog(this);
 
-    if (dlg->exec() == KDialog::Accepted)
+    if (dlg->exec() == QDialog::Accepted)
     {
         QStringList checkedTags = dlg->metadataPanel->getAllCheckedTags();
 
         foreach(const QString& tag, checkedTags)
         {
-            tags << QString("[meta:%1]").arg(tag);
+            tags << QString::fromUtf8("[meta:%1]").arg(tag);
         }
     }
 
@@ -157,9 +145,9 @@ void MetadataOption::slotTokenTriggered(const QString& token)
 
 QString MetadataOption::parseOperation(ParseSettings& settings)
 {
-    const QRegExp& reg  = regExp();
-    QString keyword     = reg.cap(2);
-    QString result      = parseMetadata(keyword, settings);
+    const QRegExp& reg = regExp();
+    QString keyword    = reg.cap(2);
+    QString result     = parseMetadata(keyword, settings);
     return result;
 }
 
@@ -183,7 +171,7 @@ QString MetadataOption::parseMetadata(const QString& token, ParseSettings& setti
 
     if (!meta.isEmpty())
     {
-        KExiv2::MetaDataMap dataMap;
+        MetaEngine::MetaDataMap dataMap;
 
         if (keyword.startsWith(QLatin1String("exif.")))
         {

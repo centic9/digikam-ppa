@@ -6,7 +6,7 @@
  * Date        : 2008-11-21
  * Description : Batch Queue Manager items list.
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -113,7 +113,7 @@ public:
     int           pendingItemsCount();
     int           pendingTasksCount();
 
-    QueueListViewItem* findItemByUrl(const KUrl& url);
+    QueueListViewItem* findItemByUrl(const QUrl& url);
     QueueListViewItem* findItemById(qlonglong id);
 
     void setSettings(const QueueSettings& settings);
@@ -124,7 +124,7 @@ public:
 
     void setEnableToolTips(bool val);
 
-    void reloadThumbs(const KUrl& url);
+    void reloadThumbs(const QUrl& url);
 
     void setItemBusy(qlonglong id);
     QPixmap progressPixmapForIndex(int index) const;

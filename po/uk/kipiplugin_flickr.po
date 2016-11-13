@@ -1,0 +1,639 @@
+# Translation of kipiplugin_flickr.po to Ukrainian
+# Copyright (C) 2008-2016 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2008, 2009, 2010, 2011, 2012, 2013, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_flickr\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 14:19+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#: comboboxintermediate.h:54
+msgid "Various"
+msgstr "Інше"
+
+#: flickrlist.cpp:420
+msgid ""
+"Check if photo should be publicly visible or use Upload Options tab to "
+"specify this for all images"
+msgstr ""
+"Позначте, якщо фотографію можна показувати будь-кому, або скористайтеся "
+"вкладкою «Параметри вивантаження», щоб вказати цей режим оприлюднення для "
+"всіх зображень."
+
+#: flickrlist.cpp:423
+msgid ""
+"Check if photo should be visible to family or use Upload Options tab to "
+"specify this for all images"
+msgstr ""
+"Позначте, якщо фотографію можна показувати лише членам родини, або "
+"скористайтеся вкладкою «Параметри вивантаження», щоб вказати цей режим "
+"оприлюднення для всіх зображень."
+
+#: flickrlist.cpp:426
+msgid ""
+"Check if photo should be visible to friends or use Upload Options tab to "
+"specify this for all images"
+msgstr ""
+"Позначте, якщо фотографію можна показувати лише друзям, або скористайтеся "
+"вкладкою «Параметри вивантаження», щоб вказати цей режим оприлюднення для "
+"всіх зображень."
+
+#: flickrlist.cpp:429
+msgid ""
+"Indicate the safety level for the photo or use Upload Options tab to specify "
+"this for all images"
+msgstr ""
+"Вкажіть рівень безпеки фотографії, або скористайтеся вкладкою «Параметри "
+"вивантаження», щоб вказати цей режим оприлюднення для всіх зображень."
+
+#: flickrlist.cpp:432
+msgid ""
+"Indicate what kind of image this is or use Upload Options tab to specify "
+"this for all images"
+msgstr ""
+"Вкажіть тип зображення вкладкою «Параметри вивантаження», щоб вказати цей "
+"режим оприлюднення для всіх зображень."
+
+#: flickrlist.cpp:445
+msgid ""
+"Add extra tags per image or use Upload Options tab to add tags for all images"
+msgstr ""
+"Додайте мітки до окремих зображень або скористайтеся вкладкою «Параметри "
+"вивантаження», щоб додати мітки до всіх зображень."
+
+#: flickrlist.cpp:462
+msgid "Enter extra tags, separated by commas."
+msgstr "Сюди ви можете ввести додаткові мітки, відокремлені комами."
+
+#: flickrtalker.cpp:203
+msgid "Getting the maximum allowed file size."
+msgstr "Отримання максимального дозволеного розміру файла."
+
+#: flickrtalker.cpp:265
+msgid "Getting the Frob"
+msgstr "Отримання значка"
+
+#: flickrtalker.cpp:305
+msgid "Checking if previous token is still valid"
+msgstr "Перевірка стану попереднього розпізнавального знаку"
+
+#: flickrtalker.cpp:335
+#, kde-format
+msgid "%1 Service Web Authorization"
+msgstr "Мережева автентифікація служби %1"
+
+#: flickrtalker.cpp:336
+msgid ""
+"Please follow the instructions in the browser window, then return to press "
+"corresponding button."
+msgstr ""
+"Будь ласка, виконайте всі настанови у вікні переглядача, а потім поверніться "
+"назад і натисніть відповідну кнопку."
+
+#: flickrtalker.cpp:340
+msgid "I am authenticated"
+msgstr "Мене розпізнано"
+
+#: flickrtalker.cpp:341
+msgid "I am not authenticated"
+msgstr "Мене не розпізнано"
+
+#: flickrtalker.cpp:346
+msgid "Authenticating the User on web"
+msgstr "Процес автентифікації користувача у мережі"
+
+#: flickrtalker.cpp:393
+msgid "Getting the Token from the server"
+msgstr "Отримання розпізнавального знаку від сервера"
+
+#: flickrtalker.cpp:706
+msgid "File Size exceeds maximum allowed file size."
+msgstr "Розмір файла перевищує максимальний дозволений."
+
+#: flickrtalker.cpp:760
+msgid "No photo specified"
+msgstr "Не вказано фотографій"
+
+#: flickrtalker.cpp:764
+msgid "General upload failure"
+msgstr "Загальна відмова вивантаження"
+
+#: flickrtalker.cpp:768
+msgid "Filesize was zero"
+msgstr "Нульовий розмір файла"
+
+#: flickrtalker.cpp:772
+msgid "Filetype was not recognized"
+msgstr "Не вдалося визначити тип файла"
+
+#: flickrtalker.cpp:776
+msgid "User exceeded upload limit"
+msgstr "Користувачем перевищено обмеження на вивантаження"
+
+#: flickrtalker.cpp:780
+msgid "Invalid signature"
+msgstr "Некоректний підпис"
+
+#: flickrtalker.cpp:784
+msgid "Missing signature"
+msgstr "Відсутній підпис"
+
+#: flickrtalker.cpp:788
+msgid "Login Failed / Invalid auth token"
+msgstr "Невдала спроба входу або некоректний розпізнавальний знак"
+
+#: flickrtalker.cpp:792
+msgid "Invalid API Key"
+msgstr "Некоректний ключ API"
+
+#: flickrtalker.cpp:796
+msgid "Service currently unavailable"
+msgstr "Зараз сервер недоступний"
+
+#: flickrtalker.cpp:800
+msgid "Invalid Frob"
+msgstr "Некоректний значок"
+
+#: flickrtalker.cpp:804
+msgid "Format \"xxx\" not found"
+msgstr "Формат «xxx» не знайдено"
+
+#: flickrtalker.cpp:808
+msgid "Method \"xxx\" not found"
+msgstr "Метод «xxx» не знайдено"
+
+#: flickrtalker.cpp:812
+msgid "Invalid SOAP envelope"
+msgstr "Некоректна обгортка SOAP"
+
+#: flickrtalker.cpp:816
+msgid "Invalid XML-RPC Method Call"
+msgstr "Некоректний виклик методу XML-RPC"
+
+#: flickrtalker.cpp:820
+msgid "The POST method is now required for all setters"
+msgstr "Тепер слід використовувати метод POST для всіх механізмів"
+
+#: flickrtalker.cpp:824
+msgid "Unknown error"
+msgstr "Невідома помилка"
+
+#: flickrtalker.cpp:829 flickrtalker.cpp:853 flickrtalker.cpp:1262
+#: flickrwindow.cpp:484
+msgid "Error"
+msgstr "Помилка"
+
+#: flickrtalker.cpp:830
+#, kde-format
+msgid ""
+"Error Occurred: %1\n"
+"Cannot proceed any further."
+msgstr ""
+"Сталася помилка: %1\n"
+" Продовження роботи неможливе."
+
+#: flickrtalker.cpp:1064
+msgctxt "As in the permission to"
+msgid "write"
+msgstr "запис"
+
+#: flickrtalker.cpp:1068
+msgctxt "As in the permission to"
+msgid "read"
+msgstr "читання"
+
+#: flickrtalker.cpp:1072
+msgctxt "As in the permission to"
+msgid "delete"
+msgstr "вилучення"
+
+#: flickrtalker.cpp:1103
+msgid "Invalid Token"
+msgstr "Некоректний ключ"
+
+#: flickrtalker.cpp:1104
+msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
+msgstr ""
+"Ваш розпізнавальний знак не є коректним. Бажаєте отримати новий для "
+"продовження?\n"
+
+#: flickrtalker.cpp:1262
+msgid "PhotoSet creation failed: "
+msgstr "Спроба створення серії фоторобіт завершилася невдало:"
+
+#: flickrtalker.cpp:1357
+msgid "Failed to fetch list of photo sets."
+msgstr "Спроба обробки списку фоторобіт зазнала невдачі."
+
+#: flickrtalker.cpp:1437
+msgid "Failed to upload photo"
+msgstr "Спроба вивантаження фотографії зазнала невдачі"
+
+#: flickrtalker.cpp:1505
+msgid "Failed to query photo information"
+msgstr "Спроба отримання інформації про зображення зазнала невдачі"
+
+#: flickrwidget.cpp:63
+msgid "Remove Account"
+msgstr "Вилучити обліковий запис"
+
+#: flickrwidget.cpp:73 flickrwidget.cpp:78
+msgctxt "photo permissions"
+msgid "Public"
+msgstr "Відкритий доступ"
+
+#: flickrwidget.cpp:77
+msgid "This is the list of images to upload to your Flickr account."
+msgstr ""
+"Це список зображень, які буде вивантажено на ваш обліковий запис Flickr."
+
+#: flickrwidget.cpp:82
+msgid "Extra tags"
+msgstr "Додаткові мітки"
+
+#: flickrwidget.cpp:88 flickrwidget.cpp:99
+msgctxt "photo permissions"
+msgid "Family"
+msgstr "Родина"
+
+#: flickrwidget.cpp:93 flickrwidget.cpp:101
+msgctxt "photo permissions"
+msgid "Friends"
+msgstr "Друзі"
+
+#: flickrwidget.cpp:108
+msgid "Safety level"
+msgstr "Рівень безпеки"
+
+#: flickrwidget.cpp:110
+msgid "Content type"
+msgstr "Тип вмісту"
+
+#: flickrwidget.cpp:113
+msgctxt "photo safety level"
+msgid "Safe"
+msgstr "Безпечний"
+
+#: flickrwidget.cpp:114
+msgctxt "photo safety level"
+msgid "Moderate"
+msgstr "Помірний"
+
+#: flickrwidget.cpp:115
+msgctxt "photo safety level"
+msgid "Restricted"
+msgstr "Конфіденційний"
+
+#: flickrwidget.cpp:116 flickrwidget.cpp:208
+msgctxt "photo content type"
+msgid "Photo"
+msgstr "Фотографія"
+
+#: flickrwidget.cpp:117 flickrwidget.cpp:209
+msgctxt "photo content type"
+msgid "Screenshot"
+msgstr "Знімок вікна"
+
+#: flickrwidget.cpp:118 flickrwidget.cpp:210
+msgctxt "photo content type"
+msgid "Other"
+msgstr "Інше"
+
+#: flickrwidget.cpp:131
+msgid "Tag options"
+msgstr "Параметри міток"
+
+#: flickrwidget.cpp:135
+msgid "Use Host Application Tags"
+msgstr "Використовувати програмні мітки"
+
+#: flickrwidget.cpp:137 flickrwidget.cpp:505
+msgid "More tag options"
+msgstr "Додаткові параметри міток"
+
+#: flickrwidget.cpp:151
+msgid "Added Tags: "
+msgstr "Додані мітки:"
+
+#: flickrwidget.cpp:153
+msgid "Enter new tags here, separated by commas."
+msgstr "Сюди ви можете ввести нові мітки, відокремлені комами."
+
+#: flickrwidget.cpp:155
+msgid "Add tags per image"
+msgstr "Додавати мітки до окремого зображення"
+
+#: flickrwidget.cpp:156
+msgid "If checked, you can set extra tags for each image in the File List tab"
+msgstr ""
+"Якщо буде позначено, ви зможете встановлювати додаткові мітки для кожного з "
+"зображень на вкладці «Список файлів»"
+
+#: flickrwidget.cpp:160
+msgid "Strip Spaces From Tags"
+msgstr "Вилучити пробіли з міток"
+
+#: flickrwidget.cpp:173
+msgid "Publication Options"
+msgstr "Параметри оприлюднення"
+
+#: flickrwidget.cpp:178
+msgctxt "As in accessible for people"
+msgid "Public (anyone can see them)"
+msgstr "Зробити видимими для всіх"
+
+#: flickrwidget.cpp:181
+msgid "Visible to Family"
+msgstr "Зробити видимими для сім’ї"
+
+#: flickrwidget.cpp:184
+msgid "Visible to Friends"
+msgstr "Зробити видимими для друзів"
+
+#: flickrwidget.cpp:187 flickrwidget.cpp:492
+msgid "More publication options"
+msgstr "Додаткові параметри оприлюднення"
+
+#: flickrwidget.cpp:200
+msgid "Safety level:"
+msgstr "Рівень безпеки:"
+
+#: flickrwidget.cpp:202
+msgid "Safe"
+msgstr "Безпечний"
+
+#: flickrwidget.cpp:203
+msgid "Moderate"
+msgstr "Помірний"
+
+#: flickrwidget.cpp:204
+msgid "Restricted"
+msgstr "Конфіденційний"
+
+#: flickrwidget.cpp:206
+msgid "Content type:"
+msgstr "Тип вмісту:"
+
+#: flickrwidget.cpp:306
+msgid ""
+"<b><h2><a href='http://www.23hq.com'><font color=\"#7CD164\">23</font></a> "
+"Export</h2></b>"
+msgstr ""
+"<b><h2><a href='http://www.23hq.com'><font color=\"#7CD164\">23</font></a> "
+"Експорт</h2></b>"
+
+#: flickrwidget.cpp:311
+msgid ""
+"<b><h2><a href='http://www.zooomr.com'><font color=\"#7CD164\">zooomr</"
+"font></a> Export</h2></b>"
+msgstr ""
+"<b><h2><a href='http://www.zooomr.com'><font color=\"#7CD164\">zooomr</"
+"font></a> Експорт</h2></b>"
+
+#: flickrwidget.cpp:316
+msgid ""
+"<b><h2><a href='http://www.flickr.com'><font color=\"#0065DE\">flick</"
+"font><font color=\"#FF0084\">r</font></a> Export</h2></b>"
+msgstr ""
+"<b><h2>Експорт до <a href='http://www.flickr.com'><font color=\"#0065DE"
+"\">flick</font><font color=\"#FF0084\">r</font></a></h2></b>"
+
+#: flickrwidget.cpp:488
+msgid "Fewer publication options"
+msgstr "Основні параметри оприлюднення"
+
+#: flickrwidget.cpp:510
+msgid "Fewer tag options"
+msgstr "Основні параметри міток"
+
+#: flickrwindow.cpp:73
+#, kde-format
+msgid "Export to %1 Web Service"
+msgstr "Експортувати до мережевої служби %1"
+
+#: flickrwindow.cpp:125
+msgid "Start Uploading"
+msgstr "Почати вивантаження"
+
+#: flickrwindow.cpp:139
+msgid "Flickr/23/Zooomr Export"
+msgstr "Експорт до Flickr/23/Zooomr"
+
+#: flickrwindow.cpp:140
+msgid ""
+"A tool to export an image collection to a Flickr / 23 / Zooomr web service."
+msgstr ""
+"Засіб для експортування збірок зображень до мережевої служби Flickr/23/"
+"Zooomr."
+
+#: flickrwindow.cpp:142
+msgid ""
+"(c) 2005-2008, Vardhman Jain\n"
+"(c) 2008-2015, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"© Vardhman Jain, 2005–2008,\n"
+"© Gilles Caulier, 2008–2015,\n"
+"© Luka Renko, 2009\n"
+"© Shourya Singh Gupta, 2015"
+
+#: flickrwindow.cpp:147
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: flickrwindow.cpp:147
+msgid "Author and maintainer"
+msgstr "Автор та супровід"
+
+#: flickrwindow.cpp:150
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: flickrwindow.cpp:150 flickrwindow.cpp:153
+msgid "Developer"
+msgstr "Розробник"
+
+#: flickrwindow.cpp:153
+msgid "Shourya Singh Gupta"
+msgstr "Shourya Singh Gupta"
+
+#: flickrwindow.cpp:646
+msgid "&lt;Photostream Only&gt;"
+msgstr "&lt;Лише Photostream&gt;"
+
+#: flickrwindow.cpp:835
+msgid "Flickr Export"
+msgstr "Експорт до Flickr"
+
+#: flickrwindow.cpp:853
+#, kde-format
+msgid "Failed to Fetch Photoset information from %1. %2\n"
+msgstr ""
+"Спроба отримання інформації про серію фоторобіт з %1 зазнала невдачі. %2\n"
+
+#: flickrwindow.cpp:859
+msgid "Warning"
+msgstr "Попередження"
+
+#: flickrwindow.cpp:860
+#, kde-format
+msgid ""
+"Failed to upload photo into %1. %2\n"
+"Do you want to continue?"
+msgstr ""
+"Спроба вивантаження фотографії на %1 завершилася невдало. %2\n"
+"Бажаєте продовжити?"
+
+#: flickrwindow.cpp:863
+msgid "Continue"
+msgstr "Продовжити"
+
+#: flickrwindow.cpp:864
+msgid "Cancel"
+msgstr "Скасувати"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_flickrui.rc:7
+msgid "&Export"
+msgstr "&Експорт"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_flickrui.rc:15
+msgid "Main Toolbar"
+msgstr "Головна панель"
+
+#: login.cpp:84
+msgctxt "flickr login"
+msgid "Username:"
+msgstr "Користувач:"
+
+#: login.cpp:87
+msgid "Password:"
+msgstr "Пароль:"
+
+#: plugin_flickr.cpp:106
+msgid "Export to Flick&r..."
+msgstr "Експортувати до Flick&r..."
+
+#: plugin_flickr.cpp:118
+msgid "Export to &23..."
+msgstr "Експортувати до &23..."
+
+#: plugin_flickr.cpp:130
+msgid "Export to &Zooomr..."
+msgstr "Експ&ортувати до Zoomr..."
+
+#: selectuserdlg.cpp:47
+msgid "Flickr Account Selector"
+msgstr "Засіб вибору облікового запису Flickr"
+
+#: selectuserdlg.cpp:52
+msgid "Add another account"
+msgstr "Додати інший обліковий запис"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Юрій Чорноіван"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "yurchor@ukr.net"
+
+#~ msgid "New PhotoSet"
+#~ msgstr "Нова серія фоторобіт"
+
+#~ msgid "<h3>Create New PhotoSet </h3>"
+#~ msgstr "<h3>Створити нову серію фоторобіт </h3>"
+
+#~ msgid "&OK"
+#~ msgstr "&Гаразд"
+
+#~ msgid "Title (required):"
+#~ msgstr "Заголовок (обов’язково):"
+
+#~ msgid "Description (optional)"
+#~ msgstr "Опис (необов’язково)"
+
+#~ msgid "Account"
+#~ msgstr "Обліковий запис"
+
+#~ msgctxt "account settings"
+#~ msgid "Username: "
+#~ msgstr "Користувач:"
+
+#~ msgid "Use a different account"
+#~ msgstr "Використати інший обліковий запис"
+
+#~ msgid "PhotoSet:"
+#~ msgstr "Серія фоторобіт:"
+
+#~ msgid "&New PhotoSet"
+#~ msgstr "&Створити серію фоторобіт"
+
+#~ msgid "&Reload"
+#~ msgstr "П&ерезавантажити"
+
+#~ msgid "Resizing Options"
+#~ msgstr "Параметри зміни розмірів"
+
+#~ msgid "Send original file (no resizing)"
+#~ msgstr "Надіслати початковий файл (без зміни розмірів)"
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Змінити розмір фотографій перед вивантаженням"
+
+#~ msgid "Maximum dimension (pixels):"
+#~ msgstr "Максимальний розмір (у пікселях):"
+
+#~ msgid "JPEG Image Quality (higher is better):"
+#~ msgstr "Якість зображень JPEG (вища краща):"
+
+#~ msgid "File List"
+#~ msgstr "Список файлів"
+
+#~ msgid "Upload Options"
+#~ msgstr "Параметри вивантаження"
+
+#~ msgid "Handbook"
+#~ msgstr "Підручник"
+
+#~ msgid "Uploading file %1"
+#~ msgstr "Вивантаження файла %1"
+
+#~ msgid "Less tag options"
+#~ msgstr "Скорочені параметри міток"
+
+#~ msgid "Less publication options"
+#~ msgstr "Скорочені параметри оприлюднення"
+
+#~ msgid "Override Default Options"
+#~ msgstr "Замінити типові параметри"
+
+#~ msgid "Extended options"
+#~ msgstr "Додаткові параметри"
+
+#~ msgid "PhotoSet created successfully"
+#~ msgstr "Серію фоторобіт успішно створено"
+
+#~ msgid "Name (optional):"
+#~ msgstr "Назва (необов’язково):"
+
+#~ msgid "Primary Photo Id"
+#~ msgstr "Основний ідентифікатор фото"
+
+#~ msgid "User Name: "
+#~ msgstr "Користувач: "

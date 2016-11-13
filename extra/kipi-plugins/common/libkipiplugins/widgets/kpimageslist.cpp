@@ -6,7 +6,7 @@
  * Date        : 2008-05-21
  * Description : widget to display an imagelist
  *
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2010 by Andi Clemens <andi dot clemens at googlemail dot com>
  * Copyright (C) 2009-2010 by Luka Renko <lure at kubuntu dot org>
  *
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "kpimageslist.moc"
+#include "kpimageslist.h"
 
 // Qt includes
 
@@ -30,6 +30,7 @@
 #include <QFileInfo>
 #include <QGridLayout>
 #include <QGroupBox>
+#include <QMimeData>
 #include <QHeaderView>
 #include <QLabel>
 #include <QPainter>
@@ -40,42 +41,36 @@
 #include <QPointer>
 #include <QXmlStreamAttributes>
 #include <QStringRef>
+#include <QString>
+#include <QStandardPaths>
+#include <QFileDialog>
+#include <QIcon>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdeversion.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <knuminput.h>
-#include <kio/previewjob.h>
-#include <kpixmapsequence.h>
-#include <kfiledialog.h>
-#include <kglobalsettings.h>
+#include <klocalizedstring.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/imagecollection.h>
-#include <libkipi/interface.h>
-#include <libkipi/pluginloader.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/kdcraw.h>
+#include <KIPI/ImageCollection>
+#include <KIPI/Interface>
+#include <KIPI/PluginLoader>
 
 // Local includes
 
-#include "kprawthumbthread.h"
 #include "kpimageinfo.h"
 #include "kpimagedialog.h"
+#include "kipiplugins_debug.h"
+#include "kputil.h"
 
 using namespace KIPIPlugins;
 
 namespace KIPIPlugins
 {
 
-const int DEFAULTSIZE = KIconLoader::SizeLarge;
+const int DEFAULTSIZE = 48;
 
 class KPImagesListViewItem::Private
 {
@@ -89,28 +84,31 @@ public:
         hasThumb = false;
     }
 
-    bool              hasThumb;
+    bool              hasThumb;       // True if thumbnails is a real photo thumbs
 
     int               rating;         // Image Rating from Kipi host.
     QString           comments;       // Image comments from Kipi host.
     QStringList       tags;           // List of keywords from Kipi host.
-    KUrl              url;            // Image url provided by Kipi host.
+    QUrl              url;            // Image url provided by Kipi host.
     QPixmap           thumb;          // Image thumbnail.
     KPImagesListView* view;
     State             state;
 };
 
-KPImagesListViewItem::KPImagesListViewItem(KPImagesListView* const view, const KUrl& url)
-    : QTreeWidgetItem(view), d(new Private)
+KPImagesListViewItem::KPImagesListViewItem(KPImagesListView* const view, const QUrl& url)
+    : QTreeWidgetItem(view),
+      d(new Private)
 {
-    kDebug() << "Creating new ImageListViewItem with url " << url
-             << " for list view " << view;
-    d->view      = view;
-    int iconSize = d->view->iconSize().width();
-    setThumb(SmallIcon("image-x-generic", iconSize, KIconLoader::DisabledState), false);
     setUrl(url);
     setRating(-1);
     setFlags(Qt::ItemIsEnabled | Qt::ItemIsDragEnabled | Qt::ItemIsSelectable);
+
+    d->view      = view;
+    int iconSize = d->view->iconSize().width();
+    setThumb(QIcon::fromTheme(QString::fromLatin1("image-x-generic")).pixmap(iconSize, iconSize, QIcon::Disabled), false);
+
+    qCDebug(KIPIPLUGINS_LOG) << "Creating new ImageListViewItem with url " << d->url
+                             << " for list view " << d->view;
 }
 
 KPImagesListViewItem::~KPImagesListViewItem()
@@ -145,13 +143,13 @@ void KPImagesListViewItem::updateInformation()
     }
 }
 
-void KPImagesListViewItem::setUrl(const KUrl& url)
+void KPImagesListViewItem::setUrl(const QUrl& url)
 {
     d->url = url;
     setText(KPImagesListView::Filename, d->url.fileName());
 }
 
-KUrl KPImagesListViewItem::url() const
+QUrl KPImagesListViewItem::url() const
 {
     return d->url;
 }
@@ -201,13 +199,16 @@ void KPImagesListViewItem::setPixmap(const QPixmap& pix)
 
 void KPImagesListViewItem::setThumb(const QPixmap& pix, bool hasThumb)
 {
-    kDebug() << "Received new thumbnail for url " << d->url
-             << ". My view is " << d->view;
+    if (hasThumb)
+    {
+        qCDebug(KIPIPLUGINS_LOG) << "Received new thumbnail for url "
+                                 << d->url << " for view " << d->view;
+    }
 
     if (!d->view)
     {
-        kError() << "This item doesn't have a tree view. "
-                 << "This should never happen!";
+        qCCritical(KIPIPLUGINS_LOG) << "This item doesn't have a tree view. "
+                                    << "This should never happen!";
         return;
     }
 
@@ -303,15 +304,15 @@ void KPImagesListView::setup(int iconSize)
     hideColumn(User5);
     hideColumn(User6);
 
-    header()->setResizeMode(User1, QHeaderView::Interactive);
-    header()->setResizeMode(User2, QHeaderView::Interactive);
-    header()->setResizeMode(User3, QHeaderView::Interactive);
-    header()->setResizeMode(User4, QHeaderView::Interactive);
-    header()->setResizeMode(User5, QHeaderView::Interactive);
-    header()->setResizeMode(User6, QHeaderView::Stretch);
+    header()->setSectionResizeMode(User1, QHeaderView::Interactive);
+    header()->setSectionResizeMode(User2, QHeaderView::Interactive);
+    header()->setSectionResizeMode(User3, QHeaderView::Interactive);
+    header()->setSectionResizeMode(User4, QHeaderView::Interactive);
+    header()->setSectionResizeMode(User5, QHeaderView::Interactive);
+    header()->setSectionResizeMode(User6, QHeaderView::Stretch);
 
-    connect(this, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
-            this, SLOT(slotItemClicked(QTreeWidgetItem*,int)));
+    connect(this, &KPImagesListView::itemClicked,
+            this, &KPImagesListView::slotItemClicked);
 }
 
 void KPImagesListView::enableDragAndDrop(const bool enable)
@@ -325,11 +326,11 @@ void KPImagesListView::enableDragAndDrop(const bool enable)
 
 void KPImagesListView::drawRow(QPainter* p, const QStyleOptionViewItem& opt, const QModelIndex& index) const
 {
-    KPImagesListViewItem* item = dynamic_cast<KPImagesListViewItem*>(itemFromIndex(index));
+    KPImagesListViewItem* const item = dynamic_cast<KPImagesListViewItem*>(itemFromIndex(index));
 
     if (item && !item->hasValidThumbnail())
     {
-        KPImagesList* view = dynamic_cast<KPImagesList*>(parent());
+        KPImagesList* const view = dynamic_cast<KPImagesList*>(parent());
 
         if (view)
         {
@@ -375,13 +376,13 @@ void KPImagesListView::setColumn(ColumnType column, const QString& label, bool e
     setColumnEnabled(column, enable);
 }
 
-KPImagesListViewItem* KPImagesListView::findItem(const KUrl& url)
+KPImagesListViewItem* KPImagesListView::findItem(const QUrl& url)
 {
     QTreeWidgetItemIterator it(this);
 
     while (*it)
     {
-        KPImagesListViewItem* lvItem = dynamic_cast<KPImagesListViewItem*>(*it);
+        KPImagesListViewItem* const lvItem = dynamic_cast<KPImagesListViewItem*>(*it);
 
         if (lvItem && lvItem->url() == url)
         {
@@ -398,7 +399,7 @@ QModelIndex KPImagesListView::indexFromItem(KPImagesListViewItem* item, int colu
 {
   return QTreeWidget::indexFromItem(item, column);
 }
- 
+
 void KPImagesListView::contextMenuEvent(QContextMenuEvent* e)
 {
     QTreeWidget::contextMenuEvent(e);
@@ -429,15 +430,15 @@ void KPImagesListView::dropEvent(QDropEvent* e)
 {
     QTreeWidget::dropEvent(e);
     QList<QUrl> list = e->mimeData()->urls();
-    KUrl::List urls;
+    QList<QUrl> urls;
 
     foreach(const QUrl& url, list)
     {
-        QFileInfo fi(url.path());
+        QFileInfo fi(url.toLocalFile());
 
         if (fi.isFile() && fi.exists())
         {
-            urls.append(KUrl(url));
+            urls.append(url);
         }
     }
 
@@ -449,11 +450,13 @@ void KPImagesListView::dropEvent(QDropEvent* e)
 
 Interface* KPImagesListView::iface() const
 {
-    KPImagesList* p = dynamic_cast<KPImagesList*>(parent());
+    KPImagesList* const p = dynamic_cast<KPImagesList*>(parent());
+
     if (p)
     {
         return p->iface();
     }
+
     return 0;
 }
 
@@ -481,56 +484,55 @@ public:
 
     Private()
     {
-        listView              = 0;
-        iface                 = 0;
-        addButton             = 0;
-        removeButton          = 0;
-        moveUpButton          = 0;
-        moveDownButton        = 0;
-        clearButton           = 0;
-        loadButton            = 0;
-        saveButton            = 0;
-        iconSize              = DEFAULTSIZE;
-        allowRAW              = true;
-        controlButtonsEnabled = true;
-        allowDuplicate        = false;
-        progressCount         = 0;
-        progressTimer         = 0;
-        loadRawThumb          = 0;
-        progressPix           = KPixmapSequence("process-working", KIconLoader::SizeSmallMedium);
+        listView               = 0;
+        iface                  = 0;
+        addButton              = 0;
+        removeButton           = 0;
+        moveUpButton           = 0;
+        moveDownButton         = 0;
+        clearButton            = 0;
+        loadButton             = 0;
+        saveButton             = 0;
+        iconSize               = DEFAULTSIZE;
+        allowRAW               = true;
+        controlButtonsEnabled  = true;
+        allowDuplicate         = false;
+        progressCount          = 0;
+        progressTimer          = 0;
+        progressPix            = KPWorkingPixmap();
+        PluginLoader* const pl = PluginLoader::instance();
 
-        PluginLoader* pl = PluginLoader::instance();
         if (pl)
         {
             iface = pl->interface();
         }
     }
 
-    bool              allowRAW;
-    bool              allowDuplicate;
-    bool              controlButtonsEnabled;
-    int               iconSize;
+    bool                       allowRAW;
+    bool                       allowDuplicate;
+    bool                       controlButtonsEnabled;
+    int                        iconSize;
 
-    CtrlButton*       addButton;
-    CtrlButton*       removeButton;
-    CtrlButton*       moveUpButton;
-    CtrlButton*       moveDownButton;
-    CtrlButton*       clearButton;
-    CtrlButton*       loadButton;
-    CtrlButton*       saveButton;
+    CtrlButton*                addButton;
+    CtrlButton*                removeButton;
+    CtrlButton*                moveUpButton;
+    CtrlButton*                moveDownButton;
+    CtrlButton*                clearButton;
+    CtrlButton*                loadButton;
+    CtrlButton*                saveButton;
 
-    KUrl::List        processItems;
-    KPixmapSequence   progressPix;
-    int               progressCount;
-    QTimer*           progressTimer;
+    QList<QUrl>                processItems;
+    KPWorkingPixmap            progressPix;
+    int                        progressCount;
+    QTimer*                    progressTimer;
 
-    KPImagesListView* listView;
-    Interface*        iface;
-    KPRawThumbThread* loadRawThumb;
+    KPImagesListView*          listView;
+    Interface*                 iface;
 };
 
 KPImagesList::KPImagesList(QWidget* const parent, int iconSize)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     if (iconSize != -1)  // default = ICONSIZE
     {
@@ -544,13 +546,13 @@ KPImagesList::KPImagesList(QWidget* const parent, int iconSize)
 
     // --------------------------------------------------------
 
-    d->addButton      = new CtrlButton(SmallIcon("list-add"), this);
-    d->removeButton   = new CtrlButton(SmallIcon("list-remove"), this);
-    d->moveUpButton   = new CtrlButton(SmallIcon("arrow-up"), this);
-    d->moveDownButton = new CtrlButton(SmallIcon("arrow-down"), this);
-    d->clearButton    = new CtrlButton(SmallIcon("edit-clear-list"), this);
-    d->loadButton     = new CtrlButton(SmallIcon("document-open"), this);
-    d->saveButton     = new CtrlButton(SmallIcon("document-save"), this);
+    d->addButton      = new CtrlButton(QIcon::fromTheme(QString::fromLatin1("list-add")).pixmap(16, 16),      this);
+    d->removeButton   = new CtrlButton(QIcon::fromTheme(QString::fromLatin1("list-remove")).pixmap(16, 16),   this);
+    d->moveUpButton   = new CtrlButton(QIcon::fromTheme(QString::fromLatin1("go-up")).pixmap(16, 16),         this);
+    d->moveDownButton = new CtrlButton(QIcon::fromTheme(QString::fromLatin1("go-down")).pixmap(16, 16),       this);
+    d->clearButton    = new CtrlButton(QIcon::fromTheme(QString::fromLatin1("edit-clear")).pixmap(16, 16),    this);
+    d->loadButton     = new CtrlButton(QIcon::fromTheme(QString::fromLatin1("document-open")).pixmap(16, 16), this);
+    d->saveButton     = new CtrlButton(QIcon::fromTheme(QString::fromLatin1("document-save")).pixmap(16, 16), this);
 
     d->addButton->setToolTip(i18n("Add new images to the list"));
     d->removeButton->setToolTip(i18n("Remove selected images from the list"));
@@ -564,66 +566,61 @@ KPImagesList::KPImagesList(QWidget* const parent, int iconSize)
 
     // --------------------------------------------------------
 
-    setControlButtons(Add | Remove | MoveUp | MoveDown | Clear | Save | Load ); // add all buttons       (default)
-    setControlButtonsPlacement(ControlButtonsRight);             // buttons on the right  (default)
-    enableDragAndDrop(true);                                     // enable drag and drop  (default)
+    setControlButtons(Add | Remove | MoveUp | MoveDown | Clear | Save | Load ); // add all buttons      (default)
+    setControlButtonsPlacement(ControlButtonsRight);                            // buttons on the right (default)
+    enableDragAndDrop(true);                                                    // enable drag and drop (default)
 
     // --------------------------------------------------------
 
-    connect(d->listView, SIGNAL(signalAddedDropedItems(KUrl::List)),
-            this, SLOT(slotAddImages(KUrl::List)));
+    connect(d->listView, &KPImagesListView::signalAddedDropedItems,
+            this, &KPImagesList::slotAddImages);
 
     if (d->iface)
     {
-        connect(d->iface, SIGNAL(gotThumbnail(KUrl,QPixmap)),
-                this, SLOT(slotThumbnail(KUrl,QPixmap)));
+        connect(d->iface, &Interface::gotThumbnail,
+                this, &KPImagesList::slotThumbnail);
     }
 
-    d->loadRawThumb = new KPRawThumbThread(this);
+    connect(d->listView, &KPImagesListView::signalItemClicked,
+            this, &KPImagesList::signalItemClicked);
 
-    connect(d->loadRawThumb, SIGNAL(signalRawThumb(KUrl,QImage)),
-            this, SLOT(slotRawThumb(KUrl,QImage)));
-
-    connect(d->listView, SIGNAL(signalItemClicked(QTreeWidgetItem*)),
-            this, SIGNAL(signalItemClicked(QTreeWidgetItem*)));
-
-    connect(d->listView, SIGNAL(signalContextMenuRequested()),
-            this, SIGNAL(signalContextMenuRequested()));
+    connect(d->listView, &KPImagesListView::signalContextMenuRequested,
+            this, &KPImagesList::signalContextMenuRequested);
 
     // queue this connection because itemSelectionChanged is emitted
     // while items are deleted, and accessing selectedItems at that
     // time causes a crash ...
-    connect(d->listView, SIGNAL(itemSelectionChanged()),
-            this, SLOT(slotImageListChanged()), Qt::QueuedConnection);
+    connect(d->listView, &KPImagesListView::itemSelectionChanged,
+            this, &KPImagesList::slotImageListChanged, Qt::QueuedConnection);
 
-    connect(this, SIGNAL(signalImageListChanged()),
-            this, SLOT(slotImageListChanged()));
+    connect(this, &KPImagesList::signalImageListChanged,
+            this, &KPImagesList::slotImageListChanged);
 
     // --------------------------------------------------------
 
-    connect(d->addButton, SIGNAL(clicked()),
-            this, SLOT(slotAddItems()));
+    connect(d->addButton, &CtrlButton::clicked,
+            this, &KPImagesList::slotAddItems);
 
-    connect(d->removeButton, SIGNAL(clicked()),
-            this, SLOT(slotRemoveItems()));
+    connect(d->removeButton, &CtrlButton::clicked,
+            this, &KPImagesList::slotRemoveItems);
 
-    connect(d->moveUpButton, SIGNAL(clicked()),
-            this, SLOT(slotMoveUpItems()));
+    connect(d->moveUpButton, &CtrlButton::clicked,
+            this, &KPImagesList::slotMoveUpItems);
 
-    connect(d->moveDownButton, SIGNAL(clicked()),
-            this, SLOT(slotMoveDownItems()));
+    connect(d->moveDownButton, &CtrlButton::clicked,
+            this, &KPImagesList::slotMoveDownItems);
 
-    connect(d->clearButton, SIGNAL(clicked()),
-            this, SLOT(slotClearItems()));
+    connect(d->clearButton, &CtrlButton::clicked,
+            this, &KPImagesList::slotClearItems);
 
-    connect(d->loadButton, SIGNAL(clicked()),
-            this, SLOT(slotLoadItems()));
+    connect(d->loadButton, &CtrlButton::clicked,
+            this, &KPImagesList::slotLoadItems);
 
-    connect(d->saveButton, SIGNAL(clicked()),
-            this, SLOT(slotSaveItems()));
+    connect(d->saveButton, &CtrlButton::clicked,
+            this, &KPImagesList::slotSaveItems);
 
-    connect(d->progressTimer, SIGNAL(timeout()),
-            this, SLOT(slotProgressTimerDone()));
+    connect(d->progressTimer, &QTimer::timeout,
+            this, &KPImagesList::slotProgressTimerDone);
 
     // --------------------------------------------------------
 
@@ -645,16 +642,18 @@ void KPImagesList::setControlButtonsPlacement(ControlButtonPlacement placement)
 {
     delete layout();
 
-    QGridLayout* mainLayout = new QGridLayout;
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    QGridLayout* const mainLayout = new QGridLayout;
     mainLayout->addWidget(d->listView, 1, 1, 1, 1);
     mainLayout->setRowStretch(1, 10);
     mainLayout->setColumnStretch(1, 10);
-    mainLayout->setMargin(KDialog::spacingHint());
-    mainLayout->setSpacing(KDialog::spacingHint());
+    mainLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    mainLayout->setSpacing(spacing);
 
     // --------------------------------------------------------
 
-    QHBoxLayout* hBtnLayout = new QHBoxLayout;
+    QHBoxLayout* const hBtnLayout = new QHBoxLayout;
     hBtnLayout->addStretch(10);
     hBtnLayout->addWidget(d->moveUpButton);
     hBtnLayout->addWidget(d->moveDownButton);
@@ -667,7 +666,7 @@ void KPImagesList::setControlButtonsPlacement(ControlButtonPlacement placement)
 
     // --------------------------------------------------------
 
-    QVBoxLayout* vBtnLayout = new QVBoxLayout;
+    QVBoxLayout* const vBtnLayout = new QVBoxLayout;
     vBtnLayout->addStretch(10);
     vBtnLayout->addWidget(d->moveUpButton);
     vBtnLayout->addWidget(d->moveDownButton);
@@ -744,13 +743,13 @@ void KPImagesList::setAllowRAW(bool allow)
 
 void KPImagesList::setIconSize(int size)
 {
-    if (size < KIconLoader::SizeSmall)
+    if (size < 16)
     {
-        d->iconSize = KIconLoader::SizeSmall;
+        d->iconSize = 16;
     }
-    else if (size > KIconLoader::SizeEnormous)
+    else if (size > 128)
     {
-        d->iconSize = KIconLoader::SizeEnormous;
+        d->iconSize = 128;
     }
     else
     {
@@ -766,7 +765,8 @@ int KPImagesList::iconSize() const
 void KPImagesList::loadImagesFromCurrentSelection()
 {
     bool selection = checkSelection();
-    if(selection == true)
+
+    if (selection == true)
     {
         if (!d->iface)
         {
@@ -809,8 +809,9 @@ bool KPImagesList::checkSelection()
     }
 
     ImageCollection images = d->iface->currentSelection();
-    bool check_empty = images.images().empty();
-    if(check_empty == true)
+    bool check_empty       = images.images().empty();
+
+    if (check_empty == true)
     {
         return false;
     }
@@ -818,21 +819,29 @@ bool KPImagesList::checkSelection()
     {
         return true;
     }
-}  
+}
 
-void KPImagesList::slotAddImages(const KUrl::List& list)
+bool KPImagesList::isRawFile(const QUrl& url) const
+{
+    QString   rawFilesExt = d->iface->rawFiles();
+    QFileInfo fileInfo(url.toLocalFile());
+
+    return (rawFilesExt.toUpper().contains(fileInfo.suffix().toUpper()));
+}
+
+void KPImagesList::slotAddImages(const QList<QUrl>& list)
 {
     if (list.count() == 0)
     {
         return;
     }
 
-    KUrl::List urls;
+    QList<QUrl> urls;
     bool raw = false;
 
-    for (KUrl::List::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it)
+    for (QList<QUrl>::ConstIterator it = list.constBegin(); it != list.constEnd(); ++it)
     {
-        KUrl imageUrl = *it;
+        QUrl imageUrl = *it;
 
         // Check if the new item already exist in the list.
         bool found = false;
@@ -854,7 +863,7 @@ void KPImagesList::slotAddImages(const KUrl::List& list)
         if (d->allowDuplicate || !found)
         {
             // if RAW files are not allowed, skip the image
-            if (!d->allowRAW && KPMetadata::isRawFile(imageUrl))
+            if (!d->allowRAW && isRawFile(imageUrl))
             {
                 raw = true;
                 continue;
@@ -873,7 +882,7 @@ void KPImagesList::slotAddImages(const KUrl::List& list)
 void KPImagesList::slotAddItems()
 {
     KPImageDialog dlg(this, false);
-    KUrl::List urls = dlg.urls();
+    QList<QUrl> urls = dlg.urls();
 
     if (!urls.isEmpty())
     {
@@ -886,7 +895,7 @@ void KPImagesList::slotAddItems()
 void KPImagesList::slotRemoveItems()
 {
     QList<QTreeWidgetItem*> selectedItemsList = d->listView->selectedItems();
-    KUrl::List urls;
+    QList<QUrl> urls;
 
     for (QList<QTreeWidgetItem*>::const_iterator it = selectedItemsList.constBegin();
          it != selectedItemsList.constEnd(); ++it)
@@ -929,10 +938,13 @@ void KPImagesList::slotMoveUpItems()
         return;
     }
 
-    QTreeWidgetItem* temp = listView()->takeTopLevelItem(aboveIndex.row());
+    QTreeWidgetItem* const temp = listView()->takeTopLevelItem(aboveIndex.row());
     listView()->insertTopLevelItem(curIndex.row(), temp);
     // this is a quick fix. We loose the extra tags in flickr upload, but at list we don't get a crash
-    dynamic_cast<KIPIPlugins::KPImagesListViewItem*>(temp)->updateItemWidgets();
+    KPImagesListViewItem* const uw = dynamic_cast<KPImagesListViewItem*>(temp);
+
+    if (uw)
+        uw->updateItemWidgets();
 
     emit signalImageListChanged();
     emit signalMoveUpItem();
@@ -959,7 +971,7 @@ void KPImagesList::slotMoveDownItems()
     listView()->insertTopLevelItem(curIndex.row(), temp);
 
     // This is a quick fix. We can loose extra tags in uploader, but at least we don't get a crash
-    KIPIPlugins::KPImagesListViewItem* const uw = dynamic_cast<KIPIPlugins::KPImagesListViewItem*>(temp);
+    KPImagesListViewItem* const uw = dynamic_cast<KPImagesListViewItem*>(temp);
 
     if (uw)
         uw->updateItemWidgets();
@@ -977,78 +989,94 @@ void KPImagesList::slotClearItems()
 
 void KPImagesList::slotLoadItems()
 {
-    KUrl loadLevelsFile;
+    QUrl loadLevelsFile;
 
-    loadLevelsFile = KFileDialog::getOpenUrl(KGlobalSettings::documentPath(),
-                                            QString( "*" ), this,
-                                            QString( i18n("Select the image file list to load")) );
+    loadLevelsFile = QFileDialog::getOpenFileUrl(this, i18n("Select the image file list to load"),
+                                                 QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                 i18n("All Files (*)"));
 
     if ( loadLevelsFile.isEmpty() )
     {
+        qCDebug(KIPIPLUGINS_LOG) << "empty url";
         return;
     }
-    QFile file(loadLevelsFile.path());
 
-    kDebug() << "file path " <<loadLevelsFile.path();
-    file.open(QIODevice::ReadOnly);
+    QFile file(loadLevelsFile.toLocalFile());
+
+    qCDebug(KIPIPLUGINS_LOG) << "file path " << loadLevelsFile.toLocalFile();
+
+    if (!file.open(QIODevice::ReadOnly))
+    {
+        qCDebug(KIPIPLUGINS_LOG) << "Cannot open file";
+        return;
+    }
+
     QXmlStreamReader xmlReader;
     xmlReader.setDevice(&file);
 
     while (!xmlReader.atEnd())
     {
-        if (xmlReader.isStartElement() && xmlReader.name() == "Image")
+        if (xmlReader.isStartElement() && xmlReader.name() == QString::fromLatin1("Image"))
         {
-          // get all attributes and its value of a tag in attrs variable.
-          QXmlStreamAttributes attrs = xmlReader.attributes();
-          // get value of each attribute from QXmlStreamAttributes
-          QStringRef url = attrs.value("url");
-          if (url.isEmpty())
-          {
-              xmlReader.readNext();
-              continue;
-          }
-          KUrl::List urls;
-          urls.append(url.toString());
+            // get all attributes and its value of a tag in attrs variable.
+            QXmlStreamAttributes attrs = xmlReader.attributes();
+            // get value of each attribute from QXmlStreamAttributes
+            QStringRef url = attrs.value(QString::fromLatin1("url"));
 
-          if (!urls.isEmpty())
-          {
-              //allow plugins to append a new file
-              slotAddImages(urls);
-              // read plugin Image custom attributes and children element  
-              emit signalXMLLoadImageElement(xmlReader);
-          }
+            if (url.isEmpty())
+            {
+                xmlReader.readNext();
+                continue;
+            }
+
+            QList<QUrl> urls;
+            urls.append(QUrl(url.toString()));
+
+            if (!urls.isEmpty())
+            {
+                //allow plugins to append a new file
+                slotAddImages(urls);
+                // read plugin Image custom attributes and children element
+                emit signalXMLLoadImageElement(xmlReader);
+            }
         }
-        else if (xmlReader.isStartElement() && xmlReader.name() != "Images")
+        else if (xmlReader.isStartElement() && xmlReader.name() != QString::fromLatin1("Images"))
         {
-          // unmanaged start element (it should be plugins one)
-          emit signalXMLCustomElements(xmlReader);
+            // unmanaged start element (it should be plugins one)
+            emit signalXMLCustomElements(xmlReader);
         }
-        else if(xmlReader.isEndElement() && xmlReader.name() == "Images")
+        else if (xmlReader.isEndElement() && xmlReader.name() == QString::fromLatin1("Images"))
         {
-          // if EndElement is Images return
-          return;
+            // if EndElement is Images return
+            return;
         }
+
         xmlReader.readNext();
     }
 }
 
 void KPImagesList::slotSaveItems()
 {
-    KUrl saveLevelsFile;
-    saveLevelsFile = KFileDialog::getSaveUrl(KGlobalSettings::documentPath(),
-                                             QString( "*" ), this,
-                                             QString( i18n("Select the image file list to save")) );
-    kDebug() << "file url " <<saveLevelsFile.prettyUrl().toAscii();
+    QUrl saveLevelsFile;
+    saveLevelsFile = QFileDialog::getSaveFileUrl(this, i18n("Select the image file list to save"),
+                                                 QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                 i18n("All Files (*)"));
 
-    if ( saveLevelsFile.isEmpty() )
+    qCDebug(KIPIPLUGINS_LOG) << "file url " << saveLevelsFile.toDisplayString();
+
+    if (saveLevelsFile.isEmpty())
     {
-       kDebug() << "empty url ";
+        qCDebug(KIPIPLUGINS_LOG) << "empty url";
         return;
     }
 
-    QFile file(saveLevelsFile.path() /*.prettyUrl().toAscii()*/);
-    file.open(QIODevice::WriteOnly);
-//     file.open(stdout, QIODevice::WriteOnly);
+    QFile file(saveLevelsFile.toLocalFile());
+
+    if (!file.open(QIODevice::WriteOnly))
+    {
+        qCDebug(KIPIPLUGINS_LOG) << "Cannot open target file";
+        return;
+    }
 
     QXmlStreamWriter xmlWriter;
     xmlWriter.setDevice(&file);
@@ -1056,36 +1084,37 @@ void KPImagesList::slotSaveItems()
     xmlWriter.setAutoFormatting(true);
     xmlWriter.writeStartDocument();
 
-    xmlWriter.writeStartElement("Images");
+    xmlWriter.writeStartElement(QString::fromLatin1("Images"));
 
     QTreeWidgetItemIterator it(listView());
 
     while (*it)
     {
-        KPImagesListViewItem* lvItem = dynamic_cast<KPImagesListViewItem*>(*it);
+        KPImagesListViewItem* const lvItem = dynamic_cast<KPImagesListViewItem*>(*it);
 
         if (lvItem)
         {
-            xmlWriter.writeStartElement("Image");
+            xmlWriter.writeStartElement(QString::fromLatin1("Image"));
 
-            xmlWriter.writeAttribute("url", lvItem->url().prettyUrl().toAscii());
+            xmlWriter.writeAttribute(QString::fromLatin1("url"), lvItem->url().toDisplayString());
 
-            //emit xmlWriter, item?
+            // emit xmlWriter, item?
             emit signalXMLSaveItem(xmlWriter, lvItem);
 
-            xmlWriter.writeEndElement(); //Image
+            xmlWriter.writeEndElement(); // Image
         }
+
         ++it;
     }
 
     emit signalXMLCustomElements(xmlWriter);
 
-    xmlWriter.writeEndElement(); // Images
+    xmlWriter.writeEndElement();  // Images
 
-    xmlWriter.writeEndDocument(); //end document
+    xmlWriter.writeEndDocument(); // end document
 }
 
-void KPImagesList::removeItemByUrl(const KUrl& url)
+void KPImagesList::removeItemByUrl(const QUrl& url)
 {
     bool found;
 
@@ -1120,9 +1149,9 @@ void KPImagesList::removeItemByUrl(const KUrl& url)
     emit signalImageListChanged();
 }
 
-KUrl::List KPImagesList::imageUrls(bool onlyUnprocessed) const
+QList<QUrl> KPImagesList::imageUrls(bool onlyUnprocessed) const
 {
-    KUrl::List list;
+    QList<QUrl> list;
     QTreeWidgetItemIterator it(d->listView);
 
     while (*it)
@@ -1147,10 +1176,12 @@ void KPImagesList::slotProgressTimerDone()
 {
     if (!d->processItems.isEmpty())
     {
-        foreach(const KUrl& url, d->processItems)
+        foreach(const QUrl& url, d->processItems)
         {
-            KPImagesListViewItem* item = listView()->findItem(url);
-            if (item) item->setProgressAnimation(d->progressPix.frameAt(d->progressCount));
+            KPImagesListViewItem* const item = listView()->findItem(url);
+
+            if (item)
+                item->setProgressAnimation(d->progressPix.frameAt(d->progressCount));
         }
 
         d->progressCount++;
@@ -1164,9 +1195,9 @@ void KPImagesList::slotProgressTimerDone()
     }
 }
 
-void KPImagesList::processing(const KUrl& url)
+void KPImagesList::processing(const QUrl& url)
 {
-    KPImagesListViewItem* item = listView()->findItem(url);
+    KPImagesListViewItem* const item = listView()->findItem(url);
 
     if (item)
     {
@@ -1177,24 +1208,26 @@ void KPImagesList::processing(const KUrl& url)
     }
 }
 
-void KPImagesList::processed(const KUrl& url, bool success)
+void KPImagesList::processed(const QUrl& url, bool success)
 {
-    KPImagesListViewItem* item = listView()->findItem(url);
+    KPImagesListViewItem* const item = listView()->findItem(url);
 
     if (item)
     {
         d->processItems.removeAll(url);
-        item->setProcessedIcon(SmallIcon(success ?  "dialog-ok" : "dialog-cancel"));
-        item->setState(success ? KPImagesListViewItem::Success : KPImagesListViewItem::Failed);
+        item->setProcessedIcon(QIcon::fromTheme(success ? QString::fromLatin1("dialog-ok-apply")
+                                                        : QString::fromLatin1("dialog-cancel")).pixmap(16, 16));
+        item->setState(success ? KPImagesListViewItem::Success
+                               : KPImagesListViewItem::Failed);
 
-        if(d->processItems.isEmpty())
+        if (d->processItems.isEmpty())
             d->progressTimer->stop();
     }
 }
 
 void KPImagesList::cancelProcess()
 {
-    foreach(const KUrl& url, d->processItems)
+    foreach(const QUrl& url, d->processItems)
     {
         processed(url, false);
     }
@@ -1206,7 +1239,7 @@ void KPImagesList::clearProcessedStatus()
 
     while (*it)
     {
-        KPImagesListViewItem* lvItem = dynamic_cast<KPImagesListViewItem*>(*it);
+        KPImagesListViewItem* const lvItem = dynamic_cast<KPImagesListViewItem*>(*it);
 
         if (lvItem)
         {
@@ -1248,80 +1281,49 @@ void KPImagesList::slotImageListChanged()
     d->saveButton->setEnabled(d->controlButtonsEnabled);
 }
 
-void KPImagesList::updateThumbnail(const KUrl& url)
+void KPImagesList::updateThumbnail(const QUrl& url)
 {
     if (d->iface)
     {
-        d->iface->thumbnails(KUrl::List() << url.toLocalFile(), DEFAULTSIZE);
+        qCDebug(KIPIPLUGINS_LOG) << "Request to update thumbnail for " << url;
+        d->iface->thumbnails(QList<QUrl>() << url, DEFAULTSIZE);
     }
     else
     {
-        if (!url.isValid())
-        {
-            return;
-        }
-
-#if KDE_IS_VERSION(4,7,0)
-        KFileItemList items;
-        items.append(KFileItem(KFileItem::Unknown, KFileItem::Unknown, url.toLocalFile(), true));
-        KIO::PreviewJob* job = KIO::filePreview(items, QSize(DEFAULTSIZE, DEFAULTSIZE));
-#else
-        KIO::PreviewJob* job = KIO::filePreview(KUrl::List() << url.toLocalFile(), DEFAULTSIZE);
-#endif
-
-        connect(job, SIGNAL(gotPreview(KFileItem,QPixmap)),
-                this, SLOT(slotKDEPreview(KFileItem,QPixmap)));
-
-        connect(job, SIGNAL(failed(KFileItem)),
-                this, SLOT(slotKDEPreviewFailed(KFileItem)));
+        qCDebug(KIPIPLUGINS_LOG) << "No KIPI interface available : thumbnails will not generated.";
     }
 }
 
-// Used only if Kipi interface is null.
-void KPImagesList::slotKDEPreview(const KFileItem& item, const QPixmap& pix)
+void KPImagesList::slotThumbnail(const QUrl& url, const QPixmap& pix)
 {
-    if (!pix.isNull())
-    {
-        slotThumbnail(item.url(), pix);
-    }
-}
+    qCDebug(KIPIPLUGINS_LOG) << "KIPI host send thumb (" << pix.size() << ") for " << url;
 
-void KPImagesList::slotKDEPreviewFailed(const KFileItem& item)
-{
-    d->loadRawThumb->getRawThumb(item.url());
-}
-
-void KPImagesList::slotRawThumb(const KUrl& url, const QImage& img)
-{
-    slotThumbnail(url, QPixmap::fromImage(img));
-}
-
-void KPImagesList::slotThumbnail(const KUrl& url, const QPixmap& pix)
-{
     QTreeWidgetItemIterator it(d->listView);
 
     while (*it)
     {
-        KPImagesListViewItem* item = dynamic_cast<KPImagesListViewItem*>(*it);
+        KPImagesListViewItem* const item = dynamic_cast<KPImagesListViewItem*>(*it);
 
         if (item && item->url() == url)
         {
             if (!pix.isNull())
             {
+                qCDebug(KIPIPLUGINS_LOG) << "Update thumb in list for " << url;
                 item->setThumb(pix.scaled(d->iconSize, d->iconSize, Qt::KeepAspectRatio));
             }
 
             if (!d->allowDuplicate)
-              return;
+                return;
         }
 
         ++it;
     }
 }
 
-KIPIPlugins::KPImagesListViewItem* KIPIPlugins::KPImagesListView::getCurrentItem() const
+KPImagesListViewItem* KPImagesListView::getCurrentItem() const
 {
     QTreeWidgetItem* const currentTreeItem = currentItem();
+
     if (!currentTreeItem)
     {
         return 0;
@@ -1330,12 +1332,13 @@ KIPIPlugins::KPImagesListViewItem* KIPIPlugins::KPImagesListView::getCurrentItem
     return dynamic_cast<KPImagesListViewItem*>(currentTreeItem);
 }
 
-KUrl KIPIPlugins::KPImagesList::getCurrentUrl() const
+QUrl KPImagesList::getCurrentUrl() const
 {
     KPImagesListViewItem* const currentItem = d->listView->getCurrentItem();
+
     if (!currentItem)
     {
-        return KUrl();
+        return QUrl();
     }
 
     return currentItem->url();

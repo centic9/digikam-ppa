@@ -6,7 +6,7 @@
  * Date        : 2009-07-17
  * Description : Metadata tags selector config panel.
  *
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,29 +21,24 @@
  *
  * ============================================================ */
 
-#include "metadatapanel.moc"
+#include "metadatapanel.h"
 
 // Qt includes
 
 #include <QFrame>
 #include <QVBoxLayout>
 #include <QList>
+#include <QApplication>
 
 // KDE includes
 
-#include <klocale.h>
-#include <ktabwidget.h>
-#include <kapplication.h>
-#include <kconfig.h>
+#include <klocalizedstring.h>
+#include <ksharedconfig.h>
 #include <kconfiggroup.h>
-
-// Libkexiv2 includes
-
-#include <libkexiv2/version.h>
-#include <libkexiv2/kexiv2.h>
 
 // Local includes
 
+#include "metaengine.h"
 #include "metadataselector.h"
 #include "dmetadata.h"
 
@@ -189,15 +184,15 @@ public:
 
     void setDefaultFilter(const char** const list, QStringList& filter)
     {
-        for (int i=0 ; QString(list[i]) != QString("-1") ; ++i)
+        for (int i=0 ; QLatin1String(list[i]) != QLatin1String("-1") ; ++i)
         {
-            filter << QString(list[i]);
+            filter << QLatin1String(list[i]);
         }
     };
 
 public:
 
-    KTabWidget*           tab;
+    QTabWidget*           tab;
 
     QStringList           defaultExifFilter;
     QStringList           defaultMknoteFilter;
@@ -210,8 +205,9 @@ public:
     MetadataSelectorView* xmpViewerConfig;
 };
 
-MetadataPanel::MetadataPanel(KTabWidget* const tab)
-    : QObject(tab), d(new Private)
+MetadataPanel::MetadataPanel(QTabWidget* const tab)
+    : QObject(tab),
+      d(new Private)
 {
     d->tab = tab;
 
@@ -232,10 +228,6 @@ MetadataPanel::MetadataPanel(KTabWidget* const tab)
     d->xmpViewerConfig    = new MetadataSelectorView(d->tab);
     d->xmpViewerConfig->setDefaultFilter(d->defaultXmpFilter);
     d->tab->addTab(d->xmpViewerConfig, i18n("XMP viewer"));
-
-#if KEXIV2_VERSION < 0x010000
-    d->tab->setTabBarHidden(true);
-#endif
 
     slotTabChanged(d->tab->currentIndex());
 
@@ -276,8 +268,7 @@ QStringList MetadataPanel::defaultXmpFilter()
 
 void MetadataPanel::applySettings()
 {
-#if KEXIV2_VERSION >= 0x010000
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group("Image Properties SideBar");
 
     if (d->exifViewerConfig->itemsCount())
@@ -301,19 +292,15 @@ void MetadataPanel::applySettings()
     }
 
     config->sync();
-
-#endif // KEXIV2_VERSION >= 0x010000
 }
 
 void MetadataPanel::slotTabChanged(int)
 {
     DMetadata meta;
-    kapp->setOverrideCursor(Qt::WaitCursor);
-    kapp->processEvents();
-    KSharedConfig::Ptr config = KGlobal::config();
+    qApp->setOverrideCursor(Qt::WaitCursor);
+    qApp->processEvents();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group("Image Properties SideBar");
-
-#if KEXIV2_VERSION >= 0x010000
 
     QWidget* const tab = d->tab->currentWidget();
 
@@ -350,9 +337,7 @@ void MetadataPanel::slotTabChanged(int)
         }
     }
 
-#endif // KEXIV2_VERSION >= 0x010000
-
-    kapp->restoreOverrideCursor();
+    qApp->restoreOverrideCursor();
 }
 
 QStringList MetadataPanel::getAllCheckedTags()

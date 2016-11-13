@@ -6,7 +6,7 @@
  * Date        : 2008-11-24
  * Description : Batch Tool Container.
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "batchtool.moc"
+#include "batchtool.h"
 
 // Qt includes
 
@@ -35,25 +35,20 @@
 
 // KDE includes
 
-#include <kdebug.h>
-#include <klocale.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/kdcraw.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "drawdecoder.h"
+#include "digikam_debug.h"
 #include "dimgbuiltinfilter.h"
 #include "dimgloaderobserver.h"
 #include "dimgthreadedfilter.h"
-#include "dmetadata.h"
 #include "filereadwritelock.h"
 #include "batchtoolutils.h"
 #include "jpegsettings.h"
 #include "pngsettings.h"
-
-using namespace KDcrawIface;
+#include "dmetadata.h"
 
 namespace Digikam
 {
@@ -88,13 +83,15 @@ public:
     QString                       toolDescription;    // User friendly tool description.
     QString                       toolIconName;
 
-    KUrl                          inputUrl;
-    KUrl                          outputUrl;
-    KUrl                          workingUrl;
+    QUrl                          inputUrl;
+    QUrl                          outputUrl;
+    QUrl                          workingUrl;
 
     DImg                          image;
 
-    RawDecodingSettings           rawDecodingSettings;
+    ImageInfo                     imageinfo;
+
+    DRawDecoderSettings           rawDecodingSettings;
 
     IOFileSettings                ioFileSettings;
 
@@ -113,7 +110,8 @@ class BatchToolObserver : public DImgLoaderObserver
 public:
 
     explicit BatchToolObserver(BatchTool::Private* const priv)
-        : DImgLoaderObserver(), d(priv)
+        : DImgLoaderObserver(),
+          d(priv)
     {
     }
 
@@ -132,7 +130,8 @@ private:
 };
 
 BatchTool::BatchTool(const QString& name, BatchToolGroup group, QObject* const parent)
-    : QObject(parent), d(new Private)
+    : QObject(parent),
+      d(new Private)
 {
     d->observer      = new BatchToolObserver(d);
     d->toolGroup     = group;
@@ -212,22 +211,22 @@ void BatchTool::setSettings(const BatchToolSettings& settings)
     emit signalAssignSettings2Widget();
 }
 
-void BatchTool::setInputUrl(const KUrl& inputUrl)
+void BatchTool::setInputUrl(const QUrl& inputUrl)
 {
     d->inputUrl = inputUrl;
 }
 
-KUrl BatchTool::inputUrl() const
+QUrl BatchTool::inputUrl() const
 {
     return d->inputUrl;
 }
 
-void BatchTool::setOutputUrl(const KUrl& outputUrl)
+void BatchTool::setOutputUrl(const QUrl& outputUrl)
 {
     d->outputUrl = outputUrl;
 }
 
-KUrl BatchTool::outputUrl() const
+QUrl BatchTool::outputUrl() const
 {
     return d->outputUrl;
 }
@@ -245,6 +244,16 @@ void BatchTool::setImageData(const DImg& img)
 DImg BatchTool::imageData() const
 {
     return d->image;
+}
+
+void BatchTool::setImageInfo(const ImageInfo& info)
+{
+    d->imageinfo = info;
+}
+
+ImageInfo BatchTool::imageInfo() const
+{
+    return d->imageinfo;
 }
 
 void BatchTool::setNeedResetExifOrientation(bool set)
@@ -282,12 +291,12 @@ bool BatchTool::getBranchHistory() const
     return d->branchHistory;
 }
 
-void BatchTool::setRawDecodingSettings(const RawDecodingSettings& settings)
+void BatchTool::setDRawDecoderSettings(const DRawDecoderSettings& settings)
 {
     d->rawDecodingSettings = settings;
 }
 
-RawDecodingSettings BatchTool::rawDecodingSettings() const
+DRawDecoderSettings BatchTool::rawDecodingSettings() const
 {
     return d->rawDecodingSettings;
 }
@@ -302,12 +311,12 @@ IOFileSettings BatchTool::ioFileSettings() const
     return d->ioFileSettings;
 }
 
-void BatchTool::setWorkingUrl(const KUrl& workingUrl)
+void BatchTool::setWorkingUrl(const QUrl& workingUrl)
 {
     d->workingUrl = workingUrl;
 }
 
-KUrl BatchTool::workingUrl() const
+QUrl BatchTool::workingUrl() const
 {
     return d->workingUrl;
 }
@@ -348,19 +357,17 @@ void BatchTool::setOutputUrlFromInputUrl()
         suffix = fi.completeSuffix();
     }
 
-    SafeTemporaryFile temp(workingUrl().toLocalFile() + "/BatchTool-XXXXXX.digikamtempfile." + suffix);
+    SafeTemporaryFile temp(workingUrl().toLocalFile() + QLatin1String("/BatchTool-XXXXXX.digikamtempfile.") + suffix);
     temp.setAutoRemove(false);
     temp.open();
-    kDebug() << "path: " << temp.fileName();
+    qCDebug(DIGIKAM_GENERAL_LOG) << "path: " << temp.fileName();
 
-    KUrl url;
-    url.setPath(path);
-    setOutputUrl(KUrl::fromPath(temp.fileName()));
+    setOutputUrl(QUrl::fromLocalFile(temp.fileName()));
 }
 
-bool BatchTool::isRawFile(const KUrl& url) const
+bool BatchTool::isRawFile(const QUrl& url) const
 {
-    QString   rawFilesExt(KDcraw::rawFiles());
+    QString   rawFilesExt = QLatin1String(DRawDecoder::rawFiles());
     QFileInfo fileInfo(url.toLocalFile());
     return (rawFilesExt.toUpper().contains(fileInfo.suffix().toUpper()));
 }
@@ -375,7 +382,7 @@ bool BatchTool::loadToDImg() const
     if (d->rawLoadingRule == QueueSettings::USEEMBEDEDJPEG && isRawFile(inputUrl()))
     {
         QImage img;
-        bool   ret = KDcraw::loadRawPreview(img, inputUrl().toLocalFile());
+        bool   ret = DRawDecoder::loadRawPreview(img, inputUrl().toLocalFile());
         DMetadata meta(inputUrl().toLocalFile());
         meta.setImageDimensions(QSize(img.width(), img.height()));
         d->image   = DImg(img);
@@ -409,26 +416,26 @@ bool BatchTool::savefromDImg() const
         // In case of output support is not set for ex. with all tool which do not convert to new format.
         if (detectedFormat == DImg::JPEG)
         {
-            d->image.setAttribute("quality",     JPEGSettings::convertCompressionForLibJpeg(ioFileSettings().JPEGCompression));
-            d->image.setAttribute("subsampling", ioFileSettings().JPEGSubSampling);
+            d->image.setAttribute(QLatin1String("quality"),     JPEGSettings::convertCompressionForLibJpeg(ioFileSettings().JPEGCompression));
+            d->image.setAttribute(QLatin1String("subsampling"), ioFileSettings().JPEGSubSampling);
         }
         else if (detectedFormat == DImg::PNG)
         {
-            d->image.setAttribute("quality",     PNGSettings::convertCompressionForLibPng(ioFileSettings().PNGCompression));
+            d->image.setAttribute(QLatin1String("quality"),     PNGSettings::convertCompressionForLibPng(ioFileSettings().PNGCompression));
         }
         else if (detectedFormat == DImg::TIFF)
         {
-            d->image.setAttribute("compress",    ioFileSettings().TIFFCompression);
+            d->image.setAttribute(QLatin1String("compress"),    ioFileSettings().TIFFCompression);
         }
         else if (detectedFormat == DImg::JP2K)
         {
-            d->image.setAttribute("quality",     ioFileSettings().JPEG2000LossLess ? 100 :
-                                                 ioFileSettings().JPEG2000Compression);
+            d->image.setAttribute(QLatin1String("quality"),     ioFileSettings().JPEG2000LossLess ? 100 :
+                                  ioFileSettings().JPEG2000Compression);
         }
         else if (detectedFormat == DImg::PGF)
         {
-            d->image.setAttribute("quality",     ioFileSettings().PGFLossLess ? 0 :
-                                                 ioFileSettings().PGFCompression);
+            d->image.setAttribute(QLatin1String("quality"),     ioFileSettings().PGFLossLess ? 0 :
+                                  ioFileSettings().PGFCompression);
         }
 
         d->image.prepareMetadataToSave(outputUrl().toLocalFile(), DImg::formatToMimeType(detectedFormat), resetOrientation);
@@ -451,10 +458,10 @@ bool BatchTool::apply()
 {
     d->cancel = false;
 
-    kDebug() << "Tool:       " << toolTitle();
-    kDebug() << "Input url:  " << inputUrl();
-    kDebug() << "Output url: " << outputUrl();
-    //kDebug() << "Settings:   ";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Tool:       " << toolTitle();
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Input url:  " << inputUrl();
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Output url: " << outputUrl();
+    //qCDebug(DIGIKAM_GENERAL_LOG) << "Settings:   ";
 
     BatchToolSettings prm = settings();
 
@@ -465,22 +472,22 @@ bool BatchTool::apply()
             QPolygon pol = it.value().value<QPolygon>();
             int     size = (pol.size() > 20) ? 20 : pol.size();
             QString tmp;
-            tmp.append(QString("[%1 items] : ").arg(pol.size()));
+            tmp.append(QString::fromUtf8("[%1 items] : ").arg(pol.size()));
 
             for (int i = 0 ; i < size ; ++i)
             {
-                tmp.append("(");
+                tmp.append(QLatin1String("("));
                 tmp.append(QString::number(pol.point(i).x()));
-                tmp.append(", ");
+                tmp.append(QLatin1String(", "));
                 tmp.append(QString::number(pol.point(i).y()));
-                tmp.append(") ");
+                tmp.append(QLatin1String(") "));
             }
 
-            //kDebug() << "   " << it.key() << ": " << tmp;
+            //qCDebug(DIGIKAM_GENERAL_LOG) << "   " << it.key() << ": " << tmp;
         }
         else
         {
-            //kDebug() << "   " << it.key() << ": " << it.value();
+            //qCDebug(DIGIKAM_GENERAL_LOG) << "   " << it.key() << ": " << it.value();
         }
     }
 

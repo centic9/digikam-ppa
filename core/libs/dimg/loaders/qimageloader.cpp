@@ -7,7 +7,7 @@
  * Description : A QImage loader for DImg framework.
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2013 by Caulier Gilles <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Caulier Gilles <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,14 +29,12 @@
 
 #include <QImage>
 #include <QByteArray>
-
-// KDE includes
-
-#include <kdebug.h>
+#include <QImageReader>
 
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "dimgloaderobserver.h"
 
 namespace Digikam
@@ -50,9 +48,14 @@ QImageLoader::QImageLoader(DImg* const image)
 
 bool QImageLoader::load(const QString& filePath, DImgLoaderObserver* const observer)
 {
+    readMetadata(filePath, DImg::QIMAGE);
+
     // Loading is opaque to us. No support for stopping from observer,
     // progress info are only pseudo values
-    QImage image(filePath);
+    QImageReader reader(filePath);
+    reader.setDecideFormatFromContent(true);
+
+    QImage image = reader.read();
 
     if (observer)
     {
@@ -61,7 +64,7 @@ bool QImageLoader::load(const QString& filePath, DImgLoaderObserver* const obser
 
     if (image.isNull())
     {
-        kDebug() << "Can not load \"" << filePath << "\" using DImg::QImageLoader!";
+        qCWarning(DIGIKAM_DIMG_LOG_QIMAGE) << "Can not load \"" << filePath << "\" using DImg::QImageLoader!";
         loadingFailed();
         return false;
     }
@@ -108,7 +111,7 @@ bool QImageLoader::load(const QString& filePath, DImgLoaderObserver* const obser
 
     if (!data)
     {
-        kDebug() << "Failed to allocate memory for loading" << filePath;
+        qCWarning(DIGIKAM_DIMG_LOG_QIMAGE) << "Failed to allocate memory for loading" << filePath;
         loadingFailed();
         return false;
     }
@@ -137,17 +140,17 @@ bool QImageLoader::load(const QString& filePath, DImgLoaderObserver* const obser
     imageData()   = data;
 
     // We considering that PNG is the most representative format of an image loaded by Qt
-    imageSetAttribute("format", "PNG");
-    imageSetAttribute("originalColorModel", colorModel);
-    imageSetAttribute("originalBitDepth", originalDepth);
-    imageSetAttribute("originalSize", QSize(w, h));
+    imageSetAttribute(QLatin1String("format"),             QLatin1String("PNG"));
+    imageSetAttribute(QLatin1String("originalColorModel"), colorModel);
+    imageSetAttribute(QLatin1String("originalBitDepth"),   originalDepth);
+    imageSetAttribute(QLatin1String("originalSize"),       QSize(w, h));
 
     return true;
 }
 
 bool QImageLoader::save(const QString& filePath, DImgLoaderObserver* const observer)
 {
-    QVariant qualityAttr = imageGetAttribute("quality");
+    QVariant qualityAttr = imageGetAttribute(QLatin1String("quality"));
     int quality          = qualityAttr.isValid() ? qualityAttr.toInt() : 90;
 
     if (quality < 0)
@@ -160,7 +163,7 @@ bool QImageLoader::save(const QString& filePath, DImgLoaderObserver* const obser
         quality = 100;
     }
 
-    QVariant formatAttr = imageGetAttribute("format");
+    QVariant formatAttr = imageGetAttribute(QLatin1String("format"));
     QByteArray format   = formatAttr.toByteArray();
     QImage image        = m_image->copyQImage();
 
@@ -171,14 +174,16 @@ bool QImageLoader::save(const QString& filePath, DImgLoaderObserver* const obser
 
     // Saving is opaque to us. No support for stopping from observer,
     // progress info are only pseudo values
-    bool success = image.save(filePath, format.toUpper(), quality);
+    bool success = image.save(filePath, format.toUpper().constData(), quality);
 
     if (observer && success)
     {
         observer->progressInfo(m_image, 1.0F);
     }
 
-    imageSetAttribute("format", format.toUpper());
+    imageSetAttribute(QLatin1String("format"), format.toUpper());
+
+    saveMetadata(filePath);
 
     return success;
 }

@@ -7,7 +7,7 @@
  * Description : User interface for searches
  *
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "searchfieldgroup.moc"
+#include "searchfieldgroup.h"
 
 // Qt includes
 
@@ -164,10 +164,10 @@ SearchFieldGroupLabel::SearchFieldGroupLabel(QWidget* const parent)
 {
     QGridLayout* const layout = new QGridLayout;
 
-    m_titleLabel              = new RClickLabel;
-    m_titleLabel->setObjectName("SearchFieldGroupLabel_Label");
+    m_titleLabel              = new DClickLabel;
+    m_titleLabel->setObjectName(QLatin1String("SearchFieldGroupLabel_Label"));
     m_expandLabel             = new QLabel;
-    QFrame* hline             = new QFrame;
+    QFrame* const hline       = new QFrame;
     hline->setFrameStyle(QFrame::HLine | QFrame::Raised);
 
     layout->addWidget(m_titleLabel,  0, 0);

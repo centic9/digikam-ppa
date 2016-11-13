@@ -6,7 +6,7 @@
  * Date        : 2009-04-30
  * Description : selection icon view item at mouse hover
  *
- * Copyright (C) 2008 by Peter Penz <peter.penz@gmx.at>
+ * Copyright (C) 2008      by Peter Penz <peter.penz@gmx.at>
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -22,12 +22,11 @@
  *
  * ============================================================ */
 
-#include "imageselectionoverlay.moc"
+#include "imageselectionoverlay.h"
 
 // KDE includes
 
-#include <kiconloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -47,11 +46,9 @@ QSize ImageSelectionOverlayButton::sizeHint() const
     return QSize(32, 32);
 }
 
-QPixmap ImageSelectionOverlayButton::icon()
+QIcon ImageSelectionOverlayButton::icon()
 {
-    return KIconLoader::global()->loadIcon(isChecked() ? "list-remove" : "list-add",
-                                           KIconLoader::NoGroup,
-                                           KIconLoader::SizeMedium);
+    return QIcon::fromTheme(isChecked() ? QLatin1String("list-remove") : QLatin1String("list-add"));
 }
 
 void ImageSelectionOverlayButton::updateToolTip()
@@ -106,7 +103,7 @@ void ImageSelectionOverlay::updateButton(const QModelIndex& index)
     button()->resize(size, size);
     button()->move(QPoint(x, y));
 
-    QItemSelectionModel* selModel = m_view->selectionModel();
+    QItemSelectionModel* const selModel = m_view->selectionModel();
     button()->setChecked(selModel->isSelected(index));
 }
 
@@ -116,7 +113,7 @@ void ImageSelectionOverlay::slotClicked(bool checked)
 
     if (index.isValid())
     {
-        QItemSelectionModel* selModel = m_view->selectionModel();
+        QItemSelectionModel* const selModel = m_view->selectionModel();
 
         if (checked)
         {

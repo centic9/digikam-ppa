@@ -7,7 +7,7 @@
  * Description : a kipi plugin to import/export images to Facebook web service
  *
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -22,40 +22,36 @@
  *
  * ============================================================ */
 
-#include "fbwindow.moc"
+#include "fbwindow.h"
 
 // Qt includes
 
+#include <QWindow>
+#include <QComboBox>
+#include <QMenu>
 #include <QFileInfo>
 #include <QCheckBox>
 #include <QCloseEvent>
 #include <QSpinBox>
+#include <QMessageBox>
+#include <QPointer>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kmenu.h>
-#include <kdebug.h>
 #include <kconfig.h>
-#include <klocale.h>
-#include <kpushbutton.h>
-#include <kmessagebox.h>
+#include <klocalizedstring.h>
+#include <kwindowconfig.h>
 
-// LibKDcraw includes
+// Libkipi includes
 
-#include <libkdcraw/version.h>
-#include <libkdcraw/kdcraw.h>
-
-// LibKIPI includes
-
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kipiplugins_debug.h"
 #include "kpimageslist.h"
 #include "kpaboutdata.h"
 #include "kpimageinfo.h"
-#include "kpmetadata.h"
 #include "kpversion.h"
 #include "kpprogresswidget.h"
 #include "fbitem.h"
@@ -66,78 +62,98 @@
 namespace KIPIFacebookPlugin
 {
 
-FbWindow::FbWindow(const QString& tmpFolder, bool import, QWidget* const /*parent*/)
-    : KPToolDialog(0)
+class FbWindow::Private
+{
+public:
+
+    Private(QWidget* const widget, KIPI::Interface* const iface)
+    {
+        m_widget          = new FbWidget(widget, iface, QString::fromLatin1("Facebook"));
+        m_imgList         = m_widget->imagesList();
+        m_progressBar     = m_widget->progressBar();
+        m_changeUserBtn   = m_widget->getChangeUserBtn();
+        m_albumsCoB       = m_widget->getAlbumsCoB();
+        m_newAlbumBtn     = m_widget->getNewAlbmBtn();
+        m_reloadAlbumsBtn = m_widget->getReloadBtn();
+        m_resizeChB       = m_widget->getResizeCheckBox();
+        m_dimensionSpB    = m_widget->getDimensionSpB();
+        m_imageQualitySpB = m_widget->getImgQualitySpB();
+    }
+
+    FbWidget*                      m_widget;
+    KPImagesList*                  m_imgList;
+    QPushButton*                   m_changeUserBtn;
+    QComboBox*                     m_albumsCoB;
+    QPushButton*                   m_newAlbumBtn;
+    QPushButton*                   m_reloadAlbumsBtn;
+    QCheckBox*                     m_resizeChB;
+    QSpinBox*                      m_dimensionSpB;
+    QSpinBox*                      m_imageQualitySpB;
+    KPProgressWidget*              m_progressBar;
+};
+
+
+FbWindow::FbWindow(const QString& tmpFolder, QWidget* const /*parent*/)
+    : KPToolDialog(0),
+      d(new Private(this, iface()))
 {
     m_tmpPath.clear();
     m_tmpDir      = tmpFolder;
-    m_import      = import;
     m_imagesCount = 0;
     m_imagesTotal = 0;
-    m_widget      = new FbWidget(this, iface(), import);
 
-    setMainWidget(m_widget);
-    setWindowIcon(KIcon("kipi-facebook"));
-    setButtons(Help | User1 | Close);
-    setDefaultButton(Close);
+    setMainWidget(d->m_widget);
+    setWindowIcon(QIcon::fromTheme(QString::fromLatin1("kipi-facebook")));
     setModal(false);
 
-    if (import)
-    {
-        setWindowTitle(i18n("Import from Facebook Web Service"));
-        setButtonGuiItem(User1,
-                         KGuiItem(i18n("Start Download"), "network-workgroup",
-                                  i18n("Start download from Facebook web service")));
-        m_widget->setMinimumSize(400, 600);
-    }
-    else
-    {
-        setWindowTitle(i18n("Export to Facebook Web Service"));
-        setButtonGuiItem(User1,
-                         KGuiItem(i18n("Start Upload"), "network-workgroup",
-                                  i18n("Start upload to Facebook web service")));
-        m_widget->setMinimumSize(700, 500);
-    }
+    setWindowTitle(i18n("Export to Facebook Web Service"));
 
+    startButton()->setText(i18n("Start Upload"));
+    startButton()->setToolTip(i18n("Start upload to Facebook web service"));
+
+    d->m_widget->setMinimumSize(700, 500);
     // ------------------------------------------------------------------------
 
-    connect(m_widget->m_imgList, SIGNAL(signalImageListChanged()),
+    connect(d->m_imgList, SIGNAL(signalImageListChanged()),
             this, SLOT(slotImageListChanged()));
 
-    connect(m_widget->m_changeUserBtn, SIGNAL(clicked()),
+    connect(d->m_changeUserBtn, SIGNAL(clicked()),
             this, SLOT(slotUserChangeRequest()));
 
-    connect(m_widget->m_newAlbumBtn, SIGNAL(clicked()),
+    connect(d->m_newAlbumBtn, SIGNAL(clicked()),
             this, SLOT(slotNewAlbumRequest()));
 
-    connect(m_widget, SIGNAL(reloadAlbums(long long)),
+    connect(d->m_widget, SIGNAL(reloadAlbums(long long)),
             this, SLOT(slotReloadAlbumsRequest(long long)));
 
-    connect(this, SIGNAL(user1Clicked()),
+    connect(startButton(), SIGNAL(clicked()),
             this, SLOT(slotStartTransfer()));
+
+    connect(this, SIGNAL(finished(int)),
+            this, SLOT(slotFinished()));
+
+    connect(this, SIGNAL(cancelClicked()),
+            this, SLOT(slotCancelClicked()));
 
     // ------------------------------------------------------------------------
 
-    KPAboutData* about = new KPAboutData(ki18n("Facebook Import/Export"), 0,
-                                         KAboutData::License_GPL,
-                                         ki18n("A Kipi plugin to import/export image collection "
+    KPAboutData* about = new KPAboutData(ki18n("Facebook Export"),
+                                         ki18n("A tool to export image collection "
                                                "to/from Facebook web service."),
                                          ki18n("(c) 2005-2008, Vardhman Jain\n"
                                                "(c) 2008-2012, Gilles Caulier\n"
-                                               "(c) 2008-2009, Luka Renko\n"
-                                               "(c) 2015 Shourya Singh Gupta"));
+                                               "(c) 2008-2009, Luka Renko"));
 
-    about->addAuthor(ki18n("Luka Renko"), ki18n("Author and maintainer"),
-                     "lure at kubuntu dot org");
-    about->addAuthor(ki18n("Shourya Singh Gupta"), ki18n("Developer"),
-                     "shouryasgupta at gmail dot com");
+    about->addAuthor(ki18n("Luka Renko").toString(),
+                     ki18n("Author and maintainer").toString(),
+                     QString::fromLatin1("lure at kubuntu dot org"));
 
-    about->setHandbookEntry("facebook");
+    about->setHandbookEntry(QString::fromLatin1("tool-facebookexport"));
     setAboutData(about);
 
     // ------------------------------------------------------------------------
 
-    m_albumDlg = new FbNewAlbum(this);
+    m_albumDlg = new FbNewAlbum(this, QString::fromLatin1("Facebook"));
 
     // ------------------------------------------------------------------------
 
@@ -155,84 +171,63 @@ FbWindow::FbWindow(const QString& tmpFolder, bool import, QWidget* const /*paren
     connect(m_talker, SIGNAL(signalAddPhotoDone(int,QString)),
             this, SLOT(slotAddPhotoDone(int,QString)));
 
-    connect(m_talker, SIGNAL(signalGetPhotoDone(int,QString,QByteArray)),
-            this, SLOT(slotGetPhotoDone(int,QString,QByteArray)));
-
     connect(m_talker, SIGNAL(signalCreateAlbumDone(int,QString,QString)),
             this, SLOT(slotCreateAlbumDone(int,QString,QString)));
 
     connect(m_talker, SIGNAL(signalListAlbumsDone(int,QString,QList<FbAlbum>)),
             this, SLOT(slotListAlbumsDone(int,QString,QList<FbAlbum>)));
 
-    connect(m_talker, SIGNAL(signalListPhotosDone(int,QString,QList<FbPhoto>)),
-            this, SLOT(slotListPhotosDone(int,QString,QList<FbPhoto>)));
-
-    connect(m_talker, SIGNAL(signalListFriendsDone(int,QString,QList<FbUser>)),
-            this, SLOT(slotListFriendsDone(int,QString,QList<FbUser>)));
-
-    connect(m_widget->progressBar(), SIGNAL(signalProgressCanceled()),
+    connect(d->m_progressBar, SIGNAL(signalProgressCanceled()),
             this, SLOT(slotStopAndCloseProgressBar()));
 
     // ------------------------------------------------------------------------
 
     readSettings();
 
-    kDebug() << "Calling Login method";
+    qCDebug(KIPIPLUGINS_LOG) << "Calling Login method";
     buttonStateChange(m_talker->loggedIn());
     authenticate();
 }
 
 FbWindow::~FbWindow()
 {
+    delete m_albumDlg;
+    delete m_talker;
+    delete d;
 }
 
 void FbWindow::slotStopAndCloseProgressBar()
 {
-    m_talker->cancel();
-    m_transferQueue.clear();
-    m_widget->m_imgList->cancelProcess();
-    writeSettings();
-    m_widget->imagesList()->listView()->clear();
-    done(Close);
-    m_widget->progressBar()->progressCompleted();
+    // Cancel the operation
+    slotCancelClicked();
+
+    // Write settings and tidy up
+    slotFinished();
+
+    // Close the dialog
+    reject();
 }
 
-void FbWindow::slotButtonClicked(int button)
+void FbWindow::slotFinished()
 {
-    switch (button)
-    {
-        case Close:
-            if (m_widget->progressBar()->isHidden())
-            {
-                writeSettings();
-                m_widget->imagesList()->listView()->clear();
-                m_widget->progressBar()->progressCompleted();
-                done(Close);
-            }
-            else // cancel login/transfer
-            {
-                m_talker->cancel();
-                m_transferQueue.clear();
-                m_widget->m_imgList->cancelProcess();
-                m_widget->progressBar()->hide();
-                m_widget->progressBar()->progressCompleted();
-            }
+    writeSettings();
+    d->m_imgList->listView()->clear();
+    d->m_progressBar->progressCompleted();
+}
 
-            break;
-
-        case User1:
-            slotStartTransfer();
-            break;
-
-        default:
-            KDialog::slotButtonClicked(button);
-            break;
-    }
+void FbWindow::slotCancelClicked()
+{
+    setRejectButtonMode(QDialogButtonBox::Close);
+    m_talker->cancel();
+    m_transferQueue.clear();
+    d->m_imgList->cancelProcess();
+    d->m_progressBar->hide();
+    d->m_progressBar->progressCompleted();
 }
 
 void FbWindow::reactivate()
 {
-    m_widget->imagesList()->loadImagesFromCurrentSelection();
+    d->m_imgList->loadImagesFromCurrentSelection();
     show();
 }
 
@@ -243,14 +238,13 @@ void FbWindow::closeEvent(QCloseEvent* e)
         return;
     }
 
-    writeSettings();
-    m_widget->imagesList()->listView()->clear();
+    slotFinished();
     e->accept();
 }
 
 void FbWindow::readSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp = config.group("Facebook Settings");
     m_accessToken    = grp.readEntry("Access Token");
     m_sessionExpires = grp.readEntry("Session Expires", 0);
@@ -265,35 +259,29 @@ void FbWindow::readSettings()
 
     if (grp.readEntry("Resize", false))
     {
-        m_widget->m_resizeChB->setChecked(true);
-        m_widget->m_dimensionSpB->setEnabled(true);
-        m_widget->m_imageQualitySpB->setEnabled(true);
+        d->m_resizeChB->setChecked(true);
+        d->m_dimensionSpB->setEnabled(true);
+        d->m_imageQualitySpB->setEnabled(true);
     }
     else
     {
-        m_widget->m_resizeChB->setChecked(false);
-        m_widget->m_dimensionSpB->setEnabled(false);
-        m_widget->m_imageQualitySpB->setEnabled(false);
+        d->m_resizeChB->setChecked(false);
+        d->m_dimensionSpB->setEnabled(false);
+        d->m_imageQualitySpB->setEnabled(false);
     }
 
-    m_widget->m_dimensionSpB->setValue(grp.readEntry("Maximum Width", 604));
-    m_widget->m_imageQualitySpB->setValue(grp.readEntry("Image Quality", 85));
+    d->m_dimensionSpB->setValue(grp.readEntry("Maximum Width", 604));
+    d->m_imageQualitySpB->setValue(grp.readEntry("Image Quality", 85));
 
-    if (m_import)
-    {
-        KConfigGroup dialogGroup = config.group("Facebook Import Dialog");
-        restoreDialogSize(dialogGroup);
-    }
-    else
-    {
-        KConfigGroup dialogGroup = config.group("Facebook Export Dialog");
-        restoreDialogSize(dialogGroup);
-    }
+    winId();
+    KConfigGroup dialogGroup = config.group("Facebook Export Dialog");
+    KWindowConfig::restoreWindowSize(windowHandle(), dialogGroup);
+    resize(windowHandle()->size());
 }
 
 void FbWindow::writeSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp = config.group("Facebook Settings");
     grp.writeEntry("Access Token",    m_accessToken);
 
@@ -311,55 +299,40 @@ void FbWindow::writeSettings()
         }
     }
 
-    // If the access token has not been obtained, leave the values as they are.
-    /*
-    else
-    {
-        grp.writeEntry("Session Key",     m_sessionKey);
-        grp.writeEntry("Session Secret",  m_sessionSecret);
-    }
-    */
     grp.writeEntry("Session Expires", m_sessionExpires);
     grp.writeEntry("Current Album",   m_currentAlbumID);
-    grp.writeEntry("Resize",          m_widget->m_resizeChB->isChecked());
-    grp.writeEntry("Maximum Width",   m_widget->m_dimensionSpB->value());
-    grp.writeEntry("Image Quality",   m_widget->m_imageQualitySpB->value());
+    grp.writeEntry("Resize",          d->m_resizeChB->isChecked());
+    grp.writeEntry("Maximum Width",   d->m_dimensionSpB->value());
+    grp.writeEntry("Image Quality",   d->m_imageQualitySpB->value());
 
-    if (m_import)
-    {
-        KConfigGroup dialogGroup = config.group("Facebook Import Dialog");
-        saveDialogSize(dialogGroup);
-    }
-    else
-    {
-        KConfigGroup dialogGroup = config.group("Facebook Export Dialog");
-        saveDialogSize(dialogGroup);
-    }
+    KConfigGroup dialogGroup = config.group("Facebook Export Dialog");
+    KWindowConfig::saveWindowSize(windowHandle(), dialogGroup);
 
     config.sync();
 }
 
 void FbWindow::authenticate()
 {
-    m_widget->progressBar()->show();
-    m_widget->progressBar()->setFormat("");
+    setRejectButtonMode(QDialogButtonBox::Cancel);
+    d->m_progressBar->show();
+    d->m_progressBar->setFormat(QString::fromLatin1(""));
 
     // Converting old world session keys into OAuth2 tokens
     if (! m_sessionKey.isEmpty() && m_accessToken.isEmpty())
     {
-        kDebug() << "Exchanging session tokens to OAuth";
+        qCDebug(KIPIPLUGINS_LOG) << "Exchanging session tokens to OAuth";
         m_talker->exchangeSession(m_sessionKey);
     }
     else
     {
-        kDebug() << "Calling Login method";
+        qCDebug(KIPIPLUGINS_LOG) << "Calling Login method";
         m_talker->authenticate(m_accessToken, m_sessionExpires);
     }
 }
 
 void FbWindow::slotLoginProgress(int step, int maxStep, const QString& label)
 {
-    KIPIPlugins::KPProgressWidget* progressBar = m_widget->progressBar();
+    KIPIPlugins::KPProgressWidget* const progressBar = d->m_progressBar;
 
     if (!label.isEmpty())
     {
@@ -376,70 +349,50 @@ void FbWindow::slotLoginProgress(int step, int maxStep, const QString& label)
 
 void FbWindow::slotLoginDone(int errCode, const QString& errMsg)
 {
-    m_widget->progressBar()->hide();
+    setRejectButtonMode(QDialogButtonBox::Close);
+    d->m_progressBar->hide();
 
     buttonStateChange(m_talker->loggedIn());
     FbUser user = m_talker->getUser();
     setProfileAID(user.id);
-    m_widget->updateLabels(user.name, user.profileURL, user.uploadPerm);
-    m_widget->m_albumsCoB->clear();
+    d->m_widget->updateLabels(user.name, user.profileURL);
+    d->m_albumsCoB->clear();
 
-    if (!m_import)
-    {
-        m_widget->m_albumsCoB->addItem(i18n("&lt;auto create&gt;"), QString());
-    }
+    d->m_albumsCoB->addItem(i18n("<auto create>"), QString());
 
     m_accessToken    = m_talker->getAccessToken();
     m_sessionExpires = m_talker->getSessionExpires();
 
     if (errCode == 0 && m_talker->loggedIn())
     {
-        if (m_import)
-        {
-            m_talker->listFriends();
-        }
-        else
-        {
-            m_talker->listAlbums();    // get albums to fill combo box
-        }
+        m_talker->listAlbums();    // get albums to fill combo box
     }
     else
     {
-        KMessageBox::error(this, i18n("Facebook Call Failed: %1\n", errMsg));
+        QMessageBox::critical(this, QString(), i18n("Facebook Call Failed: %1\n", errMsg));
     }
 }
 
 void FbWindow::slotListAlbumsDone(int errCode, const QString& errMsg, const QList<FbAlbum>& albumsList)
 {
 
-    QString albumDebug = "";
+    QString albumDebug = QString::fromLatin1("");
     foreach(const FbAlbum &album, albumsList)
     {
-        albumDebug.append(album.id + ": " + album.title + '\n');
+        albumDebug.append(QString::fromLatin1("%1: %2\n").arg(album.id).arg(album.title));
     }
 
-    kDebug() << "Received albums (errCode = " << errCode << ", errMsg = "
+    qCDebug(KIPIPLUGINS_LOG) << "Received albums (errCode = " << errCode << ", errMsg = "
              << errMsg << "): " << albumDebug;
 
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("Facebook Call Failed: %1\n", errMsg));
+        QMessageBox::critical(this, QString(), i18n("Facebook Call Failed: %1\n", errMsg));
         return;
     }
 
-    m_widget->m_albumsCoB->clear();
-
-    if (m_import)
-    {
-        m_widget->m_albumsCoB->addItem(
-            i18nc("name of special Facebook album for profile pictures",
-                  "Profile Pictures"),
-            m_profileAID);
-    }
-    else
-    {
-        m_widget->m_albumsCoB->addItem(i18n("&lt;auto create&gt;"), QString());
-    }
+    d->m_albumsCoB->clear();
+    d->m_albumsCoB->addItem(i18n("<auto create>"), QString());
 
     for (int i = 0; i < albumsList.size(); ++i)
     {
@@ -448,98 +401,47 @@ void FbWindow::slotListAlbumsDone(int errCode, const QString& errMsg, const QLis
         switch (albumsList.at(i).privacy)
         {
             case FB_ME:
-                albumIcon = "secure-card";
+                albumIcon = QString::fromLatin1("secure-card");
                 break;
 
             case FB_FRIENDS:
-                albumIcon = "user-identity";
+                albumIcon = QString::fromLatin1("user-identity");
                 break;
 
             case FB_FRIENDS_OF_FRIENDS:
-                albumIcon = "system-users";
+                albumIcon = QString::fromLatin1("system-users");
                 break;
 
             case FB_NETWORKS:
-                albumIcon = "network-workgroup";
+                albumIcon = QString::fromLatin1("network-workgroup");
                 break;
 
             case FB_EVERYONE:
-                albumIcon = "applications-internet";
+                albumIcon = QString::fromLatin1("folder-html");
                 break;
 
             case FB_CUSTOM:
-                albumIcon = "configure";
+                albumIcon = QString::fromLatin1("configure");
                 break;
         }
 
-        m_widget->m_albumsCoB->addItem(
-            KIcon(albumIcon),
+        d->m_albumsCoB->addItem(
+            QIcon::fromTheme(albumIcon),
             albumsList.at(i).title,
             albumsList.at(i).id);
 
         if (m_currentAlbumID == albumsList.at(i).id)
         {
-            m_widget->m_albumsCoB->setCurrentIndex(i + 1);
+            d->m_albumsCoB->setCurrentIndex(i + 1);
         }
     }
 }
 
-void FbWindow::slotListPhotosDone(int errCode, const QString& errMsg, const QList<FbPhoto>& photosList)
-{
-    if (errCode != 0)
-    {
-        KMessageBox::error(this, i18n("Facebook Call Failed: %1\n", errMsg));
-        return;
-    }
-
-    m_transferQueue.clear();
-
-    for (int i = 0; i < photosList.size(); ++i)
-    {
-        m_transferQueue.push_back(photosList.at(i).originalURL);
-    }
-
-    if (m_transferQueue.isEmpty())
-    {
-        return;
-    }
-
-    m_imagesTotal = m_transferQueue.count();
-    m_imagesCount = 0;
-
-    m_widget->progressBar()->setMaximum(m_imagesTotal);
-    m_widget->progressBar()->setValue(0);
-
-    // start download with first photo in queue
-    downloadNextPhoto();
-}
-
-void FbWindow::slotListFriendsDone(int errCode, const QString& errMsg, const QList<FbUser>& friendsList)
-{
-    if (errCode != 0)
-    {
-        KMessageBox::error(this, i18n("Facebook Call Failed: %1\n", errMsg));
-        return;
-    }
-
-    m_widget->m_friendsCoB->clear();
-
-    for (int i = 0; i < friendsList.size(); ++i)
-    {
-        m_widget->m_friendsCoB->addItem(
-            friendsList.at(i).name,
-            friendsList.at(i).id);
-    }
-
-    m_widget->m_friendsCoB->setCurrentIndex(-1); // no friend selected
-    m_talker->listAlbums(); // now fill up albums list with user's albums
-}
-
 void FbWindow::buttonStateChange(bool state)
 {
-    m_widget->m_newAlbumBtn->setEnabled(state);
-    m_widget->m_reloadAlbumsBtn->setEnabled(state);
-    enableButton(User1, state);
+    d->m_newAlbumBtn->setEnabled(state);
+    d->m_reloadAlbumsBtn->setEnabled(state);
+    startButton()->setEnabled(state);
 }
 
 void FbWindow::slotBusy(bool val)
@@ -547,30 +449,37 @@ void FbWindow::slotBusy(bool val)
     if (val)
     {
         setCursor(Qt::WaitCursor);
-        m_widget->m_changeUserBtn->setEnabled(false);
+        d->m_changeUserBtn->setEnabled(false);
         buttonStateChange(false);
     }
     else
     {
         setCursor(Qt::ArrowCursor);
-        m_widget->m_changeUserBtn->setEnabled(true);
+        d->m_changeUserBtn->setEnabled(true);
         buttonStateChange(m_talker->loggedIn());
     }
 }
 
 void FbWindow::slotUserChangeRequest()
 {
-    kDebug() << "Slot Change User Request";
+    qCDebug(KIPIPLUGINS_LOG) << "Slot Change User Request";
 
     if (m_talker->loggedIn())
     {
         m_talker->logout();
-        if (KMessageBox::warningContinueCancel(this, i18n("After you have been logged out in the browser, "
-                                                          "click \"Continue\" to authenticate for another account"))
-            == KMessageBox::Continue)
+        QMessageBox warn(QMessageBox::Warning,
+                     i18n("Warning"),
+                     i18n("After you have been logged out in the browser, "
+                          "click \"Continue\" to authenticate for another account"),
+                     QMessageBox::Yes | QMessageBox::No);
+
+        (warn.button(QMessageBox::Yes))->setText(i18n("Continue"));
+        (warn.button(QMessageBox::No))->setText(i18n("Cancel"));
+
+        if (warn.exec() == QMessageBox::Yes)
         {
             m_accessToken.clear();
-            m_sessionExpires = 0;              
+            m_sessionExpires = 0;
         }
         else
             return;
@@ -581,7 +490,7 @@ void FbWindow::slotUserChangeRequest()
 
 void FbWindow::slotReloadAlbumsRequest(long long userID)
 {
-    kDebug() << "Reload Albums Request for UID:" << userID;
+    qCDebug(KIPIPLUGINS_LOG) << "Reload Albums Request for UID:" << userID;
 
     if (userID == 0)
     {
@@ -598,11 +507,11 @@ void FbWindow::slotReloadAlbumsRequest(long long userID)
 
 void FbWindow::slotNewAlbumRequest()
 {
-    kDebug() << "Slot New Album Request";
+    qCDebug(KIPIPLUGINS_LOG) << "Slot New Album Request";
 
     if (m_albumDlg->exec() == QDialog::Accepted)
     {
-        kDebug() << "Calling New Album method";
+        qCDebug(KIPIPLUGINS_LOG) << "Calling New Album method";
         FbAlbum newAlbum;
         m_albumDlg->getAlbumProperties(newAlbum);
         m_talker->createAlbum(newAlbum);
@@ -611,45 +520,30 @@ void FbWindow::slotNewAlbumRequest()
 
 void FbWindow::slotStartTransfer()
 {
-    kDebug() << "slotStartTransfer invoked";
+    qCDebug(KIPIPLUGINS_LOG) << "slotStartTransfer invoked";
 
-    if (m_import)
+    d->m_imgList->clearProcessedStatus();
+    m_transferQueue  = d->m_imgList->imageUrls();
+
+    if (m_transferQueue.isEmpty())
     {
-        m_widget->progressBar()->setFormat(i18n("%v / %m"));
-        m_widget->progressBar()->setMaximum(0);
-        m_widget->progressBar()->setValue(0);
-        m_widget->progressBar()->show();
-        m_widget->progressBar()->progressScheduled(i18n("Facebook import"), true, true);
-        m_widget->progressBar()->progressThumbnailChanged(KIcon("kipi").pixmap(22, 22));
-
-
-        m_talker->listPhotos(m_widget->getFriendID(), m_widget->getAlbumID());
+        return;
     }
-    else
-    {
-        m_widget->m_imgList->clearProcessedStatus();
-        m_transferQueue  = m_widget->m_imgList->imageUrls();
 
-        if (m_transferQueue.isEmpty())
-        {
-            return;
-        }
+    m_currentAlbumID = d->m_albumsCoB->itemData(d->m_albumsCoB->currentIndex()).toString();
+    qCDebug(KIPIPLUGINS_LOG) << "upload request got album id from widget: " << m_currentAlbumID;
+    m_imagesTotal    = m_transferQueue.count();
+    m_imagesCount    = 0;
 
-        m_currentAlbumID = m_widget->m_albumsCoB->itemData(m_widget->m_albumsCoB->currentIndex()).toString();
-        kDebug() << "upload request got album id from widget: " << m_currentAlbumID;
-        m_imagesTotal    = m_transferQueue.count();
-        m_imagesCount    = 0;
+    setRejectButtonMode(QDialogButtonBox::Cancel);
+    d->m_progressBar->setFormat(i18n("%v / %m"));
+    d->m_progressBar->setMaximum(m_imagesTotal);
+    d->m_progressBar->setValue(0);
+    d->m_progressBar->show();
+    d->m_progressBar->progressScheduled(i18n("Facebook export"), true, true);
+    d->m_progressBar->progressThumbnailChanged(QIcon(QLatin1String(":/icons/kipi-icon.svg")).pixmap(22, 22));
 
-        m_widget->progressBar()->setFormat(i18n("%v / %m"));
-        m_widget->progressBar()->setMaximum(m_imagesTotal);
-        m_widget->progressBar()->setValue(0);
-        m_widget->progressBar()->show();
-        m_widget->progressBar()->progressScheduled(i18n("Facebook export"), true, true);
-        m_widget->progressBar()->progressThumbnailChanged(KIcon("kipi").pixmap(22, 22));
-
-
-        uploadNextPhoto();
-    }
+    uploadNextPhoto();
 }
 
 void FbWindow::setProfileAID(long long userID)
@@ -662,23 +556,23 @@ void FbWindow::setProfileAID(long long userID)
 
 QString FbWindow::getImageCaption(const QString& fileName)
 {
-    KPImageInfo info(fileName);
+    KPImageInfo info(QUrl::fromLocalFile(fileName));
     // Facebook doesn't support image titles. Include it in descriptions if needed.
     QStringList descriptions = QStringList() << info.title() << info.description();
-    descriptions.removeAll("");
-    return descriptions.join("\n\n");
+    descriptions.removeAll(QString::fromLatin1(""));
+    return descriptions.join(QString::fromLatin1("\n\n"));
 }
 
-bool FbWindow::prepareImageForUpload(const QString& imgPath, bool isRAW, QString& caption)
+bool FbWindow::prepareImageForUpload(const QString& imgPath, QString& caption)
 {
     QImage image;
 
-    if (isRAW)
+    if (iface())
     {
-        kDebug() << "Get RAW preview " << imgPath;
-        KDcrawIface::KDcraw::loadRawPreview(image, imgPath);
+        image = iface()->preview(QUrl::fromLocalFile(imgPath));
     }
-    else
+
+    if (image.isNull())
     {
         image.load(imgPath);
     }
@@ -689,35 +583,39 @@ bool FbWindow::prepareImageForUpload(const QString& imgPath, bool isRAW, QString
     }
 
     // get temporary file name
-    m_tmpPath = m_tmpDir + QFileInfo(imgPath).baseName().trimmed() + ".jpg";
+    m_tmpPath = m_tmpDir + QFileInfo(imgPath).baseName().trimmed() + QString::fromLatin1(".jpg");
 
     // rescale image if requested
-    int maxDim = m_widget->m_dimensionSpB->value();
+    int maxDim = d->m_dimensionSpB->value();
 
-    if (m_widget->m_resizeChB->isChecked()
+    if (d->m_resizeChB->isChecked()
         && (image.width() > maxDim || image.height() > maxDim))
     {
-        kDebug() << "Resizing to " << maxDim;
+        qCDebug(KIPIPLUGINS_LOG) << "Resizing to " << maxDim;
         image = image.scaled(maxDim, maxDim, Qt::KeepAspectRatio,
                              Qt::SmoothTransformation);
     }
 
-    kDebug() << "Saving to temp file: " << m_tmpPath;
-    image.save(m_tmpPath, "JPEG", m_widget->m_imageQualitySpB->value());
+    qCDebug(KIPIPLUGINS_LOG) << "Saving to temp file: " << m_tmpPath;
+    image.save(m_tmpPath, "JPEG", d->m_imageQualitySpB->value());
 
     // copy meta data to temporary image
-    KPMetadata meta;
 
-    if (meta.load(imgPath))
+    if (iface())
     {
-        caption = getImageCaption(imgPath);
-        meta.setImageDimensions(image.size());
-        meta.setImageProgramId("Kipi-plugins", kipiplugins_version);
-        meta.save(m_tmpPath);
-    }
-    else
-    {
-        caption.clear();
+        QPointer<MetadataProcessor> meta = iface()->createMetadataProcessor();
+
+        if (meta && meta->load(QUrl::fromLocalFile(imgPath)))
+        {
+            caption = getImageCaption(imgPath);
+            meta->setImageDimensions(image.size());
+            meta->setImageProgramId(QString::fromLatin1("Kipi-plugins"), kipipluginsVersion());
+            meta->save(QUrl::fromLocalFile(m_tmpPath));
+        }
+        else
+        {
+            caption.clear();
+        }
     }
 
     return true;
@@ -727,25 +625,24 @@ void FbWindow::uploadNextPhoto()
 {
     if (m_transferQueue.isEmpty())
     {
-        m_widget->progressBar()->hide();
-        m_widget->progressBar()->progressCompleted();
+        setRejectButtonMode(QDialogButtonBox::Close);
+        d->m_progressBar->hide();
+        d->m_progressBar->progressCompleted();
         return;
     }
 
-    m_widget->m_imgList->processing(m_transferQueue.first());
+    d->m_imgList->processing(m_transferQueue.first());
     QString imgPath = m_transferQueue.first().toLocalFile();
 
-    m_widget->progressBar()->setMaximum(m_imagesTotal);
-    m_widget->progressBar()->setValue(m_imagesCount);
+    d->m_progressBar->setMaximum(m_imagesTotal);
+    d->m_progressBar->setValue(m_imagesCount);
 
-    // check if we have to RAW file -> use preview image then
-    bool    isRAW = KPMetadata::isRawFile(imgPath);
     QString caption;
     bool    res;
 
-    if (isRAW || m_widget->m_resizeChB->isChecked())
+    if (d->m_resizeChB->isChecked())
     {
-        if (!prepareImageForUpload(imgPath, isRAW, caption))
+        if (!prepareImageForUpload(imgPath, caption))
         {
             slotAddPhotoDone(666, i18n("Cannot open file"));
             return;
@@ -776,7 +673,7 @@ void FbWindow::slotAddPhotoDone(int errCode, const QString& errMsg)
         m_tmpPath.clear();
     }
 
-    m_widget->m_imgList->processed(m_transferQueue.first(), (errCode == 0));
+    d->m_imgList->processed(m_transferQueue.first(), (errCode == 0));
 
     if (errCode == 0)
     {
@@ -785,13 +682,14 @@ void FbWindow::slotAddPhotoDone(int errCode, const QString& errMsg)
     }
     else
     {
-        if (KMessageBox::warningContinueCancel(this,
-                                               i18n("Failed to upload photo into Facebook: %1\n"
-                                                    "Do you want to continue?", errMsg))
-            != KMessageBox::Continue)
+        if (QMessageBox::question(this, i18n("Uploading Failed"),
+                                  i18n("Failed to upload photo into Facebook: %1\n"
+                                       "Do you want to continue?", errMsg))
+            != QMessageBox::Yes)
         {
-            m_widget->progressBar()->hide();
-            m_widget->progressBar()->progressCompleted();
+            setRejectButtonMode(QDialogButtonBox::Close);
+            d->m_progressBar->hide();
+            d->m_progressBar->progressCompleted();
             m_transferQueue.clear();
             return;
         }
@@ -800,87 +698,11 @@ void FbWindow::slotAddPhotoDone(int errCode, const QString& errMsg)
     uploadNextPhoto();
 }
 
-void FbWindow::downloadNextPhoto()
-{
-    if (m_transferQueue.isEmpty())
-    {
-        m_widget->progressBar()->hide();
-        m_widget->progressBar()->progressCompleted();
-        return;
-    }
-
-    m_widget->progressBar()->setMaximum(m_imagesTotal);
-    m_widget->progressBar()->setValue(m_imagesCount);
-
-    QString imgPath = m_transferQueue.first().url();
-
-    m_talker->getPhoto(imgPath);
-}
-
-void FbWindow::slotGetPhotoDone(int errCode, const QString& errMsg, const QByteArray& photoData)
-{
-    QString imgPath = m_widget->getDestinationPath() + '/'
-                      + QFileInfo(m_transferQueue.first().path()).fileName();
-
-    if (errCode == 0)
-    {
-        QString errText;
-        QFile imgFile(imgPath);
-
-        if (!imgFile.open(QIODevice::WriteOnly))
-        {
-            errText = imgFile.errorString();
-        }
-        else if (imgFile.write(photoData) != photoData.size())
-        {
-            errText = imgFile.errorString();
-        }
-        else
-        {
-            imgFile.close();
-        }
-
-        if (errText.isEmpty())
-        {
-            m_transferQueue.pop_front();
-            m_imagesCount++;
-        }
-        else
-        {
-            if (KMessageBox::warningContinueCancel(this,
-                                                   i18n("Failed to save photo: %1\n"
-                                                        "Do you want to continue?", errText))
-                != KMessageBox::Continue)
-            {
-                m_widget->progressBar()->hide();
-                m_widget->progressBar()->progressCompleted();
-                m_transferQueue.clear();
-                return;
-            }
-        }
-    }
-    else
-    {
-        if (KMessageBox::warningContinueCancel(this,
-                                               i18n("Failed to download photo: %1\n"
-                                                    "Do you want to continue?", errMsg))
-            != KMessageBox::Continue)
-        {
-            m_widget->progressBar()->hide();
-            m_widget->progressBar()->progressCompleted();
-            m_transferQueue.clear();
-            return;
-        }
-    }
-
-    downloadNextPhoto();
-}
-
 void FbWindow::slotCreateAlbumDone(int errCode, const QString& errMsg, const QString& newAlbumID)
 {
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("Facebook Call Failed: %1", errMsg));
+        QMessageBox::critical(this, QString(), i18n("Facebook Call Failed: %1", errMsg));
         return;
     }
 
@@ -891,7 +713,7 @@ void FbWindow::slotCreateAlbumDone(int errCode, const QString& errMsg, const QSt
 
 void FbWindow::slotImageListChanged()
 {
-    enableButton(User1, !(m_widget->m_imgList->imageUrls().isEmpty()));
+    startButton()->setEnabled(!(d->m_imgList->imageUrls().isEmpty()));
 }
 
 } // namespace KIPIFacebookPlugin

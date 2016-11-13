@@ -7,7 +7,7 @@
  * Description : a widget to draw stars rating
  *
  * Copyright (C) 2005      by Owen Hirst <n8rider@sbcglobal.net>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "ratingwidget.moc"
+#include "ratingwidget.h"
 
 // C++ includes
 
@@ -30,29 +30,27 @@
 
 // Qt includes
 
+#include <QApplication>
 #include <QPainter>
 #include <QPalette>
 #include <QPixmap>
 #include <QTimeLine>
 #include <QFont>
 #include <QAction>
+#include <QWidgetAction>
 
 // KDE includes
 
-#include <kglobalsettings.h>
-#include <ksqueezedtextlabel.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <kmenu.h>
-#include <khbox.h>
-#include <kapplication.h>
-#include <kxmlguiwindow.h>
+#include <klocalizedstring.h>
 #include <kactioncollection.h>
 
 // Local includes
 
-#include "globals.h"
+#include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "thememanager.h"
+#include "dxmlguiwindow.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -90,7 +88,8 @@ public:
 };
 
 RatingWidget::RatingWidget(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     slotThemeChanged();
 
@@ -364,7 +363,7 @@ void RatingWidget::slotThemeChanged()
 
     QPainter p2(&d->selPixmap);
     p2.setRenderHint(QPainter::Antialiasing, true);
-    p2.setBrush(kapp->palette().color(QPalette::Link));
+    p2.setBrush(qApp->palette().color(QPalette::Link));
     p2.setPen(palette().color(QPalette::Active, foregroundRole()));
     p2.drawPolygon(starPolygon(), Qt::WindingFill);
     p2.end();
@@ -405,9 +404,9 @@ QIcon RatingWidget::buildIcon(int rate, int size)
     matrix.scale(size/15.0, size/15.0);
     p.setMatrix(matrix);
     p.setRenderHint(QPainter::Antialiasing, true);
-    p.setPen(kapp->palette().color(QPalette::Active, QPalette::ButtonText));
+    p.setPen(qApp->palette().color(QPalette::Active, QPalette::ButtonText));
 
-    if (rate > 0) p.setBrush(kapp->palette().color(QPalette::Link));
+    if (rate > 0) p.setBrush(qApp->palette().color(QPalette::Link));
 
     p.drawPolygon(starPolygon(), Qt::WindingFill);
     p.end();
@@ -465,7 +464,14 @@ void RatingWidget::applyFading(QPixmap& pix)
         QPixmap alphaMask(pix.width(), pix.height());
         const QColor color(d->fadingValue, d->fadingValue, d->fadingValue);
         alphaMask.fill(color);
-        pix.setAlphaChannel(alphaMask);
+
+        /* NOTE : old Qt4 code ported to Qt5 due to deprecated QPixmap::setAlphaChannel()
+         *        clusterPixmap.setAlphaChannel(alphaPixmap);
+         */
+        QPainter p(&pix);
+        p.setOpacity(0.2);
+        p.drawPixmap(0, 0, alphaMask);
+        p.end();
     }
 }
 
@@ -482,13 +488,14 @@ public:
         ratingWidget = 0;
     }
 
-    KSqueezedTextLabel* shortcut;
+    DAdjustableLabel* shortcut;
 
-    RatingWidget*       ratingWidget;
+    RatingWidget*     ratingWidget;
 };
 
 RatingBox::RatingBox(QWidget* const parent)
-    : KVBox(parent), d(new Private)
+    : DVBox(parent),
+      d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setFocusPolicy(Qt::NoFocus);
@@ -496,14 +503,14 @@ RatingBox::RatingBox(QWidget* const parent)
     d->ratingWidget = new RatingWidget(this);
     d->ratingWidget->setTracking(false);
 
-    d->shortcut = new KSqueezedTextLabel(this);
+    d->shortcut = new DAdjustableLabel(this);
     QFont fnt   = d->shortcut->font();
     fnt.setItalic(true);
     d->shortcut->setFont(fnt);
     d->shortcut->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     d->shortcut->setWordWrap(false);
 
-    setMargin(0);
+    setContentsMargins(QMargins());
     setSpacing(0);
 
     // -------------------------------------------------------------
@@ -522,23 +529,25 @@ RatingBox::~RatingBox()
 
 void RatingBox::slotUpdateDescription(int rating)
 {
-    KXmlGuiWindow* const app = dynamic_cast<KXmlGuiWindow*>(kapp->activeWindow());
+    DXmlGuiWindow* const app = dynamic_cast<DXmlGuiWindow*>(qApp->activeWindow());
 
     if (app)
     {
-        QAction* const ac = app->actionCollection()->action(QString("rateshortcut-%1").arg(rating));
+        QAction* const ac = app->actionCollection()->action(QString::fromLatin1("rateshortcut-%1").arg(rating));
 
         if (ac)
-            d->shortcut->setText(ac->shortcut().toString());
+        {
+            d->shortcut->setAdjustedText(ac->shortcut().toString());
+        }
     }
 }
 
 // -------------------------------------------------------------------------------
 
 RatingMenuAction::RatingMenuAction(QMenu* const parent)
-    : KActionMenu(parent)
+    : QMenu(parent)
 {
-    setText(i18n("Rating"));
+    setTitle(i18n("Rating"));
     QWidgetAction* const wa = new QWidgetAction(this);
     RatingBox* const rb     = new RatingBox(parent);
     wa->setDefaultWidget(rb);

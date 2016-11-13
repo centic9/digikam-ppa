@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Refocus threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Matthias Welwarsky <matze at welwarsky dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -31,15 +31,12 @@
 
 // Qt includes
 
-#include <QtConcurrentRun>
-
-// KDE includes
-
-#include <kdebug.h>
+#include <QtConcurrent>
 
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "dcolor.h"
 #include "matrix.h"
 
@@ -80,7 +77,7 @@ RefocusFilter::RefocusFilter(QObject* const parent)
 
 RefocusFilter::RefocusFilter(DImg* const orgImage, QObject* const parent, int matrixSize, double radius,
                              double gauss, double correlation, double noise)
-    : DImgThreadedFilter(orgImage, parent, "Refocus"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("Refocus")),
       d(new Private)
 {
     d->matrixSize  = matrixSize;
@@ -177,7 +174,7 @@ void RefocusFilter::refocusImage(uchar* const data, int width, int height, bool 
     CMat* matrix = 0;
 
     // Compute matrix
-    kDebug() << "RefocusFilter::Compute matrix...";
+    qCDebug(DIGIKAM_DIMG_LOG) << "RefocusFilter::Compute matrix...";
 
     CMat circle, gaussian, convolution;
 
@@ -193,7 +190,7 @@ void RefocusFilter::refocusImage(uchar* const data, int width, int height, bool 
     RefocusMatrix::finish_c_mat(&circle);
 
     // Apply deconvolution kernel to image.
-    kDebug() << "RefocusFilter::Apply Matrix to image...";
+    qCDebug(DIGIKAM_DIMG_LOG) << "RefocusFilter::Apply Matrix to image...";
 
     Args prm;
     prm.orgData    = data;
@@ -327,7 +324,7 @@ void RefocusFilter::convolveImage(const Args& prm)
                                            &RefocusFilter::convolveImageMultithreaded,
                                            vals[j],
                                            vals[j+1],
-                                           y1, 
+                                           y1,
                                            prm
                                           ));
         }
@@ -350,22 +347,22 @@ FilterAction RefocusFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("correlation", d->correlation);
-    action.addParameter("gauss", d->gauss);
-    action.addParameter("matrixSize", d->matrixSize);
-    action.addParameter("noise", d->noise);
-    action.addParameter("radius", d->radius);
+    action.addParameter(QLatin1String("correlation"), d->correlation);
+    action.addParameter(QLatin1String("gauss"),       d->gauss);
+    action.addParameter(QLatin1String("matrixSize"),  d->matrixSize);
+    action.addParameter(QLatin1String("noise"),       d->noise);
+    action.addParameter(QLatin1String("radius"),      d->radius);
 
     return action;
 }
 
 void RefocusFilter::readParameters(const Digikam::FilterAction& action)
 {
-    d->correlation = action.parameter("correlation").toDouble();
-    d->gauss       = action.parameter("gauss").toDouble();
-    d->matrixSize  = action.parameter("matrixSize").toInt();
-    d->noise       = action.parameter("noise").toDouble();
-    d->radius      = action.parameter("radius").toDouble();
+    d->correlation = action.parameter(QLatin1String("correlation")).toDouble();
+    d->gauss       = action.parameter(QLatin1String("gauss")).toDouble();
+    d->matrixSize  = action.parameter(QLatin1String("matrixSize")).toInt();
+    d->noise       = action.parameter(QLatin1String("noise")).toDouble();
+    d->radius      = action.parameter(QLatin1String("radius")).toDouble();
 }
 
 int RefocusFilter::maxMatrixSize()

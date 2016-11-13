@@ -10,7 +10,7 @@
  * Copyright (C)      2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C)      2010 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C)      2011 by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C)      2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C)      2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,12 +28,9 @@
 #ifndef IMAGEFILTERMODEL_H
 #define IMAGEFILTERMODEL_H
 
-// KDE includes
-
-#include <kcategorizedsortfilterproxymodel.h>
-
 // Local includes
 
+#include "dcategorizedsortfilterproxymodel.h"
 #include "textfilter.h"
 #include "imagefiltersettings.h"
 #include "imagemodel.h"
@@ -57,7 +54,7 @@ public:
 
 // -----------------------------------------------------------------------------------------------
 
-class DIGIKAM_DATABASE_EXPORT ImageSortFilterModel : public KCategorizedSortFilterProxyModel
+class DIGIKAM_DATABASE_EXPORT ImageSortFilterModel : public DCategorizedSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -190,7 +187,8 @@ public Q_SLOTS:
     void setCategorizationSortOrder(ImageSortSettings::SortOrder order);
     void setSortRole(ImageSortSettings::SortRole role);
     void setSortOrder(ImageSortSettings::SortOrder order);
-    void setUrlWhitelist(const KUrl::List urlList, const QString& id);
+    void setStringTypeNatural(bool natural);
+    void setUrlWhitelist(const QList<QUrl> urlList, const QString& id);
     void setIdWhitelist(const QList<qlonglong>& idList, const QString& id);
 
     void setVersionManagerSettings(const VersionManagerSettings& settings);

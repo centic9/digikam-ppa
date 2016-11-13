@@ -7,7 +7,7 @@
  * Description : a generic list view item widget to
  *               display metadata
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,7 +32,7 @@
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -43,7 +43,8 @@ namespace Digikam
 
 MetadataListViewItem::MetadataListViewItem(QTreeWidgetItem* const parent, const QString& key,
         const QString& title, const QString& value)
-    : QTreeWidgetItem(parent), m_key(key)
+    : QTreeWidgetItem(parent),
+      m_key(key)
 {
     setChildIndicatorPolicy(QTreeWidgetItem::DontShowIndicator);
     setText(0, title);
@@ -54,18 +55,19 @@ MetadataListViewItem::MetadataListViewItem(QTreeWidgetItem* const parent, const 
     if (tagVal.length() > 512)
     {
         tagVal.truncate(512);
-        tagVal.append("...");
+        tagVal.append(QLatin1String("..."));
     }
 
     setText(1, tagVal);
 
     DToolTipStyleSheet cnt;
-    setToolTip(1, "<qt><p>" + cnt.breakString(tagVal) + "</p></qt>");
+    setToolTip(1, QLatin1String("<qt><p>") + cnt.breakString(tagVal) + QLatin1String("</p></qt>"));
 }
 
 MetadataListViewItem::MetadataListViewItem(QTreeWidgetItem* const parent, const QString& key,
         const QString& title)
-    : QTreeWidgetItem(parent), m_key(key)
+    : QTreeWidgetItem(parent),
+      m_key(key)
 {
     setChildIndicatorPolicy(QTreeWidgetItem::DontShowIndicator);
     setText(0, title);

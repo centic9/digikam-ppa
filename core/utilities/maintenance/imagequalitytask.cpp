@@ -6,7 +6,7 @@
  * Date        : 2013-08-19
  * Description : Thread actions task for image quality sorter.
  *
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,15 +21,11 @@
  *
  * ============================================================ */
 
-#include "imagequalitytask.moc"
-
-// KDE includes
-
-#include <kdebug.h>
-#include <threadweaver/ThreadWeaver.h>
+#include "imagequalitytask.h"
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimg.h"
 #include "previewloadthread.h"
 #include "imagequalitysettings.h"
@@ -58,7 +54,8 @@ public:
 // -------------------------------------------------------
 
 ImageQualityTask::ImageQualityTask()
-    : Job(0), d(new Private)
+    : ActionJob(),
+      d(new Private)
 {
 }
 
@@ -110,15 +107,14 @@ void ImageQualityTask::run()
             ImageInfo info = ImageInfo::fromLocalFile(d->path);
             info.setPickLabel(pick);
 
-            if (d->imgqsort)
-            {
-                delete d->imgqsort; //delete image data after setting label
-                d->imgqsort = 0;
-            }
+            delete d->imgqsort; //delete image data after setting label
+            d->imgqsort = 0;
         }
         // Dispatch progress to Progress Manager
         QImage qimg = dimg.smoothScale(22, 22, Qt::KeepAspectRatio).copyQImage();
         emit signalFinished(qimg);
+        emit signalDone();
     }
 }
+
 }  // namespace Digikam

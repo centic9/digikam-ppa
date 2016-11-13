@@ -6,7 +6,7 @@
  * Date        : 2010-02-17
  * Description : Icc profile settings view.
  *
- * Copyright (C) 2010-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "iccprofilesettings.moc"
+#include "iccprofilesettings.h"
 
 // Qt includes
 
@@ -30,29 +30,21 @@
 #include <QLabel>
 #include <QString>
 #include <QPushButton>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kstandarddirs.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
 #include "iccprofilescombobox.h"
 #include "iccprofileinfodlg.h"
 #include "iccsettings.h"
-
-using namespace KDcrawIface;
 
 namespace Digikam
 {
@@ -72,12 +64,12 @@ public:
     IccProfilesComboBox*  profilesBox;
 };
 
-const QString IccProfilesSettings::Private::configRecentlyUsedProfilesEntry("Recently Used Profiles");
+const QString IccProfilesSettings::Private::configRecentlyUsedProfilesEntry(QLatin1String("Recently Used Profiles"));
 
 // --------------------------------------------------------
 
 IccProfilesSettings::IccProfilesSettings(QWidget* const parent)
-    : KVBox(parent),
+    : DVBox(parent),
       d(new Private)
 {
     QLabel* const newProfileLabel  = new QLabel(i18n("Convert to:"), this);
@@ -88,8 +80,8 @@ IccProfilesSettings::IccProfilesSettings(QWidget* const parent)
     QPushButton* const newProfInfo = new QPushButton(i18n("Info..."), this);
 
     layout()->setAlignment(newProfInfo, Qt::AlignLeft);
-    setMargin(0);
-    setSpacing(KDialog::spacingHint());
+    setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+    setContentsMargins(QMargins());
 
     // -------------------------------------------------------------
 
@@ -107,7 +99,7 @@ IccProfilesSettings::~IccProfilesSettings()
 
 void IccProfilesSettings::slotNewProfInfo()
 {
-    ICCProfileInfoDlg infoDlg(kapp->activeWindow(), QString(), d->profilesBox->currentProfile());
+    ICCProfileInfoDlg infoDlg(qApp->activeWindow(), QString(), d->profilesBox->currentProfile());
     infoDlg.exec();
 }
 

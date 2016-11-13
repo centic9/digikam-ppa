@@ -7,6 +7,7 @@
  * Description : a dialog to display image file save options.
  *
  * Copyright (C) 2009 by David Eriksson <meldavid at acc umu se>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,9 +25,9 @@
 #ifndef FILESAVEOPTIONSDLG_H
 #define FILESAVEOPTIONSDLG_H
 
-// KDE includes
+// Qt includes
 
-#include <kdialog.h>
+#include <QDialog>
 
 // Local includes
 
@@ -38,13 +39,25 @@ class QWidget;
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT FileSaveOptionsDlg : public KDialog
+class DIGIKAM_EXPORT FileSaveOptionsDlg : public QDialog
 {
 
 public:
 
     FileSaveOptionsDlg(QWidget* const parent, FileSaveOptionsBox* const options);
     ~FileSaveOptionsDlg();
+
+    /**
+     * Tries to discover a file format that has options to change based on a
+     * filename.
+     *
+     * @param filename file name to discover the desired format from
+     * @param fallback fallback format to return if no format could be
+     *                 discovered based on the filename
+     * @return file format guessed from the file name or the given fallback
+     *         format if no format could be guessed based on the file name
+     */
+    static DImg::FORMAT discoverFormat(const QString& filename, DImg::FORMAT fallback = DImg::NONE);
 };
 
 }  // namespace Digikam

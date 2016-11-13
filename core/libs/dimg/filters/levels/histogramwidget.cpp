@@ -6,7 +6,7 @@
  * Date        : 2004-07-21
  * Description : a widget to display an image histogram.
  *
- * Copyright (C) 2004-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "histogramwidget.moc"
+#include "histogramwidget.h"
 
 // Qt includes
 
@@ -41,19 +41,19 @@
 
 // KDE includes
 
+#include <klocalizedstring.h>
 
-#include <kcursor.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kpixmapsequence.h>
-#include <kdebug.h>
+// LibDRawDecoder includes
+
+#include "dwidgetutils.h"
 
 // Local includes
 
 #include "dimg.h"
 #include "ditemtooltip.h"
 #include "imagehistogram.h"
-#include "globals.h"
+#include "digikam_globals.h"
+#include "digikam_debug.h"
 #include "histogrampainter.h"
 
 namespace Digikam
@@ -96,40 +96,40 @@ public:
           animation(0),
           histogramPainter(0)
     {
-        progressPix = KPixmapSequence("process-working", KIconLoader::SizeSmallMedium);
+        progressPix = DWorkingPixmap();
     }
 
 public:
 
-    bool                sixteenBits;
-    bool                guideVisible;           // Display color guide.
-    bool                statisticsVisible;      // Display tooltip histogram statistics.
-    bool                inSelected;
-    bool                selectMode;             // If true, a part of the histogram can be selected !
-    bool                showProgress;           // If true, a message will be displayed during histogram computation,
-                                                // else nothing (limit flicker effect in widget especially for small
-                                                // image/computation time).
-    int                 renderingType;          // Using full image or image selection for histogram rendering.
-    int                 range;
-    HistogramState      state;                  // Clear drawing zone with message.
+    bool                             sixteenBits;
+    bool                             guideVisible;           // Display color guide.
+    bool                             statisticsVisible;      // Display tooltip histogram statistics.
+    bool                             inSelected;
+    bool                             selectMode;             // If true, a part of the histogram can be selected !
+    bool                             showProgress;           // If true, a message will be displayed during histogram computation,
+                                                             // else nothing (limit flicker effect in widget especially for small
+                                                             // image/computation time).
+    int                              renderingType;          // Using full image or image selection for histogram rendering.
+    int                              range;
+    HistogramState                   state;                  // Clear drawing zone with message.
 
-    ChannelType         channelType;            // Channel type to draw
-    HistogramScale      scaleType;              // Scale to use for drawing
-    ImageHistogram*     imageHistogram;         // Full image
-    ImageHistogram*     selectionHistogram;     // Image selection
+    ChannelType                      channelType;            // Channel type to draw
+    HistogramScale                   scaleType;              // Scale to use for drawing
+    ImageHistogram*                  imageHistogram;         // Full image
+    ImageHistogram*                  selectionHistogram;     // Image selection
 
     // Current selection information.
-    double              xmin;
-    double              xminOrg;
-    double              xmax;
+    double                           xmin;
+    double                           xminOrg;
+    double                           xmax;
 
-    int                 animationState;
-    QPropertyAnimation* animation;
-    KPixmapSequence     progressPix;
+    int                              animationState;
+    QPropertyAnimation*              animation;
+    DWorkingPixmap       progressPix;
 
-    DColor              colorGuide;
+    DColor                           colorGuide;
 
-    HistogramPainter*   histogramPainter;
+    HistogramPainter*                histogramPainter;
 };
 
 HistogramWidget::HistogramWidget(int w, int h,
@@ -227,7 +227,7 @@ void HistogramWidget::updateData(const DImg& img, const DImg& sel, bool showProg
     }
     else
     {
-        kWarning() << "Current histogram is null";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Current histogram is null";
     }
 }
 
@@ -259,7 +259,7 @@ void HistogramWidget::setRenderingType(HistogramRenderingType type)
 
         if (!nowUsedHistogram)
         {
-            kWarning() << "Current histogram is null";
+            qCWarning(DIGIKAM_DIMG_LOG) << "Current histogram is null";
             return;
         }
 
@@ -569,7 +569,7 @@ void HistogramWidget::paintEvent(QPaintEvent*)
     {
         DToolTipStyleSheet cnt;
         QString            tipText, value;
-        tipText = "<qt><table cellspacing=0 cellpadding=0>";
+        tipText = QLatin1String("<qt><table cellspacing=0 cellpadding=0>");
 
         tipText += cnt.cellBeg + i18n("Mean:") + cnt.cellMid;
         double mean = histogram->getMean(d->channelType, 0, histogram->getHistogramSegments() - 1);
@@ -595,7 +595,7 @@ void HistogramWidget::paintEvent(QPaintEvent*)
         double percentile = (pixels > 0 ? (100.0 * counts / pixels) : 0.0);
         tipText += value.setNum(percentile, 'f', 1) + cnt.cellEnd;
 
-        tipText += "</table></qt>";
+        tipText += QLatin1String("</table></qt>");
 
         setToolTip(tipText);
     }

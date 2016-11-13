@@ -6,7 +6,8 @@
  * Date        : 2011-09-19
  * Description : a plugin to export images to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu
+ * Copyright (C) 2011-2013 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -38,37 +39,30 @@ class FlashExportAboutData : public KPAboutData
 public:
 
     FlashExportAboutData()
-        : KPAboutData(ki18n("Flash Export"), 0,
-                      KAboutData::License_GPL,
-                      ki18n("A Kipi plugin to export images to Flash using the SimpleViewer's components."),
+        : KPAboutData(ki18n("Flash Export"),
+                      ki18n("A tool to export images to Flash using the SimpleViewer's components."),
                       ki18n("(c) 2005-2006, Joern Ahrens\n"
-                            "(c) 2008-2012, Gilles Caulier\n"
-                            "(c) 2011, Veaceslav Munteanu"))
+                            "(c) 2008-2016, Gilles Caulier\n"
+                            "(c) 2011-2013, Veaceslav Munteanu"))
 
     {
-        setHandbookEntry("flashexport");
+        setHandbookEntry(QLatin1String("flashexport"));
 
-        addAuthor(ki18n("Joern Ahrens"),
-                ki18n("Author"),
-                "joern dot ahrens at kdemail dot net");
+        addAuthor(i18n("Joern Ahrens"),
+                  i18n("Author"),
+                  QLatin1String("joern dot ahrens at kdemail dot net"));
 
-        addAuthor(ki18n("Gilles Caulier"),
-                ki18n("Developer and maintainer"),
-                "caulier dot gilles at gmail dot com");
+        addAuthor(i18n("Gilles Caulier"),
+                  i18n("Developer and maintainer"),
+                  QLatin1String("caulier dot gilles at gmail dot com"));
 
-        addAuthor(ki18n("Veaceslav Munteanu"),
-                ki18n("Developer and maintainer"),
-                "slavuttici at gmail dot com");
+        addAuthor(i18n("Veaceslav Munteanu"),
+                  i18n("Developer and maintainer"),
+                  QLatin1String("slavuttici at gmail dot com"));
 
-        addCredit(ki18n("Felix Turner"),
-                ki18n("Author of the Simple Viewer Flash component"),
-                0,
-                "http://www.simpleviewer.net");
-
-        addCredit(ki18n("Mikkel B. Stegmann"),
-                ki18n("Basis for the index.html template"),
-                0,
-                "http://www.stegmann.dk/mikkel/porta");
+        addAuthor(i18n("Mikkel B. Stegmann"),
+                  i18n("Basis for the index.html template"),
+                  QString());
     }
 
     ~FlashExportAboutData()
@@ -78,4 +72,4 @@ public:
 
 } // namespace KIPIFlashExportPlugin
 
-#endif /* ABOUTDATA_H */
+#endif // ABOUTDATA_H

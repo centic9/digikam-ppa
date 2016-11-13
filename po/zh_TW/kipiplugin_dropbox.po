@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-20 01:52+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2014-04-23 11:16+0800\n"
 "Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
 "Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
@@ -17,168 +17,65 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.5\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Franklin Weng"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "franklin@nospam.goodhorse.idv.tw"
-
-#: dbalbum.cpp:46
-msgid "Dropbox New Folder"
-msgstr "Dropbox 新資料夾"
-
-#: dbalbum.cpp:59
-msgid "The name of the folder that will be created"
-msgstr "建立的資料夾名稱"
-
-#: dbalbum.cpp:63
-msgctxt "album edit"
-msgid "Title:"
-msgstr "標題："
-
-#: dbtalker.cpp:173
+#: dbtalker.cpp:184
 msgid "Authorize Dropbox"
 msgstr "認證 Dropbox"
 
-#: dbtalker.cpp:180
+#: dbtalker.cpp:194
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
 msgstr "請依循瀏覽器的指示。登入並授權應用程式後，按下「確定」。"
 
-#: dbtalker.cpp:497
+#: dbtalker.cpp:422
+msgid "Error"
+msgstr ""
+
+#: dbtalker.cpp:473
 msgid "Failed to upload photo"
 msgstr "上傳照片失敗"
 
-#: dbtalker.cpp:571
+#: dbtalker.cpp:534
 msgid "Failed to list folders"
 msgstr "列出資料夾失敗"
 
-#: dbwidget.cpp:71
-msgid "This is the list of images to upload to your Dropbox account."
-msgstr "這是要上傳到您的 Dropbox 帳號的影像清單。"
-
-#: dbwidget.cpp:77
-msgid "This is a clickable link to open Dropbox in a browser."
-msgstr "這個連結會在瀏覽器中開啟 Dropbox."
-
-#: dbwidget.cpp:83
-msgid "Account"
-msgstr "帳號"
-
-#: dbwidget.cpp:84
-msgid "This is the Dropbox account that is currently logged in."
-msgstr "這是目前已登入的 Dropbox 帳號。"
-
-#: dbwidget.cpp:87
-msgctxt "account settings"
-msgid "Name:"
-msgstr "名稱："
-
-#: dbwidget.cpp:90
-msgid "Change Account"
-msgstr "變更帳號"
-
-#: dbwidget.cpp:90
-msgid "Change Dropbox account for transfer"
-msgstr "變更用於傳輸的 Dropbox 帳號"
-
-#: dbwidget.cpp:101
-msgid "Destination"
-msgstr "目的地"
-
-#: dbwidget.cpp:102
-msgid "This is the Dropbox folder to which selected photos will be uploaded."
-msgstr "這是將要上傳選擇影像的 Dropbox 資料夾。"
-
-#: dbwidget.cpp:105
-msgid "Folder:"
-msgstr "資料夾："
-
-#: dbwidget.cpp:109
-msgid "New Folder"
-msgstr "新資料夾"
-
-#: dbwidget.cpp:110
-msgid "Create new Dropbox folder"
-msgstr "建立新的 Dropbox 資料夾"
-
-#: dbwidget.cpp:111
-msgctxt "album list"
-msgid "Reload"
-msgstr "重新載入"
-
-#: dbwidget.cpp:112
-msgid "Reload album list"
-msgstr "重新載入相簿清單"
-
-#: dbwidget.cpp:121
-msgid "Options"
-msgstr "選項"
-
-#: dbwidget.cpp:122
-msgid "These are the options that would be applied to photos before upload."
-msgstr "這些選項會在上傳前套用到照片。"
-
-#: dbwidget.cpp:126
-msgid "Resize photos before uploading"
-msgstr "上傳前調整照片大小"
-
-#: dbwidget.cpp:137
-msgid "Maximum Dimension:"
-msgstr "最大尺寸："
-
-#: dbwidget.cpp:146
-msgid "JPEG Quality:"
-msgstr "JPEG 品質："
-
-#: dbwindow.cpp:88
+#: dbwindow.cpp:79
 msgid "Export to Dropbox"
 msgstr "匯出到 Dropbox"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:81
 msgid "Start Upload"
 msgstr "開始上傳"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:82
 msgid "Start upload to Dropbox"
 msgstr "開始上傳到 Dropbox"
 
-#: dbwindow.cpp:107
+#: dbwindow.cpp:101
 msgid "Dropbox Export"
 msgstr "Dropbox 匯出"
 
-#: dbwindow.cpp:109
-msgid "A Kipi-plugin to export images to Dropbox"
+#: dbwindow.cpp:102
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Dropbox"
+msgid "A tool to export images to Dropbox"
 msgstr "匯出影像到 Dropbox 的 Kipi 外掛程式。"
 
-#: dbwindow.cpp:111
+#: dbwindow.cpp:104
 #, fuzzy
-#| msgid "(c) 2013, Saurabh Patel"
-msgid ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
-msgstr "(c) 2013, Saurabh Patel"
+#| msgid "Saurabh Patel"
+msgid "(c) 2013, Saurabh Patel"
+msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
+#: dbwindow.cpp:106
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
-msgid "Author and maintainer"
-msgstr "作者與維護者"
-
-#: dbwindow.cpp:116
-msgid "Shourya Singh Gupta"
+#: dbwindow.cpp:107
+msgid "Author"
 msgstr ""
 
-#: dbwindow.cpp:116
-msgid "Developer"
-msgstr ""
-
-#: dbwindow.cpp:282
+#: dbwindow.cpp:281
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -187,23 +84,38 @@ msgstr ""
 "文字為空白。請輸入瀏覽器中取得的代碼。要完成認證，請點擊「變更帳號」或「開始"
 "上傳」並重新認證。"
 
+#: dbwindow.cpp:293
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
 #: dbwindow.cpp:294
 msgid "No image selected. Please select which images should be uploaded."
 msgstr "沒有選取影像。請選擇要上傳的影像。"
 
-#: dbwindow.cpp:304 dbwindow.cpp:419
-msgid "Authentication failed. Click \"Continue\" to authenticate."
+#: dbwindow.cpp:300 dbwindow.cpp:420
+msgid "Login Failed"
+msgstr ""
+
+#: dbwindow.cpp:301 dbwindow.cpp:421
+#, fuzzy
+#| msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgid "Authentication failed. Do you want to try again?"
 msgstr "認證失敗。點擊「繼續」以認證。"
 
-#: dbwindow.cpp:328
+#: dbwindow.cpp:325
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: dbwindow.cpp:332
+#: dbwindow.cpp:329
 msgid "Dropbox export"
 msgstr "Dropbox 匯出"
 
-#: dbwindow.cpp:364
+#: dbwindow.cpp:362
+msgid "Uploading Failed"
+msgstr ""
+
+#: dbwindow.cpp:363
 #, kde-format
 msgid ""
 "Failed to upload photo to Dropbox.\n"
@@ -214,7 +126,7 @@ msgstr ""
 "%1\n"
 "您要繼續嗎？"
 
-#: dbwindow.cpp:443 dbwindow.cpp:449
+#: dbwindow.cpp:445 dbwindow.cpp:450
 #, kde-format
 msgid ""
 "Dropbox call failed:\n"
@@ -233,6 +145,94 @@ msgstr "匯出(&E)"
 msgid "Main Toolbar"
 msgstr "主工具列"
 
-#: plugin_dropbox.cpp:96
+#: plugin_dropbox.cpp:90
 msgid "Export to &Dropbox..."
 msgstr "匯出到 Dropbox(&D)..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Franklin Weng"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "franklin@nospam.goodhorse.idv.tw"
+
+#~ msgid "Dropbox New Folder"
+#~ msgstr "Dropbox 新資料夾"
+
+#~ msgid "The name of the folder that will be created"
+#~ msgstr "建立的資料夾名稱"
+
+#~ msgctxt "album edit"
+#~ msgid "Title:"
+#~ msgstr "標題："
+
+#~ msgid "This is the list of images to upload to your Dropbox account."
+#~ msgstr "這是要上傳到您的 Dropbox 帳號的影像清單。"
+
+#~ msgid "This is a clickable link to open Dropbox in a browser."
+#~ msgstr "這個連結會在瀏覽器中開啟 Dropbox."
+
+#~ msgid "Account"
+#~ msgstr "帳號"
+
+#~ msgid "This is the Dropbox account that is currently logged in."
+#~ msgstr "這是目前已登入的 Dropbox 帳號。"
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "名稱："
+
+#~ msgid "Change Account"
+#~ msgstr "變更帳號"
+
+#~ msgid "Change Dropbox account for transfer"
+#~ msgstr "變更用於傳輸的 Dropbox 帳號"
+
+#~ msgid "Destination"
+#~ msgstr "目的地"
+
+#~ msgid ""
+#~ "This is the Dropbox folder to which selected photos will be uploaded."
+#~ msgstr "這是將要上傳選擇影像的 Dropbox 資料夾。"
+
+#~ msgid "Folder:"
+#~ msgstr "資料夾："
+
+#~ msgid "New Folder"
+#~ msgstr "新資料夾"
+
+#~ msgid "Create new Dropbox folder"
+#~ msgstr "建立新的 Dropbox 資料夾"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "重新載入"
+
+#~ msgid "Reload album list"
+#~ msgstr "重新載入相簿清單"
+
+#~ msgid "Options"
+#~ msgstr "選項"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr "這些選項會在上傳前套用到照片。"
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "上傳前調整照片大小"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "最大尺寸："
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "JPEG 品質："
+
+#, fuzzy
+#~| msgid "(c) 2013, Saurabh Patel"
+#~ msgid ""
+#~ "(c) 2013, Saurabh Patel\n"
+#~ "(c) 2015, Shourya Singh Gupta"
+#~ msgstr "(c) 2013, Saurabh Patel"
+
+#~ msgid "Author and maintainer"
+#~ msgstr "作者與維護者"

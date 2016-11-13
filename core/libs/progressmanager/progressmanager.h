@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2004      by Till Adam <adam at kde dot org>
  *
@@ -50,6 +50,17 @@ public:
     ProgressItem(ProgressItem* const parent, const QString& id, const QString& label,
                  const QString& status, bool canBeCanceled, bool hasThumb);
     virtual ~ProgressItem();
+
+    /**
+     * Set the property to pop-up item when it's added in progress manager.
+     * Use this method if you consider that item is important to be notified to end-user.
+     */
+    void setShowAtStart(bool showAtStart);
+
+    /**
+     * @return true if item must be pop-up when it's added in progress manager.
+     */
+    bool showAtStart() const;
 
     /**
      * @return The id string which uniquely identifies the operation
@@ -108,7 +119,7 @@ public:
     /**
      * Sets whether this item has a thumbnail.
      */
-    void setThumbnail(const QPixmap& thumb);
+    void setThumbnail(const QIcon &icon);
 
     /**
      * @return The current progress value of this item in percent.

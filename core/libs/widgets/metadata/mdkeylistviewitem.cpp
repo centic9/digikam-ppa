@@ -7,7 +7,7 @@
  * Description : a generic list view item widget to
  *               display metadata key like a title
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,18 +22,18 @@
  *
  * ============================================================ */
 
-#include "mdkeylistviewitem.moc"
+#include "mdkeylistviewitem.h"
 
 // Qt includes
 
 #include <QPalette>
 #include <QFont>
 #include <QPainter>
+#include <QApplication>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -49,117 +49,117 @@ MdKeyListViewItem::MdKeyListViewItem(QTreeWidget* const parent, const QString& k
     m_decryptedKey = key;
 
     // Standard Exif key descriptions.
-    if      (key == "Iop")
+    if      (key == QLatin1String("Iop"))
     {
         m_decryptedKey = i18n("Interoperability");
     }
-    else if (key == "Image")
+    else if (key == QLatin1String("Image"))
     {
         m_decryptedKey = i18n("Image Information");
     }
-    else if (key == "Photo")
+    else if (key == QLatin1String("Photo"))
     {
         m_decryptedKey = i18n("Photograph Information");
     }
-    else if (key == "GPSInfo")
+    else if (key == QLatin1String("GPSInfo"))
     {
         m_decryptedKey = i18n("Global Positioning System");
     }
-    else if (key == "Thumbnail")
+    else if (key == QLatin1String("Thumbnail"))
     {
         m_decryptedKey = i18n("Embedded Thumbnail");
     }
 
     // Standard IPTC key descriptions.
-    else if (key == "Envelope")
+    else if (key == QLatin1String("Envelope"))
     {
         m_decryptedKey = i18n("IIM Envelope");
     }
-    else if (key == "Application2")
+    else if (key == QLatin1String("Application2"))
     {
         m_decryptedKey = i18n("IIM Application 2");
     }
 
     // Standard XMP key descriptions.
-    else if (key == "aux")
+    else if (key == QLatin1String("aux"))
     {
         m_decryptedKey = i18n("Additional Exif Properties");
     }
-    else if (key == "crs")
+    else if (key == QLatin1String("crs"))
     {
         m_decryptedKey = i18n("Camera Raw");
     }
-    else if (key == "dc")
+    else if (key == QLatin1String("dc"))
     {
         m_decryptedKey = i18n("Dublin Core");
     }
-    else if (key == "digiKam")
+    else if (key == QLatin1String("digiKam"))
     {
         m_decryptedKey = i18n("digiKam schema");
     }
-    else if (key == "exif")
+    else if (key == QLatin1String("exif"))
     {
         m_decryptedKey = i18n("Exif-specific Properties");
     }
-    else if (key == "iptc")
+    else if (key == QLatin1String("iptc"))
     {
         m_decryptedKey = i18n("IPTC Core");
     }
-    else if (key == "iptcExt")
+    else if (key == QLatin1String("iptcExt"))
     {
         m_decryptedKey = i18n("IPTC Extension schema");
     }
-    else if (key == "MicrosoftPhoto")
+    else if (key == QLatin1String("MicrosoftPhoto"))
     {
         m_decryptedKey = i18n("Microsoft Photo");
     }
-    else if (key == "pdf")
+    else if (key == QLatin1String("pdf"))
     {
         m_decryptedKey = i18n("Adobe PDF");
     }
-    else if (key == "photoshop")
+    else if (key == QLatin1String("photoshop"))
     {
         m_decryptedKey = i18n("Adobe Photoshop");
     }
-    else if (key == "plus")
+    else if (key == QLatin1String("plus"))
     {
         m_decryptedKey = i18n("PLUS License Data Format Schema");
     }
-    else if (key == "tiff")
+    else if (key == QLatin1String("tiff"))
     {
         m_decryptedKey = i18n("TIFF Properties");
     }
-    else if (key == "xmp")
+    else if (key == QLatin1String("xmp"))
     {
         m_decryptedKey = i18n("Basic Schema");
     }
-    else if (key == "xmpBJ")
+    else if (key == QLatin1String("xmpBJ"))
     {
         m_decryptedKey = i18n("Basic Job Ticket");
     }
-    else if (key == "xmpDM")
+    else if (key == QLatin1String("xmpDM"))
     {
         m_decryptedKey = i18n("Dynamic Media");
     }
-    else if (key == "xmpMM")
+    else if (key == QLatin1String("xmpMM"))
     {
         m_decryptedKey = i18n("Media Management ");
     }
-    else if (key == "xmpRights")
+    else if (key == QLatin1String("xmpRights"))
     {
         m_decryptedKey = i18n("Rights Management");
     }
-    else if (key == "xmpTPg")
+    else if (key == QLatin1String("xmpTPg"))
     {
         m_decryptedKey = i18n("Paged-Text");
     }
 
     // Additional XMP key descriptions.
-    else if (key == "mwg-rs")
+    else if (key == QLatin1String("mwg-rs"))
     {
         m_decryptedKey = i18n("Metadata Working Group Regions");
     }
-    else if (key == "dwc")
+    else if (key == QLatin1String("dwc"))
     {
         m_decryptedKey = i18n("Darwin Core");
     }
@@ -203,10 +203,10 @@ QString MdKeyListViewItem::getDecryptedKey() const
 
 void MdKeyListViewItem::slotThemeChanged()
 {
-    setBackground(0, QBrush(kapp->palette().color(QPalette::Highlight)));
-    setBackground(1, QBrush(kapp->palette().color(QPalette::Highlight)));
-    setForeground(0, QBrush(kapp->palette().color(QPalette::HighlightedText)));
-    setForeground(1, QBrush(kapp->palette().color(QPalette::HighlightedText)));
+    setBackground(0, QBrush(qApp->palette().color(QPalette::Highlight)));
+    setBackground(1, QBrush(qApp->palette().color(QPalette::Highlight)));
+    setForeground(0, QBrush(qApp->palette().color(QPalette::HighlightedText)));
+    setForeground(1, QBrush(qApp->palette().color(QPalette::HighlightedText)));
 }
 
 }  // namespace Digikam

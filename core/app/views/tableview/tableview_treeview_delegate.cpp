@@ -20,29 +20,18 @@
  *
  * ============================================================ */
 
-#include "tableview_treeview_delegate.moc"
+#include "tableview_treeview_delegate.h"
 
 // Qt includes
 
-#include <QContextMenuEvent>
-#include <QHeaderView>
-#include <QItemSelectionModel>
 #include <QTreeView>
-#include <QVBoxLayout>
 
-// KDE includes
+// Local includes
 
-#include <kaction.h>
-#include <klinkitemselectionmodel.h>
-#include <kmenu.h>
-#include <kdebug.h>
-
-// local includes
-
-/// @todo clean up includes
+#include "digikam_debug.h"
 #include "contextmenuhelper.h"
-#include "databasefields.h"
-#include "databasewatch.h"
+#include "coredbfields.h"
+#include "coredbwatch.h"
 #include "fileactionmngr.h"
 #include "imageinfo.h"
 #include "imagemodel.h"
@@ -72,6 +61,14 @@ TableViewItemDelegate::~TableViewItemDelegate()
 void TableViewItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& tableViewModelIndex) const
 {
     const int columnIndex               = tableViewModelIndex.column();
+    const int columnCount               = s->tableViewModel->columnCount(QModelIndex());
+
+    if (columnIndex < 0 || columnIndex >= columnCount)
+    {
+        QItemDelegate::paint(painter, option, tableViewModelIndex);
+        return;
+    }
+
     TableViewColumn* const columnObject = s->tableViewModel->getColumnObject(columnIndex);
     bool useDefaultPainter              = !columnObject->getColumnFlags().testFlag(TableViewColumn::ColumnCustomPainting);
 
@@ -97,6 +94,11 @@ QSize TableViewItemDelegate::sizeHint(const QStyleOptionViewItem& option, const 
     const int columnCount            = s->tableViewModel->columnCount(QModelIndex());
     TableViewModel::Item* const item = s->tableViewModel->itemFromIndex(tableViewModelIndex);
     int maxHeight                    = 0;
+
+    if (columnIndex < 0 || columnIndex >= columnCount)
+    {
+        return QItemDelegate::sizeHint(option, tableViewModelIndex);
+    }
 
     for (int i = 0; i < columnCount ; ++i)
     {

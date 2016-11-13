@@ -27,25 +27,19 @@
 
 // Qt includes
 
-#include <QThread>
-
-// KDE includes
-
-#include <kurl.h>
-#include <threadweaver/Job.h>
+#include <QUrl>
 
 // Local includes
 
 #include "actions.h"
 #include "queuesettings.h"
 #include "batchtoolutils.h"
-
-using namespace ThreadWeaver;
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
 
-class Task : public Job
+class Task : public ActionJob
 {
     Q_OBJECT
 
@@ -72,7 +66,7 @@ protected:
 
 private:
 
-    void emitActionData(ActionData::ActionStatus st, const QString& mess=QString(), const KUrl& dest=KUrl());
+    void emitActionData(ActionData::ActionStatus st, const QString& mess=QString(), const QUrl& dest=QUrl());
 
 private:
 

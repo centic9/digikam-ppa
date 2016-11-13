@@ -4,11 +4,12 @@
  * http://www.digikam.org
  *
  * Date        : 2013-11-18
- * Description : a kipi plugin to export images to Google-Drive web service
+ * Description : a kipi plugin to export images to Google web service
  *
- * Copyright (C) 2013 by Pankaj Kumar <me at panks dot me>
- * Copyright (C) 2015 by Shourya Singh Gupta <shouryasgupta at gmail dot com>
- * 
+ * Copyright (C) 2013      by Pankaj Kumar <me at panks dot me>
+ * Copyright (C) 2015      by Shourya Singh Gupta <shouryasgupta at gmail dot com>
+ * Copyright (C) 2008-2016 by Caulier Gilles <caulier dot gilles at gmail dot com>
+ *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
  * Public License as published by the Free Software Foundation;
@@ -28,29 +29,19 @@
 
 #include <QList>
 #include <QPair>
+#include <QUrl>
+#include <QPointer>
 
 // Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
 #include "kptooldialog.h"
+#include "gsitem.h"
 
 class QCloseEvent;
-
-class KProgressDialog;
-class KUrl;
-
-namespace KIPI
-{
-    class Interface;
-}
-
-namespace KIPIPlugins
-{
-    class KPAboutData;
-}
 
 using namespace KIPI;
 using namespace KIPIPlugins;
@@ -62,7 +53,7 @@ class GDTalker;
 class GSPhoto;
 class GSFolder;
 class NewAlbumDlg;
-class PicasawebTalker;
+class GPTalker;
 
 class GSWindow : public KPToolDialog
 {
@@ -85,7 +76,7 @@ private:
 
     void buttonStateChange(bool state);
     void closeEvent(QCloseEvent*);
-    void picasaTransferHandler();
+    void googlePhotoTransferHandler();
 
 private Q_SLOTS:
 
@@ -94,7 +85,7 @@ private Q_SLOTS:
     void slotNewAlbumRequest();
     void slotReloadAlbumsRequest();
     void slotStartTransfer();
-    void slotCloseClicked();
+    void slotFinished();
     //void slotChangeProgressBar();
 
     void slotBusy(bool);
@@ -106,7 +97,7 @@ private Q_SLOTS:
     void slotListAlbumsDone(int,const QString&,const QList <GSFolder>&);
     void slotListPhotosDoneForDownload(int errCode, const QString& errMsg, const QList <GSPhoto>& photosList);
     void slotListPhotosDoneForUpload(int errCode, const QString& errMsg, const QList <GSPhoto>& photosList);
-    void slotCreateFolderDone(int,const QString& msg, const QString& = QString("-1"));
+    void slotCreateFolderDone(int,const QString& msg, const QString& = QStringLiteral("-1"));
     void slotAddPhotoDone(int,const QString& msg, const QString&);
     void slotGetPhotoDone(int errCode, const QString& errMsg, const QByteArray& photoData);
     void slotTransferCancel();
@@ -119,24 +110,24 @@ private:
 
     QString                       m_serviceName;
     QString                       m_pluginName;
-    bool                          m_picasaExport;
-    bool                          m_picasaImport;
-    bool                          m_gdrive;
+    PluginName                    m_name;
     QString                       m_tmp;
-    QString                       refresh_token;
+    QString                       m_refresh_token;
 
     GoogleServicesWidget*         m_widget;
     NewAlbumDlg*                  m_albumDlg;
-    NewAlbumDlg*                  m_picasa_albumdlg;
-    
+    NewAlbumDlg*                  m_gphoto_albumdlg;
+
     GDTalker*                     m_talker;
-    PicasawebTalker*              m_picsasa_talker;
+    GPTalker*                     m_gphoto_talker;
 
     QString                       m_currentAlbumId;
 
-    QList< QPair<KUrl, GSPhoto> > m_transferQueue;
+    QList< QPair<QUrl, GSPhoto> > m_transferQueue;
+
+    QPointer<MetadataProcessor>   m_meta;
 };
 
 } // namespace KIPIGoogleServicesPlugin
 
-#endif /* GSWINDOW_H */
+#endif // GSWINDOW_H

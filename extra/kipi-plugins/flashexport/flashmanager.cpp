@@ -6,8 +6,8 @@
  * Date        : 2009-11-13
  * Description : a plugin to export images to flash
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * Copyright (C) 20011-2013 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2013 by Veaceslav Munteanu <slavuttici at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,33 +21,33 @@
  *
  * ============================================================ */
 
-#include "flashmanager.moc"
+#include "flashmanager.h"
 
-// KDE includes
+// Qt includes
 
-#include <kdebug.h>
-#include <kapplication.h>
+#include <QApplication>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
 #include "aboutdata.h"
 #include "importwizarddlg.h"
 #include "simpleviewer.h"
+#include "kipiplugins_debug.h"
 
 using namespace KIPIPlugins;
 
 namespace KIPIFlashExportPlugin
 {
 
-class FlashManager::FlashManagerPriv
+class FlashManager::Private
 {
 public:
 
-    FlashManagerPriv()
+    Private()
     {
         iface               = 0;
         wizard              = 0;
@@ -65,7 +65,8 @@ public:
 };
 
 FlashManager::FlashManager(QObject* const parent)
-   : QObject(parent), d(new FlashManagerPriv)
+   : QObject(parent),
+     d(new Private)
 {
 }
 
@@ -78,9 +79,10 @@ FlashManager::~FlashManager()
 
 void FlashManager::initSimple()
 {
-// it cannot be initialized in main function because interface pointer is null.
+    // it cannot be initialized in main function because interface pointer is null.
+    delete d->simple;
     d->simple = new SimpleViewer(d->iface,this);
-    kDebug() << "simpleview Initialized...";
+    qCDebug(KIPIPLUGINS_LOG) << "simpleview Initialized...";
 }
 
 void FlashManager::setIface(Interface* const iface)
@@ -93,9 +95,9 @@ Interface* FlashManager::iface() const
     return d->iface;
 }
 
-bool FlashManager::installPlugin(const KUrl& url)
+bool FlashManager::installPlugin(const QUrl& url)
 {
-    if(d->simple->unzip(url.path()))
+    if (d->simple->unzip(url.toLocalFile()))
         return true;
     else
         return false;
@@ -113,7 +115,8 @@ void FlashManager::run()
 
 void FlashManager::startWizard()
 {
-    d->wizard = new ImportWizardDlg(this, kapp->activeWindow());
+    delete d->wizard;
+    d->wizard = new ImportWizardDlg(this, QApplication::activeWindow());
     d->wizard->show();
 }
 

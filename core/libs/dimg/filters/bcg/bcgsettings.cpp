@@ -6,7 +6,7 @@
  * Date        : 2010-02-09
  * Description : BCG settings view.
  *
- * Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "bcgsettings.moc"
+#include "bcgsettings.h"
 
 // Qt includes
 
@@ -31,79 +31,74 @@
 #include <QFile>
 #include <QTextStream>
 #include <QCheckBox>
+#include <QUrl>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
-
-using namespace KDcrawIface;
+#include "dnuminput.h"
+#include "digikam_debug.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
 
-class BCGSettings::BCGSettingsPriv
+class BCGSettings::Private
 {
 public:
 
-    BCGSettingsPriv() :
+    Private() :
         bInput(0),
         cInput(0),
         gInput(0)
-    {}
+    {
+    }
 
     static const QString configBrightnessAdjustmentEntry;
     static const QString configContrastAdjustmentEntry;
     static const QString configGammaAdjustmentEntry;
 
-    RIntNumInput*        bInput;
-    RIntNumInput*        cInput;
+    DIntNumInput*        bInput;
+    DIntNumInput*        cInput;
 
-    RDoubleNumInput*     gInput;
+    DDoubleNumInput*     gInput;
 };
-const QString BCGSettings::BCGSettingsPriv::configBrightnessAdjustmentEntry("BrightnessAdjustment");
-const QString BCGSettings::BCGSettingsPriv::configContrastAdjustmentEntry("ContrastAdjustment");
-const QString BCGSettings::BCGSettingsPriv::configGammaAdjustmentEntry("GammaAdjustment");
+
+const QString BCGSettings::Private::configBrightnessAdjustmentEntry(QLatin1String("BrightnessAdjustment"));
+const QString BCGSettings::Private::configContrastAdjustmentEntry(QLatin1String("ContrastAdjustment"));
+const QString BCGSettings::Private::configGammaAdjustmentEntry(QLatin1String("GammaAdjustment"));
 
 // --------------------------------------------------------
 
 BCGSettings::BCGSettings(QWidget* const parent)
     : QWidget(parent),
-      d(new BCGSettingsPriv)
+      d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QGridLayout* grid = new QGridLayout(parent);
 
-    QLabel* label2 = new QLabel(i18n("Brightness:"));
-    d->bInput      = new RIntNumInput();
+    QLabel* const label2 = new QLabel(i18n("Brightness:"));
+    d->bInput      = new DIntNumInput();
     d->bInput->setRange(-100, 100, 1);
-    d->bInput->setSliderEnabled(true);
     d->bInput->setDefaultValue(0);
     d->bInput->setWhatsThis(i18n("Set here the brightness adjustment of the image."));
 
-    QLabel* label3 = new QLabel(i18n("Contrast:"));
-    d->cInput      = new RIntNumInput();
+    QLabel* const label3 = new QLabel(i18n("Contrast:"));
+    d->cInput      = new DIntNumInput();
     d->cInput->setRange(-100, 100, 1);
-    d->cInput->setSliderEnabled(true);
     d->cInput->setDefaultValue(0);
     d->cInput->setWhatsThis(i18n("Set here the contrast adjustment of the image."));
 
-    QLabel* label4 = new QLabel(i18n("Gamma:"));
-    d->gInput      = new RDoubleNumInput();
+    QLabel* const label4 = new QLabel(i18n("Gamma:"));
+    d->gInput      = new DDoubleNumInput();
     d->gInput->setDecimals(2);
-    d->gInput->input()->setRange(0.1, 3.0, 0.01, true);
+    d->gInput->setRange(0.1, 3.0, 0.01);
     d->gInput->setDefaultValue(1.0);
     d->gInput->setWhatsThis(i18n("Set here the gamma adjustment of the image."));
 
@@ -116,8 +111,8 @@ BCGSettings::BCGSettings(QWidget* const parent)
     grid->addWidget(label4,    4, 0, 1, 5);
     grid->addWidget(d->gInput, 5, 0, 1, 5);
     grid->setRowStretch(6, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
@@ -169,7 +164,7 @@ BCGContainer BCGSettings::defaultSettings() const
 {
     BCGContainer prm;
 
-    prm.brightness = (double)d->bInput->defaultValue() / 250.0;
+    prm.brightness = (double)(d->bInput->defaultValue() / 250.0);
     prm.contrast   = (double)(d->cInput->defaultValue() / 100.0) + 1.00;
     prm.gamma      = d->gInput->defaultValue();
 

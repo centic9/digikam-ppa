@@ -22,31 +22,30 @@
 
 #include "mpform_gdrive.h"
 
-// C++ includes
-
-#include <cstring>
-#include <cstdio>
-
 // Qt includes
 
+#include <QJsonDocument>
+#include <QJsonParseError>
+#include <QJsonObject>
+#include <QJsonValue>
+#include <QJsonArray>
+#include <QUrl>
 #include <QFile>
+#include <QMimeDatabase>
+#include <QMimeType>
+#include <QTime>
 
-// KDE includes
+// local includes
 
-#include <kdebug.h>
-#include <kmimetype.h>
-#include <krandom.h>
-
-// LibQJson
-
-#include <qjson/serializer.h>
+#include "kipiplugins_debug.h"
+#include "kputil.h"
 
 namespace KIPIGoogleServicesPlugin
 {
 
 MPForm_GDrive::MPForm_GDrive()
+    : m_boundary(KIPIPlugins::KPRandomGenerator::randomString(42 + 13).toLatin1())
 {
-    m_boundary = KRandom::randomString(42+13).toAscii();
     reset();
 }
 
@@ -61,49 +60,41 @@ void MPForm_GDrive::reset()
 
 void MPForm_GDrive::finish()
 {
-    kDebug() << "in finish";
-    QString str;
+    qCDebug(KIPIPLUGINS_LOG) << "in finish";
+    QByteArray str;
     str += "--";
     str += m_boundary;
     str += "--";
-    m_buffer.append(str.toAscii());
-    kDebug() << "finish:" << m_buffer;
+    m_buffer.append(str);
+    qCDebug(KIPIPLUGINS_LOG) << "finish:" << m_buffer;
 }
 
 void MPForm_GDrive::addPair(const QString& name, const QString& description, const QString& path,const QString& id)
 {
-    KMimeType::Ptr ptr = KMimeType::findByUrl(path);
-    QString mime       = ptr->name();
-    kDebug() << "in add pair:" << name << " " << description << " " << path << " " << id << " " << mime;
+    QMimeDatabase db;
+    QMimeType ptr = db.mimeTypeForUrl(QUrl::fromLocalFile(path));
+    QString mime  = ptr.name();
+    qCDebug(KIPIPLUGINS_LOG) << "in add pair:" << name << " " << description << " " << path << " " << id << " " << mime;
 
     // Generate JSON
-    QVariantMap photoInfo;
-    photoInfo.insert("title", name);
-    photoInfo.insert("description", description);
-    photoInfo.insert("mimeType", mime);
+    QJsonObject photoInfo;
+    photoInfo.insert(QString::fromLatin1("title"),       QJsonValue(name));
+    photoInfo.insert(QString::fromLatin1("description"), QJsonValue(description));
+    photoInfo.insert(QString::fromLatin1("mimeType"),    QJsonValue(mime));
 
     QVariantMap parentId;
-    parentId.insert("id", id);
-
+    parentId.insert(QString::fromLatin1("id"), id);
     QVariantList parents;
     parents << parentId;
+    photoInfo.insert(QString::fromLatin1("parents"),     QJsonValue(QJsonArray::fromVariantList(parents)));
 
-    photoInfo.insert("parents", parents);
-
-    QJson::Serializer serializer;
-    bool ok = false;
-    QByteArray json = serializer.serialize(photoInfo, &ok);
-
-    if (!ok)
-    {
-        kError() << "Failed to serialize to JSON:" << photoInfo;
-        return;
-    }
+    QJsonDocument doc(photoInfo);
+    QByteArray json = doc.toJson();
 
     // Append to the multipart
     QByteArray str;
     str += "--";
-    str += m_boundary.toAscii();
+    str += m_boundary;
     str += "\r\n";
     str += "Content-Type:application/json; charset=UTF-8\r\n\r\n";
     str += json;
@@ -111,33 +102,34 @@ void MPForm_GDrive::addPair(const QString& name, const QString& description, con
     m_buffer.append(str);
 }
 
-bool MPForm_GDrive::addFile(const QString &path)
+bool MPForm_GDrive::addFile(const QString& path)
 {
-    QString str;
-    kDebug() << "in addfile" << path;
+    QByteArray str;
+    qCDebug(KIPIPLUGINS_LOG) << "in addfile" << path;
 
-    KMimeType::Ptr ptr = KMimeType::findByUrl(path);
-    QString mime = ptr->name();
+    QMimeDatabase db;
+    QMimeType ptr = db.mimeTypeForUrl(QUrl::fromLocalFile(path));
+    QString mime  = ptr.name();
     str += "--";
     str += m_boundary;
     str += "\r\n";
     str += "Content-Type: ";
-    str += mime.toAscii();
+    str += mime.toLatin1();
     str += "\r\n\r\n";
 
     QFile imageFile(path);
 
-    if(!imageFile.open(QIODevice::ReadOnly))
+    if (!imageFile.open(QIODevice::ReadOnly))
     {
         return false;
     }
 
     QByteArray imageData = imageFile.readAll();
-    m_file_size          = QString("%1").arg(imageFile.size());
+    m_file_size          = QString::number(imageFile.size());
 
     imageFile.close();
 
-    m_buffer.append(str.toAscii());
+    m_buffer.append(str);
     m_buffer.append(imageData);
     m_buffer.append("\r\n");
 
@@ -151,12 +143,12 @@ QByteArray MPForm_GDrive::formData() const
 
 QString MPForm_GDrive::boundary() const
 {
-    return m_boundary;
+    return QString::fromLatin1(m_boundary);
 }
 
 QString MPForm_GDrive::contentType() const
 {
-    return QString("Content-Type: multipart/related;boundary="+m_boundary);
+    return QString::fromLatin1("multipart/related;boundary=") + QString::fromLatin1(m_boundary);
 }
 
 QString MPForm_GDrive::getFileSize() const

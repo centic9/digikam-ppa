@@ -26,7 +26,6 @@
 
 // Qt includes
 
-#include <QAbstractButton>
 #include <QAbstractItemView>
 
 // Local includes
@@ -47,7 +46,7 @@ public:
 
 protected:
 
-    virtual QPixmap icon();
+    virtual QIcon icon();
     virtual void updateToolTip();
 };
 

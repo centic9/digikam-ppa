@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2015-05-13 03:47+0300\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -22,82 +22,74 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Александр Поташев"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "aspotashev@gmail.com"
-
-#: albumchooserwidget.cpp:53
+#: albumchooserwidget.cpp:55
 msgctxt "@title:group Header above controls for managing albums"
 msgid "Album"
 msgstr "Альбом"
 
-#: albumchooserwidget.cpp:58
+#: albumchooserwidget.cpp:60
 msgid "This is the VKontakte album that will be used for the transfer."
 msgstr "Это альбом, который будет использован для загрузки."
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:67
 msgid "New Album"
 msgstr "Создать альбом"
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:68
 msgid "Create new VKontakte album"
 msgstr "Создать новый альбом в социальной сети ВКонтакте"
 
-#: albumchooserwidget.cpp:65
+#: albumchooserwidget.cpp:71
 msgctxt "reload albums list"
 msgid "Reload"
 msgstr "Обновить"
 
-#: albumchooserwidget.cpp:66
+#: albumchooserwidget.cpp:72
 msgid "Reload albums list"
 msgstr "Обновить список альбомов"
 
-#: albumchooserwidget.cpp:69
+#: albumchooserwidget.cpp:75
 msgid "Edit selected album"
 msgstr "Изменить параметры выбранного альбома"
 
-#: albumchooserwidget.cpp:74
+#: albumchooserwidget.cpp:80
 msgid "Delete selected album"
 msgstr "Удалить выбранный альбом"
 
-#: albumchooserwidget.cpp:285
+#: albumchooserwidget.cpp:291
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Подтверждение удаления альбома"
+
+#: albumchooserwidget.cpp:292
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
 "in it?</qt>"
 msgstr "<qt>Удалить альбом <b>%1</b> и все находящиеся в нём фотографии?</qt>"
 
-#: albumchooserwidget.cpp:286
-msgctxt "@title:window"
-msgid "Confirm Album Deletion"
-msgstr "Подтверждение удаления альбома"
-
-#: albumchooserwidget.cpp:385
-msgid "Internal error: Null pointer to KJob instance."
-msgstr "Внутренняя ошибка: нулевой указатель на экземпляр KJob."
-
-#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+#: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
 msgctxt "@title:window"
 msgid "Request to VKontakte failed"
 msgstr "Ошибка запроса к ВКонтакте"
 
-#: authinfowidget.cpp:58
+#: albumchooserwidget.cpp:391
+msgid "Internal error: Null pointer to KJob instance."
+msgstr "Внутренняя ошибка: нулевой указатель на экземпляр KJob."
+
+#: authinfowidget.cpp:57
 msgid "Account"
 msgstr "Учётная запись"
 
-#: authinfowidget.cpp:63
+#: authinfowidget.cpp:62
 msgid "This account is used for authentication."
 msgstr "Вход выполнен с помощью этой учётной записи."
 
-#: authinfowidget.cpp:67
+#: authinfowidget.cpp:66
 msgid "Name:"
 msgstr "Имя:"
 
-#: authinfowidget.cpp:68
+#: authinfowidget.cpp:67
 msgid "Your VKontakte login"
 msgstr "Имя пользователя ВКонтакте"
 
@@ -129,141 +121,150 @@ msgstr "&Экспорт"
 msgid "Main Toolbar"
 msgstr "Основная панель инструментов"
 
-#: plugin_vkontakte.cpp:88
+#: plugin_vkontakte.cpp:82
 msgid "Export to &VKontakte..."
 msgstr "Экспорт в &ВКонтакте..."
 
-#: vkalbumdialog.cpp:72
+#: vkalbumdialog.cpp:74
 msgctxt "@title:window"
 msgid "Edit album"
 msgstr "Изменение альбома"
 
-#: vkalbumdialog.cpp:73
+#: vkalbumdialog.cpp:75
 msgctxt "@title:window"
 msgid "New album"
 msgstr "Создание альбома"
 
-#: vkalbumdialog.cpp:81
+#: vkalbumdialog.cpp:94
 msgctxt "@title:group Header above Title and Summary fields"
 msgid "Album"
 msgstr "Альбом"
 
-#: vkalbumdialog.cpp:82
+#: vkalbumdialog.cpp:95
 msgid "These are basic settings for the new VKontakte album."
 msgstr "Общие параметры нового альбома в социальной сети ВКонтакте."
 
-#: vkalbumdialog.cpp:85
+#: vkalbumdialog.cpp:98
 msgid "Title of the album that will be created (required)."
 msgstr "Название альбома, который будет создан (обязательно)."
 
-#: vkalbumdialog.cpp:88
+#: vkalbumdialog.cpp:101
 msgid "Description of the album that will be created (optional)."
 msgstr "Описание альбома, который будет создан (необязательно)."
 
-#: vkalbumdialog.cpp:92
+#: vkalbumdialog.cpp:105
 msgid "Title:"
 msgstr "Название:"
 
-#: vkalbumdialog.cpp:93
+#: vkalbumdialog.cpp:106
 msgid "Summary:"
 msgstr "Описание:"
 
-#: vkalbumdialog.cpp:96
+#: vkalbumdialog.cpp:109
 msgid "Privacy Settings"
 msgstr "Ограничение доступа"
 
-#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+#: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
 msgid "Only me"
 msgstr "только мне"
 
-#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+#: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
 msgid "My friends"
 msgstr "моим друзьям"
 
-#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+#: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
 msgid "Friends of my friends"
 msgstr "друзьям друзей"
 
-#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+#: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
 msgid "Everyone"
 msgstr "всем"
 
-#: vkalbumdialog.cpp:104
+#: vkalbumdialog.cpp:117
 msgid "Album available to:"
 msgstr "Альбом доступен:"
 
-#: vkalbumdialog.cpp:112
+#: vkalbumdialog.cpp:125
 msgid "Comments available to:"
 msgstr "Комментирование доступно:"
 
-#: vkalbumdialog.cpp:140
-msgid "Title cannot be empty."
-msgstr "Название альбома не может быть пустым."
-
-#: vkalbumdialog.cpp:141
+#: vkalbumdialog.cpp:149
 msgid "Error"
 msgstr "Ошибка"
 
-#: vkwindow.cpp:108
+#: vkalbumdialog.cpp:149
+msgid "Title cannot be empty."
+msgstr "Название альбома не может быть пустым."
+
+#: vkwindow.cpp:96
 msgid "This is the list of images to upload to your VKontakte album."
 msgstr ""
 "Это список изображений для загрузки в выбранный альбом в социальной сети "
 "ВКонтакте."
 
-#: vkwindow.cpp:114
+#: vkwindow.cpp:102
 msgid ""
 "This is a clickable link to open the VKontakte service in a web browser."
 msgstr ""
 "Эта ссылка открывает в веб-браузере страницу социальной сети ВКонтакте."
 
-#: vkwindow.cpp:132
+#: vkwindow.cpp:120
 msgid "Destination"
 msgstr "Назначение"
 
-#: vkwindow.cpp:133
+#: vkwindow.cpp:121
 msgid "This is the location where VKontakte images will be downloaded."
 msgstr ""
 "Выберите, куда должны быть скопированы изображения из социальной сети "
 "ВКонтакте."
 
-#: vkwindow.cpp:141
+#: vkwindow.cpp:129
 msgid "Options"
 msgstr "Параметры"
 
-#: vkwindow.cpp:142
+#: vkwindow.cpp:130
 msgid "These are options that will be applied to images before upload."
 msgstr "Параметры, которые будут применяться к изображениям перед загрузкой."
 
-#: vkwindow.cpp:180
+#: vkwindow.cpp:166
 msgctxt "@title:window"
 msgid "Export to VKontakte Web Service"
 msgstr "Экспорт в социальную сеть ВКонтакте"
 
-#: vkwindow.cpp:182
+#: vkwindow.cpp:168
 msgid "Start Upload"
 msgstr "Начать загрузку"
 
-#: vkwindow.cpp:183
+#: vkwindow.cpp:169
 msgid "Start upload to VKontakte service"
 msgstr "Начать загрузку в социальную сеть ВКонтакте"
 
-#: vkwindow.cpp:194
-msgid "VKontakte Plugin"
-msgstr "Экспорт в социальную сеть ВКонтакте"
+#: vkwindow.cpp:181 vkwindow.cpp:346
+msgid "VKontakte"
+msgstr "ВКонтакте"
 
-#: vkwindow.cpp:197
-msgid "A Kipi plugin to export image collections to VKontakte web service."
+#: vkwindow.cpp:182
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgid "A tool to export image collections to VKontakte web service."
 msgstr ""
 "Модуль расширения KIPI для экспорта коллекций изображений в социальную сеть "
 "ВКонтакте."
 
-#: vkwindow.cpp:199
+#: vkwindow.cpp:184
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2013, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010-2013, Roman Tsisyk\n"
+#| "(c) 2011-2013, Alexander Potashev"
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010-2013, Roman Tsisyk\n"
-"(c) 2011-2013, Alexander Potashev"
+"(c) 2011-2015, Alexander Potashev"
 msgstr ""
 "© Vardhman Jain, 2007-2009\n"
 "© Gilles Caulier, 2008-2013\n"
@@ -271,41 +272,44 @@ msgstr ""
 "© Роман Цисык, 2010-2013\n"
 "© Александр Поташев, 2011-2013"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Alexander Potashev"
 msgstr "Александр Поташев"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Author"
 msgstr "Автор"
 
-#: vkwindow.cpp:275
-msgid "Close"
-msgstr "Закрыть"
-
-#: vkwindow.cpp:276
-msgid "Close window"
-msgstr "Закрыть окно"
-
-#: vkwindow.cpp:283
-msgid "Cancel"
-msgstr "Отмена"
-
-#: vkwindow.cpp:284
-msgid "Cancel current operation"
-msgstr "Отменить текущую операцию"
-
-#: vkwindow.cpp:383
-msgid "VKontakte"
-msgstr "ВКонтакте"
-
-#: vkwindow.cpp:401
+#: vkwindow.cpp:364
 msgid "Please select album first."
 msgstr "Необходимо сначала выбрать альбом."
 
-#: vkwindow.cpp:431
+#: vkwindow.cpp:394
 msgid "Vkontakte Export"
 msgstr "Экспорт в ВКонтакте"
+
+#~ msgid "VKontakte Plugin"
+#~ msgstr "Экспорт в социальную сеть ВКонтакте"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Александр Поташев"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "aspotashev@gmail.com"
+
+#~ msgid "Close"
+#~ msgstr "Закрыть"
+
+#~ msgid "Close window"
+#~ msgstr "Закрыть окно"
+
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
+
+#~ msgid "Cancel current operation"
+#~ msgstr "Отменить текущую операцию"
 
 #~ msgid "Handbook"
 #~ msgstr "Руководство пользователя"

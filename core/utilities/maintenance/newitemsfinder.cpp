@@ -6,7 +6,7 @@
  * Date        : 2012-01-20
  * Description : new items finder.
  *
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -22,21 +22,21 @@
  *
  * ============================================================ */
 
-#include "newitemsfinder.moc"
+#include "newitemsfinder.h"
 
 // Qt includes
 
 #include <QApplication>
 #include <QTimer>
+#include <QIcon>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kicon.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "scancontroller.h"
 
 namespace Digikam
@@ -57,10 +57,12 @@ public:
 };
 
 NewItemsFinder::NewItemsFinder(const FinderMode mode, const QStringList& foldersToScan, ProgressItem* const parent)
-    : MaintenanceTool("NewItemsFinder", parent), d(new Private)
+    : MaintenanceTool(QLatin1String("NewItemsFinder"), parent),
+      d(new Private)
 {
     setLabel(i18n("Find new items"));
-    setThumbnail(KIcon("view-refresh").pixmap(22));
+    setThumbnail(QIcon::fromTheme(QLatin1String("view-refresh")).pixmap(22));
+    setShowAtStart(true);
     ProgressManager::addProgressItem(this);
 
     d->mode = mode;
@@ -82,11 +84,11 @@ NewItemsFinder::NewItemsFinder(const FinderMode mode, const QStringList& folders
             this, SLOT(slotPartialScanDone(QString)));
 
     // If we are scanning for newly imported files, we need to have the folders for scanning...
-    if(mode == ScheduleCollectionScan && foldersToScan.isEmpty())
+    if (mode == ScheduleCollectionScan && foldersToScan.isEmpty())
     {
-        kWarning() << "NewItemsFinder called without any folders. Wrong call.";
+        qCWarning(DIGIKAM_GENERAL_LOG) << "NewItemsFinder called without any folders. Wrong call.";
     }
-    
+
     d->foldersToScan = foldersToScan;
     d->foldersToScan.sort();
 }
@@ -104,7 +106,7 @@ void NewItemsFinder::slotStart()
     {
         case ScanDeferredFiles:
         {
-            kDebug() << "scan mode: ScanDeferredFiles";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "scan mode: ScanDeferredFiles";
 
             connect(ScanController::instance(), SIGNAL(completeScanDone()),
                     this, SLOT(slotDone()));
@@ -116,7 +118,7 @@ void NewItemsFinder::slotStart()
 
         case CompleteCollectionScan:
         {
-            kDebug() << "scan mode: CompleteCollectionScan";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "scan mode: CompleteCollectionScan";
 
             ScanController::instance()->completeCollectionScanInBackground(false);
 
@@ -130,7 +132,7 @@ void NewItemsFinder::slotStart()
 
         case ScheduleCollectionScan:
         {
-            kDebug() << "scan mode: ScheduleCollectionScan :: " << d->foldersToScan;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "scan mode: ScheduleCollectionScan :: " << d->foldersToScan;
             d->foldersScanned.clear();
 
             foreach(const QString& folder, d->foldersToScan)
@@ -143,19 +145,19 @@ void NewItemsFinder::slotStart()
 
 void NewItemsFinder::slotScanStarted(const QString& info)
 {
-    kDebug() << info;
+    qCDebug(DIGIKAM_GENERAL_LOG) << info;
     setStatus(info);
 }
 
 void NewItemsFinder::slotTotalFilesToScan(int t)
 {
-    kDebug() << "total scan value : " << t;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "total scan value : " << t;
     setTotalItems(t);
 }
 
 void NewItemsFinder::slotFilesScanned(int s)
 {
-    //kDebug() << "file scanned : " << s;
+    //qCDebug(DIGIKAM_GENERAL_LOG) << "file scanned : " << s;
     advance(s);
 }
 

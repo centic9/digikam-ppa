@@ -187,11 +187,6 @@
            </item>
            <item>
             <property name="text">
-             <string>Print to PS</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
              <string>Print to JPG</string>
             </property>
            </item>
@@ -582,10 +577,7 @@
                </widget>
               </item>
               <item>
-               <widget class="KColorButton" name="m_font_color">
-                <property name="text">
-                 <string>PushButton</string>
-                </property>
+               <widget class="KIPIPlugins::KPColorSelector" name="m_font_color">
                </widget>
               </item>
              </layout>
@@ -684,9 +676,9 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>KColorButton</class>
+   <class>KIPIPlugins::KPColorSelector</class>
    <extends>QPushButton</extends>
-   <header>kcolorbutton.h</header>
+   <header>kputil.h</header>
   </customwidget>
  </customwidgets>
  <tabstops>

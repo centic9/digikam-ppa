@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2013-2014 by Yiou Wang <geow812 at gmail dot com>
  * Copyright (C) 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * ============================================================ */ 
+ * ============================================================ */
 
 #ifndef IMAGEREGIONWIDGET_H
 #define IMAGEREGIONWIDGET_H
@@ -66,6 +66,8 @@ public:
         behaviour is a function of each pixel.
      */
     DImg   getOriginalRegionImage(bool useDownscaledImage = false) const;
+
+    DImg   getOriginalImage() const;
 
     void   setPreviewImage(const DImg& img);
 

@@ -7,7 +7,7 @@
  * Description : camera item info container
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,21 +31,19 @@
 #include <QByteArray>
 #include <QDateTime>
 #include <QDebug>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "infocontainer.h"
+#include "digikam_export.h"
 
 class QDataStream;
 
 namespace Digikam
 {
 
-class CamItemInfo
+class DIGIKAM_EXPORT CamItemInfo
 {
 
 public:
@@ -71,7 +69,7 @@ public:
 
     /** Return the local file system (mounted on computer) url to the camera file.
      */
-    KUrl url()    const;
+    QUrl url()    const;
 
     /** Compare for camera information equality, not including variable values.
      */
@@ -121,7 +119,7 @@ QDataStream& operator>>(QDataStream&, CamItemInfo&);
 
 typedef QList<CamItemInfo> CamItemInfoList;
 
-//! kDebug() stream operator. Writes property @a info to the debug output in a nicely formatted way.
+//! qDebug() stream operator. Writes property @a info to the debug output in a nicely formatted way.
 QDebug operator<<(QDebug dbg, const CamItemInfo& info);
 
 }  // namespace Digikam

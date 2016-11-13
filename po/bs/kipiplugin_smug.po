@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipi-plugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-05-10 01:54+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2014-10-20 19:26+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -17,14 +17,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Launchpad (build 17341)\n"
 "X-Launchpad-Export-Date: 2015-02-16 06:44+0000\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Samir Ribić"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "samir.ribic@etf.unsa.ba"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_smugui.rc:7
@@ -41,135 +35,140 @@ msgstr "&Izvezi"
 msgid "Main Toolbar"
 msgstr "Glavna alatna traka"
 
-#: plugin_smug.cpp:107
+#: plugin_smug.cpp:98
 msgid "Export to &SmugMug..."
 msgstr "Izvoz u &SmugMug..."
 
-#: plugin_smug.cpp:118
+#: plugin_smug.cpp:109
 msgid "Import from &SmugMug..."
 msgstr "Uvoz iz &SmugMug..."
 
-#: smugalbum.cpp:52
+#: smugalbum.cpp:54
 msgid "SmugMug New Album"
 msgstr "SmugMug novi allbum"
 
-#: smugalbum.cpp:64 smugwidget.cpp:119
+#: smugalbum.cpp:64 smugwidget.cpp:118
 msgid "Album"
 msgstr "Album"
 
-#: smugalbum.cpp:66
+#: smugalbum.cpp:65
 msgid "These are basic settings for the new SmugMug album."
 msgstr "To su osnovne postavke za novi album SmugMug."
 
-#: smugalbum.cpp:70
+#: smugalbum.cpp:68
 msgid "Title of the album that will be created (required)."
 msgstr "Naslov albuma koji će biti kreiran (neophodno)."
 
-#: smugalbum.cpp:75
+#: smugalbum.cpp:72
 msgid "Category of the album that will be created (required)."
 msgstr "Kategorija albuma koji će biti stvoren (potrebno)."
 
-#: smugalbum.cpp:80
+#: smugalbum.cpp:76
 msgid "Subcategory of the album that will be created (optional)."
 msgstr "Podkategorija albuma koji će biti stvoren (neobavezno)."
 
-#: smugalbum.cpp:84
+#: smugalbum.cpp:79
 msgid "Description of the album that will be created (optional)."
 msgstr "Opis albuma koji ce biti kreiran (neobavezno)."
 
-#: smugalbum.cpp:89
+#: smugalbum.cpp:83
 msgid "Album template for the new album (optional)."
 msgstr "Uzorak albuma za novi album (neobavezno)."
 
-#: smugalbum.cpp:92
+#: smugalbum.cpp:86
 msgctxt "new smug album dialog"
 msgid "Title:"
 msgstr "Naslov:"
 
-#: smugalbum.cpp:93
+#: smugalbum.cpp:87
 msgctxt "new smug album dialog"
 msgid "Category:"
 msgstr "Kategorija:"
 
-#: smugalbum.cpp:94
+#: smugalbum.cpp:88
 msgctxt "new smug album dialog"
 msgid "Subcategory:"
 msgstr "Podkategorija:"
 
-#: smugalbum.cpp:95
+#: smugalbum.cpp:89
 msgctxt "new smug album dialog"
 msgid "Description:"
 msgstr "Opis:"
 
-#: smugalbum.cpp:96
+#: smugalbum.cpp:90
 msgctxt "new smug album dialog"
 msgid "Template:"
 msgstr "Šablon:"
 
-#: smugalbum.cpp:104
+#: smugalbum.cpp:98
 msgid "Security && Privacy"
 msgstr "Sigurnost i privatnost"
 
-#: smugalbum.cpp:106
+#: smugalbum.cpp:99
 msgid "These are security and privacy settings for the new SmugMug album."
 msgstr "To su postavke sigurnosti i privatnosti  za novi album SmugMug."
 
-#: smugalbum.cpp:108
+#: smugalbum.cpp:101
 msgctxt "smug album privacy"
 msgid "Public"
 msgstr "Javno"
 
-#: smugalbum.cpp:111
+#: smugalbum.cpp:103
 msgid "Public album is listed on your public SmugMug page."
 msgstr "Javni album je uvršten na javnoj SmugMug stranicu."
 
-#: smugalbum.cpp:112
+#: smugalbum.cpp:104
 msgctxt "smug album privacy"
 msgid "Unlisted"
 msgstr "Nije na listi"
 
-#: smugalbum.cpp:114
+#: smugalbum.cpp:105
 msgid "Unlisted album is only accessible via URL."
 msgstr "Nenavedeni album je dostupan samo preko URL-a."
 
-#: smugalbum.cpp:122
+#: smugalbum.cpp:112
 msgid "Require password to access the album (optional)."
 msgstr "Zahtijevaj lozinku za pristup albumu (neobavezno)."
 
-#: smugalbum.cpp:126
+#: smugalbum.cpp:115
 msgid "Password hint to present to users in the password prompt (optional)."
 msgstr ""
 "Savjet lozinke koji se prikazuje korisnicima pri unosu lozinke (neobavezno)."
 
-#: smugalbum.cpp:129
+#: smugalbum.cpp:118
 msgid "Privacy:"
 msgstr "Privatnost:"
 
-#: smugalbum.cpp:130
+#: smugalbum.cpp:119
 msgid "Password:"
 msgstr "Šifra:"
 
-#: smugalbum.cpp:131
+#: smugalbum.cpp:120
 msgid "Password Hint:"
 msgstr "Savjet za šifru:"
 
-#: smugtalker.cpp:101
+#: smugtalker.cpp:111
 msgid "Logging in to SmugMug service..."
 msgstr "Prijava na SmugMug servis..."
 
-#: smugtalker.cpp:497
+#: smugtalker.cpp:464
 msgid "Login failed"
 msgstr "Prijavljivanje nije uspjelo"
 
-#: smugtalker.cpp:500
+#: smugtalker.cpp:467
 msgid "Invalid user/nick/password"
 msgstr "Neispravan korisnik/nadimak/lozinka"
 
-#: smugtalker.cpp:503
+#: smugtalker.cpp:470
 msgid "Invalid API key"
 msgstr "Nevažeći API ključ"
 
-#: smugwidget.cpp:73
+#: smugtalker.cpp:512 smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451
+#: smugwindow.cpp:484 smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
+msgid "Error"
+msgstr ""
+
+#: smugwidget.cpp:74
 msgid "This is the list of images to upload to your SmugMug account."
 msgstr "Ovo je popis slika za slanje na vaš SmugMug račun."
 
@@ -184,38 +183,38 @@ msgstr ""
 msgid "Account"
 msgstr "Nalog"
 
-#: smugwidget.cpp:88
+#: smugwidget.cpp:87
 msgid "This is the SmugMug account that will be used to authenticate."
 msgstr "Ovo je SmugMug nalog koji će se koristiti za provjeru autentičnosti."
 
-#: smugwidget.cpp:91
+#: smugwidget.cpp:90
 msgctxt "smug account login"
 msgid "Anonymous"
 msgstr "Anonimno"
 
-#: smugwidget.cpp:93
+#: smugwidget.cpp:91
 msgid "Login as anonymous to SmugMug web service."
 msgstr "Prijavite se kao anoniman na SmugMug web servis."
 
-#: smugwidget.cpp:95
+#: smugwidget.cpp:93
 msgid "SmugMug Account"
 msgstr "SmugMug nalog"
 
-#: smugwidget.cpp:97
+#: smugwidget.cpp:94
 msgid "Login to SmugMug web service using email and password."
 msgstr "Prijava na SmugMug web servis koristeći korisničko ime i lozinku."
 
-#: smugwidget.cpp:99
+#: smugwidget.cpp:96
 msgctxt "smug account settings"
 msgid "Name:"
 msgstr "Naziv:"
 
-#: smugwidget.cpp:101
+#: smugwidget.cpp:98
 msgctxt "smug account settings"
 msgid "Email:"
 msgstr "E-pošta:"
 
-#: smugwidget.cpp:103
+#: smugwidget.cpp:102
 msgid "Change Account"
 msgstr "Promijeni nalog"
 
@@ -223,39 +222,39 @@ msgstr "Promijeni nalog"
 msgid "Change SmugMug Account used to authenticate"
 msgstr "Promjena SmugMug naloga za prijavu"
 
-#: smugwidget.cpp:120
+#: smugwidget.cpp:119
 msgid "This is the SmugMug album that will be used for transfer."
 msgstr "Ovo je SmugMug album koji će se koristiti za prijenos."
 
-#: smugwidget.cpp:125
+#: smugwidget.cpp:124
 msgid "Nickname:"
 msgstr "Nadimak:"
 
-#: smugwidget.cpp:128
+#: smugwidget.cpp:126
 msgid "Nickname of SmugMug user to list albums."
 msgstr "Nadimak SmugMug korisnika koji lista albume."
 
-#: smugwidget.cpp:129
+#: smugwidget.cpp:127
 msgid "Site Password:"
 msgstr "Lozinka sajta:"
 
-#: smugwidget.cpp:132
+#: smugwidget.cpp:129
 msgid "Site-wide password for specified SmugMug nick/user."
 msgstr "Lozinka sajta za navedeni SmugMug nadimak/korisnika."
 
-#: smugwidget.cpp:133
+#: smugwidget.cpp:130
 msgid "Album Password:"
 msgstr "Lozinka albuma:"
 
-#: smugwidget.cpp:136
+#: smugwidget.cpp:132
 msgid "Password for SmugMug album."
 msgstr "Lozinka za SmugMug album."
 
-#: smugwidget.cpp:138
+#: smugwidget.cpp:135
 msgid "New Album"
 msgstr "Novi Album"
 
-#: smugwidget.cpp:139
+#: smugwidget.cpp:137
 msgid "Create new SmugMug album"
 msgstr "Kreiraj novi SmugMug album"
 
@@ -264,59 +263,59 @@ msgctxt "reload album list"
 msgid "Reload"
 msgstr "Ponovo učitaj"
 
-#: smugwidget.cpp:141
+#: smugwidget.cpp:142
 msgid "Reload album list"
 msgstr "Dopuni listu albuma"
 
-#: smugwidget.cpp:155
+#: smugwidget.cpp:156
 msgid "Destination"
 msgstr "Odredište"
 
-#: smugwidget.cpp:156
+#: smugwidget.cpp:157
 msgid "This is the location where SmugMug images will be downloaded."
 msgstr "Ovo je mjesto gdje će se SmugMug slike preuzeti."
 
-#: smugwidget.cpp:163
+#: smugwidget.cpp:164
 msgid "Options"
 msgstr "Opcije"
 
-#: smugwidget.cpp:164
+#: smugwidget.cpp:165
 msgid "These are options that will be applied to images before upload."
 msgstr "Ovo su opcije koje će biti primjenjene na slikama prije učitavanja."
 
-#: smugwidget.cpp:168
+#: smugwidget.cpp:169
 msgid "Resize photos before uploading"
 msgstr "Promijeni veličinu slika prije slanja"
 
-#: smugwidget.cpp:178
+#: smugwidget.cpp:179
 msgid "Maximum dimension:"
 msgstr "Najveća veličina:"
 
-#: smugwidget.cpp:186
+#: smugwidget.cpp:187
 msgid "JPEG quality:"
 msgstr "JPEG kvalitet:"
 
-#: smugwindow.cpp:94
+#: smugwindow.cpp:86
 msgid "Import from SmugMug Web Service"
 msgstr "Uvoz iz SmugMug Web servisa"
 
-#: smugwindow.cpp:96
+#: smugwindow.cpp:88
 msgid "Start Download"
 msgstr "Počni Preuzimati"
 
-#: smugwindow.cpp:97
+#: smugwindow.cpp:89
 msgid "Start download from SmugMug web service"
 msgstr "Počni preuzimanje s SmugMug web servisa"
 
-#: smugwindow.cpp:102
+#: smugwindow.cpp:95
 msgid "Export to SmugMug Web Service"
 msgstr "Izvoz u SmugMug Web Servis"
 
-#: smugwindow.cpp:104
+#: smugwindow.cpp:97
 msgid "Start Upload"
 msgstr "Počni slanje"
 
-#: smugwindow.cpp:105
+#: smugwindow.cpp:98
 msgid "Start upload to SmugMug web service"
 msgstr "Počni slanje na SmugMug web servis"
 
@@ -324,13 +323,16 @@ msgstr "Počni slanje na SmugMug web servis"
 msgid "Smug Import/Export"
 msgstr "Smug uvoz/izvoz"
 
-#: smugwindow.cpp:129
+#: smugwindow.cpp:128
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to import/export image collections from/to the SmugMug web "
+#| "service."
 msgid ""
-"A Kipi plugin to import/export image collections from/to the SmugMug web "
-"service."
+"A tool to import/export image collections from/to the SmugMug web service."
 msgstr "Kipi dodatak za uvoz / izvoz zbirke slika sa/na SmugMug web servis."
 
-#: smugwindow.cpp:131
+#: smugwindow.cpp:130
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
@@ -340,7 +342,7 @@ msgstr ""
 "(c) 2008-2012, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: smugwindow.cpp:135
+#: smugwindow.cpp:134
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
@@ -356,42 +358,58 @@ msgstr ""
 "<qt>Unesite <b>email adresu</b> i <b>lozinku </b> za vaš <a href=\"http://"
 "www.smugmug.com\">SmugMug</a> nalog</qt>"
 
-#: smugwindow.cpp:403 smugwindow.cpp:412 smugwindow.cpp:441 smugwindow.cpp:473
-#: smugwindow.cpp:504 smugwindow.cpp:533 smugwindow.cpp:901
+#: smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451 smugwindow.cpp:484
+#: smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
 #, kde-format
 msgid "SmugMug Call Failed: %1\n"
 msgstr "SmugMug poziv neuspio: %1\n"
 
-#: smugwindow.cpp:469 smugwindow.cpp:529
+#: smugwindow.cpp:480 smugwindow.cpp:542
 msgid "&lt;none&gt;"
 msgstr "&lt;none&gt;"
 
-#: smugwindow.cpp:655 smugwindow.cpp:688
+#: smugwindow.cpp:668 smugwindow.cpp:701
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: smugwindow.cpp:659
+#: smugwindow.cpp:671
 msgid "Smug Import"
 msgstr "Smug uvoz"
 
-#: smugwindow.cpp:692
+#: smugwindow.cpp:704
 msgid "Smug Export"
 msgstr "Smug izvoz"
 
-#: smugwindow.cpp:771 smugwindow.cpp:784
+#: smugwindow.cpp:788 smugwindow.cpp:802
 msgid "Cannot open file"
 msgstr "Ne mogu otvoriti datoteku"
 
-#: smugwindow.cpp:808
-#, kde-format
+#: smugwindow.cpp:825
+#, fuzzy
+#| msgid "Login failed"
+msgid "Uploading Failed"
+msgstr "Prijavljivanje nije uspjelo"
+
+#: smugwindow.cpp:826
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo into SmugMug: %1\n"
+#| "Do you want to continue?"
 msgid ""
-"Failed to upload photo into SmugMug: %1\n"
+"Failed to upload photo to SmugMug.\n"
+"%1\n"
 "Do you want to continue?"
 msgstr ""
 "Nije uspjelo poslati sliku u SmugMug: %1\n"
 "Želite li nastaviti?"
 
-#: smugwindow.cpp:868
+#: smugwindow.cpp:887 smugwindow.cpp:900
+#, fuzzy
+#| msgid "Login failed"
+msgid "Processing Failed"
+msgstr "Prijavljivanje nije uspjelo"
+
+#: smugwindow.cpp:888
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -400,7 +418,7 @@ msgstr ""
 "Neuspjelo čuvanje slike: %1\n"
 "Želite li nastaviti?"
 
-#: smugwindow.cpp:882
+#: smugwindow.cpp:901
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -408,3 +426,11 @@ msgid ""
 msgstr ""
 "Neuspjelo preuzimanje slike: %1\n"
 "Da li želite nastaviti?"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Samir Ribić"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "samir.ribic@etf.unsa.ba"

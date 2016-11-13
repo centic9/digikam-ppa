@@ -4,7 +4,7 @@
  * Description : a tool to fix automatically camera lens aberrations
  *
  * Copyright (C) 2008      by Adrian Schroeter <adrian at suse dot de>
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,12 +26,9 @@
 #include <QCheckBox>
 #include <QString>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "lensfuniface.h"
 #include "dmetadata.h"
 
@@ -62,7 +59,7 @@ LensFunFilter::LensFunFilter(QObject* const parent)
 }
 
 LensFunFilter::LensFunFilter(DImg* const orgImage, QObject* const parent,  const LensFunContainer& settings)
-    : DImgThreadedFilter(orgImage, parent, "LensCorrection"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("LensCorrection")),
       d(new Private)
 {
     d->iface = new LensFunIface;
@@ -89,13 +86,13 @@ void LensFunFilter::filterImage()
 
     if (!d->iface)
     {
-        kError() << "ERROR: LensFun Interface is null.";
+        qCDebug(DIGIKAM_DIMG_LOG) << "ERROR: LensFun Interface is null.";
         return;
     }
 
     if (!d->iface->usedLens())
     {
-        kError() << "ERROR: LensFun Interface Lens device is null.";
+        qCDebug(DIGIKAM_DIMG_LOG) << "ERROR: LensFun Interface Lens device is null.";
         return;
     }
 
@@ -144,7 +141,7 @@ void LensFunFilter::filterImage()
 
     if (!d->modifier)
     {
-        kError() << "ERROR: cannot initialize LensFun Modifier.";
+        qCDebug(DIGIKAM_DIMG_LOG) << "ERROR: cannot initialize LensFun Modifier.";
         return;
     }
 
@@ -154,11 +151,11 @@ void LensFunFilter::filterImage()
                 ((d->iface->settings().filterVIG)                                   ? 1 : 0) +
                 ((d->iface->settings().filterDST || d->iface->settings().filterGEO) ? 1 : 0);
 
-    kDebug() << "LensFun Modifier Flags: " << modflags << "  Steps:" << steps;
+    qCDebug(DIGIKAM_DIMG_LOG) << "LensFun Modifier Flags: " << modflags << "  Steps:" << steps;
 
     if (steps < 1)
     {
-        kDebug() << "No LensFun Modifier steps. There is nothing to process...";
+        qCDebug(DIGIKAM_DIMG_LOG) << "No LensFun Modifier steps. There is nothing to process...";
         return;
     }
 
@@ -168,7 +165,7 @@ void LensFunFilter::filterImage()
     int lwidth = m_orgImage.width() * 2 * 3;
     QScopedArrayPointer<float> pos(new float[lwidth]);
 
-    kDebug() << "Image size to process: (" << m_orgImage.width() << ", " << m_orgImage.height() << ")";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Image size to process: (" << m_orgImage.width() << ", " << m_orgImage.height() << ")";
 
     // Stage 1: Chromatic Aberation Corrections
 
@@ -206,7 +203,7 @@ void LensFunFilter::filterImage()
             }
         }
 
-        kDebug() << "Chromatic Aberation Corrections applied. (loop: " << loop << ")";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Chromatic Aberation Corrections applied. (loop: " << loop << ")";
     }
 
     // Stage 2: Color Corrections: Vignetting and Color Contribution Index
@@ -244,7 +241,7 @@ void LensFunFilter::filterImage()
             }
         }
 
-        kDebug() << "Vignetting and Color Corrections applied. (loop: " << loop << ")";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Vignetting and Color Corrections applied. (loop: " << loop << ")";
     }
 
     // Stage 3: Distortion and Geometry Corrections
@@ -265,7 +262,7 @@ void LensFunFilter::filterImage()
 
                 for (unsigned long x = 0; runningFlag() && (x < tempImage.width()); ++x, ++loop)
                 {
-                    //kDebug() << " ZZ " << src[0] << " " << src[1] << " " << (int)src[0] << " " << (int)src[1];
+                    //qCDebug(DIGIKAM_DIMG_LOG) << " ZZ " << src[0] << " " << src[1] << " " << (int)src[0] << " " << (int)src[1];
 
                     tempImage.setPixelColor(x, y, m_destImage.getSubPixelColor(src[0], src[1]));
                     src += 2;
@@ -281,7 +278,7 @@ void LensFunFilter::filterImage()
             }
         }
 
-        kDebug() << "Distortion and Geometry Corrections applied. (loop: " << loop << ")";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Distortion and Geometry Corrections applied. (loop: " << loop << ")";
 
         if (loop != 0)
         {
@@ -290,7 +287,7 @@ void LensFunFilter::filterImage()
     }
 }
 
-bool LensFunFilter::registerSettingsToXmp(KExiv2Data& data) const
+bool LensFunFilter::registerSettingsToXmp(MetaEngineData& data) const
 {
     // Register in digiKam Xmp namespace all information about Lens corrections.
 
@@ -298,28 +295,28 @@ bool LensFunFilter::registerSettingsToXmp(KExiv2Data& data) const
     LensFunContainer prm = d->iface->settings();
 
     str.append(i18n("Camera: %1-%2",        prm.cameraMake, prm.cameraModel));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("Lens: %1",             prm.lensModel));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("Subject Distance: %1", QString::number(prm.subjectDistance)));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("Aperture: %1",         QString::number(prm.aperture)));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("Focal Length: %1",     QString::number(prm.focalLength)));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("Crop Factor: %1",      QString::number(prm.cropFactor)));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("CCA Correction: %1",   prm.filterCCA  && d->iface->supportsCCA()       ? i18n("enabled") : i18n("disabled")));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("VIG Correction: %1",   prm.filterVIG  && d->iface->supportsVig()       ? i18n("enabled") : i18n("disabled")));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("DST Correction: %1",   prm.filterDST && d->iface->supportsDistortion() ? i18n("enabled") : i18n("disabled")));
-    str.append("\n");
+    str.append(QLatin1String("\n"));
     str.append(i18n("GEO Correction: %1",   prm.filterGEO && d->iface->supportsGeometry()   ? i18n("enabled") : i18n("disabled")));
 
     DMetadata meta(data);
     bool ret = meta.setXmpTagString("Xmp.digiKam.LensCorrectionSettings",
-                                    str.replace('\n', " ; "), false);
+                                    str.replace(QLatin1Char('\n'), QLatin1String(" ; ")), false);
     data     = meta.data();
 
     return ret;
@@ -331,17 +328,17 @@ FilterAction LensFunFilter::filterAction()
     action.setDisplayableName(DisplayableName());
 
     LensFunContainer prm = d->iface->settings();
-    action.addParameter("ccaCorrection",   prm.filterCCA);
-    action.addParameter("vigCorrection",   prm.filterVIG);
-    action.addParameter("dstCorrection",   prm.filterDST);
-    action.addParameter("geoCorrection",   prm.filterGEO);
-    action.addParameter("cropFactor",      prm.cropFactor);
-    action.addParameter("focalLength",     prm.focalLength);
-    action.addParameter("aperture",        prm.aperture);
-    action.addParameter("subjectDistance", prm.subjectDistance);
-    action.addParameter("cameraMake",      prm.cameraMake);
-    action.addParameter("cameraModel",     prm.cameraModel);
-    action.addParameter("lensModel",       prm.lensModel);
+    action.addParameter(QLatin1String("ccaCorrection"),   prm.filterCCA);
+    action.addParameter(QLatin1String("vigCorrection"),   prm.filterVIG);
+    action.addParameter(QLatin1String("dstCorrection"),   prm.filterDST);
+    action.addParameter(QLatin1String("geoCorrection"),   prm.filterGEO);
+    action.addParameter(QLatin1String("cropFactor"),      prm.cropFactor);
+    action.addParameter(QLatin1String("focalLength"),     prm.focalLength);
+    action.addParameter(QLatin1String("aperture"),        prm.aperture);
+    action.addParameter(QLatin1String("subjectDistance"), prm.subjectDistance);
+    action.addParameter(QLatin1String("cameraMake"),      prm.cameraMake);
+    action.addParameter(QLatin1String("cameraModel"),     prm.cameraModel);
+    action.addParameter(QLatin1String("lensModel"),       prm.lensModel);
 
     return action;
 }
@@ -349,17 +346,17 @@ FilterAction LensFunFilter::filterAction()
 void LensFunFilter::readParameters(const Digikam::FilterAction& action)
 {
     LensFunContainer prm = d->iface->settings();
-    prm.filterCCA        = action.parameter("ccaCorrection").toBool();
-    prm.filterVIG        = action.parameter("vigCorrection").toBool();
-    prm.filterDST        = action.parameter("dstCorrection").toBool();
-    prm.filterGEO        = action.parameter("geoCorrection").toBool();
-    prm.cropFactor       = action.parameter("cropFactor").toDouble();
-    prm.focalLength      = action.parameter("focalLength").toDouble();
-    prm.aperture         = action.parameter("aperture").toDouble();
-    prm.subjectDistance  = action.parameter("subjectDistance").toDouble();
-    prm.cameraMake       = action.parameter("cameraMake").toString();
-    prm.cameraModel      = action.parameter("cameraModel").toString();
-    prm.lensModel        = action.parameter("lensModel").toString();
+    prm.filterCCA        = action.parameter(QLatin1String("ccaCorrection")).toBool();
+    prm.filterVIG        = action.parameter(QLatin1String("vigCorrection")).toBool();
+    prm.filterDST        = action.parameter(QLatin1String("dstCorrection")).toBool();
+    prm.filterGEO        = action.parameter(QLatin1String("geoCorrection")).toBool();
+    prm.cropFactor       = action.parameter(QLatin1String("cropFactor")).toDouble();
+    prm.focalLength      = action.parameter(QLatin1String("focalLength")).toDouble();
+    prm.aperture         = action.parameter(QLatin1String("aperture")).toDouble();
+    prm.subjectDistance  = action.parameter(QLatin1String("subjectDistance")).toDouble();
+    prm.cameraMake       = action.parameter(QLatin1String("cameraMake")).toString();
+    prm.cameraModel      = action.parameter(QLatin1String("cameraModel")).toString();
+    prm.lensModel        = action.parameter(QLatin1String("lensModel")).toString();
     d->iface->setSettings(prm);
 }
 

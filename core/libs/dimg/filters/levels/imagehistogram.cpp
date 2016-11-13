@@ -6,7 +6,7 @@
  * Date        : 2004-07-21
  * Description : image histogram manipulation methods.
  *
- * Copyright (C) 2004-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "imagehistogram.moc"
+#include "imagehistogram.h"
 
 // C++ includes
 
@@ -33,15 +33,11 @@
 
 #include <QObject>
 
-// KDE includes
-
-#include <kapplication.h>
-#include <kdebug.h>
-
 // Local includes
 
 #include "dimg.h"
-#include "globals.h"
+#include "digikam_debug.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -175,8 +171,8 @@ void ImageHistogram::calculate()
         return;
     }
 
-    register uint  i;
-    int            max;
+    uint i;
+    int  max;
 
     emit calculationStarted();
 
@@ -187,7 +183,7 @@ void ImageHistogram::calculate()
 
     if (!d->histogram)
     {
-        kWarning() << ("HistogramWidget::calcHistogramValues: Unable to allocate memory!");
+        qCWarning(DIGIKAM_DIMG_LOG) << ("HistogramWidget::calcHistogramValues: Unable to allocate memory!");
         emit calculationFinished(false);
         return;
     }
@@ -201,7 +197,7 @@ void ImageHistogram::calculate()
 
         // count here instead of inside the loop, because d is not optimized because it's not defined in the header
         const uint count = d->img.width() * d->img.height() * 4;
-        for (i = 0 ; i < count && runningFlag() ; i += 4)
+        for (i = 0 ; runningFlag() && (i < count) ; i += 4)
         {
             blue  = data[i    ];
             green = data[i + 1];
@@ -232,7 +228,7 @@ void ImageHistogram::calculate()
 
         // count here instead of inside the loop, because d is not optimized because it's not defined in the header
         const uint count = d->img.width() * d->img.height() * 4;
-        for (i = 0 ; i < count && runningFlag() ; i += 4)
+        for (i = 0 ; runningFlag() && (i < count) ; i += 4)
         {
             blue  = data[i    ];
             green = data[i + 1];

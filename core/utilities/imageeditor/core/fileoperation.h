@@ -6,7 +6,7 @@
  * Date        : 2008-12-10
  * Description : misc file operation methods
  *
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,23 +21,21 @@
  *
  * ============================================================ */
 
-#ifndef FILEMANAGEMENT_H
-#define FILEMANAGEMENT_H
+#ifndef FILE_OPERATION_H
+#define FILE_OPERATION_H
 
 // Qt includes
 
 #include <QString>
+#include <QUrl>
 
 // KDE includes
 
-#include <kurl.h>
 #include <kservice.h>
 
 // Local includes
 
 #include "digikam_export.h"
-
-class QWidget;
 
 namespace Digikam
 {
@@ -53,14 +51,27 @@ namespace FileOperation
 
     /** Open file urls to default application relevant of file type-mimes desktop configration.
      */
-    DIGIKAM_EXPORT void openFilesWithDefaultApplication(const KUrl::List& urls, QWidget* const parentWidget);
+    DIGIKAM_EXPORT void openFilesWithDefaultApplication(const QList<QUrl>& urls);
+
+    /** Get unique file url if file exist by appending a counter suffix or return original url.
+     */
+    DIGIKAM_EXPORT QUrl getUniqueFileUrl(const QUrl& orgUrl, bool* const newurl = 0);
+
+    /** Open file urls with the service.
+     */
+    DIGIKAM_EXPORT bool runFiles(const KService& service, const QList<QUrl>& urls);
+
+    /** Open file urls with the application command.
+     */
+    DIGIKAM_EXPORT bool runFiles(const QString& appCmd, const QList<QUrl>& urls, const QString& name = QString(),
+                                                                                 const QString& icon = QString());
 
     /** Return list of service available on desktop to open files.
      */
-    DIGIKAM_EXPORT KService::List servicesForOpenWith(const KUrl::List& urls);
+    DIGIKAM_EXPORT KService::List servicesForOpenWith(const QList<QUrl>& urls);
 
 } // namespace FileOperation
 
 } // namespace Digikam
 
-#endif /* FILEMANAGEMENT_H */
+#endif /* FILE_OPERATION_H */

@@ -1,0 +1,160 @@
+# Translation of kipiplugin_remotestorage.po to Catalan
+# Copyright (C) 2010-2016 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2010, 2012, 2015, 2016.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_remotestorage\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 19:34+0200\n"
+"Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
+"Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
+"Language: ca\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Accelerator-Marker: &\n"
+
+#: KioExportWidget.cpp:61
+msgid "Target location: "
+msgstr "Ubicació de la destinació: "
+
+#: KioExportWidget.cpp:62
+msgid ""
+"Sets the target address to upload the images to. This can be any address as "
+"used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
+msgstr ""
+"Indica l'adreça de la destinació a on pujar les imatges. Pot ser una adreça "
+"emprada en el Dolphin o el Konqueror, p. ex. ftp://elmeu.servidor.org/sub/"
+"carpeta."
+
+#: KioExportWidget.cpp:66
+msgid "Select target location..."
+msgstr "Seleccioneu la ubicació de la destinació..."
+
+#: KioExportWidget.cpp:72
+msgid "This is the list of images to upload to the specified target."
+msgstr "Aquesta és la llista d'imatges a pujar a la destinació especificada."
+
+#: KioExportWidget.cpp:135
+msgid "Select target..."
+msgstr "Seleccioneu la destinació..."
+
+#: KioExportWidget.cpp:136
+msgid "All Files (*)"
+msgstr "Tots els fitxers (*)"
+
+#: KioExportWidget.cpp:156
+msgid "<not selected>"
+msgstr "<no seleccionat>"
+
+#: KioExportWindow.cpp:64
+msgid "Export to Remote Storage"
+msgstr "Exportació a un emmagatzematge remot"
+
+#: KioExportWindow.cpp:67
+msgid "Start export"
+msgstr "Inicia l'exportació"
+
+#: KioExportWindow.cpp:68
+msgid "Start export to the specified target"
+msgstr "Inicia l'exportació a la destinació especificada"
+
+#: KioExportWindow.cpp:84
+msgid "Export to remote storage"
+msgstr "Exporta a un emmagatzematge remot"
+
+#: KioExportWindow.cpp:85
+msgid "A tool to export images over network using KIO-Slave"
+msgstr "Una eina per exportar imatges per xarxa emprant l'esclau KIO"
+
+#: KioExportWindow.cpp:86 KioImportWindow.cpp:83
+msgid "(c) 2009, Johannes Wienke"
+msgstr "(c) 2009, Johannes Wienke"
+
+#: KioExportWindow.cpp:88 KioImportWindow.cpp:85
+msgid "Johannes Wienke"
+msgstr "Johannes Wienke"
+
+#: KioExportWindow.cpp:89 KioImportWindow.cpp:86
+msgid "Developer and maintainer"
+msgstr "Desenvolupador i mantenidor"
+
+#: KioExportWindow.cpp:198
+msgid "Upload not completed"
+msgstr "No s'ha completat la pujada"
+
+#: KioExportWindow.cpp:199
+msgid ""
+"Some of the images have not been transferred and are still in the list. You "
+"can retry to export these images now."
+msgstr ""
+"Algunes de les imatges no s'han transferit i encara són a la llista. Ara "
+"podeu tornar a intentar exportar aquestes imatges."
+
+#: KioImportWidget.cpp:52
+msgid "This is the list of images to import into the current album."
+msgstr "Aquesta és la llista d'imatges a importar a l'àlbum actual."
+
+#: KioImportWindow.cpp:60
+msgid "Import from Remote Storage"
+msgstr "Importació des d'un emmagatzematge remot"
+
+#: KioImportWindow.cpp:64
+msgid "Start import"
+msgstr "Inicia la importació"
+
+#: KioImportWindow.cpp:65
+msgid "Start importing the specified images into the currently selected album."
+msgstr ""
+"Inicia la importació de les imatges especificades en l'àlbum actualment "
+"seleccionat."
+
+#: KioImportWindow.cpp:81
+msgid "Import from remote storage"
+msgstr "Importa des d'un emmagatzematge remot"
+
+#: KioImportWindow.cpp:82
+msgid "A tool to import images over network"
+msgstr "Una eina per importar imatges per la xarxa"
+
+#: KioImportWindow.cpp:137
+msgid "Import not completed"
+msgstr "No s'ha completat la importació"
+
+#: KioImportWindow.cpp:138
+msgid ""
+"Some of the images have not been transferred and are still in the list. You "
+"can retry to import these images now."
+msgstr ""
+"Algunes de les imatges no s'han transferit i encara són a la llista. Ara "
+"podeu tornar a intentar importar aquestes imatges."
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_remotestorageui.rc:7
+msgid "&Import"
+msgstr "&Importa"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_remotestorageui.rc:11
+msgid "&Export"
+msgstr "&Exporta"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_remotestorageui.rc:17
+msgid "Main Toolbar"
+msgstr "Barra d'eines principal"
+
+#: plugin_remotestorage.cpp:93
+msgid "Export to remote storage..."
+msgstr "Exporta a l'emmagatzematge remot..."
+
+#: plugin_remotestorage.cpp:105
+msgid "Import from remote storage..."
+msgstr "Importa des de l'emmagatzematge remot..."

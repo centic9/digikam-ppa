@@ -32,7 +32,6 @@
 // KDE includes
 
 #include <kconfiggroup.h>
-#include <kiconloader.h>
 
 // Local includes
 
@@ -92,14 +91,14 @@ public:
      *
      * @return pixmap icon
      */
-    virtual QPixmap getIcon() = 0;
+    virtual const QIcon getIcon() = 0;
 
     /**
      * Must be implemented to return the title of this sidebar's tab.
      *
      * @return localized title string
      */
-    virtual QString getCaption() = 0;
+    virtual const QString getCaption() = 0;
 
 Q_SIGNALS:
 

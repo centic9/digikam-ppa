@@ -7,7 +7,7 @@
  * Description : image region widget item for image editor.
  *
  * Copyright (C) 2013-2014 Yiou Wang <geow812 at gmail dot com>
- * Copyright (C) 2013-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,11 +31,11 @@
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimgitemspriv.h"
 #include "editorcore.h"
 #include "exposurecontainer.h"
@@ -76,8 +76,8 @@ ImageRegionItem::ImageRegionItem(ImageRegionWidget* const widget):
 {
     d_ptr->view  = widget;
     d_ptr->iface = new ImageIface;
-    setImage(d_ptr->iface->original()->copy());
     setAcceptHoverEvents(true);
+    setImage(d_ptr->iface->original() ? d_ptr->iface->original()->copy() : DImg());
 }
 
 ImageRegionItem::~ImageRegionItem()

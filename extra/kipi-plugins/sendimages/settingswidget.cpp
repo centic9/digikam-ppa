@@ -6,7 +6,7 @@
  * Date        : 2006-10-18
  * Description : e-mail settings page.
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,7 +20,7 @@
  *
  * ============================================================ */
 
-#include "settingswidget.moc"
+#include "settingswidget.h"
 
 // Qt includes
 
@@ -29,16 +29,14 @@
 #include <QGroupBox>
 #include <QLabel>
 #include <QPushButton>
+#include <QApplication>
+#include <QSpinBox>
+#include <QComboBox>
+#include <QStyle>
 
 // KDE includes
 
-#include <kaboutdata.h>
-#include <kcomponentdata.h>
-#include <kcombobox.h>
-#include <kdialog.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <knuminput.h>
+#include <klocalizedstring.h>
 
 namespace KIPISendimagesPlugin
 {
@@ -63,61 +61,66 @@ public:
         labelImageCompression = 0;
     }
 
-    QLabel*       labelMailAgent;
-    QLabel*       labelImagesResize;
-    QLabel*       labelImagesFormat;
-    QLabel*       labelAttachmentLimit;
-    QLabel*       labelImageCompression;
+    QLabel*    labelMailAgent;
+    QLabel*    labelImagesResize;
+    QLabel*    labelImagesFormat;
+    QLabel*    labelAttachmentLimit;
+    QLabel*    labelImageCompression;
 
-    KComboBox*    mailAgentName;
-    KComboBox*    imagesResize;
-    KComboBox*    imagesFormat;
+    QComboBox* mailAgentName;
+    QComboBox* imagesResize;
+    QComboBox* imagesFormat;
 
-    QCheckBox*    changeImagesProp;
-    QCheckBox*    addComments;
+    QCheckBox* changeImagesProp;
+    QCheckBox* addComments;
 
-    KIntNumInput* imageCompression;
-    KIntNumInput* attachmentlimit;
+    QSpinBox*  imageCompression;
+    QSpinBox*  attachmentlimit;
 };
 
 SettingsWidget::SettingsWidget(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
-    QGridLayout* grid = new QGridLayout(this);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    QGridLayout* const grid = new QGridLayout(this);
 
     // --------------------------------------------------------
 
     d->labelMailAgent = new QLabel(i18n("Mail program:"), this);
 
-    d->mailAgentName = new KComboBox(this);
-    d->mailAgentName->insertItem(EmailSettings::DEFAULT,       i18nc("default mail agent", "Default"));
-    d->mailAgentName->insertItem(EmailSettings::BALSA,         "Balsa");
-    d->mailAgentName->insertItem(EmailSettings::CLAWSMAIL,     "Claws Mail");
-    d->mailAgentName->insertItem(EmailSettings::EVOLUTION,     "Evolution");
-    d->mailAgentName->insertItem(EmailSettings::GMAILAGENT,    "Gmail-Agent");
-    d->mailAgentName->insertItem(EmailSettings::KMAIL,         "KMail");
-    d->mailAgentName->insertItem(EmailSettings::NETSCAPE,      "Netscape");
-    d->mailAgentName->insertItem(EmailSettings::SYLPHEED,      "Sylpheed");
-    d->mailAgentName->insertItem(EmailSettings::SYLPHEEDCLAWS, "Sylpheed-Claws");
-    d->mailAgentName->insertItem(EmailSettings::THUNDERBIRD,   "Thunderbird");
+    d->mailAgentName = new QComboBox(this);
+    d->mailAgentName->insertItem(EmailSettings::DEFAULT,       i18nc("default desktop mail agent", "Default"));
+#ifdef Q_OS_LINUX
+    d->mailAgentName->insertItem(EmailSettings::BALSA,         QLatin1String("Balsa"));
+    d->mailAgentName->insertItem(EmailSettings::CLAWSMAIL,     QLatin1String("Claws Mail"));
+    d->mailAgentName->insertItem(EmailSettings::EVOLUTION,     QLatin1String("Evolution"));
+    d->mailAgentName->insertItem(EmailSettings::KMAIL,         QLatin1String("KMail"));
+    d->mailAgentName->insertItem(EmailSettings::NETSCAPE,      QLatin1String("Netscape"));
+    d->mailAgentName->insertItem(EmailSettings::SYLPHEED,      QLatin1String("Sylpheed"));
+    d->mailAgentName->insertItem(EmailSettings::SYLPHEEDCLAWS, QLatin1String("Sylpheed-Claws"));
+    d->mailAgentName->insertItem(EmailSettings::THUNDERBIRD,   QLatin1String("Thunderbird"));
+#endif
     d->mailAgentName->setCurrentIndex(EmailSettings::DEFAULT);
     d->mailAgentName->setWhatsThis(i18n("Select your preferred external email program here. "
-                                        "<b>Default</b> is the current email program set in KDE "
-                                        "System Settings."));
+                                        "<b>Default</b> is the current email program set in desktop "
+                                        "system settings."));
 
     //---------------------------------------------
 
     d->addComments = new QCheckBox(i18n("Attach a file with image properties from %1",
-                                   KGlobal::mainComponent().aboutData()->programName()),
+                                   QApplication::applicationName()),
                                    this);
     d->addComments->setWhatsThis(i18n("If you enable this option, all image properties set by %1 "
                                       "as Comments, Rating, or Tags, will be added as an attached file.",
-                                      KGlobal::mainComponent().aboutData()->programName()));
+                                      QApplication::applicationName()));
 
     // --------------------------------------------------------
 
-    d->attachmentlimit = new KIntNumInput(this);
-    d->attachmentlimit->setRange(1, 50, 1);
+    d->attachmentlimit = new QSpinBox(this);
+    d->attachmentlimit->setRange(1, 50);
+    d->attachmentlimit->setSingleStep(1);
     d->attachmentlimit->setValue(17);
     d->attachmentlimit->setSuffix(i18n(" MB"));
 
@@ -134,13 +137,15 @@ SettingsWidget::SettingsWidget(QWidget* const parent)
     QGroupBox* const groupBox = new QGroupBox(i18n("Image Properties"), this);
     QGridLayout* const grid2  = new QGridLayout(groupBox);
 
-    d->imagesResize = new KComboBox(groupBox);
+    d->imagesResize = new QComboBox(groupBox);
     d->imagesResize->insertItem(EmailSettings::VERYSMALL, i18n("Very Small (320 pixels)"));
     d->imagesResize->insertItem(EmailSettings::SMALL,     i18n("Small (640 pixels)"));
     d->imagesResize->insertItem(EmailSettings::MEDIUM,    i18n("Medium (800 pixels)"));
     d->imagesResize->insertItem(EmailSettings::BIG,       i18n("Big (1024 pixels)"));
     d->imagesResize->insertItem(EmailSettings::VERYBIG,   i18n("Very Big (1280 pixels)"));
     d->imagesResize->insertItem(EmailSettings::LARGE,     i18n("Large - for printing (1600 pixels)"));
+    d->imagesResize->insertItem(EmailSettings::FULLHD,    i18n("Full HD (1920 pixels)"));
+    d->imagesResize->insertItem(EmailSettings::ULTRAHD,   i18n("Ultra HD (3840 pixels)"));
     d->imagesResize->setCurrentIndex(EmailSettings::MEDIUM);
     QString whatsThis = i18n("<p>Select the size of the images that are to be sent:</p>"
                              "<p><b>%1</b>: use this if you have a very slow Internet "
@@ -152,13 +157,21 @@ SettingsWidget::SettingsWidget(QWidget* const parent)
                              "<p><b>%4</b>: use this if you have a high-speed Internet connection "
                              "and the target mailbox size is not limited.</p>"
                              "<p><b>%5</b>: use this if you have no size or speed restrictions.</p>"
-                             "<p><b>%6</b>: use this only for printing purposes.</p>",
+                             "<p><b>%6</b>: use this only for printing purposes.</p>"
+                             "<p><b>%7</b>: use this for optimal viewing on Full HD displays. "
+                             "Only if you have a high-speed Internet connection and the "
+                             "target mailbox size is not limited.</p>"
+                             "<p><b>%8</b>: use this for optimal viewing on Ultra HD displays. "
+                             "Only if you have a high-speed Internet connection and the "
+                             "target mailbox size is not limited.</p>",
                              i18n("Very Small (320 pixels)"),
                              i18n("Small (640 pixels)"),
                              i18n("Medium (800 pixels)"),
                              i18n("Big (1024 pixels)"),
                              i18n("Very Big (1280 pixels)"),
-                             i18n("Huge - for printing (1600 pixels)"));
+                             i18n("Large - for printing (1600 pixels)"),
+                             i18n("Full HD (1920 pixels)"),
+                             i18n("Ultra HD (3840 pixels)"));
     d->imagesResize->setWhatsThis(whatsThis);
 
     d->labelImagesResize = new QLabel( i18n("Image size:"), groupBox);
@@ -166,9 +179,9 @@ SettingsWidget::SettingsWidget(QWidget* const parent)
 
     //---------------------------------------------
 
-    d->imagesFormat = new KComboBox(groupBox);
-    d->imagesFormat->insertItem(EmailSettings::JPEG, "JPEG");
-    d->imagesFormat->insertItem(EmailSettings::PNG,  "PNG");
+    d->imagesFormat = new QComboBox(groupBox);
+    d->imagesFormat->insertItem(EmailSettings::JPEG, QLatin1String("JPEG"));
+    d->imagesFormat->insertItem(EmailSettings::PNG, QLatin1String("PNG"));
     d->imagesFormat->setCurrentIndex(EmailSettings::JPEG);
     whatsThis = i18n("<p>Select the file format of the image files to be sent.</p>");
     whatsThis = whatsThis + i18n("<p><b>JPEG</b>: The Joint Photographic Experts Group file format "
@@ -186,8 +199,9 @@ SettingsWidget::SettingsWidget(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    d->imageCompression = new KIntNumInput(groupBox);
-    d->imageCompression->setRange(1, 100, 1);
+    d->imageCompression = new QSpinBox(groupBox);
+    d->imageCompression->setRange(1, 100);
+    d->imageCompression->setSingleStep(1);
     d->imageCompression->setValue(75);
     whatsThis = i18n("<p>The new compression value of JPEG images to be sent:</p>");
     whatsThis = whatsThis + i18n("<p><b>1</b>: very high compression<br/>"
@@ -210,8 +224,8 @@ SettingsWidget::SettingsWidget(QWidget* const parent)
     grid2->addWidget(d->imageCompression,      2, 1, 1, 2);
     grid2->setRowStretch(4, 10);
     grid2->setColumnStretch(2, 10);
-    grid2->setMargin(KDialog::spacingHint());
-    grid2->setSpacing(KDialog::spacingHint());
+    grid2->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid2->setSpacing(spacing);
     grid2->setAlignment(Qt::AlignTop);
 
     // --------------------------------------------------------
@@ -225,8 +239,8 @@ SettingsWidget::SettingsWidget(QWidget* const parent)
     grid->addWidget(groupBox,               4, 0, 1, 4);
     grid->setRowStretch(5, 10);
     grid->setColumnStretch(3, 10);
-    grid->setMargin(0);
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(QMargins());
+    grid->setSpacing(spacing);
 
     //---------------------------------------------
 

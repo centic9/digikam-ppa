@@ -1,17 +1,17 @@
 # Translation of kipiplugins.po to Catalan
-# Copyright (C) 2004-2015 This_file_is_part_of_KDE
+# Copyright (C) 2004-2016 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Albert Astals Cid <aacid@kde.org>, 2004.
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
-"PO-Revision-Date: 2015-06-03 22:01+0200\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 19:35+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -34,44 +34,49 @@ msgstr "<p>Aquest és el percentatge en curs del treball per lots.</p>"
 msgid "Copy to Clipboard"
 msgstr "Copia al porta-retalls"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:162
+#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:271
+#: libkipiplugins/dialogs/kptooldialog.cpp:210
+msgid "Close"
+msgstr "Tanca"
+
+#: libkipiplugins/dialogs/kpimagedialog.cpp:149
 msgid "<i>unavailable</i>"
 msgstr "<i>no disponible</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:292
+#: libkipiplugins/dialogs/kpimagedialog.cpp:228
 #, kde-format
 msgid "%1 ISO"
 msgstr "%1 ISO"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:300
+#: libkipiplugins/dialogs/kpimagedialog.cpp:236
 msgid "<i>Make:</i>"
 msgstr "<i>Marca:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:301
+#: libkipiplugins/dialogs/kpimagedialog.cpp:237
 msgid "<i>Model:</i>"
 msgstr "<i>Model:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:302
+#: libkipiplugins/dialogs/kpimagedialog.cpp:238
 msgid "<i>Created:</i>"
 msgstr "<i>Creat:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:303
+#: libkipiplugins/dialogs/kpimagedialog.cpp:239
 msgid "<i>Aperture:</i>"
 msgstr "<i>Obertura:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:304
+#: libkipiplugins/dialogs/kpimagedialog.cpp:240
 msgid "<i>Focal:</i>"
 msgstr "<i>Focal:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:305
+#: libkipiplugins/dialogs/kpimagedialog.cpp:241
 msgid "<i>Exposure:</i>"
 msgstr "<i>Exposició:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:306
+#: libkipiplugins/dialogs/kpimagedialog.cpp:242
 msgid "<i>Sensitivity:</i>"
 msgstr "<i>Sensitivitat:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:414
+#: libkipiplugins/dialogs/kpimagedialog.cpp:339
 #, kde-format
 msgid ""
 "\n"
@@ -80,174 +85,202 @@ msgstr ""
 "\n"
 "%1|Fitxers RAW de càmera"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:429
+#: libkipiplugins/dialogs/kpimagedialog.cpp:358
 msgid "Select an Image"
 msgstr "Seleccioneu una imatge"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:436
+#: libkipiplugins/dialogs/kpimagedialog.cpp:365
 msgid "Select Images"
 msgstr "Selecció d'imatges"
 
-#: libkipiplugins/dialogs/kpoutputdialog.cpp:68
-msgid "Copy to Clip&board"
-msgstr "Copia al porta-&retalls"
+#: libkipiplugins/dialogs/kplogindialog.cpp:76
+msgid "Login:"
+msgstr "Usuari:"
 
-#: libkipiplugins/tools/kpaboutdata.cpp:108
+#: libkipiplugins/dialogs/kplogindialog.cpp:79
+msgid "Password:"
+msgstr "Contrasenya:"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:90
+msgid "&Login"
+msgstr "&Entrada"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:93
+msgid "&Skip"
+msgstr "&Omet"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:153
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Error"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:154
+msgid "Password cannot be empty."
+msgstr "La contrasenya no pot ser buida."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:57
+#: libkipiplugins/widgets/kpsettingswidget.cpp:72
+msgid "Album"
+msgstr "Àlbum"
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:60
+msgid "Title: "
+msgstr "Títol: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:61
+msgid "Time Stamp: "
+msgstr "Marca temporal: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:62
+msgid "Description: "
+msgstr "Descripció: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:63
+msgid "Location: "
+msgstr "Ubicació: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:116
+#, kde-format
+msgid "These are basic settings for the new %1 album."
+msgstr "Aquest és l'arranjament bàsic del nou àlbum de %1."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:118
+msgid "Title of the album that will be created (required)."
+msgstr "Títol de l'àlbum que es crearà (requerit)."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:121
+msgid "Date and Time of the album that will be created (optional)."
+msgstr "Data i hora de l'àlbum que es crearà (opcional)."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:123
+msgid "Description of the album that will be created (optional)."
+msgstr "Descripció de l'àlbum que es crearà (opcional)."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:125
+msgid "Location of the album that will be created (optional)."
+msgstr "Ubicació de l'àlbum que es crearà (opcional)."
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:167
+msgctxt "@action:button"
+msgid "&Start"
+msgstr "&Inicia"
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:212
+msgid "Close window"
+msgstr "Tanca la finestra"
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:217
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:219
+msgid "Cancel current operation"
+msgstr "Cancel·la l'operació actual"
+
+#: libkipiplugins/tools/kpaboutdata.cpp:80
 msgid "Handbook"
 msgstr "Manual"
 
+#: libkipiplugins/tools/kpaboutdata.cpp:85
+msgid "About..."
+msgstr "Quant a..."
+
+#: libkipiplugins/tools/kpaboutdata.cpp:121
+#, kde-format
+msgid "Version: %1"
+msgstr "Versió: %1"
+
+#: libkipiplugins/tools/kpaboutdata.cpp:134
+#, kde-format
+msgid "About %1"
+msgstr "Quant a %1"
+
 #: libkipiplugins/tools/kpaboutdata.h:54
-msgid "Copyright 2003-2015, digiKam developers team"
-msgstr "Copyright 2003-2015, digiKam developers team"
+msgid "Copyright 2003-2016, digiKam developers team"
+msgstr "Copyright 2003-2016, digiKam developers team"
 
-#: libkipiplugins/tools/kpbinaryiface.cpp:150
-#, kde-format
-msgid "Navigate to %1"
-msgstr "Navega a %1"
+#: libkipiplugins/tools/kputil.cpp:305
+msgid "Browse..."
+msgstr "Navega..."
 
-#: libkipiplugins/widgets/kpbinarysearch.cpp:64
-msgid "Binary"
-msgstr "Binari"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:65
-msgid "Version"
-msgstr "Versió"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:97
-msgid "Binary not found."
-msgstr "No s'ha trobat el binari."
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:98
-#, kde-format
-msgid "Minimal version number required for this binary is %1"
-msgstr "El número de versió mínim requerit per a aquest binari és %1"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:100
-msgid "Find"
-msgstr "Cerca"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:102
-#, kde-format
-msgid " or <a href=\"%1\">download</a>"
-msgstr " o <a href=\"%1\">descarrega</a>"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:127
-msgid ""
-"<qt><p><font color=\"red\"><b>Warning:</b> Some necessary binaries have not "
-"been found on your system. If you have these binaries installed, please "
-"click the 'Find' button to locate them on your system, otherwise please "
-"download and install them to proceed.</font></p></qt>"
-msgstr ""
-"<qt><p><font color=\"red\"><b>Avís:</b> No s'han trobat al sistema alguns "
-"binaris necessaris. Si els teniu instal·lats, si us plau, feu clic al botó "
-"«Cerca» per ubicar-los en el sistema, en cas contrari, descarregueu i "
-"instal·leu per continuar.</font></p></qt>"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:161
-msgid ""
-"A development version has been detect. There is no guarantee on the behavior "
-"of this binary."
-msgstr ""
-"S'ha detectat una versió de desenvolupament. No hi ha cap garantia sobre el "
-"comportament d'aquest binari."
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:167
-msgid "Change"
-msgstr "Canvia"
-
-#: libkipiplugins/widgets/kpimageslist.cpp:291
+#: libkipiplugins/widgets/kpimageslist.cpp:292
 msgid "Thumbnail"
 msgstr "Miniatura"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:292
+#: libkipiplugins/widgets/kpimageslist.cpp:293
 msgid "File Name"
 msgstr "Nom de fitxer"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:293
+#: libkipiplugins/widgets/kpimageslist.cpp:294
 msgid "User1"
 msgstr "Usuari1"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:294
+#: libkipiplugins/widgets/kpimageslist.cpp:295
 msgid "User2"
 msgstr "Usuari2"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:295
+#: libkipiplugins/widgets/kpimageslist.cpp:296
 msgid "User3"
 msgstr "Usuari3"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:296
+#: libkipiplugins/widgets/kpimageslist.cpp:297
 msgid "User4"
 msgstr "Usuari4"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:297
+#: libkipiplugins/widgets/kpimageslist.cpp:298
 msgid "User5"
 msgstr "Usuari5"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:298
+#: libkipiplugins/widgets/kpimageslist.cpp:299
 msgid "User6"
 msgstr "Usuari6"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:555
+#: libkipiplugins/widgets/kpimageslist.cpp:557
 msgid "Add new images to the list"
 msgstr "Afegeix imatges noves a la llista"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:556
+#: libkipiplugins/widgets/kpimageslist.cpp:558
 msgid "Remove selected images from the list"
 msgstr "Elimina les imatges seleccionades de la llista"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:557
+#: libkipiplugins/widgets/kpimageslist.cpp:559
 msgid "Move current selected image up in the list"
 msgstr "Mou la imatge actualment seleccionada cap amunt en la llista"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:558
+#: libkipiplugins/widgets/kpimageslist.cpp:560
 msgid "Move current selected image down in the list"
 msgstr "Mou la imatge actualment seleccionada cap avall en la llista"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:559
+#: libkipiplugins/widgets/kpimageslist.cpp:561
 msgid "Clear the list."
 msgstr "Neteja la llista."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:560
+#: libkipiplugins/widgets/kpimageslist.cpp:562
 msgid "Load a saved list."
 msgstr "Carrega una llista desada."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:561
+#: libkipiplugins/widgets/kpimageslist.cpp:563
 msgid "Save the list."
 msgstr "Desa la llista."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:984
+#: libkipiplugins/widgets/kpimageslist.cpp:994
 msgid "Select the image file list to load"
 msgstr "Seleccioneu la llista de fitxers d'imatge a carregar"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:1040
+#: libkipiplugins/widgets/kpimageslist.cpp:996
+#: libkipiplugins/widgets/kpimageslist.cpp:1063
+msgid "All Files (*)"
+msgstr "Tots els fitxers (*)"
+
+#: libkipiplugins/widgets/kpimageslist.cpp:1061
 msgid "Select the image file list to save"
 msgstr "Seleccioneu la llista de fitxers d'imatge a desar"
 
-#: libkipiplugins/widgets/kppreviewimage.cpp:521
-#: libkipiplugins/widgets/kppreviewimage.cpp:522
-msgid "Zoom In"
-msgstr "Apropa"
-
-#: libkipiplugins/widgets/kppreviewimage.cpp:527
-#: libkipiplugins/widgets/kppreviewimage.cpp:528
-msgid "Zoom Out"
-msgstr "Allunya"
-
-#: libkipiplugins/widgets/kppreviewimage.cpp:533
-#: libkipiplugins/widgets/kppreviewimage.cpp:534
-msgid "Zoom to Fit"
-msgstr "Zoom per ajustar"
-
-#: libkipiplugins/widgets/kppreviewmanager.cpp:153
-#: libkipiplugins/widgets/kppreviewmanager.cpp:170
-msgid "Failed to load image"
-msgstr "Ha fallat en carregar la imatge"
-
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:76
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:81
 msgid "Output file format:"
 msgstr "Format del fitxer de sortida:"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:78
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:83
 msgid ""
 "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
 "processed image in JPEG format. This format will give smaller-sized files.</"
@@ -259,8 +292,8 @@ msgid ""
 "p><p><b>PPM</b>: output the processed image in PPM format. This generates "
 "the largest files, without losing quality. Image is not compressed.</p>"
 msgstr ""
-"<p>Definiu aquí el format del fitxer de sortida a utilitzar:</p><p><b>JPEG</"
-"b>: proporciona la imatge processada en format JPEG. Aquest format dóna als "
+"<p>Definiu aquí el format del fitxer de sortida a emprar:</p><p><b>JPEG</b>: "
+"proporciona la imatge processada en format JPEG. Aquest format dóna als "
 "fitxers una mida més reduïda.</p><p><b>Avís: a causa de l'algorisme de "
 "compressió destructiu, el JPEG és un format amb pèrdua de qualitat.</b></"
 "p><p><b>TIFF</b>: proporciona el processament d'imatge en format TIFF. "
@@ -271,490 +304,197 @@ msgstr ""
 "PPM. Aquest genera els fitxers més grans, sense pèrdua de qualitat. La "
 "imatge no està comprimida.</p>"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:94
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
 msgid "If Target File Exists:"
 msgstr "Si el fitxer de destinació existeix:"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:98
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:103
 msgid "Overwrite automatically"
 msgstr "Sobreescriu automàticament"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:104
 msgid "Open rename-file dialog"
 msgstr "Obre el diàleg per reanomenar el fitxer"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:2
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can brighten up your images using the Batch Color "
-"Images plugin for increased contrast?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu augmentar la brillantor emprant el connector de color "
-"d'imatges per lots per a incrementar-ne el contrast?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:68
+msgid "Account"
+msgstr "Compte"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:19
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can abort a slideshow using <b>ESC</b>?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu cancel·lar un passi de dispositives prement <b>Esc</b>?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:77
+msgid "Max Dimension"
+msgstr "Dimensió màxima"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:36
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that the Kipi library provides a scanner plugin that gives you "
-"direct access to your scanner?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que la biblioteca Kipi proveeix d'un connector d'escàner que us dóna "
-"accés directe a l'escàner?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:80
+msgid "Destination"
+msgstr "Destinació"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:53
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can take a screenshot with the Kipi library and save "
-"the result to an Album with some comments?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu fer una captura de pantalla amb la biblioteca Kipi i desar "
-"el resultat a un àlbum amb alguns comentaris?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:83
+msgid "Options"
+msgstr "Opcions"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:70
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use the <b>LZW</b> compression to reduce the size "
-"of the <b>TIFF</b> image files in the Convert Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu usar la compressió <b>LZW</b> per reduir la mida dels "
-"fitxers d'imatge <b>TIFF</b> al connector de conversió d'imatges?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:147
+#, kde-format
+msgid "This is the list of images to upload to your %1 account."
+msgstr "Aquesta és la llista d'imatges a pujar al vostre compte de %1."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:87
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that all image operations in the batch processing image plugins "
-"run without losing the <b>Exif</b> information in the <b>JPEG</b> files?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que totes les operacions amb imatges en els connectors de "
-"processament per lots s'executen sense perdre la informació <b>Exif</b> dels "
-"fitxers <b>JPEG</b>?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:155
+#, kde-format
+msgid "This is a clickable link to open %1 in a browser."
+msgstr "Això és un enllaç que podeu clicar per obrir el %1 en un navegador."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:104
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that the <b>Noise Reduction</b> option in the <b>Filter Images</"
-"b> plugin can be used to improve the rendering of images taken with an "
-"analog camera?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que l'opció de <b>reducció de soroll</b> al connector de <b>Filtratge "
-"d'imatges</b> es pot usar per millorar la representació de les imatges "
-"preses amb una càmera analògica?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:161
+#, kde-format
+msgid "This is the %1 account that is currently logged in."
+msgstr "Aquest és el compte de %1 al qual s'està connectat actualment."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:121
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use the drag and drop feature with email images to "
-"add some items to the list?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu usar la funcionalitat d'arrossegar i deixar anar amb les "
-"imatges del correu electrònic per afegir elements a la llista?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:163
+msgctxt "account settings"
+msgid "Name:"
+msgstr "Nom:"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:138
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that if you want to reduce the disk space used by your images "
-"in the Albums database, you can try using the Recompress Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que si voleu reduir l'espai en disc emprat per les imatges a la base "
-"de dades dels àlbums, podeu intentar usar el connector de compressió "
-"d'imatges?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:164
+msgid "Change Account"
+msgstr "Canvia el compte"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:155
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that if you want to resize images to prepare them for printing "
-"on photographic paper sizes, you can use the Resize Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que si voleu redimensionar imatges per a preparar-les per imprimir en "
-"diferents mides de paper fotogràfic, podeu usar el connector de "
-"redimensionat d'imatges?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:166
+#, kde-format
+msgid "Change %1 account for transfer"
+msgstr "Canvia el compte de %1 per transferir"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:172
+#: libkipiplugins/widgets/kpsettingswidget.cpp:176
+#, kde-format
 msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use image files from different Albums in the "
-"'batch-process images' \n"
-"plugin? The processed results will then be merged into the selected target "
-"Album.\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"This is the %1 folder to/from which selected photos will be uploaded/"
+"downloaded."
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu usar fitxers d'imatges d'àlbums diferents en el connector "
-"de «procés d'imatges per lots»? \n"
-"El resultat del procés s'afegirà a l'àlbum de destinació seleccionat.\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"Aquesta és la carpeta de %1 on es pujaran/baixaran les fotos seleccionades."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:190
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can change the timestamp of the target image files in "
-"the batch-rename images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu canviar la marca horària dels fitxers d'imatge de "
-"destinació amb el connector per reanomenar imatges per lots?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:178
+msgid "Album:"
+msgstr "Àlbum:"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:207
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can navigate during the slideshow using the left and "
-"right mouse buttons?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que podeu navegar pel passi de diapositives amb els botons dret i "
-"esquerre del ratolí?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:182
+msgid "New Album"
+msgstr "Àlbum nou"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:224
+#: libkipiplugins/widgets/kpsettingswidget.cpp:184
+#, kde-format
+msgid "Create new %1 folder"
+msgstr "Crea una carpeta %1 nova"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:186
+msgctxt "album list"
+msgid "Reload"
+msgstr "Torna a carregar"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:188
+msgid "Reload album list"
+msgstr "Torna a carregar la llista d'àlbums"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:197
 msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that Kipi plugins can also be used in Digikam, KPhotoAlbum, "
-"Showfoto, and Gwenview programs?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"This is the maximum dimension of the images. Images larger than this will be "
+"scaled down."
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Sabíeu que els connectors Kipi també es poden usar als programes Digikam, "
-"KPhotoAlbum, Showfoto, i Gwenview?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"Aquesta és la dimensió màxima de les imatges. Les imatges més grans es "
+"reduiran."
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:198
+msgid "Original Size"
+msgstr "Mida original"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:199
+msgid "1600 px"
+msgstr "1600 px"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:200
+msgid "1440 px"
+msgstr "1440 px"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:201
+msgid "1280 px"
+msgstr "1280 px"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:202
+msgid "1152 px"
+msgstr "1152 px"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:203
+msgid "1024 px"
+msgstr "1024 px"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:209
+#, kde-format
+msgid "This is the location where %1 images will be downloaded."
+msgstr "Aquest és el lloc a on es baixaran les imatges de %1."
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:214
+msgid "These are the options that would be applied to photos before upload."
+msgstr ""
+"Aquestes són les opcions que s'aplicaran a les fotos abans de pujar-les."
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:216
+msgid "Resize photos before uploading"
+msgstr "Redimensiona les fotos abans de pujar-les"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:226
+msgid "Maximum Dimension:"
+msgstr "Dimensió màxima:"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:235
+msgid "JPEG Quality:"
+msgstr "Qualitat JPEG:"
+
+#~ msgid "Copy to Clip&board"
+#~ msgstr "Copia al porta-&retalls"
+
+#~ msgid "Navigate to %1"
+#~ msgstr "Navega a %1"
+
+#~ msgid "Binary"
+#~ msgstr "Binari"
+
+#~ msgid "Binary not found."
+#~ msgstr "No s'ha trobat el binari."
+
+#~ msgid "Minimal version number required for this binary is %1"
+#~ msgstr "El número de versió mínim requerit per a aquest binari és %1"
+
+#~ msgid "Find"
+#~ msgstr "Cerca"
+
+#~ msgid " or <a href=\"%1\">download</a>"
+#~ msgstr " o <a href=\"%1\">descarrega</a>"
 
 #~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Build date: %1 (target: %2)"
+#~ "<qt><p><font color=\"red\"><b>Warning:</b> Some necessary binaries have "
+#~ "not been found on your system. If you have these binaries installed, "
+#~ "please click the 'Find' button to locate them on your system, otherwise "
+#~ "please download and install them to proceed.</font></p></qt>"
 #~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Comentaris:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Data de construcció: %1 (objectiu: %2)"
+#~ "<qt><p><font color=\"red\"><b>Avís:</b> No s'han trobat al sistema alguns "
+#~ "binaris necessaris. Si els teniu instal·lats, si us plau, feu clic al "
+#~ "botó «Cerca» per ubicar-los en el sistema, en cas contrari, descarregueu "
+#~ "i instal·leu per continuar.</font></p></qt>"
 
 #~ msgid ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Feedback:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Build date: %1 (target: %2)\n"
-#~ "Rev.: %3"
+#~ "A development version has been detect. There is no guarantee on the "
+#~ "behavior of this binary."
 #~ msgstr ""
-#~ "IRC:\n"
-#~ "irc.freenode.net - #kde-imaging\n"
-#~ "\n"
-#~ "Comentaris:\n"
-#~ "kde-imaging@kde.org\n"
-#~ "\n"
-#~ "Data de construcció: %1 (objectiu: %2)\n"
-#~ "Rev.: %3"
+#~ "S'ha detectat una versió de desenvolupament. No hi ha cap garantia sobre "
+#~ "el comportament d'aquest binari."
+
+#~ msgid "Change"
+#~ msgstr "Canvia"
+
+#~ msgid "Zoom In"
+#~ msgstr "Apropa"
+
+#~ msgid "Zoom Out"
+#~ msgstr "Allunya"
+
+#~ msgid "Zoom to Fit"
+#~ msgstr "Zoom per ajustar"
+
+#~ msgid "Failed to load image"
+#~ msgstr "Ha fallat en carregar la imatge"

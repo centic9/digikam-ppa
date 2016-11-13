@@ -56,9 +56,7 @@ export OpenCVOptions='-DCMAKE_BUILD_TYPE=Debug \
                       -DWITH_V4L=OFF \
                       -DWITH_VIDEOINPUT=OFF \
                       -DWITH_XINE=OFF \
-                      -DWITH_OPENCL=OFF \
-                      -DOPENCV_EXTRA_MODULES_PATH=../../opencv_contrib/modules ..
-                      '
+                      -DWITH_OPENCL=OFF'
 
 
 cmake -G "$MAKEFILES_TYPE" . \

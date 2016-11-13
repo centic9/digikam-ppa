@@ -6,7 +6,7 @@
  * Date        : 2005-17-07
  * Description : A Sharpen threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Matthias Welwarsky <matze at welwarsky dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -35,15 +35,12 @@
 
 // Qt includes
 
-#include <QtConcurrentRun>
-
-// KDE includes
-
-#include <kdebug.h>
+#include <QtConcurrent>
 
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "dcolor.h"
 #include "blurfilter.h"
 
@@ -62,7 +59,7 @@ UnsharpMaskFilter::UnsharpMaskFilter(QObject* const parent)
 
 UnsharpMaskFilter::UnsharpMaskFilter(DImg* const orgImage, QObject* const parent, double radius,
                                      double amount, double threshold)
-    : DImgThreadedFilter(orgImage, parent, "UnsharpMask")
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("UnsharpMask"))
 {
     m_radius    = radius;
     m_amount    = amount;
@@ -156,7 +153,7 @@ void UnsharpMaskFilter::filterImage()
 
     if (m_orgImage.isNull())
     {
-        kWarning() << "No image data available!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "No image data available!";
         return;
     }
 
@@ -194,18 +191,18 @@ FilterAction UnsharpMaskFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("amount",    m_amount);
-    action.addParameter("radius",    m_radius);
-    action.addParameter("threshold", m_threshold);
+    action.addParameter(QLatin1String("amount"),    m_amount);
+    action.addParameter(QLatin1String("radius"),    m_radius);
+    action.addParameter(QLatin1String("threshold"), m_threshold);
 
     return action;
 }
 
 void UnsharpMaskFilter::readParameters(const FilterAction& action)
 {
-    m_amount    = action.parameter("amount").toDouble();
-    m_radius    = action.parameter("radius").toDouble();
-    m_threshold = action.parameter("threshold").toDouble();
+    m_amount    = action.parameter(QLatin1String("amount")).toDouble();
+    m_radius    = action.parameter(QLatin1String("radius")).toDouble();
+    m_threshold = action.parameter(QLatin1String("threshold")).toDouble();
 }
 
 } // namespace Digikam

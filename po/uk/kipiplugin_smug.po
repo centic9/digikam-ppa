@@ -1,15 +1,15 @@
 # Translation of kipiplugin_smug.po to Ukrainian
-# Copyright (C) 2009-2012 This_file_is_part_of_KDE
+# Copyright (C) 2009-2016 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011, 2012.
+# Yuri Chornoivan <yurchor@ukr.net>, 2009, 2010, 2011, 2012, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_smug\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-05-10 01:54+0000\n"
-"PO-Revision-Date: 2012-09-04 19:28+0300\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 14:22+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -19,14 +19,6 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Юрій Чорноіван"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "yurchor@ukr.net"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_smugui.rc:7
@@ -43,139 +35,144 @@ msgstr "&Експорт"
 msgid "Main Toolbar"
 msgstr "Головна панель"
 
-#: plugin_smug.cpp:107
+#: plugin_smug.cpp:98
 msgid "Export to &SmugMug..."
 msgstr "Експортувати до &SmugMug..."
 
-#: plugin_smug.cpp:118
+#: plugin_smug.cpp:109
 msgid "Import from &SmugMug..."
 msgstr "Імпортувати з &SmugMug..."
 
-#: smugalbum.cpp:52
+#: smugalbum.cpp:54
 msgid "SmugMug New Album"
 msgstr "Новий альбом SmugMug"
 
-#: smugalbum.cpp:64 smugwidget.cpp:119
+#: smugalbum.cpp:64 smugwidget.cpp:118
 msgid "Album"
 msgstr "Альбом"
 
-#: smugalbum.cpp:66
+#: smugalbum.cpp:65
 msgid "These are basic settings for the new SmugMug album."
 msgstr "Це базові параметри нового альбому SmugMug."
 
-#: smugalbum.cpp:70
+#: smugalbum.cpp:68
 msgid "Title of the album that will be created (required)."
 msgstr "Назва альбому, який буде створено (обов’язкова)."
 
-#: smugalbum.cpp:75
+#: smugalbum.cpp:72
 msgid "Category of the album that will be created (required)."
 msgstr "Категорія альбому, який буде створено (обов’язкова)."
 
-#: smugalbum.cpp:80
+#: smugalbum.cpp:76
 msgid "Subcategory of the album that will be created (optional)."
 msgstr "Підкатегорія альбому, який буде створено (необов’язкова)."
 
-#: smugalbum.cpp:84
+#: smugalbum.cpp:79
 msgid "Description of the album that will be created (optional)."
 msgstr "Опис альбому, який буде створено (необов’язковий)."
 
-#: smugalbum.cpp:89
+#: smugalbum.cpp:83
 msgid "Album template for the new album (optional)."
 msgstr "Шаблон альбому для створення альбомів (необов’язковий)."
 
-#: smugalbum.cpp:92
+#: smugalbum.cpp:86
 msgctxt "new smug album dialog"
 msgid "Title:"
 msgstr "Заголовок:"
 
-#: smugalbum.cpp:93
+#: smugalbum.cpp:87
 msgctxt "new smug album dialog"
 msgid "Category:"
 msgstr "Категорія:"
 
-#: smugalbum.cpp:94
+#: smugalbum.cpp:88
 msgctxt "new smug album dialog"
 msgid "Subcategory:"
 msgstr "Підкатегорія:"
 
-#: smugalbum.cpp:95
+#: smugalbum.cpp:89
 msgctxt "new smug album dialog"
 msgid "Description:"
 msgstr "Опис:"
 
-#: smugalbum.cpp:96
+#: smugalbum.cpp:90
 msgctxt "new smug album dialog"
 msgid "Template:"
 msgstr "Шаблон:"
 
-#: smugalbum.cpp:104
+#: smugalbum.cpp:98
 msgid "Security && Privacy"
 msgstr "Безпека і конфіденційність"
 
-#: smugalbum.cpp:106
+#: smugalbum.cpp:99
 msgid "These are security and privacy settings for the new SmugMug album."
 msgstr "Це параметри безпеки і конфіденційності для нового альбому SmugMug."
 
-#: smugalbum.cpp:108
+#: smugalbum.cpp:101
 msgctxt "smug album privacy"
 msgid "Public"
 msgstr "Відкритий доступ"
 
-#: smugalbum.cpp:111
+#: smugalbum.cpp:103
 msgid "Public album is listed on your public SmugMug page."
 msgstr ""
 "Публічний альбом, який буде показано на вашій відкритій сторінці SmugMug."
 
-#: smugalbum.cpp:112
+#: smugalbum.cpp:104
 msgctxt "smug album privacy"
 msgid "Unlisted"
 msgstr "Незареєстрований"
 
-#: smugalbum.cpp:114
+#: smugalbum.cpp:105
 msgid "Unlisted album is only accessible via URL."
 msgstr ""
 "Незареєстрований альбом, доступ до якого можна буде отримати лише за адресою "
 "URL."
 
-#: smugalbum.cpp:122
+#: smugalbum.cpp:112
 msgid "Require password to access the album (optional)."
 msgstr "Вимагати введення пароля для доступу до альбому (необов’язково)."
 
-#: smugalbum.cpp:126
+#: smugalbum.cpp:115
 msgid "Password hint to present to users in the password prompt (optional)."
 msgstr ""
 "Підказка для введення пароля, яку буде показано разом з запитом на введення "
 "пароля (необов’язкова)."
 
-#: smugalbum.cpp:129
+#: smugalbum.cpp:118
 msgid "Privacy:"
 msgstr "Конфіденційність:"
 
-#: smugalbum.cpp:130
+#: smugalbum.cpp:119
 msgid "Password:"
 msgstr "Пароль:"
 
-#: smugalbum.cpp:131
+#: smugalbum.cpp:120
 msgid "Password Hint:"
 msgstr "Підказка пароля:"
 
-#: smugtalker.cpp:101
+#: smugtalker.cpp:111
 msgid "Logging in to SmugMug service..."
 msgstr "Вхід до облікового запису на службі SmugMug..."
 
-#: smugtalker.cpp:497
+#: smugtalker.cpp:464
 msgid "Login failed"
 msgstr "Невдала спроба увійти"
 
-#: smugtalker.cpp:500
+#: smugtalker.cpp:467
 msgid "Invalid user/nick/password"
 msgstr "Некоректний набір користувач/псевдонім/пароль"
 
-#: smugtalker.cpp:503
+#: smugtalker.cpp:470
 msgid "Invalid API key"
 msgstr "Некоректний ключ API"
 
-#: smugwidget.cpp:73
+#: smugtalker.cpp:512 smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451
+#: smugwindow.cpp:484 smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
+msgid "Error"
+msgstr "Помилка"
+
+#: smugwidget.cpp:74
 msgid "This is the list of images to upload to your SmugMug account."
 msgstr ""
 "Це список зображень, які буде вивантажено на ваш обліковий запис SmugMug."
@@ -191,39 +188,39 @@ msgstr ""
 msgid "Account"
 msgstr "Обліковий запис"
 
-#: smugwidget.cpp:88
+#: smugwidget.cpp:87
 msgid "This is the SmugMug account that will be used to authenticate."
 msgstr "Це обліковий запис SmugMug, який буде використано для розпізнавання."
 
-#: smugwidget.cpp:91
+#: smugwidget.cpp:90
 msgctxt "smug account login"
 msgid "Anonymous"
 msgstr "Анонімний"
 
-#: smugwidget.cpp:93
+#: smugwidget.cpp:91
 msgid "Login as anonymous to SmugMug web service."
 msgstr "Увійти до вебслужби SmugMug як анонімний користувач."
 
-#: smugwidget.cpp:95
+#: smugwidget.cpp:93
 msgid "SmugMug Account"
 msgstr "Обліковий запис SmugMug"
 
-#: smugwidget.cpp:97
+#: smugwidget.cpp:94
 msgid "Login to SmugMug web service using email and password."
 msgstr ""
 "Увійти до вебслужби SmugMug за допомогою адреси електронної пошти і пароля."
 
-#: smugwidget.cpp:99
+#: smugwidget.cpp:96
 msgctxt "smug account settings"
 msgid "Name:"
 msgstr "Ім’я:"
 
-#: smugwidget.cpp:101
+#: smugwidget.cpp:98
 msgctxt "smug account settings"
 msgid "Email:"
 msgstr "Ел. пошта:"
 
-#: smugwidget.cpp:103
+#: smugwidget.cpp:102
 msgid "Change Account"
 msgstr "Змінити обліковий запис"
 
@@ -232,39 +229,39 @@ msgid "Change SmugMug Account used to authenticate"
 msgstr ""
 "Змінити обліковий запис SmugMug, який буде використано для розпізнавання"
 
-#: smugwidget.cpp:120
+#: smugwidget.cpp:119
 msgid "This is the SmugMug album that will be used for transfer."
 msgstr "Це альбом SmugMug, який буде використано для передавання."
 
-#: smugwidget.cpp:125
+#: smugwidget.cpp:124
 msgid "Nickname:"
 msgstr "Псевдонім:"
 
-#: smugwidget.cpp:128
+#: smugwidget.cpp:126
 msgid "Nickname of SmugMug user to list albums."
 msgstr "Псевдонім користувача SmugMug для списку альбомів."
 
-#: smugwidget.cpp:129
+#: smugwidget.cpp:127
 msgid "Site Password:"
 msgstr "Пароль сайта:"
 
-#: smugwidget.cpp:132
+#: smugwidget.cpp:129
 msgid "Site-wide password for specified SmugMug nick/user."
 msgstr "Пароль для входу на сайт за вказаним псевдонімом/користувачем SmugMug."
 
-#: smugwidget.cpp:133
+#: smugwidget.cpp:130
 msgid "Album Password:"
 msgstr "Пароль альбому:"
 
-#: smugwidget.cpp:136
+#: smugwidget.cpp:132
 msgid "Password for SmugMug album."
 msgstr "Пароль до альбому SmugMug."
 
-#: smugwidget.cpp:138
+#: smugwidget.cpp:135
 msgid "New Album"
 msgstr "Новий альбом"
 
-#: smugwidget.cpp:139
+#: smugwidget.cpp:137
 msgid "Create new SmugMug album"
 msgstr "Створити альбом SmugMug."
 
@@ -273,59 +270,59 @@ msgctxt "reload album list"
 msgid "Reload"
 msgstr "Перезавантажити"
 
-#: smugwidget.cpp:141
+#: smugwidget.cpp:142
 msgid "Reload album list"
 msgstr "Перезавантажити список альбомів"
 
-#: smugwidget.cpp:155
+#: smugwidget.cpp:156
 msgid "Destination"
 msgstr "Призначення"
 
-#: smugwidget.cpp:156
+#: smugwidget.cpp:157
 msgid "This is the location where SmugMug images will be downloaded."
 msgstr "Це адреса, куди буде отримано зображення SmugMug."
 
-#: smugwidget.cpp:163
+#: smugwidget.cpp:164
 msgid "Options"
 msgstr "Параметри"
 
-#: smugwidget.cpp:164
+#: smugwidget.cpp:165
 msgid "These are options that will be applied to images before upload."
 msgstr "Це параметри, які буде застосовано до зображення перед вивантаженням."
 
-#: smugwidget.cpp:168
+#: smugwidget.cpp:169
 msgid "Resize photos before uploading"
 msgstr "Змінити розмір фотографій перед вивантаженням"
 
-#: smugwidget.cpp:178
+#: smugwidget.cpp:179
 msgid "Maximum dimension:"
 msgstr "Максимальний розмір:"
 
-#: smugwidget.cpp:186
+#: smugwidget.cpp:187
 msgid "JPEG quality:"
 msgstr "Якість JPEG:"
 
-#: smugwindow.cpp:94
+#: smugwindow.cpp:86
 msgid "Import from SmugMug Web Service"
 msgstr "Імпортувати з вебслужби SmugMug"
 
-#: smugwindow.cpp:96
+#: smugwindow.cpp:88
 msgid "Start Download"
 msgstr "Почати отримання"
 
-#: smugwindow.cpp:97
+#: smugwindow.cpp:89
 msgid "Start download from SmugMug web service"
 msgstr "Почати отримання з вебслужби SmugMug"
 
-#: smugwindow.cpp:102
+#: smugwindow.cpp:95
 msgid "Export to SmugMug Web Service"
 msgstr "Експортувати до вебслужби SmugMug"
 
-#: smugwindow.cpp:104
+#: smugwindow.cpp:97
 msgid "Start Upload"
 msgstr "Почати вивантаження"
 
-#: smugwindow.cpp:105
+#: smugwindow.cpp:98
 msgid "Start upload to SmugMug web service"
 msgstr "Почати вивантаження до вебслужби SmugMug"
 
@@ -333,14 +330,12 @@ msgstr "Почати вивантаження до вебслужби SmugMug"
 msgid "Smug Import/Export"
 msgstr "Імпорт/Експорт Smug"
 
-#: smugwindow.cpp:129
+#: smugwindow.cpp:128
 msgid ""
-"A Kipi plugin to import/export image collections from/to the SmugMug web "
-"service."
-msgstr ""
-"Додаток Kipi, призначений для імпорту/експорту збірки з/до вебслужби SmugMug."
+"A tool to import/export image collections from/to the SmugMug web service."
+msgstr "Засіб для імпортування/експортування збірки з/до вебслужби SmugMug."
 
-#: smugwindow.cpp:131
+#: smugwindow.cpp:130
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
@@ -350,7 +345,7 @@ msgstr ""
 "© Gilles Caulier, 2008–2012,\n"
 "© Luka Renko, 2008–2009"
 
-#: smugwindow.cpp:135
+#: smugwindow.cpp:134
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
@@ -366,42 +361,52 @@ msgstr ""
 "<qt>Введіть <b>адресу електронної пошти</b> і <b>пароль</b> вашого "
 "облікового запису <a href=\"http://www.smugmug.com\">SmugMug</a></qt>"
 
-#: smugwindow.cpp:403 smugwindow.cpp:412 smugwindow.cpp:441 smugwindow.cpp:473
-#: smugwindow.cpp:504 smugwindow.cpp:533 smugwindow.cpp:901
+#: smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451 smugwindow.cpp:484
+#: smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
 #, kde-format
 msgid "SmugMug Call Failed: %1\n"
 msgstr "Невдала спроба виклику SmugMug: %1\n"
 
-#: smugwindow.cpp:469 smugwindow.cpp:529
+#: smugwindow.cpp:480 smugwindow.cpp:542
 msgid "&lt;none&gt;"
 msgstr "&lt;немає&gt;"
 
-#: smugwindow.cpp:655 smugwindow.cpp:688
+#: smugwindow.cpp:668 smugwindow.cpp:701
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: smugwindow.cpp:659
+#: smugwindow.cpp:671
 msgid "Smug Import"
 msgstr "Імпорт зі Smug"
 
-#: smugwindow.cpp:692
+#: smugwindow.cpp:704
 msgid "Smug Export"
 msgstr "Експорт до Smug"
 
-#: smugwindow.cpp:771 smugwindow.cpp:784
+#: smugwindow.cpp:788 smugwindow.cpp:802
 msgid "Cannot open file"
 msgstr "Не вдалося відкрити файл"
 
-#: smugwindow.cpp:808
+#: smugwindow.cpp:825
+msgid "Uploading Failed"
+msgstr "Невдала спроба вивантаження"
+
+#: smugwindow.cpp:826
 #, kde-format
 msgid ""
-"Failed to upload photo into SmugMug: %1\n"
+"Failed to upload photo to SmugMug.\n"
+"%1\n"
 "Do you want to continue?"
 msgstr ""
-"Спроба вивантаження фотографії до SmugMug завершилася невдало: %1\n"
+"Спроба вивантаження фотографії до SmugMug завершилася невдало.\n"
+"%1\n"
 "Бажаєте продовжувати вивантаження?"
 
-#: smugwindow.cpp:868
+#: smugwindow.cpp:887 smugwindow.cpp:900
+msgid "Processing Failed"
+msgstr "Спроба обробки завершилася невдало"
+
+#: smugwindow.cpp:888
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -410,7 +415,7 @@ msgstr ""
 "Спроба зберегти фотографію була невдалою: %1\n"
 "Бажаєте продовжувати операцію?"
 
-#: smugwindow.cpp:882
+#: smugwindow.cpp:901
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -418,6 +423,14 @@ msgid ""
 msgstr ""
 "Спроба отримати фотографію була невдалою: %1\n"
 "Бажаєте продовжувати операцію?"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Юрій Чорноіван"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "yurchor@ukr.net"
 
 #~ msgid "Handbook"
 #~ msgstr "Підручник"
@@ -427,9 +440,6 @@ msgstr ""
 
 #~ msgid "Transfer Progress"
 #~ msgstr "Поступ передавання"
-
-#~ msgid "Uploading file %1"
-#~ msgstr "Вивантаження файла %1"
 
 #~ msgid "Downloading file %1"
 #~ msgstr "Отримання файла %1"

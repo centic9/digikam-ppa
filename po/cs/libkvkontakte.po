@@ -1,0 +1,110 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Vít Pelčák <vit@pelcak.org>, 2011, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-10-13 10:04+0000\n"
+"PO-Revision-Date: 2013-04-09 13:31+0200\n"
+"Last-Translator: Vit Pelcak <vit@pelcak.org>\n"
+"Language-Team: Czech <kde-i18n-doc@kde.org>\n"
+"Language: cs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: allmessageslistjob.cpp:117
+msgid "The number of outgoing messages has changed between requests."
+msgstr "Počet odchozích zpráv se mezi požadavky změnil."
+
+#: allmessageslistjob.cpp:121
+msgid "The number of incoming messages has changed between requests."
+msgstr "Počet příchozích zpráv se mezi požadavky změnil."
+
+#: allnoteslistjob.cpp:92
+msgid "The number of notes has changed between requests."
+msgstr "Počet poznámek se změnil mezi požadavky."
+
+#: authenticationdialog.cpp:61
+msgctxt "@title:window"
+msgid "Authenticate with VKontakte"
+msgstr "Ověřit s VKontakte"
+
+#: authenticationdialog.cpp:71
+msgid "Loading Page:"
+msgstr "Načítání stránky:"
+
+#: authenticationdialog.cpp:138
+#, kde-format
+msgid ""
+"<b>VKontakte Error Description:</b> %1<br><b>VKontakte Error:</b> %2<br>"
+msgstr "<b>Popis chyby VKontakte:</b> %1<br><b>Chyba VKontakte:</b> %2<br>"
+
+#: authenticationdialog.cpp:140
+msgid "Authentication with VKontakte was not successful."
+msgstr "Ověření s VKontakte nebylo úspěšné."
+
+#: authenticationdialog.cpp:141
+msgctxt "@title:window"
+msgid "Authentication Problem"
+msgstr "Chyba ověření"
+
+#: authenticationdialog.cpp:182
+msgid ""
+"There was a network error when trying to authenticate with VKontakte web "
+"service."
+msgstr "Při pokusu o přihlášení k webové službě VKontakte nastala chyba sítě."
+
+#: authenticationdialog.cpp:183
+msgctxt "@title:window"
+msgid "Network Error"
+msgstr "Chyba sítě"
+
+#: deletealbumjob.cpp:43
+msgid "Failed to delete album"
+msgstr "Chyba při mazání alba"
+
+#: editalbumjob.cpp:52
+msgid "Failed to edit album"
+msgstr "Chyba při úpravě alba"
+
+#: photopostjob.cpp:76 vkontaktejobs.cpp:112
+#, kde-format
+msgid ""
+"Response from the VKontakte server has unexpected format. Please report this "
+"problem against product libkvkontakte at the <a href=\"%1\">KDE bug tracker</"
+"b>."
+msgstr ""
+
+#: photopostjob.cpp:84
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to "
+"uploading to URL %2: <i>%3</i>"
+msgstr ""
+"Server VKontakte navrátil chybu <i>%1</i> jako odpověď na URL odeslání %2: "
+"<i>%3</i>"
+
+#: photopostjob.cpp:206 vkontaktejobs.cpp:224
+#, kde-format
+msgid "Unable to parse data returned by the VKontakte server: %1"
+msgstr "Nelze analyzovat data vrácená serverem VKontakte: %1"
+
+#: vkontaktejobs.cpp:120
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to method "
+"%2: <i>%3</i>"
+msgstr ""
+"Server VKontakte navrátil chybu <i>%1</i> jako odpověď na metodu %2: <i>%3</"
+"i>"
+
+#: vkontaktejobs.cpp:181
+msgid ""
+"Internal error: No valid instance of KIO::StoredTransferJob passed into "
+"VkontakteJob::jobFinished."
+msgstr ""

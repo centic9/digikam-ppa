@@ -7,7 +7,7 @@
  * Description : A kipi plugin to export images to a MediaWiki wiki
  *
  * Copyright (C) 2011      by Alexandre Mendes <alex dot mendes1988 at gmail dot com>
- * Copyright (C) 2011-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,14 +30,14 @@
 
 // KIPI includes
 
-#include <libkipi/plugin.h>
+#include <KIPI/Plugin>
 
 // MediaWiki includes
 
-#include <libmediawiki/login.h>
-#include <libmediawiki/mediawiki.h>
+#include <MediaWiki/Login>
+#include <MediaWiki/MediaWiki>
 
-class KAction;
+class QAction;
 
 using namespace KIPI;
 

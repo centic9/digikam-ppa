@@ -7,7 +7,7 @@
  * Description : Qt item model for database entries with support for thumbnail loading
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C)      2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,21 +22,18 @@
  *
  * ============================================================ */
 
-#include "imagethumbnailmodel.moc"
+#include "imagethumbnailmodel.h"
 
 // Qt includes
 
 #include <QHash>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "thumbnailloadthread.h"
 #include "digikam_export.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -53,6 +50,7 @@ public:
         preloadThumbSize(0),
         emitDataChanged(true)
     {
+        staticListContainingThumbnailRole << ImageModel::ThumbnailRole;
     }
 
     ThumbnailLoadThread*   thread;
@@ -61,6 +59,7 @@ public:
     ThumbnailSize          lastGlobalThumbSize;
     ThumbnailSize          preloadThumbSize;
     QRect                  detailRect;
+    QVector<int>           staticListContainingThumbnailRole;
 
     bool                   emitDataChanged;
 
@@ -315,7 +314,7 @@ void ImageThumbnailModel::slotThumbnailLoaded(const LoadingDescription& loadingD
 
             if (d->emitDataChanged)
             {
-                emit dataChanged(index, index);
+                emit dataChanged(index, index, d->staticListContainingThumbnailRole);
             }
         }
     }

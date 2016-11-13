@@ -6,7 +6,8 @@
  * Date        : 2012-26-07
  * Description : Main view for import tool
  *
- * Copyright (C) 2012 by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,23 +25,22 @@
 #ifndef IMPORTVIEW_H
 #define IMPORTVIEW_H
 
-// KDE includes
-
-#include <khbox.h>
-
 // Local includes
 
+#include "dwidgetutils.h"
 #include "camiteminfo.h"
 #include "sidebarwidget.h"
 #include "importui.h"
 #include "importstackedview.h"
+
+
 
 namespace Digikam
 {
 
 class ImportUI;
 
-class ImportView : public KHBox
+class ImportView : public DHBox
 {
     Q_OBJECT
 
@@ -67,14 +67,14 @@ public:
     CamItemInfo& camItemInfoRef(const QString& folder, const QString& file)  const;
     bool         hasImage(const CamItemInfo& info)                           const;
 
-    KUrl::List         allUrls()                                             const;
-    KUrl::List         selectedUrls()                                        const;
+    QList<QUrl>         allUrls()                                             const;
+    QList<QUrl>         selectedUrls()                                        const;
     QList<CamItemInfo> selectedCamItemInfos()                                const;
     QList<CamItemInfo> allItems()                                            const;
     void               setSelectedCamItemInfos(const CamItemInfoList& infos) const;
     int                downloadedCamItemInfos()                              const;
     bool               hasCurrentItem()                                      const;
-    bool               isSelected(const KUrl& url)                           const;
+    bool               isSelected(const QUrl& url)                           const;
 
     double                             zoomMin()           const;
     double                             zoomMax()           const;
@@ -128,7 +128,7 @@ private Q_SLOTS:
     void slotPrevItem();
     void slotNextItem();
     void slotLastItem();
-    void slotSelectItemByUrl(const KUrl&);
+    void slotSelectItemByUrl(const QUrl&);
 
     void slotViewModeChanged();
     void slotEscapePreview();

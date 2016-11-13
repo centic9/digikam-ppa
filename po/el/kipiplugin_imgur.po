@@ -1,0 +1,254 @@
+# kipiplugin_imgurexport.po translation el
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_imgurexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2013-04-20 22:43+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: imgurapi3.cpp:121
+msgid "Could not authorize"
+msgstr ""
+
+#: imgurapi3.cpp:298
+msgid "Could not open file"
+msgstr ""
+
+#: imgurimageslist.cpp:59
+msgid "Thumbnail"
+msgstr "Εικόνα προεπισκόπησης"
+
+#: imgurimageslist.cpp:62
+msgid "Submission title"
+msgstr "Τίτλος υποβολής"
+
+#: imgurimageslist.cpp:65
+msgid "Submission description"
+msgstr "Περιγραφή υποβολής"
+
+#: imgurimageslist.cpp:68
+msgid "Imgur URL"
+msgstr "Imgur URL"
+
+#: imgurimageslist.cpp:71
+msgid "Imgur Delete URL"
+msgstr "Imgur Delete URL"
+
+#: imgurwindow.cpp:82
+msgid "Logged in as:"
+msgstr ""
+
+#: imgurwindow.cpp:90
+msgid "Forget"
+msgstr ""
+
+#: imgurwindow.cpp:100
+msgid "Upload Anonymously"
+msgstr ""
+
+#: imgurwindow.cpp:116
+msgid "Export to imgur.com"
+msgstr "Εξαγωγή στο imgur.com"
+
+#: imgurwindow.cpp:119
+msgid "Upload"
+msgstr "Φόρτωση"
+
+#: imgurwindow.cpp:120
+msgid "Start upload to Imgur"
+msgstr "Έναρξη φόρτωσης στο Imgur"
+
+#: imgurwindow.cpp:125
+msgid "Imgur Export"
+msgstr "Εξαγωγή στο Imgur"
+
+#: imgurwindow.cpp:126
+msgid "A tool to export images to Imgur web service"
+msgstr "Εργαλείο εξαγωγής εικόνων στην υπηρεσία ιστού Imgur"
+
+#: imgurwindow.cpp:127
+msgid "(c) 2012-2013, Marius Orcsik"
+msgstr "(c) 2012-2013, Marius Orcsik"
+
+#: imgurwindow.cpp:129
+msgid "Marius Orcsik"
+msgstr "Marius Orcsik"
+
+#: imgurwindow.cpp:130
+msgid "Author"
+msgstr ""
+
+#: imgurwindow.cpp:133
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: imgurwindow.cpp:134 imgurwindow.cpp:138
+msgid "Developer"
+msgstr "Προγραμματιστής"
+
+#: imgurwindow.cpp:137
+msgid "Fabian Vogt"
+msgstr ""
+
+#: imgurwindow.cpp:220
+msgid "<Not logged in>"
+msgstr ""
+
+#: imgurwindow.cpp:227
+#, fuzzy
+#| msgid "Imgur authorization"
+msgid "Authorization Failed"
+msgstr "Εξουσιοδότηση Imgur"
+
+#: imgurwindow.cpp:228
+#, fuzzy, kde-format
+#| msgid "Failed to upload photo to Imgur: %1\n"
+msgid "Failed to log into Imgur: %1\n"
+msgstr "Αποτυχία φόρτωσης φωτογραφίας στο Imgur: %1\n"
+
+#: imgurwindow.cpp:254 imgurwindow.cpp:261
+#, fuzzy
+#| msgid "Upload failed"
+msgid "Uploading Failed"
+msgstr "Η φόρτωση απέτυχε"
+
+#: imgurwindow.cpp:255
+#, kde-format
+msgid "Failed to upload photo to Imgur: %1\n"
+msgstr "Αποτυχία φόρτωσης φωτογραφίας στο Imgur: %1\n"
+
+#: imgurwindow.cpp:262
+#, kde-format
+msgid ""
+"Failed to upload photo to Imgur: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Αποτυχία φόρτωσης φωτογραφίας στο Imgur: %1\n"
+"Θέλετε να συνεχίσετε;"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_imgurui.rc:7
+msgid "&Export"
+msgstr "&Εξαγωγή"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_imgurui.rc:13
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: plugin_imgur.cpp:102
+msgid "Export to &Imgur..."
+msgstr "Εξαγωγή στο &Ιmgur..."
+
+#~ msgid "Unexpected response from the web service"
+#~ msgstr "Απρόβλεπτη απάντηση από την υπηρεσία ιστού"
+
+#~ msgid "Upload failed"
+#~ msgstr "Η φόρτωση απέτυχε"
+
+#~ msgid "Parse error"
+#~ msgstr "Συντακτικό σφάλμα"
+
+#~ msgid "Network error: timeout, cannot connect."
+#~ msgstr "Σφάλμα δικτύου: λήξη χρόνου, αδυναμία σύνδεσης."
+
+#~ msgid "Request endpoint is not valid."
+#~ msgstr "Το άκρο της αίτησης δεν είναι έγκυρο."
+
+#~ msgid "Request is not valid: some parameter missing?"
+#~ msgstr "Η αίτηση δεν είναι έγκυρη: λείπουν κάποιες παράμετροι;"
+
+#~ msgid "Authorization error: trying to access a resource without tokens."
+#~ msgstr ""
+#~ "Σφάλμα εξουσιοδότησης: προσπάθεια πρόσβασης σε πόρο χωρίς αναγνωριστικά."
+
+#~ msgid "The given request is invalid."
+#~ msgstr "η δοσμένη αίτηση δεν είναι έγκυρη."
+
+#~ msgid "Manager error, cannot use for sending requests."
+#~ msgstr "Σφάλμα διαχειριστή, αδυναμία χρήσης για αποστολή αιτήσεων."
+
+#~ msgid "No error"
+#~ msgstr "Χωρίς σφάλμα"
+
+#~ msgid "OK"
+#~ msgstr "Εντάξει"
+
+#~ msgid ""
+#~ "This is a clickable link to open the Imgur home page in a web browser"
+#~ msgstr ""
+#~ "Αυτός είναι ένας σύνδεσμος με κλικ στον οποίο ανοίγει η αρχική σελίδα του "
+#~ "Imgur σε έναν περιηγητή ιστού"
+
+#~ msgid ""
+#~ "Requesting Imgur for authorization to upload images with the KIPI Imgur "
+#~ "Exporter plugin."
+#~ msgstr ""
+#~ "Αίτηση εξουσιοδότησης στο Imgur για φόρτωση εικόνων με το πρόσθετο KIPI "
+#~ "Imgur Exporter."
+
+#~ msgid "Request authorization"
+#~ msgstr "Εξουσιοδότηση αίτησης"
+
+#~ msgid ""
+#~ "Set permissions for the current application to upload images to Imgur."
+#~ msgstr ""
+#~ "Ορισμός δικαιωμάτων για την τρέχουσα εφαρμογή για φόρτωση εικόνων στο "
+#~ "Imgur."
+
+#~ msgid "Processing %1"
+#~ msgstr "Επεξεργασία %1"
+
+#~ msgid "Authenticated"
+#~ msgstr "Εξουσιοδοτήθηκε"
+
+#~ msgid "%v / %m"
+#~ msgstr "%v / %m"
+
+#~ msgid "Export to Imgur"
+#~ msgstr "Εξαγωγή στο Imgur"
+
+#~ msgctxt "%1 is the error string"
+#~ msgid ""
+#~ "Failed to authenticate to Imgur.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Αποτυχία εξουσιοδότησης στο Imgur.\n"
+#~ "%1\n"
+#~ "Θέλετε να συνεχίσετε;"
+
+#~ msgid ""
+#~ "Failed to authenticate to Imgur.\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Αποτυχία εξουσιοδότησης στο Imgur.\n"
+#~ "Θέλετε να συνεχίσετε;"
+
+#, fuzzy
+#~| msgid "Processing %1"
+#~ msgid "Processing Failed"
+#~ msgstr "Επεξεργασία %1"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Stelios"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "sstavra@gmail.com"
+
+#~ msgid "Author and Maintainer"
+#~ msgstr "Συγγραφέας και συντηρητής"

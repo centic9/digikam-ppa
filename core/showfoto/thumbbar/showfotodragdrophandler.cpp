@@ -6,7 +6,7 @@
  * Date        : 2014-01-28
  * Description : drag and drop handling for Showfoto
  *
- * Copyright (C) 2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,22 +21,21 @@
  *
  * ============================================================ */
 
-#include "showfotodragdrophandler.moc"
+#include "showfotodragdrophandler.h"
 
 // Qt includes
 
 #include <QDropEvent>
+#include <QIcon>
+#include <QMimeData>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kiconloader.h>
-#include <kio/job.h>
-#include <klocale.h>
-#include <kmimetype.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "ddragobjects.h"
 #include "showfotocategorizedview.h"
 #include "showfotoiteminfo.h"
@@ -49,15 +48,15 @@ ShowfotoDragDropHandler::ShowfotoDragDropHandler(ShowfotoImageModel* const model
 {
 }
 
-QAction* ShowfotoDragDropHandler::addGroupAction(KMenu* const menu)
+QAction* ShowfotoDragDropHandler::addGroupAction(QMenu* const menu)
 {
-    return menu->addAction(SmallIcon("arrow-down-double"),
+    return menu->addAction(QIcon::fromTheme(QLatin1String("go-bottom")),
                            i18nc("@action:inmenu Group images with this image", "Group here"));
 }
 
-QAction* ShowfotoDragDropHandler::addCancelAction(KMenu* const menu)
+QAction* ShowfotoDragDropHandler::addCancelAction(QMenu* const menu)
 {
-    return menu->addAction(SmallIcon("dialog-cancel"), i18n("C&ancel"));
+    return menu->addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel"));
 }
 
 bool ShowfotoDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDropEvent* e, const QModelIndex& droppedOn)
@@ -69,7 +68,7 @@ bool ShowfotoDragDropHandler::dropEvent(QAbstractItemView* abstractview, const Q
         return false;
     }
 
-    KUrl::List urls = e->mimeData()->urls();
+    QList<QUrl> urls = e->mimeData()->urls();
 
     emit signalDroppedUrls(urls);
 
@@ -78,7 +77,7 @@ bool ShowfotoDragDropHandler::dropEvent(QAbstractItemView* abstractview, const Q
 
 Qt::DropAction ShowfotoDragDropHandler::accepts(const QDropEvent* e, const QModelIndex& /*dropIndex*/)
 {
-    if (KUrl::List::canDecode(e->mimeData()))
+    if (e->mimeData()->hasUrls())
     {
         return Qt::LinkAction;
     }
@@ -89,7 +88,7 @@ Qt::DropAction ShowfotoDragDropHandler::accepts(const QDropEvent* e, const QMode
 QStringList ShowfotoDragDropHandler::mimeTypes() const
 {
     QStringList mimeTypes;
-    mimeTypes << KUrl::List::mimeDataTypes();
+    mimeTypes << QLatin1String("text/uri-list");
 
     return mimeTypes;
 }
@@ -98,12 +97,11 @@ QMimeData* ShowfotoDragDropHandler::createMimeData(const QList<QModelIndex>& ind
 {
     QList<ShowfotoItemInfo> infos = model()->showfotoItemInfos(indexes);
     QMimeData* const mimeData     = new QMimeData();
-
-    KUrl::List       urls;
+    QList<QUrl> urls;
 
     foreach(const ShowfotoItemInfo& info, infos)
     {
-        kDebug() << info.url.toLocalFile();
+        qCDebug(DIGIKAM_SHOWFOTO_LOG) << info.url.toLocalFile();
         urls.append(info.url);
     }
 

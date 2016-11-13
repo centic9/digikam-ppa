@@ -6,7 +6,7 @@
  * Date        : 2007-11-09
  * Description : a class to resize image in a separate thread.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,62 +27,60 @@
 
 #include <QString>
 #include <QMutex>
+#include <QUrl>
 
-// KDE includes
+// Libkipi includes
 
-#include <kurl.h>
-#include <threadweaver/Job.h>
-
-// Libkdcraw includes
-
-#include <libkdcraw/ractionthreadbase.h>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kpthreadmanager.h"
 #include "emailsettings.h"
 
-using namespace KDcrawIface;
-using namespace ThreadWeaver;
+using namespace KIPI;
+using namespace KIPIPlugins;
 
 namespace KIPISendimagesPlugin
 {
 
-class Task : public Job
+class Task : public KPJob
 {
     Q_OBJECT
 
 public:
 
-    explicit Task(QObject* const parent = 0, int* count = 0);
+    explicit Task(int* count = 0);
     ~Task();
 
 public:
 
-    KUrl          m_orgUrl;
+    QUrl          m_orgUrl;
     QString       m_destName;
     EmailSettings m_settings;
     int*          m_count;
 
 Q_SIGNALS:
 
-    void startingResize(const KUrl& orgUrl);
-    void finishedResize(const KUrl& orgUrl, const KUrl& emailUrl, int percent);
-    void failedResize(const KUrl& orgUrl, const QString& errString, int percent);
+    void startingResize(const QUrl& orgUrl);
+    void finishedResize(const QUrl& orgUrl, const QUrl& emailUrl, int percent);
+    void failedResize(const QUrl& orgUrl, const QString& errString, int percent);
 
 private:
 
     void run();
     bool imageResize(const EmailSettings& settings,
-                     const KUrl& orgUrl, const QString& destName, QString& err);
+                     const QUrl& orgUrl, const QString& destName, QString& err);
 
 private:
 
-    QMutex m_mutex;
+    QMutex     m_mutex;
+    Interface* m_iface;
 };
 
 // ----------------------------------------------------------------------------------------------------
 
-class ImageResize : public RActionThreadBase
+class ImageResize : public KPThreadManager
 {
     Q_OBJECT
 
@@ -96,14 +94,9 @@ public:
 
 Q_SIGNALS:
 
-    void startingResize(const KUrl& orgUrl);
-    void finishedResize(const KUrl& orgUrl, const KUrl& emailUrl, int percent);
-    void failedResize(const KUrl& orgUrl, const QString& errString, int percent);
-    void completeResize();
-
-private Q_SLOTS:
-
-    void slotFinished();
+    void startingResize(const QUrl& orgUrl);
+    void finishedResize(const QUrl& orgUrl, const QUrl& emailUrl, int percent);
+    void failedResize(const QUrl& orgUrl, const QString& errString, int percent);
 
 private:
 

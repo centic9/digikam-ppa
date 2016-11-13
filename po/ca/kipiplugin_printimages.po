@@ -1,17 +1,17 @@
 # Translation of kipiplugin_printimages.po to Catalan
-# Copyright (C) 2009-2015 This_file_is_part_of_KDE
+# Copyright (C) 2009-2016 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Joan Maspons <joanmaspons@gmail.com>, 2009.
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2010, 2012, 2014, 2015.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013, 2014.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2010, 2012, 2014, 2015, 2016.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013, 2014, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
-"PO-Revision-Date: 2015-06-03 21:24+0200\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 19:33+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -21,14 +21,6 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Joan Maspons Ventura"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "joanmaspons@gmail.com"
 
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_printimagesui.rc:7
@@ -40,22 +32,25 @@ msgstr "&Imatge"
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
-#: plugin/plugin_printimages.cpp:114 plugin/plugin_printimages.cpp:146
+#: plugin/plugin_printimages.cpp:105
 msgid "Print images"
 msgstr "Impressió d'imatges"
 
-#: plugin/plugin_printimages.cpp:124
+#: plugin/plugin_printimages.cpp:115
 msgid "Print Assistant..."
-msgstr "Auxiliar d'impressió..."
+msgstr "Assistent d'impressió..."
 
-#: plugin/plugin_printimages.cpp:145 plugin/plugin_printimages.cpp:166
+#: plugin/plugin_printimages.cpp:136
+msgid "Print Images"
+msgstr "Impressió de les imatges"
+
+#: plugin/plugin_printimages.cpp:136 plugin/plugin_printimages.cpp:156
 msgid "Please select one or more photos to print."
 msgstr "Seleccioneu una o més fotos per imprimir."
 
-#: plugin/plugin_printimages.cpp:167 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
-msgid "Print assistant"
-msgstr "Auxiliar d'impressió"
+#: plugin/plugin_printimages.cpp:156
+msgid "Print Assistant"
+msgstr "Assistent d'impressió"
 
 #: tools/utils.cpp:73
 msgid ""
@@ -101,7 +96,7 @@ msgstr "&Gira a la dreta"
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropPrev)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropPrev)
-#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:292 ui/photopage.ui:295
+#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:287 ui/photopage.ui:290
 msgid "Previous photo"
 msgstr "Foto anterior"
 
@@ -141,20 +136,20 @@ msgstr ""
 "Podeu escapçar cada imatge per separat o clicar el botó «Següent» per usar "
 "els arranjaments d'escapçat \n"
 "per defecte per cada foto.\n"
-"Habilita l'opció «No escapcis» per evitar escapçar totes les fotos."
+"Activa l'opció «No escapcis» per evitar escapçar totes les fotos."
 
-#. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (text), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:167
 msgid "Save As"
 msgstr "Desa com a"
 
-#. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (shortcut), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:170
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
-#: ui/customlayout.ui:26 wizard/wizard.cpp:691
+#: ui/customlayout.ui:26 wizard/wizard.cpp:711
 msgid "Custom layout"
 msgstr "Disposició personalitzada"
 
@@ -194,7 +189,7 @@ msgid "x"
 msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2027
 msgid "cm"
 msgstr "cm"
 
@@ -204,7 +199,7 @@ msgid "mm"
 msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:319 wizard/wizard.cpp:2022
 msgid "inches"
 msgstr "polzades"
 
@@ -242,87 +237,82 @@ msgid "Empty slots:"
 msgstr "Ranures buides:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
+#: ui/photopage.ui:185 wizard/wizard.cpp:1779 wizard/wizard.cpp:2263
 msgid "Print to PDF"
 msgstr "Imprimeix a PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1759
-msgid "Print to PS"
-msgstr "Imprimeix a PS"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
-#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
+#: ui/photopage.ui:190 wizard/wizard.cpp:1780 wizard/wizard.cpp:2221
+#: wizard/wizard.cpp:2291 wizard/wizard.cpp:2494 wizard/wizard.cpp:2566
 msgid "Print to JPG"
 msgstr "Imprimeix a JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
-#: wizard/wizard.cpp:2511
+#: ui/photopage.ui:195 wizard/wizard.cpp:1781 wizard/wizard.cpp:2495
+#: wizard/wizard.cpp:2539
 msgid "Print to gimp"
 msgstr "Imprimeix a «gimp»"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
-#: ui/photopage.ui:214
+#: ui/photopage.ui:209
 msgid "Page settings"
 msgstr "Arranjaments de la pàgina"
 
 #. i18n: ectx: property (text), widget (QPushButton, mLeftButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageDown)
-#: ui/photopage.ui:298 ui/printoptionspage.ui:57
+#: ui/photopage.ui:293 ui/printoptionspage.ui:57
 msgid "<"
 msgstr "<"
 
 #. i18n: ectx: property (text), widget (QLabel, LblPreview)
-#: ui/photopage.ui:320
+#: ui/photopage.ui:315
 msgid "Preview"
 msgstr "Visualització prèvia"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageUp)
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:336 ui/photopage.ui:339
+#: ui/photopage.ui:331 ui/photopage.ui:334
 msgid "Next page"
 msgstr "Pàgina següent"
 
 #. i18n: ectx: property (text), widget (QPushButton, mRightButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:342 ui/printoptionspage.ui:64
+#: ui/photopage.ui:337 ui/printoptionspage.ui:64
 msgid ">"
 msgstr ">"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/photopage.ui:441
+#: ui/photopage.ui:436
 msgid "Captions:"
 msgstr "Comentaris:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1854
+#: ui/photopage.ui:447 wizard/wizard.cpp:1877
 msgid "No captions"
 msgstr "Sense comentaris"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:457
+#: ui/photopage.ui:452
 msgid "Image file names"
 msgstr "Noms dels fitxers d'imatge"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:462
+#: ui/photopage.ui:457
 msgid "Exif date-time"
 msgstr "Data-hora EXIF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:467
+#: ui/photopage.ui:462
 msgid "Comments"
 msgstr "Comentaris"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1860
+#: ui/photopage.ui:467 wizard/wizard.cpp:1883
 msgid "Free"
 msgstr "Lliure"
 
 #. i18n: ectx: property (text), widget (QLabel, m_free_label)
-#: ui/photopage.ui:506
+#: ui/photopage.ui:501
 #, no-c-format
 msgid ""
 "%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
@@ -332,33 +322,28 @@ msgstr ""
 "%r resolució, %a obertura, %l distància focal, \\n línia nova"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
-#: ui/photopage.ui:537
+#: ui/photopage.ui:532
 msgid "same to all"
 msgstr "mateix a tot"
 
 #. i18n: ectx: property (text), widget (QPushButton, mSaveSettings)
 #. i18n: ectx: property (text), widget (QPushButton, m_setDefault)
-#: ui/photopage.ui:547 ui/printoptionspage.ui:348
+#: ui/photopage.ui:542 ui/printoptionspage.ui:348
 msgid "Use as default"
 msgstr "Usa com a predeterminat"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/photopage.ui:560
+#: ui/photopage.ui:555
 msgid "Family:"
 msgstr "Família:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/photopage.ui:577
+#: ui/photopage.ui:572
 msgid "Color:"
 msgstr "Color:"
 
-#. i18n: ectx: property (text), widget (KColorButton, m_font_color)
-#: ui/photopage.ui:587
-msgid "PushButton"
-msgstr "Botó"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/photopage.ui:604
+#: ui/photopage.ui:596
 msgid "Size:"
 msgstr "Mida:"
 
@@ -403,17 +388,17 @@ msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
 msgid "x"
 msgstr "x"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:246
 msgid "Millimeters"
 msgstr "Mil·límetres"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:251
 msgid "Centimeters"
 msgstr "Centímetres"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:256
 msgid "Inches"
 msgstr "Polzades"
@@ -426,7 +411,7 @@ msgstr "Mantén les proporcions"
 #. i18n: ectx: property (toolTip), widget (QPushButton, mSaveSettings)
 #: ui/printoptionspage.ui:345
 msgid "Use these scaling options as default. "
-msgstr "Utilitza aquestes opcions d'escalat com a predeterminades. "
+msgstr "Usa aquestes opcions d'escalat com a predeterminades. "
 
 #. i18n: ectx: property (text), widget (QLabel, label)
 #: ui/printoptionspage.ui:366
@@ -438,76 +423,80 @@ msgstr "Fotos per pàgina:"
 msgid "Multiple pages:"
 msgstr "Pàgines múltiples:"
 
-#: wizard/customdlg.cpp:46 wizard/customdlg.cpp:47
+#: wizard/customdlg.cpp:51 wizard/customdlg.cpp:52
 msgid "Choose your grid size"
 msgstr "Seleccioneu la mida de la graella"
 
-#: wizard/customdlg.cpp:48
+#: wizard/customdlg.cpp:53
 msgid "Number of rows"
 msgstr "Nombre de files"
 
-#: wizard/customdlg.cpp:49
+#: wizard/customdlg.cpp:54
 msgid "Insert number of rows"
 msgstr "Inseriu el nombre de files"
 
-#: wizard/customdlg.cpp:50
+#: wizard/customdlg.cpp:55
 msgid "Number of columns"
 msgstr "Nombre de columnes"
 
-#: wizard/customdlg.cpp:51
+#: wizard/customdlg.cpp:56
 msgid "Insert number of columns"
 msgstr "Inseriu el nombre de columnes"
 
-#: wizard/customdlg.cpp:53 wizard/customdlg.cpp:54
+#: wizard/customdlg.cpp:58 wizard/customdlg.cpp:59
 msgid "Choose to have a custom photo size album"
 msgstr "Opció per tenir un àlbum de mida personalitzada de fotos"
 
-#: wizard/customdlg.cpp:55
+#: wizard/customdlg.cpp:60
 msgid "Photo height"
 msgstr "Alçada de les fotos"
 
-#: wizard/customdlg.cpp:56
+#: wizard/customdlg.cpp:61
 msgid "Insert photo height"
 msgstr "Inseriu l'alçada de les fotos"
 
-#: wizard/customdlg.cpp:57
+#: wizard/customdlg.cpp:62
 msgid "Photo width"
 msgstr "Amplada de les fotos"
 
-#: wizard/customdlg.cpp:58
+#: wizard/customdlg.cpp:63
 msgid "Insert photo width"
 msgstr "Inseriu l'amplada de les fotos"
 
-#: wizard/customdlg.cpp:60
+#: wizard/customdlg.cpp:65
 msgid "Auto rotate photo"
 msgstr "Gir automàtic de les fotos"
 
-#: wizard/printhelper.cpp:244
+#: wizard/printhelper.cpp:241
 msgid "Kipi-plugins image printing"
 msgstr "Connector-Kipi d'impressió d'imatges"
 
 #: wizard/printoptionspage.cpp:149 wizard/printoptionspage.cpp:150
 #: wizard/printoptionspage.cpp:151
 msgid "disabled"
-msgstr "deshabilitat"
+msgstr "desactivat"
 
-#: wizard/wizard.cpp:113
+#: wizard/wizard.cpp:117
 msgid "Select page layout"
 msgstr "Seleccioneu la disposició de la pàgina"
 
-#: wizard/wizard.cpp:114
+#: wizard/wizard.cpp:118
 msgid "Crop photos"
 msgstr "Retalla les fotos"
 
-#: wizard/wizard.cpp:116
+#: wizard/wizard.cpp:120
 msgid "Custom"
 msgstr "Personalitzat"
 
-#: wizard/wizard.cpp:163
-msgid "A KIPI plugin to print images"
-msgstr "Un connector KIPI per imprimir imatges"
+#: wizard/wizard.cpp:162 wizard/wizard.cpp:165 wizard/wizard.cpp:2510
+msgid "Print assistant"
+msgstr "Assistent d'impressió"
 
-#: wizard/wizard.cpp:164
+#: wizard/wizard.cpp:166
+msgid "A tool to print images"
+msgstr "Una eina per imprimir imatges"
+
+#: wizard/wizard.cpp:167
 msgid ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
@@ -515,67 +504,75 @@ msgstr ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:170
 msgid "Todd Shoemaker"
 msgstr "Todd Shoemaker"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:171
 msgid "Author"
 msgstr "Autor"
 
-#: wizard/wizard.cpp:170
+#: wizard/wizard.cpp:174
 msgid "Angelo Naselli"
 msgstr "Angelo Naselli"
 
-#: wizard/wizard.cpp:170
-msgid "Developer and maintainer"
-msgstr "Desenvolupador i mantenidor"
+#: wizard/wizard.cpp:175
+msgid "Developer"
+msgstr "Desenvolupador"
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:178
 msgid "Andreas Trink"
 msgstr "Andreas Trink"
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:179
 msgid "Contributor"
 msgstr "Col·laborador"
 
-#: wizard/wizard.cpp:659
+#: wizard/wizard.cpp:678
 msgid "Unsupported Paper Size"
 msgstr "Mida del paper no acceptada"
 
-#: wizard/wizard.cpp:1128
+#: wizard/wizard.cpp:1151
 #, kde-format
 msgid "Photo %1 of %2"
 msgstr "Foto %1 de %2"
 
-#: wizard/wizard.cpp:1212 wizard/wizard.cpp:1219
+#: wizard/wizard.cpp:1235 wizard/wizard.cpp:1242
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Pàgina %1 de %2"
 
-#: wizard/wizard.cpp:1460
+#: wizard/wizard.cpp:1483
 msgid "Add again"
 msgstr "Afegeix altra vegada"
 
-#: wizard/wizard.cpp:1470
+#: wizard/wizard.cpp:1493
 msgid "Remove"
 msgstr "Elimina"
 
-#: wizard/wizard.cpp:2368
+#: wizard/wizard.cpp:2197
+msgid "Output Path"
+msgstr "Camí de la sortida"
+
+#: wizard/wizard.cpp:2392
+msgid "Overwrite File"
+msgstr "Sobreescriu el fitxer"
+
+#: wizard/wizard.cpp:2393
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "El fitxer següent serà sobreescrit. Segur que voleu sobreescriure'l?"
 
-#: wizard/wizard.cpp:2389
+#: wizard/wizard.cpp:2417
 msgid "Could not save file, please check your output entry."
 msgstr "No s'ha pogut desar el fitxer, comproveu el resultat de l'entrada."
 
-#: wizard/wizard.cpp:2413
+#: wizard/wizard.cpp:2441
 msgid "Could not remove the GIMP's temporary files."
 msgstr "No s'ha pogut eliminar els fitxers temporals del GIMP."
 
-#: wizard/wizard.cpp:2534
+#: wizard/wizard.cpp:2562
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
@@ -583,10 +580,6 @@ msgstr ""
 "S'ha produït un error en engegar el GIMP. Assegureu-vos que està instal·lat "
 "correctament."
 
-#: wizard/wizard.cpp:2535
-msgid "KIPI"
-msgstr "KIPI"
-
-#: wizard/wizard.cpp:2548
+#: wizard/wizard.cpp:2574
 msgid "Empty output path."
 msgstr "Camí de sortida buit."

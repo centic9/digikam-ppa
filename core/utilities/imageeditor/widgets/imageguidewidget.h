@@ -6,7 +6,7 @@
  * Date        : 2004-08-20
  * Description : a widget to display an image with guides
  *
- * Copyright (C) 2004-2012 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,15 +26,15 @@
 
 // Qt includes
 
-#include <QtGui/QWidget>
-#include <QtGui/QColor>
-#include <QtGui/QPixmap>
-#include <QtGui/QResizeEvent>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPaintEvent>
-#include <QtCore/QPoint>
-#include <QtCore/QEvent>
-#include <QtCore/QTimerEvent>
+#include <QWidget>
+#include <QColor>
+#include <QPixmap>
+#include <QResizeEvent>
+#include <QMouseEvent>
+#include <QPaintEvent>
+#include <QPoint>
+#include <QEvent>
+#include <QTimerEvent>
 
 // Local includes
 
@@ -69,8 +69,10 @@ public:
 public:
 
     explicit ImageGuideWidget(QWidget* const parent = 0,
-                              bool spotVisible = true, int guideMode = PickColorMode,
-                              const QColor& guideColor = Qt::red, int guideSize = 1,
+                              bool spotVisible = true,
+                              int guideMode = PickColorMode,
+                              const QColor& guideColor = Qt::red,
+                              int guideSize = 1,
                               bool blink = false,
                               ImageIface::PreviewType type= ImageIface::FullImage);
     ~ImageGuideWidget();

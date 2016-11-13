@@ -6,7 +6,7 @@
  * Date        : 2013-07-05
  * Description : Qt model for Showfoto entries
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,10 +27,7 @@
 // Qt includes
 
 #include <QAbstractListModel>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -76,7 +73,7 @@ public:
     /** If a cache is kept, lookup by file path is fast,
      *  without a cache it is O(n). Default is false.
      */
-    void setKeepsFileUrlCache(bool keepCache);   
+    void setKeepsFileUrlCache(bool keepCache);
 
     /**
      *  Returns the ShowfotoItemInfo object, reference from the underlying data pointed to by the index.
@@ -111,10 +108,10 @@ public:
      * the given file url. In case of multiple occurrences of the same file, the simpler
      * overrides returns any one found first, use the QList methods to retrieve all occurrences.
      */
-    QModelIndex             indexForUrl(const KUrl& fileUrl)        const;
-    QList<QModelIndex>      indexesForUrl(const KUrl& fileUrl)      const;
-    ShowfotoItemInfo        showfotoItemInfo(const KUrl& fileUrl)   const;
-    QList<ShowfotoItemInfo> showfotoItemInfos(const KUrl& fileUrl)  const;
+    QModelIndex             indexForUrl(const QUrl& fileUrl)        const;
+    QList<QModelIndex>      indexesForUrl(const QUrl& fileUrl)      const;
+    ShowfotoItemInfo        showfotoItemInfo(const QUrl& fileUrl)   const;
+    QList<ShowfotoItemInfo> showfotoItemInfos(const QUrl& fileUrl)  const;
 
     void addShowfotoItemInfo(const ShowfotoItemInfo& info);
     void addShowfotoItemInfos(const QList<ShowfotoItemInfo>& infos);

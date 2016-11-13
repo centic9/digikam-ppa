@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2013-03-02
- * Description : Table view: Column configuration dialog
+ * Description : Table view: Column cpp dialog
  *
  * Copyright (C) 2013 by Michael G. Hansen <mike at mghansen dot de>
  *
@@ -23,24 +23,22 @@
 #ifndef TABLEVIEW_COLUMN_CONFIGURATION_DIALOG_H
 #define TABLEVIEW_COLUMN_CONFIGURATION_DIALOG_H
 
-// Qt includes
-
 // KDE includes
 
-#include <kdialog.h>
+#include <QDialog>
 
-// local includes
+// Local includes
 
 #include "tableview_columnfactory.h"
 #include "tableview_shared.h"
 
-class KMenu;
+class QMenu;
 class QContextMenuEvent;
 
 namespace Digikam
 {
 
-class TableViewConfigurationDialog : public KDialog
+class TableViewConfigurationDialog : public QDialog
 {
     Q_OBJECT
 

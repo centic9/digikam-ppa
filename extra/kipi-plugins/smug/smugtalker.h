@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2008-12-01
- * Description : a kipi plugin to import/export images to/from 
+ * Description : a kipi plugin to import/export images to/from
                  SmugMug web service
  *
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
@@ -29,10 +29,8 @@
 #include <QList>
 #include <QString>
 #include <QObject>
-
-// KDE includes
-
-#include <kio/job.h>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
 
 // local includes
 
@@ -54,14 +52,15 @@ public:
 
     bool    loggedIn() const;
     void    cancel();
-    void    login(const QString& email = "", const QString& password = "");
+    void    login(const QString& email = QString(),
+                  const QString& password = QString());
     void    logout();
 
-    void    listAlbums(const QString& nickName = "");
+    void    listAlbums(const QString& nickName = QString());
     void    listPhotos(qint64 albumID,
-                       const QString& albumKey, 
-                       const QString& albumPassword = "", 
-                       const QString& sitePassword = "");
+                       const QString& albumKey,
+                       const QString& albumPassword = QString(),
+                       const QString& sitePassword = QString());
     void    listAlbumTmpl();
     void    listCategories();
     void    listSubCategories(qint64 categoryID);
@@ -76,8 +75,8 @@ public:
 Q_SIGNALS:
 
     void signalBusy(bool val);
-    void signalLoginProgress(int step, int maxStep = 0, 
-                             const QString& label = "");
+    void signalLoginProgress(int step, int maxStep = 0,
+                             const QString& label = QString());
     void signalLoginDone(int errCode, const QString& errMsg);
     void signalAddPhotoDone(int errCode, const QString& errMsg);
     void signalGetPhotoDone(int errCode, const QString& errMsg,
@@ -111,8 +110,7 @@ private:
 
 private Q_SLOTS:
 
-    void data(KIO::Job *job, const QByteArray& data);
-    void slotResult(KJob *job);
+    void slotFinished(QNetworkReply* reply);
 
 private:
 
@@ -130,23 +128,25 @@ private:
         SMUG_GETPHOTO
     };
 
-    QWidget*   m_parent;
+    QWidget*               m_parent;
 
-    QByteArray m_buffer;
+    QByteArray             m_buffer;
 
-    QString    m_userAgent;
-    QString    m_apiURL;
-    QString    m_apiVersion;
-    QString    m_apiKey;
-    QString    m_sessionID;
+    QString                m_userAgent;
+    QString                m_apiURL;
+    QString                m_apiVersion;
+    QString                m_apiKey;
+    QString                m_sessionID;
 
-    SmugUser   m_user;
+    SmugUser               m_user;
 
-    KIO::Job*  m_job;
+    QNetworkAccessManager* m_netMngr;
 
-    State      m_state;
+    QNetworkReply*         m_reply;
+
+    State                  m_state;
 };
 
 } // namespace KIPISmugPlugin
 
-#endif /* SMUGTALKER_H */
+#endif // SMUGTALKER_H

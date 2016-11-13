@@ -1,28 +1,20 @@
 # translation of kipiplugin_yandexfotki.po to Slovak
 # Richard Fric <Richard.Fric@kdemail.net>, 2011.
-# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_yandexfotki\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-07 01:58+0000\n"
-"PO-Revision-Date: 2013-10-28 21:11+0100\n"
-"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 21:32+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Roman Paholík"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "wizzardsk@gmail.com"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_yandexfotkiui.rc:7
@@ -34,298 +26,136 @@ msgstr "&Exportovať"
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
-#: logindialog.cpp:61 yfwindow.cpp:460
-msgctxt "Yandex.Fotki"
-msgid "Y"
-msgstr "Y"
-
-#: logindialog.cpp:62 yfwindow.cpp:461
-msgctxt "Yandex.Fotki"
-msgid "andex."
-msgstr "andex."
-
-#: logindialog.cpp:63 yfwindow.cpp:462
-msgctxt "Yandex.Fotki"
-msgid "Fotki"
-msgstr "Fotki"
-
-#: logindialog.cpp:78
-msgid "Login:"
-msgstr "Prihlásenie:"
-
-#: logindialog.cpp:81 yfalbumdialog.cpp:74
-msgid "Password:"
-msgstr "Heslo:"
-
-#: logindialog.cpp:84
-msgid "Forgot your password?"
-msgstr "Zabudli ste heslo?"
-
-#: logindialog.cpp:100
-msgid "&Login"
-msgstr "Prihlásenie"
-
-#: logindialog.cpp:103
-msgid "&Skip"
-msgstr "&Preskočiť"
-
-#: logindialog.cpp:113
-msgid "Yandex User Agreement"
-msgstr "Licenčná zmluva Yandex"
-
-#: logindialog.cpp:175
-msgid "Password cannot be empty."
-msgstr "Heslo nemôže byť prázdne."
-
-#: logindialog.cpp:175 yfalbumdialog.cpp:96
-msgid "Error"
-msgstr "Chyba"
-
-#: plugin_yandexfotki.cpp:89
+#: plugin_yandexfotki.cpp:91
 msgid "Export to &Yandex.Fotki..."
 msgstr "Exportovať do &Yandex.Fotki..."
 
-#: yfalbumdialog.cpp:51
-msgid "New album"
-msgstr "Nový album"
-
-#: yfalbumdialog.cpp:59 yfwindow.cpp:165
-msgid "Album"
-msgstr "Album"
-
 #: yfalbumdialog.cpp:60
-msgid "These are basic settings for the new Yandex album."
-msgstr "Toto sú základné nastavenia pre nový album Yandex."
-
-#: yfalbumdialog.cpp:63
-msgid "Title of the album that will be created (required)."
-msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
-
-#: yfalbumdialog.cpp:66
-msgid "Description of the album that will be created (optional)."
-msgstr "Popis albumu, ktorý bude vytvorený (voliteľné)."
-
-#: yfalbumdialog.cpp:69
 msgid "Password for the album (optional)."
 msgstr "Heslo pre album (voliteľné)."
 
-#: yfalbumdialog.cpp:72
-msgid "Title:"
-msgstr "Titul:"
+#: yfalbumdialog.cpp:63
+msgid "Password:"
+msgstr "Heslo:"
 
-#: yfalbumdialog.cpp:73
-msgid "Summary:"
-msgstr "Súhrn:"
+#: yfalbumdialog.cpp:80
+msgid "Error"
+msgstr "Chyba"
 
-#: yfalbumdialog.cpp:95
+#: yfalbumdialog.cpp:80
 msgid "Title cannot be empty."
 msgstr "Titulok nemôže byť prázdny."
 
-#: yfwindow.cpp:127
-msgid "This is the list of images to upload to your Yandex album."
-msgstr "Toto je zoznam obrázkov na nahranie do vášho albumu Yandex."
-
-#: yfwindow.cpp:133
-msgid ""
-"This is a clickable link to open the Yandex.Fotki service in a web browser."
-msgstr ""
-"Toto je klikateľný odnaz na otvorenie služby Yandex.Fotku vo webovom "
-"prehliadači."
-
-#: yfwindow.cpp:141
-msgid "Account"
-msgstr "Účet"
-
-#: yfwindow.cpp:142
-msgid "This account is used for authentication."
-msgstr "Tento účet sa používa na overenie."
-
-#: yfwindow.cpp:146
-msgid "Name:"
-msgstr "Názov:"
-
-#: yfwindow.cpp:147
-msgid "Your Yandex login"
-msgstr "Vaše prihlásenie Yandex"
-
-#: yfwindow.cpp:150
-msgid "Change Account"
-msgstr "Zmeniť účet"
-
-#: yfwindow.cpp:151
-msgid "Change Yandex account used to authenticate"
-msgstr "Zmeniť účet Yandex použitý na overenie"
-
-#: yfwindow.cpp:166
-msgid "This is the Yandex.Fotki album that will be used for the transfer."
-msgstr "Toto je album Yandex.Fotki, ktorý sa použije na prenos."
-
-#: yfwindow.cpp:172
-msgid "New Album"
-msgstr "Nový album"
-
-#: yfwindow.cpp:173
-msgid "Create new Yandex.Fotki album"
-msgstr "Vytvoriť nový album Yandex.Fotki"
-
-#: yfwindow.cpp:174
-msgctxt "reload albums list"
-msgid "Reload"
-msgstr "Znovu načítať"
-
-#: yfwindow.cpp:175
-msgid "Reload albums list"
-msgstr "Obnoviť zoznam albumov"
-
-#: yfwindow.cpp:190
-msgid "Destination"
-msgstr "Cieľ"
-
-#: yfwindow.cpp:191
-msgid "This is the location where Yandex.Fotki images will be downloaded."
-msgstr "Toto je umiestnenie, kam sa nahrajú obrázky Yandex.Fotki."
-
-#: yfwindow.cpp:198
-msgid "Options"
-msgstr "Možnosti"
-
-#: yfwindow.cpp:199
-msgid "These are options that will be applied to images before upload."
-msgstr "Toto sú voľby, ktoré sa použijú na obrázky pred nahraním."
-
-#: yfwindow.cpp:203
-msgid "Resize photos before uploading"
-msgstr "Zmeniť veľkosť fotiek pred nahraním"
-
-#: yfwindow.cpp:216
-msgid "Maximum dimension:"
-msgstr "Maximálne rozmery:"
-
-#: yfwindow.cpp:224
-msgid "JPEG quality:"
-msgstr "Kvalita JPEG:"
-
-#: yfwindow.cpp:228
+#: yfwidget.cpp:61
 msgid "Update policy:"
 msgstr "Politika aktualizácie:"
 
-#: yfwindow.cpp:230
+#: yfwidget.cpp:63
 msgid "Update metadata"
 msgstr "Aktualizovať metadáta"
 
-#: yfwindow.cpp:231
+#: yfwidget.cpp:64
 msgid "Update metadata of remote file and merge remote tags with local"
 msgstr ""
 "Aktualizovať metadáta vzdialeného súboru a zlúčiť vzdialené značky s "
 "miestnymi"
 
-#. i18n("Update metadata of remote file but keep remote tags untouched."));
-#.
-#: yfwindow.cpp:239
+#: yfwidget.cpp:66
 msgid "Skip photo"
 msgstr "Preskočiť fotku"
 
-#: yfwindow.cpp:240
+#: yfwidget.cpp:67
 msgid "Simple skip photo"
 msgstr "Jednoducho preskočiť fotku"
 
-#: yfwindow.cpp:241
+#: yfwidget.cpp:68
 msgid "Upload as new"
 msgstr "Nahrať ako nové"
 
-#: yfwindow.cpp:242
+#: yfwidget.cpp:69
 msgid "Add photo as new"
 msgstr "Pridať fotku ako novú"
 
-#: yfwindow.cpp:244
+#: yfwidget.cpp:71
 msgid "Privacy settings:"
 msgstr "Nastavenie súkromia:"
 
-#: yfwindow.cpp:246
+#: yfwidget.cpp:74
 msgid "Public access"
 msgstr "Verejný prístup"
 
-#: yfwindow.cpp:247
+#: yfwidget.cpp:76
 msgid "Friends access"
 msgstr "Prístup pre priateľov"
 
-#: yfwindow.cpp:248
+#: yfwidget.cpp:78
 msgid "Private access"
 msgstr "Súkromný prístup"
 
-#: yfwindow.cpp:250
+#: yfwidget.cpp:80
 msgid "Hide original photo"
 msgstr "Skryť pôvodnú fotku"
 
-#: yfwindow.cpp:251
+#: yfwidget.cpp:81
 msgid "Disable comments"
 msgstr "Zakázať komentáre"
 
-#: yfwindow.cpp:252
+#: yfwidget.cpp:82
 msgid "Adult content"
 msgstr "Obsah pre dospelých"
 
-#: yfwindow.cpp:313
-msgid "Export to Yandex.Fotki Web Service"
-msgstr "Exportovať do webovej služby Yandex.Fotki"
-
-#: yfwindow.cpp:315
-msgid "Start Upload"
-msgstr "Spustiť odoslanie"
-
-#: yfwindow.cpp:316
-msgid "Start upload to Yandex.Fotki service"
-msgstr "Spustiť nahrávanie na službu Yandex.Fotki"
-
-#: yfwindow.cpp:328
+#: yfwindow.cpp:128
 msgid "Yandex.Fotki Plugin"
 msgstr "Plugin Yandex.Fotki"
 
-#: yfwindow.cpp:331
-msgid "A Kipi plugin to export image collections to Yandex.Fotki web service."
-msgstr "Kipi plugin na export kolekcií obrázkov na webovú službu Yandex.Fotki."
+#: yfwindow.cpp:129
+msgid "A tool to export image collections to Yandex.Fotki web service."
+msgstr "Nástroj na export kolekcií obrázkov na webovú službu Yandex.Fotki."
 
-#: yfwindow.cpp:333
+#: yfwindow.cpp:131
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
-"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2008-2015, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010, Roman Tsisyk"
 msgstr ""
 "(c) 2007-2009, Vardhman Jain\n"
-"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2008-2015, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010, Roman Tsisyk"
 
-#: yfwindow.cpp:338
+#: yfwindow.cpp:136
 msgid "Roman Tsisyk"
 msgstr "Roman Tsisyk"
 
-#: yfwindow.cpp:338
+#: yfwindow.cpp:137
 msgid "Author"
 msgstr "Autor"
 
-#: yfwindow.cpp:419
-msgid "Close"
-msgstr "Zavrieť"
-
-#: yfwindow.cpp:420
-msgid "Close window"
-msgstr "Zavrieť okno"
-
-#: yfwindow.cpp:430
-msgid "Cancel"
-msgstr "Zrušiť"
-
-#: yfwindow.cpp:431
-msgid "Cancel current operation"
-msgstr "Zrušiť aktuálnu operáciu"
-
-#: yfwindow.cpp:448
+#: yfwindow.cpp:249
 msgid "Unauthorized"
 msgstr "Neautorizovaný"
 
-#: yfwindow.cpp:812
+#: yfwindow.cpp:262
+msgctxt "Yandex.Fotki"
+msgid "Y"
+msgstr "Y"
+
+#: yfwindow.cpp:263
+msgctxt "Yandex.Fotki"
+msgid "andex."
+msgstr "andex."
+
+#: yfwindow.cpp:264
+msgctxt "Yandex.Fotki"
+msgid "Fotki"
+msgstr "Fotki"
+
+#: yfwindow.cpp:588
+msgid "Processing Failed"
+msgstr "Spracovanie zlyhalo"
+
+#: yfwindow.cpp:589
 #, kde-format
 msgid ""
 "Failed to prepare image %1\n"
@@ -334,43 +164,47 @@ msgstr ""
 "Zlyhala príprava obrázku %1\n"
 "Chcete pokračovať?"
 
-#: yfwindow.cpp:838
+#: yfwindow.cpp:616
 msgid "Images has been uploaded"
 msgstr "Obrázok bol nahraný"
 
-#: yfwindow.cpp:868
+#: yfwindow.cpp:646
 msgid "Please select album first"
 msgstr "Prosím, najprv vyberte album"
 
-#: yfwindow.cpp:890
+#: yfwindow.cpp:668
 msgid "Session error"
 msgstr "Chyba sedenia"
 
-#: yfwindow.cpp:893
+#: yfwindow.cpp:671
 msgid "Token error"
 msgstr "Chyba tokenu"
 
-#: yfwindow.cpp:896
+#: yfwindow.cpp:674
 msgid "Invalid credentials"
 msgstr "Neplatné prihlasovacie údaje"
 
-#: yfwindow.cpp:900
+#: yfwindow.cpp:678
 msgid "Cannot get service document"
 msgstr "Nemôžem získať dokumenty služby"
 
-#: yfwindow.cpp:913
+#: yfwindow.cpp:691
 msgid "Cannot list albums"
 msgstr "Nemôžem vypísať albumy"
 
-#: yfwindow.cpp:916
+#: yfwindow.cpp:694
 msgid "Cannot list photos"
 msgstr "Nemôžem vypísať fotky"
 
-#: yfwindow.cpp:919
+#: yfwindow.cpp:697
 msgid "Cannot update album info"
 msgstr "Nemôžem aktualizovať informácie o albume"
 
-#: yfwindow.cpp:925
+#: yfwindow.cpp:703
+msgid "Uploading Failed"
+msgstr "Odoslanie zlyhalo"
+
+#: yfwindow.cpp:704
 #, kde-format
 msgid ""
 "Failed to upload image %1\n"
@@ -379,6 +213,139 @@ msgstr ""
 "Zlyhalo nahranie obrázku %1\n"
 "Chcete pokračovať?"
 
-#: yfwindow.cpp:946
+#: yfwindow.cpp:725
 msgid "Unknown error"
 msgstr "Neznáma chyba"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Roman Paholík"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "wizzardsk@gmail.com"
+
+#~ msgid "Login:"
+#~ msgstr "Prihlásenie:"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Zabudli ste heslo?"
+
+#~ msgid "&Login"
+#~ msgstr "Prihlásenie"
+
+#~ msgid "&Skip"
+#~ msgstr "&Preskočiť"
+
+#~ msgid "Yandex User Agreement"
+#~ msgstr "Licenčná zmluva Yandex"
+
+#~ msgid "Password cannot be empty."
+#~ msgstr "Heslo nemôže byť prázdne."
+
+#~ msgid "New album"
+#~ msgstr "Nový album"
+
+#~ msgid "Album"
+#~ msgstr "Album"
+
+#~ msgid "These are basic settings for the new Yandex album."
+#~ msgstr "Toto sú základné nastavenia pre nový album Yandex."
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Titulok albumu, ktorý bude vytvorený (povinné)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Popis albumu, ktorý bude vytvorený (voliteľné)."
+
+#~ msgid "Title:"
+#~ msgstr "Titul:"
+
+#~ msgid "Summary:"
+#~ msgstr "Súhrn:"
+
+#~ msgid "This is the list of images to upload to your Yandex album."
+#~ msgstr "Toto je zoznam obrázkov na nahranie do vášho albumu Yandex."
+
+#~ msgid ""
+#~ "This is a clickable link to open the Yandex.Fotki service in a web "
+#~ "browser."
+#~ msgstr ""
+#~ "Toto je klikateľný odnaz na otvorenie služby Yandex.Fotku vo webovom "
+#~ "prehliadači."
+
+#~ msgid "Account"
+#~ msgstr "Účet"
+
+#~ msgid "This account is used for authentication."
+#~ msgstr "Tento účet sa používa na overenie."
+
+#~ msgid "Name:"
+#~ msgstr "Názov:"
+
+#~ msgid "Your Yandex login"
+#~ msgstr "Vaše prihlásenie Yandex"
+
+#~ msgid "Change Account"
+#~ msgstr "Zmeniť účet"
+
+#~ msgid "Change Yandex account used to authenticate"
+#~ msgstr "Zmeniť účet Yandex použitý na overenie"
+
+#~ msgid "This is the Yandex.Fotki album that will be used for the transfer."
+#~ msgstr "Toto je album Yandex.Fotki, ktorý sa použije na prenos."
+
+#~ msgid "New Album"
+#~ msgstr "Nový album"
+
+#~ msgid "Create new Yandex.Fotki album"
+#~ msgstr "Vytvoriť nový album Yandex.Fotki"
+
+#~ msgctxt "reload albums list"
+#~ msgid "Reload"
+#~ msgstr "Znovu načítať"
+
+#~ msgid "Reload albums list"
+#~ msgstr "Obnoviť zoznam albumov"
+
+#~ msgid "Destination"
+#~ msgstr "Cieľ"
+
+#~ msgid "This is the location where Yandex.Fotki images will be downloaded."
+#~ msgstr "Toto je umiestnenie, kam sa nahrajú obrázky Yandex.Fotki."
+
+#~ msgid "Options"
+#~ msgstr "Možnosti"
+
+#~ msgid "These are options that will be applied to images before upload."
+#~ msgstr "Toto sú voľby, ktoré sa použijú na obrázky pred nahraním."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Zmeniť veľkosť fotiek pred nahraním"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "Maximálne rozmery:"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "Kvalita JPEG:"
+
+#~ msgid "Export to Yandex.Fotki Web Service"
+#~ msgstr "Exportovať do webovej služby Yandex.Fotki"
+
+#~ msgid "Start Upload"
+#~ msgstr "Spustiť odoslanie"
+
+#~ msgid "Start upload to Yandex.Fotki service"
+#~ msgstr "Spustiť nahrávanie na službu Yandex.Fotki"
+
+#~ msgid "Close"
+#~ msgstr "Zavrieť"
+
+#~ msgid "Close window"
+#~ msgstr "Zavrieť okno"
+
+#~ msgid "Cancel"
+#~ msgstr "Zrušiť"
+
+#~ msgid "Cancel current operation"
+#~ msgstr "Zrušiť aktuálnu operáciu"

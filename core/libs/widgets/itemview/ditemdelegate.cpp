@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C)      2009 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -24,7 +24,7 @@
  *
  * ============================================================ */
 
-#include "ditemdelegate.moc"
+#include "ditemdelegate.h"
 
 // C++ includes
 
@@ -35,17 +35,15 @@
 #include <QApplication>
 #include <QCache>
 #include <QPainter>
+#include <QLocale>
 
 // KDE includes
 
-#include <kglobal.h>
-#include <kio/global.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "dcategorizedview.h"
+#include "itemviewcategorized.h"
 #include "thememanager.h"
 #include "thumbbardock.h"
 
@@ -65,7 +63,8 @@ public:
 };
 
 DItemDelegate::DItemDelegate(QObject* const parent)
-    : QAbstractItemDelegate(parent), d(new Private)
+    : QAbstractItemDelegate(parent),
+      d(new Private)
 {
 }
 
@@ -83,7 +82,7 @@ void DItemDelegate::clearCaches()
 QPixmap DItemDelegate::thumbnailBorderPixmap(const QSize& pixSize) const
 {
     const QColor borderColor = QColor(0, 0, 0, 128);
-    QString cacheKey         = QString::number(pixSize.width()) + '-' + QString::number(pixSize.height());
+    QString cacheKey         = QString::number(pixSize.width()) + QLatin1Char('-') + QString::number(pixSize.height());
     QPixmap* const cachePix  = d->thumbnailBorderCache.object(cacheKey);
 
     if (!cachePix)
@@ -107,12 +106,12 @@ QPixmap DItemDelegate::makeDragPixmap(const QStyleOptionViewItem& option,
 
     if (icon.isNull())
     {
-        icon = QPixmap(DesktopIcon("image-jp2", KIconLoader::SizeMedium));
+        icon = QPixmap(QIcon::fromTheme(QLatin1String("image-jpeg")).pixmap(32));
     }
 
-    if (qMax(icon.width(), icon.height()) > KIconLoader::SizeHuge)
+    if (qMax(icon.width(), icon.height()) > 64)
     {
-        icon = icon.scaled(KIconLoader::SizeHuge, KIconLoader::SizeHuge,
+        icon = icon.scaled(64, 64,
                            Qt::KeepAspectRatio, Qt::SmoothTransformation);
     }
 
@@ -126,7 +125,7 @@ QPixmap DItemDelegate::makeDragPixmap(const QStyleOptionViewItem& option,
     QPixmap pix(rect.size());
     QPainter p(&pix);
 
-/* 
+/*
     // border
     p.fillRect(0, 0, pix.width()-1, pix.height()-1, QColor(Qt::white));
     p.setPen(QPen(Qt::black, 1));
@@ -178,7 +177,7 @@ QPixmap DItemDelegate::makeDragPixmap(const QStyleOptionViewItem& option,
 
 QString DItemDelegate::dateToString(const QDateTime& datetime)
 {
-    return KGlobal::locale()->formatDateTime(datetime, KLocale::ShortDate, false);
+    return QLocale().toString(datetime, QLocale::ShortFormat);
 }
 
 QString DItemDelegate::squeezedTextCached(QPainter* const p, int width, const QString& text) const
@@ -186,7 +185,7 @@ QString DItemDelegate::squeezedTextCached(QPainter* const p, int width, const QS
     QCache<QString, QString>* const cache = &const_cast<DItemDelegate*>(this)->d->squeezedTextCache;
     // We do not need to include the font into cache key, the cache is cleared on font change
     QString cacheKey                      = QString::number(width) + QString::number(qHash(text));
-    QString* cachedString                 = cache->object(cacheKey);
+    QString* const cachedString           = cache->object(cacheKey);
 
     if (cachedString)
     {
@@ -202,69 +201,8 @@ QString DItemDelegate::squeezedTextCached(QPainter* const p, int width, const QS
 QString DItemDelegate::squeezedText(const QFontMetrics& fm, int width, const QString& text)
 {
     QString fullText(text);
-    fullText.replace('\n',' ');
+    fullText.replace(QLatin1Char('\n'), QLatin1Char(' '));
     return fm.elidedText(text, Qt::ElideRight, width);
-
-/*
-    // Home-brewn implementation
-
-    int textWidth  = fm.width(fullText);
-    QString result = fullText;
-
-    if (textWidth > width)
-    {
-        // start with the dots only
-        QString squeezedText = "...";
-        int squeezedWidth    = fm.width(squeezedText);
-
-        // estimate how many letters we can add to the dots on both sides
-        int letters          = fullText.length() * (width - squeezedWidth) / textWidth;
-
-        if (width < squeezedWidth)
-        {
-            letters=1;
-        }
-
-        squeezedText  = fullText.left(letters) + "...";
-        squeezedWidth = fm.width(squeezedText);
-
-        if (squeezedWidth < width)
-        {
-            // we estimated too short
-            // add letters while text < label
-            do
-            {
-                ++letters;
-                squeezedText  = fullText.left(letters) + "...";
-                squeezedWidth = fm.width(squeezedText);
-            }
-            while (squeezedWidth < width);
-
-            --letters;
-            squeezedText = fullText.left(letters) + "...";
-        }
-        else if (squeezedWidth > width)
-        {
-            // we estimated too long
-            // remove letters while text > label
-            do
-            {
-                --letters;
-                squeezedText  = fullText.left(letters) + "...";
-                squeezedWidth = fm.width(squeezedText);
-            }
-            while (letters && squeezedWidth > width);
-        }
-
-        if (letters >= 5)
-        {
-
-            result = squeezedText;
-        }
-    }
-
-    return result;
-*/
 }
 
 } // namespace Digikam

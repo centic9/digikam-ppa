@@ -6,7 +6,7 @@
  * Date        : 2012-01-04
  * Description : a message box to manage camera items
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,19 +29,18 @@
 #include <QWidget>
 #include <QTreeWidget>
 
-// KDE includes
-
-#include <kmessagebox.h>
-#include <kstandardguiitem.h>
-
 // Local includes
 
 #include "camerathumbsctrl.h"
+#include "digikam_export.h"
+
+class QDialog;
+class QDialogButtonBox;
 
 namespace Digikam
 {
 
-class CameraItem : public QTreeWidgetItem
+class DIGIKAM_EXPORT CameraItem : public QTreeWidgetItem
 {
 
 public:
@@ -62,7 +61,7 @@ private:
 
 // -----------------------------------------------------------
 
-class CameraItemList : public QTreeWidget
+class DIGIKAM_EXPORT CameraItemList : public QTreeWidget
 {
     Q_OBJECT
 
@@ -90,37 +89,29 @@ private:
 
 // -----------------------------------------------------------
 
-class CameraMessageBox
+class DIGIKAM_EXPORT CameraMessageBox
 {
 
 public:
 
+    /** Show List of camera items into an informative message box.
+     */
     static void informationList(CameraThumbsCtrl* const ctrl,
                                 QWidget* const parent,
+                                const QString& caption,
                                 const QString& text,
                                 const CamItemInfoList& items,
-                                const QString& caption = QString(),
                                 const QString& dontShowAgainName = QString());
 
+    /** Show List of camera items to processs into a message box and wait user feedback.
+     *  Return QMessageBox::Yes or QMessageBox::Cancel
+     */
     static int warningContinueCancelList(CameraThumbsCtrl* const ctrl,
                                          QWidget* const parent,
+                                         const QString& caption,
                                          const QString& text,
                                          const CamItemInfoList& items,
-                                         const QString& caption = QString(),
-                                         const KGuiItem& buttonContinue = KStandardGuiItem::cont(),
-                                         const KGuiItem& buttonCancel = KStandardGuiItem::cancel(),
                                          const QString& dontAskAgainName = QString());
-
-private:
-
-    static int createMessageBox(CameraThumbsCtrl* const ctrl,
-                                KDialog* const dialog,
-                                const QIcon& icon,
-                                const QString& text,
-                                const CamItemInfoList& items,
-                                const QString& ask,
-                                bool* checkboxReturn
-                               );
 };
 
 } // namespace Digikam

@@ -31,9 +31,9 @@
 
 #include <QList>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -65,7 +65,7 @@ void ImageZoomSettings::setImageSize(const QSize& size, const QSize& originalSiz
 
 double ImageZoomSettings::zoomFactor() const
 {
-    return m_zoom * m_zoomConst;
+    return m_zoom;
 }
 
 QSizeF ImageZoomSettings::imageSize() const
@@ -80,7 +80,7 @@ QSizeF ImageZoomSettings::originalImageSize() const
 
 QSizeF ImageZoomSettings::zoomedSize() const
 {
-    return m_size * m_zoom;
+    return m_size / m_zoomConst * m_zoom;
 }
 
 QRectF ImageZoomSettings::sourceRect(const QRectF& imageRect) const
@@ -95,7 +95,7 @@ bool ImageZoomSettings::isFitToSize(const QSizeF& frameSize) const
 
 void ImageZoomSettings::setZoomFactor(double zoom)
 {
-    m_zoom = zoom / m_zoomConst;
+    m_zoom = zoom;
 }
 
 void ImageZoomSettings::fitToSize(const QSizeF& frameSize, FitToSizeMode mode)
@@ -138,22 +138,24 @@ double ImageZoomSettings::fitToSizeZoomFactor(const QSizeF& frameSize, FitToSize
 
 QRectF ImageZoomSettings::mapZoomToImage(const QRectF& zoomedRect) const
 {
-    return QRectF(zoomedRect.topLeft() / m_zoom, zoomedRect.size() / m_zoom);
+    return QRectF(zoomedRect.topLeft() / (m_zoom / m_zoomConst),
+                  zoomedRect.size()    / (m_zoom / m_zoomConst));
 }
 
 QRectF ImageZoomSettings::mapImageToZoom(const QRectF& imageRect) const
 {
-    return QRectF(imageRect.topLeft() * m_zoom, imageRect.size() * m_zoom);
+    return QRectF(imageRect.topLeft() * (m_zoom / m_zoomConst),
+                  imageRect.size()    * (m_zoom / m_zoomConst));
 }
 
 QPointF ImageZoomSettings::mapZoomToImage(const QPointF& zoomedPoint) const
 {
-    return zoomedPoint / m_zoom;
+    return zoomedPoint / (m_zoom / m_zoomConst);
 }
 
 QPointF ImageZoomSettings::mapImageToZoom(const QPointF& imagePoint) const
 {
-    return imagePoint * m_zoom;
+    return imagePoint * (m_zoom / m_zoomConst);
 }
 
 inline static bool lessThanLimitedPrecision(double a, double b)

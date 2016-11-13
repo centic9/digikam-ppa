@@ -6,7 +6,7 @@
  * Date        : 2010-25-02
  * Description : Levels image filter
  *
- * Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -29,7 +29,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 using namespace Digikam;
 
@@ -82,12 +82,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:LevelsFilter";
+        return QLatin1String("digikam:LevelsFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Levels Adjust Tool");
+        return QString::fromUtf8(I18N_NOOP("Levels Adjust Tool"));
     }
 
     static QList<int>       SupportedVersions()

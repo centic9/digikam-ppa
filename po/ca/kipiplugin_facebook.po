@@ -1,17 +1,17 @@
 # Translation of kipiplugin_facebook.po to Catalan
-# Copyright (C) 2009-2015 This_file_is_part_of_KDE
+# Copyright (C) 2009-2016 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
 # Joan Maspons <joanmaspons@gmail.com>, 2009.
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2015.
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2010, 2011, 2012, 2015, 2016.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013, 2015.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
-"PO-Revision-Date: 2015-07-26 16:24+0200\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 19:29+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -22,87 +22,43 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Joan Maspons Ventura,Antoni Bella"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "joanmaspons@gmail.com,antonibella5@yahoo.com"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Nou àlbum del Facebook"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "Títol de l'àlbum que es crearà (requerit)."
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "Ubicació de l'àlbum que es crearà (opcional)."
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "Descripció de l'àlbum que es crearà (opcional)."
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Privadesa de l'àlbum que es crearà (requerit)."
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 msgid "Only Me"
 msgstr "Només per a mi"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "Només pels amics"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "Amics dels amics"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "Les meves xarxes i amics"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "Tothom"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "Títol:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "Ubicació:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "Descripció:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "Privadesa:"
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "Valida la sessió anterior..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr "S'està actualitzant a «OAuth»..."
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Autorització de l'aplicació del Facebook"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -111,282 +67,97 @@ msgstr ""
 "estigui fet, copieu l'adreça d'Internet del navegador al quadre de text "
 "següent i premeu «Bé»."
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "Cancel·lat per l'usuari."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "En aquests moments el servei no està disponible."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "L'aplicació ha arribat al nombre màxim de peticions permeses."
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "La clau de sessió no és vàlida o ha caducat. Proveu de tornar a connectar-"
 "vos."
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "L'identificador de l'àlbum no és vàlid."
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "L'àlbum és ple."
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "Falta un fitxer o no és vàlid."
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "Hi ha massa fotos pendents d'aprovació."
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr "Aquesta és la llista d'imatges a pujar al vostre compte del Facebook."
+#: fbtalker.cpp:602
+msgid "Error"
+msgstr "Error"
 
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
-msgstr ""
-"Aquest és un enllaç que podeu clicar per obrir la pàgina inicial del "
-"Facebook en un navegador web."
-
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "Compte"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "Aquest és el compte del Facebook al qual s'està connectat actualment."
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "Nom:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "Autorització:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
-msgstr ""
-"Autorització per l'aplicació KIPI Plugin per pujar fotos directament. Si no, "
-"caldrà que l'usuari aprovi manualment les fotos pujades al Facebook."
-
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "Canvia de compte"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr ""
-"Desconnecta i canvia el compte del Facebook utilitzat per transferir les "
-"fotos"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "Selecció de la descàrrega"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "Aquesta és la selecció d'àlbums/fotos per descarregar."
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "Destinació"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr "Aquest és l'àlbum del Facebook on es pujaran les fotos seleccionades."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "El meu &àlbum"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "Descarrega l'àlbum complet de l'usuari connectat actualment."
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "L'àlbum d'&un amic"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "Descarrega l'àlbum complet de l'amic seleccionat."
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "Les &meves fotos"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "Descarrega totes les fotos de l'usuari connectat actualment."
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "Les fotos del meu am&ic"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "Descarrega totes les fotos de l'amic seleccionat."
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "Amic:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "Àlbum:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "Àlbum nou"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "Crea un nou àlbum al Facebook"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "Actualitza"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "Actualitza la llista d'àlbums"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr "Aquest és el lloc a on es descarregaran les imatges del Facebook."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "Opcions"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr ""
-"Aquestes són les opcions que s'aplicaran a les fotos abans de pujar-les."
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "Redimensiona les fotos abans de pujar-les"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "Dimensió màxima:"
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "Qualitat JPEG:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "Pujada directa"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr ""
-"No caldrà que les fotos pujades siguin aprovades manualment per l'usuari."
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "Aprovació manual de les pujades"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr ""
-"Les fotos penjades quedaran pendents de ser aprovades manualment per "
-"l'usuari."
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "Importa des del servei web Facebook"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "Comença la descàrrega"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "Comença la descàrrega des del servei web Facebook"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "Exporta al servei web Facebook"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "Comença la pujada"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "Comença la pujada al servei web Facebook"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
-msgstr "Importa/Exporta al Facebook"
+#: fbwindow.cpp:140
+msgid "Facebook Export"
+msgstr "Exporta al Facebook"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
-"Un connector de Kipi per importar/exportar col·leccions d'imatges al/des del "
-"servei web Facebook."
+"Una eina per exportar col·leccions d'imatges a/des del servei web Facebook."
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "Autor i mantenidor"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr "Shourya Singh Gupta"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+msgid "<auto create>"
+msgstr "<crea automàticament>"
 
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr "Desenvolupador"
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
-msgstr "&lt;crea automàticament&gt;"
-
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "La crida al Facebook ha fallat: %1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "Imatges del perfil"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr "Avís"
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -394,23 +165,31 @@ msgstr ""
 "Després de finalitzar la sessió en el navegador, cliqueu a «Continua» per "
 "autenticar-vos en un altre compte."
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr "Continua"
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr "Cancel·la"
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr "Importa al Facebook"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr "Exporta al Facebook"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "No s'ha pogut obrir el fitxer"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+msgid "Uploading Failed"
+msgstr "Ha fallat la pujada"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -419,25 +198,7 @@ msgstr ""
 "Ha fallat en pujar la foto al Facebook: %1\n"
 "Voleu continuar?"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Ha fallat en desar la foto: %1\n"
-"Voleu continuar?"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Ha fallat en descarregar la foto: %1\n"
-"Voleu continuar?"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "La crida al Facebook ha fallat: %1"
@@ -457,20 +218,6 @@ msgstr "&Exporta"
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "Exporta al &Facebook..."
-
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "Importa des del &Facebook..."
-
-#~ msgid ""
-#~ "Please follow the instructions in the browser window. Press \"OK\" when "
-#~ "done."
-#~ msgstr ""
-#~ "Si us plau, seguiu les instruccions de la finestra del navegador. Premeu "
-#~ "«Bé» quan hàgiu acabat."
-
-#~ msgid "Photos taken with KDE"
-#~ msgstr "Fotos preses amb el KDE"

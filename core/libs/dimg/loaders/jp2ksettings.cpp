@@ -6,7 +6,7 @@
  * Date        : 2007-08-02
  * Description : save JPEG 2000 image options.
  *
- * Copyright (C) 2007-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "jp2ksettings.moc"
+#include "jp2ksettings.h"
 
 // Qt includes
 
@@ -30,12 +30,16 @@
 #include <QCheckBox>
 #include <QLayout>
 #include <QGridLayout>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <knuminput.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "dnuminput.h"
 
 namespace Digikam
 {
@@ -59,13 +63,15 @@ public:
 
     QCheckBox*    JPEG2000LossLess;
 
-    KIntNumInput* JPEG2000compression;
+    DIntNumInput* JPEG2000compression;
 };
 
 JP2KSettings::JP2KSettings(QWidget* const parent)
     : QWidget(parent), d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     d->JPEG2000Grid     = new QGridLayout(this);
     d->JPEG2000LossLess = new QCheckBox(i18n("Lossless JPEG 2000 files"), this);
@@ -74,9 +80,9 @@ JP2KSettings::JP2KSettings(QWidget* const parent)
                                            "<p>If this option is enabled, a lossless method will be used "
                                            "to compress JPEG 2000 pictures.</p>"));
 
-    d->JPEG2000compression = new KIntNumInput(75, this);
+    d->JPEG2000compression = new DIntNumInput(this);
+    d->JPEG2000compression->setDefaultValue(75);
     d->JPEG2000compression->setRange(1, 100, 1);
-    d->JPEG2000compression->setSliderEnabled(true);
     d->labelJPEG2000compression = new QLabel(i18n("JPEG 2000 quality:"), this);
 
     d->JPEG2000compression->setWhatsThis(i18n("<p>The quality value for JPEG 2000 images:</p>"
@@ -94,8 +100,8 @@ JP2KSettings::JP2KSettings(QWidget* const parent)
     d->JPEG2000Grid->addWidget(d->JPEG2000compression,      2, 0, 1, 2);
     d->JPEG2000Grid->setColumnStretch(1, 10);
     d->JPEG2000Grid->setRowStretch(3, 10);
-    d->JPEG2000Grid->setMargin(KDialog::spacingHint());
-    d->JPEG2000Grid->setSpacing(KDialog::spacingHint());
+    d->JPEG2000Grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    d->JPEG2000Grid->setSpacing(spacing);
 
     connect(d->JPEG2000LossLess, SIGNAL(toggled(bool)),
             this, SLOT(slotToggleJPEG2000LossLess(bool)));

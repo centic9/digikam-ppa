@@ -29,10 +29,7 @@
 #include <QWidget>
 #include <QAction>
 #include <QModelIndex>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -85,7 +82,7 @@ public:
     explicit ImagePropertiesHistoryTab(QWidget* const parent);
     ~ImagePropertiesHistoryTab();
 
-    void setCurrentURL(const KUrl& url = KUrl());
+    void setCurrentURL(const QUrl& url = QUrl());
 
 public Q_SLOTS:
 

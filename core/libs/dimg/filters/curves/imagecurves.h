@@ -6,7 +6,7 @@
  * Date        : 2004-12-01
  * Description : image curves manipulation methods.
  *
- * Copyright (C) 2004-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,16 +27,13 @@
 // Qt includes
 
 #include <QSharedDataPointer>
-#include <QtCore/QPoint>
-#include <QtGui/QPolygon>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QPoint>
+#include <QPolygon>
+#include <QUrl>
 
 // Local includes
 
-#include "globals.h"
+#include "digikam_globals.h"
 #include "digikam_export.h"
 
 namespace Digikam
@@ -52,17 +49,17 @@ public:
     /**
      * The max number of points contained in a curve.
      */
-    const static int NUM_POINTS;
+    const static int NUM_POINTS = 17;
 
     /**
      * Number of channels in a curve.
      */
-    const static int NUM_CHANNELS;
+    const static int NUM_CHANNELS = 5;
 
     /**
      * Curve points have to multiplied with this value for 16 bit images.
      */
-    const static int MULTIPLIER_16BIT;
+    const static int MULTIPLIER_16BIT = 255;
 
     enum CurveType
     {
@@ -165,8 +162,8 @@ public:
 
     /// Methods for to save/load the curves values to/from a Gimp curves text file.
 
-    bool saveCurvesToGimpCurvesFile(const KUrl& fileUrl) const;
-    bool loadCurvesFromGimpCurvesFile(const KUrl& fileUrl);
+    bool saveCurvesToGimpCurvesFile(const QUrl& fileUrl) const;
+    bool loadCurvesFromGimpCurvesFile(const QUrl& fileUrl);
 
     static QPoint getDisabledValue();
 

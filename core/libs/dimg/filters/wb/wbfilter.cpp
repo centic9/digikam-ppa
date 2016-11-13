@@ -6,7 +6,7 @@
  * Date        : 2007-16-01
  * Description : white balance color correction.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008      by Guillaume Castagnino <casta at xwing dot info>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -30,13 +30,10 @@
 #include <cstdio>
 #include <cmath>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "imagehistogram.h"
 
 namespace Digikam
@@ -90,7 +87,7 @@ WBFilter::WBFilter(QObject* const parent)
 }
 
 WBFilter::WBFilter(DImg* const orgImage, QObject* const parent, const WBContainer& settings)
-    : DImgThreadedFilter(orgImage, parent, "WBFilter"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("WBFilter")),
       d(new Private)
 {
     m_settings = settings;
@@ -99,7 +96,7 @@ WBFilter::WBFilter(DImg* const orgImage, QObject* const parent, const WBContaine
 
 WBFilter::WBFilter(const WBContainer& settings, DImgThreadedFilter* const master,
                    const DImg& orgImage, const DImg& destImage, int progressBegin, int progressEnd)
-    : DImgThreadedFilter(master, orgImage, destImage, progressBegin, progressEnd, "WBFilter"),
+    : DImgThreadedFilter(master, orgImage, destImage, progressBegin, progressEnd, QLatin1String("WBFilter")),
       d(new Private)
 {
     m_settings = settings;
@@ -151,7 +148,7 @@ void WBFilter::autoWBAdjustementFromColor(const QColor& tc, double& temperature,
 
     float mr=0.0, mg=0.0, mb=0.0;
 
-    kDebug() << "Sums:  R:" << tc.red() << " G:" << tc.green() << " B:" << tc.blue();
+    qCDebug(DIGIKAM_DIMG_LOG) << "Sums:  R:" << tc.red() << " G:" << tc.green() << " B:" << tc.blue();
 
     /* This is a dichotomic search based on Blue and Red layers ratio
        to find the matching temperature
@@ -164,7 +161,7 @@ void WBFilter::autoWBAdjustementFromColor(const QColor& tc, double& temperature,
 
     for (temperature = (tmin + tmax) / 2; tmax - tmin > 10; temperature = (tmin + tmax) / 2)
     {
-        kDebug() << "Intermediate Temperature (K):" << temperature;
+        qCDebug(DIGIKAM_DIMG_LOG) << "Intermediate Temperature (K):" << temperature;
         setRGBmult(temperature, green, mr, mg, mb);
 
         if (mr / mb > mBR)
@@ -180,8 +177,8 @@ void WBFilter::autoWBAdjustementFromColor(const QColor& tc, double& temperature,
     // Calculate the green level to neutralize picture
     green = (mr / mg) / ((double)tc.green() / (double)tc.red());
 
-    kDebug() << "Temperature (K):" << temperature;
-    kDebug() << "Green component:" << green;
+    qCDebug(DIGIKAM_DIMG_LOG) << "Temperature (K):" << temperature;
+    qCDebug(DIGIKAM_DIMG_LOG) << "Green component:" << green;
 }
 
 void WBFilter::autoExposureAdjustement(const DImg* const img, double& black, double& expo)
@@ -207,7 +204,7 @@ void WBFilter::autoExposureAdjustement(const DImg* const img, double& black, dou
     }
 
     expo = -log((float)(i + 1) / rgbMax) / log(2);
-    kDebug() << "White level at:" << i;
+    qCDebug(DIGIKAM_DIMG_LOG) << "White level at:" << i;
 
     for (i = 1, sum = 0; (i < (int)rgbMax) && (sum < stop); ++i)
     {
@@ -217,7 +214,7 @@ void WBFilter::autoExposureAdjustement(const DImg* const img, double& black, dou
     black = (double)i / rgbMax;
     black /= 2;
 
-    kDebug() << "Black:" << black << "  Exposition:" << expo;
+    qCDebug(DIGIKAM_DIMG_LOG) << "Black:" << black << "  Exposition:" << expo;
 
     delete histogram;
 }
@@ -390,7 +387,7 @@ void WBFilter::setLUTv()
         d->WP = d->BP + 1;
     }
 
-    kDebug() << "T(K): " << m_settings.temperature
+    qCDebug(DIGIKAM_DIMG_LOG) << "T(K): " << m_settings.temperature
              << " => R:" << d->mr
              << " G:   " << d->mg
              << " B:   " << d->mb

@@ -7,7 +7,7 @@
  * Description : image file IO threaded interface.
  *
  * Copyright (C) 2005-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2005-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,14 +22,11 @@
  *
  * ============================================================ */
 
-#include "loadsavethread.moc"
-
-// KExiv2 includes
-
-#include <libkexiv2/rotationmatrix.h>
+#include "loadsavethread.h"
 
 // Local includes
 
+#include "metaengine_rotation.h"
 #include "dmetadata.h"
 #include "managedloadsavethread.h"
 #include "sharedloadsavethread.h"
@@ -38,34 +35,34 @@
 namespace Digikam
 {
 
-class LoadSaveThread::LoadSaveThreadPriv
+class LoadSaveThread::Private
 {
 public:
 
-    LoadSaveThreadPriv()
+    Private()
     {
         running           = true;
         blockNotification = false;
         lastTask          = 0;
     }
 
-    bool          running;
-    bool          blockNotification;
+    bool                             running;
+    bool                             blockNotification;
 
-    QTime         notificationTime;
+    QTime                            notificationTime;
 
-    LoadSaveTask* lastTask;
+    LoadSaveTask*                    lastTask;
 
     static LoadSaveFileInfoProvider* infoProvider;
 };
 
-LoadSaveFileInfoProvider* LoadSaveThread::LoadSaveThreadPriv::infoProvider = 0;
+LoadSaveFileInfoProvider* LoadSaveThread::Private::infoProvider = 0;
 
 //---------------------------------------------------------------------------------------------------
 
 LoadSaveThread::LoadSaveThread(QObject* parent)
     : DynamicThread(parent),
-      d(new LoadSaveThreadPriv)
+      d(new Private)
 {
     m_currentTask        = 0;
     m_notificationPolicy = NotificationPolicyTimeLimited;
@@ -79,12 +76,12 @@ LoadSaveThread::~LoadSaveThread()
 
 void LoadSaveThread::setInfoProvider(LoadSaveFileInfoProvider* infoProvider)
 {
-    LoadSaveThreadPriv::infoProvider = infoProvider;
+    Private::infoProvider = infoProvider;
 }
 
 LoadSaveFileInfoProvider* LoadSaveThread::infoProvider()
 {
-    return LoadSaveThreadPriv::infoProvider;
+    return Private::infoProvider;
 }
 
 void LoadSaveThread::load(const LoadingDescription& description)
@@ -269,7 +266,7 @@ bool LoadSaveThread::querySendNotifyEvent()
 
 int LoadSaveThread::exifOrientation(const DImg& image, const QString& filePath)
 {
-    QVariant attribute = image.attribute("fromRawEmbeddedPreview");
+    QVariant attribute = image.attribute(QLatin1String("fromRawEmbeddedPreview"));
     return exifOrientation(filePath, DMetadata(image.getMetadata()),
                            image.detectedFormat() == DImg::RAW,
                            (attribute.isValid() && attribute.toBool()));
@@ -278,7 +275,8 @@ int LoadSaveThread::exifOrientation(const DImg& image, const QString& filePath)
 int LoadSaveThread::exifOrientation(const QString& filePath, const DMetadata& metadata,
                                     bool isRaw, bool fromRawEmbeddedPreview)
 {
-    int dbOrientation = KExiv2::ORIENTATION_UNSPECIFIED;
+    int dbOrientation = MetaEngine::ORIENTATION_UNSPECIFIED;
+
     if (infoProvider())
     {
         dbOrientation = infoProvider()->orientationHint(filePath);
@@ -292,22 +290,22 @@ int LoadSaveThread::exifOrientation(const QString& filePath, const DMetadata& me
     if (isRaw && !fromRawEmbeddedPreview)
     {
         // Did the user apply any additional rotation over the metadata flag?
-        if (dbOrientation == KExiv2::ORIENTATION_UNSPECIFIED || dbOrientation == exifOrientation)
+        if (dbOrientation == MetaEngine::ORIENTATION_UNSPECIFIED || dbOrientation == exifOrientation)
         {
-            return KExiv2::ORIENTATION_NORMAL;
+            return MetaEngine::ORIENTATION_NORMAL;
         }
         // Assume A is the orientation as from metadata, B is an additional operation applied by the user,
         // C is the current orientation in the database.
         // A*B = C and B = A_inv * C
-        QMatrix A = KExiv2Iface::RotationMatrix::toMatrix((KExiv2::ImageOrientation)exifOrientation);
-        QMatrix C = KExiv2Iface::RotationMatrix::toMatrix((KExiv2::ImageOrientation)dbOrientation);
+        QMatrix A = MetaEngineRotation::toMatrix((MetaEngine::ImageOrientation)exifOrientation);
+        QMatrix C = MetaEngineRotation::toMatrix((MetaEngine::ImageOrientation)dbOrientation);
         QMatrix A_inv = A.inverted();
         QMatrix B = A_inv * C;
-        RotationMatrix m(B.m11(), B.m12(), B.m21(), B.m22());
+        MetaEngineRotation m(B.m11(), B.m12(), B.m21(), B.m22());
         return m.exifOrientation();
     }
 
-    if (dbOrientation != KExiv2::ORIENTATION_UNSPECIFIED)
+    if (dbOrientation != MetaEngine::ORIENTATION_UNSPECIFIED)
     {
         return dbOrientation;
     }
@@ -317,7 +315,7 @@ int LoadSaveThread::exifOrientation(const QString& filePath, const DMetadata& me
 bool LoadSaveThread::wasExifRotated(DImg& image)
 {
     // Keep in sync with the variant in thumbnailcreator.cpp
-    QVariant attribute(image.attribute("exifRotated"));
+    QVariant attribute(image.attribute(QLatin1String("exifRotated")));
 
     return attribute.isValid() && attribute.toBool();
 }
@@ -333,7 +331,7 @@ bool LoadSaveThread::exifRotate(DImg& image, const QString& filePath)
     // Rotate thumbnail based on metadata orientation information
 
     bool rotatedOrFlipped = image.rotateAndFlip(exifOrientation(image, filePath));
-    image.setAttribute("exifRotated", true);
+    image.setAttribute(QLatin1String("exifRotated"), true);
 
     return rotatedOrFlipped;
 }

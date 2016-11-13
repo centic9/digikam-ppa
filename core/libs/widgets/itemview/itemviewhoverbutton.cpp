@@ -6,7 +6,7 @@
  * Date        : 2009-04-30
  * Description : Qt item view mouse hover button
  *
- * Copyright (C) 2008 by Peter Penz <peter.penz@gmx.at>
+ * Copyright (C) 2008      by Peter Penz <peter dot penz at gmx dot at>
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -22,37 +22,28 @@
  *
  * ============================================================ */
 
-#include "itemviewhoverbutton.moc"
+#include "itemviewhoverbutton.h"
 
 // Qt includes
 
-#include <QtGui/QPainter>
-#include <QtGui/QPaintEvent>
-#include <QtCore/QRect>
-#include <QtCore/QTimer>
-#include <QtCore/QTimeLine>
-
-// KDE includes
-
-#include <kglobalsettings.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kiconeffect.h>
-#include <klocale.h>
+#include <QPainter>
+#include <QPaintEvent>
+#include <QRect>
+#include <QTimer>
+#include <QTimeLine>
+#include <QIcon>
 
 namespace Digikam
 {
 
-ItemViewHoverButton::ItemViewHoverButton(QAbstractItemView* view)
+ItemViewHoverButton::ItemViewHoverButton(QAbstractItemView* const view)
     : QAbstractButton(view->viewport()),
       m_isHovered(false),
       m_fadingValue(0),
       m_icon(),
       m_fadingTimeLine(0)
 {
-    const bool animate = KGlobalSettings::graphicEffectsLevel() & KGlobalSettings::SimpleAnimationEffects;
-    const int duration = animate ? 600 : 1;
-    m_fadingTimeLine   = new QTimeLine(duration, this);
+    m_fadingTimeLine = new QTimeLine(600, this);
     m_fadingTimeLine->setFrameRange(0, 255);
 
     setCheckable(true);
@@ -62,9 +53,6 @@ ItemViewHoverButton::ItemViewHoverButton(QAbstractItemView* view)
             this, SLOT(setFadingValue(int)));
 
     connect(this, SIGNAL(toggled(bool)),
-            this, SLOT(refreshIcon()));
-
-    connect(KGlobalSettings::self(), SIGNAL(iconChanged(int)),
             this, SLOT(refreshIcon()));
 }
 
@@ -118,7 +106,7 @@ void ItemViewHoverButton::enterEvent(QEvent* event)
 
     // if the mouse cursor is above the button, display
     // it immediately without fading timer
-    m_isHovered = true;
+    m_isHovered   = true;
     m_fadingTimeLine->stop();
     m_fadingValue = 255;
     updateToolTip();
@@ -154,23 +142,27 @@ void ItemViewHoverButton::paintEvent(QPaintEvent* event)
     painter.drawEllipse(0, 0, width(), height());
 
     // draw the icon overlay
-    QPixmap icon = m_icon.scaled(width() - 2, height() - 2, Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    QPixmap icon = m_icon.pixmap(width() - 2, height() - 2);
 
     if (m_isHovered)
     {
-        KIconEffect iconEffect;
-        QPixmap activeIcon = iconEffect.apply(icon, KIconLoader::Desktop, KIconLoader::ActiveState);
-        painter.drawPixmap(1, 1, activeIcon);
+        QPixmap hovered = icon;
+        QPainter p(&hovered);
+        p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+        p.fillRect(hovered.rect(), QColor(0, 0, 0, 127));
+        p.setCompositionMode(QPainter::CompositionMode_Plus);
+        p.drawPixmap(0, 0, icon);
+        p.end();
+        painter.drawPixmap(1, 1, hovered);
     }
     else
     {
         if (m_fadingValue < 255)
         {
-            // apply an alpha mask respecting the fading value to the icon
-            QPixmap alphaMask(icon.width(), icon.height());
-            const QColor color(m_fadingValue, m_fadingValue, m_fadingValue);
-            alphaMask.fill(color);
-            icon.setAlphaChannel(alphaMask);
+            QPainter p(&icon);
+            p.setCompositionMode(QPainter::CompositionMode_DestinationIn);
+            p.fillRect(icon.rect(), QColor(0, 0, 0, m_fadingValue));
+            p.end();
             painter.drawPixmap(1, 1, icon);
         }
         else
@@ -197,9 +189,7 @@ void ItemViewHoverButton::setFadingValue(int value)
 void ItemViewHoverButton::setIconOverlay()
 {
     const char* icon = isChecked() ? "list-remove" : "list-add";
-    m_icon = KIconLoader::global()->loadIcon(icon,
-                                             KIconLoader::NoGroup,
-                                             KIconLoader::SizeSmall);
+    m_icon = QIcon::fromTheme(icon).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize));
 }
 */
 

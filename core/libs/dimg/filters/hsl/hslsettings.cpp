@@ -6,7 +6,7 @@
  * Date        : 2010-02-11
  * Description : HSL settings view.
  *
- * Copyright (C) 2010-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Julien Narboux <julien at narboux dot fr>
  *
  * This program is free software; you can redistribute it
@@ -22,35 +22,27 @@
  *
  * ============================================================ */
 
-#include "hslsettings.moc"
+#include "hslsettings.h"
 
 // Qt includes
 
 #include <QGridLayout>
 #include <QLabel>
 #include <QString>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kstandarddirs.h>
-#include <khuesaturationselect.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rnuminput.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dnuminput.h"
+#include "digikam_debug.h"
 #include "colorgradientwidget.h"
 #include "hspreviewwidget.h"
-
-using namespace KDcrawIface;
+#include "dhuesaturationselect.h"
 
 namespace Digikam
 {
@@ -74,20 +66,20 @@ public:
     static const QString    configVibranceAdjustmentEntry;
     static const QString    configLighnessAdjustmentEntry;
 
-    KHueSaturationSelector* HSSelector;
+    DHueSaturationSelector* HSSelector;
 
-    RDoubleNumInput*        hInput;
-    RDoubleNumInput*        sInput;
-    RDoubleNumInput*        vInput;
-    RDoubleNumInput*        lInput;
+    DDoubleNumInput*        hInput;
+    DDoubleNumInput*        sInput;
+    DDoubleNumInput*        vInput;
+    DDoubleNumInput*        lInput;
 
     HSPreviewWidget*        HSPreview;
 };
 
-const QString HSLSettings::Private::configHueAdjustmentEntry("HueAdjustment");
-const QString HSLSettings::Private::configSaturationAdjustmentEntry("SaturationAdjustment");
-const QString HSLSettings::Private::configVibranceAdjustmentEntry("VibranceAdjustment");
-const QString HSLSettings::Private::configLighnessAdjustmentEntry("LighnessAdjustment");
+const QString HSLSettings::Private::configHueAdjustmentEntry(QLatin1String("HueAdjustment"));
+const QString HSLSettings::Private::configSaturationAdjustmentEntry(QLatin1String("SaturationAdjustment"));
+const QString HSLSettings::Private::configVibranceAdjustmentEntry(QLatin1String("VibranceAdjustment"));
+const QString HSLSettings::Private::configLighnessAdjustmentEntry(QLatin1String("LighnessAdjustment"));
 
 // --------------------------------------------------------
 
@@ -95,9 +87,11 @@ HSLSettings::HSLSettings(QWidget* const parent)
     : QWidget(parent),
       d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QGridLayout* const grid = new QGridLayout(parent);
 
-    d->HSSelector = new KHueSaturationSelector();
+    d->HSSelector = new DHueSaturationSelector();
     d->HSSelector->setWhatsThis(i18n("Select the hue and saturation adjustments of the image."));
     d->HSSelector->setMinimumSize(256, 142);
 
@@ -107,31 +101,31 @@ HSLSettings::HSLSettings(QWidget* const parent)
     d->HSPreview->setMinimumSize(256, 15);
 
     QLabel* const label2 = new QLabel(i18n("Hue:"));
-    d->hInput            = new RDoubleNumInput();
+    d->hInput            = new DDoubleNumInput();
     d->hInput->setDecimals(0);
-    d->hInput->input()->setRange(-180.0, 180.0, 1.0, true);
+    d->hInput->setRange(-180.0, 180.0, 1.0);
     d->hInput->setDefaultValue(0.0);
     d->hInput->setWhatsThis(i18n("Set here the hue adjustment of the image."));
 
     QLabel* const label3 = new QLabel(i18n("Saturation:"));
-    d->sInput            = new RDoubleNumInput();
+    d->sInput            = new DDoubleNumInput();
     d->sInput->setDecimals(2);
-    d->sInput->input()->setRange(-100.0, 100.0, 0.01, true);
+    d->sInput->setRange(-100.0, 100.0, 0.01);
     d->sInput->setDefaultValue(0.0);
     d->sInput->setWhatsThis(i18n("Set here the saturation adjustment of the image."));
 
     QLabel* const label4 = new QLabel(i18n("Vibrance:"));
-    d->vInput            = new RDoubleNumInput();
+    d->vInput            = new DDoubleNumInput();
     d->vInput->setDecimals(2);
-    d->vInput->input()->setRange(-100.0, 100.0, 0.01, true);
+    d->vInput->setRange(-100.0, 100.0, 0.01);
     d->vInput->setDefaultValue(0.0);
     d->vInput->setWhatsThis(i18n("Set here the vibrance adjustment of the image."
                                  "Vibrance performs selective saturation on less saturated colors and avoiding skin tones."));
 
     QLabel* const label5 = new QLabel(i18n("Lightness:"));
-    d->lInput            = new RDoubleNumInput();
+    d->lInput            = new DDoubleNumInput();
     d->lInput->setDecimals(2);
-    d->lInput->input()->setRange(-100.0, 100.0, 0.01, true);
+    d->lInput->setRange(-100.0, 100.0, 0.01);
     d->lInput->setDefaultValue(0.0);
     d->lInput->setWhatsThis(i18n("Set here the lightness adjustment of the image."));
 
@@ -148,8 +142,8 @@ HSLSettings::HSLSettings(QWidget* const parent)
     grid->addWidget(label5,        5, 0, 1, 1);
     grid->addWidget(d->lInput,     5, 1, 1, 4);
     grid->setRowStretch(6, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-graphics/kipiplugin_fbexport.po\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2009-01-20 10:11-0500\n"
 "Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
 "Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
@@ -17,313 +17,105 @@ msgstr ""
 "Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
 "3 : 4\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Kevin Scannell"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "kscanne@gmail.com"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr ""
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr ""
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr ""
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr ""
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr ""
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 msgid "Only Me"
 msgstr ""
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr ""
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr ""
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr ""
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr ""
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "Teideal:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "Suíomh:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "Cur Síos:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr ""
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr ""
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr ""
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr ""
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
 msgstr ""
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "Cealaithe ag an úsáideoir."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "Níl an tseirbhís ar fáil faoi láthair."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr ""
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr ""
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr ""
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr ""
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr ""
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
+#: fbtalker.cpp:602
+msgid "Error"
 msgstr ""
 
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
-msgstr ""
-
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "Cuntas"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr ""
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "Ainm:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "Cead:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
-msgstr ""
-
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "Athraigh an Cuntas"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr ""
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr ""
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr ""
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "Sprioc"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr ""
-"Seo é an t-albam Facebook a n-uasluchtófar na grianghraif roghnaithe chuige."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "M'&Albam"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr ""
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr ""
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr ""
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr ""
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr ""
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr ""
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr ""
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "Cara:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "Albam:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "Albam Nua"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr ""
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "Athluchtaigh"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr ""
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr "Seo é an suíomh a n-íosluchtófar grianghraif Facebook chuige."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "Roghanna"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr ""
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr ""
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr ""
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "Cáilíocht JPEG:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr ""
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr ""
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr ""
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr ""
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr ""
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr ""
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr ""
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr ""
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "Tosaigh an tUasluchtú"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr ""
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
+#: fbwindow.cpp:140
+msgid "Facebook Export"
 msgstr ""
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -332,87 +124,75 @@ msgstr ""
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "© 2005-2008, Vardhman Jain\n"
 "© 2008-2012, Gilles Caulier\n"
 "© 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "Údar agus cothaitheoir"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr ""
-
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr ""
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+#, fuzzy
+#| msgid "&lt;auto create&gt;"
+msgid "<auto create>"
 msgstr "&lt;uathchruthaigh&gt;"
 
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr ""
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "Grianghraif Phróifíle"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr ""
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr ""
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr ""
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr ""
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr ""
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr ""
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "Ní féidir an comhad a oscailt"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+#, fuzzy
+#| msgid "Uploading file %1"
+msgid "Uploading Failed"
+msgstr "Comhad %1 á uasluchtú"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
 "Do you want to continue?"
 msgstr ""
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr ""
@@ -432,13 +212,83 @@ msgstr "&Easpórtáil"
 msgid "Main Toolbar"
 msgstr "Príomhbharra Uirlisí"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "Easpórtáil go &Facebook..."
 
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "Iompórtáil ó &Facebook..."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Kevin Scannell"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "kscanne@gmail.com"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Title:"
+#~ msgstr "Teideal:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Location:"
+#~ msgstr "Suíomh:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Description:"
+#~ msgstr "Cur Síos:"
+
+#~ msgid "Account"
+#~ msgstr "Cuntas"
+
+#~ msgctxt "facebook account settings"
+#~ msgid "Name:"
+#~ msgstr "Ainm:"
+
+#~ msgid "Permission:"
+#~ msgstr "Cead:"
+
+#~ msgid "Change Account"
+#~ msgstr "Athraigh an Cuntas"
+
+#~ msgid "Destination"
+#~ msgstr "Sprioc"
+
+#~ msgid ""
+#~ "This is the Facebook album to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Seo é an t-albam Facebook a n-uasluchtófar na grianghraif roghnaithe "
+#~ "chuige."
+
+#~ msgid "My &Album"
+#~ msgstr "M'&Albam"
+
+#~ msgid "Friend:"
+#~ msgstr "Cara:"
+
+#~ msgid "Album:"
+#~ msgstr "Albam:"
+
+#~ msgid "New Album"
+#~ msgstr "Albam Nua"
+
+#~ msgctxt "facebook album list"
+#~ msgid "Reload"
+#~ msgstr "Athluchtaigh"
+
+#~ msgid "This is the location to which Facebook images will be downloaded."
+#~ msgstr "Seo é an suíomh a n-íosluchtófar grianghraif Facebook chuige."
+
+#~ msgid "Options"
+#~ msgstr "Roghanna"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "Cáilíocht JPEG:"
+
+#~ msgctxt "name of special Facebook album for profile pictures"
+#~ msgid "Profile Pictures"
+#~ msgstr "Grianghraif Phróifíle"
+
+#~ msgid "Import from &Facebook..."
+#~ msgstr "Iompórtáil ó &Facebook..."
 
 #~ msgid "Handbook"
 #~ msgstr "Lámhleabhar"
@@ -448,9 +298,6 @@ msgstr "Iompórtáil ó &Facebook..."
 
 #~ msgid "Transfer Progress"
 #~ msgstr "Dul chun cinn an aistrithe"
-
-#~ msgid "Uploading file %1"
-#~ msgstr "Comhad %1 á uasluchtú"
 
 #~ msgid "Downloading file %1"
 #~ msgstr "Comhad %1 á íosluchtú"

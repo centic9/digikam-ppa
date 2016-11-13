@@ -6,7 +6,7 @@
  * Date        : 2007-12-03
  * Description : Greycstoration interface.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -40,15 +40,12 @@
 #include <QMutexLocker>
 #include <QWaitCondition>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "dynamicthread.h"
 
-#define cimg_plugin "greycstoration.h"
+#define cimg_plugin "cimg/greycstoration.h"
 
 /** Uncomment this line if you use future GreycStoration implementation with GFact parameter
  */
@@ -65,11 +62,13 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wunused-parameter"
 #pragma clang diagnostic ignored "-Wcast-align"
+#pragma clang diagnostic ignored "-Wshift-negative-value"
+#pragma clang diagnostic ignored "-Wunused-local-typedef"
 #endif
 
 // CImg includes
 
-#include "CImg.h"
+#include "cimg/CImg.h"
 
 // Restore warnings
 #if not defined(__APPLE__) && defined(__GNUC__)
@@ -179,7 +178,7 @@ void GreycstorationFilter::computeChildrenThreads()
     const int numProcs    = qMax(QThread::idealThreadCount(), 1);
     const int maxThreads  = 16;
     d->computationThreads = qMin(maxThreads, 2 + ((numProcs - 1) * 2));
-    kDebug() << "GreycstorationFilter::Computation threads: " << d->computationThreads;
+    qCDebug(DIGIKAM_DIMG_LOG) << "GreycstorationFilter::Computation threads: " << d->computationThreads;
 }
 
 void GreycstorationFilter::setup()
@@ -196,7 +195,7 @@ void GreycstorationFilter::setup()
         m_destImage = DImg(d->newSize.width(), d->newSize.height(),
                            m_orgImage.sixteenBit(), m_orgImage.hasAlpha());
 
-        kDebug() << "GreycstorationFilter::Resize: new size: ("
+        qCDebug(DIGIKAM_DIMG_LOG) << "GreycstorationFilter::Resize: new size: ("
                  << d->newSize.width() << ", " << d->newSize.height() << ")";
     }
     else
@@ -230,7 +229,7 @@ void GreycstorationFilter::cancelFilter()
 {
     // Because Greycstoration algorithm run in a child thread, we need
     // to stop it before to stop this thread.
-    kDebug() << "Stop Greycstoration computation...";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Stop Greycstoration computation...";
     d->threadManager->stop();
 
     // And now when stop main loop and clean up all
@@ -239,9 +238,9 @@ void GreycstorationFilter::cancelFilter()
 
 void GreycstorationFilter::filterImage()
 {
-    register int x, y;
+   int x, y;
 
-    kDebug() << "Initialization...";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Initialization...";
 
     uchar* const data = m_orgImage.bits();
     int width         = m_orgImage.width();
@@ -259,7 +258,7 @@ void GreycstorationFilter::filterImage()
                  get_permute_axes("yzvx");
     }
 
-    kDebug() << "Process Computation...";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Process Computation...";
 
     try
     {
@@ -287,7 +286,7 @@ void GreycstorationFilter::filterImage()
     }
     catch (...)        // Everything went wrong.
     {
-        kDebug() << "Error during Greycstoration filter computation!";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Error during Greycstoration filter computation!";
 
         return;
     }
@@ -299,7 +298,7 @@ void GreycstorationFilter::filterImage()
 
     // Copy CImg onto destination.
 
-    kDebug() << "Finalization...";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Finalization...";
 
     uchar* const newData = m_destImage.bits();
     int newWidth         = m_destImage.width();
@@ -375,7 +374,7 @@ void GreycstorationFilter::inpainting()
     {
         // Copy the inpainting image data into a CImg type image with three channels and no alpha.
 
-        register int x, y;
+       int x, y;
 
         d->mask    = CImg<uchar>(d->inPaintingMask.width(), d->inPaintingMask.height(), 1, 3);
         uchar* ptr = d->inPaintingMask.bits();
@@ -393,7 +392,7 @@ void GreycstorationFilter::inpainting()
     }
     else
     {
-        kDebug() << "Inpainting image: mask is null!";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Inpainting image: mask is null!";
         stop();
         return;
     }
@@ -520,38 +519,38 @@ FilterAction GreycstorationFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("alpha",        d->settings.alpha);
-    action.addParameter("amplitude",    d->settings.amplitude);
-    action.addParameter("anisotropy",   d->settings.anisotropy);
-    action.addParameter("btile",        d->settings.btile);
-    action.addParameter("da",           d->settings.da);
-    action.addParameter("dl",           d->settings.dl);
-    action.addParameter("fastApprox",   d->settings.fastApprox);
-    action.addParameter("gaussPrec",    d->settings.gaussPrec);
-    action.addParameter("interp",       d->settings.interp);
-    action.addParameter("nbIter",       d->settings.nbIter);
-    action.addParameter("sharpness",    d->settings.sharpness);
-    action.addParameter("sigma",        d->settings.sigma);
-    action.addParameter("tile",         d->settings.tile);
+    action.addParameter(QLatin1String("alpha"),        d->settings.alpha);
+    action.addParameter(QLatin1String("amplitude"),    d->settings.amplitude);
+    action.addParameter(QLatin1String("anisotropy"),   d->settings.anisotropy);
+    action.addParameter(QLatin1String("btile"),        d->settings.btile);
+    action.addParameter(QLatin1String("da"),           d->settings.da);
+    action.addParameter(QLatin1String("dl"),           d->settings.dl);
+    action.addParameter(QLatin1String("fastApprox"),   d->settings.fastApprox);
+    action.addParameter(QLatin1String("gaussPrec"),    d->settings.gaussPrec);
+    action.addParameter(QLatin1String("interp"),       d->settings.interp);
+    action.addParameter(QLatin1String("nbIter"),       d->settings.nbIter);
+    action.addParameter(QLatin1String("sharpness"),    d->settings.sharpness);
+    action.addParameter(QLatin1String("sigma"),        d->settings.sigma);
+    action.addParameter(QLatin1String("tile"),         d->settings.tile);
 
     return action;
 }
 
 void GreycstorationFilter::readParameters(const FilterAction& action)
 {
-    d->settings.alpha       = action.parameter("alpha").toFloat();
-    d->settings.amplitude   = action.parameter("amplitude").toFloat();
-    d->settings.anisotropy  = action.parameter("anisotropy").toFloat();
-    d->settings.btile       = action.parameter("btile").toInt();
-    d->settings.da          = action.parameter("da").toFloat();
-    d->settings.dl          = action.parameter("dl").toFloat();
-    d->settings.fastApprox  = action.parameter("fastApprox").toBool();
-    d->settings.gaussPrec   = action.parameter("gaussPrec").toFloat();
-    d->settings.interp      = action.parameter("interp").toFloat();
-    d->settings.nbIter      = action.parameter("nbIter").toUInt();
-    d->settings.sharpness   = action.parameter("sharpness").toFloat();
-    d->settings.sigma       = action.parameter("sigma").toFloat();
-    d->settings.tile        = action.parameter("tile").toInt();
+    d->settings.alpha       = action.parameter(QLatin1String("alpha")).toFloat();
+    d->settings.amplitude   = action.parameter(QLatin1String("amplitude")).toFloat();
+    d->settings.anisotropy  = action.parameter(QLatin1String("anisotropy")).toFloat();
+    d->settings.btile       = action.parameter(QLatin1String("btile")).toInt();
+    d->settings.da          = action.parameter(QLatin1String("da")).toFloat();
+    d->settings.dl          = action.parameter(QLatin1String("dl")).toFloat();
+    d->settings.fastApprox  = action.parameter(QLatin1String("fastApprox")).toBool();
+    d->settings.gaussPrec   = action.parameter(QLatin1String("gaussPrec")).toFloat();
+    d->settings.interp      = action.parameter(QLatin1String("interp")).toFloat();
+    d->settings.nbIter      = action.parameter(QLatin1String("nbIter")).toUInt();
+    d->settings.sharpness   = action.parameter(QLatin1String("sharpness")).toFloat();
+    d->settings.sigma       = action.parameter(QLatin1String("sigma")).toFloat();
+    d->settings.tile        = action.parameter(QLatin1String("tile")).toInt();
 }
 
 }  // namespace Digikam

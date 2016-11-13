@@ -30,14 +30,16 @@
 #include <QObject>
 #include <QStringList>
 
-//KDE includes
+// Libkipi includes
 
-#include <kio/job.h>
+#include <KIPI/Interface>
 
 //local includes
 
 #include "gsitem.h"
 #include "authorize.h"
+
+using namespace KIPI;
 
 namespace KIPIGoogleServicesPlugin
 {
@@ -59,15 +61,15 @@ Q_SIGNALS:
     void signalSetUserName(const QString& msg);
 
 private Q_SLOTS:
-  
-    void slotResult(KJob* job);
+
+    void slotFinished(QNetworkReply* reply);
 
 public:
 
     void getUserName();
     void listFolders();
-    void createFolder(const QString& title,const QString& id);
-    bool addPhoto(const QString& imgPath,const GSPhoto& info,const QString& id,bool rescale,int maxDim,int imageQuality);
+    void createFolder(const QString& title, const QString& id);
+    bool addPhoto(const QString& imgPath, const GSPhoto& info, const QString& id, bool rescale, int maxDim, int imageQuality);
     void cancel();
 
 private:
@@ -90,10 +92,13 @@ private:
 
 private:
 
-    QString      m_rootid;
-    QString      m_rootfoldername;
-    QString      m_username;
-    State        m_state;
+    QString                m_rootid;
+    QString                m_rootfoldername;
+    QString                m_username;
+    State                  m_state;
+    Interface*             m_iface;
+
+    QNetworkAccessManager* m_netMngr;
 };
 
 } // namespace KIPIGoogleServicesPlugin

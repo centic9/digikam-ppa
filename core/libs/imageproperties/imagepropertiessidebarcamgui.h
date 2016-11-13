@@ -7,7 +7,7 @@
  * Description : simple image properties side bar used by
  *               camera GUI.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * This program is free software; you can redistribute it
@@ -26,16 +26,15 @@
 #ifndef IMAGEPROPERTIESSIDEBARCAMGUI_H
 #define IMAGEPROPERTIESSIDEBARCAMGUI_H
 
-// KDE includes
+// Qt includes
 
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "sidebar.h"
 #include "digikam_export.h"
 
-class QSplitter;
 class QWidget;
 
 namespace Digikam
@@ -44,16 +43,15 @@ namespace Digikam
 class SidebarSplitter;
 class CamItemInfo;
 class DMetadata;
-class NavigateBarTab;
 
-class ImagePropertiesSideBarCamGui : public Sidebar
+class DIGIKAM_EXPORT ImagePropertiesSideBarCamGui : public Sidebar
 {
     Q_OBJECT
 
 public:
 
     ImagePropertiesSideBarCamGui(QWidget* const parent, SidebarSplitter* const splitter,
-                                 KMultiTabBarPosition side=KMultiTabBar::Left, bool mimimizedDefault=false);
+                                 Qt::Edge side=Qt::LeftEdge, bool mimimizedDefault=false);
 
     ~ImagePropertiesSideBarCamGui();
 
@@ -61,7 +59,7 @@ public:
 
     void itemChanged(const CamItemInfo& itemInfo, const DMetadata& meta);
 
-    KUrl url() const;
+    QUrl url() const;
 
 public Q_SLOTS:
 

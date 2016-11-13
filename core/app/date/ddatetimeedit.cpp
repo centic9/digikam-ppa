@@ -6,8 +6,8 @@
  * Date        : 2005-04-21
  * Description : a widget to edit time stamp.
  *
- * Copyright (C) 2005      by Tom Albers <tomalbers@kde.nl>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005      by Tom Albers <tomalbers at kde dot nl>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,13 +22,13 @@
  *
  * ============================================================ */
 
-#include "ddatetimeedit.moc"
+#include "ddatetimeedit.h"
 
 // Qt includes
 
 #include <QDateTimeEdit>
 
-// KDE includes
+// Local includes
 
 #include "ddateedit.h"
 
@@ -49,19 +49,22 @@ public:
     DDateEdit* datePopUp;
 };
 
-DDateTimeEdit::DDateTimeEdit(QWidget* parent, const char* const name)
-    : KHBox(parent), d(new Private)
+DDateTimeEdit::DDateTimeEdit(QWidget* const parent, const QString& name)
+    : DHBox(parent),
+      d(new Private)
 {
     setObjectName(name);
 
-    d->datePopUp = new DDateEdit(this, "datepopup");
+    d->datePopUp = new DDateEdit(this, QLatin1String("datepopup"));
     d->timePopUp = new QTimeEdit(QTime::currentTime(), this);
 
-    connect(d->datePopUp, SIGNAL(dateChanged(QDate)),
-            this, SLOT(slotDateTimeChanged()));
+    d->timePopUp->setDisplayFormat(QLatin1String("hh:mm:ss"));
 
-    connect(d->timePopUp, SIGNAL(timeChanged(QTime)),
-            this, SLOT(slotDateTimeChanged()));
+    connect(d->datePopUp, &DDateEdit::dateChanged,
+            this, &DDateTimeEdit::slotDateTimeChanged);
+
+    connect(d->timePopUp, &QTimeEdit::timeChanged,
+            this, &DDateTimeEdit::slotDateTimeChanged);
 }
 
 DDateTimeEdit::~DDateTimeEdit()

@@ -6,8 +6,9 @@
  * Date        : 2006-01-20
  * Description : core image editor GUI implementation
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
+ * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,42 +32,36 @@
 #include <QPointer>
 #include <QRect>
 #include <QString>
-
-// KDE includes
-
-#include <kurl.h>
-#include <kjob.h>
-#include <kprogressdialog.h>
+#include <QProgressDialog>
+#include <QUrl>
 
 // Local includes
 
 #include "digikam_export.h"
+#include "digikam_config.h"
 #include "thumbbardock.h"
 #include "previewtoolbar.h"
 #include "savingcontext.h"
 #include "dxmlguiwindow.h"
 
 class QSplitter;
+class QMenu;
+class QAction;
 
-class KSqueezedTextLabel;
-class KAction;
-class KActionMenu;
-class KCategorizedView;
 class KSelectAction;
-class KToggleAction;
 class KToolBarPopupAction;
-class KMenu;
 
 namespace Digikam
 {
 
+class DAdjustableLabel;
+class DCategorizedView;
 class Canvas;
 class DImageHistory;
 class EditorTool;
 class EditorStackView;
 class ExposureSettingsContainer;
 class IOFileSettings;
-class ImagePluginLoader;
 class ICCSettingsContainer;
 class Sidebar;
 class SidebarSplitter;
@@ -74,6 +69,7 @@ class SlideShowSettings;
 class StatusProgressBar;
 class VersionManager;
 class VersionFileOperation;
+class IccProfile;
 
 class DIGIKAM_EXPORT EditorWindow : public DXmlGuiWindow
 {
@@ -81,15 +77,15 @@ class DIGIKAM_EXPORT EditorWindow : public DXmlGuiWindow
 
 public:
 
-    explicit EditorWindow(const char* const name);
+    explicit EditorWindow(const QString& name);
     ~EditorWindow();
 
     const static QString CONFIG_GROUP_NAME;
 
 public Q_SLOTS:
 
-    virtual bool setup() = 0;
-    virtual bool setupICC() = 0;
+    virtual void slotSetup()    = 0;
+    virtual void slotSetupICC() = 0;
 
 Q_SIGNALS:
 
@@ -97,58 +93,59 @@ Q_SIGNALS:
     void signalNoCurrentItem();
     void signalPreviewModeChanged(int);
     void signalToolApplied();
+    void signalPoint1Action();
+    void signalPoint2Action();
+    void signalAutoAdjustAction();
 
 protected:
 
     bool                      m_nonDestructive;
-    bool                      m_cancelSlideShow;
     bool                      m_setExifOrientationTag;
     bool                      m_editingOriginalImage;
+    bool                      m_actionEnabledState;
+    bool                      m_cancelSlideShow;
 
-    KSqueezedTextLabel*       m_resLabel;
+    DAdjustableLabel*         m_resLabel;
 
     QColor                    m_bgColor;
 
     SidebarSplitter*          m_splitter;
     QSplitter*                m_vSplitter;
 
-    KAction*                  m_openVersionAction;
-    KAction*                  m_saveAction;
-    KAction*                  m_saveAsAction;
-    KAction*                  m_saveNewVersionAction;
-    KAction*                  m_saveCurrentVersionAction;
-    KAction*                  m_saveNewVersionAsAction;
-    KActionMenu*              m_saveNewVersionInFormatAction;
-    KAction*                  m_exportAction;
-    KAction*                  m_revertAction;
-    KAction*                  m_discardChangesAction;
-    KAction*                  m_fileDeleteAction;
-    KAction*                  m_forwardAction;
-    KAction*                  m_backwardAction;
+    QAction*                  m_openVersionAction;
+    QAction*                  m_saveAction;
+    QAction*                  m_saveAsAction;
+    KToolBarPopupAction*      m_saveNewVersionAction;
+    QAction*                  m_saveCurrentVersionAction;
+    QAction*                  m_saveNewVersionAsAction;
+    QMenu*                    m_saveNewVersionInFormatAction;
+    QAction*                  m_exportAction;
+    QAction*                  m_revertAction;
+    QAction*                  m_discardChangesAction;
+    QAction*                  m_fileDeleteAction;
+    QAction*                  m_forwardAction;
+    QAction*                  m_backwardAction;
 
-    KAction*                  m_lastAction;
-    KAction*                  m_firstAction;
+    QAction*                  m_lastAction;
+    QAction*                  m_firstAction;
 
-    KAction*                  m_applyToolAction;
-    KAction*                  m_closeToolAction;
+    QAction*                  m_applyToolAction;
+    QAction*                  m_closeToolAction;
 
-    KToggleAction*            m_showBarAction;
+    QAction*                  m_showBarAction;
 
     KToolBarPopupAction*      m_undoAction;
     KToolBarPopupAction*      m_redoAction;
 
-    KActionMenu*              m_selectToolsAction;
-
-    KMenu*                    m_contextMenu;
-    KMenu*                    m_servicesMenu;
+    QMenu*                    m_contextMenu;
+    QMenu*                    m_servicesMenu;
     QAction*                  m_serviceAction;
 
     EditorStackView*          m_stackView;
     Canvas*                   m_canvas;
-    ImagePluginLoader*        m_imagePluginLoader;
     StatusProgressBar*        m_nameLabel;
     IOFileSettings*           m_IOFileSettings;
-    QPointer<KProgressDialog> m_savingProgressDialog;
+    QPointer<QProgressDialog> m_savingProgressDialog;
 
     SavingContext             m_savingContext;
 
@@ -184,47 +181,43 @@ protected:
     void toggleNonDestructiveActions();
     void toggleToolActions(EditorTool* tool = 0);
 
-    void printImage(const KUrl& url);
-
-    void unLoadImagePlugins();
-    void loadImagePlugins();
+    void printImage(const QUrl& url);
 
     bool promptForOverWrite();
 
-    bool promptUserSave(const KUrl& url, SaveAskMode mode = AskIfNeeded, bool allowCancel = true);
-    bool promptUserDelete(const KUrl& url);
+    bool promptUserDelete(const QUrl& url);
+    bool promptUserSave(const QUrl& url, SaveAskMode mode = AskIfNeeded, bool allowCancel = true);
     bool waitForSavingToComplete();
-    void startingSave(const KUrl& url);
-    bool startingSaveAs(const KUrl& url);
-    bool startingSaveCurrentVersion(const KUrl& url);
-    bool startingSaveNewVersion(const KUrl& url);
-    bool startingSaveNewVersionAs(const KUrl& url);
-    bool startingSaveNewVersionInFormat(const KUrl& url, const QString& format);
-    bool checkPermissions(const KUrl& url);
-    bool checkOverwrite(const KUrl& url);
+    void startingSave(const QUrl& url);
+    bool startingSaveAs(const QUrl& url);
+    bool startingSaveCurrentVersion(const QUrl& url);
+    bool startingSaveNewVersion(const QUrl& url);
+    bool startingSaveNewVersionAs(const QUrl& url);
+    bool startingSaveNewVersionInFormat(const QUrl& url, const QString& format);
+    bool checkPermissions(const QUrl& url);
+    bool checkOverwrite(const QUrl& url);
     bool moveLocalFile(const QString& src, const QString& dest);
-    void moveFile();
+    void movingSaveFileFinished(bool successful);
     void colorManage();
     void execSavingProgressDialog();
 
     void resetOrigin();
     void resetOriginSwitchFile();
 
-    void addServicesMenuForUrl(const KUrl& url);
-    void openWith(const KUrl& url, QAction* action);
+    void addServicesMenuForUrl(const QUrl& url);
+    void openWith(const QUrl& url, QAction* action);
 
     EditorStackView*           editorStackView()  const;
     ExposureSettingsContainer* exposureSettings() const;
-    KCategorizedView*          createToolSelectionView();
 
-    VersionFileOperation saveVersionFileOperation(const KUrl& url, bool fork);
-    VersionFileOperation saveAsVersionFileOperation(const KUrl& url, const KUrl& saveLocation, const QString& format);
-    VersionFileOperation saveInFormatVersionFileOperation(const KUrl& url, const QString& format);
-
+    VersionFileOperation saveVersionFileOperation(const QUrl& url, bool fork);
+    VersionFileOperation saveAsVersionFileOperation(const QUrl& url, const QUrl& saveLocation, const QString& format);
+    VersionFileOperation saveInFormatVersionFileOperation(const QUrl& url, const QString& format);
 
     virtual bool hasOriginalToRestore();
     virtual DImageHistory resolvedImageHistory(const DImageHistory& history);
 
+    virtual void moveFile();
     virtual void finishSaving(bool success);
 
     virtual void readSettings();
@@ -235,6 +228,7 @@ protected:
     virtual Sidebar* rightSideBar() const = 0;
 
     virtual void slideShow(SlideShowSettings& settings) = 0;
+    virtual void presentation() = 0;
 
     virtual void setupConnections() = 0;
     virtual void setupActions() = 0;
@@ -252,7 +246,7 @@ protected:
      *
      * @return destination for the file that is currently being saved.
      */
-    virtual KUrl saveDestinationUrl() = 0;
+    virtual QUrl saveDestinationUrl() = 0;
 
     virtual void saveIsComplete() = 0;
     virtual void saveAsIsComplete() = 0;
@@ -260,14 +254,8 @@ protected:
 
 protected Q_SLOTS:
 
-    void slotEditKeys();
-
     void slotAboutToShowUndoMenu();
     void slotAboutToShowRedoMenu();
-
-    void slotConfToolbars();
-    void slotConfNotifications();
-    void slotNewToolbarConfig();
 
     void slotSelected(bool);
 
@@ -317,6 +305,7 @@ private Q_SLOTS:
     void slotUpdateSoftProofingState();
     void slotSavingFinished(const QString& filename, bool success);
     void slotToggleSlideShow();
+    void slotPresentation();
     void slotZoomTo100Percents();
     void slotZoomChanged(bool isMax, bool isMin, double zoom);
     void slotSelectionChanged(const QRect& sel);
@@ -326,16 +315,58 @@ private Q_SLOTS:
     void slotFitToSelect();
     void slotIncreaseZoom();
     void slotDecreaseZoom();
-    void slotShowMenuBar();
     void slotCloseTool();
     void slotApplyTool();
-    void slotKioMoveFinished(KJob* job);
     void slotUndoStateChanged();
-    void slotSelectToolsMenuAboutToShow();
     void slotThemeChanged();
     void slotToggleRightSideBar();
     void slotPreviousRightSideBarTab();
     void slotNextRightSideBarTab();
+    void slotToolDone();
+    void slotInsertText();
+    void slotBorder();
+    void slotTexture();
+    void slotColorEffects();
+    void slotCharcoal();
+    void slotEmboss();
+    void slotOilPaint();
+    void slotBlurFX();
+    void slotDistortionFX();
+    void slotRainDrop();
+    void slotFilmGrain();
+    void slotBCG();
+    void slotCB();
+    void slotHSL();
+    void slotAutoCorrection();
+    void slotInvert();
+    void slotBW();
+    void slotWhiteBalance();
+    void slotConvertTo8Bits();
+    void slotConvertTo16Bits();
+    void slotConvertToColorSpace(const IccProfile&);
+    void slotProfileConversionTool();
+    void slotChannelMixer();
+    void slotCurvesAdjust();
+    void slotLevelsAdjust();
+    void slotFilm();
+    void slotUpdateColorSpaceMenu();
+    void slotRestoration();
+    void slotBlur();
+    void slotSharpen();
+    void slotNoiseReduction();
+    void slotLocalContrast();
+    void slotRedEye();
+    void slotInPainting();
+    void slotLensAutoFix();
+    void slotAntiVignetting();
+    void slotLensDistortion();
+    void slotHotPixels();
+    void slotPerspective();
+    void slotFreeRotation();
+    void slotShearTool();
+    void slotContentAwareResizing();
+    void slotResize();
+    void slotRatioCrop();
 
 private:
 
@@ -355,12 +386,12 @@ private:
 
     void setToolInfoMessage(const QString& txt);
 
-    bool startingSaveVersion(const KUrl& url, bool subversion, bool saveAs, const QString& format);
+    bool startingSaveVersion(const QUrl& url, bool subversion, bool saveAs, const QString& format);
 
     void setPreviewModeMask(int mask);
     PreviewToolBar::PreviewMode previewMode() const;
 
-    bool showFileSaveDialog(const KUrl& initialUrl, KUrl& newURL);
+    bool showFileSaveDialog(const QUrl& initialUrl, QUrl& newURL);
 
     /**
      * Sets up a temp file to save image contents to and updates the saving
@@ -368,34 +399,7 @@ private:
      *
      * @param url file to save the image to
      */
-    void setupTempSaveFile(const KUrl& url);
-
-    /**
-     * Returns a list of filters that can be passed to a KFileDialog for all
-     * writable image types.
-     *
-     * @return list of filters for KFileDialog
-     */
-    QStringList getWritingFilters();
-
-    /**
-     * Find the KFileDialog filter that belongs to an extension.
-     *
-     * @param allFilters list with all filters
-     * @param extension the extension to search for
-     * @return filter string or empty string if not found
-     */
-    QString findFilterByExtension(const QStringList& allFilters,
-                                  const QString& extension);
-
-    /**
-     * Tries to extract a file extension from a KFileDialog filter.
-     *
-     * @param filter to extract the file extension from
-     * @return file extension found in the filter or an empty string if no
-     *         extension was found
-     */
-    QString getExtensionFromFilter(const QString& filter);
+    void setupTempSaveFile(const QUrl& url);
 
     /**
      * Sets the format to use in the saving context. Therefore multiple sources
@@ -403,16 +407,13 @@ private:
      *
      * @param filter filter selected in the dialog
      * @param targetUrl target url selected for the file to save
-     * @param autoFilter filter that indicates automatic format selection
      * @return The valid extension which could be found, or a null string
      */
-    QString selectValidSavingFormat(const QString& filter,
-                                    const KUrl& targetUrl,
-                                    const QString& autoFilter);
-
-    void movingSaveFileFinished(bool successful);
+    QString selectValidSavingFormat(const QUrl& targetUrl);
 
     void addAction2ContextMenu(const QString& actionName, bool addDisabled = false);
+
+    void loadTool(EditorTool* const tool);
 
 private:
 

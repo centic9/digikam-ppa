@@ -6,7 +6,7 @@
  * Date        : 2006-30-08
  * Description : a progress dialog for digiKam
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,26 +21,25 @@
  *
  * ============================================================ */
 
-#include "dprogressdlg.moc"
+#include "dprogressdlg.h"
 
 // Qt includes
 
 #include <QHeaderView>
+#include <QStyle>
 #include <QLabel>
 #include <QImage>
-#include <QPushButton>
 #include <QGridLayout>
-#include <QVBoxLayout>
 #include <QProgressBar>
 #include <QTreeWidget>
+#include <QStandardPaths>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
-// KDE includes
+// Local includes
 
-#include <klocale.h>
-#include <kapplication.h>
-#include <kiconloader.h>
-#include <kstandarddirs.h>
-#include <ksqueezedtextlabel.h>
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -50,54 +49,50 @@ class DProgressDlg::Private
 public:
 
     Private() :
-        allowCancel(true),
-        cancelled(false),
         logo(0),
         title(0),
         label(0),
         actionPix(0),
         actionLabel(0),
-        progress(0)
+        progress(0),
+        buttons(0)
     {
     }
 
-    bool                allowCancel;
-    bool                cancelled;
+    QLabel*           logo;
+    QLabel*           title;
+    QLabel*           label;
 
-    QLabel*             logo;
-    QLabel*             title;
-    QLabel*             label;
+    QLabel*           actionPix;
+    DAdjustableLabel* actionLabel;
 
-    QLabel*             actionPix;
-    KSqueezedTextLabel* actionLabel;
+    QProgressBar*     progress;
 
-    QProgressBar*       progress;
+    QDialogButtonBox* buttons;
 };
 
 DProgressDlg::DProgressDlg(QWidget* const parent, const QString& caption)
-    : KDialog(parent), d(new Private)
+    : QDialog(parent),
+      d(new Private)
 {
-    setCaption(caption);
-    setButtons(Cancel);
-    setDefaultButton(Cancel);
     setModal(true);
+    setWindowTitle(caption);
 
-    QWidget* page     = new QWidget(this);
-    setMainWidget(page);
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Cancel)->setDefault(true);
 
-    QGridLayout* grid = new QGridLayout(page);
+    QWidget* const page     = new QWidget(this);
+    QGridLayout* const grid = new QGridLayout(page);
 
     d->actionPix      = new QLabel(page);
-    d->actionLabel    = new KSqueezedTextLabel(page);
+    d->actionLabel    = new DAdjustableLabel(page);
     d->logo           = new QLabel(page);
     d->progress       = new QProgressBar(page);
     d->title          = new QLabel(page);
     d->label          = new QLabel(page);
-    d->label->setWordWrap(true);
     d->actionPix->setFixedSize(QSize(32, 32));
 
-    d->logo->setPixmap(QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                       .scaled(128, 128, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    d->logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48)));
 
     grid->addWidget(d->logo,        0, 0, 3, 1);
     grid->addWidget(d->label,       0, 1, 1, 2);
@@ -105,15 +100,19 @@ DProgressDlg::DProgressDlg(QWidget* const parent, const QString& caption)
     grid->addWidget(d->actionLabel, 1, 2, 1, 1);
     grid->addWidget(d->progress,    2, 1, 1, 2);
     grid->addWidget(d->title,       3, 1, 1, 2);
-    grid->setSpacing(spacingHint());
-    grid->setMargin(0);
+    grid->setSpacing(style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+    grid->setContentsMargins(QMargins());
     grid->setColumnStretch(2, 10);
 
-    setInitialSize(QSize(500, 150));
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(page);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
 
-    connect(this, SIGNAL(cancelClicked()),
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
             this, SLOT(slotCancel()));
 
+    adjustSize();
     reset();
 }
 
@@ -124,24 +123,14 @@ DProgressDlg::~DProgressDlg()
 
 void DProgressDlg::slotCancel()
 {
-    d->cancelled = true;
-
     emit signalCancelPressed();
 
-    if (d->allowCancel)
-    {
-        close();
-    }
+    close();
 }
 
 void DProgressDlg::setButtonText(const QString& text)
 {
-    KDialog::setButtonText(Cancel, text);
-}
-
-void DProgressDlg::setButtonGuiItem(const KGuiItem& item)
-{
-    KDialog::setButtonGuiItem(Cancel, item);
+    d->buttons->button(QDialogButtonBox::Cancel)->setText(text);
 }
 
 void DProgressDlg::addedAction(const QPixmap& itemPix, const QString& text)
@@ -150,7 +139,7 @@ void DProgressDlg::addedAction(const QPixmap& itemPix, const QString& text)
 
     if (pix.isNull())
     {
-        pix = DesktopIcon("image-missing", KIconLoader::SizeMedium);    // 32x32 px
+        pix = QIcon::fromTheme(QLatin1String("image-missing")).pixmap(32);
     }
     else
     {
@@ -158,7 +147,7 @@ void DProgressDlg::addedAction(const QPixmap& itemPix, const QString& text)
     }
 
     d->actionPix->setPixmap(pix);
-    d->actionLabel->setText(text);
+    d->actionLabel->setAdjustedText(text);
 }
 
 void DProgressDlg::reset()
@@ -199,27 +188,6 @@ void DProgressDlg::setLabel(const QString& text)
 void DProgressDlg::setTitle(const QString& text)
 {
     d->title->setText(text);
-}
-
-void DProgressDlg::showCancelButton(bool show)
-{
-    showButton(Cancel, show);
-}
-
-void DProgressDlg::setAllowCancel(bool allowCancel)
-{
-    d->allowCancel = allowCancel;
-    showButton(Cancel, allowCancel);
-}
-
-bool DProgressDlg::allowCancel() const
-{
-    return d->allowCancel;
-}
-
-bool DProgressDlg::wasCancelled() const
-{
-    return d->cancelled;
 }
 
 }  // namespace Digikam

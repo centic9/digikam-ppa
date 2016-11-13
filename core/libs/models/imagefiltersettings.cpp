@@ -7,10 +7,10 @@
  * Description : Filter values for use with ImageFilterModel
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C)      2010 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C)      2011 by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C)      2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C)      2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -35,14 +35,11 @@
 
 #include <QDateTime>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
-#include "databasefields.h"
-#include "globals.h"
+#include "digikam_debug.h"
+#include "coredbfields.h"
+#include "digikam_globals.h"
 #include "imageinfo.h"
 #include "tagscache.h"
 #include "versionmanagersettings.h"
@@ -254,7 +251,7 @@ void ImageFilterSettings::setAlbumNames(const QHash<int, QString>& hash)
     m_albumNameHash = hash;
 }
 
-void ImageFilterSettings::setUrlWhitelist(const KUrl::List& urlList, const QString& id)
+void ImageFilterSettings::setUrlWhitelist(const QList<QUrl>& urlList, const QString& id)
 {
     if (urlList.isEmpty())
     {
@@ -496,7 +493,7 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
         }
         case MimeFilter::JPGFiles:
         {
-            if (info.format() != "JPG")
+            if (info.format() != QLatin1String("JPG"))
             {
                 match = false;
             }
@@ -505,7 +502,7 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
         }
         case MimeFilter::PNGFiles:
         {
-            if (info.format() != "PNG")
+            if (info.format() != QLatin1String("PNG"))
             {
                 match = false;
             }
@@ -514,7 +511,7 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
         }
         case MimeFilter::TIFFiles:
         {
-            if (info.format() != "TIFF")
+            if (info.format() != QLatin1String("TIFF"))
             {
                 match = false;
             }
@@ -523,7 +520,7 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
         }
         case MimeFilter::DNGFiles:
         {
-            if (info.format() != "RAW-DNG")
+            if (info.format() != QLatin1String("RAW-DNG"))
             {
                 match = false;
             }
@@ -568,11 +565,11 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
         }
         case MimeFilter::RasterFiles:
         {
-            if (info.format() != "PSD" &&         // Adobe Photoshop Document
-                info.format() != "PSB" &&         // Adobe Photoshop Big
-                info.format() != "XCF" &&         // Gimp
-                info.format() != "KRA" &&         // Krita
-                info.format() != "ORA"            // Open Raster
+            if (info.format() != QLatin1String("PSD") &&         // Adobe Photoshop Document
+                info.format() != QLatin1String("PSB") &&         // Adobe Photoshop Big
+                info.format() != QLatin1String("XCF") &&         // Gimp
+                info.format() != QLatin1String("KRA") &&         // Krita
+                info.format() != QLatin1String("ORA")            // Open Raster
                )
             {
                 match = false;
@@ -654,13 +651,13 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
         // Image Aspect Ratio
         if (m_textFilterSettings.textFields & SearchTextFilterSettings::ImageAspectRatio)
         {
-            QRegExp expRatio ("^\\d+:\\d+$");
-            QRegExp expFloat ("^\\d+(.\\d+)?$");
+            QRegExp expRatio (QLatin1String("^\\d+:\\d+$"));
+            QRegExp expFloat (QLatin1String("^\\d+(.\\d+)?$"));
 
-            if (expRatio.indexIn(m_textFilterSettings.text) > -1 && m_textFilterSettings.text.contains(QRegExp(":\\d+")))
+            if (expRatio.indexIn(m_textFilterSettings.text) > -1 && m_textFilterSettings.text.contains(QRegExp(QLatin1String(":\\d+"))))
             {
                 QString trimmedTextFilterSettingsText = m_textFilterSettings.text;
-                QStringList numberStringList          = trimmedTextFilterSettingsText.split(":", QString::SkipEmptyParts);
+                QStringList numberStringList          = trimmedTextFilterSettingsText.split(QLatin1String(":"), QString::SkipEmptyParts);
 
                 if (numberStringList.length() == 2)
                 {
@@ -699,15 +696,15 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
             int pixelSize = size.height()*size.width();
             QString text  = m_textFilterSettings.text;
 
-            if(text.contains(QRegExp("^>\\d{1,15}$")) && pixelSize > (text.remove(0,1)).toInt())
+            if(text.contains(QRegExp(QLatin1String("^>\\d{1,15}$"))) && pixelSize > (text.remove(0,1)).toInt())
             {
                 textMatch = true;
             }
-            else if(text.contains(QRegExp("^<\\d{1,15}$")) && pixelSize < (text.remove(0,1)).toInt())
+            else if(text.contains(QRegExp(QLatin1String("^<\\d{1,15}$"))) && pixelSize < (text.remove(0,1)).toInt())
             {
                 textMatch = true;
             }
-            else if(text.contains(QRegExp("^\\d+$")) && pixelSize == text.toInt())
+            else if(text.contains(QRegExp(QLatin1String("^\\d+$"))) && pixelSize == text.toInt())
             {
                 textMatch = true;
             }
@@ -726,9 +723,9 @@ bool ImageFilterSettings::matches(const ImageInfo& info, bool* const foundText) 
 
     if (match)
     {
-        const KUrl url = info.fileUrl();
+        const QUrl url = info.fileUrl();
 
-        for (QHash<QString, KUrl::List>::const_iterator it = m_urlWhitelists.constBegin();
+        for (QHash<QString, QList<QUrl>>::const_iterator it = m_urlWhitelists.constBegin();
              it!=m_urlWhitelists.constEnd(); ++it)
         {
             match = it->contains(url);

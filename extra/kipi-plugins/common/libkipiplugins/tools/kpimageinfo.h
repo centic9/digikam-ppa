@@ -7,7 +7,7 @@
  * Description : help wrapper around libkipi ImageInfo to manage easily
  *               item properties with KIPI host application.
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,15 +30,11 @@
 #include <QString>
 #include <QStringList>
 #include <QDateTime>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "kipiplugins_export.h"
-#include "kpmetadata.h"
 
 namespace KIPIPlugins
 {
@@ -49,20 +45,20 @@ class KIPIPLUGINS_EXPORT KPImageInfo
 public:
 
     /** Contructor with item url that you want to manage. KIPI interface from plugin loader instance is used
-     *  to fill item info from kipi host. If no interface is available, for ex when plugin is loaded as 
+     *  to fill item info from kipi host. If no interface is available, for ex when plugin is loaded as
      *  stand-alone application, some info are filled with image file metadata.
      */
-    KPImageInfo(const KUrl& url);
+    KPImageInfo(const QUrl& url);
     ~KPImageInfo();
 
     /** return item url.
      */
-    KUrl url() const;
+    QUrl url() const;
 
     /** Clone all attributes from current KPImageInfo instance to item pointed by destination url.
      *  In other words, url of KPImageInfo instance is the source of attributes to clone on destination.
      */
-    void cloneData(const KUrl& destination);
+    void cloneData(const QUrl& destination);
 
     /** Manage item file size in bytes.
      */
@@ -156,12 +152,11 @@ public:
      */
     void removeGeolocationInfo();
 
-    /** Manage orientation of item. See libkexiv2 library for details.
-     *  Use RotationMatrix::toMatrix() from libkexiv2 to get a QMatrix corresponding to orientation flage and to apply it on QImage.
+    /** Manage orientation of item. See libkipi library for details.
      */
-    void                         setOrientation(KPMetadata::ImageOrientation orientation);
-    KPMetadata::ImageOrientation orientation() const;
-    bool                         hasOrientation() const;
+    void setOrientation(int);
+    int  orientation() const;
+    bool hasOrientation() const;
 
     /** Manage creators information of item.
      */

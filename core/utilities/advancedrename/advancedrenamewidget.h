@@ -26,11 +26,13 @@
 
 // Qt includes
 
-#include <QtCore/QString>
-#include <QtGui/QWidget>
+#include <QString>
+#include <QWidget>
 
-// local includes
+// Local includes
+
 #include "rule.h"
+#include "digikam_export.h"
 
 class QMenu;
 
@@ -40,14 +42,11 @@ namespace Digikam
 class ParseSettings;
 class Parser;
 
-class AdvancedRenameWidget : public QWidget
+class DIGIKAM_EXPORT AdvancedRenameWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-
-    explicit AdvancedRenameWidget(QWidget* parent = 0);
-    ~AdvancedRenameWidget();
 
     enum LayoutStyle
     {
@@ -64,6 +63,11 @@ public:
         DefaultControls    = TokenButtons | ToolTipButton | ModifierToolButton
     };
     Q_DECLARE_FLAGS(ControlWidgets, ControlWidget)
+
+public:
+
+    explicit AdvancedRenameWidget(QWidget* const parent = 0);
+    ~AdvancedRenameWidget();
 
     /**
      * returns the current parse string

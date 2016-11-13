@@ -6,7 +6,7 @@
  * Date        : 2012-12-17
  * Description : workflow manager.
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "workflowmanager.moc"
+#include "workflowmanager.h"
 
 // Qt includes
 
@@ -31,16 +31,11 @@
 #include <QDomElement>
 #include <QTextStream>
 #include <QTextCodec>
-
-// KDE includes
-
-#include <kglobal.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <kstandarddirs.h>
+#include <QStandardPaths>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "queuesettings.h"
 #include "batchtoolsmanager.h"
 
@@ -52,7 +47,7 @@ class WorkflowManager::Private
 public:
 
     Private()
-        :mutex(QMutex::Recursive)
+        :mutex()
     {
         modified = false;
     }
@@ -72,7 +67,7 @@ public:
     WorkflowManager object;
 };
 
-K_GLOBAL_STATIC(WorkflowManagerCreator, creator)
+Q_GLOBAL_STATIC(WorkflowManagerCreator, creator)
 
 WorkflowManager* WorkflowManager::instance()
 {
@@ -84,7 +79,7 @@ WorkflowManager* WorkflowManager::instance()
 WorkflowManager::WorkflowManager()
     : d(new Private)
 {
-    d->file = KStandardDirs::locateLocal("appdata", "queue.xml");
+    d->file = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1String("/queue.xml");
 }
 
 WorkflowManager::~WorkflowManager()
@@ -126,7 +121,7 @@ void WorkflowManager::insertPrivate(const Workflow& q)
     {
         QMutexLocker lock(&d->mutex);
         d->qList.append(q);
-        kDebug() << "add : " << q.title;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "add : " << q.title;
     }
 
     emit signalQueueSettingsAdded(q.title);
@@ -146,7 +141,7 @@ void WorkflowManager::removePrivate(const Workflow& q)
         {
             if (it->title == q.title)
             {
-                kDebug() << "Remove " << it->title << " from Workflow list";
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Remove " << it->title << " from Workflow list";
                 it = d->qList.erase(it);
                 break;
             }
@@ -199,8 +194,8 @@ bool WorkflowManager::save()
         return true;
     }
 
-    QDomDocument doc("queuelist");
-    doc.setContent(QString("<!DOCTYPE XMLQueueList><queuelist version=\"2.0\" client=\"digikam\" encoding=\"UTF-8\"/>"));
+    QDomDocument doc(QString::fromLatin1("queuelist"));
+    doc.setContent(QString::fromUtf8("<!DOCTYPE XMLQueueList><queuelist version=\"2.0\" client=\"digikam\" encoding=\"UTF-8\"/>"));
     QDomElement docElem = doc.documentElement();
 
     {
@@ -209,7 +204,7 @@ bool WorkflowManager::save()
         foreach(const Workflow& q, d->qList)
         {
 
-            QDomElement elm = doc.createElement("queue");
+            QDomElement elm = doc.createElement(QString::fromLatin1("queue"));
             QDomElement data;
 
             data = doc.createElement(QString::fromLatin1("queuetitle"));
@@ -231,9 +226,9 @@ bool WorkflowManager::save()
             data = doc.createElement(QString::fromLatin1("usemulticorecpu"));
             data.setAttribute(QString::fromLatin1("value"), q.qSettings.useMultiCoreCPU);
             elm.appendChild(data);
-            
+
             data = doc.createElement(QString::fromLatin1("workingurl"));
-            data.setAttribute(QString::fromLatin1("value"), q.qSettings.workingUrl.path());
+            data.setAttribute(QString::fromLatin1("value"), q.qSettings.workingUrl.toLocalFile());
             elm.appendChild(data);
 
             data = doc.createElement(QString::fromLatin1("conflictrule"));
@@ -290,7 +285,7 @@ bool WorkflowManager::save()
 
             foreach(const BatchToolSet& set, q.aTools)
             {
-                QDomElement batchtool = doc.createElement("tool");
+                QDomElement batchtool = doc.createElement(QString::fromLatin1("tool"));
                 elm.appendChild(batchtool);
 
                 data = doc.createElement(QString::fromLatin1("toolname"));
@@ -311,9 +306,9 @@ bool WorkflowManager::save()
 
                 for (BatchToolSettings::const_iterator it = set.settings.constBegin() ; it != set.settings.constEnd() ; ++it)
                 {
-                    data = doc.createElement("parameter");
+                    data = doc.createElement(QString::fromLatin1("parameter"));
                     data.setAttribute(QString::fromLatin1("name"),  it.key());
-                    data.setAttribute(QString::fromLatin1("type"),  it.value().typeName());
+                    data.setAttribute(QString::fromLatin1("type"),  QString::fromUtf8(it.value().typeName()));
                     data.setAttribute(QString::fromLatin1("value"), it.value().toString());
                     batchtool.appendChild(data);
                 }
@@ -327,7 +322,7 @@ bool WorkflowManager::save()
 
     if (!file.open(QIODevice::WriteOnly))
     {
-        kDebug() << "Cannot open XML file to store Workflow";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Cannot open XML file to store Workflow";
         return false;
     }
 
@@ -346,203 +341,212 @@ bool WorkflowManager::load(QStringList& failed)
 
     QFile file(d->file);
 
-    if (!file.open(QIODevice::ReadOnly))
+    if (file.exists())
     {
-        kDebug() << "Cannot open XML file to load Workflow";
-        return false;
-    }
-
-    QDomDocument doc("queuelist");
-
-    if (!doc.setContent(&file))
-    {
-        kDebug() << "Cannot load Workflow XML file";
-        return false;
-    }
-
-    QDomElement docElem = doc.documentElement();
-
-    if (docElem.tagName() != "queuelist")
-    {
-        kDebug() << "Workflow XML file do not content Queue List data";
-        return false;
-    }
-
-    for (QDomNode n = docElem.firstChild(); !n.isNull(); n = n.nextSibling())
-    {
-        QDomElement e = n.toElement();
-
-        if (e.isNull())
+        if (!file.open(QIODevice::ReadOnly))
         {
-            continue;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Cannot open XML file to load Workflow";
+            return false;
         }
 
-        if (e.tagName() != "queue")
+        QDomDocument doc(QString::fromLatin1("queuelist"));
+
+        if (!doc.setContent(&file))
         {
-            continue;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Cannot load Workflow XML file";
+            return false;
         }
 
-        Workflow q;
-        bool     versionOk = true;
+        QDomElement docElem = doc.documentElement();
 
-        for (QDomNode n2 = e.firstChild(); !n2.isNull(); n2 = n2.nextSibling())
+        if (docElem.tagName() != QString::fromLatin1("queuelist"))
         {
-            QDomElement e2 = n2.toElement();
-            if (e2.isNull())
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Workflow XML file do not content Queue List data";
+            return false;
+        }
+
+        for (QDomNode n = docElem.firstChild(); !n.isNull(); n = n.nextSibling())
+        {
+            QDomElement e = n.toElement();
+
+            if (e.isNull())
             {
                 continue;
             }
 
-            QString name2 = e2.tagName();
-            QString val2  = e2.attribute(QString::fromLatin1("value"));
-            bool ok       = true;
+            if (e.tagName() != QString::fromLatin1("queue"))
+            {
+                continue;
+            }
 
-            if (name2 == "queuetitle")
-            {
-                q.title = val2;
-            }
-            else if (name2 == "queuedesc")
-            {
-                q.desc = val2;
-            }
-            else if (name2 == "renamingparser")
-            {
-                q.qSettings.renamingParser = val2;
-            }
-            else if (name2 == "useoriginalalbum")
-            {
-                q.qSettings.useOrgAlbum = (bool)val2.toUInt(&ok);
-            }
-            else if (name2 == "usemulticorecpu")
-            {
-                q.qSettings.useMultiCoreCPU = (bool)val2.toUInt(&ok);
-            }
-            else if (name2 == "workingurl")
-            {
-                q.qSettings.workingUrl = KUrl(val2);
-            }
-            else if (name2 == "conflictrule")
-            {
-                q.qSettings.conflictRule = (QueueSettings::ConflictRule)val2.toUInt(&ok);
-            }
-            else if (name2 == "renamingrule")
-            {
-                q.qSettings.renamingRule = (QueueSettings::RenamingRule)val2.toUInt(&ok);
-            }
-            else if (name2 == "rawloadingrule")
-            {
-                q.qSettings.rawLoadingRule = (QueueSettings::RawLoadingRule)val2.toUInt(&ok);
-            }
-            else if (name2 == "jpegcompression")
-            {
-                q.qSettings.ioFileSettings.JPEGCompression = val2.toUInt(&ok);
-            }
-            else if (name2 == "jpegsubsampling")
-            {
-                q.qSettings.ioFileSettings.JPEGSubSampling = val2.toUInt(&ok);
-            }
-            else if (name2 == "pngcompression")
-            {
-                q.qSettings.ioFileSettings.PNGCompression = val2.toUInt(&ok);
-            }
-            else if (name2 == "tiffcompression")
-            {
-                q.qSettings.ioFileSettings.TIFFCompression = (bool)val2.toUInt(&ok);
-            }
-            else if (name2 == "jpeg2000lossless")
-            {
-                q.qSettings.ioFileSettings.JPEG2000LossLess = (bool)val2.toUInt(&ok);
-            }
-            else if (name2 == "jpeg2000compression")
-            {
-                q.qSettings.ioFileSettings.JPEG2000Compression = val2.toUInt(&ok);
-            }
-            else if (name2 == "pgflossless")
-            {
-                q.qSettings.ioFileSettings.PGFLossLess = (bool)val2.toUInt(&ok);
-            }
-            else if (name2 == "pgfcompression")
-            {
-                q.qSettings.ioFileSettings.PGFCompression = val2.toUInt(&ok);
-            }
-            else if (name2 == "rawdecodingsettings")
-            {
-                DRawDecoding::decodingSettingsFromXml(e2, q.qSettings.rawDecodingSettings);
-            }
-            else if (name2 == "tool")
-            {
-                BatchToolSet set;
+            Workflow q;
+            bool     versionOk = true;
 
-                for (QDomNode n3 = e2.firstChild(); !n3.isNull(); n3 = n3.nextSibling())
+            for (QDomNode n2 = e.firstChild(); !n2.isNull(); n2 = n2.nextSibling())
+            {
+                QDomElement e2 = n2.toElement();
+
+                if (e2.isNull())
                 {
-                    QDomElement e3 = n3.toElement();
-                    if (e3.isNull())
-                    {
-                        continue;
-                    }
+                    continue;
+                }
 
-                    QString name3  = e3.tagName();
-                    QString val3   = e3.attribute(QString::fromLatin1("value"));
+                QString name2 = e2.tagName();
+                QString val2  = e2.attribute(QString::fromLatin1("value"));
+                bool ok       = true;
 
-                    if (name3 == "toolname")
+                if (name2 == QString::fromLatin1("queuetitle"))
+                {
+                    q.title = val2;
+                }
+                else if (name2 == QString::fromLatin1("queuedesc"))
+                {
+                    q.desc = val2;
+                }
+                else if (name2 == QString::fromLatin1("renamingparser"))
+                {
+                    q.qSettings.renamingParser = val2;
+                }
+                else if (name2 == QString::fromLatin1("useoriginalalbum"))
+                {
+                    q.qSettings.useOrgAlbum = (bool)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("usemulticorecpu"))
+                {
+                    q.qSettings.useMultiCoreCPU = (bool)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("workingurl"))
+                {
+                    q.qSettings.workingUrl = QUrl::fromLocalFile(val2);
+                }
+                else if (name2 == QString::fromLatin1("conflictrule"))
+                {
+                    q.qSettings.conflictRule = (QueueSettings::ConflictRule)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("renamingrule"))
+                {
+                    q.qSettings.renamingRule = (QueueSettings::RenamingRule)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("rawloadingrule"))
+                {
+                    q.qSettings.rawLoadingRule = (QueueSettings::RawLoadingRule)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("jpegcompression"))
+                {
+                    q.qSettings.ioFileSettings.JPEGCompression = val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("jpegsubsampling"))
+                {
+                    q.qSettings.ioFileSettings.JPEGSubSampling = val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("pngcompression"))
+                {
+                    q.qSettings.ioFileSettings.PNGCompression = val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("tiffcompression"))
+                {
+                    q.qSettings.ioFileSettings.TIFFCompression = (bool)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("jpeg2000lossless"))
+                {
+                    q.qSettings.ioFileSettings.JPEG2000LossLess = (bool)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("jpeg2000compression"))
+                {
+                    q.qSettings.ioFileSettings.JPEG2000Compression = val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("pgflossless"))
+                {
+                    q.qSettings.ioFileSettings.PGFLossLess = (bool)val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("pgfcompression"))
+                {
+                    q.qSettings.ioFileSettings.PGFCompression = val2.toUInt(&ok);
+                }
+                else if (name2 == QString::fromLatin1("rawdecodingsettings"))
+                {
+                    DRawDecoding::decodingSettingsFromXml(e2, q.qSettings.rawDecodingSettings);
+                }
+                else if (name2 == QString::fromLatin1("tool"))
+                {
+                    BatchToolSet set;
+
+                    for (QDomNode n3 = e2.firstChild(); !n3.isNull(); n3 = n3.nextSibling())
                     {
-                        set.name = val3;
-                    }
-                    else if (name3 == "toolgroup")
-                    {
-                        set.group = (BatchTool::BatchToolGroup)val3.toInt(&ok);
-                    }
-                    else if (name3 == "index")
-                    {
-                        set.index = val3.toInt(&ok);
-                    }
-                    else if (name3 == "version")
-                    {
-                        set.version = val3.toInt(&ok);
-                    }
-                    else if (name3 == "parameter")
-                    {
-                        QString pname = e3.attribute(QString::fromLatin1("name"));
-                        QString type  = e3.attribute(QString::fromLatin1("type"));
-                        QVariant var(val3);
-                        var.convert(QVariant::nameToType(type.toAscii()));
+                        QDomElement e3 = n3.toElement();
+
+                        if (e3.isNull())
+                        {
+                            continue;
+                        }
+
+                        QString name3  = e3.tagName();
+                        QString val3   = e3.attribute(QString::fromLatin1("value"));
+
+                        if (name3 == QString::fromLatin1("toolname"))
+                        {
+                            set.name = val3;
+                        }
+                        else if (name3 == QString::fromLatin1("toolgroup"))
+                        {
+                            set.group = (BatchTool::BatchToolGroup)val3.toInt(&ok);
+                        }
+                        else if (name3 == QString::fromLatin1("index"))
+                        {
+                            set.index = val3.toInt(&ok);
+                        }
+                        else if (name3 == QString::fromLatin1("version"))
+                        {
+                            set.version = val3.toInt(&ok);
+                        }
+                        else if (name3 == QString::fromLatin1("parameter"))
+                        {
+                            QString pname = e3.attribute(QString::fromLatin1("name"));
+                            QString type  = e3.attribute(QString::fromLatin1("type"));
+                            QVariant var(val3);
+                            var.convert(QVariant::nameToType(type.toLatin1().constData()));
 /*
-                        kDebug() << "name=" << pname << " :: " << "type=" << type << " :: " << "value=" << val3
-                                 << " :: " << "QVariant=" << var;
+                            qCDebug(DIGIKAM_GENERAL_LOG) << "name=" << pname << " :: " << "type=" << type << " :: " << "value=" << val3
+                                    << " :: " << "QVariant=" << var;
 */
-                        set.settings.insert(pname, var);
+                            set.settings.insert(pname, var);
+                        }
                     }
-                }
 
-                BatchTool* const tool = BatchToolsManager::instance()->findTool(set.name, set.group);
+                    BatchTool* const tool = BatchToolsManager::instance()->findTool(set.name, set.group);
 
-                if (tool)
-                {
-                    if (set.version == tool->toolVersion())
+                    if (tool)
                     {
-                        q.aTools.append(set);
+                        if (set.version == tool->toolVersion())
+                        {
+                            q.aTools.append(set);
+                        }
+                    }
+                    else
+                    {
+                        versionOk   = false;
+                        d->modified = true;
                     }
                 }
-                else
-                {
-                    versionOk   = false;
-                    d->modified = true;
-                }
+            }
+
+            if (versionOk)
+            {
+                // We only instert workflow if all tools version are compatible
+                insertPrivate(q);
+            }
+            else
+            {
+                failed.append(QString::fromUtf8("%1 [%2]").arg(q.title).arg(q.desc));
             }
         }
 
-        if (versionOk)
-        {
-            // We only instert workflow if all tools version are compatible
-            insertPrivate(q);
-        }
-        else
-        {
-            failed.append(QString("%1 [%2]").arg(q.title).arg(q.desc));
-        }
+        return true;
     }
-
-    return true;
+    else
+    {
+        return false;
+    }
 }
 
 }  // namespace Digikam

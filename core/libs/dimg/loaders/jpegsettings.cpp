@@ -6,7 +6,7 @@
  * Date        : 2007-08-02
  * Description : save JPEG image options.
  *
- * Copyright (C) 2007-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,22 +21,26 @@
  *
  * ============================================================ */
 
-#include "jpegsettings.moc"
+#include "jpegsettings.h"
 
 // Qt includes
 
+#include <QApplication>
 #include <QFrame>
 #include <QGridLayout>
 #include <QLabel>
 #include <QLayout>
 #include <QString>
+#include <QComboBox>
+#include <QStyle>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <knuminput.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "dnuminput.h"
 
 namespace Digikam
 {
@@ -62,20 +66,23 @@ public:
     QLabel*       labelWarning;
     QLabel*       labelSubSampling;
 
-    KComboBox*    subSamplingCB;
+    QComboBox*    subSamplingCB;
 
-    KIntNumInput* JPEGcompression;
+    DIntNumInput* JPEGcompression;
 };
 
 JPEGSettings::JPEGSettings(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->JPEGGrid             = new QGridLayout(this);
-    d->JPEGcompression      = new KIntNumInput(75, this);
-    d->JPEGcompression->setRange(1, 100);
-    d->JPEGcompression->setSliderEnabled(true);
+    d->JPEGcompression      = new DIntNumInput(this);
+    d->JPEGcompression->setDefaultValue(75);
+    d->JPEGcompression->setRange(1, 100, 1);
     d->labelJPEGcompression = new QLabel(i18n("JPEG quality:"), this);
 
     d->JPEGcompression->setWhatsThis(i18n("<p>The JPEG quality:</p>"
@@ -87,7 +94,7 @@ JPEGSettings::JPEGSettings(QWidget* const parent)
                                           "large file size)</p>"
                                           "<p><b>Note: JPEG always uses lossy compression.</b></p>"));
 
-    d->labelWarning = new QLabel(i18n("<font size='-1' color='red'><i>"
+    d->labelWarning = new QLabel(i18n("<font color='red'><i>"
                                       "Warning: <a href='http://en.wikipedia.org/wiki/JPEG'>JPEG</a> is a "
                                       "lossy image compression format."
                                       "</i></font>"), this);
@@ -99,20 +106,24 @@ JPEGSettings::JPEGSettings(QWidget* const parent)
 
     d->labelSubSampling = new QLabel(i18n("Chroma subsampling:"), this);
 
-    d->subSamplingCB = new KComboBox(this);
-    d->subSamplingCB->insertItem(0, i18n("None"));    // 1x1, 1x1, 1x1 (4:4:4)
-    d->subSamplingCB->insertItem(1, i18n("Medium"));  // 2x1, 1x1, 1x1 (4:2:2)
-    d->subSamplingCB->insertItem(2, i18n("High"));    // 2x2, 1x1, 1x1 (4:1:1)
-    d->subSamplingCB->setWhatsThis(i18n("<p>JPEG Chroma subsampling level \n(color is saved with less resolution "
-                                        "than luminance):</p>"
-                                        "<p><b>None</b>=best: uses 4:4:4 ratio. Does not employ chroma "
-                                        "subsampling at all. This preserves edges and contrasting "
-                                        "colors, whilst adding no additional compression</p>"
-                                        "<p><b>Medium</b>: uses 4:2:2 ratio. Medium compression: reduces "
-                                        "the color resolution by one-third with little to "
-                                        "no visual difference</p>"
-                                        "<p><b>High</b>: use 4:1:1 ratio. High compression: suits "
-                                        "images with soft edges but tends to alter colors</p>"
+    d->subSamplingCB = new QComboBox(this);
+    d->subSamplingCB->insertItem(0, i18n("4:4:4 (best quality)")); // 1x1, 1x1, 1x1 (4:4:4)
+    d->subSamplingCB->insertItem(1, i18n("4:2:2 (good quality)")); // 2x1, 1x1, 1x1 (4:2:2)
+    d->subSamplingCB->insertItem(2, i18n("4:2:0 (low quality)"));  // 2x2, 1x1, 1x1 (4:2:0)
+    d->subSamplingCB->insertItem(3, i18n("4:1:1 (low quality)"));  // 4x1, 1x1, 1x1 (4:1:1)
+    d->subSamplingCB->setWhatsThis(i18n("<p>Chroma subsampling reduces file size by taking advantage of the "
+                                        "eye's lesser sensitivity to color resolution. How perceptible the "
+                                        "difference is depends on the image - large photos will generally "
+                                        "show no difference, while sharp, down-scaled pixel graphics may "
+                                        "lose fine color detail.</p>"
+                                        "<p><b>4:4:4</b> - No chroma subsampling, highest "
+                                        "quality but lowest compression.</p>"
+                                        "<p><b>4:2:2</b> - Chroma halved horizontally, average "
+                                        "compression, average quality.</p>"
+                                        "<p><b>4:2:0</b> - Chroma quartered in 2x2 blocks, "
+                                        "high compression but low quality.</p>"
+                                        "<p><b>4:1:1</b> - Chroma quartered in 4x1 blocks, "
+                                        "high compression but low quality.</p>"
                                         "<p><b>Note: JPEG always uses lossy compression.</b></p>"));
 
     d->JPEGGrid->addWidget(d->labelJPEGcompression, 0, 0, 1, 2);
@@ -122,8 +133,8 @@ JPEGSettings::JPEGSettings(QWidget* const parent)
     d->JPEGGrid->addWidget(d->labelWarning,         4, 0, 1, 1);
     d->JPEGGrid->setColumnStretch(1, 10);
     d->JPEGGrid->setRowStretch(5, 10);
-    d->JPEGGrid->setMargin(KDialog::spacingHint());
-    d->JPEGGrid->setSpacing(KDialog::spacingHint());
+    d->JPEGGrid->setContentsMargins(spacing, spacing, spacing, spacing);
+    d->JPEGGrid->setSpacing(spacing);
 
     connect(d->JPEGcompression, SIGNAL(valueChanged(int)),
             this, SIGNAL(signalSettingsChanged()));

@@ -6,7 +6,7 @@
  * Date        : 2012-12-19
  * Description : Workflow properties dialog.
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,24 +21,35 @@
  *
  * ============================================================ */
 
-#include "workflowdlg.moc"
+#include "workflowdlg.h"
 
 // Qt includes
 
+#include <QPointer>
 #include <QGridLayout>
 #include <QGroupBox>
 #include <QLabel>
 #include <QRegExp>
 #include <QValidator>
+#include <QApplication>
+#include <QStyle>
+#include <QLineEdit>
+#include <QStandardPaths>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 // KDE includes
 
-#include <khbox.h>
-#include <kiconloader.h>
-#include <klineedit.h>
-#include <kstandarddirs.h>
-#include <kseparator.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "dwidgetutils.h"
+#include "dxmlguiwindow.h"
+#include "dexpanderbox.h"
+
+
 
 namespace Digikam
 {
@@ -49,28 +60,30 @@ class WorkflowDlg::Private
 public:
 
     Private() :
+        buttons(0),
         titleEdit(0),
         descEdit(0)
     {
     }
 
-    KLineEdit* titleEdit;
-    KLineEdit* descEdit;
+    QDialogButtonBox* buttons;
+    QLineEdit*        titleEdit;
+    QLineEdit*        descEdit;
 };
 
 WorkflowDlg::WorkflowDlg(const Workflow& wf, bool create)
-    : KDialog(0), d(new Private)
+    : QDialog(0),
+      d(new Private)
 {
-    setCaption(create ? i18n("New Workflow") : i18n("Edit Workflow"));
-    setButtons(Help|Ok|Cancel);
-    setDefaultButton(Ok);
     setModal(true);
-    setHelp("workflowdlg.anchor", "digikam");
+    setWindowTitle(create ? i18n("New Workflow") : i18n("Edit Workflow"));
+
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Ok)->setDefault(true);
 
     QWidget* const page    = new QWidget(this);
     QLabel* const logo     = new QLabel(page);
-    logo->setPixmap(QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                    .scaled(48, 48, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48)));
 
     QLabel* const topLabel = new QLabel(page);
 
@@ -86,18 +99,18 @@ WorkflowDlg::WorkflowDlg(const Workflow& wf, bool create)
     topLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     topLabel->setWordWrap(false);
 
-    KSeparator* const topLine = new KSeparator(Qt::Horizontal);
+    DLineWidget* const topLine = new DLineWidget(Qt::Horizontal);
 
     // --------------------------------------------------------
 
-    QRegExp           reg("[^/]+");
+    QRegExp           reg(QLatin1String("[^/]+"));
     QValidator* const validator = new QRegExpValidator(reg, this);
 
     QLabel* const titleLabel = new QLabel(page);
     titleLabel->setText(i18n("&Title:"));
 
-    d->titleEdit = new KLineEdit(page);
-    d->titleEdit->setClearButtonShown(true);
+    d->titleEdit = new QLineEdit(page);
+    d->titleEdit->setClearButtonEnabled(true);
     d->titleEdit->setValidator(validator);
     d->titleEdit->selectAll();
     d->titleEdit->setFocus();
@@ -108,8 +121,8 @@ WorkflowDlg::WorkflowDlg(const Workflow& wf, bool create)
     QLabel* const descLabel = new QLabel(page);
     descLabel->setText(i18n("Description:"));
 
-    d->descEdit = new KLineEdit(page);
-    d->titleEdit->setClearButtonShown(true);
+    d->descEdit = new QLineEdit(page);
+    d->titleEdit->setClearButtonEnabled(true);
     d->descEdit->setValidator(validator);
     descLabel->setBuddy(d->descEdit);
 
@@ -123,9 +136,14 @@ WorkflowDlg::WorkflowDlg(const Workflow& wf, bool create)
     grid->addWidget(d->titleEdit, 2, 1, 1, 1);
     grid->addWidget(descLabel,    3, 0, 1, 1, Qt::AlignLeft | Qt::AlignTop);
     grid->addWidget(d->descEdit,  3, 1, 1, 1);
-    grid->setMargin(0);
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+    grid->setContentsMargins(QMargins());
     page->setLayout(grid);
+
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(page);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
 
     if (create)
     {
@@ -142,9 +160,14 @@ WorkflowDlg::WorkflowDlg(const Workflow& wf, bool create)
     connect(d->titleEdit, SIGNAL(textChanged(QString)),
             this, SLOT(slotTitleChanged(QString)));
 
-    // --------------------------------------------------------
+    connect(d->buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(accept()));
 
-    setMainWidget(page);
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
+            this, SLOT(reject()));
+
+    connect(d->buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
 }
 
 WorkflowDlg::~WorkflowDlg()
@@ -196,7 +219,12 @@ void WorkflowDlg::slotTitleChanged(const QString& text)
 {
     Workflow wf = WorkflowManager::instance()->findByTitle(text);
     bool enable = (wf.title.isEmpty() && !text.isEmpty());
-    enableButtonOk(enable);
+    d->buttons->button(QDialogButtonBox::Ok)->setEnabled(enable);
+}
+
+void WorkflowDlg::slotHelp()
+{
+    DXmlGuiWindow::openHandbook(QLatin1String("workflowdlg.anchor"), QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

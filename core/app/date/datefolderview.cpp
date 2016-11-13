@@ -7,9 +7,9 @@
  * Description : a folder view for date albums.
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2014 by Michael G. Hansen <mike at mghansen dot de>
+ * Copyright (C) 2014      by Michael G. Hansen <mike at mghansen dot de>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,32 +24,17 @@
  *
  * ============================================================ */
 
-#include "datefolderview.moc"
-
-// Qt includes
-
-#include <QDateTime>
-#include <QFont>
-#include <QPainter>
-#include <QStyle>
-#include <QFileInfo>
+#include "datefolderview.h"
 
 // KDE includes
 
-#include <kapplication.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <kconfig.h>
-#include <kdeversion.h>
-#include <kcalendarsystem.h>
 #include <kconfiggroup.h>
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "album.h"
-#include "albumdb.h"
+#include "coredb.h"
 #include "applicationsettings.h"
 #include "albumtreeview.h"
 #include "monthwidget.h"
@@ -78,10 +63,11 @@ public:
 };
 
 DateFolderView::DateFolderView(QWidget* const parent, DateAlbumModel* const dateAlbumModel)
-    : KVBox(parent), StateSavingObject(this),
+    : DVBox(parent),
+      StateSavingObject(this),
       d(new Private)
 {
-    setObjectName("DateFolderView");
+    setObjectName(QLatin1String("DateFolderView"));
 
     d->dateTreeView = new DateAlbumTreeView(this);
     d->dateTreeView->setAlbumModel(dateAlbumModel);
@@ -135,7 +121,7 @@ void DateFolderView::slotSelectionChanged(Album* selectedAlbum)
 {
     if (!d->active)
     {
-        kDebug() << "Not active, returning without action";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Not active, returning without action";
         return;
     }
 
@@ -190,13 +176,13 @@ void DateFolderView::doSaveState()
 
 void DateFolderView::gotoDate(const QDate& dt)
 {
-    kDebug() << "Going to date " << dt;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Going to date " << dt;
 
     QModelIndex dateIndex = d->dateTreeView->albumModel()->monthIndexForDate(dt);
 
     if (!dateIndex.isValid())
     {
-        kDebug() << "Cannot find an album for date " << dt;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Cannot find an album for date " << dt;
         return;
     }
 
@@ -204,11 +190,11 @@ void DateFolderView::gotoDate(const QDate& dt)
 
     if (!dateAlbum)
     {
-        kWarning() << "Could not retrieve an album for index " << dateIndex;
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Could not retrieve an album for index " << dateIndex;
         return;
     }
 
-    kDebug() << "Got date album " << dateAlbum;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Got date album " << dateAlbum;
 
     d->dateTreeView->setCurrentAlbums(QList<Album*>() << dateAlbum);
 

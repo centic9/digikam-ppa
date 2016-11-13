@@ -6,8 +6,8 @@
  * Date        : 2006-07-09
  * Description : item tool tip configuration setup tab
  *
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * Copyright (C) 2013-2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,23 +22,19 @@
  *
  * ============================================================ */
 
-#include "showfotosetuptooltip.moc"
+#include "showfotosetuptooltip.h"
 
 // Qt includes
 
 #include <QCheckBox>
 #include <QGroupBox>
 #include <QVBoxLayout>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <khbox.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -102,6 +98,8 @@ SetupToolTip::SetupToolTip(QWidget* const parent)
     setWidget(panel);
     setWidgetResizable(true);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QVBoxLayout* const layout = new QVBoxLayout(panel);
     d->showToolTipsBox        = new QCheckBox(i18n("Show Thumbbar items' toolti&ps"), panel);
     d->showToolTipsBox->setWhatsThis(i18n("Set this option to display the image information when "
@@ -135,7 +133,7 @@ SetupToolTip::SetupToolTip(QWidget* const parent)
     gLayout1->addWidget(d->showFileSizeBox);
     gLayout1->addWidget(d->showImageTypeBox);
     gLayout1->addWidget(d->showImageDimBox);
-    gLayout1->setMargin(KDialog::spacingHint());
+    gLayout1->setContentsMargins(spacing, spacing, spacing, spacing);
     gLayout1->setSpacing(0);
 
     // --------------------------------------------------------
@@ -177,7 +175,7 @@ SetupToolTip::SetupToolTip(QWidget* const parent)
     gLayout2->addWidget(d->showPhotoModeBox);
     gLayout2->addWidget(d->showPhotoFlashBox);
     gLayout2->addWidget(d->showPhotoWbBox);
-    gLayout2->setMargin(KDialog::spacingHint());
+    gLayout2->setContentsMargins(spacing, spacing, spacing, spacing);
     gLayout2->setSpacing(0);
 
     layout->addWidget(d->showToolTipsBox);
@@ -185,8 +183,8 @@ SetupToolTip::SetupToolTip(QWidget* const parent)
     layout->addWidget(d->fileSettingBox);
     layout->addWidget(d->photoSettingBox);
     layout->addStretch();
-    layout->setMargin(KDialog::spacingHint());
-    layout->setSpacing(KDialog::spacingHint());
+    layout->setContentsMargins(spacing, spacing, spacing, spacing);
+    layout->setSpacing(spacing);
 
     // --------------------------------------------------------
 

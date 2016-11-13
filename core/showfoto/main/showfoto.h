@@ -6,7 +6,7 @@
  * Date        : 2004-11-22
  * Description : stand alone digiKam image editor GUI
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
@@ -28,16 +28,14 @@
 #ifndef SHOWFOTO_H
 #define SHOWFOTO_H
 
-// KDE includes
+// Qt includes
 
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "editorwindow.h"
 #include "showfotoiteminfo.h"
-
-class KJob;
 
 namespace ShowFoto
 {
@@ -48,13 +46,15 @@ class ShowFoto : public Digikam::EditorWindow
 
 public:
 
-    explicit ShowFoto(const KUrl::List& urlList);
+    explicit ShowFoto(const QList<QUrl>& urlList);
     ~ShowFoto();
 
-    bool setup();
-    bool setupICC();
-
     virtual void show();
+
+public Q_SLOTS:
+
+    void slotSetup();
+    void slotSetupICC();
 
 private:
 
@@ -77,8 +77,9 @@ private:
 
     bool save();
     bool saveAs();
+    void moveFile();
     void finishSaving(bool success);
-    KUrl saveDestinationUrl();
+    QUrl saveDestinationUrl();
     bool saveNewVersion();
     bool saveCurrentVersion();
     bool saveNewVersionAs();
@@ -89,9 +90,10 @@ private:
     void saveVersionIsComplete();
 
     void slideShow(Digikam::SlideShowSettings& settings);
+    void presentation();
 
-    void openFolder(const KUrl& url);
-    void openUrls(const KUrl::List& urls);
+    void openFolder(const QUrl& url);
+    void openUrls(const QList<QUrl>& urls);
 
     Digikam::ThumbBarDock* thumbBar()     const;
     Digikam::Sidebar*      rightSideBar() const;
@@ -105,18 +107,17 @@ private Q_SLOTS:
     void slotFilePrint();
     void slotFileWithDefaultApplication();
     void slotOpenWith(QAction* action=0);
+    void slotShowfotoItemInfoActivated(const ShowfotoItemInfo& info);
 
     void slotOpenFile();
     void slotOpenUrl(const ShowfotoItemInfo& info);
-    void slotOpenFolder(const KUrl&);
+    void slotOpenFolder(const QUrl&);
     void slotOpenFilesInFolder();
-    void slotDroppedUrls(const KUrl::List& droppedUrls);
+    void slotDroppedUrls(const QList<QUrl>& droppedUrls);
     void slotDeleteCurrentItem();
 
     void slotChanged();
     void slotUpdateItemInfo();
-
-    void slotDeleteCurrentItemResult(KJob*);
 
     void slotPrepareToLoad();
     void slotLoadingStarted(const QString& filename);
@@ -129,11 +130,17 @@ private Q_SLOTS:
 
     void slotAddedDropedItems(QDropEvent*);
 
+    void slotImportFromScanner();
+    void slotImportedImagefromScanner(const QUrl& url);
+
+    void slotEditMetadata();
+    void slotEditGeolocation();
+
 Q_SIGNALS:
 
-    void signalLoadCurrentItem(const KUrl::List& urlList);
-    void signalOpenFolder(const KUrl&);
-    void signalOpenFile(const KUrl::List& urls);
+    void signalLoadCurrentItem(const QList<QUrl>& urlList);
+    void signalOpenFolder(const QUrl&);
+    void signalOpenFile(const QList<QUrl>& urls);
     void signalInfoList(ShowfotoItemInfoList&);
 
 private:

@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "smugwidget.moc"
+#include "smugwidget.h"
 
 // Qt includes
 
@@ -33,20 +33,20 @@
 #include <QGridLayout>
 #include <QHBoxLayout>
 #include <QVBoxLayout>
+#include <QComboBox>
+#include <QApplication>
+#include <QPushButton>
+#include <QLineEdit>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <klineedit.h>
-#include <kcombobox.h>
-#include <kpushbutton.h>
+#include <klocalizedstring.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
-#include <libkipi/uploadwidget.h>
-#include <libkipi/imagecollection.h>
+#include <KIPI/Interface>
+#include <KIPI/UploadWidget>
+#include <KIPI/ImageCollection>
 
 // Local includes
 
@@ -59,9 +59,11 @@ namespace KIPISmugPlugin
 SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool import)
     : QWidget(parent)
 {
-    setObjectName("SmugWidget");
+    setObjectName(QString::fromLatin1("SmugWidget"));
 
-    QHBoxLayout* mainLayout = new QHBoxLayout(this);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    QHBoxLayout* const mainLayout = new QHBoxLayout(this);
 
     // -------------------------------------------------------------------
 
@@ -69,40 +71,37 @@ SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool
     m_imgList->setControlButtonsPlacement(KIPIPlugins::KPImagesList::ControlButtonsBelow);
     m_imgList->setAllowRAW(true);
     m_imgList->loadImagesFromCurrentSelection();
-    m_imgList->listView()->setWhatsThis(
-        i18n("This is the list of images to upload to your SmugMug account."));
+    m_imgList->listView()->setWhatsThis(i18n("This is the list of images to upload to your SmugMug account."));
 
-    QWidget* settingsBox           = new QWidget(this);
-    QVBoxLayout* settingsBoxLayout = new QVBoxLayout(settingsBox);
+    QWidget* const settingsBox           = new QWidget(this);
+    QVBoxLayout* const settingsBoxLayout = new QVBoxLayout(settingsBox);
 
     m_headerLbl = new QLabel(settingsBox);
-    m_headerLbl->setWhatsThis(
-        i18n("This is a clickable link to open the SmugMug home page in a web browser."));
+    m_headerLbl->setWhatsThis(i18n("This is a clickable link to open the SmugMug home page in a web browser."));
     m_headerLbl->setOpenExternalLinks(true);
     m_headerLbl->setFocusPolicy(Qt::NoFocus);
 
     // ------------------------------------------------------------------------
 
-    QGroupBox* accountBox         = new QGroupBox(i18n("Account"), settingsBox);
-    accountBox->setWhatsThis(
-        i18n("This is the SmugMug account that will be used to authenticate."));
-    QGridLayout* accountBoxLayout = new QGridLayout(accountBox);
+    QGroupBox* const accountBox         = new QGroupBox(i18n("Account"), settingsBox);
+    accountBox->setWhatsThis(i18n("This is the SmugMug account that will be used to authenticate."));
+    QGridLayout* const accountBoxLayout = new QGridLayout(accountBox);
 
     m_anonymousRBtn     = new QRadioButton(i18nc("smug account login", "Anonymous"), accountBox);
-    m_anonymousRBtn->setWhatsThis(
-        i18n("Login as anonymous to SmugMug web service."));
+    m_anonymousRBtn->setWhatsThis(i18n("Login as anonymous to SmugMug web service."));
 
     m_accountRBtn       = new QRadioButton(i18n("SmugMug Account"), accountBox);
-    m_accountRBtn->setWhatsThis(
-        i18n("Login to SmugMug web service using email and password."));
+    m_accountRBtn->setWhatsThis(i18n("Login to SmugMug web service using email and password."));
 
     m_userNameLbl       = new QLabel(i18nc("smug account settings", "Name:"), accountBox);
     m_userName          = new QLabel(accountBox);
     m_emailLbl          = new QLabel(i18nc("smug account settings", "Email:"), accountBox);
     m_email             = new QLabel(accountBox);
-    m_changeUserBtn     = new KPushButton(KGuiItem(i18n("Change Account"), "system-switch-user",
-                                          i18n("Change SmugMug Account used to authenticate")),
-                                           accountBox);
+    m_changeUserBtn     = new QPushButton(accountBox);
+
+    m_changeUserBtn->setText(i18n("Change Account"));
+    m_changeUserBtn->setIcon(QIcon::fromTheme(QString::fromLatin1("system-switch-user")));
+    m_changeUserBtn->setToolTip(i18n("Change SmugMug Account used to authenticate"));
 
     accountBoxLayout->addWidget(m_anonymousRBtn,        0, 0, 1, 2);
     accountBoxLayout->addWidget(m_accountRBtn,          1, 0, 1, 2);
@@ -111,34 +110,36 @@ SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool
     accountBoxLayout->addWidget(m_emailLbl,             3, 0, 1, 1);
     accountBoxLayout->addWidget(m_email,                3, 1, 1, 1);
     accountBoxLayout->addWidget(m_changeUserBtn,        4, 1, 1, 1);
-    accountBoxLayout->setSpacing(KDialog::spacingHint());
-    accountBoxLayout->setMargin(KDialog::spacingHint());
+    accountBoxLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    accountBoxLayout->setSpacing(spacing);
 
     // ------------------------------------------------------------------------
 
-    QGroupBox* albumsBox         = new QGroupBox(i18n("Album"), settingsBox);
+    QGroupBox* const albumsBox         = new QGroupBox(i18n("Album"), settingsBox);
     albumsBox->setWhatsThis(i18n("This is the SmugMug album that will be used for transfer."));
-    QGridLayout* albumsBoxLayout = new QGridLayout(albumsBox);
+    QGridLayout* const albumsBoxLayout = new QGridLayout(albumsBox);
 
-    m_albumsCoB         = new KComboBox(albumsBox);
+    m_albumsCoB         = new QComboBox(albumsBox);
     m_albumsCoB->setEditable(false);
     m_nickNameLbl       = new QLabel(i18n("Nickname:"), albumsBox);
-    m_nickNameEdt       = new KLineEdit(albumsBox);
-    m_nickNameEdt->setWhatsThis(
-        i18n("Nickname of SmugMug user to list albums."));
+    m_nickNameEdt       = new QLineEdit(albumsBox);
+    m_nickNameEdt->setWhatsThis(i18n("Nickname of SmugMug user to list albums."));
     m_sitePasswordLbl   = new QLabel(i18n("Site Password:"), albumsBox);
-    m_sitePasswordEdt   = new KLineEdit(albumsBox);
-    m_sitePasswordEdt->setWhatsThis(
-        i18n("Site-wide password for specified SmugMug nick/user."));
+    m_sitePasswordEdt   = new QLineEdit(albumsBox);
+    m_sitePasswordEdt->setWhatsThis(i18n("Site-wide password for specified SmugMug nick/user."));
     m_albumPasswordLbl  = new QLabel(i18n("Album Password:"), albumsBox);
-    m_albumPasswordEdt  = new KLineEdit(albumsBox);
-    m_albumPasswordEdt->setWhatsThis(
-        i18n("Password for SmugMug album."));
+    m_albumPasswordEdt  = new QLineEdit(albumsBox);
+    m_albumPasswordEdt->setWhatsThis(i18n("Password for SmugMug album."));
 
-    m_newAlbumBtn       = new KPushButton(KGuiItem(i18n("New Album"), "list-add",
-                                          i18n("Create new SmugMug album")), accountBox);
-    m_reloadAlbumsBtn   = new KPushButton(KGuiItem(i18nc("reload album list", "Reload"), "view-refresh",
-                                          i18n("Reload album list")), accountBox);
+    m_newAlbumBtn = new QPushButton(accountBox);
+    m_newAlbumBtn->setText(i18n("New Album"));
+    m_newAlbumBtn->setIcon(QIcon::fromTheme(QString::fromLatin1("list-add")));
+    m_newAlbumBtn->setToolTip(i18n("Create new SmugMug album"));
+
+    m_reloadAlbumsBtn = new QPushButton(accountBox);
+    m_reloadAlbumsBtn->setText(i18nc("reload album list", "Reload"));
+    m_reloadAlbumsBtn->setIcon(QIcon::fromTheme(QString::fromLatin1("view-refresh")));
+    m_reloadAlbumsBtn->setToolTip(i18n("Reload album list"));
 
     albumsBoxLayout->addWidget(m_albumsCoB,         0, 0, 1, 5);
     albumsBoxLayout->addWidget(m_nickNameLbl,       1, 0, 1, 1);
@@ -152,30 +153,30 @@ SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool
 
     // ------------------------------------------------------------------------
 
-    QGroupBox* uploadBox         = new QGroupBox(i18n("Destination"), settingsBox);
+    QGroupBox* const uploadBox         = new QGroupBox(i18n("Destination"), settingsBox);
     uploadBox->setWhatsThis(i18n("This is the location where SmugMug images will be downloaded."));
-    QVBoxLayout* uploadBoxLayout = new QVBoxLayout(uploadBox);
-    m_uploadWidget               = iface->uploadWidget(uploadBox);
+    QVBoxLayout* const uploadBoxLayout = new QVBoxLayout(uploadBox);
+    m_uploadWidget                     = iface->uploadWidget(uploadBox);
     uploadBoxLayout->addWidget(m_uploadWidget);
 
     // ------------------------------------------------------------------------
 
-    QGroupBox* optionsBox         = new QGroupBox(i18n("Options"), settingsBox);
+    QGroupBox* const optionsBox         = new QGroupBox(i18n("Options"), settingsBox);
     optionsBox->setWhatsThis(i18n("These are options that will be applied to images before upload."));
-    QGridLayout* optionsBoxLayout = new QGridLayout(optionsBox);
+    QGridLayout* const optionsBoxLayout = new QGridLayout(optionsBox);
 
-    m_resizeChB                   = new QCheckBox(optionsBox);
+    m_resizeChB                         = new QCheckBox(optionsBox);
     m_resizeChB->setText(i18n("Resize photos before uploading"));
     m_resizeChB->setChecked(false);
 
-    m_dimensionSpB  = new QSpinBox(optionsBox);
+    m_dimensionSpB = new QSpinBox(optionsBox);
     m_dimensionSpB->setMinimum(0);
     m_dimensionSpB->setMaximum(5000);
     m_dimensionSpB->setSingleStep(10);
     m_dimensionSpB->setValue(600);
     m_dimensionSpB->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     m_dimensionSpB->setEnabled(false);
-    QLabel* dimensionLbl = new QLabel(i18n("Maximum dimension:"), optionsBox);
+    QLabel* const dimensionLbl = new QLabel(i18n("Maximum dimension:"), optionsBox);
 
     m_imageQualitySpB = new QSpinBox(optionsBox);
     m_imageQualitySpB->setMinimum(0);
@@ -183,7 +184,7 @@ SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool
     m_imageQualitySpB->setSingleStep(1);
     m_imageQualitySpB->setValue(85);
     m_imageQualitySpB->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    QLabel* imageQualityLbl = new QLabel(i18n("JPEG quality:"), optionsBox);
+    QLabel* const imageQualityLbl = new QLabel(i18n("JPEG quality:"), optionsBox);
 
     optionsBoxLayout->addWidget(m_resizeChB,        0, 0, 1, 5);
     optionsBoxLayout->addWidget(imageQualityLbl,    1, 1, 1, 1);
@@ -191,8 +192,8 @@ SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool
     optionsBoxLayout->addWidget(dimensionLbl,       2, 1, 1, 1);
     optionsBoxLayout->addWidget(m_dimensionSpB,     2, 2, 1, 1);
     optionsBoxLayout->setRowStretch(3, 10);
-    optionsBoxLayout->setSpacing(KDialog::spacingHint());
-    optionsBoxLayout->setMargin(KDialog::spacingHint());
+    optionsBoxLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    optionsBoxLayout->setSpacing(spacing);
 
     m_progressBar = new KIPIPlugins::KPProgressWidget(settingsBox);
     m_progressBar->setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
@@ -206,15 +207,15 @@ SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool
     settingsBoxLayout->addWidget(uploadBox);
     settingsBoxLayout->addWidget(optionsBox);
     settingsBoxLayout->addWidget(m_progressBar);
-    settingsBoxLayout->setSpacing(KDialog::spacingHint());
-    settingsBoxLayout->setMargin(KDialog::spacingHint());
+    settingsBoxLayout->setSpacing(spacing);
+    settingsBoxLayout->setContentsMargins(spacing, spacing, spacing, spacing);
 
     // ------------------------------------------------------------------------
 
     mainLayout->addWidget(m_imgList);
     mainLayout->addWidget(settingsBox);
-    mainLayout->setSpacing(KDialog::spacingHint());
-    mainLayout->setMargin(0);
+    mainLayout->setSpacing(spacing);
+    mainLayout->setContentsMargins(QMargins());
 
     updateLabels();  // use empty labels until login
 
@@ -227,7 +228,7 @@ SmugWidget::SmugWidget(QWidget* const parent, KIPI::Interface* const iface, bool
             this, SLOT(slotResizeChecked()));
 
     connect(m_anonymousRBtn, SIGNAL(toggled(bool)),
-            this, SLOT(slotAnonymousToggled(bool)) );
+            this, SLOT(slotAnonymousToggled(bool)));
 
     // ------------------------------------------------------------------------
 
@@ -295,27 +296,29 @@ QString SmugWidget::getAlbumPassword() const
 
 QString SmugWidget::getDestinationPath() const
 {
-    return m_uploadWidget->selectedImageCollection().uploadPath().path();
+    return m_uploadWidget->selectedImageCollection().uploadUrl().toLocalFile();
 }
 
 void SmugWidget::setNickName(const QString& nick)
 {
     m_nickNameEdt->setText(nick);
-    m_headerLbl->setText(QString("<b><h2><a href='http://%1.smugmug.com.'>"
-                                   "<font color=\"#9ACD32\">SmugMug</font>"
-                                   "</a></h2></b>").arg(nick));
+    m_headerLbl->setText(QString::fromLatin1("<b><h2><a href='http://%1.smugmug.com'>"
+                                        "<font color=\"#9ACD32\">SmugMug</font>"
+                                        "</a></h2></b>").arg(nick));
 }
 
 void SmugWidget::updateLabels(const QString& email, const QString& name, const QString& nick)
 {
     m_email->setText(email);
-    m_userName->setText(QString("<b>%1</b>").arg(name));
-    QString web("www");
+    m_userName->setText(QString::fromLatin1("<b>%1</b>").arg(name));
+    QString web(QString::fromLatin1("www"));
+
     if (!nick.isEmpty())
         web = nick;
-    m_headerLbl->setText(QString("<b><h2><a href='http://%1.smugmug.com.'>"
-                                   "<font color=\"#9ACD32\">SmugMug</font>"
-                                   "</a></h2></b>").arg(web));
+
+    m_headerLbl->setText(QString::fromLatin1("<b><h2><a href='http://%1.smugmug.com'>"
+                                        "<font color=\"#9ACD32\">SmugMug</font>"
+                                        "</a></h2></b>").arg(web));
 }
 
 void SmugWidget::slotAnonymousToggled(bool checked)

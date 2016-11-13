@@ -20,18 +20,15 @@
  *
  * ============================================================ */
 
-#include "tableview_selection_model_syncer.moc"
+#include "tableview_selection_model_syncer.h"
 
 // Qt includes
 
 #include <QTimer>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
-
-// local includes
-
+#include "digikam_debug.h"
 #include "imagefiltermodel.h"
 #include "tableview_model.h"
 #include "tableview_shared.h"
@@ -52,9 +49,9 @@ public:
 };
 
 TableViewSelectionModelSyncer::TableViewSelectionModelSyncer(TableViewShared* const sharedObject, QObject* const parent)
-  : QObject(parent),
-    d(new Private()),
-    s(sharedObject)
+    : QObject(parent),
+      d(new Private()),
+      s(sharedObject)
 {
     connect(s->imageFilterSelectionModel, SIGNAL(currentChanged(QModelIndex,QModelIndex)),
             this, SLOT(slotSourceCurrentChanged(QModelIndex,QModelIndex)));

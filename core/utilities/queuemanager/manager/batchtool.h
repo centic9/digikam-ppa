@@ -6,7 +6,7 @@
  * Date        : 2008-11-24
  * Description : Batch Tool Container.
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,19 +28,17 @@
 
 #include <QObject>
 
-// LibKDcraw includes
-
-#include <libkdcraw/rawdecodingsettings.h>
-
 // Local includes
 
+#include "drawdecodersettings.h"
 #include "dimg.h"
+#include "imageinfo.h"
 #include "queuesettings.h"
 #include "iofilesettings.h"
 
 class QWidget;
 
-using namespace KDcrawIface;
+using namespace RawEngine;
 
 namespace Digikam
 {
@@ -61,7 +59,6 @@ public:
     enum BatchToolGroup
     {
         BaseTool = 0,             // digiKam core tools.
-        KipiTool,                 // Exported kipi-plugins tools.
         CustomTool,               // List of tools grouped and customized by users.
 
         ColorTool,                // Tools to manage image colors (Curves, BCG, etc...)
@@ -110,23 +107,28 @@ public:
 
     /** Manage current input url processed by this tool.
      */
-    void setInputUrl(const KUrl& inputUrl);
-    KUrl inputUrl() const;
+    void setInputUrl(const QUrl& inputUrl);
+    QUrl inputUrl() const;
 
     /** Manage current output url processed by this tool.
      */
-    void setOutputUrl(const KUrl& outputUrl);
-    KUrl outputUrl() const;
+    void setOutputUrl(const QUrl& outputUrl);
+    QUrl outputUrl() const;
 
     /** Manage current working url used by this tool to process items.
      */
-    void setWorkingUrl(const KUrl& workingUrl);
-    KUrl workingUrl() const;
+    void setWorkingUrl(const QUrl& workingUrl);
+    QUrl workingUrl() const;
 
     /** Manage instance of current image data container loaded by this tool.
      */
     void setImageData(const DImg& img);
     DImg imageData() const;
+
+    /** Manage instance of current image info loaded by this tool.
+     */
+    void setImageInfo(const ImageInfo& info);
+    ImageInfo imageInfo() const;
 
     /** Manage flag properties to indicate if this tool is last one to process on current item.
      */
@@ -181,11 +183,11 @@ public:
 
     /** Set-up RAW decoding settings no use during tool operations.
      */
-    void setRawDecodingSettings(const RawDecodingSettings& settings);
+    void setDRawDecoderSettings(const DRawDecoderSettings& settings);
 
     /** Return RAW decoding settings used during tool operations.
      */
-    RawDecodingSettings rawDecodingSettings() const;
+    DRawDecoderSettings rawDecodingSettings() const;
 
     /** Set-up IOFile settings no use during tool operations.
      */
@@ -205,7 +207,7 @@ public:
 
     /** Re-implement this method is you want customize cancelization of tool, for ex. to call
         a dedicated method to kill sub-threads parented to this tool instance.
-        Unforget to call parent BatchTool::cancel() method in you customized implementation.
+        Unforget to call parent BatchTool::cancel() method in your customized implementation.
      */
     virtual void cancel();
 
@@ -237,7 +239,7 @@ protected:
 
     /** Method to check if file pointed by url is a RAW image
      */
-    bool isRawFile(const KUrl& url) const;
+    bool isRawFile(const QUrl& url) const;
 
     /** Set string to describe an error which appear during apply() method.
      */

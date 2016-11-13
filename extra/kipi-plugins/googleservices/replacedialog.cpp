@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2010-02-15
- * Description : a kipi plugin to export images to Picasa web service
+ * Description : a kipi plugin to export images to Google Photo web service
  *
  * Copyright (C) 2010 by Jens Mueller <tschenser at gmx dot de>
  *
@@ -20,22 +20,30 @@
  *
  * ============================================================ */
 
-#include "replacedialog.moc"
+#include "replacedialog.h"
 
 // Qt includes
 
-#include <QtGui/QLabel>
-#include <QtGui/QLayout>
-#include <QPainter>
+#include <QIcon>
 #include <QTimer>
+#include <QFrame>
+#include <QLabel>
+#include <QLayout>
+#include <QPainter>
+#include <QPushButton>
+#include <QMimeDatabase>
+#include <QDialogButtonBox>
+#include <QNetworkAccessManager>
 
 // KDE includes
 
-#include <kpushbutton.h>
-#include <klocale.h>
-#include <kseparator.h>
-#include <ksqueezedtextlabel.h>
-#include <kpixmapsequence.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "kputil.h"
+
+using namespace KIPIPlugins;
 
 namespace KIPIGoogleServicesPlugin
 {
@@ -46,8 +54,7 @@ public:
 
     Private()
     {
-        progressPix   = KPixmapSequence("process-working", KIconLoader::SizeSmallMedium);
-        bCancel       = 0;
+        progressPix   = KPWorkingPixmap();
         bAdd          = 0;
         bAddAll       = 0;
         bReplace      = 0;
@@ -55,32 +62,39 @@ public:
         iface         = 0;
         lbSrc         = 0;
         lbDest        = 0;
+        netMngr       = 0;
         progressCount = 0;
         progressTimer = 0;
+        result        = -1;
     }
 
-    KPushButton*    bCancel;
-    KPushButton*    bAdd;
-    KPushButton*    bAddAll;
-    KPushButton*    bReplace;
-    KPushButton*    bReplaceAll;
-    KUrl            src;
-    KUrl            dest;
-    Interface*      iface;
-    QLabel*         lbSrc;
-    QLabel*         lbDest;
-    QByteArray      buffer;
-    QPixmap         mimePix;
-    KPixmapSequence progressPix;
-    int             progressCount;
-    QTimer*         progressTimer;
+    QPushButton*           bAdd;
+    QPushButton*           bAddAll;
+    QPushButton*           bReplace;
+    QPushButton*           bReplaceAll;
+    QUrl                   src;
+    QUrl                   dest;
+    Interface*             iface;
+    QLabel*                lbSrc;
+    QLabel*                lbDest;
+    QByteArray             buffer;
+    QNetworkAccessManager* netMngr;
+    QPixmap                mimePix;
+    KPWorkingPixmap        progressPix;
+    int                    progressCount;
+    QTimer*                progressTimer;
+    int                    result;
 };
 
-ReplaceDialog::ReplaceDialog(QWidget* const parent, const QString& _caption,
-                                               Interface* const _iface, const KUrl& _src, const KUrl& _dest)
-                      : QDialog(parent), d(new Private)
+ReplaceDialog::ReplaceDialog(QWidget* const parent,
+                             const QString& _caption,
+                             Interface* const _iface,
+                             const QUrl& _src,
+                             const QUrl& _dest)
+    : QDialog(parent),
+      d(new Private)
 {
-    setObjectName("ReplaceDialog");
+    setObjectName(QString::fromLatin1("ReplaceDialog"));
 
     d->src   = _src;
     d->dest  = _dest;
@@ -88,86 +102,104 @@ ReplaceDialog::ReplaceDialog(QWidget* const parent, const QString& _caption,
 
     setWindowTitle(_caption);
 
-    d->bCancel = new KPushButton(KStandardGuiItem::cancel(), this);
-    connect(d->bCancel, SIGNAL(clicked()),
+    QDialogButtonBox* const buttonBox = new QDialogButtonBox();
+    buttonBox->addButton(QDialogButtonBox::Cancel);
+
+    connect(buttonBox->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
             this, SLOT(cancelPressed()));
 
-    d->bAdd = new KPushButton(i18n("&Add As New"), this);
+    d->bAdd = new QPushButton(buttonBox);
+    d->bAdd->setText(i18n("Add As New"));
     d->bAdd->setToolTip(i18n("Item will be added alongside the linked version."));
+
     connect(d->bAdd, SIGNAL(clicked()),
             this, SLOT(addPressed()));
 
-    d->bAddAll = new KPushButton(i18n("&Add All"), this);
+    d->bAddAll = new QPushButton(buttonBox);
+    d->bAddAll->setText(i18n("Add All"));
     d->bAddAll->setToolTip(i18n("Items will be added alongside the linked version. You will not be prompted again."));
+
     connect(d->bAddAll, SIGNAL(clicked()),
             this, SLOT(addAllPressed()));
 
-    d->bReplace = new KPushButton(i18n("&Replace"), this);
+    d->bReplace = new QPushButton(buttonBox);
+    d->bReplace->setText(i18n("Replace"));
     d->bReplace->setToolTip(i18n("Item will be replacing the linked version."));
+
     connect(d->bReplace, SIGNAL(clicked()),
             this, SLOT(replacePressed()));
 
-    d->bReplaceAll = new KPushButton(i18n("&Replace All"), this);
+    d->bReplaceAll = new QPushButton(buttonBox);
+    d->bReplaceAll->setText(i18n("Replace All"));
     d->bReplaceAll->setToolTip(i18n("Items will be replacing the linked version. You will not be prompted again."));
+
     connect(d->bReplaceAll, SIGNAL(clicked()),
             this, SLOT(replaceAllPressed()));
 
-    QVBoxLayout* const pLayout = new QVBoxLayout(this);
-    pLayout->addStrut(360);	// makes dlg at least that wide
+    buttonBox->addButton(d->bAdd,        QDialogButtonBox::AcceptRole);
+    buttonBox->addButton(d->bAddAll,     QDialogButtonBox::AcceptRole);
+    buttonBox->addButton(d->bReplace,    QDialogButtonBox::AcceptRole);
+    buttonBox->addButton(d->bReplaceAll, QDialogButtonBox::AcceptRole);
+
+    connect(buttonBox, SIGNAL(accepted()),
+            this, SLOT(accept()));
+
+    connect(buttonBox, SIGNAL(rejected()),
+            this, SLOT(reject()));
+
+    QVBoxLayout* const pLayout    = new QVBoxLayout(this);
+    pLayout->addStrut(360);                          // makes dlg at least that wide
 
     QGridLayout* const gridLayout = new QGridLayout();
     pLayout->addLayout(gridLayout);
 
-    QString sentence1 = i18n("A linked item already exists.");
-
-    QLabel* lb1 = new KSqueezedTextLabel(sentence1, this);
+    QLabel* const lb1             = new QLabel(this);
+    lb1->setText(i18n("A linked item already exists."));
     lb1->setAlignment(Qt::AlignHCenter);
     gridLayout->addWidget(lb1, 0, 0, 1, 3);
 
-    d->mimePix = KIO::pixmapForUrl(d->dest);
+    QMimeDatabase db;
+    QString icon = db.mimeTypeForUrl(d->dest).iconName();
+    d->mimePix = QIcon::fromTheme(icon).pixmap(48);
+
     d->lbDest  = new QLabel(this);
     d->lbDest->setPixmap(d->mimePix);
     d->lbDest->setAlignment(Qt::AlignCenter);
     gridLayout->addWidget(d->lbDest, 1, 0, 1, 1);
 
-    d->lbSrc = new QLabel(this);
-    d->lbSrc->setPixmap(KIO::pixmapForUrl(d->src));
+    d->lbSrc   = new QLabel(this);
+    icon = db.mimeTypeForUrl(d->src).iconName();
+    d->lbSrc->setPixmap(QIcon::fromTheme(icon).pixmap(48));
     d->lbSrc->setAlignment(Qt::AlignCenter);
     gridLayout->addWidget(d->lbSrc, 1, 2, 1, 1);
 
-    lb1 = new KSqueezedTextLabel(i18n("Destination"), this);
-    lb1->setAlignment(Qt::AlignHCenter);
-    gridLayout->addWidget(lb1, 2, 0, 1, 1);
+    QLabel* const lb2 = new QLabel(this);
+    lb2->setText(i18n("Destination"));
+    lb2->setAlignment(Qt::AlignHCenter);
+    gridLayout->addWidget(lb2, 2, 0, 1, 1);
 
-    lb1 = new KSqueezedTextLabel(i18n("Source"), this);
-    lb1->setAlignment(Qt::AlignHCenter);
-    gridLayout->addWidget(lb1, 2, 2, 1, 1);
+    QLabel* const lb3 = new QLabel(this);
+    lb3->setText(i18n("Source"));
+    lb3->setAlignment(Qt::AlignHCenter);
+    gridLayout->addWidget(lb3, 2, 2, 1, 1);
 
     QHBoxLayout* const layout2 = new QHBoxLayout();
     pLayout->addLayout(layout2);
 
-    KSeparator* const separator = new KSeparator(this);
-    pLayout->addWidget(separator);
+    QFrame* const hline = new QFrame(this);
+    hline->setLineWidth(1);
+    hline->setMidLineWidth(0);
+    hline->setFrameShape(QFrame::HLine);
+    hline->setFrameShadow(QFrame::Sunken);
+    hline->setMinimumSize(0, 2);
+    hline->updateGeometry();
+    pLayout->addWidget(hline);
 
     QHBoxLayout* const layout = new QHBoxLayout();
     pLayout->addLayout(layout);
 
     layout->addStretch(1);
-
-    layout->addWidget(d->bAdd);
-    setTabOrder(d->bAdd, d->bCancel);
-
-    layout->addWidget(d->bAddAll);
-    setTabOrder(d->bAddAll, d->bCancel);
-
-    layout->addWidget(d->bReplace);
-    setTabOrder(d->bReplace, d->bCancel);
-
-    layout->addWidget(d->bReplaceAll);
-    setTabOrder(d->bReplaceAll, d->bCancel);
-
-    d->bCancel->setDefault(true);
-    layout->addWidget(d->bCancel);
+    layout->addWidget(buttonBox);
 
     d->progressTimer = new QTimer(this);
 
@@ -179,10 +211,10 @@ ReplaceDialog::ReplaceDialog(QWidget* const parent, const QString& _caption,
     // get source thumbnail
     if (d->iface && d->src.isValid())
     {
-        connect(d->iface, SIGNAL(gotThumbnail(KUrl,QPixmap)),
-                this, SLOT(slotThumbnail(KUrl,QPixmap)));
+        connect(d->iface, SIGNAL(gotThumbnail(QUrl, QPixmap)),
+                this, SLOT(slotThumbnail(QUrl, QPixmap)));
 
-        d->iface->thumbnail(d->src, KIconLoader::SizeLarge);
+        d->iface->thumbnail(d->src, 48);
     }
 
     // get dest thumbnail
@@ -190,46 +222,44 @@ ReplaceDialog::ReplaceDialog(QWidget* const parent, const QString& _caption,
 
     if (d->dest.isValid())
     {
-        KIO::TransferJob* const job = KIO::get(d->dest, KIO::NoReload, KIO::HideProgressInfo);
-        job->addMetaData("content-type", "Content-Type: application/x-www-form-urlencoded" );
+        d->netMngr = new QNetworkAccessManager(this);
 
-        connect(job, SIGNAL(data(KIO::Job*,QByteArray)),
-                this, SLOT(slotData(KIO::Job*,QByteArray)));
+        connect(d->netMngr, SIGNAL(finished(QNetworkReply*)),
+                this, SLOT(slotFinished(QNetworkReply*)));
 
-        connect(job, SIGNAL(result(KJob*)),
-                this, SLOT(slotResult(KJob*)));
+        QNetworkRequest netRequest(d->dest);
+        netRequest.setHeader(QNetworkRequest::ContentTypeHeader,
+                             QLatin1String("application/x-www-form-urlencoded"));
+
+        d->netMngr->get(netRequest);
     }
 
     resize(sizeHint());
 }
 
-void ReplaceDialog::slotResult(KJob *job)
+void ReplaceDialog::slotFinished(QNetworkReply* reply)
 {
     d->progressTimer->stop();
 
-    if (job->error() || static_cast<KIO::TransferJob*>(job)->isErrorPage())
+    if (reply->error() != QNetworkReply::NoError)
     {
+        reply->deleteLater();
         return;
     }
+
+    d->buffer.append(reply->readAll());
+
     if (!d->buffer.isEmpty())
     {
         QPixmap pxm;
         pxm.loadFromData(d->buffer);
         d->lbDest->setPixmap(pxm.scaled(200, 200, Qt::KeepAspectRatio, Qt::FastTransformation));
     }
+
+    reply->deleteLater();
 }
 
-void ReplaceDialog::slotData(KIO::Job* /*job*/, const QByteArray& data)
-{
-    if (data.isEmpty())
-        return;
-
-    int oldSize = d->buffer.size();
-    d->buffer.resize(d->buffer.size() + data.size());
-    memcpy(d->buffer.data()+oldSize, data.data(), data.size());
-}
-
-void ReplaceDialog::slotThumbnail(const KUrl& url, const QPixmap& pix)
+void ReplaceDialog::slotThumbnail(const QUrl& url, const QPixmap& pix)
 {
     if (url == d->src)
     {
@@ -244,27 +274,32 @@ ReplaceDialog::~ReplaceDialog()
 
 void ReplaceDialog::cancelPressed()
 {
-    done(PWR_CANCEL);
+    close();
+    d->result = PWR_CANCEL;
 }
 
 void ReplaceDialog::addPressed()
 {
-    done(PWR_ADD);
+    close();
+    d->result = PWR_ADD;
 }
 
 void ReplaceDialog::addAllPressed()
 {
-    done(PWR_ADD_ALL);
+    close();
+    d->result = PWR_ADD_ALL;
 }
 
 void ReplaceDialog::replacePressed()
 {
-    done(PWR_REPLACE);
+    close();
+    d->result = PWR_REPLACE;
 }
 
 void ReplaceDialog::replaceAllPressed()
 {
-    done(PWR_REPLACE_ALL);
+    close();
+    d->result = PWR_REPLACE_ALL;
 }
 
 QPixmap ReplaceDialog::setProgressAnimation(const QPixmap& thumb, const QPixmap& pix)
@@ -287,6 +322,11 @@ void ReplaceDialog::slotProgressTimerDone()
         d->progressCount = 0;
 
     d->progressTimer->start(300);
+}
+
+int ReplaceDialog::getResult()
+{
+    return d->result;
 }
 
 } // namespace KIPIGoogleServicesPlugin

@@ -6,7 +6,7 @@
  * Date        : 2008-08-11
  * Description : Raw import settings box
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,7 +20,7 @@
  *
  * ============================================================ */
 
-#include "rawsettingsbox.moc"
+#include "rawsettingsbox.h"
 
 // Qt includes
 
@@ -31,28 +31,19 @@
 #include <QString>
 #include <QToolBox>
 #include <QToolButton>
+#include <QIcon>
+#include <QTabWidget>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kfiledialog.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <ktabwidget.h>
-#include <kvbox.h>
-#include <kdebug.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/dcrawsettingswidget.h>
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/version.h>
-#include <libkdcraw/rexpanderbox.h>
+#include <ksharedconfig.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
+#include "dexpanderbox.h"
+#include "dnuminput.h"
 #include "colorgradientwidget.h"
 #include "curveswidget.h"
 #include "histogrambox.h"
@@ -61,9 +52,11 @@
 #include "imagecurves.h"
 #include "imagedialog.h"
 #include "imagehistogram.h"
-#include "globals.h"
+#include "digikam_globals.h"
+#include "digikam_debug.h"
+#include "drawdecoderwidget.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
@@ -82,17 +75,17 @@ public:
 public:
 
     Private() :
-        optionGroupName("RAW Import Settings"),
-        optionHistogramChannelEntry("Histogram Channel"),
-        optionHistogramScaleEntry("Histogram Scale"),
-        optionBrightnessEntry("Brightness"),
-        optionContrastEntry("Contrast"),
-        optionGammaEntry("Gamma"),
-        optionSaturationEntry("Saturation"),
-        optionMainExposureEntry("MainExposure"),
-        optionCurvePrefix("RawCurve"),
-        optionSettingsPageEntry("Settings Page"),
-        optionDecodingSettingsTabEntry("Decoding Settings Tab")
+        optionGroupName(QLatin1String("RAW Import Settings")),
+        optionHistogramChannelEntry(QLatin1String("Histogram Channel")),
+        optionHistogramScaleEntry(QLatin1String("Histogram Scale")),
+        optionBrightnessEntry(QLatin1String("Brightness")),
+        optionContrastEntry(QLatin1String("Contrast")),
+        optionGammaEntry(QLatin1String("Gamma")),
+        optionSaturationEntry(QLatin1String("Saturation")),
+        optionMainExposureEntry(QLatin1String("MainExposure")),
+        optionCurvePrefix(QLatin1String("RawCurve")),
+        optionSettingsPageEntry(QLatin1String("Settings Page")),
+        optionDecodingSettingsTabEntry(QLatin1String("Decoding Settings Tab"))
     {
         infoBox                = 0;
         advExposureBox         = 0;
@@ -143,25 +136,25 @@ public:
     QPushButton*         updateBtn;
     QPushButton*         resetCurveBtn;
 
-    KTabWidget*          tabView;
+    QTabWidget*          tabView;
 
     CurvesWidget*        curveWidget;
 
     ImageDialogPreview*  infoBox;
 
-    RExpanderBox*        postProcessSettingsBox;
+    DExpanderBox*        postProcessSettingsBox;
 
-    RIntNumInput*        contrastInput;
-    RIntNumInput*        brightnessInput;
+    DIntNumInput*        contrastInput;
+    DIntNumInput*        brightnessInput;
 
-    RDoubleNumInput*     gammaInput;
-    RDoubleNumInput*     saturationInput;
-    RDoubleNumInput*     mainExposureInput;
+    DDoubleNumInput*     gammaInput;
+    DDoubleNumInput*     saturationInput;
+    DDoubleNumInput*     mainExposureInput;
 
-    DcrawSettingsWidget* decodingSettingsBox;
+    DRawDecoderWidget* decodingSettingsBox;
 };
 
-RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
+RawSettingsBox::RawSettingsBox(const QUrl& url, QWidget* const parent)
     : EditorToolSettings(parent), d(new Private)
 {
     setButtons(Default | Ok | Cancel);
@@ -169,15 +162,15 @@ RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
     setHistogramType(LRGBC);
 
     QGridLayout* const gridSettings = new QGridLayout(plainPage());
-    d->tabView                      = new KTabWidget(plainPage());
+    d->tabView                      = new QTabWidget(plainPage());
 
     // - RAW Decoding view --------------------------------------------------------------
 
     d->rawdecodingBox               = new QWidget(d->tabView);
     QGridLayout* const rawGrid      = new QGridLayout(d->rawdecodingBox);
-    d->decodingSettingsBox          = new DcrawSettingsWidget(d->rawdecodingBox,
-                                                     DcrawSettingsWidget::SIXTEENBITS | DcrawSettingsWidget::COLORSPACE);
-    d->decodingSettingsBox->setObjectName("RawSettingsBox Expander");
+    d->decodingSettingsBox          = new DRawDecoderWidget(d->rawdecodingBox,
+                                                              DRawDecoderWidget::SIXTEENBITS | DRawDecoderWidget::COLORSPACE);
+    d->decodingSettingsBox->setObjectName(QLatin1String("RawSettingsBox Expander"));
 
     // Note: do not touch the url edit's fileDialog() here.
     // This creates the file dialog, which involved an event loop, which is evil.
@@ -185,66 +178,66 @@ RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
 
     d->abortBtn  = new QPushButton(d->rawdecodingBox);
     d->abortBtn->setText(i18n("Abort"));
-    d->abortBtn->setIcon(SmallIcon("dialog-cancel"));
+    d->abortBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-cancel")));
     d->abortBtn->setEnabled(false);
     d->abortBtn->setToolTip(i18n("Abort the current Raw image preview."));
 
     d->updateBtn = new QPushButton(d->rawdecodingBox);
     d->updateBtn->setText(i18n("Update"));
-    d->updateBtn->setIcon(SmallIcon("view-refresh"));
+    d->updateBtn->setIcon(QIcon::fromTheme(QLatin1String("view-refresh")));
     d->updateBtn->setEnabled(false);
     d->updateBtn->setToolTip(i18n("Generate a Raw image preview using current settings."));
+
+    const int spacing = spacingHint();
 
     rawGrid->addWidget(d->decodingSettingsBox, 0, 0, 1, 3);
     rawGrid->addWidget(d->abortBtn,            1, 0, 1, 1);
     rawGrid->addWidget(d->updateBtn,           1, 2, 1, 1);
     rawGrid->setColumnStretch(1, 10);
-    rawGrid->setSpacing(spacingHint());
-    rawGrid->setMargin(spacingHint());
+    rawGrid->setContentsMargins(spacing, spacing, spacing, spacing);
+    rawGrid->setSpacing(spacing);
 
     // - Post-processing view --------------------------------------------------------------
 
-    d->postProcessSettingsBox            = new RExpanderBox(d->tabView);
-    d->postProcessSettingsBox->setObjectName("PostProcessingSettingsBox Expander");
+    d->postProcessSettingsBox            = new DExpanderBox(d->tabView);
+    d->postProcessSettingsBox->setObjectName(QLatin1String("PostProcessingSettingsBox Expander"));
 
     d->advExposureBox                    = new QWidget(d->postProcessSettingsBox);
     QGridLayout* const advExposureLayout = new QGridLayout(d->advExposureBox);
 
     d->brightnessLabel = new QLabel(i18n("Brightness:"), d->advExposureBox);
-    d->brightnessInput = new RIntNumInput(d->advExposureBox);
+    d->brightnessInput = new DIntNumInput(d->advExposureBox);
     d->brightnessInput->setRange(-100, 100, 1);
     d->brightnessInput->setDefaultValue(0);
-    d->brightnessInput->setSliderEnabled(true);
-    d->brightnessInput->input()->setWhatsThis(i18n("Set here the brightness adjustment of the image."));
+    d->brightnessInput->setWhatsThis(i18n("Set here the brightness adjustment of the image."));
 
     d->contrastLabel = new QLabel(i18n("Contrast:"), d->advExposureBox);
-    d->contrastInput = new RIntNumInput(d->advExposureBox);
+    d->contrastInput = new DIntNumInput(d->advExposureBox);
     d->contrastInput->setRange(-100, 100, 1);
     d->contrastInput->setDefaultValue(0);
-    d->contrastInput->setSliderEnabled(true);
-    d->contrastInput->input()->setWhatsThis(i18n("Set here the contrast adjustment of the image."));
+    d->contrastInput->setWhatsThis(i18n("Set here the contrast adjustment of the image."));
 
     d->gammaLabel = new QLabel(i18n("Gamma:"), d->advExposureBox);
-    d->gammaInput = new RDoubleNumInput(d->advExposureBox);
+    d->gammaInput = new DDoubleNumInput(d->advExposureBox);
     d->gammaInput->setDecimals(2);
     d->gammaInput->setRange(0.1, 3.0, 0.01);
     d->gammaInput->setDefaultValue(1.0);
-    d->gammaInput->input()->setWhatsThis(i18n("Set here the gamma adjustment of the image"));
+    d->gammaInput->setWhatsThis(i18n("Set here the gamma adjustment of the image"));
 
     d->saturationLabel = new QLabel(i18n("Saturation:"), d->advExposureBox);
-    d->saturationInput = new RDoubleNumInput(d->advExposureBox);
+    d->saturationInput = new DDoubleNumInput(d->advExposureBox);
     d->saturationInput->setDecimals(2);
     d->saturationInput->setRange(0.0, 2.0, 0.01);
     d->saturationInput->setDefaultValue(1.0);
-    d->saturationInput->input()->setWhatsThis(i18n("Set here the color saturation correction."));
+    d->saturationInput->setWhatsThis(i18n("Set here the color saturation correction."));
 
     d->fineExposureLabel = new QLabel(i18n("Exposure (E.V):"), d->advExposureBox);
-    d->mainExposureInput = new RDoubleNumInput(d->advExposureBox);
+    d->mainExposureInput = new DDoubleNumInput(d->advExposureBox);
     d->mainExposureInput->setDecimals(2);
     d->mainExposureInput->setRange(-3.0, 3.0, 0.1);
     d->mainExposureInput->setDefaultValue(0.0);
-    d->mainExposureInput->input()->setWhatsThis(i18n("This value in E.V will be used to perform "
-                                                     "an exposure compensation of the image."));
+    d->mainExposureInput->setWhatsThis(i18n("This value in E.V will be used to perform "
+                                            "an exposure compensation of the image."));
 
     advExposureLayout->addWidget(d->brightnessLabel,   0, 0, 1, 1);
     advExposureLayout->addWidget(d->brightnessInput,   0, 1, 1, 2);
@@ -257,8 +250,8 @@ RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
     advExposureLayout->addWidget(d->fineExposureLabel, 4, 0, 1, 1);
     advExposureLayout->addWidget(d->mainExposureInput, 4, 1, 1, 2);
     advExposureLayout->setRowStretch(5, 10);
+    advExposureLayout->setContentsMargins(spacing, spacing, spacing, spacing);
     advExposureLayout->setSpacing(0);
-    advExposureLayout->setMargin(spacingHint());
 
     // ---------------------------------------------------------------
 
@@ -275,7 +268,7 @@ RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
     d->curveWidget->setWhatsThis(i18n("This is the curve adjustment of the image luminosity"));
 
     d->resetCurveBtn   = new QPushButton(i18n("Reset"), d->curveBox);
-    d->resetCurveBtn->setIcon(SmallIcon("document-revert"));
+    d->resetCurveBtn->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     d->resetCurveBtn->setToolTip(i18n("Reset curve to linear"));
 
     QLabel* const spaceh                 = new QLabel(d->curveBox);
@@ -292,28 +285,28 @@ RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
     curveLayout->addWidget(d->resetCurveBtn,      3, 3, 1, 1);
     curveLayout->setRowStretch(4, 10);
     curveLayout->setColumnStretch(2, 10);
+    curveLayout->setContentsMargins(spacing, spacing, spacing, spacing);
     curveLayout->setSpacing(0);
-    curveLayout->setMargin(spacingHint());
 
     // ---------------------------------------------------------------
 
-    d->postProcessSettingsBox->addItem(d->advExposureBox, i18n("Exposure"),         QString("exposure"), true);
-    d->postProcessSettingsBox->addItem(d->curveBox,       i18n("Luminosity Curve"), QString("luminositycurve"), false);
-    d->postProcessSettingsBox->setItemIcon(0, SmallIcon("contrast"));
-    d->postProcessSettingsBox->setItemIcon(1, SmallIcon("adjustcurves"));
+    d->postProcessSettingsBox->addItem(d->advExposureBox, i18n("Exposure"),         QLatin1String("exposure"), true);
+    d->postProcessSettingsBox->addItem(d->curveBox,       i18n("Luminosity Curve"), QLatin1String("luminositycurve"), false);
+    d->postProcessSettingsBox->setItemIcon(0, QIcon::fromTheme(QLatin1String("contrast")));
+    d->postProcessSettingsBox->setItemIcon(1, QIcon::fromTheme(QLatin1String("adjustcurves")));
     d->postProcessSettingsBox->addStretch();
 
     // - Image info view --------------------------------------------------------------
 
     d->infoBox = new ImageDialogPreview(d->postProcessSettingsBox);
-    d->infoBox->showPreview(url);
+    d->infoBox->slotShowPreview(url);
 
     // ---------------------------------------------------------------
 
-    d->decodingSettingsBox->setItemIcon(DcrawSettingsWidget::DEMOSAICING,     SmallIcon("kdcraw"));
-    d->decodingSettingsBox->setItemIcon(DcrawSettingsWidget::WHITEBALANCE,    SmallIcon("whitebalance"));
-    d->decodingSettingsBox->setItemIcon(DcrawSettingsWidget::CORRECTIONS,     SmallIcon("lensdistortion"));
-    d->decodingSettingsBox->setItemIcon(DcrawSettingsWidget::COLORMANAGEMENT, SmallIcon("colormanagement"));
+    d->decodingSettingsBox->setItemIcon(DRawDecoderWidget::DEMOSAICING,     QIcon::fromTheme(QLatin1String("image-x-adobe-dng")));
+    d->decodingSettingsBox->setItemIcon(DRawDecoderWidget::WHITEBALANCE,    QIcon::fromTheme(QLatin1String("bordertool")));
+    d->decodingSettingsBox->setItemIcon(DRawDecoderWidget::CORRECTIONS,     QIcon::fromTheme(QLatin1String("zoom-draw")));
+    d->decodingSettingsBox->setItemIcon(DRawDecoderWidget::COLORMANAGEMENT, QIcon::fromTheme(QLatin1String("preferences-desktop-display-color")));
     d->decodingSettingsBox->updateMinimumWidth();
 
     d->tabView->insertTab(0, d->rawdecodingBox,         i18n("Raw Decoding"));
@@ -323,23 +316,23 @@ RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
     // ---------------------------------------------------------------
 
     button(Default)->setText(i18n("Reset"));
-    button(Default)->setIcon(KIcon(SmallIcon("document-revert")));
+    button(Default)->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     button(Default)->setToolTip(i18n("Reset all settings to default values."));
 
     button(Ok)->setText(i18n("Import"));
-    button(Ok)->setIcon(KIcon(SmallIcon("dialog-ok")));
+    button(Ok)->setIcon(QIcon::fromTheme(QLatin1String("dialog-ok-apply")));
     button(Ok)->setToolTip(i18n("Import image to editor using current settings."));
 
     button(Cancel)->setText(i18n("Use Default"));
-    button(Cancel)->setIcon(KIcon(SmallIcon("go-home")));
+    button(Cancel)->setIcon(QIcon::fromTheme(QLatin1String("go-home")));
     button(Cancel)->setToolTip(i18n("Use general Raw decoding settings to load this image in editor."));
 
     // ---------------------------------------------------------------
 
     gridSettings->addWidget(d->tabView, 0, 0, 1, 5);
     gridSettings->setColumnStretch(2, 10);
-    gridSettings->setSpacing(spacingHint());
-    gridSettings->setMargin(0);
+    gridSettings->setContentsMargins(QMargins());
+    gridSettings->setSpacing(spacing);
 
     // ---------------------------------------------------------------
 
@@ -373,11 +366,11 @@ RawSettingsBox::RawSettingsBox(const KUrl& url, QWidget* const parent)
     connect(d->mainExposureInput, SIGNAL(valueChanged(double)),
             this, SIGNAL(signalPostProcessingChanged()));
 
-    connect(d->decodingSettingsBox->inputProfileUrlEdit(), SIGNAL(openFileDialog(KUrlRequester*)),
-            this, SLOT(slotFileDialogAboutToOpen(KUrlRequester*)));
+    connect(d->decodingSettingsBox->inputProfileUrlEdit(), SIGNAL(signalOpenFileDialog()),
+            this, SLOT(slotFileDialogAboutToOpen()));
 
-    connect(d->decodingSettingsBox->outputProfileUrlEdit(), SIGNAL(openFileDialog(KUrlRequester*)),
-            this, SLOT(slotFileDialogAboutToOpen(KUrlRequester*)));
+    connect(d->decodingSettingsBox->outputProfileUrlEdit(), SIGNAL(signalOpenFileDialog()),
+            this, SLOT(slotFileDialogAboutToOpen()));
 }
 
 RawSettingsBox::~RawSettingsBox()
@@ -443,7 +436,7 @@ CurvesWidget* RawSettingsBox::curvesWidget() const
 
 void RawSettingsBox::readSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(d->optionGroupName);
 
     histogramBox()->setChannel((ChannelType)group.readEntry(d->optionHistogramChannelEntry,
@@ -465,16 +458,12 @@ void RawSettingsBox::readSettings()
 
     d->tabView->setCurrentIndex(group.readEntry(d->optionSettingsPageEntry, 0));
 
-#if KDCRAW_VERSION >= 0x020000
     d->postProcessSettingsBox->readSettings(group);
-#else
-    d->postProcessSettingsBox->readSettings();
-#endif
 }
 
 void RawSettingsBox::writeSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(d->optionGroupName);
 
     group.writeEntry(d->optionHistogramChannelEntry, (int)histogramBox()->channel());
@@ -492,11 +481,7 @@ void RawSettingsBox::writeSettings()
 
     group.writeEntry(d->optionSettingsPageEntry, d->tabView->currentIndex());
 
-#if KDCRAW_VERSION >= 0x020000
     d->postProcessSettingsBox->writeSettings(group);
-#else
-    d->postProcessSettingsBox->writeSettings();
-#endif
 
     group.sync();
 }
@@ -506,7 +491,7 @@ DRawDecoding RawSettingsBox::settings() const
     DRawDecoding settings(d->decodingSettingsBox->settings());
 
     settings.bcg.brightness    = (double)d->brightnessInput->value() / 250.0;
-    settings.bcg.contrast      = (double)(d->contrastInput->value() / 100.0) + 1.00;
+    settings.bcg.contrast      = (double)(d->contrastInput->value()  / 100.0) + 1.00;
     settings.bcg.gamma         = d->gammaInput->value();
     settings.wb.saturation     = d->saturationInput->value();
     settings.wb.expositionMain = d->mainExposureInput->value();
@@ -520,9 +505,10 @@ DRawDecoding RawSettingsBox::settings() const
     return settings;
 }
 
-void RawSettingsBox::slotFileDialogAboutToOpen(KUrlRequester* requester)
+void RawSettingsBox::slotFileDialogAboutToOpen()
 {
-    requester->fileDialog()->setPreviewWidget(new ICCPreviewWidget(requester));
+    //TODO : port to Qt5
+    //requester->fileDialog()->setPreviewWidget(new ICCPreviewWidget(requester));
 }
 
 } // namespace Digikam

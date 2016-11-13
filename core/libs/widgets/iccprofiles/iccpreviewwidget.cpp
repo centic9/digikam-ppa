@@ -8,7 +8,7 @@
  *               in file dialog preview.
  *
  * Copyright (C) 2006-2007 by Francisco J. Cruz <fj dot cruz at supercable dot es>
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,63 +23,53 @@
  *
  * ============================================================ */
 
-#include "iccpreviewwidget.moc"
+#include "iccpreviewwidget.h"
 
 // Qt includes
 
 #include <QFileInfo>
-#include <QGroupBox>
-#include <QVBoxLayout>
-#include <QFrame>
 #include <QScrollArea>
-
-// KDE includes
-
-#include <kurl.h>
-#include <kdebug.h>
+#include <QUrl>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "iccprofilewidget.h"
 
 namespace Digikam
 {
 
 ICCPreviewWidget::ICCPreviewWidget(QWidget* const parent)
-    : KPreviewWidgetBase( parent )
+    : QScrollArea(parent)
 {
-    QVBoxLayout* const mainLayout = new QVBoxLayout;
-    QScrollArea* const scrollArea = new QScrollArea;
-    m_iccProfileWidget            = new ICCProfileWidget(this);
-
-    scrollArea->setWidget(m_iccProfileWidget);
-    mainLayout->addWidget(scrollArea);
-    setLayout(mainLayout);
+    m_iccProfileWidget = new ICCProfileWidget(this);
+    setWidget(m_iccProfileWidget);
+    setWidgetResizable(true);
 }
 
 ICCPreviewWidget::~ICCPreviewWidget()
 {
 }
 
-void ICCPreviewWidget::showPreview( const KUrl& url)
+void ICCPreviewWidget::slotShowPreview(const QUrl& url)
 {
-    clearPreview();
+    slotClearPreview();
     QFileInfo fInfo(url.toLocalFile());
 
     if ( url.isLocalFile() && fInfo.isFile() && fInfo.isReadable() )
     {
-        kDebug() << url << " is a readable local file";
+        qCDebug(DIGIKAM_WIDGETS_LOG) << url << " is a readable local file";
         m_iccProfileWidget->loadFromURL(url);
     }
     else
     {
-        kDebug() << url << " is not a readable local file";
+        qCDebug(DIGIKAM_WIDGETS_LOG) << url << " is not a readable local file";
     }
 }
 
-void ICCPreviewWidget::clearPreview()
+void ICCPreviewWidget::slotClearPreview()
 {
-    m_iccProfileWidget->loadFromURL(KUrl());
+    m_iccProfileWidget->loadFromURL(QUrl());
 }
 
 } // namespace Digikam

@@ -1,227 +1,130 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 # Federico Zenith <federico.zenith@member.fsf.org>, 2013, 2014, 2015.
+# Paolo Zamponi <zapaolo@email.it>, 2016.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-20 01:52+0000\n"
-"PO-Revision-Date: 2015-09-03 16:18+0200\n"
-"Last-Translator: Federico Zenith <zenith.federico@gmail.com>\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-09-19 00:46+0100\n"
+"Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Federico Zenith"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "federico.zenith@member.fsf.org"
-
-#: dbalbum.cpp:46
-msgid "Dropbox New Folder"
-msgstr "Nuova cartella di Dropbox"
-
-#: dbalbum.cpp:59
-msgid "The name of the folder that will be created"
-msgstr "Il nome della cartella da creare"
-
-#: dbalbum.cpp:63
-msgctxt "album edit"
-msgid "Title:"
-msgstr "Titolo:"
-
-#: dbtalker.cpp:173
+#: dbtalker.cpp:184
 msgid "Authorize Dropbox"
 msgstr "Autorizza Dropbox"
 
-#: dbtalker.cpp:180
+#: dbtalker.cpp:194
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
 msgstr ""
-"Segui le istruzioni nella finestra del browser. Dopo aver effettuato "
-"l'accesso, premi «OK»."
+"Segui le istruzioni nella finestra del browser; dopo aver effettuato "
+"l'accesso premi «OK»."
 
-#: dbtalker.cpp:497
+#: dbtalker.cpp:422
+msgid "Error"
+msgstr "Errore"
+
+#: dbtalker.cpp:473
 msgid "Failed to upload photo"
-msgstr "Caricamento della foto non riuscito"
+msgstr "Invio della foto non riuscito"
 
-#: dbtalker.cpp:571
+#: dbtalker.cpp:534
 msgid "Failed to list folders"
-msgstr "Elenco delle cartelle non riuscito"
+msgstr "Impossibile elencare le cartelle"
 
-#: dbwidget.cpp:71
-msgid "This is the list of images to upload to your Dropbox account."
-msgstr "Questo è l'elenco di immagini da inviare all'account di Dropbox."
-
-#: dbwidget.cpp:77
-msgid "This is a clickable link to open Dropbox in a browser."
-msgstr "Questo è un collegamento per aprire Dropbox in un browser."
-
-#: dbwidget.cpp:83
-msgid "Account"
-msgstr "Account"
-
-#: dbwidget.cpp:84
-msgid "This is the Dropbox account that is currently logged in."
-msgstr "Questo è l'account di Dropbox con cui sei attualmente collegato."
-
-#: dbwidget.cpp:87
-msgctxt "account settings"
-msgid "Name:"
-msgstr "Nome:"
-
-#: dbwidget.cpp:90
-msgid "Change Account"
-msgstr "Cambia account"
-
-#: dbwidget.cpp:90
-msgid "Change Dropbox account for transfer"
-msgstr "Cambia l'account di Dropbox usato per il trasferimento"
-
-#: dbwidget.cpp:101
-msgid "Destination"
-msgstr "Destinazione"
-
-#: dbwidget.cpp:102
-msgid "This is the Dropbox folder to which selected photos will be uploaded."
-msgstr ""
-"Questo è la cartella di Dropbox alla quale saranno inviate le foto "
-"selezionate."
-
-#: dbwidget.cpp:105
-msgid "Folder:"
-msgstr "Cartella:"
-
-#: dbwidget.cpp:109
-msgid "New Folder"
-msgstr "Nuova cartella"
-
-#: dbwidget.cpp:110
-msgid "Create new Dropbox folder"
-msgstr "Crea nuova cartella di Dropbox"
-
-#: dbwidget.cpp:111
-msgctxt "album list"
-msgid "Reload"
-msgstr "Ricarica"
-
-#: dbwidget.cpp:112
-msgid "Reload album list"
-msgstr "Ricarica l'elenco degli album"
-
-#: dbwidget.cpp:121
-msgid "Options"
-msgstr "Opzioni"
-
-#: dbwidget.cpp:122
-msgid "These are the options that would be applied to photos before upload."
-msgstr ""
-"Queste sono le opzioni che sarebbero applicate alle foto prima del "
-"caricamento."
-
-#: dbwidget.cpp:126
-msgid "Resize photos before uploading"
-msgstr "Ridimensiona foto prima di caricarle"
-
-#: dbwidget.cpp:137
-msgid "Maximum Dimension:"
-msgstr "Dimensione massima:"
-
-#: dbwidget.cpp:146
-msgid "JPEG Quality:"
-msgstr "Qualità JPEG:"
-
-#: dbwindow.cpp:88
+#: dbwindow.cpp:79
 msgid "Export to Dropbox"
-msgstr "Esporta a Dropbox"
+msgstr "Esporta su Dropbox"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:81
 msgid "Start Upload"
-msgstr "Avvia caricamento"
+msgstr "Inizia l'invio"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:82
 msgid "Start upload to Dropbox"
-msgstr "Avvia caricamento su Dropbox"
+msgstr "Inizia l'invio su Dropbox"
 
-#: dbwindow.cpp:107
+#: dbwindow.cpp:101
 msgid "Dropbox Export"
-msgstr "Esportazione a Dropbox"
+msgstr "Esportazione su Dropbox"
 
-#: dbwindow.cpp:109
-msgid "A Kipi-plugin to export images to Dropbox"
-msgstr "Un'estensione di Kipi per esportare immagini su Dropbox"
+#: dbwindow.cpp:102
+msgid "A tool to export images to Dropbox"
+msgstr "Uno strumento per esportare le immagini su Dropbox"
 
-#: dbwindow.cpp:111
-msgid ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
-msgstr ""
-"© 2013 di Saurabh Patel\n"
-"© 2015 di Shourya Singh Gupta"
+#: dbwindow.cpp:104
+msgid "(c) 2013, Saurabh Patel"
+msgstr "© 2013 di Saurabh Patel"
 
-#: dbwindow.cpp:114
+#: dbwindow.cpp:106
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
-msgid "Author and maintainer"
-msgstr "Autore e responsabile"
+#: dbwindow.cpp:107
+msgid "Author"
+msgstr "Autore"
 
-#: dbwindow.cpp:116
-msgid "Shourya Singh Gupta"
-msgstr "Shourya Singh Gupta"
-
-#: dbwindow.cpp:116
-msgid "Developer"
-msgstr "Sviluppatore"
-
-#: dbwindow.cpp:282
+#: dbwindow.cpp:281
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
 "to authenticate again."
 msgstr ""
 "Questa casella di testo è vuota; inserisci qui il codice dal browser. Per "
-"completare l'autenticazione fai clic su «Cambia account», o «Avvia "
-"caricamento» per autenticarti di nuovo."
+"completare l'autenticazione, fai clic su «Cambia account» o su «Inizia "
+"l'invio» per autenticarti di nuovo."
+
+#: dbwindow.cpp:293
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Errore"
 
 #: dbwindow.cpp:294
 msgid "No image selected. Please select which images should be uploaded."
-msgstr "Nessuna immagine selezionata. Seleziona le immagini da caricare."
+msgstr "Nessuna immagine selezionata. Seleziona le immagini da inviare."
 
-#: dbwindow.cpp:304 dbwindow.cpp:419
-msgid "Authentication failed. Click \"Continue\" to authenticate."
-msgstr "Autenticazione non riuscita. Fai clic su «Continua» per autenticarti."
+#: dbwindow.cpp:300 dbwindow.cpp:420
+msgid "Login Failed"
+msgstr "Accesso non riuscito"
 
-#: dbwindow.cpp:328
+#: dbwindow.cpp:301 dbwindow.cpp:421
+msgid "Authentication failed. Do you want to try again?"
+msgstr "Autenticazione non riuscita. Vuoi riprovare?"
+
+#: dbwindow.cpp:325
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: dbwindow.cpp:332
+#: dbwindow.cpp:329
 msgid "Dropbox export"
-msgstr "Esportazione a Dropbox"
+msgstr "Esportazione su Dropbox"
 
-#: dbwindow.cpp:364
+#: dbwindow.cpp:362
+msgid "Uploading Failed"
+msgstr "Invio non riuscito"
+
+#: dbwindow.cpp:363
 #, kde-format
 msgid ""
 "Failed to upload photo to Dropbox.\n"
 "%1\n"
 "Do you want to continue?"
 msgstr ""
-"Invio della foto Dropbox non riuscito.\n"
+"Invio della foto su Dropbox non riuscito.\n"
 "%1\n"
 "Vuoi continuare?"
 
-#: dbwindow.cpp:443 dbwindow.cpp:449
+#: dbwindow.cpp:445 dbwindow.cpp:450
 #, kde-format
 msgid ""
 "Dropbox call failed:\n"
@@ -238,8 +141,106 @@ msgstr "&Esporta"
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_dropboxui.rc:13
 msgid "Main Toolbar"
-msgstr "Barra principale"
+msgstr "Barra degli strumenti principale"
 
-#: plugin_dropbox.cpp:96
+#: plugin_dropbox.cpp:90
 msgid "Export to &Dropbox..."
-msgstr "Esporta a &Dropbox..."
+msgstr "Esporta su &Dropbox..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Federico Zenith"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "federico.zenith@member.fsf.org"
+
+#~ msgid "Dropbox New Folder"
+#~ msgstr "Nuova cartella di Dropbox"
+
+#~ msgid "The name of the folder that will be created"
+#~ msgstr "Il nome della cartella da creare"
+
+#~ msgctxt "album edit"
+#~ msgid "Title:"
+#~ msgstr "Titolo:"
+
+#~ msgid "This is the list of images to upload to your Dropbox account."
+#~ msgstr "Questo è l'elenco di immagini da inviare all'account di Dropbox."
+
+#~ msgid "This is a clickable link to open Dropbox in a browser."
+#~ msgstr "Questo è un collegamento per aprire Dropbox in un browser."
+
+#~ msgid "Account"
+#~ msgstr "Account"
+
+#~ msgid "This is the Dropbox account that is currently logged in."
+#~ msgstr "Questo è l'account di Dropbox con cui sei attualmente collegato."
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Nome:"
+
+#~ msgid "Change Account"
+#~ msgstr "Cambia account"
+
+#~ msgid "Change Dropbox account for transfer"
+#~ msgstr "Cambia l'account di Dropbox usato per il trasferimento"
+
+#~ msgid "Destination"
+#~ msgstr "Destinazione"
+
+#~ msgid ""
+#~ "This is the Dropbox folder to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Questo è la cartella di Dropbox alla quale saranno inviate le foto "
+#~ "selezionate."
+
+#~ msgid "Folder:"
+#~ msgstr "Cartella:"
+
+#~ msgid "New Folder"
+#~ msgstr "Nuova cartella"
+
+#~ msgid "Create new Dropbox folder"
+#~ msgstr "Crea nuova cartella di Dropbox"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Ricarica"
+
+#~ msgid "Reload album list"
+#~ msgstr "Ricarica l'elenco degli album"
+
+#~ msgid "Options"
+#~ msgstr "Opzioni"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr ""
+#~ "Queste sono le opzioni che sarebbero applicate alle foto prima del "
+#~ "caricamento."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Ridimensiona foto prima di caricarle"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Dimensione massima:"
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "Qualità JPEG:"
+
+#~ msgid ""
+#~ "(c) 2013, Saurabh Patel\n"
+#~ "(c) 2015, Shourya Singh Gupta"
+#~ msgstr ""
+#~ "© 2013 di Saurabh Patel\n"
+#~ "© 2015 di Shourya Singh Gupta"
+
+#~ msgid "Author and maintainer"
+#~ msgstr "Autore e responsabile"
+
+#~ msgid "Shourya Singh Gupta"
+#~ msgstr "Shourya Singh Gupta"
+
+#~ msgid "Developer"
+#~ msgstr "Sviluppatore"

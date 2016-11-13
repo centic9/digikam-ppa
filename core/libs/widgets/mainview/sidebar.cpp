@@ -7,8 +7,9 @@
  * Description : a widget to manage sidebar in GUI.
  *
  * Copyright (C) 2005-2006 by Joern Ahrens <joern dot ahrens at kdemail dot net>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
+ * Copyright (C) 2001-2003 by Joseph Wenninger <jowenn at kde dot org>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,7 +24,9 @@
  *
  * ============================================================ */
 
-#include "sidebar.moc"
+#include "sidebar.h"
+
+#include <cmath>
 
 // Qt includes
 
@@ -35,31 +38,701 @@
 #include <QStackedWidget>
 #include <QTimer>
 #include <QHash>
+#include <QScrollArea>
+#include <QFrame>
+#include <QActionEvent>
+#include <QLayout>
+#include <QPainter>
+#include <QFontMetrics>
+#include <QStyle>
+#include <QStyleOptionButton>
 
-// KDE includes
+// Local includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kconfiggroup.h>
-#include <kdeversion.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
+
+class DMultiTabBarFrame::Private
+{
+public:
+
+    QBoxLayout*             mainLayout;
+    QList<DMultiTabBarTab*> tabs;
+    Qt::Edge                position;
+    DMultiTabBar::TextStyle style;
+};
+
+DMultiTabBarFrame::DMultiTabBarFrame(QWidget* const parent, Qt::Edge pos)
+    : QFrame(parent),
+      d(new Private)
+{
+    d->position = pos;
+
+    if (pos == Qt::LeftEdge || pos == Qt::RightEdge)
+        d->mainLayout = new QVBoxLayout(this);
+    else
+        d->mainLayout = new QHBoxLayout(this);
+
+    d->mainLayout->setContentsMargins(QMargins());
+    d->mainLayout->setSpacing(0);
+    d->mainLayout->addStretch();
+    setFrameStyle(NoFrame);
+    setBackgroundRole(QPalette::Background);
+}
+
+DMultiTabBarFrame::~DMultiTabBarFrame()
+{
+    qDeleteAll(d->tabs);
+    d->tabs.clear();
+    delete d;
+}
+
+void DMultiTabBarFrame::setStyle(DMultiTabBar::TextStyle style)
+{
+    d->style = style;
+
+    for (int i = 0 ; i < d->tabs.count() ; i++)
+        d->tabs.at(i)->setStyle(d->style);
+
+    updateGeometry();
+}
+
+void DMultiTabBarFrame::contentsMousePressEvent(QMouseEvent* e)
+{
+    e->ignore();
+}
+
+void DMultiTabBarFrame::mousePressEvent(QMouseEvent* e)
+{
+    e->ignore();
+}
+
+DMultiTabBarTab* DMultiTabBarFrame::tab(int id) const
+{
+    QListIterator<DMultiTabBarTab*> it(d->tabs);
+
+    while (it.hasNext())
+    {
+        DMultiTabBarTab* const tab = it.next();
+
+        if (tab->id() == id)
+            return tab;
+    }
+
+    return 0;
+}
+
+int DMultiTabBarFrame::appendTab(const QPixmap& pic, int id, const QString& text)
+{
+    DMultiTabBarTab* const tab = new DMultiTabBarTab(pic, text, id, this, d->position, d->style);
+    d->tabs.append(tab);
+
+    // Insert before the stretch.
+    d->mainLayout->insertWidget(d->tabs.size()-1, tab);
+    tab->show();
+    return 0;
+}
+
+void DMultiTabBarFrame::removeTab(int id)
+{
+    for (int pos = 0 ; pos < d->tabs.count() ; pos++)
+    {
+        if (d->tabs.at(pos)->id() == id)
+        {
+            // remove & delete the tab
+            delete d->tabs.takeAt(pos);
+            break;
+        }
+    }
+}
+
+void DMultiTabBarFrame::setPosition(Qt::Edge pos)
+{
+    d->position = pos;
+
+    for (int i = 0 ; i < d->tabs.count() ; i++)
+        d->tabs.at(i)->setPosition(d->position);
+
+    updateGeometry();
+}
+
+QList<DMultiTabBarTab*>* DMultiTabBarFrame::tabs()
+{
+    return &d->tabs;
+}
+
+// -------------------------------------------------------------------------------------
+
+DMultiTabBarButton::DMultiTabBarButton(const QPixmap& pic, const QString& text,
+                                       int id, QWidget* const parent)
+    : QPushButton(QIcon(pic), text, parent),
+      m_id(id)
+{
+    connect(this, SIGNAL(clicked()),
+            this, SLOT(slotClicked()));
+
+    // we can't see the focus, so don't take focus. #45557
+    // If keyboard navigation is wanted, then only the bar should take focus,
+    // and arrows could change the focused button; but generally, tabbars don't take focus anyway.
+    setFocusPolicy(Qt::NoFocus);
+    // See RB #128005
+    setAttribute(Qt::WA_LayoutUsesWidgetRect);
+}
+
+DMultiTabBarButton::~DMultiTabBarButton()
+{
+}
+
+void DMultiTabBarButton::setText(const QString& text)
+{
+    QPushButton::setText(text);
+}
+
+void DMultiTabBarButton::slotClicked()
+{
+    updateGeometry();
+    emit clicked(m_id);
+}
+
+int DMultiTabBarButton::id() const
+{
+    return m_id;
+}
+
+void DMultiTabBarButton::hideEvent(QHideEvent* e)
+{
+    QPushButton::hideEvent(e);
+    DMultiTabBar* const tb = dynamic_cast<DMultiTabBar*>(parentWidget());
+
+    if (tb)
+        tb->updateSeparator();
+}
+
+void DMultiTabBarButton::showEvent(QShowEvent* e)
+{
+    QPushButton::showEvent(e);
+    DMultiTabBar* const tb = dynamic_cast<DMultiTabBar*>(parentWidget());
+
+    if (tb)
+        tb->updateSeparator();
+}
+
+void DMultiTabBarButton::paintEvent(QPaintEvent*)
+{
+    QStyleOptionButton opt;
+    opt.initFrom(this);
+    opt.icon = icon();
+    opt.iconSize = iconSize();
+    // removes the QStyleOptionButton::HasMenu ButtonFeature
+    opt.features = QStyleOptionButton::Flat;
+    QPainter painter(this);
+    style()->drawControl(QStyle::CE_PushButton, &opt, &painter, this);
+}
+
+// -------------------------------------------------------------------------------------
+
+class DMultiTabBarTab::Private
+{
+public:
+
+    Qt::Edge                position;
+    DMultiTabBar::TextStyle style;
+};
+
+DMultiTabBarTab::DMultiTabBarTab(const QPixmap& pic, const QString& text,
+                                       int id, QWidget* const parent,
+                                       Qt::Edge pos,
+                                       DMultiTabBar::TextStyle style)
+    : DMultiTabBarButton(pic, text, id, parent),
+      d(new Private)
+{
+    d->style    = style;
+    d->position = pos;
+    setToolTip(text);
+    setCheckable(true);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+     // shrink down to icon only, but prefer to show text if it's there
+}
+
+DMultiTabBarTab::~DMultiTabBarTab()
+{
+    delete d;
+}
+
+void DMultiTabBarTab::setPosition(Qt::Edge pos)
+{
+    d->position = pos;
+    updateGeometry();
+}
+
+void DMultiTabBarTab::setStyle(DMultiTabBar::TextStyle style)
+{
+    d->style = style;
+    updateGeometry();
+}
+
+QPixmap DMultiTabBarTab::iconPixmap() const
+{
+    int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize, 0, this);
+    return icon().pixmap(iconSize);
+}
+
+void DMultiTabBarTab::initStyleOption(QStyleOptionToolButton* opt) const
+{
+    opt->initFrom(this);
+
+    // Setup icon..
+    if (!icon().isNull())
+    {
+        opt->iconSize = iconPixmap().size();
+        opt->icon     = icon();
+    }
+
+    // Should we draw text?
+    if (shouldDrawText())
+        opt->text = text();
+
+    if (underMouse())
+        opt->state |= QStyle::State_AutoRaise | QStyle::State_MouseOver | QStyle::State_Raised;
+
+    if (isChecked())
+        opt->state |= QStyle::State_Sunken | QStyle::State_On;
+
+    opt->font            = font();
+    opt->toolButtonStyle = shouldDrawText() ? Qt::ToolButtonTextBesideIcon : Qt::ToolButtonIconOnly;
+    opt->subControls     = QStyle::SC_ToolButton;
+}
+
+QSize DMultiTabBarTab::sizeHint() const
+{
+    return computeSizeHint(shouldDrawText());
+}
+
+QSize DMultiTabBarTab::minimumSizeHint() const
+{
+    return computeSizeHint(false);
+}
+
+void DMultiTabBarTab::computeMargins(int* hMargin, int* vMargin) const
+{
+    // Unfortunately, QStyle does not give us enough information to figure out
+    // where to place things, so we try to reverse-engineer it
+    QStyleOptionToolButton opt;
+    initStyleOption(&opt);
+
+    QPixmap iconPix  = iconPixmap();
+    QSize trialSize  = iconPix.size();
+    QSize expandSize = style()->sizeFromContents(QStyle::CT_ToolButton, &opt, trialSize, this);
+
+    *hMargin = (expandSize.width()  - trialSize.width())/2;
+    *vMargin = (expandSize.height() - trialSize.height())/2;
+}
+
+QSize DMultiTabBarTab::computeSizeHint(bool withText) const
+{
+    // Compute as horizontal first, then flip around if need be.
+    QStyleOptionToolButton opt;
+    initStyleOption(&opt);
+
+    int hMargin, vMargin;
+    computeMargins(&hMargin, &vMargin);
+
+    // Compute interior size, starting from pixmap..
+    QPixmap iconPix = iconPixmap();
+    QSize size = iconPix.size();
+
+    // Always include text height in computation, to avoid resizing the minor direction
+    // when expanding text..
+    QSize textSize = fontMetrics().size(0, text());
+    size.setHeight(qMax(size.height(), textSize.height()));
+
+    // Pick margins for major/minor direction, depending on orientation
+    int majorMargin = isVertical() ? vMargin : hMargin;
+    int minorMargin = isVertical() ? hMargin : vMargin;
+
+    size.setWidth (size.width()  + 2*majorMargin);
+    size.setHeight(size.height() + 2*minorMargin);
+
+    if (withText)
+    {
+        // Add enough room for the text, and an extra major margin.
+        size.setWidth(size.width() + textSize.width() + majorMargin);
+    }
+
+    if (isVertical())
+    {
+        return QSize(size.height(), size.width());
+    }
+
+    return size;
+}
+
+void DMultiTabBarTab::setState(bool newState)
+{
+    setChecked(newState);
+    updateGeometry();
+}
+
+void DMultiTabBarTab::setIcon(const QString& icon)
+{
+    const QIcon i      = QIcon::fromTheme(icon);
+    const int iconSize = style()->pixelMetric(QStyle::PM_SmallIconSize, 0, this);
+    setIcon(i.pixmap(iconSize));
+}
+
+void DMultiTabBarTab::setIcon(const QPixmap& icon)
+{
+    QPushButton::setIcon(icon);
+}
+
+bool DMultiTabBarTab::shouldDrawText() const
+{
+    return (d->style == DMultiTabBar::AllIconsText) || isChecked();
+}
+
+bool DMultiTabBarTab::isVertical() const
+{
+    return (d->position == Qt::RightEdge || d->position == Qt::LeftEdge);
+}
+
+void DMultiTabBarTab::paintEvent(QPaintEvent*)
+{
+    QPainter painter(this);
+
+    QStyleOptionToolButton opt;
+    initStyleOption(&opt);
+
+    // Paint bevel..
+    if (underMouse() || isChecked())
+    {
+        opt.text.clear();
+        opt.icon = QIcon();
+        style()->drawComplexControl(QStyle::CC_ToolButton, &opt, &painter, this);
+    }
+
+    int hMargin, vMargin;
+    computeMargins(&hMargin, &vMargin);
+
+    // We first figure out how much room we have for the text, based on
+    // icon size and margin, try to fit in by eliding, and perhaps
+    // give up on drawing the text entirely if we're too short on room
+    QPixmap icon = iconPixmap();
+    int textRoom = 0;
+    int iconRoom = 0;
+
+    QString t;
+
+    if (shouldDrawText())
+    {
+        if (isVertical())
+        {
+            iconRoom = icon.height() + 2*vMargin;
+            textRoom = height() - iconRoom - vMargin;
+        }
+        else
+        {
+            iconRoom = icon.width() + 2*hMargin;
+            textRoom = width() - iconRoom - hMargin;
+        }
+
+        t = painter.fontMetrics().elidedText(text(), Qt::ElideRight, textRoom);
+
+        // See whether anything is left. Qt will return either
+        // ... or the ellipsis unicode character, 0x2026
+        if (t == QLatin1String("...") || t == QChar(0x2026))
+        {
+            t.clear();
+        }
+    }
+
+    // Label time.... Simple case: no text, so just plop down the icon right in the center
+    // We only do this when the button never draws the text, to avoid jumps in icon position
+    // when resizing
+    if (!shouldDrawText())
+    {
+        style()->drawItemPixmap(&painter, rect(), Qt::AlignCenter | Qt::AlignVCenter, icon);
+        return;
+    }
+
+    // Now where the icon/text goes depends on text direction and tab position
+    QRect iconArea;
+    QRect labelArea;
+
+    bool bottomIcon = false;
+    bool rtl        = layoutDirection() == Qt::RightToLeft;
+
+    if (isVertical())
+    {
+        if (d->position == Qt::LeftEdge && !rtl)
+            bottomIcon = true;
+
+        if (d->position == Qt::RightEdge && rtl)
+            bottomIcon = true;
+    }
+
+    if (isVertical())
+    {
+        if (bottomIcon)
+        {
+            labelArea = QRect(0, vMargin, width(), textRoom);
+            iconArea  = QRect(0, vMargin + textRoom, width(), iconRoom);
+        }
+        else
+        {
+            labelArea = QRect(0, iconRoom, width(), textRoom);
+            iconArea  = QRect(0, 0, width(), iconRoom);
+        }
+    }
+    else
+    {
+        // Pretty simple --- depends only on RTL/LTR
+        if (rtl)
+        {
+            labelArea = QRect(hMargin, 0, textRoom, height());
+            iconArea  = QRect(hMargin + textRoom, 0, iconRoom, height());
+        }
+        else
+        {
+            labelArea = QRect(iconRoom, 0, textRoom, height());
+            iconArea  = QRect(0, 0, iconRoom, height());
+        }
+    }
+
+    style()->drawItemPixmap(&painter, iconArea, Qt::AlignCenter | Qt::AlignVCenter, icon);
+
+    if (t.isEmpty())
+    {
+        return;
+    }
+
+    QRect labelPaintArea = labelArea;
+
+    if (isVertical())
+    {
+        // If we're vertical, we paint to a simple 0,0 origin rect,
+        // and get the transformations to get us in the right place
+        labelPaintArea = QRect(0, 0, labelArea.height(), labelArea.width());
+
+        QTransform tr;
+
+        if (bottomIcon)
+        {
+            tr.translate(labelArea.x(), labelPaintArea.width() + labelArea.y());
+            tr.rotate(-90);
+        }
+        else
+        {
+            tr.translate(labelPaintArea.height() + labelArea.x(), labelArea.y());
+            tr.rotate(90);
+        }
+
+        painter.setTransform(tr);
+    }
+
+    style()->drawItemText(&painter, labelPaintArea, Qt::AlignLeading | Qt::AlignVCenter,
+                          palette(), true, t, QPalette::ButtonText);
+}
+
+// -------------------------------------------------------------------------------------
+
+class DMultiTabBar::Private
+{
+public:
+
+    DMultiTabBarFrame*         internal;
+    QBoxLayout*                layout;
+    QFrame*                    btnTabSep;
+    QList<DMultiTabBarButton*> buttons;
+    Qt::Edge                   position;
+};
+
+DMultiTabBar::DMultiTabBar(Qt::Edge pos, QWidget* const parent)
+    : QWidget(parent),
+      d(new Private)
+{
+    if (pos == Qt::LeftEdge || pos == Qt::RightEdge)
+    {
+        d->layout = new QVBoxLayout(this);
+        setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Expanding/*, true*/);
+    }
+    else
+    {
+        d->layout = new QHBoxLayout(this);
+        setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed/*, true*/);
+    }
+
+    d->layout->setContentsMargins(QMargins());
+    d->layout->setSpacing(0);
+
+    d->internal = new DMultiTabBarFrame(this, pos);
+    setPosition(pos);
+    setStyle(ActiveIconText);
+    d->layout->insertWidget(0, d->internal);
+    d->layout->insertWidget(0, d->btnTabSep = new QFrame(this));
+    d->btnTabSep->setFixedHeight(4);
+    d->btnTabSep->setFrameStyle(QFrame::Panel | QFrame::Sunken);
+    d->btnTabSep->setLineWidth(2);
+    d->btnTabSep->hide();
+
+    updateGeometry();
+}
+
+DMultiTabBar::~DMultiTabBar()
+{
+    qDeleteAll(d->buttons);
+    d->buttons.clear();
+    delete d;
+}
+
+int DMultiTabBar::appendButton(const QPixmap &pic, int id, QMenu *popup, const QString&)
+{
+    DMultiTabBarButton* const btn = new DMultiTabBarButton(pic, QString(), id, this);
+    // a button with a QMenu can have another size. Make sure the button has always the same size.
+    btn->setFixedWidth(btn->height());
+    btn->setMenu(popup);
+    d->buttons.append(btn);
+    d->layout->insertWidget(0,btn);
+    btn->show();
+    d->btnTabSep->show();
+    return 0;
+}
+
+void DMultiTabBar::updateSeparator()
+{
+    bool hideSep = true;
+    QListIterator<DMultiTabBarButton*> it(d->buttons);
+
+    while (it.hasNext())
+    {
+        if (it.next()->isVisibleTo(this))
+        {
+            hideSep = false;
+            break;
+        }
+    }
+
+    if (hideSep)
+        d->btnTabSep->hide();
+    else
+        d->btnTabSep->show();
+}
+
+int DMultiTabBar::appendTab(const QPixmap& pic, int id, const QString& text)
+{
+    d->internal->appendTab(pic,id,text);
+    return 0;
+}
+
+DMultiTabBarButton* DMultiTabBar::button(int id) const
+{
+    QListIterator<DMultiTabBarButton*> it(d->buttons);
+
+    while (it.hasNext())
+    {
+        DMultiTabBarButton* const button = it.next();
+
+        if (button->id() == id)
+            return button;
+    }
+
+    return 0;
+}
+
+DMultiTabBarTab* DMultiTabBar::tab(int id) const
+{
+    return d->internal->tab(id);
+}
+
+void DMultiTabBar::removeButton(int id)
+{
+    for (int pos = 0 ; pos < d->buttons.count() ; pos++)
+    {
+        if (d->buttons.at(pos)->id() == id)
+        {
+            d->buttons.takeAt(pos)->deleteLater();
+            break;
+        }
+    }
+
+    if (d->buttons.count() == 0)
+        d->btnTabSep->hide();
+}
+
+void DMultiTabBar::removeTab(int id)
+{
+    d->internal->removeTab(id);
+}
+
+void DMultiTabBar::setTab(int id,bool state)
+{
+    DMultiTabBarTab* const ttab = tab(id);
+
+    if (ttab)
+        ttab->setState(state);
+}
+
+bool DMultiTabBar::isTabRaised(int id) const
+{
+    DMultiTabBarTab* const ttab = tab(id);
+
+    if (ttab)
+        return ttab->isChecked();
+
+    return false;
+}
+
+void DMultiTabBar::setStyle(TextStyle style)
+{
+    d->internal->setStyle(style);
+}
+
+DMultiTabBar::TextStyle DMultiTabBar::tabStyle() const
+{
+    return d->internal->d->style;
+}
+
+void DMultiTabBar::setPosition(Qt::Edge pos)
+{
+    d->position = pos;
+    d->internal->setPosition(pos);
+}
+
+Qt::Edge DMultiTabBar::position() const
+{
+    return d->position;
+}
+
+void DMultiTabBar::fontChange(const QFont&)
+{
+    updateGeometry();
+}
+
+// -------------------------------------------------------------------------------------
 
 class SidebarState
 {
 
 public:
 
-    SidebarState() : activeWidget(0), size(0) {}
-    SidebarState(QWidget* const w, int size) : activeWidget(w), size(size) {}
+    SidebarState()
+      : activeWidget(0),
+        size(0)
+    {
+    }
+
+    SidebarState(QWidget* const w, int size)
+      : activeWidget(w),
+        size(size)
+    {
+    }
 
     QWidget* activeWidget;
     int      size;
 };
+
+// -------------------------------------------------------------------------------------
 
 class Sidebar::Private
 {
@@ -78,16 +751,16 @@ public:
         splitter(0),
         dragSwitchTimer(0),
         appendedTabsStateCache(),
-        optionActiveTabEntry("ActiveTab"),
-        optionMinimizedEntry("Minimized"),
-        optionRestoreSizeEntry("RestoreSize")
+        optionActiveTabEntry(QLatin1String("ActiveTab")),
+        optionMinimizedEntry(QLatin1String("Minimized")),
+        optionRestoreSizeEntry(QLatin1String("RestoreSize"))
     {
     }
 
     bool                          minimizedDefault;
     bool                          minimized;
     bool                          isMinimized;      // Backup of shrinked status before backup(), restored by restore()
-                                                    // NOTE: when sidebar is hidden, only icon bar is affected. If sidebar view is 
+                                                    // NOTE: when sidebar is hidden, only icon bar is affected. If sidebar view is
                                                     // visible, this one must be shrink and restored accordingly.
 
     int                           tabs;
@@ -115,8 +788,10 @@ public:
 
 // -------------------------------------------------------------------------------------
 
-Sidebar::Sidebar(QWidget* const parent, SidebarSplitter* const sp, KMultiTabBarPosition side, bool minimizedDefault)
-    : KMultiTabBar(side, parent), StateSavingObject(this), d(new Private)
+Sidebar::Sidebar(QWidget* const parent, SidebarSplitter* const sp, Qt::Edge side, bool minimizedDefault)
+    : DMultiTabBar(side, parent),
+      StateSavingObject(this),
+      d(new Private)
 {
     d->splitter         = sp;
     d->minimizedDefault = minimizedDefault;
@@ -128,7 +803,7 @@ Sidebar::Sidebar(QWidget* const parent, SidebarSplitter* const sp, KMultiTabBarP
 
     d->splitter->d->sidebars << this;
 
-    setStyle(KMultiTabBar::VSNET);
+    setStyle(DMultiTabBar::ActiveIconText);
 }
 
 Sidebar::~Sidebar()
@@ -188,10 +863,10 @@ void Sidebar::backup()
     // backup preview state of sidebar view (shrink or not)
     d->isMinimized = d->minimized;
 
-    // In all case, shrink sidebar view 
+    // In all case, shrink sidebar view
     shrink();
 
-    KMultiTabBar::hide();
+    DMultiTabBar::hide();
 }
 
 void Sidebar::backup(const QList<QWidget*> thirdWidgetsToBackup, QList<int>* const sizes)
@@ -208,7 +883,7 @@ void Sidebar::backup(const QList<QWidget*> thirdWidgetsToBackup, QList<int>* con
 
 void Sidebar::restore()
 {
-    KMultiTabBar::show();
+    DMultiTabBar::show();
 
     // restore preview state of sidebar view, stored in backup()
     if (!d->isMinimized)
@@ -230,7 +905,7 @@ void Sidebar::restore(const QList<QWidget*> thirdWidgetsToRestore, const QList<i
     }
 }
 
-void Sidebar::appendTab(QWidget* const w, const QPixmap& pic, const QString& title)
+void Sidebar::appendTab(QWidget* const w, const QIcon& pic, const QString& title)
 {
     // Store state (but not on initialization)
     if (isVisible())
@@ -240,7 +915,7 @@ void Sidebar::appendTab(QWidget* const w, const QPixmap& pic, const QString& tit
 
     // Add tab
     w->setParent(d->stack);
-    KMultiTabBar::appendTab(pic, d->tabs, title);
+    DMultiTabBar::appendTab(pic.pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize)), d->tabs, title);
     d->stack->insertWidget(d->tabs, w);
 
     tab(d->tabs)->setAcceptDrops(true);
@@ -488,7 +1163,7 @@ bool Sidebar::eventFilter(QObject* obj, QEvent* ev)
     }
 
     // Else, pass the event on to the parent class
-    return KMultiTabBar::eventFilter(obj, ev);
+    return DMultiTabBar::eventFilter(obj, ev);
 }
 
 void Sidebar::slotDragSwitchTimer()
@@ -503,17 +1178,19 @@ void Sidebar::slotSplitterBtnClicked()
 
 // -----------------------------------------------------------------------------
 
-const QString SidebarSplitter::DEFAULT_CONFIG_KEY = "SplitterState";
+const QString SidebarSplitter::DEFAULT_CONFIG_KEY = QLatin1String("SplitterState");
 
 SidebarSplitter::SidebarSplitter(QWidget* const parent)
-    : QSplitter(parent), d(new Private)
+    : QSplitter(parent),
+      d(new Private)
 {
     connect(this, SIGNAL(splitterMoved(int,int)),
             this, SLOT(slotSplitterMoved(int,int)));
 }
 
 SidebarSplitter::SidebarSplitter(Qt::Orientation orientation, QWidget* const parent)
-    : QSplitter(orientation, parent), d(new Private)
+    : QSplitter(orientation, parent),
+      d(new Private)
 {
     connect(this, SIGNAL(splitterMoved(int,int)),
             this, SLOT(slotSplitterMoved(int,int)));

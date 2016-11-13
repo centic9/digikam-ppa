@@ -6,7 +6,7 @@
  * Date        : 2006-07-04
  * Description : metadata template setup page.
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "setuptemplate.moc"
+#include "setuptemplate.h"
 
 // Qt includes
 
@@ -29,26 +29,23 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QPushButton>
+#include <QApplication>
+#include <QStyle>
+#include <QLineEdit>
+#include <QIcon>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kconfig.h>
-#include <kdialog.h>
-#include <kglobalsettings.h>
-#include <klineedit.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-
-// LibKExiv2 includes
-
-#include <libkexiv2/altlangstredit.h>
+#include <kconfiggroup.h>
+#include <ksharedconfig.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "templatelist.h"
 #include "templatepanel.h"
-
-using namespace KExiv2Iface;
+#include "altlangstredit.h"
 
 namespace Digikam
 {
@@ -71,7 +68,7 @@ public:
     QPushButton*   delButton;
     QPushButton*   repButton;
 
-    KLineEdit*     titleEdit;
+    QLineEdit*     titleEdit;
 
     TemplateList*  listView;
 
@@ -81,30 +78,32 @@ public:
 SetupTemplate::SetupTemplate(QWidget* const parent)
     : QScrollArea(parent), d(new Private)
 {
-    QWidget* panel = new QWidget(viewport());
+    QWidget* const panel = new QWidget(viewport());
     setWidget(panel);
     setWidgetResizable(true);
 
-    d->listView    = new TemplateList(panel);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    d->listView = new TemplateList(panel);
     d->listView->setFixedHeight(100);
 
     // --------------------------------------------------------
 
-    QLabel* label0 = new QLabel(i18n("Template Title:"), panel);
-    d->titleEdit   = new KLineEdit(panel);
-    d->titleEdit->setClearButtonShown(true);
-    d->titleEdit->setClickMessage(i18n("Enter the metadata template title here."));
+    QLabel* const label0 = new QLabel(i18n("Template Title:"), panel);
+    d->titleEdit         = new QLineEdit(panel);
+    d->titleEdit->setClearButtonEnabled(true);
+    d->titleEdit->setPlaceholderText(i18n("Enter the metadata template title here."));
     d->titleEdit->setWhatsThis(i18n("<p>Enter the metadata template title here. This title will be "
                                     "used to identify a template in your collection.</p>"));
     label0->setBuddy(d->titleEdit);
 
     // --------------------------------------------------------
 
-    d->tview     = new TemplatePanel(panel);
+    d->tview = new TemplatePanel(panel);
 
     // --------------------------------------------------------
 
-    QLabel* note = new QLabel(i18n("<b>Note: These information are used to set "
+    QLabel* const note = new QLabel(i18n("<b>Note: These information are used to set "
                                    "<b><a href='http://en.wikipedia.org/wiki/Extensible_Metadata_Platform'>XMP</a></b> "
                                    "and <b><a href='http://en.wikipedia.org/wiki/IPTC'>IPTC</a></b> tag contents. "
                                    "There is no limitation with XMP, but note that IPTC text tags "
@@ -122,19 +121,19 @@ SetupTemplate::SetupTemplate(QWidget* const parent)
     d->repButton = new QPushButton(panel);
 
     d->addButton->setText(i18n("&Add..."));
-    d->addButton->setIcon(SmallIcon("list-add"));
+    d->addButton->setIcon(QIcon::fromTheme(QLatin1String("list-add")));
     d->delButton->setText(i18n("&Remove"));
-    d->delButton->setIcon(SmallIcon("list-remove"));
+    d->delButton->setIcon(QIcon::fromTheme(QLatin1String("list-remove")));
     d->repButton->setText(i18n("&Replace..."));
-    d->repButton->setIcon(SmallIcon("view-refresh"));
+    d->repButton->setIcon(QIcon::fromTheme(QLatin1String("view-refresh")));
     d->delButton->setEnabled(false);
     d->repButton->setEnabled(false);
 
     // -------------------------------------------------------------
 
-    QGridLayout* grid = new QGridLayout;
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    QGridLayout* const grid = new QGridLayout;
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
     grid->setAlignment(Qt::AlignTop);
     grid->setColumnStretch(1, 10);
     grid->setRowStretch(4, 10);
@@ -148,7 +147,7 @@ SetupTemplate::SetupTemplate(QWidget* const parent)
     grid->addWidget(note,         6, 0, 1, 3);
     panel->setLayout(grid);
 
-    panel->setTabOrder(d->listView, d->addButton);
+    panel->setTabOrder(d->listView,  d->addButton);
     panel->setTabOrder(d->addButton, d->delButton);
     panel->setTabOrder(d->delButton, d->repButton);
     panel->setTabOrder(d->repButton, d->titleEdit);
@@ -172,8 +171,6 @@ SetupTemplate::SetupTemplate(QWidget* const parent)
 
     readSettings();
     d->titleEdit->setFocus();
-
-    // --------------------------------------------------------
 }
 
 SetupTemplate::~SetupTemplate()
@@ -185,9 +182,9 @@ void SetupTemplate::applySettings()
 {
     d->listView->applySettings();
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(QString("Setup Dialog"));
-    group.writeEntry("Template Tab", (int)(d->tview->currentIndex()));
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Setup Dialog"));
+    group.writeEntry(QLatin1String("Template Tab"), (int)(d->tview->currentIndex()));
     config->sync();
 }
 
@@ -195,16 +192,16 @@ void SetupTemplate::readSettings()
 {
     d->listView->readSettings();
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(QString("Setup Dialog"));
-    d->tview->setCurrentIndex((TemplatePanel::TemplateTab)group.readEntry("Template Tab", (int)TemplatePanel::RIGHTS));
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Setup Dialog"));
+    d->tview->setCurrentIndex((TemplatePanel::TemplateTab)group.readEntry(QLatin1String("Template Tab"), (int)TemplatePanel::RIGHTS));
 }
 
 void SetupTemplate::setTemplate(const Template& t)
 {
     if (!t.isNull())
     {
-        TemplateListItem* item = d->listView->find(t.templateTitle());
+        TemplateListItem* const item = d->listView->find(t.templateTitle());
         d->listView->setCurrentItem(item);
         return;
     }
@@ -214,7 +211,7 @@ void SetupTemplate::setTemplate(const Template& t)
 
 void SetupTemplate::slotSelectionChanged()
 {
-    TemplateListItem* item = dynamic_cast<TemplateListItem*>(d->listView->currentItem());
+    TemplateListItem* const item = dynamic_cast<TemplateListItem*>(d->listView->currentItem());
 
     if (!item)
     {
@@ -241,13 +238,13 @@ void SetupTemplate::slotAddTemplate()
 
     if (title.isEmpty())
     {
-        KMessageBox::error(this, i18n("Cannot register new metadata template without title."));
+        QMessageBox::critical(this, qApp->applicationName(), i18n("Cannot register new metadata template without title."));
         return;
     }
 
     if (d->listView->find(title))
     {
-        KMessageBox::error(this, i18n("A metadata template named '%1' already exists.", title));
+        QMessageBox::critical(this, qApp->applicationName(), i18n("A metadata template named '%1' already exists.", title));
         return;
     }
 
@@ -260,7 +257,7 @@ void SetupTemplate::slotAddTemplate()
 
 void SetupTemplate::slotDelTemplate()
 {
-    TemplateListItem* item = dynamic_cast<TemplateListItem*>(d->listView->currentItem());
+    TemplateListItem* const item = dynamic_cast<TemplateListItem*>(d->listView->currentItem());
     delete item;
 }
 
@@ -270,11 +267,11 @@ void SetupTemplate::slotRepTemplate()
 
     if (title.isEmpty())
     {
-        KMessageBox::error(this, i18n("Cannot register new metadata template without title."));
+        QMessageBox::critical(this, qApp->applicationName(), i18n("Cannot register new metadata template without title."));
         return;
     }
 
-    TemplateListItem* item = dynamic_cast<TemplateListItem*>(d->listView->currentItem());
+    TemplateListItem* const item = dynamic_cast<TemplateListItem*>(d->listView->currentItem());
 
     if (!item)
     {

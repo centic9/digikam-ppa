@@ -7,7 +7,7 @@
  * Description : contextmenu helper class
  *
  * Copyright (C) 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,26 +27,22 @@
 
 // Qt includes
 
+#include <QObject>
 #include <QList>
-
-// KDE includes
-
-#include <kurl.h>
-#include <kjob.h>
+#include <QUrl>
 
 // Local includes
 
-#include "config-digikam.h"
-#include "albuminfo.h"
+#include "digikam_export.h"
+#include "digikam_config.h"
+#include "coredbalbuminfo.h"
 
 class QAction;
 class QMenu;
 class QPoint;
 class QString;
 
-class KAction;
 class KActionCollection;
-class KMenu;
 
 namespace Digikam
 {
@@ -82,7 +78,7 @@ class TAlbum;
  * instead the one from the parent menu. This way signals from
  * special menus can be emitted and connected to the appropriate slots.
  */
-class ContextMenuHelper : public QObject
+class DIGIKAM_EXPORT ContextMenuHelper : public QObject
 {
     Q_OBJECT
 
@@ -131,7 +127,7 @@ public:
      * @param name the name of the action in the actionCollection
      * @param addDisabled if set, disabled actions are added to the menu
      */
-    void addAction(const char* name, bool addDisabled = false);
+    void addAction(const QString& name, bool addDisabled = false);
 
     /**
      * Add a temporary action.
@@ -221,7 +217,7 @@ public:
      *
      * @param selectedItems the list of selected items
      */
-    void addServicesMenu(const KUrl::List& selectedItems);
+    void addServicesMenu(const QList<QUrl>& selectedItems);
 
     /**
      * Add the Goto menu.
@@ -369,7 +365,7 @@ public:
      *
      * @param subMenu   the submenu to be added
      */
-    void addSubMenu(KMenu* subMenu);
+    void addSubMenu(QMenu* subMenu);
 
     /**
      * Add a separator to the context menu
@@ -392,12 +388,6 @@ private Q_SLOTS:
 
     void slotOpenWith();
     void slotOpenWith(QAction* action);
-
-#ifdef HAVE_KDEPIMLIBS
-    void slotABCSearchResult(KJob*);
-    void slotABCMenuTriggered(QAction*);
-#endif // HAVE_KDEPIMLIBS
-
     void slotDeselectAllAlbumItems();
     void slotOpenGroups();
     void slotCloseGroups();
@@ -410,11 +400,12 @@ private Q_SLOTS:
 
 private:
 
+    void setGroupsOpen(bool open);
     void setSelectedIds(const imageIds& ids);
-    void setSelectedItems(const KUrl::List& urls);
+    void setSelectedItems(const QList<QUrl>& urls);
+
     bool imageIdsHaveSameCategory(const imageIds& ids, DatabaseItem::Category category);
     QList<QAction*> groupMenuActions(const imageIds& ids);
-    void setGroupsOpen(bool open);
 
 private:
 

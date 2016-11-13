@@ -29,8 +29,6 @@
 #include "albummodeldragdrophandler.h"
 #include "albummodel.h"
 
-class KJob;
-
 namespace Digikam
 {
 
@@ -42,19 +40,12 @@ public:
 
     explicit AlbumDragDropHandler(AlbumModel* const model);
 
-    AlbumModel* model() const
-    {
-        return static_cast<AlbumModel*>(m_model);
-    }
+    AlbumModel* model() const;
 
     virtual bool dropEvent(QAbstractItemView* view, const QDropEvent* e, const QModelIndex& droppedOn);
     virtual Qt::DropAction accepts(const QDropEvent* e, const QModelIndex& dropIndex);
     virtual QStringList mimeTypes() const;
     virtual QMimeData* createMimeData(const QList<Album*> &);
-
-Q_SIGNALS:
-
-    void dioResult(KJob*);
 };
 
 } // namespace Digikam

@@ -8,7 +8,7 @@
  *                SmugMug web service
  *
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -23,44 +23,38 @@
  *
  * ============================================================ */
 
-#include "smugwindow.moc"
+#include "smugwindow.h"
 
 // Qt includes
 
+#include <QWindow>
 #include <QFileInfo>
+#include <QPointer>
 #include <QSpinBox>
 #include <QCheckBox>
 #include <QGroupBox>
-#include <QCloseEvent>
+#include <QMenu>
+#include <QComboBox>
+#include <QPushButton>
+#include <QMessageBox>
+#include <QApplication>
 
 // KDE includes
 
-#include <kdebug.h>
 #include <kconfig.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <khelpmenu.h>
-#include <kcombobox.h>
-#include <klineedit.h>
-#include <kmessagebox.h>
-#include <kpushbutton.h>
-#include <kpassworddialog.h>
-#include <ktoolinvocation.h>
+#include <klocalizedstring.h>
+#include <kwindowconfig.h>
 
-// LibKDcraw includes
+// Libkipi includes
 
-#include <libkdcraw/version.h>
-#include <libkdcraw/kdcraw.h>
-
-// LibKIPI includes
-
-#include <libkipi/interface.h>
-#include <libkipi/uploadwidget.h>
+#include <KIPI/Interface>
+#include <KIPI/UploadWidget>
+#include <KIPI/PluginLoader>
 
 // Local includes
 
+#include "kipiplugins_debug.h"
 #include "kpimageslist.h"
-#include "kpmetadata.h"
 #include "kpaboutdata.h"
 #include "kpimageinfo.h"
 #include "kpversion.h"
@@ -84,25 +78,25 @@ SmugWindow::SmugWindow(const QString& tmpFolder, bool import, QWidget* const /*p
     m_widget      = new SmugWidget(this, iface(), import);
 
     setMainWidget(m_widget);
-    setWindowIcon(KIcon("kipi-smugmug"));
-    setButtons(Help|User1|Close);
-    setDefaultButton(Close);
+    setWindowIcon(QIcon::fromTheme(QString::fromLatin1("kipi-smugmug")));
     setModal(false);
 
     if (import)
     {
         setWindowTitle(i18n("Import from SmugMug Web Service"));
-        setButtonGuiItem(User1,
-                         KGuiItem(i18n("Start Download"), "network-workgroup",
-                                  i18n("Start download from SmugMug web service")));
+
+        startButton()->setText(i18n("Start Download"));
+        startButton()->setToolTip(i18n("Start download from SmugMug web service"));
+
         m_widget->setMinimumSize(300, 400);
     }
     else
     {
         setWindowTitle(i18n("Export to SmugMug Web Service"));
-        setButtonGuiItem(User1,
-                         KGuiItem(i18n("Start Upload"), "network-workgroup",
-                                  i18n("Start upload to SmugMug web service")));
+
+        startButton()->setText(i18n("Start Upload"));
+        startButton()->setToolTip(i18n("Start upload to SmugMug web service"));
+
         m_widget->setMinimumSize(700, 500);
     }
 
@@ -119,30 +113,36 @@ SmugWindow::SmugWindow(const QString& tmpFolder, bool import, QWidget* const /*p
     connect(m_widget->m_newAlbumBtn, SIGNAL(clicked()),
             this, SLOT(slotNewAlbumRequest()) );
 
-    connect(this, SIGNAL(user1Clicked()),
-            this, SLOT(slotStartTransfer()) );
+    connect(startButton(), &QPushButton::clicked,
+            this, &SmugWindow::slotStartTransfer);
+
+    connect(this, &KPToolDialog::cancelClicked,
+            this, &SmugWindow::slotCancelClicked);
+
+    connect(this, &QDialog::finished,
+            this, &SmugWindow::slotDialogFinished);
 
     // ------------------------------------------------------------------------
 
-    KPAboutData* about = new KPAboutData(ki18n("Smug Import/Export"), 0,
-                             KAboutData::License_GPL,
-                             ki18n("A Kipi plugin to import/export image collections "
-                                   "from/to the SmugMug web service."),
-                             ki18n("(c) 2005-2008, Vardhman Jain\n"
-                                   "(c) 2008-2012, Gilles Caulier\n"
-                                   "(c) 2008-2009, Luka Renko"));
+    KPAboutData* const about = new KPAboutData(ki18n("Smug Import/Export"),
+                                   ki18n("A tool to import/export image collections "
+                                         "from/to the SmugMug web service."),
+                                   ki18n("(c) 2005-2008, Vardhman Jain\n"
+                                         "(c) 2008-2012, Gilles Caulier\n"
+                                         "(c) 2008-2009, Luka Renko"));
 
-    about->addAuthor(ki18n("Luka Renko"), ki18n("Author and maintainer"),
-                     "lure at kubuntu dot org");
+    about->addAuthor(ki18n("Luka Renko").toString(),
+                     ki18n("Author and maintainer").toString(),
+                     QString::fromLatin1("lure at kubuntu dot org"));
 
-    about->setHandbookEntry("smug");
+    about->setHandbookEntry(QString::fromLatin1("tool-smugexport"));
     setAboutData(about);
 
     // ------------------------------------------------------------------------
 
-    m_loginDlg  = new KPasswordDialog(this, KPasswordDialog::ShowUsernameLine);
-    m_loginDlg->setPrompt(i18n("<qt>Enter the <b>email address</b> and <b>password</b> for your "
-                               "<a href=\"http://www.smugmug.com\">SmugMug</a> account</qt>"));
+    m_loginDlg  = new KPLoginDialog(this,
+                                    i18n("<qt>Enter the <b>email address</b> and <b>password</b> for your "
+                                         "<a href=\"http://www.smugmug.com\">SmugMug</a> account</qt>"));
 
     // ------------------------------------------------------------------------
 
@@ -198,7 +198,7 @@ SmugWindow::SmugWindow(const QString& tmpFolder, bool import, QWidget* const /*p
 
     readSettings();
 
-    kDebug() << "Calling Login method";
+    qCDebug(KIPIPLUGINS_LOG) << "Calling Login method";
     buttonStateChange(m_talker->loggedIn());
 
 
@@ -231,54 +231,56 @@ SmugWindow::~SmugWindow()
 
 void SmugWindow::closeEvent(QCloseEvent* e)
 {
-    if (!e) return;
+    if (!e)
+    {
+        return;
+    }
+
+    slotDialogFinished();
+    e->accept();
+}
+
+void SmugWindow::slotDialogFinished()
+{
+    slotCancelClicked();
 
     if (m_talker->loggedIn())
         m_talker->logout();
 
     writeSettings();
     m_widget->imagesList()->listView()->clear();
-    e->accept();
 }
 
-void SmugWindow::slotStopAndCloseProgressBar()
+void SmugWindow::setUiInProgressState(bool inProgress)
+{
+    setRejectButtonMode(inProgress ? QDialogButtonBox::Cancel : QDialogButtonBox::Close);
+
+    if (inProgress)
+    {
+        m_widget->progressBar()->show();
+    }
+    else
+    {
+        m_widget->progressBar()->hide();
+        m_widget->progressBar()->progressCompleted();
+    }
+}
+
+void SmugWindow::slotCancelClicked()
 {
     m_talker->cancel();
     m_transferQueue.clear();
     m_widget->m_imgList->cancelProcess();
-    writeSettings();
-    m_widget->imagesList()->listView()->clear();
-    m_widget->progressBar()->progressCompleted();
-    done(Close);
+    setUiInProgressState(false);
 }
 
-void SmugWindow::slotButtonClicked(int button)
+void SmugWindow::slotStopAndCloseProgressBar()
 {
-    switch (button)
-    {
-        case Close:
-            if (m_widget->progressBar()->isHidden())
-            {
-                writeSettings();
-                m_widget->imagesList()->listView()->clear();
-                m_widget->progressBar()->progressCompleted();
-                done(Close);
-            }
-            else // cancel login/transfer
-            {
-                m_talker->cancel();
-                m_transferQueue.clear();
-                m_widget->m_imgList->cancelProcess();
-                m_widget->progressBar()->hide();
-                m_widget->progressBar()->progressCompleted();
-            }
-            break;
-        case User1:
-            slotStartTransfer();
-            break;
-        default:
-             KDialog::slotButtonClicked(button);
-    }
+    slotCancelClicked();
+
+    writeSettings();
+    m_widget->imagesList()->listView()->clear();
+    reject();
 }
 
 void SmugWindow::reactivate()
@@ -289,15 +291,15 @@ void SmugWindow::reactivate()
 
 void SmugWindow::authenticate(const QString& email, const QString& password)
 {
-    m_widget->progressBar()->show();
-    m_widget->progressBar()->setFormat("");
+    setUiInProgressState(true);
+    m_widget->progressBar()->setFormat(QString());
 
     m_talker->login(email, password);
 }
 
 void SmugWindow::readSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp  = config.group("Smug Settings");
     m_anonymousImport = grp.readEntry("AnonymousImport", true);
     m_email           = grp.readEntry("Email");
@@ -323,19 +325,23 @@ void SmugWindow::readSettings()
 
     if (m_import)
     {
+        winId();
         KConfigGroup dialogGroup = config.group("Smug Import Dialog");
-        restoreDialogSize(dialogGroup);
+        KWindowConfig::restoreWindowSize(windowHandle(), dialogGroup);
+        resize(windowHandle()->size());
     }
     else
     {
+        winId();
         KConfigGroup dialogGroup = config.group("Smug Export Dialog");
-        restoreDialogSize(dialogGroup);
+        KWindowConfig::restoreWindowSize(windowHandle(), dialogGroup);
+        resize(windowHandle()->size());
     }
 }
 
 void SmugWindow::writeSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp = config.group("Smug Settings");
     grp.writeEntry("AnonymousImport", m_anonymousImport);
     grp.writeEntry("Email",           m_email);
@@ -345,16 +351,18 @@ void SmugWindow::writeSettings()
     grp.writeEntry("Resize",          m_widget->m_resizeChB->isChecked());
     grp.writeEntry("Maximum Width",   m_widget->m_dimensionSpB->value());
     grp.writeEntry("Image Quality",   m_widget->m_imageQualitySpB->value());
+
     if (m_import)
     {
         KConfigGroup dialogGroup = config.group("Smug Import Dialog");
-        saveDialogSize(dialogGroup);
+        KWindowConfig::saveWindowSize(windowHandle(), dialogGroup);
     }
     else
     {
         KConfigGroup dialogGroup = config.group("Smug Export Dialog");
-        saveDialogSize(dialogGroup);
+        KWindowConfig::saveWindowSize(windowHandle(), dialogGroup);
     }
+
     config.sync();
 }
 
@@ -373,7 +381,7 @@ void SmugWindow::slotLoginProgress(int step, int maxStep, const QString &label)
 
 void SmugWindow::slotLoginDone(int errCode, const QString &errMsg)
 {
-    m_widget->progressBar()->hide();
+    setUiInProgressState(false);
 
     buttonStateChange(m_talker->loggedIn());
     SmugUser user = m_talker->getUser();
@@ -387,6 +395,7 @@ void SmugWindow::slotLoginDone(int errCode, const QString &errMsg)
             m_anonymousImport = m_widget->isAnonymous();
             // anonymous: list albums after login only if nick is not empty
             QString nick = m_widget->getNickName();
+
             if (!nick.isEmpty() || !m_anonymousImport)
             {
                 m_talker->listAlbums(nick);
@@ -400,7 +409,7 @@ void SmugWindow::slotLoginDone(int errCode, const QString &errMsg)
     }
     else
     {
-        KMessageBox::error(this, i18n("SmugMug Call Failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(), i18n("Error"), i18n("SmugMug Call Failed: %1\n", errMsg));
     }
 }
 
@@ -409,7 +418,7 @@ void SmugWindow::slotListAlbumsDone(int errCode, const QString &errMsg,
 {
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("SmugMug Call Failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(), i18n("Error"), i18n("SmugMug Call Failed: %1\n", errMsg));
         return;
     }
 
@@ -418,15 +427,16 @@ void SmugWindow::slotListAlbumsDone(int errCode, const QString &errMsg,
     for (int i = 0; i < albumsList.size(); ++i)
     {
         QString albumIcon;
-        if (!albumsList.at(i).password.isEmpty())
-            albumIcon = "folder-locked";
-        else if (albumsList.at(i).isPublic)
-            albumIcon = "folder-image";
-        else
-            albumIcon = "folder";
 
-        QString data = QString("%1:%2").arg(albumsList.at(i).id).arg(albumsList.at(i).key);
-        m_widget->m_albumsCoB->addItem(KIcon(albumIcon), albumsList.at(i).title, data);
+        if (!albumsList.at(i).password.isEmpty())
+            albumIcon = QString::fromLatin1("folder-locked");
+        else if (albumsList.at(i).isPublic)
+            albumIcon = QString::fromLatin1("folder-image");
+        else
+            albumIcon = QString::fromLatin1("folder");
+
+        QString data = QString::fromLatin1("%1:%2").arg(albumsList.at(i).id).arg(albumsList.at(i).key);
+        m_widget->m_albumsCoB->addItem(QIcon::fromTheme(albumIcon), albumsList.at(i).title, data);
 
         if (m_currentAlbumID == albumsList.at(i).id)
             m_widget->m_albumsCoB->setCurrentIndex(i);
@@ -438,14 +448,15 @@ void SmugWindow::slotListPhotosDone(int errCode, const QString &errMsg,
 {
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("SmugMug Call Failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(), i18n("Error"), i18n("SmugMug Call Failed: %1\n", errMsg));
         return;
     }
 
     m_transferQueue.clear();
+
     for (int i = 0; i < photosList.size(); ++i)
     {
-        m_transferQueue.push_back(photosList.at(i).originalURL);
+        m_transferQueue.push_back(QUrl::fromLocalFile(photosList.at(i).originalURL));
     }
 
     if (m_transferQueue.isEmpty())
@@ -470,21 +481,22 @@ void SmugWindow::slotListAlbumTmplDone(int errCode, const QString &errMsg,
 
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("SmugMug Call Failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(), i18n("Error"), i18n("SmugMug Call Failed: %1\n", errMsg));
         return;
     }
 
     for (int i = 0; i < albumTList.size(); ++i)
     {
         QString albumIcon;
-        if (!albumTList.at(i).password.isEmpty())
-            albumIcon = "folder-locked";
-        else if (albumTList.at(i).isPublic)
-            albumIcon = "folder-image";
-        else
-            albumIcon = "folder";
 
-        m_albumDlg->m_templateCoB->addItem(KIcon(albumIcon), albumTList.at(i).name, albumTList.at(i).id);
+        if (!albumTList.at(i).password.isEmpty())
+            albumIcon = QString::fromLatin1("folder-locked");
+        else if (albumTList.at(i).isPublic)
+            albumIcon = QString::fromLatin1("folder-image");
+        else
+            albumIcon = QString::fromLatin1("folder");
+
+        m_albumDlg->m_templateCoB->addItem(QIcon::fromTheme(albumIcon), albumTList.at(i).name, albumTList.at(i).id);
 
         if (m_currentTmplID == albumTList.at(i).id)
             m_albumDlg->m_templateCoB->setCurrentIndex(i+1);
@@ -501,7 +513,7 @@ void SmugWindow::slotListCategoriesDone(int errCode, const QString& errMsg,
 {
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("SmugMug Call Failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(), i18n("Error"), i18n("SmugMug Call Failed: %1\n", errMsg));
         return;
     }
 
@@ -512,8 +524,9 @@ void SmugWindow::slotListCategoriesDone(int errCode, const QString& errMsg,
         m_albumDlg->m_categCoB->addItem(
             categoriesList.at(i).name,
             categoriesList.at(i).id);
-       if (m_currentCategoryID == categoriesList.at(i).id)
-           m_albumDlg->m_categCoB->setCurrentIndex(i);
+
+        if (m_currentCategoryID == categoriesList.at(i).id)
+            m_albumDlg->m_categCoB->setCurrentIndex(i);
     }
 
     m_currentCategoryID = m_albumDlg->m_categCoB->itemData(
@@ -530,7 +543,7 @@ void SmugWindow::slotListSubCategoriesDone(int errCode, const QString &errMsg,
 
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("SmugMug Call Failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(), i18n("Error"), i18n("SmugMug Call Failed: %1\n", errMsg));
         return;
     }
 
@@ -567,7 +580,7 @@ void SmugWindow::buttonStateChange(bool state)
 {
     m_widget->m_newAlbumBtn->setEnabled(state);
     m_widget->m_reloadAlbumsBtn->setEnabled(state);
-    enableButton(User1, state);
+    startButton()->setEnabled(state);
 }
 
 void SmugWindow::slotBusy(bool val)
@@ -588,7 +601,7 @@ void SmugWindow::slotBusy(bool val)
 
 void SmugWindow::slotUserChangeRequest(bool anonymous)
 {
-    kDebug() << "Slot Change User Request";
+    qCDebug(KIPIPLUGINS_LOG) << "Slot Change User Request";
 
     if (m_talker->loggedIn())
         m_talker->logout();
@@ -600,12 +613,12 @@ void SmugWindow::slotUserChangeRequest(bool anonymous)
     else
     {
         // fill in current email and password
-        m_loginDlg->setUsername(m_email);
+        m_loginDlg->setLogin(m_email);
         m_loginDlg->setPassword(m_password);
 
         if (m_loginDlg->exec())
         {
-            m_email = m_loginDlg->username();
+            m_email    = m_loginDlg->login();
             m_password = m_loginDlg->password();
             authenticate(m_email, m_password);
         }
@@ -627,14 +640,14 @@ void SmugWindow::slotReloadAlbumsRequest()
 
 void SmugWindow::slotNewAlbumRequest()
 {
-    kDebug() << "Slot New Album Request";
+    qCDebug(KIPIPLUGINS_LOG) << "Slot New Album Request";
 
     // get list of album templates from SmugMug to fill in dialog
     m_talker->listAlbumTmpl();
 
     if (m_albumDlg->exec() == QDialog::Accepted)
     {
-        kDebug() << "Calling New Album method";
+        qCDebug(KIPIPLUGINS_LOG) << "Calling New Album method";
         m_currentTmplID = m_albumDlg->m_templateCoB->itemData(
                         m_albumDlg->m_templateCoB->currentIndex()).toLongLong();
         m_currentCategoryID = m_albumDlg->m_categCoB->itemData(
@@ -648,20 +661,21 @@ void SmugWindow::slotNewAlbumRequest()
 
 void SmugWindow::slotStartTransfer()
 {
-    kDebug() << "slotStartTransfer invoked";
+    qCDebug(KIPIPLUGINS_LOG) << "slotStartTransfer invoked";
 
     if (m_import)
     {
         m_widget->progressBar()->setFormat(i18n("%v / %m"));
         m_widget->progressBar()->setMaximum(0);
         m_widget->progressBar()->setValue(0);
-        m_widget->progressBar()->show();
         m_widget->progressBar()->progressScheduled(i18n("Smug Import"), true, true);
-        m_widget->progressBar()->progressThumbnailChanged(KIcon("kipi").pixmap(22, 22));
+        m_widget->progressBar()->progressThumbnailChanged(
+            QIcon(QLatin1String(":/icons/kipi-icon.svg")).pixmap(22, 22));
+        setUiInProgressState(true);
 
         // list photos of the album, then start download
         QString dataStr = m_widget->m_albumsCoB->itemData(m_widget->m_albumsCoB->currentIndex()).toString();
-        int colonIdx = dataStr.indexOf(':');
+        int colonIdx = dataStr.indexOf(QLatin1Char(':'));
         qint64 albumID = dataStr.left(colonIdx).toLongLong();
         QString albumKey = dataStr.right(dataStr.length() - colonIdx - 1);
         m_talker->listPhotos(albumID, albumKey,
@@ -676,9 +690,8 @@ void SmugWindow::slotStartTransfer()
         if (m_transferQueue.isEmpty())
             return;
 
-        QString data = m_widget->m_albumsCoB->itemData(
-                                     m_widget->m_albumsCoB->currentIndex()).toString();
-        int colonIdx = data.indexOf(':');
+        QString data = m_widget->m_albumsCoB->itemData(m_widget->m_albumsCoB->currentIndex()).toString();
+        int colonIdx = data.indexOf(QLatin1Char(':'));
         m_currentAlbumID = data.left(colonIdx).toLongLong();
         m_currentAlbumKey = data.right(data.length() - colonIdx - 1);
 
@@ -688,56 +701,63 @@ void SmugWindow::slotStartTransfer()
         m_widget->progressBar()->setFormat(i18n("%v / %m"));
         m_widget->progressBar()->setMaximum(m_imagesTotal);
         m_widget->progressBar()->setValue(0);
-        m_widget->progressBar()->show();
         m_widget->progressBar()->progressScheduled(i18n("Smug Export"), true, true);
-        m_widget->progressBar()->progressThumbnailChanged(KIcon("kipi").pixmap(22, 22));
+        m_widget->progressBar()->progressThumbnailChanged(QIcon(QLatin1String(":/icons/kipi-icon.svg")).pixmap(22, 22));
+        setUiInProgressState(true);
 
-        kDebug() << "m_currentAlbumID" << m_currentAlbumID;
+        qCDebug(KIPIPLUGINS_LOG) << "m_currentAlbumID" << m_currentAlbumID;
         uploadNextPhoto();
-        kDebug() << "slotStartTransfer done";
+        qCDebug(KIPIPLUGINS_LOG) << "slotStartTransfer done";
     }
 }
 
-bool SmugWindow::prepareImageForUpload(const QString& imgPath, bool isRAW)
+bool SmugWindow::prepareImageForUpload(const QString& imgPath)
 {
     QImage image;
-    if (isRAW)
+
+    if (iface())
     {
-        kDebug() << "Get RAW preview " << imgPath;
-        KDcrawIface::KDcraw::loadRawPreview(image, imgPath);
+        image = iface()->preview(QUrl::fromLocalFile(imgPath));
     }
-    else
+
+    if (image.isNull())
     {
        image.load(imgPath);
     }
 
     if (image.isNull())
+    {
         return false;
+    }
 
     // get temporary file name
-    m_tmpPath  = m_tmpDir + QFileInfo(imgPath).baseName().trimmed() + ".jpg";
+    m_tmpPath  = m_tmpDir + QFileInfo(imgPath).baseName().trimmed() + QString::fromLatin1(".jpg");
 
     // rescale image if requested
     int maxDim = m_widget->m_dimensionSpB->value();
 
-    if (m_widget->m_resizeChB->isChecked()
-        && (image.width() > maxDim || image.height() > maxDim))
+    if (m_widget->m_resizeChB->isChecked() &&
+        (image.width() > maxDim || image.height() > maxDim))
     {
-        kDebug() << "Resizing to " << maxDim;
+        qCDebug(KIPIPLUGINS_LOG) << "Resizing to " << maxDim;
         image = image.scaled(maxDim, maxDim, Qt::KeepAspectRatio,
                                              Qt::SmoothTransformation);
     }
 
-    kDebug() << "Saving to temp file: " << m_tmpPath;
+    qCDebug(KIPIPLUGINS_LOG) << "Saving to temp file: " << m_tmpPath;
     image.save(m_tmpPath, "JPEG", m_widget->m_imageQualitySpB->value());
 
     // copy meta-data to temporary image
-    KPMetadata meta;
-    if (meta.load(imgPath))
+    if (iface())
     {
-        meta.setImageDimensions(image.size());
-        meta.setImageProgramId("Kipi-plugins", kipiplugins_version);
-        meta.save(m_tmpPath);
+        QPointer<MetadataProcessor> meta = iface()->createMetadataProcessor();
+
+        if (meta && meta->load(QUrl::fromLocalFile(imgPath)))
+        {
+            meta->setImageDimensions(image.size());
+            meta->setImageProgramId(QString::fromLatin1("Kipi-plugins"), kipipluginsVersion());
+            meta->save(QUrl::fromLocalFile(m_tmpPath));
+        }
     }
 
     return true;
@@ -747,14 +767,13 @@ void SmugWindow::uploadNextPhoto()
 {
     if (m_transferQueue.isEmpty())
     {
-        m_widget->progressBar()->hide();
-        m_widget->progressBar()->progressCompleted();
+        setUiInProgressState(false);
         return;
     }
 
     m_widget->m_imgList->processing(m_transferQueue.first());
 
-    QString imgPath = m_transferQueue.first().path();
+    QUrl imgPath = m_transferQueue.first();
     KPImageInfo info(imgPath);
 
     m_widget->progressBar()->setMaximum(m_imagesTotal);
@@ -762,21 +781,20 @@ void SmugWindow::uploadNextPhoto()
 
     bool res;
 
-    // check if we have to RAW file -> use preview image then
-    bool isRAW = KPMetadata::isRawFile(imgPath);
-    if (isRAW || m_widget->m_resizeChB->isChecked())
+    if (m_widget->m_resizeChB->isChecked())
     {
-        if (!prepareImageForUpload(imgPath, isRAW))
+        if (!prepareImageForUpload(imgPath.toLocalFile()))
         {
             slotAddPhotoDone(666, i18n("Cannot open file"));
             return;
         }
+
         res = m_talker->addPhoto(m_tmpPath, m_currentAlbumID, m_currentAlbumKey, info.description());
     }
     else
     {
         m_tmpPath.clear();
-        res = m_talker->addPhoto(imgPath, m_currentAlbumID, m_currentAlbumKey, info.description());
+        res = m_talker->addPhoto(imgPath.toLocalFile(), m_currentAlbumID, m_currentAlbumKey, info.description());
     }
 
     if (!res)
@@ -804,13 +822,13 @@ void SmugWindow::slotAddPhotoDone(int errCode, const QString& errMsg)
     }
     else
     {
-        if (KMessageBox::warningContinueCancel(this,
-                         i18n("Failed to upload photo into SmugMug: %1\n"
-                              "Do you want to continue?", errMsg))
-                         != KMessageBox::Continue)
+        if (QMessageBox::question(this, i18n("Uploading Failed"),
+                              i18n("Failed to upload photo to SmugMug."
+                                   "\n%1\n"
+                                   "Do you want to continue?", errMsg))
+            != QMessageBox::Yes)
         {
-            m_widget->progressBar()->hide();
-            m_widget->progressBar()->progressCompleted();
+            setUiInProgressState(false);
             m_transferQueue.clear();
             return;
         }
@@ -823,8 +841,7 @@ void SmugWindow::downloadNextPhoto()
 {
     if (m_transferQueue.isEmpty())
     {
-        m_widget->progressBar()->hide();
-        m_widget->progressBar()->progressCompleted();
+        setUiInProgressState(false);
         return;
     }
 
@@ -839,13 +856,14 @@ void SmugWindow::downloadNextPhoto()
 void SmugWindow::slotGetPhotoDone(int errCode, const QString& errMsg,
                                   const QByteArray& photoData)
 {
-    QString imgPath = m_widget->getDestinationPath() + '/'
-                      + QFileInfo(m_transferQueue.first().path()).fileName();
+    QString imgPath = m_widget->getDestinationPath() + QLatin1Char('/')
+                      + m_transferQueue.first().fileName();
 
     if (errCode == 0)
     {
         QString errText;
         QFile imgFile(imgPath);
+
         if (!imgFile.open(QIODevice::WriteOnly))
         {
             errText = imgFile.errorString();
@@ -855,7 +873,9 @@ void SmugWindow::slotGetPhotoDone(int errCode, const QString& errMsg,
             errText = imgFile.errorString();
         }
         else
+        {
             imgFile.close();
+        }
 
         if (errText.isEmpty())
         {
@@ -864,28 +884,26 @@ void SmugWindow::slotGetPhotoDone(int errCode, const QString& errMsg,
         }
         else
         {
-            if (KMessageBox::warningContinueCancel(this,
-                             i18n("Failed to save photo: %1\n"
-                                  "Do you want to continue?", errText))
-                             != KMessageBox::Continue)
+            if (QMessageBox::question(this, i18n("Processing Failed"),
+                                      i18n("Failed to save photo: %1\n"
+                                           "Do you want to continue?", errText))
+                != QMessageBox::Yes)
             {
                 m_transferQueue.clear();
-                m_widget->progressBar()->hide();
-                m_widget->progressBar()->progressCompleted();
+                setUiInProgressState(false);
                 return;
             }
         }
     }
     else
     {
-        if (KMessageBox::warningContinueCancel(this,
-                         i18n("Failed to download photo: %1\n"
-                              "Do you want to continue?", errMsg))
-                         != KMessageBox::Continue)
+        if (QMessageBox::question(this, i18n("Processing Failed"),
+                                  i18n("Failed to download photo: %1\n"
+                                       "Do you want to continue?", errMsg))
+                != QMessageBox::Yes)
         {
             m_transferQueue.clear();
-            m_widget->progressBar()->hide();
-            m_widget->progressBar()->progressCompleted();
+            setUiInProgressState(false);
             return;
         }
     }
@@ -898,19 +916,19 @@ void SmugWindow::slotCreateAlbumDone(int errCode, const QString& errMsg,
 {
     if (errCode != 0)
     {
-        KMessageBox::error(this, i18n("SmugMug Call Failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(), i18n("Error"), i18n("SmugMug Call Failed: %1\n", errMsg));
         return;
     }
 
     // reload album list and automatically select new album
-    m_currentAlbumID = newAlbumID;
+    m_currentAlbumID  = newAlbumID;
     m_currentAlbumKey = newAlbumKey;
     m_talker->listAlbums();
 }
 
 void SmugWindow::slotImageListChanged()
 {
-    enableButton(User1, !(m_widget->m_imgList->imageUrls().isEmpty()));
+    startButton()->setEnabled(!(m_widget->m_imgList->imageUrls().isEmpty()));
 }
 
 } // namespace KIPISmugPlugin

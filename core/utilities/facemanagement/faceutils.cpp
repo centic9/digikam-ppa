@@ -28,20 +28,12 @@
 
 #include <QImage>
 
-// KDE includes
-
-#include <kdebug.h>
-#include <klocale.h>
-
-// libkface includes
-
-#include <libkface/version.h>
-
 // Local includes
 
-#include "databaseaccess.h"
-#include "databaseconstants.h"
-#include "databaseoperationgroup.h"
+#include "digikam_debug.h"
+#include "coredbaccess.h"
+#include "coredbconstants.h"
+#include "coredboperationgroup.h"
 #include "dimg.h"
 #include "facetags.h"
 #include "imageinfo.h"
@@ -94,18 +86,18 @@ void FaceUtils::markAsScanned(const ImageInfo& info, bool hasBeenScanned) const
     }
 }
 
-// --- Convert between KFace results and DatabaseFace ---
+// --- Convert between FacesEngine results and FaceTagsIface ---
 
-QList<DatabaseFace> FaceUtils::toDatabaseFaces(qlonglong imageid,
-                                               const QList<QRectF>& detectedFaces,
-                                               const QList<KFaceIface::Identity> recognitionResults,
-                                               const QSize& fullSize) const
+QList<FaceTagsIface> FaceUtils::toFaceTagsIfaces(qlonglong imageid,
+                                                 const QList<QRectF>& detectedFaces,
+                                                 const QList<FacesEngine::Identity> recognitionResults,
+                                                 const QSize& fullSize) const
 {
-    QList<DatabaseFace> faces;
+    QList<FaceTagsIface> faces;
 
     for (int i=0; i<detectedFaces.size(); ++i)
     {
-        KFaceIface::Identity identity;
+        FacesEngine::Identity identity;
 
         if (!recognitionResults.isEmpty())
         {
@@ -113,22 +105,18 @@ QList<DatabaseFace> FaceUtils::toDatabaseFaces(qlonglong imageid,
         }
 
         // We'll get the unknownPersonTagId if the identity is null
-#if KFACE_VERSION >= 0x030500
-        int tagId               = FaceTags::getOrCreateTagForIdentity(identity.attributesMap());
-#else
-        int tagId               = FaceTags::getOrCreateTagForIdentity(identity.attributes);
-#endif
-        QRect fullSizeRect      = TagRegion::relativeToAbsolute(detectedFaces[i], fullSize);
-        DatabaseFace::Type type = identity.isNull() ? DatabaseFace::UnknownName : DatabaseFace::UnconfirmedName;
+        int tagId                = FaceTags::getOrCreateTagForIdentity(identity.attributesMap());
+        QRect fullSizeRect       = TagRegion::relativeToAbsolute(detectedFaces[i], fullSize);
+        FaceTagsIface::Type type = identity.isNull() ? FaceTagsIface::UnknownName : FaceTagsIface::UnconfirmedName;
 
         if (!tagId || !fullSizeRect.isValid())
         {
-            faces << DatabaseFace();
+            faces << FaceTagsIface();
             continue;
         }
 
-        //kDebug() << "New Entry" << fullSizeRect << tagId;
-        faces << DatabaseFace(type, imageid, tagId, TagRegion(fullSizeRect));
+        //qCDebug(DIGIKAM_GENERAL_LOG) << "New Entry" << fullSizeRect << tagId;
+        faces << FaceTagsIface(type, imageid, tagId, TagRegion(fullSizeRect));
     }
 
     return faces;
@@ -137,9 +125,9 @@ QList<DatabaseFace> FaceUtils::toDatabaseFaces(qlonglong imageid,
 // --- Images in faces and thumbnails ---
 
 void FaceUtils::storeThumbnails(ThumbnailLoadThread* const thread, const QString& filePath,
-                                const QList<DatabaseFace>& databaseFaces, const DImg& image)
+                                const QList<FaceTagsIface>& databaseFaces, const DImg& image)
 {
-    foreach(const DatabaseFace& face, databaseFaces)
+    foreach(const FaceTagsIface& face, databaseFaces)
     {
         QList<QRect> rects;
         rects << face.region().toRect();
@@ -157,13 +145,13 @@ void FaceUtils::storeThumbnails(ThumbnailLoadThread* const thread, const QString
 
 // --- Face detection: merging results ------------------------------------------------------------------------------------
 
-QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
-                                                       const QList<QRectF>& detectedFaces,
-                                                       const QList<KFaceIface::Identity> recognitionResults,
-                                                       const QSize& fullSize)
+QList<FaceTagsIface> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
+                                                        const QList<QRectF>& detectedFaces,
+                                                        const QList<FacesEngine::Identity> recognitionResults,
+                                                        const QSize& fullSize)
 {
     // Build list of new entries
-    QList<DatabaseFace> newFaces = toDatabaseFaces(imageid, detectedFaces, recognitionResults, fullSize);
+    QList<FaceTagsIface> newFaces = toFaceTagsIfaces(imageid, detectedFaces, recognitionResults, fullSize);
 
     if (newFaces.isEmpty())
     {
@@ -171,23 +159,23 @@ QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
     }
 
     // list of existing entries
-    QList<DatabaseFace> currentFaces = databaseFaces(imageid);
+    QList<FaceTagsIface> currentFaces = databaseFaces(imageid);
 
     // merge new with existing entries
     for (int i = 0; i < newFaces.size(); ++i)
     {
-        DatabaseFace& newFace = newFaces[i];
-        QList<DatabaseFace> overlappingEntries;
+        FaceTagsIface& newFace = newFaces[i];
+        QList<FaceTagsIface> overlappingEntries;
 
-        foreach(const DatabaseFace& oldFace, currentFaces)
+        foreach(const FaceTagsIface& oldFace, currentFaces)
         {
             double minOverlap = oldFace.isConfirmedName() ? 0.25 : 0.5;
 
             if (oldFace.region().intersects(newFace.region(), minOverlap))
             {
                 overlappingEntries << oldFace;
-                kDebug() << "Entry" << oldFace.region() << oldFace.tagId()
-                         << "overlaps" << newFace.region() << newFace.tagId() << ", skipping";
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Entry" << oldFace.region() << oldFace.tagId()
+                                             << "overlaps" << newFace.region() << newFace.tagId() << ", skipping";
             }
         }
 
@@ -201,7 +189,7 @@ QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
                 // we have no name in the new face. Do we have one in the old faces?
                 for (int i = 0; i < overlappingEntries.size(); ++i)
                 {
-                    const DatabaseFace& oldFace = overlappingEntries.at(i);
+                    const FaceTagsIface& oldFace = overlappingEntries.at(i);
 
                     if (oldFace.isUnknownName())
                     {
@@ -210,7 +198,7 @@ QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
                     else
                     {
                         // skip new entry if any overlapping face has a name, and we do not
-                        newFace = DatabaseFace();
+                        newFace = FaceTagsIface();
                         break;
                     }
                 }
@@ -220,7 +208,7 @@ QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
                 // we have a name in the new face. Do we have names in overlapping faces?
                 for (int i = 0; i < overlappingEntries.size(); ++i)
                 {
-                    DatabaseFace& oldFace = overlappingEntries[i];
+                    FaceTagsIface& oldFace = overlappingEntries[i];
 
                     if (oldFace.isUnknownName())
                     {
@@ -233,7 +221,7 @@ QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
                             // remove smaller face
                             if (oldFace.region().intersects(newFace.region(), 1))
                             {
-                                newFace = DatabaseFace();
+                                newFace = FaceTagsIface();
                                 break;
                             }
 
@@ -247,7 +235,7 @@ QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
                     else if (oldFace.isConfirmedName())
                     {
                         // skip new entry, confirmed has of course priority
-                        newFace = DatabaseFace();
+                        newFace = FaceTagsIface();
                     }
                 }
             }
@@ -261,47 +249,35 @@ QList<DatabaseFace> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
 
             ImageTagPair pair(imageid, newFace.tagId());
             // UnconfirmedName and UnknownName have the same attribute
-            addFaceAndTag(pair, newFace, DatabaseFace::attributesForFlags(DatabaseFace::UnconfirmedName), false);
+            addFaceAndTag(pair, newFace, FaceTagsIface::attributesForFlags(FaceTagsIface::UnconfirmedName), false);
         }
     }
 
     return newFaces;
 }
 
-KFaceIface::Identity FaceUtils::identityForTag(int tagId, KFaceIface::RecognitionDatabase db) const
+FacesEngine::Identity FaceUtils::identityForTag(int tagId, FacesEngine::RecognitionDatabase& db) const
 {
     QMap<QString, QString> attributes = FaceTags::identityAttributes(tagId);
-    KFaceIface::Identity identity     = db.findIdentity(attributes);
+    FacesEngine::Identity identity    = db.findIdentity(attributes);
 
     if (!identity.isNull())
     {
-#if KFACE_VERSION >= 0x030500
-        kDebug() << "Found kface identity" << identity.id() << "for tag" << tagId;
-#else
-        kDebug() << "Found kface identity" << identity.id << "for tag" << tagId;
-#endif
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Found FacesEngine identity" << identity.id() << "for tag" << tagId;
         return identity;
     }
 
-    kDebug() << "Adding new kface identity with attributes" << attributes;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Adding new FacesEngine identity with attributes" << attributes;
     identity = db.addIdentity(attributes);
-    
-#if KFACE_VERSION >= 0x030500
+
     FaceTags::applyTagIdentityMapping(tagId, identity.attributesMap());
-#else
-    FaceTags::applyTagIdentityMapping(tagId, identity.attributes);
-#endif
 
     return identity;
 }
 
-int FaceUtils::tagForIdentity(const KFaceIface::Identity& identity) const
+int FaceUtils::tagForIdentity(const FacesEngine::Identity& identity) const
 {
-#if KFACE_VERSION >= 0x030500
     return FaceTags::getOrCreateTagForIdentity(identity.attributesMap());
-#else
-    return FaceTags::getOrCreateTagForIdentity(identity.attributes);
-#endif
 }
 
 // --- Editing normal tags, reimplemented with FileActionMngr ---

@@ -6,7 +6,7 @@
  * Date        : 2007-09-06
  * Description : a dialog to control camera capture.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,10 +27,7 @@
 // Qt includes
 
 #include <QCloseEvent>
-
-// KDE includes
-
-#include <kdialog.h>
+#include <QDialog>
 
 // Local includes
 
@@ -43,7 +40,7 @@ namespace Digikam
 
 class CameraController;
 
-class CaptureDlg : public KDialog
+class CaptureDlg : public QDialog
 {
     Q_OBJECT
 
@@ -63,6 +60,7 @@ private Q_SLOTS:
     void slotPreviewDone(const QImage&);
     void slotCapture();
     void slotCancel();
+    void slotHelp();
 
 private:
 

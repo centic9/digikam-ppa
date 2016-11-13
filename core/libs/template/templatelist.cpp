@@ -6,7 +6,7 @@
  * Date        : 2009-06-20
  * Description : identity list view.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "templatelist.moc"
+#include "templatelist.h"
 
 // Qt includes
 
@@ -31,7 +31,7 @@
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -58,7 +58,7 @@ void TemplateListItem::setTemplate(const Template& t)
     if (!m_template.isNull())
     {
         setText(0, m_template.templateTitle());
-        setText(1, m_template.authors().join(";"));
+        setText(1, m_template.authors().join(QLatin1String(";")));
     }
 }
 
@@ -83,8 +83,8 @@ TemplateList::TemplateList(QWidget* const parent)
     labels.append(i18n("Title"));
     labels.append(i18n("Authors"));
     setHeaderLabels(labels);
-    header()->setResizeMode(0, QHeaderView::ResizeToContents);
-    header()->setResizeMode(1, QHeaderView::Stretch);
+    header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(1, QHeaderView::Stretch);
 }
 
 TemplateList::~TemplateList()
@@ -93,11 +93,12 @@ TemplateList::~TemplateList()
 
 void TemplateList::readSettings()
 {
-    TemplateManager* tm = TemplateManager::defaultManager();
+    TemplateManager* const tm = TemplateManager::defaultManager();
 
     if (tm)
     {
         QList<Template> list = tm->templateList();
+
         foreach(const Template& t, list)
         {
             new TemplateListItem(this, t);
@@ -107,7 +108,7 @@ void TemplateList::readSettings()
 
 void TemplateList::applySettings()
 {
-    TemplateManager* tm = TemplateManager::defaultManager();
+    TemplateManager* const tm = TemplateManager::defaultManager();
 
     if (tm)
     {
@@ -117,7 +118,7 @@ void TemplateList::applySettings()
 
         while (*it)
         {
-            TemplateListItem* item = dynamic_cast<TemplateListItem*>(*it);
+            TemplateListItem* const item = dynamic_cast<TemplateListItem*>(*it);
 
             if (item)
             {
@@ -142,7 +143,7 @@ TemplateListItem* TemplateList::find(const QString& title)
 
     while (*it)
     {
-        TemplateListItem* item = dynamic_cast<TemplateListItem*>(*it);
+        TemplateListItem* const item = dynamic_cast<TemplateListItem*>(*it);
 
         if (item)
         {

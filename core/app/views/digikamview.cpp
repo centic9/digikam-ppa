@@ -7,11 +7,11 @@
  * Description : implementation of album view interface.
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2011-2013 by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014-2015 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,24 +26,21 @@
  *
  * ============================================================ */
 
-#include "digikamview.moc"
+#include "digikamview.h"
 
 // Qt includes
 
+#include <QTimer>
 #include <QShortcut>
-
-// KDE includes
-
-#include <kapplication.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <kmessagebox.h>
-#include <ktoolinvocation.h>
-#include <krun.h>
+#include <QApplication>
+#include <QDesktopServices>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
+#include "digikam_globals.h"
+#include "dmessagebox.h"
 #include "albumhistory.h"
 #include "applicationsettings.h"
 #include "metadatasynchronizer.h"
@@ -59,10 +56,8 @@
 #include "filterstatusbar.h"
 #include "leftsidebarwidgets.h"
 #include "loadingcacheinterface.h"
-#include "mediaplayerview.h"
 #include "metadatasettings.h"
 #include "newitemsfinder.h"
-#include "globals.h"
 #include "metadatahub.h"
 #include "fileactionmngr.h"
 #include "queuemgrwindow.h"
@@ -71,12 +66,13 @@
 #include "sidebar.h"
 #include "slideshow.h"
 #include "slideshowbuilder.h"
+#include "presentationmngr.h"
 #include "statusprogressbar.h"
 #include "filtersidebarwidget.h"
 #include "tagmodificationhelper.h"
 #include "imagepropertiesversionstab.h"
 #include "tagscache.h"
-#include "searchxml.h"
+#include "coredbsearchxml.h"
 #include "fileactionprogress.h"
 #include "versionmanagersettings.h"
 #include "tableview.h"
@@ -85,9 +81,13 @@
 #include "albumlabelstreeview.h"
 #include "tagsactionmngr.h"
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MEDIAPLAYER
+#include "mediaplayerview.h"
+#endif //HAVE_MEDIAPLAYER
+
+#ifdef HAVE_MARBLE
 #include "mapwidgetview.h"
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 namespace Digikam
 {
@@ -113,18 +113,16 @@ public:
         searchSideBar(0),
         fuzzySearchSideBar(0),
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         gpsSearchSideBar(0),
         mapView(0),
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
-#ifdef HAVE_KFACE
         peopleSideBar(0),
-#endif /* HAVE_KFACE */
-
         parent(0),
         iconView(0),
         tableView(0),
+        trashView(0),
         albumManager(0),
         albumHistory(0),
         stackedview(0),
@@ -135,7 +133,7 @@ public:
         leftSideBar(0),
         rightSideBar(0),
         filterWidget(0),
-        optionAlbumViewPrefix("AlbumView"),
+        optionAlbumViewPrefix(QLatin1String("AlbumView")),
         modelCollection(0),
         labelsSearchHandler(0)
     {
@@ -168,18 +166,16 @@ public:
     SearchSideBarWidget*          searchSideBar;
     FuzzySearchSideBarWidget*     fuzzySearchSideBar;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     GPSSearchSideBarWidget*       gpsSearchSideBar;
     MapWidgetView*                mapView;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
-#ifdef HAVE_KFACE
     PeopleSideBarWidget*          peopleSideBar;
-#endif /* HAVE_KFACE */
-
     DigikamApp*                   parent;
     DigikamImageView*             iconView;
     TableView*                    tableView;
+    TrashView*                    trashView;
     AlbumManager*                 albumManager;
     AlbumHistory*                 albumHistory;
     StackedView*                  stackedview;
@@ -243,7 +239,8 @@ void DigikamView::Private::addPageUpDownActions(DigikamView* const q, QWidget* c
 // -------------------------------------------------------------------------------------------
 
 DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const modelCollection)
-    : KHBox(parent), d(new Private)
+    : DHBox(parent),
+      d(new Private)
 {
     qRegisterMetaType<SlideShowSettings>("SlideShowSettings");
 
@@ -261,8 +258,8 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
     d->splitter->setFrameShape( QFrame::NoFrame );
     d->splitter->setOpaqueResize(false);
 
-    d->leftSideBar = new Sidebar(this, d->splitter, KMultiTabBar::Left);
-    d->leftSideBar->setObjectName("Digikam Left Sidebar");
+    d->leftSideBar = new Sidebar(this, d->splitter, Qt::LeftEdge);
+    d->leftSideBar->setObjectName(QLatin1String("Digikam Left Sidebar"));
     d->splitter->setParent(this);
 
     // The dock area where the thumbnail bar is allowed to go.
@@ -274,18 +271,22 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
 
     d->iconView  = d->stackedview->imageIconView();
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapView   = d->stackedview->mapWidgetView();
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     d->tableView = d->stackedview->tableView();
+    d->trashView = d->stackedview->trashView();
 
     d->addPageUpDownActions(this, d->stackedview->imagePreviewView());
     d->addPageUpDownActions(this, d->stackedview->thumbBar());
-    d->addPageUpDownActions(this, d->stackedview->mediaPlayerView());
 
-    d->rightSideBar = new ImagePropertiesSideBarDB(this, d->splitter, KMultiTabBar::Right, true);
-    d->rightSideBar->setObjectName("Digikam Right Sidebar");
+#ifdef HAVE_MEDIAPLAYER
+    d->addPageUpDownActions(this, d->stackedview->mediaPlayerView());
+#endif //HAVE_MEDIAPLAYER
+
+    d->rightSideBar = new ImagePropertiesSideBarDB(this, d->splitter, Qt::RightEdge, true);
+    d->rightSideBar->setObjectName(QLatin1String("Digikam Right Sidebar"));
 
     // album folder view
     d->albumFolderSideBar = new AlbumFolderViewSideBarWidget(d->leftSideBar,
@@ -332,16 +333,14 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
                                                          d->searchModificationHelper);
     d->leftSideBarWidgets << d->fuzzySearchSideBar;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->gpsSearchSideBar = new GPSSearchSideBarWidget(d->leftSideBar,
                                                      d->modelCollection->getSearchModel(),
                                                      d->searchModificationHelper,
                                                      d->iconView->imageFilterModel(),d->iconView->getSelectionModel());
 
     d->leftSideBarWidgets << d->gpsSearchSideBar;
-#endif // HAVE_KGEOMAP
-
-#ifdef HAVE_KFACE
+#endif // HAVE_MARBLE
 
     // People Sidebar
     d->peopleSideBar = new PeopleSideBarWidget(d->leftSideBar,
@@ -353,8 +352,6 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
 
     d->leftSideBarWidgets << d->peopleSideBar;
 
-#endif /* HAVE_KFACE */
-
     foreach(SidebarWidget* const leftWidget, d->leftSideBarWidgets)
     {
         d->leftSideBar->appendTab(leftWidget, leftWidget->getIcon(), leftWidget->getCaption());
@@ -364,12 +361,13 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
     }
 
     // To the right.
-
-    d->addPageUpDownActions(this, d->rightSideBar->imageDescEditTab());
+   // NOTE: by Veaceslav, currently if you register these actions in Tags/Caption window,
+   // the arrow up and down are not handled correctly by QCompleter
+   // d->addPageUpDownActions(this, d->rightSideBar->imageDescEditTab());
 
     // Tags Filter sidebar tab contents.
     d->filterWidget   = new FilterSideBarWidget(d->rightSideBar, d->modelCollection->getTagFilterModel());
-    d->rightSideBar->appendTab(d->filterWidget, SmallIcon("view-filter"), i18n("Filters"));
+    d->rightSideBar->appendTab(d->filterWidget, QIcon::fromTheme(QLatin1String("view-filter")), i18n("Filters"));
 
     // Versions sidebar overlays
     d->rightSideBar->getFiltersHistoryTab()->addOpenAlbumAction(d->iconView->imageModel());
@@ -528,6 +526,11 @@ void DigikamView::setupConnections()
     connect(d->tableView, SIGNAL(signalItemsChanged()),
             this, SLOT(slotImageSelected()));
 
+    // -- Trash View Connections ----------------------------------
+
+    connect(d->trashView, SIGNAL(selectionChanged()),
+            this, SLOT(slotImageSelected()));
+
     // -- Sidebar Connections -------------------------------------
 
     connect(d->leftSideBar, SIGNAL(signalChangedTab(QWidget*)),
@@ -548,10 +551,10 @@ void DigikamView::setupConnections()
     connect(this, SIGNAL(signalNoCurrentItem()),
             d->rightSideBar, SLOT(slotNoCurrentItem()));
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     connect(d->gpsSearchSideBar, SIGNAL(signalMapSoloItems(QList<qlonglong>,QString)),
             d->iconView->imageFilterModel(), SLOT(setIdWhitelist(QList<qlonglong>,QString)));
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     // -- Filter Bars Connections ---------------------------------
 
@@ -718,22 +721,22 @@ void DigikamView::loadViewState()
 
     d->filterWidget->loadState();
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group("MainWindow");
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("MainWindow"));
 
     // Restore the splitter
     d->splitter->restoreState(group);
 
     // Restore the thumbnail bar dock.
     QByteArray thumbbarState;
-    thumbbarState     = group.readEntry("ThumbbarState", thumbbarState);
+    thumbbarState     = group.readEntry(QLatin1String("ThumbbarState"), thumbbarState);
     d->dockArea->restoreState(QByteArray::fromBase64(thumbbarState));
 
-    d->initialAlbumID = group.readEntry("InitialAlbumID", 0);
+    d->initialAlbumID = group.readEntry(QLatin1String("InitialAlbumID"), 0);
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapView->loadState();
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     d->tableView->loadState();
     d->rightSideBar->loadState();
@@ -741,8 +744,8 @@ void DigikamView::loadViewState()
 
 void DigikamView::saveViewState()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group("MainWindow");
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("MainWindow"));
 
     foreach(SidebarWidget* const widget, d->leftSideBarWidgets)
     {
@@ -759,7 +762,7 @@ void DigikamView::saveViewState()
     // (when the user is in image preview mode) when the layout is saved, it
     // also reappears when restoring the view, while it should always be hidden.
     d->stackedview->thumbBarDock()->close();
-    group.writeEntry("ThumbbarState", d->dockArea->saveState().toBase64());
+    group.writeEntry(QLatin1String("ThumbbarState"), d->dockArea->saveState().toBase64());
 
     QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
     Album* album            = 0;
@@ -771,16 +774,16 @@ void DigikamView::saveViewState()
 
     if (album)
     {
-        group.writeEntry("InitialAlbumID", album->globalID());
+        group.writeEntry(QLatin1String("InitialAlbumID"), album->globalID());
     }
     else
     {
-        group.writeEntry("InitialAlbumID", 0);
+        group.writeEntry(QLatin1String("InitialAlbumID"), 0);
     }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapView->saveState();
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     d->tableView->saveState();
     d->rightSideBar->saveState();
@@ -791,7 +794,7 @@ QList<SidebarWidget*> DigikamView::leftSidebarWidgets() const
     return d->leftSideBarWidgets;
 }
 
-KUrl::List DigikamView::allUrls() const
+QList<QUrl> DigikamView::allUrls() const
 {
     /// @todo This functions seems not to be used anywhere right now
 
@@ -805,7 +808,7 @@ KUrl::List DigikamView::allUrls() const
     }
 }
 
-KUrl::List DigikamView::selectedUrls() const
+QList<QUrl> DigikamView::selectedUrls() const
 {
     switch (viewMode())
     {
@@ -917,7 +920,7 @@ void DigikamView::slotLastItem()
     }
 }
 
-void DigikamView::slotSelectItemByUrl(const KUrl& url)
+void DigikamView::slotSelectItemByUrl(const QUrl& url)
 {
     /// @todo This functions seems not to be used anywhere right now
     /// @todo Adapt to TableView
@@ -940,7 +943,7 @@ void DigikamView::slotAllAlbumsLoaded()
     d->albumManager->setCurrentAlbums(QList<Album*>() << album);
 }
 
-void DigikamView::slotSortAlbums(int order)
+void DigikamView::slotSortAlbums(int role)
 {
     ApplicationSettings* const settings = ApplicationSettings::instance();
 
@@ -949,7 +952,7 @@ void DigikamView::slotSortAlbums(int order)
         return;
     }
 
-    settings->setAlbumSortOrder((ApplicationSettings::AlbumSortOrder) order);
+    settings->setAlbumSortRole((ApplicationSettings::AlbumSortRole) role);
     settings->saveSettings();
     //A dummy way to force the tree view to resort if the album sort role changed
 
@@ -1114,7 +1117,7 @@ void DigikamView::getForwardHistory(QStringList& titles)
 
 void DigikamView::slotGotoAlbumAndItem(const ImageInfo& imageInfo)
 {
-    kDebug() << "going to " << imageInfo;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "going to " << imageInfo;
 
     emit signalNoCurrentItem();
 
@@ -1175,7 +1178,7 @@ void DigikamView::slotGotoTagAndItem(int tagID)
     }
     else
     {
-        kError() << "Could not find a tag album for tag id " << tagID;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Could not find a tag album for tag id " << tagID;
     }
 
     // Set the activate item url to find in the Tag View after
@@ -1184,13 +1187,13 @@ void DigikamView::slotGotoTagAndItem(int tagID)
     // d->iconView->setAlbumItemToFind(url);
 }
 
-void DigikamView::slotSelectAlbum(const KUrl& url)
+void DigikamView::slotSelectAlbum(const QUrl& url)
 {
     PAlbum* const album = d->albumManager->findPAlbum(url);
 
     if (!album)
     {
-        kWarning() << "Unable to find album for " << url;
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Unable to find album for " << url;
         return;
     }
 
@@ -1207,9 +1210,9 @@ void DigikamView::slotAlbumSelected(QList<Album*> albums)
     {
         d->iconView->openAlbum(QList<Album*>());
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         d->mapView->openAlbum(0);
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
         slotTogglePreviewMode(ImageInfo());
         return;
@@ -1242,6 +1245,19 @@ void DigikamView::slotAlbumSelected(QList<Album*> albums)
     {
         d->stackedview->setViewMode(StackedView::WelcomePageMode);
     }
+    else if (album->isTrashAlbum())
+    {
+        PAlbum* const palbum = d->albumManager->findPAlbum(album->parent()->id());
+
+        if (palbum)
+        {
+            QUrl url = palbum->fileUrl();
+            url = url.adjusted(QUrl::StripTrailingSlash);
+            d->trashView->model()->loadItemsForCollection(url.toLocalFile());
+            d->filterWidget->setEnabled(false);
+            d->stackedview->setViewMode(StackedView::TrashViewMode);
+        }
+    }
     else
     {
         switch (viewMode())
@@ -1249,11 +1265,13 @@ void DigikamView::slotAlbumSelected(QList<Album*> albums)
             case StackedView::PreviewImageMode:
             case StackedView::MediaPlayerMode:
             case StackedView::WelcomePageMode:
+            case StackedView::TrashViewMode:
                 slotTogglePreviewMode(ImageInfo());
                 break;
             default:
                 break;
         }
+        d->filterWidget->setEnabled(true);
     }
 }
 
@@ -1268,7 +1286,7 @@ void DigikamView::slotAlbumOpenInFileManager()
 
     if (album->isRoot())
     {
-        KMessageBox::error(this, i18n("Cannot open the root album. It is not a physical location."));
+        QMessageBox::critical(this, qApp->applicationName(), i18n("Cannot open the root album. It is not a physical location."));
         return;
     }
 
@@ -1276,45 +1294,8 @@ void DigikamView::slotAlbumOpenInFileManager()
 
     if (palbum)
     {
-        new KRun(KUrl(palbum->folderPath()), this); // KRun will delete itself.
+        QDesktopServices::openUrl(QUrl::fromLocalFile(palbum->folderPath()));
     }
-}
-
-void DigikamView::slotAlbumOpenInTerminal()
-{
-    Album* const album = d->albumManager->currentAlbums().first();
-
-    if (!album || album->type() != Album::PHYSICAL)
-    {
-        return;
-    }
-
-    if (album->isRoot())
-    {
-        KMessageBox::error(this, i18n("Cannot open the root. It is not a physical location."));
-        return;
-    }
-
-    PAlbum* const palbum = dynamic_cast<PAlbum*>(album);
-
-    if (!palbum)
-    {
-        return;
-    }
-
-    QString dir(palbum->folderPath());
-
-    // If the given directory is not local, it can still be the URL of an
-    // ioslave using UDS_LOCAL_PATH which to be converted first.
-    KUrl url = KIO::NetAccess::mostLocalUrl(dir, this);
-
-    //If the URL is local after the above conversion, set the directory.
-    if (url.isLocalFile())
-    {
-        dir = url.toLocalFile();
-    }
-
-    KToolInvocation::invokeTerminal(QString(), dir);
 }
 
 void DigikamView::slotRefresh()
@@ -1324,9 +1305,11 @@ void DigikamView::slotRefresh()
         case StackedView::PreviewImageMode:
             d->stackedview->imagePreviewView()->reload();
             break;
+#ifdef HAVE_MEDIAPLAYER
         case StackedView::MediaPlayerMode:
             d->stackedview->mediaPlayerView()->reload();
             break;
+#endif //HAVE_MEDIAPLAYER
         default:
             Album* const album = d->iconView->currentAlbum();
             if (!album) return;
@@ -1383,6 +1366,12 @@ void DigikamView::slotImageSelected()
 
 void DigikamView::slotDispatchImageSelected()
 {
+    if (viewMode() == StackedView::TrashViewMode)
+    {
+        d->rightSideBar->itemChanged(d->trashView->lastSelectedItemUrl());
+        return;
+    }
+
     if (d->needDispatchSelection)
     {
         // the list of ImageInfos of currently selected items, currentItem first
@@ -1458,7 +1447,8 @@ void DigikamView::setThumbSize(int size)
         setZoomFactor(z);
     }
     else if (   (viewMode() == StackedView::IconViewMode)
-             || (viewMode() == StackedView::TableViewMode) )
+             || (viewMode() == StackedView::TableViewMode)
+             || (viewMode() == StackedView::TrashViewMode))
     {
         if (size > ThumbnailSize::maxThumbsSize())
         {
@@ -1483,6 +1473,7 @@ void DigikamView::slotThumbSizeEffect()
 {
     d->iconView->setThumbnailSize(d->thumbSize);
     d->tableView->setThumbnailSize(d->thumbSize);
+    d->trashView->setThumbnailSize(d->thumbSize);
     toggleZoomActions();
 
     ApplicationSettings::instance()->setDefaultIconSize(d->thumbSize);
@@ -1575,7 +1566,7 @@ void DigikamView::slotFitToWindow()
     else if (viewMode() == StackedView::IconViewMode)
     {
         int nts = d->iconView->fitToWidthIcons();
-        kDebug() << "new thumb size = " << nts;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "new thumb size = " << nts;
         setThumbSize(nts);
         toggleZoomActions();
         emit signalThumbSizeChanged(d->thumbSize);
@@ -1743,7 +1734,10 @@ void DigikamView::slotViewModeChanged()
             break;
         case StackedView::TableViewMode:
             emit signalSwitchedToTableView();
-            emit signalThumbSizeChanged(d->tableView->getThumbnailSize().size());
+            emit signalThumbSizeChanged(d->trashView->getThumbnailSize().size());
+            break;
+        case StackedView::TrashViewMode:
+            emit signalSwitchedToTrashView();
             break;
     }
 }
@@ -1874,12 +1868,12 @@ void DigikamView::slotImageDelete()
 {
     switch (viewMode())
     {
-    case StackedView::TableViewMode:
-        d->tableView->slotDeleteSelected(ImageViewUtilities::DeleteUseTrash);
-        break;
+        case StackedView::TableViewMode:
+            d->tableView->slotDeleteSelected(ImageViewUtilities::DeleteUseTrash);
+            break;
 
-    default:
-        d->iconView->deleteSelected(ImageViewUtilities::DeleteUseTrash);
+        default:
+            d->iconView->deleteSelected(ImageViewUtilities::DeleteUseTrash);
     }
 }
 
@@ -1887,12 +1881,12 @@ void DigikamView::slotImageDeletePermanently()
 {
     switch (viewMode())
     {
-    case StackedView::TableViewMode:
-        d->tableView->slotDeleteSelected(ImageViewUtilities::DeletePermanently);
-        break;
+        case StackedView::TableViewMode:
+            d->tableView->slotDeleteSelected(ImageViewUtilities::DeletePermanently);
+            break;
 
-    default:
-        d->iconView->deleteSelected(ImageViewUtilities::DeletePermanently);
+        default:
+            d->iconView->deleteSelected(ImageViewUtilities::DeletePermanently);
     }
 }
 
@@ -1900,12 +1894,12 @@ void DigikamView::slotImageDeletePermanentlyDirectly()
 {
     switch (viewMode())
     {
-    case StackedView::TableViewMode:
-        d->tableView->slotDeleteSelectedWithoutConfirmation(ImageViewUtilities::DeletePermanently);
-        break;
+        case StackedView::TableViewMode:
+            d->tableView->slotDeleteSelectedWithoutConfirmation(ImageViewUtilities::DeletePermanently);
+            break;
 
-    default:
-        d->iconView->deleteSelectedDirectly(ImageViewUtilities::DeletePermanently);
+        default:
+            d->iconView->deleteSelectedDirectly(ImageViewUtilities::DeletePermanently);
     }
 }
 
@@ -1913,12 +1907,12 @@ void DigikamView::slotImageTrashDirectly()
 {
     switch (viewMode())
     {
-    case StackedView::TableViewMode:
-        d->tableView->slotDeleteSelectedWithoutConfirmation(ImageViewUtilities::DeleteUseTrash);
-        break;
+        case StackedView::TableViewMode:
+            d->tableView->slotDeleteSelectedWithoutConfirmation(ImageViewUtilities::DeleteUseTrash);
+            break;
 
-    default:
-        d->iconView->deleteSelectedDirectly(ImageViewUtilities::DeleteUseTrash);
+        default:
+            d->iconView->deleteSelectedDirectly(ImageViewUtilities::DeleteUseTrash);
     }
 }
 
@@ -1926,12 +1920,12 @@ void DigikamView::slotSelectAll()
 {
     switch (viewMode())
     {
-    case StackedView::TableViewMode:
-        d->tableView->selectAll();
-        break;
+        case StackedView::TableViewMode:
+            d->tableView->selectAll();
+            break;
 
-    default:
-        d->iconView->selectAll();
+        default:
+            d->iconView->selectAll();
     }
 }
 
@@ -1939,12 +1933,12 @@ void DigikamView::slotSelectNone()
 {
     switch (viewMode())
     {
-    case StackedView::TableViewMode:
-        d->tableView->clearSelection();
-        break;
+        case StackedView::TableViewMode:
+            d->tableView->clearSelection();
+            break;
 
-    default:
-        d->iconView->clearSelection();
+        default:
+            d->iconView->clearSelection();
     }
 }
 
@@ -1952,12 +1946,12 @@ void DigikamView::slotSelectInvert()
 {
     switch (viewMode())
     {
-    case StackedView::TableViewMode:
-        d->tableView->invertSelection();
-        break;
+        case StackedView::TableViewMode:
+            d->tableView->invertSelection();
+            break;
 
-    default:
-        d->iconView->invertSelection();
+        default:
+            d->iconView->invertSelection();
     }
 }
 
@@ -2035,7 +2029,7 @@ void DigikamView::toggleTag(int tagID)
     ImageInfoList tagToRemove, tagToAssign;
     const ImageInfoList selectedList = selectedInfoList();
 
-    foreach(ImageInfo info, selectedList)
+    foreach(const ImageInfo& info, selectedList)
     {
         if (info.tagIds().contains(tagID))
             tagToRemove.append(info);
@@ -2075,9 +2069,9 @@ void DigikamView::slotSlideShowSelection()
 void DigikamView::slotSlideShowRecursive()
 {
     QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
-    Album* album = 0;
+    Album* album            = 0;
 
-    if(!albumList.isEmpty())
+    if (!albumList.isEmpty())
     {
         album = albumList.first();
     }
@@ -2110,6 +2104,19 @@ void DigikamView::slotSlideShowManualFrom(const ImageInfo& info)
    builder->run();
 }
 
+void DigikamView::slotPresentation()
+{
+    PresentationMngr* const mngr = new PresentationMngr(this);
+
+    foreach(const ImageInfo& info, selectedInfoList())
+    {
+        mngr->addFile(info.fileUrl(), info.comment());
+        qApp->processEvents();
+    }
+
+    mngr->showConfigDialog();
+}
+
 void DigikamView::slideShow(const ImageInfoList& infoList)
 {
     SlideShowBuilder* const builder = new SlideShowBuilder(infoList);
@@ -2134,17 +2141,20 @@ void DigikamView::slotSlideShowBuilderComplete(const SlideShowSettings& settings
         slide->setCurrentItem(currentInfo().fileUrl());
     }
 
-    connect(slide, SIGNAL(signalRatingChanged(KUrl,int)),
-            this, SLOT(slotRatingChanged(KUrl,int)));
+    connect(slide, SIGNAL(signalRatingChanged(QUrl,int)),
+            this, SLOT(slotRatingChanged(QUrl,int)));
 
-    connect(slide, SIGNAL(signalColorLabelChanged(KUrl,int)),
-            this, SLOT(slotColorLabelChanged(KUrl,int)));
+    connect(slide, SIGNAL(signalColorLabelChanged(QUrl,int)),
+            this, SLOT(slotColorLabelChanged(QUrl,int)));
 
-    connect(slide, SIGNAL(signalPickLabelChanged(KUrl,int)),
-            this, SLOT(slotPickLabelChanged(KUrl,int)));
+    connect(slide, SIGNAL(signalPickLabelChanged(QUrl,int)),
+            this, SLOT(slotPickLabelChanged(QUrl,int)));
 
-    connect(slide, SIGNAL(signalToggleTag(KUrl,int)),
-            this, SLOT(slotToggleTag(KUrl,int)));
+    connect(slide, SIGNAL(signalToggleTag(QUrl,int)),
+            this, SLOT(slotToggleTag(QUrl,int)));
+
+    connect(slide, SIGNAL(signalLastItemUrl(QUrl)),
+            d->iconView, SLOT(setCurrentUrl(QUrl)));
 
     slide->show();
 }
@@ -2183,7 +2193,11 @@ void DigikamView::slotImageChangeFailed(const QString& message, const QStringLis
         return;
     }
 
-    KMessageBox::errorList(0, message, fileNames);
+    DMessageBox::showInformationList(QMessageBox::Critical,
+                                     qApp->activeWindow(),
+                                     qApp->applicationName(),
+                                     message,
+                                     fileNames);
 }
 
 void DigikamView::slotLeftSideBarActivateAlbums()
@@ -2224,7 +2238,7 @@ void DigikamView::slotRightSideBarActivateAssignedTags()
     d->rightSideBar->imageDescEditTab()->activateAssignedTagsButton();
 }
 
-void DigikamView::slotRatingChanged(const KUrl& url, int rating)
+void DigikamView::slotRatingChanged(const QUrl& url, int rating)
 {
     rating = qMin(RatingMax, qMax(RatingMin, rating));
     ImageInfo info = ImageInfo::fromUrl(url);
@@ -2235,7 +2249,7 @@ void DigikamView::slotRatingChanged(const KUrl& url, int rating)
     }
 }
 
-void DigikamView::slotColorLabelChanged(const KUrl& url, int color)
+void DigikamView::slotColorLabelChanged(const QUrl& url, int color)
 {
     ImageInfo info = ImageInfo::fromUrl(url);
 
@@ -2245,7 +2259,7 @@ void DigikamView::slotColorLabelChanged(const KUrl& url, int color)
     }
 }
 
-void DigikamView::slotPickLabelChanged(const KUrl& url, int pick)
+void DigikamView::slotPickLabelChanged(const QUrl& url, int pick)
 {
     ImageInfo info = ImageInfo::fromUrl(url);
 
@@ -2255,7 +2269,7 @@ void DigikamView::slotPickLabelChanged(const KUrl& url, int pick)
     }
 }
 
-void DigikamView::slotToggleTag(const KUrl& url, int tagID)
+void DigikamView::slotToggleTag(const QUrl& url, int tagID)
 {
     ImageInfo info = ImageInfo::fromUrl(url);
 
@@ -2287,7 +2301,7 @@ void DigikamView::slotImageExifOrientation(int orientation)
     FileActionMngr::instance()->setExifOrientation(selectedInfoList(), orientation);
 }
 
-void DigikamView::imageTransform(RotationMatrix::TransformationAction transform)
+void DigikamView::imageTransform(MetaEngineRotation::TransformationAction transform)
 {
     FileActionMngr::instance()->transform(selectedInfoList(), transform);
 }
@@ -2299,10 +2313,10 @@ ImageInfo DigikamView::currentInfo() const
         case StackedView::TableViewMode:
             return d->tableView->currentInfo();
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         case StackedView::MapWidgetMode:
             return d->mapView->currentImageInfo();
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
         case StackedView::MediaPlayerMode:
         case StackedView::PreviewImageMode:
@@ -2361,7 +2375,7 @@ ImageInfoList DigikamView::allInfo() const
     }
 }
 
-KUrl DigikamView::currentUrl() const
+QUrl DigikamView::currentUrl() const
 {
     const ImageInfo cInfo = currentInfo();
 
@@ -2407,6 +2421,13 @@ void DigikamView::slotSetupMetadataFilters(int tab)
 void DigikamView::toggleFullScreen(bool set)
 {
     d->stackedview->imagePreviewView()->toggleFullScreen(set);
+}
+
+void DigikamView::setToolsIconView(DCategorizedView* const view)
+{
+    d->rightSideBar->appendTab(view,
+                               QIcon::fromTheme(QLatin1String("applications-graphics")),
+                               i18n("Tools"));
 }
 
 }  // namespace Digikam

@@ -13,110 +13,27 @@ Notes:
 
 kipi-plugins is based in part on the work of the Independent JPEG Group.
 
-Current plugins ported to Qt4/KDE4:
-
-AcquireImages      : A tool to acquire images using flat scanner.
-Calendar           : A tool to create calendars.
-DngConverter       : A tool to convert Raw Image to Digital NeGative (DNG - http://en.wikipedia.org/wiki/Digital_Negative_(file_format)).
 Facebook           : A tool to import/export images to/from a remote Facebook web service (http://www.facebook.com).
-FlickrExport       : A tool to export images to a remote Flickr based web service (http://www.flickr.com). Also compatible with Zooomr and 23HQ 
-GalleryExport      : A tool to export images to a remote Gallery (and Gallery 2) server (http://gallery.sf.net).
-GPSSync            : A tool to geolocalize pictures.
-HTMLExport         : A tool to export images collections into a static XHTML page.
-ImageViewer        : A tool to preview images using OpenGL.
-JpegLossLess       : A tool to rotate/flip images without losing quality.
-MetadataEdit       : A tool to edit EXIF, IPTC and XMP metadata.
+Flickr             : A tool to export images to a remote Flickr based web service (http://www.flickr.com). Also compatible with Zooomr and 23HQ.
 GoogleServices     : A tool to export images to Google web services.
-PrintImage         : A tool to print images in various format.
-RawConverter       : A tool to convert Raw Image to JPEG/PNG/TIFF.
-RemoveRedEyes      : A tool to remove red eyes on image automatically.
-SendImages         : A tool to send images by e-mail.
-SimpleViewerExport : A tool to export images to Flash using SimpleViewer (http://www.airtightinteractive.com/simpleviewer).
-SlideShow          : A tool to Slide images with 2D and 3D effects using OpenGL.
 Smug               : A tool to import/export images to/from a remote SmugMug web service (http://www.smugmug.com).
-TimeAdjust         : A tool to adjust date and time.
-IpodExport         : A tool to export pictures to an Ipod device.
-BatchProcess       : A tool to batch process images (convert, resize, rename, etc.).
-KIOExport          : A tool to export images to remote computer using network protocol (FTP, SSH, SAMBA, etc...).
-Shwup              : A tool to export images to Shwup web service (http://www.shwup.com).
-ExpoBlending       : A tool to create pseudo HDR image with a stack of bracketed images.
-PiwigoExport       : A tool to export images to a remote Piwigo (PHPWebGallery) server (http://piwigo.org).
-DebianScreenshots  : A tool to export images to Debian Screenshots web service (http://screenshots.debian.net).
-Kopete             : A tool to export images to an instant messaging contact.
+SendImages         : A tool to export images by e-mail.
+FlashExport        : A tool to export images to Flash using SimpleViewer (http://www.airtightinteractive.com/simpleviewer).
+RemoteStorage      : A tool to export images to remote storage using network protocols as FTP, SSH, SAMBA... (based on KIO).
+Piwigo             : A tool to export images to a remote Piwigo (PHPWebGallery) server (http://piwigo.org).
 YandexFotki        : A tool to export images to Yandex web service (http://fotki.yandex.ru).
 MediaWiki          : A tool to export images to Mediawiki based web service (http://www.mediawiki.org).
 RajceExport        : A tool to export images to Rajce web service (http://www.rajce.idnes.cz).
 Vkontakte          : A tool to export images to VKontakte web service (http://www.vkontakte.ru)
-PhotoLayoutEditor  : A tool to assemble images together.
-ImageShackExport   : A tool to export images to ImageShack web service (http://imageshack.us)
+ImageShack         : A tool to export images to ImageShack web service (http://imageshack.us)
 ImgurExport        : A tool to export images to ImgUr web service (http://imgur.com)
-DLNAExport         : A tool to export collection on DLNA network service (http://www.dlna.org).
-Panorama           : A tool to assemble panoramic photo automatically.
+PrintImage         : A tool to export images to print devices.
 
 -- DEPENDENCIES -------------------------------------------------------
 
-CMake           >= 2.4.5                        http://www.cmake.org
-libqt           >= 4.3.0                        http://www.qtsoftware.com
-libkde          >= 4.3.0                        http://www.kde.org
-libtiff         >= 3.8.2                        http://www.remotesensing.org/libtiff
-libjpeg         >= 6b                           http://www.ijg.org
-libpng          >= 1.2.0                        http://www.libpng.org/pub/png/libpng.html
-libkipi         >= 2.0.0                        https://projects.kde.org/projects/kde/kdegraphics/libs/libkipi
-libkexiv2       >= 2.0.0                        https://projects.kde.org/projects/kde/kdegraphics/libs/libkexiv2
-libkdcraw       >= 2.2.0                        https://projects.kde.org/projects/kde/kdegraphics/libs/libkdcraw
-ImageMagick     >= 5.5.4 (runtime dependency)   http://www.imagemagick.org
-Hugin           >= 0.8.0 (runtime dependency)   http://hugin.sourceforge.net
-Enblend         >= 3.0.0 (runtime dependency)   http://enblend.sourceforge.net
+See the complete list of dependencies at this url:
 
-Optional:
-
-libxslt         >= 1.1.0                        http://xmlsoft.org/XSLT
-libxml2         >= 2.7.0                        http://xmlsoft.org
-libX11          >= 1.1.5                        http://www.x11.org
-libexpat        >= 2.0.0                        http://expat.sourceforge.net
-libqtopengl     >= 4.3.0                        http://www.qtsoftware.com
-Mesa3D          >= 7.0.4                        http://mesa3d.sourceforge.net
-libopencv       >= 2.4.9                        http://opencv.willowgarage.com
-libkdepimlibs   >= 4.4.0                        http://pim.kde.org
-libgpod         >= 0.7.0                        http://www.gtkpod.org/libgpod.html
-libgdk          >= 2.0.0                        http://library.gnome.org/devel/gdk-pixbuf
-libqca          >= 2.0.0                        http://delta.affinix.com/qca
-libqjson        >= 0.6.0                        http://qjson.sourceforge.net
-libksane        >= 0.3.0                        https://projects.kde.org/projects/kde/kdegraphics/libs/libksane
-libkgeomap      >= 3.0.0                        https://projects.kde.org/projects/extragear/libs/libkgeomap
-libmediawiki    >= 1.0.0                        https://projects.kde.org/projects/extragear/libs/libmediawiki
-libkvkontakte   >= 0.1.0                        https://projects.kde.org/projects/extragear/libs/libkvkontakte
-libimagemagick  >= 5.5.4                        http://www.imagemagick.org
-libqtgstreamer  >= 0.9.0                        http://gstreamer.freedesktop.org/modules/qt-gstreamer.html
-libhupnp        >= 2.0.0                        http://www.herqq.org                                               If no external libray is found, internal version is used instead.
-libqtsoap       >= 2.7.0                        https://github.com/commontk/QtSOAP
-libqtkoauth     >= 0.97                         https://github.com/kypeli/kQOAuth
-flex            >= 2.5.0                        http://flex.sourceforge.net
-bison           >= 2.5.0                        http://www.gnu.org/software/bison/bison.html
-
-Plugin Specific Dependencies (for compiling and for running) :
-
-SlideShow          : X11 (Linux Only), Mesa3D, and OpenGL support for libqt
-ImageViewer        : X11 (Linux Only), Mesa3D, and OpenGL support for libqt
-DngConverter       : libexpat.
-AcquireImages      : libksane.
-HtmlExport         : libxslt and libxml2.
-JpegLossless       : imagemagick (runtime dependency).
-RemoveRedEyes      : libopencv.
-IpodExport         : libgpod and libgdk.
-Calendar           : libkdepimlibs.
-Shwup              : libqca.
-YandexFotki        : libqca.
-DebianScreenshots  : libqjson.
-FaceBook           : libqjson.
-ExpoBlending       : Hugin command line tools (runtime dependency).
-GPSSync            : libkgeomap.
-Mediawiki          : libmediawiki.
-Vkontakte          : libkvkontakte.
-DLNAExport         : libhupnp and libqtsoap.
-VideoSlideshow     : libimagemagick and libqtgstreamer
-Imgur              : libqtkoauth for Imgur.com's authenticated API.
-Panorama           : Hugin command line tools, flex, bison (runtime dependency).
+https://quickgit.kde.org/?p=digikam-software-compilation.git&a=blob&f=DEPENDENCIES
 
 -- CONTACT ------------------------------------------------------------
 
@@ -140,18 +57,12 @@ http://bugs.kde.org/buglist.cgi?product=kipiplugins&bug_status=UNCONFIRMED&bug_s
 
 -- INSTALL ------------------------------------------------------------
 
-CMake compilation options to custom digiKam:
-
-Use CMake "-DENABLE_OPENCV3=on"           flag to compile kipi-plugins source code using OpenCV3 instead OpenCV2                     (disabled by default).
-                                          OpenCV3 support needs extra contrib modules package, especially 'face'
-                                          and 'legacy' components.
-
-In order to compile, especially when QT3/Qt4 are installed at the same time, 
+In order to compile, especially when QT4/Qt5 are installed at the same time,
 just use something like that:
 
 # export VERBOSE=1
-# export QTDIR=/usr/lib/qt4/  
-# export PATH=$QTDIR/bin:$PATH 
+# export QTDIR=/usr/lib/qt5/
+# export PATH=$QTDIR/bin:$PATH
 # cmake .
 # make
 # sudo make install
@@ -161,13 +72,13 @@ Usual CMake options :
 -DCMAKE_INSTALL_PREFIX : decide where the program will be install on your computer.
 -DCMAKE_BUILD_TYPE     : decide which type of build you want. You can chose between "debugfull", "debug", "profile", "relwithdebinfo" and "release". The default is "relwithdebinfo" (-O2 -g).
 
-Compared to old KDE3 autoconf options:
+Compared to old autoconf options:
 
 "cmake . -DCMAKE_BUILD_TYPE=debugfull" is equivalent to "./configure --enable-debug=full"
 "cmake . -DCMAKE_INSTALL_PREFIX=/usr"  is equivalent to "./configure --prefix=/usr"
 
 More details can be found at this url: http://techbase.kde.org/Development/Tutorials/CMake#Environment_Variables
 
-Note: To know KDE install path on your computer, use 'kde-config --prefix' command line like this (with full debug object enabled):
+Note: To know KDE install path on your computer, use 'kf5-config --prefix' command line like this (with full debug object enabled):
 
-"cmake . -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix`"
+"cmake . -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_INSTALL_PREFIX=`kf5-config --prefix`"

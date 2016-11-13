@@ -20,41 +20,42 @@
  *
  * ============================================================ */
 
-#include "plugin_yandexfotki.moc"
+#include "plugin_yandexfotki.h"
+
+// Qt includes
+
+#include <QApplication>
+#include <QAction>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kaction.h>
-#include <kgenericfactory.h>
-#include <klibloader.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kapplication.h>
 #include <kactioncollection.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 #include <kwindowsystem.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kputil.h"
 #include "yfwindow.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIYandexFotkiPlugin
 {
 
 K_PLUGIN_FACTORY( Factory, registerPlugin<Plugin_YandexFotki>(); )
-K_EXPORT_PLUGIN ( Factory("kipiplugin_yandexfotki") )
 
 Plugin_YandexFotki::Plugin_YandexFotki(QObject* const parent, const QVariantList&)
-    : Plugin(Factory::componentData(), parent, "YandexFotki")
+    : Plugin(parent, "YandexFotki")
 {
-    kDebug(AREA_CODE_LOADING) << "Plugin_YandexFotki plugin loaded";
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_YandexFotki plugin loaded";
 
-    m_actionExport = 0;
     m_dlgExport    = 0;
+    m_actionExport = 0;
 
     setUiBaseName("kipiplugin_yandexfotkiui.rc");
     setupXML();
@@ -62,19 +63,20 @@ Plugin_YandexFotki::Plugin_YandexFotki(QObject* const parent, const QVariantList
 
 Plugin_YandexFotki::~Plugin_YandexFotki()
 {
+    delete m_dlgExport;
+
+    removeTemporaryDir("yandexfotki");
 }
 
 void Plugin_YandexFotki::setup(QWidget* const widget)
 {
     Plugin::setup(widget);
 
-    KIconLoader::global()->addAppDir("kipiplugin_yandexfotki");
-
     setupActions();
 
     if (!interface())
     {
-        kError() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
@@ -85,18 +87,18 @@ void Plugin_YandexFotki::setupActions()
 {
     setDefaultCategory(ExportPlugin);
 
-    m_actionExport = new KAction(this);
+    m_actionExport = new QAction(this);
     m_actionExport->setText(i18n("Export to &Yandex.Fotki..."));
     // TODO: icon file
-    //m_actionExport->setIcon(KIcon("yandexfotki"));
-    m_actionExport->setIcon(KIcon("document-export"));
-    m_actionExport->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::Key_Y));
+    //m_actionExport->setIcon(QIcon::fromTheme("yandexfotki"));
+    m_actionExport->setIcon(QIcon::fromTheme(QString::fromLatin1("internet-web-browser")));
+    actionCollection()->setDefaultShortcut(m_actionExport, Qt::ALT + Qt::SHIFT + Qt::Key_Y);
     m_actionExport->setEnabled(false);
 
     connect(m_actionExport, SIGNAL(triggered(bool)),
             this, SLOT(slotExport()));
 
-    addAction("Yandex.Fotki", m_actionExport);
+    addAction(QString::fromLatin1("Yandex.Fotki"), m_actionExport);
 }
 
 void Plugin_YandexFotki::slotExport()
@@ -105,7 +107,7 @@ void Plugin_YandexFotki::slotExport()
     {
         // This object will live forever, we will reuse it on future accesses
         // to the plugin.
-        m_dlgExport = new YandexFotkiWindow(false, kapp->activeWindow());
+        m_dlgExport = new YandexFotkiWindow(false, QApplication::activeWindow());
     }
     else
     {
@@ -119,3 +121,5 @@ void Plugin_YandexFotki::slotExport()
 }
 
 } // namespace KIPIYandexFotkiPlugin
+
+#include "plugin_yandexfotki.moc"

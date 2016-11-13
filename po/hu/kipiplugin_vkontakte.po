@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2013-03-29 10:46+0100\n"
 "Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -17,49 +17,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Úr Balázs"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "urbalazs@gmail.com"
-
-#: albumchooserwidget.cpp:53
+#: albumchooserwidget.cpp:55
 msgctxt "@title:group Header above controls for managing albums"
 msgid "Album"
 msgstr "Album"
 
-#: albumchooserwidget.cpp:58
+#: albumchooserwidget.cpp:60
 msgid "This is the VKontakte album that will be used for the transfer."
 msgstr "Ez az a VKontakte album, amely az átvitel során használva lesz."
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:67
 msgid "New Album"
 msgstr "Új album"
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:68
 msgid "Create new VKontakte album"
 msgstr "Új VKontakte album létrehozása"
 
-#: albumchooserwidget.cpp:65
+#: albumchooserwidget.cpp:71
 msgctxt "reload albums list"
 msgid "Reload"
 msgstr "Újratöltés"
 
-#: albumchooserwidget.cpp:66
+#: albumchooserwidget.cpp:72
 msgid "Reload albums list"
 msgstr "Albumok listájának újratöltése"
 
-#: albumchooserwidget.cpp:69
+#: albumchooserwidget.cpp:75
 msgid "Edit selected album"
 msgstr "Kijelölt album szerkesztése"
 
-#: albumchooserwidget.cpp:74
+#: albumchooserwidget.cpp:80
 msgid "Delete selected album"
 msgstr "Kijelölt album törlése"
 
-#: albumchooserwidget.cpp:285
+#: albumchooserwidget.cpp:291
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Album törlésének megerősítése"
+
+#: albumchooserwidget.cpp:292
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
@@ -68,33 +65,28 @@ msgstr ""
 "<qt>Biztosan el szeretné távolítani a(z) <b>%1</b> albumot a benne lévő "
 "összes fényképpel együtt?</qt>"
 
-#: albumchooserwidget.cpp:286
-msgctxt "@title:window"
-msgid "Confirm Album Deletion"
-msgstr "Album törlésének megerősítése"
-
-#: albumchooserwidget.cpp:385
-msgid "Internal error: Null pointer to KJob instance."
-msgstr ""
-
-#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+#: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
 msgctxt "@title:window"
 msgid "Request to VKontakte failed"
 msgstr "A VKontakte kérése nem sikerült"
 
-#: authinfowidget.cpp:58
+#: albumchooserwidget.cpp:391
+msgid "Internal error: Null pointer to KJob instance."
+msgstr ""
+
+#: authinfowidget.cpp:57
 msgid "Account"
 msgstr "Fiók"
 
-#: authinfowidget.cpp:63
+#: authinfowidget.cpp:62
 msgid "This account is used for authentication."
 msgstr "Ez a fiók a hitelesítéshez lesz használva."
 
-#: authinfowidget.cpp:67
+#: authinfowidget.cpp:66
 msgid "Name:"
 msgstr "Név:"
 
-#: authinfowidget.cpp:68
+#: authinfowidget.cpp:67
 msgid "Your VKontakte login"
 msgstr "A VKontakte bejelentkezése"
 
@@ -126,140 +118,149 @@ msgstr "&Exportálás"
 msgid "Main Toolbar"
 msgstr "Fő eszköztár"
 
-#: plugin_vkontakte.cpp:88
+#: plugin_vkontakte.cpp:82
 msgid "Export to &VKontakte..."
 msgstr "Exportálás a &VKontakte-be…"
 
-#: vkalbumdialog.cpp:72
+#: vkalbumdialog.cpp:74
 msgctxt "@title:window"
 msgid "Edit album"
 msgstr "Album szerkesztése"
 
-#: vkalbumdialog.cpp:73
+#: vkalbumdialog.cpp:75
 msgctxt "@title:window"
 msgid "New album"
 msgstr "Új album"
 
-#: vkalbumdialog.cpp:81
+#: vkalbumdialog.cpp:94
 msgctxt "@title:group Header above Title and Summary fields"
 msgid "Album"
 msgstr "Album"
 
-#: vkalbumdialog.cpp:82
+#: vkalbumdialog.cpp:95
 msgid "These are basic settings for the new VKontakte album."
 msgstr "Ezek az új VKontakte album alapbeállításai."
 
-#: vkalbumdialog.cpp:85
+#: vkalbumdialog.cpp:98
 msgid "Title of the album that will be created (required)."
 msgstr "A létrehozásra kerülő album címe (kötelező)."
 
-#: vkalbumdialog.cpp:88
+#: vkalbumdialog.cpp:101
 msgid "Description of the album that will be created (optional)."
 msgstr "A létrehozásra kerülő album leírása (opcionális)."
 
-#: vkalbumdialog.cpp:92
+#: vkalbumdialog.cpp:105
 msgid "Title:"
 msgstr "Cím:"
 
-#: vkalbumdialog.cpp:93
+#: vkalbumdialog.cpp:106
 msgid "Summary:"
 msgstr "Összegzés:"
 
-#: vkalbumdialog.cpp:96
+#: vkalbumdialog.cpp:109
 msgid "Privacy Settings"
 msgstr "Adatvédelmi beállítások"
 
-#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+#: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
 msgid "Only me"
 msgstr "Csak én"
 
-#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+#: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
 msgid "My friends"
 msgstr "Ismerőseim"
 
-#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+#: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
 msgid "Friends of my friends"
 msgstr "Ismerősök ismerősei"
 
-#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+#: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
 msgid "Everyone"
 msgstr "Mindenki"
 
-#: vkalbumdialog.cpp:104
+#: vkalbumdialog.cpp:117
 msgid "Album available to:"
 msgstr "Az album elérhető számukra:"
 
-#: vkalbumdialog.cpp:112
+#: vkalbumdialog.cpp:125
 msgid "Comments available to:"
 msgstr "A megjegyzések elérhetők számukra:"
 
-#: vkalbumdialog.cpp:140
-msgid "Title cannot be empty."
-msgstr "A cím nem lehet üres."
-
-#: vkalbumdialog.cpp:141
+#: vkalbumdialog.cpp:149
 msgid "Error"
 msgstr "Hiba"
 
-#: vkwindow.cpp:108
+#: vkalbumdialog.cpp:149
+msgid "Title cannot be empty."
+msgstr "A cím nem lehet üres."
+
+#: vkwindow.cpp:96
 msgid "This is the list of images to upload to your VKontakte album."
 msgstr "Ez a VKontakte albumba feltöltendő képek listája."
 
-#: vkwindow.cpp:114
+#: vkwindow.cpp:102
 msgid ""
 "This is a clickable link to open the VKontakte service in a web browser."
 msgstr ""
 "Ez egy kattintható hivatkozás, amely megnyitja a VKontakte szolgáltatást a "
 "webböngészőben."
 
-#: vkwindow.cpp:132
+#: vkwindow.cpp:120
 msgid "Destination"
 msgstr "Cél"
 
-#: vkwindow.cpp:133
+#: vkwindow.cpp:121
 msgid "This is the location where VKontakte images will be downloaded."
 msgstr "Ez az a hely, ahova a VKontakte képek letöltésre kerülnek."
 
-#: vkwindow.cpp:141
+#: vkwindow.cpp:129
 msgid "Options"
 msgstr "Beállítások"
 
-#: vkwindow.cpp:142
+#: vkwindow.cpp:130
 msgid "These are options that will be applied to images before upload."
 msgstr ""
 "Ezek azok a beállítások, amelyek alkalmazva lesznek a képekre feltöltés "
 "előtt."
 
-#: vkwindow.cpp:180
+#: vkwindow.cpp:166
 msgctxt "@title:window"
 msgid "Export to VKontakte Web Service"
 msgstr "Exportálás a VKontakte webszolgáltatásba"
 
-#: vkwindow.cpp:182
+#: vkwindow.cpp:168
 msgid "Start Upload"
 msgstr "Feltöltés indítása"
 
-#: vkwindow.cpp:183
+#: vkwindow.cpp:169
 msgid "Start upload to VKontakte service"
 msgstr "Feltöltés indítása a VKontakte szolgáltatásba"
 
-#: vkwindow.cpp:194
-msgid "VKontakte Plugin"
-msgstr "VKontakte bővítmény"
+#: vkwindow.cpp:181 vkwindow.cpp:346
+msgid "VKontakte"
+msgstr "VKontakte"
 
-#: vkwindow.cpp:197
-msgid "A Kipi plugin to export image collections to VKontakte web service."
+#: vkwindow.cpp:182
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgid "A tool to export image collections to VKontakte web service."
 msgstr ""
 "Egy Kipi bővítmény képgyűjtemények exportálásához a VKontakte "
 "webszolgáltatásba."
 
-#: vkwindow.cpp:199
+#: vkwindow.cpp:184
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2013, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010-2013, Roman Tsisyk\n"
+#| "(c) 2011-2013, Alexander Potashev"
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010-2013, Roman Tsisyk\n"
-"(c) 2011-2013, Alexander Potashev"
+"(c) 2011-2015, Alexander Potashev"
 msgstr ""
 "© Vardhman Jain, 2007-2009.\n"
 "© Gilles Caulier, 2008-2013.\n"
@@ -267,38 +268,41 @@ msgstr ""
 "© Roman Tsisyk, 2010-2013.\n"
 "© Alexander Potashev, 2011-2013."
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Alexander Potashev"
 msgstr "Alexander Potashev"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Author"
 msgstr "Szerző"
 
-#: vkwindow.cpp:275
-msgid "Close"
-msgstr "Bezárás"
-
-#: vkwindow.cpp:276
-msgid "Close window"
-msgstr "Ablak bezárása"
-
-#: vkwindow.cpp:283
-msgid "Cancel"
-msgstr "Mégsem"
-
-#: vkwindow.cpp:284
-msgid "Cancel current operation"
-msgstr "A jelenlegi művelet megszakítása"
-
-#: vkwindow.cpp:383
-msgid "VKontakte"
-msgstr "VKontakte"
-
-#: vkwindow.cpp:401
+#: vkwindow.cpp:364
 msgid "Please select album first."
 msgstr "Először válasszon albumot."
 
-#: vkwindow.cpp:431
+#: vkwindow.cpp:394
 msgid "Vkontakte Export"
 msgstr "Vkontakte exportálás"
+
+#~ msgid "VKontakte Plugin"
+#~ msgstr "VKontakte bővítmény"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Úr Balázs"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "urbalazs@gmail.com"
+
+#~ msgid "Close"
+#~ msgstr "Bezárás"
+
+#~ msgid "Close window"
+#~ msgstr "Ablak bezárása"
+
+#~ msgid "Cancel"
+#~ msgstr "Mégsem"
+
+#~ msgid "Cancel current operation"
+#~ msgstr "A jelenlegi művelet megszakítása"

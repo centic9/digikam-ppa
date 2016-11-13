@@ -7,7 +7,7 @@
  * Description : a dialog to display camera information.
  *
  * Copyright (C) 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,62 +26,80 @@
 
 // Qt includes
 
+#include <QIcon>
+#include <QPushButton>
+#include <QVBoxLayout>
+#include <QTabWidget>
 #include <QTextEdit>
+#include <QDialogButtonBox>
 
 // KDE includes
 
-#include <kicon.h>
-#include <klocale.h>
-#include <ktextedit.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "dxmlguiwindow.h"
 
 namespace Digikam
 {
 
-CameraInfoDialog::CameraInfoDialog(QWidget* const parent, const QString& summary, const QString& manual,
+CameraInfoDialog::CameraInfoDialog(QWidget* const parent,
+                                   const QString& summary,
+                                   const QString& manual,
                                    const QString& about)
-    : KPageDialog(parent)
+    : QDialog(parent)
 {
-    setCaption(i18nc("@title:window", "Device Information"));
-    setButtons(KDialog::Help | KDialog::Ok);
-    setDefaultButton(KDialog::Ok);
-    setHelp("digitalstillcamera.anchor", "digikam");
-    setFaceType(KPageDialog::List);
     setModal(true);
+    setWindowTitle(i18nc("@title:window", "Device Information"));
+    QDialogButtonBox* const buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok, this);
+    buttons->button(QDialogButtonBox::Ok)->setDefault(true);
     resize(500, 400);
 
+    QTabWidget* const tab = new QTabWidget(this);
+
     // ----------------------------------------------------------
 
-    KTextEdit* const summaryView = new KTextEdit(summary);
+    QTextEdit* const summaryView = new QTextEdit(summary);
     summaryView->setWordWrapMode(QTextOption::WordWrap);
     summaryView->setReadOnly(true);
-
-    KPageWidgetItem* const p1    = addPage(summaryView, i18nc("Device information summary", "Summary"));
-    p1->setHeader(i18n("Device Summary"));
-    p1->setIcon(KIcon("dialog-information"));
+    tab->insertTab(0, summaryView, QIcon::fromTheme(QLatin1String("dialog-information")), i18n("Device Summary"));
 
     // ----------------------------------------------------------
 
-    KTextEdit* const manualView  = new KTextEdit(manual);
+    QTextEdit* const manualView  = new QTextEdit(manual);
     manualView->setWordWrapMode(QTextOption::WordWrap);
     manualView->setReadOnly(true);
-
-    KPageWidgetItem* const p2    = addPage(manualView, i18nc("Manual of the device", "Manual"));
-    p2->setHeader(i18n("Device Manual"));
-    p2->setIcon(KIcon("help-contents"));
+    tab->insertTab(1, manualView, QIcon::fromTheme(QLatin1String("help-contents")), i18n("Device Manual"));
 
     // ----------------------------------------------------------
 
-    KTextEdit* const aboutView   = new KTextEdit(about);
+    QTextEdit* const aboutView   = new QTextEdit(about);
     aboutView->setWordWrapMode(QTextOption::WordWrap);
     aboutView->setReadOnly(true);
+    tab->insertTab(2, aboutView, QIcon::fromTheme(QLatin1String("camera-photo")), i18n("About Driver"));
 
-    KPageWidgetItem* const p3    = addPage(aboutView, i18nc("About device driver", "About"));
-    p3->setHeader(i18n("About Driver"));
-    p3->setIcon(KIcon("camera-photo"));
+    // ----------------------------------------------------------
+
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(tab);
+    vbx->addWidget(buttons);
+    setLayout(vbx);
+
+    connect(buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(accept()));
+
+    connect(buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
 }
 
 CameraInfoDialog::~CameraInfoDialog()
 {
+}
+
+void CameraInfoDialog::slotHelp()
+{
+    DXmlGuiWindow::openHandbook(QLatin1String("digitalstillcamera.anchor"), QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

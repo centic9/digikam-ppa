@@ -28,12 +28,9 @@
 
 #include <QObject>
 
-// KDE includes
-
-#include <kcategorizedsortfilterproxymodel.h>
-
 // Local includes
 
+#include "dcategorizedsortfilterproxymodel.h"
 #include "camitemsortsettings.h"
 #include "importimagemodel.h"
 
@@ -42,7 +39,7 @@ namespace Digikam
 class Filter;
 class ImportFilterModel;
 
-class ImportSortFilterModel : public KCategorizedSortFilterProxyModel
+class ImportSortFilterModel : public DCategorizedSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -114,8 +111,11 @@ public:
         /// Returns the format of the index which is used for category.
         CategoryFormatRole           = ImportImageModel::FilterModelRoles + 3,
 
+        /// Returns the date of the index which is used for category.
+        CategoryDateRole             = ImportImageModel::FilterModelRoles + 4,
+
         /// Returns true if the given camera item is a group leader, and the group is opened.
-        //TODO: GroupIsOpenRole            = ImportImageModel::FilterModelRoles + 4
+        //TODO: GroupIsOpenRole            = ImportImageModel::FilterModelRoles + 5
         ImportFilterModelPointerRole = ImportImageModel::FilterModelRoles + 50
     };
 
@@ -143,6 +143,7 @@ public Q_SLOTS:
     void setCategorizationMode(CamItemSortSettings::CategorizationMode mode);
     void setSortRole(CamItemSortSettings::SortRole role);
     void setSortOrder(CamItemSortSettings::SortOrder order);
+    void setStringTypeNatural(bool natural);
     void setFilter(Filter*);
     void setCameraThumbsController(CameraThumbsCtrl* const thumbsCtrl);
 

@@ -7,7 +7,7 @@
  * Description : a kipi plugin to export images to VKontakte web service
  *
  * Copyright (C) 2010 by Roman Tsisyk <roman at tsisyk dot com>
- * Copyright (C) 2011 by Alexander Potashev <aspotashev at gmail dot com>
+ * Copyright (C) 2011, 2015  Alexander Potashev <aspotashev@gmail.com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,13 +24,13 @@
 #ifndef PLUGIN_VKONTAKTE_H
 #define PLUGIN_VKONTAKTE_H
 
-// KDE includes
+// Qt includes
 
-#include <kaction.h>
+#include <QAction>
 
 // Libkipi includes
 
-#include <libkipi/plugin.h>
+#include <KIPI/Plugin>
 
 // Local includes
 
@@ -62,7 +62,7 @@ private:
 
 private:
 
-    KAction*         m_actionExport;
+    QAction*         m_actionExport;
     VkontakteWindow* m_dlgExport;
 };
 

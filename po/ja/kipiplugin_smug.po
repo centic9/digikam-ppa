@@ -4,7 +4,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_smugmug\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-05-10 01:54+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2009-01-21 00:17+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -15,14 +15,6 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Yukiko Bando"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "ybando@k6.dion.ne.jp"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_smugui.rc:7
@@ -43,160 +35,165 @@ msgstr "Smug インポート/エクスポート"
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_smug.cpp:107
+#: plugin_smug.cpp:98
 msgid "Export to &SmugMug..."
 msgstr "SmugMug にエクスポート(&S)..."
 
-#: plugin_smug.cpp:118
+#: plugin_smug.cpp:109
 msgid "Import from &SmugMug..."
 msgstr "SmugMug からインポート(&S)..."
 
-#: smugalbum.cpp:52
+#: smugalbum.cpp:54
 msgid "SmugMug New Album"
 msgstr "新しい SmugMug アルバム"
 
-#: smugalbum.cpp:64 smugwidget.cpp:119
+#: smugalbum.cpp:64 smugwidget.cpp:118
 msgid "Album"
 msgstr "アルバム"
 
-#: smugalbum.cpp:66
+#: smugalbum.cpp:65
 #, fuzzy
 #| msgid "These are basic settings for new SmugMug album."
 msgid "These are basic settings for the new SmugMug album."
 msgstr "これらは新しい SmugMug アルバムの基本的な設定です。"
 
-#: smugalbum.cpp:70
+#: smugalbum.cpp:68
 msgid "Title of the album that will be created (required)."
 msgstr "作成するアルバムのタイトル (必須)"
 
-#: smugalbum.cpp:75
+#: smugalbum.cpp:72
 msgid "Category of the album that will be created (required)."
 msgstr "作成するアルバムのカテゴリ (必須)"
 
-#: smugalbum.cpp:80
+#: smugalbum.cpp:76
 msgid "Subcategory of the album that will be created (optional)."
 msgstr "作成するアルバムのサブカテゴリ (オプション)"
 
-#: smugalbum.cpp:84
+#: smugalbum.cpp:79
 msgid "Description of the album that will be created (optional)."
 msgstr "作成するアルバムの説明 (オプション)"
 
-#: smugalbum.cpp:89
+#: smugalbum.cpp:83
 #, fuzzy
 #| msgid "Album template for new album (optional)."
 msgid "Album template for the new album (optional)."
 msgstr "新しいアルバム用のアルバムテンプレート (オプション)"
 
-#: smugalbum.cpp:92
+#: smugalbum.cpp:86
 #, fuzzy
 #| msgid "Title:"
 msgctxt "new smug album dialog"
 msgid "Title:"
 msgstr "タイトル:"
 
-#: smugalbum.cpp:93
+#: smugalbum.cpp:87
 #, fuzzy
 #| msgid "Category:"
 msgctxt "new smug album dialog"
 msgid "Category:"
 msgstr "カテゴリ:"
 
-#: smugalbum.cpp:94
+#: smugalbum.cpp:88
 #, fuzzy
 #| msgid "Subcategory:"
 msgctxt "new smug album dialog"
 msgid "Subcategory:"
 msgstr "サブカテゴリ:"
 
-#: smugalbum.cpp:95
+#: smugalbum.cpp:89
 #, fuzzy
 #| msgid "Description:"
 msgctxt "new smug album dialog"
 msgid "Description:"
 msgstr "説明:"
 
-#: smugalbum.cpp:96
+#: smugalbum.cpp:90
 #, fuzzy
 #| msgid "Template:"
 msgctxt "new smug album dialog"
 msgid "Template:"
 msgstr "テンプレート:"
 
-#: smugalbum.cpp:104
+#: smugalbum.cpp:98
 msgid "Security && Privacy"
 msgstr "セキュリティとプライバシー"
 
-#: smugalbum.cpp:106
+#: smugalbum.cpp:99
 #, fuzzy
 #| msgid "These are security and privacy settings for new SmugMug album."
 msgid "These are security and privacy settings for the new SmugMug album."
 msgstr ""
 "これらは新しい SmugMug アルバムのセキュリティとプライバシーに関する設定です。"
 
-#: smugalbum.cpp:108
+#: smugalbum.cpp:101
 #, fuzzy
 #| msgid "Public"
 msgctxt "smug album privacy"
 msgid "Public"
 msgstr "公開"
 
-#: smugalbum.cpp:111
+#: smugalbum.cpp:103
 msgid "Public album is listed on your public SmugMug page."
 msgstr "公開アルバムは一般に公開されるあなたの SmugMug ページに表示されます。"
 
-#: smugalbum.cpp:112
+#: smugalbum.cpp:104
 #, fuzzy
 #| msgid "Unlisted"
 msgctxt "smug album privacy"
 msgid "Unlisted"
 msgstr "非表示"
 
-#: smugalbum.cpp:114
+#: smugalbum.cpp:105
 msgid "Unlisted album is only accessible via URL."
 msgstr "非表示アルバムは URL からのみアクセスできます。"
 
-#: smugalbum.cpp:122
+#: smugalbum.cpp:112
 msgid "Require password to access the album (optional)."
 msgstr "このアルバムにアクセスするにはパスワードが必要です (オプション)"
 
-#: smugalbum.cpp:126
+#: smugalbum.cpp:115
 #, fuzzy
 #| msgid "Password hint to present to users on the password prompt (optional)."
 msgid "Password hint to present to users in the password prompt (optional)."
 msgstr ""
 "パスワードの入力を求める際にユーザに提示するパスワードのヒント (オプション)"
 
-#: smugalbum.cpp:129
+#: smugalbum.cpp:118
 msgid "Privacy:"
 msgstr "プライバシー:"
 
-#: smugalbum.cpp:130
+#: smugalbum.cpp:119
 msgid "Password:"
 msgstr "パスワード:"
 
-#: smugalbum.cpp:131
+#: smugalbum.cpp:120
 msgid "Password Hint:"
 msgstr "パスワードのヒント:"
 
-#: smugtalker.cpp:101
+#: smugtalker.cpp:111
 #, fuzzy
 #| msgid "Logging to SmugMug service..."
 msgid "Logging in to SmugMug service..."
 msgstr "SmugMug サービスにログインします..."
 
-#: smugtalker.cpp:497
+#: smugtalker.cpp:464
 msgid "Login failed"
 msgstr "ログイン失敗"
 
-#: smugtalker.cpp:500
+#: smugtalker.cpp:467
 msgid "Invalid user/nick/password"
 msgstr "無効なユーザ/ニックネーム/パスワード"
 
-#: smugtalker.cpp:503
+#: smugtalker.cpp:470
 msgid "Invalid API key"
 msgstr "無効な API キー"
 
-#: smugwidget.cpp:73
+#: smugtalker.cpp:512 smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451
+#: smugwindow.cpp:484 smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
+msgid "Error"
+msgstr ""
+
+#: smugwidget.cpp:74
 msgid "This is the list of images to upload to your SmugMug account."
 msgstr "あなたの SmugMug アカウントにアップロードする画像の一覧です。"
 
@@ -213,46 +210,46 @@ msgstr ""
 msgid "Account"
 msgstr "アカウント"
 
-#: smugwidget.cpp:88
+#: smugwidget.cpp:87
 msgid "This is the SmugMug account that will be used to authenticate."
 msgstr "認証に使う SmugMug のアカウントです。"
 
-#: smugwidget.cpp:91
+#: smugwidget.cpp:90
 #, fuzzy
 #| msgid "Anonymous"
 msgctxt "smug account login"
 msgid "Anonymous"
 msgstr "匿名"
 
-#: smugwidget.cpp:93
+#: smugwidget.cpp:91
 msgid "Login as anonymous to SmugMug web service."
 msgstr "SmugMug サービスに匿名でログインします。"
 
-#: smugwidget.cpp:95
+#: smugwidget.cpp:93
 msgid "SmugMug Account"
 msgstr "SmugMug アカウント"
 
-#: smugwidget.cpp:97
+#: smugwidget.cpp:94
 #, fuzzy
 #| msgid "Login as anonymous to SmugMug web service."
 msgid "Login to SmugMug web service using email and password."
 msgstr "SmugMug サービスに匿名でログインします。"
 
-#: smugwidget.cpp:99
+#: smugwidget.cpp:96
 #, fuzzy
 #| msgid "Name:"
 msgctxt "smug account settings"
 msgid "Name:"
 msgstr "名前:"
 
-#: smugwidget.cpp:101
+#: smugwidget.cpp:98
 #, fuzzy
 #| msgid "E-mail:"
 msgctxt "smug account settings"
 msgid "Email:"
 msgstr "メールアドレス:"
 
-#: smugwidget.cpp:103
+#: smugwidget.cpp:102
 msgid "Change Account"
 msgstr "アカウントを変更"
 
@@ -260,43 +257,43 @@ msgstr "アカウントを変更"
 msgid "Change SmugMug Account used to authenticate"
 msgstr "認証に使う SmugMug アカウントを変更"
 
-#: smugwidget.cpp:120
+#: smugwidget.cpp:119
 msgid "This is the SmugMug album that will be used for transfer."
 msgstr "転送に使う SmugMug のアルバムです。"
 
-#: smugwidget.cpp:125
+#: smugwidget.cpp:124
 msgid "Nickname:"
 msgstr "ニックネーム:"
 
-#: smugwidget.cpp:128
+#: smugwidget.cpp:126
 #, fuzzy
 #| msgid "Nick name of SmugMug user to list albums."
 msgid "Nickname of SmugMug user to list albums."
 msgstr "アルバムのリストを表示するための SmugMug ユーザのニックネームです。"
 
-#: smugwidget.cpp:129
+#: smugwidget.cpp:127
 msgid "Site Password:"
 msgstr "サイトのパスワード:"
 
-#: smugwidget.cpp:132
+#: smugwidget.cpp:129
 msgid "Site-wide password for specified SmugMug nick/user."
 msgstr "特定の SmugMug ニックネーム/ユーザがサイト全体で使うパスワードです。"
 
-#: smugwidget.cpp:133
+#: smugwidget.cpp:130
 msgid "Album Password:"
 msgstr "アルバムのパスワード:"
 
-#: smugwidget.cpp:136
+#: smugwidget.cpp:132
 #, fuzzy
 #| msgid "Password of SmugMug album."
 msgid "Password for SmugMug album."
 msgstr "SmugMug アルバムのパスワードです。"
 
-#: smugwidget.cpp:138
+#: smugwidget.cpp:135
 msgid "New Album"
 msgstr "新しいアルバム"
 
-#: smugwidget.cpp:139
+#: smugwidget.cpp:137
 msgid "Create new SmugMug album"
 msgstr "新しい SmugMug アルバムを作成"
 
@@ -307,61 +304,61 @@ msgctxt "reload album list"
 msgid "Reload"
 msgstr "再読み込み"
 
-#: smugwidget.cpp:141
+#: smugwidget.cpp:142
 msgid "Reload album list"
 msgstr "アルバムのリストを再読み込み"
 
-#: smugwidget.cpp:155
+#: smugwidget.cpp:156
 msgid "Destination"
 msgstr "行き先"
 
-#: smugwidget.cpp:156
+#: smugwidget.cpp:157
 #, fuzzy
 #| msgid "This is the location where SmugMug images will be downloaded to."
 msgid "This is the location where SmugMug images will be downloaded."
 msgstr "SmugMug からダウンロードした画像の保存先です。"
 
-#: smugwidget.cpp:163
+#: smugwidget.cpp:164
 msgid "Options"
 msgstr "オプション"
 
-#: smugwidget.cpp:164
+#: smugwidget.cpp:165
 msgid "These are options that will be applied to images before upload."
 msgstr "これらのオプションはアップロード前に画像に適用されます。"
 
-#: smugwidget.cpp:168
+#: smugwidget.cpp:169
 msgid "Resize photos before uploading"
 msgstr "アップロード前に写真のサイズを変更する"
 
-#: smugwidget.cpp:178
+#: smugwidget.cpp:179
 msgid "Maximum dimension:"
 msgstr "最大寸法:"
 
-#: smugwidget.cpp:186
+#: smugwidget.cpp:187
 msgid "JPEG quality:"
 msgstr "JPEG 画質:"
 
-#: smugwindow.cpp:94
+#: smugwindow.cpp:86
 msgid "Import from SmugMug Web Service"
 msgstr "SmugMug ウェブサービスからインポート"
 
-#: smugwindow.cpp:96
+#: smugwindow.cpp:88
 msgid "Start Download"
 msgstr "ダウンロードを開始"
 
-#: smugwindow.cpp:97
+#: smugwindow.cpp:89
 msgid "Start download from SmugMug web service"
 msgstr "SmugMug ウェブサービスからのダウンロードを開始"
 
-#: smugwindow.cpp:102
+#: smugwindow.cpp:95
 msgid "Export to SmugMug Web Service"
 msgstr "SmugMug ウェブサービスにエクスポート"
 
-#: smugwindow.cpp:104
+#: smugwindow.cpp:97
 msgid "Start Upload"
 msgstr "アップロードを開始"
 
-#: smugwindow.cpp:105
+#: smugwindow.cpp:98
 msgid "Start upload to SmugMug web service"
 msgstr "SmugMug ウェブサービスへのアップロードを開始"
 
@@ -369,19 +366,18 @@ msgstr "SmugMug ウェブサービスへのアップロードを開始"
 msgid "Smug Import/Export"
 msgstr "Smug インポート/エクスポート"
 
-#: smugwindow.cpp:129
+#: smugwindow.cpp:128
 #, fuzzy
 #| msgid ""
 #| "A Kipi plugin to import/export image collection to/from SmugMug web "
 #| "service."
 msgid ""
-"A Kipi plugin to import/export image collections from/to the SmugMug web "
-"service."
+"A tool to import/export image collections from/to the SmugMug web service."
 msgstr ""
 "画像コレクションを SmugMug ウェブサービスにエクスポート/からインポートする "
 "Kipi プラグイン"
 
-#: smugwindow.cpp:131
+#: smugwindow.cpp:130
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -396,7 +392,7 @@ msgstr ""
 "(c) 2008, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: smugwindow.cpp:135
+#: smugwindow.cpp:134
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
@@ -416,46 +412,62 @@ msgstr ""
 "<qt>あなたの <a href=\"http://www.smugmug.com\">SmugMug</a> アカウントの"
 "「メールアドレス」と「パスワード」を入力します</qt>"
 
-#: smugwindow.cpp:403 smugwindow.cpp:412 smugwindow.cpp:441 smugwindow.cpp:473
-#: smugwindow.cpp:504 smugwindow.cpp:533 smugwindow.cpp:901
+#: smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451 smugwindow.cpp:484
+#: smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
 #, kde-format
 msgid "SmugMug Call Failed: %1\n"
 msgstr "SmugMug の呼び出しに失敗しました: %1\n"
 
-#: smugwindow.cpp:469 smugwindow.cpp:529
+#: smugwindow.cpp:480 smugwindow.cpp:542
 msgid "&lt;none&gt;"
 msgstr ""
 
-#: smugwindow.cpp:655 smugwindow.cpp:688
+#: smugwindow.cpp:668 smugwindow.cpp:701
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: smugwindow.cpp:659
+#: smugwindow.cpp:671
 #, fuzzy
 #| msgid "Smug Import/Export"
 msgid "Smug Import"
 msgstr "Smug インポート/エクスポート"
 
-#: smugwindow.cpp:692
+#: smugwindow.cpp:704
 #, fuzzy
 #| msgid "Smug Import/Export"
 msgid "Smug Export"
 msgstr "Smug インポート/エクスポート"
 
-#: smugwindow.cpp:771 smugwindow.cpp:784
+#: smugwindow.cpp:788 smugwindow.cpp:802
 msgid "Cannot open file"
 msgstr "ファイルを開けません"
 
-#: smugwindow.cpp:808
-#, kde-format
+#: smugwindow.cpp:825
+#, fuzzy
+#| msgid "Login failed"
+msgid "Uploading Failed"
+msgstr "ログイン失敗"
+
+#: smugwindow.cpp:826
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo into SmugMug: %1\n"
+#| "Do you want to continue?"
 msgid ""
-"Failed to upload photo into SmugMug: %1\n"
+"Failed to upload photo to SmugMug.\n"
+"%1\n"
 "Do you want to continue?"
 msgstr ""
 "写真を SmugMug へアップロードできませんでした: %1\n"
 "続けますか？"
 
-#: smugwindow.cpp:868
+#: smugwindow.cpp:887 smugwindow.cpp:900
+#, fuzzy
+#| msgid "Login failed"
+msgid "Processing Failed"
+msgstr "ログイン失敗"
+
+#: smugwindow.cpp:888
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -464,7 +476,7 @@ msgstr ""
 "写真を保存できませんでした: %1\n"
 "続けますか？"
 
-#: smugwindow.cpp:882
+#: smugwindow.cpp:901
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"

@@ -7,10 +7,10 @@
  * Description : Filter values for use with ImageFilterModel
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C)      2010 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C)      2011 by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C)      2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C)      2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -35,10 +35,7 @@
 #include <QMap>
 #include <QString>
 #include <QSet>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -201,7 +198,7 @@ public:
 public:
 
     /// --- URL whitelist filter
-    void setUrlWhitelist(const KUrl::List& urlList, const QString& id);
+    void setUrlWhitelist(const QList<QUrl>& urlList, const QString& id);
 
 public:
 
@@ -257,7 +254,7 @@ private:
     GeolocationCondition             m_geolocationCondition;
 
     /// --- URL whitelist filter
-    QHash<QString,KUrl::List>        m_urlWhitelists;
+    QHash<QString,QList<QUrl>>        m_urlWhitelists;
 
     /// --- ID whitelist filter
     QHash<QString,QList<qlonglong> > m_idWhitelists;

@@ -6,7 +6,7 @@
  * Date        : 2009-02-21
  * Description : Queue common settings container.
  *
- * Copyright (C) 2009-2013 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,19 +24,14 @@
 #ifndef QUEUE_SETTINGS_H
 #define QUEUE_SETTINGS_H
 
-// KDE includes
+// Qt includes
 
-#include <kurl.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rawdecodingsettings.h>
+#include <QUrl>
 
 // Local includes
 
 #include "iofilesettings.h"
-
-using namespace KDcrawIface;
+#include "drawdecodersettings.h"
 
 namespace Digikam
 {
@@ -81,7 +76,7 @@ public:
 public:
 
     bool                useMultiCoreCPU;
-    
+
     /// Setting managed through Metadata control panel.
     bool                exifSetOrientation;
 
@@ -90,13 +85,13 @@ public:
 
     QString             renamingParser;
 
-    KUrl                workingUrl;
+    QUrl                workingUrl;
 
     ConflictRule        conflictRule;
     RenamingRule        renamingRule;
     RawLoadingRule      rawLoadingRule;
 
-    RawDecodingSettings rawDecodingSettings;
+    DRawDecoderSettings rawDecodingSettings;
 
     IOFileSettings      ioFileSettings;
 };

@@ -7,7 +7,7 @@
  * Description : a kipi plugin to import/export images to Facebook web service
  *
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -22,70 +22,64 @@
  *
  * ============================================================ */
 
-// To disable warnings under MSVC2008 about POSIX methods().
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif
+#include "plugin_facebook.h"
 
-#include "plugin_facebook.moc"
+// Qt includes
 
-// C ANSI includes
-
-extern "C"
-{
-#include <unistd.h>
-}
+#include <QApplication>
+#include <QAction>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kaction.h>
 #include <kactioncollection.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 #include <kwindowsystem.h>
-#include <kgenericfactory.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
-#include <libkipi/imagecollection.h>
+#include <KIPI/Interface>
+#include <KIPI/ImageCollection>
 
 // Local includes
 
+#include "kputil.h"
 #include "fbwindow.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIFacebookPlugin
 {
 
 K_PLUGIN_FACTORY( FacebookFactory, registerPlugin<Plugin_Facebook>(); )
-K_EXPORT_PLUGIN ( FacebookFactory("kipiplugin_facebook") )
 
 Plugin_Facebook::Plugin_Facebook(QObject* const parent, const QVariantList& /*args*/)
-    : Plugin(FacebookFactory::componentData(), parent, "Facebook Import/Export")
+    : Plugin(parent, "Facebook")
 {
-    kDebug(AREA_CODE_LOADING) << "Plugin_Facebook plugin loaded";
-
-    KIconLoader::global()->addAppDir("kipiplugin_facebook");
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_Facebook plugin loaded";
 
     setUiBaseName("kipiplugin_facebookui.rc");
     setupXML();
+
+    m_actionExport = 0;
+    m_dlgExport    = 0;
 }
 
 Plugin_Facebook::~Plugin_Facebook()
 {
+    delete m_dlgExport;
+
+    removeTemporaryDir("fb");
 }
 
 void Plugin_Facebook::setup(QWidget* const widget)
 {
-    m_dlgImport = 0;
     m_dlgExport = 0;
 
     Plugin::setup(widget);
 
     if (!interface())
     {
-        kDebug() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
@@ -96,36 +90,25 @@ void Plugin_Facebook::setupActions()
 {
     setDefaultCategory(ExportPlugin);
 
-    m_actionExport = new KAction(this);
+    m_actionExport = new QAction(this);
     m_actionExport->setText(i18n("Export to &Facebook..."));
-    m_actionExport->setIcon(KIcon("kipi-facebook"));
-    m_actionExport->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::Key_F));
+    m_actionExport->setIcon(QIcon::fromTheme(QString::fromLatin1("kipi-facebook")));
+    actionCollection()->setDefaultShortcut(m_actionExport, Qt::ALT + Qt::SHIFT + Qt::Key_F);
 
     connect(m_actionExport, SIGNAL(triggered(bool)),
             this, SLOT(slotExport()) );
 
-    addAction("facebookexport", m_actionExport);
-
-    m_actionImport = new KAction(this);
-    m_actionImport->setText(i18n("Import from &Facebook..."));
-    m_actionImport->setIcon(KIcon("kipi-facebook"));
-    m_actionImport->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::CTRL+Qt::Key_F));
-
-    connect(m_actionImport, SIGNAL(triggered(bool)),
-            this, SLOT(slotImport()) );
-
-    addAction("facebookimport", m_actionImport, ImportPlugin);
+    addAction(QString::fromLatin1("facebookexport"), m_actionExport);
 }
 
 void Plugin_Facebook::slotExport()
 {
-    KStandardDirs dir;
-    QString tmp = dir.saveLocation("tmp", QString("kipi-fb-") + QString::number(getpid()) + QString("/"));
+    QString tmp = makeTemporaryDir("fb").absolutePath() + QLatin1Char('/');
 
     if (!m_dlgExport)
     {
         // We clean it up in the close button
-        m_dlgExport = new FbWindow(tmp, false, kapp->activeWindow());
+        m_dlgExport = new FbWindow(tmp, QApplication::activeWindow());
     }
     else
     {
@@ -138,25 +121,6 @@ void Plugin_Facebook::slotExport()
     m_dlgExport->reactivate();
 }
 
-void Plugin_Facebook::slotImport()
-{
-    KStandardDirs dir;
-    QString tmp = dir.saveLocation("tmp", QString("kipi-fb-") + QString::number(getpid()) + QString("/"));
-
-    if (!m_dlgImport)
-    {
-        // We clean it up in the close button
-        m_dlgImport = new FbWindow(tmp, true, kapp->activeWindow());
-    }
-    else
-    {
-        if (m_dlgImport->isMinimized())
-            KWindowSystem::unminimizeWindow(m_dlgImport->winId());
-
-        KWindowSystem::activateWindow(m_dlgImport->winId());
-    }
-
-    m_dlgImport->show();
-}
-
 } // namespace KIPIFacebookPlugin
+
+#include "plugin_facebook.moc"

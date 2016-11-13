@@ -6,7 +6,7 @@
  * Date        : 2013-04-29
  * Description : digiKam XML GUI window
  *
- * Copyright (C) 2013-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,6 +28,8 @@
 
 #include <QWidget>
 #include <QObject>
+#include <QAction>
+#include <QWindow>
 
 // KDE includes
 
@@ -37,7 +39,12 @@
 // Local includes
 
 #include "digikam_export.h"
+#include "digikam_config.h"
 #include "dlogoaction.h"
+
+#ifdef HAVE_KSANE
+#   include "ksaneaction.h"
+#endif
 
 class QEvent;
 
@@ -61,9 +68,26 @@ enum FullScreenOptions
     FS_IMPORTUI   = FS_TOOLBARS | FS_THUMBBAR | FS_SIDEBARS     /// Import UI Config.
 };
 
-static const QString s_configFullScreenHideToolBarsEntry("FullScreen Hide ToolBars");
-static const QString s_configFullScreenHideThumbBarEntry("FullScreen Hide ThumbBar");
-static const QString s_configFullScreenHideSideBarsEntry("FullScreen Hide SideBars");
+enum StdActionType
+{
+    StdCopyAction = 0,
+    StdPasteAction,
+    StdCutAction,
+    StdQuitAction,
+    StdCloseAction,
+    StdZoomInAction,
+    StdZoomOutAction,
+    StdOpenAction,
+    StdSaveAction,
+    StdSaveAsAction,
+    StdRevertAction,
+    StdBackAction,
+    StdForwardAction
+};
+
+static const QString s_configFullScreenHideToolBarsEntry(QLatin1String("FullScreen Hide ToolBars"));
+static const QString s_configFullScreenHideThumbBarEntry(QLatin1String("FullScreen Hide ThumbBar"));
+static const QString s_configFullScreenHideSideBarsEntry(QLatin1String("FullScreen Hide SideBars"));
 
 /** Data container to use in managed window.
  */
@@ -76,9 +100,34 @@ public:
     explicit DXmlGuiWindow(QWidget* const parent=0, Qt::WindowFlags f=KDE_DEFAULT_WINDOWFLAGS);
     virtual ~DXmlGuiWindow();
 
+    /** Manage config group name used by window instance to get/set settings from config file
+     */
+    void setConfigGroupName(const QString& name);
+    QString configGroupName() const;
+
+    /** Create Geolocation Edit action.
+     */
+    void createGeolocationEditAction();
+
+    /** Create Metadata Edit action.
+     */
+    void createMetadataEditAction();
+
+    /** Create Ksane action to import from scanner.
+     */
+    void createKSaneAction();
+
+    /** Create common actions to setup all digiKam main windows.
+     */
+    void createSettingsActions();
+
     /** Create common actions from Help menu for all digiKam main windows.
      */
     void createHelpActions(bool coreOptions=true);
+
+    /** Cleanup unwanted actions from action collection.
+     */
+    void cleanupActions();
 
     /** Create common actions to handle side-bar through keyboard shortcuts.
      */
@@ -94,7 +143,7 @@ public:
      */
     void createFullScreenAction(const QString& name);
 
-    /** Read full-screen settings from KDE config file.
+    /** Read full-screen settings fr    void slotConfNotifications();om KDE config file.
      */
     void readFullScreenSettings(const KConfigGroup& group);
 
@@ -102,13 +151,37 @@ public:
      */
     bool fullScreenIsActive() const;
 
-    QAction* statusBarMenuAction() const;
+    static void openHandbook(const QString& anchor = QString(), const QString& appname = QString());
+    static void restoreWindowSize(QWindow* const win, const KConfigGroup& group);
+    static void saveWindowSize(QWindow* const win, KConfigGroup& group);
+
+    static QAction* buildStdAction(StdActionType type, const QObject* const recvr, const char* const slot, QObject* const parent);
+
+    /**
+     * If we have some local breeze icon resource, prefer it.
+     */
+    static void setupIconTheme();
 
 protected:
 
+    QAction*     m_metadataEditAction;
+    QAction*     m_geolocationEditAction;
     DLogoAction* m_animLogo;
 
+#ifdef HAVE_KSANE
+    KSaneAction* m_ksaneAction;
+#endif
+
 protected:
+
+    QAction* showMenuBarAction()   const;
+    QAction* showStatusBarAction() const;
+
+    /** Call this method from your main window to show keyboard shortcut config dialog
+     *  with an extra action collection to configure. This method is called by slotEditKeys()
+     *  which can be re-implement in child class for cutomization.
+     */
+    void editKeyboardShortcuts(KActionCollection* const extraac=0, const QString& actitle=QString());
 
     void closeEvent(QCloseEvent* e);
     void keyPressEvent(QKeyEvent* e);
@@ -136,6 +209,16 @@ protected:
 private Q_SLOTS:
 
     void slotToggleFullScreen(bool);
+    void slotShowMenuBar();
+    void slotShowStatusBar();
+    void slotConfNotifications();
+    void slotConfToolbars();
+    void slotNewToolbarConfig();
+
+    void slotRawCameraList();
+    void slotDonateMoney();
+    void slotRecipesBook();
+    void slotContribute();
 
     // Slots for common Help Actions
     virtual void slotComponentsInfo()          {};
@@ -148,6 +231,19 @@ private Q_SLOTS:
     virtual void slotNextLeftSideBarTab()      {};
     virtual void slotPreviousRightSideBarTab() {};
     virtual void slotNextRightSideBarTab()     {};
+
+    // Slots for common Settings actions
+    virtual void slotEditKeys()                { editKeyboardShortcuts(); };
+    virtual void slotSetup() = 0;
+
+    // Called by KSane action.
+    virtual void slotImportFromScanner()       {};
+
+    // Called by Metadata Edit tool.
+    virtual void slotEditMetadata()            {};
+
+    // Called by Geolocation Edit tool.
+    virtual void slotEditGeolocation()         {};
 
 private:
 

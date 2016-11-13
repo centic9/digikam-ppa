@@ -6,7 +6,7 @@
  * Date        : 2011-08-12
  * Description : advanced settings for camera interface.
  *
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "advancedsettings.moc"
+#include "advancedsettings.h"
 
 // Qt includes
 
@@ -29,18 +29,19 @@
 #include <QLabel>
 #include <QCheckBox>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
+#include <QComboBox>
 
 // KDE includes
 
-#include <kdialog.h>
-#include <klocale.h>
-#include <kcombobox.h>
-#include <khbox.h>
-#include <kdebug.h>
+#include <kconfiggroup.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
 #include "templateselector.h"
 #include "ddatetimeedit.h"
 #include "template.h"
@@ -57,6 +58,7 @@ public:
           autoRotateCheck(0),
           convertJpegCheck(0),
           fixDateTimeCheck(0),
+          documentNameCheck(0),
           losslessFormat(0),
           dateTimeEdit(0),
           templateSelector(0)
@@ -68,8 +70,9 @@ public:
     QCheckBox*        autoRotateCheck;
     QCheckBox*        convertJpegCheck;
     QCheckBox*        fixDateTimeCheck;
+    QCheckBox*        documentNameCheck;
 
-    KComboBox*        losslessFormat;
+    QComboBox*        losslessFormat;
 
     DDateTimeEdit*    dateTimeEdit;
 
@@ -79,31 +82,35 @@ public:
 AdvancedSettings::AdvancedSettings(QWidget* const parent)
     : QWidget(parent), d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QVBoxLayout* const onFlyVlay = new QVBoxLayout(this);
     d->templateSelector          = new TemplateSelector(this);
+    d->documentNameCheck         = new QCheckBox(i18nc("@option:check", "Write the document name to EXIF"), this);
     d->fixDateTimeCheck          = new QCheckBox(i18nc("@option:check", "Fix internal date && time"), this);
-    d->dateTimeEdit              = new DDateTimeEdit(this, "datepicker");
+    d->dateTimeEdit              = new DDateTimeEdit(this, QLatin1String("datepicker"));
     d->autoRotateCheck           = new QCheckBox(i18nc("@option:check", "Auto-rotate/flip image"), this);
     d->convertJpegCheck          = new QCheckBox(i18nc("@option:check", "Convert to lossless file format"), this);
-    KHBox* const hbox2           = new KHBox(this);
+    DHBox* const hbox2           = new DHBox(this);
     d->formatLabel               = new QLabel(i18n("New image format:"), hbox2);
-    d->losslessFormat            = new KComboBox(hbox2);
-    d->losslessFormat->insertItem(0, "PNG");
-    d->losslessFormat->insertItem(1, "TIF");
-    d->losslessFormat->insertItem(2, "PGF");
+    d->losslessFormat            = new QComboBox(hbox2);
+    d->losslessFormat->insertItem(0, QLatin1String("PNG"));
+    d->losslessFormat->insertItem(1, QLatin1String("TIF"));
+    d->losslessFormat->insertItem(2, QLatin1String("PGF"));
 #ifdef HAVE_JASPER
-    d->losslessFormat->insertItem(3, "JP2");
+    d->losslessFormat->insertItem(3, QLatin1String("JP2"));
 #endif // HAVE_JASPER
 
     onFlyVlay->addWidget(d->templateSelector);
+    onFlyVlay->addWidget(d->documentNameCheck);
     onFlyVlay->addWidget(d->fixDateTimeCheck);
     onFlyVlay->addWidget(d->dateTimeEdit);
     onFlyVlay->addWidget(d->autoRotateCheck);
     onFlyVlay->addWidget(d->convertJpegCheck);
     onFlyVlay->addWidget(hbox2);
     onFlyVlay->addStretch();
-    onFlyVlay->setMargin(KDialog::spacingHint());
-    onFlyVlay->setSpacing(KDialog::spacingHint());
+    onFlyVlay->setContentsMargins(spacing, spacing, spacing, spacing);
+    onFlyVlay->setSpacing(spacing);
 
     setWhatsThis(i18n("Set here all options to fix/transform JPEG files automatically "
                       "as they are downloaded."));
@@ -111,6 +118,8 @@ AdvancedSettings::AdvancedSettings(QWidget* const parent)
                                           "rotated or flipped using EXIF information provided by the camera."));
     d->templateSelector->setWhatsThis(i18n("Select here which metadata template you want to apply "
                                            "to images."));
+    d->documentNameCheck->setWhatsThis(i18n("Enable this option to write the document name to the EXIF metadata. "
+                                            "The document name is the original file name of the imported file."));
     d->fixDateTimeCheck->setWhatsThis(i18n("Enable this option to set date and time metadata "
                                            "tags to the right values if your camera does not set "
                                            "these tags correctly when pictures are taken. The values will "
@@ -146,11 +155,12 @@ AdvancedSettings::~AdvancedSettings()
 
 void AdvancedSettings::readSettings(KConfigGroup& group)
 {
-    d->autoRotateCheck->setChecked(group.readEntry("AutoRotate",         true));
-    d->fixDateTimeCheck->setChecked(group.readEntry("FixDateTime",       false));
-    d->templateSelector->setTemplateIndex(group.readEntry("Template",    0));
-    d->convertJpegCheck->setChecked(group.readEntry("ConvertJpeg",       false));
-    d->losslessFormat->setCurrentIndex(group.readEntry("LossLessFormat", 0));      // PNG by default
+    d->autoRotateCheck->setChecked(group.readEntry(QLatin1String("AutoRotate"),         true));
+    d->fixDateTimeCheck->setChecked(group.readEntry(QLatin1String("FixDateTime"),       false));
+    d->documentNameCheck->setChecked(group.readEntry(QLatin1String("DocumentName"),     false));
+    d->templateSelector->setTemplateIndex(group.readEntry(QLatin1String("Template"),    0));
+    d->convertJpegCheck->setChecked(group.readEntry(QLatin1String("ConvertJpeg"),       false));
+    d->losslessFormat->setCurrentIndex(group.readEntry(QLatin1String("LossLessFormat"), 0));      // PNG by default
 
     d->dateTimeEdit->setEnabled(d->fixDateTimeCheck->isChecked());
     d->losslessFormat->setEnabled(d->convertJpegCheck->isChecked());
@@ -159,11 +169,12 @@ void AdvancedSettings::readSettings(KConfigGroup& group)
 
 void AdvancedSettings::saveSettings(KConfigGroup& group)
 {
-    group.writeEntry("AutoRotate",     d->autoRotateCheck->isChecked());
-    group.writeEntry("FixDateTime",    d->fixDateTimeCheck->isChecked());
-    group.writeEntry("Template",       d->templateSelector->getTemplateIndex());
-    group.writeEntry("ConvertJpeg",    d->convertJpegCheck->isChecked());
-    group.writeEntry("LossLessFormat", d->losslessFormat->currentIndex());
+    group.writeEntry(QLatin1String("AutoRotate"),     d->autoRotateCheck->isChecked());
+    group.writeEntry(QLatin1String("FixDateTime"),    d->fixDateTimeCheck->isChecked());
+    group.writeEntry(QLatin1String("DocumentName"),   d->documentNameCheck->isChecked());
+    group.writeEntry(QLatin1String("Template"),       d->templateSelector->getTemplateIndex());
+    group.writeEntry(QLatin1String("ConvertJpeg"),    d->convertJpegCheck->isChecked());
+    group.writeEntry(QLatin1String("LossLessFormat"), d->losslessFormat->currentIndex());
 }
 
 DownloadSettings AdvancedSettings::settings() const
@@ -174,6 +185,7 @@ DownloadSettings AdvancedSettings::settings() const
     settings.fixDateTime    = d->fixDateTimeCheck->isChecked();
     settings.convertJpeg    = d->convertJpegCheck->isChecked();
     settings.newDateTime    = d->dateTimeEdit->dateTime();
+    settings.documentName   = d->documentNameCheck->isChecked();
     settings.losslessFormat = d->losslessFormat->currentText();
     settings.templateTitle  = d->templateSelector->getTemplate().templateTitle();
 

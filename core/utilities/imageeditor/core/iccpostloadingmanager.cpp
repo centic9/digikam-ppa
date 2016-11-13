@@ -7,7 +7,7 @@
  * Description : methods that implement color management tasks
  *
  * Copyright (C) 2005-2006 by F.J. Cruz <fj dot cruz at supercable dot es>
- * Copyright (C) 2005-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -29,12 +29,9 @@
 
 #include <QPointer>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "colorcorrectiondlg.h"
 #include "iccprofile.h"
 #include "icctransform.h"
@@ -49,9 +46,9 @@ IccPostLoadingManager::IccPostLoadingManager(DImg& image, const QString& filePat
 
 IccTransform IccPostLoadingManager::postLoadingManage(QWidget* const parent)
 {
-    if (image().hasAttribute("missingProfileAskUser"))
+    if (image().hasAttribute(QLatin1String("missingProfileAskUser")))
     {
-        image().removeAttribute("missingProfileAskUser");
+        image().removeAttribute(QLatin1String("missingProfileAskUser"));
         DImg preview                     = image().smoothScale(240, 180, Qt::KeepAspectRatio);
         QPointer<ColorCorrectionDlg> dlg = new ColorCorrectionDlg(ColorCorrectionDlg::MissingProfile, preview,
                                                                   m_filePath, parent);
@@ -62,9 +59,9 @@ IccTransform IccPostLoadingManager::postLoadingManage(QWidget* const parent)
         delete dlg;
         return trans;
     }
-    else if (image().hasAttribute("profileMismatchAskUser"))
+    else if (image().hasAttribute(QLatin1String("profileMismatchAskUser")))
     {
-        image().removeAttribute("profileMismatchAskUser");
+        image().removeAttribute(QLatin1String("profileMismatchAskUser"));
         DImg preview                     = image().smoothScale(240, 180, Qt::KeepAspectRatio);
         QPointer<ColorCorrectionDlg> dlg = new ColorCorrectionDlg(ColorCorrectionDlg::ProfileMismatch, preview,
                                                                   m_filePath, parent);
@@ -75,9 +72,9 @@ IccTransform IccPostLoadingManager::postLoadingManage(QWidget* const parent)
         delete dlg;
         return trans;
     }
-    else if (image().hasAttribute("uncalibratedColorAskUser"))
+    else if (image().hasAttribute(QLatin1String("uncalibratedColorAskUser")))
     {
-        image().removeAttribute("uncalibratedColorAskUser");
+        image().removeAttribute(QLatin1String("uncalibratedColorAskUser"));
         DImg preview                     = image().smoothScale(240, 180, Qt::KeepAspectRatio);
         QPointer<ColorCorrectionDlg> dlg = new ColorCorrectionDlg(ColorCorrectionDlg::UncalibratedColor, preview,
                                                                   m_filePath, parent);

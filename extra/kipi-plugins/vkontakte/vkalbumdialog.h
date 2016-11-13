@@ -24,22 +24,18 @@
 #ifndef VKALBUMDIALOG_H
 #define VKALBUMDIALOG_H
 
-// KDE includes
+// Qt includes
 
-#include <kdialog.h>
+#include <QDialog>
 
-// libkvkontakte includes
-
-#include <libkvkontakte/albuminfo.h>
-
-class KComboBox;
-class KTextEdit;
-class KLineEdit;
+class QComboBox;
+class QTextEdit;
+class QLineEdit;
 
 namespace KIPIVkontaktePlugin
 {
 
-class VkontakteAlbumDialog : public KDialog
+class VkontakteAlbumDialog : public QDialog
 {
     Q_OBJECT
 
@@ -52,6 +48,8 @@ public:
         int privacy;
         int commentPrivacy;
     };
+
+public:
 
     /**
      * @brief Album creation dialog
@@ -66,7 +64,7 @@ public:
      * @param parent Parent widget
      * @param album Initial album properties
      */
-    VkontakteAlbumDialog(QWidget* const parent, const AlbumInfo &album);
+    VkontakteAlbumDialog(QWidget* const parent, const AlbumInfo& album);
 
     ~VkontakteAlbumDialog();
 
@@ -74,18 +72,20 @@ public:
 
 protected Q_SLOTS:
 
-    void slotButtonClicked(int button);
+    virtual void accept();
 
 private:
 
     void initDialog(bool editing);
 
-    KLineEdit*              m_titleEdit;
-    KTextEdit*              m_summaryEdit;
-    KComboBox*              m_albumPrivacyCombo;
-    KComboBox*              m_commentsPrivacyCombo;
+private:
 
-    AlbumInfo               m_album;
+    QLineEdit* m_titleEdit;
+    QTextEdit* m_summaryEdit;
+    QComboBox* m_albumPrivacyCombo;
+    QComboBox* m_commentsPrivacyCombo;
+
+    AlbumInfo  m_album;
 };
 
 } // namespace KIPIVkontaktePlugin

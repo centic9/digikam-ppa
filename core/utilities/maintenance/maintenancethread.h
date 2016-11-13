@@ -6,7 +6,7 @@
  * Date        : 2013-08-09
  * Description : Thread actions manager for maintenance tools.
  *
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,25 +24,20 @@
 #ifndef MAINTENANCE_THREAD_H
 #define MAINTENANCE_THREAD_H
 
-// Libkdcraw includes
-
-#include <libkdcraw/ractionthreadbase.h>
-
 // Local includes
 
+#include "actionthreadbase.h"
 #include "metadatasynchronizer.h"
 #include "imageinfo.h"
 
 class QImage;
-
-using namespace KDcrawIface;
 
 namespace Digikam
 {
 
 class ImageQualitySettings;
 
-class MaintenanceThread : public RActionThreadBase
+class MaintenanceThread : public ActionThreadBase
 {
     Q_OBJECT
 

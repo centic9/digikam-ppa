@@ -1,0 +1,892 @@
+# translation of kipiplugin_picasawebexport.po to 简体中文
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Ni Hui <shuizhuyuanluo@126.com>, 2008, 2009, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_picasawebexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"PO-Revision-Date: 2010-11-16 12:46+0800\n"
+"Last-Translator: Ni Hui <shuizhuyuanluo@126.com>\n"
+"Language-Team: Chinese Simplified <kde-china@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: authorize.cpp:116
+msgid "Google Drive Authorization"
+msgstr ""
+
+#: authorize.cpp:129
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+
+#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+msgid "Error"
+msgstr ""
+
+#: gdtalker.cpp:336
+#, fuzzy
+#| msgid "Failed to fetch photo-set list"
+msgid "Failed to list folders"
+msgstr "获取照片专辑列表失败"
+
+#: gdtalker.cpp:384
+#, fuzzy
+#| msgid "Failed to create album"
+msgid "Failed to create folder"
+msgstr "创建相册失败"
+
+#: gdtalker.cpp:415 gptalker.cpp:929
+msgid "Failed to upload photo"
+msgstr "上传照片失败"
+
+#: gptalker.cpp:561
+msgid "No photo specified"
+msgstr "未指定照片"
+
+#: gptalker.cpp:564
+msgid "General upload failure"
+msgstr "常规上传失败"
+
+#: gptalker.cpp:567
+msgid "File-size was zero"
+msgstr "文件大小为零"
+
+#: gptalker.cpp:570
+msgid "File-type was not recognized"
+msgstr "文件类型不可识别"
+
+#: gptalker.cpp:573
+msgid "User exceeded upload limit"
+msgstr "用户超出上传限制"
+
+#: gptalker.cpp:576
+msgid "Invalid signature"
+msgstr "无效的签名"
+
+#: gptalker.cpp:579
+msgid "Missing signature"
+msgstr "缺失的签名"
+
+#: gptalker.cpp:582
+msgid "Login failed / Invalid auth token"
+msgstr "登录失败 / 无效的验证令牌"
+
+#: gptalker.cpp:585
+msgid "Invalid API Key"
+msgstr "无效的 API 密钥"
+
+#: gptalker.cpp:588
+msgid "Service currently unavailable"
+msgstr "服务当前不可用"
+
+#: gptalker.cpp:591
+msgid "Invalid Frob"
+msgstr "无效的 Frob(临时密钥)"
+
+#: gptalker.cpp:594
+msgid "Format \"xxx\" not found"
+msgstr "没有找到格式“xxx”"
+
+#: gptalker.cpp:597
+msgid "Method \"xxx\" not found"
+msgstr "没有找到方法“xxx”"
+
+#: gptalker.cpp:600
+msgid "Invalid SOAP envelope"
+msgstr "无效的 SOAP 信封"
+
+#: gptalker.cpp:603
+msgid "Invalid XML-RPC Method Call"
+msgstr "无效的 XML-PRC 方法调用"
+
+#: gptalker.cpp:606
+msgid "The POST method is now required for all setters."
+msgstr "POST 方法现在对所有设置者都需要。"
+
+#: gptalker.cpp:609
+msgid "Unknown error"
+msgstr "未知错误"
+
+#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
+#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
+#: gptalker.cpp:613
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+"发生错误：%1\n"
+"无法进一步处理。"
+
+#: gptalker.cpp:683 gptalker.cpp:750
+msgid "Failed to fetch photo-set list"
+msgstr "获取照片专辑列表失败"
+
+#: gptalker.cpp:886 gptalker.cpp:919
+msgid "Failed to create album"
+msgstr "创建相册失败"
+
+#: gswidget.cpp:60
+#, fuzzy
+#| msgid "Tag path behavior:"
+msgid "Tag path behavior :"
+msgstr "标签路径行为："
+
+#: gswidget.cpp:62
+msgid "Leaf tags only"
+msgstr "仅叶标签"
+
+#: gswidget.cpp:63
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr "只导出标签继承树中的叶标签"
+
+#: gswidget.cpp:64
+msgid "Split tags"
+msgstr "分离标签"
+
+#: gswidget.cpp:65
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr "导出叶标签和全部父级标签作为单个标签。"
+
+#: gswidget.cpp:66
+msgid "Combined String"
+msgstr "连接字符串"
+
+#: gswidget.cpp:67
+msgid "Build a combined tag string."
+msgstr "构建连接着的标签字符串。"
+
+#: gswindow.cpp:116
+msgid "Google Drive Export"
+msgstr ""
+
+#: gswindow.cpp:117
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgid "A tool to export images to Google Drive"
+msgstr "一个将图像收藏导出至 PicasaWeb 网络服务的 Kipi 插件。"
+
+#: gswindow.cpp:119
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:122
+msgid "Saurabh Patel"
+msgstr ""
+
+#: gswindow.cpp:122 gswindow.cpp:195
+msgid "Author and maintainer"
+msgstr "作者和维护者"
+
+#: gswindow.cpp:125 gswindow.cpp:207
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
+#: gswindow.cpp:207
+msgid "Developer"
+msgstr "开发者"
+
+#: gswindow.cpp:132
+#, fuzzy
+#| msgid "Export to Picasa Web Service"
+msgid "Export to Google Drive"
+msgstr "导出至 Picasa 网络服务"
+
+#: gswindow.cpp:134 gswindow.cpp:219
+msgid "Start Upload"
+msgstr "开始上传"
+
+#: gswindow.cpp:135
+#, fuzzy
+#| msgid "Start upload to Picasaweb service"
+msgid "Start upload to Google Drive"
+msgstr "开始上传到 Picasaweb 服务"
+
+#: gswindow.cpp:186
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "Google Photos/PicasaWeb Export"
+msgstr "Picasa 网络导出"
+
+#: gswindow.cpp:187
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgid "A tool to export image collections to Google Photos/Picasa web service."
+msgstr "一个将图像收藏导出至 PicasaWeb 网络服务的 Kipi 插件。"
+
+#: gswindow.cpp:189
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2010, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010, Jens Mueller"
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"(c) 2007-2009，Vardhman Jain\n"
+"(c) 2008-2010，Gilles Caulier\n"
+"(c) 2009，Luka Renko\n"
+"(c) 2010，Jens Mueller"
+
+#: gswindow.cpp:195
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:198
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:201
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:204
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: gswindow.cpp:217
+#, fuzzy
+#| msgid "Export to Picasa Web Service"
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr "导出至 Picasa 网络服务"
+
+#: gswindow.cpp:220
+#, fuzzy
+#| msgid "Start upload to Picasaweb service"
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr "开始上传到 Picasaweb 服务"
+
+#: gswindow.cpp:226
+#, fuzzy
+#| msgid "Import from Picasa Web Service"
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr "从 Picasa 网络服务导入"
+
+#: gswindow.cpp:228
+msgid "Start Download"
+msgstr "开始下载"
+
+#: gswindow.cpp:229
+#, fuzzy
+#| msgid "Start download from Picasaweb service"
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr "开始从 Picasaweb 服务下载"
+
+#: gswindow.cpp:428 gswindow.cpp:467 gswindow.cpp:577
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr "Picasaweb 调用失败：%1\n"
+
+#: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: gswindow.cpp:531
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "Google Photo Export"
+msgstr "Picasa 网络导出"
+
+#: gswindow.cpp:549
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid "Google Drive Call Failed: %1\n"
+msgstr "Picasaweb 调用失败：%1\n"
+
+#: gswindow.cpp:653
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+
+#: gswindow.cpp:669
+msgid "No image selected. Please select which images should be uploaded."
+msgstr ""
+
+#: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
+#: gswindow.cpp:1105
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:684 gswindow.cpp:707
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr ""
+
+#: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
+#: gswindow.cpp:1109 gswindow.cpp:1286
+msgid "Continue"
+msgstr ""
+
+#: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
+#: gswindow.cpp:1110 gswindow.cpp:1287
+msgid "Cancel"
+msgstr "取消"
+
+#: gswindow.cpp:762
+msgid "Google Drive export"
+msgstr ""
+
+#: gswindow.cpp:1015
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"保存照片失败：%1\n"
+"您想要继续吗？"
+
+#: gswindow.cpp:1033
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"下载照片失败：%1\n"
+"您想要继续吗？"
+
+#: gswindow.cpp:1079
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr "图像另存为 %1 失败"
+
+#: gswindow.cpp:1106
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to download photo: %1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to upload photo to %1.\n"
+"%2\n"
+"Do you want to continue?"
+msgstr ""
+"下载照片失败：%1\n"
+"您想要继续吗？"
+
+#: gswindow.cpp:1198
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr ""
+
+#: gswindow.cpp:1240
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+
+#: gswindow.cpp:1248
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr "Picasaweb 调用失败：%1\n"
+
+#: gswindow.cpp:1281
+msgctxt "@title:window"
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:1282
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "&Export"
+msgstr "Picasa 网络导出"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "&Import"
+msgstr "Picasa 网络导出"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr ""
+
+#: newalbumdlg.cpp:54
+msgid "Access Level"
+msgstr "访问级别"
+
+#: newalbumdlg.cpp:55
+#, fuzzy
+#| msgid "These are security and privacy settings for the new Picasaweb album."
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr "这些是新 Picasaweb 相册的安全和隐私设置。"
+
+#: newalbumdlg.cpp:57
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Public"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr "公开"
+
+#: newalbumdlg.cpp:59
+#, fuzzy
+#| msgid "Public album is listed on your public Picasaweb page."
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr "公开的相册将列在您的公共 Picasaweb 页面上。"
+
+#: newalbumdlg.cpp:60
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Unlisted / Private"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr "不列出 / 私有"
+
+#: newalbumdlg.cpp:61
+msgid "Unlisted album is only accessible via URL."
+msgstr "不列出的相册只能通过 URL 访问。"
+
+#: newalbumdlg.cpp:62
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Sign-In Required to View"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr "需要登录以查看"
+
+#: newalbumdlg.cpp:63
+msgid "Unlisted album require Sign-In to View"
+msgstr "这些相册不列出并且需要登录才能查看"
+
+#: newalbumdlg.cpp:71
+msgid "Privacy:"
+msgstr "隐私："
+
+#: plugin_googleservices.cpp:100
+#, fuzzy
+#| msgid "Export to &PicasaWeb..."
+msgid "Export to &Google Drive..."
+msgstr "导出至 &PicasaWeb..."
+
+#: plugin_googleservices.cpp:110
+#, fuzzy
+#| msgid "Export to &PicasaWeb..."
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr "导出至 &PicasaWeb..."
+
+#: plugin_googleservices.cpp:120
+#, fuzzy
+#| msgid "Import from &PicasaWeb..."
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr "从 &PicasaWeb 导入..."
+
+#: replacedialog.cpp:112
+#, fuzzy
+#| msgid "&Add As New"
+msgid "Add As New"
+msgstr "添加新项(&A)"
+
+#: replacedialog.cpp:113
+msgid "Item will be added alongside the linked version."
+msgstr ""
+
+#: replacedialog.cpp:119
+#, fuzzy
+#| msgid "&Add All"
+msgid "Add All"
+msgstr "添加全部(&A)"
+
+#: replacedialog.cpp:120
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+
+#: replacedialog.cpp:126
+#, fuzzy
+#| msgid "&Replace"
+msgid "Replace"
+msgstr "替换(&R)"
+
+#: replacedialog.cpp:127
+msgid "Item will be replacing the linked version."
+msgstr ""
+
+#: replacedialog.cpp:133
+#, fuzzy
+#| msgid "&Replace All"
+msgid "Replace All"
+msgstr "全部替换(&R)"
+
+#: replacedialog.cpp:134
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+
+#: replacedialog.cpp:157
+msgid "A linked item already exists."
+msgstr ""
+
+#: replacedialog.cpp:177
+msgid "Destination"
+msgstr "目标"
+
+#: replacedialog.cpp:182
+msgid "Source"
+msgstr "来源"
+
+#~ msgid ""
+#~ "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+#~ msgstr "名为“%1”的文件已经存在。您确定要覆盖它吗？"
+
+#, fuzzy
+#~| msgid "PicasaWeb Export"
+#~ msgid "Picasa Export"
+#~ msgstr "Picasa 网络导出"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Ni Hui"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "shuizhuyuanluo@126.com"
+
+#, fuzzy
+#~| msgid "This is the list of images to upload to your Picasaweb account."
+#~ msgid "This is the list of images to upload to your Google Drive account."
+#~ msgstr "这是要上传到您的 Picasaweb 账户的图像列表。"
+
+#, fuzzy
+#~| msgid "This is the list of images to upload to your Picasaweb account."
+#~ msgid ""
+#~ "This is the list of images to upload to your Google Photos/PicasaWeb "
+#~ "account."
+#~ msgstr "这是要上传到您的 Picasaweb 账户的图像列表。"
+
+#~ msgid "Account"
+#~ msgstr "账户"
+
+#, fuzzy
+#~| msgid "This is the Picasaweb account that will be used to authenticate."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb account that is currently logged in."
+#~ msgstr "这是用于认证的 Picasaweb 账户。"
+
+#, fuzzy
+#~| msgctxt "Picasaweb account settings"
+#~| msgid "Name:"
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "用户名："
+
+#~ msgid "Change Account"
+#~ msgstr "更改账户"
+
+#~ msgid "Album"
+#~ msgstr "相册"
+
+#, fuzzy
+#~| msgid "This is the location where Picasaweb images will be downloaded."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb folder from which selected photos "
+#~ "will be downloaded."
+#~ msgstr "这是 Picasaweb 图像将要下载到的位置。"
+
+#, fuzzy
+#~| msgid "Album"
+#~ msgid "Album:"
+#~ msgstr "相册"
+
+#~ msgid "New Album"
+#~ msgstr "新建相册"
+
+#, fuzzy
+#~| msgid "Create new Picasaweb album"
+#~ msgid "Create new Google Photos/PicasaWeb folder"
+#~ msgstr "创建新的 Picasaweb 相册"
+
+#, fuzzy
+#~| msgctxt "reload album list"
+#~| msgid "Reload"
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "重新装入"
+
+#~ msgid "Reload album list"
+#~ msgstr "重新装入相册列表"
+
+#, fuzzy
+#~| msgid "Maximum dimension:"
+#~ msgid "Max Dimension"
+#~ msgstr "最大尺寸："
+
+#, fuzzy
+#~| msgid "This is the location where Picasaweb images will be downloaded."
+#~ msgid ""
+#~ "This is the location where Google Photos/PicasaWeb images will be "
+#~ "downloaded."
+#~ msgstr "这是 Picasaweb 图像将要下载到的位置。"
+
+#~ msgid "Options"
+#~ msgstr "选项"
+
+#, fuzzy
+#~| msgid "These are options that will be applied to images before upload."
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr "这些是图像在上传前所应用的选项。"
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "上传前调整照片大小"
+
+#, fuzzy
+#~| msgid "Maximum dimension:"
+#~ msgid "Maximum Dimension:"
+#~ msgstr "最大尺寸："
+
+#, fuzzy
+#~| msgid "JPEG quality:"
+#~ msgid "JPEG Quality:"
+#~ msgstr "JPEG 质量："
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "要创建的相册标题(必需)。"
+
+#, fuzzy
+#~| msgid "These are basic settings for the new Picasaweb album."
+#~ msgid "These are basic settings for the new Google Photos/Picasaweb album."
+#~ msgstr "这些是新 Picasaweb 相册的基本设置。"
+
+#~ msgid "Date and Time of the album that will be created (optional)."
+#~ msgstr "要创建的相册日期和时间(可选)。"
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "要创建的相册描述(可选)。"
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "要创建的相册位置(可选)。"
+
+#, fuzzy
+#~| msgid "Title of the album that will be created (required)."
+#~ msgid "This is the title of the folder that will be created."
+#~ msgstr "要创建的相册标题(必需)。"
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Title:"
+#~ msgctxt "folder edit"
+#~ msgid "Title:"
+#~ msgstr "标题："
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Title:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Title:"
+#~ msgstr "标题："
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Date & Time:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Date & Time:"
+#~ msgstr "日期和时间："
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Description:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Description:"
+#~ msgstr "描述："
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Location:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Location:"
+#~ msgstr "位置："
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to upload photo into Picasaweb: %1\n"
+#~| "Do you want to continue?"
+#~ msgid ""
+#~ "Failed to upload photo to Google Drive.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "上传照片至 Picasaweb 失败：%1\n"
+#~ "您想要继续吗？"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to upload photo into Picasaweb: %1\n"
+#~| "Do you want to continue?"
+#~ msgid ""
+#~ "Failed to upload photo to Google Photos/PicasaWeb.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "上传照片至 Picasaweb 失败：%1\n"
+#~ "您想要继续吗？"
+
+#~ msgid "Picasaweb New Album"
+#~ msgstr "Picasaweb 新建相册"
+
+#~ msgid "%1|All supported files"
+#~ msgstr "%1|支持的全部文件"
+
+#~ msgid "%1|Camera RAW files"
+#~ msgstr "%1|相机 RAW 文件"
+
+#~ msgid "%1|Video files"
+#~ msgstr "%1|视频文件"
+
+#~ msgid "Select Images"
+#~ msgstr "选择图像"
+
+#~ msgid "Google Login:"
+#~ msgstr "Google 登录名："
+
+#~ msgid "Password:"
+#~ msgstr "密码："
+
+#~ msgid "&OK"
+#~ msgstr "确定(&O)"
+
+#~ msgid "&Cancel"
+#~ msgstr "取消(&C)"
+
+#~ msgid "Login"
+#~ msgstr "登录"
+
+#~ msgctxt "Picasaweb account login"
+#~ msgid "Anonymous"
+#~ msgstr "匿名"
+
+#~ msgid "Login as anonymous to Picasaweb web service."
+#~ msgstr "以匿名登录 Picasaweb 网络服务。"
+
+#~ msgid "Picasaweb Account"
+#~ msgstr "Picasaweb 账户"
+
+#~ msgid "Login to Picasaweb web service using username and password."
+#~ msgstr "使用用户名和密码登录到 Picasaweb 网络服务。"
+
+#~ msgid "Change Picasaweb Account used to authenticate"
+#~ msgstr "更改用于认证的 Picasaweb 账户"
+
+#~ msgid "This is the Picasaweb album that will be used for transfer."
+#~ msgstr "这是将用于传输的 Picasaweb 相册。"
+
+#~ msgid "Cannot open file"
+#~ msgstr "无法打开文件"
+
+#~ msgid "Handbook"
+#~ msgstr "手册"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Site Password:"
+#~ msgstr "密码："
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Album Password:"
+#~ msgstr "密码："
+
+#~ msgid "Getting the token"
+#~ msgstr "正在获取令牌"
+
+#~ msgid "Checking if previous token is still valid"
+#~ msgstr "正在检查上一张令牌是否依旧有效"
+
+#~ msgid "Failed to query photo information"
+#~ msgstr "查询照片信息失败"
+
+#~ msgid "No album selected - please create and select album."
+#~ msgstr "未选择相册 - 请创建并选择相册。"
+
+#~ msgid "Nothing to upload - please select photos to upload."
+#~ msgstr "无上传项 - 请选择要上传的照片。"
+
+#~ msgid "Uploading file %1 "
+#~ msgstr "正在上传文件 %1 "
+
+#~ msgid "New Album Dialog"
+#~ msgstr "新建相册对话框"
+
+#~ msgid "Place Taken"
+#~ msgstr "拍摄地点"
+
+#~ msgid "Create"
+#~ msgstr "创建"
+
+#~ msgid "Date"
+#~ msgstr "日期"
+
+#~ msgid "PicasaWeb Exporter Upload"
+#~ msgstr "Picasa 网络导出上传"
+
+#~ msgid "PicasaWeb Uploader"
+#~ msgstr "Picasa 网络上传"
+
+#~ msgid "Tags:<p align=\"center\"></p>"
+#~ msgstr "标记：<p align=\"center\"></p>"
+
+#~ msgid "E&xport Application Tags"
+#~ msgstr "导出应用程序标记(&X)"
+
+#~ msgid "Resi&ze"
+#~ msgstr "调整大小(&Z)"
+
+#~ msgid "Size (pixels):"
+#~ msgstr "大小(像素)："
+
+#~ msgid "Compression:"
+#~ msgstr "压缩："
+
+#~ msgid "Images to upload"
+#~ msgstr "要上传的图像"
+
+#~ msgid "Currentl&y Selected Images"
+#~ msgstr "当前选中的图像(&Y)"
+
+#~ msgid "Select Photos"
+#~ msgstr "选择照片"
+
+#~ msgid "Username:"
+#~ msgstr "用户名："
+
+#~ msgid "Change User"
+#~ msgstr "更改用户"

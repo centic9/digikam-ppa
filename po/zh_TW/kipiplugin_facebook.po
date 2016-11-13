@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2013-06-11 14:30+0800\n"
 "Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
 "Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
@@ -17,87 +17,43 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.5\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Frank Weng (a.k.a. Franklin)"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "franklin@goodhorse.idv.tw"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Facebook 新相簿"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "將要建立的相簿之標題 (必要)。"
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "將要建立的相簿之位置 (選擇性)。"
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "將要建立的相簿之描述 (選擇性)。"
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "將要建立的相簿之隱私設定值 (必要)。"
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 msgid "Only Me"
 msgstr "只有我"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "只有朋友"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "朋友的朋友"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "我的網路與朋友"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "每一個人"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "標題："
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "位置："
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "描述："
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "隱私："
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "驗證上一個會話..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr "更新到 OAuth..."
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Facebook 應用程式授權"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -105,230 +61,71 @@ msgstr ""
 "請跟著瀏覽器視窗的指示進行。結束後，請將網路位置複製一份到下方的文字盒中，並"
 "按下「確定」。"
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "已被使用者取消。"
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "服務目前無法使用。"
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "應用程式已達到允許的最多數量要求。"
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "無效的會話鑰匙或作廢的會話。試著重新登入一次。"
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "無效的相簿 ID。"
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "相簿已經滿了。"
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "遺失或無效的檔案。"
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "積了太多未經確認的相片。"
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr "這是要上傳到您的 Facebook 帳號的影像清單。"
-
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
-msgstr "這是用網頁瀏覽器開啟 Facebook 首頁的點擊連結。"
-
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "帳號"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "這是目前已登入的 Facebook 帳號。"
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "名稱："
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "權限："
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
+#: fbtalker.cpp:602
+msgid "Error"
 msgstr ""
-"是否允許 KIPI 外掛程式應用程式要直接上傳相片。若不允許，使用噁需要手動在 "
-"Facebook 上確認上傳的相片。"
 
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "變更帳號"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr "登出並變更用於傳輸的 Facebook 帳號"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "下載選擇項目"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "這是要下載的 Facebook 相簿/照片。"
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "目的地"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr "選取的相片會上傳到 Facebook 上的哪個相簿。"
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "我的相簿(&A)"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "下載目前已登入使用者的相簿完成。"
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "我朋友的相簿(&O)"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "下載所選朋友的相簿完成。"
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "我的照片(&M)"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "下載目前已登入使用者的全部照片。"
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "我朋友的照片(&F)"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "下載所選朋友的全部照片。"
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "朋友："
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "相簿："
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "新增相簿"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "建立新的 Facebook 相簿"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "重新載入"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "重新載入相簿清單"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr "Facebook 影像會下載到哪個位置。"
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "選項"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr "這些選項會在上傳前套用在相片上。"
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "上傳前調整照片大小"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "最大尺寸："
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "JPEG 品質："
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "直接上傳"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr "上傳的照片不需要由使用者手動批准。"
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "手動批准上傳"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr "上傳的相片會等待使用者確認。"
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "從 Facebook 網頁服務匯入"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "開始下載"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "開始從 Facebook 網頁服務下載"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "匯出到 Facebook 網頁服務"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "開始上傳"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "開始上傳到 Facebook 網頁服務"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
-msgstr "Facebook 匯入/匯出"
+#: fbwindow.cpp:140
+#, fuzzy
+#| msgid "Facebook export"
+msgid "Facebook Export"
+msgstr "Facebook 匯出"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to import/export image collection to/from Facebook web "
+#| "service."
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
 "將影像收藏匯出到 Facebook 網頁服務或從 Facebook 網頁服務匯入的 Kipi 外掛程"
 "式。"
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -337,66 +134,68 @@ msgstr ""
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "作者和維護者"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr ""
-
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr ""
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+#, fuzzy
+#| msgid "&lt;auto create&gt;"
+msgid "<auto create>"
 msgstr "&lt;自動建立&gt;"
 
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Facebook 呼叫錯誤：%1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "簡介圖片"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr ""
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr ""
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr ""
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr ""
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr "Facebook 匯入"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr "Facebook 匯出"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "無法開啟檔案"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+#, fuzzy
+#| msgid "Uploading file %1"
+msgid "Uploading Failed"
+msgstr "正在上傳檔案 %1"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -405,25 +204,7 @@ msgstr ""
 "上傳照片到 Facebook 失敗：%1\n"
 "您要繼續嗎？"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"儲存照片失敗：%1\n"
-"您要繼續嗎？"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"下載照片失敗：%1\n"
-"您要繼續嗎？"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Facebook 呼叫錯誤：%1"
@@ -443,13 +224,202 @@ msgstr "匯出(&E)"
 msgid "Main Toolbar"
 msgstr "主工具列"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "匯出到 &Facebook..."
 
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "從 &Facebook 匯入..."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Frank Weng (a.k.a. Franklin)"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "franklin@goodhorse.idv.tw"
+
+#~ msgid "Facebook New Album"
+#~ msgstr "Facebook 新相簿"
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "將要建立的相簿之標題 (必要)。"
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "將要建立的相簿之位置 (選擇性)。"
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "將要建立的相簿之描述 (選擇性)。"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Title:"
+#~ msgstr "標題："
+
+#~ msgctxt "new facebook album"
+#~ msgid "Location:"
+#~ msgstr "位置："
+
+#~ msgctxt "new facebook album"
+#~ msgid "Description:"
+#~ msgstr "描述："
+
+#~ msgctxt "new facebook album"
+#~ msgid "Privacy:"
+#~ msgstr "隱私："
+
+#~ msgid "This is the list of images to upload to your Facebook account."
+#~ msgstr "這是要上傳到您的 Facebook 帳號的影像清單。"
+
+#~ msgid ""
+#~ "This is a clickable link to open the Facebook home page in a web browser."
+#~ msgstr "這是用網頁瀏覽器開啟 Facebook 首頁的點擊連結。"
+
+#~ msgid "Account"
+#~ msgstr "帳號"
+
+#~ msgid "This is the Facebook account that is currently logged in."
+#~ msgstr "這是目前已登入的 Facebook 帳號。"
+
+#~ msgctxt "facebook account settings"
+#~ msgid "Name:"
+#~ msgstr "名稱："
+
+#~ msgid "Permission:"
+#~ msgstr "權限："
+
+#~ msgid ""
+#~ "Permission of KIPI Plugin application to upload photos directly. If not, "
+#~ "user will need to manually approve uploaded photos in Facebook."
+#~ msgstr ""
+#~ "是否允許 KIPI 外掛程式應用程式要直接上傳相片。若不允許，使用噁需要手動在 "
+#~ "Facebook 上確認上傳的相片。"
+
+#~ msgid "Change Account"
+#~ msgstr "變更帳號"
+
+#~ msgid "Logout and change Facebook Account used for transfer"
+#~ msgstr "登出並變更用於傳輸的 Facebook 帳號"
+
+#~ msgid "Download Selection"
+#~ msgstr "下載選擇項目"
+
+#~ msgid "This is the selection of Facebook albums/photos to download."
+#~ msgstr "這是要下載的 Facebook 相簿/照片。"
+
+#~ msgid "Destination"
+#~ msgstr "目的地"
+
+#~ msgid ""
+#~ "This is the Facebook album to which selected photos will be uploaded."
+#~ msgstr "選取的相片會上傳到 Facebook 上的哪個相簿。"
+
+#~ msgid "My &Album"
+#~ msgstr "我的相簿(&A)"
+
+#~ msgid "Download complete album of currently logged in user."
+#~ msgstr "下載目前已登入使用者的相簿完成。"
+
+#~ msgid "Album &of My Friend"
+#~ msgstr "我朋友的相簿(&O)"
+
+#~ msgid "Download complete album of selected friend."
+#~ msgstr "下載所選朋友的相簿完成。"
+
+#~ msgid "Photos of &Me"
+#~ msgstr "我的照片(&M)"
+
+#~ msgid "Download all photos of currently logged in user."
+#~ msgstr "下載目前已登入使用者的全部照片。"
+
+#~ msgid "Photos of My &Friend"
+#~ msgstr "我朋友的照片(&F)"
+
+#~ msgid "Download all photos of selected friend."
+#~ msgstr "下載所選朋友的全部照片。"
+
+#~ msgid "Friend:"
+#~ msgstr "朋友："
+
+#~ msgid "Album:"
+#~ msgstr "相簿："
+
+#~ msgid "New Album"
+#~ msgstr "新增相簿"
+
+#~ msgid "Create new Facebook album"
+#~ msgstr "建立新的 Facebook 相簿"
+
+#~ msgctxt "facebook album list"
+#~ msgid "Reload"
+#~ msgstr "重新載入"
+
+#~ msgid "Reload album list"
+#~ msgstr "重新載入相簿清單"
+
+#~ msgid "This is the location to which Facebook images will be downloaded."
+#~ msgstr "Facebook 影像會下載到哪個位置。"
+
+#~ msgid "Options"
+#~ msgstr "選項"
+
+#~ msgid "These are options that will be applied to photos before upload."
+#~ msgstr "這些選項會在上傳前套用在相片上。"
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "上傳前調整照片大小"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "最大尺寸："
+
+#~ msgid "JPEG quality:"
+#~ msgstr "JPEG 品質："
+
+#~ msgid "Direct upload"
+#~ msgstr "直接上傳"
+
+#~ msgid "Uploaded photos will not need manual approval by user."
+#~ msgstr "上傳的照片不需要由使用者手動批准。"
+
+#~ msgid "Manual upload approval"
+#~ msgstr "手動批准上傳"
+
+#~ msgid ""
+#~ "Uploaded photos will wait in pending state until manually approved by "
+#~ "user."
+#~ msgstr "上傳的相片會等待使用者確認。"
+
+#~ msgid "Import from Facebook Web Service"
+#~ msgstr "從 Facebook 網頁服務匯入"
+
+#~ msgid "Start Download"
+#~ msgstr "開始下載"
+
+#~ msgid "Start download from Facebook web service"
+#~ msgstr "開始從 Facebook 網頁服務下載"
+
+#~ msgid "Facebook Import/Export"
+#~ msgstr "Facebook 匯入/匯出"
+
+#~ msgctxt "name of special Facebook album for profile pictures"
+#~ msgid "Profile Pictures"
+#~ msgstr "簡介圖片"
+
+#~ msgid "Facebook import"
+#~ msgstr "Facebook 匯入"
+
+#~ msgid ""
+#~ "Failed to save photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "儲存照片失敗：%1\n"
+#~ "您要繼續嗎？"
+
+#~ msgid ""
+#~ "Failed to download photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "下載照片失敗：%1\n"
+#~ "您要繼續嗎？"
+
+#~ msgid "Import from &Facebook..."
+#~ msgstr "從 &Facebook 匯入..."
 
 #~ msgid ""
 #~ "Please follow the instructions in the browser window. Press \"OK\" when "
@@ -479,9 +449,6 @@ msgstr "從 &Facebook 匯入..."
 
 #~ msgid "Transfer Progress"
 #~ msgstr "傳輸進度"
-
-#~ msgid "Uploading file %1"
-#~ msgstr "正在上傳檔案 %1"
 
 #~ msgid "Downloading file %1"
 #~ msgstr "正在下載檔案 %1"

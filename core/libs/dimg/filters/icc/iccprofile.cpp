@@ -7,7 +7,7 @@
  * Description : a wrapper class for an ICC color profile
  *
  * Copyright (C) 2005-2006 by F.J. Cruz <fj dot cruz at supercable dot es>
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -24,9 +24,6 @@
  * ============================================================ */
 
 #include "iccprofile.h"
-
-// LCMS
-
 #include "digikam-lcms.h"
 
 // Qt includes
@@ -34,16 +31,12 @@
 #include <QDir>
 #include <QFile>
 #include <QMutex>
-
-// KDE includes
-
-#include <kcodecs.h>
-#include <kglobal.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
+#include <QCryptographicHash>
+#include <QStandardPaths>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimg.h"
 
 namespace Digikam
@@ -110,7 +103,7 @@ class IccProfileStatic
 public:
 
     IccProfileStatic()
-        : lcmsMutex(QMutex::Recursive)
+        : lcmsMutex()
     {
     }
 
@@ -118,7 +111,7 @@ public:
     QString adobeRGBPath;
 };
 
-K_GLOBAL_STATIC(IccProfileStatic, static_d)
+Q_GLOBAL_STATIC(IccProfileStatic, static_d)
 
 // ----------------------------------------------------------------------------------
 
@@ -154,11 +147,23 @@ IccProfile::IccProfile(const QString& filePath)
 IccProfile::IccProfile(const char* const location, const QString& relativePath)
     : d(0)
 {
-    QString filePath = KStandardDirs::locate(location, relativePath);
+    QString filePath;
+
+    // NOTE: if necessary, implement new location support here.
+
+    if (QLatin1String(location) == QLatin1String("data"))
+    {
+         //qCDebug(DIGIKAM_DIMG_LOG) << "Searching ICC profile from data directory with relative path:" << relativePath;
+         filePath = QStandardPaths::locate(QStandardPaths::GenericDataLocation, relativePath);
+    }
+    else
+    {
+        qCDebug(DIGIKAM_DIMG_LOG) << "Data location " << location << " to handle bundled profile is not supported.";
+    }
 
     if (filePath.isNull())
     {
-        kError() << "The bundled profile" << relativePath << "cannot be found. Check your installation.";
+        qCDebug(DIGIKAM_DIMG_LOG) << "The bundled profile" << relativePath << "cannot be found. Check your installation.";
         return;
     }
 
@@ -169,7 +174,7 @@ IccProfile::IccProfile(const char* const location, const QString& relativePath)
 IccProfile IccProfile::sRGB()
 {
     // The srgb.icm file seems to have a whitepoint of D50, see #133913
-    return IccProfile("data", "libkdcraw/profiles/srgb-d65.icm");
+    return IccProfile("data", QLatin1String("digikam/profiles/srgb-d65.icm"));
 }
 
 IccProfile IccProfile::adobeRGB()
@@ -178,7 +183,7 @@ IccProfile IccProfile::adobeRGB()
 
     if (path.isEmpty())
     {
-        path = KStandardDirs::locate("data", "libkdcraw/profiles/compatibleWithAdobeRGB1998.icc");
+        path = QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/profiles/compatibleWithAdobeRGB1998.icc"));
     }
 
     return IccProfile(path);
@@ -186,12 +191,12 @@ IccProfile IccProfile::adobeRGB()
 
 IccProfile IccProfile::wideGamutRGB()
 {
-    return IccProfile("data", "libkdcraw/profiles/widegamut.icm");
+    return IccProfile("data", QLatin1String("digikam/profiles/widegamut.icm"));
 }
 
 IccProfile IccProfile::proPhotoRGB()
 {
-    return IccProfile("data", "libkdcraw/profiles/prophoto.icm");
+    return IccProfile("data", QLatin1String("digikam/profiles/prophoto.icm"));
 }
 
 QList<IccProfile> IccProfile::defaultProfiles()
@@ -237,12 +242,12 @@ bool IccProfile::operator==(const IccProfile& other) const
     {
         if (!d->filePath.isNull() || !other.d->filePath.isNull())
         {
-            return d->filePath == other.d->filePath;
+            return (d->filePath == other.d->filePath);
         }
 
         if (!d->data.isNull() || other.d->data.isNull())
         {
-            return d->data == other.d->data;
+            return (d->data == other.d->data);
         }
     }
 
@@ -259,7 +264,7 @@ bool IccProfile::isSameProfileAs(IccProfile& other)
     if (d && other.d)
     {
         // uses memcmp
-        return data() == other.data();
+        return (data() == other.data());
     }
 
     return false;
@@ -378,7 +383,7 @@ QString IccProfile::description()
 
     if ( !QString(dkCmsTakeProductDesc(d->handle)).isEmpty() )
     {
-        d->description = QString(dkCmsTakeProductDesc(d->handle)).replace('\n', ' ');
+        d->description = QString(dkCmsTakeProductDesc(d->handle)).replace(QLatin1Char('\n'), QLatin1Char(' '));
     }
 
     return d->description;
@@ -486,32 +491,37 @@ QStringList IccProfile::defaultSearchPaths()
     QStringList paths;
     QStringList candidates;
 
-    paths << KGlobal::dirs()->findDirs("data", "color/icc");
+    paths << QStandardPaths::locateAll(QStandardPaths::GenericDataLocation, QLatin1String("color/icc"), QStandardPaths::LocateDirectory);
 
-#ifdef Q_WS_WIN
+#ifdef Q_OS_WIN
 
-    candidates << QDir::rootPath() + "/Windows/Spool/Drivers/Color/";   // For Win2K and WinXP
-    candidates << QDir::rootPath() + "/Windows/Color/";                 // For Win98 and WinMe
+    candidates << QDir::rootPath() + QLatin1String("/Windows/Spool/Drivers/Color/");   // For Win2K and WinXP
+    candidates << QDir::rootPath() + QLatin1String("/Windows/Color/");                 // For Win98 and WinMe
 
-#elif defined (Q_WS_MAC)
+#elif defined (Q_OS_OSX)
 
-    // Use a scheme highly identical to the Linux scheme, adapted for MacPorts in /opt/local and the OS X standard ColorSync directories
+    // Use a scheme highly identical to the Linux scheme, adapted for MacPorts in /opt/local, ofcial PKG installer, and the OS X standard ColorSync directories
 
-    candidates << "/System/Library/ColorSync/Profiles";
-    candidates << "/Library/ColorSync/Profiles";
-    candidates << QDir::homePath() + "/Library/ColorSync/Profiles";
+    candidates << QLatin1String("/System/Library/ColorSync/Profiles");
+    candidates << QLatin1String("/Library/ColorSync/Profiles");
+    candidates << QDir::homePath() + QLatin1String("/Library/ColorSync/Profiles");
 
     // MacPorts installs for KDE, so we include the XDG data dirs, including /usr/share/color/icc
-    QStringList dataDirs = QString::fromLocal8Bit(getenv("XDG_DATA_DIRS")).split(':', QString::SkipEmptyParts);
+    QStringList dataDirs = QString::fromLocal8Bit(getenv("XDG_DATA_DIRS")).split(QLatin1Char(':'), QString::SkipEmptyParts);
 
     if (!dataDirs.contains(QLatin1String("/opt/local/share")))
     {
-        dataDirs << "/opt/local/share";
+        dataDirs << QLatin1String("/opt/local/share");
+    }
+
+    if (!dataDirs.contains(QLatin1String("/opt/digikam/share")))
+    {
+        dataDirs << QLatin1String("/opt/digikam/share");
     }
 
     foreach(const QString& dataDir, dataDirs)
     {
-        candidates << dataDir + "/color/icc";
+        candidates << dataDir + QLatin1String("/color/icc");
     }
 
     // XDG_DATA_HOME
@@ -519,33 +529,33 @@ QStringList IccProfile::defaultSearchPaths()
 
     if (!dataHomeDir.isEmpty())
     {
-        candidates << dataHomeDir + "/color/icc";
-        candidates << dataHomeDir + "/icc";
+        candidates << dataHomeDir + QLatin1String("/color/icc");
+        candidates << dataHomeDir + QLatin1String("/icc");
     }
 
     // home dir directories
-    candidates << QDir::homePath() + "/.local/share/color/icc/";
-    candidates << QDir::homePath() + "/.local/share/icc/";
-    candidates << QDir::homePath() + "/.color/icc/";
+    candidates << QDir::homePath() + QLatin1String("/.local/share/color/icc/");
+    candidates << QDir::homePath() + QLatin1String("/.local/share/icc/");
+    candidates << QDir::homePath() + QLatin1String("/.color/icc/");
 
 #else // LINUX
 
     // XDG data dirs, including /usr/share/color/icc
-    QStringList dataDirs = QString::fromLocal8Bit(getenv("XDG_DATA_DIRS")).split(':', QString::SkipEmptyParts);
+    QStringList dataDirs = QString::fromLocal8Bit(getenv("XDG_DATA_DIRS")).split(QLatin1Char(':'), QString::SkipEmptyParts);
 
     if (!dataDirs.contains(QLatin1String("/usr/share")))
     {
-        dataDirs << "/usr/share";
+        dataDirs << QLatin1String("/usr/share");
     }
 
     if (!dataDirs.contains(QLatin1String("/usr/local/share")))
     {
-        dataDirs << "/usr/local/share";
+        dataDirs << QLatin1String("/usr/local/share");
     }
 
     foreach(const QString& dataDir, dataDirs)
     {
-        candidates << dataDir + "/color/icc";
+        candidates << dataDir + QLatin1String("/color/icc");
     }
 
     // XDG_DATA_HOME
@@ -553,14 +563,14 @@ QStringList IccProfile::defaultSearchPaths()
 
     if (!dataHomeDir.isEmpty())
     {
-        candidates << dataHomeDir + "/color/icc";
-        candidates << dataHomeDir + "/icc";
+        candidates << dataHomeDir + QLatin1String("/color/icc");
+        candidates << dataHomeDir + QLatin1String("/icc");
     }
 
     // home dir directories
-    candidates << QDir::homePath() + "/.local/share/color/icc/";
-    candidates << QDir::homePath() + "/.local/share/icc/";
-    candidates << QDir::homePath() + "/.color/icc/";
+    candidates << QDir::homePath() + QLatin1String("/.local/share/color/icc/");
+    candidates << QDir::homePath() + QLatin1String("/.local/share/icc/");
+    candidates << QDir::homePath() + QLatin1String("/.color/icc/");
 
 #endif
 
@@ -578,7 +588,7 @@ QStringList IccProfile::defaultSearchPaths()
             }
         }
     }
-    //kDebug() << candidates << '\n' << paths;
+    //qCDebug(DIGIKAM_DIMG_LOG) << candidates << '\n' << paths;
 
     return paths;
 }
@@ -594,12 +604,12 @@ void IccProfile::considerOriginalAdobeRGB(const QString& filePath)
 
     if (file.open(QIODevice::ReadOnly))
     {
-        KMD5 md5;
-        md5.update(file);
+        QCryptographicHash md5(QCryptographicHash::Md5);
+        md5.addData(&file);
 
-        if (md5.hexDigest() == "dea88382d899d5f6e573b432473ae138")
+        if (md5.result().toHex() == QByteArray("dea88382d899d5f6e573b432473ae138"))
         {
-            kDebug() << "The original Adobe RGB (1998) profile has been found at" << filePath;
+            qCDebug(DIGIKAM_DIMG_LOG) << "The original Adobe RGB (1998) profile has been found at" << filePath;
             static_d->adobeRGBPath = filePath;
         }
     }

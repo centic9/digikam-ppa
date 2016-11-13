@@ -6,7 +6,7 @@
  * Date        : 2006-02-22
  * Description : a tab widget to display GPS info
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2011      by Michael G. Hansen <mike at mghansen dot de>
  *
  * This program is free software; you can redistribute it
@@ -27,7 +27,7 @@ Good explanations about GPS (in French) can be found at this url :
 http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=16593
 */
 
-#include "imagepropertiesgpstab.moc"
+#include "imagepropertiesgpstab.h"
 
 // Qt includes
 
@@ -41,25 +41,29 @@ http://www.gpspassion.com/forumsen/topic.asp?TOPIC_ID=16593
 #include <QToolButton>
 #include <QStandardItemModel>
 #include <QStandardItem>
+#include <QComboBox>
+#include <QDesktopServices>
+#include <QIcon>
+#include <QLocale>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kdialog.h>
-#include <khbox.h>
-#include <klocale.h>
-#include <ksqueezedtextlabel.h>
-#include <ktoolinvocation.h>
-#include <kdebug.h>
+#include <kconfiggroup.h>
+#include <klocalizedstring.h>
 
-// libkgeomap includes
+// Local includes
 
-#include <libkgeomap/kgeomap_widget.h>
-#include <libkgeomap/itemmarkertiler.h>
+#include "mapwidget.h"
+#include "itemmarkertiler.h"
 
-// local includes
+// Local includes
 
+#include "dwidgetutils.h"
+#include "digikam_debug.h"
 #include "imagegpsmodelhelper.h"
+#include "dexpanderbox.h"
+
+
 
 namespace Digikam
 {
@@ -89,27 +93,27 @@ public:
     {
     }
 
-    QLabel*                   altLabel;
-    QLabel*                   latLabel;
-    QLabel*                   lonLabel;
-    QLabel*                   dateLabel;
+    QLabel*                    altLabel;
+    QLabel*                    latLabel;
+    QLabel*                    lonLabel;
+    QLabel*                    dateLabel;
 
-    QToolButton*              detailsBtn;
-    KComboBox*                detailsCombo;
+    QToolButton*               detailsBtn;
+    QComboBox*                 detailsCombo;
 
-    KSqueezedTextLabel*       altitude;
-    KSqueezedTextLabel*       latitude;
-    KSqueezedTextLabel*       longitude;
-    KSqueezedTextLabel*       date;
+    DAdjustableLabel*          altitude;
+    DAdjustableLabel*          latitude;
+    DAdjustableLabel*          longitude;
+    DAdjustableLabel*          date;
 
-    KGeoMap::KGeoMapWidget*   map;
-    KGeoMap::ItemMarkerTiler* itemMarkerTiler;
-    GPSImageInfo::List        gpsInfoList;
+    GeoIface::MapWidget*       map;
+    GeoIface::ItemMarkerTiler* itemMarkerTiler;
+    GPSImageInfo::List         gpsInfoList;
 
-    QStandardItemModel*       itemModel;
-    ImageGPSModelHelper*      gpsModelHelper;
-    GPSImageInfoSorter*       gpsImageInfoSorter;
-    bool                      boundariesShouldBeAdjusted;
+    QStandardItemModel*        itemModel;
+    ImageGPSModelHelper*       gpsModelHelper;
+    GPSImageInfoSorter*        gpsImageInfoSorter;
+    bool                       boundariesShouldBeAdjusted;
 };
 
 ImagePropertiesGPSTab::ImagePropertiesGPSTab(QWidget* const parent)
@@ -126,32 +130,32 @@ ImagePropertiesGPSTab::ImagePropertiesGPSTab(QWidget* const parent)
     mapPanel->setLineWidth(style()->pixelMetric(QStyle::PM_DefaultFrameWidth));
 
     QVBoxLayout* const vlay2  = new QVBoxLayout(mapPanel);
-    d->map                    = new KGeoMap::KGeoMapWidget(mapPanel);
-    d->map->setAvailableMouseModes(KGeoMap::MouseModePan|KGeoMap::MouseModeZoomIntoGroup);
-    d->map->setVisibleMouseModes(KGeoMap::MouseModePan|KGeoMap::MouseModeZoomIntoGroup);
-    d->map->setEnabledExtraActions(KGeoMap::ExtraActionSticky);
-    d->map->setVisibleExtraActions(KGeoMap::ExtraActionSticky);
+    d->map                    = new GeoIface::MapWidget(mapPanel);
+    d->map->setAvailableMouseModes(GeoIface::MouseModePan|GeoIface::MouseModeZoomIntoGroup);
+    d->map->setVisibleMouseModes(GeoIface::MouseModePan|GeoIface::MouseModeZoomIntoGroup);
+    d->map->setEnabledExtraActions(GeoIface::ExtraActionSticky);
+    d->map->setVisibleExtraActions(GeoIface::ExtraActionSticky);
     d->gpsImageInfoSorter = new GPSImageInfoSorter(this);
-    d->gpsImageInfoSorter->addToKGeoMapWidget(d->map);
+    d->gpsImageInfoSorter->addToMapWidget(d->map);
     vlay2->addWidget(d->map);
-    vlay2->setMargin(0);
+    vlay2->setContentsMargins(QMargins());
     vlay2->setSpacing(0);
 
     // --------------------------------------------------------
 
     d->itemModel        = new QStandardItemModel(this);
     d->gpsModelHelper   = new ImageGPSModelHelper(d->itemModel, this);
-    d->itemMarkerTiler  = new KGeoMap::ItemMarkerTiler(d->gpsModelHelper, this);
+    d->itemMarkerTiler  = new GeoIface::ItemMarkerTiler(d->gpsModelHelper, this);
     d->map->setGroupedModel(d->itemMarkerTiler);
 
     d->altLabel         = new QLabel(i18n("<b>Altitude</b>:"),  this);
     d->latLabel         = new QLabel(i18n("<b>Latitude</b>:"),  this);
     d->lonLabel         = new QLabel(i18n("<b>Longitude</b>:"), this);
     d->dateLabel        = new QLabel(i18n("<b>Date</b>:"),      this);
-    d->altitude         = new KSqueezedTextLabel(0, this);
-    d->latitude         = new KSqueezedTextLabel(0, this);
-    d->longitude        = new KSqueezedTextLabel(0, this);
-    d->date             = new KSqueezedTextLabel(0, this);
+    d->altitude         = new DAdjustableLabel(this);
+    d->latitude         = new DAdjustableLabel(this);
+    d->longitude        = new DAdjustableLabel(this);
+    d->date             = new DAdjustableLabel(this);
     d->altitude->setAlignment(Qt::AlignRight);
     d->latitude->setAlignment(Qt::AlignRight);
     d->longitude->setAlignment(Qt::AlignRight);
@@ -159,7 +163,7 @@ ImagePropertiesGPSTab::ImagePropertiesGPSTab(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    QWidget* const box            = new KHBox(this);
+    QWidget* const box            = new DHBox(this);
     QHBoxLayout* const hBoxLayout = reinterpret_cast<QHBoxLayout*>(box->layout());
 
     if (hBoxLayout)
@@ -167,16 +171,16 @@ ImagePropertiesGPSTab::ImagePropertiesGPSTab(QWidget* const parent)
         hBoxLayout->addStretch();
     }
 
-    d->detailsCombo = new KComboBox(box);
+    d->detailsCombo = new QComboBox(box);
     d->detailsBtn   = new QToolButton(box);
-    d->detailsBtn->setIcon(SmallIcon("internet-web-browser"));
+    d->detailsBtn->setIcon(QIcon::fromTheme(QLatin1String("folder-html")));
     d->detailsBtn->setToolTip(i18n("See more information on the Internet"));
-    d->detailsCombo->insertItem(MapQuest,      QString("MapQuest"));
-    d->detailsCombo->insertItem(GoogleMaps,    QString("Google Maps"));
-    d->detailsCombo->insertItem(MsnMaps,       QString("MSN Maps"));
-    d->detailsCombo->insertItem(MultiMap,      QString("MultiMap"));
-    d->detailsCombo->insertItem(OpenStreetMap, QString("OpenStreetMap"));
-    d->detailsCombo->insertItem(LocAlizeMaps,  QString("loc.alize.us Maps"));
+    d->detailsCombo->insertItem(MapQuest,      QLatin1String("MapQuest"));
+    d->detailsCombo->insertItem(GoogleMaps,    QLatin1String("Google Maps"));
+    d->detailsCombo->insertItem(MsnMaps,       QLatin1String("MSN Maps"));
+    d->detailsCombo->insertItem(MultiMap,      QLatin1String("MultiMap"));
+    d->detailsCombo->insertItem(OpenStreetMap, QLatin1String("OpenStreetMap"));
+    d->detailsCombo->insertItem(LocAlizeMaps,  QLatin1String("loc.alize.us Maps"));
 
     // --------------------------------------------------------
 
@@ -193,8 +197,8 @@ ImagePropertiesGPSTab::ImagePropertiesGPSTab(QWidget* const parent)
     layout->addWidget(box,                        6, 0, 1, 2);
     layout->setRowStretch(0, 10);
     layout->setColumnStretch(1, 10);
+    layout->setContentsMargins(QMargins());
     layout->setSpacing(0);
-    layout->setMargin(0);
 
     // --------------------------------------------------------
 
@@ -209,21 +213,19 @@ ImagePropertiesGPSTab::~ImagePropertiesGPSTab()
 
 void ImagePropertiesGPSTab::readSettings(const KConfigGroup& group)
 {
-    d->gpsImageInfoSorter->setSortOptions(
-            GPSImageInfoSorter::SortOptions(group.readEntry("Sort Order", int(d->gpsImageInfoSorter->getSortOptions())))
-        );
-    setWebGPSLocator(group.readEntry("Web GPS Locator", getWebGPSLocator()));
+    d->gpsImageInfoSorter->setSortOptions(GPSImageInfoSorter::SortOptions(group.readEntry(QLatin1String("Sort Order"), int(d->gpsImageInfoSorter->getSortOptions()))));
+    setWebGPSLocator(group.readEntry(QLatin1String("Web GPS Locator"), getWebGPSLocator()));
 
-    KConfigGroup groupMapWidget = KConfigGroup(&group, "Map Widget");
+    KConfigGroup groupMapWidget = KConfigGroup(&group, QLatin1String("Map Widget"));
     d->map->readSettingsFromGroup(&groupMapWidget);
 
 }
 void ImagePropertiesGPSTab::writeSettings(KConfigGroup& group)
 {
-    group.writeEntry("Sort Order", int(d->gpsImageInfoSorter->getSortOptions()));
-    group.writeEntry("Web GPS Locator", getWebGPSLocator());
+    group.writeEntry(QLatin1String("Sort Order"),      int(d->gpsImageInfoSorter->getSortOptions()));
+    group.writeEntry(QLatin1String("Web GPS Locator"), getWebGPSLocator());
 
-    KConfigGroup groupMapWidget = KConfigGroup(&group, "Map Widget");
+    KConfigGroup groupMapWidget = KConfigGroup(&group, QLatin1String("Map Widget"));
     d->map->saveSettingsToGroup(&groupMapWidget);
 }
 
@@ -252,77 +254,77 @@ void ImagePropertiesGPSTab::slotGPSDetails()
     {
         case MapQuest:
         {
-            url.append("http://www.mapquest.com/maps/map.adp?searchtype=address"
-                       "&formtype=address&latlongtype=decimal");
-            url.append("&latitude=");
+            url.append(QLatin1String("http://www.mapquest.com/maps/map.adp?searchtype=address"
+                       "&formtype=address&latlongtype=decimal"));
+            url.append(QLatin1String("&latitude="));
             url.append(val.setNum(info.coordinates.lat(), 'g', 12));
-            url.append("&longitude=");
+            url.append(QLatin1String("&longitude="));
             url.append(val.setNum(info.coordinates.lon(), 'g', 12));
             break;
         }
 
         case GoogleMaps:
         {
-            url.append("http://maps.google.com/?q=");
+            url.append(QLatin1String("http://maps.google.com/?q="));
             url.append(val.setNum(info.coordinates.lat(), 'g', 12));
-            url.append(",");
+            url.append(QLatin1String(","));
             url.append(val.setNum(info.coordinates.lon(), 'g', 12));
-            url.append("&spn=0.05,0.05&t=h&om=1");
+            url.append(QLatin1String("&spn=0.05,0.05&t=h&om=1"));
             break;
         }
 
         case LocAlizeMaps:
         {
-            url.append("http://loc.alize.us/#/geo:");
+            url.append(QLatin1String("http://loc.alize.us/#/geo:"));
             url.append(val.setNum(info.coordinates.lat(), 'g', 12));
-            url.append(",");
+            url.append(QLatin1String(","));
             url.append(val.setNum(info.coordinates.lon(), 'g', 12));
-            url.append(",4,k/");
+            url.append(QLatin1String(",4,k/"));
             break;
         }
 
         case MsnMaps:
         {
-            url.append("http://maps.msn.com/map.aspx?");
-            url.append("&lats1=");
+            url.append(QLatin1String("http://maps.msn.com/map.aspx?"));
+            url.append(QLatin1String("&lats1="));
             url.append(val.setNum(info.coordinates.lat(), 'g', 12));
-            url.append("&lons1=");
+            url.append(QLatin1String("&lons1="));
             url.append(val.setNum(info.coordinates.lon(), 'g', 12));
-            url.append("&name=HERE");
-            url.append("&alts1=7");
+            url.append(QLatin1String("&name=HERE"));
+            url.append(QLatin1String("&alts1=7"));
             break;
         }
 
         case MultiMap:
         {
-            url.append("http://www.multimap.com/map/browse.cgi?");
-            url.append("lat=");
+            url.append(QLatin1String("http://www.multimap.com/map/browse.cgi?"));
+            url.append(QLatin1String("lat="));
             url.append(val.setNum(info.coordinates.lat(), 'g', 12));
-            url.append("&lon=");
+            url.append(QLatin1String("&lon="));
             url.append(val.setNum(info.coordinates.lon(), 'g', 12));
-            url.append("&scale=10000");
-            url.append("&icon=x");
+            url.append(QLatin1String("&scale=10000"));
+            url.append(QLatin1String("&icon=x"));
             break;
         }
 
         case OpenStreetMap:
         {
             // lat and lon would also work, but wouldn't show a marker
-            url.append("http://www.openstreetmap.org/?");
-            url.append("mlat=");
+            url.append(QLatin1String("http://www.openstreetmap.org/?"));
+            url.append(QLatin1String("mlat="));
             url.append(val.setNum(info.coordinates.lat(), 'g', 12));
-            url.append("&mlon=");
+            url.append(QLatin1String("&mlon="));
             url.append(val.setNum(info.coordinates.lon(), 'g', 12));
-            url.append("&zoom=15");
+            url.append(QLatin1String("&zoom=15"));
             break;
         }
     }
 
-    kDebug() << url;
-    KToolInvocation::self()->invokeBrowser(url);
+    qCDebug(DIGIKAM_GENERAL_LOG) << url;
+    QDesktopServices::openUrl(QUrl(url));
 }
 
-void ImagePropertiesGPSTab::setCurrentURL(const KUrl& url)
+void ImagePropertiesGPSTab::setCurrentURL(const QUrl& url)
 {
     if (url.isEmpty())
     {
@@ -335,7 +337,7 @@ void ImagePropertiesGPSTab::setCurrentURL(const KUrl& url)
     setMetadata(meta, url);
 }
 
-void ImagePropertiesGPSTab::setMetadata(const DMetadata& meta, const KUrl& url)
+void ImagePropertiesGPSTab::setMetadata(const DMetadata& meta, const QUrl& url)
 {
     double lat, lng;
     const bool haveCoordinates = meta.getGPSLatitudeNumber(&lat) && meta.getGPSLongitudeNumber(&lng);
@@ -345,7 +347,7 @@ void ImagePropertiesGPSTab::setMetadata(const DMetadata& meta, const KUrl& url)
         double alt;
         const bool haveAlt = meta.getGPSAltitude(&alt);
 
-        KGeoMap::GeoCoordinates coordinates(lat, lng);
+        GeoIface::GeoCoordinates coordinates(lat, lng);
 
         if (haveAlt)
         {
@@ -367,10 +369,10 @@ void ImagePropertiesGPSTab::setMetadata(const DMetadata& meta, const KUrl& url)
 
 void ImagePropertiesGPSTab::clearGPSInfo()
 {
-    d->altitude->clear();
-    d->latitude->clear();
-    d->longitude->clear();
-    d->date->clear();
+    d->altitude->setAdjustedText();
+    d->latitude->setAdjustedText();
+    d->longitude->setAdjustedText();
+    d->date->setAdjustedText();
     d->itemModel->clear();
     setEnabled(false);
 }
@@ -378,10 +380,10 @@ void ImagePropertiesGPSTab::clearGPSInfo()
 void ImagePropertiesGPSTab::setGPSInfoList(const GPSImageInfo::List& list)
 {
     // Clear info label
-    d->altitude->clear();
-    d->latitude->clear();
-    d->longitude->clear();
-    d->date->clear();
+    d->altitude->setAdjustedText();
+    d->latitude->setAdjustedText();
+    d->longitude->setAdjustedText();
+    d->date->setAdjustedText();
     d->gpsInfoList.clear();
     d->itemModel->clear();
     d->gpsInfoList = list;
@@ -396,21 +398,20 @@ void ImagePropertiesGPSTab::setGPSInfoList(const GPSImageInfo::List& list)
     if (list.count() == 1)
     {
         const GPSImageInfo info = list.first();
-        const KGeoMap::GeoCoordinates& coordinates = info.coordinates;
+        const GeoIface::GeoCoordinates& coordinates = info.coordinates;
 
         if (!coordinates.hasAltitude())
         {
-            d->altitude->setText(i18n("Undefined"));
+            d->altitude->setAdjustedText(i18n("Undefined"));
         }
         else
         {
-            d->altitude->setText(QString("%1 m").arg(QString::number(coordinates.alt())));
+            d->altitude->setAdjustedText(QString::fromLatin1("%1 m").arg(QString::number(coordinates.alt())));
         }
 
-        d->latitude->setText(QString::number(coordinates.lat()));
-        d->longitude->setText(QString::number(coordinates.lon()));
-        d->date->setText(KGlobal::locale()->formatDateTime(info.dateTime,
-                         KLocale::ShortDate, true));
+        d->latitude->setAdjustedText(QString::number(coordinates.lat()));
+        d->longitude->setAdjustedText(QString::number(coordinates.lon()));
+        d->date->setAdjustedText(QLocale().toString(info.dateTime, QLocale::ShortFormat));
     }
 
     for (int i=0; i<d->gpsInfoList.count(); ++i)

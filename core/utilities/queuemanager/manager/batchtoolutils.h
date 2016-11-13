@@ -6,7 +6,7 @@
  * Date        : 2008-11-24
  * Description : Batch Tool utils.
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,10 +30,7 @@
 #include <QVariant>
 #include <QMap>
 #include <QList>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -72,7 +69,7 @@ public:
     BatchToolSettings         settings;
 };
 
-//! kDebug() stream operator. Writes property @a t to the debug output in a nicely formatted way.
+//! qDebug() stream operator. Writes property @a t to the debug output in a nicely formatted way.
 QDebug operator<<(QDebug dbg, const BatchToolSet& s);
 
 // -------------------------------------------------------------------------------------------------------------
@@ -98,7 +95,7 @@ public:
 public:
 
     QString      m_destFileName;
-    KUrl         m_itemUrl;
+    QUrl         m_itemUrl;
     BatchSetList m_toolsList;
 };
 

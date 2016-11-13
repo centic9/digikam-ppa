@@ -20,58 +20,48 @@
  *
  * ============================================================ */
 
-// To disable warnings under MSVC2008 about POSIX methods().
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif
-
-#include "plugin_printimages.moc"
-
-// C ANSI includes
-
-extern "C"
-{
-#include <unistd.h>
-}
+#include "plugin_printimages.h"
 
 // Qt includes
 
+#include <QApplication>
+#include <QMessageBox>
+#include <QPrinter>
 #include <QWidget>
+#include <QAction>
 
 // KDE includes
 
-#include <kaction.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
-#include <kgenericfactory.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/imagecollection.h>
-#include <libkipi/interface.h>
-#include <libkipi/plugin.h>
+#include <KIPI/ImageCollection>
+#include <KIPI/Interface>
+#include <KIPI/Plugin>
 
 // Local includes
 
-#include "printhelper.h"
+#include "kputil.h"
 #include "wizard.h"
+#include "printhelper.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIPrintImagesPlugin
 {
 
-K_PLUGIN_FACTORY ( PrintImagesFactory, registerPlugin<Plugin_PrintImages>(); )
-K_EXPORT_PLUGIN ( PrintImagesFactory ( "kipiplugin_printimages" ) )
+K_PLUGIN_FACTORY (PrintImagesFactory, registerPlugin<Plugin_PrintImages>();)
 
-Plugin_PrintImages::Plugin_PrintImages ( QObject* const parent, const QVariantList& /*args*/ )
-    : Plugin ( PrintImagesFactory::componentData(), parent, "PrintImages" )
+Plugin_PrintImages::Plugin_PrintImages (QObject* const parent, const QVariantList& /*args*/)
+    : Plugin(parent, "PrintImages")
 {
     m_printImagesAction    = 0;
     m_printAssistantAction = 0;
     m_interface            = 0;
 
-    kDebug(AREA_CODE_LOADING) << "Plugin_PrintImages plugin loaded" ;
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_PrintImages plugin loaded";
 
     setUiBaseName("kipiplugin_printimagesui.rc");
     setupXML();
@@ -79,71 +69,71 @@ Plugin_PrintImages::Plugin_PrintImages ( QObject* const parent, const QVariantLi
 
 Plugin_PrintImages::~Plugin_PrintImages()
 {
+    removeTemporaryDir("printassistant");
 }
 
 void Plugin_PrintImages::setup(QWidget* const widget)
 {
-    Plugin::setup ( widget );
+    Plugin::setup (widget);
 
     setupActions();
 
     m_interface = interface();
 
-    if ( !m_interface )
+    if (!m_interface)
     {
-        kError() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
     ImageCollection selection = m_interface->currentSelection();
-    m_printImagesAction->setEnabled ( selection.isValid() && !selection.images().isEmpty() );
-    m_printAssistantAction->setEnabled ( selection.isValid() && !selection.images().isEmpty() );
+    m_printImagesAction->setEnabled (selection.isValid() && !selection.images().isEmpty());
+    m_printAssistantAction->setEnabled(selection.isValid() && !selection.images().isEmpty());
 
-    connect ( m_interface, SIGNAL (selectionChanged(bool)),
-              m_printImagesAction, SLOT (setEnabled(bool)) );
+    connect(m_interface, SIGNAL(selectionChanged(bool)),
+            m_printImagesAction, SLOT(setEnabled(bool)));
 
-    connect ( m_interface, SIGNAL (selectionChanged(bool)),
-              m_printAssistantAction, SLOT (setEnabled(bool)) );
+    connect(m_interface, SIGNAL(selectionChanged(bool)),
+            m_printAssistantAction, SLOT(setEnabled(bool)));
 }
 
 void Plugin_PrintImages::setupActions()
 {
     setDefaultCategory(ImagesPlugin);
 
-    m_printImagesAction = new KAction(this);
-    m_printImagesAction->setText ( i18n ( "Print images" ) );
-    m_printImagesAction->setIcon ( KIcon ( "document-print" ) );
+    m_printImagesAction = new QAction(this);
+    m_printImagesAction->setText(i18n("Print images"));
+    m_printImagesAction->setIcon(QIcon::fromTheme(QLatin1String("document-print")));
     m_printImagesAction->setEnabled(false);
 
-    connect ( m_printImagesAction, SIGNAL (triggered(bool)),
-              this, SLOT (slotPrintImagesActivate()) );
+    connect(m_printImagesAction, SIGNAL(triggered(bool)),
+            this, SLOT(slotPrintImagesActivate()));
 
-    addAction("printimages", m_printImagesAction);
+    addAction(QLatin1String("printimages"), m_printImagesAction);
 
-    m_printAssistantAction = new KAction(this);
-    m_printAssistantAction->setText ( i18n ( "Print Assistant..." ) );
-    m_printAssistantAction->setIcon ( KIcon ( "document-print" ) );
+    m_printAssistantAction = new QAction(this);
+    m_printAssistantAction->setText(i18n("Print Assistant..."));
+    m_printAssistantAction->setIcon(QIcon::fromTheme(QLatin1String("document-print")));
     m_printAssistantAction->setEnabled(false);
 
-    connect ( m_printAssistantAction, SIGNAL (triggered(bool)),
-              this, SLOT (slotPrintAssistantActivate()) );
+    connect(m_printAssistantAction, SIGNAL(triggered(bool)),
+            this, SLOT(slotPrintAssistantActivate()));
 
-    addAction("printassistant", m_printAssistantAction);
+    addAction(QLatin1String("printassistant"), m_printAssistantAction);
 }
 
 void Plugin_PrintImages::slotPrintImagesActivate()
 {
     ImageCollection album = m_interface->currentSelection();
 
-    if ( !album.isValid() )
+    if (!album.isValid())
         return;
 
-    KUrl::List fileList = album.images();
+    QList<QUrl> fileList = album.images();
 
-    if ( fileList.isEmpty() )
+    if (fileList.isEmpty())
     {
-        KMessageBox::sorry ( kapp->activeWindow(), i18n ( "Please select one or more photos to print." ),
-                            i18n ( "Print images" ) );
+        QMessageBox::information(QApplication::activeWindow(), i18n("Print Images"), i18n("Please select one or more photos to print."));
         return;
     }
 
@@ -156,26 +146,28 @@ void Plugin_PrintImages::slotPrintAssistantActivate()
 {
     ImageCollection album = m_interface->currentSelection();
 
-    if ( !album.isValid() )
+    if (!album.isValid())
         return;
 
-    KUrl::List fileList = album.images();
+    QList<QUrl> fileList = album.images();
 
     if (fileList.isEmpty())
     {
-        KMessageBox::sorry(kapp->activeWindow(), i18n("Please select one or more photos to print."),
-                           i18n("Print assistant"));
+        QMessageBox::information(QApplication::activeWindow(), i18n("Print Assistant"), i18n("Please select one or more photos to print."));
         return;
     }
 
     QWidget* const parent = QApplication::activeWindow();
     Wizard printAssistant(parent);
-    KStandardDirs dir;
-    QString tempPath = dir.saveLocation("tmp", "kipi-printassistantdplugin-" + QString::number(getpid()) + '/');
-    printAssistant.print(fileList, tempPath);
+
+    QString tmp = makeTemporaryDir("printassistant").absolutePath() + QLatin1Char('/');
+
+    printAssistant.print(fileList, tmp);
 
     if (printAssistant.exec() == QDialog::Rejected)
         return;
 }
 
 } // namespace KIPIPrintImagesPlugin
+
+#include "plugin_printimages.moc"

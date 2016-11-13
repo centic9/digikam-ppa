@@ -20,58 +20,52 @@
  *
  * ============================================================ */
 
-// To disable warnings under MSVC2008 about POSIX methods().
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif
+#include "plugin_dropbox.h"
 
-#include "plugin_dropbox.moc"
+// Qt includes
 
-// C ANSI includes
-
-extern "C"
-{
-#include <unistd.h>
-}
+#include <QApplication>
+#include <QAction>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kconfig.h>
-#include <kapplication.h>
-#include <kaction.h>
 #include <kactioncollection.h>
-#include <kgenericfactory.h>
-#include <klibloader.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 #include <kwindowsystem.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kputil.h"
 #include "dbwindow.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIDropboxPlugin
 {
 
 K_PLUGIN_FACTORY(DropboxFactory, registerPlugin<Plugin_Dropbox>(); )
-K_EXPORT_PLUGIN(DropboxFactory("kipiplugin_dropbox"))
 
 Plugin_Dropbox::Plugin_Dropbox(QObject* const parent,const QVariantList& /*args*/)
-    : Plugin(DropboxFactory::componentData(),parent,"Dropbox Export")
+    : Plugin(parent, "Dropbox")
 {
-    kDebug(AREA_CODE_LOADING) << "Plugin_Dropbox Plugin Loaded";
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_Dropbox Plugin Loaded";
 
-    KIconLoader::global()->addAppDir("kipiplugin_dropbox");
     setUiBaseName("kipiplugin_dropboxui.rc");
     setupXML();
+
+    m_actionExport = 0;
+    m_dlgExport    = 0;
 }
 
 Plugin_Dropbox::~Plugin_Dropbox()
 {
+    delete m_dlgExport;
+
+    removeTemporaryDir("dropbox");
 }
 
 void Plugin_Dropbox::setup(QWidget* const widget)
@@ -80,9 +74,9 @@ void Plugin_Dropbox::setup(QWidget* const widget)
 
     Plugin::setup(widget);
 
-    if(!interface())
+    if (!interface())
     {
-        kDebug() << "kipi interface is null";
+        qCCritical(KIPIPLUGINS_LOG) << "kipi interface is null";
         return;
     }
 
@@ -92,29 +86,28 @@ void Plugin_Dropbox::setup(QWidget* const widget)
 void Plugin_Dropbox::setupActions()
 {
     setDefaultCategory(ExportPlugin);// uncomment if import feature is added to google drive
-    m_actionExport = new KAction(this);
+    m_actionExport = new QAction(this);
     m_actionExport->setText(i18n("Export to &Dropbox..."));
-    m_actionExport->setIcon(KIcon("kipi-dropbox"));
-    m_actionExport->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::CTRL+Qt::Key_D));
+    m_actionExport->setIcon(QIcon::fromTheme(QString::fromLatin1("kipi-dropbox")));
+    actionCollection()->setDefaultShortcut(m_actionExport, Qt::ALT + Qt::SHIFT + Qt::CTRL + Qt::Key_D);
 
     connect(m_actionExport,SIGNAL(triggered(bool)),
             this,SLOT(slotExport()));
 
-    addAction("dropboxexport",m_actionExport);
+    addAction(QString::fromLatin1("dropboxexport"), m_actionExport);
 }
 
 void Plugin_Dropbox::slotExport()
 {
-    KStandardDirs dir;
-    QString tmp = dir.saveLocation("tmp",QString("kipi-db-") + QString::number(getpid()) + QString("/"));
+    QString tmp = makeTemporaryDir("dropbox").absolutePath() + QLatin1Char('/');
 
-    if(!m_dlgExport)
+    if (!m_dlgExport)
     {
-        m_dlgExport = new DBWindow(tmp,kapp->activeWindow());
+        m_dlgExport = new DBWindow(tmp, QApplication::activeWindow());
     }
     else
     {
-        if(m_dlgExport->isMinimized())
+        if (m_dlgExport->isMinimized())
         {
             KWindowSystem::unminimizeWindow(m_dlgExport->winId());
         }
@@ -126,3 +119,5 @@ void Plugin_Dropbox::slotExport()
 }
 
 } // namespace KIPIDropboxPlugin
+
+#include "plugin_dropbox.moc"

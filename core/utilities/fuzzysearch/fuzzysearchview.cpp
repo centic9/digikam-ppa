@@ -6,7 +6,7 @@
  * Date        : 2008-05-19
  * Description : Fuzzy search sidebar tab contents.
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -23,11 +23,12 @@
  *
  * ============================================================ */
 
-#include "fuzzysearchview.moc"
+#include "fuzzysearchview.h"
 
 // Qt includes
 
-#include <qevent.h>
+#include <QEvent>
+#include <QDragEnterEvent>
 #include <QFrame>
 #include <QImage>
 #include <QLabel>
@@ -37,33 +38,26 @@
 #include <QTime>
 #include <QTimer>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
+#include <QLineEdit>
+#include <QIcon>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kcolorvalueselector.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <khbox.h>
-#include <khuesaturationselect.h>
-#include <kiconloader.h>
-#include <kinputdialog.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <ksqueezedtextlabel.h>
-#include <kstandarddirs.h>
-#include <ktabwidget.h>
-#include <kvbox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
+#include "digikam_debug.h"
 #include "album.h"
-#include "albumdb.h"
-#include "albuminfo.h"
+#include "coredb.h"
+#include "coredbalbuminfo.h"
 #include "albummanager.h"
 #include "albummodel.h"
-#include "databaseaccess.h"
+#include "coredbaccess.h"
 #include "ddragobjects.h"
 #include "editablesearchtreeview.h"
 #include "findduplicatesview.h"
@@ -72,11 +66,16 @@
 #include "imagelister.h"
 #include "searchmodificationhelper.h"
 #include "searchtextbar.h"
-#include "searchxml.h"
+#include "coredbsearchxml.h"
 #include "sketchwidget.h"
 #include "thumbnailloadthread.h"
 #include "thumbnailsize.h"
 #include "fingerprintsgenerator.h"
+#include "dhuesaturationselect.h"
+#include "dcolorvalueselector.h"
+#include "dexpanderbox.h"
+
+
 
 namespace Digikam
 {
@@ -158,19 +157,19 @@ public:
     QTimer*                   timerSketch;
     QTimer*                   timerImage;
 
-    KVBox*                    folderView;
+    DVBox*                    folderView;
 
-    KLineEdit*                nameEditSketch;
-    KLineEdit*                nameEditImage;
+    QLineEdit*                nameEditSketch;
+    QLineEdit*                nameEditImage;
 
-    KTabWidget*               tabWidget;
+    QTabWidget*               tabWidget;
 
-    KHueSaturationSelector*   hsSelector;
+    DHueSaturationSelector*   hsSelector;
 
-    KColorValueSelector*      vSelector;
+    DColorValueSelector*      vSelector;
 
-    KSqueezedTextLabel*       labelFile;
-    KSqueezedTextLabel*       labelFolder;
+    DAdjustableLabel*         labelFile;
+    DAdjustableLabel*         labelFolder;
 
     ImageInfo                 imageInfo;
 
@@ -191,21 +190,24 @@ public:
     SearchModificationHelper* searchModificationHelper;
 };
 
-const QString FuzzySearchView::Private::configTabEntry("FuzzySearch Tab");
-const QString FuzzySearchView::Private::configPenSketchSizeEntry("Pen Sketch Size");
-const QString FuzzySearchView::Private::configResultSketchItemsEntry("Result Sketch items");
-const QString FuzzySearchView::Private::configPenSketchHueEntry("Pen Sketch Hue");
-const QString FuzzySearchView::Private::configPenSketchSaturationEntry("Pen Sketch Saturation");
-const QString FuzzySearchView::Private::configPenSkethValueEntry("Pen Sketch Value");
-const QString FuzzySearchView::Private::configSimilarsThresholdEntry("Similars Threshold");
+const QString FuzzySearchView::Private::configTabEntry(QLatin1String("FuzzySearch Tab"));
+const QString FuzzySearchView::Private::configPenSketchSizeEntry(QLatin1String("Pen Sketch Size"));
+const QString FuzzySearchView::Private::configResultSketchItemsEntry(QLatin1String("Result Sketch items"));
+const QString FuzzySearchView::Private::configPenSketchHueEntry(QLatin1String("Pen Sketch Hue"));
+const QString FuzzySearchView::Private::configPenSketchSaturationEntry(QLatin1String("Pen Sketch Saturation"));
+const QString FuzzySearchView::Private::configPenSkethValueEntry(QLatin1String("Pen Sketch Value"));
+const QString FuzzySearchView::Private::configSimilarsThresholdEntry(QLatin1String("Similars Threshold"));
 
 // --------------------------------------------------------
 
 FuzzySearchView::FuzzySearchView(SearchModel* const searchModel,
                                  SearchModificationHelper* const searchModificationHelper,
                                  QWidget* const parent)
-    : QScrollArea(parent), StateSavingObject(this), d(new Private)
+    : QScrollArea(parent), StateSavingObject(this),
+      d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->thumbLoadThread          = ThumbnailLoadThread::defaultThread();
     d->searchModel              = searchModel;
     d->searchModificationHelper = searchModificationHelper;
@@ -221,25 +223,25 @@ FuzzySearchView::FuzzySearchView(SearchModel* const searchModel,
     QWidget* const sketchPanel = setupSketchPanel();
     d->findDuplicatesPanel     = new FindDuplicatesView();
 
-    d->tabWidget               = new KTabWidget();
+    d->tabWidget               = new QTabWidget();
     d->tabWidget->insertTab(Private::DUPLICATES, d->findDuplicatesPanel, i18n("Duplicates"));
     d->tabWidget->insertTab(Private::SIMILARS,   imagePanel,             i18n("Image"));
     d->tabWidget->insertTab(Private::SKETCH,     sketchPanel,            i18n("Sketch"));
 
     // ---------------------------------------------------------------
 
-    d->folderView     = new KVBox();
+    d->folderView     = new DVBox();
     d->searchTreeView = new EditableSearchTreeView(d->folderView, searchModel, searchModificationHelper);
     d->searchTreeView->filteredModel()->listHaarSearches();
     d->searchTreeView->filteredModel()->setListTemporarySearches(true);
     d->searchTreeView->setAlbumManagerCurrentAlbum(true);
 
-    d->searchFuzzyBar = new SearchTextBar(d->folderView, "FuzzySearchViewSearchFuzzyBar");
+    d->searchFuzzyBar = new SearchTextBar(d->folderView, QLatin1String("FuzzySearchViewSearchFuzzyBar"));
     d->searchFuzzyBar->setModel(d->searchTreeView->filteredModel(),
                                 AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
     d->searchFuzzyBar->setFilterModel(d->searchTreeView->albumFilterModel());
-    d->folderView->setSpacing(KDialog::spacingHint());
-    d->folderView->setMargin(0);
+    d->folderView->setContentsMargins(QMargins());
+    d->folderView->setSpacing(spacing);
 
     // ---------------------------------------------------------------
 
@@ -247,7 +249,7 @@ FuzzySearchView::FuzzySearchView(SearchModel* const searchModel,
     QVBoxLayout* const mainLayout = new QVBoxLayout();
     mainLayout->addWidget(d->tabWidget);
     mainLayout->addWidget(d->folderView);
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(QMargins());
     mainLayout->setSpacing(0);
     mainWidget->setLayout(mainLayout);
 
@@ -265,7 +267,9 @@ FuzzySearchView::FuzzySearchView(SearchModel* const searchModel,
 
 QWidget* FuzzySearchView::setupFindSimilarPanel() const
 {
-    KHBox* const imageBox = new KHBox();
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    DHBox* const imageBox = new DHBox();
     d->imageWidget        = new QLabel(imageBox);
     d->imageWidget->setFixedSize(256, 256);
     d->imageWidget->setText(i18n("<p>Drag & drop an image here<br/>to perform similar<br/>items search.</p>"
@@ -277,9 +281,9 @@ QWidget* FuzzySearchView::setupFindSimilarPanel() const
     // ---------------------------------------------------------------
 
     QLabel* const file   = new QLabel(i18n("<b>File</b>:"));
-    d->labelFile         = new KSqueezedTextLabel(0);
+    d->labelFile         = new DAdjustableLabel(0);
     QLabel* const folder = new QLabel(i18n("<b>Folder</b>:"));
-    d->labelFolder       = new KSqueezedTextLabel(0);
+    d->labelFolder       = new DAdjustableLabel(0);
     int hgt              = fontMetrics().height() - 2;
     file->setMaximumHeight(hgt);
     folder->setMaximumHeight(hgt);
@@ -290,7 +294,7 @@ QWidget* FuzzySearchView::setupFindSimilarPanel() const
 
     QLabel* const resultsLabel = new QLabel(i18n("Threshold:"));
     d->levelImage              = new QSpinBox();
-    d->levelImage->setSuffix(QChar('%'));
+    d->levelImage->setSuffix(QLatin1String("%"));
     d->levelImage->setRange(1, 100);
     d->levelImage->setSingleStep(1);
     d->levelImage->setValue(90);
@@ -301,17 +305,17 @@ QWidget* FuzzySearchView::setupFindSimilarPanel() const
 
     // ---------------------------------------------------------------
 
-    KHBox* const saveBox = new KHBox();
-    saveBox->setMargin(0);
-    saveBox->setSpacing(KDialog::spacingHint());
+    DHBox* const saveBox = new DHBox();
+    saveBox->setContentsMargins(QMargins());
+    saveBox->setSpacing(spacing);
 
-    d->nameEditImage = new KLineEdit(saveBox);
-    d->nameEditImage->setClearButtonShown(true);
+    d->nameEditImage = new QLineEdit(saveBox);
+    d->nameEditImage->setClearButtonEnabled(true);
     d->nameEditImage->setWhatsThis(i18n("Enter the name of the current similar image search to save in the "
                                         "\"Fuzzy Searches\" view."));
 
     d->saveBtnImage  = new QToolButton(saveBox);
-    d->saveBtnImage->setIcon(SmallIcon("document-save"));
+    d->saveBtnImage->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
     d->saveBtnImage->setEnabled(false);
     d->saveBtnImage->setToolTip(i18n("Save current similar image search to a new virtual Album"));
     d->saveBtnImage->setWhatsThis(i18n("If you press this button, the current "
@@ -333,8 +337,8 @@ QWidget* FuzzySearchView::setupFindSimilarPanel() const
     mainLayout->addWidget(saveBox,        4, 0, 1, 3);
     mainLayout->setRowStretch(5, 10);
     mainLayout->setColumnStretch(1, 10);
-    mainLayout->setMargin(KDialog::spacingHint());
-    mainLayout->setSpacing(KDialog::spacingHint());
+    mainLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    mainLayout->setSpacing(spacing);
     mainWidget->setLayout(mainLayout);
 
     return mainWidget;
@@ -342,7 +346,9 @@ QWidget* FuzzySearchView::setupFindSimilarPanel() const
 
 QWidget* FuzzySearchView::setupSketchPanel() const
 {
-    KHBox* const drawingBox = new KHBox();
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    DHBox* const drawingBox = new DHBox();
     d->sketchWidget         = new SketchWidget(drawingBox);
     drawingBox->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     drawingBox->setLineWidth(1);
@@ -351,13 +357,13 @@ QWidget* FuzzySearchView::setupSketchPanel() const
 
     QString tooltip(i18n("Set here the brush color used to draw sketch."));
 
-    d->hsSelector = new KHueSaturationSelector();
+    d->hsSelector = new DHueSaturationSelector();
     d->hsSelector->setMinimumSize(200, 96);
     d->hsSelector->setChooserMode(ChooserValue);
     d->hsSelector->setColorValue(255);
     d->hsSelector->setWhatsThis(tooltip);
 
-    d->vSelector  = new KColorValueSelector();
+    d->vSelector  = new DColorValueSelector();
     d->vSelector->setMinimumSize(26, 96);
     d->vSelector->setChooserMode(ChooserValue);
     d->vSelector->setIndent(false);
@@ -367,14 +373,14 @@ QWidget* FuzzySearchView::setupSketchPanel() const
 
     d->undoBtnSketch   = new QToolButton();
     d->undoBtnSketch->setAutoRepeat(true);
-    d->undoBtnSketch->setIcon(SmallIcon("edit-undo"));
+    d->undoBtnSketch->setIcon(QIcon::fromTheme(QLatin1String("edit-undo")));
     d->undoBtnSketch->setToolTip(i18n("Undo last draw on sketch"));
     d->undoBtnSketch->setWhatsThis(i18n("Use this button to undo last drawing action on sketch."));
     d->undoBtnSketch->setEnabled(false);
 
     d->redoBtnSketch   = new QToolButton();
     d->redoBtnSketch->setAutoRepeat(true);
-    d->redoBtnSketch->setIcon(SmallIcon("edit-redo"));
+    d->redoBtnSketch->setIcon(QIcon::fromTheme(QLatin1String("edit-redo")));
     d->redoBtnSketch->setToolTip(i18n("Redo last draw on sketch"));
     d->redoBtnSketch->setWhatsThis(i18n("Use this button to redo last drawing action on sketch."));
     d->redoBtnSketch->setEnabled(false);
@@ -401,27 +407,27 @@ QWidget* FuzzySearchView::setupSketchPanel() const
     settingsLayout->addWidget(resultsLabel,     0, 5);
     settingsLayout->addWidget(d->resultsSketch, 0, 6);
     settingsLayout->setColumnStretch(4, 10);
-    settingsLayout->setMargin(0);
-    settingsLayout->setSpacing(KDialog::spacingHint());
+    settingsLayout->setContentsMargins(QMargins());
+    settingsLayout->setSpacing(spacing);
 
     // ---------------------------------------------------------------
 
-    KHBox* const saveBox = new KHBox();
-    saveBox->setMargin(0);
-    saveBox->setSpacing(KDialog::spacingHint());
+    DHBox* const saveBox = new DHBox();
+    saveBox->setContentsMargins(QMargins());
+    saveBox->setSpacing(spacing);
 
     d->resetButton = new QToolButton(saveBox);
-    d->resetButton->setIcon(SmallIcon("document-revert"));
+    d->resetButton->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     d->resetButton->setToolTip(i18n("Clear sketch"));
     d->resetButton->setWhatsThis(i18n("Use this button to clear sketch contents."));
 
-    d->nameEditSketch = new KLineEdit(saveBox);
-    d->nameEditSketch->setClearButtonShown(true);
+    d->nameEditSketch = new QLineEdit(saveBox);
+    d->nameEditSketch->setClearButtonEnabled(true);
     d->nameEditSketch->setWhatsThis(i18n("Enter the name of the current sketch search to save in the "
                                          "\"Fuzzy Searches\" view."));
 
     d->saveBtnSketch = new QToolButton(saveBox);
-    d->saveBtnSketch->setIcon(SmallIcon("document-save"));
+    d->saveBtnSketch->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
     d->saveBtnSketch->setEnabled(false);
     d->saveBtnSketch->setToolTip(i18n("Save current sketch search to a new virtual Album"));
     d->saveBtnSketch->setWhatsThis(i18n("If you press this button, the current sketch "
@@ -440,8 +446,8 @@ QWidget* FuzzySearchView::setupSketchPanel() const
     mainLayout->addWidget(saveBox,        3, 0, 1, 3);
     mainLayout->setRowStretch(5, 10);
     mainLayout->setColumnStretch(1, 10);
-    mainLayout->setMargin(KDialog::spacingHint());
-    mainLayout->setSpacing(KDialog::spacingHint());
+    mainLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    mainLayout->setSpacing(spacing);
     mainWidget->setLayout(mainLayout);
 
     return mainWidget;
@@ -500,13 +506,13 @@ void FuzzySearchView::setupConnections()
     connect(d->nameEditSketch, SIGNAL(textChanged(QString)),
             this, SLOT(slotCheckNameEditSketchConditions()));
 
-    connect(d->nameEditSketch, SIGNAL(returnPressed(QString)),
+    connect(d->nameEditSketch, SIGNAL(returnPressed()),
             d->saveBtnSketch, SLOT(animateClick()));
 
     connect(d->nameEditImage, SIGNAL(textChanged(QString)),
             this, SLOT(slotCheckNameEditImageConditions()));
 
-    connect(d->nameEditImage, SIGNAL(returnPressed(QString)),
+    connect(d->nameEditImage, SIGNAL(returnPressed()),
             d->saveBtnImage, SLOT(animateClick()));
 
     connect(d->thumbLoadThread, SIGNAL(signalThumbnailLoaded(LoadingDescription,QPixmap)),
@@ -598,7 +604,7 @@ void FuzzySearchView::setActive(bool val)
     // at first occasion, warn if no fingerprints are available
     if (val && !d->fingerprintsChecked && isVisible())
     {
-        if (!DatabaseAccess().db()->hasHaarFingerprints())
+        if (!CoreDbAccess().db()->hasHaarFingerprints())
         {
             QString msg = i18n("Image fingerprints have not yet been generated for your collection. "
                                "The Fuzzy Search Tools will not be operational "
@@ -606,11 +612,11 @@ void FuzzySearchView::setActive(bool val)
                                "Do you want to build fingerprints now?\n"
                                "Note: This process can take a while. You can run it "
                                "any time later using 'Tools/Rebuild all Fingerprints'.");
-            int result = KMessageBox::questionYesNo(this, msg, i18n("No Fingerprints"));
+            int result = QMessageBox::question(this, i18n("No Fingerprints"), msg);
 
-            if (result == KMessageBox::Yes)
+            if (result == QMessageBox::Yes)
             {
-                FingerPrintsGenerator* tool = new FingerPrintsGenerator(true);
+                FingerPrintsGenerator* const tool = new FingerPrintsGenerator(true);
                 tool->start();
             }
         }
@@ -632,6 +638,7 @@ void FuzzySearchView::slotTabChanged(int tab)
      * Set a list with only one element, albummanager can set only multiple albums
      */
     QList<Album*> albums;
+
     switch (tab)
     {
         case Private::SIMILARS:
@@ -652,9 +659,11 @@ void FuzzySearchView::slotTabChanged(int tab)
 
         default:  // DUPLICATES
         {
-            Album* album = d->findDuplicatesPanel->currentFindDuplicatesAlbum();
+            Album* const album = d->findDuplicatesPanel->currentFindDuplicatesAlbum();
+
             if(album)
                 albums << album;
+
             AlbumManager::instance()->setCurrentAlbums(albums);
             d->folderView->setVisible(false);
             break;
@@ -665,41 +674,41 @@ void FuzzySearchView::slotTabChanged(int tab)
 void FuzzySearchView::slotAlbumSelected(Album* album)
 {
 
-    kDebug() << "Selected new album" << album;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Selected new album" << album;
 
-    SAlbum* salbum = dynamic_cast<SAlbum*>(album);
+    SAlbum* const salbum = dynamic_cast<SAlbum*>(album);
 
     if (!salbum || !salbum->isHaarSearch())
     {
-        kDebug() << "Not a haar search, returning";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Not a haar search, returning";
         return;
     }
 
     if (!d->active)
     {
-        kDebug() << "Not active, returning";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Not active, returning";
         return;
     }
 
     SearchXmlReader reader(salbum->query());
     reader.readToFirstField();
-    QStringRef type             = reader.attributes().value("type");
-    QStringRef numResultsString = reader.attributes().value("numberofresults");
-    QStringRef thresholdString  = reader.attributes().value("threshold");
-    QStringRef sketchTypeString = reader.attributes().value("sketchtype");
+    QStringRef type             = reader.attributes().value(QLatin1String("type"));
+    QStringRef numResultsString = reader.attributes().value(QLatin1String("numberofresults"));
+    QStringRef thresholdString  = reader.attributes().value(QLatin1String("threshold"));
+    QStringRef sketchTypeString = reader.attributes().value(QLatin1String("sketchtype"));
 
-    if (type == "imageid")
+    if (type == QLatin1String("imageid"))
     {
         setCurrentImage(reader.valueToLongLong());
         d->imageSAlbum = salbum;
         d->tabWidget->setCurrentIndex((int)Private::SIMILARS);
     }
-    else if (type == "signature")
+    else if (type == QLatin1String("signature"))
     {
         d->sketchSAlbum = salbum;
         d->tabWidget->setCurrentIndex((int)Private::SKETCH);
 
-        if (reader.readToStartOfElement("SketchImage"))
+        if (reader.readToStartOfElement(QLatin1String("SketchImage")))
         {
             d->sketchWidget->setSketchImageFromXML(reader);
         }
@@ -846,9 +855,9 @@ void FuzzySearchView::dropEvent(QDropEvent* e)
 {
     if (DItemDrag::canDecode(e->mimeData()))
     {
-        KUrl::List urls;
-        KUrl::List kioURLs;
-        QList<int> albumIDs;
+        QList<QUrl>      urls;
+        QList<QUrl>      kioURLs;
+        QList<int>       albumIDs;
         QList<qlonglong> imageIDs;
 
         if (!DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs))
@@ -902,8 +911,8 @@ void FuzzySearchView::setCurrentImage(qlonglong imageid)
 void FuzzySearchView::setCurrentImage(const ImageInfo& info)
 {
     d->imageInfo = info;
-    d->labelFile->setText(d->imageInfo.name());
-    d->labelFolder->setText(d->imageInfo.fileUrl().directory());
+    d->labelFile->setAdjustedText(d->imageInfo.name());
+    d->labelFolder->setAdjustedText(d->imageInfo.fileUrl().adjusted(QUrl::RemoveFilename).toLocalFile());
     d->thumbLoadThread->find(d->imageInfo.thumbnailIdentifier());
 }
 
@@ -917,7 +926,7 @@ void FuzzySearchView::setImageInfo(const ImageInfo& info)
 
 void FuzzySearchView::slotThumbnailLoaded(const LoadingDescription& desc, const QPixmap& pix)
 {
-    if (!d->imageInfo.isNull() && KUrl(desc.filePath) == d->imageInfo.fileUrl())
+    if (!d->imageInfo.isNull() && QUrl::fromLocalFile(desc.filePath) == d->imageInfo.fileUrl())
         d->imageWidget->setPixmap(pix.scaled(256, 256, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 }
 

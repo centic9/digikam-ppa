@@ -6,7 +6,7 @@
  * Date        : 2012-01-31
  * Description : maintenance manager
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -22,22 +22,22 @@
  *
  * ============================================================ */
 
-#include "maintenancemngr.moc"
+#include "maintenancemngr.h"
 
 // Qt includes
 
 #include <QString>
 #include <QTime>
+#include <QApplication>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
 #include "maintenancesettings.h"
 #include "newitemsfinder.h"
 #include "thumbsgenerator.h"
@@ -47,10 +47,7 @@
 #include "metadatasynchronizer.h"
 #include "dnotificationwrapper.h"
 #include "progressmanager.h"
-
-#ifdef HAVE_KFACE
-#include "facedetector.h"
-#endif /* HAVE_KFACE */
+#include "facesdetector.h"
 
 namespace Digikam
 {
@@ -68,10 +65,7 @@ public:
         duplicatesFinder      = 0;
         metadataSynchronizer  = 0;
         imageQualitySorter    = 0;
-
-#ifdef HAVE_KFACE
-        faceDetector          = 0;
-#endif /* HAVE_KFACE */
+        facesDetector         = 0;
     }
 
     bool                   running;
@@ -86,14 +80,12 @@ public:
     DuplicatesFinder*      duplicatesFinder;
     MetadataSynchronizer*  metadataSynchronizer;
     ImageQualitySorter*    imageQualitySorter;
-
-#ifdef HAVE_KFACE
-    FaceDetector*          faceDetector;
-#endif /* HAVE_KFACE */
+    FacesDetector*         facesDetector;
 };
 
 MaintenanceMngr::MaintenanceMngr(QObject* const parent)
-    : QObject(parent), d(new Private)
+    : QObject(parent),
+      d(new Private)
 {
     connect(ProgressManager::instance(), SIGNAL(progressItemCompleted(ProgressItem*)),
             this, SLOT(slotToolCompleted(ProgressItem*)));
@@ -115,7 +107,7 @@ bool MaintenanceMngr::isRunning() const
 void MaintenanceMngr::setSettings(const MaintenanceSettings& settings)
 {
     d->settings = settings;
-    kDebug() << d->settings;
+    qCDebug(DIGIKAM_GENERAL_LOG) << d->settings;
 
     d->duration.start();
     stage1();
@@ -147,13 +139,11 @@ void MaintenanceMngr::slotToolCompleted(ProgressItem* tool)
         d->duplicatesFinder = 0;
         stage5();
     }
-#ifdef HAVE_KFACE
-    else if (tool == dynamic_cast<ProgressItem*>(d->faceDetector))
+    else if (tool == dynamic_cast<ProgressItem*>(d->facesDetector))
     {
-        d->faceDetector = 0;
+        d->facesDetector = 0;
         stage6();
     }
-#endif /* HAVE_KFACE */
    else if (tool == dynamic_cast<ProgressItem*>(d->imageQualitySorter))
     {
         d->imageQualitySorter = 0;
@@ -172,9 +162,7 @@ void MaintenanceMngr::slotToolCanceled(ProgressItem* tool)
         tool == dynamic_cast<ProgressItem*>(d->thumbsGenerator)       ||
         tool == dynamic_cast<ProgressItem*>(d->fingerPrintsGenerator) ||
         tool == dynamic_cast<ProgressItem*>(d->duplicatesFinder)      ||
-#ifdef HAVE_KFACE
-        tool == dynamic_cast<ProgressItem*>(d->faceDetector)          ||
-#endif /* HAVE_KFACE */
+        tool == dynamic_cast<ProgressItem*>(d->facesDetector)         ||
         tool == dynamic_cast<ProgressItem*>(d->imageQualitySorter)    ||
         tool == dynamic_cast<ProgressItem*>(d->metadataSynchronizer))
     {
@@ -184,7 +172,7 @@ void MaintenanceMngr::slotToolCanceled(ProgressItem* tool)
 
 void MaintenanceMngr::stage1()
 {
-    kDebug() << "stage1";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "stage1";
 
     if (d->settings.newItems)
     {
@@ -217,7 +205,7 @@ void MaintenanceMngr::stage1()
 
 void MaintenanceMngr::stage2()
 {
-    kDebug() << "stage2";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "stage2";
 
     if (d->settings.thumbnails)
     {
@@ -239,7 +227,7 @@ void MaintenanceMngr::stage2()
 
 void MaintenanceMngr::stage3()
 {
-    kDebug() << "stage3";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "stage3";
 
     if (d->settings.fingerPrints)
     {
@@ -261,7 +249,7 @@ void MaintenanceMngr::stage3()
 
 void MaintenanceMngr::stage4()
 {
-    kDebug() << "stage4";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "stage4";
 
     if (d->settings.duplicates)
     {
@@ -277,19 +265,17 @@ void MaintenanceMngr::stage4()
 
 void MaintenanceMngr::stage5()
 {
-    kDebug() << "stage5";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "stage5";
 
-#ifdef HAVE_KFACE
     if (d->settings.faceManagement)
     {
         // NOTE : Use multi-core CPU option is passed through FaceScanSettings
         d->settings.faceSettings.useFullCpu = d->settings.useMutiCoreCPU;
-        d->faceDetector                     = new FaceDetector(d->settings.faceSettings);
-        d->faceDetector->setNotificationEnabled(false);
-        d->faceDetector->start();
+        d->facesDetector                    = new FacesDetector(d->settings.faceSettings);
+        d->facesDetector->setNotificationEnabled(false);
+        d->facesDetector->start();
     }
     else
-#endif /* HAVE_KFACE */
     {
         stage6();
     }
@@ -297,7 +283,7 @@ void MaintenanceMngr::stage5()
 
 void MaintenanceMngr::stage6()
 {
-    kDebug() << "stage6";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "stage6";
 
     if (d->settings.qualitySort && d->settings.quality.enableSorter)
     {
@@ -319,7 +305,7 @@ void MaintenanceMngr::stage6()
 
 void MaintenanceMngr::stage7()
 {
-    kDebug() << "stage7";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "stage7";
 
     if (d->settings.metadataSync)
     {
@@ -328,7 +314,8 @@ void MaintenanceMngr::stage7()
         list << d->settings.tags;
         d->metadataSynchronizer = new MetadataSynchronizer(list, MetadataSynchronizer::SyncDirection(d->settings.syncDirection));
         d->metadataSynchronizer->setNotificationEnabled(false);
-        d->metadataSynchronizer->setUseMultiCoreCPU(d->settings.useMutiCoreCPU);
+        // See Bug #329091 : Multicore CPU support with Exiv2 sound problematic, even with 0.25 release.
+        d->metadataSynchronizer->setUseMultiCoreCPU(false);
         d->metadataSynchronizer->start();
     }
     else
@@ -340,12 +327,12 @@ void MaintenanceMngr::stage7()
 void MaintenanceMngr::done()
 {
     d->running   = false;
-    QTime now, t = now.addMSecs(d->duration.elapsed());
+    QTime t = QTime::fromMSecsSinceStartOfDay(d->duration.elapsed());
 
     // Pop-up a message to bring user when all is done.
-    DNotificationWrapper("digiKam Maintenance", // not i18n
+    DNotificationWrapper(QLatin1String("digiKam Maintenance"), // not i18n
                          i18n("All operations are done.\nDuration: %1", t.toString()),
-                         kapp->activeWindow(), i18n("digiKam Maintenance"));
+                         qApp->activeWindow(), i18n("digiKam Maintenance"));
 
     emit signalComplete();
 }

@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2010-08-08
- * Description : libkface interface, also allowing easy manipulation of face tags
+ * Description : FacesEngine interface, also allowing easy manipulation of face tags
  *
  * Copyright (C) 2010-2011 by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  * Copyright (C) 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
@@ -29,13 +29,11 @@
 
 #include <QStringList>
 
-// Libkface includes
-
-#include <libkface/identity.h>
-#include <libkface/recognitiondatabase.h>
-
 // Local includes
 
+#include "identity.h"
+#include "recognitiondatabase.h"
+#include "imageinfo.h"
 #include "facetagseditor.h"
 #include "digikam_export.h"
 
@@ -70,11 +68,11 @@ public:
      * The given face list is a result of automatic detection and possibly recognition.
      * The results are written to the database and merged with existing entries.
      * The returned list contains the faces written to the database and has the same size as the given list.
-     * If a face was skipped (because of an existing entry), a null DatabaseFace will be at this place.
+     * If a face was skipped (because of an existing entry), a null FaceTagsIface will be at this place.
      */
-    QList<DatabaseFace> writeUnconfirmedResults(qlonglong imageid,
+    QList<FaceTagsIface> writeUnconfirmedResults(qlonglong imageid,
                                                 const QList<QRectF>& detectedFaces,
-                                                const QList<KFaceIface::Identity> recognitionResults,
+                                                const QList<FacesEngine::Identity> recognitionResults,
                                                 const QSize& fullSize);
 
     // --- Status flags ---
@@ -99,7 +97,7 @@ public:
      */
 /*
     void                fillImageInFaces(ThumbnailImageCatcher* const catcher, const QString& filePath,
-                                         QList<KFaceIface::Face>& faceList, const QSize& scaleSize = QSize()) const;
+                                         QList<FacesEngine::Face>& faceList, const QSize& scaleSize = QSize()) const;
 */
 
     /**
@@ -107,14 +105,14 @@ public:
      * when the has already been loaded anyway.
      */
     void                storeThumbnails(ThumbnailLoadThread* const thread, const QString& filePath,
-                                        const QList<DatabaseFace>& databaseFaces, const DImg& image);
+                                        const QList<FaceTagsIface>& databaseFaces, const DImg& image);
 
     /**
      * Conversion
      */
-    QList<DatabaseFace> toDatabaseFaces(qlonglong imageid,
+    QList<FaceTagsIface> toFaceTagsIfaces(qlonglong imageid,
                                         const QList<QRectF>& detectedFaces,
-                                        const QList<KFaceIface::Identity> recognitionResults,
+                                        const QList<FacesEngine::Identity> recognitionResults,
                                         const QSize& fullSize) const;
 
     /**
@@ -124,8 +122,8 @@ public:
      */
     static int          faceRectDisplayMargin();
 
-    KFaceIface::Identity identityForTag(int tagId, KFaceIface::RecognitionDatabase db) const;
-    int                  tagForIdentity(const KFaceIface::Identity& identity) const;
+    FacesEngine::Identity identityForTag(int tagId, FacesEngine::RecognitionDatabase& db) const;
+    int                  tagForIdentity(const FacesEngine::Identity& identity) const;
 
 protected:
 

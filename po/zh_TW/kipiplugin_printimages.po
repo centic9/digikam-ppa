@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2013-03-14 12:55+0800\n"
 "Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
 "Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
@@ -16,14 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.5\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Frank Weng (a.k.a. Franklin)"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "franklin@goodhorse.idv.tw"
 
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_printimagesui.rc:7
@@ -35,21 +27,28 @@ msgstr "影像(&I)"
 msgid "Main Toolbar"
 msgstr "主工具列"
 
-#: plugin/plugin_printimages.cpp:114 plugin/plugin_printimages.cpp:146
+#: plugin/plugin_printimages.cpp:105
 msgid "Print images"
 msgstr "列印影像"
 
-#: plugin/plugin_printimages.cpp:124
+#: plugin/plugin_printimages.cpp:115
 msgid "Print Assistant..."
 msgstr "列印助理..."
 
-#: plugin/plugin_printimages.cpp:145 plugin/plugin_printimages.cpp:166
+#: plugin/plugin_printimages.cpp:136
+#, fuzzy
+#| msgid "Print Image"
+msgid "Print Images"
+msgstr "列印影像"
+
+#: plugin/plugin_printimages.cpp:136 plugin/plugin_printimages.cpp:156
 msgid "Please select one or more photos to print."
 msgstr "請選擇要列印的一張或多張照片。"
 
-#: plugin/plugin_printimages.cpp:167 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
-msgid "Print assistant"
+#: plugin/plugin_printimages.cpp:156
+#, fuzzy
+#| msgid "Print assistant"
+msgid "Print Assistant"
 msgstr "列印助理"
 
 #: tools/utils.cpp:73
@@ -94,7 +93,7 @@ msgstr "向右旋轉(&R)"
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropPrev)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropPrev)
-#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:292 ui/photopage.ui:295
+#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:287 ui/photopage.ui:290
 msgid "Previous photo"
 msgstr "上一張照片"
 
@@ -134,18 +133,18 @@ msgstr ""
 "值。\n"
 "啟用「不裁剪」以避免裁剪所有照片。"
 
-#. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (text), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:167
 msgid "Save As"
 msgstr "另存新檔"
 
-#. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (shortcut), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:170
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
-#: ui/customlayout.ui:26 wizard/wizard.cpp:691
+#: ui/customlayout.ui:26 wizard/wizard.cpp:711
 msgid "Custom layout"
 msgstr "自訂佈局"
 
@@ -185,7 +184,7 @@ msgid "x"
 msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2027
 msgid "cm"
 msgstr "公分"
 
@@ -195,7 +194,7 @@ msgid "mm"
 msgstr "公釐"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:319 wizard/wizard.cpp:2022
 msgid "inches"
 msgstr "英吋"
 
@@ -233,87 +232,82 @@ msgid "Empty slots:"
 msgstr "空時槽："
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
+#: ui/photopage.ui:185 wizard/wizard.cpp:1779 wizard/wizard.cpp:2263
 msgid "Print to PDF"
 msgstr "列印至 PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1759
-msgid "Print to PS"
-msgstr "列印至 PS"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
-#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
+#: ui/photopage.ui:190 wizard/wizard.cpp:1780 wizard/wizard.cpp:2221
+#: wizard/wizard.cpp:2291 wizard/wizard.cpp:2494 wizard/wizard.cpp:2566
 msgid "Print to JPG"
 msgstr "列印至 JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
-#: wizard/wizard.cpp:2511
+#: ui/photopage.ui:195 wizard/wizard.cpp:1781 wizard/wizard.cpp:2495
+#: wizard/wizard.cpp:2539
 msgid "Print to gimp"
 msgstr "列印至 gimp"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
-#: ui/photopage.ui:214
+#: ui/photopage.ui:209
 msgid "Page settings"
 msgstr "頁面設定值"
 
 #. i18n: ectx: property (text), widget (QPushButton, mLeftButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageDown)
-#: ui/photopage.ui:298 ui/printoptionspage.ui:57
+#: ui/photopage.ui:293 ui/printoptionspage.ui:57
 msgid "<"
 msgstr "<"
 
 #. i18n: ectx: property (text), widget (QLabel, LblPreview)
-#: ui/photopage.ui:320
+#: ui/photopage.ui:315
 msgid "Preview"
 msgstr "預覽"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageUp)
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:336 ui/photopage.ui:339
+#: ui/photopage.ui:331 ui/photopage.ui:334
 msgid "Next page"
 msgstr "下一頁"
 
 #. i18n: ectx: property (text), widget (QPushButton, mRightButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:342 ui/printoptionspage.ui:64
+#: ui/photopage.ui:337 ui/printoptionspage.ui:64
 msgid ">"
 msgstr ">"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/photopage.ui:441
+#: ui/photopage.ui:436
 msgid "Captions:"
 msgstr "標題："
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1854
+#: ui/photopage.ui:447 wizard/wizard.cpp:1877
 msgid "No captions"
 msgstr "無標題"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:457
+#: ui/photopage.ui:452
 msgid "Image file names"
 msgstr "影像檔案名稱"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:462
+#: ui/photopage.ui:457
 msgid "Exif date-time"
 msgstr "Exif 日期-時間"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:467
+#: ui/photopage.ui:462
 msgid "Comments"
 msgstr "註解"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1860
+#: ui/photopage.ui:467 wizard/wizard.cpp:1883
 msgid "Free"
 msgstr "自由"
 
 #. i18n: ectx: property (text), widget (QLabel, m_free_label)
-#: ui/photopage.ui:506
+#: ui/photopage.ui:501
 #, no-c-format
 msgid ""
 "%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
@@ -323,33 +317,28 @@ msgstr ""
 "焦距, \\n 換行"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
-#: ui/photopage.ui:537
+#: ui/photopage.ui:532
 msgid "same to all"
 msgstr "全部相同"
 
 #. i18n: ectx: property (text), widget (QPushButton, mSaveSettings)
 #. i18n: ectx: property (text), widget (QPushButton, m_setDefault)
-#: ui/photopage.ui:547 ui/printoptionspage.ui:348
+#: ui/photopage.ui:542 ui/printoptionspage.ui:348
 msgid "Use as default"
 msgstr "作為預設"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/photopage.ui:560
+#: ui/photopage.ui:555
 msgid "Family:"
 msgstr "家族："
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/photopage.ui:577
+#: ui/photopage.ui:572
 msgid "Color:"
 msgstr "顏色："
 
-#. i18n: ectx: property (text), widget (KColorButton, m_font_color)
-#: ui/photopage.ui:587
-msgid "PushButton"
-msgstr "控制按鈕"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/photopage.ui:604
+#: ui/photopage.ui:596
 msgid "Size:"
 msgstr "大小"
 
@@ -394,17 +383,17 @@ msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
 msgid "x"
 msgstr "x"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:246
 msgid "Millimeters"
 msgstr "公釐"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:251
 msgid "Centimeters"
 msgstr "公分"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:256
 msgid "Inches"
 msgstr "英寸"
@@ -429,51 +418,51 @@ msgstr "每頁的照片數量："
 msgid "Multiple pages:"
 msgstr "多頁："
 
-#: wizard/customdlg.cpp:46 wizard/customdlg.cpp:47
+#: wizard/customdlg.cpp:51 wizard/customdlg.cpp:52
 msgid "Choose your grid size"
 msgstr "選擇您的格線尺寸"
 
-#: wizard/customdlg.cpp:48
+#: wizard/customdlg.cpp:53
 msgid "Number of rows"
 msgstr "列數"
 
-#: wizard/customdlg.cpp:49
+#: wizard/customdlg.cpp:54
 msgid "Insert number of rows"
 msgstr "插入列數"
 
-#: wizard/customdlg.cpp:50
+#: wizard/customdlg.cpp:55
 msgid "Number of columns"
 msgstr "欄數"
 
-#: wizard/customdlg.cpp:51
+#: wizard/customdlg.cpp:56
 msgid "Insert number of columns"
 msgstr "插入欄數"
 
-#: wizard/customdlg.cpp:53 wizard/customdlg.cpp:54
+#: wizard/customdlg.cpp:58 wizard/customdlg.cpp:59
 msgid "Choose to have a custom photo size album"
 msgstr "選擇此項以便擁有自訂相片大小的相簿"
 
-#: wizard/customdlg.cpp:55
+#: wizard/customdlg.cpp:60
 msgid "Photo height"
 msgstr "照片高度"
 
-#: wizard/customdlg.cpp:56
+#: wizard/customdlg.cpp:61
 msgid "Insert photo height"
 msgstr "插入相片高度"
 
-#: wizard/customdlg.cpp:57
+#: wizard/customdlg.cpp:62
 msgid "Photo width"
 msgstr "照片寬度"
 
-#: wizard/customdlg.cpp:58
+#: wizard/customdlg.cpp:63
 msgid "Insert photo width"
 msgstr "插入相片寬度"
 
-#: wizard/customdlg.cpp:60
+#: wizard/customdlg.cpp:65
 msgid "Auto rotate photo"
 msgstr "自動旋轉相片"
 
-#: wizard/printhelper.cpp:244
+#: wizard/printhelper.cpp:241
 msgid "Kipi-plugins image printing"
 msgstr "Kipi 外掛程式影像列印"
 
@@ -482,23 +471,29 @@ msgstr "Kipi 外掛程式影像列印"
 msgid "disabled"
 msgstr "已停用"
 
-#: wizard/wizard.cpp:113
+#: wizard/wizard.cpp:117
 msgid "Select page layout"
 msgstr "選擇版面"
 
-#: wizard/wizard.cpp:114
+#: wizard/wizard.cpp:118
 msgid "Crop photos"
 msgstr "裁剪照片"
 
-#: wizard/wizard.cpp:116
+#: wizard/wizard.cpp:120
 msgid "Custom"
 msgstr "自訂"
 
-#: wizard/wizard.cpp:163
-msgid "A KIPI plugin to print images"
+#: wizard/wizard.cpp:162 wizard/wizard.cpp:165 wizard/wizard.cpp:2510
+msgid "Print assistant"
+msgstr "列印助理"
+
+#: wizard/wizard.cpp:166
+#, fuzzy
+#| msgid "A KIPI plugin to print images"
+msgid "A tool to print images"
 msgstr "列印影像的 KIPI 外掛程式"
 
-#: wizard/wizard.cpp:164
+#: wizard/wizard.cpp:167
 msgid ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
@@ -506,85 +501,108 @@ msgstr ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:170
 msgid "Todd Shoemaker"
 msgstr "Todd Shoemaker"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:171
 msgid "Author"
 msgstr "作者"
 
-#: wizard/wizard.cpp:170
+#: wizard/wizard.cpp:174
 msgid "Angelo Naselli"
 msgstr "Angelo Naselli"
 
-#: wizard/wizard.cpp:170
-msgid "Developer and maintainer"
-msgstr "開發者和維護者"
+#: wizard/wizard.cpp:175
+msgid "Developer"
+msgstr ""
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:178
 msgid "Andreas Trink"
 msgstr "Andreas Trink"
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:179
 msgid "Contributor"
 msgstr "貢獻者"
 
-#: wizard/wizard.cpp:659
+#: wizard/wizard.cpp:678
 msgid "Unsupported Paper Size"
 msgstr "不支援的紙張大小"
 
-#: wizard/wizard.cpp:1128
+#: wizard/wizard.cpp:1151
 #, kde-format
 msgid "Photo %1 of %2"
 msgstr "照片共 %2 張，第 %1 張"
 
-#: wizard/wizard.cpp:1212 wizard/wizard.cpp:1219
+#: wizard/wizard.cpp:1235 wizard/wizard.cpp:1242
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "頁面共 %2 頁，第 %1 頁"
 
-#: wizard/wizard.cpp:1460
+#: wizard/wizard.cpp:1483
 msgid "Add again"
 msgstr "再新增一次"
 
-#: wizard/wizard.cpp:1470
+#: wizard/wizard.cpp:1493
 msgid "Remove"
 msgstr "移除"
 
-#: wizard/wizard.cpp:2368
+#: wizard/wizard.cpp:2197
+#, fuzzy
+#| msgid "Empty output path."
+msgid "Output Path"
+msgstr "空的輸出路徑。"
+
+#: wizard/wizard.cpp:2392
+msgid "Overwrite File"
+msgstr ""
+
+#: wizard/wizard.cpp:2393
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "下列檔案會被覆寫。您確定要覆寫嗎？"
 
-#: wizard/wizard.cpp:2389
+#: wizard/wizard.cpp:2417
 msgid "Could not save file, please check your output entry."
 msgstr "無法儲存檔案，請檢查您的輸出欄目。"
 
-#: wizard/wizard.cpp:2413
+#: wizard/wizard.cpp:2441
 msgid "Could not remove the GIMP's temporary files."
 msgstr "無法移除 GIMP 的暫存資料夾。"
 
-#: wizard/wizard.cpp:2534
+#: wizard/wizard.cpp:2562
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
 msgstr "啟動 GIMP 時發生一個錯誤。請確認 GIMP 已正確安裝。"
 
-#: wizard/wizard.cpp:2535
-msgid "KIPI"
-msgstr "KIPI"
-
-#: wizard/wizard.cpp:2548
+#: wizard/wizard.cpp:2574
 msgid "Empty output path."
 msgstr "空的輸出路徑。"
 
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Frank Weng (a.k.a. Franklin)"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "franklin@goodhorse.idv.tw"
+
+#~ msgid "Print to PS"
+#~ msgstr "列印至 PS"
+
+#~ msgid "PushButton"
+#~ msgstr "控制按鈕"
+
+#~ msgid "Developer and maintainer"
+#~ msgstr "開發者和維護者"
+
+#~ msgid "KIPI"
+#~ msgstr "KIPI"
+
 #~ msgid "Handbook"
 #~ msgstr "手冊"
-
-#~ msgid "Print Image"
-#~ msgstr "列印影像"
 
 #~ msgid "Select printing information"
 #~ msgstr "選擇列印資訊"

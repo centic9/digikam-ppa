@@ -21,24 +21,24 @@
  *
  * ============================================================ */
 
-#include "imagehistorygraphmodel.moc"
+#include "imagehistorygraphmodel.h"
 
 // Qt includes
 
 #include <QAbstractItemModel>
 #include <QTreeWidgetItem>
+#include <QIcon>
 
 // KDE includes
 
-#include <kcategorizedsortfilterproxymodel.h>
-#include <kicon.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dcategorizedsortfilterproxymodel.h"
 #include "dimgfiltermanager.h"
-#include "imagehistorygraphdata.h"
 #include "imagelistmodel.h"
+#include "imagehistorygraphdata.h"
 
 namespace Digikam
 {
@@ -302,18 +302,18 @@ VertexItem* ImageHistoryGraphModel::Private::createVertexItem(const HistoryGraph
     const HistoryVertexProperties& props = graph().properties(v);
     ImageInfo info                       = givenInfo.isNull() ? props.firstImageInfo() : givenInfo;
     QModelIndex index                    = imageModel.indexForImageInfo(info);
-    //kDebug() << "Added" << info.id() << index;
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Added" << info.id() << index;
     VertexItem* item                     = new VertexItem(v);
     item->index                          = index;
     item->category                       = categories.value(v);
     vertexItems << item;
-    //kDebug() << "Adding vertex item" << graph().properties(v).firstImageInfo().id() << index;
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Adding vertex item" << graph().properties(v).firstImageInfo().id() << index;
     return item;
 }
 
 FilterActionItem* ImageHistoryGraphModel::Private::createFilterActionItem(const FilterAction& action)
 {
-    //kDebug() << "Adding vertex item for" << action.displayableName();
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Adding vertex item for" << action.displayableName();
     return new FilterActionItem(action);
 }
 
@@ -323,7 +323,7 @@ void ImageHistoryGraphModel::Private::build()
     vertexItems.clear();
     rootItem = new HistoryTreeItem;
 
-    //kDebug() << historyGraph;
+    //qCDebug(DIGIKAM_DATABASE_LOG) << historyGraph;
 
     HistoryGraph::Vertex ref = graph().findVertexByProperties(info);
     path                     = graph().longestPathTouching(ref, sortBy(newestInfoFirst));
@@ -436,7 +436,7 @@ void ImageHistoryGraphModel::Private::buildCombinedTree(const HistoryGraph::Vert
         const HistoryGraph::Vertex& v = path.at(i);
         HistoryGraph::Vertex previous = i ? path.at(i-1) : HistoryGraph::Vertex();
 //        HistoryGraph::Vertex next     = i < path.size() - 1 ? path[i+1] : HistoryGraph::Vertex();
-        //kDebug() << "Vertex on path" << path[i];
+        //qCDebug(DIGIKAM_DATABASE_LOG) << "Vertex on path" << path[i];
         // create new item
         item = createVertexItem(v);
 
@@ -457,6 +457,7 @@ void ImageHistoryGraphModel::Private::buildCombinedTree(const HistoryGraph::Vert
         // Any other egdes off the main path?
         QList<HistoryGraph::Vertex> branches = graph().adjacentVertices(v, HistoryGraph::EdgesToLeaf);
         QList<HistoryGraph::Vertex> subgraph;
+
         foreach(const HistoryGraph::Vertex& branch, branches)
         {
             if (branch != next)
@@ -464,6 +465,7 @@ void ImageHistoryGraphModel::Private::buildCombinedTree(const HistoryGraph::Vert
                 subgraph << graph().verticesDominatedByDepthFirstSorted(branch, v, sortBy(oldestInfoFirst));
             }
         }
+
         addItemSubgroup(item, subgraph, i18nc("@title", "More Derived Images"));
 */
 
@@ -759,12 +761,14 @@ QVariant ImageHistoryGraphModel::data(const QModelIndex& index, int role) const
                 {
                     if (vertexItem->category & HistoryImageId::Original)
                     {
-                        return i18nc("@item filename", "%1<nl/>(Original Image)", data.toString());
+                        return i18nc("@item filename", "%1\n(Original Image)", data.toString());
                     }
+
                     if (vertexItem->category & HistoryImageId::Source)
                     {
-                        return i18nc("@item filename", "%1<nl/>(Source Image)", data.toString());
+                        return i18nc("@item filename", "%1\n(Source Image)", data.toString());
                     }
+
                     break;
                 }
             }
@@ -789,7 +793,7 @@ QVariant ImageHistoryGraphModel::data(const QModelIndex& index, int role) const
             case Qt::DecorationRole:
             {
                 QString iconName = DImgFilterManager::instance()->filterIcon(filterActionItem->action);
-                return KIcon(iconName);
+                return QIcon::fromTheme(iconName);
             }
             case FilterActionRole:
             {
@@ -820,7 +824,7 @@ QVariant ImageHistoryGraphModel::data(const QModelIndex& index, int role) const
             case IsCategoryItemRole:
                 return true;
             case Qt::DisplayRole:
-            case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
+            case DCategorizedSortFilterProxyModel::CategoryDisplayRole:
             //case Qt::ToolTipRole:
                 return categoryItem->title;
         }

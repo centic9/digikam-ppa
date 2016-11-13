@@ -1,0 +1,510 @@
+# Translation of kipiplugin_googleservices to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: KDE 4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"PO-Revision-Date: 2010-04-17 08:29+0200\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+"X-Generator: Lokalize 1.0\n"
+
+#: authorize.cpp:116
+msgid "Google Drive Authorization"
+msgstr ""
+
+#: authorize.cpp:129
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+
+#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+msgid "Error"
+msgstr "Feil"
+
+#: gdtalker.cpp:336
+msgid "Failed to list folders"
+msgstr ""
+
+#: gdtalker.cpp:384
+#, fuzzy
+msgid "Failed to create folder"
+msgstr "Klarte ikkje oppretta nytt album"
+
+#: gdtalker.cpp:415 gptalker.cpp:929
+msgid "Failed to upload photo"
+msgstr "Klarte ikkje lasta opp biletet"
+
+#: gptalker.cpp:561
+msgid "No photo specified"
+msgstr "Inkje bilete valt"
+
+#: gptalker.cpp:564
+msgid "General upload failure"
+msgstr "Generell opplastingsfeil"
+
+#: gptalker.cpp:567
+msgid "File-size was zero"
+msgstr "Filstorleiken var null"
+
+#: gptalker.cpp:570
+msgid "File-type was not recognized"
+msgstr "Kjente ikkje att filformatet"
+
+#: gptalker.cpp:573
+msgid "User exceeded upload limit"
+msgstr "Brukaren har lasta opp for mykje"
+
+#: gptalker.cpp:576
+msgid "Invalid signature"
+msgstr "Ugyldig signatur"
+
+#: gptalker.cpp:579
+msgid "Missing signature"
+msgstr "Manglar signatur"
+
+#: gptalker.cpp:582
+msgid "Login failed / Invalid auth token"
+msgstr "Feil ved innlogging (brukarnamn/passord)"
+
+#: gptalker.cpp:585
+msgid "Invalid API Key"
+msgstr "Ugyldig API-nøkkel"
+
+#: gptalker.cpp:588
+msgid "Service currently unavailable"
+msgstr "Tenesta er ikkje tilgjengeleg no"
+
+#: gptalker.cpp:591
+msgid "Invalid Frob"
+msgstr "Ugyldig frob"
+
+#: gptalker.cpp:594
+msgid "Format \"xxx\" not found"
+msgstr "Fann ikkje formatet «xxx»"
+
+#: gptalker.cpp:597
+msgid "Method \"xxx\" not found"
+msgstr "Fann ikkje metoden «xxx»"
+
+#: gptalker.cpp:600
+msgid "Invalid SOAP envelope"
+msgstr "Ugyldig SOAP-konvolutt"
+
+#: gptalker.cpp:603
+msgid "Invalid XML-RPC Method Call"
+msgstr "Ugyldig XML-RPC-metodekall"
+
+#: gptalker.cpp:606
+msgid "The POST method is now required for all setters."
+msgstr ""
+
+#: gptalker.cpp:609
+msgid "Unknown error"
+msgstr "Ukjend feil"
+
+#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
+#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Feil"
+
+#: gptalker.cpp:613
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+"Det oppstod ein feil: %1\n"
+"Kan ikkje halda fram."
+
+#: gptalker.cpp:683 gptalker.cpp:750
+msgid "Failed to fetch photo-set list"
+msgstr "Klarte ikkje henta oversikt over fotoalbum"
+
+#: gptalker.cpp:886 gptalker.cpp:919
+msgid "Failed to create album"
+msgstr "Klarte ikkje oppretta nytt album"
+
+#: gswidget.cpp:60
+msgid "Tag path behavior :"
+msgstr ""
+
+#: gswidget.cpp:62
+msgid "Leaf tags only"
+msgstr ""
+
+#: gswidget.cpp:63
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr ""
+
+#: gswidget.cpp:64
+msgid "Split tags"
+msgstr ""
+
+#: gswidget.cpp:65
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr ""
+
+#: gswidget.cpp:66
+msgid "Combined String"
+msgstr ""
+
+#: gswidget.cpp:67
+msgid "Build a combined tag string."
+msgstr ""
+
+#: gswindow.cpp:116
+msgid "Google Drive Export"
+msgstr ""
+
+#: gswindow.cpp:117
+msgid "A tool to export images to Google Drive"
+msgstr ""
+
+#: gswindow.cpp:119
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:122
+msgid "Saurabh Patel"
+msgstr ""
+
+#: gswindow.cpp:122 gswindow.cpp:195
+msgid "Author and maintainer"
+msgstr "Utviklar og vedlikehaldar"
+
+#: gswindow.cpp:125 gswindow.cpp:207
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
+#: gswindow.cpp:207
+msgid "Developer"
+msgstr "Utviklar"
+
+#: gswindow.cpp:132
+#, fuzzy
+msgid "Export to Google Drive"
+msgstr "Eksporter til Picasa-nettenesta"
+
+#: gswindow.cpp:134 gswindow.cpp:219
+msgid "Start Upload"
+msgstr "Start opplasting"
+
+#: gswindow.cpp:135
+#, fuzzy
+msgid "Start upload to Google Drive"
+msgstr "Start opplasting til Picasa-nettenesta"
+
+#: gswindow.cpp:186
+#, fuzzy
+msgid "Google Photos/PicasaWeb Export"
+msgstr "Picasa-eksport"
+
+#: gswindow.cpp:187
+msgid "A tool to export image collections to Google Photos/Picasa web service."
+msgstr ""
+
+#: gswindow.cpp:189
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:195
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:198
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:201
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:204
+msgid "Jens Mueller"
+msgstr "Jens Müller"
+
+#: gswindow.cpp:217
+#, fuzzy
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr "Eksporter til Picasa-nettenesta"
+
+#: gswindow.cpp:220
+#, fuzzy
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr "Start opplasting til Picasa-nettenesta"
+
+#: gswindow.cpp:226
+#, fuzzy
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr "Importer frå Picasa-nettenesta"
+
+#: gswindow.cpp:228
+msgid "Start Download"
+msgstr "Start nedlasting"
+
+#: gswindow.cpp:229
+#, fuzzy
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr "Start nedlasting frå Picasa-tenesta"
+
+#: gswindow.cpp:428 gswindow.cpp:467 gswindow.cpp:577
+#, fuzzy, kde-format
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr "Feil ved Picasa-kall: %1\n"
+
+#: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: gswindow.cpp:531
+msgid "Google Photo Export"
+msgstr ""
+
+#: gswindow.cpp:549
+#, kde-format
+msgid "Google Drive Call Failed: %1\n"
+msgstr ""
+
+#: gswindow.cpp:653
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+
+#: gswindow.cpp:669
+msgid "No image selected. Please select which images should be uploaded."
+msgstr ""
+
+#: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
+#: gswindow.cpp:1105
+msgid "Warning"
+msgstr "Åtvaring"
+
+#: gswindow.cpp:684 gswindow.cpp:707
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr ""
+
+#: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
+#: gswindow.cpp:1109 gswindow.cpp:1286
+msgid "Continue"
+msgstr "Hald fram"
+
+#: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
+#: gswindow.cpp:1110 gswindow.cpp:1287
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: gswindow.cpp:762
+msgid "Google Drive export"
+msgstr ""
+
+#: gswindow.cpp:1015
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Klarte ikkje lagra biletet: %1\n"
+"Vil du halda fram?"
+
+#: gswindow.cpp:1033
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Klarte ikkje lasta ned biletet: %1\n"
+"Vil du halda fram?"
+
+#: gswindow.cpp:1079
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr "Klarte ikkje lagra biletet til %1"
+
+#: gswindow.cpp:1106
+#, kde-format
+msgid ""
+"Failed to upload photo to %1.\n"
+"%2\n"
+"Do you want to continue?"
+msgstr ""
+
+#: gswindow.cpp:1198
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr ""
+
+#: gswindow.cpp:1240
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+
+#: gswindow.cpp:1248
+#, fuzzy, kde-format
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr "Feil ved Picasa-kall: %1\n"
+
+#: gswindow.cpp:1281
+msgctxt "@title:window"
+msgid "Warning"
+msgstr "Åtvaring"
+
+#: gswindow.cpp:1282
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+msgid "&Export"
+msgstr ""
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+msgid "&Import"
+msgstr ""
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr "Hovudverktøylinje"
+
+#: newalbumdlg.cpp:54
+msgid "Access Level"
+msgstr "Tilgangsnivå"
+
+#: newalbumdlg.cpp:55
+#, fuzzy
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr ""
+"Dette er tryggleiks- og personverninnstillingane for det nye Picasa-"
+"nettalbumet."
+
+#: newalbumdlg.cpp:57
+#, fuzzy
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr "Offentleg"
+
+#: newalbumdlg.cpp:59
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr ""
+
+#: newalbumdlg.cpp:60
+#, fuzzy
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr "Ikkje vist / privat"
+
+#: newalbumdlg.cpp:61
+msgid "Unlisted album is only accessible via URL."
+msgstr ""
+
+#: newalbumdlg.cpp:62
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr ""
+
+#: newalbumdlg.cpp:63
+msgid "Unlisted album require Sign-In to View"
+msgstr ""
+
+#: newalbumdlg.cpp:71
+msgid "Privacy:"
+msgstr "Personvern:"
+
+#: plugin_googleservices.cpp:100
+#, fuzzy
+msgid "Export to &Google Drive..."
+msgstr "Eksporter til &Picasa …"
+
+#: plugin_googleservices.cpp:110
+#, fuzzy
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr "Eksporter til &Picasa …"
+
+#: plugin_googleservices.cpp:120
+#, fuzzy
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr "Importer frå &Picasa …"
+
+#: replacedialog.cpp:112
+msgid "Add As New"
+msgstr ""
+
+#: replacedialog.cpp:113
+msgid "Item will be added alongside the linked version."
+msgstr "Elementet vert lagde til i tillegg til den lenkja versjonen."
+
+#: replacedialog.cpp:119
+msgid "Add All"
+msgstr ""
+
+#: replacedialog.cpp:120
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+"Elementet og framtidige element vert lagde til i tillegg til den lenkja "
+"versjonen. Du vert ikkje spurd på nytt."
+
+#: replacedialog.cpp:126
+msgid "Replace"
+msgstr "Byt ut"
+
+#: replacedialog.cpp:127
+msgid "Item will be replacing the linked version."
+msgstr "Den lenkja versjonen vert bytt ut med elementet."
+
+#: replacedialog.cpp:133
+msgid "Replace All"
+msgstr "Byt ut alle"
+
+#: replacedialog.cpp:134
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+
+#: replacedialog.cpp:157
+msgid "A linked item already exists."
+msgstr "Det lenkja elementet finst frå før."
+
+#: replacedialog.cpp:177
+msgid "Destination"
+msgstr "Mål"
+
+#: replacedialog.cpp:182
+msgid "Source"
+msgstr "Kjelde"

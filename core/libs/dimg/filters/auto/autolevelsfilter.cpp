@@ -6,7 +6,7 @@
  * Date        : 2005-24-01
  * Description : auto levels image filter.
  *
- * Copyright (C) 2005-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,13 +28,10 @@
 #include <cstdio>
 #include <cmath>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "imagehistogram.h"
 #include "imagelevels.h"
 
@@ -48,7 +45,7 @@ AutoLevelsFilter::AutoLevelsFilter(QObject* const parent)
 }
 
 AutoLevelsFilter::AutoLevelsFilter(DImg* const orgImage, const DImg* const refImage, QObject* const parent)
-    : DImgThreadedFilter(orgImage, parent, "AutoLevelsFilter"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("AutoLevelsFilter")),
       m_refImage(*refImage)
 {
     initFilter();
@@ -80,7 +77,7 @@ void AutoLevelsFilter::autoLevelsCorrectionImage()
 {
     if (m_orgImage.sixteenBit() != m_refImage.sixteenBit())
     {
-        kDebug() << "Ref. image and Org. has different bits depth";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Ref. image and Org. has different bits depth";
         return;
     }
 

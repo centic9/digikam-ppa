@@ -6,7 +6,8 @@
  * Date        : 2012-26-07
  * Description : Main view for import tool
  *
- * Copyright (C) 2012 by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,22 +22,20 @@
  *
  * ============================================================ */
 
-#include "importview.moc"
+#include "importview.h"
 
 // Qt includes
 
+#include <QApplication>
 #include <QTimer>
 #include <QShortcut>
 
-// KDE includes
-
-#include <kmessagebox.h>
-#include <kdebug.h>
-
 // Local includes
 
-#include "config-digikam.h"
-#include "globals.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
+#include "digikam_globals.h"
+#include "dmessagebox.h"
 #include "importui.h"
 #include "importiconview.h"
 #include "thumbnailsize.h"
@@ -46,9 +45,9 @@
 #include "dzoombar.h"
 #include "camitemsortsettings.h"
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 #include "mapwidgetview.h"
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 namespace Digikam
 {
@@ -66,9 +65,9 @@ public:
         thumbSizeTimer(0),
         parent(0),
         iconView(0),
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         mapView(0),
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
         stackedView(0),
         lastViewMode(ImportStackedView::PreviewCameraMode)
         //FIXME: filterWidget(0)
@@ -93,9 +92,10 @@ public:
     ImportUI*                          parent;
 
     ImportIconView*                    iconView;
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     MapWidgetView*                     mapView;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
+
     ImportStackedView*                 stackedView;
     ImportStackedView::StackedViewMode lastViewMode;
 
@@ -116,7 +116,8 @@ void ImportView::Private::addPageUpDownActions(ImportView* const q, QWidget* con
 }
 
 ImportView::ImportView(ImportUI* const ui, QWidget* const parent)
-    : KHBox(parent), d(new Private)
+    : DHBox(parent),
+      d(new Private)
 {
     d->parent   = static_cast<ImportUI*>(ui);
     d->splitter = new SidebarSplitter;
@@ -137,13 +138,16 @@ ImportView::ImportView(ImportUI* const ui, QWidget* const parent)
 
     d->iconView = d->stackedView->importIconView();
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapView  = d->stackedView->mapWidgetView();
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     d->addPageUpDownActions(this, d->stackedView->importPreviewView());
     d->addPageUpDownActions(this, d->stackedView->thumbBar());
+
+#ifdef HAVE_MEDIAPLAYER
     d->addPageUpDownActions(this, d->stackedView->mediaPlayerView());
+#endif //HAVE_MEDIAPLAYER
 
     d->selectionTimer = new QTimer(this);
     d->selectionTimer->setSingleShot(true);
@@ -249,7 +253,8 @@ void ImportView::setupConnections()
             //this, SLOT(slotSidebarTabTitleStyleChanged()));
 }
 
-/*void ImportView::connectIconViewFilter(FilterStatusBar* filterbar)
+/*
+void ImportView::connectIconViewFilter(FilterStatusBar* filterbar)
 {
     ImageAlbumFilterModel* const model = d->iconView->imageAlbumFilterModel();
 
@@ -270,13 +275,14 @@ void ImportView::slotPopupFiltersView()
 {
     d->rightSideBar->setActiveTab(d->filterWidget);
     d->filterWidget->setFocusToTextFilter();
-}*/
+}
+*/
 
 void ImportView::loadViewState()
 {
     //TODO: d->filterWidget->loadState();
 
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group("Import MainWindow");
 
     // Restore the splitter
@@ -287,14 +293,14 @@ void ImportView::loadViewState()
     thumbbarState = group.readEntry("ThumbbarState", thumbbarState);
     d->dockArea->restoreState(QByteArray::fromBase64(thumbbarState));
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapView->loadState();
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 }
 
 void ImportView::saveViewState()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group("Import MainWindow");
 
     //TODO: d->filterWidget->saveState();
@@ -309,9 +315,9 @@ void ImportView::saveViewState()
     d->stackedView->thumbBarDock()->close();
     group.writeEntry("ThumbbarState", d->dockArea->saveState().toBase64());
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapView->saveState();
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 }
 
 CamItemInfo ImportView::camItemInfo(const QString& folder, const QString& file) const
@@ -329,12 +335,12 @@ bool ImportView::hasImage(const CamItemInfo& info) const
     return d->iconView->importImageModel()->hasImage(info);
 }
 
-KUrl::List ImportView::allUrls() const
+QList<QUrl> ImportView::allUrls() const
 {
     return d->iconView->urls();
 }
 
-KUrl::List ImportView::selectedUrls() const
+QList<QUrl> ImportView::selectedUrls() const
 {
     return d->iconView->selectedUrls();
 }
@@ -370,11 +376,11 @@ int ImportView::downloadedCamItemInfos() const
     return numberOfDownloaded;
 }
 
-bool ImportView::isSelected(const KUrl& url) const
+bool ImportView::isSelected(const QUrl& url) const
 {
-    QList<KUrl> urlsList = selectedUrls();
+    QList<QUrl> urlsList = selectedUrls();
 
-    foreach(const KUrl& selected, urlsList)
+    foreach(const QUrl& selected, urlsList)
     {
         if (url == selected)
         {
@@ -405,7 +411,7 @@ void ImportView::slotLastItem()
     d->iconView->toLastIndex();
 }
 
-void ImportView::slotSelectItemByUrl(const KUrl& url)
+void ImportView::slotSelectItemByUrl(const QUrl& url)
 {
     d->iconView->toIndex(url);
 }
@@ -654,13 +660,13 @@ void ImportView::slotImagePreview()
     {
         currentInfo = d->iconView->currentInfo();
     }
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     //TODO: Implement MapWidget
     else if (currentPreviewMode == ImportStackedView::MapWidgetMode)
     {
         currentInfo = d->mapView->currentCamItemInfo();
     }
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     slotTogglePreviewMode(currentInfo, false);
 }
@@ -814,7 +820,11 @@ void ImportView::slotImageChangeFailed(const QString& message, const QStringList
         return;
     }
 
-    KMessageBox::errorList(0, message, fileNames);
+    DMessageBox::showInformationList(QMessageBox::Critical,
+                                     qApp->activeWindow(),
+                                     qApp->applicationName(),
+                                     message,
+                                     fileNames);
 }
 
 bool ImportView::hasCurrentItem() const

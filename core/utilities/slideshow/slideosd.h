@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow OSD widget
  *
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,10 +27,7 @@
 // Qt includes
 
 #include <QWidget>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -53,7 +50,7 @@ public:
     SlideOSD(const SlideShowSettings& settings, SlideShow* const parent = 0);
     ~SlideOSD();
 
-    void setCurrentInfo(const SlidePictureInfo& info, const KUrl& url);
+    void setCurrentInfo(const SlidePictureInfo& info, const QUrl& url);
 
     void pause(bool b);
     bool isPaused() const;

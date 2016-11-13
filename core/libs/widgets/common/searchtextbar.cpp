@@ -6,7 +6,7 @@
  * Date        : 2007-11-25
  * Description : a bar used to search a string.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
  *
  * This program is free software; you can redistribute it
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "searchtextbar.moc"
+#include "searchtextbar.h"
 
 // Qt includes
 
@@ -36,14 +36,11 @@
 // KDE includes
 
 #include <kconfiggroup.h>
-#include <kglobal.h>
-#include <kconfig.h>
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albumfiltermodel.h"
-#include "modelcompletion.h"
 
 namespace Digikam
 {
@@ -58,14 +55,14 @@ class SearchTextBar::Private
 public:
 
     Private() :
-        optionAutoCompletionModeEntry("AutoCompletionMode"),
-        optionCaseSensitiveEntry("CaseSensitive"),
+        optionAutoCompletionModeEntry(QLatin1String("AutoCompletionMode")),
+        optionCaseSensitiveEntry(QLatin1String("CaseSensitive")),
         textQueryCompletion(false),
         hasCaseSensitive(true),
         highlightOnResult(true),
         hasResultColor(200, 255, 200),
         hasNoResultColor(255, 200, 200),
-        completion(0),
+        completer(0),
         filterModel(0)
     {
     }
@@ -80,29 +77,29 @@ public:
     QColor                     hasResultColor;
     QColor                     hasNoResultColor;
 
-    ModelCompletion*           completion;
+    ModelCompleter*            completer;
 
     QPointer<AlbumFilterModel> filterModel;
 
     SearchTextSettings         settings;
 };
 
-SearchTextBar::SearchTextBar(QWidget* const parent, const char* const name, const QString& msg)
-    : KLineEdit(parent), StateSavingObject(this),
+SearchTextBar::SearchTextBar(QWidget* const parent, const QString& name, const QString& msg)
+    : QLineEdit(parent),
+      StateSavingObject(this),
       d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
-    setClearButtonShown(true);
-    setClickMessage(msg);
-    setObjectName(name + QString(" Search Text Tool"));
+    setClearButtonEnabled(true);
+    setPlaceholderText(msg);
+    setObjectName(name + QLatin1String(" Search Text Tool"));
 
-    d->completion = new ModelCompletion;
-    setCompletionObject(d->completion, true);
-    setAutoDeleteCompletionObject(true);
+    d->completer = new ModelCompleter(this);
+    setCompleter(d->completer);
 
     setSizePolicy(QSizePolicy(QSizePolicy::Expanding, QSizePolicy::Minimum));
 
-    connect(this, SIGNAL(userTextChanged(QString)),
+    connect(this, SIGNAL(textChanged(QString)),
             this, SLOT(slotTextChanged(QString)));
 
     loadState();
@@ -117,10 +114,8 @@ SearchTextBar::~SearchTextBar()
 void SearchTextBar::doLoadState()
 {
     KConfigGroup group        = getConfigGroup();
-    setCompletionMode((KGlobalSettings::Completion)group.readEntry(entryName(d->optionAutoCompletionModeEntry),
-                      (int)KGlobalSettings::completionMode()));
-    d->settings.caseSensitive = (Qt::CaseSensitivity)group.readEntry(entryName(d->optionCaseSensitiveEntry),
-                                (int)Qt::CaseInsensitive);
+    completer()->setCompletionMode((QCompleter::CompletionMode)group.readEntry(entryName(d->optionAutoCompletionModeEntry), (int)QCompleter::PopupCompletion));
+    d->settings.caseSensitive = (Qt::CaseSensitivity)group.readEntry(entryName(d->optionCaseSensitiveEntry), (int)Qt::CaseInsensitive);
     setIgnoreCase(d->settings.caseSensitive == Qt::CaseInsensitive);
 }
 
@@ -128,9 +123,9 @@ void SearchTextBar::doSaveState()
 {
     KConfigGroup group = getConfigGroup();
 
-    if (completionMode() != KGlobalSettings::completionMode())
+    if (completer()->completionMode() != QCompleter::PopupCompletion)
     {
-        group.writeEntry(entryName(d->optionAutoCompletionModeEntry), (int)completionMode());
+        group.writeEntry(entryName(d->optionAutoCompletionModeEntry), (int)completer()->completionMode());
     }
     else
     {
@@ -163,12 +158,12 @@ void SearchTextBar::setHighlightOnResult(bool highlight)
 
 void SearchTextBar::setModel(QAbstractItemModel* model, int uniqueIdRole, int displayRole)
 {
-    d->completion->setModel(model, uniqueIdRole, displayRole);
+    d->completer->setItemModel(model, uniqueIdRole, displayRole);
 }
 
 void SearchTextBar::setModel(AbstractAlbumModel* model)
 {
-    d->completion->setModel(model, AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
+    d->completer->setItemModel(model, AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
 }
 
 void SearchTextBar::setFilterModel(AlbumFilterModel* filterModel)
@@ -207,7 +202,7 @@ SearchTextBar::HighlightState SearchTextBar::getCurrentHighlightState() const
         return NO_RESULT;
     }
 
-    kError() << "Impossible highlighting state";
+    qCDebug(DIGIKAM_WIDGETS_LOG) << "Impossible highlighting state";
 
     return NEUTRAL;
 }
@@ -244,6 +239,11 @@ SearchTextSettings SearchTextBar::searchTextSettings() const
     return d->settings;
 }
 
+ModelCompleter* SearchTextBar::completerModel() const
+{
+    return d->completer;
+}
+
 void SearchTextBar::slotTextChanged(const QString& text)
 {
     if (text.isEmpty())
@@ -259,7 +259,7 @@ void SearchTextBar::slotTextChanged(const QString& text)
 void SearchTextBar::slotSearchResult(bool match)
 {
     // only highlight if text is not empty or highlighting is disabled.
-    if (userText().isEmpty() || !d->highlightOnResult)
+    if (text().isEmpty() || !d->highlightOnResult)
     {
         setPalette(QPalette());
         return;
@@ -299,23 +299,21 @@ void SearchTextBar::setIgnoreCase(bool ignore)
 {
     if (hasCaseSensitive())
     {
-
         if (ignore)
         {
+            completer()->setCaseSensitivity(Qt::CaseInsensitive);
             d->settings.caseSensitive = Qt::CaseInsensitive;
         }
         else
         {
+            completer()->setCaseSensitivity(Qt::CaseSensitive);
             d->settings.caseSensitive = Qt::CaseSensitive;
         }
-
-        completionObject()->setIgnoreCase(ignore);
-
     }
     else
     {
+        completer()->setCaseSensitivity(Qt::CaseInsensitive);
         d->settings.caseSensitive = Qt::CaseInsensitive;
-        completionObject()->setIgnoreCase(true);
     }
 
     emit signalSearchTextSettings(d->settings);

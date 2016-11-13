@@ -6,7 +6,7 @@
  * Date        : 2004-11-16
  * Description : a widget to display an image with guides
  *
- * Copyright (C) 2004-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "imageguidewidget.moc"
+#include "imageguidewidget.h"
 
 // Qt includes
 
@@ -36,13 +36,12 @@
 
 // KDE includes
 
-#include <kstandarddirs.h>
-#include <kcursor.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "previewtoolbar.h"
 #include "exposurecontainer.h"
 #include "iccsettingscontainer.h"
@@ -119,10 +118,13 @@ public:
 };
 
 ImageGuideWidget::ImageGuideWidget(QWidget* const parent,
-                                   bool spotVisible, int guideMode,
-                                   const QColor& guideColor, int guideSize,
+                                   bool spotVisible,
+                                   int guideMode,
+                                   const QColor& guideColor,
+                                   int guideSize,
                                    bool blink, ImageIface::PreviewType type)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     int w            = 480;
     int h            = 320;
@@ -139,7 +141,7 @@ ImageGuideWidget::ImageGuideWidget(QWidget* const parent,
     d->iface         = new ImageIface(QSize(w, h));
     d->iface->setPreviewType(type);
     d->preview       = d->iface->preview();
-    d->preview.setIccProfile(d->iface->original()->getIccProfile());
+    d->preview.setIccProfile(d->iface->original() ? d->iface->original()->getIccProfile() : IccProfile());
 
     d->pixmap        = new QPixmap(w, h);
     d->rect          = QRect(w / 2 - d->preview.width() / 2, h / 2 - d->preview.height() / 2, d->preview.width(), d->preview.height());
@@ -411,14 +413,13 @@ void ImageGuideWidget::updatePixmap()
     if (d->selectedPoints.count() > 0)
     {
         QPainter::RenderHints hints = p.renderHints();
-
         QColor semiTransGuideColor  = QColor(d->guideColor.red(), d->guideColor.green(), d->guideColor.blue(), 75);
 
         QPoint point;
         int x = 0;
         int y = 0;
 
-        for (int i = 0; i < d->selectedPoints.count(); ++i)
+        for (int i = 0 ; i < d->selectedPoints.count() ; ++i)
         {
             point = d->selectedPoints.point(i);
             point = translatePointPosition(point);
@@ -542,7 +543,7 @@ void ImageGuideWidget::resizeEvent(QResizeEvent* e)
     int old_w         = d->preview.width();
     int old_h         = d->preview.height();
     d->preview        = d->iface->setPreviewSize(QSize(w, h));
-    d->preview.setIccProfile(d->iface->original()->getIccProfile());
+    d->preview.setIccProfile(d->iface->original() ? d->iface->original()->getIccProfile() : IccProfile());
 
     d->pixmap         = new QPixmap(w, h);
     d->previewPixmap  = new QPixmap(w, h);
@@ -799,8 +800,8 @@ QImage ImageGuideWidget::getMask() const
 
 QPoint ImageGuideWidget::translatePointPosition(QPoint& point) const
 {
-    int x = (int)(point.x() * (float)(d->preview.width())  / (float) d->iface->originalSize().width());
-    int y = (int)(point.y() * (float)(d->preview.height()) / (float) d->iface->originalSize().height());
+    int x  = (int)(point.x() * (float)(d->preview.width())  / (float) d->iface->originalSize().width());
+    int y  = (int)(point.y() * (float)(d->preview.height()) / (float) d->iface->originalSize().height());
     x     += d->rect.x() + 1;
     y     += d->rect.y() + 1;
     return (QPoint(x, y));

@@ -6,8 +6,8 @@
  * Date        : 2005-04-21
  * Description : a widget to edit time stamp.
  *
- * Copyright (C) 2005      by Tom Albers <tomalbers@kde.nl>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005      by Tom Albers <tomalbers at kde dot nl>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,23 +29,20 @@
 
 #include <QDateTime>
 
-// KDE includes
+// Local includes
 
-#include <khbox.h>
+#include "dwidgetutils.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
 /**
- * @class DDateTimeEdit
- * This class is basically the same as the KDateTime class
+ * This class is basically the same as the KDE Date Time widget
  * with the exception that a QTimeEdit is placed directly
  * besides it.
- *
- * @image html kdatetimeedit.png "This is how it looks"
- * @author Tom Albers
  */
-class DDateTimeEdit : public KHBox
+class DIGIKAM_EXPORT DDateTimeEdit : public DHBox
 {
     Q_OBJECT
 
@@ -56,7 +53,7 @@ public:
      * @param parent the parent widget
      * @param name the name of the widget
      */
-    DDateTimeEdit(QWidget* parent, const char* const name);
+    DDateTimeEdit(QWidget* const parent, const QString& name);
 
     /**
      * destructor
@@ -80,7 +77,7 @@ Q_SIGNALS:
      *  This signal is emitted whenever the user modifies the date or time.
      *  The passed date and time can be invalid.
      */
-    void dateTimeChanged( const QDateTime& dateTime );
+    void dateTimeChanged(const QDateTime& dateTime);
 
 private Q_SLOTS:
 

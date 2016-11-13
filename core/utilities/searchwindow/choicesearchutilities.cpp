@@ -21,19 +21,15 @@
  *
  * ============================================================ */
 
-#include "choicesearchutilities.moc"
+#include "choicesearchutilities.h"
 
 // Qt includes
 
 #include <QTreeView>
 
-// KDE includes
-
-#include <klocale.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "searchutilities.h"
 
 namespace Digikam
@@ -65,8 +61,9 @@ void ChoiceSearchModel::setChoice(const QMap<int, QString>& data)
 {
     if (m_entries.size())
     {
+        beginResetModel();
         m_entries.clear();
-        reset();
+        endResetModel();
     }
 
     for (QMap<int, QString>::const_iterator it = data.constBegin(); it != data.constEnd(); ++it)
@@ -79,8 +76,9 @@ void ChoiceSearchModel::setChoice(const QVariantList& data)
 {
     if (m_entries.size())
     {
+        beginResetModel();
         m_entries.clear();
-        reset();
+        endResetModel();
     }
 
     Q_ASSERT(data.size() % 2 == 0);
@@ -99,8 +97,9 @@ void ChoiceSearchModel::setChoice(const QStringList& data)
 {
     if (m_entries.size())
     {
+        beginResetModel();
         m_entries.clear();
-        reset();
+        endResetModel();
     }
 
     Q_ASSERT(data.size() % 2 == 0);
@@ -148,7 +147,7 @@ QStringList ChoiceSearchModel::checkedDisplayTexts() const
 void ChoiceSearchModel::setChecked(int i, bool checked)
 {
     m_entries[i].m_checkState = checked;
-    QModelIndex modelIndex  = index(i);
+    QModelIndex modelIndex    = index(i);
 
     emit dataChanged(modelIndex, modelIndex);
     emit checkStateChanged(m_entries.at(i).m_key, checked);
@@ -228,7 +227,8 @@ bool ChoiceSearchModel::setData(const QModelIndex& index, const QVariant& value,
 // --------------------------------------------------------------------------------------
 
 ChoiceSearchComboBox::ChoiceSearchComboBox(QWidget* const parent)
-    : ListViewComboBox(parent), m_label(0)
+    : ListViewComboBox(parent),
+      m_label(0)
 {
 }
 
@@ -243,19 +243,19 @@ ChoiceSearchModel* ChoiceSearchComboBox::model() const
     return static_cast<ChoiceSearchModel*>(ListViewComboBox::model());
 }
 
-RSqueezedClickLabel* ChoiceSearchComboBox::label() const
+DSqueezedClickLabel* ChoiceSearchComboBox::label() const
 {
     return m_label;
 }
 
 void ChoiceSearchComboBox::setLabelText(const QString& text)
 {
-    m_label->setText(text);
+    m_label->setAdjustedText(text);
 }
 
 void ChoiceSearchComboBox::labelClicked()
 {
-    kDebug() << "labelClicked";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "labelClicked";
     showPopup();
 }
 
@@ -268,11 +268,11 @@ void ChoiceSearchComboBox::installView(QAbstractItemView* v)
     view()->setAlternatingRowColors(true);
 
     // create the label
-    m_label = new RSqueezedClickLabel;
-    m_label->setTextElideMode(Qt::ElideRight);
+    m_label = new DSqueezedClickLabel;
+    m_label->setElideMode(Qt::ElideRight);
 
     // set a line edit that carries the label
-    ProxyClickLineEdit* lineEdit = new ProxyClickLineEdit;
+    ProxyClickLineEdit* const lineEdit = new ProxyClickLineEdit;
     lineEdit->setCursor(m_label->cursor());
     lineEdit->setWidget(m_label);
     setLineEdit(lineEdit);

@@ -6,7 +6,7 @@
  * Date        : 2004-12-01
  * Description : a widget to draw histogram curves
  *
- * Copyright (C) 2004-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,10 +26,10 @@
 
 // Qt includes
 
-#include <QtGui/QWidget>
-#include <QtCore/QEvent>
-#include <QtGui/QMouseEvent>
-#include <QtGui/QPaintEvent>
+#include <QWidget>
+#include <QEvent>
+#include <QMouseEvent>
+#include <QPaintEvent>
 
 // KDE includes
 
@@ -39,12 +39,11 @@
 
 #include "dcolor.h"
 #include "digikam_export.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
 
-class ImageHistogram;
 class ImageCurves;
 class DImg;
 

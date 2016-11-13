@@ -6,7 +6,7 @@
  * Date        : 2010-03-16
  * Description : Free rotation settings view.
  *
- * Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "freerotationsettings.moc"
+#include "freerotationsettings.h"
 
 // Qt includes
 
@@ -31,27 +31,22 @@
 #include <QFile>
 #include <QTextStream>
 #include <QCheckBox>
+#include <QUrl>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rcombobox.h>
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
+#include "dcombobox.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
@@ -71,16 +66,16 @@ public:
     static const QString configAntiAliasingEntry;
 
 public:
-    
+
     QCheckBox*       antialiasInput;
 
-    RIntNumInput*    angleInput;
-    RDoubleNumInput* fineAngleInput;
-    RComboBox*       autoCropCB;
+    DIntNumInput*    angleInput;
+    DDoubleNumInput* fineAngleInput;
+    DComboBox*       autoCropCB;
 };
 
-const QString FreeRotationSettings::Private::configAutoCropTypeEntry("Auto Crop Type");
-const QString FreeRotationSettings::Private::configAntiAliasingEntry("Anti Aliasing");
+const QString FreeRotationSettings::Private::configAutoCropTypeEntry(QLatin1String("Auto Crop Type"));
+const QString FreeRotationSettings::Private::configAntiAliasingEntry(QLatin1String("Anti Aliasing"));
 
 // --------------------------------------------------------
 
@@ -88,22 +83,23 @@ FreeRotationSettings::FreeRotationSettings(QWidget* const parent)
     : QWidget(parent),
       d(new Private)
 {
-    QGridLayout* grid = new QGridLayout(this);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    QGridLayout* const grid = new QGridLayout(this);
 
     // --------------------------------------------------------
 
-    QLabel* label3    = new QLabel(i18n("Main angle:"));
-    d->angleInput     = new RIntNumInput;
+    QLabel* const label3 = new QLabel(i18n("Main angle:"));
+    d->angleInput        = new DIntNumInput;
     d->angleInput->setRange(-180, 180, 1);
-    d->angleInput->setSliderEnabled(true);
     d->angleInput->setDefaultValue(0);
     d->angleInput->setWhatsThis(i18n("An angle in degrees by which to rotate the image. "
                                      "A positive angle rotates the image clockwise; "
                                      "a negative angle rotates it counter-clockwise."));
 
-    QLabel* label4    = new QLabel(i18n("Fine angle:"));
-    d->fineAngleInput = new RDoubleNumInput;
-    d->fineAngleInput->input()->setRange(-1.0, 1.0, 0.01, true);
+    QLabel* const label4 = new QLabel(i18n("Fine angle:"));
+    d->fineAngleInput    = new DDoubleNumInput;
+    d->fineAngleInput->setRange(-1.0, 1.0, 0.01);
     d->fineAngleInput->setDefaultValue(0);
     d->fineAngleInput->setWhatsThis(i18n("This value in degrees will be added to main angle value "
                                          "to set fine target angle."));
@@ -113,8 +109,8 @@ FreeRotationSettings::FreeRotationSettings(QWidget* const parent)
                                          "to the rotated image. "
                                          "In order to smooth the target image, it will be blurred a little."));
 
-    QLabel* label5    = new QLabel(i18n("Auto-crop:"));
-    d->autoCropCB     = new RComboBox;
+    QLabel* const label5 = new QLabel(i18n("Auto-crop:"));
+    d->autoCropCB        = new DComboBox;
     d->autoCropCB->addItem(i18nc("no autocrop", "None"));
     d->autoCropCB->addItem(i18n("Widest Area"));
     d->autoCropCB->addItem(i18n("Largest Area"));
@@ -131,8 +127,8 @@ FreeRotationSettings::FreeRotationSettings(QWidget* const parent)
     grid->addWidget(d->antialiasInput, 4, 0, 1, -1);
     grid->addWidget(label5,            5, 0, 1, 1);
     grid->addWidget(d->autoCropCB,     5, 1, 1, 1);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 

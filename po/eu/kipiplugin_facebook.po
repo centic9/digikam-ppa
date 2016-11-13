@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2010-06-26 15:29+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
@@ -19,89 +19,45 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.0\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Iñaki Larrañaga Murgoitio"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "dooteo@euskalgnu.org"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Facebook-eko album berria"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "Sortuko den albumaren titulua (beharrezkoa)."
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "Sortuko den albumaren kokalekua (aukerakoa)."
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "Sortuko den albumaren azalpena (aukerakoa)."
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Sortuko den albumaren ezarpen pribatuak (beharrezkoa)."
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 #, fuzzy
 #| msgid "Only Friends"
 msgid "Only Me"
 msgstr "Lagunak soilik"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "Lagunak soilik"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "Lagunen lagunak"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "Nire sarekoak eta lagunak"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "Edonor"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "Titulua:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "Kokalekua:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "Azalpena:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "Pribatutasuna:"
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "Balidatu aurreko saioa..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr ""
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Facebook aplikazioaren autentifikazioa"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 #, fuzzy
 #| msgid ""
 #| "Please follow the instructions in the browser window. Press \"Yes\" if "
@@ -113,235 +69,73 @@ msgstr ""
 "Jarraitu web arakatzaileko instrukzioak. Egin klik \"Bai\" botoian "
 "autentifikatu bazara, eta \"Ez\" botoian huts egin baduzu."
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "Erabiltzaileak bertan behera utzita."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "Zerbitzua ez dago erabilgarri une honetan."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Aplikazioak gehienezko baimendutako eskaera kopurura iritsi da."
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "Saioaren gakoa baliogabea, edo saioa iraungituta. Saiatu saioan berriro "
 "sartzen."
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "Albumaren IDa baliogabea."
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "Albuma beteta dago."
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "Fitxategia falta da edo ez da baliozkoa."
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "Argazki gehiegi daude onartzeko zain."
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr "Facebook-eko zure kontura igoko diren irudien zerrenda da."
-
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
+#: fbtalker.cpp:602
+msgid "Error"
 msgstr ""
-"Esteka honetan klik egin dezakezu Facebook-eko hasierako orrialdea "
-"irekitzeko web arakatzaile batean."
 
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "Kontua"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "Unean saioa hasita dagoen Facebook-eko kontua da."
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "Izena:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "Baimena:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
-msgstr ""
-"KIPI-ren plugin aplikazioaren baimena zuzenean argazkiak igotzeko.  Bestela, "
-"erabiltzaileak eskuz onartu beharko ditu igotako argazkiak Facebook-en."
-
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "Aldatu kontua"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr ""
-"Amaitu saioa eta aldatu transferentzian erabilitako Facebook-eko kontua"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "Deskargatu hautapena"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "Facebook-eko hautapena da albumak/argazkiak deskargatzeko."
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "Helburua"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr "Facebook-eko albuma, horra hautatutako argazkiak igotzeko."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "Nire &albuma"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "Unean saioa hasita duen erabiltzailearen album osoa deskargatu."
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "Nire &lagunaren albuma"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "Hautatutako lagunaren album osoa deskargatu."
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "Nire a&rgazkiak"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "Unean saioa hasita duen erabiltzailearen argazki guztiak deskargatu."
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "Nire la&gunaren argazkiak"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "Hautatutako lagunaren argazki guztiak deskargatu."
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "Laguna:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "Albuma:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "Album berria"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "Sortu album berria Facebook-en"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "Birkargatu"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "Birkargatu albumaren zerrenda"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr "Facebook-eko kokalekua irudiak deskargatzeko."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "Aukerak"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr "Aukera hauek argazkiei aplikatuko zaizkie igo aurretik."
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "Aldatu argazkien tamaina igo aurretik"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "Gehienezko dimentsioa:"
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "JPEGaren kalitatea:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "Zuzeneko igoera"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr "Igotako argazkiak ez dute erabiltzailearen eskuzko onarpenik behar."
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "Igoeraren eskuzko onarpena"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr "Igotako argazkiek erabiltzaileak eskuz onartu arte zain egongo dira."
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "Inportatu Facebook-eko web zerbitzutik"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "Hasi deskarga"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "Hasi deskarga Facebook-eko web zerbitzutik"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "Esportatu Facebook-eko web zerbitzura"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "Hasi igoera"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "Hasi igoera Facebook-eko web zerbitzura"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
+#: fbwindow.cpp:140
+#, fuzzy
+#| msgid "Facebook Import/Export"
+msgid "Facebook Export"
 msgstr "Facebook-eko inportazioa/esportazioa"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to import/export image collection to/from Facebook web "
+#| "service."
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
 "Kipi-ren plugina Facebook web zerbitzutik irudien bilduma inportatzeko/"
 "esportatzeko."
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -350,70 +144,70 @@ msgstr ""
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2009, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "Egilea eta mantentzailea"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr ""
-
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr ""
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+#, fuzzy
+#| msgid "&lt;auto create&gt;"
+msgid "<auto create>"
 msgstr "&lt;sortu automatikoki&gt;"
 
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Huts egin du Facebook-i deitzean: %1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "Profilaren irudiak"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr ""
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr ""
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr ""
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr ""
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-#, fuzzy
-#| msgid "Facebook Import/Export"
-msgid "Facebook import"
-msgstr "Facebook-eko inportazioa/esportazioa"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 #, fuzzy
 #| msgid "Facebook Import/Export"
 msgid "Facebook export"
 msgstr "Facebook-eko inportazioa/esportazioa"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "Ezin da fitxategia ireki"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+#, fuzzy
+#| msgid "Uploading file %1"
+msgid "Uploading Failed"
+msgstr "Envoi du fichier %1"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -422,25 +216,7 @@ msgstr ""
 "Huts egin du argazkia Facebook-era igotzean: %1\n"
 "Jarraitzea nahi duzu?"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Huts egin du argazkia gordetzean: %1\n"
-"Jarraitzea nahi duzu?"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Huts egin du argazkia deskargatzean: %1\n"
-"Jarraitzea nahi duzu?"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Huts egin du Facebook-i deitzean: %1"
@@ -460,13 +236,210 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "&Esportatu Facebook-era..."
 
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "&Inportatu Facebook-etik..."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Iñaki Larrañaga Murgoitio"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "dooteo@euskalgnu.org"
+
+#~ msgid "Facebook New Album"
+#~ msgstr "Facebook-eko album berria"
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Sortuko den albumaren titulua (beharrezkoa)."
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "Sortuko den albumaren kokalekua (aukerakoa)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Sortuko den albumaren azalpena (aukerakoa)."
+
+#~ msgctxt "new facebook album"
+#~ msgid "Title:"
+#~ msgstr "Titulua:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Location:"
+#~ msgstr "Kokalekua:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Description:"
+#~ msgstr "Azalpena:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Privacy:"
+#~ msgstr "Pribatutasuna:"
+
+#~ msgid "This is the list of images to upload to your Facebook account."
+#~ msgstr "Facebook-eko zure kontura igoko diren irudien zerrenda da."
+
+#~ msgid ""
+#~ "This is a clickable link to open the Facebook home page in a web browser."
+#~ msgstr ""
+#~ "Esteka honetan klik egin dezakezu Facebook-eko hasierako orrialdea "
+#~ "irekitzeko web arakatzaile batean."
+
+#~ msgid "Account"
+#~ msgstr "Kontua"
+
+#~ msgid "This is the Facebook account that is currently logged in."
+#~ msgstr "Unean saioa hasita dagoen Facebook-eko kontua da."
+
+#~ msgctxt "facebook account settings"
+#~ msgid "Name:"
+#~ msgstr "Izena:"
+
+#~ msgid "Permission:"
+#~ msgstr "Baimena:"
+
+#~ msgid ""
+#~ "Permission of KIPI Plugin application to upload photos directly. If not, "
+#~ "user will need to manually approve uploaded photos in Facebook."
+#~ msgstr ""
+#~ "KIPI-ren plugin aplikazioaren baimena zuzenean argazkiak igotzeko.  "
+#~ "Bestela, erabiltzaileak eskuz onartu beharko ditu igotako argazkiak "
+#~ "Facebook-en."
+
+#~ msgid "Change Account"
+#~ msgstr "Aldatu kontua"
+
+#~ msgid "Logout and change Facebook Account used for transfer"
+#~ msgstr ""
+#~ "Amaitu saioa eta aldatu transferentzian erabilitako Facebook-eko kontua"
+
+#~ msgid "Download Selection"
+#~ msgstr "Deskargatu hautapena"
+
+#~ msgid "This is the selection of Facebook albums/photos to download."
+#~ msgstr "Facebook-eko hautapena da albumak/argazkiak deskargatzeko."
+
+#~ msgid "Destination"
+#~ msgstr "Helburua"
+
+#~ msgid ""
+#~ "This is the Facebook album to which selected photos will be uploaded."
+#~ msgstr "Facebook-eko albuma, horra hautatutako argazkiak igotzeko."
+
+#~ msgid "My &Album"
+#~ msgstr "Nire &albuma"
+
+#~ msgid "Download complete album of currently logged in user."
+#~ msgstr "Unean saioa hasita duen erabiltzailearen album osoa deskargatu."
+
+#~ msgid "Album &of My Friend"
+#~ msgstr "Nire &lagunaren albuma"
+
+#~ msgid "Download complete album of selected friend."
+#~ msgstr "Hautatutako lagunaren album osoa deskargatu."
+
+#~ msgid "Photos of &Me"
+#~ msgstr "Nire a&rgazkiak"
+
+#~ msgid "Download all photos of currently logged in user."
+#~ msgstr ""
+#~ "Unean saioa hasita duen erabiltzailearen argazki guztiak deskargatu."
+
+#~ msgid "Photos of My &Friend"
+#~ msgstr "Nire la&gunaren argazkiak"
+
+#~ msgid "Download all photos of selected friend."
+#~ msgstr "Hautatutako lagunaren argazki guztiak deskargatu."
+
+#~ msgid "Friend:"
+#~ msgstr "Laguna:"
+
+#~ msgid "Album:"
+#~ msgstr "Albuma:"
+
+#~ msgid "New Album"
+#~ msgstr "Album berria"
+
+#~ msgid "Create new Facebook album"
+#~ msgstr "Sortu album berria Facebook-en"
+
+#~ msgctxt "facebook album list"
+#~ msgid "Reload"
+#~ msgstr "Birkargatu"
+
+#~ msgid "Reload album list"
+#~ msgstr "Birkargatu albumaren zerrenda"
+
+#~ msgid "This is the location to which Facebook images will be downloaded."
+#~ msgstr "Facebook-eko kokalekua irudiak deskargatzeko."
+
+#~ msgid "Options"
+#~ msgstr "Aukerak"
+
+#~ msgid "These are options that will be applied to photos before upload."
+#~ msgstr "Aukera hauek argazkiei aplikatuko zaizkie igo aurretik."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Aldatu argazkien tamaina igo aurretik"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "Gehienezko dimentsioa:"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "JPEGaren kalitatea:"
+
+#~ msgid "Direct upload"
+#~ msgstr "Zuzeneko igoera"
+
+#~ msgid "Uploaded photos will not need manual approval by user."
+#~ msgstr "Igotako argazkiak ez dute erabiltzailearen eskuzko onarpenik behar."
+
+#~ msgid "Manual upload approval"
+#~ msgstr "Igoeraren eskuzko onarpena"
+
+#~ msgid ""
+#~ "Uploaded photos will wait in pending state until manually approved by "
+#~ "user."
+#~ msgstr ""
+#~ "Igotako argazkiek erabiltzaileak eskuz onartu arte zain egongo dira."
+
+#~ msgid "Import from Facebook Web Service"
+#~ msgstr "Inportatu Facebook-eko web zerbitzutik"
+
+#~ msgid "Start Download"
+#~ msgstr "Hasi deskarga"
+
+#~ msgid "Start download from Facebook web service"
+#~ msgstr "Hasi deskarga Facebook-eko web zerbitzutik"
+
+#~ msgid "Facebook Import/Export"
+#~ msgstr "Facebook-eko inportazioa/esportazioa"
+
+#~ msgctxt "name of special Facebook album for profile pictures"
+#~ msgid "Profile Pictures"
+#~ msgstr "Profilaren irudiak"
+
+#, fuzzy
+#~| msgid "Facebook Import/Export"
+#~ msgid "Facebook import"
+#~ msgstr "Facebook-eko inportazioa/esportazioa"
+
+#~ msgid ""
+#~ "Failed to save photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Huts egin du argazkia gordetzean: %1\n"
+#~ "Jarraitzea nahi duzu?"
+
+#~ msgid ""
+#~ "Failed to download photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Huts egin du argazkia deskargatzean: %1\n"
+#~ "Jarraitzea nahi duzu?"
+
+#~ msgid "Import from &Facebook..."
+#~ msgstr "&Inportatu Facebook-etik..."
 
 #~ msgid ""
 #~ "Please follow the instructions in the browser window. Press \"OK\" when "
@@ -500,9 +473,6 @@ msgstr "&Inportatu Facebook-etik..."
 
 #~ msgid "Transfer Progress"
 #~ msgstr "Avancement du transfert"
-
-#~ msgid "Uploading file %1"
-#~ msgstr "Envoi du fichier %1"
 
 #~ msgid "Downloading file %1"
 #~ msgstr "Téléchargement du fichier %1"

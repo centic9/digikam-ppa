@@ -7,7 +7,7 @@
  * Description : Icon view for import tool items
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,18 +22,14 @@
  *
  * ============================================================ */
 
-#include "importiconview.moc"
+#include "importiconview.h"
 #include "importiconview_p.h"
 
 // Qt includes
 
 #include <QPointer>
 #include <QAction>
-
-// KDE includes
-
-#include <klocale.h>
-#include <kmenu.h>
+#include <QMenu>
 
 // Local includes
 
@@ -53,10 +49,11 @@ namespace Digikam
 {
 
 ImportIconView::ImportIconView(QWidget* const parent)
-    : ImportCategorizedView(parent), d(new Private(this))
+    : ImportCategorizedView(parent),
+      d(new Private(this))
 {
-    ImportThumbnailModel* model    = new ImportThumbnailModel(this);
-    ImportFilterModel* filterModel = new ImportFilterModel(this);
+    ImportThumbnailModel* const model    = new ImportThumbnailModel(this);
+    ImportFilterModel* const filterModel = new ImportFilterModel(this);
 
     filterModel->setSourceImportModel(model);
     filterModel->sort(0); // an initial sorting is necessary
@@ -143,12 +140,12 @@ int ImportIconView::fitToWidthIcons()
 
 CamItemInfo ImportIconView::camItemInfo(const QString& folder, const QString& file)
 {
-    KUrl url(folder);
-    url.adjustPath(KUrl::AddTrailingSlash);
-    url.setFileName(file);
+    QUrl url = QUrl::fromLocalFile(folder);
+    url      = url.adjusted(QUrl::StripTrailingSlash);
+    url.setPath(url.path() + QLatin1Char('/') + (file));
     QModelIndex indexForCamItemInfo = importFilterModel()->indexForPath(url.toLocalFile());
 
-    if(indexForCamItemInfo.isValid())
+    if (indexForCamItemInfo.isValid())
     {
         return importFilterModel()->camItemInfo(indexForCamItemInfo);
     }
@@ -158,11 +155,12 @@ CamItemInfo ImportIconView::camItemInfo(const QString& folder, const QString& fi
 
 CamItemInfo& ImportIconView::camItemInfoRef(const QString& folder, const QString& file)
 {
-    KUrl url(folder);
-    url.adjustPath(KUrl::AddTrailingSlash);
-    url.setFileName(file);
+    QUrl url = QUrl::fromLocalFile(folder);
+    url      = url.adjusted(QUrl::StripTrailingSlash);
+    url.setPath(url.path() + QLatin1Char('/') + (file));
     QModelIndex indexForCamItemInfo = importFilterModel()->indexForPath(url.toLocalFile());
-    QModelIndex mappedIndex = importFilterModel()->mapToSource(indexForCamItemInfo);
+    QModelIndex mappedIndex         = importFilterModel()->mapToSource(indexForCamItemInfo);
+
     return importImageModel()->camItemInfoRef(mappedIndex);
 }
 
@@ -178,13 +176,13 @@ void ImportIconView::slotSetupChanged()
 
 void ImportIconView::rename()
 {
-    KUrl::List   urls = selectedUrls();
+    QList<QUrl>  urls = selectedUrls();
     NewNamesList newNamesList;
 
     QPointer<AdvancedRenameDialog> dlg = new AdvancedRenameDialog(this);
     dlg->slotAddImages(urls);
 
-    if (dlg->exec() == KDialog::Accepted)
+    if (dlg->exec() == QDialog::Accepted)
     {
         newNamesList = dlg->newNames();
     }
@@ -204,10 +202,12 @@ void ImportIconView::deleteSelected(bool /*permanently*/)
     CamItemInfoList camItemInfoList = selectedCamItemInfos();
 
     //FIXME: This way of deletion may not working with camera items.
-    //if (d->utilities->deleteImages(camItemInfoList, permanently))
-    //{
-    //    awayFromSelection();
-    //}
+/*
+    if (d->utilities->deleteImages(camItemInfoList, permanently))
+    {
+       awayFromSelection();
+    }
+*/
 }
 
 void ImportIconView::deleteSelectedDirectly(bool /*permanently*/)
@@ -221,29 +221,33 @@ void ImportIconView::deleteSelectedDirectly(bool /*permanently*/)
 void ImportIconView::createGroupFromSelection()
 {
     //TODO: Impelemnt grouping in import tool.
-    //QList<CamItemInfo> selectedInfos = selectedCamItemInfosCurrentFirst();
-    //CamItemInfo groupLeader          = selectedInfos.takeFirst();
-    //FileActionMngr::instance()->addToGroup(groupLeader, selectedInfos);
+/*
+    QList<CamItemInfo> selectedInfos = selectedCamItemInfosCurrentFirst();
+    CamItemInfo groupLeader          = selectedInfos.takeFirst();
+    FileActionMngr::instance()->addToGroup(groupLeader, selectedInfos);
+*/
 }
 
 void ImportIconView::createGroupByTimeFromSelection()
 {
     //TODO: Impelemnt grouping in import tool.
-    //QList<CamItemInfo> selectedInfos = selectedCamItemInfosCurrentFirst();
+/*
+    QList<CamItemInfo> selectedInfos = selectedCamItemInfosCurrentFirst();
 
-    //while (selectedInfos.size() > 0)
-    //{
-        //QList<CamItemInfo> group;
-        //CamItemInfo groupLeader = selectedInfos.takeFirst();
-        //QDateTime dateTime    = groupLeader.dateTime();
+    while (selectedInfos.size() > 0)
+    {
+        QList<CamItemInfo> group;
+        CamItemInfo groupLeader = selectedInfos.takeFirst();
+        QDateTime dateTime    = groupLeader.dateTime();
 
-        //while (selectedInfos.size() > 0 && abs(dateTime.secsTo(selectedInfos.first().dateTime())) < 2)
-        //{
-        //    group.push_back(selectedInfos.takeFirst());
-        //}
+        while (selectedInfos.size() > 0 && abs(dateTime.secsTo(selectedInfos.first().dateTime())) < 2)
+        {
+           group.push_back(selectedInfos.takeFirst());
+        }
 
-        //FileActionMngr::instance()->addToGroup(groupLeader, group);
-    //}
+        FileActionMngr::instance()->addToGroup(groupLeader, group);
+    }
+*/
 }
 
 void ImportIconView::ungroupSelected()
@@ -260,7 +264,7 @@ void ImportIconView::removeSelectedFromGroup()
 
 void ImportIconView::slotRotateLeft(const QList<QModelIndex>& /*indexes*/)
 {
-    /*
+/*
     QList<ImageInfo> imageInfos;
 
     foreach(const QModelIndex& index, indexes)
@@ -269,13 +273,13 @@ void ImportIconView::slotRotateLeft(const QList<QModelIndex>& /*indexes*/)
         imageInfos << imageInfo;
     }
 
-    FileActionMngr::instance()->transform(imageInfos, KExiv2Iface::RotationMatrix::Rotate270);
-    */
+    FileActionMngr::instance()->transform(imageInfos, MetaEngineRotation::Rotate270);
+*/
 }
 
 void ImportIconView::slotRotateRight(const QList<QModelIndex>& /*indexes*/)
 {
-    /*
+/*
     QList<ImageInfo> imageInfos;
 
     foreach(const QModelIndex& index, indexes)
@@ -284,8 +288,8 @@ void ImportIconView::slotRotateRight(const QList<QModelIndex>& /*indexes*/)
         imageInfos << imageInfo;
     }
 
-    FileActionMngr::instance()->transform(imageInfos, KExiv2Iface::RotationMatrix::Rotate90);
-    */
+    FileActionMngr::instance()->transform(imageInfos, MetaEngineRotation::Rotate90);
+*/
 }
 
 void ImportIconView::activated(const CamItemInfo& info, Qt::KeyboardModifiers)
@@ -317,27 +321,27 @@ void ImportIconView::showContextMenuOnInfo(QContextMenuEvent* event, const CamIt
 
     // --------------------------------------------------------
 
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ImportContextMenuHelper cmhelper(&popmenu);
 
-    cmhelper.addAction("importui_fullscreen");
-    cmhelper.addAction("options_show_menubar");
-    cmhelper.addAction("import_zoomfit2window");
+    cmhelper.addAction(QLatin1String("importui_fullscreen"));
+    cmhelper.addAction(QLatin1String("options_show_menubar"));
+    cmhelper.addAction(QLatin1String("import_zoomfit2window"));
     cmhelper.addSeparator();
     // --------------------------------------------------------
-    cmhelper.addAction("importui_imagedownload");
-    cmhelper.addAction("importui_imagemarkasdownloaded");
-    cmhelper.addAction("importui_imagelock");
-    cmhelper.addAction("importui_delete");
+    cmhelper.addAction(QLatin1String("importui_imagedownload"));
+    cmhelper.addAction(QLatin1String("importui_imagemarkasdownloaded"));
+    cmhelper.addAction(QLatin1String("importui_imagelock"));
+    cmhelper.addAction(QLatin1String("importui_delete"));
     cmhelper.addSeparator();
-    cmhelper.addAction("importui_item_view");
+    cmhelper.addAction(QLatin1String("importui_item_view"));
     cmhelper.addServicesMenu(selectedUrls());
     //TODO: cmhelper.addRotateMenu(selectedItemIDs);
     cmhelper.addSeparator();
     // --------------------------------------------------------
-    cmhelper.addAction("importui_selectall");
-    cmhelper.addAction("importui_selectnone");
-    cmhelper.addAction("importui_selectinvert");
+    cmhelper.addAction(QLatin1String("importui_selectall"));
+    cmhelper.addAction(QLatin1String("importui_selectnone"));
+    cmhelper.addAction(QLatin1String("importui_selectinvert"));
     cmhelper.addSeparator();
     // --------------------------------------------------------
     //cmhelper.addAssignTagsMenu(selectedItemIDs);
@@ -353,14 +357,14 @@ void ImportIconView::showContextMenuOnInfo(QContextMenuEvent* event, const CamIt
     // special action handling --------------------------------
 
     //connect(&cmhelper, SIGNAL(signalAssignTag(int)),
-            //this, SLOT(assignTagToSelected(int)));
+    //        this, SLOT(assignTagToSelected(int)));
 
     //TODO: Implement tag view for import tool.
     //connect(&cmhelper, SIGNAL(signalPopupTagsView()),
-            //this, SIGNAL(signalPopupTagsView()));
+    //        this, SIGNAL(signalPopupTagsView()));
 
     //connect(&cmhelper, SIGNAL(signalRemoveTag(int)),
-            //this, SLOT(removeTagFromSelected(int)));
+    //        this, SLOT(removeTagFromSelected(int)));
 
     //connect(&cmhelper, SIGNAL(signalGotoTag(int)),
             //this, SIGNAL(gotoTagAndImageRequested(int)));
@@ -393,13 +397,13 @@ void ImportIconView::showContextMenuOnInfo(QContextMenuEvent* event, const CamIt
 
 void ImportIconView::showContextMenu(QContextMenuEvent* event)
 {
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ImportContextMenuHelper cmhelper(&popmenu);
 
-    cmhelper.addAction("importui_fullscreen");
-    cmhelper.addAction("options_show_menubar");
+    cmhelper.addAction(QLatin1String("importui_fullscreen"));
+    cmhelper.addAction(QLatin1String("options_show_menubar"));
     cmhelper.addSeparator();
-    cmhelper.addAction("importui_close");
+    cmhelper.addAction(QLatin1String("importui_close"));
 
     // --------------------------------------------------------
 

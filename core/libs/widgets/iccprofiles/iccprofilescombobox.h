@@ -24,17 +24,15 @@
 #ifndef ICCPROFILESCOMBOBOX_H
 #define ICCPROFILESCOMBOBOX_H
 
-// KDE includes
+// Qt includes
 
-#include <kactionmenu.h>
-#include <kcombobox.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/squeezedcombobox.h>
+#include <QComboBox>
+#include <QIcon>
+#include <QMenu>
 
 // Local includes
 
+#include "squeezedcombobox.h"
 #include "digikam_export.h"
 #include "iccprofile.h"
 
@@ -43,7 +41,7 @@ class QSignalMapper;
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT IccProfilesComboBox : public KDcrawIface::SqueezedComboBox
+class DIGIKAM_EXPORT IccProfilesComboBox : public SqueezedComboBox
 {
     Q_OBJECT
 
@@ -72,9 +70,12 @@ public:
      */
     void setNoProfileIfEmpty(const QString& message);
 
-    /// Retrieves the current profile, or a null profile if none is selected.
+    /** Retrieves the current profile, or a null profile if none is selected.
+     */
     IccProfile currentProfile() const;
-    /// Sets the current profile. If profile is not in the list, sets no current item (-1)
+
+    /** Sets the current profile. If profile is not in the list, sets no current item (-1)
+     */
     void setCurrentProfile(const IccProfile& profile);
 
     /// Use the signal currentIndexChanged(int) for change notification
@@ -82,7 +83,7 @@ public:
 
 // ----------------------------------------------------------------------------
 
-class DIGIKAM_EXPORT IccRenderingIntentComboBox : public KComboBox
+class DIGIKAM_EXPORT IccRenderingIntentComboBox : public QComboBox
 {
 public:
 
@@ -94,13 +95,13 @@ public:
 
 // ----------------------------------------------------------------------------
 
-class DIGIKAM_EXPORT IccProfilesMenuAction : public KActionMenu
+class DIGIKAM_EXPORT IccProfilesMenuAction : public QMenu
 {
     Q_OBJECT
 
 public:
 
-    IccProfilesMenuAction(const KIcon& icon, const QString& text, QObject* const parent);
+    IccProfilesMenuAction(const QIcon& icon, const QString& text, QObject* const parent);
     IccProfilesMenuAction(const QString& text, QObject* const parent);
 
     /**
@@ -108,23 +109,22 @@ public:
      * removes duplicates (in newly added list) by file path, sorts them and adds them in sorted order.
      */
     void addProfiles(const QList<IccProfile>& profile);
+
     /**
      * Add the given profile with the given description, or, if null, a standard description.
      * Does not test for duplicity, does not sort into existing profiles.
      */
     void addProfile(const IccProfile& profile, const QString& description = QString());
+
     /**
      * Equivalent to calling clear() and addProfiles().
      */
     void replaceProfiles(const QList<IccProfile>& profile);
+
     /**
      * Disables if the menu is currently empty.
      */
     void disableIfEmpty();
-    /**
-     * Clears the menu.
-     */
-    void clear();
 
 Q_SIGNALS:
 

@@ -6,7 +6,7 @@
  * Date        : 2012-07-13
  * Description : Qt categorized item view for showfoto items
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,7 +26,7 @@
 
 // Local includes
 
-#include "dcategorizedview.h"
+#include "itemviewcategorized.h"
 #include "showfotoimagemodel.h"
 #include "showfotofiltermodel.h"
 #include "showfotothumbnailmodel.h"
@@ -38,7 +38,7 @@ namespace ShowFoto
 
 class ShowfotoDelegate;
 
-class ShowfotoCategorizedView : public DCategorizedView
+class ShowfotoCategorizedView : public ItemViewCategorized
 {
 public:
 
@@ -65,18 +65,18 @@ public:
     ShowfotoDelegate*           delegate()                              const;
 
     ShowfotoItemInfo            currentInfo()                           const;
-    KUrl                        currentUrl()                            const;
+    QUrl                        currentUrl()                            const;
 
     QList<ShowfotoItemInfo>     selectedShowfotoItemInfos()             const;
     QList<ShowfotoItemInfo>     selectedShowfotoItemInfosCurrentFirst() const;
-    KUrl::List                  selectedUrls()                          const;
+    QList<QUrl>                  selectedUrls()                          const;
 
     QList<ShowfotoItemInfo>     showfotoItemInfos()                     const;
-    KUrl::List                  urls()                                  const;
+    QList<QUrl>                  urls()                                  const;
 
     /** Selects the index as current and scrolls to it
      */
-    void toIndex(const KUrl& url);
+    void toIndex(const QUrl& url);
 
     /** Returns the n-th info after the given one.
      *  Specifically, return the previous info for nth = -1
@@ -118,7 +118,7 @@ public Q_SLOTS:
 
     /** Set as current item the item identified by its file url
      */
-    void setCurrentUrl(const KUrl& url);
+    void setCurrentUrl(const QUrl& url);
 
     /** Set as current item the item identified by the ShowfotoItemInfo
      */
@@ -126,7 +126,7 @@ public Q_SLOTS:
 
     /** Set selected items identified by their file urls
      */
-    void setSelectedUrls(const KUrl::List& urlList);
+    void setSelectedUrls(const QList<QUrl>& urlList);
 
     /** Set selected items
      */
@@ -188,6 +188,6 @@ private:
     Private* const d;
 };
 
-} // namespace Showfoto 
+} // namespace Showfoto
 
 #endif // SHOWFOTOCATEGORIZEDVIEW_H

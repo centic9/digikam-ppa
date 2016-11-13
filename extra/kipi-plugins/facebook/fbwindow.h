@@ -7,7 +7,7 @@
  * Description : a kipi plugin to import/export images to Facebook web service
  *
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -29,9 +29,9 @@
 
 #include <QList>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
@@ -39,7 +39,7 @@
 
 class QCloseEvent;
 
-class KUrl;
+class QUrl;
 
 namespace KIPI
 {
@@ -70,7 +70,7 @@ class FbWindow : public KPToolDialog
 
 public:
 
-    FbWindow(const QString& tmpFolder, bool import, QWidget* const parent);
+    FbWindow(const QString& tmpFolder, QWidget* const parent);
     ~FbWindow();
 
     /**
@@ -85,33 +85,28 @@ private Q_SLOTS:
     void slotLoginProgress(int step, int maxStep, const QString& label);
     void slotLoginDone(int errCode, const QString& errMsg);
     void slotAddPhotoDone(int errCode, const QString& errMsg);
-    void slotGetPhotoDone(int errCode, const QString& errMsg,
-                          const QByteArray& photoData);
     void slotCreateAlbumDone(int errCode, const QString& errMsg,
                              const QString &newAlbumID);
     void slotListAlbumsDone(int errCode, const QString& errMsg,
                             const QList<FbAlbum>& albumsList);
-    void slotListPhotosDone(int errCode, const QString& errMsg,
-                            const QList<FbPhoto>& photosList);
-    void slotListFriendsDone(int errCode, const QString& errMsg,
-                             const QList<FbUser>& friendsList);
 
     void slotUserChangeRequest();
     void slotReloadAlbumsRequest(long long userID);
     void slotNewAlbumRequest();
     void slotStartTransfer();
     void slotImageListChanged();
-    void slotButtonClicked(int button);
     void slotStopAndCloseProgressBar();
+
+    void slotFinished();
+    void slotCancelClicked();
 
 private:
 
     void    setProfileAID(long long userID);
     QString getImageCaption(const QString& fileName);
-    bool    prepareImageForUpload(const QString& imgPath, bool isRAW, QString& caption);
+    bool    prepareImageForUpload(const QString& imgPath, QString& caption);
 
     void    uploadNextPhoto();
-    void    downloadNextPhoto();
 
     void    readSettings();
     void    writeSettings();
@@ -124,7 +119,6 @@ private:
 
 private:
 
-    bool         m_import;
     unsigned int m_imagesCount;
     unsigned int m_imagesTotal;
     QString      m_tmpDir;
@@ -139,11 +133,15 @@ private:
     unsigned int m_sessionExpires;
     QString      m_accessToken;            // OAuth access token
 
-    KUrl::List   m_transferQueue;
+    QList<QUrl>  m_transferQueue;
 
     FbTalker*    m_talker;
-    FbWidget*    m_widget;
     FbNewAlbum*  m_albumDlg;
+
+private:
+
+    class Private;
+    Private* const d;
 };
 
 } // namespace KIPIFacebookPlugin

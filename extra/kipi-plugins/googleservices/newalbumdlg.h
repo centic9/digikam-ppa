@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2010-02-01
- * Description : a kipi plugin to export images to Picasa web service
+ * Description : a kipi plugin to export images to Google Photo web service
  *
  * Copyright (C) 2010 by Jens Mueller <tschenser at gmx dot de>
  *
@@ -27,39 +27,35 @@
 
 #include <QRadioButton>
 #include <QDateTimeEdit>
-
-// KDE includes
-
-#include <klocale.h>
-#include <kdialog.h>
-#include <kcombobox.h>
-#include <klineedit.h>
-#include <ktextedit.h>
+#include <QDialog>
+#include <QLineEdit>
+#include <QTextEdit>
+#include <QComboBox>
+#include <QCloseEvent>
 
 // Local includes
+
+#include "kpnewalbumdialog.h"
+
+using namespace KIPIPlugins;
 
 namespace KIPIGoogleServicesPlugin
 {
 
 class GSFolder;
 
-class NewAlbumDlg : public KDialog
+class NewAlbumDlg : public KPNewAlbumDialog
 {
     Q_OBJECT
 
 public:
 
-    NewAlbumDlg(QWidget* const parent, const QString& serviceName);
+    NewAlbumDlg(QWidget* const parent, const QString& serviceName, const QString& pluginName);
     ~NewAlbumDlg();
 
     void getAlbumProperties(GSFolder& album);
 
 private:
-
-    KLineEdit*     m_titleEdt;
-    KTextEdit*     m_descEdt;
-    KLineEdit*     m_locEdt;
-    QDateTimeEdit* m_dtEdt;
 
     QString        m_serviceName;
     QRadioButton*  m_publicRBtn;

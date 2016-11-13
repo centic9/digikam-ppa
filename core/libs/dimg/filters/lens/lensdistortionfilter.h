@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : lens distortion algorithm.
  *
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2001-2003 by David Hodson <hodsond@acm.org>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -48,12 +48,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:LensDistortionFilter";
+        return QLatin1String("digikam:LensDistortionFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Lens Distortion Tool");
+        return QString::fromUtf8(I18N_NOOP("Lens Distortion Tool"));
     }
 
     static QList<int>       SupportedVersions()

@@ -6,7 +6,7 @@
  * Date        : 2012-01-30
  * Description : maintenance dialog
  *
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,9 +24,9 @@
 #ifndef MAINTENANCEDLG_H
 #define MAINTENANCEDLG_H
 
-// KDE includes
+// Qt includes
 
-#include <kdialog.h>
+#include <QDialog>
 
 // Local includes
 
@@ -36,7 +36,7 @@
 namespace Digikam
 {
 
-class MaintenanceDlg : public KDialog
+class MaintenanceDlg : public QDialog
 {
     Q_OBJECT
 
@@ -53,6 +53,7 @@ private Q_SLOTS:
     void slotMetadataSetup();
     void slotQualitySetup();
     void slotOk();
+    void slotHelp();
 
 private:
 

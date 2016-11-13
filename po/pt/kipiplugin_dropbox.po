@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_dropbox\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-20 01:52+0000\n"
-"PO-Revision-Date: 2014-02-04 09:48+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 12:10+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: \n"
@@ -18,32 +18,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-POFile-SpellExtra: Dropbox Patel Kipi Saurabh Shourya Gupta Singh\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "José Nuno Pires"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "zepires@gmail.com"
-
-#: dbalbum.cpp:46
-msgid "Dropbox New Folder"
-msgstr "Nova Pasta do Dropbox"
-
-#: dbalbum.cpp:59
-msgid "The name of the folder that will be created"
-msgstr "O nome da pasta que será criada"
-
-#: dbalbum.cpp:63
-msgctxt "album edit"
-msgid "Title:"
-msgstr "Título:"
-
-#: dbtalker.cpp:173
+#: dbtalker.cpp:184
 msgid "Authorize Dropbox"
 msgstr "Autorizar o Dropbox"
 
-#: dbtalker.cpp:180
+#: dbtalker.cpp:194
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
@@ -51,141 +30,51 @@ msgstr ""
 "Siga por favor as instruções no navegador. Depois de se autenticar e "
 "autorizar a aplicação, carregue em OK."
 
-#: dbtalker.cpp:497
+#: dbtalker.cpp:422
+msgid "Error"
+msgstr "Erro"
+
+#: dbtalker.cpp:473
 msgid "Failed to upload photo"
 msgstr "Não foi possível enviar a fotografia"
 
-#: dbtalker.cpp:571
+#: dbtalker.cpp:534
 msgid "Failed to list folders"
 msgstr "Não foi possível apresentar as pastas"
 
-#: dbwidget.cpp:71
-msgid "This is the list of images to upload to your Dropbox account."
-msgstr "Esta é a lista de imagens a enviar para a sua conta do Dropbox."
-
-#: dbwidget.cpp:77
-msgid "This is a clickable link to open Dropbox in a browser."
-msgstr ""
-"Esta é uma ligação que poderá carregar para abrir o Dropbox num navegador."
-
-#: dbwidget.cpp:83
-msgid "Account"
-msgstr "Conta"
-
-#: dbwidget.cpp:84
-msgid "This is the Dropbox account that is currently logged in."
-msgstr "Esta é a conta de Dropbox que está autenticada de momento."
-
-#: dbwidget.cpp:87
-msgctxt "account settings"
-msgid "Name:"
-msgstr "Nome:"
-
-#: dbwidget.cpp:90
-msgid "Change Account"
-msgstr "Modificar a Conta"
-
-#: dbwidget.cpp:90
-msgid "Change Dropbox account for transfer"
-msgstr "Mudar a conta do Dropbox para a transferência"
-
-#: dbwidget.cpp:101
-msgid "Destination"
-msgstr "Destino"
-
-#: dbwidget.cpp:102
-msgid "This is the Dropbox folder to which selected photos will be uploaded."
-msgstr ""
-"Esta é a pasta do Dropbox para a qual serão enviadas as fotografias "
-"seleccionadas."
-
-#: dbwidget.cpp:105
-msgid "Folder:"
-msgstr "Pasta:"
-
-#: dbwidget.cpp:109
-msgid "New Folder"
-msgstr "Nova Pasta"
-
-#: dbwidget.cpp:110
-msgid "Create new Dropbox folder"
-msgstr "Criar uma nova pasta no Dropbox"
-
-#: dbwidget.cpp:111
-msgctxt "album list"
-msgid "Reload"
-msgstr "Recarregar"
-
-#: dbwidget.cpp:112
-msgid "Reload album list"
-msgstr "Actualizar a lista de álbuns"
-
-#: dbwidget.cpp:121
-msgid "Options"
-msgstr "Opções"
-
-#: dbwidget.cpp:122
-msgid "These are the options that would be applied to photos before upload."
-msgstr ""
-"Estas são as opções que seriam aplicadas às fotografias antes de as enviar."
-
-#: dbwidget.cpp:126
-msgid "Resize photos before uploading"
-msgstr "Mudar o tamanho das fotos antes de enviar"
-
-#: dbwidget.cpp:137
-msgid "Maximum Dimension:"
-msgstr "Dimensão Máxima:"
-
-#: dbwidget.cpp:146
-msgid "JPEG Quality:"
-msgstr "Qualidade do JPEG:"
-
-#: dbwindow.cpp:88
+#: dbwindow.cpp:79
 msgid "Export to Dropbox"
 msgstr "Exportar para o Dropbox"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:81
 msgid "Start Upload"
 msgstr "Iniciar o Envio"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:82
 msgid "Start upload to Dropbox"
 msgstr "Iniciar o envio para o Dropbox"
 
-#: dbwindow.cpp:107
+#: dbwindow.cpp:101
 msgid "Dropbox Export"
 msgstr "Exportação para o Dropbox"
 
-#: dbwindow.cpp:109
-msgid "A Kipi-plugin to export images to Dropbox"
-msgstr "Um 'plugin' do Kipi para exportar as imagens para o Dropbox"
+#: dbwindow.cpp:102
+msgid "A tool to export images to Dropbox"
+msgstr "Uma ferramenta para exportar as imagens para o Dropbox"
 
-#: dbwindow.cpp:111
-msgid ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
-msgstr ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
+#: dbwindow.cpp:104
+msgid "(c) 2013, Saurabh Patel"
+msgstr "(c) 2013, Saurabh Patel"
 
-#: dbwindow.cpp:114
+#: dbwindow.cpp:106
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
-msgid "Author and maintainer"
-msgstr "Autoria e manutenção"
+#: dbwindow.cpp:107
+msgid "Author"
+msgstr "Autoria"
 
-#: dbwindow.cpp:116
-msgid "Shourya Singh Gupta"
-msgstr "Shourya Singh Gupta"
-
-#: dbwindow.cpp:116
-msgid "Developer"
-msgstr "Desenvolvimento"
-
-#: dbwindow.cpp:282
+#: dbwindow.cpp:281
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -195,27 +84,38 @@ msgstr ""
 "do navegador. Para terminar a autenticação, carregue em \"Mudar de Conta\" "
 "ou em \"Iniciar o Envio\" para se autenticar de novo."
 
+#: dbwindow.cpp:293
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Erro"
+
 #: dbwindow.cpp:294
 msgid "No image selected. Please select which images should be uploaded."
 msgstr ""
 "Não está seleccionada nenhuma imagem. Seleccione por favor as imagens que "
 "deverão ser enviadas."
 
-#: dbwindow.cpp:304 dbwindow.cpp:419
-msgid "Authentication failed. Click \"Continue\" to authenticate."
-msgstr ""
-"A autenticação foi mal-sucedida. Carregue em \"Continuar\" para se "
-"autenticar."
+#: dbwindow.cpp:300 dbwindow.cpp:420
+msgid "Login Failed"
+msgstr "Autenticação sem Sucesso"
 
-#: dbwindow.cpp:328
+#: dbwindow.cpp:301 dbwindow.cpp:421
+msgid "Authentication failed. Do you want to try again?"
+msgstr "A autenticação foi mal-sucedida. Deseja tentar de novo?"
+
+#: dbwindow.cpp:325
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: dbwindow.cpp:332
+#: dbwindow.cpp:329
 msgid "Dropbox export"
 msgstr "Exportação para o Dropbox"
 
-#: dbwindow.cpp:364
+#: dbwindow.cpp:362
+msgid "Uploading Failed"
+msgstr "O Envio Foi Mal-Sucedido"
+
+#: dbwindow.cpp:363
 #, kde-format
 msgid ""
 "Failed to upload photo to Dropbox.\n"
@@ -226,7 +126,7 @@ msgstr ""
 "%1\n"
 "Deseja continuar?"
 
-#: dbwindow.cpp:443 dbwindow.cpp:449
+#: dbwindow.cpp:445 dbwindow.cpp:450
 #, kde-format
 msgid ""
 "Dropbox call failed:\n"
@@ -245,6 +145,6 @@ msgstr "&Exportar"
 msgid "Main Toolbar"
 msgstr "Barra Principal"
 
-#: plugin_dropbox.cpp:96
+#: plugin_dropbox.cpp:90
 msgid "Export to &Dropbox..."
 msgstr "Exportar para o &Dropbox..."

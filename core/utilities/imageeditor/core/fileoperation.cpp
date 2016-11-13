@@ -6,7 +6,7 @@
  * Date        : 2008-12-10
  * Description : misc file operation methods
  *
- * Copyright (C) 2014      by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -34,19 +34,20 @@
 
 #include <QFileInfo>
 #include <QByteArray>
+#include <QProcess>
 #include <QDir>
-#include <QWidget>
+#include <QFile>
+#include <QMimeType>
+#include <QMimeDatabase>
+#include <QDesktopServices>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kde_file.h>
-#include <kmimetype.h>
-#include <krun.h>
 #include <kmimetypetrader.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "metadatasettings.h"
 
 namespace Digikam
@@ -61,12 +62,14 @@ bool FileOperation::localFileRename(const QString& source, const QString& orgPat
     if (info.isSymLink())
     {
         dest = info.symLinkTarget();
-        kDebug() << "Target filePath" << QDir::toNativeSeparators(dest) << "is a symlink pointing to"
-                 << QDir::toNativeSeparators(dest) << ". Storing image there.";
+
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Target filePath" << QDir::toNativeSeparators(dest) << "is a symlink pointing to"
+                                     << QDir::toNativeSeparators(dest) << ". Storing image there.";
     }
 
 #ifndef Q_OS_WIN
-    QByteArray dstFileName = QFile::encodeName(dest);
+
+    QByteArray dstFileName = QFile::encodeName(dest).constData();
 
     // Store old permissions:
     // Just get the current umask.
@@ -80,15 +83,16 @@ bool FileOperation::localFileRename(const QString& source, const QString& orgPat
     // For existing files, use the mode of the original file.
     struct stat stbuf;
 
-    if (::stat(dstFileName, &stbuf) == 0)
+    if (::stat(dstFileName.constData(), &stbuf) == 0)
     {
         filePermissions = stbuf.st_mode;
     }
+
 #endif // Q_OS_WIN
 
     struct stat st;
 
-    if (::stat(QFile::encodeName(source), &st) == 0)
+    if (::stat(QFile::encodeName(source).constData(), &st) == 0)
     {
         // See bug #329608: Restore file modification time from original file only if updateFileTimeStamp for Setup/Metadata is turned off.
 
@@ -98,74 +102,149 @@ bool FileOperation::localFileRename(const QString& source, const QString& orgPat
             ut.modtime = st.st_mtime;
             ut.actime  = st.st_atime;
 
-            if (::utime(QFile::encodeName(orgPath), &ut) != 0)
+            if (::utime(QFile::encodeName(orgPath).constData(), &ut) != 0)
             {
-                kWarning() << "Failed to restore modification time for file " << dest;
+                qCWarning(DIGIKAM_GENERAL_LOG) << "Failed to restore modification time for file " << dest;
             }
         }
     }
 
+    // remove dest file if it exist
+    if (orgPath != dest && QFile::exists(orgPath) && QFile::exists(dest))
+    {
+        QFile::remove(dest);
+    }
     // rename tmp file to dest
-    // KDE::rename() takes care of QString -> bytestring encoding
-    if (KDE::rename(orgPath, dest) != 0)
+    // QFile::rename() takes care of QString -> bytestring encoding
+    if (!QFile::rename(orgPath, dest))
     {
         return false;
     }
 
 #ifndef Q_OS_WIN
+
     // restore permissions
-    if (::chmod(dstFileName, filePermissions) != 0)
+    if (::chmod(dstFileName.constData(), filePermissions) != 0)
     {
-        kWarning() << "Failed to restore file permissions for file " << dstFileName;
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Failed to restore file permissions for file " << dstFileName;
     }
+
 #endif // Q_OS_WIN
 
     return true;
 }
 
-void FileOperation::openFilesWithDefaultApplication(const KUrl::List& urls, QWidget* const parentWidget)
+void FileOperation::openFilesWithDefaultApplication(const QList<QUrl>& urls)
 {
     if (urls.isEmpty())
     {
         return;
     }
 
-    // Create a map of service depending of type mimes to route and start only one instance of relevant application with all same type mime files.
-
-    QMap<KService::Ptr, KUrl::List> servicesMap;
-
-    foreach (const KUrl& url, urls)
+    foreach (const QUrl& url, urls)
     {
-        const QString mimeType = KMimeType::findByUrl(url, 0, true, true)->name();
-        KService::List offers  = KMimeTypeTrader::self()->query(mimeType, "Application");
-
-        if (offers.isEmpty())
-        {
-            return;
-        }
-
-        KService::Ptr ptr                                  = offers.first();
-        QMap<KService::Ptr, KUrl::List>::const_iterator it = servicesMap.constFind(ptr);
-
-        if (it != servicesMap.constEnd())
-        {
-            servicesMap[ptr] << url;
-        }
-        else
-        {
-            servicesMap.insert(ptr, KUrl::List() << url);
-        }
-    }
-
-    for (QMap<KService::Ptr, KUrl::List>::const_iterator it = servicesMap.constBegin();
-         it != servicesMap.constEnd(); ++it)
-    {
-        // Run the dedicated app to open the item.
-        KRun::run(*it.key(), it.value(), parentWidget);
+        QDesktopServices::openUrl(url);
     }
 }
 
-KService::List FileOperation::servicesForOpenWith(const KUrl::List& urls)
+QUrl FileOperation::getUniqueFileUrl(const QUrl& orgUrl, bool* const newurl)
+{
+    QUrl destUrl(orgUrl);
+
+    if (newurl)
+        *newurl = false;
+
+    QFileInfo fi(destUrl.toLocalFile());
+
+    if (fi.exists())
+    {
+        int i          = 0;
+        bool fileFound = false;
+
+        do
+        {
+            QFileInfo nfi(destUrl.toLocalFile());
+
+            if (!nfi.exists())
+            {
+                fileFound = false;
+
+                if (newurl)
+                    *newurl = true;
+            }
+            else
+            {
+                destUrl = destUrl.adjusted(QUrl::RemoveFilename);
+                destUrl.setPath(destUrl.path() + fi.completeBaseName() + QString::fromUtf8("_%1.").arg(++i) + fi.completeSuffix());
+                fileFound = true;
+            }
+        }
+        while (fileFound);
+    }
+
+    return destUrl;
+}
+
+bool FileOperation::runFiles(const KService& service, const QList<QUrl>& urls)
+{
+    return (runFiles(service.exec(), urls, service.desktopEntryName(), service.icon()));
+}
+
+bool FileOperation::runFiles(const QString& appCmd, const QList<QUrl>& urls, const QString& name,
+                                                                             const QString& icon)
+{
+    QRegExp split(QLatin1String(" +(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
+    QStringList cmdList = appCmd.split(split, QString::SkipEmptyParts);
+
+    if (cmdList.isEmpty() || urls.isEmpty())
+    {
+        return false;
+    }
+
+    if (!appCmd.contains(QLatin1String("%f"), Qt::CaseInsensitive) &&
+        !appCmd.contains(QLatin1String("%u"), Qt::CaseInsensitive) &&
+        !appCmd.contains(QLatin1String("%d"), Qt::CaseInsensitive))
+    {
+        cmdList << QLatin1String("%f");
+    }
+
+    QStringList dirs;
+    QStringList files;
+    QStringList cmdArgs;
+    QString exec = cmdList.takeFirst();
+
+    foreach(const QUrl& url, urls)
+    {
+        dirs  << url.adjusted(QUrl::RemoveFilename).toLocalFile();
+        files << url.toLocalFile();
+    }
+
+    foreach(const QString& cmd, cmdList)
+    {
+        if (cmd == QLatin1String("%c"))
+            cmdArgs << name;
+        else if (cmd == QLatin1String("%i"))
+            cmdArgs << icon;
+        else if (cmd == QLatin1String("%f"))
+            cmdArgs << files.first();
+        else if (cmd == QLatin1String("%F"))
+            cmdArgs << files;
+        else if (cmd == QLatin1String("%u"))
+            cmdArgs << files.first();
+        else if (cmd == QLatin1String("%U"))
+            cmdArgs << files;
+        else if (cmd == QLatin1String("%d"))
+            cmdArgs << dirs.first();
+        else if (cmd == QLatin1String("%D"))
+            cmdArgs << dirs;
+        else
+            cmdArgs << cmd;
+    }
+
+    return (QProcess::startDetached(exec, cmdArgs));
+}
+
+KService::List FileOperation::servicesForOpenWith(const QList<QUrl>& urls)
 {
     // This code is inspired by KonqMenuActions:
     // kdebase/apps/lib/konq/konq_menuactions.cpp
@@ -173,9 +252,9 @@ KService::List FileOperation::servicesForOpenWith(const KUrl::List& urls)
     QStringList    mimeTypes;
     KService::List offers;
 
-    foreach(const KUrl& item, urls)
+    foreach(const QUrl& item, urls)
     {
-        const QString mimeType = KMimeType::findByUrl(item, 0, true, true)->name();
+        const QString mimeType = QMimeDatabase().mimeTypeForFile(item.toLocalFile(), QMimeDatabase::MatchExtension).name();
 
         if (!mimeTypes.contains(mimeType))
         {
@@ -187,7 +266,7 @@ KService::List FileOperation::servicesForOpenWith(const KUrl::List& urls)
     {
         // Query trader
         const QString firstMimeType      = mimeTypes.takeFirst();
-        const QString constraintTemplate = "'%1' in ServiceTypes";
+        const QString constraintTemplate = QLatin1String("'%1' in ServiceTypes");
         QStringList constraints;
 
         foreach(const QString& mimeType, mimeTypes)
@@ -195,7 +274,7 @@ KService::List FileOperation::servicesForOpenWith(const KUrl::List& urls)
             constraints << constraintTemplate.arg(mimeType);
         }
 
-        offers = KMimeTypeTrader::self()->query(firstMimeType, "Application", constraints.join(" and "));
+        offers = KMimeTypeTrader::self()->query(firstMimeType, QLatin1String("Application"), constraints.join(QLatin1String(" and ")));
 
         // remove duplicate service entries
         QSet<QString> seenApps;

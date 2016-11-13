@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Charcoal threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -33,16 +33,13 @@
 
 // Qt includes
 
-#include <QtConcurrentRun>
+#include <QtConcurrent>
 #include <QMutex>
-
-// KDE includes
-
-#include <kdebug.h>
 
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "blurfilter.h"
 #include "stretchfilter.h"
 #include "mixerfilter.h"
@@ -77,7 +74,7 @@ CharcoalFilter::CharcoalFilter(QObject* const parent)
 }
 
 CharcoalFilter::CharcoalFilter(DImg* const orgImage, QObject* const parent, double pencil, double smooth)
-    : DImgThreadedFilter(orgImage, parent, "Charcoal"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("Charcoal")),
       d(new Private)
 {
     d->pencil = pencil;
@@ -96,7 +93,7 @@ void CharcoalFilter::filterImage()
 {
     if (m_orgImage.isNull())
     {
-        kWarning() << "No image data available!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "No image data available!";
         return;
     }
 
@@ -108,12 +105,12 @@ void CharcoalFilter::filterImage()
 
     // -- Applying Edge effect -----------------------------------------------
 
-    register long i = 0;
+   long i = 0;
     int kernelWidth = getOptimalKernelWidth(d->pencil, d->smooth);
 
     if ((int)m_orgImage.width() < kernelWidth)
     {
-        kWarning() << "Image is smaller than radius!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Image is smaller than radius!";
         return;
     }
 
@@ -121,7 +118,7 @@ void CharcoalFilter::filterImage()
 
     if (kernel.isNull())
     {
-        kWarning() << "Unable to allocate memory!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Unable to allocate memory!";
         return;
     }
 
@@ -259,7 +256,7 @@ bool CharcoalFilter::convolveImage(const unsigned int order, const double* kerne
 
     if ((kernelWidth % 2) == 0)
     {
-        kWarning() << "Kernel width must be an odd number!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Kernel width must be an odd number!";
         return false;
     }
 
@@ -270,7 +267,7 @@ bool CharcoalFilter::convolveImage(const unsigned int order, const double* kerne
 
     if (!normal_kernel)
     {
-        kWarning() << "Unable to allocate memory!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Unable to allocate memory!";
         return false;
     }
 
@@ -317,7 +314,7 @@ int CharcoalFilter::getOptimalKernelWidth(double radius, double sigma)
 {
     double        normalize, value;
     long          kernelWidth;
-    register long u;
+   long u;
 
     if (radius > 0.0)
     {
@@ -352,16 +349,16 @@ FilterAction CharcoalFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("pencil", d->pencil);
-    action.addParameter("smooth", d->smooth);
+    action.addParameter(QLatin1String("pencil"), d->pencil);
+    action.addParameter(QLatin1String("smooth"), d->smooth);
 
     return action;
 }
 
 void CharcoalFilter::readParameters(const Digikam::FilterAction& action)
 {
-    d->pencil = action.parameter("pencil").toDouble();
-    d->smooth = action.parameter("smooth").toDouble();
+    d->pencil = action.parameter(QLatin1String("pencil")).toDouble();
+    d->smooth = action.parameter(QLatin1String("smooth")).toDouble();
 }
 
 }  // namespace Digikam

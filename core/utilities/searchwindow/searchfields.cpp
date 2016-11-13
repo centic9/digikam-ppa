@@ -7,7 +7,7 @@
  * Description : User interface for searches
  *
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "searchfields.moc"
+#include "searchfields.h"
 
 // C++ includes
 
@@ -41,27 +41,24 @@
 #include <QSpinBox>
 #include <QTimeEdit>
 #include <QTreeView>
+#include <QComboBox>
+#include <QLineEdit>
+#include <QIcon>
+#include <QStyle>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kiconloader.h>
-#include <klineedit.h>
-#include <klocale.h>
-#include <ksqueezedtextlabel.h>
-#include <kdebug.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/squeezedcombobox.h>
-#include <libkdcraw/rexpanderbox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "album.h"
-#include "albumdb.h"
+#include "coredb.h"
+#include "squeezedcombobox.h"
 #include "albummanager.h"
 #include "albummodel.h"
+#include "dexpanderbox.h"
 #include "albumselectcombobox.h"
 #include "choicesearchutilities.h"
 #include "dimg.h"
@@ -76,68 +73,70 @@
 #include "picklabelfilter.h"
 #include "applicationsettings.h"
 
-using namespace KDcrawIface;
-
 namespace Digikam
 {
 
 SearchField* SearchField::createField(const QString& name, SearchFieldGroup* const parent)
 {
-    if (name == "albumid")
+    if (name == QLatin1String("albumid"))
     {
         SearchFieldAlbum* const field = new SearchFieldAlbum(parent, SearchFieldAlbum::TypeAlbum);
         field->setFieldName(name);
         field->setText(i18n("Album"), i18n("Search pictures located in"));
         return field;
     }
-    else if (name == "albumname")
+    else if (name == QLatin1String("albumname"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Album"), i18n("The album name contains"));
         return field;
     }
-    else if (name == "albumcaption")
+    else if (name == QLatin1String("albumcaption"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Album"), i18n("The album caption contains"));
         return field;
     }
-    else if (name == "albumcollection")
+    else if (name == QLatin1String("albumcollection"))
     {
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Album"), i18n("The album category is"));
         ApplicationSettings* const settings = ApplicationSettings::instance();
+
         if (settings)
         {
             QStringList Categories = settings->getAlbumCategoryNames();
-            int size = Categories.size();
+            int size               = Categories.size();
             QStringList categorychoices;
-            for(int i=0; i<size; i++)
+
+            for (int i=0; i<size; i++)
             {
                 categorychoices << Categories.at(i) << Categories.at(i);
             }
+
             field->setChoice(categorychoices);
         }
+
         return field;
     }
-    else if (name == "tagid")
+    else if (name == QLatin1String("tagid"))
     {
         SearchFieldAlbum* const field = new SearchFieldAlbum(parent, SearchFieldAlbum::TypeTag);
         field->setFieldName(name);
         field->setText(i18n("Tags"), i18n("Return pictures with tag"));
         return field;
     }
-    else if (name == "tagname")
+    else if (name == QLatin1String("tagname"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Tags"), i18n("A tag of the picture contains"));
         return field;
     }
-    else if (name == "notag")
+    else if (name == QLatin1String("notag"))
     {
         /**
         * @todo Merge a "Not tagged" field into TagModel together with AND/OR control
@@ -149,14 +148,14 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setLabel(i18n("Not Tagged"));
         return field;
     }
-    else if (name == "filename")
+    else if (name == QLatin1String("filename"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("File Name"), i18n("Return pictures whose file name contains"));
         return field;
     }
-    else if (name == "modificationdate")
+    else if (name == QLatin1String("modificationdate"))
     {
         SearchFieldRangeDate* const field = new SearchFieldRangeDate(parent, SearchFieldRangeDate::DateTime);
         field->setFieldName(name);
@@ -164,25 +163,25 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setBetweenText(i18nc("'Return pictures modified between...and...", "and"));
         return field;
     }
-    else if (name == "filesize")
+    else if (name == QLatin1String("filesize"))
     {
         SearchFieldRangeDouble* const field = new SearchFieldRangeDouble(parent);
         field->setFieldName(name);
         field->setText(i18n("File Size"), i18n("Size of the file"));
         field->setBetweenText(i18nc("Size of the file ...-...", "-"));
-        field->setNumberPrefixAndSuffix(QString(), "MB");
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("MB"));
         field->setBoundary(0, 1000000, 1, 0.5);
         field->setFactor(1024 * 1024);
         return field;
     }
-    else if (name == "labels")
+    else if (name == QLatin1String("labels"))
     {
         SearchFieldLabels* const field = new SearchFieldLabels(parent);
         field->setFieldName(name);
         field->setText(i18n("Labels"), i18n("Return pictures with labels"));
         return field;
     }
-    else if (name == "rating")
+    else if (name == QLatin1String("rating"))
     {
         SearchFieldRating* const field = new SearchFieldRating(parent);
         field->setFieldName(name);
@@ -190,7 +189,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setBetweenText(i18nc("Return pictures rated at least...at most...", "at most"));
         return field;
     }
-    else if (name == "creationdate")
+    else if (name == QLatin1String("creationdate"))
     {
         SearchFieldRangeDate* const field = new SearchFieldRangeDate(parent, SearchFieldRangeDate::DateTime);
         field->setFieldName(name);
@@ -198,7 +197,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setBetweenText(i18nc("'Return pictures created between...and...", "and"));
         return field;
     }
-    else if (name == "digitizationdate")
+    else if (name == QLatin1String("digitizationdate"))
     {
         SearchFieldRangeDate* const field = new SearchFieldRangeDate(parent, SearchFieldRangeDate::DateTime);
         field->setFieldName(name);
@@ -206,7 +205,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setBetweenText(i18nc("'Return pictures digitized between...and...", "and"));
         return field;
     }
-    else if (name == "orientation")
+    else if (name == QLatin1String("orientation"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
@@ -216,11 +215,11 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setChoice(map);
         return field;
     }
-    else if (name == "dimension")
+    else if (name == QLatin1String("dimension"))
     {
         // "width", "height", "pixels"
     }
-    else if (name == "width")
+    else if (name == QLatin1String("width"))
     {
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
@@ -237,7 +236,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(50, 1000);
         return field;
     }
-    else if (name == "height")
+    else if (name == QLatin1String("height"))
     {
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
@@ -254,7 +253,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(50, 1000);
         return field;
     }
-    else if (name == "pageorientation")
+    else if (name == QLatin1String("pageorientation"))
     {
         SearchFieldPageOrientation* const field = new SearchFieldPageOrientation(parent);
         field->setFieldName(name);
@@ -262,19 +261,19 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
                                                   "Find pictures with"));
         return field;
     }
-    else if (name == "format")
+    else if (name == QLatin1String("format"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("File Format"), i18n("Return pictures with the image file format"));
-        QStringList formats = DatabaseAccess().db()->getFormatStatistics().keys();
+        QStringList formats = CoreDbAccess().db()->getFormatStatistics().keys();
         formats += formats;
         formats.sort();
         field->setChoice(formats);
         return field;
     }
-    else if (name == "colordepth")
+    else if (name == QLatin1String("colordepth"))
     {
         //choice
         SearchFieldColorDepth* const field = new SearchFieldColorDepth(parent);
@@ -282,7 +281,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setText(i18n("Color Depth"), i18nc("Find pictures with any color depth / 8 bits per channel...", "Find pictures with"));
         return field;
     }
-    else if (name == "colormodel")
+    else if (name == QLatin1String("colormodel"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
@@ -301,8 +300,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setChoice(map);
         return field;
     }
-
-    else if (name == "make")
+    else if (name == QLatin1String("make"))
     {
         //string
         SearchFieldText* const field = new SearchFieldText(parent);
@@ -310,7 +308,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setText(i18n("Camera"), i18n("The make of the camera"));
         return field;
     }
-    else if (name == "model")
+    else if (name == QLatin1String("model"))
     {
         //string
         SearchFieldText* const field = new SearchFieldText(parent);
@@ -318,15 +316,15 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setText(i18n("Camera"), i18n("The model of the camera"));
         return field;
     }
-    else if (name == "aperture")
+    else if (name == QLatin1String("aperture"))
     {
         //double
         SearchFieldRangeDouble* const field = new SearchFieldRangeDouble(parent);
         field->setFieldName(name);
         field->setText(i18n("Aperture"), i18n("Lens aperture as f-number"));
         field->setBetweenText(i18nc("Lens aperture as f-number ...-...", "-"));
-        field->setNoValueText("f/#");
-        field->setNumberPrefixAndSuffix("f/", QString());
+        field->setNoValueText(QLatin1String("f/#"));
+        field->setNumberPrefixAndSuffix(QLatin1String("f/"), QString());
         field->setBoundary(0.3, 65536, 1, 0.1);
         field->setSuggestedValues(QList<double>()
                                   << 0.5 << 0.7 << 1.0 << 1.4 << 2 << 2.8 << 4 << 5.6
@@ -336,14 +334,14 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(0.1, 10);
         return field;
     }
-    else if (name == "focallength")
+    else if (name == QLatin1String("focallength"))
     {
         //double
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
         field->setText(i18n("Focal length"), i18n("Focal length of the lens"));
         field->setBetweenText(i18nc("Focal length of the lens ...-...", "-"));
-        field->setNumberPrefixAndSuffix(QString(), "mm");
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("mm"));
         field->setBoundary(0, 200000, 10);
         field->setSuggestedValues(QList<int>()
                                   << 10 << 15 << 20 << 25 << 30 << 40 << 50 << 60 << 70 << 80 << 90
@@ -353,14 +351,14 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(2, 500);
         return field;
     }
-    else if (name == "focallength35")
+    else if (name == QLatin1String("focallength35"))
     {
         //double
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
         field->setText(i18n("Focal length"), i18n("35mm equivalent focal length"));
         field->setBetweenText(i18nc("35mm equivalent focal length ...-...", "-"));
-        field->setNumberPrefixAndSuffix(QString(), "mm");
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("mm"));
         field->setBoundary(0, 200000, 10);
         field->setSuggestedValues(QList<int>()
                                   << 8 << 10 << 15 << 16 << 20 << 28 << 30 << 40 << 50 << 60 << 70 << 80
@@ -370,15 +368,15 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(2, 500);
         return field;
     }
-    else if (name == "exposuretime")
+    else if (name == QLatin1String("exposuretime"))
     {
         //double
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
         field->setText(i18n("Exposure"), i18n("Exposure time"));
         field->setBetweenText(i18nc("Exposure time ...-...", "-"));
-        field->setNumberPrefixAndSuffix(QString(), "s");
-        field->enableFractionMagic("1/"); // it's 1/250, not 250 as in the spin box
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("s"));
+        field->enableFractionMagic(QLatin1String("1/")); // it's 1/250, not 250 as in the spin box
         field->setBoundary(86400, -1024000, 10); // negative is 1/
         field->setSuggestedValues(QList<int>()
                                   << 30 << 15 << 8 << 4 << 2 << 1 << -2 << -4 << -8 << -15
@@ -389,7 +387,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(2000, 5);
         return field;
     }
-    else if (name == "exposureprogram")
+    else if (name == QLatin1String("exposureprogram"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
@@ -399,7 +397,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setChoice(map);
         return field;
     }
-    else if (name == "exposuremode")
+    else if (name == QLatin1String("exposuremode"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
@@ -409,7 +407,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setChoice(map);
         return field;
     }
-    else if (name == "sensitivity")
+    else if (name == QLatin1String("sensitivity"))
     {
         //int
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
@@ -427,7 +425,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(1, 400);
         return field;
     }
-    else if (name == "flashmode")
+    else if (name == QLatin1String("flashmode"))
     {
         //choice
         /**
@@ -440,7 +438,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setChoice(map);
         return field;
     }
-    else if (name == "whitebalance")
+    else if (name == QLatin1String("whitebalance"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
@@ -450,18 +448,18 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setChoice(map);
         return field;
     }
-    else if (name == "whitebalancecolortemperature")
+    else if (name == QLatin1String("whitebalancecolortemperature"))
     {
         //int
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
         field->setText(i18n("White balance"), i18n("Color temperature used for white balance"));
         field->setBetweenText(i18nc("Color temperature used for white balance ...-...", "-"));
-        field->setNumberPrefixAndSuffix(QString(), "K");
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("K"));
         field->setBoundary(1, 100000, 100);
         return field;
     }
-    else if (name == "meteringmode")
+    else if (name == QLatin1String("meteringmode"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
@@ -471,18 +469,18 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setChoice(map);
         return field;
     }
-    else if (name == "subjectdistance")
+    else if (name == QLatin1String("subjectdistance"))
     {
         //double
         SearchFieldRangeDouble* const field = new SearchFieldRangeDouble(parent);
         field->setFieldName(name);
         field->setText(i18n("Subject Distance"), i18n("Distance of the subject from the lens"));
         field->setBetweenText(i18nc("Distance of the subject from the lens ...-...", "-"));
-        field->setNumberPrefixAndSuffix(QString(), "m");
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("m"));
         field->setBoundary(0, 50000, 1, 0.1);
         return field;
     }
-    else if (name == "subjectdistancecategory")
+    else if (name == QLatin1String("subjectdistancecategory"))
     {
         //choice
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
@@ -493,35 +491,35 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         return field;
     }
 
-    else if (name == "latitude")
+    else if (name == QLatin1String("latitude"))
     {
     }
-    else if (name == "longitude")
+    else if (name == QLatin1String("longitude"))
     {
     }
-    else if (name == "altitude")
+    else if (name == QLatin1String("altitude"))
     {
         SearchFieldRangeDouble* const field = new SearchFieldRangeDouble(parent);
         field->setFieldName(name);
         field->setText(i18n("GPS"), i18n("Altitude range"));
         field->setBetweenText(i18nc("Altitude range ...-...", "-"));
-        field->setNumberPrefixAndSuffix(QString(), "m");
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("m"));
         field->setBoundary(0, 10000, 4, 1);
         return field;
     }
-    else if (name == "positionorientation")
+    else if (name == QLatin1String("positionorientation"))
     {
     }
-    else if (name == "positiontilt")
+    else if (name == QLatin1String("positiontilt"))
     {
     }
-    else if (name == "positionroll")
+    else if (name == QLatin1String("positionroll"))
     {
     }
-    else if (name == "positiondescription")
+    else if (name == QLatin1String("positiondescription"))
     {
     }
-    else if (name == "nogps")
+    else if (name == QLatin1String("nogps"))
     {
         SearchFieldCheckBox* const field = new SearchFieldCheckBox(parent);
         field->setFieldName(name);
@@ -530,75 +528,75 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         return field;
     }
 
-    else if (name == "comment")
+    else if (name == QLatin1String("comment"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Caption"), i18n("Return pictures whose comment contains"));
         return field;
     }
-    else if (name == "commentauthor")
+    else if (name == QLatin1String("commentauthor"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Author"), i18n("Return pictures commented by"));
         return field;
     }
-    else if (name == "headline")
+    else if (name == QLatin1String("headline"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Headline"), i18n("Return pictures with the IPTC headline"));
         return field;
     }
-    else if (name == "title")
+    else if (name == QLatin1String("title"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Title"), i18n("Return pictures with the IPTC title"));
         return field;
     }
-    else if (name == "keyword")
+    else if (name == QLatin1String("keyword"))
     {
         SearchFieldText* const field = new SearchFieldKeyword(parent);
         field->setFieldName(name);
         field->setText(QString(), i18n("Find pictures that have associated all these words:"));
         return field;
     }
-    else if (name == "aspectratioimg")
+    else if (name == QLatin1String("aspectratioimg"))
     {
         SearchFieldText* const field = new SearchFieldText(parent);
         field->setFieldName(name);
         field->setText(i18n("Aspect Ratio"), i18n("Return pictures with the aspect ratio"));
         return field;
     }
-    else if (name == "pixelsize")
+    else if (name == QLatin1String("pixelsize"))
     {
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
         field->setText(i18n("Pixel Size"), i18n("Value of (Width * Height) between"));
         field->setBetweenText(i18nc("Value of (Width * Height) between...and...", "and"));
-        field->setNumberPrefixAndSuffix(QString(), "px");
+        field->setNumberPrefixAndSuffix(QString(), QLatin1String("px"));
         field->setBoundary(1, 2000000000, 100);
         return field;
     }
 
 
-    else if (name == "videoaspectratio")
+    else if (name == QLatin1String("videoaspectratio"))
     {
         SearchFieldChoice* field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Aspect Ratio"), i18n("Return video with the frame aspect ratio"));
         QStringList ratio;
-        ratio << "4:3"<< "4:3";
-        ratio << "3:2"<< "3:2";
-        ratio << "16:9" << "16:9";
-        ratio << "2:1" << "2:1";
+        ratio << QLatin1String("4:3")  << QLatin1String("4:3");
+        ratio << QLatin1String("3:2")  << QLatin1String("3:2");
+        ratio << QLatin1String("16:9") << QLatin1String("16:9");
+        ratio << QLatin1String("2:1")  << QLatin1String("2:1");
         // TODO: add more possible aspect ratio
         field->setChoice(ratio);
         return field;
     }
-    else if (name == "videoduration")
+    else if (name == QLatin1String("videoduration"))
     {
         SearchFieldRangeInt* field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
@@ -615,7 +613,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(10, 100);
         return field;
     }
-    else if (name == "videoframerate")
+    else if (name == QLatin1String("videoframerate"))
     {
         SearchFieldRangeInt* field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
@@ -631,26 +629,26 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(5, 60);
         return field;
     }
-    else if (name == "videocodec")
+    else if (name == QLatin1String("videocodec"))
     {
         SearchFieldChoice* field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Codec"), i18n("Return video codec"));
         QStringList codec;
-        codec << "avi"  << "Audio Video Interleave";
-        codec << "mov"  << "QuickTime";
-        codec << "mp4"  << "MPEG Layer 4";
-        codec << "3gp"  << "3GPP";
-        codec << "divx" << "DivX";
-        codec << "wma"  << "Windows Media Video";
-        codec << "mkv"  << "Matroska";
-        codec << "s263" << "H.263";
-        codec << "mjpg" << "Motion JPEG";
+        codec << QLatin1String("avi")  << QLatin1String("Audio Video Interleave");
+        codec << QLatin1String("mov")  << QLatin1String("QuickTime");
+        codec << QLatin1String("mp4")  << QLatin1String("MPEG Layer 4");
+        codec << QLatin1String("3gp")  << QLatin1String("3GPP");
+        codec << QLatin1String("divx") << QLatin1String("DivX");
+        codec << QLatin1String("wma")  << QLatin1String("Windows Media Video");
+        codec << QLatin1String("mkv")  << QLatin1String("Matroska");
+        codec << QLatin1String("s263") << QLatin1String("H.263");
+        codec << QLatin1String("mjpg") << QLatin1String("Motion JPEG");
         // TODO: add more possible codec
         field->setChoice(codec);
         return field;
     }
-    else if (name == "videoaudiobitrate")
+    else if (name == QLatin1String("videoaudiobitrate"))
     {
         SearchFieldRangeInt* field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
@@ -667,30 +665,30 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSingleSteps(1000, 1000);
         return field;
     }
-    else if (name == "videoaudiochanneltype")
+    else if (name == QLatin1String("videoaudiochanneltype"))
     {
         SearchFieldChoice* field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Audio Channel Type"), i18n("Return video audio Channel Type"));
         QStringList type;
-        type << "1" << i18n("Mono");
-        type << "2" << i18n("Stereo");
+        type << QLatin1String("1") << i18n("Mono");
+        type << QLatin1String("2") << i18n("Stereo");
         // TODO: add more possible audio channel type
         field->setChoice(type);
         return field;
     }
-    else if (name == "videoaudiocompressor")
+    else if (name == QLatin1String("videoaudiocompressor"))
     {
         SearchFieldChoice* field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Audio Compressor"), i18n("Return video audio Compressor"));
         QStringList type;
-        type << "raw" << "RAW";
-        type << "mp3" << "MPEG Layer 3";
-        type << "mp4a" << "MPEG4 Audio";
-        type << "samr" << "Adaptive Multi-rate Audio";
-        type << "sowt" << "Apple QuickTime SWOT Little Endian PCM Audio";
-        type << "Microsoft PCM" << "Microsoft PCM";
+        type << QLatin1String("raw")           << QLatin1String("RAW");
+        type << QLatin1String("mp3")           << QLatin1String("MPEG Layer 3");
+        type << QLatin1String("mp4a")          << QLatin1String("MPEG4 Audio");
+        type << QLatin1String("samr")          << QLatin1String("Adaptive Multi-rate Audio");
+        type << QLatin1String("sowt")          << QLatin1String("Apple QuickTime SWOT Little Endian PCM Audio");
+        type << QLatin1String("Microsoft PCM") << QLatin1String("Microsoft PCM");
         // TODO: add more possible audio compressor
         field->setChoice(type);
         return field;
@@ -698,7 +696,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
 
     else
     {
-        kWarning() << "SearchField::createField: cannot create SearchField for" << name;
+        qCWarning(DIGIKAM_GENERAL_LOG) << "SearchField::createField: cannot create SearchField for" << name;
     }
 
     return 0;
@@ -741,11 +739,11 @@ void SearchField::setup(QGridLayout* const layout, int line)
     // setup the clear button that appears dynamically
     if (qApp->isLeftToRight())
     {
-        m_clearButton->setPixmap(SmallIcon("edit-clear-locationbar-rtl", 0, KIconLoader::DefaultState));
+        m_clearButton->setPixmap(QIcon::fromTheme(QLatin1String("edit-clear-locationbar-rtl")).pixmap(QApplication::style()->pixelMetric(QStyle::PM_SmallIconSize)));
     }
     else
     {
-        m_clearButton->setPixmap(SmallIcon("edit-clear-locationbar-ltr", 0, KIconLoader::DefaultState));
+        m_clearButton->setPixmap(QIcon::fromTheme(QLatin1String("edit-clear-locationbar-ltr")).pixmap(QApplication::style()->pixelMetric(QStyle::PM_SmallIconSize)));
     }
 
     // Important: Don't cause re-layouting when button gets hidden/shown!
@@ -760,8 +758,8 @@ void SearchField::setup(QGridLayout* const layout, int line)
 
 void SearchField::setupLabels(QGridLayout* layout, int line)
 {
-    m_label->setObjectName("SearchField_MainLabel");
-    m_detailLabel->setObjectName("SearchField_DetailLabel");
+    m_label->setObjectName(QLatin1String("SearchField_MainLabel"));
+    m_detailLabel->setObjectName(QLatin1String("SearchField_DetailLabel"));
     layout->addWidget(m_label, line, 1);
     layout->addWidget(m_detailLabel, line, 2);
 }
@@ -858,7 +856,7 @@ SearchFieldText::SearchFieldText(QObject* const parent)
 
 void SearchFieldText::setupValueWidgets(QGridLayout* layout, int row, int column)
 {
-    m_edit = new KLineEdit;
+    m_edit = new QLineEdit;
     layout->addWidget(m_edit, row, column, 1, 3);
 
     connect(m_edit, SIGNAL(textChanged(QString)),
@@ -948,6 +946,9 @@ SearchFieldRangeDate::SearchFieldRangeDate(QObject* const parent, Type type)
 
 void SearchFieldRangeDate::setupValueWidgets(QGridLayout* layout, int row, int column)
 {
+    //     QHBoxLayout *hbox = new QHBoxLayout;
+    //     layout->addLayout(hbox, row, column, 1, 3);
+
     m_firstDateEdit  = new DDateEdit;
     m_secondDateEdit = new DDateEdit;
 
@@ -1234,8 +1235,8 @@ void SearchFieldRangeInt::setupValueWidgets(QGridLayout* layout, int row, int co
     //     QHBoxLayout *hbox = new QHBoxLayout;
     //     layout->addLayout(hbox, row, column);
 
-    m_firstBox->setSpecialValueText(" ");
-    m_secondBox->setSpecialValueText(" ");
+    m_firstBox->setSpecialValueText(QLatin1String(" "));
+    m_secondBox->setSpecialValueText(QLatin1String(" "));
 
     //     hbox->addWidget(m_firstBox);
     //     hbox->addWidget(m_betweenLabel);
@@ -1597,8 +1598,8 @@ void SearchFieldRangeDouble::setupValueWidgets(QGridLayout* layout, int row, int
     //     QHBoxLayout *hbox = new QHBoxLayout;
     //     layout->addLayout(hbox, row, column);
 
-    m_firstBox->setSpecialValueText(" ");
-    m_secondBox->setSpecialValueText(" ");
+    m_firstBox->setSpecialValueText(QLatin1String(" "));
+    m_secondBox->setSpecialValueText(QLatin1String(" "));
 
     /*    hbox->addWidget(m_firstBox);
         hbox->addWidget(m_betweenLabel);
@@ -1804,7 +1805,7 @@ SearchFieldChoice::SearchFieldChoice(QObject* const parent)
     : SearchField(parent),
       m_comboBox(0), m_type(QVariant::Invalid)
 {
-    m_model = new ChoiceSearchModel(this);
+    m_model   = new ChoiceSearchModel(this);
     m_anyText = i18n("Any");
 }
 
@@ -1818,9 +1819,9 @@ void SearchFieldChoice::setupValueWidgets(QGridLayout* layout, int row, int colu
 
     m_comboBox->setModel(m_model);
     // set object name for style sheet
-    m_comboBox->setObjectName("SearchFieldChoice_ComboBox");
+    m_comboBox->setObjectName(QLatin1String("SearchFieldChoice_ComboBox"));
     // label is created only after setting the model
-    m_comboBox->label()->setObjectName("SearchFieldChoice_ClickLabel");
+    m_comboBox->label()->setObjectName(QLatin1String("SearchFieldChoice_ClickLabel"));
     updateComboText();
 
     layout->addWidget(m_comboBox, row, column, 1, 3);
@@ -1864,7 +1865,7 @@ void SearchFieldChoice::updateComboText()
     }
     else
     {
-        m_comboBox->setLabelText(i18n("Any of: %1", checkedChoices.join(", ")));
+        m_comboBox->setLabelText(i18n("Any of: %1", checkedChoices.join(QLatin1String(", "))));
         setValidValueState(true);
     }
 }
@@ -1932,7 +1933,7 @@ void SearchFieldChoice::write(SearchXmlWriter& writer)
             {
                 // For choice string fields, we have the possibility to specify the wildcard
                 // position with the position of *.
-                if (v.first().contains("*"))
+                if (v.first().contains(QLatin1String("*")))
                 {
                     writer.writeField(m_name, SearchXml::Like);
                 }
@@ -1981,7 +1982,7 @@ class SearchFieldChoice : public SearchField
     // macro name will fix this issue. When uncommenting this block again, make sure to
     // fix the macro name of course.
 
-    Q_OBJ ECT
+    Q_ OBJECT
 
 public:
 
@@ -1992,7 +1993,7 @@ public:
     virtual void reset();
 
     void setChoice(const QMap<int, QString> &map);
-    void setAnyText(const QString &string);
+    void setAnyText(const QString& string);
 
     virtual void setupValueWidgets(QGridLayout *layout, int row, int column);
     virtual void setValueWidgetsVisible(bool visible);
@@ -2027,7 +2028,7 @@ SearchFieldChoice::SearchFieldChoice(SearchFieldGroup *parent)
 {
     m_anyText = i18n("Any");
     m_label = new SqueezedClickLabel;
-    m_label->setObjectName("SearchFieldChoice_ClickLabel");
+    m_label->setObjectName(QLatin1String("SearchFieldChoice_ClickLabel"));
     m_controller = new VisibilityController(this);
     m_controller->setContainerWidget(parent);
 }
@@ -2037,7 +2038,7 @@ void SearchFieldChoice::setupValueWidgets(QGridLayout *layout, int row, int colu
     m_vbox = new QVBoxLayout;
     layout->addLayout(m_vbox, row, column, 1, 3);
 
-    m_label->setTextElideMode(Qt::ElideRight);
+    m_label->setElideMode(Qt::ElideRight);
     m_vbox->addWidget(m_label);
 
     connect(m_label, SIGNAL(activated()),
@@ -2252,7 +2253,7 @@ void SearchFieldAlbum::read(SearchXmlCachingReader& reader)
 
         if (!a)
         {
-            kDebug() << "Search: Did not find album for ID" << id << "given in Search XML";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Search: Did not find album for ID" << id << "given in Search XML";
             return;
         }
 
@@ -2498,7 +2499,7 @@ SearchFieldComboBox::SearchFieldComboBox(QObject* const parent)
 
 void SearchFieldComboBox::setupValueWidgets(QGridLayout* layout, int row, int column)
 {
-    m_comboBox = new KComboBox;
+    m_comboBox = new QComboBox;
     m_comboBox->setEditable(false);
     layout->addWidget(m_comboBox, row, column, 1, 3);
 
@@ -2697,9 +2698,9 @@ SearchFieldLabels::SearchFieldLabels(QObject* const parent)
 
 void SearchFieldLabels::setupValueWidgets(QGridLayout* layout, int row, int column)
 {
-    QHBoxLayout* hbox  = new QHBoxLayout;
-    m_pickLabelFilter  = new PickLabelFilter;
-    m_colorLabelFilter = new ColorLabelFilter;
+    QHBoxLayout* const hbox = new QHBoxLayout;
+    m_pickLabelFilter       = new PickLabelFilter;
+    m_colorLabelFilter      = new ColorLabelFilter;
     hbox->addWidget(m_pickLabelFilter);
     hbox->addStretch(10);
     hbox->addWidget(m_colorLabelFilter);
@@ -2733,7 +2734,7 @@ void SearchFieldLabels::read(SearchXmlCachingReader& reader)
 
         if (!a)
         {
-            kDebug() << "Search: Did not find Label album for ID" << id << "given in Search XML";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Search: Did not find Label album for ID" << id << "given in Search XML";
         }
         else
         {
@@ -2787,9 +2788,9 @@ void SearchFieldLabels::write(SearchXmlWriter& writer)
         return;
     }
 
-    // NOTE: there is no XML database query rule for Color Labels in ImageQueryBuilder::buildField()
-    //       As Color Labels are internal tags, we trig database on "tagid".
-    writer.writeField("tagid", SearchXml::InTree);
+    // NOTE: As Color Labels are internal tags, we trig database on "tagid"
+    //       with "labels" in ImageQueryBuilder::buildField().
+    writer.writeField(m_name, SearchXml::InTree);
 
     if (albumIds.size() > 1)
     {

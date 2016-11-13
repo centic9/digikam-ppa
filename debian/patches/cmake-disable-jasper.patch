@@ -1,0 +1,21 @@
+Description: Disable probe for Jasper library
+Author: Steve Robbins <smr@debian.org>
+Forwarded: no
+
+Jasper is due to be removed from Debian so it would be a bug to link with it -- c.f. #818219.
+However, the upstream build process always probes for Jasper and at present the list of
+build-dependencies also pulls in Jasper dev libraries.  So we need to disable the probe.
+
+
+
+--- digikam-5.0.0~git20160625.orig/core/CMakeLists.txt
++++ digikam-5.0.0~git20160625/core/CMakeLists.txt
+@@ -267,7 +267,7 @@
+ find_package(Marble)
+ 
+ find_package(PkgConfig)
+-find_package(Jasper)
++#find_package(Jasper) -- disabled by Debian
+ find_package(Eigen3)                               # For Refocus tool.
+ find_package(OpenGL)                               # For Presentation tool.
+ 

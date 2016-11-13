@@ -6,7 +6,7 @@
  * Date        : 2012-01-24
  * Description : slideshow builder progress indicator
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,17 +21,17 @@
  *
  * ============================================================ */
 
-#include "slideshowbuilder.moc"
+#include "slideshowbuilder.h"
 
 // Qt includes
 
 #include <QTimer>
+#include <QApplication>
+#include <QIcon>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <klocale.h>
-#include <kicon.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -58,11 +58,11 @@ public:
     ImageInfoList infoList;
     Album*        album;
     bool          autoPlayEnabled;
-    KUrl          startFrom; // Overrides the startFromCurrent flag read from settings.
+    QUrl          startFrom;           // Overrides the startFromCurrent flag read from settings.
 };
 
 SlideShowBuilder::SlideShowBuilder(const ImageInfoList& infoList)
-    : ProgressItem(0, "SlideShowBuilder", QString(), QString(), true, true),
+    : ProgressItem(0, QLatin1String("SlideShowBuilder"), QString(), QString(), true, true),
       d(new Private)
 {
     d->infoList = infoList;
@@ -71,7 +71,7 @@ SlideShowBuilder::SlideShowBuilder(const ImageInfoList& infoList)
 }
 
 SlideShowBuilder::SlideShowBuilder(Album* const album)
-    : ProgressItem(0, "SlideShowBuilder", QString(), QString(), true, true),
+    : ProgressItem(0, QLatin1String("SlideShowBuilder"), QString(), QString(), true, true),
       d(new Private)
 {
     d->album = album;
@@ -105,7 +105,7 @@ void SlideShowBuilder::slotRun()
             this, SLOT(slotCancel()));
 
     setLabel(i18n("Preparing slideshow"));
-    setThumbnail(KIcon("digikam").pixmap(22));
+    setThumbnail(QIcon::fromTheme(QLatin1String("digikam")));
 
     if (d->album)
     {
@@ -165,7 +165,7 @@ void SlideShowBuilder::slotParseImageInfoList(const ImageInfoList& list)
         settings.pictInfoMap.insert(info.fileUrl(), pictInfo);
 
         advance(i++);
-        kapp->processEvents();
+        qApp->processEvents();
     }
 
     if (!d->cancel)

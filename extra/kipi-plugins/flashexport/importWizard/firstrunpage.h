@@ -6,7 +6,8 @@
  * Date        : 2011-09-13
  * Description : a plugin to export to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,14 +24,13 @@
 #ifndef FIRSTRUNPAGE_H
 #define FIRSTRUNPAGE_H
 
-// Include files for KDE
+// Qt includes
 
-#include <kdialog.h>
-#include <kurl.h>
+#include <QUrl>
 
-// Include files for KIPI
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
@@ -53,13 +53,13 @@ class FirstRunPage : public KPWizardPage
 
 public:
 
-    explicit FirstRunPage(KAssistantDialog* const dlg);
+    explicit FirstRunPage(KPWizardDialog* const dlg);
     ~FirstRunPage();
 
     /**
      * Returns the URL, where the SimpleViewer package is stored
      */
-    KUrl getUrl() const;
+    QUrl getUrl() const;
 
 Q_SIGNALS:
 
@@ -68,19 +68,14 @@ Q_SIGNALS:
 private Q_SLOTS:
 
     /**
-     * Opens the browser with the SimpleViewer download page
-     */
-    void slotDownload(const QString& url);
-
-    /**
      * Starts the installation of SimpleViewer
      */
-    void slotUrlSelected(const KUrl& url);
+    void slotUrlSelected(const QUrl& url);
 
 private:
 
-    class FirstRunPagePriv;
-    FirstRunPagePriv* const d;
+    class Private;
+    Private* const d;
 };
 
 }   // namespace KIPIFlashexport

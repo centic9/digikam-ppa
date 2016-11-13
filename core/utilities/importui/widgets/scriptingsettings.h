@@ -31,16 +31,17 @@
 
 // KDE includes
 
-#include <kconfig.h>
+#include <kconfiggroup.h>
 
 // Local settings
 
 #include "downloadsettings.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
-class ScriptingSettings : public QWidget
+class DIGIKAM_EXPORT ScriptingSettings : public QWidget
 {
     Q_OBJECT
 

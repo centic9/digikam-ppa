@@ -6,7 +6,7 @@
  * Date        : 2010-08-20
  * Description : Metadata Settings Container.
  *
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,17 +29,14 @@
 #include <QFlags>
 #include <QString>
 
-// LibKExiv2 includes
-
-#include <libkexiv2/kexiv2.h>
-
 // Local includes
 
 #include "digikam_export.h"
+#include "metaengine.h"
 
 class KConfigGroup;
 
-using namespace KExiv2Iface;
+using namespace Digikam;
 
 namespace Digikam
 {
@@ -104,8 +101,9 @@ public:
     bool                        updateFileTimeStamp;
     bool                        rescanImageIfModified;
     bool                        useXMPSidecar4Reading;
+    bool                        useLazySync;
 
-    KExiv2::MetadataWritingMode metadataWritingMode;
+    MetaEngine::MetadataWritingMode metadataWritingMode;
 
     RotationBehaviorFlags       rotationBehavior;
 };

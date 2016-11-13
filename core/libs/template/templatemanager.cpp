@@ -6,7 +6,7 @@
  * Date        : 2009-06-20
  * Description : metadata template manager.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "templatemanager.moc"
+#include "templatemanager.h"
 
 // Qt includes
 
@@ -32,12 +32,7 @@
 #include <QMutex>
 #include <QTextStream>
 #include <QTextCodec>
-
-// KDE includes
-
-#include <kglobal.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
+#include <QStandardPaths>
 
 // Local includes
 
@@ -51,7 +46,7 @@ class TemplateManager::Private
 public:
 
     Private()
-        :mutex(QMutex::Recursive)
+        :mutex()
     {
         modified = false;
     }
@@ -71,7 +66,7 @@ public:
     TemplateManager object;
 };
 
-K_GLOBAL_STATIC(TemplateManagerCreator, creator)
+Q_GLOBAL_STATIC(TemplateManagerCreator, creator)
 
 TemplateManager* TemplateManager::defaultManager()
 {
@@ -81,7 +76,7 @@ TemplateManager* TemplateManager::defaultManager()
 TemplateManager::TemplateManager()
     : d(new Private)
 {
-    d->file = KStandardDirs::locateLocal("appdata", "template.xml");
+    d->file = QStandardPaths::writableLocation(QStandardPaths::DataLocation) + QLatin1String("/template.xml");
 
     load();
 }
@@ -104,7 +99,7 @@ bool TemplateManager::load()
         return false;
     }
 
-    QDomDocument doc("templatelist");
+    QDomDocument doc(QLatin1String("templatelist"));
 
     if (!doc.setContent(&file))
     {
@@ -113,7 +108,7 @@ bool TemplateManager::load()
 
     QDomElement docElem = doc.documentElement();
 
-    if (docElem.tagName() != "templatelist")
+    if (docElem.tagName() != QLatin1String("templatelist"))
     {
         return false;
     }
@@ -127,7 +122,7 @@ bool TemplateManager::load()
             continue;
         }
 
-        if (e.tagName() != "template")
+        if (e.tagName() != QLatin1String("template"))
         {
             continue;
         }
@@ -193,7 +188,7 @@ bool TemplateManager::load()
             }
             else if (name2 == QString::fromLatin1("copyright"))
             {
-                KExiv2::AltLangMap copyrights;
+                MetaEngine::AltLangMap copyrights;
 
                 for (QDomNode n3 = e2.firstChild(); !n3.isNull(); n3 = n3.nextSibling())
                 {
@@ -207,7 +202,7 @@ bool TemplateManager::load()
             }
             else if (name2 == QString::fromLatin1("rightusageterms"))
             {
-                KExiv2::AltLangMap usages;
+                MetaEngine::AltLangMap usages;
 
                 for (QDomNode n3 = e2.firstChild(); !n3.isNull(); n3 = n3.nextSibling())
                 {
@@ -312,8 +307,8 @@ bool TemplateManager::save()
         return true;
     }
 
-    QDomDocument doc("templatelist");
-    doc.setContent(QString("<!DOCTYPE XMLTemplateList><templatelist version=\"2.0\" client=\"digikam\" encoding=\"UTF-8\"/>"));
+    QDomDocument doc(QLatin1String("templatelist"));
+    doc.setContent(QLatin1String("<!DOCTYPE XMLTemplateList><templatelist version=\"2.0\" client=\"digikam\" encoding=\"UTF-8\"/>"));
     QDomElement docElem = doc.documentElement();
 
     {
@@ -321,7 +316,7 @@ bool TemplateManager::save()
 
         foreach(const Template& t, d->pList)
         {
-            QDomElement elem = doc.createElement("template");
+            QDomElement elem = doc.createElement(QLatin1String("template"));
 
             QDomElement templatetitle = doc.createElement(QString::fromLatin1("templatetitle"));
             templatetitle.setAttribute(QString::fromLatin1("value"), t.templateTitle());
@@ -355,8 +350,8 @@ bool TemplateManager::save()
 
             QDomElement copyright = doc.createElement(QString::fromLatin1("copyright"));
             elem.appendChild(copyright);
-            KExiv2::AltLangMap rights = t.copyright();
-            KExiv2::AltLangMap::const_iterator it;
+            MetaEngine::AltLangMap rights = t.copyright();
+            MetaEngine::AltLangMap::const_iterator it;
 
             for (it = rights.constBegin() ; it != rights.constEnd() ; ++it)
             {
@@ -367,8 +362,8 @@ bool TemplateManager::save()
 
             QDomElement rightusageterms = doc.createElement(QString::fromLatin1("rightusageterms"));
             elem.appendChild(rightusageterms);
-            KExiv2::AltLangMap usages   = t.rightUsageTerms();
-            KExiv2::AltLangMap::const_iterator it2;
+            MetaEngine::AltLangMap usages   = t.rightUsageTerms();
+            MetaEngine::AltLangMap::const_iterator it2;
 
             for (it2 = usages.constBegin() ; it2 != usages.constEnd() ; ++it2)
             {

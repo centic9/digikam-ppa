@@ -3,15 +3,15 @@
 # Copyright (C) 2010 This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Sveinn í Felli <sveinki@nett.is>, 2009, 2010, 2011, 2012, 2013, 2015.
+# Sveinn í Felli <sveinki@nett.is>, 2009, 2010, 2011, 2012, 2013, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flashexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-23 01:54+0000\n"
-"PO-Revision-Date: 2015-04-15 09:51+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-09-05 15:13+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
-"Language-Team: Icelandic <kde-isl@molar.is>\n"
+"Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
 "Language: is\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,33 +24,24 @@ msgstr ""
 "\n"
 "\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Sveinn í Felli"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "sv1@fellsnet.is"
-
-#: aboutdata.h:41
+#: aboutdata.h:42
 msgid "Flash Export"
 msgstr "Flash útflutningur"
 
 #: aboutdata.h:43
-msgid ""
-"A Kipi plugin to export images to Flash using the SimpleViewer's components."
+msgid "A tool to export images to Flash using the SimpleViewer's components."
 msgstr ""
-"KIPI íforrit til að flytja út myndir sem Flash með Simple Viewer einingunum."
+"Verkfæri til að flytja út myndir sem Flash með Simple Viewer einingunum."
 
 #: aboutdata.h:44
 msgid ""
 "(c) 2005-2006, Joern Ahrens\n"
-"(c) 2008-2012, Gilles Caulier\n"
-"(c) 2011, Veaceslav Munteanu"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2011-2013, Veaceslav Munteanu"
 msgstr ""
 "(c) 2005-2006, Joern Ahrens\n"
-"(c) 2008-2012, Gilles Caulier\n"
-"(c) 2011, Veaceslav Munteanu"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2011-2013, Veaceslav Munteanu"
 
 #: aboutdata.h:51
 msgid "Joern Ahrens"
@@ -73,26 +64,18 @@ msgid "Veaceslav Munteanu"
 msgstr "Veaceslav Munteanu"
 
 #: aboutdata.h:63
-msgid "Felix Turner"
-msgstr "Felix Turner"
-
-#: aboutdata.h:64
-msgid "Author of the Simple Viewer Flash component"
-msgstr "Höfundur Simple Viewer Flash einingarinnar"
-
-#: aboutdata.h:68
 msgid "Mikkel B. Stegmann"
 msgstr "Mikkel B. Stegmann"
 
-#: aboutdata.h:69
+#: aboutdata.h:64
 msgid "Basis for the index.html template"
 msgstr "Grunnur index.html sniðmátsins"
 
-#: importWizard/firstrunpage.cpp:70
+#: importWizard/firstrunpage.cpp:68
 msgid "First Run"
 msgstr "Fyrsta keyrsla"
 
-#: importWizard/firstrunpage.cpp:77
+#: importWizard/firstrunpage.cpp:74
 msgid ""
 "<p>SimpleViewer's plugins are Flash components which are free to use, but "
 "use a license which comes into conflict with several distributions. Due to "
@@ -106,52 +89,56 @@ msgstr ""
 "hinn bóginn notendaleyfi sem er í mótsögn við anda margra linux-dreifinga. "
 "Af þeim sökum er ekki gerlegt að dreifa þessari einingu með kjarnaforritum.</"
 "p><p>Nú geturðu náð í SimpleViewer á netinu og beint þessu tóli að "
-"niðurhöluðu skránni. Safnskráin verður geymd með íforritinu þannig að hún er "
-"aðgengileg til síðari tíma brúks.</p><p><b>Athugaðu: náðu í íforritið sem þú "
+"niðurhöluðu skránni. Safnskráin verður geymd með viðbótinni þannig að hún er "
+"aðgengileg til síðari tíma brúks.</p><p><b>Athugaðu: náðu í viðbótina sem þú "
 "valdir á fyrstu síðunni.</b></p>"
 
-#: importWizard/firstrunpage.cpp:86
+#: importWizard/firstrunpage.cpp:83
 msgid "<p>1.) Download plugin from the following url:</p>"
-msgstr "<p>1.) Ná í íforritið á eftirfarandi slóð:</p>"
+msgstr "<p>1.) Ná í viðbótina á eftirfarandi slóð:</p>"
 
-#: importWizard/firstrunpage.cpp:96
+#: importWizard/firstrunpage.cpp:95
 msgid "<p>2.) Point this tool to the downloaded archive</p>"
-msgstr "<p>2.) Beindu þessu áhaldi að safnskránni sem náð var í</p>"
+msgstr "<p>2.) Beindu þessu verkfæri að safnskránni sem náð var í</p>"
 
-#: importWizard/generalpage.cpp:84
+#: importWizard/firstrunpage.cpp:99
+msgid "Select downloaded archive"
+msgstr "Veldu sóttu safnskrána"
+
+#: importWizard/generalpage.cpp:85
 msgid "General Settings"
 msgstr "Almennar stillingar"
 
-#: importWizard/generalpage.cpp:91
+#: importWizard/generalpage.cpp:93
 msgid "Gallery &Title"
 msgstr "&Titill myndasafns"
 
-#: importWizard/generalpage.cpp:94
+#: importWizard/generalpage.cpp:96
 msgid "Enter here the gallery title"
 msgstr "Settu hér inn titil á myndasafnið"
 
-#: importWizard/generalpage.cpp:102
+#: importWizard/generalpage.cpp:104
 msgid "Save Gallery To"
 msgstr "Vista myndasafn í"
 
-#: importWizard/generalpage.cpp:113
+#: importWizard/generalpage.cpp:116
 msgid "Image Properties"
 msgstr "Eiginleikar myndar"
 
-#: importWizard/generalpage.cpp:115
+#: importWizard/generalpage.cpp:118
 msgid "Resize Target Images"
 msgstr "Endurákvarða stærð úttaksmynda"
 
-#: importWizard/generalpage.cpp:117
+#: importWizard/generalpage.cpp:120
 msgid "If you enable this option, all target images can be resized."
 msgstr "Ef þetta er virkt verður stærð allra úttaksmynda endurákvörðuð."
 
-#: importWizard/generalpage.cpp:121
+#: importWizard/generalpage.cpp:124
 msgid "Auto-Rotate/Flip Images"
 msgstr "Sjálfvirkur snúningur/fletting mynda"
 
-#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
-#: importWizard/lookpage.cpp:335
+#: importWizard/generalpage.cpp:126 importWizard/lookpage.cpp:339
+#: importWizard/lookpage.cpp:344
 msgid ""
 "If you enable this option, the images' orientations will be set according to "
 "their Exif information."
@@ -159,11 +146,11 @@ msgstr ""
 "Ef þetta er virkt verður stefna myndanna stillt eftir EXIF-upplýsingum "
 "þeirra."
 
-#: importWizard/generalpage.cpp:128
+#: importWizard/generalpage.cpp:131
 msgid "&Target Images' Size:"
 msgstr "S&tærð úttaksmynda:"
 
-#: importWizard/generalpage.cpp:132
+#: importWizard/generalpage.cpp:136
 msgid ""
 "The new size of the exported images, in pixels. SimpleViewer resizes the "
 "images too, but this resizes the images before they are uploaded to your "
@@ -172,11 +159,11 @@ msgstr ""
 "Ný stærð útfluttra mynda, í dílum. SimpleViewer minnkar myndirnar líka, en "
 "þessi stilling minnkar myndirnar áður en þær eru fluttar á vefþjóninn."
 
-#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+#: importWizard/generalpage.cpp:148
 msgid "&Displayed Images' Size:"
 msgstr "Stærð birtra myn&da:"
 
-#: importWizard/generalpage.cpp:149
+#: importWizard/generalpage.cpp:153
 msgid ""
 "Scales the displayed images to this size. Normally, use the height or width "
 "of your largest image (in pixels). Images will not be scaled up above this "
@@ -186,31 +173,31 @@ msgstr ""
 "stærstu myndarinnar (í dílum/punktum). Myndir verða ekki stækkaðar upp fyrir "
 "þessi mörk, til að halda í myndgæði."
 
-#: importWizard/generalpage.cpp:165
+#: importWizard/generalpage.cpp:169
 msgid "Misc"
 msgstr "Ýmislegt"
 
-#: importWizard/generalpage.cpp:168
+#: importWizard/generalpage.cpp:172
 msgid "Display Captions"
 msgstr "Sýna skýringartexta"
 
-#: importWizard/generalpage.cpp:170
+#: importWizard/generalpage.cpp:174
 msgid "If this option is enabled, the images' captions will be shown."
 msgstr "Ef þetta er virkt verða skýringatextar mynda sýndir."
 
-#: importWizard/generalpage.cpp:172
+#: importWizard/generalpage.cpp:176
 msgid "Display Keywords"
 msgstr "Sýna stikkorð"
 
-#: importWizard/generalpage.cpp:174
+#: importWizard/generalpage.cpp:178
 msgid "If this option is enabled, the images' keywords will be shown."
 msgstr "Ef þetta er virkt verða stikkorð mynda sýnd."
 
-#: importWizard/generalpage.cpp:177
+#: importWizard/generalpage.cpp:181
 msgid "Open Image with Right Click"
 msgstr "Opna mynd með hægri-smelli"
 
-#: importWizard/generalpage.cpp:179
+#: importWizard/generalpage.cpp:183
 msgid ""
 "If this option is enabled, the user will be able to open the target image in "
 "a separate window using the right mouse button."
@@ -218,35 +205,47 @@ msgstr ""
 "Ef þetta er virkt getur notandinn opnað úttaksmyndirnar í sérglugga með því "
 "að hægrismella á þær."
 
-#: importWizard/generalpage.cpp:183
+#: importWizard/generalpage.cpp:187
 msgid "Open gallery in Browser"
 msgstr "Opna myndasafn í vafra"
 
-#: importWizard/generalpage.cpp:185
+#: importWizard/generalpage.cpp:189
 msgid ""
 "If this option is enabled, the gallery will be opened in Konqueror "
 "automatically."
 msgstr "Ef þetta er virkt verður myndasafnið opnað sjálfkrafa í Konqueror."
 
-#: importWizard/importwizarddlg.cpp:90
+#: importWizard/importwizarddlg.cpp:95
 msgid "Flash Export Wizard"
 msgstr "Flash útflutningspúki"
 
-#: importWizard/importwizarddlg.cpp:135
+#: importWizard/importwizarddlg.cpp:148
+msgid "SimpleViewer installation failed"
+msgstr "Uppsetning SimpleViewer mistókst"
+
+#: importWizard/importwizarddlg.cpp:149
 msgid ""
-"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"<p>Failed to install SimpleViewer. </p><p>Please check if:</p><p>- archive "
 "corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
 "date and is not corrupted.</p>"
 msgstr ""
 "<p>Uppsetning SimpleViewer mistókst. </p><p>Athugaðu hvort:</p><p>- safnskrá "
-"samsvarar íforriti sem valið var á fyrri síðu.</p><p>- safnskrá sé uppfærð í "
+"samsvarar viðbót sem valin var á fyrri síðu.</p><p>- safnskrá sé uppfærð í "
 "nýjustu útgáfu og sé ekki skemmd.</p>"
 
-#: importWizard/importwizarddlg.cpp:180
+#: importWizard/importwizarddlg.cpp:183
+msgid "Problem to export collection"
+msgstr "Vandamál við útflutning á myndasafni"
+
+#: importWizard/importwizarddlg.cpp:184
 msgid "You must select at least one collection to export."
 msgstr "Þú verður að velja a.m.k. eitt safn til útflutnings."
 
-#: importWizard/importwizarddlg.cpp:216
+#: importWizard/importwizarddlg.cpp:242
+msgid "Target Folder Exists"
+msgstr "Móttökumappa er til"
+
+#: importWizard/importwizarddlg.cpp:243
 #, kde-format
 msgid ""
 "Target folder %1 already exists.\n"
@@ -255,7 +254,11 @@ msgstr ""
 "Úttaksmappan %1 er þegar til.\n"
 "Viltu skrifa yfir hana?  Öll gögn í möppunni munu tapast."
 
-#: importWizard/importwizarddlg.cpp:225
+#: importWizard/importwizarddlg.cpp:257
+msgid "Cannot Delete Folder"
+msgstr "Get ekki eytt möppu"
+
+#: importWizard/importwizarddlg.cpp:258
 #, kde-format
 msgid ""
 "Could not delete %1.\n"
@@ -264,11 +267,11 @@ msgstr ""
 "Gat ekki eytt %1.\n"
 "Vinsamlega veldu aðra möppu til útflutnings."
 
-#: importWizard/intropage.cpp:60
+#: importWizard/intropage.cpp:61
 msgid "Welcome to FlashExport Tool"
-msgstr "Velkomin í FlashExport áhaldið"
+msgstr "Velkomin í FlashExport verkfærið"
 
-#: importWizard/intropage.cpp:68
+#: importWizard/intropage.cpp:69
 msgid ""
 "<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
 "href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
@@ -278,7 +281,7 @@ msgid ""
 "of 50 pictures to be exported.</p><p>2. TiltViewer is quite CPU intensive</"
 "p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
 msgstr ""
-"<qt><p><h1><b>Velkomin í FlashExport áhaldið</b></h1></p><p>Þetta verkfæri "
+"<qt><p><h1><b>Velkomin í FlashExport verkfærið</b></h1></p><p>Þetta verkfæri "
 "notar <a href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, "
 "TiltViewer eða Postcardviewer</a> til að flytja myndir út í flash myndasöfn."
 "</p><p>Þessi leiðarvísir getur hjálpað þér að stilla og flytja inn myndir "
@@ -287,50 +290,50 @@ msgstr ""
 "p><p>2. TiltViewer er frekur á örgjörvavinnslu.</p><p>3. Postcardviewer er "
 "hannaður fyrir frekar lítinn fjölda mynda.</p></qt>"
 
-#: importWizard/intropage.cpp:81
+#: importWizard/intropage.cpp:82
 msgid "Select &Plugin:"
-msgstr "&Velja íforrit:"
+msgstr "&Velja viðbót:"
 
-#: importWizard/intropage.cpp:84
+#: importWizard/intropage.cpp:85
 msgctxt "SimpleViewer"
 msgid "SimpleViewer"
 msgstr "SimpleViewer"
 
-#: importWizard/intropage.cpp:85
+#: importWizard/intropage.cpp:86
 msgctxt "TiltViewer"
 msgid "TiltViewer"
 msgstr "TiltViewer"
 
-#: importWizard/intropage.cpp:86
+#: importWizard/intropage.cpp:87
 msgctxt "AutoViewer"
 msgid "AutoViewer"
 msgstr "AutoViewer"
 
-#: importWizard/intropage.cpp:87
+#: importWizard/intropage.cpp:88
 msgctxt "PostcardViewer"
 msgid "PostcardViewer"
 msgstr "PostcardViewer"
 
-#: importWizard/intropage.cpp:99
+#: importWizard/intropage.cpp:100
 msgid "&Choose image selection method:"
 msgstr "Vel&du aðferð við val mynda:"
 
-#: importWizard/intropage.cpp:101
+#: importWizard/intropage.cpp:102
 msgctxt "Collections"
 msgid "Collections"
 msgstr "Söfn"
 
-#: importWizard/intropage.cpp:102
-msgctxt "Image Dialog"
-msgid "Image Dialog"
-msgstr "Viðmótsgluggi myndar"
+#: importWizard/intropage.cpp:103
+msgctxt "Images"
+msgid "Images"
+msgstr "Myndir"
 
-#: importWizard/lookpage.cpp:111
+#: importWizard/lookpage.cpp:108
 msgid "Configure appearance"
 msgstr "Stilla útlit"
 
-#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
-#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:244
+#: importWizard/lookpage.cpp:316 importWizard/lookpage.cpp:400
 msgctxt "Settings for flash export navigation"
 msgid "Navigation"
 msgstr "Leiðarstýring"
@@ -339,166 +342,166 @@ msgstr "Leiðarstýring"
 msgid "Thumbnail &Rows:"
 msgstr "&Raðir smámynda:"
 
-#: importWizard/lookpage.cpp:147
+#: importWizard/lookpage.cpp:148
 msgid "Number of thumbnails rows"
 msgstr "Fjöldi raða af smámyndum"
 
-#: importWizard/lookpage.cpp:151
+#: importWizard/lookpage.cpp:152
 msgid "Thumbnail &Columns:"
 msgstr "&Dálkar smámynda:"
 
-#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+#: importWizard/lookpage.cpp:157 importWizard/lookpage.cpp:418
 msgid "Number of thumbnails columns"
 msgstr "Fjöldi dálka af smámyndum"
 
-#: importWizard/lookpage.cpp:159
+#: importWizard/lookpage.cpp:161
 msgid "Thumbnail &Position:"
 msgstr "Staða smám&ynda:"
 
-#: importWizard/lookpage.cpp:161
+#: importWizard/lookpage.cpp:163
 msgctxt "thumbnail position: right"
 msgid "Right"
 msgstr "Hægri"
 
-#: importWizard/lookpage.cpp:162
+#: importWizard/lookpage.cpp:164
 msgctxt "thumbnail position: left"
 msgid "Left"
 msgstr "Vinstri"
 
-#: importWizard/lookpage.cpp:163
+#: importWizard/lookpage.cpp:165
 msgctxt "thumbnail position: top"
 msgid "Top"
 msgstr "Efst"
 
-#: importWizard/lookpage.cpp:164
+#: importWizard/lookpage.cpp:166
 msgctxt "thumbnail position: bottom"
 msgid "Bottom"
 msgstr "Neðst"
 
-#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
-#: importWizard/lookpage.cpp:418
+#: importWizard/lookpage.cpp:182 importWizard/lookpage.cpp:262
+#: importWizard/lookpage.cpp:429
 msgid "Colors"
 msgstr "Litir"
 
-#: importWizard/lookpage.cpp:184
+#: importWizard/lookpage.cpp:186
 msgid "&Text Color:"
 msgstr "&Textalitur:"
 
-#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+#: importWizard/lookpage.cpp:189 importWizard/lookpage.cpp:436
 msgid "Color of title and caption text"
 msgstr "Litur titils og skýringartexta"
 
-#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
-#: importWizard/lookpage.cpp:429
+#: importWizard/lookpage.cpp:193 importWizard/lookpage.cpp:266
+#: importWizard/lookpage.cpp:440
 msgid "&Background Color:"
 msgstr "&Bakgrunnslitur:"
 
-#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
-#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+#: importWizard/lookpage.cpp:199 importWizard/lookpage.cpp:272
+#: importWizard/lookpage.cpp:361 importWizard/lookpage.cpp:446
 msgid "&Frame Color:"
 msgstr "&Litur ramma:"
 
-#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
-#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+#: importWizard/lookpage.cpp:202 importWizard/lookpage.cpp:275
+#: importWizard/lookpage.cpp:364 importWizard/lookpage.cpp:449
 msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
 msgstr "Litur myndaramma, skoðaðra táknmynda, hleðslustika, smámyndaörva"
 
-#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
-#: importWizard/lookpage.cpp:449
+#: importWizard/lookpage.cpp:213 importWizard/lookpage.cpp:285
+#: importWizard/lookpage.cpp:460
 msgid "Style"
 msgstr "Stíll"
 
-#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
-#: importWizard/lookpage.cpp:469
+#: importWizard/lookpage.cpp:217 importWizard/lookpage.cpp:289
+#: importWizard/lookpage.cpp:482
 msgid "&Frame Width:"
 msgstr "Brei&dd ramma:"
 
-#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+#: importWizard/lookpage.cpp:222 importWizard/lookpage.cpp:294
 msgid "Width of image frame in pixels."
 msgstr "Breidd rammans, í dílum."
 
-#: importWizard/lookpage.cpp:223
+#: importWizard/lookpage.cpp:226
 msgid "&Stage Padding:"
 msgstr "&Millibil:"
 
-#: importWizard/lookpage.cpp:227
+#: importWizard/lookpage.cpp:231
 msgid "Distance between image and thumbnails in pixels."
 msgstr "Fjarlægð milli myndar og smámynda, í dílum."
 
-#: importWizard/lookpage.cpp:244
+#: importWizard/lookpage.cpp:248
 msgid "&Display Time:"
 msgstr "&Birtingartími:"
 
-#: importWizard/lookpage.cpp:248
+#: importWizard/lookpage.cpp:253
 msgid "Number of seconds each image will display in auto-play mode."
 msgstr "Fjöldi sekúndna sem hver mynd birtist í sjálfspilunarham."
 
-#: importWizard/lookpage.cpp:292
+#: importWizard/lookpage.cpp:298
 msgid "&Image Padding:"
 msgstr "&Bil milli mynda:"
 
-#: importWizard/lookpage.cpp:296
+#: importWizard/lookpage.cpp:303
 msgid "Distance between images in pixels"
 msgstr "Fjarlægð milli mynda, í dílum."
 
-#: importWizard/lookpage.cpp:313
+#: importWizard/lookpage.cpp:320
 msgid " &Rows:"
 msgstr " &Raðir:"
 
-#: importWizard/lookpage.cpp:317
+#: importWizard/lookpage.cpp:325
 msgid "Number of rows of images to display."
 msgstr "Fjöldi myndaraða sem á að birta."
 
-#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+#: importWizard/lookpage.cpp:329 importWizard/lookpage.cpp:413
 msgid " &Columns:"
 msgstr " &Dálkar:"
 
-#: importWizard/lookpage.cpp:325
+#: importWizard/lookpage.cpp:334
 msgid "Number of columns of images to display."
 msgstr "Fjöldi myndadálka sem á að birta."
 
-#: importWizard/lookpage.cpp:328
+#: importWizard/lookpage.cpp:337
 msgid "Show Flip Button"
 msgstr "Sýna flettihnapp"
 
-#: importWizard/lookpage.cpp:333
+#: importWizard/lookpage.cpp:342
 msgid "Use reload button"
 msgstr "Nota endurlestrarhnapp"
 
-#: importWizard/lookpage.cpp:348
+#: importWizard/lookpage.cpp:357
 msgctxt "Settings for flash export navigation"
 msgid "Colors"
 msgstr "Litir"
 
-#: importWizard/lookpage.cpp:359
+#: importWizard/lookpage.cpp:368
 msgid "Background &Inner Color:"
 msgstr "&Innri bakgrunnslitur:"
 
-#: importWizard/lookpage.cpp:362
+#: importWizard/lookpage.cpp:371
 msgid "Color of the stage background gradient center."
 msgstr "Litur í miðjum litstigli á bakgrunni."
 
-#: importWizard/lookpage.cpp:366
+#: importWizard/lookpage.cpp:375
 msgid "Background &Outer Color:"
 msgstr "&Ytri bakgrunnslitur:"
 
-#: importWizard/lookpage.cpp:369
+#: importWizard/lookpage.cpp:378
 msgid "Color of the stage background gradient edge."
 msgstr "Litur á jaðri litstiguls á bakgrunni."
 
-#: importWizard/lookpage.cpp:373
+#: importWizard/lookpage.cpp:382
 msgid "Image Back Color:"
 msgstr "Litur bakhliðar:"
 
-#: importWizard/lookpage.cpp:376
+#: importWizard/lookpage.cpp:385
 msgid "Image's back color when pressing flip button"
 msgstr "Litur bakhliðar á mynd þegar ýtt er á flettihnapp"
 
-#: importWizard/lookpage.cpp:395
+#: importWizard/lookpage.cpp:404
 msgid "Cell Dimension:"
 msgstr "Stærð reita:"
 
-#: importWizard/lookpage.cpp:399
+#: importWizard/lookpage.cpp:409
 msgid ""
 "Dimension of displayed image cells. Please use a higher value if you set "
 "high image size"
@@ -506,35 +509,35 @@ msgstr ""
 "Stærðir birtra myndareita. Notaðu hærri gildi ef þú setur mikla stærð á "
 "myndum"
 
-#: importWizard/lookpage.cpp:422
+#: importWizard/lookpage.cpp:433
 msgid "&Caption Color:"
 msgstr "&Litur skýringatexta:"
 
-#: importWizard/lookpage.cpp:453
+#: importWizard/lookpage.cpp:464
 msgid "&Zoom In Percentage:"
 msgstr "&Aðdráttarprósenta:"
 
-#: importWizard/lookpage.cpp:457
+#: importWizard/lookpage.cpp:469
 msgid "The amount of scale when zoomed in (percentage)"
 msgstr "Styrkur kvörðunar við mikinn aðdrátt (prósenta)"
 
-#: importWizard/lookpage.cpp:461
+#: importWizard/lookpage.cpp:473
 msgid "&Zoom Out Percentage:"
 msgstr "&Smækkunarprósenta:"
 
-#: importWizard/lookpage.cpp:465
+#: importWizard/lookpage.cpp:478
 msgid "The amount of scale when zoomed out (percentage)"
 msgstr "Styrkur kvörðunar við lítinn aðdrátt (prósenta)"
 
-#: importWizard/lookpage.cpp:473
+#: importWizard/lookpage.cpp:487
 msgid "The frame width"
 msgstr "Breidd ramma:"
 
-#: importWizard/progresspage.cpp:49
+#: importWizard/progresspage.cpp:48
 msgid "Exporting..."
 msgstr "Flyt út..."
 
-#: importWizard/selectionpage.cpp:68
+#: importWizard/selectionpage.cpp:67
 msgid "Select Image Collections"
 msgstr "Veldu myndasöfn"
 
@@ -546,114 +549,132 @@ msgstr "&Flytja annað"
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flashexportui.rc:13
 msgid "Main Toolbar"
-msgstr "Aðaltækjaslá"
+msgstr "Aðalverkfæraslá"
 
-#: plugin_flashexport.cpp:94
+#: plugin_flashexport.cpp:91
 msgid "Export to F&lash..."
 msgstr "Flytja út sem F&lash..."
 
-#: simpleviewer.cpp:184
+#: simpleviewer.cpp:193
 msgid "Initialising..."
 msgstr "Ræsi upp..."
 
-#: simpleviewer.cpp:212
+#: simpleviewer.cpp:221
 msgid "Export canceled"
 msgstr "Hætt við útflutning"
 
-#: simpleviewer.cpp:223
+#: simpleviewer.cpp:232
 msgid "Failed to create export directories"
 msgstr "Mistókst að búa til útflutningsmöppur"
 
-#: simpleviewer.cpp:230
+#: simpleviewer.cpp:239
 msgid "Failed to export the images"
 msgstr "Mistókst að flytja út myndirnar"
 
-#: simpleviewer.cpp:237
+#: simpleviewer.cpp:246
 msgid "Failed to create index.html"
 msgstr "Mistókst að búa til index.html"
 
-#: simpleviewer.cpp:244
+#: simpleviewer.cpp:253
 msgid "Failed to copy SimpleViewer files"
 msgstr "Mistókst að afrita SimpleViewer skrárnar"
 
-#: simpleviewer.cpp:251
+#: simpleviewer.cpp:260
 msgid "Failed to upload the gallery"
 msgstr "Mistókst að senda myndasafnið"
 
-#: simpleviewer.cpp:260
-#, kde-format
-msgid ""
-"Export was canceled.\n"
-"Do you want to delete files in %1 that have already been created?"
-msgstr ""
-"Hætt var við útflutning.\n"
-"Viltu eyða skránum í %1 sem þegar var búið að útbúa?"
+#: simpleviewer.cpp:269
+msgid "Export was canceled"
+msgstr "Hætt við útflutning"
 
-#: simpleviewer.cpp:271
+#: simpleviewer.cpp:270
+#, kde-format
+msgid "Do you want to delete files in %1 that have already been created?"
+msgstr "Viltu eyða skránum í %1 sem þegar var búið að útbúa?"
+
+#: simpleviewer.cpp:282
 msgctxt "Flash export has finished"
 msgid "Finished..."
 msgstr "Lokið..."
 
-#: simpleviewer.cpp:285
+#: simpleviewer.cpp:300
 msgid "Creating directories..."
 msgstr "Bý til möppur..."
 
-#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#: simpleviewer.cpp:307 simpleviewer.cpp:319 simpleviewer.cpp:330
 #, kde-format
 msgid "Could not create folder '%1'"
 msgstr "Get ekki búið til möppuna '%1'"
 
-#: simpleviewer.cpp:320
+#: simpleviewer.cpp:335
 msgid "Finished Creating directories..."
 msgstr "Búið að búa til möppur..."
 
-#: simpleviewer.cpp:353
+#: simpleviewer.cpp:388
 msgid "Creating images and thumbnails..."
 msgstr "Bý til myndir og smámyndir..."
 
-#: simpleviewer.cpp:483
+#: simpleviewer.cpp:542
 #, kde-format
 msgid "Processing %1"
 msgstr "Vinn með %1"
 
-#: simpleviewer.cpp:493
+#: simpleviewer.cpp:559
 #, kde-format
 msgid "Could not open image '%1'"
 msgstr "Get ekki opnað myndina '%1'"
 
-#: simpleviewer.cpp:504
+#: simpleviewer.cpp:570
 #, kde-format
 msgid "Could not create thumbnail from '%1'"
 msgstr "Get ekki búið til smámynd eftir '%1'"
 
-#: simpleviewer.cpp:512
+#: simpleviewer.cpp:578
 #, kde-format
 msgid "Could not resize image '%1'"
 msgstr "Get ekki breytt stærð myndarinnar '%1'"
 
-#: simpleviewer.cpp:739
+#: simpleviewer.cpp:809
 msgid "Creating index.html..."
 msgstr "Bý til index.html..."
 
-#: simpleviewer.cpp:878
+#: simpleviewer.cpp:965
 msgid "index.html created..."
 msgstr "index.html var búið til..."
 
-#: simpleviewer.cpp:888
+#: simpleviewer.cpp:975
 msgid "Copying flash files..."
 msgstr "Afrita flash skrár..."
 
-#: simpleviewer.cpp:906
+#: simpleviewer.cpp:995
 msgid "Flash files copied..."
 msgstr "Flash skrár afritaðar..."
 
-#: simpleviewer.cpp:916
-msgid "Uploading gallery..."
-msgstr "Sendi myndasafn..."
+#: simpleviewer.cpp:1005
+msgid "Copying gallery..."
+msgstr "Afrita myndasafn..."
 
-#: simpleviewer.cpp:921
-msgid "Gallery uploaded..."
-msgstr "Myndasafn sent..."
+#: simpleviewer.cpp:1010
+msgid "Gallery copied..."
+msgstr "Myndasafn afritað..."
+
+#~ msgid "Felix Turner"
+#~ msgstr "Felix Turner"
+
+#~ msgid "Author of the Simple Viewer Flash component"
+#~ msgstr "Höfundur Simple Viewer Flash einingarinnar"
+
+#~ msgctxt "Image Dialog"
+#~ msgid "Image Dialog"
+#~ msgstr "Viðmótsgluggi myndar"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Sveinn í Felli"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "sv1@fellsnet.is"
 
 #~ msgid "Handbook"
 #~ msgstr "Handbók"

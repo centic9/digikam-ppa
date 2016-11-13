@@ -24,14 +24,16 @@
 #ifndef ADVANCEDRENAMEMANAGER_H
 #define ADVANCEDRENAMEMANAGER_H
 
-// KDE includes
-
-#include <kurl.h>
-
 // Qt includes
 
+#include <QUrl>
 #include <QString>
 #include <QStringList>
+#include <QObject>
+
+// Local includes
+
+#include "digikam_export.h"
 
 namespace Digikam
 {
@@ -40,7 +42,7 @@ class AdvancedRenameWidget;
 class Parser;
 class ParseSettings;
 
-class AdvancedRenameManager : public QObject
+class DIGIKAM_EXPORT AdvancedRenameManager : public QObject
 {
     Q_OBJECT
 
@@ -76,9 +78,9 @@ public:
     void reset();
 
     void parseFiles();
-    void parseFiles(const ParseSettings &settings);
+    void parseFiles(const ParseSettings& settings);
     void parseFiles(const QString& parseString);
-    void parseFiles(const QString& parseString, const ParseSettings &settings);
+    void parseFiles(const QString& parseString, const ParseSettings& settings);
 
     void setParserType(ParserType type);
     Parser* getParser() const;
@@ -96,14 +98,14 @@ public:
     int indexOfFile(const QString& filename);
     int indexOfFolder(const QString& filename);
     int indexOfFileGroup(const QString& filename);
-    QString newName(const QString& filename);
+    QString newName(const QString& filename) const;
 
     QStringList            fileList() const;
     QMap<QString, QString> newFileList() const;
 
 Q_SIGNALS:
 
-    void signalSortingChanged(KUrl::List);
+    void signalSortingChanged(QList<QUrl>);
 
 private:
 

@@ -6,7 +6,7 @@
  * Date        : 2007-11-07
  * Description : e-mail settings container.
  *
- * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Andi Clemens <andi dot clemens at googlemail dot com>
  *
  * This program is free software; you can redistribute it
@@ -26,13 +26,11 @@
 
 // Qt includes
 
+#include <QtGlobal>
 #include <QList>
 #include <QString>
 #include <QStringList>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 namespace KIPISendimagesPlugin
 {
@@ -48,8 +46,8 @@ public:
 
     QStringList tags;           // List of keywords from Kipi host.
 
-    KUrl        orgUrl;         // Url of original image.
-    KUrl        emailUrl;       // Url of attached image in e-mail (can be resized).
+    QUrl        orgUrl;         // Url of original image.
+    QUrl        emailUrl;       // Url of attached image in e-mail (can be resized).
 };
 
 // -----------------------------------------------------------------------------------
@@ -61,11 +59,10 @@ public:
 
     enum EmailClient
     {
-        DEFAULT = 0,        // Default e-mail settings from KDE control panel.
+        DEFAULT = 0,            // Default e-mail settings from desktop contro; panel.
         BALSA,
         CLAWSMAIL,
         EVOLUTION,
-        GMAILAGENT,
         KMAIL,
         NETSCAPE,
         SYLPHEED,
@@ -80,7 +77,9 @@ public:
         MEDIUM,
         BIG,
         VERYBIG,
-        LARGE
+        LARGE,
+        FULLHD,
+        ULTRAHD
     };
 
     enum ImageFormat
@@ -97,7 +96,7 @@ public:
         imagesChangeProp        = false;
         attachmentLimitInMbytes = 17;
         imageCompression        = 75;
-        emailProgram            = KMAIL;
+        emailProgram            = DEFAULT;
         imageSize               = MEDIUM;
         imageFormat             = JPEG;
     };
@@ -118,6 +117,10 @@ public:
             return 1280;
         else if(imageSize == LARGE)
             return 1600;
+        else if(imageSize == FULLHD)
+            return 1920;
+        else if(imageSize == ULTRAHD)
+            return 3840;
         else
             return 320; // VERYSMALL
     };
@@ -125,12 +128,12 @@ public:
     QString format() const
     {
         if (imageFormat == JPEG)
-            return QString("JPEG");
+            return QLatin1String("JPEG");
 
-        return QString("PNG");
+        return QLatin1String("PNG");
     };
 
-    void setEmailUrl(const KUrl& orgUrl, const KUrl& emailUrl)
+    void setEmailUrl(const QUrl& orgUrl, const QUrl& emailUrl)
     {
         for (QList<EmailItem>::iterator it = itemsList.begin(); it != itemsList.end(); ++it)
         {
@@ -142,7 +145,7 @@ public:
         }
     };
 
-    KUrl emailUrl(const KUrl& orgUrl) const
+    QUrl emailUrl(const QUrl& orgUrl) const
     {
         for (QList<EmailItem>::const_iterator it = itemsList.begin(); it != itemsList.end(); ++it)
         {
@@ -152,14 +155,14 @@ public:
             }
         }
 
-        return KUrl();
+        return QUrl();
     };
 
     qint64 attachementLimitInBytes() const
     {
         qint64 val = attachmentLimitInMbytes * 1024 * 1024;
         return val;
-    }
+    };
 
 public:
 
@@ -171,7 +174,6 @@ public:
     qint64           attachmentLimitInMbytes;
 
     QString          tempPath;
-    QString          tempFolderName;
 
     EmailClient      emailProgram;
 

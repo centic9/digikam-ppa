@@ -6,7 +6,7 @@
  * Date        : 2006-21-12
  * Description : a embedded item-view to show the image preview widget.
  *
- * Copyright (C) 2006-2014 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier  <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2010-2011 by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  *
@@ -28,7 +28,7 @@
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "dimgpreviewitem.h"
 #include "imageinfo.h"
 
@@ -38,9 +38,7 @@ class QGraphicsSceneHoverEvent;
 namespace Digikam
 {
 
-#ifdef HAVE_KFACE
 class FaceGroup;
-#endif /* HAVE_KFACE */
 
 class ImagePreviewViewItem : public DImgPreviewItem
 {
@@ -52,9 +50,7 @@ public:
     void setImageInfo(const ImageInfo& info);
     ImageInfo imageInfo() const;
 
-#ifdef HAVE_KFACE
     void setFaceGroup(FaceGroup* const group);
-#endif /* HAVE_KFACE */
 
 protected:
 

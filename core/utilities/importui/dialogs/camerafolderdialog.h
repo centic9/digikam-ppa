@@ -6,7 +6,7 @@
  * Date        : 2006-07-24
  * Description : a dialog to select a camera folders.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,17 +27,14 @@
 // Qt includes
 
 #include <QString>
-
-// KDE includes
-
-#include <kdialog.h>
+#include <QDialog>
 
 namespace Digikam
 {
 
 class CameraFolderItem;
 
-class CameraFolderDialog : public KDialog
+class CameraFolderDialog : public QDialog
 {
     Q_OBJECT
 
@@ -52,6 +49,7 @@ public:
 private Q_SLOTS:
 
     void slotFolderPathSelectionChanged(CameraFolderItem* item);
+    void slotHelp();
 
 private:
 

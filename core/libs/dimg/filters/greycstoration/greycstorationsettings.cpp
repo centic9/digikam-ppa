@@ -6,7 +6,7 @@
  * Date        : 2007-09-13
  * Description : Greycstoration settings widgets
  *
- * Copyright (C) 2007-2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,7 +20,7 @@
  *
  * ============================================================ */
 
-#include "greycstorationsettings.moc"
+#include "greycstorationsettings.h"
 
 // Qt includes
 
@@ -31,19 +31,17 @@
 #include <QLayout>
 #include <QTextStream>
 #include <QToolTip>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdialog.h>
-#include <klocale.h>
-#include <ktabwidget.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rcombobox.h>
-
-using namespace KDcrawIface;
+#include "dnuminput.h"
+#include "dcombobox.h"
 
 namespace Digikam
 {
@@ -103,29 +101,31 @@ public:
 
     QCheckBox*       fastApproxCBox;
 
-    KTabWidget*      parent;
+    QTabWidget*      parent;
 
-    RComboBox*       interpolationBox;
+    DComboBox*       interpolationBox;
 
-    RDoubleNumInput* alphaInput;
-    RDoubleNumInput* amplitudeInput;
-    RDoubleNumInput* anisotropyInput;
-    RDoubleNumInput* daInput;
-    RDoubleNumInput* dlInput;
-    RDoubleNumInput* gaussianPrecInput;
-    RDoubleNumInput* sharpnessInput;
-    RDoubleNumInput* sigmaInput;
+    DDoubleNumInput* alphaInput;
+    DDoubleNumInput* amplitudeInput;
+    DDoubleNumInput* anisotropyInput;
+    DDoubleNumInput* daInput;
+    DDoubleNumInput* dlInput;
+    DDoubleNumInput* gaussianPrecInput;
+    DDoubleNumInput* sharpnessInput;
+    DDoubleNumInput* sigmaInput;
 
-    RIntNumInput*    btileInput;
-    RIntNumInput*    iterationInput;
-    RIntNumInput*    tileInput;
+    DIntNumInput*    btileInput;
+    DIntNumInput*    iterationInput;
+    DIntNumInput*    tileInput;
 };
 
-GreycstorationSettings::GreycstorationSettings(KTabWidget* parent)
+GreycstorationSettings::GreycstorationSettings(QTabWidget* parent)
     : QObject(static_cast<QObject*>(parent)),
       d(new GreycstorationSettingsPriv)
 {
     d->parent = parent;
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     // -------------------------------------------------------------
 
@@ -134,46 +134,45 @@ GreycstorationSettings::GreycstorationSettings(KTabWidget* parent)
     parent->addTab(d->generalPage, i18n("General"));
 
     d->sharpnessLabel = new QLabel(i18n("Detail preservation:"), d->generalPage);
-    d->sharpnessInput = new RDoubleNumInput(d->generalPage);
+    d->sharpnessInput = new DDoubleNumInput(d->generalPage);
     d->sharpnessInput->setDecimals(2);
-    d->sharpnessInput->input()->setRange(0.01, 1.0, 0.1, true);
+    d->sharpnessInput->setRange(0.01, 1.0, 0.1);
     d->sharpnessInput->setWhatsThis(i18n("Preservation of details to set the sharpening level "
                                          "of the small features in the target image. "
                                          "Higher values leave details sharp."));
 
     d->anisotropyLabel = new QLabel(i18n("Anisotropy:"), d->generalPage);
-    d->anisotropyInput = new RDoubleNumInput(d->generalPage);
+    d->anisotropyInput = new DDoubleNumInput(d->generalPage);
     d->anisotropyInput->setDecimals(2);
-    d->anisotropyInput->input()->setRange(0.0, 1.0, 0.1, true);
+    d->anisotropyInput->setRange(0.0, 1.0, 0.1);
     d->anisotropyInput->setWhatsThis(i18n("Anisotropic (directional) modifier of the details. "
                                           "Keep it small for Gaussian noise."));
 
     d->amplitudeLabel = new QLabel(i18n("Smoothing:"), d->generalPage);
-    d->amplitudeInput = new RDoubleNumInput(d->generalPage);
+    d->amplitudeInput = new DDoubleNumInput(d->generalPage);
     d->amplitudeInput->setDecimals(2);
-    d->amplitudeInput->input()->setRange(0.01, 500.0, 0.1, true);
+    d->amplitudeInput->setRange(0.01, 500.0, 0.1);
     d->amplitudeInput->setWhatsThis(i18n("Total smoothing power: if the Detail Factor sets the relative "
                                          "smoothing and the Anisotropy Factor the direction, "
                                          "the Smoothing Factor sets the overall effect."));
 
     d->sigmaLabel = new QLabel(i18n("Regularity:"), d->generalPage);
-    d->sigmaInput = new RDoubleNumInput(d->generalPage);
+    d->sigmaInput = new DDoubleNumInput(d->generalPage);
     d->sigmaInput->setDecimals(2);
-    d->sigmaInput->input()->setRange(0.0, 10.0, 0.1, true);
+    d->sigmaInput->setRange(0.0, 10.0, 0.1);
     d->sigmaInput->setWhatsThis(i18n("This value controls the evenness of smoothing to the image. "
                                      "Do not use a high value here, or the "
                                      "target image will be completely blurred."));
 
     d->iterationLabel = new QLabel(i18n("Iterations:"), d->generalPage);
-    d->iterationInput = new RIntNumInput(d->generalPage);
+    d->iterationInput = new DIntNumInput(d->generalPage);
     d->iterationInput->setRange(1, 5000, 1);
-    d->iterationInput->setSliderEnabled(true);
     d->iterationInput->setWhatsThis(i18n("Sets the number of times the filter is applied to the image."));
 
     d->alphaLabel = new QLabel(i18n("Noise:"), d->generalPage);
-    d->alphaInput = new RDoubleNumInput(d->generalPage);
+    d->alphaInput = new DDoubleNumInput(d->generalPage);
     d->alphaInput->setDecimals(2);
-    d->alphaInput->input()->setRange(0.01, 1.0, 0.1, true);
+    d->alphaInput->setRange(0.01, 1.0, 0.1);
     d->alphaInput->setWhatsThis(i18n("Sets the noise scale."));
 
     grid1->addWidget(d->sharpnessLabel,     0, 0, 1, 1);
@@ -189,8 +188,8 @@ GreycstorationSettings::GreycstorationSettings(KTabWidget* parent)
     grid1->addWidget(d->alphaLabel,         5, 0, 1, 1);
     grid1->addWidget(d->alphaInput,         5, 1, 1, 1);
     grid1->setRowStretch(6, 10);
-    grid1->setMargin(KDialog::spacingHint());
-    grid1->setSpacing(KDialog::spacingHint());
+    grid1->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid1->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
@@ -199,38 +198,36 @@ GreycstorationSettings::GreycstorationSettings(KTabWidget* parent)
     parent->addTab(d->advancedPage, i18n("Advanced Settings"));
 
     d->daLabel = new QLabel(i18n("Angular step:"), d->advancedPage);
-    d->daInput = new RDoubleNumInput(d->advancedPage);
+    d->daInput = new DDoubleNumInput(d->advancedPage);
     d->daInput->setDecimals(2);
-    d->daInput->input()->setRange(0.0, 90.0, 1.0, true);
+    d->daInput->setRange(0.0, 90.0, 1.0);
     d->daInput->setWhatsThis(i18n("Set here the angular integration step (in degrees) "
                                   "analogous to anisotropy."));
 
     d->dlLabel = new QLabel(i18n("Integral step:"), d->advancedPage);
-    d->dlInput = new RDoubleNumInput(d->advancedPage);
+    d->dlInput = new DDoubleNumInput(d->advancedPage);
     d->dlInput->setDecimals(2);
-    d->dlInput->input()->setRange(0.0, 1.0, 0.1, true);
+    d->dlInput->setRange(0.0, 1.0, 0.1);
     d->dlInput->setWhatsThis(i18n("Set here the spatial integral step."));
 
     d->gaussianPrecLabel = new QLabel(i18n("Gaussian:"), d->advancedPage);
-    d->gaussianPrecInput = new RDoubleNumInput(d->advancedPage);
+    d->gaussianPrecInput = new DDoubleNumInput(d->advancedPage);
     d->gaussianPrecInput->setDecimals(2);
-    d->gaussianPrecInput->input()->setRange(0.01, 20.0, 0.01, true);
+    d->gaussianPrecInput->setRange(0.01, 20.0, 0.01);
     d->gaussianPrecInput->setWhatsThis(i18n("Set here the precision of the Gaussian function."));
 
     d->tileLabel = new QLabel(i18n("Tile size:"), d->advancedPage);
-    d->tileInput = new RIntNumInput(d->advancedPage);
+    d->tileInput = new DIntNumInput(d->advancedPage);
     d->tileInput->setRange(0, 2000, 1);
-    d->tileInput->setSliderEnabled(true);
     d->tileInput->setWhatsThis(i18n("Sets the tile size."));
 
     d->btileLabel = new QLabel(i18n("Tile border:"), d->advancedPage);
-    d->btileInput = new RIntNumInput(d->advancedPage);
+    d->btileInput = new DIntNumInput(d->advancedPage);
     d->btileInput->setRange(1, 20, 1);
-    d->btileInput->setSliderEnabled(true);
     d->btileInput->setWhatsThis(i18n("Sets the size of each tile border."));
 
     d->interpolationLabel = new QLabel(i18n("Interpolation:"), d->advancedPage);
-    d->interpolationBox   = new RComboBox(d->advancedPage);
+    d->interpolationBox   = new DComboBox(d->advancedPage);
     d->interpolationBox->insertItem(GreycstorationContainer::NearestNeighbor, i18n("Nearest Neighbor"));
     d->interpolationBox->insertItem(GreycstorationContainer::Linear, i18n("Linear"));
     d->interpolationBox->insertItem(GreycstorationContainer::RungeKutta, i18n("Runge-Kutta"));
@@ -253,8 +250,8 @@ GreycstorationSettings::GreycstorationSettings(KTabWidget* parent)
     grid2->addWidget(d->interpolationLabel, 5, 0, 1, 1);
     grid2->addWidget(d->interpolationBox,   5, 1, 1, 1);
     grid2->addWidget(d->fastApproxCBox,     6, 0, 1, 2);
-    grid2->setMargin(KDialog::spacingHint());
-    grid2->setSpacing(KDialog::spacingHint());
+    grid2->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid2->setSpacing(spacing);
 }
 
 GreycstorationSettings::~GreycstorationSettings()

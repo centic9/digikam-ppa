@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow image widget
  *
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,20 +21,17 @@
  *
  * ============================================================ */
 
-#include "slideimage.moc"
+#include "slideimage.h"
 
 // Qt includes
 
 #include <QPainter>
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kglobalsettings.h>
-#include <kapplication.h>
+#include <QApplication>
+#include <QDesktopWidget>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimg.h"
 #include "previewloadthread.h"
 
@@ -58,7 +55,7 @@ public:
     int                 deskSize;
     QPixmap             pixmap;
 
-    KUrl                currentImage;
+    QUrl                currentImage;
 
     DImg                preview;
     PreviewLoadThread*  previewThread;
@@ -92,17 +89,17 @@ void SlideImage::setPreviewSettings(const PreviewSettings& settings)
 {
     d->previewSettings = settings;
     // calculate preview size which is used for fast previews
-    QSize desktopSize = KGlobalSettings::desktopGeometry(parentWidget()).size();
+    QSize desktopSize = QApplication::desktop()->screenGeometry(parentWidget()).size();
     d->deskSize = qMax(640, qMax(desktopSize.height(), desktopSize.width()));
 }
 
-void SlideImage::setLoadUrl(const KUrl& url)
+void SlideImage::setLoadUrl(const QUrl& url)
 {
     d->currentImage = url;
     d->previewThread->load(url.toLocalFile(), d->previewSettings, d->deskSize);
 }
 
-void SlideImage::setPreloadUrl(const KUrl& url)
+void SlideImage::setPreloadUrl(const QUrl& url)
 {
     d->previewPreloadThread->load(url.toLocalFile(), d->previewSettings, d->deskSize);
 }

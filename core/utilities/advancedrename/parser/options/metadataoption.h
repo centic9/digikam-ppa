@@ -33,7 +33,7 @@
 #include "option.h"
 #include "ruledialog.h"
 
-class KLineEdit;
+class QLineEdit;
 
 namespace Digikam
 {
@@ -46,11 +46,13 @@ class MetadataOptionDialog : public RuleDialog
 
 public:
 
-    explicit MetadataOptionDialog(Rule* parent);
+    explicit MetadataOptionDialog(Rule* const parent);
     ~MetadataOptionDialog();
 
+public:
+
     MetadataPanel* metadataPanel;
-    KLineEdit*     separatorLineEdit;
+    QLineEdit*     separatorLineEdit;
 
 private:
 

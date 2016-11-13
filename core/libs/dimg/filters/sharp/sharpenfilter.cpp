@@ -6,7 +6,7 @@
  * Date        : 2005-17-07
  * Description : A Sharpen threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * Original Sharpen algorithm copyright 2002
@@ -37,11 +37,11 @@
 
 // Qt includes
 
-#include <QtConcurrentRun>
+#include <QtConcurrent>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -56,7 +56,7 @@ SharpenFilter::SharpenFilter(QObject* const parent)
 }
 
 SharpenFilter::SharpenFilter(DImg* const orgImage, QObject* const parent, double radius, double sigma)
-    : DImgThreadedFilter(orgImage, parent, "Sharpen")
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("Sharpen"))
 {
     m_radius = radius;
     m_sigma  = sigma;
@@ -67,7 +67,7 @@ SharpenFilter::SharpenFilter(DImgThreadedFilter* const parentFilter,
                              const DImg& orgImage, const DImg& destImage,
                              int progressBegin, int progressEnd, double radius, double sigma)
     : DImgThreadedFilter(parentFilter, orgImage, destImage, progressBegin, progressEnd,
-                         parentFilter->filterName() + ": Sharpen")
+                         parentFilter->filterName() + QLatin1String(": Sharpen"))
 {
     m_radius = radius;
     m_sigma  = sigma;
@@ -103,7 +103,7 @@ void SharpenFilter::sharpenImage(double radius, double sigma)
 {
     if (m_orgImage.isNull())
     {
-        kWarning() << "No image data available!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "No image data available!";
         return;
     }
 
@@ -114,14 +114,14 @@ void SharpenFilter::sharpenImage(double radius, double sigma)
     }
 
     double        alpha, normalize = 0.0;
-    register long i = 0, u, v;
+   long i = 0, u, v;
 
     int kernelWidth     = getOptimalKernelWidth(radius, sigma);
     int halfKernelWidth = kernelWidth / 2;
 
     if ((int)m_orgImage.width() < kernelWidth)
     {
-        kWarning() << "Image is smaller than radius!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Image is smaller than radius!";
         return;
     }
 
@@ -129,7 +129,7 @@ void SharpenFilter::sharpenImage(double radius, double sigma)
 
     if (kernel.isNull())
     {
-        kWarning() << "Unable to allocate memory!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Unable to allocate memory!";
         return;
     }
 
@@ -203,7 +203,7 @@ bool SharpenFilter::convolveImage(const unsigned int order, const double* const 
 
     if ((prm.kernelWidth % 2) == 0)
     {
-        kWarning() << "Kernel width must be an odd number!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Kernel width must be an odd number!";
         return false;
     }
 
@@ -211,7 +211,7 @@ bool SharpenFilter::convolveImage(const unsigned int order, const double* const 
 
     if (normal_kernel.isNull())
     {
-        kWarning() << "Unable to allocate memory!";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Unable to allocate memory!";
         return false;
     }
 
@@ -269,7 +269,7 @@ int SharpenFilter::getOptimalKernelWidth(double radius, double sigma)
 {
     double        normalize, value;
     long          kernelWidth;
-    register long u;
+   long u;
 
     if (radius > 0.0)
     {
@@ -304,16 +304,16 @@ FilterAction SharpenFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("radius", m_radius);
-    action.addParameter("sigma", m_sigma);
+    action.addParameter(QLatin1String("radius"), m_radius);
+    action.addParameter(QLatin1String("sigma"),  m_sigma);
 
     return action;
 }
 
 void SharpenFilter::readParameters(const Digikam::FilterAction& action)
 {
-    m_radius = action.parameter("radius").toDouble();
-    m_sigma  = action.parameter("sigma").toDouble();
+    m_radius = action.parameter(QLatin1String("radius")).toDouble();
+    m_sigma  = action.parameter(QLatin1String("sigma")).toDouble();
 }
 
 }  // namespace Digikam

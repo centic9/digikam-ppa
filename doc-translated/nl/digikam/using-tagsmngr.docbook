@@ -1,0 +1,151 @@
+<sect1 id="using-tagsmngr"
+> <title
+>De beheerder van tags van &digikam;</title>
+<anchor id="tagsmngr.anchor"/>
+
+        <para
+>Er zijn bepaalde mogelijkheden om tags te beheren vanuit het contextmenu op tags in de zijbalken van &digikam; zoals <guilabel
+>Niewe tag...</guilabel
+> of <guilabel
+>Tag verwijderen</guilabel
+>. De tagbeheerder biedt een meer comfortabele en begrijpelijke manier om uw tags te organiseren. Voor algemene informatie over tags, waarom en hoe deze te gebruiken zie <link linkend="using-mainwindow-tagsview"
+>Tagweergave</link
+> in het hoofdstuk over het hoofdvenster van &digikam;. </para>
+
+        <para>
+            <mediaobject>
+                <imageobject
+><imagedata fileref="&path;using-tagsmngr.png" format="PNG"/></imageobject>
+            </mediaobject>
+        </para>
+        
+    <sect2 id="tagsmngr-toolbar"
+> <title
+>De werkbalk van de beheerder van tags</title>
+        
+        <para
+>De werkbalk bovenaan biedt <itemizedlist>
+                <listitem
+><para
+>een aanpasbaar zoekveld om bepaalde tags in een grote boom te vinden</para
+></listitem>
+                <listitem
+><para
+>een knop om een tag toe te voegen als een sub-tag aan de huidige (laatst op geklikt) tag</para
+></listitem>
+                <listitem
+><para
+>a button to delete a tag or a selection of tags</para
+></listitem>
+                <listitem
+><para
+>the drop down menu <guilabel
+>Organize</guilabel
+> which contains <itemizedlist>
+                        <listitem
+><para
+><guilabel
+>De tag Titel bewerken</guilabel
+></para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Reset Tag Icon</guilabel
+> to the standard tag icon</para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Tag vanuit adresboek aanmaken</guilabel
+></para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Invert Selection</guilabel
+>, useful if you want to select most but not all of your tags</para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Expand Tag Tree</guilabel
+> expands all of the nodes of the tag tree</para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Geselecteerde nodes uitvouwen</guilabel
+></para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Remove Tag from Images</guilabel
+> un-assigns selected tag(s) from all images</para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Delete Unassigned Tags</guilabel
+>, useful to clean up your tag tree</para
+></listitem>
+                    </itemizedlist>
+                </para
+></listitem>
+                <listitem
+><para
+>and the drop down menu <guilabel
+>Sync Export</guilabel
+> which contains <itemizedlist>
+                        <listitem
+><para
+><guilabel
+>Tags uit database naar afbeelding schrijven</guilabel
+></para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Tags lezen uit de afbeelding</guilabel
+> (en ze schrijven naar de database)</para
+></listitem>
+                        <listitem
+><para
+><guilabel
+>Alle tags alleen uit de database wissen</guilabel
+></para
+></listitem>
+                    </itemizedlist>
+                </para
+></listitem>
+            </itemizedlist>
+        </para>
+
+    </sect2>
+
+    <sect2 id="tagsmngr-mainwindow"
+> <title
+>Het venster van de beheerder van tags</title>
+        <para
+>The Tags Manager window consists of two parts, the Quick Access List to the left and the Tag Tree (or parts of it) to the right. On the right sidebar you fold out additionally the properties dialog for the selected tag. </para>
+        
+        <para
+>The Quick Access List allows you to display only a certain node (and its sub-nodes) in the tag tree window. Select a tag in the tag tree and click <guilabel
+>Add to List</guilabel
+>. The tag will appear in the Quick Access List. If you select it there the tag tree will show only that node which you can still expand to see the sub-nodes. Note that the tag tree will also show only a limited number of tags while using the search field. It will show only those tags that contain the string in the search field. </para>
+        
+        <para
+>De dialoog Tageigenschappen laat u de naam van de tag, het gebruikte pictogram in de boomstructuur Tags en de sneltoets wijzigen. </para>
+        
+    </sect2>
+
+</sect1>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "searchview.moc"
+#include "searchview.h"
 
 // Qt includes
 
@@ -31,35 +31,36 @@
 #include <QPainter>
 #include <QTimeLine>
 #include <QVBoxLayout>
+#include <QPushButton>
+#include <QApplication>
+#include <QDialogButtonBox>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdialogbuttonbox.h>
-#include <klocale.h>
-#include <kpushbutton.h>
-#include <kstandardguiitem.h>
-#include <kdebug.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "searchgroup.h"
 #include "searchutilities.h"
 #include "searchwindow.h"
-#include "searchxml.h"
+#include "coredbsearchxml.h"
 #include "thememanager.h"
 
 namespace Digikam
 {
 
 AbstractSearchGroupContainer::AbstractSearchGroupContainer(QWidget* const parent)
-    : QWidget(parent), m_groupIndex(0)
+    : QWidget(parent),
+      m_groupIndex(0)
 {
 }
 
 SearchGroup* AbstractSearchGroupContainer::addSearchGroup()
 {
-    SearchGroup* group = createSearchGroup();
+    SearchGroup* const group = createSearchGroup();
     m_groups << group;
     addGroupToLayout(group);
 
@@ -73,7 +74,7 @@ void AbstractSearchGroupContainer::removeSearchGroup(SearchGroup* group)
 {
     if (group->groupType() == SearchGroup::FirstGroup)
     {
-        kWarning() << "Attempt to delete the primary search group";
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Attempt to delete the primary search group";
         return;
     }
 
@@ -122,7 +123,7 @@ void AbstractSearchGroupContainer::finishReadingGroups()
 
 void AbstractSearchGroupContainer::writeGroups(SearchXmlWriter& writer) const
 {
-    foreach(SearchGroup* group, m_groups)
+    foreach(SearchGroup* const group, m_groups)
     {
         group->write(writer);
     }
@@ -136,10 +137,12 @@ void AbstractSearchGroupContainer::removeSendingSearchGroup()
 QList<QRect> AbstractSearchGroupContainer::startupAnimationAreaOfGroups() const
 {
     QList<QRect> list;
-    foreach(SearchGroup* group, m_groups)
+
+    foreach(SearchGroup* const group, m_groups)
     {
         list += group->startupAnimationArea();
     }
+
     return list;
 }
 
@@ -185,7 +188,7 @@ void SearchView::setup()
     setTheme();
 
     d->layout = new QVBoxLayout;
-    d->layout->setContentsMargins(0, 0, 0, 0);
+    d->layout->setContentsMargins(QMargins());
     d->layout->setSpacing(0);
 
     // add stretch at bottom
@@ -264,7 +267,7 @@ void SearchView::addGroupToLayout(SearchGroup* group)
 
 SearchGroup* SearchView::createSearchGroup()
 {
-    SearchGroup* group = new SearchGroup(this);
+    SearchGroup* const group = new SearchGroup(this);
     group->setup(m_groups.isEmpty() ? SearchGroup::FirstGroup : SearchGroup::ChainGroup);
     return group;
 }
@@ -295,7 +298,7 @@ QString SearchView::write() const
     SearchXmlWriter writer;
     writeGroups(writer);
     writer.finish();
-    kDebug() << writer.xml();
+    qCDebug(DIGIKAM_GENERAL_LOG) << writer.xml();
     return writer.xml();
 }
 
@@ -304,9 +307,7 @@ void SearchView::startAnimation()
     d->timeline->setCurveShape(QTimeLine::EaseInCurve);
     d->timeline->setDuration(500);
     d->timeline->setDirection(QTimeLine::Forward);
-#if QT_VERSION >= 0x040400
     d->timeline->start();
-#endif
 }
 
 void SearchView::animationFrame(int)
@@ -338,8 +339,6 @@ void SearchView::showEvent(QShowEvent*)
 
 void SearchView::paintEvent(QPaintEvent*)
 {
-#if QT_VERSION >= 0x040400
-
     if (d->timeline->state() == QTimeLine::Running)
     {
         QList<QRect> rects = startupAnimationAreaOfGroups();
@@ -354,7 +353,7 @@ void SearchView::paintEvent(QPaintEvent*)
 
         QRadialGradient grad(0.5, 0.5, 1, 0.5, 0.3);
         grad.setCoordinateMode(QGradient::ObjectBoundingMode);
-        QColor color = kapp->palette().color(QPalette::Link);
+        QColor color = qApp->palette().color(QPalette::Link);
         QColor colorStart(color), colorEnd(color);
         colorStart.setAlphaF(0);
         colorEnd.setAlphaF(color.alphaF()  * animationStep / 100.0);
@@ -372,8 +371,6 @@ void SearchView::paintEvent(QPaintEvent*)
             p.drawRoundedRect(rect, 4, 4);
         }
     }
-
-#endif
 }
 
 void SearchView::setTheme()
@@ -388,73 +385,72 @@ void SearchView::setTheme()
     if (f.pointSizeF() == -1)
     {
         // set pixel size
-        fontSizeLarger  = QString::number(f.pixelSize() + 2) + "px";
-        fontSizeSmaller = QString::number(f.pixelSize() - 2) + "px";
+        fontSizeLarger  = QString::number(f.pixelSize() + 2) + QLatin1String("px");
+        fontSizeSmaller = QString::number(f.pixelSize() - 2) + QLatin1String("px");
     }
     else
     {
-        fontSizeLarger  = QString::number(f.pointSizeF() + 2) + "pt";
-        fontSizeSmaller = QString::number(f.pointSizeF() - 2) + "pt";
+        fontSizeLarger  = QString::number(f.pointSizeF() + 2) + QLatin1String("pt");
+        fontSizeSmaller = QString::number(f.pointSizeF() - 2) + QLatin1String("pt");
     }
 
     QString sheet =
-        // ".SearchView { background-color: " + kapp->palette().color(QPalette::Base).name() + "; } "
-        "#SearchGroupLabel_MainLabel "
-        " { font-weight: bold; font-size: "
-        + fontSizeLarger + ';' +
-        "   color: "
-        + kapp->palette().color(QPalette::HighlightedText).name() + ';' +
-        " } "
-        "#SearchGroupLabel_SimpleLabel "
-        " { font-size: "
-        + fontSizeLarger + ';' +
-        "   color: "
-        + kapp->palette().color(QPalette::HighlightedText).name() + ';' +
-        " } "
-        "#SearchGroupLabel_GroupOpLabel "
-        " { font-weight: bold; font-size: "
-        + fontSizeLarger + ';' +
-        "   color: "
-        + kapp->palette().color(QPalette::HighlightedText).name() + ';' +
-        "   text-decoration: underline; "
-        " } "
-        "#SearchGroupLabel_CheckBox "
-        " { color: "
-        + kapp->palette().color(QPalette::HighlightedText).name() + ';' +
-        " } "
-        "#SearchGroupLabel_RemoveLabel "
-        " { color: "
-        + kapp->palette().color(QPalette::HighlightedText).name() + ';' +
-        "   font-style: italic; "
-        "   text-decoration: underline; "
-        " } "
-        "#SearchGroupLabel_OptionsLabel "
-        " { color: "
-        + kapp->palette().color(QPalette::HighlightedText).name() + ';' +
-        "   font-style: italic; "
-        "   text-decoration: underline; font-size: "
-        + fontSizeSmaller + ';' +
-        " } "
-        "#SearchFieldGroupLabel_Label "
-        " { color: "
-        + kapp->palette().color(QPalette::Link).name() + ';' +
-        "   font-weight: bold; "
-        " } "
-        "#SearchField_MainLabel "
-        " { font-weight: bold; } "
-        "#SearchFieldChoice_ClickLabel "
-        " { color: "
-        + kapp->palette().color(QPalette::Link).name() + ';' +
-        "   font-style: italic; "
-        "   text-decoration: underline; "
-        " } "
-        "QComboBox#SearchFieldChoice_ComboBox"
-        " {  border-width: 0px; border-style: solid; padding-left: 5px; "
-        " } "
-        "QComboBox::drop-down#SearchFieldChoice_ComboBox"
-        " {  subcontrol-origin: padding; subcontrol-position: right top; "
-        "    border: 0px; background: rgba(0,0,0,0); width: 0px; height: 0px; "
-        " } ";
+        QLatin1String("#SearchGroupLabel_MainLabel "
+                      " { font-weight: bold; font-size: ")
+        + fontSizeLarger + QLatin1Char(';') +
+        QLatin1String("   color: ")
+        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+        QLatin1String(" } "
+                      "#SearchGroupLabel_SimpleLabel "
+                      " { font-size: ")
+        + fontSizeLarger + QLatin1Char(';') +
+        QLatin1String("   color: ")
+        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+        QLatin1String(" } "
+                      "#SearchGroupLabel_GroupOpLabel "
+                      " { font-weight: bold; font-size: ")
+        + fontSizeLarger + QLatin1Char(';') +
+        QLatin1String("   color: ")
+        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+        QLatin1String("   text-decoration: underline; "
+                      " } "
+                      "#SearchGroupLabel_CheckBox "
+                      " { color: ")
+        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+        QLatin1String(" } "
+                      "#SearchGroupLabel_RemoveLabel "
+                      " { color: ")
+        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+        QLatin1String("   font-style: italic; "
+                      "   text-decoration: underline; "
+                      " } "
+                      "#SearchGroupLabel_OptionsLabel "
+                      " { color: ")
+        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+        QLatin1String("   font-style: italic; "
+                      "   text-decoration: underline; font-size: ")
+        + fontSizeSmaller + QLatin1Char(';') +
+        QLatin1String(" } "
+                      "#SearchFieldGroupLabel_Label "
+                      " { color: ")
+        + qApp->palette().color(QPalette::Link).name() + QLatin1Char(';') +
+        QLatin1String("   font-weight: bold; "
+                      " } "
+                      "#SearchField_MainLabel "
+                      " { font-weight: bold; } "
+                      "#SearchFieldChoice_ClickLabel "
+                      " { color: ")
+        + qApp->palette().color(QPalette::Link).name() + QLatin1Char(';') +
+        QLatin1String("   font-style: italic; "
+                      "   text-decoration: underline; "
+                      " } "
+                      "QComboBox#SearchFieldChoice_ComboBox"
+                      " {  border-width: 0px; border-style: solid; padding-left: 5px; "
+                      " } "
+                      "QComboBox::drop-down#SearchFieldChoice_ComboBox"
+                      " {  subcontrol-origin: padding; subcontrol-position: right top; "
+                      "    border: 0px; background: rgba(0,0,0,0); width: 0px; height: 0px; "
+                      " } ");
 
     QWidget::setStyleSheet(sheet);
 
@@ -463,13 +459,13 @@ void SearchView::setTheme()
 
 QPixmap SearchView::cachedBannerPixmap(int w, int h) const
 {
-    QString key  = "BannerPixmap-" + QString::number(w) + '-' + QString::number(h);
+    QString key  = QLatin1String("BannerPixmap-") + QString::number(w) + QLatin1Char('-') + QString::number(h);
     QPixmap* pix = d->pixmapCache.object(key);
 
     if (!pix)
     {
         QPixmap pixmap(w, h);
-        pixmap.fill(kapp->palette().color(QPalette::Highlight));
+        pixmap.fill(qApp->palette().color(QPalette::Highlight));
         d->pixmapCache.insert(key, new QPixmap(pixmap));
         return pixmap;
     }
@@ -497,38 +493,40 @@ SearchViewBottomBar::SearchViewBottomBar(SearchViewThemedPartsCache* const cache
 {
     m_mainLayout      = new QHBoxLayout;
 
-    m_addGroupsButton = new KPushButton(KStandardGuiItem::add());
-    m_addGroupsButton->setText(i18n("Add Search Group"));
+    m_addGroupsButton = new QPushButton(i18n("Add Search Group"));
+    m_addGroupsButton->setIcon(QIcon::fromTheme(QLatin1String("list-add")));
 
     connect(m_addGroupsButton, SIGNAL(clicked()),
             this, SIGNAL(addGroupPressed()));
 
     m_mainLayout->addWidget(m_addGroupsButton);
 
-    m_resetButton = new KPushButton(KStandardGuiItem::reset());
-    //m_addGroupsButton->setText(i18n("Reset"));
+    m_resetButton = new QPushButton(i18n("Reset"));
+    m_resetButton->setIcon(QIcon::fromTheme(QLatin1String("edit-undo")));
 
     connect(m_resetButton, SIGNAL(clicked()),
             this, SIGNAL(resetPressed()));
 
     m_mainLayout->addWidget(m_resetButton);
-
     m_mainLayout->addStretch(1);
 
-    m_buttonBox = new KDialogButtonBox(this);
-    m_buttonBox->addButton(KStandardGuiItem::ok(),
-                           QDialogButtonBox::AcceptRole,
-                           this,
-                           SIGNAL(okPressed()));
-    m_buttonBox->addButton(KStandardGuiItem::cancel(),
-                           QDialogButtonBox::RejectRole,
-                           this,
-                           SIGNAL(cancelPressed()));
-    KPushButton* aBtn = m_buttonBox->addButton(KStandardGuiItem::apply(),
-                                               QDialogButtonBox::ApplyRole,
-                                               this,
-                                               SIGNAL(tryoutPressed()));
-    aBtn->setText(i18n("Try"));
+    m_buttonBox = new QDialogButtonBox(this);
+
+    QPushButton* const ok = m_buttonBox->addButton(QDialogButtonBox::Ok);
+
+    connect(ok, SIGNAL(clicked()),
+            this, SIGNAL(okPressed()));
+
+    QPushButton* const cancel = m_buttonBox->addButton(QDialogButtonBox::Cancel);
+
+    connect(cancel, SIGNAL(clicked()),
+            this, SIGNAL(cancelPressed()));
+
+    QPushButton* const aBtn = m_buttonBox->addButton(i18n("Try"), QDialogButtonBox::ApplyRole);
+
+    connect(aBtn, SIGNAL(clicked()),
+            this, SIGNAL(tryoutPressed()));
+
     m_mainLayout->addWidget(m_buttonBox);
 
     setLayout(m_mainLayout);

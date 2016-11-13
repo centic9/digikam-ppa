@@ -6,7 +6,7 @@
  * Date        : 2009-11-03
  * Description : a busy dialog for digiKam
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,10 +28,7 @@
 
 #include <QThread>
 #include <QString>
-
-// KDE includes
-
-#include <kprogressdialog.h>
+#include <QProgressDialog>
 
 // Local includes
 
@@ -61,7 +58,7 @@ protected:
 
 // ----------------------------------------------------------------------------------
 
-class DIGIKAM_EXPORT DBusyDlg : public KProgressDialog
+class DIGIKAM_EXPORT DBusyDlg : public QProgressDialog
 {
     Q_OBJECT
 

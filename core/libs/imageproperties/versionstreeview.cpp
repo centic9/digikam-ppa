@@ -22,20 +22,15 @@
  *
  * ============================================================ */
 
-#include "versionstreeview.moc"
+#include "versionstreeview.h"
 
 // Qt includes
 
 #include <QPaintEvent>
 
-// KDE includes
-
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimagehistory.h"
 #include "imagehistorygraphmodel.h"
 #include "versionsdelegate.h"

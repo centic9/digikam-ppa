@@ -7,7 +7,7 @@
  * Description : a curves widget with additional control elements
  *
  * Copyright (C) 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "curvesbox.moc"
+#include "curvesbox.h"
 
 // Qt includes
 
@@ -33,24 +33,24 @@
 #include <QPushButton>
 #include <QTextStream>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
+#include <QStandardPaths>
 
 // KDE includes
 
-#include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "colorgradientwidget.h"
 #include "curveswidget.h"
 #include "editortoolsettings.h"
 #include "imagecurves.h"
 #include "imagehistogram.h"
-#include "globals.h"
+#include "digikam_globals.h"
 #include "dimg.h"
 
 namespace Digikam
@@ -107,7 +107,8 @@ CurvesBox::CurvesBox(int w, int h, QWidget* const parent, bool readOnly)
 }
 
 CurvesBox::CurvesBox(int w, int h, const DImg& img, QWidget* const parent, bool readOnly)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     d->sixteenBit   = img.sixteenBit();
     d->curvesWidget = new CurvesWidget(w, h, this, readOnly);
@@ -132,7 +133,7 @@ void CurvesBox::setup()
     curveBoxLayout->addWidget(d->hGradient,    2, 2, 1, 1);
     curveBoxLayout->setRowMinimumHeight(1, 2);
     curveBoxLayout->setColumnMinimumWidth(1, 2);
-    curveBoxLayout->setMargin(0);
+    curveBoxLayout->setContentsMargins(QMargins());
     curveBoxLayout->setSpacing(0);
     curveBox->setLayout(curveBoxLayout);
 
@@ -141,14 +142,14 @@ void CurvesBox::setup()
     QWidget* typeBox = new QWidget();
 
     d->curveFree = new QToolButton;
-    d->curveFree->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/curvefree.png")));
+    d->curveFree->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/curvefree.png"))));
     d->curveFree->setCheckable(true);
     d->curveFree->setToolTip(i18n("Curve free mode"));
     d->curveFree->setWhatsThis(i18n("With this button, you can draw your curve free-hand "
                                     "with the mouse."));
 
     d->curveSmooth = new QToolButton;
-    d->curveSmooth->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/curvemooth.png")));
+    d->curveSmooth->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/curvemooth.png"))));
     d->curveSmooth->setCheckable(true);
     d->curveSmooth->setToolTip(i18n("Curve smooth mode"));
     d->curveSmooth->setWhatsThis(i18n("With this button, the curve type is constrained to "
@@ -164,7 +165,7 @@ void CurvesBox::setup()
     QHBoxLayout* typeBoxLayout = new QHBoxLayout;
     typeBoxLayout->addWidget(d->curveFree);
     typeBoxLayout->addWidget(d->curveSmooth);
-    typeBoxLayout->setMargin(0);
+    typeBoxLayout->setContentsMargins(QMargins());
     typeBoxLayout->setSpacing(0);
     typeBox->setLayout(typeBoxLayout);
 
@@ -173,7 +174,7 @@ void CurvesBox::setup()
     d->pickerBox = new QWidget();
 
     d->pickBlack = new QToolButton;
-    d->pickBlack->setIcon(KIcon("color-picker-black"));
+    d->pickBlack->setIcon(QIcon::fromTheme(QLatin1String("color-picker-black")));
     d->pickBlack->setCheckable(true);
     d->pickBlack->setToolTip(i18n("All channels shadow tone color picker"));
     d->pickBlack->setWhatsThis(i18n("With this button, you can pick the color from original "
@@ -181,7 +182,7 @@ void CurvesBox::setup()
                                     "smooth curves point on Red, Green, Blue, and Luminosity channels."));
 
     d->pickGray = new QToolButton;
-    d->pickGray->setIcon(KIcon("color-picker-grey"));
+    d->pickGray->setIcon(QIcon::fromTheme(QLatin1String("color-picker-grey")));
     d->pickGray->setCheckable(true);
     d->pickGray->setToolTip(i18n("All channels middle tone color picker"));
     d->pickGray->setWhatsThis(i18n("With this button, you can pick the color from original "
@@ -189,7 +190,7 @@ void CurvesBox::setup()
                                    "smooth curves point on Red, Green, Blue, and Luminosity channels."));
 
     d->pickWhite = new QToolButton;
-    d->pickWhite->setIcon(KIcon("color-picker-white"));
+    d->pickWhite->setIcon(QIcon::fromTheme(QLatin1String("color-picker-white")));
     d->pickWhite->setCheckable(true);
     d->pickWhite->setToolTip(i18n("All channels highlight tone color picker"));
     d->pickWhite->setWhatsThis(i18n("With this button, you can pick the color from original "
@@ -201,11 +202,11 @@ void CurvesBox::setup()
     d->pickerType->addButton(d->pickGray,  GrayTonal);
     d->pickerType->addButton(d->pickWhite, WhiteTonal);
 
-    QHBoxLayout* pickerBoxLayout = new QHBoxLayout;
+    QHBoxLayout* const pickerBoxLayout = new QHBoxLayout;
     pickerBoxLayout->addWidget(d->pickBlack);
     pickerBoxLayout->addWidget(d->pickGray);
     pickerBoxLayout->addWidget(d->pickWhite);
-    pickerBoxLayout->setMargin(0);
+    pickerBoxLayout->setContentsMargins(QMargins());
     pickerBoxLayout->setSpacing(0);
     d->pickerBox->setLayout(pickerBoxLayout);
 
@@ -214,13 +215,13 @@ void CurvesBox::setup()
     // -------------------------------------------------------------
 
     d->resetButton = new QPushButton(i18n("&Reset"));
-    d->resetButton->setIcon(KIconLoader::global()->loadIcon("document-revert", KIconLoader::Toolbar));
+    d->resetButton->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     d->resetButton->setToolTip(i18n("Reset current channel curves' values."));
     d->resetButton->setWhatsThis(i18n("If you press this button, all curves' values "
                                       "from the currently selected channel "
                                       "will be reset to the default values."));
 
-    QHBoxLayout* l3 = new QHBoxLayout();
+    QHBoxLayout* const l3 = new QHBoxLayout();
     l3->addWidget(typeBox);
     l3->addWidget(d->pickerBox);
     l3->addStretch(10);
@@ -228,12 +229,12 @@ void CurvesBox::setup()
 
     // -------------------------------------------------------------
 
-    QGridLayout* mainLayout = new QGridLayout();
+    QGridLayout* const mainLayout = new QGridLayout();
     mainLayout->addWidget(curveBox, 0, 0, 1, 1);
     mainLayout->addLayout(l3,       1, 0, 1, 1);
     mainLayout->setRowStretch(2, 10);
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(KDialog::spacingHint());
+    mainLayout->setContentsMargins(QMargins());
+    mainLayout->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
     setLayout(mainLayout);
 
     // default: disable all control widgets

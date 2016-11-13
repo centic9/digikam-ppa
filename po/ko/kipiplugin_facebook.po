@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
-"PO-Revision-Date: 2015-07-27 15:56+0200\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2015-10-17 22:44+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde@peremen.name>\n"
 "Language: ko\n"
@@ -17,87 +17,43 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.5\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Shinjo Park"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "kde@peremen.name"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Facebook 새 앨범"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "만들 앨범 제목입니다(필수)."
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "앨범을 만들 위치입니다(선택)."
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "만들 앨범 설명입니다(선택)."
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "만들 앨범 공개 설정입니다(필수)."
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 msgid "Only Me"
 msgstr "나만"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "친구만"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "친구의 친구"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "내 네트워크와 친구"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "모두"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "제목:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "위치:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "설명:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "공개 설정:"
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "이전 세션 검사 중..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr "OAuth로 업그레이드 중..."
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Facebook 앱 인증"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -105,292 +61,127 @@ msgstr ""
 "브라우저 창에 표시되는 지시 사항을 수행하십시오. 완료되면 웹 브라우저에 표시"
 "된 인터넷 주소를 아래 텍스트 상자에 붙여넣은 다음 \"확인\"을 누르십시오."
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "사용자가 취소함."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "현재 서비스를 사용할 수 없습니다."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
-msgstr "프로그램에서 최대 요청 수를 초과하였습니다."
+msgstr "프로그램에서 최대 요청 수를 초과했습니다."
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "세션 키가 잘못되었거나 세션이 만료되었습니다. 다시 로그인하십시오."
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "잘못된 앨범 ID."
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "앨범이 가득 찼습니다."
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "파일이 없거나 잘못되었습니다."
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "너무 많은 승인되지 않은 사진이 대기 중입니다."
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr "Facebook 계정에 업로드할 사진 목록입니다."
-
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
-msgstr "Facebook 홈 페이지를 웹 브라우저로 여는 링크입니다."
-
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "계정"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "현재 사용 중인 Facebook 계정입니다."
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "이름:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "권한:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
+#: fbtalker.cpp:602
+msgid "Error"
 msgstr ""
-"KIPI 플러그인에서 사진을 직접 업로드할 수 있는 권한입니다. 권한이 없으면 "
-"Facebook에 업로드된 사진을 직접 승인해야 합니다."
 
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "계정 변경"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr "로그아웃 후 사진을 전송할 Facebook 계정 변경"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "선택 항목 다운로드"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "다운로드할 Facebook 앨범/사진 선택 항목입니다."
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "대상"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr "선택한 사진을 업로드할 Facebook 앨범입니다."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "내 앨범(&A)"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "현재 로그인한 사용자의 모든 앨범을 다운로드합니다."
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "내 친구의 앨범(&O)"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "선택한 친구의 앨범을 다운로드하였습니다."
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "내 사진(&M)"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "현재 로그인한 사용자의 모든 사진을 다운로드합니다."
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "내 친구의 사진(&F)"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "선택한 친구의 모든 사진을 다운로드합니다."
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "친구:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "앨범:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "새 앨범"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "새 Facebook 앨범 만들기"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "새로 고침"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "앨범 목록 새로 고침"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr "Facebook 사진을 다운로드할 경로입니다."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "옵션"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr "사진 업로드 전에 적용할 옵션입니다."
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "업로드 전에 크기 조절"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "최대 크기:"
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "JPEG 품질:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "직접 업로드"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr "업로드한 사진은 승인 없이 나타납니다."
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "수동 업로드 승인"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr "업로드한 사진을 사용자가 승인할 때까지 대기 상태로 둡니다."
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "Facebook 웹 서비스에서 가져오기"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "다운로드 시작"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "Facebook 웹 서비스에서 다운로드 시작"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "Facebook 웹 서비스로 내보내기"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "업로드 시작"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "Facebook 웹 서비스로 업로드 시작"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
-msgstr "Facebook 가져오기/내보내기"
+#: fbwindow.cpp:140
+msgid "Facebook Export"
+msgstr "Facebook 내보내기"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to export image collection to/from Facebook web service."
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr "Facebook 웹 서비스에서 사진을 가져오고 내보내는 Kipi 플러그인입니다."
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "작성자 및 관리자"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr "Shourya Singh Gupta"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+msgid "<auto create>"
+msgstr "<자동 생성>"
 
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr "개발자"
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
-msgstr "&lt;자동 생성&gt;"
-
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Facebook 호출 실패: %1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "프로필 사진"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr "경고"
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
-msgstr ""
+msgstr "웹 브라우저에서 로그아웃한 후 \"계속\"을 눌러 다른 계정을 인증하십시오"
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr "계속"
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr "취소"
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr "Facebook 가져오기"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr "Facebook 내보내기"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "파일을 열 수 없음"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+msgid "Uploading Failed"
+msgstr "업로드 실패"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -399,25 +190,7 @@ msgstr ""
 "Facebook에 사진을 업로드할 수 없습니다: %1\n"
 "계속 진행하시겠습니까?"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"사진을 저장할 수 없습니다: %1\n"
-"계속 진행하시겠습니까?"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"사진을 다운로드할 수 없습니다: %1\n"
-"계속 진행하시겠습니까?"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Facebook 호출 실패: %1"
@@ -437,13 +210,208 @@ msgstr "내보내기(&E)"
 msgid "Main Toolbar"
 msgstr "주 도구 모음"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "Facebook으로 내보내기(&F)..."
 
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "Facebook에서 가져오기(&F)..."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Shinjo Park"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "kde@peremen.name"
+
+#~ msgid "Facebook New Album"
+#~ msgstr "Facebook 새 앨범"
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "만들 앨범 제목입니다(필수)."
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "앨범을 만들 위치입니다(선택)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "만들 앨범 설명입니다(선택)."
+
+#~ msgctxt "new facebook album"
+#~ msgid "Title:"
+#~ msgstr "제목:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Location:"
+#~ msgstr "위치:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Description:"
+#~ msgstr "설명:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Privacy:"
+#~ msgstr "공개 설정:"
+
+#~ msgid "This is the list of images to upload to your Facebook account."
+#~ msgstr "Facebook 계정에 업로드할 사진 목록입니다."
+
+#~ msgid ""
+#~ "This is a clickable link to open the Facebook home page in a web browser."
+#~ msgstr "Facebook 홈 페이지를 웹 브라우저로 여는 링크입니다."
+
+#~ msgid "Account"
+#~ msgstr "계정"
+
+#~ msgid "This is the Facebook account that is currently logged in."
+#~ msgstr "현재 사용 중인 Facebook 계정입니다."
+
+#~ msgctxt "facebook account settings"
+#~ msgid "Name:"
+#~ msgstr "이름:"
+
+#~ msgid "Permission:"
+#~ msgstr "권한:"
+
+#~ msgid ""
+#~ "Permission of KIPI Plugin application to upload photos directly. If not, "
+#~ "user will need to manually approve uploaded photos in Facebook."
+#~ msgstr ""
+#~ "KIPI 플러그인에서 사진을 직접 업로드할 수 있는 권한입니다. 권한이 없으면 "
+#~ "Facebook에 업로드된 사진을 직접 승인해야 합니다."
+
+#~ msgid "Change Account"
+#~ msgstr "계정 변경"
+
+#~ msgid "Logout and change Facebook Account used for transfer"
+#~ msgstr "로그아웃 후 사진을 전송할 Facebook 계정 변경"
+
+#~ msgid "Download Selection"
+#~ msgstr "선택 항목 다운로드"
+
+#~ msgid "This is the selection of Facebook albums/photos to download."
+#~ msgstr "다운로드할 Facebook 앨범/사진 선택 항목입니다."
+
+#~ msgid "Destination"
+#~ msgstr "대상"
+
+#~ msgid ""
+#~ "This is the Facebook album to which selected photos will be uploaded."
+#~ msgstr "선택한 사진을 업로드할 Facebook 앨범입니다."
+
+#~ msgid "My &Album"
+#~ msgstr "내 앨범(&A)"
+
+#~ msgid "Download complete album of currently logged in user."
+#~ msgstr "현재 로그인한 사용자의 모든 앨범을 다운로드합니다."
+
+#~ msgid "Album &of My Friend"
+#~ msgstr "내 친구의 앨범(&O)"
+
+#~ msgid "Download complete album of selected friend."
+#~ msgstr "선택한 친구의 앨범을 다운로드하였습니다."
+
+#~ msgid "Photos of &Me"
+#~ msgstr "내 사진(&M)"
+
+#~ msgid "Download all photos of currently logged in user."
+#~ msgstr "현재 로그인한 사용자의 모든 사진을 다운로드합니다."
+
+#~ msgid "Photos of My &Friend"
+#~ msgstr "내 친구의 사진(&F)"
+
+#~ msgid "Download all photos of selected friend."
+#~ msgstr "선택한 친구의 모든 사진을 다운로드합니다."
+
+#~ msgid "Friend:"
+#~ msgstr "친구:"
+
+#~ msgid "Album:"
+#~ msgstr "앨범:"
+
+#~ msgid "New Album"
+#~ msgstr "새 앨범"
+
+#~ msgid "Create new Facebook album"
+#~ msgstr "새 Facebook 앨범 만들기"
+
+#~ msgctxt "facebook album list"
+#~ msgid "Reload"
+#~ msgstr "새로 고침"
+
+#~ msgid "Reload album list"
+#~ msgstr "앨범 목록 새로 고침"
+
+#~ msgid "This is the location to which Facebook images will be downloaded."
+#~ msgstr "Facebook 사진을 다운로드할 경로입니다."
+
+#~ msgid "Options"
+#~ msgstr "옵션"
+
+#~ msgid "These are options that will be applied to photos before upload."
+#~ msgstr "사진 업로드 전에 적용할 옵션입니다."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "업로드 전에 크기 조절"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "최대 크기:"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "JPEG 품질:"
+
+#~ msgid "Direct upload"
+#~ msgstr "직접 업로드"
+
+#~ msgid "Uploaded photos will not need manual approval by user."
+#~ msgstr "업로드한 사진은 승인 없이 나타납니다."
+
+#~ msgid "Manual upload approval"
+#~ msgstr "수동 업로드 승인"
+
+#~ msgid ""
+#~ "Uploaded photos will wait in pending state until manually approved by "
+#~ "user."
+#~ msgstr "업로드한 사진을 사용자가 승인할 때까지 대기 상태로 둡니다."
+
+#~ msgid "Import from Facebook Web Service"
+#~ msgstr "Facebook 웹 서비스에서 가져오기"
+
+#~ msgid "Start Download"
+#~ msgstr "다운로드 시작"
+
+#~ msgid "Start download from Facebook web service"
+#~ msgstr "Facebook 웹 서비스에서 다운로드 시작"
+
+#~ msgid "Facebook Import/Export"
+#~ msgstr "Facebook 가져오기/내보내기"
+
+#~ msgid "Shourya Singh Gupta"
+#~ msgstr "Shourya Singh Gupta"
+
+#~ msgid "Developer"
+#~ msgstr "개발자"
+
+#~ msgctxt "name of special Facebook album for profile pictures"
+#~ msgid "Profile Pictures"
+#~ msgstr "프로필 사진"
+
+#~ msgid "Facebook import"
+#~ msgstr "Facebook 가져오기"
+
+#~ msgid ""
+#~ "Failed to save photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "사진을 저장할 수 없습니다: %1\n"
+#~ "계속 진행하시겠습니까?"
+
+#~ msgid ""
+#~ "Failed to download photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "사진을 다운로드할 수 없습니다: %1\n"
+#~ "계속 진행하시겠습니까?"
+
+#~ msgid "Import from &Facebook..."
+#~ msgstr "Facebook에서 가져오기(&F)..."
 
 #~ msgid ""
 #~ "Please follow the instructions in the browser window. Press \"OK\" when "

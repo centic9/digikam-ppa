@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow error view
  *
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,18 +21,19 @@
  *
  * ============================================================ */
 
-#include "slideerror.moc"
+#include "slideerror.h"
 
 // Qt includes
 
 #include <QLabel>
 #include <QGridLayout>
 #include <QPalette>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdialog.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 namespace Digikam
 {
@@ -58,6 +59,8 @@ SlideError::SlideError(QWidget* const parent)
     setMouseTracking(true);
     setAutoFillBackground(true);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QPalette palette;
     palette.setColor(backgroundRole(), Qt::black);
     setPalette(palette);
@@ -71,8 +74,8 @@ SlideError::SlideError(QWidget* const parent)
     grid->setColumnStretch(2, 10);
     grid->setRowStretch(0, 10);
     grid->setRowStretch(2, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 }
 
 SlideError::~SlideError()
@@ -80,7 +83,7 @@ SlideError::~SlideError()
     delete d;
 }
 
-void SlideError::setCurrentUrl(const KUrl& url)
+void SlideError::setCurrentUrl(const QUrl& url)
 {
     d->errorMsg->setText(i18n("An error has occurred to show item\n%1", url.fileName()));
 }

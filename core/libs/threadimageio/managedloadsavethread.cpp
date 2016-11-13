@@ -7,7 +7,7 @@
  * Description : image file IO threaded interface.
  *
  * Copyright (C) 2005-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,12 +24,9 @@
 
 #include "managedloadsavethread.h"
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "loadsavetask.h"
 #include "previewtask.h"
 #include "thumbnailtask.h"
@@ -200,7 +197,7 @@ void ManagedLoadSaveThread::load(const LoadingDescription& description, LoadingM
         existingTask = findExistingTask(description);
     }
 
-    //kDebug() << "ManagedLoadSaveThread::load " << description.filePath << ", policy " << policy;
+    //qCDebug(DIGIKAM_GENERAL_LOG) << "ManagedLoadSaveThread::load " << description.filePath << ", policy " << policy;
     switch (policy)
     {
         case LoadingPolicyFirstRemovePrevious:
@@ -220,7 +217,7 @@ void ManagedLoadSaveThread::load(const LoadingDescription& description, LoadingM
                 }
             }
 
-            //kDebug() << "LoadingPolicyFirstRemovePrevious, Existing task " << existingTask <<
+            //qCDebug(DIGIKAM_GENERAL_LOG) << "LoadingPolicyFirstRemovePrevious, Existing task " << existingTask <<
             //", m_currentTask " << m_currentTask << ", loadingTask " << loadingTask;
             // remove all loading tasks
             for (int i = 0; i < m_todo.size(); ++i)
@@ -229,7 +226,7 @@ void ManagedLoadSaveThread::load(const LoadingDescription& description, LoadingM
 
                 if (task != existingTask && checkLoadingTask(task, LoadingTaskFilterAll))
                 {
-                    //kDebug() << "Removing task " << task << " from list";
+                    //qCDebug(DIGIKAM_GENERAL_LOG) << "Removing task " << task << " from list";
                     delete m_todo.takeAt(i--);
                 }
             }
@@ -260,7 +257,7 @@ void ManagedLoadSaveThread::load(const LoadingDescription& description, LoadingM
                 }
             }
 
-            //kDebug() << "LoadingPolicyPrepend, Existing task " << existingTask << ", m_currentTask " << m_currentTask;
+            //qCDebug(DIGIKAM_GENERAL_LOG) << "LoadingPolicyPrepend, Existing task " << existingTask << ", m_currentTask " << m_currentTask;
             // prepend new loading task
             if (existingTask)
             {
@@ -296,7 +293,7 @@ void ManagedLoadSaveThread::load(const LoadingDescription& description, LoadingM
                 break;
             }
 
-            //kDebug() << "LoadingPolicyAppend, Existing task " << existingTask << ", m_currentTask " << m_currentTask;
+            //qCDebug(DIGIKAM_GENERAL_LOG) << "LoadingPolicyAppend, Existing task " << existingTask << ", m_currentTask " << m_currentTask;
             // append new loading task, put it in front of preloading tasks
             int i;
 
@@ -318,7 +315,7 @@ void ManagedLoadSaveThread::load(const LoadingDescription& description, LoadingM
         case LoadingPolicyPreload:
 
             // append to the very end of the list
-            //kDebug() << "LoadingPolicyPreload, Existing task " << existingTask;
+            //qCDebug(DIGIKAM_GENERAL_LOG) << "LoadingPolicyPreload, Existing task " << existingTask;
             if (existingTask)
             {
                 break;

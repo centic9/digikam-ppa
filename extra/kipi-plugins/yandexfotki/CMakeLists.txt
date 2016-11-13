@@ -1,18 +1,16 @@
 #
-# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
 subdirs(icons)
 
-include_directories(${QCA2_INCLUDE_DIR})
-
-add_definitions(${QCA2_DEFINITIONS})
+add_definitions(-DTRANSLATION_DOMAIN=\"kipiplugin_yandexfotki\")
 
 set(kipiplugin_yandexfotki_PART_SRCS
     plugin_yandexfotki.cpp
-    logindialog.cpp
+    yfwidget.cpp
     yfalbum.cpp
     yfphoto.cpp
     yftalker.cpp
@@ -20,22 +18,23 @@ set(kipiplugin_yandexfotki_PART_SRCS
     yfalbumdialog.cpp
     yandexrsa.cpp
     yandexauth.cpp
-   )
+)
 
-KDE4_ADD_PLUGIN(kipiplugin_yandexfotki ${kipiplugin_yandexfotki_PART_SRCS})
+add_library(kipiplugin_yandexfotki MODULE ${kipiplugin_yandexfotki_PART_SRCS})
 
 target_link_libraries(kipiplugin_yandexfotki
-                      ${KDCRAW_LIBRARIES}
-                      ${KIPI_LIBRARIES}
-                      ${KEXIV2_LIBRARIES}
-                      ${QCA2_LIBRARIES}
-                      ${KDE4_KDEUI_LIBS}
-                      ${KDE4_KIO_LIBS}
-                      kipiplugins
-                     )
+                      PRIVATE
+                      Qt5::Network
 
-configure_file(kipiplugin_yandexfotki.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_yandexfotki.desktop)
+                      KF5::Kipi
+                      KF5::I18n
+                      KF5::WindowSystem
+
+                      KF5kipiplugins
+)
+
+configure_file(kipiplugin_yandexfotki.desktop.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_yandexfotki.desktop)
 
 install(FILES   ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_yandexfotki.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 install(TARGETS kipiplugin_yandexfotki                                     DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES kipiplugin_yandexfotkiui.rc                                  DESTINATION ${DATA_INSTALL_DIR}/kipi)
+install(FILES   kipiplugin_yandexfotkiui.rc                                DESTINATION ${KXMLGUI_INSTALL_DIR}/kipi)

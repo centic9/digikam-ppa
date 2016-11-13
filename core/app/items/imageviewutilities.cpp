@@ -7,7 +7,7 @@
  * Description : Various operations on images
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -24,26 +24,20 @@
  *
  * ============================================================ */
 
-#include "imageviewutilities.moc"
+#include "imageviewutilities.h"
 
 // Qt includes
 
 #include <QFileInfo>
+#include <QUrl>
 
 // KDE includes
 
-#include <kinputdialog.h>
-#include <kio/jobuidelegate.h>
-#include <kmimetype.h>
-#include <krun.h>
-#include <kservice.h>
-#include <kmimetypetrader.h>
-#include <kurl.h>
 #include <kwindowsystem.h>
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "album.h"
 #include "albummanager.h"
 #include "albumselectdialog.h"
@@ -91,7 +85,7 @@ void ImageViewUtilities::setAsAlbumThumbnail(Album* album, const ImageInfo& imag
     }
 }
 
-void ImageViewUtilities::rename(const KUrl& imageUrl, const QString& newName)
+void ImageViewUtilities::rename(const QUrl& imageUrl, const QString& newName)
 {
     if (imageUrl.isEmpty() || !imageUrl.isLocalFile() || newName.isEmpty())
     {
@@ -109,9 +103,38 @@ bool ImageViewUtilities::deleteImages(const QList<ImageInfo>& infos, const Delet
         return false;
     }
 
-    KUrl::List urlList;
+    QList<ImageInfo> deleteInfos = infos;
 
     foreach(const ImageInfo& info, infos)
+    {
+        if (info.hasGroupedImages())
+        {
+            QList<ImageInfo> groupedInfos;
+            bool infosGrouped = true;
+
+            foreach(const ImageInfo& group, info.groupedImages())
+            {
+                if (infos.contains(group))
+                {
+                    infosGrouped = false;
+                    break;
+                }
+                else
+                {
+                    groupedInfos << group;
+                }
+            }
+
+            if (infosGrouped)
+            {
+                deleteInfos << groupedInfos;
+            }
+        }
+    }
+
+    QList<QUrl> urlList;
+
+    foreach(const ImageInfo& info, deleteInfos)
     {
         urlList << info.fileUrl();
     }
@@ -131,7 +154,7 @@ bool ImageViewUtilities::deleteImages(const QList<ImageInfo>& infos, const Delet
     }
 
     const bool useTrash = !dialog.shouldDelete();
-    DIO::del(infos, useTrash);
+    DIO::del(deleteInfos, useTrash);
 
     return true;
 }
@@ -150,9 +173,9 @@ void ImageViewUtilities::deleteImagesDirectly(const QList<ImageInfo>& infos, con
     DIO::del(infos, useTrash);
 }
 
-void ImageViewUtilities::notifyFileContentChanged(const KUrl::List& urls)
+void ImageViewUtilities::notifyFileContentChanged(const QList<QUrl>& urls)
 {
-    foreach(const KUrl& url, urls)
+    foreach(const QUrl& url, urls)
     {
         QString path = url.toLocalFile();
         ThumbnailLoadThread::deleteThumbnail(path);
@@ -285,8 +308,8 @@ void ImageViewUtilities::openInfos(const ImageInfo& info, const QList<ImageInfo>
 
     imview->disconnect(this);
 
-    connect(imview, SIGNAL(signalURLChanged(KUrl)),
-            this, SIGNAL(editorCurrentUrlChanged(KUrl)));
+    connect(imview, SIGNAL(signalURLChanged(QUrl)),
+            this, SIGNAL(editorCurrentUrlChanged(QUrl)));
 
     imview->loadImageInfos(allInfosToOpen, info,
                            currentAlbum ? i18n("Album \"%1\"", currentAlbum->title()) : QString());
@@ -311,14 +334,14 @@ void ImageViewUtilities::openInfosWithDefaultApplication(const QList<ImageInfo>&
         return;
     }
 
-    KUrl::List urls;
+    QList<QUrl> urls;
 
     foreach (const ImageInfo& inf, infos)
     {
         urls << inf.fileUrl();
     }
 
-    FileOperation::openFilesWithDefaultApplication(urls, m_widget);
+    FileOperation::openFilesWithDefaultApplication(urls);
 }
 
 namespace
@@ -357,7 +380,7 @@ void ImageViewUtilities::createGroupByTimeFromInfoList(const ImageInfoList& imag
 
         for (it2 = it + 1; it2 != groupingList.end(); ++it2)
         {
-            if (abs(time.secsTo(it2->dateTime())) < 2)
+            if (qAbs(time.secsTo(it2->dateTime())) < 2)
             {
                 group << *it2;
             }
@@ -388,13 +411,13 @@ void ImageViewUtilities::createGroupByTypeFromInfoList(const ImageInfoList& imag
     for (it = groupingList.begin(); it != groupingList.end(); )
     {
         QList<ImageInfo> group;
-        QString fname = it->name().left(it->name().lastIndexOf(QChar('.')));
+        QString fname = it->name().left(it->name().lastIndexOf(QLatin1Char('.')));
         // don't know the leader yet so put first element also in group
         group << *it;
 
         for (it2 = it + 1; it2 != groupingList.end(); ++it2)
         {
-            QString fname2 = it2->name().left(it2->name().lastIndexOf(QChar('.')));
+            QString fname2 = it2->name().left(it2->name().lastIndexOf(QLatin1Char('.')));
 
             if (fname == fname2)
             {

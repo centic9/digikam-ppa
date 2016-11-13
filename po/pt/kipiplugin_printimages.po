@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
-"PO-Revision-Date: 2013-02-06 11:20+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 12:10+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt@kde.org>\n"
 "Language: pt\n"
@@ -15,14 +15,6 @@ msgstr ""
 "X-POFile-SpellExtra: sobrepo kipiprintassistantN KIPI Todd Shoemaker\n"
 "X-POFile-SpellExtra: Atkins Trink Andreas AlignCenter PS JPG mm\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "José Nuno Pires"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "zepires@gmail.com"
-
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_printimagesui.rc:7
 msgid "&Image"
@@ -33,22 +25,25 @@ msgstr "&Imagem"
 msgid "Main Toolbar"
 msgstr "Barra Principal"
 
-#: plugin/plugin_printimages.cpp:114 plugin/plugin_printimages.cpp:146
+#: plugin/plugin_printimages.cpp:105
 msgid "Print images"
 msgstr "Imprimir as imagens"
 
-#: plugin/plugin_printimages.cpp:124
+#: plugin/plugin_printimages.cpp:115
 msgid "Print Assistant..."
 msgstr "Assistente de Impressão..."
 
-#: plugin/plugin_printimages.cpp:145 plugin/plugin_printimages.cpp:166
+#: plugin/plugin_printimages.cpp:136
+msgid "Print Images"
+msgstr "Imprimir as Imagens"
+
+#: plugin/plugin_printimages.cpp:136 plugin/plugin_printimages.cpp:156
 msgid "Please select one or more photos to print."
 msgstr "Seleccione por favor uma ou mais fotografias a imprimir."
 
-#: plugin/plugin_printimages.cpp:167 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
-msgid "Print assistant"
-msgstr "Assistente de impressão"
+#: plugin/plugin_printimages.cpp:156
+msgid "Print Assistant"
+msgstr "Assistente de Impressão"
 
 #: tools/utils.cpp:73
 msgid ""
@@ -94,7 +89,7 @@ msgstr "&Rodar para a direita"
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropPrev)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropPrev)
-#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:292 ui/photopage.ui:295
+#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:287 ui/photopage.ui:290
 msgid "Previous photo"
 msgstr "Fotografia anterior"
 
@@ -135,18 +130,18 @@ msgstr ""
 "'Seguinte' para usar o centro predefinido no recorte de cada fotografia.\n"
 "Active a opção \"Não recortar\" para evitar recortar todas as fotografias."
 
-#. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (text), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:167
 msgid "Save As"
 msgstr "Gravar Como"
 
-#. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (shortcut), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:170
 msgid "Ctrl+S"
 msgstr "Ctrl+S"
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
-#: ui/customlayout.ui:26 wizard/wizard.cpp:691
+#: ui/customlayout.ui:26 wizard/wizard.cpp:711
 msgid "Custom layout"
 msgstr "Disposição personalizada"
 
@@ -186,7 +181,7 @@ msgid "x"
 msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2027
 msgid "cm"
 msgstr "cm"
 
@@ -196,7 +191,7 @@ msgid "mm"
 msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:319 wizard/wizard.cpp:2022
 msgid "inches"
 msgstr "polegadas"
 
@@ -234,87 +229,82 @@ msgid "Empty slots:"
 msgstr "Espaços em branco:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
+#: ui/photopage.ui:185 wizard/wizard.cpp:1779 wizard/wizard.cpp:2263
 msgid "Print to PDF"
 msgstr "Imprimir num PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1759
-msgid "Print to PS"
-msgstr "Imprimir para PS"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
-#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
+#: ui/photopage.ui:190 wizard/wizard.cpp:1780 wizard/wizard.cpp:2221
+#: wizard/wizard.cpp:2291 wizard/wizard.cpp:2494 wizard/wizard.cpp:2566
 msgid "Print to JPG"
 msgstr "Imprimir para JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
-#: wizard/wizard.cpp:2511
+#: ui/photopage.ui:195 wizard/wizard.cpp:1781 wizard/wizard.cpp:2495
+#: wizard/wizard.cpp:2539
 msgid "Print to gimp"
 msgstr "Imprimir para o Gimp"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
-#: ui/photopage.ui:214
+#: ui/photopage.ui:209
 msgid "Page settings"
 msgstr "Configuração da página"
 
 #. i18n: ectx: property (text), widget (QPushButton, mLeftButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageDown)
-#: ui/photopage.ui:298 ui/printoptionspage.ui:57
+#: ui/photopage.ui:293 ui/printoptionspage.ui:57
 msgid "<"
 msgstr "<"
 
 #. i18n: ectx: property (text), widget (QLabel, LblPreview)
-#: ui/photopage.ui:320
+#: ui/photopage.ui:315
 msgid "Preview"
 msgstr "Antevisão"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageUp)
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:336 ui/photopage.ui:339
+#: ui/photopage.ui:331 ui/photopage.ui:334
 msgid "Next page"
 msgstr "Página seguinte"
 
 #. i18n: ectx: property (text), widget (QPushButton, mRightButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:342 ui/printoptionspage.ui:64
+#: ui/photopage.ui:337 ui/printoptionspage.ui:64
 msgid ">"
 msgstr ">"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/photopage.ui:441
+#: ui/photopage.ui:436
 msgid "Captions:"
 msgstr "Legendas:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1854
+#: ui/photopage.ui:447 wizard/wizard.cpp:1877
 msgid "No captions"
 msgstr "Sem legendas"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:457
+#: ui/photopage.ui:452
 msgid "Image file names"
 msgstr "Nomes dos ficheiros das imagens"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:462
+#: ui/photopage.ui:457
 msgid "Exif date-time"
 msgstr "Data-hora EXIF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:467
+#: ui/photopage.ui:462
 msgid "Comments"
 msgstr "Comentários"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1860
+#: ui/photopage.ui:467 wizard/wizard.cpp:1883
 msgid "Free"
 msgstr "Livre"
 
 #. i18n: ectx: property (text), widget (QLabel, m_free_label)
-#: ui/photopage.ui:506
+#: ui/photopage.ui:501
 #, no-c-format
 msgid ""
 "%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
@@ -324,33 +314,28 @@ msgstr ""
 "hora, %r resolução, %a abertura, %l distância focal, \\n mudança de linha"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
-#: ui/photopage.ui:537
+#: ui/photopage.ui:532
 msgid "same to all"
 msgstr "igual para todos"
 
 #. i18n: ectx: property (text), widget (QPushButton, mSaveSettings)
 #. i18n: ectx: property (text), widget (QPushButton, m_setDefault)
-#: ui/photopage.ui:547 ui/printoptionspage.ui:348
+#: ui/photopage.ui:542 ui/printoptionspage.ui:348
 msgid "Use as default"
 msgstr "Usar por omissão"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/photopage.ui:560
+#: ui/photopage.ui:555
 msgid "Family:"
 msgstr "Família:"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/photopage.ui:577
+#: ui/photopage.ui:572
 msgid "Color:"
 msgstr "Cor:"
 
-#. i18n: ectx: property (text), widget (KColorButton, m_font_color)
-#: ui/photopage.ui:587
-msgid "PushButton"
-msgstr "PushButton"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/photopage.ui:604
+#: ui/photopage.ui:596
 msgid "Size:"
 msgstr "Tamanho:"
 
@@ -395,17 +380,17 @@ msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
 msgid "x"
 msgstr "x"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:246
 msgid "Millimeters"
 msgstr "Milímetros"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:251
 msgid "Centimeters"
 msgstr "Centímetros"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:256
 msgid "Inches"
 msgstr "Polegadas"
@@ -430,51 +415,51 @@ msgstr "Fotografias por página:"
 msgid "Multiple pages:"
 msgstr "Várias páginas:"
 
-#: wizard/customdlg.cpp:46 wizard/customdlg.cpp:47
+#: wizard/customdlg.cpp:51 wizard/customdlg.cpp:52
 msgid "Choose your grid size"
 msgstr "Escolher o tamanho da sua grelha"
 
-#: wizard/customdlg.cpp:48
+#: wizard/customdlg.cpp:53
 msgid "Number of rows"
 msgstr "Número de linhas"
 
-#: wizard/customdlg.cpp:49
+#: wizard/customdlg.cpp:54
 msgid "Insert number of rows"
 msgstr "Inserir o número de linhas"
 
-#: wizard/customdlg.cpp:50
+#: wizard/customdlg.cpp:55
 msgid "Number of columns"
 msgstr "Número de colunas"
 
-#: wizard/customdlg.cpp:51
+#: wizard/customdlg.cpp:56
 msgid "Insert number of columns"
 msgstr "Inserir o número de colunas"
 
-#: wizard/customdlg.cpp:53 wizard/customdlg.cpp:54
+#: wizard/customdlg.cpp:58 wizard/customdlg.cpp:59
 msgid "Choose to have a custom photo size album"
 msgstr "Optar por ter um álbum com com um tamanho personalizado de fotografia"
 
-#: wizard/customdlg.cpp:55
+#: wizard/customdlg.cpp:60
 msgid "Photo height"
 msgstr "Altura da fotografia"
 
-#: wizard/customdlg.cpp:56
+#: wizard/customdlg.cpp:61
 msgid "Insert photo height"
 msgstr "Inserir a altura da fotografia"
 
-#: wizard/customdlg.cpp:57
+#: wizard/customdlg.cpp:62
 msgid "Photo width"
 msgstr "Largura da fotografia"
 
-#: wizard/customdlg.cpp:58
+#: wizard/customdlg.cpp:63
 msgid "Insert photo width"
 msgstr "Inserir a largura da fotografia"
 
-#: wizard/customdlg.cpp:60
+#: wizard/customdlg.cpp:65
 msgid "Auto rotate photo"
 msgstr "Rodar automaticamente a fotografia"
 
-#: wizard/printhelper.cpp:244
+#: wizard/printhelper.cpp:241
 msgid "Kipi-plugins image printing"
 msgstr "Impressão de imagens dos 'plugins' do Kipi"
 
@@ -483,23 +468,27 @@ msgstr "Impressão de imagens dos 'plugins' do Kipi"
 msgid "disabled"
 msgstr "desactivado"
 
-#: wizard/wizard.cpp:113
+#: wizard/wizard.cpp:117
 msgid "Select page layout"
 msgstr "Seleccionar a disposição da página"
 
-#: wizard/wizard.cpp:114
+#: wizard/wizard.cpp:118
 msgid "Crop photos"
 msgstr "Recortar as fotografias"
 
-#: wizard/wizard.cpp:116
+#: wizard/wizard.cpp:120
 msgid "Custom"
 msgstr "Personalizado"
 
-#: wizard/wizard.cpp:163
-msgid "A KIPI plugin to print images"
-msgstr "Um 'plugin' do KIPI para imprimir imagens"
+#: wizard/wizard.cpp:162 wizard/wizard.cpp:165 wizard/wizard.cpp:2510
+msgid "Print assistant"
+msgstr "Assistente de impressão"
 
-#: wizard/wizard.cpp:164
+#: wizard/wizard.cpp:166
+msgid "A tool to print images"
+msgstr "Uma ferramenta para imprimir imagens"
+
+#: wizard/wizard.cpp:167
 msgid ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
@@ -507,69 +496,77 @@ msgstr ""
 "(c) 2003-2004, Todd Shoemaker\n"
 "(c) 2007-2013, Angelo Naselli"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:170
 msgid "Todd Shoemaker"
 msgstr "Todd Shoemaker"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:171
 msgid "Author"
 msgstr "Autoria"
 
-#: wizard/wizard.cpp:170
+#: wizard/wizard.cpp:174
 msgid "Angelo Naselli"
 msgstr "Angelo Naselli"
 
-#: wizard/wizard.cpp:170
-msgid "Developer and maintainer"
-msgstr "Desenvolvimento e manutenção"
+#: wizard/wizard.cpp:175
+msgid "Developer"
+msgstr "Desenvolvimento"
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:178
 msgid "Andreas Trink"
 msgstr "Andreas Trink"
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:179
 msgid "Contributor"
 msgstr "Contribuinte"
 
-#: wizard/wizard.cpp:659
+#: wizard/wizard.cpp:678
 msgid "Unsupported Paper Size"
 msgstr "Tamanho de Papel não Suportado"
 
-#: wizard/wizard.cpp:1128
+#: wizard/wizard.cpp:1151
 #, kde-format
 msgid "Photo %1 of %2"
 msgstr "Fotografia %1 de %2"
 
-#: wizard/wizard.cpp:1212 wizard/wizard.cpp:1219
+#: wizard/wizard.cpp:1235 wizard/wizard.cpp:1242
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "Página %1 de %2"
 
-#: wizard/wizard.cpp:1460
+#: wizard/wizard.cpp:1483
 msgid "Add again"
 msgstr "Adicionar de novo"
 
-#: wizard/wizard.cpp:1470
+#: wizard/wizard.cpp:1493
 msgid "Remove"
 msgstr "Remover"
 
-#: wizard/wizard.cpp:2368
+#: wizard/wizard.cpp:2197
+msgid "Output Path"
+msgstr "Localização do Resultado"
+
+#: wizard/wizard.cpp:2392
+msgid "Overwrite File"
+msgstr "Sobrepor o Ficheiro"
+
+#: wizard/wizard.cpp:2393
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "O seguinte ficheiro será substituído. Deseja sobrepo-lo?"
 
-#: wizard/wizard.cpp:2389
+#: wizard/wizard.cpp:2417
 msgid "Could not save file, please check your output entry."
 msgstr ""
 "Não foi possível gravar o ficheiro; verifique por favor o seu item de "
 "resultado."
 
-#: wizard/wizard.cpp:2413
+#: wizard/wizard.cpp:2441
 msgid "Could not remove the GIMP's temporary files."
 msgstr "Não foi possível remover os ficheiros temporários do GIMP."
 
-#: wizard/wizard.cpp:2534
+#: wizard/wizard.cpp:2562
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
@@ -577,10 +574,6 @@ msgstr ""
 "Ocorreu um erro ao invocar o GIMP. Certifique-se por favor se este está "
 "devidamente instalado."
 
-#: wizard/wizard.cpp:2535
-msgid "KIPI"
-msgstr "KIPI"
-
-#: wizard/wizard.cpp:2548
+#: wizard/wizard.cpp:2574
 msgid "Empty output path."
 msgstr "O local de resultado está em branco."

@@ -34,15 +34,10 @@
 #include <QSharedData>
 #include <QWaitCondition>
 
-// KDE includes
-
-// libkface includes
-
-#include <libkface/facedetector.h>
-#include <libkface/recognitiondatabase.h>
-
 // Local includes
 
+#include "facedetector.h"
+#include "recognitiondatabase.h"
 #include "faceutils.h"
 #include "previewloadthread.h"
 #include "thumbnailloadthread.h"
@@ -135,7 +130,7 @@ public:
 
     FacePipeline::Private* const    d;
     FacePipeline::FilterMode        mode;
-    FacePipelineDatabaseFace::Roles tasks;
+    FacePipelineFaceTagsIface::Roles tasks;
 
 protected Q_SLOTS:
 
@@ -213,7 +208,7 @@ Q_SIGNALS:
 
 protected:
 
-    KFaceIface::FaceDetector     detector;
+    FacesEngine::FaceDetector     detector;
     FacePipeline::Private* const d;
 };
 
@@ -228,8 +223,8 @@ public:
 
     ThumbnailImageCatcher* thumbnailCatcher();
     QList<QImage> getDetails(const DImg& src, const QList<QRectF>& rects);
-    QList<QImage> getDetails(const DImg& src, const QList<DatabaseFace>& faces);
-    QList<QImage> getThumbnails(const QString& filePath, const QList<DatabaseFace>& faces);
+    QList<QImage> getDetails(const DImg& src, const QList<FaceTagsIface>& faces);
+    QList<QImage> getThumbnails(const QString& filePath, const QList<FaceTagsIface>& faces);
 
 protected:
 
@@ -265,9 +260,9 @@ Q_SIGNALS:
 
 protected:
 
-    FaceImageRetriever              imageRetriever;
-    KFaceIface::RecognitionDatabase database;
-    FacePipeline::Private* const    d;
+    FaceImageRetriever               imageRetriever;
+    FacesEngine::RecognitionDatabase database;
+    FacePipeline::Private* const     d;
 };
 
 // ----------------------------------------------------------------------------------------
@@ -323,9 +318,9 @@ Q_SIGNALS:
 
 protected:
 
-    KFaceIface::RecognitionDatabase database;
-    FaceImageRetriever              imageRetriever;
-    FacePipeline::Private* const    d;
+    FacesEngine::RecognitionDatabase database;
+    FaceImageRetriever               imageRetriever;
+    FacePipeline::Private* const     d;
 };
 
 // ----------------------------------------------------------------------------------------
@@ -388,14 +383,16 @@ protected:
     class Statistics
     {
     public:
+
         Statistics();
         int knownFaces;
         int correctlyRecognized;
     };
+
     QMap<int, Statistics> results;
 
-    FacePipeline::Private* const d;
-    KFaceIface::RecognitionDatabase database;
+    FacePipeline::Private* const     d;
+    FacesEngine::RecognitionDatabase database;
 };
 
 // ----------------------------------------------------------------------------------------
@@ -416,9 +413,9 @@ public:
     void receiverFlowControl();
     FacePipelineExtendedPackage::Ptr buildPackage(const ImageInfo& info);
     FacePipelineExtendedPackage::Ptr buildPackage(const ImageInfo& info,
-                                                  const FacePipelineDatabaseFace&, const DImg& image);
+                                                  const FacePipelineFaceTagsIface&, const DImg& image);
     FacePipelineExtendedPackage::Ptr buildPackage(const ImageInfo& info,
-                                                  const FacePipelineDatabaseFaceList& faces, const DImg& image);
+                                                  const FacePipelineFaceTagsIfaceList& faces, const DImg& image);
     FacePipelineExtendedPackage::Ptr filterOrBuildPackage(const ImageInfo& info);
 
     bool hasFinished();
@@ -432,25 +429,25 @@ public:
 
 public:
 
-    ScanStateFilter*     databaseFilter;
-    PreviewLoader*       previewThread;
-    DetectionWorker*     detectionWorker;
-    ParallelPipes*       parallelDetectors;
-    RecognitionWorker*   recognitionWorker;
-    DatabaseWriter*      databaseWriter;
-    Trainer*             trainer;
-    DetectionBenchmarker*  detectionBenchmarker;
-    RecognitionBenchmarker*recognitionBenchmarker;
+    ScanStateFilter*                        databaseFilter;
+    PreviewLoader*                          previewThread;
+    DetectionWorker*                        detectionWorker;
+    ParallelPipes*                          parallelDetectors;
+    RecognitionWorker*                      recognitionWorker;
+    DatabaseWriter*                         databaseWriter;
+    Trainer*                                trainer;
+    DetectionBenchmarker*                   detectionBenchmarker;
+    RecognitionBenchmarker*                 recognitionBenchmarker;
 
-    QList<QObject*>      pipeline;
-    QThread::Priority    priority;
+    QList<QObject*>                         pipeline;
+    QThread::Priority                       priority;
 
-    QList<ThumbnailLoadThread*> thumbnailLoadThreads;
-    bool                 started;
-    int                  infosForFiltering;
-    int                  packagesOnTheRoad;
-    int                  maxPackagesOnTheRoad;
-    int                  totalPackagesAdded;
+    QList<ThumbnailLoadThread*>             thumbnailLoadThreads;
+    bool                                    started;
+    int                                     infosForFiltering;
+    int                                     packagesOnTheRoad;
+    int                                     maxPackagesOnTheRoad;
+    int                                     totalPackagesAdded;
 
     QList<FacePipelineExtendedPackage::Ptr> delayedPackages;
 

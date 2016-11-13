@@ -6,7 +6,7 @@
  * Date        : 2014-01-28
  * Description : drag and drop handling for Showfoto
  *
- * Copyright (C) 2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,15 +26,13 @@
 
 // KDE includes
 
-#include <kmenu.h>
+#include <QMenu>
 
 // Local includes
 
 #include "abstractitemdragdrophandler.h"
 #include "showfotoimagemodel.h"
 #include "ddragobjects.h"
-
-class KJob;
 
 namespace ShowFoto
 {
@@ -56,13 +54,12 @@ public:
 
 Q_SIGNALS:
 
-    void dioResult(KJob*);
-    void signalDroppedUrls(const KUrl::List& droppedUrls);
+    void signalDroppedUrls(const QList<QUrl>& droppedUrls);
 
 private:
 
-    QAction*   addGroupAction(KMenu* const menu);
-    QAction*   addCancelAction(KMenu* const menu);
+    QAction* addGroupAction(QMenu* const menu);
+    QAction* addCancelAction(QMenu* const menu);
 };
 
 } // namespace Digikam

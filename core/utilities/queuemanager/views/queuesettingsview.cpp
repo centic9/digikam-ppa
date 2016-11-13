@@ -6,7 +6,7 @@
  * Date        : 2009-02-21
  * Description : a view to show Queue Settings.
  *
- * Copyright (C) 2009-2013 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "queuesettingsview.moc"
+#include "queuesettingsview.h"
 
 // Qt includes
 
@@ -34,23 +34,17 @@
 #include <QTimer>
 #include <QTreeWidget>
 #include <QVBoxLayout>
+#include <QApplication>
+#include <QStyle>
+#include <QIcon>
 
 // KDE includes
 
-#include <kconfig.h>
-#include <kdeversion.h>
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kvbox.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/dcrawsettingswidget.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "advancedrenamewidget.h"
 #include "defaultrenameparser.h"
 #include "album.h"
@@ -61,12 +55,13 @@
 #include "tiffsettings.h"
 #include "pngsettings.h"
 #include "pgfsettings.h"
+#include "drawdecoderwidget.h"
 
 #ifdef HAVE_JASPER
 #include "jp2ksettings.h"
 #endif // HAVE_JASPER
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
@@ -136,7 +131,7 @@ public:
     AdvancedRenameManager* advancedRenameManager;
     AdvancedRenameWidget*  advancedRenameWidget;
 
-    DcrawSettingsWidget*   rawSettings;
+    DRawDecoderWidget*   rawSettings;
 
     JPEGSettings*          jpgSettings;
     PNGSettings*           pngSettings;
@@ -148,32 +143,30 @@ public:
 };
 
 QueueSettingsView::QueueSettingsView(QWidget* const parent)
-    : KTabWidget(parent), d(new Private)
+    : QTabWidget(parent),
+      d(new Private)
 {
-    setTabBarHidden(false);
-#if KDE_IS_VERSION(4,3,0)
     setTabsClosable(false);
-#else
-    setCloseButtonEnabled(false);
-#endif
 
     // --------------------------------------------------------
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QScrollArea* const sv3   = new QScrollArea(this);
-    KVBox* const vbox3       = new KVBox(sv3->viewport());
+    DVBox* const vbox3       = new DVBox(sv3->viewport());
     sv3->setWidget(vbox3);
     sv3->setWidgetResizable(true);
-    vbox3->setMargin(KDialog::spacingHint());
-    vbox3->setSpacing(KDialog::spacingHint());
+    vbox3->setContentsMargins(spacing, spacing, spacing, spacing);
+    vbox3->setSpacing(spacing);
 
     d->useOrgAlbum           = new QCheckBox(i18n("Use original Album"), vbox3);
     d->albumSel              = new AlbumSelectWidget(vbox3);
-    insertTab(Private::TARGET, sv3, SmallIcon("folder-image"), i18n("Target"));
+    insertTab(Private::TARGET, sv3, QIcon::fromTheme(QLatin1String("folder-pictures")), i18n("Target"));
 
     // --------------------------------------------------------
 
     QScrollArea* const sv2   = new QScrollArea(this);
-    KVBox* const vbox2       = new KVBox(sv2->viewport());
+    DVBox* const vbox2       = new DVBox(sv2->viewport());
     sv2->setWidget(vbox2);
     sv2->setWidgetResizable(true);
 
@@ -195,10 +188,10 @@ QueueSettingsView::QueueSettingsView(QWidget* const parent)
     d->renamingButtonGroup->addButton(d->renameManual,   QueueSettings::CUSTOMIZE);
 
     vbox2->setStretchFactor(space, 10);
-    vbox2->setMargin(KDialog::spacingHint());
-    vbox2->setSpacing(KDialog::spacingHint());
+    vbox2->setContentsMargins(spacing, spacing, spacing, spacing);
+    vbox2->setSpacing(spacing);
 
-    insertTab(Private::RENAMING, sv2, SmallIcon("insert-image"), i18n("File Renaming"));
+    insertTab(Private::RENAMING, sv2, QIcon::fromTheme(QLatin1String("insert-image")), i18n("File Renaming"));
 
     // --------------------------------------------------------
 
@@ -223,7 +216,7 @@ QueueSettingsView::QueueSettingsView(QWidget* const parent)
 
     vlay2->addWidget(d->demosaicingButton);
     vlay2->addWidget(d->extractJPEGButton);
-    vlay2->setMargin(0);
+    vlay2->setContentsMargins(QMargins());
     vlay2->setSpacing(0);
 
     // -------------
@@ -241,7 +234,7 @@ QueueSettingsView::QueueSettingsView(QWidget* const parent)
 
     vlay->addWidget(d->storeDiffButton);
     vlay->addWidget(d->overwriteButton);
-    vlay->setMargin(0);
+    vlay->setContentsMargins(QMargins());
     vlay->setSpacing(0);
 
     d->useMutiCoreCPU          = new QCheckBox(i18nc("@option:check", "Work on all processor cores"), panel);
@@ -254,20 +247,20 @@ QueueSettingsView::QueueSettingsView(QWidget* const parent)
     layout->addWidget(d->conflictLabel);
     layout->addWidget(conflictBox);
     layout->addWidget(d->useMutiCoreCPU);
-    layout->setMargin(KDialog::spacingHint());
-    layout->setSpacing(KDialog::spacingHint());
+    layout->setContentsMargins(spacing, spacing, spacing, spacing);
+    layout->setSpacing(spacing);
     layout->addStretch();
 
-    insertTab(Private::BEHAVIOR, sv, SmallIcon("dialog-information"), i18n("Behavior"));
+    insertTab(Private::BEHAVIOR, sv, QIcon::fromTheme(QLatin1String("dialog-information")), i18n("Behavior"));
 
     // --------------------------------------------------------
 
-    d->rawSettings = new DcrawSettingsWidget(panel, DcrawSettingsWidget::SIXTEENBITS | DcrawSettingsWidget::COLORSPACE);
-    d->rawSettings->setItemIcon(0, SmallIcon("kdcraw"));
-    d->rawSettings->setItemIcon(1, SmallIcon("whitebalance"));
-    d->rawSettings->setItemIcon(2, SmallIcon("lensdistortion"));
+    d->rawSettings = new DRawDecoderWidget(panel, DRawDecoderWidget::SIXTEENBITS | DRawDecoderWidget::COLORSPACE);
+    d->rawSettings->setItemIcon(0, QIcon::fromTheme(QLatin1String("image-x-adobe-dng")));
+    d->rawSettings->setItemIcon(1, QIcon::fromTheme(QLatin1String("bordertool")));
+    d->rawSettings->setItemIcon(2, QIcon::fromTheme(QLatin1String("zoom-draw")));
 
-    insertTab(Private::RAW, d->rawSettings, SmallIcon("kdcraw"), i18n("Raw Decoding"));
+    insertTab(Private::RAW, d->rawSettings, QIcon::fromTheme(QLatin1String("image-x-adobe-dng")), i18n("Raw Decoding"));
 
     // --------------------------------------------------------
 
@@ -314,11 +307,11 @@ QueueSettingsView::QueueSettingsView(QWidget* const parent)
     box5->setLayout(lbox5);
     slay->addWidget(box5);
 
-    slay->setMargin(KDialog::spacingHint());
-    slay->setSpacing(KDialog::spacingHint());
+    slay->setContentsMargins(spacing, spacing, spacing, spacing);
+    slay->setSpacing(spacing);
     slay->addStretch();
 
-    insertTab(Private::SAVE, sv4, SmallIcon("document-save-all"), i18n("Saving Images"));
+    insertTab(Private::SAVE, sv4, QIcon::fromTheme(QLatin1String("document-save-all")), i18n("Saving Images"));
 
     // --------------------------------------------------------
 
@@ -327,7 +320,7 @@ QueueSettingsView::QueueSettingsView(QWidget* const parent)
 
     connect(d->useMutiCoreCPU, SIGNAL(toggled(bool)),
             this, SLOT(slotSettingsChanged()));
-        
+
     connect(d->albumSel, SIGNAL(itemSelectionChanged()),
             this, SLOT(slotSettingsChanged()));
 

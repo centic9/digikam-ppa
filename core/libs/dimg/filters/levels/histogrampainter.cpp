@@ -7,7 +7,7 @@
  * Description : a class that manages painting histograms
  *
  * Copyright (C) 2009      by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "histogrampainter.moc"
+#include "histogrampainter.h"
 
 // C++ includes
 
@@ -33,8 +33,11 @@
 
 // KDE includes
 
-#include <kdebug.h>
-#include "klocale.h"
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "digikam_debug.h"
 
 #define HISTOGRAM_CALC_CUTOFF_MIN    0.1
 #define HISTOGRAM_CALC_CUTOFF_MAX    0.9
@@ -95,7 +98,7 @@ public:
                         break;
 
                     default:
-                        kError() << "Untreated channel type " << channelType << ". Using luminosity as default.";
+                        qCDebug(DIGIKAM_DIMG_LOG) << "Untreated channel type " << channelType << ". Using luminosity as default.";
                         max = qMin(histogram->getMaximum(LuminosityChannel, startSeg, endSeg) / HISTOGRAM_CALC_CUTOFF_HEIGHT,
                                    histogram->getMaximum(LuminosityChannel, 0, segments - 1));
                         break;
@@ -122,7 +125,7 @@ public:
                         break;
 
                     default:
-                        kError() << "Untreated channel type " << channelType << ". Using luminosity as default.";
+                        qCDebug(DIGIKAM_DIMG_LOG) << "Untreated channel type " << channelType << ". Using luminosity as default.";
                         max = histogram->getMaximum(LuminosityChannel, 0, segments - 1);
                         break;
                 }
@@ -139,7 +142,7 @@ public:
                 break;
 
             default:
-                kError() << "Untreated histogram scale " << scale << ". Using linear as default.";
+                qCDebug(DIGIKAM_DIMG_LOG) << "Untreated histogram scale " << scale << ". Using linear as default.";
                 break;
         }
 
@@ -169,7 +172,7 @@ public:
 
                 if (value < 0.0)
                 {
-                    kWarning() << "Scaling value < 0: " << value << ". Assuming 0.";
+                    qCWarning(DIGIKAM_DIMG_LOG) << "Scaling value < 0: " << value << ". Assuming 0.";
                     return 0;
                 }
 
@@ -178,7 +181,7 @@ public:
 
             default:
             {
-                kError() << "Unknown scale type " << scale;
+                qCDebug(DIGIKAM_DIMG_LOG) << "Unknown scale type " << scale;
                 return 0;
             }
         }
@@ -342,7 +345,7 @@ public:
             ybPrev = yb;
         }
 
-        curveRed.lineTo(wWidth - 2, wHeight - 1);        
+        curveRed.lineTo(wWidth - 2, wHeight - 1);
         curveRed.lineTo(1, wHeight - 1);
         curveRed.closeSubpath();
         curveGreen.lineTo(wWidth - 2, wHeight - 1);
@@ -544,13 +547,13 @@ void HistogramPainter::setSelection(double selectionMin, double selectionMax)
 {
     if (selectionMin < 0.0 || selectionMin > 1.0)
     {
-        kWarning() << "selectionMin out of range: " << selectionMin << ". Clamping value";
+        qCWarning(DIGIKAM_DIMG_LOG) << "selectionMin out of range: " << selectionMin << ". Clamping value";
         selectionMin = qMax(0.0, qMin(1.0, selectionMin));
     }
 
     if (selectionMax < 0.0 || selectionMax > 1.0)
     {
-        kWarning() << "selectionMax out of range: " << selectionMax << ". Clamping value";
+        qCWarning(DIGIKAM_DIMG_LOG) << "selectionMax out of range: " << selectionMax << ". Clamping value";
         selectionMax = qMax(0.0, qMin(1.0, selectionMax));
     }
 
@@ -583,7 +586,7 @@ void HistogramPainter::render(QPixmap& bufferPixmap)
 {
     if (!d->histogram)
     {
-        kError() << "Cannot render because the histogram is missing";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Cannot render because the histogram is missing";
         return;
     }
 

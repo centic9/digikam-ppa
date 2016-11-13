@@ -20,26 +20,19 @@
  *
  * ============================================================ */
 
-#include "tableview_treeview.moc"
+#include "tableview_treeview.h"
 
 // Qt includes
 
 #include <QContextMenuEvent>
 #include <QHeaderView>
-#include <QItemSelectionModel>
 #include <QTreeView>
-#include <QVBoxLayout>
+#include <QMenu>
+#include <QAction>
 
-// KDE includes
+// Local includes
 
-#include <kaction.h>
-#include <kdebug.h>
-#include <klinkitemselectionmodel.h>
-#include <kmenu.h>
-
-// local includes
-
-/// @todo clean up includes
+#include "digikam_debug.h"
 #include "contextmenuhelper.h"
 #include "imageinfo.h"
 #include "imagemodel.h"
@@ -56,6 +49,7 @@ namespace Digikam
 class TableViewTreeView::Private
 {
 public:
+
     Private()
       : headerContextMenuActiveColumn(-1),
         actionHeaderContextMenuRemoveColumn(0),
@@ -64,37 +58,40 @@ public:
     {
     }
 
+public:
+
     int           headerContextMenuActiveColumn;
-    KAction*      actionHeaderContextMenuRemoveColumn;
-    KAction*      actionHeaderContextMenuConfigureColumn;
+    QAction*      actionHeaderContextMenuRemoveColumn;
+    QAction*      actionHeaderContextMenuConfigureColumn;
     ThumbnailSize dragDropThumbnailSize;
 };
 
 TableViewTreeView::TableViewTreeView(TableViewShared* const tableViewShared, QWidget* const parent)
-  : QTreeView(parent),
-    d(new Private()),
-    s(tableViewShared)
+    : QTreeView(parent),
+      d(new Private()),
+      s(tableViewShared)
 {
     setModel(s->tableViewModel);
     setSelectionModel(s->tableViewSelectionModel);
 
     s->itemDelegate = new TableViewItemDelegate(s, this);
-
     setSelectionMode(QAbstractItemView::ExtendedSelection);
     setItemDelegate(s->itemDelegate);
     setAlternatingRowColors(true);
-    setAllColumnsShowFocus(true);
     setSortingEnabled(true);
+    setAllColumnsShowFocus(true);
     setDragEnabled(true);
     setAcceptDrops(true);
     setWordWrap(true);
 //     viewport()->setAcceptDrops(true);
 
-    d->actionHeaderContextMenuRemoveColumn = new KAction(KIcon("edit-table-delete-column"), i18n("Remove this column"), this);
+    d->actionHeaderContextMenuRemoveColumn = new QAction(QIcon::fromTheme(QLatin1String("edit-table-delete-column")), i18n("Remove this column"), this);
+
     connect(d->actionHeaderContextMenuRemoveColumn, SIGNAL(triggered(bool)),
             this, SLOT(slotHeaderContextMenuActionRemoveColumnTriggered()));
 
-    d->actionHeaderContextMenuConfigureColumn = new KAction(KIcon("configure"), i18n("Configure this column"), this);
+    d->actionHeaderContextMenuConfigureColumn = new QAction(QIcon::fromTheme(QLatin1String("configure")), i18n("Configure this column"), this);
+
     connect(d->actionHeaderContextMenuConfigureColumn, SIGNAL(triggered(bool)),
             this, SLOT(slotHeaderContextMenuConfigureColumn()));
 
@@ -108,14 +105,13 @@ TableViewTreeView::TableViewTreeView(TableViewShared* const tableViewShared, QWi
 
 TableViewTreeView::~TableViewTreeView()
 {
-
 }
 
 bool TableViewTreeView::eventFilter(QObject* watched, QEvent* event)
 {
     QHeaderView* const headerView = header();
 
-    if ( (watched==headerView) && (event->type()==QEvent::ContextMenu) )
+    if ((watched == headerView) && (event->type() == QEvent::ContextMenu))
     {
         showHeaderContextMenu(event);
 
@@ -125,16 +121,16 @@ bool TableViewTreeView::eventFilter(QObject* watched, QEvent* event)
     return QObject::eventFilter(watched, event);
 }
 
-void TableViewTreeView::addColumnDescriptionsToMenu(const QList<TableViewColumnDescription>& columnDescriptions, KMenu* const menu)
+void TableViewTreeView::addColumnDescriptionsToMenu(const QList<TableViewColumnDescription>& columnDescriptions, QMenu* const menu)
 {
-    for (int i = 0; i<columnDescriptions.count(); ++i)
+    for (int i = 0; i < columnDescriptions.count(); ++i)
     {
         const TableViewColumnDescription& desc = columnDescriptions.at(i);
-        KAction* const action                  = new KAction(desc.columnTitle, menu);
+        QAction* const action                  = new QAction(desc.columnTitle, menu);
 
         if (!desc.columnIcon.isEmpty())
         {
-            action->setIcon(KIcon(desc.columnIcon));
+            action->setIcon(QIcon::fromTheme(desc.columnIcon));
         }
 
         if (desc.subColumns.isEmpty())
@@ -146,7 +142,7 @@ void TableViewTreeView::addColumnDescriptionsToMenu(const QList<TableViewColumnD
         }
         else
         {
-            KMenu* const subMenu = new KMenu(menu);
+            QMenu* const subMenu = new QMenu(menu);
             addColumnDescriptionsToMenu(desc.subColumns, subMenu);
 
             action->setMenu(subMenu);
@@ -158,12 +154,11 @@ void TableViewTreeView::addColumnDescriptionsToMenu(const QList<TableViewColumnD
 
 void TableViewTreeView::showHeaderContextMenu(QEvent* const event)
 {
-    QContextMenuEvent* const e    = static_cast<QContextMenuEvent*>(event);
-    QHeaderView* const headerView = header();
-
+    QContextMenuEvent* const e                = static_cast<QContextMenuEvent*>(event);
+    QHeaderView* const headerView             = header();
     d->headerContextMenuActiveColumn          = headerView->logicalIndexAt(e->pos());
     const TableViewColumn* const columnObject = s->tableViewModel->getColumnObject(d->headerContextMenuActiveColumn);
-    KMenu* const menu                         = new KMenu(this);
+    QMenu* const menu                         = new QMenu(this);
 
     d->actionHeaderContextMenuRemoveColumn->setEnabled(s->tableViewModel->columnCount(QModelIndex())>1);
     menu->addAction(d->actionHeaderContextMenuRemoveColumn);
@@ -184,28 +179,31 @@ void TableViewTreeView::slotHeaderContextMenuAddColumn()
     QAction* const triggeredAction = qobject_cast<QAction*>(sender());
 
     const QVariant actionData = triggeredAction->data();
+
     if (!actionData.canConvert<TableViewColumnDescription>())
     {
         return;
     }
 
     const TableViewColumnDescription desc = actionData.value<TableViewColumnDescription>();
-    kDebug() << "clicked: " << desc.columnTitle;
-    const int newColumnLogicalIndex = d->headerContextMenuActiveColumn+1;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "clicked: " << desc.columnTitle;
+    const int newColumnLogicalIndex       = d->headerContextMenuActiveColumn+1;
     s->tableViewModel->addColumnAt(desc, newColumnLogicalIndex);
 
     // since the header column order is not the same as the model's column order, we need
     // to make sure the new column is moved directly behind the current column in the header:
-    const int clickedVisualIndex = header()->visualIndex(d->headerContextMenuActiveColumn);
+    const int clickedVisualIndex   = header()->visualIndex(d->headerContextMenuActiveColumn);
     const int newColumnVisualIndex = header()->visualIndex(newColumnLogicalIndex);
     int newColumnVisualTargetIndex = clickedVisualIndex + 1;
+
     // If the column is inserted before the clicked column, we have to
     // subtract one from the target index because it looks like QHeaderView first removes
     // the column and then inserts it.
-    if (newColumnVisualIndex<clickedVisualIndex)
+    if (newColumnVisualIndex < clickedVisualIndex)
     {
         newColumnVisualTargetIndex--;
     }
+
     if (newColumnVisualIndex!=newColumnVisualTargetIndex)
     {
         header()->moveSection(newColumnVisualIndex, newColumnVisualTargetIndex);
@@ -221,7 +219,7 @@ void TableViewTreeView::slotHeaderContextMenuAddColumn()
 
 void TableViewTreeView::slotHeaderContextMenuActionRemoveColumnTriggered()
 {
-    kDebug() << "remove column " << d->headerContextMenuActiveColumn;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "remove column " << d->headerContextMenuActiveColumn;
     s->tableViewModel->removeColumnAt(d->headerContextMenuActiveColumn);
 }
 
@@ -241,7 +239,7 @@ void TableViewTreeView::slotHeaderContextMenuConfigureColumn()
 
 AbstractItemDragDropHandler* TableViewTreeView::dragDropHandler() const
 {
-    kDebug()<<s->imageModel->dragDropHandler();
+    qCDebug(DIGIKAM_GENERAL_LOG)<<s->imageModel->dragDropHandler();
     return s->imageModel->dragDropHandler();
 }
 

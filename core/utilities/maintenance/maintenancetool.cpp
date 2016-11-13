@@ -6,7 +6,7 @@
  * Date        : 2012-02-02
  * Description : maintenance tool
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -22,21 +22,21 @@
  *
  * ============================================================ */
 
-#include "maintenancetool.moc"
+#include "maintenancetool.h"
 
 // Qt includes
 
 #include <QTime>
 #include <QTimer>
+#include <QApplication>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dnotificationwrapper.h"
 
 namespace Digikam
@@ -86,14 +86,14 @@ void MaintenanceTool::slotStart()
 
 void MaintenanceTool::slotDone()
 {
-    QTime now, t = now.addMSecs(d->duration.elapsed());
+    QTime t = QTime::fromMSecsSinceStartOfDay(d->duration.elapsed());
 
     if (d->notification)
     {
         // Pop-up a message to bring user when all is done.
         DNotificationWrapper(id(),
                              i18n("Process is done.\nDuration: %1", t.toString()),
-                             kapp->activeWindow(), label());
+                             qApp->activeWindow(), label());
     }
 
     emit signalComplete();

@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "advancedrenameinput.moc"
+#include "advancedrenameinput.h"
 
 // Qt includes
 
@@ -29,26 +29,24 @@
 #include <QLayout>
 #include <QScrollBar>
 #include <QTimer>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kdialog.h>
-#include <klocale.h>
 
 // Local includes
 
 #include "highlighter.h"
 #include "parser.h"
 
-// const variables
+// Constantes
 
 namespace
 {
 static const quint8 INVALID = -1;
-static const QString DUMMY_TEXT("DUMMY_TEXT_y_fjqp|");
+static const QString DUMMY_TEXT(QLatin1String("DUMMY_TEXT_y_fjqp|"));
 }
 
 namespace Digikam
@@ -63,7 +61,8 @@ public:
         verticalSliderPosition(INVALID),
         parseTimer(0),
         parser(0)
-    {}
+    {
+    }
 
     bool    allowDirectoryCreation;
     int     verticalSliderPosition;
@@ -71,8 +70,9 @@ public:
     Parser* parser;
 };
 
-AdvancedRenameLineEdit::AdvancedRenameLineEdit(QWidget* parent)
-    : QPlainTextEdit(parent), d(new Private)
+AdvancedRenameLineEdit::AdvancedRenameLineEdit(QWidget* const parent)
+    : QPlainTextEdit(parent),
+      d(new Private)
 {
     setupWidgets();
     setupConnections();
@@ -85,14 +85,14 @@ AdvancedRenameLineEdit::~AdvancedRenameLineEdit()
 
 void AdvancedRenameLineEdit::setupWidgets()
 {
-    setStyleSheet("background:transparent");
+    setStyleSheet(QLatin1String("background:transparent"));
     setLineWrapMode(QPlainTextEdit::NoWrap);
     setWordWrapMode(QTextOption::NoWrap);
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFocusPolicy(Qt::StrongFocus);
     setFrameStyle(QFrame::NoFrame);
-    setPalette(kapp->palette());
+    setPalette(qApp->palette());
 
     QFontMetrics fm = fontMetrics();
     int textHeight  = fm.boundingRect(DUMMY_TEXT).height();
@@ -253,7 +253,8 @@ public:
         lineEdit(0),
         proxy(0),
         highlighter(0)
-    {}
+    {
+    }
 
     static const QString    configGroupName;
     static const QString    configPatternHistoryListEntry;
@@ -265,13 +266,15 @@ public:
     ProxyLineEdit*          proxy;
     Highlighter*            highlighter;
 };
-const QString AdvancedRenameInput::Private::configGroupName("AdvancedRename Input");
-const QString AdvancedRenameInput::Private::configPatternHistoryListEntry("Pattern History List");
+
+const QString AdvancedRenameInput::Private::configGroupName(QLatin1String("AdvancedRename Input"));
+const QString AdvancedRenameInput::Private::configPatternHistoryListEntry(QLatin1String("Pattern History List"));
 
 // --------------------------------------------------------
 
-AdvancedRenameInput::AdvancedRenameInput(QWidget* parent)
-    : KComboBox(parent), d(new Private)
+AdvancedRenameInput::AdvancedRenameInput(QWidget* const parent)
+    : QComboBox(parent),
+      d(new Private)
 {
     setupWidgets();
     setupConnections();
@@ -348,7 +351,6 @@ void AdvancedRenameInput::setupWidgets()
 
     d->lineEdit = new AdvancedRenameLineEdit(this);
     d->proxy    = new ProxyLineEdit(this);
-
     d->proxy->setWidget(d->lineEdit);
     d->proxy->setClearButtonShown(true);
     d->proxy->setContentsMargins(0, -2, 0, 2);
@@ -359,11 +361,11 @@ void AdvancedRenameInput::setupWidgets()
 
 void AdvancedRenameInput::setupConnections()
 {
-    connect(d->proxy, SIGNAL(clearButtonClicked()),
+    connect(d->proxy, SIGNAL(signalClearButtonPressed()),
             this, SLOT(slotClearButtonPressed()));
 
     connect(d->lineEdit, SIGNAL(signalTextChanged(QString)),
-            this, SIGNAL(signalTextChanged(QString)));
+            this, SLOT(slotTextChanged(QString)));
 
     connect(d->lineEdit, SIGNAL(signalTokenMarked(bool)),
             this, SIGNAL(signalTokenMarked(bool)));
@@ -377,7 +379,7 @@ void AdvancedRenameInput::setupConnections()
 
 void AdvancedRenameInput::changeEvent(QEvent* e)
 {
-    KComboBox::changeEvent(e);
+    QComboBox::changeEvent(e);
 
     if (e->type() == QEvent::EnabledChange)
     {
@@ -389,6 +391,12 @@ void AdvancedRenameInput::slotClearButtonPressed()
 {
     slotClearText();
     slotSetFocus();
+}
+
+void AdvancedRenameInput::slotTextChanged(const QString& text)
+{
+    d->proxy->setText(text);
+    emit signalTextChanged(text);
 }
 
 QString AdvancedRenameInput::text() const
@@ -404,26 +412,24 @@ void AdvancedRenameInput::slotAddToken(const QString& token)
 
 void AdvancedRenameInput::readSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(d->configGroupName);
-
+    KSharedConfig::Ptr config  = KSharedConfig::openConfig();
+    KConfigGroup group         = config->group(d->configGroupName);
     QStringList patternHistory = group.readEntry(d->configPatternHistoryListEntry, QStringList());
-    patternHistory.removeAll(QString(""));
+    patternHistory.removeAll(QLatin1String(""));
     addItems(patternHistory);
     d->lineEdit->clear();
 }
 
 void AdvancedRenameInput::writeSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(d->configGroupName);
-
+    KSharedConfig::Ptr config  = KSharedConfig::openConfig();
+    KConfigGroup group         = config->group(d->configGroupName);
     QStringList patternHistory = group.readEntry(d->configPatternHistoryListEntry, QStringList());
 
     // remove duplicate entries and save pattern history, omit empty strings
     QString pattern = d->lineEdit->toPlainText();
     patternHistory.removeAll(pattern);
-    patternHistory.removeAll(QString(""));
+    patternHistory.removeAll(QLatin1String(""));
     patternHistory.prepend(pattern);
     group.writeEntry(d->configPatternHistoryListEntry, patternHistory);
 }

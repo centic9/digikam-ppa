@@ -1,0 +1,46 @@
+<sect1 id="using-movieformats"
+> <title
+>Ondersteunde formaten van films</title>
+
+    <sect2>
+        <title
+>Inleiding</title>
+
+        <para
+>Met veel digitale camera's kunt u een korte filmclip opnemen. Deze clips worden meestal opgeslagen in AVI- of MP4-formaat. &digikam; kent de metagegevens van deze formaten en zal miniaturen voor deze filmbestanden aanmaken. </para>
+
+        <para
+>&digikam; is echter geen filmbewerkingsprogramma en heeft geen faciliteiten voor het bekijken of bewerken van filmbestanden. Als u dubbelklikt op een filmbestand kan &digikam; u een vooruitblik laten zien van de video of een filmprogramma starten via de instellingen van uw bureaublad. </para>
+
+    </sect2>
+
+    <sect2>
+        <title
+>Videoformaten</title>
+
+        <para
+>&digikam; hangt af van <ulink url="http://doc.qt.io/qt-5/multimediaoverview.html"
+>Qt5 Multimedia framework</ulink
+> om videobestanden te behandelen. U moet er op toezien dat alle onderdelen van deze frameworks op uw computer zijn geïnstalleerd en speciaal het multimedia plugins-interface. Dit framework is in staat om videobestanden af te spelen afhankelijk van de beschikbare video-codecs geïnstalleerd op uw systeem. &digikam; voegt geen extra video-codec toe. Deze codecs worden op aanvraag in een lopend programma geladen. </para>
+
+        <para
+>Op een &Linux; bureaublad zal dit framework GStreamer-backends gebruiken. U moet GStreamer plugins genaamd "Good", "Bad" en "Ugly" installeren, om er zeker van te zijn dat alle videoformaten behandeld zullen worden door het Qt5 Multimedia interface. </para>
+
+        <para
+>Op andere bureaubladbesturingssystemen moet u extra video-codecs installeren, zoals KLite Codec Pack voor <ulink url="http://www.codecguide.com/download_kl.htm"
+>Microsoft Windows</ulink
+> of voor <ulink url="http://www.techisky.com/tips/k-lite-codec-pack-for-mac.html"
+>Apple MacOS</ulink
+>. </para>
+
+    </sect2>
+
+</sect1>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

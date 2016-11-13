@@ -1,27 +1,91 @@
-digikam (4:4.14.0-4ubuntu6) yakkety; urgency=medium
+digikam (4:5.3.0-1) unstable; urgency=medium
 
-  * digikam-data breaks/replaces libkface-data << 4:15.12~ 
+  * New upstream.  Closes: #844126.
+  - fixes encoded collection paths after upgrade from digikam v4.x.
+    Closes: #834655.
+  * digikam: add Depends on kipi-plugins.  Closes: #842112.
+  * showfoto: strengthen dep on kipi-plugins from Recommends to Depends.
+  * Build with ENABLE_KFILEMETADATASUPPORT=ON.
+  * Build-Conflicts with libboost1.62-dev (<< 1.62.0+dfsg-4) because we
+    need the degree-for-reverse_graph bug fix that is present in rev -4.
 
- -- Philip Muškovac <yofel@kubuntu.org>  Thu, 11 Aug 2016 22:04:17 +0000
+ -- Steve M. Robbins <smr@debian.org>  Sun, 13 Nov 2016 03:39:25 -0600
 
-digikam (4:4.14.0-4ubuntu5) yakkety; urgency=medium
+digikam (4:5.2.0-3) unstable; urgency=medium
 
-  * Rebuild against libopencv-highgui2.4-deb0.
+  * Add build-dep on gphoto2.  Closes: #842094.
+  * Build with -DENABLE_MEDIAPLAYER=ON.  Closes: #834131.
+  * Build with -DENABLE_APPSTYLES=ON.  Closes: #842567.
 
- -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 27 Jun 2016 21:42:57 +0200
+ -- Steve M. Robbins <smr@debian.org>  Tue, 01 Nov 2016 01:06:53 -0500
 
-digikam (4:4.14.0-4ubuntu4) yakkety; urgency=medium
+digikam (4:5.2.0-2) unstable; urgency=medium
 
-  * Drop Ubuntu changes, merge with Debian; remaining changes:
-    - Remove reference to build-dep on libusb2-dev which seems to confuse
-      soyuz
-    - mysql-server-core does not exist; it is virtual-mysql-server-core.
-      So fix that so the Build-Depends alternative will work, and while
-      we're there also switch from 5.6 to 5.7 since 5.6 will cease to
-      exist in Xenial soon.
-    - Don't build with openGL on armhf as it's not available there.
+  * Add missing dependency for libqt5sql5-mysql.  Closes: #834365.
+  * Rebuild will update libmarblewidget-qt5 dependency.  Closes: #840841,
+    #841751.
 
- -- Matthias Klose <doko@ubuntu.com>  Wed, 04 May 2016 14:09:33 +0200
+ -- Steve M. Robbins <smr@debian.org>  Sun, 23 Oct 2016 11:39:28 -0500
+
+digikam (4:5.2.0-1) unstable; urgency=medium
+
+  [ Pino Toscano ]
+  * Remove the alternative mplayerthumbs recommend, since it is dead and
+    scheduled for removal from Debian.
+
+  [ Steve Robbins ]
+  * New upstream release (Closes: #838886).  Thanks to Norbert Preining
+    for the patch.
+  * patches/cmake-fix-doc-translated.patch: Remove; doc-translated no
+    longer contains content.
+  * patches/upstream-gcc6-fix.patch: Remove; applied upstream.
+
+ -- Steve M. Robbins <smr@debian.org>  Mon, 26 Sep 2016 00:08:15 -0500
+
+digikam (4:5.1.0-2) unstable; urgency=medium
+
+  * Team upload.
+  * Replace the libgusb-dev build dependency with libusb-1.0-0-dev (but only
+    for Linux).
+  * Remove myself from Uploaders.
+  * Switch from the specific libboost-graph1.60-dev to the default
+    libboost-graph-dev. (Closes: #834175)
+  * Enable again support for address book, adding the libkf5akonadicontact-dev
+    build dependency.
+  * Update watch file, letting it follow only stable versions.
+  * Fix typo in copyright.
+
+ -- Pino Toscano <pino@debian.org>  Sat, 13 Aug 2016 22:56:45 +0200
+
+digikam (4:5.1.0-1) unstable; urgency=medium
+
+  * New release.  Closes: #803456.
+    - Add NEWS.Debian to describe configuration migration.
+  * Update patches.
+    - cmake-disable-doc-translated-showfoto.patch: Remove.
+    - upstream-gcc6-fix.patch: New.  GCC 6.1/32bit fix from upstream git.
+    - cmake-fix-doc-translated.patch: New.  Fix generation of translated docs.
+
+ -- Steve M. Robbins <smr@debian.org>  Thu, 11 Aug 2016 00:42:31 -0500
+
+digikam (4:5.0.0-1) experimental; urgency=medium
+
+  * Staging the 5.0.0 release.
+    - Updated all build-depends.
+    - Remove obsolete cmake flags DIGIKAMSC_COMPILE_LIBKFACE, ENABLE_LCMS2,
+      KDE4_BUILD_TESTS.
+
+  * Update patches.
+    - doc-linkage.patch: 
+    - sendimages-icedove.diff: Remove.  Patched file no longer
+      in sources.
+    - mysql-global-conf.patch:
+    - upstream_fix-compilation-with-Lensfun-0.3.2.patch: Remove.
+      Applied upstream.
+    - cmake-disable-jasper.patch: New.  Disable build-time probe
+      for Jasper libraries.
+
+ -- Steve M. Robbins <smr@debian.org>  Sun, 10 Jul 2016 11:04:43 -0500
 
 digikam (4:4.14.0-4) unstable; urgency=medium
 
@@ -80,66 +144,6 @@ digikam (4:4.12.0-1~) UNRELEASED; urgency=medium
   * New upstream release (4.12.0).
 
  -- Maximiliano Curia <maxy@debian.org>  Wed, 05 Aug 2015 15:48:48 +0200
-
-digikam (4:4.12.0-0ubuntu9) yakkety; urgency=medium
-
-  * No-change rebuild for lensfun soname change.
-
- -- Matthias Klose <doko@ubuntu.com>  Thu, 28 Apr 2016 12:57:42 +0000
-
-digikam (4:4.12.0-0ubuntu8) yakkety; urgency=medium
-
-  * No-change rebuild for libpng soname change.
-
- -- Matthias Klose <doko@ubuntu.com>  Sat, 23 Apr 2016 00:02:31 +0000
-
-digikam (4:4.12.0-0ubuntu7) xenial; urgency=medium
-
-  * mysql-server-core does not exist; it is virtual-mysql-server-core.
-    So fix that so the Build-Depends alternative will work, and while
-    we're there also switch from 5.6 to 5.7 since 5.6 will cease to
-    exist in Xenial soon.
-
- -- Robie Basak <robie.basak@ubuntu.com>  Wed, 13 Apr 2016 11:57:32 +0000
-
-digikam (4:4.12.0-0ubuntu6) xenial; urgency=medium
-
-  * No-change rebuild for qca2 soname change.
-
- -- Matthias Klose <doko@ubuntu.com>  Thu, 07 Jan 2016 15:27:47 +0000
-
-digikam (4:4.12.0-0ubuntu5) wily; urgency=medium
-
-  * No change rebuild for libkexiv2-11v5
-
- -- Jonathan Riddell <jriddell@ubuntu.com>  Mon, 31 Aug 2015 22:51:14 +0100
-
-digikam (4:4.12.0-0ubuntu4) wily; urgency=medium
-
-  * Fix libkvkontakte1 to include library file
-  * In override_dh_shlibdeps don't exclude usr/lib/kde4 from paths for
-    shlibs LP: #1483620
-
- -- Jonathan Riddell <jriddell@ubuntu.com>  Thu, 27 Aug 2015 16:24:53 +0100
-
-digikam (4:4.12.0-0ubuntu3) wily; urgency=medium
-
-  * Unversioned boost build dependency
-
- -- Matthias Klose <doko@ubuntu.com>  Sat, 08 Aug 2015 15:05:06 +0000
-
-digikam (4:4.12.0-0ubuntu2) wily; urgency=medium
-
-  * Remove reference to build-dep on libusb2-dev which seems to confuse
-    soyuz
-
- -- Jonathan Riddell <jriddell@ubuntu.com>  Wed, 05 Aug 2015 10:47:56 +0200
-
-digikam (4:4.12.0-0ubuntu1) wily; urgency=medium
-
-  * New upstream release
-
- -- Clive Johnston <clivejo@aol.com>  Mon, 03 Aug 2015 21:11:53 +0100
 
 digikam (4:4.4.0-1.1) unstable; urgency=medium
 

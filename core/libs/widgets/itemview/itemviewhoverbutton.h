@@ -26,8 +26,8 @@
 
 // Qt includes
 
-#include <QtGui/QAbstractButton>
-#include <QtGui/QAbstractItemView>
+#include <QAbstractButton>
+#include <QAbstractItemView>
 
 // Local includes
 
@@ -44,7 +44,8 @@ class DIGIKAM_EXPORT ItemViewHoverButton : public QAbstractButton
 
 public:
 
-    explicit ItemViewHoverButton(QAbstractItemView* parentView);
+    explicit ItemViewHoverButton(QAbstractItemView* const parentView);
+
     void initIcon();
     void reset();
     void setIndex(const QModelIndex& index);
@@ -61,7 +62,7 @@ protected:
     void paintEvent(QPaintEvent* event);
 
     /// Return your icon here. Will be queried again on toggle.
-    virtual QPixmap icon() = 0;
+    virtual QIcon icon() = 0;
     /// Optionally update tooltip here. Will be called again on state change.
     virtual void updateToolTip();
 
@@ -77,7 +78,7 @@ protected:
     QPersistentModelIndex m_index;
     bool                  m_isHovered;
     int                   m_fadingValue;
-    QPixmap               m_icon;
+    QIcon                 m_icon;
     QTimeLine*            m_fadingTimeLine;
 };
 

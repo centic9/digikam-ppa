@@ -6,7 +6,7 @@
  * Date        : 09-08-2013
  * Description : Showfoto tool tip filler
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -37,7 +37,7 @@ namespace ShowfotoToolTipFiller
 {
     QString ShowfotoItemInfoTipContents(const ShowfotoItemInfo& info);
 
-} // namespace ShowfotoToolTipFiller  
+} // namespace ShowfotoToolTipFiller
 
 } // namespace ShowFoto
 

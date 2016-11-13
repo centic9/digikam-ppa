@@ -26,12 +26,13 @@
 
 // Local includes
 
-#include "dcategorizedview.h"
+#include "itemviewcategorized.h"
 #include "importimagemodel.h"
 #include "importfiltermodel.h"
 #include "importthumbnailmodel.h"
 #include "imagedelegateoverlay.h"
 #include "camiteminfo.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
@@ -39,7 +40,7 @@ namespace Digikam
 class ImportDelegate;
 class ICCSettingsContainer;
 
-class ImportCategorizedView : public DCategorizedView
+class DIGIKAM_EXPORT ImportCategorizedView : public ItemViewCategorized
 {
     Q_OBJECT
 
@@ -64,17 +65,17 @@ public:
     ImportDelegate*        delegate()                         const;
 
     CamItemInfo            currentInfo()                      const;
-    KUrl                   currentUrl()                       const;
+    QUrl                   currentUrl()                       const;
 
     QList<CamItemInfo>     selectedCamItemInfos()             const;
     QList<CamItemInfo>     selectedCamItemInfosCurrentFirst() const;
-    KUrl::List             selectedUrls()                     const;
+    QList<QUrl>             selectedUrls()                     const;
 
     QList<CamItemInfo>     camItemInfos()                     const;
-    KUrl::List             urls()                             const;
+    QList<QUrl>             urls()                             const;
 
     /** Selects the index as current and scrolls to it */
-    void toIndex(const KUrl& url);
+    void toIndex(const QUrl& url);
 
     /** Returns the n-th info after the given one.
      *  Specifically, return the previous info for nth = -1
@@ -112,13 +113,13 @@ public Q_SLOTS:
     void setCurrentWhenAvailable(qlonglong camItemId);
 
     /** Set as current item the item identified by its file url */
-    void setCurrentUrl(const KUrl& url);
+    void setCurrentUrl(const QUrl& url);
 
     /** Set as current item the item identified by the CamItemInfo */
     void setCurrentInfo(const CamItemInfo& info);
 
     /** Set selected items identified by their file urls */
-    void setSelectedUrls(const KUrl::List& urlList);
+    void setSelectedUrls(const QList<QUrl>& urlList);
 
     /** Set selected items */
     void setSelectedCamItemInfos(const QList<CamItemInfo>& infos);

@@ -7,7 +7,7 @@
  * Description : image file IO threaded interface.
  *
  * Copyright (C) 2005-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,14 +26,9 @@
 
 // Qt includes
 
-#include <QApplication>
-
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "iccmanager.h"
 #include "icctransform.h"
 #include "loadsavethread.h"
@@ -187,7 +182,7 @@ void SharedLoadingTask::execute()
                 lock.wakeAll();
                 // set to 0, as checked in setStatus
                 m_usedProcess = 0;
-                //kDebug() << "SharedLoadingTask " << this << ": waited";
+                //qCDebug(DIGIKAM_GENERAL_LOG) << "SharedLoadingTask " << this << ": waited";
                 // m_img is now set to the result
             }
             else
@@ -235,7 +230,7 @@ void SharedLoadingTask::execute()
 
     {
         LoadingCache::CacheLock lock(cache);
-        //kDebug() << "SharedLoadingTask " << this << ": image loaded, " << img.isNull();
+        //qCDebug(DIGIKAM_GENERAL_LOG) << "SharedLoadingTask " << this << ": image loaded, " << img.isNull();
         // indicate that loading has finished so that listeners can stop waiting
         m_completed = true;
 

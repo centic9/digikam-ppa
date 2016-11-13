@@ -22,112 +22,121 @@
  *
  * ============================================================ */
 
+#include "digikam_config.h"
+
 // Qt includes
 
-#include <QDir>
 #include <QFile>
+#include <QDir>
 #include <QFileInfo>
 #include <QSqlDatabase>
-#include <QDBusConnection>
 #include <QString>
 #include <QStringList>
+#include <QApplication>
+#include <QCommandLineParser>
+#include <QCommandLineOption>
+#include <QMessageBox>
 
 // KDE includes
 
+#include <klocalizedstring.h>
 #include <kaboutdata.h>
-#include <kapplication.h>
-#include <kcmdlineargs.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kdeversion.h>
-#include <kglobal.h>
-#include <kimageio.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <ktip.h>
-
-// Libkexiv2 includes
-
-#include <libkexiv2/version.h>
-#include <libkexiv2/kexiv2.h>
 
 // Local includes
 
+#include "metaengine.h"
+#include "digikam_debug.h"
+#include "dmessagebox.h"
 #include "albummanager.h"
-#include "assistantdlg.h"
+#include "firstrundlg.h"
 #include "collectionlocation.h"
 #include "collectionmanager.h"
 #include "daboutdata.h"
-#include "databaseaccess.h"
-#include "databaseparameters.h"
+#include "dbengineparameters.h"
 #include "digikamapp.h"
 #include "scancontroller.h"
-#include "thumbnaildatabaseaccess.h"
-#include "version.h"
+#include "coredbaccess.h"
+#include "thumbsdbaccess.h"
+#include "facedbaccess.h"
+#include "dxmlguiwindow.h"
+#include "digikam_version.h"
 
 using namespace Digikam;
+using namespace FacesEngine;
 
 int main(int argc, char* argv[])
 {
-    KAboutData aboutData("digikam",
-                         0,
-                         ki18n("digiKam"),
-                         digiKamVersion().toAscii(),
-                         DAboutData::digiKamSlogan(),
-                         KAboutData::License_GPL,
-                         DAboutData::copyright(),
-                         additionalInformation(),
-                         DAboutData::webProjectUrl().url().toUtf8());
+    QApplication app(argc, argv);
+
+    // if we have some local breeze icon resource, prefer it
+    DXmlGuiWindow::setupIconTheme();
+
+    KLocalizedString::setApplicationDomain("digikam");
+
+    KAboutData aboutData(QString::fromLatin1("digikam"), // component name
+                         i18n("digiKam"),                // display name
+                         digiKamVersion());
+
+    aboutData.setShortDescription(DAboutData::digiKamSlogan());;
+    aboutData.setLicense(KAboutLicense::GPL);
+    aboutData.setCopyrightStatement(DAboutData::copyright());
+    aboutData.setOtherText(additionalInformation());
+    aboutData.setHomepage(DAboutData::webProjectUrl().url());
 
     DAboutData::authorsRegistration(aboutData);
 
-    KCmdLineArgs::init(argc, argv, &aboutData);
+    QCommandLineParser parser;
+    KAboutData::setApplicationData(aboutData);
+    parser.addVersionOption();
+    parser.addHelpOption();
+    aboutData.setupCommandLine(&parser);
+    parser.addOption(QCommandLineOption(QStringList() <<  QLatin1String("download-from"),      i18n("Open camera dialog at <path>"),                                             QLatin1String("path")));
+    parser.addOption(QCommandLineOption(QStringList() <<  QLatin1String("download-from-udi"),  i18n("Open camera dialog for the device with Solid UDI <udi>"),                   QLatin1String("udi")));
+    parser.addOption(QCommandLineOption(QStringList() <<  QLatin1String("detect-camera"),      i18n("Automatically detect and open a connected gphoto2 camera")));
+    parser.addOption(QCommandLineOption(QStringList() <<  QLatin1String("database-directory"), i18n("Start digikam with the SQLite database file found in the directory <dir>"), QLatin1String("dir")));
 
-    KCmdLineOptions options;
-    options.add("download-from <path>",     ki18n("Open camera dialog at <path>"));
-    options.add("download-from-udi <udi>",  ki18n("Open camera dialog for the device with Solid UDI <udi>"));
-    options.add("detect-camera",            ki18n("Automatically detect and open a connected gphoto2 camera"));
-    options.add("database-directory <dir>", ki18n("Start digikam with the SQLite database file found in the directory <dir>"));
-    KCmdLineArgs::addCmdLineOptions(options);
+    parser.process(app);
+    aboutData.processCommandLine(&parser);
 
-    KExiv2Iface::KExiv2::initializeExiv2();
+    MetaEngine::initializeExiv2();
 
-    KApplication app;
+    // Check if Qt database plugins are available.
 
-    // Check if SQLite Qt4 plugin is available.
-
-    if (!QSqlDatabase::isDriverAvailable(DatabaseParameters::SQLiteDatabaseType()) &&
-        !QSqlDatabase::isDriverAvailable(DatabaseParameters::MySQLDatabaseType()))
+    if (!QSqlDatabase::isDriverAvailable(DbEngineParameters::SQLiteDatabaseType()) &&
+        !QSqlDatabase::isDriverAvailable(DbEngineParameters::MySQLDatabaseType()))
     {
         if (QSqlDatabase::drivers().isEmpty())
         {
-            KMessageBox::error(0, i18n("Run-time Qt4 SQLite or MySQL database plugin is not available - "
+            QMessageBox::critical(qApp->activeWindow(),
+                                  qApp->applicationName(),
+                                  i18n("Run-time Qt SQLite or MySQL database plugin is not available. "
                                        "please install it.\n"
                                        "There is no database plugin installed on your computer."));
         }
         else
         {
-            KMessageBox::errorList(0, i18n("Run-time Qt4 SQLite or MySQL database plugin is not available - "
-                                           "please install it.\n"
-                                           "Database plugins installed on your computer are listed below:"),
-                                   QSqlDatabase::drivers());
+            DMessageBox::showInformationList(QMessageBox::Warning,
+                                             qApp->activeWindow(),
+                                             qApp->applicationName(),
+                                             i18n("Run-time Qt SQLite or MySQL database plugin are not available. "
+                                                  "Please install it.\n"
+                                                  "Database plugins installed on your computer are listed below."),
+                                             QSqlDatabase::drivers());
         }
 
-        kDebug() << "QT Sql drivers list: " << QSqlDatabase::drivers();
+        qCDebug(DIGIKAM_GENERAL_LOG) << "QT Sql drivers list: " << QSqlDatabase::drivers();
         return 1;
     }
 
-    KCmdLineArgs* const args = KCmdLineArgs::parsedArgs();
-
     QString commandLineDBPath;
 
-    if (args && args->isSet("database-directory"))
+    if (parser.isSet(QLatin1String("database-directory")))
     {
-        QFileInfo commandLineDBDir(args->getOption("database-directory"));
+        QDir commandLineDBDir(parser.value(QLatin1String("database-directory")));
 
-        if (!commandLineDBDir.exists() || !commandLineDBDir.isDir())
+        if (!commandLineDBDir.exists())
         {
-            kError() << "The given database-directory does not exist or is not readable. Ignoring." << commandLineDBDir.path();
+            qCDebug(DIGIKAM_GENERAL_LOG) << "The given database-directory does not exist or is not readable. Ignoring." << commandLineDBDir.path();
         }
         else
         {
@@ -135,19 +144,19 @@ int main(int argc, char* argv[])
         }
     }
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group("General Settings");
-    QString version           = group.readEntry("Version", QString());
-    KConfigGroup mainConfig   = config->group("Album Settings");
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("General Settings"));
+    QString version           = group.readEntry(QLatin1String("Version"), QString());
+    QString iconTheme         = group.readEntry(QLatin1String("Icon Theme"), QString());
+    KConfigGroup mainConfig   = config->group(QLatin1String("Album Settings"));
 
     QString            firstAlbumPath;
-    DatabaseParameters params;
+    DbEngineParameters params;
 
     // Run the first run assistant if we have no or very old config
     if (!mainConfig.exists() || (version.startsWith(QLatin1String("0.5"))))
     {
-        AssistantDlg firstRun;
-        app.setTopWidget(&firstRun);
+        FirstRunDlg firstRun;
         firstRun.show();
 
         if (firstRun.exec() == QDialog::Rejected)
@@ -157,37 +166,48 @@ int main(int argc, char* argv[])
 
         // parameters are written to config
         firstAlbumPath = firstRun.firstAlbumPath();
-        AlbumManager::checkDatabaseDirsAfterFirstRun(firstRun.databasePath(), firstAlbumPath);
+
+        if (firstRun.getDbEngineParameters().isSQLite())
+        {
+            AlbumManager::checkDatabaseDirsAfterFirstRun(firstRun.getDbEngineParameters().getCoreDatabaseNameOrDir(), firstAlbumPath);
+        }
     }
 
     if (!commandLineDBPath.isNull())
     {
         // command line option set?
-        params = DatabaseParameters::parametersForSQLiteDefaultFile(commandLineDBPath);
+        params = DbEngineParameters::parametersForSQLiteDefaultFile(commandLineDBPath);
     }
     else
     {
-        params = DatabaseParameters::parametersFromConfig(config);
+        params = DbEngineParameters::parametersFromConfig(config);
         params.legacyAndDefaultChecks(firstAlbumPath);
         // sync to config, for all first-run or upgrade situations
         params.writeToConfig(config);
     }
 
-    /*
-     * Register a dummy service on dbus.
-     * This is needed for the internal database server, which checks if at least one
-     * digikam instance is running on dbus.
-     * The first real dbus instance is registered within the DigikamApp() constructor,
-     * so we create a service on dbus which is unregistered after initialization the application.
-     */
-    QDBusConnection::sessionBus().registerService("org.kde.digikam.startup-" +
-                     QString::number(QCoreApplication::instance()->applicationPid()));
-
     // initialize database
     AlbumManager::instance()->setDatabase(params, !commandLineDBPath.isNull(), firstAlbumPath);
 
+    if (!iconTheme.isEmpty())
+    {
+        QIcon::setThemeName(iconTheme);
+    }
+
     // create main window
     DigikamApp* const digikam = new DigikamApp();
+
+    // If application storage place in home directory to save customized XML settings files do not exist, create it,
+    // else QFile will not able to create new files as well.
+    if (!QFile::exists(QStandardPaths::writableLocation(QStandardPaths::DataLocation)))
+    {
+        QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::DataLocation));
+    }
+    // If application cache place in home directory to save cached files do not exist, create it.
+    if (!QFile::exists(QStandardPaths::writableLocation(QStandardPaths::CacheLocation)))
+    {
+        QDir().mkpath(QStandardPaths::writableLocation(QStandardPaths::CacheLocation));
+    }
 
     // Bug #247175:
     // Add a connection to the destroyed() signal when the digiKam mainwindow has been
@@ -198,40 +218,28 @@ int main(int argc, char* argv[])
     QObject::connect(digikam, SIGNAL(destroyed(QObject*)),
                      &app, SLOT(quit()));
 
-    // Unregister the dummy service
-    QDBusConnection::sessionBus().unregisterService("org.kde.digikam.startup-" +
-                     QString::number(QCoreApplication::instance()->applicationPid()));
-
-
-    app.setTopWidget(digikam);
     digikam->restoreSession();
     digikam->show();
 
-    if (args && args->isSet("download-from"))
+    if (parser.isSet(QLatin1String("download-from")))
     {
-        digikam->downloadFrom(args->getOption("download-from"));
+        digikam->downloadFrom(parser.value(QLatin1String("download-from")));
     }
-    else if (args && args->isSet("download-from-udi"))
+    else if (parser.isSet(QLatin1String("download-from-udi")))
     {
-        digikam->downloadFromUdi(args->getOption("download-from-udi"));
+        digikam->downloadFromUdi(parser.value(QLatin1String("download-from-udi")));
     }
-    else if (args && args->isSet("detect-camera"))
+    else if (parser.isSet(QLatin1String("detect-camera")))
     {
         digikam->autoDetect();
     }
 
-    KGlobal::locale()->insertCatalog("kipiplugins");
-    KGlobal::locale()->insertCatalog("libkdcraw");
-    KGlobal::locale()->insertCatalog("libkexiv2");
-    KGlobal::locale()->insertCatalog("libkipi");
-
-    KTipDialog::setShowOnStart(false);
-
     int ret = app.exec();
 
-    DatabaseAccess::cleanUpDatabase();
-    ThumbnailDatabaseAccess::cleanUpDatabase();
-    KExiv2Iface::KExiv2::cleanupExiv2();
+    CoreDbAccess::cleanUpDatabase();
+    ThumbsDbAccess::cleanUpDatabase();
+    FaceDbAccess::cleanUpDatabase();
+    MetaEngine::cleanupExiv2();
 
     return ret;
 }

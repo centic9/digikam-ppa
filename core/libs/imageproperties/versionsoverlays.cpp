@@ -22,18 +22,15 @@
  *
  * ============================================================ */
 
-#include "versionsoverlays.moc"
-
-// Qt includes
+#include "versionsoverlays.h"
 
 // KDE includes
 
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "imageinfo.h"
 #include "imagehistorygraphmodel.h"
 #include "imagelistmodel.h"
@@ -48,32 +45,29 @@ class ShowHideVersionsOverlay::Button : public ItemViewHoverButton
 {
 public:
 
-    explicit Button(QAbstractItemView* parentView);
+    explicit Button(QAbstractItemView* const parentView);
     virtual QSize sizeHint() const;
 
 protected:
 
-    virtual QPixmap icon();
+    virtual QIcon icon();
     virtual void updateToolTip();
 };
 
-ShowHideVersionsOverlay::Button::Button(QAbstractItemView* parentView)
+ShowHideVersionsOverlay::Button::Button(QAbstractItemView* const parentView)
     : ItemViewHoverButton(parentView)
 {
 }
 
 QSize ShowHideVersionsOverlay::Button::sizeHint() const
 {
-    return QSize(KIconLoader::SizeSmall, KIconLoader::SizeSmall);
+    return QSize(16, 16);
 }
 
-QPixmap ShowHideVersionsOverlay::Button::icon()
+QIcon ShowHideVersionsOverlay::Button::icon()
 {
-    const char* icon = isChecked() ? "edit-bomb" : "edit-clear-history";
-    //const char* icon = isChecked() ? "layer-visible-off" : "layer-visible-on";
-    return KIconLoader::global()->loadIcon(icon,
-                                           KIconLoader::NoGroup,
-                                           KIconLoader::SizeSmall);
+    QString icon = isChecked() ? QLatin1String("edit-bomb") : QLatin1String("edit-clear-history");
+    return QIcon::fromTheme(icon);
 }
 
 void ShowHideVersionsOverlay::Button::updateToolTip()
@@ -136,7 +130,8 @@ void ShowHideVersionsOverlay::slotClicked(bool checked)
     if (index.isValid())
     {
         ImageInfo info = ImageModel::retrieveImageInfo(index);
-        int tagId = TagsCache::instance()->getOrCreateInternalTag(InternalTagName::versionAlwaysVisible());
+        int tagId      = TagsCache::instance()->getOrCreateInternalTag(InternalTagName::versionAlwaysVisible());
+
         if (checked)
         {
             info.setTag(tagId);
@@ -165,50 +160,56 @@ class ActionVersionsOverlay::Button : public ItemViewHoverButton
 {
 public:
 
-    Button(QAbstractItemView* const parentView, const KGuiItem& gui);
+    Button(QAbstractItemView* const parentView, const QIcon& icon, const QString& text, const QString& tip);
     virtual QSize sizeHint() const;
 
 protected:
 
-    virtual QPixmap icon();
+    virtual QIcon icon();
     virtual void updateToolTip();
 
 protected:
 
-    KGuiItem gui;
+    QIcon   m_icon;
+    QString m_text;
+    QString m_tip;
 };
 
-ActionVersionsOverlay::Button::Button(QAbstractItemView* const parentView, const KGuiItem& gui)
-    : ItemViewHoverButton(parentView), gui(gui)
+ActionVersionsOverlay::Button::Button(QAbstractItemView* const parentView, const QIcon& icon, const QString& text, const QString& tip)
+    : ItemViewHoverButton(parentView),
+      m_icon(icon),
+      m_text(text),
+      m_tip(tip)
 {
 }
 
 QSize ActionVersionsOverlay::Button::sizeHint() const
 {
-    return QSize(KIconLoader::SizeSmall, KIconLoader::SizeSmall);
+    return QSize(16, 16);
 }
 
-QPixmap ActionVersionsOverlay::Button::icon()
+QIcon ActionVersionsOverlay::Button::icon()
 {
-    return KIconLoader::global()->loadIcon(gui.iconName(),
-                                           KIconLoader::NoGroup,
-                                           KIconLoader::SizeSmall);
+    return m_icon;
 }
 
 void ActionVersionsOverlay::Button::updateToolTip()
 {
-    setToolTip(gui.toolTip());
+    setToolTip(m_tip);
 }
 
 // ------------------------------------------------------------------------------------------
 
-ActionVersionsOverlay::ActionVersionsOverlay(QObject* const parent, const KGuiItem& gui)
+ActionVersionsOverlay::ActionVersionsOverlay(QObject* const parent, const QIcon& icon, const QString& text, const QString& tip)
     : HoverButtonDelegateOverlay(parent),
-      m_gui(gui), m_referenceModel(0)
+      m_icon(icon),
+      m_text(text),
+      m_tip(tip),
+      m_referenceModel(0)
 {
 }
 
-ActionVersionsOverlay::Button *ActionVersionsOverlay::button() const
+ActionVersionsOverlay::Button* ActionVersionsOverlay::button() const
 {
     return static_cast<Button*>(HoverButtonDelegateOverlay::button());
 }
@@ -235,7 +236,7 @@ void ActionVersionsOverlay::setActive(bool active)
 
 ItemViewHoverButton* ActionVersionsOverlay::createButton()
 {
-    return new Button(view(), m_gui);
+    return new Button(view(), m_icon, m_text, m_tip);
 }
 
 void ActionVersionsOverlay::updateButton(const QModelIndex& index)

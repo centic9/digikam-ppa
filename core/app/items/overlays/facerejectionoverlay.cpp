@@ -6,7 +6,7 @@
  * Date        : 2009-04-30
  * Description : selection icon view item at mouse hover
  *
- * Copyright (C) 2008 by Peter Penz <peter.penz@gmx.at>
+ * Copyright (C) 2008      by Peter Penz <peter.penz@gmx.at>
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -22,12 +22,11 @@
  *
  * ============================================================ */
 
-#include "facerejectionoverlay.moc"
+#include "facerejectionoverlay.h"
 
 // KDE includes
 
-#include <kiconloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -50,11 +49,9 @@ QSize FaceRejectionOverlayButton::sizeHint() const
     return QSize(32, 32);
 }
 
-QPixmap FaceRejectionOverlayButton::icon()
+QIcon FaceRejectionOverlayButton::icon()
 {
-    return KIconLoader::global()->loadIcon("dialog-close",
-                                           KIconLoader::NoGroup,
-                                           KIconLoader::SizeMedium);
+    return QIcon::fromTheme(QLatin1String("window-close"));
 }
 
 void FaceRejectionOverlayButton::updateToolTip()

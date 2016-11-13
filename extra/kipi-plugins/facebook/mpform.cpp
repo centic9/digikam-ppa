@@ -7,7 +7,7 @@
  * Description : a kipi plugin to import/export images to Facebook web service
  *
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -24,27 +24,25 @@
 
 #include "mpform.h"
 
-// C++ includes
-
-#include <cstring>
-#include <cstdio>
-
 // Qt includes
 
 #include <QFile>
+#include <QMimeDatabase>
+#include <QMimeType>
+#include <QUrl>
+#include <QString>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
-#include <kmimetype.h>
-#include <krandom.h>
+#include "kipiplugins_debug.h"
+#include "kputil.h"
 
 namespace KIPIFacebookPlugin
 {
 
 MPForm::MPForm()
+    : m_boundary(KIPIPlugins::KPRandomGenerator::randomString(42 + 13).toLatin1())
 {
-    m_boundary = KRandom::randomString(42 + 13).toAscii();
     reset();
 }
 
@@ -80,23 +78,25 @@ void MPForm::addPair(const QString& name, const QString& value)
     str += m_boundary;
     str += "\r\n";
 
-    if (!name.isEmpty()) 
-    { 
-      	str += "Content-Disposition: form-data; name=\"";
-    	str += name.toAscii();
-    	str += "\"\r\n";
+    if (!name.isEmpty())
+    {
+        str += "Content-Disposition: form-data; name=\"";
+        str += name.toLatin1();
+        str += "\"\r\n";
     }
+
     str += "\r\n";
     str += value.toUtf8();
     str += "\r\n";
 
-    m_buffer.append(str); 
+    m_buffer.append(str);
 }
 
 bool MPForm::addFile(const QString& name, const QString& path)
 {
-    KMimeType::Ptr ptr = KMimeType::findByUrl(path);
-    QString mime       = ptr->name();
+    QMimeDatabase db;
+    QMimeType ptr = db.mimeTypeForUrl(QUrl::fromLocalFile(path));
+    QString mime  = ptr.name();
 
     if (mime.isEmpty())
         return false;
@@ -122,7 +122,7 @@ bool MPForm::addFile(const QString& name, const QString& path)
     //str += file_size.toAscii();
     //str += "\r\n";
     str += "Content-Type: ";
-    str += mime.toAscii();
+    str += mime.toLatin1();
     str += "\r\n\r\n";
 
     m_buffer.append(str);
@@ -134,12 +134,12 @@ bool MPForm::addFile(const QString& name, const QString& path)
 
 QString MPForm::contentType() const
 {
-    return QString("Content-Type: multipart/form-data; boundary=" + m_boundary);
+    return QString::fromLatin1("multipart/form-data; boundary=") + QString::fromLatin1(m_boundary);
 }
 
 QString MPForm::boundary() const
 {
-    return m_boundary;
+    return QString::fromLatin1(m_boundary);
 }
 
 QByteArray MPForm::formData() const

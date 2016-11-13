@@ -7,7 +7,7 @@
  * Description : implementation of album view interface.
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -30,39 +30,31 @@
 // Qt includes
 
 #include <QStringList>
-#include <QMainWindow>
-#include <QMap>
-
-// KDE includes
-
-#include <khbox.h>
-#include <kurl.h>
-
-// libkexiv2 includes
-
-#include <libkexiv2/rotationmatrix.h>
+#include <QUrl>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "metaengine_rotation.h"
+#include "digikam_config.h"
 #include "searchtextbar.h"
 #include "imageinfo.h"
 #include "digikammodelcollection.h"
 #include "sidebarwidget.h"
 #include "stackedview.h"
-
-using namespace KExiv2Iface;
+#include "dwidgetutils.h"
 
 namespace Digikam
 {
+
 class AlbumIconItem;
 class ApplicationSettings;
 class Album;
 class BatchSyncMetadata;
 class FilterStatusBar;
 class SlideShowSettings;
+class DCategorizedView;
 
-class DigikamView : public KHBox
+class DigikamView : public DHBox
 {
     Q_OBJECT
 
@@ -86,25 +78,26 @@ public:
     void previousRightSideBarTab();
     void nextRightSideBarTab();
 
+    void setToolsIconView(DCategorizedView* const view);
     void setThumbSize(int size);
     void toggleShowBar(bool);
     void setRecurseAlbums(bool recursive);
     void setRecurseTags(bool recursive);
-    void imageTransform(RotationMatrix::TransformationAction transform);
+    void imageTransform(MetaEngineRotation::TransformationAction transform);
 
     void connectIconViewFilter(FilterStatusBar* const filter);
 
-    KUrl::List allUrls()      const;
-    KUrl::List selectedUrls() const;
-    KUrl currentUrl()         const;
-    bool hasCurrentItem()     const;
-    ImageInfo currentInfo()   const;
+    QList<QUrl> allUrls()      const;
+    QList<QUrl> selectedUrls() const;
+    QUrl currentUrl()          const;
+    bool hasCurrentItem()      const;
+    ImageInfo currentInfo()    const;
 
     QList<ImageInfo> selectedInfoList(const bool currentFirst = false) const;
-    ImageInfoList allInfo()   const;
+    ImageInfoList allInfo()    const;
 
-    double zoomMin()          const;
-    double zoomMax()          const;
+    double zoomMin()           const;
+    double zoomMax()           const;
 
     void toggleTag(int tagID);
     void toggleFullScreen(bool set);
@@ -123,6 +116,7 @@ Q_SIGNALS:
     void signalSwitchedToIconView();
     void signalSwitchedToMapView();
     void signalSwitchedToTableView();
+    void signalSwitchedToTrashView();
 
     void signalGotoAlbumAndItem(const ImageInfo&);
     void signalGotoDateAndItem(AlbumIconItem*);
@@ -143,16 +137,16 @@ public Q_SLOTS:
     void slotSlideShowRecursive();
     void slotSlideShowManualFromCurrent();
     void slotSlideShowManualFrom(const ImageInfo& info);
+    void slotPresentation();
 
     // Album action slots
     void slotRefresh();
     void slotNewAlbum();
-    void slotSortAlbums(int order);
+    void slotSortAlbums(int role);
     void slotDeleteAlbum();
     void slotRenameAlbum();
     void slotAlbumPropsEdit();
     void slotAlbumOpenInFileManager();
-    void slotAlbumOpenInTerminal();
     void slotAlbumHistoryBack(int steps=1);
     void slotAlbumHistoryForward(int steps=1);
     void slotAlbumWriteMetadata();
@@ -163,7 +157,7 @@ public Q_SLOTS:
     void slotGotoDateAndItem(const ImageInfo& imageInfo);
     void slotGotoTagAndItem(int tagID);
 
-    void slotSelectAlbum(const KUrl& url);
+    void slotSelectAlbum(const QUrl& url);
     void slotSetCurrentWhenAvailable(const qlonglong id);
 
     // Tag action slots
@@ -172,7 +166,6 @@ public Q_SLOTS:
     void slotEditTag();
     void slotOpenTagsManager();
     void slotAssignTag();
-
 
     // Search action slots
     void slotNewKeywordSearch();
@@ -254,7 +247,7 @@ private Q_SLOTS:
     void slotPrevItem();
     void slotNextItem();
     void slotLastItem();
-    void slotSelectItemByUrl(const KUrl&);
+    void slotSelectItemByUrl(const QUrl&);
     void slotAwayFromSelection();
 
     void slotViewModeChanged();
@@ -269,10 +262,10 @@ private Q_SLOTS:
 
     void slotImageChangeFailed(const QString& message, const QStringList& fileNames);
 
-    void slotRatingChanged(const KUrl&, int);
-    void slotColorLabelChanged(const KUrl&, int);
-    void slotPickLabelChanged(const KUrl&, int);
-    void slotToggleTag(const KUrl&, int);
+    void slotRatingChanged(const QUrl&, int);
+    void slotColorLabelChanged(const QUrl&, int);
+    void slotPickLabelChanged(const QUrl&, int);
+    void slotToggleTag(const QUrl&, int);
 
     void slotPopupFiltersView();
     void slotSetupMetadataFilters(int);

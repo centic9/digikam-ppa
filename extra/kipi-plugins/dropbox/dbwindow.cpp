@@ -20,10 +20,11 @@
  *
  * ============================================================ */
 
-#include "dbwindow.moc"
+#include "dbwindow.h"
 
 // Qt includes
 
+#include <QWindow>
 #include <QPushButton>
 #include <QProgressDialog>
 #include <QPixmap>
@@ -31,34 +32,26 @@
 #include <QStringList>
 #include <QSpinBox>
 #include <QPointer>
+#include <QComboBox>
+#include <QMenu>
+#include <QApplication>
+#include <QUrl>
+#include <QMessageBox>
+#include <QCloseEvent>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <klineedit.h>
-#include <kmenu.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kapplication.h>
-#include <kiconloader.h>
-#include <khtml_part.h>
-#include <khtmlview.h>
-#include <ktabwidget.h>
-#include <krun.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 #include <kconfig.h>
-#include <kdeversion.h>
-#include <kwallet.h>
-#include <kpushbutton.h>
-#include <kurl.h>
-#include <ktoolinvocation.h>
+#include <kwindowconfig.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kipiplugins_debug.h"
 #include "kpimageslist.h"
 #include "kpaboutdata.h"
 #include "kpimageinfo.h"
@@ -79,48 +72,47 @@ DBWindow::DBWindow(const QString& tmpFolder, QWidget* const /*parent*/)
     m_imagesCount = 0;
     m_imagesTotal = 0;
 
-    m_widget      = new DropboxWidget(this);
+    m_widget      = new DropboxWidget(this, iface(), QString::fromLatin1("Dropbox"));
     setMainWidget(m_widget);
-    setWindowIcon(KIcon("kipi-dropbox"));
-    setButtons(Help | User1 | Close);
-    setDefaultButton(Close);
+    setWindowIcon(QIcon::fromTheme(QString::fromLatin1("kipi-dropbox")));
     setModal(false);
     setWindowTitle(i18n("Export to Dropbox"));
-    setButtonGuiItem(User1,KGuiItem(i18n("Start Upload"),"network-workgroup",i18n("Start upload to Dropbox")));
-    m_widget->setMinimumSize(700,500);
 
-    connect(m_widget->m_imgList, SIGNAL(signalImageListChanged()),
+    startButton()->setText(i18n("Start Upload"));
+    startButton()->setToolTip(i18n("Start upload to Dropbox"));
+
+    m_widget->setMinimumSize(700, 500);
+
+    connect(m_widget->imagesList(), SIGNAL(signalImageListChanged()),
             this, SLOT(slotImageListChanged()));
 
-    connect(m_widget->m_changeUserBtn,SIGNAL(clicked()),
-            this,SLOT(slotUserChangeRequest()));
+    connect(m_widget->getChangeUserBtn(), SIGNAL(clicked()),
+            this, SLOT(slotUserChangeRequest()));
 
-    connect(m_widget->m_newAlbumBtn,SIGNAL(clicked()),
-            this,SLOT(slotNewAlbumRequest()));
+    connect(m_widget->getNewAlbmBtn(), SIGNAL(clicked()),
+            this, SLOT(slotNewAlbumRequest()));
 
-    connect(m_widget->m_reloadAlbumsBtn,SIGNAL(clicked()),
-            this,SLOT(slotReloadAlbumsRequest()));
+    connect(m_widget->getReloadBtn(), SIGNAL(clicked()),
+            this, SLOT(slotReloadAlbumsRequest()));
 
-    connect(this,SIGNAL(user1Clicked()),
-            this,SLOT(slotStartTransfer()));
+    connect(startButton(), SIGNAL(clicked()),
+            this, SLOT(slotStartTransfer()));
 
-    KPAboutData* const about = new KPAboutData(ki18n("Dropbox Export"),0,
-                                               KAboutData::License_GPL,
-                                               ki18n("A Kipi-plugin to export images "
+    KPAboutData* const about = new KPAboutData(ki18n("Dropbox Export"),
+                                               ki18n("A tool to export images "
                                                      "to Dropbox"),
-                                               ki18n("(c) 2013, Saurabh Patel\n"
-                                                     "(c) 2015, Shourya Singh Gupta"));
+                                               ki18n("(c) 2013, Saurabh Patel"));
 
-    about->addAuthor(ki18n("Saurabh Patel"),ki18n("Author and maintainer"),
-                     "saurabhpatel7717 at gmail dot com");
-        about->addAuthor(ki18n("Shourya Singh Gupta"),ki18n("Developer"),
-                     "shouryasgupta at gmail dot com");
-    about->setHandbookEntry("dropbox");
+    about->addAuthor(ki18n("Saurabh Patel").toString(),
+                     ki18n("Author").toString(),
+                     QString::fromLatin1("saurabhpatel7717 at gmail dot com"));
+
+    about->setHandbookEntry(QString::fromLatin1("tool-dropboxexport"));
     setAboutData(about);
 
     //-------------------------------------------------------------------------
 
-    m_albumDlg = new DBNewAlbum(this);
+    m_albumDlg = new DBNewAlbum(this, QString::fromLatin1("Dropbox"));
 
     //-------------------------------------------------------------------------
 
@@ -159,6 +151,9 @@ DBWindow::DBWindow(const QString& tmpFolder, QWidget* const /*parent*/)
     connect(m_talker,SIGNAL(signalAddPhotoSucceeded()),
             this,SLOT(slotAddPhotoSucceeded()));
 
+    connect(this, SIGNAL(finished(int)),
+            this, SLOT(slotFinished()));
+
     readSettings();
     buttonStateChange(false);
 
@@ -189,7 +184,7 @@ void DBWindow::reactivate()
 
 void DBWindow::readSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp   = config.group("Dropbox Settings");
 
     m_currentAlbumName = grp.readEntry("Current Album",QString());
@@ -199,61 +194,64 @@ void DBWindow::readSettings()
 
     if (grp.readEntry("Resize", false))
     {
-        m_widget->m_resizeChB->setChecked(true);
-        m_widget->m_dimensionSpB->setEnabled(true);
-        m_widget->m_imageQualitySpB->setEnabled(true);
+        m_widget->getResizeCheckBox()->setChecked(true);
+        m_widget->getDimensionSpB()->setEnabled(true);
+        m_widget->getImgQualitySpB()->setEnabled(true);
     }
     else
     {
-        m_widget->m_resizeChB->setChecked(false);
-        m_widget->m_dimensionSpB->setEnabled(false);
-        m_widget->m_imageQualitySpB->setEnabled(false);
+        m_widget->getResizeCheckBox()->setChecked(false);
+        m_widget->getDimensionSpB()->setEnabled(false);
+        m_widget->getImgQualitySpB()->setEnabled(false);
     }
 
-    m_widget->m_dimensionSpB->setValue(grp.readEntry("Maximum Width",    1600));
-    m_widget->m_imageQualitySpB->setValue(grp.readEntry("Image Quality", 90));
+    m_widget->getDimensionSpB()->setValue(grp.readEntry("Maximum Width",    1600));
+    m_widget->getImgQualitySpB()->setValue(grp.readEntry("Image Quality", 90));
 
+    winId();
     KConfigGroup dialogGroup = config.group("Dropbox Export Dialog");
-    restoreDialogSize(dialogGroup);
+    KWindowConfig::restoreWindowSize(windowHandle(), dialogGroup);
+    resize(windowHandle()->size());
 }
 
 void DBWindow::writeSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp = config.group("Dropbox Settings");
 
     grp.writeEntry("Current Album",      m_currentAlbumName);
-    grp.writeEntry("Resize",             m_widget->m_resizeChB->isChecked());
-    grp.writeEntry("Maximum Width",      m_widget->m_dimensionSpB->value());
-    grp.writeEntry("Image Quality",      m_widget->m_imageQualitySpB->value());
+    grp.writeEntry("Resize",             m_widget->getResizeCheckBox()->isChecked());
+    grp.writeEntry("Maximum Width",      m_widget->getDimensionSpB()->value());
+    grp.writeEntry("Image Quality",      m_widget->getImgQualitySpB()->value());
     grp.writeEntry("Access Token",       m_accToken);
     grp.writeEntry("Access Secret",      m_accTokenSecret);
     grp.writeEntry("Access Oauth Token", m_accoauthToken);
 
     KConfigGroup dialogGroup = config.group("Dropbox Export Dialog");
-    saveDialogSize(dialogGroup);
+    KWindowConfig::saveWindowSize(windowHandle(), dialogGroup);
 
     config.sync();
 }
 
 void DBWindow::slotSetUserName(const QString& msg)
 {
-    m_widget->updateLabels(msg,"");
+    m_widget->updateLabels(msg, QString::fromLatin1(""));
 }
 
 void DBWindow::slotListAlbumsDone(const QList<QPair<QString,QString> >& list)
 {
-    m_widget->m_albumsCoB->clear();
-    kDebug() << "slotListAlbumsDone1:" << list.size();
-    
+    m_widget->getAlbumsCoB()->clear();
+    qCDebug(KIPIPLUGINS_LOG) << "slotListAlbumsDone1:" << list.size();
+
     for(int i=0;i<list.size();i++)
     {
-        m_widget->m_albumsCoB->addItem(KIcon("system-users"),list.value(i).second,
-                                       list.value(i).first);
+        m_widget->getAlbumsCoB()->addItem(
+            QIcon::fromTheme(QString::fromLatin1("system-users")),
+            list.value(i).second, list.value(i).first);
 
         if (m_currentAlbumName == list.value(i).first)
         {
-            m_widget->m_albumsCoB->setCurrentIndex(i);
+            m_widget->getAlbumsCoB()->setCurrentIndex(i);
         }
     }
 
@@ -266,43 +264,42 @@ void DBWindow::slotBusy(bool val)
     if (val)
     {
         setCursor(Qt::WaitCursor);
-        m_widget->m_changeUserBtn->setEnabled(false);
+        m_widget->getChangeUserBtn()->setEnabled(false);
         buttonStateChange(false);
     }
     else
     {
         setCursor(Qt::ArrowCursor);
-        m_widget->m_changeUserBtn->setEnabled(true);
+        m_widget->getChangeUserBtn()->setEnabled(true);
         buttonStateChange(true);
     }
 }
 
 void DBWindow::slotTextBoxEmpty()
 {
-    KMessageBox::error(this, i18n("The textbox is empty, please enter the code from the browser in the textbox. "
-                                  "To complete the authentication click \"Change Account\", "
-                                  "or \"Start Upload\" to authenticate again."));
+    QMessageBox::critical(this, QString(),
+                          i18n("The textbox is empty, please enter the code from the browser in the textbox. "
+                               "To complete the authentication click \"Change Account\", "
+                               "or \"Start Upload\" to authenticate again."));
 
 }
 
 void DBWindow::slotStartTransfer()
 {
-    m_widget->m_imgList->clearProcessedStatus();
+    m_widget->imagesList()->clearProcessedStatus();
 
-    if(m_widget->m_imgList->imageUrls().isEmpty())
+    if(m_widget->imagesList()->imageUrls().isEmpty())
     {
-        if (KMessageBox::warningContinueCancel(this, i18n("No image selected. Please select which images should be uploaded."))
-            == KMessageBox::Continue)
-        {
-             return;
-        }
+        QMessageBox::critical(this, i18nc("@title:window", "Error"),
+                              i18n("No image selected. Please select which images should be uploaded."));
         return;
     }
 
-    if(!(m_talker->authenticated()))
+    if (!(m_talker->authenticated()))
     {
-        if (KMessageBox::warningContinueCancel(this, i18n("Authentication failed. Click \"Continue\" to authenticate."))
-            == KMessageBox::Continue)
+        if (QMessageBox::question(this, i18n("Login Failed"),
+                                  i18n("Authentication failed. Do you want to try again?"))
+            == QMessageBox::Yes)
         {
             m_talker->obtain_req_token();
             return;
@@ -313,14 +310,14 @@ void DBWindow::slotStartTransfer()
         }
     }
 
-    m_transferQueue = m_widget->m_imgList->imageUrls();
+    m_transferQueue = m_widget->imagesList()->imageUrls();
 
     if(m_transferQueue.isEmpty())
     {
         return;
     }
 
-    m_currentAlbumName = m_widget->m_albumsCoB->itemData(m_widget->m_albumsCoB->currentIndex()).toString();
+    m_currentAlbumName = m_widget->getAlbumsCoB()->itemData(m_widget->getAlbumsCoB()->currentIndex()).toString();
 
     m_imagesTotal = m_transferQueue.count();
     m_imagesCount = 0;
@@ -330,43 +327,47 @@ void DBWindow::slotStartTransfer()
     m_widget->progressBar()->setValue(0);
     m_widget->progressBar()->show();
     m_widget->progressBar()->progressScheduled(i18n("Dropbox export"), true, true);
-    m_widget->progressBar()->progressThumbnailChanged(KIcon("kipi").pixmap(22, 22));
+    m_widget->progressBar()->progressThumbnailChanged(
+        QIcon(QLatin1String(":/icons/kipi-icon.svg")).pixmap(22, 22));
 
     uploadNextPhoto();
 }
 
 void DBWindow::uploadNextPhoto()
 {
-    kDebug() << "in upload nextphoto " << m_transferQueue.count();
+    qCDebug(KIPIPLUGINS_LOG) << "in upload nextphoto " << m_transferQueue.count();
 
     if(m_transferQueue.isEmpty())
     {
-        kDebug() << "empty";
+        qCDebug(KIPIPLUGINS_LOG) << "empty";
         m_widget->progressBar()->progressCompleted();
         return;
     }
 
-    QString imgPath = m_transferQueue.first().path();
-    QString temp = m_currentAlbumName + QString("/");
+    QString imgPath = m_transferQueue.first().toLocalFile();
+    QString temp = m_currentAlbumName + QString::fromLatin1("/");
 
-    bool res = m_talker->addPhoto(imgPath,temp,m_widget->m_resizeChB->isChecked(),m_widget->m_dimensionSpB->value(),
-                                  m_widget->m_imageQualitySpB->value());
+    bool res = m_talker->addPhoto(imgPath,temp,m_widget->getResizeCheckBox()->isChecked(),m_widget->getDimensionSpB()->value(),
+                                  m_widget->getImgQualitySpB()->value());
 
     if (!res)
     {
-        slotAddPhotoFailed("");
+        slotAddPhotoFailed(QString::fromLatin1(""));
         return;
     }
 }
 
 void DBWindow::slotAddPhotoFailed(const QString& msg)
 {
-    if (KMessageBox::warningContinueCancel(this, i18n("Failed to upload photo to Dropbox.\n%1\nDo you want to continue?",msg))
-        != KMessageBox::Continue)
+    if (QMessageBox::question(this, i18n("Uploading Failed"),
+                              i18n("Failed to upload photo to Dropbox."
+                                   "\n%1\n"
+                                   "Do you want to continue?", msg))
+        != QMessageBox::Yes)
     {
         m_transferQueue.clear();
         m_widget->progressBar()->hide();
-        kDebug() << "In slotAddPhotoFailed 1";
+        qCDebug(KIPIPLUGINS_LOG) << "In slotAddPhotoFailed 1";
         // refresh the thumbnails
         //slotTagSelected();
     }
@@ -383,7 +384,7 @@ void DBWindow::slotAddPhotoFailed(const QString& msg)
 void DBWindow::slotAddPhotoSucceeded()
 {
     // Remove photo uploaded from the list
-    m_widget->m_imgList->removeItemByUrl(m_transferQueue.first());
+    m_widget->imagesList()->removeItemByUrl(m_transferQueue.first());
     m_transferQueue.pop_front();
     m_imagesCount++;
     m_widget->progressBar()->setMaximum(m_imagesTotal);
@@ -393,7 +394,7 @@ void DBWindow::slotAddPhotoSucceeded()
 
 void DBWindow::slotImageListChanged()
 {
-    enableButton(User1, !(m_widget->m_imgList->imageUrls().isEmpty()));
+    startButton()->setEnabled(!(m_widget->imagesList()->imageUrls().isEmpty()));
 }
 
 void DBWindow::slotNewAlbumRequest()
@@ -402,8 +403,8 @@ void DBWindow::slotNewAlbumRequest()
     {
         DBFolder newFolder;
         m_albumDlg->getFolderTitle(newFolder);
-        kDebug() << "in slotNewAlbumRequest() " << newFolder.title;
-        m_currentAlbumName = m_widget->m_albumsCoB->itemData(m_widget->m_albumsCoB->currentIndex()).toString();
+        qCDebug(KIPIPLUGINS_LOG) << "in slotNewAlbumRequest() " << newFolder.title;
+        m_currentAlbumName = m_widget->getAlbumsCoB()->itemData(m_widget->getAlbumsCoB()->currentIndex()).toString();
         QString temp = m_currentAlbumName + newFolder.title;
         m_talker->createFolder(temp);
     }
@@ -411,13 +412,14 @@ void DBWindow::slotNewAlbumRequest()
 
 void DBWindow::slotReloadAlbumsRequest()
 {
-    m_talker->listFolders("/");
+    m_talker->listFolders(QString::fromLatin1("/"));
 }
 
 void DBWindow::slotAccessTokenFailed()
 {
-    if (KMessageBox::warningContinueCancel(this, i18n("Authentication failed. Click \"Continue\" to authenticate."))
-        == KMessageBox::Continue)
+    if (QMessageBox::question(this, i18n("Login Failed"),
+                              i18n("Authentication failed. Do you want to try again?"))
+        == QMessageBox::Yes)
     {
         m_talker->obtain_req_token();
         return;
@@ -430,29 +432,27 @@ void DBWindow::slotAccessTokenFailed()
 
 void DBWindow::slotAccessTokenObtained(const QString& msg1,const QString& msg2,const QString& msg3)
 {
-    kDebug() << "acc : 111";
+    qCDebug(KIPIPLUGINS_LOG) << "acc : 111";
     m_accToken       = msg1;
     m_accTokenSecret = msg2;
     m_accoauthToken  = msg3;
 
-    m_talker->listFolders("/");
+    m_talker->listFolders(QString::fromLatin1("/"));
 }
 
 void DBWindow::slotListAlbumsFailed(const QString& msg)
 {
-    KMessageBox::error(this, i18n("Dropbox call failed:\n%1", msg));
-    return;
+    QMessageBox::critical(this, QString(), i18n("Dropbox call failed:\n%1", msg));
 }
 
 void DBWindow::slotCreateFolderFailed(const QString& msg)
 {
-    KMessageBox::error(this, i18n("Dropbox call failed:\n%1", msg));
-    //return;
+    QMessageBox::critical(this, QString(), i18n("Dropbox call failed:\n%1", msg));
 }
 
 void DBWindow::slotCreateFolderSucceeded()
 {
-    m_talker->listFolders("/");
+    m_talker->listFolders(QString::fromLatin1("/"));
 }
 
 void DBWindow::slotTransferCancel()
@@ -464,25 +464,33 @@ void DBWindow::slotTransferCancel()
 
 void DBWindow::slotUserChangeRequest()
 {
-    m_accToken = "";
-    m_accTokenSecret = "";
-    m_accoauthToken = "";
+    m_accToken = QString::fromLatin1("");
+    m_accTokenSecret = QString::fromLatin1("");
+    m_accoauthToken = QString::fromLatin1("");
     m_talker->obtain_req_token();
 }
 
 void DBWindow::buttonStateChange(bool state)
 {
-    m_widget->m_newAlbumBtn->setEnabled(state);
-    m_widget->m_reloadAlbumsBtn->setEnabled(state);
-    enableButton(User1, state);
+    m_widget->getNewAlbmBtn()->setEnabled(state);
+    m_widget->getReloadBtn()->setEnabled(state);
+    startButton()->setEnabled(state);
+}
+
+void DBWindow::slotFinished()
+{
+    writeSettings();
+    m_widget->imagesList()->listView()->clear();
 }
 
 void DBWindow::closeEvent(QCloseEvent* e)
 {
-    if (!e) return;
+    if (!e)
+    {
+        return;
+    }
 
-    writeSettings();
-    m_widget->imagesList()->listView()->clear();
+    slotFinished();
     e->accept();
 }
 

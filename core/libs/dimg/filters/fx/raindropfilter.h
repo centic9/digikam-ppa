@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Raindrop threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -30,7 +30,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 #include "randomnumbergenerator.h"
 
 class QRect;
@@ -50,12 +50,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:RainDropFilter";
+        return QLatin1String("digikam:RainDropFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Rain Drops Effect");
+        return QString::fromUtf8(I18N_NOOP("Rain Drops Effect"));
     }
 
     static QList<int>       SupportedVersions()

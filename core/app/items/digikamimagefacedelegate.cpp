@@ -7,7 +7,7 @@
  * Description : Qt item view for images - the delegate
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
@@ -24,17 +24,14 @@
  *
  * ============================================================ */
 
-#include "digikamimagefacedelegate.moc"
+#include "digikamimagefacedelegate.h"
 #include "imagedelegatepriv.h"
-
-// KDE includes
-
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "applicationsettings.h"
-#include "databaseface.h"
+#include "facetagsiface.h"
 #include "imagemodel.h"
 #include "tagregion.h"
 #include "digikamimagedelegatepriv.h"
@@ -43,7 +40,7 @@
 namespace Digikam
 {
 
-DigikamImageFaceDelegate::DigikamImageFaceDelegate(ImageCategorizedView* parent)
+DigikamImageFaceDelegate::DigikamImageFaceDelegate(ImageCategorizedView* const parent)
     : DigikamImageDelegate(*new DigikamImageFaceDelegatePrivate, parent)
 {
 }
@@ -96,16 +93,16 @@ QRect DigikamImageFaceDelegate::largerFaceRect(const QModelIndex& index) const
     return rect.adjusted(-margin, -margin, margin, margin);
 }
 
-DatabaseFace DigikamImageFaceDelegate::face(const QModelIndex& index) const
+FaceTagsIface DigikamImageFaceDelegate::face(const QModelIndex& index) const
 {
     QVariant extraData = index.data(ImageModel::ExtraDataRole);
 
     if (extraData.isNull())
     {
-        return DatabaseFace();
+        return FaceTagsIface();
     }
 
-    DatabaseFace face = DatabaseFace::fromVariant(extraData);
+    FaceTagsIface face = FaceTagsIface::fromVariant(extraData);
     return face;
 }
 

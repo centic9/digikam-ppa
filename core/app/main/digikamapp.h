@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C)      2006 by Tom Albers <tomalbers at kde dot nl>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
@@ -30,29 +30,24 @@
 
 // Qt includes
 
-#include <QList>
 #include <QAction>
 #include <QString>
+#include <QMenu>
 
 // KDE includes
 
-#include <kurl.h>
-#include <kio/global.h>
-#include <kio/netaccess.h>
-#include <solid/solidnamespace.h>
+#include <Solid/SolidNamespace>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "digikam_export.h"
 #include "dxmlguiwindow.h"
-
-class KAction;
-class KActionMenu;
+#include "digikam_export.h"
 
 namespace Solid
 {
-class Device;
+    class Device;
 }
 
 namespace Digikam
@@ -66,7 +61,7 @@ class ImageInfo;
 class ImageInfoList;
 class CameraType;
 
-class DigikamApp : public DXmlGuiWindow
+class DIGIKAM_EXPORT DigikamApp : public DXmlGuiWindow
 {
     Q_OBJECT
 
@@ -78,14 +73,11 @@ public:
     virtual void show();
     void restoreSession();
 
-    static DigikamApp* instance();
-
-    KActionMenu* slideShowMenu() const;
+    QMenu* slideShowMenu() const;
 
     void autoDetect();
     void downloadFrom(const QString& cameraGuiPath);
     void downloadFromUdi(const QString& udi);
-    QString currentDatabaseParameters() const;
     void enableZoomPlusAction(bool val);
     void enableZoomMinusAction(bool val);
     void enableAlbumBackwardHistory(bool enable);
@@ -97,6 +89,9 @@ public:
     void rebuild();
 
     DigikamView* view() const;
+
+    static DigikamApp* instance();
+    static QString scannerTargetPlace();
 
 Q_SIGNALS:
 
@@ -131,6 +126,7 @@ private:
     void    setupAccelerators();
     void    setupExifOrientationActions();
     void    setupImageTransformActions();
+    void    setupSelectToolsAction();
     void    loadPlugins();
     void    loadCameras();
     void    populateThemes();
@@ -147,7 +143,7 @@ private:
     void    showSideBars(bool visible);
     bool    thumbbarVisibility() const;
     void    customizedFullScreenMode(bool set);
-    void    toogleShowBar();
+    void    toggleShowBar();
 
 private Q_SLOTS:
 
@@ -155,7 +151,6 @@ private Q_SLOTS:
     void slotImageSelected(const ImageInfoList&, const ImageInfoList&);
     void slotSelectionChanged(int selectionCount);
     void slotExit();
-    void slotShowTip();
     void slotShowKipiHelp();
     void slotDBStat();
     void slotComponentsInfo();
@@ -183,7 +178,7 @@ private Q_SLOTS:
     void slotSolidSetupDone(Solid::ErrorType errorType, QVariant errorData, const QString& udi);
     void slotSolidDeviceChanged(const QString& udi);
     void slotCameraAdded(CameraType*);
-    void slotCameraRemoved(KAction*);
+    void slotCameraRemoved(QAction*);
     void slotCameraAutoDetect();
     void downloadImages(const QString& folder);
     void cameraAutoDetect();
@@ -196,14 +191,13 @@ private Q_SLOTS:
     void slotNextRightSideBarTab();
 
     void slotToggleShowBar();
-    void slotShowMenuBar();
     void slotEditKeys();
-    void slotConfToolbars();
-    void slotNewToolbarConfig();
-    void slotConfNotifications();
 
     void slotMaintenance();
     void slotMaintenanceDone();
+    void slotExpoBlending();
+    void slotPanorama();
+    void slotCalendar();
 
     void slotDatabaseMigration();
 
@@ -215,10 +209,15 @@ private Q_SLOTS:
     void slotSwitchedToIconView();
     void slotSwitchedToMapView();
     void slotSwitchedToTableView();
+    void slotSwitchedToTrashView();
 
     void slotImportAddImages();
     void slotImportAddFolders();
     void slotThemeChanged();
+
+    void slotImportFromScanner();
+    void slotEditMetadata();
+    void slotEditGeolocation();
 
 private:
 

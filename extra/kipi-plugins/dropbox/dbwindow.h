@@ -30,7 +30,7 @@
 
 // Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
@@ -38,7 +38,7 @@
 
 class QCloseEvent;
 
-class KUrl;
+class QUrl;
 
 namespace KIPI
 {
@@ -79,8 +79,8 @@ private:
 
     void uploadNextPhoto();
 
-    void    buttonStateChange(bool state);
-    void    closeEvent(QCloseEvent*);
+    void buttonStateChange(bool state);
+    void closeEvent(QCloseEvent*);
 
 private Q_SLOTS:
 
@@ -104,6 +104,8 @@ private Q_SLOTS:
     void slotTransferCancel();
     void slotTextBoxEmpty();
 
+    void slotFinished();
+
 private:
 
     unsigned int         m_imagesCount;
@@ -117,7 +119,7 @@ private:
 
     QString              m_currentAlbumName;
 
-    KUrl::List           m_transferQueue;
+    QList<QUrl>          m_transferQueue;
 
     QString              m_accToken;
     QString              m_accTokenSecret;

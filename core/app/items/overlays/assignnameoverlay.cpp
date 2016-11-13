@@ -8,7 +8,7 @@
 *
 * Copyright (C) 2010      by Aditya Bhatt <caulier dot gilles at gmail dot com>
 * Copyright (C) 2009-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
-* Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+* Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
 * Copyright (C) 2008      by Peter Penz <peter.penz@gmx.at>
 *
 * This program is free software; you can redistribute it
@@ -24,30 +24,22 @@
 *
 * ============================================================ */
 
-#include "assignnameoverlay.moc"
+#include "assignnameoverlay.h"
 
 // Qt includes
 
 #include <QApplication>
-#include <QFocusEvent>
-#include <QMouseEvent>
 #include <QPushButton>
-
-// KDE includes
-
-#include <klocale.h>
-#include <kglobalsettings.h>
-#include <kdebug.h>
-#include <kvbox.h>
 
 // Local includes
 
-#include "addtagscompletionbox.h"
+#include "dwidgetutils.h"
+#include "digikam_debug.h"
 #include "addtagslineedit.h"
 #include "albummodel.h"
 #include "albumfiltermodel.h"
 #include "assignnamewidget.h"
-#include "databaseface.h"
+#include "facetagsiface.h"
 #include "facepipeline.h"
 #include "facetags.h"
 #include "imagedelegate.h"
@@ -76,6 +68,7 @@ public:
         {
             return false;
         }
+
         // isAncestorOf may not work if widgets are located in different windows
         while (widget)
         {
@@ -101,7 +94,8 @@ public:
 };
 
 AssignNameOverlay::AssignNameOverlay(QObject* const parent)
-    : PersistentWidgetDelegateOverlay(parent), d(new Private)
+    : PersistentWidgetDelegateOverlay(parent),
+      d(new Private)
 {
     d->filteredModel.setSourceAlbumModel(&d->tagModel);
     d->filterModel.setSourceFilterModel(&d->filteredModel);
@@ -119,7 +113,7 @@ AssignNameWidget* AssignNameOverlay::assignNameWidget() const
 
 QWidget* AssignNameOverlay::createWidget()
 {
-    KVBox* const vbox    = new KVBox(parentWidget());
+    DVBox* const vbox    = new DVBox(parentWidget());
     QWidget* const space = new QWidget(vbox);
     d->assignNameWidget  = new AssignNameWidget(vbox);
     d->assignNameWidget->setMode(AssignNameWidget::UnconfirmedEditMode);
@@ -147,7 +141,6 @@ void AssignNameOverlay::setActive(bool active)
 
         connect(assignNameWidget(), SIGNAL(rejected(ImageInfo,QVariant)),
                 this, SLOT(slotRejected(ImageInfo,QVariant)));
-
 
         connect(assignNameWidget(), SIGNAL(selected(TaggingAction,ImageInfo,QVariant)),
                 this, SLOT(enterPersistentMode()));
@@ -201,7 +194,13 @@ void AssignNameOverlay::updatePosition()
         return;
     }
 
-    QRect rect = delegate()->pixmapRect();
+    // See bug #365667.
+    // Use information view below pixmap.
+    // Depending of icon-view item options enabled in setup, the free space to use can be different.
+    // We can continue to show the widget behind bottom of thumbnail view.
+
+    QRect rect = delegate()->imageInformationRect();
+    rect.setTop(delegate()->pixmapRect().top());
 
     if (rect.width() < m_widget->minimumSizeHint().width())
     {
@@ -224,7 +223,7 @@ void AssignNameOverlay::updateFace()
     }
 
     QVariant extraData = index().data(ImageModel::ExtraDataRole);
-    assignNameWidget()->setCurrentFace(DatabaseFace::fromVariant(extraData));
+    assignNameWidget()->setCurrentFace(FaceTagsIface::fromVariant(extraData));
     assignNameWidget()->setUserData(ImageModel::retrieveImageInfo(index()), extraData);
 }
 
@@ -245,7 +244,7 @@ bool AssignNameOverlay::checkIndex(const QModelIndex& index) const
         return false;
     }
 
-    return DatabaseFace::fromVariant(extraData).isUnconfirmedType();
+    return FaceTagsIface::fromVariant(extraData).isUnconfirmedType();
 }
 
 void AssignNameOverlay::showOnIndex(const QModelIndex& index)
@@ -282,9 +281,9 @@ void AssignNameOverlay::viewportLeaveEvent(QObject* o, QEvent* e)
 void AssignNameOverlay::slotAssigned(const TaggingAction& action, const ImageInfo& info, const QVariant& faceIdentifier)
 {
     Q_UNUSED(info);
-    DatabaseFace face = DatabaseFace::fromVariant(faceIdentifier);
+    FaceTagsIface face = FaceTagsIface::fromVariant(faceIdentifier);
 
-    //kDebug() << "Confirming" << face << action.shallAssignTag() << action.tagId();
+    //qCDebug(DIGIKAM_GENERAL_LOG) << "Confirming" << face << action.shallAssignTag() << action.tagId();
 
     if (face.isConfirmedName() || !action.isValid())
     {
@@ -314,7 +313,6 @@ void AssignNameOverlay::slotRejected(const ImageInfo& info, const QVariant& face
 {
     Q_UNUSED(info);
     Q_UNUSED(faceIdentifier);
-    //DatabaseFace face = DatabaseFace::fromVariant(faceIdentifier);
     emit removeFaces(affectedIndexes(index()));
     hide();
 }

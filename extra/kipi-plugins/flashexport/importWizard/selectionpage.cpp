@@ -7,6 +7,7 @@
  * Description : a plugin to export images to flash
  *
  * Copyright (C) 2011-2013 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,37 +21,35 @@
  *
  * ============================================================ */
 
-#include "selectionpage.moc"
+#include "selectionpage.h"
 
 // Qt includes
 
 #include <QVBoxLayout>
+#include <QIcon>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <kvbox.h>
-#include <kstandarddirs.h>
-#include <kiconloader.h>
+#include <klocalizedstring.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/imagecollectionselector.h>
+#include <imagecollectionselector.h>
 
-//Local includes
+// Local includes
 
 #include "flashmanager.h"
 #include "kpimageslist.h"
+#include "kputil.h"
 
 namespace KIPIFlashExportPlugin
 {
-    
-class SelectionPage::SelectionPagePriv
+
+class SelectionPage::Private
 {
 public:
 
-    SelectionPagePriv()
+    Private()
     {
         imageCollectionSelector = 0;
         imageList               = 0;
@@ -61,38 +60,40 @@ public:
     ImageCollectionSelector* imageCollectionSelector;
     KPImagesList*            imageList;
     FlashManager*            manager;
-    KVBox*                   vbox;
+    KPVBox*                  vbox;
 };
 
-SelectionPage::SelectionPage(FlashManager* const mngr, KAssistantDialog* const dlg)
-    : KPWizardPage(dlg, i18n("Select Image Collections")), d(new SelectionPagePriv)
+SelectionPage::SelectionPage(FlashManager* const mngr, KPWizardDialog* const dlg)
+    : KPWizardPage(dlg, i18n("Select Image Collections")),
+      d(new Private)
 {
-    d->manager=mngr;
+    d->manager = mngr;
 }
 
 void SelectionPage::setPageContent(int choice)
 {
-    if(d->vbox)
+    if (d->vbox)
     {
         removePageWidget(d->vbox);
         delete d->vbox;
     }
 
-    d->vbox = new KVBox(this);
+    d->vbox = new KPVBox(this);
 
-    if(choice == 0) // Collection Selector
+    if (choice == SimpleViewerSettingsContainer::COLLECTION)
     {
-        Interface* interface       = d->manager->iface();
+        Interface* const interface = d->manager->iface();
         d->imageCollectionSelector = interface->imageCollectionSelector(d->vbox);
     }
-    else //Image Dialog
+    else             // Image Dialog
     {
         d->imageList = new KPImagesList(d->vbox);
         d->imageList->setControlButtonsPlacement(KPImagesList::ControlButtonsBelow);
+        d->imageList->loadImagesFromCurrentSelection();
     }
 
     setPageWidget(d->vbox);
-    setLeftBottomPix(DesktopIcon("kipi-flash", 128));
+    setLeftBottomPix(QIcon::fromTheme(QLatin1String("kipi-flash")).pixmap(128));
 }
 
 SelectionPage::~SelectionPage()
@@ -102,7 +103,7 @@ SelectionPage::~SelectionPage()
 
 void SelectionPage::settings(SimpleViewerSettingsContainer* const container)
 {
-    if(container->imgGetOption == 0)
+    if (container->imgGetOption == 0)
         container->collections = d->imageCollectionSelector->selectedImageCollections();
     else
         container->imageDialogList = d->imageList->imageUrls();
@@ -110,9 +111,9 @@ void SelectionPage::settings(SimpleViewerSettingsContainer* const container)
 
 bool SelectionPage::isSelectionEmpty(int imageGetOption)
 {
-    if(imageGetOption==0) //Collections
+    if (imageGetOption == 0) // Collections
         return d->imageCollectionSelector->selectedImageCollections().isEmpty();
-    else //Image Dialog
+    else                     // Image Dialog
         return d->imageList->imageUrls().isEmpty();
 }
 

@@ -21,12 +21,18 @@
  *
  * ============================================================ */
 
-#include "tooltipdialog.moc"
+#include "tooltipdialog.h"
+
+// Qt includes
+
+#include <QTextBrowser>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 // KDE includes
 
-#include <klocale.h>
-#include <ktextbrowser.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -40,23 +46,35 @@ class TooltipDialog::Private
 public:
 
     Private() :
+        buttons(0),
         textBrowser(0)
-    {}
+    {
+    }
 
-    KTextBrowser* textBrowser;
+    QDialogButtonBox* buttons;
+    QTextBrowser*     textBrowser;
 };
 
-TooltipDialog::TooltipDialog(QWidget* parent)
-    : KDialog(parent), d(new Private)
+TooltipDialog::TooltipDialog(QWidget* const parent)
+    : QDialog(parent), d(new Private)
 {
-    d->textBrowser = new KTextBrowser(this);
+    setWindowTitle(i18n("Information"));
+
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Close, this);
+    d->buttons->button(QDialogButtonBox::Close)->setDefault(true);
+
+    d->textBrowser = new QTextBrowser(this);
     d->textBrowser->setFrameStyle(QFrame::NoFrame);
     d->textBrowser->setOpenLinks(true);
     d->textBrowser->setOpenExternalLinks(true);
 
-    setCaption(i18n("Information"));
-    setButtons(KDialog::Close);
-    setMainWidget(d->textBrowser);
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(d->textBrowser);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
+
+    connect(d->buttons->button(QDialogButtonBox::Close), SIGNAL(clicked()),
+            this, SLOT(accept()));
 }
 
 TooltipDialog::~TooltipDialog()
@@ -70,7 +88,7 @@ void TooltipDialog::setTooltip(const QString& tooltip)
 
     // set image resources
     d->textBrowser->document()->addResource(QTextDocument::ImageResource,
-                                            QUrl(TooltipCreator::getInstance().getInfoIconResourceName()),
+                                            QUrl::fromLocalFile(TooltipCreator::getInstance().getInfoIconResourceName()),
                                             TooltipCreator::getInstance().getInfoIcon());
     d->textBrowser->setHtml(tooltip);
 }

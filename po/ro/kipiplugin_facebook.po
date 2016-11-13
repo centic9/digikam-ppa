@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_fbexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2014-04-11 15:47+0300\n"
 "Last-Translator: Sergiu Bivol <sergiu@ase.md>\n"
 "Language-Team: Romanian <kde-i18n-ro@kde.org>\n"
@@ -21,89 +21,45 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
 "20)) ? 1 : 2;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Sergiu Bivol,Florin Cătălin RUSSEN"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "sergiu@ase.md,cfrussen@yahoo.co.uk"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Album Facebook nou"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "Titlul albumului ce va fi creat (obligatoriu)."
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "Amplasarea albumului ce va fi creat (opțional)."
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "Descrierea albumului ce va fi creat (opțional)."
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Configurarea de intimitate a albumului ce va fi creat (obligatoriu)."
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 #, fuzzy
 #| msgid "Only Friends"
 msgid "Only Me"
 msgstr "Numai prieteni"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "Numai prieteni"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "Prietenii prietenilor"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "Rețelele și prietenii mei"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "Toți"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "Titlu:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "Amplasare:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "Descriere:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "Intimitate:"
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "Validare sesiune anterioară..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr "Se înnoiește la OAuth..."
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Autorizare aplicație Facebook"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 #, fuzzy
 #| msgid ""
 #| "Please follow the instructions in the browser window. Press \"Yes\" if "
@@ -115,241 +71,72 @@ msgstr ""
 "Urmați instrucțiunile din fereastra navigatorului. Apăsați „Da” dacă v-ați "
 "autentificat și „Nu” dacă ați eșuat."
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "Anulat de către utilizator."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "Serviciul nu este disponibil momentan."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Aplicația a atins numărul maxim de cereri permise."
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "Cheie de sesiune invalidă sau sesiune expirată. Reîncercați autentificarea."
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "Identificator de album invalid."
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "Albumul este plin."
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "Fișier lipsă sau invalid."
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "Prea multe fotografii neaprobate în așteptare."
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr "Aceasta este lista imaginilor de încărcat pe contul Facebook."
-
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
+#: fbtalker.cpp:602
+msgid "Error"
 msgstr ""
-"Aceasta este o legătură pentru deschiderea paginii de pornire Facebook în "
-"navigatorul de Internet."
 
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "Cont"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "Acesta este contul Facebook autentificat în prezent."
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "Nume:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "Permisiune:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
-msgstr ""
-"Permisiunea modulului KIPI de a încărca fotografiile direct. În caz contrar, "
-"utilizatorul va trebui să aprobe manual fotografiile încărcate în Facebook."
-
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "Schimbă contul"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr ""
-"Deautentificare și schimbarea contului Facebook utilizat pentru transfer"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "Descarcă selecția"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "Aceasta este selecția de albume/fotografii Facebook de descărcat."
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "Destinație"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr ""
-"Acesta este albumul Facebook în care vor fi încărcate fotografiile selectate."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "&Albumul meu"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "Descarcă albumul complet al utilizatorului autentificat momentan."
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "Al&bumul prietenului meu"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "Descărcați albumul complet al prietenului ales."
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "Fotografii cu &mine"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "Descărcați toate fotografiile utilizatorului autentificat momentan."
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "&Fotografiile prietenului meu"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "Descărcați toate fotografiile prietenului ales."
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "Prieten:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "Album:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "Album nou"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "Creează album Facebook nou"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "Reîncarcă"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "Reîncarcă lista albumelor"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr ""
-"Aceasta este locația în care vor fi descărcate fotografiile Facebook alese."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "Opțiuni"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr ""
-"Acestea sînt opțiunile ce vor fi aplicate fotografiilor înainte de încărcare."
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "Redimensionează fotografiile înainte de încărcare"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "Dimensiune maximă:"
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "Calitate JPEG:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "Încărcare directă"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr ""
-"Fotografiile încărcate nu vor avea nevoie de aprobare manuală de către "
-"utilizator."
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "Aprobare încărcare manuală"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr ""
-"Fotografiile încărcate se vor afla în stare de așteptare pînă la aprobarea "
-"manuală de către utilizator."
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "Importă din serviciul web Facebook"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "Începe descărcarea"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "Începe descărcarea din serviciul web Facebook"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "Export către serviciul web Facebook"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "Începe încărcarea"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "Începe încărcarea în serviciul web Facebook"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
-msgstr "Import/Export Facebook"
+#: fbwindow.cpp:140
+#, fuzzy
+#| msgid "Facebook export"
+msgid "Facebook Export"
+msgstr "Export Facebook"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to import/export image collection to/from Facebook web "
+#| "service."
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
 "O extensie Kipi pentru importul/exportul colecției de imagini din/către "
 "serviciul web Facebook."
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -358,66 +145,68 @@ msgstr ""
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "Autor și responsabil"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr ""
-
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr ""
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+#, fuzzy
+#| msgid "&lt;auto create&gt;"
+msgid "<auto create>"
 msgstr "&lt;creează automat&gt;"
 
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Apelul Facebook a eșuat: %1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "Fotografii profil"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr ""
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr ""
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr ""
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr ""
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr "Import Facebook"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr "Export Facebook"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "Nu se poate deschide fișierul"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+#, fuzzy
+#| msgid "Uploading file %1"
+msgid "Uploading Failed"
+msgstr "Încărcarea fișierului %1"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -426,25 +215,7 @@ msgstr ""
 "Eșec la încărcarea fotografiei pe Facebook: %1\n"
 "Doriți să continuați?"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Eșec la salvarea fotografiei: %1\n"
-"Doriți să continuați?"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Eșec la descărcarea fotografiei: %1\n"
-"Doriți să continuați?"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Apelul Facebook a eșuat: %1"
@@ -464,19 +235,222 @@ msgstr "&Exportă"
 msgid "Main Toolbar"
 msgstr "Bara de unelte principală"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "Export către &Facebook..."
 
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "Import din &Facebook..."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Sergiu Bivol,Florin Cătălin RUSSEN"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "sergiu@ase.md,cfrussen@yahoo.co.uk"
+
+#~ msgid "Facebook New Album"
+#~ msgstr "Album Facebook nou"
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Titlul albumului ce va fi creat (obligatoriu)."
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "Amplasarea albumului ce va fi creat (opțional)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Descrierea albumului ce va fi creat (opțional)."
+
+#~ msgctxt "new facebook album"
+#~ msgid "Title:"
+#~ msgstr "Titlu:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Location:"
+#~ msgstr "Amplasare:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Description:"
+#~ msgstr "Descriere:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Privacy:"
+#~ msgstr "Intimitate:"
+
+#~ msgid "This is the list of images to upload to your Facebook account."
+#~ msgstr "Aceasta este lista imaginilor de încărcat pe contul Facebook."
+
+#~ msgid ""
+#~ "This is a clickable link to open the Facebook home page in a web browser."
+#~ msgstr ""
+#~ "Aceasta este o legătură pentru deschiderea paginii de pornire Facebook în "
+#~ "navigatorul de Internet."
+
+#~ msgid "Account"
+#~ msgstr "Cont"
+
+#~ msgid "This is the Facebook account that is currently logged in."
+#~ msgstr "Acesta este contul Facebook autentificat în prezent."
+
+#~ msgctxt "facebook account settings"
+#~ msgid "Name:"
+#~ msgstr "Nume:"
+
+#~ msgid "Permission:"
+#~ msgstr "Permisiune:"
+
+#~ msgid ""
+#~ "Permission of KIPI Plugin application to upload photos directly. If not, "
+#~ "user will need to manually approve uploaded photos in Facebook."
+#~ msgstr ""
+#~ "Permisiunea modulului KIPI de a încărca fotografiile direct. În caz "
+#~ "contrar, utilizatorul va trebui să aprobe manual fotografiile încărcate "
+#~ "în Facebook."
+
+#~ msgid "Change Account"
+#~ msgstr "Schimbă contul"
+
+#~ msgid "Logout and change Facebook Account used for transfer"
+#~ msgstr ""
+#~ "Deautentificare și schimbarea contului Facebook utilizat pentru transfer"
+
+#~ msgid "Download Selection"
+#~ msgstr "Descarcă selecția"
+
+#~ msgid "This is the selection of Facebook albums/photos to download."
+#~ msgstr "Aceasta este selecția de albume/fotografii Facebook de descărcat."
+
+#~ msgid "Destination"
+#~ msgstr "Destinație"
+
+#~ msgid ""
+#~ "This is the Facebook album to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Acesta este albumul Facebook în care vor fi încărcate fotografiile "
+#~ "selectate."
+
+#~ msgid "My &Album"
+#~ msgstr "&Albumul meu"
+
+#~ msgid "Download complete album of currently logged in user."
+#~ msgstr "Descarcă albumul complet al utilizatorului autentificat momentan."
+
+#~ msgid "Album &of My Friend"
+#~ msgstr "Al&bumul prietenului meu"
+
+#~ msgid "Download complete album of selected friend."
+#~ msgstr "Descărcați albumul complet al prietenului ales."
+
+#~ msgid "Photos of &Me"
+#~ msgstr "Fotografii cu &mine"
+
+#~ msgid "Download all photos of currently logged in user."
+#~ msgstr "Descărcați toate fotografiile utilizatorului autentificat momentan."
+
+#~ msgid "Photos of My &Friend"
+#~ msgstr "&Fotografiile prietenului meu"
+
+#~ msgid "Download all photos of selected friend."
+#~ msgstr "Descărcați toate fotografiile prietenului ales."
+
+#~ msgid "Friend:"
+#~ msgstr "Prieten:"
+
+#~ msgid "Album:"
+#~ msgstr "Album:"
+
+#~ msgid "New Album"
+#~ msgstr "Album nou"
+
+#~ msgid "Create new Facebook album"
+#~ msgstr "Creează album Facebook nou"
+
+#~ msgctxt "facebook album list"
+#~ msgid "Reload"
+#~ msgstr "Reîncarcă"
+
+#~ msgid "Reload album list"
+#~ msgstr "Reîncarcă lista albumelor"
+
+#~ msgid "This is the location to which Facebook images will be downloaded."
+#~ msgstr ""
+#~ "Aceasta este locația în care vor fi descărcate fotografiile Facebook "
+#~ "alese."
+
+#~ msgid "Options"
+#~ msgstr "Opțiuni"
+
+#~ msgid "These are options that will be applied to photos before upload."
+#~ msgstr ""
+#~ "Acestea sunt opțiunile ce vor fi aplicate fotografiilor înainte de "
+#~ "încărcare."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Redimensionează fotografiile înainte de încărcare"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "Dimensiune maximă:"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "Calitate JPEG:"
+
+#~ msgid "Direct upload"
+#~ msgstr "Încărcare directă"
+
+#~ msgid "Uploaded photos will not need manual approval by user."
+#~ msgstr ""
+#~ "Fotografiile încărcate nu vor avea nevoie de aprobare manuală de către "
+#~ "utilizator."
+
+#~ msgid "Manual upload approval"
+#~ msgstr "Aprobare încărcare manuală"
+
+#~ msgid ""
+#~ "Uploaded photos will wait in pending state until manually approved by "
+#~ "user."
+#~ msgstr ""
+#~ "Fotografiile încărcate se vor afla în stare de așteptare până la "
+#~ "aprobarea manuală de către utilizator."
+
+#~ msgid "Import from Facebook Web Service"
+#~ msgstr "Importă din serviciul web Facebook"
+
+#~ msgid "Start Download"
+#~ msgstr "Începe descărcarea"
+
+#~ msgid "Start download from Facebook web service"
+#~ msgstr "Începe descărcarea din serviciul web Facebook"
+
+#~ msgid "Facebook Import/Export"
+#~ msgstr "Import/Export Facebook"
+
+#~ msgctxt "name of special Facebook album for profile pictures"
+#~ msgid "Profile Pictures"
+#~ msgstr "Fotografii profil"
+
+#~ msgid "Facebook import"
+#~ msgstr "Import Facebook"
+
+#~ msgid ""
+#~ "Failed to save photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Eșec la salvarea fotografiei: %1\n"
+#~ "Doriți să continuați?"
+
+#~ msgid ""
+#~ "Failed to download photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Eșec la descărcarea fotografiei: %1\n"
+#~ "Doriți să continuați?"
+
+#~ msgid "Import from &Facebook..."
+#~ msgstr "Import din &Facebook..."
 
 #~ msgid ""
 #~ "Please follow the instructions in the browser window. Press \"OK\" when "
 #~ "done."
 #~ msgstr ""
-#~ "Urmați instrucțiunile din fereastra navigatorului. Apăsați „OK” cînd ați "
+#~ "Urmați instrucțiunile din fereastra navigatorului. Apăsați „OK” când ați "
 #~ "terminat."
 
 #~ msgid "Photos taken with KDE"
@@ -502,9 +476,6 @@ msgstr "Import din &Facebook..."
 
 #~ msgid "Transfer Progress"
 #~ msgstr "Progresiunea transferului"
-
-#~ msgid "Uploading file %1"
-#~ msgstr "Încărcarea fișierului %1"
 
 #~ msgid "Downloading file %1"
 #~ msgstr "Descărcarea fișierului %1"

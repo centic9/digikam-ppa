@@ -28,10 +28,7 @@
 
 #include <QPlainTextEdit>
 #include <QWidget>
-
-// KDE includes
-
-#include <kcombobox.h>
+#include <QComboBox>
 
 // Local includes
 
@@ -52,7 +49,7 @@ class AdvancedRenameLineEdit : public QPlainTextEdit
 
 public:
 
-    explicit AdvancedRenameLineEdit(QWidget* parent = 0);
+    explicit AdvancedRenameLineEdit(QWidget* const parent = 0);
     ~AdvancedRenameLineEdit();
 
     void    setParser(Parser* parser);
@@ -98,13 +95,13 @@ private:
 
 // --------------------------------------------------------
 
-class AdvancedRenameInput : public KComboBox
+class AdvancedRenameInput : public QComboBox
 {
     Q_OBJECT
 
 public:
 
-    explicit AdvancedRenameInput(QWidget* parent = 0);
+    explicit AdvancedRenameInput(QWidget* const parent = 0);
     ~AdvancedRenameInput();
 
     void setParser(Parser* parser);
@@ -136,6 +133,7 @@ protected:
 private Q_SLOTS:
 
     void slotClearButtonPressed();
+    void slotTextChanged(const QString& text);
 
 private:
 

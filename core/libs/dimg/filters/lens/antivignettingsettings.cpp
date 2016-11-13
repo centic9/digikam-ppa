@@ -6,7 +6,7 @@
  * Date        : 2010-03-15
  * Description : Anti vignetting settings view.
  *
- * Copyright (C) 2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "antivignettingsettings.moc"
+#include "antivignettingsettings.h"
 
 // Qt includes
 
@@ -33,35 +33,32 @@
 #include <QCheckBox>
 #include <QPainter>
 #include <QPixmap>
+#include <QUrl>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kseparator.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
+#include "dwidgetutils.h"
+#include "digikam_debug.h"
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
 
-class AntiVignettingSettings::AntiVignettingSettingsPriv
+class AntiVignettingSettings::Private
 {
 public:
 
-    AntiVignettingSettingsPriv() :
+    Private() :
         addVignettingCheck(0),
         maskPreviewLabel(0),
         densityInput(0),
@@ -85,29 +82,32 @@ public:
 
     QLabel*               maskPreviewLabel;
 
-    RDoubleNumInput*      densityInput;
-    RDoubleNumInput*      powerInput;
-    RDoubleNumInput*      innerRadiusInput;
-    RDoubleNumInput*      outerRadiusInput;
-    RDoubleNumInput*      xOffsetInput;
-    RDoubleNumInput*      yOffsetInput;
+    DDoubleNumInput*      densityInput;
+    DDoubleNumInput*      powerInput;
+    DDoubleNumInput*      innerRadiusInput;
+    DDoubleNumInput*      outerRadiusInput;
+    DDoubleNumInput*      xOffsetInput;
+    DDoubleNumInput*      yOffsetInput;
 };
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configAddVignettingAdjustmentEntry("AddVignettingAdjustment");
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configDensityAdjustmentEntry("DensityAdjustment");
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configPowerAdjustmentEntry("PowerAdjustment");
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configInnerRadiusAdjustmentEntry("InnerRadiusAdjustment");
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configOuterRadiusAdjustmentEntry("OuterRadiusAdjustment");
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configAddVignettingEntry("AddVignetting");
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configXOffsetEntry("XOffset");
-const QString AntiVignettingSettings::AntiVignettingSettingsPriv::configYOffsetEntry("YOffset");
+
+const QString AntiVignettingSettings::Private::configAddVignettingAdjustmentEntry(QLatin1String("AddVignettingAdjustment"));
+const QString AntiVignettingSettings::Private::configDensityAdjustmentEntry(QLatin1String("DensityAdjustment"));
+const QString AntiVignettingSettings::Private::configPowerAdjustmentEntry(QLatin1String("PowerAdjustment"));
+const QString AntiVignettingSettings::Private::configInnerRadiusAdjustmentEntry(QLatin1String("InnerRadiusAdjustment"));
+const QString AntiVignettingSettings::Private::configOuterRadiusAdjustmentEntry(QLatin1String("OuterRadiusAdjustment"));
+const QString AntiVignettingSettings::Private::configAddVignettingEntry(QLatin1String("AddVignetting"));
+const QString AntiVignettingSettings::Private::configXOffsetEntry(QLatin1String("XOffset"));
+const QString AntiVignettingSettings::Private::configYOffsetEntry(QLatin1String("YOffset"));
 
 // --------------------------------------------------------
 
 AntiVignettingSettings::AntiVignettingSettings(QWidget* parent)
     : QWidget(parent),
-      d(new AntiVignettingSettingsPriv)
+      d(new Private)
 {
-    QGridLayout* grid = new QGridLayout(parent);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    QGridLayout* const grid = new QGridLayout(parent);
 
     d->addVignettingCheck = new QCheckBox(i18n("Add vignetting"));
     d->addVignettingCheck->setWhatsThis(i18n("This option adds vignetting to the image instead of removing it. "
@@ -124,20 +124,20 @@ AntiVignettingSettings::AntiVignettingSettings(QWidget* parent)
 
     // -------------------------------------------------------------
 
-    QLabel* label1  = new QLabel(i18n("Amount:"));
-    d->densityInput = new RDoubleNumInput();
+    QLabel* const label1 = new QLabel(i18n("Amount:"));
+    d->densityInput      = new DDoubleNumInput();
     d->densityInput->setDecimals(1);
-    d->densityInput->input()->setRange(0.05, 5.0, 0.05, true);
+    d->densityInput->setRange(0.05, 5.0, 0.05);
     d->densityInput->setDefaultValue(1.0);
     d->densityInput->setWhatsThis(i18n("This value controls the degree of intensity "
                                        "of the filter at its point of maximum density."));
 
     // -------------------------------------------------------------
 
-    QLabel* label2 = new QLabel(i18n("Feather:"));
-    d->powerInput  = new RDoubleNumInput();
+    QLabel* const label2 = new QLabel(i18n("Feather:"));
+    d->powerInput        = new DDoubleNumInput();
     d->powerInput->setDecimals(1);
-    d->powerInput->input()->setRange(1.0, 4.0, 0.05, true);
+    d->powerInput->setRange(1.0, 4.0, 0.05);
     d->powerInput->setDefaultValue(1.5);
     d->powerInput->setWhatsThis(i18n("This value is used as the exponent controlling the "
                                      "fall-off in density from the inner circle of the filter "
@@ -145,10 +145,10 @@ AntiVignettingSettings::AntiVignettingSettings(QWidget* parent)
 
     // -------------------------------------------------------------
 
-    QLabel* label3      = new QLabel(i18n("Inner Radius:"));
-    d->innerRadiusInput = new RDoubleNumInput();
+    QLabel* const label3 = new QLabel(i18n("Inner Radius:"));
+    d->innerRadiusInput  = new DDoubleNumInput();
     d->innerRadiusInput->setDecimals(1);
-    d->innerRadiusInput->input()->setRange(0.0, 0.9, 0.05, true);
+    d->innerRadiusInput->setRange(0.0, 0.9, 0.05);
     d->innerRadiusInput->setDefaultValue(0.5);
     d->innerRadiusInput->setWhatsThis(i18n("This value is the radius of the inner circle of the filter. "
                                            "In the inner circle the image is preserved. "
@@ -156,10 +156,10 @@ AntiVignettingSettings::AntiVignettingSettings(QWidget* parent)
 
     // -------------------------------------------------------------
 
-    QLabel* label4      = new QLabel(i18n("Outer Radius:"));
-    d->outerRadiusInput = new RDoubleNumInput();
+    QLabel* const label4 = new QLabel(i18n("Outer Radius:"));
+    d->outerRadiusInput  = new DDoubleNumInput();
     d->outerRadiusInput->setDecimals(1);
-    d->outerRadiusInput->input()->setRange(0.1, 2.0, 0.05, true);
+    d->outerRadiusInput->setRange(0.1, 2.0, 0.05);
     d->outerRadiusInput->setDefaultValue(1.0);
     d->outerRadiusInput->setWhatsThis(i18n("This value is the radius of the outer circle of the filter. "
                                            "Outside the outer circle the effect of the filter is at its maximum. "
@@ -167,23 +167,23 @@ AntiVignettingSettings::AntiVignettingSettings(QWidget* parent)
 
     // -------------------------------------------------------------
 
-    QLabel* label5  = new QLabel(i18n("X offset:"));
-    d->xOffsetInput = new RDoubleNumInput();
+    QLabel* const label5 = new QLabel(i18n("X offset:"));
+    d->xOffsetInput      = new DDoubleNumInput();
     d->xOffsetInput->setDecimals(0);
-    d->xOffsetInput->input()->setRange(-100, 100, 1, true);
+    d->xOffsetInput->setRange(-100, 100, 1);
     d->xOffsetInput->setDefaultValue(0);
     d->xOffsetInput->setWhatsThis(i18n("X offset "));
 
     // -------------------------------------------------------------
 
-    QLabel* label6  = new QLabel(i18n("Y offset:"));
-    d->yOffsetInput = new RDoubleNumInput();
+    QLabel* const label6 = new QLabel(i18n("Y offset:"));
+    d->yOffsetInput      = new DDoubleNumInput();
     d->yOffsetInput->setDecimals(0);
-    d->yOffsetInput->input()->setRange(-100, 100, 1, true);
+    d->yOffsetInput->setRange(-100, 100, 1);
     d->yOffsetInput->setDefaultValue(0);
     d->yOffsetInput->setWhatsThis(i18n("Y offset "));
 
-    KSeparator* line = new KSeparator(Qt::Horizontal);
+    DLineWidget* const line = new DLineWidget(Qt::Horizontal);
 
     // -------------------------------------------------------------
 
@@ -203,8 +203,8 @@ AntiVignettingSettings::AntiVignettingSettings(QWidget* parent)
     grid->addWidget(line,                  13, 0, 1, 3);
     grid->addWidget(d->addVignettingCheck, 14, 0, 1, 3);
     grid->setRowStretch(15, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 

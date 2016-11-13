@@ -7,6 +7,7 @@
  * Description : helper class used to modify search albums in views
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,23 +22,25 @@
  *
  * ============================================================ */
 
-#include "searchmodificationhelper.moc"
+#include "searchmodificationhelper.h"
+
+// Qt includes
+
+#include <QInputDialog>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kinputdialog.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kstandardguiitem.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "album.h"
 #include "albummanager.h"
 #include "haariface.h"
 #include "imageinfo.h"
-#include "searchxml.h"
+#include "coredbsearchxml.h"
 #include "sketchwidget.h"
 
 namespace Digikam
@@ -56,7 +59,8 @@ public:
 };
 
 SearchModificationHelper::SearchModificationHelper(QObject* const parent, QWidget* const dialogParent)
-    : QObject(parent), d(new Private)
+    : QObject(parent),
+      d(new Private)
 {
     d->dialogParent = dialogParent;
 }
@@ -74,15 +78,14 @@ void SearchModificationHelper::slotSearchDelete(SAlbum* searchAlbum)
     }
 
     // Make sure that a complicated search is not deleted accidentally
-    int result = KMessageBox::warningYesNo(d->dialogParent,
-                                           i18n("Are you sure you want to "
-                                                "delete the selected search "
-                                                "\"%1\"?", searchAlbum->title()),
-                                           i18n("Delete Search?"),
-                                           KGuiItem(i18n("Delete")),
-                                           KStandardGuiItem::cancel());
+    int result = QMessageBox::warning(d->dialogParent, i18n("Delete Search?"),
+                                      i18n("Are you sure you want to "
+                                           "delete the selected search "
+                                           "\"%1\"?", searchAlbum->title()),
+                                      QMessageBox::Yes | QMessageBox::Cancel);
 
-    if (result != KMessageBox::Yes)
+
+    if (result != QMessageBox::Yes)
     {
         return;
     }
@@ -96,7 +99,7 @@ bool SearchModificationHelper::checkAlbum(const QString& name) const
 
     for (AlbumList::ConstIterator it = list.constBegin() ; it != list.constEnd() ; ++it)
     {
-        SAlbum* album = (SAlbum*)(*it);
+        SAlbum* const album = (SAlbum*)(*it);
 
         if (album->title() == name)
         {
@@ -116,8 +119,12 @@ bool SearchModificationHelper::checkName(QString& name)
         QString label = i18n( "Search name already exists.\n"
                               "Please enter a new name:" );
         bool ok;
-        QString newTitle = KInputDialog::getText(i18n("Name exists"), label,
-                                                 name, &ok, d->dialogParent);
+        QString newTitle = QInputDialog::getText(d->dialogParent,
+                                                 i18n("Name exists"),
+                                                 label,
+                                                 QLineEdit::Normal,
+                                                 name,
+                                                 &ok);
 
         if (!ok)
         {
@@ -140,9 +147,12 @@ void SearchModificationHelper::slotSearchRename(SAlbum* searchAlbum)
 
     QString oldName(searchAlbum->title());
     bool    ok;
-    QString name = KInputDialog::getText(i18n("Rename Album (%1)", oldName),
+    QString name = QInputDialog::getText(d->dialogParent,
+                                         i18n("Rename Album (%1)", oldName),
                                          i18n("Enter new album name:"),
-                                         oldName, &ok, d->dialogParent);
+                                         QLineEdit::Normal,
+                                         oldName,
+                                         &ok);
 
     if (!ok || name == oldName || name.isEmpty())
     {
@@ -154,13 +164,12 @@ void SearchModificationHelper::slotSearchRename(SAlbum* searchAlbum)
         return;
     }
 
-    AlbumManager::instance()->updateSAlbum(searchAlbum, searchAlbum->query(),
-                                           name);
+    AlbumManager::instance()->updateSAlbum(searchAlbum, searchAlbum->query(), name);
 }
 
 SAlbum* SearchModificationHelper::slotCreateTimeLineSearch(const QString& desiredName,
-                                                        const DateRangeList& dateRanges,
-                                                        bool overwriteIfExisting)
+                                                           const DateRangeList& dateRanges,
+                                                           bool overwriteIfExisting)
 {
     QString name = desiredName;
 
@@ -185,10 +194,10 @@ SAlbum* SearchModificationHelper::slotCreateTimeLineSearch(const QString& desire
     for (int i = 0; i < dateRanges.size(); ++i)
     {
         writer.writeGroup();
-        writer.writeField("creationdate", SearchXml::GreaterThan);
+        writer.writeField(QLatin1String("creationdate"), SearchXml::GreaterThan);
         writer.writeValue(dateRanges.at(i).first);
         writer.finishField();
-        writer.writeField("creationdate", SearchXml::LessThan);
+        writer.writeField(QLatin1String("creationdate"), SearchXml::LessThan);
         writer.writeValue(dateRanges.at(i).second);
         writer.finishField();
         writer.finishGroup();
@@ -196,9 +205,9 @@ SAlbum* SearchModificationHelper::slotCreateTimeLineSearch(const QString& desire
 
     writer.finish();
 
-    kDebug() << "Date search XML:\n" << writer.xml();
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Date search XML:\n" << writer.xml();
 
-    SAlbum* album = AlbumManager::instance()->createSAlbum(name, DatabaseSearch::TimeLineSearch, writer.xml());
+    SAlbum* const album = AlbumManager::instance()->createSAlbum(name, DatabaseSearch::TimeLineSearch, writer.xml());
     AlbumManager::instance()->setCurrentAlbums(QList<Album*>() << album);
     return album;
 }
@@ -229,17 +238,16 @@ SAlbum* SearchModificationHelper::createFuzzySearchFromSketch(const QString& pro
     SearchXmlWriter writer;
 
     writer.writeGroup();
-    writer.writeField("similarity", SearchXml::Like);
-    writer.writeAttribute("type", "signature");         // we pass a signature
-    writer.writeAttribute("numberofresults", QString::number(numberOfResults));
-    writer.writeAttribute("sketchtype", "handdrawn");
+    writer.writeField(QLatin1String("similarity"), SearchXml::Like);
+    writer.writeAttribute(QLatin1String("type"), QLatin1String("signature"));         // we pass a signature
+    writer.writeAttribute(QLatin1String("numberofresults"), QString::number(numberOfResults));
+    writer.writeAttribute(QLatin1String("sketchtype"), QLatin1String("handdrawn"));
     writer.writeValue(haarIface.signatureAsText(sketchWidget->sketchImage()));
     sketchWidget->sketchImageToXML(writer);
     writer.finishField();
     writer.finishGroup();
 
-    SAlbum* salbum = AlbumManager::instance()->createSAlbum(name,
-                                                            DatabaseSearch::HaarSearch, writer.xml());
+    SAlbum* const salbum = AlbumManager::instance()->createSAlbum(name, DatabaseSearch::HaarSearch, writer.xml());
     AlbumManager::instance()->setCurrentAlbums(QList<Album*>() << salbum);
 
     return salbum;
@@ -278,16 +286,15 @@ SAlbum* SearchModificationHelper::createFuzzySearchFromImage(const QString& prop
     SearchXmlWriter writer;
 
     writer.writeGroup();
-    writer.writeField("similarity", SearchXml::Like);
-    writer.writeAttribute("type", "imageid");
-    writer.writeAttribute("threshold", QString::number(threshold));
-    writer.writeAttribute("sketchtype", "scanned");
+    writer.writeField(QLatin1String("similarity"), SearchXml::Like);
+    writer.writeAttribute(QLatin1String("type"), QLatin1String("imageid"));
+    writer.writeAttribute(QLatin1String("threshold"), QString::number(threshold));
+    writer.writeAttribute(QLatin1String("sketchtype"), QLatin1String("scanned"));
     writer.writeValue(image.id());
     writer.finishField();
     writer.finishGroup();
 
-    SAlbum* salbum = AlbumManager::instance()->createSAlbum(name,
-                                                            DatabaseSearch::HaarSearch, writer.xml());
+    SAlbum* const salbum = AlbumManager::instance()->createSAlbum(name, DatabaseSearch::HaarSearch, writer.xml());
     AlbumManager::instance()->setCurrentAlbums(QList<Album*>() << salbum);
 
     return salbum;

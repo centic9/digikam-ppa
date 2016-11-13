@@ -1,0 +1,309 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Thanomsub Noppaburana <donga.nb@gmail.com>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2010-03-03 23:32+0700\n"
+"Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
+"Language-Team: Thai <thai-l10n@googlegroups.com>\n"
+"Language: th\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.0\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_piwigoui.rc:7
+#, fuzzy
+#| msgid "Piwigo Export"
+msgid "&Export"
+msgstr "ส่งออกไปยัง Piwigo"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_piwigoui.rc:13
+msgid "Main Toolbar"
+msgstr ""
+
+#: piwigoconfig.cpp:76
+msgctxt "piwigo login settings"
+msgid "URL:"
+msgstr "ที่อยู่ URL:"
+
+#: piwigoconfig.cpp:80
+msgctxt "piwigo login settings"
+msgid "Username:"
+msgstr "ชื่อผู้ใช้:"
+
+#: piwigoconfig.cpp:84
+msgctxt "piwigo login settings"
+msgid "Password:"
+msgstr "รหัสผ่าน:"
+
+#: piwigotalker.cpp:299
+#, kde-format
+msgid "Check if %1 already exists"
+msgstr ""
+
+#: piwigotalker.cpp:340
+msgid "Error"
+msgstr ""
+
+#: piwigotalker.cpp:434
+msgid "Piwigo URL probably incorrect"
+msgstr "ที่อยู่ URL ของ Piwigo อาจจะไม่ถูกต้อง"
+
+#: piwigotalker.cpp:440
+msgid "Incorrect username or password specified"
+msgstr "ชื่อผู้ใช้หรือรหัสผ่านที่ระบุมา ไม่ถูกต้อง"
+
+#: piwigotalker.cpp:483 piwigotalker.cpp:657
+msgid "Upload to Piwigo version < 2.4 is no longer supported"
+msgstr ""
+
+#: piwigotalker.cpp:555 piwigotalker.cpp:633 piwigotalker.cpp:702
+#: piwigotalker.cpp:773
+msgid "Invalid response received from remote Piwigo"
+msgstr "ได้รับการตอบรับที่ใช้ไม่ได้จากแม่ข่าย Piwigo ทางไกล"
+
+#: piwigotalker.cpp:561
+msgid "Failed to list albums"
+msgstr "ล้มเหลวในการเรียกรายการอัลบั้มต่าง ๆ"
+
+#: piwigotalker.cpp:607
+#, kde-format
+msgid "Photo '%1' already exists."
+msgstr ""
+
+#: piwigotalker.cpp:639 piwigotalker.cpp:779 piwigotalker.cpp:935
+msgid "Failed to upload photo"
+msgstr "ล้มเหลวในการอัปโหลดรูปภาพ"
+
+#: piwigotalker.cpp:708
+#, kde-format
+msgid "Photo '%1' already exists in this album."
+msgstr ""
+
+#: piwigotalker.cpp:817
+#, kde-format
+msgid "Upload the chunk %1/%2 of %3"
+msgstr ""
+
+#: piwigotalker.cpp:850
+msgid "Warning : The full size photo cannot be uploaded."
+msgstr ""
+
+#: piwigotalker.cpp:896
+#, kde-format
+msgid "Upload the metadata of %1"
+msgstr ""
+
+#: piwigotalker.cpp:929
+#, fuzzy, kde-format
+#| msgid "Invalid response received from remote Piwigo"
+msgid "Invalid response received from remote Piwigo (%1)"
+msgstr "ได้รับการตอบรับที่ใช้ไม่ได้จากแม่ข่าย Piwigo ทางไกล"
+
+#: piwigowindow.cpp:128
+#, fuzzy
+#| msgid "Edit Piwigo Data"
+msgid "Visit Piwigo website"
+msgstr "แก้ไขข้อมูลของ Piwigo"
+
+#: piwigowindow.cpp:145
+msgid "Albums"
+msgstr "อัลบั้มต่าง ๆ"
+
+#: piwigowindow.cpp:154
+msgid "Change Account"
+msgstr ""
+
+#: piwigowindow.cpp:158
+msgid "Options"
+msgstr ""
+
+#: piwigowindow.cpp:162
+msgid "Resize photos before uploading"
+msgstr "ปรับขนาดภาพต่าง ๆ ก่อนทำการอัปโหลด"
+
+#: piwigowindow.cpp:165
+#, fuzzy
+#| msgid "Maximum dimension:"
+msgid "Maximum width:"
+msgstr "มิติขนาดสูงสุด:"
+
+#: piwigowindow.cpp:171
+#, fuzzy
+#| msgid "Maximum dimension:"
+msgid "Maximum height:"
+msgstr "มิติขนาดสูงสุด:"
+
+#: piwigowindow.cpp:177
+msgid "Resized JPEG quality:"
+msgstr ""
+
+#: piwigowindow.cpp:229 piwigowindow.cpp:233
+msgid "Piwigo Export"
+msgstr "ส่งออกไปยัง Piwigo"
+
+#: piwigowindow.cpp:234
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to a remote Piwigo server."
+msgid "A tool to export image collections to a remote Piwigo server."
+msgstr "ส่วนเสริมของ Kipi สำหรับส่งออกคลังภาพไปยังแม่ข่าย piwigo ทางไกล"
+
+#: piwigowindow.cpp:235
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Renchi Raju\n"
+#| "(c) 2006-2007, Colin Guthrie\n"
+#| "(c) 2006-2009, Gilles Caulier\n"
+#| "(c) 2008, Andrea Diamantini\n"
+#| "(c) 2010, Frédéric Coiffier\n"
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2015, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
+msgstr ""
+"สงวนลิขสิทธิ์ (c) 2003-2005, Renchi Raju\n"
+"สงวนลิขสิทธิ์ (c) 2006-2007, Colin Guthrie\n"
+"สงวนลิขสิทธิ์ (c) 2006-2009, Gilles Caulier\n"
+"สงวนลิขสิทธิ์ (c) 2008, Andrea Diamantini\n"
+"สงวนลิขสิทธิ์ (c) 2010, Frédéric Coiffier\n"
+
+#: piwigowindow.cpp:241
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: piwigowindow.cpp:242 piwigowindow.cpp:246 piwigowindow.cpp:250
+#: piwigowindow.cpp:254 piwigowindow.cpp:258
+msgid "Developer"
+msgstr "ผู้พัฒนา"
+
+#: piwigowindow.cpp:245
+msgid "Colin Guthrie"
+msgstr "Colin Guthrie"
+
+#: piwigowindow.cpp:249
+msgid "Andrea Diamantini"
+msgstr "Andrea Diamantini"
+
+#: piwigowindow.cpp:253
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: piwigowindow.cpp:257
+msgid "Frédéric Coiffier"
+msgstr "Frédéric Coiffier"
+
+#: piwigowindow.cpp:265
+msgid "Start Upload"
+msgstr ""
+
+#: piwigowindow.cpp:393
+msgid "Login Failed"
+msgstr ""
+
+#: piwigowindow.cpp:394
+msgid "Failed to login into remote piwigo. "
+msgstr "ล้มเหลวในการล็อกอินไปยัง piwigo ทางไกล "
+
+#: piwigowindow.cpp:395
+msgid ""
+"\n"
+"Do you want to check your settings and try again?"
+msgstr ""
+"\n"
+"คุณต้องการจะตรวจสอบการตั้งค่าต่าง ๆ ของคุณ แล้วลองใหม่อีกครั้งหรือไม่ ?"
+
+#: piwigowindow.cpp:402 piwigowindow.cpp:642 plugin_piwigo.cpp:117
+msgid "Edit Piwigo Data"
+msgstr "แก้ไขข้อมูลของ Piwigo"
+
+#: piwigowindow.cpp:462 piwigowindow.cpp:486
+msgid "Album"
+msgstr "อัลบั้ม"
+
+#: piwigowindow.cpp:505
+msgid "Image"
+msgstr "รูปภาพ"
+
+#: piwigowindow.cpp:536
+msgid "Nothing to upload - please select photos to upload."
+msgstr "ยังไม่มีอะไรที่จะอัปโหลด - โปรดเลือกภาพต่าง ๆ ที่จะทำการอัปโหลด"
+
+#: piwigowindow.cpp:574
+#, kde-format
+msgid "The file %1 is not a supported image or video format"
+msgstr ""
+
+#: piwigowindow.cpp:578
+#, fuzzy, kde-format
+#| msgid "Uploading file "
+msgid "Uploading file %1"
+msgstr "กำลังอัปโหลดแฟ้ม "
+
+#: piwigowindow.cpp:596
+#, fuzzy
+#| msgid "Uploading file "
+msgid "Uploading Failed"
+msgstr "กำลังอัปโหลดแฟ้ม "
+
+#: piwigowindow.cpp:597
+#, fuzzy
+#| msgid "Failed to upload photo into remote piwigo. "
+msgid "Failed to upload media into remote Piwigo. "
+msgstr "ล้มเหลวในการอัปโหลดแฟ้มไปยัง piwigo ทางไกล"
+
+#: piwigowindow.cpp:598
+msgid ""
+"\n"
+"Do you want to continue?"
+msgstr ""
+"\n"
+"คุณต้องการจะทำต่อไปหรือไม่ ?"
+
+#: plugin_piwigo.cpp:97
+msgid "Export to &Piwigo..."
+msgstr "ส่งออกไปยัง &Piwigo..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ถนอมทรัพย์ นพบูรณ์"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "donga.nb@gmail.com"
+
+#~ msgid "Author"
+#~ msgstr "ผู้เขียน"
+
+#~ msgid "Maintainer"
+#~ msgstr "ผู้ดูแล"
+
+#~ msgid "Maximum thumbnail dimension:"
+#~ msgstr "มิติขนาดสูงสุดของภาพตัวอย่าง:"
+
+#~ msgid "&Add Selected Photos"
+#~ msgstr "เพิ่ม&ภาพต่าง ๆ ที่เลือกไว้"
+
+#~ msgid "Override Default Options"
+#~ msgstr "ใช้แทนค่าตัวเลือกปริยายต่าง ๆ"
+
+#~ msgid "EXIF Comment (instead of file name) sets Title"
+#~ msgstr "ตั้งชื่อด้วยคำอธิบายจากข้อมูล EXIF (แทนชื่อแฟ้ม)"
+
+#~ msgid "EXIF Comment (instead of file name) sets Comment"
+#~ msgstr "ตั้งคำอธิบายด้วยคำอธิบายจากข้อมูล EXIF (แทนชื่อแฟ้ม)"
+
+#~ msgid "Handbook"
+#~ msgstr "คู่มือการใช้งาน"
+
+#~ msgid "Settings"
+#~ msgstr "ตั้งค่าต่าง ๆ"

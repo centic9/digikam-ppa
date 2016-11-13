@@ -7,7 +7,7 @@
  * Description : a widget to display 2 preview image on
  *               lightable to compare pictures.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,21 +22,17 @@
  *
  * ============================================================ */
 
-#include "lighttableview.moc"
+#include "lighttableview.h"
 
 // Qt includes
 
 #include <QGridLayout>
 #include <QLabel>
-
-// KDE includes
-
-#include <kdialog.h>
-#include <kdebug.h>
-#include <kapplication.h>
+#include <QApplication>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimg.h"
 #include "dzoombar.h"
 #include "thumbnailsize.h"
@@ -74,7 +70,8 @@ public:
 };
 
 LightTableView::LightTableView(QWidget* const parent)
-    : QFrame(parent), d(new Private)
+    : QFrame(parent),
+      d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setFrameStyle(QFrame::NoFrame);
@@ -87,14 +84,14 @@ LightTableView::LightTableView(QWidget* const parent)
     d->leftPreview          = new LightTablePreview(this);
     QVBoxLayout* const llay = new QVBoxLayout(d->leftFrame);
     llay->addWidget(d->leftPreview);
-    llay->setMargin(3);
+    llay->setContentsMargins(3, 3, 3, 3);
     llay->setSpacing(0);
 
     d->rightFrame           = new QLabel(this);
     d->rightPreview         = new LightTablePreview(this);
     QVBoxLayout* const rlay = new QVBoxLayout(d->rightFrame);
     rlay->addWidget(d->rightPreview);
-    rlay->setMargin(3);
+    rlay->setContentsMargins(3, 3, 3, 3);
     rlay->setSpacing(0);
 
     d->grid->addWidget(d->leftFrame,  0, 0, 1, 1);
@@ -426,11 +423,11 @@ void LightTableView::checkForSyncPreview()
 
 void LightTableView::checkForSelection(const ImageInfo& info)
 {
-    QString selected    = QString("QLabel { background-color: %1; }")
-                          .arg(kapp->palette().color(QPalette::Highlight).name());
+    QString selected    = QString::fromUtf8("QLabel { background-color: %1; }")
+                          .arg(qApp->palette().color(QPalette::Highlight).name());
 
-    QString notSelected = QString("QLabel { background-color: %1; }")
-                          .arg(kapp->palette().color(QPalette::Base).name());
+    QString notSelected = QString::fromUtf8("QLabel { background-color: %1; }")
+                          .arg(qApp->palette().color(QPalette::Base).name());
 
     if (info.isNull())
     {

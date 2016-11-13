@@ -25,25 +25,25 @@
 #ifndef RULEDIALOG_H
 #define RULEDIALOG_H
 
-// KDE includes
+// Qt includes
 
-#include <kdialog.h>
+#include <QDialog>
 
 namespace Digikam
 {
 
 class Rule;
 
-class RuleDialog : public KDialog
+class RuleDialog : public QDialog
 {
     Q_OBJECT
 
 public:
 
-    explicit RuleDialog(Rule* parent);
+    explicit RuleDialog(Rule* const parent);
     virtual ~RuleDialog();
 
-    void setSettingsWidget(QWidget* settingsWidget);
+    void setSettingsWidget(QWidget* const settingsWidget);
 
 private:
 

@@ -1,14 +1,14 @@
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2015.
+# Vít Pelčák <vit@pelcak.org>, 2010, 2011, 2012, 2013, 2015, 2016.
 # Tomáš Chvátal <tomas.chvatal@gmail.com>, 2012, 2013.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
-"PO-Revision-Date: 2015-07-22 16:03+0100\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-30 14:32+0100\n"
 "Last-Translator: Vít Pelčák <vit@pelcak.org>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
 "Language: cs\n"
@@ -18,87 +18,43 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 "X-Generator: Lokalize 2.0\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Vít Pelčák, Zdeněk Pech"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "vit@pelcak.org, dom.toretto@seznam.cz"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Nové album Facebook"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "Název nově vytvářeného alba (povinné)."
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "Umístění nově vytvářeného alba (nepovinné)."
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "Popis nově vytvářeného alba (nepovinné)."
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Nastavení soukromí nově vytvářeného alba (povinné)."
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 msgid "Only Me"
 msgstr "Pouze mně"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "Pouze přátelé"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "Přátelé přátel"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "Moje síť a přátelé"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "Všichni"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "Název:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "Umístění:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "Popis:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "Soukromí:"
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "Potvrzení předchozího zadání..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr "Aktualizuji na OAuth..."
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Autorizace aplikace Facebook"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -106,295 +62,125 @@ msgstr ""
 "Řiďte se prosím pokyny v okně prohlížeče. Jakmile máte hotovo, zkopírujte "
 "internetovou adresu z prohlížeče do textového pole níže a stiskněte \"OK\"."
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "Přerušeno uživatelem."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "Služba není momentálně dostupná."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Aplikace dosáhla maximálního povoleného počtu požadavků."
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "Neplatný klíč sezení, nebo čas relace vypršel. Zkuste se přihlásit znovu."
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "Neplatné ID alba."
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "Album je plné."
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "Chybějící, nebo neplatný soubor."
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "Příliš mnoho fotografií čeká na vyřízení."
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr "Toto je seznam obrázků připravených k odeslání na váš účet Facebook."
+#: fbtalker.cpp:602
+msgid "Error"
+msgstr "Chyba"
 
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
-msgstr ""
-"Kliknutím na tento odkaz otevřete domovskou stránku Facebook v prohlížeči."
-
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "Účet"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "Zde je aktuálně přihlášený účet Facebook."
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "Jméno:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "Oprávnění:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
-msgstr ""
-"Oprávnění KIPI modulu k přímému odesílání fotografií. Pokud není platné, "
-"musí uživatel odesílání fotografií do Facebooku ručně potvrzovat."
-
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "Změnit účet"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr "Odhlásit se a změnit účet Facebook pro přenos"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "Výběr pro stažení"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "Výběr alb / fotografií Facebook ke stažení."
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "Cíl"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr "Album Facebook, ze kterého budou vybrané fotografie odeslány."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "Moje &album"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "Stažení celého alba aktuálně přihlášeného uživatele."
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "Album mých &přátel"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "Stažení celého alba vybraných přátel."
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "&Moje fotografie"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "Stažení všech fotografií aktuálně přihlášeného uživatele."
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "&Fotografie mých přátel"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "Stažení všech fotografií vybraných přátel."
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "Přítel:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "Album:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "Nové album"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "Vytvořit nové album Facebook"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "Obnovit"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "Obnovit seznam alb"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr "Umístění, ze kterého budou obrázky Facebook staženy."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "Volby"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr "Volby, které budou použity pro fotografie před odesláním."
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "Změnit velikost před odesláním"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "Maximální velikost:"
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "Kvalita JPEG:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "Přímé odeslání"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr "Odesílaní fotografií nemusí být uživatelem ručně potvrzováno."
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "Ruční potvrzení odesílání"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr "Odesílané fotografie budou čekat na ruční potvrzení uživatelem."
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "Import z Facebook Web Service"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "Spustit stahování"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "Spustit stahování z Facebook web Service"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "Export do Facebook Web Service"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "Spustit odesílání"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "Spustit odesílání do Facebook web Service"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
-msgstr "Facebook Import/Export"
+#: fbwindow.cpp:140
+msgid "Facebook Export"
+msgstr "Facebook export"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
-msgstr ""
-"Modul KIPI pro import/export sbírek obrázků z/do webové služby Facebook."
+#: fbwindow.cpp:141
+msgid "A tool to export image collection to/from Facebook web service."
+msgstr "Nástroj pro export sbírek obrázků z/do webové služby Facebook."
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "Autor a správce"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr "Shourya Singh Gupta"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+msgid "<auto create>"
+msgstr "<auto create>"
 
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr "Vývojář"
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
-msgstr "&lt;auto create&gt;"
-
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Volání Facebook selhalo: %1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "Profil obrázků"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr "Varování"
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr ""
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr "Pokračovat"
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr "Zrušit"
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr "Facebook import"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr "Facebook export"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "Nelze otevřít soubor"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+msgid "Uploading Failed"
+msgstr "Odeslání selhalo"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -403,25 +189,7 @@ msgstr ""
 "Odesílání fotografie do Facebook selhalo: %1\n"
 "Přejete si pokračovat?"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Uložení fotografie selhalo: %1\n"
-"Přejete si pokračovat?"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Stahování fotografie selhalo: %1\n"
-"Přejete si pokračovat?"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Volání Facebook selhalo: %1"
@@ -441,10 +209,6 @@ msgstr "&Exportovat"
 msgid "Main Toolbar"
 msgstr "Hlavní nástrojová lišta"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "Export do &Facebooku..."
-
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "Import z &Facebooku..."

@@ -7,7 +7,7 @@
  * Description : Kinetic Scroller for Thumbnail Bar
  *
  * Copyright (C) 2010 by Razvan Petru
- * Copyright (C) 2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "showfotokineticscroller.moc"
+#include "showfotokineticscroller.h"
 
 // Qt includes
 
@@ -104,8 +104,7 @@ public:
 ShowfotoKineticScroller::ShowfotoKineticScroller(QObject* const parent)
     : QObject(parent), d(new Private())
 {
-    connect(&d->kineticTimer, SIGNAL(timeout()),
-            SLOT(onKineticTimerElapsed()));
+    connect(&d->kineticTimer, &QTimer::timeout, this, &ShowfotoKineticScroller::onKineticTimerElapsed);
 }
 
 ShowfotoKineticScroller::~ShowfotoKineticScroller()

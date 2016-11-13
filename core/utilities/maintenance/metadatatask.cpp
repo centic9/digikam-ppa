@@ -6,7 +6,7 @@
  * Date        : 2013-08-09
  * Description : Thread actions task for metadata synchronizer.
  *
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,17 +21,13 @@
  *
  * ============================================================ */
 
-#include "metadatatask.moc"
-
-// KDE includes
-
-#include <kdebug.h>
-#include <threadweaver/ThreadWeaver.h>
+#include "metadatatask.h"
 
 // Local includes
 
 #include "collectionscanner.h"
 #include "metadatahub.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -57,7 +53,8 @@ public:
 // -------------------------------------------------------
 
 MetadataTask::MetadataTask()
-    : Job(0), d(new Private)
+    : ActionJob(),
+      d(new Private)
 {
 }
 
@@ -84,7 +81,7 @@ void MetadataTask::slotCancel()
 
 void MetadataTask::run()
 {
-    if(d->cancel)
+    if (d->cancel)
     {
         return;
     }
@@ -103,7 +100,7 @@ void MetadataTask::run()
         }
         else
         {
-            fileHub.write(d->item.filePath());
+            fileHub.write(d->item.filePath(), MetadataHub::WRITE_ALL, true);
         }
     }
     else // MetadataSynchronizer::ReadFromFileToDatabase
@@ -113,6 +110,7 @@ void MetadataTask::run()
     }
 
     emit signalFinished(QImage());
+    emit signalDone();
 }
 
 }  // namespace Digikam

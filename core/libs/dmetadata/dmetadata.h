@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : image metadata interface
  *
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -27,28 +27,19 @@
 
 // Qt includes
 
-#include <QtCore/QByteArray>
-
-// KDE includes
-
-#include <kurl.h>
-
-// LibKExiv2 includes
-
-#include <libkexiv2/kexiv2.h>
-#include <libkexiv2/kexiv2data.h>
-#include <libkexiv2/version.h>
+#include <QByteArray>
+#include <QUrl>
 
 // Local includes
 
-#include "dimg.h"
+#include "metaengine.h"
+#include "metaengine_data.h"
 #include "captionvalues.h"
 #include "metadatasettingscontainer.h"
 #include "infocontainer.h"
 #include "metadatainfo.h"
 #include "digikam_export.h"
-
-using namespace KExiv2Iface;
+#include "dmetadatasettings.h"
 
 namespace Digikam
 {
@@ -56,20 +47,20 @@ namespace Digikam
 class Template;
 class IccProfile;
 
-class DIGIKAM_EXPORT DMetadata : public KExiv2
+class DIGIKAM_EXPORT DMetadata : public MetaEngine
 {
 
 public:
 
     DMetadata();
     explicit DMetadata(const QString& filePath);
-    explicit DMetadata(const KExiv2Data& data);
+    explicit DMetadata(const MetaEngineData& data);
     ~DMetadata();
 
     void registerMetadataSettings();
     void setSettings(const MetadataSettingsContainer& settings);
 
-    /** Re-implemented from libKexiv2 to use dcraw identify method if Exiv2 failed.
+    /** Re-implemented from libMetaEngine to use dcraw identify method if Exiv2 failed.
      */
     bool load(const QString& filePath) const;
     bool save(const QString& filePath) const;
@@ -81,8 +72,9 @@ public:
 
     /** Metadata manipulation methods */
 
-    CaptionsMap getImageComments() const;
-    bool setImageComments(const CaptionsMap& comments) const;
+    CaptionsMap getImageComments(const DMetadataSettingsContainer &settings = DMetadataSettings::instance()->settings()) const;
+    bool setImageComments(const CaptionsMap& comments,
+                          const DMetadataSettingsContainer &settings = DMetadataSettings::instance()->settings()) const;
 
     int  getImagePickLabel() const;
     bool setImagePickLabel(int pickId) const;
@@ -93,11 +85,18 @@ public:
     CaptionsMap getImageTitles() const;
     bool setImageTitles(const CaptionsMap& title) const;
 
-    int  getImageRating() const;
-    bool setImageRating(int rating) const;
+    int  getImageRating(const DMetadataSettingsContainer &settings = DMetadataSettings::instance()->settings()) const;
+    bool setImageRating(int rating,
+                        const DMetadataSettingsContainer &settings = DMetadataSettings::instance()->settings()) const;
 
-    bool getImageTagsPath(QStringList& tagsPath) const;
-    bool setImageTagsPath(const QStringList& tagsPath) const;
+    bool getImageTagsPath(QStringList& tagsPath,
+                          const DMetadataSettingsContainer &settings = DMetadataSettings::instance()->settings()) const;
+    bool setImageTagsPath(const QStringList& tagsPath,
+                          const DMetadataSettingsContainer &settings = DMetadataSettings::instance()->settings()) const;
+
+    bool getACDSeeTagsPath(QStringList& tagsPath) const;
+
+    bool setACDSeeTagsPath(const QStringList& tagsPath) const;
 
     /** Get Images Face Map based on tags stored in Picassa/Metadatagroup
      * format. Use $ exiv2 -pa image to see the tag structure
@@ -190,21 +189,9 @@ public:
     static double apexApertureToFNumber(double aperture);
     static double apexShutterSpeedToExposureTime(double shutterSpeed);
 
-    static KExiv2::AltLangMap toAltLangMap(const QVariant& var);
+    static MetaEngine::AltLangMap toAltLangMap(const QVariant& var);
 
-    // These methods have been factored to libkexiv2 2.3.0. Remove it after KDE 4.8.2
-#if KEXIV2_VERSION < 0x020300
-    static QString sidecarPath(const QString& path);
-    /** Like KExiv2::sidecarFilePathForFile, but works for remote URLs */
-    static KUrl sidecarUrl(const KUrl& url);
-    /** Gives a file url for a local path */
-    static KUrl sidecarUrl(const QString& path);
-    /** Performs a QFileInfo based check if the given local file has a sidecar */
-    static bool hasSidecar(const QString& path);
-#endif // KEXIV2_VERSION < 0x020300
-
-    //------------------------------------------------------------------------------------------------
-    // Pushed to libkexiv2 for KDE4.4
+    // These methods have been factored to libMetaEngine 2.3.0. Remove it after KDE 4.8.2
 
     /** Set an Xmp tag content using a list of strings defined by the 'entriesToAdd' parameter.
         The existing entries are preserved. The method will compare
@@ -269,23 +256,6 @@ public:
         Return true if subjects are no longer contained in metadata.
      */
     bool removeXmpSubCategories(const QStringList& categoriesToRemove, bool setProgramName=true);
-
-    // End: Pushed to libkexiv2 for KDE4.4
-    //------------------------------------------------------------------------------------------------
-
-    //------------------------------------------------------------------------------------------------
-    // Compatibility for < KDE 4.4.
-#if KEXIV2_VERSION < 0x010000
-    KExiv2Data data() const;
-    void setData(const KExiv2Data& data);
-
-    QByteArray getExifEncoded(bool addExifHeader=false) const
-    {
-        return getExif(addExifHeader);
-    }
-#endif
-    // End: Compatibility for < KDE 4.4
-    //------------------------------------------------------------------------------------------------
 
 private:
 

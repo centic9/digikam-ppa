@@ -6,7 +6,7 @@
  * Date        : 2005-24-01
  * Description : Chanels mixer filter
  *
- * Copyright (C) 2005-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010 by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -29,7 +29,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -59,7 +59,9 @@ public:
         blackBlueGain  = 0.0;
     };
 
-    ~MixerContainer() {};
+    ~MixerContainer()
+    {
+    };
 
 public:
 
@@ -90,18 +92,18 @@ class DIGIKAM_EXPORT MixerFilter : public DImgThreadedFilter
 
 public:
 
-    explicit MixerFilter(QObject* parent = 0);
-    explicit MixerFilter(DImg* orgImage, QObject* parent=0, const MixerContainer& settings=MixerContainer());
+    explicit MixerFilter(QObject* const parent = 0);
+    explicit MixerFilter(DImg* const orgImage, QObject* const parent=0, const MixerContainer& settings=MixerContainer());
     virtual ~MixerFilter();
 
     static QString          FilterIdentifier()
     {
-        return "digikam:MixerFilter";
+        return QLatin1String("digikam:MixerFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Channel Mixer Tool");
+        return QString::fromUtf8(I18N_NOOP("Channel Mixer Tool"));
     }
 
     static QList<int>       SupportedVersions()

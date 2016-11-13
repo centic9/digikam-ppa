@@ -7,7 +7,7 @@
  * Description : Graphics View for DImg preview
  *
  * Copyright (C) 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2014 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -48,6 +48,12 @@ public:
 
     explicit GraphicsDImgView(QWidget* const parent = 0);
     virtual ~GraphicsDImgView();
+
+    /** Store internal instance of item as GraphicsDImgItem. You can store DImgPreviewItem object also by this method.
+     *  Use item() or previewItem() to get right version.
+     *  Note: if you store a GraphicsDImgItem object, previewItem() will return 0.
+     */
+    void setItem(GraphicsDImgItem* const item);
 
     /** Return the instance of item set by setItem().
      */
@@ -95,12 +101,6 @@ Q_SIGNALS:
 protected:
 
     void drawForeground(QPainter* painter, const QRectF& rect);
-
-    /** Store internal instance of item as GraphicsDImgItem. You can store DImgPreviewItem object also by this method.
-     *  Use item() or previewItem() to get right version.
-     *  Note: if you store a GraphicsDImgItem object, previewItem() will return 0.
-     */
-    void setItem(GraphicsDImgItem* const item);
 
     void installPanIcon();
 

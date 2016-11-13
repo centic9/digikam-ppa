@@ -6,7 +6,7 @@
  * Date        : 2011-02-19
  * Description : A KIPI plugin to export images to VKontakte web service.
  *
- * Copyright (C) 2011-2012 by Alexander Potashev <aspotashev at gmail dot com>
+ * Copyright (C) 2011, 2012, 2015  Alexander Potashev <aspotashev@gmail.com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,8 +28,8 @@
 #include <QGroupBox>
 
 class QLabel;
+class QPushButton;
 
-class KPushButton;
 class KJob;
 
 namespace Vkontakte
@@ -84,7 +84,7 @@ private:
 
     // GUI
     QLabel*      m_loginLabel;
-    KPushButton* m_changeUserButton;
+    QPushButton* m_changeUserButton;
 };
 
 } // namespace KIPIVkontaktePlugin

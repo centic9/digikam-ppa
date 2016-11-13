@@ -1,76 +1,54 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copyright (c) 2008-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
-# Copyright (c)      2012, Benjamin Girault <benjamin dot girault at gmail dot com>
+# Copyright (c) 2012-2016, Benjamin Girault <benjamin dot girault at gmail dot com>
+# Copyright (c)      2015, Ulf Rompe <kde dot org at rompe dot org>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 # See README.LOCAL for more information
 
+# WARNING: Make sure you understand what this does before using it!
+
 ########################## CONFIG ######################
+
+# Replace this with the directory where you want your local digikam
+DIGIKAM_INSTALL_PREFIX=$HOME/local/opt/digikam
 
 # Set to 1 if you want to clean that directory (this script will delete and recreate it)
 CLEANROOT=0
 
-# Set the ccache path for faster compile cycles
-CCACHE_PATH=/usr/lib/ccache/bin
-
-# Replace path/to/your/root/directory with the directory where you want your local digikam
-
-DIGIKAM_INSTALL_PREFIX=$HOME/path/to/your/root/directory
+# Additional options for cmake.
+#ADDITIONAL_CMAKE_FLAGS='-DCMAKE_CXX_FLAGS="-pedantic -Werror=return-type" -DCMAKE_C_FLAGS="-pedantic -Werror=return-type"'
 
 ###################### END CONFIG ######################
 
-QT_INSTALL_PREFIX=`qmake -query "QT_INSTALL_PREFIX"`
-QT_BIN=$QT_INSTALL_PREFIX/bin
-export PATH=$QT_BIN:$PATH
-export MAKEFILES_TYPE='Unix Makefiles'
-
-export PATH=$CCACHE_PATH:$DIGIKAM_INSTALL_PREFIX/bin:$PATH
-export LD_LIBRARY_PATH=$DIGIKAM_INSTALL_PREFIX/lib:$LD_LIBRARY_PATH
-export PKG_CONFIG_PATH=$DIGIKAM_INSTALL_PREFIX/lib/pkgconfig:/usr/lib/pkgconfig
-
-#export VERBOSE=1
-#export CC=gcc4.4
-#export CXX=g++4.4
-
-# Manage local install dir
-if [ "$CLEANROOT" = "1" ]
-then
-    rm -Rf $DIGIKAM_INSTALL_PREFIX
+if [ "$CLEANROOT" == "1" ]; then
+    if expr $DIGIKAM_INSTALL_PREFIX : $HOME'.*'; then
+        rm -Rf $DIGIKAM_INSTALL_PREFIX
+    else
+        echo "Refusing to remove $DIGIKAM_INSTALL_PREFIX since it is outside your HOME."
+    fi
 fi
-mkdir -p $DIGIKAM_INSTALL_PREFIX
+. `dirname $0`/bootstrap.linux $*
+mkdir -p $DIGIKAM_INSTALL_PREFIX/var/tmp/kde-$USER
 
-# Manage build sub-dir
-if [ ! -d "build" ]
-then
-    mkdir build
-fi
-cd build
+cat << EOF > finish_install.sh
+#!/bin/bash
+KCOCA=$DIGIKAM_INSTALL_PREFIX/var/tmp/kde-$USER/ksycoca5
+XDG=$DIGIKAM_INSTALL_PREFIX/share:\$XDG_DATA_DIRS
+QTPLUG=$DIGIKAM_INSTALL_PREFIX/lib64/plugins:$DIGIKAM_INSTALL_PREFIX/lib/plugins:$QT_PLUGIN_PATH
 
-cmake -G "$MAKEFILES_TYPE" . \
-      -DCMAKE_BUILD_TYPE=debugfull \
-      -DCMAKE_INSTALL_PREFIX=$DIGIKAM_INSTALL_PREFIX/ \
-      -DCMAKE_CXX_FLAGS="-pedantic -Werror=return-type" \
-      -DCMAKE_C_FLAGS="-pedantic -Werror=return-type" \
-      -DKDE4_BUILD_TESTS=ON \
-      -DDIGIKAMSC_CHECKOUT_PO=OFF \
-      -DDIGIKAMSC_COMPILE_PO=OFF \
-      -DDIGIKAMSC_COMPILE_DOC=ON \
-      -DDIGIKAMSC_COMPILE_LIBKIPI=OFF \
-      -DDIGIKAMSC_COMPILE_LIBKEXIV2=OFF \
-      -DDIGIKAMSC_COMPILE_LIBKDCRAW=OFF \
-      -DDIGIKAMSC_COMPILE_LIBKSANE=OFF \
-      -DDIGIKAMSC_COMPILE_LIBKFACE=OFF \
-      -DDIGIKAMSC_COMPILE_LIBKGEOMAP=OFF \
-      -DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=OFF \
-      -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=OFF \
-      -DENABLE_OPENCV3=OFF \
-      -DENABLE_LCMS2=ON \
-      -DENABLE_BALOOSUPPORT=ON \
-      -DENABLE_KDEPIMLIBSSUPPORT=ON \
-      -DENABLE_MYSQLSUPPORT=OFF \
-      -DENABLE_INTERNALMYSQL=OFF \
-      -Wno-dev \
-      ..
+KDESYCOCA="\$KCOCA" XDG_DATA_DIRS="\$XDG" QT_PLUGIN_PATH="\$QTPLUG" kbuildsycoca5
+echo "Use the following command line to start digiKam:"
+echo "  KDESYCOCA="\$KCOCA" XDG_DATA_DIRS=\$XDG QT_PLUGIN_PATH=\$QTPLUG $DIGIKAM_INSTALL_PREFIX/bin/digikam"
+echo
+echo "or add an alias to your .bashrc file:"
+echo "  alias digikam-dev=\"KDESYCOCA=\$KCOCA XDG_DATA_DIRS=\$XDG QT_PLUGIN_PATH=\$QTPLUG $DIGIKAM_INSTALL_PREFIX/bin/digikam\""
+echo "and start digiKam using \"digikam-dev\""
+EOF
+chmod u+x finish_install.sh
+
+echo
+echo -e "\033[01;32m[Important]\033[00m After compiling and installing digiKam, run the script build/finish_install.sh to finalize the install."

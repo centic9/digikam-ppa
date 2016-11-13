@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow end view
  *
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,22 +21,20 @@
  *
  * ============================================================ */
 
-#include "slideend.moc"
+#include "slideend.h"
 
 // Qt includes
 
 #include <QLabel>
 #include <QGridLayout>
 #include <QPalette>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdialog.h>
-#include <klocale.h>
-#include <kaboutdata.h>
-#include <kglobal.h>
-#include <kcomponentdata.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
 namespace Digikam
 {
@@ -47,6 +45,8 @@ SlideEnd::SlideEnd(QWidget* const parent)
     setAttribute(Qt::WA_DeleteOnClose);
     setMouseTracking(true);
     setAutoFillBackground(true);
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     QPalette palette;
     palette.setColor(backgroundRole(), Qt::black);
@@ -63,15 +63,13 @@ SlideEnd::SlideEnd(QWidget* const parent)
 
     QPixmap logo;
 
-    if (KGlobal::mainComponent().aboutData()->appName() == QString("digikam"))
+    if (QApplication::applicationName() == QLatin1String("digikam"))
     {
-        logo = QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                .scaled(128, 128, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        logo = QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48));
     }
     else
     {
-        logo = QPixmap(KStandardDirs::locate("data", "showfoto/data/logo-showfoto.png"))
-                .scaled(128, 128, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        logo = QIcon::fromTheme(QLatin1String("showfoto")).pixmap(QSize(48,48));
     }
 
     logoLabel->setPixmap(logo);
@@ -85,8 +83,8 @@ SlideEnd::SlideEnd(QWidget* const parent)
     grid->setColumnStretch(2, 10);
     grid->setRowStretch(0, 1);
     grid->setRowStretch(2, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 }
 
 SlideEnd::~SlideEnd()

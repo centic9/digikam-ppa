@@ -7,7 +7,7 @@
  * Description : Color management setup tab.
  *
  * Copyright (C) 2005-2007 by F.J. Cruz <fj dot cruz at supercable dot es>
- * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -31,16 +31,13 @@
 #include <QScrollArea>
 #include <QMap>
 #include <QDir>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "digikam_export.h"
 
-class KPageDialog;
+class QDialogButtonBox;
 
 namespace Digikam
 {
@@ -53,7 +50,7 @@ class SetupICC : public QScrollArea
 
 public:
 
-    explicit SetupICC(KPageDialog* const dialog, QWidget* const parent = 0);
+    explicit SetupICC(QDialogButtonBox* const dlgBtnBox, QWidget* const parent = 0);
     ~SetupICC();
 
     void applySettings();
@@ -70,7 +67,6 @@ private:
 private Q_SLOTS:
 
     void slotToggledEnabled();
-    void processLcmsUrl(const QString&);
     void slotUrlChanged();
     void slotUrlTextChanged();
     void slotClickedIn();

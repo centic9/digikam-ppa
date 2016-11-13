@@ -6,7 +6,7 @@
  * Date        : 2012-01-24
  * Description : slideshow builder progress indicator
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,10 +24,6 @@
 #ifndef SLIDESHOWBUILDER_H
 #define SLIDESHOWBUILDER_H
 
-// Qt includes
-
-#include <QString>
-
 // Local includes
 
 #include "imageinfo.h"
@@ -44,10 +40,14 @@ class SlideShowBuilder : public ProgressItem
 
 public:
 
-    /** Contructor to work on image list */
+    /** Contructor to work on image list
+     */
     explicit SlideShowBuilder(const ImageInfoList& infoList);
-    /** Contructor to work on recursive mode from album */
+
+    /** Contructor to work on recursive mode from album
+     */
     explicit SlideShowBuilder(Album* const album);
+
     ~SlideShowBuilder();
 
     /**

@@ -20,19 +20,20 @@
  *
  * ============================================================ */
 
-#include "fbalbum.moc"
+#include "fbalbum.h"
 
 // Qt includes
 
 #include <QFormLayout>
+#include <QComboBox>
+#include <QApplication>
+#include <QStyle>
+#include <QtWidgets/QDialogButtonBox>
+#include <QtWidgets/QPushButton>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <klineedit.h>
-#include <ktextedit.h>
-#include <kcombobox.h>
+#include <klocalizedstring.h>
 
 // local includes
 
@@ -41,48 +42,27 @@
 namespace KIPIFacebookPlugin
 {
 
-FbNewAlbum::FbNewAlbum(QWidget* const parent)
-    : KDialog(parent)
+FbNewAlbum::FbNewAlbum(QWidget* const parent, const QString& pluginName)
+    : KPNewAlbumDialog(parent, pluginName)
 {
-    QString header(i18n("Facebook New Album"));
-    setWindowTitle(header);
-    setButtons(Ok|Cancel);
-    setDefaultButton(Cancel);
-    setModal(false);
+    hideDateTime();
 
-    QWidget* const mainWidget = new QWidget(this);
-    setMainWidget(mainWidget);
-    mainWidget->setMinimumSize(400, 300);
-
-    // ------------------------------------------------------------------------
-    m_titleEdt          = new KLineEdit;
-    m_titleEdt->setWhatsThis(i18n("Title of the album that will be created (required)."));
-
-    m_locEdt            = new KLineEdit;
-    m_locEdt->setWhatsThis(i18n("Location of the album that will be created (optional)."));
-
-    m_descEdt           = new KTextEdit;
-    m_descEdt->setWhatsThis(i18n("Description of the album that will be created (optional)."));
-
-    m_privacyCoB        = new KComboBox;
+    m_privacyCoB        = new QComboBox;
     m_privacyCoB->setEditable(false);
     m_privacyCoB->setWhatsThis(i18n("Privacy setting of the album that will be created (required)."));
-    m_privacyCoB->addItem(KIcon("secure-card"),           i18n("Only Me"),                 FB_ME);
-    m_privacyCoB->addItem(KIcon("user-identity"),         i18n("Only Friends"),            FB_FRIENDS);
-    m_privacyCoB->addItem(KIcon("system-users"),          i18n("Friends of Friends"),      FB_FRIENDS_OF_FRIENDS);
-    m_privacyCoB->addItem(KIcon("network-workgroup"),     i18n("My Networks and Friends"), FB_NETWORKS);
-    m_privacyCoB->addItem(KIcon("applications-internet"), i18n("Everyone"),                FB_EVERYONE);
+    m_privacyCoB->addItem(QIcon::fromTheme(QString::fromLatin1("secure-card")),
+                          i18n("Only Me"),                 FB_ME);
+    m_privacyCoB->addItem(QIcon::fromTheme(QString::fromLatin1("user-identity")),
+                          i18n("Only Friends"),            FB_FRIENDS);
+    m_privacyCoB->addItem(QIcon::fromTheme(QString::fromLatin1("system-users")),
+                          i18n("Friends of Friends"),      FB_FRIENDS_OF_FRIENDS);
+    m_privacyCoB->addItem(QIcon::fromTheme(QString::fromLatin1("network-workgroup")),
+                          i18n("My Networks and Friends"), FB_NETWORKS);
+    m_privacyCoB->addItem(QIcon::fromTheme(QString::fromLatin1("folder-html")),
+                          i18n("Everyone"),                FB_EVERYONE);
     m_privacyCoB->setCurrentIndex(1);
 
-    QFormLayout* const albumBoxLayout = new QFormLayout;
-    albumBoxLayout->addRow(i18nc("new facebook album", "Title:"),       m_titleEdt);
-    albumBoxLayout->addRow(i18nc("new facebook album", "Location:"),    m_locEdt);
-    albumBoxLayout->addRow(i18nc("new facebook album", "Description:"), m_descEdt);
-    albumBoxLayout->addRow(i18nc("new facebook album", "Privacy:"),     m_privacyCoB);
-    albumBoxLayout->setFieldGrowthPolicy(QFormLayout::AllNonFixedFieldsGrow);
-    albumBoxLayout->setSpacing(KDialog::spacingHint());
-    albumBoxLayout->setMargin(KDialog::spacingHint());
-    mainWidget->setLayout(albumBoxLayout);
+    addToMainLayout(m_privacyCoB);
 }
 
 FbNewAlbum::~FbNewAlbum()
@@ -91,9 +71,9 @@ FbNewAlbum::~FbNewAlbum()
 
 void FbNewAlbum::getAlbumProperties(FbAlbum& album)
 {
-    album.title       = m_titleEdt->text();
-    album.location    = m_locEdt->text();
-    album.description = m_descEdt->toPlainText();
+    album.title       = getTitleEdit()->text();
+    album.location    = getLocEdit()->text();
+    album.description = getDescEdit()->toPlainText();
     album.privacy     = static_cast<KIPIFacebookPlugin::FbPrivacy>(m_privacyCoB->itemData(m_privacyCoB->currentIndex()).toInt());
 }
 

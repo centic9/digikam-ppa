@@ -1,0 +1,220 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <peremen@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2015-11-15 16:07+0100\n"
+"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_yandexfotkiui.rc:7
+msgid "&Export"
+msgstr "내보내기(&E)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_yandexfotkiui.rc:13
+msgid "Main Toolbar"
+msgstr "주 도구 모음"
+
+#: plugin_yandexfotki.cpp:91
+msgid "Export to &Yandex.Fotki..."
+msgstr "Yandex.Fotki로 내보내기(&Y)..."
+
+#: yfalbumdialog.cpp:60
+msgid "Password for the album (optional)."
+msgstr "앨범 암호입니다(선택)."
+
+#: yfalbumdialog.cpp:63
+msgid "Password:"
+msgstr "암호:"
+
+#: yfalbumdialog.cpp:80
+msgid "Error"
+msgstr "오류"
+
+#: yfalbumdialog.cpp:80
+msgid "Title cannot be empty."
+msgstr "제목을 비워 둘 수 없습니다."
+
+#: yfwidget.cpp:61
+msgid "Update policy:"
+msgstr "업데이트 정책:"
+
+#: yfwidget.cpp:63
+msgid "Update metadata"
+msgstr "메타데이터 업데이트"
+
+#: yfwidget.cpp:64
+msgid "Update metadata of remote file and merge remote tags with local"
+msgstr "원격 파일의 메타데이터를 업데이트하고 원격 태그와 로컬 태그 합치기"
+
+#: yfwidget.cpp:66
+msgid "Skip photo"
+msgstr "사진 건너뛰기"
+
+#: yfwidget.cpp:67
+msgid "Simple skip photo"
+msgstr "간단히 사진 건너뛰기"
+
+#: yfwidget.cpp:68
+msgid "Upload as new"
+msgstr "새로 업로드하기"
+
+#: yfwidget.cpp:69
+msgid "Add photo as new"
+msgstr "새로 사진 추가하기"
+
+#: yfwidget.cpp:71
+msgid "Privacy settings:"
+msgstr "정보 보호 설정:"
+
+#: yfwidget.cpp:74
+msgid "Public access"
+msgstr "공개 접근"
+
+#: yfwidget.cpp:76
+msgid "Friends access"
+msgstr "친구들만 접근"
+
+#: yfwidget.cpp:78
+msgid "Private access"
+msgstr "비밀 접근"
+
+#: yfwidget.cpp:80
+msgid "Hide original photo"
+msgstr "원본 사진 숨기기"
+
+#: yfwidget.cpp:81
+msgid "Disable comments"
+msgstr "댓글 비활성화"
+
+#: yfwidget.cpp:82
+msgid "Adult content"
+msgstr "성인물로 표시"
+
+#: yfwindow.cpp:128
+msgid "Yandex.Fotki Plugin"
+msgstr "Yandex.Fotki 플러그인"
+
+#: yfwindow.cpp:129
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to export image collections to Yandex.Fotki web service."
+msgid "A tool to export image collections to Yandex.Fotki web service."
+msgstr "Yandex.Fotki 웹 서비스로 사진을 가져오고 내보내는 Kipi 플러그인입니다."
+
+#: yfwindow.cpp:131
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2015, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Roman Tsisyk"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2015, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Roman Tsisyk"
+
+#: yfwindow.cpp:136
+msgid "Roman Tsisyk"
+msgstr "Roman Tsisyk"
+
+#: yfwindow.cpp:137
+msgid "Author"
+msgstr "작성자"
+
+#: yfwindow.cpp:249
+msgid "Unauthorized"
+msgstr "인증되지 않음"
+
+#: yfwindow.cpp:262
+msgctxt "Yandex.Fotki"
+msgid "Y"
+msgstr "Y"
+
+#: yfwindow.cpp:263
+msgctxt "Yandex.Fotki"
+msgid "andex."
+msgstr "andex."
+
+#: yfwindow.cpp:264
+msgctxt "Yandex.Fotki"
+msgid "Fotki"
+msgstr "Fotki"
+
+#: yfwindow.cpp:588
+msgid "Processing Failed"
+msgstr "처리 실패"
+
+#: yfwindow.cpp:589
+#, kde-format
+msgid ""
+"Failed to prepare image %1\n"
+"Do you want to continue?"
+msgstr ""
+"사진 %1을(를) 준비할 수 없습니다.\n"
+"계속 진행하시겠습니까?"
+
+#: yfwindow.cpp:616
+msgid "Images has been uploaded"
+msgstr "사진 업로드함"
+
+#: yfwindow.cpp:646
+msgid "Please select album first"
+msgstr "앨범을 먼저 선택하십시오"
+
+#: yfwindow.cpp:668
+msgid "Session error"
+msgstr "세션 오류"
+
+#: yfwindow.cpp:671
+msgid "Token error"
+msgstr "토큰 오류"
+
+#: yfwindow.cpp:674
+msgid "Invalid credentials"
+msgstr "잘못된 인증 정보"
+
+#: yfwindow.cpp:678
+msgid "Cannot get service document"
+msgstr "서비스 문서를 가져올 수 없음"
+
+#: yfwindow.cpp:691
+msgid "Cannot list albums"
+msgstr "앨범 목록을 가져올 수 없음"
+
+#: yfwindow.cpp:694
+msgid "Cannot list photos"
+msgstr "사진 목록을 가져올 수 없음"
+
+#: yfwindow.cpp:697
+msgid "Cannot update album info"
+msgstr "앨범 정보를 업데이트할 수 없음"
+
+#: yfwindow.cpp:703
+msgid "Uploading Failed"
+msgstr "업로드 실패"
+
+#: yfwindow.cpp:704
+#, kde-format
+msgid ""
+"Failed to upload image %1\n"
+"Do you want to continue?"
+msgstr ""
+"사진 %1을(를) 업로드할 수 없습니다.\n"
+"계속 진행하시겠습니까?"
+
+#: yfwindow.cpp:725
+msgid "Unknown error"
+msgstr "알 수 없는 오류"

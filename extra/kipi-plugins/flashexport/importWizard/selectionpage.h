@@ -6,7 +6,8 @@
  * Date        : 2011-09-13
  * Description : a plugin to export to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,10 +28,10 @@
 
 #include <QWidget>
 
-// Include files for KIPI
+// Libkipi includes
 
-#include <libkipi/interface.h>
-#include <libkipi/imagecollection.h>
+#include <KIPI/Interface>
+#include <KIPI/ImageCollection>
 
 // Local includes
 
@@ -42,7 +43,7 @@ using namespace KIPIPlugins;
 namespace KIPIFlashExportPlugin
 {
 
-class FlashManager; 
+class FlashManager;
 
 class SelectionPage: public KPWizardPage
 {
@@ -50,7 +51,7 @@ class SelectionPage: public KPWizardPage
 
 public:
 
-    SelectionPage(FlashManager* const mngr, KAssistantDialog* const dlg);
+    SelectionPage(FlashManager* const mngr, KPWizardDialog* const dlg);
     ~SelectionPage();
 
     /**
@@ -67,15 +68,15 @@ public:
     /**
      * Check if at least one collection or one image is selected
      * User won't be allowed to start export with no images selected
-     * @param imageGetOption 0 - collection 1 - iamgeDialog
+     * @param imageGetOption 0 - collection 1 - ImageDialog
      * to know where to check for selected images
      */
     bool isSelectionEmpty(int imageGetOption);
 
 private:
 
-    class SelectionPagePriv;
-    SelectionPagePriv* const d;
+    class Private;
+    Private* const d;
 };
 
 }   // namespace KIPIFlashExportPlugin

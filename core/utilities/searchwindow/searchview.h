@@ -32,9 +32,8 @@
 #include <QWidget>
 
 class QHBoxLayout;
-
-class KDialogButtonBox;
-class KPushButton;
+class QDialogButtonBox;
+class QPushButton;
 
 namespace Digikam
 {
@@ -183,9 +182,9 @@ protected:
 
     QHBoxLayout*                m_mainLayout;
 
-    KDialogButtonBox*           m_buttonBox;
-    KPushButton*                m_addGroupsButton;
-    KPushButton*                m_resetButton;
+    QDialogButtonBox*           m_buttonBox;
+    QPushButton*                m_addGroupsButton;
+    QPushButton*                m_resetButton;
 
     SearchViewThemedPartsCache* m_themeCache;
 };

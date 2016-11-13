@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2004      by Till Adam <adam at kde dot org>
  *
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "progressmanager.moc"
+#include "progressmanager.h"
 
 // Qt includes
 
@@ -33,15 +33,17 @@
 #include <QMutexLocker>
 #include <QThread>
 #include <QEventLoop>
+#include <QMessageBox>
+#include <QIcon>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <klocale.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <kapplication.h>
-#include <kmessagebox.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -60,6 +62,7 @@ public:
         usesBusyIndicator(false),
         canBeCanceled(false),
         hasThumb(false),
+        showAtStart(false),
         progress(0),
         total(0),
         completed(0),
@@ -72,6 +75,7 @@ public:
     bool            usesBusyIndicator;
     bool            canBeCanceled;
     bool            hasThumb;
+    bool            showAtStart;   // Force to show progress item when it's add in progress manager
 
     QAtomicInt      progress;
     QAtomicInt      total;
@@ -101,6 +105,16 @@ ProgressItem::ProgressItem(ProgressItem* const parent, const QString& id,
 ProgressItem::~ProgressItem()
 {
     delete d;
+}
+
+void ProgressItem::setShowAtStart(bool showAtStart)
+{
+    d->showAtStart = showAtStart;
+}
+
+bool ProgressItem::showAtStart() const
+{
+    return d->showAtStart;
 }
 
 void ProgressItem::setComplete()
@@ -184,21 +198,19 @@ void ProgressItem::setUsesBusyIndicator(bool useBusyIndicator)
     emit progressItemUsesBusyIndicator(this, useBusyIndicator);
 }
 
-void ProgressItem::setThumbnail(const QPixmap& thumb)
+void ProgressItem::setThumbnail(const QIcon& icon)
 {
     if (!hasThumbnail()) return;
 
-    QPixmap pix = thumb;
+    int iconSize = qApp->style()->pixelMetric(QStyle::PM_SmallIconSize);
 
-    if (pix.isNull())
+    if (icon.isNull())
     {
-        pix = DesktopIcon("image-missing", KIconLoader::SizeSmallMedium);
+        emit progressItemThumbnail(this, QIcon::fromTheme(QLatin1String("image-missing")).pixmap(iconSize));
+        return;
     }
-    else
-    {
-        pix = pix.scaled(KIconLoader::SizeSmallMedium, KIconLoader::SizeSmallMedium, 
-                         Qt::KeepAspectRatio, Qt::FastTransformation);
-    }
+
+    QPixmap pix = icon.pixmap(iconSize);
 
     emit progressItemThumbnail(this, pix);
 }
@@ -342,7 +354,7 @@ public:
     QEventLoop*                   waitingLoop;
 };
 
-K_GLOBAL_STATIC(ProgressManagerCreator, creator)
+Q_GLOBAL_STATIC(ProgressManagerCreator, creator)
 
 void ProgressManager::Private::addItem(ProgressItem* const t, ProgressItem* const parent)
 {
@@ -383,7 +395,7 @@ ProgressManager::ProgressManager()
 {
     if (thread() != QApplication::instance()->thread())
     {
-        kWarning() << "Attention: ProgressManager was created from a thread. Create it in the main thread!";
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Attention: ProgressManager was created from a thread. Create it in the main thread!";
         moveToThread(QApplication::instance()->thread());
     }
 
@@ -462,8 +474,7 @@ bool ProgressManager::addProgressItem(ProgressItem* const t, ProgressItem* const
     }
     else
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("A tool identified as \"%1\" is already running....", t->id()));
+        qCWarning(DIGIKAM_GENERAL_LOG) << "A tool identified as " << t->id() << " is already running.";
         t->setComplete();
         return false;
     }
@@ -476,9 +487,10 @@ void ProgressManager::addProgressItemImpl(ProgressItem* const t, ProgressItem* c
         if (t->thread() != QThread::currentThread())
         {
             // we cannot moveToThread this item living in a third thread. Refusing to add.
-            kError() << "Refusing to add in thread 1 a ProgressItem created in thread 2 to ProgressManager, living in thread 3";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Refusing to add in thread 1 a ProgressItem created in thread 2 to ProgressManager, living in thread 3";
             return;
         }
+
         // Move to ProgressManager's thread
         t->moveToThread(thread());
     }
@@ -580,10 +592,12 @@ void ProgressManager::slotAbortAll()
     QHash<QString,ProgressItem*> hash;
     {
         QMutexLocker lock(&d->mutex);
+
         if (d->transactions.isEmpty())
         {
             return;
         }
+
         hash = d->transactions;
     }
 

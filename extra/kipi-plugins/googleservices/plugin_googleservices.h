@@ -6,7 +6,8 @@
  * Date        : 2013-11-18
  * Description : a kipi plugin to export images to Google-Drive web service
  *
- * Copyright (C) 2013 by Pankaj Kumar <me at panks dot me>
+ * Copyright (C) 2013      by Pankaj Kumar <me at panks dot me>
+ * Copyright (C) 2008-2016 by Caulier Gilles <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,16 +30,14 @@
 
 // Libkipi includes
 
-#include <libkipi/plugin.h>
+#include <KIPI/Plugin>
 
-class KAction;
+class QAction;
 
 namespace KIPIGoogleServicesPlugin
 {
     class GSWindow;
 }
-
-class KJob;
 
 using namespace KIPI;
 
@@ -59,22 +58,23 @@ public:
 public Q_SLOTS:
 
     void slotGDriveExport();
-    void slotPicasaExport();
-    void slotPicasaImport();
+    void slotGPhotoExport();
+    void slotGPhotoImport();
 
 private:
 
     void setupActions();
+    QString getTempDirPath();
 
 private:
 
-    KAction*  m_actionGDriveExport;
-    KAction*  m_actionPicasaExport;
-    KAction*  m_actionPicasaImport;
+    QAction*       m_actionGDriveExport;
+    QAction*       m_actionGPhotoExport;
+    QAction*       m_actionGPhotoImport;
 
-    GSWindow* m_dlgGDriveExport;
-    GSWindow* m_dlgPicasaExport;
-    GSWindow* m_dlgPicasaImport;
+    GSWindow*      m_dlgGDriveExport;
+    GSWindow*      m_dlgGPhotoExport;
+    GSWindow*      m_dlgGPhotoImport;
 };
 
 } // namespace KIPIGoogleServicesPlugin

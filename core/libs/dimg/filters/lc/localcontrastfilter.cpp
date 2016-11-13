@@ -9,7 +9,7 @@
  *
  * Copyright (C) 2009      by Nasca Octavian Paul <zynaddsubfx at yahoo dot com>
  * Copyright (C) 2009      by Julien Pontabry <julien dot pontabry at gmail dot com>
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -29,15 +29,12 @@
 
 // Qt includes
 
-#include <qmath.h>
-#include <QtConcurrentRun>
-
-// KDE includes
-
-#include <kdebug.h>
+#include <QtMath>
+#include <QtConcurrent>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "randomnumbergenerator.h"
 
 namespace Digikam
@@ -68,7 +65,7 @@ LocalContrastFilter::LocalContrastFilter(QObject* const parent)
 }
 
 LocalContrastFilter::LocalContrastFilter(DImg* const image, QObject* const parent, const LocalContrastContainer& par)
-    : DImgThreadedFilter(image, parent, "LocalContrast"),
+    : DImgThreadedFilter(image, parent, QLatin1String("LocalContrast")),
       d(new Private)
 {
     d->par = par;
@@ -366,8 +363,8 @@ void LocalContrastFilter::processRgbImage(float* const img, int sizex, int sizey
 
     if ((d->par.highSaturation != 100) || (d->par.lowSaturation != 100))
     {
-        kDebug() << "highSaturation : " << d->par.highSaturation;
-        kDebug() << "lowSaturation : "  << d->par.lowSaturation;
+        qCDebug(DIGIKAM_DIMG_LOG) << "highSaturation : " << d->par.highSaturation;
+        qCDebug(DIGIKAM_DIMG_LOG) << "lowSaturation : "  << d->par.lowSaturation;
 
         QList <QFuture<void> > tasks;
 
@@ -688,48 +685,48 @@ FilterAction LocalContrastFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("functionId",      d->par.functionId);
-    action.addParameter("highSaturation",  d->par.highSaturation);
-    action.addParameter("lowSaturation",   d->par.lowSaturation);
-    action.addParameter("stretchContrast", d->par.stretchContrast);
+    action.addParameter(QLatin1String("functionId"),      d->par.functionId);
+    action.addParameter(QLatin1String("highSaturation"),  d->par.highSaturation);
+    action.addParameter(QLatin1String("lowSaturation"),   d->par.lowSaturation);
+    action.addParameter(QLatin1String("stretchContrast"), d->par.stretchContrast);
 
     for (int nstage = 0 ; nstage < TONEMAPPING_MAX_STAGES ; ++nstage)
     {
-        QString stage = QString("stage[%1]:").arg(nstage);
-        action.addParameter(stage + "enabled", d->par.stage[nstage].enabled);
+        QString stage = QString::fromLatin1("stage[%1]:").arg(nstage);
+        action.addParameter(stage + QLatin1String("enabled"), d->par.stage[nstage].enabled);
 
         if (d->par.stage[nstage].enabled)
         {
-            action.addParameter(stage + "power", d->par.stage[nstage].power);
-            action.addParameter(stage + "blur",  d->par.stage[nstage].blur);
+            action.addParameter(stage + QLatin1String("power"), d->par.stage[nstage].power);
+            action.addParameter(stage + QLatin1String("blur"),  d->par.stage[nstage].blur);
         }
     }
 
-    action.addParameter("randomSeed", d->generator.currentSeed());
+    action.addParameter(QLatin1String("randomSeed"), d->generator.currentSeed());
 
     return action;
 }
 
 void LocalContrastFilter::readParameters(const FilterAction& action)
 {
-    d->par.functionId      = action.parameter("functionId").toInt();
-    d->par.highSaturation  = action.parameter("highSaturation").toInt();
-    d->par.lowSaturation   = action.parameter("lowSaturation").toInt();
-    d->par.stretchContrast = action.parameter("stretchContrast").toBool();
+    d->par.functionId      = action.parameter(QLatin1String("functionId")).toInt();
+    d->par.highSaturation  = action.parameter(QLatin1String("highSaturation")).toInt();
+    d->par.lowSaturation   = action.parameter(QLatin1String("lowSaturation")).toInt();
+    d->par.stretchContrast = action.parameter(QLatin1String("stretchContrast")).toBool();
 
     for (int nstage = 0 ; nstage < TONEMAPPING_MAX_STAGES ; ++nstage)
     {
-        QString stage                = QString("stage[%1]:").arg(nstage);
-        d->par.stage[nstage].enabled = action.parameter(stage + "enabled").toBool();
+        QString stage                = QString::fromLatin1("stage[%1]:").arg(nstage);
+        d->par.stage[nstage].enabled = action.parameter(stage + QLatin1String("enabled")).toBool();
 
         if (d->par.stage[nstage].enabled)
         {
-            d->par.stage[nstage].power = action.parameter(stage + "power").toFloat();
-            d->par.stage[nstage].blur  = action.parameter(stage + "blur").toFloat();
+            d->par.stage[nstage].power = action.parameter(stage + QLatin1String("power")).toFloat();
+            d->par.stage[nstage].blur  = action.parameter(stage + QLatin1String("blur")).toFloat();
         }
     }
 
-    d->generator.seed(action.parameter("randomSeed").toUInt());
+    d->generator.seed(action.parameter(QLatin1String("randomSeed")).toUInt());
 }
 
 } // namespace Digikam

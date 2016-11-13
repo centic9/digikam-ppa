@@ -6,7 +6,7 @@
  * Date        : 2008-05-16
  * Description : fingerprints generator
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -22,23 +22,24 @@
  *
  * ============================================================ */
 
-#include "fingerprintsgenerator.moc"
+#include "fingerprintsgenerator.h"
 
 // Qt includes
 
 #include <QString>
+#include <QIcon>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kconfig.h>
+#include <kconfiggroup.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "dimg.h"
-#include "albumdb.h"
+#include "coredb.h"
 #include "albummanager.h"
-#include "databaseaccess.h"
+#include "coredbaccess.h"
 #include "maintenancethread.h"
 
 namespace Digikam
@@ -64,7 +65,7 @@ public:
 };
 
 FingerPrintsGenerator::FingerPrintsGenerator(const bool rebuildAll, const AlbumList& list, ProgressItem* const parent)
-    : MaintenanceTool("FingerPrintsGenerator", parent),
+    : MaintenanceTool(QLatin1String("FingerPrintsGenerator"), parent),
       d(new Private)
 {
     setLabel(i18n("Finger-prints"));
@@ -106,7 +107,7 @@ void FingerPrintsGenerator::slotStart()
         d->albumList = AlbumManager::instance()->allPAlbums();
     }
 
-    QStringList dirty = DatabaseAccess().db()->getDirtyOrMissingFingerprintURLs();
+    QStringList dirty = CoreDbAccess().db()->getDirtyOrMissingFingerprintURLs();
 
     // Get all digiKam albums collection pictures path, depending of d->rebuildAll flag.
 
@@ -117,11 +118,11 @@ void FingerPrintsGenerator::slotStart()
 
         if ((*it)->type() == Album::PHYSICAL)
         {
-            aPaths = DatabaseAccess().db()->getItemURLsInAlbum((*it)->id());
+            aPaths = CoreDbAccess().db()->getItemURLsInAlbum((*it)->id());
         }
         else if ((*it)->type() == Album::TAG)
         {
-            aPaths = DatabaseAccess().db()->getItemURLsInTag((*it)->id());
+            aPaths = CoreDbAccess().db()->getItemURLsInTag((*it)->id());
         }
 
         if (!d->rebuildAll)
@@ -154,14 +155,14 @@ void FingerPrintsGenerator::slotStart()
 
 void FingerPrintsGenerator::slotAdvance(const QImage& img)
 {
-    setThumbnail(QPixmap::fromImage(img));
+    setThumbnail(QIcon(QPixmap::fromImage(img)));
     advance(1);
 }
 
 void FingerPrintsGenerator::slotDone()
 {
     // Switch on scanned for finger-prints flag on digiKam config file.
-    KGlobal::config()->group("General Settings").writeEntry("Finger Prints Generator First Run", true);
+    KSharedConfig::openConfig()->group(QLatin1String("General Settings")).writeEntry(QLatin1String("Finger Prints Generator First Run"), true);
 
     MaintenanceTool::slotDone();
 }

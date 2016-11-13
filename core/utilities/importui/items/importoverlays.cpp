@@ -7,7 +7,7 @@
  * Description : Overlays for the import interface
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,13 +22,11 @@
  *
  * ============================================================ */
 
-#include "importoverlays.moc"
+#include "importoverlays.h"
 
 // KDE includes
 
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kglobalsettings.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -269,7 +267,7 @@ void ImportDownloadOverlay::slotEntered(const QModelIndex& index)
 
 // -- Rating Overlay ------------------------------------------------------------------
 
-ImportRatingOverlay::ImportRatingOverlay(QObject* parent)
+ImportRatingOverlay::ImportRatingOverlay(QObject* const parent)
     : AbstractWidgetDelegateOverlay(parent)
 {
 }
@@ -281,9 +279,8 @@ RatingWidget* ImportRatingOverlay::ratingWidget() const
 
 QWidget* ImportRatingOverlay::createWidget()
 {
-    const bool animate    = KGlobalSettings::graphicEffectsLevel() & KGlobalSettings::SimpleAnimationEffects;
     RatingWidget* const w = new RatingWidget(parentWidget());
-    w->setFading(animate);
+    w->setFading(true);
     w->setTracking(false);
     return w;
 }
@@ -419,15 +416,15 @@ QSize ImportRotateOverlayButton::sizeHint() const
     return QSize(32, 32);
 }
 
-QPixmap ImportRotateOverlayButton::icon()
+QIcon ImportRotateOverlayButton::icon()
 {
     if (m_direction == ImportRotateOverlayLeft)
     {
-        return KIconLoader::global()->loadIcon("object-rotate-left", KIconLoader::NoGroup, KIconLoader::SizeMedium);
+        return QIcon::fromTheme(QLatin1String("object-rotate-left"));
     }
     else
     {
-        return KIconLoader::global()->loadIcon("object-rotate-right", KIconLoader::NoGroup, KIconLoader::SizeMedium);
+        return QIcon::fromTheme(QLatin1String("object-rotate-right"));
     }
 }
 
@@ -491,7 +488,7 @@ void ImportRotateOverlay::slotClicked()
 bool ImportRotateOverlay::checkIndex(const QModelIndex& index) const
 {
     CamItemInfo info = ImportImageModel::retrieveCamItemInfo(index);
-    return (info.mime.contains("image/"));
+    return (info.mime.contains(QLatin1String("image/")));
 }
 
 void ImportRotateOverlay::widgetEnterEvent()

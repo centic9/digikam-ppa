@@ -6,7 +6,7 @@
  * Date        : 2010-03-10
  * Description : Film Grain settings view.
  *
- * Copyright (C) 2010-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "filmgrainsettings.moc"
+#include "filmgrainsettings.h"
 
 // Qt includes
 
@@ -31,26 +31,21 @@
 #include <QFile>
 #include <QTextStream>
 #include <QCheckBox>
+#include <QUrl>
+#include <QApplication>
+#include <QStyle>
+#include <QStandardPaths>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
-
-using namespace KDcrawIface;
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -124,40 +119,40 @@ public:
 
     QCheckBox*           photoDistribution;
 
-    RIntNumInput*        grainSizeInput;
-    RIntNumInput*        intensityLumInput;
-    RIntNumInput*        shadowsLumInput;
-    RIntNumInput*        midtonesLumInput;
-    RIntNumInput*        highlightsLumInput;
-    RIntNumInput*        intensityChromaBlueInput;
-    RIntNumInput*        shadowsChromaBlueInput;
-    RIntNumInput*        midtonesChromaBlueInput;
-    RIntNumInput*        highlightsChromaBlueInput;
-    RIntNumInput*        intensityChromaRedInput;
-    RIntNumInput*        shadowsChromaRedInput;
-    RIntNumInput*        midtonesChromaRedInput;
-    RIntNumInput*        highlightsChromaRedInput;
+    DIntNumInput*        grainSizeInput;
+    DIntNumInput*        intensityLumInput;
+    DIntNumInput*        shadowsLumInput;
+    DIntNumInput*        midtonesLumInput;
+    DIntNumInput*        highlightsLumInput;
+    DIntNumInput*        intensityChromaBlueInput;
+    DIntNumInput*        shadowsChromaBlueInput;
+    DIntNumInput*        midtonesChromaBlueInput;
+    DIntNumInput*        highlightsChromaBlueInput;
+    DIntNumInput*        intensityChromaRedInput;
+    DIntNumInput*        shadowsChromaRedInput;
+    DIntNumInput*        midtonesChromaRedInput;
+    DIntNumInput*        highlightsChromaRedInput;
 
-    RExpanderBox*        expanderBox;
+    DExpanderBox*        expanderBox;
 };
 
-const QString FilmGrainSettings::Private::configGrainSizeEntry("GrainSizeEntry");
-const QString FilmGrainSettings::Private::configPhotoDistributionEntry("PhotoDistributionEntry");
-const QString FilmGrainSettings::Private::configAddLumNoiseEntry("AddLumNoiseEntry");
-const QString FilmGrainSettings::Private::configIntensityLumAdjustmentEntry("IntensityLumAdjustment");
-const QString FilmGrainSettings::Private::configShadowsLumAdjustmentEntry("ShadowsLumAdjustment");
-const QString FilmGrainSettings::Private::configMidtonesLumAdjustmentEntry("MidtonesLumAdjustment");
-const QString FilmGrainSettings::Private::configHighlightsLumAdjustmentEntry("HighlightsLumAdjustment");
-const QString FilmGrainSettings::Private::configAddChromaBlueNoiseEntry("AddChromaBlueNoiseEntry");
-const QString FilmGrainSettings::Private::configIntensityChromaBlueAdjustmentEntry("IntensityChromaBlueAdjustment");
-const QString FilmGrainSettings::Private::configShadowsChromaBlueAdjustmentEntry("ShadowsChromaBlueAdjustment");
-const QString FilmGrainSettings::Private::configMidtonesChromaBlueAdjustmentEntry("MidtonesChromaBlueAdjustment");
-const QString FilmGrainSettings::Private::configHighlightsChromaBlueAdjustmentEntry("HighlightsChromaBlueAdjustment");
-const QString FilmGrainSettings::Private::configAddChromaRedNoiseEntry("AddChromaRedNoiseEntry");
-const QString FilmGrainSettings::Private::configIntensityChromaRedAdjustmentEntry("IntensityChromaRedAdjustment");
-const QString FilmGrainSettings::Private::configShadowsChromaRedAdjustmentEntry("ShadowsChromaRedAdjustment");
-const QString FilmGrainSettings::Private::configMidtonesChromaRedAdjustmentEntry("MidtonesChromaRedAdjustment");
-const QString FilmGrainSettings::Private::configHighlightsChromaRedAdjustmentEntry("HighlightsChromaRedAdjustment");
+const QString FilmGrainSettings::Private::configGrainSizeEntry(QLatin1String("GrainSizeEntry"));
+const QString FilmGrainSettings::Private::configPhotoDistributionEntry(QLatin1String("PhotoDistributionEntry"));
+const QString FilmGrainSettings::Private::configAddLumNoiseEntry(QLatin1String("AddLumNoiseEntry"));
+const QString FilmGrainSettings::Private::configIntensityLumAdjustmentEntry(QLatin1String("IntensityLumAdjustment"));
+const QString FilmGrainSettings::Private::configShadowsLumAdjustmentEntry(QLatin1String("ShadowsLumAdjustment"));
+const QString FilmGrainSettings::Private::configMidtonesLumAdjustmentEntry(QLatin1String("MidtonesLumAdjustment"));
+const QString FilmGrainSettings::Private::configHighlightsLumAdjustmentEntry(QLatin1String("HighlightsLumAdjustment"));
+const QString FilmGrainSettings::Private::configAddChromaBlueNoiseEntry(QLatin1String("AddChromaBlueNoiseEntry"));
+const QString FilmGrainSettings::Private::configIntensityChromaBlueAdjustmentEntry(QLatin1String("IntensityChromaBlueAdjustment"));
+const QString FilmGrainSettings::Private::configShadowsChromaBlueAdjustmentEntry(QLatin1String("ShadowsChromaBlueAdjustment"));
+const QString FilmGrainSettings::Private::configMidtonesChromaBlueAdjustmentEntry(QLatin1String("MidtonesChromaBlueAdjustment"));
+const QString FilmGrainSettings::Private::configHighlightsChromaBlueAdjustmentEntry(QLatin1String("HighlightsChromaBlueAdjustment"));
+const QString FilmGrainSettings::Private::configAddChromaRedNoiseEntry(QLatin1String("AddChromaRedNoiseEntry"));
+const QString FilmGrainSettings::Private::configIntensityChromaRedAdjustmentEntry(QLatin1String("IntensityChromaRedAdjustment"));
+const QString FilmGrainSettings::Private::configShadowsChromaRedAdjustmentEntry(QLatin1String("ShadowsChromaRedAdjustment"));
+const QString FilmGrainSettings::Private::configMidtonesChromaRedAdjustmentEntry(QLatin1String("MidtonesChromaRedAdjustment"));
+const QString FilmGrainSettings::Private::configHighlightsChromaRedAdjustmentEntry(QLatin1String("HighlightsChromaRedAdjustment"));
 
 // --------------------------------------------------------
 
@@ -165,17 +160,18 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     : QWidget(parent),
       d(new Private)
 {
-    QGridLayout* grid = new QGridLayout(parent);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    QGridLayout* const grid = new QGridLayout(parent);
 
     // -------------------------------------------------------------
 
-    QWidget* commonPage = new QWidget();
-    QGridLayout* grid0  = new QGridLayout(commonPage);
+    QWidget* const commonPage = new QWidget();
+    QGridLayout* const grid0  = new QGridLayout(commonPage);
 
     d->sizeLabel        = new QLabel(i18n("Grain Size:"), commonPage);
-    d->grainSizeInput   = new RIntNumInput(commonPage);
+    d->grainSizeInput   = new DIntNumInput(commonPage);
     d->grainSizeInput->setRange(1, 5, 1);
-    d->grainSizeInput->setSliderEnabled(true);
     d->grainSizeInput->setDefaultValue(1);
     d->grainSizeInput->setWhatsThis(i18n("Set here the graininess size of film."));
 
@@ -186,17 +182,16 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     grid0->addWidget(d->sizeLabel,         0, 0, 1, 1);
     grid0->addWidget(d->grainSizeInput,    1, 0, 1, 1);
     grid0->addWidget(d->photoDistribution, 2, 0, 1, 1);
-    grid0->setMargin(KDialog::spacingHint());
+    grid0->setContentsMargins(spacing, spacing, spacing, spacing);
 
     // -------------------------------------------------------------
 
-    QWidget* firstPage   = new QWidget();
-    QGridLayout* grid1   = new QGridLayout(firstPage);
+    QWidget* const firstPage   = new QWidget();
+    QGridLayout* const grid1   = new QGridLayout(firstPage);
 
     d->label1            = new QLabel(i18n("Intensity:"), firstPage);
-    d->intensityLumInput = new RIntNumInput(firstPage);
+    d->intensityLumInput = new DIntNumInput(firstPage);
     d->intensityLumInput->setRange(1, 100, 1);
-    d->intensityLumInput->setSliderEnabled(true);
     d->intensityLumInput->setDefaultValue(25);
     d->intensityLumInput->setWhatsThis(i18n("Set here the film ISO-sensitivity to use for "
                                             "simulating the film graininess."));
@@ -204,27 +199,24 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     // -------------------------------------------------------------
 
     d->label2          = new QLabel(i18n("Shadows:"), firstPage);
-    d->shadowsLumInput = new RIntNumInput(firstPage);
+    d->shadowsLumInput = new DIntNumInput(firstPage);
     d->shadowsLumInput->setRange(-100, 100, 1);
-    d->shadowsLumInput->setSliderEnabled(true);
     d->shadowsLumInput->setDefaultValue(-100);
     d->shadowsLumInput->setWhatsThis(i18n("Set how much the filter affects highlights."));
 
     // -------------------------------------------------------------
 
     d->label3           = new QLabel(i18n("Midtones:"), firstPage);
-    d->midtonesLumInput = new RIntNumInput(firstPage);
+    d->midtonesLumInput = new DIntNumInput(firstPage);
     d->midtonesLumInput->setRange(-100, 100, 1);
-    d->midtonesLumInput->setSliderEnabled(true);
     d->midtonesLumInput->setDefaultValue(0);
     d->midtonesLumInput->setWhatsThis(i18n("Set how much the filter affects midtones."));
 
     // -------------------------------------------------------------
 
     d->label4             = new QLabel(i18n("Highlights:"), firstPage);
-    d->highlightsLumInput = new RIntNumInput(firstPage);
+    d->highlightsLumInput = new DIntNumInput(firstPage);
     d->highlightsLumInput->setRange(-100, 100, 1);
-    d->highlightsLumInput->setSliderEnabled(true);
     d->highlightsLumInput->setDefaultValue(-100);
     d->highlightsLumInput->setWhatsThis(i18n("Set how much the filter affects shadows."));
 
@@ -236,18 +228,17 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     grid1->addWidget(d->midtonesLumInput,   5, 0, 1, 1);
     grid1->addWidget(d->label4,             6, 0, 1, 1);
     grid1->addWidget(d->highlightsLumInput, 7, 0, 1, 1);
-    grid1->setMargin(KDialog::spacingHint());
-    grid1->setSpacing(KDialog::spacingHint());
+    grid1->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid1->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    QWidget* secondPage = new QWidget();
-    QGridLayout* grid2  = new QGridLayout(secondPage);
+    QWidget* const secondPage = new QWidget();
+    QGridLayout* const grid2  = new QGridLayout(secondPage);
 
     d->label5                   = new QLabel(i18n("Intensity:"), secondPage);
-    d->intensityChromaBlueInput = new RIntNumInput(secondPage);
+    d->intensityChromaBlueInput = new DIntNumInput(secondPage);
     d->intensityChromaBlueInput->setRange(1, 100, 1);
-    d->intensityChromaBlueInput->setSliderEnabled(true);
     d->intensityChromaBlueInput->setDefaultValue(25);
     d->intensityChromaBlueInput->setWhatsThis(i18n("Set here the film sensitivity to use for "
                                                    "simulating the CCD blue noise."));
@@ -255,27 +246,24 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     // -------------------------------------------------------------
 
     d->label6                 = new QLabel(i18n("Shadows:"), secondPage);
-    d->shadowsChromaBlueInput = new RIntNumInput(secondPage);
+    d->shadowsChromaBlueInput = new DIntNumInput(secondPage);
     d->shadowsChromaBlueInput->setRange(-100, 100, 1);
-    d->shadowsChromaBlueInput->setSliderEnabled(true);
     d->shadowsChromaBlueInput->setDefaultValue(-100);
     d->shadowsChromaBlueInput->setWhatsThis(i18n("Set how much the filter affects highlights."));
 
     // -------------------------------------------------------------
 
     d->label7                  = new QLabel(i18n("Midtones:"), secondPage);
-    d->midtonesChromaBlueInput = new RIntNumInput(secondPage);
+    d->midtonesChromaBlueInput = new DIntNumInput(secondPage);
     d->midtonesChromaBlueInput->setRange(-100, 100, 1);
-    d->midtonesChromaBlueInput->setSliderEnabled(true);
     d->midtonesChromaBlueInput->setDefaultValue(0);
     d->midtonesChromaBlueInput->setWhatsThis(i18n("Set how much the filter affects midtones."));
 
     // -------------------------------------------------------------
 
     d->label8                    = new QLabel(i18n("Highlights:"), secondPage);
-    d->highlightsChromaBlueInput = new RIntNumInput(secondPage);
+    d->highlightsChromaBlueInput = new DIntNumInput(secondPage);
     d->highlightsChromaBlueInput->setRange(-100, 100, 1);
-    d->highlightsChromaBlueInput->setSliderEnabled(true);
     d->highlightsChromaBlueInput->setDefaultValue(-100);
     d->highlightsChromaBlueInput->setWhatsThis(i18n("Set how much the filter affects shadows."));
 
@@ -287,18 +275,17 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     grid2->addWidget(d->midtonesChromaBlueInput,   5, 0, 1, 1);
     grid2->addWidget(d->label8,                    6, 0, 1, 1);
     grid2->addWidget(d->highlightsChromaBlueInput, 7, 0, 1, 1);
-    grid2->setMargin(KDialog::spacingHint());
-    grid2->setSpacing(KDialog::spacingHint());
+    grid2->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid2->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    QWidget* thirdPage = new QWidget();
-    QGridLayout* grid3 = new QGridLayout(thirdPage);
+    QWidget* const thirdPage = new QWidget();
+    QGridLayout* const grid3 = new QGridLayout(thirdPage);
 
     d->label9                  = new QLabel(i18n("Intensity:"), thirdPage);
-    d->intensityChromaRedInput = new RIntNumInput(thirdPage);
+    d->intensityChromaRedInput = new DIntNumInput(thirdPage);
     d->intensityChromaRedInput->setRange(1, 100, 1);
-    d->intensityChromaRedInput->setSliderEnabled(true);
     d->intensityChromaRedInput->setDefaultValue(25);
     d->intensityChromaRedInput->setWhatsThis(i18n("Set here the film sensitivity to use for "
                                                   "simulating the CCD red noise."));
@@ -306,27 +293,24 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     // -------------------------------------------------------------
 
     d->label10               = new QLabel(i18n("Shadows:"), thirdPage);
-    d->shadowsChromaRedInput = new RIntNumInput(thirdPage);
+    d->shadowsChromaRedInput = new DIntNumInput(thirdPage);
     d->shadowsChromaRedInput->setRange(-100, 100, 1);
-    d->shadowsChromaRedInput->setSliderEnabled(true);
     d->shadowsChromaRedInput->setDefaultValue(-100);
     d->shadowsChromaRedInput->setWhatsThis(i18n("Set how much the filter affects highlights."));
 
     // -------------------------------------------------------------
 
     d->label11                = new QLabel(i18n("Midtones:"), thirdPage);
-    d->midtonesChromaRedInput = new RIntNumInput(thirdPage);
+    d->midtonesChromaRedInput = new DIntNumInput(thirdPage);
     d->midtonesChromaRedInput->setRange(-100, 100, 1);
-    d->midtonesChromaRedInput->setSliderEnabled(true);
     d->midtonesChromaRedInput->setDefaultValue(0);
     d->midtonesChromaRedInput->setWhatsThis(i18n("Set how much the filter affects midtones."));
 
     // -------------------------------------------------------------
 
     d->label12                  = new QLabel(i18n("Highlights:"), thirdPage);
-    d->highlightsChromaRedInput = new RIntNumInput(thirdPage);
+    d->highlightsChromaRedInput = new DIntNumInput(thirdPage);
     d->highlightsChromaRedInput->setRange(-100, 100, 1);
-    d->highlightsChromaRedInput->setSliderEnabled(true);
     d->highlightsChromaRedInput->setDefaultValue(-100);
     d->highlightsChromaRedInput->setWhatsThis(i18n("Set how much the filter affects shadows."));
 
@@ -338,26 +322,26 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     grid3->addWidget(d->midtonesChromaRedInput,   5, 0, 1, 1);
     grid3->addWidget(d->label12,                  6, 0, 1, 1);
     grid3->addWidget(d->highlightsChromaRedInput, 7, 0, 1, 1);
-    grid3->setMargin(KDialog::spacingHint());
-    grid3->setSpacing(KDialog::spacingHint());
+    grid3->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid3->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
-    d->expanderBox = new RExpanderBox();
-    d->expanderBox->setObjectName("Noise Expander");
+    d->expanderBox = new DExpanderBox();
+    d->expanderBox->setObjectName(QLatin1String("Noise Expander"));
 
-    d->expanderBox->addItem(commonPage, SmallIcon("system-run"),
+    d->expanderBox->addItem(commonPage, QIcon::fromTheme(QLatin1String("system-run")),
                             i18n("Common Settings"),
-                            QString("CommonSettingsContainer"), true);
-    d->expanderBox->addItem(firstPage, KStandardDirs::locate("data", "digikam/data/colors-luma.png"),
+                            QLatin1String("CommonSettingsContainer"), true);
+    d->expanderBox->addItem(firstPage, QIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/colors-luma.png"))),
                             i18n("Luminance Noise"),
-                            QString("LuminanceSettingsContainer"), true);
-    d->expanderBox->addItem(secondPage, KStandardDirs::locate("data", "digikam/data/colors-chromablue.png"),
+                            QLatin1String("LuminanceSettingsContainer"), true);
+    d->expanderBox->addItem(secondPage, QIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/colors-chromablue.png"))),
                             i18n("Chrominance Blue Noise"),
-                            QString("ChrominanceBlueSettingsContainer"), true);
-    d->expanderBox->addItem(thirdPage, KStandardDirs::locate("data", "digikam/data/colors-chromared.png"),
+                            QLatin1String("ChrominanceBlueSettingsContainer"), true);
+    d->expanderBox->addItem(thirdPage, QIcon(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/colors-chromared.png"))),
                             i18n("Chrominance Red Noise"),
-                            QString("ChrominanceRedSettingsContainer"), true);
+                            QLatin1String("ChrominanceRedSettingsContainer"), true);
 
     d->expanderBox->addStretch();
     d->expanderBox->setCheckBoxVisible(1, true);
@@ -365,8 +349,8 @@ FilmGrainSettings::FilmGrainSettings(QWidget* const parent)
     d->expanderBox->setCheckBoxVisible(3, true);
 
     grid->addWidget(d->expanderBox, 0, 0, 1, 1);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 

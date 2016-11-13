@@ -6,7 +6,7 @@
  * Date        : 2010-12-16
  * Description : Filter combobox
  *
- * Copyright (C) 2010-2011 by Petri Damstén <petri.damsten@iki.fi>
+ * Copyright (C) 2010-2011 by Petri Damstén <petri dot damsten at iki dot fi>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,9 +24,9 @@
 #ifndef FILTERCOMBOBOX_H
 #define FILTERCOMBOBOX_H
 
-// KDE includes
+// Qt includes
 
-#include <kcombobox.h>
+#include <QComboBox>
 
 // Local includes
 
@@ -37,7 +37,7 @@ namespace Digikam
 
 class CamItemInfo;
 
-class FilterComboBox : public KComboBox
+class FilterComboBox : public QComboBox
 {
     Q_OBJECT
 

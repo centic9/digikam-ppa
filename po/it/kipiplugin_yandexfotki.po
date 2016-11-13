@@ -1,28 +1,22 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
+# Federico Zenith <federico.zenith@member.fsf.org>, 2011, 2012, 2015.
+# Paolo Zamponi <zapaolo@email.it>, 2016.
 #
-# Federico Zenith <federico.zenith@member.fsf.org>, 2011, 2012.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_yandexfotki\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-07 01:58+0000\n"
-"PO-Revision-Date: 2012-09-05 08:11+0200\n"
-"Last-Translator: Federico Zenith <federico.zenith@member.fsf.org>\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-09-29 00:55+0100\n"
+"Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Federico Zenith"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "federico.zenith@member.fsf.org"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_yandexfotkiui.rc:7
@@ -32,301 +26,140 @@ msgstr "&Esporta"
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_yandexfotkiui.rc:13
 msgid "Main Toolbar"
-msgstr "Barra principale"
+msgstr "Barra degli strumenti principale"
 
-#: logindialog.cpp:61 yfwindow.cpp:460
-msgctxt "Yandex.Fotki"
-msgid "Y"
-msgstr "Y"
-
-#: logindialog.cpp:62 yfwindow.cpp:461
-msgctxt "Yandex.Fotki"
-msgid "andex."
-msgstr "andex."
-
-#: logindialog.cpp:63 yfwindow.cpp:462
-msgctxt "Yandex.Fotki"
-msgid "Fotki"
-msgstr "Fotki"
-
-#: logindialog.cpp:78
-msgid "Login:"
-msgstr "Nome utente:"
-
-#: logindialog.cpp:81 yfalbumdialog.cpp:74
-msgid "Password:"
-msgstr "Password:"
-
-#: logindialog.cpp:84
-msgid "Forgot your password?"
-msgstr "Hai dimenticato la password?"
-
-#: logindialog.cpp:100
-msgid "&Login"
-msgstr "&Accedi"
-
-#: logindialog.cpp:103
-msgid "&Skip"
-msgstr "&Salta"
-
-#: logindialog.cpp:113
-msgid "Yandex User Agreement"
-msgstr "Accordo di licenza Yandex"
-
-#: logindialog.cpp:175
-msgid "Password cannot be empty."
-msgstr "La password non può essere vuota."
-
-#: logindialog.cpp:175 yfalbumdialog.cpp:96
-msgid "Error"
-msgstr "Errore"
-
-#: plugin_yandexfotki.cpp:89
+#: plugin_yandexfotki.cpp:91
 msgid "Export to &Yandex.Fotki..."
-msgstr "Esporta a &Yandex.Fotki..."
-
-#: yfalbumdialog.cpp:51
-msgid "New album"
-msgstr "Nuovo album"
-
-#: yfalbumdialog.cpp:59 yfwindow.cpp:165
-msgid "Album"
-msgstr "Album"
+msgstr "Esporta su &Yandex.Fotki..."
 
 #: yfalbumdialog.cpp:60
-msgid "These are basic settings for the new Yandex album."
-msgstr "Queste sono le impostazioni di base per il nuovo album Yandex."
-
-#: yfalbumdialog.cpp:63
-msgid "Title of the album that will be created (required)."
-msgstr "Titolo dell'album da creare (obbligatorio)."
-
-#: yfalbumdialog.cpp:66
-msgid "Description of the album that will be created (optional)."
-msgstr "Descrizione dell'album da creare (facoltativa)."
-
-#: yfalbumdialog.cpp:69
 msgid "Password for the album (optional)."
 msgstr "Password dell'album (facoltativa)."
 
-#: yfalbumdialog.cpp:72
-msgid "Title:"
-msgstr "Titolo:"
+#: yfalbumdialog.cpp:63
+msgid "Password:"
+msgstr "Password:"
 
-#: yfalbumdialog.cpp:73
-msgid "Summary:"
-msgstr "Riepilogo:"
+#: yfalbumdialog.cpp:80
+msgid "Error"
+msgstr "Errore"
 
-#: yfalbumdialog.cpp:95
+#: yfalbumdialog.cpp:80
 msgid "Title cannot be empty."
 msgstr "Il titolo non può essere vuoto."
 
-#: yfwindow.cpp:127
-msgid "This is the list of images to upload to your Yandex album."
-msgstr "Questo è l'elenco di immagini da caricare sull'album Yandex."
-
-#: yfwindow.cpp:133
-msgid ""
-"This is a clickable link to open the Yandex.Fotki service in a web browser."
-msgstr ""
-"Questo è un collegamento per aprire il servizio Yandex.Fotki in un browser "
-"Web."
-
-#: yfwindow.cpp:141
-msgid "Account"
-msgstr "Account"
-
-#: yfwindow.cpp:142
-msgid "This account is used for authentication."
-msgstr "Questo account è usato per l'autenticazione."
-
-#: yfwindow.cpp:146
-msgid "Name:"
-msgstr "Nome:"
-
-#: yfwindow.cpp:147
-msgid "Your Yandex login"
-msgstr "Il tuo nome utente di Yandex"
-
-#: yfwindow.cpp:150
-msgid "Change Account"
-msgstr "Cambia account"
-
-#: yfwindow.cpp:151
-msgid "Change Yandex account used to authenticate"
-msgstr "Cambia l'account Yandex usato per autenticarsi"
-
-#: yfwindow.cpp:166
-msgid "This is the Yandex.Fotki album that will be used for the transfer."
-msgstr "Questo è l'album Yandex.Fotki usato per il trasferimento."
-
-#: yfwindow.cpp:172
-msgid "New Album"
-msgstr "Nuovo album"
-
-#: yfwindow.cpp:173
-msgid "Create new Yandex.Fotki album"
-msgstr "Crea nuovo album Yandex.Fotki"
-
-#: yfwindow.cpp:174
-msgctxt "reload albums list"
-msgid "Reload"
-msgstr "Ricarica"
-
-#: yfwindow.cpp:175
-msgid "Reload albums list"
-msgstr "Ricarica elenco degli album"
-
-#: yfwindow.cpp:190
-msgid "Destination"
-msgstr "Destinazione"
-
-#: yfwindow.cpp:191
-msgid "This is the location where Yandex.Fotki images will be downloaded."
-msgstr "Questo è dove saranno scaricate le immagini di Yandex.Fotki."
-
-#: yfwindow.cpp:198
-msgid "Options"
-msgstr "Opzioni"
-
-#: yfwindow.cpp:199
-msgid "These are options that will be applied to images before upload."
-msgstr "Queste opzioni saranno applicate alle immagini prima del caricamento."
-
-#: yfwindow.cpp:203
-msgid "Resize photos before uploading"
-msgstr "Ridimensiona foto prima di caricarle"
-
-#: yfwindow.cpp:216
-msgid "Maximum dimension:"
-msgstr "Dimensione massima:"
-
-#: yfwindow.cpp:224
-msgid "JPEG quality:"
-msgstr "Qualità JPEG:"
-
-#: yfwindow.cpp:228
+#: yfwidget.cpp:61
 msgid "Update policy:"
 msgstr "Politica di aggiornamento:"
 
-#: yfwindow.cpp:230
+#: yfwidget.cpp:63
 msgid "Update metadata"
-msgstr "Aggiorna metadati"
+msgstr "Aggiorna i metadati"
 
-#: yfwindow.cpp:231
+#: yfwidget.cpp:64
 msgid "Update metadata of remote file and merge remote tags with local"
 msgstr ""
-"Aggiorna metadati del file remoto e fondi le etichette remote con le locali"
+"Aggiorna i metadati del file remoto e fondi le etichette remote con quelle "
+"locali"
 
-#. i18n("Update metadata of remote file but keep remote tags untouched."));
-#.
-#: yfwindow.cpp:239
+#: yfwidget.cpp:66
 msgid "Skip photo"
-msgstr "Salta foto"
+msgstr "Salta la foto"
 
-#: yfwindow.cpp:240
+#: yfwidget.cpp:67
 msgid "Simple skip photo"
-msgstr "Salta foto semplice"
+msgstr "Salta semplicemente la foto"
 
-#: yfwindow.cpp:241
+#: yfwidget.cpp:68
 msgid "Upload as new"
-msgstr "Carica come nuova"
+msgstr "Invia come nuova"
 
-#: yfwindow.cpp:242
+#: yfwidget.cpp:69
 msgid "Add photo as new"
-msgstr "Aggiungi foto come nuova"
+msgstr "Aggiungi la foto come nuova"
 
-#: yfwindow.cpp:244
+#: yfwidget.cpp:71
 msgid "Privacy settings:"
 msgstr "Impostazioni di riservatezza:"
 
-#: yfwindow.cpp:246
+#: yfwidget.cpp:74
 msgid "Public access"
 msgstr "Accesso pubblico"
 
-#: yfwindow.cpp:247
+#: yfwidget.cpp:76
 msgid "Friends access"
-msgstr "Accesso per amici"
+msgstr "Accesso agli amici"
 
-#: yfwindow.cpp:248
+#: yfwidget.cpp:78
 msgid "Private access"
 msgstr "Accesso privato"
 
-#: yfwindow.cpp:250
+#: yfwidget.cpp:80
 msgid "Hide original photo"
-msgstr "Nascondi foto originale"
+msgstr "Nascondi la foto originale"
 
-#: yfwindow.cpp:251
+#: yfwidget.cpp:81
 msgid "Disable comments"
-msgstr "Disattiva commenti"
+msgstr "Disattiva i commenti"
 
-#: yfwindow.cpp:252
+#: yfwidget.cpp:82
 msgid "Adult content"
 msgstr "Contenuto per adulti"
 
-#: yfwindow.cpp:313
-msgid "Export to Yandex.Fotki Web Service"
-msgstr "Esporta al servizio Web Yandex.Fotki"
-
-#: yfwindow.cpp:315
-msgid "Start Upload"
-msgstr "Avvia caricamento"
-
-#: yfwindow.cpp:316
-msgid "Start upload to Yandex.Fotki service"
-msgstr "Avvia caricamento al servizio Yandex.Fotki"
-
-#: yfwindow.cpp:328
+#: yfwindow.cpp:128
 msgid "Yandex.Fotki Plugin"
 msgstr "Estensione per Yandex.Fotki"
 
-#: yfwindow.cpp:331
-msgid "A Kipi plugin to export image collections to Yandex.Fotki web service."
+#: yfwindow.cpp:129
+msgid "A tool to export image collections to Yandex.Fotki web service."
 msgstr ""
-"Un'estensione di Kipi per esportare raccolte di immagini al servizio Yandex."
+"Uno strumento per esportare le raccolte di immagini sul servizio Yandex."
 "Fotki."
 
-#: yfwindow.cpp:333
+#: yfwindow.cpp:131
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
-"(c) 2008-2012, Gilles Caulier\n"
+"(c) 2008-2015, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010, Roman Tsisyk"
 msgstr ""
 "© 2007-2009, Vardhman Jain\n"
-"© 2008-2012, Gilles Caulier\n"
+"© 2008-2015, Gilles Caulier\n"
 "© 2009, Luka Renko\n"
 "© 2010, Roman Tsisyk"
 
-#: yfwindow.cpp:338
+#: yfwindow.cpp:136
 msgid "Roman Tsisyk"
 msgstr "Roman Tsisyk"
 
-#: yfwindow.cpp:338
+#: yfwindow.cpp:137
 msgid "Author"
 msgstr "Autore"
 
-#: yfwindow.cpp:419
-msgid "Close"
-msgstr "Chiudi"
-
-#: yfwindow.cpp:420
-msgid "Close window"
-msgstr "Chiudi finestra"
-
-#: yfwindow.cpp:430
-msgid "Cancel"
-msgstr "Annulla"
-
-#: yfwindow.cpp:431
-msgid "Cancel current operation"
-msgstr "Annulla l'operazione attuale"
-
-#: yfwindow.cpp:448
+#: yfwindow.cpp:249
 msgid "Unauthorized"
 msgstr "Non autorizzato"
 
-#: yfwindow.cpp:812
+#: yfwindow.cpp:262
+msgctxt "Yandex.Fotki"
+msgid "Y"
+msgstr "Y"
+
+#: yfwindow.cpp:263
+msgctxt "Yandex.Fotki"
+msgid "andex."
+msgstr "andex."
+
+#: yfwindow.cpp:264
+msgctxt "Yandex.Fotki"
+msgid "Fotki"
+msgstr "Fotki"
+
+#: yfwindow.cpp:588
+msgid "Processing Failed"
+msgstr "Elaborazione non riuscita"
+
+#: yfwindow.cpp:589
 #, kde-format
 msgid ""
 "Failed to prepare image %1\n"
@@ -335,43 +168,47 @@ msgstr ""
 "Preparazione dell'immagine %1 non riuscita\n"
 "Vuoi continuare?"
 
-#: yfwindow.cpp:838
+#: yfwindow.cpp:616
 msgid "Images has been uploaded"
 msgstr "L'immagine è stata caricata"
 
-#: yfwindow.cpp:868
+#: yfwindow.cpp:646
 msgid "Please select album first"
 msgstr "Seleziona prima un album"
 
-#: yfwindow.cpp:890
+#: yfwindow.cpp:668
 msgid "Session error"
 msgstr "Errore di sessione"
 
-#: yfwindow.cpp:893
+#: yfwindow.cpp:671
 msgid "Token error"
 msgstr "Errore di token"
 
-#: yfwindow.cpp:896
+#: yfwindow.cpp:674
 msgid "Invalid credentials"
 msgstr "Credenziali non valide"
 
-#: yfwindow.cpp:900
+#: yfwindow.cpp:678
 msgid "Cannot get service document"
 msgstr "Documento di servizio non ottenibile"
 
-#: yfwindow.cpp:913
+#: yfwindow.cpp:691
 msgid "Cannot list albums"
 msgstr "Impossibile elencare gli album"
 
-#: yfwindow.cpp:916
+#: yfwindow.cpp:694
 msgid "Cannot list photos"
 msgstr "Impossibile elencare le foto"
 
-#: yfwindow.cpp:919
+#: yfwindow.cpp:697
 msgid "Cannot update album info"
 msgstr "Impossibile aggiornare le informazioni dell'album"
 
-#: yfwindow.cpp:925
+#: yfwindow.cpp:703
+msgid "Uploading Failed"
+msgstr "Caricamento non riuscito"
+
+#: yfwindow.cpp:704
 #, kde-format
 msgid ""
 "Failed to upload image %1\n"
@@ -380,9 +217,143 @@ msgstr ""
 "Caricamento dell'immagine %1 non riuscito\n"
 "Vuoi continuare?"
 
-#: yfwindow.cpp:946
+#: yfwindow.cpp:725
 msgid "Unknown error"
 msgstr "Errore sconosciuto"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Federico Zenith"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "federico.zenith@member.fsf.org"
+
+#~ msgid "Login:"
+#~ msgstr "Nome utente:"
+
+#~ msgid "Forgot your password?"
+#~ msgstr "Hai dimenticato la password?"
+
+#~ msgid "&Login"
+#~ msgstr "&Accedi"
+
+#~ msgid "&Skip"
+#~ msgstr "&Salta"
+
+#~ msgid "Yandex User Agreement"
+#~ msgstr "Accordo di licenza Yandex"
+
+#~ msgid "Password cannot be empty."
+#~ msgstr "La password non può essere vuota."
+
+#~ msgid "New album"
+#~ msgstr "Nuovo album"
+
+#~ msgid "Album"
+#~ msgstr "Album"
+
+#~ msgid "These are basic settings for the new Yandex album."
+#~ msgstr "Queste sono le impostazioni di base per il nuovo album Yandex."
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Titolo dell'album da creare (obbligatorio)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Descrizione dell'album da creare (facoltativa)."
+
+#~ msgid "Title:"
+#~ msgstr "Titolo:"
+
+#~ msgid "Summary:"
+#~ msgstr "Riepilogo:"
+
+#~ msgid "This is the list of images to upload to your Yandex album."
+#~ msgstr "Questo è l'elenco di immagini da caricare sull'album Yandex."
+
+#~ msgid ""
+#~ "This is a clickable link to open the Yandex.Fotki service in a web "
+#~ "browser."
+#~ msgstr ""
+#~ "Questo è un collegamento per aprire il servizio Yandex.Fotki in un "
+#~ "browser Web."
+
+#~ msgid "Account"
+#~ msgstr "Account"
+
+#~ msgid "This account is used for authentication."
+#~ msgstr "Questo account è usato per l'autenticazione."
+
+#~ msgid "Name:"
+#~ msgstr "Nome:"
+
+#~ msgid "Your Yandex login"
+#~ msgstr "Il tuo nome utente di Yandex"
+
+#~ msgid "Change Account"
+#~ msgstr "Cambia account"
+
+#~ msgid "Change Yandex account used to authenticate"
+#~ msgstr "Cambia l'account Yandex usato per autenticarsi"
+
+#~ msgid "This is the Yandex.Fotki album that will be used for the transfer."
+#~ msgstr "Questo è l'album Yandex.Fotki usato per il trasferimento."
+
+#~ msgid "New Album"
+#~ msgstr "Nuovo album"
+
+#~ msgid "Create new Yandex.Fotki album"
+#~ msgstr "Crea nuovo album Yandex.Fotki"
+
+#~ msgctxt "reload albums list"
+#~ msgid "Reload"
+#~ msgstr "Ricarica"
+
+#~ msgid "Reload albums list"
+#~ msgstr "Ricarica elenco degli album"
+
+#~ msgid "Destination"
+#~ msgstr "Destinazione"
+
+#~ msgid "This is the location where Yandex.Fotki images will be downloaded."
+#~ msgstr "Questo è dove saranno scaricate le immagini di Yandex.Fotki."
+
+#~ msgid "Options"
+#~ msgstr "Opzioni"
+
+#~ msgid "These are options that will be applied to images before upload."
+#~ msgstr ""
+#~ "Queste opzioni saranno applicate alle immagini prima del caricamento."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Ridimensiona foto prima di caricarle"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "Dimensione massima:"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "Qualità JPEG:"
+
+#~ msgid "Export to Yandex.Fotki Web Service"
+#~ msgstr "Esporta al servizio Web Yandex.Fotki"
+
+#~ msgid "Start Upload"
+#~ msgstr "Avvia caricamento"
+
+#~ msgid "Start upload to Yandex.Fotki service"
+#~ msgstr "Avvia caricamento al servizio Yandex.Fotki"
+
+#~ msgid "Close"
+#~ msgstr "Chiudi"
+
+#~ msgid "Close window"
+#~ msgstr "Chiudi finestra"
+
+#~ msgid "Cancel"
+#~ msgstr "Annulla"
+
+#~ msgid "Cancel current operation"
+#~ msgstr "Annulla l'operazione attuale"
 
 #~ msgid "Handbook"
 #~ msgstr "Manuale"

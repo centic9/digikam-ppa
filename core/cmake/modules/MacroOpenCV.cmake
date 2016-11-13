@@ -6,7 +6,7 @@
 # which try to find OpenCV version 2.4.9 
 # with internal components "core", "highgui", "objdetect", and "contrib".
 #
-# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -24,7 +24,7 @@ macro(DETECT_OPENCV OPENCV_MIN_VERSION)
     set(OPENCV_REQUIRED_COMPONENTS "${ARGN}" )
 
     message(STATUS "First try at finding OpenCV...")
-    find_package(OpenCV COMPONENTS ${OPENCV_REQUIRED_COMPONENTS})
+    find_package(OpenCV REQUIRED COMPONENTS ${OPENCV_REQUIRED_COMPONENTS})
 
     if(NOT OpenCV_LIBRARIES AND NOT OpenCV_LIBS)
 

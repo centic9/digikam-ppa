@@ -22,11 +22,11 @@
  *
  * ============================================================ */
 
-#include "digikammodelcollection.moc"
+#include "digikammodelcollection.h"
 
-// KDE includes
+// Qt includes
 
-#include <kiconloader.h>
+#include <QIcon>
 
 // Local settings
 
@@ -129,8 +129,8 @@ ImageVersionsModel* DigikamModelCollection::getImageVersionsModel() const
 
 void DigikamModelCollection::slotApplicationSettingsChanged()
 {
-    d->dateAlbumModel->setPixmaps(SmallIcon("view-calendar-list",  ApplicationSettings::instance()->getTreeViewIconSize()),
-                                  SmallIcon("view-calendar-month", ApplicationSettings::instance()->getTreeViewIconSize()));
+    d->dateAlbumModel->setPixmaps(QIcon::fromTheme(QLatin1String("view-calendar-list")).pixmap(ApplicationSettings::instance()->getTreeViewIconSize()),
+                                  QIcon::fromTheme(QLatin1String("view-calendar-month")).pixmap(ApplicationSettings::instance()->getTreeViewIconSize()));
 }
 
 } // namespace Digikam

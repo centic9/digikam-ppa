@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : border threaded image filter.
  *
- * Copyright 2005-2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright 2010 by Martin Klapetek <martin dot klapetek at gmail dot com>
@@ -37,12 +37,10 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
-
-class BorderFilterPriv;
 
 class DIGIKAM_EXPORT BorderContainer
 {
@@ -136,11 +134,11 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:BorderFilter";
+        return QLatin1String("digikam:BorderFilter");
     }
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Border Tool");
+        return QString::fromUtf8(I18N_NOOP("Border Tool"));
     }
     static QList<int>       SupportedVersions()
     {
@@ -182,7 +180,8 @@ private:
 
 private:
 
-    BorderFilterPriv* const d;
+    class Private;
+    Private* const d;
 };
 
 }  // namespace Digikam

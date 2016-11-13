@@ -21,18 +21,15 @@
  *
  * ============================================================ */
 
-#include "importcategorizedview.moc"
+#include "importcategorizedview.h"
 
 // Qt includes
 
 #include <QTimer>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "camitemsortsettings.h"
 #include "iccsettings.h"
 #include "imageselectionoverlay.h"
@@ -98,7 +95,7 @@ public:
 };
 
 ImportCategorizedView::ImportCategorizedView(QWidget* const parent)
-    : DCategorizedView(parent), d(new Private)
+    : ItemViewCategorized(parent), d(new Private)
 {
     setToolTip(new ImportItemViewToolTip(this));
 
@@ -223,7 +220,7 @@ void ImportCategorizedView::setItemDelegate(ImportDelegate* delegate)
         d->delegate->setSpacing(oldDelegate->spacing());
     }
 
-    DCategorizedView::setItemDelegate(d->delegate);
+    ItemViewCategorized::setItemDelegate(d->delegate);
     setCategoryDrawer(d->delegate->categoryDrawer());
     updateDelegateSizes();
 
@@ -242,7 +239,7 @@ CamItemInfo ImportCategorizedView::currentInfo() const
     return d->filterModel->camItemInfo(currentIndex());
 }
 
-KUrl ImportCategorizedView::currentUrl() const
+QUrl ImportCategorizedView::currentUrl() const
 {
     return currentInfo().url();
 }
@@ -280,10 +277,10 @@ QList<CamItemInfo> ImportCategorizedView::camItemInfos() const
     return d->filterModel->camItemInfosSorted();
 }
 
-KUrl::List ImportCategorizedView::urls() const
+QList<QUrl> ImportCategorizedView::urls() const
 {
     QList<CamItemInfo> infos = camItemInfos();
-    KUrl::List       urls;
+    QList<QUrl>       urls;
 
     foreach(const CamItemInfo& info, infos)
     {
@@ -293,10 +290,10 @@ KUrl::List ImportCategorizedView::urls() const
     return urls;
 }
 
-KUrl::List ImportCategorizedView::selectedUrls() const
+QList<QUrl> ImportCategorizedView::selectedUrls() const
 {
     QList<CamItemInfo> infos = selectedCamItemInfos();
-    KUrl::List       urls;
+    QList<QUrl>       urls;
 
     foreach(const CamItemInfo& info, infos)
     {
@@ -306,9 +303,9 @@ KUrl::List ImportCategorizedView::selectedUrls() const
     return urls;
 }
 
-void ImportCategorizedView::toIndex(const KUrl& url)
+void ImportCategorizedView::toIndex(const QUrl& url)
 {
-    DCategorizedView::toIndex(d->filterModel->indexForPath(url.toLocalFile()));
+    ItemViewCategorized::toIndex(d->filterModel->indexForPath(url.toLocalFile()));
 }
 
 CamItemInfo ImportCategorizedView::nextInOrder(const CamItemInfo& startingPoint, int nth)
@@ -325,10 +322,10 @@ CamItemInfo ImportCategorizedView::nextInOrder(const CamItemInfo& startingPoint,
 
 QModelIndex ImportCategorizedView::nextIndexHint(const QModelIndex& anchor, const QItemSelectionRange& removed) const
 {
-    QModelIndex hint = DCategorizedView::nextIndexHint(anchor, removed);
+    QModelIndex hint = ItemViewCategorized::nextIndexHint(anchor, removed);
     CamItemInfo info   = d->filterModel->camItemInfo(anchor);
 
-    //kDebug() << "Having initial hint" << hint << "for" << anchor << d->model->numberOfIndexesForCamItemInfo(info);
+    //qCDebug(DIGIKAM_IMPORTUI_LOG) << "Having initial hint" << hint << "for" << anchor << d->model->numberOfIndexesForCamItemInfo(info);
 
     // Fixes a special case of multiple (face) entries for the same image.
     // If one is removed, any entry of the same image shall be preferred.
@@ -353,7 +350,7 @@ QModelIndex ImportCategorizedView::nextIndexHint(const QModelIndex& anchor, cons
                 {
                     minDiff = distance;
                     hint = index;
-                    //kDebug() << "Chose index" << hint << "at distance" << minDiff << "to" << anchor;
+                    //qCDebug(DIGIKAM_IMPORTUI_LOG) << "Chose index" << hint << "at distance" << minDiff << "to" << anchor;
                 }
             }
         }
@@ -396,7 +393,7 @@ void ImportCategorizedView::setCurrentWhenAvailable(qlonglong camItemId)
     d->scrollToItemId = camItemId;
 }
 
-void ImportCategorizedView::setCurrentUrl(const KUrl& url)
+void ImportCategorizedView::setCurrentUrl(const QUrl& url)
 {
     if (url.isEmpty())
     {
@@ -424,18 +421,18 @@ void ImportCategorizedView::setCurrentInfo(const CamItemInfo& info)
     setCurrentIndex(index);
 }
 
-void ImportCategorizedView::setSelectedUrls(const KUrl::List& urlList)
+void ImportCategorizedView::setSelectedUrls(const QList<QUrl>& urlList)
 {
     QItemSelection mySelection;
 
-    for (KUrl::List::const_iterator it = urlList.constBegin(); it!=urlList.constEnd(); ++it)
+    for (QList<QUrl>::const_iterator it = urlList.constBegin(); it!=urlList.constEnd(); ++it)
     {
-        const QString path = it->path();
+        const QString path = it->toLocalFile();
         const QModelIndex index = d->filterModel->indexForPath(path);
 
         if (!index.isValid())
         {
-            kWarning() << "no QModelIndex found for" << *it;
+            qCWarning(DIGIKAM_IMPORTUI_LOG) << "no QModelIndex found for" << *it;
         }
         else
         {
@@ -509,7 +506,7 @@ void ImportCategorizedView::removeOverlay(ImageDelegateOverlay* overlay)
 
 void ImportCategorizedView::updateGeometries()
 {
-    DCategorizedView::updateGeometries();
+    ItemViewCategorized::updateGeometries();
     d->delayedEnterTimer->start();
 }
 
@@ -520,7 +517,7 @@ void ImportCategorizedView::slotDelayedEnter()
 
     if (mouseIndex.isValid())
     {
-        emit DigikamKCategorizedView::entered(mouseIndex);
+        emit DCategorizedView::entered(mouseIndex);
     }
 }
 
@@ -574,14 +571,14 @@ void ImportCategorizedView::indexActivated(const QModelIndex& index, Qt::Keyboar
 
 void ImportCategorizedView::currentChanged(const QModelIndex& index, const QModelIndex& previous)
 {
-    DCategorizedView::currentChanged(index, previous);
+    ItemViewCategorized::currentChanged(index, previous);
 
     emit currentChanged(d->filterModel->camItemInfo(index));
 }
 
 void ImportCategorizedView::selectionChanged(const QItemSelection& selectedItems, const QItemSelection& deselectedItems)
 {
-    DCategorizedView::selectionChanged(selectedItems, deselectedItems);
+    ItemViewCategorized::selectionChanged(selectedItems, deselectedItems);
 
     if (!selectedItems.isEmpty())
     {
@@ -612,7 +609,7 @@ void ImportCategorizedView::showContextMenuOnInfo(QContextMenuEvent*, const CamI
 
 void ImportCategorizedView::paintEvent(QPaintEvent* e)
 {
-    DCategorizedView::paintEvent(e);
+    ItemViewCategorized::paintEvent(e);
 }
 
 QItemSelectionModel* ImportCategorizedView::getSelectionModel() const

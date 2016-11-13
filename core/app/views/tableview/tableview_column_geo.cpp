@@ -20,42 +20,42 @@
  *
  * ============================================================ */
 
-#include "tableview_column_geo.moc"
+#include "tableview_column_geo.h"
 
 // Qt includes
 
 #include <QFormLayout>
+#include <QComboBox>
+#include <QLocale>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kdebug.h>
-#include <kglobal.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
-// local includes
+// Local includes
 
+#include "digikam_debug.h"
 #include "imageinfo.h"
 
 namespace
 {
 
-QString FormatAltitude(const qreal altitudeInMeters, const KLocale::MeasureSystem& measureSystem)
+QString FormatAltitude(const qreal altitudeInMeters, const QLocale::MeasurementSystem& measureSystem)
 {
-    if (measureSystem==KLocale::Metric)
+    if (measureSystem == QLocale::MetricSystem)
     {
-        const QString altitudeInMetersString = KGlobal::locale()->formatNumber(altitudeInMeters, 2);
-        return QString("%1 m").arg(altitudeInMetersString);
+        const QString altitudeInMetersString = QLocale().toString(altitudeInMeters);
+        return QString::fromUtf8("%1 m").arg(altitudeInMetersString);
     }
     else
     {
-        const qreal altitudeInFeet = altitudeInMeters /* m */ / ( 0.3048 /* m/foot */ );
-        const QString altitudeInFeetString = KGlobal::locale()->formatNumber(altitudeInFeet, 2);
-        return QString("%1 ft").arg(altitudeInFeetString);
+        const qreal altitudeInFeet         = altitudeInMeters /* m */ / ( 0.3048 /* m/foot */ );
+        const QString altitudeInFeetString = QLocale().toString(altitudeInFeet, 'g', 2);
+        return QString::fromUtf8("%1 ft").arg(altitudeInFeetString);
     }
 }
 
-}
+} // namespace
 
 namespace Digikam
 {
@@ -63,20 +63,17 @@ namespace Digikam
 namespace TableViewColumns
 {
 
-ColumnGeoProperties::ColumnGeoProperties(
-        TableViewShared* const tableViewShared,
-        const TableViewColumnConfiguration& pConfiguration,
-        const SubColumn pSubColumn,
-        QObject* const parent)
-  : TableViewColumn(tableViewShared, pConfiguration, parent),
-    subColumn(pSubColumn)
+ColumnGeoProperties::ColumnGeoProperties(TableViewShared* const tableViewShared,
+                                         const TableViewColumnConfiguration& pConfiguration,
+                                         const SubColumn pSubColumn,
+                                         QObject* const parent)
+    : TableViewColumn(tableViewShared, pConfiguration, parent),
+      subColumn(pSubColumn)
 {
-
 }
 
 ColumnGeoProperties::~ColumnGeoProperties()
 {
-
 }
 
 QStringList ColumnGeoProperties::getSubColumns()
@@ -91,19 +88,10 @@ QStringList ColumnGeoProperties::getSubColumns()
 TableViewColumnDescription ColumnGeoProperties::getDescription()
 {
     TableViewColumnDescription description(QLatin1String("geo-properties"), i18n("Geo properties"));
-    description.setIcon("applications-internet");
-
-    description.addSubColumn(
-        TableViewColumnDescription("geohascoordinates", i18n("Geotagged"))
-    );
-
-    description.addSubColumn(
-        TableViewColumnDescription("geocoordinates", i18n("Coordinates"))
-    );
-
-    description.addSubColumn(
-        TableViewColumnDescription("geoaltitude", i18n("Altitude"))
-    );
+    description.setIcon(QLatin1String("folder-html"));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("geohascoordinates"), i18n("Geotagged")));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("geocoordinates"),    i18n("Coordinates")));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("geoaltitude"),       i18n("Altitude")));
 
     return description;
 }
@@ -112,12 +100,12 @@ QString ColumnGeoProperties::getTitle() const
 {
     switch (subColumn)
     {
-    case SubColumnHasCoordinates:
-        return i18n("Geotagged");
-    case SubColumnCoordinates:
-        return i18n("Coordinates");
-    case SubColumnAltitude:
-        return i18n("Altitude");
+        case SubColumnHasCoordinates:
+            return i18n("Geotagged");
+        case SubColumnCoordinates:
+            return i18n("Coordinates");
+        case SubColumnAltitude:
+            return i18n("Altitude");
     }
 
     return QString();
@@ -142,7 +130,7 @@ QVariant ColumnGeoProperties::data(TableViewModel::Item* const item, const int r
         return QVariant();
     }
 
-    if (role==Qt::TextAlignmentRole)
+    if (role == Qt::TextAlignmentRole)
     {
         switch (subColumn)
         {
@@ -158,26 +146,23 @@ QVariant ColumnGeoProperties::data(TableViewModel::Item* const item, const int r
 
     switch (subColumn)
     {
-    case SubColumnHasCoordinates:
-        return info.hasCoordinates() ? i18n("Yes") : i18n("No");
+        case SubColumnHasCoordinates:
+        {
+            return info.hasCoordinates() ? i18n("Yes") : i18n("No");
+        }
 
-    case SubColumnCoordinates:
+        case SubColumnCoordinates:
         {
             if (!info.hasCoordinates())
             {
                 return QString();
             }
 
-            return QString("%1,%2")
-                .arg(
-                    KGlobal::locale()->formatNumber(info.latitudeNumber(), 7)
-                )
-                .arg(
-                    KGlobal::locale()->formatNumber(info.longitudeNumber(), 7)
-                );
+            return QString::fromUtf8("%1,%2").arg(QLocale().toString(info.latitudeNumber(),  'g', 7))
+                                             .arg(QLocale().toString(info.longitudeNumber(), 'g', 7));
         }
 
-    case SubColumnAltitude:
+        case SubColumnAltitude:
         {
             /// @todo Needs custom sorting
             if ((!info.hasCoordinates()) || (!info.hasAltitude()))
@@ -186,18 +171,20 @@ QVariant ColumnGeoProperties::data(TableViewModel::Item* const item, const int r
             }
 
             /// @todo Use an enum instead to avoid lots of string comparisons
-            const QString formatKey = configuration.getSetting("format", "kde");
-            KLocale::MeasureSystem measureSystem = KGlobal::locale()->measureSystem();
-            if (formatKey=="metric")
+            const QString formatKey                  = configuration.getSetting(QLatin1String("format"), QLatin1String("metric"));
+            QLocale::MeasurementSystem measureSystem = QLocale().measurementSystem();
+
+            if (formatKey == QLatin1String("metric"))
             {
-                measureSystem = KLocale::Metric;
+                measureSystem = QLocale::MetricSystem;
             }
-            else if (formatKey=="imperial")
+            else if (formatKey == QLatin1String("imperial"))
             {
-                measureSystem = KLocale::Imperial;
+                measureSystem = QLocale::ImperialSystem;
             }
 
             const QString formattedAltitude = FormatAltitude(info.altitudeNumber(), measureSystem);
+
             return formattedAltitude;
         }
     }
@@ -205,8 +192,8 @@ QVariant ColumnGeoProperties::data(TableViewModel::Item* const item, const int r
     return QVariant();
 }
 
-TableViewColumn::ColumnCompareResult ColumnGeoProperties::compare(
-    TableViewModel::Item* const itemA, TableViewModel::Item* const itemB) const
+TableViewColumn::ColumnCompareResult ColumnGeoProperties::compare(TableViewModel::Item* const itemA,
+                                                                  TableViewModel::Item* const itemB) const
 {
     const ImageInfo infoA = s->tableViewModel->infoFromItem(itemA);
     const ImageInfo infoB = s->tableViewModel->infoFromItem(itemB);
@@ -221,64 +208,65 @@ TableViewColumn::ColumnCompareResult ColumnGeoProperties::compare(
             const double altitudeA = infoA.altitudeNumber();
             const double altitudeB = infoB.altitudeNumber();
 
-            return compareHelper<double>(altitudeA, altitudeB);
+            return (compareHelper<double>(altitudeA, altitudeB));
         }
 
-        return compareHelper<int>(int(hasAltitudeA), int(hasAltitudeB));
+        return (compareHelper<int>(int(hasAltitudeA), int(hasAltitudeB)));
     }
 
-    kWarning() << "geo: unimplemented comparison, subColumn=" << subColumn;
+    qCWarning(DIGIKAM_GENERAL_LOG) << "geo: unimplemented comparison, subColumn=" << subColumn;
+
     return CmpEqual;
 }
 
 TableViewColumnConfigurationWidget* ColumnGeoProperties::getConfigurationWidget(QWidget* const parentWidget) const
 {
     TableViewColumnConfiguration myConfiguration = getConfiguration();
-    return new ColumnGeoConfigurationWidget(s, myConfiguration, parentWidget);
+
+    return (new ColumnGeoConfigurationWidget(s, myConfiguration, parentWidget));
 }
 
-ColumnGeoConfigurationWidget::ColumnGeoConfigurationWidget(
-        TableViewShared* const sharedObject,
-        const TableViewColumnConfiguration& columnConfiguration,
-        QWidget* const parentWidget)
-  : TableViewColumnConfigurationWidget(sharedObject, columnConfiguration, parentWidget),
-    subColumn(ColumnGeoProperties::SubColumnHasCoordinates),
-    selectorAltitudeUnit(0)
+// ----------------------------------------------------------------------------------------------------------------
+
+ColumnGeoConfigurationWidget::ColumnGeoConfigurationWidget(TableViewShared* const sharedObject,
+                                                           const TableViewColumnConfiguration& columnConfiguration,
+                                                           QWidget* const parentWidget)
+    : TableViewColumnConfigurationWidget(sharedObject, columnConfiguration, parentWidget),
+      subColumn(ColumnGeoProperties::SubColumnHasCoordinates),
+      selectorAltitudeUnit(0)
 {
     ColumnGeoProperties::getSubColumnIndex<ColumnGeoProperties>(configuration.columnId, &subColumn);
 
     switch (subColumn)
     {
-    case ColumnGeoProperties::SubColumnAltitude:
+        case ColumnGeoProperties::SubColumnAltitude:
         {
             QFormLayout* const box1 = new QFormLayout();
-            selectorAltitudeUnit = new KComboBox(this);
-            selectorAltitudeUnit->addItem(i18n("KDE default"), QString("kde"));
-            selectorAltitudeUnit->addItem(i18n("Metric units"), QString("metric"));
-            selectorAltitudeUnit->addItem(i18n("Imperial units"), QString("imperial"));
+            selectorAltitudeUnit    = new QComboBox(this);
+            selectorAltitudeUnit->addItem(i18n("Metric units"),   QLatin1String("metric"));
+            selectorAltitudeUnit->addItem(i18n("Imperial units"), QLatin1String("imperial"));
             box1->addRow(i18n("Display format"), selectorAltitudeUnit);
 
             setLayout(box1);
 
-            const int index = selectorAltitudeUnit->findData(configuration.getSetting("format", "kde"));
-            selectorAltitudeUnit->setCurrentIndex(index>=0 ? index : 0);
+            const int index = selectorAltitudeUnit->findData(configuration.getSetting(QLatin1String("format"), QLatin1String("metric")));
+            selectorAltitudeUnit->setCurrentIndex(index >= 0 ? index : 0);
             break;
         }
 
-    default:
-        break;
+        default:
+            break;
     }
 }
 
 ColumnGeoConfigurationWidget::~ColumnGeoConfigurationWidget()
 {
-
 }
 
 TableViewColumnConfiguration ColumnGeoConfigurationWidget::getNewConfiguration()
 {
     const QString formatKey = selectorAltitudeUnit->itemData(selectorAltitudeUnit->currentIndex()).toString();
-    configuration.columnSettings.insert("format", formatKey);
+    configuration.columnSettings.insert(QLatin1String("format"), formatKey);
 
     return configuration;
 }
@@ -293,4 +281,3 @@ void ColumnGeoProperties::setConfiguration(const TableViewColumnConfiguration& n
 } /* namespace TableViewColumns */
 
 } /* namespace Digikam */
-

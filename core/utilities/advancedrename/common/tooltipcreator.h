@@ -27,9 +27,8 @@
 // Qt includes
 
 #include <QString>
-#include <QPixmap>
 
-// local includes
+// Local includes
 
 #include "rule.h"
 
@@ -48,7 +47,7 @@ public:
     QString tooltip(Parser* parser);
 
     QString getInfoIconResourceName();
-    QPixmap getInfoIcon();
+    QIcon getInfoIcon();
 
 private:
 

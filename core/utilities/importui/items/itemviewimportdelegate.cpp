@@ -7,7 +7,7 @@
  * Description : Qt item view for images - the delegate
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "itemviewimportdelegate.moc"
+#include "itemviewimportdelegate.h"
 #include "itemviewimportdelegatepriv.h"
 
 // Qt includes
@@ -30,21 +30,19 @@
 #include <QCache>
 #include <QPainter>
 #include <QIcon>
+#include <QApplication>
 
 // KDE includes
 
-#include <kglobal.h>
-#include <kio/global.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdebug.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "imagedelegateoverlay.h"
 #include "thememanager.h"
 #include "imagescanner.h"
+#include "imagepropertiestab.h"
 #include "camiteminfo.h"
 #include "colorlabelwidget.h"
 #include "ratingwidget.h"
@@ -325,7 +323,7 @@ void ItemViewImportDelegate::drawImageFormat(QPainter* p, const QRect& r, const 
 
     if (!mime.isEmpty() && !r.isNull())
     {
-        QString type = mime.split('/').at(1);
+        QString type = mime.split(QLatin1Char('/')).at(1);
         type         = ImageScanner::formatToString(type);
 
         p->save();
@@ -379,7 +377,7 @@ void ItemViewImportDelegate::drawFileSize(QPainter* p, const QRect& r, qlonglong
     Q_D(const ItemViewImportDelegate);
 
     p->setFont(d->fontXtra);
-    p->drawText(r, Qt::AlignCenter, KIO::convertSize(bytes));//squeezedTextCached(p, r.width(), KIO::convertSize(bytes)));
+    p->drawText(r, Qt::AlignCenter, ImagePropertiesTab::humanReadableBytesCount(bytes));
 }
 
 void ItemViewImportDelegate::drawTags(QPainter* p, const QRect& r, const QString& tagsString,
@@ -388,8 +386,8 @@ void ItemViewImportDelegate::drawTags(QPainter* p, const QRect& r, const QString
     Q_D(const ItemViewImportDelegate);
 
     p->setFont(d->fontCom);
-    p->setPen(isSelected ? kapp->palette().color(QPalette::HighlightedText)
-                         : kapp->palette().color(QPalette::Link));
+    p->setPen(isSelected ? qApp->palette().color(QPalette::HighlightedText)
+                         : qApp->palette().color(QPalette::Link));
 
     p->drawText(r, Qt::AlignCenter, squeezedTextCached(p, r.width(), tagsString));
 }
@@ -403,15 +401,15 @@ void ItemViewImportDelegate::drawPickLabelIcon(QPainter* p, const QRect& r, int 
 
         if (pickId == RejectedLabel)
         {
-            icon = KIconLoader::global()->loadIcon("flag-red", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("flag-red"));
         }
         else if (pickId == PendingLabel)
         {
-            icon = KIconLoader::global()->loadIcon("flag-yellow", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("flag-yellow"));
         }
         else if (pickId == AcceptedLabel)
         {
-            icon = KIconLoader::global()->loadIcon("flag-green", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("flag-green"));
         }
 
         icon.paint(p, r);
@@ -437,7 +435,7 @@ void ItemViewImportDelegate::drawGeolocationIndicator(QPainter* p, const QRect& 
 {
     if (!r.isNull())
     {
-        QIcon icon = KIconLoader::global()->loadIcon("applications-internet", KIconLoader::NoGroup, r.width());
+        QIcon icon = QIcon::fromTheme(QLatin1String("folder-html"));
         qreal op   = p->opacity();
         p->setOpacity(0.5);
         icon.paint(p, r);
@@ -451,17 +449,17 @@ void ItemViewImportDelegate::drawDownloadIndicator(QPainter* p, const QRect& r, 
 
     if (itemType == CamItemInfo::DownloadUnknown)
     {
-        icon = KIconLoader::global()->loadIcon("dialog-information", KIconLoader::NoGroup, r.width());
+        icon = QIcon::fromTheme(QLatin1String("dialog-information"));
     }
 
     if (itemType == CamItemInfo::DownloadedNo) // TODO: CamItemInfo::NewPicture
     {
-        icon = KIconLoader::global()->loadIcon("favorites", KIconLoader::NoGroup, r.width());
+        icon = QIcon::fromTheme(QLatin1String("folder-favorites"));
     }
 
     if (itemType == CamItemInfo::DownloadedYes)
     {
-        icon = KIconLoader::global()->loadIcon("dialog-ok", KIconLoader::NoGroup, r.width());
+        icon = QIcon::fromTheme(QLatin1String("dialog-ok-apply"));
     }
 
     qreal op = p->opacity();
@@ -477,12 +475,12 @@ void ItemViewImportDelegate::drawLockIndicator(QPainter* p, const QRect& r, int 
     if (lockStatus == 1)
     {
         return; // draw lock only when image is locked
-        //icon = KIconLoader::global()->loadIcon("object-unlocked", KIconLoader::NoGroup, KIconLoader::SizeSmall);
+        //icon = QIcon::fromTheme(QLatin1String("object-unlocked"));
     }
 
     if (lockStatus == 0)
     {
-        icon = KIconLoader::global()->loadIcon("object-locked", KIconLoader::NoGroup, r.width());
+        icon = QIcon::fromTheme(QLatin1String("object-locked"));
     }
 
     qreal op = p->opacity();
@@ -498,8 +496,8 @@ void ItemViewImportDelegate::drawFocusRect(QPainter* p, const QStyleOptionViewIt
 
     if (option.state & QStyle::State_HasFocus) //?? is current item
     {
-        p->setPen(QPen(isSelected ? kapp->palette().color(QPalette::HighlightedText)
-                                  : kapp->palette().color(QPalette::Text),
+        p->setPen(QPen(isSelected ? qApp->palette().color(QPalette::HighlightedText)
+                                  : qApp->palette().color(QPalette::Text),
                        1, Qt::DotLine));
         p->drawRect(1, 1, d->rect.width()-3, d->rect.height()-3);
     }
@@ -514,11 +512,11 @@ void ItemViewImportDelegate::drawGroupIndicator(QPainter* p, const QRect& r,
 
         if (open)
         {
-            icon = KIconLoader::global()->loadIcon("document-import", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("document-import"));
         }
         else
         {
-            icon = KIconLoader::global()->loadIcon("document-multiple", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("document-multiple"));
         }
 
         qreal op = p->opacity();
@@ -573,15 +571,15 @@ void ItemViewImportDelegate::prepareMetrics(int maxWidth)
     QFontMetrics fm(d->fontReg);
     d->oneRowRegRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                        Qt::AlignTop | Qt::AlignHCenter,
-                                       "XXXXXXXXX");
+                                       QLatin1String("XXXXXXXXX"));
     fm = QFontMetrics(d->fontCom);
     d->oneRowComRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                        Qt::AlignTop | Qt::AlignHCenter,
-                                       "XXXXXXXXX");
+                                       QLatin1String("XXXXXXXXX"));
     fm = QFontMetrics(d->fontXtra);
     d->oneRowXtraRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                         Qt::AlignTop | Qt::AlignHCenter,
-                                        "XXXXXXXXX");
+                                        QLatin1String("XXXXXXXXX"));
 }
 
 void ItemViewImportDelegate::prepareBackground()
@@ -596,15 +594,15 @@ void ItemViewImportDelegate::prepareBackground()
     else
     {
         d->regPixmap = QPixmap(d->rect.width(), d->rect.height());
-        d->regPixmap.fill(kapp->palette().color(QPalette::Base));
+        d->regPixmap.fill(qApp->palette().color(QPalette::Base));
         QPainter p1(&d->regPixmap);
-        p1.setPen(kapp->palette().color(QPalette::Midlight));
+        p1.setPen(qApp->palette().color(QPalette::Midlight));
         p1.drawRect(0, 0, d->rect.width()-1, d->rect.height()-1);
 
         d->selPixmap = QPixmap(d->rect.width(), d->rect.height());
-        d->selPixmap.fill(kapp->palette().color(QPalette::Highlight));
+        d->selPixmap.fill(qApp->palette().color(QPalette::Highlight));
         QPainter p2(&d->selPixmap);
-        p2.setPen(kapp->palette().color(QPalette::Midlight));
+        p2.setPen(qApp->palette().color(QPalette::Midlight));
         p2.drawRect(0, 0, d->rect.width()-1, d->rect.height()-1);
     }
 }
@@ -658,8 +656,8 @@ void ItemViewImportDelegate::prepareRatingPixmaps(bool composeOverBackground)
 
             // use antialiasing
             painter.setRenderHint(QPainter::Antialiasing, true);
-            painter.setBrush(kapp->palette().color(QPalette::Link));
-            QPen pen(kapp->palette().color(QPalette::Text));
+            painter.setBrush(qApp->palette().color(QPalette::Link));
+            QPen pen(qApp->palette().color(QPalette::Text));
             // set a pen which joins the lines at a filled angle
             pen.setJoinStyle(Qt::MiterJoin);
             painter.setPen(pen);

@@ -6,7 +6,7 @@
  * Date        : 2006-09-19
  * Description : GPS data container.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,6 +24,7 @@
 #define GPSDATACONTAINER_H
 
 #include <QStringList>
+#include <QMetaType>
 
 namespace KIPIKMLExportPlugin
 {
@@ -98,7 +99,7 @@ public:
         // parse geo:-uri according to (only partially implemented):
         // http://tools.ietf.org/html/draft-ietf-geopriv-geo-uri-04
         // TODO: verify that we follow the spec fully!
-        if (!url.startsWith("geo:"))
+        if (!url.startsWith(QLatin1String("geo:")))
         {
             // TODO: error
             if (parsedOkay)
@@ -107,7 +108,7 @@ public:
             return GPSDataContainer();
         }
 
-        const QStringList parts = url.mid(4).split(',');
+        const QStringList parts = url.mid(4).split(QLatin1Char(','));
 
         GPSDataContainer position;
 

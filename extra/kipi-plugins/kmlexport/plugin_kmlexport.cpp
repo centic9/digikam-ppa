@@ -6,7 +6,7 @@
  * Date        : 2006-05-16
  * Description : A plugin to create KML files to present images with coordinates.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,52 +21,43 @@
  *
  * ============================================================ */
 
-// To disable warnings under MSVC2008 about POSIX methods().
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif
-
-#include "plugin_kmlexport.moc"
+#include "plugin_kmlexport.h"
 
 // Qt includes
 
+#include <QApplication>
 #include <QPointer>
+#include <QAction>
 
 // KDE includes
 
-#include <kaction.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <klibloader.h>
-#include <klocale.h>
-#include <kmessagebox.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/imagecollection.h>
-#include <libkipi/interface.h>
+#include <KIPI/ImageCollection>
+#include <KIPI/Interface>
 
 // Local includes
 
 #include "kmlexport.h"
-#include "kmlexportconfig.h"
+#include "kmlwindow.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIKMLExportPlugin
 {
 
 K_PLUGIN_FACTORY( KMLExportFactory, registerPlugin<Plugin_KMLExport>(); )
-K_EXPORT_PLUGIN ( KMLExportFactory("kipiplugin_kmlexport") )
 
 Plugin_KMLExport::Plugin_KMLExport(QObject* const parent, const QVariantList&)
-    : Plugin( KMLExportFactory::componentData(), parent, "KMLExport")
+    : Plugin( /*KMLExportFactory::componentData(),*/ parent, "KMLExport")
 {
     m_actionKMLExport = 0;
     m_interface       = 0;
 
-    kDebug(AREA_CODE_LOADING) << "Plugin_KMLExport plugin loaded" ;
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_SendImages plugin loaded";
 
     setUiBaseName("kipiplugin_kmlexportui.rc");
     setupXML();
@@ -86,7 +77,7 @@ void Plugin_KMLExport::setup(QWidget* const widget)
 
     if (!m_interface)
     {
-        kError() << "Kipi interface is null!" ;
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!" ;
         return;
     }
 
@@ -97,51 +88,42 @@ void Plugin_KMLExport::setupActions()
 {
     setDefaultCategory(ExportPlugin);
 
-    m_actionKMLExport = new KAction(this);
+    m_actionKMLExport = new QAction(this);
     m_actionKMLExport->setText(i18n("Export to KML..."));
-    m_actionKMLExport->setIcon(KIcon("applications-development-web"));
+    m_actionKMLExport->setIcon(QIcon::fromTheme(QLatin1String("applications-development-web")));
     m_actionKMLExport->setEnabled(false);
 
     connect(m_actionKMLExport, SIGNAL(triggered(bool)),
             this, SLOT(slotKMLExport()));
 
-    addAction("kmlexport", m_actionKMLExport);
+    addAction(QLatin1String("kmlexport"), m_actionKMLExport);
 }
 
 void Plugin_KMLExport::slotKMLExport()
 {
     if (!m_interface)
     {
-        kError() << "Kipi interface is null!" ;
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!" ;
         return;
     }
 
     ImageCollection selection = m_interface->currentSelection();
 
-    if ( !selection.isValid() )
+    if (!selection.isValid())
     {
-        kDebug() << "No Selection!" ;
-    }
-    else
-    {
-        KMLExportConfig* const kmlExportConfigGui = new KMLExportConfig(kapp->activeWindow());
-
-        connect(kmlExportConfigGui, SIGNAL(okButtonClicked()),
-                this, SLOT(slotKMLGenerate()));
-
-        kmlExportConfigGui->show();
-    }
-}
-
-void Plugin_KMLExport::slotKMLGenerate()
-{
-    ImageCollection selection = m_interface->currentSelection();
-    KmlExport myExport(m_interface);
-
-    if(!myExport.getConfig())
+        qCDebug(KIPIPLUGINS_LOG) << "No Selection!";
         return;
+    }
 
-    myExport.generate();
+    KmlWindow* const dlg = new KmlWindow(
+        QApplication::activeWindow(),
+        m_interface->hasFeature(ImagesHasComments),
+        m_interface->hasFeature(ImagesHasTime),
+        m_interface->currentAlbum().name(),
+        m_interface->currentSelection());
+    dlg->show();
 }
 
 } // namespace KIPIKMLExportPlugin
+
+#include "plugin_kmlexport.moc"

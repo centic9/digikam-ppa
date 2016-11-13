@@ -6,7 +6,7 @@
  * Date        : 2007-11-25
  * Description : a bar used to search a string.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,15 +27,17 @@
 // Qt includes
 
 #include <QAbstractItemModel>
+#include <QStringList>
+#include <QLineEdit>
 
 // KDE includes
 
-#include <klineedit.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "digikam_export.h"
+#include "modelcompleter.h"
 #include "statesavingobject.h"
 
 namespace Digikam
@@ -70,7 +72,7 @@ bool DIGIKAM_EXPORT operator==(const SearchTextSettings& a, const SearchTextSett
  * @author Gilles Caulier
  * @author jwienke
  */
-class DIGIKAM_EXPORT SearchTextBar : public KLineEdit, public StateSavingObject
+class DIGIKAM_EXPORT SearchTextBar : public QLineEdit, public StateSavingObject
 {
     Q_OBJECT
 
@@ -101,7 +103,7 @@ public:
 
 public:
 
-    SearchTextBar(QWidget* const parent, const char* const name, const QString& msg=i18n("Search..."));
+    SearchTextBar(QWidget* const parent, const QString& name, const QString& msg=i18n("Search..."));
     ~SearchTextBar();
 
     void setTextQueryCompletion(bool b);
@@ -164,6 +166,7 @@ public:
 
     void setSearchTextSettings(const SearchTextSettings& settings);
     SearchTextSettings searchTextSettings() const;
+    ModelCompleter*  completerModel() const;
 
 Q_SIGNALS:
 

@@ -7,7 +7,7 @@
  * Description : a dialog to see preview ICC color correction
  *               before to apply color profile.
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "colorcorrectiondlg.moc"
+#include "colorcorrectiondlg.h"
 
 // Qt includes
 
@@ -33,27 +33,30 @@
 #include <QGroupBox>
 #include <QHBoxLayout>
 #include <QLabel>
-#include <QPushButton>
 #include <QRadioButton>
+#include <QStandardPaths>
+#include <QIcon>
+#include <QDialogButtonBox>
 #include <QVBoxLayout>
+#include <QPushButton>
 
 // KDE includes
 
-
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kapplication.h>
-#include <kseparator.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "dimg.h"
 #include "iccmanager.h"
 #include "iccsettings.h"
 #include "icctransform.h"
 #include "iccprofileinfodlg.h"
 #include "iccprofilescombobox.h"
+#include "dxmlguiwindow.h"
+#include "dexpanderbox.h"
+
+
 
 namespace Digikam
 {
@@ -73,6 +76,7 @@ public:
         imageSRGB(0),
         imageWorkingSpace(0),
         imageOtherSpace(0),
+        buttons(0),
         otherProfileBox(0),
         imageProfileBox(0),
         mode(ColorCorrectionDlg::ProfileMismatch)
@@ -95,6 +99,8 @@ public:
     QRadioButton*            imageWorkingSpace;
     QRadioButton*            imageOtherSpace;
 
+    QDialogButtonBox*        buttons;
+
     IccProfilesComboBox*     otherProfileBox;
     IccProfilesComboBox*     imageProfileBox;
 
@@ -107,8 +113,16 @@ public:
 
 ColorCorrectionDlg::ColorCorrectionDlg(Mode mode, const DImg& preview,
                                        const QString& file, QWidget* const parent)
-    : KDialog(parent), d(new Private)
+    : QDialog(parent),
+      d(new Private)
 {
+    setModal(true);
+
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Ok)->setDefault(true);
+    d->buttons->button(QDialogButtonBox::Cancel)->setText(i18n("Don't know"));
+    d->buttons->button(QDialogButtonBox::Cancel)->setToolTip(i18n("Take the safest and most appropriate action"));
+
     d->mode                          = mode;
     d->preview                       = preview;
     d->filePath                      = file;
@@ -133,23 +147,13 @@ ColorCorrectionDlg::ColorCorrectionDlg(Mode mode, const DImg& preview,
     if (!file.isNull())
     {
         QFileInfo fi(file);
-        caption = i18nc("<Problem> - <filename>", "%1 - %2", caption, fi.fileName());
+        caption = i18nc("<Problem> - <b>", "%1 - %2", caption, fi.fileName());
     }
 
-    setCaption(caption);
+    setWindowTitle(caption);
 
-    setButtons(Help | Ok | Cancel);
-    setDefaultButton(Ok);
-    setButtonFocus(Ok);
-    setModal(true);
-    setHelp("iccprofile.anchor", "digikam");
-    setButtonText(Cancel,    i18n("Don't know"));
-    setButtonToolTip(Cancel, i18n("Take the safest and most appropriate action"));
-
-    QWidget* page     = new QWidget(this);
-    QGridLayout* grid = new QGridLayout(page);
-    setMainWidget(page);
-
+    QWidget* const page     = new QWidget(this);
+    QGridLayout* const grid = new QGridLayout(page);
 
     if (d->mode == ProfileMismatch)
     {
@@ -182,6 +186,20 @@ ColorCorrectionDlg::ColorCorrectionDlg(Mode mode, const DImg& preview,
 
     page->setLayout(grid);
 
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(page);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
+
+    connect(d->buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(slotOk()));
+
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
+            this, SLOT(reject()));
+
+    connect(d->buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
+
     readSettings();
     updateImageProfileUI();
     updateUsedProfileUI();
@@ -193,12 +211,18 @@ ColorCorrectionDlg::~ColorCorrectionDlg()
     delete d;
 }
 
+void ColorCorrectionDlg::slotOk()
+{
+    accept();
+    setSettings();
+}
+
 QLayout* ColorCorrectionDlg::createHeading() const
 {
-    QLabel* icon = new QLabel;
-    icon->setPixmap(SmallIcon("fill-color", KIconLoader::SizeMedium));
+    QLabel* const icon = new QLabel;
+    icon->setPixmap(QIcon::fromTheme(QLatin1String("fill-color")).pixmap(32));
 
-    QLabel* message = new QLabel;
+    QLabel* const message = new QLabel;
 
     if (d->mode == ProfileMismatch)
     {
@@ -221,13 +245,12 @@ QLayout* ColorCorrectionDlg::createHeading() const
 
     message->setWordWrap(true);
 
-    QLabel* logo      = new QLabel;
-    logo->setPixmap(QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                    .scaled(64, 64, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    QLabel* const logo      = new QLabel;
+    logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48)));
 
-    KSeparator* line  = new KSeparator(Qt::Horizontal);
+    DLineWidget* const line  = new DLineWidget(Qt::Horizontal);
 
-    QGridLayout* grid = new QGridLayout;
+    QGridLayout* const grid = new QGridLayout;
     grid->addWidget(icon,    0, 0);
     grid->addWidget(message, 0, 1);
     grid->addWidget(logo,    0, 2);
@@ -238,7 +261,7 @@ QLayout* ColorCorrectionDlg::createHeading() const
 
 QLayout* ColorCorrectionDlg::createProfilesInfo() const
 {
-    QVBoxLayout* vbox = new QVBoxLayout;
+    QVBoxLayout* const vbox = new QVBoxLayout;
 
     if (d->mode == ProfileMismatch || d->mode == UncalibratedColor)
     {
@@ -255,8 +278,8 @@ QLayout* ColorCorrectionDlg::createProfilesInfo() const
             d->imageProfileTitle->setText(i18n("Input Color Profile:"));
         }
 
-        d->imageProfileDesc        = new QLabel;
-        QPushButton* imageProfInfo = new QPushButton(i18n("Info..."));
+        d->imageProfileDesc              = new QLabel;
+        QPushButton* const imageProfInfo = new QPushButton(i18n("Info..."));
         //d->imageProfileTitle->setWordWrap(true);
         d->imageProfileDesc->setWordWrap(true);
 
@@ -268,9 +291,9 @@ QLayout* ColorCorrectionDlg::createProfilesInfo() const
                 this, SLOT(slotImageProfInfo()));
     }
 
-    QLabel* workspaceProfileTitle  = new QLabel(i18n("Working Color Space:"));
-    QLabel* workspaceProfileDesc   = new QLabel(QString("<b>%1</b>").arg(d->workspaceProfile.description()));
-    QPushButton* workspaceProfInfo = new QPushButton(i18n("Info..."));
+    QLabel* const workspaceProfileTitle  = new QLabel(i18n("Working Color Space:"));
+    QLabel* const workspaceProfileDesc   = new QLabel(QString::fromUtf8("<b>%1</b>").arg(d->workspaceProfile.description()));
+    QPushButton* const workspaceProfInfo = new QPushButton(i18n("Info..."));
     //workspaceProfileTitle->setWordWrap(true);
     workspaceProfileDesc->setWordWrap(true);
 
@@ -286,8 +309,8 @@ QLayout* ColorCorrectionDlg::createProfilesInfo() const
 
 QLayout* ColorCorrectionDlg::createPreviews() const
 {
-    QGridLayout* grid     = new QGridLayout;
-    QLabel* originalTitle = new QLabel;
+    QGridLayout* const grid     = new QGridLayout;
+    QLabel* const originalTitle = new QLabel;
 
     if (d->mode == ProfileMismatch)
     {
@@ -304,13 +327,13 @@ QLayout* ColorCorrectionDlg::createPreviews() const
 
     originalTitle->setWordWrap(true);
 
-    QLabel* previewOriginal = new QLabel;
-    DImg copyOriginal       = d->preview.copy();
+    QLabel* const previewOriginal = new QLabel;
+    DImg copyOriginal             = d->preview.copy();
     IccManager manager(copyOriginal);
     manager.transformForDisplay();
     previewOriginal->setPixmap(copyOriginal.convertToPixmap());
 
-    QLabel* targetTitle = new QLabel;
+    QLabel* const targetTitle = new QLabel;
 
     if (d->mode == ProfileMismatch)
     {
@@ -349,8 +372,8 @@ QLayout* ColorCorrectionDlg::createPreviews() const
 
 QWidget* ColorCorrectionDlg::createOptions() const
 {
-    QGroupBox* box    = new QGroupBox;
-    QVBoxLayout* vbox = new QVBoxLayout(box);
+    QGroupBox* const box    = new QGroupBox;
+    QVBoxLayout* const vbox = new QVBoxLayout(box);
 
     if (d->mode == ProfileMismatch)
     {
@@ -371,7 +394,7 @@ QWidget* ColorCorrectionDlg::createOptions() const
             d->otherProfileBox->setEnabled(false);
         }
 
-        QHBoxLayout* hboxAssign = new QHBoxLayout;
+        QHBoxLayout* const hboxAssign = new QHBoxLayout;
         hboxAssign->addSpacing(10);
         hboxAssign->addWidget(d->otherProfileBox);
         hboxAssign->addWidget(d->thirdCheckBox);
@@ -421,7 +444,7 @@ QWidget* ColorCorrectionDlg::createOptions() const
     else if (d->mode == UncalibratedColor)
     {
         // empty
-        /*
+/*
         d->convertToWorkingSpace = new QRadioButton(i18n("Convert to working color space"));
         d->thirdOption         = new QRadioButton(i18n("Convert to this profile:"));
         d->otherProfileBox       = new IccProfilesComboBox;
@@ -430,7 +453,7 @@ QWidget* ColorCorrectionDlg::createOptions() const
         vbox->addWidget(d->convertToWorkingSpace);
         vbox->addWidget(d->thirdOption);
         vbox->addWidget(d->otherProfileBox);
-        */
+*/
     }
 
     return box;
@@ -438,8 +461,8 @@ QWidget* ColorCorrectionDlg::createOptions() const
 
 QWidget* ColorCorrectionDlg::createAssumeOptions() const
 {
-    QGroupBox*   box  = new QGroupBox;
-    QGridLayout* grid = new QGridLayout(box);
+    QGroupBox* const box    = new QGroupBox;
+    QGridLayout* const grid = new QGridLayout(box);
 
     if (d->mode == ProfileMismatch)
     {
@@ -447,7 +470,7 @@ QWidget* ColorCorrectionDlg::createAssumeOptions() const
     }
     else if (d->mode == MissingProfile)
     {
-        QLabel* label = new QLabel(i18n("Which color space shall be used to interpret the colors of this image?"));
+        QLabel* const label = new QLabel(i18n("Which color space shall be used to interpret the colors of this image?"));
         label->setWordWrap(true);
 
         d->imageSRGB         = new QRadioButton(i18n("sRGB (Internet standard)"));
@@ -456,7 +479,7 @@ QWidget* ColorCorrectionDlg::createAssumeOptions() const
         d->imageProfileBox   = new IccProfilesComboBox;
         d->imageProfileBox->addProfilesSqueezed(IccSettings::instance()->workspaceProfiles()
                                                 << IccSettings::instance()->inputProfiles());
-        QPushButton* usedProfInfo = new QPushButton(i18n("Info..."));
+        QPushButton* const usedProfInfo = new QPushButton(i18n("Info..."));
 
         d->imageSRGB->setChecked(true);
         d->imageProfileBox->setCurrentProfile(IccProfile::adobeRGB());
@@ -494,7 +517,7 @@ QWidget* ColorCorrectionDlg::createAssumeOptions() const
     }
     else if (d->mode == UncalibratedColor)
     {
-        QLabel* label = new QLabel(i18n("Please select the input color profile of the device (camera) used to create this image:"));
+        QLabel* const label = new QLabel(i18n("Please select the input color profile of the device (camera) used to create this image:"));
         label->setWordWrap(true);
 
         d->imageProfileBox = new IccProfilesComboBox;
@@ -616,7 +639,7 @@ void ColorCorrectionDlg::updateInfo()
         }
         else
         {
-            d->imageProfileDesc->setText(QString("<b>%1</b>").arg(description));
+            d->imageProfileDesc->setText(QString::fromUtf8("<b>%1</b>").arg(description));
         }
     }
 
@@ -838,11 +861,9 @@ void ColorCorrectionDlg::setSettings()
     IccSettings::instance()->setSettings(settings);
 }
 
-void ColorCorrectionDlg::accept()
+void ColorCorrectionDlg::slotHelp()
 {
-    KDialog::accept();
-
-    setSettings();
+    DXmlGuiWindow::openHandbook(QLatin1String("iccprofile.anchor"), QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

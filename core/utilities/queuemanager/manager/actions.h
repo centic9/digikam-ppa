@@ -6,7 +6,7 @@
  * Date        : 2009-02-06
  * Description : Thread actions container.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,10 +28,7 @@
 
 #include <QString>
 #include <QMetaType>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 namespace Digikam
 {
@@ -64,8 +61,8 @@ public:
 
     QString      message;
 
-    KUrl         fileUrl;
-    KUrl         destUrl;
+    QUrl         fileUrl;
+    QUrl         destUrl;
 };
 
 }  // namespace Digikam

@@ -7,7 +7,7 @@
  * Description : Qt item view for images - the delegate
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
@@ -29,7 +29,6 @@
 
 // Qt includes
 
-#include <QRect>
 #include <QCache>
 
 // Local includes
@@ -48,7 +47,7 @@ public:
     }
     virtual ~DigikamImageDelegatePrivate();
 
-    void init(DigikamImageDelegate* q, ImageCategorizedView* parent);
+    void init(DigikamImageDelegate* const q, ImageCategorizedView* const parent);
 };
 
 // -----------------------------------------------------------------------------------------

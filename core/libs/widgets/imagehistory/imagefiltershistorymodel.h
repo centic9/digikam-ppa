@@ -28,10 +28,7 @@
 
 #include <QAbstractListModel>
 #include <QList>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -49,10 +46,10 @@ class ImageFiltersHistoryModel : public QAbstractItemModel
 
 public:
 
-    explicit ImageFiltersHistoryModel(QObject* const parent = 0, const KUrl& url = KUrl());
+    explicit ImageFiltersHistoryModel(QObject* const parent = 0, const QUrl& url = QUrl());
     ~ImageFiltersHistoryModel();
 
-    void setUrl(const KUrl& url);
+    void setUrl(const QUrl& url);
     bool removeRows(int row, int count, const QModelIndex& parent);
     void setupModelData(const QList<DImageHistory::Entry>& entries, ImageFiltersHistoryTreeItem* parent = 0);
 

@@ -7,6 +7,7 @@
  * Description : Dialog to adjust soft proofing settings
  *
  * Copyright (C) 2009-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "softproofdialog.moc"
+#include "softproofdialog.h"
 
 // Qt includes
 
@@ -30,20 +31,26 @@
 #include <QGroupBox>
 #include <QLabel>
 #include <QPushButton>
+#include <QIcon>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kcolorbutton.h>
-#include <klocale.h>
-#include <kseparator.h>
-#include <kmessagebox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "iccprofilescombobox.h"
 #include "iccsettingscontainer.h"
 #include "iccsettings.h"
 #include "iccprofileinfodlg.h"
+#include "dexpanderbox.h"
+
+
 
 namespace Digikam
 {
@@ -56,9 +63,10 @@ public:
         switchOn(false),
         deviceProfileBox(0),
         infoProofProfiles(0),
+        buttons(0),
         gamutCheckBox(0),
         maskColorLabel(0),
-        maskColorButton(0),
+        maskColorBtn(0),
         proofingIntentBox(0)
     {
     }
@@ -67,52 +75,50 @@ public:
 
     IccProfilesComboBox*        deviceProfileBox;
     QPushButton*                infoProofProfiles;
-
+    QDialogButtonBox*           buttons;
     QCheckBox*                  gamutCheckBox;
     QLabel*                     maskColorLabel;
-    KColorButton*               maskColorButton;
+    DColorSelector*             maskColorBtn;
 
     IccRenderingIntentComboBox* proofingIntentBox;
 };
 
 SoftProofDialog::SoftProofDialog(QWidget* const parent)
-    : KDialog(parent), d(new Private)
+    : QDialog(parent),
+      d(new Private)
 {
-    setCaption(i18n("Soft Proofing Options"));
-
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
-    setButtonFocus(Ok);
     setModal(true);
-    //TODO setHelp("softproofing.anchor", "digikam");
-    setButtonText(Ok,        i18n("Soft Proofing On"));
-    setButtonToolTip(Ok,     i18n("Enable soft-proofing color managed view"));
-    setButtonText(Cancel,    i18n("Soft Proofing Off"));
-    setButtonToolTip(Cancel, i18n("Disable soft-proofing color managed view"));
+    setWindowTitle(i18n("Soft Proofing Options"));
 
-    QWidget* page           = new QWidget(this);
-    QVBoxLayout* mainLayout = new QVBoxLayout(page);
-    setMainWidget(page);
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Ok)->setDefault(true);
+    d->buttons->button(QDialogButtonBox::Ok)->setText(i18n("Soft Proofing On"));
+    d->buttons->button(QDialogButtonBox::Ok)->setToolTip(i18n("Enable soft-proofing color managed view"));
+    d->buttons->button(QDialogButtonBox::Cancel)->setText(i18n("Soft Proofing Off"));
+    d->buttons->button(QDialogButtonBox::Cancel)->setToolTip(i18n("Disable soft-proofing color managed view"));
+
+    QWidget* const page           = new QWidget(this);
+    QVBoxLayout* const mainLayout = new QVBoxLayout(page);
 
     // ---
 
-    QLabel* headerLabel   = new QLabel(i18n("<b>Configure the Soft Proofing View</b>"));
-    KSeparator* separator = new KSeparator(Qt::Horizontal);
+    QLabel* const headerLabel    = new QLabel(i18n("<b>Configure the Soft Proofing View</b>"));
+    DLineWidget* const separator = new DLineWidget(Qt::Horizontal);
 
     // -------------------------------------------------------------
 
-    QGridLayout* profileGrid = new QGridLayout;
-    QLabel* proofIcon        = new QLabel;
-    proofIcon->setPixmap(SmallIcon("printer", KIconLoader::SizeMedium));
-    QLabel* proofLabel       = new QLabel(i18n("Profile of the output device to simulate:"));
-    d->deviceProfileBox      = new IccProfilesComboBox;
+    QGridLayout* const profileGrid = new QGridLayout;
+    QLabel* const proofIcon        = new QLabel;
+    proofIcon->setPixmap(QIcon::fromTheme(QLatin1String("printer")).pixmap(22));
+    QLabel* const proofLabel       = new QLabel(i18n("Profile of the output device to simulate:"));
+    d->deviceProfileBox            = new IccProfilesComboBox;
     proofLabel->setBuddy(d->deviceProfileBox);
     d->deviceProfileBox->setWhatsThis(i18n("<p>Select the profile for your output device "
                                            "(usually, your printer). This profile will be used to do a soft proof, so you will "
                                            "be able to preview how an image will be rendered via an output device.</p>"));
 
     d->infoProofProfiles      = new QPushButton;
-    d->infoProofProfiles->setIcon(SmallIcon("dialog-information"));
+    d->infoProofProfiles->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
     d->infoProofProfiles->setWhatsThis(i18n("Press this button to get detailed "
                                             "information about the selected proofing profile.</p>"));
 
@@ -126,25 +132,24 @@ SoftProofDialog::SoftProofDialog(QWidget* const parent)
 
     // --------------------------------------------------------------
 
-    QGroupBox* optionsBox    = new QGroupBox;
-    QGridLayout* optionsGrid = new QGridLayout;
+    QGroupBox* const optionsBox    = new QGroupBox;
+    QGridLayout* const optionsGrid = new QGridLayout;
 
-    QLabel* intentLabel  = new QLabel(i18n("Rendering intent:"));
-    d->proofingIntentBox = new IccRenderingIntentComboBox;
+    QLabel* const intentLabel      = new QLabel(i18n("Rendering intent:"));
+    d->proofingIntentBox           = new IccRenderingIntentComboBox;
     //TODO d->proofingIntentBox->setWhatsThis(i18n(""));
     intentLabel->setBuddy(d->proofingIntentBox);
 
     d->gamutCheckBox   = new QCheckBox(i18n("Highlight out-of-gamut colors"));
-
     d->maskColorLabel  = new QLabel(i18n("Highlighting color:"));
-    d->maskColorButton = new KColorButton;
-    d->maskColorLabel->setBuddy(d->maskColorButton);
+    d->maskColorBtn = new DColorSelector;
+    d->maskColorLabel->setBuddy(d->maskColorBtn);
 
     optionsGrid->addWidget(intentLabel,          0, 0, 1, 2);
     optionsGrid->addWidget(d->proofingIntentBox, 0, 2, 1, 2);
     optionsGrid->addWidget(d->gamutCheckBox,     1, 0, 1, 4);
     optionsGrid->addWidget(d->maskColorLabel,    2, 1, 1, 1);
-    optionsGrid->addWidget(d->maskColorButton,   2, 2, 1, 2, Qt::AlignLeft);
+    optionsGrid->addWidget(d->maskColorBtn,   2, 2, 1, 2, Qt::AlignLeft);
     optionsGrid->setColumnMinimumWidth(0, 10);
     optionsGrid->setColumnStretch(2, 1);
     optionsBox->setLayout(optionsGrid);
@@ -156,11 +161,22 @@ SoftProofDialog::SoftProofDialog(QWidget* const parent)
     mainLayout->addLayout(profileGrid);
     mainLayout->addWidget(optionsBox);
 
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(page);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
+
     connect(d->deviceProfileBox, SIGNAL(currentIndexChanged(int)),
             this, SLOT(updateOkButtonState()));
 
     connect(d->gamutCheckBox, SIGNAL(toggled(bool)),
             this, SLOT(updateGamutCheckState()));
+
+    connect(d->buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(slotOk()));
+
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
+            this, SLOT(reject()));
 
     connect(d->infoProofProfiles, SIGNAL(clicked()),
             this, SLOT(slotProfileInfo()));
@@ -184,12 +200,12 @@ void SoftProofDialog::updateGamutCheckState()
 {
     bool on = d->gamutCheckBox->isChecked();
     d->maskColorLabel->setEnabled(on);
-    d->maskColorButton->setEnabled(on);
+    d->maskColorBtn->setEnabled(on);
 }
 
 void SoftProofDialog::updateOkButtonState()
 {
-    enableButtonOk(d->deviceProfileBox->currentIndex() != -1);
+    d->buttons->button(QDialogButtonBox::Ok)->setEnabled(d->deviceProfileBox->currentIndex() != -1);
 }
 
 void SoftProofDialog::readSettings()
@@ -198,7 +214,7 @@ void SoftProofDialog::readSettings()
     d->deviceProfileBox->setCurrentProfile(settings.defaultProofProfile);
     d->proofingIntentBox->setIntent(settings.proofingRenderingIntent);
     d->gamutCheckBox->setChecked(settings.doGamutCheck);
-    d->maskColorButton->setColor(settings.gamutCheckMaskColor);
+    d->maskColorBtn->setColor(settings.gamutCheckMaskColor);
 }
 
 void SoftProofDialog::writeSettings()
@@ -207,16 +223,8 @@ void SoftProofDialog::writeSettings()
     settings.defaultProofProfile     = d->deviceProfileBox->currentProfile().filePath();
     settings.proofingRenderingIntent = d->proofingIntentBox->intent();
     settings.doGamutCheck            = d->gamutCheckBox->isChecked();
-    settings.gamutCheckMaskColor     = d->maskColorButton->color();
+    settings.gamutCheckMaskColor     = d->maskColorBtn->color();
     IccSettings::instance()->setSettings(settings);
-}
-
-void SoftProofDialog::accept()
-{
-    KDialog::accept();
-
-    d->switchOn = true;
-    writeSettings();
 }
 
 void SoftProofDialog::slotProfileInfo()
@@ -225,12 +233,19 @@ void SoftProofDialog::slotProfileInfo()
 
     if (profile.isNull())
     {
-        KMessageBox::error(this, i18n("No profile is selected."), i18n("Profile Error"));
+        QMessageBox::critical(this, i18n("Profile Error"), i18n("No profile is selected."));
         return;
     }
 
     ICCProfileInfoDlg infoDlg(this, profile.filePath(), profile);
     infoDlg.exec();
+}
+
+void SoftProofDialog::slotOk()
+{
+    d->switchOn = true;
+    writeSettings();
+    accept();
 }
 
 } // namespace Digikam

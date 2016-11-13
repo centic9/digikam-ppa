@@ -1,0 +1,584 @@
+# Translation of kipiplugin_picasawebexport into esperanto.
+# Axel Rousseau <axel@esperanto-jeunes.org>, 2009.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_picasawebexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"PO-Revision-Date: 2009-11-15 12:06+0100\n"
+"Last-Translator: Axel Rousseau <axel@esperanto-jeunes.org>\n"
+"Language-Team: esperanto <kde-i18n-eo@kde.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: pology\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: authorize.cpp:116
+msgid "Google Drive Authorization"
+msgstr ""
+
+#: authorize.cpp:129
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+
+#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+msgid "Error"
+msgstr ""
+
+#: gdtalker.cpp:336
+msgid "Failed to list folders"
+msgstr ""
+
+#: gdtalker.cpp:384
+msgid "Failed to create folder"
+msgstr ""
+
+#: gdtalker.cpp:415 gptalker.cpp:929
+msgid "Failed to upload photo"
+msgstr ""
+
+#: gptalker.cpp:561
+msgid "No photo specified"
+msgstr ""
+
+#: gptalker.cpp:564
+msgid "General upload failure"
+msgstr ""
+
+#: gptalker.cpp:567
+msgid "File-size was zero"
+msgstr ""
+
+#: gptalker.cpp:570
+msgid "File-type was not recognized"
+msgstr ""
+
+#: gptalker.cpp:573
+msgid "User exceeded upload limit"
+msgstr ""
+
+#: gptalker.cpp:576
+msgid "Invalid signature"
+msgstr ""
+
+#: gptalker.cpp:579
+msgid "Missing signature"
+msgstr ""
+
+#: gptalker.cpp:582
+msgid "Login failed / Invalid auth token"
+msgstr ""
+
+#: gptalker.cpp:585
+msgid "Invalid API Key"
+msgstr ""
+
+#: gptalker.cpp:588
+msgid "Service currently unavailable"
+msgstr ""
+
+#: gptalker.cpp:591
+msgid "Invalid Frob"
+msgstr ""
+
+#: gptalker.cpp:594
+msgid "Format \"xxx\" not found"
+msgstr ""
+
+#: gptalker.cpp:597
+msgid "Method \"xxx\" not found"
+msgstr ""
+
+#: gptalker.cpp:600
+msgid "Invalid SOAP envelope"
+msgstr ""
+
+#: gptalker.cpp:603
+msgid "Invalid XML-RPC Method Call"
+msgstr ""
+
+#: gptalker.cpp:606
+msgid "The POST method is now required for all setters."
+msgstr ""
+
+#: gptalker.cpp:609
+msgid "Unknown error"
+msgstr "Nekonata eraro"
+
+#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
+#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
+#: gptalker.cpp:613
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+
+#: gptalker.cpp:683 gptalker.cpp:750
+msgid "Failed to fetch photo-set list"
+msgstr ""
+
+#: gptalker.cpp:886 gptalker.cpp:919
+msgid "Failed to create album"
+msgstr ""
+
+#: gswidget.cpp:60
+msgid "Tag path behavior :"
+msgstr ""
+
+#: gswidget.cpp:62
+msgid "Leaf tags only"
+msgstr ""
+
+#: gswidget.cpp:63
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr ""
+
+#: gswidget.cpp:64
+msgid "Split tags"
+msgstr ""
+
+#: gswidget.cpp:65
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr ""
+
+#: gswidget.cpp:66
+msgid "Combined String"
+msgstr ""
+
+#: gswidget.cpp:67
+msgid "Build a combined tag string."
+msgstr ""
+
+#: gswindow.cpp:116
+msgid "Google Drive Export"
+msgstr ""
+
+#: gswindow.cpp:117
+msgid "A tool to export images to Google Drive"
+msgstr ""
+
+#: gswindow.cpp:119
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:122
+msgid "Saurabh Patel"
+msgstr ""
+
+#: gswindow.cpp:122 gswindow.cpp:195
+msgid "Author and maintainer"
+msgstr "Aŭtoro kaj prizorganto"
+
+#: gswindow.cpp:125 gswindow.cpp:207
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
+#: gswindow.cpp:207
+msgid "Developer"
+msgstr "Kreinto"
+
+#: gswindow.cpp:132
+msgid "Export to Google Drive"
+msgstr ""
+
+#: gswindow.cpp:134 gswindow.cpp:219
+msgid "Start Upload"
+msgstr ""
+
+#: gswindow.cpp:135
+msgid "Start upload to Google Drive"
+msgstr ""
+
+#: gswindow.cpp:186
+msgid "Google Photos/PicasaWeb Export"
+msgstr ""
+
+#: gswindow.cpp:187
+msgid "A tool to export image collections to Google Photos/Picasa web service."
+msgstr ""
+
+#: gswindow.cpp:189
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:195
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:198
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:201
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:204
+msgid "Jens Mueller"
+msgstr ""
+
+#: gswindow.cpp:217
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr ""
+
+#: gswindow.cpp:220
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr ""
+
+#: gswindow.cpp:226
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr ""
+
+#: gswindow.cpp:228
+msgid "Start Download"
+msgstr ""
+
+#: gswindow.cpp:229
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr ""
+
+#: gswindow.cpp:428 gswindow.cpp:467 gswindow.cpp:577
+#, kde-format
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr ""
+
+#: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+msgid "%v / %m"
+msgstr ""
+
+#: gswindow.cpp:531
+msgid "Google Photo Export"
+msgstr ""
+
+#: gswindow.cpp:549
+#, kde-format
+msgid "Google Drive Call Failed: %1\n"
+msgstr ""
+
+#: gswindow.cpp:653
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+
+#: gswindow.cpp:669
+msgid "No image selected. Please select which images should be uploaded."
+msgstr ""
+
+#: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
+#: gswindow.cpp:1105
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:684 gswindow.cpp:707
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr ""
+
+#: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
+#: gswindow.cpp:1109 gswindow.cpp:1286
+msgid "Continue"
+msgstr ""
+
+#: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
+#: gswindow.cpp:1110 gswindow.cpp:1287
+msgid "Cancel"
+msgstr "Rezigni"
+
+#: gswindow.cpp:762
+msgid "Google Drive export"
+msgstr ""
+
+#: gswindow.cpp:1015
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: gswindow.cpp:1033
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+
+#: gswindow.cpp:1079
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr ""
+
+#: gswindow.cpp:1106
+#, kde-format
+msgid ""
+"Failed to upload photo to %1.\n"
+"%2\n"
+"Do you want to continue?"
+msgstr ""
+
+#: gswindow.cpp:1198
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr ""
+
+#: gswindow.cpp:1240
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+
+#: gswindow.cpp:1248
+#, kde-format
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr ""
+
+#: gswindow.cpp:1281
+msgctxt "@title:window"
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:1282
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+msgid "&Export"
+msgstr "E&ksporti"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+msgid "&Import"
+msgstr "&Importi"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr "Ĉefa ilobreto"
+
+#: newalbumdlg.cpp:54
+msgid "Access Level"
+msgstr ""
+
+#: newalbumdlg.cpp:55
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr ""
+
+#: newalbumdlg.cpp:57
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr "Publika"
+
+#: newalbumdlg.cpp:59
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr ""
+
+#: newalbumdlg.cpp:60
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr ""
+
+#: newalbumdlg.cpp:61
+msgid "Unlisted album is only accessible via URL."
+msgstr ""
+
+#: newalbumdlg.cpp:62
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr ""
+
+#: newalbumdlg.cpp:63
+msgid "Unlisted album require Sign-In to View"
+msgstr ""
+
+#: newalbumdlg.cpp:71
+msgid "Privacy:"
+msgstr ""
+
+#: plugin_googleservices.cpp:100
+msgid "Export to &Google Drive..."
+msgstr ""
+
+#: plugin_googleservices.cpp:110
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr ""
+
+#: plugin_googleservices.cpp:120
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr ""
+
+#: replacedialog.cpp:112
+msgid "Add As New"
+msgstr ""
+
+#: replacedialog.cpp:113
+msgid "Item will be added alongside the linked version."
+msgstr ""
+
+#: replacedialog.cpp:119
+msgid "Add All"
+msgstr ""
+
+#: replacedialog.cpp:120
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+
+#: replacedialog.cpp:126
+#, fuzzy
+#| msgid "&Replace"
+msgid "Replace"
+msgstr "&Anstataŭigi"
+
+#: replacedialog.cpp:127
+msgid "Item will be replacing the linked version."
+msgstr ""
+
+#: replacedialog.cpp:133
+#, fuzzy
+#| msgid "&Replace"
+msgid "Replace All"
+msgstr "&Anstataŭigi"
+
+#: replacedialog.cpp:134
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+
+#: replacedialog.cpp:157
+msgid "A linked item already exists."
+msgstr ""
+
+#: replacedialog.cpp:177
+msgid "Destination"
+msgstr "Celo"
+
+#: replacedialog.cpp:182
+msgid "Source"
+msgstr "Fonto"
+
+#~ msgid ""
+#~ "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+#~ msgstr ""
+#~ "Dosiero nomita \"%1\" jam ekzistas. Ĉu vi vere volas anstataŭigi ĝin?"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Axel Rousseau"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "axel@esperanto-jeunes.org"
+
+#~ msgid "Account"
+#~ msgstr "Konto"
+
+#~| msgid "Name:"
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Nomo:"
+
+#~ msgid "Album"
+#~ msgstr "Albumo"
+
+#, fuzzy
+#~| msgid "Album"
+#~ msgid "Album:"
+#~ msgstr "Albumo"
+
+#~ msgid "New Album"
+#~ msgstr "Nova Albumo"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Reŝargi"
+
+#~ msgid "Options"
+#~ msgstr "Opcioj"
+
+#~| msgid "Title:"
+#~ msgctxt "folder edit"
+#~ msgid "Title:"
+#~ msgstr "Titolo:"
+
+#~| msgid "Title:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Title:"
+#~ msgstr "Titolo:"
+
+#~| msgid "Description:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Description:"
+#~ msgstr "Priskribo:"
+
+#~| msgid "Location:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Location:"
+#~ msgstr "Loko:"
+
+#~ msgid "Password:"
+#~ msgstr "Pasvorto:"
+
+#~ msgid "&OK"
+#~ msgstr "&Bone"
+
+#~ msgid "&Cancel"
+#~ msgstr "&Rezigni"
+
+#~ msgid "Login"
+#~ msgstr "Ensaluti"
+
+#~ msgctxt "Picasaweb account login"
+#~ msgid "Anonymous"
+#~ msgstr "Anonimulo"
+
+#~ msgid "Handbook"
+#~ msgstr "Manlibro"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Site Password:"
+#~ msgstr "Pasvorto:"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Album Password:"
+#~ msgstr "Pasvorto:"
+
+#~ msgid "Create"
+#~ msgstr "Krei"
+
+#~ msgid "Date"
+#~ msgstr "Dato"
+
+#~ msgid "Username:"
+#~ msgstr "Uzantnomo:"

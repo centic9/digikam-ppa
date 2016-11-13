@@ -8,9 +8,9 @@
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C)      2011 by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C)      2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C)      2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -25,29 +25,22 @@
  *
  * ============================================================ */
 
-#include "filtersidebarwidget.moc"
+#include "filtersidebarwidget.h"
 
 // Qt includes
 
-#include <QLabel>
 #include <QLayout>
 #include <QCheckBox>
 #include <QGridLayout>
 #include <QToolButton>
-
-// KDE includes
-
-#include <khbox.h>
-#include <kmenu.h>
-#include <kdebug.h>
-
-// Libkdcraw includes
-
-#include <libkdcraw/version.h>
-#include <libkdcraw/rexpanderbox.h>
+#include <QMenu>
+#include <QIcon>
 
 // Local includes
 
+#include "dwidgetutils.h"
+#include "dexpanderbox.h"
+#include "digikam_debug.h"
 #include "applicationsettings.h"
 #include "colorlabelfilter.h"
 #include "geolocationfilter.h"
@@ -55,8 +48,6 @@
 #include "ratingfilter.h"
 #include "mimefilter.h"
 #include "tagfilterview.h"
-
-using namespace KDcrawIface;
 
 namespace Digikam
 {
@@ -97,7 +88,7 @@ public:
     TagFilterView*                         tagFilterView;
     SearchTextBar*                         tagFilterSearchBar;
     QToolButton*                           tagOptionsBtn;
-    KMenu*                                 tagOptionsMenu;
+    QMenu*                                 tagOptionsMenu;
     TagModel*                              tagFilterModel;
     QAction*                               tagOrCondAction;
     QAction*                               tagAndCondAction;
@@ -112,49 +103,48 @@ public:
 
     QCheckBox*                             withoutTagCheckBox;
 
-    RExpanderBox*                          expbox;
+    DExpanderBox*                          expbox;
 };
 
-const QString FilterSideBarWidget::Private::configSearchTextFilterFieldsEntry("Search Text Filter Fields");
-const QString FilterSideBarWidget::Private::configLastShowUntaggedEntry("Show Untagged");
-const QString FilterSideBarWidget::Private::configMatchingConditionEntry("Matching Condition");
+const QString FilterSideBarWidget::Private::configSearchTextFilterFieldsEntry(QLatin1String("Search Text Filter Fields"));
+const QString FilterSideBarWidget::Private::configLastShowUntaggedEntry(QLatin1String("Show Untagged"));
+const QString FilterSideBarWidget::Private::configMatchingConditionEntry(QLatin1String("Matching Condition"));
 
 // ---------------------------------------------------------------------------------------------------
 
 FilterSideBarWidget::FilterSideBarWidget(QWidget* const parent, TagModel* const tagFilterModel)
-    : KVBox(parent), StateSavingObject(this), d(new Private)
+    : DVBox(parent), StateSavingObject(this), d(new Private)
 {
-    setObjectName("TagFilter Sidebar");
+    setObjectName(QLatin1String("TagFilter Sidebar"));
 
-    d->expbox = new RExpanderBox(this);
-    d->expbox->setObjectName("FilterSideBarWidget Expander");
+    d->expbox = new DExpanderBox(this);
+    d->expbox->setObjectName(QLatin1String("FilterSideBarWidget Expander"));
 
     // --------------------------------------------------------------------------------------------------------
 
     d->textFilter = new TextFilter(d->expbox);
-    d->expbox->addItem(d->textFilter, SmallIcon("text-field"),
-                       i18n("Text Filter"), QString("TextFilter"), true);
+    d->expbox->addItem(d->textFilter, QIcon::fromTheme(QLatin1String("text-field")),
+                       i18n("Text Filter"), QLatin1String("TextFilter"), true);
 
     // --------------------------------------------------------------------------------------------------------
 
     d->mimeFilter = new MimeFilter(d->expbox);
-    d->expbox->addItem(d->mimeFilter, SmallIcon("system-file-manager"),
-                       i18n("MIME Type Filter"), QString("TypeMimeFilter"), true);
+    d->expbox->addItem(d->mimeFilter, QIcon::fromTheme(QLatin1String("system-file-manager")),
+                       i18n("MIME Type Filter"), QLatin1String("TypeMimeFilter"), true);
 
     // --------------------------------------------------------------------------------------------------------
 
     d->geolocationFilter = new GeolocationFilter(d->expbox);
-    d->expbox->addItem(d->geolocationFilter, SmallIcon("applications-internet"),
-                       i18n("Geolocation Filter"), QString("TypeGeolocationFilter"), true);
+    d->expbox->addItem(d->geolocationFilter, QIcon::fromTheme(QLatin1String("folder-html")),
+                       i18n("Geolocation Filter"), QLatin1String("TypeGeolocationFilter"), true);
 
     // --------------------------------------------------------------------------------------------------------
-
 
     QWidget* const box3   = new QWidget(d->expbox);
     d->tagFilterModel     = tagFilterModel;
     d->tagFilterView      = new TagFilterView(box3, tagFilterModel);
-    d->tagFilterView->setObjectName("DigikamViewTagFilterView");
-    d->tagFilterSearchBar = new SearchTextBar(box3, "DigikamViewTagFilterSearchBar");
+    d->tagFilterView->setObjectName(QLatin1String("DigikamViewTagFilterView"));
+    d->tagFilterSearchBar = new SearchTextBar(box3, QLatin1String("DigikamViewTagFilterSearchBar"));
     d->tagFilterSearchBar->setModel(d->tagFilterView->filteredModel(),
                                     AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
     d->tagFilterSearchBar->setFilterModel(d->tagFilterView->albumFilterModel());
@@ -165,13 +155,13 @@ FilterSideBarWidget::FilterSideBarWidget(QWidget* const parent, TagModel* const 
 
     d->tagOptionsBtn = new QToolButton(box3);
     d->tagOptionsBtn->setToolTip( i18n("Tags Matching Condition"));
-    d->tagOptionsBtn->setIcon(KIconLoader::global()->loadIcon("configure", KIconLoader::Toolbar));
+    d->tagOptionsBtn->setIcon(QIcon::fromTheme(QLatin1String("configure")));
     d->tagOptionsBtn->setPopupMode(QToolButton::InstantPopup);
     d->tagOptionsBtn->setWhatsThis(i18n("Defines in which way the selected tags are combined "
                                         "to filter the images. This also includes the '%1' check box.",
                                         notTaggedTitle));
 
-    d->tagOptionsMenu  = new KMenu(d->tagOptionsBtn);
+    d->tagOptionsMenu  = new QMenu(d->tagOptionsBtn);
     d->tagOrCondAction = d->tagOptionsMenu->addAction(i18n("OR"));
     d->tagOrCondAction->setCheckable(true);
     d->tagAndCondAction = d->tagOptionsMenu->addAction(i18n("AND"));
@@ -185,10 +175,10 @@ FilterSideBarWidget::FilterSideBarWidget(QWidget* const parent, TagModel* const 
     lay3->addWidget(d->tagOptionsBtn,      2, 2, 1, 1);
     lay3->setRowStretch(0, 100);
     lay3->setColumnStretch(1, 10);
-    lay3->setMargin(0);
+    lay3->setContentsMargins(QMargins());
     lay3->setSpacing(0);
 
-    d->expbox->addItem(box3, SmallIcon("tag-assigned"), i18n("Tags Filter"), QString("TagsFilter"), true);
+    d->expbox->addItem(box3, QIcon::fromTheme(QLatin1String("tag-assigned")), i18n("Tags Filter"), QLatin1String("TagsFilter"), true);
 
     // --------------------------------------------------------------------------------------------------------
 
@@ -203,10 +193,10 @@ FilterSideBarWidget::FilterSideBarWidget(QWidget* const parent, TagModel* const 
     lay4->addWidget(d->ratingFilter,     1, 2, 1, 1);
     lay4->setColumnStretch(2, 1);
     lay4->setColumnStretch(3, 10);
-    lay4->setMargin(0);
+    lay4->setContentsMargins(QMargins());
     lay4->setSpacing(0);
 
-    d->expbox->addItem(box4, SmallIcon("favorites"), i18n("Labels Filter"), QString("LabelsFilter"), true);
+    d->expbox->addItem(box4, QIcon::fromTheme(QLatin1String("folder-favorites")), i18n("Labels Filter"), QLatin1String("LabelsFilter"), true);
 
     d->expanderVlay = dynamic_cast<QVBoxLayout*>(dynamic_cast<QScrollArea*>(d->expbox)->widget()->layout());
     d->space        = new QWidget();
@@ -401,11 +391,7 @@ void FilterSideBarWidget::doLoadState()
 
     KConfigGroup group = getConfigGroup();
 
-#if KDCRAW_VERSION >= 0x020000
     d->expbox->readSettings(group);
-#else
-    d->expbox->readSettings();
-#endif
 
     d->textFilter->setsearchTextFields((SearchTextFilterSettings::TextFilterFields)
                                        (group.readEntry(entryName(d->configSearchTextFilterFieldsEntry),
@@ -433,11 +419,7 @@ void FilterSideBarWidget::doSaveState()
 {
     KConfigGroup group = getConfigGroup();
 
-#if KDCRAW_VERSION >= 0x020000
     d->expbox->writeSettings(group);
-#else
-    d->expbox->writeSettings();
-#endif
 
     group.writeEntry(entryName(d->configSearchTextFilterFieldsEntry), (int)d->textFilter->searchTextFields());
 

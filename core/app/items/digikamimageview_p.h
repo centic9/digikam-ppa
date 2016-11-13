@@ -7,7 +7,7 @@
  * Description : Private Qt item view for images
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol do de>
  *
  * This program is free software you can redistribute it
@@ -32,16 +32,13 @@
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "digikamimageview.h"
 #include "digikamimagedelegate.h"
 #include "imagerotationoverlay.h"
 #include "imagefsoverlay.h"
 #include "applicationsettings.h"
-
-#ifdef HAVE_KFACE
 #include "facepipeline.h"
-#endif /* HAVE_KFACE */
 
 namespace Digikam
 {
@@ -66,9 +63,7 @@ public:
 
     ImageViewUtilities*       utilities;
 
-#ifdef HAVE_KFACE
     FacePipeline              editPipeline;
-#endif /* HAVE_KFACE */
 
     DigikamImageDelegate*     normalDelegate;
     DigikamImageFaceDelegate* faceDelegate;

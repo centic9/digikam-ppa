@@ -6,7 +6,7 @@
  * Date        : 2009-06-06
  * Description : save PGF image options.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "pgfsettings.moc"
+#include "pgfsettings.h"
 
 // Qt includes
 
@@ -30,12 +30,16 @@
 #include <QCheckBox>
 #include <QLayout>
 #include <QGridLayout>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <knuminput.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "dnuminput.h"
 
 namespace Digikam
 {
@@ -59,13 +63,15 @@ public:
 
     QCheckBox*    PGFLossLess;
 
-    KIntNumInput* PGFcompression;
+    DIntNumInput* PGFcompression;
 };
 
 PGFSettings::PGFSettings(QWidget* const parent)
     : QWidget(parent), d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     d->PGFGrid     = new QGridLayout(this);
     d->PGFLossLess = new QCheckBox(i18n("Lossless PGF files"), this);
@@ -74,9 +80,9 @@ PGFSettings::PGFSettings(QWidget* const parent)
                                       "<p>If this option is enabled, a lossless method will be used "
                                       "to compress PGF pictures.</p>"));
 
-    d->PGFcompression = new KIntNumInput(3, this);
+    d->PGFcompression = new DIntNumInput(this);
+    d->PGFcompression->setDefaultValue(3);
     d->PGFcompression->setRange(1, 9, 1);
-    d->PGFcompression->setSliderEnabled(true);
     d->labelPGFcompression = new QLabel(i18n("PGF quality:"), this);
 
     d->PGFcompression->setWhatsThis(i18n("<p>The quality value for PGF images:</p>"
@@ -94,8 +100,8 @@ PGFSettings::PGFSettings(QWidget* const parent)
     d->PGFGrid->addWidget(d->PGFcompression,      2, 0, 1, 2);
     d->PGFGrid->setColumnStretch(1, 10);
     d->PGFGrid->setRowStretch(3, 10);
-    d->PGFGrid->setMargin(KDialog::spacingHint());
-    d->PGFGrid->setSpacing(KDialog::spacingHint());
+    d->PGFGrid->setContentsMargins(spacing, spacing, spacing, spacing);
+    d->PGFGrid->setSpacing(spacing);
 
     connect(d->PGFLossLess, SIGNAL(toggled(bool)),
             this, SLOT(slotTogglePGFLossLess(bool)));

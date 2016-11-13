@@ -6,8 +6,8 @@
  * Date        : 2013-12-20
  * Description : Settings for Showfoto
  *
- * Copyright (C) 2013-2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
- * Copyright (C) 2013-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2014 by Mohamed Anwer <m dot anwer at gmx dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,23 +22,23 @@
  *
  * ============================================================ */
 
-#include "showfotosettings.moc"
+#include "showfotosettings.h"
 
 // Qt includes
 
 #include <QStyle>
+#include <QApplication>
+#include <QFontDatabase>
 
 // KDE includes
 
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kdebug.h>
-#include <kconfig.h>
+#include <ksharedconfig.h>
 #include <kconfiggroup.h>
-#include <kapplication.h>
 
 // Local includes
 
+#include "digikam_config.h"
+#include "digikam_debug.h"
 #include "setupmisc.h"
 #include "thememanager.h"
 
@@ -82,6 +82,7 @@ public:
     static const QString configCurrentTheme;
     static const QString configRightSideBarStyle;
     static const QString configApplicationStyle;
+    static const QString configIconTheme;
     static const QString configShowFormatOverThumbnail;
     static const QString configShowCoordinates;
     static const QString configItemCenter;
@@ -138,49 +139,50 @@ public:
     QString              lastOpenedDir;
     QString              theme;
     QString              applicationStyle;
+    QString              iconTheme;
 
     KSharedConfigPtr     config;
     KConfigGroup         group;
 };
 
 //Configuration Group
-const QString ShowfotoSettings::Private::configGroupDefault("ImageViewer Settings");
+const QString ShowfotoSettings::Private::configGroupDefault(QLatin1String("ImageViewer Settings"));
 
 //Misc. & Showfoto Generals Settings
-const QString ShowfotoSettings::Private::configLastOpenedDir("Last Opened Directory");
-const QString ShowfotoSettings::Private::configDeleteItem2Trash("DeleteItem2Trash");
-const QString ShowfotoSettings::Private::configCurrentTheme("Theme");
-const QString ShowfotoSettings::Private::configRightSideBarStyle("Sidebar Title Style");
-const QString ShowfotoSettings::Private::configApplicationStyle("Application Style");
-const QString ShowfotoSettings::Private::configShowFormatOverThumbnail("ShowMimeOverImage");
-const QString ShowfotoSettings::Private::configShowCoordinates("Show Coordinates");
-const QString ShowfotoSettings::Private::configItemCenter("Item To Center");
-const QString ShowfotoSettings::Private::configShowSplash("ShowSplash");
-
-const QString ShowfotoSettings::Private::configSortOrder("SortOrder");
-const QString ShowfotoSettings::Private::configReverseSort("ReverseSort");
+const QString ShowfotoSettings::Private::configLastOpenedDir(QLatin1String("Last Opened Directory"));
+const QString ShowfotoSettings::Private::configDeleteItem2Trash(QLatin1String("DeleteItem2Trash"));
+const QString ShowfotoSettings::Private::configCurrentTheme(QLatin1String("Theme"));
+const QString ShowfotoSettings::Private::configRightSideBarStyle(QLatin1String("Sidebar Title Style"));
+const QString ShowfotoSettings::Private::configApplicationStyle(QLatin1String("Application Style"));
+const QString ShowfotoSettings::Private::configIconTheme(QLatin1String("Icon Theme"));
+const QString ShowfotoSettings::Private::configShowFormatOverThumbnail(QLatin1String("ShowMimeOverImage"));
+const QString ShowfotoSettings::Private::configShowCoordinates(QLatin1String("Show Coordinates"));
+const QString ShowfotoSettings::Private::configItemCenter(QLatin1String("Item To Center"));
+const QString ShowfotoSettings::Private::configShowSplash(QLatin1String("ShowSplash"));
+const QString ShowfotoSettings::Private::configSortOrder(QLatin1String("SortOrder"));
+const QString ShowfotoSettings::Private::configReverseSort(QLatin1String("ReverseSort"));
 
 //Tool Tip Enable/Disable
-const QString ShowfotoSettings::Private::configShowToolTip("Show ToolTips");
+const QString ShowfotoSettings::Private::configShowToolTip(QLatin1String("Show ToolTips"));
 
 //Tool Tip File Properties
-const QString ShowfotoSettings::Private::configShowFileName("ToolTips Show File Name");
-const QString ShowfotoSettings::Private::configShowFileDate("ToolTips Show File Date");
-const QString ShowfotoSettings::Private::configShowFileSize("ToolTips Show File Size");
-const QString ShowfotoSettings::Private::configShowFileType("ToolTips Show Image Type");
-const QString ShowfotoSettings::Private::configShowFileDim("ToolTips Show Image Dim");
+const QString ShowfotoSettings::Private::configShowFileName(QLatin1String("ToolTips Show File Name"));
+const QString ShowfotoSettings::Private::configShowFileDate(QLatin1String("ToolTips Show File Date"));
+const QString ShowfotoSettings::Private::configShowFileSize(QLatin1String("ToolTips Show File Size"));
+const QString ShowfotoSettings::Private::configShowFileType(QLatin1String("ToolTips Show Image Type"));
+const QString ShowfotoSettings::Private::configShowFileDim(QLatin1String("ToolTips Show Image Dim"));
 
 //Tool Tip Photograph Info
-const QString ShowfotoSettings::Private::configShowPhotoMake("ToolTips Show Photo Make");
-const QString ShowfotoSettings::Private::configShowPhotoFocal("ToolTips Show Photo Focal");
-const QString ShowfotoSettings::Private::configShowPhotoExpo("ToolTips Show Photo Expo");
-const QString ShowfotoSettings::Private::configShowPhotoFlash("ToolTips Show Photo Flash");
-const QString ShowfotoSettings::Private::configShowPhotoWB("ToolTips Show Photo WB");
-const QString ShowfotoSettings::Private::configShowPhotoDate("ToolTips Show Photo Date");
-const QString ShowfotoSettings::Private::configShowPhotoMode("ToolTips Show Photo Mode");
+const QString ShowfotoSettings::Private::configShowPhotoMake(QLatin1String("ToolTips Show Photo Make"));
+const QString ShowfotoSettings::Private::configShowPhotoFocal(QLatin1String("ToolTips Show Photo Focal"));
+const QString ShowfotoSettings::Private::configShowPhotoExpo(QLatin1String("ToolTips Show Photo Expo"));
+const QString ShowfotoSettings::Private::configShowPhotoFlash(QLatin1String("ToolTips Show Photo Flash"));
+const QString ShowfotoSettings::Private::configShowPhotoWB(QLatin1String("ToolTips Show Photo WB"));
+const QString ShowfotoSettings::Private::configShowPhotoDate(QLatin1String("ToolTips Show Photo Date"));
+const QString ShowfotoSettings::Private::configShowPhotoMode(QLatin1String("ToolTips Show Photo Mode"));
 
 //Tool Tips Font
-const QString ShowfotoSettings::Private::configToolTipsFont("ToolTips Font");
+const QString ShowfotoSettings::Private::configToolTipsFont(QLatin1String("ToolTips Font"));
 
 // -------------------------------------------------------------------------------------------------
 
@@ -191,7 +193,7 @@ public:
     ShowfotoSettings object;
 };
 
-K_GLOBAL_STATIC(ShowfotoSettingsCreator, creator)
+Q_GLOBAL_STATIC(ShowfotoSettingsCreator, creator)
 
 // -------------------------------------------------------------------------------------------------
 
@@ -201,9 +203,10 @@ ShowfotoSettings* ShowfotoSettings::instance()
 }
 
 ShowfotoSettings::ShowfotoSettings()
-    : QObject(), d(new Private)
+    : QObject(),
+      d(new Private)
 {
-    d->config = KGlobal::config();
+    d->config = KSharedConfig::openConfig();
     d->group  = d->config->group(d->configGroupDefault);
     init();
     readSettings();
@@ -241,6 +244,12 @@ void ShowfotoSettings::init()
     d->showPhotoWB             = false;
     d->showPhotoDate           = true;
     d->showPhotoMode           = true;
+#ifdef HAVE_APPSTYLE_SUPPORT
+    d->applicationStyle        = qApp->style()->objectName();
+#else
+    d->applicationStyle        = QLatin1String("Fusion");
+#endif
+    d->iconTheme               = QString();
 }
 
 void ShowfotoSettings::readSettings()
@@ -251,7 +260,10 @@ void ShowfotoSettings::readSettings()
     d->deleteItem2Trash        = group.readEntry(d->configDeleteItem2Trash, true);
     d->theme                   = group.readEntry(d->configCurrentTheme, Digikam::ThemeManager::instance()->defaultThemeName());
     d->rightSideBarStyle       = group.readEntry(d->configRightSideBarStyle, 0);
-    d->applicationStyle        = group.readEntry(d->configApplicationStyle, kapp->style()->objectName());
+#ifdef HAVE_APPSTYLE_SUPPORT
+    d->applicationStyle        = group.readEntry(d->configApplicationStyle, qApp->style()->objectName());
+#endif
+    d->iconTheme               = group.readEntry(d->configIconTheme, QString());
     d->itemCenter              = group.readEntry(d->configItemCenter, false);
     d->showSplash              = group.readEntry(d->configShowSplash, true);
     d->sortOrder               = group.readEntry(d->configSortOrder, 0);
@@ -275,7 +287,7 @@ void ShowfotoSettings::readSettings()
     d->showPhotoDate           = group.readEntry(d->configShowPhotoDate,  true);
     d->showPhotoMode           = group.readEntry(d->configShowPhotoMode,  true);
 
-    d->toolTipsFont            = group.readEntry(d->configToolTipsFont,KGlobalSettings::generalFont());
+    d->toolTipsFont            = group.readEntry(d->configToolTipsFont, QFontDatabase::systemFont(QFontDatabase::GeneralFont));
 }
 
 QString ShowfotoSettings::getLastOpenedDir() const
@@ -313,6 +325,11 @@ QString ShowfotoSettings::getApplicationStyle() const
     return d->applicationStyle;
 }
 
+QString ShowfotoSettings::getIconTheme() const
+{
+    return d->iconTheme;
+}
+
 bool ShowfotoSettings::getItemCenter() const
 {
     return d->itemCenter;
@@ -324,7 +341,7 @@ bool ShowfotoSettings::getShowSplash() const
 }
 
 int ShowfotoSettings::getSortRole() const
-{    
+{
     return d->sortOrder;
 }
 
@@ -484,7 +501,7 @@ void ShowfotoSettings::setDeleteItem2Trash(bool D2t)
 }
 
 void ShowfotoSettings::setCurrentTheme(const QString& theme)
-{    
+{
     d->group.writeEntry(d->configCurrentTheme, theme);
 }
 
@@ -496,6 +513,11 @@ void ShowfotoSettings::setRightSideBarStyle(int style)
 void ShowfotoSettings::setApplicationStyle(const QString& style)
 {
     d->group.writeEntry(d->configApplicationStyle, style);
+}
+
+void ShowfotoSettings::setIconTheme(const QString& theme)
+{
+    d->group.writeEntry(d->configIconTheme, theme);
 }
 
 void ShowfotoSettings::setShowFormatOverThumbnail(bool show)
@@ -520,7 +542,7 @@ void ShowfotoSettings::setShowSplash(bool show)
 
 void ShowfotoSettings::setSortRole(int order)
 {
-    d->group.writeEntry(d->configSortOrder, order);   
+    d->group.writeEntry(d->configSortOrder, order);
 }
 
 void ShowfotoSettings::setReverseSort(bool reverse)

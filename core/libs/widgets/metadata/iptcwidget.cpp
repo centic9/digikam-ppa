@@ -6,7 +6,7 @@
  * Date        : 2006-02-20
  * Description : A widget to display IPTC metadata
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "iptcwidget.moc"
+#include "iptcwidget.h"
 
 // Qt includes
 
@@ -30,7 +30,7 @@
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -49,12 +49,12 @@ static const char* StandardIptcEntryList[] =
 namespace Digikam
 {
 
-IptcWidget::IptcWidget(QWidget* const parent, const char* name)
+IptcWidget::IptcWidget(QWidget* const parent, const QString& name)
     : MetadataWidget(parent, name)
 {
-    for (int i=0 ; QString(StandardIptcEntryList[i]) != QString("-1") ; ++i)
+    for (int i=0 ; QLatin1String(StandardIptcEntryList[i]) != QLatin1String("-1") ; ++i)
     {
-        m_keysFilter << StandardIptcEntryList[i];
+        m_keysFilter << QLatin1String(StandardIptcEntryList[i]);
     }
 }
 
@@ -67,7 +67,7 @@ QString IptcWidget::getMetadataTitle()
     return i18n("IPTC Records");
 }
 
-bool IptcWidget::loadFromURL(const KUrl& url)
+bool IptcWidget::loadFromURL(const QUrl& url)
 {
     setFileName(url.fileName());
 
@@ -117,7 +117,7 @@ void IptcWidget::buildView()
             break;
 
         case PHOTO:
-            setIfdList(getMetadataMap(), m_keysFilter, QStringList() << QString("FULL"));
+            setIfdList(getMetadataMap(), m_keysFilter, QStringList() << QLatin1String("FULL"));
             break;
 
         default: // NONE
@@ -131,11 +131,11 @@ void IptcWidget::buildView()
 QString IptcWidget::getTagTitle(const QString& key)
 {
     DMetadata metadataIface;
-    QString title = metadataIface.getIptcTagTitle(key.toAscii());
+    QString title = metadataIface.getIptcTagTitle(key.toLatin1().constData());
 
     if (title.isEmpty())
     {
-        return key.section('.', -1);
+        return key.section(QLatin1Char('.'), -1);
     }
 
     return title;
@@ -144,7 +144,7 @@ QString IptcWidget::getTagTitle(const QString& key)
 QString IptcWidget::getTagDescription(const QString& key)
 {
     DMetadata metadataIface;
-    QString desc = metadataIface.getIptcTagDescription(key.toAscii());
+    QString desc = metadataIface.getIptcTagDescription(key.toLatin1().constData());
 
     if (desc.isEmpty())
     {
@@ -156,8 +156,8 @@ QString IptcWidget::getTagDescription(const QString& key)
 
 void IptcWidget::slotSaveMetadataToFile()
 {
-    KUrl url = saveMetadataToFile(i18n("IPTC File to Save"),
-                                  QString("*.iptc|"+i18n("IPTC binary Files (*.iptc)")));
+    QUrl url = saveMetadataToFile(i18n("IPTC File to Save"),
+                                  QString(QLatin1String("*.iptc|") + i18n("IPTC binary Files (*.iptc)")));
     storeMetadataToFile(url, getMetadata().getIptc());
 }
 

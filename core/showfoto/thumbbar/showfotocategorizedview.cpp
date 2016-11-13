@@ -6,7 +6,7 @@
  * Date        : 2012-07-13
  * Description : Qt categorized item view for showfoto items
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,19 +21,15 @@
  *
  * ============================================================ */
 
-#include "showfotocategorizedview.moc"
+#include "showfotocategorizedview.h"
 
 // Qt includes
 
 #include <QTimer>
 
-// KDE includes
-
-#include <kdebug.h>
-#include <kglobal.h>
-
 // Local include
 
+#include "digikam_debug.h"
 #include "loadingcacheinterface.h"
 #include "itemviewtooltip.h"
 #include "showfotodelegate.h"
@@ -96,7 +92,7 @@ public:
 };
 
 ShowfotoCategorizedView::ShowfotoCategorizedView(QWidget* const parent)
-    : DCategorizedView(parent), d(new Private)
+    : ItemViewCategorized(parent), d(new Private)
 {
     setToolTip(new ShowfotoItemViewToolTip(this));
 
@@ -107,8 +103,7 @@ ShowfotoCategorizedView::ShowfotoCategorizedView(QWidget* const parent)
     d->delayedEnterTimer->setInterval(10);
     d->delayedEnterTimer->setSingleShot(false);
 
-    connect(d->delayedEnterTimer, SIGNAL(timeout()),
-            this, SLOT(slotDelayedEnter()));
+    connect(d->delayedEnterTimer, &QTimer::timeout, this, &ShowfotoCategorizedView::slotDelayedEnter);
 }
 
 ShowfotoCategorizedView::~ShowfotoCategorizedView()
@@ -138,12 +133,9 @@ void ShowfotoCategorizedView::setModels(ShowfotoImageModel* model, ShowfotoSortF
 
     setModel(d->filterModel);
 
-    connect(d->filterModel, SIGNAL(layoutAboutToBeChanged()),
-            this, SLOT(layoutAboutToBeChanged()));
+    connect(d->filterModel, &ShowfotoSortFilterModel::layoutAboutToBeChanged, this, &ShowfotoCategorizedView::layoutAboutToBeChanged);
 
-    connect(d->filterModel, SIGNAL(layoutChanged()),
-            this, SLOT(layoutWasChanged()),
-            Qt::QueuedConnection);
+    connect(d->filterModel, &ShowfotoSortFilterModel::layoutChanged, this, &ShowfotoCategorizedView::layoutWasChanged, Qt::QueuedConnection);
 
     emit modelChanged();
 
@@ -210,17 +202,15 @@ void ShowfotoCategorizedView::setItemDelegate(ShowfotoDelegate* delegate)
         d->delegate->setSpacing(oldDelegate->spacing());
     }
 
-    DCategorizedView::setItemDelegate(d->delegate);
+    ItemViewCategorized::setItemDelegate(d->delegate);
     updateDelegateSizes();
 
     d->delegate->setViewOnAllOverlays(this);
     d->delegate->setAllOverlaysActive(true);
 
-    connect(d->delegate, SIGNAL(requestNotification(QModelIndex,QString)),
-            this, SLOT(showIndexNotification(QModelIndex,QString)));
+    connect(d->delegate, &ShowfotoDelegate::requestNotification, this, &ShowfotoCategorizedView::showIndexNotification);
 
-    connect(d->delegate, SIGNAL(hideNotification()),
-            this, SLOT(hideIndexNotification()));
+    connect(d->delegate, &ShowfotoDelegate::hideNotification, this, &ShowfotoCategorizedView::hideIndexNotification);
 }
 
 ShowfotoItemInfo ShowfotoCategorizedView::currentInfo() const
@@ -228,7 +218,7 @@ ShowfotoItemInfo ShowfotoCategorizedView::currentInfo() const
     return d->filterModel->showfotoItemInfo(currentIndex());
 }
 
-KUrl ShowfotoCategorizedView::currentUrl() const
+QUrl ShowfotoCategorizedView::currentUrl() const
 {
     return currentInfo().url;
 }
@@ -266,10 +256,10 @@ QList<ShowfotoItemInfo> ShowfotoCategorizedView::showfotoItemInfos() const
     return d->filterModel->showfotoItemInfosSorted();
 }
 
-KUrl::List ShowfotoCategorizedView::urls() const
+QList<QUrl> ShowfotoCategorizedView::urls() const
 {
     QList<ShowfotoItemInfo> infos = showfotoItemInfos();
-    KUrl::List              urls;
+    QList<QUrl>              urls;
 
     foreach(const ShowfotoItemInfo& info, infos)
     {
@@ -279,10 +269,10 @@ KUrl::List ShowfotoCategorizedView::urls() const
     return urls;
 }
 
-KUrl::List ShowfotoCategorizedView::selectedUrls() const
+QList<QUrl> ShowfotoCategorizedView::selectedUrls() const
 {
     QList<ShowfotoItemInfo> infos = selectedShowfotoItemInfos();
-    KUrl::List              urls;
+    QList<QUrl>              urls;
 
     foreach(const ShowfotoItemInfo& info, infos)
     {
@@ -292,9 +282,9 @@ KUrl::List ShowfotoCategorizedView::selectedUrls() const
     return urls;
 }
 
-void ShowfotoCategorizedView::toIndex(const KUrl& url)
+void ShowfotoCategorizedView::toIndex(const QUrl& url)
 {
-    DCategorizedView::toIndex(d->filterModel->indexForPath(url.toLocalFile()));
+    ItemViewCategorized::toIndex(d->filterModel->indexForUrl(url));
 }
 
 ShowfotoItemInfo ShowfotoCategorizedView::nextInOrder(const ShowfotoItemInfo& startingPoint, int nth)
@@ -311,10 +301,10 @@ ShowfotoItemInfo ShowfotoCategorizedView::nextInOrder(const ShowfotoItemInfo& st
 
 QModelIndex ShowfotoCategorizedView::nextIndexHint(const QModelIndex& anchor, const QItemSelectionRange& removed) const
 {
-    QModelIndex hint      = DCategorizedView::nextIndexHint(anchor, removed);
+    QModelIndex hint      = ItemViewCategorized::nextIndexHint(anchor, removed);
     ShowfotoItemInfo info = d->filterModel->showfotoItemInfo(anchor);
 
-    //kDebug() << "Having initial hint" << hint << "for" << anchor << d->model->numberOfIndexesForShowfotoItemInfo(info);
+    //qCDebug(DIGIKAM_SHOWFOTO_LOG) << "Having initial hint" << hint << "for" << anchor << d->model->numberOfIndexesForShowfotoItemInfo(info);
 
     // Fixes a special case of multiple (face) entries for the same image.
     // If one is removed, any entry of the same image shall be preferred.
@@ -339,7 +329,7 @@ QModelIndex ShowfotoCategorizedView::nextIndexHint(const QModelIndex& anchor, co
                 {
                     minDiff = distance;
                     hint    = index;
-                    //kDebug() << "Chose index" << hint << "at distance" << minDiff << "to" << anchor;
+                    //qCDebug(DIGIKAM_SHOWFOTO_LOG) << "Chose index" << hint << "at distance" << minDiff << "to" << anchor;
                 }
             }
         }
@@ -381,7 +371,7 @@ void ShowfotoCategorizedView::setCurrentWhenAvailable(qlonglong showfotoItemId)
     d->scrollToItemId = showfotoItemId;
 }
 
-void ShowfotoCategorizedView::setCurrentUrl(const KUrl& url)
+void ShowfotoCategorizedView::setCurrentUrl(const QUrl& url)
 {
     if (url.isEmpty())
     {
@@ -390,8 +380,7 @@ void ShowfotoCategorizedView::setCurrentUrl(const KUrl& url)
         return;
     }
 
-    QString path      = url.toLocalFile();
-    QModelIndex index = d->filterModel->indexForPath(path);
+    QModelIndex index = d->filterModel->indexForUrl(url);
 
     if (!index.isValid())
     {
@@ -409,18 +398,17 @@ void ShowfotoCategorizedView::setCurrentInfo(const ShowfotoItemInfo& info)
     setCurrentIndex(index);
 }
 
-void ShowfotoCategorizedView::setSelectedUrls(const KUrl::List& urlList)
+void ShowfotoCategorizedView::setSelectedUrls(const QList<QUrl>& urlList)
 {
     QItemSelection mySelection;
 
-    for (KUrl::List::const_iterator it = urlList.constBegin(); it!=urlList.constEnd(); ++it)
+    for (QList<QUrl>::const_iterator it = urlList.constBegin(); it!=urlList.constEnd(); ++it)
     {
-        const QString path      = it->path();
-        const QModelIndex index = d->filterModel->indexForPath(path);
+        const QModelIndex index = d->filterModel->indexForUrl(*it);
 
         if (!index.isValid())
         {
-            kWarning() << "no QModelIndex found for" << *it;
+            qCWarning(DIGIKAM_GENERAL_LOG) << "no QModelIndex found for" << *it;
         }
         else
         {
@@ -494,7 +482,7 @@ void ShowfotoCategorizedView::removeOverlay(ImageDelegateOverlay* overlay)
 
 void ShowfotoCategorizedView::updateGeometries()
 {
-    DCategorizedView::updateGeometries();
+    ItemViewCategorized::updateGeometries();
     d->delayedEnterTimer->start();
 }
 
@@ -505,13 +493,13 @@ void ShowfotoCategorizedView::slotDelayedEnter()
 
     if (mouseIndex.isValid())
     {
-        emit DigikamKCategorizedView::entered(mouseIndex);
+        emit DCategorizedView::entered(mouseIndex);
     }
 }
 
 void ShowfotoCategorizedView::slotFileChanged(const QString& filePath)
 {
-    QModelIndex index = d->filterModel->indexForPath(filePath);
+    QModelIndex index = d->filterModel->indexForUrl(QUrl::fromLocalFile(filePath));
 
     if (index.isValid())
     {
@@ -532,14 +520,14 @@ void ShowfotoCategorizedView::indexActivated(const QModelIndex& index, Qt::Keybo
 
 void ShowfotoCategorizedView::currentChanged(const QModelIndex& index, const QModelIndex& previous)
 {
-    DCategorizedView::currentChanged(index, previous);
+    ItemViewCategorized::currentChanged(index, previous);
 
     emit currentChanged(d->filterModel->showfotoItemInfo(index));
 }
 
 void ShowfotoCategorizedView::selectionChanged(const QItemSelection& selectedItems, const QItemSelection& deselectedItems)
 {
-    DCategorizedView::selectionChanged(selectedItems, deselectedItems);
+    ItemViewCategorized::selectionChanged(selectedItems, deselectedItems);
 
     if (!selectedItems.isEmpty())
     {
@@ -570,7 +558,7 @@ void ShowfotoCategorizedView::showContextMenuOnInfo(QContextMenuEvent*, const Sh
 
 void ShowfotoCategorizedView::paintEvent(QPaintEvent* e)
 {
-    DCategorizedView::paintEvent(e);
+    ItemViewCategorized::paintEvent(e);
 }
 
 QItemSelectionModel* ShowfotoCategorizedView::getSelectionModel() const

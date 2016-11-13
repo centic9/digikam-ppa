@@ -6,7 +6,8 @@
  * Date        : 2011-09-13
  * Description : a plugin to export to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,10 +24,6 @@
 #ifndef INTRO_PAGE_H
 #define INTRO_PAGE_H
 
-// KDE includes
-
-#include <kcombobox.h>
-
 // Local includes
 
 #include "kpwizardpage.h"
@@ -37,21 +34,21 @@ using namespace KIPIPlugins;
 namespace KIPIFlashExportPlugin
 {
 
-class FlashManager; 
+class FlashManager;
 
 class IntroPage : public KPWizardPage
 {
 public:
 
-    explicit IntroPage(KAssistantDialog* const dlg);
+    explicit IntroPage(KPWizardDialog* const dlg);
     ~IntroPage();
 
     void settings(SimpleViewerSettingsContainer* const settings);
 
 private:
 
-    class IntroPagePriv;
-    IntroPagePriv* const d;
+    class Private;
+    Private* const d;
 };
 
 }   // namespace KIPIFlashExportPlugin

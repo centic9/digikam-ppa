@@ -6,7 +6,7 @@
  * Date        : 2009-11-13
  * Description : a template to create wizzard page.
  *
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -25,7 +25,7 @@
 
 // Qt includes
 
-#include <QScrollArea>
+#include <QWizardPage>
 #include <QString>
 #include <QPixmap>
 
@@ -33,25 +33,30 @@
 
 #include "kipiplugins_export.h"
 
-class KAssistantDialog;
-class KPageWidgetItem;
-
 namespace KIPIPlugins
 {
 
-class KIPIPLUGINS_EXPORT KPWizardPage : public QScrollArea
+class KPWizardDialog;
+
+class KIPIPLUGINS_EXPORT KPWizardPage : public QWizardPage
 {
 
 public:
 
-    KPWizardPage(KAssistantDialog* const dlg, const QString& title);
+    KPWizardPage(KPWizardDialog* const dlg, const QString& title);
     virtual ~KPWizardPage();
-
-    KPageWidgetItem* page() const;
 
     void setPageWidget(QWidget* const w);
     void removePageWidget(QWidget* const w);
     void setLeftBottomPix(const QPixmap& pix);
+    void setShowLeftView(bool v);
+
+    void setComplete(bool b);
+    bool isComplete() const;
+
+    int  id() const;
+
+    KPWizardDialog* assistant() const;
 
 private:
 

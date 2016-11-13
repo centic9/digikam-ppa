@@ -21,25 +21,24 @@
  *
  * ============================================================ */
 
-#include "databaseoption.moc"
+#include "databaseoption.h"
 
 // Qt includes
 
 #include <QGridLayout>
 #include <QLabel>
 #include <QPointer>
+#include <QLineEdit>
 
 // KDE includes
 
-#include <klineedit.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "imagecomments.h"
 #include "dbkeyselector.h"
-
+#include "digikam_debug.h"
 #include "commonkeys.h"
 #include "metadatakeys.h"
 #include "positionkeys.h"
@@ -47,19 +46,20 @@
 namespace Digikam
 {
 
-DatabaseOptionDialog::DatabaseOptionDialog(Rule* parent) :
+DatabaseOptionDialog::DatabaseOptionDialog(Rule* const parent) :
     RuleDialog(parent),
-    dbkeySelectorView(0), separatorLineEdit(0)
+    dbkeySelectorView(0),
+    separatorLineEdit(0)
 {
-    QWidget* mainWidget  = new QWidget(this);
-    dbkeySelectorView    = new DbKeySelectorView(this);
-    QLabel* customLabel  = new QLabel(i18n("Keyword separator:"));
-    separatorLineEdit    = new KLineEdit(this);
-    separatorLineEdit->setText("_");
+    QWidget* const mainWidget = new QWidget(this);
+    dbkeySelectorView         = new DbKeySelectorView(this);
+    QLabel* const customLabel = new QLabel(i18n("Keyword separator:"));
+    separatorLineEdit         = new QLineEdit(this);
+    separatorLineEdit->setText(QLatin1String("_"));
 
     // --------------------------------------------------------
 
-    QGridLayout* mainLayout = new QGridLayout(this);
+    QGridLayout* const mainLayout = new QGridLayout(this);
     mainLayout->addWidget(customLabel,       0, 0, 1, 1);
     mainLayout->addWidget(separatorLineEdit, 0, 1, 1, 1);
     mainLayout->addWidget(dbkeySelectorView, 1, 0, 1, -1);
@@ -78,10 +78,12 @@ DatabaseOptionDialog::~DatabaseOptionDialog()
 // --------------------------------------------------------
 
 DatabaseOption::DatabaseOption()
-    : Option(i18n("Database..."), i18n("Add information from the database"), "server-database")
+    : Option(i18n("Database..."),
+             i18n("Add information from the database"),
+             QLatin1String("network-server-database"))
 {
-    addToken("[db:||key||]", i18n("Add database information"));
-    QRegExp reg("\\[db(:(.*))\\]");
+    addToken(QLatin1String("[db:||key||]"), i18n("Add database information"));
+    QRegExp reg(QLatin1String("\\[db(:(.*))\\]"));
     reg.setMinimal(true);
     setRegExp(reg);
 
@@ -104,7 +106,7 @@ void DatabaseOption::unregisterKeysCollection()
 {
     QSet<DbKeysCollection*> alreadyDeleted;
 
-    foreach(DbKeysCollection* key, m_map)
+    foreach(DbKeysCollection* const key, m_map)
     {
         if (key && !alreadyDeleted.contains(key))
         {
@@ -112,6 +114,7 @@ void DatabaseOption::unregisterKeysCollection()
             delete key;
         }
     }
+
     m_map.clear();
 }
 
@@ -123,13 +126,13 @@ void DatabaseOption::slotTokenTriggered(const QString& token)
     QPointer<DatabaseOptionDialog> dlg = new DatabaseOptionDialog(this);
     dlg->dbkeySelectorView->setKeysMap(m_map);
 
-    if (dlg->exec() == KDialog::Accepted)
+    if (dlg->exec() == QDialog::Accepted)
     {
         QStringList checkedKeys = dlg->dbkeySelectorView->checkedKeysList();
 
         foreach(const QString& key, checkedKeys)
         {
-            QString keyStr = QString("[db:%1]").arg(key);
+            QString keyStr = QString::fromUtf8("[db:%1]").arg(key);
             keys << keyStr;
         }
     }
@@ -145,8 +148,8 @@ void DatabaseOption::slotTokenTriggered(const QString& token)
 
 QString DatabaseOption::parseOperation(ParseSettings& settings)
 {
-    const QRegExp& reg  = regExp();
-    QString keyword     = reg.cap(2);
+    const QRegExp& reg = regExp();
+    QString keyword    = reg.cap(2);
 
     return parseDatabase(keyword, settings);
 }
@@ -158,8 +161,7 @@ QString DatabaseOption::parseDatabase(const QString& keyword, ParseSettings& set
         return QString();
     }
 
-    DbKeysCollection* dbkey = 0;
-    dbkey = m_map.value(keyword);
+    DbKeysCollection* const dbkey = m_map.value(keyword);
 
     if (!dbkey)
     {

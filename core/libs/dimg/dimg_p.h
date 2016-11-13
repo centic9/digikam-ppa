@@ -7,7 +7,7 @@
  * Description : DImg private data members
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -91,15 +91,15 @@ public:
     static QStringList fileOriginAttributes()
     {
         QStringList list;
-        list << "format"
-             << "isreadonly"
-             << "originalFilePath"
-             << "originalSize"
-             << "originalImageHistory"
-             << "rawDecodingSettings"
-             << "rawDecodingFilterAction"
-             << "uniqueHash"
-             << "uniqueHashV2";
+        list << QLatin1String("format")
+             << QLatin1String("isreadonly")
+             << QLatin1String("originalFilePath")
+             << QLatin1String("originalSize")
+             << QLatin1String("originalImageHistory")
+             << QLatin1String("rawDecodingSettings")
+             << QLatin1String("rawDecodingFilterAction")
+             << QLatin1String("uniqueHash")
+             << QLatin1String("uniqueHashV2");
 
         return list;
     }
@@ -139,7 +139,7 @@ public:
     unsigned char*          data;
     LANCZOS_DATA_TYPE*      lanczos_func;
 
-    KExiv2Data              metaData;
+    MetaEngineData          metaData;
     QMap<QString, QVariant> attributes;
     QMap<QString, QString>  embeddedText;
     IccProfile              iccProfile;
@@ -148,4 +148,4 @@ public:
 
 }  // namespace Digikam
 
-#endif /* DIMGPRIVATE_H */
+#endif // DIMGPRIVATE_H

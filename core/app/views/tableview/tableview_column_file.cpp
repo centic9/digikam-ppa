@@ -20,20 +20,23 @@
  *
  * ============================================================ */
 
-#include "tableview_column_file.moc"
+#include "tableview_column_file.h"
 
 // Qt includes
 
 #include <QFormLayout>
+#include <QComboBox>
+#include <QLocale>
+#include <QDir>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kdebug.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
-// local includes
+// Local includes
 
+#include "digikam_debug.h"
+#include "imagepropertiestab.h"
 #include "imageinfo.h"
 
 namespace Digikam
@@ -42,38 +45,24 @@ namespace Digikam
 namespace TableViewColumns
 {
 
-ColumnFileProperties::ColumnFileProperties(
-        TableViewShared* const tableViewShared,
-        const TableViewColumnConfiguration& pConfiguration,
-        const SubColumn pSubColumn,
-        QObject* const parent
-    )
-  : TableViewColumn(tableViewShared, pConfiguration, parent),
-    subColumn(pSubColumn)
+ColumnFileProperties::ColumnFileProperties(TableViewShared* const tableViewShared,
+                                           const TableViewColumnConfiguration& pConfiguration,
+                                           const SubColumn pSubColumn,
+                                           QObject* const parent)
+    : TableViewColumn(tableViewShared, pConfiguration, parent),
+      subColumn(pSubColumn)
 {
-
 }
 
 TableViewColumnDescription ColumnFileProperties::getDescription()
 {
     TableViewColumnDescription description(QLatin1String("file-properties"), i18n("File properties"));
-    description.setIcon("dialog-information");
+    description.setIcon(QLatin1String("dialog-information"));
 
-    description.addSubColumn(
-        TableViewColumnDescription("filename", i18n("Filename"))
-    );
-
-    description.addSubColumn(
-        TableViewColumnDescription("filepath", i18n("Path"))
-    );
-
-    description.addSubColumn(
-        TableViewColumnDescription("filesize", i18n("Size"))
-    );
-
-    description.addSubColumn(
-        TableViewColumnDescription("filelastmodified", i18n("Last modified"))
-    );
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("filename"),         i18n("Filename")));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("filepath"),         i18n("Path")));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("filesize"),         i18n("Size")));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("filelastmodified"), i18n("Last modified")));
 
     return description;
 }
@@ -91,14 +80,14 @@ QString ColumnFileProperties::getTitle() const
 {
     switch (subColumn)
     {
-    case SubColumnName:
-        return i18n("Filename");
-    case SubColumnFilePath:
-        return i18n("Path");
-    case SubColumnSize:
-        return i18n("Size");
-    case SubColumnLastModified:
-        return i18n("Last modified");
+        case SubColumnName:
+            return i18n("Filename");
+        case SubColumnFilePath:
+            return i18n("Path");
+        case SubColumnSize:
+            return i18n("Size");
+        case SubColumnLastModified:
+            return i18n("Last modified");
     }
 
     return QString();
@@ -106,8 +95,8 @@ QString ColumnFileProperties::getTitle() const
 
 TableViewColumn::ColumnFlags ColumnFileProperties::getColumnFlags() const
 {
-    if (   (subColumn == SubColumnSize)
-        || (subColumn == SubColumnLastModified) )
+    if ((subColumn == SubColumnSize) ||
+        (subColumn == SubColumnLastModified))
     {
         return ColumnCustomSorting | ColumnHasConfigurationWidget;
     }
@@ -123,7 +112,7 @@ QVariant ColumnFileProperties::data(TableViewModel::Item* const item, const int 
         return QVariant();
     }
 
-    if (role==Qt::TextAlignmentRole)
+    if (role == Qt::TextAlignmentRole)
     {
         switch (subColumn)
         {
@@ -139,38 +128,38 @@ QVariant ColumnFileProperties::data(TableViewModel::Item* const item, const int 
 
     switch (subColumn)
     {
-    case SubColumnName:
-        return info.fileUrl().fileName();
-        break;
+        case SubColumnName:
+            return info.fileUrl().fileName();
+            break;
 
-    case SubColumnFilePath:
-        return info.fileUrl().path();
-        break;
+        case SubColumnFilePath:
+            return QDir::toNativeSeparators(info.fileUrl().toLocalFile());
+            break;
 
-    case SubColumnSize:
-    {
-        /// @todo Add configuration options for SI-prefixes
-        /// @todo Use an enum instead to avoid lots of string comparisons
-        const QString formatKey = configuration.getSetting("format", "kde");
-        if (formatKey=="kde")
+        case SubColumnSize:
         {
-            return KGlobal::locale()->formatByteSize(info.fileSize());
+            /// @todo Add configuration options for SI-prefixes
+            /// @todo Use an enum instead to avoid lots of string comparisons
+            const QString formatKey = configuration.getSetting(QLatin1String("format"), QLatin1String("human"));
+
+            if (formatKey == QLatin1String("human"))
+            {
+                return ImagePropertiesTab::humanReadableBytesCount(info.fileSize());
+            }
+            else
+            {
+                // formatKey == "plain"
+                return QLocale().toString(info.fileSize());
+            }
+            break;
         }
-        else
+
+        case SubColumnLastModified:
         {
-            // formatKey=="plain"
-            return KGlobal::locale()->formatNumber(info.fileSize(), 0);
+            const QDateTime lastModifiedTime = info.modDateTime();
+
+            return QLocale().toString(lastModifiedTime, QLocale::ShortFormat);
         }
-        break;
-    }
-
-    case SubColumnLastModified:
-    {
-        const QDateTime lastModifiedTime = info.modDateTime();
-
-        return KGlobal::locale()->formatDateTime(lastModifiedTime, KLocale::ShortDate, true);
-    }
-
     }
 
     return QVariant();
@@ -183,71 +172,71 @@ TableViewColumn::ColumnCompareResult ColumnFileProperties::compare(TableViewMode
 
     switch (subColumn)
     {
-    case SubColumnSize:
-    {
-        const int sizeA = infoA.fileSize();
-        const int sizeB = infoB.fileSize();
+        case SubColumnSize:
+        {
+            const int sizeA = infoA.fileSize();
+            const int sizeB = infoB.fileSize();
 
-        return compareHelper<int>(sizeA, sizeB);
+            return compareHelper<int>(sizeA, sizeB);
+        }
+
+        case SubColumnLastModified:
+        {
+            const QDateTime dtA = infoA.modDateTime();
+            const QDateTime dtB = infoB.modDateTime();
+
+            return compareHelper<QDateTime>(dtA, dtB);
+        }
+
+        default:
+        {
+            qCWarning(DIGIKAM_GENERAL_LOG) << "file: unimplemented comparison, subColumn=" << subColumn;
+            return CmpEqual;
+        }
     }
-
-    case SubColumnLastModified:
-    {
-        const QDateTime dtA = infoA.modDateTime();
-        const QDateTime dtB = infoB.modDateTime();
-
-        return compareHelper<QDateTime>(dtA, dtB);
-    }
-
-    default:
-
-        kWarning() << "file: unimplemented comparison, subColumn=" << subColumn;
-        return CmpEqual;
-    }
-
 }
 
-ColumnFileConfigurationWidget::ColumnFileConfigurationWidget(
-        TableViewShared* const sharedObject,
-        const TableViewColumnConfiguration& columnConfiguration,
-        QWidget* const parentWidget)
-  : TableViewColumnConfigurationWidget(sharedObject, columnConfiguration, parentWidget),
-    subColumn(ColumnFileProperties::SubColumnName),
-    selectorSizeType(0)
+// ---------------------------------------------------------------------------------------
+
+ColumnFileConfigurationWidget::ColumnFileConfigurationWidget(TableViewShared* const sharedObject,
+                                                             const TableViewColumnConfiguration& columnConfiguration,
+                                                             QWidget* const parentWidget)
+    : TableViewColumnConfigurationWidget(sharedObject, columnConfiguration, parentWidget),
+      subColumn(ColumnFileProperties::SubColumnName),
+      selectorSizeType(0)
 {
     ColumnFileProperties::getSubColumnIndex<ColumnFileProperties>(configuration.columnId, &subColumn);
 
     switch (subColumn)
     {
-    case ColumnFileProperties::SubColumnSize:
+        case ColumnFileProperties::SubColumnSize:
         {
             QFormLayout* const box1 = new QFormLayout();
-            selectorSizeType = new KComboBox(this);
-            selectorSizeType->addItem(i18n("KDE default"), QString("kde"));
-            selectorSizeType->addItem(i18n("Plain"), QString("plain"));
+            selectorSizeType        = new QComboBox(this);
+            selectorSizeType->addItem(i18n("Human readable"), QLatin1String("human"));
+            selectorSizeType->addItem(i18n("Plain"),          QLatin1String("plain"));
             box1->addRow(i18n("Display format"), selectorSizeType);
 
             setLayout(box1);
 
-            const int index = selectorSizeType->findData(configuration.getSetting("format", "kde"));
+            const int index = selectorSizeType->findData(configuration.getSetting(QLatin1String("format"), QLatin1String("human")));
             selectorSizeType->setCurrentIndex(index>=0 ? index : 0);
             break;
         }
 
-    default:
-        break;
+        default:
+            break;
     }
 }
 
 ColumnFileConfigurationWidget::~ColumnFileConfigurationWidget()
 {
-
 }
 
 TableViewColumnConfiguration ColumnFileConfigurationWidget::getNewConfiguration()
 {
     const QString formatKey = selectorSizeType->itemData(selectorSizeType->currentIndex()).toString();
-    configuration.columnSettings.insert("format", formatKey);
+    configuration.columnSettings.insert(QLatin1String("format"), formatKey);
 
     return configuration;
 }

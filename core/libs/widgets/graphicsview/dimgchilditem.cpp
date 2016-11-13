@@ -21,11 +21,7 @@
  *
  * ============================================================ */
 
-#include "dimgchilditem.moc"
-
-// KDE includes
-
-#include <kdebug.h>
+#include "dimgchilditem.h"
 
 // Local includes
 

@@ -32,7 +32,7 @@ namespace Digikam
 {
 
 class ImageCategoryDrawer;
-class DatabaseFace;
+class FaceTagsIface;
 class DigikamImageFaceDelegatePrivate;
 
 class DigikamImageFaceDelegate : public DigikamImageDelegate
@@ -41,14 +41,14 @@ class DigikamImageFaceDelegate : public DigikamImageDelegate
 
 public:
 
-    explicit DigikamImageFaceDelegate(ImageCategorizedView* parent);
+    explicit DigikamImageFaceDelegate(ImageCategorizedView* const parent);
     ~DigikamImageFaceDelegate();
 
     virtual void prepareThumbnails(ImageThumbnailModel* thumbModel, const QList<QModelIndex>& indexes);
     QRect faceRect(const QModelIndex& index) const;
     QRect largerFaceRect(const QModelIndex& index) const;
 
-    DatabaseFace face(const QModelIndex& index) const;
+    FaceTagsIface face(const QModelIndex& index) const;
 
 protected:
 

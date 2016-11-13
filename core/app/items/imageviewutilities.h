@@ -6,7 +6,7 @@
  * Date        : 2009-05-04
  * Description : Various operations on images
  *
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -29,27 +29,18 @@
 
 #include <QList>
 #include <QWidget>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "imageinfo.h"
-
-class KJob;
-
-namespace KIO
-{
-    class Job;
-}
+#include "digikam_export.h"
 
 namespace Digikam
 {
 class Album;
 
-class ImageViewUtilities : public QObject
+class DIGIKAM_EXPORT ImageViewUtilities : public QObject
 {
     Q_OBJECT
 
@@ -77,12 +68,12 @@ public Q_SLOTS:
     void insertToQueueManager(const QList<ImageInfo>& list, const ImageInfo& currentInfo, bool newQueue);
     void insertSilentToQueueManager(const QList<ImageInfo>& list, const ImageInfo& currentInfo, int queueid);
 
-    void notifyFileContentChanged(const KUrl::List& urls);
+    void notifyFileContentChanged(const QList<QUrl>& urls);
 
     void openInfos(const ImageInfo& info, const QList<ImageInfo>& allInfosToOpen, Album* currentAlbum);
     void openInfosWithDefaultApplication(const QList<ImageInfo>& allInfosToOpen);
 
-    void rename(const KUrl& imageUrl, const QString& newName);
+    void rename(const QUrl& imageUrl, const QString& newName);
     void setAsAlbumThumbnail(Album* album, const ImageInfo& imageInfo);
 
     void createGroupByTimeFromInfoList(const ImageInfoList& imageInfoList);
@@ -90,7 +81,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
 
-    void editorCurrentUrlChanged(const KUrl& url);
+    void editorCurrentUrlChanged(const QUrl& url);
 
 protected:
 

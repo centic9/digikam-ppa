@@ -33,18 +33,19 @@
 
 #include "dprogressdlg.h"
 #include "advancedrenamedialog.h"
+#include "digikam_export.h"
 
 class QPixmap;
 class QWidget;
 
-class KUrl;
+class QUrl;
 
 namespace Digikam
 {
 
 class LoadingDescription;
 
-class AdvancedRenameProcessDialog : public DProgressDlg
+class DIGIKAM_EXPORT AdvancedRenameProcessDialog : public DProgressDlg
 {
     Q_OBJECT
 
@@ -73,8 +74,8 @@ protected:
 protected Q_SLOTS:
 
     void slotCancel();
-    void slotRenameSuccess(const KUrl&);
-    void slotRenameFailed(const KUrl&);
+    void slotRenameSuccess(const QUrl&);
+    void slotRenameFailed(const QUrl&);
 
 private Q_SLOTS:
 

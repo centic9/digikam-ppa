@@ -7,7 +7,7 @@
  * Description : a widget to display an image histogram and its control widgets
  *
  * Copyright (C) 2008-2009 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2011-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "histogrambox.moc"
+#include "histogrambox.h"
 
 // Qt includes
 
@@ -37,19 +37,19 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 #include <QWidget>
+#include <QComboBox>
+#include <QIcon>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kicon.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "colorgradientwidget.h"
 #include "histogramwidget.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -76,7 +76,7 @@ public:
     QToolButton*         logHistoButton;
 
     QWidget*             histoBox;
-    KComboBox*           channelCB;
+    QComboBox*           channelCB;
 
     ColorGradientWidget* hGradient;
     HistogramWidget*     histogramWidget;
@@ -85,13 +85,13 @@ public:
 HistogramBox::HistogramBox(QWidget* const parent, HistogramBoxType type, bool selectMode)
     : QWidget(parent), d(new Private)
 {
-    d->channelCB         = new KComboBox(this);
-    QLabel* channelLabel = new QLabel(i18n("Channel:"), this);
+    d->channelCB               = new QComboBox(this);
+    QLabel* const channelLabel = new QLabel(i18n("Channel:"), this);
     channelLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-    QWidget* scaleBox = new QWidget(this);
-    QHBoxLayout* hlay = new QHBoxLayout(scaleBox);
-    d->scaleBG        = new QButtonGroup(scaleBox);
+    QWidget* const scaleBox = new QWidget(this);
+    QHBoxLayout* const hlay = new QHBoxLayout(scaleBox);
+    d->scaleBG              = new QButtonGroup(scaleBox);
     scaleBox->setWhatsThis(i18n("<p>Select the histogram scale.</p>"
                                 "<p>If the image's maximal counts are small, you can use the <b>linear</b> scale.</p>"
                                 "<p><b>Logarithmic</b> scale can be used when the maximal counts are big; "
@@ -99,26 +99,26 @@ HistogramBox::HistogramBox(QWidget* const parent, HistogramBoxType type, bool se
 
     d->linHistoButton = new QToolButton(scaleBox);
     d->linHistoButton->setToolTip(i18nc("linear histogram scaling mode", "Linear"));
-    d->linHistoButton->setIcon(KIcon("view-object-histogram-linear"));
+    d->linHistoButton->setIcon(QIcon::fromTheme(QLatin1String("view-object-histogram-linear")));
     d->linHistoButton->setCheckable(true);
     d->scaleBG->addButton(d->linHistoButton, LinScaleHistogram);
 
     d->logHistoButton = new QToolButton(scaleBox);
     d->logHistoButton->setToolTip(i18nc("logarithmic histogram scaling mode", "Logarithmic"));
-    d->logHistoButton->setIcon(KIcon("view-object-histogram-logarithmic"));
+    d->logHistoButton->setIcon(QIcon::fromTheme(QLatin1String("view-object-histogram-logarithmic")));
     d->logHistoButton->setCheckable(true);
     d->scaleBG->addButton(d->logHistoButton, LogScaleHistogram);
 
-    hlay->setMargin(0);
     hlay->setSpacing(0);
+    hlay->setContentsMargins(QMargins());
     hlay->addWidget(d->linHistoButton);
     hlay->addWidget(d->logHistoButton);
 
     d->scaleBG->setExclusive(true);
     d->logHistoButton->setChecked(true);
 
-    d->histoBox                 = new QWidget;
-    QVBoxLayout* histoBoxLayout = new QVBoxLayout;
+    d->histoBox                       = new QWidget;
+    QVBoxLayout* const histoBoxLayout = new QVBoxLayout;
 
     d->histogramWidget = new HistogramWidget(256, 140, d->histoBox, selectMode, true, true);
     d->histogramWidget->setWhatsThis(i18n("Here you can see the target preview image histogram drawing "
@@ -130,18 +130,18 @@ HistogramBox::HistogramBox(QWidget* const parent, HistogramBoxType type, bool se
 
     histoBoxLayout->addWidget(d->histogramWidget);
     histoBoxLayout->addWidget(d->hGradient);
+    histoBoxLayout->setContentsMargins(QMargins());
     histoBoxLayout->setSpacing(1);
-    histoBoxLayout->setMargin(0);
     d->histoBox->setLayout(histoBoxLayout);
 
-    QGridLayout* mainLayout = new QGridLayout;
+    QGridLayout* const mainLayout = new QGridLayout;
     mainLayout->addWidget(channelLabel,   0, 0, 1, 1);
     mainLayout->addWidget(d->channelCB,   0, 1, 1, 1);
     mainLayout->addWidget(scaleBox,       0, 3, 1, 2);
     mainLayout->addWidget(d->histoBox,    2, 0, 1, 5);
     mainLayout->setColumnStretch(2, 10);
+    mainLayout->setContentsMargins(QMargins());
     mainLayout->setSpacing(5);
-    mainLayout->setMargin(0);
     setLayout(mainLayout);
 
     // ---------------------------------------------------------------
@@ -220,7 +220,7 @@ HistogramWidget* HistogramBox::histogram() const
 
 void HistogramBox::setHistogramMargin(int margin)
 {
-    d->histoBox->layout()->setMargin(margin);
+    d->histoBox->layout()->setContentsMargins(margin, margin, margin, margin);
 }
 
 void HistogramBox::slotChannelChanged()
@@ -305,11 +305,11 @@ void HistogramBox::setHistogramType(HistogramBoxType type)
             d->channelCB->addItem(channelDescMap[RedChannel].first, QVariant(RedChannel));
             d->channelCB->addItem(channelDescMap[GreenChannel].first, QVariant(GreenChannel));
             d->channelCB->addItem(channelDescMap[BlueChannel].first, QVariant(BlueChannel));
-            channelCBDescr.append("<p>");
-            channelCBDescr.append(channelDescMap[RedChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[GreenChannel].second).append("<br/>");
+            channelCBDescr.append(QLatin1String("<p>"));
+            channelCBDescr.append(channelDescMap[RedChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[GreenChannel].second).append(QLatin1String("<br/>"));
             channelCBDescr.append(channelDescMap[BlueChannel].second);
-            channelCBDescr.append("</p>");
+            channelCBDescr.append(QLatin1String("</p>"));
             break;
 
         case RGBA:
@@ -318,12 +318,12 @@ void HistogramBox::setHistogramType(HistogramBoxType type)
             d->channelCB->addItem(channelDescMap[GreenChannel].first, QVariant(GreenChannel));
             d->channelCB->addItem(channelDescMap[BlueChannel].first, QVariant(BlueChannel));
             d->channelCB->addItem(channelDescMap[AlphaChannel].first, QVariant(AlphaChannel));
-            channelCBDescr.append("<p>");
-            channelCBDescr.append(channelDescMap[RedChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[GreenChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[BlueChannel].second).append("<br/>");
+            channelCBDescr.append(QLatin1String("<p>"));
+            channelCBDescr.append(channelDescMap[RedChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[GreenChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[BlueChannel].second).append(QLatin1String("<br/>"));
             channelCBDescr.append(channelDescMap[AlphaChannel].second);
-            channelCBDescr.append("</p>");
+            channelCBDescr.append(QLatin1String("</p>"));
             break;
 
         case LRGB:
@@ -332,12 +332,12 @@ void HistogramBox::setHistogramType(HistogramBoxType type)
             d->channelCB->addItem(channelDescMap[RedChannel].first, QVariant(RedChannel));
             d->channelCB->addItem(channelDescMap[GreenChannel].first, QVariant(GreenChannel));
             d->channelCB->addItem(channelDescMap[BlueChannel].first, QVariant(BlueChannel));
-            channelCBDescr.append("<p>");
-            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[RedChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[GreenChannel].second).append("<br/>");
+            channelCBDescr.append(QLatin1String("<p>"));
+            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[RedChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[GreenChannel].second).append(QLatin1String("<br/>"));
             channelCBDescr.append(channelDescMap[BlueChannel].second);
-            channelCBDescr.append("</p>");
+            channelCBDescr.append(QLatin1String("</p>"));
             break;
 
         case LRGBA:
@@ -347,13 +347,13 @@ void HistogramBox::setHistogramType(HistogramBoxType type)
             d->channelCB->addItem(channelDescMap[GreenChannel].first, QVariant(GreenChannel));
             d->channelCB->addItem(channelDescMap[BlueChannel].first, QVariant(BlueChannel));
             d->channelCB->addItem(channelDescMap[AlphaChannel].first, QVariant(AlphaChannel));
-            channelCBDescr.append("<p>");
-            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[RedChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[GreenChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[BlueChannel].second).append("<br/>");
+            channelCBDescr.append(QLatin1String("<p>"));
+            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[RedChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[GreenChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[BlueChannel].second).append(QLatin1String("<br/>"));
             channelCBDescr.append(channelDescMap[AlphaChannel].second);
-            channelCBDescr.append("</p>");
+            channelCBDescr.append(QLatin1String("</p>"));
             break;
 
         case LRGBC:
@@ -363,13 +363,13 @@ void HistogramBox::setHistogramType(HistogramBoxType type)
             d->channelCB->addItem(channelDescMap[GreenChannel].first, QVariant(GreenChannel));
             d->channelCB->addItem(channelDescMap[BlueChannel].first, QVariant(BlueChannel));
             d->channelCB->addItem(channelDescMap[ColorChannels].first, QVariant(ColorChannels));
-            channelCBDescr.append("<p>");
-            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[RedChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[GreenChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[BlueChannel].second).append("<br/>");
+            channelCBDescr.append(QLatin1String("<p>"));
+            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[RedChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[GreenChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[BlueChannel].second).append(QLatin1String("<br/>"));
             channelCBDescr.append(channelDescMap[ColorChannels].second);
-            channelCBDescr.append("</p>");
+            channelCBDescr.append(QLatin1String("</p>"));
             break;
 
         case LRGBAC:
@@ -380,14 +380,14 @@ void HistogramBox::setHistogramType(HistogramBoxType type)
             d->channelCB->addItem(channelDescMap[BlueChannel].first, QVariant(BlueChannel));
             d->channelCB->addItem(channelDescMap[AlphaChannel].first, QVariant(AlphaChannel));
             d->channelCB->addItem(channelDescMap[ColorChannels].first, QVariant(ColorChannels));
-            channelCBDescr.append("<p>");
-            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[RedChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[GreenChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[BlueChannel].second).append("<br/>");
-            channelCBDescr.append(channelDescMap[AlphaChannel].second).append("<br/>");
+            channelCBDescr.append(QLatin1String("<p>"));
+            channelCBDescr.append(channelDescMap[LuminosityChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[RedChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[GreenChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[BlueChannel].second).append(QLatin1String("<br/>"));
+            channelCBDescr.append(channelDescMap[AlphaChannel].second).append(QLatin1String("<br/>"));
             channelCBDescr.append(channelDescMap[ColorChannels].second);
-            channelCBDescr.append("</p>");
+            channelCBDescr.append(QLatin1String("</p>"));
             break;
 
         default:

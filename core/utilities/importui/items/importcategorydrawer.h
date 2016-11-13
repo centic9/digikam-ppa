@@ -28,22 +28,16 @@
 
 #include <QStyleOptionViewItem>
 
-// KDE includes
+// Local includes
 
-#include <kdeversion.h>
-#include <kcategorydrawer.h>
+#include "dcategorydrawer.h"
 
 namespace Digikam
 {
 
 class ImportCategorizedView;
 
-class ImportCategoryDrawer :
-#if KDE_IS_VERSION(4,5,0)
-    public KCategoryDrawerV3
-#else
-    public KCategoryDrawerV2
-#endif
+class ImportCategoryDrawer : public DCategoryDrawer
 {
 public:
 
@@ -63,6 +57,7 @@ private:
     void updateRectsAndPixmaps(int width);
     void viewHeaderText(const QModelIndex& index, QString* header, QString* subLine) const;
     void textForFormat(const QModelIndex& index, QString* header, QString* subLine) const;
+    void textForDate(const QModelIndex& index, QString* header, QString* subLine) const;
 
 private:
 

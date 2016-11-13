@@ -24,8 +24,8 @@
 #ifndef IMPORTCATEGORIZEDVIEW_P_H
 #define IMPORTCATEGORIZEDVIEW_P_H
 
-class KCategorizedSortFilterProxyModel;
-class KCategoryDrawer;
+class DCategorizedSortFilterProxyModel;
+class DCategoryDrawer;
 
 namespace Digikam
 {
@@ -176,7 +176,7 @@ public:
 
     // Basic data
     ImportCategorizedView*            listView;
-    KCategoryDrawer*                  categoryDrawer;
+    DCategoryDrawer*                  categoryDrawer;
     QSize                             biggestItemSize;
 
     // Behavior data
@@ -203,7 +203,7 @@ public:
     QItemSelection                    lastSelection;
 
     // Attributes for speed reasons
-    KCategorizedSortFilterProxyModel* proxyModel;
+    DCategorizedSortFilterProxyModel* proxyModel;
 };
 
 }  // namespace Digikam

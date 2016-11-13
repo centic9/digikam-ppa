@@ -6,7 +6,7 @@
  * Date        : 2008-02-29
  * Description : Drag object info containers.
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,10 +29,7 @@
 #include <QMimeData>
 #include <QList>
 #include <QStringList>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -57,16 +54,16 @@ class DItemDrag : public QMimeData
 {
 public:
 
-    DItemDrag(const KUrl::List& urls,
-              const KUrl::List& kioURLs,
+    DItemDrag(const QList<QUrl>& urls,
+              const QList<QUrl>& kioURLs,
               const QList<int>& albumIDs,
               const QList<qlonglong>& imageIDs);
 
     static bool canDecode(const QMimeData* e);
     static QStringList mimeTypes();
     static bool decode(const QMimeData* e,
-                       KUrl::List& urls,
-                       KUrl::List& kioURLs,
+                       QList<QUrl>& urls,
+                       QList<QUrl>& kioURLs,
                        QList<int>& albumIDs,
                        QList<qlonglong>& imageIDs);
 };
@@ -83,10 +80,10 @@ class DAlbumDrag : public QMimeData
 {
 public:
 
-    DAlbumDrag(const KUrl& databaseUrl, int albumid, const KUrl& fileUrl = KUrl());
+    DAlbumDrag(const QUrl& databaseUrl, int albumid, const QUrl& fileUrl = QUrl());
     static QStringList mimeTypes();
     static bool canDecode(const QMimeData* e);
-    static bool decode(const QMimeData* e, KUrl::List& urls, int& albumID);
+    static bool decode(const QMimeData* e, QList<QUrl>& urls, int& albumID);
 };
 
 // ------------------------------------------------------------------------

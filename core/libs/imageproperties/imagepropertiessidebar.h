@@ -7,7 +7,7 @@
  * Description : simple image properties side bar (without support
  *               of digiKam database).
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,11 +27,11 @@
 
 // KDE includes
 
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "sidebar.h"
 #include "digikam_export.h"
 #include "searchtextbar.h"
@@ -48,9 +48,9 @@ class ImagePropertiesTab;
 class ImagePropertiesMetaDataTab;
 class ImagePropertiesColorsTab;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 class ImagePropertiesGPSTab;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 class DIGIKAM_EXPORT ImagePropertiesSideBar : public Sidebar
 {
@@ -59,10 +59,10 @@ class DIGIKAM_EXPORT ImagePropertiesSideBar : public Sidebar
 public:
 
     ImagePropertiesSideBar(QWidget* const parent, SidebarSplitter* const splitter,
-                           KMultiTabBarPosition side=KMultiTabBar::Left, bool mimimizedDefault=false);
+                           Qt::Edge side=Qt::LeftEdge, bool mimimizedDefault=false);
     ~ImagePropertiesSideBar();
 
-    virtual void itemChanged(const KUrl& url, const QRect& rect = QRect(), DImg* const img = 0);
+    virtual void itemChanged(const QUrl& url, const QRect& rect = QRect(), DImg* const img = 0);
 
 Q_SIGNALS:
 
@@ -90,7 +90,7 @@ protected:
      */
     void doSaveState();
 
-    virtual void setImagePropertiesInformation(const KUrl& url);
+    virtual void setImagePropertiesInformation(const QUrl& url);
 
 protected:
 
@@ -102,7 +102,7 @@ protected:
 
     QRect                       m_currentRect;
 
-    KUrl                        m_currentURL;
+    QUrl                        m_currentURL;
 
     DImg*                       m_image;
 
@@ -110,9 +110,9 @@ protected:
     ImagePropertiesMetaDataTab* m_metadataTab;
     ImagePropertiesColorsTab*   m_colorTab;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     ImagePropertiesGPSTab*      m_gpsTab;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 };
 
 }  // namespace Digikam

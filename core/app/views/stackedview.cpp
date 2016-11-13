@@ -7,8 +7,9 @@
  * Description : A widget stack to embedded album content view
  *               or the current image preview.
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
+ * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,27 +24,21 @@
  *
  * ============================================================ */
 
-#include "stackedview.moc"
+#include "stackedview.h"
 
 // Qt includes
 
-#include <QFileInfo>
 #include <QSplitter>
-#include <QTimer>
 #include <QWidget>
 
 // KDE includes
 
-#include <kurl.h>
-#include <kapplication.h>
 #include <kconfiggroup.h>
-#include <kconfig.h>
-#include <khtmlview.h>
-#include <kglobal.h>
-//#include <klinkitemselectionmodel.h>
 
 // Local includes
 
+#include "digikam_config.h"
+#include "digikam_debug.h"
 #include "applicationsettings.h"
 #include "digikamimageview.h"
 #include "digikamview.h"
@@ -54,13 +49,17 @@
 #include "loadingcacheinterface.h"
 #include "previewlayout.h"
 #include "welcomepageview.h"
-#include "mediaplayerview.h"
 #include "thumbbardock.h"
 #include "tableview.h"
+#include "trashview.h"
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MEDIAPLAYER
+#include "mediaplayerview.h"
+#endif //HAVE_MEDIAPLAYER
+
+#ifdef HAVE_MARBLE
 #include "mapwidgetview.h"
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 namespace Digikam
 {
@@ -79,13 +78,18 @@ public:
         imageIconView      = 0;
         imagePreviewView   = 0;
         welcomePageView    = 0;
-        mediaPlayerView    = 0;
         needUpdateBar      = false;
         syncingSelection   = false;
         tableView          = 0;
-#ifdef HAVE_KGEOMAP
+        trashView          = 0;
+
+#ifdef HAVE_MEDIAPLAYER
+        mediaPlayerView    = 0;
+#endif //HAVE_MEDIAPLAYER
+
+#ifdef HAVE_MARBLE
         mapWidgetView      = 0;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
     }
 
     bool               needUpdateBar;
@@ -97,17 +101,23 @@ public:
     DigikamImageView*  imageIconView;
     ImageThumbnailBar* thumbBar;
     ImagePreviewView*  imagePreviewView;
-    MediaPlayerView*   mediaPlayerView;
     ThumbBarDock*      thumbBarDock;
     WelcomePageView*   welcomePageView;
     TableView*         tableView;
-#ifdef HAVE_KGEOMAP
+    TrashView*         trashView;
+
+#ifdef HAVE_MEDIAPLAYER
+    MediaPlayerView*   mediaPlayerView;
+#endif //HAVE_MEDIAPLAYER
+
+#ifdef HAVE_MARBLE
     MapWidgetView*     mapWidgetView;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 };
 
 StackedView::StackedView(QWidget* const parent)
-    : QStackedWidget(parent), d(new Private)
+    : QStackedWidget(parent),
+      d(new Private)
 {
     d->imageIconView    = new DigikamImageView(this);
     d->imagePreviewView = new ImagePreviewView(this);
@@ -116,32 +126,39 @@ StackedView::StackedView(QWidget* const parent)
     d->thumbBar->setModelsFiltered(d->imageIconView->imageModel(), d->imageIconView->imageFilterModel());
     d->thumbBar->installOverlays();
     d->thumbBarDock->setWidget(d->thumbBar);
-    d->thumbBarDock->setObjectName("mainwindow_thumbbar");
-
+    d->thumbBarDock->setObjectName(QLatin1String("mainwindow_thumbbar"));
     d->welcomePageView = new WelcomePageView(this);
-    d->mediaPlayerView = new MediaPlayerView(this);
     d->tableView       = new TableView(d->imageIconView->getSelectionModel(),
                                        d->imageIconView->imageFilterModel(),
                                        this);
-    d->tableView->setObjectName("mainwindow_tableview");
+    d->tableView->setObjectName(QLatin1String("mainwindow_tableview"));
+    d->trashView = new TrashView(this);
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapWidgetView   = new MapWidgetView(d->imageIconView->getSelectionModel(),
                                            d->imageIconView->imageFilterModel(), this,
                                            MapWidgetView::ApplicationDigikam
                                           );
-    d->mapWidgetView->setObjectName("mainwindow_mapwidgetview");
-#endif // HAVE_KGEOMAP
+    d->mapWidgetView->setObjectName(QLatin1String("mainwindow_mapwidgetview"));
+#endif // HAVE_MARBLE
+
+#ifdef HAVE_MEDIAPLAYER
+    d->mediaPlayerView = new MediaPlayerView(this);
+#endif //HAVE_MEDIAPLAYER
 
     insertWidget(IconViewMode,     d->imageIconView);
     insertWidget(PreviewImageMode, d->imagePreviewView);
-    insertWidget(WelcomePageMode,  d->welcomePageView->view());
-    insertWidget(MediaPlayerMode,  d->mediaPlayerView);
+    insertWidget(WelcomePageMode,  d->welcomePageView);
     insertWidget(TableViewMode,    d->tableView);
+    insertWidget(TrashViewMode,    d->trashView);
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     insertWidget(MapWidgetMode,    d->mapWidgetView);
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
+
+#ifdef HAVE_MEDIAPLAYER
+    insertWidget(MediaPlayerMode,  d->mediaPlayerView);
+#endif //HAVE_MEDIAPLAYER
 
     setViewMode(IconViewMode);
     setAttribute(Qt::WA_DeleteOnClose);
@@ -207,6 +224,10 @@ StackedView::StackedView(QWidget* const parent)
     connect(d->thumbBarDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
             d->thumbBar, SLOT(slotDockLocationChanged(Qt::DockWidgetArea)));
 
+    connect(d->imagePreviewView, SIGNAL(signalPreviewLoaded(bool)),
+            this, SLOT(slotPreviewLoaded(bool)));
+
+#ifdef HAVE_MEDIAPLAYER
     connect(d->mediaPlayerView, SIGNAL(signalNextItem()),
             this, SIGNAL(signalNextItem()));
 
@@ -215,9 +236,7 @@ StackedView::StackedView(QWidget* const parent)
 
     connect(d->mediaPlayerView, SIGNAL(signalEscapePreview()),
             this, SIGNAL(signalEscapePreview()));
-
-    connect(d->imagePreviewView, SIGNAL(signalPreviewLoaded(bool)),
-            this, SLOT(slotPreviewLoaded(bool)));
+#endif //HAVE_MEDIAPLAYER
 }
 
 StackedView::~StackedView()
@@ -253,10 +272,12 @@ ImageThumbnailBar* StackedView::thumbBar() const
 
 void StackedView::slotEscapePreview()
 {
+#ifdef HAVE_MEDIAPLAYER
     if (viewMode() == MediaPlayerMode)
     {
         d->mediaPlayerView->escapePreview();
     }
+#endif //HAVE_MEDIAPLAYER
 }
 
 DigikamImageView* StackedView::imageIconView() const
@@ -269,22 +290,29 @@ ImagePreviewView* StackedView::imagePreviewView() const
     return d->imagePreviewView;
 }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 MapWidgetView* StackedView::mapWidgetView() const
 {
     return d->mapWidgetView;
 }
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 TableView* StackedView::tableView() const
 {
     return d->tableView;
 }
 
+TrashView* StackedView::trashView() const
+{
+    return d->trashView;
+}
+
+#ifdef HAVE_MEDIAPLAYER
 MediaPlayerView* StackedView::mediaPlayerView() const
 {
     return d->mediaPlayerView;
 }
+#endif //HAVE_MEDIAPLAYER
 
 bool StackedView::isInSingleFileMode() const
 {
@@ -293,9 +321,9 @@ bool StackedView::isInSingleFileMode() const
 
 bool StackedView::isInMultipleFileMode() const
 {
-    return currentIndex() == IconViewMode
-        || currentIndex() == MapWidgetMode
-        || currentIndex() == TableViewMode;
+    return (currentIndex() == IconViewMode  ||
+            currentIndex() == MapWidgetMode ||
+            currentIndex() == TableViewMode);
 }
 
 bool StackedView::isInAbstractMode() const
@@ -309,7 +337,9 @@ void StackedView::setPreviewItem(const ImageInfo& info, const ImageInfo& previou
     {
         if (viewMode() == MediaPlayerMode)
         {
+#ifdef HAVE_MEDIAPLAYER
             d->mediaPlayerView->setCurrentItem();
+#endif //HAVE_MEDIAPLAYER
         }
         else if (viewMode() == PreviewImageMode)
         {
@@ -326,15 +356,19 @@ void StackedView::setPreviewItem(const ImageInfo& info, const ImageInfo& previou
                 d->imagePreviewView->setImageInfo();
             }
 
+#ifdef HAVE_MEDIAPLAYER
             setViewMode(MediaPlayerMode);
             d->mediaPlayerView->setCurrentItem(info.fileUrl(), !previous.isNull(), !next.isNull());
+#endif //HAVE_MEDIAPLAYER
         }
         else
         {
             // Stop media player if running...
             if (viewMode() == MediaPlayerMode)
             {
+#ifdef HAVE_MEDIAPLAYER
                 d->mediaPlayerView->setCurrentItem();
+#endif //HAVE_MEDIAPLAYER
             }
 
             d->imagePreviewView->setImageInfo(info, previous, next);
@@ -357,7 +391,9 @@ StackedView::StackedViewMode StackedView::viewMode() const
 
 void StackedView::setViewMode(const StackedViewMode mode)
 {
-    if ((mode<StackedViewModeFirst)||(mode>StackedViewModeLast))
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Stacked View Mode : " << mode;
+
+    if ((mode < StackedViewModeFirst) || (mode > StackedViewModeLast))
     {
         return;
     }
@@ -382,9 +418,9 @@ void StackedView::setViewMode(const StackedViewMode mode)
         setCurrentIndex(mode);
     }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapWidgetView->setActive(mode == MapWidgetMode);
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     d->tableView->slotSetActive(mode == TableViewMode);
 
@@ -392,12 +428,14 @@ void StackedView::setViewMode(const StackedViewMode mode)
     {
         d->imageIconView->setFocus();
     }
-#ifdef HAVE_KGEOMAP
+
+#ifdef HAVE_MARBLE
     else if (mode == MapWidgetMode)
     {
         d->mapWidgetView->setFocus();
     }
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
+
     else if (mode == TableViewMode)
     {
         d->tableView->setFocus();
