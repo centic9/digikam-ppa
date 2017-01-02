@@ -7,7 +7,7 @@
  * Description : Graphics View for DImg preview
  *
  * Copyright (C) 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "graphicsdimgview.moc"
+#include "graphicsdimgview.h"
 
 // Qt includes
 
@@ -30,15 +30,11 @@
 #include <QGraphicsScene>
 #include <QScrollBar>
 #include <QToolButton>
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kglobalsettings.h>
-#include <kdatetable.h> // for KPopupFrame
+#include <QStyle>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimgpreviewitem.h"
 #include "imagezoomsettings.h"
 #include "paniconwidget.h"
@@ -68,7 +64,7 @@ public:
     SinglePhotoPreviewLayout* layout;
 
     QToolButton*              cornerButton;
-    KPopupFrame*              panIconPopup;
+    PanIconFrame*             panIconPopup;
 
     QPoint                    mousePressPos;
     QPoint                    panningScrollPos;
@@ -77,7 +73,8 @@ public:
 };
 
 GraphicsDImgView::GraphicsDImgView(QWidget* const parent)
-    : QGraphicsView(parent), d(new Private)
+    : QGraphicsView(parent),
+      d(new Private)
 {
     d->scene  = new QGraphicsScene(this);
     d->scene->setItemIndexMethod(QGraphicsScene::NoIndex);
@@ -206,7 +203,7 @@ void GraphicsDImgView::mouseDoubleClickEvent(QMouseEvent* e)
     {
         emit leftButtonDoubleClicked();
 
-        if (!KGlobalSettings::singleClick())
+        if (!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick))
         {
             emit activated();
         }
@@ -234,7 +231,7 @@ void GraphicsDImgView::mousePressEvent(QMouseEvent* e)
     {
         d->mousePressPos = e->pos();
 
-        if (!KGlobalSettings::singleClick() || e->button() == Qt::MidButton)
+        if (!qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick) || e->button() == Qt::MidButton)
         {
             startPanning(e->pos());
         }
@@ -279,7 +276,7 @@ void GraphicsDImgView::mouseReleaseEvent(QMouseEvent* e)
     {
         if (!d->movingInProgress && e->button() == Qt::LeftButton)
         {
-            if (KGlobalSettings::singleClick())
+            if (qApp->style()->styleHint(QStyle::SH_ItemView_ActivateItemOnSingleClick))
             {
                 emit activated();
             }
@@ -418,7 +415,7 @@ void GraphicsDImgView::slotCornerButtonPressed()
         d->panIconPopup = 0;
     }
 
-    d->panIconPopup          = new KPopupFrame(this);
+    d->panIconPopup          = new PanIconFrame(this);
     PanIconWidget* const pan = new PanIconWidget(d->panIconPopup);
 
     //connect(pan, SIGNAL(signalSelectionTakeFocus()),
@@ -456,7 +453,7 @@ void GraphicsDImgView::slotPanIconHidden()
 void GraphicsDImgView::slotPanIconSelectionMoved(const QRect& imageRect, bool b)
 {
     QRectF zoomRect = item()->zoomSettings()->mapImageToZoom(imageRect);
-    kDebug() << imageRect << zoomRect;
+    qCDebug(DIGIKAM_WIDGETS_LOG) << imageRect << zoomRect;
     centerOn(item()->mapToScene(zoomRect.center()));
 
     if (b)

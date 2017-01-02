@@ -6,31 +6,32 @@
 
 subdirs(icons)
 
-include_directories(${MEDIAWIKI_INCLUDE_DIR})
+add_definitions(-DTRANSLATION_DOMAIN=\"kipiplugin_mediawiki\")
 
-KDE4_ADD_UI_FILES(ui_src wmwindow.ui)
+
+include_directories(${LIBMEDIAWIKI_INCLUDES})
 
 set(kipiplugin_wikimedia_PART_SRCS
     plugin_wikimedia.cpp
-    wmwindow.cpp
     wmwidget.cpp
-    wikimediajob.cpp
+    wmtalker.cpp
+    wmwindow.cpp
    )
 
-KDE4_ADD_PLUGIN(kipiplugin_wikimedia ${kipiplugin_wikimedia_PART_SRCS} ${ui_src})
+add_library(kipiplugin_wikimedia MODULE ${kipiplugin_wikimedia_PART_SRCS} ${ui_src})
 
 target_link_libraries(kipiplugin_wikimedia
-                      kipiplugins
-                      ${MEDIAWIKI_LIBRARIES}
-                      ${KIPI_LIBRARIES}
-                      ${KEXIV2_LIBRARIES}
-                      ${KDCRAW_LIBRARIES}
-                      ${KDE4_KIO_LIBS}
-                      ${KDE4_KDEUI_LIBS}
+                      KF5::Kipi
+                      KF5::I18n
+                      KF5::WindowSystem
+
+                      KF5kipiplugins
+
+                      ${LIBMEDIAWIKI_LIBRARIES}
                      )
 
-configure_file(kipiplugin_wikimedia.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_wikimedia.desktop)
+configure_file(kipiplugin_wikimedia.desktop.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_wikimedia.desktop)
 
 install(FILES   ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_wikimedia.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 install(TARGETS kipiplugin_wikimedia                                     DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES   kipiplugin_wikimediaui.rc                                DESTINATION ${DATA_INSTALL_DIR}/kipi)
+install(FILES   kipiplugin_wikimediaui.rc                                DESTINATION ${KXMLGUI_INSTALL_DIR}/kipi)

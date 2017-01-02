@@ -7,7 +7,7 @@
  * Description : Thumbnail bar for import tool
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,14 +22,11 @@
  *
  * ============================================================ */
 
-#include "importthumbnailbar.moc"
-
-// KDE includes
-
-#include <kdebug.h>
+#include "importthumbnailbar.h"
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "applicationsettings.h"
 #include "importsettings.h"
 #include "importdelegate.h"
@@ -54,7 +51,8 @@ public:
 };
 
 ImportThumbnailBar::ImportThumbnailBar(QWidget* const parent)
-    : ImportCategorizedView(parent), d(new Private())
+    : ImportCategorizedView(parent),
+      d(new Private())
 {
     setItemDelegate(new ImportThumbnailDelegate(this));
     setSpacing(3);
@@ -124,7 +122,7 @@ void ImportThumbnailBar::setScrollBarPolicy(Qt::ScrollBarPolicy policy)
     if (policy == Qt::ScrollBarAsNeeded)
     {
         // Delegate resizing will cause endless relayouting, see bug #228807
-        kError() << "The Qt::ScrollBarAsNeeded policy is not supported by ImportThumbnailBar";
+        qCDebug(DIGIKAM_IMPORTUI_LOG) << "The Qt::ScrollBarAsNeeded policy is not supported by ImportThumbnailBar";
     }
 
     d->scrollPolicy = policy;

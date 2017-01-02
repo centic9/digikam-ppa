@@ -7,7 +7,7 @@
  * Description : Qt item view for images - category drawer
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011 by Andi Clemens <andi dot clemens at gmail dot com>
+ * Copyright (C) 2011      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,13 +27,12 @@
 // Qt includes
 
 #include <QPainter>
+#include <QApplication>
+#include <QLocale>
 
 // KDE includes
 
-#include <kcalendarsystem.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -68,11 +67,7 @@ public:
 };
 
 ImageCategoryDrawer::ImageCategoryDrawer(ImageCategorizedView* const parent)
-#if KDE_IS_VERSION(4,5,0)
-    : KCategoryDrawerV3(0), d(new Private)
-#else
-    : d(new Private)
-#endif
+    : DCategoryDrawer(0), d(new Private)
 {
     d->view = parent;
 }
@@ -166,7 +161,7 @@ void ImageCategoryDrawer::drawCategory(const QModelIndex& index, int /*sortRole*
             break;
     }
 
-    p->setPen(kapp->palette().color(QPalette::HighlightedText));
+    p->setPen(qApp->palette().color(QPalette::HighlightedText));
     p->setFont(fontBold);
 
     QRect tr;
@@ -266,16 +261,16 @@ void ImageCategoryDrawer::textForPAlbum(PAlbum* album, bool recursive, int count
 
     QDate date    = album->date();
 
-    KLocale tmpLocale(*KGlobal::locale());
+    QLocale tmpLocale;
 
-    tmpLocale.setDateFormat("%d"); // day of month with two digits
-    QString day   = tmpLocale.formatDate(date);
+    // day of month with two digits
+    QString day   = tmpLocale.toString(date, QLatin1String("dd"));
 
-    tmpLocale.setDateFormat("%b"); // short form of the month
-    QString month = tmpLocale.formatDate(date);
+    // short form of the month
+    QString month = tmpLocale.toString(date, QLatin1String("MMM"));
 
-    tmpLocale.setDateFormat("%Y"); // long form of the year
-    QString year  = tmpLocale.formatDate(date);
+    // long form of the year
+    QString year  = tmpLocale.toString(date, QLatin1String("yyyy"));
 
     *subLine      = i18ncp("%1: day of month with two digits, %2: short month name, %3: year",
                            "Album Date: %2 %3 %4 - 1 Item", "Album Date: %2 %3 %4 - %1 Items",
@@ -284,7 +279,7 @@ void ImageCategoryDrawer::textForPAlbum(PAlbum* album, bool recursive, int count
     if (!album->caption().isEmpty())
     {
         QString caption = album->caption();
-        *subLine       += " - " + caption.replace('\n', ' ');
+        *subLine       += QLatin1String(" - ") + caption.replace(QLatin1Char('\n'), QLatin1Char(' '));
     }
 
     *header = album->prettyUrl();
@@ -343,12 +338,12 @@ void ImageCategoryDrawer::textForDAlbum(DAlbum* album, int count, QString* heade
     if (album->range() == DAlbum::Month)
     {
         *header = i18nc("Month String - Year String", "%1 %2",
-                        KGlobal::locale()->calendar()->monthName(album->date(), KCalendarSystem::LongName),
-                        KGlobal::locale()->calendar()->formatDate(album->date(), "%Y"));
+                        QLocale().monthName(album->date().month(), QLocale::LongFormat),
+                        album->date().year());
     }
     else
     {
-        *header = QString("%1").arg(KGlobal::locale()->calendar()->year(album->date()));
+        *header = QString::fromUtf8("%1").arg(album->date().year());
     }
 
     *subLine = i18np("1 Item", "%1 Items", count);
@@ -380,7 +375,7 @@ void ImageCategoryDrawer::updateRectsAndPixmaps(int width)
     QFontMetrics fm(fn);
     QRect tr = fm.boundingRect(0, 0, width,
                                0xFFFFFFFF, Qt::AlignLeft | Qt::AlignVCenter,
-                               "XXX");
+                               QLatin1String("XXX"));
     d->rect.setHeight(tr.height());
 
     if (usePointSize)
@@ -396,13 +391,13 @@ void ImageCategoryDrawer::updateRectsAndPixmaps(int width)
     fm = QFontMetrics(fn);
     tr = fm.boundingRect(0, 0, width,
                          0xFFFFFFFF, Qt::AlignLeft | Qt::AlignVCenter,
-                         "XXX");
+                         QLatin1String("XXX"));
 
     d->rect.setHeight(d->rect.height() + tr.height() + 10);
     d->rect.setWidth(width);
 
     d->pixmap = QPixmap(d->rect.width(), d->rect.height());
-    d->pixmap.fill(kapp->palette().color(QPalette::Highlight));
+    d->pixmap.fill(qApp->palette().color(QPalette::Highlight));
 }
 
 } // namespace Digikam

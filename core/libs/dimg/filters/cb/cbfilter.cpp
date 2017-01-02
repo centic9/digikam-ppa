@@ -6,7 +6,7 @@
  * Date        : 2006-01-18
  * Description : color balance filter
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -28,10 +28,6 @@
 
 #include <cstdio>
 #include <cmath>
-
-// KDE includes
-
-#include <kdebug.h>
 
 // Local includes
 
@@ -78,7 +74,7 @@ CBFilter::CBFilter(QObject* const parent)
 }
 
 CBFilter::CBFilter(DImg* const orgImage, QObject* const parent, const CBContainer& settings)
-    : DImgThreadedFilter(orgImage, parent, "CBFilter"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("CBFilter")),
       d(new Private)
 {
     d->settings = settings;
@@ -88,7 +84,7 @@ CBFilter::CBFilter(DImg* const orgImage, QObject* const parent, const CBContaine
 
 CBFilter::CBFilter(const CBContainer& settings, DImgThreadedFilter* const master,
             const DImg& orgImage, DImg& destImage, int progressBegin, int progressEnd)
-    : DImgThreadedFilter(master, orgImage, destImage, progressBegin, progressEnd, "CBFilter"),
+    : DImgThreadedFilter(master, orgImage, destImage, progressBegin, progressEnd, QLatin1String("CBFilter")),
       d(new Private)
 {
     d->settings = settings;
@@ -383,22 +379,22 @@ FilterAction CBFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("alpha", d->settings.alpha);
-    action.addParameter("blue",  d->settings.blue);
-    action.addParameter("gamma", d->settings.gamma);
-    action.addParameter("green", d->settings.green);
-    action.addParameter("red",   d->settings.red);
+    action.addParameter(QLatin1String("alpha"), d->settings.alpha);
+    action.addParameter(QLatin1String("blue"),  d->settings.blue);
+    action.addParameter(QLatin1String("gamma"), d->settings.gamma);
+    action.addParameter(QLatin1String("green"), d->settings.green);
+    action.addParameter(QLatin1String("red"),   d->settings.red);
 
     return action;
 }
 
 void CBFilter::readParameters(const Digikam::FilterAction& action)
 {
-    d->settings.alpha = action.parameter("alpha").toDouble();
-    d->settings.blue  = action.parameter("blue").toDouble();
-    d->settings.gamma = action.parameter("gamma").toDouble();
-    d->settings.green = action.parameter("green").toDouble();
-    d->settings.red   = action.parameter("red").toDouble();
+    d->settings.alpha = action.parameter(QLatin1String("alpha")).toDouble();
+    d->settings.blue  = action.parameter(QLatin1String("blue")).toDouble();
+    d->settings.gamma = action.parameter(QLatin1String("gamma")).toDouble();
+    d->settings.green = action.parameter(QLatin1String("green")).toDouble();
+    d->settings.red   = action.parameter(QLatin1String("red")).toDouble();
 }
 
 }  // namespace Digikam

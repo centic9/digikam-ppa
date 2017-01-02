@@ -6,7 +6,7 @@
  * Date        : 2004-07-29
  * Description : image levels manipulation methods.
  *
- * Copyright (C) 2004-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -44,14 +44,11 @@
 #include <cstdlib>
 #include <cerrno>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "imagehistogram.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -698,9 +695,9 @@ int ImageLevels::getLevelHighOutputValue(int channel)
     return 0;
 }
 
-bool ImageLevels::loadLevelsFromGimpLevelsFile(const KUrl& fileUrl)
+bool ImageLevels::loadLevelsFromGimpLevelsFile(const QUrl& fileUrl)
 {
-    // TODO : support KUrl !
+    // TODO : support QUrl !
 
     FILE*   file = 0;
     int     low_input[5];
@@ -712,7 +709,7 @@ bool ImageLevels::loadLevelsFromGimpLevelsFile(const KUrl& fileUrl)
     char    buf[50];
     char*   nptr = 0;
 
-    file = fopen(QFile::encodeName(fileUrl.toLocalFile()), "r");
+    file = fopen(QFile::encodeName(fileUrl.toLocalFile()).constData(), "r");
 
     if (!file)
     {
@@ -742,14 +739,14 @@ bool ImageLevels::loadLevelsFromGimpLevelsFile(const KUrl& fileUrl)
 
         if (fields != 4)
         {
-            kWarning() <<  "Invalid Gimp levels file!";
+            qCWarning(DIGIKAM_DIMG_LOG) <<  "Invalid Gimp levels file!";
             fclose(file);
             return false;
         }
 
         if (!fgets(buf, 50, file))
         {
-            kWarning() <<  "Invalid Gimp levels file!";
+            qCWarning(DIGIKAM_DIMG_LOG) <<  "Invalid Gimp levels file!";
             fclose(file);
             return false;
         }
@@ -758,7 +755,7 @@ bool ImageLevels::loadLevelsFromGimpLevelsFile(const KUrl& fileUrl)
 
         if (buf == nptr || errno == ERANGE)
         {
-            kWarning() <<  "Invalid Gimp levels file!";
+            qCWarning(DIGIKAM_DIMG_LOG) <<  "Invalid Gimp levels file!";
             fclose(file);
             return false;
         }
@@ -777,14 +774,14 @@ bool ImageLevels::loadLevelsFromGimpLevelsFile(const KUrl& fileUrl)
     return true;
 }
 
-bool ImageLevels::saveLevelsToGimpLevelsFile(const KUrl& fileUrl)
+bool ImageLevels::saveLevelsToGimpLevelsFile(const QUrl& fileUrl)
 {
-    // TODO : support KUrl !
+    // TODO : support QUrl !
 
     FILE* file = 0;
     int   i;
 
-    file = fopen(QFile::encodeName(fileUrl.toLocalFile()), "w");
+    file = fopen(QFile::encodeName(fileUrl.toLocalFile()).constData(), "w");
 
     if (!file)
     {

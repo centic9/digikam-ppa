@@ -7,7 +7,7 @@
  * Description : digiKam 8/16 bits image management API
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -26,17 +26,13 @@
 #ifndef DIMG_H
 #define DIMG_H
 
-// KExiv2 includes
-
-#include <libkexiv2/kexiv2data.h>
-
 // Qt includes
 
-#include <QtCore/QByteArray>
-#include <QtCore/QFlags>
-#include <QtCore/QSize>
-#include <QtCore/QRect>
-#include <QtCore/QVariant>
+#include <QByteArray>
+#include <QFlags>
+#include <QSize>
+#include <QRect>
+#include <QVariant>
 
 // Local includes
 
@@ -47,14 +43,13 @@
 #include "dcolorcomposer.h"
 #include "historyimageid.h"
 #include "iccprofile.h"
+#include "metaengine_data.h"
 
 class QImage;
 class QPixmap;
 
 namespace Digikam
 {
-
-typedef KExiv2Iface::KExiv2Data KExiv2Data;
 
 class ExposureSettingsContainer;
 class DImageHistory;
@@ -333,9 +328,9 @@ public:
 
     /** Metadata manipulation methods
      */
-    KExiv2Data getMetadata()   const;
+    MetaEngineData getMetadata()   const;
     IccProfile getIccProfile() const;
-    void       setMetadata(const KExiv2Data& data);
+    void       setMetadata(const MetaEngineData& data);
     void       setIccProfile(const IccProfile& profile);
 
     void       setAttribute(const QString& key, const QVariant& value);
@@ -570,7 +565,7 @@ public:
     bool       rotateAndFlip(int orientation);
 
     /** Rotates and/or flip the DImg according to the given transform action,
-     *  which is a KExiv2Iface::RotationMatrix::TransformAction.
+     *  which is a MetaEngineRotation::TransformAction.
      *  Returns true if the image was actually rotated or flipped.
      */
     bool       transform(int transformAction);
@@ -660,7 +655,7 @@ private:
     void copyImageData(const Private* const src);
     void setImageData(bool null, uint width, uint height, bool sixteenBit, bool alpha);
     void setImageDimension(uint width, uint height);
-    int  allocateData();
+    size_t allocateData();
 
     static void bitBlt(const uchar* const src, uchar* const dest,
                        int sx, int sy, int w, int h, int dx, int dy,

@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "task.moc"
+#include "task.h"
 
 // C ANSI includes
 
@@ -37,21 +37,19 @@ extern "C"
 
 // KDE includes
 
-#include <kde_file.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
-#include <threadweaver/ThreadWeaver.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
 #include "dimg.h"
 #include "dmetadata.h"
 #include "imageinfo.h"
 #include "fileactionmngr.h"
 #include "batchtool.h"
 #include "batchtoolsmanager.h"
+#include "collectionscanner.h"
 #include "fileoperation.h"
 
 namespace Digikam
@@ -78,7 +76,7 @@ public:
 // -------------------------------------------------------
 
 Task::Task()
-    : Job(0),
+    : ActionJob(),
       d(new Private)
 {
 }
@@ -107,7 +105,7 @@ void Task::slotCancel()
     d->cancel = true;
 }
 
-void Task::emitActionData(ActionData::ActionStatus st, const QString& mess, const KUrl& dest)
+void Task::emitActionData(ActionData::ActionStatus st, const QString& mess, const QUrl& dest)
 {
     ActionData ad;
     ad.fileUrl = d->tools.m_itemUrl;
@@ -128,14 +126,18 @@ void Task::run()
 
     // Loop with all batch tools operations to apply on item.
 
-    bool       success = false;
-    int        index   = 0;
-    KUrl       outUrl  = d->tools.m_itemUrl;
-    KUrl       workUrl = !d->settings.useOrgAlbum ? d->settings.workingUrl : KUrl(d->tools.m_itemUrl.directory(KUrl::AppendTrailingSlash));
-    KUrl       inUrl;
-    KUrl::List tmp2del;
-    DImg       tmpImage;
-    QString    errMsg;
+    bool        success = false;
+    int         index   = 0;
+    QUrl        outUrl  = d->tools.m_itemUrl;
+    QUrl        workUrl = !d->settings.useOrgAlbum ? d->settings.workingUrl
+                                                   : d->tools.m_itemUrl.adjusted(QUrl::RemoveFilename);
+    QUrl        inUrl;
+    QList<QUrl> tmp2del;
+    DImg        tmpImage;
+    QString     errMsg;
+
+    // ImageInfo must be tread-safe.
+    ImageInfo source = ImageInfo::fromUrl(d->tools.m_itemUrl);
 
     foreach (const BatchToolSet& set, d->tools.m_toolsList)
     {
@@ -143,20 +145,36 @@ void Task::run()
         inUrl   = outUrl;
         index   = set.index + 1;
 
-        kDebug() << "Tool : index= " << index
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Tool : index= " << index
                  << " :: name= "     << set.name
                  << " :: group= "    << set.group
                  << " :: wurl= "     << workUrl;
 
         d->tool->setImageData(tmpImage);
+        d->tool->setImageInfo(source);
         d->tool->setInputUrl(inUrl);
         d->tool->setWorkingUrl(workUrl);
         d->tool->setSettings(set.settings);
         d->tool->setIOFileSettings(d->settings.ioFileSettings);
         d->tool->setRawLoadingRules(d->settings.rawLoadingRule);
-        d->tool->setRawDecodingSettings(d->settings.rawDecodingSettings);
+        d->tool->setDRawDecoderSettings(d->settings.rawDecodingSettings);
         d->tool->setResetExifOrientationAllowed(d->settings.exifSetOrientation);
-        d->tool->setLastChainedTool(index == d->tools.m_toolsList.count());
+
+        if (index == d->tools.m_toolsList.count())
+        {
+            d->tool->setLastChainedTool(true);
+        }
+        // If the next tool is under the custom group (user script)
+        // treat as the last chained tool, i.e. save image to file
+        else if (d->tools.m_toolsList[index].group == BatchTool::CustomTool)
+        {
+            d->tool->setLastChainedTool(true);
+        }
+        else
+        {
+            d->tool->setLastChainedTool(false);
+        }
+
         d->tool->setOutputUrlFromInputUrl();
         d->tool->setBranchHistory(true);
 
@@ -169,6 +187,7 @@ void Task::run()
         if (d->cancel)
         {
             emitActionData(ActionData::BatchCanceled);
+            emit signalDone();
             delete d->tool;
             d->tool = 0;
             return;
@@ -188,15 +207,16 @@ void Task::run()
     // We don't remove last output tmp url.
     tmp2del.removeAll(outUrl);
 
-    foreach (const KUrl& url, tmp2del)
+    foreach (const QUrl& url, tmp2del)
     {
-        unlink(QFile::encodeName(url.toLocalFile()));
+        unlink(QFile::encodeName(url.toLocalFile()).constData());
     }
 
     // Move processed temp file to target
 
-    KUrl dest = workUrl;
-    dest.setFileName(d->tools.m_destFileName);
+    QUrl dest = workUrl;
+    dest = dest.adjusted(QUrl::RemoveFilename);
+    dest.setPath(dest.path() + d->tools.m_destFileName);
     QString renameMess;
     QFileInfo fi(dest.toLocalFile());
 
@@ -204,26 +224,7 @@ void Task::run()
     {
         if (d->settings.conflictRule != QueueSettings::OVERWRITE)
         {
-            int i          = 0;
-            bool fileFound = false;
-
-            do
-            {
-                QFileInfo nfi(dest.toLocalFile());
-
-                if (!nfi.exists())
-                {
-                    fileFound = false;
-                }
-                else
-                {
-                    i++;
-                    dest.setFileName(fi.completeBaseName() + QString("_%1.").arg(i) + fi.completeSuffix());
-                    fileFound = true;
-                }
-            }
-            while (fileFound);
-
+            dest       = FileOperation::getUniqueFileUrl(dest);
             renameMess = i18n("(renamed to %1)", dest.fileName());
         }
         else
@@ -237,16 +238,16 @@ void Task::run()
         if (DMetadata::hasSidecar(outUrl.toLocalFile()))
         {
             if (!FileOperation::localFileRename(d->tools.m_itemUrl.toLocalFile(),
-                                               DMetadata::sidecarPath(outUrl.toLocalFile()),
-                                               DMetadata::sidecarPath(dest.toLocalFile())))
+                                                DMetadata::sidecarPath(outUrl.toLocalFile()),
+                                                DMetadata::sidecarPath(dest.toLocalFile())))
             {
                 emitActionData(ActionData::BatchFailed, i18n("Failed to create sidecar file..."), dest);
             }
         }
 
-        if (!FileOperation::localFileRename(d->tools.m_itemUrl.toLocalFile(), 
-                                           outUrl.toLocalFile(),
-                                           dest.toLocalFile()))
+        if (!FileOperation::localFileRename(d->tools.m_itemUrl.toLocalFile(),
+                                            outUrl.toLocalFile(),
+                                            dest.toLocalFile()))
         {
             emitActionData(ActionData::BatchFailed, i18n("Failed to create file..."), dest);
         }
@@ -254,9 +255,15 @@ void Task::run()
         {
             // -- Now copy the digiKam attributes from original file to the new file ------------
 
-            // ImageInfo must be tread-safe.
-            ImageInfo source = ImageInfo::fromUrl(d->tools.m_itemUrl);
-            FileActionMngr::instance()->copyAttributes(source, dest.toLocalFile());
+            CollectionScanner scanner;
+            qlonglong id = scanner.scanFile(dest.toLocalFile(), CollectionScanner::NormalScan);
+
+            ImageInfo destInfo(id);
+            CollectionScanner::copyFileProperties(source, destInfo);
+
+            // -- Read again new file that the database is up to date ---------------------------
+
+            scanner.scanFile(destInfo, CollectionScanner::Rescan);
 
             emitActionData(ActionData::BatchDone, i18n("Item processed successfully %1", renameMess), dest);
         }
@@ -265,6 +272,8 @@ void Task::run()
     {
         emitActionData(ActionData::BatchFailed, i18n("Failed to create file..."), dest);
     }
+
+    emit signalDone();
 }
 
 }  // namespace Digikam

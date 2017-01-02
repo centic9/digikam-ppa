@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -24,16 +24,12 @@
  *
  * ============================================================ */
 
-#include "imagethumbnaildelegate.moc"
+#include "imagethumbnaildelegate.h"
 #include "imagedelegatepriv.h"
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kiconloader.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "applicationsettings.h"
 #include "imagecategorizedview.h"
 #include "imagedelegateoverlay.h"
@@ -45,7 +41,7 @@
 namespace Digikam
 {
 
-void ImageThumbnailDelegatePrivate::init(ImageThumbnailDelegate* q)
+void ImageThumbnailDelegatePrivate::init(ImageThumbnailDelegate* const q)
 {
     QObject::connect(ApplicationSettings::instance(), SIGNAL(setupChanged()),
                      q, SLOT(slotSetupChanged()));
@@ -118,6 +114,7 @@ void ImageThumbnailDelegate::updateRects()
 {
     Q_D(ImageThumbnailDelegate);
 
+    d->coordinatesRect = QRect(d->contentWidth - 16+2, d->pixmapRect.top(), 16, 16);
     d->rect            = QRect(0, 0, d->contentWidth + 2*d->margin, d->contentWidth + 2*d->margin);
     d->pixmapRect      = QRect(d->margin, d->margin, d->contentWidth, d->contentWidth);
     const int iconSize = qBound(16, (d->contentWidth + 2*d->margin) / 8 - 2, 48);

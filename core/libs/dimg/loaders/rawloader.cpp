@@ -7,7 +7,7 @@
  * Description : A digital camera RAW files loader for DImg
  *               framework using an external dcraw instance.
  *
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2005-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "rawloader.moc"
+#include "rawloader.h"
 
 // C++ includes
 
@@ -33,23 +33,12 @@
 
 #include <QByteArray>
 
-// KDE includes
-
-#include <kstandarddirs.h>
-#include <kdebug.h>
-
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "dimgloaderobserver.h"
-#include "icctransform.h"
-#include "imagehistogram.h"
-#include "imagelevels.h"
-#include "curvesfilter.h"
-#include "bcgfilter.h"
-#include "wbfilter.h"
-#include "globals.h"
-#include "dimagehistory.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -59,7 +48,7 @@ RAWLoader::RAWLoader(DImg* const image, const DRawDecoding& rawDecodingSettings)
       m_observer(0),
       m_filter(0)
 {
-    m_rawDecodingSettings = rawDecodingSettings.rawPrm;
+    m_decoderSettings = rawDecodingSettings.rawPrm;
     m_filter              = new RawProcessingFilter(this);
     m_filter->setSettings(rawDecodingSettings);
 }
@@ -70,9 +59,9 @@ bool RAWLoader::load(const QString& filePath, DImgLoaderObserver* const observer
 
     readMetadata(filePath, DImg::RAW);
 
-    DcrawInfoContainer dcrawIdentify;
+    RawInfo dcrawIdentify;
 
-    if (!KDcraw::rawFileIdentify(dcrawIdentify, filePath))
+    if (!DRawDecoder::rawFileIdentify(dcrawIdentify, filePath))
     {
         return false;
     }
@@ -86,43 +75,42 @@ bool RAWLoader::load(const QString& filePath, DImgLoaderObserver* const observer
         // the method checkExifWorkingColorSpace() like with JPEG, PNG, and TIFF loaders,
         // because RAW file are always in linear mode.
 
-        if (m_rawDecodingSettings.outputColorSpace == RawDecodingSettings::CUSTOMOUTPUTCS)
+        if (m_decoderSettings.outputColorSpace == DRawDecoderSettings::CUSTOMOUTPUTCS)
         {
-            if (m_rawDecodingSettings.outputProfile == IccProfile::sRGB().filePath())
+            if (m_decoderSettings.outputProfile == IccProfile::sRGB().filePath())
             {
-                m_rawDecodingSettings.outputColorSpace = RawDecodingSettings::SRGB;
+                m_decoderSettings.outputColorSpace = DRawDecoderSettings::SRGB;
             }
-            else if (m_rawDecodingSettings.outputProfile == IccProfile::adobeRGB().filePath())
+            else if (m_decoderSettings.outputProfile == IccProfile::adobeRGB().filePath())
             {
-                m_rawDecodingSettings.outputColorSpace = RawDecodingSettings::ADOBERGB;
+                m_decoderSettings.outputColorSpace = DRawDecoderSettings::ADOBERGB;
             }
-            else if (m_rawDecodingSettings.outputProfile == IccProfile::wideGamutRGB().filePath())
+            else if (m_decoderSettings.outputProfile == IccProfile::wideGamutRGB().filePath())
             {
-                m_rawDecodingSettings.outputColorSpace = RawDecodingSettings::WIDEGAMMUT;
+                m_decoderSettings.outputColorSpace = DRawDecoderSettings::WIDEGAMMUT;
             }
-            else if (m_rawDecodingSettings.outputProfile == IccProfile::proPhotoRGB().filePath())
+            else if (m_decoderSettings.outputProfile == IccProfile::proPhotoRGB().filePath())
             {
-                m_rawDecodingSettings.outputColorSpace = RawDecodingSettings::PROPHOTO;
+                m_decoderSettings.outputColorSpace = DRawDecoderSettings::PROPHOTO;
             }
             else
             {
                 // Specifying a custom output is broken somewhere. We use the extremely
                 // wide gamut pro photo profile for 16bit (sRGB for 8bit) and convert afterwards.
-                m_filter->setOutputProfile(m_rawDecodingSettings.outputProfile);
+                m_filter->setOutputProfile(m_decoderSettings.outputProfile);
 
-                if (m_rawDecodingSettings.sixteenBitsImage)
+                if (m_decoderSettings.sixteenBitsImage)
                 {
-                    m_rawDecodingSettings.outputColorSpace = RawDecodingSettings::PROPHOTO;
+                    m_decoderSettings.outputColorSpace = DRawDecoderSettings::PROPHOTO;
                 }
                 else
                 {
-                    m_rawDecodingSettings.outputColorSpace = RawDecodingSettings::SRGB;
+                    m_decoderSettings.outputColorSpace = DRawDecoderSettings::SRGB;
                 }
             }
         }
 
-        if (!KDcraw::decodeRAWImage(filePath, m_rawDecodingSettings,
-                                                 data, width, height, rgbmax))
+        if (!DRawDecoder::decodeRAWImage(filePath, m_decoderSettings, data, width, height, rgbmax))
         {
             loadingFailed();
             return false;
@@ -140,10 +128,10 @@ bool RAWLoader::load(const QString& filePath, DImgLoaderObserver* const observer
         imageHeight() = dcrawIdentify.imageSize.height();
     }
 
-    imageSetAttribute("format",             "RAW");
-    imageSetAttribute("originalColorModel", DImg::COLORMODELRAW);
-    imageSetAttribute("originalBitDepth",   16);
-    imageSetAttribute("originalSize",       dcrawIdentify.imageSize);
+    imageSetAttribute(QLatin1String("format"),             QLatin1String("RAW"));
+    imageSetAttribute(QLatin1String("originalColorModel"), DImg::COLORMODELRAW);
+    imageSetAttribute(QLatin1String("originalBitDepth"),   16);
+    imageSetAttribute(QLatin1String("originalSize"),       dcrawIdentify.imageSize);
 
     return true;
 }
@@ -166,13 +154,13 @@ bool RAWLoader::loadedFromRawData(const QByteArray& data, int width, int height,
 {
     int checkpoint = 0;
 
-    if (m_rawDecodingSettings.sixteenBitsImage)       // 16 bits image
+    if (m_decoderSettings.sixteenBitsImage)       // 16 bits image
     {
         uchar* image = new_failureTolerant(width, height, 8);
 
         if (!image)
         {
-            kDebug() << "Failed to allocate memory for loading raw file";
+            qCWarning(DIGIKAM_DIMG_LOG_RAW) << "Failed to allocate memory for loading raw file";
             return false;
         }
 
@@ -228,7 +216,7 @@ bool RAWLoader::loadedFromRawData(const QByteArray& data, int width, int height,
 
         if (!image)
         {
-            kDebug() << "Failed to allocate memory for loading raw file";
+            qCWarning(DIGIKAM_DIMG_LOG_RAW) << "Failed to allocate memory for loading raw file";
             return false;
         }
 
@@ -276,42 +264,42 @@ bool RAWLoader::loadedFromRawData(const QByteArray& data, int width, int height,
     //----------------------------------------------------------
     // Assign the right color-space profile.
 
-    switch (m_rawDecodingSettings.outputColorSpace)
+    switch (m_decoderSettings.outputColorSpace)
     {
-        case RawDecodingSettings::SRGB:
+        case DRawDecoderSettings::SRGB:
         {
             imageSetIccProfile(IccProfile::sRGB());
             break;
         }
 
-        case RawDecodingSettings::ADOBERGB:
+        case DRawDecoderSettings::ADOBERGB:
         {
             imageSetIccProfile(IccProfile::adobeRGB());
             break;
         }
 
-        case RawDecodingSettings::WIDEGAMMUT:
+        case DRawDecoderSettings::WIDEGAMMUT:
         {
             imageSetIccProfile(IccProfile::wideGamutRGB());
             break;
         }
 
-        case RawDecodingSettings::PROPHOTO:
+        case DRawDecoderSettings::PROPHOTO:
         {
             imageSetIccProfile(IccProfile::proPhotoRGB());
             break;
         }
 
-        case RawDecodingSettings::CUSTOMOUTPUTCS:
+        case DRawDecoderSettings::CUSTOMOUTPUTCS:
         {
-            imageSetIccProfile(m_rawDecodingSettings.outputProfile);
+            imageSetIccProfile(m_decoderSettings.outputProfile);
             break;
         }
 
-        case RawDecodingSettings::RAWCOLOR:
+        case DRawDecoderSettings::RAWCOLOR:
         {
             // No icc color-space profile to assign in RAW color mode.
-            imageSetAttribute("uncalibratedColor", true);
+            imageSetAttribute(QLatin1String("uncalibratedColor"), true);
             break;
         }
     }
@@ -323,8 +311,8 @@ bool RAWLoader::loadedFromRawData(const QByteArray& data, int width, int height,
 
     imageWidth()        = width;
     imageHeight()       = height;
-    imageSetAttribute("rawDecodingSettings",     QVariant::fromValue(m_filter->settings()));
-    imageSetAttribute("rawDecodingFilterAction", QVariant::fromValue(action));
+    imageSetAttribute(QLatin1String("rawDecodingSettings"),     QVariant::fromValue(m_filter->settings()));
+    imageSetAttribute(QLatin1String("rawDecodingFilterAction"), QVariant::fromValue(action));
     // other attributes are set above
 
     return true;
@@ -363,7 +351,7 @@ bool RAWLoader::isReadOnly() const
 
 bool RAWLoader::sixteenBit() const
 {
-    return m_rawDecodingSettings.sixteenBitsImage;
+    return m_decoderSettings.sixteenBitsImage;
 }
 
 }  // namespace Digikam

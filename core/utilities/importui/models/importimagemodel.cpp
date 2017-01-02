@@ -21,19 +21,16 @@
  *
  * ============================================================ */
 
-#include "importimagemodel.moc"
+#include "importimagemodel.h"
 
 // Qt includes
 
 #include <QHash>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
-#include "downloadhistory.h"
+#include "digikam_debug.h"
+#include "coredbdownloadhistory.h"
 #include "cameracontroller.h"
 
 namespace Digikam
@@ -312,11 +309,11 @@ qlonglong ImportImageModel::retrieveCamItemId(const QModelIndex& index)
     return model->camItemId(row);
 }
 
-QModelIndex ImportImageModel::indexForUrl(const KUrl& fileUrl) const
+QModelIndex ImportImageModel::indexForUrl(const QUrl& fileUrl) const
 {
     if (d->keepFileUrlCache)
     {
-        return indexForCamItemId(d->fileUrlHash.value(fileUrl.prettyUrl()));
+        return indexForCamItemId(d->fileUrlHash.value(fileUrl.toLocalFile()));
     }
     else
     {
@@ -334,11 +331,11 @@ QModelIndex ImportImageModel::indexForUrl(const KUrl& fileUrl) const
     return QModelIndex();
 }
 
-QList<QModelIndex> ImportImageModel::indexesForUrl(const KUrl& fileUrl) const
+QList<QModelIndex> ImportImageModel::indexesForUrl(const QUrl& fileUrl) const
 {
     if (d->keepFileUrlCache)
     {
-        return indexesForCamItemId(d->fileUrlHash.value(fileUrl.prettyUrl()));
+        return indexesForCamItemId(d->fileUrlHash.value(fileUrl.toLocalFile()));
     }
     else
     {
@@ -357,11 +354,11 @@ QList<QModelIndex> ImportImageModel::indexesForUrl(const KUrl& fileUrl) const
     }
 }
 
-CamItemInfo ImportImageModel::camItemInfo(const KUrl& fileUrl) const
+CamItemInfo ImportImageModel::camItemInfo(const QUrl& fileUrl) const
 {
     if (d->keepFileUrlCache)
     {
-        qlonglong id = d->fileUrlHash.value(fileUrl.prettyUrl());
+        qlonglong id = d->fileUrlHash.value(fileUrl.toLocalFile());
 
         if (id)
         {
@@ -387,13 +384,13 @@ CamItemInfo ImportImageModel::camItemInfo(const KUrl& fileUrl) const
     return CamItemInfo();
 }
 
-QList<CamItemInfo> ImportImageModel::camItemInfos(const KUrl& fileUrl) const
+QList<CamItemInfo> ImportImageModel::camItemInfos(const QUrl& fileUrl) const
 {
     QList<CamItemInfo> infos;
 
     if (d->keepFileUrlCache)
     {
-        qlonglong id = d->fileUrlHash.value(fileUrl.prettyUrl());
+        qlonglong id = d->fileUrlHash.value(fileUrl.toLocalFile());
 
         if (id)
         {
@@ -468,8 +465,9 @@ void ImportImageModel::clearCamItemInfos()
     d->refreshing                  = false;
     d->incrementalRefreshRequested = false;
 
-    reset();
+    beginResetModel();
     camItemInfosCleared();
+    endResetModel();
 }
 
 // TODO unused
@@ -514,7 +512,7 @@ bool ImportImageModel::hasImage(qlonglong id) const
 
 bool ImportImageModel::hasImage(const CamItemInfo& info) const
 {
-    return d->fileUrlHash.contains(info.url().prettyUrl());
+    return d->fileUrlHash.contains(info.url().toLocalFile());
 }
 
 void ImportImageModel::emitDataChangedForAll()
@@ -565,7 +563,10 @@ void ImportImageModel::slotFileDeleted(const QString& folder, const QString& fil
 {
     Q_UNUSED(status)
 
-    CamItemInfo info = camItemInfo(KUrl::fromLocalFile(folder + file));
+    QUrl url = QUrl::fromLocalFile(folder);
+    url = url.adjusted(QUrl::StripTrailingSlash);
+    url.setPath(url.path() + QLatin1Char('/') + (file));
+    CamItemInfo info = camItemInfo(url);
     removeCamItemInfo(info);
 }
 
@@ -632,7 +633,7 @@ void ImportImageModel::publiciseInfos(const CamItemInfoList& infos)
         // TODO move this to a separate thread, see CameraHistoryUpdater
         // TODO this is ugly, using different enums to point the similar status..
         // TODO can we/do we want to differentiate at all between whether the status is unknown and not downloaded?
-        DownloadHistory::Status status = DownloadHistory::status(d->controller->cameraMD5ID(), info.name, info.size, info.ctime);
+        CoreDbDownloadHistory::Status status = CoreDbDownloadHistory::status(QString::fromUtf8(d->controller->cameraMD5ID()), info.name, info.size, info.ctime);
         info.downloaded  = status;
         // TODO is this safe? if so, is there a need to store this inside idHash separately?
         info.id = i;
@@ -642,7 +643,7 @@ void ImportImageModel::publiciseInfos(const CamItemInfoList& infos)
 
         if (d->keepFileUrlCache)
         {
-            d->fileUrlHash[info.url().prettyUrl()] = id;
+            d->fileUrlHash[info.url().toLocalFile()] = id;
         }
     }
 

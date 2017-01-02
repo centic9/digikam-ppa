@@ -1,0 +1,818 @@
+# translation of kipiplugin_googledrive.po to Slovak
+# Roman Paholík <wizzardsk@gmail.com>, 2013, 2014, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_googledrive\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"PO-Revision-Date: 2016-08-19 18:41+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#: authorize.cpp:116
+msgid "Google Drive Authorization"
+msgstr "Overenie Google Drive"
+
+#: authorize.cpp:129
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+"Prosím sledujte inštrukcie v prehliadači. Po prihlásení a overení aplikácie, "
+"skopírujte kód z prehliadača, vložte ho do textového poľa a kliknite na OK."
+
+#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+msgid "Error"
+msgstr "Chyba"
+
+#: gdtalker.cpp:336
+msgid "Failed to list folders"
+msgstr "Zlyhalo vypísanie priečinkov"
+
+#: gdtalker.cpp:384
+msgid "Failed to create folder"
+msgstr "Nepodarilo sa vytvoriť priečinok"
+
+#: gdtalker.cpp:415 gptalker.cpp:929
+msgid "Failed to upload photo"
+msgstr "Zlyhalo nahratie fotky"
+
+#: gptalker.cpp:561
+#, fuzzy
+msgid "No photo specified"
+msgstr "Nezadaný žiadny názov"
+
+#: gptalker.cpp:564
+#, fuzzy
+msgid "General upload failure"
+msgstr "Nepodarilo sa nájsť informáciu"
+
+#: gptalker.cpp:567
+#, fuzzy
+msgid "File-size was zero"
+msgstr "1 správa s veľkosťou %2 bola archivovaná."
+
+#: gptalker.cpp:570
+#, fuzzy
+msgid "File-type was not recognized"
+msgstr ""
+"Nepodarilo sa importovať súbor typu\n"
+"%1"
+
+#: gptalker.cpp:573
+#, fuzzy
+msgid "User exceeded upload limit"
+msgstr "Obmedzenie odosielania na prenos:"
+
+#: gptalker.cpp:576
+msgid "Invalid signature"
+msgstr "Neplatný podpis"
+
+#: gptalker.cpp:579
+#, fuzzy
+msgid "Missing signature"
+msgstr "Chýbajúci GPG podpis"
+
+#: gptalker.cpp:582
+msgid "Login failed / Invalid auth token"
+msgstr ""
+
+#: gptalker.cpp:585
+#, fuzzy
+msgid "Invalid API Key"
+msgstr "Kľúč nie je platný."
+
+#: gptalker.cpp:588
+#, fuzzy
+msgid "Service currently unavailable"
+msgstr "Požadovaná služba momentálne nie je k dispozícii."
+
+#: gptalker.cpp:591
+#, fuzzy
+msgid "Invalid Frob"
+msgstr "Neplatné heslo"
+
+#: gptalker.cpp:594
+#, fuzzy
+msgid "Format \"xxx\" not found"
+msgstr "Kanál nebol nájdený na %1."
+
+#: gptalker.cpp:597
+#, fuzzy
+msgid "Method \"xxx\" not found"
+msgstr "Kanál nebol nájdený na %1."
+
+#: gptalker.cpp:600
+#, fuzzy
+msgid "Invalid SOAP envelope"
+msgstr "Obálka US #10"
+
+#: gptalker.cpp:603
+msgid "Invalid XML-RPC Method Call"
+msgstr ""
+
+#: gptalker.cpp:606
+msgid "The POST method is now required for all setters."
+msgstr ""
+
+#: gptalker.cpp:609
+msgid "Unknown error"
+msgstr "Neznáma chyba"
+
+#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
+#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Chyba"
+
+#: gptalker.cpp:613
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+
+#: gptalker.cpp:683 gptalker.cpp:750
+#, fuzzy
+#| msgid "Failed to upload photo"
+msgid "Failed to fetch photo-set list"
+msgstr "Zlyhalo nahratie fotky"
+
+#: gptalker.cpp:886 gptalker.cpp:919
+msgid "Failed to create album"
+msgstr "Zlyhalo vytvorenie albumu"
+
+#: gswidget.cpp:60
+msgid "Tag path behavior :"
+msgstr ""
+
+#: gswidget.cpp:62
+#, fuzzy
+msgid "Leaf tags only"
+msgstr "Odstrániť iba kategórie"
+
+#: gswidget.cpp:63
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr ""
+
+#: gswidget.cpp:64
+#, fuzzy
+msgid "Split tags"
+msgstr "Komentár/tagy:"
+
+#: gswidget.cpp:65
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr ""
+
+#: gswidget.cpp:66
+#, fuzzy
+msgid "Combined String"
+msgstr "Náhrada teťazca"
+
+#: gswidget.cpp:67
+msgid "Build a combined tag string."
+msgstr ""
+
+#: gswindow.cpp:116
+msgid "Google Drive Export"
+msgstr "Google Drive Export"
+
+#: gswindow.cpp:117
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Google Drive"
+msgid "A tool to export images to Google Drive"
+msgstr "Kipi plugin na export obrázkov do Google Drive"
+
+#: gswindow.cpp:119
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+
+#: gswindow.cpp:122
+msgid "Saurabh Patel"
+msgstr "Saurabh Patel"
+
+#: gswindow.cpp:122 gswindow.cpp:195
+msgid "Author and maintainer"
+msgstr "Autor a správca"
+
+#: gswindow.cpp:125 gswindow.cpp:207
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
+#: gswindow.cpp:207
+msgid "Developer"
+msgstr "Vývojár"
+
+#: gswindow.cpp:132
+msgid "Export to Google Drive"
+msgstr "Exportovať na Google Drive"
+
+#: gswindow.cpp:134 gswindow.cpp:219
+msgid "Start Upload"
+msgstr "Spustiť odoslanie"
+
+#: gswindow.cpp:135
+msgid "Start upload to Google Drive"
+msgstr "Spustiť nahrávanie na Google Drive"
+
+#: gswindow.cpp:186
+#, fuzzy
+#| msgid "Google Drive Export"
+msgid "Google Photos/PicasaWeb Export"
+msgstr "Google Drive Export"
+
+#: gswindow.cpp:187
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Google Drive"
+msgid "A tool to export image collections to Google Photos/Picasa web service."
+msgstr "Kipi plugin na export obrázkov do Google Drive"
+
+#: gswindow.cpp:189
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+
+#: gswindow.cpp:195
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:198
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:201
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:204
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: gswindow.cpp:217
+#, fuzzy
+#| msgid "Export to Google Drive"
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr "Exportovať na Google Drive"
+
+#: gswindow.cpp:220
+#, fuzzy
+#| msgid "Start upload to Google Drive"
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr "Spustiť nahrávanie na Google Drive"
+
+#: gswindow.cpp:226
+#, fuzzy
+#| msgid "Export to Google Drive"
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr "Exportovať na Google Drive"
+
+#: gswindow.cpp:228
+#, fuzzy
+#| msgid "Start Upload"
+msgid "Start Download"
+msgstr "Spustiť odoslanie"
+
+#: gswindow.cpp:229
+#, fuzzy
+#| msgid "Start upload to Google Drive"
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr "Spustiť nahrávanie na Google Drive"
+
+#: gswindow.cpp:428 gswindow.cpp:467 gswindow.cpp:577
+#, fuzzy, kde-format
+#| msgid ""
+#| "Google Drive call failed:\n"
+#| "%1"
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr ""
+"Volanie Google Drive zlyhalo:\n"
+"%1"
+
+#: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: gswindow.cpp:531
+#, fuzzy
+#| msgid "Google Drive Export"
+msgid "Google Photo Export"
+msgstr "Google Drive Export"
+
+#: gswindow.cpp:549
+#, kde-format
+msgid "Google Drive Call Failed: %1\n"
+msgstr "Volanie Google Drive zlyhalo: %1\n"
+
+#: gswindow.cpp:653
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+"Textové pole je prázdne, prosím zadajte kód z prehliadača do textového poľa. "
+"Na ukončenie overenia kliknite na \"Zmeniť účet\" alebo \"Spustiť nahrávanie"
+"\" na overenie znova."
+
+#: gswindow.cpp:669
+msgid "No image selected. Please select which images should be uploaded."
+msgstr "Nie je vybraný obrázok. Prosím vyberte, ktoré obrázky sa majú nahrať."
+
+#: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
+#: gswindow.cpp:1105
+msgid "Warning"
+msgstr "Upozornenie"
+
+#: gswindow.cpp:684 gswindow.cpp:707
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr "Overenie zlyhalo. Kliknite na \"Pokračovať\" na overenie."
+
+#: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
+#: gswindow.cpp:1109 gswindow.cpp:1286
+msgid "Continue"
+msgstr "Pokračovať"
+
+#: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
+#: gswindow.cpp:1110 gswindow.cpp:1287
+msgid "Cancel"
+msgstr "Zrušiť"
+
+#: gswindow.cpp:762
+msgid "Google Drive export"
+msgstr "Google Drive export"
+
+#: gswindow.cpp:1015
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo to Google Drive.\n"
+#| "%1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Zlyhalo nahranie fotky na Google Drive.\n"
+"%1\n"
+"Chcete pokračovať?"
+
+#: gswindow.cpp:1033
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo to Google Drive.\n"
+#| "%1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Zlyhalo nahranie fotky na Google Drive.\n"
+"%1\n"
+"Chcete pokračovať?"
+
+#: gswindow.cpp:1079
+#, fuzzy, kde-format
+#| msgid "Failed to create folder"
+msgid "Failed to save image to %1"
+msgstr "Nepodarilo sa vytvoriť priečinok"
+
+#: gswindow.cpp:1106
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo to Google Drive.\n"
+#| "%1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to upload photo to %1.\n"
+"%2\n"
+"Do you want to continue?"
+msgstr ""
+"Zlyhalo nahranie fotky na Google Drive.\n"
+"%1\n"
+"Chcete pokračovať?"
+
+#: gswindow.cpp:1198
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr "Nastala chyba pri overení: %1 (%2)"
+
+#: gswindow.cpp:1240
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+"Volanie Google Drive zlyhalo:\n"
+"%1"
+
+#: gswindow.cpp:1248
+#, fuzzy, kde-format
+#| msgid ""
+#| "Google Drive call failed:\n"
+#| "%1"
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr ""
+"Volanie Google Drive zlyhalo:\n"
+"%1"
+
+#: gswindow.cpp:1281
+msgctxt "@title:window"
+msgid "Warning"
+msgstr "Upozornenie"
+
+#: gswindow.cpp:1282
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+"Po tom, ako ste sa odhlásili v prehliadači, kliknite na \"Pokračovať\" na "
+"overenie pre iný účet"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+msgid "&Import"
+msgstr "&Importovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: newalbumdlg.cpp:54
+msgid "Access Level"
+msgstr "Prístupová úroveň"
+
+#: newalbumdlg.cpp:55
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr ""
+
+#: newalbumdlg.cpp:57
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr "Verejné"
+
+#: newalbumdlg.cpp:59
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr ""
+
+#: newalbumdlg.cpp:60
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr ""
+
+#: newalbumdlg.cpp:61
+msgid "Unlisted album is only accessible via URL."
+msgstr ""
+
+#: newalbumdlg.cpp:62
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr ""
+
+#: newalbumdlg.cpp:63
+msgid "Unlisted album require Sign-In to View"
+msgstr ""
+
+#: newalbumdlg.cpp:71
+msgid "Privacy:"
+msgstr "Súkromie:"
+
+#: plugin_googleservices.cpp:100
+msgid "Export to &Google Drive..."
+msgstr "Exportovať na Google Drive..."
+
+#: plugin_googleservices.cpp:110
+#, fuzzy
+#| msgid "Export to &Google Drive..."
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr "Exportovať na Google Drive..."
+
+#: plugin_googleservices.cpp:120
+#, fuzzy
+#| msgid "Export to &Google Drive..."
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr "Exportovať na Google Drive..."
+
+#: replacedialog.cpp:112
+#, fuzzy
+msgid "Add As New"
+msgstr "Pridať ako nový kalendár"
+
+#: replacedialog.cpp:113
+msgid "Item will be added alongside the linked version."
+msgstr ""
+
+#: replacedialog.cpp:119
+msgid "Add All"
+msgstr "Pridať všetko"
+
+#: replacedialog.cpp:120
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+
+#: replacedialog.cpp:126
+msgid "Replace"
+msgstr "Nahradiť"
+
+#: replacedialog.cpp:127
+msgid "Item will be replacing the linked version."
+msgstr ""
+
+#: replacedialog.cpp:133
+msgid "Replace All"
+msgstr "Nahradiť všetko"
+
+#: replacedialog.cpp:134
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+
+#: replacedialog.cpp:157
+#, fuzzy
+msgid "A linked item already exists."
+msgstr "Staršia položka s názvom '%1' už existuje."
+
+#: replacedialog.cpp:177
+msgid "Destination"
+msgstr "Cieľ"
+
+#: replacedialog.cpp:182
+msgid "Source"
+msgstr "Zdroj"
+
+#~ msgid ""
+#~ "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+#~ msgstr ""
+#~ "Súbor s názvom \"%1\" už existuje. Ste si istý, že si ho prajete prepísať?"
+
+#, fuzzy
+#~| msgid "&Export"
+#~ msgid "Picasa Export"
+#~ msgstr "&Exportovať"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Roman Paholík"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "wizzardsk@gmail.com"
+
+#~ msgid "This is the list of images to upload to your Google Drive account."
+#~ msgstr "Toto je zoznam obrázkov na nahranie na váš Google Drive účet."
+
+#, fuzzy
+#~| msgid "This is the list of images to upload to your Google Drive account."
+#~ msgid ""
+#~ "This is the list of images to upload to your Google Photos/PicasaWeb "
+#~ "account."
+#~ msgstr "Toto je zoznam obrázkov na nahranie na váš Google Drive účet."
+
+#~ msgid "This is a clickable link to open Google Drive in a browser."
+#~ msgstr "Toto je klikateľný odkaz na otvorenie Google Drive v prehliadači."
+
+#, fuzzy
+#~| msgid "This is a clickable link to open Google Drive in a browser."
+#~ msgid ""
+#~ "This is a clickable link to open Google Photos/PicasaWeb in a browser."
+#~ msgstr "Toto je klikateľný odkaz na otvorenie Google Drive v prehliadači."
+
+#~ msgid "Account"
+#~ msgstr "Účet"
+
+#~ msgid "This is the Google Drive account that is currently logged in."
+#~ msgstr "Toto je Google Drive účet, ktorý je práve prihlásený."
+
+#, fuzzy
+#~| msgid "This is the Google Drive account that is currently logged in."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb account that is currently logged in."
+#~ msgstr "Toto je Google Drive účet, ktorý je práve prihlásený."
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Názov:"
+
+#~ msgid "Change Account"
+#~ msgstr "Zmeniť účet"
+
+#~ msgid "Change Google Drive account for transfer"
+#~ msgstr "Zmeniť účet Google Drive na prenos"
+
+#, fuzzy
+#~| msgid "Change Google Drive account for transfer"
+#~ msgid "Change Google Photos/PicasaWeb account for transfer"
+#~ msgstr "Zmeniť účet Google Drive na prenos"
+
+#, fuzzy
+#~| msgid "Album:"
+#~ msgid "Album"
+#~ msgstr "Album:"
+
+#~ msgid ""
+#~ "This is the Google Drive folder to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Toto je Google Drive priečinok, do ktorého sa vybrané fotky nahrajú."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is the Google Drive folder to which selected photos will be "
+#~| "uploaded."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb folder to which selected photos will "
+#~ "be uploaded."
+#~ msgstr ""
+#~ "Toto je Google Drive priečinok, do ktorého sa vybrané fotky nahrajú."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is the Google Drive folder to which selected photos will be "
+#~| "uploaded."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb folder from which selected photos "
+#~ "will be downloaded."
+#~ msgstr ""
+#~ "Toto je Google Drive priečinok, do ktorého sa vybrané fotky nahrajú."
+
+#~ msgid "Album:"
+#~ msgstr "Album:"
+
+#~ msgid "New Album"
+#~ msgstr "Nový album"
+
+#~ msgid "Create new Google Drive folder"
+#~ msgstr "Vytvoriť nový priečinok Google Drive"
+
+#, fuzzy
+#~| msgid "Create new Google Drive folder"
+#~ msgid "Create new Google Photos/PicasaWeb folder"
+#~ msgstr "Vytvoriť nový priečinok Google Drive"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Znovu načítať"
+
+#~ msgid "Reload album list"
+#~ msgstr "Obnoviť zoznam albumov"
+
+#, fuzzy
+#~| msgid "Maximum Dimension:"
+#~ msgid "Max Dimension"
+#~ msgstr "Maximálne rozmery:"
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid ""
+#~ "This is the maximum dimension of the images. Images larger than this will "
+#~ "be scaled down."
+#~ msgstr "Toto je názov priečinka, ktorý bude vytvorený."
+
+#~ msgid "Original Size"
+#~ msgstr "Originálna veľkosť"
+
+#~ msgid "1600 px"
+#~ msgstr "1600 px"
+
+#~ msgid "1440 px"
+#~ msgstr "1440 px"
+
+#~ msgid "1280 px"
+#~ msgstr "1280 px"
+
+#~ msgid "1152 px"
+#~ msgstr "1152 px"
+
+#~ msgid "1024 px"
+#~ msgstr "1024 px"
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid ""
+#~ "This is the location where Google Photos/PicasaWeb images will be "
+#~ "downloaded."
+#~ msgstr "Toto je názov priečinka, ktorý bude vytvorený."
+
+#~ msgid "Options"
+#~ msgstr "Voľby"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr "Toto sú voľby, ktoré sa majú použiť na fotky pred nahraním."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Zmeniť veľkosť fotiek pred nahraním"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Maximálne rozmery:"
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "Kvalita JPEG:"
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Toto je názov priečinka, ktorý bude vytvorený."
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Date and Time of the album that will be created (optional)."
+#~ msgstr "Toto je názov priečinka, ktorý bude vytvorený."
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Toto je názov priečinka, ktorý bude vytvorený."
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "Toto je názov priečinka, ktorý bude vytvorený."
+
+#~ msgid "This is the title of the folder that will be created."
+#~ msgstr "Toto je názov priečinka, ktorý bude vytvorený."
+
+#~ msgctxt "folder edit"
+#~ msgid "Title:"
+#~ msgstr "Názov:"
+
+#, fuzzy
+#~| msgctxt "folder edit"
+#~| msgid "Title:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Title:"
+#~ msgstr "Názov:"
+
+#, fuzzy
+#~| msgid "Destination"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Description:"
+#~ msgstr "Cieľ"
+
+#~ msgid ""
+#~ "Failed to upload photo to Google Drive.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Zlyhalo nahranie fotky na Google Drive.\n"
+#~ "%1\n"
+#~ "Chcete pokračovať?"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to upload photo to Google Drive.\n"
+#~| "%1\n"
+#~| "Do you want to continue?"
+#~ msgid ""
+#~ "Failed to upload photo to Google Photos/PicasaWeb.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Zlyhalo nahranie fotky na Google Drive.\n"
+#~ "%1\n"
+#~ "Chcete pokračovať?"
+
+#, fuzzy
+#~| msgctxt "folder edit"
+#~| msgid "Title:"
+#~ msgctxt "new picasaweb album dialog"
+#~ msgid "Title:"
+#~ msgstr "Názov:"
+
+#~ msgid "Google Drive New Album"
+#~ msgstr "Google Drive nový album"
+
+#, fuzzy
+#~| msgid "New Album"
+#~ msgid "Picasaweb New Album"
+#~ msgstr "Nový album"

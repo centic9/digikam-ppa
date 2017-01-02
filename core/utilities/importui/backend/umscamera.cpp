@@ -7,7 +7,7 @@
  * Description : USB Mass Storage camera interface
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -43,26 +43,23 @@ extern "C"
 #include <QStringList>
 #include <QTextDocument>
 #include <QtGlobal>
+#include <QCryptographicHash>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kcodecs.h>
-#include <kio/global.h>
-#include <klocale.h>
-#include <kmimetype.h>
+#include <klocalizedstring.h>
+#include <kconfiggroup.h>
+
 #include <solid/device.h>
 #include <solid/storageaccess.h>
 #include <solid/storagedrive.h>
 #include <solid/storagevolume.h>
 
-// LibKDcraw includes
-
-#include <libkdcraw/kdcraw.h>
-
 // Local includes
 
-#include "config-digikam.h"
+#include "drawdecoder.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
 #include "dimg.h"
 #include "dmetadata.h"
 #include "imagescanner.h"
@@ -108,8 +105,9 @@ QByteArray UMSCamera::cameraMD5ID()
     // mounted by a card reader or a camera. In this case, "already downloaded" flag will
     // be independent of the device used to mount memory card.
     camData.append(uuid());
-    KMD5 md5(camData.toUtf8());
-    return md5.hexDigest();
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData(camData.toUtf8());
+    return md5.result().toHex();
 }
 
 bool UMSCamera::getFreeSpace(unsigned long& /*kBSize*/, unsigned long& /*kBAvail*/)
@@ -175,14 +173,13 @@ bool UMSCamera::getFolders(const QString& folder)
 
     for (fi = list.constBegin() ; !m_cancel && (fi != list.constEnd()) ; ++fi)
     {
-        if (fi->fileName() == "." || fi->fileName() == "..")
+        if (fi->fileName() == QLatin1String(".") || fi->fileName() == QLatin1String(".."))
         {
             continue;
         }
 
-        QString subFolder = folder + QString(folder.endsWith('/') ? "" : "/") + fi->fileName();
+        QString subFolder = folder + QString(folder.endsWith(QLatin1Char('/')) ? QLatin1String("") : QLatin1String("/")) + fi->fileName();
         subFolderList.append(subFolder);
-
     }
 
     if (subFolderList.isEmpty())
@@ -227,7 +224,7 @@ bool UMSCamera::getItemsInfoList(const QString& folder, bool useMetadata, CamIte
 
 void UMSCamera::getItemInfo(const QString& folder, const QString& itemName, CamItemInfo& info, bool useMetadata)
 {
-    info.folder           = !folder.endsWith('/') ? folder + QString('/') : folder;
+    info.folder           = !folder.endsWith(QLatin1Char('/')) ? folder + QLatin1Char('/') : folder;
     info.name             = itemName;
 
     QFileInfo fi(info.folder + info.name);
@@ -260,7 +257,11 @@ void UMSCamera::getItemInfo(const QString& folder, const QString& itemName, CamI
 
     // if we have an image, allow previews
     // TODO allow video previews at some point?
-    if(info.mime.startsWith("image/"))
+/*
+    if (info.mime.startsWith(QLatin1String("image/")) ||
+        info.mime.startsWith(QLatin1String("video/")))
+*/
+    if (info.mime.startsWith(QLatin1String("image/")))
     {
         info.previewPossible = true;
     }
@@ -269,7 +270,7 @@ void UMSCamera::getItemInfo(const QString& folder, const QString& itemName, CamI
 bool UMSCamera::getThumbnail(const QString& folder, const QString& itemName, QImage& thumbnail)
 {
     m_cancel     = false;
-    QString path = folder + QString("/") + itemName;
+    QString path = folder + QLatin1String("/") + itemName;
 
     // Try to get preview from Exif data (good quality). Can work with Raw files
 
@@ -281,21 +282,21 @@ bool UMSCamera::getThumbnail(const QString& folder, const QString& itemName, QIm
         return true;
     }
 
-    // RAW files : try to extract embedded thumbnail using libkdcraw
+    // RAW files : try to extract embedded thumbnail using RawEngine
 
-    KDcrawIface::KDcraw::loadRawPreview(thumbnail, path);
+    RawEngine::DRawDecoder::loadRawPreview(thumbnail, path);
 
     if (!thumbnail.isNull())
     {
         return true;
     }
 
-    KSharedConfig::Ptr config  = KGlobal::config();
-    KConfigGroup group         = config->group("Camera Settings");
-    bool turnHighQualityThumbs = group.readEntry("TurnHighQualityThumbs", false);
+    KSharedConfig::Ptr config  = KSharedConfig::openConfig();
+    KConfigGroup group         = config->group(QLatin1String("Camera Settings"));
+    bool turnHighQualityThumbs = group.readEntry(QLatin1String("TurnHighQualityThumbs"), false);
 
     // Try to get thumbnail from Exif data (poor quality).
-    if(!turnHighQualityThumbs)
+    if (!turnHighQualityThumbs)
     {
         thumbnail = metadata.getExifThumbnail(true);
 
@@ -313,14 +314,14 @@ bool UMSCamera::getThumbnail(const QString& folder, const QString& itemName, QIm
 
     QFileInfo fi(path);
 
-    if (thumbnail.load(folder + QString("/") + fi.baseName() + QString(".thm")))        // Lowercase
+    if (thumbnail.load(folder + QLatin1String("/") + fi.baseName() + QLatin1String(".thm")))        // Lowercase
     {
         if (!thumbnail.isNull())
         {
             return true;
         }
     }
-    else if (thumbnail.load(folder + QString("/") + fi.baseName() + QString(".THM")))   // Uppercase
+    else if (thumbnail.load(folder + QLatin1String("/") + fi.baseName() + QLatin1String(".THM")))   // Uppercase
     {
         if (!thumbnail.isNull())
         {
@@ -330,7 +331,7 @@ bool UMSCamera::getThumbnail(const QString& folder, const QString& itemName, QIm
 
     // Finally, we trying to get thumbnail using DImg API (slow).
 
-    kDebug() << "Use DImg loader to get thumbnail from : " << path;
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "Use DImg loader to get thumbnail from : " << path;
 
     DImg dimgThumb;
     // skip loading the data we don't need to speed it up.
@@ -350,9 +351,9 @@ bool UMSCamera::getMetadata(const QString& folder, const QString& itemName, DMet
     QFileInfo fi, thmlo, thmup;
     bool ret = false;
 
-    fi.setFile(folder    + QString("/") + itemName);
-    thmlo.setFile(folder + QString("/") + fi.baseName() + QString(".thm"));
-    thmup.setFile(folder + QString("/") + fi.baseName() + QString(".THM"));
+    fi.setFile(folder    + QLatin1String("/") + itemName);
+    thmlo.setFile(folder + QLatin1String("/") + fi.baseName() + QLatin1String(".thm"));
+    thmup.setFile(folder + QLatin1String("/") + fi.baseName() + QLatin1String(".THM"));
 
     if (thmlo.exists())
     {
@@ -376,7 +377,7 @@ bool UMSCamera::getMetadata(const QString& folder, const QString& itemName, DMet
 bool UMSCamera::downloadItem(const QString& folder, const QString& itemName, const QString& saveFile)
 {
     m_cancel     = false;
-    QString src  = folder + QString("/") + itemName;
+    QString src  = folder + QLatin1String("/") + itemName;
     QString dest = saveFile;
 
     QFile sFile(src);
@@ -384,14 +385,14 @@ bool UMSCamera::downloadItem(const QString& folder, const QString& itemName, con
 
     if (!sFile.open(QIODevice::ReadOnly))
     {
-        kWarning() << "Failed to open source file for reading: " << src;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open source file for reading: " << src;
         return false;
     }
 
     if (!dFile.open(QIODevice::WriteOnly))
     {
         sFile.close();
-        kWarning() << "Failed to open destination file for writing: " << dest;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open destination file for writing: " << dest;
         return false;
     }
 
@@ -416,13 +417,13 @@ bool UMSCamera::downloadItem(const QString& folder, const QString& itemName, con
     // NOTE: this behavior don't need to be managed through Setup/Metadata settings.
     struct stat st;
 
-    if (::stat(QFile::encodeName(src), &st) == 0)
+    if (::stat(QFile::encodeName(src).constData(), &st) == 0)
     {
         struct utimbuf ut;
         ut.modtime = st.st_mtime;
         ut.actime  = st.st_atime;
 
-        ::utime(QFile::encodeName(dest), &ut);
+        ::utime(QFile::encodeName(dest).constData(), &ut);
     }
 
     return true;
@@ -430,12 +431,12 @@ bool UMSCamera::downloadItem(const QString& folder, const QString& itemName, con
 
 bool UMSCamera::setLockItem(const QString& folder, const QString& itemName, bool lock)
 {
-    QString src = folder + QString("/") + itemName;
+    QString src = folder + QLatin1String("/") + itemName;
 
     if (lock)
     {
         // Lock the file to set read only flag
-        if (::chmod(QFile::encodeName(src), S_IREAD) == -1)
+        if (::chmod(QFile::encodeName(src).constData(), S_IREAD) == -1)
         {
             return false;
         }
@@ -443,7 +444,7 @@ bool UMSCamera::setLockItem(const QString& folder, const QString& itemName, bool
     else
     {
         // Unlock the file to set read/write flag
-        if (::chmod(QFile::encodeName(src), S_IREAD | S_IWRITE) == -1)
+        if (::chmod(QFile::encodeName(src).constData(), S_IREAD | S_IWRITE) == -1)
         {
             return false;
         }
@@ -458,30 +459,30 @@ bool UMSCamera::deleteItem(const QString& folder, const QString& itemName)
 
     // Any camera provide THM (thumbnail) file with real image. We need to remove it also.
 
-    QFileInfo fi(folder + QString("/") + itemName);
+    QFileInfo fi(folder + QLatin1String("/") + itemName);
 
-    QFileInfo thmLo(folder + QString("/") + fi.baseName() + ".thm");          // Lowercase
+    QFileInfo thmLo(folder + QLatin1String("/") + fi.baseName() + QLatin1String(".thm"));          // Lowercase
 
     if (thmLo.exists())
     {
-        ::unlink(QFile::encodeName(thmLo.filePath()));
+        ::unlink(QFile::encodeName(thmLo.filePath()).constData());
     }
 
-    QFileInfo thmUp(folder + QString("/") + fi.baseName() + ".THM");          // Uppercase
+    QFileInfo thmUp(folder + QLatin1String("/") + fi.baseName() + QLatin1String(".THM"));          // Uppercase
 
     if (thmUp.exists())
     {
-        ::unlink(QFile::encodeName(thmUp.filePath()));
+        ::unlink(QFile::encodeName(thmUp.filePath()).constData());
     }
 
     // Remove the real image.
-    return (::unlink(QFile::encodeName(folder + QString("/") + itemName)) == 0);
+    return (::unlink(QFile::encodeName(folder + QLatin1String("/") + itemName).constData()) == 0);
 }
 
 bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const QString& localFile, CamItemInfo& info)
 {
     m_cancel     = false;
-    QString dest = folder + QString("/") + itemName;
+    QString dest = folder + QLatin1String("/") + itemName;
     QString src  = localFile;
 
     QFile sFile(src);
@@ -489,14 +490,14 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
 
     if (!sFile.open(QIODevice::ReadOnly))
     {
-        kWarning() << "Failed to open source file for reading: " << src;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open source file for reading: " << src;
         return false;
     }
 
     if (!dFile.open(QIODevice::WriteOnly))
     {
         sFile.close();
-        kWarning() << "Failed to open destination file for writing: " << dest;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open destination file for writing: " << dest;
         return false;
     }
 
@@ -523,13 +524,13 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
     // NOTE: this behavior don't need to be managed through Setup/Metadata settings.
     struct stat st;
 
-    if (::stat(QFile::encodeName(src), &st) == 0)
+    if (::stat(QFile::encodeName(src).constData(), &st) == 0)
     {
         struct utimbuf ut;
         ut.modtime = st.st_mtime;
         ut.actime  = st.st_atime;
 
-        ::utime(QFile::encodeName(dest), &ut);
+        ::utime(QFile::encodeName(dest).constData(), &ut);
     }
 
     // Get new camera item information.
@@ -556,7 +557,7 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
         }
 
         info.name             = fi.fileName();
-        info.folder           = !folder.endsWith('/') ? folder + QString("/") : folder;
+        info.folder           = !folder.endsWith(QLatin1Char('/')) ? folder + QLatin1String("/") : folder;
         info.mime             = mime;
         info.ctime            = dt;
         info.size             = fi.size();
@@ -584,11 +585,11 @@ bool UMSCamera::cameraSummary(QString& summary)
                      "Port: <b>%3</b><br/>"
                      "Path: <b>%4</b><br/>"
                      "UUID: <b>%5</b><br/><br/>",
-                     Qt::escape(title()),
-                     Qt::escape(model()),
-                     Qt::escape(port()),
-                     Qt::escape(path()),
-                     Qt::escape(uuid()));
+                     title().toHtmlEscaped(),
+                     model().toHtmlEscaped(),
+                     port().toHtmlEscaped(),
+                     path().toHtmlEscaped(),
+                     uuid().toHtmlEscaped());
 
     summary += i18nc("@info List of supported device operations",
                      "Thumbnails: <b>%1</b><br/>"
@@ -680,7 +681,8 @@ void UMSCamera::getUUIDFromSolid()
 
         Solid::StorageVolume* const volume = volumeDevice.as<Solid::StorageVolume>();
 
-        if (m_path.startsWith(QDir::fromNativeSeparators(access->filePath())))
+        if (m_path.startsWith(QDir::fromNativeSeparators(access->filePath())) &&
+            QDir::fromNativeSeparators(access->filePath()) != QLatin1String("/"))
         {
             m_uuid = volume->uuid();
         }

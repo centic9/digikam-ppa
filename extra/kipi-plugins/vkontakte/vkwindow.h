@@ -6,11 +6,11 @@
  * Date        : 2010-11-15
  * Description : a kipi plugin to export images to VKontakte web service
  *
- * Copyright (C) 2011, 2012 by Alexander Potashev <aspotashev at gmail dot com>
+ * Copyright (C) 2011, 2012, 2015  Alexander Potashev <aspotashev@gmail.com>
  *
  * GUI based on Yandex.Fotki KIPI Plugin
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Luka Renko <lure at kubuntu dot org>
  * Copyright (C) 2010      by Roman Tsisyk <roman at tsisyk dot com>
  *
@@ -28,10 +28,6 @@
 
 #ifndef VKWINDOW_H
 #define VKWINDOW_H
-
-// libkvkontakte includes
-
-#include <libkvkontakte/albuminfo.h>
 
 // Local includes
 
@@ -88,11 +84,9 @@ Q_SIGNALS:
 protected Q_SLOTS:
 
     // requesting photo information
-    void slotPhotoUploadDone(KJob *kjob);
+    void slotPhotoUploadDone(KJob* kjob);
 
     void slotStartTransfer();
-
-    void slotButtonClicked(int button);
 
     void slotFinished();
 
@@ -133,14 +127,14 @@ protected:
     AlbumChooserWidget*            m_albumsBox;
 
     /// options
-//     QCheckBox*                  m_checkKeepOriginal;
+    //QCheckBox*                    m_checkKeepOriginal;
 
     KPImagesList*                  m_imgList;
     UploadWidget*                  m_uploadWidget;
 
     KPProgressWidget*              m_progressBar;
 
-    /** Pointers to running jobs */
+    /// Pointers to running jobs
     QList<KJob*>                   m_jobs;
 
     Vkontakte::VkApi*              m_vkapi;

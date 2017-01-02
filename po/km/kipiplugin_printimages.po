@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_printimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2012-06-25 13:54+0700\n"
 "Last-Translator: Sophea <sophea@khmeros.info>\n"
 "Language-Team: Khmer <>\n"
@@ -19,16 +19,6 @@ msgstr ""
 "X-Generator: WordForge 0.8 RC1\n"
 "X-Language: km-CM\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr ""
-"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
-"ratanak@khmeros.info,sophea@khmeros.info"
-
 #. i18n: ectx: Menu (Image)
 #: plugin/kipiplugin_printimagesui.rc:7
 msgid "&Image"
@@ -39,21 +29,28 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin/plugin_printimages.cpp:114 plugin/plugin_printimages.cpp:146
+#: plugin/plugin_printimages.cpp:105
 msgid "Print images"
 msgstr "បោះពុម្ព​រូបភាព​"
 
-#: plugin/plugin_printimages.cpp:124
+#: plugin/plugin_printimages.cpp:115
 msgid "Print Assistant..."
 msgstr "អ្នក​ជំនួញ​ការ​បោះពុម្ព​..."
 
-#: plugin/plugin_printimages.cpp:145 plugin/plugin_printimages.cpp:166
+#: plugin/plugin_printimages.cpp:136
+#, fuzzy
+#| msgid "Print Image"
+msgid "Print Images"
+msgstr "បោះពុម្ព​រូបភាព​"
+
+#: plugin/plugin_printimages.cpp:136 plugin/plugin_printimages.cpp:156
 msgid "Please select one or more photos to print."
 msgstr "សូម​ជ្រើស​រូប​ថត​មួយ ឬ​ច្រើន​ដើម្បី​បោះពុម្ព ។​"
 
-#: plugin/plugin_printimages.cpp:167 wizard/wizard.cpp:157
-#: wizard/wizard.cpp:160 wizard/wizard.cpp:2482
-msgid "Print assistant"
+#: plugin/plugin_printimages.cpp:156
+#, fuzzy
+#| msgid "Print assistant"
+msgid "Print Assistant"
 msgstr "អ្នក​ជំនួយ​ការ​បោះពុម្ព​"
 
 #: tools/utils.cpp:73
@@ -100,7 +97,7 @@ msgstr "បង្វិល​ស្ដាំ"
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageDown)
 #. i18n: ectx: property (toolTip), widget (QPushButton, BtnCropPrev)
 #. i18n: ectx: property (whatsThis), widget (QPushButton, BtnCropPrev)
-#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:292 ui/photopage.ui:295
+#: ui/croppage.ui:84 ui/croppage.ui:87 ui/photopage.ui:287 ui/photopage.ui:290
 msgid "Previous photo"
 msgstr "រូបថត​មុន​"
 
@@ -140,18 +137,18 @@ msgstr ""
 "ការ​ច្រឹប​លំនាំ​ដើម​សម្រាប់​រូប​ថត​ ។\n"
 "បើក​ \"កុំ​ច្រឹប​\" ដើម្បី​ជៀស​វាង​ការ​ច្រឹប​រូប​ថត​ទាំង​អស់ ។"
 
-#. i18n: ectx: property (text), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (text), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:167
 msgid "Save As"
 msgstr ""
 
-#. i18n: ectx: property (shortcut), widget (KPushButton, BtnSaveAs)
+#. i18n: ectx: property (shortcut), widget (QPushButton, BtnSaveAs)
 #: ui/croppage.ui:170
 msgid "Ctrl+S"
 msgstr ""
 
 #. i18n: ectx: property (windowTitle), widget (QDialog, CustomLayout)
-#: ui/customlayout.ui:26 wizard/wizard.cpp:691
+#: ui/customlayout.ui:26 wizard/wizard.cpp:711
 msgid "Custom layout"
 msgstr "ប្លង់​ផ្ទាល់ខ្លួន​"
 
@@ -191,7 +188,7 @@ msgid "x"
 msgstr "x"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:309 wizard/wizard.cpp:2004
+#: ui/customlayout.ui:309 wizard/wizard.cpp:2027
 msgid "cm"
 msgstr "សង់ទីម៉ែត្រ"
 
@@ -201,7 +198,7 @@ msgid "mm"
 msgstr "មិល្លីម៉ែត្រ​"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
-#: ui/customlayout.ui:319 wizard/wizard.cpp:1999
+#: ui/customlayout.ui:319 wizard/wizard.cpp:2022
 msgid "inches"
 msgstr "អ៊ិន្ឈន៍"
 
@@ -239,87 +236,82 @@ msgid "Empty slots:"
 msgstr "រន្ធ​ទទេ ៖"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:185 wizard/wizard.cpp:1750 wizard/wizard.cpp:2238
+#: ui/photopage.ui:185 wizard/wizard.cpp:1779 wizard/wizard.cpp:2263
 msgid "Print to PDF"
 msgstr "បោះពុម្ព​ជា​ PDF"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:190 wizard/wizard.cpp:1759
-msgid "Print to PS"
-msgstr "បោះពុម្ព​ជា​ PS"
-
-#. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:195 wizard/wizard.cpp:1751 wizard/wizard.cpp:2196
-#: wizard/wizard.cpp:2266 wizard/wizard.cpp:2466 wizard/wizard.cpp:2539
+#: ui/photopage.ui:190 wizard/wizard.cpp:1780 wizard/wizard.cpp:2221
+#: wizard/wizard.cpp:2291 wizard/wizard.cpp:2494 wizard/wizard.cpp:2566
 msgid "Print to JPG"
 msgstr "បោះពុម្ព​ជា​ JPG"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_printer_choice)
-#: ui/photopage.ui:200 wizard/wizard.cpp:1752 wizard/wizard.cpp:2467
-#: wizard/wizard.cpp:2511
+#: ui/photopage.ui:195 wizard/wizard.cpp:1781 wizard/wizard.cpp:2495
+#: wizard/wizard.cpp:2539
 msgid "Print to gimp"
 msgstr "បោះពុម្ព​ជា​ gimp"
 
 #. i18n: ectx: property (text), widget (QPushButton, m_pagesetup)
-#: ui/photopage.ui:214
+#: ui/photopage.ui:209
 msgid "Page settings"
 msgstr "ការ​កំណត់​ទំព័រ"
 
 #. i18n: ectx: property (text), widget (QPushButton, mLeftButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageDown)
-#: ui/photopage.ui:298 ui/printoptionspage.ui:57
+#: ui/photopage.ui:293 ui/printoptionspage.ui:57
 msgid "<"
 msgstr "<"
 
 #. i18n: ectx: property (text), widget (QLabel, LblPreview)
-#: ui/photopage.ui:320
+#: ui/photopage.ui:315
 msgid "Preview"
 msgstr "មើល​ជា​មុន​"
 
 #. i18n: ectx: property (toolTip), widget (QToolButton, BtnPreviewPageUp)
 #. i18n: ectx: property (whatsThis), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:336 ui/photopage.ui:339
+#: ui/photopage.ui:331 ui/photopage.ui:334
 msgid "Next page"
 msgstr "ទំព័រ​បន្ទាប់"
 
 #. i18n: ectx: property (text), widget (QPushButton, mRightButton)
 #. i18n: ectx: property (text), widget (QToolButton, BtnPreviewPageUp)
-#: ui/photopage.ui:342 ui/printoptionspage.ui:64
+#: ui/photopage.ui:337 ui/printoptionspage.ui:64
 msgid ">"
 msgstr ">"
 
 #. i18n: ectx: property (text), widget (QLabel, label_2)
-#: ui/photopage.ui:441
+#: ui/photopage.ui:436
 msgid "Captions:"
 msgstr "ចំណងជើង ៖"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:452 wizard/wizard.cpp:1854
+#: ui/photopage.ui:447 wizard/wizard.cpp:1877
 msgid "No captions"
 msgstr "គ្មាន​ចំណង​ជើង​"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:457
+#: ui/photopage.ui:452
 msgid "Image file names"
 msgstr "ឈ្មោះ​ឯកសារ​រូបភាព​"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:462
+#: ui/photopage.ui:457
 msgid "Exif date-time"
 msgstr "ពេលវេលា​កាលបរិច្ឆេទ Exif​"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:467
+#: ui/photopage.ui:462
 msgid "Comments"
 msgstr "សេចក្ដី​អធិប្បាយ​"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_captions)
-#: ui/photopage.ui:472 wizard/wizard.cpp:1860
+#: ui/photopage.ui:467 wizard/wizard.cpp:1883
 msgid "Free"
 msgstr "សេរី"
 
 #. i18n: ectx: property (text), widget (QLabel, m_free_label)
-#: ui/photopage.ui:506
+#: ui/photopage.ui:501
 #, no-c-format
 msgid ""
 "%f  filename, %t exposure time, %c comment, %i ISO, %d date-time, %r "
@@ -329,33 +321,28 @@ msgstr ""
 "បង្ហាញ​ %a រង្វះ %l ចម្ងាយ​ប្រសព្វ \\n បន្ទាត់​ថ្មី"
 
 #. i18n: ectx: property (text), widget (QCheckBox, m_sameCaption)
-#: ui/photopage.ui:537
+#: ui/photopage.ui:532
 msgid "same to all"
 msgstr "ដូច​គ្នា​ទាំងអស់​"
 
 #. i18n: ectx: property (text), widget (QPushButton, mSaveSettings)
 #. i18n: ectx: property (text), widget (QPushButton, m_setDefault)
-#: ui/photopage.ui:547 ui/printoptionspage.ui:348
+#: ui/photopage.ui:542 ui/printoptionspage.ui:348
 msgid "Use as default"
 msgstr "ប្រើ​ជា​លំនាំដើម​"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
-#: ui/photopage.ui:560
+#: ui/photopage.ui:555
 msgid "Family:"
 msgstr "គ្រួសារ ៖​"
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
-#: ui/photopage.ui:577
+#: ui/photopage.ui:572
 msgid "Color:"
 msgstr "ពណ៌"
 
-#. i18n: ectx: property (text), widget (KColorButton, m_font_color)
-#: ui/photopage.ui:587
-msgid "PushButton"
-msgstr "PushButton"
-
 #. i18n: ectx: property (text), widget (QLabel, textLabel1_2)
-#: ui/photopage.ui:604
+#: ui/photopage.ui:596
 msgid "Size:"
 msgstr "ទំហំ ៖"
 
@@ -400,17 +387,17 @@ msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
 msgid "x"
 msgstr "x"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:246
 msgid "Millimeters"
 msgstr "មិល្លីម៉ែត្រ​"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:251
 msgid "Centimeters"
 msgstr "សង់ទីម៉ែត្រ​"
 
-#. i18n: ectx: property (text), item, widget (KComboBox, kcfg_PrintUnit)
+#. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: ui/printoptionspage.ui:256
 msgid "Inches"
 msgstr "អ៊ិន្ឈន៍"
@@ -435,51 +422,51 @@ msgstr "រូបថត​ក្នុង​មួយ​ទំព័រ ៖"
 msgid "Multiple pages:"
 msgstr "ទំព័រ​ច្រើន ៖"
 
-#: wizard/customdlg.cpp:46 wizard/customdlg.cpp:47
+#: wizard/customdlg.cpp:51 wizard/customdlg.cpp:52
 msgid "Choose your grid size"
 msgstr "ជ្រើស​ទំហំ​ក្រឡាចត្រង្គ​របស់​អ្នក​​"
 
-#: wizard/customdlg.cpp:48
+#: wizard/customdlg.cpp:53
 msgid "Number of rows"
 msgstr "ចំនួន​ជួរ​ដេក"
 
-#: wizard/customdlg.cpp:49
+#: wizard/customdlg.cpp:54
 msgid "Insert number of rows"
 msgstr "បញ្ចូល​ចំនួន​ជួរ​ដេក​"
 
-#: wizard/customdlg.cpp:50
+#: wizard/customdlg.cpp:55
 msgid "Number of columns"
 msgstr "ចំនួន​ជួរ​ឈរ​"
 
-#: wizard/customdlg.cpp:51
+#: wizard/customdlg.cpp:56
 msgid "Insert number of columns"
 msgstr "បញ្ចូល​ចំនួន​ជួរ​ឈរ​"
 
-#: wizard/customdlg.cpp:53 wizard/customdlg.cpp:54
+#: wizard/customdlg.cpp:58 wizard/customdlg.cpp:59
 msgid "Choose to have a custom photo size album"
 msgstr "ជ្រើស​​អាល់ប៊ុម​ទំហំ​រូបថត​ផ្ទាល់​ខ្លួន​"
 
-#: wizard/customdlg.cpp:55
+#: wizard/customdlg.cpp:60
 msgid "Photo height"
 msgstr "កម្ពស់​រូបថត"
 
-#: wizard/customdlg.cpp:56
+#: wizard/customdlg.cpp:61
 msgid "Insert photo height"
 msgstr "បញ្ចូល​កម្ពស់​រូបថត"
 
-#: wizard/customdlg.cpp:57
+#: wizard/customdlg.cpp:62
 msgid "Photo width"
 msgstr "ទទឹង​រូបថត​"
 
-#: wizard/customdlg.cpp:58
+#: wizard/customdlg.cpp:63
 msgid "Insert photo width"
 msgstr "បញ្ចូល​ទទឹង​រូបថត​"
 
-#: wizard/customdlg.cpp:60
+#: wizard/customdlg.cpp:65
 msgid "Auto rotate photo"
 msgstr "បង្វិល​រូបថត​ដោយ​ស្វ័យ​ប្រវត្តិ​"
 
-#: wizard/printhelper.cpp:244
+#: wizard/printhelper.cpp:241
 msgid "Kipi-plugins image printing"
 msgstr "បោះពុម្ព​រូបភាព​កម្មវិធី​ជំនួយ​​ Kipi"
 
@@ -488,23 +475,29 @@ msgstr "បោះពុម្ព​រូបភាព​កម្មវិធី
 msgid "disabled"
 msgstr "បាន​បិទ"
 
-#: wizard/wizard.cpp:113
+#: wizard/wizard.cpp:117
 msgid "Select page layout"
 msgstr "ជ្រើស​ប្លង់​ទំព័រ"
 
-#: wizard/wizard.cpp:114
+#: wizard/wizard.cpp:118
 msgid "Crop photos"
 msgstr "ច្រឹប​រូបថត"
 
-#: wizard/wizard.cpp:116
+#: wizard/wizard.cpp:120
 msgid "Custom"
 msgstr "ផ្ទាល់ខ្លួន"
 
-#: wizard/wizard.cpp:163
-msgid "A KIPI plugin to print images"
+#: wizard/wizard.cpp:162 wizard/wizard.cpp:165 wizard/wizard.cpp:2510
+msgid "Print assistant"
+msgstr "អ្នក​ជំនួយ​ការ​បោះពុម្ព​"
+
+#: wizard/wizard.cpp:166
+#, fuzzy
+#| msgid "A KIPI plugin to print images"
+msgid "A tool to print images"
 msgstr " KIPI កម្មវិធី​ជំនួយ​​ដើម្បី​បោះពុម្ព​រូបភាព"
 
-#: wizard/wizard.cpp:164
+#: wizard/wizard.cpp:167
 #, fuzzy
 #| msgid ""
 #| "(c) 2003-2004, Todd Shoemaker\n"
@@ -516,85 +509,110 @@ msgstr ""
 "រក្សា​សិទ្ធិ​ឆ្នាំ ២០០៣-២០០៤ ដោយ Todd Shoemaker\n"
 "រក្សា​សិទ្ធិ​ឆ្នាំ ២០០៧-២០១២ ដោយ​ Angelo Naselli"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:170
 msgid "Todd Shoemaker"
 msgstr "Todd Shoemaker"
 
-#: wizard/wizard.cpp:167
+#: wizard/wizard.cpp:171
 msgid "Author"
 msgstr "អ្នក​និពន្ធ"
 
-#: wizard/wizard.cpp:170
+#: wizard/wizard.cpp:174
 msgid "Angelo Naselli"
 msgstr "Angelo Naselli"
 
-#: wizard/wizard.cpp:170
-msgid "Developer and maintainer"
-msgstr "អ្នក​អភិវឌ្ឍន៍ និង​អ្នក​ថែទាំ"
+#: wizard/wizard.cpp:175
+msgid "Developer"
+msgstr ""
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:178
 msgid "Andreas Trink"
 msgstr "Andreas Trink"
 
-#: wizard/wizard.cpp:173
+#: wizard/wizard.cpp:179
 msgid "Contributor"
 msgstr "អ្នក​ចូល​រួម​"
 
-#: wizard/wizard.cpp:659
+#: wizard/wizard.cpp:678
 msgid "Unsupported Paper Size"
 msgstr "ទំហំ​​ក្រដាស​ដែល​មិន​បាន​ផ្គត់ផ្គង់​"
 
-#: wizard/wizard.cpp:1128
+#: wizard/wizard.cpp:1151
 #, kde-format
 msgid "Photo %1 of %2"
 msgstr "រូបថត %1 នៃ %2"
 
-#: wizard/wizard.cpp:1212 wizard/wizard.cpp:1219
+#: wizard/wizard.cpp:1235 wizard/wizard.cpp:1242
 #, kde-format
 msgid "Page %1 of %2"
 msgstr "ទំព័រ %1 នៃ %2"
 
-#: wizard/wizard.cpp:1460
+#: wizard/wizard.cpp:1483
 msgid "Add again"
 msgstr "បន្ថែម​ម្ដងទៀត"
 
-#: wizard/wizard.cpp:1470
+#: wizard/wizard.cpp:1493
 msgid "Remove"
 msgstr "យកចេញ"
 
-#: wizard/wizard.cpp:2368
+#: wizard/wizard.cpp:2197
+#, fuzzy
+#| msgid "Empty output path."
+msgid "Output Path"
+msgstr "ផ្លូវ​ទិន្នផល​ទទេ ។"
+
+#: wizard/wizard.cpp:2392
+msgid "Overwrite File"
+msgstr ""
+
+#: wizard/wizard.cpp:2393
 msgid ""
 "The following file will be overwritten. Are you sure you want to overwrite "
 "it?"
 msgstr "ឯកសារ​បន្ទាប់​នឹង​ត្រូវ​បាន​សរសេរ​ជាន់​លើ​ ។ ​តើ​អ្នក​ប្រាកដ​ជា​ចង់​សរសេរ​ជាន់​លើ​វា​ឬ​ ?​"
 
-#: wizard/wizard.cpp:2389
+#: wizard/wizard.cpp:2417
 msgid "Could not save file, please check your output entry."
 msgstr "មិន​អាច​រក្សាទុក​ឯកសារ​​បាន​ឡើយ​ សូម​ពិនិត្យ​មើល​ធាតុ​ទិន្នផល​របស់​​អ្នក ។"
 
-#: wizard/wizard.cpp:2413
+#: wizard/wizard.cpp:2441
 msgid "Could not remove the GIMP's temporary files."
 msgstr "មិន​អាច​យក​ឯកសារ​​បណ្ដោះអាសន្ន​របស់​ GIMP ចេញ​បាន​ទេ ។"
 
-#: wizard/wizard.cpp:2534
+#: wizard/wizard.cpp:2562
 msgid ""
 "There was an error launching the GIMP. Please make sure it is properly "
 "installed."
 msgstr "មាន​កំហុស​នៅ​ពេល​ដំណើរការ​ GIMP ។ សូម​ប្រាកដ​ថា វា​ត្រូវ​បាន​ដំឡើង​យ៉ាង​ត្រឹម​ត្រូវ ។"
 
-#: wizard/wizard.cpp:2535
-msgid "KIPI"
-msgstr "KIPI"
-
-#: wizard/wizard.cpp:2548
+#: wizard/wizard.cpp:2574
 msgid "Empty output path."
 msgstr "ផ្លូវ​ទិន្នផល​ទទេ ។"
 
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr ""
+#~ "khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+#~ "ratanak@khmeros.info,sophea@khmeros.info"
+
+#~ msgid "Print to PS"
+#~ msgstr "បោះពុម្ព​ជា​ PS"
+
+#~ msgid "PushButton"
+#~ msgstr "PushButton"
+
+#~ msgid "Developer and maintainer"
+#~ msgstr "អ្នក​អភិវឌ្ឍន៍ និង​អ្នក​ថែទាំ"
+
+#~ msgid "KIPI"
+#~ msgstr "KIPI"
+
 #~ msgid "Handbook"
 #~ msgstr "សៀវភៅ​ដៃ"
-
-#~ msgid "Print Image"
-#~ msgstr "បោះពុម្ព​រូបភាព​"
 
 #~ msgid "Select printing information"
 #~ msgstr "ជ្រើស​ព័ត៌មាន​អំពី​ការ​បោះពុម្ព"

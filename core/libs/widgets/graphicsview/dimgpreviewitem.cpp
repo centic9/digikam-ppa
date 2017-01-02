@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "dimgpreviewitem.moc"
+#include "dimgpreviewitem.h"
 #include "dimgitemspriv.h"
 
 // Qt includes
@@ -31,7 +31,7 @@
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -115,21 +115,6 @@ void DImgPreviewItem::setPreviewSettings(const PreviewSettings& settings)
     reload();
 }
 
-/*
-void DImgPreviewItem::setLoadFullImageSize(bool b)
-{
-    Q_D(DImgPreviewItem);
-
-    if (d->loadFullImageSize == b)
-    {
-        return;
-    }
-
-    d->loadFullImageSize = b;
-    reload();
-}
-*/
-
 QString DImgPreviewItem::path() const
 {
     Q_D(const DImgPreviewItem);
@@ -212,7 +197,7 @@ QString DImgPreviewItem::userLoadingHint() const
         {
             if (d->image.detectedFormat() == DImg::RAW)
             {
-                if (d->image.attribute("fromRawEmbeddedPreview").toBool())
+                if (d->image.attribute(QLatin1String("fromRawEmbeddedPreview")).toBool())
                 {
                     return i18n("Embedded JPEG Preview");
                 }

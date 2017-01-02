@@ -6,7 +6,7 @@
  * Date        : 2007-27-08
  * Description : a tool bar action object to display animated logo
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "dlogoaction.moc"
+#include "dlogoaction.h"
 
 // C++ includes
 
@@ -34,21 +34,18 @@
 #include <QBoxLayout>
 #include <QTimer>
 #include <QPainter>
+#include <QApplication>
+#include <QDesktopServices>
+#include <QStandardPaths>
 
 // KDE includes
 
-#include <kurllabel.h>
-#include <ktoolbar.h>
-#include <kiconloader.h>
-#include <kapplication.h>
-#include <ktoolinvocation.h>
-#include <kstandarddirs.h>
-#include <kglobalsettings.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "daboutdata.h"
+#include "dactivelabel.h"
 
 namespace Digikam
 {
@@ -65,31 +62,31 @@ public:
         progressCount = 0;
     }
 
-    bool       alignOnright;
+    bool          alignOnright;
 
-    int        progressCount;         // Position of animation.
+    int           progressCount;         // Position of animation.
 
-    QTimer*    progressTimer;
+    QTimer*       progressTimer;
 
-    QPixmap    progressPixmap;
+    QPixmap       progressPixmap;
 
-    KUrlLabel* urlLabel;
+    DActiveLabel* urlLabel;
 };
 
 DLogoAction::DLogoAction(QObject* const parent, bool alignOnright)
-    : KAction(parent), d(new Private)
+    : QWidgetAction(parent), d(new Private)
 {
-    setText("digikam.org");
+    setText(QLatin1String("digikam.org"));
 
-    if (KGlobal::mainComponent().aboutData()->appName() == QString("digikam"))
+    if (QApplication::applicationName() == QLatin1String("digikam"))
     {
-        setIcon(KIcon("digikam"));
-        d->progressPixmap = QPixmap(KStandardDirs::locate("data", "digikam/data/banner-digikam.png"));
+        setIcon(QIcon::fromTheme(QLatin1String("digikam")));
+        d->progressPixmap = QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/banner-digikam.png")));
     }
     else
     {
-        setIcon(KIcon("showfoto"));
-        d->progressPixmap = QPixmap(KStandardDirs::locate("data", "showfoto/data/banner-showfoto.png"));
+        setIcon(QIcon::fromTheme(QLatin1String("showfoto")));
+        d->progressPixmap = QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("showfoto/data/banner-showfoto.png")));
     }
 
     d->alignOnright  = alignOnright;
@@ -118,7 +115,7 @@ void DLogoAction::stop()
 
     if (d->urlLabel)
     {
-        d->urlLabel->setPixmap(d->progressPixmap.copy(0, 0, 144, 32));
+        d->urlLabel->updateData(DAboutData::webProjectUrl(), d->progressPixmap.copy(0, 0, 144, 32).toImage());
     }
 }
 
@@ -139,7 +136,7 @@ void DLogoAction::slotProgressTimerDone()
 
     if (d->urlLabel)
     {
-        d->urlLabel->setPixmap(anim);
+        d->urlLabel->updateData(DAboutData::webProjectUrl(), anim.toImage());
     }
 
     d->progressTimer->start(100);
@@ -149,15 +146,11 @@ QWidget* DLogoAction::createWidget(QWidget* parent)
 {
     QWidget* const container  = new QWidget(parent);
     QHBoxLayout* const layout = new QHBoxLayout(container);
-    d->urlLabel               = new KUrlLabel(DAboutData::webProjectUrl().url(), QString(), container);
-    d->urlLabel->setMargin(0);
-    d->urlLabel->setScaledContents(false);
-    d->urlLabel->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
+    d->urlLabel               = new DActiveLabel(DAboutData::webProjectUrl(), QString(), container);
     d->urlLabel->setToolTip(i18n("Visit digiKam project website"));
-    d->urlLabel->setPixmap(d->progressPixmap.copy(0, 0, 144, 32));
-    d->urlLabel->setFocusPolicy(Qt::NoFocus);
+    d->urlLabel->updateData(DAboutData::webProjectUrl(), d->progressPixmap.copy(0, 0, 144, 32).toImage());
 
-    layout->setMargin(0);
+    layout->setContentsMargins(QMargins());
     layout->setSpacing(0);
 
     if (d->alignOnright)
@@ -167,9 +160,6 @@ QWidget* DLogoAction::createWidget(QWidget* parent)
 
     layout->addWidget(d->urlLabel);
 
-    connect(d->urlLabel, SIGNAL(leftClickedUrl(QString)),
-            this, SLOT(slotProcessUrl(QString)));
-
     return container;
 }
 
@@ -177,12 +167,7 @@ void DLogoAction::deleteWidget(QWidget* widget)
 {
     stop();
     d->urlLabel = 0;
-    KAction::deleteWidget(widget);
-}
-
-void DLogoAction::slotProcessUrl(const QString& url)
-{
-    KToolInvocation::invokeBrowser(url);
+    QWidgetAction::deleteWidget(widget);
 }
 
 } // namespace Digikam

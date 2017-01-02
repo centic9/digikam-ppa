@@ -8,7 +8,7 @@
  *               operations during camera downloading
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2011      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -24,7 +24,7 @@
  *
  * ============================================================ */
 
-#include "renamecustomizer.moc"
+#include "renamecustomizer.h"
 
 // Qt includes
 
@@ -33,13 +33,14 @@
 #include <QHBoxLayout>
 #include <QRadioButton>
 #include <QTimer>
+#include <QApplication>
+#include <QStyle>
+#include <QComboBox>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <klocale.h>
+#include <kconfiggroup.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -88,7 +89,7 @@ public:
     QWidget*               focusedWidget;
     QWidget*               renameDefaultBox;
 
-    KComboBox*             renameDefaultCaseType;
+    QComboBox*             renameDefaultCaseType;
 
     AdvancedRenameWidget*  advancedRenameWidget;
     AdvancedRenameManager* advancedRenameManager;
@@ -106,6 +107,8 @@ RenameCustomizer::RenameCustomizer(QWidget* const parent, const QString& cameraT
 
     QGridLayout* mainLayout  = new QGridLayout(this);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     // ----------------------------------------------------------------
 
     d->renameDefault         = new QRadioButton(i18n("Camera filenames"), this);
@@ -119,7 +122,7 @@ RenameCustomizer::RenameCustomizer(QWidget* const parent, const QString& cameraT
     d->renameDefaultCase     = new QLabel(i18n("Change case to:"), d->renameDefaultBox);
     d->renameDefaultCase->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Preferred);
 
-    d->renameDefaultCaseType = new KComboBox(d->renameDefaultBox);
+    d->renameDefaultCaseType = new QComboBox(d->renameDefaultBox);
     d->renameDefaultCaseType->insertItem(NONE,  i18nc("Leave filename as it is", "Leave as-is"));
     d->renameDefaultCaseType->insertItem(UPPER, i18nc("Filename to uppercase",   "Upper"));
     d->renameDefaultCaseType->insertItem(LOWER, i18nc("Filename to lowercase",   "Lower"));
@@ -127,8 +130,8 @@ RenameCustomizer::RenameCustomizer(QWidget* const parent, const QString& cameraT
     d->renameDefaultCaseType->setWhatsThis(i18n("Set the method to use to change the case "
                                                 "of the image filenames."));
 
-    boxLayout1->setMargin(KDialog::spacingHint());
-    boxLayout1->setSpacing(KDialog::spacingHint());
+    boxLayout1->setContentsMargins(spacing, spacing, spacing, spacing);
+    boxLayout1->setSpacing(spacing);
     boxLayout1->addSpacing(10);
     boxLayout1->addWidget(d->renameDefaultCase);
     boxLayout1->addWidget(d->renameDefaultCaseType);
@@ -149,8 +152,8 @@ RenameCustomizer::RenameCustomizer(QWidget* const parent, const QString& cameraT
     mainLayout->addWidget(d->renameCustom,         4, 0, 1, 2);
     mainLayout->addWidget(d->advancedRenameWidget, 5, 0, 1, 2);
     mainLayout->setRowStretch(6, 10);
-    mainLayout->setMargin(KDialog::spacingHint());
-    mainLayout->setSpacing(KDialog::spacingHint());
+    mainLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    mainLayout->setSpacing(spacing);
 
     // -- setup connections -------------------------------------------------
 
@@ -276,7 +279,7 @@ void RenameCustomizer::slotCustomRenameChanged()
 
 void RenameCustomizer::readSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
 
     KConfigGroup group   = config->group("Camera Settings");
     int def              = group.readEntry("Rename Method",        0);
@@ -291,7 +294,7 @@ void RenameCustomizer::readSettings()
 
 void RenameCustomizer::saveSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
 
     KConfigGroup group = config->group("Camera Settings");
     group.writeEntry("Rename Method",        d->buttonGroup->checkedId());

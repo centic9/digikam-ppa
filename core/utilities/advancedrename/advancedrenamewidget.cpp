@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "advancedrenamewidget.moc"
+#include "advancedrenamewidget.h"
 
 // Qt includes
 
@@ -31,28 +31,23 @@
 #include <QPushButton>
 #include <QRegExp>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
+#include <QIcon>
 
 // KDE includes
 
-#include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <klocale.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rexpanderbox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dexpanderbox.h"
 #include "advancedrenameinput.h"
 #include "defaultrenameparser.h"
 #include "dynamiclayout.h"
 #include "tooltipcreator.h"
 #include "tooltipdialog.h"
-
-using namespace KDcrawIface;
 
 namespace Digikam
 {
@@ -95,18 +90,20 @@ public:
     TooltipDialog*       tooltipDialog;
     AdvancedRenameInput* renameInput;
     Parser*              parser;
-    RLabelExpander*      optionsLabel;
+    DLabelExpander*      optionsLabel;
 
     CWMask               controlWidgetsMask;
     LStyle               layoutStyle;
 };
-const QString AdvancedRenameWidget::Private::configGroupName("AdvancedRename Widget");
-const QString AdvancedRenameWidget::Private::configExpandedStateEntry("Options are expanded");
+
+const QString AdvancedRenameWidget::Private::configGroupName(QLatin1String("AdvancedRename Widget"));
+const QString AdvancedRenameWidget::Private::configExpandedStateEntry(QLatin1String("Options are expanded"));
 
 // --------------------------------------------------------
 
-AdvancedRenameWidget::AdvancedRenameWidget(QWidget* parent)
-    : QWidget(parent), d(new Private)
+AdvancedRenameWidget::AdvancedRenameWidget(QWidget* const parent)
+    : QWidget(parent),
+      d(new Private)
 {
     setupWidgets();
 }
@@ -191,7 +188,7 @@ void AdvancedRenameWidget::setControlWidgets(ControlWidgets mask)
 
     // we need a parser and at least one renaming option to successfully use
     // this widget.
-    bool enable = d->parser && !(d->parser->options().isEmpty());
+    bool enable       = d->parser && !(d->parser->options().isEmpty());
 
     // enable the modifier toolbutton if environment has been set up correctly
     bool enableModBtn = enable && !(d->parser->modifiers().isEmpty());
@@ -214,10 +211,10 @@ void AdvancedRenameWidget::setControlWidgets(ControlWidgets mask)
 
 QMenu* AdvancedRenameWidget::createControlsMenu(QWidget* parent, const RulesList& rules)
 {
-    QMenu* menu     = new QMenu(parent);
-    QAction* action = 0;
+    QMenu* const menu = new QMenu(parent);
+    QAction* action   = 0;
 
-    foreach(Rule* rule, rules)
+    foreach(Rule* const rule, rules)
     {
         action = rule->registerMenu(menu);
 
@@ -246,8 +243,10 @@ void AdvancedRenameWidget::registerParserControls()
         {
             // register options
             QPushButton* btn      = 0;
-            DynamicLayout* layout = new DynamicLayout(KDialog::marginHint(), KDialog::marginHint());
-            foreach(Rule* p, d->parser->options())
+            DynamicLayout* const layout = new DynamicLayout(QApplication::style()->pixelMetric(QStyle::PM_DefaultChildMargin),
+                                                            QApplication::style()->pixelMetric(QStyle::PM_DefaultChildMargin));
+
+            foreach(Rule* const p, d->parser->options())
             {
                 btn = p->registerButton(this);
 
@@ -264,21 +263,22 @@ void AdvancedRenameWidget::registerParserControls()
                 connect(p, SIGNAL(signalTokenTriggered(QString)),
                         d->renameInput, SLOT(slotAddToken(QString)));
             }
+
             d->btnContainer->setLayout(layout);
             setMinimumWidth(d->btnContainer->layout()->sizeHint().width());
 
             // register modifiers
-            QMenu* modifiersMenu = createControlsMenu(d->modifiersToolButton, modifiersList);
+            QMenu* const modifiersMenu = createControlsMenu(d->modifiersToolButton, modifiersList);
             d->modifiersToolButton->setMenu(modifiersMenu);
         }
         else    // LayoutCompact
         {
             // register options
-            QMenu* optionsMenu = createControlsMenu(d->optionsButton, optionsList);
+            QMenu* const optionsMenu = createControlsMenu(d->optionsButton, optionsList);
             d->optionsButton->setMenu(optionsMenu);
 
             // register modifiers
-            QMenu* modifiersMenu = createControlsMenu(d->modifiersButton, modifiersList);
+            QMenu* const modifiersMenu = createControlsMenu(d->modifiersButton, modifiersList);
             d->modifiersButton->setMenu(modifiersMenu);
         }
 
@@ -341,13 +341,13 @@ void AdvancedRenameWidget::setupWidgets()
     // --------------------------------------------------------
 
     d->tooltipToggleButton = new QToolButton;
-    d->tooltipToggleButton->setIcon(SmallIcon("dialog-information"));
+    d->tooltipToggleButton->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
     d->tooltipToggleButton->setToolTip(i18n("Show a list of all available options"));
 
     // --------------------------------------------------------
 
     QString modifiersStr     = i18n("Modifiers");
-    QPixmap modifiersIcon    = SmallIcon("document-edit");
+    QIcon   modifiersIcon    = QIcon::fromTheme(QLatin1String("document-edit"));
     QString modifiersTooltip = i18n("<p>Add a modifier to a renaming option. "
                                     "To activate this button, place the cursor behind a renaming option "
                                     "or an already assigned modifier.</p>");
@@ -355,13 +355,13 @@ void AdvancedRenameWidget::setupWidgets()
     // --------------------------------------------------------
 
     delete layout();
-    QGridLayout* mainLayout = new QGridLayout;
+    QGridLayout* const mainLayout = new QGridLayout;
 
     if (d->layoutStyle == LayoutNormal)
     {
         d->btnContainer = new QWidget(this);
 
-        d->optionsLabel = new RLabelExpander(this);
+        d->optionsLabel = new DLabelExpander(this);
         d->optionsLabel->setText(i18n("Renaming Options"));
         d->optionsLabel->setWidget(d->btnContainer);
         d->optionsLabel->setLineVisible(false);
@@ -382,7 +382,7 @@ void AdvancedRenameWidget::setupWidgets()
     {
         d->optionsButton = new QPushButton;
         d->optionsButton->setText(i18n("Options"));
-        d->optionsButton->setIcon(SmallIcon("configure"));
+        d->optionsButton->setIcon(QIcon::fromTheme(QLatin1String("configure")));
         d->optionsButton->setToolTip(i18n("<p>Add renaming options to the parse string.</p>"));
 
         // --------------------------------------------------------
@@ -399,8 +399,8 @@ void AdvancedRenameWidget::setupWidgets()
         mainLayout->setColumnStretch(2, 10);
     }
 
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(KDialog::marginHint());
+    mainLayout->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultChildMargin));
+    mainLayout->setContentsMargins(QMargins());
     setLayout(mainLayout);
 
     // --------------------------------------------------------
@@ -453,7 +453,7 @@ void AdvancedRenameWidget::highlightLineEdit(const QString& word)
 
 void AdvancedRenameWidget::readSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(d->configGroupName);
 
     if (d->layoutStyle == LayoutNormal)
@@ -464,11 +464,8 @@ void AdvancedRenameWidget::readSettings()
 
 void AdvancedRenameWidget::writeSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(d->configGroupName);
-
-    // remove duplicate entries and save pattern history, omit empty strings
-    QString pattern = d->renameInput->text();
 
     if (d->layoutStyle == LayoutNormal)
     {

@@ -27,14 +27,13 @@
 
 #include <QObject>
 #include <QHash>
-#include <QStringList>
 #include <QWidget>
 
 // KDE includes
 
 #include <kconfiggroup.h>
 
-// local includes
+// Local includes
 
 #include "tableview_model.h"
 #include "tableview_shared.h"
@@ -51,14 +50,12 @@ class ThumbnailSize;
 class TableViewColumnConfiguration
 {
 public:
+
     explicit TableViewColumnConfiguration(const QString& id = QString())
       : columnId(id),
         columnSettings()
     {
     }
-
-    QString columnId;
-    QHash<QString, QString> columnSettings;
 
     QString getSetting(const QString& key, const QString& defaultValue = QString()) const
     {
@@ -66,18 +63,24 @@ public:
         {
             return defaultValue;
         }
+
         return columnSettings.value(key);
     }
 
     void loadSettings(const KConfigGroup& configGroup);
     void saveSettings(KConfigGroup& configGroup) const;
+
+public:
+
+    QString                 columnId;
+    QHash<QString, QString> columnSettings;
 };
+
+// ----------------------------------------------------------------------------
 
 class TableViewColumnDescription
 {
 public:
-
-    typedef QList<TableViewColumnDescription> List;
 
     explicit TableViewColumnDescription()
       : columnId(),
@@ -88,7 +91,9 @@ public:
     {
     }
 
-    explicit TableViewColumnDescription(const QString& id, const QString title, const QString& settingKey = QString(), const QString& settingValue = QString())
+    explicit TableViewColumnDescription(const QString& id, const QString& title,
+                                        const QString& settingKey = QString(),
+                                        const QString& settingValue = QString())
       : columnId(id),
         columnTitle(title),
         columnIcon(),
@@ -101,11 +106,17 @@ public:
         }
     }
 
-    QString columnId;
-    QString columnTitle;
-    QString columnIcon;
-    QHash<QString, QString> columnSettings;
+public:
+
+    typedef QList<TableViewColumnDescription> List;
+
+    QString                           columnId;
+    QString                           columnTitle;
+    QString                           columnIcon;
+    QHash<QString, QString>           columnSettings;
     QList<TableViewColumnDescription> subColumns;
+
+public:
 
     void addSubColumn(const TableViewColumnDescription& subColumnDescription)
     {
@@ -121,7 +132,7 @@ public:
     {
         TableViewColumnConfiguration configuration;
 
-        configuration.columnId = columnId;
+        configuration.columnId       = columnId;
         configuration.columnSettings = columnSettings;
 
         return configuration;
@@ -134,12 +145,14 @@ public:
         return *this;
     }
 
-    static bool FindInListById(const TableViewColumnDescription::List& listToSearch, const QString targetId, TableViewColumnDescription* const resultDescription)
+    static bool FindInListById(const TableViewColumnDescription::List& listToSearch, const QString& targetId, TableViewColumnDescription* const resultDescription)
     {
         TableViewColumnDescription::List leftToSearch = listToSearch;
+
         while (!leftToSearch.isEmpty())
         {
             const TableViewColumnDescription desc = leftToSearch.takeFirst();
+
             if (desc.columnId==targetId)
             {
                 *resultDescription = desc;
@@ -156,29 +169,36 @@ public:
     }
 };
 
+// ----------------------------------------------------------------------------
+
 class TableViewColumnConfigurationWidget : public QWidget
 {
     Q_OBJECT
 
 public:
-    explicit TableViewColumnConfigurationWidget(
-            TableViewShared* const sharedObject,
-            const TableViewColumnConfiguration& currentConfiguration,
-            QWidget* const parent = 0);
+
+    explicit TableViewColumnConfigurationWidget(TableViewShared* const sharedObject,
+                                                const TableViewColumnConfiguration& currentConfiguration,
+                                                QWidget* const parent = 0);
     virtual ~TableViewColumnConfigurationWidget();
 
     virtual TableViewColumnConfiguration getNewConfiguration() = 0;
 
-    TableViewShared* const s;
+public:
+
+    TableViewShared* const       s;
     TableViewColumnConfiguration configuration;
 };
+
+// ----------------------------------------------------------------------------
 
 class TableViewColumn : public QObject
 {
     Q_OBJECT
 
 protected:
-    TableViewShared* const s;
+
+    TableViewShared* const       s;
     TableViewColumnConfiguration configuration;
 
 public:
@@ -199,14 +219,13 @@ public:
         CmpALessB = 2
     };
 
-    explicit TableViewColumn(
-            TableViewShared* const tableViewShared,
-            const TableViewColumnConfiguration& pConfiguration,
-            QObject* const parent = 0
-        );
+public:
+
+    explicit TableViewColumn(TableViewShared* const tableViewShared,
+                             const TableViewColumnConfiguration& pConfiguration,
+                             QObject* const parent = 0);
     virtual ~TableViewColumn();
 
-    static TableViewColumnDescription getDescription();
     virtual TableViewColumnConfiguration getConfiguration() const;
     virtual void setConfiguration(const TableViewColumnConfiguration& newConfiguration);
     virtual TableViewColumnConfigurationWidget* getConfigurationWidget(QWidget* const parentWidget) const;
@@ -220,6 +239,7 @@ public:
     virtual QSize sizeHint(const QStyleOptionViewItem& option, TableViewModel::Item* const item) const;
     virtual void updateThumbnailSize();
 
+    static TableViewColumnDescription getDescription();
     static bool compareHelperBoolFailCheck(const bool okA, const bool okB, ColumnCompareResult* const result);
 
     template<class MyType> static ColumnCompareResult compareHelper(const MyType& A, const MyType& B)
@@ -239,6 +259,7 @@ public:
     template<typename columnClass> static bool getSubColumnIndex(const QString& subColumnId, typename columnClass::SubColumn* const subColumn)
     {
         const int index = columnClass::getSubColumns().indexOf(subColumnId);
+
         if (index<0)
         {
             return false;
@@ -248,14 +269,13 @@ public:
         return true;
     }
 
-    template<typename columnClass> static bool CreateFromConfiguration(
-            TableViewShared* const tableViewShared,
-            const TableViewColumnConfiguration& pConfiguration,
-            TableViewColumn** const pNewColumn,
-            QObject* const parent
-        )
+    template<typename columnClass> static bool CreateFromConfiguration(TableViewShared* const tableViewShared,
+                                                                       const TableViewColumnConfiguration& pConfiguration,
+                                                                       TableViewColumn** const pNewColumn,
+                                                                       QObject* const parent)
     {
         typename columnClass::SubColumn subColumn;
+
         if (!getSubColumnIndex<columnClass>(pConfiguration.columnId, &subColumn))
         {
             return false;
@@ -267,9 +287,12 @@ public:
     }
 
 Q_SIGNALS:
+
     void signalDataChanged(const qlonglong imageId);
     void signalAllDataChanged();
 };
+
+// ----------------------------------------------------------------------------
 
 class TableViewColumnFactory : public QObject
 {
@@ -284,10 +307,10 @@ public:
 
 private:
 
-    class Private;
-    const QScopedPointer<Private> d;
     TableViewShared* const s;
 };
+
+// ----------------------------------------------------------------------------
 
 class TableViewColumnProfile
 {
@@ -296,12 +319,14 @@ public:
     TableViewColumnProfile();
     ~TableViewColumnProfile();
 
-    QList<TableViewColumnConfiguration> columnConfigurationList;
-    QString name;
-    QByteArray headerState;
-
     void loadSettings(const KConfigGroup& configGroup);
     void saveSettings(KConfigGroup& configGroup);
+
+public:
+
+    QList<TableViewColumnConfiguration> columnConfigurationList;
+    QString                             name;
+    QByteArray                          headerState;
 };
 
 } /* namespace Digikam */

@@ -7,7 +7,7 @@
  * Description : contextmenu helper class
  *
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,60 +22,39 @@
  *
  * ============================================================ */
 
-#include "contextmenuhelper.moc"
+#include "contextmenuhelper.h"
 
 // Qt includes
 
 #include <QAction>
-#include <QWidgetAction>
 #include <QClipboard>
 #include <QMap>
-#include <QMenu>
 #include <QMimeData>
 #include <QPointer>
 #include <QString>
 #include <QTimer>
+#include <QMenu>
+#include <QApplication>
+#include <QIcon>
 
 // KDE includes
 
-#include <kaction.h>
-#include <kactionmenu.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
-#include <kdebug.h>
-#include <kfileitem.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kmimetype.h>
-#include <kmimetypetrader.h>
-#include <kopenwithdialog.h>
-#include <krun.h>
-#include <kstandardaction.h>
+#include <klocalizedstring.h>
 
-#ifdef HAVE_KDEPIMLIBS
-
-#if defined(__APPLE__) && defined(__clang__)
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundef"
+#ifdef HAVE_KIO
+#   include <kopenwithdialog.h>
 #endif
-
-#include <Akonadi/Item>
-#include <Akonadi/Contact/ContactSearchJob>
-
-#if defined(__APPLE__) && defined(__clang__)
-#pragma clang diagnostic pop
-#endif
-
-#endif // HAVE_KDEPIMLIBS
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "album.h"
-#include "albumdb.h"
+#include "coredb.h"
 #include "albummanager.h"
 #include "albummodificationhelper.h"
 #include "abstractalbummodel.h"
-#include "databaseaccess.h"
+#include "coredbaccess.h"
 #include "digikamapp.h"
 #include "fileoperation.h"
 #include "imageinfo.h"
@@ -90,10 +69,12 @@
 #include "fileactionmngr.h"
 #include "tagscache.h"
 #include "dimg.h"
+#include "dxmlguiwindow.h"
+#include "akonadiiface.h"
 
 #ifdef HAVE_KIPI
-#include "kipipluginloader.h"
-#endif /* HAVE_KIPI */
+#    include "kipipluginloader.h"
+#endif
 
 namespace Digikam
 {
@@ -109,17 +90,17 @@ public:
         imageFilterModel(0),
         albumModel(0),
         parent(0),
-        ABCmenu(0),
         stdActionCollection(0),
         q(q)
-    {}
+    {
+    }
 
     QAction*                     gotoAlbumAction;
     QAction*                     gotoDateAction;
     QAction*                     setThumbnailAction;
 
     QList<qlonglong>             selectedIds;
-    KUrl::List                   selectedItems;
+    QList<QUrl>                  selectedItems;
 
     QMap<int, QAction*>          queueActions;
     QMap<QString, KService::Ptr> servicesMap;
@@ -128,7 +109,6 @@ public:
     AbstractCheckableAlbumModel* albumModel;
 
     QMenu*                       parent;
-    QMenu*                       ABCmenu;
 
     KActionCollection*           stdActionCollection;
 
@@ -149,7 +129,7 @@ public:
         return QModelIndex();
     }
 
-    QAction* copyFromMainCollection(const char* name) const
+    QAction* copyFromMainCollection(const QString& name) const
     {
         QAction* const mainAction = stdActionCollection->action(name);
 
@@ -159,6 +139,7 @@ public:
         }
 
         QAction* const action = new QAction(mainAction->icon(), mainAction->text(), q);
+        action->setShortcut(mainAction->shortcut());
         action->setToolTip(mainAction->toolTip());
         return action;
     }
@@ -185,7 +166,7 @@ ContextMenuHelper::~ContextMenuHelper()
     delete d;
 }
 
-void ContextMenuHelper::addAction(const char* name, bool addDisabled)
+void ContextMenuHelper::addAction(const QString& name, bool addDisabled)
 {
     QAction* const action = d->stdActionCollection->action(name);
     addAction(action, addDisabled);
@@ -204,7 +185,7 @@ void ContextMenuHelper::addAction(QAction* action, bool addDisabled)
     }
 }
 
-void ContextMenuHelper::addSubMenu(KMenu* subMenu)
+void ContextMenuHelper::addSubMenu(QMenu* subMenu)
 {
     d->parent->addMenu(subMenu);
 }
@@ -214,8 +195,7 @@ void ContextMenuHelper::addSeparator()
     d->parent->addSeparator();
 }
 
-void ContextMenuHelper::addAction(QAction* action, QObject* recv, const char* slot,
-                                  bool addDisabled)
+void ContextMenuHelper::addAction(QAction* action, QObject* recv, const char* slot, bool addDisabled)
 {
     if (!action)
     {
@@ -230,8 +210,8 @@ void ContextMenuHelper::addStandardActionLightTable()
 {
     QAction* action = 0;
     QStringList ltActionNames;
-    ltActionNames << QString("image_add_to_lighttable")
-                  << QString("image_lighttable");
+    ltActionNames << QLatin1String("image_add_to_lighttable")
+                  << QLatin1String("image_lighttable");
 
     if (LightTableWindow::lightTableWindowCreated() && !LightTableWindow::lightTableWindow()->isEmpty())
     {
@@ -245,7 +225,7 @@ void ContextMenuHelper::addStandardActionLightTable()
     addAction(action);
 }
 
-void ContextMenuHelper::addStandardActionThumbnail(const imageIds &ids, Album* album)
+void ContextMenuHelper::addStandardActionThumbnail(const imageIds& ids, Album* album)
 {
     if (d->setThumbnailAction)
     {
@@ -270,7 +250,7 @@ void ContextMenuHelper::addStandardActionThumbnail(const imageIds &ids, Album* a
     }
 }
 
-void ContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
+void ContextMenuHelper::addServicesMenu(const QList<QUrl>& selectedItems)
 {
     setSelectedItems(selectedItems);
 
@@ -278,7 +258,7 @@ void ContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
 
     if (!offers.isEmpty())
     {
-        KMenu* const servicesMenu = new KMenu(d->parent);
+        QMenu* const servicesMenu = new QMenu(d->parent);
         qDeleteAll(servicesMenu->actions());
 
         QAction* const serviceAction = servicesMenu->menuAction();
@@ -286,13 +266,14 @@ void ContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
 
         foreach(const KService::Ptr& service, offers)
         {
-            QString name          = service->name().replace('&', "&&");
+            QString name          = service->name().replace(QLatin1Char('&'), QLatin1String("&&"));
             QAction* const action = servicesMenu->addAction(name);
-            action->setIcon(KIcon(service->icon()));
+            action->setIcon(QIcon::fromTheme(service->icon()));
             action->setData(service->name());
             d->servicesMap[name]  = service;
         }
 
+#ifdef HAVE_KIO
         servicesMenu->addSeparator();
         servicesMenu->addAction(i18n("Other..."));
 
@@ -308,6 +289,7 @@ void ContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
 
         connect(serviceAction, SIGNAL(triggered()),
                 this, SLOT(slotOpenWith()));
+#endif // HAVE_KIO
     }
 }
 
@@ -320,9 +302,10 @@ void ContextMenuHelper::slotOpenWith()
 void ContextMenuHelper::slotOpenWith(QAction* action)
 {
     KService::Ptr service;
-    KUrl::List list = d->selectedItems;
-    QString name    = action ? action->data().toString() : QString();
+    QList<QUrl> list = d->selectedItems;
+    QString name     = action ? action->data().toString() : QString();
 
+#ifdef HAVE_KIO
     if (name.isEmpty())
     {
         QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(list);
@@ -340,7 +323,7 @@ void ContextMenuHelper::slotOpenWith(QAction* action)
             // User entered a custom command
             if (!dlg->text().isEmpty())
             {
-                KRun::run(dlg->text(), list, d->parent);
+                FileOperation::runFiles(dlg->text(), list);
             }
 
             delete dlg;
@@ -350,11 +333,12 @@ void ContextMenuHelper::slotOpenWith(QAction* action)
         delete dlg;
     }
     else
+#endif // HAVE_KIO
     {
         service = d->servicesMap[name];
     }
 
-    KRun::run(*service, list, d->parent);
+    FileOperation::runFiles(*service, list);
 }
 
 bool ContextMenuHelper::imageIdsHaveSameCategory(const imageIds& ids, DatabaseItem::Category category)
@@ -364,7 +348,7 @@ bool ContextMenuHelper::imageIdsHaveSameCategory(const imageIds& ids, DatabaseIt
 
     foreach(const qlonglong& id, ids)
     {
-        varList = DatabaseAccess().db()->getImagesFields(id, DatabaseFields::Category);
+        varList = CoreDbAccess().db()->getImagesFields(id, DatabaseFields::Category);
 
         if (varList.isEmpty() ||
             (DatabaseItem::Category)varList.first().toInt() != category)
@@ -373,12 +357,13 @@ bool ContextMenuHelper::imageIdsHaveSameCategory(const imageIds& ids, DatabaseIt
             break;
         }
     }
+
     return sameCategory;
 }
 
 void ContextMenuHelper::addActionNewTag(TagModificationHelper* helper, TAlbum* tag)
 {
-    QAction* const newTagAction = new QAction(SmallIcon("tag-new"), i18n("New Tag..."), this);
+    QAction* const newTagAction = new QAction(QIcon::fromTheme(QLatin1String("tag-new")), i18n("New Tag..."), this);
     addAction(newTagAction);
     helper->bindTag(newTagAction, tag);
 
@@ -388,7 +373,7 @@ void ContextMenuHelper::addActionNewTag(TagModificationHelper* helper, TAlbum* t
 
 void ContextMenuHelper::addActionDeleteTag(TagModificationHelper* helper, TAlbum* tag)
 {
-    QAction* const deleteTagAction = new QAction(SmallIcon("user-trash"), i18n("Delete Tag"), this);
+    QAction* const deleteTagAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")), i18n("Delete Tag"), this);
     addAction(deleteTagAction);
     helper->bindTag(deleteTagAction, tag);
 
@@ -398,7 +383,7 @@ void ContextMenuHelper::addActionDeleteTag(TagModificationHelper* helper, TAlbum
 
 void ContextMenuHelper::addActionDeleteTags(Digikam::TagModificationHelper* helper, QList< TAlbum* > tags)
 {
-    QAction* const deleteTagsAction = new QAction(SmallIcon("user-trash"), i18n("Delete Tags"), this);
+    QAction* const deleteTagsAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")), i18n("Delete Tags"), this);
     addAction(deleteTagsAction);
     helper->bindMultipleTags(deleteTagsAction, tags);
 
@@ -408,7 +393,7 @@ void ContextMenuHelper::addActionDeleteTags(Digikam::TagModificationHelper* help
 
 void ContextMenuHelper::addActionEditTag(TagModificationHelper* helper, TAlbum* tag)
 {
-    QAction* const editTagAction = new QAction(SmallIcon("tag-properties"), i18nc("Edit Tag Properties", "Properties..."), this);
+    QAction* const editTagAction = new QAction(QIcon::fromTheme(QLatin1String("tag-properties")), i18nc("Edit Tag Properties", "Properties..."), this);
     addAction(editTagAction);
     helper->bindTag(editTagAction, tag);
 
@@ -418,7 +403,7 @@ void ContextMenuHelper::addActionEditTag(TagModificationHelper* helper, TAlbum* 
 
 void ContextMenuHelper::addActionNewAlbum(AlbumModificationHelper* helper, PAlbum* parentAlbum)
 {
-    QAction* const action = d->copyFromMainCollection("album_new");
+    QAction* const action = d->copyFromMainCollection(QLatin1String("album_new"));
     addAction(action);
     helper->bindAlbum(action, parentAlbum);
 
@@ -428,7 +413,7 @@ void ContextMenuHelper::addActionNewAlbum(AlbumModificationHelper* helper, PAlbu
 
 void ContextMenuHelper::addActionDeleteAlbum(AlbumModificationHelper* helper, PAlbum* album)
 {
-    QAction* const action = d->copyFromMainCollection("album_delete");
+    QAction* const action = d->copyFromMainCollection(QLatin1String("album_delete"));
     addAction(action, !(album->isRoot() || album->isAlbumRoot()));
     helper->bindAlbum(action, album);
 
@@ -438,7 +423,7 @@ void ContextMenuHelper::addActionDeleteAlbum(AlbumModificationHelper* helper, PA
 
 void ContextMenuHelper::addActionEditAlbum(AlbumModificationHelper* helper, PAlbum* album)
 {
-    QAction* const action = d->copyFromMainCollection("album_propsEdit");
+    QAction* const action = d->copyFromMainCollection(QLatin1String("album_propsEdit"));
     addAction(action, !album->isRoot());
     helper->bindAlbum(action, album);
 
@@ -448,7 +433,7 @@ void ContextMenuHelper::addActionEditAlbum(AlbumModificationHelper* helper, PAlb
 
 void ContextMenuHelper::addActionRenameAlbum(AlbumModificationHelper* helper, PAlbum* album)
 {
-    QAction* const action = d->copyFromMainCollection("album_rename");
+    QAction* const action = d->copyFromMainCollection(QLatin1String("album_rename"));
     addAction(action, !(album->isRoot() || album->isAlbumRoot()));
     helper->bindAlbum(action, album);
 
@@ -458,7 +443,7 @@ void ContextMenuHelper::addActionRenameAlbum(AlbumModificationHelper* helper, PA
 
 void ContextMenuHelper::addActionResetAlbumIcon(AlbumModificationHelper* helper, PAlbum* album)
 {
-    QAction* const action = new QAction(SmallIcon("view-refresh"), i18n("Reset Album Icon"), this);
+    QAction* const action = new QAction(QIcon::fromTheme(QLatin1String("view-refresh")), i18n("Reset Album Icon"), this);
     addAction(action, !album->isRoot());
     helper->bindAlbum(action, album);
 
@@ -470,9 +455,9 @@ void ContextMenuHelper::addAssignTagsMenu(const imageIds &ids)
 {
     setSelectedIds(ids);
 
-    KMenu* const assignTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::RECENTLYASSIGNED, d->parent);
+    QMenu* const assignTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::RECENTLYASSIGNED, d->parent);
     assignTagsPopup->menuAction()->setText(i18n("Assign Tag"));
-    assignTagsPopup->menuAction()->setIcon(SmallIcon("tag"));
+    assignTagsPopup->menuAction()->setIcon(QIcon::fromTheme(QLatin1String("tag")));
     d->parent->addMenu(assignTagsPopup);
 
     connect(assignTagsPopup, SIGNAL(signalTagActivated(int)),
@@ -486,16 +471,16 @@ void ContextMenuHelper::addRemoveTagsMenu(const imageIds &ids)
 {
     setSelectedIds(ids);
 
-    KMenu* const removeTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::REMOVE, d->parent);
+    QMenu* const removeTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::REMOVE, d->parent);
     removeTagsPopup->menuAction()->setText(i18n("Remove Tag"));
-    removeTagsPopup->menuAction()->setIcon(SmallIcon("tag"));
+    removeTagsPopup->menuAction()->setIcon(QIcon::fromTheme(QLatin1String("tag")));
     d->parent->addMenu(removeTagsPopup);
 
     // Performance: Only check for tags if there are <250 images selected
     // Otherwise enable it regardless if there are tags or not
     if (ids.count() < 250)
     {
-        QList<int> tagIDs = DatabaseAccess().db()->getItemCommonTagIDs(ids);
+        QList<int> tagIDs = CoreDbAccess().db()->getItemCommonTagIDs(ids);
         bool enable       = false;
 
         foreach (int tag, tagIDs)
@@ -518,13 +503,13 @@ void ContextMenuHelper::addRemoveTagsMenu(const imageIds &ids)
 
 void ContextMenuHelper::addLabelsAction()
 {
-    KMenu* const menuLabels           = new KMenu(i18n("Assign Labels"), d->parent);
+    QMenu* const menuLabels           = new QMenu(i18n("Assign Labels"), d->parent);
     PickLabelMenuAction* const pmenu  = new PickLabelMenuAction(d->parent);
     ColorLabelMenuAction* const cmenu = new ColorLabelMenuAction(d->parent);
     RatingMenuAction* const rmenu     = new RatingMenuAction(d->parent);
-    menuLabels->addAction(pmenu);
-    menuLabels->addAction(cmenu);
-    menuLabels->addAction(rmenu);
+    menuLabels->addAction(pmenu->menuAction());
+    menuLabels->addAction(cmenu->menuAction());
+    menuLabels->addAction(rmenu->menuAction());
     addSubMenu(menuLabels);
 
     connect(pmenu, SIGNAL(signalPickLabelChanged(int)),
@@ -537,100 +522,25 @@ void ContextMenuHelper::addLabelsAction()
             this, SIGNAL(signalAssignRating(int)));
 }
 
-// TODO: Port from KABC::AdressBook to to libakonadi-kontact. For instance using Akonadi::ContactSearchJob.
-// See http://techbase.kde.org/Development/AkonadiPorting/AddressBook
-
 void ContextMenuHelper::addCreateTagFromAddressbookMenu()
 {
-#ifdef HAVE_KDEPIMLIBS
+    AkonadiIface* const abc = new AkonadiIface(d->parent);
 
-    delete d->ABCmenu;
+    connect(abc, SIGNAL(signalContactTriggered(QString)),
+            this, SIGNAL(signalAddNewTagFromABCMenu(QString)));
 
-    d->ABCmenu = new QMenu(d->parent);
-
-    QAction* const abcAction = d->ABCmenu->menuAction();
-    abcAction->setIcon(SmallIcon("tag-addressbook"));
-    abcAction->setText(i18n("Create Tag From Address Book"));
-    d->parent->addMenu(d->ABCmenu);
-
-    QAction* const nothingFound = d->ABCmenu->addAction(i18n("No address book entries found"));
-    nothingFound->setEnabled(false);
-
-    Akonadi::ContactSearchJob* const job = new Akonadi::ContactSearchJob();
-    job->setQuery(Akonadi::ContactSearchJob::ContactUid, "");
-
-    connect(job, SIGNAL(result(KJob*)),
-            this, SLOT(slotABCSearchResult(KJob*)));
-
-#endif // HAVE_KDEPIMLIBS
+    // AkonadiIface instance will be deleted with d->parent.
 }
-
-#ifdef HAVE_KDEPIMLIBS
-
-void ContextMenuHelper::slotABCSearchResult(KJob* job)
-{
-    if (job->error())
-    {
-        kDebug() << "Akonadi search was not succesfull";
-        return;
-    }
-
-    Akonadi::ContactSearchJob *searchJob = qobject_cast<Akonadi::ContactSearchJob*>(job);
-    const KABC::Addressee::List contacts = searchJob->contacts();
-
-    if (contacts.isEmpty())
-    {
-        kDebug() << "No contacts in Akonadi";
-        return;
-    }
-
-    QStringList names;
-
-    foreach (const KABC::Addressee& addr, contacts)
-    {
-        if (!addr.realName().isNull())
-        {
-            names.append(addr.realName());
-        }
-    }
-
-    names.removeDuplicates();
-    names.sort();
-
-    if (names.isEmpty())
-    {
-        kDebug() << "No names in the address book";
-        return;
-    }
-
-    d->ABCmenu->clear();
-
-    foreach (const QString& name, names)
-    {
-        d->ABCmenu->addAction(name);
-    }
-
-    connect(d->ABCmenu, SIGNAL(triggered(QAction*)),
-            this, SLOT(slotABCMenuTriggered(QAction*)));
-}
-
-void ContextMenuHelper::slotABCMenuTriggered(QAction* action)
-{
-    QString name = action->iconText();
-    emit signalAddNewTagFromABCMenu(name);
-}
-
-#endif // HAVE_KDEPIMLIBS
 
 void ContextMenuHelper::slotDeselectAllAlbumItems()
 {
-    QAction* const selectNoneAction = d->stdActionCollection->action("selectNone");
+    QAction* const selectNoneAction = d->stdActionCollection->action(QLatin1String("selectNone"));
     QTimer::singleShot(75, selectNoneAction, SIGNAL(triggered()));
 }
 
 void ContextMenuHelper::addImportMenu()
 {
-    KMenu* const menuImport = new KMenu(i18n("Import"), d->parent);
+    QMenu* const menuImport = new QMenu(i18n("Import"), d->parent);
     QList<QAction*> importActions;
 
 #ifdef HAVE_KIPI
@@ -653,7 +563,7 @@ void ContextMenuHelper::addImportMenu()
 
 void ContextMenuHelper::addExportMenu()
 {
-    KMenu* const menuExport = new KMenu(i18n("Export"), d->parent);
+    QMenu* const menuExport = new QMenu(i18n("Export"), d->parent);
     QList<QAction*> exportActions;
 
 #ifdef HAVE_KIPI
@@ -681,7 +591,7 @@ void ContextMenuHelper::addExportMenu()
 
 void ContextMenuHelper::addBatchMenu()
 {
-    KMenu* const menuKIPIBatch = new KMenu(i18n("Batch Process"), d->parent);
+    QMenu* const menuKIPIBatch = new QMenu(i18n("Batch Process"), d->parent);
     QList<QAction*> batchActions;
 
 #ifdef HAVE_KIPI
@@ -749,19 +659,19 @@ void ContextMenuHelper::addGotoMenu(const imageIds &ids)
         return;
     }
 
-    d->gotoAlbumAction    = new QAction(SmallIcon("folder-image"),        i18n("Album"), this);
-    d->gotoDateAction     = new QAction(SmallIcon("view-calendar-month"), i18n("Date"),  this);
-    KMenu* const gotoMenu = new KMenu(d->parent);
+    d->gotoAlbumAction    = new QAction(QIcon::fromTheme(QLatin1String("folder-pictures")),     i18n("Album"), this);
+    d->gotoDateAction     = new QAction(QIcon::fromTheme(QLatin1String("view-calendar-month")), i18n("Date"),  this);
+    QMenu* const gotoMenu = new QMenu(d->parent);
     gotoMenu->addAction(d->gotoAlbumAction);
     gotoMenu->addAction(d->gotoDateAction);
 
     TagsPopupMenu* const gotoTagsPopup = new TagsPopupMenu(d->selectedIds, TagsPopupMenu::DISPLAY, gotoMenu);
     QAction* const gotoTag             = gotoMenu->addMenu(gotoTagsPopup);
-    gotoTag->setIcon(SmallIcon("tag"));
+    gotoTag->setIcon(QIcon::fromTheme(QLatin1String("tag")));
     gotoTag->setText(i18n("Tag"));
 
     // Disable the goto Tag popup menu, if there are no tags at all.
-    if (!DatabaseAccess().db()->hasTags(d->selectedIds))
+    if (!CoreDbAccess().db()->hasTags(d->selectedIds))
     {
         gotoTag->setEnabled(false);
     }
@@ -797,7 +707,7 @@ void ContextMenuHelper::addGotoMenu(const imageIds &ids)
     }
 
     QAction* const gotoMenuAction = gotoMenu->menuAction();
-    gotoMenuAction->setIcon(SmallIcon("go-jump"));
+    gotoMenuAction->setIcon(QIcon::fromTheme(QLatin1String("go-jump")));
     gotoMenuAction->setText(i18n("Go To"));
 
     connect(gotoTagsPopup, SIGNAL(signalTagActivated(int)),
@@ -808,17 +718,17 @@ void ContextMenuHelper::addGotoMenu(const imageIds &ids)
 
 void ContextMenuHelper::addQueueManagerMenu()
 {
-    KMenu* const bqmMenu = new KMenu(i18n("Batch Queue Manager"), d->parent);
-    bqmMenu->menuAction()->setIcon(KIcon("bqm-diff"));
-    bqmMenu->addAction(d->stdActionCollection->action("image_add_to_current_queue"));
-    bqmMenu->addAction(d->stdActionCollection->action("image_add_to_new_queue"));
+    QMenu* const bqmMenu = new QMenu(i18n("Batch Queue Manager"), d->parent);
+    bqmMenu->menuAction()->setIcon(QIcon::fromTheme(QLatin1String("run-build")));
+    bqmMenu->addAction(d->stdActionCollection->action(QLatin1String("image_add_to_current_queue")));
+    bqmMenu->addAction(d->stdActionCollection->action(QLatin1String("image_add_to_new_queue")));
 
     // if queue list is empty, do not display the queue submenu
     if (QueueMgrWindow::queueManagerWindowCreated() &&
         !QueueMgrWindow::queueManagerWindow()->queuesMap().isEmpty())
     {
         QueueMgrWindow* const qmw = QueueMgrWindow::queueManagerWindow();
-        KMenu* const queueMenu    = new KMenu(i18n("Add to Existing Queue"), bqmMenu);
+        QMenu* const queueMenu    = new QMenu(i18n("Add to Existing Queue"), bqmMenu);
 
         // queueActions is used by the exec() method to emit an appropriate signal.
         // Reset the map before filling in the actions.
@@ -870,7 +780,7 @@ void ContextMenuHelper::addAlbumCheckUncheckActions(Album* album)
             allString = i18n("All Tags");
     }
 
-    KMenu* const selectTagsMenu = new KMenu(i18nc("select tags menu", "Select"));
+    QMenu* const selectTagsMenu = new QMenu(i18nc("select tags menu", "Select"));
     addSubMenu(selectTagsMenu);
 
     selectTagsMenu->addAction(allString, d->albumModel, SLOT(checkAllAlbums()));
@@ -880,7 +790,7 @@ void ContextMenuHelper::addAlbumCheckUncheckActions(Album* album)
     selectChildrenAction->setData(albumData);
     selectParentsAction->setData(albumData);
 
-    KMenu* const deselectTagsMenu = new KMenu(i18nc("deselect tags menu", "Deselect"));
+    QMenu* const deselectTagsMenu = new QMenu(i18nc("deselect tags menu", "Deselect"));
     addSubMenu(deselectTagsMenu);
 
     deselectTagsMenu->addAction(allString, d->albumModel, SLOT(resetAllCheckedAlbums()));
@@ -959,7 +869,7 @@ void ContextMenuHelper::addGroupMenu(const imageIds &ids, const QList<QAction*>&
         actions << extraMenuItems;
     }
 
-    KMenu* const menu = new KMenu(i18n("Group"));
+    QMenu* const menu = new QMenu(i18n("Group"));
 
     foreach(QAction* const action, actions)
     {
@@ -1148,22 +1058,22 @@ void ContextMenuHelper::slotCloseAllGroups()
 
 void ContextMenuHelper::addStandardActionCut(QObject* recv, const char* slot)
 {
-    KAction* const cut = KStandardAction::cut(recv, slot, d->parent);
+    QAction* const cut = DXmlGuiWindow::buildStdAction(StdCutAction, recv, slot, d->parent);
     addAction(cut);
 }
 
 void ContextMenuHelper::addStandardActionCopy(QObject* recv, const char* slot)
 {
-    KAction* const copy = KStandardAction::copy(recv, slot, d->parent);
+    QAction* const copy = DXmlGuiWindow::buildStdAction(StdCopyAction, recv, slot, d->parent);
     addAction(copy);
 }
 
 void ContextMenuHelper::addStandardActionPaste(QObject* recv, const char* slot)
 {
-    KAction* const paste        = KStandardAction::paste(recv, slot, d->parent);
-    const QMimeData* const data = kapp->clipboard()->mimeData(QClipboard::Clipboard);
+    QAction* const paste        = DXmlGuiWindow::buildStdAction(StdPasteAction, recv, slot, d->parent);
+    const QMimeData* const data = qApp->clipboard()->mimeData(QClipboard::Clipboard);
 
-    if (!data || !KUrl::List::canDecode(data))
+    if (!data || !data->hasUrls())
     {
         paste->setEnabled(false);
     }
@@ -1173,8 +1083,8 @@ void ContextMenuHelper::addStandardActionPaste(QObject* recv, const char* slot)
 
 void ContextMenuHelper::addStandardActionItemDelete(QObject* recv, const char* slot, int quantity)
 {
-    QAction* const trashAction = new QAction(SmallIcon("user-trash"), i18ncp("@action:inmenu Pluralized",
-                                                                       "Move to Trash", "Move %1 Files to Trash", quantity), d->parent);
+    QAction* const trashAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")), i18ncp("@action:inmenu Pluralized",
+                                             "Move to Trash", "Move %1 Files to Trash", quantity), d->parent);
     connect(trashAction, SIGNAL(triggered()),
             recv, slot);
 
@@ -1228,7 +1138,7 @@ void ContextMenuHelper::setSelectedIds(const imageIds &ids)
     }
 }
 
-void ContextMenuHelper::setSelectedItems(const KUrl::List& urls)
+void ContextMenuHelper::setSelectedItems(const QList<QUrl>& urls)
 {
     if (d->selectedItems.isEmpty())
     {

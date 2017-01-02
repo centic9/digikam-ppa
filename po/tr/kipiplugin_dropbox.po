@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-graphics-kde4\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-20 01:52+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2014-06-08 13:47+0000\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/extragear-"
@@ -19,32 +19,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Volkan Gezer"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "volkangezer@gmail.com"
-
-#: dbalbum.cpp:46
-msgid "Dropbox New Folder"
-msgstr "Dropbox Yeni Klasör"
-
-#: dbalbum.cpp:59
-msgid "The name of the folder that will be created"
-msgstr "Oluşturulacak klasörün adı"
-
-#: dbalbum.cpp:63
-msgctxt "album edit"
-msgid "Title:"
-msgstr "Başlık:"
-
-#: dbtalker.cpp:173
+#: dbtalker.cpp:184
 msgid "Authorize Dropbox"
 msgstr "Dropbox'ı Yetkilendir"
 
-#: dbtalker.cpp:180
+#: dbtalker.cpp:194
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
@@ -52,137 +31,55 @@ msgstr ""
 "Lütfen tarayıcıdaki talimatları izleyin. Oturum açtıktan ve uygulamayı "
 "yetkilendirdikten sonra Tamam'a basın."
 
-#: dbtalker.cpp:497
+#: dbtalker.cpp:422
+msgid "Error"
+msgstr ""
+
+#: dbtalker.cpp:473
 msgid "Failed to upload photo"
 msgstr "Fotoğraf gönderme başarısız"
 
-#: dbtalker.cpp:571
+#: dbtalker.cpp:534
 msgid "Failed to list folders"
 msgstr "Klasör listeleme başarısız"
 
-#: dbwidget.cpp:71
-msgid "This is the list of images to upload to your Dropbox account."
-msgstr "Bu liste, Dropbox hesabınıza yükleyeceğiniz resimlerin listesidir."
-
-#: dbwidget.cpp:77
-msgid "This is a clickable link to open Dropbox in a browser."
-msgstr "Bu, Dropbox'ı tarayıcıda açmak için tıklanabilir bir bağlantıdır."
-
-#: dbwidget.cpp:83
-msgid "Account"
-msgstr "Hesap"
-
-#: dbwidget.cpp:84
-msgid "This is the Dropbox account that is currently logged in."
-msgstr "Bu, şu anda oturumu açılmış Dropbox hesabıdır."
-
-#: dbwidget.cpp:87
-msgctxt "account settings"
-msgid "Name:"
-msgstr "İsim:"
-
-#: dbwidget.cpp:90
-msgid "Change Account"
-msgstr "Hesabı Değiştir"
-
-#: dbwidget.cpp:90
-msgid "Change Dropbox account for transfer"
-msgstr "Aktarım için Dropbox hesabını değiştir"
-
-#: dbwidget.cpp:101
-msgid "Destination"
-msgstr "Hedef"
-
-#: dbwidget.cpp:102
-msgid "This is the Dropbox folder to which selected photos will be uploaded."
-msgstr "Bu, seçilen fotoğrafların yükleneceği Dropbox klasörüdür."
-
-#: dbwidget.cpp:105
-msgid "Folder:"
-msgstr "Dizin:"
-
-#: dbwidget.cpp:109
-msgid "New Folder"
-msgstr "Yeni Dizin"
-
-#: dbwidget.cpp:110
-msgid "Create new Dropbox folder"
-msgstr "Yeni Dropbox klasörü oluştur"
-
-#: dbwidget.cpp:111
-msgctxt "album list"
-msgid "Reload"
-msgstr "Yeniden Yükle"
-
-#: dbwidget.cpp:112
-msgid "Reload album list"
-msgstr "Albüm listesini yeniden yükle"
-
-#: dbwidget.cpp:121
-msgid "Options"
-msgstr "Seçenekler"
-
-#: dbwidget.cpp:122
-msgid "These are the options that would be applied to photos before upload."
-msgstr "Bu seçenekler fotoğraflar yüklenmeden önce uygulanacak seçeneklerdir."
-
-#: dbwidget.cpp:126
-msgid "Resize photos before uploading"
-msgstr "Yüklemeden önce resimleri boyutlandır"
-
-#: dbwidget.cpp:137
-msgid "Maximum Dimension:"
-msgstr "Azami Boyut:"
-
-#: dbwidget.cpp:146
-msgid "JPEG Quality:"
-msgstr "JPEG Kalitesi:"
-
-#: dbwindow.cpp:88
+#: dbwindow.cpp:79
 msgid "Export to Dropbox"
 msgstr "Dropbox'a Aktar"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:81
 msgid "Start Upload"
 msgstr "Yüklemeyi Başlat"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:82
 msgid "Start upload to Dropbox"
 msgstr "Dropbox'a yüklemeyi başlat"
 
-#: dbwindow.cpp:107
+#: dbwindow.cpp:101
 msgid "Dropbox Export"
 msgstr "Dropbox Aktarımı"
 
-#: dbwindow.cpp:109
-msgid "A Kipi-plugin to export images to Dropbox"
+#: dbwindow.cpp:102
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Dropbox"
+msgid "A tool to export images to Dropbox"
 msgstr "Resimleri Dropbox'a aktarmak için bir Kipi eklentisi."
 
-#: dbwindow.cpp:111
+#: dbwindow.cpp:104
 #, fuzzy
-#| msgid "(c) 2013, Saurabh Patel"
-msgid ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
-msgstr "(c) 2013, Saurabh Patel"
+#| msgid "Saurabh Patel"
+msgid "(c) 2013, Saurabh Patel"
+msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
+#: dbwindow.cpp:106
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
-msgid "Author and maintainer"
-msgstr "Geliştirici ve projeyi yürüten"
-
-#: dbwindow.cpp:116
-msgid "Shourya Singh Gupta"
+#: dbwindow.cpp:107
+msgid "Author"
 msgstr ""
 
-#: dbwindow.cpp:116
-msgid "Developer"
-msgstr ""
-
-#: dbwindow.cpp:282
+#: dbwindow.cpp:281
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -192,24 +89,39 @@ msgstr ""
 "doğrulamasını tamamlamak için \"Hesabı Değiştir\" veya tekrar kimlik "
 "doğrulamak için \"Yüklemeyi Başlat\" tıklayın."
 
+#: dbwindow.cpp:293
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
 #: dbwindow.cpp:294
 msgid "No image selected. Please select which images should be uploaded."
 msgstr "Hiçbir resim seçilmedi. Lütfen yüklenecek resimleri seçin."
 
-#: dbwindow.cpp:304 dbwindow.cpp:419
-msgid "Authentication failed. Click \"Continue\" to authenticate."
+#: dbwindow.cpp:300 dbwindow.cpp:420
+msgid "Login Failed"
+msgstr ""
+
+#: dbwindow.cpp:301 dbwindow.cpp:421
+#, fuzzy
+#| msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgid "Authentication failed. Do you want to try again?"
 msgstr ""
 "Kimlik doğrulama başarısız. Kimlik doğrulaması için \"Devam et\" tıklayın."
 
-#: dbwindow.cpp:328
+#: dbwindow.cpp:325
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: dbwindow.cpp:332
+#: dbwindow.cpp:329
 msgid "Dropbox export"
 msgstr "Dropbox aktarımı"
 
-#: dbwindow.cpp:364
+#: dbwindow.cpp:362
+msgid "Uploading Failed"
+msgstr ""
+
+#: dbwindow.cpp:363
 #, kde-format
 msgid ""
 "Failed to upload photo to Dropbox.\n"
@@ -220,7 +132,7 @@ msgstr ""
 "%1\n"
 "Devam etmek ister misiniz?"
 
-#: dbwindow.cpp:443 dbwindow.cpp:449
+#: dbwindow.cpp:445 dbwindow.cpp:450
 #, kde-format
 msgid ""
 "Dropbox call failed:\n"
@@ -239,6 +151,95 @@ msgstr "&Dışarıya Aktar"
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
-#: plugin_dropbox.cpp:96
+#: plugin_dropbox.cpp:90
 msgid "Export to &Dropbox..."
 msgstr "&Dropbox'a Aktar..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Volkan Gezer"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "volkangezer@gmail.com"
+
+#~ msgid "Dropbox New Folder"
+#~ msgstr "Dropbox Yeni Klasör"
+
+#~ msgid "The name of the folder that will be created"
+#~ msgstr "Oluşturulacak klasörün adı"
+
+#~ msgctxt "album edit"
+#~ msgid "Title:"
+#~ msgstr "Başlık:"
+
+#~ msgid "This is the list of images to upload to your Dropbox account."
+#~ msgstr "Bu liste, Dropbox hesabınıza yükleyeceğiniz resimlerin listesidir."
+
+#~ msgid "This is a clickable link to open Dropbox in a browser."
+#~ msgstr "Bu, Dropbox'ı tarayıcıda açmak için tıklanabilir bir bağlantıdır."
+
+#~ msgid "Account"
+#~ msgstr "Hesap"
+
+#~ msgid "This is the Dropbox account that is currently logged in."
+#~ msgstr "Bu, şu anda oturumu açılmış Dropbox hesabıdır."
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "İsim:"
+
+#~ msgid "Change Account"
+#~ msgstr "Hesabı Değiştir"
+
+#~ msgid "Change Dropbox account for transfer"
+#~ msgstr "Aktarım için Dropbox hesabını değiştir"
+
+#~ msgid "Destination"
+#~ msgstr "Hedef"
+
+#~ msgid ""
+#~ "This is the Dropbox folder to which selected photos will be uploaded."
+#~ msgstr "Bu, seçilen fotoğrafların yükleneceği Dropbox klasörüdür."
+
+#~ msgid "Folder:"
+#~ msgstr "Dizin:"
+
+#~ msgid "New Folder"
+#~ msgstr "Yeni Dizin"
+
+#~ msgid "Create new Dropbox folder"
+#~ msgstr "Yeni Dropbox klasörü oluştur"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Yeniden Yükle"
+
+#~ msgid "Reload album list"
+#~ msgstr "Albüm listesini yeniden yükle"
+
+#~ msgid "Options"
+#~ msgstr "Seçenekler"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr ""
+#~ "Bu seçenekler fotoğraflar yüklenmeden önce uygulanacak seçeneklerdir."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Yüklemeden önce resimleri boyutlandır"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Azami Boyut:"
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "JPEG Kalitesi:"
+
+#, fuzzy
+#~| msgid "(c) 2013, Saurabh Patel"
+#~ msgid ""
+#~ "(c) 2013, Saurabh Patel\n"
+#~ "(c) 2015, Shourya Singh Gupta"
+#~ msgstr "(c) 2013, Saurabh Patel"
+
+#~ msgid "Author and maintainer"
+#~ msgstr "Geliştirici ve projeyi yürüten"

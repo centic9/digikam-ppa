@@ -31,8 +31,6 @@
 #include <QListWidgetItem>
 #include <QSharedPointer>
 
-// KDE includes
-
 // Local includes
 
 #include "dimgthreadedfilter.h"
@@ -126,8 +124,8 @@ private:
 
 private:
 
-    class FilmContainerPriv;
-    QSharedPointer<FilmContainerPriv> d;
+    class Private;
+    QSharedPointer<Private> d;
 };
 
 // ---------------------------------------------------------------------------------------------------
@@ -142,12 +140,12 @@ public:
 
     static QString FilterIdentifier()
     {
-        return "digikam:FilmFilter";
+        return QLatin1String("digikam:FilmFilter");
     }
 
     static QString DisplayableName()
     {
-        return I18N_NOOP("Color Negative Inverter");
+        return QString::fromUtf8(I18N_NOOP("Color Negative Inverter"));
     }
 
     static QList<int> SupportedVersions()
@@ -174,8 +172,8 @@ private:
 
 private:
 
-    class FilmFilterPriv;
-    FilmFilterPriv* d;
+    class Private;
+    Private* d;
 };
 
 } // namespace Digikam

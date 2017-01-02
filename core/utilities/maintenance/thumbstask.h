@@ -6,7 +6,7 @@
  * Date        : 2013-08-14
  * Description : Thread actions task for thumbs generator.
  *
- * Copyright (C) 2013-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,20 +27,17 @@
 // Qt includes
 
 #include <QImage>
-#include <QThread>
 
-// KDE includes
+// Local includes
 
-#include <threadweaver/Job.h>
-
-using namespace ThreadWeaver;
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
 
 class LoadingDescription;
 
-class ThumbsTask : public Job
+class ThumbsTask : public ActionJob
 {
     Q_OBJECT
 

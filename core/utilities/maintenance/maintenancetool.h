@@ -6,7 +6,7 @@
  * Date        : 2012-02-02
  * Description : maintenance tool
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -32,11 +32,12 @@
 // Local includes
 
 #include "progressmanager.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
-class MaintenanceTool : public ProgressItem
+class DIGIKAM_EXPORT MaintenanceTool : public ProgressItem
 {
     Q_OBJECT
 
@@ -50,8 +51,6 @@ public:
      */
     void setNotificationEnabled(bool b);
 
-    void start();
-
     /** Re-implement this method if your tool is able to use multi-core CPU to process item in parallel
      */
     virtual void setUseMultiCoreCPU(bool) {};
@@ -61,6 +60,10 @@ Q_SIGNALS:
     /** Emit when process is done (not canceled).
      */
     void signalComplete();
+
+public Q_SLOTS:
+
+    void start();
 
 protected Q_SLOTS:
 

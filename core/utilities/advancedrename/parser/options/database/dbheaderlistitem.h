@@ -26,10 +26,10 @@
 
 // Qt includes
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QTreeWidgetItem>
+#include <QObject>
+#include <QString>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 
 namespace Digikam
 {

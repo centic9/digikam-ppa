@@ -7,7 +7,7 @@
  * Description : DImg interface for image editor
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "editorcore.moc"
+#include "editorcore.h"
 
 // C++ includes
 
@@ -43,14 +43,9 @@
 #include <QImageReader>
 #include <QPainter>
 
-// KDE includes
-
-#include <kcursor.h>
-#include <kmessagebox.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "colorcorrectiondlg.h"
 #include "dimgbuiltinfilter.h"
 #include "undomanager.h"
@@ -138,7 +133,7 @@ void EditorCore::load(const QString& filePath, IOFileSettings* const iofileSetti
         {
             d->nextRawDescription = description;
 
-            RawImport* const rawImport = new RawImport(KUrl(filePath), this);
+            RawImport* const rawImport = new RawImport(QUrl::fromLocalFile(filePath), this);
             EditorToolIface::editorToolIface()->loadTool(rawImport);
 
             connect(rawImport, SIGNAL(okClicked()),
@@ -191,7 +186,7 @@ void EditorCore::slotLoadRawFromTool()
 
 void EditorCore::slotLoadRaw()
 {
-    //    kDebug() << d->nextRawDescription.rawDecodingSettings;
+    //    qCDebug(DIGIKAM_GENERAL_LOG) << d->nextRawDescription.rawDecodingSettings;
     d->load(d->nextRawDescription);
     d->nextRawDescription = LoadingDescription();
 }
@@ -285,7 +280,7 @@ void EditorCore::slotImageLoaded(const LoadingDescription& loadingDescription, c
         else if (d->exifOrient)
         {
             // Do not rotate twice if already rotated, e.g. for full size preview.
-            QVariant attribute(d->image.attribute("exifRotated"));
+            QVariant attribute(d->image.attribute(QLatin1String("exifRotated")));
 
             if (!attribute.isValid() || !attribute.toBool())
             {
@@ -298,8 +293,7 @@ void EditorCore::slotImageLoaded(const LoadingDescription& loadingDescription, c
         d->origHeight = d->image.height();
         d->width      = d->origWidth;
         d->height     = d->origHeight;
-
-        d->image.setAttribute("originalSize", d->image.size());
+        d->image.setAttribute(QLatin1String("originalSize"), d->image.size());
     }
     else
     {
@@ -308,22 +302,6 @@ void EditorCore::slotImageLoaded(const LoadingDescription& loadingDescription, c
 
     emit signalImageLoaded(d->currentDescription.filePath, valRet);
     setModified();
-
-    /*
-     *  TODO: FilterManager test block -- to be removed later
-     *
-        FilterAction fa("digikam:BCGFilter", 1);
-        fa.addParameter("contrast", 1);
-        fa.addParameter("channel", 1);
-        fa.addParameter("brightness", 1);
-        fa.addParameter("gamma", 1.2);
-
-        DImgThreadedFilter *f =  DImgFilterManager::instance()->createFilter("digikam:BCGFilter", 1);
-        f->readParameters(fa);
-        f->setupFilter(img);
-        f->startFilterDirectly();
-        delete f;
-    */
 }
 
 void EditorCore::setSoftProofingEnabled(bool enabled)
@@ -430,7 +408,7 @@ void EditorCore::slotImageSaved(const QString& filePath, bool success)
     }
     else
     {
-        kWarning() << "error saving image '" << QFile::encodeName(filePath).data();
+        qCWarning(DIGIKAM_GENERAL_LOG) << "error saving image '" << QFile::encodeName(filePath).constData();
     }
 
     d->currentFileToSave++;
@@ -480,7 +458,7 @@ QString EditorCore::ensureHasCurrentUuid() const
     if (!d->image.getImageHistory().currentReferredImage().hasUuid())
     {
         // if there is no uuid in the image, we create one.
-        QString uuid = d->image.createImageUniqueId();
+        QString uuid = QString::fromUtf8(d->image.createImageUniqueId());
         d->image.addCurrentUniqueImageId(uuid);
     }
 
@@ -671,13 +649,13 @@ void EditorCore::flipVert()
 
 void EditorCore::crop(const QRect& rect)
 {
-    d->applyBuiltinFilter(DImgBuiltinFilter(DImgBuiltinFilter::Crop, rect), new UndoActionIrreversible(this, "Crop"));
+    d->applyBuiltinFilter(DImgBuiltinFilter(DImgBuiltinFilter::Crop, rect), new UndoActionIrreversible(this, QLatin1String("Crop")));
 }
 
 void EditorCore::convertDepth(int depth)
 {
     d->applyBuiltinFilter(DImgBuiltinFilter(depth == 32 ? DImgBuiltinFilter::ConvertTo8Bit : DImgBuiltinFilter::ConvertTo16Bit),
-                          new UndoActionIrreversible(this, "Convert Color Depth"));
+                          new UndoActionIrreversible(this, QLatin1String("Convert Color Depth")));
 }
 
 DImg* EditorCore::getImg() const
@@ -688,7 +666,7 @@ DImg* EditorCore::getImg() const
     }
     else
     {
-        kWarning() << "d->image is NULL";
+        qCWarning(DIGIKAM_GENERAL_LOG) << "d->image is NULL";
         return 0;
     }
 }
@@ -729,6 +707,7 @@ void EditorCore::putImg(const QString& caller, const FilterAction& action, const
 void EditorCore::setUndoImg(const UndoMetadataContainer& c, const DImg& img)
 {
     // called from UndoManager
+
     d->putImageData(img.bits(), img.width(), img.height(), img.sixteenBit());
     c.toImage(d->image);
 }
@@ -736,6 +715,7 @@ void EditorCore::setUndoImg(const UndoMetadataContainer& c, const DImg& img)
 void EditorCore::imageUndoChanged(const UndoMetadataContainer& c)
 {
     // called from UndoManager
+
     d->origWidth    = d->image.width();
     d->origHeight   = d->image.height();
     c.toImage(d->image);
@@ -783,11 +763,11 @@ void EditorCore::putIccProfile(const IccProfile& profile)
 {
     if (d->image.isNull())
     {
-        kWarning() << "d->image is NULL";
+        qCWarning(DIGIKAM_GENERAL_LOG) << "d->image is NULL";
         return;
     }
 
-    //kDebug() << "Embedding profile: " << profile;
+    //qCDebug(DIGIKAM_GENERAL_LOG) << "Embedding profile: " << profile;
     d->image.setIccProfile(profile);
     setModified();
 }
@@ -817,7 +797,7 @@ IccProfile EditorCore::getEmbeddedICC() const
     return d->image.getIccProfile();
 }
 
-KExiv2Data EditorCore::getMetadata() const
+MetaEngineData EditorCore::getMetadata() const
 {
     return d->image.getMetadata();
 }
@@ -829,7 +809,7 @@ QString EditorCore::getImageFilePath() const
 
 QString EditorCore::getImageFileName() const
 {
-    return getImageFilePath().section('/', -1);
+    return getImageFilePath().section(QLatin1Char('/'), -1);
 }
 
 QString EditorCore::getImageFormat() const
@@ -844,8 +824,8 @@ QString EditorCore::getImageFormat() const
     // It is a bug in the loader if format attribute is not given
     if (mimeType.isEmpty())
     {
-        kWarning() << "DImg object does not contain attribute \"format\"";
-        mimeType = QImageReader::imageFormat(getImageFilePath());
+        qCWarning(DIGIKAM_GENERAL_LOG) << "DImg object does not contain attribute \"format\"";
+        mimeType = QString::fromUtf8(QImageReader::imageFormat(getImageFilePath()));
     }
 
     return mimeType;

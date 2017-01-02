@@ -6,7 +6,7 @@
  * Date        : 2007-03-05
  * Description : digiKam light table GUI
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,16 +27,11 @@
 // Qt includes
 
 #include <QSplitter>
-
-// KDE includes
-
-#include <kaction.h>
-#include <kselectaction.h>
-#include <ksqueezedtextlabel.h>
+#include <QAction>
 
 // Local includes
 
-#include "globals.h"
+#include "digikam_globals.h"
 #include "imagepropertiessidebardb.h"
 #include "statusprogressbar.h"
 #include "dzoombar.h"
@@ -47,6 +42,8 @@
 namespace Digikam
 {
 
+class DAdjustableLabel;
+
 class LightTableWindow::Private
 {
 
@@ -55,6 +52,7 @@ public:
     Private() :
         autoLoadOnRightPanel(true),
         autoSyncPreview(true),
+        fromLeftPreview(true),
         setItemLeftAction(0),
         setItemRightAction(0),
         clearListAction(0),
@@ -63,6 +61,7 @@ public:
         fileDeleteAction(0),
         fileDeleteFinalAction(0),
         slideShowAction(0),
+        presentationAction(0),
         leftZoomPlusAction(0),
         leftZoomMinusAction(0),
         leftZoomTo100percents(0),
@@ -79,7 +78,6 @@ public:
         viewCMViewAction(0),
         syncPreviewAction(0),
         navigateByPairAction(0),
-        showMenuBarAction(0),
         clearOnCloseAction(0),
         leftFileName(0),
         rightFileName(0),
@@ -101,38 +99,39 @@ public:
 
     bool                      autoLoadOnRightPanel;
     bool                      autoSyncPreview;
+    bool                      fromLeftPreview;
 
-    KAction*                  setItemLeftAction;
-    KAction*                  setItemRightAction;
-    KAction*                  clearListAction;
-    KAction*                  editItemAction;
-    KAction*                  removeItemAction;
-    KAction*                  fileDeleteAction;
-    KAction*                  fileDeleteFinalAction;
-    KAction*                  slideShowAction;
-    KAction*                  leftZoomPlusAction;
-    KAction*                  leftZoomMinusAction;
-    KAction*                  leftZoomTo100percents;
-    KAction*                  leftZoomFitToWindowAction;
-    KAction*                  rightZoomPlusAction;
-    KAction*                  rightZoomMinusAction;
-    KAction*                  rightZoomTo100percents;
-    KAction*                  rightZoomFitToWindowAction;
+    QAction*                  setItemLeftAction;
+    QAction*                  setItemRightAction;
+    QAction*                  clearListAction;
+    QAction*                  editItemAction;
+    QAction*                  removeItemAction;
+    QAction*                  fileDeleteAction;
+    QAction*                  fileDeleteFinalAction;
+    QAction*                  slideShowAction;
+    QAction*                  presentationAction;
+    QAction*                  leftZoomPlusAction;
+    QAction*                  leftZoomMinusAction;
+    QAction*                  leftZoomTo100percents;
+    QAction*                  leftZoomFitToWindowAction;
+    QAction*                  rightZoomPlusAction;
+    QAction*                  rightZoomMinusAction;
+    QAction*                  rightZoomTo100percents;
+    QAction*                  rightZoomFitToWindowAction;
 
-    KAction*                  forwardAction;
-    KAction*                  backwardAction;
-    KAction*                  firstAction;
-    KAction*                  lastAction;
+    QAction*                  forwardAction;
+    QAction*                  backwardAction;
+    QAction*                  firstAction;
+    QAction*                  lastAction;
 
-    KToggleAction*            showBarAction;
-    KToggleAction*            viewCMViewAction;
-    KToggleAction*            syncPreviewAction;
-    KToggleAction*            navigateByPairAction;
-    KToggleAction*            showMenuBarAction;
-    KToggleAction*            clearOnCloseAction;
+    QAction*                  showBarAction;
+    QAction*                  viewCMViewAction;
+    QAction*                  syncPreviewAction;
+    QAction*                  navigateByPairAction;
+    QAction*                  clearOnCloseAction;
 
-    KSqueezedTextLabel*       leftFileName;
-    KSqueezedTextLabel*       rightFileName;
+    DAdjustableLabel*         leftFileName;
+    DAdjustableLabel*         rightFileName;
 
     SidebarSplitter*          hSplitter;
     ThumbBarDock*             barViewDock;

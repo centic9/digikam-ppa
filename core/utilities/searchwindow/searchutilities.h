@@ -35,16 +35,12 @@
 #include <QDoubleSpinBox>
 #include <QSpinBox>
 
-// KDE includes
-
-#include <ksqueezedtextlabel.h>
-
 // Local includes
 
 #include "comboboxutilities.h"
 
-class KTextEdit;
-class KPushButton;
+class QTextEdit;
+class QPushButton;
 
 namespace Digikam
 {
@@ -74,7 +70,7 @@ public:
      *  but paints nothing.
      *  If stayVisible is false, setVisible(false) is called,
      *  which removes the widget for layouting etc.
-     *  Default: false 
+     *  Default: false
      */
     void stayVisibleWhenAnimatedOut(bool stayVisible);
 
@@ -170,6 +166,7 @@ public:
      *  linear steps are not applicable
      */
     explicit CustomStepsIntSpinBox(QWidget* const parent = 0);
+    ~CustomStepsIntSpinBox();
 
     /** Set a list of values that are usually applicable for the
      *  type of data of the combo box. The user can still type in
@@ -196,7 +193,7 @@ public:
      */
     void enableFractionMagic(const QString& prefix);
 
-    /** Resets to minimum value 
+    /** Resets to minimum value
      */
     void reset();
 
@@ -215,18 +212,12 @@ protected:
 
 private Q_SLOTS:
 
-    void slotValueChanged(int d);
+    void slotValueChanged(int val);
 
 private:
 
-    bool       m_beforeInitialValue;
-    QList<int> m_values;
-    int        m_initialValue;
-    int        m_smallerStep;
-    int        m_largerStep;
-    bool       m_invertStepping;
-    QString    m_fractionPrefix;
-    QString    m_fractionSpecialValueText;
+    class Private;
+    Private* const d;
 };
 
 // -------------------------------------------------------------------------
@@ -253,8 +244,8 @@ protected Q_SLOTS:
 
 protected:
 
-    KTextEdit*   m_edit;
-    KPushButton* m_okButton;
+    QTextEdit*   m_edit;
+    QPushButton* m_okButton;
     QWidget*     m_widget;
 };
 

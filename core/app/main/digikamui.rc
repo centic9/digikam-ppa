@@ -1,6 +1,6 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
 <!-- NOTE: don't forget to increase version ID when this file is modified -->
-<gui version="401" name="digikam" >
+<gui version="515" name="digikam" translationDomain="digikam" >
 
  <MenuBar>
 
@@ -28,7 +28,6 @@
      <Action name="album_propsEdit" />
      <Action name="album_rename" />
      <Action name="album_openinfilemanager" />
-     <Action name="album_openinterminal" />
      <Action name="album_remove" />
      <Action name="album_delete" />
    <Separator/>
@@ -46,7 +45,7 @@
   </Menu>
 
   <Menu name="Image" >
-   <text>&amp;Image</text>
+   <text>&amp;Item</text>
      <Action name="image_edit" />
      <Action name="open_with_default_application" />
    <Separator />
@@ -65,6 +64,8 @@
      <Action name="image_flip"/>
      <Action name="image_transform_exif"/>
      <Action name="image_set_exif_orientation"/>
+     <Action name="metadata_edit"/>
+     <Action name="geolocation_edit"/>
    <Separator />
      <DefineGroup name="kipi_image_group" append="kipi_image_group" />
   </Menu>
@@ -125,6 +126,9 @@
       <Separator/>
         <DefineGroup name="kipi_album_group" append="kipi_album_group" />
       <Separator/>
+        <Action name="expoblending" />
+        <Action name="panorama" />
+        <Action name="calendar" />
         <DefineGroup name="kipi_tool_group" append="kipi_tool_group" />
       <Separator/>
         <DefineGroup name="kipi_batch_group" append="kipi_batch_group" />
@@ -137,15 +141,16 @@
       <Separator/>
       <Action name="import_addImages" />
       <Action name="import_addFolders" />
+      <Action name="import_scan" />
       <Separator/>
       <Action name="empty_import_group" />
       <DefineGroup name="kipi_import_group" append="kipi_import_group" />
   </Menu>
 
-   <Menu name="Export"><text>&amp;Export</text>
+  <Menu name="Export"><text>&amp;Export</text>
       <Action name="empty_export_group" />
       <DefineGroup name="kipi_export_group" append="kipi_export_group" />
-   </Menu>
+  </Menu>
 
   <Menu name="settings" noMerge="1"><Text>&amp;Settings</Text>
      <Merge name="StandardToolBarMenuHandler" />
@@ -166,10 +171,9 @@
     <Action name="help_rawcameralist"/>
     <Action name="help_librariesinfo"/>
     <Action name="help_dbstat"/>
-    <Action name="help_kipi"/>
-    <Action name="help_tipofday"/>
     <Separator/>
     <Action name="help_donatemoney"/>
+    <Action name="help_recipesbook"/>
     <Action name="help_contribute"/>
   </Menu>
 

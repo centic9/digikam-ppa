@@ -6,7 +6,7 @@
  * Date        : 2007-09-06
  * Description : a dialog to control camera capture.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,22 +21,25 @@
  *
  * ============================================================ */
 
-#include "capturedlg.moc"
+#include "capturedlg.h"
 
 // Qt includes
 
 #include <QTimer>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 // KDE includes
 
-#include <kconfig.h>
-#include <klocale.h>
-#include <kglobal.h>
+#include <klocalizedstring.h>
+#include <ksharedconfig.h>
 
 // Local includes
 
 #include "cameracontroller.h"
 #include "capturewidget.h"
+#include "dxmlguiwindow.h"
 
 namespace Digikam
 {
@@ -48,6 +51,7 @@ public:
     Private() :
         stopPreview(false),
         timer(0),
+        buttons(0),
         controller(0),
         captureWidget(0)
     {
@@ -56,6 +60,7 @@ public:
     bool              stopPreview;
 
     QTimer*           timer;
+    QDialogButtonBox* buttons;
 
     CameraController* controller;
 
@@ -64,35 +69,49 @@ public:
 
 CaptureDlg::CaptureDlg(QWidget* const parent, CameraController* const controller,
                        const QString& cameraTitle)
-    : KDialog(parent), d(new Private)
+    : QDialog(parent),
+      d(new Private)
 {
     d->controller = controller;
-    setCaption(i18nc("@title:window %1: name of the camera", "Capture from %1", cameraTitle));
-    setButtons(Help | Cancel | Ok);
-    setDefaultButton(Ok);
-    setButtonText(Ok, i18nc("@action:button", "Capture"));
+
+    setWindowTitle(i18nc("@title:window %1: name of the camera", "Capture from %1", cameraTitle));
     setModal(true);
-    setHelp("camerainterface.anchor", "digikam");
+
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Cancel)->setDefault(true);
+    d->buttons->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Capture"));
 
     d->captureWidget = new CaptureWidget(this);
-    setMainWidget(d->captureWidget);
-    restoreDialogSize(KGlobal::config()->group("Capture Tool Dialog"));
 
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(d->captureWidget);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
+
+    KConfigGroup group = KSharedConfig::openConfig()->group("Capture Tool Dialog");
+
+    winId();
+    DXmlGuiWindow::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size());
 
     // -------------------------------------------------------------
 
-    connect(this, SIGNAL(cancelClicked()),
+    connect(d->buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(slotCapture()));
+
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
             this, SLOT(slotCancel()));
 
-    connect(this, SIGNAL(okClicked()),
-            this, SLOT(slotCapture()));
+    connect(d->buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
 
     connect(d->controller, SIGNAL(signalPreview(QImage)),
             this, SLOT(slotPreviewDone(QImage)));
 
     // -------------------------------------------------------------
 
-    if(d->controller->cameraCaptureImagePreviewSupport()) {
+    if (d->controller->cameraCaptureImagePreviewSupport())
+    {
         d->timer = new QTimer(this);
 
         connect( d->timer, SIGNAL(timeout()),
@@ -113,23 +132,31 @@ CaptureDlg::~CaptureDlg()
 void CaptureDlg::closeEvent(QCloseEvent* e)
 {
     d->stopPreview = true;
-    if(d->timer) {
+
+    if (d->timer)
+    {
         d->timer->stop();
     }
-    KConfigGroup group = KGlobal::config()->group("Capture Tool Dialog");
-    saveDialogSize(group);
+
+    KConfigGroup group = KSharedConfig::openConfig()->group(QLatin1String("Capture Tool Dialog"));
+    DXmlGuiWindow::saveWindowSize(windowHandle(), group);
+
     e->accept();
 }
 
 void CaptureDlg::slotCancel()
 {
     d->stopPreview = true;
-    if(d->timer) {
+
+    if (d->timer)
+    {
         d->timer->stop();
     }
-    KConfigGroup group = KGlobal::config()->group("Capture Tool Dialog");
-    saveDialogSize(group);
-    done(Cancel);
+
+    KConfigGroup group = KSharedConfig::openConfig()->group(QLatin1String("Capture Tool Dialog"));
+    DXmlGuiWindow::saveWindowSize(windowHandle(), group);
+
+    reject();
 }
 
 void CaptureDlg::slotPreview()
@@ -140,17 +167,20 @@ void CaptureDlg::slotPreview()
 void CaptureDlg::slotCapture()
 {
     d->stopPreview = true;
-    if(d->timer) {
+
+    if (d->timer)
+    {
         d->timer->stop();
     }
 
     disconnect(d->controller, SIGNAL(signalPreview(QImage)),
                this, SLOT(slotPreviewDone(QImage)));
 
-    KConfigGroup group = KGlobal::config()->group("Capture Tool Dialog");
-    saveDialogSize(group);
+    KConfigGroup group = KSharedConfig::openConfig()->group("Capture Tool Dialog");
+    DXmlGuiWindow::saveWindowSize(windowHandle(), group);
     d->controller->capture();
-    done(Ok);
+
+    accept();
 }
 
 void CaptureDlg::slotPreviewDone(const QImage& preview)
@@ -161,6 +191,11 @@ void CaptureDlg::slotPreviewDone(const QImage& preview)
     {
         d->timer->start(0);
     }
+}
+
+void CaptureDlg::slotHelp()
+{
+    DXmlGuiWindow::openHandbook(QLatin1String("camerainterface.anchor"), QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

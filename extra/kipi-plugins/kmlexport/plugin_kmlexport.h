@@ -6,7 +6,7 @@
  * Date        : 2006-05-16
  * Description : A plugin to create KML files to present images with coordinates.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,11 +28,11 @@
 
 #include <QVariant>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/plugin.h>
+#include <KIPI/Plugin>
 
-class KAction;
+class QAction;
 
 namespace KIPI
 {
@@ -57,7 +57,6 @@ public:
 
 protected Q_SLOTS:
 
-    void slotKMLGenerate();
     void slotKMLExport();
 
 private:
@@ -66,7 +65,7 @@ private:
 
 private:
 
-    KAction*   m_actionKMLExport;
+    QAction *   m_actionKMLExport;
 
     Interface* m_interface;
 };

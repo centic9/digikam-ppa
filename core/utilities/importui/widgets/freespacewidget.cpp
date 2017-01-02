@@ -6,7 +6,7 @@
  * Date        : 2007-08-31
  * Description : a widget to display free space for a mount-point.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "freespacewidget.moc"
+#include "freespacewidget.h"
 
 // C++ includes
 
@@ -37,19 +37,21 @@
 #include <QFont>
 #include <QBoxLayout>
 #include <QFontMetrics>
+#include <QUrl>
+#include <QIcon>
+#include <QStyle>
+#include <QStorageInfo>
 
 // KDE includes
 
-#include <kurl.h>
-#include <klocale.h>
-#include <kio/global.h>
-#include <kiconloader.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "freespacetooltip.h"
 #include "applicationsettings.h"
+#include "imagepropertiestab.h"
 
 namespace Digikam
 {
@@ -116,7 +118,8 @@ public:
 };
 
 FreeSpaceWidget::FreeSpaceWidget(QWidget* const parent, int width)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setFixedWidth(width);
@@ -142,11 +145,11 @@ void FreeSpaceWidget::setMode(FreeSpaceMode mode)
 
     if (d->mode == FreeSpaceWidget::AlbumLibrary)
     {
-        d->iconPix = SmallIcon("folder-image");
+        d->iconPix = QIcon::fromTheme(QLatin1String("folder-pictures")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize));
     }
-    else 
+    else
     {
-        d->iconPix = SmallIcon("camera-photo");
+        d->iconPix = QIcon::fromTheme(QLatin1String("camera-photo")).pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize));
     }
 
     update();
@@ -271,7 +274,7 @@ unsigned long FreeSpaceWidget::kBAvail(const QString& path) const
 
     if (!mountPointMatch)
     {
-        kWarning() << "Did not identify a valid mount point for" << path;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Did not identify a valid mount point for" << path;
         return (unsigned long)(-1);
     }
 
@@ -299,6 +302,7 @@ void FreeSpaceWidget::paintEvent(QPaintEvent*)
         {
             barcol = QColor(240, 255, 62);   // Smooth Yellow.
         }
+
         if (peUsed > 95)
         {
             barcol = QColor(255, 62, 62);    // Smooth Red.
@@ -312,7 +316,7 @@ void FreeSpaceWidget::paintEvent(QPaintEvent*)
         p.drawRect(gRect);
 
         QRect tRect(d->iconPix.height() + 3, 2, width() - 3 - d->iconPix.width() - 2, height() - 5);
-        QString text        = QString("%1%").arg(peUsed);
+        QString text        = QString::fromUtf8("%1%").arg(peUsed);
         QFontMetrics fontMt = p.fontMetrics();
         //        QRect fontRect      = fontMt.boundingRect(tRect.x(), tRect.y(),
         //                                                  tRect.width(), tRect.height(), 0, text);
@@ -341,21 +345,21 @@ void FreeSpaceWidget::updateToolTip()
         if (d->dSizeKb > 0)
         {
             tip += cnt.cellBeg + i18nc("@info Storage", "Capacity:") + cnt.cellMid;
-            tip += KIO::convertSizeFromKiB(d->kBSize) + cnt.cellEnd;
+            tip += ImagePropertiesTab::humanReadableBytesCount(d->kBSize) + cnt.cellEnd;
 
             tip += cnt.cellBeg + i18nc("@info Storage", "Available:") + cnt.cellMid;
-            tip += KIO::convertSizeFromKiB(d->kBAvail) + cnt.cellEnd;
+            tip += ImagePropertiesTab::humanReadableBytesCount(d->kBAvail) + cnt.cellEnd;
 
             tip += cnt.cellBeg + i18nc("@info Storage", "Require:") + cnt.cellMid;
-            tip += KIO::convertSizeFromKiB(d->dSizeKb) + cnt.cellEnd;
+            tip += ImagePropertiesTab::humanReadableBytesCount(d->dSizeKb) + cnt.cellEnd;
         }
         else
         {
             tip += cnt.cellBeg + i18nc("@info Storage", "Capacity:") + cnt.cellMid;
-            tip += KIO::convertSizeFromKiB(d->kBSize) + cnt.cellEnd;
+            tip += ImagePropertiesTab::humanReadableBytesCount(d->kBSize) + cnt.cellEnd;
 
             tip += cnt.cellBeg + i18nc("@info Storage", "Available:") + cnt.cellMid;
-            tip += KIO::convertSizeFromKiB(d->kBAvail) + cnt.cellEnd;
+            tip += ImagePropertiesTab::humanReadableBytesCount(d->kBAvail) + cnt.cellEnd;
         }
 
         tip += cnt.tipFooter;
@@ -380,56 +384,20 @@ void FreeSpaceWidget::leaveEvent(QEvent* e)
     d->toolTip->hide();
 }
 
-#if KDE_IS_VERSION(4,1,68)
 void FreeSpaceWidget::slotTimeout()
 {
     foreach(const QString& path, d->paths)
     {
-        KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(path);
+        QStorageInfo info(path);
 
         if (info.isValid())
         {
-            addInformation((unsigned long)(info.size()      / 1024.0),
-                           (unsigned long)(info.used()      / 1024.0),
-                           (unsigned long)(info.available() / 1024.0),
-                           info.mountPoint());
+            addInformation((unsigned long)(info.bytesTotal()                         / 1024.0),
+                           (unsigned long)((info.bytesTotal()-info.bytesAvailable()) / 1024.0),
+                           (unsigned long)(info.bytesAvailable()                     / 1024.0),
+                           info.rootPath());
         }
     }
-}
-#else
-
-void FreeSpaceWidget::slotTimeout()
-{
-    KMountPoint::List list = KMountPoint::currentMountPoints();
-
-    foreach(const QString& path, d->paths)
-    {
-        KMountPoint::Ptr mp = list.findByPath(path);
-
-        if (mp)
-        {
-            KDiskFreeSpace* const job = new KDiskFreeSpace(this);
-
-            connect(job, SIGNAL(foundMountPoint(QString,quint64,quint64,quint64)),
-                    this, SLOT(slotAvailableFreeSpace(QString,quint64,quint64,quint64)));
-
-            job->readDF(mp->mountPoint());
-        }
-    }
-}
-#endif /* KDE_IS_VERSION(4,1,68) */
-
-void FreeSpaceWidget::slotAvailableFreeSpace(const QString& mountPoint, quint64 kBSize,
-                                             quint64 kBUsed, quint64 kBAvail)
-{
-#if KDE_IS_VERSION(4,1,68)
-    Q_UNUSED(mountPoint);
-    Q_UNUSED(kBSize);
-    Q_UNUSED(kBUsed);
-    Q_UNUSED(kBAvail);
-#else
-    addInformation(kBSize, kBUsed, kBAvail, mountPoint);
-#endif /* KDE_IS_VERSION(4,1,68) */
 }
 
 }  // namespace Digikam

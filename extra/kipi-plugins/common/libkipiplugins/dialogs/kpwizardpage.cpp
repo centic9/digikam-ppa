@@ -6,7 +6,7 @@
  * Date        : 2009-11-13
  * Description : a template to create wizzard page.
  *
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,15 +26,15 @@
 
 #include <QHBoxLayout>
 #include <QLabel>
+#include <QVBoxLayout>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QStyle>
+#include <QScrollArea>
 
-// KDE includes
+// Local includes
 
-#include <kvbox.h>
-#include <kiconloader.h>
-#include <kseparator.h>
-#include <kstandarddirs.h>
-#include <kassistantdialog.h>
-#include <kpagewidgetmodel.h>
+#include "kptooldialog.h"
 
 namespace KIPIPlugins
 {
@@ -46,48 +46,78 @@ public:
     Private()
     {
         hlay          = 0;
-        page          = 0;
         logo          = 0;
         leftBottomPix = 0;
+        leftView      = 0;
+        isComplete    = true;
+        id            = -1;
+        dlg           = 0;
     }
 
-    QLabel*          logo;
-    QLabel*          leftBottomPix;
+    bool            isComplete;
+    int             id;
 
-    QHBoxLayout*     hlay;
+    QWidget*        leftView;
+    QLabel*         logo;
+    QLabel*         leftBottomPix;
 
-    KPageWidgetItem* page;
+    QHBoxLayout*    hlay;
+
+    KPWizardDialog* dlg;
 };
 
-KPWizardPage::KPWizardPage(KAssistantDialog* const dlg, const QString& title)
-    : QScrollArea(dlg), d(new Private)
+KPWizardPage::KPWizardPage(KPWizardDialog* const dlg, const QString& title)
+    : QWizardPage(dlg),
+      d(new Private)
 {
-    QWidget* const panel = new QWidget(viewport());
-    setWidget(panel);
-    setWidgetResizable(true);
+    setTitle(title);
 
-    d->hlay           = new QHBoxLayout(panel);
-    KVBox* const vbox = new KVBox(panel);
-    d->logo           = new QLabel(vbox);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    QScrollArea* const sv = new QScrollArea(this);
+    QWidget* const panel  = new QWidget(sv->viewport());
+    sv->setWidget(panel);
+    sv->setWidgetResizable(true);
+
+    d->hlay                    = new QHBoxLayout(panel);
+    d->leftView                = new QWidget(panel);
+    QVBoxLayout* const vboxLay = new QVBoxLayout(d->leftView);
+    d->logo                    = new QLabel(d->leftView);
     d->logo->setAlignment(Qt::AlignTop);
-    d->logo->setPixmap(QPixmap(KStandardDirs::locate("data", "kipi/data/kipi-logo.svg"))
+    d->logo->setPixmap(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                                      QString::fromLatin1(":/images/kipi-logo.svg")))
                                .scaled(128, 128, Qt::KeepAspectRatio, Qt::SmoothTransformation));
 
-    QLabel* const space = new QLabel(vbox);
-    d->leftBottomPix    = new QLabel(vbox);
+    QWidget* const space = new QLabel(d->leftView);
+    d->leftBottomPix     = new QLabel(d->leftView);
     d->leftBottomPix->setAlignment(Qt::AlignBottom);
-    vbox->setStretchFactor(space, 10);
-    vbox->setMargin(KDialog::spacingHint());
-    vbox->setSpacing(KDialog::spacingHint());
 
-    KSeparator* const line = new KSeparator(Qt::Vertical, panel);
+    vboxLay->addWidget(d->logo);
+    vboxLay->addWidget(space);
+    vboxLay->addWidget(d->leftBottomPix);
+    vboxLay->setStretchFactor(space, 10);
+    vboxLay->setContentsMargins(spacing, spacing, spacing, spacing);
+    vboxLay->setSpacing(spacing);
 
-    d->hlay->addWidget(vbox);
-    d->hlay->addWidget(line);
-    d->hlay->setMargin(0);
-    d->hlay->setSpacing(KDialog::spacingHint());
+    QFrame* const vline = new QFrame(panel);
+    vline->setLineWidth(1);
+    vline->setMidLineWidth(0);
+    vline->setFrameShape(QFrame::VLine);
+    vline->setFrameShadow(QFrame::Sunken);
+    vline->setMinimumSize(2, 0);
+    vline->updateGeometry();
 
-    d->page = dlg->addPage(this, title);
+    d->hlay->addWidget(d->leftView);
+    d->hlay->addWidget(vline);
+    d->hlay->setContentsMargins(QMargins());
+    d->hlay->setSpacing(spacing);
+
+    QVBoxLayout* const layout = new QVBoxLayout;
+    layout->addWidget(sv);
+    setLayout(layout);
+
+    d->dlg = dlg;
+    d->id  = d->dlg->addPage(this);
 }
 
 KPWizardPage::~KPWizardPage()
@@ -95,9 +125,25 @@ KPWizardPage::~KPWizardPage()
     delete d;
 }
 
-KPageWidgetItem* KPWizardPage::page() const
+void KPWizardPage::setComplete(bool b)
 {
-    return d->page;
+    d->isComplete = b;
+    emit completeChanged();
+}
+
+bool KPWizardPage::isComplete() const
+{
+    return d->isComplete;
+}
+
+int KPWizardPage::id() const
+{
+    return d->id;
+}
+
+void KPWizardPage::setShowLeftView(bool v)
+{
+    d->leftView->setVisible(v);
 }
 
 void KPWizardPage::setPageWidget(QWidget* const w)
@@ -105,6 +151,7 @@ void KPWizardPage::setPageWidget(QWidget* const w)
     d->hlay->addWidget(w);
     d->hlay->setStretchFactor(w, 10);
 }
+
 void KPWizardPage::removePageWidget(QWidget* const w)
 {
     d->hlay->removeWidget(w);
@@ -113,6 +160,11 @@ void KPWizardPage::removePageWidget(QWidget* const w)
 void KPWizardPage::setLeftBottomPix(const QPixmap& pix)
 {
     d->leftBottomPix->setPixmap(pix);
+}
+
+KPWizardDialog* KPWizardPage::assistant() const
+{
+    return d->dlg;
 }
 
 }   // namespace KIPIPlugins

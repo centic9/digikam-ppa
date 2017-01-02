@@ -27,7 +27,7 @@
 // Local includes
 
 #include "imageinfo.h"
-#include "dcategorizedview.h"
+#include "itemviewcategorized.h"
 #include "thumbnailsize.h"
 #include "iccsettingscontainer.h"
 
@@ -44,7 +44,7 @@ class ImageDelegate;
 class ImageDelegateOverlay;
 class ImageThumbnailModel;
 
-class ImageCategorizedView : public DCategorizedView
+class ImageCategorizedView : public ItemViewCategorized
 {
     Q_OBJECT
 
@@ -74,18 +74,18 @@ public:
 
     Album*                 currentAlbum()          const;
     ImageInfo              currentInfo()           const;
-    KUrl                   currentUrl()            const;
+    QUrl                   currentUrl()            const;
 
     QList<ImageInfo>       selectedImageInfos()             const;
     QList<ImageInfo>       selectedImageInfosCurrentFirst() const;
-    KUrl::List             selectedUrls()                   const;
+    QList<QUrl>             selectedUrls()                   const;
 
     QList<ImageInfo>       imageInfos()                     const;
-    KUrl::List             urls()                           const;
+    QList<QUrl>             urls()                           const;
 
     /** Selects the index as current and scrolls to it.
      */
-    void toIndex(const KUrl& url);
+    void toIndex(const QUrl& url);
 
     /** Returns the n-th info after the given one.
      *  Specifically, return the previous info for nth = -1
@@ -135,9 +135,13 @@ public Q_SLOTS:
      */
     void setCurrentWhenAvailable(qlonglong imageId);
 
+    /** Set as current item when it becomes available, the item identified by its file url.
+     */
+    void setCurrentUrlWhenAvailable(const QUrl& url);
+
     /** Set as current item the item identified by its file url.
      */
-    void setCurrentUrl(const KUrl& url);
+    void setCurrentUrl(const QUrl& url);
 
     /** Set as current item the item identified by the imageinfo.
      */
@@ -145,7 +149,7 @@ public Q_SLOTS:
 
     /** Set selected items identified by their file urls.
      */
-    void setSelectedUrls(const KUrl::List& urlList);
+    void setSelectedUrls(const QList<QUrl>& urlList);
 
     /** Set selected items.
      */
@@ -176,6 +180,7 @@ Q_SIGNALS:
 protected Q_SLOTS:
 
     void slotImageInfosAdded();
+    void slotCurrentUrlTimer();
 
 protected:
 

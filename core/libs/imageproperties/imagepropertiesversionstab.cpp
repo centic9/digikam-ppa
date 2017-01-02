@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "imagepropertiesversionstab.moc"
+#include "imagepropertiesversionstab.h"
 
 // Qt includes
 
@@ -29,20 +29,18 @@
 #include <QGridLayout>
 #include <QLabel>
 #include <QModelIndex>
+#include <QUrl>
+#include <QIcon>
+#include <QString>
 
 // KDE includes
 
-#include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kglobal.h>
-#include <kdebug.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kstandardguiitem.h>
-#include <kurl.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "imageversionsmodel.h"
 #include "dmetadata.h"
 #include "dimagehistory.h"
@@ -74,10 +72,11 @@ public:
     static const QString  configActiveTab;
 };
 
-const QString ImagePropertiesVersionsTab::Private::configActiveTab("Version Properties Tab");
+const QString ImagePropertiesVersionsTab::Private::configActiveTab(QLatin1String("Version Properties Tab"));
 
 ImagePropertiesVersionsTab::ImagePropertiesVersionsTab(QWidget* const parent)
-    : KTabWidget(parent), d(new Private)
+    : QTabWidget(parent),
+      d(new Private)
 {
     d->versionsWidget       = new VersionsWidget(this);
     insertTab(0, d->versionsWidget, i18n("Versions"));
@@ -98,7 +97,7 @@ void ImagePropertiesVersionsTab::readSettings(KConfigGroup& group)
 {
     QString tab = group.readEntry(d->configActiveTab, "versions");
 
-    if (tab == "versions")
+    if (tab == QLatin1String("versions"))
         setCurrentWidget(d->versionsWidget);
     else
         setCurrentWidget(d->filtersHistoryWidget);
@@ -158,7 +157,9 @@ void ImagePropertiesVersionsTab::addShowHideOverlay()
 
 void ImagePropertiesVersionsTab::addOpenImageAction()
 {
-    ActionVersionsOverlay* const overlay = d->versionsWidget->addActionOverlay(KStandardGuiItem::open());
+    ActionVersionsOverlay* const overlay = d->versionsWidget->addActionOverlay(QIcon::fromTheme(QLatin1String("document-open")),
+                                                                               i18n("Open"),
+                                                                               i18n("Open file"));
 
     connect(overlay, SIGNAL(activated(ImageInfo)),
             this, SIGNAL(actionTriggered(ImageInfo)));
@@ -166,10 +167,9 @@ void ImagePropertiesVersionsTab::addOpenImageAction()
 
 void ImagePropertiesVersionsTab::addOpenAlbumAction(const ImageModel* referenceModel)
 {
-    KGuiItem gui(i18n("Go To Albums"), "folder-image",
-                 i18nc("@info:tooltip", "Go to the album of this image"));
-
-    ActionVersionsOverlay* const overlay = d->versionsWidget->addActionOverlay(gui);
+    ActionVersionsOverlay* const overlay = d->versionsWidget->addActionOverlay(QIcon::fromTheme(QLatin1String("folder-pictures")),
+                                                                               i18n("Go To Albums"),
+                                                                               i18nc("@info:tooltip", "Go to the album of this image"));
     overlay->setReferenceModel(referenceModel);
 
     connect(overlay, SIGNAL(activated(ImageInfo)),

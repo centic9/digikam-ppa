@@ -7,7 +7,7 @@
  * Description : a kipi plugin to export images to WikiMedia web service
  *
  * Copyright (C) 2011      by Alexandre Mendes <alex dot mendes1988 at gmail dot com>
- * Copyright (C) 2011-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Parthasarathy Gopavarapu <gparthasarathy93 at gmail dot com>
  * Copyright (C) 2013      by Peter Potrowl <peter dot potrowl at gmail dot com>
  *
@@ -31,11 +31,11 @@
 #include <QWidget>
 #include <QStringList>
 #include <QTreeWidgetItem>
+#include <QUrl>
 
-// KDE includes
+//KDE includes
 
 #include <kconfig.h>
-#include <kurl.h>
 
 namespace KIPIPlugins
 {
@@ -96,7 +96,7 @@ public:
     void readSettings(KConfigGroup& group);
     void saveSettings(KConfigGroup& group);
     void loadImageInfoFirstLoad();
-    void loadImageInfo(const KUrl& url);
+    void loadImageInfo(const QUrl& url);
     void clearEditFields();
 
 Q_SIGNALS:
@@ -113,7 +113,7 @@ private Q_SLOTS:
     void slotNewWikiClicked();
     void slotAddWikiClicked();
     void slotLoadImagesDesc(QTreeWidgetItem* item);
-    void slotRemoveImagesDesc(const KUrl::List urls);
+    void slotRemoveImagesDesc(const QList<QUrl> urls);
     void slotRestoreExtension();
     void slotApplyTitle();
     void slotApplyDate();

@@ -20,7 +20,7 @@
  *
  * ============================================================ */
 
-#include "tableview.moc"
+#include "tableview.h"
 
 // Qt includes
 
@@ -28,15 +28,12 @@
 #include <QHeaderView>
 #include <QItemSelectionModel>
 #include <QVBoxLayout>
+#include <QMenu>
+#include <QAction>
+#include <QIcon>
 #include <QApplication>
 
-// KDE includes
-
-#include <kaction.h>
-#include <kmenu.h>
-#include <klinkitemselectionmodel.h>
-
-// local includes
+// Local includes
 
 #include "contextmenuhelper.h"
 #include "fileactionmngr.h"
@@ -58,6 +55,7 @@ class ImageFilterModel;
 class TableView::Private
 {
 public:
+
     Private()
       : columnProfiles(),
         thumbnailSize(),
@@ -70,26 +68,23 @@ public:
     ImageViewUtilities*           imageViewUtilities;
 };
 
-TableView::TableView(
-        QItemSelectionModel* const selectionModel,
-        KCategorizedSortFilterProxyModel* const imageFilterModel,
-        QWidget* const parent
-    )
-  : QWidget(parent),
-    StateSavingObject(this),
-    d(new Private()),
-    s(new TableViewShared())
+TableView::TableView(QItemSelectionModel* const selectionModel,
+                     DCategorizedSortFilterProxyModel* const imageFilterModel,
+                     QWidget* const parent)
+    : QWidget(parent),
+      StateSavingObject(this),
+      d(new Private()),
+      s(new TableViewShared())
 {
-    s->isActive                  = false;
-    s->tableView                 = this;
-    s->thumbnailLoadThread       = new ThumbnailLoadThread(this);
-    s->imageFilterModel          = dynamic_cast<ImageFilterModel*>(imageFilterModel);
-    s->imageModel                = dynamic_cast<ImageModel*>(imageFilterModel->sourceModel());
-    s->imageFilterSelectionModel = selectionModel;
-    s->columnFactory             = new TableViewColumnFactory(s.data(), this);
+    s->isActive                      = false;
+    s->tableView                     = this;
+    s->thumbnailLoadThread           = new ThumbnailLoadThread(this);
+    s->imageFilterModel              = dynamic_cast<ImageFilterModel*>(imageFilterModel);
+    s->imageModel                    = dynamic_cast<ImageModel*>(imageFilterModel->sourceModel());
+    s->imageFilterSelectionModel     = selectionModel;
+    s->columnFactory                 = new TableViewColumnFactory(s.data(), this);
 
-    QVBoxLayout* const vbox1 = new QVBoxLayout();
-
+    QVBoxLayout* const vbox1         = new QVBoxLayout();
     s->tableViewModel                = new TableViewModel(s.data(), this);
     s->tableViewSelectionModel       = new QItemSelectionModel(s->tableViewModel);
     s->tableViewSelectionModelSyncer = new TableViewSelectionModelSyncer(s.data(), this);
@@ -129,7 +124,6 @@ TableView::TableView(
 
 TableView::~TableView()
 {
-
 }
 
 void TableView::doLoadState()
@@ -218,18 +212,18 @@ void TableView::showTreeViewContextMenuOnEmptyArea(QContextMenuEvent* const even
 {
     Album* const album = currentAlbum();
 
-    if (!album ||
+    if (!album          ||
         album->isRoot() ||
         (album->type() != Album::PHYSICAL && album->type() != Album::TAG) )
     {
         return;
     }
 
-    KMenu menu(this);
+    QMenu menu(this);
     ContextMenuHelper cmHelper(&menu);
 
-    cmHelper.addAction("full_screen");
-    cmHelper.addAction("options_show_menubar");
+    cmHelper.addAction(QLatin1String("full_screen"));
+    cmHelper.addAction(QLatin1String("options_show_menubar"));
     cmHelper.addSeparator();
     cmHelper.addStandardActionPaste(this, SLOT(slotPaste()));
     cmHelper.addSeparator();
@@ -245,36 +239,36 @@ void TableView::showTreeViewContextMenuOnItem(QContextMenuEvent* const event, co
 
     // Temporary actions --------------------------------------
 
-    KAction* const viewAction = new KAction(i18nc("View the selected image", "Preview"), this);
-    viewAction->setIcon(SmallIcon("viewimage"));
+    QAction* const viewAction = new QAction(i18nc("View the selected image", "Preview"), this);
+    viewAction->setIcon(QIcon::fromTheme(QLatin1String("view-preview")));
     viewAction->setEnabled(selectedImageIds.count() == 1);
 
     // Creation of the menu -----------------------------------
-    KMenu menu(this);
+    QMenu menu(this);
     ContextMenuHelper cmHelper(&menu);
 
-    cmHelper.addAction("full_screen");
-    cmHelper.addAction("options_show_menubar");
+    cmHelper.addAction(QLatin1String("full_screen"));
+    cmHelper.addAction(QLatin1String("options_show_menubar"));
     cmHelper.addSeparator();
     // ---
-    cmHelper.addAction("move_selection_to_album");
+    cmHelper.addAction(QLatin1String("move_selection_to_album"));
     cmHelper.addAction(viewAction);
     /// @todo image_edit is grayed out on first invocation of the menu for some reason
-    cmHelper.addAction("image_edit");
+    cmHelper.addAction(QLatin1String("image_edit"));
     cmHelper.addServicesMenu(s->tableViewModel->selectedUrls());
     cmHelper.addGotoMenu(selectedImageIds);
-    cmHelper.addAction("image_rotate");
+    cmHelper.addAction(QLatin1String("image_rotate"));
     cmHelper.addSeparator();
     // ---
-    cmHelper.addAction("image_find_similar");
+    cmHelper.addAction(QLatin1String("image_find_similar"));
     cmHelper.addStandardActionLightTable();
     cmHelper.addQueueManagerMenu();
     cmHelper.addSeparator();
     // ---
-    cmHelper.addAction("image_rename");
-    cmHelper.addAction("cut_album_selection");
-    cmHelper.addAction("copy_album_selection");
-    cmHelper.addAction("paste_album_selection");
+    cmHelper.addAction(QLatin1String("image_rename"));
+    cmHelper.addAction(QLatin1String("cut_album_selection"));
+    cmHelper.addAction(QLatin1String("copy_album_selection"));
+    cmHelper.addAction(QLatin1String("paste_album_selection"));
     cmHelper.addStandardActionItemDelete(this, SLOT(slotDeleteSelected()), selectedImageIds.count());
     cmHelper.addSeparator();
     // ---
@@ -338,7 +332,7 @@ void TableView::showTreeViewContextMenuOnItem(QContextMenuEvent* const event, co
 
     QAction* const choice = cmHelper.exec(event->globalPos());
 
-    if (choice && (choice == viewAction) )
+    if (choice && (choice == viewAction))
     {
         emit(signalPreviewRequested(s->tableViewModel->imageInfo(indexAtMenu)));
     }
@@ -412,11 +406,11 @@ ThumbnailSize TableView::getThumbnailSize() const
 QList<qlonglong> TableView::selectedImageIdsCurrentFirst() const
 {
     const QModelIndexList selectedIndexes = s->tableViewSelectionModel->selectedRows();
-    QList<qlonglong> selectedImageIds     =  s->tableViewModel->imageIds(selectedIndexes);
+    QList<qlonglong> selectedImageIds     = s->tableViewModel->imageIds(selectedIndexes);
     const QModelIndex currentIndex        = s->tableViewSelectionModel->currentIndex();
     qlonglong currentId                   = s->tableViewModel->imageId(currentIndex);
 
-    if (currentId>=0)
+    if (currentId >= 0)
     {
         if (selectedImageIds.first()!=currentId)
         {
@@ -459,7 +453,7 @@ Album* TableView::currentAlbum()
         return 0;
     }
 
-    if(albumModel->currentAlbums().isEmpty())
+    if (albumModel->currentAlbums().isEmpty())
     {
         return 0;
     }
@@ -537,7 +531,7 @@ QList<QAction*> TableView::getExtraGroupingActions(QObject* const parentObject) 
 
     const TableViewModel::GroupingMode currentGroupingMode = s->tableViewModel->groupingMode();
 
-    KAction* const actionHideGrouped = new KAction(i18n("Hide grouped items"), parentObject);
+    QAction* const actionHideGrouped = new QAction(i18n("Hide grouped items"), parentObject);
     actionHideGrouped->setCheckable(true);
     actionHideGrouped->setChecked(currentGroupingMode == TableViewModel::GroupingHideGrouped);
     actionHideGrouped->setData(QVariant::fromValue<TableViewModel::GroupingMode>(TableViewModel::GroupingHideGrouped));
@@ -547,7 +541,7 @@ QList<QAction*> TableView::getExtraGroupingActions(QObject* const parentObject) 
 
     actionList << actionHideGrouped;
 
-    KAction* const actionIgnoreGrouping = new KAction(i18n("Ignore grouping"), parentObject);
+    QAction* const actionIgnoreGrouping = new QAction(i18n("Ignore grouping"), parentObject);
     actionIgnoreGrouping->setCheckable(true);
     actionIgnoreGrouping->setChecked(currentGroupingMode == TableViewModel::GroupingIgnoreGrouping);
     actionIgnoreGrouping->setData(QVariant::fromValue<TableViewModel::GroupingMode>(TableViewModel::GroupingIgnoreGrouping));
@@ -557,7 +551,7 @@ QList<QAction*> TableView::getExtraGroupingActions(QObject* const parentObject) 
 
     actionList << actionIgnoreGrouping;
 
-    KAction* const actionShowSubItems = new KAction(i18n("Show grouping in tree"), parentObject);
+    QAction* const actionShowSubItems = new QAction(i18n("Show grouping in tree"), parentObject);
     actionShowSubItems->setCheckable(true);
     actionShowSubItems->setChecked(currentGroupingMode == TableViewModel::GroupingShowSubItems);
     actionShowSubItems->setData(QVariant::fromValue<TableViewModel::GroupingMode>(TableViewModel::GroupingShowSubItems));
@@ -583,10 +577,10 @@ void TableView::slotGroupingModeActionTriggered()
     s->tableViewModel->setGroupingMode(newGroupingMode);
 }
 
-KUrl::List TableView::allUrls() const
+QList<QUrl> TableView::allUrls() const
 {
     const ImageInfoList allInfo = s->tableViewModel->allImageInfo();
-    KUrl::List resultList;
+    QList<QUrl> resultList;
 
     Q_FOREACH(const ImageInfo& info, allInfo)
     {
@@ -596,7 +590,7 @@ KUrl::List TableView::allUrls() const
     return resultList;
 }
 
-KUrl::List TableView::selectedUrls() const
+QList<QUrl> TableView::selectedUrls() const
 {
     return s->tableViewModel->selectedUrls();
 }
@@ -669,7 +663,7 @@ ImageInfo TableView::previousInfo() const
     const int currentDeepRowNumber  = s->tableViewModel->indexToDeepRowNumber(cIndex);
     const int previousDeepRowNumber = currentDeepRowNumber - 1;
 
-    if (previousDeepRowNumber<0)
+    if (previousDeepRowNumber < 0)
     {
         return ImageInfo();
     }
@@ -714,7 +708,7 @@ void TableView::slotAwayFromSelection()
         // select an index inbetween
         const int nextFreeDeepRow = s->tableViewModel->firstDeepRowNotInList(selection);
 
-        if (nextFreeDeepRow<0)
+        if (nextFreeDeepRow < 0)
         {
             s->tableViewSelectionModel->clearSelection();
             s->tableViewSelectionModel->setCurrentIndex(QModelIndex(), QItemSelectionModel::ClearAndSelect);
@@ -758,15 +752,15 @@ void TableView::invertSelection()
 
     /// @todo Create a DeepRowIterator because there is a lot of overhead here
 
-    for (int i = 0; i<deepRowCount; ++i)
+    for (int i = 0; i < deepRowCount; ++i)
     {
         const QModelIndex iIndex = s->tableViewModel->deepRowIndex(i);
 
         if (s->tableViewSelectionModel->isSelected(iIndex))
         {
-            if (i-1>lastSelectedRow)
+            if (i - 1 > lastSelectedRow)
             {
-                for (int j=lastSelectedRow+1; j<i; ++j)
+                for (int j = lastSelectedRow + 1; j < i; ++j)
                 {
                     rowsToSelect << j;
                 }
@@ -776,9 +770,9 @@ void TableView::invertSelection()
         }
     }
 
-    if (lastSelectedRow+1<deepRowCount)
+    if (lastSelectedRow + 1 < deepRowCount)
     {
-        for (int j=lastSelectedRow+1; j<deepRowCount; ++j)
+        for (int j = lastSelectedRow + 1; j < deepRowCount; ++j)
         {
             rowsToSelect << j;
         }
@@ -802,7 +796,7 @@ void TableView::selectAll()
 
 void TableView::slotSetActive(const bool isActive)
 {
-    if (s->isActive!=isActive)
+    if (s->isActive != isActive)
     {
         s->isActive = isActive;
         s->tableViewModel->slotSetActive(isActive);

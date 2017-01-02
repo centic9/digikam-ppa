@@ -7,7 +7,7 @@
  * Description : a widget to display non standard Exif metadata
  *               used by camera makers
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "makernotewidget.moc"
+#include "makernotewidget.h"
 
 // Qt includes
 
@@ -31,7 +31,7 @@
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -52,12 +52,12 @@ static const char* ExifEntryListToIgnore[] =
     "-1"
 };
 
-MakerNoteWidget::MakerNoteWidget(QWidget* const parent, const char* name)
+MakerNoteWidget::MakerNoteWidget(QWidget* const parent, const QString& name)
     : MetadataWidget(parent, name)
 {
-    for (int i=0 ; QString(ExifEntryListToIgnore[i]) != QString("-1") ; ++i)
+    for (int i=0 ; QLatin1String(ExifEntryListToIgnore[i]) != QLatin1String("-1") ; ++i)
     {
-        m_keysFilter << ExifEntryListToIgnore[i];
+        m_keysFilter << QLatin1String(ExifEntryListToIgnore[i]);
     }
 }
 
@@ -70,7 +70,7 @@ QString MakerNoteWidget::getMetadataTitle()
     return i18n("MakerNote EXIF Tags");
 }
 
-bool MakerNoteWidget::loadFromURL(const KUrl& url)
+bool MakerNoteWidget::loadFromURL(const QUrl& url)
 {
     setFileName(url.toLocalFile());
 
@@ -120,7 +120,7 @@ void MakerNoteWidget::buildView()
             break;
 
         case PHOTO:
-            setIfdList(getMetadataMap(), QStringList() << QString("FULL"));
+            setIfdList(getMetadataMap(), QStringList() << QLatin1String("FULL"));
             break;
 
         default: // NONE
@@ -134,11 +134,11 @@ void MakerNoteWidget::buildView()
 QString MakerNoteWidget::getTagTitle(const QString& key)
 {
     DMetadata metadataIface;
-    QString title = metadataIface.getExifTagTitle(key.toAscii());
+    QString title = metadataIface.getExifTagTitle(key.toLatin1().constData());
 
     if (title.isEmpty())
     {
-        return key.section('.', -1);
+        return key.section(QLatin1Char('.'), -1);
     }
 
     return title;
@@ -147,7 +147,7 @@ QString MakerNoteWidget::getTagTitle(const QString& key)
 QString MakerNoteWidget::getTagDescription(const QString& key)
 {
     DMetadata metadataIface;
-    QString desc = metadataIface.getExifTagDescription(key.toAscii());
+    QString desc = metadataIface.getExifTagDescription(key.toLatin1().constData());
 
     if (desc.isEmpty())
     {
@@ -159,14 +159,10 @@ QString MakerNoteWidget::getTagDescription(const QString& key)
 
 void MakerNoteWidget::slotSaveMetadataToFile()
 {
-    KUrl url = saveMetadataToFile(i18n("EXIF File to Save"),
-                                  QString("*.exif|"+i18n("EXIF binary Files (*.exif)")));
+    QUrl url = saveMetadataToFile(i18n("EXIF File to Save"),
+                                  QString(QLatin1String("*.exif|") + i18n("EXIF binary Files (*.exif)")));
 
-#if KEXIV2_VERSION >= 0x010000
     storeMetadataToFile(url, getMetadata().getExifEncoded());
-#else
-    storeMetadataToFile(url, getMetadata().getExif());
-#endif
 }
 
 }  // namespace Digikam

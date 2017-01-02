@@ -7,7 +7,7 @@
  * Description : A widget to display a camera folder.
  *
  * Copyright (C) 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -45,23 +45,25 @@ public:
     QString name;
 };
 
-CameraFolderItem::CameraFolderItem(QTreeWidget* const parent, const QString& name, const QPixmap& pixmap)
-    : QTreeWidgetItem(parent), d(new Private)
+CameraFolderItem::CameraFolderItem(QTreeWidget* const parent, const QString& name, const QIcon& icon)
+    : QTreeWidgetItem(parent),
+      d(new Private)
 {
     d->name = name;
-    setIcon(0, pixmap);
+    setIcon(0, icon);
     setText(0, d->name);
 }
 
 CameraFolderItem::CameraFolderItem(QTreeWidgetItem* const parent, const QString& folderName,
-                                   const QString& folderPath, const QPixmap& pixmap)
-    : QTreeWidgetItem(parent), d(new Private)
+                                   const QString& folderPath, const QIcon &icon)
+    : QTreeWidgetItem(parent),
+      d(new Private)
 {
     d->folderName    = folderName;
     d->folderPath    = folderPath;
     d->virtualFolder = false;
     d->name          = folderName;
-    setIcon(0, pixmap);
+    setIcon(0, icon);
     setText(0, d->name);
 }
 
@@ -88,13 +90,13 @@ QString CameraFolderItem::folderPath() const
 void CameraFolderItem::changeCount(int val)
 {
     d->count += val;
-    setText(0, QString("%1 (%2)").arg(d->name).arg(QString::number(d->count)));
+    setText(0, QString::fromUtf8("%1 (%2)").arg(d->name).arg(QString::number(d->count)));
 }
 
 void CameraFolderItem::setCount(int val)
 {
     d->count = val;
-    setText(0, QString("%1 (%2)").arg(d->name).arg(QString::number(d->count)));
+    setText(0, QString::fromUtf8("%1 (%2)").arg(d->name).arg(QString::number(d->count)));
 }
 
 int CameraFolderItem::count() const

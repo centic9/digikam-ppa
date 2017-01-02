@@ -6,7 +6,7 @@
  * Date        : 2009-07-18
  * Description : setup Metadata tab.
  *
- * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,8 +21,8 @@
  *
  * ============================================================ */
 
-#ifndef SETUPMETADATA_H
-#define SETUPMETADATA_H
+#ifndef SHOWFOTOSETUPMETADATA_H
+#define SHOWFOTOSETUPMETADATA_H
 
 // Qt includes
 
@@ -52,16 +52,11 @@ public:
     ~SetupMetadata();
 
     void applySettings();
-
     void setActiveTab(MetadataTab tab);
 
 private:
 
     void readSettings();
-
-private Q_SLOTS:
-
-    void slotProcessExiv2Url(const QString& url);
 
 private:
 
@@ -71,4 +66,4 @@ private:
 
 }  // namespace ShowFoto
 
-#endif // SETUPMETADATA_H 
+#endif // SHOWFOTOSETUPMETADATA_H

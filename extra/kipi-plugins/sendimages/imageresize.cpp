@@ -6,7 +6,7 @@
  * Date        : 2007-11-09
  * Description : a class to resize image in a separate thread.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Andi Clemens <andi dot clemens at googlemail dot com>
  *
  * This program is free software; you can redistribute it
@@ -21,47 +21,50 @@
  *
  * ============================================================ */
 
-#include "imageresize.moc"
+#include "imageresize.h"
 
 // Qt includes
 
 #include <QDir>
+#include <QPointer>
 #include <QImage>
 #include <QFile>
 #include <QFileInfo>
 #include <QMutexLocker>
 #include <QMutex>
 #include <QWaitCondition>
+#include <QTemporaryDir>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <ktempdir.h>
-#include <threadweaver/ThreadWeaver.h>
-#include <threadweaver/JobCollection.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Libkipi includes
 
-#include <libkdcraw/version.h>
-#include <libkdcraw/kdcraw.h>
+#include <KIPI/PluginLoader>
 
 // Local includes
 
 #include "kpversion.h"
-#include "kpwriteimage.h"
-#include "kpmetadata.h"
+#include "kipiplugins_debug.h"
 
 using namespace KIPIPlugins;
 
 namespace KIPISendimagesPlugin
 {
 
-Task::Task(QObject* const parent, int* count)
-    : Job(parent)
+Task::Task(int* count)
+    : KPJob()
 {
     m_count = count;
+    m_iface = 0;
+
+    PluginLoader* const pl = PluginLoader::instance();
+
+    if (pl)
+    {
+        m_iface = pl->interface();
+    }
 }
 
 Task::~Task()
@@ -70,6 +73,8 @@ Task::~Task()
 
 void Task::run()
 {
+    emit signalStarted();
+
     QString errString;
 
     emit startingResize(m_orgUrl);
@@ -82,7 +87,7 @@ void Task::run()
 
     if (imageResize(m_settings, m_orgUrl, m_destName, errString))
     {
-        KUrl emailUrl(m_destName);
+        QUrl emailUrl(QUrl::fromLocalFile(m_destName));
         emit finishedResize(m_orgUrl, emailUrl, percent);
     }
     else
@@ -96,13 +101,15 @@ void Task::run()
         *m_count = 0;
         m_mutex.unlock();
     }
+
+    emit signalDone();
 }
 
-bool Task::imageResize(const EmailSettings& settings, const KUrl& orgUrl,
+bool Task::imageResize(const EmailSettings& settings, const QUrl& orgUrl,
                        const QString& destName, QString& err)
 {
     EmailSettings emailSettings = settings;
-    QFileInfo fi(orgUrl.path());
+    QFileInfo fi(orgUrl.toLocalFile());
 
     if (!fi.exists() || !fi.isReadable())
     {
@@ -113,7 +120,7 @@ bool Task::imageResize(const EmailSettings& settings, const KUrl& orgUrl,
     QFileInfo tmp(destName);
     QFileInfo tmpDir(tmp.dir().absolutePath());
 
-    kDebug() << "tmpDir: " << tmp.dir().absolutePath();
+    qCDebug(KIPIPLUGINS_LOG) << "tmpDir: " << tmp.dir().absolutePath();
 
     if (!tmpDir.exists() || !tmpDir.isWritable())
     {
@@ -123,11 +130,15 @@ bool Task::imageResize(const EmailSettings& settings, const KUrl& orgUrl,
 
     QImage img;
 
-    // Check if RAW file.
-    if (KPMetadata::isRawFile(orgUrl))
-        KDcraw::loadRawPreview(img, orgUrl.path());
-    else
-        img.load(orgUrl.path());
+    if (m_iface)
+    {
+        img = m_iface->preview(orgUrl);
+    }
+
+    if (img.isNull())
+    {
+        img.load(orgUrl.toLocalFile());
+    }
 
     int sizeFactor = emailSettings.size();
 
@@ -170,37 +181,43 @@ bool Task::imageResize(const EmailSettings& settings, const KUrl& orgUrl,
 
         QString destPath = destName;
 
-        KPMetadata meta;
-        meta.load(orgUrl.path());
-        meta.setImageProgramId(QString("Kipi-plugins"), QString(kipiplugins_version));
-        meta.setImageDimensions(img.size());
-
-        if (emailSettings.format() == QString("JPEG"))
+        if (m_iface)
         {
-            if ( !img.save(destPath, emailSettings.format().toLatin1(), emailSettings.imageCompression) )
+            QPointer<MetadataProcessor> meta = m_iface->createMetadataProcessor();
+
+            if (meta && meta->load(orgUrl))
             {
-                err = i18n("Cannot save resized image (JPEG). Aborting.");
-                return false;
-            }
-            else
-            {
-                meta.save(destPath);
+                meta->setImageProgramId(QLatin1String("Kipi-plugins"), QLatin1String(kipiplugins_version));
+                meta->setImageDimensions(img.size());
+
+                if (emailSettings.format() == QLatin1String("JPEG"))
+                {
+                    if ( !img.save(destPath, emailSettings.format().toLatin1().constData(), emailSettings.imageCompression) )
+                    {
+                        err = i18n("Cannot save resized image (JPEG). Aborting.");
+                        return false;
+                    }
+                    else
+                    {
+                        meta->save(QUrl::fromLocalFile(destPath));
+                    }
+                }
+                else if (emailSettings.format() == QLatin1String("PNG"))
+                {
+                    if ( !img.save(destPath, emailSettings.format().toLatin1().constData()) )
+                    {
+                        err = i18n("Cannot save resized image (PNG). Aborting.");
+                        return false;
+                    }
+                    else
+                    {
+                        meta->save(QUrl::fromLocalFile(destPath));
+                    }
+                }
+
+                return true;
             }
         }
-        else if (emailSettings.format() == QString("PNG"))
-        {
-            QByteArray data((const char*)img.bits(), img.numBytes());
-            KPWriteImage wImageIface;
-            wImageIface.setImageData(data, img.width(), img.height(), false, true, QByteArray(), meta);
-
-            if ( !wImageIface.write2PNG(destPath) )
-            {
-                err = i18n("Cannot save resized image (PNG). Aborting.");
-                return false;
-            }
-        }
-
-        return true;
     }
 
     return false;
@@ -209,7 +226,7 @@ bool Task::imageResize(const EmailSettings& settings, const KUrl& orgUrl,
 // ----------------------------------------------------------------------------------------------------
 
 ImageResize::ImageResize(QObject* const parent)
-    : RActionThreadBase(parent)
+    : KPThreadManager(parent)
 {
     m_count  = new int;
     *m_count = 0;
@@ -222,50 +239,44 @@ ImageResize::~ImageResize()
 
 void ImageResize::resize(const EmailSettings& settings)
 {
-    JobCollection* collection = new JobCollection(this);
-    *m_count                  = 0;
-    int i                     = 1;
+    KPJobCollection collection;
+    *m_count = 0;
+    int i    = 1;
 
     for (QList<EmailItem>::const_iterator it = settings.itemsList.constBegin();
          it != settings.itemsList.constEnd(); ++it)
     {
-        QString tmp;
-
-        Task* const t = new Task(this, m_count);
+        Task* const t = new Task(m_count);
         t->m_orgUrl   = (*it).orgUrl;
         t->m_settings = settings;
 
-        KTempDir tmpDir(KStandardDirs::locateLocal("tmp", t->m_settings.tempFolderName + t->m_settings.tempPath), 0700);
+        QTemporaryDir tmpDir(t->m_settings.tempPath);
         tmpDir.setAutoRemove(false);
+
         QFileInfo fi(t->m_orgUrl.fileName());
-        t->m_destName = tmpDir.name() + QString("%1.%2").arg(fi.baseName()).arg(t->m_settings.format().toLower());
+        t->m_destName = tmpDir.path() + QLatin1Char('/') +
+                        QString::fromUtf8("%1.%2").arg(fi.baseName()).arg(t->m_settings.format().toLower());
 
-        connect(t, SIGNAL(startingResize(KUrl)),
-                this, SIGNAL(startingResize(KUrl)));
+        connect(t, SIGNAL(startingResize(QUrl)),
+                this, SIGNAL(startingResize(QUrl)));
 
-        connect(t, SIGNAL(finishedResize(KUrl,KUrl,int)),
-                this, SIGNAL(finishedResize(KUrl,KUrl,int)));
+        connect(t, SIGNAL(finishedResize(QUrl,QUrl,int)),
+                this, SIGNAL(finishedResize(QUrl,QUrl,int)));
 
-        connect(t, SIGNAL(failedResize(KUrl,QString,int)),
-                this, SIGNAL(failedResize(KUrl,QString,int)));
+        connect(t, SIGNAL(failedResize(QUrl,QString,int)),
+                this, SIGNAL(failedResize(QUrl,QString,int)));
 
-        collection->addJob(t);
+        collection.insert(t, 0);
         i++;
     }
 
-    appendJob(collection);
+    appendJobs(collection);
 }
 
 void ImageResize::cancel()
 {
     *m_count   = 0;
-    RActionThreadBase::cancel();
-}
-
-void ImageResize::slotFinished()
-{
-    emit completeResize();
-    RActionThreadBase::slotFinished();
+    KPThreadManager::cancel();
 }
 
 }  // namespace KIPISendimagesPlugin

@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : TextureFilter threaded image filter.
  *
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -51,12 +51,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:TextureFilter";
+        return QLatin1String("digikam:TextureFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Texture Filter");
+        return QString::fromUtf8(I18N_NOOP("Texture Filter"));
     }
 
     static QList<int>       SupportedVersions()

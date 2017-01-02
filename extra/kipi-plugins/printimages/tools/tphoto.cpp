@@ -28,43 +28,50 @@
 #include <QPainter>
 #include <QFileInfo>
 
-// LibKDcraw includes
+// Libkipi includes
 
-#include <libkdcraw/kdcraw.h>
+#include <KIPI/PluginLoader>
 
 // Local includes
 
-#include "kpmetadata.h"
+#include "kipiplugins_debug.h"
 
-#define IMAGE_FILE_MASK "*"
-//"*.jpg;*.jpeg;*.JPG;*.JPEG;*.png;*.PNG"
+using namespace KIPI;
 
 namespace KIPIPrintImagesPlugin
 {
 
 TPhoto::TPhoto(int thumbnailSize)
-    : pAddInfo(NULL),
-      pCaptionInfo(NULL)
+    : pAddInfo(0),
+      pCaptionInfo(0)
 {
-    m_size                = 0;
-    cropRegion            = QRect(-1, -1, -1, -1);
-    rotation              = 0;
-    first                 = false;
+    m_size                 = 0;
+    cropRegion             = QRect(-1, -1, -1, -1);
+    rotation               = 0;
+    first                  = false;
 
-    copies                = 1;
+    copies                 = 1;
     //TODO mPrintPosition;
-    filename              = "";
-    m_metaIface           = NULL;
+    filename               = QUrl();
+    m_meta                 = 0;
+    m_iface                = 0;
 
-    m_thumbnail           = NULL;
+    m_thumbnail            = 0;
 
-    this->m_thumbnailSize = thumbnailSize;
+    this->m_thumbnailSize  = thumbnailSize;
+
+    PluginLoader* const pl = PluginLoader::instance();
+
+    if (pl)
+    {
+        m_iface = pl->interface();
+    }
 }
 
 //to get old photo info
 TPhoto::TPhoto (const TPhoto& photo)
-    : pAddInfo(NULL),
-      pCaptionInfo(NULL)
+    : pAddInfo(0),
+      pCaptionInfo(0)
 {
     m_thumbnailSize = photo.m_thumbnailSize;
     cropRegion      = photo.cropRegion;
@@ -84,15 +91,22 @@ TPhoto::TPhoto (const TPhoto& photo)
     }
 
     m_size      = 0;
-    m_metaIface = NULL;
-    m_thumbnail = NULL;
+    m_meta      = 0;
+    m_iface     = 0;
+    m_thumbnail = 0;
+
+    PluginLoader* const pl = PluginLoader::instance();
+
+    if (pl)
+    {
+        m_iface = pl->interface();
+    }
 }
 
 TPhoto::~TPhoto()
 {
     delete m_thumbnail;
     delete m_size;
-    delete m_metaIface;
     delete pAddInfo;
     delete pCaptionInfo;
 }
@@ -116,7 +130,9 @@ void TPhoto::loadCache()
 QPixmap& TPhoto::thumbnail()
 {
     if (!m_thumbnail)
+    {
         loadCache();
+    }
 
     return *m_thumbnail;
 }
@@ -125,11 +141,15 @@ QImage TPhoto::loadPhoto()
 {
     QImage photo;
 
-    // Check if RAW file.
-    if (KPMetadata::isRawFile(filename))
-        KDcrawIface::KDcraw::loadRawPreview(photo, filename.path());
-    else
-        photo.load(filename.path()); // PENDING(blackie) handle URL
+    if (m_iface)
+    {
+        photo = m_iface->preview(filename);
+    }
+
+    if (photo.isNull())
+    {
+        photo.load(filename.toLocalFile());
+    }
 
     return photo;
 }
@@ -137,19 +157,31 @@ QImage TPhoto::loadPhoto()
 QSize& TPhoto::size()  // private
 {
     if (m_size == 0)
+    {
         loadCache();
+    }
 
     return *m_size;
 }
 
-KPMetadata* TPhoto::metaIface()
+MetadataProcessor* TPhoto::metaIface()
 {
-    if (!m_metaIface && !filename.url().isEmpty())
+    if (!m_iface)
     {
-        m_metaIface = new KPMetadata(filename.path());
+        return 0;
     }
 
-    return m_metaIface;
+    if (!m_meta && !filename.url().isEmpty())
+    {
+        m_meta = m_iface->createMetadataProcessor();
+
+        if (m_meta->load(filename))
+        {
+            qCDebug(KIPIPLUGINS_LOG) << "Cannot load metadata from file " << filename;
+        }
+    }
+
+    return m_meta;
 }
 
 int TPhoto::width()
@@ -164,7 +196,7 @@ int TPhoto::height()
 
 double TPhoto::scaleWidth(double unitToInches)
 {
-    Q_ASSERT(pAddInfo != NULL);
+    Q_ASSERT(pAddInfo != 0);
 
     cropRegion = QRect(0, 0,
                        (int)(pAddInfo->mPrintWidth * unitToInches),
@@ -175,7 +207,7 @@ double TPhoto::scaleWidth(double unitToInches)
 
 double TPhoto::scaleHeight(double unitToInches)
 {
-    Q_ASSERT(pAddInfo != NULL);
+    Q_ASSERT(pAddInfo != 0);
 
     cropRegion = QRect(0,
                        0,

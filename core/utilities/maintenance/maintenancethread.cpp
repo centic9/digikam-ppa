@@ -6,7 +6,7 @@
  * Date        : 2013-08-09
  * Description : Thread actions manager for maintenance tools.
  *
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,30 +21,22 @@
  *
  * ============================================================ */
 
-#include "maintenancethread.moc"
-
-// KDE includes
-
-#include <kdebug.h>
-#include <threadweaver/JobCollection.h>
-#include <solid/device.h>
+#include "maintenancethread.h"
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "metadatatask.h"
 #include "thumbstask.h"
 #include "fingerprintstask.h"
 #include "imagequalitytask.h"
 #include "imagequalitysettings.h"
 
-using namespace Solid;
-
 namespace Digikam
 {
 
-
 MaintenanceThread::MaintenanceThread(QObject* const parent)
-    : RActionThreadBase(parent)
+    : ActionThreadBase(parent)
 {
     connect(this, SIGNAL(finished()),
             this, SLOT(slotThreadFinished()));
@@ -64,15 +56,15 @@ void MaintenanceThread::setUseMultiCore(const bool b)
     }
     else
     {
-        setMaximumNumberOfThreads(qMax(Device::listFromType(DeviceInterface::Processor).count(), 1));
+        defaultMaximumNumberOfThreads();
     }
 }
 
 void MaintenanceThread::syncMetadata(const ImageInfoList& items, MetadataSynchronizer::SyncDirection dir, bool tagsOnly)
 {
-    JobCollection* const collection = new JobCollection();
+    ActionJobCollection collection;
 
-    for(int i=0; i < items.size(); i++)
+    for(int i = 0; i < items.size(); i++)
     {
         MetadataTask* const t = new MetadataTask();
         t->setTagsOnly(tagsOnly);
@@ -84,17 +76,17 @@ void MaintenanceThread::syncMetadata(const ImageInfoList& items, MetadataSynchro
         connect(this, SIGNAL(signalCanceled()),
                 t, SLOT(slotCancel()), Qt::QueuedConnection);
 
-        collection->addJob(t);
+        collection.insert(t, 0);
     }
 
-    appendJob(collection);
+    appendJobs(collection);
 }
 
 void MaintenanceThread::generateThumbs(const QStringList& paths)
 {
-    JobCollection* const collection = new JobCollection();
+    ActionJobCollection collection;
 
-    for(int i=0; i < paths.size(); i++)
+    for(int i = 0; i < paths.size(); i++)
     {
         ThumbsTask* const t = new ThumbsTask();
         t->setItem(paths.at(i));
@@ -105,17 +97,17 @@ void MaintenanceThread::generateThumbs(const QStringList& paths)
         connect(this, SIGNAL(signalCanceled()),
                 t, SLOT(slotCancel()), Qt::QueuedConnection);
 
-        collection->addJob(t);
+        collection.insert(t, 0);
     }
 
-    appendJob(collection);
+    appendJobs(collection);
 }
 
 void MaintenanceThread::generateFingerprints(const QStringList& paths)
 {
-    JobCollection* const collection = new JobCollection();
+    ActionJobCollection collection;
 
-    for(int i=0; i < paths.size(); i++)
+    for(int i = 0; i < paths.size(); i++)
     {
         FingerprintsTask* const t = new FingerprintsTask();
         t->setItem(paths.at(i));
@@ -126,17 +118,17 @@ void MaintenanceThread::generateFingerprints(const QStringList& paths)
         connect(this, SIGNAL(signalCanceled()),
                 t, SLOT(slotCancel()), Qt::QueuedConnection);
 
-        collection->addJob(t);
+        collection.insert(t, 0);
     }
 
-    appendJob(collection);
+    appendJobs(collection);
 }
 
 void MaintenanceThread::sortByImageQuality(const QStringList& paths, const ImageQualitySettings& quality)
 {
-    JobCollection* const collection = new JobCollection();
+    ActionJobCollection collection;
 
-    for(int i=0; i < paths.size(); i++)
+    for(int i = 0; i < paths.size(); i++)
     {
         ImageQualityTask* const t = new ImageQualityTask();
         t->setItem(paths.at(i), quality);
@@ -147,25 +139,27 @@ void MaintenanceThread::sortByImageQuality(const QStringList& paths, const Image
         connect(this, SIGNAL(signalCanceled()),
                 t, SLOT(slotCancel()), Qt::QueuedConnection);
 
-        collection->addJob(t);
+        collection.insert(t, 0);
     }
 
-    appendJob(collection);
+    appendJobs(collection);
 }
 
 void MaintenanceThread::cancel()
 {
     if (isRunning())
+    {
         emit signalCanceled();
+    }
 
-    RActionThreadBase::cancel();
+    ActionThreadBase::cancel();
 }
 
 void MaintenanceThread::slotThreadFinished()
 {
     if (isEmpty())
     {
-        kDebug() << "List of Pending Jobs is empty";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "List of Pending Jobs is empty";
         emit signalCompleted();
     }
 }

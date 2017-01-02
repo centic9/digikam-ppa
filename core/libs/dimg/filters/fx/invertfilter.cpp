@@ -24,9 +24,9 @@
 
 #include "invertfilter.h"
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -38,7 +38,7 @@ InvertFilter::InvertFilter(QObject* const parent)
 }
 
 InvertFilter::InvertFilter(DImg* const orgImage, QObject* const parent)
-    : DImgThreadedFilter(orgImage, parent, "InvertFilter")
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("InvertFilter"))
 {
     initFilter();
 }
@@ -47,7 +47,7 @@ InvertFilter::InvertFilter(DImgThreadedFilter* const parentFilter,
                            const DImg& orgImage, DImg& destImage,
                            int progressBegin, int progressEnd)
     : DImgThreadedFilter(parentFilter, orgImage, destImage, progressBegin, progressEnd,
-                         parentFilter->filterName() + ": InvertFilter")
+                         parentFilter->filterName() + QLatin1String(": InvertFilter"))
 {
     initFilter();
     destImage = m_destImage;

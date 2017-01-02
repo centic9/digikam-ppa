@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "versionsdelegate.moc"
+#include "versionsdelegate.h"
 
 // Qt includes
 
@@ -29,24 +29,24 @@
 #include <QPainter>
 #include <QPropertyAnimation>
 #include <QStyle>
-#include <QStyleOptionViewItemV4>
+#include <QStyleOptionViewItem>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kcategorydrawer.h>
-#include <kcolorscheme.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kpixmapsequence.h>
-#include <kdeversion.h>
+#include <klocalizedstring.h>
+
+// LibDRawDecoder includes
+
+#include "dwidgetutils.h"
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "imagedelegate.h"
 #include "imagehistorygraphmodel.h"
 #include "imageversionsmodel.h"
 #include "thumbnailloadthread.h"
+#include "dcategorydrawer.h"
 
 namespace Digikam
 {
@@ -65,29 +65,26 @@ public:
           thumbsWaitingFor(0),
           inSizeHint(false)
     {
+        workingPixmap = DWorkingPixmap();
     }
 
-    const int           categoryExtraSpacing;
-    const int           filterItemExtraSpacing;
+    const int                     categoryExtraSpacing;
+    const int                     filterItemExtraSpacing;
 
-    int                 animationState;
-    QPropertyAnimation* animation;
-    KPixmapSequence     workingPixmap;
-#if KDE_IS_VERSION(4,5,0)
-    KCategoryDrawerV3*  categoryDrawer;
-#else
-    KCategoryDrawerV2*  categoryDrawer;
-#endif
-    int                 thumbnailSize;
+    int                           animationState;
+    QPropertyAnimation*           animation;
+    DWorkingPixmap    workingPixmap;
+    DCategoryDrawer*              categoryDrawer;
+    int                           thumbnailSize;
 
-    int                 thumbsWaitingFor;
-    bool                inSizeHint;
+    int                           thumbsWaitingFor;
+    bool                          inSizeHint;
 
 public:
 
     inline const QWidget* widget(const QStyleOptionViewItem& option)
     {
-        if (const QStyleOptionViewItemV3* v3 = qstyleoption_cast<const QStyleOptionViewItemV3*>(&option))
+        if (const QStyleOptionViewItem* v3 = qstyleoption_cast<const QStyleOptionViewItem*>(&option))
             return v3->widget;
         return 0;
     }
@@ -102,19 +99,12 @@ public:
 VersionsDelegate::VersionsDelegate(QObject* const parent)
     : QStyledItemDelegate(parent), d(new Private)
 {
-    d->workingPixmap = KPixmapSequence("process-working", KIconLoader::SizeSmallMedium);
-
-    d->animation     = new QPropertyAnimation(this, "animationState", this);
+    d->categoryDrawer = new DCategoryDrawer(0);
+    d->animation      = new QPropertyAnimation(this, "animationState", this);
     d->animation->setStartValue(0);
     d->animation->setEndValue(d->workingPixmap.frameCount() - 1);
     d->animation->setDuration(100 * d->workingPixmap.frameCount());
     d->animation->setLoopCount(-1);
-
-#if KDE_IS_VERSION(4,5,0)
-    d->categoryDrawer = new KCategoryDrawerV3(0);
-#else
-    d->categoryDrawer = new KCategoryDrawerV2;
-#endif
 }
 
 VersionsDelegate::~VersionsDelegate()
@@ -132,6 +122,7 @@ void VersionsDelegate::setAnimationState(int animationState)
 {
     if (d->animationState == animationState)
         return;
+
     d->animationState = animationState;
     emit animationStateChanged();
 }
@@ -153,7 +144,7 @@ void VersionsDelegate::beginPainting()
 
 void VersionsDelegate::finishPainting()
 {
-    //kDebug() << "painting finished" << d->thumbsWaitingFor;
+    //qCDebug(DIGIKAM_GENERAL_LOG) << "painting finished" << d->thumbsWaitingFor;
     if (d->thumbsWaitingFor)
     {
         d->animation->start();
@@ -169,14 +160,14 @@ QSize VersionsDelegate::sizeHint(const QStyleOptionViewItem& option, const QMode
     if (index.data(ImageHistoryGraphModel::IsImageItemRole).toBool())
     {
         d->inSizeHint = true;
-        QSize size = QStyledItemDelegate::sizeHint(option, index);
+        QSize size    = QStyledItemDelegate::sizeHint(option, index);
         d->inSizeHint = false;
         return size;
     }
     else if (index.data(ImageHistoryGraphModel::IsFilterActionItemRole).toBool())
     {
         QSize size = QStyledItemDelegate::sizeHint(option, index);
-        size += QSize(0, d->filterItemExtraSpacing);
+        size      += QSize(0, d->filterItemExtraSpacing);
         return size;
     }
     else if (index.data(ImageHistoryGraphModel::IsCategoryItemRole).toBool())
@@ -215,7 +206,8 @@ void VersionsDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
     {
         return QStyledItemDelegate::paint(painter, option, index);
 
-        /*if (index.data(ImageHistoryGraphModel::IsSubjectImageRole).toBool())
+/*
+        if (index.data(ImageHistoryGraphModel::IsSubjectImageRole).toBool())
         {
             // draw 1px border
             QPen oldPen = painter->pen();
@@ -223,7 +215,8 @@ void VersionsDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
             painter->setPen(pen);
             painter->drawRect(option.rect);
             painter->setPen(oldPen);
-        }*/
+        }
+*/
     }
 }
 
@@ -235,16 +228,21 @@ void VersionsDelegate::initStyleOption(QStyleOptionViewItem* option, const QMode
     option->state &= ~QStyle::State_HasFocus;
 
     if (!index.data(ImageHistoryGraphModel::IsImageItemRole).toBool())
+    {
         return;
-
+    }
+/*
     if (index.data(ImageHistoryGraphModel::IsSubjectImageRole).toBool())
     {
         option->font.setWeight(QFont::Bold);
     }
+*/
+    option->font.setWeight(QFont::Bold);
 
-    if (QStyleOptionViewItemV4* v4 = qstyleoption_cast<QStyleOptionViewItemV4*>(option))
+    if (QStyleOptionViewItem* v4 = qstyleoption_cast<QStyleOptionViewItem*>(option))
     {
         v4->features |= QStyleOptionViewItemV2::HasDecoration;
+
         if (d->inSizeHint)
         {
             v4->decorationSize = QSize(d->thumbnailSize, d->thumbnailSize);
@@ -252,11 +250,13 @@ void VersionsDelegate::initStyleOption(QStyleOptionViewItem* option, const QMode
         else
         {
             QPixmap pix = ImageDelegate::retrieveThumbnailPixmap(index, d->thumbnailSize);
+
             if (pix.isNull())
             {
                 pix = d->workingPixmap.frameAt(d->animationState);
                 d->thumbsWaitingFor++;
             }
+
             v4->icon           = QIcon(pix);
             v4->decorationSize = pix.size();
         }
@@ -269,7 +269,7 @@ void VersionsDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
     painter->save();
     painter->setRenderHint(QPainter::Antialiasing, true);
     QApplication::style()->drawPrimitive(QStyle::PE_PanelItemViewItem, &option, painter);
-    //kDebug() << QApplication::style()->subElementRect(QStyle::SE_ItemViewItemDecoration, &option, 0);
+    //qCDebug(DIGIKAM_GENERAL_LOG) << QApplication::style()->subElementRect(QStyle::SE_ItemViewItemDecoration, &option, 0);
     if (dynamic_cast<const ImageVersionsModel*>(index.model())->paintTree())
     {
         const_cast<QStyleOptionViewItem&>(option).rect.setLeft(option.rect.left() + (index.data(Qt::UserRole).toInt() * 16));
@@ -318,7 +318,7 @@ void VersionsDelegate::paint(QPainter* painter, const QStyleOptionViewItem& opti
 
     QRect textRect = option.rect;
     textRect.setLeft(textRect.left() + 72);
-    KUrl path(index.data(Qt::DisplayRole).toString());
+    QUrl path(index.data(Qt::DisplayRole).toString());
 
     if (index.row() == 0 && index.model()->rowCount() > 1)
     {

@@ -6,7 +6,7 @@
  * Date        : 2009-04-20
  * Description : a view to available tools in tab view.
  *
- * Copyright (C) 2009-2012 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,18 +21,17 @@
  *
  * ============================================================ */
 
-#include "toolsview.moc"
+#include "toolsview.h"
 
 // Qt includes
 
 #include <QList>
 #include <QWidget>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdeversion.h>
-#include <kiconloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -62,15 +61,11 @@ public:
 };
 
 ToolsView::ToolsView(QWidget* const parent)
-    : KTabWidget(parent), d(new Private)
+    : QTabWidget(parent),
+      d(new Private)
 {
-    setTabBarHidden(false);
-
-#if KDE_IS_VERSION(4,3,0)
     setTabsClosable(false);
-#else
-    setCloseButtonEnabled(false);
-#endif
+
     // --------------------------------------------------------
 
     d->baseTools = new ToolsListView(this);
@@ -82,19 +77,20 @@ ToolsView::ToolsView(QWidget* const parent)
     new ToolListViewGroup(d->baseTools, BatchTool::FiltersTool);
     new ToolListViewGroup(d->baseTools, BatchTool::ConvertTool);
     new ToolListViewGroup(d->baseTools, BatchTool::MetadataTool);
-    insertTab(TOOLS, d->baseTools, SmallIcon("digikam"), i18n("Base Tools"));
+    new ToolListViewGroup(d->baseTools, BatchTool::CustomTool);
+    insertTab(TOOLS, d->baseTools, QIcon::fromTheme(QLatin1String("digikam")), i18n("Base Tools"));
 
     // --------------------------------------------------------
 
     d->workflow    = new WorkflowList(this);
     d->workflow->setWhatsThis(i18n("This is the list of your customized workflow settings."));
-    insertTab(WORKFLOW, d->workflow, SmallIcon("step"), i18n("Workflow"));
+    insertTab(WORKFLOW, d->workflow, QIcon::fromTheme(QLatin1String("step")), i18n("Workflow"));
 
     // --------------------------------------------------------
 
     d->historyView = new DHistoryView(this);
     d->historyView->setWhatsThis(i18n("You can see below the history of last batch operations processed."));
-    insertTab(HISTORY, d->historyView, SmallIcon("view-history"), i18n("History"));
+    insertTab(HISTORY, d->historyView, QIcon::fromTheme(QLatin1String("edit-find")), i18n("History"));
 
     // --------------------------------------------------------
 
@@ -145,11 +141,8 @@ void ToolsView::addTool(BatchTool* const tool)
         case BatchTool::FiltersTool:
         case BatchTool::ConvertTool:
         case BatchTool::MetadataTool:
+        case BatchTool::CustomTool:
             d->baseTools->addTool(tool);
-            break;
-
-        case BatchTool::KipiTool:
-            // TODO
             break;
 
         default:
@@ -172,11 +165,8 @@ bool ToolsView::removeTool(BatchTool* const tool)
             case BatchTool::FiltersTool:
             case BatchTool::ConvertTool:
             case BatchTool::MetadataTool:
+            case BatchTool::CustomTool:
                 ret = d->baseTools->removeTool(tool);
-                break;
-
-            case BatchTool::KipiTool:
-                // TODO
                 break;
 
             default:
@@ -193,11 +183,11 @@ void ToolsView::addHistoryEntry(const QString& msg, DHistoryView::EntryType type
     {
         QList<QVariant> list;
         list << queueId << itemId;
-        d->historyView->addedEntry(msg, type, QVariant(list));
+        d->historyView->addEntry(msg, type, QVariant(list));
     }
     else
     {
-        d->historyView->addedEntry(msg, type, QVariant());
+        d->historyView->addEntry(msg, type);
     }
 }
 

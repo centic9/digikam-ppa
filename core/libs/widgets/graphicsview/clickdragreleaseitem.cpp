@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "clickdragreleaseitem.moc"
+#include "clickdragreleaseitem.h"
 
 // Qt includes
 
@@ -31,12 +31,9 @@
 #include <QObject>
 #include <QPointF>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "itemvisibilitycontroller.h"
 
 namespace Digikam
@@ -190,7 +187,7 @@ void ClickDragReleaseItem::mouseDoubleClickEvent(QGraphicsSceneMouseEvent* e)
 
 void ClickDragReleaseItem::keyPressEvent(QKeyEvent* e)
 {
-    kDebug() << e;
+    qCDebug(DIGIKAM_WIDGETS_LOG) << e;
 
     switch (e->key())
     {

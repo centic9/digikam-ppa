@@ -6,7 +6,7 @@
  * Date        : 2009-07-09
  * Description : Subjects panel.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -25,9 +25,7 @@
 
 // Local includes
 
-#include <libkexiv2/subjectwidget.h>
-
-using namespace KExiv2Iface;
+#include "subjectwidget.h"
 
 namespace Digikam
 {

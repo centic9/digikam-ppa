@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kde 49i410\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2014-10-20 19:34+0000\n"
 "Last-Translator: Mirhat <mbabic1@etf.unsa.ba>\n"
 "Language-Team: Bosnian\n"
@@ -17,50 +17,49 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Launchpad (build 17341)\n"
 "X-Launchpad-Export-Date: 2015-02-15 06:22+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Samir Ribić,Mirhat Babić"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "Samir.ribic@etf.unsa.ba,mbabic1@etf.unsa.ba"
-
-#: albumchooserwidget.cpp:53
+#: albumchooserwidget.cpp:55
 msgctxt "@title:group Header above controls for managing albums"
 msgid "Album"
 msgstr "Album"
 
-#: albumchooserwidget.cpp:58
+#: albumchooserwidget.cpp:60
 msgid "This is the VKontakte album that will be used for the transfer."
 msgstr "Ovo je VKontakte album koji će biti korišten za transfer."
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:67
 msgid "New Album"
 msgstr "Novi album"
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:68
 msgid "Create new VKontakte album"
 msgstr "Kreirajte novi VKontakte album"
 
-#: albumchooserwidget.cpp:65
+#: albumchooserwidget.cpp:71
 msgctxt "reload albums list"
 msgid "Reload"
 msgstr "Učitaj ponovo"
 
-#: albumchooserwidget.cpp:66
+#: albumchooserwidget.cpp:72
 msgid "Reload albums list"
 msgstr "Učitaj ponovo listu albuma"
 
-#: albumchooserwidget.cpp:69
+#: albumchooserwidget.cpp:75
 msgid "Edit selected album"
 msgstr "Uredi odabrani album"
 
-#: albumchooserwidget.cpp:74
+#: albumchooserwidget.cpp:80
 msgid "Delete selected album"
 msgstr "Obriši odabrani album"
 
-#: albumchooserwidget.cpp:285
+#: albumchooserwidget.cpp:291
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Potvrdi brisanje albuma"
+
+#: albumchooserwidget.cpp:292
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
@@ -69,33 +68,28 @@ msgstr ""
 "<qt>Jeste li sigurni da želite ukloniti ovaj album <b>%1</b> uključujući sve "
 "fotografije u njemu?</qt>"
 
-#: albumchooserwidget.cpp:286
-msgctxt "@title:window"
-msgid "Confirm Album Deletion"
-msgstr "Potvrdi brisanje albuma"
-
-#: albumchooserwidget.cpp:385
-msgid "Internal error: Null pointer to KJob instance."
-msgstr ""
-
-#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+#: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
 msgctxt "@title:window"
 msgid "Request to VKontakte failed"
 msgstr "Zahtjev za VKontakte nije uspio"
 
-#: authinfowidget.cpp:58
+#: albumchooserwidget.cpp:391
+msgid "Internal error: Null pointer to KJob instance."
+msgstr ""
+
+#: authinfowidget.cpp:57
 msgid "Account"
 msgstr "Nalog"
 
-#: authinfowidget.cpp:63
+#: authinfowidget.cpp:62
 msgid "This account is used for authentication."
 msgstr "Ovaj račun je korišten za ovjeru."
 
-#: authinfowidget.cpp:67
+#: authinfowidget.cpp:66
 msgid "Name:"
 msgstr "Ime:"
 
-#: authinfowidget.cpp:68
+#: authinfowidget.cpp:67
 msgid "Your VKontakte login"
 msgstr "Vaša VKontakte prijava"
 
@@ -127,135 +121,144 @@ msgstr "&Izvezi"
 msgid "Main Toolbar"
 msgstr "Glavna alatna traka"
 
-#: plugin_vkontakte.cpp:88
+#: plugin_vkontakte.cpp:82
 msgid "Export to &VKontakte..."
 msgstr "Izvezi u &VKontakte..."
 
-#: vkalbumdialog.cpp:72
+#: vkalbumdialog.cpp:74
 msgctxt "@title:window"
 msgid "Edit album"
 msgstr "Uredi album"
 
-#: vkalbumdialog.cpp:73
+#: vkalbumdialog.cpp:75
 msgctxt "@title:window"
 msgid "New album"
 msgstr "Novi album"
 
-#: vkalbumdialog.cpp:81
+#: vkalbumdialog.cpp:94
 msgctxt "@title:group Header above Title and Summary fields"
 msgid "Album"
 msgstr "Album"
 
-#: vkalbumdialog.cpp:82
+#: vkalbumdialog.cpp:95
 msgid "These are basic settings for the new VKontakte album."
 msgstr "Ovo su osnovne postavke za novi VKontakte album."
 
-#: vkalbumdialog.cpp:85
+#: vkalbumdialog.cpp:98
 msgid "Title of the album that will be created (required)."
 msgstr "Naslov albuma koji će biti kreiran (neophodno)."
 
-#: vkalbumdialog.cpp:88
+#: vkalbumdialog.cpp:101
 msgid "Description of the album that will be created (optional)."
 msgstr "Opis albuma koji ce biti kreiran (neobavezno)."
 
-#: vkalbumdialog.cpp:92
+#: vkalbumdialog.cpp:105
 msgid "Title:"
 msgstr "Naslov:"
 
-#: vkalbumdialog.cpp:93
+#: vkalbumdialog.cpp:106
 msgid "Summary:"
 msgstr "Sažetak:"
 
-#: vkalbumdialog.cpp:96
+#: vkalbumdialog.cpp:109
 msgid "Privacy Settings"
 msgstr "Postavke privatnosti"
 
-#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+#: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
 msgid "Only me"
 msgstr "Samo ja"
 
-#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+#: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
 msgid "My friends"
 msgstr "Moji prijatelji"
 
-#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+#: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
 msgid "Friends of my friends"
 msgstr "Prijatelji mojih prijatelja"
 
-#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+#: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
 msgid "Everyone"
 msgstr "Svi"
 
-#: vkalbumdialog.cpp:104
+#: vkalbumdialog.cpp:117
 msgid "Album available to:"
 msgstr "Album dostupan za:"
 
-#: vkalbumdialog.cpp:112
+#: vkalbumdialog.cpp:125
 msgid "Comments available to:"
 msgstr "Komentari dostupni za:"
 
-#: vkalbumdialog.cpp:140
-msgid "Title cannot be empty."
-msgstr "Naziv ne može biti prazan."
-
-#: vkalbumdialog.cpp:141
+#: vkalbumdialog.cpp:149
 msgid "Error"
 msgstr "Greška"
 
-#: vkwindow.cpp:108
+#: vkalbumdialog.cpp:149
+msgid "Title cannot be empty."
+msgstr "Naziv ne može biti prazan."
+
+#: vkwindow.cpp:96
 msgid "This is the list of images to upload to your VKontakte album."
 msgstr "Ovo je lista slika za učitanje u vaš VKontakte album."
 
-#: vkwindow.cpp:114
+#: vkwindow.cpp:102
 msgid ""
 "This is a clickable link to open the VKontakte service in a web browser."
 msgstr ""
 "Ovo je direktna veza za otvaranje VKontakte servis u internet pretraživaću."
 
-#: vkwindow.cpp:132
+#: vkwindow.cpp:120
 msgid "Destination"
 msgstr "Odredište"
 
-#: vkwindow.cpp:133
+#: vkwindow.cpp:121
 msgid "This is the location where VKontakte images will be downloaded."
 msgstr "Ovo je lokacija gdje će VKontakte slike biti skinute."
 
-#: vkwindow.cpp:141
+#: vkwindow.cpp:129
 msgid "Options"
 msgstr "Opcije"
 
-#: vkwindow.cpp:142
+#: vkwindow.cpp:130
 msgid "These are options that will be applied to images before upload."
 msgstr "Ovo su opcije koje će biti primjenjene na slikama prije učitavanja."
 
-#: vkwindow.cpp:180
+#: vkwindow.cpp:166
 msgctxt "@title:window"
 msgid "Export to VKontakte Web Service"
 msgstr "Izvezi u VKontakte internet servis"
 
-#: vkwindow.cpp:182
+#: vkwindow.cpp:168
 msgid "Start Upload"
 msgstr "Počni otpremanje"
 
-#: vkwindow.cpp:183
+#: vkwindow.cpp:169
 msgid "Start upload to VKontakte service"
 msgstr "Započni učitanje u VKontakte servisu"
 
-#: vkwindow.cpp:194
-msgid "VKontakte Plugin"
-msgstr "VKontakte dodatak"
+#: vkwindow.cpp:181 vkwindow.cpp:346
+msgid "VKontakte"
+msgstr "VKontakte"
 
-#: vkwindow.cpp:197
-msgid "A Kipi plugin to export image collections to VKontakte web service."
+#: vkwindow.cpp:182
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgid "A tool to export image collections to VKontakte web service."
 msgstr "Kipi dodatak za izvoz kolekcije slika u VKontakte internet servis."
 
-#: vkwindow.cpp:199
+#: vkwindow.cpp:184
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2013, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010-2013, Roman Tsisyk\n"
+#| "(c) 2011-2013, Alexander Potashev"
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010-2013, Roman Tsisyk\n"
-"(c) 2011-2013, Alexander Potashev"
+"(c) 2011-2015, Alexander Potashev"
 msgstr ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
@@ -263,39 +266,42 @@ msgstr ""
 "(c) 2010-2013, Roman Tsisyk\n"
 "(c) 2011-2013, Alexander Potashev"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Alexander Potashev"
 msgstr "Alexander Potashev"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Author"
 msgstr "Autor"
 
-#: vkwindow.cpp:275
-msgid "Close"
-msgstr "Zatvori"
-
-# >> Left/right/middle button (does):
-#: vkwindow.cpp:276
-msgid "Close window"
-msgstr "Zatvara prozor"
-
-#: vkwindow.cpp:283
-msgid "Cancel"
-msgstr "Odustani"
-
-#: vkwindow.cpp:284
-msgid "Cancel current operation"
-msgstr "Poništi trenutnu operaciju"
-
-#: vkwindow.cpp:383
-msgid "VKontakte"
-msgstr "VKontakte"
-
-#: vkwindow.cpp:401
+#: vkwindow.cpp:364
 msgid "Please select album first."
 msgstr "Odaberite prvo album."
 
-#: vkwindow.cpp:431
+#: vkwindow.cpp:394
 msgid "Vkontakte Export"
 msgstr "Vkontakte izvoz"
+
+#~ msgid "VKontakte Plugin"
+#~ msgstr "VKontakte dodatak"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Samir Ribić,Mirhat Babić"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "Samir.ribic@etf.unsa.ba,mbabic1@etf.unsa.ba"
+
+#~ msgid "Close"
+#~ msgstr "Zatvori"
+
+# >> Left/right/middle button (does):
+#~ msgid "Close window"
+#~ msgstr "Zatvara prozor"
+
+#~ msgid "Cancel"
+#~ msgstr "Odustani"
+
+#~ msgid "Cancel current operation"
+#~ msgstr "Poništi trenutnu operaciju"

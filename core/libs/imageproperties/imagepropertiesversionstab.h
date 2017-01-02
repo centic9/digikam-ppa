@@ -29,11 +29,8 @@
 #include <QWidget>
 #include <QModelIndex>
 #include <QPoint>
-
-// KDE includes
-
-#include <kurl.h>
-#include <ktabwidget.h>
+#include <QTabWidget>
+#include <QUrl>
 
 // Local includes
 
@@ -46,12 +43,11 @@ namespace Digikam
 {
 
 class FiltersHistoryWidget;
-class ImageInfoList;
 class ImageInfo;
 class ImageModel;
 class VersionsWidget;
 
-class ImagePropertiesVersionsTab : public KTabWidget
+class ImagePropertiesVersionsTab : public QTabWidget
 {
     Q_OBJECT
 

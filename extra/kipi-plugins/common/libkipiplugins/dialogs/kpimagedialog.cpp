@@ -6,7 +6,7 @@
  * Date        : 2004-05-01
  * Description : image files selector dialog.
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,44 +20,36 @@
  *
  * ============================================================ */
 
-#include "kpimagedialog.moc"
+#include "kpimagedialog.h"
 
 // Qt includes
 
+#include <QApplication>
+#include <QStyle>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QPointer>
 #include <QDesktopServices>
+#include <QImageReader>
+#include <QFileDialog>
+#include <QLocale>
+#include <QStandardPaths>
 
 // KDE includes
 
-#include <kdeversion.h>
-#include <kdebug.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kfiledialog.h>
-#include <kimageio.h>
-#include <kio/previewjob.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/dcrawinfocontainer.h>
-#include <libkdcraw/version.h>
-#include <libkdcraw/kdcraw.h>
+#include <klocalizedstring.h>
 
 // Libkipi includes
 
-#include <libkipi/interface.h>
-#include <libkipi/imagecollection.h>
-#include <libkipi/pluginloader.h>
+#include <KIPI/Interface>
+#include <KIPI/ImageCollection>
+#include <KIPI/PluginLoader>
 
 // Local includes
 
-#include "kprawthumbthread.h"
-#include "kpmetadata.h"
+#include "kipiplugins_debug.h"
 
 using namespace KIPI;
-using namespace KDcrawIface;
 
 namespace KIPIPlugins
 {
@@ -72,30 +64,33 @@ public:
         imageLabel   = 0;
         infoLabel    = 0;
         iface        = 0;
-        loadRawThumb = 0;
+        meta         = 0;
 
         PluginLoader* const pl = PluginLoader::instance();
 
         if (pl)
         {
             iface = pl->interface();
+
+            if (iface)
+                meta = iface->createMetadataProcessor();
         }
     }
 
-    QLabel*           imageLabel;
-    QLabel*           infoLabel;
+public:
 
-    KUrl              currentUrl;
+    QLabel*            imageLabel;
+    QLabel*            infoLabel;
 
-    KPMetadata        metaIface;
+    QUrl               currentUrl;
 
-    Interface*        iface;
-
-    KPRawThumbThread* loadRawThumb;
+    MetadataProcessor* meta;
+    Interface*         iface;
 };
 
 KPImageDialogPreview::KPImageDialogPreview(QWidget* const parent)
-    : KPreviewWidgetBase(parent), d(new Private)
+    : QScrollArea(parent),
+      d(new Private)
 {
     QVBoxLayout* const vlay = new QVBoxLayout(this);
     d->imageLabel           = new QLabel(this);
@@ -105,29 +100,21 @@ KPImageDialogPreview::KPImageDialogPreview(QWidget* const parent)
     d->infoLabel            = new QLabel(this);
     d->infoLabel->setAlignment(Qt::AlignCenter);
 
-    vlay->setMargin(0);
-    vlay->setSpacing(KDialog::spacingHint());
+    vlay->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+    vlay->setContentsMargins(QMargins());
     vlay->addWidget(d->imageLabel);
     vlay->addWidget(d->infoLabel);
     vlay->addStretch();
 
-    setSupportedMimeTypes(KImageIO::mimeTypes());
-
     if (d->iface)
     {
-        connect(d->iface, SIGNAL(gotThumbnail(KUrl,QPixmap)),
-                this, SLOT(slotThumbnail(KUrl,QPixmap)));
+        connect(d->iface, &Interface::gotThumbnail,
+                this, &KPImageDialogPreview::slotThumbnail);
     }
-
-    d->loadRawThumb = new KPRawThumbThread(this);
-
-    connect(d->loadRawThumb, SIGNAL(signalRawThumb(KUrl,QImage)),
-            this, SLOT(slotRawThumb(KUrl,QImage)));
 }
 
 KPImageDialogPreview::~KPImageDialogPreview()
 {
-    d->loadRawThumb->cancel();
     delete d;
 }
 
@@ -143,12 +130,12 @@ void KPImageDialogPreview::resizeEvent(QResizeEvent*)
 
 void KPImageDialogPreview::showPreview()
 {
-    KUrl url(d->currentUrl);
+    QUrl url(d->currentUrl);
     clearPreview();
     showPreview(url);
 }
 
-void KPImageDialogPreview::showPreview(const KUrl& url)
+void KPImageDialogPreview::showPreview(const QUrl& url)
 {
     if (!url.isValid())
     {
@@ -169,115 +156,64 @@ void KPImageDialogPreview::showPreview(const KUrl& url)
         }
         else
         {
-            if ( !d->currentUrl.isValid() )
-                return;
-
-#if KDE_IS_VERSION(4,7,0)
-            KFileItemList items;
-            items.append(KFileItem(KFileItem::Unknown, KFileItem::Unknown, d->currentUrl, true));
-            KIO::PreviewJob* const job = KIO::filePreview(items, QSize(256, 256));
-#else
-            KIO::PreviewJob* const job = KIO::filePreview(d->currentUrl, 256);
-#endif
-
-            connect(job, SIGNAL(gotPreview(KFileItem,QPixmap)),
-                    this, SLOT(slotKDEPreview(KFileItem,QPixmap)));
-
-            connect(job, SIGNAL(failed(KFileItem)),
-                    this, SLOT(slotKDEPreviewFailed(KFileItem)));
+            qCDebug(KIPIPLUGINS_LOG) << "No KIPI interface available : thumbnails will not generated.";
         }
 
-        // Try to use libkexiv2 to identify image.
+        // Try to use Metadata Processor from KIPI host to identify image.
 
-        if (d->metaIface.load(d->currentUrl.path()) &&
-            (d->metaIface.hasExif() || d->metaIface.hasXmp()))
+        if (d->meta &&
+            d->meta->load(d->currentUrl) &&
+            (d->meta->hasExif() || d->meta->hasXmp()))
         {
-            make = d->metaIface.getExifTagString("Exif.Image.Make");
+            make = d->meta->getExifTagString(QLatin1String("Exif.Image.Make"));
             if (make.isEmpty())
-                make = d->metaIface.getXmpTagString("Xmp.tiff.Make");
+                make = d->meta->getXmpTagString(QLatin1String("Xmp.tiff.Make"));
 
-            model = d->metaIface.getExifTagString("Exif.Image.Model");
+            model = d->meta->getExifTagString(QLatin1String("Exif.Image.Model"));
             if (model.isEmpty())
-                model = d->metaIface.getXmpTagString("Xmp.tiff.Model");
+                model = d->meta->getXmpTagString(QLatin1String("Xmp.tiff.Model"));
 
-            if (d->metaIface.getImageDateTime().isValid())
-                dateTime = KGlobal::locale()->formatDateTime(d->metaIface.getImageDateTime(),
-                                                             KLocale::ShortDate, true);
+            if (d->meta->getImageDateTime().isValid())
+                dateTime = QLocale().toString(d->meta->getImageDateTime(), QLocale::ShortFormat);
 
-            aperture = d->metaIface.getExifTagString("Exif.Photo.FNumber");
+            aperture = d->meta->getExifTagString(QLatin1String("Exif.Photo.FNumber"));
             if (aperture.isEmpty())
             {
-                aperture = d->metaIface.getExifTagString("Exif.Photo.ApertureValue");
+                aperture = d->meta->getExifTagString(QLatin1String("Exif.Photo.ApertureValue"));
                 if (aperture.isEmpty())
                 {
-                    aperture = d->metaIface.getXmpTagString("Xmp.exif.FNumber");
+                    aperture = d->meta->getXmpTagString(QLatin1String("Xmp.exif.FNumber"));
                     if (aperture.isEmpty())
-                        aperture = d->metaIface.getXmpTagString("Xmp.exif.ApertureValue");
+                        aperture = d->meta->getXmpTagString(QLatin1String("Xmp.exif.ApertureValue"));
                 }
             }
 
-            focalLength = d->metaIface.getExifTagString("Exif.Photo.FocalLength");
+            focalLength = d->meta->getExifTagString(QLatin1String("Exif.Photo.FocalLength"));
             if (focalLength.isEmpty())
-                focalLength = d->metaIface.getXmpTagString("Xmp.exif.FocalLength");
+                focalLength = d->meta->getXmpTagString(QLatin1String("Xmp.exif.FocalLength"));
 
-            exposureTime = d->metaIface.getExifTagString("Exif.Photo.ExposureTime");
+            exposureTime = d->meta->getExifTagString(QLatin1String("Exif.Photo.ExposureTime"));
             if (exposureTime.isEmpty())
             {
-                exposureTime = d->metaIface.getExifTagString("Exif.Photo.ShutterSpeedValue");
+                exposureTime = d->meta->getExifTagString(QLatin1String("Exif.Photo.ShutterSpeedValue"));
                 if (exposureTime.isEmpty())
                 {
-                    exposureTime = d->metaIface.getXmpTagString("Xmp.exif.ExposureTime");
+                    exposureTime = d->meta->getXmpTagString(QLatin1String("Xmp.exif.ExposureTime"));
                     if (exposureTime.isEmpty())
-                        exposureTime = d->metaIface.getXmpTagString("Xmp.exif.ShutterSpeedValue");
+                        exposureTime = d->meta->getXmpTagString(QLatin1String("Xmp.exif.ShutterSpeedValue"));
                 }
             }
 
-            sensitivity = d->metaIface.getExifTagString("Exif.Photo.ISOSpeedRatings");
+            sensitivity = d->meta->getExifTagString(QLatin1String("Exif.Photo.ISOSpeedRatings"));
             if (sensitivity.isEmpty())
             {
-                sensitivity = d->metaIface.getExifTagString("Exif.Photo.ExposureIndex");
+                sensitivity = d->meta->getExifTagString(QLatin1String("Exif.Photo.ExposureIndex"));
                 if (sensitivity.isEmpty())
                 {
-                    sensitivity = d->metaIface.getXmpTagString("Xmp.exif.ISOSpeedRatings");
+                    sensitivity = d->meta->getXmpTagString(QLatin1String("Xmp.exif.ISOSpeedRatings"));
                     if (sensitivity.isEmpty())
-                        sensitivity = d->metaIface.getXmpTagString("Xmp.exif.ExposureIndex");
+                        sensitivity = d->meta->getXmpTagString(QLatin1String("Xmp.exif.ExposureIndex"));
                 }
-            }
-        }
-        else
-        {
-            // Try to use libkdcraw interface to identify image.
-
-            DcrawInfoContainer info;
-            KDcraw             dcrawIface;
-            dcrawIface.rawFileIdentify(info, d->currentUrl.path());
-            if (info.isDecodable)
-            {
-                if (!info.make.isEmpty())
-                    make = info.make;
-
-                if (!info.model.isEmpty())
-                    model = info.model;
-
-                if (info.dateTime.isValid())
-                    dateTime = KGlobal::locale()->formatDateTime(info.dateTime, KLocale::ShortDate, true);
-
-                if (info.aperture != -1.0)
-                    aperture = QString::number(info.aperture);
-
-                if (info.focalLength != -1.0)
-                    focalLength = QString::number(info.focalLength);
-
-                if (info.exposureTime != -1.0)
-                    exposureTime = QString::number(info.exposureTime);
-
-                if (info.sensitivity != -1)
-                    sensitivity = QString::number(info.sensitivity);
-            }
-            else
-            {
-                d->infoLabel->clear();
-                return;
             }
         }
 
@@ -291,12 +227,12 @@ void KPImageDialogPreview::showPreview(const KUrl& url)
         if (sensitivity.isEmpty()) sensitivity = unavailable;
         else sensitivity = i18n("%1 ISO", sensitivity);
 
-        QString identify("<qt><center>");
-        QString cellBeg("<tr><td><nobr><font size=-1>");
-        QString cellMid("</font></nobr></td><td><nobr><font size=-1>");
-        QString cellEnd("</font></nobr></td></tr>");
+        QString identify(QString::fromLatin1("<qt><center>"));
+        QString cellBeg(QString::fromLatin1("<tr><td><nobr><font size=-1>"));
+        QString cellMid(QString::fromLatin1("</font></nobr></td><td><nobr><font size=-1>"));
+        QString cellEnd(QString::fromLatin1("</font></nobr></td></tr>"));
 
-        identify += "<table cellspacing=0 cellpadding=0>";
+        identify += QString::fromLatin1("<table cellspacing=0 cellpadding=0>");
         identify += cellBeg + i18n("<i>Make:</i>")        + cellMid + make         + cellEnd;
         identify += cellBeg + i18n("<i>Model:</i>")       + cellMid + model        + cellEnd;
         identify += cellBeg + i18n("<i>Created:</i>")     + cellMid + dateTime     + cellEnd;
@@ -304,30 +240,13 @@ void KPImageDialogPreview::showPreview(const KUrl& url)
         identify += cellBeg + i18n("<i>Focal:</i>")       + cellMid + focalLength  + cellEnd;
         identify += cellBeg + i18n("<i>Exposure:</i>")    + cellMid + exposureTime + cellEnd;
         identify += cellBeg + i18n("<i>Sensitivity:</i>") + cellMid + sensitivity  + cellEnd;
-        identify += "</table></center></qt>";
+        identify += QString::fromLatin1("</table></center></qt>");
 
         d->infoLabel->setText(identify);
     }
 }
 
-// Used only if Kipi interface is null.
-void KPImageDialogPreview::slotKDEPreview(const KFileItem& item, const QPixmap& pix)
-{
-    if (!pix.isNull())
-        slotThumbnail(item.url(), pix);
-}
-
-void KPImageDialogPreview::slotKDEPreviewFailed(const KFileItem& item)
-{
-    d->loadRawThumb->getRawThumb(item.url());
-}
-
-void KPImageDialogPreview::slotRawThumb(const KUrl& url, const QImage& img)
-{
-    slotThumbnail(url, QPixmap::fromImage(img));
-}
-
-void KPImageDialogPreview::slotThumbnail(const KUrl& url, const QPixmap& pix)
+void KPImageDialogPreview::slotThumbnail(const QUrl& url, const QPixmap& pix)
 {
     if (url == d->currentUrl)
     {
@@ -347,7 +266,7 @@ void KPImageDialogPreview::clearPreview()
 {
     d->imageLabel->clear();
     d->infoLabel->clear();
-    d->currentUrl = KUrl();
+    d->currentUrl = QUrl();
 }
 
 // ------------------------------------------------------------------------
@@ -376,63 +295,73 @@ public:
 
     QString          fileFormats;
 
-    KUrl             url;
-    KUrl::List       urls;
+    QUrl             url;
+    QList<QUrl>      urls;
 
     Interface*       iface;
 };
 
 KPImageDialog::KPImageDialog(QWidget* const parent, bool singleSelect, bool onlyRaw)
-           : d(new Private)
+    : d(new Private)
 {
     d->singleSelect = singleSelect;
     d->onlyRaw      = onlyRaw;
 
     QStringList patternList;
     QString     allPictures;
+    QString     rawFiles;
+
+    if (d->iface)
+    {
+        rawFiles = d->iface->rawFiles();
+    }
 
     if (!d->onlyRaw)
     {
-        patternList = KImageIO::pattern(KImageIO::Reading).split('\n', QString::SkipEmptyParts);
+        patternList = d->iface->supportedImageMimeTypes();
 
         // All Images from list must been always the first entry given by KDE API
         allPictures = patternList[0];
 
-        allPictures.insert(allPictures.indexOf("|"), QString(KDcraw::rawFiles()) + QString(" *.JPE *.TIF"));
+        allPictures.insert(allPictures.indexOf(QString::fromLatin1("|")), rawFiles + QString::fromLatin1(" *.JPE *.TIF"));
         patternList.removeAll(patternList[0]);
         patternList.prepend(allPictures);
     }
     else
     {
-        allPictures.insert(allPictures.indexOf("|"), QString(KDcraw::rawFiles()) + QString(" *.JPE *.TIF"));
+        allPictures.insert(allPictures.indexOf(QString::fromLatin1("|")), rawFiles + QString::fromLatin1(" *.JPE *.TIF"));
         patternList.prepend(allPictures);
     }
 
     // Added RAW file formats supported by dcraw program like a type mime.
     // Nota: we cannot use here "image/x-raw" type mime from KDE because it uncomplete
     // or unavailable(see file #121242 in bug).
-    patternList.append(i18n("\n%1|Camera RAW files", QString(KDcraw::rawFiles())));
+    patternList.append(i18n("\n%1|Camera RAW files", rawFiles));
 
-    d->fileFormats = patternList.join("\n");
+    d->fileFormats = patternList.join(QString::fromLatin1("\n"));
 
-    QString alternatePath         = QDesktopServices::storageLocation(QDesktopServices::PicturesLocation);
-    QPointer<KFileDialog> dlg     = new KFileDialog(d->iface ? d->iface->currentAlbum().path().path()
+    QString alternatePath         = QStandardPaths::writableLocation(QStandardPaths::PicturesLocation);
+    QPointer<QFileDialog> dlg     = new QFileDialog(parent, QString(),
+                                                    d->iface ? d->iface->currentAlbum().url().toLocalFile()
                                                              : alternatePath,
-                                                    d->fileFormats, parent);
+                                                    d->fileFormats);
+/*
+    NOTE: KF5 do not provide a way to pass preview widget.
     KPImageDialogPreview* const preview = new KPImageDialogPreview(dlg);
     dlg->setPreviewWidget(preview);
-    dlg->setOperationMode(KFileDialog::Opening);
+*/
+    dlg->setAcceptMode(QFileDialog::AcceptOpen);
 
     if (singleSelect)
     {
-        dlg->setMode( KFile::File );
+        dlg->setFileMode( QFileDialog::ExistingFile );
         dlg->setWindowTitle(i18n("Select an Image"));
         dlg->exec();
-        d->url = dlg->selectedUrl();
+        d->url = dlg->selectedUrls().first();
     }
     else
     {
-        dlg->setMode( KFile::Files );
+        dlg->setFileMode( QFileDialog::ExistingFiles );
         dlg->setWindowTitle(i18n("Select Images"));
         dlg->exec();
         d->urls = dlg->selectedUrls();
@@ -461,17 +390,17 @@ QString KPImageDialog::fileFormats() const
     return d->fileFormats;
 }
 
-KUrl KPImageDialog::url() const
+QUrl KPImageDialog::url() const
 {
     return d->url;
 }
 
-KUrl::List KPImageDialog::urls() const
+QList<QUrl> KPImageDialog::urls() const
 {
     return d->urls;
 }
 
-KUrl KPImageDialog::getImageUrl(QWidget* const parent, bool onlyRaw)
+QUrl KPImageDialog::getImageUrl(QWidget* const parent, bool onlyRaw)
 {
     KPImageDialog dlg(parent, true, onlyRaw);
 
@@ -481,11 +410,11 @@ KUrl KPImageDialog::getImageUrl(QWidget* const parent, bool onlyRaw)
     }
     else
     {
-        return KUrl();
+        return QUrl();
     }
 }
 
-KUrl::List KPImageDialog::getImageUrls(QWidget* const parent, bool onlyRaw)
+QList<QUrl> KPImageDialog::getImageUrls(QWidget* const parent, bool onlyRaw)
 {
     KPImageDialog dlg(parent, false, onlyRaw);
 
@@ -495,7 +424,7 @@ KUrl::List KPImageDialog::getImageUrls(QWidget* const parent, bool onlyRaw)
     }
     else
     {
-        return KUrl::List();
+        return QList<QUrl>();
     }
 }
 

@@ -6,7 +6,7 @@
  * Date        : 2012-01-20
  * Description : new items finder.
  *
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,16 +26,18 @@
 
 // Qt includes
 
+#include <QObject>
 #include <QString>
 
 // Local includes
 
 #include "maintenancetool.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
-class NewItemsFinder : public MaintenanceTool
+class DIGIKAM_EXPORT NewItemsFinder : public MaintenanceTool
 {
     Q_OBJECT
 

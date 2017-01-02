@@ -7,7 +7,7 @@
  * Description : Multithreaded loader for thumbnails
  *
  * Copyright (C) 2006-2008 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -35,16 +35,10 @@
 #include <QVariant>
 #include <QMatrix>
 
-// KDE includes
-
-#include <kdebug.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/kdcraw.h>
-
 // Local includes
 
+#include "drawdecoder.h"
+#include "digikam_debug.h"
 #include "dmetadata.h"
 #include "iccmanager.h"
 #include "jpegutils.h"
@@ -268,7 +262,7 @@ void ThumbnailLoadingTask::postProcess()
         }
         default:
         {
-            kError() << "Unsupported postprocessing parameter for thumbnail loading:"
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Unsupported postprocessing parameter for thumbnail loading:"
                      << m_loadingDescription.postProcessingParameters.colorManagement;
             break;
         }

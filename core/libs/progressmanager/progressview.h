@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2004      by Till Adam <adam at kde dot org>
  *
@@ -30,10 +30,6 @@
 
 #include <QScrollArea>
 
-// KDE includes
-
-#include <kvbox.h>
-
 // Local includes
 
 #include "overlaywidget.h"
@@ -43,7 +39,7 @@ namespace Digikam
 {
 class ProgressItem;
 
-class TransactionItem : public KVBox
+class TransactionItem : public DVBox
 {
     Q_OBJECT
 
@@ -59,7 +55,7 @@ public:
     void setThumbnail(const QPixmap&);
 
     // the given text is interpreted as RichText, so you might need to
-    // Qt::escape() it before passing
+    // .toHtmlEscaped() it before passing
     void setStatus(const QString&);
 
     void setTotalSteps( int totalSteps );
@@ -90,7 +86,7 @@ class TransactionItemView : public QScrollArea
 
 public:
 
-    explicit TransactionItemView(QWidget* const parent=0, const char* name=0);
+    explicit TransactionItemView(QWidget* const parent=0, const QString& name=QString());
     virtual ~TransactionItemView() {}
 
     TransactionItem* addTransactionItem(ProgressItem* item, bool first);
@@ -112,7 +108,7 @@ protected:
 
 private:
 
-    KVBox* m_bigBox;
+    DVBox* m_bigBox;
 };
 
 // --------------------------------------------------------------------------------
@@ -123,7 +119,7 @@ class DIGIKAM_EXPORT ProgressView : public OverlayWidget
 
 public:
 
-    ProgressView(QWidget* const alignWidget, QWidget* const parent, const char* name = 0);
+    ProgressView(QWidget* const alignWidget, QWidget* const parent, const QString& name = QString());
     ~ProgressView();
 
     void setVisible(bool b);

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipi-plugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2014-10-20 19:34+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -17,88 +17,46 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Launchpad (build 17341)\n"
 "X-Launchpad-Export-Date: 2015-02-16 06:45+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Elmedina Fejzagic,Samir Ribić"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "Ef@etf.ba,samir.ribic@etf.unsa.ba"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Facebook novi album"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "Naslov albuma koji će biti kreiran (neophodno)."
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "Lokacija albuma koji će biti kreiran (opcionalno)."
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "Opis albuma koji ce biti kreiran (opcinalno)."
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Postavke privatnosti albuma koji će biti kreiran (neophodno)."
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 msgid "Only Me"
 msgstr "Samo ja"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "Samo prijatelji"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "Prijatelji prijatelja"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "Moja mreža i prijatelji"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "Svi"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "Naslov:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "Lokacija:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "Opis:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "Privatnost:"
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "Važeća prethodna sesija..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr "Nadogradnja na OAuth..."
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Facebook autorizacija aplikacija"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -107,235 +65,71 @@ msgstr ""
 "kopirajte Internet adresu iz vašeg pregledača u polje za unos teksta i "
 "pritisnite \"U redu\"."
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "Prekinuto od strane korisnika."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "Servis nije trenutno dostupan."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Aplikacija je dostigla maksimalan broj mogućih zahtjeva."
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "Nevažeća sesija, ili je sesija istekla. Pokušajte se ponovo prijaviti."
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "Nevažeći ID albuma."
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "Album je pun."
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "Nema datoteke ili je nevažeća datoteka."
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "Previše neodobrenih fotografija na čekanju."
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr "Ovo je lista slika za učitavanje na Vaš Facebook račun."
-
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
+#: fbtalker.cpp:602
+msgid "Error"
 msgstr ""
-"Ovo je link na koji možete kliknuti za otvaranje Facebook home stranice u "
-"web pregledu."
 
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "Račun"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "Ovo je Facebook račun koji je trenutno prijavljen."
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "Ime:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "Dozvola:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
-msgstr ""
-"Dozvola Kipi Priključak aplikacije za učitavanje slika direktno. Ako nije "
-"dozvoljeno, korisnik će morati ručno odobriti učitavanja slika na Facebook."
-
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "Promijeni Račun"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr "Odjavite se i promijenite Facebook Račun korišten za transfer"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "Skini Odabrano"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "Ovo je odabrano iz Facebook albuma/slika za skidanje."
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "Odredište"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr "Ovo je Facebook album u koji će odabrane slike biti učitane."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "Moj &Album"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "Skini cijeli album od trenutno prijavljenog korisnika."
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "Album &od Mog prijatelja"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "Skini cijeli album od odabranog prijatelja."
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "Fotografije od &Me"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "Skni sve fotografije od trenutno prijavljenog korisnika."
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "Fotografije od Mog &Friend"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "Skini sve fotografije od trenutno odabranog prijatelja."
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "Prijatelj:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "Album:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "Novi album:"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "Kreiraj novi Facebook album"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "Dopuni"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "Dopuni listu albuma"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr "Ovo je prostor gdje će Facebook slike biti skinute."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "Opcije"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr ""
-"Ovo su opcije koje će biti primjenje na fotografijama prije učitavanja."
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "Promijeni veličinu prije učitavanja"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "Najveća veličina:"
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "JPEG kvalitet:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "Direktno učitavanje"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr "Učitane fotografije neće trebati ručno odobrenje od strane korisnika."
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "Ručno odobrenje učitavanja"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr ""
-"Učitane fotografije će čekati u neriješenom stanju dok ne budu ručno "
-"odobrene od strane korisnika."
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "Importovano sa Facebook Web Servisa"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "Počni preuzimati"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "Počni preuzimati sa Facebook Web Servisa"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "Eksportovano od strane Facebook Web Servisa"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "Počni slanje"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "Počni slanje na Facebook Web Servis"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
-msgstr "Facebook uvoz/izvoz"
+#: fbwindow.cpp:140
+#, fuzzy
+#| msgid "Facebook export"
+msgid "Facebook Export"
+msgstr "Facebook izvoz"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to import/export image collection to/from Facebook web "
+#| "service."
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
 "Kipi priključak za import/eksport kolekcija slika na/sa Facebook web servis"
 "(a)."
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -344,91 +138,73 @@ msgstr ""
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
 "(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "Autor i održavalac"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr ""
-
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr ""
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+#, fuzzy
+#| msgid "&lt;auto create&gt;"
+msgid "<auto create>"
 msgstr "&lt;auto create&gt;"
 
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Facebook poziv prekinut: %1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "Slike profila"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr ""
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr ""
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr ""
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr ""
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr "Facebook uvoz"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr "Facebook izvoz"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "Ne mogu otvoriti datoteku"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+msgid "Uploading Failed"
+msgstr ""
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
 "Do you want to continue?"
 msgstr "Palo učitavanje slike na Facebook: %1?"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Neuspjelo čuvanje slike: %1\n"
-"Želite li nastaviti?"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Neuspjelo preuzimanje slike: %1\n"
-"Da li želite nastaviti?"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Facebook poziv prekinut: %1"
@@ -448,13 +224,209 @@ msgstr "&Izvezi"
 msgid "Main Toolbar"
 msgstr "Glavna alatna traka"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "Eksportuj na &Facebook..."
 
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "Importuj sa &Facebook..."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Elmedina Fejzagic,Samir Ribić"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "Ef@etf.ba,samir.ribic@etf.unsa.ba"
+
+#~ msgid "Facebook New Album"
+#~ msgstr "Facebook novi album"
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Naslov albuma koji će biti kreiran (neophodno)."
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "Lokacija albuma koji će biti kreiran (opcionalno)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Opis albuma koji ce biti kreiran (opcinalno)."
+
+#~ msgctxt "new facebook album"
+#~ msgid "Title:"
+#~ msgstr "Naslov:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Location:"
+#~ msgstr "Lokacija:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Description:"
+#~ msgstr "Opis:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Privacy:"
+#~ msgstr "Privatnost:"
+
+#~ msgid "This is the list of images to upload to your Facebook account."
+#~ msgstr "Ovo je lista slika za učitavanje na Vaš Facebook račun."
+
+#~ msgid ""
+#~ "This is a clickable link to open the Facebook home page in a web browser."
+#~ msgstr ""
+#~ "Ovo je link na koji možete kliknuti za otvaranje Facebook home stranice u "
+#~ "web pregledu."
+
+#~ msgid "Account"
+#~ msgstr "Račun"
+
+#~ msgid "This is the Facebook account that is currently logged in."
+#~ msgstr "Ovo je Facebook račun koji je trenutno prijavljen."
+
+#~ msgctxt "facebook account settings"
+#~ msgid "Name:"
+#~ msgstr "Ime:"
+
+#~ msgid "Permission:"
+#~ msgstr "Dozvola:"
+
+#~ msgid ""
+#~ "Permission of KIPI Plugin application to upload photos directly. If not, "
+#~ "user will need to manually approve uploaded photos in Facebook."
+#~ msgstr ""
+#~ "Dozvola Kipi Priključak aplikacije za učitavanje slika direktno. Ako nije "
+#~ "dozvoljeno, korisnik će morati ručno odobriti učitavanja slika na "
+#~ "Facebook."
+
+#~ msgid "Change Account"
+#~ msgstr "Promijeni Račun"
+
+#~ msgid "Logout and change Facebook Account used for transfer"
+#~ msgstr "Odjavite se i promijenite Facebook Račun korišten za transfer"
+
+#~ msgid "Download Selection"
+#~ msgstr "Skini Odabrano"
+
+#~ msgid "This is the selection of Facebook albums/photos to download."
+#~ msgstr "Ovo je odabrano iz Facebook albuma/slika za skidanje."
+
+#~ msgid "Destination"
+#~ msgstr "Odredište"
+
+#~ msgid ""
+#~ "This is the Facebook album to which selected photos will be uploaded."
+#~ msgstr "Ovo je Facebook album u koji će odabrane slike biti učitane."
+
+#~ msgid "My &Album"
+#~ msgstr "Moj &Album"
+
+#~ msgid "Download complete album of currently logged in user."
+#~ msgstr "Skini cijeli album od trenutno prijavljenog korisnika."
+
+#~ msgid "Album &of My Friend"
+#~ msgstr "Album &od Mog prijatelja"
+
+#~ msgid "Download complete album of selected friend."
+#~ msgstr "Skini cijeli album od odabranog prijatelja."
+
+#~ msgid "Photos of &Me"
+#~ msgstr "Fotografije od &Me"
+
+#~ msgid "Download all photos of currently logged in user."
+#~ msgstr "Skni sve fotografije od trenutno prijavljenog korisnika."
+
+#~ msgid "Photos of My &Friend"
+#~ msgstr "Fotografije od Mog &Friend"
+
+#~ msgid "Download all photos of selected friend."
+#~ msgstr "Skini sve fotografije od trenutno odabranog prijatelja."
+
+#~ msgid "Friend:"
+#~ msgstr "Prijatelj:"
+
+#~ msgid "Album:"
+#~ msgstr "Album:"
+
+#~ msgid "New Album"
+#~ msgstr "Novi album:"
+
+#~ msgid "Create new Facebook album"
+#~ msgstr "Kreiraj novi Facebook album"
+
+#~ msgctxt "facebook album list"
+#~ msgid "Reload"
+#~ msgstr "Dopuni"
+
+#~ msgid "Reload album list"
+#~ msgstr "Dopuni listu albuma"
+
+#~ msgid "This is the location to which Facebook images will be downloaded."
+#~ msgstr "Ovo je prostor gdje će Facebook slike biti skinute."
+
+#~ msgid "Options"
+#~ msgstr "Opcije"
+
+#~ msgid "These are options that will be applied to photos before upload."
+#~ msgstr ""
+#~ "Ovo su opcije koje će biti primjenje na fotografijama prije učitavanja."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Promijeni veličinu prije učitavanja"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "Najveća veličina:"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "JPEG kvalitet:"
+
+#~ msgid "Direct upload"
+#~ msgstr "Direktno učitavanje"
+
+#~ msgid "Uploaded photos will not need manual approval by user."
+#~ msgstr ""
+#~ "Učitane fotografije neće trebati ručno odobrenje od strane korisnika."
+
+#~ msgid "Manual upload approval"
+#~ msgstr "Ručno odobrenje učitavanja"
+
+#~ msgid ""
+#~ "Uploaded photos will wait in pending state until manually approved by "
+#~ "user."
+#~ msgstr ""
+#~ "Učitane fotografije će čekati u neriješenom stanju dok ne budu ručno "
+#~ "odobrene od strane korisnika."
+
+#~ msgid "Import from Facebook Web Service"
+#~ msgstr "Importovano sa Facebook Web Servisa"
+
+#~ msgid "Start Download"
+#~ msgstr "Počni preuzimati"
+
+#~ msgid "Start download from Facebook web service"
+#~ msgstr "Počni preuzimati sa Facebook Web Servisa"
+
+#~ msgid "Facebook Import/Export"
+#~ msgstr "Facebook uvoz/izvoz"
+
+#~ msgctxt "name of special Facebook album for profile pictures"
+#~ msgid "Profile Pictures"
+#~ msgstr "Slike profila"
+
+#~ msgid "Facebook import"
+#~ msgstr "Facebook uvoz"
+
+#~ msgid ""
+#~ "Failed to save photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Neuspjelo čuvanje slike: %1\n"
+#~ "Želite li nastaviti?"
+
+#~ msgid ""
+#~ "Failed to download photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Neuspjelo preuzimanje slike: %1\n"
+#~ "Da li želite nastaviti?"
+
+#~ msgid "Import from &Facebook..."
+#~ msgstr "Importuj sa &Facebook..."
 
 #~ msgid ""
 #~ "Please follow the instructions in the browser window. Press \"OK\" when "

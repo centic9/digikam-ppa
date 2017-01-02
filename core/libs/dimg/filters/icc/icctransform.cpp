@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2005-2006 by F.J. Cruz <fj dot cruz at supercable dot es>
  * Copyright (C) 2009      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,6 +24,7 @@
  * ============================================================ */
 
 #include "icctransform.h"
+#include "digikam-lcms.h"
 
 // Qt includes
 
@@ -34,18 +35,12 @@
 
 // KDE includes
 
-#include <kconfig.h>
-#include <kapplication.h>
-#include <kglobal.h>
 #include <kconfiggroup.h>
-#include <kdebug.h>
 
-// Lcms includes
-
-#include "digikam-lcms.h"
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimgloaderobserver.h"
 
 namespace Digikam
@@ -391,7 +386,7 @@ void IccTransform::setDoNotEmbedOutputProfile(bool doNotEmbed)
 /*
 void IccTransform::readFromConfig()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(QString("Color Management"));
 
     int intent                = group.readEntry("RenderingIntent", 0);
@@ -542,7 +537,7 @@ bool IccTransform::open(TransformDescription& description)
 
     if (!d->handle)
     {
-        kDebug() << "LCMS internal error: cannot create a color transform instance";
+        qCDebug(DIGIKAM_DIMG_LOG) << "LCMS internal error: cannot create a color transform instance";
         return false;
     }
 
@@ -577,7 +572,7 @@ bool IccTransform::openProofing(TransformDescription& description)
 
     if (!d->handle)
     {
-        kDebug() << "LCMS internal error: cannot create a color transform instance";
+        qCDebug(DIGIKAM_DIMG_LOG) << "LCMS internal error: cannot create a color transform instance";
         return false;
     }
 
@@ -588,13 +583,13 @@ bool IccTransform::checkProfiles()
 {
     if (!d->effectiveInputProfile().open())
     {
-        kError() << "Cannot open embedded profile";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Cannot open embedded profile";
         return false;
     }
 
     if (!d->outputProfile.open())
     {
-        kError() << "Cannot open output profile";
+        qCDebug(DIGIKAM_DIMG_LOG) << "Cannot open output profile";
         return false;
     }
 
@@ -602,7 +597,7 @@ bool IccTransform::checkProfiles()
     {
         if (!d->proofProfile.open())
         {
-            kError() << "Cannot open proofing profile";
+            qCDebug(DIGIKAM_DIMG_LOG) << "Cannot open proofing profile";
             return false;
         }
     }
@@ -661,7 +656,7 @@ bool IccTransform::apply(DImg& image, DImgLoaderObserver* const observer)
     }
 
     // if this was a RAW color image, it is no more
-    image.removeAttribute("uncalibratedColor");
+    image.removeAttribute(QLatin1String("uncalibratedColor"));
 
     return true;
 }
@@ -672,7 +667,7 @@ bool IccTransform::apply(QImage& qimage)
         qimage.format() != QImage::Format_ARGB32 &&
         qimage.format() != QImage::Format_ARGB32_Premultiplied)
     {
-        kError() << "Unsupported QImage format" << qimage.format();
+        qCDebug(DIGIKAM_DIMG_LOG) << "Unsupported QImage format" << qimage.format();
         return false;
     }
 

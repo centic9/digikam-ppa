@@ -6,7 +6,7 @@
  * Date        : 2007-02-13
  * Description : slide show settings container.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,10 +29,7 @@
 #include <QMap>
 #include <QColor>
 #include <QString>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -43,7 +40,7 @@
 namespace Digikam
 {
 
-/** This class contain the information of one picture to slide
+/** This class contains the information of one picture to slide
  */
 class DIGIKAM_EXPORT SlidePictureInfo
 {
@@ -73,7 +70,6 @@ public:
 
     /** Picture Title
      */
-
     QString            title;
 
     /** Picture Tag names
@@ -178,15 +174,15 @@ public:
 
     /** List of pictures URL to slide
      */
-    KUrl::List                   fileList;
+    QList<QUrl>                  fileList;
 
     /** Map of pictures information to slide
      */
-    QMap<KUrl, SlidePictureInfo> pictInfoMap;
+    QMap<QUrl, SlidePictureInfo> pictInfoMap;
 
     /** URL of the first image to show if requested
      */
-    KUrl                         imageUrl;
+    QUrl                         imageUrl;
 
 private:
 

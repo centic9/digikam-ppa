@@ -6,7 +6,8 @@
  * Date        : 2011-09-13
  * Description : a plugin to export to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -33,7 +34,7 @@ using namespace KIPIPlugins;
 namespace KIPIFlashExportPlugin
 {
 
-class FlashManager; 
+class FlashManager;
 
 class LookPage : public KPWizardPage
 {
@@ -41,7 +42,7 @@ class LookPage : public KPWizardPage
 
 public:
 
-    explicit LookPage(KAssistantDialog* const dlg);
+    explicit LookPage(KPWizardDialog* const dlg);
     ~LookPage();
 
     void setSettings(const SimpleViewerSettingsContainer* const settings);
@@ -51,8 +52,8 @@ public:
 
 private:
 
-    class LookPagePriv;
-    LookPagePriv* const d;
+    class Private;
+    Private* const d;
 };
 
 }   // namespace KIPIFlashExportPlugin

@@ -32,13 +32,9 @@
 #include <QPolygon>
 #include <QModelIndex>
 
-// KDE includes
-
-#include <klocale.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "thumbnailsize.h"
 
 namespace Digikam

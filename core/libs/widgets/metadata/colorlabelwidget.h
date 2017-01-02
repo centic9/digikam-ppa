@@ -6,7 +6,7 @@
  * Date        : 2011-01-28
  * Description : color label widget
  *
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,23 +31,18 @@
 #include <QEvent>
 #include <QList>
 #include <QMetaType>
-
-// KDE includes
-
-#include <kvbox.h>
-#include <kactionmenu.h>
+#include <QMenu>
 
 // Local includes
 
-#include "globals.h"
+#include "dwidgetutils.h"
+#include "digikam_globals.h"
 #include "digikam_export.h"
-
-class QMenu;
 
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT ColorLabelWidget : public KVBox
+class DIGIKAM_EXPORT ColorLabelWidget : public DVBox
 {
     Q_OBJECT
 
@@ -132,7 +127,7 @@ private:
 
 // ------------------------------------------------------------------------------
 
-class DIGIKAM_EXPORT ColorLabelMenuAction : public KActionMenu
+class DIGIKAM_EXPORT ColorLabelMenuAction : public QMenu
 {
     Q_OBJECT
 

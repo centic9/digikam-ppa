@@ -6,7 +6,7 @@
  * Date        : 2008-12-23
  * Description : a widget to select between system font or a custom font.
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,20 +21,22 @@
  *
  * ============================================================ */
 
-#include "dfontselect.moc"
+#include "dfontselect.h"
 
 // Qt includes
 
 #include <QLabel>
 #include <QEvent>
 #include <QPushButton>
+#include <QFontDatabase>
+#include <QApplication>
+#include <QStyle>
+#include <QComboBox>
+#include <QFontDialog>
 
 // KDE includes
 
-#include <kfontdialog.h>
-#include <kglobalsettings.h>
-#include <klocale.h>
-#include <kcombobox.h>
+#include <klocalizedstring.h>
 
 namespace Digikam
 {
@@ -59,13 +61,13 @@ public:
 
     QPushButton*          chooseFontButton;
 
-    KComboBox*            modeCombo;
+    QComboBox*            modeCombo;
 
     DFontSelect::FontMode mode;
 };
 
 DFontSelect::DFontSelect(const QString& text, QWidget* const parent)
-    : KHBox(parent), d(new Private)
+    : DHBox(parent), d(new Private)
 {
     d->label     = new QLabel(this);
     d->label->setText(text);
@@ -77,14 +79,14 @@ DFontSelect::DFontSelect(const QString& text, QWidget* const parent)
         d->space->hide();
     }
 
-    d->modeCombo = new KComboBox(this);
+    d->modeCombo = new QComboBox(this);
     d->modeCombo->addItem(i18n("System Font"));
     d->modeCombo->addItem(i18n("Custom Font"));
 
     d->chooseFontButton = new QPushButton(i18n("Choose..."), this);
 
-    setSpacing(KDialog::spacingHint());
-    setMargin(0);
+    setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+    setContentsMargins(QMargins());
     setStretchFactor(d->space, 10);
 
     connect(d->modeCombo, SIGNAL(activated(int)),
@@ -116,14 +118,14 @@ DFontSelect::FontMode DFontSelect::mode() const
 
 QFont DFontSelect::font() const
 {
-    return (d->mode == CustomFont) ? d->font : KGlobalSettings::generalFont();
+    return (d->mode == CustomFont) ? d->font : QFontDatabase::systemFont(QFontDatabase::GeneralFont);
 }
 
 void DFontSelect::setFont(const QFont& font)
 {
     d->font = font;
 
-    if (d->font == KGlobalSettings::generalFont())
+    if (d->font == QFontDatabase::systemFont(QFontDatabase::GeneralFont))
     {
         setMode(SystemFont);
     }
@@ -140,15 +142,15 @@ bool DFontSelect::event(QEvent* e)
         d->modeCombo->setFont(font());
     }
 
-    return KHBox::event(e);
+    return DHBox::event(e);
 }
 
 void DFontSelect::slotOpenFontDialog()
 {
-    QFont f          = font();
-    const int result = KFontDialog::getFont(f, KFontChooser::NoDisplayFlags, this);
+    bool ok = false;
+    QFont f = QFontDialog::getFont(&ok, font(), this);
 
-    if (result == KFontDialog::Accepted)
+    if (ok)
     {
         d->font = f;
         d->modeCombo->setFont(d->font);

@@ -27,16 +27,9 @@
 
 #include <QTreeView>
 #include <QWidget>
-#include <QItemDelegate>
 
-// KDE includes
+// Local includes
 
-#include <kcategorizedsortfilterproxymodel.h>
-#include <kdialog.h>
-
-// local includes
-
-/// @todo clean up includes and use forward-declarations where possible
 #include "digikam_export.h"
 #include "dragdropimplementations.h"
 #include "imagealbummodel.h"
@@ -46,7 +39,7 @@
 #include "tableview_shared.h"
 #include "thumbnailloadthread.h"
 
-class KMenu;
+class QMenu;
 class QContextMenuEvent;
 
 namespace Digikam
@@ -61,6 +54,7 @@ class TableViewTreeView : public QTreeView, public DragDropViewImplementation
     Q_OBJECT
 
 public:
+
     explicit TableViewTreeView(TableViewShared* const tableViewShared, QWidget* const parent = 0);
     virtual ~TableViewTreeView();
 
@@ -79,7 +73,7 @@ protected:
 
 private:
 
-    void addColumnDescriptionsToMenu(const QList<TableViewColumnDescription>& columnDescriptions, KMenu* const menu);
+    void addColumnDescriptionsToMenu(const QList<TableViewColumnDescription>& columnDescriptions, QMenu* const menu);
     void showHeaderContextMenu(QEvent* const event);
 
 private Q_SLOTS:

@@ -6,7 +6,7 @@
  * Date        : 2004-12-01
  * Description : a widget to draw histogram curves
  *
- * Copyright (C) 2004-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "curveswidget.moc"
+#include "curveswidget.h"
 
 // C++ includes
 
@@ -40,24 +40,21 @@
 #include <QColor>
 #include <QFont>
 #include <QFontMetrics>
-#include <QCustomEvent>
 #include <QPaintEvent>
 #include <QMouseEvent>
 
 // KDE includes
 
-#include <kcursor.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdebug.h>
-#include <kpixmapsequence.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "dimg.h"
 #include "imagehistogram.h"
 #include "imagecurves.h"
-#include "globals.h"
+#include "digikam_globals.h"
+#include "digikam_debug.h"
 #include "histogrampainter.h"
 
 namespace Digikam
@@ -95,33 +92,33 @@ public:
         clearFlag        = HistogramNone;
         progressCount    = 0;
         progressTimer    = 0;
-        progressPix      = KPixmapSequence("process-working", KIconLoader::SizeSmallMedium);
+        progressPix      = DWorkingPixmap();
     }
 
-    bool              readOnlyMode;
-    bool              guideVisible;
+    bool                           readOnlyMode;
+    bool                           guideVisible;
 
-    int               clearFlag;          // Clear drawing zone with message.
-    int               leftMost;
-    int               rightMost;
-    int               grabPoint;
-    int               last;
-    int               xMouseOver;
-    int               yMouseOver;
-    int               progressCount;      // Position of animation during loading/calculation.
-    ChannelType       channelType;        // Channel type to draw
-    HistogramScale    scaleType;          // Scale to use for drawing
-    ImageHistogram*   imageHistogram;     // Full image
+    int                            clearFlag;          // Clear drawing zone with message.
+    int                            leftMost;
+    int                            rightMost;
+    int                            grabPoint;
+    int                            last;
+    int                            xMouseOver;
+    int                            yMouseOver;
+    int                            progressCount;      // Position of animation during loading/calculation.
+    ChannelType                    channelType;        // Channel type to draw
+    HistogramScale                 scaleType;          // Scale to use for drawing
+    ImageHistogram*                imageHistogram;     // Full image
 
-    QTimer*           progressTimer;
+    QTimer*                        progressTimer;
 
-    KPixmapSequence   progressPix;
+    DWorkingPixmap                 progressPix;
 
-    DColor            colorGuide;
+    DColor                         colorGuide;
 
-    ImageCurves*      curves;             // Curves data instance.
+    ImageCurves*                   curves;             // Curves data instance.
 
-    HistogramPainter* histogramPainter;
+    HistogramPainter*              histogramPainter;
 
     // --- misc methods ---
 
@@ -326,12 +323,12 @@ public:
 
     static QString getChannelTypeOption(const QString& prefix, int channel)
     {
-        return QString(prefix + "Channel%1Type").arg(channel);
+        return QString(prefix + QString::fromLatin1("Channel%1Type")).arg(channel);
     }
 
     static QString getPointOption(const QString& prefix, int channel, int point)
     {
-        return QString(prefix + "Channel%1Point%2").arg(channel).arg(point);
+        return QString(prefix + QString::fromLatin1("Channel%1Point%2")).arg(channel).arg(point);
     }
 
 private:
@@ -379,7 +376,7 @@ void CurvesWidget::setup(int w, int h, bool readOnly)
 
 void CurvesWidget::saveCurve(KConfigGroup& group, const QString& prefix)
 {
-    kDebug() << "Storing curves";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Storing curves";
 
     for (int channel = 0; channel < ImageCurves::NUM_CHANNELS; ++channel)
     {
@@ -405,11 +402,11 @@ void CurvesWidget::saveCurve(KConfigGroup& group, const QString& prefix)
 
 void CurvesWidget::restoreCurve(KConfigGroup& group, const QString& prefix)
 {
-    kDebug() << "Restoring curves";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Restoring curves";
 
     reset();
 
-    kDebug() << "curves " << curves() << " isSixteenBits = " << isSixteenBits();
+    qCDebug(DIGIKAM_DIMG_LOG) << "curves " << curves() << " isSixteenBits = " << isSixteenBits();
 
     for (int channel = 0; channel < ImageCurves::NUM_CHANNELS; ++channel)
     {
@@ -439,7 +436,7 @@ void CurvesWidget::restoreCurve(KConfigGroup& group, const QString& prefix)
 
 void CurvesWidget::updateData(const DImg& img)
 {
-    kDebug() << "updating data";
+    qCDebug(DIGIKAM_DIMG_LOG) << "updating data";
 
     stopHistogramComputation();
 
@@ -615,7 +612,7 @@ void CurvesWidget::paintEvent(QPaintEvent*)
 
     if (!d->imageHistogram)
     {
-        kWarning() << "Should render a histogram, but did not get one.";
+        qCWarning(DIGIKAM_DIMG_LOG) << "Should render a histogram, but did not get one.";
         return;
     }
 

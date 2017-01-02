@@ -6,11 +6,11 @@
  * Date        : 2010-11-15
  * Description : a kipi plugin to export images to VKontakte web service
  *
- * Copyright (C) 2011, 2012 by Alexander Potashev <aspotashev at gmail dot com>
+ * Copyright (C) 2011, 2012, 2015  Alexander Potashev <aspotashev@gmail.com>
  *
  * GUI based on Yandex.Fotki KIPI Plugin
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Luka Renko <lure at kubuntu dot org>
  * Copyright (C) 2010      by Roman Tsisyk <roman at tsisyk dot com>
  *
@@ -26,7 +26,7 @@
  *
  * ============================================================ */
 
-#include "vkwindow.moc"
+#include "vkwindow.h"
 
 // Qt includes
 
@@ -42,37 +42,25 @@
 #include <QHBoxLayout>
 #include <QVBoxLayout>
 #include <QToolButton>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kdeversion.h>
-#include <kde_file.h>
-#include <kdebug.h>
 #include <kconfig.h>
-#include <klocale.h>
-#include <kdialog.h>
-#include <klineedit.h>
-#include <kcombobox.h>
-#include <kpushbutton.h>
-#include <kmenu.h>
-#include <khelpmenu.h>
-#include <kmessagebox.h>
-#include <kpassworddialog.h>
-#include <kprogressdialog.h>
-#include <kstandarddirs.h>
-#include <ktoolinvocation.h>
-#include <kio/renamedialog.h>
+#include <kconfiggroup.h>
 
 // libkvkontakte includes
 
-#include <libkvkontakte/uploadphotosjob.h>
-#include <libkvkontakte/vkapi.h>
+#include <Vkontakte/UploadPhotosJob>
+#include <Vkontakte/VkApi>
 
 // LibKIPI includes
 
-#include <libkipi/interface.h>
-#include <libkipi/uploadwidget.h>
-#include <libkipi/imagecollection.h>
+#include <KIPI/Interface>
+#include <KIPI/UploadWidget>
+#include <KIPI/ImageCollection>
 
 // Local includes
 
@@ -161,26 +149,25 @@ VkontakteWindow::VkontakteWindow(bool import, QWidget* const parent)
 //     settingsBoxLayout->addWidget(optionsBox);
     settingsBoxLayout->addSpacerItem(new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding));
     settingsBoxLayout->addWidget(m_progressBar);
-    settingsBoxLayout->setSpacing(KDialog::spacingHint());
-    settingsBoxLayout->setMargin(KDialog::spacingHint());
+//     settingsBoxLayout->setSpacing(KDialog::spacingHint());
+//     settingsBoxLayout->setMargin(KDialog::spacingHint());
 
     mainLayout->addWidget(m_imgList);
     mainLayout->addWidget(m_settingsBox);
-    mainLayout->setSpacing(KDialog::spacingHint());
-    mainLayout->setMargin(0);
+//     mainLayout->setSpacing(KDialog::spacingHint());
+//     mainLayout->setMargin(0);
 
     setMainWidget(m_mainWidget);
-    setWindowIcon(KIcon("kipi"));
-    setButtons(KDialog::Help | KDialog::User1 | KDialog::Close);
-    setDefaultButton(Close);
+    setWindowIcon(QIcon(QLatin1String(":/icons/kipi-icon.svg")));
     setModal(false);
 
     if (!m_import)
     {
         setWindowTitle(i18nc("@title:window", "Export to VKontakte Web Service"));
-        setButtonGuiItem(KDialog::User1,
-                         KGuiItem(i18n("Start Upload"), "network-workgroup",
-                                  i18n("Start upload to VKontakte service")));
+
+        startButton()->setText(i18n("Start Upload"));
+        startButton()->setToolTip(i18n("Start upload to VKontakte service"));
+
         setMinimumSize(700, 520);
         uploadBox->hide();
     }
@@ -191,25 +178,23 @@ VkontakteWindow::VkontakteWindow(bool import, QWidget* const parent)
 //         optionsBox->hide();
     }
 
-    KPAboutData* const about = new KPAboutData(ki18n("VKontakte Plugin"),
-                                               0,
-                                               KAboutData::License_GPL,
-                                               ki18n("A Kipi plugin to export image collections to "
+    KPAboutData* const about = new KPAboutData(ki18n("VKontakte"),
+                                               ki18n("A tool to export image collections to "
                                                      "VKontakte web service."),
                                                ki18n("(c) 2007-2009, Vardhman Jain\n"
                                                      "(c) 2008-2013, Gilles Caulier\n"
                                                      "(c) 2009, Luka Renko\n"
                                                      "(c) 2010-2013, Roman Tsisyk\n"
-                                                     "(c) 2011-2013, Alexander Potashev"));
+                                                     "(c) 2011-2015, Alexander Potashev"));
 
-    about->addAuthor(ki18n("Alexander Potashev"), ki18n("Author"), "aspotashev@gmail.com");
-    about->setHandbookEntry("VKontakte");
+    about->addAuthor(i18n("Alexander Potashev"), i18n("Author"), QString::fromLatin1("aspotashev@gmail.com"));
+    about->setHandbookEntry(QString::fromLatin1("tool-vkontakteexport"));
     setAboutData(about);
 
     /*
      * UI slots
      */
-    connect(this, SIGNAL(user1Clicked()),
+    connect(startButton(), SIGNAL(clicked(bool)),
             this, SLOT(slotStartTransfer()));
 
     // for startReactivation()
@@ -270,18 +255,14 @@ void VkontakteWindow::updateBusyStatus(bool busy)
     if (!busy)
     {
         setCursor(Qt::ArrowCursor);
-        enableButton(User1, m_vkapi->isAuthenticated());
-        setButtonGuiItem(KDialog::Close,
-                         KGuiItem(i18n("Close"), "dialog-close",
-                                  i18n("Close window")));
+        startButton()->setEnabled(m_vkapi->isAuthenticated());
+        setRejectButtonMode(QDialogButtonBox::Close);
     }
     else
     {
         setCursor(Qt::WaitCursor);
-        enableButton(User1, false);
-        setButtonGuiItem(KDialog::Close,
-                         KGuiItem(i18n("Cancel"), "dialog-cancel",
-                                  i18n("Cancel current operation")));
+        startButton()->setEnabled(false);
+        setRejectButtonMode(QDialogButtonBox::Cancel);
     }
 }
 
@@ -294,7 +275,7 @@ void VkontakteWindow::updateBusyStatusReady()
 
 void VkontakteWindow::readSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp = config.group("VKontakte Settings");
 
     m_appId         = grp.readEntry("VkAppId", "2446321");
@@ -306,7 +287,7 @@ void VkontakteWindow::readSettings()
 
 void VkontakteWindow::writeSettings()
 {
-    KConfig config("kipirc");
+    KConfig config(QString::fromLatin1("kipirc"));
     KConfigGroup grp = config.group("VKontakte Settings");
 
     grp.writeEntry("VkAppId", m_appId);
@@ -344,24 +325,6 @@ void VkontakteWindow::slotFinished()
     reset();
 }
 
-void VkontakteWindow::slotButtonClicked(int button)
-{
-    switch (button)
-    {
-        case KDialog::User1:
-            slotStartTransfer();
-            break;
-        case KDialog::Close:
-            // TODO: grab better code from picasawebexport/picasawebwindow.cpp:219
-            reset();
-            done(KDialog::Close);
-            break;
-        default:
-            KDialog::slotButtonClicked(button);
-            break;
-    }
-}
-
 void VkontakteWindow::authenticated()
 {
     if (m_albumsBox)
@@ -379,7 +342,7 @@ void VkontakteWindow::authCleared()
 
 void VkontakteWindow::updateHeaderLabel()
 {
-    m_headerLabel->setText(QString("<b><h2><a href=\"%1\"><font color=\"black\">%2</font></a></h2></b>")
+    m_headerLabel->setText(QString::fromLatin1("<b><h2><a href=\"%1\"><font color=\"black\">%2</font></a></h2></b>")
                            .arg(m_accountBox->albumsURL()).arg(i18n("VKontakte")));
 }
 
@@ -387,7 +350,7 @@ void VkontakteWindow::updateHeaderLabel()
 
 void VkontakteWindow::handleVkError(KJob* kjob)
 {
-    KMessageBox::error(this, kjob->errorText(), i18nc("@title:window", "Request to VKontakte failed"));
+    QMessageBox::critical(this, i18nc("@title:window", "Request to VKontakte failed"), kjob->errorText());
 }
 
 //---------------------------------------------------------------------------
@@ -398,7 +361,7 @@ void VkontakteWindow::slotStartTransfer()
     if (!m_albumsBox->getCurrentAlbumId(aid))
     {
         // TODO: offer the user to create an album if there are no albums yet
-        KMessageBox::information(this, i18n("Please select album first."));
+        QMessageBox::information(this, QString(), i18n("Please select album first."));
         return;
     }
 
@@ -409,11 +372,11 @@ void VkontakteWindow::slotStartTransfer()
 
         QStringList files;
 
-        foreach(const KUrl& url, m_imgList->imageUrls(true))
+        foreach(const QUrl& url, m_imgList->imageUrls(true))
             files.append(url.toLocalFile());
 
         Vkontakte::UploadPhotosJob* const job = new Vkontakte::UploadPhotosJob(m_vkapi->accessToken(),
-                                                                               files, 
+                                                                               files,
                                                                                false /*m_checkKeepOriginal->isChecked()*/,
                                                                                aid);
 
@@ -429,10 +392,10 @@ void VkontakteWindow::slotStartTransfer()
 
     m_progressBar->show();
     m_progressBar->progressScheduled(i18n("Vkontakte Export"), false, true);
-    m_progressBar->progressThumbnailChanged(KIcon("kipi").pixmap(22, 22));
+    m_progressBar->progressThumbnailChanged(QIcon(QLatin1String(":/icons/kipi-icon.svg")).pixmap(22, 22));
 }
 
-void VkontakteWindow::slotPhotoUploadDone(KJob *kjob)
+void VkontakteWindow::slotPhotoUploadDone(KJob* kjob)
 {
     Vkontakte::UploadPhotosJob* const job = dynamic_cast<Vkontakte::UploadPhotosJob*>(kjob);
     Q_ASSERT(job);

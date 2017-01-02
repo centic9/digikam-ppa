@@ -7,6 +7,7 @@
  * Description : Dialog to adjust soft proofing settings
  *
  * Copyright (C) 2009-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,9 +25,9 @@
 #ifndef SOFTPROOFDIALOG_H
 #define SOFTPROOFDIALOG_H
 
-// KDE includes
+// Qt includes
 
-#include <kdialog.h>
+#include <QDialog>
 
 // Local includes
 
@@ -36,7 +37,7 @@
 namespace Digikam
 {
 
-class SoftProofDialog : public KDialog
+class SoftProofDialog : public QDialog
 {
     Q_OBJECT
 
@@ -52,8 +53,6 @@ protected:
     void readSettings();
     void writeSettings();
 
-    virtual void accept();
-
 protected Q_SLOTS:
 
     void updateGamutCheckState();
@@ -61,6 +60,7 @@ protected Q_SLOTS:
 
 private Q_SLOTS:
 
+    void slotOk();
     void slotProfileInfo();
 
 private:

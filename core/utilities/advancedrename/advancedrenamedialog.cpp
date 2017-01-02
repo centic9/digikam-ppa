@@ -7,6 +7,7 @@
  * Description : a rename dialog for the AdvancedRename utility
  *
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "advancedrenamedialog.moc"
+#include "advancedrenamedialog.h"
 
 // Qt includes
 
@@ -34,22 +35,29 @@
 #include <QSet>
 #include <QString>
 #include <QTreeWidget>
+#include <QMenu>
+#include <QApplication>
+#include <QStyle>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
+#include <QHeaderView>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <klocale.h>
-#include <kurl.h>
-#include <kmenu.h>
+#include <klocalizedstring.h>
+#include <kconfiggroup.h>
 
 // Local includes
 
+#include "dxmlguiwindow.h"
 #include "advancedrenamewidget.h"
 #include "contextmenuhelper.h"
 #include "parser.h"
 #include "parsesettings.h"
 #include "advancedrenamemanager.h"
 #include "advancedrenameprocessdialog.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -62,19 +70,21 @@ public:
     {
     }
 
-    KUrl    imageUrl;
+    QUrl    imageUrl;
     QString completeFileName;
 };
 
 // --------------------------------------------------------
 
-AdvancedRenameListItem::AdvancedRenameListItem(QTreeWidget* view)
-    : QTreeWidgetItem(view), d(new Private)
+AdvancedRenameListItem::AdvancedRenameListItem(QTreeWidget* const view)
+    : QTreeWidgetItem(view),
+      d(new Private)
 {
 }
 
-AdvancedRenameListItem::AdvancedRenameListItem(QTreeWidget* view, const KUrl& url)
-    : QTreeWidgetItem(view), d(new Private)
+AdvancedRenameListItem::AdvancedRenameListItem(QTreeWidget* const view, const QUrl& url)
+    : QTreeWidgetItem(view),
+      d(new Private)
 {
     setImageUrl(url);
 }
@@ -84,7 +94,7 @@ AdvancedRenameListItem:: ~AdvancedRenameListItem()
     delete d;
 }
 
-void AdvancedRenameListItem::setImageUrl(const KUrl& url)
+void AdvancedRenameListItem::setImageUrl(const QUrl& url)
 {
     d->imageUrl = url;
 
@@ -95,7 +105,7 @@ void AdvancedRenameListItem::setImageUrl(const KUrl& url)
     setNewName(d->completeFileName);
 }
 
-KUrl AdvancedRenameListItem::imageUrl() const
+QUrl AdvancedRenameListItem::imageUrl() const
 {
     return d->imageUrl;
 }
@@ -122,12 +132,12 @@ QString AdvancedRenameListItem::newName() const
 
 void AdvancedRenameListItem::markInvalid(bool invalid)
 {
-    QColor normalText = kapp->palette().text().color();
+    QColor normalText = qApp->palette().text().color();
     setForeground(OldName, invalid ? Qt::red : normalText);
     setForeground(NewName, invalid ? Qt::red : normalText);
 }
 
-bool AdvancedRenameListItem::isNameEqual()
+bool AdvancedRenameListItem::isNameEqual() const
 {
     return (name() == newName());
 }
@@ -149,9 +159,11 @@ public:
         sortGroupActions(0),
         sortGroupDirections(0),
         listView(0),
+        buttons(0),
         advancedRenameManager(0),
         advancedRenameWidget(0)
-    {}
+    {
+    }
 
     static const QString   configGroupName;
     static const QString   configLastUsedRenamePatternEntry;
@@ -173,18 +185,22 @@ public:
     QActionGroup*          sortGroupDirections;
 
     QTreeWidget*           listView;
+    QDialogButtonBox*      buttons;
+
     AdvancedRenameManager* advancedRenameManager;
     AdvancedRenameWidget*  advancedRenameWidget;
     NewNamesList           newNamesList;
 };
-const QString AdvancedRenameDialog::Private::configGroupName("AdvancedRename Dialog");
-const QString AdvancedRenameDialog::Private::configLastUsedRenamePatternEntry("Last Used Rename Pattern");
-const QString AdvancedRenameDialog::Private::configDialogSizeEntry("Dialog Size");
+
+const QString AdvancedRenameDialog::Private::configGroupName(QLatin1String("AdvancedRename Dialog"));
+const QString AdvancedRenameDialog::Private::configLastUsedRenamePatternEntry(QLatin1String("Last Used Rename Pattern"));
+const QString AdvancedRenameDialog::Private::configDialogSizeEntry(QLatin1String("Dialog Size"));
 
 // --------------------------------------------------------
 
-AdvancedRenameDialog::AdvancedRenameDialog(QWidget* parent)
-    : KDialog(parent), d(new Private)
+AdvancedRenameDialog::AdvancedRenameDialog(QWidget* const parent)
+    : QDialog(parent),
+      d(new Private)
 {
     setupWidgets();
     setupConnections();
@@ -200,9 +216,176 @@ AdvancedRenameDialog::~AdvancedRenameDialog()
     delete d;
 }
 
+void AdvancedRenameDialog::setupWidgets()
+{
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Ok)->setDefault(true);
+
+    d->advancedRenameManager = new AdvancedRenameManager();
+    d->advancedRenameWidget  = new AdvancedRenameWidget(this);
+    d->advancedRenameManager->setWidget(d->advancedRenameWidget);
+
+    // --------------------------------------------------------
+
+    d->sortActionName = new QAction(i18n("By Name"), this);
+    d->sortActionDate = new QAction(i18n("By Date"), this);
+    d->sortActionSize = new QAction(i18n("By File Size"), this);
+
+    d->sortActionName->setCheckable(true);
+    d->sortActionDate->setCheckable(true);
+    d->sortActionSize->setCheckable(true);
+
+    // --------------------------------------------------------
+
+    d->sortActionAscending  = new QAction(i18n("Ascending"), this);
+    d->sortActionDescending = new QAction(i18n("Descending"), this);
+
+    d->sortActionAscending->setCheckable(true);
+    d->sortActionDescending->setCheckable(true);
+    d->sortActionAscending->setChecked(true);
+
+    // --------------------------------------------------------
+
+    d->sortGroupActions     = new QActionGroup(this);
+    d->sortGroupDirections  = new QActionGroup(this);
+
+    d->sortGroupActions->addAction(d->sortActionName);
+    d->sortGroupActions->addAction(d->sortActionDate);
+    d->sortGroupActions->addAction(d->sortActionSize);
+
+    d->sortGroupDirections->addAction(d->sortActionAscending);
+    d->sortGroupDirections->addAction(d->sortActionDescending);
+
+    // --------------------------------------------------------
+
+    d->listView = new QTreeWidget(this);
+    d->listView->setRootIsDecorated(false);
+    d->listView->setSelectionMode(QAbstractItemView::NoSelection);
+    d->listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    d->listView->setAllColumnsShowFocus(true);
+    d->listView->setSortingEnabled(false);
+    d->listView->setColumnCount(2);
+    d->listView->setHeaderLabels(QStringList() << i18n("Current Name") << i18n("New Name"));
+    d->listView->setContextMenuPolicy(Qt::CustomContextMenu);
+    d->listView->header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    d->listView->header()->setSectionResizeMode(1, QHeaderView::Stretch);
+    d->listView->setWhatsThis(i18n("This list shows the results for your renaming pattern. Red items indicate a "
+                                   "name collision, either because the new name is equal to the current name, "
+                                   "or because the name has already been assigned to another item."));
+
+    // --------------------------------------------------------
+
+    QWidget* const mainWidget     = new QWidget(this);
+    QGridLayout* const mainLayout = new QGridLayout;
+    mainLayout->addWidget(d->listView,             0, 0, 1, 1);
+    mainLayout->addWidget(d->advancedRenameWidget, 1, 0, 1, 1);
+    mainLayout->setRowStretch(0, 10);
+    mainWidget->setLayout(mainLayout);
+
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(mainWidget);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
+
+    setMinimumWidth(d->advancedRenameWidget->minimumWidth());
+}
+
+void AdvancedRenameDialog::setupConnections()
+{
+    connect(d->advancedRenameWidget, SIGNAL(signalTextChanged(QString)),
+            this, SLOT(slotParseStringChanged(QString)));
+
+    connect(d->advancedRenameWidget, SIGNAL(signalReturnPressed()),
+            this, SLOT(slotReturnPressed()));
+
+    connect(d->advancedRenameManager, SIGNAL(signalSortingChanged(QList<QUrl>)),
+            this, SLOT(slotAddImages(QList<QUrl>)));
+
+    connect(d->listView, SIGNAL(customContextMenuRequested(QPoint)),
+            this, SLOT(slotShowContextMenu(QPoint)));
+
+    connect(d->sortGroupActions, SIGNAL(triggered(QAction*)),
+            this, SLOT(slotSortActionTriggered(QAction*)));
+
+    connect(d->sortGroupDirections, SIGNAL(triggered(QAction*)),
+            this, SLOT(slotSortDirectionTriggered(QAction*)));
+
+    connect(d->buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(accept()));
+
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
+            this, SLOT(reject()));
+
+    connect(d->buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
+}
+
+void AdvancedRenameDialog::initDialog()
+{
+    QStringList fileList = d->advancedRenameManager->fileList();
+    int count            = fileList.size();
+
+    QString title = i18np("Rename", "Rename (%1 images)", count);
+    setWindowTitle(title);
+
+    if (count < 1)
+    {
+        d->listView->clear();
+        return;
+    }
+
+    d->singleFileMode = count == 1;
+
+    foreach(const QString& file, fileList)
+    {
+        QUrl url = QUrl::fromLocalFile(file);
+        new AdvancedRenameListItem(d->listView, url);
+    }
+
+    // set current filename if only one image has been added
+    if (d->singleFileMode)
+    {
+        QFileInfo info(fileList.first());
+        d->advancedRenameWidget->setParseString(info.completeBaseName());
+        d->advancedRenameWidget->setParseTimerDuration(50);
+        d->advancedRenameWidget->focusLineEdit();
+        d->advancedRenameWidget->highlightLineEdit();
+        d->singleFileModeOldFilename = info.fileName();
+    }
+
+    d->buttons->button(QDialogButtonBox::Ok)->setEnabled(checkNewNames());
+}
+
+void AdvancedRenameDialog::readSettings()
+{
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(d->configGroupName);
+
+    QSize s = group.readEntry(d->configDialogSizeEntry, QSize(d->minSizeDialog, d->minSizeDialog));
+    resize(s);
+    d->advancedRenameWidget->setParseString(group.readEntry(d->configLastUsedRenamePatternEntry, QString()));
+}
+
+void AdvancedRenameDialog::writeSettings()
+{
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(d->configGroupName);
+
+    group.writeEntry(d->configDialogSizeEntry, size());
+
+    if (d->singleFileMode)
+    {
+        d->advancedRenameWidget->clear();
+    }
+    else
+    {
+        group.writeEntry(d->configLastUsedRenamePatternEntry, d->advancedRenameWidget->parseString());
+    }
+}
+
 void AdvancedRenameDialog::slotReturnPressed()
 {
-    if (isButtonEnabled(Ok))
+    if (d->buttons->button(QDialogButtonBox::Ok)->isEnabled())
     {
         accept();
     }
@@ -242,8 +425,8 @@ void AdvancedRenameDialog::slotSortDirectionTriggered(QAction* direction)
 
 void AdvancedRenameDialog::slotShowContextMenu(const QPoint& pos)
 {
-    KMenu menu(this);
-    menu.addTitle(i18n("Sort Images"));
+    QMenu menu(this);
+    menu.addSection(i18n("Sort Images"));
 
     ContextMenuHelper cmhelper(&menu);
     cmhelper.addAction(d->sortActionName);
@@ -272,7 +455,8 @@ void AdvancedRenameDialog::slotParseStringChanged(const QString& parseString)
 
     // generate new file names
     ParseSettings settings;
-    settings.useOriginalFileExtension = d->singleFileMode ? false : true;
+    settings.useOriginalFileExtension = true;
+    // settings.useOriginalFileExtension = d->singleFileMode ? false : true;
     d->advancedRenameManager->parseFiles(parseString, settings);
 
     // fill the tree widget with the updated files
@@ -280,7 +464,7 @@ void AdvancedRenameDialog::slotParseStringChanged(const QString& parseString)
 
     while (*it)
     {
-        AdvancedRenameListItem* item = dynamic_cast<AdvancedRenameListItem*>((*it));
+        AdvancedRenameListItem* const item = dynamic_cast<AdvancedRenameListItem*>((*it));
 
         if (item)
         {
@@ -293,7 +477,7 @@ void AdvancedRenameDialog::slotParseStringChanged(const QString& parseString)
     }
 
     bool enableBtn = checkNewNames() && !parseString.isEmpty();
-    enableButton(Ok, enableBtn);
+    d->buttons->button(QDialogButtonBox::Ok)->setEnabled(enableBtn);
 
     d->listView->viewport()->update();
 
@@ -303,97 +487,38 @@ void AdvancedRenameDialog::slotParseStringChanged(const QString& parseString)
     }
 }
 
-void AdvancedRenameDialog::slotAddImages(const KUrl::List& urls)
+void AdvancedRenameDialog::slotAddImages(const QList<QUrl>& urls)
 {
     if (urls.isEmpty())
     {
+        qCDebug(DIGIKAM_GENERAL_LOG) << "No item to process";
         return;
     }
 
     d->listView->clear();
     d->advancedRenameManager->reset();
     QList<ParseSettings> files;
-    foreach(const KUrl& url, urls)
+
+    foreach(const QUrl& url, urls)
     {
         ParseSettings ps;
         ps.fileUrl = url;
         files << ps;
+        qCDebug(DIGIKAM_GENERAL_LOG) << url;
     }
+
     d->advancedRenameManager->addFiles(files);
 
     initDialog();
     slotParseStringChanged(d->advancedRenameWidget->parseString());
 }
 
-void AdvancedRenameDialog::initDialog()
-{
-    QStringList fileList = d->advancedRenameManager->fileList();
-    int count            = fileList.size();
-
-    QString title = i18np("Rename", "Rename (%1 images)", count);
-    setWindowTitle(title);
-
-    if (count < 1)
-    {
-        d->listView->clear();
-        return;
-    }
-
-    d->singleFileMode = count == 1;
-
-    foreach(const QString& file, fileList)
-    {
-        KUrl url(file);
-        new AdvancedRenameListItem(d->listView, url);
-    }
-
-    // set current filename if only one image has been added
-    if (d->singleFileMode)
-    {
-        QFileInfo info(fileList.first());
-        d->advancedRenameWidget->setParseString(info.fileName());
-        d->advancedRenameWidget->focusLineEdit();
-        d->advancedRenameWidget->highlightLineEdit(info.completeBaseName());
-        d->advancedRenameWidget->setParseTimerDuration(50);
-        d->singleFileModeOldFilename = info.fileName();
-    }
-
-    enableButton(Ok, checkNewNames());
-}
-
-NewNamesList AdvancedRenameDialog::newNames()
+NewNamesList AdvancedRenameDialog::newNames() const
 {
     return filterNewNames();
 }
 
-void AdvancedRenameDialog::readSettings()
-{
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(d->configGroupName);
-
-    QSize s = group.readEntry(d->configDialogSizeEntry, QSize(d->minSizeDialog, d->minSizeDialog));
-    resize(s);
-    d->advancedRenameWidget->setParseString(group.readEntry(d->configLastUsedRenamePatternEntry, QString()));
-}
-
-void AdvancedRenameDialog::writeSettings()
-{
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(d->configGroupName);
-
-    group.writeEntry(d->configDialogSizeEntry, size());
-
-    if (d->singleFileMode)
-    {
-        d->advancedRenameWidget->clear();
-    }
-    else
-    {
-        group.writeEntry(d->configLastUsedRenamePatternEntry, d->advancedRenameWidget->parseString());
-    }
-}
-
-bool AdvancedRenameDialog::checkNewNames()
+bool AdvancedRenameDialog::checkNewNames() const
 {
     int numNames      = 0;
     int numEqualNames = 0;
@@ -404,7 +529,7 @@ bool AdvancedRenameDialog::checkNewNames()
 
     while (*it)
     {
-        AdvancedRenameListItem* item = dynamic_cast<AdvancedRenameListItem*>((*it));
+        AdvancedRenameListItem* const item = dynamic_cast<AdvancedRenameListItem*>((*it));
 
         if (item)
         {
@@ -412,7 +537,7 @@ bool AdvancedRenameDialog::checkNewNames()
             QFileInfo fi(item->imageUrl().toLocalFile());
 
             QString completeNewName = fi.path();
-            completeNewName.append('/');
+            completeNewName.append(QLatin1Char('/'));
             completeNewName.append(item->newName());
 
             bool invalid = tmpNewNames.contains(completeNewName);
@@ -433,14 +558,14 @@ bool AdvancedRenameDialog::checkNewNames()
     return (ok && !(numNames == numEqualNames));
 }
 
-NewNamesList AdvancedRenameDialog::filterNewNames()
+NewNamesList AdvancedRenameDialog::filterNewNames() const
 {
     NewNamesList filteredNames;
     QTreeWidgetItemIterator it(d->listView);
 
     while (*it)
     {
-        AdvancedRenameListItem* item = dynamic_cast<AdvancedRenameListItem*>((*it));
+        AdvancedRenameListItem* const item = dynamic_cast<AdvancedRenameListItem*>((*it));
 
         if (item && !item->isNameEqual())
         {
@@ -453,98 +578,9 @@ NewNamesList AdvancedRenameDialog::filterNewNames()
     return filteredNames;
 }
 
-void AdvancedRenameDialog::setupWidgets()
+void AdvancedRenameDialog::slotHelp()
 {
-    d->advancedRenameManager  = new AdvancedRenameManager();
-    d->advancedRenameWidget   = new AdvancedRenameWidget(this);
-    d->advancedRenameManager->setWidget(d->advancedRenameWidget);
-
-    // --------------------------------------------------------
-
-    d->sortActionName  = new QAction(i18n("By Name"), this);
-    d->sortActionDate  = new QAction(i18n("By Date"), this);
-    d->sortActionSize  = new QAction(i18n("By File Size"), this);
-
-    d->sortActionName->setCheckable(true);
-    d->sortActionDate->setCheckable(true);
-    d->sortActionSize->setCheckable(true);
-
-    // --------------------------------------------------------
-
-    d->sortActionAscending  = new QAction(i18n("Ascending"), this);
-    d->sortActionDescending = new QAction(i18n("Descending"), this);
-
-    d->sortActionAscending->setCheckable(true);
-    d->sortActionDescending->setCheckable(true);
-
-    d->sortActionAscending->setChecked(true);
-
-    // --------------------------------------------------------
-
-    d->sortGroupActions     = new QActionGroup(this);
-    d->sortGroupDirections  = new QActionGroup(this);
-
-    d->sortGroupActions->addAction(d->sortActionName);
-    d->sortGroupActions->addAction(d->sortActionDate);
-    d->sortGroupActions->addAction(d->sortActionSize);
-
-    d->sortGroupDirections->addAction(d->sortActionAscending);
-    d->sortGroupDirections->addAction(d->sortActionDescending);
-
-    // --------------------------------------------------------
-
-    d->listView = new QTreeWidget(this);
-    d->listView->setRootIsDecorated(false);
-    d->listView->setSelectionMode(QAbstractItemView::NoSelection);
-    d->listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    d->listView->setAllColumnsShowFocus(true);
-    d->listView->setSortingEnabled(false);
-    d->listView->setColumnCount(2);
-    d->listView->setHeaderLabels(QStringList() << i18n("Current Name") << i18n("New Name"));
-    d->listView->setContextMenuPolicy(Qt::CustomContextMenu);
-    d->listView->header()->setResizeMode(0, QHeaderView::Stretch);
-    d->listView->header()->setResizeMode(1, QHeaderView::Stretch);
-    d->listView->setWhatsThis(i18n("This list shows the results for your renaming pattern. Red items indicate a "
-                                   "name collision, either because the new name is equal to the current name, "
-                                   "or because the name has already been assigned to another item."));
-
-    // --------------------------------------------------------
-
-    QWidget* mainWidget     = new QWidget(this);
-    QGridLayout* mainLayout = new QGridLayout;
-    mainLayout->addWidget(d->listView,             0, 0, 1, 1);
-    mainLayout->addWidget(d->advancedRenameWidget, 1, 0, 1, 1);
-    mainLayout->setRowStretch(0, 10);
-    mainWidget->setLayout(mainLayout);
-
-    setMainWidget(mainWidget);
-
-    setMinimumWidth(d->advancedRenameWidget->minimumWidth());
-
-    setButtons(Help | Cancel | Ok);
-    enableButton(Ok, false);
-    setHelp("advancedrename.anchor", "digikam");
-}
-
-void AdvancedRenameDialog::setupConnections()
-{
-    connect(d->advancedRenameWidget, SIGNAL(signalTextChanged(QString)),
-            this, SLOT(slotParseStringChanged(QString)));
-
-    connect(d->advancedRenameWidget, SIGNAL(signalReturnPressed()),
-            this, SLOT(slotReturnPressed()));
-
-    connect(d->advancedRenameManager, SIGNAL(signalSortingChanged(KUrl::List)),
-            this, SLOT(slotAddImages(KUrl::List)));
-
-    connect(d->listView, SIGNAL(customContextMenuRequested(QPoint)),
-            this, SLOT(slotShowContextMenu(QPoint)));
-
-    connect(d->sortGroupActions, SIGNAL(triggered(QAction*)),
-            this, SLOT(slotSortActionTriggered(QAction*)));
-
-    connect(d->sortGroupDirections, SIGNAL(triggered(QAction*)),
-            this, SLOT(slotSortDirectionTriggered(QAction*)));
+    DXmlGuiWindow::openHandbook(QLatin1String("advancedrename.anchor"), QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

@@ -6,7 +6,7 @@
  * Date        : 2006-07-24
  * Description : a dialog to select a camera folders.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,26 +21,30 @@
  *
  * ============================================================ */
 
-#include "camerafolderdialog.moc"
+#include "camerafolderdialog.h"
 
 // Qt includes
 
 #include <QLabel>
 #include <QFrame>
 #include <QGridLayout>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QStyle>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "camerafolderitem.h"
 #include "camerafolderview.h"
+#include "dxmlguiwindow.h"
 
 namespace Digikam
 {
@@ -50,37 +54,40 @@ class CameraFolderDialog::Private
 public:
 
     Private() :
+        buttons(0),
         folderView(0)
     {
     }
 
     QString           rootPath;
+    QDialogButtonBox* buttons;
 
     CameraFolderView* folderView;
 };
 
 CameraFolderDialog::CameraFolderDialog(QWidget* const parent, const QMap<QString, int>& map,
                                        const QString& cameraName, const QString& rootPath)
-    : KDialog(parent), d(new Private)
+    : QDialog(parent),
+      d(new Private)
 {
-    setHelp("camerainterface.anchor", "digikam");
-    setCaption(i18nc("@title:window %1: name of the camera", "%1 - Select Camera Folder", cameraName));
-    setButtons(Help | Ok | Cancel);
-    setDefaultButton(Ok);
-    enableButtonOk(false);
     setModal(true);
+    setWindowTitle(i18nc("@title:window %1: name of the camera", "%1 - Select Camera Folder", cameraName));
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Ok)->setDefault(true);
+    d->buttons->button(QDialogButtonBox::Ok)->setEnabled(false);
 
     d->rootPath        = rootPath;
     QFrame* const page = new QFrame(this);
-    setMainWidget(page);
 
     QGridLayout* const grid = new QGridLayout(page);
     d->folderView           = new CameraFolderView(page);
     QLabel* const logo      = new QLabel(page);
     QLabel* const message   = new QLabel(page);
 
-    logo->setPixmap(QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                    .scaled(128, 128, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+    logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48)));
 
     message->setText(i18n("<p>Please select the camera folder "
                           "where you want to upload the images.</p>"));
@@ -90,34 +97,39 @@ CameraFolderDialog::CameraFolderDialog(QWidget* const parent, const QMap<QString
     grid->addWidget(message,       1, 0, 1, 1);
     grid->addWidget(d->folderView, 0, 1, 3, 1);
     grid->setRowStretch(2, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
+
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(page);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
 
     d->folderView->addVirtualFolder(cameraName);
-    d->folderView->addRootFolder(QString("/"));
+    d->folderView->addRootFolder(QLatin1String("/"));
 
     for (QMap<QString, int>::const_iterator it = map.constBegin(); it != map.constEnd(); ++it)
     {
         QString folder(it.key());
 
-        if (folder != QString("/"))
+        if (folder != QLatin1String("/"))
         {
-            if (folder.startsWith(rootPath) && rootPath != QString("/"))
+            if (folder.startsWith(rootPath) && rootPath != QLatin1String("/"))
             {
                 folder.remove(0, rootPath.length());
             }
 
-            if (folder != QString("/") && !folder.isEmpty())
+            if (folder != QLatin1String("/") && !folder.isEmpty())
             {
-                QString root = folder.section('/', 0, -2);
+                QString root = folder.section(QLatin1Char('/'), 0, -2);
 
                 if (root.isEmpty())
                 {
-                    root = QString("/");
+                    root = QLatin1String("/");
                 }
 
-                QString sub = folder.section('/', -1);
-                kDebug() << "Camera folder: '" << folder << "' (root='" << root << "', sub='" << sub << "')";
+                QString sub = folder.section(QLatin1Char('/'), -1);
+                qCDebug(DIGIKAM_IMPORTUI_LOG) << "Camera folder: '" << folder << "' (root='" << root << "', sub='" << sub << "')";
                 d->folderView->addFolder(root, sub, it.value());
             }
         }
@@ -126,10 +138,19 @@ CameraFolderDialog::CameraFolderDialog(QWidget* const parent, const QMap<QString
     connect(d->folderView, SIGNAL(signalFolderChanged(CameraFolderItem*)),
             this, SLOT(slotFolderPathSelectionChanged(CameraFolderItem*)));
 
-    resize(500, 500);
+    connect(d->buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(accept()));
+
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
+            this, SLOT(reject()));
+
+    connect(d->buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
+
+    adjustSize();
 
     // make sure the ok button is properly set up
-    enableButtonOk(d->folderView->currentItem() != 0);
+    d->buttons->button(QDialogButtonBox::Ok)->setEnabled(d->folderView->currentItem() != 0);
 }
 
 CameraFolderDialog::~CameraFolderDialog()
@@ -159,25 +180,30 @@ QString CameraFolderDialog::selectedFolderPath() const
     }
 
     // Case of Gphoto2 cameras. No need to duplicate root '/'.
-    if (d->rootPath == QString("/"))
+    if (d->rootPath == QLatin1String("/"))
     {
         return(folderItem->folderPath());
     }
 
-    return(d->rootPath + folderItem->folderPath());
+    return (d->rootPath + folderItem->folderPath());
 }
 
 void CameraFolderDialog::slotFolderPathSelectionChanged(CameraFolderItem* item)
 {
     if (item)
     {
-        enableButtonOk(true);
-        kDebug() << "Camera folder path: " << selectedFolderPath();
+        d->buttons->button(QDialogButtonBox::Ok)->setEnabled(true);
+        qCDebug(DIGIKAM_IMPORTUI_LOG) << "Camera folder path: " << selectedFolderPath();
     }
     else
     {
-        enableButtonOk(false);
+        d->buttons->button(QDialogButtonBox::Ok)->setEnabled(false);
     }
+}
+
+void CameraFolderDialog::slotHelp()
+{
+    DXmlGuiWindow::openHandbook(QLatin1String("camerainterface.anchor"), QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

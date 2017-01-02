@@ -6,7 +6,7 @@
  * Date        : 2012-12-18
  * Description : Customized Workflow Settings list.
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,30 +21,31 @@
  *
  * ============================================================ */
 
-#include "workflowlist.moc"
+#include "workflowlist.h"
 
 // Qt includes
 
+#include <QApplication>
 #include <QDrag>
 #include <QHeaderView>
 #include <QMap>
 #include <QMimeData>
 #include <QPainter>
 #include <QPixmap>
+#include <QMenu>
+#include <QAction>
+#include <QIcon>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kaction.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kmessagebox.h>
-#include <kstandardguiitem.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "workflowmanager.h"
 #include "workflowdlg.h"
+#include "dmessagebox.h"
 
 namespace Digikam
 {
@@ -57,7 +58,7 @@ WorkflowItem::WorkflowItem(WorkflowList* const parent, const QString& title)
 
     Workflow q = WorkflowManager::instance()->findByTitle(title);
 
-    setIcon(0, SmallIcon("step"));
+    setIcon(0, QIcon::fromTheme(QLatin1String("step")));
     setText(0, title);
     setText(1, QString::number(q.aTools.count()));
     setText(2, q.desc);
@@ -99,9 +100,9 @@ WorkflowList::WorkflowList(QWidget* const parent)
     titles.append(i18n("Description"));
 
     setHeaderLabels(titles);
-    header()->setResizeMode(0, QHeaderView::ResizeToContents);
-    header()->setResizeMode(1, QHeaderView::ResizeToContents);
-    header()->setResizeMode(2, QHeaderView::Stretch);
+    header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(2, QHeaderView::Stretch);
 
     connect(this, SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(slotContextMenu()));
@@ -117,9 +118,12 @@ WorkflowList::WorkflowList(QWidget* const parent)
 
     if (!failed.isEmpty())
     {
-        KMessageBox::informationList(0, i18n("Some Workflows cannot be loaded from your config file due to an incompatible "
-                                             "version of a tool."),
-                                     failed, i18n("Batch Queue Manager"));
+        DMessageBox::showInformationList(QMessageBox::Information,
+                                         qApp->activeWindow(),
+                                         i18n("Batch Queue Manager"),
+                                         i18n("Some Workflows cannot be loaded from your config file due to an incompatible "
+                                              "version of a tool."),
+                                         failed);
     }
 }
 
@@ -177,7 +181,7 @@ void WorkflowList::startDrag(Qt::DropActions /*supportedActions*/)
             return;
         }
 
-        QPixmap icon(DesktopIcon("step", 48));
+        QPixmap icon(QIcon::fromTheme(QLatin1String("step")).pixmap(48));
         int w = icon.width();
         int h = icon.height();
 
@@ -209,7 +213,7 @@ void WorkflowList::startDrag(Qt::DropActions /*supportedActions*/)
 
 QStringList WorkflowList::mimeTypes() const
 {
-    return QStringList() << "digikam/workflow";
+    return QStringList() << QLatin1String("digikam/workflow");
 }
 
 void WorkflowList::mouseDoubleClickEvent(QMouseEvent*)
@@ -235,16 +239,16 @@ QMimeData* WorkflowList::mimeData(const QList<QTreeWidgetItem*> items) const
         }
     }
 
-    mimeData->setData("digikam/workflow", encodedData);
+    mimeData->setData(QLatin1String("digikam/workflow"), encodedData);
     return mimeData;
 }
 
 void WorkflowList::slotContextMenu()
 {
-    KMenu popmenu(this);
-    KAction* const assignAction = new KAction(KIcon("bqm-add"),             i18n("Assign Workflow to current queue"), this);
-    KAction* const propAction   = new KAction(KIcon("document-properties"), i18n("Edit Workflow"),                    this);
-    KAction* const delAction    = new KAction(KIcon("edit-delete"),         i18n("Delete Workflow"),                  this);
+    QMenu popmenu(this);
+    QAction* const assignAction = new QAction(QIcon::fromTheme(QLatin1String("list-add")),    i18n("Assign Workflow to current queue"), this);
+    QAction* const propAction   = new QAction(QIcon::fromTheme(QLatin1String("configure")),   i18n("Edit Workflow"),                    this);
+    QAction* const delAction    = new QAction(QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Delete Workflow"),                  this);
 
     popmenu.addAction(assignAction);
     popmenu.addAction(propAction);
@@ -281,19 +285,20 @@ void WorkflowList::slotContextMenu()
     else if (choice == delAction)
     {
         QList<QTreeWidgetItem*> list = selectedItems();
+
         if (!list.isEmpty())
         {
             WorkflowItem* const item = dynamic_cast<WorkflowItem*>(list.first());
+
             if (item)
             {
-                int result = KMessageBox::warningYesNo(0,
-                                                    i18n("Are you sure you want to "
-                                                            "delete the selected workflow "
-                                                            "\"%1\"?", item->title()),
-                                                    i18n("Delete Workflow?"),
-                                                    KGuiItem(i18n("Delete")),
-                                                    KStandardGuiItem::cancel());
-                if (result == KMessageBox::Yes)
+                int result = QMessageBox::warning(qApp->activeWindow(), i18n("Delete Workflow?"),
+                                          i18n("Are you sure you want to "
+                                               "delete the selected workflow "
+                                               "\"%1\"?", item->title()),
+                                          QMessageBox::Yes | QMessageBox::Cancel);
+
+                if (result == QMessageBox::Yes)
                 {
                     WorkflowManager* const mngr = WorkflowManager::instance();
                     Workflow wf                 = mngr->findByTitle(item->title());
@@ -309,9 +314,11 @@ void WorkflowList::slotContextMenu()
 void WorkflowList::slotAssignQueueSettings()
 {
     QList<QTreeWidgetItem*> list = selectedItems();
+
     if (!list.isEmpty())
     {
         WorkflowItem* const item = dynamic_cast<WorkflowItem*>(list.first());
+
         if (item)
         {
             emit signalAssignQueueSettings(item->title());

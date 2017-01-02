@@ -7,7 +7,7 @@
  * Description : left sidebar widgets
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2014      by Moahmed Anwer <mohammed dot ahmed anwer at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -32,7 +32,7 @@
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "albummodel.h"
 #include "albummodificationhelper.h"
 #include "imagealbumfiltermodel.h"
@@ -41,9 +41,9 @@
 #include "imagefiltermodel.h"
 #include "albumlabelstreeview.h"
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 #include "gpssearchview.h"
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 namespace Digikam
 {
@@ -71,8 +71,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon getIcon();
+    const QString getCaption();
 
     AlbumPointer<PAlbum> currentAlbum() const;
 
@@ -112,8 +112,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon getIcon();
+    const QString getCaption();
 
     AlbumPointer<TAlbum> currentAlbum() const;
 
@@ -164,8 +164,8 @@ public:
     void    changeAlbumFromHistory(QList<Album *> album);
     void    doLoadState();
     void    doSaveState();
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon  getIcon();
+    const QString getCaption();
 
     QHash<AlbumLabelsTreeView::Labels, QList<int> > selectedLabels();
 
@@ -197,8 +197,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon  getIcon();
+    const QString getCaption();
 
     AlbumPointer<DAlbum> currentAlbum() const;
 
@@ -232,8 +232,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon  getIcon();
+    const QString getCaption();
 
 private Q_SLOTS:
 
@@ -278,8 +278,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon getIcon();
+    const QString getCaption();
 
     void newKeywordSearch();
     void newAdvancedSearch();
@@ -310,8 +310,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon getIcon();
+    const QString getCaption();
 
     void newDuplicatesSearch(Album* album);
     void newSimilarSearch(const ImageInfo& imageInfo);
@@ -324,7 +324,7 @@ private:
 
 // -----------------------------------------------------------------------------------------
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 
 /**
  * SideBarWidget for the gps search.
@@ -347,8 +347,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon getIcon();
+    const QString getCaption();
 
 Q_SIGNALS:
 
@@ -360,11 +360,9 @@ private:
     Private* const d;
 };
 
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 // -----------------------------------------------------------------------------------------
-
-#ifdef HAVE_KFACE
 
 /**
  * SideBarWidget for People
@@ -386,8 +384,8 @@ public:
     void    doSaveState();
     void    applySettings();
     void    changeAlbumFromHistory(QList<Album*> album);
-    QPixmap getIcon();
-    QString getCaption();
+    const QIcon  getIcon();
+    const QString getCaption();
 
 private Q_SLOTS:
 
@@ -405,8 +403,6 @@ private:
     class Private;
     Private* const d;
 };
-
-#endif /* HAVE_KFACE */
 
 } // namespace Digikam
 

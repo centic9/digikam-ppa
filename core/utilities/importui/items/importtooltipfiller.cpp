@@ -7,7 +7,7 @@
  * Description : Import icon view tool tip
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,13 +28,11 @@
 
 #include <QDateTime>
 #include <QTextDocument>
+#include <QLocale>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kfileitem.h>
-#include <kglobal.h>
-#include <kdeversion.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -75,15 +73,15 @@ QString ImportToolTipFiller::CamItemInfoTipContents(const CamItemInfo& info)
         if (settings->getToolTipsShowFileDate())
         {
             QDateTime createdDate  = info.ctime;
-            str                    = KGlobal::locale()->formatDateTime(createdDate, KLocale::ShortDate, true);
+            str                    = QLocale().toString(createdDate, QLocale::ShortFormat);
             tip                   += cnt.cellBeg + i18n("Date:") + cnt.cellMid + str + cnt.cellEnd;
         }
 
         if (settings->getToolTipsShowFileSize())
         {
             tip                   += cnt.cellBeg + i18n("Size:") + cnt.cellMid;
-            QString localeFileSize = KGlobal::locale()->formatNumber(info.size, 0);
-            str                    = i18n("%1 (%2)", KIO::convertSize(info.size), localeFileSize);
+            QString localeFileSize = QLocale().toString(info.size);
+            str                    = i18n("%1 (%2)", ImagePropertiesTab::humanReadableBytesCount(info.size), localeFileSize);
             tip                   += str + cnt.cellEnd;
         }
 
@@ -132,15 +130,15 @@ QString ImportToolTipFiller::CamItemInfoTipContents(const CamItemInfo& info)
                 ImagePropertiesTab::shortenedMakeInfo(photoInfo.make);
                 ImagePropertiesTab::shortenedModelInfo(photoInfo.model);
 
-                str = QString("%1 / %2").arg(photoInfo.make.isEmpty() ? cnt.unavailable : photoInfo.make)
+                str = QString::fromUtf8("%1 / %2").arg(photoInfo.make.isEmpty() ? cnt.unavailable : photoInfo.make)
                       .arg(photoInfo.model.isEmpty() ? cnt.unavailable : photoInfo.model);
 
                 if (str.length() > cnt.maxStringLength)
                 {
-                    str = str.left(cnt.maxStringLength-3) + "...";
+                    str = str.left(cnt.maxStringLength-3) + QLatin1String("...");
                 }
 
-                metaStr += cnt.cellBeg + i18n("Make/Model:") + cnt.cellMid + Qt::escape(str) + cnt.cellEnd;
+                metaStr += cnt.cellBeg + i18n("Make/Model:") + cnt.cellMid + str.toHtmlEscaped() + cnt.cellEnd;
             }
 
             if (settings->getToolTipsShowPhotoFocal())
@@ -149,32 +147,32 @@ QString ImportToolTipFiller::CamItemInfoTipContents(const CamItemInfo& info)
 
                 if (photoInfo.focalLength35mm.isEmpty())
                 {
-                    str += QString(" / %1").arg(photoInfo.focalLength.isEmpty() ? cnt.unavailable : photoInfo.focalLength);
+                    str += QString::fromUtf8(" / %1").arg(photoInfo.focalLength.isEmpty() ? cnt.unavailable : photoInfo.focalLength);
                 }
                 else
                 {
-                    str += QString(" / %1").arg(i18n("%1 (%2)",photoInfo.focalLength, photoInfo.focalLength35mm));
+                    str += QString::fromUtf8(" / %1").arg(i18n("%1 (%2)",photoInfo.focalLength, photoInfo.focalLength35mm));
                 }
 
                 if (str.length() > cnt.maxStringLength)
                 {
-                    str = str.left(cnt.maxStringLength-3) + "...";
+                    str = str.left(cnt.maxStringLength-3) + QLatin1String("...");
                 }
 
-                metaStr += cnt.cellBeg + i18n("Aperture/Focal:") + cnt.cellMid + Qt::escape(str) + cnt.cellEnd;
+                metaStr += cnt.cellBeg + i18n("Aperture/Focal:") + cnt.cellMid + str.toHtmlEscaped() + cnt.cellEnd;
             }
 
             if (settings->getToolTipsShowPhotoExpo())
             {
-                str = QString("%1 / %2").arg(photoInfo.exposureTime.isEmpty() ? cnt.unavailable : photoInfo.exposureTime)
+                str = QString::fromUtf8("%1 / %2").arg(photoInfo.exposureTime.isEmpty() ? cnt.unavailable : photoInfo.exposureTime)
                       .arg(photoInfo.sensitivity.isEmpty() ? cnt.unavailable : i18n("%1 ISO",photoInfo.sensitivity));
 
                 if (str.length() > cnt.maxStringLength)
                 {
-                    str = str.left(cnt.maxStringLength-3) + "...";
+                    str = str.left(cnt.maxStringLength-3) + QLatin1String("...");
                 }
 
-                metaStr += cnt.cellBeg + i18n("Exposure/Sensitivity:") + cnt.cellMid + Qt::escape(str) + cnt.cellEnd;
+                metaStr += cnt.cellBeg + i18n("Exposure/Sensitivity:") + cnt.cellMid + str.toHtmlEscaped() + cnt.cellEnd;
             }
 
             if (settings->getToolTipsShowPhotoFlash())
@@ -183,11 +181,11 @@ QString ImportToolTipFiller::CamItemInfoTipContents(const CamItemInfo& info)
 
                 if (str.length() > cnt.maxStringLength)
                 {
-                    str = str.left(cnt.maxStringLength-3) + "...";
+                    str = str.left(cnt.maxStringLength-3) + QLatin1String("...");
                 }
 
                 metaStr += cnt.cellBeg + i18nc("camera flash settings",
-                                               "Flash:") + cnt.cellMid + Qt::escape(str) + cnt.cellEnd;
+                                               "Flash:") + cnt.cellMid + str.toHtmlEscaped() + cnt.cellEnd;
             }
 
             if (settings->getToolTipsShowPhotoWB())
@@ -196,10 +194,10 @@ QString ImportToolTipFiller::CamItemInfoTipContents(const CamItemInfo& info)
 
                 if (str.length() > cnt.maxStringLength)
                 {
-                    str = str.left(cnt.maxStringLength-3) + "...";
+                    str = str.left(cnt.maxStringLength-3) + QLatin1String("...");
                 }
 
-                metaStr += cnt.cellBeg + i18n("White Balance:") + cnt.cellMid + Qt::escape(str) + cnt.cellEnd;
+                metaStr += cnt.cellBeg + i18n("White Balance:") + cnt.cellMid + str.toHtmlEscaped() + cnt.cellEnd;
             }
 
             tip += metaStr;

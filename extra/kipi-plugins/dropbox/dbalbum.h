@@ -23,33 +23,26 @@
 #ifndef DBALBUM_H
 #define DBALBUM_H
 
-// KDE includes
+// Local includes
 
-#include <kdialog.h>
+#include "kpnewalbumdialog.h"
 
-class KLineEdit;
+using namespace KIPIPlugins;
 
 namespace KIPIDropboxPlugin
 {
 class DBFolder;
 
-class DBNewAlbum : public KDialog
+class DBNewAlbum : public KPNewAlbumDialog
 {
     Q_OBJECT
 
 public:
 
-    DBNewAlbum(QWidget* const parent);
+    DBNewAlbum(QWidget* const parent, const QString& pluginName);
     ~DBNewAlbum();
 
     void getFolderTitle(DBFolder& folder);
-
-private Q_SLOTS:
-    void slotTextChanged(const QString &text);
-
-private:
-
-    KLineEdit* m_titleEdt;
 };
 
 } //namespace KIPIDropboxPlugin

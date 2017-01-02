@@ -6,7 +6,7 @@
  * Date        : 2006-02-16
  * Description : a dialog to display ICC profile information.
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,12 +26,9 @@
 
 // Qt includes
 
-#include <QtCore/QByteArray>
-#include <QtCore/QString>
-
-// KDE includes
-
-#include <kdialog.h>
+#include <QByteArray>
+#include <QString>
+#include <QDialog>
 
 // Local includes
 
@@ -43,13 +40,18 @@ class QWidget;
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT ICCProfileInfoDlg : public KDialog
+class DIGIKAM_EXPORT ICCProfileInfoDlg : public QDialog
 {
+    Q_OBJECT
 
 public:
 
     ICCProfileInfoDlg(QWidget* const parent, const QString& profilePath, const IccProfile& profileData = IccProfile());
     ~ICCProfileInfoDlg();
+
+private Q_SLOTS:
+
+    void slotHelp();
 };
 
 }  // namespace Digikam

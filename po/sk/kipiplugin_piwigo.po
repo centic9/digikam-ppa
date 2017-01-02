@@ -1,0 +1,264 @@
+# translation of kipiplugin_piwigoexport.po to Slovak
+# Richard Fric <Richard.Fric@kdemail.net>, 2010.
+# Roman Paholík <wizzardsk@gmail.com>, 2012, 2013, 2014, 2015, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_piwigoexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 21:32+0100\n"
+"Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
+"Language-Team: Slovak <kde-sk@linux.sk>\n"
+"Language: sk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_piwigoui.rc:7
+msgid "&Export"
+msgstr "&Exportovať"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_piwigoui.rc:13
+msgid "Main Toolbar"
+msgstr "Hlavný panel nástrojov"
+
+#: piwigoconfig.cpp:76
+msgctxt "piwigo login settings"
+msgid "URL:"
+msgstr "URL:"
+
+#: piwigoconfig.cpp:80
+msgctxt "piwigo login settings"
+msgid "Username:"
+msgstr "Užívateľské meno:"
+
+#: piwigoconfig.cpp:84
+msgctxt "piwigo login settings"
+msgid "Password:"
+msgstr "Heslo:"
+
+#: piwigotalker.cpp:299
+#, kde-format
+msgid "Check if %1 already exists"
+msgstr "Skontrolujte či %1 už existuje"
+
+#: piwigotalker.cpp:340
+msgid "Error"
+msgstr "Chyba"
+
+#: piwigotalker.cpp:434
+msgid "Piwigo URL probably incorrect"
+msgstr "Piwigo URL pravdepodobne nesprávne"
+
+#: piwigotalker.cpp:440
+msgid "Incorrect username or password specified"
+msgstr "Nesprávne zadané meno používateľa alebo heslo"
+
+#: piwigotalker.cpp:483 piwigotalker.cpp:657
+msgid "Upload to Piwigo version < 2.4 is no longer supported"
+msgstr "Nahrávanie na Piwigo verzie < 2.4 už nie je podporované"
+
+#: piwigotalker.cpp:555 piwigotalker.cpp:633 piwigotalker.cpp:702
+#: piwigotalker.cpp:773
+msgid "Invalid response received from remote Piwigo"
+msgstr "Neplatná odpoveď získaná zo vzdialeného Piwigo"
+
+#: piwigotalker.cpp:561
+msgid "Failed to list albums"
+msgstr "Zlyhalo vypísanie albumov"
+
+#: piwigotalker.cpp:607
+#, kde-format
+msgid "Photo '%1' already exists."
+msgstr "Fotka '%1' už existuje."
+
+#: piwigotalker.cpp:639 piwigotalker.cpp:779 piwigotalker.cpp:935
+msgid "Failed to upload photo"
+msgstr "Zlyhalo nahratie fotky"
+
+#: piwigotalker.cpp:708
+#, kde-format
+msgid "Photo '%1' already exists in this album."
+msgstr "Fotka '%1' už existuje v tomto albume."
+
+#: piwigotalker.cpp:817
+#, kde-format
+msgid "Upload the chunk %1/%2 of %3"
+msgstr "Nahrať blok %1/%2 z %3"
+
+#: piwigotalker.cpp:850
+msgid "Warning : The full size photo cannot be uploaded."
+msgstr "Upozornenie: Fotku v plnej veľkosti nie je možné nahrať."
+
+#: piwigotalker.cpp:896
+#, kde-format
+msgid "Upload the metadata of %1"
+msgstr "Nahrať metadáta %1"
+
+#: piwigotalker.cpp:929
+#, kde-format
+msgid "Invalid response received from remote Piwigo (%1)"
+msgstr "Neplatná odpoveď získaná zo vzdialeného Piwigo (%1)"
+
+#: piwigowindow.cpp:128
+msgid "Visit Piwigo website"
+msgstr "Navštíviť stránku Piwigo"
+
+#: piwigowindow.cpp:145
+msgid "Albums"
+msgstr "Albumy"
+
+#: piwigowindow.cpp:154
+msgid "Change Account"
+msgstr "Zmeniť účet"
+
+#: piwigowindow.cpp:158
+msgid "Options"
+msgstr "Možnosti"
+
+#: piwigowindow.cpp:162
+msgid "Resize photos before uploading"
+msgstr "Zmeniť veľkosť fotiek pred nahraním"
+
+#: piwigowindow.cpp:165
+msgid "Maximum width:"
+msgstr "Maximálna šírka:"
+
+#: piwigowindow.cpp:171
+msgid "Maximum height:"
+msgstr "Maximálna výška:"
+
+#: piwigowindow.cpp:177
+msgid "Resized JPEG quality:"
+msgstr "Kvalita zmeneného JPEG:"
+
+#: piwigowindow.cpp:229 piwigowindow.cpp:233
+msgid "Piwigo Export"
+msgstr "Piwigo Export"
+
+#: piwigowindow.cpp:234
+msgid "A tool to export image collections to a remote Piwigo server."
+msgstr "Nástroj na export kolekcie obrázkov na vzdialený Piwigo server."
+
+#: piwigowindow.cpp:235
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2015, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2015, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
+
+#: piwigowindow.cpp:241
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: piwigowindow.cpp:242 piwigowindow.cpp:246 piwigowindow.cpp:250
+#: piwigowindow.cpp:254 piwigowindow.cpp:258
+msgid "Developer"
+msgstr "Vývojár"
+
+#: piwigowindow.cpp:245
+msgid "Colin Guthrie"
+msgstr "Colin Guthrie"
+
+#: piwigowindow.cpp:249
+msgid "Andrea Diamantini"
+msgstr "Andrea Diamantini"
+
+#: piwigowindow.cpp:253
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: piwigowindow.cpp:257
+msgid "Frédéric Coiffier"
+msgstr "Frédéric Coiffier"
+
+#: piwigowindow.cpp:265
+msgid "Start Upload"
+msgstr "Spustiť odoslanie"
+
+#: piwigowindow.cpp:393
+msgid "Login Failed"
+msgstr "Prihlásenie zlyhalo"
+
+#: piwigowindow.cpp:394
+msgid "Failed to login into remote piwigo. "
+msgstr "Zlyhalo prihlásenie na vzdialené Piwigo."
+
+#: piwigowindow.cpp:395
+msgid ""
+"\n"
+"Do you want to check your settings and try again?"
+msgstr ""
+"\n"
+"Chcete skontrolovať vaše nastavenia a skúsiť znova?"
+
+#: piwigowindow.cpp:402 piwigowindow.cpp:642 plugin_piwigo.cpp:117
+msgid "Edit Piwigo Data"
+msgstr "Upraviť údaje Piwigo"
+
+#: piwigowindow.cpp:462 piwigowindow.cpp:486
+msgid "Album"
+msgstr "Album"
+
+#: piwigowindow.cpp:505
+msgid "Image"
+msgstr "Obrázok"
+
+#: piwigowindow.cpp:536
+msgid "Nothing to upload - please select photos to upload."
+msgstr "Nie je čo nahrať - prosím vyberte fotky na nahranie."
+
+#: piwigowindow.cpp:574
+#, kde-format
+msgid "The file %1 is not a supported image or video format"
+msgstr "Súbor %1 nie je v podporovanom obrazovom alebo video formáte"
+
+#: piwigowindow.cpp:578
+#, kde-format
+msgid "Uploading file %1"
+msgstr "Nahrávam súbor %1"
+
+#: piwigowindow.cpp:596
+msgid "Uploading Failed"
+msgstr "Odoslanie zlyhalo"
+
+#: piwigowindow.cpp:597
+msgid "Failed to upload media into remote Piwigo. "
+msgstr "Zlyhalo nahranie fotky na vzdialené Piwigo. "
+
+#: piwigowindow.cpp:598
+msgid ""
+"\n"
+"Do you want to continue?"
+msgstr ""
+"\n"
+"Chcete pokračovať?"
+
+#: plugin_piwigo.cpp:97
+msgid "Export to &Piwigo..."
+msgstr "Exportovať do Piwigo..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Roman Paholík"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "wizzardsk@gmail.com"
+
+#~ msgid "Author"
+#~ msgstr "Autor"
+
+#~ msgid "Maintainer"
+#~ msgstr "Správca"

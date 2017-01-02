@@ -6,7 +6,7 @@
  * Date        : 2009-07-16
  * Description : metadata selector.
  *
- * Copyright (C) 2009-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "metadataselector.moc"
+#include "metadataselector.h"
 
 // Qt includes
 
@@ -29,12 +29,12 @@
 #include <QHeaderView>
 #include <QGridLayout>
 #include <QApplication>
+#include <QPushButton>
+#include <QStyle>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <kpushbutton.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -45,8 +45,10 @@ namespace Digikam
 {
 
 MetadataSelectorItem::MetadataSelectorItem(MdKeyListViewItem* const parent, const QString& key,
-        const QString& title, const QString& desc)
-    : QTreeWidgetItem(parent), m_key(key), m_parent(parent)
+                                           const QString& title, const QString& desc)
+    : QTreeWidgetItem(parent),
+      m_key(key),
+      m_parent(parent)
 {
     setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled | Qt::ItemIsUserCheckable);
     setCheckState(0, Qt::Unchecked);
@@ -59,13 +61,13 @@ MetadataSelectorItem::MetadataSelectorItem(MdKeyListViewItem* const parent, cons
     if (descVal.length() > 512)
     {
         descVal.truncate(512);
-        descVal.append("...");
+        descVal.append(QLatin1String("..."));
     }
 
     setText(1, descVal);
 
     DToolTipStyleSheet cnt;
-    setToolTip(1, "<qt><p>" + cnt.breakString(descVal) + "</p></qt>");
+    setToolTip(1, QLatin1String("<qt><p>") + cnt.breakString(descVal) + QLatin1String("</p></qt>"));
 }
 
 MetadataSelectorItem::~MetadataSelectorItem()
@@ -94,18 +96,16 @@ MetadataSelector::MetadataSelector(QWidget* const parent)
     setColumnCount(2);
 
     QStringList labels;
-    labels.append( i18n("Name") );
-    labels.append( i18n("Description") );
+    labels.append(i18n("Name"));
+    labels.append(i18n("Description"));
     setHeaderLabels(labels);
-    header()->setResizeMode(0, QHeaderView::ResizeToContents);
-    header()->setResizeMode(1, QHeaderView::Stretch);
+    header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(1, QHeaderView::Stretch);
 }
 
 MetadataSelector::~MetadataSelector()
 {
 }
-
-#if KEXIV2_VERSION >= 0x010000
 
 void MetadataSelector::setTagsMap(const DMetadata::TagsMap& map)
 {
@@ -119,7 +119,7 @@ void MetadataSelector::setTagsMap(const DMetadata::TagsMap& map)
     for (DMetadata::TagsMap::const_iterator it = map.constBegin(); it != map.constEnd(); ++it)
     {
         // We checking if we have changed of ifDName
-        currentIfDName = it.key().section('.', 1, 1);
+        currentIfDName = it.key().section(QLatin1Char('.'), 1, 1);
 
         if ( currentIfDName != ifDItemName )
         {
@@ -137,7 +137,7 @@ void MetadataSelector::setTagsMap(const DMetadata::TagsMap& map)
         }
 
         // We ignore all unknown tags if necessary.
-        if (!it.key().section('.', 2, 2).startsWith(QLatin1String("0x")))
+        if (!it.key().section(QLatin1Char('.'), 2, 2).startsWith(QLatin1String("0x")))
         {
             new MetadataSelectorItem(parentifDItem, it.key(), it.value().at(0), it.value().at(2));
             ++subItems;
@@ -158,8 +158,6 @@ void MetadataSelector::setTagsMap(const DMetadata::TagsMap& map)
     }
     expandAll();
 }
-
-#endif
 
 void MetadataSelector::setcheckedTagsList(const QStringList& list)
 {
@@ -257,9 +255,9 @@ public:
 
     QStringList       defaultFilter;
 
-    KPushButton*      selectAllBtn;
-    KPushButton*      clearSelectionBtn;
-    KPushButton*      defaultSelectionBtn;
+    QPushButton*      selectAllBtn;
+    QPushButton*      clearSelectionBtn;
+    QPushButton*      defaultSelectionBtn;
 
     MetadataSelector* selector;
 
@@ -267,14 +265,17 @@ public:
 };
 
 MetadataSelectorView::MetadataSelectorView(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QGridLayout* const grid = new QGridLayout(this);
     d->selector             = new MetadataSelector(this);
-    d->searchBar            = new SearchTextBar(this, "MetadataSelectorView");
-    d->selectAllBtn         = new KPushButton(i18n("Select All"),this);
-    d->clearSelectionBtn    = new KPushButton(i18n("Clear"),this);
-    d->defaultSelectionBtn  = new KPushButton(i18n("Default"),this);
+    d->searchBar            = new SearchTextBar(this, QLatin1String("MetadataSelectorView"));
+    d->selectAllBtn         = new QPushButton(i18n("Select All"),this);
+    d->clearSelectionBtn    = new QPushButton(i18n("Clear"),this);
+    d->defaultSelectionBtn  = new QPushButton(i18n("Default"),this);
 
     grid->addWidget(d->selector,            0, 0, 1, 5);
     grid->addWidget(d->searchBar,           1, 0, 1, 1);
@@ -283,10 +284,10 @@ MetadataSelectorView::MetadataSelectorView(QWidget* const parent)
     grid->addWidget(d->defaultSelectionBtn, 1, 4, 1, 1);
     grid->setColumnStretch(0, 10);
     grid->setRowStretch(0, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
-    setControlElements(SearchBar|SelectAllBtn|DefaultBtn|ClearBtn);
+    setControlElements(SearchBar | SelectAllBtn | DefaultBtn | ClearBtn);
 
     connect(d->searchBar, SIGNAL(signalSearchTextSettings(SearchTextSettings)),
             this, SLOT(slotSearchTextChanged(SearchTextSettings)));
@@ -306,14 +307,10 @@ MetadataSelectorView::~MetadataSelectorView()
     delete d;
 }
 
-#if KEXIV2_VERSION >= 0x010000
-
 void MetadataSelectorView::setTagsMap(const DMetadata::TagsMap& map)
 {
     d->selector->setTagsMap(map);
 }
-
-#endif
 
 void MetadataSelectorView::setcheckedTagsList(const QStringList& list)
 {

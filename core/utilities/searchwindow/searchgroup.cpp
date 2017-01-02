@@ -7,7 +7,7 @@
  * Description : User interface for searches
  *
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "searchgroup.moc"
+#include "searchgroup.h"
 
 // Qt includes
 
@@ -32,17 +32,16 @@
 #include <QRadioButton>
 #include <QStackedLayout>
 #include <QVBoxLayout>
+#include <QStandardPaths>
+#include <QIcon>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "searchfieldgroup.h"
 #include "searchfields.h"
 #include "searchutilities.h"
@@ -66,7 +65,7 @@ void SearchGroup::setup(Type type)
     m_groupType = type;
 
     m_layout = new QVBoxLayout;
-    m_layout->setContentsMargins(0, 0, 0, 0);
+    m_layout->setContentsMargins(QMargins());
     m_layout->setSpacing(0);
 
     m_label  = new SearchGroupLabel(m_view, m_groupType, this);
@@ -81,7 +80,7 @@ void SearchGroup::setup(Type type)
     // ----- //
 
     group    = new SearchFieldGroup(this);
-    group->addField(SearchField::createField("keyword", group));
+    group->addField(SearchField::createField(QLatin1String("keyword"), group));
     m_fieldGroups << group;
     m_layout->addWidget(group);
 
@@ -95,13 +94,13 @@ void SearchGroup::setup(Type type)
     group = new SearchFieldGroup(this);
     group->setLabel(label);
 
-    group->addField(SearchField::createField("albumid", group));
-    group->addField(SearchField::createField("albumname", group));
-    group->addField(SearchField::createField("albumcollection", group));
-    group->addField(SearchField::createField("tagid", group));
-    group->addField(SearchField::createField("tagname", group));
-    group->addField(SearchField::createField("notag", group));
-    group->addField(SearchField::createField("filename", group));
+    group->addField(SearchField::createField(QLatin1String("albumid"),         group));
+    group->addField(SearchField::createField(QLatin1String("albumname"),       group));
+    group->addField(SearchField::createField(QLatin1String("albumcollection"), group));
+    group->addField(SearchField::createField(QLatin1String("tagid"),           group));
+    group->addField(SearchField::createField(QLatin1String("tagname"),         group));
+    group->addField(SearchField::createField(QLatin1String("notag"),           group));
+    group->addField(SearchField::createField(QLatin1String("filename"),        group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
@@ -115,21 +114,21 @@ void SearchGroup::setup(Type type)
     group = new SearchFieldGroup(this);
     group->setLabel(label);
 
-    group->addField(SearchField::createField("creationdate", group));
-    group->addField(SearchField::createField("rating", group));
-    group->addField(SearchField::createField("labels", group));
-    group->addField(SearchField::createField("dimension", group));
-    group->addField(SearchField::createField("pageorientation", group));
-    group->addField(SearchField::createField("width", group));
-    group->addField(SearchField::createField("height", group));
-    group->addField(SearchField::createField("aspectratioimg", group));
-    group->addField(SearchField::createField("pixelsize", group));
-    group->addField(SearchField::createField("format", group));
-    group->addField(SearchField::createField("colordepth", group));
-    group->addField(SearchField::createField("colormodel", group));
-    group->addField(SearchField::createField("modificationdate", group));
-    group->addField(SearchField::createField("digitizationdate", group));
-    group->addField(SearchField::createField("filesize", group));
+    group->addField(SearchField::createField(QLatin1String("creationdate"),     group));
+    group->addField(SearchField::createField(QLatin1String("rating"),           group));
+    group->addField(SearchField::createField(QLatin1String("labels"),           group));
+    group->addField(SearchField::createField(QLatin1String("dimension"),        group));
+    group->addField(SearchField::createField(QLatin1String("pageorientation"),  group));
+    group->addField(SearchField::createField(QLatin1String("width"),            group));
+    group->addField(SearchField::createField(QLatin1String("height"),           group));
+    group->addField(SearchField::createField(QLatin1String("aspectratioimg"),   group));
+    group->addField(SearchField::createField(QLatin1String("pixelsize"),        group));
+    group->addField(SearchField::createField(QLatin1String("format"),           group));
+    group->addField(SearchField::createField(QLatin1String("colordepth"),       group));
+    group->addField(SearchField::createField(QLatin1String("colormodel"),       group));
+    group->addField(SearchField::createField(QLatin1String("modificationdate"), group));
+    group->addField(SearchField::createField(QLatin1String("digitizationdate"), group));
+    group->addField(SearchField::createField(QLatin1String("filesize"),         group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
@@ -143,13 +142,13 @@ void SearchGroup::setup(Type type)
     group = new SearchFieldGroup(this);
     group->setLabel(label);
 
-    group->addField(SearchField::createField("videoaspectratio", group));
-    group->addField(SearchField::createField("videoduration", group));
-    group->addField(SearchField::createField("videoframerate", group));
-    group->addField(SearchField::createField("videocodec", group));
-    group->addField(SearchField::createField("videoaudiobitrate", group));
-    group->addField(SearchField::createField("videoaudiochanneltype", group));
-    group->addField(SearchField::createField("videoaudiocompressor", group));
+    group->addField(SearchField::createField(QLatin1String("videoaspectratio"),      group));
+    group->addField(SearchField::createField(QLatin1String("videoduration"),         group));
+    group->addField(SearchField::createField(QLatin1String("videoframerate"),        group));
+    group->addField(SearchField::createField(QLatin1String("videocodec"),            group));
+    group->addField(SearchField::createField(QLatin1String("videoaudiobitrate"),     group));
+    group->addField(SearchField::createField(QLatin1String("videoaudiochanneltype"), group));
+    group->addField(SearchField::createField(QLatin1String("videoaudiocompressor"),  group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
@@ -163,10 +162,10 @@ void SearchGroup::setup(Type type)
     group = new SearchFieldGroup(this);
     group->setLabel(label);
 
-    group->addField(SearchField::createField("comment", group));
-    group->addField(SearchField::createField("commentauthor", group));
-    group->addField(SearchField::createField("headline", group));
-    group->addField(SearchField::createField("title", group));
+    group->addField(SearchField::createField(QLatin1String("comment"),       group));
+    group->addField(SearchField::createField(QLatin1String("commentauthor"), group));
+    group->addField(SearchField::createField(QLatin1String("headline"),      group));
+    group->addField(SearchField::createField(QLatin1String("title"),         group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
@@ -180,22 +179,22 @@ void SearchGroup::setup(Type type)
     group = new SearchFieldGroup(this);
     group->setLabel(label);
 
-    group->addField(SearchField::createField("make", group));
-    group->addField(SearchField::createField("model", group));
-    group->addField(SearchField::createField("aperture", group));
-    group->addField(SearchField::createField("focallength", group));
-    group->addField(SearchField::createField("focallength35", group));
-    group->addField(SearchField::createField("exposuretime", group));
-    group->addField(SearchField::createField("exposureprogram", group));
-    group->addField(SearchField::createField("exposuremode", group));
-    group->addField(SearchField::createField("sensitivity", group));
-    group->addField(SearchField::createField("orientation", group));
-    group->addField(SearchField::createField("flashmode", group));
-    group->addField(SearchField::createField("whitebalance", group));
-    group->addField(SearchField::createField("whitebalancecolortemperature", group));
-    group->addField(SearchField::createField("meteringmode", group));
-    group->addField(SearchField::createField("subjectdistance", group));
-    group->addField(SearchField::createField("subjectdistancecategory", group));
+    group->addField(SearchField::createField(QLatin1String("make"),                         group));
+    group->addField(SearchField::createField(QLatin1String("model"),                        group));
+    group->addField(SearchField::createField(QLatin1String("aperture"),                     group));
+    group->addField(SearchField::createField(QLatin1String("focallength"),                  group));
+    group->addField(SearchField::createField(QLatin1String("focallength35"),                group));
+    group->addField(SearchField::createField(QLatin1String("exposuretime"),                 group));
+    group->addField(SearchField::createField(QLatin1String("exposureprogram"),              group));
+    group->addField(SearchField::createField(QLatin1String("exposuremode"),                 group));
+    group->addField(SearchField::createField(QLatin1String("sensitivity"),                  group));
+    group->addField(SearchField::createField(QLatin1String("orientation"),                  group));
+    group->addField(SearchField::createField(QLatin1String("flashmode"),                    group));
+    group->addField(SearchField::createField(QLatin1String("whitebalance"),                 group));
+    group->addField(SearchField::createField(QLatin1String("whitebalancecolortemperature"), group));
+    group->addField(SearchField::createField(QLatin1String("meteringmode"),                 group));
+    group->addField(SearchField::createField(QLatin1String("subjectdistance"),              group));
+    group->addField(SearchField::createField(QLatin1String("subjectdistancecategory"),      group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
@@ -204,7 +203,6 @@ void SearchGroup::setup(Type type)
 
     // ----- //
 
-
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("Geographic position"));
     group = new SearchFieldGroup(this);
@@ -212,8 +210,8 @@ void SearchGroup::setup(Type type)
 
     //group->addField(SearchField::createField("latitude", group));
     //group->addField(SearchField::createField("longitude", group));
-    group->addField(SearchField::createField("altitude", group));
-    group->addField(SearchField::createField("nogps", group));
+    group->addField(SearchField::createField(QLatin1String("altitude"), group));
+    group->addField(SearchField::createField(QLatin1String("nogps"), group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
@@ -224,8 +222,8 @@ void SearchGroup::setup(Type type)
     // ----- //
 
     // prepare subgroup layout
-    QHBoxLayout* indentLayout = new QHBoxLayout;
-    indentLayout->setContentsMargins(0, 0, 0, 0);
+    QHBoxLayout* const indentLayout = new QHBoxLayout;
+    indentLayout->setContentsMargins(QMargins());
     indentLayout->setSpacing(0);
 
     QStyleOption option;
@@ -235,7 +233,7 @@ void SearchGroup::setup(Type type)
     indentLayout->addSpacing(indent);
 
     m_subgroupLayout = new QVBoxLayout;
-    m_subgroupLayout->setContentsMargins(0, 0, 0, 0);
+    m_subgroupLayout->setContentsMargins(QMargins());
     m_subgroupLayout->setSpacing(0);
 
     indentLayout->addLayout(m_subgroupLayout);
@@ -299,7 +297,7 @@ void SearchGroup::read(SearchXmlCachingReader& reader)
             }
             else
             {
-                kWarning() << "Unhandled search field in XML with field name" << name;
+                qCWarning(DIGIKAM_GENERAL_LOG) << "Unhandled search field in XML with field name" << name;
                 reader.readToEndOfElement();
             }
         }
@@ -311,7 +309,7 @@ void SearchGroup::read(SearchXmlCachingReader& reader)
 SearchGroup* SearchGroup::createSearchGroup()
 {
     // create a sub group - view is the same
-    SearchGroup* group = new SearchGroup(m_view);
+    SearchGroup* const group = new SearchGroup(m_view);
     group->setup(SearchGroup::ChainGroup);
     return group;
 }
@@ -358,8 +356,10 @@ SearchGroup::Type SearchGroup::groupType() const
 QList<QRect> SearchGroup::startupAnimationArea() const
 {
     QList<QRect> rects;
+
     // from subgroups;
     rects += startupAnimationAreaOfGroups();
+
     // field groups
     foreach(SearchFieldGroup* fieldGroup, m_fieldGroups)
     {
@@ -425,13 +425,13 @@ public:
     SearchXml::Operator         fieldOp;
     QGridLayout*                layout;
     //QComboBox*                  groupOpBox;
-    RClickLabel*                groupOpLabel;
+    DClickLabel*                groupOpLabel;
     QRadioButton*               allBox;
     QRadioButton*               anyBox;
     QRadioButton*               noneBox;
     QRadioButton*               oneNotBox;
-    RClickLabel*                optionsLabel;
-    RClickLabel*                removeLabel;
+    DClickLabel*                optionsLabel;
+    DClickLabel*                removeLabel;
     QStackedLayout*             stackedLayout;
     SearchViewThemedPartsCache* themeCache;
 };
@@ -444,25 +444,25 @@ SearchGroupLabel::SearchGroupLabel(SearchViewThemedPartsCache* const cache, Sear
 
     // leave styling to style sheet (by object name)
 
-    QLabel* mainLabel     = new QLabel(i18n("Find Pictures"));
-    mainLabel->setObjectName("SearchGroupLabel_MainLabel");
+    QLabel* const mainLabel = new QLabel(i18n("Find Pictures"));
+    mainLabel->setObjectName(QLatin1String("SearchGroupLabel_MainLabel"));
 
     // Use radio button with a separate label to fix styling problem, see bug 195809
-    d->allBox             = new QRadioButton;
-    QLabel* allBoxLabel   = new QLabel(i18n("Meet All of the following conditions"));
-    allBoxLabel->setObjectName("SearchGroupLabel_CheckBox");
+    d->allBox                 = new QRadioButton;
+    QLabel* const allBoxLabel = new QLabel(i18n("Meet All of the following conditions"));
+    allBoxLabel->setObjectName(QLatin1String("SearchGroupLabel_CheckBox"));
 
     d->anyBox = new QRadioButton;
-    QLabel* anyBoxLabel   = new QLabel(i18n("Meet Any of the following conditions"));
-    anyBoxLabel->setObjectName("SearchGroupLabel_CheckBox");
+    QLabel* const anyBoxLabel = new QLabel(i18n("Meet Any of the following conditions"));
+    anyBoxLabel->setObjectName(QLatin1String("SearchGroupLabel_CheckBox"));
 
     d->noneBox = new QRadioButton;
-    QLabel* noneBoxLabel  = new QLabel(i18n("None of these conditions are met"));
-    noneBoxLabel->setObjectName("SearchGroupLabel_CheckBox");
+    QLabel* const noneBoxLabel = new QLabel(i18n("None of these conditions are met"));
+    noneBoxLabel->setObjectName(QLatin1String("SearchGroupLabel_CheckBox"));
 
-    d->oneNotBox            = new QRadioButton;
-    QLabel* oneNotBoxLabel = new QLabel(i18n("At least one of these conditions is not met"));
-    oneNotBoxLabel->setObjectName("SearchGroupLabel_CheckBox");
+    d->oneNotBox                 = new QRadioButton;
+    QLabel* const oneNotBoxLabel = new QLabel(i18n("At least one of these conditions is not met"));
+    oneNotBoxLabel->setObjectName(QLatin1String("SearchGroupLabel_CheckBox"));
 
     connect(d->allBox, SIGNAL(toggled(bool)),
             this, SLOT(boxesToggled()));
@@ -478,61 +478,60 @@ SearchGroupLabel::SearchGroupLabel(SearchViewThemedPartsCache* const cache, Sear
 
     if (type == SearchGroup::FirstGroup)
     {
-        QLabel* logo = new QLabel;
-        logo->setPixmap(QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                        .scaled(96, 96, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        QLabel* const logo = new QLabel;
+        logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48)));
 
-        d->optionsLabel = new RClickLabel;
-        d->optionsLabel->setObjectName("SearchGroupLabel_OptionsLabel");
+        d->optionsLabel = new DClickLabel;
+        d->optionsLabel->setObjectName(QLatin1String("SearchGroupLabel_OptionsLabel"));
 
         connect(d->optionsLabel, SIGNAL(activated()),
                 this, SLOT(toggleShowOptions()));
 
-        QWidget* simpleHeader     = new QWidget;
-        QVBoxLayout* headerLayout = new QVBoxLayout;
-        QLabel* simpleLabel1      = new QLabel;
+        QWidget* const simpleHeader     = new QWidget;
+        QVBoxLayout* const headerLayout = new QVBoxLayout;
+        QLabel* const simpleLabel1      = new QLabel;
         //simpleLabel->setText(i18n("Find Pictures meeting all of these conditions"));
-        //simpleLabel->setPixmap(SmallIcon("edit-find", 128));
+        //simpleLabel->setPixmap(QIcon::fromTheme(QLatin1String("edit-find")).pixmap(128));
         simpleLabel1->setText(i18n("<qt><p>Search your collection<br/>for pictures meeting the following conditions</p></qt>"));
-        simpleLabel1->setObjectName("SearchGroupLabel_SimpleLabel");
+        simpleLabel1->setObjectName(QLatin1String("SearchGroupLabel_SimpleLabel"));
         headerLayout->addStretch(3);
         headerLayout->addWidget(simpleLabel1);
         headerLayout->addStretch(1);
-        headerLayout->setMargin(0);
+        headerLayout->setContentsMargins(QMargins());
         simpleHeader->setLayout(headerLayout);
 
-        QWidget* optionsBox        = new QWidget;
-        QGridLayout* optionsLayout = new QGridLayout;
+        QWidget* const optionsBox        = new QWidget;
+        QGridLayout* const optionsLayout = new QGridLayout;
         optionsLayout->addLayout(new RadioButtonHBox(d->allBox, allBoxLabel, layoutDirection()),       0, 0);
         optionsLayout->addLayout(new RadioButtonHBox(d->anyBox, anyBoxLabel, layoutDirection()),       1, 0);
         optionsLayout->addLayout(new RadioButtonHBox(d->noneBox, noneBoxLabel, layoutDirection()),     0, 1);
         optionsLayout->addLayout(new RadioButtonHBox(d->oneNotBox, oneNotBoxLabel, layoutDirection()), 1, 1);
-        optionsLayout->setMargin(0);
+        optionsLayout->setContentsMargins(QMargins());
         optionsBox->setLayout(optionsLayout);
 
         d->stackedLayout = new QStackedLayout;
         d->stackedLayout->addWidget(simpleHeader);
         d->stackedLayout->addWidget(optionsBox);
-        d->stackedLayout->setMargin(0);
+        d->stackedLayout->setContentsMargins(QMargins());
 
-        d->layout->addWidget(mainLabel,       0, 0, 1, 1);
+        d->layout->addWidget(mainLabel,        0, 0, 1, 1);
         d->layout->addLayout(d->stackedLayout, 1, 0, 1, 1);
         d->layout->addWidget(d->optionsLabel,  1, 1, 1, 1, Qt::AlignRight | Qt::AlignBottom);
-        d->layout->addWidget(logo,            0, 2, 2, 1, Qt::AlignTop);
+        d->layout->addWidget(logo,             0, 2, 2, 1, Qt::AlignTop);
         d->layout->setColumnStretch(1, 10);
 
         setExtended(false);
     }
     else
     {
-        d->groupOpLabel = new RClickLabel;
-        d->groupOpLabel->setObjectName("SearchGroupLabel_GroupOpLabel");
+        d->groupOpLabel = new DClickLabel;
+        d->groupOpLabel->setObjectName(QLatin1String("SearchGroupLabel_GroupOpLabel"));
 
         connect(d->groupOpLabel, SIGNAL(activated()),
                 this, SLOT(toggleGroupOperator()));
 
-        d->removeLabel = new RClickLabel(i18n("Remove Group"));
-        d->removeLabel->setObjectName("SearchGroupLabel_RemoveLabel");
+        d->removeLabel = new DClickLabel(i18n("Remove Group"));
+        d->removeLabel->setObjectName(QLatin1String("SearchGroupLabel_RemoveLabel"));
 
         connect(d->removeLabel, SIGNAL(activated()),
                 this, SIGNAL(removeClicked()));

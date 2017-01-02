@@ -7,7 +7,7 @@
  * Description : digital camera controller
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -31,25 +31,23 @@
 #include <QThread>
 #include <QString>
 #include <QFileInfo>
-#include <QCustomEvent>
-#include <QPixmap>
 
 // Local includes
 
 #include "downloadsettings.h"
+#include "setupcamera.h"
 #include "camiteminfo.h"
 #include "dmetadata.h"
 #include "dkcamera.h"
 #include "dhistoryview.h"
-#include "thumbnailsize.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
 class CameraCommand;
-class RenameResult;
 
-class CameraController : public QThread
+class DIGIKAM_EXPORT CameraController : public QThread
 {
     Q_OBJECT
 
@@ -87,7 +85,7 @@ public:
      */
     void getThumbsInfo(const CamItemInfoList& infoList, int thumbSize);
 
-    void downloadPrep();
+    void downloadPrep(const SetupCamera::ConflictRule& rule);
     void download(const DownloadSettings& downloadSettings);
     void download(const DownloadSettingsList& list);
     void upload(const QFileInfo& srcFileInfo, const QString& destFile, const QString& destFolder);
@@ -95,7 +93,7 @@ public:
     void lockFile(const QString& folder, const QString& file, bool lock);
     void openFile(const QString& folder, const QString& file);
 
-    QPixmap mimeTypeThumbnail(const QString& itemName, int thumbSize) const;
+    QIcon mimeTypeThumbnail(const QString& itemName) const;
 
 Q_SIGNALS:
 

@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Emboss threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -35,13 +35,13 @@
 
 // Qt includes
 
-#include <qmath.h>
-#include <QtConcurrentRun>
+#include <QtMath>
+#include <QtConcurrent>
 
 // Local includes
 
 #include "dimg.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -54,7 +54,7 @@ EmbossFilter::EmbossFilter(QObject* const parent)
 }
 
 EmbossFilter::EmbossFilter(DImg* const orgImage, QObject* const parent, int depth)
-    : DImgThreadedFilter(orgImage, parent, "Emboss")
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("Emboss"))
 {
     m_depth = depth;
     initFilter();
@@ -179,14 +179,14 @@ FilterAction EmbossFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("depth", m_depth);
+    action.addParameter(QLatin1String("depth"), m_depth);
 
     return action;
 }
 
 void EmbossFilter::readParameters(const Digikam::FilterAction& action)
 {
-    m_depth = action.parameter("depth").toInt();
+    m_depth = action.parameter(QLatin1String("depth")).toInt();
 }
 
 }  // namespace DigikamEmbossImagesPlugin

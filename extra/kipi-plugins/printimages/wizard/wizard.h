@@ -27,6 +27,7 @@
 
 #include <QPainter>
 #include <QIcon>
+#include <QPrinter>
 
 // Local includes
 
@@ -62,12 +63,12 @@ public:
     Wizard(QWidget* const);
     ~Wizard();
 
-    void print(const KUrl::List& fileList, const QString& tempPath);
+    void print(const QList<QUrl>& fileList, const QString& tempPath);
 
 protected Q_SLOTS:
 
     virtual void accept();
-    virtual void pageChanged(KPageWidgetItem*, KPageWidgetItem*);
+    virtual void pageChanged(int curr);
     virtual void captionChanged(const QString& text);
     virtual void saveCaptionSettings();
     virtual void outputChanged(const QString&);
@@ -85,7 +86,7 @@ protected Q_SLOTS:
 
     virtual void reject();
     virtual void crop_selection(int);
-    virtual void slotPageRemoved(KPageWidgetItem* page);
+    virtual void slotPageRemoved(int);
 
     virtual void pagesetupclicked();
     virtual void pagesetupdialogexit();
@@ -94,7 +95,7 @@ protected Q_SLOTS:
     virtual void increaseCopies();
     virtual void infopage_updateCaptions();
 
-    virtual void slotAddItems(const KUrl::List&);
+    virtual void slotAddItems(const QList<QUrl>&);
     virtual void slotRemovingItem(KIPIPlugins::KPImagesListViewItem*);
     virtual void slotContextMenuRequested();
     virtual void slotXMLSaveItem(QXmlStreamWriter&, KIPIPlugins::KPImagesListViewItem*);
@@ -112,7 +113,7 @@ private:
     void infopage_setCaptionButtons();
     void infopage_readCaptionSettings();
 
-    // fn filename, pageSize in mm 
+    // fn filename, pageSize in mm
     void parseTemplateFile( const QString& fn, const QSizeF& pageSize );
 
     void updateCaption(TPhoto* const);

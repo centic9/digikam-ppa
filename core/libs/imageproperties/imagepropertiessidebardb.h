@@ -7,7 +7,7 @@
  * Description : image properties side bar using data from
  *               digiKam database.
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -26,9 +26,9 @@
 #ifndef IMAGEPROPERTIESSIDEBARDB_H
 #define IMAGEPROPERTIESSIDEBARDB_H
 
-// KDE includes
+// Qt includes
 
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -36,6 +36,7 @@
 #include "imageinfolist.h"
 #include "imagepropertiessidebar.h"
 #include "digikam_export.h"
+#include "digikam_config.h"
 
 class QWidget;
 class QRect;
@@ -50,6 +51,7 @@ class ImageChangeset;
 class ImageDescEditTab;
 class ImageTagChangeset;
 class ImagePropertiesVersionsTab;
+class GPSImageInfo;
 
 class ImagePropertiesSideBarDB : public ImagePropertiesSideBar
 {
@@ -58,7 +60,7 @@ class ImagePropertiesSideBarDB : public ImagePropertiesSideBar
 public:
 
     ImagePropertiesSideBarDB(QWidget* const parent, SidebarSplitter* const splitter,
-                             KMultiTabBarPosition side=KMultiTabBar::Left,
+                             Qt::Edge side=Qt::LeftEdge,
                              bool mimimizedDefault=false);
 
     ~ImagePropertiesSideBarDB();
@@ -70,12 +72,19 @@ public:
     ImagePropertiesVersionsTab* getFiltersHistoryTab() const;
     ImageDescEditTab*           imageDescEditTab()     const;
 
-    virtual void itemChanged(const KUrl& url, const QRect& rect = QRect(), DImg* const img = 0);
+    virtual void itemChanged(const QUrl& url, const QRect& rect = QRect(), DImg* const img = 0);
 
     virtual void itemChanged(const ImageInfo& info, const QRect& rect = QRect(),
                              DImg* const img = 0, const DImageHistory& history = DImageHistory());
 
     virtual void itemChanged(const ImageInfoList& infos);
+
+
+#ifdef HAVE_MARBLE
+
+    static bool GPSImageInfofromImageInfo(const ImageInfo&, GPSImageInfo* const);
+
+#endif // HAVE_MARBLE
 
 Q_SIGNALS:
 
@@ -101,15 +110,15 @@ public Q_SLOTS:
 private Q_SLOTS:
 
     void slotChangedTab(QWidget* tab);
-    void slotFileMetadataChanged(const KUrl& url);
+    void slotFileMetadataChanged(const QUrl& url);
     void slotImageChangeDatabase(const ImageChangeset& changeset);
     void slotImageTagChanged(const ImageTagChangeset& changeset);
 
 private:
 
-    void itemChanged(const KUrl& url, const ImageInfo& info, const QRect& rect, DImg* const img, const DImageHistory& history);
+    void itemChanged(const QUrl& url, const ImageInfo& info, const QRect& rect, DImg* const img, const DImageHistory& history);
     void itemChanged(const ImageInfoList& infos, const QRect& rect, DImg* const img, const DImageHistory& history);
-    void setImagePropertiesInformation(const KUrl& url);
+    void setImagePropertiesInformation(const QUrl& url);
 
 protected:
 

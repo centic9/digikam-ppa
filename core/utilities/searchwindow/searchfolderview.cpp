@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2005      by Renchi Raju <renchi at pooh dot tam dot uiuc dot edu>
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2009      by Johannes Wienke <languitar at semipol dot de>
  *
@@ -25,15 +25,12 @@
  *
  * ============================================================ */
 
-#include "searchfolderview.moc"
+#include "searchfolderview.h"
 
 // Qt includes
 
 #include <QAction>
-
-// KDE includes
-
-#include <kiconloader.h>
+#include <QIcon>
 
 // Local includes
 
@@ -63,10 +60,8 @@ NormalSearchTreeView::NormalSearchTreeView(QWidget* const parent,
       d(new Private)
 {
 
-    d->newAction  = new QAction(SmallIcon("document-new"),
-                               i18nc("Create new search", "New..."), this);
-    d->editAction = new QAction(SmallIcon("edit-find"),
-                                i18nc("Edit selected search", "Edit..."), this);
+    d->newAction  = new QAction(QIcon::fromTheme(QLatin1String("document-new")), i18nc("Create new search",    "New..."),  this);
+    d->editAction = new QAction(QIcon::fromTheme(QLatin1String("edit-find")),    i18nc("Edit selected search", "Edit..."), this);
 }
 
 NormalSearchTreeView::~NormalSearchTreeView()
@@ -81,7 +76,7 @@ void NormalSearchTreeView::addCustomContextMenuActions(ContextMenuHelper& cmh, A
 
     EditableSearchTreeView::addCustomContextMenuActions(cmh, album);
 
-    SAlbum* salbum = dynamic_cast<SAlbum*>(album);
+    SAlbum* const salbum = dynamic_cast<SAlbum*>(album);
 
     d->editAction->setEnabled(salbum);
     cmh.addAction(d->editAction);
@@ -89,8 +84,8 @@ void NormalSearchTreeView::addCustomContextMenuActions(ContextMenuHelper& cmh, A
 
 void NormalSearchTreeView::handleCustomContextMenuAction(QAction* action, AlbumPointer<Album> album)
 {
-    Album* a       = album;
-    SAlbum* salbum = dynamic_cast<SAlbum*>(a);
+    Album* a             = album;
+    SAlbum* const salbum = dynamic_cast<SAlbum*>(a);
 
     if (action == d->newAction && salbum)
     {

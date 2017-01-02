@@ -7,7 +7,7 @@
  * Description : a list of selectable options with preview
  *               effects as thumbnails.
  *
- * Copyright (C) 2010-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,8 +27,8 @@
 
 // Qt includes
 
-#include <QtCore/QObject>
-#include <QtGui/QPixmap>
+#include <QObject>
+#include <QPixmap>
 #include <QListWidget>
 #include <QListWidgetItem>
 

@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "searchwindow.moc"
+#include "searchwindow.h"
 
 // Qt includes
 
@@ -31,12 +31,12 @@
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "searchview.h"
-#include "searchxml.h"
+#include "coredbsearchxml.h"
 #include "thememanager.h"
 
 namespace Digikam
@@ -83,7 +83,7 @@ SearchWindow::SearchWindow()
 
     layout->addWidget(d->scrollArea);
     layout->addWidget(d->bottomBar);
-    layout->setMargin(0);
+    layout->setContentsMargins(QMargins());
     layout->setSpacing(0);
     setLayout(layout);
 

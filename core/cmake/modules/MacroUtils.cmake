@@ -1,6 +1,6 @@
 # Some useful macros for printing status information
 #
-# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -154,5 +154,24 @@ macro(PRINT_OPTIONAL_QTMODULE_STATUS NAME)
         message(STATUS " ${LIB_MESSAGE} NO  (optional)")
 
     endif()
+
+endmacro()
+
+# -------------------------------------------------------------------------
+
+macro(HEADER_DIRECTORIES return_list)
+
+    file(GLOB_RECURSE new_list *.h)
+    set(dir_list "")
+
+    foreach(file_path ${new_list})
+
+        get_filename_component(dir_path ${file_path} PATH)
+        set(dir_list ${dir_list} ${dir_path})
+
+    endforeach()
+
+    list(REMOVE_DUPLICATES dir_list)
+    set(${return_list} ${dir_list})
 
 endmacro()

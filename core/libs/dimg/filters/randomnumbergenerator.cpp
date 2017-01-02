@@ -37,7 +37,6 @@
 #pragma clang diagnostic ignored "-Wunnamed-type-template-args"
 #endif
 
-//#include <boost/nondet_random.hpp>
 #include <boost/random/bernoulli_distribution.hpp>
 #include <boost/random/mersenne_twister.hpp>
 #include <boost/random/uniform_smallint.hpp>
@@ -71,7 +70,7 @@ NonDeterministicRandomData::NonDeterministicRandomData(int s)
 #ifndef Q_OS_WIN
     {
         // Try urandom for UNIX platforms.
-        QFile urandom("/dev/urandom");
+        QFile urandom(QLatin1String("/dev/urandom"));
 
         if (urandom.exists() && urandom.open(QIODevice::ReadOnly))
         {
@@ -92,7 +91,7 @@ NonDeterministicRandomData::NonDeterministicRandomData(int s)
 
         while (size() < s)
         {
-            append(QByteArray::fromHex(QUuid::createUuid().toString().remove('{').remove('}').remove('-').toLatin1()));
+            append(QByteArray::fromHex(QUuid::createUuid().toString().remove(QLatin1Char('{')).remove(QLatin1Char('}')).remove(QLatin1Char('-')).toLatin1()));
         }
 
         resize(s);

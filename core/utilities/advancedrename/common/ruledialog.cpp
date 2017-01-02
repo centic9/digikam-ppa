@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "ruledialog.moc"
+#include "ruledialog.h"
 
 // Qt includes
 
@@ -31,10 +31,9 @@
 #include <QLabel>
 #include <QRegExp>
 #include <QWidget>
-
-// KDE includes
-
-#include <kiconloader.h>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 // Local includes
 
@@ -48,6 +47,8 @@ class RuleDialog::Private
 public:
 
     Private() :
+        buttons(0),
+        container(0),
         dialogTitle(0),
         dialogDescription(0),
         dialogIcon(0),
@@ -55,15 +56,21 @@ public:
     {
     }
 
-    QLabel*  dialogTitle;
-    QLabel*  dialogDescription;
-    QLabel*  dialogIcon;
-    QWidget* settingsWidget;
+    QDialogButtonBox* buttons;
+    QWidget*          container;
+    QLabel*           dialogTitle;
+    QLabel*           dialogDescription;
+    QLabel*           dialogIcon;
+    QWidget*          settingsWidget;
 };
 
-RuleDialog::RuleDialog(Rule* parent)
-    : KDialog(0), d(new Private)
+RuleDialog::RuleDialog(Rule* const parent)
+    : QDialog(0),
+      d(new Private)
 {
+    d->buttons = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+    d->buttons->button(QDialogButtonBox::Ok)->setDefault(true);
+
     d->dialogTitle       = new QLabel(this);
     d->dialogDescription = new QLabel(this);
     d->dialogIcon        = new QLabel(this);
@@ -76,11 +83,11 @@ RuleDialog::RuleDialog(Rule* parent)
     d->dialogDescription->setAlignment(Qt::AlignHCenter);
     d->dialogDescription->setWordWrap(true);
 
-    QFrame* line = new QFrame(this);
+    QFrame* const line = new QFrame(this);
     line->setFrameShape(QFrame::HLine);
     line->setFrameShadow(QFrame::Sunken);
 
-    QWidget* header           = new QWidget(this);
+    QWidget* const header     = new QWidget(this);
     QGridLayout* headerLayout = new QGridLayout(this);
     headerLayout->addWidget(d->dialogIcon,        0, 0, 4, 1);
     headerLayout->addWidget(d->dialogTitle,       1, 1, 1, 1);
@@ -89,14 +96,25 @@ RuleDialog::RuleDialog(Rule* parent)
     headerLayout->setColumnStretch(1, 10);
     header->setLayout(headerLayout);
 
-    QWidget* container           = new QWidget(this);
-    QGridLayout* containerLayout = new QGridLayout(this);
+    d->container                       = new QWidget(this);
+    QGridLayout* const containerLayout = new QGridLayout(this);
     containerLayout->addWidget(header,            0, 0, 1, 1);
     containerLayout->addWidget(d->settingsWidget, 1, 0, 1, 1);
     containerLayout->setRowStretch(1, 10);
-    container->setLayout(containerLayout);
-    setMainWidget(container);
+    d->container->setLayout(containerLayout);
+
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(d->container);
+    vbx->addWidget(d->buttons);
+    setLayout(vbx);
+
     setMinimumWidth(300);
+
+    connect(d->buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(accept()));
+
+    connect(d->buttons->button(QDialogButtonBox::Cancel), SIGNAL(clicked()),
+            this, SLOT(reject()));
 }
 
 RuleDialog::~RuleDialog()
@@ -108,10 +126,10 @@ void RuleDialog::setDialogTitle(const QString& title)
 {
     // remove ellipsis and "&&" from the string
     QString _title = title;
-    _title.remove(QRegExp("\\.{3,}")).replace("&&", "&");
+    _title.remove(QRegExp(QLatin1String("\\.{3,}"))).replace(QLatin1String("&&"), QLatin1String("&"));
 
-    d->dialogTitle->setText(QString("<b>%1</b>").arg(_title));
-    setCaption(_title);
+    d->dialogTitle->setText(QString::fromUtf8("<b>%1</b>").arg(_title));
+    setWindowTitle(_title);
 }
 
 void RuleDialog::setDialogDescription(const QString& description)
@@ -124,17 +142,17 @@ void RuleDialog::setDialogIcon(const QPixmap& icon)
     d->dialogIcon->setPixmap(icon);
 }
 
-void RuleDialog::setSettingsWidget(QWidget* settingsWidget)
+void RuleDialog::setSettingsWidget(QWidget* const settingsWidget)
 {
     delete d->settingsWidget;
 
-    d->settingsWidget = new QWidget(this);
-    QGridLayout* l    = new QGridLayout(this);
+    d->settingsWidget    = new QWidget(this);
+    QGridLayout* const l = new QGridLayout(this);
     l->addWidget(settingsWidget);
     l->setSpacing(0);
-    l->setMargin(0);
+    l->setContentsMargins(QMargins());
     d->settingsWidget->setLayout(l);
-    mainWidget()->layout()->addWidget(d->settingsWidget);
+    d->container->layout()->addWidget(d->settingsWidget);
 }
 
 } // namespace Digikam

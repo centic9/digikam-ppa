@@ -21,24 +21,26 @@
  *
  * ============================================================ */
 
-#include "scriptingsettings.moc"
+#include "scriptingsettings.h"
 
 // Qt includes
 
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdialog.h>
-#include <klocale.h>
-#include <kurlrequester.h>
-#include <khbox.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
+#include <kconfiggroup.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
+#include "digikam_debug.h"
 #include "tooltipdialog.h"
 
 namespace Digikam
@@ -57,14 +59,17 @@ public:
     }
 
     QLabel*        scriptLabel;
-    KUrlRequester* script;
+    DFileSelector* script;
     TooltipDialog* tooltipDialog;
     QToolButton*   tooltipToggleButton;
 };
 
 ScriptingSettings::ScriptingSettings(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->tooltipDialog = new TooltipDialog(this);
     d->tooltipDialog->setTooltip(i18n("<p>These expressions may be used to customize the command line:</p>"
                                       "<p><b>%file</b>: full path of the imported file</p>"
@@ -78,20 +83,19 @@ ScriptingSettings::ScriptingSettings(QWidget* const parent)
 
     QVBoxLayout* vlay      = new QVBoxLayout(this);
     d->scriptLabel         = new QLabel(i18n("Execute script for image:"), this);
-    KHBox* hbox            = new KHBox(this);
-    d->script              = new KUrlRequester(hbox);
-    KFile::Modes mode      = KFile::File | KFile::ExistingOnly | KFile::LocalOnly;
-    d->script->setMode(mode);
-    d->script->setClickMessage(i18n("No script selected"));
+    DHBox* hbox            = new DHBox(this);
+    d->script              = new DFileSelector(hbox);
+    d->script->setFileDlgMode(QFileDialog::ExistingFile);
+    d->script->lineEdit()->setPlaceholderText(i18n("No script selected"));
     d->tooltipToggleButton = new QToolButton(hbox);
-    d->tooltipToggleButton->setIcon(SmallIcon("dialog-information"));
+    d->tooltipToggleButton->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
     d->tooltipToggleButton->setToolTip(i18n("Show a list of all available options"));
 
     vlay->addWidget(d->scriptLabel);
     vlay->addWidget(hbox);
     vlay->addStretch();
-    vlay->setMargin(KDialog::spacingHint());
-    vlay->setSpacing(KDialog::spacingHint());
+    vlay->setContentsMargins(spacing, spacing, spacing, spacing);
+    vlay->setSpacing(spacing);
 
     setWhatsThis(i18n("Set here the script that is executed for every imported image."));
 
@@ -108,17 +112,17 @@ ScriptingSettings::~ScriptingSettings()
 
 void ScriptingSettings::readSettings(KConfigGroup& group)
 {
-    d->script->setText(group.readEntry("Script", QString()));
+    d->script->lineEdit()->setText(group.readEntry("Script", QString()));
 }
 
 void ScriptingSettings::saveSettings(KConfigGroup& group)
 {
-    group.writeEntry("Script", d->script->text());
+    group.writeEntry("Script", d->script->lineEdit()->text());
 }
 
 void ScriptingSettings::settings(DownloadSettings* const settings) const
 {
-    settings->script = d->script->text();
+    settings->script = d->script->lineEdit()->text();
 }
 
 void ScriptingSettings::slotToolTipButtonToggled(bool /*checked*/)

@@ -7,7 +7,7 @@
  * Description : digiKam setup dialog.
  *
  * Copyright (C) 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU Album
@@ -22,55 +22,43 @@
  *
  * ============================================================ */
 
-#include "setup.moc"
+#include "setup.h"
 
 // Qt includes
 
 #include <QPointer>
+#include <QApplication>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kvbox.h>
-#include <kdebug.h>
-
-#ifdef HAVE_KIPI
-
-// Libkipi includes
-
-#include <libkipi/configwidget.h>
-
-using namespace KIPI;
-
-#endif /* HAVE_KIPI */
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "applicationsettings.h"
 #include "thumbsgenerator.h"
 #include "setupalbumview.h"
 #include "setupcamera.h"
-#include "setupcategory.h"
 #include "setupcollections.h"
-#include "setupraw.h"
 #include "setupeditor.h"
 #include "setupicc.h"
-#include "setupiofiles.h"
 #include "setuplighttable.h"
 #include "setupmetadata.h"
-#include "setupmime.h"
 #include "setupmisc.h"
 #include "setupslideshow.h"
 #include "setupimagequalitysorter.h"
 #include "setuptooltip.h"
 #include "setupdatabase.h"
-#include "setupversioning.h"
 #include "importsettings.h"
+#include "dxmlguiwindow.h"
+
+#ifdef HAVE_KIPI
+
+#include "setupkipi.h"
+
+#endif /* HAVE_KIPI */
 
 namespace Digikam
 {
@@ -86,244 +74,190 @@ public:
         page_tooltip(0),
         page_metadata(0),
         page_template(0),
-        page_category(0),
-        page_mime(0),
         page_lighttable(0),
         page_editor(0),
-        page_raw(0),
-        page_iofiles(0),
         page_slideshow(0),
         page_imagequalitysorter(0),
         page_icc(0),
         page_camera(0),
-        page_misc(0),
 
 #ifdef HAVE_KIPI
         page_plugins(0),
 #endif /* HAVE_KIPI */
 
-        page_versioning(0),
+        page_misc(0),
         databasePage(0),
         collectionsPage(0),
         albumViewPage(0),
         tooltipPage(0),
         metadataPage(0),
         templatePage(0),
-        categoryPage(0),
-        mimePage(0),
         lighttablePage(0),
         editorPage(0),
-        rawPage(0),
-        iofilesPage(0),
         slideshowPage(0),
         imageQualitySorterPage(0),
         iccPage(0),
         cameraPage(0),
-        miscPage(0),
 
 #ifdef HAVE_KIPI
         pluginsPage(0),
 #endif /* HAVE_KIPI */
 
-        versioningPage(0),
-        pluginFilter(0)
+        miscPage(0)
     {
     }
 
-    KPageWidgetItem*         page_database;
-    KPageWidgetItem*         page_collections;
-    KPageWidgetItem*         page_albumView;
-    KPageWidgetItem*         page_tooltip;
-    KPageWidgetItem*         page_metadata;
-    KPageWidgetItem*         page_template;
-    KPageWidgetItem*         page_category;
-    KPageWidgetItem*         page_mime;
-    KPageWidgetItem*         page_lighttable;
-    KPageWidgetItem*         page_editor;
-    KPageWidgetItem*         page_raw;
-    KPageWidgetItem*         page_iofiles;
-    KPageWidgetItem*         page_slideshow;
-    KPageWidgetItem*         page_imagequalitysorter;
-    KPageWidgetItem*         page_icc;
-    KPageWidgetItem*         page_camera;
-    KPageWidgetItem*         page_misc;
+    DConfigDlgWdgItem*       page_database;
+    DConfigDlgWdgItem*       page_collections;
+    DConfigDlgWdgItem*       page_albumView;
+    DConfigDlgWdgItem*       page_tooltip;
+    DConfigDlgWdgItem*       page_metadata;
+    DConfigDlgWdgItem*       page_template;
+    DConfigDlgWdgItem*       page_lighttable;
+    DConfigDlgWdgItem*       page_editor;
+    DConfigDlgWdgItem*       page_slideshow;
+    DConfigDlgWdgItem*       page_imagequalitysorter;
+    DConfigDlgWdgItem*       page_icc;
+    DConfigDlgWdgItem*       page_camera;
 
 #ifdef HAVE_KIPI
-    KPageWidgetItem*         page_plugins;
+    DConfigDlgWdgItem*       page_plugins;
 #endif /* HAVE_KIPI */
 
-    KPageWidgetItem*         page_versioning;
-
+    DConfigDlgWdgItem*       page_misc;
     SetupDatabase*           databasePage;
     SetupCollections*        collectionsPage;
     SetupAlbumView*          albumViewPage;
     SetupToolTip*            tooltipPage;
     SetupMetadata*           metadataPage;
     SetupTemplate*           templatePage;
-    SetupCategory*           categoryPage;
-    SetupMime*               mimePage;
     SetupLightTable*         lighttablePage;
     SetupEditor*             editorPage;
-    SetupRaw*                rawPage;
-    SetupIOFiles*            iofilesPage;
     SetupSlideShow*          slideshowPage;
     SetupImageQualitySorter* imageQualitySorterPage;
     SetupICC*                iccPage;
     SetupCamera*             cameraPage;
-    SetupMisc*               miscPage;
 
 #ifdef HAVE_KIPI
-    ConfigWidget*            pluginsPage;
+    SetupKipi*               pluginsPage;
 #endif /* HAVE_KIPI */
 
-    SetupVersioning*         versioningPage;
-
-    SearchTextBar*           pluginFilter;
+    SetupMisc*               miscPage;
 
 public:
 
-    KPageWidgetItem* pageItem(Setup::Page page) const;
+    DConfigDlgWdgItem* pageItem(Setup::Page page) const;
 };
 
 Setup::Setup(QWidget* const parent)
-    : KPageDialog(parent), d(new Private)
+    : DConfigDlg(parent),
+      d(new Private)
 {
-    setCaption(i18n("Configure"));
-    setButtons(Help | Ok | Cancel);
-    setDefaultButton(Ok);
-    setHelp("setupdialog.anchor", "digikam");
+    setWindowTitle(i18n("Configure"));
+    setStandardButtons(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    button(QDialogButtonBox::Ok)->setDefault(true);
     setFaceType(List);
     setModal(true);
 
-    d->databasePage     = new SetupDatabase(this);
+    d->databasePage     = new SetupDatabase();
     d->page_database    = addPage(d->databasePage, i18n("Database"));
     d->page_database->setHeader(i18n("<qt>Database Settings<br/>"
                                      "<i>Customize database settings</i></qt>"));
-    d->page_database->setIcon(KIcon("server-database"));
+    d->page_database->setIcon(QIcon::fromTheme(QLatin1String("network-server-database")));
 
-    d->collectionsPage  = new SetupCollections(this);
+    d->collectionsPage  = new SetupCollections();
     d->page_collections = addPage(d->collectionsPage, i18n("Collections"));
     d->page_collections->setHeader(i18n("<qt>Collections Settings<br/>"
-                                        "<i>Set root albums and database locations</i></qt>"));
-    d->page_collections->setIcon(KIcon("folder-image"));
+                                        "<i>Set root albums locations</i></qt>"));
+    d->page_collections->setIcon(QIcon::fromTheme(QLatin1String("folder-pictures")));
 
     d->albumViewPage  = new SetupAlbumView();
-    d->page_albumView = addPage(d->albumViewPage, i18n("Album View"));
-    d->page_albumView->setHeader(i18n("<qt>Album View Settings<br/>"
-                                      "<i>Customize the look of the albums list</i></qt>"));
-    d->page_albumView->setIcon(KIcon("view-list-icons"));
-
-    d->categoryPage  = new SetupCategory();
-    d->page_category = addPage(d->categoryPage, i18n("Album Category"));
-    d->page_category->setHeader(i18n("<qt>Album Category Settings<br/>"
-                                     "<i>Assign categories to albums used to sort them</i></qt>"));
-    d->page_category->setIcon(KIcon("view-calendar-list"));
+    d->page_albumView = addPage(d->albumViewPage, i18n("Views"));
+    d->page_albumView->setHeader(i18n("<qt>Application Views Settings<br/>"
+                                      "<i>Customize the look of the views</i></qt>"));
+    d->page_albumView->setIcon(QIcon::fromTheme(QLatin1String("view-list-icons")));
 
     d->tooltipPage  = new SetupToolTip();
     d->page_tooltip = addPage(d->tooltipPage, i18n("Tool-Tip"));
-    d->page_tooltip->setHeader(i18n("<qt>Album Items Tool-Tip Settings<br/>"
-                                    "<i>Customize information in tool-tips</i></qt>"));
-    d->page_tooltip->setIcon(KIcon("dialog-information"));
+    d->page_tooltip->setHeader(i18n("<qt>Items Tool-Tip Settings<br/>"
+                                    "<i>Customize information in item tool-tips</i></qt>"));
+    d->page_tooltip->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
 
     d->metadataPage  = new SetupMetadata();
     d->page_metadata = addPage(d->metadataPage, i18n("Metadata"));
     d->page_metadata->setHeader(i18n("<qt>Embedded Image Information Management<br/>"
                                      "<i>Setup relations between images and metadata</i></qt>"));
-    d->page_metadata->setIcon(KIcon("exifinfo")); // krazy:exclude=iconnames
+    d->page_metadata->setIcon(QIcon::fromTheme(QLatin1String("format-text-code"))); // krazy:exclude=iconnames
 
     d->templatePage  = new SetupTemplate();
     d->page_template = addPage(d->templatePage, i18n("Templates"));
     d->page_template->setHeader(i18n("<qt>Metadata templates<br/>"
                                      "<i>Manage your collection of metadata templates</i></qt>"));
-    d->page_template->setIcon(KIcon("user-identity"));
-
-    d->mimePage  = new SetupMime();
-    d->page_mime = addPage(d->mimePage, i18n("MIME Types"));
-    d->page_mime->setHeader(i18n("<qt>Supported File Settings<br/>"
-                                 "<i>Add new file types to show as album items</i></qt>"));
-    d->page_mime->setIcon(KIcon("system-file-manager"));
+    d->page_template->setIcon(QIcon::fromTheme(QLatin1String("im-user")));
 
     d->editorPage  = new SetupEditor();
-    d->page_editor = addPage(d->editorPage, i18n("Editor Window"));
-    d->page_editor->setHeader(i18n("<qt>Image Editor Window Settings<br/>"
-                                   "<i>Customize the image editor window</i></qt>"));
-    d->page_editor->setIcon(KIcon("editimage"));
+    d->page_editor = addPage(d->editorPage, i18n("Image Editor"));
+    d->page_editor->setHeader(i18n("<qt>Image Editor Settings<br/>"
+                                   "<i>Customize the image editor settings</i></qt>"));
+    d->page_editor->setIcon(QIcon::fromTheme(QLatin1String("document-edit")));
 
-    d->versioningPage  = new SetupVersioning();
-    d->page_versioning = addPage(d->versioningPage, i18n("Editing Images"));
-    d->page_versioning->setHeader(i18n("<qt>Editing Images<br/>"
-                                       "<i>Configure non-destructive editing and versioning</i></qt>"));
-    d->page_versioning->setIcon(KIcon("view-catalog"));
-
-    d->rawPage  = new SetupRaw();
-    d->page_raw = addPage(d->rawPage, i18n("RAW Decoding"));
-    d->page_raw->setHeader(i18n("<qt>Image Editor: RAW File Decoding<br/>"
-                                "<i>Configure RAW decoding settings of the image editor</i></qt>"));
-    d->page_raw->setIcon(KIcon("kdcraw"));
-
-    d->iofilesPage  = new SetupIOFiles();
-    d->page_iofiles = addPage(d->iofilesPage, i18n("Saving Images"));
-    d->page_iofiles->setHeader(i18n("<qt>Image Editor: Settings for Saving Image Files<br/>"
-                                    "<i>Set default configuration used to save images with the image editor</i></qt>"));
-    d->page_iofiles->setIcon(KIcon("document-save-all"));
-
-    d->iccPage  = new SetupICC(this);
+    d->iccPage  = new SetupICC(buttonBox());
     d->page_icc = addPage(d->iccPage, i18n("Color Management"));
     d->page_icc->setHeader(i18n("<qt>Settings for Color Management<br/>"
                                 "<i>Customize the color management settings</i></qt>"));
-    d->page_icc->setIcon(KIcon("colormanagement"));
+    d->page_icc->setIcon(QIcon::fromTheme(QLatin1String("preferences-desktop-display-color")));
 
     d->lighttablePage  = new SetupLightTable();
     d->page_lighttable = addPage(d->lighttablePage, i18n("Light Table"));
     d->page_lighttable->setHeader(i18n("<qt>Light Table Settings<br/>"
                                        "<i>Customize tool used to compare images</i></qt>"));
-    d->page_lighttable->setIcon(KIcon("lighttable"));
+    d->page_lighttable->setIcon(QIcon::fromTheme(QLatin1String("lighttable")));
 
     d->slideshowPage  = new SetupSlideShow();
     d->page_slideshow = addPage(d->slideshowPage, i18n("Slide Show"));
     d->page_slideshow->setHeader(i18n("<qt>Slide Show Settings<br/>"
                                       "<i>Customize slideshow settings</i></qt>"));
-    d->page_slideshow->setIcon(KIcon("view-presentation"));
+    d->page_slideshow->setIcon(QIcon::fromTheme(QLatin1String("view-presentation")));
 
     d->imageQualitySorterPage = new SetupImageQualitySorter();
     d->page_imagequalitysorter = addPage(d->imageQualitySorterPage, i18n("Image Quality Sorter"));
     d->page_imagequalitysorter->setHeader(i18n("<qt>Image Quality Sorter Settings<br/>"));
-    d->page_imagequalitysorter->setIcon(KIcon("flag-green"));
+    d->page_imagequalitysorter->setIcon(QIcon::fromTheme(QLatin1String("flag-green")));
 
     d->cameraPage  = new SetupCamera();
     d->page_camera = addPage(d->cameraPage, i18n("Cameras"));
     d->page_camera->setHeader(i18n("<qt>Camera Settings<br/>"
                                    "<i>Manage your camera devices</i></qt>"));
-    d->page_camera->setIcon(KIcon("camera-photo"));
+    d->page_camera->setIcon(QIcon::fromTheme(QLatin1String("camera-photo")));
 
     connect(d->cameraPage, SIGNAL(signalUseFileMetadataChanged(bool)),
             d->tooltipPage, SLOT(slotUseFileMetadataChanged(bool)));
 
+    connect(buttonBox(), SIGNAL(helpRequested()),
+            this, SLOT(slotHelp()));
+
+    connect(buttonBox()->button(QDialogButtonBox::Ok), &QPushButton::clicked,
+            this, &Setup::slotOkClicked);
+
 #ifdef HAVE_KIPI
-    d->pluginsPage  = new ConfigWidget();
-    d->pluginFilter = new SearchTextBar(d->pluginsPage, "PluginsSearchBar");
-    d->pluginsPage->setFilterWidget(d->pluginFilter);
-    d->page_plugins = addPage(d->pluginsPage, i18n("Kipi Plugins"));
+
+    d->pluginsPage  = new SetupKipi();
+    d->page_plugins = addPage(d->pluginsPage, i18n("Plugins"));
     d->page_plugins->setHeader(i18n("<qt>Main Interface Plug-in Settings<br/>"
                                     "<i>Set which plugins will be accessible from the main interface</i></qt>"));
-    d->page_plugins->setIcon(KIcon("kipi"));
+    d->page_plugins->setIcon(QIcon(QLatin1String(":/icons/kipi-icon.svg")));
 
-    connect(d->pluginFilter, SIGNAL(signalSearchTextSettings(SearchTextSettings)),
-            this, SLOT(slotSearchTextChanged(SearchTextSettings)));
-
-    connect(d->pluginsPage, SIGNAL(signalSearchResult(bool)),
-            d->pluginFilter, SLOT(slotSearchResult(bool)));
 #endif /* HAVE_KIPI */
 
     d->miscPage  = new SetupMisc();
     d->page_misc = addPage(d->miscPage, i18n("Miscellaneous"));
     d->page_misc->setHeader(i18n("<qt>Miscellaneous Settings<br/>"
                                  "<i>Customize behavior of the other parts of digiKam</i></qt>"));
-    d->page_misc->setIcon(KIcon("preferences-other"));
+    d->page_misc->setIcon(QIcon::fromTheme(QLatin1String("preferences-other")));
 
     for (int i = 0; i != SetupPageEnumLast; ++i)
     {
-        KPageWidgetItem* const item = d->pageItem((Page)i);
+        DConfigDlgWdgItem* const item = d->pageItem((Page)i);
 
         if (!item)
         {
@@ -339,21 +273,27 @@ Setup::Setup(QWidget* const parent)
         }
     }
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(QString("Setup Dialog"));
-    restoreDialogSize(group);
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Setup Dialog"));
 
-    show();
+    winId();
+    DXmlGuiWindow::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size());
 }
 
 Setup::~Setup()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(QString("Setup Dialog"));
-    group.writeEntry("Setup Page", (int)activePageIndex());
-    saveDialogSize(group);
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Setup Dialog"));
+    group.writeEntry(QLatin1String("Setup Page"), (int)activePageIndex());
+    DXmlGuiWindow::saveWindowSize(windowHandle(), group);
     config->sync();
     delete d;
+}
+
+void Setup::slotHelp()
+{
+    DXmlGuiWindow::openHandbook(QLatin1String("setupdialog.anchor"), QLatin1String("digikam"));
 }
 
 void Setup::setTemplate(const Template& t)
@@ -370,7 +310,7 @@ QSize Setup::sizeHint() const
     // that some important tabs get a scroll bar, although the dialog could be larger
     // on a normal display (QScrollArea size hint does not take widget into account)
     // Adjust size hint here so that certain selected tabs are display full per default.
-    QSize hint          = KPageDialog::sizeHint();
+    QSize hint          = DConfigDlg::sizeHint();
     int maxHintHeight   = 0;
     int maxWidgetHeight = 0;
 
@@ -380,14 +320,11 @@ QSize Setup::sizeHint() const
         if (page == CollectionsPage ||
             page == AlbumViewPage   ||
             page == TemplatePage    ||
-            page == MimePage        ||
             page == LightTablePage  ||
             page == EditorPage      ||
-            page == IOFilesPage     ||
-            page == RawPage         ||
             page == MiscellaneousPage)
         {
-            KPageWidgetItem* const item   = d->pageItem((Page)page);
+            DConfigDlgWdgItem* const item   = d->pageItem((Page)page);
 
             if (!item)
             {
@@ -415,16 +352,16 @@ QSize Setup::sizeHint() const
     return hint;
 }
 
-bool Setup::exec(Page page)
+bool Setup::execDialog(Page page)
 {
-    return exec(0, page);
+    return execDialog(0, page);
 }
 
-bool Setup::exec(QWidget* const parent, Page page)
+bool Setup::execDialog(QWidget* const parent, Page page)
 {
     QPointer<Setup> setup = new Setup(parent);
     setup->showPage(page);
-    bool success          = setup->KPageDialog::exec() == QDialog::Accepted;
+    bool success          = (setup->DConfigDlg::exec() == QDialog::Accepted);
     delete setup;
     return success;
 }
@@ -439,7 +376,7 @@ bool Setup::execSinglePage(QWidget* const parent, Page page)
     QPointer<Setup> setup = new Setup(parent);
     setup->showPage(page);
     setup->setFaceType(Plain);
-    bool success          = setup->KPageDialog::exec() == QDialog::Accepted;
+    bool success          = (setup->DConfigDlg::exec() == QDialog::Accepted);
     delete setup;
     return success;
 }
@@ -450,18 +387,18 @@ bool Setup::execTemplateEditor(QWidget* const parent, const Template& t)
     setup->showPage(TemplatePage);
     setup->setFaceType(Plain);
     setup->setTemplate(t);
-    bool success          = setup->KPageDialog::exec() == QDialog::Accepted;
+    bool success          = (setup->DConfigDlg::exec() == QDialog::Accepted);
     delete setup;
     return success;
 }
 
 bool Setup::execMetadataFilters(QWidget* const parent, int tab)
 {
-    QPointer<Setup> setup = new Setup(parent);
+    QPointer<Setup> setup       = new Setup(parent);
     setup->showPage(MetadataPage);
     setup->setFaceType(Plain);
 
-    KPageWidgetItem* const cur  = setup->currentPage();
+    DConfigDlgWdgItem* const cur  = setup->currentPage();
     if (!cur) return false;
 
     SetupMetadata* const widget = dynamic_cast<SetupMetadata*>(cur->widget());
@@ -470,33 +407,12 @@ bool Setup::execMetadataFilters(QWidget* const parent, int tab)
     widget->setActiveMainTab(SetupMetadata::Display);
     widget->setActiveSubTab(tab);
 
-    bool success                = setup->KPageDialog::exec() == QDialog::Accepted;
+    bool success                = (setup->DConfigDlg::exec() == QDialog::Accepted);
     delete setup;
     return success;
 }
 
-void Setup::slotSearchTextChanged(const SearchTextSettings& settings)
-{
-#ifdef HAVE_KIPI
-    d->pluginsPage->slotSetFilter(settings.text, settings.caseSensitive);
-#else
-    Q_UNUSED(settings);
-#endif /* HAVE_KIPI */
-}
-
-void Setup::slotButtonClicked(int button)
-{
-    if (button == KDialog::Ok)
-    {
-        okClicked();
-    }
-    else
-    {
-        KDialog::slotButtonClicked(button);
-    }
-}
-
-void Setup::okClicked()
+void Setup::slotOkClicked()
 {
     if (!d->cameraPage->checkSettings())
     {
@@ -504,7 +420,7 @@ void Setup::okClicked()
         return;
     }
 
-    kapp->setOverrideCursor(Qt::WaitCursor);
+    qApp->setOverrideCursor(Qt::WaitCursor);
 
     d->cameraPage->applySettings();
     d->databasePage->applySettings();
@@ -513,28 +429,21 @@ void Setup::okClicked()
     d->tooltipPage->applySettings();
     d->metadataPage->applySettings();
     d->templatePage->applySettings();
-    d->categoryPage->applySettings();
-    d->mimePage->applySettings();
     d->lighttablePage->applySettings();
     d->editorPage->applySettings();
-    d->rawPage->applySettings();
-    d->iofilesPage->applySettings();
     d->slideshowPage->applySettings();
     d->imageQualitySorterPage->applySettings();
     d->iccPage->applySettings();
     d->miscPage->applySettings();
 
 #ifdef HAVE_KIPI
-    d->pluginsPage->apply();
+    d->pluginsPage->applySettings();
 #endif /* HAVE_KIPI */
-
-    //d->faceTagsPage->applySettings();
-    d->versioningPage->applySettings();
 
     ApplicationSettings::instance()->emitSetupChanged();
     ImportSettings::instance()->emitSetupChanged();
 
-    kapp->restoreOverrideCursor();
+    qApp->restoreOverrideCursor();
 
     if (d->metadataPage->exifAutoRotateHasChanged())
     {
@@ -542,9 +451,11 @@ void Setup::okClicked()
                            "Do you want to rebuild all albums' items' thumbnails now?\n\n"
                            "Note: thumbnail processing can take a while. You can start "
                            "this job later from the \"Tools-Maintenance\" menu.");
-        int result = KMessageBox::warningYesNo(this, msg);
 
-        if (result != KMessageBox::Yes)
+        int result = QMessageBox::warning(this, qApp->applicationName(), msg,
+                                          QMessageBox::Yes | QMessageBox::No);
+
+        if (result != QMessageBox::Yes)
         {
             return;
         }
@@ -557,14 +468,14 @@ void Setup::okClicked()
 
 void Setup::showPage(Setup::Page page)
 {
-    KPageWidgetItem* item = 0;
+    DConfigDlgWdgItem* item = 0;
 
     if (page == LastPageUsed)
     {
-        KSharedConfig::Ptr config = KGlobal::config();
-        KConfigGroup group        = config->group(QString("Setup Dialog"));
+        KSharedConfig::Ptr config = KSharedConfig::openConfig();
+        KConfigGroup group        = config->group(QLatin1String("Setup Dialog"));
 
-        item = d->pageItem((Page)group.readEntry("Setup Page", (int)CollectionsPage));
+        item = d->pageItem((Page)group.readEntry(QLatin1String("Setup Page"), (int)CollectionsPage));
     }
     else
     {
@@ -581,7 +492,7 @@ void Setup::showPage(Setup::Page page)
 
 Setup::Page Setup::activePageIndex() const
 {
-    KPageWidgetItem* const cur = currentPage();
+    DConfigDlgWdgItem* const cur = currentPage();
 
     if (cur == d->page_collections)
     {
@@ -608,16 +519,6 @@ Setup::Page Setup::activePageIndex() const
         return TemplatePage;
     }
 
-    if (cur == d->page_category)
-    {
-        return CategoryPage;
-    }
-
-    if (cur == d->page_mime)
-    {
-        return MimePage;
-    }
-
     if (cur == d->page_lighttable)
     {
         return LightTablePage;
@@ -626,16 +527,6 @@ Setup::Page Setup::activePageIndex() const
     if (cur == d->page_editor)
     {
         return EditorPage;
-    }
-
-    if (cur == d->page_raw)
-    {
-        return RawPage;
-    }
-
-    if (cur == d->page_iofiles)
-    {
-        return IOFilesPage;
     }
 
     if (cur == d->page_slideshow)
@@ -663,11 +554,6 @@ Setup::Page Setup::activePageIndex() const
         return MiscellaneousPage;
     }
 
-    if (cur == d->page_versioning)
-    {
-        return VersioningPage;
-    }
-
 #ifdef HAVE_KIPI
     if (cur == d->page_plugins)
     {
@@ -678,7 +564,7 @@ Setup::Page Setup::activePageIndex() const
     return DatabasePage;
 }
 
-KPageWidgetItem* Setup::Private::pageItem(Setup::Page page) const
+DConfigDlgWdgItem* Setup::Private::pageItem(Setup::Page page) const
 {
     switch (page)
     {
@@ -700,23 +586,11 @@ KPageWidgetItem* Setup::Private::pageItem(Setup::Page page) const
         case Setup::TemplatePage:
             return page_template;
 
-        case Setup::CategoryPage:
-            return page_category;
-
-        case Setup::MimePage:
-            return page_mime;
-
         case Setup::LightTablePage:
             return page_lighttable;
 
         case Setup::EditorPage:
             return page_editor;
-
-        case Setup::RawPage:
-            return page_raw;
-
-        case Setup::IOFilesPage:
-            return page_iofiles;
 
         case Setup::SlideshowPage:
             return page_slideshow;
@@ -732,9 +606,6 @@ KPageWidgetItem* Setup::Private::pageItem(Setup::Page page) const
 
         case Setup::MiscellaneousPage:
             return page_misc;
-
-        case Setup::VersioningPage:
-            return page_versioning;
 
 #ifdef HAVE_KIPI
         case Setup::KipiPluginsPage:

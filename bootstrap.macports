@@ -1,48 +1,53 @@
-#!/bin/sh
+#!/bin/bash
 
-# Copyright (c) 2008-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2008-2016, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 #
 # Arguments : $1 : install path '/opt/local' (default).
-#             $2 : build type   'debugfull' to hack (default), 'release' for production.
-#             $3 : target type  'x86_64' for OSX Lion and later (default), 'i386' for Snow Leopard.
-#             $4 : extra CXX flags (empty by default)
-#
+#             $2 : build type   'debug' to hack (default), 'release' for production.
+#             $3 : target type  'x86_64' for OSX Lion (default), 'i386' for Snow Leopard.
+#             $4 : Cmake extra configure options.
 
 INSTALL_PREFIX=$1
+
 if [ "$INSTALL_PREFIX" = "" ]; then
-    # Standard Macports install
-    INSTALL_PREFIX=/opt/local
-    BUNDLE_INSTALL_DIR=/Applications/KDE4
+    INSTALL_PREFIX="/opt/local"
+    BUNDLE_INSTALL_DIR="/Applications/KF5"
+    BUNDLE_DATA_INSTALL_DIR="/Library/Application Support"
 else
-    # Specific install path as /opt/digikam to build bundle PKG for example
-    BUNDLE_INSTALL_DIR=${INSTALL_PREFIX}/Applications/KDE4
+    BUNDLE_INSTALL_DIR="${INSTALL_PREFIX}/Applications/KF5"
+    BUNDLE_DATA_INSTALL_DIR="${INSTALL_PREFIX}/Library/Application Support"
 fi
 
 BUILD_TYPE=$2
+
 if [ "$BUILD_TYPE" = "" ]; then
-    BUILD_TYPE=debugfull
+        BUILD_TYPE=debug
 fi
 
 TARGET_TYPE=$3
+
 if [ "$TARGET_TYPE" = "" ]; then
-    TARGET_TYPE=x86_64
+        TARGET_TYPE=x86_64
 fi
 
-EXTRA_CXX_FLAGS=$4
+OPTIONS=$4
 
-# Set devel env from MacOS-X through MacPorts
-export QTDIR=${INSTALL_PREFIX}/lib
-export QT_INCLUDE_DIR=${INSTALL_PREFIX}/include
-export PATH=$QTDIR/bin:$PATH
-export PKG_CONFIG_PATH=${INSTALL_PREFIX}/lib/pkgconfig:$PKG_CONFIG_PATH
+echo "Installing to $INSTALL_PREFIX for target $TARGET_TYPE with build mode $BUILD_TYPE"
+
+# set devel env from MacOS-X through MacPorts
+export QTDIR=$INSTALL_PREFIX/libexec/qt5
+export QT_INCLUDE_DIR=$QTDIR/include
+export PKG_CONFIG_PATH=$INSTALL_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH
+
+# Pathes rules
+ORIG_PATH="$PATH"
+export PATH=$INSTALL_PREFIX/bin:$QTDIR/bin:$PATH
 
 # We will work on command line using GNU make
 export MAKEFILES_TYPE='Unix Makefiles'
-
-echo "Installing to $INSTALL_PREFIX for target $TARGET_TYPE with build mode $BUILD_TYPE and extra CXX flags $EXTRA_CXX_FLAGS"
 
 if [ ! -d "build" ]; then
     mkdir build
@@ -52,35 +57,52 @@ cd build
 
 cmake -G "$MAKEFILES_TYPE" . \
       -DCMAKE_BUILD_TYPE=${BUILD_TYPE} \
-      -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX} \
+      -DCMAKE_INSTALL_PREFIX=${INSTALL_PREFIX}/ \
       -DCMAKE_OSX_ARCHITECTURES=${TARGET_TYPE} \
-      -DCMAKE_CXX_FLAGS="${CMAKE_CXX_FLAGS} ${EXTRA_CXX_FLAGS}" \
-      -DKDE4_BUILD_TESTS=OFF \
+      -DBUILD_TESTING=ON \
       -DDIGIKAMSC_CHECKOUT_PO=OFF \
-      -DDIGIKAMSC_COMPILE_PO=ON \
-      -DDIGIKAMSC_COMPILE_DOC=ON \
+      -DDIGIKAMSC_CHECKOUT_DOC=OFF \
+      -DDIGIKAMSC_COMPILE_PO=OFF \
+      -DDIGIKAMSC_COMPILE_DOC=OFF \
+      -DDIGIKAMSC_COMPILE_DIGIKAM=ON \
+      -DDIGIKAMSC_COMPILE_KIPIPLUGINS=ON \
       -DDIGIKAMSC_COMPILE_LIBKIPI=ON \
-      -DDIGIKAMSC_COMPILE_LIBKEXIV2=ON \
-      -DDIGIKAMSC_COMPILE_LIBKDCRAW=ON \
-      -DDIGIKAMSC_COMPILE_LIBKSANE=ON \
-      -DDIGIKAMSC_COMPILE_LIBKFACE=ON \
-      -DDIGIKAMSC_COMPILE_LIBKGEOMAP=ON \
+      -DDIGIKAMSC_COMPILE_LIBKSANE=OFF \
       -DDIGIKAMSC_COMPILE_LIBMEDIAWIKI=ON \
-      -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=ON \
-      -DENABLE_OPENCV3=OFF \
-      -DENABLE_LCMS2=ON \
-      -DENABLE_BALOOSUPPORT=OFF \
-      -DENABLE_KDEPIMLIBSSUPPORT=OFF \
-      -DENABLE_INTERNALMYSQL=OFF \
-      -DENABLE_MYSQLSUPPORT=OFF \
-      -Wno-dev \
+      -DDIGIKAMSC_COMPILE_LIBKVKONTAKTE=OFF \
+      -DENABLE_OPENCV3=ON \
+      -DENABLE_KFILEMETADATASUPPORT=OFF \
+      -DENABLE_AKONADICONTACTSUPPORT=OFF \
+      -DENABLE_INTERNALMYSQL=ON \
+      -DENABLE_MYSQLSUPPORT=ON \
+      -DENABLE_MEDIAPLAYER=ON \
+      -DENABLE_DBUS=OFF \
+      -DENABLE_KIO=OFF \
+      -DENABLE_APPSTYLES=OFF \
+      -DAPPLE_SUPPRESS_X11_WARNING=ON \
       -DCMAKE_COLOR_MAKEFILE=ON \
       -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON \
       -DCMAKE_INSTALL_NAME_DIR=${INSTALL_PREFIX}/lib \
       -DCMAKE_SYSTEM_PREFIX_PATH="${INSTALL_PREFIX};/usr" \
-      -DCMAKE_MODULE_PATH="${INSTALL_PREFIX}/share/cmake/modules" \
-      -DBUNDLE_INSTALL_DIR=${BUNDLE_INSTALL_DIR} \
-      -DQT_QT_INCLUDE_DIR=${INSTALL_PREFIX}/include \
-      -DQT_LIBRARY_DIR=${INSTALL_PREFIX}/lib \
-      -DQT_QMAKE_EXECUTABLE=${INSTALL_PREFIX}/bin/qmake \
+      -DCMAKE_MODULE_PATH="${INSTALL_PREFIX}/share/cmake/Modules;${INSTALL_PREFIX}/share/cmake-3.5/Modules" \
+      -DKDE_INSTALL_BUNDLEDIR=${BUNDLE_INSTALL_DIR} \
+      -DKDE_INSTALL_DATADIR=${BUNDLE_DATA_INSTALL_DIR} \
+      -DQT_QT_INCLUDE_DIR=${QT_INCLUDE_DIR} \
+      -DQT_LIBRARY_DIR=${QTDIR}/lib \
+      -DQT_QMAKE_EXECUTABLE=${QTDIR}/bin/qmake \
+      ${OPTIONS} \
       ..
+
+CMAKE_VAL_RET=$?
+
+if [ -d ./extra/libkvkontakte/src ]; then
+    ln -sf src ./extra/libkvkontakte/Vkontakte
+fi
+
+if [ -d ./extra/libmediawiki/src ]; then
+    ln -sf src ./extra/libmediawiki/MediaWiki
+fi
+
+export PATH=$ORIG_PATH
+
+exit $CMAKE_VAL_RET

@@ -6,7 +6,7 @@
  * Date        : 2006-01-10
  * Description : a widget to display CIE tongue from an ICC profile.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,20 +26,14 @@
 
 // Qt includes
 
-#include <QtGui/QWidget>
-#include <QtGui/QColor>
-#include <QtGui/QPaintEvent>
-
-// KDE includes
-
-#include <kurl.h>
-
-// lcms includes
-
-#include "digikam-lcms.h"
+#include <QWidget>
+#include <QColor>
+#include <QPaintEvent>
+#include <QUrl>
 
 // Local includes
 
+#include "digikam-lcms.h"
 #include "digikam_export.h"
 
 namespace Digikam
@@ -55,7 +49,7 @@ public:
     ~CIETongueWidget();
 
     bool setProfileData(const QByteArray& profileData=QByteArray());
-    bool setProfileFromFile(const KUrl& file=KUrl());
+    bool setProfileFromFile(const QUrl& file=QUrl());
 
     void loadingStarted();
     void loadingFailed();
@@ -94,7 +88,7 @@ private Q_SLOTS:
 
     void slotProgressTimerDone();
 
-private :
+private:
 
     class Private;
     Private* const d;

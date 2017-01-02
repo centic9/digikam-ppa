@@ -7,7 +7,10 @@
  * Description : a generic widget to display a panel to choose
  *               a rectangular image area.
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 1997      by Tim D. Gilman (tdgilman at best dot org)
+ * Copyright (C) 1998-2001 by Mirko Boehm (mirko at kde dot org)
+ * Copyright (C) 2007      by John Layt <john at layt dot net>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +25,7 @@
  *
  * ============================================================ */
 
-#include "paniconwidget.moc"
+#include "paniconwidget.h"
 
 // C++ includes
 
@@ -39,15 +42,213 @@
 #include <QMouseEvent>
 #include <QHideEvent>
 #include <QToolButton>
+#include <QIcon>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QEventLoop>
+#include <QKeyEvent>
 
 // KDE includes
 
-#include <kcursor.h>
-#include <kiconloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 namespace Digikam
 {
+
+class PanIconFrame::Private
+{
+public:
+
+    Private(PanIconFrame* const qq);
+    ~Private();
+
+public:
+
+    PanIconFrame*        q;
+
+    /**
+     * The result. It is returned from exec() when the popup window closes.
+     */
+    int                  result;
+
+    /**
+     * The only subwidget that uses the whole dialog window.
+     */
+    QWidget*             main;
+
+    class OutsideClickCatcher;
+    OutsideClickCatcher* outsideClickCatcher;
+};
+
+// -------------------------------------------------------------------
+
+class PanIconFrame::Private::OutsideClickCatcher
+    : public QObject
+{
+public:
+
+    OutsideClickCatcher(QObject* const parent = 0)
+        : QObject(parent),
+          m_popup(0)
+    {
+    }
+
+    ~OutsideClickCatcher()
+    {
+    }
+
+    void setPopupFrame(PanIconFrame* const popup)
+    {
+        m_popup = popup;
+        popup->installEventFilter(this);
+    }
+
+    bool eventFilter(QObject* object, QEvent* event)
+    {
+        Q_UNUSED(object);
+
+        // To catch outside clicks, it is sufficient to check for
+        // hide events on Qt::Popup type widgets
+        if (event->type() == QEvent::Hide && m_popup)
+        {
+            // do not set d->result here, because the popup
+            // hides itself after leaving the event loop.
+            emit m_popup->leaveModality();
+        }
+
+        return false;
+    }
+
+public:
+
+    PanIconFrame* m_popup;
+};
+
+// -------------------------------------------------------------------
+
+PanIconFrame::Private::Private(PanIconFrame* const qq)
+    : q(qq),
+      result(0), // rejected
+      main(0),
+      outsideClickCatcher(new OutsideClickCatcher)
+{
+    outsideClickCatcher->setPopupFrame(q);
+}
+
+PanIconFrame::Private::~Private()
+{
+    delete outsideClickCatcher;
+}
+
+// -------------------------------------------------------------------
+
+PanIconFrame::PanIconFrame(QWidget* const parent)
+    : QFrame(parent, Qt::Popup),
+      d(new Private(this))
+{
+    setFrameStyle(QFrame::Box | QFrame::Raised);
+    setMidLineWidth(2);
+}
+
+PanIconFrame::~PanIconFrame()
+{
+    delete d;
+}
+
+void PanIconFrame::keyPressEvent(QKeyEvent* e)
+{
+    if( e->key() == Qt::Key_Escape )
+    {
+        d->result = 0; // rejected
+        emit leaveModality();
+    }
+}
+
+void PanIconFrame::close(int r)
+{
+    d->result = r;
+    emit leaveModality();
+}
+
+void PanIconFrame::setMainWidget(QWidget* const main)
+{
+    d->main = main;
+
+    if( d->main )
+    {
+        resize( d->main->width() + 2 * frameWidth(), d->main->height() + 2 * frameWidth() );
+    }
+}
+
+void PanIconFrame::resizeEvent(QResizeEvent* e)
+{
+    Q_UNUSED( e );
+
+    if( d->main )
+    {
+        d->main->setGeometry(frameWidth(), frameWidth(),
+                             width() - 2 * frameWidth(), height() - 2 * frameWidth());
+    }
+}
+
+void PanIconFrame::popup(const QPoint& pos)
+{
+    // Make sure the whole popup is visible.
+    QRect desktopGeometry = QApplication::desktop()->screenGeometry( pos );
+
+    int x = pos.x();
+    int y = pos.y();
+    int w = width();
+    int h = height();
+
+    if ( x + w > desktopGeometry.x() + desktopGeometry.width() )
+    {
+        x = desktopGeometry.width() - w;
+    }
+
+    if ( y + h > desktopGeometry.y() + desktopGeometry.height() )
+    {
+        y = desktopGeometry.height() - h;
+    }
+
+    if ( x < desktopGeometry.x() )
+    {
+        x = 0;
+    }
+
+    if ( y < desktopGeometry.y() )
+    {
+        y = 0;
+    }
+
+    // Pop the thingy up.
+    move(x, y);
+    show();
+    d->main->setFocus();
+}
+
+int PanIconFrame::exec(const QPoint& pos)
+{
+    popup(pos);
+    repaint();
+    d->result = 0; // rejected
+    QEventLoop eventLoop;
+
+    connect(this, SIGNAL(leaveModality()),
+            &eventLoop, SLOT(quit()));
+
+    eventLoop.exec();
+    hide();
+
+    return d->result;
+}
+
+int PanIconFrame::exec(int x, int y)
+{
+    return exec(QPoint(x, y));
+}
+
+// -------------------------------------------------------------------
 
 class PanIconWidget::Private
 {
@@ -67,7 +268,8 @@ public:
         ypos(0),
         zoomFactor(1.0),
         timer(0)
-    {}
+    {
+    }
 
     bool    moveSelection;
     bool    flicker;
@@ -93,7 +295,8 @@ public:
 };
 
 PanIconWidget::PanIconWidget(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     d->timer = new QTimer(this);
     d->timer->setInterval(800);
@@ -114,9 +317,9 @@ QToolButton* PanIconWidget::button()
 {
     QToolButton* const btn = new QToolButton;
     btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    btn->setIcon(SmallIcon("transform-move"));
+    btn->setIcon(QIcon::fromTheme(QLatin1String("transform-move")));
     btn->hide();
-    btn->setToolTip( i18n("Pan the image to a region"));
+    btn->setToolTip(i18n("Pan the image to a region"));
 
     return btn;
 }
@@ -229,7 +432,7 @@ void PanIconWidget::regionSelectionMoved(bool targetDone)
     d->regionSelection.setWidth(w);
     d->regionSelection.setHeight(h);
 
-    emit signalSelectionMoved( d->regionSelection, targetDone );
+    emit signalSelectionMoved(d->regionSelection, targetDone);
 }
 
 void PanIconWidget::paintEvent(QPaintEvent*)
@@ -292,7 +495,7 @@ void PanIconWidget::setMouseFocus()
     d->xpos          = d->localRegionSelection.center().x();
     d->ypos          = d->localRegionSelection.center().y();
     d->moveSelection = true;
-    setCursor( Qt::SizeAllCursor );
+    setCursor(Qt::SizeAllCursor);
     emit signalSelectionTakeFocus();
 }
 
@@ -312,7 +515,7 @@ void PanIconWidget::hideEvent(QHideEvent* e)
     if ( d->moveSelection )
     {
         d->moveSelection = false;
-        setCursor( Qt::ArrowCursor );
+        setCursor(Qt::ArrowCursor);
         emit signalHidden();
     }
 }
@@ -325,7 +528,7 @@ void PanIconWidget::mousePressEvent(QMouseEvent* e)
         d->xpos          = e->x();
         d->ypos          = e->y();
         d->moveSelection = true;
-        setCursor( Qt::SizeAllCursor );
+        setCursor(Qt::SizeAllCursor);
         emit signalSelectionTakeFocus();
     }
 }
@@ -371,23 +574,23 @@ void PanIconWidget::mouseMoveEvent(QMouseEvent* e)
     }
     else
     {
-        if ( d->localRegionSelection.contains( e->x(), e->y() ) )
+        if (d->localRegionSelection.contains(e->x(), e->y()))
         {
-            setCursor( Qt::PointingHandCursor );
+            setCursor(Qt::PointingHandCursor);
         }
         else
         {
-            setCursor( Qt::ArrowCursor );
+            setCursor(Qt::ArrowCursor);
         }
     }
 }
 
 void PanIconWidget::mouseReleaseEvent(QMouseEvent*)
 {
-    if ( d->moveSelection )
+    if (d->moveSelection)
     {
         d->moveSelection = false;
-        setCursor( Qt::ArrowCursor );
+        setCursor(Qt::ArrowCursor);
         regionSelectionMoved(true);
     }
 }

@@ -27,16 +27,9 @@
 
 #include <QItemDelegate>
 #include <QTreeView>
-#include <QWidget>
 
-// KDE includes
+// Local includes
 
-#include <kcategorizedsortfilterproxymodel.h>
-#include <kdialog.h>
-
-// local includes
-
-/// @todo clean up includes and use forward-declarations where possible
 #include "digikam_export.h"
 #include "imagealbummodel.h"
 #include "imagefiltermodel.h"
@@ -45,7 +38,7 @@
 #include "tableview_shared.h"
 #include "thumbnailloadthread.h"
 
-class KMenu;
+class QMenu;
 class QContextMenuEvent;
 
 namespace Digikam

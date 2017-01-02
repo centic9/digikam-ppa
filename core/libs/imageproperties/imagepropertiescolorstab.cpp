@@ -6,7 +6,7 @@
  * Date        : 2004-11-17
  * Description : a tab to display colors information of images
  *
- * Copyright (C) 2004-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "imagepropertiescolorstab.moc"
+#include "imagepropertiescolorstab.h"
 
 // C++ includes
 
@@ -40,22 +40,17 @@
 #include <QSpinBox>
 #include <QScrollArea>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-
-#include <kapplication.h>
-#include <kcombobox.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <ksqueezedtextlabel.h>
-#include <kstandarddirs.h>
-#include <kvbox.h>
+#include <kconfiggroup.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "dimg.h"
 #include "imagehistogram.h"
 #include "histogramwidget.h"
@@ -65,7 +60,9 @@
 #include "iccprofilewidget.h"
 #include "cietonguewidget.h"
 #include "imagepropertiestxtlabel.h"
-#include "globals.h"
+#include "digikam_globals.h"
+
+
 
 namespace Digikam
 {
@@ -138,7 +135,7 @@ public:
 };
 
 ImagePropertiesColorsTab::ImagePropertiesColorsTab(QWidget* const parent)
-    : KTabWidget(parent), d(new Private)
+    : QTabWidget(parent), d(new Private)
 {
     // Histogram tab area -----------------------------------------------------
 
@@ -152,7 +149,7 @@ ImagePropertiesColorsTab::ImagePropertiesColorsTab(QWidget* const parent)
 
     // -------------------------------------------------------------
 
-    KVBox* histoBox    = new KVBox(histogramPage);
+    DVBox* histoBox    = new DVBox(histogramPage);
     d->histogramBox    = new HistogramBox(histoBox, LRGBAC, true);
     d->histogramBox->setStatisticsVisible(false);
 
@@ -190,31 +187,33 @@ ImagePropertiesColorsTab::ImagePropertiesColorsTab(QWidget* const parent)
     QGridLayout* grid       = new QGridLayout(gbox);
 
     DTextLabelName* label5  = new DTextLabelName(i18n("Pixels: "), gbox);
-    d->labelPixelsValue     = new DTextLabelValue(0, gbox);
+    d->labelPixelsValue     = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label7  = new DTextLabelName(i18n("Count: "), gbox);
-    d->labelCountValue      = new DTextLabelValue(0, gbox);
+    d->labelCountValue      = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label4  = new DTextLabelName(i18n("Mean: "), gbox);
-    d->labelMeanValue       = new DTextLabelValue(0, gbox);
+    d->labelMeanValue       = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label6  = new DTextLabelName(i18n("Std. deviation: "), gbox);
-    d->labelStdDevValue     = new DTextLabelValue(0, gbox);
+    d->labelStdDevValue     = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label8  = new DTextLabelName(i18n("Median: "), gbox);
-    d->labelMedianValue     = new DTextLabelValue(0, gbox);
+    d->labelMedianValue     = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label9  = new DTextLabelName(i18n("Percentile: "), gbox);
-    d->labelPercentileValue = new DTextLabelValue(0, gbox);
+    d->labelPercentileValue = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label10 = new DTextLabelName(i18n("Color depth: "), gbox);
-    d->labelColorDepth      = new DTextLabelValue(0, gbox);
+    d->labelColorDepth      = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label11 = new DTextLabelName(i18n("Alpha Channel: "), gbox);
-    d->labelAlphaChannel    = new DTextLabelValue(0, gbox);
+    d->labelAlphaChannel    = new DTextLabelValue(QString(), gbox);
 
     DTextLabelName* label12 = new DTextLabelName(i18n("Source: "), gbox);
-    d->labelImageRegion     = new DTextLabelValue(0, gbox);
+    d->labelImageRegion     = new DTextLabelValue(QString(), gbox);
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     grid->addWidget(label5,                  0, 0, 1, 1);
     grid->addWidget(d->labelPixelsValue,     0, 1, 1, 1);
@@ -234,7 +233,7 @@ ImagePropertiesColorsTab::ImagePropertiesColorsTab(QWidget* const parent)
     grid->addWidget(d->labelAlphaChannel,    7, 1, 1, 1);
     grid->addWidget(label12,                 8, 0, 1, 1);
     grid->addWidget(d->labelImageRegion,     8, 1, 1, 1);
-    grid->setMargin(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
     grid->setSpacing(0);
 
     // -------------------------------------------------------------
@@ -260,8 +259,8 @@ ImagePropertiesColorsTab::ImagePropertiesColorsTab(QWidget* const parent)
     topLayout->addWidget(d->blueHistogram,  6, 0, 1, 4);
     topLayout->setRowStretch(7, 10);
     topLayout->setColumnStretch(2, 10);
-    topLayout->setMargin(KDialog::spacingHint());
-    topLayout->setSpacing(KDialog::spacingHint());
+    topLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    topLayout->setSpacing(spacing);
 
     insertTab(Private::HISTOGRAM, sv, i18n("Histogram"));
 
@@ -349,7 +348,7 @@ void ImagePropertiesColorsTab::writeSettings(KConfigGroup& group)
     group.writeEntry("Current ICC Item",          d->iccProfileWidget->getCurrentItemKey());
 }
 
-void ImagePropertiesColorsTab::setData(const KUrl& url, const QRect& selectionArea, DImg* const img)
+void ImagePropertiesColorsTab::setData(const QUrl& url, const QRect& selectionArea, DImg* const img)
 {
     // We might be getting duplicate events from AlbumIconView,
     // which will cause all sorts of duplicate work.
@@ -371,17 +370,17 @@ void ImagePropertiesColorsTab::setData(const KUrl& url, const QRect& selectionAr
 
     d->currentFilePath.clear();
     d->currentLoadingDescription = LoadingDescription();
-    d->iccProfileWidget->loadFromURL(KUrl());
+    d->iccProfileWidget->loadFromURL(QUrl());
 
     // Clear information.
-    d->labelMeanValue->clear();
-    d->labelPixelsValue->clear();
-    d->labelStdDevValue->clear();
-    d->labelCountValue->clear();
-    d->labelMedianValue->clear();
-    d->labelPercentileValue->clear();
-    d->labelColorDepth->clear();
-    d->labelAlphaChannel->clear();
+    d->labelMeanValue->setAdjustedText();
+    d->labelPixelsValue->setAdjustedText();
+    d->labelStdDevValue->setAdjustedText();
+    d->labelCountValue->setAdjustedText();
+    d->labelMedianValue->setAdjustedText();
+    d->labelPercentileValue->setAdjustedText();
+    d->labelColorDepth->setAdjustedText();
+    d->labelAlphaChannel->setAdjustedText();
 
     if (url.isEmpty())
     {
@@ -441,7 +440,7 @@ void ImagePropertiesColorsTab::setData(const KUrl& url, const QRect& selectionAr
     }
 }
 
-void ImagePropertiesColorsTab::loadImageFromUrl(const KUrl& url)
+void ImagePropertiesColorsTab::loadImageFromUrl(const QUrl& url)
 {
     // create thread on demand
     if (!d->imageLoaderThread)
@@ -677,13 +676,13 @@ void ImagePropertiesColorsTab::slotUpdateIntervRange(int range)
 
 void ImagePropertiesColorsTab::updateInformation()
 {
-    d->labelColorDepth->setText(d->image.sixteenBit() ? i18n("16 bits") : i18n("8 bits"));
-    d->labelAlphaChannel->setText(d->image.hasAlpha() ? i18n("Yes")     : i18n("No"));
+    d->labelColorDepth->setAdjustedText(d->image.sixteenBit() ? i18n("16 bits") : i18n("8 bits"));
+    d->labelAlphaChannel->setAdjustedText(d->image.hasAlpha() ? i18n("Yes")     : i18n("No"));
 }
 
 void ImagePropertiesColorsTab::updateStatistics()
 {
-    ImageHistogram* renderedHistogram = d->histogramBox->histogram()->currentHistogram();
+    ImageHistogram* const renderedHistogram = d->histogramBox->histogram()->currentHistogram();
 
     if (!renderedHistogram)
     {
@@ -702,24 +701,24 @@ void ImagePropertiesColorsTab::updateStatistics()
     }
 
     double mean = renderedHistogram->getMean(channel, min, max);
-    d->labelMeanValue->setText(value.setNum(mean, 'f', 1));
+    d->labelMeanValue->setAdjustedText(value.setNum(mean, 'f', 1));
 
     double pixels = renderedHistogram->getPixels();
-    d->labelPixelsValue->setText(value.setNum((float)pixels, 'f', 0));
+    d->labelPixelsValue->setAdjustedText(value.setNum((float)pixels, 'f', 0));
 
     double stddev = renderedHistogram->getStdDev(channel, min, max);
-    d->labelStdDevValue->setText(value.setNum(stddev, 'f', 1));
+    d->labelStdDevValue->setAdjustedText(value.setNum(stddev, 'f', 1));
 
     double counts = renderedHistogram->getCount(channel, min, max);
-    d->labelCountValue->setText(value.setNum((float)counts, 'f', 0));
+    d->labelCountValue->setAdjustedText(value.setNum((float)counts, 'f', 0));
 
     double median = renderedHistogram->getMedian(channel, min, max);
-    d->labelMedianValue->setText(value.setNum(median, 'f', 1));
+    d->labelMedianValue->setAdjustedText(value.setNum(median, 'f', 1));
 
     double percentile = (pixels > 0 ? (100.0 * counts / pixels) : 0.0);
-    d->labelPercentileValue->setText(value.setNum(percentile, 'f', 1));
+    d->labelPercentileValue->setAdjustedText(value.setNum(percentile, 'f', 1));
 
-    d->labelImageRegion->setText( (type == FullImageHistogram) ? i18n("Full Image") : i18n("Image Region") );
+    d->labelImageRegion->setAdjustedText( (type == FullImageHistogram) ? i18n("Full Image") : i18n("Image Region") );
 }
 
 void ImagePropertiesColorsTab::getICCData()

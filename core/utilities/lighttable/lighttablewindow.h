@@ -6,7 +6,7 @@
  * Date        : 2007-03-05
  * Description : digiKam light table GUI
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,11 +28,7 @@
 
 #include <QString>
 #include <QCloseEvent>
-
-// KDE includes
-
-#include <kurl.h>
-#include <ktoggleaction.h>
+#include <QUrl>
 
 // Local includes
 
@@ -122,6 +118,7 @@ private Q_SLOTS:
     void slotLeftSlideShowManualFromCurrent();
     void slotRightSlideShowManualFromCurrent();
 
+    void slotSlideShowLastItemUrl(const QUrl&);
     void slotSlideShowManualFrom(const ImageInfo&);
     void slotSlideShowBuilderComplete(const SlideShowSettings&);
 
@@ -146,12 +143,8 @@ private Q_SLOTS:
 
     void slotThumbbarDroppedItems(const QList<ImageInfo>&);
 
+    void slotPresentation();
     void slotSlideShowAll();
-    void slotEditKeys();
-    void slotConfToolbars();
-    void slotConfNotifications();
-    void slotShowMenuBar();
-    void slotNewToolbarConfig();
     void slotSetup();
     void slotColorManagementOptionsChanged();
     void slotToggleColorManagedView();
@@ -177,6 +170,12 @@ private Q_SLOTS:
     void slotLeftSideBarActivateTitles();
     void slotLeftSideBarActivateComments();
     void slotLeftSideBarActivateAssignedTags();
+
+    void slotImportFromScanner();
+    void slotImportedImagefromScanner(const QUrl& url);
+
+    void slotEditMetadata();
+    void slotEditGeolocation();
 
 private:
 

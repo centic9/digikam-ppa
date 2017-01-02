@@ -1,16 +1,16 @@
 # Translation of kipiplugin_vkontakte.po to Catalan
-# Copyright (C) 2012-2015 This_file_is_part_of_KDE
+# Copyright (C) 2012-2016 This_file_is_part_of_KDE
 # This file is distributed under the license LGPL version 2.1 or
 # version 3 or later versions approved by the membership of KDE e.V.
 #
-# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013.
-# Josep Ma. Ferrer <txemaq@gmail.com>, 2012, 2014, 2015.
+# Antoni Bella Pérez <antonibella5@yahoo.com>, 2012, 2013, 2015.
+# Josep Ma. Ferrer <txemaq@gmail.com>, 2012, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_vkontakte\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-19 02:01+0000\n"
-"PO-Revision-Date: 2015-06-03 21:56+0200\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 19:34+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -21,49 +21,46 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Antoni Bella Pérez"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "antonibella5@yahoo.com"
-
-#: albumchooserwidget.cpp:53
+#: albumchooserwidget.cpp:55
 msgctxt "@title:group Header above controls for managing albums"
 msgid "Album"
 msgstr "Àlbum"
 
-#: albumchooserwidget.cpp:58
+#: albumchooserwidget.cpp:60
 msgid "This is the VKontakte album that will be used for the transfer."
-msgstr "Aquest és l'àlbum de VKontakte que s'utilitzarà en la transferència."
+msgstr "Aquest és l'àlbum de VKontakte que s'emprarà en la transferència."
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:67
 msgid "New Album"
 msgstr "Àlbum nou"
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:68
 msgid "Create new VKontakte album"
 msgstr "Crea un àlbum de VKontakte nou"
 
-#: albumchooserwidget.cpp:65
+#: albumchooserwidget.cpp:71
 msgctxt "reload albums list"
 msgid "Reload"
 msgstr "Torna a carregar"
 
-#: albumchooserwidget.cpp:66
+#: albumchooserwidget.cpp:72
 msgid "Reload albums list"
 msgstr "Torna a carregar la llista d'àlbums"
 
-#: albumchooserwidget.cpp:69
+#: albumchooserwidget.cpp:75
 msgid "Edit selected album"
 msgstr "Edita l'àlbum seleccionat"
 
-#: albumchooserwidget.cpp:74
+#: albumchooserwidget.cpp:80
 msgid "Delete selected album"
 msgstr "Suprimeix l'àlbum seleccionat"
 
-#: albumchooserwidget.cpp:285
+#: albumchooserwidget.cpp:291
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Confirmació de la supressió de l'àlbum"
+
+#: albumchooserwidget.cpp:292
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
@@ -71,33 +68,28 @@ msgid ""
 msgstr ""
 "<qt>Segur que voleu eliminar l'àlbum <b>%1</b> incloses totes les fotos?</qt>"
 
-#: albumchooserwidget.cpp:286
-msgctxt "@title:window"
-msgid "Confirm Album Deletion"
-msgstr "Confirmació de la supressió de l'àlbum"
-
-#: albumchooserwidget.cpp:385
-msgid "Internal error: Null pointer to KJob instance."
-msgstr "Error intern: Punter nul a una instància de KJob."
-
-#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+#: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
 msgctxt "@title:window"
 msgid "Request to VKontakte failed"
 msgstr "La sol·licitud a VKontakte ha fallat"
 
-#: authinfowidget.cpp:58
+#: albumchooserwidget.cpp:391
+msgid "Internal error: Null pointer to KJob instance."
+msgstr "Error intern: Punter nul a una instància de KJob."
+
+#: authinfowidget.cpp:57
 msgid "Account"
 msgstr "Compte"
 
-#: authinfowidget.cpp:63
+#: authinfowidget.cpp:62
 msgid "This account is used for authentication."
-msgstr "Aquest compte s'utilitza per a l'autenticació."
+msgstr "Aquest compte s'usa per a l'autenticació."
 
-#: authinfowidget.cpp:67
+#: authinfowidget.cpp:66
 msgid "Name:"
 msgstr "Nom:"
 
-#: authinfowidget.cpp:68
+#: authinfowidget.cpp:67
 msgid "Your VKontakte login"
 msgstr "El vostre compte de VKontakte"
 
@@ -107,7 +99,7 @@ msgstr "Canvia de compte"
 
 #: authinfowidget.cpp:72
 msgid "Change VKontakte account used to authenticate"
-msgstr "Canvia el compte de VKontakte utilitzat per autenticar-se"
+msgstr "Canvia el compte de VKontakte emprat per autenticar-se"
 
 #: authinfowidget.cpp:133
 #, kde-format
@@ -129,178 +121,159 @@ msgstr "&Exporta"
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
-#: plugin_vkontakte.cpp:88
+#: plugin_vkontakte.cpp:82
 msgid "Export to &VKontakte..."
 msgstr "Exporta a &VKontakte..."
 
-#: vkalbumdialog.cpp:72
+#: vkalbumdialog.cpp:74
 msgctxt "@title:window"
 msgid "Edit album"
 msgstr "Edita l'àlbum"
 
-#: vkalbumdialog.cpp:73
+#: vkalbumdialog.cpp:75
 msgctxt "@title:window"
 msgid "New album"
 msgstr "Àlbum nou"
 
-#: vkalbumdialog.cpp:81
+#: vkalbumdialog.cpp:94
 msgctxt "@title:group Header above Title and Summary fields"
 msgid "Album"
 msgstr "Àlbum"
 
-#: vkalbumdialog.cpp:82
+#: vkalbumdialog.cpp:95
 msgid "These are basic settings for the new VKontakte album."
 msgstr "Aquest és l'arranjament bàsic del nou àlbum de VKontakte."
 
-#: vkalbumdialog.cpp:85
+#: vkalbumdialog.cpp:98
 msgid "Title of the album that will be created (required)."
 msgstr "Títol de l'àlbum que es crearà (requerit)."
 
-#: vkalbumdialog.cpp:88
+#: vkalbumdialog.cpp:101
 msgid "Description of the album that will be created (optional)."
 msgstr "Descripció de l'àlbum que es crearà (opcional)."
 
-#: vkalbumdialog.cpp:92
+#: vkalbumdialog.cpp:105
 msgid "Title:"
 msgstr "Títol:"
 
-#: vkalbumdialog.cpp:93
+#: vkalbumdialog.cpp:106
 msgid "Summary:"
 msgstr "Resum:"
 
-#: vkalbumdialog.cpp:96
+#: vkalbumdialog.cpp:109
 msgid "Privacy Settings"
 msgstr "Arranjaments de privadesa"
 
-#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+#: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
 msgid "Only me"
 msgstr "Només per a mi"
 
-#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+#: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
 msgid "My friends"
 msgstr "Pels meus amics"
 
-#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+#: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
 msgid "Friends of my friends"
 msgstr "Amics dels amics"
 
-#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+#: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
 msgid "Everyone"
 msgstr "Tothom"
 
-#: vkalbumdialog.cpp:104
+#: vkalbumdialog.cpp:117
 msgid "Album available to:"
 msgstr "Àlbum disponible a:"
 
-#: vkalbumdialog.cpp:112
+#: vkalbumdialog.cpp:125
 msgid "Comments available to:"
 msgstr "Comentaris disponibles a:"
 
-#: vkalbumdialog.cpp:140
-msgid "Title cannot be empty."
-msgstr "El títol no pot estar buit."
-
-#: vkalbumdialog.cpp:141
+#: vkalbumdialog.cpp:149
 msgid "Error"
 msgstr "Error"
 
-#: vkwindow.cpp:108
+#: vkalbumdialog.cpp:149
+msgid "Title cannot be empty."
+msgstr "El títol no pot estar buit."
+
+#: vkwindow.cpp:96
 msgid "This is the list of images to upload to your VKontakte album."
 msgstr "Aquesta és la llista d'imatges a pujar al vostre àlbum VKontakte."
 
-#: vkwindow.cpp:114
+#: vkwindow.cpp:102
 msgid ""
 "This is a clickable link to open the VKontakte service in a web browser."
 msgstr ""
 "Això és un enllaç que podeu clicar per obrir el servei de VKontakte en un "
 "navegador web."
 
-#: vkwindow.cpp:132
+#: vkwindow.cpp:120
 msgid "Destination"
 msgstr "Destinació"
 
-#: vkwindow.cpp:133
+#: vkwindow.cpp:121
 msgid "This is the location where VKontakte images will be downloaded."
-msgstr "Aquest és el lloc a on es descarregaran les imatges de VKontakte."
+msgstr "Aquest és el lloc a on es baixaran les imatges de VKontakte."
 
-#: vkwindow.cpp:141
+#: vkwindow.cpp:129
 msgid "Options"
 msgstr "Opcions"
 
-#: vkwindow.cpp:142
+#: vkwindow.cpp:130
 msgid "These are options that will be applied to images before upload."
 msgstr ""
 "Aquestes són les opcions que s'aplicaran a les imatges abans de pujar-les."
 
-#: vkwindow.cpp:180
+#: vkwindow.cpp:166
 msgctxt "@title:window"
 msgid "Export to VKontakte Web Service"
 msgstr "Exporta al servei web VKontakte"
 
-#: vkwindow.cpp:182
+#: vkwindow.cpp:168
 msgid "Start Upload"
 msgstr "Comença la pujada"
 
-#: vkwindow.cpp:183
+#: vkwindow.cpp:169
 msgid "Start upload to VKontakte service"
 msgstr "Comença la pujada al servei web VKontakte"
 
-#: vkwindow.cpp:194
-msgid "VKontakte Plugin"
-msgstr "Connector VKontakte"
+#: vkwindow.cpp:181 vkwindow.cpp:346
+msgid "VKontakte"
+msgstr "VKontakte"
 
-#: vkwindow.cpp:197
-msgid "A Kipi plugin to export image collections to VKontakte web service."
-msgstr ""
-"Un connector de Kipi per exportar col·leccions d'imatges al servei web "
-"VKontakte."
+#: vkwindow.cpp:182
+msgid "A tool to export image collections to VKontakte web service."
+msgstr "Una eina per exportar col·leccions d'imatges al servei web VKontakte."
 
-#: vkwindow.cpp:199
+#: vkwindow.cpp:184
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010-2013, Roman Tsisyk\n"
-"(c) 2011-2013, Alexander Potashev"
+"(c) 2011-2015, Alexander Potashev"
 msgstr ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010-2013, Roman Tsisyk\n"
-"(c) 2011-2013, Alexander Potashev"
+"(c) 2011-2015, Alexander Potashev"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Alexander Potashev"
 msgstr "Alexander Potashev"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Author"
 msgstr "Autor"
 
-#: vkwindow.cpp:275
-msgid "Close"
-msgstr "Tanca"
-
-#: vkwindow.cpp:276
-msgid "Close window"
-msgstr "Tanca la finestra"
-
-#: vkwindow.cpp:283
-msgid "Cancel"
-msgstr "Cancel·la"
-
-#: vkwindow.cpp:284
-msgid "Cancel current operation"
-msgstr "Cancel·la l'operació actual"
-
-#: vkwindow.cpp:383
-msgid "VKontakte"
-msgstr "VKontakte"
-
-#: vkwindow.cpp:401
+#: vkwindow.cpp:364
 msgid "Please select album first."
 msgstr "Primer seleccioneu l'àlbum."
 
-#: vkwindow.cpp:431
+#: vkwindow.cpp:394
 msgid "Vkontakte Export"
 msgstr "Exporta a VKontakte"
+
+#~ msgid "VKontakte Plugin"
+#~ msgstr "Connector VKontakte"

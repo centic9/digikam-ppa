@@ -7,7 +7,7 @@
  * Description : Thumbnail bar for images
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,33 +22,15 @@
  *
  * ============================================================ */
 
-#include "imagethumbnailbar.moc"
+#include "imagethumbnailbar.h"
 
 // Qt includes
 
-#include <QClipboard>
-#include <QFileInfo>
-#include <QPointer>
-#include <QScrollBar>
-
-// KDE includes
-
-#include <kaction.h>
-#include <kactionmenu.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kdebug.h>
-#include <kmenu.h>
-#include <kmimetype.h>
-#include <krun.h>
-#include <kservice.h>
-#include <kservicetypetrader.h>
-#include <kstandardaction.h>
-#include <kurl.h>
-#include <kwindowsystem.h>
+#include <QEvent>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "applicationsettings.h"
 #include "imagealbumfiltermodel.h"
 #include "imagealbummodel.h"
@@ -76,7 +58,8 @@ public:
 };
 
 ImageThumbnailBar::ImageThumbnailBar(QWidget* const parent)
-    : ImageCategorizedView(parent), d(new Private())
+    : ImageCategorizedView(parent),
+      d(new Private())
 {
     setItemDelegate(new ImageThumbnailDelegate(this));
     setSpacing(3);
@@ -144,7 +127,7 @@ void ImageThumbnailBar::setScrollBarPolicy(Qt::ScrollBarPolicy policy)
     if (policy == Qt::ScrollBarAsNeeded)
     {
         // Delegate resizing will cause endless relayouting, see bug #228807
-        kError() << "The Qt::ScrollBarAsNeeded policy is not supported by ImageThumbnailBar";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "The Qt::ScrollBarAsNeeded policy is not supported by ImageThumbnailBar";
     }
 
     d->scrollPolicy = policy;

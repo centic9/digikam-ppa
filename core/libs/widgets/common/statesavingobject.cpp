@@ -25,10 +25,11 @@
 
 // KDE includes
 
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kglobal.h>
 #include <ksharedconfig.h>
+
+// Local includes
+
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -48,11 +49,11 @@ public:
 
     inline KConfigGroup getGroupFromObjectName()
     {
-        KSharedConfig::Ptr config = KGlobal::config();
+        KSharedConfig::Ptr config = KSharedConfig::openConfig();
 
         if (host->objectName().isEmpty())
         {
-            kWarning() << "Object name for " << host
+            qCWarning(DIGIKAM_WIDGETS_LOG) << "Object name for " << host
                        << " is empty. Returning the default config group";
         }
 
@@ -96,16 +97,16 @@ public:
 
     void recurseOperation(const bool save)
     {
-        QString action("loading");
+        QString action = QLatin1String("loading");
 
         if (save)
         {
-            action = "saving";
+            action = QLatin1String("saving");
         }
 
         if (depth == StateSavingObject::DIRECT_CHILDREN)
         {
-            //kDebug() << "Also restoring " << action << " of direct children";
+            //qCDebug(DIGIKAM_WIDGETS_LOG) << "Also restoring " << action << " of direct children";
             for (QObjectList::const_iterator childIt = host->children().begin();
                  childIt != host->children().end(); ++childIt)
             {
@@ -126,7 +127,7 @@ public:
         }
         else if (depth == StateSavingObject::RECURSIVE)
         {
-            //kDebug() << "Also " << action << " state of all children (recursive)";
+            //qCDebug(DIGIKAM_WIDGETS_LOG) << "Also " << action << " state of all children (recursive)";
             recurse(host->children(), save);
         }
     }
@@ -166,7 +167,7 @@ void StateSavingObject::setStateSavingDepth(const StateSavingObject::StateSaving
 
 void StateSavingObject::setConfigGroup(const KConfigGroup& group)
 {
-    //kDebug() << "received new config group: " << group.name();
+    //qCDebug(DIGIKAM_WIDGETS_LOG) << "received new config group: " << group.name();
     d->group    = group;
     d->groupSet = true;
 }
@@ -178,7 +179,7 @@ void StateSavingObject::setEntryPrefix(const QString& prefix)
 
 void StateSavingObject::loadState()
 {
-    //kDebug() << "Loading state";
+    //qCDebug(DIGIKAM_WIDGETS_LOG) << "Loading state";
 
     doLoadState();
 
@@ -187,7 +188,7 @@ void StateSavingObject::loadState()
 
 void StateSavingObject::saveState()
 {
-    //kDebug() << "Saving state";
+    //qCDebug(DIGIKAM_WIDGETS_LOG) << "Saving state";
 
     doSaveState();
 
@@ -198,13 +199,13 @@ KConfigGroup StateSavingObject::getConfigGroup() const
 {
     if (!d->groupSet)
     {
-        //kDebug() << "No config group set, returning one based on object name";
+        //qCDebug(DIGIKAM_WIDGETS_LOG) << "No config group set, returning one based on object name";
         return d->getGroupFromObjectName();
     }
 
     if (!d->group.isValid())
     {
-        kWarning() << "KConfigGroup set via setConfigGroup is invalid. "
+        qCWarning(DIGIKAM_WIDGETS_LOG) << "KConfigGroup set via setConfigGroup is invalid. "
                    << "Using object name based group.";
         return d->getGroupFromObjectName();
     }

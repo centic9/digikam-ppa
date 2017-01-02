@@ -7,7 +7,7 @@
  * Description : Content aware resizer class.
  *
  * Copyright (C) 2009      by Julien Pontabry <julien dot pontabry at ulp dot u-strasbg dot fr>
- * Copyright (C) 2009-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -33,9 +33,9 @@
 
 #include <QColor>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -119,7 +119,7 @@ ContentAwareFilter::ContentAwareFilter(QObject* const parent)
 }
 
 ContentAwareFilter::ContentAwareFilter(DImg* const orgImage, QObject* const parent, const ContentAwareContainer& settings)
-    : DImgThreadedFilter(orgImage, parent, "ContentAwareFilter"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("ContentAwareFilter")),
       d(new Private)
 {
     initFilter();
@@ -258,13 +258,13 @@ void ContentAwareFilter::progressCallback(int progress)
         postProgress(progress);
     }
 
-    //kDebug() << "Content Aware Resizing: " << progress << " %";
+    //qCDebug(DIGIKAM_DIMG_LOG) << "Content Aware Resizing: " << progress << " %";
 }
 
 void ContentAwareFilter::cancelFilter()
 {
     // Handle cancel operations with lqr library.
-    kDebug() << "Stop LibLqr computation...";
+    qCDebug(DIGIKAM_DIMG_LOG) << "Stop LibLqr computation...";
     lqr_carver_cancel(d->carver);
     DImgThreadedFilter::cancelFilter();
 }
@@ -333,28 +333,28 @@ FilterAction ContentAwareFilter::filterAction()
     bool isReproducible = d->settings.mask.isNull();
     DefaultFilterAction<ContentAwareFilter> action(isReproducible);
 
-    action.addParameter("height",              d->settings.height);
-    action.addParameter("preserve_skin_tones", d->settings.preserve_skin_tones);
-    action.addParameter("rigidity",            d->settings.rigidity);
-    action.addParameter("side_switch_freq",    d->settings.side_switch_freq);
-    action.addParameter("step",                d->settings.step);
-    action.addParameter("width",               d->settings.width);
-    action.addParameter("func",                d->settings.func);
-    action.addParameter("resize_order",        d->settings.resize_order);
+    action.addParameter(QLatin1String("height"),              d->settings.height);
+    action.addParameter(QLatin1String("preserve_skin_tones"), d->settings.preserve_skin_tones);
+    action.addParameter(QLatin1String("rigidity"),            d->settings.rigidity);
+    action.addParameter(QLatin1String("side_switch_freq"),    d->settings.side_switch_freq);
+    action.addParameter(QLatin1String("step"),                d->settings.step);
+    action.addParameter(QLatin1String("width"),               d->settings.width);
+    action.addParameter(QLatin1String("func"),                d->settings.func);
+    action.addParameter(QLatin1String("resize_order"),        d->settings.resize_order);
 
     return action;
 }
 
 void ContentAwareFilter::readParameters(const FilterAction& action)
 {
-    d->settings.height              = action.parameter("height").toUInt();
-    d->settings.preserve_skin_tones = action.parameter("preserve_skin_tones").toBool();
-    d->settings.rigidity            = action.parameter("rigidity").toDouble();
-    d->settings.side_switch_freq    = action.parameter("side_switch_freq").toInt();
-    d->settings.step                = action.parameter("step").toInt();
-    d->settings.width               = action.parameter("width").toUInt();
-    d->settings.func                = (ContentAwareContainer::EnergyFunction)action.parameter("func").toInt();
-    d->settings.resize_order        = (Qt::Orientation)action.parameter("resize_order").toInt();
+    d->settings.height              = action.parameter(QLatin1String("height")).toUInt();
+    d->settings.preserve_skin_tones = action.parameter(QLatin1String("preserve_skin_tones")).toBool();
+    d->settings.rigidity            = action.parameter(QLatin1String("rigidity")).toDouble();
+    d->settings.side_switch_freq    = action.parameter(QLatin1String("side_switch_freq")).toInt();
+    d->settings.step                = action.parameter(QLatin1String("step")).toInt();
+    d->settings.width               = action.parameter(QLatin1String("width")).toUInt();
+    d->settings.func                = (ContentAwareContainer::EnergyFunction)action.parameter(QLatin1String("func")).toInt();
+    d->settings.resize_order        = (Qt::Orientation)action.parameter(QLatin1String("resize_order")).toInt();
 }
 
 // ------------------------------------------------------------------------------------

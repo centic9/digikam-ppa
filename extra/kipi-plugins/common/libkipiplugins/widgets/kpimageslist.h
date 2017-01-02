@@ -6,7 +6,7 @@
  * Date        : 2008-05-21
  * Description : widget to display an imagelist
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2010 by Andi Clemens <andi dot clemens at googlemail dot com>
  * Copyright (C) 2009-2010 by Luka Renko <lure at kubuntu dot org>
  *
@@ -33,13 +33,8 @@
 #include <QWidget>
 #include <QXmlStreamWriter>
 #include <QXmlStreamReader>
-
-// KDE includes
-
-#include <kfileitem.h>
-#include <kurl.h>
-#include <kicon.h>
-#include <kiconloader.h>
+#include <QIcon>
+#include <QUrl>
 
 // Local includes
 
@@ -72,13 +67,13 @@ public:
 
 public:
 
-    explicit KPImagesListViewItem(KPImagesListView* const view, const KUrl& url);
+    explicit KPImagesListViewItem(KPImagesListView* const view, const QUrl& url);
     ~KPImagesListViewItem();
 
     bool hasValidThumbnail() const;
 
-    void setUrl(const KUrl& url);
-    KUrl url() const;
+    void setUrl(const QUrl& url);
+    QUrl url() const;
 
     void setComments(const QString& comments);
     QString comments() const;
@@ -144,7 +139,7 @@ public:
     void setColumnEnabled(ColumnType column, bool enable);
     void setColumn(ColumnType column, const QString& label, bool enable);
 
-    KPImagesListViewItem* findItem(const KUrl& url);
+    KPImagesListViewItem* findItem(const QUrl& url);
     QModelIndex indexFromItem(KPImagesListViewItem* item, int column = 0) const;
     KPImagesListViewItem* getCurrentItem() const;
 
@@ -152,7 +147,7 @@ public:
 
 Q_SIGNALS:
 
-    void signalAddedDropedItems(const KUrl::List&);
+    void signalAddedDropedItems(const QList<QUrl>&);
     void signalItemClicked(QTreeWidgetItem*);
     void signalContextMenuRequested();
 
@@ -230,16 +225,22 @@ public:
     void                setAllowDuplicate(bool allow);
 
     void                loadImagesFromCurrentSelection();
-    void 		loadImagesFromCurrentAlbum();	  //a function to load all the images from the album if no image has been selected by user
-    bool 		checkSelection();                 //a function to check whether an image has been selected or not
+
+    /** A function to load all the images from the album if no image has been selected by user.
+     */
+    void                loadImagesFromCurrentAlbum();
+
+    /** a function to check whether an image has been selected or not.
+     */
+    bool                checkSelection();
 
     int                 iconSize()  const;
 
     KPImagesListView*   listView()  const;
     Interface*          iface()     const;
 
-    void                processing(const KUrl& url);
-    void                processed(const KUrl& url, bool success);
+    void                processing(const QUrl& url);
+    void                processed(const QUrl& url, bool success);
     void                cancelProcess();
     void                clearProcessedStatus();
 
@@ -248,18 +249,18 @@ public:
     void                enableControlButtons(bool enable = true);
     void                enableDragAndDrop(const bool enable = true);
 
-    void                updateThumbnail(const KUrl& url);
+    void                updateThumbnail(const QUrl& url);
 
-    virtual KUrl::List  imageUrls(bool onlyUnprocessed = false) const;
-    virtual void        removeItemByUrl(const KUrl& url);
-    KUrl                getCurrentUrl() const;
+    virtual QList<QUrl> imageUrls(bool onlyUnprocessed = false) const;
+    virtual void        removeItemByUrl(const QUrl& url);
+    QUrl                getCurrentUrl() const;
 
 Q_SIGNALS:
 
-    void signalAddItems(const KUrl::List&);
+    void signalAddItems(const QList<QUrl>&);
     void signalMoveUpItem();
     void signalMoveDownItem();
-    void signalRemovedItems(const KUrl::List&);
+    void signalRemovedItems(const QList<QUrl>&);
     void signalRemovingItem(KIPIPlugins::KPImagesListViewItem*);
     void signalImageListChanged();
     void signalFoundRAWImages(bool);
@@ -272,7 +273,7 @@ Q_SIGNALS:
 
 public Q_SLOTS:
 
-    virtual void slotAddImages(const KUrl::List& list);
+    virtual void slotAddImages(const QList<QUrl>& list);
     virtual void slotRemoveItems();
 
 protected Q_SLOTS:
@@ -285,18 +286,13 @@ protected Q_SLOTS:
     virtual void slotClearItems();
     virtual void slotLoadItems();
     virtual void slotSaveItems();
-    virtual void slotThumbnail(const KUrl& url, const QPixmap& pix);
+    virtual void slotThumbnail(const QUrl& url, const QPixmap& pix);
     virtual void slotImageListChanged();
-
-private Q_SLOTS:
-
-    void slotKDEPreview(const KFileItem&, const QPixmap&);
-    void slotKDEPreviewFailed(const KFileItem&);
-    void slotRawThumb(const KUrl&, const QImage&);
 
 private:
 
     void setIconSize(int size);
+    bool isRawFile(const QUrl& url) const;
 
 private:
 

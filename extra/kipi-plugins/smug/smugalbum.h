@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2008-12-07
- * Description : a kipi plugin to import/export images to/from 
+ * Description : a kipi plugin to import/export images to/from
                  SmugMug web service
  *
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
@@ -24,43 +24,43 @@
 #ifndef SMUGALBUM_H
 #define SMUGALBUM_H
 
-// KDE includes
+// Qt includes
 
-#include <kdialog.h>
+#include <QtWidgets/QDialog>
 
 class QGroupBox;
 class QRadioButton;
-class KComboBox;
-class KLineEdit;
-class KTextEdit;
+class QComboBox;
+class QLineEdit;
+class QTextEdit;
 
 namespace KIPISmugPlugin
 {
 
 class SmugAlbum;
 
-class SmugNewAlbum : public KDialog
+class SmugNewAlbum : public QDialog
 {
     Q_OBJECT
 
 public:
 
-    SmugNewAlbum(QWidget* parent);
+    SmugNewAlbum(QWidget* const parent);
     ~SmugNewAlbum();
 
     void getAlbumProperties(SmugAlbum& album);
 
 private:
 
-    KLineEdit*    m_titleEdt;
-    KTextEdit*    m_descEdt;
-    KComboBox*    m_categCoB;
-    KComboBox*    m_subCategCoB;
-    KComboBox*    m_templateCoB;
+    QLineEdit*    m_titleEdt;
+    QTextEdit*    m_descEdt;
+    QComboBox*    m_categCoB;
+    QComboBox*    m_subCategCoB;
+    QComboBox*    m_templateCoB;
 
     QGroupBox*    m_privBox;
-    KLineEdit*    m_passwdEdt;
-    KLineEdit*    m_hintEdt;
+    QLineEdit*    m_passwdEdt;
+    QLineEdit*    m_hintEdt;
     QRadioButton* m_publicRBtn;
     QRadioButton* m_unlistedRBtn;
 

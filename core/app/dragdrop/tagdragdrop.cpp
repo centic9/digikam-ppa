@@ -22,25 +22,30 @@
  *
  * ============================================================ */
 
-#include "tagdragdrop.moc"
+#include "tagdragdrop.h"
 
 // Qt includes
 
 #include <QDropEvent>
+#include <QMenu>
+#include <QIcon>
+#include <QMessageBox>
+#include <QApplication>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kmessagebox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
 #include "ddragobjects.h"
 #include "imageinfo.h"
 #include "albumtreeview.h"
+#include "coredb.h"
+#include "dbengineparameters.h"
+#include "dbenginebackend.h"
 
 namespace Digikam
 {
@@ -48,6 +53,11 @@ namespace Digikam
 TagDragDropHandler::TagDragDropHandler(TagModel* const model)
     : AlbumModelDragDropHandler(model)
 {
+}
+
+TagModel* TagDragDropHandler::model() const
+{
+    return static_cast<TagModel*>(m_model);
 }
 
 bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
@@ -69,17 +79,19 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
             return false;
         }
 
-        if(tagIDs.isEmpty())
+        if (tagIDs.isEmpty())
+        {
             return false;
+        }
 
-        KMenu popMenu(view);
-        QAction* const gotoAction = popMenu.addAction(SmallIcon("go-jump"), i18n("&Move Here"));
+        QMenu popMenu(view);
+        QAction* const gotoAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("go-jump")), i18n("&Move Here"));
         popMenu.addSeparator();
-        popMenu.addAction(SmallIcon("dialog-cancel"), i18n("C&ancel"));
+        popMenu.addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel"));
         popMenu.setMouseTracking(true);
         QAction* const choice     = popMenu.exec(QCursor::pos());
 
-        for(int index=0;index<tagIDs.count();++index)
+        for (int index=0;index<tagIDs.count();++index)
         {
             TAlbum* const talbum = AlbumManager::instance()->findTAlbum(tagIDs.at(index));
 
@@ -106,13 +118,24 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
                 {
                     // move dragItem as child of dropItem
                     newParentTag = destAlbum;
+
+		    // NOTE: Update the Mysql TagsTree table which is used only in some search SQL queries (See lft/rgt tag ID properties).
+		    // In SQlite, it is nicely maintained by Triggers.
+		    // With MySQL, this did not work for some reason, and we patch a tree structure mimics in a different way.
+
+                    DbEngineParameters internalServerParameters = DbEngineParameters::parametersFromConfig(KSharedConfig::openConfig());
+
+                    if (internalServerParameters.isMySQL())
+                    {
+                        CoreDbAccess().db()->moveTag(newParentTag);
+                    }
                 }
 
                 QString errMsg;
 
                 if (!AlbumManager::instance()->moveTAlbum(talbum, newParentTag, errMsg))
                 {
-                    KMessageBox::error(view, errMsg);
+                    QMessageBox::critical(view, qApp->applicationName(), errMsg);
                 }
 
                 if (view && !view->isVisible())
@@ -121,12 +144,13 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
                 }
             }
         }
+
         return true;
     }
     else if (DItemDrag::canDecode(e->mimeData()))
     {
-        KUrl::List       urls;
-        KUrl::List       kioURLs;
+        QList<QUrl>      urls;
+        QList<QUrl>      kioURLs;
         QList<int>       albumIDs;
         QList<qlonglong> imageIDs;
 
@@ -153,7 +177,7 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
             }
             else
             {
-                KMenu popMenu(view);
+                QMenu popMenu(view);
                 QAction* setAction = 0;
 
                 if (imageIDs.count() == 1)
@@ -162,7 +186,7 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
                 }
 
                 popMenu.addSeparator();
-                popMenu.addAction( SmallIcon("dialog-cancel"), i18n("C&ancel") );
+                popMenu.addAction( QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel") );
 
                 popMenu.setMouseTracking(true);
                 QAction* const choice = popMenu.exec(QCursor::pos());
@@ -189,7 +213,7 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
 
         QList<Album*> selTags = ((AbstractAlbumTreeView*)view)->selectedItems();
 
-        for(int it = 0 ; it < selTags.count(); ++it)
+        for (int it = 0 ; it < selTags.count(); ++it)
         {
             TAlbum* const temp = dynamic_cast<TAlbum*>(selTags.at(it));
 
@@ -200,8 +224,9 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
             }
         }
 
-        //If nothing selected, use dropped on tag
-        if(tagIdList.isEmpty())
+        // If nothing selected, use dropped on tag
+
+        if (tagIdList.isEmpty())
         {
             tagIdList << destAlbum->id();
             tagNames << destAlbum->title();
@@ -213,11 +238,11 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e,
         }
         else
         {
-            KMenu popMenu(view);
-            QAction* const assignAction = popMenu.addAction(SmallIcon("tag"),
-                                                            i18n("Assign Tag(s) '%1' to Items", tagNames.join(", ")));
+            QMenu popMenu(view);
+            QAction* const assignAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("tag")),
+                                                            i18n("Assign Tag(s) '%1' to Items", tagNames.join(QLatin1String(", "))));
             popMenu.addSeparator();
-            popMenu.addAction( SmallIcon("dialog-cancel"), i18n("C&ancel") );
+            popMenu.addAction( QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel") );
 
             popMenu.setMouseTracking(true);
             QAction* const choice = popMenu.exec(QCursor::pos());
@@ -246,7 +271,7 @@ Qt::DropAction TagDragDropHandler::accepts(const QDropEvent* e, const QModelInde
 
         if (!DTagListDrag::decode(e->mimeData(), droppedId))
         {
-            kDebug() << "List decode error" << droppedId.isEmpty();
+            qCDebug(DIGIKAM_GENERAL_LOG) << "List decode error" << droppedId.isEmpty();
             return Qt::IgnoreAction;
         }
 
@@ -259,6 +284,7 @@ Qt::DropAction TagDragDropHandler::accepts(const QDropEvent* e, const QModelInde
 
         // Allow dragging on empty space to move the dragged album under the root albumForIndex
         // - unless the itemDrag is already at root level
+
         if (!destAlbum)
         {
             Album* const palbum = droppedAlbum->parent();
@@ -279,12 +305,14 @@ Qt::DropAction TagDragDropHandler::accepts(const QDropEvent* e, const QModelInde
         }
 
         // Dragging an item on itself makes no sense
+
         if (destAlbum == droppedAlbum)
         {
             return Qt::IgnoreAction;
         }
 
         // Dragging a parent on its child makes no sense
+
         if (destAlbum && droppedAlbum && droppedAlbum->isAncestorOf(destAlbum))
         {
             return Qt::IgnoreAction;
@@ -318,13 +346,13 @@ QMimeData* TagDragDropHandler::createMimeData(const QList<Album*>& albums)
 
     if (albums.isEmpty())
     {
-        kError() << "Cannot drag no tag";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Cannot drag no tag";
         return 0;
     }
 
     QList<int> ids;
 
-    foreach(Album* const album, albums)
+    foreach (Album* const album, albums)
     {
         ids << album->id();
     }

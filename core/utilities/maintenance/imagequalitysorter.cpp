@@ -6,7 +6,7 @@
  * Date        : 2013-08-19
  * Description : image quality sorter
  *
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,23 +21,24 @@
  *
  * ============================================================ */
 
-#include "imagequalitysorter.moc"
+#include "imagequalitysorter.h"
 
 // Qt includes
 
 #include <QString>
+#include <QIcon>
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "globals.h"
+#include "digikam_globals.h"
 #include "dimg.h"
-#include "albumdb.h"
+#include "coredb.h"
 #include "albummanager.h"
-#include "databaseaccess.h"
+#include "coredbaccess.h"
 #include "tagscache.h"
 #include "maintenancethread.h"
 
@@ -67,7 +68,7 @@ public:
 
 ImageQualitySorter::ImageQualitySorter(QualityScanMode mode, const AlbumList& list,
                                        const ImageQualitySettings& quality, ProgressItem* const parent)
-    : MaintenanceTool("ImageQualitySorter", parent),
+    : MaintenanceTool(QLatin1String("ImageQualitySorter"), parent),
       d(new Private)
 {
     setLabel(i18n("Image Quality Sorter"));
@@ -111,7 +112,7 @@ void ImageQualitySorter::slotStart()
     }
 
     // Get all item in DB which do not have any Pick Label assigned.
-    QStringList dirty = DatabaseAccess().db()->getItemsURLsWithTag(TagsCache::instance()->tagForPickLabel(NoPickLabel));
+    QStringList dirty = CoreDbAccess().db()->getItemsURLsWithTag(TagsCache::instance()->tagForPickLabel(NoPickLabel));
 
     // Get all digiKam albums collection pictures path, depending of d->rebuildAll flag.
 
@@ -122,11 +123,11 @@ void ImageQualitySorter::slotStart()
 
         if ((*it)->type() == Album::PHYSICAL)
         {
-            aPaths = DatabaseAccess().db()->getItemURLsInAlbum((*it)->id());
+            aPaths = CoreDbAccess().db()->getItemURLsInAlbum((*it)->id());
         }
         else if ((*it)->type() == Album::TAG)
         {
-            aPaths = DatabaseAccess().db()->getItemURLsInTag((*it)->id());
+            aPaths = CoreDbAccess().db()->getItemURLsInTag((*it)->id());
         }
 
         if (d->mode == NonAssignedItems)
@@ -159,7 +160,7 @@ void ImageQualitySorter::slotStart()
 
 void ImageQualitySorter::slotAdvance(const QImage& img)
 {
-    setThumbnail(QPixmap::fromImage(img));
+    setThumbnail(QIcon(QPixmap::fromImage(img)));
     advance(1);
 }
 

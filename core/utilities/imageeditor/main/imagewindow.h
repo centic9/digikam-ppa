@@ -7,7 +7,7 @@
  * Description : digiKam image editor GUI
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,10 +29,7 @@
 
 #include <QCloseEvent>
 #include <QString>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -59,15 +56,15 @@ public:
     static ImageWindow* imageWindow();
     static bool         imageWindowCreated();
 
-    bool setup();
-    bool setupICC();
-
     bool queryClose();
     void toggleTag(int tagID);
 
     virtual VersionManager* versionManager() const;
 
 public Q_SLOTS:
+
+    void slotSetup();
+    void slotSetupICC();
 
     void loadImageInfos(const ImageInfoList& imageInfoList,
                         const ImageInfo& imageInfoCurrent, const QString& caption);
@@ -79,7 +76,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
 
-    void signalURLChanged(const KUrl& url);
+    void signalURLChanged(const QUrl& url);
     void signalSavingDialogProgress(float value);
 
 private:
@@ -106,7 +103,7 @@ private:
 
     void addServicesMenu();
 
-    KUrl saveDestinationUrl();
+    QUrl saveDestinationUrl();
     bool hasOriginalToRestore();
     DImageHistory resolvedImageHistory(const DImageHistory& history);
 
@@ -115,11 +112,12 @@ private:
     void saveIsComplete();
     void saveAsIsComplete();
     void saveVersionIsComplete();
-    void setViewToURL(const KUrl& url);
+    void setViewToURL(const QUrl& url);
     void deleteCurrentItem(bool ask, bool permanently);
     void removeCurrent();
 
     void slideShow(SlideShowSettings& settings);
+    void presentation();
 
     void assignPickLabel(const ImageInfo& info, int pickId);
     void assignColorLabel(const ImageInfo& info, int colorId);
@@ -165,12 +163,12 @@ private Q_SLOTS:
     void slotAssignTag(int tagID);
     void slotRemoveTag(int tagID);
 
-    void slotRatingChanged(const KUrl&, int);
-    void slotColorLabelChanged(const KUrl&, int);
-    void slotPickLabelChanged(const KUrl&, int);
-    void slotToggleTag(const KUrl&, int);
+    void slotRatingChanged(const QUrl&, int);
+    void slotColorLabelChanged(const QUrl&, int);
+    void slotPickLabelChanged(const QUrl&, int);
+    void slotToggleTag(const QUrl&, int);
 
-    void slotFileMetadataChanged(const KUrl&);
+    void slotFileMetadataChanged(const QUrl&);
     //void slotCollectionImageChange(const CollectionImageChangeset&);
     //void slotRowsAboutToBeRemoved(const QModelIndex& parent, int start, int end);
     void slotDroppedOnThumbbar(const QList<ImageInfo>& infos);
@@ -186,6 +184,12 @@ private Q_SLOTS:
     void slotRightSideBarActivateTitles();
     void slotRightSideBarActivateComments();
     void slotRightSideBarActivateAssignedTags();
+
+    void slotImportFromScanner();
+    void slotImportedImagefromScanner(const QUrl& url);
+
+    void slotEditMetadata();
+    void slotEditGeolocation();
 
 private:
 

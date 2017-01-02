@@ -6,7 +6,7 @@
  * Date        : 2006-04-21
  * Description : main photograph information container
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -25,7 +25,7 @@
 
 // Qt includes
 
-#include <QtCore/QDataStream>
+#include <QDataStream>
 
 namespace Digikam
 {
@@ -141,6 +141,39 @@ QDataStream& operator>>(QDataStream& ds, PhotoInfoContainer& info)
     return ds;
 }
 
+QDebug operator<<(QDebug dbg, const PhotoInfoContainer& t)
+{
+    dbg.nospace() << "PhotoInfoContainer::make: "
+                  << t.make << ", ";
+    dbg.nospace() << "PhotoInfoContainer::model: "
+                  << t.model << ", ";
+    dbg.nospace() << "PhotoInfoContainer::lens: "
+                  << t.lens << ", ";
+    dbg.nospace() << "PhotoInfoContainer::exposureTime: "
+                  << t.exposureTime << ", ";
+    dbg.nospace() << "PhotoInfoContainer::exposureMode: "
+                  << t.exposureMode << ", ";
+    dbg.nospace() << "PhotoInfoContainer::exposureProgram: "
+                  << t.exposureProgram << ", ";
+    dbg.nospace() << "PhotoInfoContainer::aperture: "
+                  << t.aperture << ", ";
+    dbg.nospace() << "PhotoInfoContainer::focalLength: "
+                  << t.focalLength << ", ";
+    dbg.nospace() << "PhotoInfoContainer::focalLength35mm: "
+                  << t.focalLength35mm << ", ";
+    dbg.nospace() << "PhotoInfoContainer::sensitivity: "
+                  << t.sensitivity;
+    dbg.nospace() << "PhotoInfoContainer::flash: "
+                  << t.flash;
+    dbg.nospace() << "PhotoInfoContainer::whiteBalance: "
+                  << t.whiteBalance;
+    dbg.nospace() << "PhotoInfoContainer::dateTime: "
+                  << t.dateTime;
+    dbg.nospace() << "PhotoInfoContainer::hasCoordinates: "
+                  << t.hasCoordinates;
+    return dbg.space();
+}
+
 // --------------------------------------------------------------------------------------------
 
 VideoInfoContainer::VideoInfoContainer()
@@ -217,6 +250,25 @@ QDataStream& operator>>(QDataStream& ds, VideoInfoContainer& info)
     ds >> info.audioCompressor;
 
     return ds;
+}
+
+QDebug operator<<(QDebug dbg, const VideoInfoContainer& t)
+{
+    dbg.nospace() << "PhotoInfoContainer::aspectRatio: "
+                  << t.aspectRatio << ", ";
+    dbg.nospace() << "PhotoInfoContainer::duration: "
+                  << t.duration << ", ";
+    dbg.nospace() << "PhotoInfoContainer::frameRate: "
+                  << t.frameRate << ", ";
+    dbg.nospace() << "PhotoInfoContainer::videoCodec: "
+                  << t.videoCodec << ", ";
+    dbg.nospace() << "PhotoInfoContainer::audioBitRate: "
+                  << t.audioBitRate << ", ";
+    dbg.nospace() << "PhotoInfoContainer::audioChannelType: "
+                  << t.audioChannelType << ", ";
+    dbg.nospace() << "PhotoInfoContainer::audioCompressor: "
+                  << t.audioCompressor << ", ";
+    return dbg.space();
 }
 
 } // namespace Digikam

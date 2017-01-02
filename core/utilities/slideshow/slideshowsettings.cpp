@@ -6,7 +6,7 @@
  * Date        : 2007-02-13
  * Description : slide show settings container.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,8 +26,6 @@
 // KDE includes
 
 #include <kconfiggroup.h>
-#include <kconfig.h>
-#include <kglobal.h>
 #include <ksharedconfig.h>
 
 // Local includes
@@ -37,22 +35,22 @@
 namespace Digikam
 {
 
-const QString SlideShowSettings::configGroupName("ImageViewer Settings");
-const QString SlideShowSettings::configSlideShowStartCurrentEntry("SlideShowStartCurrent");
-const QString SlideShowSettings::configSlideShowDelayEntry("SlideShowDelay");
-const QString SlideShowSettings::configSlideShowLoopEntry("SlideShowLoop");
-const QString SlideShowSettings::configSlideShowPrintApertureFocalEntry("SlideShowPrintApertureFocal");
-const QString SlideShowSettings::configSlideShowPrintCommentEntry("SlideShowPrintComment");
-const QString SlideShowSettings::configSlideShowPrintTitleEntry("SlideShowPrintTitle");
-const QString SlideShowSettings::configSlideShowPrintCapIfNoTitleEntry("SlideShowPrintCapIfNoTitle");
-const QString SlideShowSettings::configSlideShowPrintDateEntry("SlideShowPrintDate");
-const QString SlideShowSettings::configSlideShowPrintExpoSensitivityEntry("SlideShowPrintExpoSensitivity");
-const QString SlideShowSettings::configSlideShowPrintMakeModelEntry("SlideShowPrintMakeModel");
-const QString SlideShowSettings::configSlideShowPrintNameEntry("SlideShowPrintName");
-const QString SlideShowSettings::configSlideShowPrintTagsEntry("SlideShowPrintTags");
-const QString SlideShowSettings::configSlideShowPrintLabelsEntry("SlideShowPrintLabels");
-const QString SlideShowSettings::configSlideShowProgressIndicatorEntry("SlideShowProgressIndicator");
-const QString SlideShowSettings::configSlideScreenEntry("SlideScreen");
+const QString SlideShowSettings::configGroupName(QLatin1String("ImageViewer Settings"));
+const QString SlideShowSettings::configSlideShowStartCurrentEntry(QLatin1String("SlideShowStartCurrent"));
+const QString SlideShowSettings::configSlideShowDelayEntry(QLatin1String("SlideShowDelay"));
+const QString SlideShowSettings::configSlideShowLoopEntry(QLatin1String("SlideShowLoop"));
+const QString SlideShowSettings::configSlideShowPrintApertureFocalEntry(QLatin1String("SlideShowPrintApertureFocal"));
+const QString SlideShowSettings::configSlideShowPrintCommentEntry(QLatin1String("SlideShowPrintComment"));
+const QString SlideShowSettings::configSlideShowPrintTitleEntry(QLatin1String("SlideShowPrintTitle"));
+const QString SlideShowSettings::configSlideShowPrintCapIfNoTitleEntry(QLatin1String("SlideShowPrintCapIfNoTitle"));
+const QString SlideShowSettings::configSlideShowPrintDateEntry(QLatin1String("SlideShowPrintDate"));
+const QString SlideShowSettings::configSlideShowPrintExpoSensitivityEntry(QLatin1String("SlideShowPrintExpoSensitivity"));
+const QString SlideShowSettings::configSlideShowPrintMakeModelEntry(QLatin1String("SlideShowPrintMakeModel"));
+const QString SlideShowSettings::configSlideShowPrintNameEntry(QLatin1String("SlideShowPrintName"));
+const QString SlideShowSettings::configSlideShowPrintTagsEntry(QLatin1String("SlideShowPrintTags"));
+const QString SlideShowSettings::configSlideShowPrintLabelsEntry(QLatin1String("SlideShowPrintLabels"));
+const QString SlideShowSettings::configSlideShowProgressIndicatorEntry(QLatin1String("SlideShowProgressIndicator"));
+const QString SlideShowSettings::configSlideScreenEntry(QLatin1String("SlideScreen"));
 
 SlideShowSettings::SlideShowSettings()
 {
@@ -80,7 +78,7 @@ SlideShowSettings::~SlideShowSettings()
 
 void SlideShowSettings::readFromConfig()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroupName);
     startWithCurrent          = group.readEntry(configSlideShowStartCurrentEntry,         false);
     delay                     = group.readEntry(configSlideShowDelayEntry,                5);
@@ -102,7 +100,7 @@ void SlideShowSettings::readFromConfig()
 
 void SlideShowSettings::writeToConfig()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroupName);
     group.writeEntry(configSlideShowStartCurrentEntry,         startWithCurrent);
     group.writeEntry(configSlideShowDelayEntry,                delay);

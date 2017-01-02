@@ -25,20 +25,18 @@
 
 // KDE includes
 
-#include <kaction.h>
+#include <QAction>
 
 // Libkipi includes
 
-#include <libkipi/plugin.h>
-
-// Local includes
-
-#include "yfwindow.h"
+#include <KIPI/Plugin>
 
 using namespace KIPI;
 
 namespace KIPIYandexFotkiPlugin
 {
+
+class YandexFotkiWindow;
 
 class Plugin_YandexFotki : public Plugin
 {
@@ -61,7 +59,7 @@ private:
 
 private:
 
-    KAction*           m_actionExport;
+    QAction *           m_actionExport;
     YandexFotkiWindow* m_dlgExport;
 };
 

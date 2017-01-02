@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : TextureFilter threaded image filter.
  *
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -30,14 +30,11 @@
 #include <cmath>
 #include <cstdlib>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
 #include "dimg.h"
-#include "globals.h"
+#include "digikam_debug.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -50,7 +47,7 @@ TextureFilter::TextureFilter(QObject* const parent)
 }
 
 TextureFilter::TextureFilter(DImg* const orgImage, QObject* const parent, int blendGain, const QString& texturePath)
-    : DImgThreadedFilter(orgImage, parent, "Texture")
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("Texture"))
 {
     m_blendGain   = blendGain;
     m_texturePath = texturePath;
@@ -90,7 +87,7 @@ void TextureFilter::filterImage()
     int bytesDepth  = m_orgImage.bytesDepth();
     bool sixteenBit = m_orgImage.sixteenBit();
 
-    kDebug() << "Texture File: " << m_texturePath;
+    qCDebug(DIGIKAM_DIMG_LOG) << "Texture File: " << m_texturePath;
     DImg texture(m_texturePath);
 
     if (texture.isNull())
@@ -220,16 +217,16 @@ FilterAction TextureFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("blendGain",   m_blendGain);
-    action.addParameter("texturePath", m_texturePath);
+    action.addParameter(QLatin1String("blendGain"),   m_blendGain);
+    action.addParameter(QLatin1String("texturePath"), m_texturePath);
 
     return action;
 }
 
 void TextureFilter::readParameters(const Digikam::FilterAction& action)
 {
-    m_blendGain   = action.parameter("blendGain").toInt();
-    m_texturePath = action.parameter("texturePath").toString();
+    m_blendGain   = action.parameter(QLatin1String("blendGain")).toInt();
+    m_texturePath = action.parameter(QLatin1String("texturePath")).toString();
 }
 
 }  // namespace Digikam

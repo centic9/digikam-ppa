@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2004      by Till Adam <adam at kde dot org>
  * Copyright (C) 2004      by David Faure <faure at kde dot org>
  *
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "statusbarprogresswidget.moc"
+#include "statusbarprogresswidget.h"
 
 // Qt includes
 
@@ -36,15 +36,17 @@
 #include <QPushButton>
 #include <QStackedWidget>
 #include <QTimer>
+#include <QApplication>
+#include <QStyle>
+#include <QIcon>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "progressview.h"
 #include "progressmanager.h"
 
@@ -96,37 +98,75 @@ public:
 };
 
 StatusbarProgressWidget::StatusbarProgressWidget(ProgressView* const progressView, QWidget* const parent, bool button)
-    : QFrame(parent), d(new Private)
+    : QFrame(parent),
+      d(new Private)
 {
-    d->progressView      = progressView;
-    d->bShowButton       = button;
+    d->progressView = progressView;
+    d->bShowButton  = button;
 
-    int w  = fontMetrics().width(" 999.9 kB/s 00:00:01 ") + 8;
-    d->box = new QHBoxLayout(this);
-    d->box->setMargin(0);
+    int w           = fontMetrics().width(QLatin1String(" 999.9 kB/s 00:00:01 ")) + 8;
+    d->box          = new QHBoxLayout(this);
+    d->box->setContentsMargins(QMargins());
     d->box->setSpacing(0);
+    d->stack        = new QStackedWidget(this);
 
-    d->pButton        = new QPushButton(this);
+    d->pButton      = new QPushButton(this);
     d->pButton->setSizePolicy(QSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum));
-    QPixmap smallIcon = SmallIcon("go-up");
-    d->pButton->setIcon(smallIcon);
-    d->box->addWidget(d->pButton);
-    d->stack          = new QStackedWidget(this);
-    int maximumHeight = qMax(smallIcon.height(), fontMetrics().height());
-    d->stack->setMaximumHeight(maximumHeight);
-    d->box->addWidget(d->stack);
-
-    d->pButton->setToolTip(i18n("Open detailed progress dialog"));
+    d->pButton->setIcon(QIcon::fromTheme(QLatin1String("go-up")));
+    QSize iconSize  = d->pButton->iconSize();
 
     d->pProgressBar = new QProgressBar(this);
     d->pProgressBar->installEventFilter(this);
     d->pProgressBar->setMinimumWidth(w);
+    d->pProgressBar->setAttribute(Qt::WA_LayoutUsesWidgetRect, true);
+
+    // Determine maximumHeight from the progressbar's height and scale the icon.
+    // This operation is style specific and cannot infer the style in use
+    // from Q_OS_??? because users can have started us using the -style option
+    // (or even be using an unexpected QPA).
+    // In most cases, maximumHeight should be set to fontMetrics().height() + 2
+    // (Breeze, Oxygen, Fusion, Windows, QtCurve etc.); this corresponds to the actual
+    // progressbar height plus a 1 pixel margin above and below.
+    int maximumHeight         = d->pProgressBar->fontMetrics().height() + 2;
+    const bool macWidgetStyle = QApplication::style()->objectName() == QLatin1String("macintosh");
+
+    if (macWidgetStyle)
+    {
+        // QProgressBar height is fixed with the macintosh native widget style
+        // and alignment with d->pButton is tricky. Sizing the icon to maximumHeight
+        // gives a button that is slightly too high and not perfectly
+        // aligned. Annoyingly that doesn't improve by calling setMaximumHeight()
+        // which even causes the button to change shape. So we use a "flat" button,
+        // an invisible outline which is more in line with platform practices anyway.
+        maximumHeight = d->pProgressBar->sizeHint().height();
+        iconSize.scale(maximumHeight, maximumHeight, Qt::KeepAspectRatio);
+        d->pButton->setFlat(true);
+        d->pButton->setMaximumWidth(d->pButton->iconSize().width() + 4);
+    }
+    else
+    {
+        // The icon is scaled to maximumHeight but with 1 pixel margins on each side
+        // because it will be in a visible button.
+        iconSize.scale(maximumHeight - 2, maximumHeight - 2, Qt::KeepAspectRatio);
+        // additional adjustments:
+        d->pButton->setAttribute(Qt::WA_LayoutUsesWidgetRect, true);
+        d->stack->setMaximumHeight(maximumHeight);
+    }
+
+    d->pButton->setIconSize(iconSize);
+    d->box->addWidget(d->pButton);
+
+    d->pButton->setToolTip(i18n("Open detailed progress dialog"));
+
+    d->box->addWidget(d->stack);
+
     d->stack->insertWidget(1, d->pProgressBar);
 
-    d->pLabel = new QLabel(i18n("No active process"), this);
+    d->pLabel       = new QLabel(i18n("No active process"), this);
     d->pLabel->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
     d->pLabel->installEventFilter(this);
     d->pLabel->setMinimumWidth(w);
+    d->pLabel->setMaximumHeight(maximumHeight);
     d->stack->insertWidget(2, d->pLabel);
     d->pButton->setMaximumHeight(maximumHeight);
     setMinimumWidth(minimumSizeHint().width());
@@ -361,13 +401,13 @@ void StatusbarProgressWidget::slotProgressViewVisible(bool b)
     // Update the hide/show button when the detailed one is shown/hidden
     if (b)
     {
-        d->pButton->setIcon(SmallIcon("go-down"));
+        d->pButton->setIcon(QIcon::fromTheme(QLatin1String("go-down")));
         d->pButton->setToolTip(i18n("Hide detailed progress window"));
         setMode();
     }
     else
     {
-        d->pButton->setIcon(SmallIcon("go-up"));
+        d->pButton->setIcon(QIcon::fromTheme(QLatin1String("go-up")));
         d->pButton->setToolTip(i18n("Show detailed progress window"));
     }
 }

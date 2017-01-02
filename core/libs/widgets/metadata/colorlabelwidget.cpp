@@ -6,7 +6,7 @@
  * Date        : 2011-01-28
  * Description : color label widget
  *
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,10 +21,11 @@
  *
  * ============================================================ */
 
-#include "colorlabelwidget.moc"
+#include "colorlabelwidget.h"
 
 // Qt includes
 
+#include <QApplication>
 #include <QPainter>
 #include <QPixmap>
 #include <QIcon>
@@ -35,18 +36,18 @@
 #include <QFontMetrics>
 #include <QFont>
 #include <QToolButton>
+#include <QMenu>
 
 // KDE includes
 
-#include <kglobalsettings.h>
-#include <ksqueezedtextlabel.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <kmenu.h>
-#include <khbox.h>
-#include <kapplication.h>
-#include <kxmlguiwindow.h>
+#include <klocalizedstring.h>
 #include <kactioncollection.h>
+
+// Local includes
+
+#include "dwidgetutils.h"
+#include "dxmlguiwindow.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -89,19 +90,20 @@ public:
     QToolButton*        btnBlack;
     QToolButton*        btnWhite;
 
-    KHBox*              descBox;
+    DHBox*              descBox;
 
-    KSqueezedTextLabel* shortcut;
+    DAdjustableLabel*   shortcut;
 };
 
 ColorLabelWidget::ColorLabelWidget(QWidget* const parent)
-    : KVBox(parent), d(new Private)
+    : DVBox(parent),
+      d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setFocusPolicy(Qt::NoFocus);
 
-    KHBox* const hbox = new KHBox(this);
-    hbox->setMargin(0);
+    DHBox* const hbox = new DHBox(this);
+    hbox->setContentsMargins(QMargins());
     hbox->setSpacing(0);
 
     d->btnNone = new QToolButton(hbox);
@@ -176,19 +178,19 @@ ColorLabelWidget::ColorLabelWidget(QWidget* const parent)
     d->colorBtns->addButton(d->btnBlack,   BlackLabel);
     d->colorBtns->addButton(d->btnWhite,   WhiteLabel);
 
-    d->descBox  = new KHBox(this);
-    d->descBox->setMargin(0);
+    d->descBox  = new DHBox(this);
+    d->descBox->setContentsMargins(QMargins());
     d->descBox->setSpacing(0);
     d->desc     = new QLabel(d->descBox);
-    d->shortcut = new KSqueezedTextLabel(d->descBox);
+    d->shortcut = new DAdjustableLabel(d->descBox);
     QFont fnt = d->shortcut->font();
     fnt.setItalic(true);
     d->shortcut->setFont(fnt);
     d->shortcut->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     d->shortcut->setWordWrap(false);
 
-    setMargin(0);
     setSpacing(0);
+    setContentsMargins(QMargins());
     setColorLabels(QList<ColorLabel>() << NoColorLabel);
     setDescriptionBoxVisible(true);
     setButtonsExclusive(true);
@@ -227,14 +229,16 @@ void ColorLabelWidget::updateDescription(ColorLabel label)
 {
     d->desc->setText(labelColorName(label));
 
-    KXmlGuiWindow* const app = dynamic_cast<KXmlGuiWindow*>(kapp->activeWindow());
+    DXmlGuiWindow* const app = dynamic_cast<DXmlGuiWindow*>(qApp->activeWindow());
 
     if (app)
     {
-        QAction* const ac = app->actionCollection()->action(QString("colorshortcut-%1").arg(label));
+        QAction* const ac = app->actionCollection()->action(QString::fromLatin1("colorshortcut-%1").arg(label));
 
         if (ac)
-            d->shortcut->setText(ac->shortcut().toString());
+        {
+            d->shortcut->setAdjustedText(ac->shortcut().toString());
+        }
     }
 }
 
@@ -363,13 +367,13 @@ QIcon ColorLabelWidget::buildIcon(ColorLabel label, int size)
     {
         QPixmap pix(size, size);
         QPainter p(&pix);
-        p.setPen(kapp->palette().color(QPalette::Active, QPalette::ButtonText));
+        p.setPen(qApp->palette().color(QPalette::Active, QPalette::ButtonText));
         p.fillRect(0, 0, pix.width()-1, pix.height()-1, labelColor(label));
         p.drawRect(0, 0, pix.width()-1, pix.height()-1);
         return QIcon(pix);
     }
 
-    return KIconLoader::global()->loadIcon("emblem-unmounted", KIconLoader::NoGroup, size);
+    return QIcon::fromTheme(QLatin1String("emblem-unmounted"));
 }
 
 QColor ColorLabelWidget::labelColor(ColorLabel label)
@@ -469,9 +473,10 @@ public:
 };
 
 ColorLabelSelector::ColorLabelSelector(QWidget* parent)
-    : QPushButton(parent), d(new Private)
+    : QPushButton(parent),
+      d(new Private)
 {
-    KMenu* const popup          = new KMenu(this);
+    QMenu* const popup          = new QMenu(this);
     setMenu(popup);
 
     QWidgetAction* const action = new QWidgetAction(this);
@@ -523,9 +528,9 @@ void ColorLabelSelector::slotColorLabelChanged(int id)
 // -----------------------------------------------------------------------------
 
 ColorLabelMenuAction::ColorLabelMenuAction(QMenu* const parent)
-    : KActionMenu(parent)
+    : QMenu(parent)
 {
-    setText(i18n("Color"));
+    setTitle(i18n("Color"));
     QWidgetAction* const wa     = new QWidgetAction(this);
     ColorLabelWidget* const clw = new ColorLabelWidget(parent);
     wa->setDefaultWidget(clw);

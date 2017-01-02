@@ -1,0 +1,318 @@
+# translation of kipiplugin_piwigoexport.po into [el]
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_piwigoexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2013-02-10 18:46+0300\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 1.2\n"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_piwigoui.rc:7
+msgid "&Export"
+msgstr "&Εξαγωγή"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_piwigoui.rc:13
+msgid "Main Toolbar"
+msgstr "Κύρια γραμμή εργαλείων"
+
+#: piwigoconfig.cpp:76
+msgctxt "piwigo login settings"
+msgid "URL:"
+msgstr "URL:"
+
+#: piwigoconfig.cpp:80
+msgctxt "piwigo login settings"
+msgid "Username:"
+msgstr "Όνομα χρήστη:"
+
+#: piwigoconfig.cpp:84
+msgctxt "piwigo login settings"
+msgid "Password:"
+msgstr "Κωδικός:"
+
+#: piwigotalker.cpp:299
+#, kde-format
+msgid "Check if %1 already exists"
+msgstr "Ελέγξτε αν το %1 υπάρχει ήδη"
+
+#: piwigotalker.cpp:340
+msgid "Error"
+msgstr ""
+
+#: piwigotalker.cpp:434
+msgid "Piwigo URL probably incorrect"
+msgstr "Το URL του Piwigo είναι μάλλον λανθασμένο"
+
+#: piwigotalker.cpp:440
+msgid "Incorrect username or password specified"
+msgstr "Ορίστηκε λάθος όνομα χρήστη ή κωδικός"
+
+#: piwigotalker.cpp:483 piwigotalker.cpp:657
+msgid "Upload to Piwigo version < 2.4 is no longer supported"
+msgstr ""
+
+#: piwigotalker.cpp:555 piwigotalker.cpp:633 piwigotalker.cpp:702
+#: piwigotalker.cpp:773
+msgid "Invalid response received from remote Piwigo"
+msgstr "Μη έγκυρη απάντηση ελήφθη από τον απομακρυσμένο εξυπηρετητή Piwigo"
+
+#: piwigotalker.cpp:561
+msgid "Failed to list albums"
+msgstr "Αποτυχία καταγραφής λευκωμάτων"
+
+#: piwigotalker.cpp:607
+#, kde-format
+msgid "Photo '%1' already exists."
+msgstr "Η φωτογραφία %1 υπάρχει ήδη."
+
+#: piwigotalker.cpp:639 piwigotalker.cpp:779 piwigotalker.cpp:935
+msgid "Failed to upload photo"
+msgstr "Αποτυχία αποστολής φωτογραφίας"
+
+#: piwigotalker.cpp:708
+#, kde-format
+msgid "Photo '%1' already exists in this album."
+msgstr "Η φωτογραφία %1 υπάρχει ήδη σε αυτό το λεύκωμα."
+
+#: piwigotalker.cpp:817
+#, fuzzy, kde-format
+#| msgid "Upload the chunk %1 of %2"
+msgid "Upload the chunk %1/%2 of %3"
+msgstr "Αποστολή του τμήματος %1 της %2"
+
+#: piwigotalker.cpp:850
+msgid "Warning : The full size photo cannot be uploaded."
+msgstr "Προειδοποίηση : Αδυναμία αποστολής φωτογραφίας σε πλήρες μέγεθος"
+
+#: piwigotalker.cpp:896
+#, kde-format
+msgid "Upload the metadata of %1"
+msgstr "Αποστολή των μεταδεδομένων της %1"
+
+#: piwigotalker.cpp:929
+#, fuzzy, kde-format
+#| msgid "Invalid response received from remote Piwigo"
+msgid "Invalid response received from remote Piwigo (%1)"
+msgstr "Μη έγκυρη απάντηση ελήφθη από τον απομακρυσμένο εξυπηρετητή Piwigo"
+
+#: piwigowindow.cpp:128
+#, fuzzy
+#| msgid "Edit Piwigo Data"
+msgid "Visit Piwigo website"
+msgstr "Επεξεργασία δεδομένων Piwigo"
+
+#: piwigowindow.cpp:145
+msgid "Albums"
+msgstr "Λευκώματα"
+
+#: piwigowindow.cpp:154
+msgid "Change Account"
+msgstr "Αλλαγή λογαριασμού"
+
+#: piwigowindow.cpp:158
+msgid "Options"
+msgstr "Επιλογές"
+
+#: piwigowindow.cpp:162
+msgid "Resize photos before uploading"
+msgstr "Αλλαγή μεγέθους φωτογραφιών πριν την αποστολή"
+
+#: piwigowindow.cpp:165
+msgid "Maximum width:"
+msgstr "Μέγιστο πλάτος:"
+
+#: piwigowindow.cpp:171
+msgid "Maximum height:"
+msgstr "Μέγιστο ύψος:"
+
+#: piwigowindow.cpp:177
+msgid "Resized JPEG quality:"
+msgstr ""
+
+#: piwigowindow.cpp:229 piwigowindow.cpp:233
+msgid "Piwigo Export"
+msgstr "Εξαγωγή Piwigo"
+
+#: piwigowindow.cpp:234
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to a remote Piwigo server."
+msgid "A tool to export image collections to a remote Piwigo server."
+msgstr ""
+"Ένα πρόσθετο Kipi για εξαγωγή συλλογών εικόνων σε έναν απομακρυσμένο "
+"εξυπηρετητή Piwigo."
+
+#: piwigowindow.cpp:235
+#, fuzzy
+#| msgid ""
+#| "(c) 2003-2005, Renchi Raju\n"
+#| "(c) 2006-2007, Colin Guthrie\n"
+#| "(c) 2006-2013, Gilles Caulier\n"
+#| "(c) 2008, Andrea Diamantini\n"
+#| "(c) 2012, Frédéric Coiffier\n"
+msgid ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2015, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2010-2014, Frédéric Coiffier\n"
+msgstr ""
+"(c) 2003-2005, Renchi Raju\n"
+"(c) 2006-2007, Colin Guthrie\n"
+"(c) 2006-2013, Gilles Caulier\n"
+"(c) 2008, Andrea Diamantini\n"
+"(c) 2012, Frédéric Coiffier\n"
+
+#: piwigowindow.cpp:241
+msgid "Renchi Raju"
+msgstr "Renchi Raju"
+
+#: piwigowindow.cpp:242 piwigowindow.cpp:246 piwigowindow.cpp:250
+#: piwigowindow.cpp:254 piwigowindow.cpp:258
+msgid "Developer"
+msgstr "Προγραμματιστής"
+
+#: piwigowindow.cpp:245
+msgid "Colin Guthrie"
+msgstr "Colin Guthrie"
+
+#: piwigowindow.cpp:249
+msgid "Andrea Diamantini"
+msgstr "Andrea Diamantini"
+
+#: piwigowindow.cpp:253
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: piwigowindow.cpp:257
+msgid "Frédéric Coiffier"
+msgstr "Frédéric Coiffier"
+
+#: piwigowindow.cpp:265
+msgid "Start Upload"
+msgstr "Έναρξη αποστολής"
+
+#: piwigowindow.cpp:393
+msgid "Login Failed"
+msgstr ""
+
+#: piwigowindow.cpp:394
+msgid "Failed to login into remote piwigo. "
+msgstr "Αποτυχία εισόδου σε απομακρυσμένο piwigo. "
+
+#: piwigowindow.cpp:395
+msgid ""
+"\n"
+"Do you want to check your settings and try again?"
+msgstr ""
+"\n"
+"Θέλετε να ελέγξετε τις ρυθμίσεις και να προσπαθήσετε πάλι;"
+
+#: piwigowindow.cpp:402 piwigowindow.cpp:642 plugin_piwigo.cpp:117
+msgid "Edit Piwigo Data"
+msgstr "Επεξεργασία δεδομένων Piwigo"
+
+#: piwigowindow.cpp:462 piwigowindow.cpp:486
+msgid "Album"
+msgstr "Λεύκωμα"
+
+#: piwigowindow.cpp:505
+msgid "Image"
+msgstr "Εικόνα"
+
+#: piwigowindow.cpp:536
+msgid "Nothing to upload - please select photos to upload."
+msgstr "Τίποτα για αποστολή - παρακαλώ επιλέξτε φωτογραφίες για αποστολή."
+
+#: piwigowindow.cpp:574
+#, kde-format
+msgid "The file %1 is not a supported image or video format"
+msgstr ""
+
+#: piwigowindow.cpp:578
+#, kde-format
+msgid "Uploading file %1"
+msgstr "Αποστολή αρχείου %1"
+
+#: piwigowindow.cpp:596
+#, fuzzy
+#| msgid "Uploading file %1"
+msgid "Uploading Failed"
+msgstr "Αποστολή αρχείου %1"
+
+#: piwigowindow.cpp:597
+#, fuzzy
+#| msgid "Failed to upload photo into remote piwigo. "
+msgid "Failed to upload media into remote Piwigo. "
+msgstr "Αποτυχία αποστολής φωτογραφίας στο απομακρυσμένο piwigo. "
+
+#: piwigowindow.cpp:598
+msgid ""
+"\n"
+"Do you want to continue?"
+msgstr ""
+"\n"
+"Θέλετε να συνεχίσετε;"
+
+#: plugin_piwigo.cpp:97
+msgid "Export to &Piwigo..."
+msgstr "Εξαγωγή στο &Piwigo..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Stelios"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "sstavra@gmail.com"
+
+#~ msgid "Author"
+#~ msgstr "Συγγραφέας"
+
+#~ msgid "Maintainer"
+#~ msgstr "Συντηρητής"
+
+#~ msgid "Upload resized version of %1"
+#~ msgstr "Αποστολή έκδοσης διαφορετικού μεγέθους της %1"
+
+#~ msgid "Upload the thumbnail of %1"
+#~ msgstr "Αποστολή της επισκόπησης της %1"
+
+#~ msgid "Maximum thumbnail dimension:"
+#~ msgstr "Μέγιστη διάσταση επισκόπησης:"
+
+#~ msgid "Thumbnail size is ignored with Piwigo > 2.4"
+#~ msgstr "Η διάσταση επισκόπησης παραβλέπεται με Piwigo > 2.4"
+
+#~ msgid "&Add Selected Photos"
+#~ msgstr "&Προσθήκη επιλεγμένων φωτογραφιών"
+
+#~ msgid "Override Default Options"
+#~ msgstr "Παράκαμψη προκαθορισμένων επιλογών"
+
+#~ msgid "EXIF Comment (instead of file name) sets Title"
+#~ msgstr "Το σχόλιο EXIF (αντί για το όνομα αρχείου) ρυθμίζει τον τίτλο"
+
+#~ msgid "EXIF Comment (instead of file name) sets Comment"
+#~ msgstr "Το σχόλιο EXIF (αντί για το όνομα αρχείου) ρυθμίζει το σχόλιο"
+
+#~ msgid "Also download the full size version"
+#~ msgstr "Λήψη επίσης της έκδοσης σε πλήρες μέγεθος"
+
+#~ msgid "Handbook"
+#~ msgstr "Εγχειρίδιο"
+
+#~ msgid "Settings"
+#~ msgstr "Ρυθμίσεις"

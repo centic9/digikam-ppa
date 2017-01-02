@@ -6,7 +6,7 @@
  * Date        : 2008-11-21
  * Description : Batch Queue Manager GUI
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,10 +29,7 @@
 #include <QMap>
 #include <QString>
 #include <QCloseEvent>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -41,7 +38,7 @@
 #include "dhistoryview.h"
 #include "dxmlguiwindow.h"
 
-class KAction;
+class QAction;
 
 namespace Digikam
 {
@@ -117,11 +114,6 @@ private:
 
 private Q_SLOTS:
 
-    void slotEditKeys();
-    void slotShowMenuBar();
-    void slotConfToolbars();
-    void slotConfNotifications();
-    void slotNewToolbarConfig();
     void slotSetup();
     void slotComponentsInfo();
     void slotDBStat();

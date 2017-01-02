@@ -6,7 +6,7 @@
  * Date        : 2008-07-11
  * Description : general info list dialog
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "infodlg.moc"
+#include "infodlg.h"
 
 // Qt includes
 
@@ -34,18 +34,21 @@
 #include <QHeaderView>
 #include <QMimeData>
 #include <QClipboard>
+#include <QApplication>
+#include <QStyle>
+#include <QStandardPaths>
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kapplication.h>
-#include <kstandarddirs.h>
-#include <kaboutdata.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "daboutdata.h"
+#include "dxmlguiwindow.h"
 
 namespace Digikam
 {
@@ -55,63 +58,62 @@ class InfoDlg::Private
 public:
 
     Private() :
-        listView(0)
+        listView(0),
+        page(0)
     {
     }
 
     QTreeWidget* listView;
+    QWidget*     page;
 };
 
 InfoDlg::InfoDlg(QWidget* const parent)
-    : KDialog(parent), d(new Private)
+    : QDialog(parent),
+      d(new Private)
 {
-    setButtons(Help|User1|Ok);
-    setDefaultButton(Ok);
-    setButtonFocus(Ok);
     setModal(false);
-    setHelp("digikam");
-    setCaption(i18n("Shared Libraries and Components Information"));
-    setButtonText(User1, i18n("Copy to Clipboard"));
+    setWindowTitle(i18n("Shared Libraries and Components Information"));
 
-    QWidget* const page     = new QWidget(this);
-    setMainWidget(page);
-    QGridLayout* const grid = new QGridLayout(page);
+    QDialogButtonBox* const buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Apply | QDialogButtonBox::Ok, this);
+    buttons->button(QDialogButtonBox::Ok)->setDefault(true);
+    buttons->button(QDialogButtonBox::Apply)->setText(i18n("Copy to Clipboard"));
+
+    d->page     = new QWidget(this);
+    QGridLayout* const grid = new QGridLayout(d->page);
 
     // --------------------------------------------------------
 
-    QLabel* const logo      = new QLabel(page);
+    QLabel* const logo      = new QLabel(d->page);
 
-    if (KGlobal::mainComponent().aboutData()->appName() == QString("digikam"))
+    if (QApplication::applicationName() == QLatin1String("digikam"))
     {
-        logo->setPixmap(QPixmap(KStandardDirs::locate("data", "digikam/data/logo-digikam.png"))
-                        .scaled(92, 92, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48)));
     }
     else
     {
-        logo->setPixmap(QPixmap(KStandardDirs::locate("data", "showfoto/data/logo-showfoto.png"))
-                        .scaled(92, 92, Qt::KeepAspectRatio, Qt::SmoothTransformation));
+        logo->setPixmap(QIcon::fromTheme(QLatin1String("showfoto")).pixmap(QSize(48,48)));
     }
 
     // --------------------------------------------------------
 
-    QLabel* const header    = new QLabel(page);
+    QLabel* const header    = new QLabel(d->page);
     header->setWordWrap(true);
     header->setText(i18n("<font size=\"5\">%1</font><br/><b>Version %2</b>"
                          "<p>%3</p>",
-                         KGlobal::mainComponent().aboutData()->programName(),
-                         KGlobal::mainComponent().aboutData()->version(),
-                         DAboutData::digiKamSlogan().toString()));
+                         QApplication::applicationName(),
+                         QApplication::applicationVersion(),
+                         DAboutData::digiKamSlogan()));
 
     // --------------------------------------------------------
 
-    d->listView = new QTreeWidget(page);
+    d->listView = new QTreeWidget(d->page);
     d->listView->setSortingEnabled(false);
     d->listView->setRootIsDecorated(false);
     d->listView->setSelectionMode(QAbstractItemView::SingleSelection);
     d->listView->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     d->listView->setAllColumnsShowFocus(true);
     d->listView->setColumnCount(2);
-    d->listView->header()->setResizeMode(QHeaderView::Stretch);
+    d->listView->header()->setSectionResizeMode(QHeaderView::Stretch);
 
     // --------------------------------------------------------
 
@@ -121,13 +123,24 @@ InfoDlg::InfoDlg(QWidget* const parent)
     grid->addWidget(d->listView, 2, 0, 1, -1);
     grid->setColumnStretch(1, 10);
     grid->setRowStretch(2, 10);
-    grid->setMargin(0);
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(QMargins());
+    grid->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(d->page);
+    vbx->addWidget(buttons);
+    setLayout(vbx);
 
     // --------------------------------------------------------
 
-    connect(this, SIGNAL(user1Clicked()),
+    connect(buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(accept()));
+
+    connect(buttons->button(QDialogButtonBox::Apply), SIGNAL(clicked()),
             this, SLOT(slotCopy2ClipBoard()));
+
+    connect(buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
 
     resize(400, 500);
 }
@@ -142,6 +155,11 @@ QTreeWidget* InfoDlg::listView() const
     return d->listView;
 }
 
+QWidget* InfoDlg::mainWidget() const
+{
+    return d->page;
+}
+
 void InfoDlg::setInfoMap(const QMap<QString, QString>& list)
 {
     for (QMap<QString, QString>::const_iterator it = list.constBegin(); it != list.constEnd() ; ++it)
@@ -154,25 +172,30 @@ void InfoDlg::slotCopy2ClipBoard()
 {
     QString textInfo;
 
-    textInfo.append(KGlobal::mainComponent().aboutData()->programName());
-    textInfo.append(" version ");
-    textInfo.append(KGlobal::mainComponent().aboutData()->version());
-    textInfo.append("\n");
+    textInfo.append(QApplication::applicationName());
+    textInfo.append(QLatin1String(" version "));
+    textInfo.append(QApplication::applicationVersion());
+    textInfo.append(QLatin1String("\n"));
 
     QTreeWidgetItemIterator it(d->listView);
 
     while (*it)
     {
         textInfo.append((*it)->text(0));
-        textInfo.append(": ");
+        textInfo.append(QLatin1String(": "));
         textInfo.append((*it)->text(1));
-        textInfo.append("\n");
+        textInfo.append(QLatin1String("\n"));
         ++it;
     }
 
     QMimeData* const mimeData = new QMimeData();
     mimeData->setText(textInfo);
     QApplication::clipboard()->setMimeData(mimeData, QClipboard::Clipboard);
+}
+
+void InfoDlg::slotHelp()
+{
+    DXmlGuiWindow::openHandbook(QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

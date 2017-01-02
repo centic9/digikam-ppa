@@ -6,7 +6,7 @@
  * Date        : 2007-04-15
  * Description : a zoom bar used in status bar.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "dzoombar.moc"
+#include "dzoombar.h"
 
 // C++ includes
 
@@ -29,23 +29,23 @@
 
 // Qt includes
 
+#include <QLineEdit>
 #include <QAction>
 #include <QLayout>
 #include <QSlider>
 #include <QTimer>
 #include <QToolButton>
 #include <QList>
+#include <QComboBox>
+#include <QLocale>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kvbox.h>
-#include <kcombobox.h>
-#include <kglobal.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dcursortracker.h"
 #include "thumbnailsize.h"
 
@@ -78,13 +78,13 @@ public:
 
     QSlider*        zoomSlider;
 
-    KComboBox*      zoomCombo;
+    QComboBox*      zoomCombo;
 
     DCursorTracker* zoomTracker;
 };
 
 DZoomBar::DZoomBar(QWidget* const parent)
-    : KHBox(parent), d(new Private)
+    : DHBox(parent), d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
     setFocusPolicy(Qt::NoFocus);
@@ -102,7 +102,7 @@ DZoomBar::DZoomBar(QWidget* const parent)
     d->zoomMinusButton->setFocusPolicy(Qt::NoFocus);
 
     d->zoomSlider  = new QSlider(Qt::Horizontal, this);
-    d->zoomTracker = new DCursorTracker(QString(""), d->zoomSlider);
+    d->zoomTracker = new DCursorTracker(QLatin1String(""), d->zoomSlider);
     d->zoomSlider->setRange(ThumbnailSize::Small, ThumbnailSize::maxThumbsSize());
     d->zoomSlider->setSingleStep(ThumbnailSize::Step);
     d->zoomSlider->setValue(ThumbnailSize::Medium);
@@ -114,7 +114,8 @@ DZoomBar::DZoomBar(QWidget* const parent)
     d->zoomPlusButton->setAutoRaise(true);
     d->zoomPlusButton->setFocusPolicy(Qt::NoFocus);
 
-    d->zoomCombo = new KComboBox(true, this);
+    d->zoomCombo = new QComboBox(this);
+    d->zoomCombo->setEditable(true);
     d->zoomCombo->setDuplicatesEnabled(false);
     d->zoomCombo->setFocusPolicy(Qt::ClickFocus);
     d->zoomCombo->setInsertPolicy(QComboBox::NoInsert);
@@ -135,10 +136,10 @@ DZoomBar::DZoomBar(QWidget* const parent)
 
     foreach(const double zoom, zoomLevels)
     {
-        d->zoomCombo->addItem(QString("%1%").arg((int)zoom), QVariant(zoom));
+        d->zoomCombo->addItem(QString::fromLatin1("%1%").arg((int)zoom), QVariant(zoom));
     }
 
-    layout()->setMargin(0);
+    layout()->setContentsMargins(QMargins());
     layout()->setSpacing(0);
 
     // -------------------------------------------------------------
@@ -155,8 +156,8 @@ DZoomBar::DZoomBar(QWidget* const parent)
     connect(d->zoomCombo, SIGNAL(activated(int)),
             this, SLOT(slotZoomSelected(int)));
 
-    connect(d->zoomCombo, SIGNAL(returnPressed(QString)),
-            this, SLOT(slotZoomTextChanged(QString)));
+    connect(d->zoomCombo->lineEdit(), SIGNAL(returnPressed()),
+            this, SLOT(slotZoomTextChanged()));
 
     // -------------------------------------------------------------
 
@@ -224,7 +225,7 @@ void DZoomBar::setZoom(double zoom, double zmin, double zmax)
     d->zoomSlider->setValue(size);
     d->zoomSlider->blockSignals(false);
 
-    QString ztxt = QString::number(lround(zoom*100.0)) + QString("%");
+    QString ztxt = QString::number(lround(zoom*100.0)) + QLatin1String("%");
     d->zoomCombo->blockSignals(true);
     d->zoomCombo->setCurrentIndex(-1);
     d->zoomCombo->setEditText(ztxt);
@@ -283,10 +284,11 @@ void DZoomBar::slotZoomSelected(int index)
     }
 }
 
-void DZoomBar::slotZoomTextChanged(const QString& txt)
+void DZoomBar::slotZoomTextChanged()
 {
+    QString txt = d->zoomCombo->currentText();
     bool ok     = false;
-    double zoom = KGlobal::locale()->readNumber(txt, &ok) / 100.0;
+    double zoom = QLocale().toDouble(txt, &ok) / 100.0;
 
     if (ok && zoom > 0.0 && zoom <= 48.0)
     {

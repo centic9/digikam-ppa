@@ -7,7 +7,7 @@
  * Description : perform lossless rotation/flip to JPEG file
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * Parts of the loading code is taken from qjpeghandler.cpp, copyright follows:
@@ -34,6 +34,11 @@
 
 #include <cstdio>
 #include <cstdlib>
+
+// Digikam includes
+
+#include <dimg.h>
+#include <dmetadata.h>
 
 // C ANSI includes
 
@@ -72,10 +77,6 @@ extern "C"
 #pragma clang diagnostic pop
 #endif
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Qt includes
 
 #include <QImageReader>
@@ -85,12 +86,14 @@ extern "C"
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
 #include "dmetadata.h"
 #include "metadatasettings.h"
 #include "filereadwritelock.h"
 
-#ifdef Q_CC_MSVC
+#ifdef Q_OS_WIN
+#include "windows.h"
 #include "jpegwin.h"
 #endif
 
@@ -118,7 +121,7 @@ static void jpegutils_jpeg_error_exit(j_common_ptr cinfo)
     char buffer[JMSG_LENGTH_MAX];
     (*cinfo->err->format_message)(cinfo, buffer);
 
-    kDebug() << "Jpegutils error, aborting operation:" << buffer;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Jpegutils error, aborting operation:" << buffer;
 
     longjmp(myerr->setjmp_buffer, 1);
 }
@@ -129,9 +132,8 @@ static void jpegutils_jpeg_emit_message(j_common_ptr cinfo, int msg_level)
     char buffer[JMSG_LENGTH_MAX];
     (*cinfo->err->format_message)(cinfo, buffer);
 
-#ifdef USE_IMGLOADERDEBUGMSG
-    kDebug() << buffer << " (" << msg_level << ")";
-#endif
+    // TODO this was behind the ifdef guard for dimg imageloaders, should this class be moved to dimg?
+    //qCDebug(DIGIKAM_GENERAL_LOG) << buffer << " (" << msg_level << ")";
 }
 
 static void jpegutils_jpeg_output_message(j_common_ptr cinfo)
@@ -139,9 +141,8 @@ static void jpegutils_jpeg_output_message(j_common_ptr cinfo)
     char buffer[JMSG_LENGTH_MAX];
     (*cinfo->err->format_message)(cinfo, buffer);
 
-#ifdef USE_IMGLOADERDEBUGMSG
-    kDebug() << buffer;
-#endif
+    // TODO this was behind the ifdef guard for dimg imageloaders, should this class be moved to dimg?
+    //qCDebug(DIGIKAM_GENERAL_LOG) << buffer;
 }
 
 bool loadJPEGScaled(QImage& image, const QString& path, int maximumSize)
@@ -153,7 +154,7 @@ bool loadJPEGScaled(QImage& image, const QString& path, int maximumSize)
         return false;
     }
 
-    FILE* const inputFile = fopen(QFile::encodeName(path), "rb");
+    FILE* const inputFile = fopen(QFile::encodeName(path).constData(), "rb");
 
     if (!inputFile)
     {
@@ -178,7 +179,9 @@ bool loadJPEGScaled(QImage& image, const QString& path, int maximumSize)
     }
 
     jpeg_create_decompress(&cinfo);
-#ifdef Q_CC_MSVC
+
+#ifdef Q_OS_WIN
+
     QFile inFile(path);
     QByteArray buffer;
 
@@ -189,9 +192,13 @@ bool loadJPEGScaled(QImage& image, const QString& path, int maximumSize)
     }
 
     jpeg_memory_src(&cinfo, (JOCTET*)buffer.data(), buffer.size());
-#else
+
+#else  // Q_OS_WIN
+
     jpeg_stdio_src(&cinfo, inputFile);
-#endif
+
+#endif // Q_OS_WIN
+
     jpeg_read_header(&cinfo, true);
 
     int imgSize = qMax(cinfo.image_width, cinfo.image_height);
@@ -253,7 +260,7 @@ bool loadJPEGScaled(QImage& image, const QString& path, int maximumSize)
             break;
         case 1: // B&W image
             img = QImage(cinfo.output_width, cinfo.output_height, QImage::Format_Indexed8);
-            img.setNumColors(256);
+            img.setColorCount(256);
 
             for (int i = 0 ; i < 256 ; ++i)
             {
@@ -338,7 +345,9 @@ JpegRotator::JpegRotator(const QString& file)
     m_documentName = info.fileName();
 }
 
-void JpegRotator::setCurrentOrientation(KExiv2::ImageOrientation orientation)
+// -----------------------------------------------------------------------------
+
+void JpegRotator::setCurrentOrientation(MetaEngine::ImageOrientation orientation)
 {
     m_orientation = orientation;
 }
@@ -355,18 +364,18 @@ void JpegRotator::setDestinationFile(const QString& dest)
 
 bool JpegRotator::autoExifTransform()
 {
-    return exifTransform(RotationMatrix::NoTransformation);
+    return exifTransform(MetaEngineRotation::NoTransformation);
 }
 
 bool JpegRotator::exifTransform(TransformAction action)
 {
-    RotationMatrix matrix;
+    MetaEngineRotation matrix;
     matrix *= m_orientation;
     matrix *= action;
     return exifTransform(matrix);
 }
 
-bool JpegRotator::exifTransform(const RotationMatrix& matrix)
+bool JpegRotator::exifTransform(const MetaEngineRotation& matrix)
 {
     FileWriteLocker lock(m_destFile);
 
@@ -374,14 +383,14 @@ bool JpegRotator::exifTransform(const RotationMatrix& matrix)
 
     if (!fi.exists())
     {
-        kError() << "ExifRotate: file does not exist: " << m_file;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "ExifRotate: file does not exist: " << m_file;
         return false;
     }
 
     if (!isJpegImage(m_file))
     {
         // Not a jpeg image.
-        kError() << "ExifRotate: not a JPEG file: " << m_file;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "ExifRotate: not a JPEG file: " << m_file;
         return false;
     }
 
@@ -404,7 +413,7 @@ bool JpegRotator::exifTransform(const RotationMatrix& matrix)
 
     for (int i=0; i<actions.size(); i++)
     {
-        SafeTemporaryFile* const temp = new SafeTemporaryFile(dir + "/JpegRotator-XXXXXX.digikamtempfile.jpg");
+        SafeTemporaryFile* const temp = new SafeTemporaryFile(dir + QLatin1String("/JpegRotator-XXXXXX.digikamtempfile.jpg"));
         temp->setAutoRemove(false);
         temp->open();
         QString tempFile = temp->fileName();
@@ -413,35 +422,35 @@ bool JpegRotator::exifTransform(const RotationMatrix& matrix)
 
         if (!performJpegTransform(actions[i], src, tempFile))
         {
-            kError() << "JPEG lossless transform failed for" << src;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "JPEG lossless transform failed for" << src;
 
-            // See bug 320107 : if lossless transform cannot be achieve, do lossy transform.
+             // See bug 320107 : if lossless transform cannot be achieve, do lossy transform.
             DImg srcImg;
 
-            kDebug() << "Trying lossy transform for " << src;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Trying lossy transform for " << src;
 
             if (!srcImg.load(src))
             {
-                ::unlink(QFile::encodeName(tempFile));
+                ::unlink(QFile::encodeName(tempFile).constData());
                 return false;
             }
 
-            if (actions[i] != KExiv2Iface::RotationMatrix::NoTransformation)
+            if (actions[i] != MetaEngineRotation::NoTransformation)
             {
                 srcImg.transform(actions[i]);
             }
 
-            srcImg.setAttribute("quality", getJpegQuality(src));
+            srcImg.setAttribute(QLatin1String("quality"), getJpegQuality(src));
 
             if (!srcImg.save(tempFile, DImg::JPEG))
             {
-                kError() << "Lossy transform failed for" << src;
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Lossy transform failed for" << src;
 
-                ::unlink(QFile::encodeName(tempFile));
+                ::unlink(QFile::encodeName(tempFile).constData());
                 return false;
             }
 
-            kDebug() << "lossy transform done for " << src;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Lossy transform done for " << src;
         }
 
         if (i+1 != actions.size())
@@ -456,27 +465,45 @@ bool JpegRotator::exifTransform(const RotationMatrix& matrix)
         updateMetadata(tempFile, matrix);
 
         // atomic rename
-#ifndef Q_OS_WIN
-        if (::rename(QFile::encodeName(tempFile), QFile::encodeName(dest)) != 0)
+
+        if (DMetadata::hasSidecar(tempFile))
+        {
+            QString sidecarTemp = DMetadata::sidecarPath(tempFile);
+            QString sidecarDest = DMetadata::sidecarPath(dest);
+
+#ifdef Q_OS_WIN
+            if (::MoveFileEx((LPCWSTR)sidecarTemp.utf16(), (LPCWSTR)sidecarDest.utf16(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH) == 0)
 #else
-        if (::MoveFileEx(tempFile.utf16(), dest.utf16(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH) == 0)
+            if (::rename(QFile::encodeName(sidecarTemp).constData(), QFile::encodeName(sidecarDest).constData()) != 0)
+#endif
+            {
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Renaming sidecar file" << sidecarTemp << "to" << sidecarDest << "failed";
+                unlinkLater << sidecarTemp;
+                break;
+            }
+        }
+
+#ifdef Q_OS_WIN
+        if (::MoveFileEx((LPCWSTR)tempFile.utf16(), (LPCWSTR)dest.utf16(), MOVEFILE_REPLACE_EXISTING | MOVEFILE_WRITE_THROUGH) == 0)
+#else
+        if (::rename(QFile::encodeName(tempFile).constData(), QFile::encodeName(dest).constData()) != 0)
 #endif
         {
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Renaming" << tempFile << "to" << dest << "failed";
             unlinkLater << tempFile;
-            kError() << "Renaming" << tempFile << "to" << dest << "failed";
             break;
         }
     }
 
-    foreach (const QString tempFile, unlinkLater)
+    foreach (const QString& tempFile, unlinkLater)
     {
-        ::unlink(QFile::encodeName(tempFile));
+        ::unlink(QFile::encodeName(tempFile).constData());
     }
 
     return true;
 }
 
-void JpegRotator::updateMetadata(const QString& fileName, const RotationMatrix &matrix)
+void JpegRotator::updateMetadata(const QString& fileName, const MetaEngineRotation &matrix)
 {
     // Reset the Exif orientation tag of the temp image to normal
     m_metadata.setImageOrientation(DMetadata::ORIENTATION_NORMAL);
@@ -515,7 +542,7 @@ void JpegRotator::updateMetadata(const QString& fileName, const RotationMatrix &
 
     struct stat st;
 
-    if (::stat(QFile::encodeName(m_file), &st) == 0)
+    if (::stat(QFile::encodeName(m_file).constData(), &st) == 0)
     {
         // See bug #329608: Restore file modification time from original file only if updateFileTimeStamp for Setup/Metadata is turned off.
 
@@ -525,30 +552,35 @@ void JpegRotator::updateMetadata(const QString& fileName, const RotationMatrix &
             ut.modtime = st.st_mtime;
             ut.actime  = st.st_atime;
 
-            if (::utime(QFile::encodeName(fileName), &ut) != 0)
+            if (::utime(QFile::encodeName(fileName).constData(), &ut) != 0)
             {
-                kWarning() << "Failed to restore modification time for file " << fileName;
+                qCWarning(DIGIKAM_GENERAL_LOG) << "Failed to restore modification time for file " << fileName;
             }
         }
 
         // Restore permissions in all cases
 
 #ifndef Q_OS_WIN
-        if (::chmod(QFile::encodeName(fileName), st.st_mode) != 0)
+
+        if (::chmod(QFile::encodeName(fileName).constData(), st.st_mode) != 0)
         {
-            kWarning() << "Failed to restore file permissions for file " << fileName;
+            qCWarning(DIGIKAM_GENERAL_LOG) << "Failed to restore file permissions for file " << fileName;
         }
-#else
+
+#else  // Q_OS_WIN
+
         QFile::Permissions permissions = QFile::permissions(m_file);
         QFile::setPermissions(fileName, permissions);
-#endif
+
+#endif //Q_OS_WIN
+
     }
 }
 
 bool JpegRotator::performJpegTransform(TransformAction action, const QString& src, const QString& dest)
 {
-    QByteArray in                   = QFile::encodeName(src);
-    QByteArray out                  = QFile::encodeName(dest);
+    QByteArray in                   = QFile::encodeName(src).constData();
+    QByteArray out                  = QFile::encodeName(dest).constData();
 
     JCOPY_OPTION copyoption         = JCOPYOPT_ALL;
     jpeg_transform_info transformoption;
@@ -557,12 +589,14 @@ bool JpegRotator::performJpegTransform(TransformAction action, const QString& sr
     transformoption.trim            = false;
 
 #if (JPEG_LIB_VERSION >= 80)
-    // we need to initialize a few more parameters, see bug 274947
-    transformoption.perfect         = true;             // See bug 320107 : we need perfect transform here.
-    transformoption.crop            = false;
-#endif
 
-    // NOTE : Cast is fine here. See libkexiv2/rotationmatrix.h for details.
+    // we need to initialize a few more parameters, see bug 274947
+    transformoption.perfect         = true;   // See bug 320107 : we need perfect transform here.
+    transformoption.crop            = false;
+
+#endif // (JPEG_LIB_VERSION >= 80)
+
+    // NOTE : Cast is fine here. See metaengine_rotation.h for details.
     transformoption.transform       = (JXFORM_CODE)action;
 
     if (transformoption.transform == JXFORM_NONE)
@@ -593,20 +627,20 @@ bool JpegRotator::performJpegTransform(TransformAction action, const QString& sr
     FILE* input_file  = 0;
     FILE* output_file = 0;
 
-    input_file = fopen(in, "rb");
+    input_file = fopen(in.constData(), "rb");
 
     if (!input_file)
     {
-        kWarning() << "ExifRotate: Error in opening input file: " << input_file;
+        qCWarning(DIGIKAM_GENERAL_LOG) << "ExifRotate: Error in opening input file: " << input_file;
         return false;
     }
 
-    output_file = fopen(out, "wb");
+    output_file = fopen(out.constData(), "wb");
 
     if (!output_file)
     {
         fclose(input_file);
-        kWarning() << "ExifRotate: Error in opening output file: " << output_file;
+        qCWarning(DIGIKAM_GENERAL_LOG) << "ExifRotate: Error in opening output file: " << output_file;
         return false;
     }
 
@@ -669,12 +703,12 @@ bool JpegRotator::performJpegTransform(TransformAction action, const QString& sr
 
 bool jpegConvert(const QString& src, const QString& dest, const QString& documentName, const QString& format)
 {
-    kDebug() << "Converting " << src << " to " << dest << " format: " << format << " documentName: " << documentName;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Converting " << src << " to " << dest << " format: " << format << " documentName: " << documentName;
     QFileInfo fi(src);
 
     if (!fi.exists())
     {
-        kDebug() << "JpegConvert: file do not exist: " << src;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "JpegConvert: file do not exist: " << src;
         return false;
     }
 
@@ -695,8 +729,8 @@ bool jpegConvert(const QString& src, const QString& dest, const QString& documen
         // will be found into Exiv2.
         // Note : There is no limitation with TIFF and PNG about IPTC byte array size.
 
-        if (format.toUpper() != QString("JPG") && format.toUpper() != QString("JPEG") &&
-            format.toUpper() != QString("JPE"))
+        if (format.toUpper() != QLatin1String("JPG") && format.toUpper() != QLatin1String("JPEG") &&
+            format.toUpper() != QLatin1String("JPE"))
         {
             meta.setImagePreview(preview);
         }
@@ -713,26 +747,26 @@ bool jpegConvert(const QString& src, const QString& dest, const QString& documen
 
         // And now save the image to a new file format.
 
-        if ( format.toUpper() == QString("PNG") )
+        if ( format.toUpper() == QLatin1String("PNG") )
         {
-            image.setAttribute("quality", 9);
+            image.setAttribute(QLatin1String("quality"), 9);
         }
 
-        if ( format.toUpper() == QString("TIFF") || format.toUpper() == QString("TIF") )
+        if ( format.toUpper() == QLatin1String("TIFF") || format.toUpper() == QLatin1String("TIF") )
         {
-            image.setAttribute("compress", true);
+            image.setAttribute(QLatin1String("compress"), true);
         }
 
-        if ( format.toUpper() == QString("JP2") || format.toUpper() == QString("JPX") ||
-             format.toUpper() == QString("JPC") || format.toUpper() == QString("PGX") ||
-             format.toUpper() == QString("J2K") )
+        if ( format.toUpper() == QLatin1String("JP2") || format.toUpper() == QLatin1String("JPX") ||
+             format.toUpper() == QLatin1String("JPC") || format.toUpper() == QLatin1String("PGX") ||
+             format.toUpper() == QLatin1String("J2K") )
         {
-            image.setAttribute("quality", 100);    // LossLess
+            image.setAttribute(QLatin1String("quality"), 100);    // LossLess
         }
 
-        if ( format.toUpper() == QString("PGF") )
+        if ( format.toUpper() == QLatin1String("PGF") )
         {
-            image.setAttribute("quality", 0);    // LossLess
+            image.setAttribute(QLatin1String("quality"), 0);    // LossLess
         }
 
         return (image.save(dest, format));
@@ -746,13 +780,13 @@ bool isJpegImage(const QString& file)
     QFileInfo fileInfo(file);
 
     // Check if the file is an JPEG image
-    QString format = QString(QImageReader::imageFormat(file)).toUpper();
+    QString format = QString::fromUtf8(QImageReader::imageFormat(file)).toUpper();
     // Check if its not MPO format (See bug #307277).
     QString ext    = fileInfo.suffix().toUpper();
 
-    kDebug() << "mimetype = " << format << " ext = " << ext;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "mimetype = " << format << " ext = " << ext;
 
-    if (format != "JPEG" || ext == "MPO")
+    if (format != QLatin1String("JPEG") || ext == QLatin1String("MPO"))
     {
         return false;
     }
@@ -799,23 +833,20 @@ bool copyFile(const QString& src, const QString& dst)
 int getJpegQuality(const QString& file)
 {
     // Set a good default quality
-    int quality = 90;
+    volatile int quality = 90;
 
     if (!isJpegImage(file))
     {
         return quality;
     }
 
-    FILE* const inFile = fopen(QFile::encodeName(file), "rb");
+    FILE* const inFile = fopen(QFile::encodeName(file).constData(), "rb");
 
     if (!inFile)
     {
         return quality;
     }
 
-    long value;
-    long sum = 0;
-    register long i, j;
     struct jpeg_decompress_struct   jpeg_info;
     struct jpegutils_jpeg_error_mgr jerr;
 
@@ -839,6 +870,10 @@ int getJpegQuality(const QString& file)
 
     // https://subversion.imagemagick.org/subversion/ImageMagick/trunk/coders/jpeg.c
     // Determine the JPEG compression quality from the quantization tables.
+
+    long value;
+    long i, j;
+    long sum = 0;
 
     for (i = 0; i < NUM_QUANT_TBLS; ++i)
     {
@@ -958,7 +993,7 @@ int getJpegQuality(const QString& file)
     jpeg_destroy_decompress(&jpeg_info);
     fclose(inFile);
 
-    kDebug() << "JPEG Quality: " << quality << " File: " << file;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "JPEG Quality: " << quality << " File: " << file;
     return quality;
 }
 

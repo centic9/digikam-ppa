@@ -29,10 +29,7 @@
 #include <QWidget>
 #include <QAction>
 #include <QModelIndex>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -41,6 +38,8 @@
 
 namespace Digikam
 {
+
+class DImageHistory;
 
 class RemoveFilterAction : public QAction
 {
@@ -85,7 +84,7 @@ public:
     explicit FiltersHistoryWidget(QWidget* const parent);
     ~FiltersHistoryWidget();
 
-    void setCurrentURL(const KUrl& url = KUrl());
+    void setCurrentURL(const QUrl& url = QUrl());
 
 public Q_SLOTS:
 

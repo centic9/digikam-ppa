@@ -26,15 +26,14 @@
 
 // Qt includes
 
-#include <QtGui/QLabel>
-#include <QtGui/QListView>
-#include <QtGui/QComboBox>
-#include <QtCore/QPersistentModelIndex>
+#include <QLabel>
+#include <QListView>
+#include <QComboBox>
+#include <QPersistentModelIndex>
 
 // KDE includes
 
-#include <klineedit.h>
-#include <kcombobox.h>
+#include <QLineEdit>
 
 // Local includes
 
@@ -46,7 +45,7 @@ class QTreeView;
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT ProxyLineEdit : public KLineEdit
+class DIGIKAM_EXPORT ProxyLineEdit : public QLineEdit
 {
     Q_OBJECT
 
@@ -64,10 +63,17 @@ public:
     /// After constructing, set the actual widget here
     virtual void setWidget(QWidget* widget);
 
-    virtual void setClearButtonShown(bool show);
+    void setClearButtonShown(bool show);
+
+Q_SIGNALS:
+
+    void signalClearButtonPressed();
+
+private Q_SLOTS:
+
+    void slotTextChanged(const QString& text);
 
 protected:
-
 
     QSize minimumSizeHint() const;
     QSize sizeHint()        const;
@@ -121,7 +127,7 @@ protected:
 
 // -------------------------------------------------------------------------
 
-class DIGIKAM_EXPORT ModelIndexBasedComboBox : public KComboBox
+class DIGIKAM_EXPORT ModelIndexBasedComboBox : public QComboBox
 {
 public:
 

@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "ratingsearchutilities.moc"
+#include "ratingsearchutilities.h"
 
 // Qt includes
 
@@ -36,16 +36,16 @@
 #include <QStyle>
 #include <QStyleOption>
 #include <QVBoxLayout>
+#include <QApplication>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "globals.h"
+#include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "ratingwidget.h"
 
 namespace Digikam
@@ -128,14 +128,14 @@ void RatingComboBoxDelegate::drawRating(QPainter* painter, const QRect& rect, in
 
     painter->setRenderHint(QPainter::Antialiasing, true);
     //pen.setJoinStyle(Qt::MiterJoin);
-    painter->setPen(kapp->palette().color(QPalette::Text));
+    painter->setPen(qApp->palette().color(QPalette::Text));
 
     if (!selectable)
     {
         painter->setOpacity(.1);
     }
 
-    painter->setBrush(kapp->palette().color(QPalette::Link));
+    painter->setBrush(qApp->palette().color(QPalette::Link));
     // move painter while drawing polygons
     painter->translate(rect.topLeft());
     QRect drawRect = drawStarPolygons(painter, rating);
@@ -296,7 +296,7 @@ void RatingComboBoxWidget::paintEvent(QPaintEvent* e)
 {
     if (m_value >= RatingComboBox::Rating0)
     {
-        //kDebug() << "m_value" << m_value << "defaulting paint to parent" << this;
+        //qCDebug(DIGIKAM_GENERAL_LOG) << "m_value" << m_value << "defaulting paint to parent" << this;
         RatingWidget::paintEvent(e);
     }
     else if (m_value == RatingComboBox::NoRating)

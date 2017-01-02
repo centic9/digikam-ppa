@@ -7,7 +7,7 @@
  * Description : DImg image loader interface
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -36,12 +36,9 @@
 #include <QByteArray>
 #include <QVariant>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "digikam_export.h"
 #include "dimg.h"
 
@@ -152,8 +149,8 @@ Q_INLINE_TEMPLATE Type* DImgLoader::new_failureTolerant(quint64 w, quint64 h, ui
 
     if (requested > maximum)
     {
-        kError() << "Requested memory of" << requested*quint64(sizeof(Type))
-                 << "is larger than size_t supported by platform.";
+        qCCritical(DIGIKAM_DIMG_LOG) << "Requested memory of" << requested*quint64(sizeof(Type))
+                                        << "is larger than size_t supported by platform.";
         return 0;
     }
 
@@ -185,7 +182,7 @@ Q_INLINE_TEMPLATE Type* DImgLoader::new_failureTolerant(size_t size)
     }
     catch (std::bad_alloc& ex)
     {
-        kError() << "Failed to allocate chunk of memory of size" << size << ex.what();
+        qCCritical(DIGIKAM_DIMG_LOG) << "Failed to allocate chunk of memory of size" << size << ex.what();
         reserved = 0;
     }
 

@@ -24,12 +24,9 @@
 #ifndef IMAGECATEGORYDRAWER_H
 #define IMAGECATEGORYDRAWER_H
 
-// KDE includes
-
-#include <kdeversion.h>
-#include <kcategorydrawer.h>
-
 // Local includes
+
+#include "dcategorydrawer.h"
 
 class QStyleOptionViewItem;
 
@@ -43,12 +40,7 @@ class TAlbum;
 class SAlbum;
 class DAlbum;
 
-class ImageCategoryDrawer :
-#if KDE_IS_VERSION(4,5,0)
-    public KCategoryDrawerV3
-#else
-    public KCategoryDrawerV2
-#endif
+class ImageCategoryDrawer : public DCategoryDrawer
 {
 public:
 

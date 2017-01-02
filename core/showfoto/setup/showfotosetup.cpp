@@ -6,7 +6,7 @@
  * Date        : 2005-04-02
  * Description : showFoto setup dialog.
  *
- * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,31 +21,30 @@
  *
  * ============================================================ */
 
-#include "showfotosetup.moc"
+#include "showfotosetup.h"
 
 // Qt includes
 
 #include <QPointer>
+#include <QPushButton>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kvbox.h>
+#include <kconfiggroup.h>
+#include <ksharedconfig.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "setupraw.h"
-#include "setupeditor.h"
+#include "setupeditoriface.h"
 #include "setupicc.h"
 #include "setupiofiles.h"
 #include "setupslideshow.h"
+#include "showfotosetupraw.h"
 #include "showfotosetupmisc.h"
 #include "showfotosetupmetadata.h"
 #include "showfotosetuptooltip.h"
+#include "dxmlguiwindow.h"
 
 namespace ShowFoto
 {
@@ -55,7 +54,7 @@ class Setup::Private
 public:
 
     Private() :
-        page_editor(0),
+        page_editorIface(0),
         page_metadata(0),
         page_tooltip(0),
         page_raw(0),
@@ -66,99 +65,99 @@ public:
         metadataPage(0),
         toolTipPage(0),
         miscPage(0),
-        editorPage(0),
         rawPage(0),
+        editorIfacePage(0),
         iofilesPage(0),
         slideshowPage(0),
         iccPage(0)
     {
     }
 
-    KPageWidgetItem*         page_editor;
-    KPageWidgetItem*         page_metadata;
-    KPageWidgetItem*         page_tooltip;
-    KPageWidgetItem*         page_raw;
-    KPageWidgetItem*         page_iofiles;
-    KPageWidgetItem*         page_slideshow;
-    KPageWidgetItem*         page_icc;
-    KPageWidgetItem*         page_misc;
+    DConfigDlgWdgItem*         page_editorIface;
+    DConfigDlgWdgItem*         page_metadata;
+    DConfigDlgWdgItem*         page_tooltip;
+    DConfigDlgWdgItem*         page_raw;
+    DConfigDlgWdgItem*         page_iofiles;
+    DConfigDlgWdgItem*         page_slideshow;
+    DConfigDlgWdgItem*         page_icc;
+    DConfigDlgWdgItem*         page_misc;
 
-    SetupMetadata*           metadataPage;
-    SetupToolTip*            toolTipPage;
-    SetupMisc*               miscPage;
+    SetupMetadata*             metadataPage;
+    SetupToolTip*              toolTipPage;
+    SetupMisc*                 miscPage;
+    SetupRaw*                  rawPage;
 
-    Digikam::SetupEditor*    editorPage;
-    Digikam::SetupRaw*       rawPage;
-    Digikam::SetupIOFiles*   iofilesPage;
-    Digikam::SetupSlideShow* slideshowPage;
-    Digikam::SetupICC*       iccPage;
+    Digikam::SetupEditorIface* editorIfacePage;
+    Digikam::SetupIOFiles*     iofilesPage;
+    Digikam::SetupSlideShow*   slideshowPage;
+    Digikam::SetupICC*         iccPage;
 
 public:
 
-    KPageWidgetItem* pageItem(Setup::Page page) const;
+    DConfigDlgWdgItem* pageItem(Setup::Page page) const;
 };
 
 Setup::Setup(QWidget* const parent, Setup::Page page)
-    : KPageDialog(parent), d(new Private)
+    : DConfigDlg(parent),
+      d(new Private)
 {
-    setCaption(i18n("Configure"));
-    setButtons( KDialog::Help|KDialog::Ok|KDialog::Cancel );
-    setDefaultButton(KDialog::Ok);
-    setHelp("setupdialog.anchor", "showfoto");
-    setFaceType(KPageDialog::List);
+    setWindowTitle(i18n("Configure"));
+    setStandardButtons(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel);
+    button(QDialogButtonBox::Ok)->setDefault(true);
+    setFaceType(DConfigDlg::List);
     setModal(true);
 
-    d->editorPage     = new Digikam::SetupEditor();
-    d->page_editor    = addPage(d->editorPage, i18n("Image Editor"));
-    d->page_editor->setHeader(i18n("<qt>Image Editor Settings<br/>"
-                                   "<i>Customize image editor behavior</i></qt>"));
-    d->page_editor->setIcon(KIcon("editimage"));
+    d->editorIfacePage     = new Digikam::SetupEditorIface();
+    d->page_editorIface    = addPage(d->editorIfacePage, i18n("Editor Window"));
+    d->page_editorIface->setHeader(i18n("<qt>Editor Window Settings<br/>"
+                                   "<i>Customize editor window behavior</i></qt>"));
+    d->page_editorIface->setIcon(QIcon::fromTheme(QLatin1String("document-edit")));
 
     d->metadataPage   = new SetupMetadata();
     d->page_metadata  = addPage(d->metadataPage, i18n("Metadata"));
     d->page_metadata->setHeader(i18n("<qt>Embedded Image Information Management<br/>"
                                      "<i>Setup relations between images and metadata</i></qt>"));
-    d->page_metadata->setIcon(KIcon("exifinfo")); // krazy:exclude=iconnames
+    d->page_metadata->setIcon(QIcon::fromTheme(QLatin1String("format-text-code"))); // krazy:exclude=iconnames
 
     d->toolTipPage    = new SetupToolTip();
     d->page_tooltip   = addPage(d->toolTipPage, i18n("Tool Tip"));
     d->page_tooltip->setHeader(i18n("<qt>Thumbbar Items Tool-Tip Settings<br/>"
                                     "<i>Customize information in tool-tips</i></qt>"));
-    d->page_tooltip->setIcon(KIcon("dialog-information"));
+    d->page_tooltip->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
 
-    d->rawPage        = new Digikam::SetupRaw();
+    d->rawPage        = new SetupRaw();
     d->page_raw       = addPage(d->rawPage, i18n("RAW Decoding"));
     d->page_raw->setHeader(i18n("<qt>RAW Files Decoding Settings<br/>"
                                   "<i>Customize default RAW decoding settings</i></qt>"));
-    d->page_raw->setIcon(KIcon("kdcraw"));
+    d->page_raw->setIcon(QIcon::fromTheme(QLatin1String("image-x-adobe-dng")));
 
-    d->iccPage        = new Digikam::SetupICC(this);
+    d->iccPage        = new Digikam::SetupICC(buttonBox());
     d->page_icc       = addPage(d->iccPage, i18n("Color Management"));
     d->page_icc->setHeader(i18n("<qt>Settings for Color Management<br/>"
                                 "<i>Customize color management settings</i></qt>"));
-    d->page_icc->setIcon(KIcon("colormanagement"));
+    d->page_icc->setIcon(QIcon::fromTheme(QLatin1String("preferences-desktop-display-color")));
 
     d->iofilesPage    = new Digikam::SetupIOFiles();
     d->page_iofiles   = addPage(d->iofilesPage, i18n("Save Images"));
     d->page_iofiles->setHeader(i18n("<qt>Settings for Saving Image Files<br/>"
                                     "<i>Set default configuration used to save images</i></qt>"));
-    d->page_iofiles->setIcon(KIcon("document-save-all"));
+    d->page_iofiles->setIcon(QIcon::fromTheme(QLatin1String("document-save-all")));
 
     d->slideshowPage  = new Digikam::SetupSlideShow();
     d->page_slideshow = addPage(d->slideshowPage, i18n("Slide Show"));
     d->page_slideshow->setHeader(i18n("<qt>Slide Show Settings<br/>"
                                       "<i>Customize slideshow settings</i></qt>"));
-    d->page_slideshow->setIcon(KIcon("view-presentation"));
+    d->page_slideshow->setIcon(QIcon::fromTheme(QLatin1String("view-presentation")));
 
     d->miscPage       = new SetupMisc();
     d->page_misc      = addPage(d->miscPage, i18n("Miscellaneous"));
     d->page_misc->setHeader(i18n("<qt>Miscellaneous Settings<br/>"
                                  "<i>Customize behavior of the other parts of Showfoto</i></qt>"));
-    d->page_misc->setIcon(KIcon("preferences-other"));
+    d->page_misc->setIcon(QIcon::fromTheme(QLatin1String("preferences-other")));
 
     for (int i = 0; i != SetupPageEnumLast; ++i)
     {
-        KPageWidgetItem* const item = d->pageItem((Page)i);
+        DConfigDlgWdgItem* const item = d->pageItem((Page)i);
 
         if (!item)
         {
@@ -174,11 +173,14 @@ Setup::Setup(QWidget* const parent, Setup::Page page)
         }
     }
 
-    connect(this, SIGNAL(okClicked()),
-            this, SLOT(slotOkClicked()));
+    connect(buttonBox()->button(QDialogButtonBox::Ok),
+            &QPushButton::clicked, this, &Setup::slotOkClicked);
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(QString("Setup Dialog"));
+    connect(buttonBox(), SIGNAL(helpRequested()),
+            this, SLOT(slotHelp()));
+
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Setup Dialog"));
 
     if (page != LastPageUsed)
     {
@@ -186,27 +188,31 @@ Setup::Setup(QWidget* const parent, Setup::Page page)
     }
     else
     {
-        showPage((Page)group.readEntry("Setup Page", (int)EditorPage));
+        showPage((Page)group.readEntry(QLatin1String("Setup Page"), (int)EditorPage));
     }
 
-    restoreDialogSize(group);
-
-    show();
+    Digikam::DXmlGuiWindow::restoreWindowSize(windowHandle(), group);
+    resize(windowHandle()->size());
 }
 
 Setup::~Setup()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(QString("Setup Dialog"));
-    group.writeEntry("Setup Page", (int)activePageIndex());
-    saveDialogSize(group);
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Setup Dialog"));
+    group.writeEntry(QLatin1String("Setup Page"), (int)activePageIndex());
+    Digikam::DXmlGuiWindow::saveWindowSize(windowHandle(), group);
     config->sync();
     delete d;
 }
 
+void Setup::slotHelp()
+{
+    Digikam::DXmlGuiWindow::openHandbook(QLatin1String("setupdialog.anchor"), QLatin1String("showfoto"));
+}
+
 void Setup::slotOkClicked()
 {
-    d->editorPage->applySettings();
+    d->editorIfacePage->applySettings();
     d->metadataPage->applySettings();
     d->toolTipPage->applySettings();
     d->rawPage->applySettings();
@@ -243,14 +249,14 @@ void Setup::showPage(Setup::Page page)
             setCurrentPage(d->page_misc);
             break;
         default:
-            setCurrentPage(d->page_editor);
+            setCurrentPage(d->page_editorIface);
             break;
     }
 }
 
 Setup::Page Setup::activePageIndex()
 {
-    KPageWidgetItem* const cur = currentPage();
+    DConfigDlgWdgItem* const cur = currentPage();
 
     if (cur == d->page_tooltip)
     {
@@ -290,12 +296,12 @@ Setup::Page Setup::activePageIndex()
     return EditorPage;
 }
 
-KPageWidgetItem* Setup::Private::pageItem(Setup::Page page) const
+DConfigDlgWdgItem* Setup::Private::pageItem(Setup::Page page) const
 {
     switch (page)
     {
         case Setup::EditorPage:
-            return page_editor;
+            return page_editorIface;
         case Setup::MetadataPage:
             return page_metadata;
         case Setup::ToolTipPage:
@@ -321,7 +327,7 @@ bool Setup::execMetadataFilters(QWidget* const parent, int tab)
     setup->showPage(MetadataPage);
     setup->setFaceType(Plain);
 
-    KPageWidgetItem* const cur  = setup->currentPage();
+    DConfigDlgWdgItem* const cur  = setup->currentPage();
 
     if (!cur)
         return false;
@@ -333,7 +339,7 @@ bool Setup::execMetadataFilters(QWidget* const parent, int tab)
 
     widget->setActiveTab((SetupMetadata::MetadataTab)tab);
 
-    bool success                = setup->KPageDialog::exec() == QDialog::Accepted;
+    bool success                = setup->DConfigDlg::exec() == QDialog::Accepted;
     delete setup;
     return success;
 }

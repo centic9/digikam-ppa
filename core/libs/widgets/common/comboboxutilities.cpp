@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "comboboxutilities.moc"
+#include "comboboxutilities.h"
 
 // Qt includes
 
@@ -35,21 +35,20 @@
 #include <QTreeView>
 #include <QVBoxLayout>
 
-// KDE includes
+// Local includes
 
-#include <klocale.h>
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
 
 ProxyLineEdit::ProxyLineEdit(QWidget* const parent)
-    : KLineEdit(parent),
+    : QLineEdit(parent),
       m_widget(0)
 {
     m_layout = new QVBoxLayout;
     m_layout->setSpacing(0);
-    m_layout->setMargin(0);
+    m_layout->setContentsMargins(QMargins());
     setLayout(m_layout);
 
     // unset text edit cursor
@@ -57,6 +56,9 @@ ProxyLineEdit::ProxyLineEdit(QWidget* const parent)
 
     // unset clear button per default
     setClearButtonShown(false);
+
+    connect(this, SIGNAL(textChanged(QString)),
+            this, SLOT(slotTextChanged(QString)));
 }
 
 void ProxyLineEdit::setWidget(QWidget* widget)
@@ -73,26 +75,35 @@ void ProxyLineEdit::setWidget(QWidget* widget)
 
 void ProxyLineEdit::setClearButtonShown(bool show)
 {
-    KLineEdit::setClearButtonShown(show);
-    int rightMargin = show ? clearButtonUsedSize().width() : 0;
+    setClearButtonEnabled(show);
+
+    int rightMargin = show ? height() : 0;
     m_layout->setContentsMargins(0, 0, rightMargin, 0);
 }
 
-// NOTE: see bug #326718: We need to use KLineEdit parent class with these methods
+void ProxyLineEdit::slotTextChanged(const QString& text)
+{
+    if (text.isEmpty() && isClearButtonEnabled())
+    {
+        emit signalClearButtonPressed();
+    }
+}
+
+// NOTE: see bug #326718: We need to use QLineEdit parent class with these methods
 // to have clear button working fine.
 void ProxyLineEdit::mousePressEvent(QMouseEvent* event)
 {
-    KLineEdit::mousePressEvent(event);
+    QLineEdit::mousePressEvent(event);
 }
 
 void ProxyLineEdit::mouseReleaseEvent(QMouseEvent* event)
 {
-    KLineEdit::mouseReleaseEvent(event);
+    QLineEdit::mouseReleaseEvent(event);
 }
 
 /**
  * We just re-implement all relevant QWidget event handlers and call
- * the QWidget implementation, not the KLineEdit one.
+ * the QWidget implementation, not the QLineEdit one.
  */
 void ProxyLineEdit::mouseMoveEvent(QMouseEvent* event)
 {
@@ -190,19 +201,19 @@ void ProxyClickLineEdit::mouseReleaseEvent(QMouseEvent* event)
 // -------------------------------------------------------------------------
 
 ModelIndexBasedComboBox::ModelIndexBasedComboBox(QWidget* const parent)
-    : KComboBox(parent)
+    : QComboBox(parent)
 {
 }
 
 void ModelIndexBasedComboBox::hidePopup()
 {
     m_currentIndex = view()->selectionModel()->currentIndex();
-    KComboBox::hidePopup();
+    QComboBox::hidePopup();
 }
 
 void ModelIndexBasedComboBox::showPopup()
 {
-    KComboBox::showPopup();
+    QComboBox::showPopup();
 
     if (m_currentIndex.isValid())
     {
@@ -388,15 +399,15 @@ QListView* ListViewComboBox::view() const
 
 // -------------------------------------------------------------------------
 
-class TreeViewComboBoxLineEdit : public KLineEdit
+class TreeViewComboBoxLineEdit : public QLineEdit
 {
 public:
 
     // This line edit works like a weblink:
     // Readonly; A mouse press shows the popup; Cursor is the pointing hand.
 
-    explicit TreeViewComboBoxLineEdit(KComboBox* const box)
-        : KLineEdit(box)
+    explicit TreeViewComboBoxLineEdit(QComboBox* const box)
+        : QLineEdit(box)
     {
         m_box = box;
         setReadOnly(true);
@@ -405,7 +416,7 @@ public:
 
     virtual void mouseReleaseEvent(QMouseEvent* event)
     {
-        KLineEdit::mouseReleaseEvent(event);
+        QLineEdit::mouseReleaseEvent(event);
         m_box->showPopup();
     }
 
@@ -416,7 +427,7 @@ public:
 
 public:
 
-    KComboBox* m_box;
+    QComboBox* m_box;
 };
 
 TreeViewLineEditComboBox::TreeViewLineEditComboBox(QWidget* const parent)

@@ -1,0 +1,161 @@
+<sect2 id="using-camera-processing">
+<title
+>Geavanceerde opties van het cameravenster</title>
+
+    <sect3>
+    <title
+>Automatisch draaien</title>
+
+        <para
+>&digikam; kan gebruik maken van informatie over de oriëntatie van de camera op het ogenblik dat de foto werd genomen voor automatische rotatie van de foto wanneer die wordt gedownload. Niet alle camera's hebben deze informatie. Zie de sectie <link linkend="using-sidebar-metadata"
+>Metagegevens in het zijpaneel</link
+> voor meer details over de informatie die door uw camera kunnen zijn ingebed in uw foto's. </para>
+
+        <example>
+
+            <title
+>Keuzemogelijkheden tijdens de bewerking</title>
+            <screenshot>
+                <screeninfo
+>Keuzemogelijkheden tijdens de bewerking</screeninfo>
+                <mediaobject
+><imageobject>
+                    <imagedata fileref="&path;using-camera-setting2.png" format="PNG"/>
+                </imageobject
+></mediaobject>
+            </screenshot>
+
+        </example>
+
+        <para
+>Deze automatische rotatie staat standaard aan. En als uw camera die informatie niet mee levert laat &digikam; de foto in de originele positie staan. Als u de automatische rotatie wilt uitzetten klik dan op de knop <guilabel
+>Geavanceerd</guilabel
+> en deactiveer de optie <guilabel
+>Automatische oriëntatie</guilabel
+> onder in het venster.  </para>
+
+    </sect3>
+
+    <sect3>
+    <title
+>Automatisch doelalbums aanmaken</title>
+
+        <para
+>Als uw camera informatie geeft over de datum van de foto's, kan &digikam; dit gebruiken om automatisch subalbums creëren in het bestemmingsalbum wanneer de foto word gedownload. Namen van subalbums zullen worden gebaseerd op datums van afbeeldingen. Alle afbeeldingen die dezelfde datum hebben, worden gedownload in hetzelfde subalbum. Niet alle camera's hebben deze informatie. Zie de <link linkend="using-sidebar-metadata"
+>Metagegevens in het zijpaneel</link
+> voor meer informatie over gegevens die uw camera kan hebben ingevoegd in uw foto's.  </para>
+
+        <example>
+
+            <title
+>Opties voor automatische albumcreatie</title>
+            <screenshot>
+                <screeninfo
+>Opties voor automatische albumcreatie</screeninfo>
+                <mediaobject
+><imageobject>
+                    <imagedata fileref="&path;using-camera-setting3.png" format="PNG"/>
+                </imageobject
+></mediaobject>
+            </screenshot>
+
+        </example>
+
+        <para
+>Deze optie is standaard uitgezet. &digikam; zal de foto's in de doelalbums zelf downloaden. Als u deze optie wilt aanzetten, klik op de knop <guilabel
+>Geavanceerd</guilabel
+> en selecteer het keuzevakje <guilabel
+>Foto's plaatsen in automatisch aangemaakte op datum gebaseerde subalbums van doelalbum</guilabel
+> onderin het venster. </para>
+
+    </sect3>
+
+    <sect3 id="using-camera-rename">
+        <title
+>Automatisch hernoemen</title>
+
+        <para
+>Camera's gebruiken vaak niet erg betekenisvolle bestandsnamen voor foto's. De bestandsnamen worden meestal opnieuw gebruikt nadat de foto's zijn verwijderd uit de camera. Dit kan leiden tot verwarring van de bestandsnaam als u foto's download van vele sessies in hetzelfde album. Het kan ook nuttig zijn datum en tijd waarop een foto werd genomen in de bestandsnaam in te voegen. </para>
+
+        <example>
+
+            <title
+>De opties voor Bestanden hernoemen</title>
+            <screenshot>
+                <screeninfo
+>De opties voor Bestanden hernoemen</screeninfo>
+                <mediaobject
+><imageobject>
+                    <imagedata fileref="&path;using-camera-setting1.png" format="PNG"/>
+                </imageobject
+></mediaobject>
+            </screenshot>
+
+        </example>
+
+        <para
+>&digikam; kan automatisch uw foto hernoemen, met de informatie van datum en tijd opgenomen door de camera bij de foto. Om deze functie te gebruiken, klikt u op de knop <guilabel
+>Instellingen</guilabel
+> op de camera-interface. Het venster Camera-interface zal open vouwen en een aantal extra functies onthullen. Kies <guilabel
+>Aanpassen</guilabel
+> en voer vervolgens het gewenste voorvoegsel in voor de bestandsnaam. Als optie kunt u veel informatie onafhankelijk of in combinatie toevoegen met inbegrip van: datum, tijd, originele bestandsnaam, extensie, map, eigenaar, groep, naam van de camera, een volgnummer of welk ander metagegeven van de foto. </para>
+
+        <para
+>In het volgende venster vind u de opties voor draaien/spiegelen van het beeld en voor op datum gebaseerde subalbums. Als u de laatste optie kiest dan wordt automatisch een map per datum aangemaakt. </para>
+
+        <para
+>De 'On the fly operaties' openen drie keuzemogelijkheden die invloed hebben op de foto's alvorens ze op te slaan op schijf. De eerste twee betreffen de informatie aangepast in <link linkend="using-setup-templates"
+>Instellingen voor sjablonen</link
+>. Indien aangevinkt, zullen de betreffende gegevens in de EXIF tags en XMP-velden worden gekopieerd. De laatste optie kan een datum &amp; tijd voor alle gedownloade foto's instellen. </para>
+
+        <tip>
+
+            <para>
+
+                <itemizedlist>
+
+                    <listitem
+><para
+>Het volgnummer kan nodig zijn als u een camera met een zeer snelle multi-shoot modus hebt, waarin het mogelijk is om twee foto's te krijgen met precies dezelfde gegevens en tijd. </para
+></listitem>
+
+                    <listitem
+><para
+>Als u een andere datumnotatie dan de standaard datumnotatie wilt, klik dan op <guilabel
+>Datum &amp; tijd...</guilabel
+>, kies <guilabel
+>Aangepast</guilabel
+> in het afrolmenu <guilabel
+>Formaat</guilabel
+> en vul bijvoorbeeld "dd.MM.yyyy hh:mm:ss" in. Voor meer informatie, lees de referentieklasse <ulink url="http://doc.qt.io/qt-5/qdatetime.html#toString"
+>QDateTime</ulink
+>. </para
+></listitem>
+
+                    <listitem
+><para
+>Wanneer u <guilabel
+>Camera bestandsnamen</guilabel
+> kiest, hebt u bij het downloaden de mogelijkheid om de bestandsnamen te veranderen naar kleine letters. Of gebruik hoofdletters als u dat verkiest. </para
+></listitem>
+
+                </itemizedlist>
+
+            </para>
+
+        </tip>
+
+        <para
+>De nieuwe bestandsnaam die &digikam; gebruikt voor de foto wanneer zij worden gedownload, wordt getoond onder de naam gegeven door de camera in de miniatuurweergave. De instellingen voor hernoemen worden onthouden voor de volgende keer dat u gebruik maken van de camera-interface. </para>
+
+    </sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

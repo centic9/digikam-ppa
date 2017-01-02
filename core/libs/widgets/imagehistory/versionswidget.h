@@ -28,17 +28,13 @@
 
 #include <QWidget>
 #include <QModelIndex>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "digikam_export.h"
 
 class KConfigGroup;
-class KGuiItem;
 
 namespace Digikam
 {
@@ -64,7 +60,7 @@ public:
     VersionsTreeView*        view()     const;
     VersionsDelegate*        delegate() const;
 
-    ActionVersionsOverlay*   addActionOverlay(const KGuiItem& gui);
+    ActionVersionsOverlay*   addActionOverlay(const QIcon& icon, const QString& text, const QString& tip = QString());
     ShowHideVersionsOverlay* addShowHideOverlay();
 
 public Q_SLOTS:

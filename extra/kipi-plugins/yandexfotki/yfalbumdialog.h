@@ -23,20 +23,22 @@
 #ifndef YF_ALBUMDIALOG_H
 #define YF_ALBUMDIALOG_H
 
-// KDE includes
+// Qt includes
 
-#include <kdialog.h>
-#include <klineedit.h>
-#include <ktextedit.h>
+#include <QtWidgets/QDialog>
+#include <QLineEdit>
 
 // Local includes
 
 #include "yfalbum.h"
+#include "kpnewalbumdialog.h"
+
+using namespace KIPIPlugins;
 
 namespace KIPIYandexFotkiPlugin
 {
 
-class YandexFotkiAlbumDialog: public KDialog
+class YandexFotkiAlbumDialog: public KPNewAlbumDialog
 {
     Q_OBJECT
 
@@ -52,13 +54,11 @@ public:
 
 protected Q_SLOTS:
 
-    void slotButtonClicked(int button);
+    void slotOkClicked();
 
 protected:
 
-    KLineEdit*        m_titleEdit;
-    KTextEdit*        m_summaryEdit;
-    KLineEdit*        m_passwordEdit;
+    QLineEdit*        m_passwordEdit;
 
     YandexFotkiAlbum& m_album;
 };

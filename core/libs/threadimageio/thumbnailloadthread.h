@@ -7,7 +7,7 @@
  * Description : Thumbnail loading
  *
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,19 +28,17 @@
 // Qt includes
 
 #include <QPixmap>
+#include <QImage>
 
 // Local includes
 
 #include "managedloadsavethread.h"
 #include "thumbnailinfo.h"
 
-class KFileItem;
-class KJob;
-
 namespace Digikam
 {
 
-class DatabaseParameters;
+class DbEngineParameters;
 class ThumbnailCreator;
 class ThumbnailInfoProvider;
 
@@ -70,7 +68,7 @@ public:
      * This need not be called, then the FreeDesktop standard is used.
      * You can optionally provide a thumbnail info provider.
      */
-    static void initializeThumbnailDatabase(const DatabaseParameters& params, ThumbnailInfoProvider* const provider = 0);
+    static void initializeThumbnailDatabase(const DbEngineParameters& params, ThumbnailInfoProvider* const provider = 0);
 
     /**
      * For color management, this sets the widget the thumbnails will be color managed for.
@@ -249,8 +247,7 @@ private:
 
     bool find(const ThumbnailIdentifier& identifier, int size, QPixmap* retPixmap, bool emitSignal, const QRect& detailRect);
     void load(const LoadingDescription& description, bool pregenerate);
-    void loadWithKDE(const LoadingDescription& description);
-    void startKdePreviewJob();
+    void loadVideoThumbnail(const LoadingDescription& description);
     bool checkSize(int size);
     QPixmap surrogatePixmap(const LoadingDescription& loadingDescription);
 
@@ -258,15 +255,15 @@ Q_SIGNALS:
 
     // For internal use
     void thumbnailsAvailable();
-    void ThumbnailLoaded(const LoadingDescription& loadingDescription, const QImage& thumb);
+    void ThumbnailLoaded(const LoadingDescription&, const QImage&);
 
 private Q_SLOTS:
 
     void slotThumbnailsAvailable();
-    void slotThumbnailLoaded(const LoadingDescription& loadingDescription, const QImage& thumb);
-    void gotKDEPreview(const KFileItem&, const QPixmap& pix);
-    void failedKDEPreview(const KFileItem&);
-    void kdePreviewFinished(KJob*);
+    void slotThumbnailLoaded(const LoadingDescription&, const QImage&);
+    void slotVideoThumbnailDone(const QString&, const QImage&);
+    void slotVideoThumbnailFailed(const QString&);
+    void slotVideoThumbnailFinished();
 
 private:
 

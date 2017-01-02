@@ -6,9 +6,9 @@
  * Date        : 2004-11-22
  * Description : stand alone digiKam image editor GUI
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2013      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,16 +26,12 @@
 #ifndef SHOWFOTO_P_H
 #define SHOWFOTO_P_H
 
-// Qt includes
-
-#include <QDir>
-
 // Local includes
 
 #include "showfoto.h"
 #include "showfotoiteminfo.h"
 #include "showfotothumbnailbar.h"
-#include "splashscreen.h"
+#include "dsplashscreen.h"
 #include "imagepropertiessidebar.h"
 #include "showfotodelegate.h"
 #include "showfotosettings.h"
@@ -49,10 +45,8 @@ class ShowFoto::Private
 public:
 
     Private() :
-        deleteItem2Trash(true),
         validIccPath(true),
         droppedUrls(false),
-        imagePluginsLoaded(false),
         itemsNb(0),
         vSplitter(0),
         fileOpenAction(0),
@@ -71,22 +65,18 @@ public:
     {
     }
 
-    bool                             deleteItem2Trash;
     bool                             validIccPath;
     bool                             droppedUrls;
-    bool                             imagePluginsLoaded;
 
     int                              itemsNb;
 
     QSplitter*                       vSplitter;
-
     QAction*                         fileOpenAction;
+    QUrl                             currentLoadedUrl;
+    QUrl                             lastOpenedDirectory;
+    QAction*                         openFilesInFolderAction;
+    QAction*                         first;
 
-    KUrl                             lastOpenedDirectory;
-
-    KAction*                         openFilesInFolderAction;
-    KAction*                         first;
-    QDir                             dir;
     ShowfotoItemInfoList             infoList;
     ShowfotoThumbnailModel*          model;
     ShowfotoDragDropHandler*         dDHandler;
@@ -96,7 +86,7 @@ public:
     Digikam::ThumbBarDock*           thumbBarDock;
     ShowfotoNormalDelegate*          normalDelegate;
     Digikam::ImagePropertiesSideBar* rightSideBar;
-    Digikam::SplashScreen*           splash;
+    Digikam::DSplashScreen*          splash;
     ShowfotoSettings*                settings;
 };
 

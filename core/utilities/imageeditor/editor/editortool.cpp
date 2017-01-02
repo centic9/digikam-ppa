@@ -6,7 +6,7 @@
  * Date        : 2008-08-20
  * Description : editor tool template class.
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,21 +21,22 @@
  *
  * ============================================================ */
 
-#include "editortool.moc"
+#include "editortool.h"
 
 // Qt includes
 
 #include <QWidget>
 #include <QTimer>
+#include <QIcon>
+#include <QApplication>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kdebug.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimgthreadedfilter.h"
 #include "dimgthreadedanalyser.h"
 #include "imageguidewidget.h"
@@ -69,7 +70,7 @@ public:
     int                    version;
 
     QWidget*               view;
-    QPixmap                icon;
+    QIcon                  icon;
     QTimer*                timer;
 
     EditorToolSettings*    settings;
@@ -78,7 +79,8 @@ public:
 };
 
 EditorTool::EditorTool(QObject* const parent)
-    : QObject(parent), d(new Private)
+    : QObject(parent),
+      d(new Private)
 {
     d->timer = new QTimer(this);
 
@@ -103,12 +105,12 @@ void EditorTool::setInitPreview(bool b)
     d->initPreview = b;
 }
 
-QPixmap EditorTool::toolIcon() const
+QIcon EditorTool::toolIcon() const
 {
     return d->icon;
 }
 
-void EditorTool::setToolIcon(const QPixmap& icon)
+void EditorTool::setToolIcon(const QIcon& icon)
 {
     d->icon = icon;
 }
@@ -233,7 +235,7 @@ QString EditorTool::toolHelp() const
 {
     if (d->helpAnchor.isEmpty())
     {
-        return (objectName() + QString(".anchor"));
+        return (objectName() + QLatin1String(".anchor"));
     }
 
     return d->helpAnchor;
@@ -455,7 +457,7 @@ DImgThreadedAnalyser* EditorToolThreaded::analyser() const
 
 void EditorToolThreaded::setAnalyser(DImgThreadedAnalyser* const analyser)
 {
-    kDebug() << "Analys " << toolName() << " started...";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Analys " << toolName() << " started...";
 
     toolSettings()->enableButton(EditorToolSettings::Ok,      false);
     toolSettings()->enableButton(EditorToolSettings::SaveAs,  false);
@@ -465,7 +467,7 @@ void EditorToolThreaded::setAnalyser(DImgThreadedAnalyser* const analyser)
     toolView()->setEnabled(false);
 
     EditorToolIface::editorToolIface()->setToolStartProgress(d->progressMess.isEmpty() ? toolName() : d->progressMess);
-    kapp->setOverrideCursor(Qt::WaitCursor);
+    qApp->setOverrideCursor(Qt::WaitCursor);
 
     delete d->threadedAnalyser;
     d->threadedAnalyser = analyser;
@@ -523,7 +525,7 @@ void EditorToolThreaded::slotAbort()
     toolSettings()->enableButton(EditorToolSettings::Default, true);
     toolView()->setEnabled(true);
 
-    kapp->restoreOverrideCursor();
+    qApp->restoreOverrideCursor();
 
     renderingFinished();
 }
@@ -540,7 +542,7 @@ void EditorToolThreaded::slotFilterFinished(bool success)
         {
             case EditorToolThreaded::PreviewRendering:
             {
-                kDebug() << "Preview " << toolName() << " completed...";
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Preview " << toolName() << " completed...";
                 setPreviewImage();
                 slotAbort();
                 break;
@@ -548,10 +550,10 @@ void EditorToolThreaded::slotFilterFinished(bool success)
 
             case EditorToolThreaded::FinalRendering:
             {
-                kDebug() << "Final" << toolName() << " completed...";
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Final" << toolName() << " completed...";
                 setFinalImage();
                 EditorToolIface::editorToolIface()->setToolStopProgress();
-                kapp->restoreOverrideCursor();
+                qApp->restoreOverrideCursor();
                 emit okClicked();
                 break;
             }
@@ -566,7 +568,7 @@ void EditorToolThreaded::slotFilterFinished(bool success)
         {
             case EditorToolThreaded::PreviewRendering:
             {
-                kDebug() << "Preview " << toolName() << " failed...";
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Preview " << toolName() << " failed...";
                 slotAbort();
                 break;
             }
@@ -591,12 +593,12 @@ void EditorToolThreaded::slotAnalyserFinished(bool success)
 {
     if (success)
     {
-        kDebug() << "Analys " << toolName() << " completed...";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Analys " << toolName() << " completed...";
         analyserCompleted();
     }
     else
     {
-        kDebug() << "Analys " << toolName() << " failed...";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Analys " << toolName() << " failed...";
         slotAbort();
     }
 }
@@ -613,7 +615,7 @@ void EditorToolThreaded::slotOk()
     writeSettings();
 
     d->currentRenderingMode = EditorToolThreaded::FinalRendering;
-    kDebug() << "Final " << toolName() << " started...";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Final " << toolName() << " started...";
 
     toolSettings()->enableButton(EditorToolSettings::Ok,      false);
     toolSettings()->enableButton(EditorToolSettings::SaveAs,  false);
@@ -623,7 +625,7 @@ void EditorToolThreaded::slotOk()
     toolView()->setEnabled(false);
 
     EditorToolIface::editorToolIface()->setToolStartProgress(d->progressMess.isEmpty() ? toolName() : d->progressMess);
-    kapp->setOverrideCursor(Qt::WaitCursor);
+    qApp->setOverrideCursor(Qt::WaitCursor);
 
     if (d->delFilter && d->threadedFilter)
     {
@@ -643,7 +645,7 @@ void EditorToolThreaded::slotPreview()
     }
 
     d->currentRenderingMode = EditorToolThreaded::PreviewRendering;
-    kDebug() << "Preview " << toolName() << " started...";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Preview " << toolName() << " started...";
 
     toolSettings()->enableButton(EditorToolSettings::Ok,      false);
     toolSettings()->enableButton(EditorToolSettings::SaveAs,  false);
@@ -653,7 +655,7 @@ void EditorToolThreaded::slotPreview()
     toolView()->setEnabled(false);
 
     EditorToolIface::editorToolIface()->setToolStartProgress(d->progressMess.isEmpty() ? toolName() : d->progressMess);
-    kapp->setOverrideCursor(Qt::WaitCursor);
+    qApp->setOverrideCursor(Qt::WaitCursor);
 
     if (d->delFilter && d->threadedFilter)
     {

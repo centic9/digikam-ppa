@@ -34,13 +34,9 @@
 #include <QThread>
 #include <QWaitCondition>
 
-// KDE includes
-
-#include <kglobal.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "digikam_export.h"
 
 namespace Digikam
@@ -62,9 +58,9 @@ public:
 
     bool isFree() const
     {
-        return readers.isEmpty() && 
-               !writer           && 
-               !waitingReaders   && 
+        return readers.isEmpty() &&
+               !writer           &&
+               !waitingReaders   &&
                !waitingWriters;
     }
 
@@ -91,7 +87,7 @@ public:
     QWaitCondition         writerWait;
 
     QMutex                 tempFileMutex;
-    
+
     QHash<QString, Entry*> entries;
 
 public:
@@ -269,7 +265,7 @@ bool FileReadWriteLockStaticPrivate::lockForWrite_locked(Entry* entry, int mode,
     if (it != entry->readers.end())
     {
         // We could deadlock, or promote the read locks to write locks
-        kWarning() << "Locking for write, recursively locked for read: Promoting existing read locks to write locks! "
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Locking for write, recursively locked for read: Promoting existing read locks to write locks! "
                    << "Avoid this situation.";
         // The lock was locked for read it.value() times by this thread recursively
         recursiveReadLockCount = it.value();
@@ -382,7 +378,7 @@ void FileReadWriteLockStaticPrivate::unlockAndDrop(Entry* entry)
     drop_locked(entry);
 }
 
-K_GLOBAL_STATIC(FileReadWriteLockStaticPrivate, static_d)
+Q_GLOBAL_STATIC(FileReadWriteLockStaticPrivate, static_d)
 
 // -------------------------------------------------------------------------
 

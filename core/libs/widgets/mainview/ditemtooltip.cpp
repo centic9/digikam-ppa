@@ -6,7 +6,7 @@
  * Date        : 2008-12-10
  * Description : tool tip widget for iconview, thumbbar, and folderview items
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -39,15 +39,12 @@
 #include <QTextDocument>
 #include <QByteArray>
 #include <QBuffer>
+#include <QDesktopWidget>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
-#include <kglobalsettings.h>
-#include <kglobal.h>
-#include <kdeversion.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
+
 
 namespace Digikam
 {
@@ -57,37 +54,37 @@ DToolTipStyleSheet::DToolTipStyleSheet(const QFont& font)
 {
     unavailable = i18n("unavailable");
 
-    tipHeader   = QString("<qt><table cellspacing=\"0\" cellpadding=\"0\" width=\"250\" border=\"0\">");
-    tipFooter   = QString("</table></qt>");
+    tipHeader   = QLatin1String("<qt><table cellspacing=\"0\" cellpadding=\"0\" width=\"250\" border=\"0\">");
+    tipFooter   = QLatin1String("</table></qt>");
 
-    headBeg     = QString("<tr bgcolor=\"%1\"><td colspan=\"2\">"
-                          "<nobr><font size=\"-1\" color=\"%2\" face=\"%3\"><center><b>")
-                  .arg(kapp->palette().color(QPalette::Base).name())
-                  .arg(kapp->palette().color(QPalette::Text).name())
+    headBeg     = QString::fromLatin1("<tr bgcolor=\"%1\"><td colspan=\"2\">"
+                                      "<nobr><font size=\"-1\" color=\"%2\" face=\"%3\"><center><b>")
+                  .arg(qApp->palette().color(QPalette::Base).name())
+                  .arg(qApp->palette().color(QPalette::Text).name())
                   .arg(font.family());
-    headEnd     = QString("</b></center></font></nobr></td></tr>");
+    headEnd     = QLatin1String("</b></center></font></nobr></td></tr>");
 
-    cellBeg     = QString("<tr><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\">")
-                  .arg(kapp->palette().color(QPalette::ToolTipText).name())
+    cellBeg     = QString::fromLatin1("<tr><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\">")
+                  .arg(qApp->palette().color(QPalette::ToolTipText).name())
                   .arg(font.family());
-    cellMid     = QString("</font></nobr></td><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\">")
-                  .arg(kapp->palette().color(QPalette::ToolTipText).name())
+    cellMid     = QString::fromLatin1("</font></nobr></td><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\">")
+                  .arg(qApp->palette().color(QPalette::ToolTipText).name())
                   .arg(font.family());
-    cellEnd     = QString("</font></nobr></td></tr>");
+    cellEnd     = QLatin1String("</font></nobr></td></tr>");
 
-    cellSpecBeg = QString("<tr><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\">")
-                  .arg(kapp->palette().color(QPalette::ToolTipText).name())
+    cellSpecBeg = QString::fromLatin1("<tr><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\">")
+                  .arg(qApp->palette().color(QPalette::ToolTipText).name())
                   .arg(font.family());
-    cellSpecMid = QString("</font></nobr></td><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\"><i>")
-                  .arg(kapp->palette().color(QPalette::ToolTipText).name())
+    cellSpecMid = QString::fromLatin1("</font></nobr></td><td><nobr><font size=\"-1\" color=\"%1\" face=\"%2\"><i>")
+                  .arg(qApp->palette().color(QPalette::ToolTipText).name())
                   .arg(font.family());
-    cellSpecEnd = QString("</i></font></nobr></td></tr>");
+    cellSpecEnd = QLatin1String("</i></font></nobr></td></tr>");
 }
 
 QString DToolTipStyleSheet::breakString(const QString& input) const
 {
     QString str = input.simplified();
-    str         = Qt::escape(str);
+    str         = str.toHtmlEscaped();
 
     if (str.length() <= maxStringLength)
     {
@@ -104,7 +101,7 @@ QString DToolTipStyleSheet::breakString(const QString& input) const
         if (count >= maxStringLength && str.at(i).isSpace())
         {
             count = 0;
-            br.append("<br/>");
+            br.append(QLatin1String("<br/>"));
         }
         else
         {
@@ -128,11 +125,11 @@ QString DToolTipStyleSheet::elidedText(const QString& str, Qt::TextElideMode eli
     switch (elideMode)
     {
         case Qt::ElideLeft:
-            return "..." + str.right(maxStringLength-3);
+            return QLatin1String("...") + str.right(maxStringLength-3);
         case Qt::ElideRight:
-            return str.left(maxStringLength-3) + "...";
+            return str.left(maxStringLength-3) + QLatin1String("...");
         case Qt::ElideMiddle:
-            return str.left(maxStringLength / 2 - 2) + "..." + str.right(maxStringLength / 2 - 1);
+            return str.left(maxStringLength / 2 - 2) + QLatin1String("...") + str.right(maxStringLength / 2 - 1);
         case Qt::ElideNone:
             return str.left(maxStringLength);
         default:
@@ -146,7 +143,7 @@ QString DToolTipStyleSheet::imageAsBase64(const QImage& img) const
     QBuffer    buffer(&byteArray);
     img.save(&buffer, "PNG");
     QString    iconBase64 = QString::fromLatin1(byteArray.toBase64().data());
-    return QString("<img src=\"data:image/png;base64,%1\">").arg(iconBase64);
+    return QString::fromLatin1("<img src=\"data:image/png;base64,%1\">").arg(iconBase64);
 }
 
 // --------------------------------------------------------------------------------------------------
@@ -167,14 +164,16 @@ public:
 };
 
 DItemToolTip::DItemToolTip(QWidget* const parent)
-    : QLabel(parent, Qt::ToolTip), d(new Private)
+    : QLabel(parent, Qt::ToolTip),
+      d(new Private)
 {
     hide();
 
     setBackgroundRole(QPalette::ToolTipBase);
     setPalette(QToolTip::palette());
     ensurePolished();
-    setMargin(qMax(d->tipBorder, 1 + style()->pixelMetric(QStyle::PM_ToolTipLabelFrameWidth, 0, this)));
+    const int fwidth = qMax(d->tipBorder, 1 + style()->pixelMetric(QStyle::PM_ToolTipLabelFrameWidth, 0, this));
+    setContentsMargins(fwidth, fwidth, fwidth, fwidth);
     setWindowOpacity(style()->styleHint(QStyle::SH_ToolTipLabel_Opacity, 0, this) / 255.0);
     setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 
@@ -226,7 +225,7 @@ void DItemToolTip::reposition()
     d->corner = 0;
     // should the tooltip be shown to the left or to the right of the ivi ?
 
-    QRect desk = KGlobalSettings::desktopGeometry(rect.center());
+    QRect desk = QApplication::desktop()->screenGeometry(rect.center());
 
     if (rect.center().x() + width() > desk.right())
     {
@@ -269,7 +268,7 @@ void DItemToolTip::renderArrows()
     pix0.fill(Qt::transparent);
 
     QPainter p0(&pix0);
-    p0.setPen(QPen(kapp->palette().color(QPalette::Text), 1));
+    p0.setPen(QPen(qApp->palette().color(QPalette::Text), 1));
 
     for (int j=0; j<w; ++j)
     {
@@ -285,7 +284,7 @@ void DItemToolTip::renderArrows()
     pix1.fill(Qt::transparent);
 
     QPainter p1(&pix1);
-    p1.setPen(QPen(kapp->palette().color(QPalette::Text), 1));
+    p1.setPen(QPen(qApp->palette().color(QPalette::Text), 1));
 
     for (int j=0; j<w; ++j)
     {
@@ -301,7 +300,7 @@ void DItemToolTip::renderArrows()
     pix2.fill(Qt::transparent);
 
     QPainter p2(&pix2);
-    p2.setPen(QPen(kapp->palette().color(QPalette::Text), 1));
+    p2.setPen(QPen(qApp->palette().color(QPalette::Text), 1));
 
     for (int j=0; j<w; ++j)
     {
@@ -317,7 +316,7 @@ void DItemToolTip::renderArrows()
     pix3.fill(Qt::transparent);
 
     QPainter p3(&pix3);
-    p3.setPen(QPen(kapp->palette().color(QPalette::Text), 1));
+    p3.setPen(QPen(qApp->palette().color(QPalette::Text), 1));
 
     for (int j=0; j<w; ++j)
     {

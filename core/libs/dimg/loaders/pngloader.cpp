@@ -6,7 +6,7 @@
  * Date        : 2005-11-01
  * Description : a PNG image loader for DImg framework.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -43,23 +43,24 @@ extern "C"
 #include <QByteArray>
 #include <QSysInfo>
 
-// KDE includes
-
-#include <kdebug.h>
-
-// Libkexiv2 includes
-
-#include <libkexiv2/kexiv2.h>
-
 // Local includes
 
-#include "config-digikam.h"
-#include "version.h"
+#include "metaengine.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
+#include "digikam_version.h"
 #include "dimg.h"
 #include "dimgloaderobserver.h"
 
-#ifdef Q_CC_MSVC
-void _ReadProc(struct png_struct_def* png_ptr, unsigned char* data, unsigned int size)
+// libPNG includes
+
+extern "C"
+{
+#include <png.h>
+}
+
+#ifdef Q_OS_WIN
+void _ReadProc(struct png_struct_def* png_ptr, png_bytep data, png_size_t size)
 {
     FILE* const file_handle = (FILE*)png_get_io_ptr(png_ptr);
     fread(data, size, 1, file_handle);
@@ -90,18 +91,19 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
     int          bit_depth, color_type, interlace_type;
     png_structp  png_ptr    = NULL;
     png_infop    info_ptr   = NULL;
-    int          colorModel = DImg::COLORMODELUNKNOWN;
 
     readMetadata(filePath, DImg::PNG);
 
     // -------------------------------------------------------------------
     // Open the file
 
-    f = fopen(QFile::encodeName(filePath), "rb");
+    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "Opening file" << filePath;
+
+    f = fopen(QFile::encodeName(filePath).constData(), "rb");
 
     if (!f)
     {
-        kDebug() << "Cannot open image file.";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Cannot open image file.";
         loadingFailed();
         return false;
     }
@@ -109,14 +111,14 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
     unsigned char buf[PNG_BYTES_TO_CHECK];
 
     size_t membersRead = fread(buf, 1, PNG_BYTES_TO_CHECK, f);
-#if PNG_LIBPNG_VER >= 10400
 
+#if PNG_LIBPNG_VER >= 10400
     if ((membersRead != PNG_BYTES_TO_CHECK) || png_sig_cmp(buf, 0, PNG_BYTES_TO_CHECK))
 #else
     if ((membersRead != PNG_BYTES_TO_CHECK) || !png_check_sig(buf, PNG_BYTES_TO_CHECK))
 #endif
     {
-        kDebug() << "Not a PNG image file.";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Not a PNG image file.";
         fclose(f);
         loadingFailed();
         return false;
@@ -131,7 +133,7 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
 
     if (!png_ptr)
     {
-        kDebug() << "Invalid PNG image file structure.";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Invalid PNG image file structure.";
         fclose(f);
         loadingFailed();
         return false;
@@ -141,7 +143,7 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
 
     if (!info_ptr)
     {
-        kDebug() << "Cannot reading PNG image file structure.";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Cannot reading PNG image file structure.";
         png_destroy_read_struct(&png_ptr, NULL, NULL);
         fclose(f);
         loadingFailed();
@@ -214,20 +216,19 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
     cleanupData->setFile(f);
 
 #if PNG_LIBPNG_VER >= 10400
-
     if (setjmp(png_jmpbuf(png_ptr)))
 #else
     if (setjmp(png_ptr->jmpbuf))
 #endif
     {
-        kDebug() << "Internal libPNG error during reading file. Process aborted!";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Internal libPNG error during reading file. Process aborted!";
         png_destroy_read_struct(&png_ptr, &info_ptr, NULL);
         delete cleanupData;
         loadingFailed();
         return false;
     }
 
-#ifdef Q_CC_MSVC
+#ifdef Q_OS_WIN
     png_set_read_fn(png_ptr, f, _ReadProc);
 #else
     png_init_io(png_ptr, f);
@@ -245,7 +246,8 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
     width  = (int)w32;
     height = (int)h32;
 
-    m_sixteenBit = (bit_depth == 16);
+    int colorModel = DImg::COLORMODELUNKNOWN;
+    m_sixteenBit   = (bit_depth == 16);
 
     switch (color_type)
     {
@@ -286,31 +288,22 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
 
         if (bit_depth == 16)
         {
-#ifdef USE_IMGLOADERDEBUGMSG
-            kDebug() << "PNG in 16 bits/color/pixel.";
-#endif
+            qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in 16 bits/color/pixel.";
 
             switch (color_type)
             {
                 case PNG_COLOR_TYPE_RGB :            // RGB
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_RGB";
-#endif
-
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_RGB";
 
                     png_set_add_alpha(png_ptr, 0xFFFF, PNG_FILLER_AFTER);
                     break;
 
                 case PNG_COLOR_TYPE_RGB_ALPHA :     // RGBA
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_RGB_ALPHA";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_RGB_ALPHA";
                     break;
 
                 case PNG_COLOR_TYPE_GRAY :          // Grayscale
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_GRAY";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_GRAY";
 
                     png_set_gray_to_rgb(png_ptr);
                     png_set_add_alpha(png_ptr, 0xFFFF, PNG_FILLER_AFTER);
@@ -318,26 +311,23 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
                     break;
 
                 case PNG_COLOR_TYPE_GRAY_ALPHA :    // Grayscale + Alpha
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_GRAY_ALPHA";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_GRAY_ALPHA";
+
                     png_set_gray_to_rgb(png_ptr);
 
                     break;
 
                 case PNG_COLOR_TYPE_PALETTE :       // Indexed
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_PALETTE";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_PALETTE";
+
                     png_set_palette_to_rgb(png_ptr);
                     png_set_add_alpha(png_ptr, 0xFFFF, PNG_FILLER_AFTER);
 
                     break;
 
                 default:
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG color type unknown.";
-#endif
+                    qCWarning(DIGIKAM_DIMG_LOG_PNG) << "PNG color type unknown.";
+
                     delete cleanupData;
                     loadingFailed();
                     return false;
@@ -345,31 +335,27 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
         }
         else
         {
-#ifdef USE_IMGLOADERDEBUGMSG
-            kDebug() << "PNG in >=8 bits/color/pixel.";
-#endif
+            qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in >=8 bits/color/pixel.";
+
             png_set_packing(png_ptr);
 
             switch (color_type)
             {
                 case PNG_COLOR_TYPE_RGB :           // RGB
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_RGB";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_RGB";
+
                     png_set_add_alpha(png_ptr, 0xFF, PNG_FILLER_AFTER);
 
                     break;
 
                 case PNG_COLOR_TYPE_RGB_ALPHA :     // RGBA
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_RGB_ALPHA";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_RGB_ALPHA";
+
                     break;
 
                 case PNG_COLOR_TYPE_GRAY :          // Grayscale
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_GRAY";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_GRAY";
+
 #if PNG_LIBPNG_VER >= 10400
                     png_set_expand_gray_1_2_4_to_8(png_ptr);
 #else
@@ -381,16 +367,14 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
                     break;
 
                 case PNG_COLOR_TYPE_GRAY_ALPHA :    // Grayscale + alpha
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_GRAY_ALPHA";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_GRAY_ALPHA";
+
                     png_set_gray_to_rgb(png_ptr);
                     break;
 
                 case PNG_COLOR_TYPE_PALETTE :       // Indexed
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG in PNG_COLOR_TYPE_PALETTE";
-#endif
+                    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG in PNG_COLOR_TYPE_PALETTE";
+
                     png_set_packing(png_ptr);
                     png_set_palette_to_rgb(png_ptr);
                     png_set_add_alpha(png_ptr, 0xFF, PNG_FILLER_AFTER);
@@ -398,9 +382,8 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
                     break;
 
                 default:
-#ifdef USE_IMGLOADERDEBUGMSG
-                    kDebug() << "PNG color type unknown.";
-#endif
+                    qCWarning(DIGIKAM_DIMG_LOG_PNG) << "PNG color type unknown." << color_type;
+
                     delete cleanupData;
                     loadingFailed();
                     return false;
@@ -447,7 +430,7 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
 
         if (!data || !lines)
         {
-            kDebug() << "Cannot allocate memory to load PNG image data.";
+            qCDebug(DIGIKAM_DIMG_LOG_PNG) << "Cannot allocate memory to load PNG image data.";
             png_read_end(png_ptr, info_ptr);
             png_destroy_read_struct(&png_ptr, &info_ptr, (png_infopp) NULL);
             delete cleanupData;
@@ -591,12 +574,10 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
                 memcmp(text_ptr[i].key, "Raw profile type APP1", 21) != 0 ||
                 memcmp(text_ptr[i].key, "Raw profile type iptc", 21) != 0)
             {
-                imageSetEmbbededText(text_ptr[i].key, text_ptr[i].text);
+                imageSetEmbbededText(QLatin1String(text_ptr[i].key), QLatin1String(text_ptr[i].text));
 
-#ifdef USE_IMGLOADERDEBUGMSG
-                kDebug() << "Reading PNG Embedded text: key=" << text_ptr[i].key
+                qCDebug(DIGIKAM_DIMG_LOG_PNG) << "Reading PNG Embedded text: key=" << text_ptr[i].key
                          << " text=" << text_ptr[i].text;
-#endif
             }
         }
     }
@@ -620,10 +601,10 @@ bool PNGLoader::load(const QString& filePath, DImgLoaderObserver* const observer
     imageWidth()  = width;
     imageHeight() = height;
     imageData()   = data;
-    imageSetAttribute("format", "PNG");
-    imageSetAttribute("originalColorModel", colorModel);
-    imageSetAttribute("originalBitDepth", bit_depth);
-    imageSetAttribute("originalSize", QSize(width, height));
+    imageSetAttribute(QLatin1String("format"),             QLatin1String("PNG"));
+    imageSetAttribute(QLatin1String("originalColorModel"), colorModel);
+    imageSetAttribute(QLatin1String("originalBitDepth"),   bit_depth);
+    imageSetAttribute(QLatin1String("originalSize"),       QSize(width, height));
 
     return true;
 }
@@ -644,11 +625,11 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
     // -------------------------------------------------------------------
     // Open the file
 
-    f = fopen(QFile::encodeName(filePath), "wb");
+    f = fopen(QFile::encodeName(filePath).constData(), "wb");
 
     if (!f)
     {
-        kDebug() << "Cannot open target image file.";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Cannot open target image file.";
         return false;
     }
 
@@ -659,7 +640,7 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
 
     if (!png_ptr)
     {
-        kDebug() << "Invalid target PNG image file structure.";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Invalid target PNG image file structure.";
         fclose(f);
         return false;
     }
@@ -668,7 +649,7 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
 
     if (info_ptr == NULL)
     {
-        kDebug() << "Cannot create PNG image file structure.";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Cannot create PNG image file structure.";
         png_destroy_write_struct(&png_ptr, (png_infopp) NULL);
         fclose(f);
         return false;
@@ -723,7 +704,7 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
     if (setjmp(png_ptr->jmpbuf))
 #endif
     {
-        kDebug() << "Internal libPNG error during writing file. Process aborted!";
+        qCWarning(DIGIKAM_DIMG_LOG_PNG) << "Internal libPNG error during writing file. Process aborted!";
         png_destroy_write_struct(&png_ptr, (png_infopp) & info_ptr);
         png_destroy_info_struct(png_ptr, (png_infopp) & info_ptr);
         delete cleanupData;
@@ -777,10 +758,10 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
     // -------------------------------------------------------------------
     // Quality to convert to compression
 
-    QVariant qualityAttr = imageGetAttribute("quality");
+    QVariant qualityAttr = imageGetAttribute(QLatin1String("quality"));
     quality              = qualityAttr.isValid() ? qualityAttr.toInt() : 90;
 
-    kDebug() << "DImg quality level: " << quality;
+    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "DImg quality level: " << quality;
 
     if (quality < 1)
     {
@@ -805,7 +786,7 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
         compression = 9;
     }
 
-    kDebug() << "PNG compression level: " << compression;
+    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "PNG compression level: " << compression;
     png_set_compression_level(png_ptr, compression);
 
     // -------------------------------------------------------------------
@@ -827,34 +808,34 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
 
     for (EmbeddedTextMap::const_iterator it = map.constBegin(); it != map.constEnd(); ++it)
     {
-        if (it.key() != QString("Software") && it.key() != QString("Comment"))
+        if (it.key() != QLatin1String("Software") && it.key() != QLatin1String("Comment"))
         {
-            QByteArray key = it.key().toAscii();
-            QByteArray value = it.value().toAscii();
+            QByteArray key = it.key().toLatin1();
+            QByteArray value = it.value().toLatin1();
             png_text text;
             text.key  = key.data();
             text.text = value.data();
-#ifdef USE_IMGLOADERDEBUGMSG
-            kDebug() << "Writing PNG Embedded text: key=" << text.key << " text=" << text.text;
-#endif
+
+            qCDebug(DIGIKAM_DIMG_LOG_PNG) << "Writing PNG Embedded text: key=" << text.key << " text=" << text.text;
+
             text.compression = PNG_TEXT_COMPRESSION_zTXt;
             png_set_text(png_ptr, info_ptr, &(text), 1);
         }
     }
 
     // Update 'Software' text tag.
-    QString software("digiKam ");
+    QString software = QLatin1String("digiKam ");
     software.append(digiKamVersion());
-    QString libpngver(PNG_HEADER_VERSION_STRING);
-    libpngver.replace('\n', ' ');
-    software.append(QString(" (%1)").arg(libpngver));
-    QByteArray softwareAsAscii = software.toAscii();
+    QString libpngver = QLatin1String(PNG_HEADER_VERSION_STRING);
+    libpngver.replace(QLatin1Char('\n'), QLatin1Char(' '));
+    software.append(QString::fromLatin1(" (%1)").arg(libpngver));
+    QByteArray softwareAsAscii = software.toLatin1();
     png_text text;
     text.key  = (png_charp)("Software");
     text.text = softwareAsAscii.data();
-#ifdef USE_IMGLOADERDEBUGMSG
-    kDebug() << "Writing PNG Embedded text: key=" << text.key << " text=" << text.text;
-#endif
+
+    qCDebug(DIGIKAM_DIMG_LOG_PNG) << "Writing PNG Embedded text: key=" << text.key << " text=" << text.text;
+
     text.compression = PNG_TEXT_COMPRESSION_zTXt;
     png_set_text(png_ptr, info_ptr, &(text), 1);
 
@@ -963,7 +944,7 @@ bool PNGLoader::save(const QString& filePath, DImgLoaderObserver* const observer
 
     delete cleanupData;
 
-    imageSetAttribute("savedformat", "PNG");
+    imageSetAttribute(QLatin1String("savedformat"), QLatin1String("PNG"));
 
     saveMetadata(filePath);
 

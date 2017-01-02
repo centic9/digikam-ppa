@@ -7,9 +7,9 @@
  * Description : left sidebar widgets
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,33 +24,31 @@
  *
  * ============================================================ */
 
-#include "leftsidebarwidgets.moc"
+#include "leftsidebarwidgets.h"
 
-// QT includes
+// Qt includes
 
 #include <QButtonGroup>
 #include <QLabel>
-#include <QLayout>
 #include <QScrollBar>
 #include <QTimer>
 #include <QToolButton>
 #include <QRadioButton>
+#include <QApplication>
+#include <QStyle>
+#include <QIcon>
+#include <QComboBox>
+#include <QPushButton>
+#include <QLineEdit>
+#include <QIcon>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kpushbutton.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <kicon.h>
-#include <kiconloader.h>
-#include <kinputdialog.h>
-#include <klocale.h>
-#include <ksqueezedtextlabel.h>
-#include <KTabWidget>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
 #include "albummodificationhelper.h"
 #include "albumselectiontreeview.h"
@@ -61,14 +59,15 @@
 #include "searchfolderview.h"
 #include "searchtabheader.h"
 #include "searchtextbar.h"
-#include "searchxml.h"
+#include "coredbsearchxml.h"
 #include "tagfolderview.h"
 #include "timelinewidget.h"
 #include "facescandialog.h"
-#include "facedetector.h"
+#include "facesdetector.h"
 #include "tagsmanager.h"
 #include "albumlabelstreeview.h"
-#include "albumdb.h"
+#include "coredb.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -91,20 +90,20 @@ public:
 
 AlbumFolderViewSideBarWidget::AlbumFolderViewSideBarWidget(QWidget* const parent, AlbumModel* const model,
                                                            AlbumModificationHelper* const albumModificationHelper)
-    : SidebarWidget(parent), d(new Private)
+    : SidebarWidget(parent),
+      d(new Private)
 {
-    setObjectName("AlbumFolderView Sidebar");
+    setObjectName(QLatin1String("AlbumFolderView Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F1);
     d->albumModificationHelper = albumModificationHelper;
 
-    QVBoxLayout* const layout = new QVBoxLayout(this);
-
-    d->albumFolderView = new AlbumSelectionTreeView(this, model, d->albumModificationHelper);
-    d->albumFolderView->setObjectName("AlbumFolderView");
+    QVBoxLayout* const layout  = new QVBoxLayout(this);
+    d->albumFolderView         = new AlbumSelectionTreeView(this, model, d->albumModificationHelper);
+    d->albumFolderView->setObjectName(QLatin1String("AlbumFolderView"));
     d->albumFolderView->setConfigGroup(getConfigGroup());
     d->albumFolderView->setExpandNewCurrentItem(true);
     d->albumFolderView->setAlbumManagerCurrentAlbum(true);
-    d->searchTextBar   = new SearchTextBar(this, "DigikamViewFolderSearchBar");
+    d->searchTextBar   = new SearchTextBar(this, QLatin1String("DigikamViewFolderSearchBar"));
     d->searchTextBar->setHighlightOnResult(true);
     d->searchTextBar->setModel(model, AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
     d->searchTextBar->setFilterModel(d->albumFolderView->albumFilterModel());
@@ -162,12 +161,12 @@ void AlbumFolderViewSideBarWidget::setCurrentAlbum(PAlbum* album)
     d->albumFolderView->setCurrentAlbums(QList<Album*>() << album);
 }
 
-QPixmap AlbumFolderViewSideBarWidget::getIcon()
+const QIcon AlbumFolderViewSideBarWidget::getIcon()
 {
-    return SmallIcon("folder-image");
+    return QIcon::fromTheme(QLatin1String("folder-pictures"));
 }
 
-QString AlbumFolderViewSideBarWidget::getCaption()
+const QString AlbumFolderViewSideBarWidget::getCaption()
 {
     return i18n("Albums");
 }
@@ -196,7 +195,7 @@ public:
     {
     }
 
-    KPushButton*   openTagMngr;
+    QPushButton*   openTagMngr;
     SearchTextBar* tagSearchBar;
     TagFolderView* tagFolderView;
     QButtonGroup*  btnGroup;
@@ -211,21 +210,21 @@ public:
     static const QString configTagsSourceEntry;
 };
 
-const QString TagViewSideBarWidget::Private::configTagsSourceEntry("TagsSource");
+const QString TagViewSideBarWidget::Private::configTagsSourceEntry(QLatin1String("TagsSource"));
 
 TagViewSideBarWidget::TagViewSideBarWidget(QWidget* const parent, TagModel* const model)
-    : SidebarWidget(parent), d(new Private)
+    : SidebarWidget(parent),
+      d(new Private)
 {
-    setObjectName("TagView Sidebar");
+    setObjectName(QLatin1String("TagView Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F2);
 
     QVBoxLayout* const layout = new QVBoxLayout(this);
 
-    d->openTagMngr   = new KPushButton( i18n("Open Tag Manager"));
-
-    d->noTagsBtn = new QRadioButton(i18n("No Tags"), this);
-    d->tagsBtn   = new QRadioButton(i18n("Existing Tags"), this);
-    d->btnGroup  = new QButtonGroup(this);
+    d->openTagMngr = new QPushButton( i18n("Open Tag Manager"));
+    d->noTagsBtn   = new QRadioButton(i18n("No Tags"), this);
+    d->tagsBtn     = new QRadioButton(i18n("Existing Tags"), this);
+    d->btnGroup    = new QButtonGroup(this);
     d->btnGroup->addButton(d->noTagsBtn);
     d->btnGroup->addButton(d->tagsBtn);
     d->btnGroup->setId(d->noTagsBtn, 0);
@@ -237,7 +236,7 @@ TagViewSideBarWidget::TagViewSideBarWidget(QWidget* const parent, TagModel* cons
     d->tagFolderView->setExpandNewCurrentItem(true);
     d->tagFolderView->setAlbumManagerCurrentAlbum(true);
 
-    d->tagSearchBar  = new SearchTextBar(this, "DigikamViewTagSearchBar");
+    d->tagSearchBar  = new SearchTextBar(this, QLatin1String("DigikamViewTagSearchBar"));
     d->tagSearchBar->setHighlightOnResult(true);
     d->tagSearchBar->setModel(model, AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
     d->tagSearchBar->setFilterModel(d->tagFolderView->albumFilterModel());
@@ -338,7 +337,7 @@ void TagViewSideBarWidget::setNoTagsAlbum()
         SearchXmlWriter writer;
         writer.setFieldOperator((SearchXml::standardFieldOperator()));
         writer.writeGroup();
-        writer.writeField("notag", SearchXml::Equal);
+        writer.writeField(QLatin1String("notag"), SearchXml::Equal);
         writer.finishField();
         writer.finishGroup();
         writer.finish();
@@ -353,12 +352,12 @@ void TagViewSideBarWidget::setNoTagsAlbum()
     if (album)
     {
         id = album->id();
-        DatabaseAccess().db()->updateSearch(id,DatabaseSearch::AdvancedSearch,
+        CoreDbAccess().db()->updateSearch(id,DatabaseSearch::AdvancedSearch,
                                             SAlbum::getTemporaryTitle(DatabaseSearch::AdvancedSearch), d->noTagsSearchXml);
     }
     else
     {
-        id = DatabaseAccess().db()->addSearch(DatabaseSearch::AdvancedSearch,
+        id = CoreDbAccess().db()->addSearch(DatabaseSearch::AdvancedSearch,
                                               SAlbum::getTemporaryTitle(DatabaseSearch::AdvancedSearch), d->noTagsSearchXml);
     }
 
@@ -370,12 +369,12 @@ void TagViewSideBarWidget::setNoTagsAlbum()
     }
 }
 
-QPixmap TagViewSideBarWidget::getIcon()
+const QIcon TagViewSideBarWidget::getIcon()
 {
-    return SmallIcon("tag");
+    return QIcon::fromTheme(QLatin1String("mail-tagged"));
 }
 
-QString TagViewSideBarWidget::getCaption()
+const QString TagViewSideBarWidget::getCaption()
 {
     return i18n("Tags");
 }
@@ -431,15 +430,17 @@ public:
 
     Private() :
         labelsTree(0)
-    {}
+    {
+    }
 
     AlbumLabelsTreeView* labelsTree;
 };
 
 LabelsSideBarWidget::LabelsSideBarWidget(QWidget* const parent) :
-    SidebarWidget(parent), d(new Private)
+    SidebarWidget(parent),
+    d(new Private)
 {
-    setObjectName("Labels Sidebar");
+    setObjectName(QLatin1String("Labels Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F3);
 
     QVBoxLayout* const layout = new QVBoxLayout(this);
@@ -487,12 +488,12 @@ void LabelsSideBarWidget::doSaveState()
     d->labelsTree->doSaveState();
 }
 
-QPixmap LabelsSideBarWidget::getIcon()
+const QIcon LabelsSideBarWidget::getIcon()
 {
-    return SmallIcon("favorites");
+    return QIcon::fromTheme(QLatin1String("folder-favorites"));
 }
 
-QString LabelsSideBarWidget::getCaption()
+const QString LabelsSideBarWidget::getCaption()
 {
     return i18n("Labels");
 }
@@ -518,9 +519,10 @@ public:
 
 DateFolderViewSideBarWidget::DateFolderViewSideBarWidget(QWidget* const parent, DateAlbumModel* const model,
                                                          ImageAlbumFilterModel* const imageFilterModel)
-    : SidebarWidget(parent), d(new Private)
+    : SidebarWidget(parent),
+      d(new Private)
 {
-    setObjectName("DateFolderView Sidebar");
+    setObjectName(QLatin1String("DateFolderView Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F4);
 
     QVBoxLayout* const layout = new QVBoxLayout(this);
@@ -571,12 +573,12 @@ void DateFolderViewSideBarWidget::gotoDate(const QDate& date)
     d->dateFolderView->gotoDate(date);
 }
 
-QPixmap DateFolderViewSideBarWidget::getIcon()
+const QIcon DateFolderViewSideBarWidget::getIcon()
 {
-    return SmallIcon("view-calendar-list");
+    return QIcon::fromTheme(QLatin1String("view-calendar-list"));
 }
 
-QString DateFolderViewSideBarWidget::getCaption()
+const QString DateFolderViewSideBarWidget::getCaption()
 {
     return i18n("Dates");
 }
@@ -615,9 +617,9 @@ public:
     QToolButton*              resetButton;
     QToolButton*              saveButton;
 
-    KComboBox*                timeUnitCB;
-    KLineEdit*                nameEdit;
-    KSqueezedTextLabel*       cursorDateLabel;
+    QComboBox*                timeUnitCB;
+    QLineEdit*                nameEdit;
+    DAdjustableLabel*       cursorDateLabel;
 
     SearchTextBar*            searchDateBar;
     EditableSearchTreeView*   timeLineFolderView;
@@ -628,9 +630,9 @@ public:
     AlbumPointer<SAlbum>      currentTimelineSearch;
 };
 
-const QString TimelineSideBarWidget::Private::configHistogramTimeUnitEntry("Histogram TimeUnit");
-const QString TimelineSideBarWidget::Private::configHistogramScaleEntry("Histogram Scale");
-const QString TimelineSideBarWidget::Private::configCursorPositionEntry("Cursor Position");
+const QString TimelineSideBarWidget::Private::configHistogramTimeUnitEntry(QLatin1String("Histogram TimeUnit"));
+const QString TimelineSideBarWidget::Private::configHistogramScaleEntry(QLatin1String("Histogram Scale"));
+const QString TimelineSideBarWidget::Private::configCursorPositionEntry(QLatin1String("Cursor Position"));
 
 // --------------------------------------------------------
 
@@ -638,12 +640,14 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
                                              SearchModificationHelper* const searchModificationHelper)
     : SidebarWidget(parent), d(new Private)
 {
-    setObjectName("TimeLine Sidebar");
+    setObjectName(QLatin1String("TimeLine Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F5);
 
     d->searchModificationHelper = searchModificationHelper;
     d->timer                    = new QTimer(this);
     setAttribute(Qt::WA_DeleteOnClose);
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     QVBoxLayout* const vlay = new QVBoxLayout(this);
     QFrame* const panel     = new QFrame(this);
@@ -658,7 +662,7 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
     QHBoxLayout* const hlay = new QHBoxLayout(hbox1);
 
     QLabel* const label1    = new QLabel(i18n("Time Unit:"), hbox1);
-    d->timeUnitCB  = new KComboBox(hbox1);
+    d->timeUnitCB           = new QComboBox(hbox1);
     d->timeUnitCB->addItem(i18n("Day"),   TimeLineWidget::Day);
     d->timeUnitCB->addItem(i18n("Week"),  TimeLineWidget::Week);
     d->timeUnitCB->addItem(i18n("Month"), TimeLineWidget::Month);
@@ -680,23 +684,23 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
 
     QToolButton* const linHistoButton = new QToolButton(scaleBox);
     linHistoButton->setToolTip( i18n( "Linear" ) );
-    linHistoButton->setIcon(KIcon("view-object-histogram-linear"));
+    linHistoButton->setIcon(QIcon::fromTheme(QLatin1String("view-object-histogram-linear")));
     linHistoButton->setCheckable(true);
     d->scaleBG->addButton(linHistoButton, TimeLineWidget::LinScale);
 
     QToolButton* const logHistoButton = new QToolButton(scaleBox);
     logHistoButton->setToolTip( i18n( "Logarithmic" ) );
-    logHistoButton->setIcon(KIcon("view-object-histogram-logarithmic"));
+    logHistoButton->setIcon(QIcon::fromTheme(QLatin1String("view-object-histogram-logarithmic")));
     logHistoButton->setCheckable(true);
     d->scaleBG->addButton(logHistoButton, TimeLineWidget::LogScale);
 
-    hlay2->setMargin(0);
+    hlay2->setContentsMargins(QMargins());
     hlay2->setSpacing(0);
     hlay2->addWidget(linHistoButton);
     hlay2->addWidget(logHistoButton);
 
-    hlay->setMargin(0);
-    hlay->setSpacing(KDialog::spacingHint());
+    hlay->setContentsMargins(QMargins());
+    hlay->setSpacing(spacing);
     hlay->addWidget(label1);
     hlay->addWidget(d->timeUnitCB);
     hlay->addItem(new QSpacerItem(10, 10, QSizePolicy::Expanding, QSizePolicy::Minimum));
@@ -710,27 +714,27 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
     d->scrollBar->setMinimum(0);
     d->scrollBar->setSingleStep(1);
 
-    d->cursorDateLabel  = new KSqueezedTextLabel(0, panel);
+    d->cursorDateLabel  = new DAdjustableLabel(panel);
     d->cursorCountLabel = new QLabel(panel);
     d->cursorCountLabel->setAlignment(Qt::AlignRight);
 
     // ---------------------------------------------------------------
 
-    KHBox* const hbox2 = new KHBox(panel);
-    hbox2->setMargin(0);
-    hbox2->setSpacing(KDialog::spacingHint());
+    DHBox* const hbox2 = new DHBox(panel);
+    hbox2->setContentsMargins(QMargins());
+    hbox2->setSpacing(spacing);
 
     d->resetButton = new QToolButton(hbox2);
-    d->resetButton->setIcon(SmallIcon("document-revert"));
+    d->resetButton->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     d->resetButton->setToolTip(i18n("Clear current selection"));
     d->resetButton->setWhatsThis(i18n("If you press this button, the current date selection on the time-line will be cleared."));
-    d->nameEdit    = new KLineEdit(hbox2);
-    d->nameEdit->setClearButtonShown(true);
+    d->nameEdit    = new QLineEdit(hbox2);
+    d->nameEdit->setClearButtonEnabled(true);
     d->nameEdit->setWhatsThis(i18n("Enter the name of the current dates search to save in the "
                                    "\"Searches\" view"));
 
     d->saveButton  = new QToolButton(hbox2);
-    d->saveButton->setIcon(SmallIcon("document-save"));
+    d->saveButton->setIcon(QIcon::fromTheme(QLatin1String("document-save")));
     d->saveButton->setEnabled(false);
     d->saveButton->setToolTip(i18n("Save current selection to a new virtual Album"));
     d->saveButton->setWhatsThis(i18n("If you press this button, the dates selected on the time-line will be "
@@ -745,8 +749,8 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
     grid->addWidget(d->scrollBar,        3, 0, 1, 4);
     grid->addWidget(hbox2,               4, 0, 1, 4);
     grid->setColumnStretch(2, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // ---------------------------------------------------------------
 
@@ -755,7 +759,7 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
     d->timeLineFolderView->filteredModel()->listTimelineSearches();
     d->timeLineFolderView->filteredModel()->setListTemporarySearches(false);
     d->timeLineFolderView->setAlbumManagerCurrentAlbum(false);
-    d->searchDateBar      = new SearchTextBar(this, "TimeLineViewSearchDateBar");
+    d->searchDateBar      = new SearchTextBar(this, QLatin1String("TimeLineViewSearchDateBar"));
     d->searchDateBar->setModel(d->timeLineFolderView->filteredModel(),
                                AbstractAlbumModel::AlbumIdRole,
                                AbstractAlbumModel::AlbumTitleRole);
@@ -763,10 +767,9 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
 
     vlay->addWidget(panel);
     vlay->addWidget(d->timeLineFolderView);
-    vlay->addItem(new QSpacerItem(KDialog::spacingHint(), KDialog::spacingHint(),
-                                  QSizePolicy::Minimum, QSizePolicy::Minimum));
+    vlay->addItem(new QSpacerItem(spacing, spacing, QSizePolicy::Minimum, QSizePolicy::Minimum));
     vlay->addWidget(d->searchDateBar);
-    vlay->setMargin(0);
+    vlay->setContentsMargins(QMargins());
     vlay->setSpacing(0);
 
     // ---------------------------------------------------------------
@@ -810,7 +813,7 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent, SearchModel*
     connect(d->nameEdit, SIGNAL(textChanged(QString)),
             this, SLOT(slotCheckAboutSelection()));
 
-    connect(d->nameEdit, SIGNAL(returnPressed(QString)),
+    connect(d->nameEdit, SIGNAL(returnPressed()),
             d->saveButton, SLOT(animateClick()));
 }
 
@@ -900,12 +903,12 @@ void TimelineSideBarWidget::changeAlbumFromHistory(QList<Album*> album)
     d->timeLineFolderView->setCurrentAlbums(album);
 }
 
-QPixmap TimelineSideBarWidget::getIcon()
+const QIcon TimelineSideBarWidget::getIcon()
 {
-    return SmallIcon("player-time");
+    return QIcon::fromTheme(QLatin1String("player-time"));
 }
 
-QString TimelineSideBarWidget::getCaption()
+const QString TimelineSideBarWidget::getCaption()
 {
     return i18n("Timeline");
 }
@@ -937,7 +940,7 @@ void TimelineSideBarWidget::slotCursorPositionChanged()
 {
     QString txt;
     int val = d->timeLineWidget->cursorInfo(txt);
-    d->cursorDateLabel->setText(txt);
+    d->cursorDateLabel->setAdjustedText(txt);
     d->cursorCountLabel->setText((val == 0) ? i18n("no item") : i18np("1 item", "%1 items", val));
 }
 
@@ -1079,9 +1082,10 @@ public:
 
 SearchSideBarWidget::SearchSideBarWidget(QWidget* const parent, SearchModel* const searchModel,
                                          SearchModificationHelper* const searchModificationHelper)
-    : SidebarWidget(parent), d(new Private)
+    : SidebarWidget(parent),
+      d(new Private)
 {
-    setObjectName("Search Sidebar");
+    setObjectName(QLatin1String("Search Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F6);
 
     QVBoxLayout* const layout = new QVBoxLayout(this);
@@ -1092,7 +1096,7 @@ SearchSideBarWidget::SearchSideBarWidget(QWidget* const parent, SearchModel* con
     d->searchTreeView->filteredModel()->listNormalSearches();
     d->searchTreeView->filteredModel()->setListTemporarySearches(true);
     d->searchTreeView->setAlbumManagerCurrentAlbum(true);
-    d->searchSearchBar  = new SearchTextBar(this, "DigikamViewSearchSearchBar");
+    d->searchSearchBar  = new SearchTextBar(this, QLatin1String("DigikamViewSearchSearchBar"));
     d->searchSearchBar->setModel(d->searchTreeView->filteredModel(),
                                  AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
     d->searchSearchBar->setFilterModel(d->searchTreeView->albumFilterModel());
@@ -1147,12 +1151,12 @@ void SearchSideBarWidget::changeAlbumFromHistory(QList<Album*> album)
     d->searchTreeView->setCurrentAlbums(album);
 }
 
-QPixmap SearchSideBarWidget::getIcon()
+const QIcon SearchSideBarWidget::getIcon()
 {
-    return SmallIcon("edit-find");
+    return QIcon::fromTheme(QLatin1String("edit-find"));
 }
 
-QString SearchSideBarWidget::getCaption()
+const QString SearchSideBarWidget::getCaption()
 {
     return i18nc("Avanced search images, access stored searches", "Search");
 }
@@ -1184,9 +1188,10 @@ public:
 
 FuzzySearchSideBarWidget::FuzzySearchSideBarWidget(QWidget* const parent, SearchModel* const searchModel,
                                                    SearchModificationHelper* const searchModificationHelper)
-    : SidebarWidget(parent), d(new Private)
+    : SidebarWidget(parent),
+      d(new Private)
 {
-    setObjectName("Fuzzy Search Sidebar");
+    setObjectName(QLatin1String("Fuzzy Search Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F7);
 
     d->fuzzySearchView        = new FuzzySearchView(searchModel, searchModificationHelper, this);
@@ -1232,12 +1237,12 @@ void FuzzySearchSideBarWidget::changeAlbumFromHistory(QList<Album*> album)
     d->fuzzySearchView->setCurrentAlbum(salbum);
 }
 
-QPixmap FuzzySearchSideBarWidget::getIcon()
+const QIcon FuzzySearchSideBarWidget::getIcon()
 {
-    return SmallIcon("tools-wizard");
+    return QIcon::fromTheme(QLatin1String("tools-wizard"));
 }
 
-QString FuzzySearchSideBarWidget::getCaption()
+const QString FuzzySearchSideBarWidget::getCaption()
 {
     return i18nc("Fuzzy Search images, as dupplicates, sketch, similars searches", "Fuzzy");
 }
@@ -1259,7 +1264,7 @@ void FuzzySearchSideBarWidget::newSimilarSearch(const ImageInfo& imageInfo)
 
 // -----------------------------------------------------------------------------
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 
 class GPSSearchSideBarWidget::Private
 {
@@ -1275,9 +1280,10 @@ public:
 GPSSearchSideBarWidget::GPSSearchSideBarWidget(QWidget* const parent, SearchModel* const searchModel,
                                                SearchModificationHelper* const searchModificationHelper,
                                                ImageFilterModel* const imageFilterModel,  QItemSelectionModel* const itemSelectionModel)
-    : SidebarWidget(parent), d(new Private)
+    : SidebarWidget(parent),
+      d(new Private)
 {
-    setObjectName("GPS Search Sidebar");
+    setObjectName(QLatin1String("GPS Search Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F8);
 
     d->gpsSearchView = new GPSSearchView(this, searchModel, searchModificationHelper, imageFilterModel, itemSelectionModel);
@@ -1323,21 +1329,19 @@ void GPSSearchSideBarWidget::changeAlbumFromHistory(QList<Album*> album)
     d->gpsSearchView->changeAlbumFromHistory(dynamic_cast<SAlbum*>(album.first()));
 }
 
-QPixmap GPSSearchSideBarWidget::getIcon()
+const QIcon GPSSearchSideBarWidget::getIcon()
 {
-    return SmallIcon("applications-internet");
+    return QIcon::fromTheme(QLatin1String("folder-html"));
 }
 
-QString GPSSearchSideBarWidget::getCaption()
+const QString GPSSearchSideBarWidget::getCaption()
 {
     return i18nc("Search images on a map", "Map");
 }
 
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 // -----------------------------------------------------------------------------
-
-#ifdef HAVE_KFACE
 
 class PeopleSideBarWidget::Private : public TagViewSideBarWidget::Private
 {
@@ -1360,9 +1364,10 @@ public:
 
 PeopleSideBarWidget::PeopleSideBarWidget(QWidget* const parent, TagModel* const model,
                                          SearchModificationHelper* const searchModificationHelper)
-    : SidebarWidget(parent), d(new Private)
+    : SidebarWidget(parent),
+      d(new Private)
 {
-    setObjectName("People Sidebar");
+    setObjectName(QLatin1String("People Sidebar"));
     setProperty("Shortcut", Qt::META + Qt::CTRL + Qt::Key_F9);
 
     d->searchModificationHelper = searchModificationHelper;
@@ -1373,10 +1378,10 @@ PeopleSideBarWidget::PeopleSideBarWidget(QWidget* const parent, TagModel* const 
     d->tagFolderView->setExpandNewCurrentItem(true);
     d->tagFolderView->setAlbumManagerCurrentAlbum(true);
 
-    d->tagFolderView->filteredModel()->listOnlyTagsWithProperty("person");
+    d->tagFolderView->filteredModel()->listOnlyTagsWithProperty(QLatin1String("person"));
     d->tagFolderView->filteredModel()->setFilterBehavior(AlbumFilterModel::StrictFiltering);
 
-    d->tagSearchBar   = new SearchTextBar(this, "DigikamViewPeopleSearchBar");
+    d->tagSearchBar   = new SearchTextBar(this, QLatin1String("DigikamViewPeopleSearchBar"));
     d->tagSearchBar->setHighlightOnResult(true);
     d->tagSearchBar->setModel(d->tagFolderView->filteredModel(),
                               AbstractAlbumModel::AlbumIdRole, AbstractAlbumModel::AlbumTitleRole);
@@ -1386,7 +1391,7 @@ PeopleSideBarWidget::PeopleSideBarWidget(QWidget* const parent, TagModel* const 
     d->rescanButton->setText(i18n("Scan collection for faces"));
 
     d->personIcon     = new QLabel;
-    d->personIcon->setPixmap(KIconLoader::global()->loadIcon("edit-image-face-show", KIconLoader::NoGroup, 48));
+    d->personIcon->setPixmap(QIcon::fromTheme(QLatin1String("edit-image-face-show")).pixmap(48));
 
     d->textLabel      = new QLabel(i18n("People Tags"));
 
@@ -1452,21 +1457,19 @@ void PeopleSideBarWidget::slotScanForFaces()
 
     if (dialog.exec() == QDialog::Accepted)
     {
-        FaceDetector* const tool = new FaceDetector(dialog.settings());
+        FacesDetector* const tool = new FacesDetector(dialog.settings());
         tool->start();
     }
 }
 
-QPixmap PeopleSideBarWidget::getIcon()
+const QIcon PeopleSideBarWidget::getIcon()
 {
-    return SmallIcon("edit-image-face-show");
+    return QIcon::fromTheme(QLatin1String("edit-image-face-show"));
 }
 
-QString PeopleSideBarWidget::getCaption()
+const QString PeopleSideBarWidget::getCaption()
 {
     return i18nc("Browse images sorted by depicted people", "People");
 }
-
-#endif /* HAVE_KFACE */
 
 } // namespace Digikam

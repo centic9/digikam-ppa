@@ -30,10 +30,11 @@
 
 // KDE includes
 
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "digikam_export.h"
 #include "dimgbuiltinfilter.h"
 #include "dimgfiltermanager.h"
@@ -124,6 +125,7 @@ bool FilterActionFilter::isComplexAction() const
             return false;
         }
     }
+
     return true;
 }
 
@@ -136,6 +138,7 @@ bool FilterActionFilter::isSupported() const
             return false;
         }
     }
+
     return true;
 }
 
@@ -182,7 +185,7 @@ void FilterActionFilter::filterImage()
 
     foreach(const FilterAction& action, d->actions)
     {
-        kDebug() << "Replaying action" << action.identifier();
+        qCDebug(DIGIKAM_DIMG_LOG) << "Replaying action" << action.identifier();
 
         if (action.isNull())
         {

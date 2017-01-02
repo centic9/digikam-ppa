@@ -6,7 +6,8 @@
  * Date        : 2012-07-13
  * Description : Modified context menu helper for import tool
  *
- * Copyright (C) 2012 by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,20 +22,22 @@
  *
  * ============================================================ */
 
-#ifndef ImportContextMenu_H
-#define ImportContextMenu_H
+#ifndef IMPORTCONTEXTMENU_H
+#define IMPORTCONTEXTMENU_H
 
-// KDE includes
+// Qt includes
 
-#include <kactioncollection.h>
-#include <kmenu.h>
+#include <QMenu>
 
 // Local includes
 
+#include "digikam_config.h"
 #include "camiteminfo.h"
 #include "importfiltermodel.h"
 
 class QAction;
+
+class KActionCollection;
 
 namespace Digikam
 {
@@ -81,7 +84,7 @@ public:
      * @param name the name of the action in the actionCollection
      * @param addDisabled if set, disabled actions are added to the menu
      */
-    void addAction(const char* name, bool addDisabled = false);
+    void addAction(const QString& name, bool addDisabled = false);
 
     /**
      * Add a temporary action.
@@ -116,7 +119,7 @@ public:
      *
      * @param selectedItems the list of selected items
      */
-    void addServicesMenu(const KUrl::List& selectedItems);
+    void addServicesMenu(const QList<QUrl>& selectedItems);
 
     /**
      * Add actions to add, remove or edit a tag.
@@ -202,7 +205,7 @@ public:
      *
      * @param subMenu   the submenu to be added
      */
-    void addSubMenu(KMenu* subMenu);
+    void addSubMenu(QMenu* subMenu);
 
     /**
      * Add a separator to the context menu
@@ -236,7 +239,7 @@ private Q_SLOTS:
 private:
 
     void setSelectedIds(itemIds& ids);
-    void setSelectedItems(const KUrl::List& urls);
+    void setSelectedItems(const QList<QUrl>& urls);
     //QList<QAction*> groupMenuActions(itemIds& ids);
     void setGroupsOpen(bool open);
 
@@ -248,4 +251,4 @@ private:
 
 } // namespace Digikam
 
-#endif // IMPORTImportContextMenu_H
+#endif // IMPORTIMPORTCONTEXTMENU_H

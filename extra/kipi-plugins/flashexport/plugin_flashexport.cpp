@@ -6,7 +6,8 @@
  * Date        : 2011-09-20
  * Description : a tool to export images to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,29 +22,27 @@
  *
  * ============================================================ */
 
-#include "plugin_flashexport.moc"
+#include "plugin_flashexport.h"
+
+// Qt includes
+
+#include <QApplication>
+#include <QAction>
 
 // KDE includes
 
-#include <kaction.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kiconloader.h>
-#include <klibloader.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kwindowsystem.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/imagecollection.h>
-#include <libkipi/interface.h>
+#include <KIPI/ImageCollection>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kipiplugins_debug.h"
 #include "flashmanager.h"
 #include "aboutdata.h"
 
@@ -51,17 +50,14 @@ namespace KIPIFlashExportPlugin
 {
 
 K_PLUGIN_FACTORY( FlashExportFactory, registerPlugin<Plugin_FlashExport>(); )
-K_EXPORT_PLUGIN ( FlashExportFactory("kipiplugin_flashexport") )
 
 Plugin_FlashExport::Plugin_FlashExport(QObject* const parent, const QVariantList&)
-    : Plugin(FlashExportFactory::componentData(), parent, "FlashExport")
+    : Plugin(parent, "FlashExport")
 {
     m_interface    = 0;
     m_action       = 0;
     m_parentWidget = 0;
     m_manager      = 0;
-
-    kDebug(AREA_CODE_LOADING) << "Plugin_Flashexport plugin loaded";
 
     setUiBaseName("kipiplugin_flashexportui.rc");
     setupXML();
@@ -77,9 +73,10 @@ void Plugin_FlashExport::setup(QWidget* const widget)
     Plugin::setup(m_parentWidget);
 
     m_interface = interface();
+
     if (!m_interface)
     {
-       kError() << "Kipi interface is null!";
+       qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
        return;
     }
 
@@ -90,22 +87,22 @@ void Plugin_FlashExport::setupActions()
 {
     setDefaultCategory(ExportPlugin);
 
-    m_action = new KAction(this);
+    m_action = new QAction(this);
     m_action->setText(i18n("Export to F&lash..."));
-    m_action->setIcon(KIcon("kipi-flash"));
-    m_action->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::Key_L));
+    m_action->setIcon(QIcon::fromTheme(QLatin1String("kipi-flash")));
+    actionCollection()->setDefaultShortcut(m_action, Qt::ALT + Qt::SHIFT + Qt::Key_L);
 
     connect(m_action, SIGNAL(triggered(bool)),
             this, SLOT(slotActivate()));
 
-    addAction("flashexport", m_action);
+    addAction(QLatin1String("flashexport"), m_action);
 }
 
 void Plugin_FlashExport::slotActivate()
 {
     if (!m_interface)
     {
-        kError() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
@@ -119,3 +116,5 @@ void Plugin_FlashExport::slotActivate()
 }
 
 } // namespace KIPIFlashExportPlugin
+
+#include "plugin_flashexport.moc"

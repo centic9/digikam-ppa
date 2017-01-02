@@ -7,7 +7,7 @@
  * Description : A kipi plugin to export images to a MediaWiki wiki
  *
  * Copyright (C) 2011      by Alexandre Mendes <alex dot mendes1988 at gmail dot com>
- * Copyright (C) 2011-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,45 +21,34 @@
  *
  * ============================================================ */
 
-// To disable warnings under MSVC2008 about getpid().
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif
+#include "plugin_wikimedia.h"
 
-#include "plugin_wikimedia.moc"
+// Qt includes
 
-// C ANSI includes
-
-extern "C"
-{
-#include <unistd.h>
-}
+#include <QApplication>
+#include <QAction>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <KConfig>
-#include <KApplication>
-#include <KAction>
-#include <KActionCollection>
-#include <KGenericFactory>
-#include <KLibLoader>
-#include <KStandardDirs>
+#include <kactioncollection.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 #include <kwindowsystem.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kputil.h"
 #include "wmwindow.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIWikiMediaPlugin
 {
 
 K_PLUGIN_FACTORY( WikiMediaFactory, registerPlugin<Plugin_WikiMedia>(); )
-K_EXPORT_PLUGIN ( WikiMediaFactory("kipiplugin_wikimedia") )
 
 class Plugin_WikiMedia::Private
 {
@@ -71,15 +60,15 @@ public:
         dlgExport    = 0;
     }
 
-    KAction*  actionExport;
+    QAction *  actionExport;
     WMWindow* dlgExport;
 };
 
 Plugin_WikiMedia::Plugin_WikiMedia(QObject* const parent, const QVariantList& /*args*/)
-    : Plugin(WikiMediaFactory::componentData(), parent, "MediaWiki export"),
+    : Plugin(parent, "MediaWiki export"),
       d(new Private)
 {
-    kDebug(AREA_CODE_LOADING) << "Plugin_MediaWiki plugin loaded";
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_MediaWiki plugin loaded";
 
     setUiBaseName("kipiplugin_wikimediaui.rc");
     setupXML();
@@ -88,20 +77,20 @@ Plugin_WikiMedia::Plugin_WikiMedia(QObject* const parent, const QVariantList& /*
 Plugin_WikiMedia::~Plugin_WikiMedia()
 {
     delete d;
+
+    removeTemporaryDir("mediawiki");
 }
 
 void Plugin_WikiMedia::setup(QWidget* const widget)
 {
     d->dlgExport = 0;
+
     Plugin::setup(widget);
-
-    KIconLoader::global()->addAppDir("kipiplugin_wikimedia");
-
     setupActions();
 
     if (!interface())
     {
-        kError() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
@@ -112,26 +101,25 @@ void Plugin_WikiMedia::setupActions()
 {
     setDefaultCategory(ExportPlugin);
 
-    d->actionExport = new KAction(this);
+    d->actionExport = new QAction(this);
     d->actionExport->setText(i18n("Export to MediaWiki..."));
-    d->actionExport->setIcon(KIcon("kipi-wikimedia"));
+    d->actionExport->setIcon(QIcon::fromTheme(QLatin1String("kipi-wikimedia")));
     d->actionExport->setEnabled(false);
 
     connect(d->actionExport, SIGNAL(triggered(bool)),
             this, SLOT(slotExport()) );
 
-    addAction("wikimediaexport", d->actionExport);
+    addAction(QLatin1String("wikimediaexport"), d->actionExport);
 }
 
 void Plugin_WikiMedia::slotExport()
 {
-    KStandardDirs dir;
-    QString tmp = dir.saveLocation("tmp", QString("kipi-mediawiki-") + QString::number(getpid()) + QString("/"));
+    QString tmp = makeTemporaryDir("mediawiki").absolutePath() + QLatin1Char('/');
 
     if (!d->dlgExport)
     {
         // We clean it up in the close button
-        d->dlgExport = new WMWindow(tmp, kapp->activeWindow());
+        d->dlgExport = new WMWindow(tmp, QApplication::activeWindow());
     }
     else
     {
@@ -143,3 +131,5 @@ void Plugin_WikiMedia::slotExport()
 }
 
 } // namespace KIPIWikiMediaPlugin
+
+#include "plugin_wikimedia.moc"

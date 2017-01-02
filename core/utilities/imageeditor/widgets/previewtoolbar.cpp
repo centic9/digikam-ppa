@@ -6,7 +6,7 @@
  * Date        : 2010-01-10
  * Description : a tool bar for preview mode
  *
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "previewtoolbar.moc"
+#include "previewtoolbar.h"
 
 // Qt includes
 
@@ -29,18 +29,13 @@
 #include <QLayout>
 #include <QToolButton>
 #include <QAbstractButton>
+#include <QStandardPaths>
+#include <QMenu>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 #include <kactioncollection.h>
-#include <kactionmenu.h>
 
 // Local includes
 
@@ -79,7 +74,7 @@ public:
     QButtonGroup* previewButtons;
     QActionGroup* actionsGroup;
 
-    KActionMenu*  actionsMenu;
+    QMenu*        actionsMenu;
 };
 
 PreviewToolBar::PreviewToolBar(QWidget* const parent)
@@ -90,22 +85,22 @@ PreviewToolBar::PreviewToolBar(QWidget* const parent)
     QHBoxLayout* const hlay = new QHBoxLayout(this);
     d->previewButtons       = new QButtonGroup(this);
     d->previewButtons->setExclusive(true);
+    hlay->setContentsMargins(QMargins());
     hlay->setSpacing(0);
-    hlay->setMargin(0);
 
     d->previewOriginalButton = new QToolButton(this);
     d->previewButtons->addButton(d->previewOriginalButton, PreviewOriginalImage);
     hlay->addWidget(d->previewOriginalButton);
-    d->previewOriginalButton->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/original.png")));
+    d->previewOriginalButton->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/original.png"))));
     d->previewOriginalButton->setCheckable(true);
     d->previewOriginalButton->setWhatsThis(i18n("If this option is enabled, the original image will be shown."));
     d->previewOriginalButton->setToolTip(i18n("Preview original image"));
-    d->previewOriginalButton->setObjectName("preview-original");
+    d->previewOriginalButton->setObjectName(QLatin1String("preview-original"));
 
     d->previewBothButtonVert = new QToolButton(this);
     d->previewButtons->addButton(d->previewBothButtonVert, PreviewBothImagesVertCont);
     hlay->addWidget(d->previewBothButtonVert);
-    d->previewBothButtonVert->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/bothvert.png")));
+    d->previewBothButtonVert->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/bothvert.png"))));
     d->previewBothButtonVert->setCheckable(true);
     d->previewBothButtonVert->setWhatsThis(i18n("If this option is enabled, the preview area will "
                                                 "split vertically. "
@@ -113,12 +108,12 @@ PreviewToolBar::PreviewToolBar(QWidget* const parent)
                                                 "with one half from the original image, "
                                                 "the other half from the target image."));
     d->previewBothButtonVert->setToolTip(i18n("Preview vertical split with contiguous image"));
-    d->previewBothButtonVert->setObjectName("preview-both-vert");
+    d->previewBothButtonVert->setObjectName(QLatin1String("preview-both-vert"));
 
     d->previewBothButtonHorz = new QToolButton(this);
     d->previewButtons->addButton(d->previewBothButtonHorz, PreviewBothImagesHorzCont);
     hlay->addWidget(d->previewBothButtonHorz);
-    d->previewBothButtonHorz->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/bothhorz.png")));
+    d->previewBothButtonHorz->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/bothhorz.png"))));
     d->previewBothButtonHorz->setCheckable(true);
     d->previewBothButtonHorz->setWhatsThis(i18n("If this option is enabled, the preview area will "
                                                 "split horizontally. "
@@ -126,51 +121,51 @@ PreviewToolBar::PreviewToolBar(QWidget* const parent)
                                                 "with one half from the original image, "
                                                 "the other half from the target image."));
     d->previewBothButtonHorz->setToolTip(i18n("Preview horizontal split with contiguous image"));
-    d->previewBothButtonHorz->setObjectName("preview--both-horz");
+    d->previewBothButtonHorz->setObjectName(QLatin1String("preview--both-horz"));
 
     d->previewDuplicateBothButtonVert = new QToolButton(this);
     d->previewButtons->addButton(d->previewDuplicateBothButtonVert, PreviewBothImagesVert);
     hlay->addWidget(d->previewDuplicateBothButtonVert);
-    d->previewDuplicateBothButtonVert->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/duplicatebothvert.png")));
+    d->previewDuplicateBothButtonVert->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/duplicatebothvert.png"))));
     d->previewDuplicateBothButtonVert->setCheckable(true);
     d->previewDuplicateBothButtonVert->setWhatsThis(i18n("If this option is enabled, the preview area will "
                                                          "split vertically. "
                                                          "The same part of the original and the target image "
                                                          "will be shown side by side."));
     d->previewDuplicateBothButtonVert->setToolTip(i18n("Preview vertical split with same image region"));
-    d->previewDuplicateBothButtonVert->setObjectName("preview-duplicate-both-vert");
+    d->previewDuplicateBothButtonVert->setObjectName(QLatin1String("preview-duplicate-both-vert"));
 
     d->previewDupplicateBothButtonHorz = new QToolButton(this);
     d->previewButtons->addButton(d->previewDupplicateBothButtonHorz, PreviewBothImagesHorz);
     hlay->addWidget(d->previewDupplicateBothButtonHorz);
-    d->previewDupplicateBothButtonHorz->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/duplicatebothhorz.png")));
+    d->previewDupplicateBothButtonHorz->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/duplicatebothhorz.png"))));
     d->previewDupplicateBothButtonHorz->setCheckable(true);
     d->previewDupplicateBothButtonHorz->setWhatsThis(i18n("If this option is enabled, the preview area will "
                                                           "split horizontally. "
                                                           "The same part of the original and the target image "
                                                           "will be shown side by side."));
     d->previewDupplicateBothButtonHorz->setToolTip(i18n("Preview horizontal split with same image region"));
-    d->previewDupplicateBothButtonHorz->setObjectName("preview-duplicate-both-horz");
+    d->previewDupplicateBothButtonHorz->setObjectName(QLatin1String("preview-duplicate-both-horz"));
 
     d->previewtargetButton = new QToolButton(this);
     d->previewButtons->addButton(d->previewtargetButton, PreviewTargetImage);
     hlay->addWidget(d->previewtargetButton);
-    d->previewtargetButton->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/target.png")));
+    d->previewtargetButton->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/target.png"))));
     d->previewtargetButton->setCheckable(true);
     d->previewtargetButton->setWhatsThis(i18n("If this option is enabled, the target image will be shown."));
     d->previewtargetButton->setToolTip(i18n("Preview target image"));
-    d->previewtargetButton->setObjectName("preview-target");
+    d->previewtargetButton->setObjectName(QLatin1String("preview-target"));
 
     d->previewToggleMouseOverButton = new QToolButton(this);
     d->previewButtons->addButton(d->previewToggleMouseOverButton, PreviewToggleOnMouseOver);
     hlay->addWidget(d->previewToggleMouseOverButton);
-    d->previewToggleMouseOverButton->setIcon(QPixmap(KStandardDirs::locate("data", "digikam/data/togglemouseover.png")));
+    d->previewToggleMouseOverButton->setIcon(QPixmap(QStandardPaths::locate(QStandardPaths::GenericDataLocation, QLatin1String("digikam/data/togglemouseover.png"))));
     d->previewToggleMouseOverButton->setCheckable(true);
     d->previewToggleMouseOverButton->setWhatsThis(i18n("If this option is enabled, the original image will "
                                                        "be shown when the mouse is over image area; otherwise, "
                                                        "the target image will be shown."));
     d->previewToggleMouseOverButton->setToolTip(i18n("Preview on mouse-over"));
-    d->previewToggleMouseOverButton->setObjectName("preview-toggle-mouse-over");
+    d->previewToggleMouseOverButton->setObjectName(QLatin1String("preview-toggle-mouse-over"));
 
     connect(d->previewButtons, SIGNAL(buttonReleased(int)),
             this, SLOT(slotButtonReleased(int)));
@@ -183,7 +178,7 @@ PreviewToolBar::~PreviewToolBar()
 
 void PreviewToolBar::registerMenuActionGroup(EditorWindow* const editor)
 {
-    d->actionsMenu  = new KActionMenu(i18nc("@action Select image editor preview mode", "Preview Mode"), editor);
+    d->actionsMenu  = new QMenu(i18nc("@action Select image editor preview mode", "Preview Mode"), editor);
     d->actionsGroup = new QActionGroup(d->actionsMenu);
 
     connect(d->actionsGroup, SIGNAL(triggered(QAction*)),
@@ -191,16 +186,15 @@ void PreviewToolBar::registerMenuActionGroup(EditorWindow* const editor)
 
     foreach (QAbstractButton* const btn, d->previewButtons->buttons())
     {
-        KAction* const ac = new KAction(btn->toolTip(), d->actionsGroup);
+        QAction* const ac = new QAction(btn->toolTip(), d->actionsGroup);
         ac->setData(QVariant(d->previewButtons->id(btn)));
         ac->setIcon(btn->icon());
         ac->setCheckable(true);
-        ac->setShortcutConfigurable(true);
         editor->actionCollection()->addAction(btn->objectName(), ac);
         d->actionsMenu->addAction(ac);
     }
 
-    editor->actionCollection()->addAction("editorwindow_previewmode", d->actionsMenu);
+    editor->actionCollection()->addAction(QLatin1String("editorwindow_previewmode"), d->actionsMenu->menuAction());
 }
 
 void PreviewToolBar::slotActionTriggered(QAction* ac)

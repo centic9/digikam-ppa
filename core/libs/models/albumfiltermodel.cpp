@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2008-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009      by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014-2015 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,19 +23,17 @@
  *
  * ============================================================ */
 
-#include "albumfiltermodel.moc"
+#include "albumfiltermodel.h"
 
 // Qt includes
 
 #include <QSortFilterProxyModel>
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kstringhandler.h>
+#include <QCollator>
+#include <QHeaderView>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
 #include "albummodel.h"
 #include "applicationsettings.h"
@@ -43,8 +41,8 @@
 namespace Digikam
 {
 
-AlbumFilterModel::AlbumFilterModel(QObject* parent)
-    : QSortFilterProxyModel(parent)
+AlbumFilterModel::AlbumFilterModel(QObject* const parent)
+    : QSortFilterProxyModel(parent), m_parent(parent)
 {
     m_filterBehavior = FullFiltering;
     m_chainedModel   = 0;
@@ -57,7 +55,7 @@ AlbumFilterModel::AlbumFilterModel(QObject* parent)
 
     // dynamicSortFilter does not work well for us: a dataChange may, because of our way of filtering,
     // also affect parents and children of the changed index, which is not handled by QSortFilterProxyModel.
-    //setDynamicSortFilter(true);
+    setDynamicSortFilter(false);
     // Instead, we listen directly to AlbumManager's relevant change signals
     connect(AlbumManager::instance(), SIGNAL(signalAlbumRenamed(Album*)),
             this, SLOT(slotAlbumRenamed(Album*)));
@@ -109,7 +107,7 @@ void AlbumFilterModel::setSearchTextSettings(const SearchTextSettings& settings)
         }
 
         bool hasResult = validRows > 0;
-        kDebug() << "new search text settings: " << settings.text
+        qCDebug(DIGIKAM_GENERAL_LOG) << "new search text settings: " << settings.text
                  << ": hasResult = " << hasResult << ", validRows = "
                  << validRows;
         emit hasSearchResult(hasResult);
@@ -240,26 +238,27 @@ QModelIndex AlbumFilterModel::rootAlbumIndex() const
     return mapFromSourceAlbumModel(model->rootAlbumIndex());
 }
 
-QVariant AlbumFilterModel::dataForCurrentSortRole(const QModelIndex& index) const
+QVariant AlbumFilterModel::dataForCurrentSortRole(Album* album) const
 {
-    Album* album = albumForIndex(index);
-
-    if(album)
+    if (album)
     {
-        if(album->type() == Album::PHYSICAL)
+        if (album->type() == Album::PHYSICAL)
         {
-            ApplicationSettings::AlbumSortOrder sortRole = ApplicationSettings::instance()->getAlbumSortOrder();
+            PAlbum* const a = static_cast<PAlbum*>(album);
+
+            ApplicationSettings::AlbumSortRole sortRole = ApplicationSettings::instance()->getAlbumSortRole();
+
             switch (sortRole)
             {
                 case ApplicationSettings::ByFolder:
-                    return static_cast<PAlbum*>(album)->title();
+                    return a->title();
                 case ApplicationSettings::ByDate:
-                    return static_cast<PAlbum*>(album)->date();
+                    return a->date();
                 default:
-                    return static_cast<PAlbum*>(album)->category();
+                    return a->category();
             }
         }
-        else if(album->type() == Album::TAG)
+        else if (album->type() == Album::TAG)
         {
             return static_cast<TAlbum*>(album)->title();
         }
@@ -301,14 +300,14 @@ AlbumFilterModel::MatchResult AlbumFilterModel::matchResult(Album* album) const
         return NoMatch;
     }
 
-    PAlbum* palbum = dynamic_cast<PAlbum*>(album);
+    PAlbum* const palbum = dynamic_cast<PAlbum*>(album);
 
     if (album->isRoot() || (palbum && palbum->isAlbumRoot()))
     {
         return SpecialMatch;
     }
 
-    TAlbum* talbum = dynamic_cast<TAlbum*>(album);
+    TAlbum* const talbum = dynamic_cast<TAlbum*>(album);
 
     if (talbum && talbum->isInternalTag())
     {
@@ -328,8 +327,8 @@ AlbumFilterModel::MatchResult AlbumFilterModel::matchResult(Album* album) const
     if (m_filterBehavior == FullFiltering)
     {
         // check if any of the parents match the search
-        Album* parent   = album->parent();
-        PAlbum* pparent = palbum ? static_cast<PAlbum*>(parent) : 0;
+        Album* parent         = album->parent();
+        PAlbum* const pparent = palbum ? static_cast<PAlbum*>(parent) : 0;
 
         while (parent && !(parent->isRoot() || (pparent && pparent->isAlbumRoot()) ) )
         {
@@ -361,36 +360,48 @@ AlbumFilterModel::MatchResult AlbumFilterModel::matchResult(Album* album) const
 bool AlbumFilterModel::filterAcceptsRow(int source_row, const QModelIndex& source_parent) const
 {
     QModelIndex index  = sourceModel()->index(source_row, 0, source_parent);
-    Album* album       = AbstractAlbumModel::retrieveAlbum(index);
+    Album* const album = AbstractAlbumModel::retrieveAlbum(index);
     MatchResult result = matchResult(album);
     return result;
 }
 
 bool AlbumFilterModel::lessThan(const QModelIndex& left, const QModelIndex& right) const
 {
-    QVariant valLeft  = dataForCurrentSortRole(left);
-    QVariant valRight = dataForCurrentSortRole(right);
+    Album* leftAlbum  = albumForIndex(left);
+    Album* rightAlbum = albumForIndex(right);
 
-    ApplicationSettings::StringComparisonType strComparisonType = ApplicationSettings::instance()->getStringComparisonType();
-    ApplicationSettings::AlbumSortOrder role = ApplicationSettings::instance()->getAlbumSortOrder();
-
-    if((role == ApplicationSettings::ByDate || role == ApplicationSettings::ByCategory)&&(valLeft == valRight))
+    if (!leftAlbum || !rightAlbum)
     {
-            return QSortFilterProxyModel::lessThan(left, right);
+        return QSortFilterProxyModel::lessThan(left, right);
     }
 
-    if((valLeft.type() == QVariant::String) && (valRight.type() == QVariant::String))
+    if (leftAlbum->isTrashAlbum() != rightAlbum->isTrashAlbum())
     {
-        switch (strComparisonType)
-        {
-            case ApplicationSettings::Natural:
-                return KStringHandler::naturalCompare(valLeft.toString(), valRight.toString(), sortCaseSensitivity()) < 0;
-            case ApplicationSettings::Normal:
-            default:
-                return QString::compare(valLeft.toString(), valRight.toString(), sortCaseSensitivity()) < 0;
-        }
+        // trash albums go to the bottom, regardless of sort role
+        return (sortOrder() == Qt::AscendingOrder) ? !leftAlbum->isTrashAlbum() : leftAlbum->isTrashAlbum();
     }
-    else if((valLeft.type() == QVariant::Date) && (valRight.type() == QVariant::Date))
+
+    QVariant valLeft  = dataForCurrentSortRole(leftAlbum);
+    QVariant valRight = dataForCurrentSortRole(rightAlbum);
+
+    ApplicationSettings::AlbumSortRole role = ApplicationSettings::instance()->getAlbumSortRole();
+
+    if ((role == ApplicationSettings::ByDate || role == ApplicationSettings::ByCategory)&&(valLeft == valRight))
+    {
+        return QSortFilterProxyModel::lessThan(left, right);
+    }
+
+    bool natural = ApplicationSettings::instance()->isStringTypeNatural();
+
+    if ((valLeft.type() == QVariant::String) && (valRight.type() == QVariant::String))
+    {
+        QCollator collator;
+        collator.setNumericMode(natural);
+        collator.setIgnorePunctuation(true);
+        collator.setCaseSensitivity(sortCaseSensitivity());
+        return (collator.compare(valLeft.toString(), valRight.toString()) < 0);
+    }
+    else if ((valLeft.type() == QVariant::Date) && (valRight.type() == QVariant::Date))
     {
         return compareByOrder(valLeft.toDate(),valRight.toDate(),Qt::AscendingOrder) < 0;
     }
@@ -408,15 +419,15 @@ void AlbumFilterModel::slotAlbumRenamed(Album* album)
 
 void AlbumFilterModel::slotAlbumsHaveBeenUpdated(int type)
 {
-    if (isFiltering() && sourceAlbumModel() && sourceAlbumModel()->albumType() == type)
+    if (sourceAlbumModel() && sourceAlbumModel()->albumType() == type)
     {
-        invalidateFilter();
+        invalidate();
     }
 }
 
 // -----------------------------------------------------------------------------
 
-CheckableAlbumFilterModel::CheckableAlbumFilterModel(QObject* parent) :
+CheckableAlbumFilterModel::CheckableAlbumFilterModel(QObject* const parent) :
     AlbumFilterModel(parent),
     m_filterChecked(false),
     m_filterPartiallyChecked(false)
@@ -485,8 +496,10 @@ bool CheckableAlbumFilterModel::matches(Album* album) const
 
 // -----------------------------------------------------------------------------
 
-SearchFilterModel::SearchFilterModel(QObject* parent)
-    : CheckableAlbumFilterModel(parent), m_searchType(-1), m_listTemporary(false)
+SearchFilterModel::SearchFilterModel(QObject* const parent)
+    : CheckableAlbumFilterModel(parent),
+      m_searchType(-1),
+      m_listTemporary(false)
 {
 }
 
@@ -561,7 +574,7 @@ bool SearchFilterModel::matches(Album* album) const
         return false;
     }
 
-    SAlbum* salbum = static_cast<SAlbum*>(album);
+    SAlbum* const salbum = static_cast<SAlbum*>(album);
 
     if (m_searchType == -1)
     {
@@ -596,7 +609,7 @@ void SearchFilterModel::setSourceAlbumModel(AbstractAlbumModel* source)
 
 // -----------------------------------------------------------------------------
 
-TagPropertiesFilterModel::TagPropertiesFilterModel(QObject* parent)
+TagPropertiesFilterModel::TagPropertiesFilterModel(QObject* const parent)
     : CheckableAlbumFilterModel(parent)
 {
     connect(AlbumManager::instance(), SIGNAL(signalTagPropertiesChanged(TAlbum*)),
@@ -610,7 +623,7 @@ void TagPropertiesFilterModel::setSourceAlbumModel(TagModel* source)
 
 TagModel* TagPropertiesFilterModel::sourceTagModel() const
 {
-    return dynamic_cast<TagModel*> (sourceModel());
+    return dynamic_cast<TagModel*>(sourceModel());
 }
 
 void TagPropertiesFilterModel::listOnlyTagsWithProperty(const QString& property)
@@ -682,7 +695,7 @@ bool TagPropertiesFilterModel::matches(Album* album) const
         return false;
     }
 
-    TAlbum* talbum = static_cast<TAlbum*>(album);
+    TAlbum* const talbum = static_cast<TAlbum*>(album);
 
     foreach(const QString& prop, m_propertiesBlackList)
     {
@@ -703,10 +716,11 @@ bool TagPropertiesFilterModel::matches(Album* album) const
     return true;
 }
 
-TagsManagerFilterModel::TagsManagerFilterModel(QObject* parent)
+// -----------------------------------------------------------------------
+
+TagsManagerFilterModel::TagsManagerFilterModel(QObject* const parent)
     : TagPropertiesFilterModel(parent)
 {
-
 }
 
 void TagsManagerFilterModel::setQuickListTags(QList<int> tags)
@@ -717,30 +731,35 @@ void TagsManagerFilterModel::setQuickListTags(QList<int> tags)
     {
         m_keywords << tag;
     }
+
     invalidateFilter();
     emit filterChanged();
 }
 
 bool TagsManagerFilterModel::matches(Album* album) const
 {
-    if(!TagPropertiesFilterModel::matches(album))
+    if (!TagPropertiesFilterModel::matches(album))
     {
         return false;
     }
 
-    if(m_keywords.isEmpty())
+    if (m_keywords.isEmpty())
+    {
         return true;
+    }
 
     bool dirty = false;
 
-    for(QSet<int>::const_iterator it = m_keywords.begin(); it != m_keywords.end(); ++it)
+    for (QSet<int>::const_iterator it = m_keywords.begin(); it != m_keywords.end(); ++it)
     {
-        TAlbum* talbum = AlbumManager::instance()->findTAlbum(*it);
-        if(!talbum)
+        TAlbum* const talbum = AlbumManager::instance()->findTAlbum(*it);
+
+        if (!talbum)
         {
             continue;
         }
-        if(talbum->title().compare(album->title()) == 0)
+
+        if (talbum->title().compare(album->title()) == 0)
         {
             dirty = true;
         }

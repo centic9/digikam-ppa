@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4 Applications\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-20 01:52+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2015-03-07 11:30+0700\n"
 "Last-Translator: Wantoyo <wantoyo@yahoo.com>\n"
 "Language-Team: Indonesian <translation-team-id@lists.sourceforge.net>\n"
@@ -18,32 +18,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Wantoyo"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "wantoyo@yahoo.com"
-
-#: dbalbum.cpp:46
-msgid "Dropbox New Folder"
-msgstr "Folder Baru Dropbox"
-
-#: dbalbum.cpp:59
-msgid "The name of the folder that will be created"
-msgstr "Nama folder yang akan dibuat"
-
-#: dbalbum.cpp:63
-msgctxt "album edit"
-msgid "Title:"
-msgstr "Judul:"
-
-#: dbtalker.cpp:173
+#: dbtalker.cpp:184
 msgid "Authorize Dropbox"
 msgstr "Pemberi Wewenang Dropbox"
 
-#: dbtalker.cpp:180
+#: dbtalker.cpp:194
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
@@ -51,138 +30,55 @@ msgstr ""
 "Ikuti petunjuk dalam peramban. Setelah memasuki log dan memberi wewenang "
 "aplikasi, tekan Oke."
 
-#: dbtalker.cpp:497
+#: dbtalker.cpp:422
+msgid "Error"
+msgstr ""
+
+#: dbtalker.cpp:473
 msgid "Failed to upload photo"
 msgstr "Gagal mengunggah foto"
 
-#: dbtalker.cpp:571
+#: dbtalker.cpp:534
 msgid "Failed to list folders"
 msgstr "Gagal mendaftar folder"
 
-#: dbwidget.cpp:71
-msgid "This is the list of images to upload to your Dropbox account."
-msgstr "Ini adalah daftar gambar untuk unggah ke akun Dropbox anda."
-
-#: dbwidget.cpp:77
-msgid "This is a clickable link to open Dropbox in a browser."
-msgstr ""
-"Ini adalah tautan yang dapat di klik untuk membuka Dropbox di peramban."
-
-#: dbwidget.cpp:83
-msgid "Account"
-msgstr "Akun"
-
-#: dbwidget.cpp:84
-msgid "This is the Dropbox account that is currently logged in."
-msgstr "Ini adalah akun Dropbox yang sedang masuk log."
-
-#: dbwidget.cpp:87
-msgctxt "account settings"
-msgid "Name:"
-msgstr "Nama:"
-
-#: dbwidget.cpp:90
-msgid "Change Account"
-msgstr "Ubah Akun"
-
-#: dbwidget.cpp:90
-msgid "Change Dropbox account for transfer"
-msgstr "Ubah akun Dropbox untuk transfer"
-
-#: dbwidget.cpp:101
-msgid "Destination"
-msgstr "Tujuan"
-
-#: dbwidget.cpp:102
-msgid "This is the Dropbox folder to which selected photos will be uploaded."
-msgstr "Ini adalah folder Dropbox untuk foto terpilih mana yang akan diunggah."
-
-#: dbwidget.cpp:105
-msgid "Folder:"
-msgstr "Folder:"
-
-#: dbwidget.cpp:109
-msgid "New Folder"
-msgstr "Folder Baru"
-
-#: dbwidget.cpp:110
-msgid "Create new Dropbox folder"
-msgstr "Buat folder Dropbox baru"
-
-#: dbwidget.cpp:111
-msgctxt "album list"
-msgid "Reload"
-msgstr "Muat ulang"
-
-#: dbwidget.cpp:112
-msgid "Reload album list"
-msgstr "Muat ulang daftar album"
-
-#: dbwidget.cpp:121
-msgid "Options"
-msgstr "Opsi"
-
-#: dbwidget.cpp:122
-msgid "These are the options that would be applied to photos before upload."
-msgstr "Ini adalah opsi yang akan diterapkan pada foto sebelum unggah."
-
-#: dbwidget.cpp:126
-msgid "Resize photos before uploading"
-msgstr "Ubah ukuran foto sebelum mengunggah"
-
-#: dbwidget.cpp:137
-msgid "Maximum Dimension:"
-msgstr "Dimensi Maksimum:"
-
-#: dbwidget.cpp:146
-msgid "JPEG Quality:"
-msgstr "Kualitas JPEG:"
-
-#: dbwindow.cpp:88
+#: dbwindow.cpp:79
 msgid "Export to Dropbox"
 msgstr "Ekspor ke Dropbox"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:81
 msgid "Start Upload"
 msgstr "Mulai Unggah"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:82
 msgid "Start upload to Dropbox"
 msgstr "Mulai mengunggah ke Dropbox"
 
-#: dbwindow.cpp:107
+#: dbwindow.cpp:101
 msgid "Dropbox Export"
 msgstr "Ekspor Dropbox"
 
-#: dbwindow.cpp:109
-msgid "A Kipi-plugin to export images to Dropbox"
+#: dbwindow.cpp:102
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Dropbox"
+msgid "A tool to export images to Dropbox"
 msgstr "Sebuah plugin Kipi untuk ekspor gambar ke Dropbox"
 
-#: dbwindow.cpp:111
+#: dbwindow.cpp:104
 #, fuzzy
-#| msgid "(c) 2013, Saurabh Patel"
-msgid ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
-msgstr "(c) 2013, Saurabh Patel"
+#| msgid "Saurabh Patel"
+msgid "(c) 2013, Saurabh Patel"
+msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
+#: dbwindow.cpp:106
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
-msgid "Author and maintainer"
-msgstr "Penulis dan pengelola"
-
-#: dbwindow.cpp:116
-msgid "Shourya Singh Gupta"
+#: dbwindow.cpp:107
+msgid "Author"
 msgstr ""
 
-#: dbwindow.cpp:116
-msgid "Developer"
-msgstr ""
-
-#: dbwindow.cpp:282
+#: dbwindow.cpp:281
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -192,24 +88,39 @@ msgstr ""
 "pengesahan lengkap klik \"Ubah Akun\", atau \" Mulai Unggah \" untuk "
 "mengesahkan kembali."
 
+#: dbwindow.cpp:293
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
 #: dbwindow.cpp:294
 msgid "No image selected. Please select which images should be uploaded."
 msgstr ""
 "Tidak ada gambar terpilih. Silakan pilih gambar mana yang harus diunggah."
 
-#: dbwindow.cpp:304 dbwindow.cpp:419
-msgid "Authentication failed. Click \"Continue\" to authenticate."
+#: dbwindow.cpp:300 dbwindow.cpp:420
+msgid "Login Failed"
+msgstr ""
+
+#: dbwindow.cpp:301 dbwindow.cpp:421
+#, fuzzy
+#| msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgid "Authentication failed. Do you want to try again?"
 msgstr "Pengesahan gagal. Klik \"Lanjutkan\" untuk mengesahkan."
 
-#: dbwindow.cpp:328
+#: dbwindow.cpp:325
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: dbwindow.cpp:332
+#: dbwindow.cpp:329
 msgid "Dropbox export"
 msgstr "Ekspor Dropbox"
 
-#: dbwindow.cpp:364
+#: dbwindow.cpp:362
+msgid "Uploading Failed"
+msgstr ""
+
+#: dbwindow.cpp:363
 #, kde-format
 msgid ""
 "Failed to upload photo to Dropbox.\n"
@@ -219,7 +130,7 @@ msgstr ""
 "Gagal mengunggah foto ke Dropbox: %1\n"
 "Apakah anda ingin melanjutkan?"
 
-#: dbwindow.cpp:443 dbwindow.cpp:449
+#: dbwindow.cpp:445 dbwindow.cpp:450
 #, kde-format
 msgid ""
 "Dropbox call failed:\n"
@@ -236,6 +147,96 @@ msgstr "&Ekspor"
 msgid "Main Toolbar"
 msgstr "Batang Alat Utama"
 
-#: plugin_dropbox.cpp:96
+#: plugin_dropbox.cpp:90
 msgid "Export to &Dropbox..."
 msgstr "Ekspor ke &Dropbox..."
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Wantoyo"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "wantoyo@yahoo.com"
+
+#~ msgid "Dropbox New Folder"
+#~ msgstr "Folder Baru Dropbox"
+
+#~ msgid "The name of the folder that will be created"
+#~ msgstr "Nama folder yang akan dibuat"
+
+#~ msgctxt "album edit"
+#~ msgid "Title:"
+#~ msgstr "Judul:"
+
+#~ msgid "This is the list of images to upload to your Dropbox account."
+#~ msgstr "Ini adalah daftar gambar untuk unggah ke akun Dropbox anda."
+
+#~ msgid "This is a clickable link to open Dropbox in a browser."
+#~ msgstr ""
+#~ "Ini adalah tautan yang dapat di klik untuk membuka Dropbox di peramban."
+
+#~ msgid "Account"
+#~ msgstr "Akun"
+
+#~ msgid "This is the Dropbox account that is currently logged in."
+#~ msgstr "Ini adalah akun Dropbox yang sedang masuk log."
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Nama:"
+
+#~ msgid "Change Account"
+#~ msgstr "Ubah Akun"
+
+#~ msgid "Change Dropbox account for transfer"
+#~ msgstr "Ubah akun Dropbox untuk transfer"
+
+#~ msgid "Destination"
+#~ msgstr "Tujuan"
+
+#~ msgid ""
+#~ "This is the Dropbox folder to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Ini adalah folder Dropbox untuk foto terpilih mana yang akan diunggah."
+
+#~ msgid "Folder:"
+#~ msgstr "Folder:"
+
+#~ msgid "New Folder"
+#~ msgstr "Folder Baru"
+
+#~ msgid "Create new Dropbox folder"
+#~ msgstr "Buat folder Dropbox baru"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Muat ulang"
+
+#~ msgid "Reload album list"
+#~ msgstr "Muat ulang daftar album"
+
+#~ msgid "Options"
+#~ msgstr "Opsi"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr "Ini adalah opsi yang akan diterapkan pada foto sebelum unggah."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Ubah ukuran foto sebelum mengunggah"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Dimensi Maksimum:"
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "Kualitas JPEG:"
+
+#, fuzzy
+#~| msgid "(c) 2013, Saurabh Patel"
+#~ msgid ""
+#~ "(c) 2013, Saurabh Patel\n"
+#~ "(c) 2015, Shourya Singh Gupta"
+#~ msgstr "(c) 2013, Saurabh Patel"
+
+#~ msgid "Author and maintainer"
+#~ msgstr "Penulis dan pengelola"

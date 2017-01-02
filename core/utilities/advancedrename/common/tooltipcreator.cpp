@@ -27,12 +27,12 @@
 
 #include <QRegExp>
 #include <QPalette>
+#include <QApplication>
+#include <QIcon>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -62,34 +62,35 @@ QString TooltipCreator::additionalInformation()
     infoItems << i18n("The file list can be sorted, just right-click on it to see the sort criteria (album UI only).");
 
     QString information;
-    information += "<div style='margin-top:20px;'";
+    information += QString::fromUtf8("<div style='margin-top:20px;'");
 
     information += tableStart(90);
-    information += "<tr><td style='vertical-align:top;'><img src='" + getInfoIconResourceName() + "' /></td>";
-    information += "<td><ol>";
+    information += QString::fromUtf8("<tr><td style='vertical-align:top;'><img src='") + getInfoIconResourceName() +
+                                                                                         QString::fromUtf8("' /></td>");
+    information += QString::fromUtf8("<td><ol>");
 
     foreach(const QString& infoItem, infoItems)
     {
-        information += "<li>" + infoItem + "</li>";
+        information += QString::fromUtf8("<li>") + infoItem + QString::fromUtf8("</li>");
 
     }
 
-    information += "</ol></td></tr>";
+    information += QString::fromUtf8("</ol></td></tr>");
     information += tableEnd();
 
-    information += "</div>";
+    information += QString::fromUtf8("</div>");
 
     return information;
 }
 
 QString TooltipCreator::getInfoIconResourceName()
 {
-    return QString("mydata://info.png");
+    return QLatin1String("mydata://info.png");
 }
 
-QPixmap TooltipCreator::getInfoIcon()
+QIcon TooltipCreator::getInfoIcon()
 {
-    return SmallIcon("lighttable", KIconLoader::SizeMedium);
+    return QIcon::fromTheme(QLatin1String("folder-open")); //image-stack-open
 }
 
 QString TooltipCreator::tooltip(Parser* parser)
@@ -100,8 +101,8 @@ QString TooltipCreator::tooltip(Parser* parser)
     }
 
     QString tooltip;
-    tooltip += "<html><head><title></title></head>";
-    tooltip += "<body>";
+    tooltip += QString::fromUtf8("<html><head><title></title></head>");
+    tooltip += QString::fromUtf8("<body>");
 
     tooltip += tableStart();
     tooltip += createSection(i18n("Options"),   parser->options());
@@ -113,16 +114,16 @@ QString TooltipCreator::tooltip(Parser* parser)
         tooltip += additionalInformation();
     }
 
-    tooltip += "</body>";
-    tooltip += "</html>";
+    tooltip += QString::fromUtf8("</body>");
+    tooltip += QString::fromUtf8("</html>");
 
     return tooltip;
 }
 
 QString TooltipCreator::tableStart(int widthPercentage)
 {
-    QString w = QString::number(widthPercentage) + '%';
-    return QString("<table width=\"%1\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">").arg(w);
+    QString w = QString::number(widthPercentage) + QLatin1Char('%');
+    return QString::fromUtf8("<table width=\"%1\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\">").arg(w);
 }
 
 QString TooltipCreator::tableStart()
@@ -132,29 +133,29 @@ QString TooltipCreator::tableStart()
 
 QString TooltipCreator::tableEnd()
 {
-    return QString("</table>");
+    return QString::fromUtf8("</table>");
 }
 
 QString TooltipCreator::markOption(const QString& str)
 {
     QString result = str;
 
-    QRegExp optionsRegExp("\\|\\|(.*)\\|\\|");
+    QRegExp optionsRegExp(QLatin1String("\\|\\|(.*)\\|\\|"));
     optionsRegExp.setMinimal(true);
 
-    result.replace(optionsRegExp, QString("<i><font color=\"%1\">\\1</font></i>")
-                   .arg(kapp->palette().color(QPalette::Link).name()));
+    result.replace(optionsRegExp, QString::fromUtf8("<i><font color=\"%1\">\\1</font></i>")
+                   .arg(qApp->palette().color(QPalette::Link).name()));
     return result;
 }
 
 QString TooltipCreator::createHeader(const QString& str)
 {
     QString result;
-    QString templateStr = QString("<tr><td style=\"background-color: %1; padding:0.25em;\" colspan=\"2\">"
+    QString templateStr = QString::fromUtf8("<tr><td style=\"background-color: %1; padding:0.25em;\" colspan=\"2\">"
                                   "<nobr><font color=\"%2\"><center><b>%3"
                                   "</b></center></font></nobr></td></tr>")
-                          .arg(kapp->palette().color(QPalette::Highlight).name())
-                          .arg(kapp->palette().color(QPalette::HighlightedText).name());
+                          .arg(qApp->palette().color(QPalette::Highlight).name())
+                          .arg(qApp->palette().color(QPalette::HighlightedText).name());
 
     result += templateStr.arg(str);
     return result;
@@ -164,16 +165,16 @@ QString TooltipCreator::createEntries(const RulesList &data)
 {
     QString result;
 
-    foreach(Rule* t, data)
+    foreach(Rule* const t, data)
     {
-        foreach(Token* token, t->tokens())
+        foreach(Token* const token, t->tokens())
         {
-            result += QString("<tr>"
+            result += QString::fromUtf8("<tr>"
                               "<td style=\"background-color: %1;\">"
                               "<font color=\"%2\"><b>&nbsp;%3&nbsp;</b></font></td>"
                               "<td>&nbsp;%4&nbsp;</td></tr>")
-                      .arg(kapp->palette().color(QPalette::Base).name())
-                      .arg(kapp->palette().color(QPalette::Text).name())
+                      .arg(qApp->palette().color(QPalette::Base).name())
+                      .arg(qApp->palette().color(QPalette::Text).name())
                       .arg(markOption(token->id()))
                       .arg(markOption(token->description()));
         }
@@ -196,7 +197,7 @@ QString TooltipCreator::createSection(const QString& sectionName, const RulesLis
 
     if (!lastSection)
     {
-        result += QString("<tr></tr>");
+        result += QString::fromUtf8("<tr></tr>");
     }
 
     return result;

@@ -30,7 +30,7 @@
 
 // KDE includes
 
-#include <kconfig.h>
+#include <kconfiggroup.h>
 
 // Local includes
 
@@ -46,7 +46,7 @@ class DIGIKAM_EXPORT ColorFXSettings : public QWidget
 
 public:
 
-    explicit ColorFXSettings(QWidget* const parent);
+    explicit ColorFXSettings(QWidget* const parent, bool useGenericImg = true);
     ~ColorFXSettings();
 
     ColorFXContainer defaultSettings() const;
@@ -58,13 +58,16 @@ public:
     void readSettings(KConfigGroup& group);
     void writeSettings(KConfigGroup& group);
 
-    void enable();
-    void disable();
+    void startPreviewFilters();
 
 Q_SIGNALS:
 
-    void signalLevelOrIterationChanged();
     void signalSettingsChanged();
+
+private:
+
+    void findLuts();
+    QString translateLuts(const QString& name) const;
 
 private Q_SLOTS:
 

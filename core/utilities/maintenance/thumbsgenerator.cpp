@@ -6,7 +6,7 @@
  * Date        : 2006-30-08
  * Description : batch thumbnails generator
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "thumbsgenerator.moc"
+#include "thumbsgenerator.h"
 
 // Qt includes
 
@@ -34,21 +34,20 @@
 
 // KDE includes
 
-#include <kcodecs.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "albumdb.h"
-#include "albuminfo.h"
+#include "coredb.h"
+#include "coredbalbuminfo.h"
 #include "albummanager.h"
 #include "applicationsettings.h"
-#include "databaseaccess.h"
+#include "coredbaccess.h"
 #include "imageinfo.h"
-#include "thumbnaildatabaseaccess.h"
-#include "thumbnaildb.h"
+#include "thumbsdbaccess.h"
+#include "thumbsdb.h"
 #include "maintenancethread.h"
-#include "config-digikam.h"
+#include "digikam_config.h"
 
 namespace Digikam
 {
@@ -73,7 +72,7 @@ public:
 };
 
 ThumbsGenerator::ThumbsGenerator(const bool rebuildAll, const AlbumList& list, ProgressItem* const parent)
-    : MaintenanceTool("ThumbsGenerator", parent),
+    : MaintenanceTool(QLatin1String("ThumbsGenerator"), parent),
       d(new Private)
 {
     d->albumList = list;
@@ -81,7 +80,7 @@ ThumbsGenerator::ThumbsGenerator(const bool rebuildAll, const AlbumList& list, P
 }
 
 ThumbsGenerator::ThumbsGenerator(const bool rebuildAll, int albumId, ProgressItem* const parent)
-    : MaintenanceTool("ThumbsGenerator", parent),
+    : MaintenanceTool(QLatin1String("ThumbsGenerator"), parent),
       d(new Private)
 {
     d->albumList.append(AlbumManager::instance()->findPAlbum(albumId));
@@ -138,17 +137,17 @@ void ThumbsGenerator::slotStart()
 
         if ((*it)->type() == Album::PHYSICAL)
         {
-            d->allPicturesPath += DatabaseAccess().db()->getItemURLsInAlbum((*it)->id());
+            d->allPicturesPath += CoreDbAccess().db()->getItemURLsInAlbum((*it)->id());
         }
         else if ((*it)->type() == Album::TAG)
         {
-            d->allPicturesPath += DatabaseAccess().db()->getItemURLsInTag((*it)->id());
+            d->allPicturesPath += CoreDbAccess().db()->getItemURLsInTag((*it)->id());
         }
     }
 
     if (!d->rebuildAll)
     {
-        QHash<QString, int> filePaths = ThumbnailDatabaseAccess().db()->getFilePathsWithThumbnail();
+        QHash<QString, int> filePaths = ThumbsDbAccess().db()->getFilePathsWithThumbnail();
         QStringList::iterator it      = d->allPicturesPath.begin();
 
         while (it != d->allPicturesPath.end())
@@ -164,14 +163,15 @@ void ThumbsGenerator::slotStart()
         }
     }
 
-    // remove non-image files from the list
+    // remove non-image or video files from the list
     QStringList::iterator it = d->allPicturesPath.begin();
 
     while (it != d->allPicturesPath.end())
     {
         ImageInfo info = ImageInfo::fromLocalFile(*it);
 
-        if (info.category() != DatabaseItem::Image)
+        if (info.category() != DatabaseItem::Image &&
+            info.category() != DatabaseItem::Video)
         {
             it = d->allPicturesPath.erase(it);
         }

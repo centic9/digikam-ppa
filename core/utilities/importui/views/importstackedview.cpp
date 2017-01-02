@@ -8,7 +8,7 @@
  *               (icon view, image preview, media view)
  *
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,18 +23,15 @@
  *
  * ============================================================ */
 
-#include "importstackedview.moc"
+#include "importstackedview.h"
 
 // Qt includes
 
 #include <QSplitter>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "previewlayout.h"
 #include "importsettings.h"
 
@@ -56,31 +53,40 @@ public:
         thumbBarDock        = 0;
         importIconView      = 0;
         importPreviewView   = 0;
-        mediaPlayerView     = 0;
-        syncingSelection    = false;
-#ifdef HAVE_KGEOMAP
-        mapWidgetView       = 0;
-#endif // HAVE_KGEOMAP
-    }
 
-    bool                syncingSelection;
+#ifdef HAVE_MARBLE
+        mapWidgetView       = 0;
+#endif // HAVE_MARBLE
+
+#ifdef HAVE_MEDIAPLAYER
+        mediaPlayerView     = 0;
+#endif // HAVE_MEDIAPLAYER
+
+        syncingSelection    = false;
+    }
 
     QMainWindow*        dockArea;
     QSplitter*          splitter;
 
-    ImportIconView*     importIconView;
     ImportThumbnailBar* thumbBar;
-    ImportPreviewView*  importPreviewView;
     ThumbBarDock*       thumbBarDock;
-    MediaPlayerView*    mediaPlayerView; // Reuse of albumgui mediaplayer view.
+    ImportIconView*     importIconView;
+    ImportPreviewView*  importPreviewView;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     MapWidgetView*      mapWidgetView;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
+
+#ifdef HAVE_MEDIAPLAYER
+    MediaPlayerView*    mediaPlayerView; // Reuse of albumgui mediaplayer view.
+#endif // HAVE_MEDIAPLAYER
+
+    bool                syncingSelection;
 };
 
 ImportStackedView::ImportStackedView(QWidget* const parent)
-    : QStackedWidget(parent), d(new Private)
+    : QStackedWidget(parent),
+      d(new Private)
 {
     d->importIconView    = new ImportIconView(this);
     d->importPreviewView = new ImportPreviewView(this);
@@ -91,22 +97,30 @@ ImportStackedView::ImportStackedView(QWidget* const parent)
 
     d->thumbBar->installOverlays();
     d->thumbBarDock->setWidget(d->thumbBar);
-    d->thumbBarDock->setObjectName("import_thumbbar");
+    d->thumbBarDock->setObjectName(QLatin1String("import_thumbbar"));
 
-    d->mediaPlayerView   = new MediaPlayerView(this);
-
-    insertWidget(PreviewCameraMode, d->importIconView);
-    insertWidget(PreviewImageMode,  d->importPreviewView);
-    insertWidget(MediaPlayerMode,   d->mediaPlayerView);
-
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     // TODO refactor MapWidgetView not to require the models on startup?
     d->mapWidgetView     = new MapWidgetView(d->importIconView->getSelectionModel(),
                                              d->importIconView->importFilterModel(), this,
                                              MapWidgetView::ApplicationImportUI);
-    d->mapWidgetView->setObjectName("import_mapwidgetview");
+    d->mapWidgetView->setObjectName(QLatin1String("import_mapwidgetview"));
+#endif // HAVE_MARBLE
+
+#ifdef HAVE_MEDIAPLAYER
+    d->mediaPlayerView   = new MediaPlayerView(this);
+#endif //HAVE_MEDIAPLAYER
+
+    insertWidget(PreviewCameraMode, d->importIconView);
+    insertWidget(PreviewImageMode,  d->importPreviewView);
+
+#ifdef HAVE_MARBLE
     insertWidget(MapWidgetMode,     d->mapWidgetView);
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
+
+#ifdef HAVE_MEDIAPLAYER
+    insertWidget(MediaPlayerMode,   d->mediaPlayerView);
+#endif //HAVE_MEDIAPLAYER
 
     setAttribute(Qt::WA_DeleteOnClose);
 
@@ -175,6 +189,10 @@ ImportStackedView::ImportStackedView(QWidget* const parent)
     connect(d->thumbBarDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
             d->thumbBar, SLOT(slotDockLocationChanged(Qt::DockWidgetArea)));
 
+    connect(d->importPreviewView, SIGNAL(signalPreviewLoaded(bool)),
+            this, SLOT(slotPreviewLoaded(bool)));
+
+#ifdef HAVE_MEDIAPLAYER
     connect(d->mediaPlayerView, SIGNAL(signalNextItem()),
             this, SIGNAL(signalNextItem()));
 
@@ -183,9 +201,7 @@ ImportStackedView::ImportStackedView(QWidget* const parent)
 
     connect(d->mediaPlayerView, SIGNAL(signalEscapePreview()),
             this, SIGNAL(signalEscapePreview()));
-
-    connect(d->importPreviewView, SIGNAL(signalPreviewLoaded(bool)),
-            this, SLOT(slotPreviewLoaded(bool)));
+#endif //HAVE_MEDIAPLAYER
 }
 
 ImportStackedView::~ImportStackedView()
@@ -221,10 +237,12 @@ ImportThumbnailBar* ImportStackedView::thumbBar() const
 
 void ImportStackedView::slotEscapePreview()
 {
+#ifdef HAVE_MEDIAPLAYER
     if (viewMode() == MediaPlayerMode)
     {
         d->mediaPlayerView->escapePreview();
     }
+#endif //HAVE_MEDIAPLAYER
 }
 
 ImportIconView* ImportStackedView::importIconView() const
@@ -237,17 +255,19 @@ ImportPreviewView* ImportStackedView::importPreviewView() const
     return d->importPreviewView;
 }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
 MapWidgetView* ImportStackedView::mapWidgetView() const
 {
     return d->mapWidgetView;
 }
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
+#ifdef HAVE_MEDIAPLAYER
 MediaPlayerView* ImportStackedView::mediaPlayerView() const
 {
     return d->mediaPlayerView;
 }
+#endif //HAVE_MEDIAPLAYER
 
 bool ImportStackedView::isInSingleFileMode() const
 {
@@ -265,7 +285,9 @@ void ImportStackedView::setPreviewItem(const CamItemInfo& info, const CamItemInf
     {
         if (viewMode() == MediaPlayerMode)
         {
+#ifdef HAVE_MEDIAPLAYER
             d->mediaPlayerView->setCurrentItem();
+#endif //HAVE_MEDIAPLAYER
         }
         else if (viewMode() == PreviewImageMode)
         {
@@ -274,23 +296,26 @@ void ImportStackedView::setPreviewItem(const CamItemInfo& info, const CamItemInf
     }
     else
     {
-        if (identifyCategoryforMime(info.mime) == "audio" || identifyCategoryforMime(info.mime) == "video")
+        if (identifyCategoryforMime(info.mime) == QLatin1String("audio") || identifyCategoryforMime(info.mime) == QLatin1String("video"))
         {
             // Stop image viewer
             if (viewMode() == PreviewImageMode)
             {
                 d->importPreviewView->setCamItemInfo();
             }
-
+#ifdef HAVE_MEDIAPLAYER
             setViewMode(MediaPlayerMode);
             d->mediaPlayerView->setCurrentItem(info.url(), !previous.isNull(), !next.isNull());
+#endif //HAVE_MEDIAPLAYER
         }
         else
         {
             // Stop media player if running...
             if (viewMode() == MediaPlayerMode)
             {
+#ifdef HAVE_MEDIAPLAYER
                 d->mediaPlayerView->setCurrentItem();
+#endif //HAVE_MEDIAPLAYER
             }
 
             d->importPreviewView->setCamItemInfo(info, previous, next);
@@ -308,7 +333,7 @@ void ImportStackedView::setPreviewItem(const CamItemInfo& info, const CamItemInf
 
 QString ImportStackedView::identifyCategoryforMime(const QString& mime) const
 {
-    return mime.split('/').at(0);
+    return mime.split(QLatin1Char('/')).at(0);
 }
 
 ImportStackedView::StackedViewMode ImportStackedView::viewMode() const
@@ -344,20 +369,20 @@ void ImportStackedView::setViewMode(const StackedViewMode mode)
         setCurrentIndex(mode);
     }
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     d->mapWidgetView->setActive(mode == MapWidgetMode);
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     if (mode == PreviewCameraMode)
     {
         d->importIconView->setFocus();
     }
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
     else if (mode == MapWidgetMode)
     {
         d->mapWidgetView->setFocus();
     }
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     emit signalViewModeChanged();
 }
@@ -369,7 +394,7 @@ void ImportStackedView::syncSelection(ImportCategorizedView* const from, ImportC
 
     if(!fromModel || !toModel)
     {
-        kWarning() << "one or both of the models are null?! from:" << from << "to:" << to;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "one or both of the models are null?! from:" << from << "to:" << to;
         return;
     }
 

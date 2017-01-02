@@ -6,7 +6,7 @@
  * Date        : 2013-08-01
  * Description : Qt item view for images - the delegate
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,21 +21,22 @@
  *
  * ============================================================ */
 
-#include "itemviewshowfotodelegate.moc"
+#include "itemviewshowfotodelegate.h"
 
 // Qt includes
 
+#include <QApplication>
 #include <QPainter>
 
 // KDE includes
 
-#include <kio/global.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "thememanager.h"
 #include "imagescanner.h"
+#include "imagepropertiestab.h"
 #include "showfotoiteminfo.h"
 #include "colorlabelwidget.h"
 #include "itemviewshowfotodelegatepriv.h"
@@ -51,7 +52,7 @@ ItemViewShowfotoDelegatePrivate::ItemViewShowfotoDelegatePrivate()
 
     // painting constants
     radius        = 3;
-    margin        = 5;    
+    margin        = 5;
 }
 
 void ItemViewShowfotoDelegatePrivate::init(ItemViewShowfotoDelegate* const _q)
@@ -71,7 +72,8 @@ void ItemViewShowfotoDelegatePrivate::clearRects()
 // ---- ItemViewShowfotoDelegate -----------------------------------------------
 
 ItemViewShowfotoDelegate::ItemViewShowfotoDelegate(QObject* const parent)
-    : DItemDelegate(parent), d_ptr(new ItemViewShowfotoDelegatePrivate)
+    : DItemDelegate(parent),
+      d_ptr(new ItemViewShowfotoDelegatePrivate)
 {
     d_ptr->init(this);
 }
@@ -297,7 +299,7 @@ void ItemViewShowfotoDelegate::drawGeolocationIndicator(QPainter* p, const QRect
 {
     if (!r.isNull())
     {
-        QIcon icon = KIconLoader::global()->loadIcon("applications-internet", KIconLoader::NoGroup, KIconLoader::SizeSmall);
+        QIcon icon = QIcon::fromTheme(QLatin1String("folder-html"));
         qreal op   = p->opacity();
         p->setOpacity(0.5);
         icon.paint(p, r);
@@ -333,7 +335,7 @@ void ItemViewShowfotoDelegate::drawFileSize(QPainter* p, const QRect& r, qlonglo
 {
     Q_D(const ItemViewShowfotoDelegate);
     p->setFont(d->fontXtra);
-    p->drawText(r, Qt::AlignCenter, KIO::convertSize(bytes));//squeezedTextCached(p, r.width(), KIO::convertSize(bytes)));
+    p->drawText(r, Qt::AlignCenter, ImagePropertiesTab::humanReadableBytesCount(bytes));
 }
 
 void ItemViewShowfotoDelegate::drawFocusRect(QPainter* p, const QStyleOptionViewItem& option,
@@ -343,8 +345,8 @@ void ItemViewShowfotoDelegate::drawFocusRect(QPainter* p, const QStyleOptionView
 
     if (option.state & QStyle::State_HasFocus) //?? is current item
     {
-        p->setPen(QPen(isSelected ? kapp->palette().color(QPalette::HighlightedText)
-                                  : kapp->palette().color(QPalette::Text),
+        p->setPen(QPen(isSelected ? qApp->palette().color(QPalette::HighlightedText)
+                                  : qApp->palette().color(QPalette::Text),
                        1, Qt::DotLine));
         p->drawRect(1, 1, d->rect.width()-3, d->rect.height()-3);
     }
@@ -392,15 +394,15 @@ void ItemViewShowfotoDelegate::prepareMetrics(int maxWidth)
     QFontMetrics fm(d->fontReg);
     d->oneRowRegRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                        Qt::AlignTop | Qt::AlignHCenter,
-                                       "XXXXXXXXX");
+                                       QLatin1String("XXXXXXXXX"));
     fm = QFontMetrics(d->fontCom);
     d->oneRowComRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                        Qt::AlignTop | Qt::AlignHCenter,
-                                       "XXXXXXXXX");
+                                       QLatin1String("XXXXXXXXX"));
     fm = QFontMetrics(d->fontXtra);
     d->oneRowXtraRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                         Qt::AlignTop | Qt::AlignHCenter,
-                                        "XXXXXXXXX");
+                                        QLatin1String("XXXXXXXXX"));
 }
 
 void ItemViewShowfotoDelegate::prepareBackground()
@@ -415,15 +417,15 @@ void ItemViewShowfotoDelegate::prepareBackground()
     else
     {
         d->regPixmap = QPixmap(d->rect.width(), d->rect.height());
-        d->regPixmap.fill(kapp->palette().color(QPalette::Base));
+        d->regPixmap.fill(qApp->palette().color(QPalette::Base));
         QPainter p1(&d->regPixmap);
-        p1.setPen(kapp->palette().color(QPalette::Midlight));
+        p1.setPen(qApp->palette().color(QPalette::Midlight));
         p1.drawRect(0, 0, d->rect.width()-1, d->rect.height()-1);
 
         d->selPixmap = QPixmap(d->rect.width(), d->rect.height());
-        d->selPixmap.fill(kapp->palette().color(QPalette::Highlight));
+        d->selPixmap.fill(qApp->palette().color(QPalette::Highlight));
         QPainter p2(&d->selPixmap);
-        p2.setPen(kapp->palette().color(QPalette::Midlight));
+        p2.setPen(qApp->palette().color(QPalette::Midlight));
         p2.drawRect(0, 0, d->rect.width()-1, d->rect.height()-1);
     }
 }

@@ -30,21 +30,25 @@
 #include <QStandardItemModel>
 #include <QPixmap>
 
-// libkgeomap includes
+// Local includes
 
-#include <libkgeomap/kgeomap_primitives.h>
-#include <libkgeomap/modelhelper.h>
+#include "modelhelper.h"
 
-// local includes
+// Local includes
 
 #include "thumbnailloadthread.h"
+
+namespace GeoIface
+{
+    class GeoCoordinates;
+}
 
 namespace Digikam
 {
 
 const int RoleGPSImageInfo = Qt::UserRole + 1;
 
-class ImageGPSModelHelper : public KGeoMap::ModelHelper
+class ImageGPSModelHelper : public GeoIface::ModelHelper
 {
     Q_OBJECT
 
@@ -56,7 +60,7 @@ public:
     virtual QAbstractItemModel* model()           const;
     virtual QItemSelectionModel* selectionModel() const;
 
-    virtual bool itemCoordinates(const QModelIndex& index, KGeoMap::GeoCoordinates* const coordinates) const;
+    virtual bool itemCoordinates(const QModelIndex& index, GeoIface::GeoCoordinates* const coordinates) const;
 
     virtual QPixmap pixmapFromRepresentativeIndex(const QPersistentModelIndex& index, const QSize& size);
     virtual QPersistentModelIndex bestRepresentativeIndexFromList(const QList<QPersistentModelIndex>& list, const int sortKey);

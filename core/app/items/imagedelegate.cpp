@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -24,7 +24,7 @@
  *
  * ============================================================ */
 
-#include "imagedelegate.moc"
+#include "imagedelegate.h"
 #include "imagedelegatepriv.h"
 
 // C++ includes
@@ -35,18 +35,12 @@
 
 #include <QCache>
 #include <QPainter>
-
-// KDE includes
-
-#include <kglobal.h>
-#include <kio/global.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <kicon.h>
-#include <kapplication.h>
+#include <QIcon>
+#include <QApplication>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
 #include "imagecategorydrawer.h"
 #include "imagecategorizedview.h"
@@ -279,16 +273,16 @@ void ImageDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, const
     // Draw Color Label rectangle
     drawColorLabelRect(p, option, isSelected, info.colorLabel());
 
-    p->setPen(isSelected ? kapp->palette().color(QPalette::HighlightedText)
-                         : kapp->palette().color(QPalette::Text));
+    p->setPen(isSelected ? qApp->palette().color(QPalette::HighlightedText)
+                         : qApp->palette().color(QPalette::Text));
 
-    /*
+/*
     // If there is ImageHistory present, paint a small icon over the thumbnail to indicate that this is derived image
     if (info.hasImageHistory())
     {
-        p->drawPixmap(d->pixmapRect.right()-24, d->pixmapRect.bottom()-24, KIcon("svn_switch").pixmap(22, 22));
+        p->drawPixmap(d->pixmapRect.right()-24, d->pixmapRect.bottom()-24, QIcon::fromTheme(QLatin1String("svn_switch")).pixmap(22, 22));
     }
-    */
+*/
 
     if (!d->nameRect.isNull())
     {
@@ -340,7 +334,7 @@ void ImageDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, const
     {
         QStringList tagsList = AlbumManager::instance()->tagNames(info.tagIds());
         tagsList.sort();
-        QString tags         = tagsList.join(", ");
+        QString tags         = tagsList.join(QLatin1String(", "));
         drawTags(p, d->tagRect, tags, isSelected);
     }
 
@@ -356,7 +350,7 @@ void ImageDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, const
     if (d->drawImageFormat)
     {
         QString frm = info.format();
-        if (frm.contains("-")) frm = frm.section('-', -1);   // For RAW format annoted as "RAW-xxx" => "xxx"
+        if (frm.contains(QLatin1String("-"))) frm = frm.section(QLatin1Char('-'), -1);   // For RAW format annoted as "RAW-xxx" => "xxx"
         drawImageFormat(p, actualPixmapRect, frm);
     }
 
@@ -565,7 +559,7 @@ int ImageDelegate::calculatethumbSizeToFit(int ws)
         {
             rs1 = nrs;
         }
-        else 
+        else
         {
             break;
         }

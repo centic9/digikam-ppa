@@ -7,7 +7,7 @@
  * Description : Wavelets Noise Reduction threaded image filter.
  *               This filter work in YCrCb color space.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008      by Marco Rossini <marco dot rossini at gmx dot net>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -32,7 +32,7 @@
 
 // Qt includes
 
-#include <QtConcurrentRun>
+#include <QtConcurrent>
 
 // Local includes
 
@@ -102,7 +102,7 @@ NRFilter::NRFilter(QObject* const parent)
 }
 
 NRFilter::NRFilter(DImg* const orgImage, QObject* const parent, const NRContainer& settings)
-    : DImgThreadedFilter(orgImage, parent, "NRFilter"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("NRFilter")),
       d(new Private)
 {
     d->settings = settings;
@@ -123,8 +123,8 @@ FilterAction NRFilter::filterAction()
 
     for (int i = 0; i < 3; ++i)
     {
-        action.addParameter(QString("softness[%1]").arg(i),   d->settings.softness[i]);
-        action.addParameter(QString("thresholds[%1]").arg(i), d->settings.thresholds[i]);
+        action.addParameter(QString::fromLatin1("softness[%1]").arg(i),   d->settings.softness[i]);
+        action.addParameter(QString::fromLatin1("thresholds[%1]").arg(i), d->settings.thresholds[i]);
     }
 
     return action;
@@ -134,8 +134,8 @@ void NRFilter::readParameters(const FilterAction& action)
 {
     for (int i = 0; i < 3; ++i)
     {
-        d->settings.softness[i]   = action.parameter(QString("softness[%1]").arg(i)).toDouble();
-        d->settings.thresholds[i] = action.parameter(QString("thresholds[%1]").arg(i)).toDouble();
+        d->settings.softness[i]   = action.parameter(QString::fromLatin1("softness[%1]").arg(i)).toDouble();
+        d->settings.thresholds[i] = action.parameter(QString::fromLatin1("thresholds[%1]").arg(i)).toDouble();
     }
 }
 
@@ -146,12 +146,12 @@ QString NRFilter::filterIdentifier() const
 
 QString NRFilter::FilterIdentifier()
 {
-    return "digikam:NoiseReductionFilter";
+    return QLatin1String("digikam:NoiseReductionFilter");
 }
 
 QString NRFilter::DisplayableName()
 {
-    return I18N_NOOP("Noise Reduction Filter");
+    return QString::fromUtf8(I18N_NOOP("Noise Reduction Filter"));
 }
 
 QList<int> NRFilter::SupportedVersions()

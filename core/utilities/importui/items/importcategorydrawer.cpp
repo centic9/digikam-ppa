@@ -26,11 +26,11 @@
 // Qt includes
 
 #include <QPainter>
+#include <QApplication>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -60,11 +60,8 @@ public:
 };
 
 ImportCategoryDrawer::ImportCategoryDrawer(ImportCategorizedView* const parent)
-#if KDE_IS_VERSION(4,5,0)
-    : KCategoryDrawerV3(0), d(new Private)
-#else
-    : d(new Private)
-#endif
+    : DCategoryDrawer(0),
+      d(new Private)
 {
     d->view = parent;
 }
@@ -157,9 +154,12 @@ void ImportCategoryDrawer::drawCategory(const QModelIndex& index, int /*sortRole
         case CamItemSortSettings::CategoryByFormat:
             textForFormat(index, &header, &subLine);
             break;
+        case CamItemSortSettings::CategoryByDate:
+            textForDate(index, &header, &subLine);
+            break;
     }
 
-    p->setPen(kapp->palette().color(QPalette::HighlightedText));
+    p->setPen(qApp->palette().color(QPalette::HighlightedText));
     p->setFont(fontBold);
 
     QRect tr;
@@ -186,14 +186,13 @@ void ImportCategoryDrawer::viewHeaderText(const QModelIndex& index, QString* hea
         return;
     }
 
-    CamItemInfo info     = sourceModel->retrieveCamItemInfo(index);
-    if(!info.isNull())
-    {
-        int count            = d->view->categoryRange(index).height();
-        QStringList splitted = info.url().prettyUrl().split('/');
-        *header              = splitted.value(splitted.length() - 2);
+    CamItemInfo info = sourceModel->retrieveCamItemInfo(index);
 
-        *subLine             = i18np("1 Item", "%1 Items", count);
+    if (!info.isNull())
+    {
+        *header      = info.url().adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).fileName();
+        int count    = d->view->categoryRange(index).height();
+        *subLine     = i18np("1 Item", "%1 Items", count);
     }
 }
 
@@ -201,20 +200,29 @@ void ImportCategoryDrawer::textForFormat(const QModelIndex& index, QString* head
 {
     QString format = index.data(ImportFilterModel::CategoryFormatRole).toString();
 
-    if(!format.isEmpty())
+    if (!format.isEmpty())
     {
-        format         = format.split('/').at(1);
-        format         = ImageScanner::formatToString(format);
-        *header        = format;
+        format     = format.split(QLatin1Char('/')).at(1);
+        format     = ImageScanner::formatToString(format);
+        *header    = format;
     }
     else
     {
-        format         = i18n("Unknown Format");
-        *header        = format;
+        format     = i18n("Unknown Format");
+        *header    = format;
     }
 
     int count      = d->view->categoryRange(index).height();
     *subLine       = i18np("1 Item", "%1 Items", count);
+}
+
+void ImportCategoryDrawer::textForDate(const QModelIndex& index, QString* header, QString* subLine) const
+{
+    QDate date = index.data(ImportFilterModel::CategoryDateRole).toDate();
+
+    *header    = date.toString(QLatin1String("dd MMM yyyy"));
+    int count  = d->view->categoryRange(index).height();
+    *subLine   = i18np("1 Item", "%1 Items", count);
 }
 
 void ImportCategoryDrawer::updateRectsAndPixmaps(int width)
@@ -243,7 +251,7 @@ void ImportCategoryDrawer::updateRectsAndPixmaps(int width)
     QFontMetrics fm(fn);
     QRect tr = fm.boundingRect(0, 0, width,
                                0xFFFFFFFF, Qt::AlignLeft | Qt::AlignVCenter,
-                               "XXX");
+                               QLatin1String("XXX"));
     d->rect.setHeight(tr.height());
 
     if (usePointSize)
@@ -259,13 +267,13 @@ void ImportCategoryDrawer::updateRectsAndPixmaps(int width)
     fm = QFontMetrics(fn);
     tr = fm.boundingRect(0, 0, width,
                          0xFFFFFFFF, Qt::AlignLeft | Qt::AlignVCenter,
-                         "XXX");
+                         QLatin1String("XXX"));
 
     d->rect.setHeight(d->rect.height() + tr.height() + 10);
     d->rect.setWidth(width);
 
     d->pixmap = QPixmap(d->rect.width(), d->rect.height());
-    d->pixmap.fill(kapp->palette().color(QPalette::Highlight));
+    d->pixmap.fill(qApp->palette().color(QPalette::Highlight));
 }
 
 } // namespace Digikam

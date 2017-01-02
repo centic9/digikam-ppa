@@ -7,7 +7,7 @@
  * Description : a list of selectable options with preview
  *               effects as thumbnails.
  *
- * Copyright (C) 2010-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "previewlist.moc"
+#include "previewlist.h"
 
 // Qt includes
 
@@ -33,18 +33,18 @@
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kpixmapsequence.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
+
+// LibDRawDecoder includes
+
+#include "dwidgetutils.h"
 
 // Local includes
 
 #include "dimg.h"
 #include "dimgthreadedfilter.h"
 #include "imageiface.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -62,7 +62,8 @@ public:
 };
 
 PreviewThreadWrapper::PreviewThreadWrapper(QObject* const parent)
-    : QObject(parent), d(new Private)
+    : QObject(parent),
+      d(new Private)
 {
 }
 
@@ -130,7 +131,7 @@ void PreviewThreadWrapper::slotFilterProgress(int /*progress*/)
         return;
     }
 
-    //kDebug() << filter->filterName() << " : " << progress << " %";
+    //qCDebug(DIGIKAM_GENERAL_LOG) << filter->filterName() << " : " << progress << " %";
 }
 
 void PreviewThreadWrapper::startFilters()
@@ -168,7 +169,8 @@ public:
 };
 
 PreviewListItem::PreviewListItem(QListWidget* const parent)
-    : QListWidgetItem(parent), d(new Private)
+    : QListWidgetItem(parent),
+      d(new Private)
 {
 }
 
@@ -220,22 +222,23 @@ public:
     Private() :
         progressCount(0),
         progressTimer(0),
-        progressPix(KPixmapSequence("process-working", KIconLoader::SizeSmallMedium)),
         wrapper(0)
     {
+        progressPix = DWorkingPixmap();
     }
 
-    int                   progressCount;
+    int                        progressCount;
 
-    QTimer*               progressTimer;
+    QTimer*                    progressTimer;
 
-    KPixmapSequence       progressPix;
+    DWorkingPixmap progressPix;
 
-    PreviewThreadWrapper* wrapper;
+    PreviewThreadWrapper*      wrapper;
 };
 
 PreviewList::PreviewList(QObject* const /*parent*/)
-    : QListWidget(), d(new Private)
+    : QListWidget(),
+      d(new Private)
 {
     d->wrapper = new PreviewThreadWrapper(this);
 
@@ -252,7 +255,7 @@ PreviewList::PreviewList(QObject* const /*parent*/)
     setResizeMode(QListView::Adjust);
     setTextElideMode(Qt::ElideRight);
     setCursor(Qt::PointingHandCursor);
-    setStyleSheet("QListWidget::item:selected:!active {show-decoration-selected: 0}");
+    setStyleSheet(QLatin1String("QListWidget::item:selected:!active {show-decoration-selected: 0}"));
 
     d->progressTimer = new QTimer(this);
     d->progressTimer->setInterval(300);

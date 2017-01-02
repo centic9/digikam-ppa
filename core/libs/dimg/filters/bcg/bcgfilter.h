@@ -7,7 +7,7 @@
  * Description : a Brightness/Contrast/Gamma image filter.
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -31,7 +31,7 @@
 #include "bcgcontainer.h"
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -51,12 +51,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:BCGFilter";
+        return QLatin1String("digikam:BCGFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Brightness / Contrast / Gamma Filter");
+        return QString::fromUtf8(I18N_NOOP("Brightness / Contrast / Gamma Filter"));
     }
 
     static QList<int>       SupportedVersions()

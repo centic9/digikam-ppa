@@ -7,8 +7,9 @@
  * Description : a widget to manage sidebar in GUI.
  *
  * Copyright (C) 2005-2006 by Joern Ahrens <joern dot ahrens at kdemail dot net>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
+ * Copyright (C) 2001-2003 by Joseph Wenninger <jowenn at kde dot org>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,23 +29,281 @@
 
 // Qt includes
 
-#include <QtGui/QPixmap>
-#include <QtGui/QSplitter>
+#include <QPixmap>
+#include <QSplitter>
+#include <QPushButton>
+#include <QWidget>
+#include <QList>
+#include <QStyleOptionToolButton>
+#include <QBoxLayout>
 
 // KDE includes
 
 #include <kconfiggroup.h>
-#include <kmultitabbar.h>
 
 // Local includes
 
 #include "digikam_export.h"
 #include "statesavingobject.h"
 
-class QSplitter;
-
 namespace Digikam
 {
+
+class DMultiTabBarButton;
+class DMultiTabBarTab;
+
+/**
+ * A Widget for horizontal and vertical tabs.
+ */
+class DIGIKAM_EXPORT DMultiTabBar: public QWidget
+{
+    Q_OBJECT
+
+public:
+
+    /**
+     * The list of available styles for DMultiTabBar
+     */
+    enum TextStyle
+    {
+        ActiveIconText = 0, /// Always shows icon, only show the text of active tabs.
+        AllIconsText   = 2  /// Always shows the text and icons.
+    };
+
+public:
+
+    explicit DMultiTabBar(Qt::Edge pos, QWidget* const parent=0);
+    virtual ~DMultiTabBar();
+
+    /**
+     * append  a new button to the button area. The button can later on be accessed with button(ID)
+     * eg for connecting signals to it
+     * @param pic a pixmap for the button
+     * @param id an arbitraty ID value. It will be emitted in the clicked signal for identifying the button
+     *  if more than one button is connected to a signals.
+     * @param popup A popup menu which should be displayed if the button is clicked
+     * @param not_used_yet will be used for a popup text in the future
+     */
+    int appendButton(const QPixmap &pic, int id=-1, QMenu* const popup=0, const QString& not_used_yet=QString());
+
+    /**
+     * remove a button with the given ID
+     */
+    void removeButton(int id);
+
+    /**
+     * append a new tab to the tab area. It can be accessed lateron with tabb(id);
+     * @param pic a bitmap for the tab
+     * @param id an arbitrary ID which can be used later on to identify the tab
+     * @param text if a mode with text is used it will be the tab text, otherwise a mouse over hint
+     */
+    int appendTab(const QPixmap& pic,int id=-1,const QString& text=QString());
+
+    /**
+     * remove a tab with a given ID
+     */
+    void removeTab(int id);
+
+    /**
+     * set a tab to "raised"
+     * @param id The ID of the tab to manipulate
+     * @param state true == activated/raised, false == not active
+     */
+    void setTab(int id, bool state);
+
+    /**
+     * return the state of a tab, identified by its ID
+     */
+    bool isTabRaised(int id) const;
+
+    /**
+     * get a pointer to a button within the button area identified by its ID
+     */
+    DMultiTabBarButton* button(int id) const;
+
+    /**
+     * get a pointer to a tab within the tab area, identiifed by its ID
+     */
+    DMultiTabBarTab* tab(int id) const;
+
+    /**
+     * set the real position of the widget.
+     * @param pos if the mode is horizontal, only use top, bottom, if it is vertical use left or right
+     */
+    void setPosition(Qt::Edge pos);
+
+    /**
+     * get the tabbar position.
+     * @return position
+     */
+    Qt::Edge position() const;
+
+    /**
+     * set the display style of the tabs
+     */
+    void setStyle(TextStyle style);
+
+    /**
+     * get the display style of the tabs
+     * @return display style
+     */
+    TextStyle tabStyle() const;
+
+protected:
+
+    void updateSeparator();
+
+    virtual void fontChange(const QFont&);
+
+private:
+
+    friend class DMultiTabBarButton;
+
+    class Private;
+    Private* const d;
+};
+
+// -------------------------------------------------------------------------------------
+
+class DIGIKAM_EXPORT DMultiTabBarButton: public QPushButton
+{
+    Q_OBJECT
+
+public:
+
+    int id() const;
+    virtual ~DMultiTabBarButton();
+
+public Q_SLOTS:
+
+    void setText(const QString& text);
+
+Q_SIGNALS:
+
+    /**
+     * this is emitted if  the button is clicked
+     * @param id the ID identifying the button
+     */
+    void clicked(int id);
+
+protected Q_SLOTS:
+
+    virtual void slotClicked();
+
+protected:
+
+    DMultiTabBarButton(const QPixmap& pic, const QString&, int id, QWidget* const parent);
+
+    virtual void hideEvent(QHideEvent*);
+    virtual void showEvent(QShowEvent*);
+    virtual void paintEvent(QPaintEvent*);
+
+private:
+
+    friend class DMultiTabBar;
+
+    int m_id;
+};
+
+// -------------------------------------------------------------------------------------
+
+class DIGIKAM_EXPORT DMultiTabBarTab: public DMultiTabBarButton
+{
+    Q_OBJECT
+
+public:
+
+    virtual ~DMultiTabBarTab();
+
+    virtual QSize sizeHint()        const;
+    virtual QSize minimumSizeHint() const;
+
+public Q_SLOTS:
+
+    /**
+     * this is used internaly, but can be used by the user.
+     * It the according call of DMultiTabBar is invoked though this modifications will be overwritten
+     */
+    void setPosition(Qt::Edge);
+
+    /**
+     * this is used internaly, but can be used by the user.
+     * It the according call of DMultiTabBar is invoked though this modifications will be overwritten
+     */
+    void setStyle(DMultiTabBar::TextStyle);
+
+    /**
+     * set the active state of the tab
+     * @param  state true==active false==not active
+     */
+    void setState(bool state);
+
+    void setIcon(const QString&);
+    void setIcon(const QPixmap&);
+
+protected:
+
+    void    computeMargins (int* hMargin, int* vMargin)  const;
+    QSize   computeSizeHint(bool withText)               const;
+    bool    shouldDrawText()                             const;
+    bool    isVertical()                                 const;
+    QPixmap iconPixmap()                                 const;
+    void    initStyleOption(QStyleOptionToolButton* opt) const;
+
+    friend class DMultiTabBarFrame;
+
+    /**
+     * This class should never be created except with the appendTab call of DMultiTabBar
+     */
+    DMultiTabBarTab(const QPixmap& pic, const QString&, int id, QWidget* const parent,
+                    Qt::Edge pos, DMultiTabBar::TextStyle style);
+
+    virtual void paintEvent(QPaintEvent*);
+
+private:
+
+    class Private;
+    Private* const d;
+};
+
+// -------------------------------------------------------------------------------------
+
+class DMultiTabBarFrame: public QFrame
+{
+    Q_OBJECT
+
+public:
+
+    DMultiTabBarFrame(QWidget* const parent, Qt::Edge pos);
+    virtual ~DMultiTabBarFrame();
+
+    int appendTab(const QPixmap&, int = -1, const QString& = QString());
+    DMultiTabBarTab* tab(int) const;
+    void removeTab(int);
+    void setPosition(Qt::Edge pos);
+    void setStyle(DMultiTabBar::TextStyle style);
+    void showActiveTabTexts(bool show);
+    QList<DMultiTabBarTab*>* tabs();
+
+protected:
+
+    /**
+     * Reimplemented from QScrollView
+     * in order to ignore all mouseEvents on the viewport, so that the
+     * parent can handle them.
+     */
+    virtual void contentsMousePressEvent(QMouseEvent*);
+    virtual void mousePressEvent(QMouseEvent*);
+
+private:
+
+    friend class DMultiTabBar;
+
+    class Private;
+    Private* const d;
+};
+
+// -------------------------------------------------------------------------------------
 
 class SidebarSplitter;
 
@@ -58,7 +317,7 @@ class SidebarSplitter;
  * call QObject#setObjectName(), StateSavingObject#setEntryPrefix() or
  * StateSavingObject#setConfigGroup() first.
  */
-class DIGIKAM_EXPORT Sidebar : public KMultiTabBar, public StateSavingObject
+class DIGIKAM_EXPORT Sidebar : public DMultiTabBar, public StateSavingObject
 {
     Q_OBJECT
 
@@ -71,10 +330,10 @@ public:
      *           is part of the main view. Internally, the width of the widget stack can
      *           be changed by a QSplitter.
      * @param side where the sidebar should be displayed. At the left or right border.
-                   Use KMultiTabBar::Left or KMultiTabBar::Right.
+                   Use Qt::LeftEdge or Qt::RightEdge.
      * @param minimizedDefault hide the sidebar when the program is started the first time.
      */
-    Sidebar(QWidget* const parent, SidebarSplitter* const sp, KMultiTabBarPosition side=KMultiTabBar::Left,
+    Sidebar(QWidget* const parent, SidebarSplitter* const sp, Qt::Edge side = Qt::LeftEdge,
             bool minimizedDefault=false);
 
     virtual ~Sidebar();
@@ -87,7 +346,7 @@ public:
      * @param pic icon which is shown in this tab
      * @param title text which is shown it this tab
      */
-    void appendTab(QWidget* const w, const QPixmap& pic, const QString& title);
+    void appendTab(QWidget* const w, const QIcon& pic, const QString& title);
 
     /**
      * Deletes a tab from the tabbar

@@ -7,7 +7,7 @@
  * Description : a widget to draw stars rating
  *
  * Copyright (C) 2005      by Owen Hirst <n8rider@sbcglobal.net>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,17 +32,12 @@
 #include <QMouseEvent>
 #include <QPolygon>
 #include <QIcon>
-
-// KDE includes
-
-#include <kvbox.h>
-#include <kactionmenu.h>
+#include <QMenu>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "digikam_export.h"
-
-class QMenu;
 
 namespace Digikam
 {
@@ -115,7 +110,7 @@ private:
 
 // --------------------------------------------------------------------
 
-class DIGIKAM_EXPORT RatingBox : public KVBox
+class DIGIKAM_EXPORT RatingBox : public DVBox
 {
     Q_OBJECT
 
@@ -140,7 +135,7 @@ private:
 
 // --------------------------------------------------------------------
 
-class DIGIKAM_EXPORT RatingMenuAction : public KActionMenu
+class DIGIKAM_EXPORT RatingMenuAction : public QMenu
 {
     Q_OBJECT
 

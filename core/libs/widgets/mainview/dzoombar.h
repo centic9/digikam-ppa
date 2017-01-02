@@ -6,7 +6,7 @@
  * Date        : 2007-04-15
  * Description : a zoom bar used in status bar.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,22 +26,20 @@
 
 // Qt includes
 
-#include <QtCore/QString>
-
-// KDE includes
-
-#include <khbox.h>
+#include <QString>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "digikam_export.h"
 
 class QAction;
 
+
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT DZoomBar : public KHBox
+class DIGIKAM_EXPORT DZoomBar : public DHBox
 {
     Q_OBJECT
 
@@ -90,7 +88,7 @@ private Q_SLOTS:
     void slotDelayedZoomSliderChanged();
     void slotZoomSliderReleased();
     void slotZoomSelected(int);
-    void slotZoomTextChanged(const QString&);
+    void slotZoomTextChanged();
 
 private:
 

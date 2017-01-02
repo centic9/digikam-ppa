@@ -63,12 +63,12 @@ void Highlighter::highlightBlock(const QString& text)
                 case ModifierPattern:
                 {
                     // highlight parameters in options and modifiers
-                    if (expression.numCaptures() > 0 && !expression.cap(1).isEmpty())
+                    if (expression.captureCount() > 0 && !expression.cap(1).isEmpty())
                     {
                         QString fullmatched  = expression.cap(0);
                         QString parameters   = expression.cap(1);
 
-                        if (parameters.startsWith(':'))
+                        if (parameters.startsWith(QLatin1Char(':')))
                         {
                             parameters.remove(0, 1);
 
@@ -160,7 +160,7 @@ void Highlighter::setupHighlightingGrammar()
 
     quotationFormat.setForeground(QColor("#5050ff")); // light blue
     quotationFormat.setFontItalic(true);
-    quotationRule.pattern = QRegExp("\".*\"");
+    quotationRule.pattern = QRegExp(QLatin1String("\".*\""));
     quotationRule.pattern.setMinimal(true);
     quotationRule.format = quotationFormat;
     quotationRule.type   = QuotedTextPattern;

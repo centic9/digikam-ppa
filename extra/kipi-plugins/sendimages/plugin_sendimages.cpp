@@ -6,7 +6,7 @@
  * Date        : 2003-10-01
  * Description : a kipi plugin to e-mailing images
  *
- * Copyright (C) 2003-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,35 +20,34 @@
  *
  * ============================================================ */
 
-#include "plugin_sendimages.moc"
+#include "plugin_sendimages.h"
+
+// Qt includes
+
+#include <QApplication>
+#include <QAction>
 
 // KDE includes
 
-#include <kaction.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kgenericfactory.h>
-#include <kglobal.h>
-#include <klibloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
-#include <libkipi/imagecollection.h>
+#include <KIPI/Interface>
+#include <KIPI/ImageCollection>
 
 // Local includes
 
+#include "kputil.h"
 #include "sendimages.h"
 #include "sendimagesdialog.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPISendimagesPlugin
 {
 
-K_PLUGIN_FACTORY( SendImagesFactory, registerPlugin<Plugin_SendImages>(); )
-K_EXPORT_PLUGIN ( SendImagesFactory("kipiplugin_sendimages") )
+K_PLUGIN_FACTORY(SendImagesFactory, registerPlugin<Plugin_SendImages>();)
 
 class Plugin_SendImages::Private
 {
@@ -61,7 +60,7 @@ public:
         sendImagesOperation = 0;
     }
 
-    KAction*          action_sendimages;
+    QAction*          action_sendimages;
 
     SendImagesDialog* dialog;
 
@@ -69,10 +68,10 @@ public:
 };
 
 Plugin_SendImages::Plugin_SendImages(QObject* const parent, const QVariantList&)
-    : Plugin(SendImagesFactory::componentData(), parent, "SendImages"), 
+    : Plugin(parent, "SendImages"),
       d(new Private)
 {
-    kDebug(AREA_CODE_LOADING) << "Plugin_SendImages plugin loaded";
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_SendImages plugin loaded";
 
     setUiBaseName("kipiplugin_sendimagesui.rc");
     setupXML();
@@ -80,7 +79,11 @@ Plugin_SendImages::Plugin_SendImages(QObject* const parent, const QVariantList&)
 
 Plugin_SendImages::~Plugin_SendImages()
 {
+    delete d->sendImagesOperation;
+    delete d->dialog;
     delete d;
+
+    removeTemporaryDir("sendimages");
 }
 
 void Plugin_SendImages::setup(QWidget* const widget)
@@ -93,7 +96,7 @@ void Plugin_SendImages::setup(QWidget* const widget)
 
     if (!iface)
     {
-        kError() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
@@ -106,16 +109,16 @@ void Plugin_SendImages::setup(QWidget* const widget)
 
 void Plugin_SendImages::setupActions()
 {
-    setDefaultCategory(ExportPlugin);
+    setDefaultCategory(ToolsPlugin);
 
-    d->action_sendimages = new KAction(this);
+    d->action_sendimages = new QAction(this);
     d->action_sendimages->setText(i18n("Email Images..."));
-    d->action_sendimages->setIcon(KIcon("mail-send"));
+    d->action_sendimages->setIcon(QIcon::fromTheme(QLatin1String("mail-send")));
 
     connect(d->action_sendimages, SIGNAL(triggered(bool)),
             this, SLOT(slotActivate()));
 
-    addAction("sendimages", d->action_sendimages);
+    addAction(QLatin1String("sendimages"), d->action_sendimages);
 }
 
 void Plugin_SendImages::slotActivate()
@@ -124,18 +127,18 @@ void Plugin_SendImages::slotActivate()
 
     if (!iface)
     {
-       kError() << "Kipi interface is null!";
+       qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
        return;
     }
 
     ImageCollection images = iface->currentSelection();
 
-    if ( !images.isValid() || images.images().isEmpty() )
+    if (!images.isValid() || images.images().isEmpty())
         return;
 
     delete d->dialog;
 
-    d->dialog = new SendImagesDialog(kapp->activeWindow(), images.images());
+    d->dialog = new SendImagesDialog(QApplication::activeWindow(), images.images());
     d->dialog->show();
 
     connect(d->dialog, SIGNAL(accepted()),
@@ -148,9 +151,11 @@ void Plugin_SendImages::slotPrepareEmail()
 
     if (!interface)
     {
-       kError() << "Kipi interface is null!";
+       qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
        return;
     }
+
+    delete d->sendImagesOperation;
 
     EmailSettings settings = d->dialog->emailSettings();
     d->sendImagesOperation = new SendImages(settings, this);
@@ -158,3 +163,5 @@ void Plugin_SendImages::slotPrepareEmail()
 }
 
 } // namespace KIPISendimagesPlugin
+
+#include "plugin_sendimages.moc"

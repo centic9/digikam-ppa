@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2013-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2013-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -34,7 +34,10 @@ desc=$(<build/git_branches.txt)
 
 cd ./build
 
-cov-build --dir cov-int --tmpdir ~/tmp make -j8
+CPU_CORES=$(grep -c ^processor /proc/cpuinfo 2>/dev/null || sysctl -n hw.ncpu)
+echo "CPU cores detected to compile : $CPU_CORES."
+
+cov-build --dir cov-int --tmpdir ~/tmp make -j$CPU_CORES
 tar czvf myproject.tgz cov-int
 
 echo "-- SCAN Import description --"
@@ -49,11 +52,11 @@ nslookup scan5.coverity.com
 # To mesure uploading time
 SECONDS=0
 
-curl -# \
+curl --progress-bar \
      --form token=$DKCoverityToken \
      --form email=$DKCoverityEmail \
      --form file=@myproject.tgz \
-     --form version=git-master \
+     --form version=git-frameworks \
      --form description="$desc" \
      https://scan.coverity.com/builds?project=digiKam
      > /dev/null

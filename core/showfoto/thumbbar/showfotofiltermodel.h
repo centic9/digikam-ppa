@@ -6,7 +6,7 @@
  * Date        : 30-07-2013
  * Description : Qt filter model for showfoto items
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,12 +28,9 @@
 
 #include <QObject>
 
-// KDE includes
-
-#include <kcategorizedsortfilterproxymodel.h>
-
 // Local includes
 
+#include "dcategorizedsortfilterproxymodel.h"
 #include "showfotoimagemodel.h"
 #include "showfotothumbnailmodel.h"
 #include "showfotoitemsortsettings.h"
@@ -43,7 +40,7 @@ namespace ShowFoto
 
 class ShowfotoFilterModel;
 
-class ShowfotoSortFilterModel : public KCategorizedSortFilterProxyModel
+class ShowfotoSortFilterModel : public DCategorizedSortFilterProxyModel
 {
     Q_OBJECT
 
@@ -71,7 +68,7 @@ public:
     QList<ShowfotoItemInfo> showfotoItemInfos(const QList<QModelIndex>& indexes) const;
     QList<qlonglong>   showfotoItemIds(const QList<QModelIndex>& indexes)        const;
 
-    QModelIndex indexForPath(const QString& filePath)                  const;
+    QModelIndex indexForUrl(const QUrl& fileUrl)                       const;
     QModelIndex indexForShowfotoItemInfo(const ShowfotoItemInfo& info) const;
     QModelIndex indexForShowfotoItemId(qlonglong id)                   const;
 
@@ -92,7 +89,7 @@ protected:
 
 protected:
 
-    ShowfotoSortFilterModel* m_chainedModel;    
+    ShowfotoSortFilterModel* m_chainedModel;
 };
 
 // ------------------------------------------------------------------------------------------

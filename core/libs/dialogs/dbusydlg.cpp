@@ -6,7 +6,7 @@
  * Date        : 2009-11-03
  * Description : a busy dialog for digiKam
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,16 +21,16 @@
  *
  * ============================================================ */
 
-#include "dbusydlg.moc"
+#include "dbusydlg.h"
 
 // Qt includes
 
 #include <QPushButton>
 #include <QProgressBar>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -60,17 +60,18 @@ public:
 };
 
 DBusyDlg::DBusyDlg(const QString& txt, QWidget* const parent)
-    : KProgressDialog(parent, QString(), txt, Qt::FramelessWindowHint),
+    : QProgressDialog(parent, Qt::FramelessWindowHint),
       d(new Private)
 {
-    setAllowCancel(false);
+    setLabelText(txt);
+    setCancelButton(0);
     setMinimumDuration(0);
     setModal(true);
     setAutoClose(false);
 
-    progressBar()->setMaximum(0);
-    progressBar()->setMinimum(0);
-    progressBar()->setValue(0);
+    setMaximum(0);
+    setMinimum(0);
+    setValue(0);
 }
 
 DBusyDlg::~DBusyDlg()
@@ -87,14 +88,14 @@ void DBusyDlg::setBusyThread(DBusyThread* const thread)
         connect(d->thread, SIGNAL(signalComplete()),
                 this, SLOT(slotComplete()));
 
-        kDebug() << "Thread is started";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Thread is started";
         d->thread->start();
     }
 }
 
 void DBusyDlg::slotComplete()
 {
-    kDebug() << "Thread is complete";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Thread is complete";
     accept();
 }
 

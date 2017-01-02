@@ -6,8 +6,8 @@
  * Date        : 02-08-2013
  * Description : Thumbnail bar for Showfoto
  *
- * Copyright (C) 2013      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
- * Copyright (C) 2013-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013      by Mohamed Anwer <m dot anwer at gmx dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,18 +22,15 @@
  *
  * ============================================================ */
 
-#include "showfotothumbnailbar.moc"
+#include "showfotothumbnailbar.h"
 
 // Qt includes
 
 #include <QTimer>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "showfotosettings.h"
 #include "showfotodelegate.h"
 #include "showfotofiltermodel.h"
@@ -64,7 +61,8 @@ public:
 };
 
 ShowfotoThumbnailBar::ShowfotoThumbnailBar(QWidget* const parent)
-    : ShowfotoCategorizedView(parent), d(new Private())
+    : ShowfotoCategorizedView(parent),
+      d(new Private())
 {
     setItemDelegate(new ShowfotoThumbnailDelegate(this));
     setSpacing(3);
@@ -114,7 +112,7 @@ void ShowfotoThumbnailBar::setScrollBarPolicy(Qt::ScrollBarPolicy policy)
     if (policy == Qt::ScrollBarAsNeeded)
     {
         // Delegate resizing will cause endless relayouting, see bug #228807
-        kError() << "The Qt::ScrollBarAsNeeded policy is not supported by ShowfotoThumbnailBar";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "The Qt::ScrollBarAsNeeded policy is not supported by ShowfotoThumbnailBar";
     }
 
     d->scrollPolicy = policy;
@@ -197,7 +195,7 @@ QModelIndex ShowfotoThumbnailBar::lastIndex() const
     return showfotoFilterModel()->index(showfotoFilterModel()->rowCount() - 1, 0);
 }
 
-ShowfotoItemInfo ShowfotoThumbnailBar::findItemByUrl(const KUrl url)
+ShowfotoItemInfo ShowfotoThumbnailBar::findItemByUrl(const QUrl url)
 {
     ShowfotoItemInfoList lst = showfotoItemInfos();
 

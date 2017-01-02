@@ -6,7 +6,7 @@
  * Date        : 2012-01-26
  * Description : a progress bar with progress information dispatched to kipi host
  *
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,17 +21,17 @@
  *
  * ============================================================ */
 
-#include "kpprogresswidget.moc"
+#include "kpprogresswidget.h"
 
 // Qt includes
 
 #include <QString>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/version.h>
-#include <libkipi/interface.h>
-#include <libkipi/pluginloader.h>
+#include <libkipi_version.h>
+#include <KIPI/Interface>
+#include <KIPI/PluginLoader>
 
 using namespace KIPI;
 
@@ -58,10 +58,11 @@ public:
 };
 
 KPProgressWidget::KPProgressWidget(QWidget* const parent)
-    : QProgressBar(parent), d(new Private)
+    : QProgressBar(parent),
+      d(new Private)
 {
-    connect(this, SIGNAL(valueChanged(int)),
-            this, SLOT(slotValueChanged(int)));
+    connect(this, &KPProgressWidget::valueChanged,
+            this, &KPProgressWidget::slotValueChanged);
 }
 
 KPProgressWidget::~KPProgressWidget()
@@ -119,8 +120,7 @@ void KPProgressWidget::progressScheduled(const QString& title, bool canBeCancele
 
         if (canBeCanceled)
         {
-            connect(d->iface, SIGNAL(progressCanceled(QString)),
-                    this, SLOT(slotProgressCanceled(QString)));
+            connect(d->iface, &Interface::progressCanceled, this, &KPProgressWidget::slotProgressCanceled);
         }
     }
 #endif // KIPI_VERSION >= 0x010500

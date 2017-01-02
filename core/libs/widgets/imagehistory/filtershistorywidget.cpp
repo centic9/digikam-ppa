@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "filtershistorywidget.moc"
+#include "filtershistorywidget.h"
 
 // Qt includes
 
@@ -29,15 +29,15 @@
 #include <QTreeView>
 #include <QMenu>
 #include <QLabel>
+#include <QUrl>
 
 // KDE includes
 
-#include <kurl.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "imagefiltershistorymodel.h"
 #include "imagefiltershistorytreeitem.h"
 #include "imagefiltershistoryitemdelegate.h"
@@ -80,7 +80,7 @@ FiltersHistoryWidget::FiltersHistoryWidget(QWidget* const parent)
     d->layout      = new QGridLayout(this);
     d->view        = new QTreeView(this);
     d->delegate    = new ImageFiltersHistoryItemDelegate(this);
-    d->model       = new ImageFiltersHistoryModel(0, KUrl());
+    d->model       = new ImageFiltersHistoryModel(0, QUrl());
     d->headerLabel = new QLabel(this);
 
     d->headerLabel->setText(i18n("Used filters"));
@@ -105,7 +105,7 @@ FiltersHistoryWidget::~FiltersHistoryWidget()
     delete d;
 }
 
-void FiltersHistoryWidget::setCurrentURL(const KUrl& url)
+void FiltersHistoryWidget::setCurrentURL(const QUrl& url)
 {
     d->model->setUrl(url);
     d->view->setModel(d->model);

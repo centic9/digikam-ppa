@@ -6,7 +6,7 @@
  * Date        : 2006-10-18
  * Description : e-mail settings page.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,7 +29,7 @@
 
 // Local includes
 
-#include <emailsettings.h>
+#include "emailsettings.h"
 
 namespace KIPISendimagesPlugin
 {
@@ -58,4 +58,4 @@ private:
 
 }  // namespace KIPISendimagesPlugin
 
-#endif // SETTINGSWIDGET_H 
+#endif // SETTINGSWIDGET_H

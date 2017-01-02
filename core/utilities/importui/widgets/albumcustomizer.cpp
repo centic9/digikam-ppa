@@ -7,7 +7,7 @@
  * Description : a widget to customize album name created by
  *               camera interface.
  *
- * Copyright (C) 2011-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "albumcustomizer.moc"
+#include "albumcustomizer.h"
 
 // Qt includes
 
@@ -30,20 +30,23 @@
 #include <QLabel>
 #include <QCheckBox>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
+#include <QComboBox>
+#include <QLineEdit>
+#include <QIcon>
 
 // KDE includes
 
-#include <ksqueezedtextlabel.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kcombobox.h>
-#include <khbox.h>
-#include <klineedit.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
+#include <kconfiggroup.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "tooltipdialog.h"
+#include "digikam_debug.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -73,16 +76,19 @@ public:
 
     QToolButton*        tooltipToggleButton;
 
-    KSqueezedTextLabel* customExample;
+    DAdjustableLabel*   customExample;
 
-    KComboBox*          folderDateFormat;
+    QComboBox*          folderDateFormat;
 
     TooltipDialog*      tooltipDialog;
 };
 
 AlbumCustomizer::AlbumCustomizer(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->tooltipDialog = new TooltipDialog(this);
     d->tooltipDialog->setTooltip(i18n("<p>These expressions may be used to customize date format:</p>"
                                       "<p><b>d</b>: The day as a number without a leading zero (1 to 31)</p>"
@@ -104,24 +110,24 @@ AlbumCustomizer::AlbumCustomizer(QWidget* const parent)
                                      ));
     d->tooltipDialog->resize(650, 530);
 
-    QVBoxLayout* albumVlay = new QVBoxLayout(this);
-    d->autoAlbumExtCheck   = new QCheckBox(i18nc("@option:check", "Extension-based sub-albums"), this);
-    d->autoAlbumDateCheck  = new QCheckBox(i18nc("@option:check", "Date-based sub-albums"), this);
-    KHBox* hbox1           = new KHBox(this);
-    d->folderDateLabel     = new QLabel(i18nc("@label:listbox", "Date format:"), hbox1);
-    d->folderDateFormat    = new KComboBox(hbox1);
+    QVBoxLayout* const albumVlay = new QVBoxLayout(this);
+    d->autoAlbumExtCheck         = new QCheckBox(i18nc("@option:check", "Extension-based sub-albums"), this);
+    d->autoAlbumDateCheck        = new QCheckBox(i18nc("@option:check", "Date-based sub-albums"), this);
+    DHBox* const hbox1           = new DHBox(this);
+    d->folderDateLabel           = new QLabel(i18nc("@label:listbox", "Date format:"), hbox1);
+    d->folderDateFormat          = new QComboBox(hbox1);
     d->folderDateFormat->insertItem(IsoDateFormat,    i18nc("@item:inlistbox", "ISO"));
     d->folderDateFormat->insertItem(TextDateFormat,   i18nc("@item:inlistbox", "Full Text"));
     d->folderDateFormat->insertItem(LocalDateFormat,  i18nc("@item:inlistbox", "Local Settings"));
     d->folderDateFormat->insertItem(CustomDateFormat, i18nc("@item:inlistbox", "Custom"));
 
-    KHBox* hbox2           = new KHBox(this);
-    d->customizer          = new KLineEdit(hbox2);
+    DHBox* const hbox2     = new DHBox(this);
+    d->customizer          = new QLineEdit(hbox2);
     d->tooltipToggleButton = new QToolButton(hbox2);
-    d->tooltipToggleButton->setIcon(SmallIcon("dialog-information"));
+    d->tooltipToggleButton->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
     d->tooltipToggleButton->setToolTip(i18n("Show a list of all available options"));
 
-    d->customExample       = new KSqueezedTextLabel(this);
+    d->customExample       = new DAdjustableLabel(this);
 
     albumVlay->addWidget(d->autoAlbumExtCheck);
     albumVlay->addWidget(d->autoAlbumDateCheck);
@@ -129,8 +135,8 @@ AlbumCustomizer::AlbumCustomizer(QWidget* const parent)
     albumVlay->addWidget(hbox2);
     albumVlay->addWidget(d->customExample);
     albumVlay->addStretch();
-    albumVlay->setMargin(KDialog::spacingHint());
-    albumVlay->setSpacing(KDialog::spacingHint());
+    albumVlay->setContentsMargins(spacing, spacing, spacing, spacing);
+    albumVlay->setSpacing(spacing);
 
     setWhatsThis(i18n("Set how digiKam creates albums automatically when downloading."));
     d->autoAlbumExtCheck->setWhatsThis(i18n("Enable this option if you want to download your "
@@ -245,16 +251,16 @@ void AlbumCustomizer::slotCustomizerChanged()
 
         if (customDateFormatIsValid())
         {
-            d->customExample->setText(i18nc("Example of custom date format for album naming", "Ex.: %1", date.toString(customDateFormat())));
+            d->customExample->setAdjustedText(i18nc("Example of custom date format for album naming", "Ex.: %1", date.toString(customDateFormat())));
         }
         else
         {
-            d->customExample->setText(i18nc("Custom date format", "Format is not valid..."));
+            d->customExample->setAdjustedText(i18nc("Custom date format", "Format is not valid..."));
         }
     }
     else
     {
-        d->customExample->clear();
+        d->customExample->setAdjustedText();
     }
 }
 

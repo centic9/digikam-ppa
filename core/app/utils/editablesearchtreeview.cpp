@@ -6,7 +6,7 @@
  * Date        : 2008-01-14
  * Description : Basic search tree view with editing functionality
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -23,20 +23,16 @@
  *
  * ============================================================ */
 
-#include "editablesearchtreeview.moc"
+#include "editablesearchtreeview.h"
 
 // Qt includes
 
-#include <QEvent>
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kiconloader.h>
-#include <kmenu.h>
+#include <QAction>
+#include <QIcon>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "contextmenuhelper.h"
 
 namespace Digikam
@@ -67,8 +63,8 @@ EditableSearchTreeView::EditableSearchTreeView(QWidget* const parent,
     setAlbumModel(searchModel);
     d->searchModificationHelper = searchModificationHelper;
 
-    d->renameSearchAction = new QAction(SmallIcon("edit-rename"), i18n("Rename..."), this);
-    d->deleteSearchAction = new QAction(SmallIcon("edit-delete"), i18n("Delete"), this);
+    d->renameSearchAction = new QAction(QIcon::fromTheme(QLatin1String("document-edit")), i18n("Rename..."), this);
+    d->deleteSearchAction = new QAction(QIcon::fromTheme(QLatin1String("edit-delete")),   i18n("Delete"),    this);
 
     setSortingEnabled(true);
     setSelectAlbumOnClick(true);

@@ -26,11 +26,8 @@
 
 // Qt includes
 
-#include <QtCore/QFileInfo>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QFileInfo>
+#include <QUrl>
 
 namespace Digikam
 {
@@ -67,17 +64,17 @@ void HistoryImageId::setCreationDate(const QDateTime& creationDate)
 
 void HistoryImageId::setPathOnDisk(const QString& filePath)
 {
-    KUrl url   = KUrl::fromPath(filePath);
-    m_filePath = url.directory(KUrl::ObeyTrailingSlash | KUrl::AppendTrailingSlash);
+    QUrl url = QUrl::fromLocalFile(filePath);
+    m_filePath = url.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash).toLocalFile() + QLatin1Char('/');
 }
 
 void HistoryImageId::setPath(const QString& path)
 {
     m_filePath = path;
 
-    if (!m_filePath.endsWith('/'))
+    if (!m_filePath.endsWith(QLatin1Char('/')))
     {
-        m_filePath += '/';
+        m_filePath += QLatin1Char('/');
     }
 }
 

@@ -1,0 +1,921 @@
+# translation of kipiplugin_picasawebexport.po to Basque
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2010.
+msgid ""
+msgstr ""
+"Project-Id-Version: kipiplugin_picasawebexport\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"PO-Revision-Date: 2010-06-26 15:24+0200\n"
+"Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
+"Language-Team: Basque <itzulpena@euskalgnu.org>\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.0\n"
+
+#: authorize.cpp:116
+msgid "Google Drive Authorization"
+msgstr ""
+
+#: authorize.cpp:129
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+
+#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+msgid "Error"
+msgstr ""
+
+#: gdtalker.cpp:336
+#, fuzzy
+#| msgid "Failed to fetch photoSets List"
+msgid "Failed to list folders"
+msgstr "Impossible d'extraire la liste des photos"
+
+#: gdtalker.cpp:384
+#, fuzzy
+#| msgid "Failed to create album"
+msgid "Failed to create folder"
+msgstr "Huts egin du album berria sortzea"
+
+#: gdtalker.cpp:415 gptalker.cpp:929
+msgid "Failed to upload photo"
+msgstr "Huts egin du argazkia igotzean"
+
+#: gptalker.cpp:561
+msgid "No photo specified"
+msgstr "Ez da argazkirik zehaztu"
+
+#: gptalker.cpp:564
+msgid "General upload failure"
+msgstr "Igoeraren hutsegite orokorra"
+
+#: gptalker.cpp:567
+msgid "File-size was zero"
+msgstr "Fitxategi-tamaina zero da"
+
+#: gptalker.cpp:570
+msgid "File-type was not recognized"
+msgstr "Fitxategi mota ez da ezaguna"
+
+#: gptalker.cpp:573
+msgid "User exceeded upload limit"
+msgstr "Erabiltzaileak igotzeko muga gainditu du"
+
+#: gptalker.cpp:576
+msgid "Invalid signature"
+msgstr "Sinadura baliogabea"
+
+#: gptalker.cpp:579
+msgid "Missing signature"
+msgstr "Sinadura falta da"
+
+#: gptalker.cpp:582
+msgid "Login failed / Invalid auth token"
+msgstr "Saio-hasierak huts egin du edo autentifikazioko tokena baliogabea"
+
+#: gptalker.cpp:585
+msgid "Invalid API Key"
+msgstr "APIaren gakoa baliogabea"
+
+#: gptalker.cpp:588
+msgid "Service currently unavailable"
+msgstr "Zerbitzua unean ez dago erabilgarri"
+
+#: gptalker.cpp:591
+msgid "Invalid Frob"
+msgstr "Baliogabeko Frob"
+
+#: gptalker.cpp:594
+msgid "Format \"xxx\" not found"
+msgstr "'xxx' formatua ez da aurkitu"
+
+#: gptalker.cpp:597
+msgid "Method \"xxx\" not found"
+msgstr "'xxx' metodoa ez da aurkitu"
+
+#: gptalker.cpp:600
+msgid "Invalid SOAP envelope"
+msgstr "Baliogabeko SOAP inguratzailea"
+
+#: gptalker.cpp:603
+msgid "Invalid XML-RPC Method Call"
+msgstr "Baliogabeko XML-RPC metodoaren deia"
+
+#: gptalker.cpp:606
+msgid "The POST method is now required for all setters."
+msgstr "POST metodoa behar da orain ezartzaile guztientzako."
+
+#: gptalker.cpp:609
+msgid "Unknown error"
+msgstr "Errore ezezaguna"
+
+#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
+#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
+#: gptalker.cpp:613
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+"Errorea gertatu da: %1\n"
+"Ezin da urrats gehiago landu."
+
+#: gptalker.cpp:683 gptalker.cpp:750
+msgid "Failed to fetch photo-set list"
+msgstr "Huts egin du argazkien multzoaren zerrenda eskuratzean"
+
+#: gptalker.cpp:886 gptalker.cpp:919
+msgid "Failed to create album"
+msgstr "Huts egin du album berria sortzea"
+
+#: gswidget.cpp:60
+#, fuzzy
+#| msgid "Tag path behavior:"
+msgid "Tag path behavior :"
+msgstr "Etiketen bide-izenen portaera:"
+
+#: gswidget.cpp:62
+msgid "Leaf tags only"
+msgstr "Amaierako etiketak soilik"
+
+#: gswidget.cpp:63
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr "Esportatu soilik etiketen hierarkiako amaierako etiketak"
+
+#: gswidget.cpp:64
+msgid "Split tags"
+msgstr "Zatitu etiketak"
+
+#: gswidget.cpp:65
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr "Esportatu amaierako etiketa eta arbaso guztiak etiketa bakun gisa."
+
+#: gswidget.cpp:66
+msgid "Combined String"
+msgstr "Testu konbinatua"
+
+#: gswidget.cpp:67
+msgid "Build a combined tag string."
+msgstr "Eraiki konbinatutako etiketa."
+
+#: gswindow.cpp:116
+msgid "Google Drive Export"
+msgstr ""
+
+#: gswindow.cpp:117
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgid "A tool to export images to Google Drive"
+msgstr ""
+"Kipi-ren plugina PicasaWeb web zerbitzu batera irudien bilduma esportatzeko."
+
+#: gswindow.cpp:119
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:122
+msgid "Saurabh Patel"
+msgstr ""
+
+#: gswindow.cpp:122 gswindow.cpp:195
+msgid "Author and maintainer"
+msgstr "Egilea eta mantentzailea"
+
+#: gswindow.cpp:125 gswindow.cpp:207
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
+#: gswindow.cpp:207
+msgid "Developer"
+msgstr "Garatzailea"
+
+#: gswindow.cpp:132
+#, fuzzy
+#| msgid "Export to Picasa Web Service"
+msgid "Export to Google Drive"
+msgstr "Esportatu Picasa webeko zerbitzura"
+
+#: gswindow.cpp:134 gswindow.cpp:219
+msgid "Start Upload"
+msgstr "Hasi igoera"
+
+#: gswindow.cpp:135
+#, fuzzy
+#| msgid "Start upload to Picasaweb service"
+msgid "Start upload to Google Drive"
+msgstr "Hasi igoera Picasaweb-eko zerbitzura"
+
+#: gswindow.cpp:186
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "Google Photos/PicasaWeb Export"
+msgstr "Esportatu PicasaWeb-era"
+
+#: gswindow.cpp:187
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
+msgid "A tool to export image collections to Google Photos/Picasa web service."
+msgstr ""
+"Kipi-ren plugina PicasaWeb web zerbitzu batera irudien bilduma esportatzeko."
+
+#: gswindow.cpp:189
+#, fuzzy
+#| msgid ""
+#| "(c) 2007-2009, Vardhman Jain\n"
+#| "(c) 2008-2010, Gilles Caulier\n"
+#| "(c) 2009, Luka Renko\n"
+#| "(c) 2010, Jens Mueller"
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2010, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller"
+
+#: gswindow.cpp:195
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:198
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:201
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:204
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: gswindow.cpp:217
+#, fuzzy
+#| msgid "Export to Picasa Web Service"
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr "Esportatu Picasa webeko zerbitzura"
+
+#: gswindow.cpp:220
+#, fuzzy
+#| msgid "Start upload to Picasaweb service"
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr "Hasi igoera Picasaweb-eko zerbitzura"
+
+#: gswindow.cpp:226
+#, fuzzy
+#| msgid "Import from Picasa Web Service"
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr "Inportatu Picasaweb-eko web zerbitzutik"
+
+#: gswindow.cpp:228
+msgid "Start Download"
+msgstr "Hasi deskarga"
+
+#: gswindow.cpp:229
+#, fuzzy
+#| msgid "Start download from Picasaweb service"
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr "Hasi deskarga Picasaweb-eko zerbitzutik"
+
+#: gswindow.cpp:428 gswindow.cpp:467 gswindow.cpp:577
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr "Huts egin du Picasaweb-i deitzean: %1\n"
+
+#: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+msgid "%v / %m"
+msgstr "%v / %m"
+
+#: gswindow.cpp:531
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "Google Photo Export"
+msgstr "Esportatu PicasaWeb-era"
+
+#: gswindow.cpp:549
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid "Google Drive Call Failed: %1\n"
+msgstr "Huts egin du Picasaweb-i deitzean: %1\n"
+
+#: gswindow.cpp:653
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+
+#: gswindow.cpp:669
+msgid "No image selected. Please select which images should be uploaded."
+msgstr ""
+
+#: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
+#: gswindow.cpp:1105
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:684 gswindow.cpp:707
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr ""
+
+#: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
+#: gswindow.cpp:1109 gswindow.cpp:1286
+msgid "Continue"
+msgstr ""
+
+#: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
+#: gswindow.cpp:1110 gswindow.cpp:1287
+msgid "Cancel"
+msgstr "Annuler"
+
+#: gswindow.cpp:762
+msgid "Google Drive export"
+msgstr ""
+
+#: gswindow.cpp:1015
+#, kde-format
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Huts egin du argazkia gordetzean: %1\n"
+"Jarraitzea nahi duzu?"
+
+#: gswindow.cpp:1033
+#, kde-format
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Huts egin du argazkia deskargatzean: %1\n"
+"Jarraitzea nahi duzu?"
+
+#: gswindow.cpp:1079
+#, kde-format
+msgid "Failed to save image to %1"
+msgstr "Huts egin du irudia %1(e)n gordetzean"
+
+#: gswindow.cpp:1106
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to download photo: %1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to upload photo to %1.\n"
+"%2\n"
+"Do you want to continue?"
+msgstr ""
+"Huts egin du argazkia deskargatzean: %1\n"
+"Jarraitzea nahi duzu?"
+
+#: gswindow.cpp:1198
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr ""
+
+#: gswindow.cpp:1240
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+
+#: gswindow.cpp:1248
+#, fuzzy, kde-format
+#| msgid "Picasaweb Call Failed: %1\n"
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr "Huts egin du Picasaweb-i deitzean: %1\n"
+
+#: gswindow.cpp:1281
+msgctxt "@title:window"
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:1282
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "&Export"
+msgstr "Esportatu PicasaWeb-era"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+#, fuzzy
+#| msgid "PicasaWeb Export"
+msgid "&Import"
+msgstr "Esportatu PicasaWeb-era"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr ""
+
+#: newalbumdlg.cpp:54
+msgid "Access Level"
+msgstr "Sarbidearen maila"
+
+#: newalbumdlg.cpp:55
+#, fuzzy
+#| msgid "These are security and privacy settings for the new Picasaweb album."
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr ""
+"Picasaweb-eko album berriaren segurtasunaren eta pribatutasunaren ezarpenak "
+"dira."
+
+#: newalbumdlg.cpp:57
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Public"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr "Publikoa"
+
+#: newalbumdlg.cpp:59
+#, fuzzy
+#| msgid "Public album is listed on your public Picasaweb page."
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr "Album publikoa zerrendatu da Picasaweb-eko zure orrialde publikoan."
+
+#: newalbumdlg.cpp:60
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Unlisted / Private"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr "Zerrendatu gabea / Pribatua"
+
+#: newalbumdlg.cpp:61
+msgid "Unlisted album is only accessible via URL."
+msgstr "Zerrendatu gabeko albuma URLaren bidez soilik atzi daiteke."
+
+#: newalbumdlg.cpp:62
+#, fuzzy
+#| msgctxt "picasaweb album privacy"
+#| msgid "Sign-In Required to View"
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr "Sinatu behar da ikusteko"
+
+#: newalbumdlg.cpp:63
+msgid "Unlisted album require Sign-In to View"
+msgstr "Zerrendatu gabeko albumak sinatzea eskatzen du ikusteko"
+
+#: newalbumdlg.cpp:71
+msgid "Privacy:"
+msgstr "Pribatutasuna:"
+
+#: plugin_googleservices.cpp:100
+#, fuzzy
+#| msgid "Export to &PicasaWeb..."
+msgid "Export to &Google Drive..."
+msgstr "Esportatu &Picasaweb-era.."
+
+#: plugin_googleservices.cpp:110
+#, fuzzy
+#| msgid "Export to &PicasaWeb..."
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr "Esportatu &Picasaweb-era.."
+
+#: plugin_googleservices.cpp:120
+#, fuzzy
+#| msgid "Import from &PicasaWeb..."
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr "Inportatu &PicasaWeb-etik..."
+
+#: replacedialog.cpp:112
+#, fuzzy
+#| msgid "&Add As New"
+msgid "Add As New"
+msgstr "&Gehitu berri gisa"
+
+#: replacedialog.cpp:113
+msgid "Item will be added alongside the linked version."
+msgstr "Elementua estekatutako bertsioaren alboan gehituko da."
+
+#: replacedialog.cpp:119
+#, fuzzy
+#| msgid "&Add All"
+msgid "Add All"
+msgstr "&Gehitu denak"
+
+#: replacedialog.cpp:120
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+"Elementua estekatutako bertsioaren alboan gehituko da. Ez zaizu berriro "
+"galdetuko."
+
+#: replacedialog.cpp:126
+#, fuzzy
+#| msgid "&Replace"
+msgid "Replace"
+msgstr "&Ordeztu"
+
+#: replacedialog.cpp:127
+msgid "Item will be replacing the linked version."
+msgstr "Elementuak estekatutako bertsioa ordeztuko du."
+
+#: replacedialog.cpp:133
+#, fuzzy
+#| msgid "&Replace All"
+msgid "Replace All"
+msgstr "&Ordeztu denak"
+
+#: replacedialog.cpp:134
+#, fuzzy
+#| msgid ""
+#| "Items will be replacing the linked version. You will be prompted again."
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+"Elementuak estekatutako bertsioa ordeztuko du. Berriro galdetuko zaizu."
+
+#: replacedialog.cpp:157
+msgid "A linked item already exists."
+msgstr "Estekatutako elementu bat badago lehendik ere."
+
+#: replacedialog.cpp:177
+msgid "Destination"
+msgstr "Helburua"
+
+#: replacedialog.cpp:182
+msgid "Source"
+msgstr "Iturburua"
+
+#~ msgid ""
+#~ "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+#~ msgstr ""
+#~ "\"%1\" izeneko fitxategia badago lehendik ere. Ziur zaude gainidaztea "
+#~ "nahi duzula?"
+
+#, fuzzy
+#~| msgid "PicasaWeb Export"
+#~ msgid "Picasa Export"
+#~ msgstr "Esportatu PicasaWeb-era"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Iñaki Larrañaga Murgoitio"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "dooteo@euskalgnu.org"
+
+#, fuzzy
+#~| msgid "This is the list of images to upload to your Picasaweb account."
+#~ msgid "This is the list of images to upload to your Google Drive account."
+#~ msgstr "Picasaweb webguneko zure kontura igoko diren argazkien zerrenda da."
+
+#, fuzzy
+#~| msgid "This is the list of images to upload to your Picasaweb account."
+#~ msgid ""
+#~ "This is the list of images to upload to your Google Photos/PicasaWeb "
+#~ "account."
+#~ msgstr "Picasaweb webguneko zure kontura igoko diren argazkien zerrenda da."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is a clickable link to open the Picasaweb home page in a web "
+#~| "browser."
+#~ msgid "This is a clickable link to open Google Drive in a browser."
+#~ msgstr ""
+#~ "Esteka honetan klik egin dezakezu Picasaweb-eko hasierako orrialdea "
+#~ "irekitzeko web arakatzaile batean."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is a clickable link to open the Picasaweb home page in a web "
+#~| "browser."
+#~ msgid ""
+#~ "This is a clickable link to open Google Photos/PicasaWeb in a browser."
+#~ msgstr ""
+#~ "Esteka honetan klik egin dezakezu Picasaweb-eko hasierako orrialdea "
+#~ "irekitzeko web arakatzaile batean."
+
+#~ msgid "Account"
+#~ msgstr "Kontua"
+
+#, fuzzy
+#~| msgid "This is the Picasaweb account that will be used to authenticate."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb account that is currently logged in."
+#~ msgstr "Picasaweb-eko zure kontua da, autentifikatzeko erabiliko dena."
+
+#, fuzzy
+#~| msgctxt "Picasaweb account settings"
+#~| msgid "Name:"
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Izena:"
+
+#~ msgid "Change Account"
+#~ msgstr "Aldatu kontua"
+
+#~ msgid "Album"
+#~ msgstr "Albuma"
+
+#, fuzzy
+#~| msgid "This is the location where Picasaweb images will be downloaded."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb folder from which selected photos "
+#~ "will be downloaded."
+#~ msgstr "Picasaweb-eko kokalekua irudiak deskargatzeko."
+
+#, fuzzy
+#~| msgid "Album"
+#~ msgid "Album:"
+#~ msgstr "Albuma"
+
+#~ msgid "New Album"
+#~ msgstr "Album berria"
+
+#, fuzzy
+#~| msgid "Create new Picasaweb album"
+#~ msgid "Create new Google Photos/PicasaWeb folder"
+#~ msgstr "Sortu album berria Picasaweb-en"
+
+#, fuzzy
+#~| msgctxt "reload album list"
+#~| msgid "Reload"
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Birkargatu"
+
+#~ msgid "Reload album list"
+#~ msgstr "Birkargatu albumaren zerrenda"
+
+#, fuzzy
+#~| msgid "Maximum dimension:"
+#~ msgid "Max Dimension"
+#~ msgstr "Gehienezko dimentsioa:"
+
+#, fuzzy
+#~| msgid "This is the location where Picasaweb images will be downloaded."
+#~ msgid ""
+#~ "This is the location where Google Photos/PicasaWeb images will be "
+#~ "downloaded."
+#~ msgstr "Picasaweb-eko kokalekua irudiak deskargatzeko."
+
+#~ msgid "Options"
+#~ msgstr "Aukerak"
+
+#, fuzzy
+#~| msgid "These are options that will be applied to images before upload."
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr "Aukera hauek argazkiei aplikatuko zaizkie igo aurretik."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Aldatu argazkien tamaina igo aurretik"
+
+#, fuzzy
+#~| msgid "Maximum dimension:"
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Gehienezko dimentsioa:"
+
+#, fuzzy
+#~| msgid "JPEG quality:"
+#~ msgid "JPEG Quality:"
+#~ msgstr "JPEG kalitatea:"
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Sortuko den albumaren titulua (beharrezkoa)."
+
+#, fuzzy
+#~| msgid "These are basic settings for the new Picasaweb album."
+#~ msgid "These are basic settings for the new Google Photos/Picasaweb album."
+#~ msgstr "Hauek oinarrizko ezarpenak dira Picasaweb-eko album berriarentzako"
+
+#~ msgid "Date and Time of the album that will be created (optional)."
+#~ msgstr "sortuko den albumaren data eta ordua (aukerakoa)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Sortuko den albumaren azalpena (aukerakoa)."
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "Sortuko den albumaren kokalekua (aukerakoa)."
+
+#, fuzzy
+#~| msgid "Title of the album that will be created (required)."
+#~ msgid "This is the title of the folder that will be created."
+#~ msgstr "Sortuko den albumaren titulua (beharrezkoa)."
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Title:"
+#~ msgctxt "folder edit"
+#~ msgid "Title:"
+#~ msgstr "Titulua:"
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Title:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Title:"
+#~ msgstr "Titulua:"
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Date & Time:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Date & Time:"
+#~ msgstr "Data eta ordua:"
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Description:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Description:"
+#~ msgstr "Azalpena:"
+
+#, fuzzy
+#~| msgctxt "new picasaweb album dialog"
+#~| msgid "Location:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Location:"
+#~ msgstr "Kokalekua:"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to upload photo into Picasaweb: %1\n"
+#~| "Do you want to continue?"
+#~ msgid ""
+#~ "Failed to upload photo to Google Drive.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Huts egin du argazkia Picasaweb-era igotzean: %1\n"
+#~ "Jarraitzea nahi duzu?"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to upload photo into Picasaweb: %1\n"
+#~| "Do you want to continue?"
+#~ msgid ""
+#~ "Failed to upload photo to Google Photos/PicasaWeb.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Huts egin du argazkia Picasaweb-era igotzean: %1\n"
+#~ "Jarraitzea nahi duzu?"
+
+#~ msgid "Picasaweb New Album"
+#~ msgstr "Picasaweb-eko  album berria"
+
+#~ msgid "%1|All supported files"
+#~ msgstr "%1|Onartutako fitxategi guztiak"
+
+#~ msgid "%1|Camera RAW files"
+#~ msgstr "%1|Kameraren RAW fitxategiak"
+
+#~ msgid "%1|Video files"
+#~ msgstr "%1|Bideo-fitxategiak"
+
+#~ msgid "Select Images"
+#~ msgstr "Hautatu irudiak"
+
+#~ msgid "Google Login:"
+#~ msgstr "Google-ko erabiltzaile-izena:"
+
+#~ msgid "Password:"
+#~ msgstr "Pasahitza:"
+
+#~ msgid "&OK"
+#~ msgstr "&Ados"
+
+#~ msgid "&Cancel"
+#~ msgstr "&Utzi"
+
+#~ msgid "Login"
+#~ msgstr "Saio-hasiera"
+
+#~ msgctxt "Picasaweb account login"
+#~ msgid "Anonymous"
+#~ msgstr "Anonimoa"
+
+#~ msgid "Login as anonymous to Picasaweb web service."
+#~ msgstr "hasi saioa anonimoki Picasaweb zerbitzuan."
+
+#~ msgid "Picasaweb Account"
+#~ msgstr "Picasaweb-eko kontua"
+
+#~ msgid "Login to Picasaweb web service using username and password."
+#~ msgstr ""
+#~ "hasi saioa Picasaweb zerbitzuan erabiltzaile-izena eta pasahitza erabiliz."
+
+#~ msgid "Change Picasaweb Account used to authenticate"
+#~ msgstr "Aldatu Picasaweb-eko kontua, autentifikatzeko erabiliko dena"
+
+#~ msgid "This is the Picasaweb album that will be used for transfer."
+#~ msgstr "Picasaweb-eko albuma da transferitzeko."
+
+#~ msgid "Cannot open file"
+#~ msgstr "Ezin da fitxategia ireki"
+
+#~ msgid "Handbook"
+#~ msgstr "Eskuliburua"
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Site Password:"
+#~ msgstr "Mot de passe : "
+
+#, fuzzy
+#~| msgid "Password:"
+#~ msgid "Album Password:"
+#~ msgstr "Mot de passe : "
+
+#~ msgid "Getting the token"
+#~ msgstr "Obtention du jeton"
+
+#~ msgid "Checking if previous token is still valid"
+#~ msgstr "Vérifier si le précédent jeton est toujours valable"
+
+#~ msgid "Failed to query photo information"
+#~ msgstr "Impossible d'interroger les informations de l'image"
+
+#~ msgid "Uploading file %1 "
+#~ msgstr "Transfert du fichier %1"
+
+#~ msgid "New Album Dialog"
+#~ msgstr "Boîte de dialogue nouvel album"
+
+#~ msgid "Place Taken"
+#~ msgstr "Lieu"
+
+#~ msgid "Create"
+#~ msgstr "Créer"
+
+#~ msgid "Date"
+#~ msgstr "Date"
+
+#~ msgid "PicasaWeb Exporter Upload"
+#~ msgstr "Transfert de l'expert PicasaWeb"
+
+#~ msgid "PicasaWeb Uploader"
+#~ msgstr "Transfert vers PicasaWeb"
+
+#~ msgid "Tags:<p align=\"center\"></p>"
+#~ msgstr "Étiquettes : <p align=\"center\"></p>"
+
+#~ msgid "E&xport Application Tags"
+#~ msgstr "E&xport des étiquettes de l'application"
+
+#~ msgid "Resi&ze"
+#~ msgstr "Redimensionner"
+
+#~ msgid "Size (pixels):"
+#~ msgstr "Taille (en pixel) : "
+
+#~ msgid "Compression:"
+#~ msgstr "Compression : "
+
+#~ msgid "Images to upload"
+#~ msgstr "Images à transférer"
+
+#~ msgid "Currentl&y Selected Images"
+#~ msgstr "Images actuellement sélectionnées"
+
+#~ msgid "Select Photos"
+#~ msgstr "Sélection des photos"
+
+#~ msgid "Username:"
+#~ msgstr "Nom d'utilisateur : "
+
+#~ msgid "Change User"
+#~ msgstr "Changer d'utilisateur"
+
+#~ msgid "Alt+X"
+#~ msgstr "Alt+X"

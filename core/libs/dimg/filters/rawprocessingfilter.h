@@ -24,6 +24,10 @@
 #ifndef RAWPROCESSINGFILTERS_H
 #define RAWPROCESSINGFILTERS_H
 
+// KDE includes
+
+#include <klocalizedstring.h>
+
 // Local includes
 
 #include "digikam_export.h"
@@ -42,7 +46,7 @@ class FilterAction;
  * It implements RAW post processing.
  * Additionally, it provides some facilities for use from the DImg Raw loader.
  *
- * The original image shall come from libkdcraw without further modification.
+ * The original image shall come from RawEngine without further modification.
  */
 class DIGIKAM_EXPORT RawProcessingFilter : public DImgThreadedFilter
 {
@@ -91,12 +95,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:RawConverter";
+        return QLatin1String("digikam:RawConverter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Raw Conversion");
+        return QString::fromUtf8(I18N_NOOP("Raw Conversion"));
     }
 
     static QList<int>       SupportedVersions()
@@ -120,7 +124,7 @@ public:
 
 protected:
 
-    void postProgress(int); // not virtual
+    void postProgress(int);     // not virtual
     bool continueQuery() const; // not virtual
 
     virtual void filterImage();

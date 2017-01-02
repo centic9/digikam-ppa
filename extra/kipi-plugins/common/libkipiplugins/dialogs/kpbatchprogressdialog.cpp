@@ -6,7 +6,7 @@
  * Date        : 2004-05-04
  * Description : Batch progress dialog
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,7 +20,7 @@
  *
  * ============================================================ */
 
-#include "kpbatchprogressdialog.moc"
+#include "kpbatchprogressdialog.h"
 
 // Qt includes
 
@@ -31,18 +31,19 @@
 #include <QMimeData>
 #include <QClipboard>
 #include <QApplication>
+#include <QMenu>
+#include <QAction>
+#include <QIcon>
+#include <QDialogButtonBox>
+#include <QPushButton>
 
 // KDE includes
 
-#include <kmenu.h>
-#include <kaction.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include <kpprogresswidget.h>
+#include "kpprogresswidget.h"
 
 namespace KIPIPlugins
 {
@@ -59,24 +60,22 @@ public:
         switch(messageType)
         {
             case StartingMessage:
-                setIcon(SmallIcon("system-run"));
+                setIcon(QIcon::fromTheme(QString::fromLatin1("system-run")).pixmap(16, 16));
                 break;
             case SuccessMessage:
-                setIcon(SmallIcon("dialog-ok"));
+                setIcon(QIcon::fromTheme(QString::fromLatin1("dialog-ok-apply")).pixmap(16, 16));
                 break;
             case WarningMessage:
-                setIcon(SmallIcon("dialog-warning"));
+                setIcon(QIcon::fromTheme(QString::fromLatin1("dialog-warning")).pixmap(16, 16));
                 setForeground(QBrush(Qt::darkYellow));
                 break;
             case ErrorMessage:
-                setIcon(SmallIcon("dialog-error"));
+                setIcon(QIcon::fromTheme(QString::fromLatin1("dialog-error")).pixmap(16, 16));
                 setForeground(QBrush(Qt::red));
                 break;
             case ProgressMessage:
-                setIcon(SmallIcon("dialog-information"));
-                break;
             default:
-                setIcon(SmallIcon("dialog-information"));
+                setIcon(QIcon::fromTheme(QString::fromLatin1("dialog-information")).pixmap(16, 16));
                 break;
         }
 
@@ -103,10 +102,11 @@ public:
 };
 
 KPBatchProgressWidget::KPBatchProgressWidget(QWidget* const parent)
-   : KVBox(parent), d(new Private)
+   : KPVBox(parent),
+     d(new Private)
 {
     setContextMenuPolicy(Qt::CustomContextMenu);
-    layout()->setSpacing(KDialog::spacingHint());
+    layout()->setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
 
     d->actionsList = new QListWidget(this);
     d->actionsList->setSortingEnabled(false);
@@ -121,11 +121,11 @@ KPBatchProgressWidget::KPBatchProgressWidget(QWidget* const parent)
 
     //---------------------------------------------
 
-    connect(this, SIGNAL(customContextMenuRequested(QPoint)),
-            this, SLOT(slotContextMenu()));
+    connect(this, &KPBatchProgressWidget::customContextMenuRequested,
+            this, &KPBatchProgressWidget::slotContextMenu);
 
-    connect(d->progress, SIGNAL(signalProgressCanceled()),
-            this, SIGNAL(signalProgressCanceled()));
+    connect(d->progress, &KPProgressWidget::signalProgressCanceled,
+            this, &KPBatchProgressWidget::signalProgressCanceled);
 }
 
 KPBatchProgressWidget::~KPBatchProgressWidget()
@@ -185,11 +185,11 @@ void KPBatchProgressWidget::setProgress(int current)
 
 void KPBatchProgressWidget::slotContextMenu()
 {
-    KMenu popmenu(this);
-    KAction* const action = new KAction(KIcon("edit-copy"), i18n("Copy to Clipboard"), this);
+    QMenu popmenu(this);
+    QAction* const action = new QAction(QIcon::fromTheme(QString::fromLatin1("edit-copy")), i18n("Copy to Clipboard"), this);
 
-    connect(action, SIGNAL(triggered(bool)),
-            this, SLOT(slotCopy2ClipBoard()));
+    connect(action, &QAction::triggered,
+            this, &KPBatchProgressWidget::slotCopy2ClipBoard);
 
     popmenu.addAction(action);
     popmenu.exec(QCursor::pos());
@@ -202,7 +202,7 @@ void KPBatchProgressWidget::slotCopy2ClipBoard()
     for (int i=0 ; i < d->actionsList->count() ; ++i)
     {
         textInfo.append(d->actionsList->item(i)->text());
-        textInfo.append("\n");
+        textInfo.append(QString::fromLatin1("\n"));
     }
 
     QMimeData* const mimeData = new QMimeData();
@@ -212,33 +212,69 @@ void KPBatchProgressWidget::slotCopy2ClipBoard()
 
 // ---------------------------------------------------------------------------------
 
-KPBatchProgressDialog::KPBatchProgressDialog(QWidget* const /*parent*/, const QString& caption)
-   : KDialog(0)
+class KPBatchProgressDialog::Private
 {
-    setCaption(caption);
-    setButtons(Cancel);
-    setDefaultButton(Cancel);
+public:
+
+    Private()
+        : progressWidget(0),
+          buttonBox(0)
+    {
+    }
+
+    KPBatchProgressWidget* progressWidget;
+    QDialogButtonBox*      buttonBox;
+};
+
+KPBatchProgressDialog::KPBatchProgressDialog(QWidget* const /*parent*/, const QString& caption)
+   : QDialog(0),
+     d(new Private)
+{
     setModal(false);
+    setWindowTitle(caption);
 
-    KPBatchProgressWidget* const w = new KPBatchProgressWidget(this);
-    w->progressScheduled(caption, KIcon("kipi").pixmap(22, 22));
-    setMainWidget(w);
+    d->buttonBox = new QDialogButtonBox(QDialogButtonBox::Cancel, this);
+    d->buttonBox->button(QDialogButtonBox::Cancel)->setDefault(true);
+
+    d->progressWidget = new KPBatchProgressWidget(this);
+    d->progressWidget->progressScheduled(caption, QIcon(QLatin1String(":/icons/kipi-icon.svg")).pixmap(22, 22));
+
+    QVBoxLayout* const mainLayout = new QVBoxLayout(this);
+    mainLayout->addWidget(d->progressWidget);
+    mainLayout->addWidget(d->buttonBox);
+
+    connect(d->buttonBox, &QDialogButtonBox::rejected,
+            this, &KPBatchProgressDialog::cancelClicked);
+
+    connect(d->progressWidget, &KPBatchProgressWidget::signalProgressCanceled,
+            this, &KPBatchProgressDialog::cancelClicked);
+
+    connect(this, &KPBatchProgressDialog::cancelClicked,
+            this, &KPBatchProgressDialog::slotCancel);
+
     resize(600, 400);
-
-    connect(w, SIGNAL(signalProgressCanceled()),
-            this, SIGNAL(cancelClicked()));
-
-    connect(this, SIGNAL(cancelClicked()),
-            this, SLOT(slotCancel()));
 }
 
 KPBatchProgressDialog::~KPBatchProgressDialog()
 {
+    delete d;
 }
 
-KPBatchProgressWidget* KPBatchProgressDialog::progressWidget()
+KPBatchProgressWidget* KPBatchProgressDialog::progressWidget() const
 {
-    return (qobject_cast<KPBatchProgressWidget*>(mainWidget()));
+    return d->progressWidget;
+}
+
+void KPBatchProgressDialog::setButtonClose()
+{
+    d->buttonBox->button(QDialogButtonBox::Cancel)->setIcon(QIcon::fromTheme(QString::fromLatin1("window-close")));
+    d->buttonBox->button(QDialogButtonBox::Cancel)->setText(i18n("Close"));
+
+    // Clicking "Close" now does two things:
+    //  1. Emits signal cancelClicked(),
+    //  2. Accepts the dialog.
+    connect(d->buttonBox, &QDialogButtonBox::rejected,
+            this, &KPBatchProgressDialog::accept);
 }
 
 void KPBatchProgressDialog::slotCancel()

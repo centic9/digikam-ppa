@@ -33,7 +33,8 @@
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT IccTransformFilter : public DImgThreadedFilter, public DImgLoaderObserver
+class DIGIKAM_EXPORT IccTransformFilter : public DImgThreadedFilter,
+                                          public DImgLoaderObserver
 {
 
 public:
@@ -44,12 +45,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:IccTransformFilter";
+        return QLatin1String("digikam:IccTransformFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Color Profile Conversion");
+        return QString::fromUtf8(I18N_NOOP("Color Profile Conversion"));
     }
 
     static QList<int>       SupportedVersions()

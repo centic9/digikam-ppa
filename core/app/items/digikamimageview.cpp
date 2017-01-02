@@ -7,10 +7,10 @@
  * Description : Qt item view for images
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2009-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2011      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C) 2014      by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2014      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,41 +26,27 @@
  * ============================================================ */
 
 #include "digikamimageview_p.h"
-#include "digikamimageview.moc"
+#include "digikamimageview.h"
 
 // Qt includes
 
-#include <QClipboard>
-#include <QFileInfo>
 #include <QPointer>
-
-// KDE includes
-
-#include <kaction.h>
-#include <kactionmenu.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kmenu.h>
-#include <kmessagebox.h>
-#include <kmimetype.h>
-#include <krun.h>
-#include <kservice.h>
-#include <kservicetypetrader.h>
-#include <kstandardaction.h>
-#include <kurl.h>
-#include <kwindowsystem.h>
-#include <kdebug.h>
+#include <QMenu>
+#include <QIcon>
+#include <QAction>
+#include <QUrl>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
-#include "albumdb.h"
+#include "coredb.h"
 #include "advancedrenamedialog.h"
 #include "advancedrenameprocessdialog.h"
 #include "applicationsettings.h"
 #include "assignnameoverlay.h"
 #include "contextmenuhelper.h"
-#include "databaseaccess.h"
+#include "coredbaccess.h"
 #include "ddragobjects.h"
 #include "digikamapp.h"
 #include "digikamimagedelegate.h"
@@ -82,7 +68,7 @@
 #include "tagregion.h"
 #include "addtagslineedit.h"
 #include "facerejectionoverlay.h"
-#include "databaseface.h"
+#include "facetagsiface.h"
 
 namespace Digikam
 {
@@ -93,20 +79,15 @@ DigikamImageView::DigikamImageView(QWidget* const parent)
 {
     installDefaultModels();
 
-#ifdef HAVE_KFACE
     d->editPipeline.plugDatabaseEditor();
     d->editPipeline.plugTrainer();
     d->editPipeline.construct();
 
     connect(&d->editPipeline, SIGNAL(scheduled()),
             this, SLOT(slotInitProgressIndicator()));
-#endif /* HAVE_KFACE */
 
     d->normalDelegate = new DigikamImageDelegate(this);
-
-#ifdef HAVE_KFACE
     d->faceDelegate   = new DigikamImageFaceDelegate(this);
-#endif /* HAVE_KFACE */
 
     setItemDelegate(d->normalDelegate);
     setSpacing(10);
@@ -125,6 +106,7 @@ DigikamImageView::DigikamImageView(QWidget* const parent)
     setDropIndicatorShown(false);
 
     setToolTipEnabled(settings->showToolTipsIsValid());
+    imageFilterModel()->setStringTypeNatural(settings->isStringTypeNatural());
     imageFilterModel()->setSortRole((ImageSortSettings::SortRole)settings->getImageSortOrder());
     imageFilterModel()->setSortOrder((ImageSortSettings::SortOrder)settings->getImageSorting());
     imageFilterModel()->setCategorizationMode((ImageSortSettings::CategorizationMode)settings->getImageGroupMode());
@@ -165,8 +147,8 @@ DigikamImageView::DigikamImageView(QWidget* const parent)
 
     d->utilities = new ImageViewUtilities(this);
 
-    connect(d->utilities, SIGNAL(editorCurrentUrlChanged(KUrl)),
-            this, SLOT(setCurrentUrl(KUrl)));
+    connect(d->utilities, SIGNAL(editorCurrentUrlChanged(QUrl)),
+            this, SLOT(setCurrentUrlWhenAvailable(QUrl)));
 
     connect(imageModel()->dragDropHandler(), SIGNAL(assignTags(QList<ImageInfo>,QList<int>)),
             FileActionMngr::instance(), SLOT(assignTags(QList<ImageInfo>,QList<int>)));
@@ -203,6 +185,7 @@ int DigikamImageView::fitToWidthIcons()
 
 void DigikamImageView::slotSetupChanged()
 {
+    imageFilterModel()->setStringTypeNatural(ApplicationSettings::instance()->isStringTypeNatural());
     setToolTipEnabled(ApplicationSettings::instance()->showToolTipsIsValid());
     setFont(ApplicationSettings::instance()->getIconViewFont());
 
@@ -217,13 +200,11 @@ void DigikamImageView::setFaceMode(bool on)
 
     if (on)
     {
-#ifdef HAVE_KFACE
         // See ImageLister, which creates a search the implements listing tag in the ioslave
-        imageAlbumModel()->setSpecialTagListing("faces");
+        imageAlbumModel()->setSpecialTagListing(QLatin1String("faces"));
         setItemDelegate(d->faceDelegate);
         // grouping is not very much compatible with faces
         imageFilterModel()->setAllGroupsOpen(true);
-#endif /* HAVE_KFACE */
     }
     else
     {
@@ -235,16 +216,12 @@ void DigikamImageView::setFaceMode(bool on)
 
 void DigikamImageView::addRejectionOverlay(ImageDelegate* delegate)
 {
-#ifdef HAVE_KFACE
     FaceRejectionOverlay* const rejectionOverlay = new FaceRejectionOverlay(this);
 
     connect(rejectionOverlay, SIGNAL(rejectFaces(QList<QModelIndex>)),
             this, SLOT(removeFaces(QList<QModelIndex>)));
 
     addOverlay(rejectionOverlay, delegate);
-#else
-    Q_UNUSED(delegate);
-#endif /* HAVE_KFACE */
 }
 
 /*
@@ -261,7 +238,6 @@ void DigikamImageView::addTagEditOverlay(ImageDelegate* delegate)
 
 void DigikamImageView::addAssignNameOverlay(ImageDelegate* delegate)
 {
-#ifdef HAVE_KFACE
     AssignNameOverlay* const nameOverlay = new AssignNameOverlay(this);
     addOverlay(nameOverlay, delegate);
 
@@ -270,16 +246,12 @@ void DigikamImageView::addAssignNameOverlay(ImageDelegate* delegate)
 
     connect(nameOverlay, SIGNAL(removeFaces(QList<QModelIndex>)),
             this, SLOT(removeFaces(QList<QModelIndex>)));
-#else
-    Q_UNUSED(delegate);
-#endif /* HAVE_KFACE */
 }
 
 void DigikamImageView::confirmFaces(const QList<QModelIndex>& indexes, int tagId)
 {
-#ifdef HAVE_KFACE
     QList<ImageInfo>    infos;
-    QList<DatabaseFace> faces;
+    QList<FaceTagsIface> faces;
     QList<QModelIndex>  sourceIndexes;
 
     // fast-remove in the "unknown person" view
@@ -308,17 +280,12 @@ void DigikamImageView::confirmFaces(const QList<QModelIndex>& indexes, int tagId
     {
         d->editPipeline.confirm(infos[i], faces[i], tagId);
     }
-#else
-    Q_UNUSED(indexes);
-    Q_UNUSED(tagId);
-#endif /* HAVE_KFACE */
 }
 
 void DigikamImageView::removeFaces(const QList<QModelIndex>& indexes)
 {
-#ifdef HAVE_KFACE
     QList<ImageInfo> infos;
-    QList<DatabaseFace> faces;
+    QList<FaceTagsIface> faces;
     QList<QModelIndex> sourceIndexes;
 
     foreach (const QModelIndex& index, indexes)
@@ -334,9 +301,6 @@ void DigikamImageView::removeFaces(const QList<QModelIndex>& indexes)
     {
         d->editPipeline.remove(infos[i], faces[i]);
     }
-#else
-    Q_UNUSED(indexes);
-#endif /* HAVE_KFACE */
 }
 
 void DigikamImageView::activated(const ImageInfo& info, Qt::KeyboardModifiers modifiers)
@@ -375,36 +339,36 @@ void DigikamImageView::showContextMenuOnInfo(QContextMenuEvent* event, const Ima
 
     // Temporary actions --------------------------------------
 
-    QAction* const viewAction = new QAction(SmallIcon("viewimage"), i18nc("View the selected image", "Preview"), this);
+    QAction* const viewAction = new QAction(QIcon::fromTheme(QLatin1String("view-preview")), i18nc("View the selected image", "Preview"), this);
     viewAction->setEnabled(selectedImageIDs.count() == 1);
 
     // --------------------------------------------------------
 
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ContextMenuHelper cmhelper(&popmenu);
     cmhelper.setImageFilterModel(imageFilterModel());
 
-    cmhelper.addAction("full_screen");
-    cmhelper.addAction("options_show_menubar");
+    cmhelper.addAction(QLatin1String("full_screen"));
+    cmhelper.addAction(QLatin1String("options_show_menubar"));
     cmhelper.addSeparator();
     // --------------------------------------------------------
-    cmhelper.addAction("move_selection_to_album");
+    cmhelper.addAction(QLatin1String("move_selection_to_album"));
     cmhelper.addAction(viewAction);
-    cmhelper.addAction("image_edit");
+    cmhelper.addAction(QLatin1String("image_edit"));
     cmhelper.addServicesMenu(selectedUrls());
     cmhelper.addGotoMenu(selectedImageIDs);
-    cmhelper.addAction("image_rotate");
+    cmhelper.addAction(QLatin1String("image_rotate"));
     cmhelper.addSeparator();
     // --------------------------------------------------------
-    cmhelper.addAction("image_find_similar");
+    cmhelper.addAction(QLatin1String("image_find_similar"));
     cmhelper.addStandardActionLightTable();
     cmhelper.addQueueManagerMenu();
     cmhelper.addSeparator();
     // --------------------------------------------------------
-    cmhelper.addAction("image_rename");
-    cmhelper.addAction("cut_album_selection");
-    cmhelper.addAction("copy_album_selection");
-    cmhelper.addAction("paste_album_selection");
+    cmhelper.addAction(QLatin1String("image_rename"));
+    cmhelper.addAction(QLatin1String("cut_album_selection"));
+    cmhelper.addAction(QLatin1String("copy_album_selection"));
+    cmhelper.addAction(QLatin1String("paste_album_selection"));
     cmhelper.addStandardActionItemDelete(this, SLOT(deleteSelected()), selectedImageIDs.count());
     cmhelper.addSeparator();
     // --------------------------------------------------------
@@ -492,7 +456,7 @@ void DigikamImageView::showGroupContextMenu(const QModelIndex& index, QContextMe
         selectedImageIDs << info.id();
     }
 
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ContextMenuHelper cmhelper(&popmenu);
     cmhelper.setImageFilterModel(imageFilterModel());
     cmhelper.addGroupActions(selectedImageIDs);
@@ -529,12 +493,12 @@ void DigikamImageView::showContextMenu(QContextMenuEvent* event)
         return;
     }
 
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ContextMenuHelper cmhelper(&popmenu);
     cmhelper.setImageFilterModel(imageFilterModel());
 
-    cmhelper.addAction("full_screen");
-    cmhelper.addAction("options_show_menubar");
+    cmhelper.addAction(QLatin1String("full_screen"));
+    cmhelper.addAction(QLatin1String("options_show_menubar"));
     cmhelper.addSeparator();
     // --------------------------------------------------------
     cmhelper.addStandardActionPaste(this, SLOT(paste()));
@@ -691,17 +655,19 @@ void DigikamImageView::removeSelectedFromGroup()
 
 void DigikamImageView::rename()
 {
-    KUrl::List   urls = selectedUrls();
+    QList<QUrl>   urls = selectedUrls();
     NewNamesList newNamesList;
+
+    qCDebug(DIGIKAM_GENERAL_LOG) << "SELECTED URLS TO RENAME: " << urls;
 
     QPointer<AdvancedRenameDialog> dlg = new AdvancedRenameDialog(this);
     dlg->slotAddImages(urls);
 
-    if (dlg->exec() == KDialog::Accepted)
+    if (dlg->exec() == QDialog::Accepted)
     {
         newNamesList = dlg->newNames();
 
-        KUrl nextUrl = nextInOrder(selectedImageInfos().last(),1).fileUrl();
+        QUrl nextUrl = nextInOrder(selectedImageInfos().last(),1).fileUrl();
         setCurrentUrl(nextUrl);
     }
 
@@ -718,13 +684,13 @@ void DigikamImageView::rename()
 void DigikamImageView::slotRotateLeft(const QList<QModelIndex>& indexes)
 {
     FileActionMngr::instance()->transform(QList<ImageInfo>() << imageFilterModel()->imageInfos(indexes),
-                                          KExiv2Iface::RotationMatrix::Rotate270);
+                                          MetaEngineRotation::Rotate270);
 }
 
 void DigikamImageView::slotRotateRight(const QList<QModelIndex>& indexes)
 {
     FileActionMngr::instance()->transform(QList<ImageInfo>() << imageFilterModel()->imageInfos(indexes),
-                                          KExiv2Iface::RotationMatrix::Rotate90);
+                                          MetaEngineRotation::Rotate90);
 }
 
 void DigikamImageView::slotFullscreen(const QList<QModelIndex>& indexes)
@@ -744,10 +710,9 @@ void DigikamImageView::slotFullscreen(const QList<QModelIndex>& indexes)
 
 void DigikamImageView::slotInitProgressIndicator()
 {
-#ifdef HAVE_KFACE
-    if (!ProgressManager::instance()->findItembyId("FaceActionProgress"))
+    if (!ProgressManager::instance()->findItembyId(QLatin1String("FaceActionProgress")))
     {
-        FileActionProgress* const item = new FileActionProgress("FaceActionProgress");
+        FileActionProgress* const item = new FileActionProgress(QLatin1String("FaceActionProgress"));
 
         connect(&d->editPipeline, SIGNAL(started(QString)),
                 item, SLOT(slotProgressStatus(QString)));
@@ -758,7 +723,6 @@ void DigikamImageView::slotInitProgressIndicator()
         connect(&d->editPipeline, SIGNAL(finished()),
                 item, SLOT(slotCompleted()));
     }
-#endif /* HAVE_KFACE */
 }
 
 } // namespace Digikam

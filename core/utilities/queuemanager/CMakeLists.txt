@@ -1,73 +1,107 @@
 #
-# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2016 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
+if (POLICY CMP0063)
+    cmake_policy(SET CMP0063 NEW)
+endif (POLICY CMP0063)
+
 set(libqueuemanager_SRCS
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/autocorrection.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/bcgcorrection.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/bwconvert.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/channelmixer.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/colorbalance.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/convert16to8.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/convert8to16.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/curvesadjust.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/hslcorrection.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/iccconvert.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/invert.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/color/whitebalance.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/convert/convert2jpeg.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/convert/convert2pgf.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/convert/convert2png.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/convert/convert2tiff.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/decorate/border.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/decorate/watermark.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/enhance/antivignetting.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/enhance/blur.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/enhance/localcontrast.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/enhance/noisereduction.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/enhance/restoration.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/enhance/sharpen.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/filters/filmgrain.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/filters/colorfx.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/metadata/assigntemplate.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/metadata/removemetadata.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/transform/flip.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/transform/resize.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/transform/rotate.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/basetools/transform/crop.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/actionthread.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/task.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/batchtool.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/batchtoolutils.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/batchtoolsmanager.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/manager/workflowmanager.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/workflowdlg.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/assignedlist.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/queuelist.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/queuepool.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/queuesettingsview.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/queuetooltip.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/toolsettingsview.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/toolslistview.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/toolsview.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/views/workflowlist.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/main/queuemgrwindow.cpp
-   )
+    tools/color/autocorrection.cpp
+    tools/color/bcgcorrection.cpp
+    tools/color/bwconvert.cpp
+    tools/color/channelmixer.cpp
+    tools/color/colorbalance.cpp
+    tools/color/convert16to8.cpp
+    tools/color/convert8to16.cpp
+    tools/color/curvesadjust.cpp
+    tools/color/hslcorrection.cpp
+    tools/color/iccconvert.cpp
+    tools/color/invert.cpp
+    tools/color/whitebalance.cpp
+    tools/convert/convert2jpeg.cpp
+    tools/convert/convert2pgf.cpp
+    tools/convert/convert2png.cpp
+    tools/convert/convert2tiff.cpp
+    tools/convert/convert2dng.cpp
+    tools/custom/userscript.cpp
+    tools/decorate/border.cpp
+    tools/decorate/watermark.cpp
+    tools/enhance/antivignetting.cpp
+    tools/enhance/blur.cpp
+    tools/enhance/localcontrast.cpp
+    tools/enhance/noisereduction.cpp
+    tools/enhance/restoration.cpp
+    tools/enhance/sharpen.cpp
+    tools/enhance/redeyecorrection.cpp
+    tools/filters/filmgrain.cpp
+    tools/filters/colorfx.cpp
+    tools/metadata/assigntemplate.cpp
+    tools/metadata/removemetadata.cpp
+    tools/metadata/timeadjust.cpp
+    tools/metadata/timeadjustcontainer.cpp
+    tools/metadata/timeadjustsettings.cpp
+    tools/metadata/clockphotodialog.cpp
+    tools/transform/flip.cpp
+    tools/transform/resize.cpp
+    tools/transform/rotate.cpp
+    tools/transform/crop.cpp
+    manager/actionthread.cpp
+    manager/task.cpp
+    manager/batchtool.cpp
+    manager/batchtoolutils.cpp
+    manager/batchtoolsmanager.cpp
+    manager/workflowmanager.cpp
+    views/workflowdlg.cpp
+    views/assignedlist.cpp
+    views/queuelist.cpp
+    views/queuepool.cpp
+    views/queuesettingsview.cpp
+    views/queuetooltip.cpp
+    views/toolsettingsview.cpp
+    views/toolslistview.cpp
+    views/toolsview.cpp
+    views/workflowlist.cpp
+    main/queuemgrwindow.cpp
+)
+
 
 if(JASPER_FOUND)
     set(libqueuemanager_SRCS ${libqueuemanager_SRCS}
-        ${CMAKE_CURRENT_SOURCE_DIR}/basetools/convert/convert2jp2.cpp
+        tools/convert/convert2jp2.cpp
        )
 endif()
 
 if(LENSFUN_FOUND)
     set(libqueuemanager_SRCS ${libqueuemanager_SRCS}
-        ${CMAKE_CURRENT_SOURCE_DIR}/basetools/enhance/lensautofix.cpp
-       )
+        tools/enhance/lensautofix.cpp
+    )
+    include_directories(${LENSFUN_INCLUDE_DIRS})
 endif()
 
-KDE4_ADD_LIBRARY(queuemanager STATIC ${libqueuemanager_SRCS})
+if(GPHOTO2_FOUND)
+    include_directories(${GPHOTO2_INCLUDE_DIRS})
+endif()
 
-install( FILES main/queuemgrwindowui.rc DESTINATION ${DATA_INSTALL_DIR}/digikam )
+include_directories($<TARGET_PROPERTY:Qt5::Sql,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt5::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt5::Core,INTERFACE_INCLUDE_DIRECTORIES>
+
+                    $<TARGET_PROPERTY:KF5::WidgetsAddons,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF5::I18n,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF5::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF5::XmlGui,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF5::Service,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF5::Solid,INTERFACE_INCLUDE_DIRECTORIES>
+)
+
+if(KF5Kipi_FOUND)
+    include_directories($<TARGET_PROPERTY:KF5::Kipi,INTERFACE_INCLUDE_DIRECTORIES>)
+endif()
+
+add_library(queuemanager_src OBJECT ${libqueuemanager_SRCS} ${libdlib_SRCS})
+
+install( FILES main/queuemgrwindowui.rc DESTINATION ${KXMLGUI_INSTALL_DIR}/digikam )

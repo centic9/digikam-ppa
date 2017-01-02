@@ -21,16 +21,12 @@
  *
  * ============================================================ */
 
-#include "previewlayout.moc"
+#include "previewlayout.h"
 
 // Qt includes
 
 #include <QGraphicsView>
 #include <QGraphicsScene>
-
-// KDE includes
-
-#include <kdebug.h>
 
 // Local includes
 

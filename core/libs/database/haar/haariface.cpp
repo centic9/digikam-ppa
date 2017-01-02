@@ -7,7 +7,7 @@
  * Description : Haar Database interface
  *
  * Copyright (C) 2003      by Ricardo Niederberger Cabral <nieder at mail dot ru>
- * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -40,22 +40,18 @@
 #include <QImageReader>
 #include <QMap>
 
-// KDE includes
-
-#include <kurl.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "jpegutils.h"
 #include "dimg.h"
 #include "imageinfo.h"
-#include "databaseaccess.h"
-#include "databasetransaction.h"
-#include "albumdb.h"
-#include "databasebackend.h"
-#include "searchxml.h"
-#include "sqlquery.h"
+#include "coredbaccess.h"
+#include "coredbtransaction.h"
+#include "coredb.h"
+#include "coredbbackend.h"
+#include "coredbsearchxml.h"
+#include "dbenginesqlquery.h"
 
 using namespace std;
 
@@ -97,7 +93,7 @@ public:
 
         if (version != Version)
         {
-            kError() << "Unsupported binary version of Haar Blob in database";
+            qCDebug(DIGIKAM_DATABASE_LOG) << "Unsupported binary version of Haar Blob in database";
             return;
         }
 
@@ -161,12 +157,12 @@ public:
         signatureCache             = 0;
         useSignatureCache          = false;
 
-        signatureQuery             = QString("SELECT M.imageid, 0, M.matrix "
+        signatureQuery             = QString::fromUtf8("SELECT M.imageid, 0, M.matrix "
                                              " FROM ImageHaarMatrix AS M "
                                              "    INNER JOIN Images ON Images.id=M.imageid "
                                              " WHERE Images.status=1; ");
 
-        signatureByAlbumRootsQuery = QString("SELECT M.imageid, Albums.albumRoot, M.matrix "
+        signatureByAlbumRootsQuery = QString::fromUtf8("SELECT M.imageid, Albums.albumRoot, M.matrix "
                                              " FROM ImageHaarMatrix AS M "
                                              "    INNER JOIN Images ON Images.id=M.imageid "
                                              "    INNER JOIN Albums ON Albums.id=Images.album"
@@ -240,7 +236,7 @@ public:
         }
 
         // Variables for data read from DB
-        DatabaseAccess      access;
+        CoreDbAccess      access;
         DatabaseBlob        blob;
         qlonglong           imageid;
         Haar::SignatureData targetSig;
@@ -248,7 +244,7 @@ public:
         // reference for easier access
         SignatureCache& signatureCache = *this->signatureCache;
 
-        SqlQuery query = access.backend()->prepareQuery(signatureQuery);
+        DbEngineSqlQuery query = access.backend()->prepareQuery(signatureQuery);
 
         if (!access.backend()->exec(query))
         {
@@ -368,7 +364,7 @@ bool HaarIface::indexImage(qlonglong imageid)
     Haar::SignatureData sig;
     haar.calcHaar(d->data, &sig);
 
-    DatabaseAccess access;
+    CoreDbAccess access;
 
     // Store main entry
     {
@@ -376,7 +372,7 @@ bool HaarIface::indexImage(qlonglong imageid)
         DatabaseBlob blob;
         QByteArray array = blob.write(&sig);
 
-        access.backend()->execSql(QString("REPLACE INTO ImageHaarMatrix "
+        access.backend()->execSql(QString::fromUtf8("REPLACE INTO ImageHaarMatrix "
                                           " (imageid, modificationDate, uniqueHash, matrix) "
                                           " SELECT id, modificationDate, uniqueHash, ? "
                                           "  FROM Images WHERE id=?; "),
@@ -399,7 +395,7 @@ QString HaarIface::signatureAsText(const QImage& image)
     DatabaseBlob blob;
     QByteArray array = blob.write(&sig);
 
-    return array.toBase64();
+    return QString::fromUtf8(array.toBase64());
 }
 
 QList<qlonglong> HaarIface::bestMatchesForImage(const QImage& image, int numberOfResults, SketchType type)
@@ -464,7 +460,7 @@ QList<qlonglong> HaarIface::bestMatchesForFile(const QString& filename, int numb
 
 QList<qlonglong> HaarIface::bestMatchesForSignature(const QString& signature, int numberOfResults, SketchType type)
 {
-    QByteArray bytes = QByteArray::fromBase64(signature.toAscii());
+    QByteArray bytes = QByteArray::fromBase64(signature.toLatin1());
 
     DatabaseBlob blobReader;
     Haar::SignatureData sig;
@@ -524,7 +520,7 @@ QList<qlonglong> HaarIface::bestMatches(Haar::SignatureData* const querySig, int
 
 /*
     for (QMap<double, qlonglong>::iterator it = bestMatches.begin(); it != bestMatches.end(); ++it)
-        kDebug() << it.key() << it.value();
+        qCDebug(DIGIKAM_DATABASE_LOG) << it.key() << it.value();
 */
 
     return bestMatches.values();
@@ -558,11 +554,11 @@ QList<qlonglong> HaarIface::bestMatchesWithThreshold(Haar::SignatureData* const 
     // Debug output
     if (bestMatches.count() > 1)
     {
-        kDebug() << "Duplicates with id and score:";
+        qCDebug(DIGIKAM_DATABASE_LOG) << "Duplicates with id and score:";
 
         for (QMultiMap<double, qlonglong>::const_iterator it = bestMatches.constBegin(); it != bestMatches.constEnd(); ++it)
         {
-            kDebug() << it.value() << QString::number(it.key() * 100)+QChar('%');
+            qCDebug(DIGIKAM_DATABASE_LOG) << it.value() << QString::number(it.key() * 100) + QLatin1Char('%');
         }
     }
 
@@ -590,7 +586,7 @@ QMap<qlonglong, double> HaarIface::searchDatabase(Haar::SignatureData* const que
     QMap<qlonglong, double> scores;
 
     // Variables for data read from DB
-    DatabaseAccess      access;
+    CoreDbAccess      access;
     DatabaseBlob        blob;
     qlonglong           imageid;
     Haar::SignatureData targetSig;
@@ -614,14 +610,14 @@ QMap<qlonglong, double> HaarIface::searchDatabase(Haar::SignatureData* const que
             queryText = d->signatureQuery;
         }
 
-        SqlQuery query = access.backend()->prepareQuery(queryText);
+        DbEngineSqlQuery query = access.backend()->prepareQuery(queryText);
 
         if (!access.backend()->exec(query))
         {
             return scores;
         }
 
-        // We don't use DatabaseBackend's convenience calls, as the result set is large
+        // We don't use CoreDbBackend's convenience calls, as the result set is large
         // and we try to avoid copying in a temporary QList<QVariant>
         int albumRootId = 0;
 
@@ -702,7 +698,7 @@ QImage HaarIface::loadQImage(const QString& filename)
 bool HaarIface::retrieveSignatureFromDB(qlonglong imageid, Haar::SignatureData* const sig)
 {
     QList<QVariant> values;
-    DatabaseAccess().backend()->execSql(QString("SELECT matrix FROM ImageHaarMatrix WHERE imageid=?"),
+    CoreDbAccess().backend()->execSql(QString::fromUtf8("SELECT matrix FROM ImageHaarMatrix WHERE imageid=?"),
                                         imageid, &values);
 
     if (values.isEmpty())
@@ -754,9 +750,7 @@ void HaarIface::rebuildDuplicatesAlbums(const QList<int>& albums2Scan, const QLi
                                         double requiredPercentage, HaarProgressObserver* const observer)
 {
     // Carry out search. This takes long.
-    QMap< qlonglong, QList<qlonglong> > results = findDuplicatesInAlbumsAndTags(albums2Scan,
-            tags2Scan,
-            requiredPercentage, observer);
+    QMap< qlonglong, QList<qlonglong> > results = findDuplicatesInAlbumsAndTags(albums2Scan, tags2Scan, requiredPercentage, observer);
 
     // Build search XML from the results. Store list of ids of similar images.
     QMap<QString, QString> queries;
@@ -765,7 +759,7 @@ void HaarIface::rebuildDuplicatesAlbums(const QList<int>& albums2Scan, const QLi
     {
         SearchXmlWriter writer;
         writer.writeGroup();
-        writer.writeField("imageid", SearchXml::OneOf);
+        writer.writeField(QLatin1String("imageid"), SearchXml::OneOf);
         writer.writeValue(it.value());
         writer.finishField();
         writer.finishGroup();
@@ -776,8 +770,8 @@ void HaarIface::rebuildDuplicatesAlbums(const QList<int>& albums2Scan, const QLi
 
     // Write search albums to database
     {
-        DatabaseAccess access;
-        DatabaseTransaction transaction(&access);
+        CoreDbAccess access;
+        CoreDbTransaction transaction(&access);
 
         // delete all old searches
         access.db()->deleteSearches(DatabaseSearch::DuplicatesSearch);
@@ -799,7 +793,7 @@ QMap< qlonglong, QList<qlonglong> > HaarIface::findDuplicatesInAlbums(const QLis
     // Get all items DB id from all albums and all collections
     foreach(int albumId, albums2Scan)
     {
-        idList.unite(DatabaseAccess().db()->getItemIDsInAlbum(albumId).toSet());
+        idList.unite(CoreDbAccess().db()->getItemIDsInAlbum(albumId).toSet());
     }
 
     return findDuplicates(idList, requiredPercentage, observer);
@@ -815,13 +809,13 @@ QMap< qlonglong, QList<qlonglong> > HaarIface::findDuplicatesInAlbumsAndTags(con
     // Get all items DB id from all albums and all collections
     foreach(int albumId, albums2Scan)
     {
-        idList.unite(DatabaseAccess().db()->getItemIDsInAlbum(albumId).toSet());
+        idList.unite(CoreDbAccess().db()->getItemIDsInAlbum(albumId).toSet());
     }
 
     // Get all items DB id from all tags
     foreach(int albumId, tags2Scan)
     {
-        idList.unite(DatabaseAccess().db()->getItemIDsInTag(albumId).toSet());
+        idList.unite(CoreDbAccess().db()->getItemIDsInTag(albumId).toSet());
     }
 
     return findDuplicates(idList, requiredPercentage, observer);

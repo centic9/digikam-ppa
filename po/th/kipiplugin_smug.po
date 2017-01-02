@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-05-10 01:54+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2010-03-03 22:21+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -16,14 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Lokalize 1.0\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "ถนอมทรัพย์ นพบูรณ์"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "donga.nb@gmail.com"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_smugui.rc:7
@@ -44,134 +36,139 @@ msgstr "นำเข้า/ส่งออก ไปยังบริการ 
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_smug.cpp:107
+#: plugin_smug.cpp:98
 msgid "Export to &SmugMug..."
 msgstr "ส่งออกไปยัง &SmugMug..."
 
-#: plugin_smug.cpp:118
+#: plugin_smug.cpp:109
 msgid "Import from &SmugMug..."
 msgstr "นำเข้าจาก &SmugMug..."
 
-#: smugalbum.cpp:52
+#: smugalbum.cpp:54
 msgid "SmugMug New Album"
 msgstr "อัลบั้มใหม่ของ SmugMug"
 
-#: smugalbum.cpp:64 smugwidget.cpp:119
+#: smugalbum.cpp:64 smugwidget.cpp:118
 msgid "Album"
 msgstr "อัลบั้ม"
 
-#: smugalbum.cpp:66
+#: smugalbum.cpp:65
 msgid "These are basic settings for the new SmugMug album."
 msgstr "นี่เป็นการตั้งค่าพื้นฐานต่าง ๆ สำหรับอัลบั้มใหม่ของ SmugMug"
 
-#: smugalbum.cpp:70
+#: smugalbum.cpp:68
 msgid "Title of the album that will be created (required)."
 msgstr "ชื่อของอัลบั้มที่จะถูกสร้าง (จำเป็นต้องป้อนชื่อ)"
 
-#: smugalbum.cpp:75
+#: smugalbum.cpp:72
 msgid "Category of the album that will be created (required)."
 msgstr "หมวดหมู่ของอัลบั้มที่จะถูกสร้าง (จำเป็นต้องป้อนค่า)"
 
-#: smugalbum.cpp:80
+#: smugalbum.cpp:76
 msgid "Subcategory of the album that will be created (optional)."
 msgstr "หมวดหมู่ย่อยของอัลบั้มที่จะถูกสร้าง (ตัวเลือกเพิ่มเติม)"
 
-#: smugalbum.cpp:84
+#: smugalbum.cpp:79
 msgid "Description of the album that will be created (optional)."
 msgstr "คำอธิบายของอัลบั้มที่จะถูกสร้าง (ตัวเลือกเพิ่มเติม)"
 
-#: smugalbum.cpp:89
+#: smugalbum.cpp:83
 msgid "Album template for the new album (optional)."
 msgstr "แม่แบบของอัลบั้มใหม่ (ตัวเลือกเพิ่มเติม)"
 
-#: smugalbum.cpp:92
+#: smugalbum.cpp:86
 msgctxt "new smug album dialog"
 msgid "Title:"
 msgstr "ชื่ออัลบั้ม:"
 
-#: smugalbum.cpp:93
+#: smugalbum.cpp:87
 msgctxt "new smug album dialog"
 msgid "Category:"
 msgstr "หมวดหมู่:"
 
-#: smugalbum.cpp:94
+#: smugalbum.cpp:88
 msgctxt "new smug album dialog"
 msgid "Subcategory:"
 msgstr "หมวดหมู่ย่อย:"
 
-#: smugalbum.cpp:95
+#: smugalbum.cpp:89
 msgctxt "new smug album dialog"
 msgid "Description:"
 msgstr "คำอธิบาย:"
 
-#: smugalbum.cpp:96
+#: smugalbum.cpp:90
 msgctxt "new smug album dialog"
 msgid "Template:"
 msgstr "แม่แบบ:"
 
-#: smugalbum.cpp:104
+#: smugalbum.cpp:98
 msgid "Security && Privacy"
 msgstr "ความปลอดภัยและความเป็นส่วนตัว"
 
-#: smugalbum.cpp:106
+#: smugalbum.cpp:99
 msgid "These are security and privacy settings for the new SmugMug album."
 msgstr "นี่เป็นส่วนตั้งค่าค่าความปลอดภัยและความเป็นส่วนตัวสำหรับใช้กับอัลบั้มใหม่ของ SmugMug"
 
-#: smugalbum.cpp:108
+#: smugalbum.cpp:101
 msgctxt "smug album privacy"
 msgid "Public"
 msgstr "สาธารณะ"
 
-#: smugalbum.cpp:111
+#: smugalbum.cpp:103
 msgid "Public album is listed on your public SmugMug page."
 msgstr "อัลบั้มแบบสาธารณะจะถูกแสดงรายการในหน้าเว็บสาธารณะบน SmugMug ของคุณ"
 
-#: smugalbum.cpp:112
+#: smugalbum.cpp:104
 msgctxt "smug album privacy"
 msgid "Unlisted"
 msgstr "ไม่แสดงรายการ"
 
-#: smugalbum.cpp:114
+#: smugalbum.cpp:105
 msgid "Unlisted album is only accessible via URL."
 msgstr "ไม่แสดงอัลบั้มในรายการ ซึ่งสามารถจะเข้าใช้งานผ่านทางที่อยู่ URL เท่านั้น"
 
-#: smugalbum.cpp:122
+#: smugalbum.cpp:112
 msgid "Require password to access the album (optional)."
 msgstr "ต้องการรหัสผ่านในการเข้าใช้งานอัลบั้มนี้ (ตัวเลือกเพิ่มเติม)"
 
-#: smugalbum.cpp:126
+#: smugalbum.cpp:115
 msgid "Password hint to present to users in the password prompt (optional)."
 msgstr "คำบอกใบ้รหัสผ่านให้กับผู้ใช้ในการป้อนรหัสผ่าน (ตัวเลือกเพิ่มเติม)"
 
-#: smugalbum.cpp:129
+#: smugalbum.cpp:118
 msgid "Privacy:"
 msgstr "ความเป็นส่วนตัว:"
 
-#: smugalbum.cpp:130
+#: smugalbum.cpp:119
 msgid "Password:"
 msgstr "รหัสผ่าน:"
 
-#: smugalbum.cpp:131
+#: smugalbum.cpp:120
 msgid "Password Hint:"
 msgstr "คำบอกใบ้รหัสผ่าน:"
 
-#: smugtalker.cpp:101
+#: smugtalker.cpp:111
 msgid "Logging in to SmugMug service..."
 msgstr "ทำการล็อกอินไปยังบริการ SmugMug..."
 
-#: smugtalker.cpp:497
+#: smugtalker.cpp:464
 msgid "Login failed"
 msgstr "การล็อกอินล้มเหลว"
 
-#: smugtalker.cpp:500
+#: smugtalker.cpp:467
 msgid "Invalid user/nick/password"
 msgstr "ชื่อผู้ใช้/ชื่อเล่น/รหัสผ่าน ใช้ไม่ได้หรือไม่ถูกต้อง"
 
-#: smugtalker.cpp:503
+#: smugtalker.cpp:470
 msgid "Invalid API key"
 msgstr "กุญแจ API ใช้ไม่ได้หรือไม่ถูกต้อง"
 
-#: smugwidget.cpp:73
+#: smugtalker.cpp:512 smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451
+#: smugwindow.cpp:484 smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
+msgid "Error"
+msgstr ""
+
+#: smugwidget.cpp:74
 msgid "This is the list of images to upload to your SmugMug account."
 msgstr "นี่เป็นรายการของรูปภาพต่าง ๆ ที่จะถูกอัปโหลดไปยังบัญชีผู้ใช้บริการ SmugMug ของคุณ"
 
@@ -184,38 +181,38 @@ msgstr "นี่เป็นส่วนเชื่อมโยงที่ส
 msgid "Account"
 msgstr "บัญชีผู้ใช้"
 
-#: smugwidget.cpp:88
+#: smugwidget.cpp:87
 msgid "This is the SmugMug account that will be used to authenticate."
 msgstr "นี่เป็นบัญชีผู้ใช้งาน SmugMug ที่จะถูกทำการตรวจสอบสิทธิ์"
 
-#: smugwidget.cpp:91
+#: smugwidget.cpp:90
 msgctxt "smug account login"
 msgid "Anonymous"
 msgstr "ผู้ใช้นิรนาม"
 
-#: smugwidget.cpp:93
+#: smugwidget.cpp:91
 msgid "Login as anonymous to SmugMug web service."
 msgstr "ล็อกอินเป็นผู้ใช้นิรนามไปยังเว็บให้บริการ SmugMug"
 
-#: smugwidget.cpp:95
+#: smugwidget.cpp:93
 msgid "SmugMug Account"
 msgstr "บัญชีผู้ใช้ของ SmugMug"
 
-#: smugwidget.cpp:97
+#: smugwidget.cpp:94
 msgid "Login to SmugMug web service using email and password."
 msgstr "ล็อกอินไปยังเว็บบริการ SmugMug โดยใช้ที่อยู่อีเมลและรหัสผ่าน"
 
-#: smugwidget.cpp:99
+#: smugwidget.cpp:96
 msgctxt "smug account settings"
 msgid "Name:"
 msgstr "ชื่อ:"
 
-#: smugwidget.cpp:101
+#: smugwidget.cpp:98
 msgctxt "smug account settings"
 msgid "Email:"
 msgstr "อีเมล:"
 
-#: smugwidget.cpp:103
+#: smugwidget.cpp:102
 msgid "Change Account"
 msgstr "เปลี่ยนบัญชีผู้ใช้"
 
@@ -223,39 +220,39 @@ msgstr "เปลี่ยนบัญชีผู้ใช้"
 msgid "Change SmugMug Account used to authenticate"
 msgstr "เปลี่ยนบัญชีผู้ใช้ของ SmugMug เพื่อใช้ในการตรวจสอบสิทธิ์"
 
-#: smugwidget.cpp:120
+#: smugwidget.cpp:119
 msgid "This is the SmugMug album that will be used for transfer."
 msgstr "นี่เป็นอัลบั้มของ SmugMug ที่จะถูกทำการถ่ายโอนข้อมูล"
 
-#: smugwidget.cpp:125
+#: smugwidget.cpp:124
 msgid "Nickname:"
 msgstr "ชื่อเล่น:"
 
-#: smugwidget.cpp:128
+#: smugwidget.cpp:126
 msgid "Nickname of SmugMug user to list albums."
 msgstr "ชื่อเล่นของผู้ใช้บริการ SmugMug เพื่อใช้ในการเรียกรายการอัลบั้ม"
 
-#: smugwidget.cpp:129
+#: smugwidget.cpp:127
 msgid "Site Password:"
 msgstr "รหัสผ่านของเว็บไซต์:"
 
-#: smugwidget.cpp:132
+#: smugwidget.cpp:129
 msgid "Site-wide password for specified SmugMug nick/user."
 msgstr "รหัสผ่านของเว็บไซต์สำหรับผู้ใช้/ชื่อเล่นของ SmugMug ที่ระบุ"
 
-#: smugwidget.cpp:133
+#: smugwidget.cpp:130
 msgid "Album Password:"
 msgstr "รหัสผ่านของอัลบั้ม:"
 
-#: smugwidget.cpp:136
+#: smugwidget.cpp:132
 msgid "Password for SmugMug album."
 msgstr "รหัสผ่านสำหรับใช้งานอัลบั้มบน SmugMug"
 
-#: smugwidget.cpp:138
+#: smugwidget.cpp:135
 msgid "New Album"
 msgstr "อัลบั้มใหม่"
 
-#: smugwidget.cpp:139
+#: smugwidget.cpp:137
 msgid "Create new SmugMug album"
 msgstr "สร้างอัลบั้มใหม่ของ SmugMug"
 
@@ -264,59 +261,59 @@ msgctxt "reload album list"
 msgid "Reload"
 msgstr "โหลดใหม่อีกครั้ง"
 
-#: smugwidget.cpp:141
+#: smugwidget.cpp:142
 msgid "Reload album list"
 msgstr "โหลดรายการอัลบั้มใหม่อีกครั้ง"
 
-#: smugwidget.cpp:155
+#: smugwidget.cpp:156
 msgid "Destination"
 msgstr "ปลายทาง"
 
-#: smugwidget.cpp:156
+#: smugwidget.cpp:157
 msgid "This is the location where SmugMug images will be downloaded."
 msgstr "นี่เป็นตำแหน่งที่จะใช้ในการเก็บภาพต่าง ๆ ของ SmugMug เมื่อทำการดาวน์โหลด"
 
-#: smugwidget.cpp:163
+#: smugwidget.cpp:164
 msgid "Options"
 msgstr "ตัวเลือกต่าง ๆ"
 
-#: smugwidget.cpp:164
+#: smugwidget.cpp:165
 msgid "These are options that will be applied to images before upload."
 msgstr "นี่เป็นตัวเลือกต่าง ๆ ที่จะถูกปรับใช้กับภาพต่าง ๆ ก่อนจะทำการอัปโหลด"
 
-#: smugwidget.cpp:168
+#: smugwidget.cpp:169
 msgid "Resize photos before uploading"
 msgstr "ปรับขนาดภาพต่าง ๆ ก่อนทำการอัปโหลด"
 
-#: smugwidget.cpp:178
+#: smugwidget.cpp:179
 msgid "Maximum dimension:"
 msgstr "มิติขนาดสูงสุด:"
 
-#: smugwidget.cpp:186
+#: smugwidget.cpp:187
 msgid "JPEG quality:"
 msgstr "คุณภาพภาพ JPEG:"
 
-#: smugwindow.cpp:94
+#: smugwindow.cpp:86
 msgid "Import from SmugMug Web Service"
 msgstr "นำเข้าจากเว็บบริการ SmugMug"
 
-#: smugwindow.cpp:96
+#: smugwindow.cpp:88
 msgid "Start Download"
 msgstr "เริ่มการดาวน์โหลด"
 
-#: smugwindow.cpp:97
+#: smugwindow.cpp:89
 msgid "Start download from SmugMug web service"
 msgstr "เริ่มการดาวน์โหลดจากเว็บบริการ SmugMug"
 
-#: smugwindow.cpp:102
+#: smugwindow.cpp:95
 msgid "Export to SmugMug Web Service"
 msgstr "ส่งออกไปยังบริการ SmugMug บนเว็บ"
 
-#: smugwindow.cpp:104
+#: smugwindow.cpp:97
 msgid "Start Upload"
 msgstr "เริ่มการอัปโหลด"
 
-#: smugwindow.cpp:105
+#: smugwindow.cpp:98
 msgid "Start upload to SmugMug web service"
 msgstr "เริ่มการอัปโหลดไปยังเว็บบริการ SmugMug"
 
@@ -324,13 +321,16 @@ msgstr "เริ่มการอัปโหลดไปยังเว็บ
 msgid "Smug Import/Export"
 msgstr "นำเข้า/ส่งออก ไปยังบริการ SmugMug"
 
-#: smugwindow.cpp:129
+#: smugwindow.cpp:128
+#, fuzzy
+#| msgid ""
+#| "A Kipi plugin to import/export image collections from/to the SmugMug web "
+#| "service."
 msgid ""
-"A Kipi plugin to import/export image collections from/to the SmugMug web "
-"service."
+"A tool to import/export image collections from/to the SmugMug web service."
 msgstr "ส่วนเสริมของ Kipi สำหรับส่งออกชุดภาพสะสมไปยังเว็บบริการ SmugMug"
 
-#: smugwindow.cpp:131
+#: smugwindow.cpp:130
 #, fuzzy
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
@@ -345,7 +345,7 @@ msgstr ""
 "สงวนลิขสิทธิ์ (c) 2008-2009, Gilles Caulier\n"
 "สงวนลิขสิทธิ์ (c) 2008-2009, Luka Renko"
 
-#: smugwindow.cpp:135
+#: smugwindow.cpp:134
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
@@ -361,46 +361,62 @@ msgstr ""
 "<qt>ป้อน<b>ที่อยู่อีเมล</b>และ<b>รหัสผ่าน</b>ของบัญชีผู้ใช้งานบริการ <a href=\"http://www."
 "smugmug.com\">SmugMug</a> ของคุณ</qt>"
 
-#: smugwindow.cpp:403 smugwindow.cpp:412 smugwindow.cpp:441 smugwindow.cpp:473
-#: smugwindow.cpp:504 smugwindow.cpp:533 smugwindow.cpp:901
+#: smugwindow.cpp:412 smugwindow.cpp:421 smugwindow.cpp:451 smugwindow.cpp:484
+#: smugwindow.cpp:516 smugwindow.cpp:546 smugwindow.cpp:919
 #, kde-format
 msgid "SmugMug Call Failed: %1\n"
 msgstr "ล้มเหลวในการเรียกใช้บริการ SmugMug: %1\n"
 
-#: smugwindow.cpp:469 smugwindow.cpp:529
+#: smugwindow.cpp:480 smugwindow.cpp:542
 msgid "&lt;none&gt;"
 msgstr "&lt;ไม่มี&gt;"
 
-#: smugwindow.cpp:655 smugwindow.cpp:688
+#: smugwindow.cpp:668 smugwindow.cpp:701
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: smugwindow.cpp:659
+#: smugwindow.cpp:671
 #, fuzzy
 #| msgid "Smug Import/Export"
 msgid "Smug Import"
 msgstr "นำเข้า/ส่งออก ไปยังบริการ SmugMug"
 
-#: smugwindow.cpp:692
+#: smugwindow.cpp:704
 #, fuzzy
 #| msgid "Smug Import/Export"
 msgid "Smug Export"
 msgstr "นำเข้า/ส่งออก ไปยังบริการ SmugMug"
 
-#: smugwindow.cpp:771 smugwindow.cpp:784
+#: smugwindow.cpp:788 smugwindow.cpp:802
 msgid "Cannot open file"
 msgstr "ไม่สามารถเปิดแฟ้มได้"
 
-#: smugwindow.cpp:808
-#, kde-format
+#: smugwindow.cpp:825
+#, fuzzy
+#| msgid "Login failed"
+msgid "Uploading Failed"
+msgstr "การล็อกอินล้มเหลว"
+
+#: smugwindow.cpp:826
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo into SmugMug: %1\n"
+#| "Do you want to continue?"
 msgid ""
-"Failed to upload photo into SmugMug: %1\n"
+"Failed to upload photo to SmugMug.\n"
+"%1\n"
 "Do you want to continue?"
 msgstr ""
 "ล้มเหลวในการอัปโหลดไปไว้ใน SmugMug: %1\n"
 "คุณต้องการจะทำต่อไปหรือไม่ ?"
 
-#: smugwindow.cpp:868
+#: smugwindow.cpp:887 smugwindow.cpp:900
+#, fuzzy
+#| msgid "Login failed"
+msgid "Processing Failed"
+msgstr "การล็อกอินล้มเหลว"
+
+#: smugwindow.cpp:888
 #, kde-format
 msgid ""
 "Failed to save photo: %1\n"
@@ -409,7 +425,7 @@ msgstr ""
 "ล้มเหลวในบันทึกภาพถ่าย: %1\n"
 "คุณต้องการจะทำต่อไปหรือไม่ ?"
 
-#: smugwindow.cpp:882
+#: smugwindow.cpp:901
 #, kde-format
 msgid ""
 "Failed to download photo: %1\n"
@@ -417,6 +433,14 @@ msgid ""
 msgstr ""
 "ล้มเหลวในการดาวน์โหลดภาพถ่าย: %1\n"
 "คุณต้องการจะทำต่อไปหรือไม่ ?"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "ถนอมทรัพย์ นพบูรณ์"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "donga.nb@gmail.com"
 
 #~ msgid "Handbook"
 #~ msgstr "คู่มือการใช้งาน"

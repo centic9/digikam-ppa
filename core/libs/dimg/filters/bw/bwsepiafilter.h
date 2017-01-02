@@ -6,7 +6,7 @@
  * Date        : 2005-03-06
  * Description : black and white image filter.
  *
- * Copyright (C) 2005-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010 by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -25,13 +25,15 @@
 #ifndef BWSEPIAFILTER_H
 #define BWSEPIAFILTER_H
 
+// Qt includes
+
 #include <QPolygon>
 
 // Local includes
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 #include "bcgfilter.h"
 #include "curvesfilter.h"
 #include "tonalityfilter.h"
@@ -154,12 +156,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:BWSepiaFilter";
+        return QLatin1String("digikam:BWSepiaFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Black & White / Sepia Filter");
+        return QString::fromUtf8(I18N_NOOP("Black & White / Sepia Filter"));
     }
 
     static QList<int>       SupportedVersions()
@@ -193,8 +195,8 @@ private:
 
 private:
 
-    class BWSepiaFilterPriv;
-    BWSepiaFilterPriv* const d;
+    class Private;
+    Private* const d;
 };
 
 }  // namespace Digikam

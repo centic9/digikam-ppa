@@ -41,7 +41,7 @@
       <item>
        <layout class="QVBoxLayout" name="verticalLayout" >
         <item>
-         <widget class="KHBox" name="cmbox" />
+         <widget class="QWidget" name="cmbox" />
         </item>
         <item>
          <widget class="QCheckBox" name="kcfg_PrintAutoRotate" >
@@ -217,7 +217,7 @@
          </widget>
         </item>
         <item>
-         <widget class="KComboBox" name="kcfg_PrintUnit" >
+         <widget class="QComboBox" name="kcfg_PrintUnit" >
           <property name="enabled" >
            <bool>false</bool>
           </property>
@@ -297,23 +297,8 @@
  <layoutdefault spacing="6" margin="11" />
   <customwidgets>
   <customwidget>
-   <class>KComboBox</class>
-   <extends>QComboBox</extends>
-   <header>kcombobox.h</header>
-  </customwidget>
-  <customwidget>
-   <class>KHBox</class>
-   <extends>QFrame</extends>
-   <header location="global" >khbox.h</header>
-   <container>1</container>
   </customwidget>
  </customwidgets>
- <includes>
-  <include location="local" >kcombobox.h</include>
-  <include location="local" >knuminput.h</include>
-  <include location="local" >knuminput.h</include>
-  <include location="local" >kcombobox.h</include>
- </includes>
  <resources/>
  <connections>
   <connection>

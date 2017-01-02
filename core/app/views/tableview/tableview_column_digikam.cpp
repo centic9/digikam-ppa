@@ -20,21 +20,21 @@
  *
  * ============================================================ */
 
-#include "tableview_column_digikam.moc"
+#include "tableview_column_digikam.h"
 
 // Qt includes
 
-#include <QFormLayout>
+#include <QLocale>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
-// local includes
+// Local includes
 
-#include "databasefields.h"
-#include "globals.h"
+#include "digikam_debug.h"
+#include "coredbfields.h"
+#include "digikam_globals.h"
 #include "imageinfo.h"
 
 namespace Digikam
@@ -43,26 +43,23 @@ namespace Digikam
 namespace TableViewColumns
 {
 
-ColumnDigikamProperties::ColumnDigikamProperties(
-        TableViewShared* const tableViewShared,
-        const TableViewColumnConfiguration& pConfiguration,
-        const SubColumn pSubColumn,
-        QObject* const parent)
-  : TableViewColumn(tableViewShared, pConfiguration, parent),
-    subColumn(pSubColumn)
+ColumnDigikamProperties::ColumnDigikamProperties(TableViewShared* const tableViewShared,
+                                                 const TableViewColumnConfiguration& pConfiguration,
+                                                 const SubColumn pSubColumn,
+                                                 QObject* const parent)
+    : TableViewColumn(tableViewShared, pConfiguration, parent),
+      subColumn(pSubColumn)
 {
-
 }
 
 ColumnDigikamProperties::~ColumnDigikamProperties()
 {
-
 }
 
 QStringList ColumnDigikamProperties::getSubColumns()
 {
     QStringList columns;
-    columns << QLatin1String("digikam-rating") << QLatin1String("digikam-picklabel")
+    columns << QLatin1String("digikam-rating")     << QLatin1String("digikam-picklabel")
             << QLatin1String("digikam-colorlabel") << QLatin1String("digikam-title")
             << QLatin1String("digikam-caption");
 
@@ -72,31 +69,15 @@ QStringList ColumnDigikamProperties::getSubColumns()
 TableViewColumnDescription ColumnDigikamProperties::getDescription()
 {
     TableViewColumnDescription description(QLatin1String("digikam-properties"), i18n("digiKam properties"));
-    description.setIcon("imagecomment");
+    description.setIcon(QLatin1String("edit-text-frame-update"));
 
-    description.addSubColumn(
-        TableViewColumnDescription("digikam-rating", i18n("Rating"))
-            .setIcon("draw-star")
-    );
-
-    description.addSubColumn(
-        TableViewColumnDescription("digikam-picklabel", i18n("Pick label"))
-            .setIcon("flag-red")
-    );
-
-    description.addSubColumn(
-        TableViewColumnDescription("digikam-colorlabel", i18n("Color label"))
-    );
-
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("digikam-rating"),     i18n("Rating")).setIcon(QLatin1String("draw-star")));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("digikam-picklabel"),  i18n("Pick label")).setIcon(QLatin1String("flag-red")));
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("digikam-colorlabel"), i18n("Color label")));
     /// @todo This column will show the 'default' title. Add a configuration dialog to choose different languages.
-    description.addSubColumn(
-        TableViewColumnDescription("digikam-title", i18n("Title"))
-    );
-
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("digikam-title"),      i18n("Title")));
     /// @todo This column will show the 'default' caption. Add a configuration dialog to choose different languages.
-    description.addSubColumn(
-        TableViewColumnDescription("digikam-caption", i18n("Caption"))
-    );
+    description.addSubColumn(TableViewColumnDescription(QLatin1String("digikam-caption"),    i18n("Caption")));
 
     return description;
 }
@@ -105,16 +86,16 @@ QString ColumnDigikamProperties::getTitle() const
 {
     switch (subColumn)
     {
-    case SubColumnRating:
-        return i18n("Rating");
-    case SubColumnPickLabel:
-        return i18n("Pick label");
-    case SubColumnColorLabel:
-        return i18n("Color label");
-    case SubColumnTitle:
-        return i18n("Title");
-    case SubColumnCaption:
-        return i18n("Caption");
+        case SubColumnRating:
+            return i18n("Rating");
+        case SubColumnPickLabel:
+            return i18n("Pick label");
+        case SubColumnColorLabel:
+            return i18n("Color label");
+        case SubColumnTitle:
+            return i18n("Title");
+        case SubColumnCaption:
+            return i18n("Caption");
     }
 
     return QString();
@@ -124,11 +105,11 @@ TableViewColumn::ColumnFlags ColumnDigikamProperties::getColumnFlags() const
 {
     ColumnFlags flags(ColumnNoFlags);
 
-    if (  (subColumn == SubColumnRating)
-       || (subColumn == SubColumnPickLabel)
-       || (subColumn == SubColumnColorLabel) )
+    if ((subColumn == SubColumnRating)    ||
+        (subColumn == SubColumnPickLabel) ||
+        (subColumn == SubColumnColorLabel))
     {
-        flags|=ColumnCustomSorting;
+        flags |= ColumnCustomSorting;
     }
 
     return flags;
@@ -136,35 +117,35 @@ TableViewColumn::ColumnFlags ColumnDigikamProperties::getColumnFlags() const
 
 QVariant ColumnDigikamProperties::data(TableViewModel::Item* const item, const int role) const
 {
-    if ( (role != Qt::DisplayRole) &&
+    if ( (role != Qt::DisplayRole)       &&
          (role != Qt::TextAlignmentRole) &&
          (role != Qt::ForegroundRole ) )
     {
         return QVariant();
     }
 
-    if (role==Qt::TextAlignmentRole)
+    if (role == Qt::TextAlignmentRole)
     {
         switch (subColumn)
         {
-        case SubColumnRating:
-            return QVariant(Qt::Alignment(Qt::AlignRight | Qt::AlignVCenter));
+            case SubColumnRating:
+                return QVariant(Qt::Alignment(Qt::AlignRight | Qt::AlignVCenter));
 
-        default:
-            return QVariant();
+            default:
+                return QVariant();
         }
     }
 
-    if (role==Qt::ForegroundRole)
+    if (role == Qt::ForegroundRole)
     {
         switch (subColumn)
         {
-        case SubColumnPickLabel:
+            case SubColumnPickLabel:
             {
-                const ImageInfo info = s->tableViewModel->infoFromItem(item);
+                const ImageInfo info      = s->tableViewModel->infoFromItem(item);
                 const PickLabel pickLabel = PickLabel(info.pickLabel());
-
                 QColor labelColor;
+
                 switch (pickLabel)
                 {
                     case NoPickLabel:
@@ -194,12 +175,12 @@ QVariant ColumnDigikamProperties::data(TableViewModel::Item* const item, const i
                 return QVariant::fromValue(labelBrush);
             }
 
-        case SubColumnColorLabel:
+            case SubColumnColorLabel:
             {
-                const ImageInfo info = s->tableViewModel->infoFromItem(item);
+                const ImageInfo info        = s->tableViewModel->infoFromItem(item);
                 const ColorLabel colorLabel = ColorLabel(info.colorLabel());
-
                 QColor labelColor;
+
                 switch (colorLabel)
                 {
                     case NoColorLabel:
@@ -250,8 +231,9 @@ QVariant ColumnDigikamProperties::data(TableViewModel::Item* const item, const i
 
                 return QVariant::fromValue(labelBrush);
             }
-        default:
-            return QVariant();
+
+            default:
+                return QVariant();
         }
     }
 
@@ -261,23 +243,24 @@ QVariant ColumnDigikamProperties::data(TableViewModel::Item* const item, const i
     /// @todo Make display of text/icon configurable.
     switch (subColumn)
     {
-    case SubColumnRating:
+        case SubColumnRating:
         {
             const int itemRating = info.rating();
-            if (itemRating<=0)
+
+            if (itemRating <= 0)
             {
                 // no rating
                 return QString();
             }
 
-            return KGlobal::locale()->formatNumber(itemRating, 0);
+            return QLocale().toString(itemRating);
         }
 
-    case SubColumnPickLabel:
+        case SubColumnPickLabel:
         {
             const PickLabel pickLabel = PickLabel(info.pickLabel());
-
             QString labelString;
+
             switch (pickLabel)
             {
                 case NoPickLabel:
@@ -303,11 +286,11 @@ QVariant ColumnDigikamProperties::data(TableViewModel::Item* const item, const i
             return labelString;
         }
 
-    case SubColumnColorLabel:
+        case SubColumnColorLabel:
         {
             const ColorLabel colorLabel = ColorLabel(info.colorLabel());
-
             QString labelString;
+
             switch (colorLabel)
             {
                 case NoColorLabel:
@@ -357,14 +340,14 @@ QVariant ColumnDigikamProperties::data(TableViewModel::Item* const item, const i
             return labelString;
         }
 
-    case SubColumnTitle:
+        case SubColumnTitle:
         {
             const QString title = info.title();
 
             return title;
         }
 
-    case SubColumnCaption:
+        case SubColumnCaption:
         {
             const QString caption = info.comment();
 
@@ -375,15 +358,15 @@ QVariant ColumnDigikamProperties::data(TableViewModel::Item* const item, const i
     return QVariant();
 }
 
-TableViewColumn::ColumnCompareResult ColumnDigikamProperties::compare(
-    TableViewModel::Item* const itemA, TableViewModel::Item* const itemB) const
+TableViewColumn::ColumnCompareResult ColumnDigikamProperties::compare(TableViewModel::Item* const itemA,
+                                                                      TableViewModel::Item* const itemB) const
 {
     const ImageInfo infoA = s->tableViewModel->infoFromItem(itemA);
     const ImageInfo infoB = s->tableViewModel->infoFromItem(itemB);
 
     switch (subColumn)
     {
-    case SubColumnRating:
+        case SubColumnRating:
         {
             /// @todo Handle un-rated vs rated items differently?
             const int ratingA = infoA.rating();
@@ -392,7 +375,7 @@ TableViewColumn::ColumnCompareResult ColumnDigikamProperties::compare(
             return compareHelper<int>(ratingA, ratingB);
         }
 
-    case SubColumnPickLabel:
+        case SubColumnPickLabel:
         {
             /// @todo Handle un-rated vs rated items differently?
             const int pickLabelA = infoA.pickLabel();
@@ -401,7 +384,7 @@ TableViewColumn::ColumnCompareResult ColumnDigikamProperties::compare(
             return compareHelper<int>(pickLabelA, pickLabelB);
         }
 
-    case SubColumnColorLabel:
+        case SubColumnColorLabel:
         {
             /// @todo Handle un-rated vs rated items differently?
             const int colorLabelA = infoA.colorLabel();
@@ -410,9 +393,11 @@ TableViewColumn::ColumnCompareResult ColumnDigikamProperties::compare(
             return compareHelper<int>(colorLabelA, colorLabelB);
         }
 
-    default:
-        kWarning() << "item: unimplemented comparison, subColumn=" << subColumn;
-        return CmpEqual;
+        default:
+        {
+            qCWarning(DIGIKAM_GENERAL_LOG) << "item: unimplemented comparison, subColumn=" << subColumn;
+            return CmpEqual;
+        }
     }
 }
 
@@ -442,4 +427,3 @@ bool Digikam::TableViewColumns::ColumnDigikamProperties::columnAffectedByChanges
 } /* namespace TableViewColumns */
 
 } /* namespace Digikam */
-

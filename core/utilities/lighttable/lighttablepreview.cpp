@@ -6,7 +6,7 @@
  * Date        : 2006-21-12
  * Description : digiKam light table preview item.
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "lighttablepreview.moc"
+#include "lighttablepreview.h"
 
 // Qt includes
 
@@ -31,15 +31,15 @@
 #include <QFontMetrics>
 #include <QPixmap>
 #include <QPalette>
+#include <QApplication>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "albumdb.h"
+#include "coredb.h"
 #include "ddragobjects.h"
 #include "dimg.h"
 #include "dimgpreviewitem.h"
@@ -72,9 +72,9 @@ void LightTablePreview::showDragAndDropMessage()
         QFontMetrics fontMt(font());
         QRect fontRect = fontMt.boundingRect(0, 0, width(), height(), 0, msg);
         QPixmap pix(fontRect.size());
-        pix.fill(kapp->palette().color(QPalette::Base));
+        pix.fill(qApp->palette().color(QPalette::Base));
         QPainter p(&pix);
-        p.setPen(QPen(kapp->palette().color(QPalette::Text)));
+        p.setPen(QPen(qApp->palette().color(QPalette::Text)));
         p.drawText(0, 0, pix.width(), pix.height(),
                    Qt::AlignCenter | Qt::TextWordWrap,
                    msg);
@@ -106,7 +106,7 @@ bool LightTablePreview::dragEventWrapper(const QMimeData* data) const
         int              albumID;
         QList<int>       albumIDs;
         QList<qlonglong> imageIDs;
-        KUrl::List       urls, kioURLs;
+        QList<QUrl>      urls, kioURLs;
 
         if (DItemDrag::decode(data, urls, kioURLs, albumIDs, imageIDs) ||
             DAlbumDrag::decode(data, urls, albumID)                    ||
@@ -126,7 +126,7 @@ void LightTablePreview::dropEvent(QDropEvent* e)
         int              albumID;
         QList<int>       albumIDs;
         QList<qlonglong> imageIDs;
-        KUrl::List       urls, kioURLs;
+        QList<QUrl>      urls, kioURLs;
 
         if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs))
         {
@@ -136,7 +136,7 @@ void LightTablePreview::dropEvent(QDropEvent* e)
         }
         else if (DAlbumDrag::decode(e->mimeData(), urls, albumID))
         {
-            QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInAlbum(albumID);
+            QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInAlbum(albumID);
 
             emit signalDroppedItems(ImageInfoList(itemIDs));
             e->accept();
@@ -151,7 +151,7 @@ void LightTablePreview::dropEvent(QDropEvent* e)
                 return;
             }
 
-            QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagIDs.first(), true);
+            QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInTag(tagIDs.first(), true);
             ImageInfoList imageInfoList;
 
             emit signalDroppedItems(ImageInfoList(itemIDs));

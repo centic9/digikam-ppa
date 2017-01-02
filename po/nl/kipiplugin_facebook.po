@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Freek de Kruijf <f.de.kruijf@hetnet.nl>, 2009.
-# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2011, 2012, 2013, 2015.
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2009, 2010, 2011, 2012, 2013, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-12 01:51+0000\n"
-"PO-Revision-Date: 2015-07-26 16:06+0200\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 14:38+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -19,87 +19,43 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Freek de Kruijf - 2012 t/m 2015"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "f.de.kruijf@hetnet.nl"
-
-#: fbalbum.cpp:47
-msgid "Facebook New Album"
-msgstr "Facebook nieuw album"
-
-#: fbalbum.cpp:59
-msgid "Title of the album that will be created (required)."
-msgstr "Titel van het album dat zal worden aangemaakt (vereist)."
-
-#: fbalbum.cpp:62
-msgid "Location of the album that will be created (optional)."
-msgstr "Locatie van het aan te maken album (optioneel)."
-
-#: fbalbum.cpp:65
-msgid "Description of the album that will be created (optional)."
-msgstr "Beschrijving van het album dat zal worden aangemaakt (optioneel)."
-
-#: fbalbum.cpp:69
+#: fbalbum.cpp:52
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Beschermingsinstellingen van het aan te maken album (vereist)."
 
-#: fbalbum.cpp:70
+#: fbalbum.cpp:54
 msgid "Only Me"
 msgstr "Alleen mijzelf"
 
-#: fbalbum.cpp:71
+#: fbalbum.cpp:56
 msgid "Only Friends"
 msgstr "Alleen vrienden"
 
-#: fbalbum.cpp:72
+#: fbalbum.cpp:58
 msgid "Friends of Friends"
 msgstr "Vrienden van vrienden"
 
-#: fbalbum.cpp:73
+#: fbalbum.cpp:60
 msgid "My Networks and Friends"
 msgstr "Mijn netwerk en vrienden"
 
-#: fbalbum.cpp:74
+#: fbalbum.cpp:62
 msgid "Everyone"
 msgstr "Iedereen"
 
-#: fbalbum.cpp:78
-msgctxt "new facebook album"
-msgid "Title:"
-msgstr "Titel:"
-
-#: fbalbum.cpp:79
-msgctxt "new facebook album"
-msgid "Location:"
-msgstr "Locatie:"
-
-#: fbalbum.cpp:80
-msgctxt "new facebook album"
-msgid "Description:"
-msgstr "Beschrijving:"
-
-#: fbalbum.cpp:81
-msgctxt "new facebook album"
-msgid "Privacy:"
-msgstr "Privacy:"
-
-#: fbtalker.cpp:189
+#: fbtalker.cpp:202
 msgid "Validate previous session..."
 msgstr "Vorige sessie valideren..."
 
-#: fbtalker.cpp:217
+#: fbtalker.cpp:230
 msgid "Upgrading to OAuth..."
 msgstr "Naar OAuth opwaarderen..."
 
-#: fbtalker.cpp:268
+#: fbtalker.cpp:280
 msgid "Facebook Application Authorization"
 msgstr "Autorisatie van de Facebook-applicatie"
 
-#: fbtalker.cpp:273
+#: fbtalker.cpp:291
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -108,285 +64,98 @@ msgstr ""
 "het internetadres uit uw browser in het onderstaande tekstvak en druk op \"OK"
 "\"."
 
-#: fbtalker.cpp:338
+#: fbtalker.cpp:353
 msgid "Canceled by user."
 msgstr "Afgebroken door gebruiker."
 
-#: fbtalker.cpp:643
+#: fbtalker.cpp:550
 msgid "The service is not available at this time."
 msgstr "De service is nu niet beschikbaar."
 
-#: fbtalker.cpp:646
+#: fbtalker.cpp:553
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "De applicatie heeft het maximum aantal toegestane verzoeken bereikt."
 
-#: fbtalker.cpp:649
+#: fbtalker.cpp:556
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "Ongeldige sessiesleutel of de sessie is verlopen. Probeer opnieuw in te "
 "loggen."
 
-#: fbtalker.cpp:652
+#: fbtalker.cpp:559
 msgid "Invalid album ID."
 msgstr "Ongeldige album-ID."
 
-#: fbtalker.cpp:655
+#: fbtalker.cpp:562
 msgid "Album is full."
 msgstr "Album is vol."
 
-#: fbtalker.cpp:658
+#: fbtalker.cpp:565
 msgid "Missing or invalid file."
 msgstr "Ontbrekend of ongeldig bestand."
 
-#: fbtalker.cpp:661
+#: fbtalker.cpp:568
 msgid "Too many unapproved photos pending."
 msgstr "Er zijn te veel niet goedgekeurde foto's in de wachtrij."
 
-#: fbwidget.cpp:71
-msgid "This is the list of images to upload to your Facebook account."
-msgstr ""
-"Dit is de lijst van afbeeeldingen om te uploaden naar uw Facebook-account."
+#: fbtalker.cpp:602
+msgid "Error"
+msgstr "Fout"
 
-#: fbwidget.cpp:77
-msgid ""
-"This is a clickable link to open the Facebook home page in a web browser."
-msgstr ""
-"Dit is een klikbare koppeling om de Facebook-homepagina te openen in een "
-"webbrowser."
-
-#: fbwidget.cpp:83
-msgid "Account"
-msgstr "Account"
-
-#: fbwidget.cpp:84
-msgid "This is the Facebook account that is currently logged in."
-msgstr "Dit is het Facebook-account dat nu is ingelogd."
-
-#: fbwidget.cpp:87
-msgctxt "facebook account settings"
-msgid "Name:"
-msgstr "Naam:"
-
-#: fbwidget.cpp:89
-msgid "Permission:"
-msgstr "Toestemming:"
-
-#: fbwidget.cpp:90
-msgid ""
-"Permission of KIPI Plugin application to upload photos directly. If not, "
-"user will need to manually approve uploaded photos in Facebook."
-msgstr ""
-"Toestemming van de KIPI-plugin-applicatie om foto's direct te uploaden. Zo "
-"niet, dan zal de gebruiker handmatig goedkeuring moeten geven voor elk te "
-"uploaden foto naar Facebook."
-
-#: fbwidget.cpp:93
-msgid "Change Account"
-msgstr "Wijzig account"
-
-#: fbwidget.cpp:94
-msgid "Logout and change Facebook Account used for transfer"
-msgstr ""
-"Log uit en wijzig het Facebook-account dat voor de overdracht wordt gebruikt"
-
-#: fbwidget.cpp:111
-msgid "Download Selection"
-msgstr "Download-selectie"
-
-#: fbwidget.cpp:112
-msgid "This is the selection of Facebook albums/photos to download."
-msgstr "Dit is de selectie van te downloaden Facebook-albums/foto's."
-
-#: fbwidget.cpp:116 fbwidget.cpp:163
-msgid "Destination"
-msgstr "Bestemming"
-
-#: fbwidget.cpp:117
-msgid "This is the Facebook album to which selected photos will be uploaded."
-msgstr ""
-"Dit is het Facebook-album waarnaar geselecteerde foto's zullen worden "
-"geüpload."
-
-#: fbwidget.cpp:122
-msgid "My &Album"
-msgstr "Mijn &Album"
-
-#: fbwidget.cpp:123
-msgid "Download complete album of currently logged in user."
-msgstr "Download het complete album van de nu ingelogde gebruiker."
-
-#: fbwidget.cpp:124
-msgid "Album &of My Friend"
-msgstr "Album &van mijn vriend"
-
-#: fbwidget.cpp:125
-msgid "Download complete album of selected friend."
-msgstr "Download het complete album van de geselecteerde vriend."
-
-#: fbwidget.cpp:126
-msgid "Photos of &Me"
-msgstr "&Mijn foto's"
-
-#: fbwidget.cpp:127
-msgid "Download all photos of currently logged in user."
-msgstr "Download alle foto's van de nu ingelogde gebruiker."
-
-#: fbwidget.cpp:128
-msgid "Photos of My &Friend"
-msgstr "Foto's van mijn &vriend"
-
-#: fbwidget.cpp:129
-msgid "Download all photos of selected friend."
-msgstr "Download alle foto's van de geselecteerde vriend."
-
-#: fbwidget.cpp:137
-msgid "Friend:"
-msgstr "Vriend:"
-
-#: fbwidget.cpp:141
-msgid "Album:"
-msgstr "Album:"
-
-#: fbwidget.cpp:145
-msgid "New Album"
-msgstr "Nieuw album"
-
-#: fbwidget.cpp:146
-msgid "Create new Facebook album"
-msgstr "Maak een nieuw Facebook-album aan"
-
-#: fbwidget.cpp:147
-msgctxt "facebook album list"
-msgid "Reload"
-msgstr "Herladen"
-
-#: fbwidget.cpp:148
-msgid "Reload album list"
-msgstr "Laad de albumlijst opnieuw"
-
-#: fbwidget.cpp:164
-msgid "This is the location to which Facebook images will be downloaded."
-msgstr ""
-"Dit is de locatie waarnaar Facebook-afbeeldingen gedownload zullen worden."
-
-#: fbwidget.cpp:171
-msgid "Options"
-msgstr "Opties"
-
-#: fbwidget.cpp:172
-msgid "These are options that will be applied to photos before upload."
-msgstr "Deze opties zullen worden toegepast op de foto's vóór het uploaden."
-
-#: fbwidget.cpp:176
-msgid "Resize photos before uploading"
-msgstr "Grootte van foto's wijzigen vóór het uploaden"
-
-#: fbwidget.cpp:186
-msgid "Maximum dimension:"
-msgstr "Maximale afmeting:"
-
-#: fbwidget.cpp:194
-msgid "JPEG quality:"
-msgstr "JPEG-kwaliteit:"
-
-#: fbwidget.cpp:311
-msgid "Direct upload"
-msgstr "Direct uploaden"
-
-#: fbwidget.cpp:313
-msgid "Uploaded photos will not need manual approval by user."
-msgstr ""
-"Geüploade foto's hebben geen handmatige toestemming van de gebruiker nodig."
-
-#: fbwidget.cpp:317
-msgid "Manual upload approval"
-msgstr "Handmatige toestemming voor uploaden"
-
-#: fbwidget.cpp:318
-msgid ""
-"Uploaded photos will wait in pending state until manually approved by user."
-msgstr ""
-"Geüploade foto's wachten in een wachtrij voor handmatige toestemming door de "
-"gebruiker."
-
-#: fbwindow.cpp:87
-msgid "Import from Facebook Web Service"
-msgstr "Importeren uit de Facebook-webservice"
-
-#: fbwindow.cpp:89
-msgid "Start Download"
-msgstr "Downloaden starten"
-
-#: fbwindow.cpp:90
-msgid "Start download from Facebook web service"
-msgstr "Start het downloaden vanaf de Facebook-webservice"
-
-#: fbwindow.cpp:95
+#: fbwindow.cpp:109
 msgid "Export to Facebook Web Service"
 msgstr "Exporteren naar de Facebook-webservice"
 
-#: fbwindow.cpp:97
+#: fbwindow.cpp:111
 msgid "Start Upload"
 msgstr "Uploaden starten"
 
-#: fbwindow.cpp:98
+#: fbwindow.cpp:112
 msgid "Start upload to Facebook web service"
 msgstr "Start het uploaden naar de Facebook-webservice"
 
-#: fbwindow.cpp:121
-msgid "Facebook Import/Export"
-msgstr "Facebook import/export"
+#: fbwindow.cpp:140
+msgid "Facebook Export"
+msgstr "Facebook-export"
 
-#: fbwindow.cpp:123
-msgid ""
-"A Kipi plugin to import/export image collection to/from Facebook web service."
+#: fbwindow.cpp:141
+msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
-"Een KIPI-plugin voor het im/exporteren van een verzameling van/naar de "
-"Facebook-webservice."
+"Een hulpmiddel voor het exporteren van een verzameling van/naar de Facebook-"
+"webservice."
 
-#: fbwindow.cpp:125
+#: fbwindow.cpp:143
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 msgstr ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
-"(c) 2008-2009, Luka Renko\n"
-"(c) 2015 Shourya Singh Gupta"
+"(c) 2008-2009, Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:147
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
-#: fbwindow.cpp:130
+#: fbwindow.cpp:148
 msgid "Author and maintainer"
 msgstr "Auteur en onderhouder"
 
-#: fbwindow.cpp:132
-msgid "Shourya Singh Gupta"
-msgstr "Shourya Singh Gupta"
+#: fbwindow.cpp:361 fbwindow.cpp:395
+msgid "<auto create>"
+msgstr "<automatisch aanmaken>"
 
-#: fbwindow.cpp:132
-msgid "Developer"
-msgstr "Ontwikkelaar"
-
-#: fbwindow.cpp:389 fbwindow.cpp:441
-msgid "&lt;auto create&gt;"
-msgstr "&lt;automatisch aanmaken&gt;"
-
-#: fbwindow.cpp:408 fbwindow.cpp:426 fbwindow.cpp:491 fbwindow.cpp:521
+#: fbwindow.cpp:372 fbwindow.cpp:390
 #, kde-format
 msgid "Facebook Call Failed: %1\n"
 msgstr "Facebook oproep is mislukt: %1\n"
 
-#: fbwindow.cpp:436
-msgctxt "name of special Facebook album for profile pictures"
-msgid "Profile Pictures"
-msgstr "Profielafbeeldingen"
+#: fbwindow.cpp:471
+msgid "Warning"
+msgstr "Waarschuwing"
 
-#: fbwindow.cpp:568
+#: fbwindow.cpp:472
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -394,23 +163,31 @@ msgstr ""
 "Nadat u zich in de browser hebt afgemeld, klik op \"Doorgaan\" om de "
 "authenticatie te doen voor een ander account"
 
-#: fbwindow.cpp:618 fbwindow.cpp:643
+#: fbwindow.cpp:476
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: fbwindow.cpp:477
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: fbwindow.cpp:539
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: fbwindow.cpp:622
-msgid "Facebook import"
-msgstr "Facebook-import"
-
-#: fbwindow.cpp:647
+#: fbwindow.cpp:543
 msgid "Facebook export"
 msgstr "Facebook-export"
 
-#: fbwindow.cpp:750 fbwindow.cpp:765
+#: fbwindow.cpp:647 fbwindow.cpp:662
 msgid "Cannot open file"
 msgstr "Kan bestand niet openen"
 
-#: fbwindow.cpp:789
+#: fbwindow.cpp:685
+msgid "Uploading Failed"
+msgstr "Uploaden is mislukt"
+
+#: fbwindow.cpp:686
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -419,25 +196,7 @@ msgstr ""
 "Het uploaden van een foto naar Facebook is mislukt: %1\n"
 "Wilt u doorgaan?"
 
-#: fbwindow.cpp:851
-#, kde-format
-msgid ""
-"Failed to save photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Het opslaan van foto %1 is mislukt\n"
-"Wilt u doorgaan?"
-
-#: fbwindow.cpp:865
-#, kde-format
-msgid ""
-"Failed to download photo: %1\n"
-"Do you want to continue?"
-msgstr ""
-"Het downloaden van foto %1 is mislukt\n"
-"Wilt u doorgaan?"
-
-#: fbwindow.cpp:883
+#: fbwindow.cpp:705
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Facebook oproep is mislukt: %1"
@@ -457,13 +216,221 @@ msgstr "&Exporteren"
 msgid "Main Toolbar"
 msgstr "Hoofdwerkbalk"
 
-#: plugin_facebook.cpp:100
+#: plugin_facebook.cpp:94
 msgid "Export to &Facebook..."
 msgstr "Naar &Facebook exporteren..."
 
-#: plugin_facebook.cpp:110
-msgid "Import from &Facebook..."
-msgstr "Uit &Facebook importeren..."
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Freek de Kruijf - 2012 t/m 2015"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "f.de.kruijf@hetnet.nl"
+
+#~ msgid "Facebook New Album"
+#~ msgstr "Facebook nieuw album"
+
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Titel van het album dat zal worden aangemaakt (vereist)."
+
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "Locatie van het aan te maken album (optioneel)."
+
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Beschrijving van het album dat zal worden aangemaakt (optioneel)."
+
+#~ msgctxt "new facebook album"
+#~ msgid "Title:"
+#~ msgstr "Titel:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Location:"
+#~ msgstr "Locatie:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Description:"
+#~ msgstr "Beschrijving:"
+
+#~ msgctxt "new facebook album"
+#~ msgid "Privacy:"
+#~ msgstr "Privacy:"
+
+#~ msgid "This is the list of images to upload to your Facebook account."
+#~ msgstr ""
+#~ "Dit is de lijst van afbeeeldingen om te uploaden naar uw Facebook-account."
+
+#~ msgid ""
+#~ "This is a clickable link to open the Facebook home page in a web browser."
+#~ msgstr ""
+#~ "Dit is een klikbare koppeling om de Facebook-homepagina te openen in een "
+#~ "webbrowser."
+
+#~ msgid "Account"
+#~ msgstr "Account"
+
+#~ msgid "This is the Facebook account that is currently logged in."
+#~ msgstr "Dit is het Facebook-account dat nu is ingelogd."
+
+#~ msgctxt "facebook account settings"
+#~ msgid "Name:"
+#~ msgstr "Naam:"
+
+#~ msgid "Permission:"
+#~ msgstr "Toestemming:"
+
+#~ msgid ""
+#~ "Permission of KIPI Plugin application to upload photos directly. If not, "
+#~ "user will need to manually approve uploaded photos in Facebook."
+#~ msgstr ""
+#~ "Toestemming van de KIPI-plugin-applicatie om foto's direct te uploaden. "
+#~ "Zo niet, dan zal de gebruiker handmatig goedkeuring moeten geven voor elk "
+#~ "te uploaden foto naar Facebook."
+
+#~ msgid "Change Account"
+#~ msgstr "Wijzig account"
+
+#~ msgid "Logout and change Facebook Account used for transfer"
+#~ msgstr ""
+#~ "Log uit en wijzig het Facebook-account dat voor de overdracht wordt "
+#~ "gebruikt"
+
+#~ msgid "Download Selection"
+#~ msgstr "Download-selectie"
+
+#~ msgid "This is the selection of Facebook albums/photos to download."
+#~ msgstr "Dit is de selectie van te downloaden Facebook-albums/foto's."
+
+#~ msgid "Destination"
+#~ msgstr "Bestemming"
+
+#~ msgid ""
+#~ "This is the Facebook album to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Dit is het Facebook-album waarnaar geselecteerde foto's zullen worden "
+#~ "geüpload."
+
+#~ msgid "My &Album"
+#~ msgstr "Mijn &Album"
+
+#~ msgid "Download complete album of currently logged in user."
+#~ msgstr "Download het complete album van de nu ingelogde gebruiker."
+
+#~ msgid "Album &of My Friend"
+#~ msgstr "Album &van mijn vriend"
+
+#~ msgid "Download complete album of selected friend."
+#~ msgstr "Download het complete album van de geselecteerde vriend."
+
+#~ msgid "Photos of &Me"
+#~ msgstr "&Mijn foto's"
+
+#~ msgid "Download all photos of currently logged in user."
+#~ msgstr "Download alle foto's van de nu ingelogde gebruiker."
+
+#~ msgid "Photos of My &Friend"
+#~ msgstr "Foto's van mijn &vriend"
+
+#~ msgid "Download all photos of selected friend."
+#~ msgstr "Download alle foto's van de geselecteerde vriend."
+
+#~ msgid "Friend:"
+#~ msgstr "Vriend:"
+
+#~ msgid "Album:"
+#~ msgstr "Album:"
+
+#~ msgid "New Album"
+#~ msgstr "Nieuw album"
+
+#~ msgid "Create new Facebook album"
+#~ msgstr "Maak een nieuw Facebook-album aan"
+
+#~ msgctxt "facebook album list"
+#~ msgid "Reload"
+#~ msgstr "Herladen"
+
+#~ msgid "Reload album list"
+#~ msgstr "Laad de albumlijst opnieuw"
+
+#~ msgid "This is the location to which Facebook images will be downloaded."
+#~ msgstr ""
+#~ "Dit is de locatie waarnaar Facebook-afbeeldingen gedownload zullen worden."
+
+#~ msgid "Options"
+#~ msgstr "Opties"
+
+#~ msgid "These are options that will be applied to photos before upload."
+#~ msgstr "Deze opties zullen worden toegepast op de foto's vóór het uploaden."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Grootte van foto's wijzigen vóór het uploaden"
+
+#~ msgid "Maximum dimension:"
+#~ msgstr "Maximale afmeting:"
+
+#~ msgid "JPEG quality:"
+#~ msgstr "JPEG-kwaliteit:"
+
+#~ msgid "Direct upload"
+#~ msgstr "Direct uploaden"
+
+#~ msgid "Uploaded photos will not need manual approval by user."
+#~ msgstr ""
+#~ "Geüploade foto's hebben geen handmatige toestemming van de gebruiker "
+#~ "nodig."
+
+#~ msgid "Manual upload approval"
+#~ msgstr "Handmatige toestemming voor uploaden"
+
+#~ msgid ""
+#~ "Uploaded photos will wait in pending state until manually approved by "
+#~ "user."
+#~ msgstr ""
+#~ "Geüploade foto's wachten in een wachtrij voor handmatige toestemming door "
+#~ "de gebruiker."
+
+#~ msgid "Import from Facebook Web Service"
+#~ msgstr "Importeren uit de Facebook-webservice"
+
+#~ msgid "Start Download"
+#~ msgstr "Downloaden starten"
+
+#~ msgid "Start download from Facebook web service"
+#~ msgstr "Start het downloaden vanaf de Facebook-webservice"
+
+#~ msgid "Facebook Import/Export"
+#~ msgstr "Facebook import/export"
+
+#~ msgid "Shourya Singh Gupta"
+#~ msgstr "Shourya Singh Gupta"
+
+#~ msgid "Developer"
+#~ msgstr "Ontwikkelaar"
+
+#~ msgctxt "name of special Facebook album for profile pictures"
+#~ msgid "Profile Pictures"
+#~ msgstr "Profielafbeeldingen"
+
+#~ msgid "Facebook import"
+#~ msgstr "Facebook-import"
+
+#~ msgid ""
+#~ "Failed to save photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Het opslaan van foto %1 is mislukt\n"
+#~ "Wilt u doorgaan?"
+
+#~ msgid ""
+#~ "Failed to download photo: %1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Het downloaden van foto %1 is mislukt\n"
+#~ "Wilt u doorgaan?"
+
+#~ msgid "Import from &Facebook..."
+#~ msgstr "Uit &Facebook importeren..."
 
 #~ msgid ""
 #~ "Please follow the instructions in the browser window. Press \"OK\" when "
@@ -495,9 +462,6 @@ msgstr "Uit &Facebook importeren..."
 
 #~ msgid "Transfer Progress"
 #~ msgstr "Overdrachtsvoortgang"
-
-#~ msgid "Uploading file %1"
-#~ msgstr "Uploaden van bestand %1"
 
 #~ msgid "Downloading file %1"
 #~ msgstr "Downloaden van bestand %1"

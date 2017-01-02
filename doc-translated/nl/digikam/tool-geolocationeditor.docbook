@@ -1,0 +1,215 @@
+<chapter id="tool-geolocationeditor">
+<chapterinfo>
+
+<abstract>
+<para
+>De geolocatiebewerker maakt het mogelijk om GPS coördinaten van metagegevens van afbeeldingen toe te voegen en te bewerken. Het geo-gegeven wordt opgeslagen in de afbeelding (EXIF tags) en de locatie kan getoond worden op een externe kaart in een browser. </para>
+</abstract>
+
+<keywordset>
+<keyword
+>GPS</keyword>
+<keyword
+>Kaart</keyword>
+</keywordset>
+</chapterinfo>
+
+<title
+>Bewerken van geolocatie</title>
+
+<para
+>De <quote
+>Geolocatiebewerker</quote
+> biedt de hulpmiddelen om afbeeldingen geografisch te lokaliseren in het gebruikelijke sferische coördinatensysteem (gebruikt door GPS/Galileo). Hoogte, breedte- en lengtegraad worden gebruikt. </para>
+<note
+><para
+>Het hulpmiddel werkt alleen voor afbeeldingformaten die EXIF- of XMP-metagegevens bevatten ondersteunt door <ulink url="http://www.exiv2.org"
+>libkexiv2</ulink
+> </para
+></note>
+
+<sect1 id="geolocation-title"
+>  <title
+>Geo-locatie</title>
+<para
+>Het hulpmiddel heeft twee methoden om afbeeldingen met coördinaten te markeren: </para>
+<itemizedlist>
+    <listitem>
+        <para
+>Correlatie van GPS trackinggegevens met een serie afbeeldingen.</para>
+    </listitem>
+    <listitem>
+        <para
+>Semi-automatische toekenning van coördinaten aan enkele afbeeldingen.</para>
+    </listitem>
+</itemizedlist>
+
+<sect2 id="geolocation-correlator"
+>       <title
+>De correlator</title>
+        <para
+>Om uw afbeeldingen te correleren met geografische gegevens moet u GPS trackinginformatie beschikbaar hebben als een XML-bestand in <literal
+>gpx</literal
+> formaat (<application
+><ulink url="http://www.gpsbabel.org"
+>gpsbabel</ulink
+></application
+> en <application
+><ulink url="http://www.ncc.up.pt/gpsman/"
+>gpsman</ulink
+></application
+> kan trackinggegevens uit een GPS apparaat voor u downloaden en converteren). </para>
+        <para
+><menuchoice
+><guimenu
+>Afbeelding</guimenu
+> <guimenuitem
+>Geolocatie</guimenuitem
+> <guimenuitem
+>Correlator</guimenuitem
+></menuchoice
+>. Dit interface kan een eerder geselecteerd aantal afbeeldingen met geregistreerde GPS volginformatie correleren. </para>
+            <example id="geolocation-geo-correlation-dialog">
+               <title
+>De dialoog voor geo-correlatie gebaseerd op EXIF datum/tijd en volggegevens (gpx-formaat)</title>
+                   <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="tool-geolocation-correlate1.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+           </example>
+           <para
+>Selecteer de afbeeldingen die u wilt correleren in de hoofdweergave van de toepassing, roep daarna het menu op. De bovenstaande dialoog zal verschijnen. Om een mogelijke correlatie tussen tijden locatie aan te geven moet u een trackbestand laden met <guilabel
+>GPX bestand laden</guilabel
+> die GPS gegevens bevat genomen op dezelfde tijd en locatie als de foto's met uw camera. </para>
+           <para
+>Wanneer het bestand is geladen zal een automatische correlatie worden gedaan zodat de de toegekende coördinaten in rood verschijnen. GPS trackgegevens worden onveranderlijk opgenomen in GMT tijd, u moet dus de tijd in de camera overeen laten komen met GMT, wat gedaan kan worden met <guilabel
+>Tijdzone</guilabel
+>. Selecteer de <emphasis
+>tijdzone van de camera</emphasis
+> hier! </para>
+           <para
+>De instelling <guilabel
+>Max. tijdverschil</guilabel
+> specificeert het tijdverschil tussen de GPS-tijd en de cameratijd waarbinnen deze samenvallen. De maximum waarde is 2000 seconden. </para>
+           <tip
+><para
+>Als u geen trackinggegevens voor afbeeldingen hebt die zijn genomen op dezelfde plaats, dan kunt u gewoon handmatig een <literal
+>gpx</literal
+>- bestand bewerken en het toepassen op die afbeeldingen. De 2000 seconden tijdverschil zal dan alle afbeeldingen laten samenvallen genomen binnen 20 minuten. </para
+></tip>
+
+           <para
+>De optie <guilabel
+>Interpoleren</guilabel
+> en <guilabel
+>Verschil in min.</guilabel
+> kan gebruikt worden als er geen overeenkomst van gegevens is. Als u weet dat er in werkelijkheid een overeenkomst is met een lokatie ondanks een groter tijdsverschil tussen camera- en GPS-tijd, dan kunt u deze limiet hier instellen en klikken op de knop <guilabel
+>Correleren</guilabel
+> om te interpoleren. </para>
+            <example id="geolocation-correlation">
+               <title
+>Correlatie</title>
+                   <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="tool-geolocation-correlate2.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+           </example>
+           <para
+>240 minuten is het maximum tijdverschil dat hier kan worden ingevoerd. </para>
+
+</sect2
+> 
+
+<sect2 id="geolocation-edit-coordinates"
+>       <title
+>Coördinaten bewerken</title>
+            <example id="geolocation-semi-automatic-attributing">
+               <title
+>Semi-automatisch toekennen van coördinaten via interactie met kaart</title>
+                   <screenshot
+><mediaobject
+><imageobject
+><imagedata fileref="tool-geolocation-editcoords.png" format="PNG"/> </imageobject
+></mediaobject
+></screenshot>
+           </example>
+           <para
+>De coördinaten kunnen handmatig worden ingesteld in deze dialoog. Dit is handig als er een serie foto's is genomen op dezelfde locatie. Omdat de coördinaten zijn onthouden van de ene dialoog aanroep naar de ander, is het zo gemakkelijk als klikken op <guilabel
+>OK</guilabel
+> om de vorige gegevens in te stellen in de huidige foto. </para>
+           <para
+>Anders kan de locatie gevonden worden en iteratief ingesteld met de getoonde kaart. Klik op de regio van belang, zoom in, pas de locatie aan door opnieuw te klikken en zo verder totdat voldoende nauwkeurigheid is bereikt. De hoogte moet altijd handmatig worden opgegeven. De kaart kan omgeschakeld worden tussen kaartmodus, satellietafbeelding of gemengde modus. </para>
+</sect2>
+
+<sect2 id="geolocation-manual"
+> <title
+>Tags toekennen via de commandoregel</title>
+  <para
+>Geheel buiten de context van &digikam; zijn er manieren om afbeeldingen van GPS tags te voorzien. Hier is een shellscript dat <command
+>exiftool</command
+> gebruikt om een hoeveelheid afbeeldingen van een GPS tag te voorzien. </para>
+
+
+<programlisting
+>#!/bin/sh
+# exiftool wrapper script voor gemakkelijk gebruik op de commandoregel. Het behandelt regex bestanden of hele mappen.
+#
+#                        FMT                  Output
+#                "%d deg %d' %.2f"\"    54 deg 59' 22.80"
+#                "%d deg %.4f min"      54 deg 59.3800 min
+#                "%.6f degrees"         54.989667 degrees
+
+if [ -z $1 ]; then 
+   echo "Gebruik: exiftool-gps-wrapper breedtegr lengtegr [hoogte] bestand || map (gebruik drijvende komma coördinaten met teken)"
+else
+
+   if  [ -z "$4" ]; then  foo="$3"; alt=0
+   else                          foo="$4"; alt=$3
+   fi
+
+   echo $foo
+   if [ -e "$foo" ] ; then
+        latR=$(echo "$1" | awk '{if ($1 &lt; 0) print "S"; else print "N"}')
+        lonR=$(echo "$2" | awk '{if ($1 &lt; 0) print "W"; else print "E"}')
+        lat=$(echo "$1" | awk '{val = $1; if ($1 &lt; 0) sub(/-/, "", val); print val}') # absolute value
+        lon=$(echo "$2" | awk '{val = $1; if ($1 &lt; 0) sub(/-/, "", val); print val}') # absolute value
+        # use the following syntax for easy googlian paste of ll=-1.23456,53.345345
+        #lonR=$(echo "$2" | awk '{if ($2 &lt; 0) print "W"; else print "E"}')
+        echo $lat, $latR, $lon, $lonR, $3, $4, $foo
+        
+        function setgpsinfo ()
+        {
+            exiftool -c "%.6f" -GPSMapDatum="WGS-84" -GPSAltitude=$5 \
+            -GPSLongitudeRef=$4 -GPSLongitude=$3 -GPSLatitudeRef=$2 -GPSLatitude=$1 "$6"
+            exiftool -GPS:ALL "$6"
+        }
+
+        if [ -d "$foo" ] ; then
+
+            for i in "$foo" ; do    # de selectie van behandelde bestanden hangt af van de doorgegeven regex
+                echo "i= "$i
+                setgpsinfo $lat $latR $lon $lonR $alt "$i"
+            done
+        else
+            setgpsinfo $lat $latR $lon $lonR $alt "$foo"
+        fi
+   else        echo "bestand of map is fout"
+   fi
+fi                 
+</programlisting>
+</sect2>
+</sect1>
+
+</chapter>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-omittag: nil
+sgml-shorttag: t
+End:
+-->

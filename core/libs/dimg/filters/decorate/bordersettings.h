@@ -6,7 +6,7 @@
  * Date        : 2010-03-17
  * Description : Border settings view.
  *
- * Copyright (C) 2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,7 +31,7 @@
 
 // KDE includes
 
-#include <kconfig.h>
+#include <kconfiggroup.h>
 
 // Local includes
 
@@ -41,7 +41,7 @@
 namespace Digikam
 {
 
-class BorderSettingsPriv;
+class Private;
 
 class DIGIKAM_EXPORT BorderSettings : public QWidget
 {
@@ -80,7 +80,7 @@ private:
 
 private:
 
-    BorderSettingsPriv* const d;
+    Private* const d;
 };
 
 }  // namespace Digikam

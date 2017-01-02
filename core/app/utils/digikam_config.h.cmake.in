@@ -1,0 +1,122 @@
+/* ============================================================
+ *
+ * This file is a part of digiKam project
+ * http://www.digikam.org
+ *
+ * Date        : 2009-08-03
+ * Description : digiKam config header
+ *
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ *
+ * This program is free software; you can redistribute it
+ * and/or modify it under the terms of the GNU General
+ * Public License as published by the Free Software Foundation;
+ * either version 2, or (at your option)
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * ============================================================ */
+
+#ifndef CONFIG_DIGIKAM_H
+#define CONFIG_DIGIKAM_H
+
+/* Define to 1 if you have KDEPIM shared library installed */
+#cmakedefine HAVE_AKONADICONTACT 1
+
+/* Define to 1 if an external liblqr-1 shared library have been found */
+#cmakedefine HAVE_LIBLQR_1 1
+
+/* Define to 1 if an external lensfun shared library have been found */
+#cmakedefine HAVE_LENSFUN 1
+
+/* Define to 1 if an external KIO shared library have been found */
+#cmakedefine HAVE_KIO 1
+
+/* Define to 1 if an external Kipi shared library have been found */
+#cmakedefine HAVE_KIPI 1
+
+/* Define to 1 if an external Ksane shared library have been found */
+#cmakedefine HAVE_KSANE 1
+
+/* Define to 1 if an external Marble shared library have been found */
+#cmakedefine HAVE_MARBLE 1
+
+/* Define to 1 if an external Eigen3 shared library have been found */
+#cmakedefine HAVE_EIGEN3 1
+
+/* The Eigen3 version string, if found, or an empty string otherwise */
+#define EIGEN3_VERSION_STRING "${EIGEN3_VERSION}"
+
+/* Define to 1 if GPhoto2 shared library is installed */
+#cmakedefine HAVE_GPHOTO2 1
+
+/* Define to 1 if Jasper shared library is installed */
+#cmakedefine HAVE_JASPER 1
+
+/* Define to 1 if libgphoto2 2.5 shared library is installed */
+#cmakedefine HAVE_GPHOTO25 1
+
+/* Define to 1 if you have Baloo shared libraries installed */
+#cmakedefine HAVE_KFILEMETADATA 1
+
+/* Define to 1 if you have KBookmarks shared libraries installed */
+#cmakedefine HAVE_KBOOKMARKS 1
+
+/* Define to 1 if you have KIconThemes shared libraries installed */
+#cmakedefine HAVE_KICONTHEMES 1
+
+/* Define to 1 if you have KNotifications shared libraries installed */
+#cmakedefine HAVE_KNOTIFICATIONS 1
+
+/* Define to 1 if you have KNotifyConfig shared libraries installed */
+#cmakedefine HAVE_KNOTIFYCONFIG 1
+
+/* Define to 1 if you have KCalendar core shared libraries installed */
+#cmakedefine HAVE_KCALENDAR 1
+
+/* Define to 1 if Panorama tool is supported */
+#cmakedefine HAVE_PANORAMA 1
+
+/* Define to 1 if we support mysql database */
+#cmakedefine HAVE_MYSQLSUPPORT 1
+
+/* Define to 1 if we support mysql internal database server */
+#cmakedefine HAVE_INTERNALMYSQL 1
+
+/* Define to 1 if preview of video files is supported */
+#cmakedefine HAVE_MEDIAPLAYER 1
+
+/* Define to 1 if DBUS is supported */
+#cmakedefine HAVE_DBUS 1
+
+/* Define to 1 if system use OpenGL */
+#cmakedefine HAVE_OPENGL 1
+
+/* Define to 1 if you want Qt to scale the preview images */
+#cmakedefine USE_QT_SCALING 1
+
+/* Define to 1 if system use X11 */
+#cmakedefine HAVE_X11 1
+
+/* Define to 1 if changing application styles is supported */
+#cmakedefine HAVE_APPSTYLE_SUPPORT 1
+
+#define LIBEXEC_INSTALL_DIR "${CMAKE_INSTALL_PREFIX}/${LIBEXEC_INSTALL_DIR}"
+
+/*
+  Disable indeep warnings from Visual Studio C++ 2008 (9.0)
+*/
+#if defined(_MSC_VER)
+// To disable warnings about no suitable definition provided for explicit template instantiation request.
+#pragma warning(disable : 4661)
+// To disable warnings about deprecated POSIX methods().
+#pragma warning(disable : 4996)
+// To disable warnings about qualifier applied to reference type ignored.
+#pragma warning(disable : 4181)
+#endif
+
+#endif /* CONFIG_DIGIKAM_H */

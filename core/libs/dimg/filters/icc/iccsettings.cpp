@@ -23,17 +23,8 @@
  *
  * ============================================================ */
 
-#include "iccsettings.moc"
-
-// X11 includes
-
-#ifdef Q_WS_X11
-#   include <climits>
-#   include <X11/Xlib.h>
-#   include <X11/Xatom.h>
-#   include <fixx11h.h>
-#   include <QX11Info>
-#endif /* Q_WS_X11 */
+#include "iccsettings.h"
+#include "digikam_config.h"
 
 // Qt includes
 
@@ -46,16 +37,24 @@
 
 // KDE includes
 
-#include <kconfig.h>
 #include <kconfiggroup.h>
-#include <kglobal.h>
 #include <ksharedconfig.h>
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "iccprofile.h"
 #include "icctransform.h"
+
+// X11 includes
+
+// Note must be after all other to prevent broken compilation
+#ifdef HAVE_X11
+#   include <climits>
+#   include <X11/Xlib.h>
+#   include <X11/Xatom.h>
+#   include <QX11Info>
+#endif /* HAVE_X11 */
 
 namespace Digikam
 {
@@ -65,12 +64,12 @@ class IccSettings::Private
 public:
 
     Private()
-        : configGroup("Color Management")
+        : configGroup(QLatin1String("Color Management"))
     {
     }
 
     QList<IccProfile>    scanDirectories(const QStringList& dirs);
-    void                 scanDirectory(const QString& path, const QStringList& filter, QList<IccProfile>* profiles);
+    void                 scanDirectory(const QString& path, const QStringList& filter, QList<IccProfile>* const profiles);
 
     IccProfile           profileFromWindowSystem(QWidget* const widget);
 
@@ -100,7 +99,7 @@ public:
     IccSettings object;
 };
 
-K_GLOBAL_STATIC(IccSettingsCreator, creator)
+Q_GLOBAL_STATIC(IccSettingsCreator, creator)
 
 // -----------------------------------------------------------------------------------------------
 
@@ -183,23 +182,23 @@ bool IccSettings::monitorProfileFromSystem() const
 /*
  * From koffice/libs/pigment/colorprofiles/KoLcmsColorProfileContainer.cpp
  * Copyright (C) 2000 Matthias Elter <elter@kde.org>
- *                2001 John Califf
- *                2004 Boudewijn Rempt <boud@valdyas.org>
- *  Copyright (C) 2007 Thomas Zander <zander@kde.org>
- *  Copyright (C) 2007 Adrian Page <adrian@pagenet.plus.com>
+ *               2001 John Califf
+ *               2004 Boudewijn Rempt <boud@valdyas.org>
+ * Copyright (C) 2007 Thomas Zander <zander@kde.org>
+ * Copyright (C) 2007 Adrian Page <adrian@pagenet.plus.com>
 */
 IccProfile IccSettings::Private::profileFromWindowSystem(QWidget* const widget)
 {
-#ifdef Q_WS_X11
+#ifdef HAVE_X11
 
-    Qt::HANDLE appRootWindow;
-    QString    atomName;
+    unsigned long appRootWindow;
+    QString       atomName;
 
     QDesktopWidget* const desktop = QApplication::desktop();
 
     if (!desktop)
     {
-        kError() << "No desktop widget available for application";
+        qCDebug(DIGIKAM_DIMG_LOG) << "No desktop widget available for application";
         return IccProfile();
     }
 
@@ -218,12 +217,12 @@ IccProfile IccSettings::Private::profileFromWindowSystem(QWidget* const widget)
     if (desktop->isVirtualDesktop())
     {
         appRootWindow = QX11Info::appRootWindow(QX11Info::appScreen());
-        atomName      = QString("_ICC_PROFILE_%1").arg(screenNumber);
+        atomName      = QString::fromLatin1("_ICC_PROFILE_%1").arg(screenNumber);
     }
     else
     {
         appRootWindow = QX11Info::appRootWindow(screenNumber);
-        atomName      = "_ICC_PROFILE";
+        atomName      = QLatin1String("_ICC_PROFILE");
     }
 
     Atom          type;
@@ -232,22 +231,14 @@ IccProfile IccSettings::Private::profileFromWindowSystem(QWidget* const widget)
     unsigned long bytes_after;
     quint8*       str = 0;
 
-    static Atom icc_atom = XInternAtom(QX11Info::display(), atomName.toLatin1(), True);
+    static Atom icc_atom = XInternAtom(QX11Info::display(), atomName.toLatin1().constData(), True);
 
-    if (icc_atom != None &&
-        XGetWindowProperty(QX11Info::display(),
-                           appRootWindow,
-                           icc_atom,
-                           0,
-                           INT_MAX,
-                           False,
-                           XA_CARDINAL,
-                           &type,
-                           &format,
-                           &nitems,
-                           &bytes_after,
-                           (unsigned char**)& str) == Success &&
-        nitems
+    if ((icc_atom != None)                                                &&
+        (XGetWindowProperty(QX11Info::display(), appRootWindow, icc_atom,
+                           0, INT_MAX, False, XA_CARDINAL,
+                           &type, &format, &nitems, &bytes_after,
+                           (unsigned char**)& str) == Success)            &&
+         nitems
        )
     {
         QByteArray bytes = QByteArray::fromRawData((char*)str, (quint32)nitems);
@@ -257,15 +248,12 @@ IccProfile IccSettings::Private::profileFromWindowSystem(QWidget* const widget)
             profile = bytes;
         }
 
-        kDebug() << "Found X.org XICC monitor profile" << profile.description();
+        qCDebug(DIGIKAM_DIMG_LOG) << "Found X.org XICC monitor profile " << profile.description();
     }
-
-/*
     else
     {
-        kDebug() << "No X.org XICC profile installed for screen" << screenNumber;
+        qCDebug(DIGIKAM_DIMG_LOG) << "No X.org XICC profile installed for screen " << screenNumber;
     }
-*/
 
     // insert to cache even if null
     {
@@ -273,11 +261,14 @@ IccProfile IccSettings::Private::profileFromWindowSystem(QWidget* const widget)
         screenProfiles.insert(screenNumber, profile);
     }
 
-#elif defined Q_WS_WIN
+#elif defined Q_OS_WIN
     //TODO
     Q_UNUSED(widget);
-#elif defined Q_WS_MAC
+#elif defined Q_OS_OSX
     //TODO
+    Q_UNUSED(widget);
+#else
+    // Unsupported platform
     Q_UNUSED(widget);
 #endif
 
@@ -297,7 +288,7 @@ bool IccSettings::useManagedPreviews() const
 ICCSettingsContainer IccSettings::Private::readFromConfig() const
 {
     ICCSettingsContainer s;
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroup);
     s.readFromConfig(group);
     return s;
@@ -305,21 +296,21 @@ ICCSettingsContainer IccSettings::Private::readFromConfig() const
 
 void IccSettings::Private::writeToConfig() const
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroup);
     settings.writeToConfig(group);
 }
 
 void IccSettings::Private::writeManagedViewToConfig() const
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroup);
     settings.writeManagedViewToConfig(group);
 }
 
 void IccSettings::Private::writeManagedPreviewsToConfig() const
 {
-    KSharedConfig::Ptr config = KGlobal::config();
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
     KConfigGroup group        = config->group(configGroup);
     settings.writeManagedPreviewsToConfig(group);
 }
@@ -417,8 +408,8 @@ QList<IccProfile> IccSettings::Private::scanDirectories(const QStringList& dirs)
 {
     QList<IccProfile> profiles;
     QStringList       filters;
-    filters << "*.icc" << "*.icm";
-    kDebug() << dirs;
+    filters << QLatin1String("*.icc") << QLatin1String("*.icm");
+    qCDebug(DIGIKAM_DIMG_LOG) << dirs;
 
     foreach(const QString& dirPath, dirs)
     {
@@ -435,7 +426,7 @@ QList<IccProfile> IccSettings::Private::scanDirectories(const QStringList& dirs)
     return profiles;
 }
 
-void IccSettings::Private::scanDirectory(const QString& path, const QStringList& filter, QList<IccProfile>* profiles)
+void IccSettings::Private::scanDirectory(const QString& path, const QStringList& filter, QList<IccProfile>* const profiles)
 {
     QDir          dir(path);
     QFileInfoList infos;
@@ -446,14 +437,14 @@ void IccSettings::Private::scanDirectory(const QString& path, const QStringList&
     {
         if (info.isFile())
         {
-            //kDebug() << info.filePath() << (info.exists() && info.isReadable());
+            //qCDebug(DIGIKAM_DIMG_LOG) << info.filePath() << (info.exists() && info.isReadable());
             IccProfile profile(info.filePath());
 
             if (profile.open())
             {
                 *profiles << profile;
 
-                if (info.fileName() == "AdobeRGB1998.icc")
+                if (info.fileName() == QLatin1String("AdobeRGB1998.icc"))
                 {
                     IccProfile::considerOriginalAdobeRGB(info.filePath());
                 }
@@ -494,7 +485,7 @@ QList<IccProfile> IccSettings::allProfiles()
     // check search directories
     profiles << d->scanDirectories(paths);
 
-    // load profiles that come with libkdcraw
+    // load profiles that come with RawEngine
     profiles << IccProfile::defaultProfiles();
 
     QMutexLocker lock(&d->mutex);

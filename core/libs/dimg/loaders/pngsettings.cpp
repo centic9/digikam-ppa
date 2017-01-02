@@ -6,7 +6,7 @@
  * Date        : 2007-08-02
  * Description : save PNG image options.
  *
- * Copyright (C) 2007-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,10 +21,12 @@
  *
  * ============================================================ */
 
-#include "pngsettings.moc"
+#include "pngsettings.h"
 
 // Qt includes
 
+#include <QApplication>
+#include <QStyle>
 #include <QString>
 #include <QLabel>
 #include <QLayout>
@@ -32,9 +34,11 @@
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <knuminput.h>
+#include <klocalizedstring.h>
+
+// Local includes
+
+#include "dnuminput.h"
 
 namespace Digikam
 {
@@ -55,7 +59,7 @@ public:
 
     QLabel*       labelPNGcompression;
 
-    KIntNumInput* PNGcompression;
+    DIntNumInput* PNGcompression;
 };
 
 PNGSettings::PNGSettings(QWidget* parent)
@@ -63,10 +67,12 @@ PNGSettings::PNGSettings(QWidget* parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->PNGGrid        = new QGridLayout(this);
-    d->PNGcompression = new KIntNumInput(9, this);
-    d->PNGcompression->setRange(1, 9);
-    d->PNGcompression->setSliderEnabled(true);
+    d->PNGcompression = new DIntNumInput(this);
+    d->PNGcompression->setDefaultValue(6);
+    d->PNGcompression->setRange(1, 9, 1);
     d->labelPNGcompression = new QLabel(i18n("PNG compression:"), this);
 
     d->PNGcompression->setWhatsThis(i18n("<p>The compression value for PNG images:</p>"
@@ -82,8 +88,8 @@ PNGSettings::PNGSettings(QWidget* parent)
     d->PNGGrid->addWidget(d->PNGcompression,      1, 1, 1, 2);
     d->PNGGrid->setColumnStretch(1, 10);
     d->PNGGrid->setRowStretch(2, 10);
-    d->PNGGrid->setMargin(KDialog::spacingHint());
-    d->PNGGrid->setSpacing(KDialog::spacingHint());
+    d->PNGGrid->setContentsMargins(spacing, spacing, spacing, spacing);
+    d->PNGGrid->setSpacing(spacing);
 
     connect(d->PNGcompression, SIGNAL(valueChanged(int)),
             this, SIGNAL(signalSettingsChanged()));

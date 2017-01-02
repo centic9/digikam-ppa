@@ -6,7 +6,7 @@
  * Date        : 2010-12-16
  * Description : Filter combobox
  *
- * Copyright (C) 2010-2011 by Petri Damstén <petri.damsten@iki.fi>
+ * Copyright (C) 2010-2011 by Petri Damstén <petri dot damsten at iki dot fi>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "filtercombo.moc"
+#include "filtercombo.h"
 
 // Qt includes
 
@@ -29,13 +29,13 @@
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
-#include <kglobal.h>
+#include <klocalizedstring.h>
+#include <ksharedconfig.h>
 #include <kconfiggroup.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "importfilters.h"
 #include "camiteminfo.h"
 
@@ -43,10 +43,10 @@ namespace Digikam
 {
 
 // JVC camera (see bug #133185).
-const QString FilterComboBox::defaultIgnoreNames("mgr_data pgr_mgr");
+const QString FilterComboBox::defaultIgnoreNames(QLatin1String("mgr_data pgr_mgr"));
 // HP Photosmart camera (see bug #156338).
 // Minolta camera in PTP mode
-const QString FilterComboBox::defaultIgnoreExtensions("dsp dps");
+const QString FilterComboBox::defaultIgnoreExtensions(QLatin1String("dsp dps"));
 
 // ---------------------------------------------------------------------------------
 
@@ -56,12 +56,12 @@ public:
 
     Private()
     {
-        KSharedConfig::Ptr config = KGlobal::config();
-        KConfigGroup group        = config->group("Import Filters");
+        KSharedConfig::Ptr config = KSharedConfig::openConfig();
+        KConfigGroup group        = config->group(QLatin1String("Import Filters"));
 
         for (int i = 0; true; ++i)
         {
-            QString filter = group.readEntry(QString("Filter%1").arg(i), QString());
+            QString filter = group.readEntry(QString::fromUtf8("Filter%1").arg(i), QString());
 
             if (filter.isEmpty())
             {
@@ -74,7 +74,7 @@ public:
         }
 
         FilterComboBox::defaultFilters(&filters);
-        currentFilter = group.readEntry("CurrentFilter", 0);
+        currentFilter = group.readEntry(QLatin1String("CurrentFilter"), 0);
     }
 
     ~Private()
@@ -89,7 +89,8 @@ public:
 };
 
 FilterComboBox::FilterComboBox(QWidget* const parent)
-    : KComboBox(parent), d(new Private)
+    : QComboBox(parent),
+      d(new Private)
 {
     fillCombo();
 
@@ -123,22 +124,22 @@ void FilterComboBox::defaultFilters(FilterList* const filters)
 
         f               = new Filter;
         f->name         = i18nc("@item:inlistbox", "Raw Files");
-        f->mimeFilter   = "image/x-nikon-nef;image/x-fuji-raf;image/x-adobe-dng;"
+        f->mimeFilter   = QLatin1String("image/x-nikon-nef;image/x-fuji-raf;image/x-adobe-dng;"
                           "image/x-panasonic-raw;image/x-olympus-orf;image/x-kodak-dcr;"
                           "image/x-kodak-k25;image/x-sony-arw;image/x-minolta-mrw;"
                           "image/x-kodak-kdc;image/x-sigma-x3f;image/x-sony-srf;"
                           "image/x-pentax-pef;image/x-panasonic-raw2;image/x-canon-crw;"
-                          "image/x-sony-sr2;image/x-canon-cr2";
+                          "image/x-sony-sr2;image/x-canon-cr2");
         filters->append(f);
 
         f               = new Filter;
         f->name         = i18nc("@item:inlistbox", "JPG/TIFF Files");
-        f->mimeFilter   = "image/jpeg;image/tiff";
+        f->mimeFilter   = QLatin1String("image/jpeg;image/tiff");
         filters->append(f);
 
         f               = new Filter;
         f->name         = i18nc("@item:inlistbox", "Video Files");
-        f->mimeFilter   = "video/quicktime;video/mp4;video/x-msvideo;video/mpeg";
+        f->mimeFilter   = QLatin1String("video/quicktime;video/mp4;video/x-msvideo;video/mpeg");
         filters->append(f);
     }
 }
@@ -167,10 +168,10 @@ void FilterComboBox::indexChanged(int index)
 
 void FilterComboBox::saveSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group("Import Filters");
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Import Filters"));
 
-    group.writeEntry("CurrentFilter", d->currentFilter);
+    group.writeEntry(QLatin1String("CurrentFilter"), d->currentFilter);
 }
 
 }  // namespace Digikam

@@ -29,9 +29,9 @@
 
 //Libkipi includes
 
-#include <libkipi/plugin.h>
+#include <KIPI/Plugin>
 
-class KAction;
+class QAction;
 
 namespace KIPIDropboxPlugin
 {
@@ -66,8 +66,8 @@ private:
 
 private:
 
-    KAction*  m_actionExport;
-    DBWindow* m_dlgExport;
+    QAction *  m_actionExport;
+    DBWindow*  m_dlgExport;
 };
 
 } // namespace KIPIDropboxPlugin

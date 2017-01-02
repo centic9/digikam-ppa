@@ -7,11 +7,11 @@
  * Description : A kipi plugin to export images to a MediaWiki wiki
  *
  * Copyright (C) 2011      by Alexandre Mendes <alex dot mendes1988 at gmail dot com>
- * Copyright (C) 2011-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Parthasarathy Gopavarapu <gparthasarathy93 at gmail dot com>
  * Copyright (C) 2012      by Nathan Damie <nathan dot damie at gmail dot com>
  * Copyright (C) 2012      by Iliya Ivanov <ilko2002 at abv dot bg>
- * Copyright (C) 2012-2013 by Peter Potrowl <peter dot potrowl at gmail dot com>
+ * Copyright (C) 2012-2016 by Peter Potrowl <peter dot potrowl at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -25,7 +25,7 @@
  *
  * ============================================================ */
 
-#include "wmwidget.moc"
+#include "wmwidget.h"
 
 // Qt includes
 
@@ -43,39 +43,33 @@
 #include <QSpinBox>
 #include <QTabWidget>
 #include <QVBoxLayout>
+#include <QComboBox>
+#include <QApplication>
+#include <QPushButton>
+#include <QTextEdit>
+#include <QLineEdit>
+#include <QComboBox>
+#include <QGroupBox>
 
 // KDE includes
 
-#include <kcombobox.h>
 #include <kconfiggroup.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <klineedit.h>
-#include <klocale.h>
-#include <kmessagebox.h>
-#include <kpushbutton.h>
-#include <ktextedit.h>
-#include <kvbox.h>
+#include <klocalizedstring.h>
 
 // Libkipi includes
 
-#include <libkipi/uploadwidget.h>
-#include <libkipi/interface.h>
-
-// libKdcraw includes
-
-#include <libkdcraw/rexpanderbox.h>
-#include <libkdcraw/version.h>
-#include <libkdcraw/squeezedcombobox.h>
+#include <KIPI/UploadWidget>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kputil.h"
 #include "kpimageinfo.h"
 #include "kpimageslist.h"
 #include "kpprogresswidget.h"
+#include "kipiplugins_debug.h"
 
 using namespace KIPI;
-using namespace KDcrawIface;
 
 namespace KIPIWikiMediaPlugin
 {
@@ -93,8 +87,6 @@ public:
         longitudeEdit      = 0;
         latitudeEdit       = 0;
         categoryEdit       = 0;
-        userBox            = 0;
-        loginBox           = 0;
         loginHeaderLbl     = 0;
         nameEdit           = 0;
         passwdEdit         = 0;
@@ -102,18 +94,15 @@ public:
         newWikiNameEdit    = 0;
         newWikiUrlEdit     = 0;
         wikiSelect         = 0;
-        textBox            = 0;
         authorEdit         = 0;
         sourceEdit         = 0;
         genCatEdit         = 0;
         genTxtEdit         = 0;
         genComEdit         = 0;
-        accountBox         = 0;
         headerLbl          = 0;
         wikiNameDisplayLbl = 0;
         userNameDisplayLbl = 0;
         changeUserBtn      = 0;
-        optionsBox         = 0;
         resizeChB          = 0;
         dimensionSpB       = 0;
         imageQualitySpB    = 0;
@@ -121,56 +110,53 @@ public:
         removeGeoChB       = 0;
         licenseComboBox    = 0;
         progressBar        = 0;
-        settingsExpander   = 0;
         imgList            = 0;
         uploadWidget       = 0;
         defaultMessage     = i18n("Select an image");
+        loginGBox          = 0;
+        userGBox           = 0;
     }
 
     QWidget*                                 fileBox;
-    KLineEdit*                               titleEdit;
-    KTextEdit*                               descEdit;
-    KLineEdit*                               dateEdit;
-    KLineEdit*                               longitudeEdit;
-    KLineEdit*                               latitudeEdit;
-    KTextEdit*                               categoryEdit;
+    QLineEdit*                               titleEdit;
+    QTextEdit*                               descEdit;
+    QLineEdit*                               dateEdit;
+    QLineEdit*                               longitudeEdit;
+    QLineEdit*                               latitudeEdit;
+    QTextEdit*                               categoryEdit;
 
-    KVBox*                                   userBox;
-    QWidget*                                 loginBox;
     QLabel*                                  loginHeaderLbl;
-    KLineEdit*                               nameEdit;
-    KLineEdit*                               passwdEdit;
+    QLineEdit*                               nameEdit;
+    QLineEdit*                               passwdEdit;
     QScrollArea*                             newWikiSv;
-    KLineEdit*                               newWikiNameEdit;
-    KLineEdit*                               newWikiUrlEdit;
+    QLineEdit*                               newWikiNameEdit;
+    QLineEdit*                               newWikiUrlEdit;
     QComboBox*                               wikiSelect;
 
-    QWidget*                                 textBox;
+    QLineEdit*                               authorEdit;
+    QLineEdit*                               sourceEdit;
 
-    KLineEdit*                               authorEdit;
-    KLineEdit*                               sourceEdit;
+    QTextEdit*                               genCatEdit;
+    QTextEdit*                               genTxtEdit;
+    QTextEdit*                               genComEdit;
 
-    KTextEdit*                               genCatEdit;
-    KTextEdit*                               genTxtEdit;
-    KTextEdit*                               genComEdit;
-
-    QWidget*                                 accountBox;
     QLabel*                                  headerLbl;
     QLabel*                                  wikiNameDisplayLbl;
     QLabel*                                  userNameDisplayLbl;
-    KPushButton*                             changeUserBtn;
+    QPushButton*                             changeUserBtn;
 
-    QWidget*                                 optionsBox;
     QCheckBox*                               resizeChB;
     QSpinBox*                                dimensionSpB;
     QSpinBox*                                imageQualitySpB;
     QCheckBox*                               removeMetaChB;
     QCheckBox*                               removeGeoChB;
-    SqueezedComboBox*                        licenseComboBox;
+    QComboBox*                               licenseComboBox;
+
+    QGroupBox*                               loginGBox;
+    QGroupBox*                               userGBox;
 
     KPProgressWidget*                        progressBar;
 
-    RExpanderBox*                            settingsExpander;
     KPImagesList*                            imgList;
     UploadWidget*                            uploadWidget;
 
@@ -186,7 +172,9 @@ WmWidget::WmWidget(QWidget* const parent)
     : QWidget(parent),
       d(new Private)
 {
-    setObjectName("WmWidget");
+    setObjectName(QLatin1String("WmWidget"));
+
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
     QVBoxLayout* const mainLayout = new QVBoxLayout(this);
 
@@ -206,7 +194,7 @@ WmWidget::WmWidget(QWidget* const parent)
     // --------------------- Upload tab ----------------------------------
 
     QScrollArea* const wrapperScroll = new QScrollArea(this);
-    KVBox* const wrapperPan          = new KVBox(wrapperScroll->viewport());
+    KPVBox* const wrapperPan          = new KPVBox(wrapperScroll->viewport());
     wrapperScroll->setWidget(wrapperPan);
     wrapperScroll->setWidgetResizable(true);
     wrapperScroll->setVisible(false);
@@ -215,13 +203,13 @@ WmWidget::WmWidget(QWidget* const parent)
     QHBoxLayout* const wrapperLayout = new QHBoxLayout(wrapper);
 
     QScrollArea* const upload = new QScrollArea(wrapper);
-    KVBox* const pan          = new KVBox(upload->viewport());
+    KPVBox* const pan          = new KPVBox(upload->viewport());
     pan->setAutoFillBackground(true);
 
     upload->setWidget(pan);
     upload->setWidgetResizable(true);
 
-    KVBox* const uploadBox             = new KVBox(pan);
+    KPVBox* const uploadBox             = new KPVBox(pan);
     QWidget* const uploadPanel         = new QWidget(uploadBox);
     QVBoxLayout* const uploadBoxLayout = new QVBoxLayout(uploadPanel);
 
@@ -231,20 +219,20 @@ WmWidget::WmWidget(QWidget* const parent)
 
     loadImageInfoFirstLoad();
 
-    d->titleEdit    = new KLineEdit(d->defaultMessage, d->fileBox);
-    d->dateEdit     = new KLineEdit(d->defaultMessage, d->fileBox);
+    d->titleEdit    = new QLineEdit(d->defaultMessage, d->fileBox);
+    d->dateEdit     = new QLineEdit(d->defaultMessage, d->fileBox);
 
-    d->descEdit     = new KTextEdit(d->fileBox);
+    d->descEdit     = new QTextEdit(d->fileBox);
     d->descEdit->setPlainText(d->defaultMessage);
     d->descEdit->setTabChangesFocus(1);
     d->descEdit->setAcceptRichText(false);
-    d->categoryEdit = new KTextEdit(d->fileBox);
+    d->categoryEdit = new QTextEdit(d->fileBox);
     d->categoryEdit->setPlainText(d->defaultMessage);
     d->categoryEdit->setTabChangesFocus(1);
     d->categoryEdit->setAcceptRichText(false);
 
-    d->latitudeEdit  = new KLineEdit(d->defaultMessage, d->fileBox);
-    d->longitudeEdit = new KLineEdit(d->defaultMessage, d->fileBox);
+    d->latitudeEdit  = new QLineEdit(d->defaultMessage, d->fileBox);
+    d->longitudeEdit = new QLineEdit(d->defaultMessage, d->fileBox);
 
     QLabel* const titleLabel     = new QLabel(d->fileBox);
     titleLabel->setText(i18n("Title:"));
@@ -259,7 +247,7 @@ WmWidget::WmWidget(QWidget* const parent)
     QLabel* const longitudeLabel = new QLabel(d->fileBox);
     longitudeLabel->setText(i18n("Longitude:"));
 
-    uploadBoxLayout->setSpacing(KDialog::spacingHint());
+    uploadBoxLayout->setSpacing(spacing);
     uploadBoxLayout->addWidget(d->fileBox, 0, Qt::AlignTop);
 
     fileBoxLayout->addWidget(titleLabel,       1, 0, 1, 1);
@@ -278,45 +266,48 @@ WmWidget::WmWidget(QWidget* const parent)
     // --------------------- Config tab ----------------------------------
 
     QScrollArea* const config = new QScrollArea(wrapper);
-    KVBox* const panel2       = new KVBox(config->viewport());
+    KPVBox* const panel2       = new KPVBox(config->viewport());
     config->setWidget(panel2);
     config->setWidgetResizable(true);
 
-    d->settingsExpander = new RExpanderBox(panel2);
-    d->settingsExpander->setObjectName("MediaWiki Settings Expander");
+    // --------------------- Account area ----------------------------------
 
-    d->userBox    = new KVBox(panel2);
-    d->loginBox   = new QWidget(d->userBox);
-    d->loginBox->setWhatsThis(i18n("This is the login form to your MediaWiki account."));
-    QGridLayout* const loginBoxLayout = new QGridLayout(d->loginBox);
+    d->userGBox = new QGroupBox(panel2);
+    d->userGBox->setTitle(i18n("Account"));
+    d->userGBox->setWhatsThis(i18n("This is the login form to your MediaWiki account."));
 
-    d->wikiSelect                 = new QComboBox(d->loginBox);
-    KPushButton* const newWikiBtn = new KPushButton(KGuiItem(i18n("New"), "list-add", i18n("Add a wiki to this list")), d->loginBox);
-    d->nameEdit                   = new KLineEdit(d->loginBox);
-    d->passwdEdit                 = new KLineEdit(d->loginBox);
-    d->passwdEdit->setEchoMode(KLineEdit::Password);
+    QGridLayout* const loginBoxLayout = new QGridLayout(d->userGBox);
+    d->userGBox->setLayout(loginBoxLayout);
 
-    d->wikiSelect->addItem(i18n("Wikimedia Commons"),  QString("http://commons.wikimedia.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wikimedia Meta"),     QString("http://meta.wikimedia.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wikipedia"),          QString("http://en.wikipedia.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wikibooks"),          QString("http://en.wikibooks.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wikinews"),           QString("http://en.wikinews.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wikiquote"),          QString("http://en.wikiquote.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wikisource"),         QString("http://en.wikinews.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wiktionary"),         QString("http://en.wiktionary.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("MediaWiki"),          QString("http://www.mediawiki.org/w/api.php"));
-    d->wikiSelect->addItem(i18n("Wikia Foto"),         QString("http://foto.wikia.com/api.php"));
-    d->wikiSelect->addItem(i18n("Wikia Uncyclopedia"), QString("http://uncyclopedia.wikia.com/api.php"));
+    d->wikiSelect                 = new QComboBox(d->userGBox);
+    d->wikiSelect->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
+    QPushButton* const newWikiBtn = new QPushButton(QIcon::fromTheme(QLatin1String("list-add")), i18n("New"), d->userGBox);
+    newWikiBtn->setToolTip(i18n("Add a wiki to this list"));
+    d->nameEdit                   = new QLineEdit(d->userGBox);
+    d->passwdEdit                 = new QLineEdit(d->userGBox);
+    d->passwdEdit->setEchoMode(QLineEdit::Password);
+
+    d->wikiSelect->addItem(i18n("Wikimedia Commons"),  QLatin1String("https://commons.wikimedia.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wikimedia Meta"),     QLatin1String("https://meta.wikimedia.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wikipedia"),          QLatin1String("https://en.wikipedia.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wikibooks"),          QLatin1String("https://en.wikibooks.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wikinews"),           QLatin1String("https://en.wikinews.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wikiquote"),          QLatin1String("https://en.wikiquote.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wikisource"),         QLatin1String("https://en.wikinews.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wiktionary"),         QLatin1String("https://en.wiktionary.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("MediaWiki"),          QLatin1String("https://www.mediawiki.org/w/api.php"));
+    d->wikiSelect->addItem(i18n("Wikia Foto"),         QLatin1String("https://foto.wikia.com/api.php"));
+    d->wikiSelect->addItem(i18n("Wikia Uncyclopedia"), QLatin1String("https://uncyclopedia.wikia.com/api.php"));
 
     d->wikiSelect->setEditable(false);
 
-    QLabel* const wikiLabel = new QLabel(d->loginBox);
+    QLabel* const wikiLabel = new QLabel(d->userGBox);
     wikiLabel->setText(i18n("Wiki:"));
 
     // --------------------- New wiki area ----------------------------------
 
     d->newWikiSv              = new QScrollArea(this);
-    KVBox* const newWikiPanel = new KVBox(d->newWikiSv->viewport());
+    KPVBox* const newWikiPanel = new KPVBox(d->newWikiSv->viewport());
     d->newWikiSv->setWidget(newWikiPanel);
     d->newWikiSv->setWidgetResizable(true);
     d->newWikiSv->setVisible(false);
@@ -329,14 +320,14 @@ WmWidget::WmWidget(QWidget* const parent)
     QLabel* const newWikiNameLabel   = new QLabel(newWikiPanel);
     newWikiNameLabel->setText(i18n("Name:"));
 
-
     QLabel* const newWikiUrlLabel    = new QLabel(newWikiPanel);
     newWikiUrlLabel->setText(i18n("API URL:"));
 
-    d->newWikiNameEdit            = new KLineEdit(newWikiPanel);
-    d->newWikiUrlEdit             = new KLineEdit(newWikiPanel);
+    d->newWikiNameEdit            = new QLineEdit(newWikiPanel);
+    d->newWikiUrlEdit             = new QLineEdit(newWikiPanel);
 
-    KPushButton* const addWikiBtn = new KPushButton(KGuiItem(i18n("Add"), "list-add", i18n("Add a new wiki")), newWikiPanel);
+    QPushButton* const addWikiBtn = new QPushButton(QIcon::fromTheme(QLatin1String("list-add")), i18n("Add"), newWikiPanel);
+    addWikiBtn->setToolTip(i18n("Add a new wiki"));
 
     newWikiLayout->addWidget(newWikiNameLabel,   0, 0, 1, 1);
     newWikiLayout->addWidget(d->newWikiNameEdit, 0, 1, 1, 1);
@@ -344,13 +335,13 @@ WmWidget::WmWidget(QWidget* const parent)
     newWikiLayout->addWidget(d->newWikiUrlEdit,  1, 1, 1, 1);
     newWikiLayout->addWidget(addWikiBtn,         2, 1, 1, 1);
 
-    QLabel* const nameLabel     = new QLabel(d->loginBox);
+    QLabel* const nameLabel     = new QLabel(d->userGBox);
     nameLabel->setText(i18n( "Login:" ));
 
-    QLabel* const passwdLabel   = new QLabel(d->loginBox);
+    QLabel* const passwdLabel   = new QLabel(d->userGBox);
     passwdLabel->setText(i18n("Password:"));
 
-    QPushButton* const loginBtn = new QPushButton(d->loginBox);
+    QPushButton* const loginBtn = new QPushButton(d->userGBox);
     loginBtn->setAutoDefault(true);
     loginBtn->setDefault(true);
     loginBtn->setText(i18n("&Log in"));
@@ -364,88 +355,93 @@ WmWidget::WmWidget(QWidget* const parent)
     loginBoxLayout->addWidget(passwdLabel,   5, 0, 1, 1);
     loginBoxLayout->addWidget(d->passwdEdit, 5, 1, 1, 1);
     loginBoxLayout->addWidget(loginBtn,      6, 0, 1, 1);
-    loginBoxLayout->setObjectName("d->loginBoxLayout");
+    loginBoxLayout->setObjectName(QLatin1String("loginBoxLayout"));
 
-    d->accountBox                       = new QWidget(d->userBox);
-    QGridLayout* const accountBoxLayout = new QGridLayout(d->accountBox);
+    // --------------------- Login info area ----------------------------------
 
-    QLabel* const wikiNameLbl = new QLabel(d->accountBox);
+    d->loginGBox = new QGroupBox(panel2);
+    d->loginGBox->setTitle(i18n("Login Information"));
+
+    QGridLayout* const linfoBoxLayout = new QGridLayout(d->loginGBox);
+    d->loginGBox->setLayout(linfoBoxLayout);
+
+    QLabel* const wikiNameLbl = new QLabel(d->loginGBox);
     wikiNameLbl->setText(i18nc("Name of the wiki the user is currently logged on", "Logged on: "));
-    d->wikiNameDisplayLbl     = new QLabel(d->accountBox);
+    d->wikiNameDisplayLbl     = new QLabel(d->loginGBox);
 
-    QLabel* const userNameLbl = new QLabel(d->accountBox);
+    QLabel* const userNameLbl = new QLabel(d->loginGBox);
     userNameLbl->setText(i18nc("Username which is used to connect to the wiki", "Logged as: "));
-    d->userNameDisplayLbl     = new QLabel(d->accountBox);
+    d->userNameDisplayLbl     = new QLabel(d->loginGBox);
 
-    d->changeUserBtn          = new KPushButton(KGuiItem(i18n("Change Account"), "system-switch-user",
-                                i18n("Logout and change the account used for transfer")),
-                                d->accountBox);
+    d->changeUserBtn          = new QPushButton(QIcon::fromTheme(QLatin1String("system-switch-user")), i18n("Change Account"), d->loginGBox);
+    d->changeUserBtn->setToolTip(i18n("Logout and change the account used for transfer"));
 
-    accountBoxLayout->addWidget(wikiNameLbl,           0, 0, 1, 1);
-    accountBoxLayout->addWidget(d->wikiNameDisplayLbl, 0, 1, 1, 1);
-    accountBoxLayout->addWidget(userNameLbl,           1, 0, 1, 1);
-    accountBoxLayout->addWidget(d->userNameDisplayLbl, 1, 1, 1, 1);
-    accountBoxLayout->addWidget(d->changeUserBtn,      2, 0, 1, 2);
-    d->accountBox->hide();
+    linfoBoxLayout->addWidget(wikiNameLbl,           0, 0, 1, 1);
+    linfoBoxLayout->addWidget(d->wikiNameDisplayLbl, 0, 1, 1, 1);
+    linfoBoxLayout->addWidget(userNameLbl,           1, 0, 1, 1);
+    linfoBoxLayout->addWidget(d->userNameDisplayLbl, 1, 1, 1, 1);
+    linfoBoxLayout->addWidget(d->changeUserBtn,      2, 0, 1, 2);
+    d->loginGBox->hide();
 
-    d->settingsExpander->addItem(d->userBox, i18n("Account"), QString("account"), true);
-    d->settingsExpander->setItemIcon(0, SmallIcon("user-properties"));
+    // --------------------- Info area ----------------------------------
 
-    // --------------------- Login area ----------------------------------
+    QGroupBox* const textGBox = new QGroupBox(panel2);
+    textGBox->setTitle(i18n("Information"));
+    textGBox->setWhatsThis(i18n("This is the login form to your account on the chosen wiki."));
 
-    d->textBox                       = new QWidget(panel2);
-    d->textBox->setWhatsThis(i18n("This is the login form to your account on the chosen wiki."));
-    QGridLayout* const textBoxLayout = new QGridLayout(d->textBox);
+    QGridLayout* const textBoxLayout = new QGridLayout(textGBox);
+    textGBox->setLayout(textBoxLayout);
 
-    QLabel* const authorLbl  = new QLabel(i18n("Author:"), d->textBox);
-    d->authorEdit            = new KLineEdit(d->textBox);
+    QLabel* const authorLbl  = new QLabel(i18n("Author:"), textGBox);
+    d->authorEdit            = new QLineEdit(textGBox);
 
-    QLabel* const sourceLbl  = new QLabel(i18n("Source:"), d->textBox);
-    d->sourceEdit            = new KLineEdit(d->textBox);
+    QLabel* const sourceLbl  = new QLabel(i18n("Source:"), textGBox);
+    d->sourceEdit            = new QLineEdit(textGBox);
 
-    QLabel* const licenseLbl = new QLabel(i18n("License:"), d->textBox);
-    d->licenseComboBox       = new SqueezedComboBox(d->textBox);
+    QLabel* const licenseLbl = new QLabel(i18n("License:"), textGBox);
+    d->licenseComboBox       = new QComboBox(textGBox);
+    d->licenseComboBox->setSizeAdjustPolicy(QComboBox::AdjustToMinimumContentsLength);
 
-    d->licenseComboBox->addSqueezedItem(i18n("Own work, multi-license with CC-BY-SA-3.0 and GFDL"), 
-                                       QString("{{self|cc-by-sa-3.0|GFDL|migration=redundant}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Own work, multi-license with CC-BY-SA-3.0 and older"), 
-                                       QString("{{self|cc-by-sa-3.0,2.5,2.0,1.0}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Creative Commons Attribution-Share Alike 3.0"),
-                                       QString("{{self|cc-by-sa-3.0}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Own work, Creative Commons Attribution 3.0"),
-                                       QString("{{self|cc-by-3.0}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Own work, release into public domain under the CC-Zero license"),
-                                       QString("{{self|cc-zero}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Author died more than 100 years ago"),
-                                       QString("{{PD-old}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Photo of a two-dimensional work whose author died more than 100 years ago"),
-                                       QString("{{PD-art}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("First published in the United States before 1923"),
-                                       QString("{{PD-US}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Work of a U.S. government agency"),
-                                       QString("{{PD-USGov}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Simple typefaces, individual words or geometric shapes"),
-                                       QString("{{PD-text}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("Logos with only simple typefaces, individual words or geometric shapes"),
-                                       QString("{{PD-textlogo}}"));
-    d->licenseComboBox->addSqueezedItem(i18n("No license specified (not recommended for public wiki sites)"),
-                                       QString(""));
+    d->licenseComboBox->addItem(i18n("Own work, multi-license with CC-BY-SA-3.0 and GFDL"),
+                                       QLatin1String("{{self|cc-by-sa-3.0|GFDL|migration=redundant}}"));
+    d->licenseComboBox->addItem(i18n("Own work, multi-license with CC-BY-SA-3.0 and older"),
+                                       QLatin1String("{{self|cc-by-sa-3.0,2.5,2.0,1.0}}"));
+    d->licenseComboBox->addItem(i18n("Creative Commons Attribution-Share Alike 3.0"),
+                                       QLatin1String("{{self|cc-by-sa-3.0}}"));
+    d->licenseComboBox->addItem(i18n("Own work, Creative Commons Attribution 3.0"),
+                                       QLatin1String("{{self|cc-by-3.0}}"));
+    d->licenseComboBox->addItem(i18n("Own work, release into public domain under the CC-Zero license"),
+                                       QLatin1String("{{self|cc-zero}}"));
+    d->licenseComboBox->addItem(i18n("Author died more than 100 years ago"),
+                                       QLatin1String("{{PD-old}}"));
+    d->licenseComboBox->addItem(i18n("Photo of a two-dimensional work whose author died more than 100 years ago"),
+                                       QLatin1String("{{PD-art}}"));
+    d->licenseComboBox->addItem(i18n("First published in the United States before 1923"),
+                                       QLatin1String("{{PD-US}}"));
+    d->licenseComboBox->addItem(i18n("Work of a U.S. government agency"),
+                                       QLatin1String("{{PD-USGov}}"));
+    d->licenseComboBox->addItem(i18n("Simple typefaces, individual words or geometric shapes"),
+                                       QLatin1String("{{PD-text}}"));
+    d->licenseComboBox->addItem(i18n("Logos with only simple typefaces, individual words or geometric shapes"),
+                                       QLatin1String("{{PD-textlogo}}"));
+    d->licenseComboBox->addItem(i18n("No license specified (not recommended for public wiki sites)"),
+                                       QLatin1String(""));
 
-    QLabel* const genCatLbl = new QLabel(i18n("Generic categories:"), d->textBox);
-    d->genCatEdit           = new KTextEdit(d->textBox);
+    QLabel* const genCatLbl = new QLabel(i18n("Generic categories:"), textGBox);
+    d->genCatEdit           = new QTextEdit(textGBox);
     d->genCatEdit->setTabChangesFocus(1);
     d->genCatEdit->setWhatsThis(i18n("This is a place to enter categories that will be added to all the files."));
     d->genCatEdit->setAcceptRichText(false);
 
-    QLabel* const genTxtLbl = new QLabel(i18n("Generic text:"), d->textBox);
-    d->genTxtEdit           = new KTextEdit(d->textBox);
+    QLabel* const genTxtLbl = new QLabel(i18n("Generic text:"), textGBox);
+    d->genTxtEdit           = new QTextEdit(textGBox);
     d->genTxtEdit->setTabChangesFocus(1);
     d->genTxtEdit->setWhatsThis(i18n("This is a place to enter text that will be added to all the files, "
                                      "below the Information template."));
     d->genTxtEdit->setAcceptRichText(false);
 
-    QLabel* const genComLbl = new QLabel(i18n("Upload comments:"), d->textBox);
-    d->genComEdit           = new KTextEdit(d->textBox);
+    QLabel* const genComLbl = new QLabel(i18n("Upload comments:"), textGBox);
+    d->genComEdit           = new QTextEdit(textGBox);
     d->genComEdit->setTabChangesFocus(1);
     d->genComEdit->setWhatsThis(i18n("This is a place to enter text that will be used as upload comments. "
                                      "The default of 'Uploaded via KIPI uploader' will be used if empty."));
@@ -464,43 +460,43 @@ WmWidget::WmWidget(QWidget* const parent)
     textBoxLayout->addWidget(d->genCatEdit,      4, 2, 1, 2);
     textBoxLayout->addWidget(d->genTxtEdit,      5, 2, 1, 2);
     textBoxLayout->addWidget(d->genComEdit,      6, 2, 1, 2);
-    textBoxLayout->setObjectName("d->textBoxLayout");
-
-    d->settingsExpander->addItem(d->textBox, i18n("Information"), QString("information"), true);
-    d->settingsExpander->setItemIcon(1, SmallIcon("document-properties"));
+    textBoxLayout->setObjectName(QLatin1String("textBoxLayout"));
 
     // --------------------- Options area ----------------------------------
 
-    d->optionsBox                       = new QWidget(panel2);
-    d->optionsBox->setWhatsThis(i18n("These are options that will be applied to photos before upload."));
-    QGridLayout* const optionsBoxLayout = new QGridLayout(d->optionsBox);
+    QGroupBox* const optGBox = new QGroupBox(panel2);
+    optGBox->setTitle(i18n("Options"));
+    optGBox->setWhatsThis(i18n("These are options that will be applied to photos before upload."));
 
-    d->resizeChB = new QCheckBox(d->optionsBox);
+    QGridLayout* const optionsBoxLayout = new QGridLayout(optGBox);
+    optGBox->setLayout(optionsBoxLayout);
+
+    d->resizeChB = new QCheckBox(optGBox);
     d->resizeChB->setText(i18n("Resize photos before uploading"));
     d->resizeChB->setChecked(false);
 
-    d->dimensionSpB            = new QSpinBox(d->optionsBox);
+    d->dimensionSpB            = new QSpinBox(optGBox);
     d->dimensionSpB->setMinimum(0);
     d->dimensionSpB->setMaximum(10000);
     d->dimensionSpB->setSingleStep(10);
     d->dimensionSpB->setValue(1600);
     d->dimensionSpB->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
     d->dimensionSpB->setEnabled(false);
-    QLabel* const dimensionLbl = new QLabel(i18n("Maximum size:"), d->optionsBox);
+    QLabel* const dimensionLbl = new QLabel(i18n("Maximum size:"), optGBox);
 
-    d->imageQualitySpB            = new QSpinBox(d->optionsBox);
+    d->imageQualitySpB         = new QSpinBox(optGBox);
     d->imageQualitySpB->setMinimum(0);
     d->imageQualitySpB->setMaximum(100);
     d->imageQualitySpB->setSingleStep(1);
     d->imageQualitySpB->setValue(85);
     d->imageQualitySpB->setSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed);
-    QLabel* const imageQualityLbl = new QLabel(i18n("JPEG quality:"), d->optionsBox);
+    QLabel* const imageQualityLbl = new QLabel(i18n("JPEG quality:"), optGBox);
 
-    d->removeMetaChB = new QCheckBox(d->optionsBox);
+    d->removeMetaChB = new QCheckBox(optGBox);
     d->removeMetaChB->setText(i18n("Remove metadata from file"));
     d->removeMetaChB->setChecked(false);
 
-    d->removeGeoChB = new QCheckBox(d->optionsBox);
+    d->removeGeoChB = new QCheckBox(optGBox);
     d->removeGeoChB->setText(i18n("Remove coordinates from file"));
     d->removeGeoChB->setChecked(false);
 
@@ -512,11 +508,8 @@ WmWidget::WmWidget(QWidget* const parent)
     optionsBoxLayout->addWidget(d->removeMetaChB,   3, 0, 1, 2);
     optionsBoxLayout->addWidget(d->removeGeoChB,    4, 0, 1, 2);
     optionsBoxLayout->setRowStretch(3, 10);
-    optionsBoxLayout->setSpacing(KDialog::spacingHint());
-    optionsBoxLayout->setMargin(KDialog::spacingHint());
-
-    d->settingsExpander->addItem(d->optionsBox, i18n("Options"), QString("options"), true);
-    d->settingsExpander->setItemIcon(2, SmallIcon("system-run"));
+    optionsBoxLayout->setSpacing(spacing);
+    optionsBoxLayout->setContentsMargins(spacing, spacing, spacing, spacing);
 
     // ------------------------------------------------------------------------
 
@@ -540,9 +533,9 @@ WmWidget::WmWidget(QWidget* const parent)
 
     mainLayout->addWidget(d->headerLbl);
     mainLayout->addWidget(wrapper);
-    mainLayout->setSpacing(KDialog::spacingHint());
+    mainLayout->setSpacing(spacing);
     mainLayout->addWidget(d->progressBar);
-    mainLayout->setMargin(0);
+    mainLayout->setContentsMargins(QMargins());
 
     updateLabels();  // use empty labels until login
 
@@ -576,13 +569,13 @@ WmWidget::WmWidget(QWidget* const parent)
             this, SLOT(slotApplyDate()));
 
     // Problem: textChanged() is also called when the text is changed by setText()
-    // textEdited() would be better, but KTextEdit does not have this.
+    // textEdited() would be better, but QTextEdit does not have this.
     // Solution for the moment: we do not setText() when the selection changes
     connect(d->categoryEdit, SIGNAL(textChanged()),
             this, SLOT(slotApplyCategories()));
 
     // Problem: textChanged() is also called when the text is changed by setText()
-    // textEdited() would be better, but KTextEdit does not have this.
+    // textEdited() would be better, but QTextEdit does not have this.
     // Solution for the moment: we do not setText() when the selection changes
     connect(d->descEdit, SIGNAL(textChanged()),
             this, SLOT(slotApplyDescription()));
@@ -596,8 +589,8 @@ WmWidget::WmWidget(QWidget* const parent)
     connect(d->imgList, SIGNAL(signalItemClicked(QTreeWidgetItem*)),
             this, SLOT(slotLoadImagesDesc(QTreeWidgetItem*)));
 
-    connect(d->imgList, SIGNAL(signalRemovedItems(KUrl::List)),
-            this, SLOT(slotRemoveImagesDesc(KUrl::List)));
+    connect(d->imgList, SIGNAL(signalRemovedItems(QList<QUrl>)),
+            this, SLOT(slotRemoveImagesDesc(QList<QUrl>)));
 }
 
 WmWidget::~WmWidget()
@@ -607,13 +600,7 @@ WmWidget::~WmWidget()
 
 void WmWidget::readSettings(KConfigGroup& group)
 {
-    kDebug() << "Read settings from" << group.name();
-
-#if KDCRAW_VERSION >= 0x020000
-    d->settingsExpander->readSettings(group);
-#else
-    d->settingsExpander->readSettings();
-#endif
+    qCDebug(KIPIPLUGINS_LOG) <<  "Read settings from" << group.name();
 
     d->authorEdit->setText(group.readEntry("Author",           ""));
     d->sourceEdit->setText(group.readEntry("Source",           "{{own}}"));
@@ -633,7 +620,7 @@ void WmWidget::readSettings(KConfigGroup& group)
     d->WikisHistory = group.readEntry("Wikis history",         QStringList());
     d->UrlsHistory  = group.readEntry("Urls history",          QStringList());
 
-    kDebug() << "UrlHistory.size: " << d->UrlsHistory.size() << "; WikisHistory.size:" << d->WikisHistory.size();
+    qCDebug(KIPIPLUGINS_LOG) << "UrlHistory.size: " << d->UrlsHistory.size() << "; WikisHistory.size:" << d->WikisHistory.size();
 
     for(int i = 0 ; i < d->UrlsHistory.size() && i < d->WikisHistory.size() ; i++)
     {
@@ -643,13 +630,7 @@ void WmWidget::readSettings(KConfigGroup& group)
 
 void WmWidget::saveSettings(KConfigGroup& group)
 {
-    kDebug() <<  "Save settings to" << group.name();
-
-#if KDCRAW_VERSION >= 0x020000
-    d->settingsExpander->writeSettings(group);
-#else
-    d->settingsExpander->writeSettings();
-#endif
+    qCDebug(KIPIPLUGINS_LOG) << "Save settings to" << group.name();
 
     group.writeEntry("Author",        d->authorEdit->text());
     group.writeEntry("Source",        d->sourceEdit->text());
@@ -678,7 +659,7 @@ KPProgressWidget* WmWidget::progressBar() const
 
 void WmWidget::updateLabels(const QString& userName, const QString& wikiName, const QString& url)
 {
-    QString web("http://www.mediawiki.org");
+    QString web = QLatin1String("https://www.mediawiki.org");
 
     if (url.isEmpty())
     {
@@ -690,7 +671,7 @@ void WmWidget::updateLabels(const QString& userName, const QString& wikiName, co
         d->wikiNameDisplayLbl->setText(QString::fromLatin1("<b>%1</b>").arg(wikiName));
     }
 
-    d->headerLbl->setText(QString("<h2><b><a href='%1'><font color=\"#3B5998\">%2</font></a></b></h2>").arg(web).arg(wikiName));
+    d->headerLbl->setText(QString::fromUtf8("<h2><b><a href='%1'><font color=\"#3B5998\">%2</font></a></b></h2>").arg(web).arg(wikiName));
 
     if (userName.isEmpty())
     {
@@ -704,15 +685,15 @@ void WmWidget::updateLabels(const QString& userName, const QString& wikiName, co
 
 void WmWidget::invertAccountLoginBox()
 {
-    if (d->accountBox->isHidden())
+    if (d->loginGBox->isHidden())
     {
-        d->loginBox->hide();
-        d->accountBox->show();
+        d->userGBox->hide();
+        d->loginGBox->show();
     }
     else
     {
-        d->loginBox->show();
-        d->accountBox->hide();
+        d->userGBox->show();
+        d->loginGBox->hide();
     }
 }
 
@@ -754,16 +735,16 @@ void WmWidget::slotNewWikiClicked()
 
 void WmWidget::slotAddWikiClicked()
 {
-    KConfig config("kipirc");
-    KConfigGroup group = config.group(QString("MediaWiki export settings"));
+    KConfig config(QLatin1String("kipirc"));
+    KConfigGroup group = config.group(QLatin1String("MediaWiki export settings"));
 
-    d->UrlsHistory << d->newWikiUrlEdit->userText();
-    group.writeEntry("Urls history", d->UrlsHistory);
+    d->UrlsHistory << d->newWikiUrlEdit->text();
+    group.writeEntry(QLatin1String("Urls history"), d->UrlsHistory);
 
-    d->WikisHistory << d->newWikiNameEdit->userText();
-    group.writeEntry("Wikis history", d->WikisHistory);
+    d->WikisHistory << d->newWikiNameEdit->text();
+    group.writeEntry(QLatin1String("Wikis history"), d->WikisHistory);
 
-    d->wikiSelect->addItem(d->newWikiNameEdit->userText(), d->newWikiUrlEdit->userText());
+    d->wikiSelect->addItem(d->newWikiNameEdit->text(), d->newWikiUrlEdit->text());
     d->wikiSelect->setCurrentIndex(d->wikiSelect->count()-1);
 
     slotNewWikiClicked();
@@ -771,7 +752,7 @@ void WmWidget::slotAddWikiClicked()
 
 void WmWidget::loadImageInfoFirstLoad()
 {
-    KUrl::List urls = d->imgList->imageUrls(false);
+    QList<QUrl> urls = d->imgList->imageUrls(false);
 
     d->imagesDescInfo.clear();
 
@@ -781,18 +762,18 @@ void WmWidget::loadImageInfoFirstLoad()
     }
 }
 
-void WmWidget::loadImageInfo(const KUrl& url)
+void WmWidget::loadImageInfo(const QUrl& url)
 {
-    KPImageInfo info(url.path());
+    KPImageInfo info(url);
     QStringList keywar        = info.keywords();
-    QString date              = info.date().toString(Qt::ISODate).replace("T", " ", Qt::CaseSensitive);
+    QString date              = info.date().toString(Qt::ISODate).replace(QLatin1String("T"), QLatin1String(" "), Qt::CaseSensitive);
     QString title             = info.name();
     QString description       = info.title();
     QString currentCategories;
     QString latitude;
     QString longitude;
 
-    for (int i = 0; i < keywar.size(); i++) 
+    for (int i = 0; i < keywar.size(); i++)
     {
         if (i == keywar.size() - 1)
         {
@@ -800,7 +781,7 @@ void WmWidget::loadImageInfo(const KUrl& url)
         }
         else
         {
-            currentCategories.append(keywar.at(i)).append("\n");
+            currentCategories.append(keywar.at(i)).append(QLatin1String("\n"));
         }
     }
 
@@ -815,13 +796,13 @@ void WmWidget::loadImageInfo(const KUrl& url)
     }
 
     QMap<QString, QString> imageMetaData;
-    imageMetaData["title"]       = title;
-    imageMetaData["date"]        = date;
-    imageMetaData["categories"]  = currentCategories;
-    imageMetaData["description"] = description;
-    imageMetaData["latitude"]    = latitude;
-    imageMetaData["longitude"]   = longitude;
-    d->imagesDescInfo.insert(url.path(), imageMetaData);
+    imageMetaData[QLatin1String("title")]       = title;
+    imageMetaData[QLatin1String("date")]        = date;
+    imageMetaData[QLatin1String("categories")]  = currentCategories;
+    imageMetaData[QLatin1String("description")] = description;
+    imageMetaData[QLatin1String("latitude")]    = latitude;
+    imageMetaData[QLatin1String("longitude")]   = longitude;
+    d->imagesDescInfo.insert(url.toLocalFile(), imageMetaData);
 }
 
 void WmWidget::clearEditFields()
@@ -844,43 +825,43 @@ void WmWidget::slotLoadImagesDesc(QTreeWidgetItem* item)
 
     QMap<QString, QString> imageMetaData;
 
-    if (!d->imagesDescInfo.contains(l_item->url().path())) 
+    if (!d->imagesDescInfo.contains(l_item->url().toLocalFile()))
     {
         loadImageInfo(l_item->url());
     }
 
-    imageMetaData = d->imagesDescInfo[l_item->url().path()];
+    imageMetaData = d->imagesDescInfo[l_item->url().toLocalFile()];
 
-    d->titleEdit->setText(imageMetaData["title"]);
-    d->dateEdit->setText(imageMetaData["date"].replace("T", " ", Qt::CaseSensitive));
-    d->latitudeEdit->setText(imageMetaData["latitude"]);
-    d->longitudeEdit->setText(imageMetaData["longitude"]);
+    d->titleEdit->setText(imageMetaData[QLatin1String("title")]);
+    d->dateEdit->setText(imageMetaData[QLatin1String("date")].replace(QLatin1String("T"), QLatin1String(" "), Qt::CaseSensitive));
+    d->latitudeEdit->setText(imageMetaData[QLatin1String("latitude")]);
+    d->longitudeEdit->setText(imageMetaData[QLatin1String("longitude")]);
 
     if (selectedItems.size() == 1)
     {
-        d->categoryEdit->setText(imageMetaData["categories"]);
-        d->descEdit->setText(imageMetaData["description"]);
+        d->categoryEdit->setText(imageMetaData[QLatin1String("categories")]);
+        d->descEdit->setText(imageMetaData[QLatin1String("description")]);
     }
 }
 
-void WmWidget::slotRemoveImagesDesc(const KUrl::List urls)
+void WmWidget::slotRemoveImagesDesc(const QList<QUrl> urls)
 {
-    for (KUrl::List::const_iterator it = urls.begin(); it != urls.end(); ++it)
+    for (QList<QUrl>::const_iterator it = urls.begin(); it != urls.end(); ++it)
     {
-        QString path = (*it).path();
+        QString path = (*it).toLocalFile();
         d->imagesDescInfo.remove(path);
-        kDebug() << "Remove" << path << "; new length:" << d->imagesDescInfo.size();
+        qCDebug(KIPIPLUGINS_LOG) << "Remove" << path << "; new length:" << d->imagesDescInfo.size();
     }
 }
 
 void WmWidget::slotRestoreExtension()
 {
-    kDebug() << "RestoreExtension";
+    qCDebug(KIPIPLUGINS_LOG) << "RestoreExtension";
 
     QString imageTitle;
     QString originalExtension;
     QString currentExtension;
-    KUrl::List urls;
+    QList<QUrl> urls;
     QMap<QString, QString> imageMetaData;
     QList<QTreeWidgetItem*> selectedItems = d->imgList->listView()->selectedItems();
 
@@ -895,38 +876,38 @@ void WmWidget::slotRestoreExtension()
 
     for (int i = 0; i < urls.size(); ++i)
     {
-        imageMetaData = d->imagesDescInfo[urls.at(i).path()];
-        imageTitle    = imageMetaData["title"];
+        imageMetaData = d->imagesDescInfo[urls.at(i).toLocalFile()];
+        imageTitle    = imageMetaData[QLatin1String("title")];
 
         // Add original extension if removed
-        currentExtension  = imageTitle.split('.').last();
-        originalExtension = urls.at(i).path().split('.').last();
+        currentExtension  = imageTitle.split(QLatin1Char('.')).last();
+        originalExtension = urls.at(i).toLocalFile().split(QLatin1Char('.')).last();
 
         if (QString::compare(currentExtension, originalExtension, Qt::CaseInsensitive) != 0)
         {
-            imageTitle.append(".").append(originalExtension);
+            imageTitle.append(QLatin1String(".")).append(originalExtension);
             d->titleEdit->setText(imageTitle);
         }
 
-        kDebug() << urls.at(i).path() << "renamed to" << imageTitle;
-        imageMetaData["title"]               = imageTitle;
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        qCDebug(KIPIPLUGINS_LOG) << urls.at(i).toLocalFile() << "renamed to" << imageTitle;
+        imageMetaData[QLatin1String("title")] = imageTitle;
+        d->imagesDescInfo[urls.at(i).toLocalFile()]  = imageMetaData;
     }
 }
 
 void WmWidget::slotApplyTitle()
 {
-    kDebug() << "ApplyTitle";
+    qCDebug(KIPIPLUGINS_LOG) << "ApplyTitle";
 
     QString givenTitle = title();
     QString imageTitle;
     QString number;
-    KUrl::List urls;
+    QList<QUrl> urls;
     QMap<QString, QString> imageMetaData;
     QList<QTreeWidgetItem*> selectedItems = d->imgList->listView()->selectedItems();
     QStringList parts;
 
-    const int minLength = givenTitle.count("#");
+    const int minLength = givenTitle.count(QLatin1String("#"));
 
     // Build the list of items to rename
     for (int i = 0; i < selectedItems.size(); ++i)
@@ -939,33 +920,33 @@ void WmWidget::slotApplyTitle()
 
     for (int i = 0; i < urls.size(); ++i)
     {
-        imageMetaData = d->imagesDescInfo[urls.at(i).path()];
+        imageMetaData = d->imagesDescInfo[urls.at(i).toLocalFile()];
         imageTitle    = givenTitle;
 
         // If there is at least one #, replace it the correct number
         if (minLength > 0)
         {
-            parts      = imageTitle.split("#", QString::KeepEmptyParts);
-            imageTitle = parts.first().append("#").append(parts.last());
+            parts      = imageTitle.split(QLatin1String("#"), QString::KeepEmptyParts);
+            imageTitle = parts.first().append(QLatin1String("#")).append(parts.last());
             number     = QString::number(i + 1);
 
             while (number.length() < minLength)
             {
-                number.prepend("0");
+                number.prepend(QLatin1String("0"));
             }
 
-            imageTitle.replace(imageTitle.indexOf("#"), 1, number);
+            imageTitle.replace(imageTitle.indexOf(QLatin1String("#")), 1, number);
         }
 
-        kDebug() << urls.at(i).path() << "renamed to" << imageTitle;
-        imageMetaData["title"]               = imageTitle;
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        qCDebug(KIPIPLUGINS_LOG) << urls.at(i).toLocalFile() << "renamed to" << imageTitle;
+        imageMetaData[QLatin1String("title")] = imageTitle;
+        d->imagesDescInfo[urls.at(i).toLocalFile()]  = imageMetaData;
     }
 }
 
 void WmWidget::slotApplyDate()
 {
-    KUrl::List urls;
+    QList<QUrl> urls;
     QList<QTreeWidgetItem*> selectedItems = d->imgList->listView()->selectedItems();
 
     for (int i = 0; i < selectedItems.size(); ++i)
@@ -979,15 +960,15 @@ void WmWidget::slotApplyDate()
     for (int i = 0; i < urls.size(); ++i)
     {
         QMap<QString, QString> imageMetaData;
-        imageMetaData         = d->imagesDescInfo[urls.at(i).path()];
-        imageMetaData["date"] = date();
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        imageMetaData                               = d->imagesDescInfo[urls.at(i).toLocalFile()];
+        imageMetaData[QLatin1String("date")]        = date();
+        d->imagesDescInfo[urls.at(i).toLocalFile()] = imageMetaData;
     }
 }
 
 void WmWidget::slotApplyCategories()
 {
-    KUrl::List urls;
+    QList<QUrl> urls;
     QList<QTreeWidgetItem*> selectedItems = d->imgList->listView()->selectedItems();
 
     for (int i = 0; i < selectedItems.size(); ++i)
@@ -1001,15 +982,15 @@ void WmWidget::slotApplyCategories()
     for (int i = 0; i < urls.size(); ++i)
     {
         QMap<QString, QString> imageMetaData;
-        imageMetaData                        = d->imagesDescInfo[urls.at(i).path()];
-        imageMetaData["categories"]          = categories();
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        imageMetaData                               = d->imagesDescInfo[urls.at(i).toLocalFile()];
+        imageMetaData[QLatin1String("categories")]  = categories();
+        d->imagesDescInfo[urls.at(i).toLocalFile()] = imageMetaData;
     }
 }
 
 void WmWidget::slotApplyDescription()
 {
-    KUrl::List urls;
+    QList<QUrl> urls;
     QList<QTreeWidgetItem*> selectedItems = d->imgList->listView()->selectedItems();
 
     for (int i = 0; i < selectedItems.size(); ++i)
@@ -1023,16 +1004,16 @@ void WmWidget::slotApplyDescription()
     for (int i = 0; i < urls.size(); ++i)
     {
         QMap<QString, QString> imageMetaData;
-        imageMetaData                        = d->imagesDescInfo[urls.at(i).path()];
-        imageMetaData["description"]         = description();
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        imageMetaData                               = d->imagesDescInfo[urls.at(i).toLocalFile()];
+        imageMetaData[QLatin1String("description")] = description();
+        d->imagesDescInfo[urls.at(i).toLocalFile()] = imageMetaData;
     }
 }
 
 void WmWidget::slotApplyLatitude()
 {
 
-    KUrl::List urls;
+    QList<QUrl> urls;
     QList<QTreeWidgetItem*> selectedItems = d->imgList->listView()->selectedItems();
 
     for (int i = 0; i < selectedItems.size(); ++i)
@@ -1046,15 +1027,15 @@ void WmWidget::slotApplyLatitude()
     for (int i = 0; i < urls.size(); ++i)
     {
         QMap<QString, QString> imageMetaData;
-        imageMetaData                        = d->imagesDescInfo[urls.at(i).path()];
-        imageMetaData["latitude"]            = latitude();
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        imageMetaData                               = d->imagesDescInfo[urls.at(i).toLocalFile()];
+        imageMetaData[QLatin1String("latitude")]    = latitude();
+        d->imagesDescInfo[urls.at(i).toLocalFile()] = imageMetaData;
     }
 }
 
 void WmWidget::slotApplyLongitude()
 {
-    KUrl::List urls;
+    QList<QUrl> urls;
     QList<QTreeWidgetItem*> selectedItems = d->imgList->listView()->selectedItems();
 
     for (int i = 0; i < selectedItems.size(); ++i)
@@ -1068,26 +1049,26 @@ void WmWidget::slotApplyLongitude()
     for (int i = 0; i < urls.size(); ++i)
     {
         QMap<QString, QString> imageMetaData;
-        imageMetaData                        = d->imagesDescInfo[urls.at(i).path()];
-        imageMetaData["longitude"]           = longitude();
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        imageMetaData                               = d->imagesDescInfo[urls.at(i).toLocalFile()];
+        imageMetaData[QLatin1String("longitude")]   = longitude();
+        d->imagesDescInfo[urls.at(i).toLocalFile()] = imageMetaData;
     }
 }
 
 QMap <QString,QMap <QString,QString> > WmWidget::allImagesDesc()
 {
-    KUrl::List urls = d->imgList->imageUrls(false);
+    QList<QUrl> urls = d->imgList->imageUrls(false);
 
     for (int i = 0; i < urls.size(); ++i)
     {
-        QMap<QString, QString> imageMetaData = d->imagesDescInfo[urls.at(i).path()];
-        imageMetaData["author"]              = author();
-        imageMetaData["source"]              = source();
-        imageMetaData["license"]             = license();
-        imageMetaData["genCategories"]       = genCategories();
-        imageMetaData["genText"]             = genText();
-        imageMetaData["comments"]            = genComments();
-        d->imagesDescInfo[urls.at(i).path()] = imageMetaData;
+        QMap<QString, QString> imageMetaData          = d->imagesDescInfo[urls.at(i).toLocalFile()];
+        imageMetaData[QLatin1String("author")]        = author();
+        imageMetaData[QLatin1String("source")]        = source();
+        imageMetaData[QLatin1String("license")]       = license();
+        imageMetaData[QLatin1String("genCategories")] = genCategories();
+        imageMetaData[QLatin1String("genText")]       = genText();
+        imageMetaData[QLatin1String("comments")]      = genComments();
+        d->imagesDescInfo[urls.at(i).toLocalFile()]   = imageMetaData;
     }
 
     return d->imagesDescInfo;
@@ -1095,103 +1076,103 @@ QMap <QString,QMap <QString,QString> > WmWidget::allImagesDesc()
 
 QString WmWidget::author() const
 {
-    kDebug() << "WmWidget::author()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::author()";
     return d->authorEdit->text();
 }
 
 QString WmWidget::source() const
 {
-    kDebug() << "WmWidget::source()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::source()";
     return d->sourceEdit->text();
 }
 
 QString WmWidget::genCategories() const
 {
-    kDebug() << "WmWidget::genCategories()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::genCategories()";
     return d->genCatEdit->toPlainText();
 }
 
 QString WmWidget::genText() const
 {
-    kDebug() << "WmWidget::genText()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::genText()";
     return d->genTxtEdit->toPlainText();
 }
 
 QString WmWidget::genComments() const
 {
-    kDebug() << "WmWidget::genComments()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::genComments()";
     return d->genComEdit->toPlainText();
 }
 
 int WmWidget::quality() const
 {
-    kDebug() << "WmWidget::quality()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::quality()";
     return d->imageQualitySpB->value();
 }
 
 int WmWidget::dimension() const
 {
-    kDebug() << "WmWidget::dimension()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::dimension()";
     return d->dimensionSpB->value();
 }
 
 bool WmWidget::resize() const
 {
-    kDebug() << "WmWidget::resize()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::resize()";
     return d->resizeChB->isChecked();
 }
 
 bool WmWidget::removeMeta() const
 {
-    kDebug() << "WmWidget::removeMeta()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::removeMeta()";
     return d->removeMetaChB->isChecked();
 }
 
 bool WmWidget::removeGeo() const
 {
-    kDebug() << "WmWidget::removeGeo()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::removeGeo()";
     return d->removeGeoChB->isChecked();
 }
 
 QString WmWidget::license() const
 {
-    kDebug() << "WmWidget::license()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::license()";
     return d->licenseComboBox->itemData(d->licenseComboBox->currentIndex()).toString();
 }
 
 QString WmWidget::title() const
 {
-    kDebug() << "WmWidget::title()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::title()";
     return d->titleEdit->text();
 }
 
 QString WmWidget::categories() const
 {
-    kDebug() << "WmWidget::categories()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::categories()";
     return d->categoryEdit->toPlainText();
 }
 
 QString WmWidget::description() const
 {
-    kDebug() << "WmWidget::description()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::description()";
     return d->descEdit->toPlainText();
 }
 
 QString WmWidget::date() const
 {
-    kDebug() << "WmWidget::date()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::date()";
     return d->dateEdit->text();
 }
 
 QString WmWidget::latitude() const
 {
-    kDebug() << "WmWidget::latitude()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::latitude()";
     return d->latitudeEdit->text();
 }
 
 QString WmWidget::longitude() const
 {
-    kDebug() << "WmWidget::longitude()";
+    qCDebug(KIPIPLUGINS_LOG) << "WmWidget::longitude()";
     return d->longitudeEdit->text();
 }
 

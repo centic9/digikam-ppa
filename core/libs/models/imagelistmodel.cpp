@@ -21,17 +21,14 @@
  *
  * ============================================================ */
 
-#include "imagelistmodel.moc"
-
-// KDE includes
-
-#include <kdebug.h>
+#include "imagelistmodel.h"
 
 // Local includes
 
-#include "databaseaccess.h"
-#include "databasechangesets.h"
-#include "databasewatch.h"
+#include "digikam_debug.h"
+#include "coredbaccess.h"
+#include "coredbchangesets.h"
+#include "coredbwatch.h"
 #include "imageinfo.h"
 #include "imageinfolist.h"
 
@@ -41,7 +38,7 @@ namespace Digikam
 ImageListModel::ImageListModel(QObject* parent)
     : ImageThumbnailModel(parent)
 {
-    connect(DatabaseAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
+    connect(CoreDbAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
             this, SLOT(slotCollectionImageChange(CollectionImageChangeset)));
 }
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flashexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2014-11-23 01:54+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2009-01-21 00:17+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -18,15 +18,7 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Yukiko Bando"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "ybando@k6.dion.ne.jp"
-
-#: aboutdata.h:41
+#: aboutdata.h:42
 msgid "Flash Export"
 msgstr "Flash エクスポート"
 
@@ -34,8 +26,7 @@ msgstr "Flash エクスポート"
 #, fuzzy
 #| msgid ""
 #| "A Kipi plugin to export images to Flash using Simple Viewer component"
-msgid ""
-"A Kipi plugin to export images to Flash using the SimpleViewer's components."
+msgid "A tool to export images to Flash using the SimpleViewer's components."
 msgstr ""
 "SimpleViewer コンポーネントを使って画像を Flash にエクスポートする Kipi プラ"
 "グイン"
@@ -47,8 +38,8 @@ msgstr ""
 #| "(c) 2008-2009, Gilles Caulier"
 msgid ""
 "(c) 2005-2006, Joern Ahrens\n"
-"(c) 2008-2012, Gilles Caulier\n"
-"(c) 2011, Veaceslav Munteanu"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2011-2013, Veaceslav Munteanu"
 msgstr ""
 "(c) 2005-2006, Joern Ahrens\n"
 "(c) 2008-2009, Gilles Caulier"
@@ -74,26 +65,18 @@ msgid "Veaceslav Munteanu"
 msgstr ""
 
 #: aboutdata.h:63
-msgid "Felix Turner"
-msgstr "Felix Turner"
-
-#: aboutdata.h:64
-msgid "Author of the Simple Viewer Flash component"
-msgstr "SimpleViewer Flash コンポーネントの作者"
-
-#: aboutdata.h:68
 msgid "Mikkel B. Stegmann"
 msgstr "Mikkel B. Stegmann"
 
-#: aboutdata.h:69
+#: aboutdata.h:64
 msgid "Basis for the index.html template"
 msgstr "index.html テンプレートの基礎"
 
-#: importWizard/firstrunpage.cpp:70
+#: importWizard/firstrunpage.cpp:68
 msgid "First Run"
 msgstr ""
 
-#: importWizard/firstrunpage.cpp:77
+#: importWizard/firstrunpage.cpp:74
 #, fuzzy
 #| msgid ""
 #| "<p>SimpleViewer is a Flash component which is free to use, but uses a "
@@ -118,50 +101,54 @@ msgstr ""
 "い。アーカイブはプラグインの設定とともに保存されるので、次回も使用できます。"
 "</p>"
 
-#: importWizard/firstrunpage.cpp:86
+#: importWizard/firstrunpage.cpp:83
 #, fuzzy
 #| msgid "<p>1.) Download SimpleViewer Version 1.9.x</p>"
 msgid "<p>1.) Download plugin from the following url:</p>"
 msgstr "<p>1.) SimpleViewer 1.9.x をダウンロードします。</p>"
 
-#: importWizard/firstrunpage.cpp:96
+#: importWizard/firstrunpage.cpp:95
 msgid "<p>2.) Point this tool to the downloaded archive</p>"
 msgstr "<p>2.) このツールにダウンロードしたアーカイブの場所を教えます。</p>"
 
-#: importWizard/generalpage.cpp:84
+#: importWizard/firstrunpage.cpp:99
+msgid "Select downloaded archive"
+msgstr ""
+
+#: importWizard/generalpage.cpp:85
 msgid "General Settings"
 msgstr "全般的な設定"
 
-#: importWizard/generalpage.cpp:91
+#: importWizard/generalpage.cpp:93
 msgid "Gallery &Title"
 msgstr "ギャラリーのタイトル(&T)"
 
-#: importWizard/generalpage.cpp:94
+#: importWizard/generalpage.cpp:96
 msgid "Enter here the gallery title"
 msgstr "ここにギャラリーのタイトルを入力します"
 
-#: importWizard/generalpage.cpp:102
+#: importWizard/generalpage.cpp:104
 msgid "Save Gallery To"
 msgstr "ギャラリーの保存先"
 
-#: importWizard/generalpage.cpp:113
+#: importWizard/generalpage.cpp:116
 msgid "Image Properties"
 msgstr "画像のプロパティ"
 
-#: importWizard/generalpage.cpp:115
+#: importWizard/generalpage.cpp:118
 msgid "Resize Target Images"
 msgstr "画像のサイズを変更"
 
-#: importWizard/generalpage.cpp:117
+#: importWizard/generalpage.cpp:120
 msgid "If you enable this option, all target images can be resized."
 msgstr "このオプションを有効にすると、画像のサイズを変更することができます。"
 
-#: importWizard/generalpage.cpp:121
+#: importWizard/generalpage.cpp:124
 msgid "Auto-Rotate/Flip Images"
 msgstr "画像を自動回転/反転"
 
-#: importWizard/generalpage.cpp:123 importWizard/lookpage.cpp:330
-#: importWizard/lookpage.cpp:335
+#: importWizard/generalpage.cpp:126 importWizard/lookpage.cpp:339
+#: importWizard/lookpage.cpp:344
 #, fuzzy
 #| msgid ""
 #| "If you enable this option, the images orientation will be fixed "
@@ -173,13 +160,13 @@ msgstr ""
 "このオプションを有効にすると、常に Exif 情報に基づいて画像の向きが決定されま"
 "す。"
 
-#: importWizard/generalpage.cpp:128
+#: importWizard/generalpage.cpp:131
 #, fuzzy
 #| msgid "&Target Images Size:"
 msgid "&Target Images' Size:"
 msgstr "エクスポート後の画像のサイズ(&T):"
 
-#: importWizard/generalpage.cpp:132
+#: importWizard/generalpage.cpp:136
 #, fuzzy
 #| msgid ""
 #| "The new size of the exported images in pixels. SimpleViewer resizes the "
@@ -194,13 +181,13 @@ msgstr ""
 "画像のサイズを変更しますが、これはサーバにアップロードする前に画像のサイズを"
 "変更します。"
 
-#: importWizard/generalpage.cpp:144 importWizard/generalpage.cpp:148
+#: importWizard/generalpage.cpp:148
 #, fuzzy
 #| msgid "&Displayed Images Size:"
 msgid "&Displayed Images' Size:"
 msgstr "画像の表示サイズ(&D):"
 
-#: importWizard/generalpage.cpp:149
+#: importWizard/generalpage.cpp:153
 #, fuzzy
 #| msgid ""
 #| "scales the displayed images to this size. Largest height or width of your "
@@ -215,37 +202,37 @@ msgstr ""
 "数で指定してください。画質が悪くならないように、画像はこのサイズより大きく拡"
 "大されません。"
 
-#: importWizard/generalpage.cpp:165
+#: importWizard/generalpage.cpp:169
 msgid "Misc"
 msgstr "その他"
 
-#: importWizard/generalpage.cpp:168
-msgid "Display Captions"
-msgstr "キャプションを表示"
-
-#: importWizard/generalpage.cpp:170
-#, fuzzy
-#| msgid "If you enable this option, the images caption will be shown"
-msgid "If this option is enabled, the images' captions will be shown."
-msgstr "このオプションを有効にすると、画像のキャプションが表示されます。"
-
 #: importWizard/generalpage.cpp:172
-#, fuzzy
-#| msgid "Display Captions"
-msgid "Display Keywords"
+msgid "Display Captions"
 msgstr "キャプションを表示"
 
 #: importWizard/generalpage.cpp:174
 #, fuzzy
 #| msgid "If you enable this option, the images caption will be shown"
+msgid "If this option is enabled, the images' captions will be shown."
+msgstr "このオプションを有効にすると、画像のキャプションが表示されます。"
+
+#: importWizard/generalpage.cpp:176
+#, fuzzy
+#| msgid "Display Captions"
+msgid "Display Keywords"
+msgstr "キャプションを表示"
+
+#: importWizard/generalpage.cpp:178
+#, fuzzy
+#| msgid "If you enable this option, the images caption will be shown"
 msgid "If this option is enabled, the images' keywords will be shown."
 msgstr "このオプションを有効にすると、画像のキャプションが表示されます。"
 
-#: importWizard/generalpage.cpp:177
+#: importWizard/generalpage.cpp:181
 msgid "Open Image with Right Click"
 msgstr "右クリックで画像を開く"
 
-#: importWizard/generalpage.cpp:179
+#: importWizard/generalpage.cpp:183
 #, fuzzy
 #| msgid ""
 #| "If you enable this option, user will be able to open the target image in "
@@ -257,13 +244,13 @@ msgstr ""
 "このオプションを有効にすると、マウスの右ボタンを使って画像を別のウィンドウに"
 "開くことができます。"
 
-#: importWizard/generalpage.cpp:183
+#: importWizard/generalpage.cpp:187
 #, fuzzy
 #| msgid "Open gallery in Konqueror"
 msgid "Open gallery in Browser"
 msgstr "ギャラリーを Konqueror で開く"
 
-#: importWizard/generalpage.cpp:185
+#: importWizard/generalpage.cpp:189
 #, fuzzy
 #| msgid ""
 #| "If you enable this option, gallery will be open in Konqueror automatically"
@@ -273,24 +260,36 @@ msgid ""
 msgstr ""
 "このオプションを有効にすると、ギャラリーが自動的に Konqueror に表示されます。"
 
-#: importWizard/importwizarddlg.cpp:90
+#: importWizard/importwizarddlg.cpp:95
 #, fuzzy
 #| msgid "Flash Export"
 msgid "Flash Export Wizard"
 msgstr "Flash エクスポート"
 
-#: importWizard/importwizarddlg.cpp:135
+#: importWizard/importwizarddlg.cpp:148
+msgid "SimpleViewer installation failed"
+msgstr "SimpleViewer のインストールに失敗しました"
+
+#: importWizard/importwizarddlg.cpp:149
 msgid ""
-"<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- archive "
+"<p>Failed to install SimpleViewer. </p><p>Please check if:</p><p>- archive "
 "corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
 "date and is not corrupted.</p>"
 msgstr ""
 
-#: importWizard/importwizarddlg.cpp:180
+#: importWizard/importwizarddlg.cpp:183
+msgid "Problem to export collection"
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:184
 msgid "You must select at least one collection to export."
 msgstr "エクスポートするコレクションを少なくとも一つ選択してください。"
 
-#: importWizard/importwizarddlg.cpp:216
+#: importWizard/importwizarddlg.cpp:242
+msgid "Target Folder Exists"
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:243
 #, fuzzy, kde-format
 #| msgid ""
 #| "Target folder %1 already exists.\n"
@@ -302,7 +301,11 @@ msgstr ""
 "フォルダ <filename>%1</filename> は既に存在します。\n"
 "上書きしますか？(このフォルダのすべてのデータが失われます)"
 
-#: importWizard/importwizarddlg.cpp:225
+#: importWizard/importwizarddlg.cpp:257
+msgid "Cannot Delete Folder"
+msgstr ""
+
+#: importWizard/importwizarddlg.cpp:258
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not delete %1\n"
@@ -314,11 +317,11 @@ msgstr ""
 "<filename>%1</filename> を削除できませんでした。\n"
 "他のエクスポートフォルダを選択してください。"
 
-#: importWizard/intropage.cpp:60
+#: importWizard/intropage.cpp:61
 msgid "Welcome to FlashExport Tool"
 msgstr ""
 
-#: importWizard/intropage.cpp:68
+#: importWizard/intropage.cpp:69
 msgid ""
 "<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
 "href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
@@ -329,55 +332,53 @@ msgid ""
 "p><p>3. Postcardviewer is designed only for small amount of photos</p></qt>"
 msgstr ""
 
-#: importWizard/intropage.cpp:81
+#: importWizard/intropage.cpp:82
 #, fuzzy
 #| msgctxt "Settings tab for selections"
 #| msgid "Selection"
 msgid "Select &Plugin:"
 msgstr "選択"
 
-#: importWizard/intropage.cpp:84
+#: importWizard/intropage.cpp:85
 msgctxt "SimpleViewer"
 msgid "SimpleViewer"
 msgstr ""
 
-#: importWizard/intropage.cpp:85
+#: importWizard/intropage.cpp:86
 msgctxt "TiltViewer"
 msgid "TiltViewer"
 msgstr ""
 
-#: importWizard/intropage.cpp:86
+#: importWizard/intropage.cpp:87
 msgctxt "AutoViewer"
 msgid "AutoViewer"
 msgstr ""
 
-#: importWizard/intropage.cpp:87
+#: importWizard/intropage.cpp:88
 msgctxt "PostcardViewer"
 msgid "PostcardViewer"
 msgstr ""
 
-#: importWizard/intropage.cpp:99
+#: importWizard/intropage.cpp:100
 msgid "&Choose image selection method:"
 msgstr ""
 
-#: importWizard/intropage.cpp:101
+#: importWizard/intropage.cpp:102
 msgctxt "Collections"
 msgid "Collections"
 msgstr ""
 
-#: importWizard/intropage.cpp:102
-#, fuzzy
-#| msgid "&Background Color:"
-msgctxt "Image Dialog"
-msgid "Image Dialog"
-msgstr "背景色(&B):"
+#: importWizard/intropage.cpp:103
+msgctxt "Images"
+msgid "Images"
+msgstr ""
 
-#: importWizard/lookpage.cpp:111
+#: importWizard/lookpage.cpp:108
 msgid "Configure appearance"
 msgstr ""
 
-#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:240
-#: importWizard/lookpage.cpp:309 importWizard/lookpage.cpp:391
+#: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:244
+#: importWizard/lookpage.cpp:316 importWizard/lookpage.cpp:400
 msgctxt "Settings for flash export navigation"
 msgid "Navigation"
 msgstr "ナビゲーション"
@@ -386,226 +387,226 @@ msgstr "ナビゲーション"
 msgid "Thumbnail &Rows:"
 msgstr "サムネイルの行数(&R):"
 
-#: importWizard/lookpage.cpp:147
+#: importWizard/lookpage.cpp:148
 msgid "Number of thumbnails rows"
 msgstr "サムネイルの行数"
 
-#: importWizard/lookpage.cpp:151
+#: importWizard/lookpage.cpp:152
 msgid "Thumbnail &Columns:"
 msgstr "サムネイルの列数(&C):"
 
-#: importWizard/lookpage.cpp:155 importWizard/lookpage.cpp:407
+#: importWizard/lookpage.cpp:157 importWizard/lookpage.cpp:418
 msgid "Number of thumbnails columns"
 msgstr "サムネイルの列数"
 
-#: importWizard/lookpage.cpp:159
+#: importWizard/lookpage.cpp:161
 msgid "Thumbnail &Position:"
 msgstr "サムネイルの位置(&P):"
 
-#: importWizard/lookpage.cpp:161
+#: importWizard/lookpage.cpp:163
 msgctxt "thumbnail position: right"
 msgid "Right"
 msgstr "右"
 
-#: importWizard/lookpage.cpp:162
+#: importWizard/lookpage.cpp:164
 msgctxt "thumbnail position: left"
 msgid "Left"
 msgstr "左"
 
-#: importWizard/lookpage.cpp:163
+#: importWizard/lookpage.cpp:165
 msgctxt "thumbnail position: top"
 msgid "Top"
 msgstr "上"
 
-#: importWizard/lookpage.cpp:164
+#: importWizard/lookpage.cpp:166
 msgctxt "thumbnail position: bottom"
 msgid "Bottom"
 msgstr "下"
 
-#: importWizard/lookpage.cpp:180 importWizard/lookpage.cpp:257
-#: importWizard/lookpage.cpp:418
+#: importWizard/lookpage.cpp:182 importWizard/lookpage.cpp:262
+#: importWizard/lookpage.cpp:429
 msgid "Colors"
 msgstr "色"
 
-#: importWizard/lookpage.cpp:184
+#: importWizard/lookpage.cpp:186
 msgid "&Text Color:"
 msgstr "テキスト色(&T):"
 
-#: importWizard/lookpage.cpp:187 importWizard/lookpage.cpp:425
+#: importWizard/lookpage.cpp:189 importWizard/lookpage.cpp:436
 msgid "Color of title and caption text"
 msgstr "タイトルとキャプションのテキストの色"
 
-#: importWizard/lookpage.cpp:191 importWizard/lookpage.cpp:261
-#: importWizard/lookpage.cpp:429
+#: importWizard/lookpage.cpp:193 importWizard/lookpage.cpp:266
+#: importWizard/lookpage.cpp:440
 msgid "&Background Color:"
 msgstr "背景色(&B):"
 
-#: importWizard/lookpage.cpp:197 importWizard/lookpage.cpp:267
-#: importWizard/lookpage.cpp:352 importWizard/lookpage.cpp:435
+#: importWizard/lookpage.cpp:199 importWizard/lookpage.cpp:272
+#: importWizard/lookpage.cpp:361 importWizard/lookpage.cpp:446
 msgid "&Frame Color:"
 msgstr "枠の色(&F):"
 
-#: importWizard/lookpage.cpp:200 importWizard/lookpage.cpp:270
-#: importWizard/lookpage.cpp:355 importWizard/lookpage.cpp:438
+#: importWizard/lookpage.cpp:202 importWizard/lookpage.cpp:275
+#: importWizard/lookpage.cpp:364 importWizard/lookpage.cpp:449
 msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
 msgstr "画像の枠の色、見たアイコン、読み込みバー、サムネイルの矢印"
 
-#: importWizard/lookpage.cpp:211 importWizard/lookpage.cpp:280
-#: importWizard/lookpage.cpp:449
+#: importWizard/lookpage.cpp:213 importWizard/lookpage.cpp:285
+#: importWizard/lookpage.cpp:460
 msgid "Style"
 msgstr "スタイル"
 
-#: importWizard/lookpage.cpp:215 importWizard/lookpage.cpp:284
-#: importWizard/lookpage.cpp:469
+#: importWizard/lookpage.cpp:217 importWizard/lookpage.cpp:289
+#: importWizard/lookpage.cpp:482
 #, fuzzy
 #| msgid "Frame &Width:"
 msgid "&Frame Width:"
 msgstr "枠の幅(&W):"
 
-#: importWizard/lookpage.cpp:219 importWizard/lookpage.cpp:288
+#: importWizard/lookpage.cpp:222 importWizard/lookpage.cpp:294
 msgid "Width of image frame in pixels."
 msgstr "画像の周りの枠の幅をピクセル数で指定します。"
 
-#: importWizard/lookpage.cpp:223
+#: importWizard/lookpage.cpp:226
 #, fuzzy
 #| msgid "Stage &Padding:"
 msgid "&Stage Padding:"
 msgstr "画像とサムネイルの間隔(&P):"
 
-#: importWizard/lookpage.cpp:227
+#: importWizard/lookpage.cpp:231
 msgid "Distance between image and thumbnails in pixels."
 msgstr "画像とサムネイルの間隔をピクセル数で指定します。"
 
-#: importWizard/lookpage.cpp:244
+#: importWizard/lookpage.cpp:248
 #, fuzzy
 #| msgid "&Displayed Images Size:"
 msgid "&Display Time:"
 msgstr "画像の表示サイズ(&D):"
 
-#: importWizard/lookpage.cpp:248
+#: importWizard/lookpage.cpp:253
 msgid "Number of seconds each image will display in auto-play mode."
 msgstr ""
 
-#: importWizard/lookpage.cpp:292
+#: importWizard/lookpage.cpp:298
 #, fuzzy
 #| msgid "Stage &Padding:"
 msgid "&Image Padding:"
 msgstr "画像とサムネイルの間隔(&P):"
 
-#: importWizard/lookpage.cpp:296
+#: importWizard/lookpage.cpp:303
 #, fuzzy
 #| msgid "Distance between image and thumbnails in pixels."
 msgid "Distance between images in pixels"
 msgstr "画像とサムネイルの間隔をピクセル数で指定します。"
 
-#: importWizard/lookpage.cpp:313
+#: importWizard/lookpage.cpp:320
 #, fuzzy
 #| msgid "Thumbnail &Rows:"
 msgid " &Rows:"
 msgstr "サムネイルの行数(&R):"
 
-#: importWizard/lookpage.cpp:317
+#: importWizard/lookpage.cpp:325
 msgid "Number of rows of images to display."
 msgstr ""
 
-#: importWizard/lookpage.cpp:321 importWizard/lookpage.cpp:403
+#: importWizard/lookpage.cpp:329 importWizard/lookpage.cpp:413
 #, fuzzy
 #| msgid "Thumbnail &Columns:"
 msgid " &Columns:"
 msgstr "サムネイルの列数(&C):"
 
-#: importWizard/lookpage.cpp:325
+#: importWizard/lookpage.cpp:334
 msgid "Number of columns of images to display."
 msgstr ""
 
-#: importWizard/lookpage.cpp:328
+#: importWizard/lookpage.cpp:337
 msgid "Show Flip Button"
 msgstr ""
 
-#: importWizard/lookpage.cpp:333
+#: importWizard/lookpage.cpp:342
 msgid "Use reload button"
 msgstr ""
 
-#: importWizard/lookpage.cpp:348
+#: importWizard/lookpage.cpp:357
 #, fuzzy
 #| msgid "Colors"
 msgctxt "Settings for flash export navigation"
 msgid "Colors"
 msgstr "色"
 
-#: importWizard/lookpage.cpp:359
+#: importWizard/lookpage.cpp:368
 #, fuzzy
 #| msgid "&Background Color:"
 msgid "Background &Inner Color:"
 msgstr "背景色(&B):"
 
-#: importWizard/lookpage.cpp:362
+#: importWizard/lookpage.cpp:371
 msgid "Color of the stage background gradient center."
 msgstr ""
 
-#: importWizard/lookpage.cpp:366
+#: importWizard/lookpage.cpp:375
 #, fuzzy
 #| msgid "&Background Color:"
 msgid "Background &Outer Color:"
 msgstr "背景色(&B):"
 
-#: importWizard/lookpage.cpp:369
+#: importWizard/lookpage.cpp:378
 msgid "Color of the stage background gradient edge."
 msgstr ""
 
-#: importWizard/lookpage.cpp:373
+#: importWizard/lookpage.cpp:382
 #, fuzzy
 #| msgid "&Background Color:"
 msgid "Image Back Color:"
 msgstr "背景色(&B):"
 
-#: importWizard/lookpage.cpp:376
+#: importWizard/lookpage.cpp:385
 msgid "Image's back color when pressing flip button"
 msgstr ""
 
-#: importWizard/lookpage.cpp:395
+#: importWizard/lookpage.cpp:404
 msgid "Cell Dimension:"
 msgstr ""
 
-#: importWizard/lookpage.cpp:399
+#: importWizard/lookpage.cpp:409
 msgid ""
 "Dimension of displayed image cells. Please use a higher value if you set "
 "high image size"
 msgstr ""
 
-#: importWizard/lookpage.cpp:422
+#: importWizard/lookpage.cpp:433
 #, fuzzy
 #| msgid "&Text Color:"
 msgid "&Caption Color:"
 msgstr "テキスト色(&T):"
 
-#: importWizard/lookpage.cpp:453
+#: importWizard/lookpage.cpp:464
 msgid "&Zoom In Percentage:"
 msgstr ""
 
-#: importWizard/lookpage.cpp:457
+#: importWizard/lookpage.cpp:469
 msgid "The amount of scale when zoomed in (percentage)"
 msgstr ""
 
-#: importWizard/lookpage.cpp:461
+#: importWizard/lookpage.cpp:473
 msgid "&Zoom Out Percentage:"
 msgstr ""
 
-#: importWizard/lookpage.cpp:465
+#: importWizard/lookpage.cpp:478
 msgid "The amount of scale when zoomed out (percentage)"
 msgstr ""
 
-#: importWizard/lookpage.cpp:473
+#: importWizard/lookpage.cpp:487
 #, fuzzy
 #| msgid "Frame &Width:"
 msgid "The frame width"
 msgstr "枠の幅(&W):"
 
-#: importWizard/progresspage.cpp:49
+#: importWizard/progresspage.cpp:48
 msgid "Exporting..."
 msgstr ""
 
-#: importWizard/selectionpage.cpp:68
+#: importWizard/selectionpage.cpp:67
 msgid "Select Image Collections"
 msgstr ""
 
@@ -621,114 +622,122 @@ msgstr "Flash エクスポート"
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_flashexport.cpp:94
+#: plugin_flashexport.cpp:91
 msgid "Export to F&lash..."
 msgstr "Flash にエクスポート(&L)..."
 
-#: simpleviewer.cpp:184
+#: simpleviewer.cpp:193
 msgid "Initialising..."
 msgstr "初期化しています..."
 
-#: simpleviewer.cpp:212
+#: simpleviewer.cpp:221
 msgid "Export canceled"
 msgstr "エクスポートがキャンセルされました"
 
-#: simpleviewer.cpp:223
+#: simpleviewer.cpp:232
 msgid "Failed to create export directories"
 msgstr "エクスポートフォルダを作成できませんでした"
 
-#: simpleviewer.cpp:230
+#: simpleviewer.cpp:239
 msgid "Failed to export the images"
 msgstr "画像をエクスポートできませんでした"
 
-#: simpleviewer.cpp:237
+#: simpleviewer.cpp:246
 msgid "Failed to create index.html"
 msgstr "index.html を作成できませんでした"
 
-#: simpleviewer.cpp:244
+#: simpleviewer.cpp:253
 msgid "Failed to copy SimpleViewer files"
 msgstr "SimpleViewer ファイルをコピーできませんでした"
 
-#: simpleviewer.cpp:251
+#: simpleviewer.cpp:260
 msgid "Failed to upload the gallery"
 msgstr "ギャラリーをアップロードできませんでした"
 
-#: simpleviewer.cpp:260
+#: simpleviewer.cpp:269
+#, fuzzy
+#| msgid "Export canceled"
+msgid "Export was canceled"
+msgstr "エクスポートがキャンセルされました"
+
+#: simpleviewer.cpp:270
 #, fuzzy, kde-format
 #| msgid ""
 #| "Export was canceled.\n"
 #| "Do you want to delete the yet created files in %1 ?"
-msgid ""
-"Export was canceled.\n"
-"Do you want to delete files in %1 that have already been created?"
+msgid "Do you want to delete files in %1 that have already been created?"
 msgstr ""
 "エクスポートがキャンセルされました。\n"
 "<filename>%1</filename> に作成されたファイルを削除しますか？"
 
-#: simpleviewer.cpp:271
+#: simpleviewer.cpp:282
 msgctxt "Flash export has finished"
 msgid "Finished..."
 msgstr "完了..."
 
-#: simpleviewer.cpp:285
+#: simpleviewer.cpp:300
 msgid "Creating directories..."
 msgstr "フォルダを作成中..."
 
-#: simpleviewer.cpp:291 simpleviewer.cpp:303 simpleviewer.cpp:315
+#: simpleviewer.cpp:307 simpleviewer.cpp:319 simpleviewer.cpp:330
 #, kde-format
 msgid "Could not create folder '%1'"
 msgstr "フォルダ <filename>%1</filename> を作成できませんでした"
 
-#: simpleviewer.cpp:320
+#: simpleviewer.cpp:335
 #, fuzzy
 #| msgid "Creating directories..."
 msgid "Finished Creating directories..."
 msgstr "フォルダを作成中..."
 
-#: simpleviewer.cpp:353
+#: simpleviewer.cpp:388
 msgid "Creating images and thumbnails..."
 msgstr "画像とサムネイルを作成中..."
 
-#: simpleviewer.cpp:483
+#: simpleviewer.cpp:542
 #, kde-format
 msgid "Processing %1"
 msgstr "<filename>%1</filename> を処理中"
 
-#: simpleviewer.cpp:493
+#: simpleviewer.cpp:559
 #, kde-format
 msgid "Could not open image '%1'"
 msgstr "画像 <filename>%1</filename> を開けませんでした"
 
-#: simpleviewer.cpp:504
+#: simpleviewer.cpp:570
 #, kde-format
 msgid "Could not create thumbnail from '%1'"
 msgstr "<filename>%1</filename> からサムネイルを作成できませんでした"
 
-#: simpleviewer.cpp:512
+#: simpleviewer.cpp:578
 #, kde-format
 msgid "Could not resize image '%1'"
 msgstr "画像 <filename>%1</filename> のサイズを変更できませんでした"
 
-#: simpleviewer.cpp:739
+#: simpleviewer.cpp:809
 msgid "Creating index.html..."
 msgstr "index.html を作成中..."
 
-#: simpleviewer.cpp:878
+#: simpleviewer.cpp:965
 msgid "index.html created..."
 msgstr "index.html を作成しました..."
 
-#: simpleviewer.cpp:888
+#: simpleviewer.cpp:975
 msgid "Copying flash files..."
 msgstr "Flash ファイルをコピー中..."
 
-#: simpleviewer.cpp:906
+#: simpleviewer.cpp:995
 msgid "Flash files copied..."
 msgstr "Flash ファイルをコピーしました..."
 
-#: simpleviewer.cpp:916
-msgid "Uploading gallery..."
+#: simpleviewer.cpp:1005
+#, fuzzy
+#| msgid "Uploading gallery..."
+msgid "Copying gallery..."
 msgstr "ギャラリーをアップロード中..."
 
-#: simpleviewer.cpp:921
-msgid "Gallery uploaded..."
+#: simpleviewer.cpp:1010
+#, fuzzy
+#| msgid "Gallery uploaded..."
+msgid "Gallery copied..."
 msgstr "ギャラリーをアップロードしました..."

@@ -6,7 +6,7 @@
  * Date        : 2009-02-06
  * Description : Thread actions manager.
  *
- * Copyright (C) 2009-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Pankaj Kumar <me at panks dot me>
  *
  * This program is free software; you can redistribute it
@@ -22,22 +22,13 @@
  *
  * ============================================================ */
 
-#include "actionthread.moc"
-
-// KDE includes
-
-#include <klocale.h>
-#include <kstandarddirs.h>
-#include <kdebug.h>
-#include <threadweaver/JobCollection.h>
-#include <solid/device.h>
+#include "actionthread.h"
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
 #include "task.h"
-
-using namespace Solid;
 
 namespace Digikam
 {
@@ -56,7 +47,7 @@ public:
 // --------------------------------------------------------------------------------------
 
 ActionThread::ActionThread(QObject* const parent)
-    : RActionThreadBase(parent), d(new Private)
+    : ActionThreadBase(parent), d(new Private)
 {
     qRegisterMetaType<ActionData>();
 
@@ -76,22 +67,22 @@ ActionThread::~ActionThread()
 void ActionThread::setSettings(const QueueSettings& settings)
 {
     d->settings = settings;
-    
+
     if (!d->settings.useMultiCoreCPU)
     {
         setMaximumNumberOfThreads(1);
     }
     else
     {
-        setMaximumNumberOfThreads(qMax(Device::listFromType(DeviceInterface::Processor).count(), 1));
+        defaultMaximumNumberOfThreads();
     }
 }
 
 void ActionThread::processQueueItems(const QList<AssignedBatchTools>& items)
 {
-    JobCollection* const collection = new JobCollection();
+    ActionJobCollection collection;
 
-    for(int i=0; i < items.size(); i++)
+    for(int i = 0 ; i < items.size() ; i++)
     {
         Task* const t = new Task();
         t->setSettings(d->settings);
@@ -106,10 +97,10 @@ void ActionThread::processQueueItems(const QList<AssignedBatchTools>& items)
         connect(this, SIGNAL(signalCancelTask()),
                 t, SLOT(slotCancel()), Qt::QueuedConnection);
 
-        collection->addJob(t);
+        collection.insert(t, 0);
     }
 
-    appendJob(collection);
+    appendJobs(collection);
 }
 
 void ActionThread::cancel()
@@ -117,14 +108,14 @@ void ActionThread::cancel()
     if (isRunning())
         emit signalCancelTask();
 
-    RActionThreadBase::cancel();
+    ActionThreadBase::cancel();
 }
 
 void ActionThread::slotThreadFinished()
 {
     if (isEmpty())
     {
-        kDebug() << "List of Pending Jobs is empty";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "List of Pending Jobs is empty";
         emit signalQueueProcessed();
     }
 }

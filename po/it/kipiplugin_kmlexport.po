@@ -1,54 +1,43 @@
 # Copyright (C) YEAR This_file_is_part_of_KDE
 # This file is distributed under the same license as the PACKAGE package.
+# Federico Zenith <federico.zenith@member.fsf.org>, 2011, 2015.
+# Paolo Zamponi <zapaolo@email.it>, 2016.
 #
-# Federico Zenith <federico.zenith@member.fsf.org>, 2011.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_kmlexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
-"PO-Revision-Date: 2011-04-22 12:25+0200\n"
-"Last-Translator: Federico Zenith <federico.zenith@member.fsf.org>\n"
+"POT-Creation-Date: 2016-10-06 07:13+0000\n"
+"PO-Revision-Date: 2016-09-19 20:18+0100\n"
+"Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Federico Zenith"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "federico.zenith@member.fsf.org"
-
-#: kmlexport.cpp:79
+#: kmlexport.cpp:97
 msgid "Generating KML file..."
 msgstr "Generazione del file KML..."
 
-#: kmlexport.cpp:100
-#, kde-format
-msgid "Could not create '%1'"
-msgstr "Impossibile creare «%1»"
-
-#: kmlexport.cpp:188
+#: kmlexport.cpp:187
 #, kde-format
 msgid "Could not read image '%1'"
 msgstr "Impossibile leggere l'immagine «%1»"
 
-#: kmlexport.cpp:197
+#: kmlexport.cpp:196
 #, kde-format
 msgid "Format of image '%1' is unknown"
 msgstr "Il formato dell'immagine «%1» è sconosciuto"
 
-#: kmlexport.cpp:209
+#: kmlexport.cpp:208
 #, kde-format
 msgid "Error loading image '%1'"
 msgstr "Errore nel caricamento dell'immagine «%1»"
 
-#: kmlexport.cpp:248
+#: kmlexport.cpp:246
 #, kde-format
 msgid "Could not save image '%1' to '%2'"
 msgstr "Impossibile salvare l'immagine «%1» su «%2»"
@@ -81,68 +70,93 @@ msgstr "Il file GPX %1 non ha una traccia di data e ora disponibile."
 msgid "Tracks"
 msgstr "Tracce"
 
-#: kmlexport.cpp:508
+#: kmlexport.cpp:505
 #, kde-format
 msgid "No position data for '%1'"
-msgstr "Nessun dato di posizione per «%1»"
+msgstr "Nessun dato sulla posizione per «%1»"
 
-#: kmlexport.cpp:520
+#: kmlexport.cpp:517
+msgid "Missing position"
+msgstr "Posizione mancante"
+
+#: kmlexport.cpp:518
 #, kde-format
 msgid "No position data for 1 picture"
 msgid_plural "No position data for %1 pictures"
-msgstr[0] "Nessun dato di posizione per un'immagine"
-msgstr[1] "Nessun dato di posizione per %1 immagini"
+msgstr[0] "Nessun dato sulla posizione per un'immagine"
+msgstr[1] "Nessun dato sulla posizione per %1 immagini"
 
-#: kmlexport.cpp:536
+#: kmlexport.cpp:533
 msgid "Move to final directory"
 msgstr "Sposta nella cartella finale"
 
-#: kmlexportconfig.cpp:66 kmlexportconfig.cpp:279
+#: kmlexport.cpp:537
+msgid "Cannot move data to destination directory"
+msgstr "Non posso spostare i dati nella cartella di destinazione"
+
+#: kmlgpsdataparser.cpp:63
+msgid "Track"
+msgstr "Traccia"
+
+#: kmlgpsdataparser.cpp:89
+msgid "Points"
+msgstr "Punti"
+
+#: kmlgpsdataparser.cpp:100
+msgid "Point"
+msgstr "Punto"
+
+#: kmlwindow.cpp:69 kmlwindow.cpp:285
 msgid "KML Export"
 msgstr "Esporta KML"
 
-#: kmlexportconfig.cpp:76
+#: kmlwindow.cpp:72
+msgctxt "@action:button"
+msgid "&Export"
+msgstr "&Esporta"
+
+#: kmlwindow.cpp:83
 msgid "Target Preferences"
 msgstr "Preferenze del risultato"
 
-#: kmlexportconfig.cpp:80
+#: kmlwindow.cpp:87
 msgid "Target Type"
 msgstr "Tipo di risultato"
 
-#: kmlexportconfig.cpp:83
+#: kmlwindow.cpp:90
 msgid "&Local or web target used by GoogleEarth"
 msgstr "Risultato &locale o Web usato da GoogleEarth"
 
-#: kmlexportconfig.cpp:86
+#: kmlwindow.cpp:93
 msgid "Web target used by GoogleMaps"
 msgstr "Risultato Web usato da GoogleMaps"
 
-#: kmlexportconfig.cpp:87
+#: kmlwindow.cpp:94
 msgid ""
 "When using GoogleMaps, all images must have complete URLs, icons are "
 "squared, and when drawing a track, only line track is exported."
 msgstr ""
-"Quando usi GoogleMaps, tutte le immagini devono avere URL completi, le icone "
+"Quando usi GoogleMaps tutte le immagini devono avere URL completi, le icone "
 "sono quadrate, e, quando si disegna una traccia, viene estratta solo la "
 "traccia lineare."
 
-#: kmlexportconfig.cpp:99
+#: kmlwindow.cpp:105
 msgid "Picture Altitude:"
 msgstr "Altitudine delle immagini:"
 
-#: kmlexportconfig.cpp:101 kmlexportconfig.cpp:224
+#: kmlwindow.cpp:107 kmlwindow.cpp:231
 msgid "clamp to ground"
 msgstr "fisso a terra"
 
-#: kmlexportconfig.cpp:102 kmlexportconfig.cpp:225
+#: kmlwindow.cpp:108 kmlwindow.cpp:232
 msgid "relative to ground"
 msgstr "relativo al terreno"
 
-#: kmlexportconfig.cpp:103 kmlexportconfig.cpp:226
+#: kmlwindow.cpp:109 kmlwindow.cpp:233
 msgid "absolute"
 msgstr "assoluta"
 
-#: kmlexportconfig.cpp:104
+#: kmlwindow.cpp:110
 msgid ""
 "<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
 "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
@@ -159,192 +173,192 @@ msgstr ""
 "al livello del mare, indipendentemente dalla reale elevazione del terreno "
 "sotto l'elemento.</dd></dl>"
 
-#: kmlexportconfig.cpp:114
+#: kmlwindow.cpp:120
 msgid "Destination Directory:"
 msgstr "Cartella di destinazione:"
 
-#: kmlexportconfig.cpp:118
+#: kmlwindow.cpp:124
 msgid "Select a directory in which to save the kml file and pictures"
 msgstr "Seleziona una cartella in cui salvare il file KML e le immagini"
 
-#: kmlexportconfig.cpp:121
-msgid "Destination URL:"
-msgstr "URL di destinazione:"
+#: kmlwindow.cpp:126
+msgid "Destination Path:"
+msgstr "Percorso di destinazione:"
 
-#: kmlexportconfig.cpp:123
+#: kmlwindow.cpp:128
 msgid "Filename:"
 msgstr "Nome file:"
 
-#: kmlexportconfig.cpp:142
+#: kmlwindow.cpp:146
 msgid "Sizes"
 msgstr "Dimensioni"
 
-#: kmlexportconfig.cpp:144
+#: kmlwindow.cpp:148
 msgid "Icon Size:"
 msgstr "Dimensione delle icone:"
 
-#: kmlexportconfig.cpp:148
+#: kmlwindow.cpp:153
 msgid "Image Size:"
 msgstr "Dimensione delle immagini:"
 
-#: kmlexportconfig.cpp:163
+#: kmlwindow.cpp:168
 msgid "GPX Tracks"
 msgstr "Tracce GPX"
 
-#: kmlexportconfig.cpp:167
+#: kmlwindow.cpp:172
 msgid "Draw GPX Track"
 msgstr "Disegna traccia GPX"
 
-#: kmlexportconfig.cpp:170
+#: kmlwindow.cpp:175
 msgid "GPX file:"
 msgstr "File GPX:"
 
-#: kmlexportconfig.cpp:173
+#: kmlwindow.cpp:178
 #, kde-format
 msgid "%1|GPS Exchange Format"
 msgstr "%1|Formato di scambio GPS"
 
-#: kmlexportconfig.cpp:174
+#: kmlwindow.cpp:179
 msgid "Select GPX File to Load"
-msgstr "Seleziona file GPX da caricare"
+msgstr "Seleziona il file GPX da caricare"
 
-#: kmlexportconfig.cpp:176
+#: kmlwindow.cpp:182
 msgid "Time Zone:"
 msgstr "Fuso orario:"
 
-#: kmlexportconfig.cpp:178
+#: kmlwindow.cpp:184
 msgid "GMT-12:00"
 msgstr "GMT-12:00"
 
-#: kmlexportconfig.cpp:179
+#: kmlwindow.cpp:185
 msgid "GMT-11:00"
 msgstr "GMT-11:00"
 
-#: kmlexportconfig.cpp:180
+#: kmlwindow.cpp:186
 msgid "GMT-10:00"
 msgstr "GMT-10:00"
 
-#: kmlexportconfig.cpp:181
+#: kmlwindow.cpp:187
 msgid "GMT-09:00"
 msgstr "GMT-09:00"
 
-#: kmlexportconfig.cpp:182
+#: kmlwindow.cpp:188
 msgid "GMT-08:00"
 msgstr "GMT-08:00"
 
-#: kmlexportconfig.cpp:183
+#: kmlwindow.cpp:189
 msgid "GMT-07:00"
 msgstr "GMT-07:00"
 
-#: kmlexportconfig.cpp:184
+#: kmlwindow.cpp:190
 msgid "GMT-06:00"
 msgstr "GMT-06:00"
 
-#: kmlexportconfig.cpp:185
+#: kmlwindow.cpp:191
 msgid "GMT-05:00"
 msgstr "GMT-05:00"
 
-#: kmlexportconfig.cpp:186
+#: kmlwindow.cpp:192
 msgid "GMT-04:00"
 msgstr "GMT-04:00"
 
-#: kmlexportconfig.cpp:187
+#: kmlwindow.cpp:193
 msgid "GMT-03:00"
 msgstr "GMT-03:00"
 
-#: kmlexportconfig.cpp:188
+#: kmlwindow.cpp:194
 msgid "GMT-02:00"
 msgstr "GMT-02:00"
 
-#: kmlexportconfig.cpp:189
+#: kmlwindow.cpp:195
 msgid "GMT-01:00"
 msgstr "GMT-01:00"
 
-#: kmlexportconfig.cpp:190
+#: kmlwindow.cpp:196
 msgid "GMT"
 msgstr "GMT"
 
-#: kmlexportconfig.cpp:191
+#: kmlwindow.cpp:197
 msgid "GMT+01:00"
 msgstr "GMT+01:00"
 
-#: kmlexportconfig.cpp:192
+#: kmlwindow.cpp:198
 msgid "GMT+02:00"
 msgstr "GMT+02:00"
 
-#: kmlexportconfig.cpp:193
+#: kmlwindow.cpp:199
 msgid "GMT+03:00"
 msgstr "GMT+03:00"
 
-#: kmlexportconfig.cpp:194
+#: kmlwindow.cpp:200
 msgid "GMT+04:00"
 msgstr "GMT+04:00"
 
-#: kmlexportconfig.cpp:195
+#: kmlwindow.cpp:201
 msgid "GMT+05:00"
 msgstr "GMT+05:00"
 
-#: kmlexportconfig.cpp:196
+#: kmlwindow.cpp:202
 msgid "GMT+06:00"
 msgstr "GMT+06:00"
 
-#: kmlexportconfig.cpp:197
+#: kmlwindow.cpp:203
 msgid "GMT+07:00"
 msgstr "GMT+07:00"
 
-#: kmlexportconfig.cpp:198
+#: kmlwindow.cpp:204
 msgid "GMT+08:00"
 msgstr "GMT+08:00"
 
-#: kmlexportconfig.cpp:199
+#: kmlwindow.cpp:205
 msgid "GMT+09:00"
 msgstr "GMT+09:00"
 
-#: kmlexportconfig.cpp:200
+#: kmlwindow.cpp:206
 msgid "GMT+10:00"
 msgstr "GMT+10:00"
 
-#: kmlexportconfig.cpp:201
+#: kmlwindow.cpp:207
 msgid "GMT+11:00"
 msgstr "GMT+11:00"
 
-#: kmlexportconfig.cpp:202
+#: kmlwindow.cpp:208
 msgid "GMT+12:00"
 msgstr "GMT+12:00"
 
-#: kmlexportconfig.cpp:203
+#: kmlwindow.cpp:209
 msgid "GMT+13:00"
 msgstr "GMT+13:00"
 
-#: kmlexportconfig.cpp:204
+#: kmlwindow.cpp:210
 msgid "GMT+14:00"
 msgstr "GMT+14:00"
 
-#: kmlexportconfig.cpp:205
+#: kmlwindow.cpp:211
 msgid ""
 "Sets the time zone of the camera during picture shooting, so that the time "
 "stamps of the GPS can be converted to match the local time"
 msgstr ""
 "Imposta il fuso orario della macchina fotografica allo scatto delle "
-"immagini, in modo che l'ora del GPS possa essere convertita all'ora locale."
+"immagini, in modo che l'ora del GPS possa essere convertita in quella locale."
 
-#: kmlexportconfig.cpp:209
+#: kmlwindow.cpp:215
 msgid "Track Width:"
 msgstr "Larghezza della traccia:"
 
-#: kmlexportconfig.cpp:213
+#: kmlwindow.cpp:219
 msgid "Track Color:"
 msgstr "Colore della traccia:"
 
-#: kmlexportconfig.cpp:219
-msgid "Opacity:"
-msgstr "Opacità:"
+#: kmlwindow.cpp:223
+msgid "Opacity (%):"
+msgstr "Opacità (%):"
 
-#: kmlexportconfig.cpp:222
+#: kmlwindow.cpp:229
 msgid "Track Altitude:"
 msgstr "Altitudine della traccia:"
 
-#: kmlexportconfig.cpp:227
+#: kmlwindow.cpp:234
 msgid ""
 "<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)</"
 "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
@@ -361,49 +375,51 @@ msgstr ""
 "al livello del mare, indipendentemente dalla reale elevazione del terreno "
 "sotto l'elemento.</dd></dl>"
 
-#: kmlexportconfig.cpp:282
-msgid "A Kipi plugin for KML exporting"
-msgstr "Un'estensione di Kipi per l'esportazione KML"
+#: kmlwindow.cpp:286
+msgid "A tool to export to KML"
+msgstr "Uno strumento per esportare in KML"
 
-#: kmlexportconfig.cpp:283
+#: kmlwindow.cpp:287
 msgid "(c) 2006-2007, Stéphane Pontier"
 msgstr "© 2006-2007, Stéphane Pontier"
 
-#: kmlexportconfig.cpp:285
+#: kmlwindow.cpp:289
 msgid "Stéphane Pontier"
 msgstr "Stéphane Pontier"
 
-#: kmlexportconfig.cpp:286 kmlexportconfig.cpp:290
+#: kmlwindow.cpp:290 kmlwindow.cpp:294
 msgid "Developer and maintainer"
 msgstr "Sviluppatore e responsabile"
 
-#: kmlexportconfig.cpp:289
+#: kmlwindow.cpp:293
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: kmlexportconfig.cpp:293
+#: kmlwindow.cpp:297
 msgid "Michael G. Hansen"
 msgstr "Michael G. Hansen"
 
-#: kmlexportconfig.cpp:294
+#: kmlwindow.cpp:298
 msgid "Maintainer"
 msgstr "Responsabile"
 
-#: kmlgpsdataparser.cpp:64
-msgid "Track"
-msgstr "Traccia"
-
-#: kmlgpsdataparser.cpp:90
-msgid "Points"
-msgstr "Punti"
-
-#: kmlgpsdataparser.cpp:101
-msgid "Point"
-msgstr "Punto"
-
-#: plugin_kmlexport.cpp:101
+#: plugin_kmlexport.cpp:92
 msgid "Export to KML..."
-msgstr "Esporta a KML..."
+msgstr "Esporta in KML..."
+
+#~ msgid "A Kipi plugin for KML exporting"
+#~ msgstr "Un'estensione di Kipi per l'esportazione KML"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Federico Zenith"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "federico.zenith@member.fsf.org"
+
+#~ msgid "Could not create '%1'"
+#~ msgstr "Impossibile creare «%1»"
 
 #~ msgid "Handbook"
 #~ msgstr "Manuale"

@@ -30,14 +30,12 @@
 #include <QMetaMethod>
 #include <QMutex>
 #include <QThread>
+#include <QMetaType>
 #include <QWaitCondition>
-
-// KDE includes
-
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "threadmanager.h"
 
 namespace Digikam
@@ -45,7 +43,8 @@ namespace Digikam
 
 ParallelWorkers::ParallelWorkers()
     : m_currentIndex(0),
-      m_replacementMetaObject(0)
+      m_replacementMetaObject(0),
+      m_originalStaticMetacall(0)
 {
 }
 
@@ -55,6 +54,7 @@ ParallelWorkers::~ParallelWorkers()
     {
         delete object;
     }
+
     delete m_replacementMetaObject;
 }
 
@@ -102,25 +102,27 @@ void ParallelWorkers::setPriority(QThread::Priority priority)
 
 void ParallelWorkers::add(WorkerObject* const worker)
 {
-    /*
+/*
     if (!asQObject()->inherits(worker->metaObject()->className()))
     {
-        kError() << "You need to derive the ParallelWorkers class from the WorkerObject you want to use";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "You need to derive the ParallelWorkers class from the WorkerObject you want to use";
         return;
     }
 
     QMetaObject* meta = asQObject()->metaObject();
+
     for (int i=0; i<meta->methodCount(); i++)
     {
         QMetaMethod method = meta->method(index);
         if (!method->methodType() == QMetaMethod::
     }
-    */
+*/
 
     m_workers << worker;
 }
 
-/*bool ParallelWorkers::connect(const QObject* sender, const char* signal,
+/*
+bool ParallelWorkers::connect(const QObject* sender, const char* signal,
                               const char* method,
                               Qt::ConnectionType type) const
 {
@@ -131,8 +133,10 @@ void ParallelWorkers::add(WorkerObject* const worker)
             return false;
         }
     }
+
     return true;
-}*/
+}
+*/
 
 bool ParallelWorkers::connect(const char* const signal,
                               const QObject* const receiver, const char* const method,
@@ -145,20 +149,17 @@ bool ParallelWorkers::connect(const char* const signal,
             return false;
         }
     }
+
     return true;
 }
 
-int ParallelWorkers::replacementQtMetacall(QMetaObject::Call _c, int _id, void **_a)
+int ParallelWorkers::replacementStaticQtMetacall(QMetaObject::Call _c, int _id, void **_a)
 {
-    _id = WorkerObjectQtMetacall(_c, _id, _a);
-    if (_id < 0)
-        return _id;
-
     if (_c == QMetaObject::InvokeMetaMethod)
     {
         // This is the common ancestor's meta object, below WorkerObject
-        const QMetaObject* mobj = mocMetaObject();
-        const int properMethods = mobj->methodCount() - mobj->methodOffset();
+        const QMetaObject* const mobj = mocMetaObject();
+        const int properMethods       = mobj->methodCount() - mobj->methodOffset();
 
         if (_id >= properMethods)
         {
@@ -171,21 +172,25 @@ int ParallelWorkers::replacementQtMetacall(QMetaObject::Call _c, int _id, void *
         // Copy the argument data - _a is going to be deleted in our current thread
         QList<QByteArray> types = method.parameterTypes();
         QVector<QGenericArgument> args(10);
-        for (int i = 0; i<types.size(); i++)
+
+        for (int i = 0; i < types.size(); i++)
         {
-            int typeId = QMetaType::type(types[i]);
+            int typeId = QMetaType::type(types[i].constData());
+
             if (!typeId && _a[i+1])
             {
-                kWarning() << "Unable to handle unregistered datatype" << types[i] << "Dropping signal.";
+                qCWarning(DIGIKAM_GENERAL_LOG) << "Unable to handle unregistered datatype" << types[i] << "Dropping signal.";
                 return _id - properMethods;
             }
+
             // we use QMetaType to copy the data. _a[0] is reserved for a return parameter.
-            void* data = QMetaType::construct(typeId, _a[i+1]);
-            args[i] = QGenericArgument(types[i], data);
+            void* const data = QMetaType::create(typeId, _a[i+1]);
+            args[i]          = QGenericArgument(types[i].constData(), data);
         }
 
         // Find the object to be invoked
-        WorkerObject* obj = m_workers.at(m_currentIndex);
+        WorkerObject* const obj = m_workers.at(m_currentIndex);
+
         if (++m_currentIndex == m_workers.size())
         {
             m_currentIndex = 0;
@@ -205,8 +210,30 @@ int ParallelWorkers::replacementQtMetacall(QMetaObject::Call _c, int _id, void *
                       args[8],
                       args[9]);
 
-        _id -= properMethods;
+        return _id - properMethods; // this return is used by replacementQtMetacall
     }
+    else
+    {
+        m_originalStaticMetacall(asQObject(), _c, _id, _a);
+    }
+
+    return _id; // this return will be ignored (qt_static_metacall is void)
+}
+
+int ParallelWorkers::replacementQtMetacall(QMetaObject::Call _c, int _id, void **_a)
+{
+    _id = WorkerObjectQtMetacall(_c, _id, _a);
+
+    if (_id < 0)
+    {
+        return _id;
+    }
+
+    if (_c == QMetaObject::InvokeMetaMethod)
+    {
+        return replacementStaticQtMetacall(_c, _id, _a);
+    }
+
     return _id;
 }
 
@@ -214,12 +241,13 @@ const QMetaObject *ParallelWorkers::replacementMetaObject() const
 {
     if (!m_replacementMetaObject)
     {
-        // We skip the extraData added in Qt 4.8, which gives the static_qt_metacall, bypassing
-        // our overriding of the qt_metacall virtual
-        QMetaObject *rmo = new QMetaObject(*mocMetaObject());
-        rmo->d.extradata = 0;
-        const_cast<ParallelWorkers*>(this)->m_replacementMetaObject = rmo;
+        QMetaObject* rmo                       = new QMetaObject(*mocMetaObject());
+        ParallelWorkers* nonConstThis          = const_cast<ParallelWorkers*>(this);
+        nonConstThis->m_originalStaticMetacall = rmo->d.static_metacall;
+        rmo->d.static_metacall                 = nonConstThis->staticMetacallPointer();
+        nonConstThis->m_replacementMetaObject  = rmo;
     }
+
     return m_replacementMetaObject;
 }
 

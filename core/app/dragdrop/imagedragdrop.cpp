@@ -7,7 +7,7 @@
  * Description : Qt Model for Albums - drag and drop handling
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
@@ -25,29 +25,28 @@
  *
  * ============================================================ */
 
-#include "imagedragdrop.moc"
+#include "imagedragdrop.h"
 
 // Qt includes
 
 #include <QDropEvent>
+#include <QMenu>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kiconloader.h>
-#include <kio/job.h>
-#include <klocale.h>
-#include <kmenu.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
 #include "importui.h"
 #include "importiconview.h"
+#include "imagethumbnailbar.h"
 #include "ddragobjects.h"
 #include "dio.h"
 #include "imagecategorizedview.h"
-#include "imagethumbnailbar.h"
 #include "imageinfo.h"
 #include "imageinfolist.h"
 #include "tableview_treeview.h"
@@ -64,15 +63,14 @@ enum DropAction
     AssignTagAction
 };
 
-static QAction* addGroupAction(KMenu* const menu)
+static QAction* addGroupAction(QMenu* const menu)
 {
-    return menu->addAction( SmallIcon("arrow-down-double"),
-                            i18nc("@action:inmenu Group images with this image", "Group here"));
+    return menu->addAction( QIcon::fromTheme(QLatin1String("go-bottom")), i18nc("@action:inmenu Group images with this image", "Group here"));
 }
 
-static QAction* addCancelAction(KMenu* const menu)
+static QAction* addCancelAction(QMenu* const menu)
 {
-    return menu->addAction( SmallIcon("dialog-cancel"), i18n("C&ancel") );
+    return menu->addAction( QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel") );
 }
 
 static DropAction copyOrMove(const QDropEvent* const e, QWidget* const view, bool allowMove = true, bool askForGrouping = false)
@@ -99,16 +97,16 @@ static DropAction copyOrMove(const QDropEvent* const e, QWidget* const view, boo
         }
     }
 
-    KMenu popMenu(view);
+    QMenu popMenu(view);
 
     QAction* moveAction = 0;
 
     if (allowMove)
     {
-        moveAction = popMenu.addAction( SmallIcon("go-jump"), i18n("&Move Here"));
+        moveAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("go-jump")), i18n("&Move Here"));
     }
 
-    QAction* const copyAction = popMenu.addAction( SmallIcon("edit-copy"), i18n("&Copy Here"));
+    QAction* const copyAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("edit-copy")), i18n("&Copy Here"));
     popMenu.addSeparator();
 
     QAction* groupAction = 0;
@@ -142,8 +140,8 @@ static DropAction copyOrMove(const QDropEvent* const e, QWidget* const view, boo
 
 static DropAction tagAction(const QDropEvent* const, QWidget* const view, bool askForGrouping)
 {
-    KMenu popMenu(view);
-    QAction* const tagAction = popMenu.addAction(SmallIcon("tag"), i18n("Assign Tag to Dropped Items"));
+    QMenu popMenu(view);
+    QAction* const tagAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("tag")), i18n("Assign Tag to Dropped Items"));
     QAction* groupAction     = 0;
 
     if (askForGrouping)
@@ -172,7 +170,7 @@ static DropAction tagAction(const QDropEvent* const, QWidget* const view, bool a
 
 static DropAction groupAction(const QDropEvent* const, QWidget* const view)
 {
-    KMenu popMenu(view);
+    QMenu popMenu(view);
     QAction* const groupAction = addGroupAction(&popMenu);
     popMenu.addSeparator();
     addCancelAction(&popMenu);
@@ -193,6 +191,11 @@ ImageDragDropHandler::ImageDragDropHandler(ImageModel* const model)
     : AbstractItemDragDropHandler(model),
       m_readOnly(false)
 {
+}
+
+ImageModel* ImageDragDropHandler::model() const
+{
+    return static_cast<ImageModel*>(m_model);
 }
 
 ImageAlbumModel* ImageDragDropHandler::albumModel() const
@@ -265,8 +268,8 @@ bool ImageDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDro
     if (DItemDrag::canDecode(e->mimeData()))
     {
         // Drag & drop inside of digiKam
-        KUrl::List       urls;
-        KUrl::List       kioURLs;
+        QList<QUrl>      urls;
+        QList<QUrl>      kioURLs;
         QList<int>       albumIDs;
         QList<qlonglong> imageIDs;
 
@@ -429,7 +432,7 @@ bool ImageDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDro
 
         return false;
     }
-    else if (KUrl::List::canDecode(e->mimeData()))
+    else if (e->mimeData()->hasUrls())
     {
         if (!palbum && !m_readOnly)
         {
@@ -438,7 +441,7 @@ bool ImageDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDro
 
         // Drag & drop outside of digiKam
 
-        KUrl::List srcURLs = KUrl::List::fromMimeData(e->mimeData());
+        QList<QUrl> srcURLs = e->mimeData()->urls();
 
         if (m_readOnly)
         {
@@ -464,33 +467,33 @@ bool ImageDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDro
         QList<int> tagIDs;
         bool isDecoded = DTagListDrag::decode(e->mimeData(), tagIDs);
 
-        if(!isDecoded)
+        if (!isDecoded)
         {
-            kDebug() << "Error: Deconding failed!";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Error: Deconding failed!";
             return false;
         }
 
-        KMenu popMenu(view);
+        QMenu popMenu(view);
 
         QList<ImageInfo> selectedInfos  = view->selectedImageInfosCurrentFirst();
         QAction* assignToSelectedAction = 0;
 
         if (selectedInfos.count() > 1)
         {
-            assignToSelectedAction = popMenu.addAction(SmallIcon("tag"), i18n("Assign Tags to &Selected Items"));
+            assignToSelectedAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("tag")), i18n("Assign Tags to &Selected Items"));
         }
 
         QAction* assignToThisAction = 0;
 
         if (droppedOn.isValid())
         {
-            assignToThisAction = popMenu.addAction(SmallIcon("tag"), i18n("Assign Tags to &This Item"));
+            assignToThisAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("tag")), i18n("Assign Tags to &This Item"));
         }
 
-        QAction* const assignToAllAction = popMenu.addAction(SmallIcon("tag"), i18n("Assign Tags to &All Items"));
+        QAction* const assignToAllAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("tag")), i18n("Assign Tags to &All Items"));
 
         popMenu.addSeparator();
-        popMenu.addAction(SmallIcon("dialog-cancel"), i18n("&Cancel"));
+        popMenu.addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("&Cancel"));
 
         popMenu.setMouseTracking(true);
         QAction* const choice = popMenu.exec(view->mapToGlobal(e->pos()));
@@ -527,14 +530,14 @@ bool ImageDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDro
             return false;
         }
 
-        KMenu popMenu(view);
-        popMenu.addTitle(SmallIcon("digikam"), i18n("Importing"));
-        QAction* const downAction    = popMenu.addAction(SmallIcon("get-hot-new-stuff"),
+        QMenu popMenu(view);
+        popMenu.addSection(QIcon::fromTheme(QLatin1String("digikam")), i18n("Importing"));
+        QAction* const downAction    = popMenu.addAction(QIcon::fromTheme(QLatin1String("get-hot-new-stuff")),
                                                          i18n("Download From Camera"));
-        QAction* const downDelAction = popMenu.addAction(SmallIcon("get-hot-new-stuff"),
+        QAction* const downDelAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("get-hot-new-stuff")),
                                                          i18n("Download && Delete From Camera"));
         popMenu.addSeparator();
-        popMenu.addAction(SmallIcon("dialog-cancel"), i18n("C&ancel"));
+        popMenu.addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel"));
         popMenu.setMouseTracking(true);
         QAction* const choice        = popMenu.exec(view->mapToGlobal(e->pos()));
 
@@ -563,7 +566,7 @@ Qt::DropAction ImageDragDropHandler::accepts(const QDropEvent* e, const QModelIn
         return Qt::IgnoreAction;
     }
 
-    if (DItemDrag::canDecode(e->mimeData()) || KUrl::List::canDecode(e->mimeData()))
+    if (DItemDrag::canDecode(e->mimeData()) || e->mimeData()->hasUrls())
     {
         if (e->keyboardModifiers() & Qt::ControlModifier)
         {
@@ -595,7 +598,7 @@ QStringList ImageDragDropHandler::mimeTypes() const
               << DTagListDrag::mimeTypes()
               << DCameraItemListDrag::mimeTypes()
               << DCameraDragObject::mimeTypes()
-              << KUrl::List::mimeDataTypes();
+              << QLatin1String("text/uri-list");
 
     return mimeTypes;
 }
@@ -604,8 +607,8 @@ QMimeData* ImageDragDropHandler::createMimeData(const QList<QModelIndex>& indexe
 {
     QList<ImageInfo> infos = model()->imageInfos(indexes);
 
-    KUrl::List       urls;
-    KUrl::List       kioURLs;
+    QList<QUrl>      urls;
+    QList<QUrl>      kioURLs;
     QList<int>       albumIDs;
     QList<qlonglong> imageIDs;
 

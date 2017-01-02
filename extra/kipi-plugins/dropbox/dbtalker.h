@@ -13,7 +13,7 @@
  * Public License as published by the Free Software Foundation;
  * either version 2,  or (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, 
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
  * GNU General Public License for more details.
@@ -30,14 +30,19 @@
 #include <QList>
 #include <QPair>
 #include <QQueue>
+#include <QDialog>
+#include <QNetworkReply>
+#include <QNetworkAccessManager>
 
-// KDE includes
+// Libkipi includes
 
-#include <kio/job.h>
+#include <KIPI/Interface>
 
 // Local includes
 
 #include "dbitem.h"
+
+using namespace KIPI;
 
 namespace KIPIDropboxPlugin
 {
@@ -82,8 +87,9 @@ Q_SIGNALS:
 
 private Q_SLOTS:
 
-    void data(KIO::Job* job, const QByteArray& data);
-    void slotResult(KJob* job);
+    void slotFinished(QNetworkReply* reply);
+    void slotAccept();
+    void slotReject();
 
 private:
 
@@ -98,19 +104,20 @@ private:
 
     enum State
     {
-        DB_REQ_TOKEN = 0, 
-        DB_ACCESSTOKEN, 
-        DB_USERNAME, 
-        DB_LISTFOLDERS, 
-        DB_CREATEFOLDER, 
+        DB_REQ_TOKEN = 0,
+        DB_ACCESSTOKEN,
+        DB_USERNAME,
+        DB_LISTFOLDERS,
+        DB_CREATEFOLDER,
         DB_ADDPHOTO
     };
 
 private:
 
-    bool                            auth;
-    long                            timestamp;
-    QString                         nonce;
+    QDialog*                        m_dialog;
+    bool                            m_auth;
+    long                            m_timestamp;
+    QString                         m_nonce;
     QString                         m_oauth_consumer_key;
     QString                         m_oauth_signature;
     QString                         m_oauth_signature_method;
@@ -122,11 +129,17 @@ private:
 
     QWidget*                        m_parent;
 
+    QNetworkAccessManager*          m_netMngr;
+
+    QNetworkReply*                  m_reply;
+
     State                           m_state;
 
-    KIO::Job*                       m_job;
     QByteArray                      m_buffer;
-    QQueue<QString>                 queue;
+    QQueue<QString>                 m_queue;
+
+    Interface*                      m_iface;
+    MetadataProcessor*              m_meta;
 };
 
 } // namespace KIPIDropboxPlugin

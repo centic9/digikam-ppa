@@ -6,7 +6,7 @@
  * Date        : 2005-24-01
  * Description : Change tonality image filter
  *
- * Copyright (C) 2005-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010 by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -29,7 +29,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 using namespace Digikam;
 
@@ -50,7 +50,9 @@ public:
         blueMask  = 0;
     };
 
-    ~TonalityContainer() {};
+    ~TonalityContainer()
+    {
+    };
 
 public:
 
@@ -66,18 +68,18 @@ class DIGIKAM_EXPORT TonalityFilter : public DImgThreadedFilter
 
 public:
 
-    explicit TonalityFilter(QObject* parent = 0);
-    explicit TonalityFilter(DImg* orgImage, QObject* parent=0, const TonalityContainer& settings=TonalityContainer());
+    explicit TonalityFilter(QObject* const parent = 0);
+    explicit TonalityFilter(DImg* const orgImage, QObject* const parent=0, const TonalityContainer& settings=TonalityContainer());
     virtual ~TonalityFilter();
 
     static QString          FilterIdentifier()
     {
-        return "digikam:TonalityFilter";
+        return QLatin1String("digikam:TonalityFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Tonality Filter");
+        return QString::fromUtf8(I18N_NOOP("Tonality Filter"));
     }
 
     static QList<int>       SupportedVersions()

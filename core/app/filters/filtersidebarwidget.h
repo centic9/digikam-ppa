@@ -8,9 +8,9 @@
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C)      2011 by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C)      2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C)      2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,16 +32,12 @@
 
 #include <QWidget>
 
-// KDE includes
-
-#include <kvbox.h>
-
 // Local includes
 
 #include "imagefiltersettings.h"
 #include "statesavingobject.h"
 #include "textfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -63,7 +59,7 @@ class TAlbum;
  *
  * @author jwienke
  */
-class FilterSideBarWidget : public KVBox, public StateSavingObject
+class FilterSideBarWidget : public DVBox, public StateSavingObject
 {
     Q_OBJECT
 

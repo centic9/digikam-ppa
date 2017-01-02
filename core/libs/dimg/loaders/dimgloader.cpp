@@ -7,7 +7,7 @@
  * Description : DImg image loader interface
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -36,14 +36,9 @@
 #include <QFile>
 #include <QFileInfo>
 
-// KDE includes
-
-#include <kstandarddirs.h>
-#include <kcodecs.h>       // for KMD5
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimg_p.h"
 #include "dmetadata.h"
 #include "dimgloaderobserver.h"
@@ -168,9 +163,9 @@ void DImgLoader::loadingFailed()
 
 qint64 DImgLoader::checkAllocation(qint64 fullSize)
 {
-    if (fullSize > std::numeric_limits<int>::max())
+    if ((quint64)fullSize >= std::numeric_limits<size_t>::max())
     {
-        kError() << "Cannot allocate buffer of size" << fullSize;
+        qCWarning(DIGIKAM_DIMG_LOG) << "Cannot allocate buffer of size" << fullSize;
         return 0;
     }
 
@@ -184,12 +179,12 @@ qint64 DImgLoader::checkAllocation(qint64 fullSize)
 
         if (res == -1)
         {
-            kError() << "Not a recognized platform to get memory information";
+            qCWarning(DIGIKAM_DIMG_LOG) << "Not a recognized platform to get memory information";
             return -1;
         }
         else if (res == 0)
         {
-            kError() << "Error to get physical memory information form a recognized platform";
+            qCWarning(DIGIKAM_DIMG_LOG) << "Error to get physical memory information form a recognized platform";
             return 0;
         }
 
@@ -197,8 +192,8 @@ qint64 DImgLoader::checkAllocation(qint64 fullSize)
 
         if (fullSize > available)
         {
-            kError() << "Not enough memory to allocate buffer of size " << fullSize;
-            kError() << "Available memory size is " << available;
+            qCWarning(DIGIKAM_DIMG_LOG) << "Not enough memory to allocate buffer of size " << fullSize;
+            qCWarning(DIGIKAM_DIMG_LOG) << "Available memory size is " << available;
             return 0;
         }
     }
@@ -217,7 +212,7 @@ bool DImgLoader::readMetadata(const QString& filePath, DImg::FORMAT /*ff*/)
 
     if (!metaDataFromFile.load(filePath))
     {
-        m_image->setMetadata(KExiv2Data());
+        m_image->setMetadata(MetaEngineData());
         return false;
     }
 
@@ -231,7 +226,7 @@ bool DImgLoader::readMetadata(const QString& filePath, DImg::FORMAT /*ff*/)
         history << id;
 
         m_image->setImageHistory(history);
-        imageSetAttribute("originalImageHistory", QVariant::fromValue(history));
+        imageSetAttribute(QLatin1String("originalImageHistory"), QVariant::fromValue(history));
     }
 
     return true;
@@ -278,7 +273,7 @@ HistoryImageId DImgLoader::createHistoryImageId(const QString& filePath, const D
     id.setCreationDate(dt);
     id.setFileName(file.fileName());
     id.setPath(file.path());
-    id.setUniqueHash(uniqueHashV2(filePath, &image), file.size());
+    id.setUniqueHash(QString::fromUtf8(uniqueHashV2(filePath, &image)), file.size());
 
     return id;
 }
@@ -364,7 +359,7 @@ QByteArray DImgLoader::uniqueHashV2(const QString& filePath, const DImg* const i
 
     if (img && !hash.isNull())
     {
-        const_cast<DImg*>(img)->setAttribute("uniqueHashV2", hash);
+        const_cast<DImg*>(img)->setAttribute(QString::fromUtf8("uniqueHashV2"), hash);
     }
 
     return hash;
@@ -377,28 +372,20 @@ QByteArray DImgLoader::uniqueHash(const QString& filePath, const DImg& img, bool
     if (loadMetadata)
     {
         DMetadata metaDataFromFile(filePath);
-#if KEXIV2_VERSION >= 0x010000
         bv = metaDataFromFile.getExifEncoded();
-#else
-        bv = metaDataFromFile.getExif();
-#endif
     }
     else
     {
         DMetadata metaDataFromImage(img.getMetadata());
-#if KEXIV2_VERSION >= 0x010000
         bv = metaDataFromImage.getExifEncoded();
-#else
-        bv = metaDataFromImage.getExif();
-#endif
     }
 
     // Create the unique ID
 
-    KMD5 md5;
+    QCryptographicHash md5(QCryptographicHash::Md5);
 
     // First, read the Exif data into the hash
-    md5.update(bv);
+    md5.addData(bv);
 
     // Second, read in the first 8KB of the file
     QFile qfile(filePath);
@@ -413,15 +400,15 @@ QByteArray DImgLoader::uniqueHash(const QString& filePath, const DImg& img, bool
         if ((readlen = qfile.read(databuf, 8192)) > 0)
         {
             QByteArray size = 0;
-            md5.update(databuf, readlen);
-            md5.update(size.setNum(qfile.size()));
-            hash = md5.hexDigest();
+            md5.addData(databuf, readlen);
+            md5.addData(size.setNum(qfile.size()));
+            hash = md5.result();
         }
     }
 
     if (!hash.isNull())
     {
-        const_cast<DImg&>(img).setAttribute("uniqueHash", hash);
+        const_cast<DImg&>(img).setAttribute(QLatin1String("uniqueHash"), hash);
     }
 
     return hash;

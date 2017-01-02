@@ -7,7 +7,7 @@
  * Description : a tool to export GPS data to KML file.
  *
  * Copyright (C) 2006-2007 by Stephane Pontier <shadow dot walker at free dot fr>
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,7 +32,7 @@
 
 #include <QDomDocument>
 
-namespace KIPIKMLExportPlugin 
+namespace KIPIKMLExportPlugin
 {
 
 /*! a classe derivated from GPSDataParser mainly to transform GPS data to KML
@@ -46,7 +46,7 @@ public:
     KMLGPSDataParser();
     ~KMLGPSDataParser();
 
-    /*! KIPIGPSSyncPlugin::KMLGPSDataParser::lineString()
+    /*! KMLGPSDataParser::KMLGPSDataParser::lineString()
      *  @return the string containing the time ordered point (lon,lat,alt)
      */
     QString lineString();
@@ -104,6 +104,6 @@ private:
     QDomDocument* kmlDocument;
 };
 
-} // namespace KIPIKMLExportPlugin 
+} // namespace KIPIKMLExportPlugin
 
 #endif // KIPIGPSSYNCPLUGINKMLGPSDATAPARSER_H

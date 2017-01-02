@@ -21,26 +21,19 @@
  *
  * ============================================================ */
 
-#include "imagecategorizedview.moc"
+#include "imagecategorizedview.h"
 
 // Qt includes
 
-#include <QHelpEvent>
-#include <QScrollBar>
-#include <QStyle>
 #include <QTimer>
-
-// KDE includes
-
-#include <kiconloader.h>
-#include <kdebug.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "album.h"
 #include "albummanager.h"
 #include "applicationsettings.h"
-#include "databasefields.h"
+#include "coredbfields.h"
 #include "iccsettings.h"
 #include "imagealbummodel.h"
 #include "imagealbumfiltermodel.h"
@@ -106,6 +99,8 @@ public:
 
     qlonglong             scrollToItemId;
 
+    QUrl                  unknownCurrentUrl;
+
     QTimer*               delayedEnterTimer;
 
     QMouseEvent*          currentMouseEvent;
@@ -114,7 +109,7 @@ public:
 // -------------------------------------------------------------------------------
 
 ImageCategorizedView::ImageCategorizedView(QWidget* const parent)
-    : DCategorizedView(parent), d(new Private)
+    : ItemViewCategorized(parent), d(new Private)
 {
     setToolTip(new ImageItemViewToolTip(this));
 
@@ -265,7 +260,7 @@ void ImageCategorizedView::setItemDelegate(ImageDelegate* delegate)
         d->delegate->setSpacing(oldDelegate->spacing());
     }
 
-    DCategorizedView::setItemDelegate(d->delegate);
+    ItemViewCategorized::setItemDelegate(d->delegate);
     setCategoryDrawer(d->delegate->categoryDrawer());
     updateDelegateSizes();
 
@@ -296,7 +291,7 @@ ImageInfo ImageCategorizedView::currentInfo() const
     return d->filterModel->imageInfo(currentIndex());
 }
 
-KUrl ImageCategorizedView::currentUrl() const
+QUrl ImageCategorizedView::currentUrl() const
 {
     return currentInfo().fileUrl();
 }
@@ -334,10 +329,10 @@ QList<ImageInfo> ImageCategorizedView::imageInfos() const
     return d->filterModel->imageInfosSorted();
 }
 
-KUrl::List ImageCategorizedView::urls() const
+QList<QUrl> ImageCategorizedView::urls() const
 {
     QList<ImageInfo> infos = imageInfos();
-    KUrl::List       urls;
+    QList<QUrl>       urls;
 
     foreach(const ImageInfo& info, infos)
     {
@@ -347,10 +342,10 @@ KUrl::List ImageCategorizedView::urls() const
     return urls;
 }
 
-KUrl::List ImageCategorizedView::selectedUrls() const
+QList<QUrl> ImageCategorizedView::selectedUrls() const
 {
     QList<ImageInfo> infos = selectedImageInfos();
-    KUrl::List       urls;
+    QList<QUrl>       urls;
 
     foreach(const ImageInfo& info, infos)
     {
@@ -360,9 +355,9 @@ KUrl::List ImageCategorizedView::selectedUrls() const
     return urls;
 }
 
-void ImageCategorizedView::toIndex(const KUrl& url)
+void ImageCategorizedView::toIndex(const QUrl& url)
 {
-    DCategorizedView::toIndex(d->filterModel->indexForPath(url.toLocalFile()));
+    ItemViewCategorized::toIndex(d->filterModel->indexForPath(url.toLocalFile()));
 }
 
 QModelIndex ImageCategorizedView::indexForInfo(const ImageInfo& info) const
@@ -384,10 +379,10 @@ ImageInfo ImageCategorizedView::nextInOrder(const ImageInfo& startingPoint, int 
 
 QModelIndex ImageCategorizedView::nextIndexHint(const QModelIndex& anchor, const QItemSelectionRange& removed) const
 {
-    QModelIndex hint = DCategorizedView::nextIndexHint(anchor, removed);
+    QModelIndex hint = ItemViewCategorized::nextIndexHint(anchor, removed);
     ImageInfo info   = d->filterModel->imageInfo(anchor);
 
-    //kDebug() << "Having initial hint" << hint << "for" << anchor << d->model->numberOfIndexesForImageInfo(info);
+    //qCDebug(DIGIKAM_GENERAL_LOG) << "Having initial hint" << hint << "for" << anchor << d->model->numberOfIndexesForImageInfo(info);
 
     // Fixes a special case of multiple (face) entries for the same image.
     // If one is removed, any entry of the same image shall be preferred.
@@ -412,7 +407,7 @@ QModelIndex ImageCategorizedView::nextIndexHint(const QModelIndex& anchor, const
                 {
                     minDiff = distance;
                     hint    = index;
-                    //kDebug() << "Chose index" << hint << "at distance" << minDiff << "to" << anchor;
+                    //qCDebug(DIGIKAM_GENERAL_LOG) << "Chose index" << hint << "at distance" << minDiff << "to" << anchor;
                 }
             }
         }
@@ -465,7 +460,30 @@ void ImageCategorizedView::setCurrentWhenAvailable(qlonglong imageId)
     d->scrollToItemId = imageId;
 }
 
-void ImageCategorizedView::setCurrentUrl(const KUrl& url)
+void ImageCategorizedView::setCurrentUrlWhenAvailable(const QUrl& url)
+{
+    if (url.isEmpty())
+    {
+        clearSelection();
+        setCurrentIndex(QModelIndex());
+        return;
+    }
+
+    QString path      = url.toLocalFile();
+    QModelIndex index = d->filterModel->indexForPath(path);
+
+    if (!index.isValid())
+    {
+        d->unknownCurrentUrl = url;
+        return;
+    }
+
+    clearSelection();
+    setCurrentIndex(index);
+    d->unknownCurrentUrl.clear();
+}
+
+void ImageCategorizedView::setCurrentUrl(const QUrl& url)
 {
     if (url.isEmpty())
     {
@@ -493,18 +511,18 @@ void ImageCategorizedView::setCurrentInfo(const ImageInfo& info)
     setCurrentIndex(index);
 }
 
-void ImageCategorizedView::setSelectedUrls(const KUrl::List& urlList)
+void ImageCategorizedView::setSelectedUrls(const QList<QUrl>& urlList)
 {
     QItemSelection mySelection;
 
-    for (KUrl::List::const_iterator it = urlList.constBegin(); it!=urlList.constEnd(); ++it)
+    for (QList<QUrl>::const_iterator it = urlList.constBegin(); it!=urlList.constEnd(); ++it)
     {
-        const QString path = it->path();
+        const QString path = it->toLocalFile();
         const QModelIndex index = d->filterModel->indexForPath(path);
 
         if (!index.isValid())
         {
-            kWarning() << "no QModelIndex found for" << *it;
+            qCWarning(DIGIKAM_GENERAL_LOG) << "no QModelIndex found for" << *it;
         }
         else
         {
@@ -578,7 +596,7 @@ void ImageCategorizedView::removeOverlay(ImageDelegateOverlay* overlay)
 
 void ImageCategorizedView::updateGeometries()
 {
-    DCategorizedView::updateGeometries();
+    ItemViewCategorized::updateGeometries();
     d->delayedEnterTimer->start();
 }
 
@@ -589,7 +607,7 @@ void ImageCategorizedView::slotDelayedEnter()
 
     if (mouseIndex.isValid())
     {
-        emit DigikamKCategorizedView::entered(mouseIndex);
+        emit DCategorizedView::entered(mouseIndex);
     }
 }
 
@@ -618,6 +636,16 @@ void ImageCategorizedView::slotImageInfosAdded()
     {
         scrollToStoredItem();
     }
+    else if (!d->unknownCurrentUrl.isEmpty())
+    {
+        QTimer::singleShot(100, this, SLOT(slotCurrentUrlTimer()));
+    }
+}
+
+void ImageCategorizedView::slotCurrentUrlTimer()
+{
+    setCurrentUrl(d->unknownCurrentUrl);
+    d->unknownCurrentUrl.clear();
 }
 
 void ImageCategorizedView::slotFileChanged(const QString& filePath)
@@ -643,14 +671,14 @@ void ImageCategorizedView::indexActivated(const QModelIndex& index, Qt::Keyboard
 
 void ImageCategorizedView::currentChanged(const QModelIndex& index, const QModelIndex& previous)
 {
-    DCategorizedView::currentChanged(index, previous);
+    ItemViewCategorized::currentChanged(index, previous);
 
     emit currentChanged(d->filterModel->imageInfo(index));
 }
 
 void ImageCategorizedView::selectionChanged(const QItemSelection& selectedItems, const QItemSelection& deselectedItems)
 {
-    DCategorizedView::selectionChanged(selectedItems, deselectedItems);
+    ItemViewCategorized::selectionChanged(selectedItems, deselectedItems);
 
     if (!selectedItems.isEmpty())
     {
@@ -706,7 +734,7 @@ void ImageCategorizedView::paintEvent(QPaintEvent* e)
         d->delegate->prepareThumbnails(thumbModel, indexesToThumbnail);
     }
 
-    DCategorizedView::paintEvent(e);
+    ItemViewCategorized::paintEvent(e);
 }
 
 QItemSelectionModel* ImageCategorizedView::getSelectionModel() const

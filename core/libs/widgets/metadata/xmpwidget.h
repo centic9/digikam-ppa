@@ -6,7 +6,7 @@
  * Date        : 2007-07-19
  * Description : A widget to display XMP metadata
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -38,10 +38,10 @@ class DIGIKAM_EXPORT XmpWidget : public MetadataWidget
 
 public:
 
-    explicit XmpWidget(QWidget* const parent, const char* name=0);
+    explicit XmpWidget(QWidget* const parent, const QString& name=QString());
     ~XmpWidget();
 
-    bool loadFromURL(const KUrl& url);
+    bool loadFromURL(const QUrl& url);
 
     QString getTagDescription(const QString& key);
     QString getTagTitle(const QString& key);

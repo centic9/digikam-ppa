@@ -6,7 +6,7 @@
  * Date        : 2005-07-18
  * Description : Shear tool threaded image filter.
  *
- * Copyright (C) 2005-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * Original Shear algorithms copyrighted 2005 by
@@ -34,7 +34,7 @@
 
 // Local includes
 
-#include "globals.h"
+#include "digikam_globals.h"
 #include "dimg.h"
 #include "pixelsaliasfilter.h"
 
@@ -65,9 +65,9 @@ public:
 
     QColor backgroundColor;
 
-    QSize  newSize;    
-};    
-    
+    QSize  newSize;
+};
+
 ShearFilter::ShearFilter(QObject* const parent)
     : DImgThreadedFilter(parent),
       d(new Private)
@@ -77,8 +77,8 @@ ShearFilter::ShearFilter(QObject* const parent)
 
 ShearFilter::ShearFilter(DImg* const orgImage, QObject* const parent, float hAngle, float vAngle,
                          bool antialiasing, const QColor& backgroundColor, int orgW, int orgH)
-    : DImgThreadedFilter(orgImage, parent, "sheartool"),
-      d(new Private)    
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("sheartool")),
+      d(new Private)
 {
     d->hAngle          = hAngle;
     d->vAngle          = vAngle;
@@ -99,11 +99,11 @@ QSize ShearFilter::getNewSize() const
 {
     return d->newSize;
 }
-    
+
 void ShearFilter::filterImage()
 {
     int          progress;
-    register int x, y, p = 0, pt;
+   int x, y, p = 0, pt;
     int          new_width, new_height;
     double       nx, ny, dx, dy;
     double       horz_factor, vert_factor;
@@ -235,30 +235,30 @@ FilterAction ShearFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("antiAlias", d->antiAlias);
-    action.addParameter("hAngle", d->hAngle);
-    action.addParameter("orgH", d->orgH);
-    action.addParameter("orgW", d->orgW);
-    action.addParameter("vAngle", d->vAngle);
-    action.addParameter("backgroundColorR", d->backgroundColor.red());
-    action.addParameter("backgroundColorG", d->backgroundColor.green());
-    action.addParameter("backgroundColorB", d->backgroundColor.blue());
-    action.addParameter("backgroundColorA", d->backgroundColor.alpha());
+    action.addParameter(QLatin1String("antiAlias"),        d->antiAlias);
+    action.addParameter(QLatin1String("hAngle"),           d->hAngle);
+    action.addParameter(QLatin1String("orgH"),             d->orgH);
+    action.addParameter(QLatin1String("orgW"),             d->orgW);
+    action.addParameter(QLatin1String("vAngle"),           d->vAngle);
+    action.addParameter(QLatin1String("backgroundColorR"), d->backgroundColor.red());
+    action.addParameter(QLatin1String("backgroundColorG"), d->backgroundColor.green());
+    action.addParameter(QLatin1String("backgroundColorB"), d->backgroundColor.blue());
+    action.addParameter(QLatin1String("backgroundColorA"), d->backgroundColor.alpha());
 
     return action;
 }
 
 void ShearFilter::readParameters(const FilterAction& action)
 {
-    d->antiAlias = action.parameter("antiAlias").toBool();
-    d->hAngle = action.parameter("hAngle").toFloat();
-    d->orgH = action.parameter("orgH").toInt();
-    d->orgW = action.parameter("orgW").toInt();
-    d->vAngle = action.parameter("vAngle").toFloat();
-    d->backgroundColor.setRed(action.parameter("backgroundColorR").toInt());
-    d->backgroundColor.setGreen(action.parameter("backgroundColorG").toInt());
-    d->backgroundColor.setBlue(action.parameter("backgroundColorB").toInt());
-    d->backgroundColor.setAlpha(action.parameter("backgroundColorA").toInt());
+    d->antiAlias = action.parameter(QLatin1String("antiAlias")).toBool();
+    d->hAngle = action.parameter(QLatin1String("hAngle")).toFloat();
+    d->orgH = action.parameter(QLatin1String("orgH")).toInt();
+    d->orgW = action.parameter(QLatin1String("orgW")).toInt();
+    d->vAngle = action.parameter(QLatin1String("vAngle")).toFloat();
+    d->backgroundColor.setRed(action.parameter(QLatin1String("backgroundColorR")).toInt());
+    d->backgroundColor.setGreen(action.parameter(QLatin1String("backgroundColorG")).toInt());
+    d->backgroundColor.setBlue(action.parameter(QLatin1String("backgroundColorB")).toInt());
+    d->backgroundColor.setAlpha(action.parameter(QLatin1String("backgroundColorA")).toInt());
 }
 
 }  // namespace Digikam

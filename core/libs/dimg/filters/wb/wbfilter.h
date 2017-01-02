@@ -6,7 +6,7 @@
  * Date        : 2007-16-01
  * Description : white balance color correction.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008      by Guillaume Castagnino <casta at xwing dot info>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -34,7 +34,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 #include "wbcontainer.h"
 
 using namespace Digikam;
@@ -63,12 +63,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:WhiteBalanceFilter";
+        return QLatin1String("digikam:WhiteBalanceFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("White Balance Tool");
+        return QString::fromUtf8(I18N_NOOP("White Balance Tool"));
     }
 
     static QList<int>       SupportedVersions()

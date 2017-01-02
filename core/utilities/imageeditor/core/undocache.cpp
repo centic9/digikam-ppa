@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2005      by Joern Ahrens <joern dot ahrens at kdemail dot net>
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -34,15 +34,12 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QStringList>
+#include <QStandardPaths>
+#include <QStorageInfo>
 
-// KDE includes
+// Local includes
 
-#include <kstandarddirs.h>
-#include <kdiskfreespaceinfo.h>
-#include <kaboutdata.h>
-#include <kcomponentdata.h>
-#include <kdebug.h>
-#include <kglobal.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -57,7 +54,7 @@ public:
 
     QString cacheFile(int level) const
     {
-        return QString("%1-%2.bin").arg(cachePrefix).arg(level);
+        return QString::fromUtf8("%1-%2.bin").arg(cachePrefix).arg(level);
     }
 
     QString   cacheDir;
@@ -68,16 +65,16 @@ public:
 UndoCache::UndoCache()
     : d(new Private)
 {
-    d->cacheDir    = KStandardDirs::locateLocal("cache", KGlobal::mainComponent().aboutData()->programName() + '/');
+    d->cacheDir    = QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + QLatin1Char('/');
 
-    d->cachePrefix = QString("%1undocache-%2")
+    d->cachePrefix = QString::fromUtf8("%1undocache-%2")
                      .arg(d->cacheDir)
                      .arg(QCoreApplication::applicationPid());
 
     // remove any remnants
     QDir dir(d->cacheDir);
 
-    foreach(const QFileInfo& info, dir.entryInfoList(QStringList() << (d->cachePrefix + '*')))
+    foreach(const QFileInfo& info, dir.entryInfoList(QStringList() << (d->cachePrefix + QLatin1Char('*'))))
     {
         QFile(info.filePath()).remove();
     }
@@ -114,14 +111,14 @@ void UndoCache::clearFrom(int fromLevel)
 bool UndoCache::putData(int level, const DImg& img) const
 {
     QFile file(d->cacheFile(level));
-    KDiskFreeSpaceInfo info = KDiskFreeSpaceInfo::freeSpaceInfo(d->cacheDir);
-    
-    unsigned long fspace = (unsigned long)(info.available()/1024.0/1024.0);
-    kDebug() << "Free space available in Editor cache [" << d->cacheDir << "] in Mbytes: " << fspace;
-    
-    if (file.exists() || 
-        !file.open(QIODevice::WriteOnly) || 
-        fspace < 1024) // Check if free space is over 1 Gb to put data in cache. 
+    QStorageInfo info(d->cacheDir);
+
+    qint64 fspace = (info.bytesAvailable()/1024.0/1024.0);
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Free space available in Editor cache [" << d->cacheDir << "] in Mbytes: " << fspace;
+
+    if (file.exists() ||
+        !file.open(QIODevice::WriteOnly) ||
+        fspace < 1024) // Check if free space is over 1 Gb to put data in cache.
     {
         return false;
     }

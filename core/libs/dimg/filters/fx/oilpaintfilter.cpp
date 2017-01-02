@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Oil Painting threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -35,12 +35,8 @@
 
 // Qt includes
 
-#include <QtConcurrentRun>
+#include <QtConcurrent>
 #include <QMutex>
-
-// KDE includes
-
-#include <kdebug.h>
 
 // Local includes
 
@@ -76,7 +72,7 @@ OilPaintFilter::OilPaintFilter(QObject* const parent)
 }
 
 OilPaintFilter::OilPaintFilter(DImg* const orgImage, QObject* const parent, int brushSize, int smoothness)
-    : DImgThreadedFilter(orgImage, parent, "OilPaintFilter"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("OilPaintFilter")),
       d(new Private)
 {
     d->brushSize  = brushSize;
@@ -154,7 +150,7 @@ void OilPaintFilter::filterImage()
     }
 
     foreach(QFuture<void> t, tasks)
-        t.waitForFinished();    
+        t.waitForFinished();
 }
 
 /** Function to determine the most frequent color in a matrix
@@ -259,16 +255,16 @@ FilterAction OilPaintFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("brushSize",  d->brushSize);
-    action.addParameter("smoothness", d->smoothness);
+    action.addParameter(QLatin1String("brushSize"),  d->brushSize);
+    action.addParameter(QLatin1String("smoothness"), d->smoothness);
 
     return action;
 }
 
 void OilPaintFilter::readParameters(const Digikam::FilterAction& action)
 {
-    d->brushSize  = action.parameter("brushSize").toInt();
-    d->smoothness = action.parameter("smoothness").toInt();
+    d->brushSize  = action.parameter(QLatin1String("brushSize")).toInt();
+    d->smoothness = action.parameter(QLatin1String("smoothness")).toInt();
 }
 
 }  // namespace Digikam

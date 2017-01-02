@@ -6,7 +6,7 @@
  * Date        : 2005-07-18
  * Description : Shear tool threaded image filter.
  *
- * Copyright (C) 2005-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -34,7 +34,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -53,12 +53,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:ShearFilter";
+        return QLatin1String("digikam:ShearFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Shear Tool");
+        return QString::fromUtf8(I18N_NOOP("Shear Tool"));
     }
 
     static QList<int>       SupportedVersions()

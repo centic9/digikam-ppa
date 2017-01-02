@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2004      by David Faure <faure at kde dot org>
  *
  * This program is free software; you can redistribute it
@@ -25,12 +25,9 @@
 #ifndef OVERLAY_WIDGET_H
 #define OVERLAY_WIDGET_H
 
-// KDE includes
-
-#include <khbox.h>
-
 // Local includes
 
+#include "dwidgetutils.h"
 #include "digikam_export.h"
 
 class QResizeEvent;
@@ -44,15 +41,15 @@ namespace Digikam
  * so that it can actually be on top of other widgets.
  * Currently the only supported type of alignment is "right aligned, on top of the other widget".
  *
- * OverlayWidget inherits KHBox for convenience purposes (layout, and frame)
+ * OverlayWidget inherits DHBox for convenience purposes (layout, and frame)
  */
-class DIGIKAM_EXPORT OverlayWidget : public KHBox
+class DIGIKAM_EXPORT OverlayWidget : public DHBox
 {
     Q_OBJECT
 
 public:
 
-    OverlayWidget(QWidget* const alignWidget, QWidget* const parent, const char* name = 0);
+    OverlayWidget(QWidget* const alignWidget, QWidget* const parent, const QString& name = QString());
     ~OverlayWidget();
 
     QWidget* alignWidget() const;

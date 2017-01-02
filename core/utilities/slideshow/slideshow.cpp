@@ -6,7 +6,7 @@
  * Date        : 2005-04-21
  * Description : slide show tool using preview of pictures.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2004      by Enrico Ros <eros dot kde at email dot it>
  *
  * This program is free software; you can redistribute it
@@ -22,7 +22,8 @@
  *
  * ============================================================ */
 
-#include "slideshow.moc"
+#include "slideshow.h"
+#include "digikam_config.h"
 
 // Qt includes
 
@@ -35,21 +36,21 @@
 #include <QPaintEvent>
 #include <QTimer>
 #include <QWheelEvent>
-#include <QtDBus/QDBusConnection>
-#include <QtDBus/QDBusMessage>
-#include <QtDBus/QDBusReply>
+#include <QApplication>
+
+#ifdef HAVE_DBUS
+#   include <QDBusConnection>
+#   include <QDBusMessage>
+#   include <QDBusReply>
+#endif
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kdeversion.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
 #include "slidetoolbar.h"
 #include "slideosd.h"
 #include "slideimage.h"
@@ -95,7 +96,7 @@ SlideShow::SlideShow(const SlideShowSettings& settings)
     setWindowFlags(Qt::FramelessWindowHint);
     setAttribute(Qt::WA_DeleteOnClose);
     setWindowState(windowState() | Qt::WindowFullScreen);
-    setWindowTitle(KDialog::makeStandardCaption(i18n("Slideshow")));
+    setWindowTitle(i18n("Slideshow"));
     setContextMenuPolicy(Qt::PreventContextMenu);
     setMouseTracking(true);
 
@@ -142,13 +143,13 @@ SlideShow::SlideShow(const SlideShowSettings& settings)
 
     // ---------------------------------------------------------------
 
-    QDesktopWidget const* desktop = kapp->desktop();
+    QDesktopWidget const* desktop = qApp->desktop();
     const int preferenceScreen    = d->settings.slideScreen;
     int screen                    = 0;
 
     if (preferenceScreen == -2)
     {
-        screen = desktop->screenNumber(kapp->activeWindow());
+        screen = desktop->screenNumber(qApp->activeWindow());
     }
     else if (preferenceScreen == -1)
     {
@@ -160,7 +161,7 @@ SlideShow::SlideShow(const SlideShowSettings& settings)
     }
     else
     {
-        screen                  = desktop->screenNumber(kapp->activeWindow());
+        screen                  = desktop->screenNumber(qApp->activeWindow());
         d->settings.slideScreen = -2;
         d->settings.writeToConfig();
     }
@@ -176,6 +177,8 @@ SlideShow::SlideShow(const SlideShowSettings& settings)
 
 SlideShow::~SlideShow()
 {
+    emit signalLastItemUrl(currentItem());
+
     allowScreenSaver();
 
     d->mouseMoveTimer->stop();
@@ -184,7 +187,7 @@ SlideShow::~SlideShow()
     delete d;
 }
 
-void SlideShow::setCurrentItem(const KUrl& url)
+void SlideShow::setCurrentItem(const QUrl& url)
 {
     int index = d->settings.fileList.indexOf(url);
 
@@ -194,7 +197,7 @@ void SlideShow::setCurrentItem(const KUrl& url)
     }
 }
 
-KUrl SlideShow::currentItem() const
+QUrl SlideShow::currentItem() const
 {
     return d->settings.fileList.value(d->fileIndex);
 }
@@ -220,7 +223,7 @@ void SlideShow::slotLoadNextItem()
 
     if (d->fileIndex < num)
     {
-        d->imageView->setLoadUrl(currentItem().toLocalFile());
+        d->imageView->setLoadUrl(currentItem());
     }
     else
     {
@@ -249,7 +252,7 @@ void SlideShow::slotLoadPrevItem()
 
     if (d->fileIndex >= 0 && d->fileIndex < num)
     {
-        d->imageView->setLoadUrl(currentItem().toLocalFile());
+        d->imageView->setLoadUrl(currentItem());
     }
     else
     {
@@ -307,8 +310,7 @@ void SlideShow::preloadNextItem()
 
     if (index < num)
     {
-
-        d->imageView->setPreloadUrl(currentItem().toLocalFile());
+        d->imageView->setPreloadUrl(currentItem());
     }
 }
 
@@ -379,9 +381,12 @@ void SlideShow::slotMouseMoveTimeOut()
 // TODO: Add OSX and Windows support
 void SlideShow::inhibitScreenSaver()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver",
-                                                          "org.freedesktop.ScreenSaver", "Inhibit");
-    message << QString("digiKam");
+#ifdef HAVE_DBUS    
+    QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.ScreenSaver"),
+                                                          QLatin1String("/ScreenSaver"),
+                                                          QLatin1String("org.freedesktop.ScreenSaver"),
+                                                          QLatin1String("Inhibit"));
+    message << QLatin1String("digiKam");
     message << i18nc("Reason for inhibiting the screensaver activation, when the presentation mode is active", "Giving a slideshow");
 
     QDBusReply<uint> reply = QDBusConnection::sessionBus().call(message);
@@ -390,17 +395,22 @@ void SlideShow::inhibitScreenSaver()
     {
         d->screenSaverCookie = reply.value();
     }
+#endif    
 }
 
 void SlideShow::allowScreenSaver()
 {
+#ifdef HAVE_DBUS
     if (d->screenSaverCookie != -1)
     {
-        QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.ScreenSaver", "/ScreenSaver",
-                                                              "org.freedesktop.ScreenSaver", "UnInhibit");
+        QDBusMessage message = QDBusMessage::createMethodCall(QLatin1String("org.freedesktop.ScreenSaver"),
+                                                              QLatin1String("/ScreenSaver"),
+                                                              QLatin1String("org.freedesktop.ScreenSaver"),
+                                                              QLatin1String("UnInhibit"));
         message << (uint)d->screenSaverCookie;
         QDBusConnection::sessionBus().send(message);
     }
+#endif
 }
 
 void SlideShow::slotAssignRating(int rating)
@@ -424,7 +434,7 @@ void SlideShow::slotAssignPickLabel(int pick)
     emit signalPickLabelChanged(currentItem(), pick);
 }
 
-void SlideShow::updateTags(const KUrl& url, const QStringList& tags)
+void SlideShow::updateTags(const QUrl& url, const QStringList& tags)
 {
     d->settings.pictInfoMap[url].tags = tags;
     dispatchCurrentInfoChange(url);
@@ -435,7 +445,7 @@ void SlideShow::toggleTag(int tag)
     emit signalToggleTag(currentItem(), tag);
 }
 
-void SlideShow::dispatchCurrentInfoChange(const KUrl& url)
+void SlideShow::dispatchCurrentInfoChange(const QUrl& url)
 {
     if (currentItem() == url)
         d->osd->setCurrentInfo(d->settings.pictInfoMap[currentItem()], currentItem());
@@ -455,9 +465,9 @@ void SlideShow::slotPlay()
 
 void SlideShow::slotScreenSelected(int screen)
 {
-    kDebug() << "move to screen: " << screen;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Slideshow: move to screen: " << screen;
 
-    QRect deskRect = kapp->desktop()->screenGeometry(screen);
+    QRect deskRect = qApp->desktop()->screenGeometry(screen);
 
     move(deskRect.x(), deskRect.y());
     resize(deskRect.width(), deskRect.height());

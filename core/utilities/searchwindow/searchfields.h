@@ -7,7 +7,7 @@
  * Description : User interface for searches
  *
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2011-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -33,7 +33,7 @@
 
 // Local includes
 
-#include "searchxml.h"
+#include "coredbsearchxml.h"
 #include "searchutilities.h"
 #include "visibilitycontroller.h"
 
@@ -44,13 +44,13 @@ class QSpinBox;
 class QDoubleSpinBox;
 class QTimeEdit;
 class QTreeView;
-class KComboBox;
-class KLineEdit;
-class KSqueezedTextLabel;
+class QComboBox;
+class QLineEdit;
 
 namespace Digikam
 {
 
+class DAdjustableLabel;
 class AlbumSelectComboBox;
 class SearchFieldGroup;
 class SqueezedComboBox;
@@ -146,7 +146,7 @@ protected Q_SLOTS:
 
 protected:
 
-    KLineEdit* m_edit;
+    QLineEdit* m_edit;
 };
 
 //-----------------------------------------------------------------------------
@@ -417,7 +417,7 @@ protected Q_SLOTS:
 
 protected:
 
-    KComboBox* m_comboBox;
+    QComboBox* m_comboBox;
 };
 
 //-----------------------------------------------------------------------------

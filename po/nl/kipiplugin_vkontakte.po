@@ -2,13 +2,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Freek de Kruijf <freekdekruijf@kde.nl>, 2011, 2012.
-# Freek de Kruijf <f.de.kruijf@gmail.com>, 2011, 2013, 2015.
+# Freek de Kruijf <f.de.kruijf@gmail.com>, 2011, 2013, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-19 02:01+0000\n"
-"PO-Revision-Date: 2015-05-26 22:33+0200\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 14:42+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
 "Language: nl\n"
@@ -18,49 +18,46 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Freek de Kruijf - 2011 t/m 2013"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "freekdekruijf@kde.nl"
-
-#: albumchooserwidget.cpp:53
+#: albumchooserwidget.cpp:55
 msgctxt "@title:group Header above controls for managing albums"
 msgid "Album"
 msgstr "Album"
 
-#: albumchooserwidget.cpp:58
+#: albumchooserwidget.cpp:60
 msgid "This is the VKontakte album that will be used for the transfer."
 msgstr "Dit is het VKontakte-album dat gebruikt zal worden voor de overdracht."
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:67
 msgid "New Album"
 msgstr "Nieuw album"
 
-#: albumchooserwidget.cpp:64
+#: albumchooserwidget.cpp:68
 msgid "Create new VKontakte album"
 msgstr "Nieuw VKontakte-album aanmaken"
 
-#: albumchooserwidget.cpp:65
+#: albumchooserwidget.cpp:71
 msgctxt "reload albums list"
 msgid "Reload"
 msgstr "Herladen"
 
-#: albumchooserwidget.cpp:66
+#: albumchooserwidget.cpp:72
 msgid "Reload albums list"
 msgstr "Lijst met albums herladen"
 
-#: albumchooserwidget.cpp:69
+#: albumchooserwidget.cpp:75
 msgid "Edit selected album"
 msgstr "Geselecteerd album bewerken"
 
-#: albumchooserwidget.cpp:74
+#: albumchooserwidget.cpp:80
 msgid "Delete selected album"
 msgstr "Geselecteerd album verwijderen"
 
-#: albumchooserwidget.cpp:285
+#: albumchooserwidget.cpp:291
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "Verwijderen van album bevestigen"
+
+#: albumchooserwidget.cpp:292
 #, kde-format
 msgid ""
 "<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
@@ -68,33 +65,28 @@ msgid ""
 msgstr ""
 "<qt>Wilt u het album <b>%1</b> verwijderen, inclusief alle foto's erin?</qt>"
 
-#: albumchooserwidget.cpp:286
-msgctxt "@title:window"
-msgid "Confirm Album Deletion"
-msgstr "Verwijderen van album bevestigen"
-
-#: albumchooserwidget.cpp:385
-msgid "Internal error: Null pointer to KJob instance."
-msgstr "Interne fout: nul-pointer naar exemplaar van KJob."
-
-#: albumchooserwidget.cpp:386 authinfowidget.cpp:159 vkwindow.cpp:390
+#: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
 msgctxt "@title:window"
 msgid "Request to VKontakte failed"
 msgstr "Verzoek aan VKontakte is mislukt"
 
-#: authinfowidget.cpp:58
+#: albumchooserwidget.cpp:391
+msgid "Internal error: Null pointer to KJob instance."
+msgstr "Interne fout: nul-pointer naar exemplaar van KJob."
+
+#: authinfowidget.cpp:57
 msgid "Account"
 msgstr "Account"
 
-#: authinfowidget.cpp:63
+#: authinfowidget.cpp:62
 msgid "This account is used for authentication."
 msgstr "Dit account wordt gebruikt voor authenticatie."
 
-#: authinfowidget.cpp:67
+#: authinfowidget.cpp:66
 msgid "Name:"
 msgstr "Naam:"
 
-#: authinfowidget.cpp:68
+#: authinfowidget.cpp:67
 msgid "Your VKontakte login"
 msgstr "Uw VKontakte aanmelding"
 
@@ -126,181 +118,184 @@ msgstr "&Exporteren"
 msgid "Main Toolbar"
 msgstr "Hoofdwerkbalk"
 
-#: plugin_vkontakte.cpp:88
+#: plugin_vkontakte.cpp:82
 msgid "Export to &VKontakte..."
 msgstr "Naar &VKontakte exporteren..."
 
-#: vkalbumdialog.cpp:72
+#: vkalbumdialog.cpp:74
 msgctxt "@title:window"
 msgid "Edit album"
 msgstr "Album bewerken"
 
-#: vkalbumdialog.cpp:73
+#: vkalbumdialog.cpp:75
 msgctxt "@title:window"
 msgid "New album"
 msgstr "Nieuw album"
 
-#: vkalbumdialog.cpp:81
+#: vkalbumdialog.cpp:94
 msgctxt "@title:group Header above Title and Summary fields"
 msgid "Album"
 msgstr "Album"
 
-#: vkalbumdialog.cpp:82
+#: vkalbumdialog.cpp:95
 msgid "These are basic settings for the new VKontakte album."
 msgstr "Dit zijn de basisinstellingen voor het nieuw VKontakte-album."
 
-#: vkalbumdialog.cpp:85
+#: vkalbumdialog.cpp:98
 msgid "Title of the album that will be created (required)."
 msgstr "Titel van het album dat zal worden aangemaakt (vereist)."
 
-#: vkalbumdialog.cpp:88
+#: vkalbumdialog.cpp:101
 msgid "Description of the album that will be created (optional)."
 msgstr "Beschrijving van het album dat zal worden aangemaakt (optioneel)."
 
-#: vkalbumdialog.cpp:92
+#: vkalbumdialog.cpp:105
 msgid "Title:"
 msgstr "Titel:"
 
-#: vkalbumdialog.cpp:93
+#: vkalbumdialog.cpp:106
 msgid "Summary:"
 msgstr "Samenvatting:"
 
-#: vkalbumdialog.cpp:96
+#: vkalbumdialog.cpp:109
 msgid "Privacy Settings"
 msgstr "Privacy-instellingen"
 
-#: vkalbumdialog.cpp:100 vkalbumdialog.cpp:108
+#: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
 msgid "Only me"
 msgstr "Alleen ik"
 
-#: vkalbumdialog.cpp:101 vkalbumdialog.cpp:109
+#: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
 msgid "My friends"
 msgstr "Mijn vrienden"
 
-#: vkalbumdialog.cpp:102 vkalbumdialog.cpp:110
+#: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
 msgid "Friends of my friends"
 msgstr "Vrienden van mijn vrienden"
 
-#: vkalbumdialog.cpp:103 vkalbumdialog.cpp:111
+#: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
 msgid "Everyone"
 msgstr "Iedereen"
 
-#: vkalbumdialog.cpp:104
+#: vkalbumdialog.cpp:117
 msgid "Album available to:"
 msgstr "Album beschikbaar voor:"
 
-#: vkalbumdialog.cpp:112
+#: vkalbumdialog.cpp:125
 msgid "Comments available to:"
 msgstr "Commentaar beschikbaar voor:"
 
-#: vkalbumdialog.cpp:140
-msgid "Title cannot be empty."
-msgstr "Titel mag niet leeg zijn."
-
-#: vkalbumdialog.cpp:141
+#: vkalbumdialog.cpp:149
 msgid "Error"
 msgstr "Fout"
 
-#: vkwindow.cpp:108
+#: vkalbumdialog.cpp:149
+msgid "Title cannot be empty."
+msgstr "Titel mag niet leeg zijn."
+
+#: vkwindow.cpp:96
 msgid "This is the list of images to upload to your VKontakte album."
 msgstr "Dit is de lijst met te uploaden afbeeldingen naar uw VKontakte album."
 
-#: vkwindow.cpp:114
+#: vkwindow.cpp:102
 msgid ""
 "This is a clickable link to open the VKontakte service in a web browser."
 msgstr ""
 "Di is een aan te klikken koppeling om de VKontakte-service in een webbrowser "
 "te openen."
 
-#: vkwindow.cpp:132
+#: vkwindow.cpp:120
 msgid "Destination"
 msgstr "Bestemming"
 
-#: vkwindow.cpp:133
+#: vkwindow.cpp:121
 msgid "This is the location where VKontakte images will be downloaded."
 msgstr ""
 "Dit is de locatie waar VKontakte-afbeeldingen gedownload zullen worden."
 
-#: vkwindow.cpp:141
+#: vkwindow.cpp:129
 msgid "Options"
 msgstr "Opties"
 
-#: vkwindow.cpp:142
+#: vkwindow.cpp:130
 msgid "These are options that will be applied to images before upload."
 msgstr "Deze opties zullen worden toegepast op de foto's vóór het uploaden."
 
-#: vkwindow.cpp:180
+#: vkwindow.cpp:166
 msgctxt "@title:window"
 msgid "Export to VKontakte Web Service"
 msgstr "Naar VKontakte-webservice exporteren"
 
-#: vkwindow.cpp:182
+#: vkwindow.cpp:168
 msgid "Start Upload"
 msgstr "Uploaden starten"
 
-#: vkwindow.cpp:183
+#: vkwindow.cpp:169
 msgid "Start upload to VKontakte service"
 msgstr "Uploaden naar VKontakte-service starten"
 
-#: vkwindow.cpp:194
-msgid "VKontakte Plugin"
-msgstr "VKontakte-plug-in"
+#: vkwindow.cpp:181 vkwindow.cpp:346
+msgid "VKontakte"
+msgstr "VKontakte"
 
-#: vkwindow.cpp:197
-msgid "A Kipi plugin to export image collections to VKontakte web service."
+#: vkwindow.cpp:182
+msgid "A tool to export image collections to VKontakte web service."
 msgstr ""
-"Een Kipi-plug-in om verzamelingen afbeeldingen naar de VKontakte-webservice "
-"te exporteren."
+"Een hulpmiddel om verzamelingen afbeeldingen naar de VKontakte-webservice te "
+"exporteren."
 
-#: vkwindow.cpp:199
+#: vkwindow.cpp:184
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010-2013, Roman Tsisyk\n"
-"(c) 2011-2013, Alexander Potashev"
+"(c) 2011-2015, Alexander Potashev"
 msgstr ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
 "(c) 2009, Luka Renko\n"
 "(c) 2010-2013, Roman Tsisyk\n"
-"(c) 2011-2013, Alexander Potashev"
+"(c) 2011-2015, Alexander Potashev"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Alexander Potashev"
 msgstr "Alexander Potashev"
 
-#: vkwindow.cpp:205
+#: vkwindow.cpp:190
 msgid "Author"
 msgstr "Auteur"
 
-#: vkwindow.cpp:275
-msgid "Close"
-msgstr "Sluiten"
-
-#: vkwindow.cpp:276
-msgid "Close window"
-msgstr "Venster sluiten"
-
-#: vkwindow.cpp:283
-msgid "Cancel"
-msgstr "Annuleren"
-
-#: vkwindow.cpp:284
-msgid "Cancel current operation"
-msgstr "Huidige operatie annuleren"
-
-#: vkwindow.cpp:383
-msgid "VKontakte"
-msgstr "VKontakte"
-
-#: vkwindow.cpp:401
+#: vkwindow.cpp:364
 msgid "Please select album first."
 msgstr "Gaarne eerst album selecteren."
 
-#: vkwindow.cpp:431
+#: vkwindow.cpp:394
 msgid "Vkontakte Export"
 msgstr "Vkontakte exporteren"
+
+#~ msgid "VKontakte Plugin"
+#~ msgstr "VKontakte-plug-in"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Freek de Kruijf - 2011 t/m 2013"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "freekdekruijf@kde.nl"
+
+#~ msgid "Close"
+#~ msgstr "Sluiten"
+
+#~ msgid "Close window"
+#~ msgstr "Venster sluiten"
+
+#~ msgid "Cancel"
+#~ msgstr "Annuleren"
+
+#~ msgid "Cancel current operation"
+#~ msgstr "Huidige operatie annuleren"
 
 #~ msgid "Handbook"
 #~ msgstr "Handboek"

@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2013-2014 by Yiou Wang <geow812 at gmail dot com>
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "canvas.moc"
+#include "canvas.h"
 
 // Qt includes
 
@@ -31,15 +31,12 @@
 #include <QClipboard>
 #include <QToolButton>
 #include <QScrollBar>
+#include <QMimeData>
+#include <QApplication>
 
 // KDE includes
 
-#include <kcursor.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdatetable.h>
-#include <kglobalsettings.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -168,7 +165,9 @@ void Canvas::load(const QString& filename, IOFileSettings* const IOFileSettings)
 void Canvas::slotImageLoaded(const QString& filePath, bool success)
 {
     if(d->core->getImg())
+    {
         d->canvasItem->setImage(*d->core->getImg());
+    }
 
     // Note: in showFoto, we using a null filename to clear canvas.
     if (!success && !filePath.isEmpty())
@@ -474,7 +473,7 @@ void Canvas::slotSelected()
     }
 
     d->core->setSelectedArea(sel);
-    emit signalSelectionChanged(sel);    
+    emit signalSelectionChanged(sel);
 }
 
 void Canvas::slotSelectionMoved()
@@ -642,6 +641,7 @@ void Canvas::slotAddItemMoving(const QRectF& rect)
     {
         delete d->rubber;
     }
+
     d->rubber = new RubberItem(d->canvasItem);
     d->rubber->setCanvas(this);
     d->rubber->setRectInSceneCoordinatesAdjusted(rect);
@@ -673,15 +673,16 @@ void Canvas::cancelAddItem()
 void Canvas::mousePressEvent(QMouseEvent* event)
 {
     GraphicsDImgView::mousePressEvent(event);
+
     if (event->button() == Qt::LeftButton)
     {
         GraphicsDImgItem* const item = dynamic_cast<GraphicsDImgItem*>(itemAt(event->pos()));
 
         if (item)
         {
-            QString className(item->metaObject()->className());
+            QLatin1String className(item->metaObject()->className());
 
-            if (!(className == "Digikam::RubberItem" || className == "Digikam::ClickDragReleaseItem"))
+            if (!(className == QLatin1String("Digikam::RubberItem") || className == QLatin1String("Digikam::ClickDragReleaseItem")))
             {
                 if (d->rubber && d->rubber->isVisible())
                 {

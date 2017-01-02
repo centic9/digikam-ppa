@@ -21,43 +21,45 @@
  *
  * ============================================================ */
 
-#include "vkalbumdialog.moc"
+#include "vkalbumdialog.h"
 
 // Qt includes
 
-#include <QtGui/QFormLayout>
-#include <QtGui/QVBoxLayout>
-#include <QtGui/QHBoxLayout>
-#include <QtGui/QGroupBox>
-#include <QtGui/QGridLayout>
-#include <QtGui/QLabel>
+#include <QFormLayout>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
+#include <QGroupBox>
+#include <QGridLayout>
+#include <QLabel>
+#include <QPushButton>
+#include <QComboBox>
+#include <QLineEdit>
+#include <QTextEdit>
+#include <QMessageBox>
+#include <QDialogButtonBox>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <klineedit.h>
-#include <ktextedit.h>
-#include <kmessagebox.h>
-#include <kcombobox.h>
+#include <klocalizedstring.h>
 
 // libvkontakte includes
 
-#include <libkvkontakte/albuminfo.h>
+#include <Vkontakte/AlbumInfo>
 
 namespace KIPIVkontaktePlugin
 {
 
 VkontakteAlbumDialog::VkontakteAlbumDialog(QWidget* const parent)
-    : KDialog(parent), m_album()
+    : QDialog(parent),
+      m_album()
 {
     initDialog(false);
 }
 
 VkontakteAlbumDialog::VkontakteAlbumDialog(QWidget* const parent,
-                                           const VkontakteAlbumDialog::AlbumInfo &album)
-    : KDialog(parent), m_album(album)
+                                           const VkontakteAlbumDialog::AlbumInfo& album)
+    : QDialog(parent),
+      m_album(album)
 {
     initDialog(true);
 }
@@ -71,20 +73,31 @@ void VkontakteAlbumDialog::initDialog(bool editing)
 {
     setWindowTitle(editing ? i18nc("@title:window", "Edit album")
                            : i18nc("@title:window", "New album"));
-    setButtons(Ok | Cancel);
-    setDefaultButton(Ok);
+    setMinimumSize(400, 300);
 
-    QWidget* const mainWidget = new QWidget(this);
-    setMainWidget(mainWidget);
-    mainWidget->setMinimumSize(400, 300);
+    QVBoxLayout* const mainLayout = new QVBoxLayout(this);
+    setLayout(mainLayout);
 
-    QGroupBox* const albumBox = new QGroupBox(i18nc("@title:group Header above Title and Summary fields", "Album"), mainWidget);
+    QDialogButtonBox* const buttonBox = new QDialogButtonBox(QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
+
+    QPushButton* const okButton = buttonBox->button(QDialogButtonBox::Ok);
+    okButton->setDefault(true);
+    okButton->setShortcut(Qt::CTRL | Qt::Key_Return);
+
+    connect(buttonBox, &QDialogButtonBox::accepted,
+            this, &VkontakteAlbumDialog::accept);
+
+    connect(buttonBox, &QDialogButtonBox::rejected,
+            this, &VkontakteAlbumDialog::reject);
+
+
+    QGroupBox* const albumBox = new QGroupBox(i18nc("@title:group Header above Title and Summary fields", "Album"), this);
     albumBox->setWhatsThis(i18n("These are basic settings for the new VKontakte album."));
 
-    m_titleEdit = new KLineEdit(m_album.title);
+    m_titleEdit = new QLineEdit(m_album.title);
     m_titleEdit->setWhatsThis(i18n("Title of the album that will be created (required)."));
 
-    m_summaryEdit = new KTextEdit(m_album.description);
+    m_summaryEdit = new QTextEdit(m_album.description);
     m_summaryEdit->setWhatsThis(i18n("Description of the album that will be created (optional)."));
 
 
@@ -93,10 +106,10 @@ void VkontakteAlbumDialog::initDialog(bool editing)
     albumBoxLayout->addRow(i18n("Summary:"), m_summaryEdit);
     albumBox->setLayout(albumBoxLayout);
 
-    QGroupBox* const privacyBox         = new QGroupBox(i18n("Privacy Settings"), mainWidget);
+    QGroupBox* const privacyBox         = new QGroupBox(i18n("Privacy Settings"), this);
     QGridLayout* const privacyBoxLayout = new QGridLayout;
 
-    m_albumPrivacyCombo = new KComboBox(privacyBox);
+    m_albumPrivacyCombo = new QComboBox(privacyBox);
     m_albumPrivacyCombo->addItem(i18n("Only me"),               QVariant(Vkontakte::AlbumInfo::PRIVACY_PRIVATE));
     m_albumPrivacyCombo->addItem(i18n("My friends"),            QVariant(Vkontakte::AlbumInfo::PRIVACY_FRIENDS));
     m_albumPrivacyCombo->addItem(i18n("Friends of my friends"), QVariant(Vkontakte::AlbumInfo::PRIVACY_FRIENDS_OF_FRIENDS));
@@ -104,7 +117,7 @@ void VkontakteAlbumDialog::initDialog(bool editing)
     privacyBoxLayout->addWidget(new QLabel(i18n("Album available to:")), 0, 0);
     privacyBoxLayout->addWidget(m_albumPrivacyCombo, 0, 1);
 
-    m_commentsPrivacyCombo = new KComboBox(privacyBox);
+    m_commentsPrivacyCombo = new QComboBox(privacyBox);
     m_commentsPrivacyCombo->addItem(i18n("Only me"),               QVariant(Vkontakte::AlbumInfo::PRIVACY_PRIVATE));
     m_commentsPrivacyCombo->addItem(i18n("My friends"),            QVariant(Vkontakte::AlbumInfo::PRIVACY_FRIENDS));
     m_commentsPrivacyCombo->addItem(i18n("Friends of my friends"), QVariant(Vkontakte::AlbumInfo::PRIVACY_FRIENDS_OF_FRIENDS));
@@ -114,11 +127,9 @@ void VkontakteAlbumDialog::initDialog(bool editing)
 
     privacyBox->setLayout(privacyBoxLayout);
 
-    QVBoxLayout* const mainLayout = new QVBoxLayout(mainWidget);
     mainLayout->addWidget(albumBox);
     mainLayout->addWidget(privacyBox);
-    mainLayout->setSpacing(spacingHint());
-    mainWidget->setLayout(mainLayout);
+    mainLayout->addWidget(buttonBox);
 
     if (editing)
     {
@@ -131,32 +142,28 @@ void VkontakteAlbumDialog::initDialog(bool editing)
     m_titleEdit->setFocus();
 }
 
-void VkontakteAlbumDialog::slotButtonClicked(int button)
+void VkontakteAlbumDialog::accept()
 {
-    if (button == Ok)
+    if (m_titleEdit->text().isEmpty())
     {
-        if (m_titleEdit->text().isEmpty())
-        {
-            KMessageBox::error(this, i18n("Title cannot be empty."),
-                               i18n("Error"));
-            return;
-        }
-
-        m_album.title = m_titleEdit->text();
-        m_album.description = m_summaryEdit->toPlainText();
-
-        if (m_albumPrivacyCombo->currentIndex() != -1)
-            m_album.privacy = m_albumPrivacyCombo->itemData(m_albumPrivacyCombo->currentIndex()).toInt();
-        else // for safety, see info about VK API bug below
-            m_album.privacy = Vkontakte::AlbumInfo::PRIVACY_PRIVATE;
-
-        if (m_commentsPrivacyCombo->currentIndex() != -1)
-            m_album.commentPrivacy = m_commentsPrivacyCombo->itemData(m_commentsPrivacyCombo->currentIndex()).toInt();
-        else // VK API has a bug: if "comment_privacy" is not set, it will be set to PRIVACY_PUBLIC
-            m_album.commentPrivacy = Vkontakte::AlbumInfo::PRIVACY_PRIVATE;
+        QMessageBox::critical(this, i18n("Error"), i18n("Title cannot be empty."));
+        return;
     }
 
-    return KDialog::slotButtonClicked(button);
+    m_album.title = m_titleEdit->text();
+    m_album.description = m_summaryEdit->toPlainText();
+
+    if (m_albumPrivacyCombo->currentIndex() != -1)
+        m_album.privacy = m_albumPrivacyCombo->itemData(m_albumPrivacyCombo->currentIndex()).toInt();
+    else // for safety, see info about VK API bug below
+        m_album.privacy = Vkontakte::AlbumInfo::PRIVACY_PRIVATE;
+
+    if (m_commentsPrivacyCombo->currentIndex() != -1)
+        m_album.commentPrivacy = m_commentsPrivacyCombo->itemData(m_commentsPrivacyCombo->currentIndex()).toInt();
+    else // VK API has a bug: if "comment_privacy" is not set, it will be set to PRIVACY_PUBLIC
+        m_album.commentPrivacy = Vkontakte::AlbumInfo::PRIVACY_PRIVATE;
+
+    QDialog::accept();
 }
 
 const VkontakteAlbumDialog::AlbumInfo &VkontakteAlbumDialog::album() const

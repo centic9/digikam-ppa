@@ -1,0 +1,114 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Volkan Gezer <volkangezer@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: extragear-libs-kde4\n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-10-13 10:04+0000\n"
+"PO-Revision-Date: 2014-06-08 13:48+0000\n"
+"Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/extragear-libs-k-"
+"tr/language/tr/)\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: allmessageslistjob.cpp:117
+msgid "The number of outgoing messages has changed between requests."
+msgstr "İstekler arasında giden mesajların sayısı değişti."
+
+#: allmessageslistjob.cpp:121
+msgid "The number of incoming messages has changed between requests."
+msgstr "İstekler arasında gelen mesajların sayısı değişti."
+
+#: allnoteslistjob.cpp:92
+msgid "The number of notes has changed between requests."
+msgstr "İstekler arasında notların sayısı değişti."
+
+#: authenticationdialog.cpp:61
+msgctxt "@title:window"
+msgid "Authenticate with VKontakte"
+msgstr "VKontakte ile doğrula"
+
+#: authenticationdialog.cpp:71
+msgid "Loading Page:"
+msgstr "Yükleme Sayfası:"
+
+#: authenticationdialog.cpp:138
+#, kde-format
+msgid ""
+"<b>VKontakte Error Description:</b> %1<br><b>VKontakte Error:</b> %2<br>"
+msgstr ""
+"<b>VKontakte Hata Açıklaması:</b> %1<br><b>VKontakte Hatası:</b> %2<br>"
+
+#: authenticationdialog.cpp:140
+msgid "Authentication with VKontakte was not successful."
+msgstr "VKontakte ile kimlik doğrulama işlemi başarılı oldu."
+
+#: authenticationdialog.cpp:141
+msgctxt "@title:window"
+msgid "Authentication Problem"
+msgstr "Kimlik Doğrulama Hatası"
+
+#: authenticationdialog.cpp:182
+msgid ""
+"There was a network error when trying to authenticate with VKontakte web "
+"service."
+msgstr ""
+"VKontakte servisinde kimlik doğrulaması denenirken bir ağ hatası oluştu."
+
+#: authenticationdialog.cpp:183
+msgctxt "@title:window"
+msgid "Network Error"
+msgstr "Ağ Hatası"
+
+#: deletealbumjob.cpp:43
+msgid "Failed to delete album"
+msgstr "Albüm silme işlemi başarısız"
+
+#: editalbumjob.cpp:52
+msgid "Failed to edit album"
+msgstr "Albüm düzenleme işlemi başarısız"
+
+#: photopostjob.cpp:76 vkontaktejobs.cpp:112
+#, kde-format
+msgid ""
+"Response from the VKontakte server has unexpected format. Please report this "
+"problem against product libkvkontakte at the <a href=\"%1\">KDE bug tracker</"
+"b>."
+msgstr ""
+
+#: photopostjob.cpp:84
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to "
+"uploading to URL %2: <i>%3</i>"
+msgstr ""
+"VKontakte sunucusu %2 adresine yükleme yaparken <i>%1</i> türünde bir hata "
+"döndürdü: <i>%3</i>"
+
+#: photopostjob.cpp:206 vkontaktejobs.cpp:224
+#, kde-format
+msgid "Unable to parse data returned by the VKontakte server: %1"
+msgstr "VKontakte sunucusu tarafından döndürülen veriler ayrıştırılamadı: %1"
+
+#: vkontaktejobs.cpp:120
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to method "
+"%2: <i>%3</i>"
+msgstr ""
+"VKontakte sunucusu %2 metoduna cevap olarak <i>%1</i> türünde bir hata "
+"döndürdü: <i>%3</i>"
+
+#: vkontaktejobs.cpp:181
+msgid ""
+"Internal error: No valid instance of KIO::StoredTransferJob passed into "
+"VkontakteJob::jobFinished."
+msgstr ""

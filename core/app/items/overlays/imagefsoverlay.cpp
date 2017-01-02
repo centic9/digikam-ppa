@@ -21,12 +21,11 @@
  *
  * ============================================================ */
 
-#include "imagefsoverlay.moc"
+#include "imagefsoverlay.h"
 
 // KDE includes
 
-#include <kiconloader.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -48,10 +47,9 @@ QSize ImageFsOverlayButton::sizeHint() const
     return QSize(32, 32);
 }
 
-QPixmap ImageFsOverlayButton::icon()
+QIcon ImageFsOverlayButton::icon()
 {
-    return KIconLoader::global()->loadIcon(
-            "media-playback-start", KIconLoader::NoGroup, KIconLoader::SizeMedium);
+    return QIcon::fromTheme(QLatin1String("media-playback-start"));
 }
 
 void ImageFsOverlayButton::updateToolTip()

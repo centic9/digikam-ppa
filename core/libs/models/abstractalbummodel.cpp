@@ -22,22 +22,22 @@
  *
  * ============================================================ */
 
-#include "abstractalbummodel.moc"
+#include "abstractalbummodel.h"
 #include "abstractalbummodelpriv.h"
 
 // Qt includes
 
 #include <QPainter>
+#include <QIcon>
+#include <QDir>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kglobal.h>
-#include <kicon.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
 #include "albummodeldragdrophandler.h"
 #include "albumthumbnailloader.h"
@@ -63,8 +63,8 @@ AbstractAlbumModel::AbstractAlbumModel(Album::Type albumType, Album* const rootA
     connect(AlbumManager::instance(), SIGNAL(signalAlbumAboutToBeDeleted(Album*)),
             this, SLOT(slotAlbumAboutToBeDeleted(Album*)));
 
-    connect(AlbumManager::instance(), SIGNAL(signalAlbumHasBeenDeleted(quintptr)),
-            this, SLOT(slotAlbumHasBeenDeleted(quintptr)));
+    connect(AlbumManager::instance(), &AlbumManager::signalAlbumHasBeenDeleted,
+            this, &AbstractAlbumModel::slotAlbumHasBeenDeleted);
 
     connect(AlbumManager::instance(), SIGNAL(signalAlbumsCleared()),
             this, SLOT(slotAlbumsCleared()));
@@ -501,8 +501,9 @@ void AbstractAlbumModel::slotAlbumHasBeenDeleted(quintptr p)
 void AbstractAlbumModel::slotAlbumsCleared()
 {
     d->rootAlbum = 0;
-    reset();
+    beginResetModel();
     allAlbumsCleared();
+    endResetModel();
 }
 
 void AbstractAlbumModel::slotAlbumIconChanged(Album* album)
@@ -783,11 +784,27 @@ QVariant AbstractCountingAlbumModel::albumData(Album* album, int role) const
 {
     if (role == Qt::DisplayRole && d->showCount && !album->isRoot())
     {
-        QHash<int, int>::const_iterator it = d->countHashReady.constFind(album->id());
-
-        if (it != d->countHashReady.constEnd())
+        if (album->isTrashAlbum())
         {
-            return QString("%1 (%2)").arg(albumName(album)).arg(it.value());
+            PAlbum* const palbum = AlbumManager::instance()->findPAlbum(album->parent()->id());
+
+            if (palbum)
+            {
+                QString path = palbum->folderPath();
+                path.append(QLatin1String(".dtrash/files"));
+                QDir dir(path, QLatin1String(""), QDir::Unsorted, QDir::Files);
+
+                return QString::fromUtf8("%1 (%2)").arg(albumName(album)).arg(dir.count());
+            }
+        }
+        else
+        {
+            QHash<int, int>::const_iterator it = d->countHashReady.constFind(album->id());
+
+            if (it != d->countHashReady.constEnd())
+            {
+                return QString::fromUtf8("%1 (%2)").arg(albumName(album)).arg(it.value());
+            }
         }
     }
 
@@ -841,6 +858,7 @@ class AbstractCheckableAlbumModel::Private
 public:
 
     Private()
+        : staticVectorContainingCheckStateRole(1, Qt::CheckStateRole)
     {
         extraFlags         = 0;
         rootIsCheckable    = true;
@@ -851,6 +869,8 @@ public:
     bool                          rootIsCheckable;
     bool                          addExcludeTristate;
     QHash<Album*, Qt::CheckState> checkedAlbums;
+
+    QVector<int> staticVectorContainingCheckStateRole;
 };
 
 AbstractCheckableAlbumModel::AbstractCheckableAlbumModel(Album::Type albumType, Album* const rootAlbum,
@@ -970,14 +990,17 @@ QList<Album*> AbstractCheckableAlbumModel::partiallyCheckedAlbums() const
 
 void AbstractCheckableAlbumModel::resetAllCheckedAlbums()
 {
-    QList<Album*> oldChecked = d->checkedAlbums.keys();
+    const QHash<Album*, Qt::CheckState> oldChecked = d->checkedAlbums;
     d->checkedAlbums.clear();
 
-    foreach(Album* const album, oldChecked)
+    for (QHash<Album*, Qt::CheckState>::const_iterator it = oldChecked.begin(); it != oldChecked.end(); ++it)
     {
-        QModelIndex index = indexForAlbum(album);
-        emit dataChanged(index, index);
-        emit checkStateChanged(album, Qt::Unchecked);
+        if (it.value() != Qt::Unchecked)
+        {
+            QModelIndex index = indexForAlbum(it.key());
+            emit dataChanged(index, index, d->staticVectorContainingCheckStateRole);
+            emit checkStateChanged(it.key(), Qt::Unchecked);
+        }
     }
 }
 
@@ -1097,7 +1120,8 @@ void AbstractCheckableAlbumModel::prepareAddExcludeDecoration(Album* a, QPixmap&
         QPainter p(&icon);
         p.drawPixmap((icon.width()  - overlay_size) / 2,
                      (icon.height() - overlay_size) / 2,
-                     KIcon(state == Qt::PartiallyChecked ? "list-remove" : "list-add").pixmap(overlay_size, overlay_size));
+                     QIcon::fromTheme(state == Qt::PartiallyChecked ? QLatin1String("list-remove")
+                                                                    : QLatin1String("list-add")).pixmap(overlay_size, overlay_size));
     }
 }
 
@@ -1130,7 +1154,7 @@ bool AbstractCheckableAlbumModel::setData(const QModelIndex& index, const QVaria
             return false;
         }
 
-        //kDebug() << "Updating check state for album" << album->title() << "to" << value;
+        //qCDebug(DIGIKAM_GENERAL_LOG) << "Updating check state for album" << album->title() << "to" << value;
         d->checkedAlbums.insert(album, state);
         emit dataChanged(index, index);
         emit checkStateChanged(album, state);

@@ -6,7 +6,7 @@
  * Date        : 2008-08-21
  * Description : Editor tool settings template box
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "editortoolsettings.moc"
+#include "editortoolsettings.h"
 
 // Qt includes
 
@@ -35,33 +35,25 @@
 #include <QToolButton>
 #include <QVariant>
 #include <QScrollBar>
+#include <QPushButton>
+#include <QApplication>
+#include <QDesktopWidget>
+#include <QStyle>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kcolorbutton.h>
-#include <kcombobox.h>
-#include <kdialog.h>
-#include <khbox.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kpushbutton.h>
-#include <kstandarddirs.h>
-#include <kstandardguiitem.h>
-#include <kvbox.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rnuminput.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
+#include "dnuminput.h"
 #include "colorgradientwidget.h"
 #include "histogramwidget.h"
 #include "histogrambox.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
@@ -80,8 +72,6 @@ public:
         toolName(0),
         toolIcon(0),
         guideBox(0),
-        channelCB(0),
-        colorsCB(0),
         okBtn(0),
         cancelBtn(0),
         tryBtn(0),
@@ -106,29 +96,27 @@ public:
     QLabel*              toolName;
     QLabel*              toolIcon;
 
-    KHBox*               guideBox;
+    DHBox*               guideBox;
 
-    KComboBox*           channelCB;
-    KComboBox*           colorsCB;
+    QPushButton*         okBtn;
+    QPushButton*         cancelBtn;
+    QPushButton*         tryBtn;
+    QPushButton*         defaultBtn;
+    QPushButton*         saveAsBtn;
+    QPushButton*         loadBtn;
 
-    KPushButton*         okBtn;
-    KPushButton*         cancelBtn;
-    KPushButton*         tryBtn;
-    KPushButton*         defaultBtn;
-    KPushButton*         saveAsBtn;
-    KPushButton*         loadBtn;
-
-    KColorButton*        guideColorBt;
+    DColorSelector*      guideColorBt;
 
     ColorGradientWidget* hGradient;
 
     HistogramBox*        histogramBox;
 
-    RIntNumInput*        guideSize;
+    DIntNumInput*        guideSize;
 };
 
 EditorToolSettings::EditorToolSettings(QWidget* const parent)
-    : QScrollArea(parent), d(new Private)
+    : QScrollArea(parent),
+      d(new Private)
 {
     setFrameStyle(QFrame::NoFrame);
     setWidgetResizable(true);
@@ -139,7 +127,7 @@ EditorToolSettings::EditorToolSettings(QWidget* const parent)
 
     QGridLayout* const gridSettings = new QGridLayout(d->settingsArea);
     d->plainPage                    = new QWidget;
-    d->guideBox                     = new KHBox;
+    d->guideBox                     = new DHBox;
     d->histogramBox                 = new HistogramBox;
 
     // ---------------------------------------------------------------
@@ -151,25 +139,25 @@ EditorToolSettings::EditorToolSettings(QWidget* const parent)
     font.setBold(true);
     d->toolName->setFont(font);
 
-    QString frameStyle = QString("QFrame {"
+    QString frameStyle = QString::fromLatin1("QFrame {"
                                  "color: %1;"
                                  "border: 1px solid %2;"
                                  "border-radius: 5px;"
                                  "background-color: %3;"
                                  "}")
-                         .arg(kapp->palette().color(QPalette::HighlightedText).name())
-                         .arg(kapp->palette().color(QPalette::HighlightedText).name())
-                         .arg(kapp->palette().color(QPalette::Highlight).name());
+                         .arg(QApplication::palette().color(QPalette::HighlightedText).name())
+                         .arg(QApplication::palette().color(QPalette::HighlightedText).name())
+                         .arg(QApplication::palette().color(QPalette::Highlight).name());
 
-    QString noFrameStyle("QFrame {"
+    QString noFrameStyle(QLatin1String("QFrame {"
                          "border: none;"
-                         "}");
+                         "}"));
 
     toolDescriptor->setStyleSheet(frameStyle);
     d->toolName->setStyleSheet(noFrameStyle);
     d->toolIcon->setStyleSheet(noFrameStyle);
 
-    QGridLayout* descrLayout = new QGridLayout();
+    QGridLayout* const descrLayout = new QGridLayout();
     descrLayout->addWidget(d->toolIcon, 0, 0, 1, 1);
     descrLayout->addWidget(d->toolName, 0, 1, 1, 1);
     descrLayout->setColumnStretch(1, 10);
@@ -179,32 +167,31 @@ EditorToolSettings::EditorToolSettings(QWidget* const parent)
 
     new QLabel(i18n("Guide:"), d->guideBox);
     QLabel* const space4 = new QLabel(d->guideBox);
-    d->guideColorBt      = new KColorButton(QColor(Qt::red), d->guideBox);
+    d->guideColorBt      = new DColorSelector(d->guideBox);
+    d->guideColorBt->setColor(QColor(Qt::red));
     d->guideColorBt->setWhatsThis(i18n("Set here the color used to draw dashed guide lines."));
-    d->guideSize         = new RIntNumInput(d->guideBox);
-    d->guideSize->input()->setSuffix(QString("px"));
+    d->guideSize         = new DIntNumInput(d->guideBox);
+    d->guideSize->setSuffix(QLatin1String("px"));
     d->guideSize->setRange(1, 5, 1);
-    d->guideSize->setSliderEnabled(true);
     d->guideSize->setDefaultValue(1);
     d->guideSize->setWhatsThis(i18n("Set here the width in pixels used to draw dashed guide lines."));
 
     d->guideBox->setStretchFactor(space4, 10);
+    d->guideBox->setContentsMargins(QMargins());
     d->guideBox->setSpacing(spacingHint());
-    d->guideBox->setMargin(0);
 
     // ---------------------------------------------------------------
 
-    d->defaultBtn = new KPushButton;
-    d->defaultBtn->setGuiItem(KStandardGuiItem::defaults());
-    d->defaultBtn->setIcon(KIcon(SmallIcon("document-revert")));
+    d->defaultBtn = new QPushButton(i18n("Defaults"));
+    d->defaultBtn->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     d->defaultBtn->setToolTip(i18n("Reset all settings to their default values."));
 
-    d->okBtn = new KPushButton;
-    d->okBtn->setGuiItem(KStandardGuiItem::ok());
+    d->okBtn = new QPushButton(i18n("Ok"));
+    d->okBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-ok-apply")));
     d->okBtn->setDefault(true);
 
-    d->cancelBtn = new KPushButton;
-    d->cancelBtn->setGuiItem(KStandardGuiItem::cancel());
+    d->cancelBtn = new QPushButton(i18n("Cancel"));
+    d->cancelBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-cancel")));
 
     QHBoxLayout* const hbox1 = new QHBoxLayout;
     hbox1->addWidget(d->defaultBtn);
@@ -214,18 +201,16 @@ EditorToolSettings::EditorToolSettings(QWidget* const parent)
 
     // ---------------------------------------------------------------
 
-    d->loadBtn = new KPushButton;
-    d->loadBtn->setGuiItem(KStandardGuiItem::open());
-    d->loadBtn->setText(i18n("Load..."));
+    d->loadBtn = new QPushButton(i18n("Load..."));
+    d->loadBtn->setIcon(QIcon::fromTheme(QLatin1String("document-open")));
     d->loadBtn->setToolTip(i18n("Load all parameters from settings text file."));
 
-    d->saveAsBtn = new KPushButton;
-    d->saveAsBtn->setGuiItem(KStandardGuiItem::saveAs());
+    d->saveAsBtn = new QPushButton(i18n("Save As..."));
+    d->saveAsBtn->setIcon(QIcon::fromTheme(QLatin1String("document-save-as")));
     d->saveAsBtn->setToolTip(i18n("Save all parameters to settings text file."));
 
-    d->tryBtn = new KPushButton;
-    d->tryBtn->setGuiItem(KStandardGuiItem::apply());
-    d->tryBtn->setText(i18n("Try"));
+    d->tryBtn = new QPushButton(i18n("Try"));
+    d->tryBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-ok-apply")));
     d->tryBtn->setToolTip(i18n("Try all settings."));
 
     QHBoxLayout* const hbox2 = new QHBoxLayout;
@@ -236,14 +221,16 @@ EditorToolSettings::EditorToolSettings(QWidget* const parent)
 
     // ---------------------------------------------------------------
 
+    const int spacing = spacingHint();
+
     gridSettings->addWidget(toolDescriptor,  0, 0, 1, -1);
     gridSettings->addWidget(d->histogramBox, 1, 0, 2, 2);
     gridSettings->addWidget(d->plainPage,    4, 0, 1, 2);
     gridSettings->addWidget(d->guideBox,     5, 0, 1, 2);
     gridSettings->addLayout(hbox2,           6, 0, 1, 2);
     gridSettings->addLayout(hbox1,           7, 0, 1, 2);
-    gridSettings->setSpacing(spacingHint());
-    gridSettings->setMargin(spacingHint());
+    gridSettings->setContentsMargins(spacing, spacing, spacing, spacing);
+    gridSettings->setSpacing(spacing);
 
     // ---------------------------------------------------------------
 
@@ -269,7 +256,7 @@ EditorToolSettings::EditorToolSettings(QWidget* const parent)
     connect(d->loadBtn, SIGNAL(clicked()),
             this, SIGNAL(signalLoadClicked()));
 
-    connect(d->guideColorBt, SIGNAL(changed(QColor)),
+    connect(d->guideColorBt, SIGNAL(signalColorSelected(QColor)),
             this, SIGNAL(signalColorGuideChanged()));
 
     connect(d->guideSize, SIGNAL(valueChanged(int)),
@@ -307,7 +294,7 @@ QSize EditorToolSettings::minimumSizeHint() const
     // Do not touch vertical size hint.
     // Limit to 40% of the desktop width.
     QSize hint        = QScrollArea::minimumSizeHint();
-    QRect desktopRect = KGlobalSettings::desktopGeometry(d->settingsArea);
+    QRect desktopRect = QApplication::desktop()->screenGeometry(d->settingsArea);
     int wSB           = verticalScrollBar()->height();
     hint.setWidth(qMin(d->settingsArea->minimumSizeHint().width() + wSB, desktopRect.width() * 2 / 5));
     return hint;
@@ -315,12 +302,12 @@ QSize EditorToolSettings::minimumSizeHint() const
 
 int EditorToolSettings::marginHint()
 {
-    return KDialog::marginHint();
+    return QApplication::style()->pixelMetric(QStyle::PM_DefaultChildMargin);
 }
 
 int EditorToolSettings::spacingHint()
 {
-    return KDialog::spacingHint();
+    return QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 }
 
 QWidget* EditorToolSettings::plainPage() const
@@ -333,7 +320,7 @@ HistogramBox* EditorToolSettings::histogramBox() const
     return d->histogramBox;
 }
 
-KPushButton* EditorToolSettings::button(int buttonCode) const
+QPushButton* EditorToolSettings::button(int buttonCode) const
 {
     if (buttonCode & Default)
     {
@@ -370,7 +357,7 @@ KPushButton* EditorToolSettings::button(int buttonCode) const
 
 void EditorToolSettings::enableButton(int buttonCode, bool state)
 {
-    KPushButton* btn = button(buttonCode);
+    QPushButton* const btn = button(buttonCode);
 
     if (btn)
     {
@@ -420,9 +407,9 @@ void EditorToolSettings::setHistogramType(HistogramBoxType type)
     d->histogramBox->setHistogramType(type);
 }
 
-void EditorToolSettings::setToolIcon(const QPixmap& pixmap)
+void EditorToolSettings::setToolIcon(const QIcon& icon)
 {
-    d->toolIcon->setPixmap(pixmap);
+    d->toolIcon->setPixmap(icon.pixmap(style()->pixelMetric(QStyle::PM_SmallIconSize)));
 }
 
 void EditorToolSettings::setToolName(const QString& name)

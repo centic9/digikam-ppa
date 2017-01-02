@@ -6,7 +6,7 @@
  * Date        : 2009-06-23
  * Description : a widget to select metadata template.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,33 +21,27 @@
  *
  * ============================================================ */
 
-#include "templateselector.moc"
+#include "templateselector.h"
 
 // Qt includes
 
 #include <QAbstractItemView>
 #include <QLabel>
 #include <QToolButton>
+#include <QApplication>
+#include <QStyle>
+#include <QIcon>
 
 // KDE includes
 
-#include <kglobalsettings.h>
-#include <klocale.h>
-#include <kdialog.h>
-#include <kiconloader.h>
-
-
-// LibKDcraw includes
-
-#include <libkdcraw/squeezedcombobox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "setup.h"
 #include "template.h"
 #include "templatemanager.h"
-
-using namespace KDcrawIface;
+#include "squeezedcombobox.h"
 
 namespace Digikam
 {
@@ -73,12 +67,12 @@ public:
 };
 
 TemplateSelector::TemplateSelector(QWidget* const parent)
-    : KHBox(parent), d(new Private)
+    : DHBox(parent), d(new Private)
 {
     d->label         = new QLabel(i18n("Template: "), this);
     d->templateCombo = new SqueezedComboBox(this);
     d->setupButton   = new QToolButton(this);
-    d->setupButton->setIcon(SmallIcon("document-edit"));
+    d->setupButton->setIcon(QIcon::fromTheme(QLatin1String("document-edit")));
     d->setupButton->setWhatsThis(i18n("Open metadata template editor"));
     d->templateCombo->setWhatsThis(i18n("<p>Select here the action to perform using the metadata template.</p>"
                                         "<p><b>To remove</b>: delete already-assigned template.</p>"
@@ -86,8 +80,8 @@ TemplateSelector::TemplateSelector(QWidget* const parent)
                                         "<p>All other values are template titles managed by digiKam. "
                                         "Selecting one will assign information as well.</p>"));
 
-    setSpacing(KDialog::spacingHint());
-    setMargin(0);
+    setSpacing(QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing));
+    setContentsMargins(QMargins());
     setStretchFactor(d->templateCombo, 10);
 
     connect(d->templateCombo, SIGNAL(activated(int)),

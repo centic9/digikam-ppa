@@ -6,7 +6,7 @@
  * Date        : 2008-11-21
  * Description : Batch Queue Manager GUI
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "queuemgrwindow.moc"
+#include "queuemgrwindow.h"
 #include "queuemgrwindow_p.h"
 
 // Qt includes
@@ -33,39 +33,23 @@
 #include <QGroupBox>
 #include <QVBoxLayout>
 #include <QLabel>
+#include <QKeySequence>
+#include <QAction>
+#include <QMenuBar>
+#include <QStatusBar>
+#include <QMenu>
+#include <QMessageBox>
+#include <QApplication>
 
 // KDE includes
 
-#include <kaction.h>
+#include <klocalizedstring.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kedittoolbar.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kmenubar.h>
-#include <kmessagebox.h>
-#include <knotifyconfigwidget.h>
-#include <kselectaction.h>
-#include <kshortcutsdialog.h>
-#include <kstandardaction.h>
-#include <kstandardshortcut.h>
-#include <kstatusbar.h>
-#include <ktoggleaction.h>
-#include <ktogglefullscreenaction.h>
-#include <ktoolbar.h>
-#include <ktoolinvocation.h>
-#include <kwindowsystem.h>
-#include <kxmlguifactory.h>
-#include <kdebug.h>
-
-// Libkdcraw includes
-
-#include <libkdcraw/version.h>
-#include <libkdcraw/kdcraw.h>
 
 // Local includes
 
+#include "drawdecoder.h"
+#include "digikam_debug.h"
 #include "actions.h"
 #include "album.h"
 #include "batchtoolsmanager.h"
@@ -85,10 +69,8 @@
 #include "dlogoaction.h"
 #include "albummanager.h"
 #include "imagewindow.h"
-#include "imagedialog.h"
 #include "thumbnailsize.h"
 #include "sidebar.h"
-#include "uifilevalidator.h"
 #include "dnotificationwrapper.h"
 #include "scancontroller.h"
 
@@ -113,20 +95,11 @@ bool QueueMgrWindow::queueManagerWindowCreated()
 }
 
 QueueMgrWindow::QueueMgrWindow()
-    : DXmlGuiWindow(0), d(new Private)
+    : DXmlGuiWindow(0),
+      d(new Private)
 {
-    setXMLFile("queuemgrwindowui.rc");
-
-    // --------------------------------------------------------
-
-    UiFileValidator validator(localXMLFile());
-
-    if (!validator.isValid())
-    {
-        validator.fixConfigFile();
-    }
-
-    // --------------------------------------------------------
+    setConfigGroupName(QLatin1String("Batch Queue Manager Settings"));
+    setXMLFile(QLatin1String("queuemgrwindowui.rc"));
 
     qRegisterMetaType<BatchToolSettings>("BatchToolSettings");
     qRegisterMetaType<BatchToolSet>("BatchToolSet");
@@ -156,7 +129,7 @@ QueueMgrWindow::QueueMgrWindow()
 
     readSettings();
     applySettings();
-    setAutoSaveSettings("Batch Queue Manager Settings", true);
+    setAutoSaveSettings(configGroupName(), true);
 
     populateToolsList();
     slotQueueContentsChanged();
@@ -206,8 +179,8 @@ void QueueMgrWindow::setupUserArea()
     QVBoxLayout* const vlay1   = new QVBoxLayout(queuesBox);
     d->queuePool               = new QueuePool(queuesBox);
     vlay1->addWidget(d->queuePool);
+    vlay1->setContentsMargins(QMargins());
     vlay1->setSpacing(0);
-    vlay1->setMargin(0);
 
     // ------------------------------------------------------------------------------
 
@@ -215,8 +188,8 @@ void QueueMgrWindow::setupUserArea()
     QVBoxLayout* const vlay2          = new QVBoxLayout(queueSettingsBox);
     d->queueSettingsView              = new QueueSettingsView(queueSettingsBox);
     vlay2->addWidget(d->queueSettingsView);
+    vlay2->setContentsMargins(QMargins());
     vlay2->setSpacing(0);
-    vlay2->setMargin(0);
 
     // ------------------------------------------------------------------------------
 
@@ -224,8 +197,8 @@ void QueueMgrWindow::setupUserArea()
     QVBoxLayout* const vlay3  = new QVBoxLayout(toolsBox);
     d->toolsView              = new ToolsView(toolsBox);
     vlay3->addWidget(d->toolsView);
+    vlay3->setContentsMargins(QMargins());
     vlay3->setSpacing(0);
-    vlay3->setMargin(0);
 
     // ------------------------------------------------------------------------------
 
@@ -233,8 +206,8 @@ void QueueMgrWindow::setupUserArea()
     QVBoxLayout* const vlay4   = new QVBoxLayout(assignBox);
     d->assignedList            = new AssignedListView(assignBox);
     vlay4->addWidget(d->assignedList);
+    vlay4->setContentsMargins(QMargins());
     vlay4->setSpacing(0);
-    vlay4->setMargin(0);
 
     // ------------------------------------------------------------------------------
 
@@ -242,8 +215,8 @@ void QueueMgrWindow::setupUserArea()
     QVBoxLayout* const vlay5         = new QVBoxLayout(toolSettingsBox);
     d->toolSettings                  = new ToolSettingsView(toolSettingsBox);
     vlay5->addWidget(d->toolSettings);
+    vlay5->setContentsMargins(QMargins());
     vlay5->setSpacing(0);
-    vlay5->setMargin(0);
 
     // ------------------------------------------------------------------------------
 
@@ -271,7 +244,7 @@ void QueueMgrWindow::setupStatusBar()
     d->statusProgressBar->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     d->statusProgressBar->setMaximumHeight(fontMetrics().height() + 2);
     d->statusProgressBar->setNotify(true);
-    d->statusProgressBar->setNotificationTitle(i18n("Batch Queue Manager"), KIcon("bqm-diff").pixmap(22));
+    d->statusProgressBar->setNotificationTitle(i18n("Batch Queue Manager"), QIcon::fromTheme(QLatin1String("run-build")));
     statusBar()->addWidget(d->statusProgressBar, 60);
 
     d->statusLabel = new QLabel(statusBar());
@@ -349,101 +322,97 @@ void QueueMgrWindow::setupActions()
 {
     // -- Standard 'File' menu actions ---------------------------------------------
 
-    d->runAction = new KAction(KIcon("media-playback-start"), i18n("Run"), this);
-    d->runAction->setShortcut(KShortcut(Qt::CTRL + Qt::Key_P));
+    KActionCollection* const ac = actionCollection();
+
+    d->runAction = new QAction(QIcon::fromTheme(QLatin1String("media-playback-start")), i18n("Run"), this);
     d->runAction->setEnabled(false);
     connect(d->runAction, SIGNAL(triggered()), this, SLOT(slotRun()));
-    actionCollection()->addAction("queuemgr_run", d->runAction);
+    ac->addAction(QLatin1String("queuemgr_run"), d->runAction);
+    ac->setDefaultShortcut(d->runAction, Qt::CTRL + Qt::Key_P);
 
-    d->stopAction = new KAction(KIcon("media-playback-stop"), i18n("Stop"), this);
-    d->stopAction->setShortcut(KShortcut(Qt::CTRL + Qt::Key_S));
+    d->stopAction = new QAction(QIcon::fromTheme(QLatin1String("media-playback-stop")), i18n("Stop"), this);
     d->stopAction->setEnabled(false);
     connect(d->stopAction, SIGNAL(triggered()), this, SLOT(slotStop()));
-    actionCollection()->addAction("queuemgr_stop", d->stopAction);
+    ac->addAction(QLatin1String("queuemgr_stop"), d->stopAction);
+    ac->setDefaultShortcut(d->stopAction, Qt::CTRL + Qt::Key_S);
 
-    d->newQueueAction = new KAction(KIcon("bqm-addqueue"), i18n("New Queue"), this);
+    d->newQueueAction = new QAction(QIcon::fromTheme(QLatin1String("list-add")), i18n("New Queue"), this);
     connect(d->newQueueAction, SIGNAL(triggered()), d->queuePool, SLOT(slotAddQueue()));
-    actionCollection()->addAction("queuemgr_newqueue", d->newQueueAction);
+    ac->addAction(QLatin1String("queuemgr_newqueue"), d->newQueueAction);
 
-    d->removeQueueAction = new KAction(KIcon("bqm-rmqueue"), i18n("Remove Queue"), this);
+    d->removeQueueAction = new QAction(QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Remove Queue"), this);
     connect(d->removeQueueAction, SIGNAL(triggered()), d->queuePool, SLOT(slotRemoveCurrentQueue()));
-    actionCollection()->addAction("queuemgr_removequeue", d->removeQueueAction);
+    ac->addAction(QLatin1String("queuemgr_removequeue"), d->removeQueueAction);
 
     // TODO rename action to saveWorkflowAction to avoid confusion?
-    d->saveQueueAction = new KAction(KIcon("document-save"), i18n("Save Workflow"), this);
+    d->saveQueueAction = new QAction(QIcon::fromTheme(QLatin1String("document-save")), i18n("Save Workflow"), this);
     connect(d->saveQueueAction, SIGNAL(triggered()), this, SLOT(slotSaveWorkflow()));
-    actionCollection()->addAction("queuemgr_savequeue", d->saveQueueAction);
+    ac->addAction(QLatin1String("queuemgr_savequeue"), d->saveQueueAction);
 
-    d->removeItemsSelAction = new KAction(KIcon("list-remove"), i18n("Remove items"), this);
-    d->removeItemsSelAction->setShortcut(KShortcut(Qt::CTRL + Qt::Key_K));
+    d->removeItemsSelAction = new QAction(QIcon::fromTheme(QLatin1String("list-remove")), i18n("Remove items"), this);
     d->removeItemsSelAction->setEnabled(false);
     connect(d->removeItemsSelAction, SIGNAL(triggered()), d->queuePool, SLOT(slotRemoveSelectedItems()));
-    actionCollection()->addAction("queuemgr_removeitemssel", d->removeItemsSelAction);
+    ac->addAction(QLatin1String("queuemgr_removeitemssel"), d->removeItemsSelAction);
+    ac->setDefaultShortcut(d->removeItemsSelAction, Qt::CTRL + Qt::Key_K);
 
-    d->removeItemsDoneAction = new KAction(i18n("Remove processed items"), this);
+    d->removeItemsDoneAction = new QAction(i18n("Remove processed items"), this);
     d->removeItemsDoneAction->setEnabled(false);
     connect(d->removeItemsDoneAction, SIGNAL(triggered()), d->queuePool, SLOT(slotRemoveItemsDone()));
-    actionCollection()->addAction("queuemgr_removeitemsdone", d->removeItemsDoneAction);
+    ac->addAction(QLatin1String("queuemgr_removeitemsdone"), d->removeItemsDoneAction);
 
-    d->clearQueueAction = new KAction(KIcon("edit-clear"), i18n("Clear Queue"), this);
-    d->clearQueueAction->setShortcut(KShortcut(Qt::CTRL + Qt::SHIFT + Qt::Key_K));
+    d->clearQueueAction = new QAction(QIcon::fromTheme(QLatin1String("edit-clear")), i18n("Clear Queue"), this);
     d->clearQueueAction->setEnabled(false);
     connect(d->clearQueueAction, SIGNAL(triggered()), d->queuePool, SLOT(slotClearList()));
-    actionCollection()->addAction("queuemgr_clearlist", d->clearQueueAction);
+    ac->addAction(QLatin1String("queuemgr_clearlist"), d->clearQueueAction);
+    ac->setDefaultShortcut(d->clearQueueAction, Qt::CTRL + Qt::SHIFT + Qt::Key_K);
 
-    actionCollection()->addAction(KStandardAction::Close, "queuemgr_close",
-                                  this, SLOT(close()));
+    QAction* const close = buildStdAction(StdCloseAction, this, SLOT(close()), this);
+    ac->addAction(QLatin1String("queuemgr_close"), close);
 
     // -- 'Tools' menu actions -----------------------------------------------------
 
-    d->moveUpToolAction = new KAction(KIcon("bqm-commit"), i18n("Move up"), this);
+    d->moveUpToolAction = new QAction(QIcon::fromTheme(QLatin1String("go-up")), i18n("Move up"), this);
     connect(d->moveUpToolAction, SIGNAL(triggered()), d->assignedList, SLOT(slotMoveCurrentToolUp()));
-    actionCollection()->addAction("queuemgr_toolup", d->moveUpToolAction);
+    ac->addAction(QLatin1String("queuemgr_toolup"), d->moveUpToolAction);
 
-    d->moveDownToolAction = new KAction(KIcon("bqm-update"), i18n("Move down"), this);
+    d->moveDownToolAction = new QAction(QIcon::fromTheme(QLatin1String("go-down")), i18n("Move down"), this);
     connect(d->moveDownToolAction, SIGNAL(triggered()), d->assignedList, SLOT(slotMoveCurrentToolDown()));
-    actionCollection()->addAction("queuemgr_tooldown", d->moveDownToolAction);
+    ac->addAction(QLatin1String("queuemgr_tooldown"), d->moveDownToolAction);
 
-    d->removeToolAction = new KAction(KIcon("bqm-remove"), i18n("Remove tool"), this);
+    d->removeToolAction = new QAction(QIcon::fromTheme(QLatin1String("list-remove")), i18n("Remove tool"), this);
     connect(d->removeToolAction, SIGNAL(triggered()), d->assignedList, SLOT(slotRemoveCurrentTool()));
-    actionCollection()->addAction("queuemgr_toolremove", d->removeToolAction);
+    ac->addAction(QLatin1String("queuemgr_toolremove"), d->removeToolAction);
 
-    d->clearToolsAction = new KAction(KIcon("edit-clear-list"), i18n("Clear List"), this);
+    d->clearToolsAction = new QAction(QIcon::fromTheme(QLatin1String("edit-clear")), i18n("Clear List"), this);
     connect(d->clearToolsAction, SIGNAL(triggered()), d->assignedList, SLOT(slotClearToolsList()));
-    actionCollection()->addAction("queuemgr_toolsclear", d->clearToolsAction);
+    ac->addAction(QLatin1String("queuemgr_toolsclear"), d->clearToolsAction);
 
     // -- Standard 'View' menu actions ---------------------------------------------
 
-    createFullScreenAction("queuemgr_fullscreen");
-
-    // -- Standard 'Configure' menu actions ----------------------------------------
-
-    d->showMenuBarAction = KStandardAction::showMenubar(this, SLOT(slotShowMenuBar()), actionCollection());
-
-    KStandardAction::keyBindings(this,            SLOT(slotEditKeys()),          actionCollection());
-    KStandardAction::configureToolbars(this,      SLOT(slotConfToolbars()),      actionCollection());
-    KStandardAction::configureNotifications(this, SLOT(slotConfNotifications()), actionCollection());
-    KStandardAction::preferences(this,            SLOT(slotSetup()),             actionCollection());
+    createFullScreenAction(QLatin1String("queuemgr_fullscreen"));
 
     // ---------------------------------------------------------------------------------
 
     ThemeManager::instance()->registerThemeActions(this);
 
-    // -- Standard 'Help' menu actions ---------------------------------------------
-
+    // Standard 'Help' menu actions
     createHelpActions();
-        
+
     // Provides a menu entry that allows showing/hiding the toolbar(s)
     setStandardToolBarMenuEnabled(true);
 
     // Provides a menu entry that allows showing/hiding the statusbar
     createStandardStatusBarAction();
 
+    // Standard 'Configure' menu actions
+    createSettingsActions();
+
     // ---------------------------------------------------------------------------------
 
     createGUI(xmlFile());
+    cleanupActions();
 
-    d->showMenuBarAction->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
+    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 }
 
 void QueueMgrWindow::refreshView()
@@ -454,8 +423,8 @@ void QueueMgrWindow::refreshView()
 
 void QueueMgrWindow::readSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group("Batch Queue Manager Settings");
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(configGroupName());
 
     d->verticalSplitter->restoreState(group, d->VERTICAL_SPLITTER_CONFIG_KEY);
     d->bottomSplitter->restoreState(group,   d->BOTTOM_SPLITTER_CONFIG_KEY);
@@ -466,8 +435,8 @@ void QueueMgrWindow::readSettings()
 
 void QueueMgrWindow::writeSettings()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group("Batch Queue Manager Settings");
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(configGroupName());
 
     d->topSplitter->saveState(group,      d->TOP_SPLITTER_CONFIG_KEY);
     d->bottomSplitter->saveState(group,   d->BOTTOM_SPLITTER_CONFIG_KEY);
@@ -486,8 +455,8 @@ void QueueMgrWindow::applySettings()
 
     d->queuePool->applySettings();
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group("Batch Queue Manager Settings");
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(configGroupName());
     readFullScreenSettings(group);
 }
 
@@ -511,7 +480,7 @@ void QueueMgrWindow::refreshStatusBar()
             break;
     }
 
-    message.append(" / ");
+    message.append(QLatin1String(" / "));
 
     switch (tasks)
     {
@@ -537,7 +506,7 @@ void QueueMgrWindow::refreshStatusBar()
             break;
     }
 
-    message.append(" / ");
+    message.append(QLatin1String(" / "));
 
     switch (totalTasks)
     {
@@ -554,41 +523,12 @@ void QueueMgrWindow::refreshStatusBar()
 
     if (!d->busy)
     {
-        d->statusProgressBar->progressBarMode(StatusProgressBar::TextMode, i18n("Ready"));
+        d->statusProgressBar->setProgressBarMode(StatusProgressBar::TextMode, i18n("Ready"));
         d->removeItemsSelAction->setEnabled(items > 0);
         d->removeItemsDoneAction->setEnabled((items - pendingItems) > 0);
         d->clearQueueAction->setEnabled(items > 0);
         d->runAction->setEnabled((tasks > 0) && (pendingItems > 0));
     }
-}
-
-void QueueMgrWindow::slotEditKeys()
-{
-    KShortcutsDialog dialog(KShortcutsEditor::AllActions,
-                            KShortcutsEditor::LetterShortcutsAllowed, this);
-    dialog.addCollection(actionCollection(), i18n("General"));
-    dialog.configure();
-}
-
-void QueueMgrWindow::slotConfToolbars()
-{
-    saveMainWindowSettings(KGlobal::config()->group("Batch Queue Manager Settings"));
-    KEditToolBar dlg(factory(), this);
-
-    connect(&dlg, SIGNAL(newToolbarConfig()),
-            this, SLOT(slotNewToolbarConfig()));
-
-    dlg.exec();
-}
-
-void QueueMgrWindow::slotConfNotifications()
-{
-    KNotifyConfigWidget::configure(this);
-}
-
-void QueueMgrWindow::slotNewToolbarConfig()
-{
-    applyMainWindowSettings(KGlobal::config()->group("Batch Queue Manager Settings"));
 }
 
 void QueueMgrWindow::slotSetup()
@@ -598,7 +538,7 @@ void QueueMgrWindow::slotSetup()
 
 void QueueMgrWindow::setup(Setup::Page page)
 {
-    Setup::exec(this, page);
+    Setup::execDialog(this, page);
 }
 
 void QueueMgrWindow::slotComponentsInfo()
@@ -615,15 +555,15 @@ bool QueueMgrWindow::queryClose()
 {
     if (isBusy())
     {
-        int result = KMessageBox::warningYesNo(this,
-                                               i18n("Batch Queue Manager is running. Do you want to cancel current job?"),
-                                               i18n("Processing under progress"));
+        int result = QMessageBox::warning(this, i18n("Processing under progress"),
+                                          i18n("Batch Queue Manager is running. Do you want to cancel current job?"),
+                                          QMessageBox::Yes | QMessageBox::No);
 
-        if (result == KMessageBox::Yes)
+        if (result == QMessageBox::Yes)
         {
             slotStop();
         }
-        else if (result == KMessageBox::No)
+        else if (result == QMessageBox::No)
         {
             return false;
         }
@@ -706,18 +646,13 @@ void QueueMgrWindow::populateToolsList()
     }
 }
 
-void QueueMgrWindow::slotShowMenuBar()
-{
-    menuBar()->setVisible(d->showMenuBarAction->isChecked());
-}
-
 void QueueMgrWindow::slotRun()
 {
     d->currentQueueToProcess = 0;
 
     if (!d->queuePool->totalPendingItems())
     {
-        KMessageBox::error(this, i18n("There are no items to process in the queues."));
+        QMessageBox::critical(this, qApp->applicationName(), i18n("There are no items to process in the queues."));
         processingAborted();
         return;
     }
@@ -739,7 +674,7 @@ void QueueMgrWindow::slotRun()
 
     d->statusProgressBar->setProgressTotalSteps(d->queuePool->totalPendingTasks());
     d->statusProgressBar->setProgressValue(0);
-    d->statusProgressBar->progressBarMode(StatusProgressBar::ProgressBarMode);
+    d->statusProgressBar->setProgressBarMode(StatusProgressBar::ProgressBarMode);
     d->toolsView->showTab(ToolsView::HISTORY);
     busy(true);
 
@@ -749,7 +684,7 @@ void QueueMgrWindow::slotRun()
 void QueueMgrWindow::processingAborted()
 {
     d->statusProgressBar->setProgressValue(0);
-    d->statusProgressBar->progressBarMode(StatusProgressBar::TextMode);
+    d->statusProgressBar->setProgressBarMode(StatusProgressBar::TextMode);
     busy(false);
     refreshStatusBar();
 }
@@ -874,15 +809,14 @@ bool QueueMgrWindow::checkTargetAlbum(int queueId)
     if (!queue->settings().useOrgAlbum)
     {
         QString queueName              = d->queuePool->queueTitle(queueId);
-        KUrl    processedItemsAlbumUrl = queue->settings().workingUrl;
-        kDebug() << "Target album for queue " << queueName << " is: " << processedItemsAlbumUrl.toLocalFile();
+        QUrl    processedItemsAlbumUrl = queue->settings().workingUrl;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Target album for queue " << queueName << " is: " << processedItemsAlbumUrl.toLocalFile();
 
         if (processedItemsAlbumUrl.isEmpty())
         {
-            KMessageBox::error(this,
-                            i18n("Album to host processed items from queue \"%1\" is not set. "
-                                    "Please select one from Queue Settings panel.", queueName),
-                            i18n("Processed items album settings"));
+            QMessageBox::critical(this, i18n("Processed items album settings"),
+                                  i18n("Album to host processed items from queue \"%1\" is not set. "
+                                       "Please select one from Queue Settings panel.", queueName));
             return false;
         }
 
@@ -890,11 +824,10 @@ bool QueueMgrWindow::checkTargetAlbum(int queueId)
 
         if (!dir.exists() || !dir.isWritable())
         {
-            KMessageBox::error(this,
-                            i18n("Album to host processed items from queue \"%1\" "
-                                    "is not available or not writable. "
-                                    "Please set another one from Queue Settings panel.", queueName),
-                            i18n("Processed items album settings"));
+            QMessageBox::critical(this, i18n("Processed items album settings"),
+                                  i18n("Album to host processed items from queue \"%1\" "
+                                       "is not available or not writable. "
+                                       "Please set another one from Queue Settings panel.", queueName));
             return false;
         }
     }
@@ -952,10 +885,13 @@ void QueueMgrWindow::slotAction(const ActionData& ad)
 
         case ActionData::BatchDone:
         {
-            cItem->setDestFileName(ad.destUrl.fileName());
-            cItem->setDone();
-            addHistoryMessage(cItem, ad.message, DHistoryView::SuccessEntry);
-            d->statusProgressBar->setProgressValue(d->statusProgressBar->progressValue() + 1);
+            if (cItem)
+            {
+                cItem->setDestFileName(ad.destUrl.fileName());
+                cItem->setDone();
+                addHistoryMessage(cItem, ad.message, DHistoryView::SuccessEntry);
+                d->statusProgressBar->setProgressValue(d->statusProgressBar->progressValue() + 1);
+            }
             break;
         }
 
@@ -993,8 +929,8 @@ void QueueMgrWindow::addHistoryMessage(QueueListViewItem* const cItem, const QSt
 {
     if (cItem)
     {
-        int queueId  = d->queuePool->currentIndex();
         int itemId   = cItem->info().id();
+        int queueId  = d->queuePool->currentIndex();
         QString text = i18n("Item \"%1\" from queue \"%2\": %3", cItem->info().name(),
                             d->queuePool->queueTitle(queueId), msg);
         d->toolsView->addHistoryEntry(text, type, queueId, itemId);
@@ -1024,7 +960,7 @@ void QueueMgrWindow::slotQueueProcessed()
     if (d->currentQueueToProcess == d->queuePool->count())
     {
         // Pop-up a message to bring user when all is done.
-        DNotificationWrapper("batchqueuecompleted", i18n("Batch queue finished"),
+        DNotificationWrapper(QLatin1String("batchqueuecompleted"), i18n("Batch queue finished"),
                              this, windowTitle());
 
         processingAborted();
@@ -1043,13 +979,14 @@ void QueueMgrWindow::slotAssignQueueSettings(const QString& title)
     {
         Workflow q                 = WorkflowManager::instance()->findByTitle(title);
         QueueListView* const queue = d->queuePool->currentQueue();
+
         if (queue)
         {
             queue->setSettings(q.qSettings);
             AssignedBatchTools tools;
             tools.m_toolsList = q.aTools;
 
-            //kDebug() << tools.m_toolsList;
+            //qCDebug(DIGIKAM_GENERAL_LOG) << tools.m_toolsList;
 
             queue->setAssignedTools(tools);
             d->queuePool->slotQueueSelected(d->queuePool->currentIndex());
@@ -1067,9 +1004,9 @@ void QueueMgrWindow::slotSaveWorkflow()
 
 void QueueMgrWindow::customizedFullScreenMode(bool set)
 {
-    statusBarMenuAction()->setEnabled(!set);
+    showStatusBarAction()->setEnabled(!set);
     toolBarMenuAction()->setEnabled(!set);
-    d->showMenuBarAction->setEnabled(!set);
+    showMenuBarAction()->setEnabled(!set);
 }
 
 }  // namespace Digikam

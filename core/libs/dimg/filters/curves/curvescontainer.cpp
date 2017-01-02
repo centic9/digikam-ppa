@@ -6,7 +6,7 @@
  * Date        : 2004-12-01
  * Description : image curves manipulation methods.
  *
- * Copyright (C) 2004-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -140,26 +140,26 @@ void CurvesContainer::writeToFilterAction(FilterAction& action, const QString& p
         curves = depthCurve;
     }
 
-    action.addParameter(prefix + "curveBitDepth", 8);
+    action.addParameter(prefix + QLatin1String("curveBitDepth"), 8);
 
     for (int i = 0; i < ColorChannels; ++i)
     {
-        action.addParameter(prefix + QString("curveData[%1]").arg(i), curves.channelToBinary(i).toBase64());
+        action.addParameter(prefix + QString::fromLatin1("curveData[%1]").arg(i), curves.channelToBinary(i).toBase64());
     }
 }
 
 CurvesContainer CurvesContainer::fromFilterAction(const FilterAction& action, const QString& prefix)
 {
-    if (!action.hasParameter(prefix + "curveBitDepth"))
+    if (!action.hasParameter(prefix + QLatin1String("curveBitDepth")))
     {
         return CurvesContainer();
     }
 
-    ImageCurves curves(action.parameter(prefix + "curveBitDepth", 8) == 16);
+    ImageCurves curves(action.parameter(prefix + QLatin1String("curveBitDepth"), 8) == 16);
 
     for (int i = 0; i < ColorChannels; ++i)
     {
-        QByteArray base64 = action.parameter(prefix + QString("curveData[%1]").arg(i), QByteArray());
+        QByteArray base64 = action.parameter(prefix + QString::fromLatin1("curveData[%1]").arg(i), QByteArray());
         // check return value and set readParametersError?
         curves.setChannelFromBinary(i, QByteArray::fromBase64(base64));
     }

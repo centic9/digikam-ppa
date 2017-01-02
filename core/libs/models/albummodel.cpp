@@ -21,18 +21,20 @@
  *
  * ============================================================ */
 
-#include "albummodel.moc"
+#include "albummodel.h"
+
+// Qt includes
+
+#include <QIcon>
+#include <QLocale>
 
 // KDE includes
 
-#include <kcalendarsystem.h>
-#include <kglobal.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
 #include "applicationsettings.h"
 #include "albumthumbnailloader.h"
@@ -234,10 +236,10 @@ Album* SearchModel::albumForId(int id) const
 
 void SearchModel::albumSettingsChanged()
 {
-    setPixmapForMapSearches(SmallIcon("applications-internet", ApplicationSettings::instance()->getTreeViewIconSize()));
-    setPixmapForHaarSearches(SmallIcon("tools-wizard",         ApplicationSettings::instance()->getTreeViewIconSize()));
-    setPixmapForNormalSearches(SmallIcon("edit-find",          ApplicationSettings::instance()->getTreeViewIconSize()));
-    setPixmapForTimelineSearches(SmallIcon("chronometer",      ApplicationSettings::instance()->getTreeViewIconSize()));
+    setPixmapForMapSearches(QIcon::fromTheme(QLatin1String("folder-html")).pixmap(ApplicationSettings::instance()->getTreeViewIconSize()));
+    setPixmapForHaarSearches(QIcon::fromTheme(QLatin1String("tools-wizard")).pixmap(ApplicationSettings::instance()->getTreeViewIconSize()));
+    setPixmapForNormalSearches(QIcon::fromTheme(QLatin1String("edit-find")).pixmap(ApplicationSettings::instance()->getTreeViewIconSize()));
+    setPixmapForTimelineSearches(QIcon::fromTheme(QLatin1String("chronometer")).pixmap(ApplicationSettings::instance()->getTreeViewIconSize()));
 }
 
 // ------------------------------------------------------------------
@@ -312,7 +314,7 @@ QString DateAlbumModel::albumName(Album* album) const
     }
     else
     {
-        return KGlobal::locale()->calendar()->monthName(dalbum->date(), KCalendarSystem::LongName);
+        return QLocale().monthName(dalbum->date().month(), QLocale::LongFormat);
     }
 }
 
@@ -339,7 +341,7 @@ QVariant DateAlbumModel::sortRoleData(Album* a) const
         return dalbum->date();
     }
 
-    kError() << "There must be a data album.";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "There must be a data album.";
     return QDate();
 }
 
@@ -377,7 +379,7 @@ void DateAlbumModel::setYearMonthMap(const QMap<YearMonth, int>& yearMonthMap)
                 albumToCountMap.insert((*it)->id(), 0);
                 break;
             default:
-                kError() << "Untreated DAlbum range " << dalbum->range();
+                qCDebug(DIGIKAM_GENERAL_LOG) << "Untreated DAlbum range " << dalbum->range();
                 albumToCountMap.insert((*it)->id(), 0);
                 break;
         }

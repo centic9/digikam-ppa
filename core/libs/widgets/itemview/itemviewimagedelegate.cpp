@@ -9,7 +9,7 @@
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2002-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -24,7 +24,7 @@
  *
  * ============================================================ */
 
-#include "itemviewimagedelegate.moc"
+#include "itemviewimagedelegate.h"
 #include "itemviewimagedelegatepriv.h"
 
 // C++ includes
@@ -36,18 +36,15 @@
 #include <QCache>
 #include <QPainter>
 #include <QIcon>
+#include <QApplication>
 
 // KDE includes
 
-#include <kglobal.h>
-#include <kio/global.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kdebug.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "imagepropertiestab.h"
 #include "imagedelegateoverlay.h"
 #include "thememanager.h"
@@ -95,13 +92,15 @@ void ItemViewImageDelegatePrivate::makeStarPolygon()
 }
 
 ItemViewImageDelegate::ItemViewImageDelegate(QObject* const parent)
-    : DItemDelegate(parent), d_ptr(new ItemViewImageDelegatePrivate)
+    : DItemDelegate(parent),
+      d_ptr(new ItemViewImageDelegatePrivate)
 {
     d_ptr->init(this);
 }
 
 ItemViewImageDelegate::ItemViewImageDelegate(ItemViewImageDelegatePrivate& dd, QObject* const parent)
-    : DItemDelegate(parent), d_ptr(&dd)
+    : DItemDelegate(parent),
+      d_ptr(&dd)
 {
     d_ptr->init(this);
 }
@@ -407,7 +406,7 @@ void ItemViewImageDelegate::drawFileSize(QPainter* p, const QRect& r, qlonglong 
     Q_D(const ItemViewImageDelegate);
 
     p->setFont(d->fontXtra);
-    p->drawText(r, Qt::AlignCenter, KIO::convertSize(bytes)); //squeezedTextCached(p, r.width(), KIO::convertSize(bytes)));
+    p->drawText(r, Qt::AlignCenter, ImagePropertiesTab::humanReadableBytesCount(bytes));
 }
 
 void ItemViewImageDelegate::drawTags(QPainter* p, const QRect& r, const QString& tagsString,
@@ -416,8 +415,8 @@ void ItemViewImageDelegate::drawTags(QPainter* p, const QRect& r, const QString&
     Q_D(const ItemViewImageDelegate);
 
     p->setFont(d->fontCom);
-    p->setPen(isSelected ? kapp->palette().color(QPalette::HighlightedText)
-                         : kapp->palette().color(QPalette::Link));
+    p->setPen(isSelected ? qApp->palette().color(QPalette::HighlightedText)
+                         : qApp->palette().color(QPalette::Link));
 
     p->drawText(r, Qt::AlignCenter, squeezedTextCached(p, r.width(), tagsString));
 }
@@ -429,8 +428,8 @@ void ItemViewImageDelegate::drawFocusRect(QPainter* p, const QStyleOptionViewIte
 
     if (option.state & QStyle::State_HasFocus) //?? is current item
     {
-        p->setPen(QPen(isSelected ? kapp->palette().color(QPalette::HighlightedText)
-                                  : kapp->palette().color(QPalette::Text),
+        p->setPen(QPen(isSelected ? qApp->palette().color(QPalette::HighlightedText)
+                                  : qApp->palette().color(QPalette::Text),
                        1, Qt::DotLine));
         p->drawRect(1, 1, d->rect.width()-3, d->rect.height()-3);
     }
@@ -473,15 +472,15 @@ void ItemViewImageDelegate::drawPickLabelIcon(QPainter* p, const QRect& r, int p
 
         if (pickId == RejectedLabel)
         {
-            icon = KIconLoader::global()->loadIcon("flag-red", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("flag-red"));
         }
         else if (pickId == PendingLabel)
         {
-            icon = KIconLoader::global()->loadIcon("flag-yellow", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("flag-yellow"));
         }
         else if (pickId == AcceptedLabel)
         {
-            icon = KIconLoader::global()->loadIcon("flag-green", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("flag-green"));
         }
 
         icon.paint(p, r);
@@ -497,14 +496,14 @@ void ItemViewImageDelegate::drawPanelSideIcon(QPainter* p, bool left, bool right
     if (left)
     {
         QRect r(3, d->rect.height()/2 - iconSize/2, iconSize, iconSize);
-        QIcon icon = KIconLoader::global()->loadIcon("arrow-left", KIconLoader::NoGroup, iconSize);
+        QIcon icon = QIcon::fromTheme(QLatin1String("go-previous"));
         icon.paint(p, r);
     }
 
     if (right)
     {
         QRect r(d->rect.width() - 3 - iconSize, d->rect.height()/2 - iconSize/2, iconSize, iconSize);
-        QIcon icon = KIconLoader::global()->loadIcon("arrow-right", KIconLoader::NoGroup, iconSize);
+        QIcon icon = QIcon::fromTheme(QLatin1String("go-next"));
         icon.paint(p, r);
     }
 }
@@ -513,7 +512,7 @@ void ItemViewImageDelegate::drawGeolocationIndicator(QPainter* p, const QRect& r
 {
     if (!r.isNull())
     {
-        QIcon icon = KIconLoader::global()->loadIcon("applications-internet", KIconLoader::NoGroup, r.width());
+        QIcon icon = QIcon::fromTheme(QLatin1String("folder-html"));
         qreal op   = p->opacity();
         p->setOpacity(0.5);
         icon.paint(p, r);
@@ -530,11 +529,11 @@ void ItemViewImageDelegate::drawGroupIndicator(QPainter* p, const QRect& r,
 
         if (open)
         {
-            icon = KIconLoader::global()->loadIcon("image-stack-open", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("folder-open")); //image-stack-open
         }
         else
         {
-            icon = KIconLoader::global()->loadIcon("image-stack", KIconLoader::NoGroup, r.width());
+            icon = QIcon::fromTheme(QLatin1String("folder")); //image-stack
         }
 
         qreal op     = p->opacity();
@@ -604,15 +603,15 @@ void ItemViewImageDelegate::prepareMetrics(int maxWidth)
     QFontMetrics fm(d->fontReg);
     d->oneRowRegRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                        Qt::AlignTop | Qt::AlignHCenter,
-                                       "XXXXXXXXX");
+                                       QLatin1String("XXXXXXXXX"));
     fm = QFontMetrics(d->fontCom);
     d->oneRowComRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                        Qt::AlignTop | Qt::AlignHCenter,
-                                       "XXXXXXXXX");
+                                       QLatin1String("XXXXXXXXX"));
     fm = QFontMetrics(d->fontXtra);
     d->oneRowXtraRect = fm.boundingRect(0, 0, maxWidth, 0xFFFFFFFF,
                                         Qt::AlignTop | Qt::AlignHCenter,
-                                        "XXXXXXXXX");
+                                        QLatin1String("XXXXXXXXX"));
 }
 
 void ItemViewImageDelegate::prepareBackground()
@@ -627,15 +626,15 @@ void ItemViewImageDelegate::prepareBackground()
     else
     {
         d->regPixmap = QPixmap(d->rect.width(), d->rect.height());
-        d->regPixmap.fill(kapp->palette().color(QPalette::Base));
+        d->regPixmap.fill(qApp->palette().color(QPalette::Base));
         QPainter p1(&d->regPixmap);
-        p1.setPen(kapp->palette().color(QPalette::Midlight));
+        p1.setPen(qApp->palette().color(QPalette::Midlight));
         p1.drawRect(0, 0, d->rect.width()-1, d->rect.height()-1);
 
         d->selPixmap = QPixmap(d->rect.width(), d->rect.height());
-        d->selPixmap.fill(kapp->palette().color(QPalette::Highlight));
+        d->selPixmap.fill(qApp->palette().color(QPalette::Highlight));
         QPainter p2(&d->selPixmap);
-        p2.setPen(kapp->palette().color(QPalette::Midlight));
+        p2.setPen(qApp->palette().color(QPalette::Midlight));
         p2.drawRect(0, 0, d->rect.width()-1, d->rect.height()-1);
     }
 }
@@ -690,8 +689,8 @@ void ItemViewImageDelegate::prepareRatingPixmaps(bool composeOverBackground)
 
             // use antialiasing
             painter.setRenderHint(QPainter::Antialiasing, true);
-            painter.setBrush(kapp->palette().color(QPalette::Link));
-            QPen pen(kapp->palette().color(QPalette::Text));
+            painter.setBrush(qApp->palette().color(QPalette::Link));
+            QPen pen(qApp->palette().color(QPalette::Text));
             // set a pen which joins the lines at a filled angle
             pen.setJoinStyle(Qt::MiterJoin);
             painter.setPen(pen);

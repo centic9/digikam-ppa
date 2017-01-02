@@ -6,7 +6,7 @@
  * Date        : 2009-03-03
  * Description : queue tool tip
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,10 +29,6 @@
 #include <QPainter>
 #include <QPixmap>
 #include <QTextDocument>
-
-// KDE includes
-
-#include <klocale.h>
 
 // Local includes
 
@@ -58,7 +54,8 @@ public:
 };
 
 QueueToolTip::QueueToolTip(QueueListView* const view)
-    : DItemToolTip(), d(new Private)
+    : DItemToolTip(),
+      d(new Private)
 {
     d->view = view;
 }
@@ -72,8 +69,7 @@ void QueueToolTip::setQueueItem(QueueListViewItem* const item)
 {
     d->item = item;
 
-    if (!d->item ||
-        !ApplicationSettings::instance()->showToolTipsIsValid())
+    if (!d->item || !ApplicationSettings::instance()->showToolTipsIsValid())
     {
         hide();
     }
@@ -98,6 +94,7 @@ QRect QueueToolTip::repositionRect()
 
     QRect rect = d->view->visualItemRect(d->item);
     rect.moveTopLeft(d->view->viewport()->mapToGlobal(rect.topLeft()));
+
     return rect;
 }
 
@@ -109,6 +106,7 @@ QString QueueToolTip::tipContents()
     }
 
     ImageInfo info = d->item->info();
+
     return ToolTipFiller::imageInfoTipContents(info);
 }
 

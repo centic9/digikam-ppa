@@ -6,7 +6,7 @@
  * Date        : 2009-07-12
  * Description : caption editor
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,22 +21,20 @@
  *
  * ============================================================ */
 
-#include "captionedit.moc"
+#include "captionedit.h"
+
+// Qt includes
+
+#include <QLineEdit>
 
 // KDE includes
 
-#include <kdialog.h>
-#include <klocale.h>
-#include <klineedit.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include <libkexiv2/version.h>
-#include <libkexiv2/altlangstredit.h>
-#include <libkexiv2/msgtextedit.h>
-
-using namespace KExiv2Iface;
+#include "altlangstredit.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -51,7 +49,7 @@ public:
         authorEdit     = 0;
     }
 
-    KLineEdit*      authorEdit;
+    QLineEdit*      authorEdit;
 
     AltLangStrEdit* altLangStrEdit;
 
@@ -62,18 +60,19 @@ public:
 };
 
 CaptionEdit::CaptionEdit(QWidget* const parent)
-    : KVBox(parent), d(new Private)
+    : DVBox(parent),
+      d(new Private)
 {
 
     d->altLangStrEdit = new AltLangStrEdit(this);
     d->altLangStrEdit->setTitle(i18n("Captions: "));
-    d->altLangStrEdit->setClickMessage(i18n("Enter caption text here."));
+    d->altLangStrEdit->setPlaceholderText(i18n("Enter caption text here."));
 
-    d->authorEdit = new KLineEdit(this);
-    d->authorEdit->setClearButtonShown(true);
-    d->authorEdit->setClickMessage(i18n("Enter caption author name here."));
+    d->authorEdit = new QLineEdit(this);
+    d->authorEdit->setClearButtonEnabled(true);
+    d->authorEdit->setPlaceholderText(i18n("Enter caption author name here."));
 
-    setMargin(0);
+    setContentsMargins(QMargins());
     setSpacing(0);
 
     connect(d->altLangStrEdit, SIGNAL(signalSelectionChanged(QString)),
@@ -115,18 +114,14 @@ QString CaptionEdit::currentLanguageCode() const
 
 void CaptionEdit::setCurrentLanguageCode(const QString& lang)
 {
-#if KEXIV2_VERSION >= 0x020101
     if(d->altLangStrEdit->currentLanguageCode().isEmpty())
     {
-        d->altLangStrEdit->setCurrentLanguageCode("x-default");
+        d->altLangStrEdit->setCurrentLanguageCode(QLatin1String("x-default"));
     }
     else
     {
         d->altLangStrEdit->setCurrentLanguageCode(lang);
     }
-#else
-    Q_UNUSED(lang);
-#endif
 }
 
 void CaptionEdit::slotAddValue(const QString& lang, const QString& text)
@@ -200,13 +195,9 @@ void CaptionEdit::slotAuthorChanged(const QString& text)
     }
 }
 
-MsgTextEdit* CaptionEdit::textEdit() const
+QTextEdit* CaptionEdit::textEdit() const
 {
-#if KEXIV2_VERSION >= 0x020400
     return d->altLangStrEdit->textEdit();
-#else
-    return 0;
-#endif
 }
 
 }  // namespace Digikam

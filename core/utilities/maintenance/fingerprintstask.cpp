@@ -6,7 +6,7 @@
  * Date        : 2013-08-14
  * Description : Thread actions task for finger-prints generator.
  *
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,15 +21,11 @@
  *
  * ============================================================ */
 
-#include "fingerprintstask.moc"
-
-// KDE includes
-
-#include <kdebug.h>
-#include <threadweaver/ThreadWeaver.h>
+#include "fingerprintstask.h"
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimg.h"
 #include "haar.h"
 #include "haariface.h"
@@ -54,7 +50,8 @@ public:
 // -------------------------------------------------------
 
 FingerprintsTask::FingerprintsTask()
-    : Job(0), d(new Private)
+    : ActionJob(),
+      d(new Private)
 {
 }
 
@@ -76,11 +73,11 @@ void FingerprintsTask::slotCancel()
 
 void FingerprintsTask::run()
 {
-    if(!d->cancel)
+    if (!d->cancel)
     {
         DImg dimg = PreviewLoadThread::loadFastSynchronously(d->path, HaarIface::preferredSize());
 
-        if(d->cancel)
+        if (d->cancel)
             return;
 
         if (!dimg.isNull())
@@ -92,6 +89,7 @@ void FingerprintsTask::run()
 
         QImage qimg = dimg.smoothScale(22, 22, Qt::KeepAspectRatio).copyQImage();
         emit signalFinished(qimg);
+        emit signalDone();
     }
 }
 

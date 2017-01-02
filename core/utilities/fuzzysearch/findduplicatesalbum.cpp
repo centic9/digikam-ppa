@@ -6,7 +6,7 @@
  * Date        : 2008-05-19
  * Description : Find Duplicates tree-view search album.
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "findduplicatesalbum.moc"
+#include "findduplicatesalbum.h"
 
 // Qt includes
 
@@ -32,7 +32,7 @@
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -58,7 +58,8 @@ public:
 };
 
 FindDuplicatesAlbum::FindDuplicatesAlbum(QWidget* const parent)
-    : QTreeWidget(parent), d(new Private)
+    : QTreeWidget(parent),
+      d(new Private)
 {
     d->thumbLoadThread = ThumbnailLoadThread::defaultThread();
 
@@ -70,8 +71,8 @@ FindDuplicatesAlbum::FindDuplicatesAlbum(QWidget* const parent)
     setSortingEnabled(true);
     setColumnCount(2);
     setHeaderLabels(QStringList() << i18n("Ref. images") << i18n("Items"));
-    header()->setResizeMode(0, QHeaderView::Stretch);
-    header()->setResizeMode(1, QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(0, QHeaderView::Stretch);
+    header()->setSectionResizeMode(1, QHeaderView::ResizeToContents);
     setWhatsThis(i18n("This shows all found duplicate items."));
 
     connect(d->thumbLoadThread, SIGNAL(signalThumbnailLoaded(LoadingDescription,QPixmap)),

@@ -7,7 +7,7 @@
  * Description : a generic list view item widget to
  *               display metadata key like a title
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,10 +27,10 @@
 
 // Qt includes
 
-#include <QtCore/QObject>
-#include <QtCore/QString>
-#include <QtGui/QTreeWidget>
-#include <QtGui/QTreeWidgetItem>
+#include <QObject>
+#include <QString>
+#include <QTreeWidget>
+#include <QTreeWidgetItem>
 
 // Local includes
 

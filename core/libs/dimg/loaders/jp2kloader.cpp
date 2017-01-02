@@ -6,7 +6,7 @@
  * Date        : 2006-06-14
  * Description : A JPEG2000 IO file for DImg framework
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This implementation use Jasper API
  * library : http://www.ece.uvic.ca/~mdadams/jasper
@@ -37,14 +37,11 @@
 #include <QByteArray>
 #include <QTextStream>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "dimgloaderobserver.h"
 #include "dmetadata.h"
 /// @todo According to krazy2, this include directive should be the first one, but moving it to the top breaks the build. Should be checked later. MH
@@ -64,7 +61,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 {
     readMetadata(filePath, DImg::JPEG);
 
-    FILE* const file = fopen(QFile::encodeName(filePath), "rb");
+    FILE* const file = fopen(QFile::encodeName(filePath).constData(), "rb");
 
     if (!file)
     {
@@ -95,7 +92,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
     fclose(file);
 
-    imageSetAttribute("format", "JP2");
+    imageSetAttribute(QLatin1String("format"), QLatin1String("JP2"));
 
     if (!(m_loadFlags & LoadImageData) && !(m_loadFlags & LoadICCData))
     {
@@ -117,7 +114,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     // -------------------------------------------------------------------
     // Initialize JPEG 2000 API.
 
-    register long  i, x, y;
+   long  i, x, y;
     int            components[4];
     unsigned int   maximum_component_depth, scale[4], x_step[4], y_step[4];
     unsigned long  number_components;
@@ -130,16 +127,16 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
     if (init != 0)
     {
-        kDebug() << "Unable to init JPEG2000 decoder";
+        qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Unable to init JPEG2000 decoder";
         loadingFailed();
         return false;
     }
 
-    jp2_stream = jas_stream_fopen(QFile::encodeName(filePath), "rb");
+    jp2_stream = jas_stream_fopen(QFile::encodeName(filePath).constData(), "rb");
 
     if (jp2_stream == 0)
     {
-        kDebug() << "Unable to open JPEG2000 stream";
+        qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Unable to open JPEG2000 stream";
         loadingFailed();
         return false;
     }
@@ -149,7 +146,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     if (jp2_image == 0)
     {
         jas_stream_close(jp2_stream);
-        kDebug() << "Unable to decode JPEG2000 image";
+        qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Unable to decode JPEG2000 image";
         loadingFailed();
         return false;
     }
@@ -178,7 +175,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
             if ((components[0] < 0) || (components[1] < 0) || (components[2] < 0))
             {
                 jas_image_destroy(jp2_image);
-                kDebug() << "Error parsing JPEG2000 image : Missing Image Channel";
+                qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error parsing JPEG2000 image : Missing Image Channel";
                 loadingFailed();
                 return false;
             }
@@ -203,7 +200,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
             if (components[0] < 0)
             {
                 jas_image_destroy(jp2_image);
-                kDebug() << "Error parsing JP2000 image : Missing Image Channel";
+                qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error parsing JP2000 image : Missing Image Channel";
                 loadingFailed();
                 return false;
             }
@@ -222,7 +219,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
             if ((components[0] < 0) || (components[1] < 0) || (components[2] < 0))
             {
                 jas_image_destroy(jp2_image);
-                kDebug() << "Error parsing JP2000 image : Missing Image Channel";
+                qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error parsing JP2000 image : Missing Image Channel";
                 loadingFailed();
                 return false;
             }
@@ -244,7 +241,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         default:
         {
             jas_image_destroy(jp2_image);
-            kDebug() << "Error parsing JP2000 image : Colorspace Model Is Not Supported";
+            qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error parsing JP2000 image : Colorspace Model Is Not Supported";
             loadingFailed();
             return false;
         }
@@ -262,12 +259,12 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
                jas_image_cmpthstep(jp2_image, components[i])) != (long)imageWidth()))  ||
             (((jas_image_cmptheight(jp2_image, components[i])*
                jas_image_cmptvstep(jp2_image, components[i])) != (long)imageHeight())) ||
-            (jas_image_cmpttlx(jp2_image, components[i]) != 0)                      ||
-            (jas_image_cmpttly(jp2_image, components[i]) != 0)                      ||
+            (jas_image_cmpttlx(jp2_image, components[i]) != 0)                         ||
+            (jas_image_cmpttly(jp2_image, components[i]) != 0)                         ||
             (jas_image_cmptsgnd(jp2_image, components[i]) != false))
         {
             jas_image_destroy(jp2_image);
-            kDebug() << "Error parsing JPEG2000 image : Irregular Channel Geometry Not Supported";
+            qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error parsing JPEG2000 image : Irregular Channel Geometry Not Supported";
             loadingFailed();
             return false;
         }
@@ -291,7 +288,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         if (!pixels[i])
         {
             jas_image_destroy(jp2_image);
-            kDebug() << "Error decoding JPEG2000 image data : Memory Allocation Failed";
+            qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error decoding JPEG2000 image data : Memory Allocation Failed";
             loadingFailed();
             return false;
         }
@@ -331,7 +328,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
         if (!data)
         {
-            kDebug() << "Error decoding JPEG2000 image data : Memory Allocation Failed";
+            qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error decoding JPEG2000 image data : Memory Allocation Failed";
             jas_image_destroy(jp2_image);
 
             for (i = 0 ; i < (long)number_components ; ++i)
@@ -359,7 +356,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
                 if (ret != 0)
                 {
-                    kDebug() << "Error decoding JPEG2000 image data";
+                    qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error decoding JPEG2000 image data";
                     jas_image_destroy(jp2_image);
 
                     for (i = 0 ; i < (long)number_components ; ++i)
@@ -377,14 +374,29 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
             {
                 case 1: // Grayscale.
                 {
-                    for (x = 0 ; x < (long)imageWidth() ; ++x)
+                    if (!m_sixteenBit)   // 8 bits image.
                     {
-                        dst[0] = (uchar)(scale[0] * jas_matrix_getv(pixels[0], x / x_step[0]));
-                        dst[1] = dst[0];
-                        dst[2] = dst[0];
-                        dst[3] = 0xFF;
+                        for (x = 0 ; x < (long)imageWidth() ; ++x)
+                        {
+                            dst[0] = (uchar)(scale[0] * jas_matrix_getv(pixels[0], x / x_step[0]));
+                            dst[1] = dst[0];
+                            dst[2] = dst[0];
+                            dst[3] = 0xFF;
 
-                        dst += 4;
+                            dst += 4;
+                        }
+                    }
+                    else                // 16 bits image.
+                    {
+                        for (x = 0 ; x < (long)imageWidth() ; ++x)
+                        {
+                            dst16[0] = (unsigned short)(scale[0] * jas_matrix_getv(pixels[0], x / x_step[0]));
+                            dst16[1] = dst16[0];
+                            dst16[2] = dst16[0];
+                            dst16[3] = 0xFFFF;
+
+                            dst16 += 4;
+                        }
                     }
 
                     break;
@@ -541,10 +553,10 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     }
 
     imageData() = data.take();
-    imageSetAttribute("format", "JP2");
-    imageSetAttribute("originalColorModel", colorModel);
-    imageSetAttribute("originalBitDepth", maximum_component_depth);
-    imageSetAttribute("originalSize", QSize(imageWidth(), imageHeight()));
+    imageSetAttribute(QLatin1String("format"),             QLatin1String("JP2"));
+    imageSetAttribute(QLatin1String("originalColorModel"), colorModel);
+    imageSetAttribute(QLatin1String("originalBitDepth"),   maximum_component_depth);
+    imageSetAttribute(QLatin1String("originalSize"),       QSize(imageWidth(), imageHeight()));
 
     jas_image_destroy(jp2_image);
 
@@ -560,7 +572,7 @@ bool JP2KLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
 bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observer)
 {
-    FILE* const file = fopen(QFile::encodeName(filePath), "wb");
+    FILE* const file = fopen(QFile::encodeName(filePath).constData(), "wb");
 
     if (!file)
     {
@@ -572,7 +584,7 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     // -------------------------------------------------------------------
     // Initialize JPEG 2000 API.
 
-    register long  i, x, y;
+   long  i, x, y;
     unsigned long  number_components;
 
     jas_image_t*          jp2_image   = 0;
@@ -584,15 +596,15 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
     if (init != 0)
     {
-        kDebug() << "Unable to init JPEG2000 decoder";
+        qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Unable to init JPEG2000 decoder";
         return false;
     }
 
-    jp2_stream = jas_stream_fopen(QFile::encodeName(filePath), "wb");
+    jp2_stream = jas_stream_fopen(QFile::encodeName(filePath).constData(), "wb");
 
     if (jp2_stream == 0)
     {
-        kDebug() << "Unable to open JPEG2000 stream";
+        qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Unable to open JPEG2000 stream";
         return false;
     }
 
@@ -615,7 +627,7 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     if (jp2_image == 0)
     {
         jas_stream_close(jp2_stream);
-        kDebug() << "Unable to create JPEG2000 image";
+        qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Unable to create JPEG2000 image";
         return false;
     }
 
@@ -682,7 +694,7 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
             }
 
             jas_image_destroy(jp2_image);
-            kDebug() << "Error encoding JPEG2000 image data : Memory Allocation Failed";
+            qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error encoding JPEG2000 image data : Memory Allocation Failed";
             return false;
         }
     }
@@ -759,7 +771,7 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
             if (ret != 0)
             {
-                kDebug() << "Error encoding JPEG2000 image data";
+                qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Error encoding JPEG2000 image data";
 
                 jas_image_destroy(jp2_image);
 
@@ -774,7 +786,7 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
         }
     }
 
-    QVariant qualityAttr = imageGetAttribute("quality");
+    QVariant qualityAttr = imageGetAttribute(QLatin1String("quality"));
     int quality          = qualityAttr.isValid() ? qualityAttr.toInt() : 90;
 
     if (quality < 0)
@@ -795,14 +807,14 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     char rateBuffer[16];
     sprintf(rateBuffer, "rate=%.2g\n", (quality / 100.0));
 
-    kDebug() << "JPEG2000 quality: " << quality;
-    kDebug() << "JPEG2000 "          << rateBuffer;
+    qCDebug(DIGIKAM_DIMG_LOG_JP2K) << "JPEG2000 quality: " << quality;
+    qCDebug(DIGIKAM_DIMG_LOG_JP2K) << "JPEG2000 "          << rateBuffer;
 
     int ret = jp2_encode(jp2_image, jp2_stream, rateBuffer);
 
     if (ret != 0)
     {
-        kDebug() << "Unable to encode JPEG2000 image";
+        qCWarning(DIGIKAM_DIMG_LOG_JP2K) << "Unable to encode JPEG2000 image";
 
         jas_image_destroy(jp2_image);
         jas_stream_close(jp2_stream);
@@ -832,7 +844,7 @@ bool JP2KLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
     jas_cleanup();
 
-    imageSetAttribute("savedformat", "JP2");
+    imageSetAttribute(QLatin1String("savedformat"), QLatin1String("JP2"));
     saveMetadata(filePath);
 
     return true;

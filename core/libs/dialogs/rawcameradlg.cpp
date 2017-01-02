@@ -6,7 +6,7 @@
  * Date        : 2008-04-07
  * Description : Raw camera list dialog
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "rawcameradlg.moc"
+#include "rawcameradlg.h"
 
 // Qt includes
 
@@ -35,16 +35,11 @@
 
 // KDE includes
 
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kapplication.h>
-#include <kstandarddirs.h>
-#include <kaboutdata.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/version.h>
-#include <libkdcraw/kdcraw.h>
+#include "drawdecoder.h"
 
 namespace Digikam
 {
@@ -64,20 +59,21 @@ public:
 };
 
 RawCameraDlg::RawCameraDlg(QWidget* const parent)
-    : InfoDlg(parent), d(new Private)
+    : InfoDlg(parent),
+      d(new Private)
 {
-    setCaption(i18n("List of supported RAW cameras"));
+    setWindowTitle(i18n("List of supported RAW cameras"));
 
-    QStringList list = KDcrawIface::KDcraw::supportedCamera();
+    QStringList list = RawEngine::DRawDecoder::supportedCamera();
 
     // --------------------------------------------------------
 
     d->header    = new QLabel(this);
-    d->searchBar = new SearchTextBar(this, "RawCameraDlgSearchBar");
+    d->searchBar = new SearchTextBar(this, QLatin1String("RawCameraDlgSearchBar"));
     updateHeader();
 
     listView()->setColumnCount(1);
-    listView()->setHeaderLabels(QStringList() << "Camera Model"); // Header is hidden. No i18n here.
+    listView()->setHeaderLabels(QStringList() << QLatin1String("Camera Model")); // Header is hidden. No i18n here.
     listView()->header()->hide();
 
     for (QStringList::const_iterator it = list.constBegin() ; it != list.constEnd() ; ++it)
@@ -87,8 +83,8 @@ RawCameraDlg::RawCameraDlg(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    QGridLayout* grid = dynamic_cast<QGridLayout*>(mainWidget()->layout());
-    grid->addWidget(d->header,       1, 0, 1, -1);
+    QGridLayout* const  grid = dynamic_cast<QGridLayout*>(mainWidget()->layout());
+    grid->addWidget(d->header,    1, 0, 1, -1);
     grid->addWidget(d->searchBar, 3, 0, 1, -1);
 
     // --------------------------------------------------------
@@ -112,7 +108,7 @@ void RawCameraDlg::slotSearchTextChanged(const SearchTextSettings& settings)
 
     while (*it)
     {
-        QTreeWidgetItem* item  = *it;
+        QTreeWidgetItem* const item  = *it;
 
         if (item->text(0).toLower().contains(search, settings.caseSensitive))
         {
@@ -134,32 +130,27 @@ void RawCameraDlg::slotSearchTextChanged(const SearchTextSettings& settings)
 
 void RawCameraDlg::updateHeader(int results)
 {
-    QString librawVer = KDcrawIface::KDcraw::librawVersion();
-    QString KDcrawVer = KDcrawIface::KDcraw::version();
-    QStringList list  = KDcrawIface::KDcraw::supportedCamera();
+    QString librawVer = RawEngine::DRawDecoder::librawVersion();
+    QStringList list  = RawEngine::DRawDecoder::supportedCamera();
 
     if (!results)
     {
-        d->header->setText(i18np("<p>Using KDcraw library version %2<br/>"
-                                 "Using LibRaw version %3<br/>"
+        d->header->setText(i18np("Using LibRaw version %2<br/>"
                                  "1 model on the list</p>",
-                                 "<p>Using KDcraw library version %2<br/>"
-                                 "Using LibRaw version %3<br/>"
+                                 "Using LibRaw version %2<br/>"
                                  "%1 models on the list</p>",
                                  list.count(),
-                                 KDcrawVer, librawVer
+                                 librawVer
                                  ));
     }
     else
     {
-        d->header->setText(i18np("<p>Using KDcraw library version %2<br/>"
-                                 "Using LibRaw version %3<br/>"
-                                 "1 model on the list (found: %4)</p>",
-                                 "<p>Using KDcraw library version %2<br/>"
-                                 "Using LibRaw version %3<br/>"
-                                 "%1 models on the list (found: %4)</p>",
+        d->header->setText(i18np("Using LibRaw version %2<br/>"
+                                 "1 model on the list (found: %3)</p>",
+                                 "Using LibRaw version %2<br/>"
+                                 "%1 models on the list (found: %3)</p>",
                                  list.count(),
-                                 KDcrawVer, librawVer,
+                                 librawVer,
                                  results));
     }
 }

@@ -6,7 +6,7 @@
  * Date        : 2010-12-16
  * Description : Filter for filter combobox
  *
- * Copyright (C) 2010-2011 by Petri Damstén <petri.damsten@iki.fi>
+ * Copyright (C) 2010-2011 by Petri Damstén <petri dot damsten at iki dot fi>
  * Copyright (C) 2014      by Teemu Rytilahti <tpr@iki.fi>
  *
  * This program is free software; you can redistribute it
@@ -44,11 +44,11 @@ public:
     ~Filter();
 
     QString toString();
-    void  fromString(const QString& filter);
-    bool  match(const QStringList& wildcards, const QString& name);
-    const QRegExp& regexp(const QString& wildcard);
-    const QStringList& mimeWildcards(const QString& mime);
-    bool  matchesCurrentFilter(const CamItemInfo& item);
+    void    fromString(const QString& filter);
+    bool    match(const QStringList& wildcards, const QString& name);
+    const   QRegExp& regexp(const QString& wildcard);
+    const   QStringList& mimeWildcards(const QString& mime);
+    bool    matchesCurrentFilter(const CamItemInfo& item);
 
 public:
 

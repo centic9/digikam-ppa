@@ -1,8 +1,10 @@
 #
-# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2016, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+
+add_definitions(-DTRANSLATION_DOMAIN=\"kipiplugin_vkontakte\")
 
 include_directories(${LIBKVKONTAKTE_INCLUDES})
 
@@ -14,18 +16,21 @@ set(kipiplugin_vkontakte_PART_SRCS
     authinfowidget.cpp
    )
 
-KDE4_ADD_PLUGIN(kipiplugin_vkontakte ${kipiplugin_vkontakte_PART_SRCS})
+add_library(kipiplugin_vkontakte MODULE ${kipiplugin_vkontakte_PART_SRCS})
 
 target_link_libraries(kipiplugin_vkontakte
-                      kipiplugins
-                      ${KIPI_LIBRARIES}
-                      ${KDE4_KDEUI_LIBS}
-                      ${KDE4_KIO_LIBS}
-                      ${LIBKVKONTAKTE_LIBRARIES}
-                     )
+                      PRIVATE
+                      KF5::I18n
+                      KF5::Kipi
+                      KF5::WindowSystem
 
-configure_file(kipiplugin_vkontakte.desktop.cmake ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_vkontakte.desktop)
+                      KF5kipiplugins
+
+                      ${LIBKVKONTAKTE_LIBRARIES}
+)
+
+configure_file(kipiplugin_vkontakte.desktop.cmake.in ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_vkontakte.desktop)
 
 install(FILES   ${CMAKE_CURRENT_BINARY_DIR}/kipiplugin_vkontakte.desktop DESTINATION ${SERVICES_INSTALL_DIR})
 install(TARGETS kipiplugin_vkontakte                                     DESTINATION ${PLUGIN_INSTALL_DIR})
-install(FILES   kipiplugin_vkontakteui.rc                                DESTINATION ${DATA_INSTALL_DIR}/kipi)
+install(FILES   kipiplugin_vkontakteui.rc                                DESTINATION ${KXMLGUI_INSTALL_DIR}/kipi)

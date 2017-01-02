@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
+"POT-Creation-Date: 2016-10-06 07:13+0000\n"
 "PO-Revision-Date: 2011-04-20 15:20+0800\n"
 "Last-Translator: Franklin Weng <franklin@goodhorse.idv.tw>\n"
 "Language-Team: Chinese Traditional <zh-l10n@linux.org.tw>\n"
@@ -17,39 +17,26 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Lokalize 1.1\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Frank Weng (a.k.a. Franklin)"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "franklin@goodhorse.idv.tw"
-
-#: kmlexport.cpp:79
+#: kmlexport.cpp:97
 msgid "Generating KML file..."
 msgstr "產生 KML 檔中..."
 
-#: kmlexport.cpp:100
-#, kde-format
-msgid "Could not create '%1'"
-msgstr "無法建立 %1"
-
-#: kmlexport.cpp:188
+#: kmlexport.cpp:187
 #, kde-format
 msgid "Could not read image '%1'"
 msgstr "無法讀取 影像 %1"
 
-#: kmlexport.cpp:197
+#: kmlexport.cpp:196
 #, kde-format
 msgid "Format of image '%1' is unknown"
 msgstr "影像 %1 的格式未知"
 
-#: kmlexport.cpp:209
+#: kmlexport.cpp:208
 #, kde-format
 msgid "Error loading image '%1'"
 msgstr "載入影像 %1 時發生錯誤"
 
-#: kmlexport.cpp:248
+#: kmlexport.cpp:246
 #, kde-format
 msgid "Could not save image '%1' to '%2'"
 msgstr "無法儲存影像 %1 到 %2"
@@ -82,42 +69,71 @@ msgstr "%1 GPX 檔裡沒有日期-時間軌可使用。"
 msgid "Tracks"
 msgstr "軌跡"
 
-#: kmlexport.cpp:508
+#: kmlexport.cpp:505
 #, kde-format
 msgid "No position data for '%1'"
 msgstr "沒有 %1 的位置資料"
 
-#: kmlexport.cpp:520
+#: kmlexport.cpp:517
+msgid "Missing position"
+msgstr ""
+
+#: kmlexport.cpp:518
 #, kde-format
 msgid "No position data for 1 picture"
 msgid_plural "No position data for %1 pictures"
 msgstr[0] "找不到 %1 張圖片的位置資料"
 
-#: kmlexport.cpp:536
+#: kmlexport.cpp:533
 msgid "Move to final directory"
 msgstr "移到最終目錄"
 
-#: kmlexportconfig.cpp:66 kmlexportconfig.cpp:279
+#: kmlexport.cpp:537
+#, fuzzy
+#| msgid "Move to final directory"
+msgid "Cannot move data to destination directory"
+msgstr "移到最終目錄"
+
+#: kmlgpsdataparser.cpp:63
+msgid "Track"
+msgstr "軌跡"
+
+#: kmlgpsdataparser.cpp:89
+msgid "Points"
+msgstr "點"
+
+#: kmlgpsdataparser.cpp:100
+msgid "Point"
+msgstr "點"
+
+#: kmlwindow.cpp:69 kmlwindow.cpp:285
 msgid "KML Export"
 msgstr "KML 匯出"
 
-#: kmlexportconfig.cpp:76
+#: kmlwindow.cpp:72
+#, fuzzy
+#| msgid "KML Export"
+msgctxt "@action:button"
+msgid "&Export"
+msgstr "KML 匯出"
+
+#: kmlwindow.cpp:83
 msgid "Target Preferences"
 msgstr "目標偏好設定"
 
-#: kmlexportconfig.cpp:80
+#: kmlwindow.cpp:87
 msgid "Target Type"
 msgstr "目標型態"
 
-#: kmlexportconfig.cpp:83
+#: kmlwindow.cpp:90
 msgid "&Local or web target used by GoogleEarth"
 msgstr "GoogleEarth 使用的本地端或網頁目標(&L)"
 
-#: kmlexportconfig.cpp:86
+#: kmlwindow.cpp:93
 msgid "Web target used by GoogleMaps"
 msgstr "GoogleMaps 使用的網頁目標"
 
-#: kmlexportconfig.cpp:87
+#: kmlwindow.cpp:94
 msgid ""
 "When using GoogleMaps, all images must have complete URLs, icons are "
 "squared, and when drawing a track, only line track is exported."
@@ -125,23 +141,23 @@ msgstr ""
 "使用 GoogleMaps 時，所有影像都必須有完整的網址，圖示必須是方形，並且在繪製軌"
 "跡時，只會匯出線性軌跡（無高度）。"
 
-#: kmlexportconfig.cpp:99
+#: kmlwindow.cpp:105
 msgid "Picture Altitude:"
 msgstr "圖片高度："
 
-#: kmlexportconfig.cpp:101 kmlexportconfig.cpp:224
+#: kmlwindow.cpp:107 kmlwindow.cpp:231
 msgid "clamp to ground"
 msgstr "忽略高度"
 
-#: kmlexportconfig.cpp:102 kmlexportconfig.cpp:225
+#: kmlwindow.cpp:108 kmlwindow.cpp:232
 msgid "relative to ground"
 msgstr "對地相對高度"
 
-#: kmlexportconfig.cpp:103 kmlexportconfig.cpp:226
+#: kmlwindow.cpp:109 kmlwindow.cpp:233
 msgid "absolute"
 msgstr "絕對高度"
 
-#: kmlexportconfig.cpp:104
+#: kmlwindow.cpp:110
 msgid ""
 "<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
 "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
@@ -155,190 +171,194 @@ msgstr ""
 "絕對高度</dt><dd>將高度設為該位置的絕對高度（海拔高度），不管實際地面的海拔有"
 "多高。</dd></dl>"
 
-#: kmlexportconfig.cpp:114
+#: kmlwindow.cpp:120
 msgid "Destination Directory:"
 msgstr "目標目錄："
 
-#: kmlexportconfig.cpp:118
+#: kmlwindow.cpp:124
 msgid "Select a directory in which to save the kml file and pictures"
 msgstr "選擇要將 kml 檔與圖片儲存在哪個目錄"
 
-#: kmlexportconfig.cpp:121
-msgid "Destination URL:"
+#: kmlwindow.cpp:126
+#, fuzzy
+#| msgid "Destination URL:"
+msgid "Destination Path:"
 msgstr "目標網址："
 
-#: kmlexportconfig.cpp:123
+#: kmlwindow.cpp:128
 msgid "Filename:"
 msgstr "檔案名稱："
 
-#: kmlexportconfig.cpp:142
+#: kmlwindow.cpp:146
 msgid "Sizes"
 msgstr "大小"
 
-#: kmlexportconfig.cpp:144
+#: kmlwindow.cpp:148
 msgid "Icon Size:"
 msgstr "圖示大小："
 
-#: kmlexportconfig.cpp:148
+#: kmlwindow.cpp:153
 msgid "Image Size:"
 msgstr "影像大小："
 
-#: kmlexportconfig.cpp:163
+#: kmlwindow.cpp:168
 msgid "GPX Tracks"
 msgstr "GPX 軌跡"
 
-#: kmlexportconfig.cpp:167
+#: kmlwindow.cpp:172
 msgid "Draw GPX Track"
 msgstr "繪製 GPX 軌跡"
 
-#: kmlexportconfig.cpp:170
+#: kmlwindow.cpp:175
 msgid "GPX file:"
 msgstr "GPX 檔："
 
-#: kmlexportconfig.cpp:173
+#: kmlwindow.cpp:178
 #, kde-format
 msgid "%1|GPS Exchange Format"
 msgstr "%1|GPS 交換格式"
 
-#: kmlexportconfig.cpp:174
+#: kmlwindow.cpp:179
 msgid "Select GPX File to Load"
 msgstr "請選擇要載入的 GPX 檔"
 
-#: kmlexportconfig.cpp:176
+#: kmlwindow.cpp:182
 msgid "Time Zone:"
 msgstr "時區："
 
-#: kmlexportconfig.cpp:178
+#: kmlwindow.cpp:184
 msgid "GMT-12:00"
 msgstr "GMT-12:00"
 
-#: kmlexportconfig.cpp:179
+#: kmlwindow.cpp:185
 msgid "GMT-11:00"
 msgstr "GMT-11:00"
 
-#: kmlexportconfig.cpp:180
+#: kmlwindow.cpp:186
 msgid "GMT-10:00"
 msgstr "GMT-10:00"
 
-#: kmlexportconfig.cpp:181
+#: kmlwindow.cpp:187
 msgid "GMT-09:00"
 msgstr "GMT-09:00"
 
-#: kmlexportconfig.cpp:182
+#: kmlwindow.cpp:188
 msgid "GMT-08:00"
 msgstr "GMT-08:00"
 
-#: kmlexportconfig.cpp:183
+#: kmlwindow.cpp:189
 msgid "GMT-07:00"
 msgstr "GMT-07:00"
 
-#: kmlexportconfig.cpp:184
+#: kmlwindow.cpp:190
 msgid "GMT-06:00"
 msgstr "GMT-06:00"
 
-#: kmlexportconfig.cpp:185
+#: kmlwindow.cpp:191
 msgid "GMT-05:00"
 msgstr "GMT-05:00"
 
-#: kmlexportconfig.cpp:186
+#: kmlwindow.cpp:192
 msgid "GMT-04:00"
 msgstr "GMT-04:00"
 
-#: kmlexportconfig.cpp:187
+#: kmlwindow.cpp:193
 msgid "GMT-03:00"
 msgstr "GMT-03:00"
 
-#: kmlexportconfig.cpp:188
+#: kmlwindow.cpp:194
 msgid "GMT-02:00"
 msgstr "GMT-02:00"
 
-#: kmlexportconfig.cpp:189
+#: kmlwindow.cpp:195
 msgid "GMT-01:00"
 msgstr "GMT-01:00"
 
-#: kmlexportconfig.cpp:190
+#: kmlwindow.cpp:196
 msgid "GMT"
 msgstr "GMT"
 
-#: kmlexportconfig.cpp:191
+#: kmlwindow.cpp:197
 msgid "GMT+01:00"
 msgstr "GMT+01:00"
 
-#: kmlexportconfig.cpp:192
+#: kmlwindow.cpp:198
 msgid "GMT+02:00"
 msgstr "GMT+02:00"
 
-#: kmlexportconfig.cpp:193
+#: kmlwindow.cpp:199
 msgid "GMT+03:00"
 msgstr "GMT+03:00"
 
-#: kmlexportconfig.cpp:194
+#: kmlwindow.cpp:200
 msgid "GMT+04:00"
 msgstr "GMT+04:00"
 
-#: kmlexportconfig.cpp:195
+#: kmlwindow.cpp:201
 msgid "GMT+05:00"
 msgstr "GMT+05:00"
 
-#: kmlexportconfig.cpp:196
+#: kmlwindow.cpp:202
 msgid "GMT+06:00"
 msgstr "GMT+06:00"
 
-#: kmlexportconfig.cpp:197
+#: kmlwindow.cpp:203
 msgid "GMT+07:00"
 msgstr "GMT+07:00"
 
-#: kmlexportconfig.cpp:198
+#: kmlwindow.cpp:204
 msgid "GMT+08:00"
 msgstr "GMT+08:00"
 
-#: kmlexportconfig.cpp:199
+#: kmlwindow.cpp:205
 msgid "GMT+09:00"
 msgstr "GMT+09:00"
 
-#: kmlexportconfig.cpp:200
+#: kmlwindow.cpp:206
 msgid "GMT+10:00"
 msgstr "GMT+10:00"
 
-#: kmlexportconfig.cpp:201
+#: kmlwindow.cpp:207
 msgid "GMT+11:00"
 msgstr "GMT+11:00"
 
-#: kmlexportconfig.cpp:202
+#: kmlwindow.cpp:208
 msgid "GMT+12:00"
 msgstr "GMT+12:00"
 
-#: kmlexportconfig.cpp:203
+#: kmlwindow.cpp:209
 msgid "GMT+13:00"
 msgstr "GMT+13:00"
 
-#: kmlexportconfig.cpp:204
+#: kmlwindow.cpp:210
 msgid "GMT+14:00"
 msgstr "GMT+14:00"
 
-#: kmlexportconfig.cpp:205
+#: kmlwindow.cpp:211
 msgid ""
 "Sets the time zone of the camera during picture shooting, so that the time "
 "stamps of the GPS can be converted to match the local time"
 msgstr "設定拍此圖片時所在的時區，如此 GPS 上的時間可以轉換為本地時間"
 
-#: kmlexportconfig.cpp:209
+#: kmlwindow.cpp:215
 msgid "Track Width:"
 msgstr "軌跡寬度："
 
-#: kmlexportconfig.cpp:213
+#: kmlwindow.cpp:219
 msgid "Track Color:"
 msgstr "軌跡顏色："
 
-#: kmlexportconfig.cpp:219
-msgid "Opacity:"
+#: kmlwindow.cpp:223
+#, fuzzy
+#| msgid "Opacity:"
+msgid "Opacity (%):"
 msgstr "不透明度："
 
-#: kmlexportconfig.cpp:222
+#: kmlwindow.cpp:229
 msgid "Track Altitude:"
 msgstr "軌跡高度："
 
-#: kmlexportconfig.cpp:227
+#: kmlwindow.cpp:234
 msgid ""
 "<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)</"
 "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
@@ -352,49 +372,53 @@ msgstr ""
 "絕對高度</dt><dd>將高度設為該位置的絕對高度（海拔高度），不管實際地面的海拔有"
 "多高。</dd></dl>"
 
-#: kmlexportconfig.cpp:282
-msgid "A Kipi plugin for KML exporting"
-msgstr "匯出 KML 的 Kipi 外掛程式"
+#: kmlwindow.cpp:286
+#, fuzzy
+#| msgid "Export to KML..."
+msgid "A tool to export to KML"
+msgstr "匯出為 KML 檔..."
 
-#: kmlexportconfig.cpp:283
+#: kmlwindow.cpp:287
 msgid "(c) 2006-2007, Stéphane Pontier"
 msgstr "(c) 2006-2007, Stéphane Pontier"
 
-#: kmlexportconfig.cpp:285
+#: kmlwindow.cpp:289
 msgid "Stéphane Pontier"
 msgstr "Stéphane Pontier"
 
-#: kmlexportconfig.cpp:286 kmlexportconfig.cpp:290
+#: kmlwindow.cpp:290 kmlwindow.cpp:294
 msgid "Developer and maintainer"
 msgstr "開發者和維護者"
 
-#: kmlexportconfig.cpp:289
+#: kmlwindow.cpp:293
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: kmlexportconfig.cpp:293
+#: kmlwindow.cpp:297
 msgid "Michael G. Hansen"
 msgstr "Michael G. Hansen"
 
-#: kmlexportconfig.cpp:294
+#: kmlwindow.cpp:298
 msgid "Maintainer"
 msgstr "維護者"
 
-#: kmlgpsdataparser.cpp:64
-msgid "Track"
-msgstr "軌跡"
-
-#: kmlgpsdataparser.cpp:90
-msgid "Points"
-msgstr "點"
-
-#: kmlgpsdataparser.cpp:101
-msgid "Point"
-msgstr "點"
-
-#: plugin_kmlexport.cpp:101
+#: plugin_kmlexport.cpp:92
 msgid "Export to KML..."
 msgstr "匯出為 KML 檔..."
+
+#~ msgid "A Kipi plugin for KML exporting"
+#~ msgstr "匯出 KML 的 Kipi 外掛程式"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Frank Weng (a.k.a. Franklin)"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "franklin@goodhorse.idv.tw"
+
+#~ msgid "Could not create '%1'"
+#~ msgstr "無法建立 %1"
 
 #~ msgid "Handbook"
 #~ msgstr "手冊"

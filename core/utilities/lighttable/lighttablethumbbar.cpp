@@ -6,7 +6,7 @@
  * Date        : 2007-04-11
  * Description : light table thumbs bar
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "lighttablethumbbar.moc"
+#include "lighttablethumbbar.h"
 
 // Qt includes
 
@@ -30,18 +30,18 @@
 #include <QPixmap>
 #include <QPainter>
 #include <QContextMenuEvent>
+#include <QApplication>
+#include <QMenu>
+#include <QIcon>
 
 // KDE includes
 
-#include <kmenu.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kapplication.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "albumdb.h"
+#include "digikam_debug.h"
+#include "coredb.h"
 #include "applicationsettings.h"
 #include "contextmenuhelper.h"
 #include "imagefiltermodel.h"
@@ -190,6 +190,7 @@ LightTableThumbBar::LightTableThumbBar(QWidget* const parent)
     d->imageInfoModel->setThumbnailLoadThread(ThumbnailLoadThread::defaultIconViewThread());
 
     d->imageFilterModel->setCategorizationMode(ImageSortSettings::NoCategories);
+    d->imageFilterModel->setStringTypeNatural(ApplicationSettings::instance()->isStringTypeNatural());
     d->imageFilterModel->setSortRole((ImageSortSettings::SortRole)ApplicationSettings::instance()->getImageSortOrder());
     d->imageFilterModel->setSortOrder((ImageSortSettings::SortOrder)ApplicationSettings::instance()->getImageSorting());
     d->imageFilterModel->setAllGroupsOpen(true); // disable filtering out by group, see bug #308948
@@ -207,6 +208,9 @@ LightTableThumbBar::LightTableThumbBar(QWidget* const parent)
 
     connect(d->imageInfoModel, SIGNAL(imageInfosAdded(QList<ImageInfo>)),
             this, SIGNAL(signalContentChanged()));
+
+    connect(ApplicationSettings::instance(), SIGNAL(setupChanged()),
+            this, SLOT(slotSetupChanged()));
 }
 
 LightTableThumbBar::~LightTableThumbBar()
@@ -216,7 +220,7 @@ LightTableThumbBar::~LightTableThumbBar()
 
 void LightTableThumbBar::setItems(const ImageInfoList& list)
 {
-    foreach(ImageInfo info, list)
+    foreach(const ImageInfo& info, list)
     {
         if (!d->imageInfoModel->hasImage(info))
         {
@@ -256,11 +260,11 @@ void LightTableThumbBar::showContextMenuOnInfo(QContextMenuEvent* e, const Image
 
     QAction* leftPanelAction = 0, *rightPanelAction = 0, *editAction = 0, *removeAction = 0, *clearAllAction = 0;
 
-    leftPanelAction  = new QAction(SmallIcon("arrow-left"),        i18n("Show on left panel"),  this);
-    rightPanelAction = new QAction(SmallIcon("arrow-right"),       i18n("Show on right panel"), this);
-    editAction       = new QAction(SmallIcon("editimage"),         i18n("Edit"),                this);
-    removeAction     = new QAction(SmallIcon("dialog-close"),      i18n("Remove item"),         this);
-    clearAllAction   = new QAction(SmallIcon("edit-delete-shred"), i18n("Clear all"),           this);
+    leftPanelAction  = new QAction(QIcon::fromTheme(QLatin1String("go-previous")),   i18n("Show on left panel"),  this);
+    rightPanelAction = new QAction(QIcon::fromTheme(QLatin1String("go-next")),       i18n("Show on right panel"), this);
+    editAction       = new QAction(QIcon::fromTheme(QLatin1String("document-edit")), i18n("Edit"),                this);
+    removeAction     = new QAction(QIcon::fromTheme(QLatin1String("window-close")),  i18n("Remove item"),         this);
+    clearAllAction   = new QAction(QIcon::fromTheme(QLatin1String("edit-delete")),   i18n("Clear all"),           this);
 
     leftPanelAction->setEnabled(d->navigateByPair  ? false : true);
     rightPanelAction->setEnabled(d->navigateByPair ? false : true);
@@ -268,13 +272,13 @@ void LightTableThumbBar::showContextMenuOnInfo(QContextMenuEvent* e, const Image
 
     // ----------------------------------------------------
 
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ContextMenuHelper cmhelper(&popmenu);
     cmhelper.addAction(leftPanelAction, true);
     cmhelper.addAction(rightPanelAction, true);
     cmhelper.addSeparator();
     cmhelper.addAction(editAction);
-    cmhelper.addServicesMenu(info.fileUrl());
+    cmhelper.addServicesMenu(QList<QUrl>() << info.fileUrl());
     cmhelper.addSeparator();
     cmhelper.addLabelsAction();
     cmhelper.addSeparator();
@@ -319,12 +323,12 @@ void LightTableThumbBar::showContextMenuOnInfo(QContextMenuEvent* e, const Image
     }
 }
 
-void LightTableThumbBar::slotColorLabelChanged(const KUrl& url, int color)
+void LightTableThumbBar::slotColorLabelChanged(const QUrl& url, int color)
 {
     assignColorLabel(ImageInfo::fromUrl(url), color);
 }
 
-void LightTableThumbBar::slotPickLabelChanged(const KUrl& url, int pick)
+void LightTableThumbBar::slotPickLabelChanged(const QUrl& url, int pick)
 {
     assignPickLabel(ImageInfo::fromUrl(url), pick);
 }
@@ -339,7 +343,7 @@ void LightTableThumbBar::slotAssignColorLabel(int colorId)
     assignColorLabel(currentInfo(), colorId);
 }
 
-void LightTableThumbBar::slotRatingChanged(const KUrl& url, int rating)
+void LightTableThumbBar::slotRatingChanged(const QUrl& url, int rating)
 {
     assignRating(ImageInfo::fromUrl(url), rating);
 }
@@ -365,7 +369,7 @@ void LightTableThumbBar::assignColorLabel(const ImageInfo& info, int colorId)
     FileActionMngr::instance()->assignColorLabel(info, colorId);
 }
 
-void LightTableThumbBar::slotToggleTag(const KUrl& url, int tagID)
+void LightTableThumbBar::slotToggleTag(const QUrl& url, int tagID)
 {
     toggleTag(ImageInfo::fromUrl(url), tagID);
 }
@@ -457,7 +461,7 @@ void LightTableThumbBar::paintEvent(QPaintEvent* e)
     if (!countItems())
     {
         QPainter p(viewport());
-        p.setPen(QPen(kapp->palette().color(QPalette::Text)));
+        p.setPen(QPen(qApp->palette().color(QPalette::Text)));
         p.drawText(0, 0, width(), height(),
                    Qt::AlignCenter | Qt::TextWordWrap,
                    i18n("Drag and drop images here"));
@@ -466,6 +470,11 @@ void LightTableThumbBar::paintEvent(QPaintEvent* e)
     }
 
     ImageThumbnailBar::paintEvent(e);
+}
+
+void LightTableThumbBar::slotSetupChanged()
+{
+    d->imageFilterModel->setStringTypeNatural(ApplicationSettings::instance()->isStringTypeNatural());
 }
 
 }  // namespace Digikam

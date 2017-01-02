@@ -7,7 +7,7 @@
  * Description : a class that manages painting histograms
  *
  * Copyright (C) 2009      by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2011-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2011-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,7 +32,7 @@
 // Local includes
 
 #include "imagehistogram.h"
-#include "globals.h"
+#include "digikam_globals.h"
 #include "dcolor.h"
 
 namespace Digikam

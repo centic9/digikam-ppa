@@ -6,8 +6,8 @@
  * Date        : 2012-09-07
  * Description : Qt Model for ImportUI - drag and drop handling
  *
- * Copyright (C) 2012 by Islam Wazery <wazery at ubuntu dot com>
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,21 +22,20 @@
  *
  * ============================================================ */
 
-#include "importdragdrop.moc"
+#include "importdragdrop.h"
 
 // Qt includes
 
 #include <QDropEvent>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kiconloader.h>
-#include <kio/job.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "importiconview.h"
 #include "importui.h"
 #include "ddragobjects.h"
@@ -54,15 +53,15 @@ ImportDragDropHandler::ImportDragDropHandler(ImportImageModel* const model)
 {
 }
 
-QAction* ImportDragDropHandler::addGroupAction(KMenu* const menu)
+QAction* ImportDragDropHandler::addGroupAction(QMenu* const menu)
 {
-    return menu->addAction(SmallIcon("arrow-down-double"),
+    return menu->addAction(QIcon::fromTheme(QLatin1String("go-bottom")),
                            i18nc("@action:inmenu Group images with this image", "Group here"));
 }
 
-QAction* ImportDragDropHandler::addCancelAction(KMenu* const menu)
+QAction* ImportDragDropHandler::addCancelAction(QMenu* const menu)
 {
-    return menu->addAction(SmallIcon("dialog-cancel"), i18n("C&ancel"));
+    return menu->addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel"));
 }
 
 ImportDragDropHandler::DropAction ImportDragDropHandler::copyOrMove(const QDropEvent* e, QWidget* const view,
@@ -90,16 +89,16 @@ ImportDragDropHandler::DropAction ImportDragDropHandler::copyOrMove(const QDropE
         }
     }
 
-    KMenu popMenu(view);
+    QMenu popMenu(view);
 
     QAction* moveAction = 0;
 
     if (allowMove)
     {
-        moveAction = popMenu.addAction( SmallIcon("go-jump"), i18n("&Move Here"));
+        moveAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("go-jump")), i18n("&Move Here"));
     }
 
-    QAction* const copyAction = popMenu.addAction( SmallIcon("edit-copy"), i18n("&Copy Here"));
+    QAction* const copyAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("edit-copy")), i18n("&Copy Here"));
     popMenu.addSeparator();
 
     QAction* groupAction = 0;
@@ -152,14 +151,14 @@ bool ImportDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDr
 
     if (DItemDrag::canDecode(e->mimeData()))
     {
-        KUrl::List lst = DigikamApp::instance()->view()->selectedUrls();
+        QList<QUrl> lst = DigikamApp::instance()->view()->selectedUrls();
 
-        KMenu popMenu(view);
-        popMenu.addTitle(SmallIcon("digikam"), i18n("Exporting"));
-        QAction* const upAction = popMenu.addAction(SmallIcon("media-flash-smart-media"),
+        QMenu popMenu(view);
+        popMenu.addSection(QIcon::fromTheme(QLatin1String("digikam")), i18n("Exporting"));
+        QAction* const upAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("media-flash-sd-mmc")),
                                                     i18n("Upload to Camera"));
         popMenu.addSeparator();
-        popMenu.addAction(SmallIcon("dialog-cancel"), i18n("C&ancel"));
+        popMenu.addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("C&ancel"));
         popMenu.setMouseTracking(true);
         QAction* const choice = popMenu.exec(view->mapToGlobal(e->pos()));
 
@@ -184,7 +183,7 @@ bool ImportDragDropHandler::dropEvent(QAbstractItemView* abstractview, const QDr
 
 Qt::DropAction ImportDragDropHandler::accepts(const QDropEvent* e, const QModelIndex& /*dropIndex*/)
 {
-    if (DItemDrag::canDecode(e->mimeData()) || KUrl::List::canDecode(e->mimeData()))
+    if (DItemDrag::canDecode(e->mimeData()) || e->mimeData()->hasUrls())
     {
         if (e->keyboardModifiers() & Qt::ControlModifier)
         {
@@ -198,7 +197,7 @@ Qt::DropAction ImportDragDropHandler::accepts(const QDropEvent* e, const QModelI
         return Qt::MoveAction;
     }
 
-    if (DTagListDrag::canDecode(e->mimeData())            ||
+    if (DTagListDrag::canDecode(e->mimeData())        ||
         DCameraItemListDrag::canDecode(e->mimeData()) ||
         DCameraDragObject::canDecode(e->mimeData()))
     {
@@ -215,7 +214,7 @@ QStringList ImportDragDropHandler::mimeTypes() const
               << DTagListDrag::mimeTypes()
               << DCameraItemListDrag::mimeTypes()
               << DCameraDragObject::mimeTypes()
-              << KUrl::List::mimeDataTypes();
+              << QLatin1String("text/uri-list");
 
     return mimeTypes;
 }
@@ -226,7 +225,7 @@ QMimeData* ImportDragDropHandler::createMimeData(const QList<QModelIndex>& index
 
     QStringList lst;
 
-    foreach(CamItemInfo info, infos)
+    foreach (CamItemInfo info, infos)
     {
         lst.append(info.folder + info.name);
     }

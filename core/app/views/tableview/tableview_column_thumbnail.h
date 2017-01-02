@@ -23,13 +23,7 @@
 #ifndef TABLEVIEW_COLUMN_THUMBNAIL_H
 #define TABLEVIEW_COLUMN_THUMBNAIL_H
 
-// Qt includes
-
-#include <QStringList>
-
-// KDE includes
-
-// local includes
+// Local includes
 
 #include "tableview_columnfactory.h"
 
@@ -50,10 +44,16 @@ private:
     explicit ColumnThumbnail(TableViewShared* const tableViewShared,
                              const TableViewColumnConfiguration& pConfiguration,
                              QObject* const parent = 0);
+    virtual ~ColumnThumbnail();
 
 public:
 
-    virtual ~ColumnThumbnail();
+    virtual ColumnFlags getColumnFlags() const;
+    virtual QString getTitle() const;
+    virtual QVariant data(TableViewModel::Item* const item, const int role) const;
+    virtual bool paint(QPainter*const painter, const QStyleOptionViewItem& option, TableViewModel::Item* const item) const;
+    virtual QSize sizeHint(const QStyleOptionViewItem& option, TableViewModel::Item* const item) const;
+    virtual void updateThumbnailSize();
 
     static bool CreateFromConfiguration(TableViewShared* const tableViewShared,
                                         const TableViewColumnConfiguration& pConfiguration,
@@ -61,18 +61,6 @@ public:
                                         QObject* const parent = 0);
 
     static TableViewColumnDescription getDescription();
-
-    virtual ColumnFlags getColumnFlags() const;
-
-    virtual QString getTitle() const;
-
-    virtual QVariant data(TableViewModel::Item* const item, const int role) const;
-
-    virtual bool paint(QPainter*const painter, const QStyleOptionViewItem& option, TableViewModel::Item* const item) const;
-
-    virtual QSize sizeHint(const QStyleOptionViewItem& option, TableViewModel::Item* const item) const;
-
-    virtual void updateThumbnailSize();
 
 private Q_SLOTS:
 
@@ -88,4 +76,3 @@ private:
 } /* namespace Digikam */
 
 #endif // TABLEVIEW_COLUMN_THUMBNAIL_H
-

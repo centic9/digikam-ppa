@@ -6,7 +6,7 @@
  * Date        : 2006-02-22
  * Description : a generic widget to display metadata
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,12 +26,9 @@
 
 // Qt includes
 
-#include <QtGui/QWidget>
-#include <QtCore/QString>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QWidget>
+#include <QString>
+#include <QUrl>
 
 // Local includes
 
@@ -58,7 +55,7 @@ public:
 
 public:
 
-    explicit MetadataWidget(QWidget* const parent, const char* name=0);
+    explicit MetadataWidget(QWidget* const parent, const QString& name=QString());
     ~MetadataWidget();
 
     int     getMode() const;
@@ -76,7 +73,7 @@ public:
     virtual QString getTagDescription(const QString& key);
 
     virtual bool loadFromData(const QString& fileName, const DMetadata& data=DMetadata());
-    virtual bool loadFromURL(const KUrl& url)=0;
+    virtual bool loadFromURL(const QUrl& url)=0;
 
 Q_SIGNALS:
 
@@ -107,8 +104,8 @@ protected:
     void   setIfdList(const DMetadata::MetaDataMap& ifds, const QStringList& keysFilter,
                       const QStringList& tagsFilter);
 
-    KUrl   saveMetadataToFile(const QString& caption, const QString& fileFilter);
-    bool   storeMetadataToFile(const KUrl& url, const QByteArray& metaData);
+    QUrl   saveMetadataToFile(const QString& caption, const QString& fileFilter);
+    bool   storeMetadataToFile(const QUrl& url, const QByteArray& metaData);
 
     virtual void buildView();
     virtual bool decodeMetadata()=0;

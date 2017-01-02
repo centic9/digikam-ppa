@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipi-plugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-06-19 02:01+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2009-05-30 21:44+0000\n"
 "Last-Translator: Vilson Gjeci <vilsongjeci@gmail.com>\n"
 "Language-Team: Albanian <sq@li.org>\n"
@@ -19,37 +19,29 @@ msgstr ""
 "X-Generator: Launchpad (build 12883)\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "KDE Shqip, Launchpad Contributions: Vilson Gjeci"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "kde-shqip@yahoogroups.com,vilsongjeci@gmail.com"
-
-#: imageresize.cpp:109
+#: imageresize.cpp:116
 msgid "Error opening input file"
 msgstr ""
 
-#: imageresize.cpp:120
+#: imageresize.cpp:127
 msgid "Error opening temporary folder"
 msgstr ""
 
-#: imageresize.cpp:164
+#: imageresize.cpp:175
 msgid "Cannot resize image. Aborting."
 msgstr ""
 
-#: imageresize.cpp:182
+#: imageresize.cpp:197
 msgid "Cannot save resized image (JPEG). Aborting."
 msgstr ""
 
-#: imageresize.cpp:198
+#: imageresize.cpp:209
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr ""
 
-#. i18n: ectx: Menu (Export)
+#. i18n: ectx: Menu (Tools)
 #: kipiplugin_sendimagesui.rc:7
-msgid "&Export"
+msgid "&Tools"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
@@ -57,237 +49,245 @@ msgstr ""
 msgid "Main Toolbar"
 msgstr ""
 
-#: plugin_sendimages.cpp:112
+#: plugin_sendimages.cpp:115
 msgid "Email Images..."
 msgstr ""
 
-#: sendimages.cpp:143
+#: sendimages.cpp:133
 msgid "Email images"
 msgstr ""
 
-#: sendimages.cpp:186
+#: sendimages.cpp:176
 msgid "Operation canceled by user"
 msgstr ""
 
-#: sendimages.cpp:200
+#: sendimages.cpp:190
 #, kde-format
 msgid "Resizing %1"
 msgstr ""
 
-#: sendimages.cpp:213
+#: sendimages.cpp:203
 #, kde-format
 msgid "%1 resized successfully"
 msgstr ""
 
-#: sendimages.cpp:222
+#: sendimages.cpp:212
 #, kde-format
 msgid "Failed to resize %1: %2"
 msgstr ""
 
-#: sendimages.cpp:250
+#: sendimages.cpp:240
 msgid "There are no files to send"
 msgstr ""
 
-#: sendimages.cpp:268
+#: sendimages.cpp:258
 msgid "Build images properties file"
 msgstr ""
 
-#: sendimages.cpp:281
+#: sendimages.cpp:271
 msgid "no caption"
 msgstr ""
 
-#: sendimages.cpp:284
+#: sendimages.cpp:274
 msgid "no keywords"
 msgstr ""
 
-#: sendimages.cpp:286
+#: sendimages.cpp:276
 #, kde-format
 msgid ""
 "file \"%1\":\n"
 "Original images: %2\n"
 msgstr ""
 
-#: sendimages.cpp:289
+#: sendimages.cpp:279
 #, kde-format
 msgid "Comments: %1\n"
 msgstr ""
 
-#: sendimages.cpp:292
+#: sendimages.cpp:282
 #, kde-format
 msgid "Tags: %1\n"
 msgstr ""
 
-#: sendimages.cpp:295
+#: sendimages.cpp:285
 #, kde-format
 msgid "Rating: %1\n"
 msgstr ""
 
-#: sendimages.cpp:300
+#: sendimages.cpp:290
 msgid "properties.txt"
 msgstr ""
 
-#: sendimages.cpp:309
+#: sendimages.cpp:299
 msgid "Image properties file done"
 msgstr ""
 
-#: sendimages.cpp:326
+#: sendimages.cpp:317
+msgid "Processing Failed"
+msgstr ""
+
+#: sendimages.cpp:318
 msgid ""
-"The images listed below cannot be resized.\n"
-"Do you want them to be added as attachments (without resizing)?"
+"Some images cannot be resized.\n"
+"Do you want them to be added as attachments without resizing?"
 msgstr ""
 
-#: sendimages.cpp:330
-msgid "Failed to resize images"
-msgstr ""
-
-#: sendimages.cpp:389
+#: sendimages.cpp:383
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
 "settings"
 msgstr ""
 
-#: sendimages.cpp:437
-msgid "Starting default KDE email program..."
+#: sendimages.cpp:435
+msgid "Starting default desktop email program..."
 msgstr ""
 
-#: sendimages.cpp:659
+#: sendimages.cpp:652
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr ""
 
-#: sendimages.cpp:672
+#: sendimages.cpp:665
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr ""
 
-#: sendimages.cpp:682
+#: sendimages.cpp:675
 msgid "After having sent your images by email..."
 msgstr ""
 
-#: sendimages.cpp:683
+#: sendimages.cpp:676
 msgid "Press 'Close' button to clean up temporary files"
 msgstr ""
 
-#: sendimagesdialog.cpp:85
+#: sendimagesdialog.cpp:81
 msgid "Email Images Options"
 msgstr ""
 
-#: sendimagesdialog.cpp:90
+#: sendimagesdialog.cpp:84
 msgctxt "@action:button"
 msgid "&Send"
 msgstr ""
 
-#: sendimagesdialog.cpp:110
+#: sendimagesdialog.cpp:103
 msgid "Send Images"
 msgstr ""
 
-#: sendimagesdialog.cpp:113
-msgid "A plugin to e-mail items"
+#: sendimagesdialog.cpp:104
+msgid "A tool to e-mail items"
 msgstr ""
 
-#: sendimagesdialog.cpp:114
+#: sendimagesdialog.cpp:105
 #, fuzzy
 #| msgid "(c) 2003-2009, Gilles Caulier"
-msgid "(c) 2003-2013, Gilles Caulier"
+msgid "(c) 2003-2016, Gilles Caulier"
 msgstr "(c) 2003-2009, Gilles Caulier"
 
-#: sendimagesdialog.cpp:116
+#: sendimagesdialog.cpp:107
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
-#: sendimagesdialog.cpp:116
+#: sendimagesdialog.cpp:107
 msgid "Author and Maintainer"
 msgstr "Autor dhe Mirëmbajtës"
 
-#: sendimagesdialog.cpp:119
+#: sendimagesdialog.cpp:110
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
-#: sendimagesdialog.cpp:119 sendimagesdialog.cpp:122
+#: sendimagesdialog.cpp:110 sendimagesdialog.cpp:113
 msgid "Developer"
 msgstr "Zhvillues"
 
-#: sendimagesdialog.cpp:122
+#: sendimagesdialog.cpp:113
 msgid "Tom Albers"
 msgstr "Tom Albers"
 
-#: settingswidget.cpp:90
+#: settingswidget.cpp:91
 msgid "Mail program:"
 msgstr ""
 
-#: settingswidget.cpp:93
-msgctxt "default mail agent"
+#: settingswidget.cpp:94
+msgctxt "default desktop mail agent"
 msgid "Default"
 msgstr ""
 
-#: settingswidget.cpp:104
+#: settingswidget.cpp:106
 msgid ""
 "Select your preferred external email program here. <b>Default</b> is the "
-"current email program set in KDE System Settings."
+"current email program set in desktop system settings."
 msgstr ""
 
-#: settingswidget.cpp:110
+#: settingswidget.cpp:112
 #, kde-format
 msgid "Attach a file with image properties from %1"
 msgstr ""
 
-#: settingswidget.cpp:113
+#: settingswidget.cpp:115
 #, kde-format
 msgid ""
 "If you enable this option, all image properties set by %1 as Comments, "
 "Rating, or Tags, will be added as an attached file."
 msgstr ""
 
-#: settingswidget.cpp:122
+#: settingswidget.cpp:125
 #, fuzzy
 #| msgid "MB"
 msgid " MB"
 msgstr "MB"
 
-#: settingswidget.cpp:124
+#: settingswidget.cpp:127
 msgid "Maximum email size limit:"
 msgstr ""
 
-#: settingswidget.cpp:129
+#: settingswidget.cpp:132
 msgid "Adjust image properties"
 msgstr ""
 
-#: settingswidget.cpp:131
+#: settingswidget.cpp:134
 msgid ""
 "If you enable this option, all images to be sent can be resized and "
 "recompressed."
 msgstr ""
 
-#: settingswidget.cpp:134
+#: settingswidget.cpp:137
 msgid "Image Properties"
 msgstr "Veti Pamjeje"
 
-#: settingswidget.cpp:138 settingswidget.cpp:156
+#: settingswidget.cpp:141 settingswidget.cpp:167
 msgid "Very Small (320 pixels)"
 msgstr ""
 
-#: settingswidget.cpp:139 settingswidget.cpp:157
+#: settingswidget.cpp:142 settingswidget.cpp:168
 msgid "Small (640 pixels)"
 msgstr ""
 
-#: settingswidget.cpp:140 settingswidget.cpp:158
+#: settingswidget.cpp:143 settingswidget.cpp:169
 msgid "Medium (800 pixels)"
 msgstr ""
 
-#: settingswidget.cpp:141 settingswidget.cpp:159
+#: settingswidget.cpp:144 settingswidget.cpp:170
 msgid "Big (1024 pixels)"
 msgstr ""
 
-#: settingswidget.cpp:142 settingswidget.cpp:160
+#: settingswidget.cpp:145 settingswidget.cpp:171
 msgid "Very Big (1280 pixels)"
 msgstr ""
 
-#: settingswidget.cpp:143
+#: settingswidget.cpp:146 settingswidget.cpp:172
 msgid "Large - for printing (1600 pixels)"
 msgstr ""
 
-#: settingswidget.cpp:145
+#: settingswidget.cpp:147 settingswidget.cpp:173
+msgid "Full HD (1920 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:148 settingswidget.cpp:174
+msgid "Ultra HD (3840 pixels)"
+msgstr ""
+
+#: settingswidget.cpp:150
 #, kde-format
 msgid ""
 "<p>Select the size of the images that are to be sent:</p><p><b>%1</b>: use "
@@ -298,22 +298,22 @@ msgid ""
 "size.</p><p><b>%4</b>: use this if you have a high-speed Internet connection "
 "and the target mailbox size is not limited.</p><p><b>%5</b>: use this if you "
 "have no size or speed restrictions.</p><p><b>%6</b>: use this only for "
-"printing purposes.</p>"
+"printing purposes.</p><p><b>%7</b>: use this for optimal viewing on Full HD "
+"displays. Only if you have a high-speed Internet connection and the target "
+"mailbox size is not limited.</p><p><b>%8</b>: use this for optimal viewing "
+"on Ultra HD displays. Only if you have a high-speed Internet connection and "
+"the target mailbox size is not limited.</p>"
 msgstr ""
 
-#: settingswidget.cpp:161
-msgid "Huge - for printing (1600 pixels)"
-msgstr ""
-
-#: settingswidget.cpp:164
+#: settingswidget.cpp:177
 msgid "Image size:"
 msgstr ""
 
-#: settingswidget.cpp:173
+#: settingswidget.cpp:186
 msgid "<p>Select the file format of the image files to be sent.</p>"
 msgstr ""
 
-#: settingswidget.cpp:174
+#: settingswidget.cpp:187
 msgid ""
 "<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
 "web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
@@ -326,26 +326,34 @@ msgid ""
 "matching on heterogeneous platforms.</p>"
 msgstr ""
 
-#: settingswidget.cpp:184
+#: settingswidget.cpp:197
 #, fuzzy
 #| msgid "Image Properties"
 msgid "Image format:"
 msgstr "Veti Pamjeje"
 
-#: settingswidget.cpp:192
+#: settingswidget.cpp:206
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
 msgstr ""
 
-#: settingswidget.cpp:193
+#: settingswidget.cpp:207
 msgid ""
 "<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
 "><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
 "<br/><b>100</b>: no compression</p>"
 msgstr ""
 
-#: settingswidget.cpp:201
+#: settingswidget.cpp:215
 msgid "Image quality:"
 msgstr ""
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "KDE Shqip, Launchpad Contributions: Vilson Gjeci"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "kde-shqip@yahoogroups.com,vilsongjeci@gmail.com"
 
 #~ msgid "Handbook"
 #~ msgstr "Broshura"

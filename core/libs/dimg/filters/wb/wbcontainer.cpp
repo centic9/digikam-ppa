@@ -6,7 +6,7 @@
  * Date        : 2007-16-01
  * Description : white balance color correction.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008      by Guillaume Castagnino <casta at xwing dot info>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -67,27 +67,27 @@ bool WBContainer::operator==(const WBContainer& other) const
 
 void WBContainer::writeToFilterAction(FilterAction& action, const QString& prefix) const
 {
-    action.addParameter(prefix + "black",          black);
-    action.addParameter(prefix + "expositionMain", expositionMain);
-    action.addParameter(prefix + "expositionFine", expositionFine);
-    action.addParameter(prefix + "temperature",    temperature);
-    action.addParameter(prefix + "green",          green);
-    action.addParameter(prefix + "dark",           dark);
-    action.addParameter(prefix + "gamma",          gamma);
-    action.addParameter(prefix + "saturation",     saturation);
+    action.addParameter(prefix + QLatin1String("black"),          black);
+    action.addParameter(prefix + QLatin1String("expositionMain"), expositionMain);
+    action.addParameter(prefix + QLatin1String("expositionFine"), expositionFine);
+    action.addParameter(prefix + QLatin1String("temperature"),    temperature);
+    action.addParameter(prefix + QLatin1String("green"),          green);
+    action.addParameter(prefix + QLatin1String("dark"),           dark);
+    action.addParameter(prefix + QLatin1String("gamma"),          gamma);
+    action.addParameter(prefix + QLatin1String("saturation"),     saturation);
 }
 
 WBContainer WBContainer::fromFilterAction(const FilterAction& action, const QString& prefix)
 {
     WBContainer settings;
-    settings.black          = action.parameter(prefix + "black",          settings.black);
-    settings.expositionMain = action.parameter(prefix + "expositionMain", settings.expositionMain);
-    settings.expositionFine = action.parameter(prefix + "expositionFine", settings.expositionFine);
-    settings.temperature    = action.parameter(prefix + "temperature",    settings.temperature);
-    settings.green          = action.parameter(prefix + "green",          settings.green);
-    settings.dark           = action.parameter(prefix + "dark",           settings.dark);
-    settings.gamma          = action.parameter(prefix + "gamma",          settings.gamma);
-    settings.saturation     = action.parameter(prefix + "saturation",     settings.saturation);
+    settings.black          = action.parameter(prefix + QLatin1String("black"),          settings.black);
+    settings.expositionMain = action.parameter(prefix + QLatin1String("expositionMain"), settings.expositionMain);
+    settings.expositionFine = action.parameter(prefix + QLatin1String("expositionFine"), settings.expositionFine);
+    settings.temperature    = action.parameter(prefix + QLatin1String("temperature"),    settings.temperature);
+    settings.green          = action.parameter(prefix + QLatin1String("green"),          settings.green);
+    settings.dark           = action.parameter(prefix + QLatin1String("dark"),           settings.dark);
+    settings.gamma          = action.parameter(prefix + QLatin1String("gamma"),          settings.gamma);
+    settings.saturation     = action.parameter(prefix + QLatin1String("saturation"),     settings.saturation);
     return settings;
 }
 

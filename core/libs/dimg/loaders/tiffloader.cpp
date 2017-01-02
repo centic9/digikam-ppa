@@ -7,7 +7,7 @@
  * Description : A TIFF IO file for DImg framework
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * Specifications & references:
  * - TIFF 6.0  : http://partners.adobe.com/public/developer/en/tiff/TIFF6.pdf
@@ -54,14 +54,11 @@ extern "C"
 #include <QFile>
 #include <QByteArray>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "dimgloaderobserver.h"
 #include "dmetadata.h"
 #include "tiffloader.h"     //krazy:exclude=includes
@@ -73,28 +70,20 @@ namespace Digikam
 
 void TIFFLoader::dimg_tiff_warning(const char* module, const char* format, va_list warnings)
 {
-#ifdef USE_IMGLOADERDEBUGMSG
-    char message[4096];
-    vsnprintf(message, 4096, format, warnings);
-    kDebug() << module <<  "::" <<  message;
-#else
-    Q_UNUSED(module);
-    Q_UNUSED(format);
-    Q_UNUSED(warnings);
-#endif
+    if(DIGIKAM_DIMG_LOG_TIFF().isDebugEnabled()) {
+        char message[4096];
+        vsnprintf(message, 4096, format, warnings);
+        qCDebug(DIGIKAM_DIMG_LOG_TIFF) << module <<  "::" <<  message;
+    }
 }
 
 void TIFFLoader::dimg_tiff_error(const char* module, const char* format, va_list errors)
 {
-#ifdef USE_IMGLOADERDEBUGMSG
-    char message[4096];
-    vsnprintf(message, 4096, format, errors);
-    kDebug() << module << "::" << message;
-#else
-    Q_UNUSED(module);
-    Q_UNUSED(format);
-    Q_UNUSED(errors);
-#endif
+    if(DIGIKAM_DIMG_LOG_TIFF().isDebugEnabled()) {
+        char message[4096];
+        vsnprintf(message, 4096, format, errors);
+        qCDebug(DIGIKAM_DIMG_LOG_TIFF) << module << "::" << message;
+    }
 }
 
 TIFFLoader::TIFFLoader(DImg* const image)
@@ -118,18 +107,18 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     // -------------------------------------------------------------------
     // Open the file
 
-    TIFF* tif = TIFFOpen(QFile::encodeName(filePath), "r");
+    TIFF* tif = TIFFOpen(QFile::encodeName(filePath).constData(), "r");
 
     if (!tif)
     {
-        kDebug() << "Cannot open image file.";
+        qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Cannot open image file.";
         loadingFailed();
         return false;
     }
 
-#ifdef USE_IMGLOADERDEBUGMSG
-    TIFFPrintDirectory(tif, stdout, 0);
-#endif
+    if(DIGIKAM_DIMG_LOG_TIFF().isDebugEnabled()) {
+        TIFFPrintDirectory(tif, stdout, 0);
+    }
 
     // -------------------------------------------------------------------
     // Get image information.
@@ -150,14 +139,18 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     TIFFGetFieldDefaulted(tif, TIFFTAG_SAMPLESPERPIXEL, &samples_per_pixel);
     TIFFGetFieldDefaulted(tif, TIFFTAG_PLANARCONFIG, &planar_config);
 
-    if (TIFFGetFieldDefaulted(tif, TIFFTAG_ROWSPERSTRIP, &rows_per_strip) == 0
-        || rows_per_strip == 0 || rows_per_strip == (unsigned int) - 1)
+    if (TIFFGetFieldDefaulted(tif, TIFFTAG_ROWSPERSTRIP, &rows_per_strip) == 0 || rows_per_strip == 0)
     {
-        kWarning()  << "TIFF loader: Cannot handle non-stripped images. Loading file "
-                    << filePath;
+        qCWarning(DIGIKAM_DIMG_LOG_TIFF)  << "TIFF loader: Cannot handle non-stripped images. Loading file "
+                   << filePath;
         TIFFClose(tif);
         loadingFailed();
         return false;
+    }
+
+    if (rows_per_strip > h)
+    {
+        rows_per_strip = h;
     }
 
     if (bits_per_sample   == 0
@@ -166,7 +159,7 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         //        || rows_per_strip    >  h
        )
     {
-        kWarning() << "TIFF loader: Encountered invalid value in image." << endl
+        qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "TIFF loader: Encountered invalid value in image." << endl
                    << " bits_per_sample   : " << bits_per_sample  << endl
                    << " samples_per_pixel : " << samples_per_pixel << endl
                    << " rows_per_strip    : " << rows_per_strip << endl
@@ -192,7 +185,7 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         ((photometric != PHOTOMETRIC_SEPARATED) | (bits_per_sample != 8)) &&
         (m_loadFlags & LoadImageData))
     {
-        kWarning() << "Can not handle image without RGB color-space: "
+        qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Can not handle image without RGB color-space: "
                    << photometric;
         TIFFClose(tif);
         loadingFailed();
@@ -249,7 +242,7 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         m_hasAlpha = false;
     }
 
-    if (bits_per_sample == 16)
+    if (bits_per_sample == 16 || bits_per_sample == 32)
     {
         m_sixteenBit = true;
     }
@@ -302,7 +295,7 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
             if (!data || strip.isNull())
             {
-                kDebug() << "Failed to allocate memory for TIFF image" << filePath;
+                qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to allocate memory for TIFF image" << filePath;
                 TIFFClose(tif);
                 loadingFailed();
                 return false;
@@ -333,7 +326,7 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
                 if (bytesRead == -1)
                 {
-                    kDebug() << "Failed to read strip";
+                    qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read strip";
                     TIFFClose(tif);
                     loadingFailed();
                     return false;
@@ -459,14 +452,195 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
                 }
             }
         }
-        else       // Non 16 bits images ==> get it on BGRA 8 bits.
+        else if (bits_per_sample == 32)          // 32 bits image.
+        {
+            data.reset(new_failureTolerant(w, h, 8));
+            QScopedArrayPointer<uchar> strip(new_failureTolerant(strip_size));
+
+            if (!data || strip.isNull())
+            {
+                qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to allocate memory for TIFF image" << filePath;
+                TIFFClose(tif);
+                loadingFailed();
+                return false;
+            }
+
+            long  offset     = 0;
+            long  bytesRead  = 0;
+
+            uint  checkpoint = 0;
+            float maxValue   = 0.0;
+
+            for (tstrip_t st = 0; st < num_of_strips; ++st)
+            {
+                if (observer && !observer->continueQuery(m_image))
+                {
+                    TIFFClose(tif);
+                    loadingFailed();
+                    return false;
+                }
+
+                bytesRead = TIFFReadEncodedStrip(tif, st, strip.data(), strip_size);
+
+                if (bytesRead == -1)
+                {
+                    qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read strip";
+                    TIFFClose(tif);
+                    loadingFailed();
+                    return false;
+                }
+
+                float* stripPtr = reinterpret_cast<float*>(strip.data());
+
+                for (int i = 0; i < bytesRead / 4; ++i)
+                {
+                    maxValue = qMax(maxValue, *stripPtr++);
+                }
+            }
+
+            double factor = (maxValue > 10.0) ? log10(maxValue) * 1.5 : 1.0;
+            double scale  = (factor > 1.0) ? 0.75 : 1.0;
+
+            if (factor > 1.0)
+            {
+                qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "TIFF image cannot be converted lossless from 32 to 16 bits" << filePath;
+            }
+
+            for (tstrip_t st = 0; st < num_of_strips; ++st)
+            {
+                if (observer && st == checkpoint)
+                {
+                    checkpoint += granularity(observer, num_of_strips, 0.8F);
+
+                    if (!observer->continueQuery(m_image))
+                    {
+                        TIFFClose(tif);
+                        loadingFailed();
+                        return false;
+                    }
+
+                    observer->progressInfo(m_image, 0.1 + (0.8 * (((float)st) / ((float)num_of_strips))));
+                }
+
+                bytesRead = TIFFReadEncodedStrip(tif, st, strip.data(), strip_size);
+
+                if (bytesRead == -1)
+                {
+                    qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read strip";
+                    TIFFClose(tif);
+                    loadingFailed();
+                    return false;
+                }
+
+                if ((planar_config == PLANARCONFIG_SEPARATE) &&
+                    (st % (num_of_strips / samples_per_pixel)) == 0)
+                {
+                    offset = 0;
+                }
+
+                float*  stripPtr = reinterpret_cast<float*>(strip.data());
+                ushort* dataPtr  = reinterpret_cast<ushort*>(data.data() + offset);
+                ushort* p;
+
+                if ((samples_per_pixel == 3) && (planar_config == PLANARCONFIG_CONTIG))
+                {
+                    for (int i = 0; i < bytesRead / 12; ++i)
+                    {
+                        p = dataPtr;
+
+                        p[2] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                        p[1] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                        p[0] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                        p[3] = 0xFFFF;
+
+                        dataPtr += 4;
+                    }
+
+                    offset += bytesRead / 12 * 8;
+                }
+                else if ((samples_per_pixel == 3) && (planar_config == PLANARCONFIG_SEPARATE))
+                {
+                    for (int i = 0; i < bytesRead / 4; ++i)
+                    {
+                        p = dataPtr;
+
+                        switch ((st / (num_of_strips / samples_per_pixel)))
+                        {
+                            case 0:
+                                p[2] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                                p[3] = 0xFFFF;
+                                break;
+
+                            case 1:
+                                p[1] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                                break;
+
+                            case 2:
+                                p[0] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                                break;
+                        }
+
+                        dataPtr += 4;
+                    }
+
+                    offset += bytesRead / 4 * 8;
+                }
+                else if ((samples_per_pixel == 4) && (planar_config == PLANARCONFIG_CONTIG))
+                {
+                    for (int i = 0; i < bytesRead / 16; ++i)
+                    {
+                        p = dataPtr;
+
+                        p[2] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                        p[1] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                        p[0] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                        p[3] = (ushort)qBound(0.0, (double)*stripPtr++ * 65535.0, 65535.0);
+
+                        dataPtr += 4;
+                    }
+
+                    offset += bytesRead / 16 * 8;
+                }
+                else if ((samples_per_pixel == 4) && (planar_config == PLANARCONFIG_SEPARATE))
+                {
+                    for (int i = 0; i < bytesRead / 4; ++i)
+                    {
+                        p = dataPtr;
+
+                        switch ((st / (num_of_strips / samples_per_pixel)))
+                        {
+                            case 0:
+                                p[2] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                                break;
+
+                            case 1:
+                                p[1] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                                break;
+
+                            case 2:
+                                p[0] = (ushort)qBound(0.0, pow((double)*stripPtr++ / factor, scale) * 65535.0, 65535.0);
+                                break;
+
+                            case 3:
+                                p[3] = (ushort)qBound(0.0, (double)*stripPtr++ * 65535.0, 65535.0);
+                                break;
+                        }
+
+                        dataPtr += 4;
+                    }
+
+                    offset += bytesRead / 4 * 8;
+                }
+            }
+        }
+        else       // Non 16 or 32 bits images ==> get it on BGRA 8 bits.
         {
             data.reset(new_failureTolerant(w, h, 4));
             QScopedArrayPointer<uchar> strip(new_failureTolerant(w, rows_per_strip, 4));
 
             if (!data || strip.isNull())
             {
-                kDebug() << "Failed to allocate memory for TIFF image" << filePath;
+                qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to allocate memory for TIFF image" << filePath;
                 TIFFClose(tif);
                 loadingFailed();
                 return false;
@@ -486,7 +660,7 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
             if (!TIFFRGBAImageOK(tif, emsg) || !TIFFRGBAImageBegin(&img, tif, 0, emsg))
             {
-                kDebug() << "Failed to set up RGBA reading of image, filename "
+                qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to set up RGBA reading of image, filename "
                          << TIFFFileName(tif) <<  " error message from Libtiff: " << emsg;
                 TIFFClose(tif);
                 loadingFailed();
@@ -530,7 +704,7 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 
                 if (TIFFRGBAImageGet(&img, reinterpret_cast<uint32*>(strip.data()), img.width, rows_to_read) == -1)
                 {
-                    kDebug() << "Failed to read image data";
+                    qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read image data";
                     TIFFClose(tif);
                     loadingFailed();
                     return false;
@@ -575,10 +749,10 @@ bool TIFFLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     imageWidth()  = w;
     imageHeight() = h;
     imageData()   = data.take();
-    imageSetAttribute("format", "TIFF");
-    imageSetAttribute("originalColorModel", colorModel);
-    imageSetAttribute("originalBitDepth", bits_per_sample);
-    imageSetAttribute("originalSize", QSize(w, h));
+    imageSetAttribute(QLatin1String("format"),             QLatin1String("TIFF"));
+    imageSetAttribute(QLatin1String("originalColorModel"), colorModel);
+    imageSetAttribute(QLatin1String("originalBitDepth"),   bits_per_sample);
+    imageSetAttribute(QLatin1String("originalSize"),       QSize(w, h));
 
     return true;
 }
@@ -599,11 +773,11 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     // -------------------------------------------------------------------
     // Open the file
 
-    TIFF* tif = TIFFOpen(QFile::encodeName(filePath), "w");
+    TIFF* tif = TIFFOpen(QFile::encodeName(filePath).constData(), "w");
 
     if (!tif)
     {
-        kDebug() << "Cannot open target image file.";
+        qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Cannot open target image file.";
         return false;
     }
 
@@ -618,7 +792,7 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     TIFFSetField(tif, TIFFTAG_RESOLUTIONUNIT, RESUNIT_NONE);
 
     // Image must be compressed using deflate algorithm ?
-    QVariant compressAttr = imageGetAttribute("compress");
+    QVariant compressAttr = imageGetAttribute(QLatin1String("compress"));
     bool compress = compressAttr.isValid() ? compressAttr.toBool() : false;
 
     if (compress)
@@ -690,10 +864,10 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     tiffSetExifAsciiTag(tif, TIFFTAG_COPYRIGHT,               metaData, "Exif.Image.Copyright");
 
     QString soft = metaData.getExifTagString("Exif.Image.Software");
-    QString libtiffver(TIFFLIB_VERSION_STR);
-    libtiffver.replace('\n', ' ');
-    soft.append(QString(" ( %1 )").arg(libtiffver));
-    TIFFSetField(tif, TIFFTAG_SOFTWARE, (const char*)soft.toAscii().data());
+    QString libtiffver = QLatin1String(TIFFLIB_VERSION_STR);
+    libtiffver.replace(QLatin1Char('\n'), QLatin1Char(' '));
+    soft.append(QString::fromLatin1(" ( %1 )").arg(libtiffver));
+    TIFFSetField(tif, TIFFTAG_SOFTWARE, (const char*)soft.toLatin1().constData());
 
     // NOTE: All others Exif tags will be written by Exiv2 (<= 0.18)
 
@@ -731,7 +905,7 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
     if (!buf)
     {
-        kDebug() << "Cannot allocate memory buffer for main image.";
+        qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Cannot allocate memory buffer for main image.";
         TIFFClose(tif);
         return false;
     }
@@ -825,7 +999,7 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
         if (!TIFFWriteScanline(tif, buf, y, 0))
         {
-            kDebug() << "Cannot write main image to target file.";
+            qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Cannot write main image to target file.";
             _TIFFfree(buf);
             TIFFClose(tif);
             return false;
@@ -857,7 +1031,7 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
     if (!bufThumb)
     {
-        kDebug() << "Cannot allocate memory buffer for thumbnail.";
+        qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Cannot allocate memory buffer for thumbnail.";
         TIFFClose(tif);
         return false;
     }
@@ -878,7 +1052,7 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
         if (!TIFFWriteScanline(tif, bufThumb, y, 0))
         {
-            kDebug() << "Cannot write thumbnail to target file.";
+            qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Cannot write thumbnail to target file.";
             _TIFFfree(bufThumb);
             TIFFClose(tif);
             return false;
@@ -895,7 +1069,7 @@ bool TIFFLoader::save(const QString& filePath, DImgLoaderObserver* const observe
         observer->progressInfo(m_image, 1.0);
     }
 
-    imageSetAttribute("savedformat", "TIFF");
+    imageSetAttribute(QLatin1String("savedformat"), QLatin1String("TIFF"));
 
     // Save metadata
 
@@ -927,7 +1101,7 @@ void TIFFLoader::tiffSetExifAsciiTag(TIFF* const tif, ttag_t tiffTag,
     if (!tag.isEmpty())
     {
         QByteArray str(tag.data(), tag.size());
-        TIFFSetField(tif, tiffTag, (const char*)str);
+        TIFFSetField(tif, tiffTag, (const char*)str.constData());
     }
 }
 

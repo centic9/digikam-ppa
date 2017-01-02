@@ -7,7 +7,7 @@
  * Description : Loader for thumbnails
  *
  * Copyright (C) 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -33,12 +33,8 @@
 
 #include <QImage>
 #include <QDir>
-
-// KDE includes
-
-#include <kcodecs.h>
-#include <kurl.h>
-#include <kstandarddirs.h>
+#include <QCryptographicHash>
+#include <QUrl>
 
 // C ANSI includes
 
@@ -47,10 +43,12 @@ extern "C"
 #include <unistd.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+
 #ifndef _WIN32
 #include <sys/ipc.h>
 #include <sys/shm.h>
 #endif
+
 #include <sys/time.h>
 #include <png.h>
 }
@@ -71,12 +69,12 @@ namespace Digikam
 
 QString ThumbnailCreator::normalThumbnailDir()
 {
-    return  QDir::homePath() + "/.thumbnails/normal/";
+    return  QDir::homePath() + QLatin1String("/.thumbnails/normal/");
 }
 
 QString ThumbnailCreator::largeThumbnailDir()
 {
-    return  QDir::homePath() + "/.thumbnails/large/";
+    return  QDir::homePath() + QLatin1String("/.thumbnails/large/");
 }
 
 QString ThumbnailCreator::thumbnailPath(const QString& filePath, const QString& basePath)
@@ -86,13 +84,14 @@ QString ThumbnailCreator::thumbnailPath(const QString& filePath, const QString& 
 
 QString ThumbnailCreator::thumbnailUri(const QString& filePath)
 {
-    return KUrl(filePath).url();
+    return QUrl::fromLocalFile(filePath).url();
 }
 
 QString ThumbnailCreator::thumbnailPathFromUri(const QString& uri, const QString& basePath)
 {
-    KMD5 md5( QFile::encodeName(uri) );
-    return basePath + QFile::encodeName( md5.hexDigest() ) + QString(".png");
+    QCryptographicHash md5(QCryptographicHash::Md5);
+    md5.addData( QFile::encodeName(uri).constData() );
+    return ( basePath + QString::fromUtf8(QFile::encodeName(QString::fromUtf8(md5.result().toHex()))) + QLatin1String(".png") );
 }
 
 // --- non-static methods ---
@@ -102,8 +101,23 @@ void ThumbnailCreator::initThumbnailDirs()
     d->smallThumbPath = normalThumbnailDir();
     d->bigThumbPath   = largeThumbnailDir();
 
-    KStandardDirs::makeDir(d->smallThumbPath, 0700);
-    KStandardDirs::makeDir(d->bigThumbPath, 0700);
+    if (!QDir(d->smallThumbPath).exists())
+    {
+        if (QDir().mkpath(d->smallThumbPath))
+        {
+            QFile f(d->smallThumbPath);
+            f.setPermissions(QFile::ReadUser | QFile::WriteUser | QFile::ExeUser); // 0700
+        }
+    }
+
+    if (!QDir(d->bigThumbPath).exists())
+    {
+        if (QDir().mkpath(d->bigThumbPath))
+        {
+            QFile f(d->bigThumbPath);
+            f.setPermissions(QFile::ReadUser | QFile::WriteUser | QFile::ExeUser); // 0700
+        }
+    }
 }
 
 QString ThumbnailCreator::thumbnailPath(const QString& filePath) const
@@ -118,16 +132,13 @@ QImage ThumbnailCreator::loadPNG(const QString& path) const
 {
     png_uint_32  w32, h32;
     int          w, h;
-    bool         has_alpha;
-    bool         has_grey;
-    png_structp  png_ptr  = NULL;
-    png_infop    info_ptr = NULL;
+    bool         has_alpha = 0;
+    png_structp  png_ptr   = NULL;
+    png_infop    info_ptr  = NULL;
     int          bit_depth, color_type, interlace_type;
     QImage       qimage;
 
-    has_alpha     = 0;
-    has_grey      = 0;
-    FILE* const f = fopen(path.toLatin1(), "rb");
+    FILE* const f = fopen(path.toLatin1().constData(), "rb");
 
     if (!f)
     {
@@ -185,9 +196,10 @@ QImage ThumbnailCreator::loadPNG(const QString& path) const
                  (png_uint_32*) (&h32), &bit_depth, &color_type,
                  &interlace_type, NULL, NULL);
 
-    w      = w32;
-    h      = h32;
-    qimage = QImage(w, h, QImage::Format_ARGB32);
+    bool  has_grey = 0;
+    w              = w32;
+    h              = h32;
+    qimage         = QImage(w, h, QImage::Format_ARGB32);
 
     if (color_type == PNG_COLOR_TYPE_PALETTE)
     {
@@ -285,11 +297,11 @@ QImage ThumbnailCreator::loadPNG(const QString& path) const
 
     png_textp text_ptr;
     int num_text = 0;
-    png_get_text(png_ptr,info_ptr,&text_ptr,&num_text);
+    png_get_text(png_ptr,info_ptr, &text_ptr, &num_text);
 
     while (num_text--)
     {
-        qimage.setText(text_ptr->key,0,text_ptr->text);
+        qimage.setText(QString::fromUtf8(text_ptr->key), QString::fromUtf8(text_ptr->text));
         ++text_ptr;
     }
 

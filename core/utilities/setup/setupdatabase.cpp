@@ -7,7 +7,7 @@
  * Description : database setup tab
  *
  * Copyright (C) 2009-2010 by Holger Foerster <Hamsi2k at freenet dot de>
- * Copyright (C) 2012-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "setupdatabase.moc"
+#include "setupdatabase.h"
 
 // Qt includes
 
@@ -43,27 +43,25 @@
 #include <QFormLayout>
 #include <QSqlDatabase>
 #include <QSqlError>
+#include <QApplication>
+#include <QUrl>
+#include <QIcon>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <klocale.h>
-#include <klineedit.h>
-#include <kapplication.h>
-#include <kpagedialog.h>
-#include <kfiledialog.h>
-#include <kurl.h>
-#include <kmessagebox.h>
-#include <kurlrequester.h>
-#include <ktemporaryfile.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "applicationsettings.h"
-#include "databasewidget.h"
-#include "databaseparameters.h"
+#include "dbsettingswidget.h"
+#include "dbengineparameters.h"
+#include "databaseserverstarter.h"
 #include "scancontroller.h"
-#include "schemaupdater.h"
+#include "coredbschemaupdater.h"
+#include "albummanager.h"
 
 namespace Digikam
 {
@@ -73,45 +71,43 @@ class SetupDatabase::Private
 public:
 
     Private() :
-        mainDialog(0),
         databaseWidget(0),
         updateBox(0),
         hashesButton(0)
     {
     }
 
-    KPageDialog*    mainDialog;
-    DatabaseWidget* databaseWidget;
-    QGroupBox*      updateBox;
-    QPushButton*    hashesButton;
+    DatabaseSettingsWidget* databaseWidget;
+    QGroupBox*              updateBox;
+    QPushButton*            hashesButton;
 };
 
-SetupDatabase::SetupDatabase(KPageDialog* const dialog, QWidget* const parent)
-    : QScrollArea(parent), d(new Private)
+SetupDatabase::SetupDatabase(QWidget* const parent)
+    : QScrollArea(parent),
+      d(new Private)
 {
-    d->mainDialog           = dialog;
     QWidget* const page     = new QWidget;
     QVBoxLayout* mainLayout = new QVBoxLayout;
 
-    d->databaseWidget       = new DatabaseWidget;
+    d->databaseWidget       = new DatabaseSettingsWidget;
     mainLayout->addWidget(d->databaseWidget);
 
-    if (!SchemaUpdater::isUniqueHashUpToDate())
+    if (!CoreDbSchemaUpdater::isUniqueHashUpToDate())
     {
         d->updateBox                    = new QGroupBox(i18nc("@title:group", "Updates"));
         QGridLayout* const updateLayout = new QGridLayout;
 
         d->hashesButton                 = new QPushButton(i18nc("@action:button", "Update File Hashes"));
         d->hashesButton->setWhatsThis(i18nc("@info:tooltip",
-                                            "File hashes are used to identify identical files and to display thumbnails. "
+                                            "<qt>File hashes are used to identify identical files and to display thumbnails. "
                                             "A new, improved algorithm to create the hash is now used. "
                                             "The old algorithm, though, still works quite well, so it is recommended to "
-                                            "carry out this upgrade, but not required.<nl/> "
-                                            "<note>After the upgrade you cannot use your database with a digiKam version "
-                                            "prior to 2.0.</note>"));
+                                            "carry out this upgrade, but not required.<br> "
+                                            "After the upgrade you cannot use your database with a digiKam version "
+                                            "prior to 2.0.</qt>"));
 
         QPushButton* const infoHash     = new QPushButton;
-        infoHash->setIcon(SmallIcon("dialog-information"));
+        infoHash->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
         infoHash->setToolTip(i18nc("@info:tooltip", "Get information about <interface>Update File Hashes</interface>"));
 
         updateLayout->addWidget(d->hashesButton, 0, 0);
@@ -154,51 +150,47 @@ void SetupDatabase::applySettings()
         return;
     }
 
-    if (d->databaseWidget->currentDatabaseType() == QString(DatabaseParameters::SQLiteDatabaseType()))
+    if (d->databaseWidget->getDbEngineParameters() == d->databaseWidget->orgDatabasePrm())
     {
-        QString newPath = d->databaseWidget->databasePathEdit->url().path();
-        QDir oldDir(d->databaseWidget->originalDbPath);
-        QDir newDir(newPath);
-
-        if (oldDir != newDir || d->databaseWidget->currentDatabaseType() != d->databaseWidget->originalDbType)
-        {
-            settings->setDatabaseParameters(DatabaseParameters::parametersForSQLiteDefaultFile(newPath));
-
-            // clear other fields
-            d->databaseWidget->internalServer->setChecked(false);
-
-            settings->saveSettings();
-        }
+        qCDebug(DIGIKAM_GENERAL_LOG) << "No DB settings changes. Do nothing...";
+        return;
     }
-    else
-    {
-        if (d->databaseWidget->internalServer->isChecked())
-        {
-            DatabaseParameters internalServerParameters = DatabaseParameters::defaultParameters(d->databaseWidget->currentDatabaseType());
-            settings->setInternalDatabaseServer(true);
-            settings->setDatabaseType(d->databaseWidget->currentDatabaseType());
-            settings->setDatabaseName(internalServerParameters.databaseName);
-            settings->setDatabaseNameThumbnails(internalServerParameters.databaseName);
-            settings->setDatabaseConnectoptions(internalServerParameters.connectOptions);
-            settings->setDatabaseHostName(internalServerParameters.hostName);
-            settings->setDatabasePort(internalServerParameters.port);
-            settings->setDatabaseUserName(internalServerParameters.userName);
-            settings->setDatabasePassword(internalServerParameters.password);
-        }
-        else
-        {
-            settings->setInternalDatabaseServer(d->databaseWidget->internalServer->isChecked());
-            settings->setDatabaseType(d->databaseWidget->currentDatabaseType());
-            settings->setDatabaseName(d->databaseWidget->databaseName->text());
-            settings->setDatabaseNameThumbnails(d->databaseWidget->databaseNameThumbnails->text());
-            settings->setDatabaseConnectoptions(d->databaseWidget->connectionOptions->text());
-            settings->setDatabaseHostName(d->databaseWidget->hostName->text());
-            settings->setDatabasePort(d->databaseWidget->hostPort->text().toInt());
-            settings->setDatabaseUserName(d->databaseWidget->userName->text());
-            settings->setDatabasePassword(d->databaseWidget->password->text());
-        }
 
-        settings->saveSettings();
+    if (!d->databaseWidget->checkDatabaseSettings())
+    {
+        qCDebug(DIGIKAM_GENERAL_LOG) << "DB settings check invalid. Do nothing...";
+        return;
+    }
+
+    switch (d->databaseWidget->databaseType())
+    {
+        case DatabaseSettingsWidget::SQlite:
+        {
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Switch to SQlite DB config...";
+            DbEngineParameters params = d->databaseWidget->getDbEngineParameters();
+            settings->setDbEngineParameters(params);
+            AlbumManager::instance()->changeDatabase(params);
+            settings->saveSettings();
+            break;
+        }
+        case DatabaseSettingsWidget::MysqlInternal:
+        {
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Switch to Mysql Internal DB config...";
+            DbEngineParameters params = d->databaseWidget->getDbEngineParameters();
+            settings->setDbEngineParameters(params);
+            settings->saveSettings();
+            AlbumManager::instance()->changeDatabase(params);
+            break;
+        }
+        default: // DatabaseSettingsWidget::MysqlServer
+        {
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Switch to Mysql server DB config...";
+            DbEngineParameters params = d->databaseWidget->getDbEngineParameters();
+            settings->setDbEngineParameters(params);
+            settings->saveSettings();
+            AlbumManager::instance()->changeDatabase(params);
+            break;
+        }
     }
 }
 
@@ -216,14 +208,15 @@ void SetupDatabase::readSettings()
 
 void SetupDatabase::upgradeUniqueHashes()
 {
-    int result = KMessageBox::warningContinueCancel(this, i18nc("@info",
-                                                                "<para>The process of updating the file hashes takes a few minutes.</para> "
-                                                                "<para>Please ensure that any important collections on removable media are connected. "
-                                                                "<note>After the upgrade you cannot use your database with a digiKam version "
-                                                                "prior to 2.0.</note></para> "
-                                                                "<para>Do you want to begin the update?</para>"));
+    int result = QMessageBox::warning(this, qApp->applicationName(),
+                                      i18nc("@info",
+                                            "<p>The process of updating the file hashes takes a few minutes.</p> "
+                                            "<p>Please ensure that any important collections on removable media are connected. "
+                                            "<i>After the upgrade you cannot use your database with a digiKam version "
+                                            "prior to 2.0.</i></p> "
+                                            "<p>Do you want to begin the update?</p>"));
 
-    if (result == KMessageBox::Continue)
+    if (result == QMessageBox::Yes)
     {
         ScanController::instance()->updateUniqueHash();
     }
@@ -231,7 +224,7 @@ void SetupDatabase::upgradeUniqueHashes()
 
 void SetupDatabase::showHashInformation()
 {
-    kapp->postEvent(d->hashesButton, new QHelpEvent(QEvent::WhatsThis, QPoint(0, 0), QCursor::pos()));
+    qApp->postEvent(d->hashesButton, new QHelpEvent(QEvent::WhatsThis, QPoint(0, 0), QCursor::pos()));
 }
 
 }  // namespace Digikam

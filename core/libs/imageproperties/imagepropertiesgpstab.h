@@ -6,7 +6,7 @@
  * Date        : 2006-02-22
  * Description : a tab to display GPS info
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2011      by Michael G. Hansen <mike at mghansen dot de>
  *
  * This program is free software; you can redistribute it
@@ -28,16 +28,13 @@
 // Qt includes
 
 #include <QWidget>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
 #include "dmetadata.h"
 #include "digikam_export.h"
-#include "digikam2kgeomap.h"
+#include "gpsimageinfosorter.h"
 
 namespace Digikam
 {
@@ -65,9 +62,9 @@ public:
 
     void clearGPSInfo();
     void setGPSInfoList(const GPSImageInfo::List& list);
-    void setCurrentURL(const KUrl& url=KUrl());
+    void setCurrentURL(const QUrl& url=QUrl());
 
-    void setMetadata(const DMetadata& meta, const KUrl& url);
+    void setMetadata(const DMetadata& meta, const QUrl& url);
 
     int  getWebGPSLocator() const;
     void setWebGPSLocator(int locator);

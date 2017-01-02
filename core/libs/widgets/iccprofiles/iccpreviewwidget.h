@@ -8,7 +8,7 @@
  *               in file dialog preview.
  *
  * Copyright (C) 2006-2007 by Francisco J. Cruz <fj dot cruz at supercable dot es>
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,22 +26,22 @@
 #ifndef ICCPREVIEWWIDGET_H
 #define ICCPREVIEWWIDGET_H
 
-// KDE includes
+// Qt includes
 
-#include <kpreviewwidgetbase.h>
+#include <QScrollArea>
 
 // Local includes
 
 #include "digikam_export.h"
 
-class KUrl;
+class QUrl;
 
 namespace Digikam
 {
 
 class ICCProfileWidget;
 
-class DIGIKAM_EXPORT ICCPreviewWidget : public KPreviewWidgetBase
+class DIGIKAM_EXPORT ICCPreviewWidget : public QScrollArea
 {
     Q_OBJECT
 
@@ -52,14 +52,8 @@ public:
 
 public Q_SLOTS:
 
-    virtual void showPreview(const KUrl& url);
-    virtual void clearPreview();
-
-protected:
-
-    virtual void virtual_hook(int, void*)
-    {
-    };
+    void slotShowPreview(const QUrl& url);
+    void slotClearPreview();
 
 private :
 

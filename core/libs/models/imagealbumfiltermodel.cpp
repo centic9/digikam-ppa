@@ -7,6 +7,7 @@
  * Description : Qt item model for database entries, using AlbumManager
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
+ * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,20 +22,20 @@
  *
  * ============================================================ */
 
-#include "imagealbumfiltermodel.moc"
+#include "imagealbumfiltermodel.h"
 
-// KDE includes
+// Qt includes
 
-#include <kstringhandler.h>
+#include <QTimer>
 
 // Local includes
 
 #include "imagefiltermodelpriv.h"
 #include "album.h"
 #include "albummanager.h"
-#include "databaseaccess.h"
-#include "databasechangesets.h"
-#include "databasewatch.h"
+#include "coredbaccess.h"
+#include "coredbchangesets.h"
+#include "coredbwatch.h"
 #include "imagealbummodel.h"
 
 namespace Digikam
@@ -44,13 +45,23 @@ class ImageAlbumFilterModelPrivate : public ImageFilterModel::ImageFilterModelPr
 {
 public:
 
+    ImageAlbumFilterModelPrivate()
+    {
+        delayedAlbumNamesTimer = 0;
+        delayedTagNamesTimer   = 0;
+    }
+
     QHash<int, QString> tagNamesHash;
     QHash<int, QString> albumNamesHash;
+    QTimer*             delayedAlbumNamesTimer;
+    QTimer*             delayedTagNamesTimer;
 };
 
 ImageAlbumFilterModel::ImageAlbumFilterModel(QObject* const parent)
     : ImageFilterModel(*new ImageAlbumFilterModelPrivate, parent)
 {
+    Q_D(ImageAlbumFilterModel);
+
     connect(AlbumManager::instance(), SIGNAL(signalAlbumAdded(Album*)),
             this, SLOT(slotAlbumAdded(Album*)));
 
@@ -62,6 +73,20 @@ ImageAlbumFilterModel::ImageAlbumFilterModel(QObject* const parent)
 
     connect(AlbumManager::instance(), SIGNAL(signalAlbumRenamed(Album*)),
             this, SLOT(slotAlbumRenamed(Album*)));
+
+    d->delayedAlbumNamesTimer = new QTimer(this);
+    d->delayedAlbumNamesTimer->setInterval(250);
+    d->delayedAlbumNamesTimer->setSingleShot(true);
+
+    d->delayedTagNamesTimer = new QTimer(this);
+    d->delayedTagNamesTimer->setInterval(250);
+    d->delayedTagNamesTimer->setSingleShot(true);
+
+    connect(d->delayedAlbumNamesTimer, SIGNAL(timeout()),
+            this, SLOT(slotDelayedAlbumNamesTimer()));
+
+    connect(d->delayedTagNamesTimer, SIGNAL(timeout()),
+            this, SLOT(slotDelayedTagNamesTimer()));
 
     foreach(Album* const a, AlbumManager::instance()->allPAlbums())
     {
@@ -113,9 +138,8 @@ int ImageAlbumFilterModel::compareInfosCategories(const ImageInfo& left, const I
     {
         case ImageSortSettings::CategoryByAlbum:
         {
-            int leftAlbumId    = left.albumId();
-            int rightAlbumId   = right.albumId();
-
+            int leftAlbumId          = left.albumId();
+            int rightAlbumId         = right.albumId();
             PAlbum* const leftAlbum  = AlbumManager::instance()->findPAlbum(leftAlbumId);
             PAlbum* const rightAlbum = AlbumManager::instance()->findPAlbum(rightAlbumId);
 
@@ -139,6 +163,7 @@ int ImageAlbumFilterModel::compareInfosCategories(const ImageInfo& left, const I
 
                 if (leftDate != rightDate)
                 {
+
                     return ImageSortSettings::compareByOrder(leftDate > rightDate ? 1 : -1,
                                                              d->sorter.currentCategorizationSortOrder);
                 }
@@ -146,7 +171,8 @@ int ImageAlbumFilterModel::compareInfosCategories(const ImageInfo& left, const I
 
             return ImageSortSettings::naturalCompare(leftAlbum->albumPath(), rightAlbum->albumPath(),
                                                      d->sorter.currentCategorizationSortOrder,
-                                                     d->sorter.categorizationCaseSensitivity);
+                                                     d->sorter.categorizationCaseSensitivity,
+                                                     d->sorter.strTypeNatural);
         }
         default:
         {
@@ -157,25 +183,15 @@ int ImageAlbumFilterModel::compareInfosCategories(const ImageInfo& left, const I
 
 void ImageAlbumFilterModel::albumChange(Album* album)
 {
-    Q_D(ImageAlbumFilterModel);
+    Q_D(const ImageAlbumFilterModel);
 
     if (album->type() == Album::PHYSICAL)
     {
-        d->albumNamesHash = AlbumManager::instance()->albumTitles();
-
-        if (d->filter.isFilteringByText())
-        {
-            setImageFilterSettings(d->filter);
-        }
+        d->delayedAlbumNamesTimer->start();
     }
     else if (album->type() == Album::TAG)
     {
-        d->tagNamesHash = AlbumManager::instance()->tagNames();
-
-        if (d->filter.isFilteringByText() || d->filter.isFilteringByTags())
-        {
-            setImageFilterSettings(d->filter);
-        }
+        d->delayedTagNamesTimer->start();
     }
 }
 
@@ -199,6 +215,30 @@ void ImageAlbumFilterModel::slotAlbumsCleared()
     Q_D(ImageAlbumFilterModel);
     d->albumNamesHash.clear();
     d->tagNamesHash.clear();
+}
+
+void ImageAlbumFilterModel::slotDelayedAlbumNamesTimer()
+{
+    Q_D(ImageAlbumFilterModel);
+
+    d->albumNamesHash = AlbumManager::instance()->albumTitles();
+
+    if (d->filter.isFilteringByText())
+    {
+        setImageFilterSettings(d->filter);
+    }
+}
+
+void ImageAlbumFilterModel::slotDelayedTagNamesTimer()
+{
+    Q_D(ImageAlbumFilterModel);
+
+    d->tagNamesHash = AlbumManager::instance()->tagNames();
+
+    if (d->filter.isFilteringByText() || d->filter.isFilteringByTags())
+    {
+        setImageFilterSettings(d->filter);
+    }
 }
 
 } // namespace Digikam

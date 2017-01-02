@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Blur FX threaded image filter.
  *
- * Copyright 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -33,7 +33,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -52,12 +52,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:BlurFXFilter";
+        return QLatin1String("digikam:BlurFXFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Blur FX Filter");
+        return QString::fromUtf8(I18N_NOOP("Blur FX Filter"));
     }
 
     static QList<int>       SupportedVersions()

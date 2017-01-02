@@ -6,7 +6,7 @@
  * Date        : 2008-11-24
  * Description : Batch Tools Manager.
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,15 +21,11 @@
  *
  * ============================================================ */
 
-#include "batchtoolsmanager.moc"
-
-// KDE includes
-
-#include <kglobal.h>
+#include "batchtoolsmanager.h"
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "assigntemplate.h"
 #include "autocorrection.h"
 #include "convert2jpeg.h"
@@ -57,11 +53,15 @@
 #include "colorfx.h"
 #include "localcontrast.h"
 #include "antivignetting.h"
+#include "redeyecorrection.h"
 #include "invert.h"
 #include "convert8to16.h"
 #include "convert16to8.h"
 #include "border.h"
 #include "removemetadata.h"
+#include "convert2dng.h"
+#include "userscript.h"
+#include "timeadjust.h"
 
 #ifdef HAVE_JASPER
 #include "convert2jp2.h"
@@ -95,7 +95,7 @@ public:
     BatchToolsManager object;
 };
 
-K_GLOBAL_STATIC(BatchToolsManagerCreator, batchToolsManagerCreator)
+Q_GLOBAL_STATIC(BatchToolsManagerCreator, batchToolsManagerCreator)
 
 // --------------------------------------------------------------------------------
 
@@ -115,6 +115,7 @@ BatchToolsManager::BatchToolsManager()
     registerTool(new Convert2JP2(this));
 #endif // HAVE_JASPER
     registerTool(new Convert2PGF(this));
+    registerTool(new Convert2DNG(this));
 
     // Transform
     registerTool(new Rotate(this));
@@ -129,6 +130,7 @@ BatchToolsManager::BatchToolsManager()
     // Metadata
     registerTool(new AssignTemplate(this));
     registerTool(new RemoveMetadata(this));
+    registerTool(new TimeAdjust(this));
 
     // Enhance
     registerTool(new Blur(this));
@@ -137,6 +139,7 @@ BatchToolsManager::BatchToolsManager()
     registerTool(new Restoration(this));
     registerTool(new LocalContrast(this));
     registerTool(new AntiVignetting(this));
+    registerTool(new RedEyeCorrection(this));
 #ifdef HAVE_LENSFUN
     registerTool(new LensAutoFix(this));
 #endif // HAVE_LENSFUN
@@ -158,6 +161,9 @@ BatchToolsManager::BatchToolsManager()
     // Filters
     registerTool(new FilmGrain(this));
     registerTool(new ColorFX(this));
+
+    // Custom
+    registerTool(new UserScript(this));
 }
 
 BatchToolsManager::~BatchToolsManager()

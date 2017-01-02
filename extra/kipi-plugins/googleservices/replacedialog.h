@@ -4,7 +4,7 @@
  * http://www.digikam.org
  *
  * Date        : 2010-02-15
- * Description : a kipi plugin to export images to Picasa web service
+ * Description : a kipi plugin to export images to Google Photo web service
  *
  * Copyright (C) 2010 by Jens Mueller <tschenser at gmx dot de>
  *
@@ -23,14 +23,16 @@
 #ifndef REPLACEDIALOG_H
 #define REPLACEDIALOG_H
 
+// Qt includes
+
 #include <QDialog>
 #include <QString>
+#include <QUrl>
+#include <QNetworkReply>
 
-#include <kurl.h>
-#include <kio/global.h>
-#include <kio/job.h>
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 using namespace KIPI;
 
@@ -39,11 +41,11 @@ namespace KIPIGoogleServicesPlugin
 
 enum ReplaceDialog_Result
 {
-    PWR_REPLACE     = 3,
-    PWR_REPLACE_ALL = 4,
+    PWR_CANCEL      = 0,
     PWR_ADD         = 1,
     PWR_ADD_ALL     = 2,
-    PWR_CANCEL      = 0
+    PWR_REPLACE     = 3,
+    PWR_REPLACE_ALL = 4
 };
 
 class ReplaceDialog : public QDialog
@@ -52,9 +54,14 @@ class ReplaceDialog : public QDialog
 
 public:
 
-    ReplaceDialog(QWidget* const parent, const QString& caption,
-                           Interface* const iface, const KUrl& src, const KUrl& dest);
+    ReplaceDialog(QWidget* const parent,
+                  const QString& caption,
+                  Interface* const iface,
+                  const QUrl& src,
+                  const QUrl& dest);
     ~ReplaceDialog();
+
+    int getResult();
 
 public Q_SLOTS:
 
@@ -66,9 +73,8 @@ public Q_SLOTS:
 
 private Q_SLOTS:
 
-    void slotResult(KJob *job);
-    void slotData(KIO::Job *job, const QByteArray& data);
-    void slotThumbnail(const KUrl& url, const QPixmap& pix);
+    void slotFinished(QNetworkReply* reply);
+    void slotThumbnail(const QUrl&, const QPixmap&);
     void slotProgressTimerDone();
 
 private:

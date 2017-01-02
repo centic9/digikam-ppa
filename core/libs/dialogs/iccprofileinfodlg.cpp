@@ -6,7 +6,7 @@
  * Date        : 2006-02-16
  * Description : a dialog to display ICC profile information.
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,42 +23,63 @@
 
 #include "iccprofileinfodlg.h"
 
+// Qt includes
+
+#include <QDialogButtonBox>
+#include <QVBoxLayout>
+#include <QPushButton>
+
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "iccprofilewidget.h"
+#include "dxmlguiwindow.h"
 
 namespace Digikam
 {
 
 ICCProfileInfoDlg::ICCProfileInfoDlg(QWidget* const parent, const QString& profilePath, const IccProfile& profile)
-    : KDialog(parent)
+    : QDialog(parent)
 {
-    setCaption(i18n("Color Profile Info - %1", profilePath));
-    setButtons(Help|Ok);
-    setDefaultButton(Ok);
     setModal(true);
-    setHelp("iccprofile.anchor", "digikam");
+    setWindowTitle(i18n("Color Profile Info - %1", profilePath));
+
+    QDialogButtonBox* const buttons = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok, this);
+    buttons->button(QDialogButtonBox::Ok)->setDefault(true);
 
     ICCProfileWidget* const profileWidget = new ICCProfileWidget(this, 340, 256);
 
     if (profile.isNull())
     {
-        profileWidget->loadFromURL(KUrl(profilePath));
+        profileWidget->loadFromURL(QUrl::fromLocalFile(profilePath));
     }
     else
     {
         profileWidget->loadProfile(profilePath, profile);
     }
 
-    setMainWidget(profileWidget);
+    QVBoxLayout* const vbx = new QVBoxLayout(this);
+    vbx->addWidget(profileWidget);
+    vbx->addWidget(buttons);
+    setLayout(vbx);
+
+    connect(buttons->button(QDialogButtonBox::Ok), SIGNAL(clicked()),
+            this, SLOT(accept()));
+
+    connect(buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
+            this, SLOT(slotHelp()));
 }
 
 ICCProfileInfoDlg::~ICCProfileInfoDlg()
 {
+}
+
+void ICCProfileInfoDlg::slotHelp()
+{
+    DXmlGuiWindow::openHandbook(QLatin1String("iccprofile.anchor"), QLatin1String("digikam"));
 }
 
 }  // namespace Digikam

@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "mixersettings.moc"
+#include "mixersettings.h"
 
 // Qt includes
 
@@ -32,27 +32,26 @@
 #include <QTextStream>
 #include <QCheckBox>
 #include <QPushButton>
+#include <QStandardPaths>
+#include <QApplication>
+#include <QStyle>
+#include <QComboBox>
+#include <QMessageBox>
+#include <QUrl>
+#include <QFileDialog>
+#include <QFontDatabase>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
-#include <kcombobox.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
+#include "dnuminput.h"
+#include "dexpanderbox.h"
+#include "digikam_debug.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
@@ -102,29 +101,29 @@ public:
     QCheckBox*            preserveLuminosity;
     QCheckBox*            monochrome;
 
-    KComboBox*            outChannelCB;
+    QComboBox*            outChannelCB;
 
     MixerContainer        mixerSettings;
 
-    RDoubleNumInput*      redGain;
-    RDoubleNumInput*      greenGain;
-    RDoubleNumInput*      blueGain;
+    DDoubleNumInput*      redGain;
+    DDoubleNumInput*      greenGain;
+    DDoubleNumInput*      blueGain;
 };
 
-const QString MixerSettings::Private::configMonochromeEntry("Monochrome");
-const QString MixerSettings::Private::configPreserveLuminosityEntry("PreserveLuminosity");
-const QString MixerSettings::Private::configRedRedGainEntry("RedRedGain");
-const QString MixerSettings::Private::configRedGreenGainEntry("RedGreenGain");
-const QString MixerSettings::Private::configRedBlueGainEntry("RedBlueGain");
-const QString MixerSettings::Private::configGreenRedGainEntry("GreenRedGain");
-const QString MixerSettings::Private::configGreenGreenGainEntry("GreenGreenGain");
-const QString MixerSettings::Private::configGreenBlueGainEntry("GreenBlueGain");
-const QString MixerSettings::Private::configBlueRedGainEntry("BlueRedGain");
-const QString MixerSettings::Private::configBlueGreenGainEntry("BlueGreenGain");
-const QString MixerSettings::Private::configBlueBlueGainEntry("BlueBlueGain");
-const QString MixerSettings::Private::configBlackRedGainEntry("BlackRedGain");
-const QString MixerSettings::Private::configBlackGreenGainEntry("BlackGreenGain");
-const QString MixerSettings::Private::configBlackBlueGainEntry("BlackBlueGain");
+const QString MixerSettings::Private::configMonochromeEntry(QLatin1String("Monochrome"));
+const QString MixerSettings::Private::configPreserveLuminosityEntry(QLatin1String("PreserveLuminosity"));
+const QString MixerSettings::Private::configRedRedGainEntry(QLatin1String("RedRedGain"));
+const QString MixerSettings::Private::configRedGreenGainEntry(QLatin1String("RedGreenGain"));
+const QString MixerSettings::Private::configRedBlueGainEntry(QLatin1String("RedBlueGain"));
+const QString MixerSettings::Private::configGreenRedGainEntry(QLatin1String("GreenRedGain"));
+const QString MixerSettings::Private::configGreenGreenGainEntry(QLatin1String("GreenGreenGain"));
+const QString MixerSettings::Private::configGreenBlueGainEntry(QLatin1String("GreenBlueGain"));
+const QString MixerSettings::Private::configBlueRedGainEntry(QLatin1String("BlueRedGain"));
+const QString MixerSettings::Private::configBlueGreenGainEntry(QLatin1String("BlueGreenGain"));
+const QString MixerSettings::Private::configBlueBlueGainEntry(QLatin1String("BlueBlueGain"));
+const QString MixerSettings::Private::configBlackRedGainEntry(QLatin1String("BlackRedGain"));
+const QString MixerSettings::Private::configBlackGreenGainEntry(QLatin1String("BlackGreenGain"));
+const QString MixerSettings::Private::configBlackBlueGainEntry(QLatin1String("BlackBlueGain"));
 
 // --------------------------------------------------------
 
@@ -132,16 +131,18 @@ MixerSettings::MixerSettings(QWidget* const parent)
     : QWidget(parent),
       d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QGridLayout* const grid = new QGridLayout(this);
 
     d->outChannelLabel = new QLabel(i18n("Output Channel:"));
-    d->outChannelCB    = new KComboBox;
+    d->outChannelCB    = new QComboBox;
     d->outChannelCB->addItem(i18n("Red"),   QVariant(RedChannel));
     d->outChannelCB->addItem(i18n("Green"), QVariant(GreenChannel));
     d->outChannelCB->addItem(i18n("Blue"),  QVariant(BlueChannel));
 
     QLabel* const redLabel = new QLabel(i18n("Red (%):"));
-    d->redGain             = new RDoubleNumInput;
+    d->redGain             = new DDoubleNumInput;
     d->redGain->setDecimals(1);
     d->redGain->setRange(-200.0, 200.0, 1);
     d->redGain->setDefaultValue(0);
@@ -149,7 +150,7 @@ MixerSettings::MixerSettings(QWidget* const parent)
                                   "for the current channel."));
 
     QLabel* const greenLabel = new QLabel(i18n("Green (%):"));
-    d->greenGain             = new RDoubleNumInput;
+    d->greenGain             = new DDoubleNumInput;
     d->greenGain->setDecimals(1);
     d->greenGain->setRange(-200.0, 200.0, 1);
     d->greenGain->setDefaultValue(0);
@@ -157,7 +158,7 @@ MixerSettings::MixerSettings(QWidget* const parent)
                                     "for the current channel."));
 
     QLabel* const blueLabel = new QLabel(i18n("Blue (%):"));
-    d->blueGain             = new RDoubleNumInput;
+    d->blueGain             = new DDoubleNumInput;
     d->blueGain->setDecimals(1);
     d->blueGain->setRange(-200.0, 200.0, 1);
     d->blueGain->setDefaultValue(0);
@@ -167,7 +168,7 @@ MixerSettings::MixerSettings(QWidget* const parent)
     // -------------------------------------------------------------
 
     d->resetButton = new QPushButton(i18n("&Reset"));
-    d->resetButton->setIcon(KIconLoader::global()->loadIcon("document-revert", KIconLoader::Toolbar));
+    d->resetButton->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     d->resetButton->setWhatsThis(i18n("Reset color channels' gains settings from "
                                       "the currently selected channel."));
 
@@ -190,7 +191,7 @@ MixerSettings::MixerSettings(QWidget* const parent)
                                         "<p><u>Note:</u> in this mode, the histogram will display only luminosity values.</p>"));
 
     d->monochromeTips->setEnabled(false);
-    d->monochromeTips->setFont(KGlobalSettings::smallestReadableFont());
+    d->monochromeTips->setFont(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont));
     d->monochromeTips->setWordWrap(true);
     d->monochromeTips->setOpenExternalLinks(true);
     d->monochromeTips->setFrameStyle(QFrame::StyledPanel | QFrame::Raised);
@@ -213,8 +214,8 @@ MixerSettings::MixerSettings(QWidget* const parent)
     grid->addWidget(d->monochromeTips,     7, 0, 1, 5);
     grid->setRowStretch(8, 10);
     grid->setColumnStretch(2, 10);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
 
     // -------------------------------------------------------------
 
@@ -543,20 +544,20 @@ void MixerSettings::writeSettings(KConfigGroup& group)
 
 void MixerSettings::loadSettings()
 {
-    KUrl           loadGainsFileUrl;
+    QUrl           loadGainsFileUrl;
     FILE*          fp = 0L;
     MixerContainer settings;
 
-    loadGainsFileUrl = KFileDialog::getOpenUrl(KGlobalSettings::documentPath(),
-                                               QString("*"), kapp->activeWindow(),
-                                               QString(i18n("Select Gimp Gains Mixer File to Load")));
+    loadGainsFileUrl = QFileDialog::getOpenFileUrl(qApp->activeWindow(), i18n("Select Gimp Gains Mixer File to Load"),
+                                                   QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                   QLatin1String("*"));
 
     if (loadGainsFileUrl.isEmpty())
     {
         return;
     }
 
-    fp = fopen(QFile::encodeName(loadGainsFileUrl.toLocalFile()), "r");
+    fp = fopen(QFile::encodeName(loadGainsFileUrl.toLocalFile()).constData(), "r");
 
     if (fp)
     {
@@ -618,27 +619,27 @@ void MixerSettings::loadSettings()
     }
     else
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("Cannot load settings from the Gains Mixer text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot load settings from the Gains Mixer text file."));
         return;
     }
 }
 
 void MixerSettings::saveAsSettings()
 {
-    KUrl  saveGainsFileUrl;
+    QUrl  saveGainsFileUrl;
     FILE* fp = 0L;
 
-    saveGainsFileUrl = KFileDialog::getSaveUrl(KGlobalSettings::documentPath(),
-                                               QString("*"), kapp->activeWindow(),
-                                               QString(i18n("Gimp Gains Mixer File to Save")));
+    saveGainsFileUrl = QFileDialog::getSaveFileUrl(qApp->activeWindow(), i18n("Gimp Gains Mixer File to Save"),
+                                                   QUrl::fromLocalFile(QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation)),
+                                                   QLatin1String("*"));
 
     if (saveGainsFileUrl.isEmpty())
     {
         return;
     }
 
-    fp = fopen(QFile::encodeName(saveGainsFileUrl.toLocalFile()), "w");
+    fp = fopen(QFile::encodeName(saveGainsFileUrl.toLocalFile()).constData(), "w");
 
     if (fp)
     {
@@ -662,7 +663,7 @@ void MixerSettings::saveAsSettings()
                 break;
 
             default:
-                kWarning() <<  "Unknown Color channel gains";
+                qCWarning(DIGIKAM_DIMG_LOG) <<  "Unknown Color channel gains";
                 break;
         }
 
@@ -699,8 +700,8 @@ void MixerSettings::saveAsSettings()
     }
     else
     {
-        KMessageBox::error(kapp->activeWindow(),
-                           i18n("Cannot save settings to the Gains Mixer text file."));
+        QMessageBox::critical(qApp->activeWindow(), qApp->applicationName(),
+                              i18n("Cannot save settings to the Gains Mixer text file."));
         return;
     }
 }

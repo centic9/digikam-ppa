@@ -25,12 +25,12 @@
 #ifndef DIMAGEHISTORY_H
 #define DIMAGEHISTORY_H
 
-//Qt includes
+// Qt includes
 
-#include <QtCore/QXmlStreamWriter>
-#include <QtCore/QXmlStreamReader>
-#include <QtCore/QHash>
-#include <QtCore/QList>
+#include <QXmlStreamWriter>
+#include <QXmlStreamReader>
+#include <QHash>
+#include <QList>
 #include <QMetaType>
 #include <QSharedDataPointer>
 #include <QString>
@@ -60,7 +60,7 @@ public:
          * but it shall be null only if it is the action of the first
          * entry, with the "Original" as referred image,
          * representing the action of digitization.
-         * 
+         *
          * There can be zero, one or any number
          * of referred images per entry.
          * A referred image is a file in the state after the action is applied.

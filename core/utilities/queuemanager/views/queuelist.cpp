@@ -6,8 +6,8 @@
  * Date        : 2008-11-21
  * Description : Batch Queue Manager items list.
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * Copyright (C)      2014 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C)      2014 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "queuelist.moc"
+#include "queuelist.h"
 
 // Qt includes
 
@@ -32,23 +32,26 @@
 #include <QPainter>
 #include <QTimer>
 #include <QUrl>
+#include <QDrag>
+#include <QMenu>
+#include <QAction>
+#include <QIcon>
 
 // KDE includes
 
-#include <kpixmapsequence.h>
-#include <kaction.h>
 #include <kactioncollection.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kurl.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
+
+// LibDRawDecoder includes
+
+#include "dwidgetutils.h"
 
 // Local includes
 
-#include "albumdb.h"
-#include "databasechangesets.h"
-#include "databasewatch.h"
+#include "digikam_debug.h"
+#include "coredb.h"
+#include "coredbchangesets.h"
+#include "coredbwatch.h"
 #include "ddragobjects.h"
 #include "defaultrenameparser.h"
 #include "queuemgrwindow.h"
@@ -91,10 +94,11 @@ public:
 };
 
 QueueListViewItem::QueueListViewItem(QueueListView* const view, const ImageInfo& info)
-    : QTreeWidgetItem(view), d(new Private)
+    : QTreeWidgetItem(view),
+      d(new Private)
 {
     d->view = view;
-    setThumb(SmallIcon("image-x-generic", KIconLoader::SizeLarge, KIconLoader::DisabledState), false);
+    setThumb(QIcon::fromTheme(QLatin1String("image-x-generic")).pixmap(48, QIcon::Disabled), false);
     setInfo(info);
 }
 
@@ -166,7 +170,7 @@ void QueueListViewItem::animProgress()
 void QueueListViewItem::setCanceled()
 {
     setPixmap(d->preview);
-    setIcon(1, SmallIcon("dialog-cancel"));
+    setIcon(1, QIcon::fromTheme(QLatin1String("dialog-cancel")));
     d->done          = false;
     d->isBusy        = false;
     d->progressIndex = 0;
@@ -175,7 +179,7 @@ void QueueListViewItem::setCanceled()
 void QueueListViewItem::setFailed()
 {
     setPixmap(d->preview);
-    setIcon(1, SmallIcon("dialog-error"));
+    setIcon(1, QIcon::fromTheme(QLatin1String("dialog-error")));
     d->done          = false;
     d->isBusy        = false;
     d->progressIndex = 0;
@@ -184,7 +188,7 @@ void QueueListViewItem::setFailed()
 void QueueListViewItem::setDone()
 {
     setPixmap(d->preview);
-    setIcon(1, SmallIcon("dialog-ok"));
+    setIcon(1, QIcon::fromTheme(QLatin1String("dialog-ok-apply")));
     d->done          = true;
     d->isBusy        = false;
     d->progressIndex = 0;
@@ -262,31 +266,32 @@ public:
         toolTip         = 0;
         toolTipItem     = 0;
         thumbLoadThread = ThumbnailLoadThread::defaultThread();
-        progressPix     = KPixmapSequence("process-working", KIconLoader::SizeSmallMedium);
+        progressPix     = DWorkingPixmap();
     }
 
-    bool                 showTips;
+    bool                        showTips;
 
-    const int            iconSize;
+    const int                   iconSize;
 
-    QTimer*              toolTipTimer;
-    QTimer*              progressTimer;
+    QTimer*                     toolTipTimer;
+    QTimer*                     progressTimer;
 
-    ThumbnailLoadThread* thumbLoadThread;
+    ThumbnailLoadThread*        thumbLoadThread;
 
-    QueueSettings        settings;
+    QueueSettings               settings;
 
-    AssignedBatchTools   toolsList;
+    AssignedBatchTools          toolsList;
 
-    QueueToolTip*        toolTip;
+    QueueToolTip*               toolTip;
 
-    QueueListViewItem*   toolTipItem;
+    QueueListViewItem*          toolTipItem;
 
-    KPixmapSequence      progressPix;
+    DWorkingPixmap              progressPix;
 };
 
 QueueListView::QueueListView(QWidget* const parent)
-    : QTreeWidget(parent), d(new Private)
+    : QTreeWidget(parent),
+      d(new Private)
 {
     setIconSize(QSize(d->iconSize, d->iconSize));
     setSelectionMode(QAbstractItemView::ExtendedSelection);
@@ -308,12 +313,12 @@ QueueListView::QueueListView(QWidget* const parent)
 
     QStringList titles;
     titles.append(i18n("Thumbnail"));
-    titles.append(i18n("File Name"));
+    titles.append(i18n("Original"));
     titles.append(i18n("Target"));
     setHeaderLabels(titles);
-    header()->setResizeMode(0, QHeaderView::ResizeToContents);
-    header()->setResizeMode(1, QHeaderView::Stretch);
-    header()->setResizeMode(2, QHeaderView::Stretch);
+    header()->setSectionResizeMode(0, QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(1, QHeaderView::Stretch);
+    header()->setSectionResizeMode(2, QHeaderView::Stretch);
 
     d->toolTip       = new QueueToolTip(this);
     d->toolTipTimer  = new QTimer(this);
@@ -321,7 +326,7 @@ QueueListView::QueueListView(QWidget* const parent)
 
     // -----------------------------------------------------------
 
-    connect(DatabaseAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
+    connect(CoreDbAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
             this, SLOT(slotCollectionImageChange(CollectionImageChangeset)),
             Qt::QueuedConnection);
 
@@ -359,8 +364,8 @@ Qt::DropActions QueueListView::supportedDropActions() const
 
 QMimeData* QueueListView::mimeData(const QList<QTreeWidgetItem*> items) const
 {
-    KUrl::List urls;
-    KUrl::List kioURLs;
+    QList<QUrl> urls;
+    QList<QUrl> kioURLs;
     QList<int> albumIDs;
     QList<qlonglong> imageIDs;
 
@@ -390,7 +395,7 @@ void QueueListView::startDrag(Qt::DropActions /*supportedActions*/)
         return;
     }
 
-    QPixmap icon(DesktopIcon("image-jp2", 48));
+    QPixmap icon(QIcon::fromTheme(QLatin1String("image-jpeg")).pixmap(48));
     int w = icon.width();
     int h = icon.height();
 
@@ -413,7 +418,7 @@ void QueueListView::startDrag(Qt::DropActions /*supportedActions*/)
     p.drawText(r, Qt::AlignCenter, text);
     p.end();
 
-    QDrag* drag = new QDrag(this);
+    QDrag* const drag = new QDrag(this);
     drag->setMimeData(mimeData(items));
     drag->setPixmap(pix);
     drag->exec();
@@ -430,8 +435,8 @@ void QueueListView::dragMoveEvent(QDragMoveEvent* e)
     int              albumID;
     QList<int>       albumIDs;
     QList<qlonglong> imageIDs;
-    KUrl::List       urls;
-    KUrl::List       kioURLs;
+    QList<QUrl>      urls;
+    QList<QUrl>      kioURLs;
 
     if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs) ||
         DAlbumDrag::decode(e->mimeData(), urls, albumID)                    ||
@@ -460,7 +465,7 @@ void QueueListView::dragMoveEvent(QDragMoveEvent* e)
             }
         }
     }
-    else if (e->mimeData()->formats().contains("digikam/workflow"))
+    else if (e->mimeData()->formats().contains(QLatin1String("digikam/workflow")))
     {
         QTreeWidget::dragMoveEvent(e);
         e->accept();
@@ -475,8 +480,8 @@ void QueueListView::dropEvent(QDropEvent* e)
     int              albumID;
     QList<int>       albumIDs;
     QList<qlonglong> imageIDs;
-    KUrl::List       urls;
-    KUrl::List       kioURLs;
+    QList<QUrl>      urls;
+    QList<QUrl>      kioURLs;
 
     if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs))
     {
@@ -502,7 +507,7 @@ void QueueListView::dropEvent(QDropEvent* e)
 
             if (vitem && vitem != this)
             {
-                foreach(ImageInfo info, imageInfoList)
+                foreach(const ImageInfo& info, imageInfoList)
                 {
                     vitem->removeItemByInfo(info);
                 }
@@ -511,7 +516,7 @@ void QueueListView::dropEvent(QDropEvent* e)
     }
     else if (DAlbumDrag::decode(e->mimeData(), urls, albumID))
     {
-        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInAlbum(albumID);
+        QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInAlbum(albumID);
         ImageInfoList imageInfoList;
 
         for (QList<qlonglong>::const_iterator it = itemIDs.constBegin();
@@ -540,7 +545,7 @@ void QueueListView::dropEvent(QDropEvent* e)
             return;
         }
 
-        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagIDs.first(), true);
+        QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInTag(tagIDs.first(), true);
         ImageInfoList imageInfoList;
 
         for (QList<qlonglong>::const_iterator it = itemIDs.constBegin();
@@ -560,9 +565,9 @@ void QueueListView::dropEvent(QDropEvent* e)
             e->acceptProposedAction();
         }
     }
-    else if (e->mimeData()->formats().contains("digikam/workflow"))
+    else if (e->mimeData()->formats().contains(QLatin1String("digikam/workflow")))
     {
-        QByteArray ba = e->mimeData()->data("digikam/workflow");
+        QByteArray ba = e->mimeData()->data(QLatin1String("digikam/workflow"));
 
         if (ba.size())
         {
@@ -739,11 +744,11 @@ void QueueListView::slotThumbnailLoaded(const LoadingDescription& desc, const QP
     {
         QueueListViewItem* const item = dynamic_cast<QueueListViewItem*>(*it);
 
-        if (item && item->info().fileUrl() == KUrl(desc.filePath))
+        if (item && item->info().fileUrl() == QUrl::fromLocalFile(desc.filePath))
         {
             if (pix.isNull())
             {
-                item->setThumb(SmallIcon("image-x-generic", d->iconSize, KIconLoader::DisabledState));
+                item->setThumb(QIcon::fromTheme(QLatin1String("image-x-generic")).pixmap(d->iconSize, QIcon::Disabled));
             }
             else
             {
@@ -890,7 +895,7 @@ QueueListViewItem* QueueListView::findItemById(qlonglong id)
     return 0;
 }
 
-QueueListViewItem* QueueListView::findItemByUrl(const KUrl& url)
+QueueListViewItem* QueueListView::findItemByUrl(const QUrl& url)
 {
     QTreeWidgetItemIterator it(this);
 
@@ -1063,7 +1068,7 @@ void QueueListView::updateDestFileNames()
                 QFileInfo fi(info.filePath());
 
                 ParseSettings ps;
-                ps.fileUrl = KUrl(fi.absoluteFilePath());
+                ps.fileUrl = QUrl::fromLocalFile(fi.absoluteFilePath());
                 files << ps;
             }
 
@@ -1093,7 +1098,7 @@ void QueueListView::updateDestFileNames()
             bool extensionSet = false;
             tools.m_itemUrl   = item->info().fileUrl();
             QString newSuffix = tools.targetSuffix(&extensionSet);
-            QString newName   = QString("%1.%2").arg(fi.completeBaseName()).arg(newSuffix);
+            QString newName   = QString::fromUtf8("%1.%2").arg(fi.completeBaseName()).arg(newSuffix);
 
             if (settings().renamingRule == QueueSettings::CUSTOMIZE && !renamingResults.isEmpty())
             {
@@ -1101,7 +1106,7 @@ void QueueListView::updateDestFileNames()
 
                 if (extensionSet)
                 {
-                    newName = QString("%1.%2").arg(fi2.completeBaseName())
+                    newName = QString::fromUtf8("%1.%2").arg(fi2.completeBaseName())
                               .arg(newSuffix);
                 }
                 else
@@ -1125,10 +1130,10 @@ void QueueListView::slotContextMenu()
     }
 
     KActionCollection* const acol = QueueMgrWindow::queueManagerWindow()->actionCollection();
-    KMenu popmenu(this);
-    popmenu.addAction(acol->action("queuemgr_removeitemssel"));
+    QMenu popmenu(this);
+    popmenu.addAction(acol->action(QLatin1String("queuemgr_removeitemssel")));
     popmenu.addSeparator();
-    popmenu.addAction(acol->action("queuemgr_clearlist"));
+    popmenu.addAction(acol->action(QLatin1String("queuemgr_clearlist")));
     popmenu.exec(QCursor::pos());
 }
 
@@ -1157,7 +1162,7 @@ void QueueListView::slotCollectionImageChange(const CollectionImageChangeset& ch
     }
 }
 
-void QueueListView::reloadThumbs(const KUrl& url)
+void QueueListView::reloadThumbs(const QUrl& url)
 {
     d->thumbLoadThread->find(ThumbnailIdentifier(url.toLocalFile()));
 }

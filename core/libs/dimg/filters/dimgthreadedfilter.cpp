@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : threaded image filter class.
  *
- * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "dimgthreadedfilter.moc"
+#include "dimgthreadedfilter.h"
 
 // Qt includes
 
@@ -30,9 +30,9 @@
 #include <QDateTime>
 #include <QThreadPool>
 
-// KDE includes
+// Local includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -179,7 +179,7 @@ void DImgThreadedFilter::startFilter()
     else  // No image data
     {
         emit finished(false);
-        kDebug() << m_name << "::No valid image data !!! ...";
+        qCDebug(DIGIKAM_DIMG_LOG) << m_name << "::No valid image data !!! ...";
     }
 }
 
@@ -195,12 +195,12 @@ void DImgThreadedFilter::startFilterDirectly()
         {
             QDateTime now = QDateTime::currentDateTime();
             filterImage();
-            kDebug() << m_name << ":: excecution time : " << now.msecsTo(QDateTime::currentDateTime()) << " ms";
+            //qCDebug(DIGIKAM_DIMG_LOG) << m_name << ":: excecution time : " << now.msecsTo(QDateTime::currentDateTime()) << " ms";
         }
         catch (std::bad_alloc& ex)
         {
             //TODO: User notification
-            kError() << "Caught out-of-memory exception! Aborting operation" << ex.what();
+            qCCritical(DIGIKAM_DIMG_LOG) << "Caught out-of-memory exception! Aborting operation" << ex.what();
             emit finished(false);
             return;
         }
@@ -210,7 +210,7 @@ void DImgThreadedFilter::startFilterDirectly()
     else  // No image data
     {
         emit finished(false);
-        kDebug() << m_name << "::No valid image data !!! ...";
+        qCDebug(DIGIKAM_DIMG_LOG) << m_name << "::No valid image data !!! ...";
     }
 }
 

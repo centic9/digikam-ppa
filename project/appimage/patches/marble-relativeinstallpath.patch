@@ -1,0 +1,22 @@
+--- a/src/lib/marble/MarbleDirs.cpp
++++ b/src/lib/marble/MarbleDirs.cpp
+@@ -120,6 +120,9 @@
+ 
+ QString MarbleDirs::systemPath()
+ {
++	QString path = QCoreApplication::applicationDirPath() + QDir::separator() + "data";
++	//qDebug() << "Marble data path: " << path;
++	return path;
+     QString systempath;
+ 
+ #ifdef Q_OS_WIN
+@@ -178,6 +181,9 @@
+ 
+ QString MarbleDirs::pluginSystemPath()
+ {
++	QString path = QCoreApplication::applicationDirPath() + QDir::separator() + "plugins";
++	//qDebug() << "Marble plugins path: " << path;
++	return path;
+     QString systempath;
+ 
+ #ifdef Q_OS_MACX

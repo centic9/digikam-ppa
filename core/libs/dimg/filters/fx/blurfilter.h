@@ -6,7 +6,7 @@
  * Date        : 2005-17-07
  * Description : A Gaussian Blur threaded image filter.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -30,7 +30,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -51,12 +51,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:BlurFilter";
+        return QLatin1String("digikam:BlurFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Blur Filter");
+        return QString::fromUtf8(I18N_NOOP("Blur Filter"));
     }
 
     static QList<int>       SupportedVersions()

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
 "PO-Revision-Date: 2013-02-03 12:44+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -33,44 +33,49 @@ msgstr "<p>Αυτή είναι η πρόοδος της ομαδικής εργ�
 msgid "Copy to Clipboard"
 msgstr "Αντιγραφή στο πρόχειρο"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:162
+#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:271
+#: libkipiplugins/dialogs/kptooldialog.cpp:210
+msgid "Close"
+msgstr ""
+
+#: libkipiplugins/dialogs/kpimagedialog.cpp:149
 msgid "<i>unavailable</i>"
 msgstr "<i>μη διαθέσιμο</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:292
+#: libkipiplugins/dialogs/kpimagedialog.cpp:228
 #, kde-format
 msgid "%1 ISO"
 msgstr "%1 ISO"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:300
+#: libkipiplugins/dialogs/kpimagedialog.cpp:236
 msgid "<i>Make:</i>"
 msgstr "<i>Κατασκευή:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:301
+#: libkipiplugins/dialogs/kpimagedialog.cpp:237
 msgid "<i>Model:</i>"
 msgstr "<i>Μοντέλο:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:302
+#: libkipiplugins/dialogs/kpimagedialog.cpp:238
 msgid "<i>Created:</i>"
 msgstr "<i>Δημιουργία:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:303
+#: libkipiplugins/dialogs/kpimagedialog.cpp:239
 msgid "<i>Aperture:</i>"
 msgstr "<i>Διάφραγμα φακού:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:304
+#: libkipiplugins/dialogs/kpimagedialog.cpp:240
 msgid "<i>Focal:</i>"
 msgstr "<i>Εσίαση:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:305
+#: libkipiplugins/dialogs/kpimagedialog.cpp:241
 msgid "<i>Exposure:</i>"
 msgstr "<i>Έκθεση:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:306
+#: libkipiplugins/dialogs/kpimagedialog.cpp:242
 msgid "<i>Sensitivity:</i>"
 msgstr "<i>Ευαισθησία:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:414
+#: libkipiplugins/dialogs/kpimagedialog.cpp:339
 #, kde-format
 msgid ""
 "\n"
@@ -79,177 +84,205 @@ msgstr ""
 "\n"
 "%1|αρχεία RAW φωτογραφικής"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:429
+#: libkipiplugins/dialogs/kpimagedialog.cpp:358
 msgid "Select an Image"
 msgstr "Επιλέξτε μια εικόνα"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:436
+#: libkipiplugins/dialogs/kpimagedialog.cpp:365
 msgid "Select Images"
 msgstr "Επιλέξτε εικόνες"
 
-#: libkipiplugins/dialogs/kpoutputdialog.cpp:68
-msgid "Copy to Clip&board"
-msgstr "Αντιγραφή στο πρόχειρο"
+#: libkipiplugins/dialogs/kplogindialog.cpp:76
+msgid "Login:"
+msgstr ""
 
-#: libkipiplugins/tools/kpaboutdata.cpp:108
+#: libkipiplugins/dialogs/kplogindialog.cpp:79
+msgid "Password:"
+msgstr ""
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:90
+msgid "&Login"
+msgstr ""
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:93
+msgid "&Skip"
+msgstr ""
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:153
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:154
+msgid "Password cannot be empty."
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:57
+#: libkipiplugins/widgets/kpsettingswidget.cpp:72
+msgid "Album"
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:60
+msgid "Title: "
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:61
+msgid "Time Stamp: "
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:62
+msgid "Description: "
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:63
+msgid "Location: "
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:116
+#, kde-format
+msgid "These are basic settings for the new %1 album."
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:118
+msgid "Title of the album that will be created (required)."
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:121
+msgid "Date and Time of the album that will be created (optional)."
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:123
+msgid "Description of the album that will be created (optional)."
+msgstr ""
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:125
+msgid "Location of the album that will be created (optional)."
+msgstr ""
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:167
+msgctxt "@action:button"
+msgid "&Start"
+msgstr ""
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:212
+msgid "Close window"
+msgstr ""
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:217
+msgid "Cancel"
+msgstr ""
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:219
+msgid "Cancel current operation"
+msgstr ""
+
+#: libkipiplugins/tools/kpaboutdata.cpp:80
 msgid "Handbook"
 msgstr "Εγχειρίδιο"
+
+#: libkipiplugins/tools/kpaboutdata.cpp:85
+msgid "About..."
+msgstr ""
+
+#: libkipiplugins/tools/kpaboutdata.cpp:121
+#, fuzzy, kde-format
+#| msgid "Version"
+msgid "Version: %1"
+msgstr "Έκδοση"
+
+#: libkipiplugins/tools/kpaboutdata.cpp:134
+#, kde-format
+msgid "About %1"
+msgstr ""
 
 #: libkipiplugins/tools/kpaboutdata.h:54
 #, fuzzy
 #| msgid "Copyright 2003-2013, kipi-plugins team"
-msgid "Copyright 2003-2015, digiKam developers team"
+msgid "Copyright 2003-2016, digiKam developers team"
 msgstr "Copyright 2003-2013, η ομάδα kipi-plugins"
 
-#: libkipiplugins/tools/kpbinaryiface.cpp:150
-#, kde-format
-msgid "Navigate to %1"
-msgstr "Πλοήγηση στο %1"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:64
-msgid "Binary"
-msgstr "Εκτελέσιμο"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:65
-msgid "Version"
-msgstr "Έκδοση"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:97
-msgid "Binary not found."
-msgstr "Το εκτελέσιμο δεν βρέθηκε."
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:98
-#, kde-format
-msgid "Minimal version number required for this binary is %1"
+#: libkipiplugins/tools/kputil.cpp:305
+msgid "Browse..."
 msgstr ""
-"Ο ελάχιστος αριθμός έκδοσης που απαιτείται για αυτό το εκτελέσιμο είναι %1"
 
-#: libkipiplugins/widgets/kpbinarysearch.cpp:100
-msgid "Find"
-msgstr "Αναζήτηση"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:102
-#, kde-format
-msgid " or <a href=\"%1\">download</a>"
-msgstr " ή <a href=\"%1\">λήψη</a>"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:127
-msgid ""
-"<qt><p><font color=\"red\"><b>Warning:</b> Some necessary binaries have not "
-"been found on your system. If you have these binaries installed, please "
-"click the 'Find' button to locate them on your system, otherwise please "
-"download and install them to proceed.</font></p></qt>"
-msgstr ""
-"<qt><p><font color=\"red\"><b>Προειδοποίηση:</b> Κάποια απαραίτητα "
-"εκτελέσιμα δεν βρέθηκαν στο σύστημά σας. Άν τα έχετε εγκατεστημένα, κάνετε "
-"κλικ στο κουμπί 'Αναζήτηση' για να τα εντοπίσετε, διαφορετικά κάνετε λήψη "
-"και εγκατάσταση αυτών για να συνεχίσετε.</font></p></qt>"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:161
-msgid ""
-"A development version has been detect. There is no guarantee on the behavior "
-"of this binary."
-msgstr ""
-"Ανιχνεύθηκε μια έκδοση σε φάση ανάπτυξης. Δεν υπάρχει εγγύηση για τη "
-"συμπεριφορά του εκτελέσιμου αυτού."
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:167
-msgid "Change"
-msgstr "Αλλαγή"
-
-#: libkipiplugins/widgets/kpimageslist.cpp:291
+#: libkipiplugins/widgets/kpimageslist.cpp:292
 msgid "Thumbnail"
 msgstr "Εικόνα επισκόπησης"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:292
+#: libkipiplugins/widgets/kpimageslist.cpp:293
 msgid "File Name"
 msgstr "Όνομα αρχείου"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:293
+#: libkipiplugins/widgets/kpimageslist.cpp:294
 msgid "User1"
 msgstr "Χρήστης1"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:294
+#: libkipiplugins/widgets/kpimageslist.cpp:295
 msgid "User2"
 msgstr "Χρήστης2"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:295
+#: libkipiplugins/widgets/kpimageslist.cpp:296
 msgid "User3"
 msgstr "Χρήστης3"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:296
+#: libkipiplugins/widgets/kpimageslist.cpp:297
 msgid "User4"
 msgstr "Χρήστης4"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:297
+#: libkipiplugins/widgets/kpimageslist.cpp:298
 msgid "User5"
 msgstr "Χρήστης5"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:298
+#: libkipiplugins/widgets/kpimageslist.cpp:299
 msgid "User6"
 msgstr "Χρήστης6"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:555
+#: libkipiplugins/widgets/kpimageslist.cpp:557
 msgid "Add new images to the list"
 msgstr "Προσθήκη νέων εικόνων στη λίστα"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:556
+#: libkipiplugins/widgets/kpimageslist.cpp:558
 msgid "Remove selected images from the list"
 msgstr "Αφαίρεση των επιλεγμένων εικόνων  από τη λίστα"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:557
+#: libkipiplugins/widgets/kpimageslist.cpp:559
 msgid "Move current selected image up in the list"
 msgstr "Μετακίνηση της τρέχουσας επιλεγμένης εικόνας προς τα πάνω στη λίστα "
 
-#: libkipiplugins/widgets/kpimageslist.cpp:558
+#: libkipiplugins/widgets/kpimageslist.cpp:560
 msgid "Move current selected image down in the list"
 msgstr "Μετακίνηση της τρέχουσας επιλεγμένης εικόνας προς τα κάτω στη λίστα "
 
-#: libkipiplugins/widgets/kpimageslist.cpp:559
+#: libkipiplugins/widgets/kpimageslist.cpp:561
 msgid "Clear the list."
 msgstr "Καθαρισμός λίστας."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:560
+#: libkipiplugins/widgets/kpimageslist.cpp:562
 msgid "Load a saved list."
 msgstr "Φόρτωση μιας αποθηκευμένης λίστας."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:561
+#: libkipiplugins/widgets/kpimageslist.cpp:563
 msgid "Save the list."
 msgstr "Αποθήκευση της λίστας."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:984
+#: libkipiplugins/widgets/kpimageslist.cpp:994
 msgid "Select the image file list to load"
 msgstr "Επιλέξτε τη λίστα αρχείων εικόνων που θα φορτωθεί"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:1040
+#: libkipiplugins/widgets/kpimageslist.cpp:996
+#: libkipiplugins/widgets/kpimageslist.cpp:1063
+msgid "All Files (*)"
+msgstr ""
+
+#: libkipiplugins/widgets/kpimageslist.cpp:1061
 msgid "Select the image file list to save"
 msgstr "Επιλέξτε τη λίστα αρχείων εικόνων που θα αποθηκευτεί"
 
-#: libkipiplugins/widgets/kppreviewimage.cpp:521
-#: libkipiplugins/widgets/kppreviewimage.cpp:522
-msgid "Zoom In"
-msgstr "Μεγέθυνση"
-
-#: libkipiplugins/widgets/kppreviewimage.cpp:527
-#: libkipiplugins/widgets/kppreviewimage.cpp:528
-msgid "Zoom Out"
-msgstr "Σμίκρυνση"
-
-#: libkipiplugins/widgets/kppreviewimage.cpp:533
-#: libkipiplugins/widgets/kppreviewimage.cpp:534
-msgid "Zoom to Fit"
-msgstr "Εστίαση προσαρμογής"
-
-#: libkipiplugins/widgets/kppreviewmanager.cpp:153
-#: libkipiplugins/widgets/kppreviewmanager.cpp:170
-msgid "Failed to load image"
-msgstr "Αποτυχία φόρτωσης της εικόνας"
-
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:76
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:81
 msgid "Output file format:"
 msgstr "Τύπος αποθήκευσης αρχείου εξόδου:"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:78
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:83
 msgid ""
 "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
 "processed image in JPEG format. This format will give smaller-sized files.</"
@@ -274,478 +307,663 @@ msgstr ""
 "μεγαλύτερα αρχεία, χωρίς απώλειες στην ποιότητα. Η εικόνα δεν είναι "
 "συμπιεσμένη.</p>"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:94
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
 msgid "If Target File Exists:"
 msgstr "Αν το αρχείο προορισμού υπάρχει:"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:98
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:103
 msgid "Overwrite automatically"
 msgstr "Αυτόματη αντικατάσταση"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:104
 msgid "Open rename-file dialog"
 msgstr "Άνοιγμα του διαλόγου μετονομασίας αρχείου"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:2
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can brighten up your images using the Batch Color "
-"Images plugin for increased contrast?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:68
+msgid "Account"
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι μπορείτε να κάνετε τις εικόνες σας φωτεινότερες "
-"χρησιμοποιώντας το πρόσθετο ομαδικού χρωματισμού εικόνων για μεγαλύτερη "
-"αντίθεση;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:19
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can abort a slideshow using <b>ESC</b>?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:77
+msgid "Max Dimension"
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι μπορείτε να διακόψετε μία προβολή σλάιντς χρησιμοποιώντας το "
-"<b>ESC</b>;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:36
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that the Kipi library provides a scanner plugin that gives you "
-"direct access to your scanner?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:80
+msgid "Destination"
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι η βιβλιοθήκη Kipi περιέχει έναν πρόσθετο σαρωτή που σας δίνει "
-"απευθείας πρόσβαση στο σαρωτή σας;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:53
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can take a screenshot with the Kipi library and save "
-"the result to an Album with some comments?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:83
+msgid "Options"
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι με τη βιβλιοθήκη Kipi μπορείτε να πάρετε ένα στιγμιότυπο "
-"οθόνης και να αποθηκεύσετε το αποτέλεσμα σε κάποιο Άλμπουμ με κάποια "
-"σχόλια;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:70
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use the <b>LZW</b> compression to reduce the size "
-"of the <b>TIFF</b> image files in the Convert Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:147
+#, kde-format
+msgid "This is the list of images to upload to your %1 account."
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι μπορείτε να χρησιμοποιήσετε συμπίεση <b>LZW</b> για να "
-"μειώσετε το μέγεθος των εικόνων <b>TIFF</b> στο πρόσθετο Μετατροπής "
-"εικόνων;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:87
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that all image operations in the batch processing image plugins "
-"run without losing the <b>Exif</b> information in the <b>JPEG</b> files?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:155
+#, kde-format
+msgid "This is a clickable link to open %1 in a browser."
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι όλες οι λειτουργίες στις εικόνες στα πρόσθετα ομαδικής "
-"επεξεργασίας εκτελούνται χωρίς την απώλεια των πληροφοριών <b>Exif</b> από "
-"τα αρχεία <b>JPEG</b> ;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:104
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that the <b>Noise Reduction</b> option in the <b>Filter Images</"
-"b> plugin can be used to improve the rendering of images taken with an "
-"analog camera?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:161
+#, kde-format
+msgid "This is the %1 account that is currently logged in."
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι η επιλογή <b>Μείωση θορύβου</b> στο πρόσθετο <b>Φιλτράρισμα "
-"εικόνων</b> μπορεί να χρησιμοποιηθεί για να βελτιώσει την εμφάνιση εικόνων "
-"που λήφθησαν με αναλογική κάμερα;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:121
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use the drag and drop feature with email images to "
-"add some items to the list?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:163
+msgctxt "account settings"
+msgid "Name:"
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι μπορείτε να χρησιμοποιήσετε σύρσιμο και ρίψη εικόνων σε "
-"μηνύματα email για να προσθέσετε εικόνες στη λίστα;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:138
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that if you want to reduce the disk space used by your images "
-"in the Albums database, you can try using the Recompress Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι αν θέλετε να μειώσετε το χώρο που καταλαμβάνουν στο  δίσκο οι "
-"εικόνες της βάσης δεδομένων των Άλμπουμ σας, θα μπορούσατε να "
-"χρησιμοποιήσετε το πρόσθετο Επανασυμπίεσης εικόνων;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-
-#. i18n: ectx: @info:tipoftheday
-#: tips:155
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that if you want to resize images to prepare them for printing "
-"on photographic paper sizes, you can use the Resize Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι αν θέλετε να αλλάξετε το μέγεθος κάποιων εικόνων για να τις "
-"προετοιμάσετε για εκτύπωση σε μέγεθος φωτογραφικού χαρτιού, μπορείτε να "
-"χρησιμοποιήσετε το πρόσθετο Αλλαγής μεγέθους εικόνων;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-
-#. i18n: ectx: @info:tipoftheday
-#: tips:172
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use image files from different Albums in the "
-"'batch-process images' \n"
-"plugin? The processed results will then be merged into the selected target "
-"Album.\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι μπορείτε να χρησιμοποιήσετε τα αρχεία εικόνων διαφορετικών "
-"άλμπουμ σε πρόσθετα 'ομαδικής επεξεργασίας εικόνων' \n"
-"; Τα αποτελέσματα της επεξεργασίας θα συγχωνευτούν στο επιλεγμένο άλμπουμ "
-"προορισμού.\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-
-#. i18n: ectx: @info:tipoftheday
-#: tips:190
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can change the timestamp of the target image files in "
-"the batch-rename images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι μπορείτε να αλλάξετε τη χρονική σφραγίδα στα αρχεία εικόνων "
-"του προορισμού με το πρόσθετο ομαδικής μετονομασίας εικόνων;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-
-#. i18n: ectx: @info:tipoftheday
-#: tips:207
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can navigate during the slideshow using the left and "
-"right mouse buttons?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι μπορείτε να πλοηγηθείτε κατά τη διάρκεια μιας προβολής σλάιντ "
-"με το αριστερό και δεξί πλήκτρο του ποντικιού;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-
-#. i18n: ectx: @info:tipoftheday
-#: tips:224
+#: libkipiplugins/widgets/kpsettingswidget.cpp:164
 #, fuzzy
-#| msgid ""
-#| "<p>\n"
-#| "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
-#| "\">\n"
-#| "<tr>\n"
-#| "<td>\n"
-#| "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-#| "</td>\n"
-#| "<td>\n"
-#| "Did you know that Kipi plugins can also be used in Digikam, Kimdaba, "
-#| "Showimg, and Gwenview programs?\n"
-#| "</td>\n"
-#| "</tr>\n"
-#| "</table>\n"
-#| "</p>\n"
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that Kipi plugins can also be used in Digikam, KPhotoAlbum, "
-"Showfoto, and Gwenview programs?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#| msgid "Change"
+msgid "Change Account"
+msgstr "Αλλαγή"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:166
+#, kde-format
+msgid "Change %1 account for transfer"
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Γνωρίζατε ότι τα πρόσθετα Kipi plugins μπορούν επίσης να χρησιμοποιηθούν από "
-"τα προγράμματα Digikam, Kimdaba, Showimg, και Gwenview;\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:176
+#, kde-format
+msgid ""
+"This is the %1 folder to/from which selected photos will be uploaded/"
+"downloaded."
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:178
+msgid "Album:"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:182
+msgid "New Album"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:184
+#, kde-format
+msgid "Create new %1 folder"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:186
+msgctxt "album list"
+msgid "Reload"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:188
+msgid "Reload album list"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:197
+msgid ""
+"This is the maximum dimension of the images. Images larger than this will be "
+"scaled down."
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:198
+msgid "Original Size"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:199
+msgid "1600 px"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:200
+msgid "1440 px"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:201
+msgid "1280 px"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:202
+msgid "1152 px"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:203
+msgid "1024 px"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:209
+#, kde-format
+msgid "This is the location where %1 images will be downloaded."
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:214
+msgid "These are the options that would be applied to photos before upload."
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:216
+msgid "Resize photos before uploading"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:226
+msgid "Maximum Dimension:"
+msgstr ""
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:235
+msgid "JPEG Quality:"
+msgstr ""
+
+#~ msgid "Copy to Clip&board"
+#~ msgstr "Αντιγραφή στο πρόχειρο"
+
+#~ msgid "Navigate to %1"
+#~ msgstr "Πλοήγηση στο %1"
+
+#~ msgid "Binary"
+#~ msgstr "Εκτελέσιμο"
+
+#~ msgid "Binary not found."
+#~ msgstr "Το εκτελέσιμο δεν βρέθηκε."
+
+#~ msgid "Minimal version number required for this binary is %1"
+#~ msgstr ""
+#~ "Ο ελάχιστος αριθμός έκδοσης που απαιτείται για αυτό το εκτελέσιμο είναι %1"
+
+#~ msgid "Find"
+#~ msgstr "Αναζήτηση"
+
+#~ msgid " or <a href=\"%1\">download</a>"
+#~ msgstr " ή <a href=\"%1\">λήψη</a>"
+
+#~ msgid ""
+#~ "<qt><p><font color=\"red\"><b>Warning:</b> Some necessary binaries have "
+#~ "not been found on your system. If you have these binaries installed, "
+#~ "please click the 'Find' button to locate them on your system, otherwise "
+#~ "please download and install them to proceed.</font></p></qt>"
+#~ msgstr ""
+#~ "<qt><p><font color=\"red\"><b>Προειδοποίηση:</b> Κάποια απαραίτητα "
+#~ "εκτελέσιμα δεν βρέθηκαν στο σύστημά σας. Άν τα έχετε εγκατεστημένα, "
+#~ "κάνετε κλικ στο κουμπί 'Αναζήτηση' για να τα εντοπίσετε, διαφορετικά "
+#~ "κάνετε λήψη και εγκατάσταση αυτών για να συνεχίσετε.</font></p></qt>"
+
+#~ msgid ""
+#~ "A development version has been detect. There is no guarantee on the "
+#~ "behavior of this binary."
+#~ msgstr ""
+#~ "Ανιχνεύθηκε μια έκδοση σε φάση ανάπτυξης. Δεν υπάρχει εγγύηση για τη "
+#~ "συμπεριφορά του εκτελέσιμου αυτού."
+
+#~ msgid "Change"
+#~ msgstr "Αλλαγή"
+
+#~ msgid "Zoom In"
+#~ msgstr "Μεγέθυνση"
+
+#~ msgid "Zoom Out"
+#~ msgstr "Σμίκρυνση"
+
+#~ msgid "Zoom to Fit"
+#~ msgstr "Εστίαση προσαρμογής"
+
+#~ msgid "Failed to load image"
+#~ msgstr "Αποτυχία φόρτωσης της εικόνας"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can brighten up your images using the Batch Color "
+#~ "Images plugin for increased contrast?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι μπορείτε να κάνετε τις εικόνες σας φωτεινότερες "
+#~ "χρησιμοποιώντας το πρόσθετο ομαδικού χρωματισμού εικόνων για μεγαλύτερη "
+#~ "αντίθεση;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can abort a slideshow using <b>ESC</b>?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι μπορείτε να διακόψετε μία προβολή σλάιντς χρησιμοποιώντας "
+#~ "το <b>ESC</b>;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that the Kipi library provides a scanner plugin that gives "
+#~ "you direct access to your scanner?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι η βιβλιοθήκη Kipi περιέχει έναν πρόσθετο σαρωτή που σας "
+#~ "δίνει απευθείας πρόσβαση στο σαρωτή σας;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can take a screenshot with the Kipi library and "
+#~ "save the result to an Album with some comments?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι με τη βιβλιοθήκη Kipi μπορείτε να πάρετε ένα στιγμιότυπο "
+#~ "οθόνης και να αποθηκεύσετε το αποτέλεσμα σε κάποιο Άλμπουμ με κάποια "
+#~ "σχόλια;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can use the <b>LZW</b> compression to reduce the "
+#~ "size of the <b>TIFF</b> image files in the Convert Images plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι μπορείτε να χρησιμοποιήσετε συμπίεση <b>LZW</b> για να "
+#~ "μειώσετε το μέγεθος των εικόνων <b>TIFF</b> στο πρόσθετο Μετατροπής "
+#~ "εικόνων;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that all image operations in the batch processing image "
+#~ "plugins run without losing the <b>Exif</b> information in the <b>JPEG</b> "
+#~ "files?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι όλες οι λειτουργίες στις εικόνες στα πρόσθετα ομαδικής "
+#~ "επεξεργασίας εκτελούνται χωρίς την απώλεια των πληροφοριών <b>Exif</b> "
+#~ "από τα αρχεία <b>JPEG</b> ;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that the <b>Noise Reduction</b> option in the <b>Filter "
+#~ "Images</b> plugin can be used to improve the rendering of images taken "
+#~ "with an analog camera?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι η επιλογή <b>Μείωση θορύβου</b> στο πρόσθετο <b>Φιλτράρισμα "
+#~ "εικόνων</b> μπορεί να χρησιμοποιηθεί για να βελτιώσει την εμφάνιση "
+#~ "εικόνων που λήφθησαν με αναλογική κάμερα;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can use the drag and drop feature with email images "
+#~ "to add some items to the list?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι μπορείτε να χρησιμοποιήσετε σύρσιμο και ρίψη εικόνων σε "
+#~ "μηνύματα email για να προσθέσετε εικόνες στη λίστα;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that if you want to reduce the disk space used by your "
+#~ "images in the Albums database, you can try using the Recompress Images "
+#~ "plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι αν θέλετε να μειώσετε το χώρο που καταλαμβάνουν στο  δίσκο "
+#~ "οι εικόνες της βάσης δεδομένων των Άλμπουμ σας, θα μπορούσατε να "
+#~ "χρησιμοποιήσετε το πρόσθετο Επανασυμπίεσης εικόνων;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that if you want to resize images to prepare them for "
+#~ "printing on photographic paper sizes, you can use the Resize Images "
+#~ "plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι αν θέλετε να αλλάξετε το μέγεθος κάποιων εικόνων για να τις "
+#~ "προετοιμάσετε για εκτύπωση σε μέγεθος φωτογραφικού χαρτιού, μπορείτε να "
+#~ "χρησιμοποιήσετε το πρόσθετο Αλλαγής μεγέθους εικόνων;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can use image files from different Albums in the "
+#~ "'batch-process images' \n"
+#~ "plugin? The processed results will then be merged into the selected "
+#~ "target Album.\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι μπορείτε να χρησιμοποιήσετε τα αρχεία εικόνων διαφορετικών "
+#~ "άλμπουμ σε πρόσθετα 'ομαδικής επεξεργασίας εικόνων' \n"
+#~ "; Τα αποτελέσματα της επεξεργασίας θα συγχωνευτούν στο επιλεγμένο άλμπουμ "
+#~ "προορισμού.\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can change the timestamp of the target image files "
+#~ "in the batch-rename images plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι μπορείτε να αλλάξετε τη χρονική σφραγίδα στα αρχεία εικόνων "
+#~ "του προορισμού με το πρόσθετο ομαδικής μετονομασίας εικόνων;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can navigate during the slideshow using the left "
+#~ "and right mouse buttons?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι μπορείτε να πλοηγηθείτε κατά τη διάρκεια μιας προβολής "
+#~ "σλάιντ με το αριστερό και δεξί πλήκτρο του ποντικιού;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#, fuzzy
+#~| msgid ""
+#~| "<p>\n"
+#~| "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~| "\">\n"
+#~| "<tr>\n"
+#~| "<td>\n"
+#~| "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~| "</td>\n"
+#~| "<td>\n"
+#~| "Did you know that Kipi plugins can also be used in Digikam, Kimdaba, "
+#~| "Showimg, and Gwenview programs?\n"
+#~| "</td>\n"
+#~| "</tr>\n"
+#~| "</table>\n"
+#~| "</p>\n"
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that Kipi plugins can also be used in Digikam, KPhotoAlbum, "
+#~ "Showfoto, and Gwenview programs?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Γνωρίζατε ότι τα πρόσθετα Kipi plugins μπορούν επίσης να χρησιμοποιηθούν "
+#~ "από τα προγράμματα Digikam, Kimdaba, Showimg, και Gwenview;\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
 
 #~ msgid ""
 #~ "IRC:\n"

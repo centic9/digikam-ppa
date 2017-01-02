@@ -7,7 +7,7 @@
  * Description : digiKam image editor GUI
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -45,7 +45,7 @@ public:
             return loc.albumRootPath();
         }
 
-        return "/";
+        return QLatin1String("/");
     }
 };
 
@@ -86,7 +86,7 @@ public:
         return !currentImageInfo.isNull();
     }
 
-    KUrl currentUrl() const
+    QUrl currentUrl() const
     {
         return currentImageInfo.fileUrl();
     }
@@ -146,12 +146,12 @@ public:
 
     KMainWindow*              viewContainer;
 
-    KAction*                  toMainWindowAction;
+    QAction*                  toMainWindowAction;
 
     // Delete actions
-    KAction*                  fileDeletePermanentlyAction;
-    KAction*                  fileDeletePermanentlyDirectlyAction;
-    KAction*                  fileTrashDirectlyAction;
+    QAction*                  fileDeletePermanentlyAction;
+    QAction*                  fileDeletePermanentlyDirectlyAction;
+    QAction*                  fileTrashDirectlyAction;
 
     ImageInfo                 currentImageInfo;
     ImageListModel*           imageInfoModel;
@@ -166,8 +166,8 @@ public:
     DatabaseVersionManager    versionManager;
 };
 
-const QString ImageWindow::Private::configShowThumbbarEntry("Show Thumbbar");
-const QString ImageWindow::Private::configHorizontalThumbbarEntry("HorizontalThumbbar");
+const QString ImageWindow::Private::configShowThumbbarEntry(QLatin1String("Show Thumbbar"));
+const QString ImageWindow::Private::configHorizontalThumbbarEntry(QLatin1String("HorizontalThumbbar"));
 
 }  // namespace Digikam
 

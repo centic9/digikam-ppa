@@ -6,7 +6,7 @@
  * Date        : 2008-13-08
  * Description : Raw post processing corrections.
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -23,18 +23,15 @@
 
 #include "rawpostprocessing.h"
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "imagehistogram.h"
 #include "imagelevels.h"
 #include "wbfilter.h"
 #include "curvesfilter.h"
 #include "bcgfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 namespace Digikam
 {
@@ -72,7 +69,7 @@ void RawPostProcessing::rawPostProcessing()
 {
     if (!m_orgImage.bits() || !m_orgImage.width() || !m_orgImage.height())
     {
-        kWarning() << ("RawPostProcessing::rawPostProcessing: no image m_orgImage.bits() available!");
+        qCWarning(DIGIKAM_GENERAL_LOG) << ("RawPostProcessing::rawPostProcessing: no image m_orgImage.bits() available!");
         return;
     }
 

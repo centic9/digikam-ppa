@@ -21,11 +21,11 @@
  *
  * ============================================================ */
 
-#include "cameranameoption.moc"
+#include "cameranameoption.h"
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -36,9 +36,11 @@ namespace Digikam
 {
 
 CameraNameOption::CameraNameOption()
-    : Option(i18n("Camera"), i18n("Add the camera name"), "camera-photo")
+    : Option(i18n("Camera"),
+             i18n("Add the camera name"),
+             QLatin1String("camera-photo"))
 {
-    QString token("[cam]");
+    QString token(QLatin1String("[cam]"));
     addToken(token, i18n("Camera name"));
 
     QRegExp reg(escapeToken(token));
@@ -54,7 +56,7 @@ QString CameraNameOption::parseOperation(ParseSettings& settings)
 
     if (!info.isNull())
     {
-        result = info.photoInfoContainer().make + ' ' + info.photoInfoContainer().model;
+        result = info.photoInfoContainer().make + QLatin1Char(' ') + info.photoInfoContainer().model;
     }
     else
     {
@@ -66,23 +68,23 @@ QString CameraNameOption::parseOperation(ParseSettings& settings)
 
         if (!meta.isEmpty())
         {
-            KExiv2::MetaDataMap dataMap;
+            MetaEngine::MetaDataMap dataMap;
             dataMap = meta.getExifTagsDataList(QStringList(), true);
 
             foreach(const QString& key, dataMap.keys())
             {
-                if (key.toLower().contains("exif.image.model"))
+                if (key.toLower().contains(QLatin1String("exif.image.model")))
                 {
                     model = dataMap[key];
                 }
-                else if (key.toLower().contains("exif.image.make"))
+                else if (key.toLower().contains(QLatin1String("exif.image.make")))
                 {
                     make = dataMap[key];
                 }
             }
         }
 
-        result = make + ' ' + model;
+        result = make + QLatin1Char(' ') + model;
     }
 
     return result.simplified();

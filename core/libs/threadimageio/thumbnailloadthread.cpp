@@ -7,7 +7,8 @@
  * Description : Thumbnail loading
  *
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,35 +23,40 @@
  *
  * ============================================================ */
 
-#include "thumbnailloadthread.moc"
+#include "thumbnailloadthread.h"
 
 // Qt includes
 
+#include <QApplication>
 #include <QEventLoop>
 #include <QHash>
 #include <QPainter>
+#include <QMessageBox>
+#include <QIcon>
+#include <QMimeType>
+#include <QMimeDatabase>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <kiconloader.h>
-#include <kio/previewjob.h>
-#include <kmessagebox.h>
-#include <kdeversion.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "databaseparameters.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
+#include "dbengineparameters.h"
 #include "iccmanager.h"
 #include "iccprofile.h"
 #include "iccsettings.h"
 #include "metadatasettings.h"
-#include "thumbnaildatabaseaccess.h"
+#include "thumbsdbaccess.h"
 #include "thumbnailsize.h"
 #include "thumbnailtask.h"
 #include "thumbnailcreator.h"
+
+#ifdef HAVE_MEDIAPLAYER
+#   include "videothumbnailerjob.h"
+#endif
 
 namespace Digikam
 {
@@ -61,7 +67,8 @@ class ThumbnailResult
 public:
 
     ThumbnailResult(const LoadingDescription& description, const QImage& image)
-        : loadingDescription(description), image(image)
+        : loadingDescription(description),
+          image(image)
     {
     }
 
@@ -97,7 +104,7 @@ public:
     IccProfile                      profile;
 };
 
-K_GLOBAL_STATIC(ThumbnailLoadThreadStaticPriv, static_d)
+Q_GLOBAL_STATIC(ThumbnailLoadThreadStaticPriv, static_d)
 
 // -------------------------------------------------------------------
 
@@ -112,29 +119,33 @@ public:
         wantPixmap         = true;
         highlight          = true;
         sendSurrogate      = true;
-        creator            = 0;
-        kdeJob             = 0;
         notifiedForResults = false;
+        creator            = 0;
+
+#ifdef HAVE_MEDIAPLAYER
+        videoThumbs        = 0;
+#endif
     }
 
-    bool                            wantPixmap;
-    bool                            highlight;
-    bool                            sendSurrogate;
-    bool                            notifiedForResults;
+    bool                               wantPixmap;
+    bool                               highlight;
+    bool                               sendSurrogate;
+    bool                               notifiedForResults;
 
-    int                             size;
+    int                                size;
 
-    ThumbnailCreator*               creator;
+    ThumbnailCreator*                  creator;
 
-    QHash<QString, ThumbnailResult> collectedResults;
-    QMutex                          resultsMutex;
+    QHash<QString, ThumbnailResult>    collectedResults;
+    QMutex                             resultsMutex;
 
-    QList<LoadingDescription>       kdeTodo;
-    QHash<KUrl, LoadingDescription> kdeJobHash;
-    KIO::PreviewJob*                kdeJob;
+    QHash<QString, LoadingDescription> videoJobHash;
 
-    QList<LoadingDescription>       lastDescriptions;
-    QStringList                     previewPlugins;
+#ifdef HAVE_MEDIAPLAYER
+    VideoThumbnailerJob*               videoThumbs;
+#endif
+
+    QList<LoadingDescription>          lastDescriptions;
 
 public:
 
@@ -149,9 +160,9 @@ public:
     int                       thumbnailSizeForPixmapSize(int pixmapSize) const;
 };
 
-K_GLOBAL_STATIC(ThumbnailLoadThread, defaultIconViewObject)
-K_GLOBAL_STATIC(ThumbnailLoadThread, defaultObject)
-K_GLOBAL_STATIC(ThumbnailLoadThread, defaultThumbBarObject)
+Q_GLOBAL_STATIC(ThumbnailLoadThread, defaultIconViewObject)
+Q_GLOBAL_STATIC(ThumbnailLoadThread, defaultObject)
+Q_GLOBAL_STATIC(ThumbnailLoadThread, defaultThumbBarObject)
 
 ThumbnailLoadThread::ThumbnailLoadThread(QObject* const parent)
     : ManagedLoadSaveThread(parent),
@@ -170,11 +181,32 @@ ThumbnailLoadThread::ThumbnailLoadThread(QObject* const parent)
 
     connect(this, SIGNAL(thumbnailsAvailable()),
             this, SLOT(slotThumbnailsAvailable()));
+
+#ifdef HAVE_MEDIAPLAYER
+
+    d->videoThumbs               = new VideoThumbnailerJob(this);
+    d->videoThumbs->setCreateStrip(true);
+
+    connect(d->videoThumbs, SIGNAL(signalThumbnailDone(QString,QImage)),
+            this, SLOT(slotVideoThumbnailDone(QString,QImage)));
+
+    connect(d->videoThumbs, SIGNAL(signalThumbnailFailed(QString)),
+            this, SLOT(slotVideoThumbnailFailed(QString)));
+
+    connect(d->videoThumbs, SIGNAL(signalThumbnailJobFinished()),
+            this, SLOT(slotVideoThumbnailFinished()));
+
+#endif
 }
 
 ThumbnailLoadThread::~ThumbnailLoadThread()
 {
     shutDown();
+
+#ifdef HAVE_MEDIAPLAYER
+    delete d->videoThumbs;
+#endif
+
     delete d->creator;
     delete d;
 }
@@ -196,32 +228,34 @@ ThumbnailLoadThread* ThumbnailLoadThread::defaultThumbBarThread()
 
 void ThumbnailLoadThread::cleanUp()
 {
-    defaultIconViewObject.destroy();
-    defaultObject.destroy();
-    defaultThumbBarObject.destroy();
+    // NOTE : Nothing to do with Qt5 and Q_GLOBAL_STATIC. Qt clean up all automatically at end of application instance.
+    // But stopping all running tasks to prevent a crash at end.
+    defaultIconViewThread()->stopAllTasks();
+    defaultThumbBarThread()->stopAllTasks();
+    defaultThread()->stopAllTasks();
 }
 
-void ThumbnailLoadThread::initializeThumbnailDatabase(const DatabaseParameters& params, ThumbnailInfoProvider* const provider)
+void ThumbnailLoadThread::initializeThumbnailDatabase(const DbEngineParameters& params, ThumbnailInfoProvider* const provider)
 {
     if (static_d->firstThreadCreated)
     {
-        kError() << "Call initializeThumbnailDatabase at application start. "
-                 "There are already thumbnail loading threads created, "
-                 "and these will not be switched to use the database. ";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Call initializeThumbnailDatabase at application start. "
+                                        "There are already thumbnail loading threads created, "
+                                        "and these will not be switched to use the database. ";
     }
 
-    ThumbnailDatabaseAccess::setParameters(params);
+    ThumbsDbAccess::setParameters(params);
 
-    if (ThumbnailDatabaseAccess::checkReadyForUse(0))
+    if (ThumbsDbAccess::checkReadyForUse(0))
     {
-        kDebug() << "Thumbnail db ready for use";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Thumbnails database ready for use";
         static_d->storageMethod = ThumbnailCreator::ThumbnailDatabase;
         static_d->provider      = provider;
     }
     else
     {
-        KMessageBox::information(0, i18n("Error message: %1", ThumbnailDatabaseAccess().lastError()),
-                                 i18n("Failed to initialize thumbnail database"));
+        QMessageBox::information(qApp->activeWindow(), i18n("Failed to initialize thumbnails database"),
+                                 i18n("Error message: %1", ThumbsDbAccess().lastError()));
     }
 }
 
@@ -673,13 +707,13 @@ bool ThumbnailLoadThread::checkSize(int size)
 
     if (size <= 0)
     {
-        kError() << "ThumbnailLoadThread::load: No thumbnail size specified. Refusing to load thumbnail.";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "ThumbnailLoadThread::load: No thumbnail size specified. Refusing to load thumbnail.";
         return false;
     }
     else if (size > ThumbnailSize::maxThumbsSize())
     {
-        kError() << "ThumbnailLoadThread::load: Thumbnail size " << size
-                 << " is larger than " << ThumbnailSize::maxThumbsSize() << ". Refusing to load.";
+        qCDebug(DIGIKAM_GENERAL_LOG) << "ThumbnailLoadThread::load: Thumbnail size " << size
+                                     << " is larger than " << ThumbnailSize::maxThumbsSize() << ". Refusing to load.";
         return false;
     }
 
@@ -736,7 +770,7 @@ void ThumbnailLoadThread::slotThumbnailLoaded(const LoadingDescription& descript
 {
     if (thumb.isNull())
     {
-        loadWithKDE(description);
+        loadVideoThumbnail(description);
     }
 
     QPixmap pix;
@@ -769,80 +803,41 @@ void ThumbnailLoadThread::slotThumbnailLoaded(const LoadingDescription& descript
     emit signalThumbnailLoaded(description, pix);
 }
 
-// --- KDE thumbnails ---
+// --- Video thumbnails ---
 
-void ThumbnailLoadThread::loadWithKDE(const LoadingDescription& description)
+void ThumbnailLoadThread::loadVideoThumbnail(const LoadingDescription& description)
 {
-    d->kdeTodo << description;
-    startKdePreviewJob();
-}
-
-void ThumbnailLoadThread::startKdePreviewJob()
-{
-    if (d->kdeJob || d->kdeTodo.isEmpty())
-    {
-        return;
-    }
-
-    d->kdeJobHash.clear();
-    KUrl::List list;
-
-    foreach(const LoadingDescription& description, d->kdeTodo)
-    {
-        KUrl url = KUrl::fromPath(description.filePath);
-        list << url;
-        d->kdeJobHash[url] = description;
-    }
-
-    d->kdeTodo.clear();
-
-#if KDE_IS_VERSION(4,7,0)
-    KFileItemList items;
-
-    if (d->previewPlugins.isEmpty())
-      d->previewPlugins = KIO::PreviewJob::availablePlugins();
-
-    for (KUrl::List::ConstIterator it = list.constBegin() ; it != list.constEnd() ; ++it)
-    {
-        if ((*it).isValid())
-            items.append(KFileItem(KFileItem::Unknown, KFileItem::Unknown, *it, true));
-    }
-
-    d->kdeJob = KIO::filePreview(items, QSize(d->creator->storedSize(), d->creator->storedSize()), &d->previewPlugins); // FIXME: do not know if size 0 is allowed
+#ifdef HAVE_MEDIAPLAYER
+    d->videoJobHash.insert(description.filePath, description);
+    d->videoThumbs->setThumbnailSize(d->creator->storedSize());
+    d->videoThumbs->addItems(QStringList() << description.filePath);
 #else
-    d->kdeJob = KIO::filePreview(list, d->creator->storedSize());                                                       // FIXME: do not know if size 0 is allowed
+    qDebug(DIGIKAM_GENERAL_LOG) << "Cannot get video thumb for " << description.filePath;
+    qDebug(DIGIKAM_GENERAL_LOG) << "Video support is not available";
+    slotVideoThumbnailFailed(description.filePath);
 #endif
-
-    connect(d->kdeJob, SIGNAL(gotPreview(KFileItem,QPixmap)),
-            this, SLOT(gotKDEPreview(KFileItem,QPixmap)));
-
-    connect(d->kdeJob, SIGNAL(failed(KFileItem)),
-            this, SLOT(failedKDEPreview(KFileItem)));
-
-    connect(d->kdeJob, SIGNAL(finished(KJob*)),
-            this, SLOT(kdePreviewFinished(KJob*)));
 }
 
-void ThumbnailLoadThread::gotKDEPreview(const KFileItem& item, const QPixmap& kdepix)
+void ThumbnailLoadThread::slotVideoThumbnailDone(const QString& item, const QImage& img)
 {
-    if (!d->kdeJobHash.contains(item.url()))
+    if (!d->videoJobHash.contains(item))
     {
         return;
     }
 
-    LoadingDescription description = d->kdeJobHash.value(item.url());
+    LoadingDescription description = d->videoJobHash.value(item);
     QPixmap pix;
 
-    if (kdepix.isNull())
+    if (img.isNull())
     {
         // third and last attempt - load a mimetype specific icon
         pix = surrogatePixmap(description);
     }
     else
     {
-        d->creator->store(description.filePath, kdepix.toImage());
-        pix = kdepix.scaled(description.previewParameters.size, description.previewParameters.size,
-                            Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        d->creator->store(description.filePath, img);
+        pix = QPixmap::fromImage(img.scaled(description.previewParameters.size, description.previewParameters.size,
+                                 Qt::KeepAspectRatio, Qt::SmoothTransformation));
     }
 
     // put into cache
@@ -852,57 +847,34 @@ void ThumbnailLoadThread::gotKDEPreview(const KFileItem& item, const QPixmap& kd
         cache->putThumbnail(description.cacheKey(), pix, description.filePath);
     }
 
+    d->videoJobHash.remove(description.filePath);
+
     emit signalThumbnailLoaded(description, pix);
 }
 
-void ThumbnailLoadThread::failedKDEPreview(const KFileItem& item)
+void ThumbnailLoadThread::slotVideoThumbnailFailed(const QString& item)
 {
-    gotKDEPreview(item, QPixmap());
+    slotVideoThumbnailDone(item, QImage());
 }
 
-void ThumbnailLoadThread::kdePreviewFinished(KJob*)
+void ThumbnailLoadThread::slotVideoThumbnailFinished()
 {
-    d->kdeJob = 0;
-    startKdePreviewJob();
 }
 
 QPixmap ThumbnailLoadThread::surrogatePixmap(const LoadingDescription& description)
 {
     QPixmap pix;
 
-    KMimeType::Ptr mimeType = KMimeType::findByPath(description.filePath);
+    QMimeType mimeType = QMimeDatabase().mimeTypeForFile(description.filePath);
 
-    if (mimeType)
+    if (mimeType.isValid())
     {
-        pix = DesktopIcon(mimeType->iconName(), KIconLoader::SizeEnormous);
+        pix = QIcon::fromTheme(mimeType.genericIconName()).pixmap(128);
     }
-
-/*
-    No dependency on ApplicationSettings here please...
-    QString ext = QFileInfo(url.toLocalFile()).suffix();
-
-    ApplicationSettings* const settings = ApplicationSettings::instance();
-    if (settings)
-    {
-        if (settings->getImageFileFilter().toUpper().contains(ext.toUpper()) ||
-            settings->getRawFileFilter().toUpper().contains(ext.toUpper()))
-        {
-            pix = DesktopIcon("image", KIconLoader::SizeEnormous);
-        }
-        else if (settings->getMovieFileFilter().toUpper().contains(ext.toUpper()))
-        {
-            pix = DesktopIcon("video", KIconLoader::SizeEnormous);
-        }
-        else if (settings->getAudioFileFilter().toUpper().contains(ext.toUpper()))
-        {
-            pix = DesktopIcon("sound", KIconLoader::SizeEnormous);
-        }
-    }
-*/
 
     if (pix.isNull())
     {
-        pix = DesktopIcon("image-missing", KIconLoader::SizeEnormous);
+        pix = QIcon::fromTheme(QLatin1String("unknown")).pixmap(128);
     }
 
     if (pix.isNull())
@@ -984,12 +956,15 @@ public:
     public:
 
         CatcherResult(const LoadingDescription& d)
-            : description(d), received(false)
+            : description(d),
+              received(false)
         {
         }
 
         CatcherResult(const LoadingDescription& d, const QImage& image)
-            : image(image), description(d), received(true)
+            : image(image),
+              description(d),
+              received(true)
         {
         }
 
@@ -1066,12 +1041,14 @@ void ThumbnailImageCatcher::Private::harvest(const LoadingDescription& descripti
 }
 
 ThumbnailImageCatcher::ThumbnailImageCatcher(QObject* const parent)
-    : QObject(parent), d(new Private)
+    : QObject(parent),
+      d(new Private)
 {
 }
 
 ThumbnailImageCatcher::ThumbnailImageCatcher(ThumbnailLoadThread* const thread, QObject* const parent)
-    : QObject(parent), d(new Private)
+    : QObject(parent),
+      d(new Private)
 {
     setThumbnailLoadThread(thread);
 }

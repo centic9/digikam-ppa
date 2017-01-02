@@ -6,8 +6,8 @@
  * Date        : 2010-11-15
  * Description : a kipi plugin to export images to VKontakte.ru web service
  *
- * Copyright (C) 2010 by Roman Tsisyk <roman at tsisyk dot com>
- * Copyright (C) 2011 by Alexander Potashev <aspotashev at gmail dot com>
+ * Copyright (C) 2010       by Roman Tsisyk <roman at tsisyk dot com>
+ * Copyright (C) 2011, 2015 by Alexander Potashev <aspotashev@gmail.com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,41 +21,35 @@
  *
  * ============================================================ */
 
-#include "plugin_vkontakte.moc"
+#include "plugin_vkontakte.h"
+
+// Qt includes
+
+#include <QApplication>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kaction.h>
-#include <kgenericfactory.h>
-#include <klibloader.h>
-#include <kconfig.h>
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kactioncollection.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 #include <kwindowsystem.h>
-
-// LibKIPI includes
-
-#include <libkipi/interface.h>
 
 // Local includes
 
 #include "vkwindow.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIVkontaktePlugin
 {
 
 K_PLUGIN_FACTORY( Factory, registerPlugin<Plugin_Vkontakte>(); )
-K_EXPORT_PLUGIN ( Factory("kipiplugin_vkontakte") )
 
 Plugin_Vkontakte::Plugin_Vkontakte(QObject* const parent, const QVariantList&)
-    : Plugin(Factory::componentData(), parent, "VKontakte")
+    : Plugin(parent, "VKontakte")
 {
     m_dlgExport    = 0;
     m_actionExport = 0;
 
-    kDebug(AREA_CODE_LOADING) << "Plugin_Vkontakte plugin loaded" ;
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_Vkontakte plugin loaded";
 
     setUiBaseName("kipiplugin_vkontakteui.rc");
     setupXML();
@@ -73,7 +67,7 @@ void Plugin_Vkontakte::setup(QWidget* const widget)
 
     if (!interface())
     {
-        kError() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
@@ -84,18 +78,18 @@ void Plugin_Vkontakte::setupActions()
 {
     setDefaultCategory(ExportPlugin);
 
-    m_actionExport = new KAction(this);
+    m_actionExport = new QAction(this);
     m_actionExport->setText(i18n("Export to &VKontakte..."));
     // TODO: icon file
     //m_actionExport->setIcon(KIcon("vkontakte"));
-    m_actionExport->setIcon(KIcon("preferences-web-browser-shortcuts"));
+    m_actionExport->setIcon(QIcon::fromTheme(QString::fromLatin1("preferences-web-browser-shortcuts")));
     //m_actionExport->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::Key_Y));
     m_actionExport->setEnabled(false);
 
     connect(m_actionExport, SIGNAL(triggered(bool)),
             this, SLOT(slotExport()));
 
-    addAction("VKontakte", m_actionExport);
+    addAction(QString::fromLatin1("VKontakte"), m_actionExport);
 }
 
 void Plugin_Vkontakte::slotExport()
@@ -104,7 +98,7 @@ void Plugin_Vkontakte::slotExport()
     {
         // This object will live forever, we will reuse it on future accesses
         // to the plugin.
-        m_dlgExport = new VkontakteWindow(false, kapp->activeWindow());
+        m_dlgExport = new VkontakteWindow(false, QApplication::activeWindow());
     }
     else
     {
@@ -118,3 +112,5 @@ void Plugin_Vkontakte::slotExport()
 }
 
 } // namespace KIPIVkontaktePlugin
+
+#include "plugin_vkontakte.moc"

@@ -7,7 +7,7 @@
  * Description : a plugin to export image collections using SimpleViewer.
  *
  * Copyright (C) 2005-2006 by Joern Ahrens <joern dot ahrens at kdemail dot net>
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,15 +31,15 @@
 #include <QImage>
 #include <QDomDocument>
 #include <QDomElement>
+#include <QUrl>
 
 // KDE includes
 
-#include <kurl.h>
 #include <kzip.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
@@ -100,7 +100,7 @@ private:
      * @param galleryElem - xml tag that contains info about all uploaded images( SimpleViewer, Autoviewer, PostcardViewer)
      * @param photosElem - xml tag that contains info about all uploaded images (TiltViewer)
      */
-    void processKUrlList(KUrl::List& images, QDomDocument& xmlDoc,
+    void processQUrlList(QList<QUrl>& images, QDomDocument& xmlDoc,
                          QDomElement& galleryElem, QDomElement& photosElem);
 
     /**
@@ -132,7 +132,7 @@ private:
      * @param newName new image file name used by gallery
      */
     void cfgAddImage(QDomDocument& xmlDoc, QDomElement& galleryElem,
-                     const KUrl& url, const QString& newName) const;
+                     const QUrl& url, const QString& newName) const;
 
     /**
      * Creates the index.html file
@@ -146,13 +146,17 @@ private:
 
     bool upload() const;
 
+    bool copyFolderRecursively(const QString& srcPath, const QString& dstPath) const;
+    bool copyFiles(const QStringList& srcPaths, const QString& dstPath) const;
+
     bool openArchive(KZip& zip) const;
 
     bool extractArchive(KZip& zip) const;
 
     bool extractFile(const KArchiveEntry* entry) const;
 
-    static bool cmpUrl(const KUrl& url1, const KUrl& url2);
+    static bool cmpUrl(const QUrl& url1, const QUrl& url2);
+    static bool cmpUrlByName(const QUrl& url1, const QUrl& url2);
 
 Q_SIGNALS:
 
@@ -165,8 +169,8 @@ public Q_SLOTS:
 
 private:
 
-    class SimpleViewerPriv;
-    SimpleViewerPriv* const d;
+    class Private;
+    Private* const d;
 };
 
 } // namespace KIPIFlashExportPlugin

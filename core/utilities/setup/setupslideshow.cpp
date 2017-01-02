@@ -6,7 +6,7 @@
  * Date        : 2005-05-21
  * Description : setup tab for slideshow options.
  *
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "setupslideshow.moc"
+#include "setupslideshow.h"
 
 // Qt includes
 
@@ -30,21 +30,19 @@
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QDesktopWidget>
+#include <QApplication>
+#include <QStyle>
+#include <QComboBox>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <kglobal.h>
-#include <klocale.h>
-#include <knuminput.h>
-#include <kcombobox.h>
-#include <khbox.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
 #include "slideshowsettings.h"
 
 namespace Digikam
@@ -70,7 +68,8 @@ public:
         showProgress(0),
         screenPlacement(0),
         delayInput(0)
-    {}
+    {
+    }
 
     QCheckBox*    startWithCurrent;
     QCheckBox*    loopMode;
@@ -86,25 +85,30 @@ public:
     QCheckBox*    showCapIfNoTitle;
     QCheckBox*    showProgress;
 
-    KComboBox*    screenPlacement;
-    KIntNumInput* delayInput;
+    QComboBox*    screenPlacement;
+    DIntNumInput* delayInput;
 };
 
 // --------------------------------------------------------
 
 SetupSlideShow::SetupSlideShow(QWidget* const parent)
-    : QScrollArea(parent), d(new Private)
+    : QScrollArea(parent),
+      d(new Private)
 {
-    QWidget* const panel = new QWidget(viewport());
+    QWidget* const panel      = new QWidget(viewport());
     setWidget(panel);
     setWidgetResizable(true);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     QVBoxLayout* const layout = new QVBoxLayout(panel);
 
-    d->delayInput = new KIntNumInput(5, panel);
+    DHBox* const hbox1 = new DHBox(panel);
+    QLabel* const lbl1 = new QLabel(i18n("Delay between images:"), hbox1);
+    lbl1->setAlignment(Qt::AlignLeft | Qt::AlignTop);
+    d->delayInput      = new DIntNumInput(hbox1);
+    d->delayInput->setDefaultValue(5);
     d->delayInput->setRange(1, 3600, 1);
-    d->delayInput->setSliderEnabled(true);
-    d->delayInput->setLabel(i18n("&Delay between images:"), Qt::AlignLeft | Qt::AlignTop);
     d->delayInput->setWhatsThis(i18n("The delay, in seconds, between images."));
 
     d->startWithCurrent    = new QCheckBox(i18n("Start with current image"), panel);
@@ -147,16 +151,16 @@ SetupSlideShow::SetupSlideShow(QWidget* const parent)
     d->showLabels          = new QCheckBox(i18n("Show image labels"), panel);
     d->showLabels->setWhatsThis(i18n("Show the digiKam image color label, pick label, and rating at the bottom of the screen."));
 
-    KHBox* const screenSelectBox = new KHBox(panel);
+    DHBox* const screenSelectBox = new DHBox(panel);
     new QLabel(i18n("Screen placement:"), screenSelectBox);
-    d->screenPlacement           = new KComboBox(screenSelectBox);
+    d->screenPlacement           = new QComboBox(screenSelectBox);
     d->screenPlacement->setToolTip(i18n("In case of multi-screen computer, select here the monitor to slide contents."));
 
     QStringList choices;
     choices.append(i18nc("@label:listbox The current screen, for the presentation mode", "Current Screen"));
     choices.append(i18nc("@label:listbox The default screen for the presentation mode",  "Default Screen"));
 
-    for (int i = 0 ; i < kapp->desktop()->numScreens() ; ++i )
+    for (int i = 0 ; i < qApp->desktop()->numScreens() ; ++i )
     {
         choices.append(i18nc("@label:listbox %1 is the screen number (0, 1, ...)", "Screen %1", i));
     }
@@ -164,14 +168,14 @@ SetupSlideShow::SetupSlideShow(QWidget* const parent)
     d->screenPlacement->addItems(choices);
 
     // Disable and uncheck the "Show captions if no title" checkbox if the "Show comment" checkbox enabled
-    connect(d->showComment, SIGNAL(stateChanged(int)), 
+    connect(d->showComment, SIGNAL(stateChanged(int)),
             this, SLOT(slotSetUnchecked(int)));
 
     connect(d->showComment, SIGNAL(toggled(bool)),
             d->showCapIfNoTitle, SLOT(setDisabled(bool)));
 
     // Only digiKam support this feature, showFoto do not support digiKam database information.
-    if (kapp->applicationName() == "showfoto")
+    if (qApp->applicationName() == QLatin1String("showfoto"))
     {
         d->showTitle->hide();
         d->showCapIfNoTitle->hide();
@@ -179,7 +183,7 @@ SetupSlideShow::SetupSlideShow(QWidget* const parent)
         d->showTags->hide();
     }
 
-    layout->addWidget(d->delayInput);
+    layout->addWidget(hbox1);
     layout->addWidget(d->startWithCurrent);
     layout->addWidget(d->loopMode);
     layout->addWidget(d->showProgress);
@@ -195,12 +199,10 @@ SetupSlideShow::SetupSlideShow(QWidget* const parent)
     layout->addWidget(d->showLabels);
     layout->addWidget(screenSelectBox);
     layout->addStretch();
-    layout->setMargin(KDialog::spacingHint());
-    layout->setSpacing(KDialog::spacingHint());
+    layout->setContentsMargins(spacing, spacing, spacing, spacing);
+    layout->setSpacing(spacing);
 
     readSettings();
-
-    // --------------------------------------------------------
 }
 
 SetupSlideShow::~SetupSlideShow()
@@ -255,7 +257,7 @@ void SetupSlideShow::readSettings()
 
     const int screen = settings.slideScreen;
 
-    if (screen >= -2 && screen < kapp->desktop()->numScreens())
+    if (screen >= -2 && screen < qApp->desktop()->numScreens())
     {
         d->screenPlacement->setCurrentIndex(screen + 2);
     }

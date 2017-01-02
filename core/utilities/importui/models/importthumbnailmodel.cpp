@@ -21,21 +21,16 @@
  *
  * ============================================================ */
 
-#include "importthumbnailmodel.moc"
+#include "importthumbnailmodel.h"
 
 // Qt includes
 
 #include <QCache>
 #include <QReadWriteLock>
 
-// KDE includes
-
-#include <kio/previewjob.h>
-#include <kdebug.h>
-#include <kdeversion.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "cameracontroller.h"
 
 namespace Digikam
@@ -96,7 +91,7 @@ QVariant ImportThumbnailModel::data(const QModelIndex& index, int role) const
     if (role == ThumbnailRole && d->thumbsCtrl && index.isValid())
     {
         CamItemInfo info = camItemInfo(index);
-        QString     path = info.url().prettyUrl();
+        QString     path = info.url().toLocalFile();
         CachedItem  item;
 
         // use mimetype thumbnail also if the mime is set to something else than to image
@@ -104,7 +99,7 @@ QVariant ImportThumbnailModel::data(const QModelIndex& index, int role) const
         // at least gphoto2 doesn't really like it and will error a lot and slow down
         if (info.isNull() || path.isEmpty() || !info.previewPossible)
         {
-            return QVariant(d->thumbsCtrl->cameraController()->mimeTypeThumbnail(path, d->thumbSize.size()));
+            return QVariant(d->thumbsCtrl->cameraController()->mimeTypeThumbnail(path).pixmap(d->thumbSize.size()));
         }
 
         if (d->thumbsCtrl->getThumbInfo(info, item))
@@ -112,7 +107,7 @@ QVariant ImportThumbnailModel::data(const QModelIndex& index, int role) const
             return QVariant(item.second.scaled(d->thumbSize.size(), d->thumbSize.size(), Qt::KeepAspectRatio));
         }
 
-        return QVariant(d->thumbsCtrl->cameraController()->mimeTypeThumbnail(path, d->thumbSize.size()));
+        return QVariant(d->thumbsCtrl->cameraController()->mimeTypeThumbnail(path).pixmap(d->thumbSize.size()));
     }
 
     return ImportImageModel::data(index, role);

@@ -6,7 +6,7 @@
  * Date        : 2010-25-02
  * Description : Curves image filter
  *
- * Copyright (C) 2010-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -24,13 +24,10 @@
 
 #include "curvesfilter.h"
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
 #include "dimg.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -42,7 +39,7 @@ CurvesFilter::CurvesFilter(QObject* const parent)
 }
 
 CurvesFilter::CurvesFilter(DImg* const orgImage, QObject* const parent, const CurvesContainer& settings)
-    : DImgThreadedFilter(orgImage, parent, "CurvesFilter")
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("CurvesFilter"))
 {
     m_settings = settings;
     initFilter();
@@ -50,7 +47,7 @@ CurvesFilter::CurvesFilter(DImg* const orgImage, QObject* const parent, const Cu
 
 CurvesFilter::CurvesFilter(const CurvesContainer& settings, DImgThreadedFilter* const master,
                            const DImg& orgImage, DImg& destImage, int progressBegin, int progressEnd)
-    : DImgThreadedFilter(master, orgImage, destImage, progressBegin, progressEnd, "CurvesFilter")
+    : DImgThreadedFilter(master, orgImage, destImage, progressBegin, progressEnd, QLatin1String("CurvesFilter"))
 {
     m_settings = settings;
 
@@ -77,8 +74,8 @@ void CurvesFilter::filterImage()
         curves = depthCurve;
     }
 
-    kDebug() << "Image 16 bits: " << m_orgImage.sixteenBit();
-    kDebug() << "Curve 16 bits: " << curves.isSixteenBits();
+    qCDebug(DIGIKAM_DIMG_LOG) << "Image 16 bits: " << m_orgImage.sixteenBit();
+    qCDebug(DIGIKAM_DIMG_LOG) << "Curve 16 bits: " << curves.isSixteenBits();
 
     postProgress(50);
 

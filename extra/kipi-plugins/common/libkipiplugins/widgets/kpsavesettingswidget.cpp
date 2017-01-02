@@ -6,7 +6,7 @@
  * Date        : 2006-09-13
  * Description : a widget to provide options to save image.
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -20,7 +20,7 @@
  *
  * ============================================================ */
 
-#include "kpsavesettingswidget.moc"
+#include "kpsavesettingswidget.h"
 
 // Qt includes
 
@@ -29,12 +29,14 @@
 #include <QLabel>
 #include <QRadioButton>
 #include <QVBoxLayout>
+#include <QApplication>
+#include <QStyle>
+#include <QComboBox>
 
 // KDE includes
 
-#include <kcombobox.h>
-#include <kdialog.h>
-#include <klocale.h>
+#include <kconfiggroup.h>
+#include <klocalizedstring.h>
 
 namespace KIPIPlugins
 {
@@ -61,20 +63,23 @@ public:
 
     QButtonGroup* conflictButtonGroup;
 
-    KComboBox*    formatComboBox;
+    QComboBox*    formatComboBox;
 
     QRadioButton* overwriteButton;
     QRadioButton* promptButton;
 };
 
 KPSaveSettingsWidget::KPSaveSettingsWidget(QWidget* const parent)
-    : QWidget(parent), d(new Private)
+    : QWidget(parent),
+      d(new Private)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->grid           = new QGridLayout(this);
     d->formatLabel    = new QLabel(i18n("Output file format:"), this);
-    d->formatComboBox = new KComboBox( this );
+    d->formatComboBox = new QComboBox( this );
     d->formatComboBox->setWhatsThis(i18n("<p>Set the output file format to use here:</p>"
                                          "<p><b>JPEG</b>: output the processed image in JPEG format. "
                                          "This format will give smaller-sized files.</p>"
@@ -91,19 +96,19 @@ KPSaveSettingsWidget::KPSaveSettingsWidget(QWidget* const parent)
                                          "losing quality. Image is not compressed.</p>"));
     slotPopulateImageFormat(false);
 
-    d->conflictLabel       = new QLabel(i18n("If Target File Exists:"), this);
-    QWidget* conflictBox   = new QWidget(this);
-    QVBoxLayout* vlay      = new QVBoxLayout(conflictBox);
-    d->conflictButtonGroup = new QButtonGroup(conflictBox);
-    d->overwriteButton     = new QRadioButton(i18n("Overwrite automatically"), conflictBox);
-    d->promptButton        = new QRadioButton(i18n("Open rename-file dialog"), conflictBox);
+    d->conflictLabel           = new QLabel(i18n("If Target File Exists:"), this);
+    QWidget* const conflictBox = new QWidget(this);
+    QVBoxLayout* const vlay    = new QVBoxLayout(conflictBox);
+    d->conflictButtonGroup     = new QButtonGroup(conflictBox);
+    d->overwriteButton         = new QRadioButton(i18n("Overwrite automatically"), conflictBox);
+    d->promptButton            = new QRadioButton(i18n("Open rename-file dialog"), conflictBox);
     d->conflictButtonGroup->addButton(d->overwriteButton, OVERWRITE);
     d->conflictButtonGroup->addButton(d->promptButton,    ASKTOUSER);
     d->conflictButtonGroup->setExclusive(true);
     d->overwriteButton->setChecked(true);
 
-    vlay->setMargin(KDialog::spacingHint());
-    vlay->setSpacing(KDialog::spacingHint());
+    vlay->setContentsMargins(spacing, spacing, spacing, spacing);
+    vlay->setSpacing(spacing);
     vlay->addWidget(d->overwriteButton);
     vlay->addWidget(d->promptButton);
 
@@ -112,14 +117,14 @@ KPSaveSettingsWidget::KPSaveSettingsWidget(QWidget* const parent)
     d->grid->addWidget(d->conflictLabel,  1, 0, 1, 2);
     d->grid->addWidget(conflictBox,       2, 0, 1, 2);
     d->grid->setRowStretch(4, 10);
-    d->grid->setMargin(KDialog::spacingHint());
-    d->grid->setSpacing(KDialog::spacingHint());
+    d->grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    d->grid->setSpacing(spacing);
 
-    connect(d->formatComboBox, SIGNAL(activated(int)),
-            this, SIGNAL(signalSaveFormatChanged()));
+    connect(d->formatComboBox, static_cast<void (QComboBox::*)(int)>(&QComboBox::activated),
+            this, &KPSaveSettingsWidget::signalSaveFormatChanged);
 
-    connect(d->conflictButtonGroup, SIGNAL(buttonClicked(int)),
-            this, SIGNAL(signalConflictButtonChanged(int)));
+    connect(d->conflictButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
+            this, &KPSaveSettingsWidget::signalConflictButtonChanged);
 }
 
 KPSaveSettingsWidget::~KPSaveSettingsWidget()
@@ -178,13 +183,13 @@ void KPSaveSettingsWidget::writeSettings(KConfigGroup& group)
 void KPSaveSettingsWidget::slotPopulateImageFormat(bool sixteenBits)
 {
     d->formatComboBox->clear();
-    d->formatComboBox->insertItem( OUTPUT_PNG,  "PNG" );
-    d->formatComboBox->insertItem( OUTPUT_TIFF, "TIFF" );
+    d->formatComboBox->insertItem( OUTPUT_PNG,  QString::fromLatin1("PNG") );
+    d->formatComboBox->insertItem( OUTPUT_TIFF, QString::fromLatin1("TIFF") );
 
     if (!sixteenBits)
     {
-        d->formatComboBox->insertItem( OUTPUT_JPEG, "JPEG" );
-        d->formatComboBox->insertItem( OUTPUT_PPM,  "PPM" );
+        d->formatComboBox->insertItem( OUTPUT_JPEG, QString::fromLatin1("JPEG") );
+        d->formatComboBox->insertItem( OUTPUT_PPM,  QString::fromLatin1("PPM") );
     }
 
     emit signalSaveFormatChanged();
@@ -202,16 +207,16 @@ QString KPSaveSettingsWidget::typeMime() const
     switch(fileFormat())
     {
         case OUTPUT_JPEG:
-            mime = "image/jpeg";
+            mime = QString::fromLatin1("image/jpeg");
             break;
         case OUTPUT_TIFF:
-            mime = "image/tiff";
+            mime = QString::fromLatin1("image/tiff");
             break;
         case OUTPUT_PPM:
-            mime = "image/ppm";
+            mime = QString::fromLatin1("image/ppm");
             break;
         case OUTPUT_PNG:
-            mime = "image/png";
+            mime = QString::fromLatin1("image/png");
             break;
     }
 
@@ -225,16 +230,16 @@ QString KPSaveSettingsWidget::extensionForFormat(KPSaveSettingsWidget::OutputFor
     switch(format)
     {
         case OUTPUT_JPEG:
-            ext = ".jpg";
+            ext = QString::fromLatin1(".jpg");
             break;
         case OUTPUT_TIFF:
-            ext = ".tif";
+            ext = QString::fromLatin1(".tif");
             break;
         case OUTPUT_PPM:
-            ext = ".ppm";
+            ext = QString::fromLatin1(".ppm");
             break;
         case OUTPUT_PNG:
-            ext = ".png";
+            ext = QString::fromLatin1(".png");
             break;
     }
 

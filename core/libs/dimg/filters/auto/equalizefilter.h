@@ -6,7 +6,7 @@
  * Date        : 2005-24-01
  * Description : equalize image filter.
  *
- * Copyright (C) 2005-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,7 +28,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 using namespace Digikam;
 
@@ -47,7 +47,7 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:EqualizeFilter";
+        return QLatin1String("digikam:EqualizeFilter");
     }
 
     static QList<int>       SupportedVersions()
@@ -62,7 +62,7 @@ public:
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Auto Equalize");
+        return QString::fromUtf8(I18N_NOOP("Auto Equalize"));
     }
 
     virtual QString         filterIdentifier() const

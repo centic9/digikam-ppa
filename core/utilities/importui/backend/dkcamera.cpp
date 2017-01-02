@@ -7,7 +7,7 @@
  * Description : abstract camera interface class
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,17 +22,19 @@
  *
  * ============================================================ */
 
-#include "dkcamera.moc"
+#include "dkcamera.h"
 
 // Local includes
 
 #include "applicationsettings.h"
 #include "dmetadata.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
 
-DKCamera::DKCamera(const QString& title, const QString& model, const QString& port, const QString& path) : QObject()
+DKCamera::DKCamera(const QString& title, const QString& model, const QString& port, const QString& path)
+    : QObject()
 {
     m_title                       = title;
     m_model                       = model;
@@ -47,14 +49,14 @@ DKCamera::DKCamera(const QString& title, const QString& model, const QString& po
     m_captureImagePreviewSupport  = false;
 
     ApplicationSettings* const settings = ApplicationSettings::instance();
-    m_imageFilter                 = settings->getImageFileFilter();
-    m_movieFilter                 = settings->getMovieFileFilter();
-    m_audioFilter                 = settings->getAudioFileFilter();
-    m_rawFilter                   = settings->getRawFileFilter();
-    m_imageFilter                 = m_imageFilter.toLower();
-    m_movieFilter                 = m_movieFilter.toLower();
-    m_audioFilter                 = m_audioFilter.toLower();
-    m_rawFilter                   = m_rawFilter.toLower();
+    m_imageFilter                       = settings->getImageFileFilter();
+    m_movieFilter                       = settings->getMovieFileFilter();
+    m_audioFilter                       = settings->getAudioFileFilter();
+    m_rawFilter                         = settings->getRawFileFilter();
+    m_imageFilter                       = m_imageFilter.toLower();
+    m_movieFilter                       = m_movieFilter.toLower();
+    m_audioFilter                       = m_audioFilter.toLower();
+    m_rawFilter                         = m_rawFilter.toLower();
 }
 
 DKCamera::~DKCamera()
@@ -132,30 +134,30 @@ QString DKCamera::mimeType(const QString& fileext) const
     QString mime;
 
     // Massage known variations of known mimetypes into KDE specific ones
-    if (ext == "jpg" || ext == "jpe")
+    if (ext == QLatin1String("jpg") || ext == QLatin1String("jpe"))
     {
-        ext = "jpeg";
+        ext = QLatin1String("jpeg");
     }
-    else if (ext == "tif")
+    else if (ext == QLatin1String("tif"))
     {
-        ext = "tiff";
+        ext = QLatin1String("tiff");
     }
 
     if (m_rawFilter.contains(ext))
     {
-        mime = QString("image/x-raw");
+        mime = QLatin1String("image/x-raw");
     }
     else if (m_imageFilter.contains(ext))
     {
-        mime = QString("image/") + ext;
+        mime = QLatin1String("image/") + ext;
     }
     else if (m_movieFilter.contains(ext))
     {
-        mime = QString("video/") + ext;
+        mime = QLatin1String("video/") + ext;
     }
     else if (m_audioFilter.contains(ext))
     {
-        mime = QString("audio/") + ext;
+        mime = QLatin1String("audio/") + ext;
     }
 
     return mime;
@@ -165,6 +167,7 @@ void DKCamera::fillItemInfoFromMetadata(CamItemInfo& info, const DMetadata& meta
 {
     QSize dims     = meta.getImageDimensions();
     info.ctime     = meta.getImageDateTime();
+
     //NOTE: see bug #246401 to sort based on milliseconds for items  taken quickly.
     if (!info.ctime.isNull())
     {
@@ -174,6 +177,18 @@ void DKCamera::fillItemInfoFromMetadata(CamItemInfo& info, const DMetadata& meta
     info.width     = dims.width();
     info.height    = dims.height();
     info.photoInfo = meta.getPhotographInformation();
+}
+
+void DKCamera::printSupportedFeatures()
+{
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "Supported features for" << title();
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "  Thumbnails:" << thumbnailSupport();
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "  Delete:" << deleteSupport();
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "  Delete dir:" << delDirSupport();
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "  Upload:" << uploadSupport();
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "  Mkdir:" << mkDirSupport();
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "  Image capture:" << captureImageSupport();
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "  Image capture preview (liveview):" << captureImagePreviewSupport();
 }
 
 }  // namespace Digikam

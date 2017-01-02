@@ -1,0 +1,114 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2014, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-10-13 10:04+0000\n"
+"PO-Revision-Date: 2015-10-17 22:43+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#: allmessageslistjob.cpp:117
+msgid "The number of outgoing messages has changed between requests."
+msgstr "나가는 메시지 개수가 요청 사이에서 변경되었습니다."
+
+#: allmessageslistjob.cpp:121
+msgid "The number of incoming messages has changed between requests."
+msgstr "들어오는 메시지 개수가 요청 사이에서 변경되었습니다."
+
+#: allnoteslistjob.cpp:92
+msgid "The number of notes has changed between requests."
+msgstr "총 노트 개수가 요청 사이에서 변경되었습니다."
+
+#: authenticationdialog.cpp:61
+msgctxt "@title:window"
+msgid "Authenticate with VKontakte"
+msgstr "VKontakte 인증"
+
+#: authenticationdialog.cpp:71
+msgid "Loading Page:"
+msgstr "페이지 불러오는 중:"
+
+#: authenticationdialog.cpp:138
+#, kde-format
+msgid ""
+"<b>VKontakte Error Description:</b> %1<br><b>VKontakte Error:</b> %2<br>"
+msgstr "<b>VKontake 오류 설명:</b> %1<br><b>VKontakte 오류:</b> %2<br>"
+
+#: authenticationdialog.cpp:140
+msgid "Authentication with VKontakte was not successful."
+msgstr "VKontakte에 인증할 수 없습니다."
+
+#: authenticationdialog.cpp:141
+msgctxt "@title:window"
+msgid "Authentication Problem"
+msgstr "인증 문제"
+
+#: authenticationdialog.cpp:182
+msgid ""
+"There was a network error when trying to authenticate with VKontakte web "
+"service."
+msgstr "VKontakte 웹 서비스에 인증하는 데 네트워크 오류가 발생했습니다."
+
+#: authenticationdialog.cpp:183
+msgctxt "@title:window"
+msgid "Network Error"
+msgstr "네트워크 오류"
+
+#: deletealbumjob.cpp:43
+msgid "Failed to delete album"
+msgstr "앨범을 삭제할 수 없음"
+
+#: editalbumjob.cpp:52
+msgid "Failed to edit album"
+msgstr "앨범을 편집할 수 없음"
+
+#: photopostjob.cpp:76 vkontaktejobs.cpp:112
+#, kde-format
+msgid ""
+"Response from the VKontakte server has unexpected format. Please report this "
+"problem against product libkvkontakte at the <a href=\"%1\">KDE bug tracker</"
+"b>."
+msgstr ""
+"예상하지 못한 VKontakte 서버 응답 형식입니다. 이 문제를 <a href=\"%1\">KDE 버"
+"그 추적 시스템</b>의 libkvontakte에 보고해 주십시오."
+
+#: photopostjob.cpp:84
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to "
+"uploading to URL %2: <i>%3</i>"
+msgstr ""
+"VKontakte 서버에 URL %2을(를) 업로드하였을 때 <i>%1</i> 종류의 오류 메시지가 "
+"반환됨: <i>%3</i>"
+
+#: photopostjob.cpp:206 vkontaktejobs.cpp:224
+#, kde-format
+msgid "Unable to parse data returned by the VKontakte server: %1"
+msgstr "VKontakte 서버에서 반환한 데이터를 처리할 수 없음: %1"
+
+#: vkontaktejobs.cpp:120
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to method "
+"%2: <i>%3</i>"
+msgstr ""
+"VKontakte 서버에 메서드 %2을(를) 요청하였을 때 <i>%1</i> 종류의 오류 메시지"
+"가 반환됨: <i>%3</i>"
+
+#: vkontaktejobs.cpp:181
+msgid ""
+"Internal error: No valid instance of KIO::StoredTransferJob passed into "
+"VkontakteJob::jobFinished."
+msgstr ""
+"내부 오류: KIO::StoredTransferJob의 올바른 인스턴스가 VkontakteJob::"
+"jobFinished에 전달되지 않았음."

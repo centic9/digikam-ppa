@@ -6,7 +6,7 @@
  * Date        : 2014-05-28
  * Description : overlay for GPS location indicator
  *
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,17 +21,15 @@
  *
  * ============================================================ */
 
-#include "showfotocoordinatesoverlay.moc"
+#include "showfotocoordinatesoverlay.h"
 
 // KDE includes
 
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kglobalsettings.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "showfotodelegate.h"
 #include "showfotoimagemodel.h"
 #include "showfotocategorizedview.h"

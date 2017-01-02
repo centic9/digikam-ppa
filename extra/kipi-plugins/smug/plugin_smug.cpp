@@ -4,11 +4,11 @@
  * http://www.digikam.org
  *
  * Date        : 2008-12-01
- * Description : a kipi plugin to import/export images to/from 
+ * Description : a kipi plugin to import/export images to/from
  *               SmugMug web service
  *
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2011 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -23,50 +23,39 @@
  *
  * ============================================================ */
 
-// To disable warnings under MSVC2008 about POSIX methods().
-#ifdef _MSC_VER
-#pragma warning(disable : 4996)
-#endif
+#include "plugin_smug.h"
 
-#include "plugin_smug.moc"
+// Qt includes
 
-// C ANSI includes
-
-extern "C"
-{
-#include <unistd.h>
-}
+#include <QApplication>
+#include <QAction>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kconfig.h>
-#include <kapplication.h>
-#include <kaction.h>
 #include <kactioncollection.h>
-#include <kgenericfactory.h>
-#include <klibloader.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
+#include <kpluginfactory.h>
 #include <kwindowsystem.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/interface.h>
+#include <KIPI/Interface>
 
 // Local includes
 
+#include "kputil.h"
 #include "smugwindow.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPISmugPlugin
 {
 
 K_PLUGIN_FACTORY( SmugFactory, registerPlugin<Plugin_Smug>(); )
-K_EXPORT_PLUGIN ( SmugFactory("kipiplugin_smug") )
 
 Plugin_Smug::Plugin_Smug(QObject* const parent, const QVariantList& /*args*/)
-    : Plugin(SmugFactory::componentData(), parent, "Smug")
+    : Plugin(parent, "Smug")
 {
-    kDebug(AREA_CODE_LOADING) << "Plugin_Smug plugin loaded";
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin_Smug plugin loaded";
 
     m_dlgImport    = 0;
     m_dlgExport    = 0;
@@ -79,19 +68,21 @@ Plugin_Smug::Plugin_Smug(QObject* const parent, const QVariantList& /*args*/)
 
 Plugin_Smug::~Plugin_Smug()
 {
+    delete m_dlgImport;
+    delete m_dlgExport;
+
+    removeTemporaryDir("smug");
 }
 
 void Plugin_Smug::setup(QWidget* const widget)
 {
     Plugin::setup(widget);
 
-    KIconLoader::global()->addAppDir("kipiplugin_smug");
-
     setupActions();
 
     if (!interface())
     {
-        kError() << "Kipi interface is null!";
+        qCCritical(KIPIPLUGINS_LOG) << "Kipi interface is null!";
         return;
     }
 
@@ -103,38 +94,37 @@ void Plugin_Smug::setupActions()
 {
     setDefaultCategory(ExportPlugin);
 
-    m_actionExport = new KAction(this);
+    m_actionExport = new QAction(this);
     m_actionExport->setText(i18n("Export to &SmugMug..."));
-    m_actionExport->setIcon(KIcon("kipi-smugmug"));
-    m_actionExport->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::Key_S));
+    m_actionExport->setIcon(QIcon::fromTheme(QString::fromLatin1("kipi-smugmug")));
+    actionCollection()->setDefaultShortcut(m_actionExport, Qt::ALT + Qt::SHIFT + Qt::Key_S);
     m_actionExport->setEnabled(false);
 
     connect(m_actionExport, SIGNAL(triggered(bool)),
             this, SLOT(slotExport()) );
 
-    addAction("smugexport", m_actionExport);
+    addAction(QString::fromLatin1("smugexport"), m_actionExport);
 
-    m_actionImport = new KAction(this);
+    m_actionImport = new QAction(this);
     m_actionImport->setText(i18n("Import from &SmugMug..."));
-    m_actionImport->setIcon(KIcon("kipi-smugmug"));
-    m_actionImport->setShortcut(KShortcut(Qt::ALT+Qt::SHIFT+Qt::CTRL+Qt::Key_S));
+    m_actionImport->setIcon(QIcon::fromTheme(QString::fromLatin1("kipi-smugmug")));
+    actionCollection()->setDefaultShortcut(m_actionImport, Qt::ALT + Qt::SHIFT + Qt::CTRL + Qt::Key_S);
     m_actionImport->setEnabled(false);
 
     connect(m_actionImport, SIGNAL(triggered(bool)),
             this, SLOT(slotImport()) );
 
-    addAction("smugimport", m_actionImport, ImportPlugin);
+    addAction(QString::fromLatin1("smugimport"), m_actionImport, ImportPlugin);
 }
 
 void Plugin_Smug::slotExport()
 {
-    KStandardDirs dir;
-    QString tmp = dir.saveLocation("tmp", QString("kipi-smug-") + QString::number(getpid()) + QString("/"));
+    QString tmp = makeTemporaryDir("smug").absolutePath() + QLatin1Char('/');
 
     if (!m_dlgExport)
     {
         // We clean it up in the close button
-        m_dlgExport = new SmugWindow(tmp, false, kapp->activeWindow());
+        m_dlgExport = new SmugWindow(tmp, false, QApplication::activeWindow());
     }
     else
     {
@@ -149,13 +139,12 @@ void Plugin_Smug::slotExport()
 
 void Plugin_Smug::slotImport()
 {
-    KStandardDirs dir;
-    QString tmp = dir.saveLocation("tmp", QString("kipi-smug-") + QString::number(getpid()) + QString("/"));
+    QString tmp = makeTemporaryDir("smug").absolutePath() + QLatin1Char('/');
 
     if (!m_dlgImport)
     {
         // We clean it up in the close button
-        m_dlgImport = new SmugWindow(tmp, true, kapp->activeWindow());
+        m_dlgImport = new SmugWindow(tmp, true, QApplication::activeWindow());
     }
     else
     {
@@ -169,3 +158,5 @@ void Plugin_Smug::slotImport()
 }
 
 } // namespace KIPISmugPlugin
+
+#include "plugin_smug.moc"

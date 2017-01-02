@@ -21,18 +21,14 @@
  *
  * ============================================================ */
 
-#include "dbheaderlistitem.moc"
+#include "dbheaderlistitem.h"
 
 // Qt includes
 
 #include <QPalette>
 #include <QFont>
 #include <QPainter>
-
-// KDE includes
-
-#include <klocale.h>
-#include <kapplication.h>
+#include <QApplication>
 
 // Local includes
 
@@ -42,7 +38,8 @@ namespace Digikam
 {
 
 DbHeaderListItem::DbHeaderListItem(QTreeWidget* parent, const QString& key)
-    : QObject(parent), QTreeWidgetItem(parent)
+    : QObject(parent),
+      QTreeWidgetItem(parent)
 {
     // Reset all item flags: item is not selectable.
     setFlags(Qt::ItemIsEnabled);
@@ -73,10 +70,10 @@ DbHeaderListItem::~DbHeaderListItem()
 
 void DbHeaderListItem::slotThemeChanged()
 {
-    setBackground(0, QBrush(kapp->palette().color(QPalette::Highlight)));
-    setBackground(1, QBrush(kapp->palette().color(QPalette::Highlight)));
-    setForeground(0, QBrush(kapp->palette().color(QPalette::HighlightedText)));
-    setForeground(1, QBrush(kapp->palette().color(QPalette::HighlightedText)));
+    setBackground(0, QBrush(qApp->palette().color(QPalette::Highlight)));
+    setBackground(1, QBrush(qApp->palette().color(QPalette::Highlight)));
+    setForeground(0, QBrush(qApp->palette().color(QPalette::HighlightedText)));
+    setForeground(1, QBrush(qApp->palette().color(QPalette::HighlightedText)));
 }
 
 }  // namespace Digikam

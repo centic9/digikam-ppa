@@ -3,72 +3,77 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Stefan Asserhäll <stefan.asserhall@bredband.net>, 2007, 2008, 2009.
-# Stefan Asserhall <stefan.asserhall@bredband.net>, 2010, 2011, 2012, 2013, 2014, 2015.
+# Stefan Asserhall <stefan.asserhall@bredband.net>, 2010, 2011, 2012, 2013, 2014, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-08-24 01:56+0000\n"
-"PO-Revision-Date: 2015-01-01 11:09+0100\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2016-08-26 17:05+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:113
 msgid "<p>This is the current processing status.</p>"
-msgstr "<p>Det här är bearbetningens aktuella status.</p>"
+msgstr "<p>Bearbetningens aktuella status.</p>"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:120
 msgid "<p>This is the batch job progress as a percentage.</p>"
-msgstr "<p>Det här är procent av bakgrundsjobb som utförts.</p>"
+msgstr "<p>Procent av bakgrundsjobb som utförts.</p>"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:189
 msgid "Copy to Clipboard"
 msgstr "Kopiera till klippbordet"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:162
+#: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:271
+#: libkipiplugins/dialogs/kptooldialog.cpp:210
+msgid "Close"
+msgstr "Stäng"
+
+#: libkipiplugins/dialogs/kpimagedialog.cpp:149
 msgid "<i>unavailable</i>"
 msgstr "<i>inte tillgänglig</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:292
+#: libkipiplugins/dialogs/kpimagedialog.cpp:228
 #, kde-format
 msgid "%1 ISO"
 msgstr "%1 ISO"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:300
+#: libkipiplugins/dialogs/kpimagedialog.cpp:236
 msgid "<i>Make:</i>"
 msgstr "<i>Märke:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:301
+#: libkipiplugins/dialogs/kpimagedialog.cpp:237
 msgid "<i>Model:</i>"
 msgstr "<i>Modell:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:302
+#: libkipiplugins/dialogs/kpimagedialog.cpp:238
 msgid "<i>Created:</i>"
 msgstr "<i>Skapad:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:303
+#: libkipiplugins/dialogs/kpimagedialog.cpp:239
 msgid "<i>Aperture:</i>"
 msgstr "<i>Bländare:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:304
+#: libkipiplugins/dialogs/kpimagedialog.cpp:240
 msgid "<i>Focal:</i>"
 msgstr "<i>Fokallängd:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:305
+#: libkipiplugins/dialogs/kpimagedialog.cpp:241
 msgid "<i>Exposure:</i>"
 msgstr "<i>Exponeringstid:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:306
+#: libkipiplugins/dialogs/kpimagedialog.cpp:242
 msgid "<i>Sensitivity:</i>"
 msgstr "<i>Känslighet:</i>"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:414
+#: libkipiplugins/dialogs/kpimagedialog.cpp:339
 #, kde-format
 msgid ""
 "\n"
@@ -77,174 +82,202 @@ msgstr ""
 "\n"
 "%1|Obehandlade kamerafiler"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:429
+#: libkipiplugins/dialogs/kpimagedialog.cpp:358
 msgid "Select an Image"
 msgstr "Välj en bild"
 
-#: libkipiplugins/dialogs/kpimagedialog.cpp:436
+#: libkipiplugins/dialogs/kpimagedialog.cpp:365
 msgid "Select Images"
 msgstr "Välj bilder"
 
-#: libkipiplugins/dialogs/kpoutputdialog.cpp:68
-msgid "Copy to Clip&board"
-msgstr "Kopiera till klipp&bordet"
+#: libkipiplugins/dialogs/kplogindialog.cpp:76
+msgid "Login:"
+msgstr "Inloggning:"
 
-#: libkipiplugins/tools/kpaboutdata.cpp:108
+#: libkipiplugins/dialogs/kplogindialog.cpp:79
+msgid "Password:"
+msgstr "Lösenord:"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:90
+msgid "&Login"
+msgstr "In&loggning"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:93
+msgid "&Skip"
+msgstr "&Hoppa över"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:153
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Fel"
+
+#: libkipiplugins/dialogs/kplogindialog.cpp:154
+msgid "Password cannot be empty."
+msgstr "Lösenordet kan inte vara tomt."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:57
+#: libkipiplugins/widgets/kpsettingswidget.cpp:72
+msgid "Album"
+msgstr "Album"
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:60
+msgid "Title: "
+msgstr "Namn: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:61
+msgid "Time Stamp: "
+msgstr "Tidsstämpel: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:62
+msgid "Description: "
+msgstr "Beskrivning: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:63
+msgid "Location: "
+msgstr "Plats: "
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:116
+#, kde-format
+msgid "These are basic settings for the new %1 album."
+msgstr "Grundinställningar för det nya %1-albumet."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:118
+msgid "Title of the album that will be created (required)."
+msgstr "Rubrik för albumet som ska skapas (krävs)."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:121
+msgid "Date and Time of the album that will be created (optional)."
+msgstr "Datum och tid för albumet som ska skapas (valfri)."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:123
+msgid "Description of the album that will be created (optional)."
+msgstr "Beskrivning av albumet som ska skapas (valfri)."
+
+#: libkipiplugins/dialogs/kpnewalbumdialog.cpp:125
+msgid "Location of the album that will be created (optional)."
+msgstr "Plats för albumet som ska skapas (valfri)."
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:167
+msgctxt "@action:button"
+msgid "&Start"
+msgstr "&Starta"
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:212
+msgid "Close window"
+msgstr "Stäng fönster"
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:217
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: libkipiplugins/dialogs/kptooldialog.cpp:219
+msgid "Cancel current operation"
+msgstr "Avbryt pågående åtgärd"
+
+#: libkipiplugins/tools/kpaboutdata.cpp:80
 msgid "Handbook"
 msgstr "Handbok"
 
+#: libkipiplugins/tools/kpaboutdata.cpp:85
+msgid "About..."
+msgstr "Om..."
+
+#: libkipiplugins/tools/kpaboutdata.cpp:121
+#, kde-format
+msgid "Version: %1"
+msgstr "Version: %1"
+
+#: libkipiplugins/tools/kpaboutdata.cpp:134
+#, kde-format
+msgid "About %1"
+msgstr "Om %1"
+
 #: libkipiplugins/tools/kpaboutdata.h:54
-msgid "Copyright 2003-2015, digiKam developers team"
-msgstr "Copyright 2003-2015, digiKam-utvecklingsgruppen"
+msgid "Copyright 2003-2016, digiKam developers team"
+msgstr "Copyright 2003-2016, digiKam-utvecklingsgruppen"
 
-#: libkipiplugins/tools/kpbinaryiface.cpp:150
-#, kde-format
-msgid "Navigate to %1"
-msgstr "Gå till %1"
+#: libkipiplugins/tools/kputil.cpp:305
+msgid "Browse..."
+msgstr "Bläddra..."
 
-#: libkipiplugins/widgets/kpbinarysearch.cpp:64
-msgid "Binary"
-msgstr "Binärfil"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:65
-msgid "Version"
-msgstr "Version"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:97
-msgid "Binary not found."
-msgstr "Binärfil hittades inte."
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:98
-#, kde-format
-msgid "Minimal version number required for this binary is %1"
-msgstr "Minsta versionsnummer som krävs för binärfilen är %1"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:100
-msgid "Find"
-msgstr "Sök"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:102
-#, kde-format
-msgid " or <a href=\"%1\">download</a>"
-msgstr " eller <a href=\"%1\">ladda ner</a>"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:127
-msgid ""
-"<qt><p><font color=\"red\"><b>Warning:</b> Some necessary binaries have not "
-"been found on your system. If you have these binaries installed, please "
-"click the 'Find' button to locate them on your system, otherwise please "
-"download and install them to proceed.</font></p></qt>"
-msgstr ""
-"<qt><p><font color=\"red\"><b>Varning:</b> De binärfiler som krävs hittades "
-"inte på systemet. Om binärfilerna är installerade, klicka på knappen 'Sök' "
-"för att hitta dem på systemet, ladda annars ner dem för att fortsätta.</"
-"font></p></qt>"
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:161
-msgid ""
-"A development version has been detect. There is no guarantee on the behavior "
-"of this binary."
-msgstr ""
-"En utvecklingsversion har detekterats. Det finns ingen garanti för det här "
-"binärprogrammets beteende."
-
-#: libkipiplugins/widgets/kpbinarysearch.cpp:167
-msgid "Change"
-msgstr "Ändra"
-
-#: libkipiplugins/widgets/kpimageslist.cpp:291
+#: libkipiplugins/widgets/kpimageslist.cpp:292
 msgid "Thumbnail"
 msgstr "Miniatyrbild"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:292
+#: libkipiplugins/widgets/kpimageslist.cpp:293
 msgid "File Name"
 msgstr "Filnamn"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:293
+#: libkipiplugins/widgets/kpimageslist.cpp:294
 msgid "User1"
 msgstr "Användare1"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:294
+#: libkipiplugins/widgets/kpimageslist.cpp:295
 msgid "User2"
 msgstr "Användare2"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:295
+#: libkipiplugins/widgets/kpimageslist.cpp:296
 msgid "User3"
 msgstr "Användare3"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:296
+#: libkipiplugins/widgets/kpimageslist.cpp:297
 msgid "User4"
 msgstr "Användare4"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:297
+#: libkipiplugins/widgets/kpimageslist.cpp:298
 msgid "User5"
 msgstr "Användare5"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:298
+#: libkipiplugins/widgets/kpimageslist.cpp:299
 msgid "User6"
 msgstr "Användare6"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:555
+#: libkipiplugins/widgets/kpimageslist.cpp:557
 msgid "Add new images to the list"
 msgstr "Lägg till nya bilder i listan"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:556
+#: libkipiplugins/widgets/kpimageslist.cpp:558
 msgid "Remove selected images from the list"
 msgstr "Ta bort markerade bilder från listan"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:557
+#: libkipiplugins/widgets/kpimageslist.cpp:559
 msgid "Move current selected image up in the list"
 msgstr "Flytta alla bilder som för närvarande är markerade uppåt i listan"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:558
+#: libkipiplugins/widgets/kpimageslist.cpp:560
 msgid "Move current selected image down in the list"
 msgstr "Flytta alla bilder som för närvarande är markerade neråt i listan"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:559
+#: libkipiplugins/widgets/kpimageslist.cpp:561
 msgid "Clear the list."
 msgstr "Rensa listan"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:560
+#: libkipiplugins/widgets/kpimageslist.cpp:562
 msgid "Load a saved list."
 msgstr "Ladda en sparad lista."
 
-#: libkipiplugins/widgets/kpimageslist.cpp:561
+#: libkipiplugins/widgets/kpimageslist.cpp:563
 msgid "Save the list."
 msgstr "Spara listan"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:984
+#: libkipiplugins/widgets/kpimageslist.cpp:994
 msgid "Select the image file list to load"
 msgstr "Välj listan med bildfiler att läsa in"
 
-#: libkipiplugins/widgets/kpimageslist.cpp:1040
+#: libkipiplugins/widgets/kpimageslist.cpp:996
+#: libkipiplugins/widgets/kpimageslist.cpp:1063
+msgid "All Files (*)"
+msgstr "Alla filer (*)"
+
+#: libkipiplugins/widgets/kpimageslist.cpp:1061
 msgid "Select the image file list to save"
 msgstr "Välj listan med bildfiler att spara"
 
-#: libkipiplugins/widgets/kppreviewimage.cpp:521
-#: libkipiplugins/widgets/kppreviewimage.cpp:522
-msgid "Zoom In"
-msgstr "Zooma in"
-
-#: libkipiplugins/widgets/kppreviewimage.cpp:527
-#: libkipiplugins/widgets/kppreviewimage.cpp:528
-msgid "Zoom Out"
-msgstr "Zooma ut"
-
-#: libkipiplugins/widgets/kppreviewimage.cpp:533
-#: libkipiplugins/widgets/kppreviewimage.cpp:534
-msgid "Zoom to Fit"
-msgstr "Fyll sidan"
-
-#: libkipiplugins/widgets/kppreviewmanager.cpp:153
-#: libkipiplugins/widgets/kppreviewmanager.cpp:170
-msgid "Failed to load image"
-msgstr "Misslyckades ladda bild"
-
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:76
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:81
 msgid "Output file format:"
 msgstr "Resultatbildformat:"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:78
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:83
 msgid ""
 "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
 "processed image in JPEG format. This format will give smaller-sized files.</"
@@ -268,458 +301,643 @@ msgstr ""
 "format. Det skapar störst filer, utan att förlora kvalitet. Bilden är inte "
 "komprimerad.</p>"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:94
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
 msgid "If Target File Exists:"
 msgstr "Om målfilen finns:"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:98
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:103
 msgid "Overwrite automatically"
 msgstr "Skriv över automatiskt"
 
-#: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
+#: libkipiplugins/widgets/kpsavesettingswidget.cpp:104
 msgid "Open rename-file dialog"
 msgstr "Öppna fildialogruta för att byta namn"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:2
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can brighten up your images using the Batch Color "
-"Images plugin for increased contrast?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du skulle kunna göra dina bilder ljusare med "
-"insticksprogrammet Bildfärgförbättring i bakgrunden för ökad kontrast?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:68
+msgid "Account"
+msgstr "Konto"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:19
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can abort a slideshow using <b>ESC</b>?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du skulle kunna avbryta ett bildspel genom att använda <b>Esc</"
-"b>?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:77
+msgid "Max Dimension"
+msgstr "Maximal dimension"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:36
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that the Kipi library provides a scanner plugin that gives you "
-"direct access to your scanner?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att KIPI-biblioteket tillhandahåller ett insticksprogram för "
-"inläsning av bilder som gör att du direkt kommer åt bildläsaren?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:80
+msgid "Destination"
+msgstr "Mål"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:53
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can take a screenshot with the Kipi library and save "
-"the result to an Album with some comments?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du kan ta en skärmbild med KIPI-biblioteket och spara "
-"resultatet i ett album med några kommentarer?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:83
+msgid "Options"
+msgstr "Väljare"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:70
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use the <b>LZW</b> compression to reduce the size "
-"of the <b>TIFF</b> image files in the Convert Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du kan använda <b>LZW</b>-komprimering för att minska "
-"storleken på <b>TIFF</b>-bildfiler i insticksprogrammet för att konvertera "
-"bilder?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:147
+#, kde-format
+msgid "This is the list of images to upload to your %1 account."
+msgstr "Listan med bilder att ladda upp till %1-kontot."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:87
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that all image operations in the batch processing image plugins "
-"run without losing the <b>Exif</b> information in the <b>JPEG</b> files?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att alla bildåtgärder i insticksprogrammen för bakgrundsbehandling "
-"utförs utan att <b>EXIF</b>-informationen i <b>JPEG</b>-filerna går "
-"förlorad?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:155
+#, kde-format
+msgid "This is a clickable link to open %1 in a browser."
+msgstr "En klickbar länk för att öppna %1 i en webbläsare."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:104
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that the <b>Noise Reduction</b> option in the <b>Filter Images</"
-"b> plugin can be used to improve the rendering of images taken with an "
-"analog camera?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att alternativet <b>Brusreducering</b> i insticksprogrammet "
-"<b>Filtrera bilder</b> kan användas för att förbättra utseendet på bilder "
-"som tagits med en analog kamera?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:161
+#, kde-format
+msgid "This is the %1 account that is currently logged in."
+msgstr "%1-kontot som för närvarande är inloggat."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:121
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use the drag and drop feature with email images to "
-"add some items to the list?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du kan använda funktionen drag och släpp när bilder ska "
-"skickas med e-post för att lägga till objekt i listan?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:163
+msgctxt "account settings"
+msgid "Name:"
+msgstr "Namn:"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:138
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that if you want to reduce the disk space used by your images "
-"in the Albums database, you can try using the Recompress Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att om du vill minska diskutrymmet som används av dina bilder i "
-"albumdatabasen, kan du försöka använda insticksprogrammet för "
-"omkomprimering?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:164
+msgid "Change Account"
+msgstr "Ändra konto"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:155
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that if you want to resize images to prepare them for printing "
-"on photographic paper sizes, you can use the Resize Images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att om du vill ändra storlek på bilder för att förbereda dem för "
-"utskrift på fotografiska pappersstorlekar, skulle du kunna använda "
-"insticksprogrammet för att ändra bildstorlek?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:166
+#, kde-format
+msgid "Change %1 account for transfer"
+msgstr "Ändra %1-konto för överföring"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:172
+#: libkipiplugins/widgets/kpsettingswidget.cpp:176
+#, kde-format
 msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can use image files from different Albums in the "
-"'batch-process images' \n"
-"plugin? The processed results will then be merged into the selected target "
-"Album.\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"This is the %1 folder to/from which selected photos will be uploaded/"
+"downloaded."
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du skulle kunna använda bildfiler från olika album i "
-"insticksprogrammet för bakgrundsbehandling av bilder?\n"
-"Resultatet av behandlingen infogas därefter i valt resultatalbum.\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"%1-katalogen som markerade foton kommer att laddas upp till eller ner från."
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:190
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can change the timestamp of the target image files in "
-"the batch-rename images plugin?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du kan ändra tidsstämpeln för resultatbildfilerna i "
-"insticksprogrammet för namnändring i bakgrunden?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:178
+msgid "Album:"
+msgstr "Album:"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:207
-msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that you can navigate during the slideshow using the left and "
-"right mouse buttons?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
-msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att du kan navigera i bildspelet med vänster och höger musknapp?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+#: libkipiplugins/widgets/kpsettingswidget.cpp:182
+msgid "New Album"
+msgstr "Nytt album"
 
-#. i18n: ectx: @info:tipoftheday
-#: tips:224
+#: libkipiplugins/widgets/kpsettingswidget.cpp:184
+#, kde-format
+msgid "Create new %1 folder"
+msgstr "Skapa ny %1-katalog"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:186
+msgctxt "album list"
+msgid "Reload"
+msgstr "Uppdatera"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:188
+msgid "Reload album list"
+msgstr "Uppdatera albumlista"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:197
 msgid ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Did you know that Kipi plugins can also be used in Digikam, KPhotoAlbum, "
-"Showfoto, and Gwenview programs?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"This is the maximum dimension of the images. Images larger than this will be "
+"scaled down."
 msgstr ""
-"<p>\n"
-"<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center\">\n"
-"<tr>\n"
-"<td>\n"
-"<img src=\"hicolor/32x32/apps/kipi.png\">\n"
-"</td>\n"
-"<td>\n"
-"Visste du att KIPI-insticksprogrammen också kan användas i programmen "
-"Digikam, Kfotoalbum, Showfoto och Gwenview?\n"
-"</td>\n"
-"</tr>\n"
-"</table>\n"
-"</p>\n"
+"Bildernas maximala dimension. Bilder större än så kommer att skalas ner."
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:198
+msgid "Original Size"
+msgstr "Originalstorlek"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:199
+msgid "1600 px"
+msgstr "1600 bildpunkter"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:200
+msgid "1440 px"
+msgstr "1440 bildpunkter"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:201
+msgid "1280 px"
+msgstr "1280 bildpunkter"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:202
+msgid "1152 px"
+msgstr "1152 bildpunkter"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:203
+msgid "1024 px"
+msgstr "1024 bildpunkter"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:209
+#, kde-format
+msgid "This is the location where %1 images will be downloaded."
+msgstr "Platsen dit %1-bilder kommer att laddas ner."
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:214
+msgid "These are the options that would be applied to photos before upload."
+msgstr "Åtgärderna som skulle utföras med foton innan uppladdning."
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:216
+msgid "Resize photos before uploading"
+msgstr "Ändra storlek på foton innan uppladdning"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:226
+msgid "Maximum Dimension:"
+msgstr "Maximal dimension:"
+
+#: libkipiplugins/widgets/kpsettingswidget.cpp:235
+msgid "JPEG Quality:"
+msgstr "JPEG-kvalitet:"
+
+#~ msgid "Copy to Clip&board"
+#~ msgstr "Kopiera till klipp&bordet"
+
+#~ msgid "Navigate to %1"
+#~ msgstr "Gå till %1"
+
+#~ msgid "Binary"
+#~ msgstr "Binärfil"
+
+#~ msgid "Binary not found."
+#~ msgstr "Binärfil hittades inte."
+
+#~ msgid "Minimal version number required for this binary is %1"
+#~ msgstr "Minsta versionsnummer som krävs för binärfilen är %1"
+
+#~ msgid "Find"
+#~ msgstr "Sök"
+
+#~ msgid " or <a href=\"%1\">download</a>"
+#~ msgstr " eller <a href=\"%1\">ladda ner</a>"
+
+#~ msgid ""
+#~ "<qt><p><font color=\"red\"><b>Warning:</b> Some necessary binaries have "
+#~ "not been found on your system. If you have these binaries installed, "
+#~ "please click the 'Find' button to locate them on your system, otherwise "
+#~ "please download and install them to proceed.</font></p></qt>"
+#~ msgstr ""
+#~ "<qt><p><font color=\"red\"><b>Varning:</b> De binärfiler som krävs "
+#~ "hittades inte på systemet. Om binärfilerna är installerade, klicka på "
+#~ "knappen 'Sök' för att hitta dem på systemet, ladda annars ner dem för att "
+#~ "fortsätta.</font></p></qt>"
+
+#~ msgid ""
+#~ "A development version has been detect. There is no guarantee on the "
+#~ "behavior of this binary."
+#~ msgstr ""
+#~ "En utvecklingsversion har detekterats. Det finns ingen garanti för det "
+#~ "här binärprogrammets beteende."
+
+#~ msgid "Change"
+#~ msgstr "Ändra"
+
+#~ msgid "Zoom In"
+#~ msgstr "Zooma in"
+
+#~ msgid "Zoom Out"
+#~ msgstr "Zooma ut"
+
+#~ msgid "Zoom to Fit"
+#~ msgstr "Fyll sidan"
+
+#~ msgid "Failed to load image"
+#~ msgstr "Misslyckades ladda bild"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can brighten up your images using the Batch Color "
+#~ "Images plugin for increased contrast?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du skulle kunna göra dina bilder ljusare med "
+#~ "insticksprogrammet Bildfärgförbättring i bakgrunden för ökad kontrast?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can abort a slideshow using <b>ESC</b>?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du skulle kunna avbryta ett bildspel genom att använda "
+#~ "<b>Esc</b>?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that the Kipi library provides a scanner plugin that gives "
+#~ "you direct access to your scanner?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att KIPI-biblioteket tillhandahåller ett insticksprogram för "
+#~ "inläsning av bilder som gör att du direkt kommer åt bildläsaren?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can take a screenshot with the Kipi library and "
+#~ "save the result to an Album with some comments?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du kan ta en skärmbild med KIPI-biblioteket och spara "
+#~ "resultatet i ett album med några kommentarer?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can use the <b>LZW</b> compression to reduce the "
+#~ "size of the <b>TIFF</b> image files in the Convert Images plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du kan använda <b>LZW</b>-komprimering för att minska "
+#~ "storleken på <b>TIFF</b>-bildfiler i insticksprogrammet för att "
+#~ "konvertera bilder?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that all image operations in the batch processing image "
+#~ "plugins run without losing the <b>Exif</b> information in the <b>JPEG</b> "
+#~ "files?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att alla bildåtgärder i insticksprogrammen för "
+#~ "bakgrundsbehandling utförs utan att <b>EXIF</b>-informationen i <b>JPEG</"
+#~ "b>-filerna går förlorad?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that the <b>Noise Reduction</b> option in the <b>Filter "
+#~ "Images</b> plugin can be used to improve the rendering of images taken "
+#~ "with an analog camera?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att alternativet <b>Brusreducering</b> i insticksprogrammet "
+#~ "<b>Filtrera bilder</b> kan användas för att förbättra utseendet på bilder "
+#~ "som tagits med en analog kamera?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can use the drag and drop feature with email images "
+#~ "to add some items to the list?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du kan använda funktionen drag och släpp när bilder ska "
+#~ "skickas med e-post för att lägga till objekt i listan?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that if you want to reduce the disk space used by your "
+#~ "images in the Albums database, you can try using the Recompress Images "
+#~ "plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att om du vill minska diskutrymmet som används av dina bilder i "
+#~ "albumdatabasen, kan du försöka använda insticksprogrammet för "
+#~ "omkomprimering?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that if you want to resize images to prepare them for "
+#~ "printing on photographic paper sizes, you can use the Resize Images "
+#~ "plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att om du vill ändra storlek på bilder för att förbereda dem "
+#~ "för utskrift på fotografiska pappersstorlekar, skulle du kunna använda "
+#~ "insticksprogrammet för att ändra bildstorlek?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can use image files from different Albums in the "
+#~ "'batch-process images' \n"
+#~ "plugin? The processed results will then be merged into the selected "
+#~ "target Album.\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du skulle kunna använda bildfiler från olika album i "
+#~ "insticksprogrammet för bakgrundsbehandling av bilder?\n"
+#~ "Resultatet av behandlingen infogas därefter i valt resultatalbum.\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can change the timestamp of the target image files "
+#~ "in the batch-rename images plugin?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du kan ändra tidsstämpeln för resultatbildfilerna i "
+#~ "insticksprogrammet för namnändring i bakgrunden?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that you can navigate during the slideshow using the left "
+#~ "and right mouse buttons?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att du kan navigera i bildspelet med vänster och höger "
+#~ "musknapp?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+
+#~ msgid ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Did you know that Kipi plugins can also be used in Digikam, KPhotoAlbum, "
+#~ "Showfoto, and Gwenview programs?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
+#~ msgstr ""
+#~ "<p>\n"
+#~ "<table border=\"0\" cellpadding=\"0\" cellspacing=\"10\" align=\"center"
+#~ "\">\n"
+#~ "<tr>\n"
+#~ "<td>\n"
+#~ "<img src=\"hicolor/32x32/apps/kipi.png\">\n"
+#~ "</td>\n"
+#~ "<td>\n"
+#~ "Visste du att KIPI-insticksprogrammen också kan användas i programmen "
+#~ "Digikam, Kfotoalbum, Showfoto och Gwenview?\n"
+#~ "</td>\n"
+#~ "</tr>\n"
+#~ "</table>\n"
+#~ "</p>\n"
 
 #~ msgid ""
 #~ "IRC:\n"

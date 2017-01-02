@@ -1,42 +1,25 @@
 #
-# Copyright (c) 2010-2014, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2015, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
 
-find_package(KDE4 REQUIRED)
-include(MacroOptionalAddSubdirectory)
-
-if(ENABLE_COMPILE_LIBKEXIV2)
-    add_subdirectory(libkexiv2)
-endif()
-
-if(ENABLE_COMPILE_LIBKDCRAW)
-    add_subdirectory(libkdcraw)
-endif()
-
-if(ENABLE_COMPILE_LIBKIPI)
+if(DIGIKAMSC_COMPILE_LIBKIPI)
     add_subdirectory(libkipi)
 endif()
 
-if(ENABLE_COMPILE_LIBKGEOMAP)
-    MACRO_OPTIONAL_ADD_SUBDIRECTORY(libkgeomap)
+if(DIGIKAMSC_COMPILE_LIBKSANE)
+    ECM_OPTIONAL_ADD_SUBDIRECTORY(libksane)
 endif()
 
-if(ENABLE_COMPILE_LIBKFACE)
-    MACRO_OPTIONAL_ADD_SUBDIRECTORY(libkface)
+if(DIGIKAMSC_COMPILE_LIBMEDIAWIKI)
+    ECM_OPTIONAL_ADD_SUBDIRECTORY(libmediawiki)
 endif()
 
-if(ENABLE_COMPILE_LIBKSANE)
-    MACRO_OPTIONAL_ADD_SUBDIRECTORY(libksane)
+if(DIGIKAMSC_COMPILE_LIBKVKONTAKTE)
+    ECM_OPTIONAL_ADD_SUBDIRECTORY(libkvkontakte)
 endif()
 
-if(ENABLE_COMPILE_LIBMEDIAWIKI)
-    MACRO_OPTIONAL_ADD_SUBDIRECTORY(libmediawiki)
+if(DIGIKAMSC_COMPILE_KIPIPLUGINS)
+    add_subdirectory(kipi-plugins)
 endif()
-
-if(ENABLE_COMPILE_LIBKVKONTAKTE)
-    MACRO_OPTIONAL_ADD_SUBDIRECTORY(libkvkontakte)
-endif()
-
-add_subdirectory(kipi-plugins)

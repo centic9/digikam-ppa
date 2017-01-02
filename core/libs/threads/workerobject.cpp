@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "workerobject.moc"
+#include "workerobject.h"
 
 // Qt includes
 
@@ -31,12 +31,9 @@
 #include <QThread>
 #include <QWaitCondition>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "threadmanager.h"
 
 namespace Digikam

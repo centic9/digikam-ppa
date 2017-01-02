@@ -21,20 +21,20 @@
  *
  * ============================================================ */
 
-#include "importpreviewview.moc"
+#include "importpreviewview.h"
 
 // Qt includes
 
 #include <QMouseEvent>
 #include <QGraphicsSceneContextMenuEvent>
 #include <QToolBar>
+#include <QMenu>
+#include <QApplication>
+#include <QIcon>
 
 // KDE includes
 
-#include <klocale.h>
-#include <ktoggleaction.h>
-#include <kmenu.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -59,10 +59,12 @@ public:
         setAcceptHoverEvents(true);
     }
 
-    //void setFaceGroup(FaceGroup* group)
-    //{
-    //    m_group = group;
-    //}
+/*
+    void setFaceGroup(FaceGroup* group)
+    {
+       m_group = group;
+    }
+*/
 
     void contextMenuEvent(QGraphicsSceneContextMenuEvent* event)
     {
@@ -148,7 +150,7 @@ public:
     QAction*                nextAction;
     QAction*                rotLeftAction;
     QAction*                rotRightAction;
-    //KToggleAction*        peopleToggleAction;
+    //QAction*              peopleToggleAction;
     //QAction*              addPersonAction;
     //QAction*              forgetFacesAction;
 
@@ -186,15 +188,15 @@ ImportPreviewView::ImportPreviewView(QWidget* const parent, Mode mode)
 
     // ------------------------------------------------------------
 
-    d->escapePreviewAction = new QAction(SmallIcon("folder-image"),        i18n("Escape preview"),                 this);
-    d->prevAction          = new QAction(SmallIcon("go-previous"),         i18nc("go to previous image", "Back"),  this);
-    d->nextAction          = new QAction(SmallIcon("go-next"),             i18nc("go to next image", "Forward"),   this);
-    d->rotLeftAction       = new QAction(SmallIcon("object-rotate-left"),  i18nc("@info:tooltip", "Rotate Left"),  this);
-    d->rotRightAction      = new QAction(SmallIcon("object-rotate-right"), i18nc("@info:tooltip", "Rotate Right"), this);
-    //FIXME: d->addPersonAction    = new QAction(SmallIcon("list-add-user"),       i18n("Add a Face Tag"),                 this);
-    //FIXME: d->forgetFacesAction  = new QAction(SmallIcon("list-remove-user"),    i18n("Clear all faces on this image"),  this);
-    //FIXME: d->peopleToggleAction = new KToggleAction(i18n("Show Face Tags"),                                             this);
-    //FIXME: d->peopleToggleAction->setIcon(SmallIcon("user-identity"));
+    d->escapePreviewAction = new QAction(QIcon::fromTheme(QLatin1String("folder-pictures")),          i18n("Escape preview"),                 this);
+    d->prevAction          = new QAction(QIcon::fromTheme(QLatin1String("go-previous")),              i18nc("go to previous image", "Back"),  this);
+    d->nextAction          = new QAction(QIcon::fromTheme(QLatin1String("go-next")),                  i18nc("go to next image", "Forward"),   this);
+    d->rotLeftAction       = new QAction(QIcon::fromTheme(QLatin1String("object-rotate-left")),       i18nc("@info:tooltip", "Rotate Left"),  this);
+    d->rotRightAction      = new QAction(QIcon::fromTheme(QLatin1String("object-rotate-right")),      i18nc("@info:tooltip", "Rotate Right"), this);
+    //FIXME: d->addPersonAction    = new QAction(QIcon::fromTheme(QLatin1String("list-add-user")),    i18n("Add a Face Tag"),                 this);
+    //FIXME: d->forgetFacesAction  = new QAction(QIcon::fromTheme(QLatin1String("list-remove-user")), i18n("Clear all faces on this image"),  this);
+    //FIXME: d->peopleToggleAction = new Qaction(QIcon::fromTheme(QLatin1String("im-user")),          i18n("Show Face Tags"),                 this);
+    //FIXME: d->peopleToggleAction->setCheckable(true);
 
     d->toolBar = new QToolBar(this);
 
@@ -292,12 +294,12 @@ void ImportPreviewView::setCamItemInfo(const CamItemInfo& info, const CamItemInf
 
     QStringList previewPaths;
 
-    if (identifyCategoryforMime(next.mime) == "image")
+    if (identifyCategoryforMime(next.mime) == QLatin1String("image"))
     {
         previewPaths << next.url().toLocalFile();
     }
 
-    if (identifyCategoryforMime(previous.mime) == "image")
+    if (identifyCategoryforMime(previous.mime) == QLatin1String("image"))
     {
         previewPaths << previous.url().toLocalFile();
     }
@@ -307,7 +309,7 @@ void ImportPreviewView::setCamItemInfo(const CamItemInfo& info, const CamItemInf
 
 QString ImportPreviewView::identifyCategoryforMime(QString mime)
 {
-    return mime.split('/').at(0);
+    return mime.split(QLatin1Char('/')).at(0);
 }
 
 CamItemInfo ImportPreviewView::getCamItemInfo() const
@@ -355,16 +357,16 @@ void ImportPreviewView::showContextMenu(const CamItemInfo& info, QGraphicsSceneC
 
     QList<qlonglong> idList;
     idList << info.id;
-    KUrl::List selectedItems;
+    QList<QUrl> selectedItems;
     selectedItems << info.url();
 
     // --------------------------------------------------------
 
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ImportContextMenuHelper cmhelper(&popmenu);
 
-    cmhelper.addAction("importui_fullscreen");
-    cmhelper.addAction("options_show_menubar");
+    cmhelper.addAction(QLatin1String("importui_fullscreen"));
+    cmhelper.addAction(QLatin1String("options_show_menubar"));
     cmhelper.addSeparator();
 
     // --------------------------------------------------------
@@ -373,7 +375,7 @@ void ImportPreviewView::showContextMenu(const CamItemInfo& info, QGraphicsSceneC
     {
         cmhelper.addAction(d->prevAction, true);
         cmhelper.addAction(d->nextAction, true);
-        cmhelper.addAction("importui_icon_view");
+        cmhelper.addAction(QLatin1String("importui_icon_view"));
         //cmhelper.addGotoMenu(idList);
         cmhelper.addSeparator();
     }
@@ -393,7 +395,7 @@ void ImportPreviewView::showContextMenu(const CamItemInfo& info, QGraphicsSceneC
 
     // --------------------------------------------------------
 
-    cmhelper.addAction("importui_delete");
+    cmhelper.addAction(QLatin1String("importui_delete"));
     cmhelper.addSeparator();
 
     // --------------------------------------------------------
@@ -441,27 +443,30 @@ void ImportPreviewView::showContextMenu(const CamItemInfo& info, QGraphicsSceneC
     cmhelper.exec(event->screenPos());
 }
 
-//void ImportPreviewView::slotAssignTag(int tagID)
-//{
-//    FileActionMngr::instance()->assignTag(d->item->camItemInfo(), tagID);
-//}
+/*
+void ImportPreviewView::slotAssignTag(int tagID)
+{
+   FileActionMngr::instance()->assignTag(d->item->camItemInfo(), tagID);
+}
 
-//void ImportPreviewView::slotRemoveTag(int tagID)
-//{
-//    FileActionMngr::instance()->removeTag(d->item->camItemInfo(), tagID);
-//}
+void ImportPreviewView::slotRemoveTag(int tagID)
+{
+   FileActionMngr::instance()->removeTag(d->item->camItemInfo(), tagID);
+}
+*/
 
 void ImportPreviewView::slotThemeChanged()
 {
     QPalette plt(palette());
-    plt.setColor(backgroundRole(), kapp->palette().color(QPalette::Base));
+    plt.setColor(backgroundRole(), qApp->palette().color(QPalette::Base));
     setPalette(plt);
 }
 
 void ImportPreviewView::slotSetupChanged()
 {
     PreviewSettings settings;
-    settings.quality = ImportSettings::instance()->getPreviewLoadFullImageSize() ? PreviewSettings::HighQualityPreview : PreviewSettings::FastPreview;
+    settings.quality = ImportSettings::instance()->getPreviewLoadFullImageSize() ? PreviewSettings::HighQualityPreview
+                                                                                 : PreviewSettings::FastPreview;
     previewItem()->setPreviewSettings(settings);
 
     d->toolBar->setVisible(ImportSettings::instance()->getPreviewShowIcons());
@@ -472,20 +477,20 @@ void ImportPreviewView::slotSetupChanged()
 
 void ImportPreviewView::slotRotateLeft()
 {
-    /*
+/*
     ImageInfo info(d->item->camItemInfo().url().toLocalFile());
 
-    FileActionMngr::instance()->transform(QList<ImageInfo>() << info, KExiv2Iface::RotationMatrix::Rotate270);
-    */
+    FileActionMngr::instance()->transform(QList<ImageInfo>() << info, MetaEngineRotation::Rotate270);
+*/
 }
 
 void ImportPreviewView::slotRotateRight()
 {
-    /*
+/*
     ImageInfo info(d->item->camItemInfo().url().toLocalFile());
 
-    FileActionMngr::instance()->transform(QList<ImageInfo>() << info, KExiv2Iface::RotationMatrix::Rotate90);
-    */
+    FileActionMngr::instance()->transform(QList<ImageInfo>() << info, MetaEngineRotation::Rotate90);
+*/
 }
 
 void ImportPreviewView::slotDeleteItem()

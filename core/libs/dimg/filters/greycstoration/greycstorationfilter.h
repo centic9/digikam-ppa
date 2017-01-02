@@ -6,7 +6,7 @@
  * Date        : 2007-12-03
  * Description : Greycstoration interface.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -27,7 +27,7 @@
 
 // Qt includes
 
-#include <QtGui/QImage>
+#include <QImage>
 
 // Local includes
 
@@ -189,12 +189,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:GreycstorationFilter";
+        return QLatin1String("digikam:GreycstorationFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Greycstoration Filter");
+        return QString::fromUtf8(I18N_NOOP("Greycstoration Filter"));
     }
 
     static QList<int>       SupportedVersions()

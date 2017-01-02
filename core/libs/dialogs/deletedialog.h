@@ -10,7 +10,7 @@
  * Copyright (C) 2006      by Ian Monroe <ian@monroe.nu>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,11 +32,8 @@
 
 #include <QWidget>
 #include <QTreeWidget>
-
-// KDE includes
-
-#include <kdialog.h>
-#include <kurl.h>
+#include <QUrl>
+#include <QDialog>
 
 // Local includes
 
@@ -74,11 +71,11 @@ class DeleteItem : public QTreeWidgetItem
 
 public:
 
-    DeleteItem(QTreeWidget* const parent, const KUrl& url);
+    DeleteItem(QTreeWidget* const parent, const QUrl& url);
     virtual ~DeleteItem();
 
     bool    hasValidThumbnail() const;
-    KUrl    url()               const;
+    QUrl    url()               const;
     QString fileUrl()           const;
 
     void setThumb(const QPixmap& pix, bool hasThumb=true);
@@ -125,7 +122,7 @@ public:
     explicit DeleteWidget(QWidget* const parent = 0);
     virtual ~DeleteWidget();
 
-    void setUrls(const KUrl::List& urls);
+    void setUrls(const QList<QUrl>& urls);
     void setListMode(DeleteDialogMode::ListMode mode);
     void setDeleteMode(DeleteDialogMode::DeleteMode deleteMode);
 
@@ -147,7 +144,7 @@ private:
 
 // -----------------------------------------------------------
 
-class DeleteDialog : public KDialog
+class DeleteDialog : public QDialog
 {
     Q_OBJECT
 
@@ -165,12 +162,12 @@ public:
     explicit DeleteDialog(QWidget* const parent);
     virtual ~DeleteDialog();
 
-    bool confirmDeleteList(const KUrl::List& condemnedURLs,
+    bool confirmDeleteList(const QList<QUrl>& condemnedURLs,
                            DeleteDialogMode::ListMode listMode,
                            DeleteDialogMode::DeleteMode deleteMode);
     bool shouldDelete() const;
 
-    void setUrls(const KUrl::List& urls);
+    void setUrls(const QList<QUrl>& urls);
     void presetDeleteMode(DeleteDialogMode::DeleteMode mode);
     void setListMode(DeleteDialogMode::ListMode mode);
 

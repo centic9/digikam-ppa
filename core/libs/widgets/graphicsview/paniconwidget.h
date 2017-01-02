@@ -7,7 +7,10 @@
  * Description : a generic widget to display a panel to choose
  *               a rectangular image area.
  *
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 1997      by Tim D. Gilman (tdgilman at best dot org)
+ * Copyright (C) 1998-2001 by Mirko Boehm (mirko at kde dot org)
+ * Copyright (C) 2007      by John Layt <john at layt dot net>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,14 +30,15 @@
 
 // Qt includes
 
-#include <QtGui/QWidget>
-#include <QtCore/QRect>
-#include <QtGui/QImage>
-#include <QtGui/QPixmap>
-#include <QtGui/QHideEvent>
-#include <QtGui/QMouseEvent>
-#include <QtCore/QTimerEvent>
-#include <QtGui/QPaintEvent>
+#include <QWidget>
+#include <QRect>
+#include <QImage>
+#include <QPixmap>
+#include <QHideEvent>
+#include <QMouseEvent>
+#include <QTimerEvent>
+#include <QPaintEvent>
+#include <QFrame>
 
 // Local includes
 
@@ -45,6 +49,77 @@ class QToolButton;
 
 namespace Digikam
 {
+
+/**
+ * Frame with popup menu behavior to host PanIconWidget.
+ */
+class DIGIKAM_EXPORT PanIconFrame : public QFrame
+{
+    Q_OBJECT
+
+public:
+
+    PanIconFrame(QWidget* const parent=0);
+    ~PanIconFrame();
+
+    /**
+     * Set the main widget. You cannot set the main widget from the constructor,
+     * since it must be a child of the frame itselfes.
+     * Be careful: the size is set to the main widgets size. It is up to you to
+     * set the main widgets correct size before setting it as the main
+     * widget.
+     */
+    void setMainWidget(QWidget* const main);
+
+    /**
+     * Open the popup window at position pos.
+     */
+    void popup(const QPoint & pos);
+
+    /**
+     * Execute the popup window.
+     */
+    int exec(const QPoint& pos);
+
+    /**
+     * Execute the popup window.
+     */
+    int exec(int x, int y);
+
+    /**
+     * The resize event. Simply resizes the main widget to the whole
+     * widgets client size.
+     */
+    virtual void resizeEvent(QResizeEvent* resize);
+
+Q_SIGNALS:
+
+    void leaveModality();
+
+protected:
+    /**
+     * Catch key press events.
+     */
+    virtual void keyPressEvent(QKeyEvent* e);
+
+public Q_SLOTS:
+
+    /**
+     * Close the popup window. This is called from the main widget, usually.
+     * @p r is the result returned from exec().
+     */
+    void close(int r);
+
+private:
+
+    class Private;
+    friend class Private;
+    Private * const d;
+
+    Q_DISABLE_COPY(PanIconFrame)
+};
+
+// ---------------------------------------------------------------------------------
 
 class DIGIKAM_EXPORT PanIconWidget : public QWidget
 {

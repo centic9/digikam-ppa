@@ -6,7 +6,7 @@
  * Date        : 2013-07-05
  * Description : Qt model for Showfoto entries
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "showfotoimagemodel.moc"
+#include "showfotoimagemodel.h"
 
 // Qt includes
 
@@ -172,7 +172,7 @@ ShowfotoItemInfo ShowfotoImageModel::retrieveShowfotoItemInfo(const QModelIndex&
     return model->showfotoItemInfo(row);
 }
 
-QModelIndex ShowfotoImageModel::indexForUrl(const KUrl& fileUrl) const
+QModelIndex ShowfotoImageModel::indexForUrl(const QUrl& fileUrl) const
 {
         const int size = d->infos.size();
 
@@ -187,7 +187,7 @@ QModelIndex ShowfotoImageModel::indexForUrl(const KUrl& fileUrl) const
     return QModelIndex();
 }
 
-QList<QModelIndex> ShowfotoImageModel::indexesForUrl(const KUrl& fileUrl) const
+QList<QModelIndex> ShowfotoImageModel::indexesForUrl(const QUrl& fileUrl) const
 {
         QList<QModelIndex> indexes;
         const int          size = d->infos.size();
@@ -203,7 +203,7 @@ QList<QModelIndex> ShowfotoImageModel::indexesForUrl(const KUrl& fileUrl) const
         return indexes;
 }
 
-ShowfotoItemInfo ShowfotoImageModel::showfotoItemInfo(const KUrl& fileUrl) const
+ShowfotoItemInfo ShowfotoImageModel::showfotoItemInfo(const QUrl& fileUrl) const
 {
         foreach(const ShowfotoItemInfo& info, d->infos)
         {
@@ -216,7 +216,7 @@ ShowfotoItemInfo ShowfotoImageModel::showfotoItemInfo(const KUrl& fileUrl) const
     return ShowfotoItemInfo();
 }
 
-QList<ShowfotoItemInfo> ShowfotoImageModel::showfotoItemInfos(const KUrl& fileUrl) const
+QList<ShowfotoItemInfo> ShowfotoImageModel::showfotoItemInfos(const QUrl& fileUrl) const
 {
     QList<ShowfotoItemInfo> infos;
 
@@ -272,8 +272,9 @@ void ShowfotoImageModel::clearShowfotoItemInfos()
     d->refreshing                  = false;
     d->incrementalRefreshRequested = false;
 
-    reset();
+    beginResetModel();
     showfotoItemInfosCleared();
+    endResetModel();
 }
 
 void ShowfotoImageModel::setShowfotoItemInfos(const QList<ShowfotoItemInfo>& infos)
@@ -289,7 +290,7 @@ QList<ShowfotoItemInfo> ShowfotoImageModel::showfotoItemInfos() const
 
 bool ShowfotoImageModel::hasImage(const ShowfotoItemInfo& info) const
 {
-    return d->fileUrlHash.contains(info.url.prettyUrl());
+    return d->fileUrlHash.contains(info.url.toDisplayString());
 }
 
 void ShowfotoImageModel::emitDataChangedForAll()
@@ -340,7 +341,7 @@ void ShowfotoImageModel::slotFileDeleted(const QString& folder, const QString& f
 {
     Q_UNUSED(status)
 
-    ShowfotoItemInfo info = showfotoItemInfo(KUrl::fromLocalFile(folder + file));
+    ShowfotoItemInfo info = showfotoItemInfo(QUrl::fromLocalFile(folder + file));
     //removeShowfotoItemInfo(info);
 }
 
@@ -371,7 +372,7 @@ void ShowfotoImageModel::publiciseInfos(const QList<ShowfotoItemInfo>& infos)
 
         if (d->keepFileUrlCache)
         {
-            d->fileUrlHash[info.url.prettyUrl()] = id;
+            d->fileUrlHash[info.url.toDisplayString()] = id;
         }
     }
 

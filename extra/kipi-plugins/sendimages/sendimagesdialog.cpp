@@ -6,7 +6,7 @@
  * Date        : 2006-10-12
  * Description : a dialog to edit EXIF metadata
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006      by Tom Albers <tomalbers at kde dot nl>
  * Copyright (C) 2006      by Michael Hoechstetter <michael dot hoechstetter at gmx dot de>
  *
@@ -22,31 +22,26 @@
  *
  * ============================================================ */
 
-#include "sendimagesdialog.moc"
+#include "sendimagesdialog.h"
 
 // Qt includes
 
+#include <QWindow>
 #include <QCloseEvent>
 #include <QGridLayout>
+#include <QMenu>
+#include <QPushButton>
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
+#include <kwindowconfig.h>
 #include <kconfig.h>
-#include <kdebug.h>
-#include <kiconloader.h>
-#include <kapplication.h>
-#include <kmessagebox.h>
-#include <kpushbutton.h>
-#include <kmenu.h>
-#include <khelpmenu.h>
-#include <ktoolinvocation.h>
-#include <kguiitem.h>
 
-// LibKIPI includes
+// Libkipi includes
 
-#include <libkipi/imagecollection.h>
-#include <libkipi/interface.h>
+#include <KIPI/ImageCollection>
+#include <KIPI/Interface>
 
 // Local includes
 
@@ -69,60 +64,56 @@ public:
         settingsWidget = 0;
     }
 
-    KUrl::List      urls;
+    QList<QUrl>      urls;
 
     MyImageList*    imagesList;
     SettingsWidget* settingsWidget;
 
-    EmailSettings acceptedEmailSettings;
+    EmailSettings   acceptedEmailSettings;
 };
 
-SendImagesDialog::SendImagesDialog(QWidget* const /*parent*/, const KUrl::List& urls)
-    : KPToolDialog(0), d(new Private)
+SendImagesDialog::SendImagesDialog(QWidget* const /*parent*/, const QList<QUrl>& urls)
+    : KPToolDialog(0),
+      d(new Private)
 {
     d->urls = urls;
 
-    setCaption(i18n("Email Images Options"));
-    setButtons(Help | User1 | Close);
-    setDefaultButton(Close);
+    setWindowTitle(i18n("Email Images Options"));
     setModal(false);
 
-    button(User1)->setText(i18nc("@action:button", "&Send"));
-    button(User1)->setIcon(KIcon("mail-send"));
+    startButton()->setText(i18nc("@action:button", "&Send"));
+    startButton()->setIcon(QIcon::fromTheme(QLatin1String("mail-send")));
 
     // ---------------------------------------------------------------
 
-    setMainWidget(new QWidget(this));
-    QGridLayout* mainLayout = new QGridLayout(mainWidget());
-    d->imagesList           = new MyImageList(mainWidget());
-    d->settingsWidget       = new SettingsWidget(mainWidget());
+    QWidget* mainWidget = new QWidget(this);
+    setMainWidget(mainWidget);
+    QGridLayout* mainLayout = new QGridLayout(mainWidget);
+    d->imagesList           = new MyImageList(mainWidget);
+    d->settingsWidget       = new SettingsWidget(mainWidget);
     d->imagesList->slotAddImages(urls);
 
     mainLayout->addWidget(d->imagesList,     0, 0, 1, 1);
     mainLayout->addWidget(d->settingsWidget, 0, 1, 1, 1);
     mainLayout->setColumnStretch(0, 10);
-    mainLayout->setMargin(0);
-    mainLayout->setSpacing(spacingHint());
 
     // ---------------------------------------------------------------
     // About data and help button.
 
-    KPAboutData* about = new KPAboutData(ki18n("Send Images"),
-                             0,
-                             KAboutData::License_GPL,
-                             ki18n("A plugin to e-mail items"),
-                             ki18n("(c) 2003-2013, Gilles Caulier"));
+    KPAboutData* const about = new KPAboutData(ki18n("Send Images"),
+                                   ki18n("A tool to e-mail items"),
+                                   ki18n("(c) 2003-2016, Gilles Caulier"));
 
-    about->addAuthor(ki18n("Gilles Caulier"), ki18n("Author and Maintainer"),
-                     "caulier dot gilles at gmail dot com");
+    about->addAuthor(ki18n("Gilles Caulier").toString(), ki18n("Author and Maintainer").toString(),
+                     QLatin1String("caulier dot gilles at gmail dot com"));
 
-    about->addAuthor(ki18n("Michael Hoechstetter"), ki18n("Developer"),
-                     "michael dot hoechstetter at gmx dot de");
+    about->addAuthor(ki18n("Michael Hoechstetter").toString(), ki18n("Developer").toString(),
+                     QLatin1String("michael dot hoechstetter at gmx dot de"));
 
-    about->addAuthor(ki18n("Tom Albers"), ki18n("Developer"),
-                     "tomalbers at kde dot nl");
+    about->addAuthor(ki18n("Tom Albers").toString(), ki18n("Developer").toString(),
+                     QLatin1String("tomalbers at kde dot nl"));
 
-    about->setHandbookEntry("sendimages");
+    about->setHandbookEntry(QLatin1String("tool-sendimages"));
     setAboutData(about);
 
     // ------------------------------------------------------------
@@ -130,8 +121,8 @@ SendImagesDialog::SendImagesDialog(QWidget* const /*parent*/, const KUrl::List& 
     connect(this, SIGNAL(finished(int)),
             this, SLOT(slotFinished()));
 
-    connect(this, SIGNAL(user1Clicked()),
-            this, SLOT(slotSubmit()));
+    connect(startButton(), &QPushButton::clicked,
+            this, &SendImagesDialog::slotSubmit);
 
     connect(d->imagesList, SIGNAL(signalImageListChanged()),
             this, SLOT(slotImagesCountChanged()));
@@ -180,45 +171,47 @@ EmailSettings SendImagesDialog::emailSettings() const
 
 void SendImagesDialog::readSettings()
 {
-    KConfig config("kipirc");
-    KConfigGroup group = config.group("SendImages Settings");
+    KConfig config(QLatin1String("kipirc"));
+    KConfigGroup group = config.group(QLatin1String("SendImages Settings"));
 
     EmailSettings settings;
-    settings.emailProgram            = (EmailSettings::EmailClient)group.readEntry("EmailProgram", (int)EmailSettings::KMAIL);
-    settings.imageSize               = (EmailSettings::ImageSize)group.readEntry("ImageResize",    (int)EmailSettings::MEDIUM);
-    settings.imageFormat             = (EmailSettings::ImageFormat)group.readEntry("ImageFormat",  (int)EmailSettings::JPEG);
-    settings.imagesChangeProp        = group.readEntry("ImagesChangeProp", false);
-    settings.addCommentsAndTags      = group.readEntry("AddCommentsAndTags", false);
-    settings.imageCompression        = group.readEntry("ImageCompression", 75);
-    settings.attachmentLimitInMbytes = group.readEntry("AttachmentLimit", 17);
+    settings.emailProgram            = (EmailSettings::EmailClient)group.readEntry(QLatin1String("EmailProgram"), (int)EmailSettings::DEFAULT);
+    settings.imageSize               = (EmailSettings::ImageSize)group.readEntry(QLatin1String("ImageResize"),    (int)EmailSettings::MEDIUM);
+    settings.imageFormat             = (EmailSettings::ImageFormat)group.readEntry(QLatin1String("ImageFormat"),  (int)EmailSettings::JPEG);
+    settings.imagesChangeProp        = group.readEntry(QLatin1String("ImagesChangeProp"), false);
+    settings.addCommentsAndTags      = group.readEntry(QLatin1String("AddCommentsAndTags"), false);
+    settings.imageCompression        = group.readEntry(QLatin1String("ImageCompression"), 75);
+    settings.attachmentLimitInMbytes = group.readEntry(QLatin1String("AttachmentLimit"), 17);
     d->settingsWidget->setEmailSettings(settings);
 
-    KConfigGroup group2 = config.group(QString("SendImages Dialog"));
-    restoreDialogSize(group2);
+    winId();
+    KConfigGroup group2 = config.group(QLatin1String("SendImages Dialog"));
+    KWindowConfig::restoreWindowSize(windowHandle(), group2);
+    resize(windowHandle()->size());
 }
 
 void SendImagesDialog::saveSettings()
 {
-    KConfig config("kipirc");
-    KConfigGroup group = config.group("SendImages Settings");
+    KConfig config(QLatin1String("kipirc"));
+    KConfigGroup group = config.group(QLatin1String("SendImages Settings"));
 
     EmailSettings settings = d->settingsWidget->emailSettings();
-    group.writeEntry("EmailProgram",       (int)settings.emailProgram);
-    group.writeEntry("ImageResize",        (int)settings.imageSize);
-    group.writeEntry("ImageFormat",        (int)settings.imageFormat);
-    group.writeEntry("ImagesChangeProp",   settings.imagesChangeProp);
-    group.writeEntry("AddCommentsAndTags", settings.addCommentsAndTags);
-    group.writeEntry("ImageCompression",   settings.imageCompression);
-    group.writeEntry("AttachmentLimit",    settings.attachmentLimitInMbytes);
+    group.writeEntry(QLatin1String("EmailProgram"),       (int)settings.emailProgram);
+    group.writeEntry(QLatin1String("ImageResize"),        (int)settings.imageSize);
+    group.writeEntry(QLatin1String("ImageFormat"),        (int)settings.imageFormat);
+    group.writeEntry(QLatin1String("ImagesChangeProp"),   settings.imagesChangeProp);
+    group.writeEntry(QLatin1String("AddCommentsAndTags"), settings.addCommentsAndTags);
+    group.writeEntry(QLatin1String("ImageCompression"),   settings.imageCompression);
+    group.writeEntry(QLatin1String("AttachmentLimit"),    settings.attachmentLimitInMbytes);
 
-    KConfigGroup group2 = config.group(QString("SendImages Dialog"));
-    saveDialogSize(group2);
+    KConfigGroup group2 = config.group(QLatin1String("SendImages Dialog"));
+    KWindowConfig::saveWindowSize(windowHandle(), group2);
     config.sync();
 }
 
 void SendImagesDialog::slotImagesCountChanged()
 {
-   enableButton(User1, !d->imagesList->imagesList().isEmpty());
+    startButton()->setEnabled(!d->imagesList->imagesList().isEmpty());
 }
 
 }  // namespace KIPISendimagesPlugin

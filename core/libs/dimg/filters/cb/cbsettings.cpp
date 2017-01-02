@@ -6,7 +6,7 @@
  * Date        : 2010-02-11
  * Description : Color Balance settings view.
  *
- * Copyright (C) 2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "cbsettings.moc"
+#include "cbsettings.h"
 
 // Qt includes
 
@@ -31,97 +31,93 @@
 #include <QString>
 #include <QFile>
 #include <QTextStream>
+#include <QUrl>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kurl.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kapplication.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kstandarddirs.h>
+#include <klocalizedstring.h>
 
-// LibKDcraw includes
+// Local includes
 
-#include <libkdcraw/rnuminput.h>
-#include <libkdcraw/rexpanderbox.h>
+#include "dexpanderbox.h"
+#include "dnuminput.h"
+#include "digikam_debug.h"
 
-using namespace KDcrawIface;
+
 
 namespace Digikam
 {
 
-class CBSettingsPriv
+class CBSettings::Private
 {
 public:
 
-    CBSettingsPriv() :
+    Private() :
         rInput(0),
         gInput(0),
         bInput(0)
-    {}
+    {
+    }
 
     static const QString configRedAdjustmentEntry;
     static const QString configGreenAdjustmentEntry;
     static const QString configBlueAdjustmentEntry;
 
-    RIntNumInput*        rInput;
-    RIntNumInput*        gInput;
-    RIntNumInput*        bInput;
+    DIntNumInput*        rInput;
+    DIntNumInput*        gInput;
+    DIntNumInput*        bInput;
 };
-const QString CBSettingsPriv::configRedAdjustmentEntry("RedAdjustment");
-const QString CBSettingsPriv::configGreenAdjustmentEntry("GreenAdjustment");
-const QString CBSettingsPriv::configBlueAdjustmentEntry("BlueAdjustment");
+
+const QString CBSettings::Private::configRedAdjustmentEntry(QLatin1String("RedAdjustment"));
+const QString CBSettings::Private::configGreenAdjustmentEntry(QLatin1String("GreenAdjustment"));
+const QString CBSettings::Private::configBlueAdjustmentEntry(QLatin1String("BlueAdjustment"));
 
 // --------------------------------------------------------
 
-CBSettings::CBSettings(QWidget* parent)
+CBSettings::CBSettings(QWidget* const parent)
     : QWidget(parent),
-      d(new CBSettingsPriv)
+      d(new Private)
 {
-    QGridLayout* grid = new QGridLayout(parent);
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
 
-    QLabel* labelCyan = new QLabel(i18n("Cyan"));
+    QGridLayout* const grid = new QGridLayout(parent);
+
+    QLabel* const labelCyan = new QLabel(i18n("Cyan"));
     labelCyan->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-    d->rInput = new RIntNumInput();
+    d->rInput = new DIntNumInput();
     d->rInput->setRange(-100, 100, 1);
-    d->rInput->setSliderEnabled(true);
     d->rInput->setDefaultValue(0);
     d->rInput->setWhatsThis(i18n("Set here the cyan/red color adjustment of the image."));
 
-    QLabel* labelRed = new QLabel(i18n("Red"));
+    QLabel* const labelRed = new QLabel(i18n("Red"));
     labelRed->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
     // -------------------------------------------------------------
 
-    QLabel* labelMagenta = new QLabel(i18n("Magenta"));
+    QLabel* const labelMagenta = new QLabel(i18n("Magenta"));
     labelMagenta->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-    d->gInput = new RIntNumInput();
+    d->gInput = new DIntNumInput();
     d->gInput->setRange(-100, 100, 1);
-    d->gInput->setSliderEnabled(true);
     d->gInput->setDefaultValue(0);
     d->gInput->setWhatsThis(i18n("Set here the magenta/green color adjustment of the image."));
 
-    QLabel* labelGreen = new QLabel(i18n("Green"));
+    QLabel* const labelGreen = new QLabel(i18n("Green"));
     labelGreen->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
     // -------------------------------------------------------------
 
-    QLabel* labelYellow = new QLabel(i18n("Yellow"));
+    QLabel* const labelYellow = new QLabel(i18n("Yellow"));
     labelYellow->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
-    QLabel* labelBlue = new QLabel(i18n("Blue"));
+    QLabel* const labelBlue = new QLabel(i18n("Blue"));
     labelBlue->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
-    d->bInput = new RIntNumInput();
+    d->bInput = new DIntNumInput();
     d->bInput->setRange(-100, 100, 1);
-    d->bInput->setSliderEnabled(true);
     d->bInput->setDefaultValue(0);
     d->bInput->setWhatsThis(i18n("Set here the yellow/blue color adjustment of the image."));
 
@@ -136,8 +132,8 @@ CBSettings::CBSettings(QWidget* parent)
     grid->addWidget(labelYellow,  2, 0, 1, 1);
     grid->addWidget(d->bInput,    2, 1, 1, 1);
     grid->addWidget(labelBlue,    2, 2, 1, 1);
-    grid->setMargin(KDialog::spacingHint());
-    grid->setSpacing(KDialog::spacingHint());
+    grid->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid->setSpacing(spacing);
     grid->setRowStretch(3, 10);
 
     // -------------------------------------------------------------

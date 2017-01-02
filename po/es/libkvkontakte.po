@@ -1,0 +1,128 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kira J. Fernandez <kirajfdez@gmail.com>, 2011.
+# Eloy Cuadra <ecuadra@eloihr.net>, 2013, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2015-10-13 10:04+0000\n"
+"PO-Revision-Date: 2015-10-18 12:39+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: allmessageslistjob.cpp:117
+msgid "The number of outgoing messages has changed between requests."
+msgstr "El número de mensajes salientes ha cambiado entre peticiones."
+
+#: allmessageslistjob.cpp:121
+msgid "The number of incoming messages has changed between requests."
+msgstr "El número de mensajes entrantes ha cambiado entre peticiones."
+
+#: allnoteslistjob.cpp:92
+msgid "The number of notes has changed between requests."
+msgstr "El número de notas ha cambiado entre peticiones."
+
+#: authenticationdialog.cpp:61
+msgctxt "@title:window"
+msgid "Authenticate with VKontakte"
+msgstr "Autenticarse con VKontakte"
+
+#: authenticationdialog.cpp:71
+msgid "Loading Page:"
+msgstr "Cargando página:"
+
+#: authenticationdialog.cpp:138
+#, kde-format
+msgid ""
+"<b>VKontakte Error Description:</b> %1<br><b>VKontakte Error:</b> %2<br>"
+msgstr ""
+"<b>Descripción del error de VKontakte:</b> %1<br><b>Error de VKontakte:</b> "
+"%2<br>"
+
+#: authenticationdialog.cpp:140
+msgid "Authentication with VKontakte was not successful."
+msgstr "La autenticación con VKontakte no ha tenido éxito."
+
+#: authenticationdialog.cpp:141
+msgctxt "@title:window"
+msgid "Authentication Problem"
+msgstr "Problema de autenticación"
+
+#: authenticationdialog.cpp:182
+msgid ""
+"There was a network error when trying to authenticate with VKontakte web "
+"service."
+msgstr ""
+"Ha ocurrido un problema de red al intentar autenticarse con el servicio web "
+"VKontakte."
+
+#: authenticationdialog.cpp:183
+msgctxt "@title:window"
+msgid "Network Error"
+msgstr "Error de red"
+
+#: deletealbumjob.cpp:43
+msgid "Failed to delete album"
+msgstr "No se ha podido eliminar el álbum"
+
+#: editalbumjob.cpp:52
+msgid "Failed to edit album"
+msgstr "No se ha podido editar el álbum"
+
+#: photopostjob.cpp:76 vkontaktejobs.cpp:112
+#, kde-format
+msgid ""
+"Response from the VKontakte server has unexpected format. Please report this "
+"problem against product libkvkontakte at the <a href=\"%1\">KDE bug tracker</"
+"b>."
+msgstr ""
+"La respuesta del servidor de VKontakte tiene un formato no esperado. Por "
+"favor, informe de este problema sobre el producto libkvkontakte en el <a "
+"href=\"%1\">sistema de seguimiento de errores de KDE</b>."
+
+#: photopostjob.cpp:84
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to "
+"uploading to URL %2: <i>%3</i>"
+msgstr ""
+"El servidor de VKontakte ha devuelto un error del tipo <i>%1</i> como "
+"respuesta a la carga hacia la URL %2: <i>%3</i>"
+
+#: photopostjob.cpp:206 vkontaktejobs.cpp:224
+#, kde-format
+msgid "Unable to parse data returned by the VKontakte server: %1"
+msgstr ""
+"No se han podido analizar los datos devueltos por el servidor de VKontakte: "
+"%1"
+
+#: vkontaktejobs.cpp:120
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to method "
+"%2: <i>%3</i>"
+msgstr ""
+"El servidor de VKontakte ha devuelto un error del tipo <i>%1</i> en "
+"respuesta al método %2: <i>%3</i>"
+
+#: vkontaktejobs.cpp:181
+msgid ""
+"Internal error: No valid instance of KIO::StoredTransferJob passed into "
+"VkontakteJob::jobFinished."
+msgstr ""
+"Error interno: no se ha pasado ninguna instancia válida de KIO::"
+"StoredTransferJob a VkontakteJob::jobFinished."
+
+#~ msgid "outgoing"
+#~ msgstr "saliente"
+
+#~ msgid "incoming"
+#~ msgstr "entrante"

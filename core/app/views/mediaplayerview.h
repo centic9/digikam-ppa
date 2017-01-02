@@ -6,7 +6,7 @@
  * Date        : 2006-20-12
  * Description : a view to embed Phonon media player.
  *
- * Copyright (C) 2006-2014 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -27,11 +27,8 @@
 // Qt includes
 
 #include <QStackedWidget>
-
-// KDE includes
-
-#include <kurl.h>
-#include <phonon/mediaobject.h>
+#include <QMediaPlayer>
+#include <QUrl>
 
 class QEvent;
 
@@ -66,7 +63,7 @@ public:
     explicit MediaPlayerView(QWidget* const parent);
     ~MediaPlayerView();
 
-    void setCurrentItem(const KUrl& url   = KUrl(),
+    void setCurrentItem(const QUrl& url   = QUrl(),
                         bool  hasPrevious = false,
                         bool  hasNext     = false);
     void escapePreview();
@@ -77,6 +74,7 @@ Q_SIGNALS:
     void signalNextItem();
     void signalPrevItem();
     void signalEscapePreview();
+    void signalFinished();
 
 public Q_SLOTS:
 
@@ -86,7 +84,15 @@ private Q_SLOTS:
 
     void slotPlayerFinished();
     void slotThemeChanged();
-    void slotPlayerstateChanged(Phonon::State newState, Phonon::State oldState);
+    void slotPlayerStateChanged(QMediaPlayer::State newState);
+
+    // Slidebar slots
+    void positionChanged(qint64 position);
+    void durationChanged(qint64 duration);
+    void setPosition(int position);
+    void handlePlayerError();
+    void slotSliderPressed();
+    void slotSliderReleased();
 
 private:
 

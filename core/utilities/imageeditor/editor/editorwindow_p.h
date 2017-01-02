@@ -6,7 +6,7 @@
  * Date        : 2006-01-20
  * Description : core image editor GUI implementation private data.
  *
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,31 +29,27 @@
 #include <QList>
 #include <QString>
 #include <QSignalMapper>
+#include <QMenu>
 
 // KDE includes
 
 #include <kconfiggroup.h>
-#include <kactionmenu.h>
-#include <kmenu.h>
-#include <kdebug.h>
 #include <kservice.h>
 
 // Local includes
 
-#include "globals.h"
+#include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "editorwindow.h"
 #include "versionmanager.h"
+#include "dnotificationpopup.h"
 
+class QAction;
 class QDialog;
 class QEventLoop;
 class QLabel;
 class QToolButton;
 class QWidgetAction;
-
-class KAction;
-class KActionCollection;
-class KSqueezedTextLabel;
-class KToggleAction;
 
 namespace Digikam
 {
@@ -64,6 +60,8 @@ class EditorToolIface;
 class ExposureSettingsContainer;
 class ICCSettingsContainer;
 class PreviewToolBar;
+class DAdjustableLabel;
+class IccProfilesMenuAction;
 
 class EditorWindow::Private
 {
@@ -75,7 +73,6 @@ public:
         underExposureIndicator(0),
         overExposureIndicator(0),
         infoLabel(0),
-        imagepluginsActionCollection(0),
         copyAction(0),
         cropAction(0),
         autoCropAction(0),
@@ -87,12 +84,56 @@ public:
         selectAllAction(0),
         selectNoneAction(0),
         slideShowAction(0),
+        presentationAction(0),
         softProofOptionsAction(0),
         zoomFitToSelectAction(0),
         zoomMinusAction(0),
         zoomPlusAction(0),
         zoomTo100percents(0),
         openWithAction(0),
+        textureAction(0),
+        borderAction(0),
+        insertTextAction(0),
+        filmgrainAction(0),
+        raindropAction(0),
+        distortionfxAction(0),
+        blurfxAction(0),
+        oilpaintAction(0),
+        embossAction(0),
+        charcoalAction(0),
+        colorEffectsAction(0),
+        BCGAction(0),
+        HSLAction(0),
+        CBAction(0),
+        autoCorrectionAction(0),
+        invertAction(0),
+        BWAction(0),
+        convertTo8Bits(0),
+        convertTo16Bits(0),
+        whitebalanceAction(0),
+        channelMixerAction(0),
+        curvesAction(0),
+        levelsAction(0),
+        filmAction(0),
+        profileMenuAction(0),
+        colorSpaceConverter(0),
+        hotpixelsAction(0),
+        lensdistortionAction(0),
+        antivignettingAction(0),
+        lensAutoFixAction(0),
+        redeyeAction(0),
+        restorationAction(0),
+        blurAction(0),
+        sharpenAction(0),
+        noiseReductionAction(0),
+        localContrastAction(0),
+        inPaintingAction(0),
+        aspectRatioCropAction(0),
+        resizeAction(0),
+        contentAwareResizingAction(0),
+        sheartoolAction(0),
+        freerotationAction(0),
+        perspectiveAction(0),
         undoSignalMapper(0),
         redoSignalMapper(0),
         formatMenuActionMapper(0),
@@ -103,7 +144,6 @@ public:
         viewSoftProofAction(0),
         viewUnderExpoAction(0),
         viewOverExpoAction(0),
-        showMenuBarAction(0),
         selectToolsActionView(0),
         ICCSettings(0),
         zoomBar(0),
@@ -118,8 +158,7 @@ public:
     }
 
     void legacyUpdateSplitterState(KConfigGroup& group);
-    void plugNewVersionInFormatAction(EditorWindow* const q, KActionMenu* const menuAction, const QString& text, const QString& format);
-    void addPageUpDownActions(EditorWindow* const q, QWidget* const w);
+    void plugNewVersionInFormatAction(EditorWindow* const q, QMenu* const menuAction, const QString& text, const QString& format);
 
 public:
 
@@ -150,27 +189,71 @@ public:
     QToolButton*                 underExposureIndicator;
     QToolButton*                 overExposureIndicator;
 
-    KSqueezedTextLabel*          infoLabel;
+    DAdjustableLabel*            infoLabel;
 
-    KActionCollection*           imagepluginsActionCollection;
+    QAction*                     copyAction;
+    QAction*                     cropAction;
+    QAction*                     autoCropAction;
+    QAction*                     filePrintAction;
+    QAction*                     flipHorizAction;
+    QAction*                     flipVertAction;
+    QAction*                     rotateLeftAction;
+    QAction*                     rotateRightAction;
+    QAction*                     selectAllAction;
+    QAction*                     selectNoneAction;
+    QAction*                     slideShowAction;
+    QAction*                     presentationAction;
+    QAction*                     softProofOptionsAction;
+    QAction*                     zoomFitToSelectAction;
+    QAction*                     zoomMinusAction;
+    QAction*                     zoomPlusAction;
+    QAction*                     zoomTo100percents;
+    QAction*                     openWithAction;
 
-    KAction*                     copyAction;
-    KAction*                     cropAction;
-    KAction*                     autoCropAction;
-    KAction*                     filePrintAction;
-    KAction*                     flipHorizAction;
-    KAction*                     flipVertAction;
-    KAction*                     rotateLeftAction;
-    KAction*                     rotateRightAction;
-    KAction*                     selectAllAction;
-    KAction*                     selectNoneAction;
-    KAction*                     slideShowAction;
-    KAction*                     softProofOptionsAction;
-    KAction*                     zoomFitToSelectAction;
-    KAction*                     zoomMinusAction;
-    KAction*                     zoomPlusAction;
-    KAction*                     zoomTo100percents;
-    KAction*                     openWithAction;
+    // Tools Actions
+    QAction*                     textureAction;
+    QAction*                     borderAction;
+    QAction*                     insertTextAction;
+    QAction*                     filmgrainAction;
+    QAction*                     raindropAction;
+    QAction*                     distortionfxAction;
+    QAction*                     blurfxAction;
+    QAction*                     oilpaintAction;
+    QAction*                     embossAction;
+    QAction*                     charcoalAction;
+    QAction*                     colorEffectsAction;
+    QAction*                     BCGAction;
+    QAction*                     HSLAction;
+    QAction*                     CBAction;
+    QAction*                     autoCorrectionAction;
+    QAction*                     invertAction;
+    QAction*                     BWAction;
+    QAction*                     convertTo8Bits;
+    QAction*                     convertTo16Bits;
+    QAction*                     whitebalanceAction;
+    QAction*                     channelMixerAction;
+    QAction*                     curvesAction;
+    QAction*                     levelsAction;
+    QAction*                     filmAction;
+    IccProfilesMenuAction*       profileMenuAction;
+    QAction*                     colorSpaceConverter;
+    QAction*                     hotpixelsAction;
+    QAction*                     lensdistortionAction;
+    QAction*                     antivignettingAction;
+    QAction*                     lensAutoFixAction;
+    QAction*                     redeyeAction;
+    QAction*                     restorationAction;
+    QAction*                     blurAction;
+    QAction*                     sharpenAction;
+    QAction*                     noiseReductionAction;
+    QAction*                     localContrastAction;
+    QAction*                     inPaintingAction;
+    QAction*                     aspectRatioCropAction;
+    QAction*                     resizeAction;
+    QAction*                     contentAwareResizingAction;
+    QAction*                     sheartoolAction;
+    QAction*                     freerotationAction;
+    QAction*                     perspectiveAction;
 
     QSignalMapper*               undoSignalMapper;
     QSignalMapper*               redoSignalMapper;
@@ -179,12 +262,11 @@ public:
     QEventLoop*                  waitingLoop;
     QDialog*                     currentWindowModalDialog;
 
-    KToggleAction*               zoomFitToWindowAction;
-    KToggleAction*               viewCMViewAction;
-    KToggleAction*               viewSoftProofAction;
-    KToggleAction*               viewUnderExpoAction;
-    KToggleAction*               viewOverExpoAction;
-    KToggleAction*               showMenuBarAction;
+    QAction*                     zoomFitToWindowAction;
+    QAction*                     viewCMViewAction;
+    QAction*                     viewSoftProofAction;
+    QAction*                     viewUnderExpoAction;
+    QAction*                     viewOverExpoAction;
 
     ActionCategorizedView*       selectToolsActionView;
 
@@ -204,28 +286,28 @@ public:
     QMap<QString, KService::Ptr> servicesMap;
 };
 
-const QString EditorWindow::Private::configAutoZoomEntry("AutoZoom");
-const QString EditorWindow::Private::configBackgroundColorEntry("BackgroundColor");
-const QString EditorWindow::Private::configJpeg2000CompressionEntry("JPEG2000Compression");
-const QString EditorWindow::Private::configJpeg2000LossLessEntry("JPEG2000LossLess");
-const QString EditorWindow::Private::configJpegCompressionEntry("JPEGCompression");
-const QString EditorWindow::Private::configJpegSubSamplingEntry("JPEGSubSampling");
-const QString EditorWindow::Private::configPgfCompressionEntry("PGFCompression");
-const QString EditorWindow::Private::configPgfLossLessEntry("PGFLossLess");
-const QString EditorWindow::Private::configPngCompressionEntry("PNGCompression");
-const QString EditorWindow::Private::configSplitterStateEntry("SplitterState");
-const QString EditorWindow::Private::configTiffCompressionEntry("TIFFCompression");
-const QString EditorWindow::Private::configUnderExposureColorEntry("UnderExposureColor");
-const QString EditorWindow::Private::configUnderExposureIndicatorEntry("UnderExposureIndicator");
-const QString EditorWindow::Private::configUnderExposurePercentsEntry("UnderExposurePercentsEntry");
-const QString EditorWindow::Private::configOverExposureColorEntry("OverExposureColor");
-const QString EditorWindow::Private::configOverExposureIndicatorEntry("OverExposureIndicator");
-const QString EditorWindow::Private::configOverExposurePercentsEntry("OverExposurePercentsEntry");
-const QString EditorWindow::Private::configExpoIndicatorModeEntry("ExpoIndicatorMode");
-const QString EditorWindow::Private::configUseRawImportToolEntry("UseRawImportTool");
-const QString EditorWindow::Private::configUseThemeBackgroundColorEntry("UseThemeBackgroundColor");
-const QString EditorWindow::Private::configVerticalSplitterSizesEntry("Vertical Splitter Sizes");
-const QString EditorWindow::Private::configVerticalSplitterStateEntry("Vertical Splitter State");
+const QString EditorWindow::Private::configAutoZoomEntry(QLatin1String("AutoZoom"));
+const QString EditorWindow::Private::configBackgroundColorEntry(QLatin1String("BackgroundColor"));
+const QString EditorWindow::Private::configJpeg2000CompressionEntry(QLatin1String("JPEG2000Compression"));
+const QString EditorWindow::Private::configJpeg2000LossLessEntry(QLatin1String("JPEG2000LossLess"));
+const QString EditorWindow::Private::configJpegCompressionEntry(QLatin1String("JPEGCompression"));
+const QString EditorWindow::Private::configJpegSubSamplingEntry(QLatin1String("JPEGSubSampling"));
+const QString EditorWindow::Private::configPgfCompressionEntry(QLatin1String("PGFCompression"));
+const QString EditorWindow::Private::configPgfLossLessEntry(QLatin1String("PGFLossLess"));
+const QString EditorWindow::Private::configPngCompressionEntry(QLatin1String("PNGCompression"));
+const QString EditorWindow::Private::configSplitterStateEntry(QLatin1String("SplitterState"));
+const QString EditorWindow::Private::configTiffCompressionEntry(QLatin1String("TIFFCompression"));
+const QString EditorWindow::Private::configUnderExposureColorEntry(QLatin1String("UnderExposureColor"));
+const QString EditorWindow::Private::configUnderExposureIndicatorEntry(QLatin1String("UnderExposureIndicator"));
+const QString EditorWindow::Private::configUnderExposurePercentsEntry(QLatin1String("UnderExposurePercentsEntry"));
+const QString EditorWindow::Private::configOverExposureColorEntry(QLatin1String("OverExposureColor"));
+const QString EditorWindow::Private::configOverExposureIndicatorEntry(QLatin1String("OverExposureIndicator"));
+const QString EditorWindow::Private::configOverExposurePercentsEntry(QLatin1String("OverExposurePercentsEntry"));
+const QString EditorWindow::Private::configExpoIndicatorModeEntry(QLatin1String("ExpoIndicatorMode"));
+const QString EditorWindow::Private::configUseRawImportToolEntry(QLatin1String("UseRawImportTool"));
+const QString EditorWindow::Private::configUseThemeBackgroundColorEntry(QLatin1String("UseThemeBackgroundColor"));
+const QString EditorWindow::Private::configVerticalSplitterSizesEntry(QLatin1String("Vertical Splitter Sizes"));
+const QString EditorWindow::Private::configVerticalSplitterStateEntry(QLatin1String("Vertical Splitter State"));
 
 void EditorWindow::Private::legacyUpdateSplitterState(KConfigGroup& group)
 {
@@ -259,7 +341,7 @@ void EditorWindow::Private::legacyUpdateSplitterState(KConfigGroup& group)
 
                 if (sizesList.count() == 3)
                 {
-                    kDebug() << "Found splitter based config, converting to dockbar";
+                    qCDebug(DIGIKAM_GENERAL_LOG) << "Found splitter based config, converting to dockbar";
                     // Remove the first entry (the thumbbar) and write the rest
                     // back. Then it should be fine.
                     sizesList.removeFirst();
@@ -278,7 +360,7 @@ void EditorWindow::Private::legacyUpdateSplitterState(KConfigGroup& group)
     }
 }
 
-void EditorWindow::Private::plugNewVersionInFormatAction(EditorWindow* const q, KActionMenu* const menuAction,
+void EditorWindow::Private::plugNewVersionInFormatAction(EditorWindow* const q, QMenu* const menuAction,
                                                          const QString& text, const QString& format)
 {
     if (!formatMenuActionMapper)
@@ -289,22 +371,38 @@ void EditorWindow::Private::plugNewVersionInFormatAction(EditorWindow* const q, 
                 q, SLOT(saveNewVersionInFormat(QString)));
     }
 
-    KAction* const action = new KAction(text, q);
+    QAction* const action = new QAction(text, q);
 
     connect(action, SIGNAL(triggered()),
             formatMenuActionMapper, SLOT(map()));
 
     formatMenuActionMapper->setMapping(action, format);
-    menuAction->menu()->addAction(action);
+    menuAction->addAction(action);
 }
 
-void EditorWindow::Private::addPageUpDownActions(EditorWindow* const q, QWidget* const w)
+// -----------------------------------------------------------------
+
+class EditorToolPassivePopup : public DNotificationPopup
 {
-    defineShortcut(w, Qt::Key_Down,  q, SLOT(slotForward()));
-    defineShortcut(w, Qt::Key_Right, q, SLOT(slotForward()));
-    defineShortcut(w, Qt::Key_Up,    q, SLOT(slotBackward()));
-    defineShortcut(w, Qt::Key_Left,  q, SLOT(slotBackward()));
-}
+public:
+
+    explicit EditorToolPassivePopup(QWidget* const parent)
+        : DNotificationPopup(parent),
+          m_parent(parent)
+    {
+    }
+
+protected:
+
+    virtual void positionSelf()
+    {
+        move(m_parent->x() + 30, m_parent->y() + 30);
+    }
+
+private:
+
+    QWidget* m_parent;
+};
 
 }  // namespace Digikam
 

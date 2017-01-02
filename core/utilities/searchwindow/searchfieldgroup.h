@@ -7,7 +7,7 @@
  * Description : User interface for searches
  *
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -31,19 +31,14 @@
 #include <QSet>
 #include <QWidget>
 
-// LibKDcraw includes
-
-#include <libkdcraw/rexpanderbox.h>
-
 // Local includes
 
-#include "searchxml.h"
+#include "dexpanderbox.h"
+#include "coredbsearchxml.h"
 
 class QGridLayout;
 class QLabel;
 class QVBoxLayout;
-
-using namespace KDcrawIface;
 
 namespace Digikam
 {
@@ -114,7 +109,7 @@ Q_SIGNALS:
 protected:
 
     QString      m_title;
-    RClickLabel* m_titleLabel;
+    DClickLabel* m_titleLabel;
     QLabel*      m_expandLabel;
 };
 

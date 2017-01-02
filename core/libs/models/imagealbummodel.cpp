@@ -7,6 +7,7 @@
  * Description : Qt item model for database entries, listing done with ioslave
  *
  * Copyright (C) 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
+ * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,52 +22,49 @@
  *
  * ============================================================ */
 
-#include "imagealbummodel.moc"
+#include "imagealbummodel.h"
 
 // Qt includes
 
 #include <QTimer>
 
-// KDE includes
-
-#include <kio/job.h>
-#include <kdebug.h>
-#include <kapplication.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "albummanager.h"
-#include "databaseaccess.h"
-#include "databasechangesets.h"
-#include "databaseface.h"
-#include "databasewatch.h"
-#include "databaseurl.h"
+#include "coredbaccess.h"
+#include "coredbchangesets.h"
+#include "facetagsiface.h"
+#include "coredbwatch.h"
+#include "coredburl.h"
 #include "imageinfo.h"
 #include "imageinfolist.h"
 #include "imagelister.h"
 #include "dnotificationwrapper.h"
 #include "digikamapp.h"
+#include "dbjobsmanager.h"
+#include "dbjobsthread.h"
 
 namespace Digikam
 {
 
-class ImageAlbumModel::ImageAlbumModelPriv
+class ImageAlbumModel::Private
 {
 public:
 
-    ImageAlbumModelPriv()
+    Private()
     {
-        job              = 0;
-        refreshTimer     = 0;
-        incrementalTimer = 0;
-        recurseAlbums    = false;
-        recurseTags      = false;
+        jobThread               = 0;
+        refreshTimer            = 0;
+        incrementalTimer        = 0;
+        recurseAlbums           = false;
+        recurseTags             = false;
         listOnlyAvailableImages = false;
-        extraValueJob    = false;
+        extraValueJob           = false;
     }
 
     QList<Album*>     currentAlbums;
-    KIO::TransferJob* job;
+    DBJobsThread*     jobThread;
     QTimer*           refreshTimer;
     QTimer*           incrementalTimer;
 
@@ -78,10 +76,12 @@ public:
     bool              extraValueJob;
 };
 
-ImageAlbumModel::ImageAlbumModel(QObject* parent)
+ImageAlbumModel::ImageAlbumModel(QObject* const parent)
     : ImageThumbnailModel(parent),
-      d(new ImageAlbumModelPriv)
+      d(new Private)
 {
+    qRegisterMetaType<QList<ImageListerRecord>>("QList<ImageListerRecord>");
+
     d->refreshTimer     = new QTimer(this);
     d->refreshTimer->setSingleShot(true);
 
@@ -97,10 +97,10 @@ ImageAlbumModel::ImageAlbumModel(QObject* parent)
     connect(this, SIGNAL(readyForIncrementalRefresh()),
             this, SLOT(incrementalRefresh()));
 
-    connect(DatabaseAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
+    connect(CoreDbAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
             this, SLOT(slotCollectionImageChange(CollectionImageChangeset)));
 
-    connect(DatabaseAccess::databaseWatch(), SIGNAL(searchChange(SearchChangeset)),
+    connect(CoreDbAccess::databaseWatch(), SIGNAL(searchChange(SearchChangeset)),
             this, SLOT(slotSearchChange(SearchChangeset)));
 
     connect(AlbumManager::instance(), SIGNAL(signalAlbumAdded(Album*)),
@@ -121,10 +121,10 @@ ImageAlbumModel::ImageAlbumModel(QObject* parent)
 
 ImageAlbumModel::~ImageAlbumModel()
 {
-    if (d->job)
+    if (d->jobThread)
     {
-        d->job->kill();
-        d->job = 0;
+        d->jobThread->cancel();
+        d->jobThread = 0;
     }
 
     delete d;
@@ -198,23 +198,24 @@ void ImageAlbumModel::openAlbum(QList<Album*> albums)
     /**
      * Extra safety, ensure that no null pointers are added
      */
-    foreach (Album* a, albums)
+    foreach (Album* const a, albums)
     {
         if (a)
         {
             d->currentAlbums << a;
         }
     }
+
     //emit listedAlbumChanged(d->currentAlbums);
     refresh();
 }
 
 void ImageAlbumModel::refresh()
 {
-    if (d->job)
+    if (d->jobThread)
     {
-        d->job->kill();
-        d->job = 0;
+        d->jobThread->cancel();
+        d->jobThread = 0;
     }
 
     clearImageInfos();
@@ -224,12 +225,12 @@ void ImageAlbumModel::refresh()
         return;
     }
 
-    /** TODO: Figure out how to deal with root album
+/** TODO: Figure out how to deal with root album
     if (d->currentAlbum->isRoot())
     {
         return;
     }
-    */
+*/
 
     startRefresh();
 
@@ -248,10 +249,10 @@ void ImageAlbumModel::incrementalRefresh()
         return;
     }
 
-    if (d->job)
+    if (d->jobThread)
     {
-        d->job->kill();
-        d->job = 0;
+        d->jobThread->cancel();
+        d->jobThread = 0;
     }
 
     startIncrementalRefresh();
@@ -285,7 +286,7 @@ void ImageAlbumModel::slotNextRefresh()
 {
     // Refresh, unless job is running, then postpone restart until job is finished
     // Rationale: Let the job run, don't stop it possibly several times
-    if (d->job)
+    if (d->jobThread)
     {
         d->refreshTimer->start(50);
     }
@@ -297,7 +298,7 @@ void ImageAlbumModel::slotNextRefresh()
 
 void ImageAlbumModel::slotNextIncrementalRefresh()
 {
-    if (d->job)
+    if (d->jobThread)
     {
         d->incrementalTimer->start(50);
     }
@@ -314,94 +315,160 @@ void ImageAlbumModel::startListJob(QList<Album*> albums)
         return;
     }
 
-    KUrl url;
+    if (d->jobThread)
+    {
+        d->jobThread->cancel();
+        d->jobThread = 0;
+    }
+
+    CoreDbUrl url;
+    QList<int> tagIds;
+
+    if (albums.first()->isTrashAlbum())
+    {
+        return;
+    }
+
     if(albums.first()->type() == Album::TAG)
     {
-        QList<int> tagIds;
-
         for(QList<Album*>::iterator it = albums.begin(); it != albums.end(); ++it)
         {
             tagIds << (*it)->id();
         }
-        url = DatabaseUrl::fromTagIds(tagIds);
+
+        url = CoreDbUrl::fromTagIds(tagIds);
     }
     else
-        url = albums.first()->databaseUrl();
-
-    d->extraValueJob = false;
-    d->job   = ImageLister::startListJob(url);
-    d->job->addMetaData("listAlbumsRecursively", d->recurseAlbums ? "true" : "false");
-    d->job->addMetaData("listTagsRecursively", d->recurseTags ? "true" : "false");
-    d->job->addMetaData("listOnlyAvailableImages", d->listOnlyAvailableImages ? "true" : "false");
-
-    if (albums.first()->type() == Album::TAG && !d->specialListing.isNull())
     {
-        d->job->addMetaData("specialTagListing", d->specialListing);
-        d->extraValueJob = true;
+        url = albums.first()->databaseUrl();
     }
 
-    connect(d->job, SIGNAL(result(KJob*)),
-            this, SLOT(slotResult(KJob*)));
+    if(albums.first()->type() == Album::DATE)
+    {
+        d->extraValueJob = false;
 
-    connect(d->job, SIGNAL(data(KIO::Job*,QByteArray)),
-            this, SLOT(slotData(KIO::Job*,QByteArray)));
+        DatesDBJobInfo jobInfo;
+
+        jobInfo.setStartDate( url.startDate() );
+        jobInfo.setEndDate( url.endDate() );
+
+        if (d->recurseAlbums)
+            jobInfo.setRecursive();
+
+        if (d->listOnlyAvailableImages)
+            jobInfo.setListAvailableImagesOnly();
+
+        d->jobThread = DBJobsManager::instance()->startDatesJobThread(jobInfo);
+    }
+    else if (albums.first()->type() == Album::TAG)
+    {
+        d->extraValueJob = false;
+
+        TagsDBJobInfo jobInfo;
+
+        if (d->listOnlyAvailableImages)
+            jobInfo.setListAvailableImagesOnly();
+
+        if (d->recurseTags)
+            jobInfo.setRecursive();
+
+        jobInfo.setTagsIds(tagIds);
+
+        if (!d->specialListing.isNull())
+        {
+            jobInfo.setSpecialTag(d->specialListing);
+            d->extraValueJob = true;
+        }
+
+        d->jobThread = DBJobsManager::instance()->startTagsJobThread(jobInfo);
+    }
+    else if(albums.first()->type() == Album::PHYSICAL)
+    {
+        d->extraValueJob = false;
+        AlbumsDBJobInfo jobInfo;
+
+        if (d->recurseAlbums)
+            jobInfo.setRecursive();
+
+        if (d->listOnlyAvailableImages)
+            jobInfo.setListAvailableImagesOnly();
+
+        jobInfo.setAlbumRootId( url.albumRootId() );
+        jobInfo.setAlbum( url.album() );
+
+        d->jobThread = DBJobsManager::instance()->startAlbumsJobThread(jobInfo);
+    }
+    else if(albums.first()->type() == Album::SEARCH)
+    {
+        d->extraValueJob = false;
+
+        SearchesDBJobInfo jobInfo;
+
+        if (d->listOnlyAvailableImages)
+            jobInfo.setListAvailableImagesOnly();
+
+        jobInfo.setSearchId( url.searchId() );
+
+        d->jobThread = DBJobsManager::instance()->startSearchesJobThread(jobInfo);
+    }
+
+    connect(d->jobThread, SIGNAL(finished()),
+            this, SLOT(slotResult()));
+
+    connect(d->jobThread, SIGNAL(data(QList<ImageListerRecord>)),
+            this, SLOT(slotData(QList<ImageListerRecord>)));
 }
 
-void ImageAlbumModel::slotResult(KJob* job)
+void ImageAlbumModel::slotResult()
 {
-    if (job != d->job)
+    if (d->jobThread != sender())
     {
         return;
     }
 
-    d->job = 0;
+    if (d->jobThread->hasErrors())
+    {
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Failed to list url: "
+                                       << d->jobThread->errorsList().first();
+
+        // Pop-up a message about the error.
+        DNotificationWrapper(QString(), d->jobThread->errorsList().first(),
+                             DigikamApp::instance(), DigikamApp::instance()->windowTitle());
+    }
+
+    d->jobThread->cancel();
+    d->jobThread = 0;
 
     // either of the two
     finishRefresh();
     finishIncrementalRefresh();
-
-    if (job->error())
-    {
-        kWarning() << "Failed to list url: " << job->errorString();
-
-        // Pop-up a message about the error.
-        DNotificationWrapper(QString(), job->errorString(),
-                             DigikamApp::instance(), DigikamApp::instance()->windowTitle());
-    }
 }
 
-void ImageAlbumModel::slotData(KIO::Job* job, const QByteArray& data)
+void ImageAlbumModel::slotData(const QList<ImageListerRecord> &records)
 {
-    if (data.isEmpty() || job != d->job)
+    if(d->jobThread != sender())
+        return;
+
+    if (records.isEmpty())
     {
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Data From DBJobsThread is null: " << records.isEmpty();
         return;
     }
 
     ImageInfoList newItemsList;
-    QByteArray    tmp(data);
-    QDataStream   ds(&tmp, QIODevice::ReadOnly);
 
     if (d->extraValueJob)
     {
         QList<QVariant> extraValues;
 
-        if (!ImageListerRecord::checkStream(ImageListerRecord::ExtraValueFormat, ds))
+        foreach (const ImageListerRecord &record, records)
         {
-            kError() << "Binary stream from ioslave is not valid, rejecting";
-            return;
-        }
-
-        while (!ds.atEnd())
-        {
-            ImageListerRecord record(ImageListerRecord::ExtraValueFormat);
-            ds >> record;
-
             ImageInfo info(record);
             newItemsList << info;
 
-            if (d->specialListing == "faces")
+            if (d->specialListing == QLatin1String("faces"))
             {
-                DatabaseFace face = DatabaseFace::fromListing(info.id(), record.extraValues);
+                FaceTagsIface face = FaceTagsIface::fromListing(info.id(), record.extraValues);
                 extraValues << face.toVariant();
             }
             else
@@ -426,11 +493,8 @@ void ImageAlbumModel::slotData(KIO::Job* job, const QByteArray& data)
     }
     else
     {
-        while (!ds.atEnd())
+        foreach (const ImageListerRecord &record, records)
         {
-            ImageListerRecord record;
-            ds >> record;
-
             ImageInfo info(record);
             newItemsList << info;
         }
@@ -469,7 +533,7 @@ void ImageAlbumModel::slotImageChange(const ImageChangeset& changeset)
     {
         if ((*it)->type() == Album::SEARCH)
         {
-            SAlbum* salbum = static_cast<SAlbum*>(*it);
+            SAlbum* const salbum = static_cast<SAlbum*>(*it);
 
             bool needCheckRefresh = false;
             if (salbum->isNormalSearch())
@@ -531,7 +595,7 @@ void ImageAlbumModel::slotImageTagChange(const ImageTagChangeset& changeset)
             {
                 foreach(int tagId, changeset.tags())
                 {
-                    Album* a = AlbumManager::instance()->findTAlbum(tagId);
+                    Album* const a = AlbumManager::instance()->findTAlbum(tagId);
 
                     if (a && (*it)->isAncestorOf(a))
                     {
@@ -589,7 +653,7 @@ void ImageAlbumModel::slotCollectionImageChange(const CollectionImageChangeset& 
                         {
                             foreach(int albumId, changeset.albums())
                             {
-                                Album* a = AlbumManager::instance()->findPAlbum(albumId);
+                                Album* const a = AlbumManager::instance()->findPAlbum(albumId);
 
                                 if (a && (*it)->isAncestorOf(a))
                                 {
@@ -647,7 +711,7 @@ void ImageAlbumModel::slotSearchChange(const SearchChangeset& changeset)
         return;
     }
 
-    SAlbum* album = AlbumManager::instance()->findSAlbum(changeset.searchId());
+    SAlbum* const album = AlbumManager::instance()->findSAlbum(changeset.searchId());
 
     QList<Album*>::iterator it;
 

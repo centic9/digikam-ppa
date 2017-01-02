@@ -6,7 +6,7 @@
  * Date        : 2006-04-21
  * Description : main photograph information container
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,13 +21,14 @@
  *
  * ============================================================ */
 
-#ifndef PHOTOINFOCONTAINER_H
-#define PHOTOINFOCONTAINER_H
+#ifndef INFO_CONTAINER_H
+#define INFO_CONTAINER_H
 
 // Qt includes
 
-#include <QtCore/QString>
-#include <QtCore/QDateTime>
+#include <QString>
+#include <QDateTime>
+#include <QDebug>
 
 // Local includes
 
@@ -101,6 +102,10 @@ public:
 DIGIKAM_EXPORT QDataStream& operator<<(QDataStream& ds, const VideoInfoContainer& info);
 DIGIKAM_EXPORT QDataStream& operator>>(QDataStream& ds, VideoInfoContainer& info);
 
+//! qDebug() stream operator. Writes property @a t to the debug output in a nicely formatted way.
+DIGIKAM_EXPORT QDebug operator<<(QDebug dbg, const PhotoInfoContainer& t);
+DIGIKAM_EXPORT QDebug operator<<(QDebug dbg, const VideoInfoContainer& t);
+
 } // namespace Digikam
 
-#endif /* PHOTOINFOCONTAINER_H */
+#endif // INFO_CONTAINER_H

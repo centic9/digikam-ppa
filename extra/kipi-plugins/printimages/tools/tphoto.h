@@ -29,17 +29,14 @@
 #include <QRect>
 #include <QFont>
 #include <QColor>
+#include <QUrl>
+#include <QPointer>
 
-// KDE includes
+// Libkipi includes
 
-#include <kurl.h>
+#include <KIPI/Interface>
 
-namespace KIPIPlugins
-{
-    class KPMetadata;
-}
-
-using namespace KIPIPlugins;
+using namespace KIPI;
 
 namespace KIPIPrintImagesPlugin
 {
@@ -110,10 +107,10 @@ public:
 
     CaptionInfo()
         : m_caption_type(NoCaptions),
-          m_caption_font("Sans Serif"),
+          m_caption_font(QLatin1String("Sans Serif")),
           m_caption_color(Qt::yellow),
           m_caption_size(2),
-          m_caption_text()
+          m_caption_text(QLatin1String(""))
     {
     }
 
@@ -152,12 +149,12 @@ public:
     double scaleWidth(double unitToInches);
     double scaleHeight(double unitToInches);
 
-    KPMetadata* metaIface();
+    MetadataProcessor* metaIface();
 
 public:
 
     // full path
-    KUrl            filename;
+    QUrl            filename;
     int             m_thumbnailSize;
 
     QRect           cropRegion;
@@ -171,13 +168,14 @@ public:
 
 private:
 
-    void   loadCache();
+    void loadCache();
 
 private:
 
-    QPixmap*    m_thumbnail;
-    QSize*      m_size;
-    KPMetadata* m_metaIface;
+    QPixmap*                    m_thumbnail;
+    QSize*                      m_size;
+    Interface*                  m_iface;
+    QPointer<MetadataProcessor> m_meta;
 };
 
 }  // NameSpace KIPIPrintImagesPlugin

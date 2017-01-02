@@ -36,9 +36,7 @@
 namespace Digikam
 {
 
-class WorkingWidget;
-
-class ImageVersionsModel : public QAbstractListModel
+class DIGIKAM_DATABASE_EXPORT ImageVersionsModel : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -68,8 +66,8 @@ public Q_SLOTS:
 
 private:
 
-    class ImageVersionsModelPriv;
-    ImageVersionsModelPriv* const d;
+    class Private;
+    Private* const d;
 };
 
 } // namespace Digikam

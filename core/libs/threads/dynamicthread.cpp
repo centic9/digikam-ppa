@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "dynamicthread.moc"
+#include "dynamicthread.h"
 
 // Qt includes
 
@@ -29,12 +29,9 @@
 #include <QMutexLocker>
 #include <QWaitCondition>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "threadmanager.h"
 
 namespace Digikam
@@ -123,17 +120,17 @@ bool DynamicThread::DynamicThreadPriv::transitionToRunning()
         }
         case DynamicThread::Running:
         {
-            kDebug() << "Transition to Running: Invalid Running state" << q;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Transition to Running: Invalid Running state" << q;
             return false;
         }
         case DynamicThread::Inactive:
         {
-            kDebug() << "Transition to Running: Invalid Inactive state" << q;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Transition to Running: Invalid Inactive state" << q;
             return false;
         }
         default:
         {
-            kDebug() << "Transition to Running: Should never reach here: assert?" << q;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Transition to Running: Should never reach here: assert?" << q;
             return false;
         }
     }
@@ -167,7 +164,7 @@ void DynamicThread::DynamicThreadPriv::transitionToInactive()
         }
         case DynamicThread::Inactive:
         {
-            kDebug() << "Transition to Inactive: Invalid Inactive state" << q;
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Transition to Inactive: Invalid Inactive state" << q;
             break;
         }
     }
@@ -177,7 +174,7 @@ void DynamicThread::DynamicThreadPriv::run()
 {
     if (emitSignals)
     {
-        emit (q->started());
+        emit (q->starting());
     }
 
     if (transitionToRunning())
@@ -302,7 +299,8 @@ void DynamicThread::start(QMutexLocker& locker)
         case Inactive:
         case Deactivating:
         {
-            d->state = Scheduled;
+            d->running = true;
+            d->state   = Scheduled;
             break;
         }
         case Running:
@@ -339,6 +337,7 @@ void DynamicThread::stop(QMutexLocker& locker)
         case Inactive:
         case Deactivating:
         {
+            d->running = false;
             break;
         }
     }

@@ -6,7 +6,7 @@
  * Date        : 2013-07-1
  * Description : Showfoto item info container
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,10 +29,7 @@
 #include <QList>
 #include <QByteArray>
 #include <QDebug>
-
-// KDE includes
-
-#include <kurl.h>
+#include <QUrl>
 
 // Local includes
 
@@ -56,10 +53,6 @@ public:
      */
     bool isNull() const;
 
-//    /** Return the local file system (mounted on computer) url to the file.
-//     */
-//    KUrl url()    const;
-
     /** Compare for information equality and un-equality, not including variable values.
      */
     bool operator==(const ShowfotoItemInfo& info) const;
@@ -69,7 +62,7 @@ public:
 
     /// Static values.
     qint64             size;                 // file size in bytes.
-    KUrl               url;                  // file Url
+    QUrl               url;                  // file Url
 
     QString            name;                 // File name in file-system
     QString            folder;               // Folder path to access to file

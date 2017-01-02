@@ -6,7 +6,7 @@
  * Date        : 2008-11-21
  * Description : Batch Queue Manager GUI
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,13 +28,7 @@
 
 #include <QLabel>
 #include <QString>
-
-// KDE includes
-
-#include <kaction.h>
-#include <kiconloader.h>
-#include <kselectaction.h>
-#include <ktoggleaction.h>
+#include <QAction>
 
 // Local includes
 
@@ -59,9 +53,9 @@ class QueueMgrWindow::Private
 public:
 
     Private() :
-        TOP_SPLITTER_CONFIG_KEY("BqmTopSplitter"),
-        BOTTOM_SPLITTER_CONFIG_KEY("BqmBottomSplitter"),
-        VERTICAL_SPLITTER_CONFIG_KEY("BqmVerticalSplitter")
+        TOP_SPLITTER_CONFIG_KEY(QLatin1String("BqmTopSplitter")),
+        BOTTOM_SPLITTER_CONFIG_KEY(QLatin1String("BqmBottomSplitter")),
+        VERTICAL_SPLITTER_CONFIG_KEY(QLatin1String("BqmVerticalSplitter"))
     {
         busy                   = false;
         clearQueueAction       = 0;
@@ -90,7 +84,6 @@ public:
         toolsView              = 0;
         batchToolsMgr          = 0;
         toolSettings           = 0;
-        showMenuBarAction      = 0;
         thread                 = 0;
         currentQueueToProcess  = 0;
     }
@@ -101,28 +94,26 @@ public:
 
     QLabel*                  statusLabel;
 
-    KAction*                 clearQueueAction;
-    KAction*                 removeItemsSelAction;
+    QAction*                 clearQueueAction;
+    QAction*                 removeItemsSelAction;
     QAction*                 removeItemsDoneAction;
     QAction*                 moveUpToolAction;
     QAction*                 moveDownToolAction;
     QAction*                 removeToolAction;
     QAction*                 clearToolsAction;
 
-    KAction*                 runAction;
-    KAction*                 stopAction;
-    KAction*                 removeQueueAction;
-    KAction*                 newQueueAction;
-    KAction*                 saveQueueAction;
-    KAction*                 donateMoneyAction;
-    KAction*                 contributeAction;
-    KAction*                 rawCameraListAction;
+    QAction*                 runAction;
+    QAction*                 stopAction;
+    QAction*                 removeQueueAction;
+    QAction*                 newQueueAction;
+    QAction*                 saveQueueAction;
+    QAction*                 donateMoneyAction;
+    QAction*                 contributeAction;
+    QAction*                 rawCameraListAction;
 
     SidebarSplitter*         topSplitter;
     SidebarSplitter*         bottomSplitter;
     SidebarSplitter*         verticalSplitter;
-
-    KToggleAction*           showMenuBarAction;
 
     BatchToolsManager*       batchToolsMgr;
 

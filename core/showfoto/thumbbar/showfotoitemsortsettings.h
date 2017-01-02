@@ -24,11 +24,11 @@
 #ifndef SHOWFOTOITEMSORTSETTINGS_H
 #define SHOWFOTOITEMSORTSETTINGS_H
 
-//KDE includes
+// Qt includes
 
-#include <kstringhandler.h>
+#include <QCollator>
 
-//Local includes
+// Local includes
 
 #include "showfotoiteminfo.h"
 
@@ -52,7 +52,6 @@ public:
         CategoryByFolder,
         CategoryByFormat
     };
-
 
     enum SortRole
     {
@@ -160,7 +159,11 @@ public:
     static inline int naturalCompare(const QString& a, const QString& b, Qt::SortOrder sortOrder,
                                      Qt::CaseSensitivity caseSensitive = Qt::CaseSensitive)
     {
-        return compareByOrder(KStringHandler::naturalCompare(a, b, caseSensitive), sortOrder);
+        QCollator collator;
+        collator.setNumericMode(true);
+        collator.setIgnorePunctuation(true);
+        collator.setCaseSensitivity(caseSensitive);
+        return (compareByOrder(collator.compare(a, b), sortOrder));
     }
 
 public:

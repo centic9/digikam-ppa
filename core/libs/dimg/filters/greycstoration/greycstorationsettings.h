@@ -6,7 +6,7 @@
  * Date        : 2007-09-13
  * Description : Greycstoration settings widgets
  *
- * Copyright  (C) 2007-2010 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright  (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -25,16 +25,16 @@
 
 // Qt includes
 
-#include <QtCore/QObject>
-#include <QtCore/QFile>
-#include <QtCore/QString>
+#include <QObject>
+#include <QFile>
+#include <QString>
 
 // Local includes
 
 #include "digikam_export.h"
 #include "greycstorationfilter.h"
 
-class KTabWidget;
+class QTabWidget;
 
 namespace Digikam
 {
@@ -45,7 +45,7 @@ class DIGIKAM_EXPORT GreycstorationSettings : public QObject
 
 public:
 
-    explicit GreycstorationSettings(KTabWidget* parent);
+    explicit GreycstorationSettings(QTabWidget* parent);
     ~GreycstorationSettings();
 
     void setSettings(const GreycstorationContainer& settings);

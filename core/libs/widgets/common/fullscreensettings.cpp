@@ -6,7 +6,7 @@
  * Date        : 2013-04-29
  * Description : a full screen settings widget
  *
- * Copyright (C) 2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,13 +26,12 @@
 #include <QString>
 #include <QVBoxLayout>
 #include <QCheckBox>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kglobalsettings.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -62,8 +61,11 @@ public:
 };
 
 FullScreenSettings::FullScreenSettings(int options, QWidget* const parent)
-    : QGroupBox(i18n("Full-screen Options"), parent), d(new Private)
+    : QGroupBox(i18n("Full-screen Options"), parent),
+      d(new Private)
 {
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->options               = options;
     QVBoxLayout* const vlay  = new QVBoxLayout(this);
     d->hideToolBars          = new QCheckBox(i18n("H&ide toolbars"),  this);
@@ -78,8 +80,8 @@ FullScreenSettings::FullScreenSettings(int options, QWidget* const parent)
     vlay->addWidget(d->hideToolBars);
     vlay->addWidget(d->hideThumbBar);
     vlay->addWidget(d->hideSideBars);
-    vlay->setMargin(0);
-    vlay->setSpacing(KDialog::spacingHint());
+    vlay->setContentsMargins(spacing, spacing, spacing, spacing);
+    vlay->setSpacing(0);
 
     if (!(options & FS_TOOLBARS)) d->hideToolBars->hide();
     if (!(options & FS_THUMBBAR)) d->hideThumbBar->hide();

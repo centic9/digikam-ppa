@@ -7,7 +7,7 @@
  * Description : Kipi-Plugins shared library.
  *
  * Copyright (C) 2006-2010 by Angelo Naselli <anaselli at linux dot it>
- * Copyright (C) 2010-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,73 +21,47 @@
  *
  * ============================================================ */
 
-#include "kpaboutdata.moc"
+#include "kpaboutdata.h"
 
-// KDE includes
+// Qt includes
 
-#include <kglobal.h>
-#include <kstandarddirs.h>
-#include <kglobalsettings.h>
-#include <kdebug.h>
-#include <kaction.h>
-#include <khelpmenu.h>
-#include <kicon.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kpushbutton.h>
-#include <ktoolinvocation.h>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QDesktopServices>
+#include <QIcon>
+#include <QAction>
+#include <QMenu>
+#include <QPushButton>
+#include <QStandardPaths>
+#include <QMessageBox>
+#include <QMenu>
+#include <QApplication>
 
 // Local includes
 
+#include "kipiplugins_debug.h"
 #include "kpversion.h"
 
 namespace KIPIPlugins
 {
 
-KPAboutData::KPAboutData(const KLocalizedString& pluginName,
-                         const QByteArray& /*pluginVersion*/,
-                         enum  LicenseKey licenseType,
-                         const KLocalizedString& pluginDescription,
-                         const KLocalizedString& copyrightStatement)
-    : QObject(),
-      KAboutData(QByteArray("kipiplugins"),  // Name without minus separator for KDE bug report.
-                 QByteArray(),
-                 pluginName,
-                 kipipluginsVersion().toAscii(),
-                 KLocalizedString(),
-                 licenseType,
-                 copyrightStatement,
-                 pluginDescription,
-                 QByteArray("http://www.digikam.org"))
+KPAboutData::KPAboutData(const KLocalizedString& tool,
+                         const KLocalizedString& description,
+                         const KLocalizedString& copyright)
+    : QObject()
 {
-    if (KGlobal::hasMainComponent())
-    {
-        // setProgramLogo is defined from kde 3.4.0 on
-        QString directory = KStandardDirs::locate("data", "kipi/data/kipi-plugins_logo.png");
-
-        // set the kipiplugins logo inside the about dialog
-        setProgramLogo(QImage(directory));
-    }
-
-    // set the plugin description into long text description
-    setOtherText(pluginDescription);
-
-    // put the plugin name and version with kipi-plugins and kipi-plugins version
-    KLocalizedString shortDesc = additionalInformation();
-
-    if (KGlobal::hasMainComponent())
-    {
-        kDebug(AREA_CODE_LOADING) << shortDesc.toString().constData() ;
-    }
-
-    // and set the string into the short description
-    setShortDescription(shortDesc);
+    m_tool        = tool.toString();
+    m_description = description.toString();
+    m_copyright   = copyright.toString();
 }
 
 KPAboutData::KPAboutData(const KPAboutData& other)
-    : QObject((QObject*)(&other)), KAboutData(other)
+    : QObject((QObject*)(&other))
 {
-     setHandbookEntry(other.m_handbookEntry);
+    m_tool          = other.m_tool;
+    m_description   = other.m_description;
+    m_copyright     = other.m_copyright;
+    m_handbookEntry = other.m_handbookEntry;
 }
 
 KPAboutData::~KPAboutData()
@@ -99,24 +73,65 @@ void KPAboutData::setHandbookEntry(const QString& entry)
     m_handbookEntry = entry;
 }
 
-void KPAboutData::setHelpButton(KPushButton* const help)
+void KPAboutData::setHelpButton(QPushButton* const help)
 {
-    if (!help) return;
+    QMenu* const menu = new QMenu(help);
+    
+    QAction* const book = menu->addAction(QIcon::fromTheme(QString::fromLatin1("help-contents")), i18n("Handbook"));
 
-    KHelpMenu* const helpMenu = new KHelpMenu(help, this, false);
-    helpMenu->menu()->removeAction(helpMenu->menu()->actions().first());
-    KAction* const handbook   = new KAction(KIcon("help-contents"), i18n("Handbook"), helpMenu);
+    connect(book, &QAction::triggered,
+            this, &KPAboutData::slotHelp);
 
-    connect(handbook, SIGNAL(triggered(bool)),
-            this, SLOT(slotHelp()));
+    QAction* const about = menu->addAction(QIcon::fromTheme(QString::fromLatin1("help-about")), i18n("About..."));
 
-    helpMenu->menu()->insertAction(helpMenu->menu()->actions().first(), handbook);
-    help->setMenu(helpMenu->menu());
+    connect(about, &QAction::triggered,
+            this, &KPAboutData::slotAbout);    
+   
+    help->setMenu(menu);
+}
+
+void KPAboutData::addAuthor(const QString& name, const QString& role, const QString& email)
+{
+    QString mailUrl = email;
+    mailUrl.remove(QLatin1String(" "));
+    QString data = QString::fromUtf8("%1 <%2>\n%3").arg(name).arg(mailUrl).arg(role);
+    m_authors.append(data);
 }
 
 void KPAboutData::slotHelp()
 {
-    KToolInvocation::invokeHelp(m_handbookEntry, "kipi-plugins");
+    QUrl url = QUrl(QString::fromUtf8("help:/%1/index.html").arg(QString::fromLatin1("digikam")));
+
+    if (!m_handbookEntry.isEmpty())
+    {
+        QUrlQuery query(url);
+        query.addQueryItem(QStringLiteral("anchor"), m_handbookEntry);
+        url.setQuery(query);
+    }
+
+    QDesktopServices::openUrl(url);
 }
 
-}   // namespace KIPIPlugins
+void KPAboutData::slotAbout()
+{
+    QString text;
+    
+    text.append(m_description);
+    text.append(QLatin1String("\n\n"));
+    text.append(i18n("Version: %1", kipipluginsVersion()));
+    text.append(QLatin1String("\n\n"));
+    text.append(m_copyright);
+    text.append(QLatin1String("\n\n"));
+    
+    foreach(QString data, m_authors)
+    {
+        text.append(data);
+        text.append(QLatin1String("\n\n"));
+    }
+    
+    text.remove(text.size()-2, 2);
+
+    QMessageBox::about(qApp->activeWindow(), i18n("About %1", m_tool), text);
+}
+
+} // namespace KIPIPlugins

@@ -1,0 +1,71 @@
+<sect2 id="using-sidebar-maps">
+    <title
+>Kaarten</title>
+
+    <sect3>
+        <title
+>Afbeeldingen met geo-locatie</title>
+
+        <para
+>Dit tabblad is gebaseerd op het widget van de wereldkaart voor het tonen van een ruwe landkaart voor de oriëntatie. U kunt met het muiswiel in- en uitzoomen door het naar keuze te scrollen of door te verslepen. Wandel over de kaart door de &LMB; in te drukken. </para>
+
+        <example>
+            <title
+>De Geolocatie-tab</title>
+            <screenshot>
+                <screeninfo
+>Kies voor kaarten met een hogere resolutie "Meer informatie"</screeninfo>
+                <mediaobject
+><imageobject>
+                    <imagedata fileref="&path;using-sidebar-metadatagps.png" format="PNG"/>
+                </imageobject
+></mediaobject>
+            </screenshot>
+        </example>
+
+        <para
+>De linker zijbalk is een geo-search tool. Klik op de <keycombo action="press"
+>&Ctrl;<keycap
+>linker muisknop</keycap
+></keycombo
+> om op de landkaart een rechthoek te openen. Alle foto´s waarvan de coördinaten in dat rechthoek vallen zullen getoond worden. </para>
+
+        <para
+>In de rechter zijbalk vindt u een dat de GPS-locatie aangeeft met de geselecteerde foto ernaast. Het GPS coördinaat en de tijd zijn onder het widget te zien. </para>
+
+        <para
+>Voor een kaart met een hogere resolutie klikt u op de knop <guibutton
+>Meer informatie</guibutton
+> om een gedetailleerde map service (Gekozen in het linker keuzevak) in een Internet browser te openen. </para>
+
+        <para
+>De getoonde positie data zijn eigenlijk in de EXIF tags van de foto opgeslagen(en nog niet in de database). Hierdoor kan de locatie door elk ander programma dat EXIF GPS data begrijpt worden ingelezen. </para>
+    </sect3>
+
+    <sect3>
+        <title
+>Wat is GPS</title>
+
+        <para
+>Het <ulink url="http://en.wikipedia.org/wiki/Global_Positioning_System"
+>Global Positioning System</ulink
+> meestal GPS genoemd, is het enige volledig werkend satelliet navigatie systeem. Een constellatie van meer dan twee dozijn GPS satellieten zenden nauwkeurige timing signalen via de radio, waarmee elke GPS ontvanger nauwkeurig (lengte, breedte, en hoogte) overal op de aarde zijn locatie kan bepalen. GPS ook een zeer precieze tijdreferentie en zeer nauwkeurig de relatieve snelheid uitzenden. </para>
+
+        <para
+>GPS informatie kan door camera´s die dit ondersteunen direct in foto´s worden opgeslagen maar ook later door de foto te synchroniseren met een externe GPS track. Lees ook deze <ulink url="help:/digikam/using-camera.html#using-gps"
+>sectie</ulink
+> voor meer informatie. </para>
+
+    </sect3>
+
+</sect2>
+
+<!--
+Local Variables:
+mode: sgml
+sgml-minimize-attributes:nil
+sgml-general-insert-case:lower
+sgml-indent-step:0
+sgml-indent-data:nil
+End:
+-->

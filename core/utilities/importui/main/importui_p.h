@@ -7,7 +7,7 @@
  * Description : Camera interface
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -31,22 +31,16 @@
 #include <QCheckBox>
 #include <QDateTime>
 #include <QString>
+#include <QUrl>
 
 // KDE includes
 
-#include <khelpmenu.h>
 #include <kselectaction.h>
-#include <ktoggleaction.h>
-#include <KActionMenu>
-#include <kurl.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/rexpanderbox.h>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "dexpanderbox.h"
+#include "digikam_config.h"
 #include "camerathumbsctrl.h"
 #include "cameracontroller.h"
 #include "filtercombo.h"
@@ -56,15 +50,13 @@
 #include "renamecustomizer.h"
 #include "albumcustomizer.h"
 #include "advancedsettings.h"
+#include "dngconvertsettings.h"
 #include "scriptingsettings.h"
 #include "sidebar.h"
 #include "filterstatusbar.h"
 #include "statusprogressbar.h"
 #include "importview.h"
-
-using namespace KDcrawIface;
-
-class KMessageWidget;
+#include "dnotificationwidget.h"
 
 namespace Digikam
 {
@@ -112,19 +104,17 @@ public:
         itemSortAction(0),
         itemSortOrderAction(0),
         itemsGroupAction(0),
-        showMenuBarAction(0),
         showPreferencesAction(0),
         showLogAction(0),
         showBarAction(0),
         imageViewSelectionAction(0),
         iconViewAction(0),
         camItemPreviewAction(0),
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MARBLE
         mapViewAction(0),
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
         viewCMViewAction(0),
         cameraActions(0),
-        helpMenu(0),
         advBox(0),
         splitter(0),
         camThumbsCtrl(0),
@@ -134,6 +124,7 @@ public:
         renameCustomizer(0),
         albumCustomizer(0),
         advancedSettings(0),
+        dngConvertSettings(0),
         scriptingSettings(0),
         filterStatusBar(0),
         rightSideBar(0),
@@ -154,6 +145,7 @@ public:
     static const QString          configUseDefaultTargetAlbum;
     static const QString          configLastTargetAlbum;
     static const QString          configDefaultTargetAlbumId;
+    static const QString          configFileSaveConflictRule;
     static const QString          importFiltersConfigGroupName;
 
     bool                          deleteAfter;
@@ -165,63 +157,59 @@ public:
     QStringList                   autoRotateItemsList;
     QStringList                   currentlyDeleting;
     QSet<QString>                 foldersToScan;
-    CamItemInfoList               filesToBeAdded;
 
-    KMenu*                        downloadMenu;
-    KMenu*                        deleteMenu;
-    KMenu*                        imageMenu;
+    QMenu*                        downloadMenu;
+    QMenu*                        deleteMenu;
+    QMenu*                        imageMenu;
 
-    KAction*                      cameraCancelAction;
-    KAction*                      cameraCaptureAction;
-    KAction*                      cameraInfoAction;
-    KAction*                      increaseThumbsAction;
-    KAction*                      decreaseThumbsAction;
-    KAction*                      zoomFitToWindowAction;
-    KAction*                      zoomTo100percents;
-    KActionMenu*                  deleteAction;
-    KAction*                      deleteNewAction;
-    KAction*                      deleteAllAction;
-    KAction*                      deleteSelectedAction;
-    KActionMenu*                  downloadAction;
-    KAction*                      downloadNewAction;
-    KAction*                      downloadAllAction;
-    KAction*                      downloadSelectedAction;
-    KAction*                      downloadDelNewAction;
-    KAction*                      downloadDelAllAction;
-    KAction*                      downloadDelSelectedAction;
-    KAction*                      lockAction;
-    KAction*                      selectAllAction;
-    KAction*                      selectInvertAction;
-    KAction*                      selectLockedItemsAction;
-    KAction*                      selectNewItemsAction;
-    KAction*                      selectNoneAction;
-    KAction*                      uploadAction;
-    KAction*                      markAsDownloadedAction;
-    KAction*                      resumeAction;
-    KAction*                      pauseAction;
-    KAction*                      connectAction;
+    QAction*                      cameraCancelAction;
+    QAction*                      cameraCaptureAction;
+    QAction*                      cameraInfoAction;
+    QAction*                      increaseThumbsAction;
+    QAction*                      decreaseThumbsAction;
+    QAction*                      zoomFitToWindowAction;
+    QAction*                      zoomTo100percents;
+    QMenu*                        deleteAction;
+    QAction*                      deleteNewAction;
+    QAction*                      deleteAllAction;
+    QAction*                      deleteSelectedAction;
+    QMenu*                        downloadAction;
+    QAction*                      downloadNewAction;
+    QAction*                      downloadAllAction;
+    QAction*                      downloadSelectedAction;
+    QAction*                      downloadDelNewAction;
+    QAction*                      downloadDelAllAction;
+    QAction*                      downloadDelSelectedAction;
+    QAction*                      lockAction;
+    QAction*                      selectAllAction;
+    QAction*                      selectInvertAction;
+    QAction*                      selectLockedItemsAction;
+    QAction*                      selectNewItemsAction;
+    QAction*                      selectNoneAction;
+    QAction*                      uploadAction;
+    QAction*                      markAsDownloadedAction;
+    QAction*                      resumeAction;
+    QAction*                      pauseAction;
+    QAction*                      connectAction;
     KSelectAction*                itemSortAction;
     KSelectAction*                itemSortOrderAction;
     KSelectAction*                itemsGroupAction;
-    KToggleAction*                showMenuBarAction;
-    KAction*                      showPreferencesAction;
-    KToggleAction*                showLogAction;
-    KToggleAction*                showBarAction;
+    QAction*                      showPreferencesAction;
+    QAction*                      showLogAction;
+    QAction*                      showBarAction;
     KSelectAction*                imageViewSelectionAction;
-    KToggleAction*                iconViewAction;
-    KToggleAction*                camItemPreviewAction;
-#ifdef HAVE_KGEOMAP
-    KToggleAction*                mapViewAction;
-#endif // HAVE_KGEOMAP
-    KToggleAction*                viewCMViewAction;
+    QAction*                      iconViewAction;
+    QAction*                      camItemPreviewAction;
+#ifdef HAVE_MARBLE
+    QAction*                      mapViewAction;
+#endif // HAVE_MARBLE
+    QAction*                      viewCMViewAction;
 
     QActionGroup*                 cameraActions;
 
-    KUrl                          lastDestURL;
+    QUrl                          lastDestURL;
 
-    KHelpMenu*                    helpMenu;
-
-    RExpanderBox*                 advBox;
+    DExpanderBox*                 advBox;
 
     SidebarSplitter*              splitter;
 
@@ -234,6 +222,7 @@ public:
     RenameCustomizer*             renameCustomizer;
     AlbumCustomizer*              albumCustomizer;
     AdvancedSettings*             advancedSettings;
+    DNGConvertSettings*           dngConvertSettings;
     ScriptingSettings*            scriptingSettings;
 
     FilterStatusBar*              filterStatusBar;
@@ -254,15 +243,16 @@ public:
 
     CHUpdateItemMap               map;
 
-    KMessageWidget*               errorWidget;
+    DNotificationWidget*          errorWidget;
 };
 
-const QString ImportUI::Private::configGroupName("Camera Settings");
-const QString ImportUI::Private::configUseFileMetadata("UseFileMetadata");
-const QString ImportUI::Private::configUseDefaultTargetAlbum("UseDefaultTargetAlbum");
-const QString ImportUI::Private::configLastTargetAlbum("LastTargetAlbum");
-const QString ImportUI::Private::configDefaultTargetAlbumId("DefaultTargetAlbumId");
-const QString ImportUI::Private::importFiltersConfigGroupName("Import Filters");
+const QString ImportUI::Private::configGroupName(QLatin1String("Camera Settings"));
+const QString ImportUI::Private::configUseFileMetadata(QLatin1String("UseFileMetadata"));
+const QString ImportUI::Private::configUseDefaultTargetAlbum(QLatin1String("UseDefaultTargetAlbum"));
+const QString ImportUI::Private::configLastTargetAlbum(QLatin1String("LastTargetAlbum"));
+const QString ImportUI::Private::configDefaultTargetAlbumId(QLatin1String("DefaultTargetAlbumId"));
+const QString ImportUI::Private::configFileSaveConflictRule(QLatin1String("FileSaveConflictRule"));
+const QString ImportUI::Private::importFiltersConfigGroupName(QLatin1String("Import Filters"));
 
 }  // namespace Digikam
 

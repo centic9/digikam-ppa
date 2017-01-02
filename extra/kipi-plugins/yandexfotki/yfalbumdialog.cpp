@@ -20,7 +20,7 @@
  *
  * ============================================================ */
 
-#include "yfalbumdialog.moc"
+#include "yfalbumdialog.h"
 
 // Qt includes
 
@@ -28,89 +28,72 @@
 #include <QVBoxLayout>
 #include <QHBoxLayout>
 #include <QGroupBox>
+#include <QApplication>
+#include <QStyle>
+#include <QLineEdit>
+#include <QtWidgets/QPushButton>
+#include <QDebug>
+#include <QMessageBox>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdebug.h>
-#include <kdialog.h>
-#include <klineedit.h>
-#include <ktextedit.h>
-#include <kmessagebox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "yfalbum.h"
+#include "kipiplugins_debug.h"
 
 namespace KIPIYandexFotkiPlugin
 {
 
 YandexFotkiAlbumDialog::YandexFotkiAlbumDialog(QWidget* const parent, YandexFotkiAlbum& album)
-    : KDialog(parent), m_album(album)
+    : KPNewAlbumDialog(parent, QString::fromLatin1("Yandex.Fotki")),
+      m_album(album)
 {
-    setWindowTitle(i18n("New album"));
-    setButtons(KDialog::Ok | KDialog::Cancel);
-    setDefaultButton(KDialog::Cancel);
+    hideLocation();
+    hideDateTime();
 
-    QWidget* const mainWidget = new QWidget(this);
-    setMainWidget(mainWidget);
-    mainWidget->setMinimumSize(400, 300);
+    QGroupBox* const albumBox = new QGroupBox(QString(), this);
 
-    QGroupBox* const albumBox = new QGroupBox(i18n("Album"), mainWidget);
-    albumBox->setWhatsThis(i18n("These are basic settings for the new Yandex album."));
-
-    m_titleEdit    = new KLineEdit(album.title());
-    m_titleEdit->setWhatsThis(i18n("Title of the album that will be created (required)."));
-
-    m_summaryEdit  = new KTextEdit(album.summary());
-    m_summaryEdit->setWhatsThis(i18n("Description of the album that will be created (optional)."));
-
-    m_passwordEdit = new KLineEdit();
+    m_passwordEdit = new QLineEdit();
     m_passwordEdit->setWhatsThis(i18n("Password for the album (optional)."));
 
     QFormLayout* const albumBoxLayout  = new QFormLayout;
-    albumBoxLayout->addRow(i18n("Title:"), m_titleEdit);
-    albumBoxLayout->addRow(i18n("Summary:"), m_summaryEdit);
     albumBoxLayout->addRow(i18n("Password:"), m_passwordEdit);
 
     albumBox->setLayout(albumBoxLayout);
+    addToMainLayout(albumBox);
 
-    QVBoxLayout* const mainLayout = new QVBoxLayout(mainWidget);
-    mainLayout->addWidget(albumBox);
-    mainLayout->setSpacing(KDialog::spacingHint());
-    mainWidget->setLayout(mainLayout);
+    connect(getButtonBox(), SIGNAL(accepted()),
+            this, SLOT(slotOkClicked()));
 }
 
 YandexFotkiAlbumDialog::~YandexFotkiAlbumDialog()
 {
-    // nothing
 }
 
-void YandexFotkiAlbumDialog::slotButtonClicked(int button)
+void YandexFotkiAlbumDialog::slotOkClicked()
 {
-    if (button == KDialog::Ok)
+    if (getTitleEdit()->text().isEmpty())
     {
-        if (m_titleEdit->text().isEmpty())
-        {
-            KMessageBox::error(this, i18n("Title cannot be empty."),
-                               i18n("Error"));
-            return;
-        }
-
-        m_album.setTitle(m_titleEdit->text());
-        m_album.setSummary(m_summaryEdit->toPlainText());
-
-        if (m_passwordEdit->text().isEmpty())
-        {
-            m_album.setPassword(QString()); // force null string
-        }
-        else
-        {
-            m_album.setPassword(m_passwordEdit->text());
-        }
+        QMessageBox::critical(this, i18n("Error"), i18n("Title cannot be empty."));
+        return;
     }
 
-    return KDialog::slotButtonClicked(button);
+    m_album.setTitle(getTitleEdit()->text());
+    m_album.setSummary(getDescEdit()->toPlainText());
+
+    if (m_passwordEdit->text().isEmpty())
+    {
+        m_album.setPassword(QString()); // force null string
+    }
+    else
+    {
+        m_album.setPassword(m_passwordEdit->text());
+    }
+
+    accept();
 }
 
 } // namespace KIPIYandexFotkiPlugin

@@ -6,7 +6,7 @@
  * Date        : 2008-08-20
  * Description : Image editor interface used by editor tools.
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "editortooliface.moc"
+#include "editortooliface.h"
 
 // Qt includes
 
@@ -39,6 +39,7 @@
 #include "imageguidewidget.h"
 #include "imageregionwidget.h"
 #include "previewlayout.h"
+#include "dcategorizedview.h"
 
 namespace Digikam
 {
@@ -49,15 +50,19 @@ class EditorToolIface::Private
 public:
 
     Private() :
+        toolsIconView(0),
         tool(0),
         editor(0),
-        sidebarWasExpanded(false)
+        sidebarWasExpanded(false),
+        toolsViewSelected(false)
     {
     }
 
-    EditorTool*   tool;
-    EditorWindow* editor;
-    bool          sidebarWasExpanded;
+    DCategorizedView* toolsIconView;
+    EditorTool*       tool;
+    EditorWindow*     editor;
+    bool              sidebarWasExpanded;
+    bool              toolsViewSelected;
 };
 
 EditorToolIface* EditorToolIface::m_iface = 0;
@@ -68,7 +73,8 @@ EditorToolIface* EditorToolIface::editorToolIface()
 }
 
 EditorToolIface::EditorToolIface(EditorWindow* const editor)
-    : QObject(), d(new Private)
+    : QObject(),
+      d(new Private)
 {
     d->editor = editor;
     m_iface   = this;
@@ -82,6 +88,14 @@ EditorToolIface::~EditorToolIface()
     {
         m_iface = 0;
     }
+}
+
+void EditorToolIface::setToolsIconView(DCategorizedView* const view)
+{
+    d->toolsIconView = view;
+    d->editor->rightSideBar()->appendTab(d->toolsIconView,
+                                         QIcon::fromTheme(QLatin1String("applications-graphics")),
+                                         i18n("Tools"));
 }
 
 EditorTool* EditorToolIface::currentTool() const
@@ -99,13 +113,15 @@ void EditorToolIface::loadTool(EditorTool* const tool)
     d->tool = tool;
     d->editor->editorStackView()->setToolView(d->tool->toolView());
     d->editor->editorStackView()->setViewMode(EditorStackView::ToolViewMode);
+    d->toolsViewSelected = (d->editor->rightSideBar()->getActiveTab() == d->toolsIconView);
+    d->editor->rightSideBar()->deleteTab(d->toolsIconView);
     d->editor->rightSideBar()->appendTab(d->tool->toolSettings(), d->tool->toolIcon(), d->tool->toolName());
     d->editor->rightSideBar()->setActiveTab(d->tool->toolSettings());
     d->editor->toggleActions(false);
     d->editor->toggleToolActions(d->tool);
 
     // If editor tool has zoomable preview, switch on zoom actions.
-    
+
     d->editor->toggleZoomActions(d->editor->editorStackView()->isZoomablePreview());
 
     ImageGuideWidget* const view = dynamic_cast<ImageGuideWidget*>(d->tool->toolView());
@@ -126,7 +142,7 @@ void EditorToolIface::loadTool(EditorTool* const tool)
     {
         connect(d->editor, SIGNAL(signalPreviewModeChanged(int)),
                 view2, SLOT(slotPreviewModeChanged(int)));
-        
+
         connect(d->editor->editorStackView(), SIGNAL(signalZoomChanged(bool,bool,double)),
                 view2, SLOT(slotOriginalImageRegionChangedDelayed()));
 
@@ -186,6 +202,14 @@ void EditorToolIface::unLoadTool()
     d->editor->editorStackView()->setViewMode(EditorStackView::CanvasMode);
     d->editor->editorStackView()->setToolView(0);
     d->editor->rightSideBar()->deleteTab(d->tool->toolSettings());
+    d->editor->rightSideBar()->appendTab(d->toolsIconView,
+                                         QIcon::fromTheme(QLatin1String("applications-graphics")),
+                                         i18n("Tools"));
+
+    if (d->toolsViewSelected)
+    {
+        d->editor->rightSideBar()->setActiveTab(d->toolsIconView);
+    }
 
     if (!d->editor->rightSideBar()->isVisible())
     {
@@ -194,6 +218,7 @@ void EditorToolIface::unLoadTool()
 
     d->editor->toggleActions(true);
     d->editor->toggleToolActions();
+    d->editor->slotUpdateItemInfo();
     d->editor->setPreviewModeMask(PreviewToolBar::NoPreviewMode);
 
     delete d->tool;
@@ -258,7 +283,7 @@ void EditorToolIface::slotApplyTool()
 
 void EditorToolIface::setupICC()
 {
-    d->editor->setupICC();
+    d->editor->slotSetupICC();
 }
 
 void EditorToolIface::themeChanged()

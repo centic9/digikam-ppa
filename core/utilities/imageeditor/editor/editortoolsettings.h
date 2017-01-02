@@ -6,7 +6,7 @@
  * Date        : 2008-08-21
  * Description : Editor tool settings template box
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2014 by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -28,19 +28,17 @@
 
 #include <QScrollArea>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
 #include "digikam_export.h"
+#include "digikam_debug.h"
 #include "histogrambox.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
-class KPushButton;
+class QPushButton;
 class QPixmap;
 class QString;
+class QIcon;
 
 namespace Digikam
 {
@@ -79,7 +77,7 @@ public:
     void setButtons(Buttons buttonMask);
     void setTools(Tools toolMask);
     void setHistogramType(HistogramBoxType type);
-    void setToolIcon(const QPixmap& pixmap);
+    void setToolIcon(const QIcon& pixmap);
     void setToolName(const QString& name);
 
     int marginHint();
@@ -94,7 +92,7 @@ public:
     int guideSize() const;
     void setGuideSize(int size);
 
-    KPushButton* button(int buttonCode) const;
+    QPushButton* button(int buttonCode) const;
     void enableButton(int buttonCode, bool state);
 
     virtual QSize minimumSizeHint() const;

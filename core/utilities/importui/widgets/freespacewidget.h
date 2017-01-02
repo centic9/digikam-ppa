@@ -6,7 +6,7 @@
  * Date        : 2007-08-31
  * Description : a widget to display free space for a mount-point.
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,18 +28,6 @@
 
 #include <QString>
 #include <QWidget>
-
-// KDE includes
-
-#include <kaction.h>
-#include <kdeversion.h>
-
-#if KDE_IS_VERSION(4,1,68)
-#include <kdiskfreespaceinfo.h>
-#else
-#include <kmountpoint.h>
-#include <kdiskfreespace.h>
-#endif
 
 namespace Digikam
 {
@@ -91,7 +79,6 @@ protected:
 private Q_SLOTS:
 
     void slotTimeout();
-    void slotAvailableFreeSpace(const QString& mountPoint, quint64 kBSize, quint64 kBUsed, quint64 kBAvail);
 
 private:
 

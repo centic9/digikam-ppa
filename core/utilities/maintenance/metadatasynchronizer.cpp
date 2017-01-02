@@ -6,7 +6,7 @@
  * Date        : 2007-22-01
  * Description : batch sync pictures metadata with database
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -22,18 +22,17 @@
  *
  * ============================================================ */
 
-#include "metadatasynchronizer.moc"
+#include "metadatasynchronizer.h"
 
 // Qt includes
 
 #include <QString>
 #include <QTimer>
+#include <QIcon>
 
 // KDE includes
 
-#include <kicon.h>
-#include <klocale.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -71,7 +70,7 @@ public:
 };
 
 MetadataSynchronizer::MetadataSynchronizer(const AlbumList& list, SyncDirection direction, ProgressItem* const parent)
-    : MaintenanceTool("MetadataSynchronizer", parent),
+    : MaintenanceTool(QLatin1String("MetadataSynchronizer"), parent),
       d(new Private)
 {
     if (list.isEmpty())
@@ -83,7 +82,7 @@ MetadataSynchronizer::MetadataSynchronizer(const AlbumList& list, SyncDirection 
 }
 
 MetadataSynchronizer::MetadataSynchronizer(const ImageInfoList& list, SyncDirection direction, ProgressItem* const parent)
-    : MaintenanceTool("MetadataSynchronizer", parent),
+    : MaintenanceTool(QLatin1String("MetadataSynchronizer"), parent),
       d(new Private)
 {
     d->imageInfoList = list;
@@ -192,12 +191,12 @@ void MetadataSynchronizer::parseList()
     if (d->direction == WriteFromDatabaseToFile)
     {
         setLabel(i18n("Synchronizing image metadata with database"));
-        setThumbnail(KIcon("document-edit").pixmap(22));
+        setThumbnail(QIcon::fromTheme(QLatin1String("document-edit")).pixmap(22));
     }
     else
     {
         setLabel(i18n("Updating database from image metadata"));
-        setThumbnail(KIcon("edit-redo").pixmap(22));
+        setThumbnail(QIcon::fromTheme(QLatin1String("edit-redo")).pixmap(22));
     }
 
     setTotalItems(d->imageInfoList.count());

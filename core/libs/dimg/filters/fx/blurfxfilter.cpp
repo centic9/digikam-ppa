@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Blur FX threaded image filter.
  *
- * Copyright 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright 2005-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * Original Blur algorithms copyrighted 2004 by
@@ -37,8 +37,8 @@
 // Qt includes
 
 #include <QDateTime>
-#include <QtConcurrentRun>
-#include <qmath.h>
+#include <QtConcurrent>
+#include <QtMath>
 
 // Local includes
 
@@ -75,7 +75,7 @@ BlurFXFilter::BlurFXFilter(QObject* const parent)
 }
 
 BlurFXFilter::BlurFXFilter(DImg* const orgImage, QObject* const parent, int blurFXType, int distance, int level)
-    : DImgThreadedFilter(orgImage, parent, "BlurFX"),
+    : DImgThreadedFilter(orgImage, parent, QLatin1String("BlurFX")),
       d(new Private)
 {
     d->blurFXType = blurFXType;
@@ -1625,12 +1625,12 @@ DColor BlurFXFilter::RandomColor(uchar* const Bits, int Width, int Height, bool 
             count += IntensityCount[Index];
             ++Index;
         }
-        while (count < RandNumber && runningFlag());
+        while (runningFlag() && (count < RandNumber));
 
         J = Index - 1;
         ++ErrorCount;
     }
-    while ((IntensityCount[J] == 0) && (ErrorCount <= counter)  && runningFlag());
+    while (runningFlag() && (IntensityCount[J] == 0) && (ErrorCount <= counter));
 
     if (!runningFlag())
     {
@@ -1924,13 +1924,13 @@ FilterAction BlurFXFilter::filterAction()
     FilterAction action(FilterIdentifier(), CurrentVersion());
     action.setDisplayableName(DisplayableName());
 
-    action.addParameter("type",     d->blurFXType);
-    action.addParameter("distance", d->distance);
-    action.addParameter("level",    d->level);
+    action.addParameter(QLatin1String("type"),     d->blurFXType);
+    action.addParameter(QLatin1String("distance"), d->distance);
+    action.addParameter(QLatin1String("level"),    d->level);
 
     if (d->blurFXType == FrostGlass)
     {
-        action.addParameter("randomSeed", d->randomSeed);
+        action.addParameter(QLatin1String("randomSeed"), d->randomSeed);
     }
 
     return action;
@@ -1938,13 +1938,13 @@ FilterAction BlurFXFilter::filterAction()
 
 void BlurFXFilter::readParameters(const FilterAction& action)
 {
-    d->blurFXType = action.parameter("type").toInt();
-    d->distance   = action.parameter("distance").toInt();
-    d->level      = action.parameter("level").toInt();
+    d->blurFXType = action.parameter(QLatin1String("type")).toInt();
+    d->distance   = action.parameter(QLatin1String("distance")).toInt();
+    d->level      = action.parameter(QLatin1String("level")).toInt();
 
     if (d->blurFXType == FrostGlass)
     {
-        d->randomSeed = action.parameter("randomSeed").toUInt();
+        d->randomSeed = action.parameter(QLatin1String("randomSeed")).toUInt();
     }
 }
 

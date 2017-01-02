@@ -6,7 +6,8 @@
  * Date        : 2011-09-13
  * Description : a plugin to export images to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,42 +27,42 @@
 
 #include <QLabel>
 #include <QPixmap>
+#include <QComboBox>
+#include <QIcon>
 
 // KDE includes
 
-#include <kstandarddirs.h>
-#include <kvbox.h>
-#include <klocale.h>
-#include <kdebug.h>
-#include <kiconloader.h>
+#include <klocalizedstring.h>
 
-//Local includes
+// Local includes
 
 #include "simpleviewer.h"
+#include "kipiplugins_debug.h"
+#include "kputil.h"
 
 namespace KIPIFlashExportPlugin
 {
 
-class IntroPage::IntroPagePriv
+class IntroPage::Private
 {
 public:
-  
-    IntroPagePriv()
+
+    Private()
     {
         plugin_select  = 0;
         imageGetOption = 0;
     }
-    
-    KComboBox* plugin_select;
-    KComboBox* imageGetOption;
+
+    QComboBox* plugin_select;
+    QComboBox* imageGetOption;
 };
 
-IntroPage::IntroPage(KAssistantDialog* const dlg)
+IntroPage::IntroPage(KPWizardDialog* const dlg)
     : KPWizardPage(dlg, i18n("Welcome to FlashExport Tool")),
-      d(new IntroPagePriv)
+      d(new Private)
 {
-    KVBox* vbox   = new KVBox(this);
-    QLabel* title = new QLabel(vbox);
+    KPVBox* const vbox   = new KPVBox(this);
+    QLabel* const title = new QLabel(vbox);
 
     title->setWordWrap(true);
     title->setOpenExternalLinks(true);
@@ -77,14 +78,14 @@ IntroPage::IntroPage(KAssistantDialog* const dlg)
                         "<p>2. TiltViewer is quite CPU intensive</p>"
                         "<p>3. Postcardviewer is designed only for small amount of photos</p>"
                         "</qt>"));
-    KHBox* hbox          = new KHBox(vbox);
-    QLabel* label        = new QLabel(i18n("Select &Plugin:"), hbox);
+    KPHBox* const hbox   = new KPHBox(vbox);
+    QLabel* const label = new QLabel(i18n("Select &Plugin:"), hbox);
 
-    d->plugin_select = new KComboBox(hbox);
-    QString simplew  = i18nc("SimpleViewer",   "SimpleViewer");
-    QString tilt     = i18nc("TiltViewer",     "TiltViewer");
-    QString autov    = i18nc("AutoViewer",     "AutoViewer");
-    QString postcard = i18nc("PostcardViewer", "PostcardViewer");
+    d->plugin_select    = new QComboBox(hbox);
+    QString simplew     = i18nc("SimpleViewer",   "SimpleViewer");
+    QString tilt        = i18nc("TiltViewer",     "TiltViewer");
+    QString autov       = i18nc("AutoViewer",     "AutoViewer");
+    QString postcard    = i18nc("PostcardViewer", "PostcardViewer");
     d->plugin_select->insertItem(SimpleViewerSettingsContainer::SIMPLE,   simplew);
     d->plugin_select->insertItem(SimpleViewerSettingsContainer::TILT,     tilt);
     d->plugin_select->insertItem(SimpleViewerSettingsContainer::AUTO,     autov);
@@ -95,19 +96,18 @@ IntroPage::IntroPage(KAssistantDialog* const dlg)
 
     // ComboBox for image selection method
 
-    KHBox* hbox2          = new KHBox(vbox);
-    QLabel* getImageLabel = new QLabel(i18n("&Choose image selection method:"),hbox2);
-    d->imageGetOption     = new KComboBox(hbox2);
-    QString collection    = i18nc("Collections",     "Collections");
-    QString dialog   = i18nc("Image Dialog",    "Image Dialog");
-    d->imageGetOption->insertItem(SimpleViewerSettingsContainer::COLLECTION, collection);
+    KPHBox* const hbox2         = new KPHBox(vbox);
+    QLabel* const getImageLabel = new QLabel(i18n("&Choose image selection method:"),hbox2);
+    d->imageGetOption           = new QComboBox(hbox2);
+    QString collection          = i18nc("Collections",     "Collections");
+    QString dialog              = i18nc("Images",          "Images");
+    d->imageGetOption->insertItem(SimpleViewerSettingsContainer::COLLECTION,  collection);
     d->imageGetOption->insertItem(SimpleViewerSettingsContainer::IMAGEDIALOG, dialog);
 
     getImageLabel->setBuddy(d->imageGetOption);
 
-
     setPageWidget(vbox);
-    setLeftBottomPix(DesktopIcon("kipi-flash", 128));
+    setLeftBottomPix(QIcon::fromTheme(QLatin1String("kipi-flash")).pixmap(128));
 }
 
 IntroPage::~IntroPage()
@@ -116,9 +116,9 @@ IntroPage::~IntroPage()
 
 void IntroPage::settings(SimpleViewerSettingsContainer* const settings)
 {
-    settings->plugType = (SimpleViewerSettingsContainer::PluginType)d->plugin_select->currentIndex();
+    settings->plugType     = (SimpleViewerSettingsContainer::PluginType)d->plugin_select->currentIndex();
     settings->imgGetOption = (SimpleViewerSettingsContainer::ImageGetOption)d->imageGetOption->currentIndex();
-    kDebug() << "Plugin type obtained" ;
+    qCDebug(KIPIPLUGINS_LOG) << "Plugin type obtained";
 }
 
 }   // namespace KIPIFlashExportPlugin

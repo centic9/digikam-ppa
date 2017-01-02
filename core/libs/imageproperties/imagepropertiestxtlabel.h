@@ -7,7 +7,7 @@
  * Description : simple text labels to display image
  *               properties meta infos
  *
- * Copyright (C) 2008-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -32,13 +32,16 @@
 #include <QColor>
 #include <QString>
 #include <QFontMetrics>
+#include <QTextBrowser>
+#include <QListWidget>
+#include <QFontDatabase>
 
-// KDE includes
+// Local includes
 
-#include <klistwidget.h>
-#include <ktextbrowser.h>
-#include <kglobalsettings.h>
-#include <ksqueezedtextlabel.h>
+#include "dexpanderbox.h"
+
+namespace Digikam
+{
 
 class DTextLabelName : public QLabel
 {
@@ -49,7 +52,7 @@ public:
         : QLabel(parent)
     {
         setText(name);
-        QFont fnt = KGlobalSettings::smallestReadableFont();
+        QFont fnt;
         fnt.setItalic(true);
         setFont(fnt);
         setAlignment(Qt::AlignRight | Qt::AlignTop);
@@ -63,19 +66,18 @@ public:
 
 // -------------------------------------------------------------------
 
-class DTextLabelValue : public KSqueezedTextLabel
+class DTextLabelValue : public DAdjustableLabel
 {
 
 public:
 
     explicit DTextLabelValue(const QString& value, QWidget* const parent=0)
-        : KSqueezedTextLabel(parent)
+        : DAdjustableLabel(parent)
     {
-        setText(value);
-        setFont(KGlobalSettings::smallestReadableFont());
+        setAdjustedText(value);
         setAlignment(Qt::AlignLeft | Qt::AlignTop);
         setWordWrap(false);
-        setTextElideMode(Qt::ElideRight);
+        setElideMode(Qt::ElideRight);
     };
 
     ~DTextLabelValue()
@@ -85,12 +87,12 @@ public:
 
 // -------------------------------------------------------------------
 
-class DTextBrowser : public KTextBrowser
+class DTextBrowser : public QTextBrowser
 {
 public:
 
     explicit DTextBrowser(const QString& text, QWidget* const parent=0)
-        : KTextBrowser(parent)
+        : QTextBrowser(parent)
     {
         setOpenExternalLinks(false);
         setOpenLinks(false);
@@ -105,7 +107,7 @@ public:
 
     void setLinesNumber(int l)
     {
-        QFont fnt = KGlobalSettings::smallestReadableFont();
+        QFont fnt;
         document()->setDefaultFont(fnt);
         int left, top, right, bottom;
         getContentsMargins(&left, &top, &right, &bottom);
@@ -115,12 +117,12 @@ public:
 
 // -------------------------------------------------------------------
 
-class DTextList : public KListWidget
+class DTextList : public QListWidget
 {
 public:
 
     explicit DTextList(const QStringList& list, QWidget* const parent=0)
-        : KListWidget(parent)
+        : QListWidget(parent)
     {
         addItems(list);
         setLinesNumber(6);
@@ -134,12 +136,14 @@ public:
 
     void setLinesNumber(int l)
     {
-        QFont fnt = KGlobalSettings::smallestReadableFont();
+        QFont fnt;
         setFont(fnt);
         int left, top, right, bottom;
         getContentsMargins(&left, &top, &right, &bottom);
         setFixedHeight(top + bottom + frameWidth() + fontMetrics().lineSpacing()*l);
     };
 };
+
+} // namespace Digikam
 
 #endif /* IMAGEPROPERTIESTXTLABEL_H */

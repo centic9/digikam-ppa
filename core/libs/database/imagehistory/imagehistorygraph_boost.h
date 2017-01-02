@@ -25,7 +25,7 @@
 #define IMAGEHISTORYGRAPH_BOOST_H
 
 // To include pragma directives for MSVC
-#include "config-digikam.h"
+#include "digikam_config.h"
 
 // Pragma directives to reduce warnings from Boost header files.
 #if not defined(__APPLE__) && defined(__GNUC__)
@@ -38,9 +38,10 @@
 #pragma clang diagnostic ignored "-Wundef"
 #pragma clang diagnostic ignored "-Wunused-parameter"
 #pragma clang diagnostic ignored "-Wcast-align"
+#pragma clang diagnostic ignored "-Wunused-local-typedef"
 #endif
 
-// boost includes
+// Boost includes
 
 // prohibit boost using deprecated header files
 #define BOOST_NO_HASH
@@ -57,15 +58,11 @@
 #include <boost/graph/dominator_tree.hpp>
 #include <boost/graph/depth_first_search.hpp>
 #include <boost/graph/breadth_first_search.hpp>
-
-// KDE includes
-
-#include <kdebug.h>
+#include <boost/graph/transitive_reduction.hpp>
 
 // Local includes
 
-// the file shipped with boost does not compile
-#include "transitive_reduction.hpp"
+#include "digikam_debug.h"
 
 /** Install custom property ids, out-of-namespace */
 enum vertex_properties_t { vertex_properties };
@@ -606,7 +603,7 @@ public:
         }
         catch (boost::bad_graph& e)
         {
-            kDebug() << e.what();
+            qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             return QList<Vertex>();
         }
 
@@ -641,7 +638,7 @@ public:
         }
         catch (boost::bad_graph& e)
         {
-            kDebug() << e.what();
+            qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             return Graph();
         }
 
@@ -668,7 +665,7 @@ public:
         }
         catch (boost::bad_graph& e)
         {
-            kDebug() << e.what();
+            qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             return Graph();
         }
 
@@ -1238,7 +1235,7 @@ protected:
             }
             catch (boost::bad_graph& e)
             {
-                kDebug() << e.what();
+                qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             }
         }
 
@@ -1263,7 +1260,7 @@ protected:
             }
             catch (boost::bad_graph& e)
             {
-                kDebug() << e.what();
+                qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             }
         }
 
@@ -1295,7 +1292,7 @@ protected:
             }
             catch (boost::bad_graph& e)
             {
-                kDebug() << e.what();
+                qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             }
         }
 
@@ -1325,7 +1322,7 @@ protected:
             }
             catch (boost::bad_graph& e)
             {
-                kDebug() << e.what();
+                qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             }
         }
 
@@ -1351,7 +1348,7 @@ protected:
             }
             catch (boost::bad_graph& e)
             {
-                kDebug() << e.what();
+                qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             }
         }
 
@@ -1373,7 +1370,7 @@ protected:
             }
             catch (boost::bad_graph& e)
             {
-                kDebug() << e.what();
+                qCDebug(DIGIKAM_DATABASE_LOG) << e.what();
             }
         }
 
@@ -1445,7 +1442,7 @@ protected:
         void depth_first_search_sorted(const IncidenceGraph& g, Vertex u,
                                        DFSVisitor& vis, ColorMap color, LessThan lessThan)
         {
-            typedef std::pair<Vertex, QList<Edge> > VertexInfo;
+            //typedef std::pair<Vertex, QList<Edge> > VertexInfo;
 
             typedef typename boost::graph_traits<IncidenceGraph>::edge_descriptor edge_descriptor;
             QList<edge_descriptor> outEdges;

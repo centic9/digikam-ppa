@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "itemvisibilitycontroller.moc"
+#include "itemvisibilitycontroller.h"
 
 // Qt includes
 
@@ -30,7 +30,7 @@
 
 // KDE includes
 
-#include <kdebug.h>
+#include "digikam_debug.h"
 
 namespace Digikam
 {
@@ -132,7 +132,7 @@ void HidingStateChanger::slotPropertiesAssigned(bool visible)
     {
         if (m_object)
         {
-            m_object->setProperty(m_property, m_value);
+            m_object->setProperty(m_property.constData(), m_value);
         }
 
         emit stateChanged();
@@ -390,7 +390,7 @@ void AnimationControl::syncProperties(QObject* const o)
 
 void AnimationControl::transitionToVisible(bool show, bool immediately)
 {
-    //kDebug() << "state" << state << "show" << show << items.size();
+    //qCDebug(DIGIKAM_WIDGETS_LOG) << "state" << state << "show" << show << items.size();
 
     if (show)
     {

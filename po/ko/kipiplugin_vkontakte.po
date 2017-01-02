@@ -1,0 +1,273 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <peremen@gmail.com>, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2015-11-15 15:56+0100\n"
+"Last-Translator: Shinjo Park <peremen@gmail.com>\n"
+"Language-Team: Korean <kde@peremen.name>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: albumchooserwidget.cpp:55
+msgctxt "@title:group Header above controls for managing albums"
+msgid "Album"
+msgstr "앨범"
+
+#: albumchooserwidget.cpp:60
+msgid "This is the VKontakte album that will be used for the transfer."
+msgstr "전송에 사용할 VKontakte 앨범입니다."
+
+#: albumchooserwidget.cpp:67
+msgid "New Album"
+msgstr "새 앨범"
+
+#: albumchooserwidget.cpp:68
+msgid "Create new VKontakte album"
+msgstr "새 VKontakte 앨범 만들기"
+
+#: albumchooserwidget.cpp:71
+msgctxt "reload albums list"
+msgid "Reload"
+msgstr "새로 고침"
+
+#: albumchooserwidget.cpp:72
+msgid "Reload albums list"
+msgstr "앨범 목록 새로 고침"
+
+#: albumchooserwidget.cpp:75
+msgid "Edit selected album"
+msgstr "선택한 앨범 편집"
+
+#: albumchooserwidget.cpp:80
+msgid "Delete selected album"
+msgstr "선택한 앨범 삭제"
+
+#: albumchooserwidget.cpp:291
+msgctxt "@title:window"
+msgid "Confirm Album Deletion"
+msgstr "앨범 삭제 확인"
+
+#: albumchooserwidget.cpp:292
+#, kde-format
+msgid ""
+"<qt>Are you sure you want to remove the album <b>%1</b> including all photos "
+"in it?</qt>"
+msgstr "<qt><b>%1</b> 앨범 및 포함된 모든 사진을 삭제하시겠습니까?</qt>"
+
+#: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
+msgctxt "@title:window"
+msgid "Request to VKontakte failed"
+msgstr "VKontakte 요청 실패"
+
+#: albumchooserwidget.cpp:391
+msgid "Internal error: Null pointer to KJob instance."
+msgstr "내부 오류: KJob 인스턴스를 향한 널 포인터."
+
+#: authinfowidget.cpp:57
+msgid "Account"
+msgstr "계정"
+
+#: authinfowidget.cpp:62
+msgid "This account is used for authentication."
+msgstr "인증에 사용할 계정입니다."
+
+#: authinfowidget.cpp:66
+msgid "Name:"
+msgstr "이름:"
+
+#: authinfowidget.cpp:67
+msgid "Your VKontakte login"
+msgstr "VKontakte 로그인 이름"
+
+#: authinfowidget.cpp:71
+msgid "Change Account"
+msgstr "계정 변경"
+
+#: authinfowidget.cpp:72
+msgid "Change VKontakte account used to authenticate"
+msgstr "인증에 사용할 VKontakte 계정 변경"
+
+#: authinfowidget.cpp:133
+#, kde-format
+msgctxt "Concatenation of first name (%1) and last name (%2)"
+msgid "%1 %2"
+msgstr "%2%1"
+
+#: authinfowidget.cpp:150
+msgid "Unauthorized"
+msgstr "인증되지 않음"
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_vkontakteui.rc:7
+msgid "&Export"
+msgstr "내보내기(&E)"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_vkontakteui.rc:13
+msgid "Main Toolbar"
+msgstr "주 도구 모음"
+
+#: plugin_vkontakte.cpp:82
+msgid "Export to &VKontakte..."
+msgstr "VKontakte로 내보내기(&V)..."
+
+#: vkalbumdialog.cpp:74
+msgctxt "@title:window"
+msgid "Edit album"
+msgstr "앨범 편집"
+
+#: vkalbumdialog.cpp:75
+msgctxt "@title:window"
+msgid "New album"
+msgstr "새 앨범"
+
+#: vkalbumdialog.cpp:94
+msgctxt "@title:group Header above Title and Summary fields"
+msgid "Album"
+msgstr "앨범"
+
+#: vkalbumdialog.cpp:95
+msgid "These are basic settings for the new VKontakte album."
+msgstr "새 VKontakte 앨범의 기본 설정입니다."
+
+#: vkalbumdialog.cpp:98
+msgid "Title of the album that will be created (required)."
+msgstr "생성할 앨범의 제목입니다(필요함)."
+
+#: vkalbumdialog.cpp:101
+msgid "Description of the album that will be created (optional)."
+msgstr "생성할 앨범 설명입니다(선택)."
+
+#: vkalbumdialog.cpp:105
+msgid "Title:"
+msgstr "제목: "
+
+#: vkalbumdialog.cpp:106
+msgid "Summary:"
+msgstr "요약:"
+
+#: vkalbumdialog.cpp:109
+msgid "Privacy Settings"
+msgstr "정보 보호 설정"
+
+#: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
+msgid "Only me"
+msgstr "나만"
+
+#: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
+msgid "My friends"
+msgstr "내 친구"
+
+#: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
+msgid "Friends of my friends"
+msgstr "내 친구의 친구"
+
+#: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
+msgid "Everyone"
+msgstr "모두"
+
+#: vkalbumdialog.cpp:117
+msgid "Album available to:"
+msgstr "앨범 공개 설정:"
+
+#: vkalbumdialog.cpp:125
+msgid "Comments available to:"
+msgstr "댓글 공개 설정:"
+
+#: vkalbumdialog.cpp:149
+msgid "Error"
+msgstr "오류"
+
+#: vkalbumdialog.cpp:149
+msgid "Title cannot be empty."
+msgstr "제목을 비워 둘 수 없습니다."
+
+#: vkwindow.cpp:96
+msgid "This is the list of images to upload to your VKontakte album."
+msgstr "VKontakte 앨범에 업로드할 사진 목록입니다."
+
+#: vkwindow.cpp:102
+msgid ""
+"This is a clickable link to open the VKontakte service in a web browser."
+msgstr "VKontakte 서비스를 브라우저에서 여는 누를 수 있는 링크입니다."
+
+#: vkwindow.cpp:120
+msgid "Destination"
+msgstr "대상"
+
+#: vkwindow.cpp:121
+msgid "This is the location where VKontakte images will be downloaded."
+msgstr "VKontakte 사진을 다운로드할 위치입니다."
+
+#: vkwindow.cpp:129
+msgid "Options"
+msgstr "옵션"
+
+#: vkwindow.cpp:130
+msgid "These are options that will be applied to images before upload."
+msgstr "사진을 업로드하기 전에 적용할 옵션입니다."
+
+#: vkwindow.cpp:166
+msgctxt "@title:window"
+msgid "Export to VKontakte Web Service"
+msgstr "VKontakte 웹 서비스로 내보내기"
+
+#: vkwindow.cpp:168
+msgid "Start Upload"
+msgstr "업로드 시작"
+
+#: vkwindow.cpp:169
+msgid "Start upload to VKontakte service"
+msgstr "VKontakte 웹 서비스로 업로드 시작"
+
+#: vkwindow.cpp:181 vkwindow.cpp:346
+msgid "VKontakte"
+msgstr "VKontakte"
+
+#: vkwindow.cpp:182
+#, fuzzy
+#| msgid "A Kipi plugin to export image collections to VKontakte web service."
+msgid "A tool to export image collections to VKontakte web service."
+msgstr "VKontakte 웹 서비스로 사진을 가져오고 내보내는 Kipi 플러그인입니다."
+
+#: vkwindow.cpp:184
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2015, Alexander Potashev"
+msgstr ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2013, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010-2013, Roman Tsisyk\n"
+"(c) 2011-2015, Alexander Potashev"
+
+#: vkwindow.cpp:190
+msgid "Alexander Potashev"
+msgstr "Alexander Potashev"
+
+#: vkwindow.cpp:190
+msgid "Author"
+msgstr "작성자"
+
+#: vkwindow.cpp:364
+msgid "Please select album first."
+msgstr "앨범을 먼저 선택하십시오."
+
+#: vkwindow.cpp:394
+msgid "Vkontakte Export"
+msgstr "VKontakte 내보내기"
+
+#~ msgid "VKontakte Plugin"
+#~ msgstr "VKontakte 플러그인"

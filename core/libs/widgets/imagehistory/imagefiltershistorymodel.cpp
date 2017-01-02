@@ -21,21 +21,18 @@
  *
  * ============================================================ */
 
-#include "imagefiltershistorymodel.moc"
+#include "imagefiltershistorymodel.h"
 
 // Qt includes
 
 #include <QHashIterator>
 #include <QPixmap>
-
-// KDE includes
-
-#include <kurl.h>
-#include <kdebug.h>
-#include <kiconloader.h>
+#include <QUrl>
+#include <QIcon>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimgfiltermanager.h"
 #include "dmetadata.h"
 #include "imagefiltershistorytreeitem.h"
@@ -55,19 +52,20 @@ public:
 
     ImageFiltersHistoryTreeItem* rootItem;
     QList<FilterAction>          filterStack;
-    KUrl                         lastUrl;
+    QUrl                         lastUrl;
 
     int                          disabledEntries;
 };
 
-ImageFiltersHistoryModel::ImageFiltersHistoryModel(QObject* const parent, const KUrl& url)
-    : QAbstractItemModel(parent), d(new Private)
+ImageFiltersHistoryModel::ImageFiltersHistoryModel(QObject* const parent, const QUrl& url)
+    : QAbstractItemModel(parent),
+      d(new Private)
 {
     if (!url.isEmpty())
     {
-        //kDebug() << "Creating model with url" << url.toLocalFile();
+        //qCDebug(DIGIKAM_WIDGETS_LOG) << "Creating model with url" << url.toLocalFile();
         d->rootItem = new ImageFiltersHistoryTreeItem(url.fileName());
-        d->lastUrl = url;
+        d->lastUrl  = url;
 
         DMetadata metadata(url.toLocalFile());
         QString xml     = metadata.getImageHistory();
@@ -76,8 +74,8 @@ ImageFiltersHistoryModel::ImageFiltersHistoryModel(QObject* const parent, const 
     }
     else
     {
-        //kDebug() << "Creating empty model";
-        d->rootItem = new ImageFiltersHistoryTreeItem("Generic");
+        //qCDebug(DIGIKAM_WIDGETS_LOG) << "Creating empty model";
+        d->rootItem = new ImageFiltersHistoryTreeItem(QLatin1String("Generic"));
     }
 }
 
@@ -87,7 +85,7 @@ ImageFiltersHistoryModel::~ImageFiltersHistoryModel()
     delete d;
 }
 
-void ImageFiltersHistoryModel::setUrl(const KUrl& url)
+void ImageFiltersHistoryModel::setUrl(const QUrl& url)
 {
     if (!url.isEmpty())
     {
@@ -96,14 +94,14 @@ void ImageFiltersHistoryModel::setUrl(const KUrl& url)
 
         d->rootItem = new ImageFiltersHistoryTreeItem(url.fileName());
         d->lastUrl  = url;
-        //kDebug() << "Updating model data with url" << rootData.first();
+        //qCDebug(DIGIKAM_WIDGETS_LOG) << "Updating model data with url" << rootData.first();
         DMetadata metadata(url.toLocalFile());
         setupModelData(DImageHistory::fromXml(metadata.getImageHistory()).entries(), d->rootItem);
     }
 /*
     else
     {
-        kDebug() << "Model not updated; url is" << url.pathOrUrl();
+        qCDebug(DIGIKAM_WIDGETS_LOG) << "Model not updated; url is" << url.pathOrUrl();
     }
 */
 }
@@ -255,7 +253,7 @@ void ImageFiltersHistoryModel::setupModelData(const QList<DImageHistory::Entry>&
         }
     }
 
-    //kDebug() << "Initializing model data, got" << entries.count() << "entries";
+    //qCDebug(DIGIKAM_WIDGETS_LOG) << "Initializing model data, got" << entries.count() << "entries";
     QList<ImageFiltersHistoryTreeItem*> parents;
     QList<ImageFiltersHistoryTreeItem*> filters;
     parents << parent;
@@ -276,10 +274,10 @@ void ImageFiltersHistoryModel::setupModelData(const QList<DImageHistory::Entry>&
         itemData.append(DImgFilterManager::instance()->i18nDisplayableName(entries.at(i).action));
 
         QString iconName = DImgFilterManager::instance()->filterIcon(entries.at(i).action);
-        QPixmap icon     = SmallIcon(iconName, KIconLoader::SizeSmallMedium);
+        QPixmap icon     = QIcon::fromTheme(iconName).pixmap(22);
         itemData.append(icon);
 
-        //kDebug() << "Adding an entry: " << itemData;
+        //qCDebug(DIGIKAM_WIDGETS_LOG) << "Adding an entry: " << itemData;
         parents.first()->appendChild(new ImageFiltersHistoryTreeItem(itemData, parents.first()));
         filters << parents.last()->child(parents.last()->childCount()-1);
 

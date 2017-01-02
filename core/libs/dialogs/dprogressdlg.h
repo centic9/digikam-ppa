@@ -6,7 +6,7 @@
  * Date        : 2006-30-08
  * Description : a progress dialog for digiKam
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,11 +26,8 @@
 
 // Qt includes
 
-#include <QtGui/QPixmap>
-
-// KDE includes
-
-#include <kdialog.h>
+#include <QPixmap>
+#include <QDialog>
 
 // Local includes
 
@@ -39,7 +36,7 @@
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT DProgressDlg : public KDialog
+class DIGIKAM_EXPORT DProgressDlg : public QDialog
 {
     Q_OBJECT
 
@@ -50,12 +47,8 @@ public:
 
     void setLabel(const QString& text);
     void setTitle(const QString& text);
-    void showCancelButton(bool show);
-    void setAllowCancel(bool allowCancel);
 
-    bool wasCancelled() const;
-    bool allowCancel()  const;
-    int  value()        const;
+    int  value() const;
 
 Q_SIGNALS:
 
@@ -67,10 +60,9 @@ public Q_SLOTS:
     void incrementMaximum(int added);
     void advance(int offset);
     void setValue(int value);
-
     void setButtonText(const QString& text);
-    void setButtonGuiItem(const KGuiItem& item);
-    void addedAction(const QPixmap& pix, const QString& text);
+
+    void addedAction(const QPixmap &icon, const QString& text);
     void reset();
 
 protected Q_SLOTS:

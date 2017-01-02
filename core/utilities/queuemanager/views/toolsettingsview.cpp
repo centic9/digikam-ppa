@@ -6,7 +6,7 @@
  * Date        : 2008-11-27
  * Description : a view to show Batch Tool Settings.
  *
- * Copyright (C) 2008-2012 Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "toolsettingsview.moc"
+#include "toolsettingsview.h"
 
 // Qt includes
 
@@ -31,18 +31,20 @@
 #include <QPushButton>
 #include <QScrollArea>
 #include <QString>
+#include <QIcon>
+#include <QApplication>
 
 // KDE includes
 
-#include <kdialog.h>
-#include <klocale.h>
-#include <kvbox.h>
-#include <kapplication.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "thememanager.h"
 #include "batchtoolsmanager.h"
+
+
 
 namespace Digikam
 {
@@ -96,8 +98,8 @@ ToolSettingsView::ToolSettingsView(QWidget* const parent)
 
     // --------------------------------------------------------------------------
 
-    KVBox* vbox            = new KVBox(this);
-    QFrame* toolDescriptor = new QFrame(vbox);
+    DVBox* const vbox            = new DVBox(this);
+    QFrame* const toolDescriptor = new QFrame(vbox);
     d->settingsViewIcon    = new QLabel();
     d->settingsViewTitle   = new QLabel();
     QFont font             = d->settingsViewTitle->font();
@@ -105,22 +107,22 @@ ToolSettingsView::ToolSettingsView(QWidget* const parent)
     d->settingsViewTitle->setFont(font);
 
     d->settingsViewReset = new QPushButton();
-    d->settingsViewReset->setIcon(SmallIcon("document-revert"));
+    d->settingsViewReset->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
     d->settingsViewReset->setToolTip(i18n("Reset current tool settings to default values."));
 
-    QString frameStyle = QString("QFrame {"
+    QString frameStyle = QString::fromUtf8("QFrame {"
                                  "color: %1;"
                                  "border: 1px solid %2;"
                                  "border-radius: 5px;"
                                  "background-color: %3;"
                                  "}")
-                         .arg(kapp->palette().color(QPalette::HighlightedText).name())
-                         .arg(kapp->palette().color(QPalette::HighlightedText).name())
-                         .arg(kapp->palette().color(QPalette::Highlight).name());
+                         .arg(qApp->palette().color(QPalette::HighlightedText).name())
+                         .arg(qApp->palette().color(QPalette::HighlightedText).name())
+                         .arg(qApp->palette().color(QPalette::Highlight).name());
 
-    QString noFrameStyle("QFrame {"
-                         "border: none;"
-                         "}");
+    QString noFrameStyle = QLatin1String("QFrame {"
+                                         "border: none;"
+                                         "}");
 
     d->settingsViewIcon->setStyleSheet(noFrameStyle);
     d->settingsViewTitle->setStyleSheet(noFrameStyle);
@@ -130,7 +132,7 @@ ToolSettingsView::ToolSettingsView(QWidget* const parent)
     d->settingsViewIcon->setAlignment(Qt::AlignVCenter | Qt::AlignRight);
     d->settingsViewTitle->setAlignment(Qt::AlignCenter);
 
-    QGridLayout* descrLayout = new QGridLayout();
+    QGridLayout* const descrLayout = new QGridLayout();
     descrLayout->addWidget(d->settingsViewIcon,  0, 0, 1, 1);
     descrLayout->addWidget(d->settingsViewTitle, 0, 1, 1, 1);
     descrLayout->addWidget(d->settingsViewReset, 0, 2, 1, 1);
@@ -142,8 +144,8 @@ ToolSettingsView::ToolSettingsView(QWidget* const parent)
     d->settingsView = new QScrollArea(vbox);
     d->settingsView->setWidgetResizable(true);
 
-    vbox->setMargin(0);
     vbox->setSpacing(0);
+    vbox->setContentsMargins(QMargins());
     vbox->setStretchFactor(d->settingsView, 10);
 
     insertWidget(Private::SettingsView, vbox);
@@ -189,11 +191,11 @@ void ToolSettingsView::setToolSettingsWidget(QWidget* const w)
 void ToolSettingsView::slotThemeChanged()
 {
     QPalette palette;
-    palette.setColor(d->messageView->backgroundRole(), kapp->palette().color(QPalette::Base));
+    palette.setColor(d->messageView->backgroundRole(), qApp->palette().color(QPalette::Base));
     d->messageView->setPalette(palette);
 
     QPalette palette2;
-    palette2.setColor(d->settingsView->backgroundRole(), kapp->palette().color(QPalette::Base));
+    palette2.setColor(d->settingsView->backgroundRole(), qApp->palette().color(QPalette::Base));
     d->settingsView->setPalette(palette2);
 }
 
@@ -238,7 +240,7 @@ void ToolSettingsView::slotToolSelected(const BatchToolSet& set)
 
     if (d->tool)
     {
-        d->settingsViewIcon->setPixmap(SmallIcon(d->tool->toolIconName()).scaled(QSize(22, 22)));
+        d->settingsViewIcon->setPixmap(QIcon::fromTheme(d->tool->toolIconName()).pixmap(22));
         d->settingsViewTitle->setText(d->tool->toolTitle());
         d->tool->setSettings(d->set.settings);
 

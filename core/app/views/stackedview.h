@@ -7,7 +7,7 @@
  * Description : A widget stack to embedded album content view
  *               or the current image preview.
  *
- * Copyright (C) 2006-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * This program is free software; you can redistribute it
@@ -28,21 +28,16 @@
 
 // Qt includes
 
-#include <QByteArray>
 #include <QMainWindow>
 #include <QStackedWidget>
-#include <QString>
-
-// KDE includes
-
-#include <kurl.h>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "digikam_export.h"
 #include "imageinfo.h"
 #include "thumbbardock.h"
+#include "trashview.h"
 
 namespace Digikam
 {
@@ -51,12 +46,15 @@ class DigikamImageView;
 class ImageCategorizedView;
 class ImagePreviewView;
 class TableView;
-class MediaPlayerView;
 class ImageThumbnailBar;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MEDIAPLAYER
+class MediaPlayerView;
+#endif //HAVE_MEDIAPLAYER
+
+#ifdef HAVE_MARBLE
 class MapWidgetView;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
 class StackedView : public QStackedWidget
 {
@@ -70,10 +68,11 @@ public:
         IconViewMode         = 0,
         PreviewImageMode     = 1,
         WelcomePageMode      = 2,
-        MediaPlayerMode      = 3,
-        TableViewMode        = 4,
+        TableViewMode        = 3,
+        TrashViewMode        = 4,
         MapWidgetMode        = 5,
-        StackedViewModeLast  = 5
+        MediaPlayerMode      = 6,
+        StackedViewModeLast  = 6
     };
 
 public:
@@ -89,11 +88,15 @@ public:
     DigikamImageView*  imageIconView()    const;
     ImagePreviewView*  imagePreviewView() const;
     TableView*         tableView()        const;
-    MediaPlayerView*   mediaPlayerView()  const;
+    TrashView*         trashView()        const;
 
-#ifdef HAVE_KGEOMAP
+#ifdef HAVE_MEDIAPLAYER
+    MediaPlayerView*   mediaPlayerView()  const;
+#endif //HAVE_MEDIAPLAYER
+
+#ifdef HAVE_MARBLE
     MapWidgetView*     mapWidgetView()    const;
-#endif // HAVE_KGEOMAP
+#endif // HAVE_MARBLE
 
     /**
      * Single-file mode is image preview or media player,

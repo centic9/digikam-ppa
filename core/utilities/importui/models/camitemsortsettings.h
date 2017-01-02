@@ -24,9 +24,9 @@
 #ifndef CAMITEMSORTSETTINGS_H
 #define CAMITEMSORTSETTINGS_H
 
-// KDE includes
+// Qt includes
 
-#include <kstringhandler.h>
+#include <QCollator>
 
 // Local includes
 
@@ -82,7 +82,8 @@ public:
     {
         NoCategories,
         CategoryByFolder,
-        CategoryByFormat
+        CategoryByFormat,
+        CategoryByDate
     };
 
     CategorizationMode  categorizationMode;
@@ -111,9 +112,11 @@ public:
 
     SortOrder   sortOrder;
     SortRole    sortRole;
+    bool        strTypeNatural;
 
     void setSortRole(SortRole role);
     void setSortOrder(SortOrder order);
+    void setStringTypeNatural(bool natural);
 
     Qt::SortOrder       currentSortOrder;
     Qt::CaseSensitivity sortCaseSensitivity;
@@ -168,9 +171,13 @@ public:
     /** Compares the two string by natural comparison and adheres to given sort order
      */
     static inline int naturalCompare(const QString& a, const QString& b, Qt::SortOrder sortOrder,
-                                     Qt::CaseSensitivity caseSensitive = Qt::CaseSensitive)
+                                     Qt::CaseSensitivity caseSensitive = Qt::CaseSensitive, bool natural = true)
     {
-        return compareByOrder(KStringHandler::naturalCompare(a, b, caseSensitive), sortOrder);
+        QCollator collator;
+        collator.setNumericMode(natural);
+        collator.setIgnorePunctuation(true);
+        collator.setCaseSensitivity(caseSensitive);
+        return (compareByOrder(collator.compare(a, b), sortOrder));
     }
 };
 

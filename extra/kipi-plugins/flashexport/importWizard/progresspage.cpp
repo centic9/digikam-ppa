@@ -6,7 +6,8 @@
  * Date        : 2011-09-13
  * Description : a plugin to export images to flash
  *
- * Copyright (C) 2011 by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -26,16 +27,14 @@
 
 #include <QLabel>
 #include <QPixmap>
+#include <QIcon>
+#include <QComboBox>
 
 // KDE includes
 
-#include <kstandarddirs.h>
-#include <kvbox.h>
-#include <klocale.h>
-#include <kcombobox.h>
-#include <kiconloader.h>
+#include <klocalizedstring.h>
 
-//Local includes
+// Local includes
 
 #include "simpleviewer.h"
 #include "simpleviewersettingscontainer.h"
@@ -45,15 +44,15 @@
 namespace KIPIFlashExportPlugin
 {
 // link this page to SimpleViewer to gain access to settings container.
-ProgressPage::ProgressPage(FlashManager* const mngr, KAssistantDialog* const dlg)
+ProgressPage::ProgressPage(FlashManager* const mngr, KPWizardDialog* const dlg)
     : KPWizardPage(dlg, i18n("Exporting..."))
 {
-    SimpleViewer* simple               = mngr->simpleView();
-    KPBatchProgressWidget* progresswdg = simple->progressWidget();
+    SimpleViewer* const simple               = mngr->simpleView();
+    KPBatchProgressWidget* const progresswdg = simple->progressWidget();
     progresswdg->show();
 
     setPageWidget(progresswdg);
-    setLeftBottomPix(DesktopIcon("kipi-flash", 128));
+    setLeftBottomPix(QIcon::fromTheme(QLatin1String("kipi-flash")).pixmap(128));
 }
 
 ProgressPage::~ProgressPage()

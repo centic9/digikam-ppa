@@ -7,7 +7,7 @@
  * Description : digiKam image editor GUI
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2004-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "imagewindow.moc"
+#include "imagewindow.h"
 
 // C++ includes
 
@@ -30,6 +30,7 @@
 
 // Qt includes
 
+#include <QKeySequence>
 #include <QCloseEvent>
 #include <QDragMoveEvent>
 #include <QDropEvent>
@@ -43,43 +44,23 @@
 #include <QProgressBar>
 #include <QSplitter>
 #include <QTimer>
+#include <QAction>
+#include <QMenu>
+#include <QMenuBar>
+#include <QMessageBox>
+#include <QApplication>
 
 // KDE includes
 
-#include <kaction.h>
-#include <kactionmenu.h>
 #include <kactioncollection.h>
-#include <kapplication.h>
-#include <kcategorizedview.h>
-#include <kconfig.h>
-#include <kcursor.h>
-#include <kdeversion.h>
-#include <kfiledialog.h>
-#include <kglobal.h>
-#include <kimageio.h>
-#include <kio/job.h>
-#include <kio/jobuidelegate.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kmenubar.h>
-#include <kmessagebox.h>
-#include <kselectaction.h>
-#include <kstandardaction.h>
-#include <kstandarddirs.h>
-#include <kstatusbar.h>
-#include <kstdaccel.h>
-#include <kstdguiitem.h>
-#include <ktemporaryfile.h>
-#include <ktoggleaction.h>
-#include <ktoolbar.h>
-#include <ktoolbarpopupaction.h>
+#include <klocalizedstring.h>
 #include <kwindowsystem.h>
-#include <kdebug.h>
 
 // Local includes
 
+#include "dwidgetutils.h"
 #include "album.h"
-#include "albumdb.h"
+#include "coredb.h"
 #include "albummanager.h"
 #include "albummodel.h"
 #include "applicationsettings.h"
@@ -87,40 +68,43 @@
 #include "collectionlocation.h"
 #include "collectionmanager.h"
 #include "componentsinfo.h"
-#include "databaseaccess.h"
-#include "databasewatch.h"
-#include "databasechangesets.h"
+#include "coredbaccess.h"
+#include "coredbwatch.h"
+#include "coredbchangesets.h"
 #include "ddragobjects.h"
 #include "deletedialog.h"
 #include "dimg.h"
 #include "editorcore.h"
 #include "dimagehistory.h"
+#include "digikamapp.h"
 #include "dio.h"
 #include "dmetadata.h"
 #include "editorstackview.h"
 #include "fileactionmngr.h"
 #include "fileoperation.h"
-#include "globals.h"
+#include "digikam_globals.h"
 #include "iccsettingscontainer.h"
 #include "imageattributeswatch.h"
 #include "imagefiltermodel.h"
 #include "imagedragdrop.h"
 #include "imagedescedittab.h"
 #include "imageinfo.h"
+#include "imagegps.h"
 #include "imagelistmodel.h"
-#include "imageplugin.h"
-#include "imagepluginloader.h"
 #include "imagepropertiessidebardb.h"
 #include "imagepropertiesversionstab.h"
 #include "imagescanner.h"
 #include "imagethumbnailbar.h"
 #include "iofilesettings.h"
+#include "geolocationedit.h"
 #include "dnotificationwrapper.h"
 #include "loadingcacheinterface.h"
 #include "metadatahub.h"
 #include "metadatasettings.h"
+#include "metadataedit.h"
 #include "colorlabelwidget.h"
 #include "picklabelwidget.h"
+#include "presentationmngr.h"
 #include "ratingwidget.h"
 #include "savingcontext.h"
 #include "scancontroller.h"
@@ -134,9 +118,10 @@
 #include "thememanager.h"
 #include "thumbbardock.h"
 #include "thumbnailloadthread.h"
-#include "uifilevalidator.h"
 #include "undostate.h"
 #include "imagewindow_p.h"
+#include "digikam_debug.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -159,20 +144,10 @@ bool ImageWindow::imageWindowCreated()
 }
 
 ImageWindow::ImageWindow()
-    : EditorWindow("Image Editor"), d(new Private)
+    : EditorWindow(QLatin1String("Image Editor")),
+      d(new Private)
 {
-    setXMLFile("digikamimagewindowui.rc");
-
-    // --------------------------------------------------------
-
-    UiFileValidator validator(localXMLFile());
-
-    if (!validator.isValid())
-    {
-        validator.fixConfigFile();
-    }
-
-    // --------------------------------------------------------
+    setXMLFile(QLatin1String("imageeditorui5.rc"));
 
     m_instance = this;
     // We don't want to be deleted on close
@@ -185,11 +160,9 @@ ImageWindow::ImageWindow()
     setupActions();
     setupStatusBar();
     createGUI(xmlFile());
+    cleanupActions();
 
-    // Load image plugins to GUI
-
-    m_imagePluginLoader = ImagePluginLoader::instance();
-    loadImagePlugins();
+    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 
     // Create tool selection view
 
@@ -206,16 +179,16 @@ ImageWindow::ImageWindow()
     // -- Read settings --------------------------------
 
     readSettings();
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(EditorWindow::CONFIG_GROUP_NAME);
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(configGroupName());
     applyMainWindowSettings(group);
     d->thumbBarDock->setShouldBeVisible(group.readEntry(d->configShowThumbbarEntry, false));
-    setAutoSaveSettings(EditorWindow::CONFIG_GROUP_NAME, true);
-    d->viewContainer->setAutoSaveSettings("ImageViewer Thumbbar", true);
+    setAutoSaveSettings(configGroupName(), true);
+    d->viewContainer->setAutoSaveSettings(QLatin1String("ImageViewer Thumbbar"), true);
 
     //-------------------------------------------------------------
 
-    d->rightSideBar->setConfigGroup(KConfigGroup(&group, "Right Sidebar"));
+    d->rightSideBar->setConfigGroup(KConfigGroup(&group, QLatin1String("Right Sidebar")));
     d->rightSideBar->loadState();
     d->rightSideBar->populateTags();
 
@@ -225,8 +198,6 @@ ImageWindow::ImageWindow()
 ImageWindow::~ImageWindow()
 {
     m_instance = 0;
-
-    unLoadImagePlugins();
 
     delete d->rightSideBar;
     delete d->thumbBar;
@@ -259,8 +230,8 @@ void ImageWindow::closeEvent(QCloseEvent* e)
         thumbBar()->hide();
     }
 
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(EditorWindow::CONFIG_GROUP_NAME);
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(configGroupName());
     saveMainWindowSettings(group);
     saveSettings();
 
@@ -293,8 +264,8 @@ bool ImageWindow::queryClose()
 
 void ImageWindow::setupUserArea()
 {
-    KSharedConfig::Ptr config = KGlobal::config();
-    KConfigGroup group        = config->group(EditorWindow::CONFIG_GROUP_NAME);
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(configGroupName());
 
     QWidget* const widget   = new QWidget(this);
     QHBoxLayout* const hlay = new QHBoxLayout(widget);
@@ -306,25 +277,24 @@ void ImageWindow::setupUserArea()
     m_canvas                = new Canvas(m_stackView);
     d->viewContainer->setCentralWidget(m_stackView);
 
+    m_splitter->setFrameStyle(QFrame::NoFrame);
+    m_splitter->setFrameShape(QFrame::NoFrame);
+    m_splitter->setFrameShadow(QFrame::Plain);
     m_splitter->setStretchFactor(0, 10);      // set Canvas default size to max.
-
-    d->rightSideBar = new ImagePropertiesSideBarDB(widget, m_splitter, KMultiTabBar::Right, true);
-    d->rightSideBar->setObjectName("ImageEditor Right Sidebar");
-    d->rightSideBar->getFiltersHistoryTab()->addOpenImageAction();
-
-    hlay->addWidget(m_splitter);
-    hlay->addWidget(d->rightSideBar);
-    hlay->setSpacing(0);
-    hlay->setMargin(0);
+    m_splitter->setOpaqueResize(false);
 
     m_canvas->makeDefaultEditingCanvas();
     m_stackView->setCanvas(m_canvas);
     m_stackView->setViewMode(EditorStackView::CanvasMode);
 
-    m_splitter->setFrameStyle(QFrame::NoFrame);
-    m_splitter->setFrameShadow(QFrame::Plain);
-    m_splitter->setFrameShape(QFrame::NoFrame);
-    m_splitter->setOpaqueResize(false);
+    d->rightSideBar = new ImagePropertiesSideBarDB(widget, m_splitter, Qt::RightEdge, true);
+    d->rightSideBar->setObjectName(QLatin1String("ImageEditor Right Sidebar"));
+    d->rightSideBar->getFiltersHistoryTab()->addOpenImageAction();
+
+    hlay->addWidget(m_splitter);
+    hlay->addWidget(d->rightSideBar);
+    hlay->setContentsMargins(QMargins());
+    hlay->setSpacing(0);
 
     // Code to check for the now depreciated HorizontalThumbar directive. It
     // is found, it is honored and deleted. The state will from than on be saved
@@ -351,6 +321,7 @@ void ImageWindow::setupUserArea()
     d->imageInfoModel->setThumbnailLoadThread(ThumbnailLoadThread::defaultIconViewThread());
 
     d->imageFilterModel->setCategorizationMode(ImageSortSettings::NoCategories);
+    d->imageFilterModel->setStringTypeNatural(ApplicationSettings::instance()->isStringTypeNatural());
     d->imageFilterModel->setSortRole((ImageSortSettings::SortRole)ApplicationSettings::instance()->getImageSortOrder());
     d->imageFilterModel->setSortOrder((ImageSortSettings::SortOrder)ApplicationSettings::instance()->getImageSorting());
     d->imageFilterModel->setAllGroupsOpen(true); // disable filtering out by group, see bug #283847
@@ -362,7 +333,7 @@ void ImageWindow::setupUserArea()
 
     // The thumb bar is placed in a detachable/dockable widget.
     d->thumbBarDock     = new ThumbBarDock(d->viewContainer, Qt::Tool);
-    d->thumbBarDock->setObjectName("editor_thumbbar");
+    d->thumbBarDock->setObjectName(QLatin1String("editor_thumbbar"));
 
     d->thumbBar         = new ImageThumbnailBar(d->thumbBarDock);
     d->thumbBar->setModels(d->imageInfoModel, d->imageFilterModel);
@@ -401,11 +372,11 @@ void ImageWindow::setupConnections()
 
     ImageAttributesWatch* watch = ImageAttributesWatch::instance();
 
-    connect(watch, SIGNAL(signalFileMetadataChanged(KUrl)),
-            this, SLOT(slotFileMetadataChanged(KUrl)));
+    connect(watch, SIGNAL(signalFileMetadataChanged(QUrl)),
+            this, SLOT(slotFileMetadataChanged(QUrl)));
 
 /*
-    connect(DatabaseAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
+    connect(CoreDbAccess::databaseWatch(), SIGNAL(collectionImageChange(CollectionImageChangeset)),
             this, SLOT(slotCollectionImageChange(CollectionImageChangeset)),
             Qt::QueuedConnection);
 
@@ -433,57 +404,60 @@ void ImageWindow::setupActions()
 {
     setupStandardActions();
 
-    d->toMainWindowAction = new KAction(KIcon("view-list-icons"),
+    KActionCollection *ac = actionCollection();
+
+    d->toMainWindowAction = new QAction(QIcon::fromTheme(QLatin1String("view-list-icons")),
                                         i18nc("@action Finish editing, close editor, back to main window", "Close Editor"), this);
     connect(d->toMainWindowAction, SIGNAL(triggered()), this, SLOT(slotToMainWindow()));
-    actionCollection()->addAction("imageview_tomainwindow", d->toMainWindowAction);
+    ac->addAction(QLatin1String("imageview_tomainwindow"), d->toMainWindowAction);
+
 
     // -- Special Delete actions ---------------------------------------------------------------
 
     // Pop up dialog to ask user whether to permanently delete
 
-    d->fileDeletePermanentlyAction = new KAction(KIcon("edit-delete"), i18n("Delete File Permanently"), this);
-    d->fileDeletePermanentlyAction->setShortcut(KShortcut(Qt::SHIFT + Qt::Key_Delete));
+    d->fileDeletePermanentlyAction = new QAction(QIcon::fromTheme(QLatin1String("edit-delete")), i18n("Delete File Permanently"), this);
     connect(d->fileDeletePermanentlyAction, SIGNAL(triggered()),
             this, SLOT(slotDeleteCurrentItemPermanently()));
-    actionCollection()->addAction("image_delete_permanently", d->fileDeletePermanentlyAction);
+    ac->addAction(QLatin1String("image_delete_permanently"), d->fileDeletePermanentlyAction);
+    ac->setDefaultShortcut(d->fileDeletePermanentlyAction, Qt::SHIFT + Qt::Key_Delete);
 
     // These two actions are hidden, no menu entry, no toolbar entry, no shortcut.
     // Power users may add them.
 
-    d->fileDeletePermanentlyDirectlyAction = new KAction(KIcon("edit-delete"),
+    d->fileDeletePermanentlyDirectlyAction = new QAction(QIcon::fromTheme(QLatin1String("edit-delete")),
                                                          i18n("Delete Permanently without Confirmation"), this);
     connect(d->fileDeletePermanentlyDirectlyAction, SIGNAL(triggered()),
             this, SLOT(slotDeleteCurrentItemPermanentlyDirectly()));
-    actionCollection()->addAction("image_delete_permanently_directly",
+    ac->addAction(QLatin1String("image_delete_permanently_directly"),
                                   d->fileDeletePermanentlyDirectlyAction);
 
-    d->fileTrashDirectlyAction = new KAction(KIcon("user-trash"),
+    d->fileTrashDirectlyAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")),
                                              i18n("Move to Trash without Confirmation"), this);
     connect(d->fileTrashDirectlyAction, SIGNAL(triggered()),
             this, SLOT(slotTrashCurrentItemDirectly()));
-    actionCollection()->addAction("image_trash_directly", d->fileTrashDirectlyAction);
+    ac->addAction(QLatin1String("image_trash_directly"), d->fileTrashDirectlyAction);
 
     // ---------------------------------------------------------------------------------
 
     createHelpActions();
 
     // Labels shortcuts must be registered here to be saved in XML GUI files if user customize it.
-    TagsActionMngr::defaultManager()->registerLabelsActions(actionCollection());
+    TagsActionMngr::defaultManager()->registerLabelsActions(ac);
 
-    KAction* const editTitles = new KAction(i18n("Edit Titles"), this);
-    editTitles->setShortcut( KShortcut(Qt::META + Qt::Key_T) );
-    actionCollection()->addAction("edit_titles", editTitles);
+    QAction* const editTitles = new QAction(i18n("Edit Titles"), this);
+    ac->addAction(QLatin1String("edit_titles"), editTitles);
+    ac->setDefaultShortcut(editTitles, Qt::META + Qt::Key_T);
     connect(editTitles, SIGNAL(triggered()), this, SLOT(slotRightSideBarActivateTitles()));
 
-    KAction* const editComments = new KAction(i18n("Edit Comments"), this);
-    editComments->setShortcut( KShortcut(Qt::META + Qt::Key_C) );
-    actionCollection()->addAction("edit_comments", editComments);
+    QAction* const editComments = new QAction(i18n("Edit Comments"), this);
+    ac->addAction(QLatin1String("edit_comments"), editComments);
+    ac->setDefaultShortcut(editComments, Qt::META + Qt::Key_C);
     connect(editComments, SIGNAL(triggered()), this, SLOT(slotRightSideBarActivateComments()));
 
-    KAction* const assignedTags = new KAction(i18n("Show Assigned Tags"), this);
-    assignedTags->setShortcut( KShortcut(Qt::META + Qt::Key_A) );
-    actionCollection()->addAction("assigned _tags", assignedTags);
+    QAction* const assignedTags = new QAction(i18n("Show Assigned Tags"), this);
+    ac->addAction(QLatin1String("assigned _tags"), assignedTags);
+    ac->setDefaultShortcut(assignedTags, Qt::META + Qt::Key_A);
     connect(assignedTags, SIGNAL(triggered()), this, SLOT(slotRightSideBarActivateAssignedTags()));
 }
 
@@ -496,6 +470,7 @@ void ImageWindow::slotSetupChanged()
     m_nonDestructive                       = versionSettings.enabled;
     toggleNonDestructiveActions();
 
+    d->imageFilterModel->setStringTypeNatural(ApplicationSettings::instance()->isStringTypeNatural());
     d->rightSideBar->setStyle(ApplicationSettings::instance()->getSidebarTitleStyle());
 }
 
@@ -515,9 +490,6 @@ void ImageWindow::loadImageInfos(const ImageInfoList& imageInfoList, const Image
     // If not, we load imageInfoCurrent, then the index 0, then again imageInfoCurrent
     d->thumbBar->setEnabled(false);
     d->imageInfoModel->setImageInfos(imageInfoList);
-    // Update the sorting of images, see bug #342788
-    d->imageFilterModel->setSortRole((ImageSortSettings::SortRole)ApplicationSettings::instance()->getImageSortOrder());
-    d->imageFilterModel->setSortOrder((ImageSortSettings::SortOrder)ApplicationSettings::instance()->getImageSorting());
     d->setThumbBarToCurrent();
 
     if (!caption.isEmpty())
@@ -586,7 +558,7 @@ void ImageWindow::slotLoadCurrent()
     setViewToURL(d->currentUrl());
 }
 
-void ImageWindow::setViewToURL(const KUrl& url)
+void ImageWindow::setViewToURL(const QUrl& url)
 {
     emit signalURLChanged(url);
 }
@@ -620,7 +592,7 @@ void ImageWindow::slotDroppedOnThumbbar(const QList<ImageInfo>& infos)
 
     QList<ImageInfo> toAdd;
 
-    foreach(ImageInfo it, infos)
+    foreach(const ImageInfo& it, infos)
     {
         QModelIndex index(d->imageFilterModel->indexForImageInfo(it));
 
@@ -632,7 +604,7 @@ void ImageWindow::slotDroppedOnThumbbar(const QList<ImageInfo>& infos)
 
     // Loading images if new images are dropped
 
-    if(!toAdd.isEmpty())
+    if (!toAdd.isEmpty())
     {
         loadImageInfos(toAdd, toAdd.first(), QString());
     }
@@ -725,7 +697,7 @@ void ImageWindow::slotContextMenu()
         connect(assignTagsMenu, SIGNAL(signalPopupTagsView()),
                 d->rightSideBar, SLOT(slotPopupTagsView()));
 
-        if (!DatabaseAccess().db()->hasTags(idList))
+        if (!CoreDbAccess().db()->hasTags(idList))
         {
             m_contextMenu->menuAction()->setEnabled(false);
         }
@@ -734,13 +706,13 @@ void ImageWindow::slotContextMenu()
 
         // Assign Labels -------------------------------------------
 
-        KMenu* const menuLabels           = new KMenu(i18n("Assign Labels"), m_contextMenu);
+        QMenu* const menuLabels           = new QMenu(i18n("Assign Labels"), m_contextMenu);
         PickLabelMenuAction* const pmenu  = new PickLabelMenuAction(m_contextMenu);
         ColorLabelMenuAction* const cmenu = new ColorLabelMenuAction(m_contextMenu);
         RatingMenuAction* const rmenu     = new RatingMenuAction(m_contextMenu);
-        menuLabels->addAction(pmenu);
-        menuLabels->addAction(cmenu);
-        menuLabels->addAction(rmenu);
+        menuLabels->addAction(pmenu->menuAction());
+        menuLabels->addAction(cmenu->menuAction());
+        menuLabels->addAction(rmenu->menuAction());
         m_contextMenu->addMenu(menuLabels);
 
         connect(pmenu, SIGNAL(signalPickLabelChanged(int)),
@@ -773,7 +745,7 @@ void ImageWindow::slotChanged()
     QString str = (!dims.isValid()) ? i18n("Unknown") : i18n("%1x%2 (%3Mpx)",
                                                              dims.width(), dims.height(), mpixels);
 
-    m_resLabel->setText(str);
+    m_resLabel->setAdjustedText(str);
 
     if (!d->currentIsValid())
     {
@@ -801,7 +773,7 @@ void ImageWindow::slotChanged()
 */
 }
 
-void ImageWindow::slotToggleTag(const KUrl& url, int tagID)
+void ImageWindow::slotToggleTag(const QUrl& url, int tagID)
 {
     toggleTag(ImageInfo::fromUrl(url), tagID);
 }
@@ -883,17 +855,17 @@ void ImageWindow::assignRating(const ImageInfo& info, int rating)
     }
 }
 
-void ImageWindow::slotRatingChanged(const KUrl& url, int rating)
+void ImageWindow::slotRatingChanged(const QUrl& url, int rating)
 {
     assignRating(ImageInfo::fromUrl(url), rating);
 }
 
-void ImageWindow::slotColorLabelChanged(const KUrl& url, int color)
+void ImageWindow::slotColorLabelChanged(const QUrl& url, int color)
 {
     assignColorLabel(ImageInfo::fromUrl(url), color);
 }
 
-void ImageWindow::slotPickLabelChanged(const KUrl& url, int pick)
+void ImageWindow::slotPickLabelChanged(const QUrl& url, int pick)
 {
     assignPickLabel(ImageInfo::fromUrl(url), pick);
 }
@@ -905,6 +877,11 @@ void ImageWindow::slotUpdateItemInfo()
                          QString::number(d->currentIndex().row() + 1),
                          QString::number(d->imageFilterModel->rowCount()));
     m_nameLabel->setText(text);
+
+    if (!m_actionEnabledState)
+    {
+        return;
+    }
 
     if (d->imageInfoModel->rowCount() == 1)
     {
@@ -933,12 +910,12 @@ void ImageWindow::slotUpdateItemInfo()
         m_lastAction->setEnabled(false);
     }
 
-    /*
+/*
     // Disable some menu actions if the current root image URL
     // is not include in the digiKam Albums library database.
     // This is necessary when ImageEditor is opened from cameraclient.
 
-    KUrl u(d->currentUrl().directory());
+    QUrl u(d->currentUrl().directory());
     PAlbum* palbum = AlbumManager::instance()->findPAlbum(u);
 
     if (!palbum)
@@ -949,17 +926,17 @@ void ImageWindow::slotUpdateItemInfo()
     {
         m_fileDeleteAction->setEnabled(true);
     }
-    */
+*/
 }
 
-bool ImageWindow::setup()
+void ImageWindow::slotSetup()
 {
-    return Setup::exec(this);
+    Setup::execDialog(this);
 }
 
-bool ImageWindow::setupICC()
+void ImageWindow::slotSetupICC()
 {
-    return Setup::execSinglePage(this, Setup::ICCPage);
+    Setup::execSinglePage(this, Setup::ICCPage);
 }
 
 void ImageWindow::slotToMainWindow()
@@ -981,7 +958,7 @@ void ImageWindow::saveIsComplete()
     d->currentImageInfo.setOrientation(meta.getImageOrientation());
 
     // Pop-up a message to bring user when save is done.
-    DNotificationWrapper("editorsavefilecompleted", i18n("Image saved successfully"),
+    DNotificationWrapper(QLatin1String("editorsavefilecompleted"), i18n("Image saved successfully"),
                          this, windowTitle());
 
     resetOrigin();
@@ -999,13 +976,13 @@ void ImageWindow::saveIsComplete()
 
 void ImageWindow::saveVersionIsComplete()
 {
-    kDebug() << "save version done";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "save version done";
     saveAsIsComplete();
 }
 
 void ImageWindow::saveAsIsComplete()
 {
-    kDebug() << "Saved" << m_savingContext.srcURL << "to" << m_savingContext.destinationURL;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Saved" << m_savingContext.srcURL << "to" << m_savingContext.destinationURL;
 
     // Nothing to be done if operating without database
     if (d->currentImageInfo.isNull())
@@ -1021,7 +998,7 @@ void ImageWindow::saveAsIsComplete()
     }
 
     // copy the metadata of the original file to the new file
-    kDebug() << "was versioned"
+    qCDebug(DIGIKAM_GENERAL_LOG) << "was versioned"
              << (m_savingContext.executedOperation == SavingContext::SavingStateVersion)
              << "current" << d->currentImageInfo.id() << d->currentImageInfo.name()
              << "destinations" << m_savingContext.versionFileOperation.allFilePaths();
@@ -1079,7 +1056,7 @@ void ImageWindow::saveAsIsComplete()
     slotUpdateItemInfo();
 
     // Pop-up a message to bring user when save is done.
-    DNotificationWrapper("editorsavefilecompleted", i18n("Image saved successfully"),
+    DNotificationWrapper(QLatin1String("editorsavefilecompleted"), i18n("Image saved successfully"),
                          this, windowTitle());
 }
 
@@ -1091,7 +1068,7 @@ void ImageWindow::prepareImageToSave()
         MetadataHub hub;
         hub.load(d->currentImageInfo);
         DImg image(m_canvas->currentImage());
-        hub.write(image, MetadataHub::FullWrite);
+        hub.write(image, MetadataHub::WRITE_ALL);
 
         // Ensure there is a UUID for the source image in the database,
         // even if not in the source image's metadata
@@ -1149,7 +1126,7 @@ bool ImageWindow::saveNewVersionInFormat(const QString& format)
     return startingSaveNewVersionInFormat(d->currentUrl(), format);
 }
 
-KUrl ImageWindow::saveDestinationUrl()
+QUrl ImageWindow::saveDestinationUrl()
 {
     return d->currentUrl();
 }
@@ -1197,7 +1174,7 @@ void ImageWindow::deleteCurrentItem(bool ask, bool permanently)
 
         DeleteDialog dialog(this);
 
-        KUrl::List urlList;
+        QList<QUrl> urlList;
         urlList << d->currentUrl();
 
         if (!dialog.confirmDeleteList(urlList,
@@ -1244,16 +1221,15 @@ void ImageWindow::removeCurrent()
     {
         // No image in the current Album -> Quit ImageEditor...
 
-        KMessageBox::information(this,
+        QMessageBox::information(this, i18n("No Image in Current Album"),
                                  i18n("There is no image to show in the current album.\n"
-                                      "The image editor will be closed."),
-                                 i18n("No Image in Current Album"));
+                                      "The image editor will be closed."));
 
         close();
     }
 }
 
-void ImageWindow::slotFileMetadataChanged(const KUrl& url)
+void ImageWindow::slotFileMetadataChanged(const QUrl& url)
 {
     if (url == d->currentUrl())
     {
@@ -1262,7 +1238,7 @@ void ImageWindow::slotFileMetadataChanged(const KUrl& url)
 }
 
 /*
- * Should all be done by DCategorizedView
+ * Should all be done by ItemViewCategorized
  *
 void ImageWindow::slotRowsAboutToBeRemoved(const QModelIndex& parent, int start, int end)
 {
@@ -1368,6 +1344,19 @@ void ImageWindow::slotFilePrint()
     printImage(d->currentUrl());
 }
 
+void ImageWindow::presentation()
+{
+    PresentationMngr* const mngr = new PresentationMngr(this);
+
+    foreach(const ImageInfo& info, d->imageInfoModel->imageInfos())
+    {
+        mngr->addFile(info.fileUrl(), info.comment());
+        qApp->processEvents();
+    }
+
+    mngr->showConfigDialog();
+}
+
 void ImageWindow::slideShow(SlideShowSettings& settings)
 {
     m_cancelSlideShow   = false;
@@ -1377,7 +1366,7 @@ void ImageWindow::slideShow(SlideShowSettings& settings)
     {
         // We have started image editor from Album GUI. we get picture comments from database.
 
-        m_nameLabel->progressBarMode(StatusProgressBar::CancelProgressBarMode,
+        m_nameLabel->setProgressBarMode(StatusProgressBar::CancelProgressBarMode,
                                      i18n("Preparing slideshow. Please wait..."));
 
         float cnt = (float)d->imageInfoModel->rowCount();
@@ -1395,7 +1384,7 @@ void ImageWindow::slideShow(SlideShowSettings& settings)
             settings.fileList << info.fileUrl();
 
             m_nameLabel->setProgressValue((int)((i++ / cnt) * 100.0));
-            kapp->processEvents();
+            qApp->processEvents();
         }
     }
 
@@ -1404,14 +1393,14 @@ void ImageWindow::slideShow(SlideShowSettings& settings)
     {
         // We have started image editor from Camera GUI. we get picture comments from metadata.
 
-        m_nameLabel->progressBarMode(StatusProgressBar::CancelProgressBarMode,
+        m_nameLabel->setProgressBarMode(StatusProgressBar::CancelProgressBarMode,
                                      i18n("Preparing slideshow. Please wait..."));
 
         cnt = (float)d->urlList.count();
         DMetadata meta;
         settings.fileList   = d->urlList;
 
-        for (KUrl::List::Iterator it = d->urlList.begin() ;
+        for (QList<QUrl>::Iterator it = d->urlList.begin() ;
              !m_cancelSlideShow && (it != d->urlList.end()) ; ++it)
         {
             SlidePictureInfo pictInfo;
@@ -1421,12 +1410,12 @@ void ImageWindow::slideShow(SlideShowSettings& settings)
             settings.pictInfoMap.insert(*it, pictInfo);
 
             m_nameLabel->setProgressValue((int)((i++/cnt)*100.0));
-            kapp->processEvents();
+            qApp->processEvents();
         }
     }
 */
 
-    m_nameLabel->progressBarMode(StatusProgressBar::TextMode, QString());
+    m_nameLabel->setProgressBarMode(StatusProgressBar::TextMode, QString());
 
     if (!m_cancelSlideShow)
     {
@@ -1438,17 +1427,17 @@ void ImageWindow::slideShow(SlideShowSettings& settings)
             slide->setCurrentItem(d->currentUrl());
         }
 
-        connect(slide, SIGNAL(signalRatingChanged(KUrl,int)),
-                this, SLOT(slotRatingChanged(KUrl,int)));
+        connect(slide, SIGNAL(signalRatingChanged(QUrl,int)),
+                this, SLOT(slotRatingChanged(QUrl,int)));
 
-        connect(slide, SIGNAL(signalColorLabelChanged(KUrl,int)),
-                this, SLOT(slotColorLabelChanged(KUrl,int)));
+        connect(slide, SIGNAL(signalColorLabelChanged(QUrl,int)),
+                this, SLOT(slotColorLabelChanged(QUrl,int)));
 
-        connect(slide, SIGNAL(signalPickLabelChanged(KUrl,int)),
-                this, SLOT(slotPickLabelChanged(KUrl,int)));
+        connect(slide, SIGNAL(signalPickLabelChanged(QUrl,int)),
+                this, SLOT(slotPickLabelChanged(QUrl,int)));
 
-        connect(slide, SIGNAL(signalToggleTag(KUrl,int)),
-                this, SLOT(slotToggleTag(KUrl,int)));
+        connect(slide, SIGNAL(signalToggleTag(QUrl,int)),
+                this, SLOT(slotToggleTag(QUrl,int)));
 
         slide->show();
     }
@@ -1456,11 +1445,11 @@ void ImageWindow::slideShow(SlideShowSettings& settings)
 
 void ImageWindow::dragMoveEvent(QDragMoveEvent* e)
 {
-    int        albumID;
-    QList<int> albumIDs;
+    int              albumID;
+    QList<int>       albumIDs;
     QList<qlonglong> imageIDs;
-    KUrl::List urls;
-    KUrl::List kioURLs;
+    QList<QUrl>      urls;
+    QList<QUrl>      kioURLs;
 
     if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs) ||
         DAlbumDrag::decode(e->mimeData(), urls, albumID)                    ||
@@ -1475,11 +1464,11 @@ void ImageWindow::dragMoveEvent(QDragMoveEvent* e)
 
 void ImageWindow::dropEvent(QDropEvent* e)
 {
-    int        albumID;
-    QList<int> albumIDs;
+    int              albumID;
+    QList<int>       albumIDs;
     QList<qlonglong> imageIDs;
-    KUrl::List urls;
-    KUrl::List kioURLs;
+    QList<QUrl>      urls;
+    QList<QUrl>      kioURLs;
 
     if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs))
     {
@@ -1507,7 +1496,7 @@ void ImageWindow::dropEvent(QDropEvent* e)
     else if (DAlbumDrag::decode(e->mimeData(), urls, albumID))
     {
         AlbumManager* const man  = AlbumManager::instance();
-        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInAlbum(albumID);
+        QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInAlbum(albumID);
         ImageInfoList imageInfoList(itemIDs);
 
         if (imageInfoList.isEmpty())
@@ -1538,7 +1527,7 @@ void ImageWindow::dropEvent(QDropEvent* e)
         }
 
         AlbumManager* const man  = AlbumManager::instance();
-        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagIDs.first(), true);
+        QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInTag(tagIDs.first(), true);
         ImageInfoList imageInfoList(itemIDs);
 
         if (imageInfoList.isEmpty())
@@ -1599,12 +1588,9 @@ void ImageWindow::slotOpenOriginal()
     if (originals.isEmpty())
     {
         //TODO: point to remote collection
-        KMessageBox::sorry(this,
-                           i18nc("@info",
-                                 "The original file (<filename>%1</filename>) is currently not available",
-                                 originalId.m_fileName),
-                           i18nc("@title",
-                                 "File Not Available"));
+        QMessageBox::warning(this, i18nc("@title", "File Not Available"),
+                             i18nc("@info", "<qt>The original file (<b>%1</b>) is currently not available</qt>",
+                                   originalId.m_fileName));
         return;
     }
 
@@ -1612,9 +1598,9 @@ void ImageWindow::slotOpenOriginal()
 
     foreach(const HistoryImageId& id, originals)
     {
-        KUrl url;
-        url.addPath(id.m_filePath);
-        url.addPath(id.m_fileName);
+        QUrl url = QUrl::fromLocalFile(id.m_filePath);
+        url = url.adjusted(QUrl::StripTrailingSlash);
+        url.setPath(url.path() + QLatin1Char('/') + (id.m_fileName));
         imageInfos << ImageInfo::fromUrl(url);
     }
 
@@ -1662,7 +1648,7 @@ void ImageWindow::slotAddedDropedItems(QDropEvent* e)
     int              albumID;
     QList<int>       albumIDs;
     QList<qlonglong> imageIDs;
-    KUrl::List       urls, kioURLs;
+    QList<QUrl>      urls, kioURLs;
     ImageInfoList    imgList;
 
     if (DItemDrag::decode(e->mimeData(), urls, kioURLs, albumIDs, imageIDs))
@@ -1671,7 +1657,7 @@ void ImageWindow::slotAddedDropedItems(QDropEvent* e)
     }
     else if (DAlbumDrag::decode(e->mimeData(), urls, albumID))
     {
-        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInAlbum(albumID);
+        QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInAlbum(albumID);
 
         imgList = ImageInfoList(itemIDs);
     }
@@ -1684,7 +1670,7 @@ void ImageWindow::slotAddedDropedItems(QDropEvent* e)
             return;
         }
 
-        QList<qlonglong> itemIDs = DatabaseAccess().db()->getItemIDsInTag(tagIDs.first(), true);
+        QList<qlonglong> itemIDs = CoreDbAccess().db()->getItemIDsInTag(tagIDs.first(), true);
         imgList = ImageInfoList(itemIDs);
     }
 
@@ -1698,7 +1684,7 @@ void ImageWindow::slotAddedDropedItems(QDropEvent* e)
 
 void ImageWindow::slotFileWithDefaultApplication()
 {
-    FileOperation::openFilesWithDefaultApplication(KUrl::List() << d->currentUrl(), this);
+    FileOperation::openFilesWithDefaultApplication(QList<QUrl>() << d->currentUrl());
 }
 
 void ImageWindow::addServicesMenu()
@@ -1728,6 +1714,58 @@ void ImageWindow::slotRightSideBarActivateAssignedTags()
 {
     d->rightSideBar->setActiveTab(d->rightSideBar->imageDescEditTab());
     d->rightSideBar->imageDescEditTab()->activateAssignedTagsButton();
+}
+
+void ImageWindow::slotImportFromScanner()
+{
+#ifdef HAVE_KSANE
+    m_ksaneAction->activate(DigikamApp::instance()->scannerTargetPlace(), configGroupName());
+
+    connect(m_ksaneAction, SIGNAL(signalImportedImage(QUrl)),
+            this, SLOT(slotImportedImagefromScanner(QUrl)));
+#endif
+}
+
+void ImageWindow::slotImportedImagefromScanner(const QUrl& url)
+{
+    ImageInfo info = ScanController::instance()->scannedInfo(url.toLocalFile());
+    openImage(info);
+}
+
+void ImageWindow::slotEditGeolocation()
+{
+#ifdef HAVE_MARBLE
+    ImageInfo inf = d->currentImageInfo;
+
+    if ( inf.isNull() )
+        return;
+
+    QPointer<GeolocationEdit> dialog = new GeolocationEdit(new TagModel(AbstractAlbumModel::IgnoreRootAlbum, 0), QApplication::activeWindow());
+    dialog->setItems(ImageGPS::infosToItems(ImageInfoList() << inf));
+    dialog->exec();
+
+    delete dialog;
+
+    // Refresh Database with new metadata from files.
+    ScanController::instance()->scannedInfo(inf.fileUrl().toLocalFile());
+#endif
+}
+
+void ImageWindow::slotEditMetadata()
+{
+    if ( d->currentImageInfo.isNull() )
+        return;
+
+    QUrl url = d->currentImageInfo.fileUrl();
+
+    QPointer<MetadataEditDialog> dialog = new MetadataEditDialog(QApplication::activeWindow(),
+                                                                 QList<QUrl>() << url);
+    dialog->exec();
+
+    delete dialog;
+
+    // Refresh Database with new metadata from file.
+    ScanController::instance()->scannedInfo(url.toLocalFile());
 }
 
 }  // namespace Digikam

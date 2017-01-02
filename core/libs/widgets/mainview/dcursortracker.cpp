@@ -7,7 +7,7 @@
  * Description : A tool tip widget which follows cursor movements.
  *               Tool tip content is displayed without delay.
  *
- * Copyright (C) 2007-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "dcursortracker.moc"
+#include "dcursortracker.h"
 
 // Qt includes
 
@@ -37,10 +37,6 @@
 #include <QPointer>
 #include <QTimer>
 #include <QToolTip>
-
-// KDE includes
-
-#include <kapplication.h>
 
 namespace Digikam
 {
@@ -66,14 +62,15 @@ public:
 };
 
 DCursorTracker::DCursorTracker(const QString& txt, QWidget* const parent, Qt::Alignment align)
-    : QLabel(txt, parent, Qt::ToolTip | Qt::BypassGraphicsProxyWidget), 
+    : QLabel(txt, parent, Qt::ToolTip | Qt::BypassGraphicsProxyWidget),
       d(new Private)
 {
     setForegroundRole(QPalette::ToolTipText);
     setBackgroundRole(QPalette::ToolTipBase);
     setPalette(QToolTip::palette());
     ensurePolished();
-    setMargin(1 + style()->pixelMetric(QStyle::PM_ToolTipLabelFrameWidth, 0, this));
+    const int fwidth = 1 + style()->pixelMetric(QStyle::PM_ToolTipLabelFrameWidth, 0, this);
+    setContentsMargins(fwidth, fwidth, fwidth, fwidth);
     setFrameStyle(QFrame::NoFrame);
     setAlignment(Qt::AlignLeft | Qt::AlignTop);
     setIndent(1);

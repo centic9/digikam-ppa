@@ -6,7 +6,7 @@
  * Date        : 2006-21-12
  * Description : a embedded view to show the image preview widget.
  *
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2010-2011 by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  *
@@ -23,39 +23,29 @@
  *
  * ============================================================ */
 
-#include "imagepreviewview.moc"
+#include "imagepreviewview.h"
 
 // Qt includes
 
-#include <QCursor>
+#include <QApplication>
 #include <QGraphicsSceneContextMenuEvent>
 #include <QMouseEvent>
 #include <QToolBar>
 #include <QDragMoveEvent>
 #include <QDropEvent>
 #include <QDragEnterEvent>
+#include <QMenu>
+#include <QAction>
+#include <QIcon>
 
 // KDE includes
 
-#include <kaction.h>
-#include <kactionmenu.h>
-#include <kapplication.h>
-#include <kcursor.h>
-#include <kdialog.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kmenu.h>
-#include <kdebug.h>
-#include <kmimetype.h>
-#include <kmimetypetrader.h>
-#include <ktoggleaction.h>
-#include <kstandarddirs.h>
-#include <kglobalsettings.h>
-
+#include <klocalizedstring.h>
 
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_debug.h"
+#include "digikam_config.h"
 #include "imagepreviewviewitem.h"
 #include "applicationsettings.h"
 #include "contextmenuhelper.h"
@@ -74,10 +64,7 @@
 #include "tagscache.h"
 #include "imagetagpair.h"
 #include "albummanager.h"
-
-#ifdef HAVE_KFACE
 #include "facegroup.h"
-#endif /* HAVE_KFACE */
 
 namespace Digikam
 {
@@ -99,13 +86,10 @@ public:
         rotLeftAction       = 0;
         rotRightAction      = 0;
         mode                = ImagePreviewView::IconViewPreview;
-#ifdef HAVE_KFACE
         faceGroup           = 0;
         peopleToggleAction  = 0;
         addPersonAction     = 0;
         forgetFacesAction   = 0;
-#endif /* HAVE_KFACE */
-
         fullscreenAction    = 0;
     }
 
@@ -125,29 +109,25 @@ public:
 
     QToolBar*              toolBar;
 
-#ifdef HAVE_KFACE
     FaceGroup*             faceGroup;
-    KToggleAction*         peopleToggleAction;
+    QAction*               peopleToggleAction;
     QAction*               addPersonAction;
     QAction*               forgetFacesAction;
-#endif /* HAVE_KFACE */
 
     QAction*               fullscreenAction;
 };
 
 ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
-    : GraphicsDImgView(parent), d(new Private)
+    : GraphicsDImgView(parent),
+      d(new Private)
 {
     d->mode      = mode;
     d->item      = new ImagePreviewViewItem();
     setItem(d->item);
 
-#ifdef HAVE_KFACE
     d->faceGroup = new FaceGroup(this);
     d->faceGroup->setShowOnHover(true);
-
     d->item->setFaceGroup(d->faceGroup);
-#endif /* HAVE_KFACE */
 
     connect(d->item, SIGNAL(loaded()),
             this, SLOT(imageLoaded()));
@@ -172,20 +152,17 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
 
     // ------------------------------------------------------------
 
-    d->prevAction          = new QAction(SmallIcon("go-previous"),         i18nc("go to previous image", "Back"),  this);
-    d->nextAction          = new QAction(SmallIcon("go-next"),             i18nc("go to next image", "Forward"),   this);
-    d->rotLeftAction       = new QAction(SmallIcon("object-rotate-left"),  i18nc("@info:tooltip", "Rotate Left"),  this);
-    d->rotRightAction      = new QAction(SmallIcon("object-rotate-right"), i18nc("@info:tooltip", "Rotate Right"), this);
+    d->prevAction          = new QAction(QIcon::fromTheme(QLatin1String("go-previous")),         i18nc("go to previous image", "Back"),  this);
+    d->nextAction          = new QAction(QIcon::fromTheme(QLatin1String("go-next")),             i18nc("go to next image", "Forward"),   this);
+    d->rotLeftAction       = new QAction(QIcon::fromTheme(QLatin1String("object-rotate-left")),  i18nc("@info:tooltip", "Rotate Left"),  this);
+    d->rotRightAction      = new QAction(QIcon::fromTheme(QLatin1String("object-rotate-right")), i18nc("@info:tooltip", "Rotate Right"), this);
 
-#ifdef HAVE_KFACE
-    d->addPersonAction     = new QAction(SmallIcon("list-add-user"),       i18n("Add a Face Tag"),                 this);
-    d->forgetFacesAction   = new QAction(SmallIcon("list-remove-user"),    i18n("Clear all faces on this image"),  this);
-    d->peopleToggleAction  = new KToggleAction(i18n("Show Face Tags"),                                             this);
-    d->peopleToggleAction->setIcon(SmallIcon("user-identity"));
-#endif /* HAVE_KFACE */
+    d->addPersonAction     = new QAction(QIcon::fromTheme(QLatin1String("list-add-user")),       i18n("Add a Face Tag"),                 this);
+    d->forgetFacesAction   = new QAction(QIcon::fromTheme(QLatin1String("list-remove-user")),    i18n("Clear all faces on this image"),  this);
+    d->peopleToggleAction  = new QAction(QIcon::fromTheme(QLatin1String("im-user")),             i18n("Show Face Tags"),                 this);
+    d->peopleToggleAction->setCheckable(true);
 
-    d->fullscreenAction    = new QAction(SmallIcon("media-playback-start"), i18n("Show Fullscreen"), this);
-
+    d->fullscreenAction    = new QAction(QIcon::fromTheme(QLatin1String("media-playback-start")), i18n("Show Fullscreen"), this);
     d->toolBar             = new QToolBar(this);
 
     if (mode == IconViewPreview)
@@ -197,11 +174,8 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     d->toolBar->addAction(d->rotLeftAction);
     d->toolBar->addAction(d->rotRightAction);
 
-#ifdef HAVE_KFACE
     d->toolBar->addAction(d->peopleToggleAction);
     d->toolBar->addAction(d->addPersonAction);
-#endif /* HAVE_KFACE */
-
     d->toolBar->addAction(d->fullscreenAction);
 
     connect(d->prevAction, SIGNAL(triggered()),
@@ -216,7 +190,6 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
     connect(d->rotRightAction, SIGNAL(triggered()),
             this, SLOT(slotRotateRight()));
 
-#ifdef HAVE_KFACE
     connect(d->peopleToggleAction, SIGNAL(toggled(bool)),
             d->faceGroup, SLOT(setVisible(bool)));
 
@@ -225,7 +198,6 @@ ImagePreviewView::ImagePreviewView(QWidget* const parent, Mode mode)
 
     connect(d->forgetFacesAction, SIGNAL(triggered()),
             d->faceGroup, SLOT(rejectAll()));
-#endif /* HAVE_KFACE */
 
     connect(d->fullscreenAction, SIGNAL(triggered()),
             this, SIGNAL(signalSlideShowCurrent()));
@@ -266,10 +238,7 @@ void ImagePreviewView::imageLoaded()
     emit signalPreviewLoaded(true);
     d->rotLeftAction->setEnabled(true);
     d->rotRightAction->setEnabled(true);
-
-#ifdef HAVE_KFACE
     d->faceGroup->setInfo(d->item->imageInfo());
-#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::imageLoadingFailed()
@@ -277,18 +246,12 @@ void ImagePreviewView::imageLoadingFailed()
     emit signalPreviewLoaded(false);
     d->rotLeftAction->setEnabled(false);
     d->rotRightAction->setEnabled(false);
-
-#ifdef HAVE_KFACE
     d->faceGroup->setInfo(ImageInfo());
-#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::setImageInfo(const ImageInfo& info, const ImageInfo& previous, const ImageInfo& next)
 {
-#ifdef HAVE_KFACE
     d->faceGroup->aboutToSetInfo(info);
-#endif /* HAVE_KFACE */
-
     d->item->setImageInfo(info);
 
     d->prevAction->setEnabled(!previous.isNull());
@@ -321,37 +284,23 @@ bool ImagePreviewView::acceptsMouseClick(QMouseEvent* e)
         return false;
     }
 
-#ifdef HAVE_KFACE
     return d->faceGroup->acceptsMouseClick(mapToScene(e->pos()));
-#else
-    return false;
-#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::enterEvent(QEvent* e)
 {
-#ifdef HAVE_KFACE
     d->faceGroup->enterEvent(e);
-#else
-    Q_UNUSED(e);
-#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::leaveEvent(QEvent* e)
 {
-#ifdef HAVE_KFACE
     d->faceGroup->leaveEvent(e);
-#else
-    Q_UNUSED(e);
-#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::showEvent(QShowEvent* e)
 {
     GraphicsDImgView::showEvent(e);
-#ifdef HAVE_KFACE
     d->faceGroup->setVisible(d->peopleToggleAction->isChecked());
-#endif /* HAVE_KFACE */
 }
 
 void ImagePreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event)
@@ -367,16 +316,16 @@ void ImagePreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event
 
     QList<qlonglong> idList;
     idList << info.id();
-    KUrl::List selectedItems;
+    QList<QUrl> selectedItems;
     selectedItems << info.fileUrl();
 
     // --------------------------------------------------------
 
-    KMenu popmenu(this);
+    QMenu popmenu(this);
     ContextMenuHelper cmhelper(&popmenu);
 
-    cmhelper.addAction("full_screen");
-    cmhelper.addAction("options_show_menubar");
+    cmhelper.addAction(QLatin1String("full_screen"));
+    cmhelper.addAction(QLatin1String("options_show_menubar"));
     cmhelper.addSeparator();
 
     // --------------------------------------------------------
@@ -391,23 +340,21 @@ void ImagePreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event
 
     // --------------------------------------------------------
 
-#ifdef HAVE_KFACE
     cmhelper.addAction(d->peopleToggleAction, true);
     cmhelper.addAction(d->addPersonAction,    true);
     cmhelper.addAction(d->forgetFacesAction,  true);
     cmhelper.addSeparator();
-#endif /* HAVE_KFACE */
 
     // --------------------------------------------------------
 
-    cmhelper.addAction("image_edit");
+    cmhelper.addAction(QLatin1String("image_edit"));
     cmhelper.addServicesMenu(selectedItems);
-    cmhelper.addAction("image_rotate");
+    cmhelper.addAction(QLatin1String("image_rotate"));
     cmhelper.addSeparator();
 
     // --------------------------------------------------------
 
-    cmhelper.addAction("image_find_similar");
+    cmhelper.addAction(QLatin1String("image_find_similar"));
 
     if (d->mode == IconViewPreview)
     {
@@ -495,7 +442,7 @@ void ImagePreviewView::slotAssignRating(int rating)
 void ImagePreviewView::slotThemeChanged()
 {
     QPalette plt(palette());
-    plt.setColor(backgroundRole(), kapp->palette().color(QPalette::Base));
+    plt.setColor(backgroundRole(), qApp->palette().color(QPalette::Base));
     setPalette(plt);
 }
 
@@ -521,14 +468,12 @@ void ImagePreviewView::slotRotateLeft()
      */
     d->item->setAcceptHoverEvents(false);
 
-#ifdef HAVE_KFACE
     /**
      * aboutToSetInfo will delete all face tags from FaceGroup storage
      */
     d->faceGroup->aboutToSetInfo(ImageInfo());
-#endif /* HAVE_KFACE */
 
-    FileActionMngr::instance()->transform(QList<ImageInfo>() << d->item->imageInfo(), KExiv2Iface::RotationMatrix::Rotate270);
+    FileActionMngr::instance()->transform(QList<ImageInfo>() << d->item->imageInfo(), MetaEngineRotation::Rotate270);
 }
 
 void ImagePreviewView::slotRotateRight()
@@ -543,14 +488,12 @@ void ImagePreviewView::slotRotateRight()
      */
     d->item->setAcceptHoverEvents(false);
 
-#ifdef HAVE_KFACE
     /**
      * aboutToSetInfo will delete all face tags from FaceGroup storage
      */
     d->faceGroup->aboutToSetInfo(ImageInfo());
-#endif /* HAVE_KFACE */
 
-    FileActionMngr::instance()->transform(QList<ImageInfo>() << d->item->imageInfo(), KExiv2Iface::RotationMatrix::Rotate90);
+    FileActionMngr::instance()->transform(QList<ImageInfo>() << d->item->imageInfo(), MetaEngineRotation::Rotate90);
 }
 
 void ImagePreviewView::slotDeleteItem()
@@ -560,10 +503,7 @@ void ImagePreviewView::slotDeleteItem()
 
 void Digikam::ImagePreviewView::slotUpdateFaces()
 {
-#ifdef HAVE_KFACE
     d->faceGroup->aboutToSetInfo(ImageInfo());
-#endif /* HAVE_KFACE */
-
     d->item->setAcceptHoverEvents(true);
 
     /**
@@ -605,10 +545,10 @@ void ImagePreviewView::dropEvent(QDropEvent* e)
             return;
         }
 
-        KMenu popMenu(this);
-        QAction* const assignToThisAction = popMenu.addAction(SmallIcon("tag"), i18n("Assign Tags to &This Item"));
+        QMenu popMenu(this);
+        QAction* const assignToThisAction = popMenu.addAction(QIcon::fromTheme(QLatin1String("tag")), i18n("Assign Tags to &This Item"));
         popMenu.addSeparator();
-        popMenu.addAction(SmallIcon("dialog-cancel"), i18n("&Cancel"));
+        popMenu.addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("&Cancel"));
         popMenu.setMouseTracking(true);
         QAction* const choice             = popMenu.exec(this->mapToGlobal(e->pos()));
 
@@ -624,12 +564,11 @@ void ImagePreviewView::dropEvent(QDropEvent* e)
 
 void ImagePreviewView::mousePressEvent(QMouseEvent* e)
 {
-#ifdef HAVE_KFACE
     if (e->button() == Qt::LeftButton && QApplication::keyboardModifiers() == Qt::ControlModifier)
     {
         d->faceGroup->addFace();
     }
-#endif /* HAVE_KFACE */
+
     GraphicsDImgView::mousePressEvent(e);
 }
 

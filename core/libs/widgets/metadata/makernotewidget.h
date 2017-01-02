@@ -7,7 +7,7 @@
  * Description : a widget to display non standard Exif metadata
  *               used by camera makers
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -39,10 +39,10 @@ class DIGIKAM_EXPORT MakerNoteWidget : public MetadataWidget
 
 public:
 
-    explicit MakerNoteWidget(QWidget* const parent, const char* name=0);
+    explicit MakerNoteWidget(QWidget* const parent, const QString& name=QString());
     ~MakerNoteWidget();
 
-    bool loadFromURL(const KUrl& url);
+    bool loadFromURL(const QUrl& url);
 
     QString getTagDescription(const QString& key);
     QString getTagTitle(const QString& key);

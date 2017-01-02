@@ -1,0 +1,832 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Alexander Potashev <aspotashev@gmail.com>, 2014, 2015.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"PO-Revision-Date: 2015-04-02 20:13+0300\n"
+"Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#: authorize.cpp:116
+msgid "Google Drive Authorization"
+msgstr "Вход на Диск Google"
+
+#: authorize.cpp:129
+msgid ""
+"Please follow the instructions in the browser. After logging in and "
+"authorizing the application, copy the code from the browser, paste it in the "
+"textbox below, and click OK."
+msgstr ""
+"Следуйте инструкциям в браузере. После входа и разрешения приложению "
+"получать доступ к вашим данным скопируйте полученный код в поле ниже и "
+"нажмите «ОК»."
+
+#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+msgid "Error"
+msgstr ""
+
+#: gdtalker.cpp:336
+msgid "Failed to list folders"
+msgstr "Не удалось получить список папок"
+
+#: gdtalker.cpp:384
+msgid "Failed to create folder"
+msgstr "Не удалось создать папку"
+
+#: gdtalker.cpp:415 gptalker.cpp:929
+msgid "Failed to upload photo"
+msgstr "Не удалось загрузить фотографию на сервер"
+
+#: gptalker.cpp:561
+msgid "No photo specified"
+msgstr "Фотографии не выбраны"
+
+#: gptalker.cpp:564
+msgid "General upload failure"
+msgstr "Общая ошибка загрузки"
+
+#: gptalker.cpp:567
+msgid "File-size was zero"
+msgstr "Нулевой размер файла"
+
+#: gptalker.cpp:570
+msgid "File-type was not recognized"
+msgstr "Не удалось определить тип файла"
+
+#: gptalker.cpp:573
+msgid "User exceeded upload limit"
+msgstr "Достигнут пользовательский лимит загрузки"
+
+#: gptalker.cpp:576
+msgid "Invalid signature"
+msgstr "Неправильная подпись"
+
+#: gptalker.cpp:579
+msgid "Missing signature"
+msgstr "Подпись отсутствует"
+
+#: gptalker.cpp:582
+msgid "Login failed / Invalid auth token"
+msgstr "Не удалось войти/ Недействительный ключ аутентификации"
+
+#: gptalker.cpp:585
+msgid "Invalid API Key"
+msgstr "Недействительный ключ API"
+
+#: gptalker.cpp:588
+msgid "Service currently unavailable"
+msgstr "В данный момент служба недоступна."
+
+#: gptalker.cpp:591
+msgid "Invalid Frob"
+msgstr "Недействительный Frob"
+
+#: gptalker.cpp:594
+msgid "Format \"xxx\" not found"
+msgstr "Формат «ххх» не найден"
+
+#: gptalker.cpp:597
+msgid "Method \"xxx\" not found"
+msgstr "Метод «ххх» не найден"
+
+#: gptalker.cpp:600
+msgid "Invalid SOAP envelope"
+msgstr "Недопустимый SOAP-конверт"
+
+#: gptalker.cpp:603
+msgid "Invalid XML-RPC Method Call"
+msgstr "Недействительный вызов метода XML-RPC"
+
+#: gptalker.cpp:606
+msgid "The POST method is now required for all setters."
+msgstr "Метод POST теперь следует использовать для всех механизмов."
+
+#: gptalker.cpp:609
+msgid "Unknown error"
+msgstr "Неизвестная ошибка"
+
+#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
+#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+msgctxt "@title:window"
+msgid "Error"
+msgstr ""
+
+#: gptalker.cpp:613
+#, kde-format
+msgid ""
+"Error occurred: %1\n"
+"Unable to proceed further."
+msgstr ""
+"Произошла ошибка: %1\n"
+"Продолжение работы невозможно."
+
+#: gptalker.cpp:683 gptalker.cpp:750
+#, fuzzy
+#| msgid "Failed to upload photo"
+msgid "Failed to fetch photo-set list"
+msgstr "Не удалось загрузить фотографию на сервер"
+
+#: gptalker.cpp:886 gptalker.cpp:919
+#, fuzzy
+#| msgid "Failed to create folder"
+msgid "Failed to create album"
+msgstr "Не удалось создать папку"
+
+#: gswidget.cpp:60
+msgid "Tag path behavior :"
+msgstr ""
+
+#: gswidget.cpp:62
+msgid "Leaf tags only"
+msgstr "Только теги листа"
+
+#: gswidget.cpp:63
+msgid "Export only the leaf tags of tag hierarchies"
+msgstr "Экспорт только тегов листа из тегов иерархии"
+
+#: gswidget.cpp:64
+msgid "Split tags"
+msgstr "Разделить теги"
+
+#: gswidget.cpp:65
+msgid "Export the leaf tag and all ancestors as single tags."
+msgstr "Экспорт тегов листа и всех тегов верхних уровней как отдельных тегов."
+
+#: gswidget.cpp:66
+msgid "Combined String"
+msgstr "Комбинированная строка"
+
+#: gswidget.cpp:67
+msgid "Build a combined tag string."
+msgstr "Создание комбинированного тега."
+
+#: gswindow.cpp:116
+msgid "Google Drive Export"
+msgstr "Экспорт на Диск Google"
+
+#: gswindow.cpp:117
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Google Drive"
+msgid "A tool to export images to Google Drive"
+msgstr "Расширение KIPI для экспорта изображений на Диск Google"
+
+#: gswindow.cpp:119
+#, fuzzy
+#| msgid "(c) 2013, Saurabh Patel"
+msgid ""
+"(c) 2013, Saurabh Patel\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr "© Saurabh Patel, 2013"
+
+#: gswindow.cpp:122
+msgid "Saurabh Patel"
+msgstr "Saurabh Patel"
+
+#: gswindow.cpp:122 gswindow.cpp:195
+msgid "Author and maintainer"
+msgstr "Автор и сопровождающий"
+
+#: gswindow.cpp:125 gswindow.cpp:207
+msgid "Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
+#: gswindow.cpp:207
+msgid "Developer"
+msgstr "Разработчик"
+
+#: gswindow.cpp:132
+msgid "Export to Google Drive"
+msgstr "Экспорт на Диск Google"
+
+#: gswindow.cpp:134 gswindow.cpp:219
+msgid "Start Upload"
+msgstr "Начать загрузку"
+
+#: gswindow.cpp:135
+msgid "Start upload to Google Drive"
+msgstr "Начать загрузку на Диск Google"
+
+#: gswindow.cpp:186
+#, fuzzy
+#| msgid "Google Drive Export"
+msgid "Google Photos/PicasaWeb Export"
+msgstr "Экспорт на Диск Google"
+
+#: gswindow.cpp:187
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Google Drive"
+msgid "A tool to export image collections to Google Photos/Picasa web service."
+msgstr "Расширение KIPI для экспорта изображений на Диск Google"
+
+#: gswindow.cpp:189
+msgid ""
+"(c) 2007-2009, Vardhman Jain\n"
+"(c) 2008-2016, Gilles Caulier\n"
+"(c) 2009, Luka Renko\n"
+"(c) 2010, Jens Mueller\n"
+"(c) 2015, Shourya Singh Gupta"
+msgstr ""
+
+#: gswindow.cpp:195
+msgid "Vardhman Jain"
+msgstr "Vardhman Jain"
+
+#: gswindow.cpp:198
+msgid "Gilles Caulier"
+msgstr "Gilles Caulier"
+
+#: gswindow.cpp:201
+msgid "Luka Renko"
+msgstr "Luka Renko"
+
+#: gswindow.cpp:204
+msgid "Jens Mueller"
+msgstr "Jens Mueller"
+
+#: gswindow.cpp:217
+#, fuzzy
+#| msgid "Export to Google Drive"
+msgid "Export to Google Photos/PicasaWeb Service"
+msgstr "Экспорт на Диск Google"
+
+#: gswindow.cpp:220
+#, fuzzy
+#| msgid "Start upload to Google Drive"
+msgid "Start upload to Google Photos/PicasaWeb Service"
+msgstr "Начать загрузку на Диск Google"
+
+#: gswindow.cpp:226
+#, fuzzy
+#| msgid "Export to Google Drive"
+msgid "Import from Google Photos/PicasaWeb Service"
+msgstr "Экспорт на Диск Google"
+
+#: gswindow.cpp:228
+#, fuzzy
+#| msgid "Start Upload"
+msgid "Start Download"
+msgstr "Начать загрузку"
+
+#: gswindow.cpp:229
+#, fuzzy
+#| msgid "Start upload to Google Drive"
+msgid "Start download from Google Photos/PicasaWeb service"
+msgstr "Начать загрузку на Диск Google"
+
+#: gswindow.cpp:428 gswindow.cpp:467 gswindow.cpp:577
+#, fuzzy, kde-format
+#| msgid ""
+#| "Google Drive call failed:\n"
+#| "%1"
+msgid "Google Photos/PicasaWeb Call Failed: %1\n"
+msgstr ""
+"Не удалось выполнить вызов Диска Google:\n"
+"%1"
+
+#: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+msgid "%v / %m"
+msgstr "%v из %m"
+
+#: gswindow.cpp:531
+#, fuzzy
+#| msgid "Google Drive Export"
+msgid "Google Photo Export"
+msgstr "Экспорт на Диск Google"
+
+#: gswindow.cpp:549
+#, fuzzy, kde-format
+#| msgid ""
+#| "Google Drive call failed:\n"
+#| "%1"
+msgid "Google Drive Call Failed: %1\n"
+msgstr ""
+"Не удалось выполнить вызов Диска Google:\n"
+"%1"
+
+#: gswindow.cpp:653
+#, fuzzy
+msgid ""
+"The textbox is empty, please enter the code from the browser in the textbox. "
+"To complete the authentication click \"Change Account\", or \"Start Upload\" "
+"to authenticate again."
+msgstr ""
+"Текстовое поле пусто, в него нужно ввести код, полученный из веб-браузера. "
+"Чтобы заново попытаться выполнить вход, нажмите «»"
+
+#: gswindow.cpp:669
+msgid "No image selected. Please select which images should be uploaded."
+msgstr ""
+"Не выбрано ни одного изображения. Выберите изображения, которые нужно "
+"загрузить."
+
+#: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
+#: gswindow.cpp:1105
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:684 gswindow.cpp:707
+msgid "Authentication failed. Click \"Continue\" to authenticate."
+msgstr "Не удалось войти. Нажмите «Продолжить» для входа."
+
+#: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
+#: gswindow.cpp:1109 gswindow.cpp:1286
+msgid "Continue"
+msgstr ""
+
+#: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
+#: gswindow.cpp:1110 gswindow.cpp:1287
+msgid "Cancel"
+msgstr ""
+
+#: gswindow.cpp:762
+msgid "Google Drive export"
+msgstr "Экспорт на Диск Google"
+
+#: gswindow.cpp:1015
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo to Google Drive.\n"
+#| "%1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to save photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Не удалось загрузить фотографию на Диск Google.\n"
+"%1\n"
+"Продолжить?"
+
+#: gswindow.cpp:1033
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo to Google Drive.\n"
+#| "%1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to download photo: %1\n"
+"Do you want to continue?"
+msgstr ""
+"Не удалось загрузить фотографию на Диск Google.\n"
+"%1\n"
+"Продолжить?"
+
+#: gswindow.cpp:1079
+#, fuzzy, kde-format
+#| msgid "Failed to create folder"
+msgid "Failed to save image to %1"
+msgstr "Не удалось создать папку"
+
+#: gswindow.cpp:1106
+#, fuzzy, kde-format
+#| msgid ""
+#| "Failed to upload photo to Google Drive.\n"
+#| "%1\n"
+#| "Do you want to continue?"
+msgid ""
+"Failed to upload photo to %1.\n"
+"%2\n"
+"Do you want to continue?"
+msgstr ""
+"Не удалось загрузить фотографию на Диск Google.\n"
+"%1\n"
+"Продолжить?"
+
+#: gswindow.cpp:1198
+#, kde-format
+msgctxt "%1 is the error string, %2 is the error code"
+msgid "An authentication error occurred: %1 (%2)"
+msgstr "Произошла ошибка аутентификации: %1 (%2)"
+
+#: gswindow.cpp:1240
+#, kde-format
+msgid ""
+"Google Drive call failed:\n"
+"%1"
+msgstr ""
+"Не удалось выполнить вызов Диска Google:\n"
+"%1"
+
+#: gswindow.cpp:1248
+#, fuzzy, kde-format
+#| msgid ""
+#| "Google Drive call failed:\n"
+#| "%1"
+msgid ""
+"Google Photos/PicasaWeb call failed:\n"
+"%1"
+msgstr ""
+"Не удалось выполнить вызов Диска Google:\n"
+"%1"
+
+#: gswindow.cpp:1281
+msgctxt "@title:window"
+msgid "Warning"
+msgstr ""
+
+#: gswindow.cpp:1282
+msgid ""
+"After you have been logged out in the browser, click \"Continue\" to "
+"authenticate for another account"
+msgstr ""
+
+#. i18n: ectx: Menu (Export)
+#: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+msgid "&Export"
+msgstr "&Экспорт"
+
+#. i18n: ectx: Menu (Import)
+#: kipiplugin_googleservicesui.rc:11
+#, fuzzy
+#| msgid "&Export"
+msgid "&Import"
+msgstr "&Экспорт"
+
+#. i18n: ectx: ToolBar (mainToolBar)
+#: kipiplugin_googleservicesui.rc:21
+msgid "Main Toolbar"
+msgstr "Основная панель инструментов"
+
+#: newalbumdlg.cpp:54
+msgid "Access Level"
+msgstr "Уровень доступа"
+
+#: newalbumdlg.cpp:55
+msgid ""
+"These are security and privacy settings for the new Google Photos/PicasaWeb "
+"album."
+msgstr ""
+
+#: newalbumdlg.cpp:57
+msgctxt "google photos/picasaweb album privacy"
+msgid "Public"
+msgstr ""
+
+#: newalbumdlg.cpp:59
+msgid "Public album is listed on your public Google Photos/PicasaWeb page."
+msgstr ""
+
+#: newalbumdlg.cpp:60
+msgctxt "google photos/picasaweb album privacy"
+msgid "Unlisted / Private"
+msgstr ""
+
+#: newalbumdlg.cpp:61
+msgid "Unlisted album is only accessible via URL."
+msgstr "Частный альбом доступен только через адрес"
+
+#: newalbumdlg.cpp:62
+msgctxt "google photos/picasaweb album privacy"
+msgid "Sign-In Required to View"
+msgstr ""
+
+#: newalbumdlg.cpp:63
+msgid "Unlisted album require Sign-In to View"
+msgstr "Частный альбом, требующий для просмотра вход в систему"
+
+#: newalbumdlg.cpp:71
+msgid "Privacy:"
+msgstr "Конфиденциальность:"
+
+#: plugin_googleservices.cpp:100
+msgid "Export to &Google Drive..."
+msgstr "Экспорт на &Диск Google..."
+
+#: plugin_googleservices.cpp:110
+#, fuzzy
+#| msgid "Export to &Google Drive..."
+msgid "Export to &Google Photos/PicasaWeb..."
+msgstr "Экспорт на &Диск Google..."
+
+#: plugin_googleservices.cpp:120
+#, fuzzy
+#| msgid "Export to &Google Drive..."
+msgid "Import from &Google Photos/PicasaWeb..."
+msgstr "Экспорт на &Диск Google..."
+
+#: replacedialog.cpp:112
+#, fuzzy
+#| msgid "&Add As New"
+msgid "Add As New"
+msgstr "&Добавить как новый"
+
+#: replacedialog.cpp:113
+msgid "Item will be added alongside the linked version."
+msgstr "Пункт будет добавлен рядом со связанной версией."
+
+#: replacedialog.cpp:119
+#, fuzzy
+#| msgid "&Add All"
+msgid "Add All"
+msgstr "&Добавить всё"
+
+#: replacedialog.cpp:120
+msgid ""
+"Items will be added alongside the linked version. You will not be prompted "
+"again."
+msgstr ""
+"Пункт будет добавлен рядом со связанной версией. Больше не будет предложено "
+"запросов действий."
+
+#: replacedialog.cpp:126
+#, fuzzy
+#| msgid "&Replace"
+msgid "Replace"
+msgstr "&Заменить"
+
+#: replacedialog.cpp:127
+msgid "Item will be replacing the linked version."
+msgstr "Пункт, который заменяет связанную версию"
+
+#: replacedialog.cpp:133
+#, fuzzy
+#| msgid "&Replace All"
+msgid "Replace All"
+msgstr "Заменить &всё"
+
+#: replacedialog.cpp:134
+msgid ""
+"Items will be replacing the linked version. You will not be prompted again."
+msgstr ""
+"Пункт, который заменяет связанную версию. Больше не будет предложено "
+"запросов действий."
+
+#: replacedialog.cpp:157
+msgid "A linked item already exists."
+msgstr "Связанный пункт уже существует."
+
+#: replacedialog.cpp:177
+msgid "Destination"
+msgstr "Назначение"
+
+#: replacedialog.cpp:182
+msgid "Source"
+msgstr "Источник"
+
+#~ msgid ""
+#~ "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
+#~ msgstr "Файл с именем «%1» уже существует. Заменить его?"
+
+#, fuzzy
+#~| msgid "&Export"
+#~ msgid "Picasa Export"
+#~ msgstr "&Экспорт"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Александр Поташев"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "aspotashev@gmail.com"
+
+#~ msgid "This is the list of images to upload to your Google Drive account."
+#~ msgstr ""
+#~ "Это список изображений для загрузки на Диск Google под вашей учётной "
+#~ "записью."
+
+#, fuzzy
+#~| msgid "This is the list of images to upload to your Google Drive account."
+#~ msgid ""
+#~ "This is the list of images to upload to your Google Photos/PicasaWeb "
+#~ "account."
+#~ msgstr ""
+#~ "Это список изображений для загрузки на Диск Google под вашей учётной "
+#~ "записью."
+
+#~ msgid "This is a clickable link to open Google Drive in a browser."
+#~ msgstr "Эта ссылка открывает в веб-браузере домашнюю страницу Диска Google."
+
+#, fuzzy
+#~| msgid "This is a clickable link to open Google Drive in a browser."
+#~ msgid ""
+#~ "This is a clickable link to open Google Photos/PicasaWeb in a browser."
+#~ msgstr "Эта ссылка открывает в веб-браузере домашнюю страницу Диска Google."
+
+#~ msgid "Account"
+#~ msgstr "Учётная запись"
+
+#~ msgid "This is the Google Drive account that is currently logged in."
+#~ msgstr ""
+#~ "Это учётная запись на Диске Google, под которой в настоящий момент "
+#~ "выполнен вход."
+
+#, fuzzy
+#~| msgid "This is the Google Drive account that is currently logged in."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb account that is currently logged in."
+#~ msgstr ""
+#~ "Это учётная запись на Диске Google, под которой в настоящий момент "
+#~ "выполнен вход."
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Имя пользователя:"
+
+#~ msgid "Change Account"
+#~ msgstr "Сменить учётную запись"
+
+#~ msgid "Change Google Drive account for transfer"
+#~ msgstr "Изменить используемую для передачи учётную запись на Диске Google"
+
+#, fuzzy
+#~| msgid "Change Google Drive account for transfer"
+#~ msgid "Change Google Photos/PicasaWeb account for transfer"
+#~ msgstr "Изменить используемую для передачи учётную запись на Диске Google"
+
+#, fuzzy
+#~| msgid "Album:"
+#~ msgid "Album"
+#~ msgstr "Альбом:"
+
+#~ msgid ""
+#~ "This is the Google Drive folder to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Это папка на Диске Google, в которую будут загружены выбранные фотографии."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is the Google Drive folder to which selected photos will be "
+#~| "uploaded."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb folder to which selected photos will "
+#~ "be uploaded."
+#~ msgstr ""
+#~ "Это папка на Диске Google, в которую будут загружены выбранные фотографии."
+
+#, fuzzy
+#~| msgid ""
+#~| "This is the Google Drive folder to which selected photos will be "
+#~| "uploaded."
+#~ msgid ""
+#~ "This is the Google Photos/PicasaWeb folder from which selected photos "
+#~ "will be downloaded."
+#~ msgstr ""
+#~ "Это папка на Диске Google, в которую будут загружены выбранные фотографии."
+
+#~ msgid "Album:"
+#~ msgstr "Альбом:"
+
+#~ msgid "New Album"
+#~ msgstr "Создать альбом"
+
+#~ msgid "Create new Google Drive folder"
+#~ msgstr "Создать новую папку на Диске Google"
+
+#, fuzzy
+#~| msgid "Create new Google Drive folder"
+#~ msgid "Create new Google Photos/PicasaWeb folder"
+#~ msgstr "Создать новую папку на Диске Google"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Обновить"
+
+#~ msgid "Reload album list"
+#~ msgstr "Обновить список альбомов"
+
+#, fuzzy
+#~| msgid "Maximum Dimension:"
+#~ msgid "Max Dimension"
+#~ msgstr "Длинная сторона:"
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid ""
+#~ "This is the maximum dimension of the images. Images larger than this will "
+#~ "be scaled down."
+#~ msgstr "Имя создаваемой папки."
+
+#~ msgid "Original Size"
+#~ msgstr "Исходный размер"
+
+#~ msgid "1600 px"
+#~ msgstr "1600 пикс."
+
+#~ msgid "1440 px"
+#~ msgstr "1440 пикс."
+
+#~ msgid "1280 px"
+#~ msgstr "1280 пикс."
+
+#~ msgid "1152 px"
+#~ msgstr "1152 пикс."
+
+#~ msgid "1024 px"
+#~ msgstr "1024 пикс."
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid ""
+#~ "This is the location where Google Photos/PicasaWeb images will be "
+#~ "downloaded."
+#~ msgstr "Имя создаваемой папки."
+
+#~ msgid "Options"
+#~ msgstr "Параметры"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr ""
+#~ "Параметры, которые будут применяться к изображениям перед загрузкой."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Изменять размер фотографий перед загрузкой"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Длинная сторона:"
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "Качество JPEG:"
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Title of the album that will be created (required)."
+#~ msgstr "Имя создаваемой папки."
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Date and Time of the album that will be created (optional)."
+#~ msgstr "Имя создаваемой папки."
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Description of the album that will be created (optional)."
+#~ msgstr "Имя создаваемой папки."
+
+#, fuzzy
+#~| msgid "This is the title of the folder that will be created."
+#~ msgid "Location of the album that will be created (optional)."
+#~ msgstr "Имя создаваемой папки."
+
+#~ msgid "This is the title of the folder that will be created."
+#~ msgstr "Имя создаваемой папки."
+
+#~ msgctxt "folder edit"
+#~ msgid "Title:"
+#~ msgstr "Имя папки:"
+
+#, fuzzy
+#~| msgctxt "folder edit"
+#~| msgid "Title:"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Title:"
+#~ msgstr "Имя папки:"
+
+#, fuzzy
+#~| msgid "Destination"
+#~ msgctxt "new google photos/picasaweb album dialog"
+#~ msgid "Description:"
+#~ msgstr "Назначение"
+
+#~ msgid ""
+#~ "Failed to upload photo to Google Drive.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Не удалось загрузить фотографию на Диск Google.\n"
+#~ "%1\n"
+#~ "Продолжить?"
+
+#, fuzzy
+#~| msgid ""
+#~| "Failed to upload photo to Google Drive.\n"
+#~| "%1\n"
+#~| "Do you want to continue?"
+#~ msgid ""
+#~ "Failed to upload photo to Google Photos/PicasaWeb.\n"
+#~ "%1\n"
+#~ "Do you want to continue?"
+#~ msgstr ""
+#~ "Не удалось загрузить фотографию на Диск Google.\n"
+#~ "%1\n"
+#~ "Продолжить?"
+
+#, fuzzy
+#~| msgctxt "folder edit"
+#~| msgid "Title:"
+#~ msgctxt "new picasaweb album dialog"
+#~ msgid "Title:"
+#~ msgstr "Имя папки:"
+
+#~ msgid "Google Drive New Album"
+#~ msgstr "Создание альбома на Диске Google"
+
+#, fuzzy
+#~| msgid "New Album"
+#~ msgid "Picasaweb New Album"
+#~ msgstr "Создать альбом"

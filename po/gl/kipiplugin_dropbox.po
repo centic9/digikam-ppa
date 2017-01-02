@@ -7,46 +7,26 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-07-20 01:52+0000\n"
-"PO-Revision-Date: 2015-05-23 14:33+0200\n"
-"Last-Translator: Adrián Chaves Fernández <adriyetichaves@gmail.com>\n"
-"Language-Team: Galician <proxecto@trasno.net>\n"
+"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"PO-Revision-Date: 2015-11-16 06:53+0100\n"
+"Last-Translator: Adrián Chaves Fernández (Gallaecio) <adriyetichaves@gmail."
+"com>\n"
+"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
 "Language: gl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 1.5\n"
+"X-Generator: Lokalize 2.0\n"
 "X-Environment: kde\n"
 "X-Accelerator-Marker: &\n"
 "X-Text-Markup: kde4\n"
 
-msgctxt "NAME OF TRANSLATORS"
-msgid "Your names"
-msgstr "Marce Villarino"
-
-msgctxt "EMAIL OF TRANSLATORS"
-msgid "Your emails"
-msgstr "mvillarino@kde-espana.org"
-
-#: dbalbum.cpp:46
-msgid "Dropbox New Folder"
-msgstr "Novo cartafol en Dropbox"
-
-#: dbalbum.cpp:59
-msgid "The name of the folder that will be created"
-msgstr "O nome do cartafol que se vai crear"
-
-#: dbalbum.cpp:63
-msgctxt "album edit"
-msgid "Title:"
-msgstr "Título:"
-
-#: dbtalker.cpp:173
+#: dbtalker.cpp:184
 msgid "Authorize Dropbox"
 msgstr "Autorizar a Dropbox"
 
-#: dbtalker.cpp:180
+#: dbtalker.cpp:194
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
@@ -54,138 +34,56 @@ msgstr ""
 "Siga as instrucións no navegador. Despois de iniciar a sesión e autorizar o "
 "programa, prema en Aceptar."
 
-#: dbtalker.cpp:497
+#: dbtalker.cpp:422
+#, fuzzy
+#| msgctxt "@title:window"
+#| msgid "Error"
+msgid "Error"
+msgstr "Erro"
+
+#: dbtalker.cpp:473
 msgid "Failed to upload photo"
 msgstr "Produciuse un erro ao enviar a foto"
 
-#: dbtalker.cpp:571
+#: dbtalker.cpp:534
 msgid "Failed to list folders"
 msgstr "Produciuse un erro ao listar os cartafoles"
 
-#: dbwidget.cpp:71
-msgid "This is the list of images to upload to your Dropbox account."
-msgstr "Esta é a lista de imaxes que se van enviar á súa conta en Dropbox."
-
-#: dbwidget.cpp:77
-msgid "This is a clickable link to open Dropbox in a browser."
-msgstr "Esta é unha ligazón premíbel para abrir Dropbox nun navegador."
-
-#: dbwidget.cpp:83
-msgid "Account"
-msgstr "Conta"
-
-#: dbwidget.cpp:84
-msgid "This is the Dropbox account that is currently logged in."
-msgstr "Esta é a conta en Dropbox na que ten actualmente sesión iniciada"
-
-#: dbwidget.cpp:87
-msgctxt "account settings"
-msgid "Name:"
-msgstr "Nome:"
-
-#: dbwidget.cpp:90
-msgid "Change Account"
-msgstr "Cambiar de conta"
-
-#: dbwidget.cpp:90
-msgid "Change Dropbox account for transfer"
-msgstr "Cambia de conta en Dropbox para transferir"
-
-#: dbwidget.cpp:101
-msgid "Destination"
-msgstr "Destino"
-
-#: dbwidget.cpp:102
-msgid "This is the Dropbox folder to which selected photos will be uploaded."
-msgstr ""
-"Este é o cartafol de Dropbox ao que se transferirán as fotos escollidas."
-
-#: dbwidget.cpp:105
-msgid "Folder:"
-msgstr "Cartafol:"
-
-#: dbwidget.cpp:109
-msgid "New Folder"
-msgstr "Novo cartafol"
-
-#: dbwidget.cpp:110
-msgid "Create new Dropbox folder"
-msgstr "Crear un cartafol novo en Dropbox"
-
-#: dbwidget.cpp:111
-msgctxt "album list"
-msgid "Reload"
-msgstr "Cargar de novo"
-
-#: dbwidget.cpp:112
-msgid "Reload album list"
-msgstr "Cargar de novo a lista de álbums"
-
-#: dbwidget.cpp:121
-msgid "Options"
-msgstr "Opcións"
-
-#: dbwidget.cpp:122
-msgid "These are the options that would be applied to photos before upload."
-msgstr "Estas son as opcións que se aplicarán ás fotos antes de as enviar."
-
-#: dbwidget.cpp:126
-msgid "Resize photos before uploading"
-msgstr "Mudar o tamaño das fotos antes de envialas"
-
-#: dbwidget.cpp:137
-msgid "Maximum Dimension:"
-msgstr "Tamaño máximo:"
-
-#: dbwidget.cpp:146
-msgid "JPEG Quality:"
-msgstr "Calidade de JPEG:"
-
-#: dbwindow.cpp:88
+#: dbwindow.cpp:79
 msgid "Export to Dropbox"
 msgstr "Exportar para Dropbox"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:81
 msgid "Start Upload"
 msgstr "Iniciar o envío"
 
-#: dbwindow.cpp:89
+#: dbwindow.cpp:82
 msgid "Start upload to Dropbox"
 msgstr "Iniciar o envío a Dropbox"
 
-#: dbwindow.cpp:107
+#: dbwindow.cpp:101
 msgid "Dropbox Export"
 msgstr "Exportación a Dropbox"
 
-#: dbwindow.cpp:109
-msgid "A Kipi-plugin to export images to Dropbox"
+#: dbwindow.cpp:102
+#, fuzzy
+#| msgid "A Kipi-plugin to export images to Dropbox"
+msgid "A tool to export images to Dropbox"
 msgstr "Un engadido de Kipi para exportar imaxes a Dropbox"
 
-#: dbwindow.cpp:111
-#, fuzzy
-#| msgid "(c) 2013, Saurabh Patel"
-msgid ""
-"(c) 2013, Saurabh Patel\n"
-"(c) 2015, Shourya Singh Gupta"
-msgstr "(c) 2013, Saurabh Patel"
+#: dbwindow.cpp:104
+msgid "(c) 2013, Saurabh Patel"
+msgstr "© 2013 Saurabh Patel"
 
-#: dbwindow.cpp:114
+#: dbwindow.cpp:106
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
-#: dbwindow.cpp:114
-msgid "Author and maintainer"
-msgstr "Autor e mantenedor"
+#: dbwindow.cpp:107
+msgid "Author"
+msgstr "Autor"
 
-#: dbwindow.cpp:116
-msgid "Shourya Singh Gupta"
-msgstr ""
-
-#: dbwindow.cpp:116
-msgid "Developer"
-msgstr ""
-
-#: dbwindow.cpp:282
+#: dbwindow.cpp:281
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -195,23 +93,36 @@ msgstr ""
 "campo de texto. Para completar a autenticación prema en «Cambiar a conta», "
 "ou en «Iniciar o envío» para autenticarse de novo."
 
+#: dbwindow.cpp:293
+msgctxt "@title:window"
+msgid "Error"
+msgstr "Erro"
+
 #: dbwindow.cpp:294
 msgid "No image selected. Please select which images should be uploaded."
 msgstr "Non se escolleu ningunha imaxe. Escolla as imaxes para enviar."
 
-#: dbwindow.cpp:304 dbwindow.cpp:419
-msgid "Authentication failed. Click \"Continue\" to authenticate."
-msgstr "Fallou a autenticación. Prema en «Continuar» para autenticarse."
+#: dbwindow.cpp:300 dbwindow.cpp:420
+msgid "Login Failed"
+msgstr "Fallou a autenticación"
 
-#: dbwindow.cpp:328
+#: dbwindow.cpp:301 dbwindow.cpp:421
+msgid "Authentication failed. Do you want to try again?"
+msgstr "Fallou a autenticación. Quere intentalo de novo?"
+
+#: dbwindow.cpp:325
 msgid "%v / %m"
 msgstr "%v / %m"
 
-#: dbwindow.cpp:332
+#: dbwindow.cpp:329
 msgid "Dropbox export"
 msgstr "Exportación a Dropbox"
 
-#: dbwindow.cpp:364
+#: dbwindow.cpp:362
+msgid "Uploading Failed"
+msgstr "Produciuse un erro ao enviar"
+
+#: dbwindow.cpp:363
 #, kde-format
 msgid ""
 "Failed to upload photo to Dropbox.\n"
@@ -222,7 +133,7 @@ msgstr ""
 "%1\n"
 "Quere continuar?"
 
-#: dbwindow.cpp:443 dbwindow.cpp:449
+#: dbwindow.cpp:445 dbwindow.cpp:450
 #, kde-format
 msgid ""
 "Dropbox call failed:\n"
@@ -241,6 +152,95 @@ msgstr "&Exportar"
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas principal"
 
-#: plugin_dropbox.cpp:96
+#: plugin_dropbox.cpp:90
 msgid "Export to &Dropbox..."
 msgstr "Exportar para &Dropbox…"
+
+#~ msgctxt "NAME OF TRANSLATORS"
+#~ msgid "Your names"
+#~ msgstr "Marce Villarino"
+
+#~ msgctxt "EMAIL OF TRANSLATORS"
+#~ msgid "Your emails"
+#~ msgstr "mvillarino@kde-espana.org"
+
+#~ msgid "Dropbox New Folder"
+#~ msgstr "Novo cartafol en Dropbox"
+
+#~ msgid "The name of the folder that will be created"
+#~ msgstr "O nome do cartafol que se vai crear"
+
+#~ msgctxt "album edit"
+#~ msgid "Title:"
+#~ msgstr "Título:"
+
+#~ msgid "This is the list of images to upload to your Dropbox account."
+#~ msgstr "Esta é a lista de imaxes que se van enviar á súa conta en Dropbox."
+
+#~ msgid "This is a clickable link to open Dropbox in a browser."
+#~ msgstr "Esta é unha ligazón premíbel para abrir Dropbox nun navegador."
+
+#~ msgid "Account"
+#~ msgstr "Conta"
+
+#~ msgid "This is the Dropbox account that is currently logged in."
+#~ msgstr "Esta é a conta en Dropbox na que ten actualmente sesión iniciada"
+
+#~ msgctxt "account settings"
+#~ msgid "Name:"
+#~ msgstr "Nome:"
+
+#~ msgid "Change Account"
+#~ msgstr "Cambiar de conta"
+
+#~ msgid "Change Dropbox account for transfer"
+#~ msgstr "Cambia de conta en Dropbox para transferir"
+
+#~ msgid "Destination"
+#~ msgstr "Destino"
+
+#~ msgid ""
+#~ "This is the Dropbox folder to which selected photos will be uploaded."
+#~ msgstr ""
+#~ "Este é o cartafol de Dropbox ao que se transferirán as fotos escollidas."
+
+#~ msgid "Folder:"
+#~ msgstr "Cartafol:"
+
+#~ msgid "New Folder"
+#~ msgstr "Novo cartafol"
+
+#~ msgid "Create new Dropbox folder"
+#~ msgstr "Crear un cartafol novo en Dropbox"
+
+#~ msgctxt "album list"
+#~ msgid "Reload"
+#~ msgstr "Cargar de novo"
+
+#~ msgid "Reload album list"
+#~ msgstr "Cargar de novo a lista de álbums"
+
+#~ msgid "Options"
+#~ msgstr "Opcións"
+
+#~ msgid "These are the options that would be applied to photos before upload."
+#~ msgstr "Estas son as opcións que se aplicarán ás fotos antes de as enviar."
+
+#~ msgid "Resize photos before uploading"
+#~ msgstr "Mudar o tamaño das fotos antes de envialas"
+
+#~ msgid "Maximum Dimension:"
+#~ msgstr "Tamaño máximo:"
+
+#~ msgid "JPEG Quality:"
+#~ msgstr "Calidade de JPEG:"
+
+#, fuzzy
+#~| msgid "(c) 2013, Saurabh Patel"
+#~ msgid ""
+#~ "(c) 2013, Saurabh Patel\n"
+#~ "(c) 2015, Shourya Singh Gupta"
+#~ msgstr "(c) 2013, Saurabh Patel"
+
+#~ msgid "Author and maintainer"
+#~ msgstr "Autor e mantenedor"

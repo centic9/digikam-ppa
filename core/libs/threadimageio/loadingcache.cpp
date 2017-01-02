@@ -21,23 +21,18 @@
  *
  * ============================================================ */
 
-#include "loadingcache.moc"
+#include "loadingcache.h"
 
 // Qt includes
 
 #include <QCoreApplication>
 #include <QEvent>
-#include <QCustomEvent>
 #include <QCache>
 #include <QHash>
 
-// KDE includes
-
-#include <kdirwatch.h>
-#include <kdebug.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "iccsettings.h"
 #include "kmemoryinfo.h"
 #include "dmetadata.h"
@@ -251,7 +246,7 @@ void LoadingCache::notifyNewLoadingProcess(LoadingProcess* process, const Loadin
 
 void LoadingCache::setCacheSize(int megabytes)
 {
-    kDebug() << "Allowing a cache size of" << megabytes << "MB";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Allowing a cache size of" << megabytes << "MB";
     d->imageCache.setMaxCost(megabytes * 1024 * 1024);
 }
 
@@ -274,7 +269,7 @@ bool LoadingCache::hasThumbnailPixmap(const QString& cacheKey) const
 
 void LoadingCache::putThumbnail(const QString& cacheKey, const QImage& thumb, const QString& filePath)
 {
-    int cost = thumb.numBytes();
+    int cost = thumb.byteCount();
 
     if (d->thumbnailImageCache.insert(cacheKey, new QImage(thumb), cost))
     {
@@ -414,9 +409,9 @@ ClassicLoadingCacheFileWatch::ClassicLoadingCacheFileWatch()
         moveToThread(QCoreApplication::instance()->thread());
     }
 
-    m_watch = new KDirWatch;
+    m_watch = new QFileSystemWatcher;
 
-    connect(m_watch, SIGNAL(dirty(QString)),
+    connect(m_watch, SIGNAL(fileChanged(QString)),
             this, SLOT(slotFileDirty(QString)));
 
     // Make sure the signal gets here directly from the event loop.
@@ -436,25 +431,25 @@ ClassicLoadingCacheFileWatch::~ClassicLoadingCacheFileWatch()
 void ClassicLoadingCacheFileWatch::addedImage(const QString& filePath)
 {
     Q_UNUSED(filePath)
-    // schedule update of file m_watch
-    // KDirWatch can only be accessed from main thread!
+    // schedule update of file watch
+    // QFileSystemWatch can only be accessed from main thread!
     emit signalUpdateDirWatch();
 }
 
 void ClassicLoadingCacheFileWatch::addedThumbnail(const QString& filePath)
 {
     Q_UNUSED(filePath);
-    // ignore, we do not m_watch thumbnails
+    // ignore, we do not watch thumbnails
 }
 
 void ClassicLoadingCacheFileWatch::slotFileDirty(const QString& path)
 {
     // Signal comes from main thread
-    kDebug() << "LoadingCache slotFileDirty " << path;
+    qCDebug(DIGIKAM_GENERAL_LOG) << "LoadingCache slotFileDirty " << path;
     // This method acquires a lock itself
     notifyFileChanged(path);
     // No need for locking here, we are in main thread
-    m_watch->removeFile(path);
+    m_watch->removePath(path);
     m_watchedFiles.remove(path);
 }
 
@@ -463,7 +458,7 @@ void ClassicLoadingCacheFileWatch::slotUpdateDirWatch()
     // Event comes from main thread, we need to lock ourselves.
     LoadingCache::CacheLock lock(m_cache);
 
-    // get a list of files in cache that need m_watch
+    // get a list of files in cache that need watch
     QSet<QString> toBeAdded;
     QSet<QString> toBeRemoved = m_watchedFiles;
     QList<QString> filePaths  = m_cache->imageFilePathsInCache();
@@ -483,15 +478,15 @@ void ClassicLoadingCacheFileWatch::slotUpdateDirWatch()
 
     foreach(const QString& watchedItem, toBeRemoved)
     {
-        //kDebug() << "removing m_watch for " << *it;
-        m_watch->removeFile(watchedItem);
+        //qCDebug(DIGIKAM_GENERAL_LOG) << "removing watch for " << *it;
+        m_watch->removePath(watchedItem);
         m_watchedFiles.remove(watchedItem);
     }
 
     foreach(const QString& watchedItem, toBeAdded)
     {
-        //kDebug() << "adding m_watch for " << *it;
-        m_watch->addFile(watchedItem);
+        //qCDebug(DIGIKAM_GENERAL_LOG) << "adding watch for " << *it;
+        m_watch->addPath(watchedItem);
         m_watchedFiles.insert(watchedItem);
     }
 }

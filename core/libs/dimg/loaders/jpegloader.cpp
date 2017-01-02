@@ -7,7 +7,7 @@
  * Description : A JPEG IO file for DImg framework
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -38,17 +38,14 @@ extern "C"
 #include <QFile>
 #include <QByteArray>
 
-// KDE includes
-
-#include <kdebug.h>
-
 // Local includes
 
-#include "config-digikam.h"
+#include "digikam_config.h"
 #include "dimg.h"
+#include "digikam_debug.h"
 #include "dimgloaderobserver.h"
 
-#ifdef Q_CC_MSVC
+#ifdef Q_OS_WIN
 #include "jpegwin.h"
 #endif
 
@@ -64,9 +61,7 @@ void JPEGLoader::dimg_jpeg_error_exit(j_common_ptr cinfo)
     char buffer[JMSG_LENGTH_MAX];
     (*cinfo->err->format_message)(cinfo, buffer);
 
-#ifdef USE_IMGLOADERDEBUGMSG
-    kError() << buffer;
-#endif
+    qCDebug(DIGIKAM_DIMG_LOG_JPEG) << buffer;
 
     longjmp(myerr->setjmp_buffer, 1);
 }
@@ -76,11 +71,7 @@ void JPEGLoader::dimg_jpeg_emit_message(j_common_ptr cinfo, int msg_level)
     char buffer[JMSG_LENGTH_MAX];
     (*cinfo->err->format_message)(cinfo, buffer);
 
-#ifdef USE_IMGLOADERDEBUGMSG
-    kDebug() << buffer << " (" << msg_level << ")";
-#else
-    Q_UNUSED(msg_level);
-#endif
+    qCDebug(DIGIKAM_DIMG_LOG_JPEG) << buffer << " (" << msg_level << ")";
 }
 
 void JPEGLoader::dimg_jpeg_output_message(j_common_ptr cinfo)
@@ -88,9 +79,7 @@ void JPEGLoader::dimg_jpeg_output_message(j_common_ptr cinfo)
     char buffer[JMSG_LENGTH_MAX];
     (*cinfo->err->format_message)(cinfo, buffer);
 
-#ifdef USE_IMGLOADERDEBUGMSG
-    kDebug() << buffer;
-#endif
+    qCDebug(DIGIKAM_DIMG_LOG_JPEG) << buffer;
 }
 
 JPEGLoader::JPEGLoader(DImg* const image)
@@ -102,8 +91,7 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
 {
     readMetadata(filePath, DImg::JPEG);
 
-    int colorModel   = DImg::COLORMODELUNKNOWN;
-    FILE* const file = fopen(QFile::encodeName(filePath), "rb");
+    FILE* const file = fopen(QFile::encodeName(filePath).constData(), "rb");
 
     if (!file)
     {
@@ -215,7 +203,7 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     // -------------------------------------------------------------------
     // Find out if we do the fast-track loading with reduced size. Jpeg specific.
     int scaledLoadingSize = 0;
-    QVariant attribute    = imageGetAttribute("scaledLoadingSize");
+    QVariant attribute    = imageGetAttribute(QLatin1String("scaledLoadingSize"));
 
     if (attribute.isValid())
     {
@@ -228,7 +216,7 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     jpeg_create_decompress(&cinfo);
     bool startedDecompress = false;
 
-#ifdef Q_CC_MSVC
+#ifdef Q_OS_WIN
     QFile inFile(filePath);
     QByteArray buffer;
 
@@ -260,6 +248,8 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     // Libjpeg handles the following conversions:
     // YCbCr => GRAYSCALE, YCbCr => RGB, GRAYSCALE => RGB, YCCK => CMYK
     // So we cannot get RGB from CMYK or YCCK, CMYK conversion is handled below
+    int colorModel = DImg::COLORMODELUNKNOWN;
+
     switch (cinfo.jpeg_color_space)
     {
         case JCS_UNKNOWN:
@@ -355,7 +345,7 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         if (cinfo.rec_outbuf_height > 16)
         {
             jpeg_destroy_decompress(&cinfo);
-            kDebug() << "Height of JPEG scanline buffer out of range!";
+            qCWarning(DIGIKAM_DIMG_LOG_JPEG) << "Height of JPEG scanline buffer out of range!";
             delete cleanupData;
             loadingFailed();
             return false;
@@ -368,7 +358,7 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
             ))
         {
             jpeg_destroy_decompress(&cinfo);
-            kDebug()
+            qCWarning(DIGIKAM_DIMG_LOG_JPEG)
                     << "JPEG colorspace ("
                     << cinfo.out_color_space
                     << ") or Number of JPEG color components ("
@@ -385,7 +375,7 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         if (!data)
         {
             jpeg_destroy_decompress(&cinfo);
-            kDebug() << "Cannot allocate memory!";
+            qCWarning(DIGIKAM_DIMG_LOG_JPEG) << "Cannot allocate memory!";
             delete cleanupData;
             loadingFailed();
             return false;
@@ -397,7 +387,7 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
         if (!dest)
         {
             jpeg_destroy_decompress(&cinfo);
-            kDebug() << "Cannot allocate memory!";
+            qCWarning(DIGIKAM_DIMG_LOG_JPEG) << "Cannot allocate memory!";
             delete cleanupData;
             loadingFailed();
             return false;
@@ -624,17 +614,17 @@ bool JPEGLoader::load(const QString& filePath, DImgLoaderObserver* const observe
     imageWidth()  = w;
     imageHeight() = h;
     imageData()   = dest;
-    imageSetAttribute("format", "JPG");
-    imageSetAttribute("originalColorModel", colorModel);
-    imageSetAttribute("originalBitDepth", 8);
-    imageSetAttribute("originalSize", originalSize);
+    imageSetAttribute(QLatin1String("format"),             QLatin1String("JPG"));
+    imageSetAttribute(QLatin1String("originalColorModel"), colorModel);
+    imageSetAttribute(QLatin1String("originalBitDepth"),   8);
+    imageSetAttribute(QLatin1String("originalSize"),       originalSize);
 
     return true;
 }
 
 bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observer)
 {
-    FILE* const file = fopen(QFile::encodeName(filePath), "wb");
+    FILE* const file = fopen(QFile::encodeName(filePath).constData(), "wb");
 
     if (!file)
     {
@@ -724,7 +714,7 @@ bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     cinfo.input_components = 3;
     cinfo.in_color_space   = JCS_RGB;
 
-    QVariant qualityAttr   = imageGetAttribute("quality");
+    QVariant qualityAttr   = imageGetAttribute(QLatin1String("quality"));
     int quality            = qualityAttr.isValid() ? qualityAttr.toInt() : 90;
 
     if (quality < 0)
@@ -737,7 +727,7 @@ bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observe
         quality = 100;
     }
 
-    QVariant subSamplingAttr = imageGetAttribute("subsampling");
+    QVariant subSamplingAttr = imageGetAttribute(QLatin1String("subsampling"));
     int subsampling          = subSamplingAttr.isValid() ? subSamplingAttr.toInt() : 1;  // Medium
 
     jpeg_set_defaults(&cinfo);
@@ -747,9 +737,9 @@ bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observe
 
     switch (subsampling)
     {
-        case 1:  // 2x1, 1x1, 1x1 (4:2:2) : Medium
+        case 1:  // 2x1, 1x1, 1x1 (4:2:2)
         {
-            kDebug() << "Using LibJPEG medium chroma-subsampling (4:2:2)";
+            qCDebug(DIGIKAM_DIMG_LOG_JPEG) << "Using LibJPEG chroma-subsampling 4:2:2";
             cinfo.comp_info[0].h_samp_factor = 2;
             cinfo.comp_info[0].v_samp_factor = 1;
             cinfo.comp_info[1].h_samp_factor = 1;
@@ -759,9 +749,9 @@ bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observe
             break;
         }
 
-        case 2:  // 2x2, 1x1, 1x1 (4:1:1) : High
+        case 2:  // 2x2, 1x1, 1x1 (4:2:0)
         {
-            kDebug() << "Using LibJPEG high chroma-subsampling (4:1:1)";
+            qCDebug(DIGIKAM_DIMG_LOG_JPEG) << "Using LibJPEG chroma-subsampling 4:2:0";
             cinfo.comp_info[0].h_samp_factor = 2;
             cinfo.comp_info[0].v_samp_factor = 2;
             cinfo.comp_info[1].h_samp_factor = 1;
@@ -771,9 +761,21 @@ bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observe
             break;
         }
 
-        default:  // 1x1 1x1 1x1 (4:4:4) : None
+        case 3:  // 4x1, 1x1, 1x1 (4:1:1)
         {
-            kDebug() << "Using LibJPEG none chroma-subsampling (4:4:4)";
+            qCDebug(DIGIKAM_DIMG_LOG_JPEG) << "Using LibJPEG chroma-subsampling 4:1:1";
+            cinfo.comp_info[0].h_samp_factor = 4;
+            cinfo.comp_info[0].v_samp_factor = 1;
+            cinfo.comp_info[1].h_samp_factor = 1;
+            cinfo.comp_info[1].v_samp_factor = 1;
+            cinfo.comp_info[2].h_samp_factor = 1;
+            cinfo.comp_info[2].v_samp_factor = 1;
+            break;
+        }
+
+        default: // 1x1, 1x1, 1x1 (4:4:4)
+        {
+            qCDebug(DIGIKAM_DIMG_LOG_JPEG) << "Using LibJPEG chroma-subsampling 4:4:4";
             cinfo.comp_info[0].h_samp_factor = 1;
             cinfo.comp_info[0].v_samp_factor = 1;
             cinfo.comp_info[1].h_samp_factor = 1;
@@ -787,7 +789,7 @@ bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     jpeg_set_quality(&cinfo, quality, boolean(true));
     jpeg_start_compress(&cinfo, boolean(true));
 
-    kDebug() << "Using LibJPEG quality compression value: " << quality;
+    qCDebug(DIGIKAM_DIMG_LOG_JPEG) << "Using LibJPEG quality compression value: " << quality;
 
     if (observer)
     {
@@ -902,7 +904,7 @@ bool JPEGLoader::save(const QString& filePath, DImgLoaderObserver* const observe
     jpeg_destroy_compress(&cinfo);
     delete cleanupData;
 
-    imageSetAttribute("savedformat", "JPG");
+    imageSetAttribute(QLatin1String("savedformat"), QLatin1String("JPG"));
 
     saveMetadata(filePath);
 

@@ -7,7 +7,7 @@
  * Description : a dialog to see preview ICC color correction
  *               before to apply color profile.
  *
- * Copyright (C) 2006-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,10 +28,7 @@
 // Qt includes
 
 #include <QString>
-
-// KDE includes
-
-#include <kdialog.h>
+#include <QDialog>
 
 // Local includes
 
@@ -46,7 +43,7 @@ class DImg;
 class IccProfile;
 class IccTransform;
 
-class DIGIKAM_EXPORT ColorCorrectionDlg : public KDialog
+class DIGIKAM_EXPORT ColorCorrectionDlg : public QDialog
 {
     Q_OBJECT
 
@@ -68,10 +65,6 @@ public:
     ICCSettingsContainer::Behavior behavior() const;
     IccProfile specifiedProfile() const;
 
-protected:
-
-    virtual void accept();
-
 private Q_SLOTS:
 
     void slotWorkspaceProfInfo();
@@ -84,6 +77,8 @@ private Q_SLOTS:
     void usedProfileToggled(bool);
     void usedProfileChanged();
     void inputProfileChanged();
+    void slotHelp();
+    void slotOk();
 
 private:
 

@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2010 by Gabriel Voicu <ping dot gabi at gmail dot com>
  * Copyright (C) 2010 by Michael G. Hansen <mike at mghansen dot de>
- * Copyright (C) 2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,21 +28,13 @@
 // Qt includes
 
 #include <QWidget>
-#include <QSortFilterProxyModel>
 
-// libkgeomap includes
+// Local includes
 
-#include <libkgeomap/kgeomap_primitives.h>
-#include <libkgeomap/modelhelper.h>
-
-// KDE includes
-
-#include "kcategorizedsortfilterproxymodel.h"
-
-// local includes
-
-#include "statesavingobject.h"
+#include "modelhelper.h"
 #include "digikam_export.h"
+#include "dcategorizedsortfilterproxymodel.h"
+#include "statesavingobject.h"
 #include "imagealbummodel.h"
 #include "thumbnailloadthread.h"
 #include "imagefiltermodel.h"
@@ -54,7 +46,7 @@ namespace Digikam
 class AlbumWidgetStack;
 class ImageChangeset;
 
-class MapWidgetView : public QWidget, public StateSavingObject
+class DIGIKAM_EXPORT MapWidgetView : public QWidget, public StateSavingObject
 {
     Q_OBJECT
 
@@ -67,7 +59,7 @@ public:
     };
 
     MapWidgetView(QItemSelectionModel* const selectionModel,
-                  KCategorizedSortFilterProxyModel* const imageFilterModel, QWidget* const parent, const Application application);
+                  DCategorizedSortFilterProxyModel* const imageFilterModel, QWidget* const parent, const Application application);
     ~MapWidgetView();
 
     void openAlbum(Album* const album);
@@ -90,19 +82,19 @@ private:
 
 // ------------------------------------------------------------------------------------------------------------
 
-class MapViewModelHelper : public KGeoMap::ModelHelper
+class MapViewModelHelper : public GeoIface::ModelHelper
 {
     Q_OBJECT
 
 public:
 
-    MapViewModelHelper(QItemSelectionModel* const selection, KCategorizedSortFilterProxyModel* const filterModel,
+    MapViewModelHelper(QItemSelectionModel* const selection, DCategorizedSortFilterProxyModel* const filterModel,
                        QObject* const parent, const MapWidgetView::Application application);
     virtual ~MapViewModelHelper();
 
     virtual QAbstractItemModel* model()                                                                const;
     virtual QItemSelectionModel* selectionModel()                                                      const;
-    virtual bool itemCoordinates(const QModelIndex& index, KGeoMap::GeoCoordinates* const coordinates) const;
+    virtual bool itemCoordinates(const QModelIndex& index, GeoIface::GeoCoordinates* const coordinates) const;
 
     virtual QPixmap pixmapFromRepresentativeIndex(const QPersistentModelIndex& index, const QSize& size);
     virtual QPersistentModelIndex bestRepresentativeIndexFromList(const QList<QPersistentModelIndex>& list, const int sortKey);

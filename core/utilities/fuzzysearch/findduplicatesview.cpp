@@ -6,7 +6,7 @@
  * Date        : 2008-05-19
  * Description : Find Duplicates View.
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "findduplicatesview.moc"
+#include "findduplicatesview.h"
 
 // Qt includes
 
@@ -32,22 +32,21 @@
 #include <QPushButton>
 #include <QSpinBox>
 #include <QLabel>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <kapplication.h>
-#include <kdialog.h>
-#include <klocale.h>
-#include <kmessagebox.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "album.h"
-#include "albumdb.h"
+#include "coredb.h"
 #include "albummanager.h"
 #include "albumselectors.h"
-#include "databaseaccess.h"
-#include "databasebackend.h"
+#include "coredbaccess.h"
+#include "coredbbackend.h"
 #include "findduplicatesalbum.h"
 #include "findduplicatesalbumitem.h"
 #include "duplicatesfinder.h"
@@ -93,22 +92,24 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     // ---------------------------------------------------------------
 
     d->listView           = new FindDuplicatesAlbum();
 
     d->updateFingerPrtBtn = new QPushButton(i18n("Update fingerprints"));
-    d->updateFingerPrtBtn->setIcon(KIcon("run-build"));
+    d->updateFingerPrtBtn->setIcon(QIcon::fromTheme(QLatin1String("run-build")));
     d->updateFingerPrtBtn->setWhatsThis(i18n("Use this button to update all image fingerprints."));
 
     d->scanDuplicatesBtn  = new QPushButton(i18n("Find duplicates"));
-    d->scanDuplicatesBtn->setIcon(KIcon("system-search"));
+    d->scanDuplicatesBtn->setIcon(QIcon::fromTheme(QLatin1String("edit-find")));
     d->scanDuplicatesBtn->setWhatsThis(i18n("Use this button to scan the selected albums for "
                                             "duplicate items."));
 
     // ---------------------------------------------------------------
 
-    d->albumSelectors = new AlbumSelectors(i18nc("@label", "Search in:"), "Find Duplicates View");
+    d->albumSelectors = new AlbumSelectors(i18nc("@label", "Search in:"), QLatin1String("Find Duplicates View"));
 
     // ---------------------------------------------------------------
 
@@ -116,7 +117,7 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
     d->similarity->setRange(0, 100);
     d->similarity->setValue(90);
     d->similarity->setSingleStep(1);
-    d->similarity->setSuffix(QChar('%'));
+    d->similarity->setSuffix(QLatin1String("%"));
 
     d->similarityLabel = new QLabel(i18n("Similarity:"));
     d->similarityLabel->setBuddy(d->similarity);
@@ -132,8 +133,8 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
     mainLayout->addWidget(d->scanDuplicatesBtn,  4, 0, 1, -1);
     mainLayout->setRowStretch(0, 10);
     mainLayout->setColumnStretch(1, 10);
-    mainLayout->setMargin(KDialog::spacingHint());
-    mainLayout->setSpacing(KDialog::spacingHint());
+    mainLayout->setContentsMargins(spacing, spacing, spacing, spacing);
+    mainLayout->setSpacing(spacing);
     setLayout(mainLayout);
 
     // ---------------------------------------------------------------

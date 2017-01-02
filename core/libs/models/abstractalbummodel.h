@@ -35,6 +35,7 @@
 // Local includes
 
 #include "album.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
@@ -43,7 +44,7 @@ class Album;
 class AlbumManager;
 class AlbumModelDragDropHandler;
 
-class AbstractAlbumModel : public QAbstractItemModel
+class DIGIKAM_EXPORT AbstractAlbumModel : public QAbstractItemModel
 {
     Q_OBJECT
 
@@ -59,7 +60,7 @@ public:
     {
         /** The root album will be included as a single parent item
          *  with all top-level album as children
-	 */
+         */
         IncludeRootAlbum,
         /** The root album will not be included, but all top-level album
          *  are represented as top-level items in this view
@@ -205,7 +206,7 @@ private:
 
 // ------------------------------------------------------------------
 
-class AbstractSpecificAlbumModel : public AbstractAlbumModel
+class DIGIKAM_EXPORT AbstractSpecificAlbumModel : public AbstractAlbumModel
 {
     Q_OBJECT
 
@@ -238,7 +239,7 @@ protected:
 
 // ------------------------------------------------------------------
 
-class AbstractCountingAlbumModel : public AbstractSpecificAlbumModel
+class DIGIKAM_EXPORT AbstractCountingAlbumModel : public AbstractSpecificAlbumModel
 {
     Q_OBJECT
 
@@ -313,7 +314,7 @@ private:
 
 // ------------------------------------------------------------------
 
-class AbstractCheckableAlbumModel : public AbstractCountingAlbumModel
+class DIGIKAM_EXPORT AbstractCheckableAlbumModel : public AbstractCountingAlbumModel
 {
     Q_OBJECT
 
@@ -404,7 +405,7 @@ public Q_SLOTS:
 Q_SIGNALS:
 
     /** Emitted when the check state of an album changes.
-     *  checkState contains the new Qt::CheckState of album 
+     *  checkState contains the new Qt::CheckState of album
      */
     void checkStateChanged(Album* album, Qt::CheckState checkState);
 

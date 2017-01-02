@@ -6,7 +6,7 @@
  * Date        : 2008-02-21
  * Description : simple viewer export settings container.
  *
- * Copyright (C) 2008-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2011      by Veaceslav Munteanu <slavuttici@gmail.com>
  *
  * This program is free software; you can redistribute it
@@ -32,11 +32,11 @@
 
 // KDE includes
 
-#include <kurl.h>
+#include <QUrl>
 
-// Include files for KIPI
+// Libkipi includes
 
-#include <libkipi/imagecollection.h>
+#include <KIPI/ImageCollection>
 
 namespace KIPIFlashExportPlugin
 {
@@ -53,6 +53,7 @@ public:
         TOP,
         BOTTOM
     };
+
     enum PluginType
     {
         SIMPLE = 0,
@@ -60,6 +61,7 @@ public:
         TILT,
         POSTCARD
     };
+
     enum ImageGetOption
     {
         COLLECTION = 0,
@@ -70,16 +72,16 @@ public:
 
     SimpleViewerSettingsContainer()
     {
-        /** All items must be initialized in constructor to avoid warinings **/
+        // All items must be initialized in constructor to avoid warnings
         plugType             = SIMPLE;
         imgGetOption         = COLLECTION;
-        exportUrl            = KUrl();
+        exportPath           = QString();
 
         enableRightClickOpen = false;
         resizeExportImages   = false;
         showComments         = false;
         fixOrientation       = false;
-        openInKonqueror      = false;
+        openInBrowser        = false;
         showKeywords         = false;
 
         title                = QString();
@@ -88,7 +90,7 @@ public:
         frameColor           = QColor();
 
         thumbnailColumns     = 0; // columns
-        thumbnailRows        = 0;    // rows
+        thumbnailRows        = 0; // rows
 
         imagesExportSize     = 0;
         frameWidth           = 0;
@@ -117,7 +119,7 @@ public:
         zoomInPerc           = 0;
 
         collections          = QList<KIPI::ImageCollection>();
-        imageDialogList      = KUrl::List();
+        imageDialogList      = QList<QUrl>();
     };
 
     ~SimpleViewerSettingsContainer()
@@ -129,10 +131,10 @@ public:
         switch(imgGetOption)
         {
             case COLLECTION:
-                return QString("Collections");
+                return QLatin1String("Collections");
                 break;
             case IMAGEDIALOG:
-                return QString("Image Dialog");
+                return QLatin1String("Image Dialog");
         }
     };
 
@@ -141,19 +143,19 @@ public:
         switch(plugType)
         {
             case SIMPLE:
-                return QString("SimpleViewer");
+                return QLatin1String("SimpleViewer");
                 break;
 
             case AUTO:
-                return QString("AutoViewer");
+                return QLatin1String("AutoViewer");
                 break;
 
             case TILT:
-                return QString("TiltViewer");
+                return QLatin1String("TiltViewer");
                 break;
 
             case POSTCARD:
-                return QString("PostcardViewer");
+                return QLatin1String("PostcardViewer");
         }
     };
 
@@ -162,19 +164,19 @@ public:
         switch(thumbnailPosition)
         {
             case RIGHT:
-                return QString("right");
+                return QLatin1String("right");
                 break;
 
             case LEFT:
-                return QString("left");
+                return QLatin1String("left");
                 break;
 
             case TOP:
-                return QString("top");
+                return QLatin1String("top");
                 break;
 
             default: // BOTTOM
-                return QString("bottom");
+                return QLatin1String("bottom");
                 break;
         }
     };
@@ -182,9 +184,9 @@ public:
     QString enableRightClickToOpen() const
     {
         if (enableRightClickOpen)
-            return QString("true");
+            return QLatin1String("true");
 
-        return QString("false");
+        return QLatin1String("false");
     };
 
 public:
@@ -196,13 +198,13 @@ public:
 
 
     //Settings for all plug-ins
-    KUrl                         exportUrl;
+    QString                      exportPath;
 
     bool                         enableRightClickOpen;
     bool                         resizeExportImages;
     bool                         showComments;
     bool                         fixOrientation;
-    bool                         openInKonqueror;
+    bool                         openInBrowser;
     bool                         showKeywords;
 
     QString                      title;
@@ -241,7 +243,7 @@ public:
     int                          zoomInPerc;
 
     QList<KIPI::ImageCollection> collections;
-    KUrl::List                   imageDialogList;
+    QList<QUrl>                  imageDialogList;
 };
 
 }  // namespace KIPIFlashExportPlugin

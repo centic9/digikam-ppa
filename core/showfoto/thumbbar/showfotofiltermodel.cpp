@@ -6,7 +6,7 @@
  * Date        : 30-07-2013
  * Description : Qt filter model for showfoto items
  *
- * Copyright (C) 2013 by Mohamed Anwer <mohammed dot ahmed dot anwer at gmail dot com>
+ * Copyright (C) 2013 by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "showfotofiltermodel.moc"
+#include "showfotofiltermodel.h"
 
 // Local includes
 
@@ -31,7 +31,7 @@ namespace ShowFoto
 {
 
 ShowfotoSortFilterModel::ShowfotoSortFilterModel(QObject* const parent)
-    : KCategorizedSortFilterProxyModel(parent),
+    : DCategorizedSortFilterProxyModel(parent),
       m_chainedModel(0)
 {
 }
@@ -154,10 +154,8 @@ QList<ShowfotoItemInfo> ShowfotoSortFilterModel::showfotoItemInfos(const QList<Q
     return infos;
 }
 
-QModelIndex ShowfotoSortFilterModel::indexForPath(const QString& filePath) const
+QModelIndex ShowfotoSortFilterModel::indexForUrl(const QUrl& fileUrl) const
 {
-    KUrl fileUrl;
-    fileUrl.setPath(filePath);
     return mapFromSourceShowfotoModel(sourceShowfotoModel()->indexForUrl(fileUrl));
 }
 
@@ -196,7 +194,7 @@ ShowfotoFilterModel* ShowfotoSortFilterModel::showfotoFilterModel() const
 
 void ShowfotoSortFilterModel::setSourceModel(QAbstractItemModel* sourceModel)
 {
-    KCategorizedSortFilterProxyModel::setSourceModel(sourceModel);
+    DCategorizedSortFilterProxyModel::setSourceModel(sourceModel);
 }
 
 void ShowfotoSortFilterModel::setDirectSourceShowfotoModel(ShowfotoImageModel* const sourceModel)
@@ -260,7 +258,7 @@ QVariant ShowfotoFilterModel::data(const QModelIndex& index, int role) const
 
     switch (role)
     {
-        case KCategorizedSortFilterProxyModel::CategoryDisplayRole:
+        case DCategorizedSortFilterProxyModel::CategoryDisplayRole:
             return categoryIdentifier(d->showfotoImageModel->showfotoItemInfoRef(mapToSource(index)));
 
         case CategorizationModeRole:
@@ -276,7 +274,7 @@ QVariant ShowfotoFilterModel::data(const QModelIndex& index, int role) const
             return QVariant::fromValue(const_cast<ShowfotoFilterModel*>(this));
     }
 
-    return KCategorizedSortFilterProxyModel::data(index, role);
+    return DCategorizedSortFilterProxyModel::data(index, role);
 }
 
 ShowfotoFilterModel* ShowfotoFilterModel::showfotoFilterModel() const
@@ -319,11 +317,9 @@ void ShowfotoFilterModel::setSendShowfotoItemInfoSignals(bool sendSignals)
 {
     if (sendSignals)
     {
-        connect(this, SIGNAL(rowsInserted(QModelIndex,int,int)),
-                this, SLOT(slotRowsInserted(QModelIndex,int,int)));
+        connect(this, &ShowfotoFilterModel::rowsInserted, this, &ShowfotoFilterModel::slotRowsInserted);
 
-        connect(this, SIGNAL(rowsAboutToBeRemoved(QModelIndex,int,int)),
-                this, SLOT(slotRowsAboutToBeRemoved(QModelIndex,int,int)));
+        connect(this, &ShowfotoFilterModel::rowsAboutToBeRemoved, this, &ShowfotoFilterModel::slotRowsAboutToBeRemoved);
     }
     else
     {

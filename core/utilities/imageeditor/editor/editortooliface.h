@@ -6,7 +6,7 @@
  * Date        : 2008-08-20
  * Description : Image editor interface used by editor tools.
  *
- * Copyright (C) 2008-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -39,6 +39,7 @@ class EditorTool;
 class EditorWindow;
 class ExposureSettingsContainer;
 class ICCSettingsContainer;
+class DCategorizedView;
 
 class DIGIKAM_EXPORT EditorToolIface : public QObject
 {
@@ -57,6 +58,7 @@ public:
     void unLoadTool();
 
     void setPreviewModeMask(int mask);
+    void setToolsIconView(DCategorizedView* const view);
 
     void setToolStartProgress(const QString& toolName);
     void setToolProgress(int progress);

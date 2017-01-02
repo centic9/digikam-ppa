@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * Copyright (C) 2007-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2004      by Till Adam <adam at kde dot org>
  *
@@ -23,7 +23,7 @@
  *
  * ============================================================ */
 
-#include "progressview.moc"
+#include "progressview.h"
 
 // Qt includes
 
@@ -41,18 +41,15 @@
 #include <QToolButton>
 #include <QMap>
 #include <QPixmap>
+#include <QIcon>
 
 // KDE includes
 
-#include <kdebug.h>
-#include <kdialog.h>
-#include <khbox.h>
-#include <kiconloader.h>
-#include <klocale.h>
-#include <kstandardguiitem.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "progressmanager.h"
 
 namespace Digikam
@@ -60,15 +57,15 @@ namespace Digikam
 
 class TransactionItem;
 
-TransactionItemView::TransactionItemView(QWidget* const parent, const char* name)
-    : QScrollArea( parent )
+TransactionItemView::TransactionItemView(QWidget* const parent, const QString& name)
+    : QScrollArea(parent)
 {
-    setObjectName( name );
-    setFrameStyle( NoFrame );
-    m_bigBox = new KVBox( this );
-    setWidget( m_bigBox );
-    setWidgetResizable( true );
-    setSizePolicy( QSizePolicy::Preferred, QSizePolicy::Fixed );
+    setObjectName(name);
+    setFrameStyle(NoFrame);
+    m_bigBox = new DVBox(this);
+    setWidget(m_bigBox);
+    setWidgetResizable(true);
+    setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
 }
 
 TransactionItem* TransactionItemView::addTransactionItem(ProgressItem* const item, bool first)
@@ -120,9 +117,9 @@ QSize TransactionItemView::minimumSizeHint() const
 
 void TransactionItemView::slotLayoutFirstItem()
 {
-    //This slot is called whenever a TransactionItem is deleted, so this is a
-    //good place to call updateGeometry(), so our parent takes the new size
-    //into account and resizes.
+    // This slot is called whenever a TransactionItem is deleted, so this is a
+    // good place to call updateGeometry(), so our parent takes the new size
+    // into account and resizes.
     updateGeometry();
 
     /*
@@ -134,7 +131,7 @@ void TransactionItemView::slotLayoutFirstItem()
         be the first item very shortly. That's the one we want to remove the
         hline for.
     */
-    TransactionItem* const ti = m_bigBox->findChild<TransactionItem*>("TransactionItem");
+    TransactionItem* const ti = m_bigBox->findChild<TransactionItem*>(QLatin1String("TransactionItem"));
 
     if (ti)
     {
@@ -177,11 +174,12 @@ public:
 };
 
 TransactionItem::TransactionItem(QWidget* const parent, ProgressItem* const item, bool first)
-    : KVBox(parent), d(new Private)
+    : DVBox(parent),
+      d(new Private)
 {
     d->item  = item;
     setSpacing(2);
-    setMargin(2);
+    setContentsMargins(2, 2, 2, 2);
     setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed));
 
     d->frame = new QFrame(this);
@@ -191,14 +189,14 @@ TransactionItem::TransactionItem(QWidget* const parent, ProgressItem* const item
     setStretchFactor(d->frame, 3);
     layout()->addWidget(d->frame);
 
-    KHBox* h = new KHBox(this);
+    DHBox* h = new DHBox(this);
     h->setSpacing(5);
     layout()->addWidget(h);
 
     if (item->hasThumbnail())
     {
         d->itemThumb = new QLabel(h);
-        d->itemThumb->setFixedSize(QSize(KIconLoader::SizeSmallMedium, KIconLoader::SizeSmallMedium));
+        d->itemThumb->setFixedSize(QSize(22, 22));
         h->layout()->addWidget(d->itemThumb);
         h->setSizePolicy(QSizePolicy(QSizePolicy::Fixed, QSizePolicy::Fixed));
     }
@@ -214,7 +212,7 @@ TransactionItem::TransactionItem(QWidget* const parent, ProgressItem* const item
 
     if (item->canBeCanceled())
     {
-        d->cancelButton = new QPushButton(SmallIcon("dialog-cancel"), QString(), h);
+        d->cancelButton = new QPushButton(QIcon::fromTheme(QLatin1String("dialog-cancel")), QString(), h);
         d->cancelButton->setToolTip( i18n("Cancel this operation."));
 
         connect(d->cancelButton, SIGNAL(clicked()),
@@ -223,7 +221,7 @@ TransactionItem::TransactionItem(QWidget* const parent, ProgressItem* const item
         h->layout()->addWidget(d->cancelButton);
     }
 
-    h = new KHBox(this);
+    h = new DHBox(this);
     h->setSpacing(5);
     h->setSizePolicy(QSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed));
     layout()->addWidget(h);
@@ -316,33 +314,34 @@ public:
     QMap<const ProgressItem*, TransactionItem*> transactionsToListviewItems;
 };
 
-ProgressView::ProgressView(QWidget* const alignWidget, QWidget* const parent, const char* name)
-    : OverlayWidget(alignWidget, parent, name), d(new Private)
+ProgressView::ProgressView(QWidget* const alignWidget, QWidget* const parent, const QString& name)
+    : OverlayWidget(alignWidget, parent, name),
+      d(new Private)
 {
     setFrameStyle(QFrame::Panel | QFrame::Sunken);
     setAutoFillBackground(true);
 
-    d->scrollView = new TransactionItemView( this, "ProgressScrollView" );
+    d->scrollView = new TransactionItemView(this, QLatin1String("ProgressScrollView"));
     layout()->addWidget( d->scrollView );
 
     // No more close button for now, since there is no more autoshow
-    /*
-        QVBox* rightBox = new QVBox( this );
-        QToolButton* pbClose = new QToolButton( rightBox );
-        pbClose->setAutoRaise(true);
-        pbClose->setSizePolicy( QSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed ) );
-        pbClose->setFixedSize( 16, 16 );
-        pbClose->setIcon( KIconLoader::global()->loadIconSet( "window-close", KIconLoader::Small, 14 ) );
-        pbClose->setToolTip( i18n( "Hide detailed progress window" ) );
-        connect(pbClose, SIGNAL(clicked()), this, SLOT(slotClose()));
-        QWidget* spacer = new QWidget( rightBox ); // don't let the close button take up all the height
-        rightBox->setStretchFactor( spacer, 100 );
-    */
+/*
+    QVBox* const rightBox      = new QVBox( this );
+    QToolButton* const pbClose = new QToolButton( rightBox );
+    pbClose->setAutoRaise(true);
+    pbClose->setSizePolicy( QSizePolicy( QSizePolicy::Fixed, QSizePolicy::Fixed ) );
+    pbClose->setFixedSize( 16, 16 );
+    pbClose->setIcon( KIconLoader::global()->loadIconSet( "window-close", KIconLoader::Small, 14 ) );
+    pbClose->setToolTip( i18n( "Hide detailed progress window" ) );
+    connect(pbClose, SIGNAL(clicked()), this, SLOT(slotClose()));
+    QWidget* const spacer = new QWidget( rightBox ); // don't let the close button take up all the height
+    rightBox->setStretchFactor( spacer, 100 );
+*/
 
     /*
-    * Get the singleton ProgressManager item which will inform us of
-    * appearing and vanishing items.
-    */
+     * Get the singleton ProgressManager item which will inform us of
+     * appearing and vanishing items.
+     */
     ProgressManager* const pm = ProgressManager::instance();
 
     connect(pm, SIGNAL(progressItemAdded(ProgressItem*)),
@@ -406,7 +405,16 @@ void ProgressView::slotTransactionAdded(ProgressItem* item)
         {
             d->transactionsToListviewItems.insert( item, ti );
         }
-        if ( first && d->wasLastShown )
+
+        if (item->showAtStart())
+        {
+            // Force to show progress view for 5 seconds to inform user about new process add in queue.
+            QTimer::singleShot( 1000, this, SLOT(slotShow()) );
+            QTimer::singleShot( 6000, this, SLOT(slotClose()) );
+            return;
+        }
+
+        if (first && d->wasLastShown)
         {
             QTimer::singleShot( 1000, this, SLOT(slotShow()) );
         }
@@ -426,6 +434,7 @@ void ProgressView::slotTransactionCompleted(ProgressItem* item)
         connect ( ti, SIGNAL(destroyed()),
                 d->scrollView, SLOT(slotLayoutFirstItem()) );
     }
+
     // This was the last item, hide.
     if ( d->transactionsToListviewItems.empty() )
     {
@@ -469,6 +478,7 @@ void ProgressView::slotTransactionUsesBusyIndicator(ProgressItem* item, bool val
     if (d->transactionsToListviewItems.contains(item))
     {
         TransactionItem* const ti = d->transactionsToListviewItems[item];
+
         if (value)
         {
             ti->setTotalSteps(0);
@@ -518,10 +528,10 @@ void ProgressView::setVisible(bool b)
 void ProgressView::slotToggleVisibility()
 {
     /* Since we are only hiding with a timeout, there is a short period of
-    * time where the last item is still visible, but clicking on it in
-    * the statusbarwidget should not display the dialog, because there
-    * are no items to be shown anymore. Guard against that.
-    */
+     * time where the last item is still visible, but clicking on it in
+     * the statusbarwidget should not display the dialog, because there
+     * are no items to be shown anymore. Guard against that.
+     */
     d->wasLastShown = isHidden();
 
     if ( !isHidden() || !d->transactionsToListviewItems.isEmpty() )

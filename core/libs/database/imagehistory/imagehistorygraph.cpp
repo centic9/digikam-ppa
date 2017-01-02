@@ -23,18 +23,12 @@
 
 #include "imagehistorygraph.h"
 
-// Qt includes
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kglobal.h>
-
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimagehistory.h"
-#include "imagehistorygraphdata.h"
 #include "imagescanner.h"
+#include "imagehistorygraphdata.h"
 
 namespace Digikam
 {
@@ -48,7 +42,7 @@ public:
     ImageHistoryGraphDataSharedNull() : QSharedDataPointer<ImageHistoryGraphData>(new ImageHistoryGraphData) {}
 };
 
-K_GLOBAL_STATIC(ImageHistoryGraphDataSharedNull, imageHistoryGraphDataSharedNull)
+Q_GLOBAL_STATIC(ImageHistoryGraphDataSharedNull, imageHistoryGraphDataSharedNull)
 
 // -----------------------------------------------------------------------------------------------
 
@@ -129,7 +123,7 @@ bool HistoryVertexProperties::operator==(const HistoryImageId& other) const
     {
         if (ImageScanner::sameReferredImage(id, other))
         {
-            //kDebug() << id << "is the same as" << other;
+            //qCDebug(DIGIKAM_DATABASE_LOG) << id << "is the same as" << other;
             return true;
         }
     }
@@ -211,8 +205,7 @@ HistoryEdgeProperties& HistoryEdgeProperties::operator+=(const FilterAction& act
 
 // -----------------------------------------------------------------------------------------------
 
-HistoryGraph::Vertex
-ImageHistoryGraphData::addVertex(const QList<HistoryImageId>& imageIds)
+HistoryGraph::Vertex ImageHistoryGraphData::addVertex(const QList<HistoryImageId>& imageIds)
 {
     if (imageIds.isEmpty())
     {
@@ -229,8 +222,7 @@ ImageHistoryGraphData::addVertex(const QList<HistoryImageId>& imageIds)
     return v;
 }
 
-HistoryGraph::Vertex
-ImageHistoryGraphData::addVertex(const HistoryImageId& imageId)
+HistoryGraph::Vertex ImageHistoryGraphData::addVertex(const HistoryImageId& imageId)
 {
     if (!imageId.isValid())
     {
@@ -239,13 +231,13 @@ ImageHistoryGraphData::addVertex(const HistoryImageId& imageId)
 
     Vertex v;
     QList<ImageInfo> infos;
-    //kDebug() << "Adding vertex" << imageId.m_uuid.left(6) << imageId.fileName();
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Adding vertex" << imageId.m_uuid.left(6) << imageId.fileName();
 
     // find by UUID
 
     // find by HistoryImageId (most notably, by UUID)
     v = findVertexByProperties(imageId);
-    //kDebug() << "Found by properties:" << (v.isNull() ? -1 : int(v));
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Found by properties:" << (v.isNull() ? -1 : int(v));
 
     if (v.isNull())
     {
@@ -253,7 +245,7 @@ ImageHistoryGraphData::addVertex(const HistoryImageId& imageId)
         foreach(qlonglong id, ImageScanner::resolveHistoryImageId(imageId))
         {
             ImageInfo info(id);
-            //kDebug() << "Found info id:" << info.id();
+            //qCDebug(DIGIKAM_DATABASE_LOG) << "Found info id:" << info.id();
             infos << info;
 
             if (v.isNull())
@@ -264,7 +256,7 @@ ImageHistoryGraphData::addVertex(const HistoryImageId& imageId)
     }
 
     applyProperties(v, infos, QList<HistoryImageId>() << imageId);
-    //kDebug() << "Returning vertex" << v;
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Returning vertex" << v;
     return v;
 }
 
@@ -282,7 +274,7 @@ HistoryGraph::Vertex ImageHistoryGraphData::addVertex(const ImageInfo& info)
     // Simply find by image id
     v = findVertexByProperties(info);
 
-    //kDebug() << "Find by id" << info.id() << ": found" << v.isNull();
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Find by id" << info.id() << ": found" << v.isNull();
     if (v.isNull())
     {
         // Find by contents
@@ -293,12 +285,12 @@ HistoryGraph::Vertex ImageHistoryGraphData::addVertex(const ImageInfo& info)
             v = findVertexByProperties(uuid);
         }
 
-        //kDebug() << "Find by uuid" << uuid << ": found" << v.isNull();
+        //qCDebug(DIGIKAM_DATABASE_LOG) << "Find by uuid" << uuid << ": found" << v.isNull();
         if (v.isNull())
         {
             id = info.historyImageId();
             v  = findVertexByProperties(id);
-            //kDebug() << "Find by h-i-m" << ": found" << v.isNull();
+            //qCDebug(DIGIKAM_DATABASE_LOG) << "Find by h-i-m" << ": found" << v.isNull();
         }
 
         // Need to add new vertex. Do this through the method which will resolve the history id
@@ -309,7 +301,7 @@ HistoryGraph::Vertex ImageHistoryGraphData::addVertex(const ImageInfo& info)
     }
 
     applyProperties(v, QList<ImageInfo>() << info, QList<HistoryImageId>() << id);
-    //kDebug() << "Returning vertex" << v << properties(v).infos.size();
+    //qCDebug(DIGIKAM_DATABASE_LOG) << "Returning vertex" << v << properties(v).infos.size();
     return v;
 }
 
@@ -337,6 +329,7 @@ void ImageHistoryGraphData::applyProperties(Vertex& v, const QList<ImageInfo>& i
     {
         props += info;
     }
+
     foreach(const HistoryImageId& id, ids)
     {
         props += id;
@@ -346,6 +339,7 @@ void ImageHistoryGraphData::applyProperties(Vertex& v, const QList<ImageInfo>& i
 int ImageHistoryGraphData::removeNextUnresolvedVertex(int index)
 {
     QList<Vertex> vs = vertices();
+
     for (; index<vs.size(); ++index)
     {
         Vertex& v = vs[index];
@@ -364,16 +358,19 @@ int ImageHistoryGraphData::removeNextUnresolvedVertex(int index)
                     setProperties(connection, combinedProps);
                 }
             }
+
             remove(v);
             return index;
         }
     }
+
     return index;
 }
 
 QHash<HistoryGraph::Vertex, HistoryImageId::Types> ImageHistoryGraphData::categorize() const
 {
     QHash<Vertex, HistoryImageId::Types> types;
+
     foreach(const Vertex& v, vertices())
     {
         const HistoryVertexProperties& props = properties(v);
@@ -411,9 +408,11 @@ QHash<HistoryGraph::Vertex, HistoryImageId::Types> ImageHistoryGraphData::catego
         {
             // We check if all immediate actions set the ExplicitBranch flag
             bool allBranches = true;
+
             foreach(const Edge& e, edges(v, EdgesToLeaf))
             {
                 const HistoryEdgeProperties& props = properties(e);
+
                 if (props.actions.isEmpty())
                 {
                     continue; // unclear situation, ignore
@@ -425,6 +424,7 @@ QHash<HistoryGraph::Vertex, HistoryImageId::Types> ImageHistoryGraphData::catego
                     break;
                 }
             }
+
             if (allBranches)
             {
                 type |= HistoryImageId::Current;
@@ -433,6 +433,7 @@ QHash<HistoryGraph::Vertex, HistoryImageId::Types> ImageHistoryGraphData::catego
 
         types[v] = type;
     }
+
     return types;
 }
 
@@ -586,7 +587,7 @@ void ImageHistoryGraphData::addHistory(const DImageHistory& history, qlonglong e
                 }
                 else
                 {
-                    kWarning() << "Broken history: Same file referred by different entries. Refusing to add a loop.";
+                    qCWarning(DIGIKAM_DATABASE_LOG) << "Broken history: Same file referred by different entries. Refusing to add a loop.";
                 }
             }
 
@@ -610,6 +611,7 @@ void ImageHistoryGraph::addRelations(const QList<QPair<qlonglong, qlonglong> >& 
 {
     HistoryGraph::Vertex v1, v2;
     typedef QPair<qlonglong, qlonglong> IdPair;
+
     foreach(const IdPair& pair, pairs)
     {
         if (pair.first < 1 || pair.second < 1)
@@ -619,12 +621,12 @@ void ImageHistoryGraph::addRelations(const QList<QPair<qlonglong, qlonglong> >& 
 
         if (pair.first == pair.second)
         {
-            kWarning() << "Broken relations cloud: Refusing to add a loop.";
+            qCWarning(DIGIKAM_DATABASE_LOG) << "Broken relations cloud: Refusing to add a loop.";
         }
 
         v1 = d->addVertex(pair.first);
         v2 = d->addVertex(pair.second);
-        //kDebug() << "Adding" << v1 << "->" << v2;
+        //qCDebug(DIGIKAM_DATABASE_LOG) << "Adding" << v1 << "->" << v2;
         d->addEdge(v1, v2);
     }
 }
@@ -649,7 +651,7 @@ void ImageHistoryGraph::reduceEdges()
         if (!d->properties(e).actions.isEmpty())
         {
             // TODO: conflict resolution
-            kDebug() << "Conflicting history information: Edge removed by transitiveReduction is not empty.";
+            qCDebug(DIGIKAM_DATABASE_LOG) << "Conflicting history information: Edge removed by transitiveReduction is not empty.";
         }
     }
 
@@ -665,6 +667,7 @@ bool ImageHistoryGraph::hasUnresolvedEntries() const
             return true;
         }
     }
+
     return false;
 }
 
@@ -684,6 +687,7 @@ void ImageHistoryGraph::sortForInfo(const ImageInfo& subject)
 {
     // Remove nodes which could not be resolved into image infos
     QList<HistoryGraph::Vertex> toRemove;
+
     foreach(const HistoryGraph::Vertex& v, d->vertices())
     {
         HistoryVertexProperties& props = d->properties(v);
@@ -703,6 +707,7 @@ QList<QPair<qlonglong, qlonglong> > ImageHistoryGraph::relationCloud() const
     QList<QPair<qlonglong, qlonglong> > pairs;
     ImageHistoryGraphData closure         = d->transitiveClosure();
     QList<HistoryGraph::VertexPair> edges = closure.edgePairs();
+
     foreach(const HistoryGraph::VertexPair& edge, edges)
     {
         foreach(const ImageInfo& source, closure.properties(edge.first).infos)
@@ -713,6 +718,7 @@ QList<QPair<qlonglong, qlonglong> > ImageHistoryGraph::relationCloud() const
             }
         }
     }
+
     return pairs;
 }
 
@@ -721,6 +727,7 @@ QPair<QList<qlonglong>, QList<qlonglong> > ImageHistoryGraph::relationCloudParal
     QList<qlonglong> subjects, objects;
     ImageHistoryGraphData closure         = d->transitiveClosure();
     QList<HistoryGraph::VertexPair> edges = closure.edgePairs();
+
     foreach(const HistoryGraph::VertexPair& edge, edges)
     {
         foreach(const ImageInfo& source, closure.properties(edge.first).infos)
@@ -732,6 +739,7 @@ QPair<QList<qlonglong>, QList<qlonglong> > ImageHistoryGraph::relationCloudParal
             }
         }
     }
+
     return qMakePair(subjects, objects);
 }
 
@@ -743,6 +751,7 @@ QList<ImageInfo> ImageHistoryGraph::allImages() const
 QList<qlonglong> ImageHistoryGraph::allImageIds() const
 {
     QList<qlonglong> ids;
+
     foreach(const HistoryGraph::Vertex& v, d->vertices())
     {
         foreach(const ImageInfo& info, d->properties(v).infos)
@@ -750,6 +759,7 @@ QList<qlonglong> ImageHistoryGraph::allImageIds() const
             ids << info.id();
         }
     }
+
     return ids;
 }
 
@@ -768,28 +778,33 @@ QHash<ImageInfo, HistoryImageId::Types> ImageHistoryGraph::categorize() const
     QHash<HistoryGraph::Vertex, HistoryImageId::Types> vertexType = d->categorize();
 
     QHash<ImageInfo, HistoryImageId::Types> types;
+
     foreach(const HistoryGraph::Vertex& v, d->vertices())
     {
         const HistoryVertexProperties& props = d->properties(v);
+
         if (props.infos.isEmpty())
         {
             continue;
         }
 
         HistoryImageId::Types type = vertexType.value(v);
+
         foreach(const ImageInfo& info, props.infos)
         {
             types[info] = type;
         }
     }
+
     return types;
 }
 
 static QString toString(const HistoryVertexProperties& props)
 {
     QString s;
-    s = "Ids: ";
+    s = QLatin1String("Ids: ");
     QStringList ids;
+
     foreach(const ImageInfo& info, props.infos)
     {
         ids << QString::number(info.id());
@@ -799,22 +814,22 @@ static QString toString(const HistoryVertexProperties& props)
     {
         if (ids.size() == 1)
         {
-            return QString("Id: ") + ids.first();
+            return QLatin1String("Id: ") + ids.first();
         }
         else
         {
-            return QString("Ids: (") + ids.join(",") + ')';
+            return QLatin1String("Ids: (") + ids.join(QLatin1String(",")) + QLatin1Char(')');
         }
     }
     else
     {
         if (ids.size() == 1)
         {
-            return QString("Id: ") + ids.first() + " UUID: " + props.uuid.left(6) + "...";
+            return QLatin1String("Id: ") + ids.first() + QLatin1String(" UUID: ") + props.uuid.left(6) + QLatin1String("...");
         }
         else
         {
-            return QString("Ids: (") + ids.join(",") + ") UUID: " + props.uuid.left(6) + "...";
+            return QLatin1String("Ids: (") + ids.join(QLatin1String(",")) + QLatin1String(") UUID: ") + props.uuid.left(6) + QLatin1String("...");
         }
     }
 }
@@ -844,19 +859,23 @@ QDebug operator<<(QDebug dbg, const ImageHistoryGraph& g)
         QString targetString = toString(g.data().properties(target));
 
         QStringList sourceVertexTexts;
+
         foreach(const HistoryGraph::Vertex& source, g.data().adjacentVertices(target, HistoryGraph::InboundEdges))
         {
             sourceVertexTexts << toString(g.data().properties(source));
         }
 
         if (!sourceVertexTexts.isEmpty())
-            dbg.nospace() << QString("{ ") + targetString + " } "
-                          "-> { " + sourceVertexTexts.join(" }, { ") + " }" << endl;
+        {
+            dbg.nospace() << QLatin1String("{ ") + targetString + QLatin1String(" } ") +
+                          QLatin1String("-> { ") + sourceVertexTexts.join(QLatin1String(" }, { ")) + QLatin1String(" }") << endl;
+        }
         else if (g.data().outDegree(target) == 0)
         {
-            dbg.nospace() << QString("Unconnected: { ") + targetString + " }" << endl;
+            dbg.nospace() << QLatin1String("Unconnected: { ") + targetString + QLatin1String(" }") << endl;
         }
     }
+
     return dbg;
 }
 

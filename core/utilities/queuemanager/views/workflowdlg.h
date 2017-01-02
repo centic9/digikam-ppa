@@ -6,7 +6,7 @@
  * Date        : 2012-12-19
  * Description : Workflow properties dialog.
  *
- * Copyright (C) 2012-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,10 +29,7 @@
 #include <QDateTime>
 #include <QString>
 #include <QStringList>
-
-// KDE includes
-
-#include <kdialog.h>
+#include <QDialog>
 
 // Locale includes
 
@@ -41,7 +38,7 @@
 namespace Digikam
 {
 
-class WorkflowDlg : public KDialog
+class WorkflowDlg : public QDialog
 {
     Q_OBJECT
 
@@ -61,6 +58,7 @@ public:
 private Q_SLOTS:
 
     void slotTitleChanged(const QString& text);
+    void slotHelp();
 
 private:
 

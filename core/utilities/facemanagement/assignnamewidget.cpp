@@ -21,34 +21,28 @@
  *
  * ============================================================ */
 
-#include "assignnamewidget.moc"
+#include "assignnamewidget.h"
 
 // Qt includes
 
 #include <QGridLayout>
 #include <QKeyEvent>
 #include <QToolButton>
-
-// KDE includes
-
-#include <kdebug.h>
-#include <kapplication.h>
-#include <kglobalsettings.h>
-#include <kstandardguiitem.h>
-
-// kdcraw includes
-
-#include <libkdcraw/rexpanderbox.h>
+#include <QApplication>
+#include <QIcon>
+#include <QFontDatabase>
 
 // Local includes
 
+#include "dexpanderbox.h"
+#include "digikam_debug.h"
 #include "addtagscombobox.h"
-#include "addtagscompletionbox.h"
+#include "tagscompleter.h"
 #include "addtagslineedit.h"
 #include "album.h"
 #include "albummanager.h"
 #include "albumtreeview.h"
-#include "databaseface.h"
+#include "facetagsiface.h"
 #include "dimg.h"
 #include "imageinfo.h"
 #include "thememanager.h"
@@ -91,7 +85,7 @@ private:
     void         updateLayout();
     void         updateVisualStyle();
 
-    QToolButton* createToolButton(const KGuiItem& item) const;
+    QToolButton* createToolButton(const QIcon& icon, const QString& text, const QString& tip = QString()) const;
 
     QWidget* addTagsWidget() const
     {
@@ -127,7 +121,7 @@ public:
     AddTagsLineEdit*           lineEdit;
     QToolButton*               confirmButton;
     QToolButton*               rejectButton;
-    RClickLabel*               clickLabel;
+    DClickLabel*               clickLabel;
 
     bool                       modelsGiven;
     TagModel*                  tagModel;
@@ -166,12 +160,12 @@ void AssignNameWidget::Private::clearWidgets()
     clickLabel = 0;
 }
 
-QToolButton* AssignNameWidget::Private::createToolButton(const KGuiItem& gui) const
+QToolButton* AssignNameWidget::Private::createToolButton(const QIcon& icon, const QString& text, const QString& tip) const
 {
     QToolButton* const b = new QToolButton;
-    b->setIcon(gui.icon());
-    b->setText(gui.text());
-    b->setToolTip(gui.toolTip());
+    b->setIcon(icon);
+    b->setText(text);
+    b->setToolTip(tip);
     b->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
     return b;
 }
@@ -242,7 +236,6 @@ void AssignNameWidget::Private::checkWidgets()
                     if (!lineEdit)
                     {
                         lineEdit = new AddTagsLineEdit(q);
-                        lineEdit->setClearButtonShown(true);
                         setupAddTagsWidget(lineEdit);
                     }
 
@@ -251,7 +244,7 @@ void AssignNameWidget::Private::checkWidgets()
 
             if (!confirmButton)
             {
-                confirmButton = createToolButton(KStandardGuiItem::ok());
+                confirmButton = createToolButton(QIcon::fromTheme(QLatin1String("dialog-ok-apply")), i18n("Ok"));
 
                 if (mode == UnconfirmedEditMode)
                 {
@@ -265,7 +258,7 @@ void AssignNameWidget::Private::checkWidgets()
 
             if (!rejectButton)
             {
-                rejectButton = createToolButton(KStandardGuiItem::remove());
+                rejectButton = createToolButton(QIcon::fromTheme(QLatin1String("list-remove")), i18n("Remove"));
 
                 q->connect(rejectButton, SIGNAL(clicked()),
                            q, SLOT(slotReject()));
@@ -275,7 +268,7 @@ void AssignNameWidget::Private::checkWidgets()
 
         case ConfirmedMode:
         {
-            clickLabel = new RClickLabel;
+            clickLabel = new DClickLabel;
             clickLabel->setAlignment(Qt::AlignCenter);
 
             connect(clickLabel, SIGNAL(activated()),
@@ -290,11 +283,11 @@ void AssignNameWidget::Private::layoutAddTagsWidget(bool exceedBounds, int minim
     if (comboBox)
     {
         comboBox->setMinimumContentsLength(minimumContentsLength);
-        comboBox->completionBox()->setAllowExceedBounds(exceedBounds);
+        comboBox->lineEdit()->setAllowExceedBound(exceedBounds);
     }
     else
     {
-        lineEdit->completionBox()->setAllowExceedBounds(exceedBounds);
+        lineEdit->setAllowExceedBound(exceedBounds);
     }
 }
 
@@ -379,8 +372,8 @@ void AssignNameWidget::Private::updateLayout()
             layout->addWidget(clickLabel, 0, 0);
             break;
     }
-    
-    layout->setMargin(1);
+
+    layout->setContentsMargins(1, 1, 1, 1);
     layout->setSpacing(1);
     q->setLayout(layout);
 }
@@ -388,9 +381,9 @@ void AssignNameWidget::Private::updateLayout()
 static QString styleSheetFontDescriptor(const QFont& font)
 {
     QString s;
-    s += (font.pointSize() == -1) ? QString("font-size: %1px; ").arg(font.pixelSize())
-                                  : QString("font-size: %1pt; ").arg(font.pointSize());
-    s += QString("font-family: \"%1\"; ").arg(font.family());
+    s += (font.pointSize() == -1) ? QString::fromUtf8("font-size: %1px; ").arg(font.pixelSize())
+                                  : QString::fromUtf8("font-size: %1pt; ").arg(font.pointSize());
+    s += QString::fromUtf8("font-family: \"%1\"; ").arg(font.family());
     return s;
 }
 
@@ -409,7 +402,7 @@ void AssignNameWidget::Private::updateVisualStyle()
         case TranslucentDarkRound:
         {
             q->setStyleSheet(
-                QString(
+                QString::fromUtf8(
                     "QWidget { "
                     " %1 "
                     "} "
@@ -452,7 +445,7 @@ void AssignNameWidget::Private::updateVisualStyle()
                     "  background-color: transparent; "
                     "} "
 
-                    "QComboBox QAbstractItemView, KCompletionBox::item:!selected { "
+                    "QComboBox QAbstractItemView, QListView::item:!selected { "
                     "  color: white; "
                     "  background-color: rgba(0,0,0,80%); "
                     "} "
@@ -460,23 +453,16 @@ void AssignNameWidget::Private::updateVisualStyle()
                     "QLabel { "
                     "  color: white; background-color: transparent; border: none; "
                     " }"
-/*
-                    "KCompletionBox::item:hover, KCompletionBox::item:selected { "
-                    "  background-color: "
-                    "     qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(150,150,150,80%), "
-                    "                     stop:0.5 rgba(25,25,25,100%), stop:1 rgba(150,150,150,80%)); "
-                    " } "
-*/
-                ).arg(styleSheetFontDescriptor(KGlobalSettings::smallestReadableFont()))
+                ).arg(styleSheetFontDescriptor(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont)))
             );
             break;
         }
 
         case TranslucentThemedFrameless:
         {
-            QColor bg = kapp->palette().color(QPalette::Base);
+            QColor bg = qApp->palette().color(QPalette::Base);
             q->setStyleSheet(
-                QString(
+                QString::fromUtf8(
                     "QWidget { "
                     " %1 "
                     "} "
@@ -487,7 +473,7 @@ void AssignNameWidget::Private::updateVisualStyle()
                     "  border: none; "
                     "  border-radius: 8px; "
                     "} "
-                ).arg(styleSheetFontDescriptor(KGlobalSettings::smallestReadableFont()))
+                ).arg(styleSheetFontDescriptor(QFontDatabase::systemFont(QFontDatabase::SmallestReadableFont)))
                  .arg(bg.red())
                  .arg(bg.green())
                  .arg(bg.blue())
@@ -510,7 +496,7 @@ void AssignNameWidget::Private::setAddTagsWidgetContents(T* const widget)
     if (widget)
     {
         widget->setCurrentTag(currentTag);
-        widget->setClickMessage((mode == UnconfirmedEditMode) ? i18n("Who is this?") : QString());
+        widget->setPlaceholderText((mode == UnconfirmedEditMode) ? i18n("Who is this?") : QString());
 
         if (confirmButton)
         {
@@ -544,9 +530,10 @@ void AssignNameWidget::Private::updateContents()
 // -------------------------------------------------------------------
 
 AssignNameWidget::AssignNameWidget(QWidget* const parent)
-    : QFrame(parent), d(new Private(this))
+    : QFrame(parent),
+      d(new Private(this))
 {
-    setObjectName("assignNameWidget");
+    setObjectName(QLatin1String("assignNameWidget"));
     setVisualStyle(StyledFrame);
 }
 
@@ -688,7 +675,7 @@ QVariant AssignNameWidget::faceIdentifier() const
     return d->faceIdentifier;
 }
 
-void AssignNameWidget::setCurrentFace(const DatabaseFace& face)
+void AssignNameWidget::setCurrentFace(const FaceTagsIface& face)
 {
     TAlbum* album = 0;
 

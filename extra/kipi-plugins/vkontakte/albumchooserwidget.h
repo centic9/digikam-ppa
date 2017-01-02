@@ -30,7 +30,7 @@
 
 // LibKvkontakte includes
 
-#include <libkvkontakte/albuminfo.h>
+#include <Vkontakte/AlbumInfo>
 
 // Local includes
 
@@ -46,10 +46,10 @@
         return;                                          \
     }
 
-class KJob;
 class QToolButton;
-class KPushButton;
-class KComboBox;
+class QPushButton;
+class QComboBox;
+class KJob;
 
 namespace Vkontakte
 {
@@ -98,13 +98,13 @@ protected:
 
 private:
 
-    KComboBox*                     m_albumsCombo;
-    KPushButton*                   m_newAlbumButton;
-    KPushButton*                   m_reloadAlbumsButton;
+    QComboBox*                     m_albumsCombo;
+    QPushButton*                   m_newAlbumButton;
+    QPushButton*                   m_reloadAlbumsButton;
     QToolButton*                   m_editAlbumButton;
     QToolButton*                   m_deleteAlbumButton;
 
-    QList<Vkontakte::AlbumInfoPtr> m_albums;
+    QList<Vkontakte::AlbumInfo>    m_albums;
 
     /** album with this "aid" will be selected in slotAlbumsReloadDone() */
     int                            m_albumToSelect;

@@ -22,7 +22,7 @@
  *
  * ============================================================ */
 
-#include "printoptionspage.moc"
+#include "printoptionspage.h"
 
 // Qt includes
 
@@ -30,19 +30,19 @@
 #include <QGridLayout>
 #include <QToolButton>
 #include <QPushButton>
+#include <QApplication>
+#include <QStyle>
+#include <QHBoxLayout>
+#include <QMessageBox>
 
 // KDE includes
 
 #include <kconfigdialogmanager.h>
-#include <kconfig.h>
-#include <kglobal.h>
-#include <kglobalsettings.h>
-#include <kmessagebox.h>
-#include <kdebug.h>
 
 // Local includes
 
-#include "digikamconfig.h"
+#include "digikam_debug.h"
+#include "printconfig.h"
 #include "iccsettings.h"
 #include "iccsettingscontainer.h"
 #include "iccmanager.h"
@@ -98,17 +98,21 @@ public:
 
     void initColorManagement()
     {
-        colorManaged         = new QCheckBox(i18n("Use Color Management for Printing"), cmbox);
+        QHBoxLayout* const hlay = new QHBoxLayout(cmbox);
+        colorManaged            = new QCheckBox(i18n("Use Color Management for Printing"), cmbox);
         colorManaged->setChecked(false);
-        cmPreferences        = new QPushButton(i18n("Settings..."), cmbox);
-        QWidget* const space = new QWidget(cmbox);
-        cmbox->setStretchFactor(space, 10);
-        cmbox->setSpacing(KDialog::spacingHint());
+        cmPreferences           = new QPushButton(i18n("Settings..."), cmbox);
+        QWidget* const space    = new QWidget(cmbox);
+        hlay->addWidget(colorManaged);
+        hlay->addWidget(cmPreferences);
+        hlay->addWidget(space);
+        hlay->setStretchFactor(space, 10);
+        hlay->setSpacing(0);
     }
 
     void initPositionFrame()
     {
-        mPositionFrame->setStyleSheet(
+        mPositionFrame->setStyleSheet(QLatin1String(
             "QFrame {"
             " background-color: palette(mid);"
             " border: 1px solid palette(dark);"
@@ -124,10 +128,10 @@ public:
             "QToolButton:checked {"
             " background-color: palette(highlight);"
             "}"
-        );
+        ));
 
         QGridLayout* const layout = new QGridLayout(mPositionFrame);
-        layout->setMargin(0);
+        layout->setContentsMargins(QMargins());
         layout->setSpacing(1);
 
         for (int row = 0; row < 3; ++row)
@@ -174,12 +178,13 @@ public:
 };
 
 PrintOptionsPage::PrintOptionsPage(QWidget* const parent, const QSize& imageSize)
-    : QWidget(), d(new Private)
+    : QWidget(),
+      d(new Private)
 {
     d->setupUi(this);
     d->mParent              = parent;
     d->mImageSize           = imageSize;
-    d->mConfigDialogManager = new KConfigDialogManager(this, DigikamConfig::self());
+    d->mConfigDialogManager = new KConfigDialogManager(this, PrintConfig::self());
 
     d->initPositionFrame();
 
@@ -229,7 +234,7 @@ IccProfile PrintOptionsPage::outputProfile() const
 Qt::Alignment PrintOptionsPage::alignment() const
 {
     int id = d->mPositionGroup.checkedId();
-    kWarning() << "alignment=" << id;
+    qCWarning(DIGIKAM_GENERAL_LOG) << "alignment=" << id;
     return Qt::Alignment(id);
 }
 
@@ -286,7 +291,7 @@ void PrintOptionsPage::adjustHeightToRatio()
 
 void PrintOptionsPage::loadConfig()
 {
-    QAbstractButton* button = d->mPositionGroup.button(DigikamConfig::printPosition());
+    QAbstractButton* button = d->mPositionGroup.button(PrintConfig::printPosition());
 
     if (button)
     {
@@ -294,10 +299,10 @@ void PrintOptionsPage::loadConfig()
     }
     else
     {
-        kWarning() << "Unknown button for position group";
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Unknown button for position group";
     }
 
-    button = d->mScaleGroup.button(DigikamConfig::printScaleMode());
+    button = d->mScaleGroup.button(PrintConfig::printScaleMode());
 
     if (button)
     {
@@ -305,7 +310,7 @@ void PrintOptionsPage::loadConfig()
     }
     else
     {
-        kWarning() << "Unknown button for scale group";
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Unknown button for scale group";
     }
 
     d->mConfigDialogManager->updateWidgets();
@@ -315,7 +320,7 @@ void PrintOptionsPage::loadConfig()
         adjustHeightToRatio();
     }
 
-    d->colorManaged->setChecked(DigikamConfig::printColorManaged());
+    d->colorManaged->setChecked(PrintConfig::printColorManaged());
     ICCSettingsContainer settings = IccSettings::instance()->settings();
     d->outputProfile              = settings.defaultProofProfile;
     d->cmEnabled                  = settings.enableCM;
@@ -324,14 +329,14 @@ void PrintOptionsPage::loadConfig()
 void PrintOptionsPage::saveConfig()
 {
     int position        = d->mPositionGroup.checkedId();
-    DigikamConfig::setPrintPosition(position);
+    PrintConfig::setPrintPosition(position);
 
     ScaleMode scaleMode = ScaleMode(d->mScaleGroup.checkedId());
-    DigikamConfig::setPrintScaleMode(scaleMode);
+    PrintConfig::setPrintScaleMode(scaleMode);
 
     d->mConfigDialogManager->updateSettings();
 
-    DigikamConfig::self()->writeConfig();
+    PrintConfig::self()->save();
 }
 
 void PrintOptionsPage::slotAlertSettings(bool t)
@@ -340,7 +345,7 @@ void PrintOptionsPage::slotAlertSettings(bool t)
     {
         QString message = i18n("<p>Color Management is disabled.</p> "
                                "<p>You can enable it now by clicking on the \"Settings\" button.</p>");
-        KMessageBox::information(this, message);
+        QMessageBox::information(this, qApp->applicationName(), message);
         d->colorManaged->setChecked(!t);
     }
 }
@@ -348,8 +353,9 @@ void PrintOptionsPage::slotAlertSettings(bool t)
 void PrintOptionsPage::slotSetupDlg()
 {
     EditorWindow* const editor = dynamic_cast<EditorWindow*>(d->mParent);
+
     if (editor)
-        editor->setupICC();
+        editor->slotSetupICC();
 }
 
 } // namespace DigiKam

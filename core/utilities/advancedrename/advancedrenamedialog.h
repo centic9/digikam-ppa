@@ -7,6 +7,7 @@
  * Description : a rename dialog for the AdvancedRename utility
  *
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
+ * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -29,15 +30,13 @@
 #include <QList>
 #include <QPair>
 #include <QTreeWidgetItem>
-
-// KDE includes
-
-#include <kdialog.h>
-#include <kurl.h>
+#include <QUrl>
+#include <QDialog>
 
 // Local includes
 
 #include "imageinfo.h"
+#include "digikam_export.h"
 
 class QEvent;
 class QMoveEvent;
@@ -49,7 +48,7 @@ namespace Digikam
 
 class Parser;
 
-class AdvancedRenameListItem : public QTreeWidgetItem
+class DIGIKAM_EXPORT AdvancedRenameListItem : public QTreeWidgetItem
 {
 public:
 
@@ -61,12 +60,12 @@ public:
 
 public:
 
-    explicit AdvancedRenameListItem(QTreeWidget* view);
-    AdvancedRenameListItem(QTreeWidget* view, const KUrl& info);
+    explicit AdvancedRenameListItem(QTreeWidget* const view);
+    AdvancedRenameListItem(QTreeWidget* const view, const QUrl& info);
     virtual ~AdvancedRenameListItem();
 
-    void setImageUrl(const KUrl& url);
-    KUrl imageUrl() const;
+    void setImageUrl(const QUrl& url);
+    QUrl imageUrl() const;
 
     void setName(const QString& name);
     QString name() const;
@@ -75,7 +74,7 @@ public:
     QString newName() const;
 
     void markInvalid(bool invalid);
-    bool isNameEqual();
+    bool isNameEqual() const;
 
 private:
 
@@ -90,23 +89,23 @@ private:
 
 // --------------------------------------------------------
 
-typedef QPair<KUrl, QString> NewNameInfo;
+typedef QPair<QUrl, QString> NewNameInfo;
 typedef QList<NewNameInfo>   NewNamesList;
 
-class AdvancedRenameDialog : public KDialog
+class DIGIKAM_EXPORT AdvancedRenameDialog : public QDialog
 {
     Q_OBJECT
 
 public:
 
-    explicit AdvancedRenameDialog(QWidget* parent = 0);
+    explicit AdvancedRenameDialog(QWidget* const parent = 0);
     ~AdvancedRenameDialog();
 
-    NewNamesList newNames();
+    NewNamesList newNames() const;
 
 public Q_SLOTS:
 
-    void slotAddImages(const KUrl::List& urls);
+    void slotAddImages(const QList<QUrl>& urls);
 
 private Q_SLOTS:
 
@@ -117,6 +116,7 @@ private Q_SLOTS:
     void slotSortDirectionTriggered(QAction*);
 
     void slotShowContextMenu(const QPoint&);
+    void slotHelp();
 
 private:
 
@@ -129,9 +129,9 @@ private:
     void initDialog();
     void readSettings();
     void writeSettings();
-    bool checkNewNames();
+    bool checkNewNames() const;
 
-    NewNamesList filterNewNames();
+    NewNamesList filterNewNames() const;
 
 private:
 

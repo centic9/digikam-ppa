@@ -7,7 +7,7 @@
  * Description : Loader for thumbnails
  *
  * Copyright (C) 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2014 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -25,10 +25,6 @@
 
 #ifndef DIGIKAMTHUMBNAILCREATORPRIV_H
 #define DIGIKAMTHUMBNAILCREATORPRIV_H
-
-// KDE includes
-
-#include <klocale.h>
 
 // Local includes
 
@@ -77,7 +73,7 @@ public:
         onlyLargeThumbnails                       = false;
 
         // Used internaly as PNG metadata. Do not use i18n.
-        digiKamFingerPrint                        = QString("Digikam Thumbnail Generator");
+        digiKamFingerPrint                        = QLatin1String("Digikam Thumbnail Generator");
 
         fastRawSettings.optimizeTimeLoading();
         fastRawSettings.rawPrm.halfSizeColorImage = true;

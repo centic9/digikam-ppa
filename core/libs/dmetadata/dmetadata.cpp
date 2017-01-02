@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : image metadata interface
  *
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -31,54 +31,43 @@
 
 // Qt includes
 
-#include <QDomDocument>
 #include <QFile>
 #include <QFileInfo>
-
-// KDE includes
-
-#include <klocale.h>
-#include <kglobal.h>
-#include <kdebug.h>
-
-// LibKDcraw includes
-
-#include <libkdcraw/dcrawinfocontainer.h>
-#include <libkdcraw/kdcraw.h>
+#include <QLocale>
 
 // Local includes
 
+#include "rawinfo.h"
+#include "drawdecoder.h"
 #include "filereadwritelock.h"
 #include "metadatasettings.h"
 #include "template.h"
-#include "version.h"
-#include "globals.h"
-
-using namespace KDcrawIface;
+#include "dimg.h"
+#include "digikam_version.h"
+#include "digikam_globals.h"
+#include "digikam_debug.h"
 
 namespace Digikam
 {
 
 DMetadata::DMetadata()
-    : KExiv2()
+    : MetaEngine()
 {
     registerMetadataSettings();
 }
 
 DMetadata::DMetadata(const QString& filePath)
-    : KExiv2()
+    : MetaEngine()
 {
     registerMetadataSettings();
     load(filePath);
 }
 
-#if KEXIV2_VERSION >= 0x010000
-DMetadata::DMetadata(const KExiv2Data& data)
-    : KExiv2(data)
+DMetadata::DMetadata(const MetaEngineData& data)
+    : MetaEngine(data)
 {
     registerMetadataSettings();
 }
-#endif
 
 DMetadata::~DMetadata()
 {
@@ -94,10 +83,7 @@ void DMetadata::setSettings(const MetadataSettingsContainer& settings)
     setUseXMPSidecar4Reading(settings.useXMPSidecar4Reading);
     setWriteRawFiles(settings.writeRawFiles);
     setMetadataWritingMode(settings.metadataWritingMode);
-
-#if KEXIV2_VERSION >= 0x000600
     setUpdateFileTimeStamp(settings.updateFileTimeStamp);
-#endif
 }
 
 bool DMetadata::load(const QString& filePath) const
@@ -107,7 +93,7 @@ bool DMetadata::load(const QString& filePath) const
 
     FileReadLocker lock(filePath);
 
-    if (!KExiv2::load(filePath))
+    if (!MetaEngine::load(filePath))
     {
         if (!loadUsingDcraw(filePath))
         {
@@ -121,36 +107,36 @@ bool DMetadata::load(const QString& filePath) const
 bool DMetadata::save(const QString& filePath) const
 {
     FileWriteLocker lock(filePath);
-    return KExiv2::save(filePath);
+    return MetaEngine::save(filePath);
 }
 
 bool DMetadata::applyChanges() const
 {
     FileWriteLocker lock(getFilePath());
-    return KExiv2::applyChanges();
+    return MetaEngine::applyChanges();
 }
 
 bool DMetadata::loadUsingDcraw(const QString& filePath) const
 {
-    DcrawInfoContainer identify;
+    RawInfo identify;
 
-    if (KDcraw::rawFileIdentify(identify, filePath))
+    if (DRawDecoder::rawFileIdentify(identify, filePath))
     {
         long int num=1, den=1;
 
         if (!identify.model.isNull())
         {
-            setExifTagString("Exif.Image.Model", identify.model.toLatin1(), false);
+            setExifTagString("Exif.Image.Model", identify.model, false);
         }
 
         if (!identify.make.isNull())
         {
-            setExifTagString("Exif.Image.Make", identify.make.toLatin1(), false);
+            setExifTagString("Exif.Image.Make", identify.make, false);
         }
 
         if (!identify.owner.isNull())
         {
-            setExifTagString("Exif.Image.Artist", identify.owner.toLatin1(), false);
+            setExifTagString("Exif.Image.Artist", identify.owner, false);
         }
 
         if (identify.sensitivity != -1)
@@ -200,7 +186,7 @@ bool DMetadata::setProgramId(bool on) const
     if (on)
     {
         QString version(digiKamVersion());
-        QString software("digiKam");
+        QLatin1String software("digiKam");
         return setImageProgramId(software, version);
     }
 
@@ -233,12 +219,12 @@ bool DMetadata::mSecTimeStamp(const char* const exifTagName, int& ms) const
 
         if (ok)
         {
-            int _ms = (int)(QString("0.%1").arg(sub).toFloat(&ok) * 1000.0);
+            int _ms = (int)(QString::fromLatin1("0.%1").arg(sub).toFloat(&ok) * 1000.0);
 
             if (ok)
             {
                 ms = _ms;
-                kDebug() << "msec timestamp: " << ms;
+                qCDebug(DIGIKAM_METAENGINE_LOG) << "msec timestamp: " << ms;
             }
         }
     }
@@ -246,7 +232,7 @@ bool DMetadata::mSecTimeStamp(const char* const exifTagName, int& ms) const
     return ok;
 }
 
-CaptionsMap DMetadata::getImageComments() const
+CaptionsMap DMetadata::getImageComments(const DMetadataSettingsContainer &settings) const
 {
     if (getFilePath().isEmpty())
     {
@@ -254,9 +240,9 @@ CaptionsMap DMetadata::getImageComments() const
     }
 
     CaptionsMap        captionsMap;
-    KExiv2::AltLangMap authorsMap;
-    KExiv2::AltLangMap datesMap;
-    KExiv2::AltLangMap commentsMap;
+    MetaEngine::AltLangMap authorsMap;
+    MetaEngine::AltLangMap datesMap;
+    MetaEngine::AltLangMap commentsMap;
     QString            commonAuthor;
 
     // In first try to get captions properties from digiKam XMP namespace
@@ -265,6 +251,16 @@ CaptionsMap DMetadata::getImageComments() const
     {
         authorsMap = getXmpTagStringListLangAlt("Xmp.digiKam.CaptionsAuthorNames",    false);
         datesMap   = getXmpTagStringListLangAlt("Xmp.digiKam.CaptionsDateTimeStamps", false);
+
+        if (authorsMap.isEmpty() && commonAuthor.isEmpty())
+        {
+            QString xmpAuthors = getXmpTagString("Xmp.acdsee.author", false);
+
+            if (!xmpAuthors.isEmpty())
+            {
+                authorsMap.insert(QLatin1String("x-default"), xmpAuthors);
+            }
+        }
     }
 
     // Get author name from IPTC DescriptionWriter. Private namespace above gets precedence.
@@ -279,105 +275,76 @@ CaptionsMap DMetadata::getImageComments() const
 
     if (hasXmp())
     {
-        if (authorsMap.isEmpty() && commonAuthor.isEmpty())
-        {
-            QString xmpAuthors = getXmpTagString("Xmp.acdsee.author", false);
 
-            if (!xmpAuthors.isEmpty())
+        for (NamespaceEntry entry : settings.getReadMapping(QLatin1String(DM_COMMENT_CONTAINER)))
+        {
+            if (entry.isDisabled)
+                continue;
+
+            QString commentString;
+            const std::string myStr = entry.namespaceName.toStdString();
+            const char* nameSpace = myStr.data();
+
+            switch(entry.subspace)
             {
-                authorsMap.insert(QString("x-default"), xmpAuthors);
+                case NamespaceEntry::XMP:
+                    switch(entry.specialOpts)
+                    {
+                        case NamespaceEntry::COMMENT_ALTLANG:
+                            commentString = getXmpTagStringLangAlt(nameSpace, QString(), false);
+                            break;
+                        case NamespaceEntry::COMMENT_ATLLANGLIST:
+                            commentsMap = getXmpTagStringListLangAlt(nameSpace, false);
+                            break;
+                        case NamespaceEntry::COMMENT_XMP:
+                            commentString = getXmpTagString("Xmp.acdsee.notes", false);
+                            break;
+                        case NamespaceEntry::COMMENT_JPEG:
+                            // Now, we trying to get image comments, outside of XMP.
+                            // For JPEG, string is extracted from JFIF Comments section.
+                            // For PNG, string is extracted from iTXt chunk.
+                            commentString = getCommentsDecoded();
+                        default:
+                            break;
+                    }
+                    break;
+                case NamespaceEntry::IPTC:
+                    commentString = getIptcTagString(nameSpace, false);
+                    break;
+                case NamespaceEntry::EXIF:
+                    commentString = getExifComment();
+                    break;
+                default:
+                    break;
             }
-        }
 
-        commentsMap = getXmpTagStringListLangAlt("Xmp.dc.description", false);
+            if (!commentString.isEmpty() &&!commentString.trimmed().isEmpty())
+            {
+                commentsMap.insert(QLatin1String("x-default"), commentString);
+                captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
+                return captionsMap;
+            }
 
-        if (!commentsMap.isEmpty())
-        {
-            captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
-            return captionsMap;
-        }
-
-        QString xmpComment = getXmpTagStringLangAlt("Xmp.exif.UserComment", QString(), false);
-
-        if (!xmpComment.isEmpty())
-        {
-            commentsMap.insert(QString("x-default"), xmpComment);
-            captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
-            return captionsMap;
-        }
-
-        xmpComment = getXmpTagStringLangAlt("Xmp.tiff.ImageDescription", QString(), false);
-
-        if (!xmpComment.isEmpty())
-        {
-            commentsMap.insert(QString("x-default"), xmpComment);
-            captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
-            return captionsMap;
-        }
-
-        xmpComment = getXmpTagString("Xmp.acdsee.notes", false);
-
-        if (!xmpComment.isEmpty())
-        {
-            commentsMap.insert(QString("x-default"), xmpComment);
-            captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
-            return captionsMap;
-        }
-    }
-
-    // Now, we trying to get image comments, outside of XMP.
-    // For JPEG, string is extracted from JFIF Comments section.
-    // For PNG, string is extracted from iTXt chunk.
-
-    QString comment = getCommentsDecoded();
-
-    if (!comment.isEmpty())
-    {
-        commentsMap.insert(QString("x-default"), comment);
-        captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
-        return captionsMap;
-    }
-
-    // We trying to get Exif comments
-
-    if (hasExif())
-    {
-        QString exifComment = getExifComment();
-
-        if (!exifComment.isEmpty())
-        {
-            commentsMap.insert(QString("x-default"), exifComment);
-            captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
-            return captionsMap;
-        }
-    }
-
-    // We trying to get IPTC comments
-
-    if (hasIptc())
-    {
-        QString iptcComment = getIptcTagString("Iptc.Application2.Caption", false);
-
-        if (!iptcComment.isEmpty() && !iptcComment.trimmed().isEmpty())
-        {
-            commentsMap.insert(QString("x-default"), iptcComment);
-            captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
-            return captionsMap;
+            if (!commentsMap.isEmpty())
+            {
+                captionsMap.setData(commentsMap, authorsMap, commonAuthor, datesMap);
+                return captionsMap;
+            }
         }
     }
 
     return captionsMap;
 }
 
-bool DMetadata::setImageComments(const CaptionsMap& comments) const
+bool DMetadata::setImageComments(const CaptionsMap& comments, const DMetadataSettingsContainer &settings) const
 {
-    //See bug #139313: An empty string is also a valid value
-    /*
+/*
+    // See bug #139313: An empty string is also a valid value
     if (comments.isEmpty())
           return false;
-    */
+*/
 
-    kDebug() << getFilePath() << " ==> Comment: " << comments;
+    qCDebug(DIGIKAM_METAENGINE_LOG) << getFilePath() << " ==> Comment: " << comments;
 
     // In first, set captions properties to digiKam XMP namespace
 
@@ -388,9 +355,9 @@ bool DMetadata::setImageComments(const CaptionsMap& comments) const
             return false;
         }
 
-        QString defaultAuthor  = comments.value("x-default").author;
-
+        QString defaultAuthor  = comments.value(QLatin1String("x-default")).author;
         removeXmpTag("Xmp.acdsee.author");
+
         if (!defaultAuthor.isNull())
         {
             if (!setXmpTagString("Xmp.acdsee.author", defaultAuthor, false))
@@ -405,73 +372,92 @@ bool DMetadata::setImageComments(const CaptionsMap& comments) const
         }
     }
 
-    QString defaultComment = comments.value("x-default").caption;
+    QString defaultComment        = comments.value(QLatin1String("x-default")).caption;
+    QList<NamespaceEntry> toWrite = settings.getReadMapping(QLatin1String(DM_COMMENT_CONTAINER));
 
-    // In first we set image comments, outside of Exif, XMP, and IPTC.
+    if (!settings.unifyReadWrite())
+        toWrite = settings.getWriteMapping(QLatin1String(DM_COMMENT_CONTAINER));
 
-    if (!setComments(defaultComment.toUtf8()))
+    for (NamespaceEntry entry : toWrite)
     {
-        return false;
-    }
+        if (entry.isDisabled)
+            continue;
 
-    // In Second we write comments into Exif.
+        const std::string myStr = entry.namespaceName.toStdString();
+        const char* nameSpace   = myStr.data();
 
-    if (!setExifComment(defaultComment))
-    {
-        return false;
-    }
-
-    // In Third we write comments into XMP. Language Alternative rule is not yet used.
-
-    if (supportXmp())
-    {
-        // NOTE : setXmpTagStringListLangAlt remove xmp tag before to add new values
-        if (!setXmpTagStringListLangAlt("Xmp.dc.description", comments.toAltLangMap(), false))
+        switch(entry.subspace)
         {
-            return false;
-        }
+            case NamespaceEntry::XMP:
+                if (entry.namespaceName.contains(QLatin1String("Xmp.")))
+                    removeXmpTag(nameSpace);
 
-        // setXmpTagStringLangAlt does not remove xmp tag before adding a new value, so we do it.
-        removeXmpTag("Xmp.exif.UserComment");
-        if (!defaultComment.isNull())
-        {
-            if (!setXmpTagStringLangAlt("Xmp.exif.UserComment", defaultComment, QString(), false))
-            {
-                return false;
-            }
-        }
+                switch(entry.specialOpts)
+                {
+                    case NamespaceEntry::COMMENT_ALTLANG:
+                        if (!defaultComment.isNull())
+                        {
+                            if (!setXmpTagStringLangAlt(nameSpace, defaultComment, QString(), false))
+                            {
+                                qCDebug(DIGIKAM_METAENGINE_LOG) << "Setting image comment failed" << nameSpace << " | " << entry.namespaceName;
+                                return false;
+                            }
+                        }
+                        break;
 
-        removeXmpTag("Xmp.tiff.ImageDescription");
-        if (!defaultComment.isNull())
-        {
-            if (!setXmpTagStringLangAlt("Xmp.tiff.ImageDescription", defaultComment, QString(), false))
-            {
-                return false;
-            }
-        }
+                    case NamespaceEntry::COMMENT_ATLLANGLIST:
+                        if (!setXmpTagStringListLangAlt(nameSpace, comments.toAltLangMap(), false))
+                        {
+                            return false;
+                        }
+                        break;
 
-        removeXmpTag("Xmp.acdsee.notes");
-        if (!defaultComment.isEmpty())
-        {
-            if (!setXmpTagString("Xmp.acdsee.notes", defaultComment, false))
-            {
-                return false;
-            }
-        }
-    }
+                    case NamespaceEntry::COMMENT_XMP:
+                        if (!defaultComment.isNull())
+                        {
+                            if (!setXmpTagString(nameSpace, defaultComment, false))
+                            {
+                                return false;
+                            }
+                        }
+                        break;
 
-    // In Four we write comments into IPTC.
-    // Note that Caption IPTC tag is limited to 2000 char and ASCII charset.
+                    case NamespaceEntry::COMMENT_JPEG:
+                        // In first we set image comments, outside of Exif, XMP, and IPTC.
+                        if (!setComments(defaultComment.toUtf8()))
+                        {
+                            return false;
+                        }
+                        break;
 
-    removeIptcTag("Iptc.Application2.Caption");
+                    default:
+                        break;
+                }
+                break;
 
-    if (!defaultComment.isNull())
-    {
-        defaultComment.truncate(2000);
+            case NamespaceEntry::IPTC:
+                removeIptcTag(nameSpace);
 
-        if (!setIptcTagString("Iptc.Application2.Caption", defaultComment))
-        {
-            return false;
+                if (!defaultComment.isNull())
+                {
+                    defaultComment.truncate(2000);
+
+                    if (!setIptcTagString(nameSpace, defaultComment))
+                    {
+                        return false;
+                    }
+                }
+                break;
+
+            case NamespaceEntry::EXIF:
+                if (!setExifComment(defaultComment))
+                {
+                    return false;
+                }
+                break;
+
+            default:
+                break;
         }
     }
 
@@ -531,6 +517,32 @@ int DMetadata::getImageColorLabel() const
                 return colorId;
             }
         }
+
+        // LightRoom use this tag to store color name as string.
+        // Values are limited : see bug #358193.
+
+        value = getXmpTagString("Xmp.xmp.Label", false);
+
+        if (value == QLatin1String("Blue"))
+        {
+            return BlueLabel;
+        }
+        else if (value == QLatin1String("Green"))
+        {
+            return GreenLabel;
+        }
+        else if (value == QLatin1String("Red"))
+        {
+            return RedLabel;
+        }
+        else if (value == QLatin1String("Yellow"))
+        {
+            return YellowLabel;
+        }
+        else if (value == QLatin1String("Purple"))
+        {
+            return MagentaLabel;
+        }
     }
 
     return -1;
@@ -542,9 +554,9 @@ CaptionsMap DMetadata::getImageTitles() const
         return CaptionsMap();
 
     CaptionsMap        captionsMap;
-    KExiv2::AltLangMap authorsMap;
-    KExiv2::AltLangMap datesMap;
-    KExiv2::AltLangMap titlesMap;
+    MetaEngine::AltLangMap authorsMap;
+    MetaEngine::AltLangMap datesMap;
+    MetaEngine::AltLangMap titlesMap;
     QString            commonAuthor;
 
     // Get author name from IPTC DescriptionWriter. Private namespace above gets precedence.
@@ -566,7 +578,7 @@ CaptionsMap DMetadata::getImageTitles() const
         QString xmpTitle = getXmpTagString("Xmp.acdsee.caption" ,false);
         if (!xmpTitle.isEmpty() && !xmpTitle.trimmed().isEmpty())
         {
-            titlesMap.insert(QString("x-default"), xmpTitle);
+            titlesMap.insert(QLatin1String("x-default"), xmpTitle);
             captionsMap.setData(titlesMap, authorsMap, commonAuthor, datesMap);
             return captionsMap;
         }
@@ -579,7 +591,7 @@ CaptionsMap DMetadata::getImageTitles() const
         QString iptcTitle = getIptcTagString("Iptc.Application2.ObjectName", false);
         if (!iptcTitle.isEmpty() && !iptcTitle.trimmed().isEmpty())
         {
-            titlesMap.insert(QString("x-default"), iptcTitle);
+            titlesMap.insert(QLatin1String("x-default"), iptcTitle);
             captionsMap.setData(titlesMap, authorsMap, commonAuthor, datesMap);
             return captionsMap;
         }
@@ -590,9 +602,9 @@ CaptionsMap DMetadata::getImageTitles() const
 
 bool DMetadata::setImageTitles(const CaptionsMap& titles) const
 {
-    kDebug() << getFilePath() << " ==> Title: " << titles;
+    qCDebug(DIGIKAM_METAENGINE_LOG) << getFilePath() << " ==> Title: " << titles;
 
-    QString defaultTitle = titles[QString("x-default")].caption;
+    QString defaultTitle = titles[QLatin1String("x-default")].caption;
 
     // In First we write comments into XMP. Language Alternative rule is not yet used.
 
@@ -613,6 +625,7 @@ bool DMetadata::setImageTitles(const CaptionsMap& titles) const
             }
         }
     }
+
     // In Second we write comments into IPTC.
     // Note that Caption IPTC tag is limited to 64 char and ASCII charset.
 
@@ -645,155 +658,76 @@ bool DMetadata::setImageTitles(const CaptionsMap& titles) const
     return true;
 }
 
-int DMetadata::getImageRating() const
+int DMetadata::getImageRating(const DMetadataSettingsContainer &settings) const
 {
     if (getFilePath().isEmpty())
     {
         return -1;
     }
 
-    if (hasXmp())
+    long rating = -1;
+    bool xmpSupported = hasXmp();
+    bool iptcSupported = hasIptc();
+    bool exivSupported = hasExif();
+
+    for (NamespaceEntry entry : settings.getReadMapping(QLatin1String(DM_RATING_CONTAINER)))
     {
-        QString value = getXmpTagString("Xmp.xmp.Rating", false);
+        if (entry.isDisabled)
+            continue;
 
-        if (!value.isEmpty())
+        const std::string myStr = entry.namespaceName.toStdString();
+        const char* nameSpace = myStr.data();
+        QString value;
+
+        switch(entry.subspace)
         {
-            bool ok     = false;
-            long rating = value.toLong(&ok);
-
-            if (ok && rating >= RatingMin && rating <= RatingMax)
-            {
-                return rating;
-            }
+            case NamespaceEntry::XMP:
+                if (xmpSupported)
+                    value = getXmpTagString(nameSpace, false);
+                break;
+            case NamespaceEntry::IPTC:
+                if (iptcSupported)
+                    value = QString::fromUtf8(getIptcTagData(nameSpace));
+                break;
+            case NamespaceEntry::EXIF:
+                if (exivSupported)
+                    getExifTagLong(nameSpace, rating);
+                break;
+            default:
+                break;
         }
 
-        value = getXmpTagString("Xmp.acdsee.rating", false);
-
         if (!value.isEmpty())
         {
-            bool ok     = false;
-            long rating = value.toLong(&ok);
+            bool ok = false;
+            rating = value.toLong(&ok);
 
-            if (ok && rating >= RatingMin && rating <= RatingMax)
+            if (!ok)
             {
-                return rating;
+                return -1;
             }
+
         }
+        int index = entry.convertRatio.indexOf(rating);
 
-        value = getXmpTagString("Xmp.MicrosoftPhoto.Rating", false);
-
-        if (!value.isEmpty())
+        // Exact value was not found,but rating is in range,
+        // so we try to aproximate it
+        if (index == -1
+                && rating > entry.convertRatio.first()
+                && rating < entry.convertRatio.last())
         {
-            bool ok            = false;
-            long ratingPercent = value.toLong(&ok);
-
-            if (ok)
+            for (int i = 0; i < entry.convertRatio.size(); i++)
             {
-                // Wrapper around rating percents managed by Windows Vista.
-                long rating = -1;
-
-                switch (ratingPercent)
+                if (rating > entry.convertRatio.at(i))
                 {
-                    case 0:
-                        rating = 0;
-                        break;
-                    case 1:
-                        rating = 1;
-                        break;
-                    case 25:
-                        rating = 2;
-                        break;
-                    case 50:
-                        rating = 3;
-                        break;
-                    case 75:
-                        rating = 4;
-                        break;
-                    case 99:
-                        rating = 5;
-                        break;
-                }
-
-                if (rating != -1 && rating >= RatingMin && rating <= RatingMax)
-                {
-                    return rating;
+                    index = i;
                 }
             }
         }
-    }
 
-    // Check Exif rating tag set by Windows Vista
-    // Note : no need to check rating in percent tags (Exif.image.0x4747) here because
-    // its appear always with rating tag value (Exif.image.0x4749).
-
-    if (hasExif())
-    {
-        long rating = -1;
-
-        if (getExifTagLong("Exif.Image.0x4746", rating))
+        if (index != -1)
         {
-            if (rating >= RatingMin && rating <= RatingMax)
-            {
-                return rating;
-            }
-        }
-    }
-
-    // digiKam 0.9.x has used IPTC Urgency to store Rating.
-    // This way is obsolete now since digiKam support XMP.
-    // But we will let the capability to import it.
-    // Iptc.Application2.Urgency <==> digiKam Rating links:
-    //
-    // digiKam     IPTC
-    // Rating      Urgency
-    //
-    // 0 star  <=>  8          // Least important
-    // 1 star  <=>  7
-    // 1 star  <==  6
-    // 2 star  <=>  5
-    // 3 star  <=>  4
-    // 4 star  <==  3
-    // 4 star  <=>  2
-    // 5 star  <=>  1          // Most important
-
-    if (hasIptc())
-    {
-        QString IptcUrgency(getIptcTagData("Iptc.Application2.Urgency"));
-
-        if (!IptcUrgency.isEmpty())
-        {
-            if (IptcUrgency == QString("1"))
-            {
-                return 5;
-            }
-            else if (IptcUrgency == QString("2"))
-            {
-                return 4;
-            }
-            else if (IptcUrgency == QString("3"))
-            {
-                return 4;
-            }
-            else if (IptcUrgency == QString("4"))
-            {
-                return 3;
-            }
-            else if (IptcUrgency == QString("5"))
-            {
-                return 2;
-            }
-            else if (IptcUrgency == QString("6"))
-            {
-                return 1;
-            }
-            else if (IptcUrgency == QString("7"))
-            {
-                return 1;
-            }
-            else if (IptcUrgency == QString("8"))
-            {
-                return 0;
-            }
+            return index;
         }
     }
 
@@ -804,11 +738,11 @@ bool DMetadata::setImagePickLabel(int pickId) const
 {
     if (pickId < NoPickLabel || pickId > AcceptedLabel)
     {
-        kDebug() << "Pick Label value to write is out of range!";
+        qCDebug(DIGIKAM_METAENGINE_LOG) << "Pick Label value to write is out of range!";
         return false;
     }
 
-    kDebug() << getFilePath() << " ==> Pick Label: " << pickId;
+    qCDebug(DIGIKAM_METAENGINE_LOG) << getFilePath() << " ==> Pick Label: " << pickId;
 
     if (!setProgramId())
     {
@@ -830,11 +764,11 @@ bool DMetadata::setImageColorLabel(int colorId) const
 {
     if (colorId < NoColorLabel || colorId > WhiteLabel)
     {
-        kDebug() << "Color Label value to write is out of range!";
+        qCDebug(DIGIKAM_METAENGINE_LOG) << "Color Label value to write is out of range!";
         return false;
     }
 
-    kDebug() << getFilePath() << " ==> Color Label: " << colorId;
+    qCDebug(DIGIKAM_METAENGINE_LOG) << getFilePath() << " ==> Color Label: " << colorId;
 
     if (!setProgramId())
     {
@@ -853,41 +787,93 @@ bool DMetadata::setImageColorLabel(int colorId) const
         {
             return false;
         }
+
+        // LightRoom use this XMP tags to store Color Labels name
+        // Values are limited : see bug #358193.
+
+        QString LRLabel;
+
+        switch(colorId)
+        {
+            case BlueLabel:
+                LRLabel = QLatin1String("Blue");
+                break;
+            case GreenLabel:
+                LRLabel = QLatin1String("Green");
+                break;
+            case RedLabel:
+                LRLabel = QLatin1String("Red");
+                break;
+            case YellowLabel:
+                LRLabel = QLatin1String("Yellow");
+                break;
+            case MagentaLabel:
+                LRLabel = QLatin1String("Purple");
+                break;
+        }
+
+        if (!LRLabel.isEmpty())
+        {
+            if (!setXmpTagString("Xmp.xmp.Label", LRLabel))
+            {
+                return false;
+            }
+        }
     }
 
     return true;
 }
 
-bool DMetadata::setImageRating(int rating) const
+bool DMetadata::setImageRating(int rating, const DMetadataSettingsContainer &settings) const
 {
     // NOTE : with digiKam 0.9.x, we have used IPTC Urgency to store Rating.
     // Now this way is obsolete, and we use standard XMP rating tag instead.
 
     if (rating < RatingMin || rating > RatingMax)
     {
-        kDebug() << "Rating value to write is out of range!";
+        qCDebug(DIGIKAM_METAENGINE_LOG) << "Rating value to write is out of range!";
         return false;
     }
 
-    kDebug() << getFilePath() << " ==> Rating: " << rating;
+    qCDebug(DIGIKAM_METAENGINE_LOG) << getFilePath() << " ==> Rating: +++++++++++" << rating;
 
     if (!setProgramId())
     {
+        qCDebug(DIGIKAM_METAENGINE_LOG) << "Could not set program id";
         return false;
     }
 
-    // Set standard XMP rating tag.
+    QList<NamespaceEntry> toWrite = settings.getReadMapping(QLatin1String(DM_RATING_CONTAINER));
 
-    if (supportXmp())
+    if (!settings.unifyReadWrite())
+        toWrite = settings.getWriteMapping(QLatin1String(DM_RATING_CONTAINER));
+
+    for (NamespaceEntry entry : toWrite)
     {
-        if (!setXmpTagString("Xmp.xmp.Rating", QString::number(rating)))
-        {
-            return false;
-        }
+        if (entry.isDisabled)
+            continue;
 
-        if (!setXmpTagString("Xmp.acdsee.rating", QString::number(rating), false))
+        const std::string myStr = entry.namespaceName.toStdString();
+        const char* nameSpace = myStr.data();
+
+        switch(entry.subspace)
         {
-            return false;
+            case NamespaceEntry::XMP:
+                if (!setXmpTagString(nameSpace, QString::number(entry.convertRatio.at(rating))))
+                {
+                    qCDebug(DIGIKAM_METAENGINE_LOG) << "Setting rating failed" << nameSpace << " | " << entry.namespaceName;
+                    return false;
+                }
+                break;
+            case NamespaceEntry::EXIF:
+                if (!setExifTagLong(nameSpace, rating))
+                {
+                    return false;
+                }
+                break;
+            case NamespaceEntry::IPTC: // IPTC rating deprecated
+            default:
+                break;
         }
     }
 
@@ -923,14 +909,6 @@ bool DMetadata::setImageRating(int rating) const
             break;
     }
 
-    if (supportXmp())
-    {
-        if (!setXmpTagString("Xmp.MicrosoftPhoto.Rating", QString::number(ratePercents)))
-        {
-            return false;
-        }
-    }
-
     if (!setExifTagLong("Exif.Image.0x4749", ratePercents))
     {
         return false;
@@ -961,7 +939,7 @@ QString DMetadata::getImageHistory() const
     if (hasXmp())
     {
         QString value = getXmpTagString("Xmp.digiKam.ImageHistory", false);
-        kDebug() << "Loading image history " << value;
+        qCDebug(DIGIKAM_METAENGINE_LOG) << "Loading image history " << value;
         return value;
     }
 
@@ -1159,30 +1137,30 @@ PhotoInfoContainer DMetadata::getPhotographInformation() const
 
         QStringList ISOSpeedTags;
 
-        ISOSpeedTags << "Exif.Photo.ISOSpeedRatings";
-        ISOSpeedTags << "Exif.Photo.ExposureIndex";
-        ISOSpeedTags << "Exif.Image.ISOSpeedRatings";
-        ISOSpeedTags << "Xmp.exif.ISOSpeedRatings";
-        ISOSpeedTags << "Xmp.exif.ExposureIndex";
-        ISOSpeedTags << "Exif.CanonSi.ISOSpeed";
-        ISOSpeedTags << "Exif.CanonCs.ISOSpeed";
-        ISOSpeedTags << "Exif.Nikon1.ISOSpeed";
-        ISOSpeedTags << "Exif.Nikon2.ISOSpeed";
-        ISOSpeedTags << "Exif.Nikon3.ISOSpeed";
-        ISOSpeedTags << "Exif.NikonIi.ISO";
-        ISOSpeedTags << "Exif.NikonIi.ISO2";
-        ISOSpeedTags << "Exif.MinoltaCsNew.ISOSetting";
-        ISOSpeedTags << "Exif.MinoltaCsOld.ISOSetting";
-        ISOSpeedTags << "Exif.MinoltaCs5D.ISOSpeed";
-        ISOSpeedTags << "Exif.MinoltaCs7D.ISOSpeed";
-        ISOSpeedTags << "Exif.Sony1Cs.ISOSetting";
-        ISOSpeedTags << "Exif.Sony2Cs.ISOSetting";
-        ISOSpeedTags << "Exif.Sony1Cs2.ISOSetting";
-        ISOSpeedTags << "Exif.Sony2Cs2.ISOSetting";
-        ISOSpeedTags << "Exif.Sony1MltCsA100.ISOSetting";
-        ISOSpeedTags << "Exif.Pentax.ISO";
-        ISOSpeedTags << "Exif.Olympus.ISOSpeed";
-        ISOSpeedTags << "Exif.Samsung2.ISO";
+        ISOSpeedTags << QLatin1String("Exif.Photo.ISOSpeedRatings");
+        ISOSpeedTags << QLatin1String("Exif.Photo.ExposureIndex");
+        ISOSpeedTags << QLatin1String("Exif.Image.ISOSpeedRatings");
+        ISOSpeedTags << QLatin1String("Xmp.exif.ISOSpeedRatings");
+        ISOSpeedTags << QLatin1String("Xmp.exif.ExposureIndex");
+        ISOSpeedTags << QLatin1String("Exif.CanonSi.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.CanonCs.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.Nikon1.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.Nikon2.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.Nikon3.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.NikonIi.ISO");
+        ISOSpeedTags << QLatin1String("Exif.NikonIi.ISO2");
+        ISOSpeedTags << QLatin1String("Exif.MinoltaCsNew.ISOSetting");
+        ISOSpeedTags << QLatin1String("Exif.MinoltaCsOld.ISOSetting");
+        ISOSpeedTags << QLatin1String("Exif.MinoltaCs5D.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.MinoltaCs7D.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.Sony1Cs.ISOSetting");
+        ISOSpeedTags << QLatin1String("Exif.Sony2Cs.ISOSetting");
+        ISOSpeedTags << QLatin1String("Exif.Sony1Cs2.ISOSetting");
+        ISOSpeedTags << QLatin1String("Exif.Sony2Cs2.ISOSetting");
+        ISOSpeedTags << QLatin1String("Exif.Sony1MltCsA100.ISOSetting");
+        ISOSpeedTags << QLatin1String("Exif.Pentax.ISO");
+        ISOSpeedTags << QLatin1String("Exif.Olympus.ISOSpeed");
+        ISOSpeedTags << QLatin1String("Exif.Samsung2.ISO");
 
         photoInfo.sensitivity = getExifTagStringFromTagsList(ISOSpeedTags);
 
@@ -1264,142 +1242,123 @@ VideoInfoContainer DMetadata::getVideoInformation() const
     return videoInfo;
 }
 
-bool DMetadata::getImageTagsPath(QStringList& tagsPath) const
+bool DMetadata::getImageTagsPath(QStringList& tagsPath, const DMetadataSettingsContainer &settings) const
 {
-    // Try to get Tags Path list from XMP in first.
-    tagsPath = getXmpTagStringSeq("Xmp.digiKam.TagsList", false);
-    if (!tagsPath.isEmpty())
+    for (NamespaceEntry entry : settings.getReadMapping(QLatin1String(DM_TAG_CONTAINER)))
     {
-        return true;
-    }
+        if (entry.isDisabled)
+            continue;
 
-    // See bug #269418 : try to get Tags Path list from M$ Windows Live Photo Gallery.
-    tagsPath = getXmpTagStringBag("Xmp.MicrosoftPhoto.LastKeywordXMP", false);
-    if (!tagsPath.isEmpty())
-    {
-        return true;
-    }
+        int index                                  = 0;
+        QString currentNamespace                   = entry.namespaceName;
+        NamespaceEntry::SpecialOptions currentOpts = entry.specialOpts;
 
-    // Try to get Tags Path list from XMP in first.
-    tagsPath = getXmpTagStringBag("Xmp.lr.hierarchicalSubject", false);
+        // Some namespaces have altenative paths, we must search them both
 
-    // See bug #221460: there is another LR tag for hierarchical subjects.
-    if (tagsPath.isEmpty())
-    {
-        tagsPath = getXmpTagStringSeq("Xmp.lr.HierarchicalSubject", false);
-    }
-
-    if (!tagsPath.isEmpty())
-    {
-        // See bug #197285: LightRoom use '|' as separator.
-        tagsPath = tagsPath.replaceInStrings("|", "/");
-        kDebug() << "Tags Path imported from LightRoom: " << tagsPath;
-        return true;
-    }
-
-    // Try to get Tags Path list from Media Pro XMP first.
-    tagsPath = getXmpTagStringBag("Xmp.mediapro.CatalogSets", false);
-
-    // There is another Media Pro tag for hierarchical subjects.
-    if (tagsPath.isEmpty())
-    {
-        tagsPath = getXmpTagStringBag("Xmp.expressionmedia.CatalogSets", false);
-    }
-
-    if (!tagsPath.isEmpty())
-    {
-        // Media Pro Catalog Sets use '|' as separator.
-        tagsPath = tagsPath.replaceInStrings("|", "/");
-        kDebug() << "Tags Path imported from Media Pro: " << tagsPath;
-        return true;
-    }
-
-    // Try to get Tags Path list from ACDSee 8 Pro categories.
-    QString xmlACDSee = getXmpTagString("Xmp.acdsee.categories", false);
-    if (!xmlACDSee.isEmpty())
-    {
-        xmlACDSee.remove("</Categories>");
-        xmlACDSee.remove("<Categories>");
-        xmlACDSee.replace("/", "\\");
-
-        QStringList xmlTags = xmlACDSee.split("<Category Assigned");
-        int category        = 0;
-
-        foreach(const QString& tags, xmlTags)
+        switch(entry.subspace)
         {
-            if (!tags.isEmpty())
+            case NamespaceEntry::XMP:
+
+                while(index < 2)
+                {
+                    const std::string myStr = currentNamespace.toStdString();
+                    const char* nameSpace   = myStr.data();
+
+                    switch(currentOpts)
+                    {
+                        case NamespaceEntry::TAG_XMPBAG:
+                            tagsPath = getXmpTagStringBag(nameSpace, false);
+                            break;
+                        case NamespaceEntry::TAG_XMPSEQ:
+                            tagsPath = getXmpTagStringSeq(nameSpace, false);
+                            break;
+                        case NamespaceEntry::TAG_ACDSEE:
+                            getACDSeeTagsPath(tagsPath);
+                            break;
+                        // not used here, to suppress warnings
+                        case NamespaceEntry::COMMENT_XMP:
+                        case NamespaceEntry::COMMENT_ALTLANG:
+                        case NamespaceEntry::COMMENT_ATLLANGLIST:
+                        case NamespaceEntry::NO_OPTS:
+                        default:
+                            break;
+                    }
+
+                    if (!tagsPath.isEmpty())
+                    {
+                        if (entry.separator != QLatin1String("/"))
+                        {
+                            tagsPath = tagsPath.replaceInStrings(entry.separator, QLatin1String("/"));
+                        }
+
+                        return true;
+                    }
+                    else if (!entry.alternativeName.isEmpty())
+                    {
+                        currentNamespace = entry.alternativeName;
+                        currentOpts = entry.secondNameOpts;
+                    }
+                    else
+                    {
+                        break; // no alternative namespace, go to next one
+                    }
+
+                    index++;
+                }
+
+                break;
+
+            case NamespaceEntry::IPTC:
+                // Try to get Tags Path list from IPTC keywords.
+                // digiKam 0.9.x has used IPTC keywords to store Tags Path list.
+                // This way is obsolete now since digiKam support XMP because IPTC
+                // do not support UTF-8 and have strings size limitation. But we will
+                // let the capability to import it for interworking issues.
+                tagsPath = getIptcKeywords();
+
+                if (!tagsPath.isEmpty())
+                {
+                    // Work around to Imach tags path list hosted in IPTC with '.' as separator.
+                    QStringList ntp = tagsPath.replaceInStrings(entry.separator, QLatin1String("/"));
+
+                    if (ntp != tagsPath)
+                    {
+                        tagsPath = ntp;
+                        qCDebug(DIGIKAM_METAENGINE_LOG) << "Tags Path imported from Imach: " << tagsPath;
+                    }
+
+                    return true;
+                }
+
+                break;
+
+            case NamespaceEntry::EXIF:
             {
-                int count  = tags.count("<\\Category>");
-                int length = tags.length() - (11 * count) - 5;
+                // Try to get Tags Path list from Exif Windows keywords.
+                QString keyWords = getExifTagString("Exif.Image.XPKeywords", false);
 
-                if (category == 0)
+                if (!keyWords.isEmpty())
                 {
-                    tagsPath << tags.mid(5, length);
-                }
-                else
-                {
-                    tagsPath.last().append(QString("/") + tags.mid(5, length));
+                    tagsPath = keyWords.split(entry.separator);
+
+                    if (!tagsPath.isEmpty())
+                    {
+                        return true;
+                    }
                 }
 
-                category = category - count + 1;
-
-                if (tags.left(5) == QString("=\"1\">") && category > 0)
-                {
-                    tagsPath << tagsPath.last().section("/", 0, category - 1);
-                }
+                break;
             }
-        }
 
-        if (!tagsPath.isEmpty())
-        {
-            kDebug() << "Tags Path imported from ACDSee: " << tagsPath;
-            return true;
-        }
-    }
-
-    // Try to get Tags Path list from XMP keywords.
-    tagsPath = getXmpKeywords();
-    if (!tagsPath.isEmpty())
-    {
-        return true;
-    }
-
-    // Try to get Tags Path list from IPTC keywords.
-    // digiKam 0.9.x has used IPTC keywords to store Tags Path list.
-    // This way is obsolete now since digiKam support XMP because IPTC
-    // do not support UTF-8 and have strings size limitation. But we will
-    // let the capability to import it for interworking issues.
-    tagsPath = getIptcKeywords();
-    if (!tagsPath.isEmpty())
-    {
-        // Work around to Imach tags path list hosted in IPTC with '.' as separator.
-        QStringList ntp = tagsPath.replaceInStrings(".", "/");
-
-        if (ntp != tagsPath)
-        {
-            tagsPath = ntp;
-            kDebug() << "Tags Path imported from Imach: " << tagsPath;
-        }
-
-        return true;
-    }
-
-    // Try to get Tags Path list from Exif Windows keywords.
-    QString keyWords = getExifTagString("Exif.Image.XPKeywords", false);
-    if (!keyWords.isEmpty())
-    {
-        tagsPath = keyWords.split(";");
-
-        if (!tagsPath.isEmpty())
-        {
-            return true;
+            default:
+                break;
         }
     }
 
     return false;
 }
 
-bool DMetadata::setImageTagsPath(const QStringList& tagsPath) const
+bool DMetadata::setImageTagsPath(const QStringList& tagsPath, const DMetadataSettingsContainer& settings) const
 {
     // NOTE : with digiKam 0.9.x, we have used IPTC Keywords for that.
     // Now this way is obsolete, and we use XMP instead.
@@ -1408,90 +1367,188 @@ bool DMetadata::setImageTagsPath(const QStringList& tagsPath) const
     // Unlike the other keyword fields, we do not need to merge existing entries.
     if (supportXmp())
     {
-        if (!setXmpTagStringSeq("Xmp.digiKam.TagsList", tagsPath))
+        QList<NamespaceEntry> toWrite = settings.getReadMapping(QLatin1String(DM_TAG_CONTAINER));
+
+        if (!settings.unifyReadWrite())
+            toWrite = settings.getWriteMapping(QLatin1String(DM_TAG_CONTAINER));
+
+        for (NamespaceEntry entry : toWrite)
         {
-            return false;
-        }
+            if (entry.isDisabled)
+                continue;
 
-        // See bug #269418 : register Tags path list for Windows Live Photo Gallery.
-        if (!setXmpTagStringBag("Xmp.MicrosoftPhoto.LastKeywordXMP", tagsPath))
-        {
-            return false;
-        }
+            // We do not write to IPTC and EXIF namespaces, for now
+            if (entry.subspace != NamespaceEntry::XMP)
+                continue;
 
-        QStringList LRtagsPath = tagsPath;
-        LRtagsPath             = LRtagsPath.replaceInStrings("/", "|");
+            // get keywords from tags path, is type is tag
+            QStringList newList;
 
-        if (!setXmpTagStringBag("Xmp.lr.hierarchicalSubject", LRtagsPath))
-        {
-            return false;
-        }
-
-        QStringList MPtagsPath = tagsPath;
-        MPtagsPath             = MPtagsPath.replaceInStrings("/", "|");
-
-        if (!setXmpTagStringBag("Xmp.mediapro.CatalogSets", MPtagsPath))
-        {
-            return false;
-        }
-
-        // Converting Tags path list to ACDSee 8 Pro categories.
-        const QString category("<Category Assigned=\"%1\">");
-        QStringList splitTags;
-        QStringList xmlTags;
-
-        foreach(const QString& tags, tagsPath)
-        {
-            splitTags   = tags.split("/");
-            int current = 0;
-
-            for(int index = 0; index < splitTags.size(); index++)
+            if (entry.tagPaths == NamespaceEntry::TAG)
             {
-                int tagIndex = xmlTags.indexOf(category.arg(0) + splitTags[index]);
-
-                if (tagIndex == -1)
+                for (QString tagPath : tagsPath)
                 {
-                    tagIndex = xmlTags.indexOf(category.arg(1) + splitTags[index]);
+                    newList.append(tagPath.split(QLatin1String("/")).last());
                 }
+            }
+            else
+            {
+                newList = tagsPath;
 
-                splitTags[index].insert(0, category.arg(index == splitTags.size() - 1 ? 1 : 0));
-
-                if (tagIndex == -1)
+                if (entry.separator.compare(QLatin1String("/")) != 0)
                 {
-                    if (index == 0)
+                    newList = newList.replaceInStrings(QLatin1String("/"), entry.separator);
+                }
+            }
+
+            const std::string myStr = entry.namespaceName.toStdString();
+            const char* nameSpace   = myStr.data();
+
+            switch(entry.specialOpts)
+            {
+                case NamespaceEntry::TAG_XMPSEQ:
+
+                    if (!setXmpTagStringSeq(nameSpace, newList))
                     {
-                        xmlTags << splitTags[index];
-                        xmlTags << QString("</Category>");
-                        current = xmlTags.size() - 1;
+                        qCDebug(DIGIKAM_METAENGINE_LOG) << "Setting image paths failed" << nameSpace << " | " << entry.namespaceName;
+                        return false;
                     }
-                    else
+                    break;
+
+                case NamespaceEntry::TAG_XMPBAG:
+
+                    if (!setXmpTagStringBag(nameSpace, newList))
                     {
-                        xmlTags.insert(current, splitTags[index]);
-                        xmlTags.insert(current + 1, QString("</Category>"));
-                        current++;
+                        qCDebug(DIGIKAM_METAENGINE_LOG) << "Setting image paths failed" << nameSpace << " | " << entry.namespaceName;
+                        return false;
                     }
+                    break;
+
+                case NamespaceEntry::TAG_ACDSEE:
+
+                    if (!setACDSeeTagsPath(newList))
+                    {
+                        qCDebug(DIGIKAM_METAENGINE_LOG) << "Setting image paths failed" << nameSpace << " | " << entry.namespaceName;
+                        return false;
+                    }
+
+                default:
+                    break;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool DMetadata::getACDSeeTagsPath(QStringList &tagsPath) const
+{
+    // Try to get Tags Path list from ACDSee 8 Pro categories.
+    QString xmlACDSee = getXmpTagString("Xmp.acdsee.categories", false);
+
+    if (!xmlACDSee.isEmpty())
+    {
+        xmlACDSee.remove(QLatin1String("</Categories>"));
+        xmlACDSee.remove(QLatin1String("<Categories>"));
+        xmlACDSee.replace(QLatin1String("/"), QLatin1String("\\"));
+
+        QStringList xmlTags = xmlACDSee.split(QLatin1String("<Category Assigned"));
+        int category        = 0;
+
+        foreach(const QString& tags, xmlTags)
+        {
+            if (!tags.isEmpty())
+            {
+                int count  = tags.count(QLatin1String("<\\Category>"));
+                int length = tags.length() - (11 * count) - 5;
+
+                if (category == 0)
+                {
+                    tagsPath << tags.mid(5, length);
                 }
                 else
                 {
-                    if (index == splitTags.size() - 1)
-                    {
-                        xmlTags[tagIndex] = splitTags[index];
-                    }
+                    tagsPath.last().append(QLatin1String("/") + tags.mid(5, length));
+                }
 
-                    current = tagIndex + 1;
+                category = category - count + 1;
+
+                if (tags.left(5) == QLatin1String("=\"1\">") && category > 0)
+                {
+                    tagsPath << tagsPath.last().section(QLatin1String("/"), 0, category - 1);
                 }
             }
         }
 
-        QString xmlACDSee = QString("<Categories>") + xmlTags.join("") + QString("</Categories>");
-
-        removeXmpTag("Xmp.acdsee.categories");
-        if (!xmlTags.isEmpty())
+        if (!tagsPath.isEmpty())
         {
-            if (!setXmpTagString("Xmp.acdsee.categories", xmlACDSee, false))
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "Tags Path imported from ACDSee: " << tagsPath;
+            return true;
+        }
+    }
+
+    return false;
+}
+
+bool DMetadata::setACDSeeTagsPath(const QStringList &tagsPath) const
+{
+    // Converting Tags path list to ACDSee 8 Pro categories.
+    const QString category(QLatin1String("<Category Assigned=\"%1\">"));
+    QStringList splitTags;
+    QStringList xmlTags;
+
+    foreach(const QString& tags, tagsPath)
+    {
+        splitTags   = tags.split(QLatin1String("/"));
+        int current = 0;
+
+        for (int index = 0; index < splitTags.size(); index++)
+        {
+            int tagIndex = xmlTags.indexOf(category.arg(0) + splitTags[index]);
+
+            if (tagIndex == -1)
             {
-                return false;
+                tagIndex = xmlTags.indexOf(category.arg(1) + splitTags[index]);
             }
+
+            splitTags[index].insert(0, category.arg(index == splitTags.size() - 1 ? 1 : 0));
+
+            if (tagIndex == -1)
+            {
+                if (index == 0)
+                {
+                    xmlTags << splitTags[index];
+                    xmlTags << QLatin1String("</Category>");
+                    current = xmlTags.size() - 1;
+                }
+                else
+                {
+                    xmlTags.insert(current, splitTags[index]);
+                    xmlTags.insert(current + 1, QLatin1String("</Category>"));
+                    current++;
+                }
+            }
+            else
+            {
+                if (index == splitTags.size() - 1)
+                {
+                    xmlTags[tagIndex] = splitTags[index];
+                }
+
+                current = tagIndex + 1;
+            }
+        }
+    }
+
+    QString xmlACDSee = QLatin1String("<Categories>") + xmlTags.join(QLatin1String("")) + QLatin1String("</Categories>");
+    qCDebug(DIGIKAM_METAENGINE_LOG) << "xmlACDSee" << xmlACDSee;
+    removeXmpTag("Xmp.acdsee.categories");
+
+    if (!xmlTags.isEmpty())
+    {
+        if (!setXmpTagString("Xmp.acdsee.categories", xmlACDSee, false))
+        {
+            return false;
         }
     }
 
@@ -1507,12 +1564,12 @@ bool DMetadata::getImageFacesMap(QMultiMap<QString,QVariant>& faces) const
     // > the key.
     // I think that means I have to iterate over the WLPG face tags in the clunky
     // way below (guess numbers and look them up as strings). (Leif)
-    const QString personPathTemplate = "Xmp.MP.RegionInfo/MPRI:Regions[%1]/MPReg:PersonDisplayName";
-    const QString rectPathTemplate   = "Xmp.MP.RegionInfo/MPRI:Regions[%1]/MPReg:Rectangle";
+    const QString personPathTemplate = QLatin1String("Xmp.MP.RegionInfo/MPRI:Regions[%1]/MPReg:PersonDisplayName");
+    const QString rectPathTemplate   = QLatin1String("Xmp.MP.RegionInfo/MPRI:Regions[%1]/MPReg:Rectangle");
 
-    for (int i=1; ; i++)
+    for (int i = 1; ; i++)
     {
-        QString person = getXmpTagString(personPathTemplate.arg(i).toLatin1(), false);
+        QString person = getXmpTagString(personPathTemplate.arg(i).toLatin1().constData(), false);
 
         if (person.isEmpty())
             break;
@@ -1523,12 +1580,12 @@ bool DMetadata::getImageFacesMap(QMultiMap<QString,QVariant>& faces) const
         // percentage of the width/height of the entire image).
         // Similarly the width and height of the face's box are
         // indicated by W.WW and H.HH.
-        QString rectString = getXmpTagString(rectPathTemplate.arg(i).toLatin1(), false);
-        QStringList list   = rectString.split(',');
+        QString rectString = getXmpTagString(rectPathTemplate.arg(i).toLatin1().constData(), false);
+        QStringList list   = rectString.split(QLatin1Char(','));
 
         if (list.size() < 4)
         {
-            kDebug() << "Cannot parse WLPG rectangle string" << rectString;
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "Cannot parse WLPG rectangle string" << rectString;
             continue;
         }
 
@@ -1539,78 +1596,78 @@ bool DMetadata::getImageFacesMap(QMultiMap<QString,QVariant>& faces) const
 
         faces.insertMulti(person, rect);
     }
+
     /** Read face tags only if libkexiv can write them, otherwise
      *  garbage tags will be generated on image transformation
      */
-#if KEXIV2_VERSION >= 0x020301
+
     // Read face tags as saved by Picasa
     // http://www.exiv2.org/tags-xmp-mwg-rs.html
-    const QString mwg_personPathTemplate  = "Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Name";
-    const QString mwg_rect_x_PathTemplate = "Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:x";
-    const QString mwg_rect_y_PathTemplate = "Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:y";
-    const QString mwg_rect_w_PathTemplate = "Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:w";
-    const QString mwg_rect_h_PathTemplate = "Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:h";
+    const QString mwg_personPathTemplate  = QLatin1String("Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Name");
+    const QString mwg_rect_x_PathTemplate = QLatin1String("Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:x");
+    const QString mwg_rect_y_PathTemplate = QLatin1String("Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:y");
+    const QString mwg_rect_w_PathTemplate = QLatin1String("Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:w");
+    const QString mwg_rect_h_PathTemplate = QLatin1String("Xmp.mwg-rs.Regions/mwg-rs:RegionList[%1]/mwg-rs:Area/stArea:h");
 
-    for (int i=1; ; i++)
+    for (int i = 1; ; i++)
     {
-        QString person = getXmpTagString(mwg_personPathTemplate.arg(i).toLatin1(), false);
+        QString person = getXmpTagString(mwg_personPathTemplate.arg(i).toLatin1().constData(), false);
 
         if (person.isEmpty())
             break;
 
         // x and y is the center point
-        float x = getXmpTagString(mwg_rect_x_PathTemplate.arg(i).toLatin1(), false).toFloat();
-        float y = getXmpTagString(mwg_rect_y_PathTemplate.arg(i).toLatin1(), false).toFloat();
-        float w = getXmpTagString(mwg_rect_w_PathTemplate.arg(i).toLatin1(), false).toFloat();
-        float h = getXmpTagString(mwg_rect_h_PathTemplate.arg(i).toLatin1(), false).toFloat();
+        float x = getXmpTagString(mwg_rect_x_PathTemplate.arg(i).toLatin1().constData(), false).toFloat();
+        float y = getXmpTagString(mwg_rect_y_PathTemplate.arg(i).toLatin1().constData(), false).toFloat();
+        float w = getXmpTagString(mwg_rect_w_PathTemplate.arg(i).toLatin1().constData(), false).toFloat();
+        float h = getXmpTagString(mwg_rect_h_PathTemplate.arg(i).toLatin1().constData(), false).toFloat();
         QRectF rect(x - w/2,
                     y - h/2,
                     w,
                     h);
 
         faces.insertMulti(person, rect);
-        kDebug() << "Found new rect " << person << " "<< rect;
+        qCDebug(DIGIKAM_METAENGINE_LOG) << "Found new rect " << person << " "<< rect;
     }
-#endif
 
     return !faces.isEmpty();
 }
 
 bool DMetadata::setImageFacesMap(QMultiMap< QString, QVariant >& facesPath, bool write) const
 {
-#if KEXIV2_VERSION >= 0x020301
-    QString qxmpTagName("Xmp.mwg-rs.Regions/mwg-rs:RegionList");
-    QString nameTagKey = qxmpTagName + QString("[%1]/mwg-rs:Name");
-    QString typeTagKey = qxmpTagName + QString("[%1]/mwg-rs:Type");
-    QString areaTagKey = qxmpTagName + QString("[%1]/mwg-rs:Area");
-    QString areaxTagKey = qxmpTagName + QString("[%1]/mwg-rs:Area/stArea:x");
-    QString areayTagKey = qxmpTagName + QString("[%1]/mwg-rs:Area/stArea:y");
-    QString areawTagKey = qxmpTagName + QString("[%1]/mwg-rs:Area/stArea:w");
-    QString areahTagKey = qxmpTagName + QString("[%1]/mwg-rs:Area/stArea:h");
-    QString areanormTagKey = qxmpTagName + QString("[%1]/mwg-rs:Area/stArea:unit");
+    QString qxmpTagName(QLatin1String("Xmp.mwg-rs.Regions/mwg-rs:RegionList"));
+    QString nameTagKey     = qxmpTagName + QLatin1String("[%1]/mwg-rs:Name");
+    QString typeTagKey     = qxmpTagName + QLatin1String("[%1]/mwg-rs:Type");
+    QString areaTagKey     = qxmpTagName + QLatin1String("[%1]/mwg-rs:Area");
+    QString areaxTagKey    = qxmpTagName + QLatin1String("[%1]/mwg-rs:Area/stArea:x");
+    QString areayTagKey    = qxmpTagName + QLatin1String("[%1]/mwg-rs:Area/stArea:y");
+    QString areawTagKey    = qxmpTagName + QLatin1String("[%1]/mwg-rs:Area/stArea:w");
+    QString areahTagKey    = qxmpTagName + QLatin1String("[%1]/mwg-rs:Area/stArea:h");
+    QString areanormTagKey = qxmpTagName + QLatin1String("[%1]/mwg-rs:Area/stArea:unit");
 
-    QString winQxmpTagName("Xmp.MP.RegionInfo/MPRI:Regions");
-    QString winRectTagKey = winQxmpTagName + QString("[%1]/MPReg:Rectangle");
-    QString winNameTagKey = winQxmpTagName + QString("[%1]/MPReg:PersonDisplayName");
+    QString winQxmpTagName = QLatin1String("Xmp.MP.RegionInfo/MPRI:Regions");
+    QString winRectTagKey  = winQxmpTagName + QLatin1String("[%1]/MPReg:Rectangle");
+    QString winNameTagKey  = winQxmpTagName + QLatin1String("[%1]/MPReg:PersonDisplayName");
 
-    if(!write)
+    if (!write)
     {
-        QString check = getXmpTagString(nameTagKey.arg(1).toLatin1());
+        QString check = getXmpTagString(nameTagKey.arg(1).toLatin1().constData());
 
-        if(check.isEmpty())
+        if (check.isEmpty())
             return true;
     }
 
-    setXmpTagString(qxmpTagName.toLatin1(),
-                    QString(),KExiv2::XmpTagType(1),false);
+    setXmpTagString(qxmpTagName.toLatin1().constData(),
+                    QString(), MetaEngine::XmpTagType(1),false);
 
-    setXmpTagString(winQxmpTagName.toLatin1(),
-                    QString(),KExiv2::XmpTagType(1),false);
+    setXmpTagString(winQxmpTagName.toLatin1().constData(),
+                    QString(), MetaEngine::XmpTagType(1),false);
 
     QMap<QString,QVariant>::const_iterator it = facesPath.constBegin();
-    int i = 1;
+    int i   = 1;
     bool ok = true;
-    while(it != facesPath.constEnd())
+
+    while (it != facesPath.constEnd())
     {
         qreal x,y,w,h;
         it.value().toRectF().getRect(&x,&y,&w,&h);
@@ -1619,64 +1676,59 @@ bool DMetadata::setImageFacesMap(QMultiMap< QString, QVariant >& facesPath, bool
 
         QString rectString;
 
-        rectString.append(QString::number(x) + QString(", "));
-        rectString.append(QString::number(y) + QString(", "));
-        rectString.append(QString::number(w) + QString(", "));
+        rectString.append(QString::number(x) + QLatin1String(", "));
+        rectString.append(QString::number(y) + QLatin1String(", "));
+        rectString.append(QString::number(w) + QLatin1String(", "));
         rectString.append(QString::number(h));
 
         /** Set tag rect **/
-        setXmpTagString(winRectTagKey.arg(i).toLatin1(), rectString,
-                             KExiv2::XmpTagType(0),false);
+        setXmpTagString(winRectTagKey.arg(i).toLatin1().constData(), rectString,
+                             MetaEngine::XmpTagType(0),false);
         /** Set tag name **/
 
-        setXmpTagString(winNameTagKey.arg(i).toLatin1(),it.key(),
-                             KExiv2::XmpTagType(0),false);
+        setXmpTagString(winNameTagKey.arg(i).toLatin1().constData(),it.key(),
+                             MetaEngine::XmpTagType(0),false);
 
         /** Writing rectangle in Metadata Group format **/
         x += w/2;
         y += h/2;
 
         /** Set tag name **/
-        ok &= setXmpTagString(nameTagKey.arg(i).toLatin1(),
-                              it.key(),KExiv2::XmpTagType(0),false);
+        ok &= setXmpTagString(nameTagKey.arg(i).toLatin1().constData(),
+                              it.key(),MetaEngine::XmpTagType(0),false);
         /** Set tag type as Face **/
-        ok &= setXmpTagString(typeTagKey.arg(i).toLatin1(),
-                              QString("Face"),KExiv2::XmpTagType(0),false);
+        ok &= setXmpTagString(typeTagKey.arg(i).toLatin1().constData(),
+                              QLatin1String("Face"), MetaEngine::XmpTagType(0),false);
 
         /** Set tag Area, with xmp type struct **/
-        ok &= setXmpTagString(areaTagKey.arg(i).toLatin1(),
-                              QString(),KExiv2::XmpTagType(2),false);
+        ok &= setXmpTagString(areaTagKey.arg(i).toLatin1().constData(),
+                              QString(), MetaEngine::XmpTagType(2),false);
 
         /** Set stArea:x inside Area structure **/
-        ok &= setXmpTagString(areaxTagKey.arg(i).toLatin1(),
-                              QString::number(x),KExiv2::XmpTagType(0),false);
+        ok &= setXmpTagString(areaxTagKey.arg(i).toLatin1().constData(),
+                              QString::number(x), MetaEngine::XmpTagType(0),false);
 
         /** Set stArea:y inside Area structure **/
-        ok &= setXmpTagString(areayTagKey.arg(i).toLatin1(),
-                              QString::number(y),KExiv2::XmpTagType(0),false);
+        ok &= setXmpTagString(areayTagKey.arg(i).toLatin1().constData(),
+                              QString::number(y), MetaEngine::XmpTagType(0),false);
 
         /** Set stArea:w inside Area structure **/
-        ok &= setXmpTagString(areawTagKey.arg(i).toLatin1(),
-                              QString::number(w),KExiv2::XmpTagType(0),false);
+        ok &= setXmpTagString(areawTagKey.arg(i).toLatin1().constData(),
+                              QString::number(w), MetaEngine::XmpTagType(0),false);
 
         /** Set stArea:h inside Area structure **/
-        ok &= setXmpTagString(areahTagKey.arg(i).toLatin1(),
-                              QString::number(h),KExiv2::XmpTagType(0),false);
+        ok &= setXmpTagString(areahTagKey.arg(i).toLatin1().constData(),
+                              QString::number(h), MetaEngine::XmpTagType(0),false);
 
         /** Set stArea:unit inside Area structure  as normalized **/
-        ok &= setXmpTagString(areanormTagKey.arg(i).toLatin1(),
-                              QString("normalized"),KExiv2::XmpTagType(0),false);
+        ok &= setXmpTagString(areanormTagKey.arg(i).toLatin1().constData(),
+                              QLatin1String("normalized"), MetaEngine::XmpTagType(0),false);
 
         ++it;
         ++i;
     }
 
     return ok;
-#else
-    Q_UNUSED(facesPath);
-    Q_UNUSED(write);
-    return false;
-#endif
 }
 
 bool DMetadata::setMetadataTemplate(const Template& t) const
@@ -1691,15 +1743,15 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
         return false;
     }
 
-    QStringList authors           = t.authors();
-    QString authorsPosition       = t.authorsPosition();
-    QString credit                = t.credit();
-    QString source                = t.source();
-    KExiv2::AltLangMap copyright  = t.copyright();
-    KExiv2::AltLangMap rightUsage = t.rightUsageTerms();
-    QString instructions          = t.instructions();
+    QStringList authors               = t.authors();
+    QString authorsPosition           = t.authorsPosition();
+    QString credit                    = t.credit();
+    QString source                    = t.source();
+    MetaEngine::AltLangMap copyright  = t.copyright();
+    MetaEngine::AltLangMap rightUsage = t.rightUsageTerms();
+    QString instructions              = t.instructions();
 
-    kDebug() << "Applying Metadata Template: " << t.templateTitle() << " :: " << authors;
+    qCDebug(DIGIKAM_METAENGINE_LOG) << "Applying Metadata Template: " << t.templateTitle() << " :: " << authors;
 
     // Set XMP tags. XMP<->IPTC Schema from Photoshop 7.0
 
@@ -1780,7 +1832,7 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
         return false;
     }
 
-    if (!setIptcTag(copyright["x-default"], 128, "Copyright",     "Iptc.Application2.Copyright"))
+    if (!setIptcTag(copyright[QLatin1String("x-default")], 128, "Copyright",     "Iptc.Application2.Copyright"))
     {
         return false;
     }
@@ -1816,7 +1868,7 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
     {
         if (str.startsWith(QLatin1String("XMP")))
         {
-            str.replace(0, 3, "IPTC");
+            str.replace(0, 3, QLatin1String("IPTC"));
         }
 
         newList.append(str);
@@ -2126,25 +2178,27 @@ QString DMetadata::getLensDescription() const
 
     // In first, try to get Lens information from makernotes.
 
-    lensExifTags.append("Exif.CanonCs.LensType");      // Canon Cameras Makernote.
-    lensExifTags.append("Exif.CanonCs.Lens");          // Canon Cameras Makernote.
-    lensExifTags.append("Exif.Canon.0x0095");          // Alternative Canon Cameras Makernote.
-    lensExifTags.append("Exif.NikonLd1.LensIDNumber"); // Nikon Cameras Makernote.
-    lensExifTags.append("Exif.NikonLd2.LensIDNumber"); // Nikon Cameras Makernote.
-    lensExifTags.append("Exif.NikonLd3.LensIDNumber"); // Nikon Cameras Makernote.
-    lensExifTags.append("Exif.Minolta.LensID");        // Minolta Cameras Makernote.
-    lensExifTags.append("Exif.Photo.LensModel");       // Sony Cameras Makernote and others?
-    lensExifTags.append("Exif.Sony1.LensID");          // Sony Cameras Makernote.
-    lensExifTags.append("Exif.Sony2.LensID");          // Sony Cameras Makernote.
-    lensExifTags.append("Exif.SonyMinolta.LensID");    // Sony Cameras Makernote.
-    lensExifTags.append("Exif.Pentax.LensType");       // Pentax Cameras Makernote.
-    lensExifTags.append("Exif.Panasonic.0x0051");      // Panasonic Cameras Makernote.
-    lensExifTags.append("Exif.Panasonic.0x0310");      // Panasonic Cameras Makernote.
-    lensExifTags.append("Exif.Sigma.LensRange");       // Sigma Cameras Makernote.
-    lensExifTags.append("Exif.Samsung2.LensType");     // Samsung Cameras Makernote.
-    lensExifTags.append("Exif.Photo.0xFDEA");          // Non-standard Exif tag set by Camera Raw.
-    lensExifTags.append("Exif.OlympusEq.LensModel");   // Olympus Cameras Makernote.
-    //lensExifTags.append("Exif.OlympusEq.LensType");    // Olympus Cameras Makernote. FIXME is this necessary? exiv2 returns complete name, which doesn't match with lensfun information, see #311295
+    lensExifTags.append(QLatin1String("Exif.CanonCs.LensType"));      // Canon Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.CanonCs.Lens"));          // Canon Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Canon.0x0095"));          // Alternative Canon Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.NikonLd1.LensIDNumber")); // Nikon Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.NikonLd2.LensIDNumber")); // Nikon Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.NikonLd3.LensIDNumber")); // Nikon Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Minolta.LensID"));        // Minolta Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Photo.LensModel"));       // Sony Cameras Makernote (and others?).
+    lensExifTags.append(QLatin1String("Exif.Sony1.LensID"));          // Sony Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Sony2.LensID"));          // Sony Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.SonyMinolta.LensID"));    // Sony Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Pentax.LensType"));       // Pentax Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Panasonic.0x0051"));      // Panasonic Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Panasonic.0x0310"));      // Panasonic Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Sigma.LensRange"));       // Sigma Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Samsung2.LensType"));     // Samsung Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.Photo.0xFDEA"));          // Non-standard Exif tag set by Camera Raw.
+    lensExifTags.append(QLatin1String("Exif.OlympusEq.LensModel"));   // Olympus Cameras Makernote.
+
+    // Olympus Cameras Makernote. FIXME is this necessary? exiv2 returns complete name, which doesn't match with lensfun information, see bug #311295
+    //lensExifTags.append("Exif.OlympusEq.LensType");
 
     // TODO : add Fuji camera Makernotes.
 
@@ -2153,10 +2207,13 @@ QString DMetadata::getLensDescription() const
 
     for (QStringList::const_iterator it = lensExifTags.constBegin(); it != lensExifTags.constEnd(); ++it)
     {
-        lens = getExifTagString((*it).toAscii());
+        lens = getExifTagString((*it).toLatin1().constData());
 
         if ( !lens.isEmpty() &&
-             !(lens.startsWith('(') && lens.endsWith(')')) )   // To prevent undecoded tag values from Exiv2 as "(65535)".
+             !(lens.startsWith(QLatin1Char('(')) &&
+               lens.endsWith(QLatin1Char(')'))
+              )
+           )   // To prevent undecoded tag values from Exiv2 as "(65535)".
         {
             return lens;
         }
@@ -2174,7 +2231,7 @@ QString DMetadata::getLensDescription() const
 
         if (!lens.isEmpty())
         {
-            lens.append(" ");
+            lens.append(QLatin1String(" "));
         }
 
         lens.append(getXmpTagString("Xmp.MicrosoftPhoto.LensModel"));
@@ -2190,7 +2247,7 @@ IccProfile DMetadata::getIccProfile() const
 
     if (!data.isNull())
     {
-        kDebug() << "Found an ICC profile in Exif metadata";
+        qCDebug(DIGIKAM_METAENGINE_LOG) << "Found an ICC profile in Exif metadata";
         return data;
     }
 
@@ -2199,13 +2256,13 @@ IccProfile DMetadata::getIccProfile() const
     {
         case DMetadata::WORKSPACE_SRGB:
         {
-            kDebug() << "Exif color-space tag is sRGB. Using default sRGB ICC profile.";
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "Exif color-space tag is sRGB. Using default sRGB ICC profile.";
             return IccProfile::sRGB();
         }
 
         case DMetadata::WORKSPACE_ADOBERGB:
         {
-            kDebug() << "Exif color-space tag is AdobeRGB. Using default AdobeRGB ICC profile.";
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "Exif color-space tag is AdobeRGB. Using default AdobeRGB ICC profile.";
             return IccProfile::adobeRGB();
         }
 
@@ -2239,7 +2296,7 @@ bool DMetadata::setIptcTag(const QString& text, int maxLength,
 {
     QString truncatedText = text;
     truncatedText.truncate(maxLength);
-    kDebug() << getFilePath() << " ==> " << debugLabel << ": " << truncatedText;
+    qCDebug(DIGIKAM_METAENGINE_LOG) << getFilePath() << " ==> " << debugLabel << ": " << truncatedText;
     return setIptcTagString(tagKey, truncatedText);    // returns false if failed
 }
 
@@ -2322,7 +2379,7 @@ inline QVariant DMetadata::fromIptcEmulateLangAlt(const char* const iptcTagName)
     }
 
     QMap<QString, QVariant> map;
-    map["x-default"] = str;
+    map[QLatin1String("x-default")] = str;
     return map;
 }
 
@@ -2353,7 +2410,7 @@ QVariant DMetadata::getMetadataField(MetadataInfo::Field field) const
     switch (field)
     {
         case MetadataInfo::Comment:
-            return getImageComments()[QString("x-default")].caption;
+            return getImageComments()[QLatin1String("x-default")].caption;
         case MetadataInfo::CommentJfif:
             return getCommentsDecoded();
         case MetadataInfo::CommentExif:
@@ -2383,7 +2440,7 @@ QVariant DMetadata::getMetadataField(MetadataInfo::Field field) const
             return fromIptcOrXmp("Iptc.Application2.Headline", "Xmp.photoshop.Headline");
         case MetadataInfo::Title:
         {
-            QString str = getImageTitles()[QString("x-default")].caption;
+            QString str = getImageTitles()[QLatin1String("x-default")].caption;
 
             if (str.isEmpty())
             {
@@ -2391,7 +2448,7 @@ QVariant DMetadata::getMetadataField(MetadataInfo::Field field) const
             }
 
             QMap<QString, QVariant> map;
-            map["x-default"] = str;
+            map[QLatin1String("x-default")] = str;
             return map;
         }
         case MetadataInfo::DescriptionWriter:
@@ -2694,7 +2751,7 @@ QVariantList DMetadata::getMetadataFields(const MetadataFields& fields) const
 
 QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field field)
 {
-    KExiv2 exiv2Iface;
+    MetaEngine exiv2Iface;
 
     switch (field)
     {
@@ -2789,9 +2846,9 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
                 return QString();
             }
 
-            QString direction = (directionRef == 'W') ?
+            QString direction = (QLatin1Char(directionRef) == QLatin1Char('W')) ?
                                 i18nc("For use in longitude coordinate", "West") : i18nc("For use in longitude coordinate", "East");
-            return QString("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
+            return QString::fromLatin1("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
                    .arg(minutes).arg(QChar(0x2032))
                    .arg(seconds, 'f').arg(QChar(0x2033)).arg(direction);
         }
@@ -2802,9 +2859,9 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
             char   directionRef;
 
             convertToUserPresentableNumbers(false, value.toDouble(), &degrees, &minutes, &seconds, &directionRef);
-            QString direction = (directionRef == 'W') ?
+            QString direction = (QLatin1Char(directionRef) == QLatin1Char('W')) ?
                                 i18nc("For use in longitude coordinate", "West") : i18nc("For use in longitude coordinate", "East");
-            return QString("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
+            return QString::fromLatin1("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
                    .arg(minutes).arg(QChar(0x2032))
                    .arg(seconds, 'f').arg(QChar(0x2033)).arg(direction);
         }
@@ -2819,9 +2876,9 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
                 return QString();
             }
 
-            QString direction = (directionRef == 'N') ?
+            QString direction = (QLatin1Char(directionRef) == QLatin1Char('N')) ?
                                 i18nc("For use in latitude coordinate", "North") : i18nc("For use in latitude coordinate", "South");
-            return QString("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
+            return QString::fromLatin1("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
                    .arg(minutes).arg(QChar(0x2032))
                    .arg(seconds, 'f').arg(QChar(0x2033)).arg(direction);
         }
@@ -2832,15 +2889,15 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
             char   directionRef;
 
             convertToUserPresentableNumbers(false, value.toDouble(), &degrees, &minutes, &seconds, &directionRef);
-            QString direction = (directionRef == 'N') ?
+            QString direction = (QLatin1Char(directionRef) == QLatin1Char('N')) ?
                                 i18nc("For use in latitude coordinate", "North") : i18nc("For use in latitude coordinate", "North");
-            return QString("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
+            return QString::fromLatin1("%1%2%3%4%L5%6 %7").arg(degrees).arg(QChar(0xB0))
                    .arg(minutes).arg(QChar(0x2032))
                    .arg(seconds, 'f').arg(QChar(0x2033)).arg(direction);
         }
         case MetadataInfo::Altitude:
         {
-            QString meters = QString("%L1").arg(value.toDouble(), 0, 'f', 2);
+            QString meters = QString::fromLatin1("%L1").arg(value.toDouble(), 0, 'f', 2);
             // xgettext: no-c-format
             return i18nc("Height in meters", "%L1m", meters); // krazy:exclude=i18ncheckarg
         }
@@ -2874,8 +2931,7 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
             }
 
             // Try "en-us"
-            KLocale* locale = KGlobal::locale();
-            QString spec = locale->language().toLower() + '-' + locale->country().toLower();
+            QString spec = QLocale().name().toLower().replace(QLatin1Char('_'), QLatin1Char('-'));
 
             if (map.contains(spec))
             {
@@ -2883,8 +2939,9 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
             }
 
             // Try "en-"
-            QStringList keys = map.keys();
-            QRegExp exp(locale->language().toLower() + '-');
+            QStringList keys    = map.keys();
+            QString spec2       = QLocale().name().toLower();
+            QRegExp exp(spec2.left(spec2.indexOf(QLatin1Char('_'))) + QLatin1Char('-'));
             QStringList matches = keys.filter(exp);
 
             if (!matches.isEmpty())
@@ -2893,9 +2950,9 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
             }
 
             // return default
-            if (map.contains("x-default"))
+            if (map.contains(QLatin1String("x-default")))
             {
-                return map["x-default"].toString();
+                return map[QLatin1String("x-default")].toString();
             }
 
             // return first entry
@@ -2906,7 +2963,7 @@ QString DMetadata::valueToString (const QVariant& value, MetadataInfo::Field fie
         case MetadataInfo::IptcCoreCreator:
         case MetadataInfo::IptcCoreScene:
         case MetadataInfo::IptcCoreSubjectCode:
-            return value.toStringList().join(" ");
+            return value.toStringList().join(QLatin1String(" "));
 
             // Text
         case MetadataInfo::Comment:
@@ -2941,7 +2998,7 @@ QStringList DMetadata::valuesToString(const QVariantList& values, const Metadata
     Q_ASSERT(size == values.size());
 
     QStringList list;
-    for (int i=0; i<size; ++i)
+    for (int i = 0; i < size; ++i)
     {
         list << valueToString(values.at(i), fields.at(i));
     }
@@ -2956,7 +3013,7 @@ QMap<int, QString> DMetadata::possibleValuesForEnumField(MetadataInfo::Field fie
 
     switch (field)
     {
-        case MetadataInfo::Orientation:                      /// Int, enum from libkexiv2
+        case MetadataInfo::Orientation:                      /// Int, enum from libMetaEngine
             min = ORIENTATION_UNSPECIFIED;
             max = ORIENTATION_ROT_270;
             break;
@@ -2989,7 +3046,7 @@ QMap<int, QString> DMetadata::possibleValuesForEnumField(MetadataInfo::Field fie
             //more: TODO?
             return map;
         default:
-            kWarning() << "Unsupported field " << field << " in DMetadata::possibleValuesForEnumField";
+            qCWarning(DIGIKAM_METAENGINE_LOG) << "Unsupported field " << field << " in DMetadata::possibleValuesForEnumField";
             return map;
     }
 
@@ -3136,9 +3193,9 @@ double DMetadata::apexShutterSpeedToExposureTime(double shutterSpeed)
     return exp( - log(2) * shutterSpeed);
 }
 
-KExiv2::AltLangMap DMetadata::toAltLangMap(const QVariant& var)
+MetaEngine::AltLangMap DMetadata::toAltLangMap(const QVariant& var)
 {
-    KExiv2::AltLangMap map;
+    MetaEngine::AltLangMap map;
 
     if (var.isNull())
     {
@@ -3148,7 +3205,7 @@ KExiv2::AltLangMap DMetadata::toAltLangMap(const QVariant& var)
     switch (var.type())
     {
         case QVariant::String:
-            map.insert("x-default", var.toString());
+            map.insert(QLatin1String("x-default"), var.toString());
             break;
         case QVariant::Map:
         {
@@ -3167,34 +3224,6 @@ KExiv2::AltLangMap DMetadata::toAltLangMap(const QVariant& var)
 
     return map;
 }
-
-#if KEXIV2_VERSION < 0x020300
-
-KUrl DMetadata::sidecarUrl(const KUrl& url)
-{
-    QString sidecarPath = sidecarFilePathForFile(url.path());
-    KUrl sidecarUrl(url);
-    sidecarUrl.setPath(sidecarPath);
-    return sidecarUrl;
-}
-
-KUrl DMetadata::sidecarUrl(const QString& path)
-{
-    return KUrl::fromPath(sidecarFilePathForFile(path));
-}
-
-QString DMetadata::sidecarPath(const QString& path)
-{
-    return sidecarFilePathForFile(path);
-}
-
-bool DMetadata::hasSidecar(const QString& path)
-{
-    return QFileInfo(sidecarFilePathForFile(path)).exists();
-}
-#endif // KEXIV2_VERSION < 0x020300
-
-// ---------- Pushed to libkexiv2 for KDE 4.4 --------------
 
 bool DMetadata::addToXmpTagStringBag(const char* const xmpTagName, const QStringList& entriesToAdd,
                                      bool setProgramName) const
@@ -3304,39 +3333,7 @@ bool DMetadata::removeXmpSubjects(const QStringList& subjectsToRemove, bool setP
 {
     return removeFromXmpTagStringBag("Xmp.iptc.SubjectCode", subjectsToRemove, setProgramName);
 }
-// End: Pushed to libkexiv2 for KDE4.4
 
-//------------------------------------------------------------------------------------------------
-// Compatibility for < KDE 4.4.
-#if KEXIV2_VERSION < 0x010000
-DMetadata::DMetadata(const KExiv2Data& data)
-{
-    setData(data);
-}
-
-KExiv2Data DMetadata::data() const
-{
-    KExiv2Data data;
-    data.exifData = getExif();
-    data.iptcData = getIptc();
-    data.xmpData  = getXmp();
-    data.imageComments = getComments();
-    return data;
-}
-
-void DMetadata::setData(const KExiv2Data& data)
-{
-    setExif(data.exifData);
-    setIptc(data.iptcData);
-    setXmp(data.xmpData);
-    setComments(data.imageComments);
-}
-
-#endif
-// End: Compatibility for < KDE 4.4
-//------------------------------------------------------------------------------------------------
-
-// NOTE: this method can be moved to libkexiv2 later...
 bool DMetadata::removeExifColorSpace() const
 {
     bool ret =  true;
@@ -3352,7 +3349,7 @@ QString DMetadata::getExifTagStringFromTagsList(const QStringList& tagsList) con
 
     foreach(const QString& tag, tagsList)
     {
-        val = getExifTagString(tag.toAscii());
+        val = getExifTagString(tag.toLatin1().constData());
         if (!val.isEmpty())
             return val;
     }

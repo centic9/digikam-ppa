@@ -21,16 +21,17 @@
  *
  * ============================================================ */
 
-#include "advancedrenameprocessdialog.moc"
+#include "advancedrenameprocessdialog.h"
 
 // Qt includes
 
 #include <QPixmap>
 #include <QTimer>
+#include <QDialogButtonBox>
 
 // KDE includes
 
-#include <klocale.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
@@ -46,20 +47,23 @@ class AdvancedRenameProcessDialog::Private
 public:
 
     Private() :
-        cancel(false),
         thumbLoadThread(0),
-        utilities(0)
+        utilities(0),
+        cancel(false)
     {
     }
 
-    bool                 cancel;
     ThumbnailLoadThread* thumbLoadThread;
-    NewNamesList         newNameList;
     ImageViewUtilities*  utilities;
+
+    NewNamesList         newNameList;
+    QUrl                 currentUrl;
+    bool                 cancel;
 };
 
 AdvancedRenameProcessDialog::AdvancedRenameProcessDialog(const NewNamesList& list)
-    : DProgressDlg(0), d(new Private)
+    : DProgressDlg(0),
+      d(new Private)
 {
     d->newNameList     = list;
     d->utilities       = new ImageViewUtilities(this);
@@ -68,26 +72,27 @@ AdvancedRenameProcessDialog::AdvancedRenameProcessDialog(const NewNamesList& lis
     connect(d->thumbLoadThread, SIGNAL(signalThumbnailLoaded(LoadingDescription,QPixmap)),
             this, SLOT(slotGotThumbnail(LoadingDescription,QPixmap)));
 
-    connect(DIO::instance(), SIGNAL(imageRenameSucceeded(KUrl)),
-            this, SLOT(slotRenameSuccess(KUrl)));
+    connect(DIO::instance(), SIGNAL(imageRenameSucceeded(QUrl)),
+            this, SLOT(slotRenameSuccess(QUrl)));
 
-    connect(DIO::instance(), SIGNAL(imageRenameFailed(KUrl)),
-            this, SLOT(slotRenameFailed(KUrl)));
+    connect(DIO::instance(), SIGNAL(imageRenameFailed(QUrl)),
+            this, SLOT(slotRenameFailed(QUrl)));
 
-    connect(DIO::instance(), SIGNAL(renamingAborted(KUrl)),
+    connect(DIO::instance(), SIGNAL(renamingAborted(QUrl)),
             this, SLOT(slotCancel()));
 
-    setModal(true);
     setValue(0);
-    setCaption(i18n("Renaming images"));
-    setLabel(i18n("<b>Renaming images. Please wait...</b>"));
+    setModal(true);
     setButtonText(i18n("&Abort"));
+    setWindowTitle(i18n("Renaming images"));
+    setLabel(i18n("<b>Renaming images. Please wait...</b>"));
 
     QTimer::singleShot(500, this, SLOT(slotRenameImages()));
 }
 
 AdvancedRenameProcessDialog::~AdvancedRenameProcessDialog()
 {
+    delete d->utilities;
     delete d;
 }
 
@@ -118,7 +123,7 @@ void AdvancedRenameProcessDialog::processOne()
 
 void AdvancedRenameProcessDialog::complete()
 {
-    done(Cancel);
+    done(QDialogButtonBox::Cancel);
 }
 
 void AdvancedRenameProcessDialog::slotGotThumbnail(const LoadingDescription& desc, const QPixmap& pix)
@@ -133,34 +138,31 @@ void AdvancedRenameProcessDialog::slotGotThumbnail(const LoadingDescription& des
         return;
     }
 
+    if (d->currentUrl.toLocalFile() == desc.filePath)
+    {
+        return;
+    }
+
     addedAction(pix, desc.filePath);
     advance(1);
 
-    NewNameInfo info = d->newNameList.first();
+    NewNameInfo info = d->newNameList.takeFirst();
+    d->currentUrl    = info.first;
+
     d->utilities->rename(info.first, info.second);
 }
 
 void AdvancedRenameProcessDialog::slotCancel()
 {
     abort();
-    done(Cancel);
+    done(QDialogButtonBox::Cancel);
 }
 
-void AdvancedRenameProcessDialog::slotRenameSuccess(const KUrl& src)
+void AdvancedRenameProcessDialog::slotRenameSuccess(const QUrl& src)
 {
-    if (d->cancel || d->newNameList.isEmpty())
+    if (d->cancel || d->currentUrl != src)
     {
         return;
-    }
-
-    if (d->newNameList.first().first != src)
-    {
-        return;
-    }
-
-    if (!d->newNameList.isEmpty())
-    {
-        d->newNameList.removeFirst();
     }
 
     if (d->newNameList.isEmpty())
@@ -173,7 +175,7 @@ void AdvancedRenameProcessDialog::slotRenameSuccess(const KUrl& src)
     }
 }
 
-void AdvancedRenameProcessDialog::slotRenameFailed(const KUrl&)
+void AdvancedRenameProcessDialog::slotRenameFailed(const QUrl&)
 {
     abort();
 }

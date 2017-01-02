@@ -6,7 +6,7 @@
  * Date        : 2009-07-06
  * Description : metadata template settings panel.
  *
- * Copyright (C) 2009-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -28,25 +28,21 @@
 #include <QLabel>
 #include <QGridLayout>
 #include <QFrame>
+#include <QIcon>
+#include <QLineEdit>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
-#include <kicon.h>
-#include <klineedit.h>
-
-// LibKExiv2 includes
-
-#include <libkexiv2/altlangstredit.h>
-#include <libkexiv2/countryselector.h>
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "templatelist.h"
 #include "subjectedit.h"
-
-using namespace KExiv2Iface;
+#include "altlangstredit.h"
+#include "countryselector.h"
 
 namespace Digikam
 {
@@ -84,47 +80,48 @@ public:
     }
 
     // Rights template information panel.
-    KLineEdit*       authorsEdit;
-    KLineEdit*       authorsPositionEdit;
-    KLineEdit*       creditEdit;
-    KLineEdit*       sourceEdit;
-    KLineEdit*       instructionsEdit;
+    QLineEdit*       authorsEdit;
+    QLineEdit*       authorsPositionEdit;
+    QLineEdit*       creditEdit;
+    QLineEdit*       sourceEdit;
+    QLineEdit*       instructionsEdit;
 
     AltLangStrEdit*  copyrightEdit;
     AltLangStrEdit*  rightUsageEdit;
 
     // Location template information panel.
     CountrySelector* locationCountryCodeEdit;
-    KLineEdit*       locationProvinceStateEdit;
-    KLineEdit*       locationCityEdit;
-    KLineEdit*       locationSublocationEdit;
+    QLineEdit*       locationProvinceStateEdit;
+    QLineEdit*       locationCityEdit;
+    QLineEdit*       locationSublocationEdit;
 
     // Contact template information panel.
-    KLineEdit*       contactCityEdit;
-    KLineEdit*       contactCountryEdit;
-    KLineEdit*       contactAddressEdit;
-    KLineEdit*       contactPostalCodeEdit;
-    KLineEdit*       contactProvinceStateEdit;
-    KLineEdit*       contactEmailEdit;
-    KLineEdit*       contactPhoneEdit;
-    KLineEdit*       contactWebUrlEdit;
+    QLineEdit*       contactCityEdit;
+    QLineEdit*       contactCountryEdit;
+    QLineEdit*       contactAddressEdit;
+    QLineEdit*       contactPostalCodeEdit;
+    QLineEdit*       contactProvinceStateEdit;
+    QLineEdit*       contactEmailEdit;
+    QLineEdit*       contactPhoneEdit;
+    QLineEdit*       contactWebUrlEdit;
 
     // Subjects template information panel.
     SubjectEdit*     subjects;
 };
 
 TemplatePanel::TemplatePanel(QWidget* const parent)
-    : KTabWidget(parent), d(new Private)
+    : QTabWidget(parent),
+      d(new Private)
 {
     // -- Rights Template information panel -------------------------------------------------------------
 
-    QWidget* page1     = new QWidget(this);
-    QGridLayout* grid1 = new QGridLayout(page1);
+    QWidget* const page1     = new QWidget(this);
+    QGridLayout* const grid1 = new QGridLayout(page1);
 
-    QLabel* label1     = new QLabel(i18n("Author Names:"), page1);
-    d->authorsEdit     = new KLineEdit(page1);
-    d->authorsEdit->setClearButtonShown(true);
-    d->authorsEdit->setClickMessage(i18n("Enter the names of the photograph's creators. Use semi-colons as separator here."));
+    QLabel* const label1 = new QLabel(i18n("Author Names:"), page1);
+    d->authorsEdit       = new QLineEdit(page1);
+    d->authorsEdit->setClearButtonEnabled(true);
+    d->authorsEdit->setPlaceholderText(i18n("Enter the names of the photograph's creators. Use semi-colons as separator here."));
     label1->setBuddy(d->authorsEdit);
     d->authorsEdit->setWhatsThis(i18n("<p>This field should contain the names of the persons who created the photograph. "
                                       "If it is not appropriate to add the name of the photographer (for example, if the identity of "
@@ -135,10 +132,10 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    QLabel* label2         = new QLabel(i18n("Authors' Positions:"), page1);
-    d->authorsPositionEdit = new KLineEdit(page1);
-    d->authorsPositionEdit->setClearButtonShown(true);
-    d->authorsPositionEdit->setClickMessage(i18n("Enter the job titles of the authors here."));
+    QLabel* const label2   = new QLabel(i18n("Authors' Positions:"), page1);
+    d->authorsPositionEdit = new QLineEdit(page1);
+    d->authorsPositionEdit->setClearButtonEnabled(true);
+    d->authorsPositionEdit->setPlaceholderText(i18n("Enter the job titles of the authors here."));
     label2->setBuddy(d->authorsPositionEdit);
     d->authorsPositionEdit->setWhatsThis(i18n("<p>This field should contain the job titles of the authors. Examples might include "
                                          "titles such as: Staff Photographer, Freelance Photographer, or Independent Commercial "
@@ -148,10 +145,10 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    QLabel* label3 = new QLabel(i18n("Credit:"), page1);
-    d->creditEdit  = new KLineEdit(page1);
-    d->creditEdit->setClearButtonShown(true);
-    d->creditEdit->setClickMessage(i18n("Enter the photograph credit here."));
+    QLabel* const label3 = new QLabel(i18n("Credit:"), page1);
+    d->creditEdit        = new QLineEdit(page1);
+    d->creditEdit->setClearButtonEnabled(true);
+    d->creditEdit->setPlaceholderText(i18n("Enter the photograph credit here."));
     label3->setBuddy(d->creditEdit);
     d->creditEdit->setWhatsThis(i18n("<p>(synonymous to Provider): Use the Provider field to identify who is providing the photograph. "
                                      "This does not necessarily have to be the author. If a photographer is working for a news agency "
@@ -165,7 +162,7 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
     d->copyrightEdit = new AltLangStrEdit(page1);
     d->copyrightEdit->setTitle(i18n("Copyright:"));
     d->copyrightEdit->setFixedHeight(75);
-    d->copyrightEdit->setClickMessage(i18n("Enter the copyright notice to identify the current owner(s) of the copyright here."));
+    d->copyrightEdit->setPlaceholderText(i18n("Enter the copyright notice to identify the current owner(s) of the copyright here."));
     d->copyrightEdit->setWhatsThis(i18n("<p>The Copyright Notice should contain any necessary copyright notice for claiming the intellectual "
                                         "property, and should identify the current owner(s) of the copyright for the photograph. Usually, "
                                         "this would be the photographer, but if the image was done by an employee or as work-for-hire, "
@@ -188,7 +185,7 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
     d->rightUsageEdit = new AltLangStrEdit(page1);
     d->rightUsageEdit->setTitle(i18n("Right Usage Terms:"));
     d->rightUsageEdit->setFixedHeight(75);
-    d->rightUsageEdit->setClickMessage(i18n("Enter the list of instructions on how a resource can be legally used here."));
+    d->rightUsageEdit->setPlaceholderText(i18n("Enter the list of instructions on how a resource can be legally used here."));
     d->rightUsageEdit->setWhatsThis(i18n("<p>The Right Usage Terms field should be used to list instructions on how "
                                          "a resource can be legally used."
                                          "<p>With XMP, you can include more than one right usage terms string using "
@@ -197,10 +194,10 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    QLabel* label6 = new QLabel(i18n("Source:"), page1);
-    d->sourceEdit  = new KLineEdit(page1);
-    d->sourceEdit->setClearButtonShown(true);
-    d->sourceEdit->setClickMessage(i18n("Enter the original owner of the photograph here."));
+    QLabel* const label6 = new QLabel(i18n("Source:"), page1);
+    d->sourceEdit        = new QLineEdit(page1);
+    d->sourceEdit->setClearButtonEnabled(true);
+    d->sourceEdit->setPlaceholderText(i18n("Enter the original owner of the photograph here."));
     label6->setBuddy(d->sourceEdit);
     d->sourceEdit->setWhatsThis(i18n("<p>The Source field should be used to identify the original owner or copyright holder of the "
                                      "photograph. The value of this field should never be changed after the information is entered "
@@ -214,10 +211,10 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    QLabel* label7      = new QLabel(i18n("Instructions:"), page1);
-    d->instructionsEdit = new KLineEdit(page1);
-    d->instructionsEdit->setClearButtonShown(true);
-    d->instructionsEdit->setClickMessage(i18n("Enter the editorial notice here."));
+    QLabel* const label7 = new QLabel(i18n("Instructions:"), page1);
+    d->instructionsEdit  = new QLineEdit(page1);
+    d->instructionsEdit->setClearButtonEnabled(true);
+    d->instructionsEdit->setPlaceholderText(i18n("Enter the editorial notice here."));
     label7->setBuddy(d->instructionsEdit);
     d->instructionsEdit->setWhatsThis(i18n("<p>The Instructions field should be used to list editorial "
                                            "instructions concerning the use of photograph.</p>"
@@ -225,8 +222,10 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
 
     // --------------------------------------------------------
 
-    grid1->setMargin(KDialog::spacingHint());
-    grid1->setSpacing(KDialog::spacingHint());
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
+    grid1->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid1->setSpacing(spacing);
     grid1->setAlignment(Qt::AlignTop);
     grid1->setColumnStretch(1, 10);
     grid1->addWidget(label1,                 0, 0, 1, 1);
@@ -242,45 +241,45 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
     grid1->addWidget(label7,                 6, 0, 1, 1);
     grid1->addWidget(d->instructionsEdit,    6, 1, 1, 2);
 
-    insertTab(RIGHTS, page1, KIcon("flag-red"), i18n("Rights"));
+    insertTab(RIGHTS, page1, QIcon::fromTheme(QLatin1String("flag-red")), i18n("Rights"));
 
     // -- Location Template information panel -------------------------------------------------------------
 
-    QWidget* page2 = new QWidget(this);
+    QWidget* const page2 = new QWidget(this);
 
     // --------------------------------------------------------
 
-    QLabel* label9      = new QLabel(i18n("City:"));
-    d->locationCityEdit = new KLineEdit;
-    d->locationCityEdit->setClearButtonShown(true);
-    d->locationCityEdit->setClickMessage(i18n("Enter the city of contents here."));
+    QLabel* const label9 = new QLabel(i18n("City:"));
+    d->locationCityEdit  = new QLineEdit;
+    d->locationCityEdit->setClearButtonEnabled(true);
+    d->locationCityEdit->setPlaceholderText(i18n("Enter the city of contents here."));
     label9->setBuddy(d->locationCityEdit);
     d->locationCityEdit->setWhatsThis(i18n("<p>This field should contain the name of the city "
                                            "where the photograph was taken.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label10            = new QLabel(i18n("Sublocation:"));
-    d->locationSublocationEdit = new KLineEdit;
-    d->locationSublocationEdit->setClearButtonShown(true);
-    d->locationSublocationEdit->setClickMessage(i18n("Enter the city sublocation of contents here."));
+    QLabel* const label10      = new QLabel(i18n("Sublocation:"));
+    d->locationSublocationEdit = new QLineEdit;
+    d->locationSublocationEdit->setClearButtonEnabled(true);
+    d->locationSublocationEdit->setPlaceholderText(i18n("Enter the city sublocation of contents here."));
     label10->setBuddy(d->locationSublocationEdit);
     d->locationSublocationEdit->setWhatsThis(i18n("<p>This field should contain the sublocation of the city "
             "where the photograph was taken.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label11              = new QLabel(i18n("Province/State:"));
-    d->locationProvinceStateEdit = new KLineEdit;
-    d->locationProvinceStateEdit->setClearButtonShown(true);
-    d->locationProvinceStateEdit->setClickMessage(i18n("Enter the province or state of contents here."));
+    QLabel* const label11        = new QLabel(i18n("Province/State:"));
+    d->locationProvinceStateEdit = new QLineEdit;
+    d->locationProvinceStateEdit->setClearButtonEnabled(true);
+    d->locationProvinceStateEdit->setPlaceholderText(i18n("Enter the province or state of contents here."));
     label11->setBuddy(d->locationProvinceStateEdit);
     d->locationProvinceStateEdit->setWhatsThis(i18n("<p>This field should contain the province or state "
             "where the photograph was taken.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label12            = new QLabel(i18n("Country:"));
+    QLabel* const label12      = new QLabel(i18n("Country:"));
     d->locationCountryCodeEdit = new CountrySelector(page2);
     label12->setBuddy(d->locationCountryCodeEdit);
     d->locationCountryCodeEdit->setWhatsThis(i18n("<p>Select here the country "
@@ -297,8 +296,8 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
     grid2->addWidget(d->locationProvinceStateEdit, 2, 1, 1, 2);
     grid2->addWidget(label12,                      3, 0, 1, 1);
     grid2->addWidget(d->locationCountryCodeEdit,   3, 1, 1, 2);
-    grid2->setMargin(KDialog::spacingHint());
-    grid2->setSpacing(KDialog::spacingHint());
+    grid2->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid2->setSpacing(spacing);
     grid2->setAlignment(Qt::AlignTop);
     grid2->setColumnStretch(1, 10);
     grid2->setRowStretch(4, 10);
@@ -308,93 +307,93 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
     page2->setTabOrder(d->locationSublocationEdit, d->locationProvinceStateEdit);
     page2->setTabOrder(d->locationProvinceStateEdit, d->locationCountryCodeEdit);
 
-    insertTab(LOCATION, page2, KIcon("applications-internet"), i18n("Location"));
+    insertTab(LOCATION, page2, QIcon::fromTheme(QLatin1String("folder-html")), i18n("Location"));
 
     // -- Contact Template information panel -------------------------------------------------------------
 
-    QWidget* page3     = new QWidget(this);
+    QWidget* const page3  = new QWidget(this);
 
-    QLabel* label13    = new QLabel(i18n("City:"), page3);
-    d->contactCityEdit = new KLineEdit(page3);
-    d->contactCityEdit->setClearButtonShown(true);
-    d->contactCityEdit->setClickMessage(i18n("Enter the city name of the lead author here."));
+    QLabel* const label13 = new QLabel(i18n("City:"), page3);
+    d->contactCityEdit    = new QLineEdit(page3);
+    d->contactCityEdit->setClearButtonEnabled(true);
+    d->contactCityEdit->setPlaceholderText(i18n("Enter the city name of the lead author here."));
     label13->setBuddy(d->contactCityEdit);
     d->contactCityEdit->setWhatsThis(i18n("<p>This field should contain the city name "
                                           "where the lead author lives.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label14       = new QLabel(i18n("Country:"), page3);
-    d->contactCountryEdit = new KLineEdit(page3);
-    d->contactCountryEdit->setClearButtonShown(true);
-    d->contactCountryEdit->setClickMessage(i18n("Enter the country name of the lead author here."));
+    QLabel* const label14 = new QLabel(i18n("Country:"), page3);
+    d->contactCountryEdit = new QLineEdit(page3);
+    d->contactCountryEdit->setClearButtonEnabled(true);
+    d->contactCountryEdit->setPlaceholderText(i18n("Enter the country name of the lead author here."));
     label14->setBuddy(d->contactCountryEdit);
     d->contactCountryEdit->setWhatsThis(i18n("<p>This field should contain the country name "
                                         "where the lead author lives.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label15       = new QLabel(i18n("Address:"), page3);
-    d->contactAddressEdit = new KLineEdit(page3);
-    d->contactAddressEdit->setClearButtonShown(true);
-    d->contactAddressEdit->setClickMessage(i18n("Enter the address of the lead author here."));
+    QLabel* const label15 = new QLabel(i18n("Address:"), page3);
+    d->contactAddressEdit = new QLineEdit(page3);
+    d->contactAddressEdit->setClearButtonEnabled(true);
+    d->contactAddressEdit->setPlaceholderText(i18n("Enter the address of the lead author here."));
     label15->setBuddy(d->contactAddressEdit);
     d->contactAddressEdit->setWhatsThis(i18n("<p>This field should contain the address "
                                         "where the lead author lives.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label16          = new QLabel(i18n("Postal Code:"), page3);
-    d->contactPostalCodeEdit = new KLineEdit(page3);
-    d->contactPostalCodeEdit->setClearButtonShown(true);
-    d->contactPostalCodeEdit->setClickMessage(i18n("Enter the postal code of the lead author here."));
+    QLabel* const label16    = new QLabel(i18n("Postal Code:"), page3);
+    d->contactPostalCodeEdit = new QLineEdit(page3);
+    d->contactPostalCodeEdit->setClearButtonEnabled(true);
+    d->contactPostalCodeEdit->setPlaceholderText(i18n("Enter the postal code of the lead author here."));
     label16->setBuddy(d->contactPostalCodeEdit);
     d->contactPostalCodeEdit->setWhatsThis(i18n("<p>This field should contain the postal code "
                                            "where the lead author lives.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label17             = new QLabel(i18n("Province:"), page3);
-    d->contactProvinceStateEdit = new KLineEdit(page3);
-    d->contactProvinceStateEdit->setClearButtonShown(true);
-    d->contactProvinceStateEdit->setClickMessage(i18n("Enter the province of the lead author here."));
+    QLabel* const label17       = new QLabel(i18n("Province:"), page3);
+    d->contactProvinceStateEdit = new QLineEdit(page3);
+    d->contactProvinceStateEdit->setClearButtonEnabled(true);
+    d->contactProvinceStateEdit->setPlaceholderText(i18n("Enter the province of the lead author here."));
     label17->setBuddy(d->contactProvinceStateEdit);
     d->contactProvinceStateEdit->setWhatsThis(i18n("<p>This field should contain the province "
             "where the lead author lives.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label18     = new QLabel(i18n("Email:"), page3);
-    d->contactEmailEdit = new KLineEdit(page3);
-    d->contactEmailEdit->setClearButtonShown(true);
-    d->contactEmailEdit->setClickMessage(i18n("Enter the email of the lead author here."));
+    QLabel* const label18 = new QLabel(i18n("Email:"), page3);
+    d->contactEmailEdit   = new QLineEdit(page3);
+    d->contactEmailEdit->setClearButtonEnabled(true);
+    d->contactEmailEdit->setPlaceholderText(i18n("Enter the email of the lead author here."));
     label18->setBuddy(d->contactEmailEdit);
     d->contactEmailEdit->setWhatsThis(i18n("<p>This field should contain the email "
                                            "of the lead author.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label19     = new QLabel(i18n("Phone:"), page3);
-    d->contactPhoneEdit = new KLineEdit(page3);
-    d->contactPhoneEdit->setClearButtonShown(true);
-    d->contactPhoneEdit->setClickMessage(i18n("Enter the phone number of the lead author here."));
+    QLabel* const label19 = new QLabel(i18n("Phone:"), page3);
+    d->contactPhoneEdit   = new QLineEdit(page3);
+    d->contactPhoneEdit->setClearButtonEnabled(true);
+    d->contactPhoneEdit->setPlaceholderText(i18n("Enter the phone number of the lead author here."));
     label19->setBuddy(d->contactPhoneEdit);
     d->contactPhoneEdit->setWhatsThis(i18n("<p>This field should contain the phone number "
                                            "of the lead author.</p>"));
 
     // --------------------------------------------------------
 
-    QLabel* label20      = new QLabel(i18n("URL:"), page3);
-    d->contactWebUrlEdit = new KLineEdit(page3);
-    d->contactWebUrlEdit->setClearButtonShown(true);
-    d->contactWebUrlEdit->setClickMessage(i18n("Enter the web site URL of the lead author here."));
+    QLabel* const label20 = new QLabel(i18n("URL:"), page3);
+    d->contactWebUrlEdit  = new QLineEdit(page3);
+    d->contactWebUrlEdit->setClearButtonEnabled(true);
+    d->contactWebUrlEdit->setPlaceholderText(i18n("Enter the web site URL of the lead author here."));
     label20->setBuddy(d->contactWebUrlEdit);
     d->contactWebUrlEdit->setWhatsThis(i18n("<p>This field should contain the web site URL "
                                             "of the lead author.</p>"));
 
     // --------------------------------------------------------
 
-    QGridLayout* grid3 = new QGridLayout;
+    QGridLayout* const grid3 = new QGridLayout;
     grid3->addWidget(label15,                     0, 0, 1, 1);
     grid3->addWidget(d->contactAddressEdit,       0, 1, 1, 2);
     grid3->addWidget(label16,                     1, 0, 1, 1);
@@ -411,8 +410,8 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
     grid3->addWidget(d->contactEmailEdit,         6, 1, 1, 2);
     grid3->addWidget(label20,                     7, 0, 1, 1);
     grid3->addWidget(d->contactWebUrlEdit,        7, 1, 1, 2);
-    grid3->setMargin(KDialog::spacingHint());
-    grid3->setSpacing(KDialog::spacingHint());
+    grid3->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid3->setSpacing(spacing);
     grid3->setAlignment(Qt::AlignTop);
     grid3->setColumnStretch(1, 10);
     grid3->setRowStretch(8, 10);
@@ -426,21 +425,21 @@ TemplatePanel::TemplatePanel(QWidget* const parent)
     page3->setTabOrder(d->contactPhoneEdit, d->contactEmailEdit);
     page3->setTabOrder(d->contactEmailEdit, d->contactWebUrlEdit);
 
-    insertTab(CONTACT, page3, KIcon("view-pim-contacts"), i18n("Contact"));
+    insertTab(CONTACT, page3, QIcon::fromTheme(QLatin1String("view-pim-contacts")), i18n("Contact"));
 
     // -- Subjects Template information panel -------------------------------------------------------------
 
-    QWidget* page4     = new QWidget(this);
-    QGridLayout* grid4 = new QGridLayout(page4);
-    d->subjects        = new SubjectEdit(page4);
+    QWidget* const page4     = new QWidget(this);
+    QGridLayout* const grid4 = new QGridLayout(page4);
+    d->subjects              = new SubjectEdit(page4);
 
-    grid4->setMargin(KDialog::spacingHint());
-    grid4->setSpacing(KDialog::spacingHint());
+    grid4->setContentsMargins(spacing, spacing, spacing, spacing);
+    grid4->setSpacing(spacing);
     grid4->setAlignment(Qt::AlignTop);
     grid4->addWidget(d->subjects, 0, 0, 1, 1);
     grid4->setRowStretch(1, 10);
 
-    insertTab(SUBJECTS, page4, KIcon("feed-subscribe"), i18n("Subjects"));
+    insertTab(SUBJECTS, page4, QIcon::fromTheme(QLatin1String("feed-subscribe")), i18n("Subjects"));
 }
 
 TemplatePanel::~TemplatePanel()
@@ -450,7 +449,7 @@ TemplatePanel::~TemplatePanel()
 
 void TemplatePanel::setTemplate(const Template& t)
 {
-    d->authorsEdit->setText(t.authors().join(";"));
+    d->authorsEdit->setText(t.authors().join(QLatin1String(";")));
     d->authorsPositionEdit->setText(t.authorsPosition());
     d->creditEdit->setText(t.credit());
     d->copyrightEdit->setValues(t.copyright());
@@ -478,7 +477,7 @@ void TemplatePanel::setTemplate(const Template& t)
 Template TemplatePanel::getTemplate() const
 {
     Template t;
-    t.setAuthors(d->authorsEdit->text().split(';', QString::SkipEmptyParts));
+    t.setAuthors(d->authorsEdit->text().split(QLatin1Char(';'), QString::SkipEmptyParts));
     t.setAuthorsPosition(d->authorsPositionEdit->text());
     t.setCredit(d->creditEdit->text());
     t.setCopyright(d->copyrightEdit->values());

@@ -6,7 +6,7 @@
  * Date        : 2004-11-17
  * Description : a tab to display metadata information of images
  *
- * Copyright (C) 2004-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "imagepropertiesmetadatatab.moc"
+#include "imagepropertiesmetadatatab.h"
 
 // Qt includes
 
@@ -33,17 +33,13 @@
 
 // KDE includes
 
-
-#include <klocale.h>
-#include <kapplication.h>
-#include <kconfig.h>
-#include <kdialog.h>
-#include <kfileitem.h>
-#include <kglobal.h>
-#include <kdebug.h>
+#include <klocalizedstring.h>
+#include <ksharedconfig.h>
+#include <kconfiggroup.h>
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "metadatapanel.h"
 #include "exifwidget.h"
 #include "makernotewidget.h"
@@ -80,7 +76,7 @@ public:
 };
 
 ImagePropertiesMetaDataTab::ImagePropertiesMetaDataTab(QWidget* const parent)
-    : KTabWidget(parent), d(new Private)
+    : QTabWidget(parent), d(new Private)
 {
     // Exif tab area ---------------------------------------
 
@@ -158,7 +154,7 @@ void ImagePropertiesMetaDataTab::readSettings(const KConfigGroup& group)
 
 void ImagePropertiesMetaDataTab::loadFilters()
 {
-    KConfigGroup grp2 = KGlobal::config()->group("Image Properties SideBar");
+    KConfigGroup grp2 = KSharedConfig::openConfig()->group("Image Properties SideBar");
     d->exifWidget->setTagsFilter(grp2.readEntry("EXIF Tags Filter",                 MetadataPanel::defaultExifFilter()));
     d->makernoteWidget->setTagsFilter(grp2.readEntry("MAKERNOTE Tags Filter",       MetadataPanel::defaultMknoteFilter()));
     d->iptcWidget->setTagsFilter(grp2.readEntry("IPTC Tags Filter",                 MetadataPanel::defaultIptcFilter()));
@@ -178,7 +174,7 @@ void ImagePropertiesMetaDataTab::writeSettings(KConfigGroup& group)
     group.writeEntry("Current XMP Item",            d->xmpWidget->getCurrentItemKey());
 }
 
-void ImagePropertiesMetaDataTab::setCurrentURL(const KUrl& url)
+void ImagePropertiesMetaDataTab::setCurrentURL(const QUrl& url)
 {
     if (url.isEmpty())
     {

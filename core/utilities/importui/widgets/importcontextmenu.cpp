@@ -6,7 +6,8 @@
  * Date        : 2012-07-13
  * Description : Modified context menu helper for import tool
  *
- * Copyright (C) 2012 by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
+ * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,24 +22,24 @@
  *
  * ============================================================ */
 
-#include "importcontextmenu.moc"
+#include "importcontextmenu.h"
 
 // Qt includes
 
 #include <QAction>
+#include <QIcon>
+#include <QMimeType>
+#include <QMimeDatabase>
 
 // KDE includes
 
-#include <kaction.h>
-#include <kactionmenu.h>
-#include <kactioncollection.h>
-#include <kapplication.h>
-#include <kservice.h>
-#include <kmimetype.h>
 #include <kmimetypetrader.h>
-#include <kopenwithdialog.h>
-#include <krun.h>
-#include <kstandardaction.h>
+#include <klocalizedstring.h>
+#include <kactioncollection.h>
+
+#ifdef HAVE_KIO
+#   include <kopenwithdialog.h>
+#endif
 
 // Local includes
 
@@ -49,6 +50,7 @@
 #include "tagmodificationhelper.h"
 #include "tagspopupmenu.h"
 #include "fileactionmngr.h"
+#include "fileoperation.h"
 
 namespace Digikam
 {
@@ -63,10 +65,11 @@ public:
         ABCmenu(0),
         stdActionCollection(0),
         q(q)
-    {}
+    {
+    }
 
     QList<qlonglong>             selectedIds;
-    KUrl::List                   selectedItems;
+    QList<QUrl>                  selectedItems;
 
     QMap<int, QAction*>          queueActions;
     QMap<QString, KService::Ptr> servicesMap;
@@ -82,23 +85,24 @@ public:
 
 public:
 
-    QAction* copyFromMainCollection(const char* name)
+    QAction* copyFromMainCollection(const QString& name) const
     {
-        QAction* mainAction = stdActionCollection->action(name);
+        QAction* const mainAction = stdActionCollection->action(name);
 
         if (!mainAction)
         {
             return 0;
         }
 
-        QAction* action = new QAction(mainAction->icon(), mainAction->text(), q);
+        QAction* const action = new QAction(mainAction->icon(), mainAction->text(), q);
         action->setToolTip(mainAction->toolTip());
         return action;
     }
 };
 
 ImportContextMenuHelper::ImportContextMenuHelper(QMenu* const parent, KActionCollection* const actionCollection)
-    : QObject(parent), d(new Private(this))
+    : QObject(parent),
+      d(new Private(this))
 {
     d->parent = parent;
 
@@ -117,9 +121,9 @@ ImportContextMenuHelper::~ImportContextMenuHelper()
     delete d;
 }
 
-void ImportContextMenuHelper::addAction(const char* name, bool addDisabled)
+void ImportContextMenuHelper::addAction(const QString& name, bool addDisabled)
 {
-    QAction* action = d->stdActionCollection->action(name);
+    QAction* const action = d->stdActionCollection->action(name);
     addAction(action, addDisabled);
 }
 
@@ -136,7 +140,7 @@ void ImportContextMenuHelper::addAction(QAction* action, bool addDisabled)
     }
 }
 
-void ImportContextMenuHelper::addSubMenu(KMenu* subMenu)
+void ImportContextMenuHelper::addSubMenu(QMenu* subMenu)
 {
     d->parent->addMenu(subMenu);
 }
@@ -160,7 +164,7 @@ void ImportContextMenuHelper::addAction(QAction* action, QObject* recv, const ch
     addAction(action, addDisabled);
 }
 
-void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
+void ImportContextMenuHelper::addServicesMenu(const QList<QUrl>& selectedItems)
 {
     setSelectedItems(selectedItems);
 
@@ -170,9 +174,9 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
     QStringList    mimeTypes;
     KService::List offers;
 
-    foreach(const KUrl& item, d->selectedItems)
+    foreach(const QUrl& item, d->selectedItems)
     {
-        const QString mimeType = KMimeType::findByUrl(item, 0, true, true)->name();
+        const QString mimeType = QMimeDatabase().mimeTypeForFile(item.toLocalFile(), QMimeDatabase::MatchExtension).name();
 
         if (!mimeTypes.contains(mimeType))
         {
@@ -184,7 +188,7 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
     {
         // Query trader
         const QString firstMimeType      = mimeTypes.takeFirst();
-        const QString constraintTemplate = "'%1' in ServiceTypes";
+        const QString constraintTemplate = QString::fromUtf8("'%1' in ServiceTypes");
         QStringList   constraints;
 
         foreach(const QString& mimeType, mimeTypes)
@@ -192,7 +196,7 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
             constraints << constraintTemplate.arg(mimeType);
         }
 
-        offers = KMimeTypeTrader::self()->query(firstMimeType, "Application", constraints.join(" and "));
+        offers = KMimeTypeTrader::self()->query(firstMimeType, QLatin1String("Application"), constraints.join(QLatin1String(" and ")));
 
         // remove duplicate service entries
         QSet<QString> seenApps;
@@ -215,20 +219,21 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
 
     if (!offers.isEmpty() && ImportUI::instance()->cameraUseUMSDriver())
     {
-        KMenu* servicesMenu    = new KMenu(d->parent);
+        QMenu* const servicesMenu    = new QMenu(d->parent);
         qDeleteAll(servicesMenu->actions());
 
-        QAction* serviceAction = servicesMenu->menuAction();
+        QAction* const serviceAction = servicesMenu->menuAction();
         serviceAction->setText(i18nc("@title:menu", "Open With"));
 
         foreach(KService::Ptr service, offers)
         {
-            QString name         = service->name().replace('&', "&&");
-            QAction* action      = servicesMenu->addAction(name);
-            action->setIcon(KIcon(service->icon()));
+            QString name          = service->name().replace(QLatin1Char('&'), QLatin1String("&&"));
+            QAction* const action = servicesMenu->addAction(name);
+            action->setIcon(QIcon::fromTheme(service->icon()));
             action->setData(service->name());
             d->servicesMap[name] = service;
         }
+#ifdef HAVE_KIO
 
         servicesMenu->addSeparator();
         servicesMenu->addAction(i18nc("@item:inmenu", "Other..."));
@@ -240,11 +245,12 @@ void ImportContextMenuHelper::addServicesMenu(const KUrl::List& selectedItems)
     }
     else if (ImportUI::instance()->cameraUseUMSDriver())
     {
-        QAction* serviceAction = new QAction(i18nc("@title:menu", "Open With..."), this);
+        QAction* const serviceAction = new QAction(i18nc("@title:menu", "Open With..."), this);
         addAction(serviceAction);
 
         connect(serviceAction, SIGNAL(triggered()),
                 this, SLOT(slotOpenWith()));
+#endif // HAVE_KIO
     }
 }
 
@@ -257,10 +263,11 @@ void ImportContextMenuHelper::slotOpenWith()
 void ImportContextMenuHelper::slotOpenWith(QAction* action)
 {
     KService::Ptr service;
-    KUrl::List list = d->selectedItems;
+    QList<QUrl> list = d->selectedItems;
 
     QString name = action ? action->data().toString() : QString();
 
+#ifdef HAVE_KIO
     if (name.isEmpty())
     {
         QPointer<KOpenWithDialog> dlg = new KOpenWithDialog(list);
@@ -278,7 +285,7 @@ void ImportContextMenuHelper::slotOpenWith(QAction* action)
             // User entered a custom command
             if (!dlg->text().isEmpty())
             {
-                KRun::run(dlg->text(), list, d->parent);
+                FileOperation::runFiles(dlg->text(), list);
             }
 
             delete dlg;
@@ -288,30 +295,31 @@ void ImportContextMenuHelper::slotOpenWith(QAction* action)
         delete dlg;
     }
     else
+#endif // HAVE_KIO
     {
         service = d->servicesMap[name];
     }
 
-    KRun::run(*service, list, d->parent);
+    FileOperation::runFiles(*service, list);
 }
 
 void ImportContextMenuHelper::addRotateMenu(itemIds& /*ids*/)
 {
 //    setSelectedIds(ids);
 
-//    KMenu* imageRotateMenu = new KMenu(i18n("Rotate"), d->parent);
-//    imageRotateMenu->setIcon(KIcon("object-rotate-right"));
+//    QMenu* const imageRotateMenu = new QMenu(i18n("Rotate"), d->parent);
+//    imageRotateMenu->setIcon(QIcon::fromTheme(QLatin1String("object-rotate-right")));
 
-//    KAction* left = new KAction(this);
-//    left->setObjectName("rotate_ccw");
+//    QAction* const left = new QAction(this);
+//    left->setObjectName(QLatin1String("rotate_ccw"));
 //    left->setText(i18nc("rotate image left", "Left"));
 //    connect(left, SIGNAL(triggered(bool)),
 //            this, SLOT(slotRotate()));
 //    imageRotateMenu->addAction(left);
 
-//    KAction* right = new KAction(this);
-//    right->setObjectName("rotate_cw");
-//    right->setText(i18nc("rotate image right", "Right"));
+//    QAction* const right = new QAction(this);
+//    right->setObjectName(QLatin1String("rotate_cw");
+//    right->setText(i18nc("rotate image right", "Right")));
 //    connect(right, SIGNAL(triggered(bool)),
 //            this, SLOT(slotRotate()));
 //    imageRotateMenu->addAction(right);
@@ -324,52 +332,52 @@ void ImportContextMenuHelper::slotRotate()
 //TODO: Implement rotate in import tool.
 //    if (sender()->objectName() == "rotate_ccw")
 //    {
-//        FileActionMngr::instance()->transform(CamItemInfoList(d->selectedIds), KExiv2Iface::RotationMatrix::Rotate270);
+//        FileActionMngr::instance()->transform(CamItemInfoList(d->selectedIds), MetaEngineRotation::Rotate270);
 //    }
 //    else
 //    {
-//        FileActionMngr::instance()->transform(CamItemInfoList(d->selectedIds), KExiv2Iface::RotationMatrix::Rotate90);
+//        FileActionMngr::instance()->transform(CamItemInfoList(d->selectedIds), MetaEngineRotation::Rotate90);
 //    }
 }
 
 void ImportContextMenuHelper::addAssignTagsMenu(itemIds& /*ids*/)
 {
-//    setSelectedIds(ids);
+    //setSelectedIds(ids);
 
-//    KMenu* assignTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::RECENTLYASSIGNED, d->parent);
-//    assignTagsPopup->menuAction()->setText(i18n("Assign Tag"));
-//    assignTagsPopup->menuAction()->setIcon(SmallIcon("tag"));
-//    d->parent->addMenu(assignTagsPopup);
+    //QMenu* const assignTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::RECENTLYASSIGNED, d->parent);
+    //assignTagsPopup->menuAction()->setText(i18n("Assign Tag"));
+    //assignTagsPopup->menuAction()->setIcon(QIcon::fromTheme(QLatin1String("tag")));
+    //d->parent->addMenu(assignTagsPopup);
 
-//    connect(assignTagsPopup, SIGNAL(signalTagActivated(int)),
-//            this, SIGNAL(signalAssignTag(int)));
+    //connect(assignTagsPopup, SIGNAL(signalTagActivated(int)),
+    //        this, SIGNAL(signalAssignTag(int)));
 
-//    connect(assignTagsPopup, SIGNAL(signalPopupTagsView()),
-//            this, SIGNAL(signalPopupTagsView()));
+    //connect(assignTagsPopup, SIGNAL(signalPopupTagsView()),
+    //        this, SIGNAL(signalPopupTagsView()));
 }
 
 void ImportContextMenuHelper::addRemoveTagsMenu(itemIds& /*ids*/)
 {
-//    setSelectedIds(ids);
+    //setSelectedIds(ids);
 
-//    KMenu* removeTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::REMOVE, d->parent);
-//    removeTagsPopup->menuAction()->setText(i18n("Remove Tag"));
-//    removeTagsPopup->menuAction()->setIcon(SmallIcon("tag"));
-//    d->parent->addMenu(removeTagsPopup);
+    //QMenu* const removeTagsPopup = new TagsPopupMenu(ids, TagsPopupMenu::REMOVE, d->parent);
+    //removeTagsPopup->menuAction()->setText(i18n("Remove Tag"));
+    //removeTagsPopup->menuAction()->setIcon(QIcon::fromTheme(QLatin1String("tag")));
+    //d->parent->addMenu(removeTagsPopup);
 
-//    connect(removeTagsPopup, SIGNAL(signalTagActivated(int)),
-//            this, SIGNAL(signalRemoveTag(int)));
+    //connect(removeTagsPopup, SIGNAL(signalTagActivated(int)),
+    //        this, SIGNAL(signalRemoveTag(int)));
 }
 
 void ImportContextMenuHelper::addLabelsAction()
 {
-    KMenu* menuLabels           = new KMenu(i18n("Assign Labels"), d->parent);
-    PickLabelMenuAction* pmenu  = new PickLabelMenuAction(d->parent);
-    ColorLabelMenuAction* cmenu = new ColorLabelMenuAction(d->parent);
-    RatingMenuAction* rmenu     = new RatingMenuAction(d->parent);
-    menuLabels->addAction(pmenu);
-    menuLabels->addAction(cmenu);
-    menuLabels->addAction(rmenu);
+    QMenu* const menuLabels           = new QMenu(i18n("Assign Labels"), d->parent);
+    PickLabelMenuAction* const pmenu  = new PickLabelMenuAction(d->parent);
+    ColorLabelMenuAction* const cmenu = new ColorLabelMenuAction(d->parent);
+    RatingMenuAction* const rmenu     = new RatingMenuAction(d->parent);
+    menuLabels->addAction(pmenu->menuAction());
+    menuLabels->addAction(cmenu->menuAction());
+    menuLabels->addAction(rmenu->menuAction());
     addSubMenu(menuLabels);
 
     connect(pmenu, SIGNAL(signalPickLabelChanged(int)),
@@ -395,7 +403,7 @@ void ImportContextMenuHelper::setImportFilterModel(ImportFilterModel* model)
 
 QAction* ImportContextMenuHelper::exec(const QPoint& pos, QAction* at)
 {
-    QAction* choice = d->parent->exec(pos, at);
+    QAction* const choice = d->parent->exec(pos, at);
 
     if (choice)
     {
@@ -422,7 +430,7 @@ void ImportContextMenuHelper::setSelectedIds(itemIds& ids)
     }
 }
 
-void ImportContextMenuHelper::setSelectedItems(const KUrl::List& urls)
+void ImportContextMenuHelper::setSelectedItems(const QList<QUrl>& urls)
 {
     if (d->selectedItems.isEmpty())
     {

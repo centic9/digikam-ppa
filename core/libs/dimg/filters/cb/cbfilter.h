@@ -6,7 +6,7 @@
  * Date        : 2006-01-18
  * Description : color balance filter
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -29,7 +29,7 @@
 
 #include "digikam_export.h"
 #include "dimgthreadedfilter.h"
-#include "globals.h"
+#include "digikam_globals.h"
 
 using namespace Digikam;
 
@@ -78,12 +78,12 @@ public:
 
     static QString          FilterIdentifier()
     {
-        return "digikam:ColorBalanceFilter";
+        return QLatin1String("digikam:ColorBalanceFilter");
     }
 
     static QString          DisplayableName()
     {
-        return I18N_NOOP("Color Balance Tool");
+        return QString::fromUtf8(I18N_NOOP("Color Balance Tool"));
     }
 
     static QList<int>       SupportedVersions()

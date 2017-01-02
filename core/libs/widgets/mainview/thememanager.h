@@ -4,9 +4,9 @@
  * http://www.digikam.org
  *
  * Date        : 2004-08-02
- * Description : theme manager
+ * Description : colors theme manager
  *
- * Copyright (C) 2006-2013 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -38,12 +38,12 @@
 
 #include "digikam_export.h"
 
-class KXmlGuiWindow;
-class KActionMenu;
+class QMenu;
 
 namespace Digikam
 {
 
+class DXmlGuiWindow;
 class Theme;
 
 class DIGIKAM_EXPORT ThemeManager : public QObject
@@ -60,8 +60,8 @@ public:
 
     QString defaultThemeName() const;
 
-    void    setThemeMenuAction(KActionMenu* const action);
-    void    registerThemeActions(KXmlGuiWindow* const kwin);
+    void    setThemeMenuAction(QMenu* const action);
+    void    registerThemeActions(DXmlGuiWindow* const win);
 
 Q_SIGNALS:
 
@@ -70,7 +70,6 @@ Q_SIGNALS:
 private Q_SLOTS:
 
     void slotChangePalette();
-    void slotConfigColors();
     void slotSettingsChanged();
 
 private:
@@ -79,8 +78,8 @@ private:
 
     void    populateThemeMenu();
     QPixmap createSchemePreviewIcon(const KSharedConfigPtr& config) const;
-    QString currentKDEdefaultTheme() const;
-    void    updateCurrentKDEdefaultThemePreview();
+    QString currentDesktopdefaultTheme() const;
+    void    updateCurrentDesktopDefaultThemePreview();
 
 private:
 
@@ -92,4 +91,4 @@ private:
 
 }  // namespace Digikam
 
-#endif /* THEMEMANAGER_H */
+#endif // THEMEMANAGER_H

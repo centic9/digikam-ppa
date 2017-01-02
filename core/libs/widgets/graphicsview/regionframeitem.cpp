@@ -6,7 +6,7 @@
 * Date        : 2010-09-09
 * Description : tag region frame
 *
-* Copyright (C) 2007      by Aurelien Gateau <agateau@kde.org>
+* Copyright (C) 2007      by Aurelien Gateau <agateau at kde dot org>
 * Copyright (C) 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
 *
 * This program is free software; you can redistribute it
@@ -22,7 +22,7 @@
 *
 * ============================================================ */
 
-#include "regionframeitem.moc"
+#include "regionframeitem.h"
 
 // C++ includes
 
@@ -41,10 +41,6 @@
 #include <QRect>
 #include <QTimer>
 #include <QToolButton>
-
-// KDE includes
-
-#include <kdebug.h>
 
 // Local includes
 
@@ -132,8 +128,8 @@ public:
     const int              HUD_TIMER_ANIMATION_INTERVAL;
 };
 
-RegionFrameItem::Private::Private(RegionFrameItem* const q)
-    : q(q),
+RegionFrameItem::Private::Private(RegionFrameItem* const qq)
+    : q(qq),
       HUD_TIMER_MAX_PIXELS_PER_UPDATE(20),
       HUD_TIMER_ANIMATION_INTERVAL(20)
 {
@@ -410,7 +406,13 @@ RegionFrameItem::RegionFrameItem(QGraphicsItem* const item)
 
 RegionFrameItem::~RegionFrameItem()
 {
-    delete d->hudWidget;
+    if (d->hudWidget)
+    {
+        // See bug #359196: hide or close the QGraphicsWidget befor delete it. Possible Qt bug?
+        d->hudWidget->hide();
+        delete d->hudWidget;
+    }
+
     delete d;
 }
 
@@ -448,6 +450,7 @@ void RegionFrameItem::setHudWidget(QGraphicsWidget* const hudWidget)
 
     if (d->hudWidget)
     {
+        d->hudWidget->hide();
         delete d->hudWidget;
     }
 

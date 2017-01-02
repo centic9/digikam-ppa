@@ -6,7 +6,7 @@
  * Date        : 2007-08-02
  * Description : save TIFF image options.
  *
- * Copyright (C) 2007-2012 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,7 +21,7 @@
  *
  * ============================================================ */
 
-#include "tiffsettings.moc"
+#include "tiffsettings.h"
 
 // Qt includes
 
@@ -30,11 +30,12 @@
 #include <QCheckBox>
 #include <QLayout>
 #include <QGridLayout>
+#include <QApplication>
+#include <QStyle>
 
 // KDE includes
 
-#include <klocale.h>
-#include <kdialog.h>
+#include <klocalizedstring.h>
 
 namespace Digikam
 {
@@ -60,6 +61,8 @@ TIFFSettings::TIFFSettings(QWidget* const parent)
 {
     setAttribute(Qt::WA_DeleteOnClose);
 
+    const int spacing = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
+
     d->TIFFGrid        = new QGridLayout(this);
     d->TIFFcompression = new QCheckBox(i18n("Compress TIFF files"), this);
 
@@ -72,8 +75,8 @@ TIFFSettings::TIFFSettings(QWidget* const parent)
     d->TIFFGrid->addWidget(d->TIFFcompression, 0, 0, 1, 2);
     d->TIFFGrid->setColumnStretch(1, 10);
     d->TIFFGrid->setRowStretch(1, 10);
-    d->TIFFGrid->setMargin(KDialog::spacingHint());
-    d->TIFFGrid->setSpacing(KDialog::spacingHint());
+    d->TIFFGrid->setContentsMargins(spacing, spacing, spacing, spacing);
+    d->TIFFGrid->setSpacing(spacing);
 
     connect(d->TIFFcompression, SIGNAL(toggled(bool)),
             this, SIGNAL(signalSettingsChanged()));
