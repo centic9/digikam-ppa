@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkvkontakte\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2015-10-13 10:04+0000\n"
+"POT-Creation-Date: 2016-11-19 20:09+0100\n"
 "PO-Revision-Date: 2015-10-16 21:43+0200\n"
 "Last-Translator: Vincenzo Reale <smart2128@baslug.org>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -18,23 +18,28 @@ msgstr ""
 "X-Generator: Lokalize 2.0\n"
 
 #: allmessageslistjob.cpp:117
+#, kde-format
 msgid "The number of outgoing messages has changed between requests."
 msgstr "Il numero di messaggi in uscita è cambiato tra le richieste."
 
 #: allmessageslistjob.cpp:121
+#, kde-format
 msgid "The number of incoming messages has changed between requests."
 msgstr "Il numero di messaggi in ingresso è cambiato tra le richieste."
 
 #: allnoteslistjob.cpp:92
+#, kde-format
 msgid "The number of notes has changed between requests."
 msgstr "Il numero di note è cambiato tra le richieste."
 
 #: authenticationdialog.cpp:61
+#, kde-format
 msgctxt "@title:window"
 msgid "Authenticate with VKontakte"
 msgstr "Autenticarsi con VKontakte"
 
 #: authenticationdialog.cpp:71
+#, kde-format
 msgid "Loading Page:"
 msgstr "Pagina di caricamento:"
 
@@ -46,15 +51,18 @@ msgstr ""
 "<b>Descrizione errore VKontakte:</b> %1<br><b>Errore di VKontakte:</b> %2<br>"
 
 #: authenticationdialog.cpp:140
+#, kde-format
 msgid "Authentication with VKontakte was not successful."
 msgstr "L'autenticazione con VKontakte non è riuscita"
 
 #: authenticationdialog.cpp:141
+#, kde-format
 msgctxt "@title:window"
 msgid "Authentication Problem"
 msgstr "Problema di autenticazione"
 
 #: authenticationdialog.cpp:182
+#, kde-format
 msgid ""
 "There was a network error when trying to authenticate with VKontakte web "
 "service."
@@ -63,15 +71,18 @@ msgstr ""
 "servizio web VKontakte."
 
 #: authenticationdialog.cpp:183
+#, kde-format
 msgctxt "@title:window"
 msgid "Network Error"
 msgstr "Errore di rete"
 
 #: deletealbumjob.cpp:43
+#, kde-format
 msgid "Failed to delete album"
 msgstr "Eliminazione dell'album non riuscita"
 
 #: editalbumjob.cpp:52
+#, kde-format
 msgid "Failed to edit album"
 msgstr "Modifica dell'album non riuscita"
 
@@ -110,6 +121,7 @@ msgstr ""
 "metodo %2: <i>%3</i>"
 
 #: vkontaktejobs.cpp:181
+#, kde-format
 msgid ""
 "Internal error: No valid instance of KIO::StoredTransferJob passed into "
 "VkontakteJob::jobFinished."

@@ -7,7 +7,7 @@
  * Description : Mysql internal database server
  *
  * Copyright (C) 2009-2011 by Holger Foerster <Hamsi2k at freenet dot de>
- * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2016 by Swati Lodha <swatilodha27 at gmail dot com>
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -114,14 +114,23 @@ DatabaseServer::~DatabaseServer()
 
 void DatabaseServer::run()
 {
-    int waitTime = 1;
+    quint64 runningTime = 0;
+    int debugTime       = 0;
+    int waitTime        = 1;
 
     // Loop to wait for stopping the server.
 
     do
     {
-        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Waiting" << waitTime << "seconds...";
+        if (!debugTime)
+        {
+            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Running" << runningTime << "seconds...";
+            debugTime = 30;
+        }
+
         QThread::sleep(waitTime);
+        runningTime++;
+        debugTime--;
     }
     while (databaseServerStateEnum != stopped);
 

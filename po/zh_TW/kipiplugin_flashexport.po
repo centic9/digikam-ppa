@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flashexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2012-10-23 08:25+0800\n"
 "Last-Translator: Franklin Weng <franklin at goodhorse dot idv dot tw>\n"
 "Language-Team: Chinese Traditional <kde-tw@googlegroups.com>\n"
@@ -17,11 +17,12 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: aboutdata.h:42
+#, kde-format
 msgid "Flash Export"
 msgstr "Flash 匯出"
 
 #: aboutdata.h:43
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to export images to Flash using the SimpleViewer's "
 #| "components."
@@ -29,7 +30,7 @@ msgid "A tool to export images to Flash using the SimpleViewer's components."
 msgstr "使用 SimpleViewer 組件匯出影像到 Flash 的 Kipi 外掛程式。"
 
 #: aboutdata.h:44
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2005-2006, Joern Ahrens\n"
 #| "(c) 2008-2012, Gilles Caulier\n"
@@ -44,38 +45,47 @@ msgstr ""
 "(c) 2011, Veaceslav Munteanu"
 
 #: aboutdata.h:51
+#, kde-format
 msgid "Joern Ahrens"
 msgstr "Joern Ahrens"
 
 #: aboutdata.h:52
+#, kde-format
 msgid "Author"
 msgstr "作者"
 
 #: aboutdata.h:55
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: aboutdata.h:56 aboutdata.h:60
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "開發者和維護者"
 
 #: aboutdata.h:59
+#, kde-format
 msgid "Veaceslav Munteanu"
 msgstr "Veaceslav Munteanu"
 
 #: aboutdata.h:63
+#, kde-format
 msgid "Mikkel B. Stegmann"
 msgstr "Mikkel B. Stegmann"
 
 #: aboutdata.h:64
+#, kde-format
 msgid "Basis for the index.html template"
 msgstr "根據 index.html 範本"
 
 #: importWizard/firstrunpage.cpp:68
+#, kde-format
 msgid "First Run"
 msgstr "第一次執行"
 
 #: importWizard/firstrunpage.cpp:74
+#, kde-format
 msgid ""
 "<p>SimpleViewer's plugins are Flash components which are free to use, but "
 "use a license which comes into conflict with several distributions. Due to "
@@ -92,61 +102,75 @@ msgstr ""
 "程式。</b></p>"
 
 #: importWizard/firstrunpage.cpp:83
+#, kde-format
 msgid "<p>1.) Download plugin from the following url:</p>"
 msgstr "<p>1.) 從以下網址下載 SimpleViewer：</p>"
 
 #: importWizard/firstrunpage.cpp:95
+#, kde-format
 msgid "<p>2.) Point this tool to the downloaded archive</p>"
 msgstr "<p>2.) 將這項工具指向已下載的壓縮檔</p>"
 
 #: importWizard/firstrunpage.cpp:99
+#, kde-format
 msgid "Select downloaded archive"
 msgstr ""
 
 #: importWizard/generalpage.cpp:85
+#, kde-format
 msgid "General Settings"
 msgstr "一般設定值"
 
 #: importWizard/generalpage.cpp:93
+#, kde-format
 msgid "Gallery &Title"
 msgstr "藝廊標題(&T)"
 
 #: importWizard/generalpage.cpp:96
+#, kde-format
 msgid "Enter here the gallery title"
 msgstr "在這裡輸入藝廊標題"
 
 #: importWizard/generalpage.cpp:104
+#, kde-format
 msgid "Save Gallery To"
 msgstr "儲存藝廊到"
 
 #: importWizard/generalpage.cpp:116
+#, kde-format
 msgid "Image Properties"
 msgstr "影像屬性"
 
 #: importWizard/generalpage.cpp:118
+#, kde-format
 msgid "Resize Target Images"
 msgstr "調整目標影像大小"
 
 #: importWizard/generalpage.cpp:120
+#, kde-format
 msgid "If you enable this option, all target images can be resized."
 msgstr "如果您啟用這個選項，所有目標影像都會調整大小。"
 
 #: importWizard/generalpage.cpp:124
+#, kde-format
 msgid "Auto-Rotate/Flip Images"
 msgstr "自動旋轉/翻轉影像"
 
 #: importWizard/generalpage.cpp:126 importWizard/lookpage.cpp:339
 #: importWizard/lookpage.cpp:344
+#, kde-format
 msgid ""
 "If you enable this option, the images' orientations will be set according to "
 "their Exif information."
 msgstr "如果啟用這個選項，會根據 Exif 資訊設定影像的方向。"
 
 #: importWizard/generalpage.cpp:131
+#, kde-format
 msgid "&Target Images' Size:"
 msgstr "目標影像的大小(&T)："
 
 #: importWizard/generalpage.cpp:136
+#, kde-format
 msgid ""
 "The new size of the exported images, in pixels. SimpleViewer resizes the "
 "images too, but this resizes the images before they are uploaded to your "
@@ -156,10 +180,12 @@ msgstr ""
 "器前調整影像大小。"
 
 #: importWizard/generalpage.cpp:148
+#, kde-format
 msgid "&Displayed Images' Size:"
 msgstr "顯示的影像大小(&D)："
 
 #: importWizard/generalpage.cpp:153
+#, kde-format
 msgid ""
 "Scales the displayed images to this size. Normally, use the height or width "
 "of your largest image (in pixels). Images will not be scaled up above this "
@@ -169,55 +195,66 @@ msgstr ""
 "超過這個大小以維持影像品質。"
 
 #: importWizard/generalpage.cpp:169
+#, kde-format
 msgid "Misc"
 msgstr "其他"
 
 #: importWizard/generalpage.cpp:172
+#, kde-format
 msgid "Display Captions"
 msgstr "顯示標題"
 
 #: importWizard/generalpage.cpp:174
+#, kde-format
 msgid "If this option is enabled, the images' captions will be shown."
 msgstr "如果啟用這個選項，會顯示影像的說明文字。"
 
 #: importWizard/generalpage.cpp:176
+#, kde-format
 msgid "Display Keywords"
 msgstr "顯示關鍵字"
 
 #: importWizard/generalpage.cpp:178
+#, kde-format
 msgid "If this option is enabled, the images' keywords will be shown."
 msgstr "如果啟用這個選項，會顯示影像的關鍵字。"
 
 #: importWizard/generalpage.cpp:181
+#, kde-format
 msgid "Open Image with Right Click"
 msgstr "用滑鼠右鍵開啟影像"
 
 #: importWizard/generalpage.cpp:183
+#, kde-format
 msgid ""
 "If this option is enabled, the user will be able to open the target image in "
 "a separate window using the right mouse button."
 msgstr "如果啟用這個選項，使用這可以用滑鼠右鍵在分離視窗中開啟目標影像。"
 
 #: importWizard/generalpage.cpp:187
+#, kde-format
 msgid "Open gallery in Browser"
 msgstr "在瀏覽器裡開啟藝廊"
 
 #: importWizard/generalpage.cpp:189
+#, kde-format
 msgid ""
 "If this option is enabled, the gallery will be opened in Konqueror "
 "automatically."
 msgstr "如果啟用這個選項，藝廊會自動用 Konqueror 開啟。"
 
 #: importWizard/importwizarddlg.cpp:95
+#, kde-format
 msgid "Flash Export Wizard"
 msgstr "Flash 匯出精靈"
 
 #: importWizard/importwizarddlg.cpp:148
+#, kde-format
 msgid "SimpleViewer installation failed"
 msgstr "SimpleViewer 安裝失敗"
 
 #: importWizard/importwizarddlg.cpp:149
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "<p>SimpleViewer installation failed. </p><p>Please check if:</p><p>- "
 #| "archive corresponds to plugin selected on previous page.</p><p>- archive "
@@ -231,14 +268,17 @@ msgstr ""
 "程式壓起來歸檔。</p> <p>- 此歸檔是最新的，而且沒有損毀。</p>"
 
 #: importWizard/importwizarddlg.cpp:183
+#, kde-format
 msgid "Problem to export collection"
 msgstr ""
 
 #: importWizard/importwizarddlg.cpp:184
+#, kde-format
 msgid "You must select at least one collection to export."
 msgstr "您必須至少選擇一個收藏以進行匯出。"
 
 #: importWizard/importwizarddlg.cpp:242
+#, kde-format
 msgid "Target Folder Exists"
 msgstr ""
 
@@ -255,6 +295,7 @@ msgstr ""
 "您是否要覆寫它？在這個資料夾裡的所有資料都會遺失。"
 
 #: importWizard/importwizarddlg.cpp:257
+#, kde-format
 msgid "Cannot Delete Folder"
 msgstr ""
 
@@ -268,10 +309,12 @@ msgstr ""
 "請選擇其他匯出資料夾。"
 
 #: importWizard/intropage.cpp:61
+#, kde-format
 msgid "Welcome to FlashExport Tool"
 msgstr "歡迎使用 FlashExport 工具"
 
 #: importWizard/intropage.cpp:69
+#, kde-format
 msgid ""
 "<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
 "href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
@@ -289,298 +332,365 @@ msgstr ""
 "為小量相片設計</p></qt>"
 
 #: importWizard/intropage.cpp:82
+#, kde-format
 msgid "Select &Plugin:"
 msgstr "選擇外掛程式(&P)："
 
 #: importWizard/intropage.cpp:85
+#, kde-format
 msgctxt "SimpleViewer"
 msgid "SimpleViewer"
 msgstr "SimpleViewer"
 
 #: importWizard/intropage.cpp:86
+#, kde-format
 msgctxt "TiltViewer"
 msgid "TiltViewer"
 msgstr "TiltViewer"
 
 #: importWizard/intropage.cpp:87
+#, kde-format
 msgctxt "AutoViewer"
 msgid "AutoViewer"
 msgstr "AutoViewer"
 
 #: importWizard/intropage.cpp:88
+#, kde-format
 msgctxt "PostcardViewer"
 msgid "PostcardViewer"
 msgstr "PostcardViewer"
 
 #: importWizard/intropage.cpp:100
+#, kde-format
 msgid "&Choose image selection method:"
 msgstr "選擇圖片的選取方式(&C)："
 
 #: importWizard/intropage.cpp:102
+#, kde-format
 msgctxt "Collections"
 msgid "Collections"
 msgstr "收藏"
 
 #: importWizard/intropage.cpp:103
+#, kde-format
 msgctxt "Images"
 msgid "Images"
 msgstr ""
 
 #: importWizard/lookpage.cpp:108
+#, kde-format
 msgid "Configure appearance"
 msgstr "設定外觀"
 
 #: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:244
 #: importWizard/lookpage.cpp:316 importWizard/lookpage.cpp:400
+#, kde-format
 msgctxt "Settings for flash export navigation"
 msgid "Navigation"
 msgstr "瀏覽"
 
 #: importWizard/lookpage.cpp:143
+#, kde-format
 msgid "Thumbnail &Rows:"
 msgstr "縮圖列數："
 
 #: importWizard/lookpage.cpp:148
+#, kde-format
 msgid "Number of thumbnails rows"
 msgstr "縮圖的列數"
 
 #: importWizard/lookpage.cpp:152
+#, kde-format
 msgid "Thumbnail &Columns:"
 msgstr "縮圖欄數："
 
 #: importWizard/lookpage.cpp:157 importWizard/lookpage.cpp:418
+#, kde-format
 msgid "Number of thumbnails columns"
 msgstr "縮圖的欄數"
 
 #: importWizard/lookpage.cpp:161
+#, kde-format
 msgid "Thumbnail &Position:"
 msgstr "縮圖位置(&P)："
 
 #: importWizard/lookpage.cpp:163
+#, kde-format
 msgctxt "thumbnail position: right"
 msgid "Right"
 msgstr "右"
 
 #: importWizard/lookpage.cpp:164
+#, kde-format
 msgctxt "thumbnail position: left"
 msgid "Left"
 msgstr "左"
 
 #: importWizard/lookpage.cpp:165
+#, kde-format
 msgctxt "thumbnail position: top"
 msgid "Top"
 msgstr "頂端"
 
 #: importWizard/lookpage.cpp:166
+#, kde-format
 msgctxt "thumbnail position: bottom"
 msgid "Bottom"
 msgstr "底端"
 
 #: importWizard/lookpage.cpp:182 importWizard/lookpage.cpp:262
 #: importWizard/lookpage.cpp:429
+#, kde-format
 msgid "Colors"
 msgstr "顏色"
 
 #: importWizard/lookpage.cpp:186
+#, kde-format
 msgid "&Text Color:"
 msgstr "文字顏色(&T)："
 
 #: importWizard/lookpage.cpp:189 importWizard/lookpage.cpp:436
+#, kde-format
 msgid "Color of title and caption text"
 msgstr "標題和說明文字的顏色"
 
 #: importWizard/lookpage.cpp:193 importWizard/lookpage.cpp:266
 #: importWizard/lookpage.cpp:440
+#, kde-format
 msgid "&Background Color:"
 msgstr "背景顏色(&B)："
 
 #: importWizard/lookpage.cpp:199 importWizard/lookpage.cpp:272
 #: importWizard/lookpage.cpp:361 importWizard/lookpage.cpp:446
+#, kde-format
 msgid "&Frame Color:"
 msgstr "外框顏色(&F)："
 
 #: importWizard/lookpage.cpp:202 importWizard/lookpage.cpp:275
 #: importWizard/lookpage.cpp:364 importWizard/lookpage.cpp:449
+#, kde-format
 msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
 msgstr "影像外框的顏色、檢視圖示、載入進度、縮圖箭頭"
 
 #: importWizard/lookpage.cpp:213 importWizard/lookpage.cpp:285
 #: importWizard/lookpage.cpp:460
+#, kde-format
 msgid "Style"
 msgstr "樣式"
 
 #: importWizard/lookpage.cpp:217 importWizard/lookpage.cpp:289
 #: importWizard/lookpage.cpp:482
+#, kde-format
 msgid "&Frame Width:"
 msgstr "外框寬度(&F)："
 
 #: importWizard/lookpage.cpp:222 importWizard/lookpage.cpp:294
+#, kde-format
 msgid "Width of image frame in pixels."
 msgstr "影像外框的寬度，單位為像素。"
 
 #: importWizard/lookpage.cpp:226
+#, kde-format
 msgid "&Stage Padding:"
 msgstr "舞台邊距(&S)："
 
 #: importWizard/lookpage.cpp:231
+#, kde-format
 msgid "Distance between image and thumbnails in pixels."
 msgstr "影像和縮圖之間的距離，單位為像素。"
 
 #: importWizard/lookpage.cpp:248
+#, kde-format
 msgid "&Display Time:"
 msgstr "顯示時間(&D)："
 
 #: importWizard/lookpage.cpp:253
+#, kde-format
 msgid "Number of seconds each image will display in auto-play mode."
 msgstr "在自動播放模式中，每張影像顯示的秒數。"
 
 #: importWizard/lookpage.cpp:298
+#, kde-format
 msgid "&Image Padding:"
 msgstr "影像邊距(&I)："
 
 #: importWizard/lookpage.cpp:303
+#, kde-format
 msgid "Distance between images in pixels"
 msgstr "影像之間的距離，單位為像素。"
 
 #: importWizard/lookpage.cpp:320
+#, kde-format
 msgid " &Rows:"
 msgstr "列數(&R)："
 
 #: importWizard/lookpage.cpp:325
+#, kde-format
 msgid "Number of rows of images to display."
 msgstr "要顯示的影像列數。"
 
 #: importWizard/lookpage.cpp:329 importWizard/lookpage.cpp:413
+#, kde-format
 msgid " &Columns:"
 msgstr "欄數(&C)："
 
 #: importWizard/lookpage.cpp:334
+#, kde-format
 msgid "Number of columns of images to display."
 msgstr "要顯示的影像欄數。"
 
 #: importWizard/lookpage.cpp:337
+#, kde-format
 msgid "Show Flip Button"
 msgstr "顯示翻轉按鍵"
 
 #: importWizard/lookpage.cpp:342
+#, kde-format
 msgid "Use reload button"
 msgstr "使用重新載入按鍵"
 
 #: importWizard/lookpage.cpp:357
+#, kde-format
 msgctxt "Settings for flash export navigation"
 msgid "Colors"
 msgstr "顏色"
 
 #: importWizard/lookpage.cpp:368
+#, kde-format
 msgid "Background &Inner Color:"
 msgstr "背景內部顏色(&I)："
 
 #: importWizard/lookpage.cpp:371
+#, kde-format
 msgid "Color of the stage background gradient center."
 msgstr "舞台背景漸層中心的顏色。"
 
 #: importWizard/lookpage.cpp:375
+#, kde-format
 msgid "Background &Outer Color:"
 msgstr "背景外部顏色(&O)："
 
 #: importWizard/lookpage.cpp:378
+#, kde-format
 msgid "Color of the stage background gradient edge."
 msgstr "舞台背景漸層邊緣的顏色。"
 
 #: importWizard/lookpage.cpp:382
+#, kde-format
 msgid "Image Back Color:"
 msgstr "影像背色："
 
 #: importWizard/lookpage.cpp:385
+#, kde-format
 msgid "Image's back color when pressing flip button"
 msgstr "按下翻轉按鍵時，影像的背色"
 
 #: importWizard/lookpage.cpp:404
+#, kde-format
 msgid "Cell Dimension:"
 msgstr "影像格大小："
 
 #: importWizard/lookpage.cpp:409
+#, kde-format
 msgid ""
 "Dimension of displayed image cells. Please use a higher value if you set "
 "high image size"
 msgstr "顯示影像的格子的大小。若要較大的尺寸請選擇較高的數值"
 
 #: importWizard/lookpage.cpp:433
+#, kde-format
 msgid "&Caption Color:"
 msgstr "標題顏色(&C)："
 
 #: importWizard/lookpage.cpp:464
+#, kde-format
 msgid "&Zoom In Percentage:"
 msgstr "放大百分比(&Z)："
 
 #: importWizard/lookpage.cpp:469
+#, kde-format
 msgid "The amount of scale when zoomed in (percentage)"
 msgstr "要放大的百分比"
 
 #: importWizard/lookpage.cpp:473
+#, kde-format
 msgid "&Zoom Out Percentage:"
 msgstr "縮小百分比(&Z)："
 
 #: importWizard/lookpage.cpp:478
+#, kde-format
 msgid "The amount of scale when zoomed out (percentage)"
 msgstr "要縮小的百分比"
 
 #: importWizard/lookpage.cpp:487
+#, kde-format
 msgid "The frame width"
 msgstr "外框寬度"
 
 #: importWizard/progresspage.cpp:48
+#, kde-format
 msgid "Exporting..."
 msgstr "匯出中..."
 
 #: importWizard/selectionpage.cpp:67
+#, kde-format
 msgid "Select Image Collections"
 msgstr "選擇影像收藏"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_flashexportui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "匯出(&E)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flashexportui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "主工具列"
 
 #: plugin_flashexport.cpp:91
+#, kde-format
 msgid "Export to F&lash..."
 msgstr "匯出到 F&lash..."
 
 #: simpleviewer.cpp:193
+#, kde-format
 msgid "Initialising..."
 msgstr "正在初始化..."
 
 #: simpleviewer.cpp:221
+#, kde-format
 msgid "Export canceled"
 msgstr "已取消匯出"
 
 #: simpleviewer.cpp:232
+#, kde-format
 msgid "Failed to create export directories"
 msgstr "建立匯出目錄失敗"
 
 #: simpleviewer.cpp:239
+#, kde-format
 msgid "Failed to export the images"
 msgstr "匯出影像失敗"
 
 #: simpleviewer.cpp:246
+#, kde-format
 msgid "Failed to create index.html"
 msgstr "建立 index.html 失敗"
 
 #: simpleviewer.cpp:253
+#, kde-format
 msgid "Failed to copy SimpleViewer files"
 msgstr "複製 SimpleViewer 檔案失敗"
 
 #: simpleviewer.cpp:260
+#, kde-format
 msgid "Failed to upload the gallery"
 msgstr "上傳藝廊失敗"
 
 #: simpleviewer.cpp:269
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export canceled"
 msgid "Export was canceled"
 msgstr "已取消匯出"
@@ -596,11 +706,13 @@ msgstr ""
 "您是否要刪除在 %1 中已建立的檔案？"
 
 #: simpleviewer.cpp:282
+#, kde-format
 msgctxt "Flash export has finished"
 msgid "Finished..."
 msgstr "已結束..."
 
 #: simpleviewer.cpp:300
+#, kde-format
 msgid "Creating directories..."
 msgstr "正在建立目錄..."
 
@@ -610,10 +722,12 @@ msgid "Could not create folder '%1'"
 msgstr "無法建立資料夾「%1」"
 
 #: simpleviewer.cpp:335
+#, kde-format
 msgid "Finished Creating directories..."
 msgstr "建立目錄完成..."
 
 #: simpleviewer.cpp:388
+#, kde-format
 msgid "Creating images and thumbnails..."
 msgstr "正在建立影像和縮圖..."
 
@@ -638,29 +752,33 @@ msgid "Could not resize image '%1'"
 msgstr "無法調整影像大小「%1」"
 
 #: simpleviewer.cpp:809
+#, kde-format
 msgid "Creating index.html..."
 msgstr "正在建立 index.html..."
 
 #: simpleviewer.cpp:965
+#, kde-format
 msgid "index.html created..."
 msgstr "index.html 已建立..."
 
 #: simpleviewer.cpp:975
+#, kde-format
 msgid "Copying flash files..."
 msgstr "正在複製 flash 檔..."
 
 #: simpleviewer.cpp:995
+#, kde-format
 msgid "Flash files copied..."
 msgstr "Flash 檔已複製..."
 
 #: simpleviewer.cpp:1005
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Uploading gallery..."
 msgid "Copying gallery..."
 msgstr "正在上傳藝廊..."
 
 #: simpleviewer.cpp:1010
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Gallery uploaded..."
 msgid "Gallery copied..."
 msgstr "藝廊已上傳..."

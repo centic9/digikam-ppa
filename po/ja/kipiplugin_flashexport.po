@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flashexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2009-01-21 00:17+0900\n"
 "Last-Translator: Yukiko Bando <ybando@k6.dion.ne.jp>\n"
 "Language-Team: Japanese <kde-jp@kde.org>\n"
@@ -19,11 +19,12 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: aboutdata.h:42
+#, kde-format
 msgid "Flash Export"
 msgstr "Flash エクスポート"
 
 #: aboutdata.h:43
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to export images to Flash using Simple Viewer component"
 msgid "A tool to export images to Flash using the SimpleViewer's components."
@@ -32,7 +33,7 @@ msgstr ""
 "グイン"
 
 #: aboutdata.h:44
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2005-2006, Joern Ahrens\n"
 #| "(c) 2008-2009, Gilles Caulier"
@@ -45,39 +46,47 @@ msgstr ""
 "(c) 2008-2009, Gilles Caulier"
 
 #: aboutdata.h:51
+#, kde-format
 msgid "Joern Ahrens"
 msgstr "Joern Ahrens"
 
 #: aboutdata.h:52
+#, kde-format
 msgid "Author"
 msgstr "作者"
 
 #: aboutdata.h:55
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: aboutdata.h:56 aboutdata.h:60
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "開発者およびメンテナ"
 
 #: aboutdata.h:59
+#, kde-format
 msgid "Veaceslav Munteanu"
 msgstr ""
 
 #: aboutdata.h:63
+#, kde-format
 msgid "Mikkel B. Stegmann"
 msgstr "Mikkel B. Stegmann"
 
 #: aboutdata.h:64
+#, kde-format
 msgid "Basis for the index.html template"
 msgstr "index.html テンプレートの基礎"
 
 #: importWizard/firstrunpage.cpp:68
+#, kde-format
 msgid "First Run"
 msgstr ""
 
 #: importWizard/firstrunpage.cpp:74
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "<p>SimpleViewer is a Flash component which is free to use, but uses a "
 #| "license which comes into conflict with several distributions. Due to the "
@@ -102,54 +111,64 @@ msgstr ""
 "</p>"
 
 #: importWizard/firstrunpage.cpp:83
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "<p>1.) Download SimpleViewer Version 1.9.x</p>"
 msgid "<p>1.) Download plugin from the following url:</p>"
 msgstr "<p>1.) SimpleViewer 1.9.x をダウンロードします。</p>"
 
 #: importWizard/firstrunpage.cpp:95
+#, kde-format
 msgid "<p>2.) Point this tool to the downloaded archive</p>"
 msgstr "<p>2.) このツールにダウンロードしたアーカイブの場所を教えます。</p>"
 
 #: importWizard/firstrunpage.cpp:99
+#, kde-format
 msgid "Select downloaded archive"
 msgstr ""
 
 #: importWizard/generalpage.cpp:85
+#, kde-format
 msgid "General Settings"
 msgstr "全般的な設定"
 
 #: importWizard/generalpage.cpp:93
+#, kde-format
 msgid "Gallery &Title"
 msgstr "ギャラリーのタイトル(&T)"
 
 #: importWizard/generalpage.cpp:96
+#, kde-format
 msgid "Enter here the gallery title"
 msgstr "ここにギャラリーのタイトルを入力します"
 
 #: importWizard/generalpage.cpp:104
+#, kde-format
 msgid "Save Gallery To"
 msgstr "ギャラリーの保存先"
 
 #: importWizard/generalpage.cpp:116
+#, kde-format
 msgid "Image Properties"
 msgstr "画像のプロパティ"
 
 #: importWizard/generalpage.cpp:118
+#, kde-format
 msgid "Resize Target Images"
 msgstr "画像のサイズを変更"
 
 #: importWizard/generalpage.cpp:120
+#, kde-format
 msgid "If you enable this option, all target images can be resized."
 msgstr "このオプションを有効にすると、画像のサイズを変更することができます。"
 
 #: importWizard/generalpage.cpp:124
+#, kde-format
 msgid "Auto-Rotate/Flip Images"
 msgstr "画像を自動回転/反転"
 
 #: importWizard/generalpage.cpp:126 importWizard/lookpage.cpp:339
 #: importWizard/lookpage.cpp:344
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "If you enable this option, the images orientation will be fixed "
 #| "accordingly with Exif information"
@@ -161,13 +180,13 @@ msgstr ""
 "す。"
 
 #: importWizard/generalpage.cpp:131
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Target Images Size:"
 msgid "&Target Images' Size:"
 msgstr "エクスポート後の画像のサイズ(&T):"
 
 #: importWizard/generalpage.cpp:136
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "The new size of the exported images in pixels. SimpleViewer resizes the "
 #| "images as well, but this resizes your images before they are uploaded to "
@@ -182,13 +201,13 @@ msgstr ""
 "変更します。"
 
 #: importWizard/generalpage.cpp:148
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Displayed Images Size:"
 msgid "&Displayed Images' Size:"
 msgstr "画像の表示サイズ(&D):"
 
 #: importWizard/generalpage.cpp:153
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "scales the displayed images to this size. Largest height or width of your "
 #| "largest image (in pixels). Images will not be scaled up above this size, "
@@ -203,37 +222,40 @@ msgstr ""
 "大されません。"
 
 #: importWizard/generalpage.cpp:169
+#, kde-format
 msgid "Misc"
 msgstr "その他"
 
 #: importWizard/generalpage.cpp:172
+#, kde-format
 msgid "Display Captions"
 msgstr "キャプションを表示"
 
 #: importWizard/generalpage.cpp:174
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "If you enable this option, the images caption will be shown"
 msgid "If this option is enabled, the images' captions will be shown."
 msgstr "このオプションを有効にすると、画像のキャプションが表示されます。"
 
 #: importWizard/generalpage.cpp:176
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Display Captions"
 msgid "Display Keywords"
 msgstr "キャプションを表示"
 
 #: importWizard/generalpage.cpp:178
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "If you enable this option, the images caption will be shown"
 msgid "If this option is enabled, the images' keywords will be shown."
 msgstr "このオプションを有効にすると、画像のキャプションが表示されます。"
 
 #: importWizard/generalpage.cpp:181
+#, kde-format
 msgid "Open Image with Right Click"
 msgstr "右クリックで画像を開く"
 
 #: importWizard/generalpage.cpp:183
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "If you enable this option, user will be able to open the target image in "
 #| "a separate window using right mouse button"
@@ -245,13 +267,13 @@ msgstr ""
 "開くことができます。"
 
 #: importWizard/generalpage.cpp:187
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Open gallery in Konqueror"
 msgid "Open gallery in Browser"
 msgstr "ギャラリーを Konqueror で開く"
 
 #: importWizard/generalpage.cpp:189
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "If you enable this option, gallery will be open in Konqueror automatically"
 msgid ""
@@ -261,16 +283,18 @@ msgstr ""
 "このオプションを有効にすると、ギャラリーが自動的に Konqueror に表示されます。"
 
 #: importWizard/importwizarddlg.cpp:95
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Flash Export"
 msgid "Flash Export Wizard"
 msgstr "Flash エクスポート"
 
 #: importWizard/importwizarddlg.cpp:148
+#, kde-format
 msgid "SimpleViewer installation failed"
 msgstr "SimpleViewer のインストールに失敗しました"
 
 #: importWizard/importwizarddlg.cpp:149
+#, kde-format
 msgid ""
 "<p>Failed to install SimpleViewer. </p><p>Please check if:</p><p>- archive "
 "corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
@@ -278,14 +302,17 @@ msgid ""
 msgstr ""
 
 #: importWizard/importwizarddlg.cpp:183
+#, kde-format
 msgid "Problem to export collection"
 msgstr ""
 
 #: importWizard/importwizarddlg.cpp:184
+#, kde-format
 msgid "You must select at least one collection to export."
 msgstr "エクスポートするコレクションを少なくとも一つ選択してください。"
 
 #: importWizard/importwizarddlg.cpp:242
+#, kde-format
 msgid "Target Folder Exists"
 msgstr ""
 
@@ -302,6 +329,7 @@ msgstr ""
 "上書きしますか？(このフォルダのすべてのデータが失われます)"
 
 #: importWizard/importwizarddlg.cpp:257
+#, kde-format
 msgid "Cannot Delete Folder"
 msgstr ""
 
@@ -318,10 +346,12 @@ msgstr ""
 "他のエクスポートフォルダを選択してください。"
 
 #: importWizard/intropage.cpp:61
+#, kde-format
 msgid "Welcome to FlashExport Tool"
 msgstr ""
 
 #: importWizard/intropage.cpp:69
+#, kde-format
 msgid ""
 "<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
 "href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
@@ -333,329 +363,381 @@ msgid ""
 msgstr ""
 
 #: importWizard/intropage.cpp:82
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "Settings tab for selections"
 #| msgid "Selection"
 msgid "Select &Plugin:"
 msgstr "選択"
 
 #: importWizard/intropage.cpp:85
+#, kde-format
 msgctxt "SimpleViewer"
 msgid "SimpleViewer"
 msgstr ""
 
 #: importWizard/intropage.cpp:86
+#, kde-format
 msgctxt "TiltViewer"
 msgid "TiltViewer"
 msgstr ""
 
 #: importWizard/intropage.cpp:87
+#, kde-format
 msgctxt "AutoViewer"
 msgid "AutoViewer"
 msgstr ""
 
 #: importWizard/intropage.cpp:88
+#, kde-format
 msgctxt "PostcardViewer"
 msgid "PostcardViewer"
 msgstr ""
 
 #: importWizard/intropage.cpp:100
+#, kde-format
 msgid "&Choose image selection method:"
 msgstr ""
 
 #: importWizard/intropage.cpp:102
+#, kde-format
 msgctxt "Collections"
 msgid "Collections"
 msgstr ""
 
 #: importWizard/intropage.cpp:103
+#, kde-format
 msgctxt "Images"
 msgid "Images"
 msgstr ""
 
 #: importWizard/lookpage.cpp:108
+#, kde-format
 msgid "Configure appearance"
 msgstr ""
 
 #: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:244
 #: importWizard/lookpage.cpp:316 importWizard/lookpage.cpp:400
+#, kde-format
 msgctxt "Settings for flash export navigation"
 msgid "Navigation"
 msgstr "ナビゲーション"
 
 #: importWizard/lookpage.cpp:143
+#, kde-format
 msgid "Thumbnail &Rows:"
 msgstr "サムネイルの行数(&R):"
 
 #: importWizard/lookpage.cpp:148
+#, kde-format
 msgid "Number of thumbnails rows"
 msgstr "サムネイルの行数"
 
 #: importWizard/lookpage.cpp:152
+#, kde-format
 msgid "Thumbnail &Columns:"
 msgstr "サムネイルの列数(&C):"
 
 #: importWizard/lookpage.cpp:157 importWizard/lookpage.cpp:418
+#, kde-format
 msgid "Number of thumbnails columns"
 msgstr "サムネイルの列数"
 
 #: importWizard/lookpage.cpp:161
+#, kde-format
 msgid "Thumbnail &Position:"
 msgstr "サムネイルの位置(&P):"
 
 #: importWizard/lookpage.cpp:163
+#, kde-format
 msgctxt "thumbnail position: right"
 msgid "Right"
 msgstr "右"
 
 #: importWizard/lookpage.cpp:164
+#, kde-format
 msgctxt "thumbnail position: left"
 msgid "Left"
 msgstr "左"
 
 #: importWizard/lookpage.cpp:165
+#, kde-format
 msgctxt "thumbnail position: top"
 msgid "Top"
 msgstr "上"
 
 #: importWizard/lookpage.cpp:166
+#, kde-format
 msgctxt "thumbnail position: bottom"
 msgid "Bottom"
 msgstr "下"
 
 #: importWizard/lookpage.cpp:182 importWizard/lookpage.cpp:262
 #: importWizard/lookpage.cpp:429
+#, kde-format
 msgid "Colors"
 msgstr "色"
 
 #: importWizard/lookpage.cpp:186
+#, kde-format
 msgid "&Text Color:"
 msgstr "テキスト色(&T):"
 
 #: importWizard/lookpage.cpp:189 importWizard/lookpage.cpp:436
+#, kde-format
 msgid "Color of title and caption text"
 msgstr "タイトルとキャプションのテキストの色"
 
 #: importWizard/lookpage.cpp:193 importWizard/lookpage.cpp:266
 #: importWizard/lookpage.cpp:440
+#, kde-format
 msgid "&Background Color:"
 msgstr "背景色(&B):"
 
 #: importWizard/lookpage.cpp:199 importWizard/lookpage.cpp:272
 #: importWizard/lookpage.cpp:361 importWizard/lookpage.cpp:446
+#, kde-format
 msgid "&Frame Color:"
 msgstr "枠の色(&F):"
 
 #: importWizard/lookpage.cpp:202 importWizard/lookpage.cpp:275
 #: importWizard/lookpage.cpp:364 importWizard/lookpage.cpp:449
+#, kde-format
 msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
 msgstr "画像の枠の色、見たアイコン、読み込みバー、サムネイルの矢印"
 
 #: importWizard/lookpage.cpp:213 importWizard/lookpage.cpp:285
 #: importWizard/lookpage.cpp:460
+#, kde-format
 msgid "Style"
 msgstr "スタイル"
 
 #: importWizard/lookpage.cpp:217 importWizard/lookpage.cpp:289
 #: importWizard/lookpage.cpp:482
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Frame &Width:"
 msgid "&Frame Width:"
 msgstr "枠の幅(&W):"
 
 #: importWizard/lookpage.cpp:222 importWizard/lookpage.cpp:294
+#, kde-format
 msgid "Width of image frame in pixels."
 msgstr "画像の周りの枠の幅をピクセル数で指定します。"
 
 #: importWizard/lookpage.cpp:226
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Stage &Padding:"
 msgid "&Stage Padding:"
 msgstr "画像とサムネイルの間隔(&P):"
 
 #: importWizard/lookpage.cpp:231
+#, kde-format
 msgid "Distance between image and thumbnails in pixels."
 msgstr "画像とサムネイルの間隔をピクセル数で指定します。"
 
 #: importWizard/lookpage.cpp:248
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Displayed Images Size:"
 msgid "&Display Time:"
 msgstr "画像の表示サイズ(&D):"
 
 #: importWizard/lookpage.cpp:253
+#, kde-format
 msgid "Number of seconds each image will display in auto-play mode."
 msgstr ""
 
 #: importWizard/lookpage.cpp:298
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Stage &Padding:"
 msgid "&Image Padding:"
 msgstr "画像とサムネイルの間隔(&P):"
 
 #: importWizard/lookpage.cpp:303
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Distance between image and thumbnails in pixels."
 msgid "Distance between images in pixels"
 msgstr "画像とサムネイルの間隔をピクセル数で指定します。"
 
 #: importWizard/lookpage.cpp:320
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Thumbnail &Rows:"
 msgid " &Rows:"
 msgstr "サムネイルの行数(&R):"
 
 #: importWizard/lookpage.cpp:325
+#, kde-format
 msgid "Number of rows of images to display."
 msgstr ""
 
 #: importWizard/lookpage.cpp:329 importWizard/lookpage.cpp:413
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Thumbnail &Columns:"
 msgid " &Columns:"
 msgstr "サムネイルの列数(&C):"
 
 #: importWizard/lookpage.cpp:334
+#, kde-format
 msgid "Number of columns of images to display."
 msgstr ""
 
 #: importWizard/lookpage.cpp:337
+#, kde-format
 msgid "Show Flip Button"
 msgstr ""
 
 #: importWizard/lookpage.cpp:342
+#, kde-format
 msgid "Use reload button"
 msgstr ""
 
 #: importWizard/lookpage.cpp:357
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Colors"
 msgctxt "Settings for flash export navigation"
 msgid "Colors"
 msgstr "色"
 
 #: importWizard/lookpage.cpp:368
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Background Color:"
 msgid "Background &Inner Color:"
 msgstr "背景色(&B):"
 
 #: importWizard/lookpage.cpp:371
+#, kde-format
 msgid "Color of the stage background gradient center."
 msgstr ""
 
 #: importWizard/lookpage.cpp:375
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Background Color:"
 msgid "Background &Outer Color:"
 msgstr "背景色(&B):"
 
 #: importWizard/lookpage.cpp:378
+#, kde-format
 msgid "Color of the stage background gradient edge."
 msgstr ""
 
 #: importWizard/lookpage.cpp:382
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Background Color:"
 msgid "Image Back Color:"
 msgstr "背景色(&B):"
 
 #: importWizard/lookpage.cpp:385
+#, kde-format
 msgid "Image's back color when pressing flip button"
 msgstr ""
 
 #: importWizard/lookpage.cpp:404
+#, kde-format
 msgid "Cell Dimension:"
 msgstr ""
 
 #: importWizard/lookpage.cpp:409
+#, kde-format
 msgid ""
 "Dimension of displayed image cells. Please use a higher value if you set "
 "high image size"
 msgstr ""
 
 #: importWizard/lookpage.cpp:433
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Text Color:"
 msgid "&Caption Color:"
 msgstr "テキスト色(&T):"
 
 #: importWizard/lookpage.cpp:464
+#, kde-format
 msgid "&Zoom In Percentage:"
 msgstr ""
 
 #: importWizard/lookpage.cpp:469
+#, kde-format
 msgid "The amount of scale when zoomed in (percentage)"
 msgstr ""
 
 #: importWizard/lookpage.cpp:473
+#, kde-format
 msgid "&Zoom Out Percentage:"
 msgstr ""
 
 #: importWizard/lookpage.cpp:478
+#, kde-format
 msgid "The amount of scale when zoomed out (percentage)"
 msgstr ""
 
 #: importWizard/lookpage.cpp:487
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Frame &Width:"
 msgid "The frame width"
 msgstr "枠の幅(&W):"
 
 #: importWizard/progresspage.cpp:48
+#, kde-format
 msgid "Exporting..."
 msgstr ""
 
 #: importWizard/selectionpage.cpp:67
+#, kde-format
 msgid "Select Image Collections"
 msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_flashexportui.rc:7
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Flash Export"
 msgid "&Export"
 msgstr "Flash エクスポート"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flashexportui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr ""
 
 #: plugin_flashexport.cpp:91
+#, kde-format
 msgid "Export to F&lash..."
 msgstr "Flash にエクスポート(&L)..."
 
 #: simpleviewer.cpp:193
+#, kde-format
 msgid "Initialising..."
 msgstr "初期化しています..."
 
 #: simpleviewer.cpp:221
+#, kde-format
 msgid "Export canceled"
 msgstr "エクスポートがキャンセルされました"
 
 #: simpleviewer.cpp:232
+#, kde-format
 msgid "Failed to create export directories"
 msgstr "エクスポートフォルダを作成できませんでした"
 
 #: simpleviewer.cpp:239
+#, kde-format
 msgid "Failed to export the images"
 msgstr "画像をエクスポートできませんでした"
 
 #: simpleviewer.cpp:246
+#, kde-format
 msgid "Failed to create index.html"
 msgstr "index.html を作成できませんでした"
 
 #: simpleviewer.cpp:253
+#, kde-format
 msgid "Failed to copy SimpleViewer files"
 msgstr "SimpleViewer ファイルをコピーできませんでした"
 
 #: simpleviewer.cpp:260
+#, kde-format
 msgid "Failed to upload the gallery"
 msgstr "ギャラリーをアップロードできませんでした"
 
 #: simpleviewer.cpp:269
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export canceled"
 msgid "Export was canceled"
 msgstr "エクスポートがキャンセルされました"
@@ -671,11 +753,13 @@ msgstr ""
 "<filename>%1</filename> に作成されたファイルを削除しますか？"
 
 #: simpleviewer.cpp:282
+#, kde-format
 msgctxt "Flash export has finished"
 msgid "Finished..."
 msgstr "完了..."
 
 #: simpleviewer.cpp:300
+#, kde-format
 msgid "Creating directories..."
 msgstr "フォルダを作成中..."
 
@@ -685,12 +769,13 @@ msgid "Could not create folder '%1'"
 msgstr "フォルダ <filename>%1</filename> を作成できませんでした"
 
 #: simpleviewer.cpp:335
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Creating directories..."
 msgid "Finished Creating directories..."
 msgstr "フォルダを作成中..."
 
 #: simpleviewer.cpp:388
+#, kde-format
 msgid "Creating images and thumbnails..."
 msgstr "画像とサムネイルを作成中..."
 
@@ -715,29 +800,33 @@ msgid "Could not resize image '%1'"
 msgstr "画像 <filename>%1</filename> のサイズを変更できませんでした"
 
 #: simpleviewer.cpp:809
+#, kde-format
 msgid "Creating index.html..."
 msgstr "index.html を作成中..."
 
 #: simpleviewer.cpp:965
+#, kde-format
 msgid "index.html created..."
 msgstr "index.html を作成しました..."
 
 #: simpleviewer.cpp:975
+#, kde-format
 msgid "Copying flash files..."
 msgstr "Flash ファイルをコピー中..."
 
 #: simpleviewer.cpp:995
+#, kde-format
 msgid "Flash files copied..."
 msgstr "Flash ファイルをコピーしました..."
 
 #: simpleviewer.cpp:1005
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Uploading gallery..."
 msgid "Copying gallery..."
 msgstr "ギャラリーをアップロード中..."
 
 #: simpleviewer.cpp:1010
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Gallery uploaded..."
 msgid "Gallery copied..."
 msgstr "ギャラリーをアップロードしました..."

@@ -1,0 +1,47 @@
+Index: digikam-4.0.0~rc/extra/kipi-plugins/sendimages/sendimages.cpp
+===================================================================
+--- digikam-4.0.0~rc.orig/extra/kipi-plugins/sendimages/sendimages.cpp	2014-04-28 07:20:41.000000000 +1000
++++ digikam-4.0.0~rc/extra/kipi-plugins/sendimages/sendimages.cpp	2014-05-02 21:46:38.989248687 +1000
+@@ -582,6 +582,7 @@
+ 
+                 case EmailSettings::NETSCAPE:
+                 case EmailSettings::THUNDERBIRD:
++                case EmailSettings::ICEDOVE:
+                 case EmailSettings::GMAILAGENT:
+                 {
+                     QString prog;
+@@ -594,6 +595,10 @@
+                     {
+                         prog = QString("thunderbird");
+                     }
++                    else if (d->settings.emailProgram == EmailSettings::ICEDOVE)
++                    {
++                        prog = QString("icedove");
++                    }
+                     else
+                     {
+                         prog = QString("gmailagent");
+Index: digikam-4.0.0~rc/extra/kipi-plugins/sendimages/emailsettings.h
+===================================================================
+--- digikam-4.0.0~rc.orig/extra/kipi-plugins/sendimages/emailsettings.h	2014-04-28 07:20:41.000000000 +1000
++++ digikam-4.0.0~rc/extra/kipi-plugins/sendimages/emailsettings.h	2014-05-02 21:46:38.989248687 +1000
+@@ -70,6 +70,7 @@
+         NETSCAPE,
+         SYLPHEED,
+         SYLPHEEDCLAWS,
++        ICEDOVE,
+         THUNDERBIRD
+     };
+ 
+Index: digikam-4.0.0~rc/extra/kipi-plugins/sendimages/settingswidget.cpp
+===================================================================
+--- digikam-4.0.0~rc.orig/extra/kipi-plugins/sendimages/settingswidget.cpp	2014-04-28 07:20:41.000000000 +1000
++++ digikam-4.0.0~rc/extra/kipi-plugins/sendimages/settingswidget.cpp	2014-05-02 21:46:38.993248621 +1000
+@@ -100,6 +100,7 @@
+     d->mailAgentName->insertItem(EmailSettings::SYLPHEED,      "Sylpheed");
+     d->mailAgentName->insertItem(EmailSettings::SYLPHEEDCLAWS, "Sylpheed-Claws");
+     d->mailAgentName->insertItem(EmailSettings::THUNDERBIRD,   "Thunderbird");
++    d->mailAgentName->insertItem(EmailSettings::ICEDOVE,       "Icedove");
+     d->mailAgentName->setCurrentIndex(EmailSettings::DEFAULT);
+     d->mailAgentName->setWhatsThis(i18n("Select your preferred external email program here. "
+                                         "<b>Default</b> is the current email program set in KDE "

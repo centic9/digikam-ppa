@@ -8,7 +8,7 @@
  *                SmugMug web service
  *
  * Copyright (C) 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * This program is free software; you can redistribute it
@@ -755,8 +755,9 @@ bool SmugWindow::prepareImageForUpload(const QString& imgPath)
         if (meta && meta->load(QUrl::fromLocalFile(imgPath)))
         {
             meta->setImageDimensions(image.size());
+            meta->setImageOrientation(MetadataProcessor::NORMAL);
             meta->setImageProgramId(QString::fromLatin1("Kipi-plugins"), kipipluginsVersion());
-            meta->save(QUrl::fromLocalFile(m_tmpPath));
+            meta->save(QUrl::fromLocalFile(m_tmpPath), true);
         }
     }
 

@@ -6,7 +6,7 @@
  * Date        : 2012-01-20
  * Description : Duplicates items finder.
  *
- * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
@@ -43,6 +43,7 @@
 #include "digikamapp.h"
 #include "dbjobsthread.h"
 #include "dbjobsmanager.h"
+#include "applicationsettings.h"
 
 namespace Digikam
 {
@@ -52,22 +53,39 @@ class DuplicatesFinder::Private
 public:
 
     Private() :
-        similarity(90),
+        minSimilarity(90),
+        maxSimilarity(100),
+        isAlbumUpdate(false),
         job(0)
     {
     }
 
-    int                   similarity;
+    int                   minSimilarity;
+    int                   maxSimilarity;
+    bool                  isAlbumUpdate;
     QList<int>            albumsIdList;
+    QList<qlonglong>      imageIdList;
     QList<int>            tagsIdList;
     SearchesDBJobsThread* job;
 };
 
-DuplicatesFinder::DuplicatesFinder(const AlbumList& albums, const AlbumList& tags, int similarity, ProgressItem* const parent)
+DuplicatesFinder::DuplicatesFinder(const QList<qlonglong>& imageIds, int minSimilarity, int maxSimilarity, ProgressItem* const parent)
     : MaintenanceTool(QLatin1String("DuplicatesFinder"), parent),
       d(new Private)
 {
-    d->similarity   = similarity;
+    d->minSimilarity   = minSimilarity;
+    d->maxSimilarity   = maxSimilarity;
+
+    d->isAlbumUpdate   = true;
+    d->imageIdList     = imageIds;
+}
+
+DuplicatesFinder::DuplicatesFinder(const AlbumList& albums, const AlbumList& tags, int minSimilarity, int maxSimilarity, ProgressItem* const parent)
+    : MaintenanceTool(QLatin1String("DuplicatesFinder"), parent),
+      d(new Private)
+{
+    d->minSimilarity   = minSimilarity;
+    d->maxSimilarity   = maxSimilarity;
 
     foreach(Album* const a, albums)
         d->albumsIdList << a->id();
@@ -76,11 +94,12 @@ DuplicatesFinder::DuplicatesFinder(const AlbumList& albums, const AlbumList& tag
         d->tagsIdList << a->id();
 }
 
-DuplicatesFinder::DuplicatesFinder(const int similarity, ProgressItem* const parent)
+DuplicatesFinder::DuplicatesFinder(const int minSimilarity, int maxSimilarity, ProgressItem* const parent)
     : MaintenanceTool(QLatin1String("DuplicatesFinder"), parent),
       d(new Private)
 {
-    d->similarity = similarity;
+    d->minSimilarity = minSimilarity;
+    d->maxSimilarity = maxSimilarity;
 
     foreach(Album* const a, AlbumManager::instance()->allPAlbums())
         d->albumsIdList << a->id();
@@ -98,11 +117,17 @@ void DuplicatesFinder::slotStart()
     setThumbnail(QIcon::fromTheme(QLatin1String("tools-wizard")).pixmap(22));
     ProgressManager::addProgressItem(this);
 
-    double thresh = d->similarity / 100.0;
+    double minThresh = d->minSimilarity / 100.0;
+    double maxThresh = d->maxSimilarity / 100.0;
     SearchesDBJobInfo jobInfo;
     jobInfo.setDuplicatesJob();
-    jobInfo.setThreshold(thresh);
+    jobInfo.setMinThreshold(minThresh);
+    jobInfo.setMaxThreshold(maxThresh);
     jobInfo.setAlbumsIds(d->albumsIdList);
+    jobInfo.setImageIds(d->imageIdList);
+
+    if (d->isAlbumUpdate)
+        jobInfo.setAlbumUpdate();
 
     if (!d->tagsIdList.isEmpty())
         jobInfo.setTagsIds(d->tagsIdList);
@@ -140,6 +165,10 @@ void DuplicatesFinder::slotDone()
         DNotificationWrapper(QString(), d->job->errorsList().first(),
                              DigikamApp::instance(), DigikamApp::instance()->windowTitle());
     }
+
+    // save the min and max similarity in the configuration.
+    ApplicationSettings::instance()->setDuplicatesSearchLastMinSimilarity(d->minSimilarity);
+    ApplicationSettings::instance()->setDuplicatesSearchLastMaxSimilarity(d->maxSimilarity);
 
     d->job = 0;
     MaintenanceTool::slotDone();

@@ -6,7 +6,7 @@
  * Date        : 2014-10-05
  * Description : slideshow help dialog
  *
- * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -51,15 +51,15 @@ SlideHelp::SlideHelp()
     label->setText(i18n("<qt>"
                         "<table>"
                                 "<tr><td colspan=\"2\"><nobr><center><b>"
-                                "<h1>Image Access</h1>"
+                                "<h1>Item Access</h1>"
                                 "</b></center></nobr></td></tr>"
 
-                                    "<tr><td>Previous image:</td>"     "<td><i>Up</i> key</td></tr>"
+                                    "<tr><td>Previous Item:</td>"      "<td><i>Up</i> key</td></tr>"
                                     "<tr><td></td>"                    "<td><i>PgUp</i> key</td>"
                                     "<tr><td></td>"                    "<td><i>Left</i> key</td>"
                                     "<tr><td></td>"                    "<td>Mouse wheel up</td>"
                                     "<tr><td></td>"                    "<td>Left mouse button</td>"
-                                    "<tr><td>Next image:</td>"         "<td><i>Down</i> key</td></tr>"
+                                    "<tr><td>Next Item:</td>"          "<td><i>Down</i> key</td></tr>"
                                     "<tr><td></td>"                    "<td><i>PgDown</i> key</td>"
                                     "<tr><td></td>"                    "<td><i>Right</i> key</td>"
                                     "<tr><td></td>"                    "<td>Mouse wheel down</td>"
@@ -68,7 +68,7 @@ SlideHelp::SlideHelp()
                                     "<tr><td>Quit:</td>"               "<td><i>Esc</i> key<td></tr>"
 
                                 "<tr><td colspan=\"2\"><nobr><center><b>"
-                                "<h1>Image Properties</h1>"
+                                "<h1>Item Properties</h1>"
                                 "</b></center></nobr></td></tr>"
 
                                     "<tr><td>Change Tags:</td>"        "<td>Use Tags keyboard shortcuts</td></tr>"

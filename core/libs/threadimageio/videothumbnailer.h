@@ -4,9 +4,9 @@
  * http://www.digikam.org
  *
  * Date        : 2016-04-21
- * Description : Qt Multimedia based video thumbnailer
+ * Description : QtAV based video thumbnailer
  *
- * Copyright (C) 2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2016-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -25,15 +25,21 @@
 
 // Qt includes
 
-#include <QPointer>
 #include <QObject>
 #include <QString>
 #include <QImage>
+
+// QtAV includes
+
+#include <QtAV/QtAV.h>
+#include <QtAV/VideoFrame.h>
 
 // Local includes
 
 #include "digikam_config.h"
 #include "digikam_export.h"
+
+using namespace QtAV;
 
 namespace Digikam
 {
@@ -47,20 +53,23 @@ public:
     explicit VideoThumbnailer(QObject* const parent=0);
     virtual ~VideoThumbnailer();
 
-    static QPointer<VideoThumbnailer> internalPtr;
-    static VideoThumbnailer*          instance();
-    static bool                       isCreated();
+public Q_SLOTS:
 
-    bool isReady() const;
+    void slotGetThumbnail(const QString&, int size, bool strip);
 
 Q_SIGNALS:
 
-    void signalThumbnailDone(quint64, const QString&, const QImage&);
-    void signalThumbnailFailed(quint64, const QString&);
+    void signalThumbnailDone(const QString&, const QImage&);
+    void signalThumbnailFailed(const QString&);
 
-public Q_SLOTS:
+private:
 
-    void slotGetThumbnail(quint64, const QString&, int size, bool strip);
+    void tryExtractVideoFrame();
+
+private Q_SLOTS:
+
+    void slotFrameError();
+    void slotFrameExtracted(const QtAV::VideoFrame& frame);
 
 private:
 

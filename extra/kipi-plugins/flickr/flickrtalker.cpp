@@ -7,7 +7,7 @@
  * Description : a kipi plugin to export images to Flickr web service
  *
  * Copyright (C) 2005-2009 by Vardhman Jain <vardhman at gmail dot com>
- * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -138,14 +138,14 @@ FlickrTalker::~FlickrTalker()
 QString FlickrTalker::getApiSig(const QString& secret, const QUrl& url)
 {
     QUrlQuery urlQuery(url.query());
-    QList<QPair<QString, QString> > temp_queries = urlQuery.queryItems();
+    QList<QPair<QString, QString> > temp_queries = urlQuery.queryItems(QUrl::FullyDecoded);
     QMap<QString, QString> queries;
 
     QPair<QString, QString> pair;
 
     foreach(pair, temp_queries)
     {
-        queries.insert(pair.first,pair.second);
+        queries.insert(pair.first, pair.second);
     }
 
     QString compressed(secret);
@@ -159,7 +159,7 @@ QString FlickrTalker::getApiSig(const QString& secret, const QUrl& url)
 
     QCryptographicHash context(QCryptographicHash::Md5);
     context.addData(compressed.toUtf8());
-    return QLatin1String(context.result().toHex().data());
+    return QLatin1String(context.result().toHex());
 }
 
 QString FlickrTalker::getMaxAllowedFileSize()
@@ -680,13 +680,14 @@ bool FlickrTalker::addPhoto(const QString& photoPath, const FPhotoInfo& info,
             if (meta && meta->load(QUrl::fromLocalFile(photoPath)))
             {
                 meta->setImageDimensions(image.size());
+                meta->setImageOrientation(MetadataProcessor::NORMAL);
 
                 // NOTE: see bug #153207: Flickr use IPTC keywords to create Tags in web interface
                 //       As IPTC do not support UTF-8, we need to remove it.
                 meta->removeIptcTags(QStringList() << QLatin1String("Iptc.Application2.Keywords"));
 
                 meta->setImageProgramId(QString::fromLatin1("Kipi-plugins"), kipipluginsVersion());
-                meta->save(QUrl::fromLocalFile(path));
+                meta->save(QUrl::fromLocalFile(path), true);
             }
             else
             {

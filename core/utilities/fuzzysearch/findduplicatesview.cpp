@@ -6,7 +6,7 @@
  * Date        : 2008-05-19
  * Description : Find Duplicates View.
  *
- * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -51,6 +51,7 @@
 #include "findduplicatesalbumitem.h"
 #include "duplicatesfinder.h"
 #include "fingerprintsgenerator.h"
+#include "applicationsettings.h"
 
 namespace Digikam
 {
@@ -62,20 +63,24 @@ public:
 
     Private()
     {
-        includeAlbumsLabel = 0;
-        listView           = 0;
-        scanDuplicatesBtn  = 0;
-        updateFingerPrtBtn = 0;
-        progressItem       = 0;
-        similarityLabel    = 0;
-        similarity         = 0;
-        albumSelectors     = 0;
+        includeAlbumsLabel      = 0;
+        listView                = 0;
+        scanDuplicatesBtn       = 0;
+        updateFingerPrtBtn      = 0;
+        progressItem            = 0;
+        similarityLabel         = 0;
+        similarityIntervalLabel = 0;
+        minSimilarity           = 0;
+        maxSimilarity           = 0;
+        albumSelectors          = 0;
     }
 
     QLabel*                      includeAlbumsLabel;
     QLabel*                      similarityLabel;
+    QLabel*                      similarityIntervalLabel;
 
-    QSpinBox*                    similarity;
+    QSpinBox*                    minSimilarity;
+    QSpinBox*                    maxSimilarity;
 
     QPushButton*                 scanDuplicatesBtn;
     QPushButton*                 updateFingerPrtBtn;
@@ -113,24 +118,34 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
 
     // ---------------------------------------------------------------
 
-    d->similarity = new QSpinBox();
-    d->similarity->setRange(0, 100);
-    d->similarity->setValue(90);
-    d->similarity->setSingleStep(1);
-    d->similarity->setSuffix(QLatin1String("%"));
+    d->minSimilarity = new QSpinBox();
+    d->minSimilarity->setRange(0, 100);
+    d->minSimilarity->setValue(ApplicationSettings::instance()->getDuplicatesSearchLastMinSimilarity());
+    d->minSimilarity->setSingleStep(1);
+    d->minSimilarity->setSuffix(QLatin1String("%"));
 
-    d->similarityLabel = new QLabel(i18n("Similarity:"));
-    d->similarityLabel->setBuddy(d->similarity);
+    d->maxSimilarity = new QSpinBox();
+    d->maxSimilarity->setRange(90, 100);
+    d->maxSimilarity->setValue(ApplicationSettings::instance()->getDuplicatesSearchLastMaxSimilarity());
+    d->maxSimilarity->setSingleStep(1);
+    d->maxSimilarity->setSuffix(QLatin1String("%"));
+
+    d->similarityLabel = new QLabel(i18n("Similarity range:"));
+    d->similarityLabel->setBuddy(d->minSimilarity);
+
+    d->similarityIntervalLabel = new QLabel(QLatin1String("-"));
 
     // ---------------------------------------------------------------
 
     QGridLayout* const mainLayout = new QGridLayout();
-    mainLayout->addWidget(d->listView,           0, 0, 1, -1);
-    mainLayout->addWidget(d->albumSelectors,     1, 0, 1, -1);
-    mainLayout->addWidget(d->similarityLabel,    2, 0, 1, 1);
-    mainLayout->addWidget(d->similarity,         2, 2, 1, 1);
-    mainLayout->addWidget(d->updateFingerPrtBtn, 3, 0, 1, -1);
-    mainLayout->addWidget(d->scanDuplicatesBtn,  4, 0, 1, -1);
+    mainLayout->addWidget(d->listView,                0, 0, 1, -1);
+    mainLayout->addWidget(d->albumSelectors,          1, 0, 1, -1);
+    mainLayout->addWidget(d->similarityLabel,         2, 0, 1, 1);
+    mainLayout->addWidget(d->minSimilarity,           2, 2, 1, 1);
+    mainLayout->addWidget(d->similarityIntervalLabel, 2, 3, 1, 1);
+    mainLayout->addWidget(d->maxSimilarity,           2, 4, 1, -1);
+    mainLayout->addWidget(d->updateFingerPrtBtn,      3, 0, 1, -1);
+    mainLayout->addWidget(d->scanDuplicatesBtn,       4, 0, 1, -1);
     mainLayout->setRowStretch(0, 10);
     mainLayout->setColumnStretch(1, 10);
     mainLayout->setContentsMargins(spacing, spacing, spacing, spacing);
@@ -145,8 +160,8 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
     connect(d->scanDuplicatesBtn, SIGNAL(clicked()),
             this, SLOT(slotFindDuplicates()));
 
-    connect(d->listView, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
-            this, SLOT(slotDuplicatesAlbumActived(QTreeWidgetItem*,int)));
+    connect(d->listView, SIGNAL(itemSelectionChanged()),
+            this, SLOT(slotDuplicatesAlbumActived()));
 
     connect(d->albumSelectors, SIGNAL(signalSelectionChanged()),
             this, SLOT(slotCheckForValidSettings()));
@@ -165,6 +180,11 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
 
     connect(AlbumManager::instance(), SIGNAL(signalAlbumsCleared()),
             this, SLOT(slotClear()));
+
+    connect(d->minSimilarity, SIGNAL(valueChanged(int)),this,SLOT(slotMinimumChanged(int)));
+
+    connect(AlbumManager::instance(),SIGNAL(signalUpdateDuplicatesAlbums(QList<qlonglong>)),
+            this,SLOT(slotUpdateDuplicates(QList<qlonglong>)));
 }
 
 FindDuplicatesView::~FindDuplicatesView()
@@ -227,6 +247,9 @@ void FindDuplicatesView::slotAlbumAdded(Album* a)
         FindDuplicatesAlbumItem* const item = new FindDuplicatesAlbumItem(d->listView, salbum);
         salbum->setExtraData(this, item);
     }
+
+    d->minSimilarity->setValue(ApplicationSettings::instance()->getDuplicatesSearchLastMinSimilarity());
+    d->maxSimilarity->setValue(ApplicationSettings::instance()->getDuplicatesSearchLastMaxSimilarity());
 }
 
 void FindDuplicatesView::slotAlbumDeleted(Album* a)
@@ -245,6 +268,9 @@ void FindDuplicatesView::slotAlbumDeleted(Album* a)
         a->removeExtraData(this);
         delete item;
     }
+
+    d->minSimilarity->setValue(ApplicationSettings::instance()->getDuplicatesSearchLastMinSimilarity());
+    d->maxSimilarity->setValue(ApplicationSettings::instance()->getDuplicatesSearchLastMaxSimilarity());
 }
 
 void FindDuplicatesView::slotSearchUpdated(SAlbum* a)
@@ -281,7 +307,8 @@ void FindDuplicatesView::enableControlWidgets(bool val)
     d->updateFingerPrtBtn->setEnabled(val);
     d->albumSelectors->setEnabled(val);
     d->similarityLabel->setEnabled(val);
-    d->similarity->setEnabled(val);
+    d->minSimilarity->setEnabled(val);
+    d->maxSimilarity->setEnabled(val);
 }
 
 void FindDuplicatesView::slotFindDuplicates()
@@ -290,12 +317,38 @@ void FindDuplicatesView::slotFindDuplicates()
     slotClear();
     enableControlWidgets(false);
 
-    DuplicatesFinder* const finder = new DuplicatesFinder(d->albumSelectors->selectedPAlbums(), d->albumSelectors->selectedTAlbums(), d->similarity->value());
+    DuplicatesFinder* const finder = new DuplicatesFinder(d->albumSelectors->selectedPAlbums(), d->albumSelectors->selectedTAlbums(), d->minSimilarity->value(), d->maxSimilarity->value());
 
     connect(finder, SIGNAL(signalComplete()),
             this, SLOT(slotComplete()));
 
     finder->start();
+}
+
+void FindDuplicatesView::slotUpdateDuplicates(const QList<qlonglong> imagesToRescan)
+{
+    d->albumSelectors->saveState();
+    slotClear();
+    enableControlWidgets(false);
+
+    DuplicatesFinder* const finder = new DuplicatesFinder(imagesToRescan, d->minSimilarity->value(), d->maxSimilarity->value());
+
+    connect(finder, SIGNAL(signalComplete()),
+            this, SLOT(slotComplete()));
+
+    finder->start();
+}
+
+void FindDuplicatesView::slotMinimumChanged(int newValue)
+{
+    // Set the new minimum value of the maximum similarity
+    d->maxSimilarity->setMinimum(newValue);
+    // If the new value of the mimimum is now higher than the maximum similarity,
+    // set the maximum similarity to the new value.
+    if (newValue > d->maxSimilarity->value())
+    {
+        d->maxSimilarity->setValue(d->minSimilarity->value());
+    }
 }
 
 void FindDuplicatesView::slotComplete()
@@ -304,13 +357,21 @@ void FindDuplicatesView::slotComplete()
     populateTreeView();
 }
 
-void FindDuplicatesView::slotDuplicatesAlbumActived(QTreeWidgetItem* item, int)
+void FindDuplicatesView::slotDuplicatesAlbumActived()
 {
-    FindDuplicatesAlbumItem* const sitem = dynamic_cast<FindDuplicatesAlbumItem*>(item);
-
-    if (sitem)
+    QList<Album*> albums;
+    foreach(QTreeWidgetItem* item, d->listView->selectedItems())
     {
-        AlbumManager::instance()->setCurrentAlbums(QList<Album*>() << sitem->album());
+        FindDuplicatesAlbumItem* const albumItem = dynamic_cast<FindDuplicatesAlbumItem*>(item);
+        if (albumItem)
+        {
+            albums << albumItem->album();
+        }
+    }
+
+    if (!albums.empty())
+    {
+        AlbumManager::instance()->setCurrentAlbums(QList<Album*>() << albums);
     }
 }
 
@@ -326,7 +387,7 @@ void FindDuplicatesView::slotUpdateFingerPrints()
     tool->start();
 }
 
-void FindDuplicatesView::slotSetSelectedAlbum(Album* album)
+void FindDuplicatesView::slotSetSelectedAlbum(PAlbum* album)
 {
     if (!album)
     {
@@ -334,19 +395,32 @@ void FindDuplicatesView::slotSetSelectedAlbum(Album* album)
     }
 
     resetAlbumsAndTags();
+    // @ODD : Why is singleton set to true? resetAlbumsAndTags already clears the selection.
     d->albumSelectors->setPAlbumSelected(album, true);
+    d->albumSelectors->setTypeSelection(AlbumSelectors::AlbumType::PhysAlbum);
     slotCheckForValidSettings();
 }
 
-void FindDuplicatesView::slotSetSelectedTag(Album* album)
+void FindDuplicatesView::slotSetSelectedAlbums(QList<PAlbum*> albums)
 {
-    if (!album)
-    {
-        return;
-    }
-
+    // @ODD : Why is singleton set to true? resetAlbumsAndTags already clears the selection.
     resetAlbumsAndTags();
-    d->albumSelectors->setTAlbumSelected(album, true);
+    foreach(PAlbum* const album, albums)
+    {
+        d->albumSelectors->setPAlbumSelected(album, false);
+    }
+    d->albumSelectors->setTypeSelection(AlbumSelectors::AlbumType::PhysAlbum);
+    slotCheckForValidSettings();
+}
+
+void FindDuplicatesView::slotSetSelectedAlbums(QList<TAlbum*> albums)
+{
+    resetAlbumsAndTags();
+    foreach(TAlbum* const album, albums)
+    {
+        d->albumSelectors->setTAlbumSelected(album, false);
+    }
+    d->albumSelectors->setTypeSelection(AlbumSelectors::AlbumType::TagsAlbum);
     slotCheckForValidSettings();
 }
 

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-graphics-kde4\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2014-06-08 13:47+0000\n"
 "Last-Translator: Volkan Gezer <volkangezer@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/projects/p/extragear-"
@@ -23,97 +23,119 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_yandexfotkiui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Dışarıya Aktar"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_yandexfotkiui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Ana Araç Çubuğu"
 
 #: plugin_yandexfotki.cpp:91
+#, kde-format
 msgid "Export to &Yandex.Fotki..."
 msgstr "&Yandex.Fotki'ye Aktar..."
 
 #: yfalbumdialog.cpp:60
+#, kde-format
 msgid "Password for the album (optional)."
 msgstr "Albüm için parola (isteğe bağlı)."
 
 #: yfalbumdialog.cpp:63
+#, kde-format
 msgid "Password:"
 msgstr "Parola:"
 
 #: yfalbumdialog.cpp:80
+#, kde-format
 msgid "Error"
 msgstr "Hata"
 
 #: yfalbumdialog.cpp:80
+#, kde-format
 msgid "Title cannot be empty."
 msgstr "Başlık boş bırakılamaz."
 
 #: yfwidget.cpp:61
+#, kde-format
 msgid "Update policy:"
 msgstr "Güncelleme politikası:"
 
 #: yfwidget.cpp:63
+#, kde-format
 msgid "Update metadata"
 msgstr "Üstverileri güncelleştir"
 
 #: yfwidget.cpp:64
+#, kde-format
 msgid "Update metadata of remote file and merge remote tags with local"
 msgstr ""
 "Uzak dosyanın üst verisini güncelle veyerel ile uzak etiketleri birleştir"
 
 #: yfwidget.cpp:66
+#, kde-format
 msgid "Skip photo"
 msgstr "Fotoğrafı geç"
 
 #: yfwidget.cpp:67
+#, kde-format
 msgid "Simple skip photo"
 msgstr "Fotoğrafı basitçe atla"
 
 #: yfwidget.cpp:68
+#, kde-format
 msgid "Upload as new"
 msgstr "Yeni olarak gönder"
 
 #: yfwidget.cpp:69
+#, kde-format
 msgid "Add photo as new"
 msgstr "Yeni fotoğraf olarak ekle"
 
 #: yfwidget.cpp:71
+#, kde-format
 msgid "Privacy settings:"
 msgstr "Gizlilik ayarları:"
 
 #: yfwidget.cpp:74
+#, kde-format
 msgid "Public access"
 msgstr "Genel erişim"
 
 #: yfwidget.cpp:76
+#, kde-format
 msgid "Friends access"
 msgstr "Arkadaş erişimi"
 
 #: yfwidget.cpp:78
+#, kde-format
 msgid "Private access"
 msgstr "Özel erişim"
 
 #: yfwidget.cpp:80
+#, kde-format
 msgid "Hide original photo"
 msgstr "Fotoğrafın aslını gizle"
 
 #: yfwidget.cpp:81
+#, kde-format
 msgid "Disable comments"
 msgstr "Yorumları devre dışı bırak"
 
 #: yfwidget.cpp:82
+#, kde-format
 msgid "Adult content"
 msgstr "Yetişkin içeriği"
 
 #: yfwindow.cpp:128
+#, kde-format
 msgid "Yandex.Fotki Plugin"
 msgstr "Yandex.Fotki Eklentisi"
 
 #: yfwindow.cpp:129
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to export image collections to Yandex.Fotki web service."
 msgid "A tool to export image collections to Yandex.Fotki web service."
@@ -122,7 +144,7 @@ msgstr ""
 "eklentisi."
 
 #: yfwindow.cpp:131
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2007-2009, Vardhman Jain\n"
 #| "(c) 2008-2012, Gilles Caulier\n"
@@ -140,37 +162,44 @@ msgstr ""
 "(c) 2010, Roman Tsisyk"
 
 #: yfwindow.cpp:136
+#, kde-format
 msgid "Roman Tsisyk"
 msgstr "Roman Tsisyk"
 
 #: yfwindow.cpp:137
+#, kde-format
 msgid "Author"
 msgstr "Yazar"
 
 #: yfwindow.cpp:249
+#, kde-format
 msgid "Unauthorized"
 msgstr "Yetkilendirilmemiş"
 
 #: yfwindow.cpp:262
+#, kde-format
 msgctxt "Yandex.Fotki"
 msgid "Y"
 msgstr "Y"
 
 #: yfwindow.cpp:263
+#, kde-format
 msgctxt "Yandex.Fotki"
 msgid "andex."
 msgstr "andex."
 
 #: yfwindow.cpp:264
+#, kde-format
 msgctxt "Yandex.Fotki"
 msgid "Fotki"
 msgstr "Fotki"
 
-#: yfwindow.cpp:588
+#: yfwindow.cpp:589
+#, kde-format
 msgid "Processing Failed"
 msgstr ""
 
-#: yfwindow.cpp:589
+#: yfwindow.cpp:590
 #, kde-format
 msgid ""
 "Failed to prepare image %1\n"
@@ -179,49 +208,58 @@ msgstr ""
 "%1 resmi hazırlanamadı\n"
 "Devam etmek istiyor musunuz?"
 
-#: yfwindow.cpp:616
+#: yfwindow.cpp:617
+#, kde-format
 msgid "Images has been uploaded"
 msgstr "Resimler gönderildi"
 
-#: yfwindow.cpp:646
+#: yfwindow.cpp:647
+#, kde-format
 msgid "Please select album first"
 msgstr "Lütfen önce bir albüm seçin"
 
-#: yfwindow.cpp:668
+#: yfwindow.cpp:669
+#, kde-format
 msgid "Session error"
 msgstr "Oturum hatası"
 
-#: yfwindow.cpp:671
+#: yfwindow.cpp:672
+#, kde-format
 msgid "Token error"
 msgstr "Simge hatası"
 
-#: yfwindow.cpp:674
+#: yfwindow.cpp:675
+#, kde-format
 msgid "Invalid credentials"
 msgstr "Geçersiz kimlik bilgisi"
 
-#: yfwindow.cpp:678
+#: yfwindow.cpp:679
+#, kde-format
 msgid "Cannot get service document"
 msgstr "Servis belgesi alınamadı"
 
-#: yfwindow.cpp:691
+#: yfwindow.cpp:692
+#, kde-format
 msgid "Cannot list albums"
 msgstr "Albümler listelenemedi"
 
-#: yfwindow.cpp:694
+#: yfwindow.cpp:695
+#, kde-format
 msgid "Cannot list photos"
 msgstr "Fotoğraflar listelenemedi"
 
-#: yfwindow.cpp:697
+#: yfwindow.cpp:698
+#, kde-format
 msgid "Cannot update album info"
 msgstr "Albüm bilgileri güncellenemedi"
 
-#: yfwindow.cpp:703
-#, fuzzy
+#: yfwindow.cpp:704
+#, fuzzy, kde-format
 #| msgid "Upload as new"
 msgid "Uploading Failed"
 msgstr "Yeni olarak gönder"
 
-#: yfwindow.cpp:704
+#: yfwindow.cpp:705
 #, kde-format
 msgid ""
 "Failed to upload image %1\n"
@@ -230,7 +268,8 @@ msgstr ""
 "%1 resmi yüklenirken hata oluştu\n"
 "Devam etmek istiyor musunuz?"
 
-#: yfwindow.cpp:725
+#: yfwindow.cpp:726
+#, kde-format
 msgid "Unknown error"
 msgstr "Bilinmeyen hata"
 

@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_simpleviewerexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2012-10-10 20:46+0200\n"
 "Last-Translator: Bjørn Steensrud <bjornst@skogkatt.homelinux.org>\n"
 "Language-Team: Norwegian Bokmål <i18n-nb@lister.ping.uio.no>\n"
@@ -21,14 +21,17 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: aboutdata.h:42
+#, kde-format
 msgid "Flash Export"
 msgstr "Flash-eksport"
 
 #: aboutdata.h:43
+#, kde-format
 msgid "A tool to export images to Flash using the SimpleViewer's components."
 msgstr ""
 
 #: aboutdata.h:44
+#, kde-format
 msgid ""
 "(c) 2005-2006, Joern Ahrens\n"
 "(c) 2008-2016, Gilles Caulier\n"
@@ -36,38 +39,47 @@ msgid ""
 msgstr ""
 
 #: aboutdata.h:51
+#, kde-format
 msgid "Joern Ahrens"
 msgstr "Joern Ahrens"
 
 #: aboutdata.h:52
+#, kde-format
 msgid "Author"
 msgstr "Forfatter"
 
 #: aboutdata.h:55
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: aboutdata.h:56 aboutdata.h:60
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "Utvikler og vedlikeholder"
 
 #: aboutdata.h:59
+#, kde-format
 msgid "Veaceslav Munteanu"
 msgstr "Veaceslav Munteanu"
 
 #: aboutdata.h:63
+#, kde-format
 msgid "Mikkel B. Stegmann"
 msgstr "Mikkel B. Stegmann"
 
 #: aboutdata.h:64
+#, kde-format
 msgid "Basis for the index.html template"
 msgstr "Grunnlag for malen for index.html"
 
 #: importWizard/firstrunpage.cpp:68
+#, kde-format
 msgid "First Run"
 msgstr "Første kjøring"
 
 #: importWizard/firstrunpage.cpp:74
+#, kde-format
 msgid ""
 "<p>SimpleViewer's plugins are Flash components which are free to use, but "
 "use a license which comes into conflict with several distributions. Due to "
@@ -87,53 +99,65 @@ msgstr ""
 "p>"
 
 #: importWizard/firstrunpage.cpp:83
+#, kde-format
 msgid "<p>1.) Download plugin from the following url:</p>"
 msgstr "<p>1.) Last ned programtillegget fra denne URL-en:</p>"
 
 #: importWizard/firstrunpage.cpp:95
+#, kde-format
 msgid "<p>2.) Point this tool to the downloaded archive</p>"
 msgstr "<p>2.) Rett inn dette verktøyet mot det nedlastede arkivet</p>"
 
 #: importWizard/firstrunpage.cpp:99
+#, kde-format
 msgid "Select downloaded archive"
 msgstr ""
 
 #: importWizard/generalpage.cpp:85
+#, kde-format
 msgid "General Settings"
 msgstr "Almenne innstillinger"
 
 #: importWizard/generalpage.cpp:93
+#, kde-format
 msgid "Gallery &Title"
 msgstr "Galleri&tittel"
 
 #: importWizard/generalpage.cpp:96
+#, kde-format
 msgid "Enter here the gallery title"
 msgstr "Skriv inn galleritittelen her"
 
 #: importWizard/generalpage.cpp:104
+#, kde-format
 msgid "Save Gallery To"
 msgstr "Lagre galleriet i"
 
 #: importWizard/generalpage.cpp:116
+#, kde-format
 msgid "Image Properties"
 msgstr "Bildeegenskaper"
 
 #: importWizard/generalpage.cpp:118
+#, kde-format
 msgid "Resize Target Images"
 msgstr "Endre størrelsen på målbildene"
 
 #: importWizard/generalpage.cpp:120
+#, kde-format
 msgid "If you enable this option, all target images can be resized."
 msgstr ""
 "Denne innstillinga gjør det mulig, å endre størrelse og komprimeringsnivå på "
 "bildene som skal sendes."
 
 #: importWizard/generalpage.cpp:124
+#, kde-format
 msgid "Auto-Rotate/Flip Images"
 msgstr "Automatisk dreining/snuing av bilder"
 
 #: importWizard/generalpage.cpp:126 importWizard/lookpage.cpp:339
 #: importWizard/lookpage.cpp:344
+#, kde-format
 msgid ""
 "If you enable this option, the images' orientations will be set according to "
 "their Exif information."
@@ -142,10 +166,12 @@ msgstr ""
 "informasjonen i bildene."
 
 #: importWizard/generalpage.cpp:131
+#, kde-format
 msgid "&Target Images' Size:"
 msgstr "Størrelsen på &målbildene:"
 
 #: importWizard/generalpage.cpp:136
+#, kde-format
 msgid ""
 "The new size of the exported images, in pixels. SimpleViewer resizes the "
 "images too, but this resizes the images before they are uploaded to your "
@@ -156,10 +182,12 @@ msgstr ""
 "tjeneren din."
 
 #: importWizard/generalpage.cpp:148
+#, kde-format
 msgid "&Displayed Images' Size:"
 msgstr "Størrelsen til de &viste bildene:"
 
 #: importWizard/generalpage.cpp:153
+#, kde-format
 msgid ""
 "Scales the displayed images to this size. Normally, use the height or width "
 "of your largest image (in pixels). Images will not be scaled up above this "
@@ -170,30 +198,37 @@ msgstr ""
 "dette for å bevare bildekvalitet."
 
 #: importWizard/generalpage.cpp:169
+#, kde-format
 msgid "Misc"
 msgstr "Diverse"
 
 #: importWizard/generalpage.cpp:172
+#, kde-format
 msgid "Display Captions"
 msgstr "Vis tekster"
 
 #: importWizard/generalpage.cpp:174
+#, kde-format
 msgid "If this option is enabled, the images' captions will be shown."
 msgstr "Hvis dette alternativet velges, vises bildenes tekster."
 
 #: importWizard/generalpage.cpp:176
+#, kde-format
 msgid "Display Keywords"
 msgstr "Vis nøkkelord"
 
 #: importWizard/generalpage.cpp:178
+#, kde-format
 msgid "If this option is enabled, the images' keywords will be shown."
 msgstr "Hvis dette alternativet velges, vises bildenes nøkkelord."
 
 #: importWizard/generalpage.cpp:181
+#, kde-format
 msgid "Open Image with Right Click"
 msgstr "Åpne bildet med høykreklikk"
 
 #: importWizard/generalpage.cpp:183
+#, kde-format
 msgid ""
 "If this option is enabled, the user will be able to open the target image in "
 "a separate window using the right mouse button."
@@ -202,24 +237,29 @@ msgstr ""
 "trykk på høyre museknapp."
 
 #: importWizard/generalpage.cpp:187
+#, kde-format
 msgid "Open gallery in Browser"
 msgstr "Åpne galleriet i nettleser"
 
 #: importWizard/generalpage.cpp:189
+#, kde-format
 msgid ""
 "If this option is enabled, the gallery will be opened in Konqueror "
 "automatically."
 msgstr "Hvis dette er slått på åpnes galleriet automatisk i Konqueror"
 
 #: importWizard/importwizarddlg.cpp:95
+#, kde-format
 msgid "Flash Export Wizard"
 msgstr "Veiviser for Flash-eksport"
 
 #: importWizard/importwizarddlg.cpp:148
+#, kde-format
 msgid "SimpleViewer installation failed"
 msgstr "Klarte ikke å installere SimpleViewer"
 
 #: importWizard/importwizarddlg.cpp:149
+#, kde-format
 msgid ""
 "<p>Failed to install SimpleViewer. </p><p>Please check if:</p><p>- archive "
 "corresponds to plugin selected on previous page.</p><p>- archive is up-to-"
@@ -227,14 +267,17 @@ msgid ""
 msgstr ""
 
 #: importWizard/importwizarddlg.cpp:183
+#, kde-format
 msgid "Problem to export collection"
 msgstr ""
 
 #: importWizard/importwizarddlg.cpp:184
+#, kde-format
 msgid "You must select at least one collection to export."
 msgstr "Du må velge minst én samling som skal eksporteres"
 
 #: importWizard/importwizarddlg.cpp:242
+#, kde-format
 msgid "Target Folder Exists"
 msgstr ""
 
@@ -246,6 +289,7 @@ msgid ""
 msgstr ""
 
 #: importWizard/importwizarddlg.cpp:257
+#, kde-format
 msgid "Cannot Delete Folder"
 msgstr ""
 
@@ -259,10 +303,12 @@ msgstr ""
 "Velg en annen eksportmappe."
 
 #: importWizard/intropage.cpp:61
+#, kde-format
 msgid "Welcome to FlashExport Tool"
 msgstr "Dette er FlashExport-verktøyet"
 
 #: importWizard/intropage.cpp:69
+#, kde-format
 msgid ""
 "<qt><p><h1><b>Welcome to Flash Export tool</b></h1></p><p>This tool uses <a "
 "href='http://www.simpleviewer.net/'>SimpleViewer, AutoViewer, TiltViewer or "
@@ -282,217 +328,266 @@ msgstr ""
 "er bare beregnet på et lite antall bilder.</p></qt>"
 
 #: importWizard/intropage.cpp:82
+#, kde-format
 msgid "Select &Plugin:"
 msgstr "Velg &programtillegg:"
 
 #: importWizard/intropage.cpp:85
+#, kde-format
 msgctxt "SimpleViewer"
 msgid "SimpleViewer"
 msgstr "SimpleViewer"
 
 #: importWizard/intropage.cpp:86
+#, kde-format
 msgctxt "TiltViewer"
 msgid "TiltViewer"
 msgstr "TiltViewer"
 
 #: importWizard/intropage.cpp:87
+#, kde-format
 msgctxt "AutoViewer"
 msgid "AutoViewer"
 msgstr "AutoViewer"
 
 #: importWizard/intropage.cpp:88
+#, kde-format
 msgctxt "PostcardViewer"
 msgid "PostcardViewer"
 msgstr "PostcardViewer"
 
 #: importWizard/intropage.cpp:100
+#, kde-format
 msgid "&Choose image selection method:"
 msgstr "&Velg metode for bildeutvalg:"
 
 #: importWizard/intropage.cpp:102
+#, kde-format
 msgctxt "Collections"
 msgid "Collections"
 msgstr "Samlinger"
 
 #: importWizard/intropage.cpp:103
+#, kde-format
 msgctxt "Images"
 msgid "Images"
 msgstr ""
 
 #: importWizard/lookpage.cpp:108
+#, kde-format
 msgid "Configure appearance"
 msgstr "Sett opp utseende"
 
 #: importWizard/lookpage.cpp:139 importWizard/lookpage.cpp:244
 #: importWizard/lookpage.cpp:316 importWizard/lookpage.cpp:400
+#, kde-format
 msgctxt "Settings for flash export navigation"
 msgid "Navigation"
 msgstr "Navigasjon"
 
 #: importWizard/lookpage.cpp:143
+#, kde-format
 msgid "Thumbnail &Rows:"
 msgstr "Antall &rader med miniatyrer:"
 
 #: importWizard/lookpage.cpp:148
+#, kde-format
 msgid "Number of thumbnails rows"
 msgstr "Antall miniatyrrader"
 
 #: importWizard/lookpage.cpp:152
+#, kde-format
 msgid "Thumbnail &Columns:"
 msgstr "Antall &kolonner med miniatyrer:"
 
 #: importWizard/lookpage.cpp:157 importWizard/lookpage.cpp:418
+#, kde-format
 msgid "Number of thumbnails columns"
 msgstr "Antall miniatyrkolonner"
 
 #: importWizard/lookpage.cpp:161
+#, kde-format
 msgid "Thumbnail &Position:"
 msgstr "&Plassering av miniatyrer:"
 
 #: importWizard/lookpage.cpp:163
+#, kde-format
 msgctxt "thumbnail position: right"
 msgid "Right"
 msgstr "Høyre"
 
 #: importWizard/lookpage.cpp:164
+#, kde-format
 msgctxt "thumbnail position: left"
 msgid "Left"
 msgstr "Venstre"
 
 #: importWizard/lookpage.cpp:165
+#, kde-format
 msgctxt "thumbnail position: top"
 msgid "Top"
 msgstr "Øverst"
 
 #: importWizard/lookpage.cpp:166
+#, kde-format
 msgctxt "thumbnail position: bottom"
 msgid "Bottom"
 msgstr "Nederst"
 
 #: importWizard/lookpage.cpp:182 importWizard/lookpage.cpp:262
 #: importWizard/lookpage.cpp:429
+#, kde-format
 msgid "Colors"
 msgstr "Farger"
 
 #: importWizard/lookpage.cpp:186
+#, kde-format
 msgid "&Text Color:"
 msgstr "&Tekstfarge:"
 
 #: importWizard/lookpage.cpp:189 importWizard/lookpage.cpp:436
+#, kde-format
 msgid "Color of title and caption text"
 msgstr "Farge for tittel og bildetekst"
 
 #: importWizard/lookpage.cpp:193 importWizard/lookpage.cpp:266
 #: importWizard/lookpage.cpp:440
+#, kde-format
 msgid "&Background Color:"
 msgstr "&Bakgrunnsfarge:"
 
 #: importWizard/lookpage.cpp:199 importWizard/lookpage.cpp:272
 #: importWizard/lookpage.cpp:361 importWizard/lookpage.cpp:446
+#, kde-format
 msgid "&Frame Color:"
 msgstr "&Rammens farge:"
 
 #: importWizard/lookpage.cpp:202 importWizard/lookpage.cpp:275
 #: importWizard/lookpage.cpp:364 importWizard/lookpage.cpp:449
+#, kde-format
 msgid "Color of image frame, viewed icon, load bars, thumbnail arrows"
 msgstr "Bilderammens farge, ikon, stolper, piler til miniatyrer"
 
 #: importWizard/lookpage.cpp:213 importWizard/lookpage.cpp:285
 #: importWizard/lookpage.cpp:460
+#, kde-format
 msgid "Style"
 msgstr "Stil"
 
 #: importWizard/lookpage.cpp:217 importWizard/lookpage.cpp:289
 #: importWizard/lookpage.cpp:482
+#, kde-format
 msgid "&Frame Width:"
 msgstr "Rammens &bredde:"
 
 #: importWizard/lookpage.cpp:222 importWizard/lookpage.cpp:294
+#, kde-format
 msgid "Width of image frame in pixels."
 msgstr "Bredde for bilderammen i piksler"
 
 #: importWizard/lookpage.cpp:226
+#, kde-format
 msgid "&Stage Padding:"
 msgstr "&Utfylling for oppstilling:"
 
 #: importWizard/lookpage.cpp:231
+#, kde-format
 msgid "Distance between image and thumbnails in pixels."
 msgstr "Avstanden mellom bilde og miniatyrer i piksler."
 
 #: importWizard/lookpage.cpp:248
+#, kde-format
 msgid "&Display Time:"
 msgstr "&Visningstid:"
 
 #: importWizard/lookpage.cpp:253
+#, kde-format
 msgid "Number of seconds each image will display in auto-play mode."
 msgstr "Antall sekunder hvert bilde vises i automatisk modus."
 
 #: importWizard/lookpage.cpp:298
+#, kde-format
 msgid "&Image Padding:"
 msgstr "&Bildeutfylling:"
 
 #: importWizard/lookpage.cpp:303
+#, kde-format
 msgid "Distance between images in pixels"
 msgstr "Avstanden mellom bilder i piksler."
 
 #: importWizard/lookpage.cpp:320
+#, kde-format
 msgid " &Rows:"
 msgstr " &Rader:"
 
 #: importWizard/lookpage.cpp:325
+#, kde-format
 msgid "Number of rows of images to display."
 msgstr "Antall rader med bilder som skal vises"
 
 #: importWizard/lookpage.cpp:329 importWizard/lookpage.cpp:413
+#, kde-format
 msgid " &Columns:"
 msgstr " &Kolonner:"
 
 #: importWizard/lookpage.cpp:334
+#, kde-format
 msgid "Number of columns of images to display."
 msgstr "Antall kolonner med bilder som skal vises"
 
 #: importWizard/lookpage.cpp:337
+#, kde-format
 msgid "Show Flip Button"
 msgstr "Vis vendeknapp"
 
 #: importWizard/lookpage.cpp:342
+#, kde-format
 msgid "Use reload button"
 msgstr "Bruk omlasteknapp"
 
 #: importWizard/lookpage.cpp:357
+#, kde-format
 msgctxt "Settings for flash export navigation"
 msgid "Colors"
 msgstr "Farger"
 
 #: importWizard/lookpage.cpp:368
+#, kde-format
 msgid "Background &Inner Color:"
 msgstr "&Indre bakgrunnsfarge:"
 
 #: importWizard/lookpage.cpp:371
+#, kde-format
 msgid "Color of the stage background gradient center."
 msgstr "Farge for overgangssenteret i oppstillingsbakgrunnen."
 
 #: importWizard/lookpage.cpp:375
+#, kde-format
 msgid "Background &Outer Color:"
 msgstr "&Ytre bakgrunnsfarge:"
 
 #: importWizard/lookpage.cpp:378
+#, kde-format
 msgid "Color of the stage background gradient edge."
 msgstr "Farge for overgangskanten i oppstillingsbakgrunnen."
 
 #: importWizard/lookpage.cpp:382
+#, kde-format
 msgid "Image Back Color:"
 msgstr "Bildets baksidefarge:"
 
 #: importWizard/lookpage.cpp:385
+#, kde-format
 msgid "Image's back color when pressing flip button"
 msgstr "Fargen på baksiden av bildet når Vend-knappen trykkes"
 
 #: importWizard/lookpage.cpp:404
+#, kde-format
 msgid "Cell Dimension:"
 msgstr "Celledimensjon:"
 
 #: importWizard/lookpage.cpp:409
+#, kde-format
 msgid ""
 "Dimension of displayed image cells. Please use a higher value if you set "
 "high image size"
@@ -501,80 +596,99 @@ msgstr ""
 "bildestørrelse"
 
 #: importWizard/lookpage.cpp:433
+#, kde-format
 msgid "&Caption Color:"
 msgstr "&Tekstfarge:"
 
 #: importWizard/lookpage.cpp:464
+#, kde-format
 msgid "&Zoom In Percentage:"
 msgstr "&Prosent forstørret:"
 
 #: importWizard/lookpage.cpp:469
+#, kde-format
 msgid "The amount of scale when zoomed in (percentage)"
 msgstr "Skalering når forstørret (i prosent)"
 
 #: importWizard/lookpage.cpp:473
+#, kde-format
 msgid "&Zoom Out Percentage:"
 msgstr "Prosent &forminsket:"
 
 #: importWizard/lookpage.cpp:478
+#, kde-format
 msgid "The amount of scale when zoomed out (percentage)"
 msgstr "Skalering når forminsket (i prosent)"
 
 #: importWizard/lookpage.cpp:487
+#, kde-format
 msgid "The frame width"
 msgstr "Rammens bredde"
 
 #: importWizard/progresspage.cpp:48
+#, kde-format
 msgid "Exporting..."
 msgstr "Eksporterer …"
 
 #: importWizard/selectionpage.cpp:67
+#, kde-format
 msgid "Select Image Collections"
 msgstr "Velg bildesamlinger"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_flashexportui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Eksporter"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flashexportui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Hovedverktøylinje"
 
 #: plugin_flashexport.cpp:91
+#, kde-format
 msgid "Export to F&lash..."
 msgstr "Eksporter til F&lash …"
 
 #: simpleviewer.cpp:193
+#, kde-format
 msgid "Initialising..."
 msgstr "Oppstart …"
 
 #: simpleviewer.cpp:221
+#, kde-format
 msgid "Export canceled"
 msgstr "Ekporten ble avbrutt       "
 
 #: simpleviewer.cpp:232
+#, kde-format
 msgid "Failed to create export directories"
 msgstr "Klarte ikke å opprette eksportmapper"
 
 #: simpleviewer.cpp:239
+#, kde-format
 msgid "Failed to export the images"
 msgstr "Klarte ikke å ekportere bilder"
 
 #: simpleviewer.cpp:246
+#, kde-format
 msgid "Failed to create index.html"
 msgstr "Klarte ikke å lage index.html"
 
 #: simpleviewer.cpp:253
+#, kde-format
 msgid "Failed to copy SimpleViewer files"
 msgstr "Klarte ikke å kopiere SimpleViewer filer"
 
 #: simpleviewer.cpp:260
+#, kde-format
 msgid "Failed to upload the gallery"
 msgstr "Klarte ikke å laste opp galleri"
 
 #: simpleviewer.cpp:269
+#, kde-format
 msgid "Export was canceled"
 msgstr ""
 
@@ -584,11 +698,13 @@ msgid "Do you want to delete files in %1 that have already been created?"
 msgstr ""
 
 #: simpleviewer.cpp:282
+#, kde-format
 msgctxt "Flash export has finished"
 msgid "Finished..."
 msgstr "Ferdig …"
 
 #: simpleviewer.cpp:300
+#, kde-format
 msgid "Creating directories..."
 msgstr "Lager mapper ...."
 
@@ -598,10 +714,12 @@ msgid "Could not create folder '%1'"
 msgstr "Klarte ikke å lage mappe «%1»"
 
 #: simpleviewer.cpp:335
+#, kde-format
 msgid "Finished Creating directories..."
 msgstr "Ferdig med å lage mapper ...."
 
 #: simpleviewer.cpp:388
+#, kde-format
 msgid "Creating images and thumbnails..."
 msgstr "Lager bilder og miniatyrer …"
 
@@ -626,25 +744,31 @@ msgid "Could not resize image '%1'"
 msgstr "Klarte ikke å gjøre om størrelsen på bilde «%1»"
 
 #: simpleviewer.cpp:809
+#, kde-format
 msgid "Creating index.html..."
 msgstr "Lager index.html …"
 
 #: simpleviewer.cpp:965
+#, kde-format
 msgid "index.html created..."
 msgstr "idex.html er opprettet …"
 
 #: simpleviewer.cpp:975
+#, kde-format
 msgid "Copying flash files..."
 msgstr "Kopierer flash-filer …"
 
 #: simpleviewer.cpp:995
+#, kde-format
 msgid "Flash files copied..."
 msgstr "Flash-filer er kopiert …"
 
 #: simpleviewer.cpp:1005
+#, kde-format
 msgid "Copying gallery..."
 msgstr ""
 
 #: simpleviewer.cpp:1010
+#, kde-format
 msgid "Gallery copied..."
 msgstr ""

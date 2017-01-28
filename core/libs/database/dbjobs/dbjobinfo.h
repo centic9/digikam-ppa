@@ -147,25 +147,38 @@ public:
     void setDuplicatesJob();
     bool isDuplicatesJob() const;
 
-    void setSearchId(int id);
-    int searchId() const;
+    void setAlbumUpdate();
+    bool isAlbumUpdate() const;
 
-    void setThreshold(double t);
-    double threshold() const;
+    void setSearchIds(QList<int> ids);
+    void setSearchId(int id);
+    QList<int> searchIds() const;
+
+    void setMinThreshold(double t);
+    double minThreshold() const;
+    
+    void setMaxThreshold(double t);
+    double maxThreshold() const;
 
     void setAlbumsIds(const QList<int>& albumsIds);
     QList<int> albumsIds() const;
+
+    void setImageIds(const QList<qlonglong>& imageIds);
+    QList<qlonglong> imageIds() const;
 
     void setTagsIds(const QList<int>& tagsIds);
     QList<int> tagsIds() const;
 
 public:
 
-    bool       m_duplicates;
-    int        m_searchId;
-    double     m_threshold;
-    QList<int> m_albumsIds;
-    QList<int> m_tagsIds;
+    bool             m_duplicates;
+    bool             m_albumUpdate;
+    QList<int>       m_searchIds;
+    double           m_minThreshold;
+    double           m_maxThreshold;
+    QList<int>       m_albumsIds;
+    QList<qlonglong> m_imageIds;
+    QList<int>       m_tagsIds;
 };
 
 // ---------------------------------------------

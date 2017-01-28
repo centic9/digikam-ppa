@@ -7,7 +7,7 @@
  * Description : digiKam image editor GUI
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2004-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2004-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -63,6 +63,7 @@
 #include "coredb.h"
 #include "albummanager.h"
 #include "albummodel.h"
+#include "albumfiltermodel.h"
 #include "applicationsettings.h"
 #include "canvas.h"
 #include "collectionlocation.h"
@@ -1740,7 +1741,12 @@ void ImageWindow::slotEditGeolocation()
     if ( inf.isNull() )
         return;
 
-    QPointer<GeolocationEdit> dialog = new GeolocationEdit(new TagModel(AbstractAlbumModel::IgnoreRootAlbum, 0), QApplication::activeWindow());
+    TagModel* const tagModel                    = new TagModel(AbstractAlbumModel::IgnoreRootAlbum, this);
+    TagPropertiesFilterModel* const filterModel = new TagPropertiesFilterModel(this);
+    filterModel->setSourceAlbumModel(tagModel);
+    filterModel->sort(0);
+
+    QPointer<GeolocationEdit> dialog = new GeolocationEdit(filterModel, QApplication::activeWindow());
     dialog->setItems(ImageGPS::infosToItems(ImageInfoList() << inf));
     dialog->exec();
 

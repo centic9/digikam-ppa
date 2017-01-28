@@ -7,7 +7,7 @@
  * Description : Core database interface.
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -895,6 +895,7 @@ public:
      */
     void setImageProperty(qlonglong imageID, const QString& property, const QString& value);
     void removeImageProperty(qlonglong imageID, const QString& property);
+    void removeImagePropertyByName(const QString& property);
 
     /**
      * Returns the copyright properties of the specified image.

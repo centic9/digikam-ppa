@@ -498,6 +498,14 @@ void FaceGroup::leaveEvent(QEvent*)
 {
     if (d->showOnHover && !isVisible())
     {
+        foreach(FaceItem* const item, d->items)
+        {
+            if (item->widget() && item->widget()->isCompleterPopupVisible())
+            {
+                return;
+            }
+        }
+
         setVisibleItem(0);
     }
 }
@@ -570,7 +578,7 @@ AssignNameWidget::Mode FaceGroup::Private::assignWidgetMode(FaceTagsIface::Type 
 
 AssignNameWidget* FaceGroup::Private::createAssignNameWidget(const FaceTagsIface& face, const QVariant& identifier)
 {
-    AssignNameWidget* const assignWidget = new AssignNameWidget;
+    AssignNameWidget* const assignWidget = new AssignNameWidget(view);
     assignWidget->setMode(assignWidgetMode(face.type()));
     assignWidget->setTagEntryWidgetMode(AssignNameWidget::AddTagsComboBoxMode);
     assignWidget->setVisualStyle(AssignNameWidget::TranslucentDarkRound);
@@ -652,7 +660,7 @@ void FaceGroup::rejectAll()
 void FaceGroup::slotAssigned(const TaggingAction& action, const ImageInfo&, const QVariant& faceIdentifier)
 {
     FaceItem* const item    = d->items[faceIdentifier.toInt()];
-    FaceTagsIface face       = item->face();
+    FaceTagsIface face      = item->face();
     TagRegion currentRegion = TagRegion(item->originalRect());
 
     if (!face.isConfirmedName() || face.region() != currentRegion || action.shallCreateNewTag() || (action.shallAssignTag() && action.tagId() != face.tagId()))
@@ -759,7 +767,7 @@ void FaceGroup::slotAddItemFinished(const QRectF& rect)
     if (d->manuallyAddedItem)
     {
         d->manuallyAddedItem->setRectInSceneCoordinatesAdjusted(rect);
-        FaceTagsIface face    = d->editPipeline.addManually(d->info, d->view->previewItem()->image(),
+        FaceTagsIface face   = d->editPipeline.addManually(d->info, d->view->previewItem()->image(),
                                                            TagRegion(d->manuallyAddedItem->originalRect()));
         FaceItem* const item = d->addItem(face);
         d->visibilityController->setItemDirectlyVisible(item, true);

@@ -7,7 +7,7 @@
  * Description : a tool bar for slideshow
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -48,7 +48,7 @@ class DIGIKAM_EXPORT SlideToolBar : public DHBox
 public:
 
     explicit SlideToolBar(const SlideShowSettings& settings, QWidget* const parent);
-    ~SlideToolBar();
+    virtual ~SlideToolBar();
 
     bool isPaused() const;
     void pause(bool val);
@@ -76,8 +76,8 @@ private Q_SLOTS:
     void slotPlayBtnToggled();
     void slotNexPrevClicked();
     void slotScreenSelected(QAction*);
-private:
 
+private:
 
     class Private;
     Private* const d;
@@ -85,6 +85,6 @@ private:
     friend class SlideShow;
 };
 
-}   // namespace Digikam
+} // namespace Digikam
 
-#endif /* SLIDE_TOOL_BAR_H */
+#endif // SLIDE_TOOL_BAR_H

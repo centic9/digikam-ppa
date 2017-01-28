@@ -6,7 +6,7 @@
  * Date        : 2006-01-20
  * Description : core image editor GUI implementation
  *
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
@@ -842,7 +842,7 @@ void EditorWindow::setupStandardActions()
     ac->addAction(QLatin1String("editorwindow_slideshow"), d->slideShowAction);
     ac->setDefaultShortcut(d->slideShowAction, Qt::Key_F9);
 
-    d->presentationAction = new QAction(QIcon::fromTheme(QLatin1String("presentation_section")), i18n("Presentation..."), this);
+    d->presentationAction = new QAction(QIcon::fromTheme(QLatin1String("view-presentation")), i18n("Presentation..."), this);
     connect(d->presentationAction, SIGNAL(triggered()), this, SLOT(slotPresentation()));
     ac->addAction(QLatin1String("editorwindow_presentation"), d->presentationAction);
     ac->setDefaultShortcut(d->presentationAction, Qt::ALT+Qt::SHIFT+Qt::Key_F9);
@@ -1014,7 +1014,7 @@ void EditorWindow::setupStandardActions()
 
     // -- Tool control actions ---------------------------------------------------------
 
-    m_applyToolAction = new QAction(QIcon::fromTheme(QLatin1String("dialog-ok-apply")), i18n("Ok"), this);
+    m_applyToolAction = new QAction(QIcon::fromTheme(QLatin1String("dialog-ok-apply")), i18n("OK"), this);
     ac->addAction(QLatin1String("editorwindow_applytool"), m_applyToolAction);
     ac->setDefaultShortcut(m_applyToolAction, Qt::Key_Return);
     connect(m_applyToolAction, SIGNAL(triggered()), this, SLOT(slotApplyTool()));
@@ -2198,7 +2198,6 @@ bool EditorWindow::showFileSaveDialog(const QUrl& initialUrl, QUrl& newURL)
     QFileDialog* const imageFileSaveDialog = new QFileDialog(this);
     imageFileSaveDialog->setWindowTitle(i18n("New Image File Name"));
     imageFileSaveDialog->setDirectoryUrl(initialUrl.adjusted(QUrl::RemoveFilename | QUrl::StripTrailingSlash));
-    imageFileSaveDialog->setOption(QFileDialog::DontUseNativeDialog);
     imageFileSaveDialog->setAcceptMode(QFileDialog::AcceptSave);
     imageFileSaveDialog->setFileMode(QFileDialog::AnyFile);
     imageFileSaveDialog->setNameFilters(list);

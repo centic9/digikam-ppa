@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2013-03-28 23:23+0400\n"
 "Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
@@ -26,44 +26,54 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: imageresize.cpp:116
+#, kde-format
 msgid "Error opening input file"
 msgstr "Ошибка открытия входного файла"
 
 #: imageresize.cpp:127
+#, kde-format
 msgid "Error opening temporary folder"
 msgstr "Ошибка открытия временного каталога"
 
 #: imageresize.cpp:175
+#, kde-format
 msgid "Cannot resize image. Aborting."
 msgstr "Не удалось изменить размер. Прерывание."
 
 #: imageresize.cpp:197
+#, kde-format
 msgid "Cannot save resized image (JPEG). Aborting."
 msgstr "Не удалось изменить размер изображения (JPEG). Прерывание."
 
 #: imageresize.cpp:209
+#, kde-format
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "Не удалось сохранить изображение с изменённым размером. Прерывание."
 
 #. i18n: ectx: Menu (Tools)
 #: kipiplugin_sendimagesui.rc:7
+#, kde-format
 msgid "&Tools"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_sendimagesui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Основная панель инструментов"
 
 #: plugin_sendimages.cpp:115
+#, kde-format
 msgid "Email Images..."
 msgstr "Послать изображения по почте..."
 
 #: sendimages.cpp:133
+#, kde-format
 msgid "Email images"
 msgstr "Послать изображения по электронной почте"
 
 #: sendimages.cpp:176
+#, kde-format
 msgid "Operation canceled by user"
 msgstr "Операция отменена пользователем"
 
@@ -83,18 +93,22 @@ msgid "Failed to resize %1: %2"
 msgstr "Не удалось изменить размер %1: %2"
 
 #: sendimages.cpp:240
+#, kde-format
 msgid "There are no files to send"
 msgstr ""
 
 #: sendimages.cpp:258
+#, kde-format
 msgid "Build images properties file"
 msgstr "Создать файл со свойствами файлов"
 
 #: sendimages.cpp:271
+#, kde-format
 msgid "no caption"
 msgstr "нет заголовка"
 
 #: sendimages.cpp:274
+#, kde-format
 msgid "no keywords"
 msgstr "нет ключевых слов"
 
@@ -123,19 +137,22 @@ msgid "Rating: %1\n"
 msgstr "Рейтинг: %1\n"
 
 #: sendimages.cpp:290
+#, kde-format
 msgid "properties.txt"
 msgstr "properties.txt"
 
 #: sendimages.cpp:299
+#, kde-format
 msgid "Image properties file done"
 msgstr "Файл со свойствами изображений создан"
 
 #: sendimages.cpp:317
+#, kde-format
 msgid "Processing Failed"
 msgstr ""
 
 #: sendimages.cpp:318
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "The images listed below cannot be resized.\n"
 #| "Do you want them to be added as attachments (without resizing)?"
@@ -156,7 +173,7 @@ msgstr ""
 "параметры."
 
 #: sendimages.cpp:435
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Starting default KDE email program..."
 msgid "Starting default desktop email program..."
 msgstr "Запуск почтового клиента KDE по умолчанию..."
@@ -172,64 +189,75 @@ msgid "Starting \"%1\" program..."
 msgstr "Запуск программы «%1»..."
 
 #: sendimages.cpp:675
+#, kde-format
 msgid "After having sent your images by email..."
 msgstr "После того как вы послали изображения по почте..."
 
 #: sendimages.cpp:676
+#, kde-format
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "Нажмите кнопку «Закрыть» чтобы удалить временные файлы"
 
 #: sendimagesdialog.cpp:81
+#, kde-format
 msgid "Email Images Options"
 msgstr "Отправка изображений по почте"
 
 #: sendimagesdialog.cpp:84
+#, kde-format
 msgctxt "@action:button"
 msgid "&Send"
 msgstr ""
 
 #: sendimagesdialog.cpp:103
+#, kde-format
 msgid "Send Images"
 msgstr "Отправка изображений"
 
 #: sendimagesdialog.cpp:104
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A plugin to e-mail items"
 msgid "A tool to e-mail items"
 msgstr "Расширение для отправки изображений по электронной почте"
 
 #: sendimagesdialog.cpp:105
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "(c) 2003-2013, Gilles Caulier"
 msgid "(c) 2003-2016, Gilles Caulier"
 msgstr "© Gilles Caulier, 2003-2013"
 
 #: sendimagesdialog.cpp:107
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: sendimagesdialog.cpp:107
+#, kde-format
 msgid "Author and Maintainer"
 msgstr "Автор и поддержка"
 
 #: sendimagesdialog.cpp:110
+#, kde-format
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
 #: sendimagesdialog.cpp:110 sendimagesdialog.cpp:113
+#, kde-format
 msgid "Developer"
 msgstr "Разработчик"
 
 #: sendimagesdialog.cpp:113
+#, kde-format
 msgid "Tom Albers"
 msgstr "Tom Albers"
 
 #: settingswidget.cpp:91
+#, kde-format
 msgid "Mail program:"
 msgstr "Почтовый клиент:"
 
 #: settingswidget.cpp:94
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "default mail agent"
 #| msgid "Default"
 msgctxt "default desktop mail agent"
@@ -237,7 +265,7 @@ msgid "Default"
 msgstr "По умолчанию"
 
 #: settingswidget.cpp:106
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "Select your preferred external email program here. <b>Default</b> is the "
 #| "current email program set in KDE System Settings."
@@ -264,18 +292,22 @@ msgstr ""
 
 # https://bugs.kde.org/show_bug.cgi?id=266911 : add space
 #: settingswidget.cpp:125
+#, kde-format
 msgid " MB"
 msgstr " МБ"
 
 #: settingswidget.cpp:127
+#, kde-format
 msgid "Maximum email size limit:"
 msgstr "Максимальный размер письма:"
 
 #: settingswidget.cpp:132
+#, kde-format
 msgid "Adjust image properties"
 msgstr "Изменить свойства изображения"
 
 #: settingswidget.cpp:134
+#, kde-format
 msgid ""
 "If you enable this option, all images to be sent can be resized and "
 "recompressed."
@@ -284,43 +316,49 @@ msgstr ""
 "изменён и они будут заново сжаты."
 
 #: settingswidget.cpp:137
+#, kde-format
 msgid "Image Properties"
 msgstr "Свойства изображения"
 
 #: settingswidget.cpp:141 settingswidget.cpp:167
+#, kde-format
 msgid "Very Small (320 pixels)"
 msgstr "Очень маленькое (320 пикселов)"
 
 #: settingswidget.cpp:142 settingswidget.cpp:168
+#, kde-format
 msgid "Small (640 pixels)"
 msgstr "Маленькое (640 пикселов)"
 
 #: settingswidget.cpp:143 settingswidget.cpp:169
+#, kde-format
 msgid "Medium (800 pixels)"
 msgstr "Среднее (800 пикселов)"
 
 #: settingswidget.cpp:144 settingswidget.cpp:170
+#, kde-format
 msgid "Big (1024 pixels)"
 msgstr "Большое (1024 пиксела)"
 
 #: settingswidget.cpp:145 settingswidget.cpp:171
+#, kde-format
 msgid "Very Big (1280 pixels)"
 msgstr "Очень большое (1280 пикселов)"
 
 #: settingswidget.cpp:146 settingswidget.cpp:172
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Huge - for printing (1600 pixels)"
 msgid "Large - for printing (1600 pixels)"
 msgstr "Огромное — для печати (1600 пикселов)"
 
 #: settingswidget.cpp:147 settingswidget.cpp:173
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Small (640 pixels)"
 msgid "Full HD (1920 pixels)"
 msgstr "Маленькое (640 пикселов)"
 
 #: settingswidget.cpp:148 settingswidget.cpp:174
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Small (640 pixels)"
 msgid "Ultra HD (3840 pixels)"
 msgstr "Маленькое (640 пикселов)"
@@ -364,14 +402,17 @@ msgstr ""
 "ящика. </p><p><b>%6</b>: используйте этот размер только для печати.</p>"
 
 #: settingswidget.cpp:177
+#, kde-format
 msgid "Image size:"
 msgstr "Размер изображения:"
 
 #: settingswidget.cpp:186
+#, kde-format
 msgid "<p>Select the file format of the image files to be sent.</p>"
 msgstr "<p>Укажите формат файла для отправляемого изображения.</p>"
 
 #: settingswidget.cpp:187
+#, kde-format
 msgid ""
 "<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
 "web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
@@ -396,24 +437,28 @@ msgstr ""
 "гетерогенных платформах.</p>"
 
 #: settingswidget.cpp:197
+#, kde-format
 msgid "Image format:"
 msgstr "Формат изображения:"
 
 #: settingswidget.cpp:206
+#, kde-format
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
 msgstr "<p>Новый уровень сжатия отправляемых изображений JPEG:</p>"
 
 #: settingswidget.cpp:207
+#, kde-format
 msgid ""
 "<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
-"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
-"<br/><b>100</b>: no compression</p>"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default "
+"value)<br/><b>100</b>: no compression</p>"
 msgstr ""
 "<p><b>1</b>: очень высокое сжатие<br/><b>25</b>: высокое сжатие<br/><b>50</"
 "b>: среднее сжатие<br/><b>75</b>: низкое сжатие (значение по умолчанию)<br/"
 "><b>100</b>: без сжатия.</p>"
 
 #: settingswidget.cpp:215
+#, kde-format
 msgid "Image quality:"
 msgstr "Качество изображения:"
 

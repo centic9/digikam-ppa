@@ -7,7 +7,7 @@
  * Description : left sidebar widgets
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2010-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2010-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2014      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
@@ -112,8 +112,8 @@ AlbumFolderViewSideBarWidget::AlbumFolderViewSideBarWidget(QWidget* const parent
     layout->addWidget(d->searchTextBar);
 
     // setup connection
-    connect(d->albumFolderView, SIGNAL(signalFindDuplicatesInAlbum(Album*)),
-            this, SIGNAL(signalFindDuplicatesInAlbum(Album*)));
+    connect(d->albumFolderView, SIGNAL(signalFindDuplicates(PAlbum*)),
+            this, SIGNAL(signalFindDuplicates(PAlbum*)));
 }
 
 AlbumFolderViewSideBarWidget::~AlbumFolderViewSideBarWidget()
@@ -250,8 +250,8 @@ TagViewSideBarWidget::TagViewSideBarWidget(QWidget* const parent, TagModel* cons
     connect(d->openTagMngr, SIGNAL(clicked()),
             this,SLOT(slotOpenTagManager()));
 
-    connect(d->tagFolderView, SIGNAL(signalFindDuplicatesInAlbum(Album*)),
-            this, SIGNAL(signalFindDuplicatesInAlbum(Album*)));
+    connect(d->tagFolderView, SIGNAL(signalFindDuplicates(QList<TAlbum*>)),
+            this, SIGNAL(signalFindDuplicates(QList<TAlbum*>)));
 
     connect(d->btnGroup, SIGNAL(buttonClicked(int)),
             this, SLOT(slotToggleTagsSelection(int)));
@@ -1215,6 +1215,7 @@ void FuzzySearchSideBarWidget::setActive(bool active)
     {
         AlbumManager::instance()->setCurrentAlbums(QList<Album*>() << d->fuzzySearchView->currentAlbum());
     }
+    emit signalActive(active);
 }
 
 void FuzzySearchSideBarWidget::doLoadState()
@@ -1247,9 +1248,19 @@ const QString FuzzySearchSideBarWidget::getCaption()
     return i18nc("Fuzzy Search images, as dupplicates, sketch, similars searches", "Fuzzy");
 }
 
-void FuzzySearchSideBarWidget::newDuplicatesSearch(Album* album)
+void FuzzySearchSideBarWidget::newDuplicatesSearch(PAlbum* album)
 {
     d->fuzzySearchView->newDuplicatesSearch(album);
+}
+
+void FuzzySearchSideBarWidget::newDuplicatesSearch(QList<PAlbum*> albums)
+{
+    d->fuzzySearchView->newDuplicatesSearch(albums);
+}
+
+void FuzzySearchSideBarWidget::newDuplicatesSearch(QList<TAlbum*> albums)
+{
+    d->fuzzySearchView->newDuplicatesSearch(albums);
 }
 
 void FuzzySearchSideBarWidget::newSimilarSearch(const ImageInfo& imageInfo)
@@ -1405,8 +1416,8 @@ PeopleSideBarWidget::PeopleSideBarWidget(QWidget* const parent, TagModel* const 
 
     setLayout(layout);
 
-    connect(d->tagFolderView, SIGNAL(signalFindDuplicatesInAlbum(Album*)),
-            this, SIGNAL(signalFindDuplicatesInAlbum(Album*)));
+    connect(d->tagFolderView, SIGNAL(signalFindDuplicates(QList<TAlbum*>)),
+            this, SIGNAL(signalFindDuplicates(QList<TAlbum*>)));
 
     connect(d->rescanButton, SIGNAL(pressed()),
             this, SLOT(slotScanForFaces()) );

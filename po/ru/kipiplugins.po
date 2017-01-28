@@ -3,14 +3,14 @@
 #
 # Шмелёв Артемий Геннадьевич <sgartjom@mail.ru>, 2008.
 # Nick Shaforostoff <shaforostoff@kde.ru>, 2009.
-# Alexander Potashev <aspotashev@gmail.com>, 2009, 2010, 2011, 2015.
+# Alexander Potashev <aspotashev@gmail.com>, 2009, 2010, 2011, 2015, 2016.
 # Yuri Efremov <yur.arh@gmail.com>, 2010, 2011, 2012, 2013.
 msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
-"PO-Revision-Date: 2015-05-10 00:03+0300\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
+"PO-Revision-Date: 2016-12-15 00:43+0300\n"
 "Last-Translator: Alexander Potashev <aspotashev@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -25,23 +25,28 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:113
+#, kde-format
 msgid "<p>This is the current processing status.</p>"
 msgstr "<p>Это состояние текущей операции обработки.</p>"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:120
+#, kde-format
 msgid "<p>This is the batch job progress as a percentage.</p>"
 msgstr "<p>Это степень выполнения пакетной обработки в процентах.</p>"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:189
+#, kde-format
 msgid "Copy to Clipboard"
 msgstr "Копировать в буфер обмена"
 
 #: libkipiplugins/dialogs/kpbatchprogressdialog.cpp:271
 #: libkipiplugins/dialogs/kptooldialog.cpp:210
+#, kde-format
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:149
+#, kde-format
 msgid "<i>unavailable</i>"
 msgstr "<i>недоступно</i>"
 
@@ -51,30 +56,37 @@ msgid "%1 ISO"
 msgstr "%1 ISO"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:236
+#, kde-format
 msgid "<i>Make:</i>"
 msgstr "<i>Производитель:</i>"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:237
+#, kde-format
 msgid "<i>Model:</i>"
 msgstr "<i>Модель:</i>"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:238
+#, kde-format
 msgid "<i>Created:</i>"
 msgstr "<i>Создано:</i>"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:239
+#, kde-format
 msgid "<i>Aperture:</i>"
 msgstr "<i>Диафрагма:</i>"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:240
+#, kde-format
 msgid "<i>Focal:</i>"
 msgstr "<i>Фокусное расстояние:</i>"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:241
+#, kde-format
 msgid "<i>Exposure:</i>"
 msgstr "<i>Выдержка:</i>"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:242
+#, kde-format
 msgid "<i>Sensitivity:</i>"
 msgstr "<i>Чувствительность:</i>"
 
@@ -88,204 +100,246 @@ msgstr ""
 "%1|Файлы Raw («цифровые негативы»)"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:358
+#, kde-format
 msgid "Select an Image"
 msgstr "Выберите изображение"
 
 #: libkipiplugins/dialogs/kpimagedialog.cpp:365
+#, kde-format
 msgid "Select Images"
 msgstr "Выберите изображения"
 
 #: libkipiplugins/dialogs/kplogindialog.cpp:76
+#, kde-format
 msgid "Login:"
-msgstr ""
+msgstr "Имя пользователя:"
 
 #: libkipiplugins/dialogs/kplogindialog.cpp:79
+#, kde-format
 msgid "Password:"
-msgstr ""
+msgstr "Пароль:"
 
 #: libkipiplugins/dialogs/kplogindialog.cpp:90
+#, kde-format
 msgid "&Login"
-msgstr ""
+msgstr "&Войти"
 
 #: libkipiplugins/dialogs/kplogindialog.cpp:93
+#, kde-format
 msgid "&Skip"
-msgstr ""
+msgstr "&Пропустить"
 
 #: libkipiplugins/dialogs/kplogindialog.cpp:153
+#, kde-format
 msgctxt "@title:window"
 msgid "Error"
-msgstr ""
+msgstr "Ошибка"
 
 #: libkipiplugins/dialogs/kplogindialog.cpp:154
+#, kde-format
 msgid "Password cannot be empty."
-msgstr ""
+msgstr "Пароль не может быть пустым."
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:57
 #: libkipiplugins/widgets/kpsettingswidget.cpp:72
+#, kde-format
 msgid "Album"
-msgstr ""
+msgstr "Альбом"
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:60
+#, kde-format
 msgid "Title: "
-msgstr ""
+msgstr "Название: "
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:61
+#, kde-format
 msgid "Time Stamp: "
-msgstr ""
+msgstr "Дата:"
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:62
+#, kde-format
 msgid "Description: "
-msgstr ""
+msgstr "Описание: "
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:63
+#, kde-format
 msgid "Location: "
-msgstr ""
+msgstr "Местоположение: "
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:116
 #, kde-format
 msgid "These are basic settings for the new %1 album."
-msgstr ""
+msgstr "Общие параметры нового альбома %1."
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:118
+#, kde-format
 msgid "Title of the album that will be created (required)."
-msgstr ""
+msgstr "Название альбома, который будет создан (обязательно)."
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:121
+#, kde-format
 msgid "Date and Time of the album that will be created (optional)."
-msgstr ""
+msgstr "Дата и время альбома, который будет создан (необязательно)."
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:123
+#, kde-format
 msgid "Description of the album that will be created (optional)."
-msgstr ""
+msgstr "Описание альбома, который будет создан (необязательно)."
 
 #: libkipiplugins/dialogs/kpnewalbumdialog.cpp:125
+#, kde-format
 msgid "Location of the album that will be created (optional)."
-msgstr ""
+msgstr "Местоположение альбома, который будет создан (необязательно)."
 
 #: libkipiplugins/dialogs/kptooldialog.cpp:167
+#, kde-format
 msgctxt "@action:button"
 msgid "&Start"
-msgstr ""
+msgstr "&Начать"
 
 #: libkipiplugins/dialogs/kptooldialog.cpp:212
+#, kde-format
 msgid "Close window"
-msgstr ""
+msgstr "Закрыть окно"
 
 #: libkipiplugins/dialogs/kptooldialog.cpp:217
+#, kde-format
 msgid "Cancel"
-msgstr ""
+msgstr "Отмена"
 
 #: libkipiplugins/dialogs/kptooldialog.cpp:219
+#, kde-format
 msgid "Cancel current operation"
-msgstr ""
+msgstr "Отменить текущую операцию"
 
 #: libkipiplugins/tools/kpaboutdata.cpp:80
+#, kde-format
 msgid "Handbook"
 msgstr "Руководство пользователя"
 
 #: libkipiplugins/tools/kpaboutdata.cpp:85
+#, kde-format
 msgid "About..."
-msgstr ""
+msgstr "Об инструменте..."
 
 #: libkipiplugins/tools/kpaboutdata.cpp:121
-#, fuzzy, kde-format
-#| msgid "Version"
+#, kde-format
 msgid "Version: %1"
-msgstr "Версия"
+msgstr "Версия: %1"
 
 #: libkipiplugins/tools/kpaboutdata.cpp:134
 #, kde-format
 msgid "About %1"
-msgstr ""
+msgstr "Об инструменте %1"
 
 #: libkipiplugins/tools/kpaboutdata.h:54
-#, fuzzy
-#| msgid "Copyright 2003-2015, digiKam developers team"
+#, kde-format
 msgid "Copyright 2003-2016, digiKam developers team"
-msgstr "© Команда разработчиков digiKam, 2003-2015"
+msgstr "© Команда разработчиков digiKam, 2003-2016"
 
 #: libkipiplugins/tools/kputil.cpp:305
+#, kde-format
 msgid "Browse..."
-msgstr ""
+msgstr "Обзор..."
 
 #: libkipiplugins/widgets/kpimageslist.cpp:292
+#, kde-format
 msgid "Thumbnail"
 msgstr "Миниатюра"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:293
+#, kde-format
 msgid "File Name"
 msgstr "Имя файла"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:294
+#, kde-format
 msgid "User1"
 msgstr "Пользователь1"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:295
+#, kde-format
 msgid "User2"
 msgstr "Пользователь2"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:296
+#, kde-format
 msgid "User3"
 msgstr "Пользователь3"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:297
+#, kde-format
 msgid "User4"
 msgstr "Пользователь4"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:298
+#, kde-format
 msgid "User5"
 msgstr "Пользователь5"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:299
+#, kde-format
 msgid "User6"
 msgstr "Пользователь6"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:557
+#, kde-format
 msgid "Add new images to the list"
 msgstr "Добавить изображения в список"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:558
+#, kde-format
 msgid "Remove selected images from the list"
 msgstr "Удалить выбранные изображения из списка"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:559
+#, kde-format
 msgid "Move current selected image up in the list"
 msgstr "Переместить выбранное изображение вверх по списку"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:560
+#, kde-format
 msgid "Move current selected image down in the list"
 msgstr "Переместить выбранное изображение вниз по списку"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:561
+#, kde-format
 msgid "Clear the list."
 msgstr "Очистить список"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:562
+#, kde-format
 msgid "Load a saved list."
 msgstr "Загрузить сохранённый список."
 
 #: libkipiplugins/widgets/kpimageslist.cpp:563
+#, kde-format
 msgid "Save the list."
 msgstr "Сохранить список."
 
 #: libkipiplugins/widgets/kpimageslist.cpp:994
+#, kde-format
 msgid "Select the image file list to load"
 msgstr "Выберите список файлов изображений для загрузки"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:996
 #: libkipiplugins/widgets/kpimageslist.cpp:1063
+#, kde-format
 msgid "All Files (*)"
-msgstr ""
+msgstr "Все файлы (*)"
 
 #: libkipiplugins/widgets/kpimageslist.cpp:1061
+#, kde-format
 msgid "Select the image file list to save"
 msgstr "Выберите список файлов изображений для сохранения"
 
 #: libkipiplugins/widgets/kpsavesettingswidget.cpp:81
+#, kde-format
 msgid "Output file format:"
 msgstr "Формат выходного файла:"
 
 #: libkipiplugins/widgets/kpsavesettingswidget.cpp:83
+#, kde-format
 msgid ""
 "<p>Set the output file format to use here:</p><p><b>JPEG</b>: output the "
 "processed image in JPEG format. This format will give smaller-sized files.</"
@@ -310,63 +364,72 @@ msgstr ""
 "Изображение не сжатое.</p>"
 
 #: libkipiplugins/widgets/kpsavesettingswidget.cpp:99
+#, kde-format
 msgid "If Target File Exists:"
 msgstr "Если выходной файл уже существует:"
 
 #: libkipiplugins/widgets/kpsavesettingswidget.cpp:103
+#, kde-format
 msgid "Overwrite automatically"
 msgstr "Автоматически заменять"
 
 #: libkipiplugins/widgets/kpsavesettingswidget.cpp:104
+#, kde-format
 msgid "Open rename-file dialog"
 msgstr "Открыть диалоговое окно переименования"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:68
+#, kde-format
 msgid "Account"
-msgstr ""
+msgstr "Учётная запись"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:77
+#, kde-format
 msgid "Max Dimension"
-msgstr ""
+msgstr "Максимальный размер"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:80
+#, kde-format
 msgid "Destination"
-msgstr ""
+msgstr "Назначение"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:83
+#, kde-format
 msgid "Options"
-msgstr ""
+msgstr "Параметры"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:147
 #, kde-format
 msgid "This is the list of images to upload to your %1 account."
 msgstr ""
+"Список изображений, которые надо загрузить в службу %1 под вашей учётной "
+"записью."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:155
 #, kde-format
 msgid "This is a clickable link to open %1 in a browser."
-msgstr ""
+msgstr "Эта ссылка открывает в веб-браузере домашнюю страницу службы %1."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:161
 #, kde-format
 msgid "This is the %1 account that is currently logged in."
-msgstr ""
+msgstr "Это учётная запись службы %1, в которую выполнен вход."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:163
+#, kde-format
 msgctxt "account settings"
 msgid "Name:"
-msgstr ""
+msgstr "Имя пользователя:"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:164
-#, fuzzy
-#| msgid "Change"
+#, kde-format
 msgid "Change Account"
-msgstr "Изменить"
+msgstr "Сменить учётную запись"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:166
 #, kde-format
 msgid "Change %1 account for transfer"
-msgstr ""
+msgstr "Войти под другой учётной записью %1"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:176
 #, kde-format
@@ -374,79 +437,97 @@ msgid ""
 "This is the %1 folder to/from which selected photos will be uploaded/"
 "downloaded."
 msgstr ""
+"Это папка или альбом %1, в/из которой будут загружены/получены фотографии."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:178
+#, kde-format
 msgid "Album:"
-msgstr ""
+msgstr "Альбом:"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:182
+#, kde-format
 msgid "New Album"
-msgstr ""
+msgstr "Создать альбом"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:184
 #, kde-format
 msgid "Create new %1 folder"
-msgstr ""
+msgstr "Создать новый альбом в %1"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:186
+#, kde-format
 msgctxt "album list"
 msgid "Reload"
-msgstr ""
+msgstr "Обновить"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:188
+#, kde-format
 msgid "Reload album list"
-msgstr ""
+msgstr "Обновить список альбомов"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:197
+#, kde-format
 msgid ""
 "This is the maximum dimension of the images. Images larger than this will be "
 "scaled down."
 msgstr ""
+"Ограничение на размеры изображений. Изображения, чья длинная сторона "
+"превышает это значение, будут уменьшены."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:198
+#, kde-format
 msgid "Original Size"
-msgstr ""
+msgstr "Исходный размер"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:199
+#, kde-format
 msgid "1600 px"
-msgstr ""
+msgstr "1600 пикс."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:200
+#, kde-format
 msgid "1440 px"
-msgstr ""
+msgstr "1140 пикс."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:201
+#, kde-format
 msgid "1280 px"
-msgstr ""
+msgstr "1280 пикс."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:202
+#, kde-format
 msgid "1152 px"
-msgstr ""
+msgstr "1052 пикс."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:203
+#, kde-format
 msgid "1024 px"
-msgstr ""
+msgstr "1152 пикс."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:209
 #, kde-format
 msgid "This is the location where %1 images will be downloaded."
-msgstr ""
+msgstr "Выберите, куда должны быть скопированы изображения из службы %1."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:214
+#, kde-format
 msgid "These are the options that would be applied to photos before upload."
-msgstr ""
+msgstr "Параметры, которые будут применяться к изображениям перед загрузкой."
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:216
+#, kde-format
 msgid "Resize photos before uploading"
-msgstr ""
+msgstr "Изменять размер фотографий перед загрузкой"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:226
+#, kde-format
 msgid "Maximum Dimension:"
-msgstr ""
+msgstr "Длинная сторона:"
 
 #: libkipiplugins/widgets/kpsettingswidget.cpp:235
+#, kde-format
 msgid "JPEG Quality:"
-msgstr ""
+msgstr "Качество JPEG:"
 
 #~ msgid "Copy to Clip&board"
 #~ msgstr "&Копировать в буфер обмена"

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-05 03:43+0100\n"
 "PO-Revision-Date: 2016-08-27 20:29+0200\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
@@ -23,10 +23,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: comboboxintermediate.h:54
+#, kde-format
 msgid "Various"
 msgstr "Varios"
 
 #: flickrlist.cpp:420
+#, kde-format
 msgid ""
 "Check if photo should be publicly visible or use Upload Options tab to "
 "specify this for all images"
@@ -35,6 +37,7 @@ msgstr ""
 "para indicar esto para todas las imágenes"
 
 #: flickrlist.cpp:423
+#, kde-format
 msgid ""
 "Check if photo should be visible to family or use Upload Options tab to "
 "specify this for all images"
@@ -43,6 +46,7 @@ msgstr ""
 "opciones de envío para indicar esto para todas las imágenes"
 
 #: flickrlist.cpp:426
+#, kde-format
 msgid ""
 "Check if photo should be visible to friends or use Upload Options tab to "
 "specify this for all images"
@@ -51,6 +55,7 @@ msgstr ""
 "opciones de envío para indicar esto para todas las imágenes"
 
 #: flickrlist.cpp:429
+#, kde-format
 msgid ""
 "Indicate the safety level for the photo or use Upload Options tab to specify "
 "this for all images"
@@ -59,6 +64,7 @@ msgstr ""
 "envío para indicar esto para todas las imágenes"
 
 #: flickrlist.cpp:432
+#, kde-format
 msgid ""
 "Indicate what kind of image this is or use Upload Options tab to specify "
 "this for all images"
@@ -67,6 +73,7 @@ msgstr ""
 "indicar esto para todas las imágenes"
 
 #: flickrlist.cpp:445
+#, kde-format
 msgid ""
 "Add extra tags per image or use Upload Options tab to add tags for all images"
 msgstr ""
@@ -74,18 +81,22 @@ msgstr ""
 "envío para indicar esto para todas las imágenes"
 
 #: flickrlist.cpp:462
+#, kde-format
 msgid "Enter extra tags, separated by commas."
 msgstr "Indique las etiquetas extra, separadas por comas."
 
 #: flickrtalker.cpp:203
+#, kde-format
 msgid "Getting the maximum allowed file size."
 msgstr "Obteniendo el tamaño de archivo máximo permitido."
 
 #: flickrtalker.cpp:265
+#, kde-format
 msgid "Getting the Frob"
 msgstr "Obtener el Frob"
 
 #: flickrtalker.cpp:305
+#, kde-format
 msgid "Checking if previous token is still valid"
 msgstr "Verificar si la última autorización todavía es válida"
 
@@ -95,6 +106,7 @@ msgid "%1 Service Web Authorization"
 msgstr "Autorización del servicio web %1"
 
 #: flickrtalker.cpp:336
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser window, then return to press "
 "corresponding button."
@@ -103,99 +115,122 @@ msgstr ""
 "entonces para pulsar el botón correspondiente."
 
 #: flickrtalker.cpp:340
+#, kde-format
 msgid "I am authenticated"
 msgstr "Estoy autorizado"
 
 #: flickrtalker.cpp:341
+#, kde-format
 msgid "I am not authenticated"
 msgstr "No estoy autorizado"
 
 #: flickrtalker.cpp:346
+#, kde-format
 msgid "Authenticating the User on web"
 msgstr "Autenticar el usuario en la web"
 
 #: flickrtalker.cpp:393
+#, kde-format
 msgid "Getting the Token from the server"
 msgstr "Obtener la autorización del servidor"
 
-#: flickrtalker.cpp:706
+#: flickrtalker.cpp:707
+#, kde-format
 msgid "File Size exceeds maximum allowed file size."
 msgstr "El tamaño del archivo excede el máximo permitido."
 
-#: flickrtalker.cpp:760
+#: flickrtalker.cpp:761
+#, kde-format
 msgid "No photo specified"
 msgstr "Ninguna foto especificada"
 
-#: flickrtalker.cpp:764
+#: flickrtalker.cpp:765
+#, kde-format
 msgid "General upload failure"
 msgstr "Error general en el envío"
 
-#: flickrtalker.cpp:768
+#: flickrtalker.cpp:769
+#, kde-format
 msgid "Filesize was zero"
 msgstr "El tamaño del archivo era cero"
 
-#: flickrtalker.cpp:772
+#: flickrtalker.cpp:773
+#, kde-format
 msgid "Filetype was not recognized"
 msgstr "El tipo de archivo no fue reconocido"
 
-#: flickrtalker.cpp:776
+#: flickrtalker.cpp:777
+#, kde-format
 msgid "User exceeded upload limit"
 msgstr "El usuario ha excedido el límite de envíos"
 
-#: flickrtalker.cpp:780
+#: flickrtalker.cpp:781
+#, kde-format
 msgid "Invalid signature"
 msgstr "Firma inválida"
 
-#: flickrtalker.cpp:784
+#: flickrtalker.cpp:785
+#, kde-format
 msgid "Missing signature"
 msgstr "Falta la firma"
 
-#: flickrtalker.cpp:788
+#: flickrtalker.cpp:789
+#, kde-format
 msgid "Login Failed / Invalid auth token"
 msgstr "Error en la autenticación / resultado de la autenticación inválido"
 
-#: flickrtalker.cpp:792
+#: flickrtalker.cpp:793
+#, kde-format
 msgid "Invalid API Key"
 msgstr "La clave de la API es inválida"
 
-#: flickrtalker.cpp:796
+#: flickrtalker.cpp:797
+#, kde-format
 msgid "Service currently unavailable"
 msgstr "El servicio no está disponible temporalmente"
 
-#: flickrtalker.cpp:800
+#: flickrtalker.cpp:801
+#, kde-format
 msgid "Invalid Frob"
 msgstr "El Frob es inválido"
 
-#: flickrtalker.cpp:804
+#: flickrtalker.cpp:805
+#, kde-format
 msgid "Format \"xxx\" not found"
 msgstr "No se ha encontrado el formato «xxx»"
 
-#: flickrtalker.cpp:808
+#: flickrtalker.cpp:809
+#, kde-format
 msgid "Method \"xxx\" not found"
 msgstr "No se ha encontrado el método «xxx»"
 
-#: flickrtalker.cpp:812
+#: flickrtalker.cpp:813
+#, kde-format
 msgid "Invalid SOAP envelope"
 msgstr "La envoltura SOAP no es válida"
 
-#: flickrtalker.cpp:816
+#: flickrtalker.cpp:817
+#, kde-format
 msgid "Invalid XML-RPC Method Call"
 msgstr "La llamada al método XML-RPC no es válida"
 
-#: flickrtalker.cpp:820
+#: flickrtalker.cpp:821
+#, kde-format
 msgid "The POST method is now required for all setters"
 msgstr "El método POST es ahora obligatorio para todos los modificadores"
 
-#: flickrtalker.cpp:824
+#: flickrtalker.cpp:825
+#, kde-format
 msgid "Unknown error"
 msgstr "Error desconocido"
 
-#: flickrtalker.cpp:829 flickrtalker.cpp:853 flickrtalker.cpp:1262
+#: flickrtalker.cpp:830 flickrtalker.cpp:854 flickrtalker.cpp:1263
 #: flickrwindow.cpp:484
+#, kde-format
 msgid "Error"
 msgstr "Error"
 
-#: flickrtalker.cpp:830
+#: flickrtalker.cpp:831
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
@@ -204,188 +239,230 @@ msgstr ""
 "Ocurrió un error: %1\n"
 "No es posible continuar."
 
-#: flickrtalker.cpp:1064
+#: flickrtalker.cpp:1065
+#, kde-format
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "escribir"
 
-#: flickrtalker.cpp:1068
+#: flickrtalker.cpp:1069
+#, kde-format
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "leer"
 
-#: flickrtalker.cpp:1072
+#: flickrtalker.cpp:1073
+#, kde-format
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "borrar"
 
-#: flickrtalker.cpp:1103
+#: flickrtalker.cpp:1104
+#, kde-format
 msgid "Invalid Token"
 msgstr "Autorización no válida"
 
-#: flickrtalker.cpp:1104
+#: flickrtalker.cpp:1105
+#, kde-format
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 "Sus datos de autenticación son inválidos. Desea obtener nuevos datos para "
 "proseguir?\n"
 
-#: flickrtalker.cpp:1262
+#: flickrtalker.cpp:1263
+#, kde-format
 msgid "PhotoSet creation failed: "
 msgstr "Falló la creación del conjunto de fotos:"
 
-#: flickrtalker.cpp:1357
+#: flickrtalker.cpp:1358
+#, kde-format
 msgid "Failed to fetch list of photo sets."
 msgstr "No ha sido posible obtener la lista de conjuntos de fotos."
 
-#: flickrtalker.cpp:1437
+#: flickrtalker.cpp:1438
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "No fue posible enviar la fotografía"
 
-#: flickrtalker.cpp:1505
+#: flickrtalker.cpp:1506
+#, kde-format
 msgid "Failed to query photo information"
 msgstr "No fue posible obtener informaciones sobre la foto"
 
 #: flickrwidget.cpp:63
+#, kde-format
 msgid "Remove Account"
 msgstr "Eliminar cuenta"
 
 #: flickrwidget.cpp:73 flickrwidget.cpp:78
+#, kde-format
 msgctxt "photo permissions"
 msgid "Public"
 msgstr "Pública"
 
 #: flickrwidget.cpp:77
+#, kde-format
 msgid "This is the list of images to upload to your Flickr account."
 msgstr "Esta es la lista de imágenes a enviar a su cuenta de Flickr."
 
 #: flickrwidget.cpp:82
+#, kde-format
 msgid "Extra tags"
 msgstr "Etiquetas extra"
 
 #: flickrwidget.cpp:88 flickrwidget.cpp:99
+#, kde-format
 msgctxt "photo permissions"
 msgid "Family"
 msgstr "Familia"
 
 #: flickrwidget.cpp:93 flickrwidget.cpp:101
+#, kde-format
 msgctxt "photo permissions"
 msgid "Friends"
 msgstr "Amigos"
 
 #: flickrwidget.cpp:108
+#, kde-format
 msgid "Safety level"
 msgstr "Nivel de seguridad"
 
 #: flickrwidget.cpp:110
+#, kde-format
 msgid "Content type"
 msgstr "Tipo de contenido"
 
 #: flickrwidget.cpp:113
+#, kde-format
 msgctxt "photo safety level"
 msgid "Safe"
 msgstr "Segura"
 
 #: flickrwidget.cpp:114
+#, kde-format
 msgctxt "photo safety level"
 msgid "Moderate"
 msgstr "Moderada"
 
 #: flickrwidget.cpp:115
+#, kde-format
 msgctxt "photo safety level"
 msgid "Restricted"
 msgstr "Restringida"
 
 #: flickrwidget.cpp:116 flickrwidget.cpp:208
+#, kde-format
 msgctxt "photo content type"
 msgid "Photo"
 msgstr "Fotografías"
 
 #: flickrwidget.cpp:117 flickrwidget.cpp:209
+#, kde-format
 msgctxt "photo content type"
 msgid "Screenshot"
 msgstr "Captura de pantalla"
 
 #: flickrwidget.cpp:118 flickrwidget.cpp:210
+#, kde-format
 msgctxt "photo content type"
 msgid "Other"
 msgstr "Otro"
 
 #: flickrwidget.cpp:131
+#, kde-format
 msgid "Tag options"
 msgstr "Opciones de etiquetas"
 
 #: flickrwidget.cpp:135
+#, kde-format
 msgid "Use Host Application Tags"
 msgstr "Usar las etiquetas de la aplicación"
 
 #: flickrwidget.cpp:137 flickrwidget.cpp:505
+#, kde-format
 msgid "More tag options"
 msgstr "Mas opciones de etiquetas"
 
 #: flickrwidget.cpp:151
+#, kde-format
 msgid "Added Tags: "
 msgstr "Etiquetas añadidas:"
 
 #: flickrwidget.cpp:153
+#, kde-format
 msgid "Enter new tags here, separated by commas."
 msgstr "Indique las nuevas etiquetas extra, separadas por comas."
 
 #: flickrwidget.cpp:155
+#, kde-format
 msgid "Add tags per image"
 msgstr "Añadir etiquetas por imagen"
 
 #: flickrwidget.cpp:156
+#, kde-format
 msgid "If checked, you can set extra tags for each image in the File List tab"
 msgstr ""
 "Si se marca, podrá definir etiquetas extra por cada imagen, en la página de "
 "la lista de archivos"
 
 #: flickrwidget.cpp:160
+#, kde-format
 msgid "Strip Spaces From Tags"
 msgstr "Retirar los espacios de las etiquetas"
 
 #: flickrwidget.cpp:173
+#, kde-format
 msgid "Publication Options"
 msgstr "Opciones de publicación"
 
 #: flickrwidget.cpp:178
+#, kde-format
 msgctxt "As in accessible for people"
 msgid "Public (anyone can see them)"
 msgstr "Público (todos las pueden ver)"
 
 #: flickrwidget.cpp:181
+#, kde-format
 msgid "Visible to Family"
 msgstr "Visible para la familia"
 
 #: flickrwidget.cpp:184
+#, kde-format
 msgid "Visible to Friends"
 msgstr "Visible para los amigos"
 
 #: flickrwidget.cpp:187 flickrwidget.cpp:492
+#, kde-format
 msgid "More publication options"
 msgstr "Mas opciones de publicación"
 
 #: flickrwidget.cpp:200
+#, kde-format
 msgid "Safety level:"
 msgstr "Nivel de seguridad:"
 
 #: flickrwidget.cpp:202
+#, kde-format
 msgid "Safe"
 msgstr "Segura"
 
 #: flickrwidget.cpp:203
+#, kde-format
 msgid "Moderate"
 msgstr "Moderada"
 
 #: flickrwidget.cpp:204
+#, kde-format
 msgid "Restricted"
 msgstr "Restringida"
 
 #: flickrwidget.cpp:206
+#, kde-format
 msgid "Content type:"
 msgstr "Tipo de contenido:"
 
 #: flickrwidget.cpp:306
+#, kde-format
 msgid ""
 "<b><h2><a href='http://www.23hq.com'><font color=\"#7CD164\">23</font></a> "
 "Export</h2></b>"
@@ -394,6 +471,7 @@ msgstr ""
 "font></a></h2></b>"
 
 #: flickrwidget.cpp:311
+#, kde-format
 msgid ""
 "<b><h2><a href='http://www.zooomr.com'><font color=\"#7CD164\">zooomr</"
 "font></a> Export</h2></b>"
@@ -402,6 +480,7 @@ msgstr ""
 "\"#7CD164\">zooomr</font></a></h2></b>"
 
 #: flickrwidget.cpp:316
+#, kde-format
 msgid ""
 "<b><h2><a href='http://www.flickr.com'><font color=\"#0065DE\">flick</"
 "font><font color=\"#FF0084\">r</font></a> Export</h2></b>"
@@ -410,10 +489,12 @@ msgstr ""
 "\">flick</font><font color=\"#FF0084\">r</font></a></h2></b>"
 
 #: flickrwidget.cpp:488
+#, kde-format
 msgid "Fewer publication options"
 msgstr "Menos opciones de publicación"
 
 #: flickrwidget.cpp:510
+#, kde-format
 msgid "Fewer tag options"
 msgstr "Menos opciones de etiquetas"
 
@@ -423,14 +504,17 @@ msgid "Export to %1 Web Service"
 msgstr "Exportar al servicio web %1"
 
 #: flickrwindow.cpp:125
+#, kde-format
 msgid "Start Uploading"
 msgstr "Iniciar el envío"
 
 #: flickrwindow.cpp:139
+#, kde-format
 msgid "Flickr/23/Zooomr Export"
 msgstr "Exportar a Flickr/23/Zooomr"
 
 #: flickrwindow.cpp:140
+#, kde-format
 msgid ""
 "A tool to export an image collection to a Flickr / 23 / Zooomr web service."
 msgstr ""
@@ -438,6 +522,7 @@ msgstr ""
 "Flickr / 23 / Zooomr."
 
 #: flickrwindow.cpp:142
+#, kde-format
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2015, Gilles Caulier\n"
@@ -450,30 +535,37 @@ msgstr ""
 "© 2015, Shourya Singh Gupta"
 
 #: flickrwindow.cpp:147
+#, kde-format
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
 #: flickrwindow.cpp:147
+#, kde-format
 msgid "Author and maintainer"
 msgstr "Autor y responsable"
 
 #: flickrwindow.cpp:150
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: flickrwindow.cpp:150 flickrwindow.cpp:153
+#, kde-format
 msgid "Developer"
 msgstr "Desarrollador"
 
 #: flickrwindow.cpp:153
+#, kde-format
 msgid "Shourya Singh Gupta"
 msgstr "Shourya Singh Gupta"
 
 #: flickrwindow.cpp:646
+#, kde-format
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Solo para Photostream&gt;"
 
 #: flickrwindow.cpp:835
+#, kde-format
 msgid "Flickr Export"
 msgstr "Exportar a Flickr"
 
@@ -484,6 +576,7 @@ msgstr ""
 "No fue posible obtener informaciones sobre el conjunto de fotos de %1. %2\n"
 
 #: flickrwindow.cpp:859
+#, kde-format
 msgid "Warning"
 msgstr "Advertencia"
 
@@ -497,49 +590,60 @@ msgstr ""
 "¿Desea continuar?"
 
 #: flickrwindow.cpp:863
+#, kde-format
 msgid "Continue"
 msgstr "Continuar"
 
 #: flickrwindow.cpp:864
+#, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_flickrui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Exportar"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flickrui.rc:15
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Barra de herramientas principal"
 
 #: login.cpp:84
+#, kde-format
 msgctxt "flickr login"
 msgid "Username:"
 msgstr "Usuario:"
 
 #: login.cpp:87
+#, kde-format
 msgid "Password:"
 msgstr "Contraseña:"
 
 #: plugin_flickr.cpp:106
+#, kde-format
 msgid "Export to Flick&r..."
 msgstr "Exportar a Flick&r..."
 
 #: plugin_flickr.cpp:118
+#, kde-format
 msgid "Export to &23..."
 msgstr "Exportar a &23..."
 
 #: plugin_flickr.cpp:130
+#, kde-format
 msgid "Export to &Zooomr..."
 msgstr "Exportar a &Zooomr..."
 
 #: selectuserdlg.cpp:47
+#, kde-format
 msgid "Flickr Account Selector"
 msgstr "Selector de cuenta de Flickr"
 
 #: selectuserdlg.cpp:52
+#, kde-format
 msgid "Add another account"
 msgstr "Añadir otra cuenta"
 

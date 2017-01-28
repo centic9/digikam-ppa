@@ -7,7 +7,7 @@
  * Description : a tool bar for slideshow
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -86,6 +86,11 @@ SlideToolBar::SlideToolBar(const SlideShowSettings& settings, QWidget* const par
     d->prevBtn->setFocusPolicy(Qt::NoFocus);
     d->nextBtn->setFocusPolicy(Qt::NoFocus);
     d->stopBtn->setFocusPolicy(Qt::NoFocus);
+    QSize s(32, 32);
+    d->playBtn->setIconSize(s);
+    d->prevBtn->setIconSize(s);
+    d->nextBtn->setIconSize(s);
+    d->stopBtn->setIconSize(s);
 
     QString iconString = settings.autoPlayEnabled ? QLatin1String("media-playback-pause") : QLatin1String("media-playback-start");
     d->playBtn->setIcon(QIcon::fromTheme(iconString));
@@ -100,6 +105,7 @@ SlideToolBar::SlideToolBar(const SlideShowSettings& settings, QWidget* const par
         d->screenSelectBtn      = new QToolButton(this);
         QMenu* const screenMenu = new QMenu(d->screenSelectBtn);
         d->screenSelectBtn->setToolTip(i18n("Switch Screen"));
+        d->screenSelectBtn->setIconSize(s);
         d->screenSelectBtn->setIcon(QIcon::fromTheme(QLatin1String("video-display")));
         d->screenSelectBtn->setMenu(screenMenu);
         d->screenSelectBtn->setPopupMode(QToolButton::InstantPopup);

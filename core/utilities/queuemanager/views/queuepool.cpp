@@ -6,7 +6,7 @@
  * Date        : 2009-02-13
  * Description : tabbed queue items list.
  *
- * Copyright (C) 2009-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -151,6 +151,11 @@ void QueuePool::setBusy(bool b)
 QueueListView* QueuePool::currentQueue() const
 {
     return (dynamic_cast<QueueListView*>(currentWidget()));
+}
+
+QString QueuePool::currentTitle() const
+{
+    return queueTitle(currentIndex());
 }
 
 QueueListView* QueuePool::findQueueByItemId(qlonglong id) const
@@ -453,7 +458,7 @@ bool QueuePool::customRenamingRulesAreValid() const
 
     for (int i = 0; i < count(); ++i)
     {
-        QueueListView* const queue = dynamic_cast<QueueListView*>(widget(i));
+        QueueListView* const queue = findQueueByIndex(i);
 
         if (queue)
         {
@@ -485,7 +490,7 @@ bool QueuePool::assignedBatchToolsListsAreValid() const
 
     for (int i = 0; i < count(); ++i)
     {
-        QueueListView* const queue = dynamic_cast<QueueListView*>(widget(i));
+        QueueListView* const queue = findQueueByIndex(i);
 
         if (queue)
         {

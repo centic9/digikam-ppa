@@ -6,7 +6,7 @@
  * Date        : 2008-06-17
  * Description : Find Duplicates tree-view search album item.
  *
- * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -41,6 +41,15 @@ class SAlbum;
 
 class FindDuplicatesAlbumItem : public QTreeWidgetItem
 {
+
+public:
+
+    enum Column
+    {
+      REFERENCE_IMAGE = 0,
+      RESULT_COUNT    = 1,
+      AVG_SIMILARITY  = 2
+    };
 
 public:
 

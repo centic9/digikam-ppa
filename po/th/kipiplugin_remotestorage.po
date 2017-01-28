@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-04 03:47+0100\n"
 "PO-Revision-Date: 2010-03-07 19:59+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -18,10 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: KioExportWidget.cpp:61
+#, kde-format
 msgid "Target location: "
 msgstr "ตำแหน่งปลายทาง: "
 
 #: KioExportWidget.cpp:62
+#, kde-format
 msgid ""
 "Sets the target address to upload the images to. This can be any address as "
 "used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
@@ -30,70 +32,81 @@ msgstr ""
 "หรือ 'คอนเควอร์เรอร์' ก็ได้ เช่น ftp://my.server.org/sub/folder"
 
 #: KioExportWidget.cpp:66
+#, kde-format
 msgid "Select target location..."
 msgstr "เลือกตำแหน่งปลายทาง..."
 
 #: KioExportWidget.cpp:72
+#, kde-format
 msgid "This is the list of images to upload to the specified target."
 msgstr "นี่เป็นรายการของภาพต่าง ๆ ที่จะทำการอัปโหลดไปยังปลายทางที่ระบุ"
 
-#: KioExportWidget.cpp:135
+#: KioExportWidget.cpp:137
+#, kde-format
 msgid "Select target..."
 msgstr "เลือกปลายทาง..."
 
-#: KioExportWidget.cpp:136
+#: KioExportWidget.cpp:138
+#, kde-format
 msgid "All Files (*)"
 msgstr ""
 
-#: KioExportWidget.cpp:156
-#, fuzzy
+#: KioExportWidget.cpp:159
+#, fuzzy, kde-format
 #| msgid "not selected"
 msgid "<not selected>"
 msgstr "ยังไม่มีการเลือกใด ๆ"
 
 #: KioExportWindow.cpp:64
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to Remote Computer"
 msgid "Export to Remote Storage"
 msgstr "ส่งออกไปยังเครื่องคอมพิวเตอร์ทางไกล"
 
 #: KioExportWindow.cpp:67
+#, kde-format
 msgid "Start export"
 msgstr "เริ่มการส่งออก"
 
 #: KioExportWindow.cpp:68
+#, kde-format
 msgid "Start export to the specified target"
 msgstr "เริ่มทำการส่งออกไปยังปลายทางที่ระบุไว้"
 
 #: KioExportWindow.cpp:84
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to remote computer"
 msgid "Export to remote storage"
 msgstr "ส่งออกไปยังเครื่องคอมพิวเตอร์ทางไกล"
 
 #: KioExportWindow.cpp:85
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to export images over network using KIO-Slave"
 msgid "A tool to export images over network using KIO-Slave"
 msgstr "ส่วนเสริมของ Kipi เพื่อใช้ส่งออกภาพต่าง ๆ ผ่านเครือข่าย โดยใช้ KIO-Slave"
 
 #: KioExportWindow.cpp:86 KioImportWindow.cpp:83
+#, kde-format
 msgid "(c) 2009, Johannes Wienke"
 msgstr "สงวนลิขสิทธิ์ (c) 2009, Johannes Wienke"
 
 #: KioExportWindow.cpp:88 KioImportWindow.cpp:85
+#, kde-format
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
 #: KioExportWindow.cpp:89 KioImportWindow.cpp:86
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "ผู้พัฒนาและผู้ดูแล"
 
 #: KioExportWindow.cpp:198
+#, kde-format
 msgid "Upload not completed"
 msgstr "การอัปโหลดไม่สมบูรณ์"
 
 #: KioExportWindow.cpp:199
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to export these images now."
@@ -102,40 +115,45 @@ msgstr ""
 "คุณสามารถจะลองทำการส่งออกภาพต่าง ๆ เหล่านี้อีกครั้งได้ในตอนนี้"
 
 #: KioImportWidget.cpp:52
+#, kde-format
 msgid "This is the list of images to import into the current album."
 msgstr "นี่เป็นรายการของภาพต่าง ๆ ที่จะทำการนำเข้ามายังอัลบั้มปัจจุบัน"
 
 #: KioImportWindow.cpp:60
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from Remote Computer"
 msgid "Import from Remote Storage"
 msgstr "นำเข้าจากเครื่องคอมพิวเตอร์ทางไกล"
 
 #: KioImportWindow.cpp:64
+#, kde-format
 msgid "Start import"
 msgstr "เริ่มการนำเข้า"
 
 #: KioImportWindow.cpp:65
+#, kde-format
 msgid "Start importing the specified images into the currently selected album."
 msgstr "เริ่มทำการนำเข้ารูปภาพต่าง ๆ ที่ระบุไว้ เข้ามาเก็บไว้ในอัลบั้มที่เลือกไว้ในปัจจุบัน"
 
 #: KioImportWindow.cpp:81
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from remote computer"
 msgid "Import from remote storage"
 msgstr "นำเข้าจากเครื่องคอมพิวเตอร์ทางไกล"
 
 #: KioImportWindow.cpp:82
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to import images over network using KIO-Slave"
 msgid "A tool to import images over network"
 msgstr "ส่วนเสริมของ Kipi เพื่อใช้นำเข้าภาพต่าง ๆ ผ่านเครือข่าย โดยใช้ KIO-Slave"
 
 #: KioImportWindow.cpp:137
+#, kde-format
 msgid "Import not completed"
 msgstr "การนำเข้ายังไม่สมบูรณ์"
 
 #: KioImportWindow.cpp:138
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to import these images now."
@@ -145,27 +163,30 @@ msgstr ""
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_remotestorageui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_remotestorageui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_remotestorageui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr ""
 
 #: plugin_remotestorage.cpp:93
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to remote computer..."
 msgid "Export to remote storage..."
 msgstr "ส่งออกไปยังเครื่องคอมพิวเตอร์ทางไกล..."
 
 #: plugin_remotestorage.cpp:105
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from remote computer..."
 msgid "Import from remote storage..."
 msgstr "นำเข้าจากเครื่องคอมพิวเตอร์ทางไกล..."

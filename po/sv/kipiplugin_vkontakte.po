@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2016-08-26 17:05+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -18,40 +18,49 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: albumchooserwidget.cpp:55
+#, kde-format
 msgctxt "@title:group Header above controls for managing albums"
 msgid "Album"
 msgstr "Album"
 
 #: albumchooserwidget.cpp:60
+#, kde-format
 msgid "This is the VKontakte album that will be used for the transfer."
 msgstr "Det här är VKontakte-albumet som kommer att användas av överföringen."
 
 #: albumchooserwidget.cpp:67
+#, kde-format
 msgid "New Album"
 msgstr "Nytt album"
 
 #: albumchooserwidget.cpp:68
+#, kde-format
 msgid "Create new VKontakte album"
 msgstr "Skapa nytt VKontakte-album"
 
 #: albumchooserwidget.cpp:71
+#, kde-format
 msgctxt "reload albums list"
 msgid "Reload"
 msgstr "Uppdatera"
 
 #: albumchooserwidget.cpp:72
+#, kde-format
 msgid "Reload albums list"
 msgstr "Uppdatera albumlistan"
 
 #: albumchooserwidget.cpp:75
+#, kde-format
 msgid "Edit selected album"
 msgstr "Redigera markerat album"
 
 #: albumchooserwidget.cpp:80
+#, kde-format
 msgid "Delete selected album"
 msgstr "Ta bort markerat album"
 
 #: albumchooserwidget.cpp:291
+#, kde-format
 msgctxt "@title:window"
 msgid "Confirm Album Deletion"
 msgstr "Bekräfta borttagning av album"
@@ -66,35 +75,43 @@ msgstr ""
 "foton i det?</qt>"
 
 #: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
+#, kde-format
 msgctxt "@title:window"
 msgid "Request to VKontakte failed"
 msgstr "Begäran till VKontakte misslyckades"
 
 #: albumchooserwidget.cpp:391
+#, kde-format
 msgid "Internal error: Null pointer to KJob instance."
 msgstr "Internt fel: Nollpekare på Kjob-instans."
 
 #: authinfowidget.cpp:57
+#, kde-format
 msgid "Account"
 msgstr "Konto"
 
 #: authinfowidget.cpp:62
+#, kde-format
 msgid "This account is used for authentication."
 msgstr "Kontot används för behörighetskontroll."
 
 #: authinfowidget.cpp:66
+#, kde-format
 msgid "Name:"
 msgstr "Namn:"
 
 #: authinfowidget.cpp:67
+#, kde-format
 msgid "Your VKontakte login"
 msgstr "VKontakte-användarnamn"
 
 #: authinfowidget.cpp:71
+#, kde-format
 msgid "Change Account"
 msgstr "Ändra konto"
 
 #: authinfowidget.cpp:72
+#, kde-format
 msgid "Change VKontakte account used to authenticate"
 msgstr "Byt VKontakte-konto använt för behörighetskontroll"
 
@@ -105,142 +122,175 @@ msgid "%1 %2"
 msgstr "%1 %2"
 
 #: authinfowidget.cpp:150
+#, kde-format
 msgid "Unauthorized"
 msgstr "Inte behörig"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_vkontakteui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Exportera"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_vkontakteui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Huvudverktygsrad"
 
 #: plugin_vkontakte.cpp:82
+#, kde-format
 msgid "Export to &VKontakte..."
 msgstr "Export till &VKontakte..."
 
 #: vkalbumdialog.cpp:74
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit album"
 msgstr "Redigera album"
 
 #: vkalbumdialog.cpp:75
+#, kde-format
 msgctxt "@title:window"
 msgid "New album"
 msgstr "Nytt album"
 
 #: vkalbumdialog.cpp:94
+#, kde-format
 msgctxt "@title:group Header above Title and Summary fields"
 msgid "Album"
 msgstr "Album"
 
 #: vkalbumdialog.cpp:95
+#, kde-format
 msgid "These are basic settings for the new VKontakte album."
 msgstr "Det här är grundinställningar för det nya VKontakte-albumet."
 
 #: vkalbumdialog.cpp:98
+#, kde-format
 msgid "Title of the album that will be created (required)."
 msgstr "Rubrik för albumet som ska skapas (krävs)."
 
 #: vkalbumdialog.cpp:101
+#, kde-format
 msgid "Description of the album that will be created (optional)."
 msgstr "Beskrivning av albumet som ska skapas (valfri)."
 
 #: vkalbumdialog.cpp:105
+#, kde-format
 msgid "Title:"
 msgstr "Rubrik:"
 
 #: vkalbumdialog.cpp:106
+#, kde-format
 msgid "Summary:"
 msgstr "Sammanfattning:"
 
 #: vkalbumdialog.cpp:109
+#, kde-format
 msgid "Privacy Settings"
 msgstr "Integritetsinställningar"
 
 #: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
+#, kde-format
 msgid "Only me"
 msgstr "Bara jag"
 
 #: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
+#, kde-format
 msgid "My friends"
 msgstr "Mina vänner"
 
 #: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
+#, kde-format
 msgid "Friends of my friends"
 msgstr "Vänner till mina vänner"
 
 #: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
+#, kde-format
 msgid "Everyone"
 msgstr "Alla"
 
 #: vkalbumdialog.cpp:117
+#, kde-format
 msgid "Album available to:"
 msgstr "Album tillgängliga till:"
 
 #: vkalbumdialog.cpp:125
+#, kde-format
 msgid "Comments available to:"
 msgstr "Kommentarer tillgängliga till:"
 
 #: vkalbumdialog.cpp:149
+#, kde-format
 msgid "Error"
 msgstr "Fel"
 
 #: vkalbumdialog.cpp:149
+#, kde-format
 msgid "Title cannot be empty."
 msgstr "Titeln får inte vara tom."
 
 #: vkwindow.cpp:96
+#, kde-format
 msgid "This is the list of images to upload to your VKontakte album."
 msgstr "Det här är listan med bilder att ladda upp till VKontakte-albumet."
 
 #: vkwindow.cpp:102
+#, kde-format
 msgid ""
 "This is a clickable link to open the VKontakte service in a web browser."
 msgstr ""
 "Det här är en klickbar länk för att öppna VKontakte-tjänsten i en webbläsare."
 
 #: vkwindow.cpp:120
+#, kde-format
 msgid "Destination"
 msgstr "Mål"
 
 #: vkwindow.cpp:121
+#, kde-format
 msgid "This is the location where VKontakte images will be downloaded."
 msgstr "Platsen dit VKontakte-bilder kommer att laddas ner."
 
 #: vkwindow.cpp:129
+#, kde-format
 msgid "Options"
 msgstr "Alternativ"
 
 #: vkwindow.cpp:130
+#, kde-format
 msgid "These are options that will be applied to images before upload."
 msgstr "Alternativ som utförs på bilder innan uppladdning."
 
 #: vkwindow.cpp:166
+#, kde-format
 msgctxt "@title:window"
 msgid "Export to VKontakte Web Service"
 msgstr "Exportera till VKontakte-webbtjänst"
 
 #: vkwindow.cpp:168
+#, kde-format
 msgid "Start Upload"
 msgstr "Starta uppladdning"
 
 #: vkwindow.cpp:169
+#, kde-format
 msgid "Start upload to VKontakte service"
 msgstr "Starta uppladdning till VKontakte-tjänst"
 
 #: vkwindow.cpp:181 vkwindow.cpp:346
+#, kde-format
 msgid "VKontakte"
 msgstr "VKontakte"
 
 #: vkwindow.cpp:182
+#, kde-format
 msgid "A tool to export image collections to VKontakte web service."
 msgstr "Ett verktyg för att exportera bildsamlingar till VKontakte webbtjänst."
 
 #: vkwindow.cpp:184
+#, kde-format
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2013, Gilles Caulier\n"
@@ -255,18 +305,22 @@ msgstr ""
 "© 2011-2015, Alexander Potashev"
 
 #: vkwindow.cpp:190
+#, kde-format
 msgid "Alexander Potashev"
 msgstr "Alexander Potashev"
 
 #: vkwindow.cpp:190
+#, kde-format
 msgid "Author"
 msgstr "Upphovsman"
 
 #: vkwindow.cpp:364
+#, kde-format
 msgid "Please select album first."
 msgstr "Välj album först."
 
 #: vkwindow.cpp:394
+#, kde-format
 msgid "Vkontakte Export"
 msgstr "Export till VKontakte"
 

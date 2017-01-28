@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2016-09-25 16:16+0800\n"
 "Last-Translator: Chao Feng <chaofeng111@gmail.com>\n"
 "Language-Team: Chinese <kde-china@kde.org>\n"
@@ -20,42 +20,52 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: fbalbum.cpp:52
+#, kde-format
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "将要创建相册的隐私设置(可选)。"
 
 #: fbalbum.cpp:54
+#, kde-format
 msgid "Only Me"
 msgstr "仅自己"
 
 #: fbalbum.cpp:56
+#, kde-format
 msgid "Only Friends"
 msgstr "仅好友"
 
 #: fbalbum.cpp:58
+#, kde-format
 msgid "Friends of Friends"
 msgstr "好友的好友"
 
 #: fbalbum.cpp:60
+#, kde-format
 msgid "My Networks and Friends"
 msgstr "我的圈子和好友"
 
 #: fbalbum.cpp:62
+#, kde-format
 msgid "Everyone"
 msgstr "所有人"
 
 #: fbtalker.cpp:202
+#, kde-format
 msgid "Validate previous session..."
 msgstr "验证上次会话..."
 
 #: fbtalker.cpp:230
+#, kde-format
 msgid "Upgrading to OAuth..."
 msgstr "正在升级到 OAuth..."
 
 #: fbtalker.cpp:280
+#, kde-format
 msgid "Facebook Application Authorization"
 msgstr "Facebook 应用验证"
 
 #: fbtalker.cpp:291
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -64,62 +74,77 @@ msgstr ""
 "并按下“确定”。"
 
 #: fbtalker.cpp:353
+#, kde-format
 msgid "Canceled by user."
 msgstr "被用户取消。"
 
 #: fbtalker.cpp:550
+#, kde-format
 msgid "The service is not available at this time."
 msgstr "服务目前不可用。"
 
 #: fbtalker.cpp:553
+#, kde-format
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "应用已达到其最大可容许请求数。"
 
 #: fbtalker.cpp:556
+#, kde-format
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "无效的会话密钥或会话过期。请尝试重新登录。"
 
 #: fbtalker.cpp:559
+#, kde-format
 msgid "Invalid album ID."
 msgstr "无效的相册 ID。"
 
 #: fbtalker.cpp:562
+#, kde-format
 msgid "Album is full."
 msgstr "相册已满。"
 
 #: fbtalker.cpp:565
+#, kde-format
 msgid "Missing or invalid file."
 msgstr "缺失或无效的文件。"
 
 #: fbtalker.cpp:568
+#, kde-format
 msgid "Too many unapproved photos pending."
 msgstr "太多的待核准照片。"
 
 #: fbtalker.cpp:602
+#, kde-format
 msgid "Error"
 msgstr "错误"
 
 #: fbwindow.cpp:109
+#, kde-format
 msgid "Export to Facebook Web Service"
 msgstr "导出至 Facebook 网络服务"
 
 #: fbwindow.cpp:111
+#, kde-format
 msgid "Start Upload"
 msgstr "开始上传"
 
 #: fbwindow.cpp:112
+#, kde-format
 msgid "Start upload to Facebook web service"
 msgstr "开始上传到 Facebook 网络服务"
 
 #: fbwindow.cpp:140
+#, kde-format
 msgid "Facebook Export"
 msgstr "Facebook 导出"
 
 #: fbwindow.cpp:141
+#, kde-format
 msgid "A tool to export image collection to/from Facebook web service."
 msgstr "Facebook 图像收藏的导入/导出工具。"
 
 #: fbwindow.cpp:143
+#, kde-format
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
@@ -130,14 +155,17 @@ msgstr ""
 "(c) 2008-2009，Luka Renko"
 
 #: fbwindow.cpp:147
+#, kde-format
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
 #: fbwindow.cpp:148
+#, kde-format
 msgid "Author and maintainer"
 msgstr "作者和维护者"
 
 #: fbwindow.cpp:361 fbwindow.cpp:395
+#, kde-format
 msgid "<auto create>"
 msgstr "<自动创建>"
 
@@ -147,40 +175,48 @@ msgid "Facebook Call Failed: %1\n"
 msgstr "Facebook 调用失败：%1\n"
 
 #: fbwindow.cpp:471
+#, kde-format
 msgid "Warning"
 msgstr "警告"
 
 #: fbwindow.cpp:472
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr "在您从浏览器中注销之后，点击“继续”，验证另一个账户。"
 
 #: fbwindow.cpp:476
+#, kde-format
 msgid "Continue"
 msgstr "继续"
 
 #: fbwindow.cpp:477
+#, kde-format
 msgid "Cancel"
 msgstr "取消"
 
 #: fbwindow.cpp:539
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: fbwindow.cpp:543
+#, kde-format
 msgid "Facebook export"
 msgstr "Facebook 导出"
 
-#: fbwindow.cpp:647 fbwindow.cpp:662
+#: fbwindow.cpp:648 fbwindow.cpp:663
+#, kde-format
 msgid "Cannot open file"
 msgstr "无法打开文件"
 
-#: fbwindow.cpp:685
+#: fbwindow.cpp:686
+#, kde-format
 msgid "Uploading Failed"
 msgstr "上传失败"
 
-#: fbwindow.cpp:686
+#: fbwindow.cpp:687
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -189,27 +225,31 @@ msgstr ""
 "上传照片到 Facebook 失败：%1\n"
 "您想要继续吗？"
 
-#: fbwindow.cpp:705
+#: fbwindow.cpp:706
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Facebook 调用失败：%1"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_facebookui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr "导入(&I)"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_facebookui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr "导出(&E)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_facebookui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr "主工具栏"
 
 #: plugin_facebook.cpp:94
+#, kde-format
 msgid "Export to &Facebook..."
 msgstr "导出至 &Facebook..."
 

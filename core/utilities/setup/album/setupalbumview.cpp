@@ -7,7 +7,7 @@
  * Description : album view configuration setup tab
  *
  * Copyright (C) 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -286,9 +286,9 @@ SetupAlbumView::SetupAlbumView(QWidget* const parent)
     QGridLayout* const grid3      = new QGridLayout(pwpanel);
 
     d->previewFastPreview         = new QRadioButton(i18nc("@option:radio",
-                                                           "Embedded view shows a small, quick preview"));
+                                                           "Preview shows embedded view if available (faster)"));
     d->previewFullView            = new QRadioButton(i18nc("@option:radio",
-                                                           "Embedded view shows the full image"));
+                                                           "Preview shows the full image"));
     QLabel* const rawPreviewLabel = new QLabel(i18nc("@label:listbox Mode of RAW preview decoding:",
                                                      "Raw images:"));
     d->previewRawMode             = new QComboBox;

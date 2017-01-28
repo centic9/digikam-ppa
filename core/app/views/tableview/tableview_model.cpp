@@ -1327,40 +1327,18 @@ QList<ImageInfo> TableViewModel::allImageInfo() const
 
     while (!itemsToList.isEmpty())
     {
-        Item* const item = itemsToList.takeFirst();
-        infoList << infoFromItem(item);
+        ImageInfo const info = infoFromItem(itemsToList.takeFirst());
+        infoList << info;
 
-        if (!item->children.isEmpty())
+        if ((s->tableViewModel->groupingMode() == s->tableViewModel->GroupingMode::GroupingHideGrouped ||
+             s->tableViewModel->groupingMode() == s->tableViewModel->GroupingMode::GroupingShowSubItems) &&
+             info.hasGroupedImages())
         {
-            itemsToList << item->children;
+            infoList << info.groupedImages();
         }
     }
 
     return infoList;
-}
-
-QList<QUrl> TableViewModel::selectedUrls() const
-{
-    return urlsFromIndexes(s->tableViewSelectionModel->selectedRows());
-}
-
-QList<QUrl> TableViewModel::urlsFromIndexes(const QModelIndexList& indexList) const
-{
-    QList<QUrl> resultList;
-
-    Q_FOREACH(const QModelIndex& index, indexList)
-    {
-        Item* const item     = itemFromIndex(index);
-        const ImageInfo info = infoFromItem(item);
-        const QUrl itemUrl   = info.fileUrl();
-
-        if (!itemUrl.isEmpty())
-        {
-            resultList << itemUrl;
-        }
-    }
-
-    return resultList;
 }
 
 TableViewModel::GroupingMode TableViewModel::groupingMode() const

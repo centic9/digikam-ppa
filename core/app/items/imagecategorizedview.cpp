@@ -296,43 +296,39 @@ QUrl ImageCategorizedView::currentUrl() const
     return currentInfo().fileUrl();
 }
 
-QList<ImageInfo> ImageCategorizedView::selectedImageInfos() const
+ImageInfoList ImageCategorizedView::selectedImageInfos() const
 {
-    return d->filterModel->imageInfos(selectedIndexes());
+    return resolveGrouping(selectedIndexes());
 }
 
-QList<ImageInfo> ImageCategorizedView::selectedImageInfosCurrentFirst() const
+ImageInfoList ImageCategorizedView::selectedImageInfosCurrentFirst() const
 {
-    QList<QModelIndex> indexes = selectedIndexes();
-    QModelIndex        current = currentIndex();
-    QList<ImageInfo>   infos;
+    QModelIndexList indexes = selectedIndexes();
+    const QModelIndex current  = currentIndex();
 
-    foreach(const QModelIndex& index, indexes)
+    if (!indexes.isEmpty())
     {
-        ImageInfo info = d->filterModel->imageInfo(index);
-
-        if (index == current)
+        if (indexes.first() != current)
         {
-            infos.prepend(info);
-        }
-        else
-        {
-            infos.append(info);
+            if (indexes.removeOne(current))
+            {
+                indexes.prepend(current);
+            }
         }
     }
 
-    return infos;
+    return resolveGrouping(indexes);
 }
 
 QList<ImageInfo> ImageCategorizedView::imageInfos() const
 {
-    return d->filterModel->imageInfosSorted();
+    return resolveGrouping(d->filterModel->imageInfosSorted());
 }
 
 QList<QUrl> ImageCategorizedView::urls() const
 {
-    QList<ImageInfo> infos = imageInfos();
-    QList<QUrl>       urls;
+    ImageInfoList infos = imageInfos();
+    QList<QUrl>   urls;
 
     foreach(const ImageInfo& info, infos)
     {
@@ -344,8 +340,8 @@ QList<QUrl> ImageCategorizedView::urls() const
 
 QList<QUrl> ImageCategorizedView::selectedUrls() const
 {
-    QList<ImageInfo> infos = selectedImageInfos();
-    QList<QUrl>       urls;
+    ImageInfoList infos = selectedImageInfos();
+    QList<QUrl>   urls;
 
     foreach(const ImageInfo& info, infos)
     {
@@ -517,7 +513,7 @@ void ImageCategorizedView::setSelectedUrls(const QList<QUrl>& urlList)
 
     for (QList<QUrl>::const_iterator it = urlList.constBegin(); it!=urlList.constEnd(); ++it)
     {
-        const QString path = it->toLocalFile();
+        const QString path      = it->toLocalFile();
         const QModelIndex index = d->filterModel->indexForPath(path);
 
         if (!index.isValid())
@@ -721,6 +717,28 @@ void ImageCategorizedView::showContextMenuOnIndex(QContextMenuEvent* event, cons
 void ImageCategorizedView::showContextMenuOnInfo(QContextMenuEvent*, const ImageInfo&)
 {
     // implemented in subclass
+}
+
+ImageInfoList ImageCategorizedView::resolveGrouping(const QModelIndexList& indexes) const
+{
+    return resolveGrouping(d->filterModel->imageInfos(indexes));
+}
+
+ImageInfoList ImageCategorizedView::resolveGrouping(const ImageInfoList& infos) const
+{
+    ImageInfoList outInfos;
+
+    foreach(const ImageInfo& info, infos)
+    {
+        outInfos << info;
+
+        if (info.hasGroupedImages() && !imageFilterModel()->isGroupOpen(info.id()))
+        {
+            outInfos << info.groupedImages();
+        }
+    }
+
+    return outInfos;
 }
 
 void ImageCategorizedView::paintEvent(QPaintEvent* e)

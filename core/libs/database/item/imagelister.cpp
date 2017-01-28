@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
@@ -398,7 +398,7 @@ void ImageLister::listDateRange(ImageListerReceiver* const receiver, const QDate
                                           " WHERE Images.status=1 "
                                           "   AND ImageInformation.creationDate < ? "
                                           "   AND ImageInformation.creationDate >= ? "
-                                          " ORDER BY Albums.id;"),
+                                          " ORDER BY Images.album;"),
                                   QDateTime(endDate).toString(Qt::ISODate),
                                   QDateTime(startDate).toString(Qt::ISODate),
                                   &values);
@@ -507,7 +507,7 @@ void ImageLister::listAreaRange(ImageListerReceiver* const receiver, double lat1
     }
 }
 
-void ImageLister::listSearch(ImageListerReceiver* const receiver, const QString& xml, int limit)
+void ImageLister::listSearch(ImageListerReceiver* const receiver, const QString& xml, int limit, qlonglong referenceImageId)
 {
     if (xml.isEmpty())
     {
@@ -576,6 +576,8 @@ void ImageLister::listSearch(ImageListerReceiver* const receiver, const QString&
     int       width, height;
     double    lat,lon;
 
+    CoreDbAccess access;
+
     for (QList<QVariant>::const_iterator it = values.constBegin(); it != values.constEnd();)
     {
         ImageListerRecord record;
@@ -610,6 +612,9 @@ void ImageLister::listSearch(ImageListerReceiver* const receiver, const QString&
         ++it;
         lon                      = (*it).toDouble();
         ++it;
+
+        record.currentSimilarity = access.db()->getImageProperty(record.imageID,QLatin1String("similarityTo_")+QString::number(referenceImageId)).toDouble();
+        record.currentFuzzySearchReferenceImage  = referenceImageId;
 
         if (d->listOnlyAvailableImages && !albumRoots.contains(record.albumRootID))
         {
@@ -752,9 +757,11 @@ void ImageLister::listHaarSearch(ImageListerReceiver* const receiver, const QStr
     QStringRef type             = reader.attributes().value(QLatin1String("type"));
     QStringRef numResultsString = reader.attributes().value(QLatin1String("numberofresults"));
     QStringRef thresholdString  = reader.attributes().value(QLatin1String("threshold"));
+    QStringRef maxThresholdString  = reader.attributes().value(QLatin1String("maxthreshold"));
     QStringRef sketchTypeString = reader.attributes().value(QLatin1String("sketchtype"));
 
     double threshold                 = 0.9;
+    double maxThreshold              = 1.0;
     int numberOfResults              = 20;
     HaarIface::SketchType sketchType = HaarIface::ScannedSketch;
 
@@ -767,7 +774,12 @@ void ImageLister::listHaarSearch(ImageListerReceiver* const receiver, const QStr
     {
         threshold = qMax(thresholdString.toString().toDouble(), 0.1);
     }
-
+    
+    if (!maxThresholdString.isNull())
+    {
+        maxThreshold = qMax(maxThresholdString.toString().toDouble(), 0.1);
+    }
+    
     if (sketchTypeString == QLatin1String("handdrawn"))
     {
         sketchType = HaarIface::HanddrawnSketch;
@@ -777,7 +789,7 @@ void ImageLister::listHaarSearch(ImageListerReceiver* const receiver, const QStr
         sketchType = HaarIface::ScannedSketch;
     }
 
-    QList<qlonglong> list;
+    QMap<qlonglong,double> imageSimilarityMap;
 
     if (type == QLatin1String("signature"))
     {
@@ -789,7 +801,7 @@ void ImageLister::listHaarSearch(ImageListerReceiver* const receiver, const QStr
             iface.setAlbumRootsToSearch(albumRootsToList());
         }
 
-        list = iface.bestMatchesForSignature(sig, numberOfResults, sketchType);
+        imageSimilarityMap = iface.bestMatchesForSignature(sig, numberOfResults, sketchType);
     }
     else if (type == QLatin1String("imageid"))
     {
@@ -801,10 +813,118 @@ void ImageLister::listHaarSearch(ImageListerReceiver* const receiver, const QStr
             iface.setAlbumRootsToSearch(albumRootsToList());
         }
 
-        list = iface.bestMatchesForImageWithThreshold(id, threshold, sketchType);
+        imageSimilarityMap = iface.bestMatchesForImageWithThreshold(id, threshold,maxThreshold, sketchType).second;
+    }
+    else if (type == QLatin1String("image"))
+    {
+        // If the given SAlbum contains a dropped image, get all images which are similar to this one.
+        QString path = reader.value();
+        HaarIface iface;
+
+        if (d->listOnlyAvailableImages)
+        {
+            iface.setAlbumRootsToSearch(albumRootsToList());
+        }
+
+        imageSimilarityMap = iface.bestMatchesForImageWithThreshold(path, threshold,maxThreshold, sketchType).second;
     }
 
-    listFromIdList(receiver, list);
+    listFromHaarSearch(receiver, imageSimilarityMap);
+}
+
+void ImageLister::listFromHaarSearch(ImageListerReceiver* const receiver, const QMap<qlonglong,double>& imageSimilarityMap)
+{
+    QList<QVariant> values;
+    QString         errMsg;
+    bool            executionSuccess = true;
+
+    {
+        // Generate the query that returns the similarity as constant for a given image id.
+        CoreDbAccess access;
+        DbEngineSqlQuery query = access.backend()->prepareQuery(QString::fromUtf8(
+                             "SELECT DISTINCT Images.id, Images.name, Images.album, "
+                             "       Albums.albumRoot, "
+                             "       ImageInformation.rating, Images.category, "
+                             "       ImageInformation.format, ImageInformation.creationDate, "
+                             "       Images.modificationDate, Images.fileSize, "
+                             "       ImageInformation.width, ImageInformation.height "
+                             " FROM Images "
+                             "       LEFT JOIN ImageInformation ON Images.id=ImageInformation.imageid "
+                             "       LEFT JOIN Albums ON Albums.id=Images.album "
+                             " WHERE Images.status=1 AND Images.id = ?;"));
+
+        qlonglong imageId;
+        double similarity;
+        // Iterate over the image similarity map and bind the image id and similarity to the query.
+        for (QMap<qlonglong, double>::const_iterator it = imageSimilarityMap.constBegin(); it != imageSimilarityMap.constEnd(); ++it)
+        {
+            similarity = it.value();
+            imageId    = it.key();
+
+            query.bindValue(0, imageId);
+            executionSuccess = access.backend()->exec(query);
+
+            if (!executionSuccess)
+            {
+                errMsg = access.backend()->lastError();
+                break;
+            }
+
+            // Add the similarity to the table row.
+            QList<QVariant> tableRow = access.backend()->readToList(query);
+            tableRow.append(similarity);
+
+            // append results to list
+            values << tableRow;
+        }
+    }
+
+    if (!executionSuccess)
+    {
+        receiver->error(errMsg);
+        return;
+    }
+
+    int width, height;
+
+    for (QList<QVariant>::const_iterator it = values.constBegin(); it != values.constEnd();)
+    {
+        ImageListerRecord record;
+
+        record.imageID           = (*it).toLongLong();
+        ++it;
+        record.name              = (*it).toString();
+        ++it;
+        record.albumID           = (*it).toInt();
+        ++it;
+        record.albumRootID       = (*it).toInt();
+        ++it;
+        record.rating            = (*it).toInt();
+        ++it;
+        record.category          = (DatabaseItem::Category)(*it).toInt();
+        ++it;
+        record.format            = (*it).toString();
+        ++it;
+        record.creationDate      = (*it).isNull() ? QDateTime()
+                                   : QDateTime::fromString((*it).toString(), Qt::ISODate);
+        ++it;
+        record.modificationDate  = (*it).isNull() ? QDateTime()
+                                   : QDateTime::fromString((*it).toString(), Qt::ISODate);
+        ++it;
+        record.fileSize          = toInt32BitSafe(it);
+        ++it;
+        width                    = (*it).toInt();
+        ++it;
+        height                   = (*it).toInt();
+        ++it;
+
+        record.imageSize         = QSize(width, height);
+
+        record.currentSimilarity = (*it).toDouble();
+        ++it;
+
+        receiver->receive(record);
+    }
 }
 
 void ImageLister::listFromIdList(ImageListerReceiver* const receiver, const QList<qlonglong>& imageIds)

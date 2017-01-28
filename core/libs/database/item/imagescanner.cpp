@@ -7,7 +7,7 @@
  * Description : Scanning of a single image
  *
  * Copyright (C) 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2013-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2013-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -390,6 +390,9 @@ bool ImageScanner::scanFromIdenticalFile()
 void ImageScanner::commitCopyImageAttributes()
 {
     CoreDbAccess().db()->copyImageAttributes(d->commit.copyImageAttributesId, d->scanInfo.id);
+    // Remove grouping for copied or identical images.
+    CoreDbAccess().db()->removeAllImageRelationsFrom(d->scanInfo.id, DatabaseRelation::Grouped);
+    CoreDbAccess().db()->removeAllImageRelationsTo(d->scanInfo.id, DatabaseRelation::Grouped);
 }
 
 bool ImageScanner::copyFromSource(qlonglong srcId)

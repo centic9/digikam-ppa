@@ -7,7 +7,7 @@
  * Description : A widget to select Physical or virtual albums with combo-box
  *
  * Copyright (C) 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -83,6 +83,11 @@ public:
      *  selected from tree-view and all others are deselected.
      */
     void setTAlbumSelected(Album* const album, bool singleSelection=true);
+    
+    /**
+     * Sets the search type selection with the AlbumType.
+     **/
+    void setTypeSelection(int albumType);
 
     /** Return true if whole Albums collection option is checked.
      */

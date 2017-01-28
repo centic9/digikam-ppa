@@ -9,7 +9,7 @@
  *
  * @author Copyright (C) 2009-2011, 2014 by Michael G. Hansen
  *         <a href="mailto:mike at mghansen dot de">mike at mghansen dot de</a>
- * @author Copyright (C) 2010-2016 by Gilles Caulier
+ * @author Copyright (C) 2010-2017 by Gilles Caulier
  *         <a href="mailto:caulier dot gilles at gmail dot com">caulier dot gilles at gmail dot com</a>
  * @author Copyright (C) 2014 by Justus Schwartz
  *         <a href="mailto:justus at gmx dot li">justus at gmx dot li</a>
@@ -1011,12 +1011,10 @@ void MapWidget::getColorInfos(const GroupState groupState,
     }
     else if ((nMarkers >= 1000) && (nMarkers <= 1950))
     {
-        /// @todo Use KDE-versions instead
         *labelText = QString::fromLatin1("%L1k").arg(qreal(nMarkers)/1000.0, 0, 'f', 1);
     }
     else if ((nMarkers >= 1951) && (nMarkers < 19500))
     {
-        /// @todo Use KDE-versions instead
         *labelText = QString::fromLatin1("%L1k").arg(qreal(nMarkers)/1000.0, 0, 'f', 0);
     }
     else
@@ -2034,7 +2032,7 @@ void MapWidget::addWidgetToControlWidget(QWidget* const newWidget)
 
 QString MapWidget::MarbleWidgetVersion()
 {
-    return QString(Marble::MARBLE_VERSION_STRING);
+    return QString(Marble::MARBLE_VERSION_STRING).section(QLatin1Char(' '), 0, 0);
 }
 
 void MapWidget::setActive(const bool state)

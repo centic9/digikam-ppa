@@ -7,7 +7,7 @@
 * Description : Import tool interface
 *
 * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
-* Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+* Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
 * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
 * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
 * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
@@ -119,16 +119,16 @@ namespace Digikam
 
 ImportUI* ImportUI::m_instance = 0;
 
-ImportUI::ImportUI(QWidget* const parent, const QString& cameraTitle,
-                   const QString& model, const QString& port,
-                   const QString& path, int startIndex)
-    : DXmlGuiWindow(parent),
+ImportUI::ImportUI(const QString& cameraTitle, const QString& model,
+                   const QString& port, const QString& path, int startIndex)
+    : DXmlGuiWindow(0),
       d(new Private)
 {
     setConfigGroupName(QLatin1String("Camera Settings"));
 
     setXMLFile(QLatin1String("importui.rc"));
     setFullScreenOptions(FS_IMPORTUI);
+    setWindowFlags(Qt::Window);
 
     m_instance = this;
 
@@ -158,13 +158,13 @@ ImportUI::ImportUI(QWidget* const parent, const QString& cameraTitle,
 
     // -------------------------------------------------------------------
 
-    d->historyUpdater = new CameraHistoryUpdater(this);
+    //d->historyUpdater = new CameraHistoryUpdater(this);
 
     //connect (d->historyUpdater, SIGNAL(signalHistoryMap(CHUpdateItemMap)),
     //this, SLOT(slotRefreshIconView(CHUpdateItemMap)));
 
-    connect(d->historyUpdater, SIGNAL(signalBusy(bool)),
-            this, SLOT(slotBusy(bool)));
+    //connect(d->historyUpdater, SIGNAL(signalBusy(bool)),
+    //        this, SLOT(slotBusy(bool)));
 
     // --------------------------------------------------------
 
@@ -950,7 +950,7 @@ void ImportUI::slotCancelButton()
     d->statusProgressBar->setProgressBarMode(StatusProgressBar::TextMode,
                                           i18nc("@info:status", "Canceling current operation, please wait..."));
     d->controller->slotCancel();
-    d->historyUpdater->slotCancel();
+    //d->historyUpdater->slotCancel();
     d->currentlyDeleting.clear();
     refreshFreeSpace();
 }
@@ -1280,8 +1280,8 @@ void ImportUI::slotUploadItems(const QList<QUrl>& urls)
                                         "to upload pictures.\n\n"
                                         "Space require: %1\n"
                                         "Available free space: %2",
-                                        ImagePropertiesTab::humanReadableBytesCount(totalKbSize),
-                                        ImagePropertiesTab::humanReadableBytesCount(d->cameraFreeSpace->kBAvail())));
+                                        ImagePropertiesTab::humanReadableBytesCount(totalKbSize * 1024),
+                                        ImagePropertiesTab::humanReadableBytesCount(d->cameraFreeSpace->kBAvail() * 1024)));
             return;
         }
     }
@@ -1777,7 +1777,7 @@ void ImportUI::slotSelectLocked()
 
     foreach(const CamItemInfo& info, allItems)
     {
-        if(info.writePermissions == 0)
+        if (info.writePermissions == 0)
         {
             toBeSelected << info;
         }
@@ -1839,7 +1839,7 @@ void ImportUI::setDownloaded(CamItemInfo& itemInfo, int status)
     itemInfo.downloaded = status;
     d->progressValue = 0;
 
-    if(itemInfo.downloaded == CamItemInfo::DownloadStarted)
+    if (itemInfo.downloaded == CamItemInfo::DownloadStarted)
     {
         d->progressTimer->start(500);
     }
@@ -2016,21 +2016,22 @@ bool ImportUI::checkDiskSpace(PAlbum *pAlbum)
 
     if (dSize >= kBAvail)
     {
-        int result     = QMessageBox::warning(this, i18nc("@title:window", "Insufficient Disk Space"),
-                                              i18nc("@info", "There is not enough free space on the disk of the album you selected "
-                                                    "to download and process the selected pictures from the camera.\n\n"
-                                                    "Estimated space required: %1\n"
-                                                    "Available free space: %2\n\n"
-                                                    "Try Anyway?",
-                                                    ImagePropertiesTab::humanReadableBytesCount(dSize),
-                                                    ImagePropertiesTab::humanReadableBytesCount(kBAvail)),
-                                              QMessageBox::Yes | QMessageBox::No);
+        int result = QMessageBox::warning(this, i18nc("@title:window", "Insufficient Disk Space"),
+                                          i18nc("@info", "There is not enough free space on the disk of the album you selected "
+                                                "to download and process the selected pictures from the camera.\n\n"
+                                                "Estimated space required: %1\n"
+                                                "Available free space: %2\n\n"
+                                                "Try Anyway?",
+                                                ImagePropertiesTab::humanReadableBytesCount(dSize * 1024),
+                                                ImagePropertiesTab::humanReadableBytesCount(kBAvail * 1024)),
+                                          QMessageBox::Yes | QMessageBox::No);
 
         if (result == QMessageBox::No)
         {
             return false;
         }
     }
+
     return true;
 }
 
@@ -2210,10 +2211,6 @@ bool ImportUI::createDateBasedSubAlbum(QUrl& downloadUrl, const CamItemInfo& inf
             break;
     }
 
-    // See bug #136927 : we need to support file system which do not
-    // handle upper case properly.
-    dirName = dirName.toLower();
-
     return createSubAlbum(downloadUrl, dirName, dateTime.date());
 }
 
@@ -2244,10 +2241,6 @@ bool ImportUI::createExtBasedSubAlbum(QUrl& downloadUrl, const CamItemInfo& info
     {
         subAlbum = QLatin1String("MPG");
     }
-
-    // See bug #136927 : we need to support file system which do not
-    // handle upper case properly.
-    subAlbum = subAlbum.toLower();
 
     return createSubAlbum(downloadUrl, subAlbum, info.ctime.date());
 }

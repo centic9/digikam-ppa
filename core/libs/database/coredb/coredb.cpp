@@ -7,7 +7,7 @@
  * Description : Core database interface.
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -2031,6 +2031,12 @@ void CoreDB::removeImageProperty(qlonglong imageID, const QString& property)
 {
     d->db->execSql(QString::fromUtf8("DELETE FROM ImageProperties WHERE imageid=? AND property=?;"),
                    imageID, property);
+}
+
+void CoreDB::removeImagePropertyByName(const QString& property)
+{
+    d->db->execSql(QString::fromUtf8("DELETE FROM ImageProperties WHERE property=?;"),
+                   property);
 }
 
 QList<CopyrightInfo> CoreDB::getImageCopyright(qlonglong imageID, const QString& property)

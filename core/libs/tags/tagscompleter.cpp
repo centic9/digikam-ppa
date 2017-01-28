@@ -72,6 +72,7 @@ public:
         {
             return QModelIndex();
         }
+
         TAlbum* const talbum = AlbumManager::instance()->findTAlbum(id);
         return supportingModel->indexForAlbum(talbum);
     }
@@ -98,8 +99,13 @@ TagCompleter::TagCompleter(QObject* const parent)
     d->model = new QStandardItemModel(this);
     setModel(d->model);
 
-    setCompletionMode(UnfilteredPopupCompletion);
+    d->factory.setNameMatchMode(TaggingActionFactory::MatchContainingFragment);
+
+    setCaseSensitivity(Qt::CaseInsensitive);
+    setCompletionMode(PopupCompletion);
     setCompletionRole(CompletionRole);
+    setFilterMode(Qt::MatchContains);
+    setModelSorting(UnsortedModel);
     setCompletionColumn(0);
 
     connect(this, SIGNAL(activated(QModelIndex)),
@@ -118,7 +124,6 @@ void TagCompleter::setTagFilterModel(AlbumFilterModel* const filterModel)
 {
     d->filterModel = filterModel;
     d->factory.setConstraintInterface(d->filterModel ? d : 0);
-    d->factory.setNameMatchMode(TaggingActionFactory::MatchContainingFragment);
 }
 
 void TagCompleter::setSupportingTagModel(TagModel* const model)
@@ -144,7 +149,7 @@ void TagCompleter::update(const QString& fragment)
     QList<TaggingAction> actions = d->factory.actions();
     QList<QStandardItem*> items;
 
-    foreach (const TaggingAction& action, actions)
+    foreach(const TaggingAction& action, actions)
     {
         QStandardItem* item = new QStandardItem;
 
@@ -189,11 +194,6 @@ void TagCompleter::slotActivated(const QModelIndex& index)
 void TagCompleter::slotHighlighted(const QModelIndex& index)
 {
     emit highlighted(index.data(TaggingActionRole).value<TaggingAction>());
-}
-
-void TagCompleter::slotTextEdited(const QString& text)
-{
-    update(text);
 }
 
 } // namespace Digikam

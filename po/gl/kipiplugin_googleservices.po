@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"POT-Creation-Date: 2017-01-07 03:39+0100\n"
 "PO-Revision-Date: 2015-11-16 07:31+0100\n"
 "Last-Translator: Adrián Chaves Fernández (Gallaecio) <adriyetichaves@gmail."
 "com>\n"
@@ -23,10 +23,12 @@ msgstr ""
 "X-Text-Markup: kde4\n"
 
 #: authorize.cpp:116
+#, kde-format
 msgid "Google Drive Authorization"
 msgstr "Autorización en Google Drive"
 
 #: authorize.cpp:129
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, copy the code from the browser, paste it in the "
@@ -36,101 +38,122 @@ msgstr ""
 "programa, copie o código do navegador, apégueo no campo de texto en baixo, e "
 "prema en Aceptar."
 
-#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
-#, fuzzy
+#: authorize.cpp:249 gdtalker.cpp:272 gptalker.cpp:644
+#, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error"
 msgid "Error"
 msgstr "Erro"
 
-#: gdtalker.cpp:336
+#: gdtalker.cpp:337
+#, kde-format
 msgid "Failed to list folders"
 msgstr "Produciuse un erro ao listar os cartafoles"
 
-#: gdtalker.cpp:384
+#: gdtalker.cpp:385
+#, kde-format
 msgid "Failed to create folder"
 msgstr "Produciuse un erro ao crear o cartafol"
 
-#: gdtalker.cpp:415 gptalker.cpp:929
+#: gdtalker.cpp:416 gptalker.cpp:937
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "Produciuse un erro ao enviar a foto"
 
-#: gptalker.cpp:561
+#: gptalker.cpp:569
+#, kde-format
 msgid "No photo specified"
 msgstr "Non indicou ningunha foto"
 
-#: gptalker.cpp:564
+#: gptalker.cpp:572
+#, kde-format
 msgid "General upload failure"
 msgstr "Fallo xeral do envío"
 
-#: gptalker.cpp:567
+#: gptalker.cpp:575
+#, kde-format
 msgid "File-size was zero"
 msgstr "O tamaño do ficheiro era cero"
 
-#: gptalker.cpp:570
+#: gptalker.cpp:578
+#, kde-format
 msgid "File-type was not recognized"
 msgstr "Non se recoñeceu o tipo do ficheiro"
 
-#: gptalker.cpp:573
+#: gptalker.cpp:581
+#, kde-format
 msgid "User exceeded upload limit"
 msgstr "O usuario superou o límite de envío"
 
-#: gptalker.cpp:576
+#: gptalker.cpp:584
+#, kde-format
 msgid "Invalid signature"
 msgstr "A sinatura non é válida"
 
-#: gptalker.cpp:579
+#: gptalker.cpp:587
+#, kde-format
 msgid "Missing signature"
 msgstr "Falta a sinatura"
 
-#: gptalker.cpp:582
+#: gptalker.cpp:590
+#, kde-format
 msgid "Login failed / Invalid auth token"
 msgstr "Fallou o acceso / O token de autorización non é válido"
 
-#: gptalker.cpp:585
+#: gptalker.cpp:593
+#, kde-format
 msgid "Invalid API Key"
 msgstr "A chave da API non é válida"
 
-#: gptalker.cpp:588
+#: gptalker.cpp:596
+#, kde-format
 msgid "Service currently unavailable"
 msgstr "O servizo non está dispoñíbel nestes momentos"
 
-#: gptalker.cpp:591
+#: gptalker.cpp:599
+#, kde-format
 msgid "Invalid Frob"
 msgstr "Frob non válido"
 
-#: gptalker.cpp:594
+#: gptalker.cpp:602
+#, kde-format
 msgid "Format \"xxx\" not found"
 msgstr "Non se achou o formato «xxx»"
 
-#: gptalker.cpp:597
+#: gptalker.cpp:605
+#, kde-format
 msgid "Method \"xxx\" not found"
 msgstr "Non se achou o método «xxx»"
 
-#: gptalker.cpp:600
+#: gptalker.cpp:608
+#, kde-format
 msgid "Invalid SOAP envelope"
 msgstr "A envoltura de SOAP non é válida"
 
-#: gptalker.cpp:603
+#: gptalker.cpp:611
+#, kde-format
 msgid "Invalid XML-RPC Method Call"
 msgstr "Chamada non válida a un método de XML-RPC"
 
-#: gptalker.cpp:606
+#: gptalker.cpp:614
+#, kde-format
 msgid "The POST method is now required for all setters."
 msgstr "Agora requírese o método POST para todos os asignadores"
 
-#: gptalker.cpp:609
+#: gptalker.cpp:617
+#, kde-format
 msgid "Unknown error"
 msgstr "Erro descoñecido"
 
-#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gptalker.cpp:620 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
 #: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
-#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+#: gswindow.cpp:1198 gswindow.cpp:1241 gswindow.cpp:1249
+#, kde-format
 msgctxt "@title:window"
 msgid "Error"
 msgstr "Erro"
 
-#: gptalker.cpp:613
+#: gptalker.cpp:621
 #, kde-format
 msgid ""
 "Error occurred: %1\n"
@@ -139,54 +162,65 @@ msgstr ""
 "Aconteceu un erro: %1\n"
 "Non é posíbel continuar"
 
-#: gptalker.cpp:683 gptalker.cpp:750
+#: gptalker.cpp:691 gptalker.cpp:758
+#, kde-format
 msgid "Failed to fetch photo-set list"
 msgstr "Non foi posíbel obter a lista dos conxuntos de fotos."
 
-#: gptalker.cpp:886 gptalker.cpp:919
+#: gptalker.cpp:894 gptalker.cpp:927
+#, kde-format
 msgid "Failed to create album"
 msgstr "Fallou a creación do álbum"
 
 #: gswidget.cpp:60
+#, kde-format
 msgid "Tag path behavior :"
 msgstr "Comportamento da ruta da etiqueta:"
 
 #: gswidget.cpp:62
+#, kde-format
 msgid "Leaf tags only"
 msgstr "Só as etiquetas de follas"
 
 #: gswidget.cpp:63
+#, kde-format
 msgid "Export only the leaf tags of tag hierarchies"
 msgstr "Exportar só as etiquetas de follas das xerarquías de etiquetas"
 
 #: gswidget.cpp:64
+#, kde-format
 msgid "Split tags"
 msgstr "Quebrar as etiquetas"
 
 #: gswidget.cpp:65
+#, kde-format
 msgid "Export the leaf tag and all ancestors as single tags."
 msgstr ""
 "Exportar a etiqueta de folla e todos os ancestros como etiquetas simples."
 
 #: gswidget.cpp:66
+#, kde-format
 msgid "Combined String"
 msgstr "Cadea combinada"
 
 #: gswidget.cpp:67
+#, kde-format
 msgid "Build a combined tag string."
 msgstr "Construír unha cadea de etiqueta combinada."
 
 #: gswindow.cpp:116
+#, kde-format
 msgid "Google Drive Export"
 msgstr "Exportación a Google Drive"
 
 #: gswindow.cpp:117
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi-plugin to export images to Google Drive"
 msgid "A tool to export images to Google Drive"
 msgstr "Un engadido de Kipi para exportar imaxes a Google Drive"
 
 #: gswindow.cpp:119
+#, kde-format
 msgid ""
 "(c) 2013, Saurabh Patel\n"
 "(c) 2015, Shourya Singh Gupta"
@@ -195,40 +229,48 @@ msgstr ""
 "© 2015 Shourya Singh Gupta"
 
 #: gswindow.cpp:122
+#, kde-format
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
 #: gswindow.cpp:122 gswindow.cpp:195
+#, kde-format
 msgid "Author and maintainer"
 msgstr "Autor e mantenedor"
 
 #: gswindow.cpp:125 gswindow.cpp:207
+#, kde-format
 msgid "Shourya Singh Gupta"
 msgstr "Shourya Singh Gupta"
 
 #: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
 #: gswindow.cpp:207
+#, kde-format
 msgid "Developer"
 msgstr "Desenvolvedor"
 
 #: gswindow.cpp:132
+#, kde-format
 msgid "Export to Google Drive"
 msgstr "Exportar a Google Drive"
 
 #: gswindow.cpp:134 gswindow.cpp:219
+#, kde-format
 msgid "Start Upload"
 msgstr "Iniciar o envío"
 
 #: gswindow.cpp:135
+#, kde-format
 msgid "Start upload to Google Drive"
 msgstr "Iniciar o envío a Google Drive"
 
 #: gswindow.cpp:186
+#, kde-format
 msgid "Google Photos/PicasaWeb Export"
 msgstr "Exportación de Google Photos e PicasaWeb"
 
 #: gswindow.cpp:187
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to export image collections to Google Photos/Picasa web "
 #| "service."
@@ -238,7 +280,7 @@ msgstr ""
 "PicasaWeb."
 
 #: gswindow.cpp:189
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2007-2009, Vardhman Jain\n"
 #| "(c) 2008-2015, Gilles Caulier\n"
@@ -259,38 +301,47 @@ msgstr ""
 "© 2015 Shourya Singh Gupta"
 
 #: gswindow.cpp:195
+#, kde-format
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
 #: gswindow.cpp:198
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: gswindow.cpp:201
+#, kde-format
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
 #: gswindow.cpp:204
+#, kde-format
 msgid "Jens Mueller"
 msgstr "Jens Mueller"
 
 #: gswindow.cpp:217
+#, kde-format
 msgid "Export to Google Photos/PicasaWeb Service"
 msgstr "Exportar ao servizo Google Photos ou PicasaWeb"
 
 #: gswindow.cpp:220
+#, kde-format
 msgid "Start upload to Google Photos/PicasaWeb Service"
 msgstr "Comezar o envío ao servizo Google Photos ou PicasaWeb"
 
 #: gswindow.cpp:226
+#, kde-format
 msgid "Import from Google Photos/PicasaWeb Service"
 msgstr "Importar do servizo Google Photos ou PicasaWeb"
 
 #: gswindow.cpp:228
+#, kde-format
 msgid "Start Download"
 msgstr "Iniciar a obtención"
 
 #: gswindow.cpp:229
+#, kde-format
 msgid "Start download from Google Photos/PicasaWeb service"
 msgstr "Comezar a descarga do servizo Google Photos ou PicasaWeb"
 
@@ -300,11 +351,12 @@ msgid "Google Photos/PicasaWeb Call Failed: %1\n"
 msgstr "A chamada a Google Photos ou PicasaWeb fallou: %1\n"
 
 #: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: gswindow.cpp:531
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Google Photos/PicasaWeb Export"
 msgid "Google Photo Export"
 msgstr "Exportación de Google Photos e PicasaWeb"
@@ -315,6 +367,7 @@ msgid "Google Drive Call Failed: %1\n"
 msgstr "Fallou a chamada a Google Drive: %1\n"
 
 #: gswindow.cpp:653
+#, kde-format
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -325,29 +378,35 @@ msgstr ""
 "ou en «Iniciar o envío» para autenticarse de novo."
 
 #: gswindow.cpp:669
+#, kde-format
 msgid "No image selected. Please select which images should be uploaded."
 msgstr "Non se escolleu ningunha imaxe. Escolla as imaxes para enviar."
 
 #: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
 #: gswindow.cpp:1105
+#, kde-format
 msgid "Warning"
 msgstr "Aviso"
 
 #: gswindow.cpp:684 gswindow.cpp:707
+#, kde-format
 msgid "Authentication failed. Click \"Continue\" to authenticate."
 msgstr "Fallou a autenticación. Prema en «Continuar» para autenticarse."
 
 #: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
-#: gswindow.cpp:1109 gswindow.cpp:1286
+#: gswindow.cpp:1109 gswindow.cpp:1288
+#, kde-format
 msgid "Continue"
 msgstr "Continuar"
 
 #: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
-#: gswindow.cpp:1110 gswindow.cpp:1287
+#: gswindow.cpp:1110 gswindow.cpp:1289
+#, kde-format
 msgid "Cancel"
 msgstr "Cancelar"
 
 #: gswindow.cpp:762
+#, kde-format
 msgid "Google Drive export"
 msgstr "Exportación a Google Drive"
 
@@ -385,13 +444,13 @@ msgstr ""
 "%2\n"
 "Quere continuar?"
 
-#: gswindow.cpp:1198
+#: gswindow.cpp:1200
 #, kde-format
 msgctxt "%1 is the error string, %2 is the error code"
 msgid "An authentication error occurred: %1 (%2)"
 msgstr "Produciuse un erro de autenticación: %1 (%2)"
 
-#: gswindow.cpp:1240
+#: gswindow.cpp:1242
 #, kde-format
 msgid ""
 "Google Drive call failed:\n"
@@ -400,7 +459,7 @@ msgstr ""
 "Fallou a chamada a Google Drive:\n"
 "%1"
 
-#: gswindow.cpp:1248
+#: gswindow.cpp:1250
 #, kde-format
 msgid ""
 "Google Photos/PicasaWeb call failed:\n"
@@ -409,12 +468,14 @@ msgstr ""
 "A chamada a Google Photos ou PicasaWeb fallou: \n"
 "%1"
 
-#: gswindow.cpp:1281
+#: gswindow.cpp:1283
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning"
 msgstr "Aviso"
 
-#: gswindow.cpp:1282
+#: gswindow.cpp:1284
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -424,24 +485,29 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+#, kde-format
 msgid "&Export"
 msgstr "&Exportar"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_googleservicesui.rc:11
+#, kde-format
 msgid "&Import"
 msgstr "&Importar"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_googleservicesui.rc:21
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Barra de ferramentas Principal"
 
 #: newalbumdlg.cpp:54
+#, kde-format
 msgid "Access Level"
 msgstr "Nivel de acceso"
 
 #: newalbumdlg.cpp:55
+#, kde-format
 msgid ""
 "These are security and privacy settings for the new Google Photos/PicasaWeb "
 "album."
@@ -450,63 +516,77 @@ msgstr ""
 "álbum de Google Photos ou PicasaWeb."
 
 #: newalbumdlg.cpp:57
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Public"
 msgstr "Público"
 
 #: newalbumdlg.cpp:59
+#, kde-format
 msgid "Public album is listed on your public Google Photos/PicasaWeb page."
 msgstr ""
 "O álbum público listarase na súa páxina pública de Google Photos ou "
 "PicasaWeb."
 
 #: newalbumdlg.cpp:60
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Unlisted / Private"
 msgstr "Non listado ou privado"
 
 #: newalbumdlg.cpp:61
+#, kde-format
 msgid "Unlisted album is only accessible via URL."
 msgstr "A un álbum non listado só se pode acceder mediante o URL."
 
 #: newalbumdlg.cpp:62
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Sign-In Required to View"
 msgstr "Require rexistrarse"
 
 #: newalbumdlg.cpp:63
+#, kde-format
 msgid "Unlisted album require Sign-In to View"
 msgstr "Un álbum non listado que require rexistrarse para podelo ver."
 
 #: newalbumdlg.cpp:71
+#, kde-format
 msgid "Privacy:"
 msgstr "Privacidade:"
 
 #: plugin_googleservices.cpp:100
+#, kde-format
 msgid "Export to &Google Drive..."
 msgstr "Exportar a &Google Drive…"
 
 #: plugin_googleservices.cpp:110
+#, kde-format
 msgid "Export to &Google Photos/PicasaWeb..."
 msgstr "Exportar a &Google Photos ou PicasaWeb…"
 
 #: plugin_googleservices.cpp:120
+#, kde-format
 msgid "Import from &Google Photos/PicasaWeb..."
 msgstr "Importar de &Google Photos ou PicasaWeb…"
 
 #: replacedialog.cpp:112
+#, kde-format
 msgid "Add As New"
 msgstr "Engadir como novo"
 
 #: replacedialog.cpp:113
+#, kde-format
 msgid "Item will be added alongside the linked version."
 msgstr "O elemento engadirase xunto coa versión ligada."
 
 #: replacedialog.cpp:119
+#, kde-format
 msgid "Add All"
 msgstr "Engadir en todas"
 
 #: replacedialog.cpp:120
+#, kde-format
 msgid ""
 "Items will be added alongside the linked version. You will not be prompted "
 "again."
@@ -515,18 +595,22 @@ msgstr ""
 "máis."
 
 #: replacedialog.cpp:126
+#, kde-format
 msgid "Replace"
 msgstr "Substituír"
 
 #: replacedialog.cpp:127
+#, kde-format
 msgid "Item will be replacing the linked version."
 msgstr "O elemento substituirá a versión ligada."
 
 #: replacedialog.cpp:133
+#, kde-format
 msgid "Replace All"
 msgstr "Substituír todos"
 
 #: replacedialog.cpp:134
+#, kde-format
 msgid ""
 "Items will be replacing the linked version. You will not be prompted again."
 msgstr ""
@@ -534,14 +618,17 @@ msgstr ""
 "novo."
 
 #: replacedialog.cpp:157
+#, kde-format
 msgid "A linked item already exists."
 msgstr "Xa existe un elemento ligado."
 
 #: replacedialog.cpp:177
+#, kde-format
 msgid "Destination"
 msgstr "Destino"
 
 #: replacedialog.cpp:182
+#, kde-format
 msgid "Source"
 msgstr "Orixe"
 

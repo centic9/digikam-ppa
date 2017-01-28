@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_vkontakte\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2013-02-10 18:49+0200\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -19,40 +19,49 @@ msgstr ""
 "X-Generator: Lokalize 1.2\n"
 
 #: albumchooserwidget.cpp:55
+#, kde-format
 msgctxt "@title:group Header above controls for managing albums"
 msgid "Album"
 msgstr "Λεύκωμα"
 
 #: albumchooserwidget.cpp:60
+#, kde-format
 msgid "This is the VKontakte album that will be used for the transfer."
 msgstr "Αυτό είναι το λεύκωμα VKontakte που θα χρησιμοποιηθεί για τη μεταφορά."
 
 #: albumchooserwidget.cpp:67
+#, kde-format
 msgid "New Album"
 msgstr "Νέο λεύκωμα"
 
 #: albumchooserwidget.cpp:68
+#, kde-format
 msgid "Create new VKontakte album"
 msgstr "Δημιουργία νέου λευκώματος VKontakte"
 
 #: albumchooserwidget.cpp:71
+#, kde-format
 msgctxt "reload albums list"
 msgid "Reload"
 msgstr "Επαναφόρτωση"
 
 #: albumchooserwidget.cpp:72
+#, kde-format
 msgid "Reload albums list"
 msgstr "Επαναφόρτωση λίστας λευκωμάτων"
 
 #: albumchooserwidget.cpp:75
+#, kde-format
 msgid "Edit selected album"
 msgstr "Επεξεργασία επιλεγμένου λευκώματος"
 
 #: albumchooserwidget.cpp:80
+#, kde-format
 msgid "Delete selected album"
 msgstr "Διαγραφή επιλεγμένου λευκώματος"
 
 #: albumchooserwidget.cpp:291
+#, kde-format
 msgctxt "@title:window"
 msgid "Confirm Album Deletion"
 msgstr "Επιβεβαίωση διαγραφής λευκώματος"
@@ -67,35 +76,43 @@ msgstr ""
 "φωτογραφίες που περιέχει;</qt>"
 
 #: albumchooserwidget.cpp:390 authinfowidget.cpp:159 vkwindow.cpp:353
+#, kde-format
 msgctxt "@title:window"
 msgid "Request to VKontakte failed"
 msgstr "Η αίτηση προς το VKontakte απέτυχε"
 
 #: albumchooserwidget.cpp:391
+#, kde-format
 msgid "Internal error: Null pointer to KJob instance."
 msgstr ""
 
 #: authinfowidget.cpp:57
+#, kde-format
 msgid "Account"
 msgstr "Λογαριασμός"
 
 #: authinfowidget.cpp:62
+#, kde-format
 msgid "This account is used for authentication."
 msgstr "Ο λογαριασμός αυτός χρησιμοποιείται για ταυτοποίηση."
 
 #: authinfowidget.cpp:66
+#, kde-format
 msgid "Name:"
 msgstr "Όνομα:"
 
 #: authinfowidget.cpp:67
+#, kde-format
 msgid "Your VKontakte login"
 msgstr "Είσοδος στο VKontakte"
 
 #: authinfowidget.cpp:71
+#, kde-format
 msgid "Change Account"
 msgstr "Αλλαγή λογαριασμού"
 
 #: authinfowidget.cpp:72
+#, kde-format
 msgid "Change VKontakte account used to authenticate"
 msgstr "Αλλαγή λογαριασμού VKontakte που χρησιμοποιείται για ταυτοποίηση"
 
@@ -106,100 +123,123 @@ msgid "%1 %2"
 msgstr ""
 
 #: authinfowidget.cpp:150
+#, kde-format
 msgid "Unauthorized"
 msgstr "Χωρίς ταυτοποίηση"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_vkontakteui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Εξαγωγή"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_vkontakteui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Κύρια γραμμή εργαλείων"
 
 #: plugin_vkontakte.cpp:82
+#, kde-format
 msgid "Export to &VKontakte..."
 msgstr "Εξαγωγή στο &VKontakte..."
 
 #: vkalbumdialog.cpp:74
+#, kde-format
 msgctxt "@title:window"
 msgid "Edit album"
 msgstr "Επεξεργασία λευκώματος"
 
 #: vkalbumdialog.cpp:75
+#, kde-format
 msgctxt "@title:window"
 msgid "New album"
 msgstr "Νέο λεύκωμα"
 
 #: vkalbumdialog.cpp:94
+#, kde-format
 msgctxt "@title:group Header above Title and Summary fields"
 msgid "Album"
 msgstr "Λεύκωμα"
 
 #: vkalbumdialog.cpp:95
+#, kde-format
 msgid "These are basic settings for the new VKontakte album."
 msgstr "Αυτές είναι βασικές ρυθμίσεις για το νέο λεύκωμα VKontakte."
 
 #: vkalbumdialog.cpp:98
+#, kde-format
 msgid "Title of the album that will be created (required)."
 msgstr "Τίτλος του λευκώματος που θα δημιουργηθεί (απαιτούμενο)."
 
 #: vkalbumdialog.cpp:101
+#, kde-format
 msgid "Description of the album that will be created (optional)."
 msgstr "Περιγραφή του λευκώματος που θα δημιουργηθεί (προαιρετικό)."
 
 #: vkalbumdialog.cpp:105
+#, kde-format
 msgid "Title:"
 msgstr "Τίτλος:"
 
 #: vkalbumdialog.cpp:106
+#, kde-format
 msgid "Summary:"
 msgstr "Περίληψη:"
 
 #: vkalbumdialog.cpp:109
+#, kde-format
 msgid "Privacy Settings"
 msgstr "Ρυθμίσεις ιδιωτικότητας"
 
 #: vkalbumdialog.cpp:113 vkalbumdialog.cpp:121
+#, kde-format
 msgid "Only me"
 msgstr "Μόνο σε εμένα"
 
 #: vkalbumdialog.cpp:114 vkalbumdialog.cpp:122
+#, kde-format
 msgid "My friends"
 msgstr "Στους φίλους μου"
 
 #: vkalbumdialog.cpp:115 vkalbumdialog.cpp:123
+#, kde-format
 msgid "Friends of my friends"
 msgstr "Στους φίλους των φίλων μου"
 
 #: vkalbumdialog.cpp:116 vkalbumdialog.cpp:124
+#, kde-format
 msgid "Everyone"
 msgstr "Σε όλους"
 
 #: vkalbumdialog.cpp:117
+#, kde-format
 msgid "Album available to:"
 msgstr "Λεύκωμα διαθέσιμο:"
 
 #: vkalbumdialog.cpp:125
+#, kde-format
 msgid "Comments available to:"
 msgstr "Σχόλια διαθέσιμα:"
 
 #: vkalbumdialog.cpp:149
+#, kde-format
 msgid "Error"
 msgstr "Σφάλμα"
 
 #: vkalbumdialog.cpp:149
+#, kde-format
 msgid "Title cannot be empty."
 msgstr "Ο τίτλος δεν γίνεται να είναι κενός."
 
 #: vkwindow.cpp:96
+#, kde-format
 msgid "This is the list of images to upload to your VKontakte album."
 msgstr ""
 "Αυτή είναι η λίστα εικόνων για αποστολή στο δικό σας λεύκωμα VKontakte."
 
 #: vkwindow.cpp:102
+#, kde-format
 msgid ""
 "This is a clickable link to open the VKontakte service in a web browser."
 msgstr ""
@@ -207,41 +247,49 @@ msgstr ""
 "έναν περιηγητή ιστού."
 
 #: vkwindow.cpp:120
+#, kde-format
 msgid "Destination"
 msgstr "Προορισμός"
 
 #: vkwindow.cpp:121
+#, kde-format
 msgid "This is the location where VKontakte images will be downloaded."
 msgstr "Αυτή είναι η θέση όπου θα γίνει η λήψη των VKontakte εικόνων."
 
 #: vkwindow.cpp:129
+#, kde-format
 msgid "Options"
 msgstr "Επιλογές"
 
 #: vkwindow.cpp:130
+#, kde-format
 msgid "These are options that will be applied to images before upload."
 msgstr ""
 "Αυτές είναι επιλογές που θα εφαρμοστούν στις εικόνες πριν την αποστολή."
 
 #: vkwindow.cpp:166
+#, kde-format
 msgctxt "@title:window"
 msgid "Export to VKontakte Web Service"
 msgstr "Εξαγωγή στην υπηρεσία ιστού VKontakte"
 
 #: vkwindow.cpp:168
+#, kde-format
 msgid "Start Upload"
 msgstr "Έναρξη αποστολής"
 
 #: vkwindow.cpp:169
+#, kde-format
 msgid "Start upload to VKontakte service"
 msgstr "Έναρξη αποστολής στην υπηρεσία VKontakte"
 
 #: vkwindow.cpp:181 vkwindow.cpp:346
+#, kde-format
 msgid "VKontakte"
 msgstr "VKontakte"
 
 #: vkwindow.cpp:182
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to export image collections to VKontakte web service."
 msgid "A tool to export image collections to VKontakte web service."
 msgstr ""
@@ -249,7 +297,7 @@ msgstr ""
 "VKontakte."
 
 #: vkwindow.cpp:184
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2007-2009, Vardhman Jain\n"
 #| "(c) 2008-2013, Gilles Caulier\n"
@@ -270,18 +318,22 @@ msgstr ""
 "(c) 2011-2013, Alexander Potashev"
 
 #: vkwindow.cpp:190
+#, kde-format
 msgid "Alexander Potashev"
 msgstr "Alexander Potashev"
 
 #: vkwindow.cpp:190
+#, kde-format
 msgid "Author"
 msgstr "Συγγραφέας"
 
 #: vkwindow.cpp:364
+#, kde-format
 msgid "Please select album first."
 msgstr "Επιλέξτε λεύκωμα πρώτα."
 
 #: vkwindow.cpp:394
+#, kde-format
 msgid "Vkontakte Export"
 msgstr "VKontakte εξαγωγή"
 

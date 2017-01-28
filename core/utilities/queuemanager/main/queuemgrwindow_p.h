@@ -6,7 +6,7 @@
  * Date        : 2008-11-21
  * Description : Batch Queue Manager GUI
  *
- * Copyright (C) 2008-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -58,6 +58,7 @@ public:
         VERTICAL_SPLITTER_CONFIG_KEY(QLatin1String("BqmVerticalSplitter"))
     {
         busy                   = false;
+        processingAllQueues    = false;
         clearQueueAction       = 0;
         moveUpToolAction       = 0;
         moveDownToolAction     = 0;
@@ -69,6 +70,7 @@ public:
         statusProgressBar      = 0;
         statusLabel            = 0;
         runAction              = 0;
+        runAllAction           = 0;
         stopAction             = 0;
         removeQueueAction      = 0;
         newQueueAction         = 0;
@@ -89,6 +91,7 @@ public:
     }
 
     bool                     busy;
+    bool                     processingAllQueues;
 
     int                      currentQueueToProcess;
 
@@ -103,6 +106,7 @@ public:
     QAction*                 clearToolsAction;
 
     QAction*                 runAction;
+    QAction*                 runAllAction;
     QAction*                 stopAction;
     QAction*                 removeQueueAction;
     QAction*                 newQueueAction;

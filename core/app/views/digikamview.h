@@ -7,7 +7,7 @@
  * Description : implementation of album view interface.
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -49,6 +49,8 @@ namespace Digikam
 class AlbumIconItem;
 class ApplicationSettings;
 class Album;
+class PAlbum;
+class TAlbum;
 class BatchSyncMetadata;
 class FilterStatusBar;
 class SlideShowSettings;
@@ -122,6 +124,7 @@ Q_SIGNALS:
     void signalGotoDateAndItem(AlbumIconItem*);
     void signalGotoTagAndItem(int tagID);
     void signalChangedTab(QWidget*);
+    void signalFuzzySidebarActive(bool active);
 
 public Q_SLOTS:
 
@@ -170,7 +173,9 @@ public Q_SLOTS:
     // Search action slots
     void slotNewKeywordSearch();
     void slotNewAdvancedSearch();
-    void slotNewDuplicatesSearch(Album* album=0);
+    void slotNewDuplicatesSearch(PAlbum* album=0);
+    void slotNewDuplicatesSearch(QList<PAlbum*> albums);
+    void slotNewDuplicatesSearch(QList<TAlbum*> albums);
 
     // Image action slots
     void slotImageLightTable();

@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow image widget
  *
- * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,8 +21,8 @@
  *
  * ============================================================ */
 
-#ifndef SLIDEIMAGE_H
-#define SLIDEIMAGE_H
+#ifndef SLIDE_IMAGE_H
+#define SLIDE_IMAGE_H
 
 // Qt includes
 
@@ -46,7 +46,7 @@ class DIGIKAM_EXPORT SlideImage : public QWidget
 public:
 
     explicit SlideImage(QWidget* const parent = 0);
-    ~SlideImage();
+    virtual ~SlideImage();
 
     void setPreviewSettings(const PreviewSettings& settings);
     void setLoadUrl(const QUrl& url);
@@ -73,4 +73,4 @@ private:
 
 }  // namespace Digikam
 
-#endif /* SLIDEIMAGE_H */
+#endif // SLIDE_IMAGE_H

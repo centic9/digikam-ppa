@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2016-07-14 11:54+0100\n"
 "Last-Translator: Kiszel Kristóf <ulysses@kubuntu.org>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -19,42 +19,52 @@ msgstr ""
 "X-Generator: Lokalize 2.0\n"
 
 #: fbalbum.cpp:52
+#, kde-format
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "A létrehozásra kerülő album adatvédelmi beállítása (kötelező)."
 
 #: fbalbum.cpp:54
+#, kde-format
 msgid "Only Me"
 msgstr "Csak én"
 
 #: fbalbum.cpp:56
+#, kde-format
 msgid "Only Friends"
 msgstr "Csak ismerősök"
 
 #: fbalbum.cpp:58
+#, kde-format
 msgid "Friends of Friends"
 msgstr "Ismerősök ismerősei"
 
 #: fbalbum.cpp:60
+#, kde-format
 msgid "My Networks and Friends"
 msgstr "Kapcsolati hálóm és ismerősök"
 
 #: fbalbum.cpp:62
+#, kde-format
 msgid "Everyone"
 msgstr "Mindenki"
 
 #: fbtalker.cpp:202
+#, kde-format
 msgid "Validate previous session..."
 msgstr "Előző munkamenet érvényesítése…"
 
 #: fbtalker.cpp:230
+#, kde-format
 msgid "Upgrading to OAuth..."
 msgstr "Frissítés OAuth-ra…"
 
 #: fbtalker.cpp:280
+#, kde-format
 msgid "Facebook Application Authorization"
 msgstr "Facebook alkalmazás felhatalmazás"
 
 #: fbtalker.cpp:291
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -64,61 +74,74 @@ msgstr ""
 "gombot."
 
 #: fbtalker.cpp:353
+#, kde-format
 msgid "Canceled by user."
 msgstr "Megszakítva a felhasználó által."
 
 #: fbtalker.cpp:550
+#, kde-format
 msgid "The service is not available at this time."
 msgstr "A szolgáltatás jelenleg nem elérhető."
 
 #: fbtalker.cpp:553
+#, kde-format
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Az alkalmazás elérte a megengedett kérések maximális számát."
 
 #: fbtalker.cpp:556
+#, kde-format
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr ""
 "Érvénytelen munkamenetkulcs vagy a munkamenet lejárt. Próbáljon meg újra "
 "belépni."
 
 #: fbtalker.cpp:559
+#, kde-format
 msgid "Invalid album ID."
 msgstr "Érvénytelen albumazonosító."
 
 #: fbtalker.cpp:562
+#, kde-format
 msgid "Album is full."
 msgstr "Az album tele van."
 
 #: fbtalker.cpp:565
+#, kde-format
 msgid "Missing or invalid file."
 msgstr "Hiányzó vagy érvénytelen fájl."
 
 #: fbtalker.cpp:568
+#, kde-format
 msgid "Too many unapproved photos pending."
 msgstr "Túl sok jóváhagyás nélküli fénykép van függőben."
 
 #: fbtalker.cpp:602
+#, kde-format
 msgid "Error"
 msgstr "Hiba"
 
 #: fbwindow.cpp:109
+#, kde-format
 msgid "Export to Facebook Web Service"
 msgstr "Exportálás a Facebook webszolgáltatásba"
 
 #: fbwindow.cpp:111
+#, kde-format
 msgid "Start Upload"
 msgstr "Feltöltés indítása"
 
 #: fbwindow.cpp:112
+#, kde-format
 msgid "Start upload to Facebook web service"
 msgstr "Feltöltés indítása a Facebook webszolgáltatásba"
 
 #: fbwindow.cpp:140
+#, kde-format
 msgid "Facebook Export"
 msgstr "Facebook exportálás"
 
 #: fbwindow.cpp:141
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to export image collection to/from Facebook web service."
 msgid "A tool to export image collection to/from Facebook web service."
@@ -127,6 +150,7 @@ msgstr ""
 "webszolgáltatásba/webszolgáltatásból."
 
 #: fbwindow.cpp:143
+#, kde-format
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
@@ -137,14 +161,17 @@ msgstr ""
 "© Luka Renko, 2008-2009."
 
 #: fbwindow.cpp:147
+#, kde-format
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
 #: fbwindow.cpp:148
+#, kde-format
 msgid "Author and maintainer"
 msgstr "Szerző és karbantartó"
 
 #: fbwindow.cpp:361 fbwindow.cpp:395
+#, kde-format
 msgid "<auto create>"
 msgstr "<automatikus létrehozás>"
 
@@ -154,10 +181,12 @@ msgid "Facebook Call Failed: %1\n"
 msgstr "A Facebook-hívás nem sikerült: %1\n"
 
 #: fbwindow.cpp:471
+#, kde-format
 msgid "Warning"
 msgstr "Figyelmeztetés"
 
 #: fbwindow.cpp:472
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -166,30 +195,36 @@ msgstr ""
 "fiók hitelesítéséhez"
 
 #: fbwindow.cpp:476
+#, kde-format
 msgid "Continue"
 msgstr "Folytatás"
 
 #: fbwindow.cpp:477
+#, kde-format
 msgid "Cancel"
 msgstr "Mégsem"
 
 #: fbwindow.cpp:539
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: fbwindow.cpp:543
+#, kde-format
 msgid "Facebook export"
 msgstr "Facebook exportálás"
 
-#: fbwindow.cpp:647 fbwindow.cpp:662
+#: fbwindow.cpp:648 fbwindow.cpp:663
+#, kde-format
 msgid "Cannot open file"
 msgstr "Nem nyitható meg a fájl"
 
-#: fbwindow.cpp:685
+#: fbwindow.cpp:686
+#, kde-format
 msgid "Uploading Failed"
 msgstr "Sikertelen feltöltés"
 
-#: fbwindow.cpp:686
+#: fbwindow.cpp:687
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -198,27 +233,31 @@ msgstr ""
 "Nem sikerült feltölteni a fényképeket a Facebookba: %1\n"
 "Szeretné folytatni?"
 
-#: fbwindow.cpp:705
+#: fbwindow.cpp:706
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "A Facebook-hívás nem sikerült: %1"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_facebookui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr "&Importálás"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_facebookui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr "&Exportálás"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_facebookui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Fő eszköztár"
 
 #: plugin_facebook.cpp:94
+#, kde-format
 msgid "Export to &Facebook..."
 msgstr "Exportálás a &Facebookra…"
 

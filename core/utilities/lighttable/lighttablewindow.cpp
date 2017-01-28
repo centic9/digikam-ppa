@@ -6,7 +6,7 @@
  * Date        : 2007-03-05
  * Description : digiKam light table GUI
  *
- * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -69,6 +69,7 @@
 #include "syncjob.h"
 #include "lighttablepreview.h"
 #include "albummodel.h"
+#include "albumfiltermodel.h"
 #include "coredbchangesets.h"
 #include "scancontroller.h"
 #include "tagsactionmngr.h"
@@ -556,7 +557,7 @@ void LightTableWindow::setupActions()
     ac->addAction(QLatin1String("lighttable_slideshow"), d->slideShowAction);
     ac->setDefaultShortcut(d->slideShowAction, Qt::Key_F9);
 
-    d->presentationAction = new QAction(QIcon::fromTheme(QLatin1String("presentation_section")), i18n("Presentation..."), this);
+    d->presentationAction = new QAction(QIcon::fromTheme(QLatin1String("view-presentation")), i18n("Presentation..."), this);
     connect(d->presentationAction, SIGNAL(triggered()), this, SLOT(slotPresentation()));
     ac->addAction(QLatin1String("lighttable_presentation"), d->presentationAction);
     ac->setDefaultShortcut(d->presentationAction, Qt::ALT+Qt::SHIFT+Qt::Key_F9);
@@ -1756,7 +1757,12 @@ void LightTableWindow::slotEditGeolocation()
         return;
     }
 
-    QPointer<GeolocationEdit> dialog = new GeolocationEdit(new TagModel(AbstractAlbumModel::IgnoreRootAlbum, 0), QApplication::activeWindow());
+    TagModel* const tagModel                    = new TagModel(AbstractAlbumModel::IgnoreRootAlbum, this);
+    TagPropertiesFilterModel* const filterModel = new TagPropertiesFilterModel(this);
+    filterModel->setSourceAlbumModel(tagModel);
+    filterModel->sort(0);
+
+    QPointer<GeolocationEdit> dialog = new GeolocationEdit(filterModel, QApplication::activeWindow());
     dialog->setItems(ImageGPS::infosToItems(ImageInfoList() << inf));
     dialog->exec();
 

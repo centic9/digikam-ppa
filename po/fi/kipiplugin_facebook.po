@@ -13,7 +13,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_facebook\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2016-06-08 23:42+0200\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -26,42 +26,52 @@ msgstr ""
 "X-Generator: Lokalize 2.0\n"
 
 #: fbalbum.cpp:52
+#, kde-format
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Kuka saa nähdä tämän? (pakollinen)"
 
 #: fbalbum.cpp:54
+#, kde-format
 msgid "Only Me"
 msgstr "Vain minä"
 
 #: fbalbum.cpp:56
+#, kde-format
 msgid "Only Friends"
 msgstr "Vain kaverini"
 
 #: fbalbum.cpp:58
+#, kde-format
 msgid "Friends of Friends"
 msgstr "Kavereiden kaverit"
 
 #: fbalbum.cpp:60
+#, kde-format
 msgid "My Networks and Friends"
 msgstr "Kaikki verkostoni ja kaverini"
 
 #: fbalbum.cpp:62
+#, kde-format
 msgid "Everyone"
 msgstr "Kaikki"
 
 #: fbtalker.cpp:202
+#, kde-format
 msgid "Validate previous session..."
 msgstr "Käytetään aiempaa istuntoa…"
 
 #: fbtalker.cpp:230
+#, kde-format
 msgid "Upgrading to OAuth..."
 msgstr "Päivitetään OAuthiin…"
 
 #: fbtalker.cpp:280
+#, kde-format
 msgid "Facebook Application Authorization"
 msgstr "Facebook-sovellusvaltuutus"
 
 #: fbtalker.cpp:291
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -70,59 +80,72 @@ msgstr ""
 "verkko-osoite verkkoselaimesta alla olevaan tekstikenttään ja napsauta OK."
 
 #: fbtalker.cpp:353
+#, kde-format
 msgid "Canceled by user."
 msgstr "Käyttäjä perui toiminnon."
 
 #: fbtalker.cpp:550
+#, kde-format
 msgid "The service is not available at this time."
 msgstr "Palvelu on hetkellisesti poissa käytöstä."
 
 #: fbtalker.cpp:553
+#, kde-format
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Sovellus on ylittänyt pyyntöjen sallitun enimmäismäärän."
 
 #: fbtalker.cpp:556
+#, kde-format
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "Facebook-istunto on vanhentunut. Kirjaudu uudelleen."
 
 #: fbtalker.cpp:559
+#, kde-format
 msgid "Invalid album ID."
 msgstr "Albumin tunnus on virheellinen."
 
 #: fbtalker.cpp:562
+#, kde-format
 msgid "Album is full."
 msgstr "Albumi on täynnä."
 
 #: fbtalker.cpp:565
+#, kde-format
 msgid "Missing or invalid file."
 msgstr "Tiedostoa ei ole olemassa tai se on virheellinen."
 
 #: fbtalker.cpp:568
+#, kde-format
 msgid "Too many unapproved photos pending."
 msgstr "Liian moni kuvaa odottaa hyväksyntää."
 
 #: fbtalker.cpp:602
+#, kde-format
 msgid "Error"
 msgstr "Virhe"
 
 #: fbwindow.cpp:109
+#, kde-format
 msgid "Export to Facebook Web Service"
 msgstr "Vienti Facebook-verkkopalveluun"
 
 #: fbwindow.cpp:111
+#, kde-format
 msgid "Start Upload"
 msgstr "Aloita lähetys"
 
 #: fbwindow.cpp:112
+#, kde-format
 msgid "Start upload to Facebook web service"
 msgstr "Aloita lähetys Facebook-verkkopalveluun"
 
 #: fbwindow.cpp:140
+#, kde-format
 msgid "Facebook Export"
 msgstr "Facebook-vienti"
 
 #: fbwindow.cpp:141
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to export image collection to/from Facebook web service."
 msgid "A tool to export image collection to/from Facebook web service."
@@ -130,6 +153,7 @@ msgstr ""
 "Kipi-liitännäinen kuvien viemiseksi Facebook-verkkopalvelusta/verkkopalveluun"
 
 #: fbwindow.cpp:143
+#, kde-format
 msgid ""
 "(c) 2005-2008, Vardhman Jain\n"
 "(c) 2008-2012, Gilles Caulier\n"
@@ -140,14 +164,17 @@ msgstr ""
 "© 2008–2009 Luka Renko"
 
 #: fbwindow.cpp:147
+#, kde-format
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
 #: fbwindow.cpp:148
+#, kde-format
 msgid "Author and maintainer"
 msgstr "Tekijä ja ylläpitäjä"
 
 #: fbwindow.cpp:361 fbwindow.cpp:395
+#, kde-format
 msgid "<auto create>"
 msgstr "<automaattinen luonti>"
 
@@ -157,10 +184,12 @@ msgid "Facebook Call Failed: %1\n"
 msgstr "Facebook-virhe: %1\n"
 
 #: fbwindow.cpp:471
+#, kde-format
 msgid "Warning"
 msgstr "Varoitus"
 
 #: fbwindow.cpp:472
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -168,30 +197,36 @@ msgstr ""
 "Kirjauduttuasi ulos selaimessa valtuuta toinen tili napsauttamalla ”Jatka”"
 
 #: fbwindow.cpp:476
+#, kde-format
 msgid "Continue"
 msgstr "Jatka"
 
 #: fbwindow.cpp:477
+#, kde-format
 msgid "Cancel"
 msgstr "Peru"
 
 #: fbwindow.cpp:539
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: fbwindow.cpp:543
+#, kde-format
 msgid "Facebook export"
 msgstr "Facebook-vienti"
 
-#: fbwindow.cpp:647 fbwindow.cpp:662
+#: fbwindow.cpp:648 fbwindow.cpp:663
+#, kde-format
 msgid "Cannot open file"
 msgstr "Tiedostoa ei voi avata"
 
-#: fbwindow.cpp:685
+#: fbwindow.cpp:686
+#, kde-format
 msgid "Uploading Failed"
 msgstr "Lähetys epäonnistui"
 
-#: fbwindow.cpp:686
+#: fbwindow.cpp:687
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
@@ -200,27 +235,31 @@ msgstr ""
 "Kuvan lähetys Facebookiin epäonnistui: %1\n"
 "Haluatko jatkaa?"
 
-#: fbwindow.cpp:705
+#: fbwindow.cpp:706
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Facebook-kutsu epäonnistui: %1"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_facebookui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr "T&uonti"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_facebookui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr "&Vienti"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_facebookui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Päätyökalurivi"
 
 #: plugin_facebook.cpp:94
+#, kde-format
 msgid "Export to &Facebook..."
 msgstr "Vienti &Facebookiin…"
 

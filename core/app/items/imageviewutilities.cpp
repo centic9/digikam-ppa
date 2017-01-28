@@ -7,7 +7,7 @@
  * Description : Various operations on images
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -60,6 +60,9 @@ ImageViewUtilities::ImageViewUtilities(QWidget* const parentWidget)
     : QObject(parentWidget)
 {
     m_widget = parentWidget;
+
+    connect(this,SIGNAL(signalImagesDeleted(const QList<qlonglong>&)),
+            AlbumManager::instance(),SLOT(slotImagesDeleted(const QList<qlonglong>&)));
 }
 
 void ImageViewUtilities::setAsAlbumThumbnail(Album* album, const ImageInfo& imageInfo)
@@ -105,38 +108,14 @@ bool ImageViewUtilities::deleteImages(const QList<ImageInfo>& infos, const Delet
 
     QList<ImageInfo> deleteInfos = infos;
 
-    foreach(const ImageInfo& info, infos)
-    {
-        if (info.hasGroupedImages())
-        {
-            QList<ImageInfo> groupedInfos;
-            bool infosGrouped = true;
-
-            foreach(const ImageInfo& group, info.groupedImages())
-            {
-                if (infos.contains(group))
-                {
-                    infosGrouped = false;
-                    break;
-                }
-                else
-                {
-                    groupedInfos << group;
-                }
-            }
-
-            if (infosGrouped)
-            {
-                deleteInfos << groupedInfos;
-            }
-        }
-    }
-
     QList<QUrl> urlList;
+    QList<qlonglong> imageIds;
 
+    // Buffer the urls for deletion and imageids for notification of the AlbumManager
     foreach(const ImageInfo& info, deleteInfos)
     {
         urlList << info.fileUrl();
+        imageIds << info.id();
     }
 
     DeleteDialog dialog(m_widget);
@@ -156,6 +135,9 @@ bool ImageViewUtilities::deleteImages(const QList<ImageInfo>& infos, const Delet
     const bool useTrash = !dialog.shouldDelete();
     DIO::del(deleteInfos, useTrash);
 
+    // Signal the Albummanager about the ids of the deleted images.
+    emit signalImagesDeleted(imageIds);
+
     return true;
 }
 
@@ -169,8 +151,18 @@ void ImageViewUtilities::deleteImagesDirectly(const QList<ImageInfo>& infos, con
         return;
     }
 
+    QList<qlonglong> imageIds;
+
+    foreach(const ImageInfo& info, infos)
+    {
+        imageIds << info.id();
+    }
+
     const bool useTrash = (deleteMode == ImageViewUtilities::DeleteUseTrash);
     DIO::del(infos, useTrash);
+
+    // Signal the Albummanager about the ids of the deleted images.
+    emit signalImagesDeleted(imageIds);
 }
 
 void ImageViewUtilities::notifyFileContentChanged(const QList<QUrl>& urls)

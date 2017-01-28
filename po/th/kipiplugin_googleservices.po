@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_picasawebexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"POT-Creation-Date: 2017-01-07 03:39+0100\n"
 "PO-Revision-Date: 2010-03-03 20:35+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -18,112 +18,134 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 
 #: authorize.cpp:116
+#, kde-format
 msgid "Google Drive Authorization"
 msgstr ""
 
 #: authorize.cpp:129
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, copy the code from the browser, paste it in the "
 "textbox below, and click OK."
 msgstr ""
 
-#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+#: authorize.cpp:249 gdtalker.cpp:272 gptalker.cpp:644
+#, kde-format
 msgid "Error"
 msgstr ""
 
-#: gdtalker.cpp:336
-#, fuzzy
+#: gdtalker.cpp:337
+#, fuzzy, kde-format
 #| msgid "Failed to fetch photoSets List"
 msgid "Failed to list folders"
 msgstr "ล้มเหลวในการดึงรายการข้อมูล photoSets"
 
-#: gdtalker.cpp:384
-#, fuzzy
+#: gdtalker.cpp:385
+#, fuzzy, kde-format
 #| msgid "Failed to create album"
 msgid "Failed to create folder"
 msgstr "ล้มเหลวในการสร้างอัลบั้มใหม่"
 
-#: gdtalker.cpp:415 gptalker.cpp:929
+#: gdtalker.cpp:416 gptalker.cpp:937
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "ล้มเหลวในการอัปโหลดรูปภาพ"
 
-#: gptalker.cpp:561
+#: gptalker.cpp:569
+#, kde-format
 msgid "No photo specified"
 msgstr "ยังไม่มีการระบุภาพใด ๆ"
 
-#: gptalker.cpp:564
+#: gptalker.cpp:572
+#, kde-format
 msgid "General upload failure"
 msgstr "การอัปโหลดทั่วไปทำงานล้มเหลว"
 
-#: gptalker.cpp:567
+#: gptalker.cpp:575
+#, kde-format
 msgid "File-size was zero"
 msgstr "ขนาดแฟ้มมีค่าเป็นศูนย์"
 
-#: gptalker.cpp:570
+#: gptalker.cpp:578
+#, kde-format
 msgid "File-type was not recognized"
 msgstr "ไม่สามารถจัดการแฟ้มประเภทนี้ได้"
 
-#: gptalker.cpp:573
+#: gptalker.cpp:581
+#, kde-format
 msgid "User exceeded upload limit"
 msgstr "การอัปโหลดของผู้ใช้เกินค่าที่จำกัดแล้ว"
 
-#: gptalker.cpp:576
+#: gptalker.cpp:584
+#, kde-format
 msgid "Invalid signature"
 msgstr "ลายเซ็นใช้ไม่ได้หรือไม่ถูกต้อง"
 
-#: gptalker.cpp:579
+#: gptalker.cpp:587
+#, kde-format
 msgid "Missing signature"
 msgstr "ลายเซ็นหายไป"
 
-#: gptalker.cpp:582
+#: gptalker.cpp:590
+#, kde-format
 msgid "Login failed / Invalid auth token"
 msgstr "การล็อกอินล้มเหลว / ตั๋วตรวจสอบสิทธิ์ใช้ไม่ได้"
 
-#: gptalker.cpp:585
+#: gptalker.cpp:593
+#, kde-format
 msgid "Invalid API Key"
 msgstr "กุญแจ API ใช้ไม่ได้หรือไม่ถูกต้อง"
 
-#: gptalker.cpp:588
+#: gptalker.cpp:596
+#, kde-format
 msgid "Service currently unavailable"
 msgstr "ยังไม่สามารถใช้บริการได้ในตอนนี้"
 
-#: gptalker.cpp:591
+#: gptalker.cpp:599
+#, kde-format
 msgid "Invalid Frob"
 msgstr "Frob ใช้ไม่ได้หรือไม่ถูกต้อง"
 
-#: gptalker.cpp:594
+#: gptalker.cpp:602
+#, kde-format
 msgid "Format \"xxx\" not found"
 msgstr "ไม่พบรูปแบบ \"xxx\""
 
-#: gptalker.cpp:597
+#: gptalker.cpp:605
+#, kde-format
 msgid "Method \"xxx\" not found"
 msgstr "ไม่พบวิธีการ \"xxx\""
 
-#: gptalker.cpp:600
+#: gptalker.cpp:608
+#, kde-format
 msgid "Invalid SOAP envelope"
 msgstr "SOAP envelope ใช้ไม่ได้หรือไม่ถูกต้อง"
 
-#: gptalker.cpp:603
+#: gptalker.cpp:611
+#, kde-format
 msgid "Invalid XML-RPC Method Call"
 msgstr "การเรียกใช้วิธีการ XML-RPC ใช้ไม่ได้หรือไม่ถูกต้อง"
 
-#: gptalker.cpp:606
+#: gptalker.cpp:614
+#, kde-format
 msgid "The POST method is now required for all setters."
 msgstr "ในตอนนี้จำเป็นต้องใช้วิธีการแบบ POST กับตัวตั้งค่า (setters) ทั้งหมด"
 
-#: gptalker.cpp:609
+#: gptalker.cpp:617
+#, kde-format
 msgid "Unknown error"
 msgstr "ไม่ทราบข้อผิดพลาด"
 
-#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gptalker.cpp:620 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
 #: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
-#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+#: gswindow.cpp:1198 gswindow.cpp:1241 gswindow.cpp:1249
+#, kde-format
 msgctxt "@title:window"
 msgid "Error"
 msgstr ""
 
-#: gptalker.cpp:613
+#: gptalker.cpp:621
 #, kde-format
 msgid ""
 "Error occurred: %1\n"
@@ -132,107 +154,122 @@ msgstr ""
 "เกิดข้อผิดพลาดขึ้น: %1\n"
 " ไม่สามารถดำเนินการต่อไปได้"
 
-#: gptalker.cpp:683 gptalker.cpp:750
+#: gptalker.cpp:691 gptalker.cpp:758
+#, kde-format
 msgid "Failed to fetch photo-set list"
 msgstr "ล้มเหลวในการดึงรายการชุดภาพ"
 
-#: gptalker.cpp:886 gptalker.cpp:919
+#: gptalker.cpp:894 gptalker.cpp:927
+#, kde-format
 msgid "Failed to create album"
 msgstr "ล้มเหลวในการสร้างอัลบั้มใหม่"
 
 #: gswidget.cpp:60
+#, kde-format
 msgid "Tag path behavior :"
 msgstr ""
 
 #: gswidget.cpp:62
+#, kde-format
 msgid "Leaf tags only"
 msgstr ""
 
 #: gswidget.cpp:63
+#, kde-format
 msgid "Export only the leaf tags of tag hierarchies"
 msgstr ""
 
 #: gswidget.cpp:64
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Select Images for Upload"
 msgid "Split tags"
 msgstr "เลือกรูปภาพต่าง ๆ ที่จะทำการอัปโหลด"
 
 #: gswidget.cpp:65
+#, kde-format
 msgid "Export the leaf tag and all ancestors as single tags."
 msgstr ""
 
 #: gswidget.cpp:66
+#, kde-format
 msgid "Combined String"
 msgstr ""
 
 #: gswidget.cpp:67
+#, kde-format
 msgid "Build a combined tag string."
 msgstr ""
 
 #: gswindow.cpp:116
+#, kde-format
 msgid "Google Drive Export"
 msgstr ""
 
 #: gswindow.cpp:117
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
 msgid "A tool to export images to Google Drive"
 msgstr "ส่วนเสริมของ Kipi สำหรับส่งออกชุดภาพสะสมไปยังเว็บบริการ PicasaWeb"
 
 #: gswindow.cpp:119
+#, kde-format
 msgid ""
 "(c) 2013, Saurabh Patel\n"
 "(c) 2015, Shourya Singh Gupta"
 msgstr ""
 
 #: gswindow.cpp:122
+#, kde-format
 msgid "Saurabh Patel"
 msgstr ""
 
 #: gswindow.cpp:122 gswindow.cpp:195
+#, kde-format
 msgid "Author and maintainer"
 msgstr "ผู้เขียนและผู้ดูแล"
 
 #: gswindow.cpp:125 gswindow.cpp:207
+#, kde-format
 msgid "Shourya Singh Gupta"
 msgstr ""
 
 #: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
 #: gswindow.cpp:207
+#, kde-format
 msgid "Developer"
 msgstr "ผู้พัฒนา"
 
 #: gswindow.cpp:132
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to Picasa Web Service"
 msgid "Export to Google Drive"
 msgstr "ส่งออกไปยังเว็บบริการ Picasa"
 
 #: gswindow.cpp:134 gswindow.cpp:219
+#, kde-format
 msgid "Start Upload"
 msgstr "เริ่มการอัปโหลด"
 
 #: gswindow.cpp:135
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Start upload to Picasaweb service"
 msgid "Start upload to Google Drive"
 msgstr "เริ่มการอัปโหลดไปยังเว็บบริการ Picasaweb"
 
 #: gswindow.cpp:186
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "PicasaWeb Export"
 msgid "Google Photos/PicasaWeb Export"
 msgstr "ส่งออกไปยัง PicasaWeb"
 
 #: gswindow.cpp:187
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to export image collections to PicasaWeb web service."
 msgid "A tool to export image collections to Google Photos/Picasa web service."
 msgstr "ส่วนเสริมของ Kipi สำหรับส่งออกชุดภาพสะสมไปยังเว็บบริการ PicasaWeb"
 
 #: gswindow.cpp:189
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2007-2009, Vardhman Jain\n"
 #| "(c) 2008-2009, Gilles Caulier\n"
@@ -251,45 +288,50 @@ msgstr ""
 "สงวนลิขสิทธิ์ (c) 2010, Jens Mueller"
 
 #: gswindow.cpp:195
+#, kde-format
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
 #: gswindow.cpp:198
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: gswindow.cpp:201
+#, kde-format
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
 #: gswindow.cpp:204
+#, kde-format
 msgid "Jens Mueller"
 msgstr "Jens Mueller"
 
 #: gswindow.cpp:217
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to Picasa Web Service"
 msgid "Export to Google Photos/PicasaWeb Service"
 msgstr "ส่งออกไปยังเว็บบริการ Picasa"
 
 #: gswindow.cpp:220
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Start upload to Picasaweb service"
 msgid "Start upload to Google Photos/PicasaWeb Service"
 msgstr "เริ่มการอัปโหลดไปยังเว็บบริการ Picasaweb"
 
 #: gswindow.cpp:226
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from Picasa Web Service"
 msgid "Import from Google Photos/PicasaWeb Service"
 msgstr "นำเข้าจากเว็บบริการ Picasa"
 
 #: gswindow.cpp:228
+#, kde-format
 msgid "Start Download"
 msgstr "เริ่มการดาวน์โหลด"
 
 #: gswindow.cpp:229
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Start download from Picasaweb service"
 msgid "Start download from Google Photos/PicasaWeb service"
 msgstr "เริ่มการดาวน์โหลดจากเว็บบริการ Picasaweb"
@@ -301,11 +343,12 @@ msgid "Google Photos/PicasaWeb Call Failed: %1\n"
 msgstr "ล้มเหลวในการเรียกใช้ Picasaweb: %1\n"
 
 #: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: gswindow.cpp:531
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "PicasaWeb Export"
 msgid "Google Photo Export"
 msgstr "ส่งออกไปยัง PicasaWeb"
@@ -317,6 +360,7 @@ msgid "Google Drive Call Failed: %1\n"
 msgstr "ล้มเหลวในการเรียกใช้ Picasaweb: %1\n"
 
 #: gswindow.cpp:653
+#, kde-format
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -324,29 +368,35 @@ msgid ""
 msgstr ""
 
 #: gswindow.cpp:669
+#, kde-format
 msgid "No image selected. Please select which images should be uploaded."
 msgstr ""
 
 #: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
 #: gswindow.cpp:1105
+#, kde-format
 msgid "Warning"
 msgstr ""
 
 #: gswindow.cpp:684 gswindow.cpp:707
+#, kde-format
 msgid "Authentication failed. Click \"Continue\" to authenticate."
 msgstr ""
 
 #: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
-#: gswindow.cpp:1109 gswindow.cpp:1286
+#: gswindow.cpp:1109 gswindow.cpp:1288
+#, kde-format
 msgid "Continue"
 msgstr ""
 
 #: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
-#: gswindow.cpp:1110 gswindow.cpp:1287
+#: gswindow.cpp:1110 gswindow.cpp:1289
+#, kde-format
 msgid "Cancel"
 msgstr "ยกเลิก"
 
 #: gswindow.cpp:762
+#, kde-format
 msgid "Google Drive export"
 msgstr ""
 
@@ -386,20 +436,20 @@ msgstr ""
 "ล้มเหลวในการดาวน์โหลดภาพถ่าย: %1\n"
 "คุณต้องการจะทำต่อไปหรือไม่ ?"
 
-#: gswindow.cpp:1198
+#: gswindow.cpp:1200
 #, kde-format
 msgctxt "%1 is the error string, %2 is the error code"
 msgid "An authentication error occurred: %1 (%2)"
 msgstr ""
 
-#: gswindow.cpp:1240
+#: gswindow.cpp:1242
 #, kde-format
 msgid ""
 "Google Drive call failed:\n"
 "%1"
 msgstr ""
 
-#: gswindow.cpp:1248
+#: gswindow.cpp:1250
 #, fuzzy, kde-format
 #| msgid "Picasaweb Call Failed: %1\n"
 msgid ""
@@ -407,12 +457,14 @@ msgid ""
 "%1"
 msgstr "ล้มเหลวในการเรียกใช้ Picasaweb: %1\n"
 
-#: gswindow.cpp:1281
+#: gswindow.cpp:1283
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning"
 msgstr ""
 
-#: gswindow.cpp:1282
+#: gswindow.cpp:1284
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -420,29 +472,31 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "PicasaWeb Export"
 msgid "&Export"
 msgstr "ส่งออกไปยัง PicasaWeb"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_googleservicesui.rc:11
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "PicasaWeb Export"
 msgid "&Import"
 msgstr "ส่งออกไปยัง PicasaWeb"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_googleservicesui.rc:21
+#, kde-format
 msgid "Main Toolbar"
 msgstr ""
 
 #: newalbumdlg.cpp:54
+#, kde-format
 msgid "Access Level"
 msgstr "ระดับการเข้าใช้งาน"
 
 #: newalbumdlg.cpp:55
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "These are security and privacy settings for the new Picasaweb album."
 msgid ""
 "These are security and privacy settings for the new Google Photos/PicasaWeb "
@@ -450,7 +504,7 @@ msgid ""
 msgstr "นี่เป็นส่วนตั้งค่าค่าความปลอดภัยและความเป็นส่วนตัวสำหรับใช้กับอัลบั้มใหม่ของ Picasaweb"
 
 #: newalbumdlg.cpp:57
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "picasaweb album privacy"
 #| msgid "Public"
 msgctxt "google photos/picasaweb album privacy"
@@ -458,13 +512,13 @@ msgid "Public"
 msgstr "สาธารณะ"
 
 #: newalbumdlg.cpp:59
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Public album is listed on your public Picasaweb page."
 msgid "Public album is listed on your public Google Photos/PicasaWeb page."
 msgstr "อัลบั้มแบบสาธารณะจะถูกแสดงรายการในหน้าเว็บสาธารณะบน Picasaweb ของคุณ"
 
 #: newalbumdlg.cpp:60
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "picasaweb album privacy"
 #| msgid "Unlisted / Private"
 msgctxt "google photos/picasaweb album privacy"
@@ -472,11 +526,12 @@ msgid "Unlisted / Private"
 msgstr "ไม่แสดงรายการ / เป็นส่วนตัว"
 
 #: newalbumdlg.cpp:61
+#, kde-format
 msgid "Unlisted album is only accessible via URL."
 msgstr "ไม่แสดงอัลบั้มในรายการ ซึ่งสามารถจะเข้าใช้งานผ่านทางที่อยู่ URL เท่านั้น"
 
 #: newalbumdlg.cpp:62
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "picasaweb album privacy"
 #| msgid "Sign-In Required to View"
 msgctxt "google photos/picasaweb album privacy"
@@ -484,71 +539,76 @@ msgid "Sign-In Required to View"
 msgstr "ต้องการการลงชื่อเข้าใช้งานก่อน จึงจะดูภาพได้"
 
 #: newalbumdlg.cpp:63
+#, kde-format
 msgid "Unlisted album require Sign-In to View"
 msgstr "อัลบั้มแบบไม่แสดงในรายการ ต้องการการลงชื่อเข้าใช้งานก่อน จึงจะสามารถดูภาพได้"
 
 #: newalbumdlg.cpp:71
+#, kde-format
 msgid "Privacy:"
 msgstr "ความเป็นส่วนตัว:"
 
 #: plugin_googleservices.cpp:100
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to &PicasaWeb..."
 msgid "Export to &Google Drive..."
 msgstr "ส่งออกไปยัง &PicasaWeb..."
 
 #: plugin_googleservices.cpp:110
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to &PicasaWeb..."
 msgid "Export to &Google Photos/PicasaWeb..."
 msgstr "ส่งออกไปยัง &PicasaWeb..."
 
 #: plugin_googleservices.cpp:120
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from &PicasaWeb..."
 msgid "Import from &Google Photos/PicasaWeb..."
 msgstr "นำเข้าจาก &PicasaWeb..."
 
 #: replacedialog.cpp:112
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Add As New"
 msgid "Add As New"
 msgstr "เ&พิ่มเป็นตัวใหม่"
 
 #: replacedialog.cpp:113
+#, kde-format
 msgid "Item will be added alongside the linked version."
 msgstr "รายการจะถูกเพิ่มเข้าไปในรุ่นที่เป็นส่วนเชื่อมโยง"
 
 #: replacedialog.cpp:119
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Add All"
 msgid "Add All"
 msgstr "เพิ่ม&ทั้งหมด"
 
 #: replacedialog.cpp:120
+#, kde-format
 msgid ""
 "Items will be added alongside the linked version. You will not be prompted "
 "again."
 msgstr "รายการจะถูกเพิ่มเข้าไปในรุ่นที่เป็นส่วนเชื่อมโยง คุณจะไม่พบการถามอีก"
 
 #: replacedialog.cpp:126
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Replace"
 msgid "Replace"
 msgstr "แ&ทนที่"
 
 #: replacedialog.cpp:127
+#, kde-format
 msgid "Item will be replacing the linked version."
 msgstr "รายการจะทำการแทนที่รุ่นที่เป็นส่วนเชื่อมโยง"
 
 #: replacedialog.cpp:133
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Replace All"
 msgid "Replace All"
 msgstr "แ&ทนที่ทั้งหมด"
 
 #: replacedialog.cpp:134
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "Items will be replacing the linked version. You will be prompted again."
 msgid ""
@@ -556,14 +616,17 @@ msgid ""
 msgstr "รายการจะทำการแทนที่รุ่นที่เป็นส่วนเชื่อมโยง คุณจะได้รับการถามอีก"
 
 #: replacedialog.cpp:157
+#, kde-format
 msgid "A linked item already exists."
 msgstr "มีรายการที่เชื่อมโยงอยู่ก่อนแล้ว"
 
 #: replacedialog.cpp:177
+#, kde-format
 msgid "Destination"
 msgstr "ปลายทาง"
 
 #: replacedialog.cpp:182
+#, kde-format
 msgid "Source"
 msgstr "ต้นทาง"
 

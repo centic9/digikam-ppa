@@ -7,7 +7,7 @@
  * Description : digiKam 8/16 bits image management API
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -644,6 +644,10 @@ public:
      * Helper method to translate enum values to user presentable strings
      */
     static QString colorModelToString(COLORMODEL colorModel);
+
+    /** Return true if image file is an animation, as GIFa or NMG
+     */
+    static bool isAnimatedImage(const QString& filePath);
 
 private:
 

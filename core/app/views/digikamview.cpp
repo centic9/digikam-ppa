@@ -7,7 +7,7 @@
  * Description : implementation of album view interface.
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2002-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * Copyright (C) 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2011-2013 by Michael G. Hansen <mike at mghansen dot de>
@@ -294,15 +294,15 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
                                                              d->albumModificationHelper);
     d->leftSideBarWidgets << d->albumFolderSideBar;
 
-    connect(d->albumFolderSideBar, SIGNAL(signalFindDuplicatesInAlbum(Album*)),
-            this, SLOT(slotNewDuplicatesSearch(Album*)));
+    connect(d->albumFolderSideBar, SIGNAL(signalFindDuplicates(PAlbum*)),
+            this, SLOT(slotNewDuplicatesSearch(PAlbum*)));
 
     // Tags sidebar tab contents.
     d->tagViewSideBar = new TagViewSideBarWidget(d->leftSideBar, d->modelCollection->getTagModel());
     d->leftSideBarWidgets << d->tagViewSideBar;
 
-    connect(d->tagViewSideBar, SIGNAL(signalFindDuplicatesInAlbum(Album*)),
-            this, SLOT(slotNewDuplicatesSearch(Album*)));
+    connect(d->tagViewSideBar, SIGNAL(signalFindDuplicates(QList<TAlbum*>)),
+            this, SLOT(slotNewDuplicatesSearch(QList<TAlbum*>)));
 
     // Labels sidebar
     d->labelsSideBar       = new LabelsSideBarWidget(d->leftSideBar);
@@ -333,11 +333,15 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
                                                          d->searchModificationHelper);
     d->leftSideBarWidgets << d->fuzzySearchSideBar;
 
+    connect(d->fuzzySearchSideBar,SIGNAL(signalActive(bool)),
+            this, SIGNAL(signalFuzzySidebarActive(bool)));
+
 #ifdef HAVE_MARBLE
     d->gpsSearchSideBar = new GPSSearchSideBarWidget(d->leftSideBar,
                                                      d->modelCollection->getSearchModel(),
                                                      d->searchModificationHelper,
-                                                     d->iconView->imageFilterModel(),d->iconView->getSelectionModel());
+                                                     d->iconView->imageFilterModel(),
+                                                     d->iconView->getSelectionModel());
 
     d->leftSideBarWidgets << d->gpsSearchSideBar;
 #endif // HAVE_MARBLE
@@ -349,6 +353,9 @@ DigikamView::DigikamView(QWidget* const parent, DigikamModelCollection* const mo
 
     connect(d->peopleSideBar, SIGNAL(requestFaceMode(bool)),
             d->iconView, SLOT(setFaceMode(bool)));
+
+    connect(d->peopleSideBar, SIGNAL(signalFindDuplicates(QList<TAlbum*>)),
+            this, SLOT(slotNewDuplicatesSearch(QList<TAlbum*>)));
 
     d->leftSideBarWidgets << d->peopleSideBar;
 
@@ -1033,10 +1040,22 @@ void DigikamView::slotNewAdvancedSearch()
     d->searchSideBar->newAdvancedSearch();
 }
 
-void DigikamView::slotNewDuplicatesSearch(Album* album)
+void DigikamView::slotNewDuplicatesSearch(PAlbum* album)
 {
     slotLeftSideBarActivate(d->fuzzySearchSideBar);
     d->fuzzySearchSideBar->newDuplicatesSearch(album);
+}
+
+void DigikamView::slotNewDuplicatesSearch(QList<PAlbum*> albums)
+{
+    slotLeftSideBarActivate(d->fuzzySearchSideBar);
+    d->fuzzySearchSideBar->newDuplicatesSearch(albums);
+}
+
+void DigikamView::slotNewDuplicatesSearch(QList<TAlbum*> albums)
+{
+    slotLeftSideBarActivate(d->fuzzySearchSideBar);
+    d->fuzzySearchSideBar->newDuplicatesSearch(albums);
 }
 
 void DigikamView::slotAlbumsCleared()
@@ -1861,7 +1880,15 @@ void DigikamView::slotImageAddToExistingQueue(int queueid)
 
 void DigikamView::slotImageRename()
 {
-    d->iconView->rename();
+    switch (viewMode())
+    {
+        case StackedView::TableViewMode:
+            d->tableView->rename();
+            break;
+
+        default:
+            d->iconView->rename();
+    }
 }
 
 void DigikamView::slotImageDelete()
@@ -2293,7 +2320,7 @@ void DigikamView::slotFocusAndNextImage()
     d->stackedview->currentWidget()->setFocus();
 
     //select next image, since the user is probably done tagging the current image
-    d->iconView->toNextIndex();
+    slotNextItem();
 }
 
 void DigikamView::slotImageExifOrientation(int orientation)
