@@ -7,7 +7,7 @@
  * Description : Albums folder view.
  *
  * Copyright (C) 2005-2006 by Joern Ahrens <joern dot ahrens at kdemail dot net>
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  *
@@ -149,7 +149,6 @@ public:
         d->albumModificationHelper->bindAlbum(d->rebuildThumbsAction, album);
         cmh.addImportMenu();
         cmh.addExportMenu();
-        cmh.addBatchMenu();
         cmh.addAlbumActions();
         cmh.addSeparator();
         // --------------------------------------------------------
@@ -204,7 +203,7 @@ void AlbumSelectionTreeView::setEnableToolTips(bool enable)
 
 void AlbumSelectionTreeView::slotFindDuplicates()
 {
-    emit signalFindDuplicatesInAlbum(d->albumModificationHelper->boundAlbum(sender()));
+    emit signalFindDuplicates(d->albumModificationHelper->boundAlbum(sender()));
 }
 
 void AlbumSelectionTreeView::slotRebuildThumbs()

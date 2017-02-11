@@ -6,7 +6,7 @@
  * Date        : 2016-04-21
  * Description : a class to manage video thumbnails extraction
  *
- * Copyright (C) 2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2016-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -48,7 +48,6 @@ public:
         jobDone     = true;
         createStrip = true;
         thumbSize   = ThumbnailSize::Huge;
-        thumbJob    = 0;
         vthumb      = 0;
     }
 
@@ -57,7 +56,6 @@ public:
     volatile bool     jobDone;
     bool              createStrip;
     int               thumbSize;
-    quint64           thumbJob;
 
     QMutex            mutex;
     QWaitCondition    condVar;
@@ -71,17 +69,16 @@ VideoThumbnailerJob::VideoThumbnailerJob(QObject* const parent)
     : QThread(parent),
       d(new Private)
 {
-    d->thumbJob = reinterpret_cast<quint64>(this);
-    d->vthumb   = VideoThumbnailer::instance();
+    d->vthumb = new VideoThumbnailer(this);
 
-    connect(this, SIGNAL(signalGetThumbnail(quint64, const QString&,int,bool)),
-            d->vthumb, SLOT(slotGetThumbnail(quint64, const QString&,int,bool)));
+    connect(this, SIGNAL(signalGetThumbnail(const QString&,int,bool)),
+            d->vthumb, SLOT(slotGetThumbnail(const QString&,int,bool)));
 
-    connect(d->vthumb, SIGNAL(signalThumbnailDone(quint64, const QString&, const QImage&)),
-            this, SLOT(slotThumbnailDone(quint64, const QString&, const QImage&)));
+    connect(d->vthumb, SIGNAL(signalThumbnailDone(const QString&, const QImage&)),
+            this, SLOT(slotThumbnailDone(const QString&, const QImage&)));
 
-    connect(d->vthumb, SIGNAL(signalThumbnailFailed(quint64, const QString&)),
-            this, SLOT(slotThumbnailFailed(quint64, const QString&)));
+    connect(d->vthumb, SIGNAL(signalThumbnailFailed(const QString&)),
+            this, SLOT(slotThumbnailFailed(const QString&)));
 }
 
 VideoThumbnailerJob::~VideoThumbnailerJob()
@@ -157,37 +154,21 @@ void VideoThumbnailerJob::run()
     {
         QMutexLocker lock(&d->mutex);
 
-        bool ready = d->vthumb->isReady();
-
-        if (ready && d->jobDone && !d->todo.isEmpty())
+        if (d->jobDone && !d->todo.isEmpty())
         {
             d->jobDone = false;
             d->currentFile = d->todo.takeFirst();
             qCDebug(DIGIKAM_GENERAL_LOG) << "Request to get thumbnail for " << d->currentFile;
-            emit signalGetThumbnail(d->thumbJob, d->currentFile, d->thumbSize, d->createStrip);
-        }
-        else if (!ready && d->jobDone)
-        {
-            d->condVar.wait(&d->mutex, 250);
-            continue;
+            emit signalGetThumbnail(d->currentFile, d->thumbSize, d->createStrip);
         }
 
-        if (d->todo.isEmpty())
-        {
-            d->condVar.wait(&d->mutex);
-        }
-        else if (!d->condVar.wait(&d->mutex, 5000))
-        {
-            qCDebug(DIGIKAM_GENERAL_LOG) << "Timeout to get thumbnail for " << d->currentFile;
-            emit signalThumbnailFailed(d->currentFile);
-            d->jobDone = true;
-        }
+        d->condVar.wait(&d->mutex);
     }
 }
 
-void VideoThumbnailerJob::slotThumbnailDone(quint64 job, const QString& file, const QImage& img)
+void VideoThumbnailerJob::slotThumbnailDone(const QString& file, const QImage& img)
 {
-    if (d->thumbJob != job || d->jobDone || d->currentFile != file)
+    if (d->jobDone || d->currentFile != file)
     {
         return;
     }
@@ -198,9 +179,9 @@ void VideoThumbnailerJob::slotThumbnailDone(quint64 job, const QString& file, co
     processOne();
 }
 
-void VideoThumbnailerJob::slotThumbnailFailed(quint64 job, const QString& file)
+void VideoThumbnailerJob::slotThumbnailFailed(const QString& file)
 {
-    if (d->thumbJob != job || d->jobDone || d->currentFile != file)
+    if (d->jobDone || d->currentFile != file)
     {
         return;
     }

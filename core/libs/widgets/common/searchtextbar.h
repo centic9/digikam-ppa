@@ -6,7 +6,7 @@
  * Date        : 2007-11-25
  * Description : a bar used to search a string.
  *
- * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -64,13 +64,10 @@ public:
 bool DIGIKAM_EXPORT operator==(const SearchTextSettings& a, const SearchTextSettings& b);
 
 /**
- * A text input for searching entries with visual feedback. Can be used on
- * QAbstractItemModels.
- *
- * @todo the model code could also be placed in a subclass of KCompletion...
+ * A text input for searching entries with visual feedback.
+ * Can be used on QAbstractItemModels.
  *
  * @author Gilles Caulier
- * @author jwienke
  */
 class DIGIKAM_EXPORT SearchTextBar : public QLineEdit, public StateSavingObject
 {

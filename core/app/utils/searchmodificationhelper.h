@@ -7,7 +7,7 @@
  * Description : helper class used to modify search albums in views
  *
  * Copyright (C) 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -84,12 +84,23 @@ public:
                                         bool overwriteIfExisting = false);
 
     /**
+     * @see slotCreateFuzzySearchFromDropped()
+     * @return the newly created album
+     */
+    SAlbum* createFuzzySearchFromDropped(const QString& name,
+                                        const QString& filePath,
+                                        float threshold,
+                                        float maxThreshold,
+                                        bool overwriteIfExisting = false);
+
+    /**
      * @see slotCreateFuzzySearchFromImage()
      * @return the newly created album
      */
     SAlbum* createFuzzySearchFromImage(const QString& name,
                                        const ImageInfo& image,
                                        float threshold,
+                                       float maxThreshold,
                                        bool overwriteIfExisting = false);
 
 public Q_SLOTS:
@@ -155,6 +166,25 @@ public Q_SLOTS:
                                         const ImageInfo& image,
                                         float threshold,
                                         bool overwriteIfExisting = false);
+
+    /**
+     * Creates a new fuzzy search for finding similar photos based on the file 
+     * path of a photo
+     * and selects it in the album manager after creation.
+     *
+     * @param name of the new search
+     * @param filePath path of the image to base this search on
+     * @param threshold minimum threshold for image search
+     * @param maxThreshold maximum threshold for image search
+     * @param overwriteIfExisting if true, an existing search with the desired
+     *                            name will be overwritten without prompting the
+     *                            user for a new name
+     */
+    void slotCreateFuzzySearchFromDropped(const QString& name,
+                                          const QString& filePath,
+                                          float threshold,
+                                          float maxThreshold,
+                                          bool overwriteIfExisting);
 
 private:
 

@@ -1002,7 +1002,7 @@ void GSWindow::slotGetPhotoDone(int errCode, const QString& errMsg, const QByteA
                     m_meta->setGPSInfo(0.0, item.gpsLat.toDouble(), item.gpsLon.toDouble());
                 }
 
-                m_meta->save(tmpUrl);
+                m_meta->save(tmpUrl, true);
             }
 
             m_transferQueue.pop_front();
@@ -1184,9 +1184,11 @@ void GSWindow::slotReloadAlbumsRequest()
     switch (m_name)
     {
         case PluginName::GDrive:
+            m_talker->listFolders();
             break;
         case PluginName::GPhotoImport:
         case PluginName::GPhotoExport:
+            m_gphoto_talker->listAlbums();
             break;
     }
 }

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_kmlexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-10-06 07:13+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2016-09-19 20:18+0100\n"
 "Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "X-Generator: Lokalize 2.0\n"
 
 #: kmlexport.cpp:97
+#, kde-format
 msgid "Generating KML file..."
 msgstr "Generazione del file KML..."
 
@@ -53,6 +54,7 @@ msgid "Could not save icon for image '%1' to '%2'"
 msgstr "Impossibile salvare l'icona dell'immagine «%1» su «%2»"
 
 #: kmlexport.cpp:391
+#, kde-format
 msgid "No GPX file chosen."
 msgstr "Nessun file GPX scelto."
 
@@ -67,6 +69,7 @@ msgid "The %1 GPX file do not have a date-time track to use."
 msgstr "Il file GPX %1 non ha una traccia di data e ora disponibile."
 
 #: kmlexport.cpp:413
+#, kde-format
 msgid "Tracks"
 msgstr "Tracce"
 
@@ -76,6 +79,7 @@ msgid "No position data for '%1'"
 msgstr "Nessun dato sulla posizione per «%1»"
 
 #: kmlexport.cpp:517
+#, kde-format
 msgid "Missing position"
 msgstr "Posizione mancante"
 
@@ -87,51 +91,63 @@ msgstr[0] "Nessun dato sulla posizione per un'immagine"
 msgstr[1] "Nessun dato sulla posizione per %1 immagini"
 
 #: kmlexport.cpp:533
+#, kde-format
 msgid "Move to final directory"
 msgstr "Sposta nella cartella finale"
 
 #: kmlexport.cpp:537
+#, kde-format
 msgid "Cannot move data to destination directory"
 msgstr "Non posso spostare i dati nella cartella di destinazione"
 
 #: kmlgpsdataparser.cpp:63
+#, kde-format
 msgid "Track"
 msgstr "Traccia"
 
 #: kmlgpsdataparser.cpp:89
+#, kde-format
 msgid "Points"
 msgstr "Punti"
 
 #: kmlgpsdataparser.cpp:100
+#, kde-format
 msgid "Point"
 msgstr "Punto"
 
 #: kmlwindow.cpp:69 kmlwindow.cpp:285
+#, kde-format
 msgid "KML Export"
 msgstr "Esporta KML"
 
 #: kmlwindow.cpp:72
+#, kde-format
 msgctxt "@action:button"
 msgid "&Export"
 msgstr "&Esporta"
 
 #: kmlwindow.cpp:83
+#, kde-format
 msgid "Target Preferences"
 msgstr "Preferenze del risultato"
 
 #: kmlwindow.cpp:87
+#, kde-format
 msgid "Target Type"
 msgstr "Tipo di risultato"
 
 #: kmlwindow.cpp:90
+#, kde-format
 msgid "&Local or web target used by GoogleEarth"
 msgstr "Risultato &locale o Web usato da GoogleEarth"
 
 #: kmlwindow.cpp:93
+#, kde-format
 msgid "Web target used by GoogleMaps"
 msgstr "Risultato Web usato da GoogleMaps"
 
 #: kmlwindow.cpp:94
+#, kde-format
 msgid ""
 "When using GoogleMaps, all images must have complete URLs, icons are "
 "squared, and when drawing a track, only line track is exported."
@@ -141,22 +157,27 @@ msgstr ""
 "traccia lineare."
 
 #: kmlwindow.cpp:105
+#, kde-format
 msgid "Picture Altitude:"
 msgstr "Altitudine delle immagini:"
 
 #: kmlwindow.cpp:107 kmlwindow.cpp:231
+#, kde-format
 msgid "clamp to ground"
 msgstr "fisso a terra"
 
 #: kmlwindow.cpp:108 kmlwindow.cpp:232
+#, kde-format
 msgid "relative to ground"
 msgstr "relativo al terreno"
 
 #: kmlwindow.cpp:109 kmlwindow.cpp:233
+#, kde-format
 msgid "absolute"
 msgstr "assoluta"
 
 #: kmlwindow.cpp:110
+#, kde-format
 msgid ""
 "<p>Specifies how pictures are displayed<dl><dt>clamp to ground (default)</"
 "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
@@ -174,42 +195,52 @@ msgstr ""
 "sotto l'elemento.</dd></dl>"
 
 #: kmlwindow.cpp:120
+#, kde-format
 msgid "Destination Directory:"
 msgstr "Cartella di destinazione:"
 
 #: kmlwindow.cpp:124
+#, kde-format
 msgid "Select a directory in which to save the kml file and pictures"
 msgstr "Seleziona una cartella in cui salvare il file KML e le immagini"
 
 #: kmlwindow.cpp:126
+#, kde-format
 msgid "Destination Path:"
 msgstr "Percorso di destinazione:"
 
 #: kmlwindow.cpp:128
+#, kde-format
 msgid "Filename:"
 msgstr "Nome file:"
 
 #: kmlwindow.cpp:146
+#, kde-format
 msgid "Sizes"
 msgstr "Dimensioni"
 
 #: kmlwindow.cpp:148
+#, kde-format
 msgid "Icon Size:"
 msgstr "Dimensione delle icone:"
 
 #: kmlwindow.cpp:153
+#, kde-format
 msgid "Image Size:"
 msgstr "Dimensione delle immagini:"
 
 #: kmlwindow.cpp:168
+#, kde-format
 msgid "GPX Tracks"
 msgstr "Tracce GPX"
 
 #: kmlwindow.cpp:172
+#, kde-format
 msgid "Draw GPX Track"
 msgstr "Disegna traccia GPX"
 
 #: kmlwindow.cpp:175
+#, kde-format
 msgid "GPX file:"
 msgstr "File GPX:"
 
@@ -219,122 +250,152 @@ msgid "%1|GPS Exchange Format"
 msgstr "%1|Formato di scambio GPS"
 
 #: kmlwindow.cpp:179
+#, kde-format
 msgid "Select GPX File to Load"
 msgstr "Seleziona il file GPX da caricare"
 
 #: kmlwindow.cpp:182
+#, kde-format
 msgid "Time Zone:"
 msgstr "Fuso orario:"
 
 #: kmlwindow.cpp:184
+#, kde-format
 msgid "GMT-12:00"
 msgstr "GMT-12:00"
 
 #: kmlwindow.cpp:185
+#, kde-format
 msgid "GMT-11:00"
 msgstr "GMT-11:00"
 
 #: kmlwindow.cpp:186
+#, kde-format
 msgid "GMT-10:00"
 msgstr "GMT-10:00"
 
 #: kmlwindow.cpp:187
+#, kde-format
 msgid "GMT-09:00"
 msgstr "GMT-09:00"
 
 #: kmlwindow.cpp:188
+#, kde-format
 msgid "GMT-08:00"
 msgstr "GMT-08:00"
 
 #: kmlwindow.cpp:189
+#, kde-format
 msgid "GMT-07:00"
 msgstr "GMT-07:00"
 
 #: kmlwindow.cpp:190
+#, kde-format
 msgid "GMT-06:00"
 msgstr "GMT-06:00"
 
 #: kmlwindow.cpp:191
+#, kde-format
 msgid "GMT-05:00"
 msgstr "GMT-05:00"
 
 #: kmlwindow.cpp:192
+#, kde-format
 msgid "GMT-04:00"
 msgstr "GMT-04:00"
 
 #: kmlwindow.cpp:193
+#, kde-format
 msgid "GMT-03:00"
 msgstr "GMT-03:00"
 
 #: kmlwindow.cpp:194
+#, kde-format
 msgid "GMT-02:00"
 msgstr "GMT-02:00"
 
 #: kmlwindow.cpp:195
+#, kde-format
 msgid "GMT-01:00"
 msgstr "GMT-01:00"
 
 #: kmlwindow.cpp:196
+#, kde-format
 msgid "GMT"
 msgstr "GMT"
 
 #: kmlwindow.cpp:197
+#, kde-format
 msgid "GMT+01:00"
 msgstr "GMT+01:00"
 
 #: kmlwindow.cpp:198
+#, kde-format
 msgid "GMT+02:00"
 msgstr "GMT+02:00"
 
 #: kmlwindow.cpp:199
+#, kde-format
 msgid "GMT+03:00"
 msgstr "GMT+03:00"
 
 #: kmlwindow.cpp:200
+#, kde-format
 msgid "GMT+04:00"
 msgstr "GMT+04:00"
 
 #: kmlwindow.cpp:201
+#, kde-format
 msgid "GMT+05:00"
 msgstr "GMT+05:00"
 
 #: kmlwindow.cpp:202
+#, kde-format
 msgid "GMT+06:00"
 msgstr "GMT+06:00"
 
 #: kmlwindow.cpp:203
+#, kde-format
 msgid "GMT+07:00"
 msgstr "GMT+07:00"
 
 #: kmlwindow.cpp:204
+#, kde-format
 msgid "GMT+08:00"
 msgstr "GMT+08:00"
 
 #: kmlwindow.cpp:205
+#, kde-format
 msgid "GMT+09:00"
 msgstr "GMT+09:00"
 
 #: kmlwindow.cpp:206
+#, kde-format
 msgid "GMT+10:00"
 msgstr "GMT+10:00"
 
 #: kmlwindow.cpp:207
+#, kde-format
 msgid "GMT+11:00"
 msgstr "GMT+11:00"
 
 #: kmlwindow.cpp:208
+#, kde-format
 msgid "GMT+12:00"
 msgstr "GMT+12:00"
 
 #: kmlwindow.cpp:209
+#, kde-format
 msgid "GMT+13:00"
 msgstr "GMT+13:00"
 
 #: kmlwindow.cpp:210
+#, kde-format
 msgid "GMT+14:00"
 msgstr "GMT+14:00"
 
 #: kmlwindow.cpp:211
+#, kde-format
 msgid ""
 "Sets the time zone of the camera during picture shooting, so that the time "
 "stamps of the GPS can be converted to match the local time"
@@ -343,22 +404,27 @@ msgstr ""
 "immagini, in modo che l'ora del GPS possa essere convertita in quella locale."
 
 #: kmlwindow.cpp:215
+#, kde-format
 msgid "Track Width:"
 msgstr "Larghezza della traccia:"
 
 #: kmlwindow.cpp:219
+#, kde-format
 msgid "Track Color:"
 msgstr "Colore della traccia:"
 
 #: kmlwindow.cpp:223
+#, kde-format
 msgid "Opacity (%):"
 msgstr "Opacità (%):"
 
 #: kmlwindow.cpp:229
+#, kde-format
 msgid "Track Altitude:"
 msgstr "Altitudine della traccia:"
 
 #: kmlwindow.cpp:234
+#, kde-format
 msgid ""
 "<p>Specifies how the points are displayed<dl><dt>clamp to ground (default)</"
 "dt><dd>Indicates to ignore an altitude specification</dd><dt>relative to "
@@ -376,34 +442,42 @@ msgstr ""
 "sotto l'elemento.</dd></dl>"
 
 #: kmlwindow.cpp:286
+#, kde-format
 msgid "A tool to export to KML"
 msgstr "Uno strumento per esportare in KML"
 
 #: kmlwindow.cpp:287
+#, kde-format
 msgid "(c) 2006-2007, Stéphane Pontier"
 msgstr "© 2006-2007, Stéphane Pontier"
 
 #: kmlwindow.cpp:289
+#, kde-format
 msgid "Stéphane Pontier"
 msgstr "Stéphane Pontier"
 
 #: kmlwindow.cpp:290 kmlwindow.cpp:294
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "Sviluppatore e responsabile"
 
 #: kmlwindow.cpp:293
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: kmlwindow.cpp:297
+#, kde-format
 msgid "Michael G. Hansen"
 msgstr "Michael G. Hansen"
 
 #: kmlwindow.cpp:298
+#, kde-format
 msgid "Maintainer"
 msgstr "Responsabile"
 
 #: plugin_kmlexport.cpp:92
+#, kde-format
 msgid "Export to KML..."
 msgstr "Esporta in KML..."
 

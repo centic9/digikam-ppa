@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_remotestorage\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-04 03:47+0100\n"
 "PO-Revision-Date: 2016-08-26 19:34+0200\n"
 "Last-Translator: Josep Ma. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -22,10 +22,12 @@ msgstr ""
 "X-Accelerator-Marker: &\n"
 
 #: KioExportWidget.cpp:61
+#, kde-format
 msgid "Target location: "
 msgstr "Ubicació de la destinació: "
 
 #: KioExportWidget.cpp:62
+#, kde-format
 msgid ""
 "Sets the target address to upload the images to. This can be any address as "
 "used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
@@ -35,62 +37,77 @@ msgstr ""
 "carpeta."
 
 #: KioExportWidget.cpp:66
+#, kde-format
 msgid "Select target location..."
 msgstr "Seleccioneu la ubicació de la destinació..."
 
 #: KioExportWidget.cpp:72
+#, kde-format
 msgid "This is the list of images to upload to the specified target."
 msgstr "Aquesta és la llista d'imatges a pujar a la destinació especificada."
 
-#: KioExportWidget.cpp:135
+#: KioExportWidget.cpp:137
+#, kde-format
 msgid "Select target..."
 msgstr "Seleccioneu la destinació..."
 
-#: KioExportWidget.cpp:136
+#: KioExportWidget.cpp:138
+#, kde-format
 msgid "All Files (*)"
 msgstr "Tots els fitxers (*)"
 
-#: KioExportWidget.cpp:156
+#: KioExportWidget.cpp:159
+#, kde-format
 msgid "<not selected>"
 msgstr "<no seleccionat>"
 
 #: KioExportWindow.cpp:64
+#, kde-format
 msgid "Export to Remote Storage"
 msgstr "Exportació a un emmagatzematge remot"
 
 #: KioExportWindow.cpp:67
+#, kde-format
 msgid "Start export"
 msgstr "Inicia l'exportació"
 
 #: KioExportWindow.cpp:68
+#, kde-format
 msgid "Start export to the specified target"
 msgstr "Inicia l'exportació a la destinació especificada"
 
 #: KioExportWindow.cpp:84
+#, kde-format
 msgid "Export to remote storage"
 msgstr "Exporta a un emmagatzematge remot"
 
 #: KioExportWindow.cpp:85
+#, kde-format
 msgid "A tool to export images over network using KIO-Slave"
 msgstr "Una eina per exportar imatges per xarxa emprant l'esclau KIO"
 
 #: KioExportWindow.cpp:86 KioImportWindow.cpp:83
+#, kde-format
 msgid "(c) 2009, Johannes Wienke"
 msgstr "(c) 2009, Johannes Wienke"
 
 #: KioExportWindow.cpp:88 KioImportWindow.cpp:85
+#, kde-format
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
 #: KioExportWindow.cpp:89 KioImportWindow.cpp:86
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "Desenvolupador i mantenidor"
 
 #: KioExportWindow.cpp:198
+#, kde-format
 msgid "Upload not completed"
 msgstr "No s'ha completat la pujada"
 
 #: KioExportWindow.cpp:199
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to export these images now."
@@ -99,36 +116,44 @@ msgstr ""
 "podeu tornar a intentar exportar aquestes imatges."
 
 #: KioImportWidget.cpp:52
+#, kde-format
 msgid "This is the list of images to import into the current album."
 msgstr "Aquesta és la llista d'imatges a importar a l'àlbum actual."
 
 #: KioImportWindow.cpp:60
+#, kde-format
 msgid "Import from Remote Storage"
 msgstr "Importació des d'un emmagatzematge remot"
 
 #: KioImportWindow.cpp:64
+#, kde-format
 msgid "Start import"
 msgstr "Inicia la importació"
 
 #: KioImportWindow.cpp:65
+#, kde-format
 msgid "Start importing the specified images into the currently selected album."
 msgstr ""
 "Inicia la importació de les imatges especificades en l'àlbum actualment "
 "seleccionat."
 
 #: KioImportWindow.cpp:81
+#, kde-format
 msgid "Import from remote storage"
 msgstr "Importa des d'un emmagatzematge remot"
 
 #: KioImportWindow.cpp:82
+#, kde-format
 msgid "A tool to import images over network"
 msgstr "Una eina per importar imatges per la xarxa"
 
 #: KioImportWindow.cpp:137
+#, kde-format
 msgid "Import not completed"
 msgstr "No s'ha completat la importació"
 
 #: KioImportWindow.cpp:138
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to import these images now."
@@ -138,23 +163,28 @@ msgstr ""
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_remotestorageui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr "&Importa"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_remotestorageui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr "&Exporta"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_remotestorageui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Barra d'eines principal"
 
 #: plugin_remotestorage.cpp:93
+#, kde-format
 msgid "Export to remote storage..."
 msgstr "Exporta a l'emmagatzematge remot..."
 
 #: plugin_remotestorage.cpp:105
+#, kde-format
 msgid "Import from remote storage..."
 msgstr "Importa des de l'emmagatzematge remot..."

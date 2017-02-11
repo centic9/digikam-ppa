@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipi-plugins\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2014-10-20 19:34+0000\n"
 "Last-Translator: Samir Ribić <Unknown>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -21,42 +21,52 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #: fbalbum.cpp:52
+#, kde-format
 msgid "Privacy setting of the album that will be created (required)."
 msgstr "Postavke privatnosti albuma koji će biti kreiran (neophodno)."
 
 #: fbalbum.cpp:54
+#, kde-format
 msgid "Only Me"
 msgstr "Samo ja"
 
 #: fbalbum.cpp:56
+#, kde-format
 msgid "Only Friends"
 msgstr "Samo prijatelji"
 
 #: fbalbum.cpp:58
+#, kde-format
 msgid "Friends of Friends"
 msgstr "Prijatelji prijatelja"
 
 #: fbalbum.cpp:60
+#, kde-format
 msgid "My Networks and Friends"
 msgstr "Moja mreža i prijatelji"
 
 #: fbalbum.cpp:62
+#, kde-format
 msgid "Everyone"
 msgstr "Svi"
 
 #: fbtalker.cpp:202
+#, kde-format
 msgid "Validate previous session..."
 msgstr "Važeća prethodna sesija..."
 
 #: fbtalker.cpp:230
+#, kde-format
 msgid "Upgrading to OAuth..."
 msgstr "Nadogradnja na OAuth..."
 
 #: fbtalker.cpp:280
+#, kde-format
 msgid "Facebook Application Authorization"
 msgstr "Facebook autorizacija aplikacija"
 
 #: fbtalker.cpp:291
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser window. When done, copy the "
 "Internet address from your browser into the textbox below and press \"OK\"."
@@ -66,71 +76,83 @@ msgstr ""
 "pritisnite \"U redu\"."
 
 #: fbtalker.cpp:353
+#, kde-format
 msgid "Canceled by user."
 msgstr "Prekinuto od strane korisnika."
 
 #: fbtalker.cpp:550
+#, kde-format
 msgid "The service is not available at this time."
 msgstr "Servis nije trenutno dostupan."
 
 #: fbtalker.cpp:553
+#, kde-format
 msgid "The application has reached the maximum number of requests allowed."
 msgstr "Aplikacija je dostigla maksimalan broj mogućih zahtjeva."
 
 #: fbtalker.cpp:556
+#, kde-format
 msgid "Invalid session key or session expired. Try to log in again."
 msgstr "Nevažeća sesija, ili je sesija istekla. Pokušajte se ponovo prijaviti."
 
 #: fbtalker.cpp:559
+#, kde-format
 msgid "Invalid album ID."
 msgstr "Nevažeći ID albuma."
 
 #: fbtalker.cpp:562
+#, kde-format
 msgid "Album is full."
 msgstr "Album je pun."
 
 #: fbtalker.cpp:565
+#, kde-format
 msgid "Missing or invalid file."
 msgstr "Nema datoteke ili je nevažeća datoteka."
 
 #: fbtalker.cpp:568
+#, kde-format
 msgid "Too many unapproved photos pending."
 msgstr "Previše neodobrenih fotografija na čekanju."
 
 #: fbtalker.cpp:602
+#, kde-format
 msgid "Error"
 msgstr ""
 
 #: fbwindow.cpp:109
+#, kde-format
 msgid "Export to Facebook Web Service"
 msgstr "Eksportovano od strane Facebook Web Servisa"
 
 #: fbwindow.cpp:111
+#, kde-format
 msgid "Start Upload"
 msgstr "Počni slanje"
 
 #: fbwindow.cpp:112
+#, kde-format
 msgid "Start upload to Facebook web service"
 msgstr "Počni slanje na Facebook Web Servis"
 
 #: fbwindow.cpp:140
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Facebook export"
 msgid "Facebook Export"
 msgstr "Facebook izvoz"
 
 #: fbwindow.cpp:141
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to import/export image collection to/from Facebook web "
 #| "service."
 msgid "A tool to export image collection to/from Facebook web service."
 msgstr ""
-"Kipi priključak za import/eksport kolekcija slika na/sa Facebook web servis"
-"(a)."
+"Kipi priključak za import/eksport kolekcija slika na/sa Facebook web "
+"servis(a)."
 
 #: fbwindow.cpp:143
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
 #| "(c) 2008-2012, Gilles Caulier\n"
@@ -145,15 +167,17 @@ msgstr ""
 "(c) 2008-2009, Luka Renko"
 
 #: fbwindow.cpp:147
+#, kde-format
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
 #: fbwindow.cpp:148
+#, kde-format
 msgid "Author and maintainer"
 msgstr "Autor i održavalac"
 
 #: fbwindow.cpp:361 fbwindow.cpp:395
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&lt;auto create&gt;"
 msgid "<auto create>"
 msgstr "&lt;auto create&gt;"
@@ -164,67 +188,79 @@ msgid "Facebook Call Failed: %1\n"
 msgstr "Facebook poziv prekinut: %1\n"
 
 #: fbwindow.cpp:471
+#, kde-format
 msgid "Warning"
 msgstr ""
 
 #: fbwindow.cpp:472
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
 msgstr ""
 
 #: fbwindow.cpp:476
+#, kde-format
 msgid "Continue"
 msgstr ""
 
 #: fbwindow.cpp:477
+#, kde-format
 msgid "Cancel"
 msgstr ""
 
 #: fbwindow.cpp:539
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: fbwindow.cpp:543
+#, kde-format
 msgid "Facebook export"
 msgstr "Facebook izvoz"
 
-#: fbwindow.cpp:647 fbwindow.cpp:662
+#: fbwindow.cpp:648 fbwindow.cpp:663
+#, kde-format
 msgid "Cannot open file"
 msgstr "Ne mogu otvoriti datoteku"
 
-#: fbwindow.cpp:685
+#: fbwindow.cpp:686
+#, kde-format
 msgid "Uploading Failed"
 msgstr ""
 
-#: fbwindow.cpp:686
+#: fbwindow.cpp:687
 #, kde-format
 msgid ""
 "Failed to upload photo into Facebook: %1\n"
 "Do you want to continue?"
 msgstr "Palo učitavanje slike na Facebook: %1?"
 
-#: fbwindow.cpp:705
+#: fbwindow.cpp:706
 #, kde-format
 msgid "Facebook Call Failed: %1"
 msgstr "Facebook poziv prekinut: %1"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_facebookui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr "&Uvezi"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_facebookui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr "&Izvezi"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_facebookui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Glavna alatna traka"
 
 #: plugin_facebook.cpp:94
+#, kde-format
 msgid "Export to &Facebook..."
 msgstr "Eksportuj na &Facebook..."
 

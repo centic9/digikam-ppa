@@ -62,12 +62,14 @@ public:
     explicit ImageListerRecord(BinaryFormat format = TraditionalFormat)
         : binaryFormat(format)
     {
-        imageID     = -1;
-        albumID     = -1;
-        albumRootID = -1;
-        rating      = -1;
-        fileSize    = -1;
-        category    = DatabaseItem::UndefinedCategory;
+        imageID                          = -1;
+        albumID                          = -1;
+        albumRootID                      = -1;
+        rating                           = -1;
+        fileSize                         = -1;
+        currentSimilarity                = 0.0;
+        category                         = DatabaseItem::UndefinedCategory;
+        currentFuzzySearchReferenceImage = -1;
     }
 
     int                    albumID;
@@ -76,6 +78,9 @@ public:
     int                    fileSize;
 
     qlonglong              imageID;
+    qlonglong              currentFuzzySearchReferenceImage;
+
+    double                 currentSimilarity;
 
     QString                format;
     QString                name;

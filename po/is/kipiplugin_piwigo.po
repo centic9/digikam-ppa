@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_piwigoexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2016-09-05 15:03+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic <translation-team-is@lists.sourceforge.net>\n"
@@ -24,133 +24,157 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_piwigoui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Flytja annað"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_piwigoui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Aðalverkfæraslá"
 
 #: piwigoconfig.cpp:76
+#, kde-format
 msgctxt "piwigo login settings"
 msgid "URL:"
 msgstr "Slóð (URL):"
 
 #: piwigoconfig.cpp:80
+#, kde-format
 msgctxt "piwigo login settings"
 msgid "Username:"
 msgstr "Notandanafn:"
 
 #: piwigoconfig.cpp:84
+#, kde-format
 msgctxt "piwigo login settings"
 msgid "Password:"
 msgstr "Lykilorð:"
 
-#: piwigotalker.cpp:299
+#: piwigotalker.cpp:300
 #, kde-format
 msgid "Check if %1 already exists"
 msgstr "Athuga hvort %1 er þegar til staðar"
 
-#: piwigotalker.cpp:340
+#: piwigotalker.cpp:341
+#, kde-format
 msgid "Error"
 msgstr "Villa"
 
-#: piwigotalker.cpp:434
+#: piwigotalker.cpp:435
+#, kde-format
 msgid "Piwigo URL probably incorrect"
 msgstr "Slóðin á Piwigo myndasafnið er líklegast ekki rétt"
 
-#: piwigotalker.cpp:440
+#: piwigotalker.cpp:441
+#, kde-format
 msgid "Incorrect username or password specified"
 msgstr "Rangt notandanafn eða lykilorð"
 
-#: piwigotalker.cpp:483 piwigotalker.cpp:657
+#: piwigotalker.cpp:484 piwigotalker.cpp:658
+#, kde-format
 msgid "Upload to Piwigo version < 2.4 is no longer supported"
 msgstr "Sending mynda á Piwigo útgáfu < 2.4 er ekki lengur stutt"
 
-#: piwigotalker.cpp:555 piwigotalker.cpp:633 piwigotalker.cpp:702
-#: piwigotalker.cpp:773
+#: piwigotalker.cpp:556 piwigotalker.cpp:634 piwigotalker.cpp:703
+#: piwigotalker.cpp:774
+#, kde-format
 msgid "Invalid response received from remote Piwigo"
 msgstr "Ógild svörun fékkst frá Piwigo myndasafnsþjóni"
 
-#: piwigotalker.cpp:561
+#: piwigotalker.cpp:562
+#, kde-format
 msgid "Failed to list albums"
 msgstr "Mistókst að gera albúmalista"
 
-#: piwigotalker.cpp:607
+#: piwigotalker.cpp:608
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "Myndin '%1' er þegar til staðar."
 
-#: piwigotalker.cpp:639 piwigotalker.cpp:779 piwigotalker.cpp:935
+#: piwigotalker.cpp:640 piwigotalker.cpp:780 piwigotalker.cpp:936
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "Mistókst að senda ljósmynd"
 
-#: piwigotalker.cpp:708
+#: piwigotalker.cpp:709
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "Myndin '%1' er þegar til staðar í þessu albúmi."
 
-#: piwigotalker.cpp:817
+#: piwigotalker.cpp:818
 #, kde-format
 msgid "Upload the chunk %1/%2 of %3"
 msgstr "Senda gagnaböggulinn (chunk) %1/%2 af %3"
 
-#: piwigotalker.cpp:850
+#: piwigotalker.cpp:851
+#, kde-format
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "Aðvörun: Ekki er hægt að senda mynd í fullri stærð."
 
-#: piwigotalker.cpp:896
+#: piwigotalker.cpp:897
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "Senda lýsigögn fyrir %1"
 
-#: piwigotalker.cpp:929
+#: piwigotalker.cpp:930
 #, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
 msgstr "Ógild svörun fékkst frá fjartengdum Piwigo myndasafnsþjóni (%1)"
 
 #: piwigowindow.cpp:128
+#, kde-format
 msgid "Visit Piwigo website"
 msgstr "Fara á heimasíðu Piwigo"
 
 #: piwigowindow.cpp:145
+#, kde-format
 msgid "Albums"
 msgstr "Albúm"
 
 #: piwigowindow.cpp:154
+#, kde-format
 msgid "Change Account"
 msgstr "Skipta um aðgang"
 
 #: piwigowindow.cpp:158
+#, kde-format
 msgid "Options"
 msgstr "Valkostir"
 
 #: piwigowindow.cpp:162
+#, kde-format
 msgid "Resize photos before uploading"
 msgstr "Breyta stærð mynda fyrir sendingu"
 
 #: piwigowindow.cpp:165
+#, kde-format
 msgid "Maximum width:"
 msgstr "Hámarksbreidd:"
 
 #: piwigowindow.cpp:171
+#, kde-format
 msgid "Maximum height:"
 msgstr "Hámarkshæð:"
 
 #: piwigowindow.cpp:177
+#, kde-format
 msgid "Resized JPEG quality:"
 msgstr "Gæði stærðarbreyttrar JPEG:"
 
 #: piwigowindow.cpp:229 piwigowindow.cpp:233
+#, kde-format
 msgid "Piwigo Export"
 msgstr "Piwigo útflutningur"
 
 #: piwigowindow.cpp:234
+#, kde-format
 msgid "A tool to export image collections to a remote Piwigo server."
 msgstr "Verkfæri til að senda myndir í fjarlæg Piwigo myndasöfn."
 
 #: piwigowindow.cpp:235
+#, kde-format
 msgid ""
 "(c) 2003-2005, Renchi Raju\n"
 "(c) 2006-2007, Colin Guthrie\n"
@@ -165,43 +189,53 @@ msgstr ""
 "(c) 2010-2014, Frédéric Coiffier\n"
 
 #: piwigowindow.cpp:241
+#, kde-format
 msgid "Renchi Raju"
 msgstr "Renchi Raju"
 
 #: piwigowindow.cpp:242 piwigowindow.cpp:246 piwigowindow.cpp:250
 #: piwigowindow.cpp:254 piwigowindow.cpp:258
+#, kde-format
 msgid "Developer"
 msgstr "Forritari"
 
 #: piwigowindow.cpp:245
+#, kde-format
 msgid "Colin Guthrie"
 msgstr "Colin Guthrie"
 
 #: piwigowindow.cpp:249
+#, kde-format
 msgid "Andrea Diamantini"
 msgstr "Andrea Diamantini"
 
 #: piwigowindow.cpp:253
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: piwigowindow.cpp:257
+#, kde-format
 msgid "Frédéric Coiffier"
 msgstr "Frédéric Coiffier"
 
 #: piwigowindow.cpp:265
+#, kde-format
 msgid "Start Upload"
 msgstr "Hefja sendingu"
 
 #: piwigowindow.cpp:393
+#, kde-format
 msgid "Login Failed"
 msgstr "Innskráning mistókst"
 
 #: piwigowindow.cpp:394
+#, kde-format
 msgid "Failed to login into remote piwigo. "
 msgstr "Tókst ekki að skrá inn í Piwigo myndasafn. "
 
 #: piwigowindow.cpp:395
+#, kde-format
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
@@ -210,18 +244,22 @@ msgstr ""
 "Viltu skoða stillingarnar þínar og reyna svo aftur?"
 
 #: piwigowindow.cpp:402 piwigowindow.cpp:642 plugin_piwigo.cpp:117
+#, kde-format
 msgid "Edit Piwigo Data"
 msgstr "Breyta Piwigo-gögnum"
 
 #: piwigowindow.cpp:462 piwigowindow.cpp:486
+#, kde-format
 msgid "Album"
 msgstr "Albúm"
 
 #: piwigowindow.cpp:505
+#, kde-format
 msgid "Image"
 msgstr "Mynd"
 
 #: piwigowindow.cpp:536
+#, kde-format
 msgid "Nothing to upload - please select photos to upload."
 msgstr "Ekkert til að senda - veldu myndir til sendingar."
 
@@ -236,14 +274,17 @@ msgid "Uploading file %1"
 msgstr "Sendi skrá %1"
 
 #: piwigowindow.cpp:596
+#, kde-format
 msgid "Uploading Failed"
 msgstr "Upphleðsla mistókst"
 
 #: piwigowindow.cpp:597
+#, kde-format
 msgid "Failed to upload media into remote Piwigo. "
 msgstr "Tókst ekki að senda efni í fjartengt Piwigo-safn. "
 
 #: piwigowindow.cpp:598
+#, kde-format
 msgid ""
 "\n"
 "Do you want to continue?"
@@ -252,6 +293,7 @@ msgstr ""
 "Viltu halda áfram?"
 
 #: plugin_piwigo.cpp:97
+#, kde-format
 msgid "Export to &Piwigo..."
 msgstr "Flytja út til &Piwigo..."
 

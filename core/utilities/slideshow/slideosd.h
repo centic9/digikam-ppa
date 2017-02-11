@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow OSD widget
  *
- * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,8 +21,8 @@
  *
  * ============================================================ */
 
-#ifndef OSD_WIDGET_H
-#define OSD_WIDGET_H
+#ifndef SLIDE_OSD_H
+#define SLIDE_OSD_H
 
 // Qt includes
 
@@ -47,8 +47,8 @@ class SlideOSD : public QWidget
 
 public:
 
-    SlideOSD(const SlideShowSettings& settings, SlideShow* const parent = 0);
-    ~SlideOSD();
+    explicit SlideOSD(const SlideShowSettings& settings, SlideShow* const parent = 0);
+    virtual ~SlideOSD();
 
     void setCurrentInfo(const SlidePictureInfo& info, const QUrl& url);
 
@@ -60,7 +60,7 @@ public:
 private Q_SLOTS:
 
     void slotProgressTimer();
-    void slotSlideTimer();
+    void slotStart();
 
 private:
 
@@ -74,4 +74,4 @@ private:
 
 }  // namespace Digikam
 
-#endif  // OSD_WIDGET_H
+#endif  // SLIDE_OSD_H

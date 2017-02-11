@@ -6,7 +6,7 @@
  * Date        : 2008-06-17
  * Description : Find Duplicates tree-view search album item.
  *
- * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -33,6 +33,7 @@
 
 #include "album.h"
 #include "coredbsearchxml.h"
+
 
 namespace Digikam
 {
@@ -63,13 +64,26 @@ FindDuplicatesAlbumItem::FindDuplicatesAlbumItem(QTreeWidget* const parent, SAlb
     if (d->album)
     {
         d->refImgInfo = ImageInfo(d->album->title().toLongLong());
-        setText(0, d->refImgInfo.name());
+        setText(Column::REFERENCE_IMAGE, d->refImgInfo.name());
 
         SearchXmlReader reader(d->album->query());
         reader.readToFirstField();
         QList<int> list;
         list << reader.valueToIntList();
-        setText(1, QString::number(list.count()));
+        setText(Column::RESULT_COUNT, QString::number(list.count()));
+
+        double avgSim = 0.00;
+        SearchXml::Element element;
+
+        while ((element = reader.readNext()) != SearchXml::End)
+        {
+            if ((element == SearchXml::Field) && (reader.fieldName().compare(QLatin1String("noeffect_avgsim")) == 0))
+            {
+                avgSim = reader.valueToDouble();
+            }
+        }
+
+        setText(Column::AVG_SIMILARITY,QString::number(avgSim,'f',2));
     }
 
     setThumb(QIcon::fromTheme(QLatin1String("image-x-generic")).pixmap(parent->iconSize().width(), QIcon::Disabled), false);
@@ -102,7 +116,7 @@ void FindDuplicatesAlbumItem::setThumb(const QPixmap& pix, bool hasThumb)
     icon.addPixmap(pixmap, QIcon::Active,   QIcon::Off);
     icon.addPixmap(pixmap, QIcon::Normal,   QIcon::On);
     icon.addPixmap(pixmap, QIcon::Normal,   QIcon::Off);
-    setIcon(0, icon);
+    setIcon(Column::REFERENCE_IMAGE, icon);
 
     d->hasThumb = hasThumb;
 }
@@ -120,7 +134,20 @@ QUrl FindDuplicatesAlbumItem::refUrl() const
 bool FindDuplicatesAlbumItem::operator<(const QTreeWidgetItem& other) const
 {
     int column = treeWidget()->sortColumn();
-    int result = QCollator().compare(text(column), other.text(column));
+    int result = 0;
+
+    if (column == Column::AVG_SIMILARITY)
+    {
+        result = ( text(column).toDouble() < other.text(column).toDouble() ) ? -1 : 0;
+    }
+    else if (column == Column::RESULT_COUNT)
+    {
+        result = ( text(column).toInt() < other.text(column).toInt() ) ? -1 : 0;
+    }
+    else
+    {
+        result = QCollator().compare(text(column), other.text(column));
+    }
 
     if (result < 0)
     {

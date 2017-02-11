@@ -7,7 +7,7 @@
  * Description : digiKam 8/16 bits image management API
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * This program is free software; you can redistribute it
@@ -49,6 +49,7 @@ extern "C"
 #include <QFile>
 #include <QFileInfo>
 #include <QImage>
+#include <QImageReader>
 #include <QMap>
 #include <QPaintEngine>
 #include <QPainter>
@@ -3193,6 +3194,21 @@ QString DImg::colorModelToString(COLORMODEL colorModel)
         default:
             return i18nc("Color Model: Unknown", "Unknown");
     }
+}
+
+bool DImg::isAnimatedImage(const QString& filePath)
+{
+    QImageReader reader(filePath);
+    reader.setDecideFormatFromContent(true);
+
+    if (reader.supportsAnimation() && 
+       (reader.imageCount() > 1))
+    {
+        qDebug(DIGIKAM_DIMG_LOG_QIMAGE) << "File \"" << filePath << "\" is an animated image ";
+        return true;
+    }
+
+    return false;
 }
 
 }  // namespace Digikam

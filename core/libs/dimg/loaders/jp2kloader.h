@@ -6,7 +6,7 @@
  * Date        : 2006-06-14
  * Description : A JPEG2000 IO file for DImg framework
  *
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -30,7 +30,18 @@
 extern "C"
 {
 #endif
+
+#if defined(__APPLE__) && defined(__clang__)
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wshift-negative-value"
+#endif
+
 #include <jasper/jasper.h>
+
+#if defined(__APPLE__) && defined(__clang__)
+#pragma clang diagnostic pop
+#endif
+
 #ifndef Q_CC_MSVC
 }
 #endif

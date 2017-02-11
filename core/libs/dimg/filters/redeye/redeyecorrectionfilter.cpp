@@ -6,7 +6,7 @@
  * Date        : 17-8-2016
  * Description : A Red-Eye automatic detection and correction filter.
  *
- * Copyright (C) 2005-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2005-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2016      by Omar Amin <Omar dot moh dot amin at gmail dot com>
  *
  * This program is free software; you can redistribute it
@@ -28,12 +28,10 @@
 
 // Qt includes
 
-#include <QtConcurrent>
-#include <QtMath>
-#include <QMutex>
-#include <QListIterator>
-#include <QImage>
+#include <QFile>
 #include <QDataStream>
+#include <QListIterator>
+#include <QStandardPaths>
 
 // Local includes
 
@@ -99,14 +97,14 @@ RedEyeCorrectionFilter::~RedEyeCorrectionFilter()
 
 void RedEyeCorrectionFilter::filterImage()
 {
-    if (d->sp == 0)
+    if (!d->sp)
     {
         // Loading the shape predictor model
 
-        QList<QString> path = QStandardPaths::locateAll(QStandardPaths::GenericDataLocation,
-                                                        QString::fromLatin1("digikam/facesengine"),
-                                                        QStandardPaths::LocateDirectory);
-        QFile model(*path.begin() + QLatin1String("/ShapePredictor.dat"));
+        QString path = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                              QLatin1String("digikam/facesengine/shapepredictor.dat"));
+
+        QFile model(path);
 
         if (model.open(QIODevice::ReadOnly))
         {
@@ -115,6 +113,11 @@ void RedEyeCorrectionFilter::filterImage()
             dataStream.setFloatingPointPrecision(QDataStream::SinglePrecision);
             dataStream >> *temp;
             d->sp = temp;
+        }
+        else
+        {
+            qCDebug(DIGIKAM_DIMG_LOG) << "Error open file shapepredictor.dat";
+            return;
         }
     }
 

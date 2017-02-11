@@ -6,7 +6,7 @@
  * Date        : 2008-07-30
  * Description : digiKam about data.
  *
- * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -68,7 +68,7 @@ const QString DAboutData::digiKamSlogan()
 
 const QString DAboutData::copyright()
 {
-    return i18n("(c) 2002-2016, digiKam developers team");
+    return i18n("(c) 2002-2017, digiKam developers team");
 }
 
 const QUrl DAboutData::webProjectUrl()
@@ -124,10 +124,9 @@ void DAboutData::authorsRegistration(KAboutData& aboutData)
                           QLatin1String("https://plus.google.com/+JulienNarboux")
                         );
 
-    aboutData.addAuthor ( ki18n("Ananta Palani").toString(),
-                          ki18n("Windows Port and Release Manager").toString(),
-                          QLatin1String("anantapalani at gmail dot com"),
-                          QLatin1String("https://plus.google.com/u/0/+AnantaPalani")
+    aboutData.addAuthor ( ki18n("Mario Frank").toString(),
+                          ki18n("Advanced Searches Tool Improvements").toString(),
+                          QLatin1String("mario.frank@uni-potsdam.de")
                         );
 
     aboutData.addAuthor ( ki18n("Nicolas Lécureuil").toString(),
@@ -229,6 +228,12 @@ void DAboutData::authorsRegistration(KAboutData& aboutData)
                         );
 
     // -- Former contributors ----------------------------------------------------
+
+    aboutData.addAuthor ( ki18n("Ananta Palani").toString(),
+                          ki18n("Windows Port and Release Manager").toString(),
+                          QLatin1String("anantapalani at gmail dot com"),
+                          QLatin1String("https://plus.google.com/u/0/+AnantaPalani")
+                        );
 
     aboutData.addAuthor ( ki18n("Andi Clemens").toString(),
                           ki18n("Developer").toString(),

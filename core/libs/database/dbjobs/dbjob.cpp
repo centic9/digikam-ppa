@@ -239,7 +239,11 @@ void SearchesJob::run()
 {
     if (!m_jobInfo.isDuplicatesJob())
     {
-        SearchInfo info = CoreDbAccess().db()->getSearchInfo(m_jobInfo.searchId());
+        QList<SearchInfo> infos;
+        foreach(int id, m_jobInfo.searchIds())
+        {
+            infos << CoreDbAccess().db()->getSearchInfo(id);
+        }
 
         ImageLister lister;
         lister.setListOnlyAvailable(m_jobInfo.isListAvailableImagesOnly());
@@ -247,41 +251,64 @@ void SearchesJob::run()
         // Send data every 200 images to be more responsive
         ImageListerJobPartsSendingReceiver receiver(this, 200);
 
-        if (info.type == DatabaseSearch::HaarSearch)
+        foreach(SearchInfo info, infos)
         {
-            lister.listHaarSearch(&receiver, info.query);
-        }
-        else
-        {
-            lister.listSearch(&receiver, info.query);
-        }
+            if (info.type == DatabaseSearch::HaarSearch)
+            {
+                lister.listHaarSearch(&receiver, info.query);
+            }
+            else
+            {
+                bool ok;
+                qlonglong referenceImageId = info.name.toLongLong(&ok);
+                if (ok)
+                {
+                    lister.listSearch(&receiver, info.query, 0, referenceImageId);
+                }
+                else
+                {
+                    lister.listSearch(&receiver, info.query, 0, -1);
+                }
+            }
 
-        if (!receiver.hasError)
-        {
-            receiver.sendData();
+            if (!receiver.hasError)
+            {
+                receiver.sendData();
+            }
         }
     }
     else
     {
-        if (m_jobInfo.albumsIds().isEmpty() && m_jobInfo.tagsIds().isEmpty())
+        if (m_jobInfo.albumsIds().isEmpty() && m_jobInfo.tagsIds().isEmpty() && m_jobInfo.imageIds().isEmpty())
         {
-            qCDebug(DIGIKAM_DBJOB_LOG) << "No album ids passed for duplicates search";
+            qCDebug(DIGIKAM_DBJOB_LOG) << "No album, tag or image ids passed for duplicates search";
             return;
         }
 
-        if (m_jobInfo.threshold() == 0)
+        if (m_jobInfo.minThreshold() == 0)
         {
-            m_jobInfo.setThreshold(0.4);
+            m_jobInfo.setMinThreshold(0.4);
         }
 
         DuplicatesProgressObserver observer(this);
 
         // Rebuild the duplicate albums
         HaarIface iface;
-        iface.rebuildDuplicatesAlbums(m_jobInfo.albumsIds(),
-                                      m_jobInfo.tagsIds(),
-                                      m_jobInfo.threshold(),
-                                      &observer);
+        if (m_jobInfo.isAlbumUpdate())
+        {
+            iface.rebuildDuplicatesAlbums(m_jobInfo.imageIds(),
+                                          m_jobInfo.minThreshold(),
+                                          m_jobInfo.maxThreshold(),
+                                          &observer);
+        }
+        else
+        {
+            iface.rebuildDuplicatesAlbums(m_jobInfo.albumsIds(),
+                                          m_jobInfo.tagsIds(),
+                                          m_jobInfo.minThreshold(),
+                                          m_jobInfo.maxThreshold(),
+                                          &observer);
+        }
     }
 
     emit signalDone();

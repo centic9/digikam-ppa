@@ -6,7 +6,7 @@
  * Date        : 2007-02-13
  * Description : slide show settings container.
  *
- * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -118,6 +118,16 @@ void SlideShowSettings::writeToConfig()
     group.writeEntry(configSlideShowProgressIndicatorEntry,    showProgressIndicator);
     group.writeEntry(configSlideScreenEntry,                   slideScreen);
     group.sync();
+}
+
+int SlideShowSettings::indexOf(const QUrl& url) const
+{
+    return fileList.indexOf(url);
+}
+
+int SlideShowSettings::count() const
+{
+    return fileList.count();
 }
 
 }   // namespace Digikam

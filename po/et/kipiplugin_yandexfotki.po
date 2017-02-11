@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2012-10-09 18:37+0300\n"
 "Last-Translator: Marek Laane <bald@smail.ee>\n"
 "Language-Team: Estonian <kde-et@linux.ee>\n"
@@ -19,104 +19,126 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_yandexfotkiui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Eksport"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_yandexfotkiui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Peamine tööriistariba"
 
 #: plugin_yandexfotki.cpp:91
+#, kde-format
 msgid "Export to &Yandex.Fotki..."
 msgstr "Ekspordi &Yandex.Fotkisse..."
 
 #: yfalbumdialog.cpp:60
+#, kde-format
 msgid "Password for the album (optional)."
 msgstr "Albumi parool (pole kohustuslik)."
 
 #: yfalbumdialog.cpp:63
+#, kde-format
 msgid "Password:"
 msgstr "Parool:"
 
 #: yfalbumdialog.cpp:80
+#, kde-format
 msgid "Error"
 msgstr "Tõrge"
 
 #: yfalbumdialog.cpp:80
+#, kde-format
 msgid "Title cannot be empty."
 msgstr "Pealkiri ei tohi puududa."
 
 #: yfwidget.cpp:61
+#, kde-format
 msgid "Update policy:"
 msgstr "Uuendamisreegel:"
 
 #: yfwidget.cpp:63
+#, kde-format
 msgid "Update metadata"
 msgstr "Metaandmete uuendamine"
 
 #: yfwidget.cpp:64
+#, kde-format
 msgid "Update metadata of remote file and merge remote tags with local"
 msgstr ""
 "Võrgufaili metaandmete uuendamine ja selle siltide ühendamine kohalikuga"
 
 #: yfwidget.cpp:66
+#, kde-format
 msgid "Skip photo"
 msgstr "Foto vahelejätmine"
 
 #: yfwidget.cpp:67
+#, kde-format
 msgid "Simple skip photo"
 msgstr "Lihtne foto vahelejätmine"
 
 #: yfwidget.cpp:68
+#, kde-format
 msgid "Upload as new"
 msgstr "Üleslaadimine uuena"
 
 #: yfwidget.cpp:69
+#, kde-format
 msgid "Add photo as new"
 msgstr "Foto lisamine uuena"
 
 #: yfwidget.cpp:71
+#, kde-format
 msgid "Privacy settings:"
 msgstr "Privaatsusseadistused:"
 
 #: yfwidget.cpp:74
+#, kde-format
 msgid "Public access"
 msgstr "Avalik ligipääs"
 
 #: yfwidget.cpp:76
+#, kde-format
 msgid "Friends access"
 msgstr "Sõprade ligipääs"
 
 #: yfwidget.cpp:78
+#, kde-format
 msgid "Private access"
 msgstr "Privaatne ligipääs"
 
 #: yfwidget.cpp:80
+#, kde-format
 msgid "Hide original photo"
 msgstr "Originaalfoto peitmine"
 
 #: yfwidget.cpp:81
+#, kde-format
 msgid "Disable comments"
 msgstr "Kommentaaride keelamine"
 
 #: yfwidget.cpp:82
+#, kde-format
 msgid "Adult content"
 msgstr "Täiskasvanutele mõeldud sisu"
 
 #: yfwindow.cpp:128
+#, kde-format
 msgid "Yandex.Fotki Plugin"
 msgstr "Yandex.Fotki plugin"
 
 #: yfwindow.cpp:129
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "A Kipi plugin to export image collections to Yandex.Fotki web service."
 msgid "A tool to export image collections to Yandex.Fotki web service."
 msgstr "Kipi plugin pildikogu eksportimiseks Yandex.Fotki veebiteenusesse."
 
 #: yfwindow.cpp:131
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2007-2009, Vardhman Jain\n"
 #| "(c) 2008-2012, Gilles Caulier\n"
@@ -134,37 +156,44 @@ msgstr ""
 "(c) 2010: Roman Tsisyk"
 
 #: yfwindow.cpp:136
+#, kde-format
 msgid "Roman Tsisyk"
 msgstr "Roman Tsisyk"
 
 #: yfwindow.cpp:137
+#, kde-format
 msgid "Author"
 msgstr "Autor"
 
 #: yfwindow.cpp:249
+#, kde-format
 msgid "Unauthorized"
 msgstr "Autentimata"
 
 #: yfwindow.cpp:262
+#, kde-format
 msgctxt "Yandex.Fotki"
 msgid "Y"
 msgstr "Y"
 
 #: yfwindow.cpp:263
+#, kde-format
 msgctxt "Yandex.Fotki"
 msgid "andex."
 msgstr "andex."
 
 #: yfwindow.cpp:264
+#, kde-format
 msgctxt "Yandex.Fotki"
 msgid "Fotki"
 msgstr "Fotki"
 
-#: yfwindow.cpp:588
+#: yfwindow.cpp:589
+#, kde-format
 msgid "Processing Failed"
 msgstr ""
 
-#: yfwindow.cpp:589
+#: yfwindow.cpp:590
 #, kde-format
 msgid ""
 "Failed to prepare image %1\n"
@@ -173,49 +202,58 @@ msgstr ""
 "Pildi %1 ettevalmistamine nurjus\n"
 "Kas jätkata?"
 
-#: yfwindow.cpp:616
+#: yfwindow.cpp:617
+#, kde-format
 msgid "Images has been uploaded"
 msgstr "Pildid on üles laaditud"
 
-#: yfwindow.cpp:646
+#: yfwindow.cpp:647
+#, kde-format
 msgid "Please select album first"
 msgstr "Palun vali kõigepealt album"
 
-#: yfwindow.cpp:668
+#: yfwindow.cpp:669
+#, kde-format
 msgid "Session error"
 msgstr "Seansi tõrge"
 
-#: yfwindow.cpp:671
+#: yfwindow.cpp:672
+#, kde-format
 msgid "Token error"
 msgstr "Lubamärgise tõrge"
 
-#: yfwindow.cpp:674
+#: yfwindow.cpp:675
+#, kde-format
 msgid "Invalid credentials"
 msgstr "Vigased autentimistunnused"
 
-#: yfwindow.cpp:678
+#: yfwindow.cpp:679
+#, kde-format
 msgid "Cannot get service document"
 msgstr "Teenuse dokumendi hankimine nurjus"
 
-#: yfwindow.cpp:691
+#: yfwindow.cpp:692
+#, kde-format
 msgid "Cannot list albums"
 msgstr "Albumite nimekirja hankimine nurjus"
 
-#: yfwindow.cpp:694
+#: yfwindow.cpp:695
+#, kde-format
 msgid "Cannot list photos"
 msgstr "Fotode nimekirja hankimine nurjus"
 
-#: yfwindow.cpp:697
+#: yfwindow.cpp:698
+#, kde-format
 msgid "Cannot update album info"
 msgstr "Albumi teabe uuendamine nurjus"
 
-#: yfwindow.cpp:703
-#, fuzzy
+#: yfwindow.cpp:704
+#, fuzzy, kde-format
 #| msgid "Upload as new"
 msgid "Uploading Failed"
 msgstr "Üleslaadimine uuena"
 
-#: yfwindow.cpp:704
+#: yfwindow.cpp:705
 #, kde-format
 msgid ""
 "Failed to upload image %1\n"
@@ -224,7 +262,8 @@ msgstr ""
 "Pildi %1 üleslaadimine nurjus\n"
 "Kas jätkata?"
 
-#: yfwindow.cpp:725
+#: yfwindow.cpp:726
+#, kde-format
 msgid "Unknown error"
 msgstr "Tundmatu tõrge"
 

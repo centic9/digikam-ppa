@@ -77,11 +77,8 @@ AddTagsLineEdit::AddTagsLineEdit(QWidget* const parent)
     connect(this, SIGNAL(editingFinished()),
             this, SLOT(slotEditingFinished()));
 
-    connect(this, SIGNAL(textChanged(QString)),
-            this, SLOT(slotTextChanged(QString)));
-
     connect(this, SIGNAL(textEdited(QString)),
-            d->completer, SLOT(slotTextEdited(QString)));
+            this, SLOT(slotTextEdited(QString)));
 
     connect(d->completer, static_cast<void(TagCompleter::*)(const TaggingAction&)>(&TagCompleter::activated),
             [this](const TaggingAction& action){ completerActivated(action); });
@@ -124,14 +121,17 @@ void AddTagsLineEdit::setTagTreeView(TagTreeView* const view)
 {
     if (d->tagView)
     {
-        disconnect(d->tagView, &TagTreeView::currentAlbumChanged, this, &AddTagsLineEdit::setParentTag);
+        disconnect(d->tagView, &TagTreeView::currentAlbumChanged, this,
+                   &AddTagsLineEdit::setParentTag);
     }
 
     d->tagView = view;
 
     if (d->tagView)
     {
-        connect(d->tagView, &TagTreeView::currentAlbumChanged, this, &AddTagsLineEdit::setParentTag);
+        connect(d->tagView, &TagTreeView::currentAlbumChanged, this,
+                &AddTagsLineEdit::setParentTag);
+
         setParentTag(d->tagView->currentAlbum());
     }
 }
@@ -165,6 +165,10 @@ void AddTagsLineEdit::slotReturnPressed()
         //focus back to mainview
         emit taggingActionFinished();
     }
+    else
+    {
+        emit taggingActionActivated(currentTaggingAction());
+    }
 }
 
 void AddTagsLineEdit::slotEditingFinished()
@@ -172,12 +176,12 @@ void AddTagsLineEdit::slotEditingFinished()
     d->currentTaggingAction = TaggingAction();
 }
 
-void AddTagsLineEdit::slotTextChanged(const QString& text)
+void AddTagsLineEdit::slotTextEdited(const QString& text)
 {
-    if (text.isEmpty())
-    {
-        d->currentTaggingAction = TaggingAction();
-    }
+    d->currentTaggingAction = TaggingAction();
+    setCurrentTaggingAction(currentTaggingAction());
+
+    d->completer->update(text);
 }
 
 void AddTagsLineEdit::completerActivated(const TaggingAction& action)
@@ -193,11 +197,6 @@ void AddTagsLineEdit::completerHighlighted(const TaggingAction& action)
 
 void AddTagsLineEdit::setCurrentTaggingAction(const TaggingAction& action)
 {
-    if (d->currentTaggingAction == action)
-    {
-        return;
-    }
-
     d->currentTaggingAction = action;
     emit taggingActionSelected(action);
 }
@@ -208,14 +207,12 @@ TaggingAction AddTagsLineEdit::currentTaggingAction() const
     {
         return d->currentTaggingAction;
     }
-    else if (!text().isEmpty())
-    {
-        return TaggingActionFactory::defaultTaggingAction(text(), d->parentTagId);
-    }
-    else
+    else if (text().isEmpty())
     {
         return TaggingAction();
     }
+
+    return TaggingActionFactory::defaultTaggingAction(text(), d->parentTagId);
 }
 
 } // namespace Digikam

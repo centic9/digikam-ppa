@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"POT-Creation-Date: 2017-01-07 03:39+0100\n"
 "PO-Revision-Date: 2016-01-24 22:35+0100\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde@peremen.name>\n"
@@ -18,10 +18,12 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: authorize.cpp:116
+#, kde-format
 msgid "Google Drive Authorization"
 msgstr "Google 드라이브 인증"
 
 #: authorize.cpp:129
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, copy the code from the browser, paste it in the "
@@ -30,202 +32,241 @@ msgstr ""
 "웹 브라우저에서 다음 절차를 따르십시오. 로그인 및 앱 인증 후 브라우저에 표시"
 "된 코드를 복사하여 아래 텍스트 상자에 붙여넣은 후 확인을 누르십시오."
 
-#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+#: authorize.cpp:249 gdtalker.cpp:272 gptalker.cpp:644
+#, kde-format
 msgid "Error"
 msgstr ""
 
-#: gdtalker.cpp:336
+#: gdtalker.cpp:337
+#, kde-format
 msgid "Failed to list folders"
 msgstr "폴더 목록을 가져올 수 없음"
 
-#: gdtalker.cpp:384
+#: gdtalker.cpp:385
+#, kde-format
 msgid "Failed to create folder"
 msgstr "폴더를 만들 수 없음"
 
-#: gdtalker.cpp:415 gptalker.cpp:929
+#: gdtalker.cpp:416 gptalker.cpp:937
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "사진을 업로드할 수 없음"
 
-#: gptalker.cpp:561
+#: gptalker.cpp:569
+#, kde-format
 msgid "No photo specified"
 msgstr ""
 
-#: gptalker.cpp:564
+#: gptalker.cpp:572
+#, kde-format
 msgid "General upload failure"
 msgstr ""
 
-#: gptalker.cpp:567
+#: gptalker.cpp:575
+#, kde-format
 msgid "File-size was zero"
 msgstr ""
 
-#: gptalker.cpp:570
+#: gptalker.cpp:578
+#, kde-format
 msgid "File-type was not recognized"
 msgstr ""
 
-#: gptalker.cpp:573
+#: gptalker.cpp:581
+#, kde-format
 msgid "User exceeded upload limit"
 msgstr ""
 
-#: gptalker.cpp:576
+#: gptalker.cpp:584
+#, kde-format
 msgid "Invalid signature"
 msgstr ""
 
-#: gptalker.cpp:579
+#: gptalker.cpp:587
+#, kde-format
 msgid "Missing signature"
 msgstr ""
 
-#: gptalker.cpp:582
+#: gptalker.cpp:590
+#, kde-format
 msgid "Login failed / Invalid auth token"
 msgstr ""
 
-#: gptalker.cpp:585
+#: gptalker.cpp:593
+#, kde-format
 msgid "Invalid API Key"
 msgstr ""
 
-#: gptalker.cpp:588
+#: gptalker.cpp:596
+#, kde-format
 msgid "Service currently unavailable"
 msgstr ""
 
-#: gptalker.cpp:591
+#: gptalker.cpp:599
+#, kde-format
 msgid "Invalid Frob"
 msgstr ""
 
-#: gptalker.cpp:594
+#: gptalker.cpp:602
+#, kde-format
 msgid "Format \"xxx\" not found"
 msgstr ""
 
-#: gptalker.cpp:597
+#: gptalker.cpp:605
+#, kde-format
 msgid "Method \"xxx\" not found"
 msgstr ""
 
-#: gptalker.cpp:600
+#: gptalker.cpp:608
+#, kde-format
 msgid "Invalid SOAP envelope"
 msgstr ""
 
-#: gptalker.cpp:603
+#: gptalker.cpp:611
+#, kde-format
 msgid "Invalid XML-RPC Method Call"
 msgstr ""
 
-#: gptalker.cpp:606
+#: gptalker.cpp:614
+#, kde-format
 msgid "The POST method is now required for all setters."
 msgstr ""
 
-#: gptalker.cpp:609
+#: gptalker.cpp:617
+#, kde-format
 msgid "Unknown error"
 msgstr ""
 
-#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gptalker.cpp:620 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
 #: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
-#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+#: gswindow.cpp:1198 gswindow.cpp:1241 gswindow.cpp:1249
+#, kde-format
 msgctxt "@title:window"
 msgid "Error"
 msgstr ""
 
-#: gptalker.cpp:613
+#: gptalker.cpp:621
 #, kde-format
 msgid ""
 "Error occurred: %1\n"
 "Unable to proceed further."
 msgstr ""
 
-#: gptalker.cpp:683 gptalker.cpp:750
-#, fuzzy
+#: gptalker.cpp:691 gptalker.cpp:758
+#, fuzzy, kde-format
 #| msgid "Failed to upload photo"
 msgid "Failed to fetch photo-set list"
 msgstr "사진을 업로드할 수 없음"
 
-#: gptalker.cpp:886 gptalker.cpp:919
-#, fuzzy
+#: gptalker.cpp:894 gptalker.cpp:927
+#, fuzzy, kde-format
 #| msgid "Failed to create folder"
 msgid "Failed to create album"
 msgstr "폴더를 만들 수 없음"
 
 #: gswidget.cpp:60
+#, kde-format
 msgid "Tag path behavior :"
 msgstr ""
 
 #: gswidget.cpp:62
+#, kde-format
 msgid "Leaf tags only"
 msgstr ""
 
 #: gswidget.cpp:63
+#, kde-format
 msgid "Export only the leaf tags of tag hierarchies"
 msgstr ""
 
 #: gswidget.cpp:64
+#, kde-format
 msgid "Split tags"
 msgstr ""
 
 #: gswidget.cpp:65
+#, kde-format
 msgid "Export the leaf tag and all ancestors as single tags."
 msgstr ""
 
 #: gswidget.cpp:66
+#, kde-format
 msgid "Combined String"
 msgstr ""
 
 #: gswidget.cpp:67
+#, kde-format
 msgid "Build a combined tag string."
 msgstr ""
 
 #: gswindow.cpp:116
+#, kde-format
 msgid "Google Drive Export"
 msgstr "Google 드라이브 내보내기"
 
 #: gswindow.cpp:117
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi-plugin to export images to Google Drive"
 msgid "A tool to export images to Google Drive"
 msgstr "Google 드라이브로 사진을 내보내는 Kipi 플러그인"
 
 #: gswindow.cpp:119
+#, kde-format
 msgid ""
 "(c) 2013, Saurabh Patel\n"
 "(c) 2015, Shourya Singh Gupta"
 msgstr ""
 
 #: gswindow.cpp:122
+#, kde-format
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
 #: gswindow.cpp:122 gswindow.cpp:195
+#, kde-format
 msgid "Author and maintainer"
 msgstr "작성자 및 관리자"
 
 #: gswindow.cpp:125 gswindow.cpp:207
+#, kde-format
 msgid "Shourya Singh Gupta"
 msgstr ""
 
 #: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
 #: gswindow.cpp:207
+#, kde-format
 msgid "Developer"
 msgstr ""
 
 #: gswindow.cpp:132
+#, kde-format
 msgid "Export to Google Drive"
 msgstr "Google 드라이브로 내보내기"
 
 #: gswindow.cpp:134 gswindow.cpp:219
+#, kde-format
 msgid "Start Upload"
 msgstr "업로드 시작"
 
 #: gswindow.cpp:135
+#, kde-format
 msgid "Start upload to Google Drive"
 msgstr "Google 드라이브로 업로드 시작"
 
 #: gswindow.cpp:186
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Google Drive Export"
 msgid "Google Photos/PicasaWeb Export"
 msgstr "Google 드라이브 내보내기"
 
 #: gswindow.cpp:187
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi-plugin to export images to Google Drive"
 msgid "A tool to export image collections to Google Photos/Picasa web service."
 msgstr "Google 드라이브로 사진을 내보내는 Kipi 플러그인"
 
 #: gswindow.cpp:189
+#, kde-format
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2016, Gilles Caulier\n"
@@ -235,47 +276,51 @@ msgid ""
 msgstr ""
 
 #: gswindow.cpp:195
+#, kde-format
 msgid "Vardhman Jain"
 msgstr ""
 
 #: gswindow.cpp:198
+#, kde-format
 msgid "Gilles Caulier"
 msgstr ""
 
 #: gswindow.cpp:201
+#, kde-format
 msgid "Luka Renko"
 msgstr ""
 
 #: gswindow.cpp:204
+#, kde-format
 msgid "Jens Mueller"
 msgstr ""
 
 #: gswindow.cpp:217
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to Google Drive"
 msgid "Export to Google Photos/PicasaWeb Service"
 msgstr "Google 드라이브로 내보내기"
 
 #: gswindow.cpp:220
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Start upload to Google Drive"
 msgid "Start upload to Google Photos/PicasaWeb Service"
 msgstr "Google 드라이브로 업로드 시작"
 
 #: gswindow.cpp:226
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to Google Drive"
 msgid "Import from Google Photos/PicasaWeb Service"
 msgstr "Google 드라이브로 내보내기"
 
 #: gswindow.cpp:228
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Start Upload"
 msgid "Start Download"
 msgstr "업로드 시작"
 
 #: gswindow.cpp:229
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Start upload to Google Drive"
 msgid "Start download from Google Photos/PicasaWeb service"
 msgstr "Google 드라이브로 업로드 시작"
@@ -291,11 +336,12 @@ msgstr ""
 "%1"
 
 #: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: gswindow.cpp:531
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Google Drive Export"
 msgid "Google Photo Export"
 msgstr "Google 드라이브 내보내기"
@@ -311,6 +357,7 @@ msgstr ""
 "%1"
 
 #: gswindow.cpp:653
+#, kde-format
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -320,29 +367,35 @@ msgstr ""
 "을 완료하려면 \"계정 변경\"을, 다시 인증하려면 \"업로드 시작\"을 누르십시오."
 
 #: gswindow.cpp:669
+#, kde-format
 msgid "No image selected. Please select which images should be uploaded."
 msgstr "그림을 선택하지 않았습니다. 업로드할 그림을 선택하십시오."
 
 #: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
 #: gswindow.cpp:1105
+#, kde-format
 msgid "Warning"
 msgstr ""
 
 #: gswindow.cpp:684 gswindow.cpp:707
+#, kde-format
 msgid "Authentication failed. Click \"Continue\" to authenticate."
 msgstr "인증이 실패했습니다. \"계속\"을 눌러 인증하십시오."
 
 #: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
-#: gswindow.cpp:1109 gswindow.cpp:1286
+#: gswindow.cpp:1109 gswindow.cpp:1288
+#, kde-format
 msgid "Continue"
 msgstr ""
 
 #: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
-#: gswindow.cpp:1110 gswindow.cpp:1287
+#: gswindow.cpp:1110 gswindow.cpp:1289
+#, kde-format
 msgid "Cancel"
 msgstr ""
 
 #: gswindow.cpp:762
+#, kde-format
 msgid "Google Drive export"
 msgstr "Google 드라이브 내보내기"
 
@@ -395,13 +448,13 @@ msgstr ""
 "%1\n"
 "계속 진행하시겠습니까?"
 
-#: gswindow.cpp:1198
+#: gswindow.cpp:1200
 #, kde-format
 msgctxt "%1 is the error string, %2 is the error code"
 msgid "An authentication error occurred: %1 (%2)"
 msgstr "인증 오류 발생: %1 (%2)"
 
-#: gswindow.cpp:1240
+#: gswindow.cpp:1242
 #, kde-format
 msgid ""
 "Google Drive call failed:\n"
@@ -410,7 +463,7 @@ msgstr ""
 "Google 드라이브 호출 실패:\n"
 "%1"
 
-#: gswindow.cpp:1248
+#: gswindow.cpp:1250
 #, fuzzy, kde-format
 #| msgid ""
 #| "Google Drive call failed:\n"
@@ -422,12 +475,14 @@ msgstr ""
 "Google 드라이브 호출 실패:\n"
 "%1"
 
-#: gswindow.cpp:1281
+#: gswindow.cpp:1283
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning"
 msgstr ""
 
-#: gswindow.cpp:1282
+#: gswindow.cpp:1284
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -435,122 +490,145 @@ msgstr "웹 브라우저에서 로그아웃한 후 \"계속\"을 눌러 다른 �
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+#, kde-format
 msgid "&Export"
 msgstr "내보내기(&E)"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_googleservicesui.rc:11
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "&Export"
 msgid "&Import"
 msgstr "내보내기(&E)"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_googleservicesui.rc:21
+#, kde-format
 msgid "Main Toolbar"
 msgstr "주 도구 모음"
 
 #: newalbumdlg.cpp:54
+#, kde-format
 msgid "Access Level"
 msgstr ""
 
 #: newalbumdlg.cpp:55
+#, kde-format
 msgid ""
 "These are security and privacy settings for the new Google Photos/PicasaWeb "
 "album."
 msgstr ""
 
 #: newalbumdlg.cpp:57
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Public"
 msgstr ""
 
 #: newalbumdlg.cpp:59
+#, kde-format
 msgid "Public album is listed on your public Google Photos/PicasaWeb page."
 msgstr ""
 
 #: newalbumdlg.cpp:60
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Unlisted / Private"
 msgstr ""
 
 #: newalbumdlg.cpp:61
+#, kde-format
 msgid "Unlisted album is only accessible via URL."
 msgstr ""
 
 #: newalbumdlg.cpp:62
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Sign-In Required to View"
 msgstr ""
 
 #: newalbumdlg.cpp:63
+#, kde-format
 msgid "Unlisted album require Sign-In to View"
 msgstr ""
 
 #: newalbumdlg.cpp:71
+#, kde-format
 msgid "Privacy:"
 msgstr ""
 
 #: plugin_googleservices.cpp:100
+#, kde-format
 msgid "Export to &Google Drive..."
 msgstr "Google 드라이브로 내보내기(&G)..."
 
 #: plugin_googleservices.cpp:110
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to &Google Drive..."
 msgid "Export to &Google Photos/PicasaWeb..."
 msgstr "Google 드라이브로 내보내기(&G)..."
 
 #: plugin_googleservices.cpp:120
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to &Google Drive..."
 msgid "Import from &Google Photos/PicasaWeb..."
 msgstr "Google 드라이브로 내보내기(&G)..."
 
 #: replacedialog.cpp:112
+#, kde-format
 msgid "Add As New"
 msgstr ""
 
 #: replacedialog.cpp:113
+#, kde-format
 msgid "Item will be added alongside the linked version."
 msgstr ""
 
 #: replacedialog.cpp:119
+#, kde-format
 msgid "Add All"
 msgstr ""
 
 #: replacedialog.cpp:120
+#, kde-format
 msgid ""
 "Items will be added alongside the linked version. You will not be prompted "
 "again."
 msgstr ""
 
 #: replacedialog.cpp:126
+#, kde-format
 msgid "Replace"
 msgstr ""
 
 #: replacedialog.cpp:127
+#, kde-format
 msgid "Item will be replacing the linked version."
 msgstr ""
 
 #: replacedialog.cpp:133
+#, kde-format
 msgid "Replace All"
 msgstr ""
 
 #: replacedialog.cpp:134
+#, kde-format
 msgid ""
 "Items will be replacing the linked version. You will not be prompted again."
 msgstr ""
 
 #: replacedialog.cpp:157
+#, kde-format
 msgid "A linked item already exists."
 msgstr ""
 
 #: replacedialog.cpp:177
+#, kde-format
 msgid "Destination"
 msgstr "대상"
 
 #: replacedialog.cpp:182
+#, kde-format
 msgid "Source"
 msgstr ""
 

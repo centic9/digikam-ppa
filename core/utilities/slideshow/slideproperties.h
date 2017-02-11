@@ -6,7 +6,7 @@
  * Date        : 2014-09-19
  * Description : slide properties widget
  *
- * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,8 +21,8 @@
  *
  * ============================================================ */
 
-#ifndef SLIDEPROPERTIES_H
-#define SLIDEPROPERTIES_H
+#ifndef SLIDE_PROPERTIES_H
+#define SLIDE_PROPERTIES_H
 
 #include <QWidget>
 #include <QPainter>
@@ -42,7 +42,7 @@ class SlideProperties : public QWidget
 public:
 
     explicit SlideProperties(const SlideShowSettings& settings, QWidget* const parent);
-    ~SlideProperties();
+    virtual ~SlideProperties();
 
     void setCurrentInfo(const SlidePictureInfo& info, const QUrl& url);
 
@@ -62,4 +62,4 @@ private:
 
 }  // namespace Digikam
 
-#endif /* SLIDEPROPERTIES_H */
+#endif // SLIDE_PROPERTIES_H

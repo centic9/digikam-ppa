@@ -6,7 +6,7 @@
  * Date        : 2003-16-10
  * Description : application settings interface
  *
- * Copyright (C) 2003-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
@@ -53,6 +53,7 @@ const QString ApplicationSettings::Private::configGroupBaloo(QLatin1String("Balo
 const QString ApplicationSettings::Private::configGroupGeneral(QLatin1String("General Settings"));
 const QString ApplicationSettings::Private::configGroupVersioning(QLatin1String("Versioning Settings"));
 const QString ApplicationSettings::Private::configGroupFaceDetection(QLatin1String("Face Detection Settings"));
+const QString ApplicationSettings::Private::configGroupDuplicatesSearch(QLatin1String("Find Duplicates View"));
 const QString ApplicationSettings::Private::configAlbumCollectionsEntry(QLatin1String("Album Collections"));
 const QString ApplicationSettings::Private::configAlbumSortRoleEntry(QLatin1String("Album Sort Role"));
 const QString ApplicationSettings::Private::configImageSortOrderEntry(QLatin1String("Image Sort Order"));
@@ -137,6 +138,8 @@ const QString ApplicationSettings::Private::configFaceDetectionAccuracyEntry(QLa
 const QString ApplicationSettings::Private::configApplicationStyleEntry(QLatin1String("Application Style"));
 const QString ApplicationSettings::Private::configIconThemeEntry(QLatin1String("Icon Theme"));
 const QString ApplicationSettings::Private::configScanAtStartEntry(QLatin1String("Scan At Start"));
+const QString ApplicationSettings::Private::configDuplicatesSearchLastMinSimilarity(QLatin1String("Last minimum similarity"));
+const QString ApplicationSettings::Private::configDuplicatesSearchLastMaxSimilarity(QLatin1String("Last maximum similarity"));
 
 ApplicationSettings::Private::Private(ApplicationSettings* const qq)
     : showSplash(false),
@@ -213,6 +216,8 @@ ApplicationSettings::Private::Private(ApplicationSettings* const qq)
       syncToBaloo(false),
       faceDetectionAccuracy(0.8),
       stringComparisonType(ApplicationSettings::Natural),
+      duplicatesSearchLastMinSimilarity(90),
+      duplicatesSearchLastMaxSimilarity(100),
       q(qq)
 {
 }
@@ -321,6 +326,9 @@ void ApplicationSettings::Private::init()
     albumSortChanged                    = false;
 
     faceDetectionAccuracy               = 0.8;
+
+    duplicatesSearchLastMinSimilarity   = 90;
+    duplicatesSearchLastMaxSimilarity   = 100;
 
     scanAtStart                         = true;
     stringComparisonType                = ApplicationSettings::Natural;

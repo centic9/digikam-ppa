@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_dropbox\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2016-08-26 14:18+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -21,10 +21,12 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: dbtalker.cpp:184
+#, kde-format
 msgid "Authorize Dropbox"
 msgstr "Уповноваження Dropbox"
 
 #: dbtalker.cpp:194
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, press OK."
@@ -33,51 +35,63 @@ msgstr ""
 "інтернету. Щойно буде виконано вхід до системи і уповноваження програми, "
 "натисніть кнопку «Гаразд»."
 
-#: dbtalker.cpp:422
+#: dbtalker.cpp:423
+#, kde-format
 msgid "Error"
 msgstr "Помилка"
 
-#: dbtalker.cpp:473
+#: dbtalker.cpp:474
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "Спроба вивантаження фотографії зазнала невдачі"
 
-#: dbtalker.cpp:534
+#: dbtalker.cpp:535
+#, kde-format
 msgid "Failed to list folders"
 msgstr "Не вдалося побудувати список тек"
 
 #: dbwindow.cpp:79
+#, kde-format
 msgid "Export to Dropbox"
 msgstr "Експортування до Dropbox"
 
 #: dbwindow.cpp:81
+#, kde-format
 msgid "Start Upload"
 msgstr "Почати вивантаження"
 
 #: dbwindow.cpp:82
+#, kde-format
 msgid "Start upload to Dropbox"
 msgstr "Почати вивантаження до Dropbox"
 
 #: dbwindow.cpp:101
+#, kde-format
 msgid "Dropbox Export"
 msgstr "Експорт до Dropbox"
 
 #: dbwindow.cpp:102
+#, kde-format
 msgid "A tool to export images to Dropbox"
 msgstr "Засіб для експортування зображень до Dropbox"
 
 #: dbwindow.cpp:104
+#, kde-format
 msgid "(c) 2013, Saurabh Patel"
 msgstr "© Saurabh Patel, 2013"
 
 #: dbwindow.cpp:106
+#, kde-format
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
 #: dbwindow.cpp:107
+#, kde-format
 msgid "Author"
 msgstr "Автор"
 
 #: dbwindow.cpp:281
+#, kde-format
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -89,34 +103,41 @@ msgstr ""
 "спробувати пройти розпізнавання знову."
 
 #: dbwindow.cpp:293
+#, kde-format
 msgctxt "@title:window"
 msgid "Error"
 msgstr "Помилка"
 
 #: dbwindow.cpp:294
+#, kde-format
 msgid "No image selected. Please select which images should be uploaded."
 msgstr ""
 "Не позначено жодного зображення. Будь ласка, виберіть зображення, які буде "
 "вивантажено."
 
 #: dbwindow.cpp:300 dbwindow.cpp:420
+#, kde-format
 msgid "Login Failed"
 msgstr "Невдала спроба увійти"
 
 #: dbwindow.cpp:301 dbwindow.cpp:421
+#, kde-format
 msgid "Authentication failed. Do you want to try again?"
 msgstr ""
 "Спроба пройти розпізнавання завершилася невдало. Хочете повторити спробу?"
 
 #: dbwindow.cpp:325
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: dbwindow.cpp:329
+#, kde-format
 msgid "Dropbox export"
 msgstr "Експорт до Dropbox"
 
 #: dbwindow.cpp:362
+#, kde-format
 msgid "Uploading Failed"
 msgstr "Невдала спроба вивантаження"
 
@@ -142,15 +163,18 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_dropboxui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Експорт"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_dropboxui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Головна панель"
 
 #: plugin_dropbox.cpp:90
+#, kde-format
 msgid "Export to &Dropbox..."
 msgstr "Експортув&ати до Dropbox…"
 

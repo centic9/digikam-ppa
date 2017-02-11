@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-04 03:47+0100\n"
 "PO-Revision-Date: 2016-06-08 23:45+0200\n"
 "Last-Translator: Lasse Liehu <lasse.liehu@gmail.com>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -19,10 +19,12 @@ msgstr ""
 "X-Generator: Lokalize 2.0\n"
 
 #: KioExportWidget.cpp:61
+#, kde-format
 msgid "Target location: "
 msgstr "Kohteen sijainti: "
 
 #: KioExportWidget.cpp:62
+#, kde-format
 msgid ""
 "Sets the target address to upload the images to. This can be any address as "
 "used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
@@ -32,64 +34,78 @@ msgstr ""
 "kansio."
 
 #: KioExportWidget.cpp:66
+#, kde-format
 msgid "Select target location..."
 msgstr "Aseta kohteen sijainti…"
 
 #: KioExportWidget.cpp:72
+#, kde-format
 msgid "This is the list of images to upload to the specified target."
 msgstr "Tämä on luettelo annettuun kohteeseen lähetettävistä kuvista."
 
-#: KioExportWidget.cpp:135
+#: KioExportWidget.cpp:137
+#, kde-format
 msgid "Select target..."
 msgstr "Valitse kohde…"
 
-#: KioExportWidget.cpp:136
+#: KioExportWidget.cpp:138
+#, kde-format
 msgid "All Files (*)"
 msgstr "Kaikki tiedostot (*)"
 
-#: KioExportWidget.cpp:156
+#: KioExportWidget.cpp:159
+#, kde-format
 msgid "<not selected>"
 msgstr "<ei valittu>"
 
 #: KioExportWindow.cpp:64
+#, kde-format
 msgid "Export to Remote Storage"
 msgstr "Vie etätallennustilaan"
 
 #: KioExportWindow.cpp:67
+#, kde-format
 msgid "Start export"
 msgstr "Aloita vienti"
 
 #: KioExportWindow.cpp:68
+#, kde-format
 msgid "Start export to the specified target"
 msgstr "Aloita vienti annettuun kohteeseen"
 
 #: KioExportWindow.cpp:84
+#, kde-format
 msgid "Export to remote storage"
 msgstr "Vie etätallennustilaan"
 
 #: KioExportWindow.cpp:85
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to export images over network using KIO-Slave"
 msgid "A tool to export images over network using KIO-Slave"
 msgstr "Kipi-liitännäinen kuvien viemiseksi verkon yli KIO-menetelmällä"
 
 #: KioExportWindow.cpp:86 KioImportWindow.cpp:83
+#, kde-format
 msgid "(c) 2009, Johannes Wienke"
 msgstr "© 2009 Johannes Wienke"
 
 #: KioExportWindow.cpp:88 KioImportWindow.cpp:85
+#, kde-format
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
 #: KioExportWindow.cpp:89 KioImportWindow.cpp:86
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "Kehittäjä ja ylläpitäjä"
 
 #: KioExportWindow.cpp:198
+#, kde-format
 msgid "Upload not completed"
 msgstr "Lähetys ei valmis"
 
 #: KioExportWindow.cpp:199
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to export these images now."
@@ -98,36 +114,43 @@ msgstr ""
 "nämä kuvat nyt."
 
 #: KioImportWidget.cpp:52
+#, kde-format
 msgid "This is the list of images to import into the current album."
 msgstr "Tämä on luettelo nykyiseen albumiin tuotavista kuvista."
 
 #: KioImportWindow.cpp:60
+#, kde-format
 msgid "Import from Remote Storage"
 msgstr "Tuo etätallennustilasta"
 
 #: KioImportWindow.cpp:64
+#, kde-format
 msgid "Start import"
 msgstr "Aloita tuonti"
 
 #: KioImportWindow.cpp:65
+#, kde-format
 msgid "Start importing the specified images into the currently selected album."
 msgstr "Aloita valittujen kuvien tuonti valittuna olevaan albumiin."
 
 #: KioImportWindow.cpp:81
+#, kde-format
 msgid "Import from remote storage"
 msgstr "Tuo etätallennustilasta"
 
 #: KioImportWindow.cpp:82
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to import images over network"
 msgid "A tool to import images over network"
 msgstr "Kipi-liitännäinen kuvien tuomiseksi verkon yli"
 
 #: KioImportWindow.cpp:137
+#, kde-format
 msgid "Import not completed"
 msgstr "Tuonti ei valmis"
 
 #: KioImportWindow.cpp:138
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to import these images now."
@@ -137,24 +160,29 @@ msgstr ""
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_remotestorageui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr "&Tuo"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_remotestorageui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr "&Vie"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_remotestorageui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Päätyökalurivi"
 
 #: plugin_remotestorage.cpp:93
+#, kde-format
 msgid "Export to remote storage..."
 msgstr "Vie etätallennustilaan…"
 
 #: plugin_remotestorage.cpp:105
+#, kde-format
 msgid "Import from remote storage..."
 msgstr "Tuo etätallennustilasta…"
 

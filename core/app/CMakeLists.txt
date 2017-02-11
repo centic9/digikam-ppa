@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2010-2016 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2017 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # Copyright (c) 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
@@ -90,12 +90,6 @@ include_directories($<TARGET_PROPERTY:Qt5::WebKitWidgets,INTERFACE_INCLUDE_DIREC
 
 if(KF5KIO_FOUND)
     include_directories($<TARGET_PROPERTY:KF5::KIOWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
-endif()
-
-if(ENABLE_MEDIAPLAYER)
-    include_directories($<TARGET_PROPERTY:Qt5::Multimedia,INTERFACE_INCLUDE_DIRECTORIES>
-                        $<TARGET_PROPERTY:Qt5::MultimediaWidgets,INTERFACE_INCLUDE_DIRECTORIES>
-    )
 endif()
 
 if(HAVE_OPENGL)
@@ -212,10 +206,6 @@ if(KF5FileMetaData_FOUND)
     target_link_libraries(digikamcore PUBLIC baloowrap)
 endif()
 
-if(ENABLE_MEDIAPLAYER)
-    target_link_libraries(digikamcore PUBLIC Qt5::Multimedia Qt5::MultimediaWidgets)
-endif()
-
 if(HAVE_OPENGL)
     target_link_libraries(digikamcore
                           PUBLIC
@@ -246,6 +236,10 @@ endif()
 
 if(WIN32)
   target_link_libraries(digikamcore PUBLIC wsock32 ws2_32)
+endif()
+
+if(ENABLE_MEDIAPLAYER)
+    target_link_libraries(digikamcore PUBLIC ${QTAV_LIBRARIES})
 endif()
 
 set_target_properties(digikamcore PROPERTIES VERSION ${DIGIKAM_VERSION_SHORT} SOVERSION ${DIGIKAM_VERSION_SHORT})
@@ -457,10 +451,6 @@ endif()
 
 if(APPLE)
     target_link_libraries(digikamgui PRIVATE /System/Library/Frameworks/AppKit.framework)
-endif()
-
-if(ENABLE_MEDIAPLAYER)
-    target_link_libraries(digikamgui PUBLIC Qt5::Multimedia Qt5::MultimediaWidgets)
 endif()
 
 if(HAVE_OPENGL)

@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow OSD widget
  *
- * Copyright (C) 2014-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2014-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -36,7 +36,7 @@
 // Windows includes
 
 #ifdef Q_OS_WIN
-#include <windows.h>
+#   include <windows.h>
 #endif
 
 // Local includes
@@ -60,10 +60,9 @@ public:
     Private() :
         paused(false),
         blink(false),
-        delay(500),         // Progress bar refresh slideTimer in ms
+        refresh(1000),       // Progress bar refresh in ms
         progressBar(0),
         progressTimer(0),
-        slideTimer(0),
         labelsBox(0),
         progressBox(0),
         parent(0),
@@ -72,17 +71,15 @@ public:
         ratingWidget(0),
         clWidget(0),
         plWidget(0)
-
     {
     }
 
     bool                paused;
     bool                blink;
-    int const           delay;
+    int const           refresh;
 
     QProgressBar*       progressBar;
     QTimer*             progressTimer;
-    QTimer*             slideTimer;
 
     DHBox*              labelsBox;
     DHBox*              progressBox;
@@ -107,15 +104,7 @@ SlideOSD::SlideOSD(const SlideShowSettings& settings, SlideShow* const parent)
     setAttribute(Qt::WA_TranslucentBackground, true);
     setAttribute(Qt::WA_ShowWithoutActivating, true);
     setMouseTracking(true);
-/*
-#ifdef Q_OS_WIN
-    // Don't show the window in the taskbar.  Qt::ToolTip does this too, but it
-    // adds an extra ugly shadow.
-    int ex_style = GetWindowLong((HWND)winId(), GWL_EXSTYLE);
-    ex_style    |= WS_EX_NOACTIVATE;
-    SetWindowLong((HWND)winId(), GWL_EXSTYLE, ex_style);
-#endif
-*/
+
     d->settings   = settings;
     d->parent     = parent;
     d->slideProps = new SlideProperties(d->settings, this);
@@ -170,7 +159,7 @@ SlideOSD::SlideOSD(const SlideShowSettings& settings, SlideShow* const parent)
 
     d->progressBar   = new QProgressBar(d->progressBox);
     d->progressBar->setMinimum(0);
-    d->progressBar->setMaximum(d->settings.delay*(1000/d->delay));
+    d->progressBar->setMaximum(d->settings.delay);
     d->progressBar->setFocusPolicy(Qt::NoFocus);
     d->progressBar->installEventFilter(d->parent);
     d->progressBar->setMouseTracking(true);
@@ -216,23 +205,22 @@ SlideOSD::SlideOSD(const SlideShowSettings& settings, SlideShow* const parent)
     connect(d->progressTimer, SIGNAL(timeout()),
             this, SLOT(slotProgressTimer()));
 
-    d->slideTimer    = new QTimer(this);
-
-    connect(d->slideTimer, SIGNAL(timeout()),
-            this, SLOT(slotSlideTimer()));
-
-    d->slideTimer->setSingleShot(true);
-    d->slideTimer->start(10);
+    QTimer::singleShot(500, this, SLOT(slotStart()));
 }
 
 SlideOSD::~SlideOSD()
 {
-    d->slideTimer->stop();
     d->progressTimer->stop();
 
-    delete d->slideTimer;
     delete d->progressTimer;
     delete d;
+}
+
+void SlideOSD::slotStart()
+{
+    d->parent->slotLoadNextItem();
+    d->progressTimer->start(d->refresh);
+    pause(false);
 }
 
 SlideToolBar* SlideOSD::toolBar() const
@@ -268,6 +256,7 @@ void SlideOSD::setCurrentInfo(const SlidePictureInfo& info, const QUrl& url)
     QRect geometry(QApplication::desktop()->availableGeometry(parentWidget()));
     move(10, geometry.bottom() - height());
     show();
+    raise();
 }
 
 bool SlideOSD::eventFilter(QObject* obj, QEvent* ev)
@@ -301,19 +290,13 @@ bool SlideOSD::eventFilter(QObject* obj, QEvent* ev)
     return QWidget::eventFilter(obj, ev);
 }
 
-void SlideOSD::slotSlideTimer()
-{
-    // NOTE: prepare to video slide support.
-    d->parent->slotLoadNextItem();
-}
-
 void SlideOSD::slotProgressTimer()
 {
     QString str = QString::fromUtf8("(%1/%2)")
                     .arg(QString::number(d->settings.fileList.indexOf(d->parent->currentItem()) + 1))
                     .arg(QString::number(d->settings.fileList.count()));
 
-    if (d->toolBar->isPaused())
+    if (isPaused())
     {
         d->blink = !d->blink;
 
@@ -327,7 +310,12 @@ void SlideOSD::slotProgressTimer()
     else
     {
         d->progressBar->setFormat(str);
-        d->progressBar->setValue(d->progressBar->value()-1);
+        d->progressBar->setValue(d->progressBar->value()+1);
+
+        if (d->progressBar->value() == d->settings.delay)
+        {
+            d->parent->slotLoadNextItem();
+        }
     }
 }
 
@@ -335,16 +323,9 @@ void SlideOSD::pause(bool b)
 {
     d->toolBar->pause(b);
 
-    if (b)
+    if (!b)
     {
-        d->slideTimer->stop();
-    }
-    else
-    {
-        d->progressBar->setValue(d->settings.delay*(1000/d->delay));
-        d->progressTimer->start(d->delay);
-        d->slideTimer->setSingleShot(true);
-        d->slideTimer->start(d->settings.delay * 1000);
+        d->progressBar->setValue(0);
     }
 }
 

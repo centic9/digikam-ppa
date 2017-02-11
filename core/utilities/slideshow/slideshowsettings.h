@@ -6,7 +6,7 @@
  * Date        : 2007-02-13
  * Description : slide show settings container.
  *
- * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -21,8 +21,8 @@
  *
  * ============================================================ */
 
-#ifndef SLIDESHOWSETTINGSCONTAINER_H
-#define SLIDESHOWSETTINGSCONTAINER_H
+#ifndef SLIDESHOW_SETTINGS_H
+#define SLIDESHOW_SETTINGS_H
 
 // Qt includes
 
@@ -47,14 +47,14 @@ class DIGIKAM_EXPORT SlidePictureInfo
 
 public:
 
-    SlidePictureInfo()
+    explicit SlidePictureInfo()
     {
         rating     = 0;
         colorLabel = 0;
         pickLabel  = 0;
     };
 
-    ~SlidePictureInfo()
+    virtual ~SlidePictureInfo()
     {
     };
 
@@ -90,11 +90,14 @@ class DIGIKAM_EXPORT SlideShowSettings
 
 public:
 
-    SlideShowSettings();
-    ~SlideShowSettings();
+    explicit SlideShowSettings();
+    virtual ~SlideShowSettings();
 
     void readFromConfig();
     void writeToConfig();
+
+    int indexOf(const QUrl&) const;
+    int count() const;
 
 public:
 
@@ -206,4 +209,4 @@ private:
 
 }  // namespace Digikam
 
-#endif  // SLIDESHOWSETTINGSCONTAINER_H
+#endif  // SLIDESHOW_SETTINGS_H

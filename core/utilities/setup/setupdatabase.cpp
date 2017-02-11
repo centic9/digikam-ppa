@@ -7,7 +7,7 @@
  * Description : database setup tab
  *
  * Copyright (C) 2009-2010 by Holger Foerster <Hamsi2k at freenet dot de>
- * Copyright (C) 2012-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2012-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -214,7 +214,8 @@ void SetupDatabase::upgradeUniqueHashes()
                                             "<p>Please ensure that any important collections on removable media are connected. "
                                             "<i>After the upgrade you cannot use your database with a digiKam version "
                                             "prior to 2.0.</i></p> "
-                                            "<p>Do you want to begin the update?</p>"));
+                                            "<p>Do you want to begin the update?</p>"),
+                                            QMessageBox::Yes | QMessageBox::No);
 
     if (result == QMessageBox::Yes)
     {

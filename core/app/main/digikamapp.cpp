@@ -8,10 +8,10 @@
  *
  * Copyright (C) 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C)      2006 by Tom Albers <tomalbers at kde dot nl>
- * Copyright (C) 2002-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
  * Copyright (C) 2014-2015 by Mohamed Anwer <m dot anwer at gmx dot com>
+ * Copyright (C) 2002-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -142,10 +142,6 @@
 #   include "baloowrap.h"
 #endif
 
-#ifdef HAVE_MEDIAPLAYER
-#   include "videothumbnailer.h"
-#endif
-
 namespace Digikam
 {
 
@@ -274,11 +270,6 @@ DigikamApp::DigikamApp()
     Q_UNUSED(baloo);
 #endif //HAVE_KFILEMETADATA
 
-#ifdef HAVE_MEDIAPLAYER
-    VideoThumbnailer* const video = VideoThumbnailer::instance();
-    Q_UNUSED(video);
-#endif // HAVE_MEDIAPLAYER
-
     setAutoSaveSettings(group, true);
 
     LoadSaveThread::setInfoProvider(new DatabaseLoadSaveFileInfoProvider);
@@ -332,13 +323,6 @@ DigikamApp::~DigikamApp()
     if (BalooWrap::isCreated())
     {
         BalooWrap::internalPtr.clear();
-    }
-#endif
-
-#ifdef HAVE_MEDIAPLAYER
-    if (VideoThumbnailer::isCreated())
-    {
-        delete VideoThumbnailer::internalPtr;
     }
 #endif
 
@@ -891,7 +875,7 @@ void DigikamApp::setupActions()
     d->imageViewSelectionAction->addAction(d->imageIconViewAction);
 
     d->imagePreviewAction = new QAction(QIcon::fromTheme(QLatin1String("view-preview")),
-                                        i18nc("View the selected image", "Preview Image"), this);
+                                        i18nc("View the selected image", "Preview"), this);
     d->imagePreviewAction->setCheckable(true);
     ac->addAction(QLatin1String("image_view"), d->imagePreviewAction);
     ac->setDefaultShortcut(d->imagePreviewAction, Qt::Key_F3);
@@ -1098,6 +1082,11 @@ void DigikamApp::setupActions()
     QAction* const sortByRatingAction      = d->imageSortAction->addAction(i18n("By Rating"));
     QAction* const sortByImageSizeAction   = d->imageSortAction->addAction(i18n("By Image Size"));
     QAction* const sortByAspectRatioAction = d->imageSortAction->addAction(i18n("By Aspect Ratio"));
+    QAction* const sortBySimilarityAction  = d->imageSortAction->addAction(i18n("By Similarity"));
+
+    // activate the sort by similarity if the fuzzy search sidebar is active. Deactivate at start.
+    sortBySimilarityAction->setEnabled(false);
+    connect(d->view, SIGNAL(signalFuzzySidebarActive(bool)), sortBySimilarityAction, SLOT(setEnabled(bool)));
 
     connect(sortByNameAction,        SIGNAL(triggered()), imageSortMapper, SLOT(map()));
     connect(sortByPathAction,        SIGNAL(triggered()), imageSortMapper, SLOT(map()));
@@ -1106,6 +1095,7 @@ void DigikamApp::setupActions()
     connect(sortByRatingAction,      SIGNAL(triggered()), imageSortMapper, SLOT(map()));
     connect(sortByImageSizeAction,   SIGNAL(triggered()), imageSortMapper, SLOT(map()));
     connect(sortByAspectRatioAction, SIGNAL(triggered()), imageSortMapper, SLOT(map()));
+    connect(sortBySimilarityAction,  SIGNAL(triggered()), imageSortMapper, SLOT(map()));
 
     imageSortMapper->setMapping(sortByNameAction,        (int)ImageSortSettings::SortByFileName);
     imageSortMapper->setMapping(sortByPathAction,        (int)ImageSortSettings::SortByFilePath);
@@ -1114,6 +1104,7 @@ void DigikamApp::setupActions()
     imageSortMapper->setMapping(sortByRatingAction,      (int)ImageSortSettings::SortByRating);
     imageSortMapper->setMapping(sortByImageSizeAction,   (int)ImageSortSettings::SortByImageSize);
     imageSortMapper->setMapping(sortByAspectRatioAction, (int)ImageSortSettings::SortByAspectRatio);
+    imageSortMapper->setMapping(sortBySimilarityAction,  (int)ImageSortSettings::SortBySimilarity);
 
     // -----------------------------------------------------------
 
@@ -1273,7 +1264,7 @@ void DigikamApp::setupActions()
     d->slideShowAction->addAction(d->slideShowRecursiveAction);
 
     d->presentationAction = new QAction(i18n("Presentation..."), this);
-    d->presentationAction->setIcon(QIcon::fromTheme(QString::fromLatin1("presentation_section")));
+    d->presentationAction->setIcon(QIcon::fromTheme(QString::fromLatin1("view-presentation")));
     connect(d->presentationAction, SIGNAL(triggered()), d->view, SLOT(slotPresentation()));
     ac->addAction(QLatin1String("presentation"), d->presentationAction);
     ac->setDefaultShortcut(d->presentationAction, Qt::ALT+Qt::SHIFT+Qt::Key_F9);
@@ -1769,7 +1760,7 @@ void DigikamApp::slotOpenCameraUiFromPath(const QString& path)
     }
 
     // the ImportUI will delete itself when it has finished
-    ImportUI* const cgui = new ImportUI(this, i18n("Images found in %1", path),
+    ImportUI* const cgui = new ImportUI(i18n("Images found in %1", path),
                                         QLatin1String("directory browse"), QLatin1String("Fixed"), path, 1);
     cgui->show();
 
@@ -1797,7 +1788,7 @@ void DigikamApp::slotOpenManualCamera(QAction* action)
         else
         {
             // the ImportUI will delete itself when it has finished
-            ImportUI* const cgui = new ImportUI(this, ctype->title(), ctype->model(),
+            ImportUI* const cgui = new ImportUI(ctype->title(), ctype->model(),
                                                 ctype->port(), ctype->path(), ctype->startingNumber());
 
             ctype->setCurrentImportUI(cgui);
@@ -1895,7 +1886,7 @@ void DigikamApp::openSolidCamera(const QString& udi, const QString& cameraLabel)
                                          << " camera is: " << model << " at " << port;
 
             // the ImportUI will delete itself when it has finished
-            ImportUI* const cgui = new ImportUI(this, cameraLabel, model, port, QLatin1String("/"), 1);
+            ImportUI* const cgui = new ImportUI(cameraLabel, model, port, QLatin1String("/"), 1);
             d->cameraUIMap[udi]  = cgui;
 
             cgui->show();
@@ -1986,7 +1977,7 @@ void DigikamApp::openSolidUsmDevice(const QString& udi, const QString& givenLabe
         }
 
         // the ImportUI will delete itself when it has finished
-        ImportUI* const cgui = new ImportUI(this, i18n("Images on %1", mediaLabel),
+        ImportUI* const cgui = new ImportUI(i18n("Images on %1", mediaLabel),
                                             QLatin1String("directory browse"), QLatin1String("Fixed"), path, 1);
         d->cameraUIMap[udi]  = cgui;
 
@@ -2673,7 +2664,6 @@ void DigikamApp::slotImportAddFolders()
     QPointer<QFileDialog> dlg = new QFileDialog(this);
     dlg->setWindowTitle(i18n("Select folders to import into album"));
     dlg->setFileMode(QFileDialog::DirectoryOnly);
-    dlg->setOption(QFileDialog::DontUseNativeDialog, true);
 
     QListView* const l = dlg->findChild<QListView*>(QLatin1String("listView"));
 
@@ -2824,6 +2814,8 @@ void DigikamApp::updateQuickImportAction()
 
         connect(d->quickImportMenu->menuAction(), SIGNAL(triggered()),
                 primaryAction, SLOT(trigger()));
+
+        d->quickImportMenu->setEnabled(true);
     }
 }
 
@@ -3236,7 +3228,12 @@ void DigikamApp::slotEditGeolocation()
     if (infos.isEmpty())
         return;
 
-    QPointer<GeolocationEdit> dialog = new GeolocationEdit(new TagModel(AbstractAlbumModel::IgnoreRootAlbum, 0), QApplication::activeWindow());
+    TagModel* const tagModel                    = new TagModel(AbstractAlbumModel::IgnoreRootAlbum, this);
+    TagPropertiesFilterModel* const filterModel = new TagPropertiesFilterModel(this);
+    filterModel->setSourceAlbumModel(tagModel);
+    filterModel->sort(0);
+
+    QPointer<GeolocationEdit> dialog = new GeolocationEdit(filterModel, QApplication::activeWindow());
     dialog->setItems(ImageGPS::infosToItems(infos));
     dialog->exec();
 

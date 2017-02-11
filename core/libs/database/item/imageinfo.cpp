@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2009-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2009-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C)      2013 by Michael G. Hansen <mike at mghansen dot de>
  *
  * This program is free software; you can redistribute it
@@ -187,6 +187,7 @@ ImageInfoCache* ImageInfoStatic::cache()
 ImageInfoData::ImageInfoData()
 {
     id                     = -1;
+    currentReferenceImage  = -1;
     albumId                = -1;
     albumRootId            = -1;
 
@@ -199,6 +200,7 @@ ImageInfoData::ImageInfoData()
     longitude              = 0;
     latitude               = 0;
     altitude               = 0;
+    currentSimilarity      = 0.0;
 
     hasCoordinates         = false;
     hasAltitude            = false;
@@ -259,6 +261,8 @@ ImageInfo::ImageInfo(const ImageListerRecord& record)
     m_data->modificationDate       = record.modificationDate;
     m_data->fileSize               = record.fileSize;
     m_data->imageSize              = record.imageSize;
+    m_data->currentSimilarity      = record.currentSimilarity;
+    m_data->currentReferenceImage  = record.currentFuzzySearchReferenceImage;
 
     m_data->ratingCached           = true;
     m_data->categoryCached         = true;
@@ -1727,6 +1731,21 @@ bool ImageInfo::isLocationAvailable() const
     }
 
     return CollectionManager::instance()->locationForAlbumRootId(m_data->albumRootId).isAvailable();
+}
+
+double ImageInfo::similarityTo(const qlonglong imageId) const
+{
+    return imageExtendedProperties().similarityTo(imageId);
+}
+
+double ImageInfo::currentSimilarity() const
+{
+    return m_data->currentSimilarity;
+}
+
+qlonglong ImageInfo::currentReferenceImage() const
+{
+    return m_data->currentReferenceImage;
 }
 
 QList<ImageInfo> ImageInfo::fromUniqueHash(const QString& uniqueHash, qlonglong fileSize)

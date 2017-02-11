@@ -7,7 +7,7 @@
  * Description : application settings interface
  *
  * Copyright (C) 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2003-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2003-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * Copyright (C) 2014      by Mohamed Anwer <m dot anwer at gmx dot com>
  * Copyright (C) 2014      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
@@ -206,6 +206,26 @@ void ApplicationSettings::setScanAtStart(bool val)
 bool ApplicationSettings::getScanAtStart() const
 {
     return d->scanAtStart;
+}
+
+void ApplicationSettings::setDuplicatesSearchLastMinSimilarity(int val)
+{
+    d->duplicatesSearchLastMinSimilarity = val;
+}
+
+int  ApplicationSettings::getDuplicatesSearchLastMinSimilarity() const
+{
+    return d->duplicatesSearchLastMinSimilarity;
+}
+
+void ApplicationSettings::setDuplicatesSearchLastMaxSimilarity(int val)
+{
+    d->duplicatesSearchLastMaxSimilarity = val;
+}
+
+int  ApplicationSettings::getDuplicatesSearchLastMaxSimilarity() const
+{
+    return d->duplicatesSearchLastMaxSimilarity;
 }
 
 }  // namespace Digikam

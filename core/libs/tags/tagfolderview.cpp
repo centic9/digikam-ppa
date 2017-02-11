@@ -7,7 +7,7 @@
  * Description : tags folder view.
  *
  * Copyright (C) 2005-2006 by Joern Ahrens <joern dot ahrens at kdemail dot net>
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * Copyright (C) 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  *
@@ -125,7 +125,6 @@ void TagFolderView::addCustomContextMenuActions(ContextMenuHelper& cmh, Album* a
     }
 
     cmh.addExportMenu();
-    cmh.addBatchMenu();
     cmh.addSeparator();
     cmh.addActionDeleteTag(tagModificationHelper(), tag);
     cmh.addSeparator();
@@ -240,7 +239,9 @@ void TagFolderView::handleCustomContextMenuAction(QAction* action, AlbumPointer<
     }
     else if (action == d->findDuplAction)
     {
-        emit signalFindDuplicatesInAlbum(tag);
+        QList<TAlbum*> selected = selectedTagAlbums();
+
+        emit signalFindDuplicates(selected);
     }
 }
 
@@ -269,7 +270,6 @@ void TagFolderView::setContexMenuItems(ContextMenuHelper& cmh, QList< TAlbum* > 
     cmh.addAction(collapseSel, this, SLOT(slotCollapseNode()), false);
     cmh.addSeparator();
     cmh.addExportMenu();
-    cmh.addBatchMenu();
     cmh.addActionDeleteTags(tagModificationHelper(),albums);
     cmh.addSeparator();
 }

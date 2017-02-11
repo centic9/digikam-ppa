@@ -7,7 +7,7 @@
  * Description : Albums manager interface.
  *
  * Copyright (C) 2004      by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
@@ -63,6 +63,7 @@ extern "C"
 #include <QDialogButtonBox>
 #include <QVBoxLayout>
 #include <QMessageBox>
+#include <QSet>
 
 // KDE includes
 
@@ -84,6 +85,7 @@ extern "C"
 #include "databaseserverstarter.h"
 #include "coredbthumbinfoprovider.h"
 #include "coredburl.h"
+#include "coredbsearchxml.h"
 #include "coredbwatch.h"
 #include "dio.h"
 #include "facetags.h"
@@ -2071,6 +2073,23 @@ SAlbum* AlbumManager::findSAlbum(const QString& name) const
     return 0;
 }
 
+QList<SAlbum*> AlbumManager::findSAlbumsBySearchType(int searchType) const
+{
+    QList<SAlbum*> albums;
+    for (Album* album = d->rootSAlbum->firstChild(); album; album = album->next())
+    {
+        if (album != 0)
+        {
+            SAlbum* sAlbum = dynamic_cast<SAlbum*>(album);
+            if ((sAlbum != 0) && (sAlbum->searchType() == searchType))
+            {
+                albums.append(sAlbum);
+            }
+        }
+    }
+    return albums;
+}
+
 void AlbumManager::addGuardedPointer(Album* album, Album** pointer)
 {
     if (album)
@@ -3465,6 +3484,66 @@ void AlbumManager::slotImageTagChange(const ImageTagChangeset& changeset)
 
         default:
             break;
+    }
+}
+
+void AlbumManager::slotImagesDeleted(const QList<qlonglong>& imageIds)
+{
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Got image deletion notification from ImageViewUtilities for " << imageIds.size() << " images.";
+
+    QSet<qlonglong> imagesToRescan;
+    QSet<SAlbum*> sAlbumsToDelete;
+    QSet<qlonglong> deletedImages = imageIds.toSet();
+
+    QList<SAlbum*> sAlbums = findSAlbumsBySearchType(DatabaseSearch::DuplicatesSearch);
+
+    foreach(SAlbum* const sAlbum, sAlbums)
+    {
+        // Read the search query XML and save the image ids
+        SearchXmlReader reader(sAlbum->query());
+        SearchXml::Element element;
+        QSet<qlonglong> images;
+
+        while ((element = reader.readNext()) != SearchXml::End)
+        {
+            if ((element == SearchXml::Field) && (reader.fieldName().compare(QLatin1String("imageid")) == 0))
+            {
+                images = reader.valueToLongLongList().toSet();
+            }
+        }
+
+        // If the deleted images are part of the SAlbum,
+        // mark the album as ready for deletion and the images as ready for rescan.
+#if QT_VERSION >= 0x050600
+        if (images.intersects(deletedImages))
+#else
+        if (images.intersect(deletedImages).isEmpty())
+#endif
+        {
+            sAlbumsToDelete.insert(sAlbum);
+            imagesToRescan.unite(images);
+        }
+    }
+
+    // Remove the deleted images from the set of images for rescan.
+    imagesToRescan.subtract(deletedImages);
+
+    if (!imagesToRescan.empty())
+    {
+        // Delete albums
+        foreach (SAlbum* const sAlbum, sAlbumsToDelete)
+        {
+            deleteSAlbum(sAlbum);
+        }
+
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Rescanning " << imagesToRescan.size() << " images for duplicates.";
+        emit signalUpdateDuplicatesAlbums(imagesToRescan.toList());
+    }
+
+    // Delete all similarity properties to the deleted images:
+    foreach(qlonglong imageid, deletedImages)
+    {
+        CoreDbAccess().db()->removeImagePropertyByName(QLatin1String("similarityTo_")+QString::number(imageid));
     }
 }
 

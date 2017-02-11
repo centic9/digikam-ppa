@@ -144,6 +144,8 @@ Qt::SortOrder ImageSortSettings::defaultSortOrderForSortRole(SortRole role)
             return Qt::DescendingOrder;
         case SortByAspectRatio:
             return Qt::DescendingOrder;
+        case SortBySimilarity:
+            return Qt::DescendingOrder;
         default:
             return Qt::AscendingOrder;
     }
@@ -226,6 +228,11 @@ bool ImageSortSettings::lessThan(const ImageInfo& left, const ImageInfo& right) 
         return result < 0;
     }
 
+    if ( (result = compare(left, right, SortBySimilarity)) != 0)
+    {
+        return result < 0;
+    }
+
     return false;
 }
 
@@ -239,7 +246,11 @@ int ImageSortSettings::compare(const ImageInfo& left, const ImageInfo& right, So
     switch (role)
     {
         case SortByFileName:
-            return naturalCompare(left.name(), right.name(), currentSortOrder, sortCaseSensitivity, strTypeNatural);
+        {
+            bool versioning = (left.name().contains(QLatin1String("_v"), Qt::CaseInsensitive) ||
+                               right.name().contains(QLatin1String("_v"), Qt::CaseInsensitive));
+            return naturalCompare(left.name(), right.name(), currentSortOrder, sortCaseSensitivity, strTypeNatural, versioning);
+        }
         case SortByFilePath:
             return naturalCompare(left.filePath(), right.filePath(), currentSortOrder, sortCaseSensitivity, strTypeNatural);
         case SortByFileSize:
@@ -266,6 +277,15 @@ int ImageSortSettings::compare(const ImageInfo& left, const ImageInfo& right, So
             int leftAR = (double(leftSize.width()) / double(leftSize.height())) * 1000000;
             int rightAR = (double(rightSize.width()) / double(rightSize.height())) * 1000000;
             return compareByOrder(leftAR, rightAR, currentSortOrder);
+        }
+        case SortBySimilarity:
+        {
+            qlonglong leftReferenceImageId  = left.currentReferenceImage();
+            qlonglong rightReferenceImageId = right.currentReferenceImage();
+            // make sure that the original image has always the highest similarity.
+            double leftSimilarity  = left.id() == leftReferenceImageId ? 1.1 : left.currentSimilarity();
+            double rightSimilarity = right.id() == rightReferenceImageId ? 1.1 : right.currentSimilarity();
+            return compareByOrder(leftSimilarity, rightSimilarity, currentSortOrder);
         }
         default:
             return 1;
@@ -356,6 +376,10 @@ DatabaseFields::Set ImageSortSettings::watchFlags() const
             break;
         case SortByAspectRatio:
             set |= DatabaseFields::Width | DatabaseFields::Height;
+            break;
+        case SortBySimilarity:
+            // TODO: Not sure what to do here....
+            set |= DatabaseFields::Name;
             break;
     }
 

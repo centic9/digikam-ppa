@@ -1,0 +1,113 @@
+# Script to build Exiv2 for digiKam bundle.
+#
+# Copyright (c) 2015-2017, Gilles Caulier, <caulier dot gilles at gmail dot com>
+#
+# Redistribution and use is allowed according to the terms of the BSD license.
+# For details see the accompanying COPYING-CMAKE-SCRIPTS file.
+#
+
+set(PREFIX_ext_exiv2 "${EXTPREFIX}")
+
+set(Exiv2_Conf -DEXIV2_ENABLE_SHARED=ON
+               -DEXIV2_ENABLE_XMP=ON
+               -DEXIV2_ENABLE_LIBXMP=ON
+               -DEXIV2_ENABLE_PNG=ON
+               -DEXIV2_ENABLE_NLS=OFF
+               -DEXIV2_ENABLE_PRINTUCS2=ON
+               -DEXIV2_ENABLE_LENSDATA=ON
+               -DEXIV2_ENABLE_COMMERCIAL=OFF
+               -DEXIV2_ENABLE_BUILD_SAMPLES=OFF
+               -DEXIV2_ENABLE_BUILD_PO=OFF
+               -DEXIV2_ENABLE_VIDEO=ON
+               -DEXIV2_ENABLE_WEBREADY=OFF
+               -DEXIV2_ENABLE_CURL=OFF
+               -DEXIV2_ENABLE_SSH=OFF
+)
+
+JoinListAsString("${Exiv2_Conf}" " " BASH_OPTIONS)
+
+if(MINGW)
+
+    ExternalProject_Add(ext_exiv2
+        DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
+
+        # To use official release tarball
+
+        #URL http://www.exiv2.org/exiv2-0.25.tar.gz
+        #URL_MD5 258d4831b30f75a01e0234065c6c2806
+
+        # To use current implementation from SVN
+
+        SVN_REPOSITORY svn://dev.exiv2.org/svn/trunk
+        PATCH_COMMAND ${PATCH_COMMAND} -p0 -i ${CMAKE_CURRENT_SOURCE_DIR}/exiv2-trunk.patch
+
+        CONFIGURE_COMMAND <SOURCE_DIR>/bootstrap.mxe ${MXE_BUILDROOT} relwithdebinfo ${BASH_OPTIONS}
+
+        BUILD_COMMAND cd <SOURCE_DIR>/build && make -j
+
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && make install/fast
+
+        BUILD_IN_SOURCE 1
+
+        UPDATE_COMMAND ""
+        ALWAYS 0
+    )
+
+
+elseif(APPLE)
+
+    ExternalProject_Add(ext_exiv2
+        DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
+
+        # To use official release tarball
+
+        #URL http://www.exiv2.org/e\\xiv2-0.25.tar.gz
+        #URL_MD5 258d4831b30f75a01e0234065c6c2806
+
+        # To use current implementation from SVN
+
+        SVN_REPOSITORY svn://dev.exiv2.org/svn/trunk
+
+        PATCH_COMMAND ${PATCH_COMMAND} -p0 -i ${CMAKE_CURRENT_SOURCE_DIR}/exiv2-trunk.patch
+
+        CONFIGURE_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.macports <SOURCE_DIR>/. &&
+                          <SOURCE_DIR>/bootstrap.macports ${PREFIX_ext_exiv2} relwithdebinfo x86_64 ${BASH_OPTIONS}
+
+        BUILD_COMMAND cd <SOURCE_DIR>/build && make -j
+
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && make install/fast
+
+        BUILD_IN_SOURCE 1
+
+        UPDATE_COMMAND ""
+        ALWAYS 0
+    )
+
+else() # Linux
+
+    ExternalProject_Add(ext_exiv2
+        DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
+
+        # To use official release tarball
+
+        #URL http://www.exiv2.org/exiv2-0.25.tar.gz
+        #URL_MD5 258d4831b30f75a01e0234065c6c2806
+
+        # To use current implementation from SVN
+
+        SVN_REPOSITORY svn://dev.exiv2.org/svn/trunk
+        PATCH_COMMAND ${PATCH_COMMAND} -p0 -i ${CMAKE_CURRENT_SOURCE_DIR}/exiv2-trunk.patch
+
+        INSTALL_DIR ${PREFIX_ext_exiv2}
+
+        CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_exiv2}
+                   -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
+                   -DICONV_INCLUDE_DIR=${PREFIX_ext_exiv2}/include
+                   ${Exiv2_Conf}
+                   ${GLOBAL_PROFILE}
+
+        UPDATE_COMMAND ""
+        ALWAYS 0
+    )
+
+endif()

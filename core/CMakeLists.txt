@@ -1,5 +1,5 @@
 #
-# Copyright (c) 2010-2016 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# Copyright (c) 2010-2017 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # Copyright (c) 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 # Copyright (c) 2015      by Mohamed Anwer, <m dot anwer at gmx dot com>
 #
@@ -16,11 +16,11 @@ message(STATUS "Starting CMake configuration for: ${PROJECT_NAME}")
 
 # digiKam version
 set(DIGIKAM_MAJOR_VERSION "5")
-set(DIGIKAM_MINOR_VERSION "3")
+set(DIGIKAM_MINOR_VERSION "4")
 set(DIGIKAM_PATCH_VERSION "0")
 
 #digiKam release date
-set(DIGIKAM_RELEASE_DATE "2016-11-06")
+set(DIGIKAM_RELEASE_DATE "2016-01-08")
 
 # Suffix to add at end of version string. Usual values are:
 # "-git"   : alpha code unstable from git. Do not use in production
@@ -103,7 +103,7 @@ include(MacroBoolTo01)
 option(ENABLE_OPENCV3               "Build digiKam with OpenCV3 instead OpenCV2 (default=OFF)"                           OFF)
 option(ENABLE_KFILEMETADATASUPPORT  "Build digiKam with KDE files indexer support (default=OFF)"                         OFF)
 option(ENABLE_AKONADICONTACTSUPPORT "Build digiKam with KDE Mail Contacts support (default=OFF)"                         OFF)
-option(ENABLE_MEDIAPLAYER           "Build digiKam with QtMultimedia support (default=OFF)"                              OFF)
+option(ENABLE_MEDIAPLAYER           "Build digiKam with Media Player support (default=OFF)"                              OFF)
 option(ENABLE_DBUS                  "Build digiKam with DBUS support (default=ON)"                                       ON)
 option(ENABLE_APPSTYLES             "Build digiKam with support for changing the widget application style (default=OFF)" OFF)
 
@@ -132,17 +132,9 @@ find_package(Qt5 ${QT_MIN_VERSION}
 
 find_package(Qt5 ${QT_MIN_VERSION}
              OPTIONAL_COMPONENTS
-             Multimedia
-             MultimediaWidgets
              DBus
              OpenGL
 )
-
-if(ENABLE_MEDIAPLAYER)
-    if(NOT Qt5Multimedia_FOUND OR NOT Qt5MultimediaWidgets_FOUND)
-        set(ENABLE_MEDIAPLAYER OFF)
-    endif()
-endif()
 
 if(ENABLE_DBUS)
     if(NOT Qt5DBus_FOUND)
@@ -229,12 +221,26 @@ set_package_properties("Exiv2"     PROPERTIES
                        PURPOSE     "Library to manage image metadata"
 )
 
+# -- check Media player --------------------------------------------------------------------------
+
+find_package(QtAV)
+
+if(ENABLE_MEDIAPLAYER)
+
+    if(NOT ${QTAV_FOUND})
+        set(ENABLE_MEDIAPLAYER OFF)
+    else()
+        include_directories(${QTAV_INCLUDE_DIRS})
+    endif()
+
+endif()
+
 # -- check OpenCV --------------------------------------------------------------------------------
 
 if(ENABLE_OPENCV3)
 
     set(OPENCV_MIN_VERSION "3.1.0")
-    DETECT_OPENCV(${OPENCV_MIN_VERSION} core highgui objdetect imgproc)
+    DETECT_OPENCV(${OPENCV_MIN_VERSION} core objdetect imgproc imgcodecs)
 
     if(${OpenCV_FOUND})
         if(${OpenCV_VERSION} VERSION_LESS 3.1.0)
@@ -246,7 +252,7 @@ if(ENABLE_OPENCV3)
 else()
 
     set(OPENCV_MIN_VERSION "2.4.9")
-    DETECT_OPENCV(${OPENCV_MIN_VERSION} core highgui objdetect contrib legacy imgproc)
+    DETECT_OPENCV(${OPENCV_MIN_VERSION} core objdetect imgproc contrib legacy)
 
     if(${OpenCV_FOUND})
         if(${OpenCV_VERSION} VERSION_GREATER 2.4.99)
@@ -415,7 +421,7 @@ message(STATUS "")
 PRINT_COMPONENT_COMPILE_STATUS("MySQL Database Support"     ENABLE_MYSQLSUPPORT)
 PRINT_COMPONENT_COMPILE_STATUS("MySQL Internal Support"     ENABLE_INTERNALMYSQL)
 PRINT_COMPONENT_COMPILE_STATUS("DBUS Support"               ENABLE_DBUS)
-PRINT_COMPONENT_COMPILE_STATUS("Application Style Support"  ENABLE_APPSTYLES)
+PRINT_COMPONENT_COMPILE_STATUS("App. Style Support"         ENABLE_APPSTYLES)
 
 
 # ================================================================
@@ -454,11 +460,7 @@ PRINT_OPTIONAL_LIBRARY_STATUS("libeigen3"         "http://eigen.tuxfamily.org"  
 PRINT_OPTIONAL_LIBRARY_STATUS("libgphoto2"        "http://www.gphoto.org"                                           "(version >= 2.4.0)"                   "digiKam will be compiled without GPhoto2 camera drivers support."            GPHOTO2_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("doxygen"           "http://www.doxygen.org"                                          "(version >= 1.8.0)"                   "digiKam will be compiled without API documentation building support."        DOXYGEN_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("OpenGL"            "http://www.mesa3d.org"                                           "(version >= 11.0.0)"                  "digiKam will be compiled without OpneGL support."                            HAVE_OPENGL)
-
-if(ENABLE_MEDIAPLAYER)
-    PRINT_OPTIONAL_QTMODULE_STATUS("Qt5 Multimedia"        Qt5Multimedia_FOUND)
-    PRINT_OPTIONAL_QTMODULE_STATUS("Qt5 MultimediaWidgets" Qt5MultimediaWidgets_FOUND)
-endif()
+PRINT_OPTIONAL_LIBRARY_STATUS("libqtav"           "http://www.qtav.org/"                                            "(version >= 1.11.0)"                  "digiKam will be compiled without Media Player support."                      QTAV_FOUND)
 
 # ================================================================
 

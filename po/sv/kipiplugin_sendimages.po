@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_sendimages\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2016-08-26 17:06+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -19,44 +19,54 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: imageresize.cpp:116
+#, kde-format
 msgid "Error opening input file"
 msgstr "Fel när indatafil skulle öppnas"
 
 #: imageresize.cpp:127
+#, kde-format
 msgid "Error opening temporary folder"
 msgstr "Fel när tillfällig katalog skulle öppnas"
 
 #: imageresize.cpp:175
+#, kde-format
 msgid "Cannot resize image. Aborting."
 msgstr "Kan inte ändra storlek på bilden. Avbryter."
 
 #: imageresize.cpp:197
+#, kde-format
 msgid "Cannot save resized image (JPEG). Aborting."
 msgstr "Kan inte spara storleksändrad bild (JPEG). Avbryter."
 
 #: imageresize.cpp:209
+#, kde-format
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "Kan inte spara storleksändrad bild (PNG). Avbryter."
 
 #. i18n: ectx: Menu (Tools)
 #: kipiplugin_sendimagesui.rc:7
+#, kde-format
 msgid "&Tools"
 msgstr "Verk&tyg"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_sendimagesui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Huvudverktygsrad"
 
 #: plugin_sendimages.cpp:115
+#, kde-format
 msgid "Email Images..."
 msgstr "E-posta bilder..."
 
 #: sendimages.cpp:133
+#, kde-format
 msgid "Email images"
 msgstr "E-posta bilder"
 
 #: sendimages.cpp:176
+#, kde-format
 msgid "Operation canceled by user"
 msgstr "Åtgärden avbruten av användaren"
 
@@ -76,18 +86,22 @@ msgid "Failed to resize %1: %2"
 msgstr "Misslyckades ändra storlek på %1: %2"
 
 #: sendimages.cpp:240
+#, kde-format
 msgid "There are no files to send"
 msgstr "Det finns inga filer att skicka"
 
 #: sendimages.cpp:258
+#, kde-format
 msgid "Build images properties file"
 msgstr "Skapa bildernas egenskapsfil"
 
 #: sendimages.cpp:271
+#, kde-format
 msgid "no caption"
 msgstr "ingen rubrik"
 
 #: sendimages.cpp:274
+#, kde-format
 msgid "no keywords"
 msgstr "inga nyckelord"
 
@@ -116,18 +130,22 @@ msgid "Rating: %1\n"
 msgstr "Betyg: %1\n"
 
 #: sendimages.cpp:290
+#, kde-format
 msgid "properties.txt"
 msgstr "properties.txt"
 
 #: sendimages.cpp:299
+#, kde-format
 msgid "Image properties file done"
 msgstr "Bildernas egenskapsfil klar"
 
 #: sendimages.cpp:317
+#, kde-format
 msgid "Processing Failed"
 msgstr "Behandling misslyckades"
 
 #: sendimages.cpp:318
+#, kde-format
 msgid ""
 "Some images cannot be resized.\n"
 "Do you want them to be added as attachments without resizing?"
@@ -145,6 +163,7 @@ msgstr ""
 "inställningarna."
 
 #: sendimages.cpp:435
+#, kde-format
 msgid "Starting default desktop email program..."
 msgstr "Startar skrivbordets förvalda e-postprogram..."
 
@@ -159,64 +178,79 @@ msgid "Starting \"%1\" program..."
 msgstr "Startar programmet \"%1\"..."
 
 #: sendimages.cpp:675
+#, kde-format
 msgid "After having sent your images by email..."
 msgstr "Efter att ha skickat dina bilder med e-post..."
 
 #: sendimages.cpp:676
+#, kde-format
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "Klicka på knappen 'Stäng' för att rensa bort tillfälliga filer"
 
 #: sendimagesdialog.cpp:81
+#, kde-format
 msgid "Email Images Options"
 msgstr "Alternativ för att e-posta bilder"
 
 #: sendimagesdialog.cpp:84
+#, kde-format
 msgctxt "@action:button"
 msgid "&Send"
 msgstr "&Skicka"
 
 #: sendimagesdialog.cpp:103
+#, kde-format
 msgid "Send Images"
 msgstr "Skicka bilder"
 
 #: sendimagesdialog.cpp:104
+#, kde-format
 msgid "A tool to e-mail items"
 msgstr "Ett verktyg för att e-posta objekt"
 
 #: sendimagesdialog.cpp:105
+#, kde-format
 msgid "(c) 2003-2016, Gilles Caulier"
 msgstr "© 2003-2016, Gilles Caulier"
 
 #: sendimagesdialog.cpp:107
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: sendimagesdialog.cpp:107
+#, kde-format
 msgid "Author and Maintainer"
 msgstr "Upphovsman och utvecklare"
 
 #: sendimagesdialog.cpp:110
+#, kde-format
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
 #: sendimagesdialog.cpp:110 sendimagesdialog.cpp:113
+#, kde-format
 msgid "Developer"
 msgstr "Utvecklare"
 
 #: sendimagesdialog.cpp:113
+#, kde-format
 msgid "Tom Albers"
 msgstr "Tom Albers"
 
 #: settingswidget.cpp:91
+#, kde-format
 msgid "Mail program:"
 msgstr "E-postprogram:"
 
 #: settingswidget.cpp:94
+#, kde-format
 msgctxt "default desktop mail agent"
 msgid "Default"
 msgstr "Standard"
 
 #: settingswidget.cpp:106
+#, kde-format
 msgid ""
 "Select your preferred external email program here. <b>Default</b> is the "
 "current email program set in desktop system settings."
@@ -240,18 +274,22 @@ msgstr ""
 "%1 som kommentarer, betyg eller etiketter, till som en bilfogad fil."
 
 #: settingswidget.cpp:125
+#, kde-format
 msgid " MB"
 msgstr " MiB"
 
 #: settingswidget.cpp:127
+#, kde-format
 msgid "Maximum email size limit:"
 msgstr "Maximal storleksgräns för brev:"
 
 #: settingswidget.cpp:132
+#, kde-format
 msgid "Adjust image properties"
 msgstr "Justera bildegenskaper"
 
 #: settingswidget.cpp:134
+#, kde-format
 msgid ""
 "If you enable this option, all images to be sent can be resized and "
 "recompressed."
@@ -260,38 +298,47 @@ msgstr ""
 "omkomprimering göras för alla bilder som ska skickas."
 
 #: settingswidget.cpp:137
+#, kde-format
 msgid "Image Properties"
 msgstr "Bildegenskaper"
 
 #: settingswidget.cpp:141 settingswidget.cpp:167
+#, kde-format
 msgid "Very Small (320 pixels)"
 msgstr "Mycket liten (320 bildpunkter)"
 
 #: settingswidget.cpp:142 settingswidget.cpp:168
+#, kde-format
 msgid "Small (640 pixels)"
 msgstr "Liten (640 bildpunkter)"
 
 #: settingswidget.cpp:143 settingswidget.cpp:169
+#, kde-format
 msgid "Medium (800 pixels)"
 msgstr "Medium (800 bildpunkter)"
 
 #: settingswidget.cpp:144 settingswidget.cpp:170
+#, kde-format
 msgid "Big (1024 pixels)"
 msgstr "Stor (1024 bildpunkter)"
 
 #: settingswidget.cpp:145 settingswidget.cpp:171
+#, kde-format
 msgid "Very Big (1280 pixels)"
 msgstr "Mycket stor (1280 bildpunkter)"
 
 #: settingswidget.cpp:146 settingswidget.cpp:172
+#, kde-format
 msgid "Large - for printing (1600 pixels)"
 msgstr "Stor - för utskrift (1600 bildpunkter)"
 
 #: settingswidget.cpp:147 settingswidget.cpp:173
+#, kde-format
 msgid "Full HD (1920 pixels)"
 msgstr "Full HD (1920 bildpunkter)"
 
 #: settingswidget.cpp:148 settingswidget.cpp:174
+#, kde-format
 msgid "Ultra HD (3840 pixels)"
 msgstr "Ultra HD (3840 bildpunkter)"
 
@@ -329,14 +376,17 @@ msgstr ""
 "mottagarens brevlådestorlek inte är begränsad.</p>"
 
 #: settingswidget.cpp:177
+#, kde-format
 msgid "Image size:"
 msgstr "Bildstorlek:"
 
 #: settingswidget.cpp:186
+#, kde-format
 msgid "<p>Select the file format of the image files to be sent.</p>"
 msgstr "<p>Välj filformat för bildfilerna att skicka.</p>"
 
 #: settingswidget.cpp:187
+#, kde-format
 msgid ""
 "<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
 "web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
@@ -359,24 +409,28 @@ msgstr ""
 "förbättrad färgmatchning på heterogena plattformar.</p>"
 
 #: settingswidget.cpp:197
+#, kde-format
 msgid "Image format:"
 msgstr "Bildformat:"
 
 #: settingswidget.cpp:206
+#, kde-format
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
 msgstr "<p>Nytt komprimeringsvärde för JPEG-bilderna att skicka:</p>"
 
 #: settingswidget.cpp:207
+#, kde-format
 msgid ""
 "<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
-"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
-"<br/><b>100</b>: no compression</p>"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default "
+"value)<br/><b>100</b>: no compression</p>"
 msgstr ""
 "<p><b>1</b>: mycket hög komprimering<br/><b>25</b>: hög komprimering<br/"
-"><b>50</b>: medelkomprimering<br/><b>75</b>: låg komprimering (standardvärde)"
-"<br/><b>100</b>: ingen komprimering</p>"
+"><b>50</b>: medelkomprimering<br/><b>75</b>: låg komprimering "
+"(standardvärde)<br/><b>100</b>: ingen komprimering</p>"
 
 #: settingswidget.cpp:215
+#, kde-format
 msgid "Image quality:"
 msgstr "Bildkvalitet:"
 

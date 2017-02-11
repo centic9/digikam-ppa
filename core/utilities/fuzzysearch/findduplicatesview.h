@@ -6,7 +6,7 @@
  * Date        : 2008-05-19
  * Description : Find Duplicates View.
  *
- * Copyright (C) 2008-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2008-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -36,6 +36,8 @@ namespace Digikam
 {
 class Album;
 class SAlbum;
+class PAlbum;
+class TAlbum;
 
 class FindDuplicatesView : public QWidget
 {
@@ -50,8 +52,9 @@ public:
 
 public Q_SLOTS:
 
-    void slotSetSelectedAlbum(Album*);
-    void slotSetSelectedTag(Album*);
+    void slotSetSelectedAlbum(PAlbum* album);
+    void slotSetSelectedAlbums(QList<PAlbum*> albums);
+    void slotSetSelectedAlbums(QList<TAlbum*> albums);
 
 private Q_SLOTS:
 
@@ -61,10 +64,12 @@ private Q_SLOTS:
     void slotSearchUpdated(SAlbum* a);
     void slotClear();
     void slotFindDuplicates();
-    void slotDuplicatesAlbumActived(QTreeWidgetItem*, int);
+    void slotUpdateDuplicates(const QList<qlonglong> imagesToRescan);
+    void slotDuplicatesAlbumActived();
     void slotComplete();
     void slotUpdateFingerPrints();
     void slotCheckForValidSettings();
+    void slotMinimumChanged(int);
 
 private:
 

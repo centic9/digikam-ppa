@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-libs\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2016-11-19 20:08+0100\n"
 "PO-Revision-Date: 2015-10-17 22:41+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde@peremen.name>\n"
@@ -19,44 +19,54 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: imageresize.cpp:116
+#, kde-format
 msgid "Error opening input file"
 msgstr "입력 파일을 여는 중 오류 발생"
 
 #: imageresize.cpp:127
+#, kde-format
 msgid "Error opening temporary folder"
 msgstr "임시 폴더를 여는 중 오류 발생"
 
 #: imageresize.cpp:175
+#, kde-format
 msgid "Cannot resize image. Aborting."
 msgstr "그림 크기를 조절할 수 없습니다. 중단합니다."
 
 #: imageresize.cpp:197
+#, kde-format
 msgid "Cannot save resized image (JPEG). Aborting."
 msgstr "크기 조정된 그림(JPEG)을 저장할 수 없습니다. 중단합니다."
 
 #: imageresize.cpp:209
+#, kde-format
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "크기 조정된 그림(PNG)을 저장할 수 없습니다. 중단합니다."
 
 #. i18n: ectx: Menu (Tools)
 #: kipiplugin_sendimagesui.rc:7
+#, kde-format
 msgid "&Tools"
 msgstr ""
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_sendimagesui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr "주 도구 모음"
 
 #: plugin_sendimages.cpp:115
+#, kde-format
 msgid "Email Images..."
 msgstr "이메일로 그림 보내기..."
 
 #: sendimages.cpp:133
+#, kde-format
 msgid "Email images"
 msgstr "이메일로 그림 보내기"
 
 #: sendimages.cpp:176
+#, kde-format
 msgid "Operation canceled by user"
 msgstr "사용자가 작업을 취소함"
 
@@ -76,18 +86,22 @@ msgid "Failed to resize %1: %2"
 msgstr "%1의 크기를 조정하는 데 실패함: %2"
 
 #: sendimages.cpp:240
+#, kde-format
 msgid "There are no files to send"
 msgstr "보낼 파일이 없습니다"
 
 #: sendimages.cpp:258
+#, kde-format
 msgid "Build images properties file"
 msgstr "그림 속성 파일 만들기"
 
 #: sendimages.cpp:271
+#, kde-format
 msgid "no caption"
 msgstr "캡션 없음"
 
 #: sendimages.cpp:274
+#, kde-format
 msgid "no keywords"
 msgstr "키워드 없음"
 
@@ -116,18 +130,22 @@ msgid "Rating: %1\n"
 msgstr "별점: %1\n"
 
 #: sendimages.cpp:290
+#, kde-format
 msgid "properties.txt"
 msgstr "properties.txt"
 
 #: sendimages.cpp:299
+#, kde-format
 msgid "Image properties file done"
 msgstr "그림 속성 파일 완료됨"
 
 #: sendimages.cpp:317
+#, kde-format
 msgid "Processing Failed"
 msgstr "처리 실패"
 
 #: sendimages.cpp:318
+#, kde-format
 msgid ""
 "Some images cannot be resized.\n"
 "Do you want them to be added as attachments without resizing?"
@@ -144,7 +162,7 @@ msgstr ""
 "파일 \"%1\"을(를) 보내기에 너무 큽니다. 크기를 조정하거나 설정을 변경하십시오"
 
 #: sendimages.cpp:435
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Starting default KDE email program..."
 msgid "Starting default desktop email program..."
 msgstr "기본 KDE 이메일 프로그램 시작하는 중..."
@@ -160,64 +178,75 @@ msgid "Starting \"%1\" program..."
 msgstr "프로그램 \"%1\" 시작하는 중..."
 
 #: sendimages.cpp:675
+#, kde-format
 msgid "After having sent your images by email..."
 msgstr "그림을 이메일로 보낸 후..."
 
 #: sendimages.cpp:676
+#, kde-format
 msgid "Press 'Close' button to clean up temporary files"
 msgstr "임시 파일을 삭제하기 위해서 닫기 단추를 누르십시오"
 
 #: sendimagesdialog.cpp:81
+#, kde-format
 msgid "Email Images Options"
 msgstr "그림 보내기 옵션"
 
 #: sendimagesdialog.cpp:84
+#, kde-format
 msgctxt "@action:button"
 msgid "&Send"
 msgstr "보내기(&S)"
 
 #: sendimagesdialog.cpp:103
+#, kde-format
 msgid "Send Images"
 msgstr "그림 보내기"
 
 #: sendimagesdialog.cpp:104
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A plugin to e-mail items"
 msgid "A tool to e-mail items"
 msgstr "그림을 이메일로 보내는 플러그인"
 
 #: sendimagesdialog.cpp:105
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "(c) 2003-2014, Gilles Caulier"
 msgid "(c) 2003-2016, Gilles Caulier"
 msgstr "(c) 2003-2014, Gilles Caulier"
 
 #: sendimagesdialog.cpp:107
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: sendimagesdialog.cpp:107
+#, kde-format
 msgid "Author and Maintainer"
 msgstr "작성자와 관리자"
 
 #: sendimagesdialog.cpp:110
+#, kde-format
 msgid "Michael Hoechstetter"
 msgstr "Michael Hoechstetter"
 
 #: sendimagesdialog.cpp:110 sendimagesdialog.cpp:113
+#, kde-format
 msgid "Developer"
 msgstr "개발자"
 
 #: sendimagesdialog.cpp:113
+#, kde-format
 msgid "Tom Albers"
 msgstr "Tom Albers"
 
 #: settingswidget.cpp:91
+#, kde-format
 msgid "Mail program:"
 msgstr "이메일 프로그램:"
 
 #: settingswidget.cpp:94
-#, fuzzy
+#, fuzzy, kde-format
 #| msgctxt "default mail agent"
 #| msgid "Default"
 msgctxt "default desktop mail agent"
@@ -225,7 +254,7 @@ msgid "Default"
 msgstr "기본값"
 
 #: settingswidget.cpp:106
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "Select your preferred external email program here. <b>Default</b> is the "
 #| "current email program set in KDE System Settings."
@@ -251,59 +280,70 @@ msgstr ""
 "부 파일로 추가됩니다.."
 
 #: settingswidget.cpp:125
+#, kde-format
 msgid " MB"
 msgstr " MB"
 
 #: settingswidget.cpp:127
+#, kde-format
 msgid "Maximum email size limit:"
 msgstr "최대 이메일 크기 제한:"
 
 #: settingswidget.cpp:132
+#, kde-format
 msgid "Adjust image properties"
 msgstr "그림 속성 조정"
 
 #: settingswidget.cpp:134
+#, kde-format
 msgid ""
 "If you enable this option, all images to be sent can be resized and "
 "recompressed."
 msgstr "이 옵션을 사용하면 모든 그림을 보내기 전에 크기를 조정하고 압축합니다."
 
 #: settingswidget.cpp:137
+#, kde-format
 msgid "Image Properties"
 msgstr "그림 속성"
 
 #: settingswidget.cpp:141 settingswidget.cpp:167
+#, kde-format
 msgid "Very Small (320 pixels)"
 msgstr "가장 작게 (320 픽셀)"
 
 #: settingswidget.cpp:142 settingswidget.cpp:168
+#, kde-format
 msgid "Small (640 pixels)"
 msgstr "작게 (640 픽셀)"
 
 #: settingswidget.cpp:143 settingswidget.cpp:169
+#, kde-format
 msgid "Medium (800 pixels)"
 msgstr "중간 (800 픽셀)"
 
 #: settingswidget.cpp:144 settingswidget.cpp:170
+#, kde-format
 msgid "Big (1024 pixels)"
 msgstr "크게 (1024 픽셀)"
 
 #: settingswidget.cpp:145 settingswidget.cpp:171
+#, kde-format
 msgid "Very Big (1280 pixels)"
 msgstr "아주 크게 (1280 픽셀)"
 
 #: settingswidget.cpp:146 settingswidget.cpp:172
+#, kde-format
 msgid "Large - for printing (1600 pixels)"
 msgstr "매우 크게 - 인쇄용 (1600 픽셀)"
 
 #: settingswidget.cpp:147 settingswidget.cpp:173
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Small (640 pixels)"
 msgid "Full HD (1920 pixels)"
 msgstr "작게 (640 픽셀)"
 
 #: settingswidget.cpp:148 settingswidget.cpp:174
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Small (640 pixels)"
 msgid "Ultra HD (3840 pixels)"
 msgstr "작게 (640 픽셀)"
@@ -344,14 +384,17 @@ msgstr ""
 "</p><p><b>%6</b>: 인쇄 목적으로 사용하십시오.</p>"
 
 #: settingswidget.cpp:177
+#, kde-format
 msgid "Image size:"
 msgstr "그림 크기:"
 
 #: settingswidget.cpp:186
+#, kde-format
 msgid "<p>Select the file format of the image files to be sent.</p>"
 msgstr "<p>보낼 그림의 형식을 선택하십시오.</p>"
 
 #: settingswidget.cpp:187
+#, kde-format
 msgid ""
 "<p><b>JPEG</b>: The Joint Photographic Experts Group file format is a good "
 "web file format but it uses lossy compression.</p><p><b>PNG</b>: the "
@@ -371,23 +414,27 @@ msgstr ""
 "데이터를 저장할 수 있습니다.</p>"
 
 #: settingswidget.cpp:197
+#, kde-format
 msgid "Image format:"
 msgstr "그림 형식:"
 
 #: settingswidget.cpp:206
+#, kde-format
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
 msgstr "<p>보낼 JPEG 그림의 새 압축률 설정:</p>"
 
 #: settingswidget.cpp:207
+#, kde-format
 msgid ""
 "<p><b>1</b>: very high compression<br/><b>25</b>: high compression<br/"
-"><b>50</b>: medium compression<br/><b>75</b>: low compression (default value)"
-"<br/><b>100</b>: no compression</p>"
+"><b>50</b>: medium compression<br/><b>75</b>: low compression (default "
+"value)<br/><b>100</b>: no compression</p>"
 msgstr ""
 "<p><b>1</b>: 매우 높은 압축<br/><b>25</b>: 높은 압축<br/><b>50</b>: 중간 압축"
 "<br/><b>75</b>: 낮은 압축(기본값)<br/><b>100</b>: 압축하지 않음</p>"
 
 #: settingswidget.cpp:215
+#, kde-format
 msgid "Image quality:"
 msgstr "그림 품질:"
 

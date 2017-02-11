@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_flickrexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-05 03:43+0100\n"
 "PO-Revision-Date: 2016-08-19 18:41+0100\n"
 "Last-Translator: Roman Paholik <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-sk@linux.sk>\n"
@@ -17,58 +17,68 @@ msgstr ""
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: comboboxintermediate.h:54
+#, kde-format
 msgid "Various"
 msgstr "Rôzne"
 
 #: flickrlist.cpp:420
+#, kde-format
 msgid ""
 "Check if photo should be publicly visible or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
 
 #: flickrlist.cpp:423
+#, kde-format
 msgid ""
 "Check if photo should be visible to family or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
 
 #: flickrlist.cpp:426
+#, kde-format
 msgid ""
 "Check if photo should be visible to friends or use Upload Options tab to "
 "specify this for all images"
 msgstr ""
 
 #: flickrlist.cpp:429
+#, kde-format
 msgid ""
 "Indicate the safety level for the photo or use Upload Options tab to specify "
 "this for all images"
 msgstr ""
 
 #: flickrlist.cpp:432
+#, kde-format
 msgid ""
 "Indicate what kind of image this is or use Upload Options tab to specify "
 "this for all images"
 msgstr ""
 
 #: flickrlist.cpp:445
+#, kde-format
 msgid ""
 "Add extra tags per image or use Upload Options tab to add tags for all images"
 msgstr ""
 
 #: flickrlist.cpp:462
+#, kde-format
 msgid "Enter extra tags, separated by commas."
 msgstr ""
 
 #: flickrtalker.cpp:203
+#, kde-format
 msgid "Getting the maximum allowed file size."
 msgstr ""
 
 #: flickrtalker.cpp:265
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Getting the Frob"
 msgstr "Začíname"
 
 #: flickrtalker.cpp:305
+#, kde-format
 msgid "Checking if previous token is still valid"
 msgstr ""
 
@@ -78,316 +88,355 @@ msgid "%1 Service Web Authorization"
 msgstr "Webová Mapová Služba (WMS)"
 
 #: flickrtalker.cpp:336
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser window, then return to press "
 "corresponding button."
 msgstr ""
 
 #: flickrtalker.cpp:340
-#, fuzzy
+#, fuzzy, kde-format
 msgid "I am authenticated"
 msgstr "Neoverený"
 
 #: flickrtalker.cpp:341
-#, fuzzy
+#, fuzzy, kde-format
 msgid "I am not authenticated"
 msgstr "Neobnoviť"
 
 #: flickrtalker.cpp:346
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Authenticating the User on web"
 msgstr "%1 je používateľ na kanáloch: %2"
 
 #: flickrtalker.cpp:393
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Getting the Token from the server"
 msgstr "Neznáma odpoveď zo servera"
 
-#: flickrtalker.cpp:706
+#: flickrtalker.cpp:707
+#, kde-format
 msgid "File Size exceeds maximum allowed file size."
 msgstr ""
 
-#: flickrtalker.cpp:760
-#, fuzzy
+#: flickrtalker.cpp:761
+#, fuzzy, kde-format
 msgid "No photo specified"
 msgstr "Nezadaný žiadny názov"
 
-#: flickrtalker.cpp:764
-#, fuzzy
+#: flickrtalker.cpp:765
+#, fuzzy, kde-format
 msgid "General upload failure"
 msgstr "Nepodarilo sa nájsť informáciu"
 
-#: flickrtalker.cpp:768
-#, fuzzy
+#: flickrtalker.cpp:769
+#, fuzzy, kde-format
 msgid "Filesize was zero"
 msgstr "nula alebo jedna"
 
-#: flickrtalker.cpp:772
-#, fuzzy
+#: flickrtalker.cpp:773
+#, fuzzy, kde-format
 msgid "Filetype was not recognized"
 msgstr "Formát súboru sa nedá rozoznať."
 
-#: flickrtalker.cpp:776
-#, fuzzy
+#: flickrtalker.cpp:777
+#, fuzzy, kde-format
 msgid "User exceeded upload limit"
 msgstr "Obmedzenie odosielania na prenos:"
 
-#: flickrtalker.cpp:780
+#: flickrtalker.cpp:781
+#, kde-format
 msgid "Invalid signature"
 msgstr "Neplatný podpis"
 
-#: flickrtalker.cpp:784
-#, fuzzy
+#: flickrtalker.cpp:785
+#, fuzzy, kde-format
 msgid "Missing signature"
 msgstr "Chýbajúci GPG podpis"
 
-#: flickrtalker.cpp:788
+#: flickrtalker.cpp:789
+#, kde-format
 msgid "Login Failed / Invalid auth token"
 msgstr ""
 
-#: flickrtalker.cpp:792
-#, fuzzy
+#: flickrtalker.cpp:793
+#, fuzzy, kde-format
 msgid "Invalid API Key"
 msgstr "Kľúč nie je platný."
 
-#: flickrtalker.cpp:796
-#, fuzzy
+#: flickrtalker.cpp:797
+#, fuzzy, kde-format
 msgid "Service currently unavailable"
 msgstr "Požadovaná služba momentálne nie je k dispozícii."
 
-#: flickrtalker.cpp:800
-#, fuzzy
+#: flickrtalker.cpp:801
+#, fuzzy, kde-format
 msgid "Invalid Frob"
 msgstr "Neplatné heslo"
 
-#: flickrtalker.cpp:804
-#, fuzzy
+#: flickrtalker.cpp:805
+#, fuzzy, kde-format
 msgid "Format \"xxx\" not found"
 msgstr "Kanál nebol nájdený na %1."
 
-#: flickrtalker.cpp:808
-#, fuzzy
+#: flickrtalker.cpp:809
+#, fuzzy, kde-format
 msgid "Method \"xxx\" not found"
 msgstr "Kanál nebol nájdený na %1."
 
-#: flickrtalker.cpp:812
-#, fuzzy
+#: flickrtalker.cpp:813
+#, fuzzy, kde-format
 msgid "Invalid SOAP envelope"
 msgstr "Obálka US #10"
 
-#: flickrtalker.cpp:816
+#: flickrtalker.cpp:817
+#, kde-format
 msgid "Invalid XML-RPC Method Call"
 msgstr ""
 
-#: flickrtalker.cpp:820
+#: flickrtalker.cpp:821
+#, kde-format
 msgid "The POST method is now required for all setters"
 msgstr ""
 
-#: flickrtalker.cpp:824
+#: flickrtalker.cpp:825
+#, kde-format
 msgid "Unknown error"
 msgstr "Neznáma chyba"
 
-#: flickrtalker.cpp:829 flickrtalker.cpp:853 flickrtalker.cpp:1262
+#: flickrtalker.cpp:830 flickrtalker.cpp:854 flickrtalker.cpp:1263
 #: flickrwindow.cpp:484
+#, kde-format
 msgid "Error"
 msgstr "Chyba"
 
-#: flickrtalker.cpp:830
+#: flickrtalker.cpp:831
 #, kde-format
 msgid ""
 "Error Occurred: %1\n"
 "Cannot proceed any further."
 msgstr ""
 
-#: flickrtalker.cpp:1064
+#: flickrtalker.cpp:1065
+#, kde-format
 msgctxt "As in the permission to"
 msgid "write"
 msgstr "zápis"
 
-#: flickrtalker.cpp:1068
+#: flickrtalker.cpp:1069
+#, kde-format
 msgctxt "As in the permission to"
 msgid "read"
 msgstr "čítanie"
 
-#: flickrtalker.cpp:1072
+#: flickrtalker.cpp:1073
+#, kde-format
 msgctxt "As in the permission to"
 msgid "delete"
 msgstr "odstrániť"
 
-#: flickrtalker.cpp:1103
+#: flickrtalker.cpp:1104
+#, kde-format
 msgid "Invalid Token"
 msgstr "Neplatný token"
 
-#: flickrtalker.cpp:1104
+#: flickrtalker.cpp:1105
+#, kde-format
 msgid "Your token is invalid. Would you like to get a new token to proceed?\n"
 msgstr ""
 
-#: flickrtalker.cpp:1262
-#, fuzzy
+#: flickrtalker.cpp:1263
+#, fuzzy, kde-format
 msgid "PhotoSet creation failed: "
 msgstr "Nepodarilo sa vytvoriť zložku"
 
-#: flickrtalker.cpp:1357
+#: flickrtalker.cpp:1358
+#, kde-format
 msgid "Failed to fetch list of photo sets."
 msgstr ""
 
-#: flickrtalker.cpp:1437
+#: flickrtalker.cpp:1438
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "Zlyhalo nahratie fotky"
 
-#: flickrtalker.cpp:1505
+#: flickrtalker.cpp:1506
+#, kde-format
 msgid "Failed to query photo information"
 msgstr ""
 
 #: flickrwidget.cpp:63
+#, kde-format
 msgid "Remove Account"
 msgstr "Odstrániť účet"
 
 #: flickrwidget.cpp:73 flickrwidget.cpp:78
+#, kde-format
 msgctxt "photo permissions"
 msgid "Public"
 msgstr "Verejné"
 
 #: flickrwidget.cpp:77
+#, kde-format
 msgid "This is the list of images to upload to your Flickr account."
 msgstr ""
 
 #: flickrwidget.cpp:82
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Extra tags"
 msgstr "Komentár/tagy:"
 
 #: flickrwidget.cpp:88 flickrwidget.cpp:99
+#, kde-format
 msgctxt "photo permissions"
 msgid "Family"
 msgstr "Rodina"
 
 #: flickrwidget.cpp:93 flickrwidget.cpp:101
+#, kde-format
 msgctxt "photo permissions"
 msgid "Friends"
 msgstr "Priatelia"
 
 #: flickrwidget.cpp:108
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Safety level"
 msgstr "Úroveň zabezpečenia interpretera Ruby"
 
 #: flickrwidget.cpp:110
+#, kde-format
 msgid "Content type"
 msgstr "Typ obsahu"
 
 #: flickrwidget.cpp:113
+#, kde-format
 msgctxt "photo safety level"
 msgid "Safe"
 msgstr "Bezpečné"
 
 #: flickrwidget.cpp:114
+#, kde-format
 msgctxt "photo safety level"
 msgid "Moderate"
 msgstr "Priemerná"
 
 #: flickrwidget.cpp:115
+#, kde-format
 msgctxt "photo safety level"
 msgid "Restricted"
 msgstr "Obmedzené"
 
 #: flickrwidget.cpp:116 flickrwidget.cpp:208
+#, kde-format
 msgctxt "photo content type"
 msgid "Photo"
 msgstr "Fotka"
 
 #: flickrwidget.cpp:117 flickrwidget.cpp:209
+#, kde-format
 msgctxt "photo content type"
 msgid "Screenshot"
 msgstr "Snímka obrazovky"
 
 #: flickrwidget.cpp:118 flickrwidget.cpp:210
+#, kde-format
 msgctxt "photo content type"
 msgid "Other"
 msgstr "Iné"
 
 #: flickrwidget.cpp:131
+#, kde-format
 msgid "Tag options"
 msgstr "Voľby značky"
 
 #: flickrwidget.cpp:135
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Use Host Application Tags"
 msgstr "Používať identity <application>KMailu</application>"
 
 #: flickrwidget.cpp:137 flickrwidget.cpp:505
-#, fuzzy
+#, fuzzy, kde-format
 msgid "More tag options"
 msgstr "Povoliť viac možností"
 
 #: flickrwidget.cpp:151
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Added Tags: "
 msgstr "Komentár/tagy:"
 
 #: flickrwidget.cpp:153
+#, kde-format
 msgid "Enter new tags here, separated by commas."
 msgstr ""
 
 #: flickrwidget.cpp:155
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Add tags per image"
 msgstr "Upravili ste značky obrázka."
 
 #: flickrwidget.cpp:156
+#, kde-format
 msgid "If checked, you can set extra tags for each image in the File List tab"
 msgstr ""
 
 #: flickrwidget.cpp:160
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Strip Spaces From Tags"
 msgstr "Odstrániť v značkách &medzery na konci"
 
 #: flickrwidget.cpp:173
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Publication Options"
 msgstr "Voľby pre ignorovanie"
 
 #: flickrwidget.cpp:178
+#, kde-format
 msgctxt "As in accessible for people"
 msgid "Public (anyone can see them)"
 msgstr ""
 
 #: flickrwidget.cpp:181
+#, kde-format
 msgid "Visible to Family"
 msgstr "Viditeľné pre rodinu"
 
 #: flickrwidget.cpp:184
+#, kde-format
 msgid "Visible to Friends"
 msgstr "Viditeľné pre priateľov"
 
 #: flickrwidget.cpp:187 flickrwidget.cpp:492
-#, fuzzy
+#, fuzzy, kde-format
 msgid "More publication options"
 msgstr "Povoliť viac možností"
 
 #: flickrwidget.cpp:200
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Safety level:"
 msgstr "Úroveň zabezpečenia interpretera Ruby"
 
 #: flickrwidget.cpp:202
+#, kde-format
 msgid "Safe"
 msgstr "Bezpečné"
 
 #: flickrwidget.cpp:203
+#, kde-format
 msgid "Moderate"
 msgstr "Priemerná"
 
 #: flickrwidget.cpp:204
+#, kde-format
 msgid "Restricted"
 msgstr "Obmedzené"
 
 #: flickrwidget.cpp:206
+#, kde-format
 msgid "Content type:"
 msgstr "Typ obsahu:"
 
 #: flickrwidget.cpp:306
+#, kde-format
 msgid ""
 "<b><h2><a href='http://www.23hq.com'><font color=\"#7CD164\">23</font></a> "
 "Export</h2></b>"
@@ -396,24 +445,26 @@ msgstr ""
 "Export</h2></b>"
 
 #: flickrwidget.cpp:311
+#, kde-format
 msgid ""
 "<b><h2><a href='http://www.zooomr.com'><font color=\"#7CD164\">zooomr</"
 "font></a> Export</h2></b>"
 msgstr ""
 
 #: flickrwidget.cpp:316
+#, kde-format
 msgid ""
 "<b><h2><a href='http://www.flickr.com'><font color=\"#0065DE\">flick</"
 "font><font color=\"#FF0084\">r</font></a> Export</h2></b>"
 msgstr ""
 
 #: flickrwidget.cpp:488
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Fewer publication options"
 msgstr "Extra možnosti kompresie"
 
 #: flickrwidget.cpp:510
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Fewer tag options"
 msgstr "Extra možnosti kompresie"
 
@@ -423,22 +474,23 @@ msgid "Export to %1 Web Service"
 msgstr "Webová Mapová Služba (WMS)"
 
 #: flickrwindow.cpp:125
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Start Uploading"
 msgstr "Odoslanie zlyhalo"
 
 #: flickrwindow.cpp:139
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Flickr/23/Zooomr Export"
 msgstr "Flickr/23/Zooomr export"
 
 #: flickrwindow.cpp:140
+#, kde-format
 msgid ""
 "A tool to export an image collection to a Flickr / 23 / Zooomr web service."
 msgstr ""
 
 #: flickrwindow.cpp:142
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2005-2008, Vardhman Jain\n"
 #| "(c) 2008-2013, Gilles Caulier\n"
@@ -454,32 +506,37 @@ msgstr ""
 "(c) 2009, Luka Renko"
 
 #: flickrwindow.cpp:147
+#, kde-format
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
 #: flickrwindow.cpp:147
+#, kde-format
 msgid "Author and maintainer"
 msgstr "Autor a správca"
 
 #: flickrwindow.cpp:150
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: flickrwindow.cpp:150 flickrwindow.cpp:153
+#, kde-format
 msgid "Developer"
 msgstr "Vývojár"
 
 #: flickrwindow.cpp:153
+#, kde-format
 msgid "Shourya Singh Gupta"
 msgstr ""
 
 #: flickrwindow.cpp:646
-#, fuzzy
+#, fuzzy, kde-format
 msgid "&lt;Photostream Only&gt;"
 msgstr "&lt;Všetci interpreti&gt;"
 
 #: flickrwindow.cpp:835
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Flickr Export"
 msgstr "Flickr/23/Zooomr export"
 
@@ -489,6 +546,7 @@ msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 
 #: flickrwindow.cpp:859
+#, kde-format
 msgid "Warning"
 msgstr "Upozornenie"
 
@@ -500,51 +558,60 @@ msgid ""
 msgstr ""
 
 #: flickrwindow.cpp:863
+#, kde-format
 msgid "Continue"
 msgstr "Pokračovať"
 
 #: flickrwindow.cpp:864
+#, kde-format
 msgid "Cancel"
 msgstr "Zrušiť"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_flickrui.rc:7
+#, kde-format
 msgid "&Export"
 msgstr "&Exportovať"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_flickrui.rc:15
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Hlavný panel nástrojov"
 
 #: login.cpp:84
+#, kde-format
 msgctxt "flickr login"
 msgid "Username:"
 msgstr "Užívateľské meno:"
 
 #: login.cpp:87
+#, kde-format
 msgid "Password:"
 msgstr "Heslo:"
 
 #: plugin_flickr.cpp:106
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Export to Flick&r..."
 msgstr "Exportovať do umiestnenia"
 
 #: plugin_flickr.cpp:118
+#, kde-format
 msgid "Export to &23..."
 msgstr "Export do &23..."
 
 #: plugin_flickr.cpp:130
-#, fuzzy
+#, fuzzy, kde-format
 msgid "Export to &Zooomr..."
 msgstr "Exportovať do umiestnenia"
 
 #: selectuserdlg.cpp:47
+#, kde-format
 msgid "Flickr Account Selector"
 msgstr ""
 
 #: selectuserdlg.cpp:52
+#, kde-format
 msgid "Add another account"
 msgstr ""
 

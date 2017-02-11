@@ -7,7 +7,7 @@
  * Description : Camera interface
  *
  * Copyright (C) 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * Copyright (C) 2006-2015 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * Copyright (C) 2012      by Islam Wazery <wazery at ubuntu dot com>
  *
@@ -42,7 +42,7 @@
 #include "camiteminfo.h"
 #include "dhistoryview.h"
 #include "dmetadata.h"
-#include "camerahistoryupdater.h"
+//#include "camerahistoryupdater.h"
 #include "downloadsettings.h"
 #include "importiconview.h"
 #include "dxmlguiwindow.h"
@@ -64,10 +64,8 @@ class DIGIKAM_EXPORT ImportUI : public DXmlGuiWindow
 
 public:
 
-    ImportUI(QWidget* const parent,
-             const QString& cameraTitle,
-             const QString& model, const QString& port,
-             const QString& path, int startIndex);
+    ImportUI(const QString& cameraTitle, const QString& model,
+             const QString& port, const QString& path, int startIndex);
     ~ImportUI();
 
     static ImportUI* instance();

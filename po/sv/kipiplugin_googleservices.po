@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-10-23 06:58+0000\n"
+"POT-Creation-Date: 2017-01-07 03:39+0100\n"
 "PO-Revision-Date: 2016-08-26 17:08+0100\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -18,10 +18,12 @@ msgstr ""
 "X-Generator: Lokalize 2.0\n"
 
 #: authorize.cpp:116
+#, kde-format
 msgid "Google Drive Authorization"
 msgstr "Behörighet för Google Drive"
 
 #: authorize.cpp:129
+#, kde-format
 msgid ""
 "Please follow the instructions in the browser. After logging in and "
 "authorizing the application, copy the code from the browser, paste it in the "
@@ -31,98 +33,120 @@ msgstr ""
 "programmet behörighet, kopiera koden från webbläsaren, klistra in den i "
 "textrutan nedan, och klicka på Ok."
 
-#: authorize.cpp:249 gdtalker.cpp:271 gptalker.cpp:636
+#: authorize.cpp:249 gdtalker.cpp:272 gptalker.cpp:644
+#, kde-format
 msgid "Error"
 msgstr "Fel"
 
-#: gdtalker.cpp:336
+#: gdtalker.cpp:337
+#, kde-format
 msgid "Failed to list folders"
 msgstr "Misslyckades lista kataloger"
 
-#: gdtalker.cpp:384
+#: gdtalker.cpp:385
+#, kde-format
 msgid "Failed to create folder"
 msgstr "Misslyckades att skapa katalog"
 
-#: gdtalker.cpp:415 gptalker.cpp:929
+#: gdtalker.cpp:416 gptalker.cpp:937
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "Misslyckades ladda upp foto"
 
-#: gptalker.cpp:561
+#: gptalker.cpp:569
+#, kde-format
 msgid "No photo specified"
 msgstr "Inget foto angivet"
 
-#: gptalker.cpp:564
+#: gptalker.cpp:572
+#, kde-format
 msgid "General upload failure"
 msgstr "Allmänt uppladdningsfel"
 
-#: gptalker.cpp:567
+#: gptalker.cpp:575
+#, kde-format
 msgid "File-size was zero"
 msgstr "Filstorleken var noll"
 
-#: gptalker.cpp:570
+#: gptalker.cpp:578
+#, kde-format
 msgid "File-type was not recognized"
 msgstr "Filtypen kändes inte igen"
 
-#: gptalker.cpp:573
+#: gptalker.cpp:581
+#, kde-format
 msgid "User exceeded upload limit"
 msgstr "Användaren överskred uppladdningsgräns"
 
-#: gptalker.cpp:576
+#: gptalker.cpp:584
+#, kde-format
 msgid "Invalid signature"
 msgstr "Ogiltig signatur"
 
-#: gptalker.cpp:579
+#: gptalker.cpp:587
+#, kde-format
 msgid "Missing signature"
 msgstr "Signatur saknas"
 
-#: gptalker.cpp:582
+#: gptalker.cpp:590
+#, kde-format
 msgid "Login failed / Invalid auth token"
 msgstr "Inloggning misslyckades/ogiltig ordverifiering"
 
-#: gptalker.cpp:585
+#: gptalker.cpp:593
+#, kde-format
 msgid "Invalid API Key"
 msgstr "Felaktig API-nyckel"
 
-#: gptalker.cpp:588
+#: gptalker.cpp:596
+#, kde-format
 msgid "Service currently unavailable"
 msgstr "Tjänsten för närvarande inte tillgänglig"
 
-#: gptalker.cpp:591
+#: gptalker.cpp:599
+#, kde-format
 msgid "Invalid Frob"
 msgstr "Ogiltig grej"
 
-#: gptalker.cpp:594
+#: gptalker.cpp:602
+#, kde-format
 msgid "Format \"xxx\" not found"
 msgstr "Formatet \"xxx\" hittades inte"
 
-#: gptalker.cpp:597
+#: gptalker.cpp:605
+#, kde-format
 msgid "Method \"xxx\" not found"
 msgstr "Metoden \"xxx\" hittades inte"
 
-#: gptalker.cpp:600
+#: gptalker.cpp:608
+#, kde-format
 msgid "Invalid SOAP envelope"
 msgstr "Ogiltig SOAP-hölje"
 
-#: gptalker.cpp:603
+#: gptalker.cpp:611
+#, kde-format
 msgid "Invalid XML-RPC Method Call"
 msgstr "Ogiltigt XML-RPC metodanrop"
 
-#: gptalker.cpp:606
+#: gptalker.cpp:614
+#, kde-format
 msgid "The POST method is now required for all setters."
 msgstr "Metoden POST krävs nu för alla som sätter."
 
-#: gptalker.cpp:609
+#: gptalker.cpp:617
+#, kde-format
 msgid "Unknown error"
 msgstr "Okänt fel"
 
-#: gptalker.cpp:612 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
+#: gptalker.cpp:620 gswindow.cpp:427 gswindow.cpp:466 gswindow.cpp:548
 #: gswindow.cpp:576 gswindow.cpp:652 gswindow.cpp:668 gswindow.cpp:1078
-#: gswindow.cpp:1196 gswindow.cpp:1239 gswindow.cpp:1247
+#: gswindow.cpp:1198 gswindow.cpp:1241 gswindow.cpp:1249
+#, kde-format
 msgctxt "@title:window"
 msgid "Error"
 msgstr "Fel"
 
-#: gptalker.cpp:613
+#: gptalker.cpp:621
 #, kde-format
 msgid ""
 "Error occurred: %1\n"
@@ -131,52 +155,64 @@ msgstr ""
 "Fel uppstod: %1\n"
 "Det går inte att gå vidare."
 
-#: gptalker.cpp:683 gptalker.cpp:750
+#: gptalker.cpp:691 gptalker.cpp:758
+#, kde-format
 msgid "Failed to fetch photo-set list"
 msgstr "Misslyckades hämta lista med fotouppsättningar"
 
-#: gptalker.cpp:886 gptalker.cpp:919
+#: gptalker.cpp:894 gptalker.cpp:927
+#, kde-format
 msgid "Failed to create album"
 msgstr "Misslyckades skapa album"
 
 #: gswidget.cpp:60
+#, kde-format
 msgid "Tag path behavior :"
 msgstr "Beteende för etikettsökväg:"
 
 #: gswidget.cpp:62
+#, kde-format
 msgid "Leaf tags only"
 msgstr "Bara lövetiketter"
 
 #: gswidget.cpp:63
+#, kde-format
 msgid "Export only the leaf tags of tag hierarchies"
 msgstr "Exportera bara lövetiketter i etiketthierarkier"
 
 #: gswidget.cpp:64
+#, kde-format
 msgid "Split tags"
 msgstr "Dela etiketter"
 
 #: gswidget.cpp:65
+#, kde-format
 msgid "Export the leaf tag and all ancestors as single tags."
 msgstr ""
 "Exportera lövetiketter och alla överliggande etiketter som enkla etiketter."
 
 #: gswidget.cpp:66
+#, kde-format
 msgid "Combined String"
 msgstr "Kombinerad sträng"
 
 #: gswidget.cpp:67
+#, kde-format
 msgid "Build a combined tag string."
 msgstr "Bygg en kombinerad etikettsträng."
 
 #: gswindow.cpp:116
+#, kde-format
 msgid "Google Drive Export"
 msgstr "Export till Google Drive"
 
 #: gswindow.cpp:117
+#, kde-format
 msgid "A tool to export images to Google Drive"
 msgstr "Ett verktyg för att exportera bilder till Google Drive"
 
 #: gswindow.cpp:119
+#, kde-format
 msgid ""
 "(c) 2013, Saurabh Patel\n"
 "(c) 2015, Shourya Singh Gupta"
@@ -185,45 +221,55 @@ msgstr ""
 "© 2015, Shourya Singh Gupta"
 
 #: gswindow.cpp:122
+#, kde-format
 msgid "Saurabh Patel"
 msgstr "Saurabh Patel"
 
 #: gswindow.cpp:122 gswindow.cpp:195
+#, kde-format
 msgid "Author and maintainer"
 msgstr "Upphovsman och utvecklare"
 
 #: gswindow.cpp:125 gswindow.cpp:207
+#, kde-format
 msgid "Shourya Singh Gupta"
 msgstr "Shourya Singh Gupta"
 
 #: gswindow.cpp:125 gswindow.cpp:198 gswindow.cpp:201 gswindow.cpp:204
 #: gswindow.cpp:207
+#, kde-format
 msgid "Developer"
 msgstr "Utvecklare"
 
 #: gswindow.cpp:132
+#, kde-format
 msgid "Export to Google Drive"
 msgstr "Export till Google Drive"
 
 #: gswindow.cpp:134 gswindow.cpp:219
+#, kde-format
 msgid "Start Upload"
 msgstr "Starta uppladdning"
 
 #: gswindow.cpp:135
+#, kde-format
 msgid "Start upload to Google Drive"
 msgstr "Starta uppladdning till Google Drive"
 
 #: gswindow.cpp:186
+#, kde-format
 msgid "Google Photos/PicasaWeb Export"
 msgstr "Export till Google foton eller Picasa webbalbum"
 
 #: gswindow.cpp:187
+#, kde-format
 msgid "A tool to export image collections to Google Photos/Picasa web service."
 msgstr ""
 "Ett verktyg för att exportera bildsamlingar till Google foton eller Picasa "
 "webbtjänst."
 
 #: gswindow.cpp:189
+#, kde-format
 msgid ""
 "(c) 2007-2009, Vardhman Jain\n"
 "(c) 2008-2016, Gilles Caulier\n"
@@ -238,38 +284,47 @@ msgstr ""
 "© 2015, Shourya Singh Gupta"
 
 #: gswindow.cpp:195
+#, kde-format
 msgid "Vardhman Jain"
 msgstr "Vardhman Jain"
 
 #: gswindow.cpp:198
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: gswindow.cpp:201
+#, kde-format
 msgid "Luka Renko"
 msgstr "Luka Renko"
 
 #: gswindow.cpp:204
+#, kde-format
 msgid "Jens Mueller"
 msgstr "Jens Mueller"
 
 #: gswindow.cpp:217
+#, kde-format
 msgid "Export to Google Photos/PicasaWeb Service"
 msgstr "Exportera till Google foton eller Picasa webbtjänst"
 
 #: gswindow.cpp:220
+#, kde-format
 msgid "Start upload to Google Photos/PicasaWeb Service"
 msgstr "Starta uppladdning till Google foton eller Picasa webbtjänst"
 
 #: gswindow.cpp:226
+#, kde-format
 msgid "Import from Google Photos/PicasaWeb Service"
 msgstr "Importera från Google foton eller Picasa webbtjänst"
 
 #: gswindow.cpp:228
+#, kde-format
 msgid "Start Download"
 msgstr "Starta nerladdning"
 
 #: gswindow.cpp:229
+#, kde-format
 msgid "Start download from Google Photos/PicasaWeb service"
 msgstr "Starta nerladdning från Google foton eller Picasa webbtjänst"
 
@@ -279,10 +334,12 @@ msgid "Google Photos/PicasaWeb Call Failed: %1\n"
 msgstr "Anrop till Google foton eller Picasa webb misslyckades: %1\n"
 
 #: gswindow.cpp:448 gswindow.cpp:527 gswindow.cpp:758
+#, kde-format
 msgid "%v / %m"
 msgstr "%v / %m"
 
 #: gswindow.cpp:531
+#, kde-format
 msgid "Google Photo Export"
 msgstr "Export till Google foton"
 
@@ -292,6 +349,7 @@ msgid "Google Drive Call Failed: %1\n"
 msgstr "Anrop till Google Drive misslyckades: %1\n"
 
 #: gswindow.cpp:653
+#, kde-format
 msgid ""
 "The textbox is empty, please enter the code from the browser in the textbox. "
 "To complete the authentication click \"Change Account\", or \"Start Upload\" "
@@ -302,31 +360,37 @@ msgstr ""
 "uppladdning\" för att kontrollera behörighet igen."
 
 #: gswindow.cpp:669
+#, kde-format
 msgid "No image selected. Please select which images should be uploaded."
 msgstr "Ingen bild markerad. Markera vilka bilder som ska laddas upp."
 
 #: gswindow.cpp:683 gswindow.cpp:706 gswindow.cpp:1014 gswindow.cpp:1032
 #: gswindow.cpp:1105
+#, kde-format
 msgid "Warning"
 msgstr "Varning"
 
 #: gswindow.cpp:684 gswindow.cpp:707
+#, kde-format
 msgid "Authentication failed. Click \"Continue\" to authenticate."
 msgstr ""
 "Behörighetskontroll misslyckades. Klicka på \"Fortsätt\" för att ge "
 "behörighet."
 
 #: gswindow.cpp:687 gswindow.cpp:710 gswindow.cpp:1019 gswindow.cpp:1037
-#: gswindow.cpp:1109 gswindow.cpp:1286
+#: gswindow.cpp:1109 gswindow.cpp:1288
+#, kde-format
 msgid "Continue"
 msgstr "Fortsätt"
 
 #: gswindow.cpp:688 gswindow.cpp:711 gswindow.cpp:1020 gswindow.cpp:1038
-#: gswindow.cpp:1110 gswindow.cpp:1287
+#: gswindow.cpp:1110 gswindow.cpp:1289
+#, kde-format
 msgid "Cancel"
 msgstr "Avbryt"
 
 #: gswindow.cpp:762
+#, kde-format
 msgid "Google Drive export"
 msgstr "Export till Google Drive"
 
@@ -364,13 +428,13 @@ msgstr ""
 "%2\n"
 "Vill du fortsätta?"
 
-#: gswindow.cpp:1198
+#: gswindow.cpp:1200
 #, kde-format
 msgctxt "%1 is the error string, %2 is the error code"
 msgid "An authentication error occurred: %1 (%2)"
 msgstr "Ett fel uppstod vid behörighetskontroll: %1 (%2)"
 
-#: gswindow.cpp:1240
+#: gswindow.cpp:1242
 #, kde-format
 msgid ""
 "Google Drive call failed:\n"
@@ -379,7 +443,7 @@ msgstr ""
 "Anrop till Google Drive misslyckades: \n"
 "%1"
 
-#: gswindow.cpp:1248
+#: gswindow.cpp:1250
 #, kde-format
 msgid ""
 "Google Photos/PicasaWeb call failed:\n"
@@ -388,12 +452,14 @@ msgstr ""
 "Anrop till Google foton eller Picasa webb misslyckades: \n"
 "%1"
 
-#: gswindow.cpp:1281
+#: gswindow.cpp:1283
+#, kde-format
 msgctxt "@title:window"
 msgid "Warning"
 msgstr "Varning"
 
-#: gswindow.cpp:1282
+#: gswindow.cpp:1284
+#, kde-format
 msgid ""
 "After you have been logged out in the browser, click \"Continue\" to "
 "authenticate for another account"
@@ -403,24 +469,29 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_googleservicesui.rc:7 kipiplugin_googleservicesui.rc:15
+#, kde-format
 msgid "&Export"
 msgstr "&Exportera"
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_googleservicesui.rc:11
+#, kde-format
 msgid "&Import"
 msgstr "&Importera"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_googleservicesui.rc:21
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Huvudverktygsrad"
 
 #: newalbumdlg.cpp:54
+#, kde-format
 msgid "Access Level"
 msgstr "Åtkomstnivå"
 
 #: newalbumdlg.cpp:55
+#, kde-format
 msgid ""
 "These are security and privacy settings for the new Google Photos/PicasaWeb "
 "album."
@@ -429,62 +500,76 @@ msgstr ""
 "foton eller Picasa webb."
 
 #: newalbumdlg.cpp:57
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Public"
 msgstr "Öppen"
 
 #: newalbumdlg.cpp:59
+#, kde-format
 msgid "Public album is listed on your public Google Photos/PicasaWeb page."
 msgstr ""
 "Öppna album listas på din öppna sida hos Google foton eller Picasa webb."
 
 #: newalbumdlg.cpp:60
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Unlisted / Private"
 msgstr "Olistad eller privat"
 
 #: newalbumdlg.cpp:61
+#, kde-format
 msgid "Unlisted album is only accessible via URL."
 msgstr "Olistade album är bara tillgängliga via en webbadress."
 
 #: newalbumdlg.cpp:62
+#, kde-format
 msgctxt "google photos/picasaweb album privacy"
 msgid "Sign-In Required to View"
 msgstr "Inloggning krävs för att titta"
 
 #: newalbumdlg.cpp:63
+#, kde-format
 msgid "Unlisted album require Sign-In to View"
 msgstr "Inloggning krävs för att titta på olistade album"
 
 #: newalbumdlg.cpp:71
+#, kde-format
 msgid "Privacy:"
 msgstr "Integritet:"
 
 #: plugin_googleservices.cpp:100
+#, kde-format
 msgid "Export to &Google Drive..."
 msgstr "Export till &Google Drive..."
 
 #: plugin_googleservices.cpp:110
+#, kde-format
 msgid "Export to &Google Photos/PicasaWeb..."
 msgstr "Export till &Google foton eller Picasa webb..."
 
 #: plugin_googleservices.cpp:120
+#, kde-format
 msgid "Import from &Google Photos/PicasaWeb..."
 msgstr "Importera från &Google foton eller Picasa webb..."
 
 #: replacedialog.cpp:112
+#, kde-format
 msgid "Add As New"
 msgstr "Lägg till som ny"
 
 #: replacedialog.cpp:113
+#, kde-format
 msgid "Item will be added alongside the linked version."
 msgstr "Objektet kommer att läggas till vid sidan om den länkade versionen."
 
 #: replacedialog.cpp:119
+#, kde-format
 msgid "Add All"
 msgstr "Lägg till alla"
 
 #: replacedialog.cpp:120
+#, kde-format
 msgid ""
 "Items will be added alongside the linked version. You will not be prompted "
 "again."
@@ -493,18 +578,22 @@ msgstr ""
 "inte att bli tillfrågad igen."
 
 #: replacedialog.cpp:126
+#, kde-format
 msgid "Replace"
 msgstr "Ersätt"
 
 #: replacedialog.cpp:127
+#, kde-format
 msgid "Item will be replacing the linked version."
 msgstr "Objekt kommer att ersätta den länkade versionen."
 
 #: replacedialog.cpp:133
+#, kde-format
 msgid "Replace All"
 msgstr "Ersätt alla"
 
 #: replacedialog.cpp:134
+#, kde-format
 msgid ""
 "Items will be replacing the linked version. You will not be prompted again."
 msgstr ""
@@ -512,14 +601,17 @@ msgstr ""
 "tillfrågad igen."
 
 #: replacedialog.cpp:157
+#, kde-format
 msgid "A linked item already exists."
 msgstr "Ett länkat objekt finns redan."
 
 #: replacedialog.cpp:177
+#, kde-format
 msgid "Destination"
 msgstr "Mål"
 
 #: replacedialog.cpp:182
+#, kde-format
 msgid "Source"
 msgstr "Källa"
 

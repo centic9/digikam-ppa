@@ -1,0 +1,117 @@
+# Translation of libkvkontakte to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2016.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: http://bugs.kde.org\n"
+"POT-Creation-Date: 2016-11-19 20:09+0100\n"
+"PO-Revision-Date: 2016-12-11 13:30+0100\n"
+"Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
+"Language-Team: Norwegian Nynorsk <i18n-nn@lister.ping.uio.no>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#: allmessageslistjob.cpp:117
+#, kde-format
+msgid "The number of outgoing messages has changed between requests."
+msgstr "Talet på utgåande meldingar er endra mellom førespurnadar."
+
+#: allmessageslistjob.cpp:121
+#, kde-format
+msgid "The number of incoming messages has changed between requests."
+msgstr "Talet på innkommande meldingar er endra mellom førespurnadar."
+
+#: allnoteslistjob.cpp:92
+#, kde-format
+msgid "The number of notes has changed between requests."
+msgstr "Talet på merknadar er endra mellom førespurnadar."
+
+#: authenticationdialog.cpp:61
+#, kde-format
+msgctxt "@title:window"
+msgid "Authenticate with VKontakte"
+msgstr "Autentiser med VKontakte"
+
+#: authenticationdialog.cpp:71
+#, kde-format
+msgid "Loading Page:"
+msgstr "Lastar side:"
+
+#: authenticationdialog.cpp:138
+#, kde-format
+msgid ""
+"<b>VKontakte Error Description:</b> %1<br><b>VKontakte Error:</b> %2<br>"
+msgstr "<b>VKontakte-feilskildring:</b> %1<br><b>VKontakte-feil:</b> %2<br>"
+
+#: authenticationdialog.cpp:140
+#, kde-format
+msgid "Authentication with VKontakte was not successful."
+msgstr "Klarte ikkje autentisera med VKontakte."
+
+#: authenticationdialog.cpp:141
+#, kde-format
+msgctxt "@title:window"
+msgid "Authentication Problem"
+msgstr "Autentiseringsvanskar"
+
+#: authenticationdialog.cpp:182
+#, kde-format
+msgid ""
+"There was a network error when trying to authenticate with VKontakte web "
+"service."
+msgstr ""
+
+#: authenticationdialog.cpp:183
+#, kde-format
+msgctxt "@title:window"
+msgid "Network Error"
+msgstr "Nettverksfeil"
+
+#: deletealbumjob.cpp:43
+#, kde-format
+msgid "Failed to delete album"
+msgstr "Klarte ikkje sletta album"
+
+#: editalbumjob.cpp:52
+#, kde-format
+msgid "Failed to edit album"
+msgstr "Klarte ikkje redigera album"
+
+#: photopostjob.cpp:76 vkontaktejobs.cpp:112
+#, kde-format
+msgid ""
+"Response from the VKontakte server has unexpected format. Please report this "
+"problem against product libkvkontakte at the <a href=\"%1\">KDE bug tracker</"
+"b>."
+msgstr ""
+
+#: photopostjob.cpp:84
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to "
+"uploading to URL %2: <i>%3</i>"
+msgstr ""
+
+#: photopostjob.cpp:206 vkontaktejobs.cpp:224
+#, kde-format
+msgid "Unable to parse data returned by the VKontakte server: %1"
+msgstr ""
+
+#: vkontaktejobs.cpp:120
+#, kde-format
+msgid ""
+"The VKontakte server returned an error of type <i>%1</i> in reply to method "
+"%2: <i>%3</i>"
+msgstr ""
+
+#: vkontaktejobs.cpp:181
+#, kde-format
+msgid ""
+"Internal error: No valid instance of KIO::StoredTransferJob passed into "
+"VkontakteJob::jobFinished."
+msgstr ""

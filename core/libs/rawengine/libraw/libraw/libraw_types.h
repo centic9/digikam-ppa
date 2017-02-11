@@ -194,10 +194,17 @@ typedef struct
   float        calibration[4][4];
   float        colormatrix[4][3];
   float        forwardmatrix[3][4];
-  float        dng_blacklevel[4];
-  unsigned     dng_whitelevel[4];
-  float        analogbalance[4];
 } libraw_dng_color_t;
+
+typedef struct
+{
+
+  unsigned     dng_cblack[4102];
+  unsigned     dng_black;
+  unsigned     dng_whitelevel[4];
+  float        dng_blacklevel[4];
+  float        analogbalance[4];
+} libraw_dng_levels_t;
 
 typedef struct
 {
@@ -209,6 +216,7 @@ typedef struct
   int          CanonColorDataVer;
   int          CanonColorDataSubVer;
   int          SpecularWhiteLevel;
+  int          ChannelBlackLevel[4];
   int          AverageBlackLevel;
 /* metering */
   short        MeteringMode;
@@ -392,6 +400,7 @@ typedef struct
   unsigned     profile_length;
   unsigned     black_stat[8];
   libraw_dng_color_t  dng_color[2];
+  libraw_dng_levels_t dng_levels;
   float        baseline_exposure;
   int          WB_Coeffs[256][4];      /* R, G1, B, G2 coeffs */
   float        WBCT_Coeffs[64][5];     /* CCT, than R, G1, B, G2 coeffs */
@@ -679,7 +688,6 @@ struct xtrans_params
 
 #elif __BYTE_ORDER__ == __ORDER_BIG_ENDIAN__
 #define LibRawBigEndian 1
-
 #else
 #ifndef qXCodeRez
 #error Unable to figure out byte order.

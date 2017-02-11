@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_kioexportimport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-04 03:47+0100\n"
 "PO-Revision-Date: 2011-09-05 15:39+0100\n"
 "Last-Translator: Stelios <sstavra@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -18,10 +18,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: KioExportWidget.cpp:61
+#, kde-format
 msgid "Target location: "
 msgstr "Θέση προορισμού: "
 
 #: KioExportWidget.cpp:62
+#, kde-format
 msgid ""
 "Sets the target address to upload the images to. This can be any address as "
 "used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
@@ -31,70 +33,81 @@ msgstr ""
 "org/sub/folder."
 
 #: KioExportWidget.cpp:66
+#, kde-format
 msgid "Select target location..."
 msgstr "Επιλογή θέσης προορισμού..."
 
 #: KioExportWidget.cpp:72
+#, kde-format
 msgid "This is the list of images to upload to the specified target."
 msgstr "Αυτή είναι η λίστα εικόνων για αποστολή στον καθορισμένο προορισμό."
 
-#: KioExportWidget.cpp:135
+#: KioExportWidget.cpp:137
+#, kde-format
 msgid "Select target..."
 msgstr "Επιλογή προορισμού..."
 
-#: KioExportWidget.cpp:136
+#: KioExportWidget.cpp:138
+#, kde-format
 msgid "All Files (*)"
 msgstr ""
 
-#: KioExportWidget.cpp:156
-#, fuzzy
+#: KioExportWidget.cpp:159
+#, fuzzy, kde-format
 #| msgid "not selected"
 msgid "<not selected>"
 msgstr "δεν επελέγη"
 
 #: KioExportWindow.cpp:64
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to Remote Computer"
 msgid "Export to Remote Storage"
 msgstr "Εξαγωγή σε απομακρυσμένο υπολογιστή"
 
 #: KioExportWindow.cpp:67
+#, kde-format
 msgid "Start export"
 msgstr "Έναρξη εξαγωγής"
 
 #: KioExportWindow.cpp:68
+#, kde-format
 msgid "Start export to the specified target"
 msgstr "Έναρξη εξαγωγής στον καθορισμένο προορισμό"
 
 #: KioExportWindow.cpp:84
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to remote computer"
 msgid "Export to remote storage"
 msgstr "Εξαγωγή σε απομακρυσμένο υπολογιστή"
 
 #: KioExportWindow.cpp:85
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to export images over network using KIO-Slave"
 msgid "A tool to export images over network using KIO-Slave"
 msgstr "Ένα πρόσθετο Kipi για εξαγωγή εικόνων σε δίκτυο με χρήση KIO-Slave"
 
 #: KioExportWindow.cpp:86 KioImportWindow.cpp:83
+#, kde-format
 msgid "(c) 2009, Johannes Wienke"
 msgstr "(c) 2009, Johannes Wienke"
 
 #: KioExportWindow.cpp:88 KioImportWindow.cpp:85
+#, kde-format
 msgid "Johannes Wienke"
 msgstr "Johannes Wienke"
 
 #: KioExportWindow.cpp:89 KioImportWindow.cpp:86
+#, kde-format
 msgid "Developer and maintainer"
 msgstr "Προγραμματιστής και συντηρητής"
 
 #: KioExportWindow.cpp:198
+#, kde-format
 msgid "Upload not completed"
 msgstr "Η αποστολή δεν ολοκληρώθηκε"
 
 #: KioExportWindow.cpp:199
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to export these images now."
@@ -103,41 +116,46 @@ msgstr ""
 "να προσπαθήσετε πάλι να κάνετε εξαγωγή των εικόνων τώρα."
 
 #: KioImportWidget.cpp:52
+#, kde-format
 msgid "This is the list of images to import into the current album."
 msgstr "Αυτή είναι η λίστα των εικόνων για εισαγωγή στο τρέχον λεύκωμα."
 
 #: KioImportWindow.cpp:60
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from Remote Computer"
 msgid "Import from Remote Storage"
 msgstr "Εισαγωγή από απομακρυσμένο υπολογιστή"
 
 #: KioImportWindow.cpp:64
+#, kde-format
 msgid "Start import"
 msgstr "Έναρξη εισαγωγής"
 
 #: KioImportWindow.cpp:65
+#, kde-format
 msgid "Start importing the specified images into the currently selected album."
 msgstr ""
 "Έναρξη εισαγωγής των καθορισμένων εικόνων στο τρέχον επιλεγμένο λεύκωμα."
 
 #: KioImportWindow.cpp:81
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from remote computer"
 msgid "Import from remote storage"
 msgstr "Εισαγωγή από απομακρυσμένο υπολογιστή"
 
 #: KioImportWindow.cpp:82
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to import images over network using KIO-Slave"
 msgid "A tool to import images over network"
 msgstr "Ένα πρόσθετο Kipi για εισαγωγή εικόνων από δίκτυο με χρήση KIO-Slave"
 
 #: KioImportWindow.cpp:137
+#, kde-format
 msgid "Import not completed"
 msgstr "Η εισαγωγή δεν ολοκληρώθηκε"
 
 #: KioImportWindow.cpp:138
+#, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
 "can retry to import these images now."
@@ -147,27 +165,30 @@ msgstr ""
 
 #. i18n: ectx: Menu (Import)
 #: kipiplugin_remotestorageui.rc:7
+#, kde-format
 msgid "&Import"
 msgstr "Ε&ισαγωγή"
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_remotestorageui.rc:11
+#, kde-format
 msgid "&Export"
 msgstr "&Εξαγωγή"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_remotestorageui.rc:17
+#, kde-format
 msgid "Main Toolbar"
 msgstr "Κύρια γραμμή εργαλείων"
 
 #: plugin_remotestorage.cpp:93
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Export to remote computer..."
 msgid "Export to remote storage..."
 msgstr "Εξαγωγή σε απομακρυσμένο υπολογιστή..."
 
 #: plugin_remotestorage.cpp:105
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Import from remote computer..."
 msgid "Import from remote storage..."
 msgstr "Εισαγωγή από απομακρυσμένο υπολογιστή..."

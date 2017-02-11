@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kipiplugin_piwigoexport\n"
 "Report-Msgid-Bugs-To: http://bugs.kde.org\n"
-"POT-Creation-Date: 2016-08-26 06:41+0000\n"
+"POT-Creation-Date: 2017-01-02 03:35+0100\n"
 "PO-Revision-Date: 2011-10-13 07:54+0200\n"
 "Last-Translator: Manfred Wiese <m.j.wiese@web.de>\n"
 "Language-Team: Low Saxon <kde-i18n-nds@kde.org>\n"
@@ -20,148 +20,166 @@ msgstr ""
 
 #. i18n: ectx: Menu (Export)
 #: kipiplugin_piwigoui.rc:7
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Piwigo Export"
 msgid "&Export"
 msgstr "Piwigo-Export"
 
 #. i18n: ectx: ToolBar (mainToolBar)
 #: kipiplugin_piwigoui.rc:13
+#, kde-format
 msgid "Main Toolbar"
 msgstr ""
 
 #: piwigoconfig.cpp:76
+#, kde-format
 msgctxt "piwigo login settings"
 msgid "URL:"
 msgstr "Adress:"
 
 #: piwigoconfig.cpp:80
+#, kde-format
 msgctxt "piwigo login settings"
 msgid "Username:"
 msgstr "Bruker:"
 
 #: piwigoconfig.cpp:84
+#, kde-format
 msgctxt "piwigo login settings"
 msgid "Password:"
 msgstr "Passwoort:"
 
-#: piwigotalker.cpp:299
+#: piwigotalker.cpp:300
 #, kde-format
 msgid "Check if %1 already exists"
 msgstr "Prööv, wat dat \"%1\" al gifft"
 
-#: piwigotalker.cpp:340
+#: piwigotalker.cpp:341
+#, kde-format
 msgid "Error"
 msgstr ""
 
-#: piwigotalker.cpp:434
+#: piwigotalker.cpp:435
+#, kde-format
 msgid "Piwigo URL probably incorrect"
 msgstr "Piwigo-Adress wohrschienlich falsch"
 
-#: piwigotalker.cpp:440
+#: piwigotalker.cpp:441
+#, kde-format
 msgid "Incorrect username or password specified"
 msgstr "Leeg Brukernaam oder Passwoort angeven"
 
-#: piwigotalker.cpp:483 piwigotalker.cpp:657
+#: piwigotalker.cpp:484 piwigotalker.cpp:658
+#, kde-format
 msgid "Upload to Piwigo version < 2.4 is no longer supported"
 msgstr ""
 
-#: piwigotalker.cpp:555 piwigotalker.cpp:633 piwigotalker.cpp:702
-#: piwigotalker.cpp:773
+#: piwigotalker.cpp:556 piwigotalker.cpp:634 piwigotalker.cpp:703
+#: piwigotalker.cpp:774
+#, kde-format
 msgid "Invalid response received from remote Piwigo"
 msgstr "Leeg Antwoort vun feern Piwigo kregen"
 
-#: piwigotalker.cpp:561
+#: piwigotalker.cpp:562
+#, kde-format
 msgid "Failed to list albums"
 msgstr "Alben laat sik nich oplisten"
 
-#: piwigotalker.cpp:607
+#: piwigotalker.cpp:608
 #, fuzzy, kde-format
 #| msgid "Check if %1 already exists"
 msgid "Photo '%1' already exists."
 msgstr "Prööv, wat dat \"%1\" al gifft"
 
-#: piwigotalker.cpp:639 piwigotalker.cpp:779 piwigotalker.cpp:935
+#: piwigotalker.cpp:640 piwigotalker.cpp:780 piwigotalker.cpp:936
+#, kde-format
 msgid "Failed to upload photo"
 msgstr "Foto lett sik nich hoochladen"
 
-#: piwigotalker.cpp:708
+#: piwigotalker.cpp:709
 #, fuzzy, kde-format
 #| msgid "Check if %1 already exists"
 msgid "Photo '%1' already exists in this album."
 msgstr "Prööv, wat dat \"%1\" al gifft"
 
-#: piwigotalker.cpp:817
+#: piwigotalker.cpp:818
 #, kde-format
 msgid "Upload the chunk %1/%2 of %3"
 msgstr ""
 
-#: piwigotalker.cpp:850
+#: piwigotalker.cpp:851
+#, kde-format
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr ""
 
-#: piwigotalker.cpp:896
+#: piwigotalker.cpp:897
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr ""
 
-#: piwigotalker.cpp:929
+#: piwigotalker.cpp:930
 #, fuzzy, kde-format
 #| msgid "Invalid response received from remote Piwigo"
 msgid "Invalid response received from remote Piwigo (%1)"
 msgstr "Leeg Antwoort vun feern Piwigo kregen"
 
 #: piwigowindow.cpp:128
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Edit Piwigo Data"
 msgid "Visit Piwigo website"
 msgstr "Piwigo-Daten bewerken"
 
 #: piwigowindow.cpp:145
+#, kde-format
 msgid "Albums"
 msgstr "Alben"
 
 #: piwigowindow.cpp:154
+#, kde-format
 msgid "Change Account"
 msgstr ""
 
 #: piwigowindow.cpp:158
+#, kde-format
 msgid "Options"
 msgstr ""
 
 #: piwigowindow.cpp:162
+#, kde-format
 msgid "Resize photos before uploading"
 msgstr "Fotogrött ehr't Hoochladen ännern"
 
 #: piwigowindow.cpp:165
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Maximum dimension:"
 msgid "Maximum width:"
 msgstr "Hööchstafmeten:"
 
 #: piwigowindow.cpp:171
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Maximum dimension:"
 msgid "Maximum height:"
 msgstr "Hööchstafmeten:"
 
 #: piwigowindow.cpp:177
+#, kde-format
 msgid "Resized JPEG quality:"
 msgstr ""
 
 #: piwigowindow.cpp:229 piwigowindow.cpp:233
+#, kde-format
 msgid "Piwigo Export"
 msgstr "Piwigo-Export"
 
 #: piwigowindow.cpp:234
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "A Kipi plugin to export image collections to a remote Piwigo server."
 msgid "A tool to export image collections to a remote Piwigo server."
 msgstr ""
 "En KIPI-Moduul för't Exporteren vun Billersammeln na en feern Piwigo-Server"
 
 #: piwigowindow.cpp:235
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid ""
 #| "(c) 2003-2005, Renchi Raju\n"
 #| "(c) 2006-2007, Colin Guthrie\n"
@@ -182,43 +200,53 @@ msgstr ""
 "© 2010, Frédéric Coiffier\n"
 
 #: piwigowindow.cpp:241
+#, kde-format
 msgid "Renchi Raju"
 msgstr "Renchi Raju"
 
 #: piwigowindow.cpp:242 piwigowindow.cpp:246 piwigowindow.cpp:250
 #: piwigowindow.cpp:254 piwigowindow.cpp:258
+#, kde-format
 msgid "Developer"
 msgstr "Schriever"
 
 #: piwigowindow.cpp:245
+#, kde-format
 msgid "Colin Guthrie"
 msgstr "Colin Guthrie"
 
 #: piwigowindow.cpp:249
+#, kde-format
 msgid "Andrea Diamantini"
 msgstr "Andrea Diamantini"
 
 #: piwigowindow.cpp:253
+#, kde-format
 msgid "Gilles Caulier"
 msgstr "Gilles Caulier"
 
 #: piwigowindow.cpp:257
+#, kde-format
 msgid "Frédéric Coiffier"
 msgstr "Frédéric Coiffier"
 
 #: piwigowindow.cpp:265
+#, kde-format
 msgid "Start Upload"
 msgstr ""
 
 #: piwigowindow.cpp:393
+#, kde-format
 msgid "Login Failed"
 msgstr ""
 
 #: piwigowindow.cpp:394
+#, kde-format
 msgid "Failed to login into remote piwigo. "
 msgstr "Anmellen na feern Piwigo fehlslaan. "
 
 #: piwigowindow.cpp:395
+#, kde-format
 msgid ""
 "\n"
 "Do you want to check your settings and try again?"
@@ -227,18 +255,22 @@ msgstr ""
 "Wullt Du Dien Instellen pröven un dat nochmaal versöken?"
 
 #: piwigowindow.cpp:402 piwigowindow.cpp:642 plugin_piwigo.cpp:117
+#, kde-format
 msgid "Edit Piwigo Data"
 msgstr "Piwigo-Daten bewerken"
 
 #: piwigowindow.cpp:462 piwigowindow.cpp:486
+#, kde-format
 msgid "Album"
 msgstr "Album"
 
 #: piwigowindow.cpp:505
+#, kde-format
 msgid "Image"
 msgstr "Bild"
 
 #: piwigowindow.cpp:536
+#, kde-format
 msgid "Nothing to upload - please select photos to upload."
 msgstr ""
 "Nix dor, wat sik hoochladen lett - söök bitte Fotos ut, de Du hoochladen "
@@ -255,18 +287,19 @@ msgid "Uploading file %1"
 msgstr "Datei \"%1\" warrt hoochlaadt."
 
 #: piwigowindow.cpp:596
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Uploading file %1"
 msgid "Uploading Failed"
 msgstr "Datei \"%1\" warrt hoochlaadt."
 
 #: piwigowindow.cpp:597
-#, fuzzy
+#, fuzzy, kde-format
 #| msgid "Failed to upload photo into remote piwigo. "
 msgid "Failed to upload media into remote Piwigo. "
 msgstr "Foto lett sik nich na feern Piwigo hoochladen. "
 
 #: piwigowindow.cpp:598
+#, kde-format
 msgid ""
 "\n"
 "Do you want to continue?"
@@ -275,6 +308,7 @@ msgstr ""
 "Wullt Du wiedermaken?"
 
 #: plugin_piwigo.cpp:97
+#, kde-format
 msgid "Export to &Piwigo..."
 msgstr "As &Piwigo exporteren..."
 

@@ -8,7 +8,7 @@
  *
  * Copyright (C) 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * Copyright (C) 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * Copyright (C) 2007-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2007-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
  * This program is free software; you can redistribute it
@@ -109,8 +109,9 @@ public:
      * @param receiver receiver for the searches
      * @param xml SearchXml describing the query
      * @param limit limit the count of the result set. If limit = 0, then no limit is set.
+     * @param referenceImageId the id of a reference image in the search query.
      */
-    void listSearch(ImageListerReceiver* const receiver, const QString& xml, int limit = 0);
+    void listSearch(ImageListerReceiver* const receiver, const QString& xml, int limit = 0, qlonglong referenceImageId = -1);
 
     /**
      * Execute the search specified by search XML describing a Tag Properties search.
@@ -132,6 +133,12 @@ public:
 
 private:
 
+    /**
+     * This method generates image records for the reciever that contain the similarities.
+     * @param receiver receiver for the searches
+     * @param imageSimilarityMap the map of image ids and their similarities in the HAAR search
+     */
+    void listFromHaarSearch(ImageListerReceiver* const receiver, const QMap<qlonglong,double>& imageSimilarityMap);
     void listFromIdList(ImageListerReceiver* const receiver, const QList<qlonglong>& imageIds);
     QSet<int> albumRootsToList() const;
 

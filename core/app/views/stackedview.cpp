@@ -7,7 +7,7 @@
  * Description : A widget stack to embedded album content view
  *               or the current image preview.
  *
- * Copyright (C) 2006-2016 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2006-2017 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * Copyright (C) 2013      by Michael G. Hansen <mike at mghansen dot de>
  * Copyright (C) 2015      by Mohamed Anwer <m dot anwer at gmx dot com>
  *
@@ -52,6 +52,7 @@
 #include "thumbbardock.h"
 #include "tableview.h"
 #include "trashview.h"
+#include "dimg.h"
 
 #ifdef HAVE_MEDIAPLAYER
 #include "mediaplayerview.h"
@@ -348,9 +349,13 @@ void StackedView::setPreviewItem(const ImageInfo& info, const ImageInfo& previou
     }
     else
     {
-        if (info.category() == DatabaseItem::Audio || info.category() == DatabaseItem::Video)
+        if (info.category() == DatabaseItem::Audio      ||
+            info.category() == DatabaseItem::Video      ||
+            DImg::isAnimatedImage(info.fileUrl().toLocalFile())        // Special case for animated image as GIF or NMG
+           )
         {
             // Stop image viewer
+
             if (viewMode() == PreviewImageMode)
             {
                 d->imagePreviewView->setImageInfo();
@@ -361,9 +366,10 @@ void StackedView::setPreviewItem(const ImageInfo& info, const ImageInfo& previou
             d->mediaPlayerView->setCurrentItem(info.fileUrl(), !previous.isNull(), !next.isNull());
 #endif //HAVE_MEDIAPLAYER
         }
-        else
+        else // Static image or Raw image.
         {
             // Stop media player if running...
+
             if (viewMode() == MediaPlayerMode)
             {
 #ifdef HAVE_MEDIAPLAYER
